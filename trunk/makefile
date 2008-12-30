@@ -1,7 +1,7 @@
 CFLAGS    = -Wall -pedantic -Werror
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 OBJS      = animation.o audio.o collisions.o draw.o entity.o font.o game.o graphics.o init.o input.o inventory.o
-OBJS     += lift.o main.o map.o player.o resources.o weapons.o weather.o sprites.o bat.o properties.o
+OBJS     += lift.o main.o map.o player.o resources.o weapons.o weather.o sprites.o bat.o properties.o custom_actions.o
 PROG      = edgar
 CXX       = gcc
 

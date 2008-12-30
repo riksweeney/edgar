@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
+#include "SDL/SDL_mixer.h"
+#include "SDL/SDL_ttf.h"
+
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
+
+#define MAX_MAP_X 400
+#define MAX_MAP_Y 300
+
+#define TILE_SIZE 32
+
+#define GRAVITY_SPEED 1
+
+#define MAX_FALL_SPEED 20
+
+#define JUMP_HEIGHT 11
+
+#define PLAYER_SPEED 2.5
+
+#define TRANS_R 127
+#define TRANS_G 0
+#define TRANS_B 127
+
+#define MAX_ANIMATIONS 255
+
+#define MAX_ENTITIES 256
+
+#define BLANK_TILE 0
+
+#define MAX_TILES 255
+
+#define MAX_LINE_LENGTH 1024
+
+#define PI 3.14159265
+
+#define MAX_MESSAGE_LENGTH 100
+
+#define MAX_INVENTORY_ITEMS 8
+
+#define MAX_DROPS 240
+
+#define MAX_SPRITES 4096
+
+#define MAX_PROPS_ENTRIES 20
+
+#define MAX_PROPS_FILES 30
+
+#define MAX_CUSTOM_ACTIONS 4
+
+enum
+{
+	LEFT,
+	RIGHT
+};
+
+enum
+{
+	INACTIVE,
+	ACTIVE
+};
+
+enum
+{
+	ON_GROUND = 1,
+	NO_DRAW = 2,
+	PUSHABLE = 4,
+	NO_TOUCH = 8,
+	HELPLESS = 16,
+	INVULNERABLE = 32
+};
+
+enum
+{
+	PLAYER = 1,
+	GEM
+};
+
+enum
+{
+	SPANNER_PICKUP_SOUND,
+	PLAYER_DIE_SOUND,
+	FANFARE_SOUND,
+	CRASH_BANG_WALLOP_SOUND,
+	MAX_SOUNDS
+};
+
+enum
+{
+	EMPTY,
+	SPANNER,
+	LIFT,
+	CRATE,
+	MAX_ENTITY_TYPES
+};
+
+enum
+{
+	TILES,
+	ENTITIES
+};
+
+enum
+{
+	STAND_LEFT,
+	STAND_RIGHT,
+	WALK_LEFT,
+	WALK_RIGHT,
+	JUMP_LEFT,
+	JUMP_RIGHT,
+	PAIN_LEFT,
+	PAIN_RIGHT,
+	DIE_LEFT,
+	DIE_RIGHT,
+	ATTACK_1_LEFT,
+	ATTACK_1_RIGHT,
+	ATTACK_2_LEFT,
+	ATTACK_2_RIGHT,
+	ATTACK_3_LEFT,
+	ATTACK_3_RIGHT,
+	ATTACK_4_LEFT,
+	ATTACK_4_RIGHT,
+	ATTACK_5_LEFT,
+	ATTACK_5_RIGHT,
+	MAX_ANIMATION_TYPES
+};
+
+enum
+{
+	NO_WEATHER,
+	LIGHT_RAIN,
+	HEAVY_RAIN,
+	STORMY,
+	SNOW,
+	MAX_WEATHER_TYPES
+};
