@@ -48,8 +48,6 @@ int main(int argc, char *argv[])
 	initGame();
 
 	/* Loop indefinitely for messages */
-	
-	printf("Main loop\n");
 
 	while (go == 1)
 	{
@@ -80,6 +78,8 @@ int main(int argc, char *argv[])
 		delay(frameLimit);
 
 		frameLimit = SDL_GetTicks() + 16;
+		
+		go = 0;
 	}
 
 	/* Exit the program */

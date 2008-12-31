@@ -54,6 +54,8 @@
 
 #define MAX_CUSTOM_ACTIONS 4
 
+#define SLOPE_UP 200
+
 enum
 {
 	LEFT,
