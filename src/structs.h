@@ -1,14 +1,5 @@
 #include "defs.h"
 
-typedef struct Map
-{
-	char *filename;
-	int startX, startY;
-	int maxX, maxY;
-	int tile[MAX_MAP_Y][MAX_MAP_X];
-	SDL_Surface *background;
-} Map;
-
 typedef struct Animation
 {
 	int frameCount;
@@ -30,10 +21,12 @@ typedef struct Entity
 	int currentFrame, frameTimer;
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
+	int maxHealth;
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
 	float targetX, targetY;
+	char name[30], activates[30];
 	struct Entity *standingOn, *parent;
 	void (*action)(void);
 	void (*activate)(struct Entity *);
@@ -41,6 +34,18 @@ typedef struct Entity
 	void (*touch)(struct Entity *);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 } Entity;
+
+typedef struct Map
+{
+	char filename[30], tilesetName[30], ambienceName[30];
+	int startX, startY;
+	int maxX, maxY, thinkTime;
+	int tile[MAX_MAP_Y][MAX_MAP_X];
+	int hasAmbience;
+	Entity *targetEntity;
+	SDL_Surface *background;
+	Mix_Chunk *ambience[MAX_AMBIENT_SOUNDS];
+} Map;
 
 typedef struct Sound
 {

@@ -4,34 +4,32 @@
 ** or closing the window will exit the program
 */
 
-#include "main.h"
+#include "main_editor.h"
 
 extern void init(char *);
 extern void cleanup(void);
 extern void getInput(void);
+extern void loadMap(char *);
 extern void draw(void);
-extern void doPlayer(void);
+extern void doCursor(void);
 extern void delay(unsigned int);
-extern void initPlayer(void);
-extern void initGame(void);
-extern void doEntities(void);
-extern void doCollisions(void);
+extern void doStatusPanel(void);
+extern void loadMapBackground(char *);
 extern void loadResources(void);
-extern void doGame(void);
-extern void addBat(int, int);
-extern void addApple(int, int);
-extern void addWoodenCrate(int, int);
-extern void doMap(void);
+extern void initCursor(void);
+extern void setMaxMapX(int);
+extern void setMaxMapY(int);
+extern void centerMapOnEntity(Entity *);
 
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
 	int go;
-
+	
 	/* Start up SDL */
-
-	init("The Legend of Edgar");
-
+	
+	init("Map Editor");
+	
 	/* Call the cleanup function when the program exits */
 
 	atexit(cleanup);
@@ -42,51 +40,47 @@ int main(int argc, char *argv[])
 	
 	loadResources();
 	
-	/* Initialise the game variables */
+	/* Load the background image */
 	
-	initGame();
-
+	setMaxMapX(MAX_MAP_X * TILE_SIZE);
+	setMaxMapY(MAX_MAP_Y * TILE_SIZE);
+	
+	/* Remove auto targeting */
+	
+	centerMapOnEntity(NULL);
+	
+	/* Initialise the cursor */
+	
+	initCursor();
+	
 	/* Loop indefinitely for messages */
-	/*
-	addWoodenCrate(100, 0);
-	addApple(100, -50);
-	*/
+	
 	while (go == 1)
 	{
+		/* Get the input */
+	
 		getInput();
 		
-		/* Do the game */
+		/* Do the cursor */
 		
-		doGame();
-
-		/* Do the player, provided they still have enough lives left */
+		doCursor();
 		
-		doPlayer();
+		/* Do the status panel */
 		
-		/* Do the map */
+		doStatusPanel();
 		
-		doMap();
-		
-		/* Do the Entities */
-		
-		doEntities();
-		
-		/* Do collisions */
-		
-		doCollisions();
-
 		/* Draw the map */
-
+		
 		draw();
-
+		
 		/* Sleep briefly to stop sucking up all the CPU time */
-
+		
 		delay(frameLimit);
-
+		
 		frameLimit = SDL_GetTicks() + 16;
 	}
-
+	
 	/* Exit the program */
-
+	
 	exit(0);
 }

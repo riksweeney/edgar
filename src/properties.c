@@ -9,7 +9,7 @@ void loadProperties(char *name, Entity *e)
 	char path[255], line[MAX_LINE_LENGTH];
 	FILE *fp;
 	
-	sprintf(path, "data/props/%s.props", name);
+	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
 	
 	index = -1;
 	

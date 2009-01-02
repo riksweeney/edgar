@@ -3,15 +3,21 @@
 extern SDL_Surface *loadImage(char *);
 extern void drawImage(SDL_Surface *, int, int);
 extern void setPlayerLocation(int, int);
-extern void loadMapTiles(char *);
+extern Mix_Chunk *loadSound(char *);
 
-void loadMapTiles(char *);
+static void loadMapTiles(char *);
+static void loadMapBackground(char *name);
+static void loadAmbience(char *);
+
+void freeMap(void);
 
 void loadMap(char *name)
 {
 	int x, y;
 	char itemName[255], line[MAX_LINE_LENGTH];
 	FILE *fp;
+	
+	freeMap();
 
 	fp = fopen(name, "rb");
 
@@ -41,6 +47,21 @@ void loadMap(char *name)
 			printf("Loading tiles from %s\n", itemName);
 			
 			loadMapTiles(itemName);
+			
+			strcpy(map.tilesetName, itemName);
+		}
+		
+		else if (strcmp(itemName, "AMBIENCE") == 0)
+		{
+			/* Load the map tiles */
+			
+			sscanf(line, "%*s %s\n", itemName);
+			
+			printf("Loading ambience from %s\n", itemName);
+			
+			loadAmbience(itemName);
+			
+			strcpy(map.ambienceName, itemName);
 		}
 		
 		else if (strcmp(itemName, "DATA") == 0)
@@ -69,19 +90,30 @@ void loadMap(char *name)
 			}
 		}
 		
-		/* Set the maximum scroll position of the map */
-		
-		map.maxX = (map.maxX + 1) * TILE_SIZE;
-		map.maxY = (map.maxY + 1) * TILE_SIZE;
-		
-		/* Set the start coordinates */
-		
-		map.startX = map.startY = 0;
-		
-		/* Set the filename */
-		
-		map.filename = name;
+		else if (strcmp(itemName, "PLAYER_START") == 0)
+		{
+			sscanf(line, "%*s %d %d\n", &x, &y);
+			
+			setPlayerLocation(x, y);
+		}
 	}
+	
+	/* Set the maximum scroll position of the map */
+	
+	map.maxX = (map.maxX + 1) * TILE_SIZE;
+	map.maxY = (map.maxY + 1) * TILE_SIZE;
+	
+	/* Set the start coordinates */
+	
+	map.startX = map.startY = 0;
+	
+	/* Set the filename */
+	
+	strcpy(map.filename, name);
+	
+	/* Set the thinkTime */
+	
+	map.thinkTime = 120 + rand() % 1200;
 
 	/* Close the file afterwards */
 
@@ -103,6 +135,10 @@ void saveMap()
 
 		exit(1);
 	}
+	
+	fprintf(fp, "TILESET %s\n", map.tilesetName);
+	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
+	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
 
@@ -117,7 +153,7 @@ void saveMap()
 	}
 	
 	/* Now write out all of the Entities */
-	
+	/*
 	for (x=0;x<MAX_ENTITIES;x++)
 	{
 		if (entity[x].active == ACTIVE)
@@ -136,19 +172,45 @@ void saveMap()
 			fprintf(fp, "%d %d\n", (int)entity[x].x / TILE_SIZE, (int)entity[x].y / TILE_SIZE);
 		}
 	}
-
+	*/
 	/* Close the file afterwards */
 
 	fclose(fp);
 }
 
-void loadMapTiles(char *dir)
+void doMap()
+{
+	int sound = rand() % MAX_AMBIENT_SOUNDS;
+	
+	if (map.hasAmbience == 1)
+	{
+		map.thinkTime--;
+		
+		if (map.thinkTime <= 0)
+		{
+			while (map.ambience[sound] == NULL)
+			{
+				sound = rand() % MAX_AMBIENT_SOUNDS;
+			}
+			
+			Mix_PlayChannel(-1, map.ambience[sound], 0);
+			
+			map.thinkTime = 120 + rand() % 1200;
+		}
+	}
+}
+
+static void loadMapTiles(char *dir)
 {
 	int i;
 	char filename[255];
 	FILE *fp;
 	
-	for (i=0;i<MAX_TILES;i++)
+	/* Load the blank tile for the editor */
+	
+	mapImages[0] = loadImage("gfx/map/0.png");	
+	
+	for (i=1;i<MAX_TILES;i++)
 	{
 		sprintf(filename, "gfx/map/%s/%d.png", dir, i);
 		
@@ -162,25 +224,11 @@ void loadMapTiles(char *dir)
 		fclose(fp);
 		
 		mapImages[i] = loadImage(filename);
-		
-		if (mapImages[i] == NULL)
-		{
-			exit(1);
-		}
 	}
-}
-
-void freeMapTiles()
-{
-	int i;
 	
-	for (i=0;i<MAX_TILES;i++)
-	{
-		if (mapImages[i] != NULL)
-		{
-			SDL_FreeSurface(mapImages[i]);
-		}
-	}
+	sprintf(filename, "gfx/map/%s/background.png", dir);
+	
+	loadMapBackground(filename);
 }
 
 void drawMap()
@@ -219,9 +267,14 @@ void drawMap()
 	}
 }
 
-void centerEntityOnMap(Entity *e)
+void centerEntityOnMap()
 {
-	map.startX = e->x - (SCREEN_WIDTH / 2);
+	if (map.targetEntity == NULL)
+	{
+		return;
+	}
+	
+	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 	
 	if (map.startX < 0)
 	{
@@ -231,9 +284,14 @@ void centerEntityOnMap(Entity *e)
 	else if (map.startX + SCREEN_WIDTH >= map.maxX)
 	{
 		map.startX = map.maxX - SCREEN_WIDTH;
+		
+		if (map.startX < 0)
+		{
+			map.startX = 0;
+		}
 	}
 	
-	map.startY = e->y + e->h - (SCREEN_HEIGHT / 2);
+	map.startY = map.targetEntity->y + map.targetEntity->h - (SCREEN_HEIGHT / 2);
 	
 	if (map.startY < 0)
 	{
@@ -243,10 +301,15 @@ void centerEntityOnMap(Entity *e)
 	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
 	{
 		map.startY = map.maxY - SCREEN_HEIGHT;
+		
+		if (map.startY < 0)
+		{
+			map.startY = 0;
+		}
 	}
 }
 
-void loadMapBackground(char *name)
+static void loadMapBackground(char *name)
 {
 	/* Load the background image */
 	
@@ -260,8 +323,44 @@ void loadMapBackground(char *name)
 	}
 }
 
+static void loadAmbience(char *dir)
+{
+	int i;
+	char filename[MAX_LINE_LENGTH];
+	static char *extensions[] = {"ogg", "mp3", "wav", NULL};
+	char *p;
+	FILE *fp;
+	
+	map.hasAmbience = 0;
+	
+	for (i=0;i<MAX_AMBIENT_SOUNDS;i++)
+	{
+		for (p=extensions[0];strlen(p)!=0;p+=strlen(p)+1)
+		{
+			sprintf(filename, "sound/ambience/%s/%d.%s", dir, i, p);
+			
+			fp = fopen(filename, "rb");
+			
+			if (fp == NULL)
+			{
+				continue;
+			}
+			
+			fclose(fp);
+			
+			map.ambience[i] =loadSound(filename);
+			
+			map.hasAmbience = 1;
+			
+			break;
+		}
+	}
+}
+
 void freeMap()
 {
+	int i;
+	
 	if (map.background != NULL)
 	{
 		SDL_FreeSurface(map.background);
@@ -269,7 +368,33 @@ void freeMap()
 	
 	/* Free the Map tiles */
 	
-	freeMapTiles();
+	for (i=0;i<MAX_TILES;i++)
+	{
+		if (mapImages[i] != NULL)
+		{
+			SDL_FreeSurface(mapImages[i]);
+		}
+	}
+	
+	/* Free the sounds */
+	
+	for (i=0;i<MAX_AMBIENT_SOUNDS;i++)
+	{
+		if (map.ambience[i] != NULL)
+		{
+			Mix_FreeChunk(map.ambience[i]);
+		}
+	}
+}
+
+SDL_Surface *tileImage(int id)
+{
+	return mapImages[id];
+}
+
+SDL_Surface *mapImageAt(int x, int y)
+{
+	return mapImages[map.tile[y][x]];
 }
 
 int mapTileAt(int x, int y)
@@ -287,6 +412,16 @@ int maxMapY()
 	return map.maxY;
 }
 
+void setMaxMapX(int max)
+{
+	map.maxX = max;
+}
+
+void setMaxMapY(int max)
+{
+	map.maxY = max;
+}
+
 int mapStartX()
 {
 	return map.startX;
@@ -297,3 +432,76 @@ int mapStartY()
 	return map.startY;
 }
 
+void mapStartXNext(int val)
+{
+	map.startX += val;
+	
+	if (map.startX < 0)
+	{
+		map.startX = 0;
+	}
+	
+	else if (map.startX + SCREEN_WIDTH >= map.maxX)
+	{
+		map.startX = map.maxX - SCREEN_WIDTH;
+	}
+}
+
+void mapStartYNext(int val)
+{
+	map.startY += val;
+	
+	if (map.startY < 0)
+	{
+		map.startY = 0;
+	}
+	
+	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
+	{
+		map.startY = map.maxY - SCREEN_HEIGHT;
+	}
+}
+
+void setTileAt(int x, int y, int tileID)
+{
+	map.tile[y][x] = tileID;
+}
+
+int nextTile(int id)
+{
+	do
+	{
+		id++;
+		
+		if (id >= MAX_TILES)
+		{
+			id = 0;
+		}
+	}
+	
+	while (mapImages[id] == NULL);
+	
+	return id;
+}
+
+int prevTile(int id)
+{
+	do
+	{
+		id--;
+		
+		if (id < 0)
+		{
+			id = MAX_TILES - 1;
+		}
+	}
+	
+	while (mapImages[id] == NULL);
+	
+	return id;
+}
+
+void centerMapOnEntity(Entity *e)
+{
+	map.targetEntity = e;
+}

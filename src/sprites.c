@@ -42,11 +42,6 @@ static void loadSpriteToBank(char *name, int index)
 	}
 	
 	sprite[index] = loadImage(name);
-
-	if (sprite[index] == NULL)
-	{
-		exit(1);
-	}
 }
 
 void freeSprites()

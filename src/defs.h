@@ -54,7 +54,17 @@
 
 #define MAX_CUSTOM_ACTIONS 4
 
+#define MAX_AMBIENT_SOUNDS 10
+
 #define SLOPE_UP 200
+
+#define SLOPE_DOWN 201
+
+#ifndef PROD
+	#define INSTALL_PATH ""
+#else
+	#define INSTALL_PATH "/usr/share/games/"
+#endif
 
 enum
 {
@@ -73,9 +83,12 @@ enum
 	ON_GROUND = 1,
 	NO_DRAW = 2,
 	PUSHABLE = 4,
-	NO_TOUCH = 8,
-	HELPLESS = 16,
-	INVULNERABLE = 32
+	HELPLESS = 8,
+	INVULNERABLE = 16,
+	BURNING = 32,
+	FROZEN = 64,
+	ELECTRIFIED = 128,
+	STATIC = 256
 };
 
 enum
