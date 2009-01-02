@@ -48,7 +48,7 @@ void doEntities()
 	{
 		self = &entity[i];
 
-		if (self->active == ACTIVE)
+		if (self->active == ACTIVE && !(self->flags & STATIC))
 		{
 			self->action();
 		}
@@ -65,7 +65,7 @@ void drawEntities()
 	{
 		self = &entity[i];
 
-		if (self->active == ACTIVE)
+		if (self->active == ACTIVE && !(self->flags & NO_DRAW))
 		{
 			self->draw();
 		}
@@ -101,7 +101,16 @@ void removeEntity()
 
 void doNothing()
 {
+	self->dirX = 0;
+	
+	self->dirY += GRAVITY_SPEED;
 
+	if (self->dirY >= MAX_FALL_SPEED)
+	{
+		self->dirY = MAX_FALL_SPEED;
+	}
+	
+	checkToMap(self);
 }
 
 void pushEntity(Entity *other)
@@ -111,7 +120,7 @@ void pushEntity(Entity *other)
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 	
-	pushable = self->flags & PUSHABLE;
+	pushable = 1;
 	
 	/* Test the horizontal movement */
 	

@@ -1,36 +1,32 @@
-#include "draw.h"
+#include "draw_editor.h"
 
-extern void drawPlayer(void);
-extern void drawGame(void);
-extern void drawEntities(void);
 extern void drawMap(void);
-extern void centerEntityOnMap(void);
+extern void drawCursor(void);
+extern void drawStatusPanel(void);
+extern void drawEntities(void);
+extern void drawPlayer(void);
 
 void draw()
 {
-	/* Clear the screen */
-	
-	SDL_FillRect(game.screen, NULL, 0);
-	
-	/* Center the map */
-	
-	centerEntityOnMap();
-	
 	/* Draw the map */
 	
 	drawMap();
 	
-	/* Draw the Entities */
+	/* Draw the status panel */
+	
+	drawStatusPanel();
+	
+	/* Draw the entities */
 	
 	drawEntities();
-
+	
+	/* Draw the cursor */
+	
+	drawCursor();
+	
 	/* Draw the player */
 	
 	drawPlayer();
-	
-	/* Draw the game statuses */
-	
-	drawGame();
 
 	/* Swap the buffers */
 

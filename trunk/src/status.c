@@ -1,6 +1,6 @@
 #include "status.h"
 
-void drawString(char *, int, int, TTF_Font *, int, int);
+extern void drawString(char *, int, int, TTF_Font *, int, int);
 
 void doStatusPanel()
 {

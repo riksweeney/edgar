@@ -21,10 +21,6 @@ void loadResources()
 	
 	loadBasicWeapons();
 	
-	/* Load the background image */
-	
-	loadMapBackground("gfx/background.png");
-	
 	/* Load the map */
 	
 	loadMap("data/maps/map01.dat");

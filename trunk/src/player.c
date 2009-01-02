@@ -3,17 +3,14 @@
 extern void setEntityAnimation(Entity *, int);
 extern void drawLoopingEntityAnimation(void);
 extern void checkToMap(Entity *);
-extern void centerEntityOnMap(Entity *);
 extern void loadProperties(char *, Entity *);
+extern void centerMapOnEntity(Entity *);
 
 void loadPlayer()
 {
 	loadProperties("edgar", &player);
-}
-
-void initPlayer()
-{
-	player.x = 8;
+	
+	player.x = 0;
 	player.y = 0;
 	player.dirX = player.dirY = 0;
 	player.face = RIGHT;
@@ -30,12 +27,16 @@ void initPlayer()
 	playerWeapon.parent = &player;
 	
 	playerWeapon.face = playerShield.face = RIGHT;
+	
+	centerMapOnEntity(&player);
 }
 
 void setPlayerLocation(int x, int y)
 {
-	player.x = x;
-	player.y = y;
+	player.x = x * TILE_SIZE;
+	player.y = 0 * TILE_SIZE;
+	
+	player.y += player.h;
 }
 
 void doPlayer()
@@ -58,6 +59,11 @@ void doPlayer()
 		
 		self->dirY += GRAVITY_SPEED;
 		
+		if (self->dirY >= MAX_FALL_SPEED)
+		{
+			self->dirY = MAX_FALL_SPEED;
+		}
+		
 		if (!(self->flags & HELPLESS))
 		{
 			self->dirX = 0;
@@ -66,12 +72,7 @@ void doPlayer()
 			{
 				self->dirX += self->standingOn->dirX;
 			}
-		
-			if (self->dirY >= MAX_FALL_SPEED)
-			{
-				self->dirY = MAX_FALL_SPEED;
-			}
-		
+			
 			if (input.left == 1)
 			{
 				self->dirX -= PLAYER_SPEED;
@@ -108,7 +109,7 @@ void doPlayer()
 					setEntityAnimation(&playerWeapon, STAND_LEFT);
 				}
 			}
-		
+			
 			if (input.jump == 1)
 			{
 				if (self->flags & ON_GROUND)
@@ -147,7 +148,7 @@ void doPlayer()
 			*/
 		}
 		
-		checkToMap(&player);
+		checkToMap(self);
 		
 		self->standingOn = NULL;
 	}
@@ -161,8 +162,6 @@ void doPlayer()
 void drawPlayer()
 {
 	self = &player;
-	
-	centerEntityOnMap(self);
 	
 	if ((self->flags & NO_DRAW) == 0)
 	{

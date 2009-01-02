@@ -108,8 +108,34 @@ void checkToMap(Entity *e)
 			else if (e->dirX < 0)
 			{
 				/* Trying to move left */
+				
+				if (mapTileAt(x1, y2) == SLOPE_DOWN)
+				{
+					if (i == e->h)
+					{
+						e->y += e->dirX;
+						
+						e->dirY = 0;
+						
+						e->flags |= ON_GROUND;
+					}
+				}
+				
+				else if (mapTileAt((e->x) / TILE_SIZE, y2) == SLOPE_DOWN)
+				{
+					if (i == e->h)
+					{
+						e->y = y2* TILE_SIZE;
+						
+						e->y -= e->h;
+						
+						e->dirY = 0;
+						
+						e->flags |= ON_GROUND;
+					}
+				}
 		
-				if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
+				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
 					
@@ -163,6 +189,21 @@ void checkToMap(Entity *e)
 						e->y -= e->h;
 						
 						e->y -= ((int)e->x + e->w) % TILE_SIZE;
+						
+						e->dirY = 0;
+						
+						e->flags |= ON_GROUND;
+					}
+				}
+				
+				else if (mapTileAt(x1, y2) == SLOPE_DOWN)
+				{
+					if (i == e->w)
+					{
+						e->y = (y2 + 1) * TILE_SIZE;
+						e->y -= e->h;
+						
+						e->y -= TILE_SIZE - ((int)e->x) % TILE_SIZE;
 						
 						e->dirY = 0;
 						

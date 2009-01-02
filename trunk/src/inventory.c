@@ -14,8 +14,6 @@ int addToInventory(Entity *e)
 		{
 			inventory.item[i] = *e;
 			
-			e->flags &= ~NO_TOUCH;
-			
 			e->active = INACTIVE;
 			
 			return 1;

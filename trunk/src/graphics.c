@@ -4,14 +4,19 @@ SDL_Surface *loadImage(char *name)
 {
 	/* Load the image using SDL Image */
 	
-	SDL_Surface *temp = IMG_Load(name);
+	char path[MAX_LINE_LENGTH] = INSTALL_PATH;
+	SDL_Surface *temp;
 	SDL_Surface *image;
+	
+	strcat(path, name);
+	
+	temp = IMG_Load(path);
 	
 	if (temp == NULL)
 	{
-		printf("Failed to load image %s\n", name);
+		printf("Failed to load image %s\n", path);
 		
-		return NULL;
+		exit(1);
 	}
 	
 	/* Make the background transparent */
@@ -28,7 +33,7 @@ SDL_Surface *loadImage(char *name)
 	{
 		printf("Failed to convert image %s to native format\n", name);
 		
-		return NULL;
+		exit(1);
 	}
 	
 	/* Return the processed image */
@@ -71,11 +76,11 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY)
 		{
 			pixels = (int *)image->pixels;
 			
-			pixel = pixels[( y * image->w ) + x];
+			pixel = pixels[(y * image->w) + x];
 			
 			pixels = (int *)flipped->pixels;
 			
-			pixels[( y * flipped->w ) + rx] = pixel;
+			pixels[(y * flipped->w) + rx] = pixel;
 		}
 	}
 	
@@ -121,4 +126,28 @@ void clearScreen(int r, int g, int b)
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	
 	SDL_FillRect(game.screen, NULL, color);
+}
+
+int isTransparent(SDL_Surface *image, int x, int y)
+{
+	int *pixels, pixel;
+	unsigned char r, g, b;
+	
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+	
+	pixels = (int *)image->pixels;
+	
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+	
+	pixel = pixels[(y * image->w) + x];
+	
+	SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+	
+	return (r == TRANS_R && g == TRANS_G && b == TRANS_B);
 }

@@ -1,38 +1,45 @@
 #include "audio.h"
 
-void loadSound(int index, char *name)
-{
-	/* Load the sound specified by the filename */
-	
-	if (index < 0 || index >= MAX_SOUNDS)
-	{
-		printf("Invalid index for sound! Index: %d Maximum: %d\n", index, MAX_SOUNDS);
-		
-		exit(1);
-	}
-	
-	sound[index].effect = Mix_LoadWAV(name);
+Mix_Chunk *loadSound(char *);
 
-	if (sound[index].effect == NULL)
+void loadSoundToIndex(char *name, int index)
+{
+	if (sound[index].effect != NULL)
 	{
-		printf("Failed to load sound %s\n", name);
+		printf("Will not replace sound in index %d\n", index);
 		
 		exit(1);
 	}
+	
+	sound[index].effect = loadSound(name);
 }
 
-void playSound(int index)
+Mix_Chunk *loadSound(char *name)
+{
+	char path[MAX_LINE_LENGTH] = INSTALL_PATH;
+	Mix_Chunk *chunk;
+	
+	strcat(path, name);
+	
+	/* Load the sound specified by the filename */
+	
+	chunk = Mix_LoadWAV(path);
+
+	if (chunk == NULL)
+	{
+		printf("Failed to load sound %s\n", path);
+		
+		exit(1);
+	}
+	
+	return chunk;
+}
+
+void playSound(Mix_Chunk *chunk, int channel)
 {
 	/* Play the sound on the first free channel and only play it once */
 	
-	if (index < 0 || index >= MAX_SOUNDS)
-	{
-		printf("Invalid index for sound! Index: %d Maximum: %d\n", index, MAX_SOUNDS);
-		
-		exit(1);
-	}
-	
-	Mix_PlayChannel(-1, sound[index].effect, 0);
+	Mix_PlayChannel(channel, chunk, 0);
 }
 
 void freeSounds()
