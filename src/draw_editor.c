@@ -12,10 +12,6 @@ void draw()
 	
 	drawMap();
 	
-	/* Draw the status panel */
-	
-	drawStatusPanel();
-	
 	/* Draw the entities */
 	
 	drawEntities();
@@ -27,6 +23,10 @@ void draw()
 	/* Draw the player */
 	
 	drawPlayer();
+	
+	/* Draw the status panel */
+	
+	drawStatusPanel();
 
 	/* Swap the buffers */
 

@@ -2,6 +2,7 @@
 
 extern void loadSpritesFromFile(char *);
 extern void loadAnimationData(char *);
+extern void setEntityAnimation(Entity *, int);
 
 void loadProperties(char *name, Entity *e)
 {
@@ -12,6 +13,8 @@ void loadProperties(char *name, Entity *e)
 	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
 	
 	index = -1;
+	
+	strcpy(e->name, name);
 	
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
@@ -96,72 +99,70 @@ void loadProperties(char *name, Entity *e)
 			e->health = atoi(properties[i].value[j]);
 		}
 		
-		else if (strcmp(properties[i].key[j], "STAND_LEFT") == 0)
+		else if (strcmp(properties[i].key[j], "TYPE") == 0)
 		{
-			e->animation[STAND_LEFT] = atoi(properties[i].value[j]);
+			e->type = atoi(properties[i].value[j]);
+		}
+		
+		else if (strcmp(properties[i].key[j], "STAND") == 0)
+		{
+			e->animation[STAND] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "STAND_RIGHT") == 0)
+		else if (strcmp(properties[i].key[j], "WALK") == 0)
 		{
-			e->animation[STAND_RIGHT] = atoi(properties[i].value[j]);
+			e->animation[WALK] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "WALK_LEFT") == 0)
+		else if (strcmp(properties[i].key[j], "JUMP") == 0)
 		{
-			e->animation[WALK_LEFT] = atoi(properties[i].value[j]);
+			e->animation[JUMP] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "WALK_RIGHT") == 0)
+		else if (strcmp(properties[i].key[j], "ATTACK_1") == 0)
 		{
-			e->animation[WALK_RIGHT] = atoi(properties[i].value[j]);
+			e->animation[ATTACK_1] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "JUMP_LEFT") == 0)
+		else if (strcmp(properties[i].key[j], "ATTACK_2") == 0)
 		{
-			e->animation[JUMP_LEFT] = atoi(properties[i].value[j]);
+			e->animation[ATTACK_2] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "JUMP_RIGHT") == 0)
+		else if (strcmp(properties[i].key[j], "ATTACK_3") == 0)
 		{
-			e->animation[JUMP_RIGHT] = atoi(properties[i].value[j]);
+			e->animation[ATTACK_3] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_1_LEFT") == 0)
+		else if (strcmp(properties[i].key[j], "ATTACK_4") == 0)
 		{
-			e->animation[ATTACK_1_LEFT] = atoi(properties[i].value[j]);
+			e->animation[ATTACK_4] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_1_RIGHT") == 0)
+		else if (strcmp(properties[i].key[j], "ATTACK_5") == 0)
 		{
-			e->animation[ATTACK_1_RIGHT] = atoi(properties[i].value[j]);
+			e->animation[ATTACK_5] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "DIE_LEFT") == 0)
+		else if (strcmp(properties[i].key[j], "DIE") == 0)
 		{
-			e->animation[DIE_LEFT] = atoi(properties[i].value[j]);
-			
-			index++;
-		}
-		
-		else if (strcmp(properties[i].key[j], "DIE_RIGHT") == 0)
-		{
-			e->animation[DIE_RIGHT] = atoi(properties[i].value[j]);
+			e->animation[DIE] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
@@ -174,5 +175,7 @@ void loadProperties(char *name, Entity *e)
 		exit(1);
 	}
 	
-	e->currentAnim = e->animation[0];
+	e->currentAnim = -1;
+	
+	setEntityAnimation(e, 0);
 }

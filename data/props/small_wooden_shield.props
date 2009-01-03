@@ -1,11 +1,7 @@
 HEALTH 1
-STAND_LEFT 5
-STAND_RIGHT 5
-WALK_LEFT 6
-WALK_RIGHT 6
-ATTACK_1_LEFT 5
-ATTACK_1_RIGHT 5
-DIE_LEFT 5
-DIE_RIGHT 5
+STAND 5
+WALK 6
+ATTACK_1 5
+DIE 5
 GFX_FILE data/gfx/small_wooden_shield.dat
 ANIM_FILE data/anim/small_wooden_shield.dat

@@ -149,10 +149,4 @@ void getInput()
 	/* Get the mouse coordinates */
 	
 	SDL_GetMouseState(&input.mouseX, &input.mouseY);
-	
-	input.mouseX /= TILE_SIZE;
-	input.mouseY /= TILE_SIZE;
-	
-	input.mouseX *= TILE_SIZE;
-	input.mouseY *= TILE_SIZE;
 }

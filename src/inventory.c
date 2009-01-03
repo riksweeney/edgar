@@ -63,6 +63,21 @@ void selectNextItem(int index)
 	while (inventory.item[i].active == INACTIVE);
 }
 
+int inventoryHasItem(char *name)
+{
+	int i;
+	
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].active == ACTIVE && strcmp(inventory.item[i].name, name) == 0)
+		{
+			return 1;
+		}
+	}
+	
+	return 0;
+}
+
 void dropInventoryItem(int x, int y)
 {
 	if (inventory.item[inventory.selectedIndex].active == ACTIVE)
@@ -77,7 +92,7 @@ void useInventoryItem(int x, int y)
 {
 	if (inventory.item[inventory.selectedIndex].active == ACTIVE)
 	{
-		inventory.item[inventory.selectedIndex].activate(&player);
+		inventory.item[inventory.selectedIndex].activate();
 		
 		inventory.item[inventory.selectedIndex].active = INACTIVE;
 		

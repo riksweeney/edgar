@@ -1,6 +1,6 @@
 #include "weather.h"
 
-extern void drawLine(int, int, int, int, int, int, int);
+extern void drawBox(int, int, int, int, int, int, int);
 extern void clearScreen(int, int, int);
 extern int mapTileAt(int, int);
 
@@ -190,7 +190,7 @@ static void drawRain()
 	{
 		if (droplet[i].active == ACTIVE)
 		{
-			drawLine(droplet[i].x, droplet[i].y, 1, 8, 255, 255, 255);
+			drawBox(droplet[i].x, droplet[i].y, 1, 8, 255, 255, 255);
 		}
 	}
 	
@@ -208,7 +208,7 @@ static void drawSnow()
 	{
 		if (droplet[i].active == ACTIVE)
 		{
-			drawLine(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
+			drawBox(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
 		}
 	}
 }

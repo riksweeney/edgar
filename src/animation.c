@@ -135,6 +135,13 @@ void drawLoopingEntityAnimation()
 		self->frameTimer = animation[self->currentAnim].frameTimer[self->currentFrame];
 		
 		image = getSpriteImage(animation[self->currentAnim].frameID[self->currentFrame]);
+		
+		#ifndef PROD
+		if (image == NULL)
+		{
+			printf("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
+		}
+		#endif
 
 		self->w = image->w;
 		self->h = image->h;
@@ -147,16 +154,16 @@ void drawLoopingEntityAnimation()
 	
 	if (self->face == LEFT)
 	{
-		y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
-		
 		if (self->parent == NULL)
 		{
-			x = self->x - mapStartX() + animation[self->currentAnim].offsetX;
+			x = self->x - mapStartX();
+			y = self->y - mapStartY();
 		}
 		
 		else
 		{
 			x = self->x - mapStartX() + self->parent->w - self->w - animation[self->currentAnim].offsetX;
+			y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
 		}
 		
 		drawFlippedImage(image, x, y);
@@ -164,8 +171,17 @@ void drawLoopingEntityAnimation()
 	
 	else
 	{
-		x = self->x - mapStartX() + animation[self->currentAnim].offsetX;
-		y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
+		if (self->parent == NULL)
+		{
+			x = self->x - mapStartX();
+			y = self->y - mapStartY();
+		}
+		
+		else
+		{
+			x = self->x - mapStartX() + animation[self->currentAnim].offsetX;
+			y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
+		}
 		
 		drawImage(image, x, y);
 	}
@@ -183,6 +199,13 @@ void setEntityAnimation(Entity *e, int animationID)
 		e->frameTimer = animation[e->currentAnim].frameTimer[0];
 		
 		image = getSpriteImage(animation[e->currentAnim].frameID[0]);
+		
+		#ifndef PROD
+		if (image == NULL)
+		{
+			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[0]);
+		}
+		#endif
 		
 		e->w = image->w;
 		e->h = image->h;

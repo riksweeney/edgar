@@ -1,0 +1,7 @@
+HEALTH 1
+STAND 9
+WALK 10
+ATTACK_1 9
+DIE 9
+GFX_FILE data/gfx/pickaxe.dat
+ANIM_FILE data/anim/pickaxe.dat

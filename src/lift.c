@@ -30,7 +30,7 @@ void addLift(int startX, int startY, int endX, int endY, int pauseTime)
 	e->thinkTime = pauseTime;
 	e->health = pauseTime;
 	
-	setEntityAnimation(e, STAND_RIGHT);
+	setEntityAnimation(e, STAND);
 	
 	e->startX = startX * TILE_SIZE;
 	e->startY = startY * TILE_SIZE;

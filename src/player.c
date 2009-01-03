@@ -6,37 +6,50 @@ extern void checkToMap(Entity *);
 extern void loadProperties(char *, Entity *);
 extern void centerMapOnEntity(Entity *);
 
-void loadPlayer()
+void setPlayerLocation(int, int);
+
+void loadPlayer(int x, int y)
 {
 	loadProperties("edgar", &player);
 	
-	player.x = 0;
-	player.y = 0;
-	player.dirX = player.dirY = 0;
-	player.face = RIGHT;
-	player.flags = 0;
-	player.type = PLAYER;
-
-	player.thinkTime = 0;
+	if (player.active != ACTIVE)
+	{
+		player.active = ACTIVE;
+		player.x = x;
+		player.y = y;
+		player.dirX = player.dirY = 0;
+		player.face = LEFT;
+		player.flags = 0;
+		player.type = PLAYER;
 	
-	setEntityAnimation(&player, STAND_RIGHT);
+		player.thinkTime = 0;
+		
+		setEntityAnimation(&player, STAND);
+		
+		player.draw = &drawLoopingEntityAnimation;
+		
+		playerShield.parent = &player;
+		playerWeapon.parent = &player;
+		
+		playerWeapon.face = playerShield.face = LEFT;
+		
+		centerMapOnEntity(&player);
+	}
 	
-	player.draw = &drawLoopingEntityAnimation;
-	
-	playerShield.parent = &player;
-	playerWeapon.parent = &player;
-	
-	playerWeapon.face = playerShield.face = RIGHT;
-	
-	centerMapOnEntity(&player);
+	else
+	{
+		setPlayerLocation(x, y);
+	}
 }
 
 void setPlayerLocation(int x, int y)
 {
-	player.x = x * TILE_SIZE;
-	player.y = 0 * TILE_SIZE;
+	player.x = x;
+	player.y = y;
 	
-	player.y += player.h;
+	player.draw = &drawLoopingEntityAnimation;
+	
+	player.active = ACTIVE;
 }
 
 void doPlayer()
@@ -78,9 +91,9 @@ void doPlayer()
 				self->dirX -= PLAYER_SPEED;
 				playerWeapon.face = playerShield.face = self->face = LEFT;
 				
-				setEntityAnimation(&player, WALK_LEFT);
-				setEntityAnimation(&playerShield, WALK_LEFT);
-				setEntityAnimation(&playerWeapon, WALK_LEFT);
+				setEntityAnimation(&player, WALK);
+				setEntityAnimation(&playerShield, WALK);
+				setEntityAnimation(&playerWeapon, WALK);
 			}
 		
 			else if (input.right == 1)
@@ -88,26 +101,16 @@ void doPlayer()
 				self->dirX += PLAYER_SPEED;
 				playerWeapon.face = playerShield.face = self->face = RIGHT;
 				
-				setEntityAnimation(&player, WALK_RIGHT);
-				setEntityAnimation(&playerShield, WALK_RIGHT);
-				setEntityAnimation(&playerWeapon, WALK_RIGHT);
+				setEntityAnimation(&player, WALK);
+				setEntityAnimation(&playerShield, WALK);
+				setEntityAnimation(&playerWeapon, WALK);
 			}
-		
+			
 			else if (input.left == 0 && input.right == 0)
 			{
-				if (self->face == RIGHT)
-				{
-					setEntityAnimation(&player, STAND_RIGHT);
-					setEntityAnimation(&playerShield, STAND_RIGHT);
-					setEntityAnimation(&playerWeapon, STAND_RIGHT);
-				}
-		
-				else if (self->face == LEFT)
-				{
-					setEntityAnimation(&player, STAND_LEFT);
-					setEntityAnimation(&playerShield, STAND_LEFT);
-					setEntityAnimation(&playerWeapon, STAND_LEFT);
-				}
+				setEntityAnimation(&player, STAND);
+				setEntityAnimation(&playerShield, STAND);
+				setEntityAnimation(&playerWeapon, STAND);
 			}
 			
 			if (input.jump == 1)
@@ -115,18 +118,18 @@ void doPlayer()
 				if (self->flags & ON_GROUND)
 				{
 					/*
-					if (self->face == RIGHT && self->state != STAND_RIGHT)
+					if (self->face == RIGHT && self->state != STAND)
 					{
-						self->state = STAND_RIGHT;
+						self->state = STAND;
 			
-						setEntityAnimation("PLAYER_STAND_RIGHT", &player);
+						setEntityAnimation("PLAYER_STAND", &player);
 					}
 			
-					else if (self->face == LEFT && self->state != STAND_LEFT)
+					else if (self->face == LEFT && self->state != STAND)
 					{
-						self->state = STAND_LEFT;
+						self->state = STAND;
 			
-						setEntityAnimation("PLAYER_STAND_LEFT", &player);
+						setEntityAnimation("PLAYER_STAND", &player);
 					}
 					*/
 					self->dirY = -JUMP_HEIGHT;
@@ -163,16 +166,19 @@ void drawPlayer()
 {
 	self = &player;
 	
-	if ((self->flags & NO_DRAW) == 0)
+	if (self->active == ACTIVE && (self->flags & NO_DRAW) == 0)
 	{
 		/* Draw the weapon */
 		
 		self = &playerWeapon;
 		
-		self->x = player.x;
-		self->y = player.y;
-		
-		self->draw();
+		if (self->active == ACTIVE)
+		{
+			self->x = player.x;
+			self->y = player.y;
+			
+			self->draw();
+		}
 		
 		/* Draw the player */
 		
@@ -184,9 +190,17 @@ void drawPlayer()
 		
 		self = &playerShield;
 		
-		self->x = player.x;
-		self->y = player.y;
-		
-		self->draw();
+		if (self->active == ACTIVE)
+		{
+			self->x = player.x;
+			self->y = player.y;
+			
+			self->draw();
+		}
 	}
+}
+
+Entity *getPlayer()
+{
+	return &player;
 }

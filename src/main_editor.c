@@ -19,7 +19,6 @@ extern void loadResources(void);
 extern void initCursor(void);
 extern void setMaxMapX(int);
 extern void setMaxMapY(int);
-extern void centerMapOnEntity(Entity *);
 
 int main(int argc, char *argv[])
 {
@@ -44,10 +43,6 @@ int main(int argc, char *argv[])
 	
 	setMaxMapX(MAX_MAP_X * TILE_SIZE);
 	setMaxMapY(MAX_MAP_Y * TILE_SIZE);
-	
-	/* Remove auto targeting */
-	
-	centerMapOnEntity(NULL);
 	
 	/* Initialise the cursor */
 	
