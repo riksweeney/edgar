@@ -108,7 +108,7 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY)
 	SDL_FreeSurface(flipped);
 }
 
-void drawLine(int x, int y, int w, int h, int r, int g, int b)
+void drawBox(int x, int y, int w, int h, int r, int g, int b)
 {
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;

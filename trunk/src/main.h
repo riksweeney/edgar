@@ -1,7 +1,7 @@
 #include "structs.h"
 
 Input input;
-Entity player, playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
+Entity playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
 Animation animation[MAX_ANIMATIONS];
 Sound sound[MAX_SOUNDS];
 Game game;

@@ -32,8 +32,9 @@ void addBat(int x, int y)
 	
 	e->draw = &drawLoopingEntityAnimation;
 	e->touch = &touch;
+	e->type = ENEMY;
 	
-	setEntityAnimation(e, STAND_LEFT);
+	setEntityAnimation(e, STAND);
 }
 
 static void fly()

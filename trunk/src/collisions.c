@@ -1,24 +1,27 @@
 #include "collisions.h"
 
+extern int mapTileAt(int, int);
+extern int maxMapX(void);
+extern Entity *getPlayer(void);
+
 int collision(int, int, int, int, int, int, int, int);
-int mapTileAt(int, int);
-int maxMapX(void);
 
 void doCollisions()
 {
 	int i, j;
+	Entity *player = getPlayer();
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].active == ACTIVE && !(entity[i].flags & INVULNERABLE))
 		{
-			if (!(player.flags & INVULNERABLE) && collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player.x, player.y, player.w, player.h) == 1)
+			if (!(player->flags & INVULNERABLE) && collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player->x, player->y, player->w, player->h) == 1)
 			{
 				if (entity[i].touch != NULL)
 				{
 					self = &entity[i];
 					
-					self->touch(&player);
+					self->touch(player);
 				}
 			}
 			
@@ -39,6 +42,27 @@ void doCollisions()
 			}
 		}
 	}
+}
+
+Entity *isSpaceEmpty(Entity *e)
+{
+	int i;
+	Entity *player = getPlayer();
+	
+	if (player->active == ACTIVE && collision(e->x, e->y, e->w, e->h, player->x, player->y, player->w, player->h) == 1)
+	{
+		return player;
+	}
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].active == ACTIVE && collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		{
+			return &entity[i];
+		}
+	}
+	
+	return NULL;
 }
 
 void checkToMap(Entity *e)
@@ -270,6 +294,71 @@ void checkToMap(Entity *e)
 		
 		e->dirX = 0;
 	}
+}
+
+int isValidOnMap(Entity *e)
+{
+	int i, x1, x2, y1, y2;
+	
+	i = e->w > TILE_SIZE ? TILE_SIZE : e->w;
+	
+	for (;;)
+	{
+		x1 = (e->x) / TILE_SIZE;
+		x2 = (e->x + i - 1) / TILE_SIZE;
+	
+		y1 = (e->y) / TILE_SIZE;
+		y2 = (e->y + e->h - 1) / TILE_SIZE;
+		
+		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
+			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
+		{
+			return 0;
+		}
+		
+		if (i == e->w)
+		{
+			break;
+		}
+		
+		i += e->w;
+		
+		if (i > e->w)
+		{
+			i = e->w;
+		}
+	}
+	
+	i = e->h > TILE_SIZE ? TILE_SIZE : e->h;
+	
+	for (;;)
+	{
+		x1 = (e->x) / TILE_SIZE;
+		x2 = (e->x + e->w - 1) / TILE_SIZE;
+	
+		y1 = (e->y) / TILE_SIZE;
+		y2 = (e->y + i - 1) / TILE_SIZE;
+		
+		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
+			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
+		{
+			return 0;
+		}
+		
+		if (i == e->h)
+		{
+			break;
+		}
+		
+		i += e->h;
+		
+		if (i > e->h)
+		{
+			i = e->h;
+		}
+	}
+	
+	return 1;
 }
 
 /* Very standard 2D collision detection routine */

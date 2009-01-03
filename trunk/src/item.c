@@ -1,10 +1,77 @@
 #include "item.h"
 
 extern void checkToMap(Entity *);
+extern Entity *getFreeEntity(void);
+extern void loadProperties(char *, Entity *);
+extern void drawLoopingEntityAnimation(void);
+extern void setEntityAnimation(Entity *, int);
+extern void doNothing(void);
 
-void dropItem(int item)
+void healthTouch(Entity *other);
+void generalItemAction(void);
+void touchKeyItem(Entity *);
+
+void addGenericItem(char *name, int x, int y, int type)
 {
+	Entity *e = getFreeEntity();
 	
+	if (e == NULL)
+	{
+		printf("No free slots to add %s\n", name);
+		
+		exit(1);
+	}
+	
+	loadProperties(name, e);
+	
+	e->x = x;
+	e->y = y;
+	
+	e->dirY = -6;
+	
+	e->thinkTime = 300;
+	e->type = ITEM;
+	
+	e->face = RIGHT;
+	
+	e->action = &generalItemAction;
+	
+	switch (type)
+	{
+		case HEALTH:
+			e->touch = &healthTouch;
+		break;
+	}
+	
+	e->draw = &drawLoopingEntityAnimation;
+	
+	setEntityAnimation(e, STAND);
+}
+
+void addKeyItem(char *name, int x, int y)
+{
+	Entity *e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		printf("No free slots to add %s\n", name);
+		
+		exit(1);
+	}
+	
+	loadProperties(name, e);
+	
+	e->x = x;
+	e->y = y;
+	e->dirY = -6;
+	
+	e->action = &doNothing;
+	
+	e->touch = &touchKeyItem;
+	
+	e->draw = &drawLoopingEntityAnimation;
+	
+	setEntityAnimation(e, STAND);
 }
 
 void generalItemAction()
@@ -49,4 +116,8 @@ void healthTouch(Entity *other)
 		
 		self->active = INACTIVE;
 	}
+}
+
+void touchKeyItem(Entity *other)
+{
 }

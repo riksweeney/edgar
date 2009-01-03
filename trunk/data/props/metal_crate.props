@@ -1,0 +1,4 @@
+HEALTH 1
+STAND 52
+GFX_FILE data/gfx/metal_crate.dat
+ANIM_FILE data/anim/metal_crate.dat

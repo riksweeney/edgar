@@ -29,7 +29,7 @@ void addWoodenCrate(int x, int y)
 	e->touch = &pushEntity;
 	e->draw = &drawLoopingEntityAnimation;
 	
-	setEntityAnimation(e, STAND_RIGHT);
+	setEntityAnimation(e, STAND);
 }
 
 void addMetalCrate(int x, int y)
@@ -54,5 +54,5 @@ void addMetalCrate(int x, int y)
 	e->touch = &pushEntity;
 	e->draw = &drawLoopingEntityAnimation;
 	
-	setEntityAnimation(e, STAND_RIGHT);
+	setEntityAnimation(e, STAND);
 }

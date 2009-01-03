@@ -4,6 +4,8 @@ extern SDL_Surface *loadImage(char *);
 extern void drawImage(SDL_Surface *, int, int);
 extern void setPlayerLocation(int, int);
 extern Mix_Chunk *loadSound(char *);
+extern Entity *getPlayer(void);
+extern void loadResource(char *, int, int);
 
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name);
@@ -32,10 +34,8 @@ void loadMap(char *name)
 
 	/* Read the data from the file into the map */
 	
-	while (!feof(fp))
+	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
-		fgets(line, MAX_LINE_LENGTH, fp);
-		
 		sscanf(line, "%s", itemName);
 		
 		if (strcmp(itemName, "TILESET") == 0)
@@ -90,11 +90,11 @@ void loadMap(char *name)
 			}
 		}
 		
-		else if (strcmp(itemName, "PLAYER_START") == 0)
+		else
 		{
 			sscanf(line, "%*s %d %d\n", &x, &y);
 			
-			setPlayerLocation(x, y);
+			loadResource(itemName, x, y);
 		}
 	}
 	
@@ -124,6 +124,15 @@ void saveMap()
 {
 	int x, y;
 	FILE *fp;
+	
+	self = getPlayer();
+	
+	if (self->active == INACTIVE)
+	{
+		printf("No player start defined\n");
+		
+		return;
+	}
 
 	fp = fopen(map.filename, "wb");
 
@@ -153,26 +162,21 @@ void saveMap()
 	}
 	
 	/* Now write out all of the Entities */
-	/*
+	
+	self = getPlayer();
+	
+	fprintf(fp, "player_start %d %d\n", (int)self->x, (int)self->y);
+	
 	for (x=0;x<MAX_ENTITIES;x++)
 	{
-		if (entity[x].active == ACTIVE)
+		self = &entity[x];
+		
+		if (self->active == ACTIVE)
 		{
-			switch (entity[x].type)
-			{
-				case SPANNER:
-					fprintf(fp, "SPANNER ");
-				break;
-				
-				default:
-					fprintf(fp, "UNKNOWN ");
-				break;
-			}
-			
-			fprintf(fp, "%d %d\n", (int)entity[x].x / TILE_SIZE, (int)entity[x].y / TILE_SIZE);
+			fprintf(fp, "%s %d %d %d %ld\n", self->name, (int)self->x, (int)self->y, self->type, self->flags);
 		}
 	}
-	*/
+	
 	/* Close the file afterwards */
 
 	fclose(fp);

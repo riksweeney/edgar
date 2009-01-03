@@ -26,10 +26,10 @@ typedef struct Entity
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
 	float targetX, targetY;
-	char name[30], activates[30];
+	char name[30], objectiveName[30], activates[30];
 	struct Entity *standingOn, *parent;
 	void (*action)(void);
-	void (*activate)(struct Entity *);
+	void (*activate)(void);
 	void (*draw)(void);
 	void (*touch)(struct Entity *);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);

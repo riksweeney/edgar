@@ -18,9 +18,6 @@ extern void doEntities(void);
 extern void doCollisions(void);
 extern void loadResources(void);
 extern void doGame(void);
-extern void addBat(int, int);
-extern void addApple(int, int);
-extern void addWoodenCrate(int, int);
 extern void doMap(void);
 
 int main(int argc, char *argv[])

@@ -15,19 +15,49 @@ extern int mapStartX(void);
 extern int mapStartY(void);
 extern void setTileAt(int, int, int);
 extern SDL_Surface *tileImage(int);
+extern int isValidOnMap(Entity *);
+extern void drawBox(int, int, int, int, int, int, int);
+extern Entity *isSpaceEmpty(Entity *);
+extern int addEntity(Entity, int, int);
+extern void setPlayerLocation(int, int);
+extern void centerMapOnEntity(Entity *);
+
+static char *entityNames[] = {"edgar", "apple", "wooden_crate", "metal_crate", "bat", "pickaxe", "small_wooden_shield",
+							  "basic_sword", NULL};
+static int entityNamesLength = 0;
 
 void initCursor()
 {
+	int i = 0;
+	
 	cursor.tileID = 0;
 	cursor.entityType = 0;
 	
+	loadProperties(entityNames[0], &cursor.entity);
+	
 	cursor.entity.draw = &drawLoopingEntityAnimation;
+	
+	while (entityNames[i] != NULL)
+	{
+		i++;
+	}
+	
+	entityNamesLength = i;
 }
 
 void doCursor()
 {
 	cursor.x = input.mouseX;
 	cursor.y = input.mouseY;
+	
+	if (cursor.type == TILES)
+	{
+		cursor.x /= TILE_SIZE;
+		cursor.y /= TILE_SIZE;
+		
+		cursor.x *= TILE_SIZE;
+		cursor.y *= TILE_SIZE;
+	}
 	
 	if (cursor.y >= SCREEN_HEIGHT - TILE_SIZE)
 	{
@@ -58,42 +88,26 @@ void doCursor()
 	{
 		if (cursor.type == TILES)
 		{
-			self = getEntityAtLocation((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE);
-			
-			/* Don't allow a tile to be placed on top of an Entity */
-			
-			if (self == NULL)
-			{
-				printf("Placing tile %d to %d %d\n", cursor.tileID, (mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE);
-				setTileAt((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE, cursor.tileID);
-			}
+			setTileAt((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE, cursor.tileID);
 		}
 		
 		else
 		{
 			/* Entities can only be placed in blank spaces */
-			/*
-			if (map.tile[(map.startY + cursor.y) / TILE_SIZE][(map.startX + cursor.x) / TILE_SIZE] == BLANK_TILE)
+			
+			if (isValidOnMap(&cursor.entity) == 1 && isSpaceEmpty(&cursor.entity) == NULL)
 			{
-				self = getEntityAtLocation((map.startX + cursor.x) / TILE_SIZE, (map.startY + cursor.y) / TILE_SIZE);
-				
-				if (self != NULL)
+				if (cursor.entityType == 0)
 				{
-					self->active = INACTIVE;
+					setPlayerLocation(mapStartX() + cursor.x, mapStartY() + cursor.y);
 				}
 				
-				switch (cursor.entityType)
+				else
 				{
-					case SPANNER:
-						addSpanner((map.startX + cursor.x) / TILE_SIZE, (map.startY + cursor.y) / TILE_SIZE);
-					break;
-					
-					default:
-						
-					break;
+					addEntity(cursor.entity, mapStartX() + cursor.x, mapStartY() + cursor.y);
 				}
 			}
-			*/
+			
 			input.add = 0;
 		}
 	}
@@ -102,91 +116,62 @@ void doCursor()
 	{
 		if (cursor.type == TILES)
 		{
-			setTileAt(BLANK_TILE, (mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE);
+			setTileAt((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE, BLANK_TILE);
 		}
 		
 		else
 		{
-			/*
-			self = getEntityAtLocation((map.startX + cursor.x) / TILE_SIZE, (map.startY + cursor.y) / TILE_SIZE);
+			self = isSpaceEmpty(&cursor.entity);
 			
 			if (self != NULL)
 			{
-				self->active = ACTIVE;
+				self->active = INACTIVE;
 			}
-			*/
-			input.remove = 0;
 		}
 	}
 	
-	if (cursor.type == TILES)
+	if (input.previous == 1)
 	{
-		if (input.previous == 1)
+		if (cursor.type == TILES)
 		{
 			cursor.tileID = prevTile(cursor.tileID);
-			
-			input.previous = 0;
 		}
 		
-		if (input.next == 1)
-		{
-			cursor.tileID = nextTile(cursor.tileID);
-			
-			input.next = 0;
-		}
-	}
-	
-	else
-	{
-		/*
-		if (input.previous == 1)
+		else
 		{
 			cursor.entityType--;
 			
 			if (cursor.entityType < 0)
 			{
-				cursor.entityType = MAX_ENTITY_TYPES - 1;
+				cursor.entityType = entityNamesLength - 1;
 			}
 			
-			input.previous = 0;
-			
-			switch (cursor.entityType)
-			{
-				case SPANNER:
-					setAnimation("SPANNER", &cursor.entity);
-				break;
-				
-				default:
-					printf("Could not find Entity type!\n");
-					
-					exit(1);
-			}
+			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 		}
 		
-		if (input.next == 1)
+		input.previous = 0;
+	}
+	
+	else if (input.next == 1)
+	{
+		if (cursor.type == TILES)
+		{
+			cursor.tileID = nextTile(cursor.tileID);
+		}
+		
+		else
 		{
 			cursor.entityType++;
 			
-			if (cursor.entityType >= MAX_ENTITY_TYPES)
+			if (cursor.entityType >= entityNamesLength)
 			{
 				cursor.entityType = 0;
 			}
 			
-			input.next = 0;
-			
-			switch (cursor.entityType)
-			{
-				case SPANNER:
-					setAnimation("SPANNER", &cursor.entity);
-				break;
-				
-				default:
-					printf("Could not find Entity type!\n");
-					
-					exit(1);
-			}
+			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 		}
-		*/
+		
+		input.next = 0;
 	}
 	
 	if (input.save == 1)
@@ -211,28 +196,23 @@ void doCursor()
 	{
 		SDL_Delay(30);
 	}
-	/*
+	
 	if (input.toggle == 1)
 	{
 		if (cursor.type == TILES)
 		{
 			cursor.type = ENTITIES;
-			
-			cursor.entityType = SPANNER;
-			
-			setAnimation("SPANNER", &cursor.entity);
 		}
 		
 		else
 		{
 			cursor.type = TILES;
-			
-			cursor.tileID = 0;
 		}
 		
 		input.toggle = 0;
 	}
-	*/
+	
+	centerMapOnEntity(NULL);
 }
 
 void drawCursor()
@@ -244,16 +224,17 @@ void drawCursor()
 	}
 	
 	else
-	{
-		/*
-		drawImage(mapImages[BLANK_TILE], cursor.x, cursor.y);
+	{		
+		if (isValidOnMap(&cursor.entity) == 0 || isSpaceEmpty(&cursor.entity) != NULL)
+		{
+			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
+		}
 		
-		cursor.entity.x = map.startX + cursor.x + (TILE_SIZE - cursor.entity.w) / 2;
-		cursor.entity.y = map.startY + cursor.y + (TILE_SIZE - cursor.entity.h) / 2;
+		cursor.entity.x = mapStartX() + cursor.x;
+		cursor.entity.y = mapStartY() + cursor.y;
 		
 		self = &cursor.entity;
 		
 		self->draw();
-		*/
 	}
 }

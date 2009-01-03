@@ -26,6 +26,7 @@ void addApple(int x, int y)
 	e->dirY = -6;
 	
 	e->thinkTime = 300;
+	e->type = HEALTH;
 	
 	e->face = RIGHT;
 	
@@ -33,5 +34,5 @@ void addApple(int x, int y)
 	e->touch = &healthTouch;
 	e->draw = &drawLoopingEntityAnimation;
 	
-	setEntityAnimation(e, STAND_RIGHT);
+	setEntityAnimation(e, STAND);
 }

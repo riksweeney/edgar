@@ -5,14 +5,9 @@ extern void checkToMap(Entity *);
 
 void clearEntities()
 {
-	int i;
-
 	/* Clear the list */
 
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		memset(entity, 0, sizeof(Entity) * MAX_ENTITIES);
-	}
+	memset(entity, 0, sizeof(Entity) * MAX_ENTITIES);
 }
 
 Entity *getFreeEntity()
@@ -70,23 +65,6 @@ void drawEntities()
 			self->draw();
 		}
 	}
-}
-
-Entity *getEntityAtLocation(int x, int y)
-{
-	int i;
-
-	/* Loop through the entities */
-
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if ((int)entity[i].x / TILE_SIZE == x && (int)entity[i].y / TILE_SIZE == y)
-		{
-			return &entity[i];
-		}
-	}
-	
-	return NULL;
 }
 
 void removeEntity()
@@ -204,7 +182,7 @@ void pushEntity(Entity *other)
 	other->y += other->dirY;
 }
 
-void addEntity(Entity e)
+int addEntity(Entity e, int x, int y)
 {
 	int i;
 
@@ -216,12 +194,18 @@ void addEntity(Entity e)
 		{
 			entity[i] = e;
 			
-			return;
+			entity[0].currentFrame = 0;
+			
+			entity[i].active = ACTIVE;
+			
+			entity[i].x = x;
+			
+			entity[i].y = y;
+			
+			return 1;
 		}
 	}
 	
-	printf("Could not add an Entity\n");
-	
-	exit(1);
+	return 0;
 }
 
