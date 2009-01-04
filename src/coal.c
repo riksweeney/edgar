@@ -21,7 +21,7 @@ void addCoal(int x, int y)
 	e->x = x;
 	e->y = y;
 	
-	e->dirY = -6;
+	e->dirY = ITEM_JUMP_HEIGHT;
 	
 	e->thinkTime = 300;
 	e->type = ITEM;
@@ -30,7 +30,7 @@ void addCoal(int x, int y)
 	
 	e->action = &generalItemAction;
 	e->touch = &touch;
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	
 	setEntityAnimation(e, STAND_RIGHT);
 }

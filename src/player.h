@@ -1,5 +1,5 @@
 #include "structs.h"
 
-static Entity player;
-extern Entity *self, playerShield, playerWeapon;
+static Entity player, playerShield, playerWeapon;
+extern Entity *self;
 extern Input input;

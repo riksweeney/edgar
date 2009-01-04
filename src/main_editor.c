@@ -15,7 +15,7 @@ extern void doCursor(void);
 extern void delay(unsigned int);
 extern void doStatusPanel(void);
 extern void loadMapBackground(char *);
-extern void loadResources(void);
+extern void loadRequiredResources(void);
 extern void initCursor(void);
 extern void setMaxMapX(int);
 extern void setMaxMapY(int);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 	/* Load the resources */
 	
-	loadResources();
+	loadRequiredResources();
 	
 	/* Load the background image */
 	

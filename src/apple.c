@@ -1,7 +1,7 @@
 #include "apple.h"
 
 extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern void loadProperties(char *, Entity *);
 extern void generalItemAction(void);
 extern void healthTouch(Entity *);
@@ -23,7 +23,7 @@ void addApple(int x, int y)
 	e->x = x;
 	e->y = y;
 	
-	e->dirY = -6;
+	e->dirY = ITEM_JUMP_HEIGHT;
 	
 	e->thinkTime = 300;
 	e->type = HEALTH;
@@ -32,7 +32,7 @@ void addApple(int x, int y)
 	
 	e->action = &generalItemAction;
 	e->touch = &healthTouch;
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	
 	setEntityAnimation(e, STAND);
 }

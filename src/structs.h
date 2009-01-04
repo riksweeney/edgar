@@ -11,7 +11,7 @@ typedef struct Input
 {
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
-	int mouseX, mouseY, toggle;
+	int mouseX, mouseY, toggle, drop;
 } Input;
 
 typedef struct Entity
@@ -31,6 +31,7 @@ typedef struct Entity
 	void (*action)(void);
 	void (*activate)(void);
 	void (*draw)(void);
+	void (*die)(void);
 	void (*touch)(struct Entity *);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 } Entity;
@@ -56,6 +57,7 @@ typedef struct Game
 {
 	char sword[30], shield[30];
 	int thinkTime, weatherType, weatherThinkTime;
+	int audio;
 	void (*action)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);
@@ -92,3 +94,9 @@ typedef struct Properties
 {
 	char name[30], key[MAX_PROPS_ENTRIES][30], value[MAX_PROPS_ENTRIES][30];
 } Properties;
+
+typedef struct Enemy
+{
+	char name[30];
+	void (*construct)(int, int);
+} Enemy;

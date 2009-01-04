@@ -39,7 +39,10 @@ void playSound(Mix_Chunk *chunk, int channel)
 {
 	/* Play the sound on the first free channel and only play it once */
 	
-	Mix_PlayChannel(channel, chunk, 0);
+	if (game.audio == ACTIVE)
+	{
+		Mix_PlayChannel(channel, chunk, 0);
+	}
 }
 
 void freeSounds()

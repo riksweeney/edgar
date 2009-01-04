@@ -16,7 +16,7 @@ extern void initPlayer(void);
 extern void initGame(void);
 extern void doEntities(void);
 extern void doCollisions(void);
-extern void loadResources(void);
+extern void loadRequiredResources(void);
 extern void doGame(void);
 extern void doMap(void);
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 	/* Load the resources */
 	
-	loadResources();
+	loadRequiredResources();
 	
 	/* Initialise the game variables */
 	

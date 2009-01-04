@@ -1,6 +1,7 @@
-HEALTH 2
+HEALTH 5
 STAND 7
 WALK 8
 ATTACK 6
 GFX_FILE data/gfx/basic_sword.dat
 ANIM_FILE data/anim/basic_sword.dat
+TYPE WEAPON

@@ -6,13 +6,9 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 
 	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 	{
-		printf("ThinkTime for %d is %d\n", i, e->customThinkTime[i]);
-		
 		if (e->customThinkTime[i] == 0)
 		{
 			e->custom[i] = func;
-			
-			printf("Setting action to slot %d\n", i);
 			
 			e->customThinkTime[i] = thinkTime;
 			
@@ -57,5 +53,10 @@ void invulnerable(int *thinkTime)
 	if ((*thinkTime) % 3 == 0)
 	{
 		self->flags ^= NO_DRAW;
+	}
+	
+	if ((*thinkTime) == 0)
+	{
+		self->flags &= ~NO_DRAW;
 	}
 }

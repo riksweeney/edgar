@@ -1,3 +1,4 @@
 #include "structs.h"
 
-extern Inventory inventory;
+static Inventory inventory;
+extern Entity *self;

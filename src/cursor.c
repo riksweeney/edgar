@@ -5,7 +5,7 @@ extern void loadProperties(char *, Entity *);
 extern void loadMap(char *);
 extern void saveMap(void);
 extern void setStatusMessage(char *);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern Entity *getEntityAtLocation(int, int);
 extern void mapStartXNext(int);
 extern void mapStartYNext(int);
@@ -35,7 +35,7 @@ void initCursor()
 	
 	loadProperties(entityNames[0], &cursor.entity);
 	
-	cursor.entity.draw = &drawLoopingEntityAnimation;
+	cursor.entity.draw = &drawLoopingAnimationToMap;
 	
 	while (entityNames[i] != NULL)
 	{

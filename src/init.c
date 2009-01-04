@@ -1,7 +1,8 @@
 #include "init.h"
 
 extern void freeGame(void);
-extern void freeResources(void);
+extern void freeRequiredResources(void);
+extern void setSeed(long);
 
 void init(char *title)
 {
@@ -40,7 +41,7 @@ void init(char *title)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
 		
-		exit(1);
+		game.audio = INACTIVE;
 	}
 	
 	/* Set the screen title */
@@ -53,14 +54,14 @@ void init(char *title)
 	
 	/* Set the random seed */
 	
-	srand(time(NULL));
+	setSeed(time(NULL));
 }
 
 void cleanup()
 {
 	/* Free the Resources */
 	
-	freeResources();
+	freeRequiredResources();
 	
 	/* Free Game data */
 	

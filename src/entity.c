@@ -35,7 +35,7 @@ Entity *getFreeEntity()
 
 void doEntities()
 {
-	int i;
+	int i, j;
 
 	/* Loop through the entities and perform their action */
 
@@ -45,6 +45,14 @@ void doEntities()
 
 		if (self->active == ACTIVE && !(self->flags & STATIC))
 		{
+			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
+			{
+				if (self->customThinkTime[j] > 0)
+				{
+					self->custom[j](&self->customThinkTime[j]);
+				}
+			}
+			
 			self->action();
 		}
 	}
@@ -79,6 +87,13 @@ void removeEntity()
 
 void doNothing()
 {
+	self->thinkTime--;
+	
+	if (self->thinkTime < 0)
+	{
+		self->thinkTime = 0;
+	}
+	
 	self->dirX = 0;
 	
 	self->dirY += GRAVITY_SPEED;
@@ -194,7 +209,7 @@ int addEntity(Entity e, int x, int y)
 		{
 			entity[i] = e;
 			
-			entity[0].currentFrame = 0;
+			entity[i].currentFrame = 0;
 			
 			entity[i].active = ACTIVE;
 			

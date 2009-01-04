@@ -2,3 +2,5 @@ HEALTH 1
 STAND 51
 GFX_FILE data/gfx/wooden_crate.dat
 ANIM_FILE data/anim/wooden_crate.dat
+TYPE ITEM
+FLAGS PUSHABLE

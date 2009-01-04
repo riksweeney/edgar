@@ -69,6 +69,10 @@ void getInput()
 						input.toggle = 1;
 					break;
 					
+					case SDLK_d:
+						input.drop = 1;
+					break;
+					
 					default:
 					break;
 				}

@@ -1,6 +1,6 @@
 #include "bat.h"
 
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern void loadProperties(char *, Entity *);
 extern Entity *getFreeEntity(void);
 extern void setEntityAnimation(Entity *, int);
@@ -30,7 +30,7 @@ void addBat(int x, int y)
 	
 	e->action = &fly;
 	
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->type = ENEMY;
 	
