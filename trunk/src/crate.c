@@ -5,7 +5,7 @@ extern void loadProperties(char *, Entity *);
 extern Entity *getFreeEntity(void);
 extern void doNothing(void);
 extern void pushEntity(Entity *);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 
 void addWoodenCrate(int x, int y)
 {
@@ -27,7 +27,7 @@ void addWoodenCrate(int x, int y)
 	
 	e->action = &doNothing;
 	e->touch = &pushEntity;
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	
 	setEntityAnimation(e, STAND);
 }
@@ -52,7 +52,7 @@ void addMetalCrate(int x, int y)
 	
 	e->action = &doNothing;
 	e->touch = &pushEntity;
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	
 	setEntityAnimation(e, STAND);
 }

@@ -9,26 +9,31 @@ extern void freeSprites(void);
 extern void freeMap(void);
 extern void freeAnimations(void);
 extern void freeSounds(void);
-extern void addBat(int, int);
-extern void addApple(int, int);
-extern void addWoodenCrate(int, int);
-extern void addMetalCrate(int, int);
-extern void addBat(int, int);
 extern void loadPlayer(int, int);
 extern void addKeyItem(char *, int, int);
+extern void initHud(void);
+extern void freeHud(void);
 
-void loadResources()
+extern void addPermanentItem(char *, int, int);
+extern void addLift(char *, int, int, int, int);
+extern void addEnemy(char *, int, int);
+
+void loadRequiredResources()
 {
 	/* Load the map */
 	
 	loadMap("data/maps/map01.dat");
+	
+	/* Load the hud */
+	
+	initHud();
 	
 	/* Load the font */
 	
 	game.font = loadFont("font/blackWolf.ttf", 16);
 }
 
-void freeResources()
+void freeRequiredResources()
 {
 	/* Free the animations */
 	
@@ -45,61 +50,47 @@ void freeResources()
 	/* Free the sprites */
 	
 	freeSprites();
+	
+	/* Free the hud */
+	
+	freeHud();
 }
 
-void loadResource(char *name, int x, int y)
+void loadResource(char *line)
 {
-	int i;
+	char type[20], name[20];
+	int startX, startY, endX, endY;
 	
-	printf("Loading %s\n", name);
+	sscanf(line, "%s %s %d %d %d %d", type, name, &startX, &startY, &endX, &endY);
 	
-	for (i=0;i<strlen(name);i++)
+	if (strcmpignorecase(type, "ITEM") == 0 || strcmpignorecase(type, "HEALTH") == 0 ||
+		strcmpignorecase(type, "SHIELD") == 0 || strcmpignorecase(type, "WEAPON") == 0)
 	{
-		name[i] = tolower(name[i]);
+		addPermanentItem(name, startX, startY);
 	}
 	
-	if (strcmp("apple", name) == 0)
+	else if (strcmpignorecase(type, "player_start") == 0)
 	{
-		addApple(x, y);
+		loadPlayer(startX, startY);
+	}
+	/*
+	else if (strcmpignorecase(type, "KEY_ITEM") == 0)
+	{
+		addKeyItem(name, startX, startY);
 	}
 	
-	else if (strcmp("wooden_crate", name) == 0)
+	else if (strcmpignorecase(type, "LIFT") == 0)
 	{
-		addWoodenCrate(x, y);
+		addLift(name, startX, startY, endX, endY);
 	}
-	
-	else if (strcmp("metal_crate", name) == 0)
+	*/
+	else if (strcmpignorecase(type, "ENEMY") == 0)
 	{
-		addMetalCrate(x, y);
-	}
-	
-	else if (strcmp("player_start", name) == 0)
-	{
-		loadPlayer(x, y);
-	}
-	
-	else if (strcmp("bat", name) == 0)
-	{
-		addBat(x, y);
-	}
-	
-	else if (strcmp("pickaxe", name) == 0)
-	{
-		addKeyItem(name, x, y);
-	}
-	
-	else if (strcmp("small_wooden_shield", name) == 0)
-	{
-		addKeyItem(name, x, y);
-	}
-	
-	else if (strcmp("basic_sword", name) == 0)
-	{
-		addKeyItem(name, x, y);
+		addEnemy(name, startX, startY);
 	}
 	
 	else
 	{
-		printf("****Unknown entity %s****\n", name);
+		printf("Unknown Entity type %s\n", type);
 	}
 }

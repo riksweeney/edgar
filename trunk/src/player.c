@@ -1,10 +1,12 @@
 #include "player.h"
 
 extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern void checkToMap(Entity *);
 extern void loadProperties(char *, Entity *);
 extern void centerMapOnEntity(Entity *);
+extern void dropInventoryItem(void);
+extern void selectNextInventoryItem(int);
 
 void setPlayerLocation(int, int);
 
@@ -26,7 +28,7 @@ void loadPlayer(int x, int y)
 		
 		setEntityAnimation(&player, STAND);
 		
-		player.draw = &drawLoopingEntityAnimation;
+		player.draw = &drawLoopingAnimationToMap;
 		
 		playerShield.parent = &player;
 		playerWeapon.parent = &player;
@@ -47,7 +49,7 @@ void setPlayerLocation(int x, int y)
 	player.x = x;
 	player.y = y;
 	
-	player.draw = &drawLoopingEntityAnimation;
+	player.draw = &drawLoopingAnimationToMap;
 	
 	player.active = ACTIVE;
 }
@@ -111,6 +113,20 @@ void doPlayer()
 				setEntityAnimation(&player, STAND);
 				setEntityAnimation(&playerShield, STAND);
 				setEntityAnimation(&playerWeapon, STAND);
+			}
+			
+			if (input.drop == 1)
+			{
+				dropInventoryItem();
+				
+				input.drop = 0;
+			}
+			
+			if (input.next == 1 || input.previous == 1)
+			{
+				selectNextInventoryItem(input.next == 1 ? 1 : -1);
+				
+				input.next = input.previous = 0;
 			}
 			
 			if (input.jump == 1)
@@ -203,4 +219,54 @@ void drawPlayer()
 Entity *getPlayer()
 {
 	return &player;
+}
+
+Entity *getPlayerShield()
+{
+	return &playerShield;
+}
+
+Entity *getPlayerWeapon()
+{
+	return &playerWeapon;
+}
+
+void setPlayerShield(Entity *shield, int onlyIfEmpty)
+{
+	if (onlyIfEmpty == 1)
+	{
+		if (playerShield.active == INACTIVE)
+		{
+			playerShield = *shield;
+			
+			playerShield.parent = &player;
+			
+			playerShield.face = player.face;
+		}
+	}
+	
+	else if (onlyIfEmpty == 0)
+	{
+		playerShield = *shield;
+	}
+}
+
+void setPlayerWeapon(Entity *weapon, int onlyIfEmpty)
+{
+	if (onlyIfEmpty == 1)
+	{
+		if (playerWeapon.active == INACTIVE)
+		{
+			playerWeapon = *weapon;
+			
+			playerWeapon.parent = &player;
+			
+			playerWeapon.face = player.face;
+		}
+	}
+	
+	else if (onlyIfEmpty == 0)
+	{
+		playerWeapon = *weapon;
+	}
 }

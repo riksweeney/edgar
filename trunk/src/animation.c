@@ -35,22 +35,22 @@ void loadAnimationData(char *filename)
 			continue;
 		}
 		
-		if (strcmp(frameName, "INDEX") == 0)
+		if (strcmpignorecase(frameName, "INDEX") == 0)
 		{
 			fscanf(fp, "%d", &id);
 		}
 		
-		else if (strcmp(frameName, "OFFSETX") == 0)
+		else if (strcmpignorecase(frameName, "OFFSETX") == 0)
 		{
 			fscanf(fp, "%d", &animation[id].offsetX);
 		}
 		
-		else if (strcmp(frameName, "OFFSETY") == 0)
+		else if (strcmpignorecase(frameName, "OFFSETY") == 0)
 		{
 			fscanf(fp, "%d", &animation[id].offsetY);
 		}
 		
-		else if (strcmp(frameName, "FRAMES") == 0)
+		else if (strcmpignorecase(frameName, "FRAMES") == 0)
 		{
 			if (animation[id].frameID != NULL)
 			{
@@ -116,7 +116,53 @@ void freeAnimations()
 	}
 }
 
-void drawLoopingEntityAnimation()
+void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
+{
+	SDL_Surface *image;
+	
+	e->frameTimer--;
+
+	if (e->frameTimer <= 0)
+	{
+		e->currentFrame++;
+
+		if (e->currentFrame >= animation[e->currentAnim].frameCount)
+		{
+			e->currentFrame = 0;
+		}
+
+		e->frameTimer = animation[e->currentAnim].frameTimer[e->currentFrame];
+		
+		image = getSpriteImage(animation[e->currentAnim].frameID[e->currentFrame]);
+		
+		#ifndef PROD
+		if (image == NULL)
+		{
+			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
+		}
+		#endif
+
+		e->w = image->w;
+		e->h = image->h;
+	}
+	
+	else
+	{
+		image = getSpriteImage(animation[e->currentAnim].frameID[e->currentFrame]);
+	}
+	
+	if (center == 1)
+	{
+		drawImage(image, x + (w - image->w) / 2, y + (h - image->h) / 2);
+	}
+	
+	else
+	{
+		drawImage(image, x, y);
+	}
+}
+
+void drawLoopingAnimationToMap()
 {
 	int x, y;
 	SDL_Surface *image;

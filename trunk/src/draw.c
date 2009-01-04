@@ -5,6 +5,7 @@ extern void drawGame(void);
 extern void drawEntities(void);
 extern void drawMap(void);
 extern void centerEntityOnMap(void);
+extern void drawHud(void);
 
 void draw()
 {
@@ -19,6 +20,10 @@ void draw()
 	/* Draw the map */
 	
 	drawMap();
+	
+	/* Draw the hud */
+	
+	drawHud();
 	
 	/* Draw the Entities */
 	

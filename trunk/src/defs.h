@@ -63,10 +63,18 @@
 #ifndef PROD
 	#define INSTALL_PATH ""
 #else
-	#define INSTALL_PATH "/usr/share/games/"
+	#define INSTALL_PATH "/usr/share/games/edgar/"
+#endif
+
+#ifdef WINDOWS
+	#define strcmpignorecase(x, y) stricmp(x, y)
+#else
+	#define strcmpignorecase(x, y) strcasecmp(x, y)
 #endif
 
 #define MAX_SOUNDS 256
+
+#define ITEM_JUMP_HEIGHT -6
 
 enum
 {
@@ -91,8 +99,7 @@ enum
 	FROZEN = 64,
 	ELECTRIFIED = 128,
 	STATIC = 256,
-	FLY = 512,
-	PUSHABLE = 1024
+	FLY = 512
 };
 
 enum
@@ -101,7 +108,10 @@ enum
 	WEAPON,
 	ITEM,
 	KEY_ITEM,
-	ENEMY
+	ENEMY,
+	LIFT,
+	HEALTH,
+	SHIELD
 };
 
 enum

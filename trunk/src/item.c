@@ -3,21 +3,29 @@
 extern void checkToMap(Entity *);
 extern Entity *getFreeEntity(void);
 extern void loadProperties(char *, Entity *);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern void setEntityAnimation(Entity *, int);
 extern void doNothing(void);
+extern Entity *getPlayer(void);
+extern void invulnerable(int *);
+extern void setCustomAction(Entity *, void (*)(int *), int);
+extern void pushEntity(Entity *);
+extern int addToInventory(Entity *);
+extern int addEntity(Entity, int, int);
+extern Entity *getPlayerShield(void);
+extern Entity *getPlayerWeapon(void);
 
-void healthTouch(Entity *other);
+void healthTouch(Entity *);
 void generalItemAction(void);
-void touchKeyItem(Entity *);
+void keyItemTouch(Entity *);
 
-void addGenericItem(char *name, int x, int y, int type)
+void addPermanentItem(char *name, int x, int y)
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
-		printf("No free slots to add %s\n", name);
+		printf("No free slots to add item %s\n", name);
 		
 		exit(1);
 	}
@@ -27,34 +35,34 @@ void addGenericItem(char *name, int x, int y, int type)
 	e->x = x;
 	e->y = y;
 	
-	e->dirY = -6;
+	e->action = &doNothing;
+	e->draw = &drawLoopingAnimationToMap;
 	
-	e->thinkTime = 300;
-	e->type = ITEM;
-	
-	e->face = RIGHT;
-	
-	e->action = &generalItemAction;
-	
-	switch (type)
+	if (e->type == HEALTH)
 	{
-		case HEALTH:
-			e->touch = &healthTouch;
-		break;
+		e->touch = &healthTouch;
 	}
 	
-	e->draw = &drawLoopingEntityAnimation;
+	else if (e->type == WEAPON || e->type == SHIELD)
+	{
+		e->touch = &keyItemTouch;
+	}
+	
+	else if (e->flags & PUSHABLE)
+	{
+		e->touch = &pushEntity;
+	}
 	
 	setEntityAnimation(e, STAND);
 }
 
-void addKeyItem(char *name, int x, int y)
+void addTemporaryItem(char *name, int x, int y)
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
-		printf("No free slots to add %s\n", name);
+		printf("No free slots to add item %s\n", name);
 		
 		exit(1);
 	}
@@ -63,13 +71,16 @@ void addKeyItem(char *name, int x, int y)
 	
 	e->x = x;
 	e->y = y;
-	e->dirY = -6;
 	
-	e->action = &doNothing;
+	e->dirY = ITEM_JUMP_HEIGHT;
 	
-	e->touch = &touchKeyItem;
+	e->action = &generalItemAction;
+	e->draw = &drawLoopingAnimationToMap;
 	
-	e->draw = &drawLoopingEntityAnimation;
+	if (e->type == HEALTH)
+	{
+		e->touch = &healthTouch;
+	}
 	
 	setEntityAnimation(e, STAND);
 }
@@ -118,6 +129,60 @@ void healthTouch(Entity *other)
 	}
 }
 
-void touchKeyItem(Entity *other)
+void keyItemTouch(Entity *other)
 {
+	if (other->type == PLAYER)
+	{
+		addToInventory(self);
+	}
+}
+
+void dropItem(Entity *e)
+{
+	Entity *player = getPlayer();
+	Entity *w;
+	
+	if (e->type == SHIELD)
+	{
+		w = getPlayerShield();
+		
+		if (strcmpignorecase(w->name, e->name) == 0)
+		{
+			w->active = 0;
+		}
+	}
+	
+	else if (e->type == WEAPON)
+	{
+		w = getPlayerWeapon();
+		
+		if (strcmpignorecase(w->name, e->name) == 0)
+		{
+			w->active = 0;
+		}
+	}
+	
+	e->dirY = ITEM_JUMP_HEIGHT;
+	
+	e->flags |= INVULNERABLE;
+	
+	e->action = &doNothing;
+	
+	setCustomAction(e, &invulnerable, 180);
+	
+	addEntity(*e, player->x, player->y);
+}
+
+void keyItemRespawn()
+{
+	Entity *player = getPlayer();
+	
+	self->x = player->x + (player->w - self->w) / 2;
+	self->y = player->y + player->h - self->h;
+	
+	self->dirY = ITEM_JUMP_HEIGHT;
+	
+	self->flags |= INVULNERABLE;
+	
+	setCustomAction(self, &invulnerable, 180);
 }

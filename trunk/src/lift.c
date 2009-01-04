@@ -1,7 +1,7 @@
 #include "lift.h"
 
 extern Entity *getFreeEntity(void);
-extern void drawLoopingEntityAnimation(void);
+extern void drawLoopingAnimationToMap(void);
 extern void setEntityAnimation(Entity *, int);
 extern int collision(int, int, int, int, int, int, int, int);
 extern void loadProperties(char *, Entity *);
@@ -25,7 +25,7 @@ void addLift(int startX, int startY, int endX, int endY, int pauseTime)
 	e->type = LIFT;
 	e->action = &move;
 	e->touch = &touch;
-	e->draw = &drawLoopingEntityAnimation;
+	e->draw = &drawLoopingAnimationToMap;
 	
 	e->thinkTime = pauseTime;
 	e->health = pauseTime;

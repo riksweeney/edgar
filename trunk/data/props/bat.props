@@ -5,3 +5,4 @@ ATTACK_1 21
 DIE 23
 GFX_FILE data/gfx/bat.dat
 ANIM_FILE data/anim/bat.dat
+TYPE ENEMY

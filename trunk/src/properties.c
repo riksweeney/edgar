@@ -4,6 +4,9 @@ extern void loadSpritesFromFile(char *);
 extern void loadAnimationData(char *);
 extern void setEntityAnimation(Entity *, int);
 
+static void setFlags(Entity *, char *);
+static int getType(char *);
+
 void loadProperties(char *name, Entity *e)
 {
 	int i, j, index;
@@ -18,7 +21,7 @@ void loadProperties(char *name, Entity *e)
 	
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
-		if (strcmp(properties[i].name, name) == 0)
+		if (strcmpignorecase(properties[i].name, name) == 0)
 		{
 			index = i;
 			
@@ -63,12 +66,12 @@ void loadProperties(char *name, Entity *e)
 					
 					sscanf(line, "%s %s", properties[i].key[j], properties[i].value[j]);
 					
-					if (strcmp(properties[i].key[j], "GFX_FILE") == 0)
+					if (strcmpignorecase(properties[i].key[j], "GFX_FILE") == 0)
 					{
 						loadSpritesFromFile(properties[i].value[j]);
 					}
 					
-					if (strcmp(properties[i].key[j], "ANIM_FILE") == 0)
+					if (strcmpignorecase(properties[i].key[j], "ANIM_FILE") == 0)
 					{
 						loadAnimationData(properties[i].value[j]);
 					}
@@ -94,73 +97,78 @@ void loadProperties(char *name, Entity *e)
 	
 	for (j=0;j<MAX_PROPS_ENTRIES;j++)
 	{
-		if (strcmp(properties[i].key[j], "HEALTH") == 0)
+		if (strcmpignorecase(properties[i].key[j], "HEALTH") == 0)
 		{
 			e->health = atoi(properties[i].value[j]);
 		}
 		
-		else if (strcmp(properties[i].key[j], "TYPE") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "FLAGS") == 0)
 		{
-			e->type = atoi(properties[i].value[j]);
+			setFlags(e, properties[i].value[j]);
 		}
 		
-		else if (strcmp(properties[i].key[j], "STAND") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "TYPE") == 0)
+		{
+			e->type = getType(properties[i].value[j]);
+		}
+		
+		else if (strcmpignorecase(properties[i].key[j], "STAND") == 0)
 		{
 			e->animation[STAND] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "WALK") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "WALK") == 0)
 		{
 			e->animation[WALK] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "JUMP") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "JUMP") == 0)
 		{
 			e->animation[JUMP] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_1") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "ATTACK_1") == 0)
 		{
 			e->animation[ATTACK_1] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_2") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "ATTACK_2") == 0)
 		{
 			e->animation[ATTACK_2] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_3") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "ATTACK_3") == 0)
 		{
 			e->animation[ATTACK_3] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_4") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "ATTACK_4") == 0)
 		{
 			e->animation[ATTACK_4] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "ATTACK_5") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "ATTACK_5") == 0)
 		{
 			e->animation[ATTACK_5] = atoi(properties[i].value[j]);
 			
 			index++;
 		}
 		
-		else if (strcmp(properties[i].key[j], "DIE") == 0)
+		else if (strcmpignorecase(properties[i].key[j], "DIE") == 0)
 		{
 			e->animation[DIE] = atoi(properties[i].value[j]);
 			
@@ -178,4 +186,75 @@ void loadProperties(char *name, Entity *e)
 	e->currentAnim = -1;
 	
 	setEntityAnimation(e, 0);
+}
+
+static int getType(char *type)
+{
+	int i;
+	static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", NULL};
+	
+	for (i=0;types[i]!=NULL;i++)
+	{
+		if (strcmpignorecase(types[i], type) == 0)
+		{
+			return i;
+		}
+	}
+	
+	return -1;
+}
+
+static void setFlags(Entity *e, char *flags)
+{
+	char *token = strtok(flags, " |,");
+	
+	while (token != NULL)
+	{
+		if (strcmpignorecase(token, "ON_GROUND") == 0)
+		{
+			e->flags |= ON_GROUND;
+		}
+		
+		else if (strcmpignorecase(token, "PUSHABLE") == 0)
+		{
+			e->flags |= PUSHABLE;
+		}
+		
+		else if (strcmpignorecase(token, "HELPLESS") == 0)
+		{
+			e->flags |= HELPLESS;
+		}
+		
+		else if (strcmpignorecase(token, "INVULNERABLE") == 0)
+		{
+			e->flags |= INVULNERABLE;
+		}
+		
+		else if (strcmpignorecase(token, "BURNING") == 0)
+		{
+			e->flags |= BURNING;
+		}
+		
+		else if (strcmpignorecase(token, "FROZEN") == 0)
+		{
+			e->flags |= FROZEN;
+		}
+		
+		else if (strcmpignorecase(token, "ELECTRIFIED") == 0)
+		{
+			e->flags |= ELECTRIFIED;
+		}
+		
+		else if (strcmpignorecase(token, "STATIC") == 0)
+		{
+			e->flags |= STATIC;
+		}
+		
+		else if (strcmpignorecase(token, "FLY") == 0)
+		{
+			e->flags |= FLY;
+		}
+		
+		token = strtok(NULL, " |,");
+	}
 }

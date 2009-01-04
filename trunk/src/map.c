@@ -5,7 +5,8 @@ extern void drawImage(SDL_Surface *, int, int);
 extern void setPlayerLocation(int, int);
 extern Mix_Chunk *loadSound(char *);
 extern Entity *getPlayer(void);
-extern void loadResource(char *, int, int);
+extern void loadResource(char *);
+extern void playSound(Mix_Chunk *, int);
 
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name);
@@ -38,7 +39,7 @@ void loadMap(char *name)
 	{
 		sscanf(line, "%s", itemName);
 		
-		if (strcmp(itemName, "TILESET") == 0)
+		if (strcmpignorecase(itemName, "TILESET") == 0)
 		{
 			/* Load the map tiles */
 			
@@ -51,7 +52,7 @@ void loadMap(char *name)
 			strcpy(map.tilesetName, itemName);
 		}
 		
-		else if (strcmp(itemName, "AMBIENCE") == 0)
+		else if (strcmpignorecase(itemName, "AMBIENCE") == 0)
 		{
 			/* Load the map tiles */
 			
@@ -64,7 +65,7 @@ void loadMap(char *name)
 			strcpy(map.ambienceName, itemName);
 		}
 		
-		else if (strcmp(itemName, "DATA") == 0)
+		else if (strcmpignorecase(itemName, "DATA") == 0)
 		{
 			map.maxX = map.maxY = 0;
 		
@@ -92,9 +93,7 @@ void loadMap(char *name)
 		
 		else
 		{
-			sscanf(line, "%*s %d %d\n", &x, &y);
-			
-			loadResource(itemName, x, y);
+			loadResource(line);
 		}
 	}
 	
@@ -165,7 +164,7 @@ void saveMap()
 	
 	self = getPlayer();
 	
-	fprintf(fp, "player_start %d %d\n", (int)self->x, (int)self->y);
+	fprintf(fp, "player_start player_start %d %d %d %d\n", (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
 	
 	for (x=0;x<MAX_ENTITIES;x++)
 	{
@@ -173,7 +172,45 @@ void saveMap()
 		
 		if (self->active == ACTIVE)
 		{
-			fprintf(fp, "%s %d %d %d %ld\n", self->name, (int)self->x, (int)self->y, self->type, self->flags);
+			if (self->type == WEAPON)
+			{
+				fprintf(fp, "WEAPON %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == ITEM)
+			{
+				fprintf(fp, "ITEM %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == KEY_ITEM)
+			{
+				fprintf(fp, "KEY_ITEM %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == LIFT)
+			{
+				fprintf(fp, "LIFT %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == HEALTH)
+			{
+				fprintf(fp, "HEALTH %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == SHIELD)
+			{
+				fprintf(fp, "SHIELD %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else if (self->type == ENEMY)
+			{
+				fprintf(fp, "ENEMY %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
+			
+			else
+			{
+				fprintf(fp, "UNKNOWN %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+			}
 		}
 	}
 	
@@ -197,7 +234,7 @@ void doMap()
 				sound = rand() % MAX_AMBIENT_SOUNDS;
 			}
 			
-			Mix_PlayChannel(-1, map.ambience[sound], 0);
+			playSound(map.ambience[sound], -1);
 			
 			map.thinkTime = 120 + rand() % 1200;
 		}
@@ -329,19 +366,18 @@ static void loadMapBackground(char *name)
 
 static void loadAmbience(char *dir)
 {
-	int i;
+	int i, j;
 	char filename[MAX_LINE_LENGTH];
-	static char *extensions[] = {"ogg", "mp3", "wav", NULL};
-	char *p;
+	static char *extensions[] = {"ogg", "mp3", "wav"};
 	FILE *fp;
 	
 	map.hasAmbience = 0;
 	
 	for (i=0;i<MAX_AMBIENT_SOUNDS;i++)
 	{
-		for (p=extensions[0];strlen(p)!=0;p+=strlen(p)+1)
+		for (j=0;extensions[j]!=NULL;j++)
 		{
-			sprintf(filename, "sound/ambience/%s/%d.%s", dir, i, p);
+			sprintf(filename, "sound/ambience/%s/%d.%s", dir, i, extensions[j]);
 			
 			fp = fopen(filename, "rb");
 			

@@ -2,3 +2,4 @@ HEALTH 1
 STAND 50
 GFX_FILE data/gfx/apple.dat
 ANIM_FILE data/anim/apple.dat
+TYPE HEALTH
