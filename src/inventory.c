@@ -1,8 +1,8 @@
 #include "inventory.h"
 
 extern int addEntity(Entity, int, int);
-extern void setPlayerWeapon(Entity *, int);
-extern void setPlayerShield(Entity *, int);
+extern void autoSetPlayerWeapon(void);
+extern void autoSetPlayerShield(void);
 extern void dropItem(Entity *);
 extern void drawLoopingAnimation(Entity *, int, int, int, int, int);
 extern void setEntityAnimation(Entity *, int);
@@ -27,12 +27,12 @@ int addToInventory(Entity *e)
 			
 			if (inventory.item[i].type == WEAPON)
 			{
-				setPlayerWeapon(&inventory.item[i], 1);
+				autoSetPlayerWeapon();
 			}
 			
 			else if (inventory.item[i].type == SHIELD)
 			{
-				setPlayerShield(&inventory.item[i], 1);
+				autoSetPlayerShield();
 			}
 			
 			return 1;
@@ -111,10 +111,14 @@ void dropInventoryItem()
 	}
 }
 
-void useInventoryItem(int x, int y)
+void useInventoryItem()
 {
+	Entity *temp;
+	
 	if (inventory.item[inventory.selectedIndex].active == ACTIVE)
 	{
+		temp = self;
+		
 		self = &inventory.item[inventory.selectedIndex];
 		
 		self->activate();
@@ -123,6 +127,8 @@ void useInventoryItem(int x, int y)
 		{
 			sortInventory();
 		}
+		
+		self = temp;
 	}
 }
 

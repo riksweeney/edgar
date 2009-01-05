@@ -60,11 +60,7 @@
 
 #define SLOPE_DOWN 201
 
-#ifndef PROD
-	#define INSTALL_PATH ""
-#else
-	#define INSTALL_PATH "/usr/share/games/edgar/"
-#endif
+#define INSTALL_PATH ""
 
 #ifdef WINDOWS
 	#define strcmpignorecase(x, y) stricmp(x, y)

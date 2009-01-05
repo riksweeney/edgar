@@ -13,9 +13,9 @@ void doCollisions()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == ACTIVE && !(entity[i].flags & INVULNERABLE))
+		if (entity[i].active == ACTIVE)
 		{
-			if (!(player->flags & INVULNERABLE) && collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player->x, player->y, player->w, player->h) == 1)
+			if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player->x, player->y, player->w, player->h) == 1)
 			{
 				if (entity[i].touch != NULL)
 				{
@@ -27,7 +27,7 @@ void doCollisions()
 			
 			for (j=0;j<MAX_ENTITIES;j++)
 			{
-				if (i != j && entity[j].active == ACTIVE && !(entity[j].flags & INVULNERABLE))
+				if (i != j && entity[j].active == ACTIVE)
 				{
 					if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, entity[j].x, entity[j].y, entity[j].w, entity[j].h) == 1)
 					{

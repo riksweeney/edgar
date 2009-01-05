@@ -3,6 +3,7 @@
 void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 {
 	int i;
+	Entity *temp;
 
 	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 	{
@@ -10,7 +11,17 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 		{
 			e->custom[i] = func;
 			
-			e->customThinkTime[i] = thinkTime;
+			e->customThinkTime[i] = thinkTime + 1;
+			
+			/* Execute the custom action once */
+			
+			temp = self;
+			
+			self = e;
+			
+			self->custom[i](&e->customThinkTime[i]);
+			
+			self = temp;
 			
 			return;
 		}
