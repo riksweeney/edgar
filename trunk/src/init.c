@@ -52,7 +52,7 @@ void init(char *title)
 	
 	SDL_ShowCursor(SDL_DISABLE);
 	
-	/* Set the random seed */
+	/* Set the prandom seed */
 	
 	setSeed(time(NULL));
 }

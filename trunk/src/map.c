@@ -7,6 +7,7 @@ extern Mix_Chunk *loadSound(char *);
 extern Entity *getPlayer(void);
 extern void loadResource(char *);
 extern void playSound(Mix_Chunk *, int);
+extern long prand(void);
 
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name);
@@ -112,7 +113,7 @@ void loadMap(char *name)
 	
 	/* Set the thinkTime */
 	
-	map.thinkTime = 120 + rand() % 1200;
+	map.thinkTime = 120 + prand() % 1200;
 
 	/* Close the file afterwards */
 
@@ -221,7 +222,7 @@ void saveMap()
 
 void doMap()
 {
-	int sound = rand() % MAX_AMBIENT_SOUNDS;
+	int sound = prand() % MAX_AMBIENT_SOUNDS;
 	
 	if (map.hasAmbience == 1)
 	{
@@ -231,12 +232,12 @@ void doMap()
 		{
 			while (map.ambience[sound] == NULL)
 			{
-				sound = rand() % MAX_AMBIENT_SOUNDS;
+				sound = prand() % MAX_AMBIENT_SOUNDS;
 			}
 			
 			playSound(map.ambience[sound], -1);
 			
-			map.thinkTime = 120 + rand() % 1200;
+			map.thinkTime = 120 + prand() % 1200;
 		}
 	}
 }
