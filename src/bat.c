@@ -8,9 +8,11 @@ extern void checkToMap(Entity *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
 extern void pushBack(int *);
 extern void invulnerable(int *);
+extern long prand(void);
 
 static void fly(void);
 static void touch(Entity *);
+static void takeDamage(Entity *, int);
 
 void addBat(int x, int y)
 {
@@ -32,6 +34,8 @@ void addBat(int x, int y)
 	
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
+	e->takeDamage = &takeDamage;
+	
 	e->type = ENEMY;
 	
 	setEntityAnimation(e, STAND);
@@ -45,7 +49,7 @@ static void fly()
 	{
 		if (self->dirX == 0)
 		{
-			self->dirX = 0.1f + 0.1f * (rand() % 15) * (rand() % 2 == 0 ? 1 : -1);
+			self->dirX = 0.1f + 0.1f * (prand() % 15) * (prand() % 2 == 0 ? 1 : -1);
 		}
 		
 		else
@@ -53,7 +57,7 @@ static void fly()
 			self->dirX = 0;
 		}
 		
-		self->thinkTime = 60 * rand() % 120;
+		self->thinkTime = 60 * prand() % 120;
 	}
 	
 	if (self->dirX < 0)
@@ -68,25 +72,35 @@ static void fly()
 	
 	checkToMap(self);
 }
-
 static void touch(Entity *other)
 {
+	Entity *temp;
+	
 	if (other->type == PLAYER)
 	{
-		other->health--;
+		temp = self;
 		
-		setCustomAction(other, &pushBack, 4);
+		self = other;
 		
-		setCustomAction(other, &invulnerable, 60);
+		self->takeDamage(temp, 1);
 		
-		if (other->dirX == 0)
-		{
-			other->dirX = self->dirX < 0 ? -30 : 30;
-		}
-		
-		else
-		{
-			other->dirX = other->dirX < 0 ? 30 : -30;
-		}
+		self = temp;
+	}
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	self->health -= damage;
+			
+	setCustomAction(self, &pushBack, 4);
+	
+	if (self->dirX == 0)
+	{
+		self->dirX = other->dirX < 0 ? -30 : 30;
+	}
+	
+	else
+	{
+		self->dirX = self->dirX < 0 ? 30 : -30;
 	}
 }

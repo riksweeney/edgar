@@ -34,6 +34,7 @@ typedef struct Entity
 	void (*die)(void);
 	void (*touch)(struct Entity *);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
+	void (*takeDamage)(struct Entity *, int);
 } Entity;
 
 typedef struct Map

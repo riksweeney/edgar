@@ -3,6 +3,7 @@
 extern void drawBox(int, int, int, int, int, int, int);
 extern void clearScreen(int, int, int);
 extern int mapTileAt(int, int);
+extern long prand(void);
 
 static void initLightRain(void);
 static void initHeavyRain(void);
@@ -50,11 +51,11 @@ static void initLightRain()
 	
 	for (i=0;i<MAX_DROPS/2;i++)
 	{
-		droplet[i].x = rand() % SCREEN_WIDTH;
-		droplet[i].y = rand() % SCREEN_HEIGHT;
+		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].y = prand() % SCREEN_HEIGHT;
 		
 		droplet[i].dirX = 0;
-		droplet[i].dirY = 8 + rand() % 8;
+		droplet[i].dirY = 8 + prand() % 8;
 		
 		droplet[i].active = ACTIVE;
 	}
@@ -70,11 +71,11 @@ static void initHeavyRain()
 	
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = rand() % SCREEN_WIDTH;
-		droplet[i].y = rand() % SCREEN_HEIGHT;
+		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].y = prand() % SCREEN_HEIGHT;
 		
 		droplet[i].dirX = 0;
-		droplet[i].dirY = 8 + rand() % 8;
+		droplet[i].dirY = 8 + prand() % 8;
 		
 		droplet[i].active = ACTIVE;
 	}
@@ -95,11 +96,11 @@ static void rain()
 			
 			if (droplet[i].y >= SCREEN_HEIGHT || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 			{
-				droplet[i].x = rand() % SCREEN_WIDTH;
-				droplet[i].y = -8 - rand() % 20;
+				droplet[i].x = prand() % SCREEN_WIDTH;
+				droplet[i].y = -8 - prand() % 20;
 				
 				droplet[i].dirX = 0;
-				droplet[i].dirY = 8 + rand() % 8;
+				droplet[i].dirY = 8 + prand() % 8;
 			}
 		}
 	}
@@ -113,11 +114,11 @@ static void initStorm()
 	
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = rand() % SCREEN_WIDTH;
-		droplet[i].y = rand() % SCREEN_HEIGHT;
+		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].y = prand() % SCREEN_HEIGHT;
 		
 		droplet[i].dirX = 0;
-		droplet[i].dirY = 8 + rand() % 8;
+		droplet[i].dirY = 8 + prand() % 8;
 		
 		droplet[i].active = ACTIVE;
 	}
@@ -133,7 +134,7 @@ static void storm()
 	
 	if (game.weatherThinkTime < -60)
 	{
-		game.weatherThinkTime = 600 + rand() % 1200;
+		game.weatherThinkTime = 600 + prand() % 1200;
 	}
 }
 
@@ -145,11 +146,11 @@ static void initSnow()
 	
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = rand() % SCREEN_WIDTH;
-		droplet[i].y = rand() % SCREEN_HEIGHT;
+		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].y = prand() % SCREEN_HEIGHT;
 		
-		droplet[i].dirX = 0.1f * (rand() % 20) - 0.1f * (rand() % 20);
-		droplet[i].dirY = 01.f + 0.1f * (rand() % 10);
+		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
+		droplet[i].dirY = 01.f + 0.1f * (prand() % 10);
 		
 		droplet[i].active = ACTIVE;
 	}
@@ -166,18 +167,18 @@ static void snow()
 		droplet[i].x += droplet[i].dirX;
 		droplet[i].y += droplet[i].dirY;
 		
-		if (rand() % 30 == 0)
+		if (prand() % 30 == 0)
 		{
-			droplet[i].dirX = 0.1f * (rand() % 20) - 0.1f * (rand() % 20);
+			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
 		}
 		
 		if (droplet[i].y >= SCREEN_HEIGHT || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 		{
-			droplet[i].x = rand() % SCREEN_WIDTH;
-			droplet[i].y = -8 - rand() % 20;
+			droplet[i].x = prand() % SCREEN_WIDTH;
+			droplet[i].y = -8 - prand() % 20;
 			
-			droplet[i].dirX = 0.1f * (rand() % 20) - 0.1f * (rand() % 20);
-			droplet[i].dirY = 01.f + 0.1f * (rand() % 10);
+			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
+			droplet[i].dirY = 01.f + 0.1f * (prand() % 10);
 		}
 	}
 }

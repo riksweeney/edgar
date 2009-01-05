@@ -7,8 +7,13 @@ extern void loadProperties(char *, Entity *);
 extern void centerMapOnEntity(Entity *);
 extern void dropInventoryItem(void);
 extern void selectNextInventoryItem(int);
+extern void pushBack(int *);
+extern void invulnerable(int *);
+extern void setCustomAction(Entity *, void (*)(int *), int);
 
 void setPlayerLocation(int, int);
+
+static void takeDamage(Entity *, int);
 
 void loadPlayer(int x, int y)
 {
@@ -26,9 +31,13 @@ void loadPlayer(int x, int y)
 	
 		player.thinkTime = 0;
 		
+		player.maxHealth = player.health = 5;
+		
 		setEntityAnimation(&player, STAND);
 		
 		player.draw = &drawLoopingAnimationToMap;
+		
+		player.takeDamage = &takeDamage;
 		
 		playerShield.parent = &player;
 		playerWeapon.parent = &player;
@@ -268,5 +277,27 @@ void setPlayerWeapon(Entity *weapon, int onlyIfEmpty)
 	else if (onlyIfEmpty == 0)
 	{
 		playerWeapon = *weapon;
+	}
+}
+
+void takeDamage(Entity *other, int damage)
+{
+	self->health -= damage;
+	
+	if (self->health > 0)
+	{
+		setCustomAction(self, &pushBack, 4);
+		
+		setCustomAction(self, &invulnerable, 60);
+		
+		if (self->dirX == 0)
+		{
+			self->dirX = other->dirX < 0 ? -30 : 30;
+		}
+		
+		else
+		{
+			self->dirX = self->dirX < 0 ? 30 : -30;
+		}
 	}
 }
