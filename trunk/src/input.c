@@ -73,6 +73,14 @@ void getInput()
 						input.drop = 1;
 					break;
 					
+					case SDLK_a:
+						input.activate = 1;
+					break;
+					
+					case SDLK_RETURN:
+						input.attack = 1;
+					break;
+					
 					default:
 					break;
 				}

@@ -14,6 +14,8 @@ extern int addToInventory(Entity *);
 extern int addEntity(Entity, int, int);
 extern Entity *getPlayerShield(void);
 extern Entity *getPlayerWeapon(void);
+extern void setPlayerWeapon(void);
+extern void setPlayerShield(void);
 
 void healthTouch(Entity *);
 void generalItemAction(void);
@@ -46,6 +48,7 @@ void addPermanentItem(char *name, int x, int y)
 	else if (e->type == WEAPON || e->type == SHIELD)
 	{
 		e->touch = &keyItemTouch;
+		e->activate = (e->type == WEAPON ? &setPlayerWeapon : &setPlayerShield);
 	}
 	
 	else if (e->flags & PUSHABLE)
@@ -131,7 +134,7 @@ void healthTouch(Entity *other)
 
 void keyItemTouch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
 		addToInventory(self);
 	}
@@ -164,8 +167,6 @@ void dropItem(Entity *e)
 	
 	e->dirY = ITEM_JUMP_HEIGHT;
 	
-	e->flags |= INVULNERABLE;
-	
 	e->action = &doNothing;
 	
 	setCustomAction(e, &invulnerable, 180);
@@ -181,8 +182,6 @@ void keyItemRespawn()
 	self->y = player->y + player->h - self->h;
 	
 	self->dirY = ITEM_JUMP_HEIGHT;
-	
-	self->flags |= INVULNERABLE;
 	
 	setCustomAction(self, &invulnerable, 180);
 }

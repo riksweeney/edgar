@@ -135,12 +135,10 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 		
 		image = getSpriteImage(animation[e->currentAnim].frameID[e->currentFrame]);
 		
-		#ifndef PROD
 		if (image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
 		}
-		#endif
 
 		e->w = image->w;
 		e->h = image->h;
@@ -176,18 +174,23 @@ void drawLoopingAnimationToMap()
 		if (self->currentFrame >= animation[self->currentAnim].frameCount)
 		{
 			self->currentFrame = 0;
+			
+			if (self->animationCallback != NULL)
+			{
+				self->animationCallback();
+				
+				self->animationCallback = NULL;
+			}
 		}
 
 		self->frameTimer = animation[self->currentAnim].frameTimer[self->currentFrame];
 		
 		image = getSpriteImage(animation[self->currentAnim].frameID[self->currentFrame]);
 		
-		#ifndef PROD
 		if (image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
 		}
-		#endif
 
 		self->w = image->w;
 		self->h = image->h;
@@ -246,12 +249,10 @@ void setEntityAnimation(Entity *e, int animationID)
 		
 		image = getSpriteImage(animation[e->currentAnim].frameID[0]);
 		
-		#ifndef PROD
 		if (image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[0]);
 		}
-		#endif
 		
 		e->w = image->w;
 		e->h = image->h;

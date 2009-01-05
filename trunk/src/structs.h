@@ -12,6 +12,7 @@ typedef struct Input
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle, drop;
+	int activate, attack;
 } Input;
 
 typedef struct Entity
@@ -33,6 +34,7 @@ typedef struct Entity
 	void (*draw)(void);
 	void (*die)(void);
 	void (*touch)(struct Entity *);
+	void (*animationCallback)(void);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 	void (*takeDamage)(struct Entity *, int);
 } Entity;

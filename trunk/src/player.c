@@ -10,10 +10,12 @@ extern void selectNextInventoryItem(int);
 extern void pushBack(int *);
 extern void invulnerable(int *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
+extern void useInventoryItem(void);
 
 void setPlayerLocation(int, int);
 
 static void takeDamage(Entity *, int);
+static void stand(void);
 
 void loadPlayer(int x, int y)
 {
@@ -97,83 +99,75 @@ void doPlayer()
 				self->dirX += self->standingOn->dirX;
 			}
 			
-			if (input.left == 1)
+			if (self->animationCallback == NULL)
 			{
-				self->dirX -= PLAYER_SPEED;
-				playerWeapon.face = playerShield.face = self->face = LEFT;
-				
-				setEntityAnimation(&player, WALK);
-				setEntityAnimation(&playerShield, WALK);
-				setEntityAnimation(&playerWeapon, WALK);
-			}
-		
-			else if (input.right == 1)
-			{
-				self->dirX += PLAYER_SPEED;
-				playerWeapon.face = playerShield.face = self->face = RIGHT;
-				
-				setEntityAnimation(&player, WALK);
-				setEntityAnimation(&playerShield, WALK);
-				setEntityAnimation(&playerWeapon, WALK);
-			}
-			
-			else if (input.left == 0 && input.right == 0)
-			{
-				setEntityAnimation(&player, STAND);
-				setEntityAnimation(&playerShield, STAND);
-				setEntityAnimation(&playerWeapon, STAND);
-			}
-			
-			if (input.drop == 1)
-			{
-				dropInventoryItem();
-				
-				input.drop = 0;
-			}
-			
-			if (input.next == 1 || input.previous == 1)
-			{
-				selectNextInventoryItem(input.next == 1 ? 1 : -1);
-				
-				input.next = input.previous = 0;
-			}
-			
-			if (input.jump == 1)
-			{
-				if (self->flags & ON_GROUND)
+				if (input.left == 1)
 				{
-					/*
-					if (self->face == RIGHT && self->state != STAND)
-					{
-						self->state = STAND;
-			
-						setEntityAnimation("PLAYER_STAND", &player);
-					}
-			
-					else if (self->face == LEFT && self->state != STAND)
-					{
-						self->state = STAND;
-			
-						setEntityAnimation("PLAYER_STAND", &player);
-					}
-					*/
-					self->dirY = -JUMP_HEIGHT;
-				}
-		
-				input.jump = 0;
-			}
-			/*
-			if (input.attack == 1)
-			{
-				if (!(self->flags & ATTACKING))
-				{
-					setEntityAnimation(strcat(getGameSword, "SWING_1"), playerSword);
+					self->dirX -= PLAYER_SPEED;
+					playerWeapon.face = playerShield.face = self->face = LEFT;
 					
-					playerSword.draw = drawEntityNoLoopAnimation;
-					playerSword.animCallback = 
+					setEntityAnimation(&player, WALK);
+					setEntityAnimation(&playerShield, WALK);
+					setEntityAnimation(&playerWeapon, WALK);
+				}
+			
+				else if (input.right == 1)
+				{
+					self->dirX += PLAYER_SPEED;
+					playerWeapon.face = playerShield.face = self->face = RIGHT;
+					
+					setEntityAnimation(&player, WALK);
+					setEntityAnimation(&playerShield, WALK);
+					setEntityAnimation(&playerWeapon, WALK);
+				}
+				
+				else if (input.left == 0 && input.right == 0)
+				{
+					setEntityAnimation(&player, STAND);
+					setEntityAnimation(&playerShield, STAND);
+					setEntityAnimation(&playerWeapon, STAND);
+				}
+				
+				if (input.attack == 1)
+				{
+					self->animationCallback = &stand;
+					
+					setEntityAnimation(&player, ATTACK_1);
+					
+					input.attack = 0;
+				}
+				
+				if (input.drop == 1)
+				{
+					dropInventoryItem();
+					
+					input.drop = 0;
+				}
+				
+				if (input.activate == 1)
+				{
+					useInventoryItem();
+					
+					input.activate = 0;
+				}
+				
+				if (input.next == 1 || input.previous == 1)
+				{
+					selectNextInventoryItem(input.next == 1 ? 1 : -1);
+					
+					input.next = input.previous = 0;
+				}
+				
+				if (input.jump == 1)
+				{
+					if (self->flags & ON_GROUND)
+					{
+						self->dirY = -JUMP_HEIGHT;
+					}
+			
+					input.jump = 0;
 				}
 			}
-			*/
 		}
 		
 		checkToMap(self);
@@ -185,6 +179,13 @@ void doPlayer()
 	{
 		self->action();
 	}
+}
+
+static void stand()
+{
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
 }
 
 void drawPlayer()
@@ -240,64 +241,73 @@ Entity *getPlayerWeapon()
 	return &playerWeapon;
 }
 
-void setPlayerShield(Entity *shield, int onlyIfEmpty)
+void setPlayerShield()
 {
-	if (onlyIfEmpty == 1)
-	{
-		if (playerShield.active == INACTIVE)
-		{
-			playerShield = *shield;
-			
-			playerShield.parent = &player;
-			
-			playerShield.face = player.face;
-		}
-	}
+	playerShield = *self;
 	
-	else if (onlyIfEmpty == 0)
+	playerShield.parent = &player;
+	
+	playerShield.face = player.face;
+}
+
+void setPlayerWeapon()
+{
+	playerWeapon = *self;
+	
+	playerWeapon.parent = &player;
+	
+	playerWeapon.face = player.face;
+}
+
+void autoSetPlayerWeapon(Entity *newWeapon)
+{
+	if (playerWeapon.active == INACTIVE)
 	{
-		playerShield = *shield;
+		playerWeapon = *newWeapon;
+		
+		playerWeapon.parent = &player;
+		
+		playerWeapon.face = player.face;
 	}
 }
 
-void setPlayerWeapon(Entity *weapon, int onlyIfEmpty)
+void autoSetPlayerShield(Entity *newWeapon)
 {
-	if (onlyIfEmpty == 1)
+	if (playerShield.active == INACTIVE)
 	{
-		if (playerWeapon.active == INACTIVE)
-		{
-			playerWeapon = *weapon;
-			
-			playerWeapon.parent = &player;
-			
-			playerWeapon.face = player.face;
-		}
-	}
-	
-	else if (onlyIfEmpty == 0)
-	{
-		playerWeapon = *weapon;
+		playerShield = *newWeapon;
+		
+		playerShield.parent = &player;
+		
+		playerShield.face = player.face;
 	}
 }
 
 void takeDamage(Entity *other, int damage)
 {
-	self->health -= damage;
-	
-	if (self->health > 0)
+	if (!(self->flags & INVULNERABLE))
 	{
-		setCustomAction(self, &pushBack, 4);
+		self->health -= damage;
 		
-		setCustomAction(self, &invulnerable, 60);
+		self->animationCallback = NULL;
 		
-		if (self->dirX == 0)
+		setEntityAnimation(self, WALK);
+		
+		if (self->health > 0)
 		{
-			self->dirX = other->dirX < 0 ? -30 : 30;
-		}
-		
-		else
-		{
-			self->dirX = self->dirX < 0 ? 30 : -30;
+			setCustomAction(self, &pushBack, 4);
+			
+			setCustomAction(self, &invulnerable, 60);
+			
+			if (self->dirX == 0)
+			{
+				self->dirX = other->dirX < 0 ? -30 : 30;
+			}
+			
+			else
+			{
+				self->dirX = self->dirX < 0 ? 30 : -30;
+			}
 		}
 	}
 }
