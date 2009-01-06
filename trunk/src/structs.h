@@ -3,8 +3,8 @@
 typedef struct Animation
 {
 	int frameCount;
-	int offsetX, offsetY;
 	int *frameTimer, *frameID;
+	int *offsetX, *offsetY;
 } Animation;
 
 typedef struct Input

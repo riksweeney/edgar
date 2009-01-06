@@ -40,16 +40,6 @@ void loadAnimationData(char *filename)
 			fscanf(fp, "%d", &id);
 		}
 		
-		else if (strcmpignorecase(frameName, "OFFSETX") == 0)
-		{
-			fscanf(fp, "%d", &animation[id].offsetX);
-		}
-		
-		else if (strcmpignorecase(frameName, "OFFSETY") == 0)
-		{
-			fscanf(fp, "%d", &animation[id].offsetY);
-		}
-		
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
 		{
 			if (animation[id].frameID != NULL)
@@ -82,12 +72,32 @@ void loadAnimationData(char *filename)
 	
 				exit(1);
 			}
+			
+			/* Allocate space for the offsets */
+	
+			animation[id].offsetX = (int *)malloc(animation[id].frameCount * sizeof(int));
+	
+			if (animation[id].offsetX == NULL)
+			{
+				printf("Ran out of memory when creating the animation for %s\n", filename);
+	
+				exit(1);
+			}
+			
+			animation[id].offsetY = (int *)malloc(animation[id].frameCount * sizeof(int));
+	
+			if (animation[id].offsetY == NULL)
+			{
+				printf("Ran out of memory when creating the animation for %s\n", filename);
+	
+				exit(1);
+			}
 	
 			/* Now load up each frame */
 	
 			for (i=0;i<animation[id].frameCount;i++)
 			{
-				fscanf(fp, "%d %d", &animation[id].frameID[i], &animation[id].frameTimer[i]);
+				fscanf(fp, "%d %d %d %d", &animation[id].frameID[i], &animation[id].frameTimer[i], &animation[id].offsetX[i], &animation[id].offsetY[i]);
 			}
 		}
 	}
@@ -103,6 +113,16 @@ void freeAnimation(Animation *anim)
 	if (anim->frameID != NULL)
 	{
 		free(anim->frameID);
+	}
+	
+	if (anim->offsetX != NULL)
+	{
+		free(anim->offsetX);
+	}
+	
+	if (anim->offsetY != NULL)
+	{
+		free(anim->offsetY);
 	}
 }
 
@@ -211,8 +231,8 @@ void drawLoopingAnimationToMap()
 		
 		else
 		{
-			x = self->x - mapStartX() + self->parent->w - self->w - animation[self->currentAnim].offsetX;
-			y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
+			x = self->x - mapStartX() + self->parent->w - self->w - animation[self->currentAnim].offsetX[self->currentFrame];
+			y = self->y - mapStartY() + animation[self->currentAnim].offsetY[self->currentFrame];
 		}
 		
 		drawFlippedImage(image, x, y);
@@ -228,8 +248,8 @@ void drawLoopingAnimationToMap()
 		
 		else
 		{
-			x = self->x - mapStartX() + animation[self->currentAnim].offsetX;
-			y = self->y - mapStartY() + animation[self->currentAnim].offsetY;
+			x = self->x - mapStartX() + animation[self->currentAnim].offsetX[self->currentFrame];
+			y = self->y - mapStartY() + animation[self->currentAnim].offsetY[self->currentFrame];
 		}
 		
 		drawImage(image, x, y);
