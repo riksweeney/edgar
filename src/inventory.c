@@ -153,6 +153,18 @@ static void sortInventory()
 			}
 		}
 	}
+	
+	while (inventory.item[inventory.selectedIndex].active == INACTIVE)
+	{
+		inventory.selectedIndex--;
+		
+		if (inventory.selectedIndex < 0)
+		{
+			inventory.selectedIndex = 0;
+			
+			break;
+		}
+	}
 }
 
 void doInventory()
