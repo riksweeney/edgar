@@ -37,6 +37,16 @@ void loadAnimationData(char *filename)
 		
 		if (strcmpignorecase(frameName, "INDEX") == 0)
 		{
+			if (id != -1)
+			{
+				if (animation[id].frameCount == 0)
+				{
+					printf("Animation %d was created with 0 frames\n", id);
+					
+					exit(1);
+				}
+			}
+			
 			fscanf(fp, "%d", &id);
 		}
 		
@@ -100,6 +110,13 @@ void loadAnimationData(char *filename)
 				fscanf(fp, "%d %d %d %d", &animation[id].frameID[i], &animation[id].frameTimer[i], &animation[id].offsetX[i], &animation[id].offsetY[i]);
 			}
 		}
+	}
+	
+	if (animation[id].frameCount == 0)
+	{
+		printf("Animation %d was created with 0 frames\n", id);
+		
+		exit(1);
 	}
 }
 

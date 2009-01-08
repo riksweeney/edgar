@@ -3,6 +3,8 @@
 extern int mapTileAt(int, int);
 extern int maxMapX(void);
 extern Entity *getPlayer(void);
+extern SDL_Surface *mapImageAt(int, int);
+extern int isTransparent(SDL_Surface *, int, int);
 
 int collision(int, int, int, int, int, int, int, int);
 

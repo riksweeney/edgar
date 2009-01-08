@@ -83,11 +83,19 @@ void doPlayer()
 		
 		/* Gravity always pulls the player down */
 		
-		self->dirY += GRAVITY_SPEED;
-		
-		if (self->dirY >= MAX_FALL_SPEED)
+		if (!(self->flags & FLY))
 		{
-			self->dirY = MAX_FALL_SPEED;
+			self->dirY += GRAVITY_SPEED;
+			
+			if (self->dirY >= MAX_FALL_SPEED)
+			{
+				self->dirY = MAX_FALL_SPEED;
+			}
+		}
+		
+		else
+		{
+			self->dirY = 0;
 		}
 		
 		if (!(self->flags & HELPLESS))
@@ -128,11 +136,28 @@ void doPlayer()
 					setEntityAnimation(&playerWeapon, STAND);
 				}
 				
+				if (input.up == 1 && self->flags & FLY)
+				{
+					self->dirY = -1;
+				}
+				
+				if (input.down == 1 && self->flags & FLY)
+				{
+					self->dirY = 1;
+				}
+				
 				if (input.attack == 1)
 				{
-					self->animationCallback = &stand;
-					
-					setEntityAnimation(&player, ATTACK_1);
+					if (playerWeapon.active == ACTIVE)
+					{
+						player.animationCallback = &stand;
+						playerShield.animationCallback = &stand;
+						playerWeapon.animationCallback = &stand;
+						
+						setEntityAnimation(&player, ATTACK_1);
+						setEntityAnimation(&playerShield, ATTACK_1);
+						setEntityAnimation(&playerWeapon, ATTACK_1);
+					}
 					
 					input.attack = 0;
 				}
@@ -167,6 +192,13 @@ void doPlayer()
 			
 					input.jump = 0;
 				}
+				
+				if (input.fly == 1)
+				{
+					self->flags ^= FLY;
+					
+					input.fly = 0;
+				}
 			}
 		}
 		
@@ -183,6 +215,10 @@ void doPlayer()
 
 static void stand()
 {
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+	
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
@@ -289,7 +325,9 @@ void takeDamage(Entity *other, int damage)
 	{
 		self->health -= damage;
 		
-		self->animationCallback = NULL;
+		player.animationCallback = NULL;
+		playerShield.animationCallback = NULL;
+		playerWeapon.animationCallback = NULL;
 		
 		setEntityAnimation(self, WALK);
 		
