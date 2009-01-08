@@ -62,6 +62,12 @@
 
 #define INSTALL_PATH ""
 
+#define MAX_ENTITY_ANIMATIONS 8
+
+#define MAX_DECORATIONS 100
+
+#define MAX_ENTITY_SOUNDS 8
+
 #ifdef WINDOWS
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
@@ -95,7 +101,9 @@ enum
 	FROZEN = 64,
 	ELECTRIFIED = 128,
 	STATIC = 256,
-	FLY = 512
+	FLY = 512,
+	ATTACKING = 1024,
+	BLOCKING = 2048
 };
 
 enum

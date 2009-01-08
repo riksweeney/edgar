@@ -32,7 +32,7 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 	exit(1);
 }
 
-void pushBack(int *thinkTime)
+void helpless(int *thinkTime)
 {
 	(*thinkTime)--;
 	
@@ -44,6 +44,13 @@ void pushBack(int *thinkTime)
 	else
 	{
 		self->flags &= ~HELPLESS;
+		
+		self->dirX = 0;
+		
+		if (self->flags & FLY)
+		{
+			self->dirY = 0;
+		}
 	}
 }
 

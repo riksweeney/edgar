@@ -19,6 +19,7 @@ extern void doCollisions(void);
 extern void loadRequiredResources(void);
 extern void doGame(void);
 extern void doMap(void);
+extern void doDecorations(void);
 
 int main(int argc, char *argv[])
 {
@@ -67,6 +68,10 @@ int main(int argc, char *argv[])
 		/* Do the Entities */
 		
 		doEntities();
+		
+		/* Do decorations */
+		
+		doDecorations();
 		
 		/* Do collisions */
 		

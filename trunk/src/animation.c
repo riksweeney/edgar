@@ -231,6 +231,9 @@ void drawLoopingAnimationToMap()
 
 		self->w = image->w;
 		self->h = image->h;
+		
+		self->offsetX = animation[self->currentAnim].offsetX[self->currentFrame];
+		self->offsetY = animation[self->currentAnim].offsetY[self->currentFrame];
 	}
 	
 	else
@@ -248,8 +251,8 @@ void drawLoopingAnimationToMap()
 		
 		else
 		{
-			x = self->x - mapStartX() + self->parent->w - self->w - animation[self->currentAnim].offsetX[self->currentFrame];
-			y = self->y - mapStartY() + animation[self->currentAnim].offsetY[self->currentFrame];
+			x = self->x - mapStartX() + self->parent->w - self->w - self->offsetX;
+			y = self->y - mapStartY() + self->offsetY;
 		}
 		
 		drawFlippedImage(image, x, y);
@@ -265,8 +268,8 @@ void drawLoopingAnimationToMap()
 		
 		else
 		{
-			x = self->x - mapStartX() + animation[self->currentAnim].offsetX[self->currentFrame];
-			y = self->y - mapStartY() + animation[self->currentAnim].offsetY[self->currentFrame];
+			x = self->x - mapStartX() + self->offsetX;
+			y = self->y - mapStartY() + self->offsetY;
 		}
 		
 		drawImage(image, x, y);
@@ -293,5 +296,8 @@ void setEntityAnimation(Entity *e, int animationID)
 		
 		e->w = image->w;
 		e->h = image->h;
+		
+		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
+		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
 	}
 }

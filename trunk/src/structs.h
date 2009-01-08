@@ -17,10 +17,11 @@ typedef struct Input
 
 typedef struct Entity
 {
-	int active, w, h;
+	int active, w, h, offsetX, offsetY;
 	int thinkTime, face;
 	int currentFrame, frameTimer;
-	int type, animation[MAX_ANIMATION_TYPES];
+	int type, animation[MAX_ENTITY_ANIMATIONS];
+	int sound[MAX_ENTITY_SOUNDS];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
 	int maxHealth;
 	long flags;
@@ -32,7 +33,6 @@ typedef struct Entity
 	void (*action)(void);
 	void (*activate)(void);
 	void (*draw)(void);
-	void (*die)(void);
 	void (*touch)(struct Entity *);
 	void (*animationCallback)(void);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);

@@ -7,7 +7,7 @@ extern void loadProperties(char *, Entity *);
 extern void centerMapOnEntity(Entity *);
 extern void dropInventoryItem(void);
 extern void selectNextInventoryItem(int);
-extern void pushBack(int *);
+extern void helpless(int *);
 extern void invulnerable(int *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
 extern void useInventoryItem(void);
@@ -15,7 +15,7 @@ extern void useInventoryItem(void);
 void setPlayerLocation(int, int);
 
 static void takeDamage(Entity *, int);
-static void stand(void);
+static void attackFinish(void);
 
 void loadPlayer(int x, int y)
 {
@@ -150,9 +150,13 @@ void doPlayer()
 				{
 					if (playerWeapon.active == ACTIVE)
 					{
-						player.animationCallback = &stand;
-						playerShield.animationCallback = &stand;
-						playerWeapon.animationCallback = &stand;
+						player.animationCallback = &attackFinish;
+						playerShield.animationCallback = &attackFinish;
+						playerWeapon.animationCallback = &attackFinish;
+						
+						player.flags |= ATTACKING;
+						playerShield.flags |= ATTACKING;
+						playerWeapon.flags |= ATTACKING;
 						
 						setEntityAnimation(&player, ATTACK_1);
 						setEntityAnimation(&playerShield, ATTACK_1);
@@ -213,11 +217,15 @@ void doPlayer()
 	}
 }
 
-static void stand()
+static void attackFinish()
 {
 	player.animationCallback = NULL;
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
+	
+	player.flags &= ~ATTACKING;
+	playerShield.flags &= ~ATTACKING;
+	playerWeapon.flags &= ~ATTACKING;
 	
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
@@ -329,11 +337,15 @@ void takeDamage(Entity *other, int damage)
 		playerShield.animationCallback = NULL;
 		playerWeapon.animationCallback = NULL;
 		
+		player.flags &= ~ATTACKING|BLOCKING;
+		playerShield.flags &= ~ATTACKING|BLOCKING;
+		playerWeapon.flags &= ~ATTACKING|BLOCKING;
+		
 		setEntityAnimation(self, WALK);
 		
 		if (self->health > 0)
 		{
-			setCustomAction(self, &pushBack, 4);
+			setCustomAction(self, &helpless, 4);
 			
 			setCustomAction(self, &invulnerable, 60);
 			

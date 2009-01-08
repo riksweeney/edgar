@@ -6,9 +6,10 @@ extern Entity *getFreeEntity(void);
 extern void setEntityAnimation(Entity *, int);
 extern void checkToMap(Entity *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
-extern void pushBack(int *);
+extern void helpless(int *);
 extern void invulnerable(int *);
 extern long prand(void);
+extern void addStarExplosion(int, int);
 
 static void fly(void);
 static void touch(Entity *);
@@ -43,31 +44,34 @@ void addBat(int x, int y)
 
 static void fly()
 {
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
+	if (!(self->flags & HELPLESS))
 	{
-		if (self->dirX == 0)
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
 		{
-			self->dirX = 0.1f + 0.1f * (prand() % 15) * (prand() % 2 == 0 ? 1 : -1);
+			if (self->dirX == 0)
+			{
+				self->dirX = 0.1f + 0.1f * (prand() % 15) * (prand() % 2 == 0 ? 1 : -1);
+			}
+			
+			else
+			{
+				self->dirX = 0;
+			}
+			
+			self->thinkTime = 60 * prand() % 120;
 		}
 		
-		else
+		if (self->dirX < 0)
 		{
-			self->dirX = 0;
+			self->face = LEFT;
 		}
 		
-		self->thinkTime = 60 * prand() % 120;
-	}
-	
-	if (self->dirX < 0)
-	{
-		self->face = LEFT;
-	}
-	
-	else if (self->dirX > 0)
-	{
-		self->face = RIGHT;
+		else if (self->dirX > 0)
+		{
+			self->face = RIGHT;
+		}
 	}
 	
 	checkToMap(self);
@@ -86,21 +90,42 @@ static void touch(Entity *other)
 		
 		self = temp;
 	}
+	
+	else if (other->type == WEAPON)
+	{
+		takeDamage(other, other->health);
+	}
 }
 
 static void takeDamage(Entity *other, int damage)
 {
 	self->health -= damage;
-			
-	setCustomAction(self, &pushBack, 4);
 	
-	if (self->dirX == 0)
+	setCustomAction(self, &helpless, 10);
+	setCustomAction(self, &invulnerable, 10);
+	
+	if (self->health > 0)
 	{
-		self->dirX = other->dirX < 0 ? -30 : 30;
+		if (self->dirX == 0)
+		{
+			self->dirX = other->dirX < 0 ? -12 : 12;
+		}
+		
+		else if (other->dirX == 0)
+		{
+			self->dirX = other->face == RIGHT ? 12 : -12;
+		}
+		
+		else
+		{
+			self->dirX = self->dirX < 0 ? 12 : -12;
+		}
 	}
 	
 	else
 	{
-		self->dirX = self->dirX < 0 ? 30 : -30;
+		self->active = INACTIVE;
+		
+		addStarExplosion(self->x, self->y);
 	}
 }
