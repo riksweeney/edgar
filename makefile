@@ -7,7 +7,7 @@ ED_OBJS   = animation.o audio.o collisions.o draw_editor.o entity.o font.o game.
 ED_OBJS  += lift.o main_editor.o map.o player.o resources.o weapons.o weather.o sprites.o bat.o properties.o custom_actions.o
 ED_OBJS  += apple.o item.o crate.o status.o cursor.o enemies.o hud.o random.o
 PROG      = edgar
-ED_PROG   = editor
+ED_PROG   = mapeditor
 CXX       = gcc
 
 # top-level rule to create the program.

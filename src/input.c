@@ -81,6 +81,10 @@ void getInput()
 						input.attack = 1;
 					break;
 					
+					case SDLK_f:
+						input.fly = 1;
+					break;
+					
 					default:
 					break;
 				}
