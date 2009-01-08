@@ -1,0 +1,4 @@
+HEALTH 1
+STAND 200
+GFX_FILE data/gfx/star.dat
+ANIM_FILE data/anim/star.dat

@@ -3,6 +3,7 @@
 extern int mapTileAt(int, int);
 extern int maxMapX(void);
 extern Entity *getPlayer(void);
+extern Entity *getPlayerWeapon(void);
 extern SDL_Surface *mapImageAt(int, int);
 extern int isTransparent(SDL_Surface *, int, int);
 
@@ -10,8 +11,9 @@ int collision(int, int, int, int, int, int, int, int);
 
 void doCollisions()
 {
-	int i, j;
+	int i, j, x, y, w, h;
 	Entity *player = getPlayer();
+	Entity *playerWeapon = getPlayerWeapon();
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -24,6 +26,32 @@ void doCollisions()
 					self = &entity[i];
 					
 					self->touch(player);
+				}
+			}
+			
+			if (playerWeapon->active == ACTIVE && (playerWeapon->flags & ATTACKING))
+			{
+				x = playerWeapon->x + playerWeapon->offsetX;
+				y = playerWeapon->y + playerWeapon->offsetY;
+				w = playerWeapon->w;
+				h = playerWeapon->h;
+				
+				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, x, y, w, h) == 1)
+				{
+					if (entity[i].touch != NULL)
+					{
+						self = &entity[i];
+						
+						self->touch(playerWeapon);
+					}
+					#if DEV
+					else
+					{
+						printf("%s has no touch set\n", entity[i].name);
+						
+						exit(1);
+					}
+					#endif
 				}
 			}
 			
