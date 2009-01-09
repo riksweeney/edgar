@@ -37,6 +37,8 @@ void init(char *title)
 	
 	/* Set the audio rate to 22050, 16 bit stereo, 2 channels and a 4096 byte buffer */
 	
+	game.audio = ACTIVE;
+	
 	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
