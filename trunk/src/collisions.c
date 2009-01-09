@@ -24,37 +24,37 @@ void doCollisions()
 				if (entity[i].touch != NULL)
 				{
 					self = &entity[i];
-					
+
 					self->touch(player);
 				}
 			}
-			
+
 			if (playerWeapon->active == ACTIVE && (playerWeapon->flags & ATTACKING))
 			{
 				x = playerWeapon->x + playerWeapon->offsetX;
 				y = playerWeapon->y + playerWeapon->offsetY;
 				w = playerWeapon->w;
 				h = playerWeapon->h;
-				
+
 				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, x, y, w, h) == 1)
 				{
 					if (entity[i].touch != NULL)
 					{
 						self = &entity[i];
-						
+
 						self->touch(playerWeapon);
 					}
 					#if DEV
 					else
 					{
 						printf("%s has no touch set\n", entity[i].name);
-						
+
 						exit(1);
 					}
 					#endif
 				}
 			}
-			
+
 			for (j=0;j<MAX_ENTITIES;j++)
 			{
 				if (i != j && entity[j].active == ACTIVE)
@@ -64,7 +64,7 @@ void doCollisions()
 						if (entity[i].touch != NULL)
 						{
 							self = &entity[i];
-							
+
 							self->touch(&entity[j]);
 						}
 					}
@@ -78,7 +78,7 @@ Entity *isSpaceEmpty(Entity *e)
 {
 	int i;
 	Entity *player = getPlayer();
-	
+
 	if (player->active == ACTIVE && collision(e->x, e->y, e->w, e->h, player->x, player->y, player->w, player->h) == 1)
 	{
 		return player;
@@ -91,126 +91,126 @@ Entity *isSpaceEmpty(Entity *e)
 			return &entity[i];
 		}
 	}
-	
+
 	return NULL;
 }
 
 void checkToMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
-	
+
 	/* Remove the entity from the ground */
-	
+
 	e->flags &= ~ON_GROUND;
-	
+
 	/* Test the horizontal movement first */
-	
+
 	i = e->h > TILE_SIZE ? TILE_SIZE : e->h;
-	
+
 	for (;;)
 	{
 		x1 = (e->x + e->dirX) / TILE_SIZE;
 		x2 = (e->x + e->dirX + e->w - 1) / TILE_SIZE;
-	
+
 		y1 = (e->y) / TILE_SIZE;
 		y2 = (e->y + i - 1) / TILE_SIZE;
-		
+
 		if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
 		{
 			if (e->dirX > 0)
 			{
 				/* Trying to move right */
-				
+
 				if (mapTileAt(x2, y2) == SLOPE_UP)
 				{
 					if (i == e->h)
 					{
 						e->y -= e->dirX;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if (mapTileAt((e->x + e->w - 1) / TILE_SIZE, y2) == SLOPE_UP)
 				{
 					if (i == e->h)
 					{
 						e->y = y2* TILE_SIZE;
-						
+
 						e->y -= e->h;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if ((mapTileAt(x2, y1) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-		
+
 					e->x = x2 * TILE_SIZE;
-					
+
 					e->x -= e->w + 1;
-		
+
 					e->dirX = 0;
 				}
 			}
-		
+
 			else if (e->dirX < 0)
 			{
 				/* Trying to move left */
-				
+
 				if (mapTileAt(x1, y2) == SLOPE_DOWN)
 				{
 					if (i == e->h)
 					{
 						e->y += e->dirX;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if (mapTileAt((e->x) / TILE_SIZE, y2) == SLOPE_DOWN)
 				{
 					if (i == e->h)
 					{
 						e->y = y2* TILE_SIZE;
-						
+
 						e->y -= e->h;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-		
+
 				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-					
+
 					e->x = (x1 + 1) * TILE_SIZE;
-		
+
 					e->dirX = 0;
 				}
 			}
 		}
-		
+
 		/* Exit this loop if we have tested all of the body */
-		
+
 		if (i == e->h)
 		{
 			break;
 		}
-		
+
 		/* Test the next block */
-		
+
 		i += TILE_SIZE;
-		
+
 		if (i > e->h)
 		{
 			i = e->h;
@@ -218,88 +218,88 @@ void checkToMap(Entity *e)
 	}
 
 	/* Now test the vertical movement */
-	
+
 	i = e->w > TILE_SIZE ? TILE_SIZE : e->w;
-	
+
 	for (;;)
 	{
 		x1 = (e->x) / TILE_SIZE;
 		x2 = (e->x + i) / TILE_SIZE;
-	
+
 		y1 = (e->y + e->dirY) / TILE_SIZE;
 		y2 = (e->y + e->dirY + e->h) / TILE_SIZE;
-		
+
 		if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
 		{
 			if (e->dirY > 0)
 			{
 				/* Trying to move down */
-				
+
 				if (mapTileAt(x2, y2) == SLOPE_UP)
 				{
 					if (i == e->w)
 					{
 						e->y = (y2 + 1) * TILE_SIZE;
 						e->y -= e->h;
-						
+
 						e->y -= ((int)e->x + e->w) % TILE_SIZE;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if (mapTileAt(x1, y2) == SLOPE_DOWN)
 				{
 					if (i == e->w)
 					{
 						e->y = (y2 + 1) * TILE_SIZE;
 						e->y -= e->h;
-						
+
 						e->y -= TILE_SIZE - ((int)e->x) % TILE_SIZE;
-						
+
 						e->dirY = 0;
-						
+
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if ((mapTileAt(x1, y2) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-					
+
 					e->y = y2 * TILE_SIZE;
 					e->y -= e->h;
-		
+
 					e->dirY = 0;
-					
+
 					e->flags |= ON_GROUND;
 				}
 			}
-		
+
 			else if (e->dirY < 0)
 			{
 				/* Trying to move up */
-		
+
 				if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x2, y1) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-		
+
 					e->y = (y1 + 1) * TILE_SIZE;
-		
+
 					e->dirY = 0;
 				}
 			}
 		}
-		
+
 		if (i == e->w)
 		{
 			break;
 		}
-		
+
 		i += TILE_SIZE;
-		
+
 		if (i > e->w)
 		{
 			i = e->w;
@@ -310,18 +310,18 @@ void checkToMap(Entity *e)
 
 	e->x += e->dirX;
 	e->y += e->dirY;
-	
+
 	if (e->x < 0)
 	{
 		e->x = 0;
-		
+
 		e->dirX = 0;
 	}
-	
+
 	else if (e->x + e->w >= maxMapX())
 	{
 		e->x = maxMapX() - e->w - 1;
-		
+
 		e->dirX = 0;
 	}
 }
@@ -329,65 +329,65 @@ void checkToMap(Entity *e)
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
-	
+
 	i = e->w > TILE_SIZE ? TILE_SIZE : e->w;
-	
+
 	for (;;)
 	{
 		x1 = (e->x) / TILE_SIZE;
 		x2 = (e->x + i - 1) / TILE_SIZE;
-	
+
 		y1 = (e->y) / TILE_SIZE;
 		y2 = (e->y + e->h - 1) / TILE_SIZE;
-		
+
 		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
 			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
 		{
 			return 0;
 		}
-		
+
 		if (i == e->w)
 		{
 			break;
 		}
-		
+
 		i += e->w;
-		
+
 		if (i > e->w)
 		{
 			i = e->w;
 		}
 	}
-	
+
 	i = e->h > TILE_SIZE ? TILE_SIZE : e->h;
-	
+
 	for (;;)
 	{
 		x1 = (e->x) / TILE_SIZE;
 		x2 = (e->x + e->w - 1) / TILE_SIZE;
-	
+
 		y1 = (e->y) / TILE_SIZE;
 		y2 = (e->y + i - 1) / TILE_SIZE;
-		
+
 		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
 			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
 		{
 			return 0;
 		}
-		
+
 		if (i == e->h)
 		{
 			break;
 		}
-		
+
 		i += e->h;
-		
+
 		if (i > e->h)
 		{
 			i = e->h;
 		}
 	}
-	
+
 	return 1;
 }
 

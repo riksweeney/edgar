@@ -60,23 +60,35 @@
 
 #define SLOPE_DOWN 201
 
-#define INSTALL_PATH ""
-
 #define MAX_ENTITY_ANIMATIONS 8
 
 #define MAX_DECORATIONS 100
 
 #define MAX_ENTITY_SOUNDS 8
 
-#ifdef WINDOWS
+#ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
 	#define strcmpignorecase(x, y) strcasecmp(x, y)
 #endif
 
+#if DEV < 1
+
+#else
+	#ifdef INSTALL_PATH
+		#undef INSTALL_PATH
+	#endif
+
+	#define INSTALL_PATH ""
+#endif
+
 #define MAX_SOUNDS 256
 
 #define ITEM_JUMP_HEIGHT -6
+
+#define HEART_FULL 101
+
+#define HEART_EMPTY 102
 
 enum
 {
@@ -103,7 +115,8 @@ enum
 	STATIC = 256,
 	FLY = 512,
 	ATTACKING = 1024,
-	BLOCKING = 2048
+	BLOCKING = 2048,
+	TRAPPABLE = 4096
 };
 
 enum
