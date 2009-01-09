@@ -284,6 +284,13 @@ void setEntityAnimation(Entity *e, int animationID)
 	{
 		e->currentAnim = e->animation[animationID];
 		
+		if (e->currentAnim == -1)
+		{
+			printf("Animation not set for %s index %d\n", e->name, animationID);
+			
+			abort();
+		}
+		
 		e->currentFrame = 0;
 		e->frameTimer = animation[e->currentAnim].frameTimer[0];
 		

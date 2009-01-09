@@ -44,14 +44,6 @@ void doCollisions()
 
 						self->touch(playerWeapon);
 					}
-					#if DEV
-					else
-					{
-						printf("%s has no touch set\n", entity[i].name);
-
-						exit(1);
-					}
-					#endif
 				}
 			}
 

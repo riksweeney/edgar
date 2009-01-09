@@ -13,7 +13,7 @@ extern void addTemporaryItem(char *, int, int);
 
 static void dropChickenFeed(void);
 
-void addChickenFeed(int x, int y)
+void addChickenFeedBag(int x, int y)
 {
 	Entity *e = getFreeEntity();
 
@@ -34,9 +34,11 @@ void addChickenFeed(int x, int y)
 	e->type = ITEM;
 
 	e->face = LEFT;
+	
+	e->health = e->thinkTime;
 
 	e->action = &doNothing;
-	e->touch = keyItemTouch;
+	e->touch = &keyItemTouch;
 	e->activate = &dropChickenFeed;
 	e->die = &keyItemRespawn;
 
