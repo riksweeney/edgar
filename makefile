@@ -1,15 +1,16 @@
 VERSION = 0.1
 RELEASE = 1
 DEV = 1
+INSTALL_PATH = ""
 
-CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV)
+CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=$(INSTALL_PATH)
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 OBJS      = animation.o audio.o collisions.o draw.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 OBJS     += lift.o main.o map.o player.o resources.o weapons.o weather.o sprites.o bat.o properties.o custom_actions.o
-OBJS     += apple.o item.o crate.o status.o enemies.o hud.o random.o decoration.o sounds.o
+OBJS     += apple.o item.o crate.o status.o enemies.o hud.o random.o decoration.o sounds.o chicken_feed.o chicken.o
 ED_OBJS   = animation.o audio.o collisions.o draw_editor.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 ED_OBJS  += lift.o main_editor.o map.o player.o resources.o weapons.o weather.o sprites.o bat.o properties.o custom_actions.o
-ED_OBJS  += apple.o item.o crate.o status.o cursor.o enemies.o hud.o random.o decoration.o sounds.o
+ED_OBJS  += apple.o item.o crate.o status.o cursor.o enemies.o hud.o random.o decoration.o sounds.o chicken_feed.o chicken.o
 PROG      = edgar
 ED_PROG   = mapeditor
 CXX       = gcc

@@ -23,13 +23,13 @@ typedef struct Entity
 	int type, animation[MAX_ENTITY_ANIMATIONS];
 	int sound[MAX_ENTITY_SOUNDS];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
-	int maxHealth;
+	int maxHealth, damage;
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
-	float targetX, targetY;
+	float targetX, targetY, speed;
 	char name[30], objectiveName[30], activates[30];
-	struct Entity *standingOn, *parent;
+	struct Entity *standingOn, *parent, *target;
 	void (*action)(void);
 	void (*activate)(void);
 	void (*draw)(void);
@@ -37,6 +37,7 @@ typedef struct Entity
 	void (*animationCallback)(void);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 	void (*takeDamage)(struct Entity *, int);
+	void (*die)(void);
 } Entity;
 
 typedef struct Map

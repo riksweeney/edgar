@@ -1,0 +1,5 @@
+HEALTH 1
+STAND 51
+GFX_FILE data/gfx/heart.dat
+ANIM_FILE data/anim/heart.dat
+TYPE HEALTH
