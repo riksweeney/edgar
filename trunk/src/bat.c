@@ -10,6 +10,7 @@ extern void helpless(int *);
 extern void invulnerable(int *);
 extern long prand(void);
 extern void addStarExplosion(int, int);
+extern void playSoundAtIndex(int);
 
 static void fly(void);
 static void touch(Entity *);
@@ -125,6 +126,8 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		self->active = INACTIVE;
+		
+		playSoundAtIndex(POP_SFX);
 		
 		addStarExplosion(self->x, self->y);
 	}

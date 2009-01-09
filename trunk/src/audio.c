@@ -45,6 +45,11 @@ void playSound(Mix_Chunk *chunk, int channel)
 	}
 }
 
+void playSoundAtIndex(int index)
+{
+	playSound(sound[index].effect, -1);
+}
+
 void freeSounds()
 {
 	int i;
