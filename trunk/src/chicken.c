@@ -61,7 +61,7 @@ void lookForFood()
 		self->thinkTime = 180 * prand() % 120;
 	}
 
-	if (prand() % 60 == 0)
+	if (prand() % 20 == 0)
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{

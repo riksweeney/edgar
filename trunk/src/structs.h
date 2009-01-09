@@ -99,8 +99,8 @@ typedef struct Properties
 	char name[30], key[MAX_PROPS_ENTRIES][30], value[MAX_PROPS_ENTRIES][30];
 } Properties;
 
-typedef struct Enemy
+typedef struct Special
 {
 	char name[30];
 	void (*construct)(int, int);
-} Enemy;
+} Special;

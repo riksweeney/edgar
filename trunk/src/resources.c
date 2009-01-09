@@ -78,12 +78,12 @@ void loadResource(char *line)
 	{
 		loadPlayer(startX, startY);
 	}
-	/*
+	
 	else if (strcmpignorecase(type, "KEY_ITEM") == 0)
 	{
 		addKeyItem(name, startX, startY);
 	}
-	
+	/*
 	else if (strcmpignorecase(type, "LIFT") == 0)
 	{
 		addLift(name, startX, startY, endX, endY);

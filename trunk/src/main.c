@@ -20,6 +20,7 @@ extern void loadRequiredResources(void);
 extern void doGame(void);
 extern void doMap(void);
 extern void doDecorations(void);
+extern void doInventory(void);
 
 int main(int argc, char *argv[])
 {
@@ -60,6 +61,10 @@ int main(int argc, char *argv[])
 		/* Do the player, provided they still have enough lives left */
 		
 		doPlayer();
+		
+		/* Do the inventory */
+		
+		doInventory();
 		
 		/* Do the map */
 		

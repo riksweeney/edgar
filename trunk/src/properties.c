@@ -16,6 +16,14 @@ void loadProperties(char *name, Entity *e)
 	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
 
 	index = -1;
+	
+	if (e != NULL)
+	{
+		for (i=0;i<MAX_ENTITY_ANIMATIONS;i++)
+		{
+			e->animation[i] = -1;
+		}
+	}
 
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{

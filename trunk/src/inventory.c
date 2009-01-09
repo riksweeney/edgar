@@ -21,6 +21,8 @@ int addToInventory(Entity *e)
 			
 			inventory.item[i].face = RIGHT;
 			
+			inventory.item[i].thinkTime = 0;
+			
 			setEntityAnimation(&inventory.item[i], STAND);
 			
 			e->active = INACTIVE;
