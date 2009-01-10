@@ -24,7 +24,7 @@ void addBat(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("bat", e);
+	loadProperties("enemy/bat", e);
 
 	e->x = x;
 	e->y = y;

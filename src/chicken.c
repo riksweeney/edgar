@@ -25,7 +25,7 @@ void addChicken(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("chicken", e);
+	loadProperties("enemy/chicken", e);
 
 	e->x = x;
 	e->y = y;

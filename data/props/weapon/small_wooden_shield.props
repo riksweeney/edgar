@@ -3,6 +3,6 @@ STAND 5
 WALK 6
 ATTACK_1 5
 DIE 5
-GFX_FILE data/gfx/small_wooden_shield.dat
-ANIM_FILE data/anim/small_wooden_shield.dat
+GFX_FILE data/gfx/weapon/small_wooden_shield.dat
+ANIM_FILE data/anim/weapon/small_wooden_shield.dat
 TYPE SHIELD

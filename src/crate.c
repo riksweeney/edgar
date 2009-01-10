@@ -18,7 +18,7 @@ void addWoodenCrate(int x, int y)
 		exit(1);
 	}
 	
-	loadProperties("wooden_crate", e);
+	loadProperties("item/wooden_crate", e);
 	
 	e->x = x;
 	e->y = y;
@@ -43,7 +43,7 @@ void addMetalCrate(int x, int y)
 		exit(1);
 	}
 	
-	loadProperties("metal_crate", e);
+	loadProperties("item/metal_crate", e);
 	
 	e->x = x;
 	e->y = y;
