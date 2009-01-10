@@ -11,7 +11,7 @@ void initHud()
 {
 	itemBox = loadImage(INSTALL_PATH"gfx/hud/item_box.png");
 
-	loadProperties("heart", NULL);
+	loadProperties("item/heart", NULL);
 }
 
 void drawHud()

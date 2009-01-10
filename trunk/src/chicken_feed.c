@@ -24,7 +24,7 @@ void addChickenFeedBag(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("chicken_feed_bag", e);
+	loadProperties("item/chicken_feed_bag", e);
 
 	e->x = x;
 	e->y = y;

@@ -18,7 +18,7 @@ void addApple(int x, int y)
 		exit(1);
 	}
 	
-	loadProperties("apple", e);
+	loadProperties("item/apple", e);
 	
 	e->x = x;
 	e->y = y;

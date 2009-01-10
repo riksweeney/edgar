@@ -20,7 +20,7 @@ void addLift(int startX, int startY, int endX, int endY, int pauseTime)
 		return;
 	}
 	
-	loadProperties("lift", e);
+	loadProperties("lift/lift", e);
 	
 	e->type = LIFT;
 	e->action = &move;

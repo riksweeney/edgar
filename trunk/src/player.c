@@ -19,7 +19,7 @@ static void attackFinish(void);
 
 void loadPlayer(int x, int y)
 {
-	loadProperties("edgar", &player);
+	loadProperties("edgar/edgar", &player);
 
 	if (player.active != ACTIVE)
 	{

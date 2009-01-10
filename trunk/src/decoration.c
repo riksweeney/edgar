@@ -83,7 +83,7 @@ void addStarExplosion(int x, int y)
 			return;
 		}
 		
-		loadProperties("star", e);
+		loadProperties("decoration/star", e);
 		
 		switch (i)
 		{

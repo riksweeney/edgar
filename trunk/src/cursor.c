@@ -22,8 +22,10 @@ extern int addEntity(Entity, int, int);
 extern void setPlayerLocation(int, int);
 extern void centerMapOnEntity(Entity *);
 
-static char *entityNames[] = {"edgar", "apple", "wooden_crate", "metal_crate", "bat", "pickaxe", "small_wooden_shield",
-							  "basic_sword", "chicken_feed_bag", NULL};
+static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", "item/metal_crate",
+							  "enemy/bat", "weapon/pickaxe",
+							  "weapon/small_wooden_shield",
+							  "weapon/basic_sword", "item/chicken_feed_bag", "enemy/chicken", NULL};
 static int entityNamesLength = 0;
 
 void initCursor()

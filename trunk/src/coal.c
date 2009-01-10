@@ -16,7 +16,7 @@ void addCoal(int x, int y)
 		exit(1);
 	}
 	
-	loadProperties("coal", e);
+	loadProperties("item/coal", e);
 	
 	e->x = x;
 	e->y = y;
