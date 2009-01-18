@@ -216,7 +216,7 @@ void checkToMap(Entity *e)
 	for (;;)
 	{
 		x1 = (e->x) / TILE_SIZE;
-		x2 = (e->x + i) / TILE_SIZE;
+		x2 = (e->x + i - 1) / TILE_SIZE;
 
 		y1 = (e->y + e->dirY) / TILE_SIZE;
 		y2 = (e->y + e->dirY + e->h) / TILE_SIZE;
@@ -316,6 +316,43 @@ void checkToMap(Entity *e)
 
 		e->dirX = 0;
 	}
+}
+
+int isAtEdge(Entity *e)
+{
+	int x = e->x + e->dirX + (e->dirX > 0 ? e->w : 0);
+	int y = e->y + e->h + 1;
+	int i;
+	
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+	
+	/* Return immediately if the tile isn't blank */
+	
+	if (!(e->flags & ON_GROUND) || mapTileAt(x, y) != BLANK_TILE)
+	{
+		return 0;
+	}
+	
+	/* There might still be Entities that can be walked on */
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (e != &entity[i] && (entity[i].flags & PUSHABLE))
+		{
+			if (collision(e->x + (e->face == LEFT ? -5 : 5), e->y + 5, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			{
+				if (collision(e->x + (e->face == LEFT ? -5 : 5), e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 0)
+				{
+					return 0;
+				}
+				
+				return 1;
+			}
+		}
+	}
+	
+	return 1;
 }
 
 int isValidOnMap(Entity *e)

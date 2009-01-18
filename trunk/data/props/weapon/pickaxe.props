@@ -1,8 +1,4 @@
 DAMAGE 1
-STAND 9
-WALK 10
-ATTACK_1 11
-DIE 9
 GFX_FILE data/gfx/weapon/pickaxe.dat
 ANIM_FILE data/anim/weapon/pickaxe.dat
 TYPE WEAPON

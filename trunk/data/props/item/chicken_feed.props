@@ -1,5 +1,4 @@
 HEALTH 10
-STAND 113
 GFX_FILE data/gfx/item/chicken_feed.dat
 ANIM_FILE data/anim/item/chicken_feed.dat
 TYPE ITEM

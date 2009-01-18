@@ -58,6 +58,16 @@ void doEntities()
 					self->custom[j](&self->customThinkTime[j]);
 				}
 			}
+			
+			if (!(self->flags & FLY))
+			{
+				self->dirY += GRAVITY_SPEED;
+			
+				if (self->dirY >= MAX_FALL_SPEED)
+				{
+					self->dirY = MAX_FALL_SPEED;
+				}
+			}
 
 			self->action();
 		}
@@ -101,13 +111,6 @@ void doNothing()
 	}
 
 	self->dirX = 0;
-
-	self->dirY += GRAVITY_SPEED;
-
-	if (self->dirY >= MAX_FALL_SPEED)
-	{
-		self->dirY = MAX_FALL_SPEED;
-	}
 
 	checkToMap(self);
 }

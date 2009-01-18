@@ -1,5 +1,4 @@
 HEALTH 1
-STAND 51
 GFX_FILE data/gfx/item/wooden_crate.dat
 ANIM_FILE data/anim/item/wooden_crate.dat
 TYPE ITEM

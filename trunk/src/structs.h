@@ -20,7 +20,7 @@ typedef struct Entity
 	int active, w, h, offsetX, offsetY;
 	int thinkTime, face;
 	int currentFrame, frameTimer;
-	int type, animation[MAX_ENTITY_ANIMATIONS];
+	int type, animation[MAX_ANIMATION_TYPES];
 	int sound[MAX_ENTITY_SOUNDS];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
 	int maxHealth, damage;
@@ -96,7 +96,8 @@ typedef struct Droplet
 
 typedef struct Properties
 {
-	char name[30], key[MAX_PROPS_ENTRIES][30], value[MAX_PROPS_ENTRIES][30];
+	char name[30], key[MAX_PROPS_ENTRIES][30], value[MAX_PROPS_ENTRIES][60];
+	int animations[MAX_ANIMATION_TYPES];
 } Properties;
 
 typedef struct Special

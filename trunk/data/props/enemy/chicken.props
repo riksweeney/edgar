@@ -1,7 +1,6 @@
+SPEED 1.1
 HEALTH 6
 DAMAGE 1
-STAND 21
-WALK 21
 GFX_FILE data/gfx/enemy/chicken.dat
 ANIM_FILE data/anim/enemy/chicken.dat
 SFX_FILE data/sfx/enemy/chicken.dat
