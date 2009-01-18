@@ -1,9 +1,5 @@
 HEALTH 6
 DAMAGE 1
-STAND 20
-WALK 20
-ATTACK_1 21
-DIE 23
 GFX_FILE data/gfx/enemy/bat.dat
 ANIM_FILE data/anim/enemy/bat.dat
 SFX_FILE data/sfx/enemy/bat.dat

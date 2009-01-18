@@ -2,12 +2,14 @@
 
 extern SDL_Surface *loadImage(char *);
 
-static void loadSpriteToBank(char *, int);
+static void loadSprite(char *);
 
-void loadSpritesFromFile(char *name)
+static int spriteID = 0;
+
+void loadSpritesFromFile(char *name, int *index)
 {
 	char imageName[255], line[MAX_LINE_LENGTH];
-	int index;
+	int i;
 	FILE *fp = fopen(name, "rb");
 	
 	printf("Loading sprites from %s\n", name);
@@ -19,6 +21,8 @@ void loadSpritesFromFile(char *name)
 		exit(1);
 	}
 	
+	i = 0;
+	
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		if (line[0] == '#' || line[0] == '\n')
@@ -26,22 +30,19 @@ void loadSpritesFromFile(char *name)
 			continue;
 		}
 		
-		sscanf(line, "%s %d", imageName, &index);
+		sscanf(line, "%s", imageName);
 		
-		loadSpriteToBank(imageName, index);
+		loadSprite(imageName);
+		
+		index[i] = spriteID++;
+		
+		i++;
 	}
 }
 
-static void loadSpriteToBank(char *name, int index)
-{
-	if (sprite[index] != NULL)
-	{
-		printf("Attempting to replace existing sprite at %d\n", index);
-		
-		exit(1);
-	}
-	
-	sprite[index] = loadImage(name);
+static void loadSprite(char *name)
+{	
+	sprite[spriteID] = loadImage(name);
 }
 
 void freeSprites()

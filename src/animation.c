@@ -7,13 +7,13 @@ extern SDL_Surface *getSpriteImage(int);
 extern int mapStartX(void);
 extern int mapStartY(void);
 
-void loadAnimationData(char *filename)
+static int animationID = -1;
+
+void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 {
 	char frameName[255];
-	int id, i;
+	int i;
 	FILE *fp;
-	
-	id = -1;
 
 	fp = fopen(filename, "rb");
 
@@ -25,6 +25,11 @@ void loadAnimationData(char *filename)
 	}
 	
 	printf("Loading animation data from %s\n", filename);
+	
+	for (i=0;i<MAX_ANIMATION_TYPES;i++)
+	{
+		animationIndex[i] = -1;
+	}
 
 	while (!feof(fp))
 	{		
@@ -35,37 +40,89 @@ void loadAnimationData(char *filename)
 			continue;
 		}
 		
-		if (strcmpignorecase(frameName, "INDEX") == 0)
+		if (strcmpignorecase(frameName, "NAME") == 0)
 		{
-			if (id != -1)
+			if (animationID != -1)
 			{
-				if (animation[id].frameCount == 0)
+				if (animation[animationID].frameCount == 0)
 				{
-					printf("Animation %d was created with 0 frames\n", id);
+					printf("Animation %d was created with 0 frames\n", animationID);
 					
 					exit(1);
 				}
 			}
 			
-			fscanf(fp, "%d", &id);
+			fscanf(fp, "%s", frameName);
+			
+			animationID++;
+			
+			if (strcmpignorecase(frameName, "STAND") == 0)
+			{
+				animationIndex[STAND] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "WALK") == 0)
+			{
+				animationIndex[WALK] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "JUMP") == 0)
+			{
+				animationIndex[JUMP] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "PAIN") == 0)
+			{
+				animationIndex[PAIN] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "DIE") == 0)
+			{
+				animationIndex[DIE] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "ATTACK_1") == 0)
+			{
+				animationIndex[ATTACK_1] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "ATTACK_2") == 0)
+			{
+				animationIndex[ATTACK_2] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "ATTACK_3") == 0)
+			{
+				animationIndex[ATTACK_3] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "ATTACK_4") == 0)
+			{
+				animationIndex[ATTACK_4] = animationID;
+			}
+			
+			else if (strcmpignorecase(frameName, "ATTACK_5") == 0)
+			{
+				animationIndex[ATTACK_5] = animationID;
+			}
+			
+			else
+			{
+				printf("Unknown animation %s\n", frameName);
+				
+				exit(1);
+			}
 		}
 		
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
 		{
-			if (animation[id].frameID != NULL)
-			{
-				printf("Attempting to overwrite existing animation in slot %d\n", id);
-				
-				exit(1);
-			}
-			
-			fscanf(fp, "%d", &animation[id].frameCount);
+			fscanf(fp, "%d", &animation[animationID].frameCount);
 	
 			/* Allocate space for the frame timer */
 	
-			animation[id].frameTimer = (int *)malloc(animation[id].frameCount * sizeof(int));
+			animation[animationID].frameTimer = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 	
-			if (animation[id].frameTimer == NULL)
+			if (animation[animationID].frameTimer == NULL)
 			{
 				printf("Ran out of memory when creating the animation for %s\n", filename);
 	
@@ -74,9 +131,9 @@ void loadAnimationData(char *filename)
 			
 			/* Allocate space for the frame timer */
 	
-			animation[id].frameID = (int *)malloc(animation[id].frameCount * sizeof(int));
+			animation[animationID].frameID = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 	
-			if (animation[id].frameID == NULL)
+			if (animation[animationID].frameID == NULL)
 			{
 				printf("Ran out of memory when creating the animation for %s\n", filename);
 	
@@ -85,18 +142,18 @@ void loadAnimationData(char *filename)
 			
 			/* Allocate space for the offsets */
 	
-			animation[id].offsetX = (int *)malloc(animation[id].frameCount * sizeof(int));
+			animation[animationID].offsetX = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 	
-			if (animation[id].offsetX == NULL)
+			if (animation[animationID].offsetX == NULL)
 			{
 				printf("Ran out of memory when creating the animation for %s\n", filename);
 	
 				exit(1);
 			}
 			
-			animation[id].offsetY = (int *)malloc(animation[id].frameCount * sizeof(int));
+			animation[animationID].offsetY = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 	
-			if (animation[id].offsetY == NULL)
+			if (animation[animationID].offsetY == NULL)
 			{
 				printf("Ran out of memory when creating the animation for %s\n", filename);
 	
@@ -105,16 +162,20 @@ void loadAnimationData(char *filename)
 	
 			/* Now load up each frame */
 	
-			for (i=0;i<animation[id].frameCount;i++)
+			for (i=0;i<animation[animationID].frameCount;i++)
 			{
-				fscanf(fp, "%d %d %d %d", &animation[id].frameID[i], &animation[id].frameTimer[i], &animation[id].offsetX[i], &animation[id].offsetY[i]);
+				fscanf(fp, "%d %d %d %d", &animation[animationID].frameID[i], &animation[animationID].frameTimer[i], &animation[animationID].offsetX[i], &animation[animationID].offsetY[i]);
+				
+				/* Reassign the Animation frame to the appropriate Sprite index */
+				
+				animation[animationID].frameID[i] = spriteIndex[animation[animationID].frameID[i]];
 			}
 		}
 	}
 	
-	if (animation[id].frameCount == 0)
+	if (animation[animationID].frameCount == 0)
 	{
-		printf("Animation %d was created with 0 frames\n", id);
+		printf("Animation %d was created with 0 frames\n", animationID);
 		
 		exit(1);
 	}
@@ -215,8 +276,6 @@ void drawLoopingAnimationToMap()
 			if (self->animationCallback != NULL)
 			{
 				self->animationCallback();
-				
-				self->animationCallback = NULL;
 			}
 		}
 

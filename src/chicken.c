@@ -9,9 +9,11 @@ extern long prand(void);
 extern int collision(int, int, int, int, int, int, int, int);
 extern void checkToMap(Entity *);
 extern void doNothing(void);
+extern int isAtEdge(Entity *);
 
 static void lookForFood(void);
-static void moveToFeed(void);
+static void wander(void);
+static void moveToFood(void);
 static void finishEating(void);
 
 void addChicken(int x, int y)
@@ -30,7 +32,7 @@ void addChicken(int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForFood;
+	e->action = &wander;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -40,10 +42,34 @@ void addChicken(int x, int y)
 	setEntityAnimation(e, STAND);
 }
 
-void lookForFood()
+static void lookForFood()
 {
 	int i;
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].active == INACTIVE || entity[i].type != ITEM || &entity[i] == self || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
+		{
+			continue;
+		}
 
+		if (collision(self->x + (self->face == RIGHT ? 0: -400), self->y, 400, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		{
+			self->target = &entity[i];
+
+			self->action = &moveToFood;
+			
+			printf("Spotted chicken feed\n");
+
+			return;
+		}
+	}
+	
+	self->action = &wander;
+}
+
+static void wander()
+{
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -51,34 +77,23 @@ void lookForFood()
 		if (self->dirX == 0)
 		{
 			self->dirX = self->speed * (prand() % 2 == 0 ? -1 : 1);
+			
+			setEntityAnimation(self, WALK);
 		}
 
 		else
 		{
 			self->dirX = 0;
+			
+			setEntityAnimation(self, STAND);
 		}
 
-		self->thinkTime = 180 * prand() % 120;
+		self->thinkTime = 180 + prand() % 120;
 	}
 
-	if (prand() % 20 == 0)
+	if (prand() % 2 == 0)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			if (entity[i].active == INACTIVE || entity[i].type != KEY_ITEM || &entity[i] == self || strcmpignorecase(entity[i].name, "chicken_feed") != 0)
-			{
-				continue;
-			}
-
-			if (collision(self->x, self->y, self->face == RIGHT ? 400: -400, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
-			{
-				self->target = &entity[i];
-
-				self->action = &moveToFeed;
-
-				return;
-			}
-		}
+		lookForFood();
 	}
 
 	if (self->dirX < 0)
@@ -90,15 +105,34 @@ void lookForFood()
 	{
 		self->face = RIGHT;
 	}
+	
+	if (self->dirX != 0 && isAtEdge(self) == 1)
+	{
+		self->dirX = 0;
+		
+		setEntityAnimation(self, STAND);
+	}
 
 	checkToMap(self);
 }
 
-static void moveToFeed()
+static void moveToFood()
 {
-	if (self->target->active == ACTIVE && abs(self->x - self->target->x) > self->speed)
+	if (self->target->active == ACTIVE && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
-		self->dirX += self->target->x < self->x ? -self->speed : self->speed;
+		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
+		
+		if (self->dirX != 0 && isAtEdge(self) == 1)
+		{
+			self->dirX = 0;
+			
+			setEntityAnimation(self, STAND);
+		}
+		
+		else
+		{
+			setEntityAnimation(self, WALK);
+		}
 	}
 
 	else
@@ -107,9 +141,9 @@ static void moveToFeed()
 
 		self->action = &doNothing;
 
+		setEntityAnimation(self, STAND);
+		
 		self->animationCallback = &finishEating;
-
-		setEntityAnimation(self, ATTACK_1);
 	}
 
 	checkToMap(self);
@@ -118,22 +152,30 @@ static void moveToFeed()
 static void finishEating()
 {
 	self->target->health--;
+	
+	printf("Food health is %d\n", self->target->health);
 
 	if (self->target->health <= 0)
 	{
-		self->active = INACTIVE;
+		self->target->active = INACTIVE;
 
 		self->target = NULL;
 
 		self->action = &lookForFood;
 
 		self->thinkTime = 0;
+		
+		self->animationCallback = NULL;
 	}
 
 	else
 	{
 		self->target->thinkTime = 600;
 
+		self->action = &doNothing;
+
+		setEntityAnimation(self, STAND);
+		
 		self->animationCallback = &finishEating;
 	}
 }

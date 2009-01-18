@@ -1,6 +1,5 @@
 HEALTH 1
-STAND 52
 GFX_FILE data/gfx/item/metal_crate.dat
 ANIM_FILE data/anim/item/metal_crate.dat
 TYPE ITEM
-FLAGS PUSHABLE|INVULERNABLE
+FLAGS PUSHABLE|INVULNERABLE

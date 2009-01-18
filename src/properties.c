@@ -1,7 +1,7 @@
 #include "properties.h"
 
-extern void loadSpritesFromFile(char *);
-extern void loadAnimationData(char *);
+extern void loadSpritesFromFile(char *, int *);
+extern void loadAnimationData(char *, int *, int *);
 extern void setEntityAnimation(Entity *, int);
 
 static void setFlags(Entity *, char *);
@@ -9,21 +9,13 @@ static int getType(char *);
 
 void loadProperties(char *name, Entity *e)
 {
-	int i, j, index;
+	int i, j, index, animationIndex, graphicsIndex, sprites[256];
 	char path[255], line[MAX_LINE_LENGTH];
 	FILE *fp;
 
 	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
 
 	index = -1;
-	
-	if (e != NULL)
-	{
-		for (i=0;i<MAX_ENTITY_ANIMATIONS;i++)
-		{
-			e->animation[i] = -1;
-		}
-	}
 
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
@@ -34,6 +26,13 @@ void loadProperties(char *name, Entity *e)
 			break;
 		}
 	}
+	
+	for (i=0;i<256;i++)
+	{
+		sprites[i] = -1;
+	}
+	
+	animationIndex = graphicsIndex = -1;
 
 	if (index == -1)
 	{
@@ -74,12 +73,12 @@ void loadProperties(char *name, Entity *e)
 
 					if (strcmpignorecase(properties[i].key[j], "GFX_FILE") == 0)
 					{
-						loadSpritesFromFile(properties[i].value[j]);
+						graphicsIndex = j;	
 					}
 
-					if (strcmpignorecase(properties[i].key[j], "ANIM_FILE") == 0)
+					else if (strcmpignorecase(properties[i].key[j], "ANIM_FILE") == 0)
 					{
-						loadAnimationData(properties[i].value[j]);
+						animationIndex = j;
 					}
 
 					j++;
@@ -90,6 +89,27 @@ void loadProperties(char *name, Entity *e)
 				break;
 			}
 		}
+		
+		if (graphicsIndex != -1 && animationIndex != -1)
+		{
+			loadSpritesFromFile(properties[i].value[graphicsIndex], sprites);
+			
+			loadAnimationData(properties[i].value[animationIndex], sprites, properties[i].animations);
+		}
+		
+		else if (graphicsIndex == 0)
+		{
+			printf("No graphics file found for %s\n", name);
+			
+			exit(1);
+		}
+		
+		else
+		{
+			printf("No animation file found for %s\n", name);
+			
+			exit(1);
+		}
 
 		if (i == MAX_PROPS_FILES)
 		{
@@ -97,6 +117,11 @@ void loadProperties(char *name, Entity *e)
 
 			exit(1);
 		}
+	}
+	
+	else
+	{
+		i = index;
 	}
 
 	if (e != NULL)
@@ -138,67 +163,14 @@ void loadProperties(char *name, Entity *e)
 			{
 				e->type = getType(properties[i].value[j]);
 			}
-
-			else if (strcmpignorecase(properties[i].key[j], "STAND") == 0)
+		}
+		
+		for (j=0;j<MAX_ANIMATION_TYPES;j++)
+		{
+			e->animation[j] = properties[i].animations[j];
+			
+			if (e->animation[j] != -1)
 			{
-				e->animation[STAND] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "WALK") == 0)
-			{
-				e->animation[WALK] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "JUMP") == 0)
-			{
-				e->animation[JUMP] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "ATTACK_1") == 0)
-			{
-				e->animation[ATTACK_1] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "ATTACK_2") == 0)
-			{
-				e->animation[ATTACK_2] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "ATTACK_3") == 0)
-			{
-				e->animation[ATTACK_3] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "ATTACK_4") == 0)
-			{
-				e->animation[ATTACK_4] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "ATTACK_5") == 0)
-			{
-				e->animation[ATTACK_5] = atoi(properties[i].value[j]);
-
-				index++;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "DIE") == 0)
-			{
-				e->animation[DIE] = atoi(properties[i].value[j]);
-
 				index++;
 			}
 		}

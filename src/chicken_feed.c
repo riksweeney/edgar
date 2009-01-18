@@ -31,7 +31,7 @@ void addChickenFeedBag(int x, int y)
 
 	e->dirY = ITEM_JUMP_HEIGHT;
 
-	e->type = ITEM;
+	e->type = KEY_ITEM;
 
 	e->face = LEFT;
 	
@@ -55,7 +55,7 @@ void dropChickenFeed()
 	{
 		player = getPlayer();
 
-		addTemporaryItem("chicken_feed", player->x + player->h / 2, player->y + player->h / 2);
+		addTemporaryItem("item/chicken_feed", player->x + player->h / 2, player->y + player->h / 2);
 
 		self->thinkTime = self->health;
 	}

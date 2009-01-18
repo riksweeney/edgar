@@ -63,7 +63,7 @@ void freeRequiredResources()
 
 void loadResource(char *line)
 {
-	char type[20], name[20];
+	char type[20], name[50];
 	int startX, startY, endX, endY;
 	
 	sscanf(line, "%s %s %d %d %d %d", type, name, &startX, &startY, &endX, &endY);
