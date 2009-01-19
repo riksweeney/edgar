@@ -1,0 +1,6 @@
+THINKTIME 180
+HEALTH 5
+GFX_FILE data/gfx/item/chicken_trap.dat
+ANIM_FILE data/anim/item/chicken_trap.dat
+TYPE KEY_ITEM
+FLAGS ALWAYS_ON_TOP

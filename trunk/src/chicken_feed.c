@@ -18,7 +18,7 @@ void addChickenFeedBag(int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add chicken_feed bag\n");
+		printf("No free slots to add chicken feed bag\n");
 
 		exit(1);
 	}

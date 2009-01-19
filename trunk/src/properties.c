@@ -254,6 +254,11 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= FLY;
 		}
+		
+		else if (strcmpignorecase(token, "ALWAYS_ON_TOP") == 0)
+		{
+			e->flags |= ALWAYS_ON_TOP;
+		}
 
 		else
 		{

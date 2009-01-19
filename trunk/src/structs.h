@@ -101,8 +101,8 @@ typedef struct Properties
 	int animations[MAX_ANIMATION_TYPES];
 } Properties;
 
-typedef struct Special
+typedef struct Constructor
 {
 	char name[30];
 	void (*construct)(int, int);
-} Special;
+} Constructor;

@@ -1,11 +1,14 @@
 #include "key_items.h"
 
 extern void addChickenFeedBag(int, int);
+extern void addChickenTrap(int, int);
 
-static Special specials[] = {
-{"item/chicken_feed_bag", &addChickenFeedBag}};
+static Constructor items[] = {
+{"item/chicken_feed_bag", &addChickenFeedBag},
+{"item/chicken_trap", &addChickenTrap}
+};
 
-static int length = sizeof(specials) / sizeof(Special);
+static int length = sizeof(items) / sizeof(Constructor);
 
 void addKeyItem(char *name, int x, int y)
 {
@@ -13,11 +16,11 @@ void addKeyItem(char *name, int x, int y)
 
 	for (i=0;i<length;i++)
 	{
-		if (strcmpignorecase(specials[i].name, name) == 0)
+		if (strcmpignorecase(items[i].name, name) == 0)
 		{
-			printf("Adding Key Item %s to %d %d\n", specials[i].name, x, y);
+			printf("Adding Key Item %s to %d %d\n", items[i].name, x, y);
 
-			specials[i].construct(x, y);
+			items[i].construct(x, y);
 			
 			return;
 		}

@@ -1,20 +1,14 @@
 #include "trigger.h"
 
-void addTrigger(int x, int y, int w, int y, char *activates)
+void addTrigger(int type, char *name, )
 {
-	Entity *e = getFreeEntity();
+	trigger[i].type = type;
+	strcpy(trigger[i].name, name);
+}
 
-	if (e == NULL)
-	{
-		printf("Failed to add Trigger\n");
-		
-		exit(1);
-	}
-	
-	e->x = x;
-	e->y = y;
-	e->w = w;
-	e->h = h;
-	
-	strcpy(e->
+void fireTrigger(char *name)
+{
+	int i;
+
+
 }
