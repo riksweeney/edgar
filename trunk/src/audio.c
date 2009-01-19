@@ -1,27 +1,84 @@
 #include "audio.h"
 
+void playSoundChunk(Mix_Chunk *, int);
+int getDistance(int, int, int, int);
 Mix_Chunk *loadSound(char *);
 
-void loadSoundToIndex(char *name, int index)
+static int soundIndex = 0;
+
+void playSound(char *name, int channel, int x, int y)
 {
-	if (sound[index].effect != NULL)
+	int i, distance, volume;
+	Mix_Chunk *chunk = NULL;
+	
+	for (i=0;i<soundIndex;i++)
 	{
-		printf("Will not replace sound in index %d\n", index);
-		
-		exit(1);
+		if (strcmpignorecase(sound[i].name, name) == 0)
+		{
+			chunk = sound[i].effect;
+			
+			break;
+		}
 	}
 	
-	sound[index].effect = loadSound(name);
+	if (chunk == NULL)
+	{
+		if (soundIndex == MAX_SOUNDS)
+		{
+			printf("Ran out of space for sounds\n");
+			
+			abort();
+		}
+		
+		chunk = loadSound(name);
+		
+		sound[soundIndex].effect = chunk;
+		strcpy(sound[soundIndex].name, name);
+		
+		soundIndex++;
+	}
+	
+	/* The further away the player is, the quieter the sound */
+	
+	distance = getDistance(player.x, x, player.y, y);
+	
+	volume = game.audioVolume;
+	
+	if (distance < SCREEN_WIDTH)
+	{
+		volume = game.audioVolume;
+	}
+	
+	else if (distance < SCREEN_WIDTH * 2)
+	{
+		volume = game.audioVolume / 2;
+	}
+	
+	else if (distance < SCREEN_WIDTH * 4)
+	{
+		volume = game.audioVolume / 4;
+	}
+	
+	else
+	{
+		return;
+	}
+	
+	Mix_VolumeChunk(chunk, volume);
+	
+	playSoundChunk(chunk, channel);
 }
 
 Mix_Chunk *loadSound(char *name)
 {
-	char path[MAX_LINE_LENGTH] = INSTALL_PATH;
+	char path[MAX_LINE_LENGTH];
 	Mix_Chunk *chunk;
 	
-	strcat(path, name);
+	sprintf(path, "%ssound/%s", INSTALL_PATH, name);
 	
 	/* Load the sound specified by the filename */
+	
+	printf("Loading sound %s\n", path);
 	
 	chunk = Mix_LoadWAV(path);
 
@@ -35,7 +92,7 @@ Mix_Chunk *loadSound(char *name)
 	return chunk;
 }
 
-void playSound(Mix_Chunk *chunk, int channel)
+void playSoundChunk(Mix_Chunk *chunk, int channel)
 {
 	/* Play the sound on the first free channel and only play it once */
 	
@@ -43,11 +100,6 @@ void playSound(Mix_Chunk *chunk, int channel)
 	{
 		Mix_PlayChannel(channel, chunk, 0);
 	}
-}
-
-void playSoundAtIndex(int index)
-{
-	playSound(sound[index].effect, -1);
 }
 
 void freeSounds()
@@ -59,6 +111,10 @@ void freeSounds()
 		if (sound[i].effect != NULL)
 		{
 			Mix_FreeChunk(sound[i].effect);
+			
+			sound[i].name[0] = '\0';
 		}
 	}
+	
+	soundIndex = 0;
 }

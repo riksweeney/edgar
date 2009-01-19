@@ -3,7 +3,6 @@
 extern void setEntityAnimation(Entity *, int);
 extern void drawLoopingAnimationToMap(void);
 extern void loadProperties(char *, Entity *);
-extern Entity *getPlayer(void);
 extern Entity *getFreeEntity(void);
 extern void doNothing(void);
 extern void keyItemRespawn(void);
@@ -49,13 +48,9 @@ void addChickenFeedBag(int x, int y)
 
 void dropChickenFeed()
 {
-	Entity *player;
-
 	if (self->thinkTime <= 0)
 	{
-		player = getPlayer();
-
-		addTemporaryItem("item/chicken_feed", player->x + player->h / 2, player->y + player->h / 2);
+		addTemporaryItem("item/chicken_feed", player.x + player.h / 2, player.y + player.h / 2);
 
 		self->thinkTime = self->health;
 	}

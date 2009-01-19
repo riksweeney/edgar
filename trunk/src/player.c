@@ -11,6 +11,7 @@ extern void helpless(int *);
 extern void invulnerable(int *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
 extern void useInventoryItem(void);
+extern int getDistance(int, int, int, int);
 
 void setPlayerLocation(int, int);
 
@@ -270,21 +271,6 @@ void drawPlayer()
 	}
 }
 
-Entity *getPlayer()
-{
-	return &player;
-}
-
-Entity *getPlayerShield()
-{
-	return &playerShield;
-}
-
-Entity *getPlayerWeapon()
-{
-	return &playerWeapon;
-}
-
 void setPlayerShield()
 {
 	playerShield = *self;
@@ -360,4 +346,14 @@ void takeDamage(Entity *other, int damage)
 			}
 		}
 	}
+}
+
+int getDistanceFromPlayer(Entity *e)
+{
+	if (player.x < e->x)
+	{
+		return -getDistance(player.x + player.w, player.y, e->x, e->y);
+	}
+	
+	return getDistance(player.x, player.y, e->x + e->w, e->y);
 }

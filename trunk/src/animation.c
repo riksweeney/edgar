@@ -56,6 +56,13 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			
 			animationID++;
 			
+			if (animationID == MAX_ANIMATIONS)
+			{
+				printf("Ran out of space for animations\n");
+				
+				abort();
+			}
+			
 			if (strcmpignorecase(frameName, "STAND") == 0)
 			{
 				animationIndex[STAND] = animationID;
@@ -181,7 +188,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 	}
 }
 
-void freeAnimation(Animation *anim)
+static void freeAnimation(Animation *anim)
 {
 	if (anim->frameTimer != NULL)
 	{
@@ -212,6 +219,8 @@ void freeAnimations()
 	{
 		freeAnimation(&animation[i]);
 	}
+	
+	animationID = -1;
 }
 
 void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)

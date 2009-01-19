@@ -46,6 +46,11 @@ void init(char *title)
 		game.audio = INACTIVE;
 	}
 	
+	else
+	{
+		game.audioVolume = MIX_MAX_VOLUME;
+	}
+	
 	/* Set the screen title */
 	
 	SDL_WM_SetCaption(title, NULL);

@@ -6,14 +6,11 @@ extern void loadProperties(char *, Entity *);
 extern void drawLoopingAnimationToMap(void);
 extern void setEntityAnimation(Entity *, int);
 extern void doNothing(void);
-extern Entity *getPlayer(void);
 extern void invulnerable(int *);
 extern void setCustomAction(Entity *, void (*)(int *), int);
 extern void pushEntity(Entity *);
 extern int addToInventory(Entity *);
 extern int addEntity(Entity, int, int);
-extern Entity *getPlayerShield(void);
-extern Entity *getPlayerWeapon(void);
 extern void setPlayerWeapon(void);
 extern void setPlayerShield(void);
 
@@ -154,26 +151,19 @@ void keyItemTouch(Entity *other)
 
 void dropItem(Entity *e)
 {
-	Entity *player = getPlayer();
-	Entity *w;
-
 	if (e->type == SHIELD)
 	{
-		w = getPlayerShield();
-
-		if (strcmpignorecase(w->name, e->name) == 0)
+		if (strcmpignorecase(playerShield.name, e->name) == 0)
 		{
-			w->active = 0;
+			playerShield.active = INACTIVE;
 		}
 	}
 
 	else if (e->type == WEAPON)
 	{
-		w = getPlayerWeapon();
-
-		if (strcmpignorecase(w->name, e->name) == 0)
+		if (strcmpignorecase(playerWeapon.name, e->name) == 0)
 		{
-			w->active = 0;
+			playerWeapon.active = INACTIVE;
 		}
 	}
 
@@ -183,15 +173,13 @@ void dropItem(Entity *e)
 
 	setCustomAction(e, &invulnerable, 180);
 
-	addEntity(*e, player->x, player->y);
+	addEntity(*e, player.x, player.y);
 }
 
 void keyItemRespawn()
 {
-	Entity *player = getPlayer();
-
-	self->x = player->x + (player->w - self->w) / 2;
-	self->y = player->y + player->h - self->h;
+	self->x = player.x + (player.w - self->w) / 2;
+	self->y = player.y + player.h - self->h;
 
 	self->dirY = ITEM_JUMP_HEIGHT;
 

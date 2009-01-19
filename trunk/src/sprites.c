@@ -30,6 +30,13 @@ void loadSpritesFromFile(char *name, int *index)
 			continue;
 		}
 		
+		if (spriteID == MAX_SPRITES)
+		{
+			printf("Ran out of space for Sprites\n");
+			
+			abort();
+		}
+		
 		sscanf(line, "%s", imageName);
 		
 		loadSprite(imageName);
@@ -56,6 +63,8 @@ void freeSprites()
 			SDL_FreeSurface(sprite[i]);
 		}
 	}
+	
+	spriteID = 0;
 }
 
 SDL_Surface *getSpriteImage(int index)

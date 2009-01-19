@@ -159,8 +159,3 @@ enum
 	SNOW,
 	MAX_WEATHER_TYPES
 };
-
-enum
-{
-	POP_SFX
-};
