@@ -3,12 +3,12 @@
 extern void addBat(int, int);
 extern void addChicken(int, int);
 
-static Special enemies[] = {
+static Constructor enemies[] = {
 {"enemy/bat", &addBat},
 {"enemy/chicken", &addChicken},
 {"enemy/rat", &addBat}};
 
-static int length = sizeof(enemies) / sizeof(Special);
+static int length = sizeof(enemies) / sizeof(Constructor);
 
 void addEnemy(char *name, int x, int y)
 {

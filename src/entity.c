@@ -68,8 +68,11 @@ void doEntities()
 					self->dirY = MAX_FALL_SPEED;
 				}
 			}
-
-			self->action();
+			
+			if (!(self->flags & HELPLESS))
+			{
+				self->action();
+			}
 		}
 	}
 }
@@ -78,13 +81,25 @@ void drawEntities()
 {
 	int i;
 
-	/* Loop through the entities and perform their action */
+	/* Draw standard entities */
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		self = &entity[i];
 
-		if (self->active == ACTIVE && !(self->flags & NO_DRAW))
+		if (self->active == ACTIVE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+		{
+			self->draw();
+		}
+	}
+	
+	/* Draw entities that must appear at the front */ 
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		self = &entity[i];
+
+		if (self->active == ACTIVE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
 		{
 			self->draw();
 		}
@@ -293,21 +308,6 @@ void pushEntity(Entity *other)
 
 	other->x += other->dirX;
 	other->y += other->dirY;
-}
-
-void entityFallOnOther(Entity *other)
-{
-	if ((other->flags & TRAPPABLE) && self->dirY > 0)
-	{
-		self->y -= self->dirY;
-
-		if (collision(self->x, self->y, self->w, self->h, other->x, other->y, other->w, other->h) == 0)
-		{
-			other->flags |= HELPLESS|NO_DRAW;
-		}
-
-		self->y += self->dirY;
-	}
 }
 
 int addEntity(Entity e, int x, int y)

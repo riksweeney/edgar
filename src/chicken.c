@@ -49,12 +49,12 @@ static void lookForFood()
 	
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == INACTIVE || entity[i].type != ITEM || &entity[i] == self || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
+		if (entity[i].active == INACTIVE || (strcmpignorecase(entity[i].name, "item/chicken_feed") != 0 && strcmpignorecase(entity[i].name, "item/chicken_trap") != 0))
 		{
 			continue;
 		}
 
-		if (entity[i].health > 3 && collision(self->x + (self->face == RIGHT ? 0: -400), self->y, 400, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (entity[i].health > 3 && collision(self->x + (self->face == RIGHT ? 0: -200), self->y, 200, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
 			self->target = &entity[i];
 
@@ -143,7 +143,10 @@ static void moveToFood()
 
 	else
 	{
-		self->target->thinkTime = 600;
+		if (strcmpignorecase(self->target->name, "item/chicken_feed") == 0)
+		{
+			self->target->thinkTime = 600;
+		}
 
 		self->action = &doNothing;
 
@@ -159,7 +162,7 @@ static void finishEating()
 {
 	self->target->health--;
 	
-	printf("Food health is %d\n", self->target->health);
+	printf("Health is %d\n", self->target->health);
 
 	if (self->target->health <= 0)
 	{
@@ -176,7 +179,10 @@ static void finishEating()
 
 	else
 	{
-		self->target->thinkTime = 600;
+		if (strcmpignorecase(self->target->name, "item/chicken_feed") == 0)
+		{
+			self->target->thinkTime = 600;
+		}
 
 		self->action = &doNothing;
 
