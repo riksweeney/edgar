@@ -4,9 +4,8 @@ extern SDL_Surface *loadImage(char *);
 extern void drawImage(SDL_Surface *, int, int);
 extern void setPlayerLocation(int, int);
 extern Mix_Chunk *loadSound(char *);
-extern Entity *getPlayer(void);
 extern void loadResource(char *);
-extern void playSound(Mix_Chunk *, int);
+extern void playSoundChunk(Mix_Chunk *, int);
 extern long prand(void);
 
 static void loadMapTiles(char *);
@@ -125,7 +124,7 @@ void saveMap()
 	int x, y;
 	FILE *fp;
 
-	self = getPlayer();
+	self = &player;
 
 	if (self->active == INACTIVE)
 	{
@@ -163,7 +162,7 @@ void saveMap()
 
 	/* Now write out all of the Entities */
 
-	self = getPlayer();
+	self = &player;
 
 	fprintf(fp, "player_start player_start %d %d %d %d\n", (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
 
@@ -235,7 +234,7 @@ void doMap()
 				sound = prand() % MAX_AMBIENT_SOUNDS;
 			}
 
-			playSound(map.ambience[sound], -1);
+			playSoundChunk(map.ambience[sound], -1);
 
 			map.thinkTime = 120 + prand() % 1200;
 		}
@@ -378,7 +377,7 @@ static void loadAmbience(char *dir)
 	{
 		for (j=0;extensions[j]!=NULL;j++)
 		{
-			sprintf(filename, "sound/ambience/%s/%d.%s", dir, i, extensions[j]);
+			sprintf(filename, "ambience/%s/%d.%s", dir, i, extensions[j]);
 
 			fp = fopen(filename, "rb");
 
@@ -389,7 +388,7 @@ static void loadAmbience(char *dir)
 
 			fclose(fp);
 
-			map.ambience[i] =loadSound(filename);
+			map.ambience[i] = loadSound(filename);
 
 			map.hasAmbience = 1;
 

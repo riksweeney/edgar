@@ -17,7 +17,6 @@ extern void freeHud(void);
 extern void addPermanentItem(char *, int, int);
 extern void addLift(char *, int, int, int, int);
 extern void addEnemy(char *, int, int);
-extern void loadCommonSounds(void);
 
 void loadRequiredResources()
 {
@@ -32,10 +31,6 @@ void loadRequiredResources()
 	/* Load the font */
 	
 	game.font = loadFont("font/blackWolf.ttf", 16);
-	
-	/* Load common sounds */
-	
-	loadCommonSounds();
 }
 
 void freeRequiredResources()

@@ -21,6 +21,7 @@ extern void doGame(void);
 extern void doMap(void);
 extern void doDecorations(void);
 extern void doInventory(void);
+extern void takeScreenshot(void);
 
 int main(int argc, char *argv[])
 {

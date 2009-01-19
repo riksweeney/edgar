@@ -10,6 +10,7 @@ extern int collision(int, int, int, int, int, int, int, int);
 extern void checkToMap(Entity *);
 extern void doNothing(void);
 extern int isAtEdge(Entity *);
+extern void playSound(char *, int, int, int);
 
 static void lookForFood(void);
 static void wander(void);
@@ -53,7 +54,7 @@ static void lookForFood()
 			continue;
 		}
 
-		if (collision(self->x + (self->face == RIGHT ? 0: -400), self->y, 400, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (entity[i].health > 3 && collision(self->x + (self->face == RIGHT ? 0: -400), self->y, 400, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
 			self->target = &entity[i];
 
@@ -90,12 +91,17 @@ static void wander()
 
 		self->thinkTime = 180 + prand() % 120;
 	}
+	
+	if (prand() % 2400 == 0)
+	{
+		playSound("enemy/chicken/cluck.wav", -1, self->x, self->y);
+	}
 
-	if (prand() % 2 == 0)
+	if (prand() % 30 == 0)
 	{
 		lookForFood();
 	}
-
+	
 	if (self->dirX < 0)
 	{
 		self->face = LEFT;
@@ -118,7 +124,7 @@ static void wander()
 
 static void moveToFood()
 {
-	if (self->target->active == ACTIVE && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
+	if (self->target->health > 3 && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
 		

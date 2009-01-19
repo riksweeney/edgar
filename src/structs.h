@@ -54,6 +54,7 @@ typedef struct Map
 
 typedef struct Sound
 {
+	char name[255];
 	Mix_Chunk *effect;
 } Sound;
 
@@ -61,7 +62,7 @@ typedef struct Game
 {
 	char sword[30], shield[30];
 	int thinkTime, weatherType, weatherThinkTime;
-	int audio;
+	int audio, audioVolume;
 	void (*action)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);
