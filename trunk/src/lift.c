@@ -9,7 +9,7 @@ extern void loadProperties(char *, Entity *);
 static void touch(Entity *);
 static void move(void);
 
-void addLift(int startX, int startY, int endX, int endY, int pauseTime)
+void addLift(char *name, int startX, int startY)
 {
 	Entity *e = getFreeEntity();
 	
@@ -20,29 +20,17 @@ void addLift(int startX, int startY, int endX, int endY, int pauseTime)
 		return;
 	}
 	
-	loadProperties("lift/lift", e);
+	loadProperties(name, e);
 	
 	e->type = LIFT;
 	e->action = &move;
 	e->touch = &touch;
 	e->draw = &drawLoopingAnimationToMap;
 	
-	e->thinkTime = pauseTime;
-	e->health = pauseTime;
+	e->x = e->startX = startX;
+	e->y = e->startY = startY;
 	
 	setEntityAnimation(e, STAND);
-	
-	e->startX = startX * TILE_SIZE;
-	e->startY = startY * TILE_SIZE;
-	
-	e->endX = endX * TILE_SIZE;
-	e->endY = endY * TILE_SIZE;
-	
-	e->x = e->startX;
-	e->y = e->startY;
-	
-	e->targetX = e->endX;
-	e->targetY = e->endY;
 }
 
 static void touch(Entity *other)

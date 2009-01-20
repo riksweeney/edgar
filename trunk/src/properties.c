@@ -3,6 +3,7 @@
 extern void loadSpritesFromFile(char *, int *);
 extern void loadAnimationData(char *, int *, int *);
 extern void setEntityAnimation(Entity *, int);
+extern void preCacheSound(char *);
 
 static void setFlags(Entity *, char *);
 static int getType(char *);
@@ -26,12 +27,12 @@ void loadProperties(char *name, Entity *e)
 			break;
 		}
 	}
-	
+
 	for (i=0;i<256;i++)
 	{
 		sprites[i] = -1;
 	}
-	
+
 	animationIndex = graphicsIndex = -1;
 
 	if (index == -1)
@@ -73,7 +74,7 @@ void loadProperties(char *name, Entity *e)
 
 					if (strcmpignorecase(properties[i].key[j], "GFX_FILE") == 0)
 					{
-						graphicsIndex = j;	
+						graphicsIndex = j;
 					}
 
 					else if (strcmpignorecase(properties[i].key[j], "ANIM_FILE") == 0)
@@ -89,25 +90,25 @@ void loadProperties(char *name, Entity *e)
 				break;
 			}
 		}
-		
+
 		if (graphicsIndex != -1 && animationIndex != -1)
 		{
 			loadSpritesFromFile(properties[i].value[graphicsIndex], sprites);
-			
+
 			loadAnimationData(properties[i].value[animationIndex], sprites, properties[i].animations);
 		}
-		
+
 		else if (graphicsIndex == 0)
 		{
 			printf("No graphics file found for %s\n", name);
-			
+
 			exit(1);
 		}
-		
+
 		else
 		{
 			printf("No animation file found for %s\n", name);
-			
+
 			exit(1);
 		}
 
@@ -118,7 +119,7 @@ void loadProperties(char *name, Entity *e)
 			exit(1);
 		}
 	}
-	
+
 	else
 	{
 		i = index;
@@ -163,12 +164,17 @@ void loadProperties(char *name, Entity *e)
 			{
 				e->type = getType(properties[i].value[j]);
 			}
+			
+			else if (strcmpignorecase(properties[i].key[j], "SFX_FILE") == 0)
+			{
+				preCacheSound(properties[i].value[j]);
+			}
 		}
-		
+
 		for (j=0;j<MAX_ANIMATION_TYPES;j++)
 		{
 			e->animation[j] = properties[i].animations[j];
-			
+
 			if (e->animation[j] != -1)
 			{
 				index++;
@@ -254,7 +260,7 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= FLY;
 		}
-		
+
 		else if (strcmpignorecase(token, "ALWAYS_ON_TOP") == 0)
 		{
 			e->flags |= ALWAYS_ON_TOP;
@@ -266,5 +272,55 @@ static void setFlags(Entity *e, char *flags)
 		}
 
 		token = strtok(NULL, " |,");
+	}
+}
+
+void setProperty(Entity *e, char *name, char *value)
+{
+	if (strcmpignorecase(name, "START_X") == 0)
+	{
+		e->startX = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "START_Y") == 0)
+	{
+		e->startY = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "END_X") == 0)
+	{
+		e->endX = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "END_Y") == 0)
+	{
+		e->endY = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "OBJECTIVE_NAME") == 0)
+	{
+		strcpy(e->objectiveName, value);
+	}
+
+	else if (strcmpignorecase(name, "ACTIVATES") == 0)
+	{
+		strcpy(e->activates, value);
+	}
+	
+	else if (strcmpignorecase(name, "NAME") == 0)
+	{
+		strcpy(e->name, value);
+	}
+	
+	else if (strcmpignorecase(name, "TYPE") == 0)
+	{
+	
+	}
+	
+	else
+	{
+		printf("Unknown property value %s\n", name);
+		
+		exit(1);
 	}
 }

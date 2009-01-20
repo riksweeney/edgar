@@ -18,7 +18,7 @@ void healthTouch(Entity *);
 void generalItemAction(void);
 void keyItemTouch(Entity *);
 
-void addPermanentItem(char *name, int x, int y)
+Entity *addPermanentItem(char *name, int x, int y)
 {
 	Entity *e = getFreeEntity();
 
@@ -54,9 +54,11 @@ void addPermanentItem(char *name, int x, int y)
 	}
 
 	setEntityAnimation(e, STAND);
+
+	return e;
 }
 
-void addTemporaryItem(char *name, int x, int y)
+void addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY)
 {
 	Entity *e = getFreeEntity();
 
@@ -79,7 +81,10 @@ void addTemporaryItem(char *name, int x, int y)
 		exit(1);
 	}
 
-	e->dirY = ITEM_JUMP_HEIGHT;
+	e->dirX = dirX;
+	e->dirY = dirY;
+
+	e->face = face;
 
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
@@ -94,19 +99,17 @@ void addTemporaryItem(char *name, int x, int y)
 
 void dropRandomItem(int x, int y)
 {
-	addTemporaryItem("heart", x, y);
+	addTemporaryItem("item/heart", x, y, LEFT, 0, ITEM_JUMP_HEIGHT);
 }
 
 void generalItemAction()
 {
-	self->dirY += GRAVITY_SPEED;
-
-	if (self->dirY >= MAX_FALL_SPEED)
-	{
-		self->dirY = MAX_FALL_SPEED;
-	}
-
 	self->thinkTime--;
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
 
 	if (self->thinkTime < 90)
 	{
@@ -141,14 +144,6 @@ void healthTouch(Entity *other)
 	}
 }
 
-void keyItemTouch(Entity *other)
-{
-	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
-	{
-		addToInventory(self);
-	}
-}
-
 void dropItem(Entity *e)
 {
 	if (e->type == SHIELD)
@@ -174,14 +169,4 @@ void dropItem(Entity *e)
 	setCustomAction(e, &invulnerable, 180);
 
 	addEntity(*e, player.x, player.y);
-}
-
-void keyItemRespawn()
-{
-	self->x = player.x + (player.w - self->w) / 2;
-	self->y = player.y + player.h - self->h;
-
-	self->dirY = ITEM_JUMP_HEIGHT;
-
-	setCustomAction(self, &invulnerable, 180);
 }

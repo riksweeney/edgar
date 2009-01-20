@@ -11,13 +11,14 @@ extern void checkToMap(Entity *);
 extern void doNothing(void);
 extern int isAtEdge(Entity *);
 extern void playSound(char *, int, int, int);
+extern int getDistance(int, int, int, int);
 
 static void lookForFood(void);
 static void wander(void);
 static void moveToFood(void);
 static void finishEating(void);
 
-void addChicken(int x, int y)
+Entity *addChicken(int x, int y)
 {
 	Entity *e = getFreeEntity();
 
@@ -41,12 +42,16 @@ void addChicken(int x, int y)
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
+
+	return e;
 }
 
 static void lookForFood()
 {
-	int i;
+	int i, distance, target, newDistance;
 	
+	newDistance = distance = target = -1;
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].active == INACTIVE || (strcmpignorecase(entity[i].name, "item/chicken_feed") != 0 && strcmpignorecase(entity[i].name, "item/chicken_trap") != 0))
@@ -56,16 +61,28 @@ static void lookForFood()
 
 		if (entity[i].health > 3 && collision(self->x + (self->face == RIGHT ? 0: -200), self->y, 200, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
-			self->target = &entity[i];
-
-			self->action = &moveToFood;
+			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
 			
-			printf("Spotted chicken feed\n");
-
-			return;
+			if (target == -1 || newDistance < distance)
+			{
+				distance = newDistance;
+				
+				target = i;
+			}
 		}
 	}
 	
+	if (target != -1)
+	{
+		self->target = &entity[target];
+	
+		self->action = &moveToFood;
+	
+		printf("Spotted chicken feed\n");
+	
+		return;
+	}
+
 	self->action = &wander;
 }
 
@@ -78,20 +95,20 @@ static void wander()
 		if (self->dirX == 0)
 		{
 			self->dirX = self->speed * (prand() % 2 == 0 ? -1 : 1);
-			
+
 			setEntityAnimation(self, WALK);
 		}
 
 		else
 		{
 			self->dirX = 0;
-			
+
 			setEntityAnimation(self, STAND);
 		}
 
 		self->thinkTime = 180 + prand() % 120;
 	}
-	
+
 	if (prand() % 2400 == 0)
 	{
 		playSound("enemy/chicken/cluck.wav", -1, self->x, self->y);
@@ -101,7 +118,7 @@ static void wander()
 	{
 		lookForFood();
 	}
-	
+
 	if (self->dirX < 0)
 	{
 		self->face = LEFT;
@@ -111,11 +128,11 @@ static void wander()
 	{
 		self->face = RIGHT;
 	}
-	
+
 	if (self->dirX != 0 && isAtEdge(self) == 1)
 	{
 		self->dirX = 0;
-		
+
 		setEntityAnimation(self, STAND);
 	}
 
@@ -127,14 +144,14 @@ static void moveToFood()
 	if (self->target->health > 3 && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
-		
+
 		if (self->dirX != 0 && isAtEdge(self) == 1)
 		{
 			self->dirX = 0;
-			
+
 			setEntityAnimation(self, STAND);
 		}
-		
+
 		else
 		{
 			setEntityAnimation(self, WALK);
@@ -150,8 +167,8 @@ static void moveToFood()
 
 		self->action = &doNothing;
 
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, ATTACK_1);
+
 		self->animationCallback = &finishEating;
 	}
 
@@ -161,7 +178,7 @@ static void moveToFood()
 static void finishEating()
 {
 	self->target->health--;
-	
+
 	printf("Health is %d\n", self->target->health);
 
 	if (self->target->health <= 0)
@@ -173,8 +190,6 @@ static void finishEating()
 		self->action = &lookForFood;
 
 		self->thinkTime = 0;
-		
-		self->animationCallback = NULL;
 	}
 
 	else
@@ -186,8 +201,8 @@ static void finishEating()
 
 		self->action = &doNothing;
 
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, ATTACK_1);
+
 		self->animationCallback = &finishEating;
 	}
 }

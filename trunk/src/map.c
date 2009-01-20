@@ -4,7 +4,7 @@ extern SDL_Surface *loadImage(char *);
 extern void drawImage(SDL_Surface *, int, int);
 extern void setPlayerLocation(int, int);
 extern Mix_Chunk *loadSound(char *);
-extern void loadResource(char *);
+extern void loadResources(FILE *);
 extern void playSoundChunk(Mix_Chunk *, int);
 extern long prand(void);
 
@@ -91,9 +91,16 @@ void loadMap(char *name)
 			}
 		}
 
-		else
+		else if (strcmpignorecase(itemName, "{") == 0)
 		{
-			loadResource(line);
+			loadResources(fp);
+		}
+
+		else if (strcmpignorecase(itemName, "}") == 0)
+		{
+			printf("Parse error: encountered closing } without matching {\n");
+
+			exit(1);
 		}
 	}
 
@@ -122,6 +129,7 @@ void loadMap(char *name)
 void saveMap()
 {
 	int x, y;
+	char type[30];
 	FILE *fp;
 
 	self = &player;
@@ -163,8 +171,13 @@ void saveMap()
 	/* Now write out all of the Entities */
 
 	self = &player;
-
-	fprintf(fp, "player_start player_start %d %d %d %d\n", (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+	
+	fprintf(fp, "{\n");
+	fprintf(fp, "TYPE player_start\n");
+	fprintf(fp, "NAME player_start\n");
+	fprintf(fp, "START_X %d\n", (int)self->x);
+	fprintf(fp, "START_Y %d\n", (int)self->y);
+	fprintf(fp, "}\n\n");
 
 	for (x=0;x<MAX_ENTITIES;x++)
 	{
@@ -174,43 +187,54 @@ void saveMap()
 		{
 			if (self->type == WEAPON)
 			{
-				fprintf(fp, "WEAPON %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "WEAPON");
 			}
 
 			else if (self->type == ITEM)
 			{
-				fprintf(fp, "ITEM %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "ITEM");
 			}
 
 			else if (self->type == KEY_ITEM)
 			{
-				fprintf(fp, "KEY_ITEM %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "KEY_ITEM");
 			}
 
 			else if (self->type == LIFT)
 			{
-				fprintf(fp, "LIFT %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "LIFT");
 			}
 
 			else if (self->type == HEALTH)
 			{
-				fprintf(fp, "HEALTH %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "HEALTH");
 			}
 
 			else if (self->type == SHIELD)
 			{
-				fprintf(fp, "SHIELD %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "SHIELD");
 			}
 
 			else if (self->type == ENEMY)
 			{
-				fprintf(fp, "ENEMY %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "ENEMY");
 			}
 
 			else
 			{
-				fprintf(fp, "UNKNOWN %s %d %d %d %d\n", self->name, (int)self->x, (int)self->y, (int)self->endX, (int)self->endY);
+				strcpy(type, "UNKNOWN");
 			}
+			
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE %s\n", type);
+			fprintf(fp, "NAME %s\n", self->name);
+			fprintf(fp, "START_X %d\n", (int)self->x);
+			fprintf(fp, "START_Y %d\n", (int)self->y);
+			fprintf(fp, "END_X %d\n", (int)self->endX);
+			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+			fprintf(fp, "ACTIVATES %s\n", self->activates);
+			fprintf(fp, "}\n\n");
 		}
 	}
 
@@ -367,7 +391,7 @@ static void loadMapBackground(char *name)
 static void loadAmbience(char *dir)
 {
 	int i, j;
-	char filename[MAX_LINE_LENGTH];
+	char filename[MAX_PATH_LENGTH];
 	static char *extensions[] = {"ogg", "mp3", "wav"};
 	FILE *fp;
 

@@ -21,7 +21,6 @@ typedef struct Entity
 	int thinkTime, face;
 	int currentFrame, frameTimer;
 	int type, animation[MAX_ANIMATION_TYPES];
-	int sound[MAX_ENTITY_SOUNDS];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
 	int maxHealth, damage;
 	long flags;
@@ -104,5 +103,5 @@ typedef struct Properties
 typedef struct Constructor
 {
 	char name[30];
-	void (*construct)(int, int);
+	Entity *(*construct)(int, int);
 } Constructor;
