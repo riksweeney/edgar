@@ -3,3 +3,4 @@ GFX_FILE data/gfx/item/chicken_feed.dat
 ANIM_FILE data/anim/item/chicken_feed.dat
 TYPE ITEM
 THINKTIME 3600
+SFX_FILE common/throw.ogg

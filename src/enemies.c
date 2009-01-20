@@ -1,7 +1,7 @@
 #include "enemies.h"
 
-extern void addBat(int, int);
-extern void addChicken(int, int);
+extern Entity *addBat(int, int);
+extern Entity *addChicken(int, int);
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -10,7 +10,7 @@ static Constructor enemies[] = {
 
 static int length = sizeof(enemies) / sizeof(Constructor);
 
-void addEnemy(char *name, int x, int y)
+Entity *addEnemy(char *name, int x, int y)
 {
 	int i;
 
@@ -20,9 +20,11 @@ void addEnemy(char *name, int x, int y)
 		{
 			printf("Adding Enemy %s to %d %d\n", enemies[i].name, x, y);
 
-			enemies[i].construct(x, y);
-			
-			return;
+			return enemies[i].construct(x, y);
 		}
 	}
+
+	printf("Could not find enemy %s\n", name);
+
+	exit(1);
 }

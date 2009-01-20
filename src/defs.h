@@ -38,6 +38,8 @@
 
 #define MAX_LINE_LENGTH 1024
 
+#define MAX_PATH_LENGTH 1024
+
 #define PI 3.14159265
 
 #define MAX_MESSAGE_LENGTH 100

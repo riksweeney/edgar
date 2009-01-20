@@ -13,7 +13,7 @@ extern void entityTouch(Entity *);
 
 static void fly(void);
 
-void addBat(int x, int y)
+Entity *addBat(int x, int y)
 {
 	Entity *e = getFreeEntity();
 
@@ -39,6 +39,8 @@ void addBat(int x, int y)
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
+
+	return e;
 }
 
 void fly()
