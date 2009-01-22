@@ -24,7 +24,7 @@ void loadRequiredResources()
 {
 	/* Load the map */
 
-	loadMap("data/maps/map01.dat");
+	loadMap(INSTALL_PATH"data/maps/map02.dat");
 
 	/* Load the hud */
 
