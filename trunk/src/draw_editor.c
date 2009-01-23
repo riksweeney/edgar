@@ -5,9 +5,14 @@ extern void drawCursor(void);
 extern void drawStatusPanel(void);
 extern void drawEntities(void);
 extern void drawPlayer(void);
+extern void drawString(char *, int, int, TTF_Font *, int, int);
+extern int mapStartX(void);
+extern int mapStartY(void);
 
 void draw()
 {
+	char text[20];
+	
 	/* Draw the map */
 	
 	drawMap();
@@ -27,6 +32,12 @@ void draw()
 	/* Draw the status panel */
 	
 	drawStatusPanel();
+	
+	/* Draw the screen coordinates */
+	
+	sprintf(text, "%5d : %5d", mapStartX() + cursor.x, mapStartY() + cursor.y);
+	
+	drawString(text, 0, 5, game.font, 1, 0);
 
 	/* Swap the buffers */
 

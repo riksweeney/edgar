@@ -7,3 +7,4 @@ Sound sound[MAX_SOUNDS];
 Game game;
 Inventory inventory;
 Droplet droplet[MAX_DROPS];
+Cursor cursor;

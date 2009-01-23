@@ -44,7 +44,7 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 	
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-	surface = TTF_RenderUTF8_Blended(font, text, backgroundColor);
+	surface = TTF_RenderUTF8_Blended(font, text, foregroundColor);
 
 	if (surface == NULL)
 	{

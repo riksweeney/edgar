@@ -265,6 +265,11 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= ALWAYS_ON_TOP;
 		}
+		
+		else if (strcmpignorecase(token, "NO_DRAW") == 0)
+		{
+			e->flags |= NO_DRAW;
+		}
 
 		else
 		{
@@ -312,15 +317,13 @@ void setProperty(Entity *e, char *name, char *value)
 		strcpy(e->name, value);
 	}
 	
-	else if (strcmpignorecase(name, "TYPE") == 0)
+	else if (strcmpignorecase(name, "HEALTH") == 0)
 	{
-	
+		e->health = atoi(value);
 	}
 	
 	else
 	{
 		printf("Unknown property value %s\n", name);
-		
-		exit(1);
 	}
 }

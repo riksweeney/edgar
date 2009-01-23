@@ -337,3 +337,17 @@ int addEntity(Entity e, int x, int y)
 	return 0;
 }
 
+Entity *getEntityByObjectiveName(char *name)
+{
+	int i;
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].type == LIFT_TARGET && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			return &entity[i];
+		}
+	}
+	
+	return NULL;
+}

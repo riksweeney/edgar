@@ -25,7 +25,7 @@ extern void centerMapOnEntity(Entity *);
 static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", "item/metal_crate",
 							  "enemy/bat", "weapon/pickaxe",
 							  "item/chicken_feed_bag", "enemy/chicken", 
-							  "item/chicken_trap", NULL};
+							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target"};
 static int entityNamesLength = 0;
 
 void initCursor()

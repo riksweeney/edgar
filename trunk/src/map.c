@@ -219,6 +219,21 @@ void saveMap()
 			{
 				strcpy(type, "ENEMY");
 			}
+			
+			else if (self->type == MANUAL_LIFT)
+			{
+				strcpy(type, "MANUAL_LIFT");
+			}
+			
+			else if (self->type == AUTO_LIFT)
+			{
+				strcpy(type, "AUTO_LIFT");
+			}
+			
+			else if (self->type == LIFT_TARGET)
+			{
+				strcpy(type, "LIFT_TARGET");
+			}
 
 			else
 			{
@@ -232,6 +247,7 @@ void saveMap()
 			fprintf(fp, "START_Y %d\n", (int)self->y);
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "ACTIVATES %s\n", self->activates);
 			fprintf(fp, "}\n\n");

@@ -15,7 +15,7 @@ extern void freeHud(void);
 
 extern Entity *addKeyItem(char *, int, int);
 extern Entity *addPermanentItem(char *, int, int);
-extern Entity *addLift(char *, int, int);
+extern Entity *addLift(char *, int, int, char *);
 extern Entity *addEnemy(char *, int, int);
 
 extern void setProperty(Entity *, char *, char *);
@@ -124,9 +124,10 @@ void loadResources(FILE *fp)
 				e = addEnemy(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
-			else if (strcmpignorecase(value[type], "LIFT") == 0)
+			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0 ||
+				strcmpignorecase(value[type], "LIFT_TARGET") == 0)
 			{
-				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]));
+				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), value[type]);
 			}
 
 			else
