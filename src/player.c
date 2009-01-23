@@ -137,14 +137,54 @@ void doPlayer()
 					setEntityAnimation(&playerWeapon, STAND);
 				}
 
-				if (input.up == 1 && self->flags & FLY)
+				if (input.up == 1)
 				{
-					self->dirY = -1;
+					if (self->flags & FLY)
+					{
+						self->dirY = -1;
+					}
+					
+					else
+					{
+						if (self->standingOn != NULL)
+						{
+							if (self->standingOn->activate != NULL)
+							{
+								printf("Trying to activate %s\n", self->standingOn->objectiveName);
+								
+								self->standingOn->health++;
+								
+								self->standingOn->activate();
+							}
+							
+							input.up = 0;
+						}
+					}
 				}
 
-				if (input.down == 1 && self->flags & FLY)
+				if (input.down == 1)
 				{
-					self->dirY = 1;
+					if (self->flags & FLY)
+					{
+						self->dirY = 1;
+					}
+					
+					else
+					{
+						if (self->standingOn != NULL)
+						{
+							if (self->standingOn->activate != NULL)
+							{
+								printf("Trying to activate %s\n", self->standingOn->objectiveName);
+								
+								self->standingOn->health--;
+								
+								self->standingOn->activate();
+							}
+							
+							input.down = 0;
+						}
+					}
 				}
 
 				if (input.attack == 1)
