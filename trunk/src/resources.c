@@ -17,6 +17,7 @@ extern Entity *addKeyItem(char *, int, int);
 extern Entity *addPermanentItem(char *, int, int);
 extern Entity *addLift(char *, int, int, char *);
 extern Entity *addEnemy(char *, int, int);
+extern Target *addTarget(int, int, char *);
 
 extern void setProperty(Entity *, char *, char *);
 
@@ -24,7 +25,7 @@ void loadRequiredResources()
 {
 	/* Load the map */
 
-	loadMap(INSTALL_PATH"data/maps/map02.dat");
+	loadMap(INSTALL_PATH"data/maps/map01.dat");
 
 	/* Load the hud */
 
@@ -91,6 +92,8 @@ void loadResources(FILE *fp)
 
 		else if (strcmpignorecase(line, "}") == 0)
 		{
+			e = NULL;
+
 			if (type == -1 || startX == -1 || startY == -1 || name == -1)
 			{
 				printf("Property is missing basic values:\n");
@@ -124,10 +127,14 @@ void loadResources(FILE *fp)
 				e = addEnemy(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
-			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0 ||
-				strcmpignorecase(value[type], "LIFT_TARGET") == 0)
+			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)
 			{
 				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), value[type]);
+			}
+
+			else if (strcmpignorecase(value[type], "TARGET") == 0)
+			{
+				addTarget(atoi(value[startX]), atoi(value[startY]), value[name]);
 			}
 
 			else
@@ -145,9 +152,9 @@ void loadResources(FILE *fp)
 					}
 				}
 			}
-			
+
 			memset(key, 0, sizeof(key));
-			
+
 			memset(value, 0, sizeof(value));
 		}
 
@@ -158,12 +165,12 @@ void loadResources(FILE *fp)
 			strcpy(key[i], token);
 
 			token = strtok(NULL, "\0");
-			
+
 			if (token != NULL)
 			{
 				strcpy(value[i], token);
 			}
-			
+
 			else
 			{
 				key[i][0] = '\0';

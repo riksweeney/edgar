@@ -106,13 +106,18 @@ void doPlayer()
 			if (self->standingOn != NULL)
 			{
 				self->dirX += self->standingOn->dirX;
+
+				if (self->standingOn->dirY > 0)
+				{
+					self->dirY = self->standingOn->dirY;
+				}
 			}
 
 			if (self->animationCallback == NULL)
 			{
 				if (input.left == 1)
 				{
-					self->dirX -= PLAYER_SPEED;
+					self->dirX -= self->speed;
 					playerWeapon.face = playerShield.face = self->face = LEFT;
 
 					setEntityAnimation(&player, WALK);
@@ -122,7 +127,7 @@ void doPlayer()
 
 				else if (input.right == 1)
 				{
-					self->dirX += PLAYER_SPEED;
+					self->dirX += self->speed;
 					playerWeapon.face = playerShield.face = self->face = RIGHT;
 
 					setEntityAnimation(&player, WALK);
@@ -143,7 +148,7 @@ void doPlayer()
 					{
 						self->dirY = -1;
 					}
-					
+
 					else
 					{
 						if (self->standingOn != NULL)
@@ -151,12 +156,14 @@ void doPlayer()
 							if (self->standingOn->activate != NULL)
 							{
 								printf("Trying to activate %s\n", self->standingOn->objectiveName);
-								
-								self->standingOn->health++;
-								
-								self->standingOn->activate();
+
+								self = self->standingOn;
+
+								self->activate(1);
+
+								self = &player;
 							}
-							
+
 							input.up = 0;
 						}
 					}
@@ -168,7 +175,7 @@ void doPlayer()
 					{
 						self->dirY = 1;
 					}
-					
+
 					else
 					{
 						if (self->standingOn != NULL)
@@ -176,12 +183,14 @@ void doPlayer()
 							if (self->standingOn->activate != NULL)
 							{
 								printf("Trying to activate %s\n", self->standingOn->objectiveName);
-								
-								self->standingOn->health--;
-								
-								self->standingOn->activate();
+
+								self = self->standingOn;
+
+								self->activate(-1);
+
+								self = &player;
 							}
-							
+
 							input.down = 0;
 						}
 					}
@@ -311,7 +320,7 @@ void drawPlayer()
 	}
 }
 
-void setPlayerShield()
+void setPlayerShield(int val)
 {
 	playerShield = *self;
 
@@ -320,7 +329,7 @@ void setPlayerShield()
 	playerShield.face = player.face;
 }
 
-void setPlayerWeapon()
+void setPlayerWeapon(int val)
 {
 	playerWeapon = *self;
 
@@ -355,9 +364,9 @@ void autoSetPlayerShield(Entity *newWeapon)
 
 void takeDamage(Entity *other, int damage)
 {
-	if (!(self->flags & INVULNERABLE))
+	if (!(player.flags & INVULNERABLE))
 	{
-		self->health -= damage;
+		player.health -= damage;
 
 		player.animationCallback = NULL;
 		playerShield.animationCallback = NULL;
@@ -367,22 +376,24 @@ void takeDamage(Entity *other, int damage)
 		playerShield.flags &= ~ATTACKING|BLOCKING;
 		playerWeapon.flags &= ~ATTACKING|BLOCKING;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
 
-		if (self->health > 0)
+		if (player.health > 0)
 		{
-			setCustomAction(self, &helpless, 4);
+			setCustomAction(&player, &helpless, 4);
 
-			setCustomAction(self, &invulnerable, 60);
+			setCustomAction(&player, &invulnerable, 60);
 
-			if (self->dirX == 0)
+			if (player.dirX == 0)
 			{
-				self->dirX = other->dirX < 0 ? -30 : 30;
+				player.dirX = other->dirX < 0 ? -30 : 30;
 			}
 
 			else
 			{
-				self->dirX = self->dirX < 0 ? 30 : -30;
+				player.dirX = player.dirX < 0 ? 30 : -30;
 			}
 		}
 	}
@@ -394,6 +405,6 @@ int getDistanceFromPlayer(Entity *e)
 	{
 		return -getDistance(player.x + player.w, player.y, e->x, e->y);
 	}
-	
+
 	return getDistance(player.x, player.y, e->x + e->w, e->y);
 }

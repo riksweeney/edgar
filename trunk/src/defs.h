@@ -22,8 +22,6 @@
 
 #define JUMP_HEIGHT 11
 
-#define PLAYER_SPEED 2.5
-
 #define TRANS_R 127
 #define TRANS_G 0
 #define TRANS_B 127
@@ -64,7 +62,7 @@
 
 #define MAX_DECORATIONS 100
 
-#define MAX_ENTITY_SOUNDS 8
+#define MAX_TARGETS 255
 
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
@@ -131,7 +129,7 @@ enum
 	SHIELD,
 	AUTO_LIFT,
 	MANUAL_LIFT,
-	LIFT_TARGET
+	TARGET
 };
 
 enum
@@ -163,4 +161,16 @@ enum
 	STORMY,
 	SNOW,
 	MAX_WEATHER_TYPES
+};
+
+enum
+{
+	EDGAR_CHANNEL,
+	AMBIENCE_CHANNEL,
+	ENEMY_CHANNEL_1,
+	ENEMY_CHANNEL_2,
+	ENEMY_CHANNEL_3,
+	ENEMY_CHANNEL_4,
+	OBJECT_CHANNEL_1,
+	OBJECT_CHANNEL_2
 };

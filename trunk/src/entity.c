@@ -58,17 +58,17 @@ void doEntities()
 					self->custom[j](&self->customThinkTime[j]);
 				}
 			}
-			
+
 			if (!(self->flags & FLY))
 			{
 				self->dirY += GRAVITY_SPEED;
-			
+
 				if (self->dirY >= MAX_FALL_SPEED)
 				{
 					self->dirY = MAX_FALL_SPEED;
 				}
 			}
-			
+
 			if (!(self->flags & HELPLESS))
 			{
 				self->action();
@@ -92,9 +92,9 @@ void drawEntities()
 			self->draw();
 		}
 	}
-	
-	/* Draw entities that must appear at the front */ 
-	
+
+	/* Draw entities that must appear at the front */
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		self = &entity[i];
@@ -125,7 +125,7 @@ void doNothing()
 		self->thinkTime = 0;
 	}
 
-	self->dirX = 0;
+	self->dirX = 1;
 
 	checkToMap(self);
 }
@@ -340,14 +340,14 @@ int addEntity(Entity e, int x, int y)
 Entity *getEntityByObjectiveName(char *name)
 {
 	int i;
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].type == LIFT_TARGET && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (entity[i].active == ACTIVE && strcmpignorecase(entity[i].objectiveName, name) == 0)
 		{
 			return &entity[i];
 		}
 	}
-	
+
 	return NULL;
 }

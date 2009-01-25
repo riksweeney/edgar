@@ -14,6 +14,8 @@ static void loadAmbience(char *);
 
 void freeMap(void);
 
+static char *extensions[] = {"ogg", "mp3", "wav"};
+
 void loadMap(char *name)
 {
 	int x, y;
@@ -171,7 +173,7 @@ void saveMap()
 	/* Now write out all of the Entities */
 
 	self = &player;
-	
+
 	fprintf(fp, "{\n");
 	fprintf(fp, "TYPE player_start\n");
 	fprintf(fp, "NAME player_start\n");
@@ -219,27 +221,22 @@ void saveMap()
 			{
 				strcpy(type, "ENEMY");
 			}
-			
+
 			else if (self->type == MANUAL_LIFT)
 			{
 				strcpy(type, "MANUAL_LIFT");
 			}
-			
+
 			else if (self->type == AUTO_LIFT)
 			{
 				strcpy(type, "AUTO_LIFT");
-			}
-			
-			else if (self->type == LIFT_TARGET)
-			{
-				strcpy(type, "LIFT_TARGET");
 			}
 
 			else
 			{
 				strcpy(type, "UNKNOWN");
 			}
-			
+
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE %s\n", type);
 			fprintf(fp, "NAME %s\n", self->name);
@@ -250,6 +247,21 @@ void saveMap()
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "ACTIVATES %s\n", self->activates);
+			fprintf(fp, "}\n\n");
+		}
+	}
+
+	/* Now the targets */
+
+	for (x=0;x<MAX_TARGETS;x++)
+	{
+		if (target[x].active == ACTIVE)
+		{
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE TARGET\n");
+			fprintf(fp, "NAME %s\n", target[x].name);
+			fprintf(fp, "START_X %d\n", target[x].x);
+			fprintf(fp, "START_Y %d\n", target[x].y);
 			fprintf(fp, "}\n\n");
 		}
 	}
@@ -408,7 +420,6 @@ static void loadAmbience(char *dir)
 {
 	int i, j;
 	char filename[MAX_PATH_LENGTH];
-	static char *extensions[] = {"ogg", "mp3", "wav"};
 	FILE *fp;
 
 	map.hasAmbience = 0;

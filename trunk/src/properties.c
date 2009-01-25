@@ -3,15 +3,18 @@
 extern void loadSpritesFromFile(char *, int *);
 extern void loadAnimationData(char *, int *, int *);
 extern void setEntityAnimation(Entity *, int);
-extern void preCacheSound(char *);
+extern void preCacheSounds(char *);
 
 static void setFlags(Entity *, char *);
 static int getType(char *);
 
+static char *ignoreProps[] = {"TYPE"};
+static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD"};
+
 void loadProperties(char *name, Entity *e)
 {
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
-	char path[255], line[MAX_LINE_LENGTH];
+	char path[MAX_PATH_LENGTH], line[MAX_LINE_LENGTH];
 	FILE *fp;
 
 	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
@@ -164,10 +167,10 @@ void loadProperties(char *name, Entity *e)
 			{
 				e->type = getType(properties[i].value[j]);
 			}
-			
+
 			else if (strcmpignorecase(properties[i].key[j], "SFX_FILE") == 0)
 			{
-				preCacheSound(properties[i].value[j]);
+				preCacheSounds(properties[i].value[j]);
 			}
 		}
 
@@ -197,7 +200,6 @@ void loadProperties(char *name, Entity *e)
 static int getType(char *type)
 {
 	int i;
-	static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", NULL};
 
 	for (i=0;types[i]!=NULL;i++)
 	{
@@ -265,7 +267,7 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= ALWAYS_ON_TOP;
 		}
-		
+
 		else if (strcmpignorecase(token, "NO_DRAW") == 0)
 		{
 			e->flags |= NO_DRAW;
@@ -282,6 +284,8 @@ static void setFlags(Entity *e, char *flags)
 
 void setProperty(Entity *e, char *name, char *value)
 {
+	int i = 0, found = 0;
+
 	if (strcmpignorecase(name, "START_X") == 0)
 	{
 		e->startX = atoi(value);
@@ -311,19 +315,42 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		strcpy(e->activates, value);
 	}
-	
+
 	else if (strcmpignorecase(name, "NAME") == 0)
 	{
 		strcpy(e->name, value);
 	}
-	
+
 	else if (strcmpignorecase(name, "HEALTH") == 0)
 	{
 		e->health = atoi(value);
 	}
-	
+
+	else if (strcmpignorecase(name, "THINKTIME") == 0)
+	{
+		e->thinkTime = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "SPEED") == 0)
+	{
+		e->speed = atof(value);
+	}
+
 	else
 	{
-		printf("Unknown property value %s\n", name);
+		while (ignoreProps[i] != NULL)
+		{
+			if (strcmpignorecase(name, ignoreProps[i]) == 0)
+			{
+				found = 1;
+
+				break;
+			}
+		}
+
+		if (found == 0)
+		{
+			printf("Unknown property value %s\n", name);
+		}
 	}
 }
