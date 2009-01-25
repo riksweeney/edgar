@@ -12,7 +12,7 @@ typedef struct Input
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle, drop;
-	int activate, attack, fly;
+	int activate, attack, fly, snap;
 } Input;
 
 typedef struct Entity
@@ -30,7 +30,7 @@ typedef struct Entity
 	char name[30], objectiveName[30], activates[30];
 	struct Entity *standingOn, *parent, *target;
 	void (*action)(void);
-	void (*activate)(void);
+	void (*activate)(int);
 	void (*draw)(void);
 	void (*touch)(struct Entity *);
 	void (*animationCallback)(void);
@@ -72,7 +72,7 @@ typedef struct Game
 typedef struct Cursor
 {
 	int x, y, tileID, entityType;
-	int type;
+	int type, snapToGrid;
 	Entity entity;
 } Cursor;
 
@@ -105,3 +105,9 @@ typedef struct Constructor
 	char name[30];
 	Entity *(*construct)(int, int);
 } Constructor;
+
+typedef struct Target
+{
+	int x, y, active;
+	char name[30];
+} Target;

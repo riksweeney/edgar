@@ -119,28 +119,14 @@ void checkToMap(Entity *e)
 						e->flags |= ON_GROUND;
 					}
 				}
-
-				else if (mapTileAt((e->x + e->w - 1) / TILE_SIZE, y2) == SLOPE_UP)
-				{
-					if (i == e->h)
-					{
-						e->y = y2* TILE_SIZE;
-
-						e->y -= e->h;
-
-						e->dirY = 0;
-
-						e->flags |= ON_GROUND;
-					}
-				}
-
+				
 				else if ((mapTileAt(x2, y1) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
 
 					e->x = x2 * TILE_SIZE;
 
-					e->x -= e->w + 1;
+					e->x -= e->w;
 
 					e->dirX = 0;
 				}
@@ -162,20 +148,6 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (mapTileAt((e->x) / TILE_SIZE, y2) == SLOPE_DOWN)
-				{
-					if (i == e->h)
-					{
-						e->y = y2* TILE_SIZE;
-
-						e->y -= e->h;
-
-						e->dirY = 0;
-
-						e->flags |= ON_GROUND;
-					}
-				}
-
 				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
@@ -189,13 +161,13 @@ void checkToMap(Entity *e)
 
 		/* Exit this loop if we have tested all of the body */
 
-		if (i == e->h)
+		if (i == e->h || e->h <= TILE_SIZE)
 		{
 			break;
 		}
 
 		/* Test the next block */
-
+		
 		i += TILE_SIZE;
 
 		if (i > e->h)
@@ -228,8 +200,8 @@ void checkToMap(Entity *e)
 					{
 						e->y = (y2 + 1) * TILE_SIZE;
 						e->y -= e->h;
-
-						e->y -= ((int)e->x + e->w) % TILE_SIZE;
+						
+						e->y -= (((int)e->x + e->w - 1) % TILE_SIZE) + 1;
 
 						e->dirY = 0;
 
@@ -280,7 +252,7 @@ void checkToMap(Entity *e)
 			}
 		}
 
-		if (i == e->w)
+		if (i == e->w || e->w <= TILE_SIZE)
 		{
 			break;
 		}
@@ -318,19 +290,19 @@ int isAtEdge(Entity *e)
 	int x = e->x + e->dirX + (e->dirX > 0 ? e->w : 0);
 	int y = e->y + e->h + 1;
 	int i;
-	
+
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	/* Return immediately if the tile isn't blank */
-	
+
 	if (!(e->flags & ON_GROUND) || mapTileAt(x, y) != BLANK_TILE)
 	{
 		return 0;
 	}
-	
+
 	/* There might still be Entities that can be walked on */
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e != &entity[i] && (entity[i].flags & PUSHABLE))
@@ -341,12 +313,12 @@ int isAtEdge(Entity *e)
 				{
 					return 0;
 				}
-				
+
 				return 1;
 			}
 		}
 	}
-	
+
 	return 1;
 }
 

@@ -11,8 +11,8 @@ extern void setCustomAction(Entity *, void (*)(int *), int);
 extern void pushEntity(Entity *);
 extern int addToInventory(Entity *);
 extern int addEntity(Entity, int, int);
-extern void setPlayerWeapon(void);
-extern void setPlayerShield(void);
+extern void setPlayerWeapon(int);
+extern void setPlayerShield(int);
 
 void healthTouch(Entity *);
 void generalItemAction(void);

@@ -9,9 +9,9 @@ extern void keyItemRespawn(void);
 extern void drawLoopingAnimationToMap(void);
 extern void keyItemTouch(Entity *);
 extern void addTemporaryItem(char *, int, int, int, float, float);
-extern void playSound(char *, int, int, int);
+extern void playSound(char *, int, int, int, int);
 
-static void dropChickenFeed(void);
+static void dropChickenFeed(int);
 
 Entity *addChickenFeedBag(int x, int y)
 {
@@ -45,17 +45,17 @@ Entity *addChickenFeedBag(int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
-	
+
 	return e;
 }
 
-void dropChickenFeed()
+void dropChickenFeed(int val)
 {
 	if (self->thinkTime <= 0)
 	{
 		addTemporaryItem("item/chicken_feed", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -10 : 10, ITEM_JUMP_HEIGHT);
-		
-		playSound("common/throw.ogg", -1, 0, 0);
+
+		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, 0, 0);
 
 		self->thinkTime = self->health;
 	}

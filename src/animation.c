@@ -186,6 +186,8 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 		exit(1);
 	}
+	
+	fclose(fp);
 }
 
 static void freeAnimation(Animation *anim)

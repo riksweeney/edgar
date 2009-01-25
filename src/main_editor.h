@@ -8,3 +8,4 @@ Game game;
 Inventory inventory;
 Droplet droplet[MAX_DROPS];
 Cursor cursor;
+Target target[MAX_TARGETS];

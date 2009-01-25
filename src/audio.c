@@ -4,9 +4,40 @@ void playSoundChunk(Mix_Chunk *, int);
 int getDistance(int, int, int, int);
 Mix_Chunk *loadSound(char *);
 
+static void preCacheSound(char *);
+
 static int soundIndex = 0;
 
-void preCacheSound(char *name)
+void preCacheSounds(char *filename)
+{
+	char line[MAX_LINE_LENGTH];
+	FILE *fp;
+
+	fp = fopen(filename, "rb");
+
+	if (fp == NULL)
+	{
+		printf("Failed to open sfx file: %s\n", filename);
+
+		exit(1);
+	}
+
+	printf("Loading sfx data from %s\n", filename);
+	
+	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	{
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+		
+		preCacheSound(line);
+	}
+	
+	fclose(fp);
+}
+
+static void preCacheSound(char *name)
 {
 	int i;
 	Mix_Chunk *chunk = NULL;
@@ -36,10 +67,25 @@ void preCacheSound(char *name)
 	soundIndex++;
 }
 
-void playSound(char *name, int channel, int x, int y)
+void playSound(char *name, int channelMin, int channelMax, int x, int y)
 {
-	int i, distance, volume;
+	int i, distance, volume, channel;
 	Mix_Chunk *chunk = NULL;
+	
+	channel = channelMin;
+	
+	if (channelMin != channelMax)
+	{
+		for (i=channelMin;i<=channelMax;i++)
+		{
+			if (Mix_Playing(i) == 0)
+			{
+				channel = i;
+				
+				break;
+			}
+		}
+	}
 
 	for (i=0;i<soundIndex;i++)
 	{
@@ -104,7 +150,7 @@ Mix_Chunk *loadSound(char *name)
 	char path[MAX_PATH_LENGTH];
 	Mix_Chunk *chunk;
 
-	sprintf(path, INSTALL_PATH"sound/%s", name);
+	sprintf(path, INSTALL_PATH"%s", name);
 
 	/* Load the sound specified by the filename */
 

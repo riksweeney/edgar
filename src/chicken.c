@@ -10,7 +10,7 @@ extern int collision(int, int, int, int, int, int, int, int);
 extern void checkToMap(Entity *);
 extern void doNothing(void);
 extern int isAtEdge(Entity *);
-extern void playSound(char *, int, int, int);
+extern void playSound(char *, int, int, int, int);
 extern int getDistance(int, int, int, int);
 
 static void lookForFood(void);
@@ -59,11 +59,11 @@ static void lookForFood()
 			continue;
 		}
 
-		if (entity[i].health > 3 && collision(self->x + (self->face == RIGHT ? 0: -200), self->y, 200, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (entity[i].health > 3)
 		{
 			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
 			
-			if (target == -1 || newDistance < distance)
+			if (newDistance < 320 && (target == -1 || newDistance < distance))
 			{
 				distance = newDistance;
 				
@@ -75,6 +75,8 @@ static void lookForFood()
 	if (target != -1)
 	{
 		self->target = &entity[target];
+		
+		self->face = (self->target->x < self->x ? LEFT : RIGHT);
 	
 		self->action = &moveToFood;
 	
@@ -111,7 +113,7 @@ static void wander()
 
 	if (prand() % 2400 == 0)
 	{
-		playSound("enemy/chicken/cluck.wav", -1, self->x, self->y);
+		playSound("sound/enemy/chicken/cluck.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_4, self->x, self->y);
 	}
 
 	if (prand() % 30 == 0)

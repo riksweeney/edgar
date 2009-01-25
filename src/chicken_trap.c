@@ -7,7 +7,7 @@ extern Entity *getFreeEntity(void);
 extern void drawLoopingAnimationToMap(void);
 extern int collision(int, int, int, int, int, int, int, int);
 extern void keyItemRespawn(void);
-extern void playSound(char *, int, int, int);
+extern void playSound(char *, int, int, int, int);
 
 static void trapWait(void);
 static void trapEntity(void);
@@ -114,7 +114,7 @@ static void activateTrap()
 
 						self->target->x = self->x + abs(self->target->w - self->w) / 2;
 						
-						playSound("item/trap_close.wav", -1, self->x, self->y);
+						playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 
 						break;
 					}

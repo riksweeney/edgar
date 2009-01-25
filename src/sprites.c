@@ -8,7 +8,7 @@ static int spriteID = 0;
 
 void loadSpritesFromFile(char *name, int *index)
 {
-	char imageName[255], line[MAX_LINE_LENGTH];
+	char line[MAX_LINE_LENGTH];
 	int i;
 	FILE *fp = fopen(name, "rb");
 
@@ -36,15 +36,20 @@ void loadSpritesFromFile(char *name, int *index)
 
 			abort();
 		}
-
-		sscanf(line, "%s", imageName);
-
-		loadSprite(imageName);
+		
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+		
+		loadSprite(line);
 
 		index[i] = spriteID++;
 
 		i++;
 	}
+	
+	fclose(fp);
 }
 
 static void loadSprite(char *name)

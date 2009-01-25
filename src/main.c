@@ -39,48 +39,45 @@ int main(int argc, char *argv[])
 	go = 1;
 
 	/* Load the resources */
-	
+
 	loadRequiredResources();
-	
+
 	/* Initialise the game variables */
-	
+
 	initGame();
 
 	/* Loop indefinitely for messages */
-	/*
-	addWoodenCrate(100, 0);
-	addApple(100, -50);
-	*/
+
 	while (go == 1)
 	{
 		getInput();
-		
+
 		/* Do the game */
-		
+
 		doGame();
 
 		/* Do the player, provided they still have enough lives left */
-		
+
 		doPlayer();
-		
+
 		/* Do the inventory */
-		
+
 		doInventory();
-		
+
 		/* Do the map */
-		
+
 		doMap();
-		
+
 		/* Do the Entities */
-		
+
 		doEntities();
-		
+
 		/* Do decorations */
-		
+
 		doDecorations();
-		
+
 		/* Do collisions */
-		
+
 		doCollisions();
 
 		/* Draw the map */

@@ -52,7 +52,7 @@ void doCursor()
 	cursor.x = input.mouseX;
 	cursor.y = input.mouseY;
 	
-	if (cursor.type == TILES)
+	if (cursor.type == TILES || cursor.snapToGrid == 1)
 	{
 		cursor.x /= TILE_SIZE;
 		cursor.y /= TILE_SIZE;
@@ -84,6 +84,13 @@ void doCursor()
 	else if (input.down == 1)
 	{
 		mapStartYNext(TILE_SIZE);
+	}
+	
+	if (input.snap == 1)
+	{
+		cursor.snapToGrid = 1;
+		
+		input.snap = 0;
 	}
 	
 	if (input.add == 1)

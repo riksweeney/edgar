@@ -7,9 +7,12 @@ extern void drawMap(void);
 extern void centerEntityOnMap(void);
 extern void drawHud(void);
 extern void drawDecorations(void);
+extern void drawString(char *, int, int, TTF_Font *, int, int);
 
 void draw()
 {
+	char text[20];
+	
 	/* Clear the screen */
 	
 	SDL_FillRect(game.screen, NULL, 0);
@@ -41,6 +44,20 @@ void draw()
 	/* Draw the game statuses */
 	
 	drawGame();
+	
+	/* Draw the screen coordinates */
+	
+	if (player.face == LEFT)
+	{
+		sprintf(text, "%3d : %3d", (int)player.x, (int)player.y + player.h - 1);
+	}
+	
+	else
+	{
+		sprintf(text, "%3d : %3d", (int)player.x + player.w - 1, (int)player.y + player.h - 1);
+	}
+	
+	drawString(text, 5, 5, game.font, 0, 0);
 
 	/* Swap the buffers */
 

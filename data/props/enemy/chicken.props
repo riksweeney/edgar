@@ -3,5 +3,5 @@ HEALTH 6
 DAMAGE 1
 GFX_FILE data/gfx/enemy/chicken.dat
 ANIM_FILE data/anim/enemy/chicken.dat
-SFX_FILE enemy/chicken/cluck.wav
+SFX_FILE data/sfx/enemy/chicken.dat
 TYPE ENEMY
