@@ -120,10 +120,15 @@ void checkToMap(Entity *e)
 					}
 				}
 				
+				else if (mapTileAt(x2, y2) == SLOPE_DOWN)
+				{
+					
+				}
+				
 				else if ((mapTileAt(x2, y1) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-
+					
 					e->x = x2 * TILE_SIZE;
 
 					e->x -= e->w;
@@ -146,6 +151,11 @@ void checkToMap(Entity *e)
 
 						e->flags |= ON_GROUND;
 					}
+				}
+				
+				else if (mapTileAt(x1, y2) == SLOPE_UP)
+				{
+					
 				}
 
 				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
@@ -288,7 +298,7 @@ void checkToMap(Entity *e)
 int isAtEdge(Entity *e)
 {
 	int x = e->x + e->dirX + (e->dirX > 0 ? e->w : 0);
-	int y = e->y + e->h + 1;
+	int y = e->y + e->h - 1;
 	int i;
 
 	x /= TILE_SIZE;
@@ -296,7 +306,7 @@ int isAtEdge(Entity *e)
 
 	/* Return immediately if the tile isn't blank */
 
-	if (!(e->flags & ON_GROUND) || mapTileAt(x, y) != BLANK_TILE)
+	if (!(e->flags & ON_GROUND) || mapTileAt(x, y + 1) != BLANK_TILE)
 	{
 		return 0;
 	}

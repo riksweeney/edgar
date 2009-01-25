@@ -8,6 +8,7 @@ extern void drawLoopingAnimationToMap(void);
 extern int collision(int, int, int, int, int, int, int, int);
 extern void keyItemRespawn(void);
 extern void playSound(char *, int, int, int, int);
+extern void checkToMap(Entity *);
 
 static void trapWait(void);
 static void trapEntity(void);
@@ -51,6 +52,8 @@ static void trapWait()
 	self->health = self->maxHealth;
 
 	self->thinkTime = 180;
+	
+	checkToMap(self);
 }
 
 static void trapEntity()
