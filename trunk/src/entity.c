@@ -124,8 +124,8 @@ void doNothing()
 	{
 		self->thinkTime = 0;
 	}
-
-	self->dirX = 1;
+	
+	self->dirX = 0;
 
 	checkToMap(self);
 }

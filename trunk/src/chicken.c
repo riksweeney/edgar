@@ -63,7 +63,7 @@ static void lookForFood()
 		{
 			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
 			
-			if (newDistance < 320 && (target == -1 || newDistance < distance))
+			if (newDistance < 160 && (target == -1 || newDistance < distance))
 			{
 				distance = newDistance;
 				
@@ -146,6 +146,8 @@ static void moveToFood()
 	if (self->target->health > 3 && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
+		
+		self->face = (self->dirX < 0 ? LEFT : RIGHT);
 
 		if (self->dirX != 0 && isAtEdge(self) == 1)
 		{
