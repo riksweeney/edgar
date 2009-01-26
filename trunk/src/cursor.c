@@ -21,12 +21,14 @@ extern Entity *isSpaceEmpty(Entity *);
 extern int addEntity(Entity, int, int);
 extern void setPlayerLocation(int, int);
 extern void centerMapOnEntity(Entity *);
+extern Target *addTarget(int, int, char *);
 
 static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", "item/metal_crate",
 							  "enemy/bat", "weapon/pickaxe",
 							  "item/chicken_feed_bag", "enemy/chicken", 
-							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target"};
+							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target", NULL};
 static int entityNamesLength = 0;
+static int targetID = 1;
 
 void initCursor()
 {
@@ -49,6 +51,8 @@ void initCursor()
 
 void doCursor()
 {
+	char name[30];
+	
 	cursor.x = input.mouseX;
 	cursor.y = input.mouseY;
 	
@@ -113,7 +117,19 @@ void doCursor()
 				
 				else
 				{
-					addEntity(cursor.entity, mapStartX() + cursor.x, mapStartY() + cursor.y);
+					if (strcmpignorecase(cursor.entity.name, "lift/lift_target") == 0)
+					{
+						sprintf(name, "NEW_TARGET_%03d", targetID);
+						
+						addTarget(mapStartX() + cursor.x, mapStartY() + cursor.y, name);
+						
+						targetID++;
+					}
+					
+					else
+					{
+						addEntity(cursor.entity, mapStartX() + cursor.x, mapStartY() + cursor.y);
+					}
 				}
 			}
 			

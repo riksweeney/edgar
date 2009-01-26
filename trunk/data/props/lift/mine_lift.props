@@ -1,3 +1,4 @@
+TYPE AUTO_LIFT
 GFX_FILE data/gfx/lift/mine_lift.dat
 ANIM_FILE data/anim/lift/mine_lift.dat
 SPEED 8

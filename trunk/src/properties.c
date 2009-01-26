@@ -8,8 +8,9 @@ extern void preCacheSounds(char *);
 static void setFlags(Entity *, char *);
 static int getType(char *);
 
-static char *ignoreProps[] = {"TYPE"};
-static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD"};
+static char *ignoreProps[] = {"TYPE", NULL};
+static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", "AUTO_LIFT",
+						"MANUAL_LIFT", "TARGET", NULL};
 
 void loadProperties(char *name, Entity *e)
 {

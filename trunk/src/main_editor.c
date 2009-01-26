@@ -19,6 +19,7 @@ extern void loadRequiredResources(void);
 extern void initCursor(void);
 extern void setMaxMapX(int);
 extern void setMaxMapY(int);
+extern void loadMap(char *);
 
 int main(int argc, char *argv[])
 {
@@ -34,6 +35,16 @@ int main(int argc, char *argv[])
 	atexit(cleanup);
 
 	go = 1;
+	
+	if (argc == 2)
+	{
+		loadMap(argv[1]);
+	}
+	
+	else
+	{
+		loadMap("data/maps/map01.dat");
+	}
 
 	/* Load the resources */
 	

@@ -6,6 +6,7 @@ extern void setEntityAnimation(Entity *, int);
 extern int collision(int, int, int, int, int, int, int, int);
 extern void loadProperties(char *, Entity *);
 extern Target *getTargetByName(char *);
+extern void playSound(char *, int, int, int, int);
 
 static void touch(Entity *);
 static void autoMove(void);
@@ -114,6 +115,8 @@ static void findTarget(int val)
 			self->targetY = t->y;
 
 			self->action = &moveToTarget;
+			
+			playSound("sound/common/mine_lift.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 		}
 	}
 

@@ -8,6 +8,7 @@ extern void drawPlayer(void);
 extern void drawString(char *, int, int, TTF_Font *, int, int);
 extern int mapStartX(void);
 extern int mapStartY(void);
+extern void drawTargets(void);
 
 void draw()
 {
@@ -20,6 +21,10 @@ void draw()
 	/* Draw the entities */
 	
 	drawEntities();
+	
+	/* Draw the targets */
+	
+	drawTargets();
 	
 	/* Draw the cursor */
 	
