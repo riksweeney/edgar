@@ -1,8 +1,6 @@
 #include "resources.h"
 
 extern void loadMapTiles(void);
-extern void loadMapBackground(char *);
-extern void loadMap(char *);
 extern void loadBasicWeapons(void);
 extern TTF_Font *loadFont(char *, int);
 extern void freeSprites(void);
@@ -23,10 +21,6 @@ extern void setProperty(Entity *, char *, char *);
 
 void loadRequiredResources()
 {
-	/* Load the map */
-
-	loadMap(INSTALL_PATH"data/maps/map01.dat");
-
 	/* Load the hud */
 
 	initHud();

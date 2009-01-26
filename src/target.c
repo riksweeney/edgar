@@ -1,5 +1,10 @@
 #include "target.h"
 
+extern void loadProperties(char *, Entity *);
+extern void drawLoopingAnimationToMap(void);
+
+static Entity targetEntity;
+
 void clearTargets()
 {
 	/* Clear the list */
@@ -10,6 +15,10 @@ void clearTargets()
 Target *addTarget(int x, int y, char *name)
 {
 	int i;
+	
+	loadProperties("lift/lift_target", &targetEntity);
+	
+	targetEntity.draw = &drawLoopingAnimationToMap;
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
@@ -43,6 +52,24 @@ Target *addTarget(int x, int y, char *name)
 	printf("No free slots to add a target\n");
 
 	exit(1);
+}
+
+void drawTargets()
+{
+	int i;
+	
+	self = &targetEntity;
+	
+	for (i=0;i<MAX_TARGETS;i++)
+	{
+		if (target[i].active == ACTIVE)
+		{
+			self->x = target[i].x;
+			self->y = target[i].y;
+			
+			self->draw();
+		}
+	}
 }
 
 Target *getTargetByName(char *name)

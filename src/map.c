@@ -14,7 +14,7 @@ static void loadAmbience(char *);
 
 void freeMap(void);
 
-static char *extensions[] = {"ogg", "mp3", "wav"};
+static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
 void loadMap(char *name)
 {
@@ -23,8 +23,10 @@ void loadMap(char *name)
 	FILE *fp;
 
 	freeMap();
+	
+	sprintf(line, "%s%s", INSTALL_PATH, name);
 
-	fp = fopen(name, "rb");
+	fp = fopen(line, "rb");
 
 	/* If we can't open the map then exit */
 
@@ -142,6 +144,8 @@ void saveMap()
 
 		return;
 	}
+	
+	printf("Saving map to %s\n", map.filename);
 
 	fp = fopen(map.filename, "wb");
 

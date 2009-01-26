@@ -22,6 +22,7 @@ extern void doMap(void);
 extern void doDecorations(void);
 extern void doInventory(void);
 extern void takeScreenshot(void);
+extern void loadMap(char *);
 
 int main(int argc, char *argv[])
 {
@@ -39,6 +40,16 @@ int main(int argc, char *argv[])
 	go = 1;
 
 	/* Load the resources */
+	
+	if (argc == 2)
+	{
+		loadMap(argv[1]);
+	}
+	
+	else
+	{
+		loadMap("data/maps/map01.dat");
+	}
 
 	loadRequiredResources();
 
