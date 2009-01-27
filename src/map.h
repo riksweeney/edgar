@@ -1,9 +1,21 @@
-#include "structs.h"
-
-static Map map;
-static SDL_Surface *mapImages[MAX_TILES];
-extern Input input;
-extern Entity entity[MAX_ENTITIES];
-extern Entity *self;
-extern Entity player;
-extern Target target[MAX_TARGETS];
+void loadMap(char *);
+void saveMap(void);
+void doMap(void);
+void drawMap(void);
+void centerEntityOnMap(void);
+void freeMap(void);
+SDL_Surface *tileImage(int);
+SDL_Surface *mapImageAt(int, int);
+int mapTileAt(int, int);
+int maxMapX(void);
+int maxMapY(void);
+void setMaxMapX(int);
+void setMaxMapY(int);
+int mapStartX(void);
+int mapStartY(void);
+void mapStartXNext(int);
+void mapStartYNext(int);
+void setTileAt(int, int, int);
+int nextTile(int);
+int prevTile(int);
+void centerMapOnEntity(Entity *);

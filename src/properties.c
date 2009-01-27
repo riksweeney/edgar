@@ -1,16 +1,13 @@
-#include "properties.h"
+#include "headers.h"
 
-extern void loadSpritesFromFile(char *, int *);
-extern void loadAnimationData(char *, int *, int *);
-extern void setEntityAnimation(Entity *, int);
-extern void preCacheSounds(char *);
+static Properties properties[MAX_PROPS_FILES];
 
 static void setFlags(Entity *, char *);
 static int getType(char *);
 
 static char *ignoreProps[] = {"TYPE", NULL};
 static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", "AUTO_LIFT",
-						"MANUAL_LIFT", "TARGET", NULL};
+						"MANUAL_LIFT", "TARGET", "SPAWNER", NULL};
 
 void loadProperties(char *name, Entity *e)
 {

@@ -1,4 +1,3 @@
-#include "structs.h"
-
-extern Game game;
-static Message message;
+void doStatusPanel(void);
+void drawStatusPanel(void);
+void setStatusMessage(char *);

@@ -1,3 +1,1 @@
-#include "structs.h"
-
-extern Entity *self;
+Entity *addBat(int, int);

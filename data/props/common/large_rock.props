@@ -1,0 +1,5 @@
+DAMAGE 1
+GFX_FILE data/gfx/common/large_rock.dat
+ANIM_FILE data/anim/common/large_rock.dat
+TYPE ENEMY
+THINKTIME 30

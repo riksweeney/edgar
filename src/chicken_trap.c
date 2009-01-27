@@ -1,14 +1,6 @@
-#include "chicken_trap.h"
+#include "headers.h"
 
-extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingAnimationToMap(void);
-extern void loadProperties(char *, Entity *);
-extern Entity *getFreeEntity(void);
-extern void drawLoopingAnimationToMap(void);
-extern int collision(int, int, int, int, int, int, int, int);
-extern void keyItemRespawn(void);
-extern void playSound(char *, int, int, int, int);
-extern void checkToMap(Entity *);
+extern Entity *self, entity[MAX_ENTITIES];
 
 static void trapWait(void);
 static void trapEntity(void);
@@ -52,7 +44,7 @@ static void trapWait()
 	self->health = self->maxHealth;
 
 	self->thinkTime = 180;
-	
+
 	checkToMap(self);
 }
 
@@ -116,7 +108,7 @@ static void activateTrap()
 						setEntityAnimation(self->target, STAND);
 
 						self->target->x = self->x + abs(self->target->w - self->w) / 2;
-						
+
 						playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 
 						break;

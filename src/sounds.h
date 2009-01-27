@@ -1,1 +1,1 @@
-#include "structs.h"
+void loadCommonSounds(void);

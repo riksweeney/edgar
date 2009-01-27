@@ -1,7 +1,7 @@
-#include "target.h"
+#include "headers.h"
 
-extern void loadProperties(char *, Entity *);
-extern void drawLoopingAnimationToMap(void);
+extern Target target[MAX_TARGETS];
+extern Entity *self;
 
 static Entity targetEntity;
 
@@ -15,9 +15,9 @@ void clearTargets()
 Target *addTarget(int x, int y, char *name)
 {
 	int i;
-	
+
 	loadProperties("lift/lift_target", &targetEntity);
-	
+
 	targetEntity.draw = &drawLoopingAnimationToMap;
 
 	for (i=0;i<MAX_TARGETS;i++)
@@ -57,16 +57,16 @@ Target *addTarget(int x, int y, char *name)
 void drawTargets()
 {
 	int i;
-	
+
 	self = &targetEntity;
-	
+
 	for (i=0;i<MAX_TARGETS;i++)
 	{
 		if (target[i].active == ACTIVE)
 		{
 			self->x = target[i].x;
 			self->y = target[i].y;
-			
+
 			self->draw();
 		}
 	}

@@ -1,1 +1,1 @@
-#include "structs.h"
+int getDistance(int, int, int, int);

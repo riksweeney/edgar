@@ -1,19 +1,8 @@
-#include "player.h"
+#include "headers.h"
 
-extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingAnimationToMap(void);
-extern void checkToMap(Entity *);
-extern void loadProperties(char *, Entity *);
-extern void centerMapOnEntity(Entity *);
-extern void dropInventoryItem(void);
-extern void selectNextInventoryItem(int);
-extern void helpless(int *);
-extern void invulnerable(int *);
-extern void setCustomAction(Entity *, void (*)(int *), int);
-extern void useInventoryItem(void);
-extern int getDistance(int, int, int, int);
-
-void setPlayerLocation(int, int);
+extern Entity player, playerShield, playerWeapon;
+extern Entity *self;
+extern Input input;
 
 static void takeDamage(Entity *, int);
 static void attackFinish(void);
@@ -362,7 +351,7 @@ void autoSetPlayerShield(Entity *newWeapon)
 	}
 }
 
-void takeDamage(Entity *other, int damage)
+static void takeDamage(Entity *other, int damage)
 {
 	if (!(player.flags & INVULNERABLE))
 	{

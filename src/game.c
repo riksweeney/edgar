@@ -1,35 +1,32 @@
-#include "game.h"
+#include "headers.h"
 
-extern SDL_Surface *generateTextSurface(char *, TTF_Font *);
-extern void drawImage(SDL_Surface *, int, int);
-extern void closeFont(TTF_Font *);
-extern void setWeather(int);
+extern Game game;
 
 void initGame()
 {
 	game.weatherType = 0;
-	
+
 	setWeather(game.weatherType);
 }
 
 void doGame()
 {
 	/* Decrease game's thinktime */
-	
+
 	game.thinkTime--;
-	
+
 	if (game.thinkTime <= 0)
 	{
 		/* Execute the action if there is one */
-		
+
 		if (game.action != NULL)
 		{
 			game.action();
 		}
-		
+
 		game.thinkTime = 0;
 	}
-	
+
 	if (game.weatherType != NO_WEATHER)
 	{
 		game.weatherAction();

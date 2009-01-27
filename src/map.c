@@ -1,18 +1,17 @@
-#include "map.h"
+#include "headers.h"
 
-extern SDL_Surface *loadImage(char *);
-extern void drawImage(SDL_Surface *, int, int);
-extern void setPlayerLocation(int, int);
-extern Mix_Chunk *loadSound(char *);
-extern void loadResources(FILE *);
-extern void playSoundChunk(Mix_Chunk *, int);
-extern long prand(void);
+static Map map;
+static SDL_Surface *mapImages[MAX_TILES];
+
+extern Input input;
+extern Entity entity[MAX_ENTITIES];
+extern Entity *self;
+extern Entity player;
+extern Target target[MAX_TARGETS];
 
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name);
 static void loadAmbience(char *);
-
-void freeMap(void);
 
 static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
@@ -23,7 +22,7 @@ void loadMap(char *name)
 	FILE *fp;
 
 	freeMap();
-	
+
 	sprintf(line, "%s%s", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
@@ -144,7 +143,7 @@ void saveMap()
 
 		return;
 	}
-	
+
 	printf("Saving map to %s\n", map.filename);
 
 	fp = fopen(map.filename, "wb");
@@ -235,6 +234,11 @@ void saveMap()
 			{
 				strcpy(type, "AUTO_LIFT");
 			}
+			
+			else if (self->type == SPAWNER)
+			{
+				strcpy(type, "SPAWNER");
+			}
 
 			else
 			{
@@ -248,7 +252,9 @@ void saveMap()
 			fprintf(fp, "START_Y %d\n", (int)self->y);
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
+			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "ACTIVATES %s\n", self->activates);
 			fprintf(fp, "}\n\n");

@@ -1,3 +1,1 @@
-#include "structs.h"
-
-extern Entity *self, entity[MAX_ENTITIES];
+Entity *addLift(char *, int, int, char *);

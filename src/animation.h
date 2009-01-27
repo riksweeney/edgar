@@ -1,5 +1,5 @@
-#include "structs.h"
-
-static Animation animation[MAX_ANIMATIONS];
-extern Entity *self;
-extern Map map;
+void loadAnimationData(char *, int *, int *);
+void freeAnimations(void);
+void drawLoopingAnimation(Entity *, int, int, int, int, int);
+void drawLoopingAnimationToMap(void);
+void setEntityAnimation(Entity *, int);

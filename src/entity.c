@@ -1,13 +1,6 @@
-#include "entity.h"
+#include "headers.h"
 
-extern int collision(int, int, int, int, int, int, int, int);
-extern void checkToMap(Entity *);
-extern void dropRandomItem(int, int);
-extern void helpless(int *);
-extern void invulnerable(int *);
-extern void setCustomAction(Entity *, void (*)(int *), int);
-
-void standardDie(void);
+extern Entity *self, entity[MAX_ENTITIES];
 
 void clearEntities()
 {
@@ -77,31 +70,47 @@ void doEntities()
 	}
 }
 
-void drawEntities()
+void drawEntities(int drawAll)
 {
 	int i;
-
-	/* Draw standard entities */
-
-	for (i=0;i<MAX_ENTITIES;i++)
+	
+	if (drawAll == 0)
 	{
-		self = &entity[i];
-
-		if (self->active == ACTIVE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+		/* Draw standard entities */
+	
+		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			self->draw();
+			self = &entity[i];
+	
+			if (self->active == ACTIVE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+			{
+				self->draw();
+			}
+		}
+	
+		/* Draw entities that must appear at the front */
+	
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			self = &entity[i];
+	
+			if (self->active == ACTIVE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
+			{
+				self->draw();
+			}
 		}
 	}
-
-	/* Draw entities that must appear at the front */
-
-	for (i=0;i<MAX_ENTITIES;i++)
+	
+	else
 	{
-		self = &entity[i];
-
-		if (self->active == ACTIVE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
+		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			self->draw();
+			self = &entity[i];
+	
+			if (self->active == ACTIVE)
+			{
+				self->draw();
+			}
 		}
 	}
 }
@@ -124,7 +133,7 @@ void doNothing()
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	self->dirX = 0;
 
 	checkToMap(self);
@@ -226,7 +235,7 @@ void pushEntity(Entity *other)
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
-	pushable = 1;
+	pushable = (self->flags & PUSHABLE);
 
 	/* Test the horizontal movement */
 
@@ -301,6 +310,7 @@ void pushEntity(Entity *other)
 			other->y = self->y;
 			other->y -= other->h;
 
+			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
 		}

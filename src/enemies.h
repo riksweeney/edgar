@@ -1,1 +1,1 @@
-#include "structs.h"
+Entity *addEnemy(char *, int, int);

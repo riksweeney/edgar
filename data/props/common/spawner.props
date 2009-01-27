@@ -1,0 +1,5 @@
+THINKTIME 240
+GFX_FILE data/gfx/common/spawner.dat
+ANIM_FILE data/anim/common/spawner.dat
+TYPE ENEMY
+FLAGS NO_DRAW

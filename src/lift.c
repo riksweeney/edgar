@@ -1,20 +1,14 @@
-#include "lift.h"
+#include "headers.h"
 
-extern Entity *getFreeEntity(void);
-extern void drawLoopingAnimationToMap(void);
-extern void setEntityAnimation(Entity *, int);
-extern int collision(int, int, int, int, int, int, int, int);
-extern void loadProperties(char *, Entity *);
-extern Target *getTargetByName(char *);
-extern void playSound(char *, int, int, int, int);
+extern Entity *self, entity[MAX_ENTITIES];
 
-static void touch(Entity *);
 static void autoMove(void);
 static void wait(void);
 static void findTarget(int);
 static void wait(void);
 static void setToStart(void);
 static void moveToTarget(void);
+static void touch(Entity *);
 
 Entity *addLift(char *name, int startX, int startY, char *liftType)
 {
@@ -32,7 +26,6 @@ Entity *addLift(char *name, int startX, int startY, char *liftType)
 	if (strcmpignorecase(liftType, "AUTO_LIFT") == 0)
 	{
 		e->action = &autoMove;
-		e->touch = &touch;
 
 		e->type = AUTO_LIFT;
 	}
@@ -40,10 +33,11 @@ Entity *addLift(char *name, int startX, int startY, char *liftType)
 	else if (strcmpignorecase(liftType, "MANUAL_LIFT") == 0)
 	{
 		e->activate = &findTarget;
-		e->touch = &touch;
 
 		e->type = MANUAL_LIFT;
 	}
+
+	e->touch = &touch;
 
 	e->action = &setToStart;
 
@@ -59,13 +53,16 @@ Entity *addLift(char *name, int startX, int startY, char *liftType)
 
 static void touch(Entity *other)
 {
-	/* Test the vertical movement */
+	other->x -= other->dirX;
+	other->y -= other->dirY;
+
+	/* Test the horizontal movement */
 
 	if (other->dirY > 0)
 	{
 		/* Trying to move down */
 
-		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
 		{
 			/* Place the player as close to the solid tile as possible */
 
@@ -73,10 +70,13 @@ static void touch(Entity *other)
 			other->y -= other->h;
 
 			other->standingOn = self;
-			other->flags |= ON_GROUND;
 			other->dirY = 0;
+			other->flags |= ON_GROUND;
 		}
 	}
+
+	other->x += other->dirX;
+	other->y += other->dirY;
 }
 
 static void findTarget(int val)
@@ -115,7 +115,7 @@ static void findTarget(int val)
 			self->targetY = t->y;
 
 			self->action = &moveToTarget;
-			
+
 			playSound("sound/common/mine_lift.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 		}
 	}
@@ -200,14 +200,47 @@ static void setToStart()
 
 	if (self->type == AUTO_LIFT)
 	{
+		sprintf(targetName, "%s_TARGET_START", self->objectiveName);
+
+		/* Search for the lift's target */
+
+		t = getTargetByName(targetName);
+
+		if (t == NULL)
+		{
+			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
+
+			t = addTarget(self->x, self->y, targetName);
+		}
+		
+		self->x = t->x;
+		self->y = t->y;
+		
+		self->startX = self->x;
+		self->startY = self->y;
+		
+		sprintf(targetName, "%s_TARGET_END", self->objectiveName);
+
+		/* Search for the lift's target */
+
+		t = getTargetByName(targetName);
+		
+		if (t == NULL)
+		{
+			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
+
+			t = addTarget(self->x, self->y, targetName);
+		}
+		
+		self->endX = t->x;
+		self->endY = t->y;
+		
 		self->targetX = self->endX;
 		self->targetY = self->endY;
-
-		self->health = self->thinkTime;
-
+		
 		self->action = &autoMove;
-
-		self->action();
+		
+		self->health = self->thinkTime;
 	}
 
 	else
@@ -228,7 +261,7 @@ static void setToStart()
 		{
 			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
 
-			exit(1);
+			addTarget(self->x, self->y, targetName);
 		}
 
 		self->action = &wait;

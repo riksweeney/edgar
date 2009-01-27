@@ -1,3 +1,3 @@
-#include "structs.h"
-
-static SDL_Surface *sprite[MAX_SPRITES];
+void loadSpritesFromFile(char *, int *);
+void freeSprites(void);
+SDL_Surface *getSpriteImage(int);

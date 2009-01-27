@@ -1,11 +1,6 @@
-#include "key_items.h"
+#include "headers.h"
 
-extern void addToInventory(Entity *);
-extern void setCustomAction(Entity *, void (*)(int *), int);
-
-extern Entity *addChickenFeedBag(int, int);
-extern Entity *addChickenTrap(int, int);
-extern void invulnerable(int *);
+extern Entity *self, player;
 
 static Constructor items[] = {
 {"item/chicken_feed_bag", &addChickenFeedBag},

@@ -1,4 +1,6 @@
-#include "structs.h"
-
-extern Entity entity[MAX_ENTITIES], *self;
-extern Entity player, playerShield, playerWeapon;
+int collision(int, int, int, int, int, int, int, int);
+void doCollisions(void);
+void checkToMap(Entity *);
+int isAtEdge(Entity *);
+int isValidOnMap(Entity *);
+Entity *isSpaceEmpty(Entity *);

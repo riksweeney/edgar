@@ -1,4 +1,2 @@
-#include "structs.h"
-
-extern Game game;
-extern Cursor cursor;
+void draw(void);
+void delay(unsigned int);

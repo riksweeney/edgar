@@ -1,3 +1,2 @@
-#include "structs.h"
-
-static Properties properties[MAX_PROPS_FILES];
+void loadProperties(char *, Entity *);
+void setProperty(Entity *, char *, char *);

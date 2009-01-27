@@ -1,11 +1,7 @@
-#include "collisions.h"
+#include "headers.h"
 
-extern int mapTileAt(int, int);
-extern int maxMapX(void);
-extern SDL_Surface *mapImageAt(int, int);
-extern int isTransparent(SDL_Surface *, int, int);
-
-int collision(int, int, int, int, int, int, int, int);
+extern Entity entity[MAX_ENTITIES], *self;
+extern Entity player, playerShield, playerWeapon;
 
 void doCollisions()
 {
@@ -119,16 +115,16 @@ void checkToMap(Entity *e)
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if (mapTileAt(x2, y2) == SLOPE_DOWN)
 				{
-					
+
 				}
-				
+
 				else if ((mapTileAt(x2, y1) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
 				{
 					/* Place the player as close to the solid tile as possible */
-					
+
 					e->x = x2 * TILE_SIZE;
 
 					e->x -= e->w;
@@ -152,10 +148,10 @@ void checkToMap(Entity *e)
 						e->flags |= ON_GROUND;
 					}
 				}
-				
+
 				else if (mapTileAt(x1, y2) == SLOPE_UP)
 				{
-					
+
 				}
 
 				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
@@ -177,7 +173,7 @@ void checkToMap(Entity *e)
 		}
 
 		/* Test the next block */
-		
+
 		i += TILE_SIZE;
 
 		if (i > e->h)
@@ -210,7 +206,7 @@ void checkToMap(Entity *e)
 					{
 						e->y = (y2 + 1) * TILE_SIZE;
 						e->y -= e->h;
-						
+
 						e->y -= (((int)e->x + e->w - 1) % TILE_SIZE) + 1;
 
 						e->dirY = 0;

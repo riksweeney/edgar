@@ -1,1 +1,1 @@
-#include "structs.h"
+void addApple(int, int);

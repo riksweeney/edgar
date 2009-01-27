@@ -1,11 +1,6 @@
-#include "hud.h"
+#include "headers.h"
 
-extern SDL_Surface *loadImage(char *);
-extern void drawImage(SDL_Surface *, int, int);
-extern void drawSelectedInventoryItem(int, int, int, int);
-extern Entity *getPlayer(void);
-extern SDL_Surface *getSpriteImage(int);
-extern void loadProperties(char *, Entity *);
+static SDL_Surface *itemBox;
 
 void initHud()
 {

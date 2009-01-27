@@ -1,11 +1,7 @@
-#include "inventory.h"
+#include "headers.h"
 
-extern int addEntity(Entity, int, int);
-extern void autoSetPlayerWeapon(void);
-extern void autoSetPlayerShield(void);
-extern void dropItem(Entity *);
-extern void drawLoopingAnimation(Entity *, int, int, int, int, int);
-extern void setEntityAnimation(Entity *, int);
+static Inventory inventory;
+extern Entity *self;
 
 static void sortInventory(void);
 
@@ -29,12 +25,12 @@ int addToInventory(Entity *e)
 
 			if (inventory.item[i].type == WEAPON)
 			{
-				autoSetPlayerWeapon();
+				autoSetPlayerWeapon(&inventory.item[i]);
 			}
 
 			else if (inventory.item[i].type == SHIELD)
 			{
-				autoSetPlayerShield();
+				autoSetPlayerShield(&inventory.item[i]);
 			}
 
 			return 1;

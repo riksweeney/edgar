@@ -1,3 +1,3 @@
-#include "structs.h"
-
-static SDL_Surface *itemBox;
+void initHud(void);
+void drawHud(void);
+void freeHud(void);
