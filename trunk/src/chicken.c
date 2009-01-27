@@ -1,17 +1,6 @@
-#include "chicken.h"
+#include "headers.h"
 
-extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingAnimationToMap(void);
-extern void loadProperties(char *, Entity *);
-extern Entity *getFreeEntity(void);
-extern void drawLoopingAnimationToMap(void);
-extern long prand(void);
-extern int collision(int, int, int, int, int, int, int, int);
-extern void checkToMap(Entity *);
-extern void doNothing(void);
-extern int isAtEdge(Entity *);
-extern void playSound(char *, int, int, int, int);
-extern int getDistance(int, int, int, int);
+extern Entity entity[MAX_ENTITIES], *self;
 
 static void lookForFood(void);
 static void wander(void);
@@ -49,7 +38,7 @@ Entity *addChicken(int x, int y)
 static void lookForFood()
 {
 	int i, distance, target, newDistance;
-	
+
 	newDistance = distance = target = -1;
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -62,26 +51,26 @@ static void lookForFood()
 		if (entity[i].health > 3)
 		{
 			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
-			
+
 			if (newDistance < 160 && (target == -1 || newDistance < distance))
 			{
 				distance = newDistance;
-				
+
 				target = i;
 			}
 		}
 	}
-	
+
 	if (target != -1)
 	{
 		self->target = &entity[target];
-		
+
 		self->face = (self->target->x < self->x ? LEFT : RIGHT);
-	
+
 		self->action = &moveToFood;
-	
+
 		printf("Spotted chicken feed\n");
-	
+
 		return;
 	}
 
@@ -146,7 +135,7 @@ static void moveToFood()
 	if (self->target->health > 3 && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
-		
+
 		self->face = (self->dirX < 0 ? LEFT : RIGHT);
 
 		if (self->dirX != 0 && isAtEdge(self) == 1)

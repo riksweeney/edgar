@@ -1,15 +1,6 @@
-#include "bat.h"
+#include "headers.h"
 
-extern void drawLoopingAnimationToMap(void);
-extern void loadProperties(char *, Entity *);
-extern Entity *getFreeEntity(void);
-extern void setEntityAnimation(Entity *, int);
-extern void checkToMap(Entity *);
-extern long prand(void);
-extern void playSoundAtIndex(int);
-extern void entityTakeDamage(Entity *, int);
-extern void entityDie(void);
-extern void entityTouch(Entity *);
+extern Entity *self;
 
 static void fly(void);
 
@@ -43,7 +34,7 @@ Entity *addBat(int x, int y)
 	return e;
 }
 
-void fly()
+static void fly()
 {
 	if (!(self->flags & HELPLESS))
 	{

@@ -1,11 +1,8 @@
-#include "animation.h"
+#include "headers.h"
 
-extern SDL_Surface *loadImage(char *);
-extern void drawImage(SDL_Surface *, int, int);
-extern void drawFlippedImage(SDL_Surface *, int, int);
-extern SDL_Surface *getSpriteImage(int);
-extern int mapStartX(void);
-extern int mapStartY(void);
+static Animation animation[MAX_ANIMATIONS];
+extern Entity *self;
+extern Map map;
 
 static int animationID = -1;
 
@@ -186,7 +183,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 		exit(1);
 	}
-	
+
 	fclose(fp);
 }
 

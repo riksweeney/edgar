@@ -1,4 +1,4 @@
-#include "structs.h"
-
-extern Target target[MAX_TARGETS];
-extern Entity *self;
+void clearTargets(void);
+Target *addTarget(int, int, char *);
+void drawTargets(void);
+Target *getTargetByName(char *);

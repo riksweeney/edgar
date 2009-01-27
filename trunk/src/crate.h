@@ -1,1 +1,2 @@
-#include "structs.h"
+void addWoodenCrate(int, int);
+void addMetalCrate(int, int);

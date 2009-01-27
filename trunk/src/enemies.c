@@ -1,12 +1,9 @@
-#include "enemies.h"
-
-extern Entity *addBat(int, int);
-extern Entity *addChicken(int, int);
+#include "headers.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
 {"enemy/chicken", &addChicken},
-{"enemy/rat", &addBat}};
+{"common/large_rock", &addLargeRock}};
 
 static int length = sizeof(enemies) / sizeof(Constructor);
 

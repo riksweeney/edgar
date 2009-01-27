@@ -1,3 +1,2 @@
-#include "structs.h"
-
-extern Game game;
+void init(char *);
+void cleanup(void);

@@ -1,3 +1,3 @@
-#include "structs.h"
-
-extern Game game;
+void loadRequiredResources(void);
+void freeRequiredResources(void);
+void loadResources(FILE *);

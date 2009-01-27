@@ -1,6 +1,4 @@
-#include "sounds.h"
-
-void loadSoundToIndex(char *, int);
+#include "headers.h"
 
 void loadCommonSounds()
 {

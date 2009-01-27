@@ -1,6 +1,6 @@
-#include "sprites.h"
+#include "headers.h"
 
-extern SDL_Surface *loadImage(char *);
+static SDL_Surface *sprite[MAX_SPRITES];
 
 static void loadSprite(char *);
 
@@ -36,19 +36,19 @@ void loadSpritesFromFile(char *name, int *index)
 
 			abort();
 		}
-		
+
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		loadSprite(line);
 
 		index[i] = spriteID++;
 
 		i++;
 	}
-	
+
 	fclose(fp);
 }
 

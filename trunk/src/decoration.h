@@ -1,4 +1,5 @@
-#include "structs.h"
-
-static Entity decoration[MAX_DECORATIONS];
-extern Entity *self;
+void clearDecorations(void);
+Entity *getFreeDecoration(void);
+void doDecorations(void);
+void drawDecorations(void);
+void addStarExplosion(int, int);

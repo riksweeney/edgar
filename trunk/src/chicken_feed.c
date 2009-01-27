@@ -1,15 +1,6 @@
-#include "chicken_feed.h"
+#include "headers.h"
 
-extern void setEntityAnimation(Entity *, int);
-extern void drawLoopingAnimationToMap(void);
-extern void loadProperties(char *, Entity *);
-extern Entity *getFreeEntity(void);
-extern void doNothing(void);
-extern void keyItemRespawn(void);
-extern void drawLoopingAnimationToMap(void);
-extern void keyItemTouch(Entity *);
-extern void addTemporaryItem(char *, int, int, int, float, float);
-extern void playSound(char *, int, int, int, int);
+extern Entity *self, player;
 
 static void dropChickenFeed(int);
 
@@ -49,7 +40,7 @@ Entity *addChickenFeedBag(int x, int y)
 	return e;
 }
 
-void dropChickenFeed(int val)
+static void dropChickenFeed(int val)
 {
 	if (self->thinkTime <= 0)
 	{

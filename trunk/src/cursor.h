@@ -1,5 +1,3 @@
-#include "structs.h"
-
-extern Cursor cursor;
-extern Input input;
-extern Entity *self;
+void initCursor(void);
+void doCursor(void);
+void drawCursor(void);

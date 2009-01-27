@@ -1,3 +1,14 @@
-#include "structs.h"
-
-extern Entity *self, entity[MAX_ENTITIES];
+void standardDie(void);
+void clearEntities(void);
+Entity *getFreeEntity(void);
+void doEntities(void);
+void drawEntities(int);
+void removeEntity(void);
+void doNothing(void);
+void entityDie(void);
+void standardDie(void);
+void entityTakeDamage(Entity *, int);
+void entityTouch(Entity *);
+void pushEntity(Entity *);
+int addEntity(Entity, int, int);
+Entity *getEntityByObjectiveName(char *);

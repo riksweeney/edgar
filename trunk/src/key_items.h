@@ -1,3 +1,3 @@
-#include "structs.h"
-
-extern Entity *self, player;
+Entity *addKeyItem(char *, int, int);
+void keyItemTouch(Entity *);
+void keyItemRespawn(void);

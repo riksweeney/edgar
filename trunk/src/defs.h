@@ -1,13 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_mixer.h"
-#include "SDL/SDL_ttf.h"
-
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 
@@ -18,7 +8,7 @@
 
 #define GRAVITY_SPEED 1
 
-#define MAX_FALL_SPEED 20
+#define MAX_FALL_SPEED 15
 
 #define JUMP_HEIGHT 11
 
@@ -129,7 +119,8 @@ enum
 	SHIELD,
 	AUTO_LIFT,
 	MANUAL_LIFT,
-	TARGET
+	TARGET,
+	SPAWNER
 };
 
 enum

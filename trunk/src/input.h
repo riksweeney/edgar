@@ -1,3 +1,1 @@
-#include "structs.h"
-
-extern Input input;
+void getInput(void);

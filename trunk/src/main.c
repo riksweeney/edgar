@@ -1,28 +1,12 @@
-/* This tutorial demonstrates tile based collision
-** detection. Pressing the arrow keys
-** will sprite around the screen. Pressing escape
-** or closing the window will exit the program
-*/
+#include "headers.h"
 
-#include "main.h"
-
-extern void init(char *);
-extern void cleanup(void);
-extern void getInput(void);
-extern void draw(void);
-extern void doPlayer(void);
-extern void delay(unsigned int);
-extern void initPlayer(void);
-extern void initGame(void);
-extern void doEntities(void);
-extern void doCollisions(void);
-extern void loadRequiredResources(void);
-extern void doGame(void);
-extern void doMap(void);
-extern void doDecorations(void);
-extern void doInventory(void);
-extern void takeScreenshot(void);
-extern void loadMap(char *);
+Input input;
+Entity *self, entity[MAX_ENTITIES];
+Animation animation[MAX_ANIMATIONS];
+Game game;
+Droplet droplet[MAX_DROPS];
+Entity player, playerShield, playerWeapon;
+Target target[MAX_TARGETS];
 
 int main(int argc, char *argv[])
 {
@@ -40,12 +24,12 @@ int main(int argc, char *argv[])
 	go = 1;
 
 	/* Load the resources */
-	
+
 	if (argc == 2)
 	{
 		loadMap(argv[1]);
 	}
-	
+
 	else
 	{
 		loadMap("data/maps/map01.dat");

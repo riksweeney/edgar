@@ -1,6 +1,8 @@
-#include "record.h"
+#include "headers.h"
 
 static int frame = 0;
+
+extern Game game;
 
 void takeScreenshot()
 {

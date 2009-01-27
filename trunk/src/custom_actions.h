@@ -1,3 +1,3 @@
-#include "structs.h"
-
-extern Entity *self;
+void setCustomAction(Entity *, void (*)(int *), int);
+void helpless(int *);
+void invulnerable(int *);

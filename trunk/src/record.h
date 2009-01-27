@@ -1,3 +1,1 @@
-#include "structs.h"
-
-extern Game game;
+void takeScreenshot(void);

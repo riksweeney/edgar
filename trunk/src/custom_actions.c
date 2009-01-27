@@ -1,4 +1,6 @@
-#include "custom_actions.h"
+#include "headers.h"
+
+extern Entity *self;
 
 void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 {

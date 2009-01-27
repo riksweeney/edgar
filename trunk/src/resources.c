@@ -1,23 +1,6 @@
-#include "resources.h"
+#include "headers.h"
 
-extern void loadMapTiles(void);
-extern void loadBasicWeapons(void);
-extern TTF_Font *loadFont(char *, int);
-extern void freeSprites(void);
-extern void freeMap(void);
-extern void freeAnimations(void);
-extern void freeSounds(void);
-extern void loadPlayer(int, int);
-extern void initHud(void);
-extern void freeHud(void);
-
-extern Entity *addKeyItem(char *, int, int);
-extern Entity *addPermanentItem(char *, int, int);
-extern Entity *addLift(char *, int, int, char *);
-extern Entity *addEnemy(char *, int, int);
-extern Target *addTarget(int, int, char *);
-
-extern void setProperty(Entity *, char *, char *);
+extern Game game;
 
 void loadRequiredResources()
 {
@@ -124,6 +107,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)
 			{
 				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), value[type]);
+			}
+			
+			else if (strcmpignorecase(value[type], "SPAWNER") == 0)
+			{
+				e = addSpawner(atoi(value[startX]), atoi(value[startY]), value[name]);
 			}
 
 			else if (strcmpignorecase(value[type], "TARGET") == 0)

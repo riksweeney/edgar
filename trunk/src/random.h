@@ -1,1 +1,2 @@
-#include "structs.h"
+void setSeed(long);
+long prand(void);

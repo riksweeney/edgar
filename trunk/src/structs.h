@@ -12,7 +12,7 @@ typedef struct Input
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle, drop;
-	int activate, attack, fly, snap;
+	int activate, attack, fly, snap, cut;
 } Input;
 
 typedef struct Entity

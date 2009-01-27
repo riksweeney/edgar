@@ -1,8 +1,8 @@
-#include "audio.h"
+#include "headers.h"
 
-void playSoundChunk(Mix_Chunk *, int);
-int getDistance(int, int, int, int);
-Mix_Chunk *loadSound(char *);
+static Sound sound[MAX_SOUNDS];
+extern Game game;
+extern Entity player;
 
 static void preCacheSound(char *);
 
@@ -23,17 +23,17 @@ void preCacheSounds(char *filename)
 	}
 
 	printf("Loading sfx data from %s\n", filename);
-	
+
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		preCacheSound(line);
 	}
-	
+
 	fclose(fp);
 }
 
@@ -49,14 +49,14 @@ static void preCacheSound(char *name)
 			return;
 		}
 	}
-	
+
 	if (soundIndex == MAX_SOUNDS)
 	{
 		printf("Ran out of space for sounds\n");
 
 		abort();
 	}
-	
+
 	printf("Precaching %s\n", name);
 
 	chunk = loadSound(name);
@@ -71,9 +71,9 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 {
 	int i, distance, volume, channel;
 	Mix_Chunk *chunk = NULL;
-	
+
 	channel = channelMin;
-	
+
 	if (channelMin != channelMax)
 	{
 		for (i=channelMin;i<=channelMax;i++)
@@ -81,7 +81,7 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 			if (Mix_Playing(i) == 0)
 			{
 				channel = i;
-				
+
 				break;
 			}
 		}

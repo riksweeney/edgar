@@ -1,22 +1,7 @@
-#include "item.h"
+#include "headers.h"
 
-extern void checkToMap(Entity *);
-extern Entity *getFreeEntity(void);
-extern void loadProperties(char *, Entity *);
-extern void drawLoopingAnimationToMap(void);
-extern void setEntityAnimation(Entity *, int);
-extern void doNothing(void);
-extern void invulnerable(int *);
-extern void setCustomAction(Entity *, void (*)(int *), int);
-extern void pushEntity(Entity *);
-extern int addToInventory(Entity *);
-extern int addEntity(Entity, int, int);
-extern void setPlayerWeapon(int);
-extern void setPlayerShield(int);
-
-void healthTouch(Entity *);
-void generalItemAction(void);
-void keyItemTouch(Entity *);
+extern Entity *self;
+extern Entity player, playerShield, playerWeapon;
 
 Entity *addPermanentItem(char *name, int x, int y)
 {

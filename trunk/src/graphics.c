@@ -1,4 +1,6 @@
-#include "graphics.h"
+#include "headers.h"
+
+extern Game game;
 
 SDL_Surface *loadImage(char *name)
 {
