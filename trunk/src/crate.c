@@ -1,6 +1,8 @@
 #include "headers.h"
 
-
+#include "animation.h"
+#include "entity.h"
+#include "properties.h"
 
 void addWoodenCrate(int x, int y)
 {

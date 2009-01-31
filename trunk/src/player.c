@@ -1,5 +1,15 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "properties.h"
+#include "map.h"
+#include "geometry.h"
+#include "inventory.h"
+#include "collisions.h"
+#include "custom_actions.h"
+#include "collisions.h"
+#include "player.h"
+
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
 extern Input input;
@@ -11,9 +21,9 @@ void loadPlayer(int x, int y)
 {
 	loadProperties("edgar/edgar", &player);
 
-	if (player.active != ACTIVE)
+	if (player.inUse != IN_USE)
 	{
-		player.active = ACTIVE;
+		player.inUse = IN_USE;
 		player.x = x;
 		player.y = y;
 		player.dirX = player.dirY = 0;
@@ -52,7 +62,7 @@ void setPlayerLocation(int x, int y)
 
 	player.draw = &drawLoopingAnimationToMap;
 
-	player.active = ACTIVE;
+	player.inUse = IN_USE;
 }
 
 void doPlayer()
@@ -178,6 +188,8 @@ void doPlayer()
 								self->activate(-1);
 
 								self = &player;
+								
+								player.dirY = self->standingOn->speed;
 							}
 
 							input.down = 0;
@@ -187,7 +199,7 @@ void doPlayer()
 
 				if (input.attack == 1)
 				{
-					if (playerWeapon.active == ACTIVE)
+					if (playerWeapon.inUse == IN_USE)
 					{
 						player.animationCallback = &attackFinish;
 						playerShield.animationCallback = &attackFinish;
@@ -275,13 +287,13 @@ void drawPlayer()
 {
 	self = &player;
 
-	if (self->active == ACTIVE && (self->flags & NO_DRAW) == 0)
+	if (self->inUse == IN_USE && (self->flags & NO_DRAW) == 0)
 	{
 		/* Draw the weapon */
 
 		self = &playerWeapon;
 
-		if (self->active == ACTIVE)
+		if (self->inUse == IN_USE)
 		{
 			self->x = player.x;
 			self->y = player.y;
@@ -299,7 +311,7 @@ void drawPlayer()
 
 		self = &playerShield;
 
-		if (self->active == ACTIVE)
+		if (self->inUse == IN_USE)
 		{
 			self->x = player.x;
 			self->y = player.y;
@@ -329,7 +341,7 @@ void setPlayerWeapon(int val)
 
 void autoSetPlayerWeapon(Entity *newWeapon)
 {
-	if (playerWeapon.active == INACTIVE)
+	if (playerWeapon.inUse == NOT_IN_USE)
 	{
 		playerWeapon = *newWeapon;
 
@@ -341,7 +353,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 
 void autoSetPlayerShield(Entity *newWeapon)
 {
-	if (playerShield.active == INACTIVE)
+	if (playerShield.inUse == NOT_IN_USE)
 	{
 		playerShield = *newWeapon;
 
@@ -371,18 +383,18 @@ static void takeDamage(Entity *other, int damage)
 
 		if (player.health > 0)
 		{
-			setCustomAction(&player, &helpless, 4);
+			setCustomAction(&player, &helpless, 10);
 
 			setCustomAction(&player, &invulnerable, 60);
 
 			if (player.dirX == 0)
 			{
-				player.dirX = other->dirX < 0 ? -30 : 30;
+				player.dirX = other->dirX < 0 ? -6 : 6;
 			}
 
 			else
 			{
-				player.dirX = player.dirX < 0 ? 30 : -30;
+				player.dirX = player.dirX < 0 ? 6 : -6;
 			}
 		}
 	}

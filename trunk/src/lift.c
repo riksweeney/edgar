@@ -1,5 +1,12 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "audio.h"
+#include "properties.h"
+#include "target.h"
+#include "collisions.h"
+#include "entity.h"
+
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void autoMove(void);
@@ -212,34 +219,34 @@ static void setToStart()
 
 			t = addTarget(self->x, self->y, targetName);
 		}
-		
+
 		self->x = t->x;
 		self->y = t->y;
-		
+
 		self->startX = self->x;
 		self->startY = self->y;
-		
+
 		sprintf(targetName, "%s_TARGET_END", self->objectiveName);
 
 		/* Search for the lift's target */
 
 		t = getTargetByName(targetName);
-		
+
 		if (t == NULL)
 		{
 			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
 
 			t = addTarget(self->x, self->y, targetName);
 		}
-		
+
 		self->endX = t->x;
 		self->endY = t->y;
-		
+
 		self->targetX = self->endX;
 		self->targetY = self->endY;
-		
+
 		self->action = &autoMove;
-		
+
 		self->health = self->thinkTime;
 	}
 

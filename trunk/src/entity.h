@@ -12,3 +12,4 @@ void entityTouch(Entity *);
 void pushEntity(Entity *);
 int addEntity(Entity, int, int);
 Entity *getEntityByObjectiveName(char *);
+void activateEntitiesWithName(char *, int);

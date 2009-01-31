@@ -8,20 +8,28 @@ LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf
 OBJS      = animation.o audio.o collisions.o draw.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 OBJS     += lift.o main.o map.o player.o resources.o weather.o sprites.o bat.o properties.o custom_actions.o
 OBJS     += apple.o item.o crate.o status.o enemies.o hud.o random.o decoration.o chicken_feed.o chicken.o
-OBJS     += key_items.o record.o geometry.o chicken_trap.o target.o spawner.o rock.o
+OBJS     += key_items.o record.o geometry.o chicken_trap.o target.o spawner.o rock.o pressure_plate.o door.o
 ED_OBJS   = animation.o audio.o collisions.o draw_editor.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 ED_OBJS  += lift.o main_editor.o map.o player.o resources.o weather.o sprites.o bat.o properties.o custom_actions.o
 ED_OBJS  += apple.o item.o crate.o status.o cursor.o enemies.o hud.o random.o decoration.o chicken_feed.o chicken.o
-ED_OBJS  += key_items.o record.o geometry.o chicken_trap.o target.o spawner.o rock.o
+ED_OBJS  += key_items.o record.o geometry.o chicken_trap.o target.o spawner.o rock.o pressure_plate.o door.o
 PROG      = edgar
 ED_PROG   = mapeditor
 CXX       = gcc
 
 # top-level rule to create the program.
-all: $(PROG) $(ED_PROG)
+all: redo_deps makefile.dep $(PROG) $(ED_PROG)
+
+redo_deps:
+	rm makefile.dep
+
+makefile.dep : src/*.c
+	for i in src/*.c; do gcc -MM "$${i}"; done > $@
+	
+include makefile.dep
 
 # compiling other source files.
-%.o: src/%.c src/%.h src/structs.h src/defs.h src/headers.h
+%.o:
 	$(CXX) $(CFLAGS) -c -s $<
 
 # linking the program.

@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "decoration.h"
+#include "animation.h"
+#include "properties.h"
+
 static Entity decoration[MAX_DECORATIONS];
 extern Entity *self;
 
@@ -20,11 +24,11 @@ Entity *getFreeDecoration()
 
 	for (i=0;i<MAX_DECORATIONS;i++)
 	{
-		if (decoration[i].active == INACTIVE)
+		if (decoration[i].inUse == NOT_IN_USE)
 		{
 			memset(&decoration[i], 0, sizeof(Entity));
 
-			decoration[i].active = ACTIVE;
+			decoration[i].inUse = IN_USE;
 
 			return &decoration[i];
 		}
@@ -45,7 +49,7 @@ void doDecorations()
 	{
 		self = &decoration[i];
 
-		if (self->active == ACTIVE)
+		if (self->inUse == IN_USE)
 		{
 			self->action();
 		}
@@ -62,7 +66,7 @@ void drawDecorations()
 	{
 		self = &decoration[i];
 
-		if (self->active == ACTIVE)
+		if (self->inUse == IN_USE)
 		{
 			self->draw();
 		}
@@ -142,6 +146,6 @@ static void move()
 
 	if (self->thinkTime == 0)
 	{
-		self->active = INACTIVE;
+		self->inUse = NOT_IN_USE;
 	}
 }

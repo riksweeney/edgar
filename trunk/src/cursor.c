@@ -1,5 +1,15 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "entity.h"
+#include "properties.h"
+#include "map.h"
+#include "player.h"
+#include "collisions.h"
+#include "target.h"
+#include "graphics.h"
+#include "status.h"
+
 extern Cursor cursor;
 extern Input input;
 extern Entity *self;
@@ -8,7 +18,7 @@ static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", 
 							  "enemy/bat", "weapon/pickaxe",
 							  "item/chicken_feed_bag", "enemy/chicken",
 							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target", "common/spawner",
-							  NULL};
+							  "common/pressure_plate", "common/wooden_door", NULL};
 static int entityNamesLength = 0;
 static int targetID = 1;
 
@@ -132,25 +142,25 @@ void doCursor()
 
 			if (self != NULL)
 			{
-				self->active = INACTIVE;
+				self->inUse = NOT_IN_USE;
 			}
 		}
 	}
-	
+
 	if (input.cut == 1)
 	{
 		if (cursor.type != TILES)
 		{
 			self = isSpaceEmpty(&cursor.entity);
-			
+
 			if (self != NULL)
 			{
 				cursor.entity = *self;
-				
-				self->active = INACTIVE;
+
+				self->inUse = NOT_IN_USE;
 			}
 		}
-		
+
 		input.cut = 0;
 	}
 
@@ -241,6 +251,8 @@ void doCursor()
 
 void drawCursor()
 {
+	Entity *e;
+	
 	if (cursor.type == TILES)
 	{
 		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y);
@@ -249,9 +261,13 @@ void drawCursor()
 
 	else
 	{
-		if (isValidOnMap(&cursor.entity) == 0 || isSpaceEmpty(&cursor.entity) != NULL)
+		e = isSpaceEmpty(&cursor.entity);
+		
+		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
 			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
+			
+			setStatusMessage(self->objectiveName);
 		}
 
 		cursor.entity.x = mapStartX() + cursor.x;

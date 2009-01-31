@@ -1,5 +1,10 @@
 #include "headers.h"
 
+#include "entity.h"
+#include "collisions.h"
+#include "item.h"
+#include "custom_actions.h"
+
 extern Entity *self, entity[MAX_ENTITIES];
 
 void clearEntities()
@@ -17,9 +22,11 @@ Entity *getFreeEntity()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == INACTIVE)
+		if (entity[i].inUse == NOT_IN_USE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
+
+			entity[i].inUse = IN_USE;
 
 			entity[i].active = ACTIVE;
 
@@ -42,7 +49,7 @@ void doEntities()
 	{
 		self = &entity[i];
 
-		if (self->active == ACTIVE && !(self->flags & STATIC))
+		if (self->inUse == IN_USE && !(self->flags & STATIC))
 		{
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
@@ -61,9 +68,29 @@ void doEntities()
 					self->dirY = MAX_FALL_SPEED;
 				}
 			}
+			
+			else
+			{
+				self->dirY = 0;
+			}
 
 			if (!(self->flags & HELPLESS))
 			{
+				if (self->standingOn != NULL)
+				{
+					self->dirX += self->standingOn->dirX;
+	
+					if (self->standingOn->dirY > 0)
+					{
+						self->dirY = self->standingOn->dirY;
+					}
+					
+					else
+					{
+						self->dirY = 0;
+					}
+				}
+				
 				self->action();
 			}
 		}
@@ -73,41 +100,41 @@ void doEntities()
 void drawEntities(int drawAll)
 {
 	int i;
-	
+
 	if (drawAll == 0)
 	{
 		/* Draw standard entities */
-	
+
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-	
-			if (self->active == ACTIVE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+
+			if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
 			{
 				self->draw();
 			}
 		}
-	
+
 		/* Draw entities that must appear at the front */
-	
+
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-	
-			if (self->active == ACTIVE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
+
+			if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
 			{
 				self->draw();
 			}
 		}
 	}
-	
+
 	else
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-	
-			if (self->active == ACTIVE)
+
+			if (self->inUse == IN_USE)
 			{
 				self->draw();
 			}
@@ -121,11 +148,11 @@ void removeEntity()
 
 	if (self->thinkTime <= 0)
 	{
-		self->active = INACTIVE;
+		self->inUse = NOT_IN_USE;
 	}
 }
 
-void doNothing()
+void doNothing(void)
 {
 	self->thinkTime--;
 
@@ -137,6 +164,8 @@ void doNothing()
 	self->dirX = 0;
 
 	checkToMap(self);
+	
+	self->standingOn = NULL;
 }
 
 void entityDie()
@@ -158,7 +187,7 @@ void standardDie()
 
 	if (self->thinkTime <= 0)
 	{
-		self->active = INACTIVE;
+		self->inUse = NOT_IN_USE;
 	}
 
 	self->dirX = 0;
@@ -259,7 +288,7 @@ void pushEntity(Entity *other)
 
 			if (pushable == 0)
 			{
-				/* Place the player as close to the solid tile as possible */
+				/* Place the entity as close as possible */
 
 				other->x = self->x;
 				other->x -= other->w;
@@ -289,7 +318,7 @@ void pushEntity(Entity *other)
 
 			if (pushable == 0)
 			{
-				/* Place the player as close to the solid tile as possible */
+				/* Place the entity as close as possible */
 
 				other->x = self->x;
 				other->x += self->w;
@@ -305,7 +334,7 @@ void pushEntity(Entity *other)
 
 		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
 		{
-			/* Place the player as close to the solid tile as possible */
+			/* Place the entity as close as possible */
 
 			other->y = self->y;
 			other->y -= other->h;
@@ -313,6 +342,26 @@ void pushEntity(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
+
+			if (self->activate != NULL)
+			{
+				self->activate(1);
+			}
+		}
+	}
+
+	else if (other->dirY < 0)
+	{
+		/* Trying to move up */
+
+		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		{
+			/* Place the entity as close as possible */
+
+			other->y = self->y;
+			other->y += self->h;
+
+			other->dirY = 0;
 		}
 	}
 
@@ -328,13 +377,13 @@ int addEntity(Entity e, int x, int y)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == INACTIVE)
+		if (entity[i].inUse == NOT_IN_USE)
 		{
 			entity[i] = e;
 
 			entity[i].currentFrame = 0;
 
-			entity[i].active = ACTIVE;
+			entity[i].inUse = IN_USE;
 
 			entity[i].x = x;
 
@@ -353,11 +402,38 @@ Entity *getEntityByObjectiveName(char *name)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == ACTIVE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].objectiveName, name) == 0)
 		{
 			return &entity[i];
 		}
 	}
 
 	return NULL;
+}
+
+void activateEntitiesWithName(char *name, int val)
+{
+	int i;
+	Entity *e;
+	
+	if (name == NULL || strlen(name) == 0)
+	{
+		printf("Name is blank!\n");
+		
+		exit(1);
+	}
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			e = self;
+			
+			self = &entity[i];
+			
+			self->activate(val);
+			
+			self = e;
+		}
+	}
 }

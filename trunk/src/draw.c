@@ -1,5 +1,13 @@
 #include "headers.h"
 
+#include "map.h"
+#include "decoration.h"
+#include "entity.h"
+#include "player.h"
+#include "hud.h"
+#include "game.h"
+#include "font.h"
+
 extern Game game;
 extern Entity player;
 
@@ -15,13 +23,9 @@ void draw()
 
 	centerEntityOnMap();
 
-	/* Draw the map */
+	/* Draw the mid-ground map tiles */
 
-	drawMap();
-
-	/* Draw the hud */
-
-	drawHud();
+	drawMap(0);
 
 	/* Draw the decorations */
 
@@ -34,6 +38,14 @@ void draw()
 	/* Draw the player */
 
 	drawPlayer();
+
+	/* Draw the foreground map tiles */
+
+	drawMap(1);
+
+	/* Draw the hud */
+
+	drawHud();
 
 	/* Draw the game statuses */
 

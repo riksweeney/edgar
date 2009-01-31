@@ -24,6 +24,12 @@
 
 #define MAX_TILES 255
 
+#define SLOPE_UP 200
+
+#define SLOPE_DOWN 201
+
+#define FOREGROUND_TILE_START 202
+
 #define MAX_LINE_LENGTH 1024
 
 #define MAX_PATH_LENGTH 1024
@@ -46,13 +52,9 @@
 
 #define MAX_AMBIENT_SOUNDS 10
 
-#define SLOPE_UP 200
-
-#define SLOPE_DOWN 201
-
 #define MAX_DECORATIONS 100
 
-#define MAX_TARGETS 255
+#define MAX_TARGETS 30
 
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
@@ -86,8 +88,14 @@ enum
 
 enum
 {
-	INACTIVE,
-	ACTIVE
+	ACTIVE,
+	INACTIVE
+};
+
+enum
+{
+	NOT_IN_USE,
+	IN_USE
 };
 
 enum
@@ -120,7 +128,9 @@ enum
 	AUTO_LIFT,
 	MANUAL_LIFT,
 	TARGET,
-	SPAWNER
+	SPAWNER,
+	PRESSURE_PLATE,
+	DOOR
 };
 
 enum

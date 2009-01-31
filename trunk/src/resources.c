@@ -2,6 +2,23 @@
 
 extern Game game;
 
+#include "animation.h"
+#include "audio.h"
+#include "map.h"
+#include "sprites.h"
+#include "hud.h"
+#include "font.h"
+#include "player.h"
+#include "enemies.h"
+#include "lift.h"
+#include "target.h"
+#include "item.h"
+#include "properties.h"
+#include "key_items.h"
+#include "spawner.h"
+#include "pressure_plate.h"
+#include "door.h"
+
 void loadRequiredResources()
 {
 	/* Load the hud */
@@ -108,7 +125,7 @@ void loadResources(FILE *fp)
 			{
 				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), value[type]);
 			}
-			
+
 			else if (strcmpignorecase(value[type], "SPAWNER") == 0)
 			{
 				e = addSpawner(atoi(value[startX]), atoi(value[startY]), value[name]);
@@ -117,6 +134,16 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "TARGET") == 0)
 			{
 				addTarget(atoi(value[startX]), atoi(value[startY]), value[name]);
+			}
+
+			else if (strcmpignorecase(value[type], "PRESSURE_PLATE") == 0)
+			{
+				e = addPressurePlate(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+			
+			else if (strcmpignorecase(value[type], "DOOR") == 0)
+			{
+				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else

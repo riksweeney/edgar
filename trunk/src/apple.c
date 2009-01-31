@@ -1,5 +1,10 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "properties.h"
+#include "entity.h"
+#include "item.h"
+
 void addApple(int x, int y)
 {
 	Entity *e = getFreeEntity();

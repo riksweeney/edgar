@@ -17,12 +17,12 @@ typedef struct Input
 
 typedef struct Entity
 {
-	int active, w, h, offsetX, offsetY;
+	int inUse, w, h, offsetX, offsetY;
 	int thinkTime, face;
 	int currentFrame, frameTimer;
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
-	int maxHealth, damage;
+	int maxHealth, damage, active;
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;

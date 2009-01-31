@@ -1,5 +1,19 @@
 #include "headers.h"
 
+#include "cursor.h"
+#include "init.h"
+#include "game.h"
+#include "resources.h"
+#include "map.h"
+#include "player.h"
+#include "inventory.h"
+#include "decoration.h"
+#include "collisions.h"
+#include "draw.h"
+#include "input.h"
+#include "entity.h"
+#include "status.h"
+
 Input input;
 Entity player, playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
 Animation animation[MAX_ANIMATIONS];
