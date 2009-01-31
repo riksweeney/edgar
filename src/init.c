@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "random.h"
+#include "resources.h"
+#include "game.h"
+
 extern Game game;
 
 void init(char *title)

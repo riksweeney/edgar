@@ -1,5 +1,11 @@
 #include "headers.h"
 
+#include "map.h"
+#include "resources.h"
+#include "random.h"
+#include "graphics.h"
+#include "audio.h"
+
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
 
@@ -137,7 +143,7 @@ void saveMap()
 
 	self = &player;
 
-	if (self->active == INACTIVE)
+	if (self->inUse == NOT_IN_USE)
 	{
 		printf("No player start defined\n");
 
@@ -188,7 +194,7 @@ void saveMap()
 	{
 		self = &entity[x];
 
-		if (self->active == ACTIVE)
+		if (self->inUse == IN_USE)
 		{
 			if (self->type == WEAPON)
 			{
@@ -234,10 +240,20 @@ void saveMap()
 			{
 				strcpy(type, "AUTO_LIFT");
 			}
-			
+
 			else if (self->type == SPAWNER)
 			{
 				strcpy(type, "SPAWNER");
+			}
+
+			else if (self->type == PRESSURE_PLATE)
+			{
+				strcpy(type, "PRESSURE_PLATE");
+			}
+			
+			else if (self->type == DOOR)
+			{
+				strcpy(type, "DOOR");
 			}
 
 			else
@@ -257,6 +273,7 @@ void saveMap()
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "ACTIVATES %s\n", self->activates);
+			fprintf(fp, "ACTIVE %s\n", self->active == ACTIVE ? "ACTIVE" : "INACTIVE");
 			fprintf(fp, "}\n\n");
 		}
 	}
@@ -265,7 +282,7 @@ void saveMap()
 
 	for (x=0;x<MAX_TARGETS;x++)
 	{
-		if (target[x].active == ACTIVE)
+		if (target[x].active == IN_USE)
 		{
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE TARGET\n");
@@ -334,9 +351,9 @@ static void loadMapTiles(char *dir)
 	loadMapBackground(filename);
 }
 
-void drawMap()
+void drawMap(int depth)
 {
-	int x, y, mapX, x1, x2, mapY, y1, y2;
+	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
 
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
@@ -348,7 +365,10 @@ void drawMap()
 
 	/* Draw the background */
 
-	drawImage(map.background, 0, 0);
+	if (depth == 0)
+	{
+		drawImage(map.background, 0, 0);
+	}
 
 	/* Draw the map starting at the startX and startY */
 
@@ -358,9 +378,22 @@ void drawMap()
 
 		for (x=x1;x<x2;x+=TILE_SIZE)
 		{
-			if (map.tile[mapY][mapX] != BLANK_TILE)
+			tileID = map.tile[mapY][mapX];
+
+			if (depth == 0)
 			{
-				drawImage(mapImages[map.tile[mapY][mapX]], x, y);
+				if (tileID != BLANK_TILE && tileID < FOREGROUND_TILE_START)
+				{
+					drawImage(mapImages[tileID], x, y);
+				}
+			}
+
+			else
+			{
+				if (tileID >= FOREGROUND_TILE_START)
+				{
+					drawImage(mapImages[tileID], x, y);
+				}
 			}
 
 			mapX++;

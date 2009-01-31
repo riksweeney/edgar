@@ -1,5 +1,8 @@
 #include "headers.h"
 
+#include "sprites.h"
+#include "graphics.h"
+
 static SDL_Surface *sprite[MAX_SPRITES];
 
 static void loadSprite(char *);

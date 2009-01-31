@@ -1,5 +1,14 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "entity.h"
+#include "item.h"
+#include "key_items.h"
+#include "properties.h"
+#include "player.h"
+#include "custom_actions.h"
+#include "collisions.h"
+
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
 
@@ -106,7 +115,7 @@ void generalItemAction()
 
 	if (self->thinkTime <= 0)
 	{
-		self->active = INACTIVE;
+		self->inUse = NOT_IN_USE;
 	}
 
 	checkToMap(self);
@@ -125,7 +134,7 @@ void healthTouch(Entity *other)
 			other->health = other->maxHealth;
 		}
 
-		self->active = INACTIVE;
+		self->inUse = NOT_IN_USE;
 	}
 }
 
@@ -135,7 +144,7 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerShield.name, e->name) == 0)
 		{
-			playerShield.active = INACTIVE;
+			playerShield.inUse = NOT_IN_USE;
 		}
 	}
 
@@ -143,7 +152,7 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerWeapon.name, e->name) == 0)
 		{
-			playerWeapon.active = INACTIVE;
+			playerWeapon.inUse = NOT_IN_USE;
 		}
 	}
 

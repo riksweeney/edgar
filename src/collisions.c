@@ -1,5 +1,8 @@
 #include "headers.h"
 
+#include "collisions.h"
+#include "map.h"
+
 extern Entity entity[MAX_ENTITIES], *self;
 extern Entity player, playerShield, playerWeapon;
 
@@ -9,7 +12,7 @@ void doCollisions()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == ACTIVE)
+		if (entity[i].inUse == IN_USE)
 		{
 			if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player.x, player.y, player.w, player.h) == 1)
 			{
@@ -21,7 +24,7 @@ void doCollisions()
 				}
 			}
 
-			if (playerWeapon.active == ACTIVE && (playerWeapon.flags & ATTACKING))
+			if (playerWeapon.inUse == IN_USE && (playerWeapon.flags & ATTACKING))
 			{
 				x = playerWeapon.x + playerWeapon.offsetX;
 				y = playerWeapon.y + playerWeapon.offsetY;
@@ -41,7 +44,7 @@ void doCollisions()
 
 			for (j=0;j<MAX_ENTITIES;j++)
 			{
-				if (i != j && entity[j].active == ACTIVE)
+				if (i != j && entity[j].inUse == IN_USE)
 				{
 					if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, entity[j].x, entity[j].y, entity[j].w, entity[j].h) == 1)
 					{
@@ -62,14 +65,14 @@ Entity *isSpaceEmpty(Entity *e)
 {
 	int i;
 
-	if (player.active == ACTIVE && collision(e->x, e->y, e->w, e->h, player.x, player.y, player.w, player.h) == 1)
+	if (player.inUse == IN_USE && collision(e->x, e->y, e->w, e->h, player.x, player.y, player.w, player.h) == 1)
 	{
 		return &player;
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == ACTIVE && collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (entity[i].inUse == IN_USE && collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
 			return &entity[i];
 		}
@@ -81,6 +84,7 @@ Entity *isSpaceEmpty(Entity *e)
 void checkToMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
+	int topLeft, topRight, bottomLeft, bottomRight;
 
 	/* Remove the entity from the ground */
 
@@ -100,11 +104,16 @@ void checkToMap(Entity *e)
 
 		if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
 		{
+			topLeft     = mapTileAt(x1, y1);
+			topRight    = mapTileAt(x2, y1);
+			bottomLeft  = mapTileAt(x1, y2);
+			bottomRight = mapTileAt(x2, y2);
+
 			if (e->dirX > 0)
 			{
 				/* Trying to move right */
 
-				if (mapTileAt(x2, y2) == SLOPE_UP)
+				if (bottomRight == SLOPE_UP)
 				{
 					if (i == e->h)
 					{
@@ -116,12 +125,12 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (mapTileAt(x2, y2) == SLOPE_DOWN)
+				else if (bottomRight == SLOPE_DOWN || topRight >= FOREGROUND_TILE_START || bottomRight >= FOREGROUND_TILE_START)
 				{
 
 				}
 
-				else if ((mapTileAt(x2, y1) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
+				else if (topRight != BLANK_TILE || bottomRight != BLANK_TILE)
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -137,7 +146,7 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move left */
 
-				if (mapTileAt(x1, y2) == SLOPE_DOWN)
+				if (bottomLeft == SLOPE_DOWN)
 				{
 					if (i == e->h)
 					{
@@ -149,12 +158,12 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (mapTileAt(x1, y2) == SLOPE_UP)
+				else if (bottomLeft == SLOPE_UP || topLeft >= FOREGROUND_TILE_START || bottomLeft >= FOREGROUND_TILE_START)
 				{
 
 				}
 
-				else if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x1, y2) != BLANK_TILE))
+				else if (topLeft != BLANK_TILE || bottomLeft != BLANK_TILE)
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -196,11 +205,16 @@ void checkToMap(Entity *e)
 
 		if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
 		{
+			topLeft     = mapTileAt(x1, y1);
+			topRight    = mapTileAt(x2, y1);
+			bottomLeft  = mapTileAt(x1, y2);
+			bottomRight = mapTileAt(x2, y2);
+
 			if (e->dirY > 0)
 			{
 				/* Trying to move down */
 
-				if (mapTileAt(x2, y2) == SLOPE_UP)
+				if (bottomRight == SLOPE_UP)
 				{
 					if (i == e->w)
 					{
@@ -215,7 +229,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (mapTileAt(x1, y2) == SLOPE_DOWN)
+				else if (bottomLeft == SLOPE_DOWN)
 				{
 					if (i == e->w)
 					{
@@ -230,7 +244,12 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if ((mapTileAt(x1, y2) != BLANK_TILE) || (mapTileAt(x2, y2) != BLANK_TILE))
+				else if (topRight >= FOREGROUND_TILE_START || bottomRight >= FOREGROUND_TILE_START)
+				{
+
+				}
+
+				else if (bottomLeft != BLANK_TILE || bottomRight != BLANK_TILE)
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -247,7 +266,12 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move up */
 
-				if ((mapTileAt(x1, y1) != BLANK_TILE) || (mapTileAt(x2, y1) != BLANK_TILE))
+				if (topLeft >= FOREGROUND_TILE_START || topRight >= FOREGROUND_TILE_START)
+				{
+
+				}
+
+				else if (topLeft != BLANK_TILE || topRight != BLANK_TILE)
 				{
 					/* Place the player as close to the solid tile as possible */
 

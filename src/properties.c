@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "sprites.h"
+#include "audio.h"
+
 static Properties properties[MAX_PROPS_FILES];
 
 static void setFlags(Entity *, char *);
@@ -7,7 +11,7 @@ static int getType(char *);
 
 static char *ignoreProps[] = {"TYPE", NULL};
 static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", "AUTO_LIFT",
-						"MANUAL_LIFT", "TARGET", "SPAWNER", NULL};
+						"MANUAL_LIFT", "TARGET", "SPAWNER", "PRESSURE_PLATE", "DOOR", NULL};
 
 void loadProperties(char *name, Entity *e)
 {
@@ -42,8 +46,6 @@ void loadProperties(char *name, Entity *e)
 		{
 			if (strlen(properties[i].name) == 0)
 			{
-				printf("Loading properties for %s to slot %d\n", name, i);
-
 				fp = fopen(path, "rb");
 
 				if (fp == NULL)
@@ -334,6 +336,11 @@ void setProperty(Entity *e, char *name, char *value)
 		e->speed = atof(value);
 	}
 
+	else if (strcmpignorecase(name, "ACTIVE") == 0)
+	{
+		e->active = strcmpignorecase(value, "ACTIVE") == 0 ? ACTIVE : INACTIVE;
+	}
+
 	else
 	{
 		while (ignoreProps[i] != NULL)
@@ -344,6 +351,8 @@ void setProperty(Entity *e, char *name, char *value)
 
 				break;
 			}
+
+			i++;
 		}
 
 		if (found == 0)

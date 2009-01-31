@@ -1,5 +1,13 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "audio.h"
+#include "properties.h"
+#include "entity.h"
+#include "random.h"
+#include "collisions.h"
+#include "geometry.h"
+
 extern Entity entity[MAX_ENTITIES], *self;
 
 static void lookForFood(void);
@@ -43,7 +51,7 @@ static void lookForFood()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == INACTIVE || (strcmpignorecase(entity[i].name, "item/chicken_feed") != 0 && strcmpignorecase(entity[i].name, "item/chicken_trap") != 0))
+		if (entity[i].inUse == NOT_IN_USE || (strcmpignorecase(entity[i].name, "item/chicken_feed") != 0 && strcmpignorecase(entity[i].name, "item/chicken_trap") != 0))
 		{
 			continue;
 		}
@@ -176,7 +184,7 @@ static void finishEating()
 
 	if (self->target->health <= 0)
 	{
-		self->target->active = INACTIVE;
+		self->target->inUse = NOT_IN_USE;
 
 		self->target = NULL;
 

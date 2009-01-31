@@ -5,3 +5,4 @@ void dropInventoryItem(void);
 void useInventoryItem(void);
 void doInventory(void);
 void drawSelectedInventoryItem(int, int, int, int);
+int removeInventoryItem(char *);

@@ -1,7 +1,7 @@
 void loadMap(char *);
 void saveMap(void);
 void doMap(void);
-void drawMap(void);
+void drawMap(int);
 void centerEntityOnMap(void);
 void freeMap(void);
 SDL_Surface *tileImage(int);

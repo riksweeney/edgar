@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "player.h"
+#include "item.h"
+
 static Inventory inventory;
 extern Entity *self;
 
@@ -11,7 +15,7 @@ int addToInventory(Entity *e)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].active == INACTIVE)
+		if (inventory.item[i].inUse == NOT_IN_USE)
 		{
 			inventory.item[i] = *e;
 
@@ -21,7 +25,7 @@ int addToInventory(Entity *e)
 
 			setEntityAnimation(&inventory.item[i], STAND);
 
-			e->active = INACTIVE;
+			e->inUse = NOT_IN_USE;
 
 			if (inventory.item[i].type == WEAPON)
 			{
@@ -47,7 +51,7 @@ void selectNextInventoryItem(int index)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].active == ACTIVE)
+		if (inventory.item[i].inUse == IN_USE)
 		{
 			itemCount++;
 		}
@@ -77,7 +81,7 @@ void selectNextInventoryItem(int index)
 		}
 	}
 
-	while (inventory.item[i].active == INACTIVE);
+	while (inventory.item[i].inUse == NOT_IN_USE);
 
 	inventory.selectedIndex = i;
 }
@@ -88,8 +92,25 @@ int inventoryHasItem(char *name)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].active == ACTIVE && strcmpignorecase(inventory.item[i].name, name) == 0)
+		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].activates, name) == 0)
 		{
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+int removeInventoryItem(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].activates, name) == 0)
+		{
+			inventory.item[i].inUse = NOT_IN_USE;
+
 			return 1;
 		}
 	}
@@ -99,11 +120,11 @@ int inventoryHasItem(char *name)
 
 void dropInventoryItem()
 {
-	if (inventory.item[inventory.selectedIndex].active == ACTIVE)
+	if (inventory.item[inventory.selectedIndex].inUse == IN_USE)
 	{
 		dropItem(&inventory.item[inventory.selectedIndex]);
 
-		inventory.item[inventory.selectedIndex].active = INACTIVE;
+		inventory.item[inventory.selectedIndex].inUse = NOT_IN_USE;
 
 		sortInventory();
 	}
@@ -113,7 +134,7 @@ void useInventoryItem()
 {
 	Entity *temp;
 
-	if (inventory.item[inventory.selectedIndex].active == ACTIVE)
+	if (inventory.item[inventory.selectedIndex].inUse == IN_USE)
 	{
 		temp = self;
 
@@ -121,7 +142,7 @@ void useInventoryItem()
 
 		self->activate(0);
 
-		if (inventory.item[inventory.selectedIndex].active == INACTIVE)
+		if (inventory.item[inventory.selectedIndex].inUse == NOT_IN_USE)
 		{
 			sortInventory();
 		}
@@ -136,15 +157,15 @@ static void sortInventory()
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].active == INACTIVE)
+		if (inventory.item[i].inUse == NOT_IN_USE)
 		{
 			for (j=i;j<MAX_INVENTORY_ITEMS;j++)
 			{
-				if (inventory.item[j].active == ACTIVE)
+				if (inventory.item[j].inUse == IN_USE)
 				{
 					inventory.item[i] = inventory.item[j];
 
-					inventory.item[j].active = INACTIVE;
+					inventory.item[j].inUse = NOT_IN_USE;
 
 					break;
 				}
@@ -152,7 +173,7 @@ static void sortInventory()
 		}
 	}
 
-	while (inventory.item[inventory.selectedIndex].active == INACTIVE)
+	while (inventory.item[inventory.selectedIndex].inUse == NOT_IN_USE)
 	{
 		inventory.selectedIndex--;
 
@@ -171,7 +192,7 @@ void doInventory()
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].active == ACTIVE)
+		if (inventory.item[i].inUse == IN_USE)
 		{
 			inventory.item[i].thinkTime--;
 
@@ -187,7 +208,7 @@ void drawSelectedInventoryItem(int x, int y, int w, int h)
 {
 	self = &inventory.item[inventory.selectedIndex];
 
-	if (self->active == ACTIVE)
+	if (self->inUse == IN_USE)
 	{
 		drawLoopingAnimation(self, x, y, w, h, 1);
 	}

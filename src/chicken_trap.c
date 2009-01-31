@@ -1,5 +1,12 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "audio.h"
+#include "properties.h"
+#include "entity.h"
+#include "collisions.h"
+#include "key_items.h"
+
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void trapWait(void);
@@ -95,7 +102,7 @@ static void activateTrap()
 		{
 			for (i=0;i<MAX_ENTITIES;i++)
 			{
-				if (entity[i].active == ACTIVE && entity[i].type == ENEMY && strcmpignorecase(entity[i].name, "enemy/chicken") == 0)
+				if (entity[i].inUse == IN_USE && entity[i].type == ENEMY && strcmpignorecase(entity[i].name, "enemy/chicken") == 0)
 				{
 					if (collision(self->x, self->y, self->w, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 					{

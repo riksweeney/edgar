@@ -1,5 +1,10 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "graphics.h"
+#include "sprites.h"
+#include "map.h"
+
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
 extern Map map;

@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "game.h"
+#include "weather.h"
+#include "font.h"
+
 extern Game game;
 
 void initGame()

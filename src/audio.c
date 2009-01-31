@@ -1,5 +1,8 @@
 #include "headers.h"
 
+#include "audio.h"
+#include "geometry.h"
+
 static Sound sound[MAX_SOUNDS];
 extern Game game;
 extern Entity player;
@@ -21,8 +24,6 @@ void preCacheSounds(char *filename)
 
 		exit(1);
 	}
-
-	printf("Loading sfx data from %s\n", filename);
 
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
@@ -116,21 +117,21 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 
 	/* The further away the player is, the quieter the sound */
 
-	distance = getDistance(player.x, x, player.y, y);
+	distance = getDistance(player.x, player.y, x, y);
 
 	volume = game.audioVolume;
 
-	if (distance < SCREEN_WIDTH)
+	if (distance < SCREEN_WIDTH * 0.75)
 	{
 		volume = game.audioVolume;
 	}
 
-	else if (distance < SCREEN_WIDTH * 2)
+	else if (distance < SCREEN_WIDTH * 1)
 	{
 		volume = game.audioVolume / 2;
 	}
 
-	else if (distance < SCREEN_WIDTH * 4)
+	else if (distance < SCREEN_WIDTH * 1.25)
 	{
 		volume = game.audioVolume / 4;
 	}

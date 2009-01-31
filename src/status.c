@@ -1,5 +1,7 @@
 #include "headers.h"
 
+#include "font.h"
+
 extern Game game;
 
 static Message message;

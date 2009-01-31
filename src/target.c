@@ -1,5 +1,8 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "properties.h"
+
 extern Target target[MAX_TARGETS];
 extern Entity *self;
 
@@ -34,11 +37,11 @@ Target *addTarget(int x, int y, char *name)
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == INACTIVE)
+		if (target[i].active == NOT_IN_USE)
 		{
 			memset(&target[i], 0, sizeof(Target));
 
-			target[i].active = ACTIVE;
+			target[i].active = IN_USE;
 
 			target[i].x = x;
 			target[i].y = y;
@@ -62,7 +65,7 @@ void drawTargets()
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == ACTIVE)
+		if (target[i].active == IN_USE)
 		{
 			self->x = target[i].x;
 			self->y = target[i].y;
@@ -78,7 +81,7 @@ Target *getTargetByName(char *name)
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == ACTIVE && strcmpignorecase(target[i].name, name) == 0)
+		if (target[i].active == IN_USE && strcmpignorecase(target[i].name, name) == 0)
 		{
 			return &target[i];
 		}

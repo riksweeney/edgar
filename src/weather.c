@@ -1,5 +1,10 @@
 #include "headers.h"
 
+#include "random.h"
+#include "map.h"
+#include "graphics.h"
+#include "draw.h"
+
 static Droplet droplet[MAX_DROPS];
 extern Game game;
 
@@ -55,7 +60,7 @@ static void initLightRain()
 		droplet[i].dirX = 0;
 		droplet[i].dirY = 8 + prand() % 8;
 
-		droplet[i].active = ACTIVE;
+		droplet[i].active = IN_USE;
 	}
 
 	game.weatherAction = &rain;
@@ -75,7 +80,7 @@ static void initHeavyRain()
 		droplet[i].dirX = 0;
 		droplet[i].dirY = 8 + prand() % 8;
 
-		droplet[i].active = ACTIVE;
+		droplet[i].active = IN_USE;
 	}
 
 	game.weatherAction = &rain;
@@ -87,7 +92,7 @@ static void rain()
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		if (droplet[i].active == ACTIVE)
+		if (droplet[i].active == IN_USE)
 		{
 			droplet[i].x += droplet[i].dirX;
 			droplet[i].y += droplet[i].dirY;
@@ -118,7 +123,7 @@ static void initStorm()
 		droplet[i].dirX = 0;
 		droplet[i].dirY = 8 + prand() % 8;
 
-		droplet[i].active = ACTIVE;
+		droplet[i].active = IN_USE;
 	}
 
 	game.weatherAction = &storm;
@@ -150,7 +155,7 @@ static void initSnow()
 		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
 		droplet[i].dirY = 01.f + 0.1f * (prand() % 10);
 
-		droplet[i].active = ACTIVE;
+		droplet[i].active = IN_USE;
 	}
 
 	game.weatherAction = &snow;
@@ -187,7 +192,7 @@ static void drawRain()
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		if (droplet[i].active == ACTIVE)
+		if (droplet[i].active == IN_USE)
 		{
 			drawBox(droplet[i].x, droplet[i].y, 1, 8, 255, 255, 255);
 		}
@@ -205,7 +210,7 @@ static void drawSnow()
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		if (droplet[i].active == ACTIVE)
+		if (droplet[i].active == IN_USE)
 		{
 			drawBox(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
 		}

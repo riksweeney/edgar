@@ -1,5 +1,11 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "properties.h"
+#include "entity.h"
+#include "random.h"
+#include "collisions.h"
+
 extern Entity *self;
 
 static void fly(void);

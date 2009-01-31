@@ -1,8 +1,14 @@
 #include "headers.h"
 
+#include "animation.h"
+#include "enemies.h"
+#include "entity.h"
+#include "properties.h"
+
 extern Entity *self;
 
 static void spawn(void);
+static void init(void);
 
 Entity *addSpawner(int x, int y, char *entityToSpawn)
 {
@@ -24,7 +30,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
-	e->action = &spawn;
+	e->action = &init;
 
 	e->type = SPAWNER;
 
@@ -33,21 +39,28 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 	return e;
 }
 
+static void init()
+{
+	self->health = self->thinkTime;
+	
+	self->action = &spawn;
+	
+	self->action();
+}
+
 static void spawn()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		printf("Spawning %s\n", self->activates);
-		
 		e = addEnemy(self->activates, self->x, self->y);
-		
+
 		e->x += (self->w - e->w) / 2;
 		e->y += (self->h - e->h) / 2;
-		
+
 		self->thinkTime = self->health;
 	}
 }

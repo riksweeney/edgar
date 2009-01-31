@@ -1,5 +1,9 @@
 #include "headers.h"
 
+#include "bat.h"
+#include "chicken.h"
+#include "rock.h"
+
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
 {"enemy/chicken", &addChicken},
@@ -15,8 +19,6 @@ Entity *addEnemy(char *name, int x, int y)
 	{
 		if (strcmpignorecase(enemies[i].name, name) == 0)
 		{
-			printf("Adding Enemy %s to %d %d\n", enemies[i].name, x, y);
-
 			return enemies[i].construct(x, y);
 		}
 	}

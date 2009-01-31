@@ -3,3 +3,4 @@ GFX_FILE data/gfx/common/large_rock.dat
 ANIM_FILE data/anim/common/large_rock.dat
 TYPE ENEMY
 THINKTIME 30
+SFX_FILE data/sfx/common/large_rock.dat

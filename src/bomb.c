@@ -7,25 +7,25 @@ void addBomb(int x, int y)
 	if (e == NULL)
 	{
 		printf("Could not get a free slot for a Bomb!\n");
-		
+
 		exit(1);
 	}
-	
+
 	e->x = x;
 	e->y = y;
-	
+
 	e->flags = NO_TOUCH;
-	
+
 	e->action = &doNothing;
 	e->activate = &dropBomb;
 	e->draw = &drawLoopingAnimation;
-	
-	setAnimation("BOMB_INACTIVE", e);
+
+	setAnimation("BOMB_NOT_IN_USE", e);
 }
 
 static void dropBomb()
 {
-	setAnimation("BOMB_ACTIVE", self);
-	
-	e->x = 
+	setAnimation("BOMB_IN_USE", self);
+
+	e->x =
 }

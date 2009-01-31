@@ -1,5 +1,10 @@
 #include "headers.h"
 
+#include "chicken_feed.h"
+#include "chicken_trap.h"
+#include "custom_actions.h"
+#include "inventory.h"
+
 extern Entity *self, player;
 
 static Constructor items[] = {

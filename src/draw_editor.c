@@ -1,5 +1,16 @@
 #include "headers.h"
 
+#include "cursor.h"
+#include "map.h"
+#include "decoration.h"
+#include "entity.h"
+#include "player.h"
+#include "hud.h"
+#include "game.h"
+#include "font.h"
+#include "target.h"
+#include "status.h"
+
 extern Game game;
 extern Cursor cursor;
 
@@ -9,7 +20,7 @@ void draw()
 
 	/* Draw the map */
 
-	drawMap();
+	drawMap(0);
 
 	/* Draw the entities */
 
@@ -26,6 +37,10 @@ void draw()
 	/* Draw the player */
 
 	drawPlayer();
+
+	/* Draw the foreground map tiles */
+
+	drawMap(1);
 
 	/* Draw the status panel */
 
