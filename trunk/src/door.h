@@ -1,1 +1,1 @@
-Entity *addDoor(char *, int, int);
+Entity *addDoor(char *, int, int, int);

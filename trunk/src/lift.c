@@ -6,6 +6,7 @@
 #include "target.h"
 #include "collisions.h"
 #include "entity.h"
+#include "hud.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -17,7 +18,7 @@ static void setToStart(void);
 static void moveToTarget(void);
 static void touch(Entity *);
 
-Entity *addLift(char *name, int startX, int startY, char *liftType)
+Entity *addLift(char *name, int startX, int startY, int type)
 {
 	Entity *e = getFreeEntity();
 
@@ -30,18 +31,16 @@ Entity *addLift(char *name, int startX, int startY, char *liftType)
 
 	loadProperties(name, e);
 
-	if (strcmpignorecase(liftType, "AUTO_LIFT") == 0)
+	e->type = type;
+
+	if (type == AUTO_LIFT)
 	{
 		e->action = &autoMove;
-
-		e->type = AUTO_LIFT;
 	}
 
-	else if (strcmpignorecase(liftType, "MANUAL_LIFT") == 0)
+	else
 	{
 		e->activate = &findTarget;
-
-		e->type = MANUAL_LIFT;
 	}
 
 	e->touch = &touch;
@@ -91,47 +90,55 @@ static void findTarget(int val)
 	char targetName[30];
 	Target *t;
 
-	if (self->action == &moveToTarget)
+	if (self->active == ACTIVE)
 	{
-		return;
-	}
-
-	self->health += val;
-
-	if (self->health < 0)
-	{
-		self->health = 0;
-	}
-
-	sprintf(targetName, "%s_TARGET_%d", self->objectiveName, self->health);
-
-	/* Search for the lift's target */
-
-	t = getTargetByName(targetName);
-
-	if (t != NULL)
-	{
-		if (t->x == (int)self->x && t->y == (int)self->y)
+		if (self->action == &moveToTarget)
 		{
-			self->action = &wait;
+			return;
+		}
+
+		self->health += val;
+
+		if (self->health < 0)
+		{
+			self->health = 0;
+		}
+
+		sprintf(targetName, "%s_TARGET_%d", self->objectiveName, self->health);
+
+		/* Search for the lift's target */
+
+		t = getTargetByName(targetName);
+
+		if (t != NULL)
+		{
+			if (t->x == (int)self->x && t->y == (int)self->y)
+			{
+				self->action = &wait;
+			}
+
+			else
+			{
+				self->targetX = t->x;
+				self->targetY = t->y;
+
+				self->action = &moveToTarget;
+
+				playSound("sound/common/mine_lift.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+			}
 		}
 
 		else
 		{
-			self->targetX = t->x;
-			self->targetY = t->y;
+			printf("Failed to find target\n");
 
-			self->action = &moveToTarget;
-
-			playSound("sound/common/mine_lift.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+			self->health -= val;
 		}
 	}
 
 	else
 	{
-		printf("Failed to find target\n");
-
-		self->health -= val;
+		addHudMessage("This lift is not active");
 	}
 }
 
@@ -189,14 +196,17 @@ static void wait()
 
 static void autoMove()
 {
-	if (self->thinkTime > 0)
+	if (self->active == ACTIVE)
 	{
-		self->thinkTime--;
-	}
+		if (self->thinkTime > 0)
+		{
+			self->thinkTime--;
+		}
 
-	else
-	{
-		self->action = &moveToTarget;
+		else
+		{
+			self->action = &moveToTarget;
+		}
 	}
 }
 
@@ -207,7 +217,7 @@ static void setToStart()
 
 	if (self->type == AUTO_LIFT)
 	{
-		sprintf(targetName, "%s_TARGET_START", self->objectiveName);
+		sprintf(targetName, "%s_START", self->objectiveName);
 
 		/* Search for the lift's target */
 
@@ -226,7 +236,7 @@ static void setToStart()
 		self->startX = self->x;
 		self->startY = self->y;
 
-		sprintf(targetName, "%s_TARGET_END", self->objectiveName);
+		sprintf(targetName, "%s_END", self->objectiveName);
 
 		/* Search for the lift's target */
 
@@ -248,6 +258,11 @@ static void setToStart()
 		self->action = &autoMove;
 
 		self->health = self->thinkTime;
+
+		if (self->active == INACTIVE)
+		{
+			self->thinkTime = 0;
+		}
 	}
 
 	else

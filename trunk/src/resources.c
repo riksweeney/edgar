@@ -18,6 +18,8 @@ extern Game game;
 #include "spawner.h"
 #include "pressure_plate.h"
 #include "door.h"
+#include "weak_wall.h"
+#include "switch.h"
 
 void loadRequiredResources()
 {
@@ -123,7 +125,7 @@ void loadResources(FILE *fp)
 
 			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)
 			{
-				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), value[type]);
+				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), getTypeByName(value[type]));
 			}
 
 			else if (strcmpignorecase(value[type], "SPAWNER") == 0)
@@ -140,10 +142,20 @@ void loadResources(FILE *fp)
 			{
 				e = addPressurePlate(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
-			
-			else if (strcmpignorecase(value[type], "DOOR") == 0)
+
+			else if (strcmpignorecase(value[type], "AUTO_DOOR") == 0 || strcmpignorecase(value[type], "MANUAL_DOOR") == 0)
 			{
-				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]));
+				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]), getTypeByName(value[type]));
+			}
+
+			else if (strcmpignorecase(value[type], "WEAK_WALL") == 0)
+			{
+				e = addWeakWall(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "SWITCH") == 0)
+			{
+				e = addSwitch(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else

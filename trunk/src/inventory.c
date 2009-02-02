@@ -92,7 +92,7 @@ int inventoryHasItem(char *name)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].activates, name) == 0)
+		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].requires, name) == 0)
 		{
 			return 1;
 		}
@@ -107,7 +107,7 @@ int removeInventoryItem(char *name)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].activates, name) == 0)
+		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
 			inventory.item[i].inUse = NOT_IN_USE;
 
@@ -134,7 +134,7 @@ void useInventoryItem()
 {
 	Entity *temp;
 
-	if (inventory.item[inventory.selectedIndex].inUse == IN_USE)
+	if (inventory.item[inventory.selectedIndex].inUse == IN_USE && inventory.item[inventory.selectedIndex].activate != NULL)
 	{
 		temp = self;
 

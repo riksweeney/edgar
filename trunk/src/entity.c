@@ -4,6 +4,7 @@
 #include "collisions.h"
 #include "item.h"
 #include "custom_actions.h"
+#include "decoration.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -68,7 +69,7 @@ void doEntities()
 					self->dirY = MAX_FALL_SPEED;
 				}
 			}
-			
+
 			else
 			{
 				self->dirY = 0;
@@ -79,19 +80,24 @@ void doEntities()
 				if (self->standingOn != NULL)
 				{
 					self->dirX += self->standingOn->dirX;
-	
+
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY;
 					}
-					
+
 					else
 					{
 						self->dirY = 0;
 					}
 				}
-				
+
 				self->action();
+			}
+
+			else
+			{
+				checkToMap(self);
 			}
 		}
 	}
@@ -164,21 +170,23 @@ void doNothing(void)
 	self->dirX = 0;
 
 	checkToMap(self);
-	
+
 	self->standingOn = NULL;
 }
 
 void entityDie()
 {
-	dropRandomItem(self->x + self->w / 2, self->y);
+	/*dropRandomItem(self->x + self->w / 2, self->y);*/
 
 	self->flags &= ~FLY;
 
-	self->thinkTime = 120;
+	self->thinkTime = 60;
 
-	setCustomAction(self, &invulnerable, 120);
+	setCustomAction(self, &invulnerable, 60);
 
 	self->action = &standardDie;
+
+	self->touch = NULL;
 }
 
 void standardDie()
@@ -204,6 +212,11 @@ void standardDie()
 
 void entityTakeDamage(Entity *other, int damage)
 {
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
 	if (damage != 0)
 	{
 		self->health -= damage;
@@ -253,7 +266,10 @@ void entityTouch(Entity *other)
 
 	else if (other->type == WEAPON)
 	{
-		self->takeDamage(other, other->damage);
+		if (self->takeDamage != NULL)
+		{
+			self->takeDamage(other, other->damage);
+		}
 	}
 }
 
@@ -411,29 +427,45 @@ Entity *getEntityByObjectiveName(char *name)
 	return NULL;
 }
 
-void activateEntitiesWithName(char *name, int val)
+void activateEntitiesWithName(char *name, int active)
 {
 	int i;
-	Entity *e;
-	
+
 	if (name == NULL || strlen(name) == 0)
 	{
 		printf("Name is blank!\n");
-		
+
 		exit(1);
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
-			e = self;
-			
-			self = &entity[i];
-			
-			self->activate(val);
-			
-			self = e;
+			entity[i].active = active;
+		}
+	}
+}
+
+void interactWithEntity(int x, int y, int w, int h)
+{
+	int i;
+	Entity *e;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == IN_USE && (entity[i].type == SWITCH))
+		{
+			if (collision(x, y, w, h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			{
+				e = self;
+
+				self = &entity[i];
+
+				self->activate(1);
+
+				self = e;
+			}
 		}
 	}
 }

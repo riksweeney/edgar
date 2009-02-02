@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/wall/weak_mine_wall.dat
+ANIM_FILE data/anim/wall/weak_mine_wall.dat
+TYPE WEAK_WALL

@@ -1,1 +1,1 @@
-Entity *addLift(char *, int, int, char *);
+Entity *addLift(char *, int, int, int);

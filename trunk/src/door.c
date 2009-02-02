@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "properties.h"
 #include "inventory.h"
+#include "hud.h"
 
 extern Entity *self;
 
@@ -11,9 +12,8 @@ static void touch(Entity *);
 static void wait(void);
 static void setStart(void);
 static void moveToTarget(void);
-static void pressureMove(int);
 
-Entity *addDoor(char *name, int x, int y)
+Entity *addDoor(char *name, int x, int y, int type)
 {
 	Entity *e = getFreeEntity();
 
@@ -29,72 +29,77 @@ Entity *addDoor(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
+	e->type = type;
+
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->action = &setStart;
-	e->activate = &pressureMove;
-
-	e->type = DOOR;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
 }
 
-static void pressureMove(int val)
+static void setStart()
 {
-	if (val == 1)
+	if (self->endX == 0 && self->endY == 0)
+	{
+		printf("WARNING: Door %s has no valid start\n", self->objectiveName);
+		
+		self->endY = self->startY - TILE_SIZE * 2;
+	}
+	
+	if (self->type == MANUAL_DOOR)
 	{
 		self->targetX = self->endX;
 		self->targetY = self->endY;
+
+		self->action = &wait;
 	}
-	
+
 	else
 	{
-		self->targetX = self->startX;
-		self->targetY = self->startY;
+		self->action = &moveToTarget;
 	}
-	
-	self->action = &moveToTarget;
-}
-
-static void setStart()
-{
-	self->targetX = self->endX;
-	self->targetY = self->endY;
-
-	self->action = &wait;
 }
 
 static void wait()
 {
-
 }
 
 static void touch(Entity *other)
 {
 	pushEntity(other);
 
-	if (other->type == PLAYER && self->active == INACTIVE)
+	if (self->type == MANUAL_DOOR)
 	{
-		/* Look through the player's inventory */
-
-		if (removeInventoryItem(self->objectiveName) == 1)
+		if (other->type == PLAYER && self->active == INACTIVE)
 		{
-			self->action = &moveToTarget;
+			/* Look through the player's inventory */
 
-			self->active = ACTIVE;
-		}
+			if (removeInventoryItem(self->requires) == 1)
+			{
+				self->action = &moveToTarget;
 
-		else
-		{
-			printf("%s is needed to open this door\n", self->objectiveName);
+				self->active = ACTIVE;
+			}
+
+			else
+			{
+				addHudMessage("%s is needed to open this door", self->requires);
+			}
 		}
 	}
 }
 
 static void moveToTarget(void)
-{	
+{
+	if (self->type == AUTO_DOOR)
+	{
+		self->targetX = self->active == ACTIVE ? self->endX : self->startX;
+		self->targetY = self->active == ACTIVE ? self->endY : self->startY;
+	}
+
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -117,12 +122,15 @@ static void moveToTarget(void)
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
-		self->action = &wait;
-		
+		if (self->type == MANUAL_DOOR)
+		{
+			self->action = &wait;
+		}
+
 		self->dirX = 0;
 		self->dirY = 0;
 	}
-	
+
 	else
 	{
 		self->x += self->dirX;

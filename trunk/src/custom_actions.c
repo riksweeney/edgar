@@ -97,3 +97,18 @@ void invulnerable(int *thinkTime)
 		self->flags &= ~NO_DRAW;
 	}
 }
+
+void invulnerableNoFlash(int *thinkTime)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->flags |= INVULNERABLE;
+	}
+
+	else
+	{
+		self->flags &= ~INVULNERABLE;
+	}
+}

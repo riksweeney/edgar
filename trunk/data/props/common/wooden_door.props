@@ -1,4 +1,4 @@
 GFX_FILE data/gfx/common/wooden_door.dat
 ANIM_FILE data/anim/common/wooden_door.dat
-TYPE DOOR
+TYPE MANUAL_DOOR
 #SFX_FILE data/sfx/common/wooden_door.dat

@@ -3,15 +3,32 @@
 #include "animation.h"
 #include "sprites.h"
 #include "audio.h"
+#include "properties.h"
 
 static Properties properties[MAX_PROPS_FILES];
 
 static void setFlags(Entity *, char *);
-static int getType(char *);
 
 static char *ignoreProps[] = {"TYPE", NULL};
-static char *types[] = {"PLAYER", "WEAPON", "ITEM", "KEY_ITEM", "ENEMY", "LIFT", "HEALTH", "SHIELD", "AUTO_LIFT",
-						"MANUAL_LIFT", "TARGET", "SPAWNER", "PRESSURE_PLATE", "DOOR", NULL};
+static Type type[] = {
+					{PLAYER, "PLAYER"},
+					{WEAPON, "WEAPON"},
+					{ITEM, "ITEM"},
+					{KEY_ITEM, "KEY_ITEM"},
+					{ENEMY, "ENEMY"},
+					{HEALTH, "HEALTH"},
+					{SHIELD, "SHIELD"},
+					{AUTO_LIFT, "AUTO_LIFT"},
+					{MANUAL_LIFT, "MANUAL_LIFT"},
+					{TARGET, "TARGET"},
+					{SPAWNER, "SPAWNER"},
+					{PRESSURE_PLATE, "PRESSURE_PLATE"},
+					{MANUAL_DOOR, "MANUAL_DOOR"},
+					{AUTO_DOOR, "AUTO_DOOR"},
+					{WEAK_WALL, "WEAK_WALL"},
+					{SWITCH, "SWITCH"}
+					};
+static int length = sizeof(type) / sizeof(Type);
 
 void loadProperties(char *name, Entity *e)
 {
@@ -165,7 +182,7 @@ void loadProperties(char *name, Entity *e)
 
 			else if (strcmpignorecase(properties[i].key[j], "TYPE") == 0)
 			{
-				e->type = getType(properties[i].value[j]);
+				e->type = getTypeByName(properties[i].value[j]);
 			}
 
 			else if (strcmpignorecase(properties[i].key[j], "SFX_FILE") == 0)
@@ -195,21 +212,6 @@ void loadProperties(char *name, Entity *e)
 
 		setEntityAnimation(e, 0);
 	}
-}
-
-static int getType(char *type)
-{
-	int i;
-
-	for (i=0;types[i]!=NULL;i++)
-	{
-		if (strcmpignorecase(types[i], type) == 0)
-		{
-			return i;
-		}
-	}
-
-	return -1;
 }
 
 static void setFlags(Entity *e, char *flags)
@@ -311,9 +313,9 @@ void setProperty(Entity *e, char *name, char *value)
 		strcpy(e->objectiveName, value);
 	}
 
-	else if (strcmpignorecase(name, "ACTIVATES") == 0)
+	else if (strcmpignorecase(name, "REQUIRES") == 0)
 	{
-		strcpy(e->activates, value);
+		strcpy(e->requires, value);
 	}
 
 	else if (strcmpignorecase(name, "NAME") == 0)
@@ -360,4 +362,34 @@ void setProperty(Entity *e, char *name, char *value)
 			printf("Unknown property value %s\n", name);
 		}
 	}
+}
+
+int getTypeByName(char *name)
+{
+	int i;
+
+	for (i=0;i<length;i++)
+	{
+		if (strcmpignorecase(name, type[i].name) == 0)
+		{
+			return type[i].id;
+		}
+	}
+
+	return -1;
+}
+
+char *getTypeByID(int id)
+{
+	int i;
+
+	for (i=0;i<length;i++)
+	{
+		if (id == type[i].id)
+		{
+			return type[i].name;
+		}
+	}
+
+	return "UNKNOWN";
 }
