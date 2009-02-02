@@ -56,6 +56,8 @@
 
 #define MAX_TARGETS 30
 
+#define MAX_HUD_MESSAGES 5
+
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
@@ -122,7 +124,6 @@ enum
 	ITEM,
 	KEY_ITEM,
 	ENEMY,
-	LIFT,
 	HEALTH,
 	SHIELD,
 	AUTO_LIFT,
@@ -130,7 +131,10 @@ enum
 	TARGET,
 	SPAWNER,
 	PRESSURE_PLATE,
-	DOOR
+	MANUAL_DOOR,
+	AUTO_DOOR,
+	WEAK_WALL,
+	SWITCH
 };
 
 enum

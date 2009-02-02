@@ -8,11 +8,11 @@ static Message message;
 
 void doStatusPanel()
 {
-	message.counter--;
+	message.thinkTime--;
 
-	if (message.counter <= 0)
+	if (message.thinkTime <= 0)
 	{
-		message.counter = 0;
+		message.thinkTime = 0;
 	}
 }
 
@@ -27,7 +27,7 @@ void drawStatusPanel()
 
 	SDL_FillRect(game.screen, &dest, 0);
 
-	if (message.counter > 0)
+	if (message.thinkTime > 0)
 	{
 		drawString(message.text, 0, SCREEN_HEIGHT - TILE_SIZE, game.font, 1, 0);
 	}
@@ -37,5 +37,5 @@ void setStatusMessage(char *text)
 {
 	strncpy(message.text, text, MAX_MESSAGE_LENGTH);
 
-	message.counter = 120;
+	message.thinkTime = 120;
 }

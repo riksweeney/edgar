@@ -9,6 +9,7 @@
 #include "custom_actions.h"
 #include "collisions.h"
 #include "player.h"
+#include "entity.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -222,6 +223,13 @@ void doPlayer()
 					dropInventoryItem();
 
 					input.drop = 0;
+				}
+				
+				if (input.interact == 1)
+				{
+					interactWithEntity(player.x, player.y, player.w, player.h);
+					
+					input.interact = 0;
 				}
 
 				if (input.activate == 1)

@@ -18,7 +18,9 @@ static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", 
 							  "enemy/bat", "weapon/pickaxe",
 							  "item/chicken_feed_bag", "enemy/chicken",
 							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target", "common/spawner",
-							  "common/pressure_plate", "common/wooden_door", NULL};
+							  "common/pressure_plate", "common/wooden_door", "wall/weak_mine_wall",
+							  "item/iron_key", "common/switch",
+							  NULL};
 static int entityNamesLength = 0;
 static int targetID = 1;
 
@@ -266,8 +268,6 @@ void drawCursor()
 		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
 			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
-			
-			setStatusMessage(self->objectiveName);
 		}
 
 		cursor.entity.x = mapStartX() + cursor.x;

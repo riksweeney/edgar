@@ -13,6 +13,7 @@ typedef struct Input
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle, drop;
 	int activate, attack, fly, snap, cut;
+	int interact;
 } Input;
 
 typedef struct Entity
@@ -27,7 +28,7 @@ typedef struct Entity
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
 	float targetX, targetY, speed;
-	char name[30], objectiveName[30], activates[30];
+	char name[30], objectiveName[60], requires[60];
 	struct Entity *standingOn, *parent, *target;
 	void (*action)(void);
 	void (*activate)(int);
@@ -79,7 +80,7 @@ typedef struct Cursor
 typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
-	int counter;
+	int thinkTime, inUse;
 } Message;
 
 typedef struct Inventory
@@ -109,5 +110,11 @@ typedef struct Constructor
 typedef struct Target
 {
 	int x, y, active;
-	char name[30];
+	char name[60];
 } Target;
+
+typedef struct Type
+{
+	int id;
+	char name[30];
+} Type;

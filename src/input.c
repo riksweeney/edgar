@@ -94,6 +94,10 @@ void getInput()
 					case SDLK_g:
 						input.snap = 1;
 					break;
+					
+					case SDLK_c:
+						input.interact = 1;
+					break;
 
 					default:
 					break;

@@ -11,6 +11,7 @@
 #include "draw.h"
 #include "input.h"
 #include "entity.h"
+#include "hud.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];
@@ -86,6 +87,10 @@ int main(int argc, char *argv[])
 		/* Do collisions */
 
 		doCollisions();
+		
+		/* Do the HUD */
+		
+		doHud();
 
 		/* Draw the map */
 

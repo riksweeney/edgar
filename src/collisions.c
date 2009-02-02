@@ -26,10 +26,12 @@ void doCollisions()
 
 			if (playerWeapon.inUse == IN_USE && (playerWeapon.flags & ATTACKING))
 			{
-				x = playerWeapon.x + playerWeapon.offsetX;
-				y = playerWeapon.y + playerWeapon.offsetY;
+				x = playerWeapon.x + playerWeapon.offsetX * (player.face == LEFT ? -1 : 1);
+				y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
 				w = playerWeapon.w;
 				h = playerWeapon.h;
+				
+				/*printf("Checking weapon against %s\n", entity[i].name);*/
 
 				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, x, y, w, h) == 1)
 				{

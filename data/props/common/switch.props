@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/common/switch.dat
+ANIM_FILE data/anim/common/switch.dat
+TYPE SWITCH

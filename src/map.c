@@ -5,6 +5,7 @@
 #include "random.h"
 #include "graphics.h"
 #include "audio.h"
+#include "properties.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -196,70 +197,7 @@ void saveMap()
 
 		if (self->inUse == IN_USE)
 		{
-			if (self->type == WEAPON)
-			{
-				strcpy(type, "WEAPON");
-			}
-
-			else if (self->type == ITEM)
-			{
-				strcpy(type, "ITEM");
-			}
-
-			else if (self->type == KEY_ITEM)
-			{
-				strcpy(type, "KEY_ITEM");
-			}
-
-			else if (self->type == LIFT)
-			{
-				strcpy(type, "LIFT");
-			}
-
-			else if (self->type == HEALTH)
-			{
-				strcpy(type, "HEALTH");
-			}
-
-			else if (self->type == SHIELD)
-			{
-				strcpy(type, "SHIELD");
-			}
-
-			else if (self->type == ENEMY)
-			{
-				strcpy(type, "ENEMY");
-			}
-
-			else if (self->type == MANUAL_LIFT)
-			{
-				strcpy(type, "MANUAL_LIFT");
-			}
-
-			else if (self->type == AUTO_LIFT)
-			{
-				strcpy(type, "AUTO_LIFT");
-			}
-
-			else if (self->type == SPAWNER)
-			{
-				strcpy(type, "SPAWNER");
-			}
-
-			else if (self->type == PRESSURE_PLATE)
-			{
-				strcpy(type, "PRESSURE_PLATE");
-			}
-			
-			else if (self->type == DOOR)
-			{
-				strcpy(type, "DOOR");
-			}
-
-			else
-			{
-				strcpy(type, "UNKNOWN");
-			}
+			strcpy(type, getTypeByID(self->type));
 
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE %s\n", type);
@@ -272,7 +210,7 @@ void saveMap()
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
-			fprintf(fp, "ACTIVATES %s\n", self->activates);
+			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == ACTIVE ? "ACTIVE" : "INACTIVE");
 			fprintf(fp, "}\n\n");
 		}

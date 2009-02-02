@@ -26,7 +26,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 	e->x = x;
 	e->y = y;
 
-	strcpy(e->activates, entityToSpawn);
+	strcpy(e->requires, entityToSpawn);
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -45,22 +45,30 @@ static void init()
 	
 	self->action = &spawn;
 	
+	if (self->active == INACTIVE)
+	{
+		self->thinkTime = 0;
+	}
+	
 	self->action();
 }
 
 static void spawn()
 {
 	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	
+	if (self->active == ACTIVE)
 	{
-		e = addEnemy(self->activates, self->x, self->y);
-
-		e->x += (self->w - e->w) / 2;
-		e->y += (self->h - e->h) / 2;
-
-		self->thinkTime = self->health;
+		self->thinkTime--;
+	
+		if (self->thinkTime <= 0)
+		{
+			e = addEnemy(self->objectiveName, self->x, self->y);
+	
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+	
+			self->thinkTime = self->health;
+		}
 	}
 }
