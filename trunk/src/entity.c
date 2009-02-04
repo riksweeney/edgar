@@ -5,6 +5,8 @@
 #include "item.h"
 #include "custom_actions.h"
 #include "decoration.h"
+#include "trigger.h"
+#include "properties.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -30,6 +32,8 @@ Entity *getFreeEntity()
 			entity[i].inUse = IN_USE;
 
 			entity[i].active = ACTIVE;
+
+			entity[i].frameSpeed = 1;
 
 			return &entity[i];
 		}
@@ -93,6 +97,8 @@ void doEntities()
 				}
 
 				self->action();
+
+				self->standingOn = NULL;
 			}
 
 			else
@@ -196,6 +202,8 @@ void standardDie()
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = NOT_IN_USE;
+
+		fireTrigger(self->objectiveName);
 	}
 
 	self->dirX = 0;
@@ -226,20 +234,7 @@ void entityTakeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			if (self->dirX == 0)
-			{
-				self->dirX = other->dirX < 0 ? -12 : 12;
-			}
-
-			else if (other->dirX == 0)
-			{
-				self->dirX = other->face == RIGHT ? 12 : -12;
-			}
-
-			else
-			{
-				self->dirX = self->dirX < 0 ? 12 : -12;
-			}
+			self->dirX = other->face == RIGHT ? 12 : -12;
 		}
 
 		else
@@ -466,6 +461,54 @@ void interactWithEntity(int x, int y, int w, int h)
 
 				self = e;
 			}
+		}
+	}
+}
+
+void initLineDefs()
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == IN_USE && entity[i].type == LINE_DEF)
+		{
+			self = &entity[i];
+
+			self->flags &= ~NO_DRAW;
+
+			self->action();
+		}
+	}
+}
+
+void writeEntitiesToFile(FILE *fp)
+{
+	int i;
+	char type[MAX_VALUE_LENGTH];
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		self = &entity[i];
+
+		if (self->inUse == IN_USE)
+		{
+			strcpy(type, getTypeByID(self->type));
+
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE %s\n", type);
+			fprintf(fp, "NAME %s\n", self->name);
+			fprintf(fp, "START_X %d\n", (int)self->x);
+			fprintf(fp, "START_Y %d\n", (int)self->y);
+			fprintf(fp, "END_X %d\n", (int)self->endX);
+			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+			fprintf(fp, "HEALTH %d\n", self->health);
+			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+			fprintf(fp, "REQUIRES %s\n", self->requires);
+			fprintf(fp, "ACTIVE %s\n", self->active == ACTIVE ? "ACTIVE" : "INACTIVE");
+			fprintf(fp, "}\n\n");
 		}
 	}
 }

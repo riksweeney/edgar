@@ -49,8 +49,8 @@ void drawImage(SDL_Surface *image, int x, int y)
 
 	/* Set the blitting rectangle to the size of the src image */
 
-	dest.x = x;
-	dest.y = y;
+	dest.x = game.offsetX + x;
+	dest.y = game.offsetY + y;
 	dest.w = image->w;
 	dest.h = image->h;
 
@@ -98,8 +98,8 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY)
 
 	/* Set the blitting rectangle to the size of the src image */
 
-	dest.x = destX;
-	dest.y = destY;
+	dest.x = game.offsetX + destX;
+	dest.y = game.offsetY + destY;
 	dest.w = flipped->w;
 	dest.h = flipped->h;
 

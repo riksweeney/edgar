@@ -13,7 +13,7 @@ extern Entity player;
 
 void draw()
 {
-	char text[20];
+	char text[MAX_VALUE_LENGTH];
 
 	/* Clear the screen */
 

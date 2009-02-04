@@ -9,7 +9,7 @@ static Properties properties[MAX_PROPS_FILES];
 
 static void setFlags(Entity *, char *);
 
-static char *ignoreProps[] = {"TYPE", NULL};
+static char *ignoreProps[] = {"GFX_FILE", "ANIM_FILE", "NAME", NULL};
 static Type type[] = {
 					{PLAYER, "PLAYER"},
 					{WEAPON, "WEAPON"},
@@ -26,7 +26,8 @@ static Type type[] = {
 					{MANUAL_DOOR, "MANUAL_DOOR"},
 					{AUTO_DOOR, "AUTO_DOOR"},
 					{WEAK_WALL, "WEAK_WALL"},
-					{SWITCH, "SWITCH"}
+					{SWITCH, "SWITCH"},
+					{LINE_DEF, "LINE_DEF"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -34,6 +35,7 @@ void loadProperties(char *name, Entity *e)
 {
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
 	char path[MAX_PATH_LENGTH], line[MAX_LINE_LENGTH];
+	char *token;
 	FILE *fp;
 
 	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
@@ -85,12 +87,33 @@ void loadProperties(char *name, Entity *e)
 						exit(1);
 					}
 
+					if (line[strlen(line) - 1] == '\n')
+					{
+						line[strlen(line) - 1] = '\0';
+					}
+
 					if (line[0] == '#' || line[0] == '\n')
 					{
 						continue;
 					}
 
-					sscanf(line, "%s %s", properties[i].key[j], properties[i].value[j]);
+					token = strtok(line, " ");
+
+					strcpy(properties[i].key[j], token);
+
+					token = strtok(NULL, "\0");
+
+					if (token != NULL)
+					{
+						strcpy(properties[i].value[j], token);
+					}
+
+					else
+					{
+						printf("%s: %s is missing value\n", name, properties[i].key[j]);
+
+						exit(1);
+					}
 
 					if (strcmpignorecase(properties[i].key[j], "GFX_FILE") == 0)
 					{
@@ -153,42 +176,7 @@ void loadProperties(char *name, Entity *e)
 
 		for (j=0;j<MAX_PROPS_ENTRIES;j++)
 		{
-			if (strcmpignorecase(properties[i].key[j], "HEALTH") == 0)
-			{
-				e->health = atoi(properties[i].value[j]);
-
-				e->maxHealth = e->health;
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "DAMAGE") == 0)
-			{
-				e->damage = atoi(properties[i].value[j]);
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "THINKTIME") == 0)
-			{
-				e->thinkTime = atoi(properties[i].value[j]);
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "SPEED") == 0)
-			{
-				e->speed = atoi(properties[i].value[j]);
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "FLAGS") == 0)
-			{
-				setFlags(e, properties[i].value[j]);
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "TYPE") == 0)
-			{
-				e->type = getTypeByName(properties[i].value[j]);
-			}
-
-			else if (strcmpignorecase(properties[i].key[j], "SFX_FILE") == 0)
-			{
-				preCacheSounds(properties[i].value[j]);
-			}
+			setProperty(e, properties[i].key[j], properties[i].value[j]);
 		}
 
 		for (j=0;j<MAX_ANIMATION_TYPES;j++)
@@ -217,6 +205,8 @@ void loadProperties(char *name, Entity *e)
 static void setFlags(Entity *e, char *flags)
 {
 	char *token = strtok(flags, " |,");
+
+	e->flags = 0;
 
 	while (token != NULL)
 	{
@@ -288,6 +278,11 @@ void setProperty(Entity *e, char *name, char *value)
 {
 	int i = 0, found = 0;
 
+	if (strlen(name) == 0)
+	{
+		return;
+	}
+
 	if (strcmpignorecase(name, "START_X") == 0)
 	{
 		e->startX = atoi(value);
@@ -318,16 +313,6 @@ void setProperty(Entity *e, char *name, char *value)
 		strcpy(e->requires, value);
 	}
 
-	else if (strcmpignorecase(name, "NAME") == 0)
-	{
-		strcpy(e->name, value);
-	}
-
-	else if (strcmpignorecase(name, "HEALTH") == 0)
-	{
-		e->health = atoi(value);
-	}
-
 	else if (strcmpignorecase(name, "THINKTIME") == 0)
 	{
 		e->thinkTime = atoi(value);
@@ -341,6 +326,43 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "ACTIVE") == 0)
 	{
 		e->active = strcmpignorecase(value, "ACTIVE") == 0 ? ACTIVE : INACTIVE;
+	}
+
+	else if (strcmpignorecase(name, "SFX_FILE") == 0)
+	{
+		preCacheSounds(value);
+	}
+
+	else if (strcmpignorecase(name, "HEALTH") == 0)
+	{
+		e->health = atoi(value);
+
+		e->maxHealth = e->health;
+	}
+
+	else if (strcmpignorecase(name, "DAMAGE") == 0)
+	{
+		e->damage = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "THINKTIME") == 0)
+	{
+		e->thinkTime = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "SPEED") == 0)
+	{
+		e->speed = atof(value);
+	}
+
+	else if (strcmpignorecase(name, "FLAGS") == 0)
+	{
+		setFlags(e, value);
+	}
+
+	else if (strcmpignorecase(name, "TYPE") == 0)
+	{
+		e->type = getTypeByName(value);
 	}
 
 	else

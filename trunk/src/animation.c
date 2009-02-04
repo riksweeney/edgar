@@ -13,7 +13,7 @@ static int animationID = -1;
 
 void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 {
-	char frameName[255];
+	char frameName[MAX_MESSAGE_LENGTH];
 	int i;
 	FILE *fp;
 
@@ -177,6 +177,13 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				/* Reassign the Animation frame to the appropriate Sprite index */
 
+				if (spriteIndex[animation[animationID].frameID[i]] == -1)
+				{
+					printf("Invalid sprite at animation index %d\n", animation[animationID].frameID[i]);
+
+					exit(1);
+				}
+
 				animation[animationID].frameID[i] = spriteIndex[animation[animationID].frameID[i]];
 			}
 		}
@@ -277,7 +284,7 @@ void drawLoopingAnimationToMap()
 	SDL_Surface *image;
 	void (*callback)(void);
 
-	self->frameTimer--;
+	self->frameTimer -= 1 * self->frameSpeed;
 
 	if (self->frameTimer <= 0)
 	{
@@ -351,6 +358,16 @@ void drawLoopingAnimationToMap()
 
 		drawImage(image, x, y);
 	}
+}
+
+void drawLineDefToMap()
+{
+	if (self->flags & NO_DRAW)
+	{
+		return;
+	}
+
+	drawBox(self->x - mapStartX(), self->y - mapStartY(), self->w, self->h, 255, 0, 0);
 }
 
 void setEntityAnimation(Entity *e, int animationID)

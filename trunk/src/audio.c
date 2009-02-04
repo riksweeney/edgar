@@ -87,8 +87,6 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 			}
 		}
 	}
-	
-	channel = -1;
 
 	for (i=0;i<soundIndex;i++)
 	{

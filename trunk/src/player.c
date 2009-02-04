@@ -31,6 +31,7 @@ void loadPlayer(int x, int y)
 		player.face = LEFT;
 		player.flags = 0;
 		player.type = PLAYER;
+		player.frameSpeed = 1;
 
 		player.thinkTime = 0;
 
@@ -189,7 +190,7 @@ void doPlayer()
 								self->activate(-1);
 
 								self = &player;
-								
+
 								player.dirY = self->standingOn->speed;
 							}
 
@@ -224,11 +225,11 @@ void doPlayer()
 
 					input.drop = 0;
 				}
-				
+
 				if (input.interact == 1)
 				{
 					interactWithEntity(player.x, player.y, player.w, player.h);
-					
+
 					input.interact = 0;
 				}
 
@@ -416,4 +417,16 @@ int getDistanceFromPlayer(Entity *e)
 	}
 
 	return getDistance(player.x, player.y, e->x + e->w, e->y);
+}
+
+void writePlayerToFile(FILE *fp)
+{
+	self = &player;
+
+	fprintf(fp, "{\n");
+	fprintf(fp, "TYPE player_start\n");
+	fprintf(fp, "NAME player_start\n");
+	fprintf(fp, "START_X %d\n", (int)self->x);
+	fprintf(fp, "START_Y %d\n", (int)self->y);
+	fprintf(fp, "}\n\n");
 }

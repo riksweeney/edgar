@@ -3,6 +3,8 @@
 #include "animation.h"
 #include "player.h"
 #include "item.h"
+#include "hud.h"
+#include "trigger.h"
 
 static Inventory inventory;
 extern Entity *self;
@@ -36,6 +38,8 @@ int addToInventory(Entity *e)
 			{
 				autoSetPlayerShield(&inventory.item[i]);
 			}
+
+			addHudMessage("Picked up %s", inventory.item[i].objectiveName);
 
 			return 1;
 		}
@@ -86,19 +90,19 @@ void selectNextInventoryItem(int index)
 	inventory.selectedIndex = i;
 }
 
-int inventoryHasItem(char *name)
+Entity *getInventoryItem(char *name)
 {
 	int i;
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].requires, name) == 0)
+		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
-			return 1;
+			return &inventory.item[i];
 		}
 	}
 
-	return 0;
+	return NULL;
 }
 
 int removeInventoryItem(char *name)
@@ -211,5 +215,34 @@ void drawSelectedInventoryItem(int x, int y, int w, int h)
 	if (self->inUse == IN_USE)
 	{
 		drawLoopingAnimation(self, x, y, w, h, 1);
+	}
+}
+
+void addRequiredToInventory(Entity *other)
+{
+	Entity *item;
+
+	if (other->type == PLAYER)
+	{
+		item = getInventoryItem(self->requires);
+
+		if (item != NULL)
+		{
+			item->health++;
+
+			if (item->health >= item->maxHealth)
+			{
+				item->health = item->maxHealth;
+			}
+
+			fireTrigger(item->objectiveName);
+
+			self->inUse = NOT_IN_USE;
+		}
+
+		else
+		{
+			addHudMessage("%s is required to carry this item", self->requires);
+		}
 	}
 }

@@ -1,0 +1,1 @@
+Entity *addBoulderBoss(int, int);

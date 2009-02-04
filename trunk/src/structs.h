@@ -20,7 +20,7 @@ typedef struct Entity
 {
 	int inUse, w, h, offsetX, offsetY;
 	int thinkTime, face;
-	int currentFrame, frameTimer;
+	int currentFrame, frameTimer, frameSpeed;
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
 	int maxHealth, damage, active;
@@ -28,7 +28,7 @@ typedef struct Entity
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
 	float targetX, targetY, speed;
-	char name[30], objectiveName[60], requires[60];
+	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	struct Entity *standingOn, *parent, *target;
 	void (*action)(void);
 	void (*activate)(int);
@@ -42,7 +42,8 @@ typedef struct Entity
 
 typedef struct Map
 {
-	char filename[30], tilesetName[30], ambienceName[30];
+	char filename[MAX_VALUE_LENGTH], tilesetName[MAX_VALUE_LENGTH], ambienceName[MAX_VALUE_LENGTH];
+	char musicName[MAX_VALUE_LENGTH];
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
@@ -54,20 +55,22 @@ typedef struct Map
 
 typedef struct Sound
 {
-	char name[255];
+	char name[MAX_VALUE_LENGTH];
 	Mix_Chunk *effect;
 } Sound;
 
 typedef struct Game
 {
-	char sword[30], shield[30];
+	char sword[MAX_VALUE_LENGTH], shield[MAX_VALUE_LENGTH];
 	int thinkTime, weatherType, weatherThinkTime;
 	int audio, audioVolume;
+	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	void (*action)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);
 	SDL_Surface *screen;
 	TTF_Font *font;
+	Mix_Music *music;
 } Game;
 
 typedef struct Cursor
@@ -97,24 +100,30 @@ typedef struct Droplet
 
 typedef struct Properties
 {
-	char name[30], key[MAX_PROPS_ENTRIES][30], value[MAX_PROPS_ENTRIES][60];
+	char name[MAX_VALUE_LENGTH], key[MAX_PROPS_ENTRIES][MAX_VALUE_LENGTH], value[MAX_PROPS_ENTRIES][MAX_VALUE_LENGTH];
 	int animations[MAX_ANIMATION_TYPES];
 } Properties;
 
 typedef struct Constructor
 {
-	char name[30];
+	char name[MAX_VALUE_LENGTH];
 	Entity *(*construct)(int, int);
 } Constructor;
 
 typedef struct Target
 {
 	int x, y, active;
-	char name[60];
+	char name[MAX_VALUE_LENGTH];
 } Target;
 
 typedef struct Type
 {
 	int id;
-	char name[30];
+	char name[MAX_VALUE_LENGTH];
 } Type;
+
+typedef struct Trigger
+{
+	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH];
+	int inUse, targetType, count;
+} Trigger;

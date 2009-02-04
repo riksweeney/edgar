@@ -89,3 +89,21 @@ Target *getTargetByName(char *name)
 
 	return NULL;
 }
+
+void writeTargetsToFile(FILE *fp)
+{
+	int i;
+
+	for (i=0;i<MAX_TARGETS;i++)
+	{
+		if (target[i].active == IN_USE)
+		{
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE TARGET\n");
+			fprintf(fp, "NAME %s\n", target[i].name);
+			fprintf(fp, "START_X %d\n", target[i].x);
+			fprintf(fp, "START_Y %d\n", target[i].y);
+			fprintf(fp, "}\n\n");
+		}
+	}
+}

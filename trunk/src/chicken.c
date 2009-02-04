@@ -110,7 +110,7 @@ static void wander()
 
 	if (prand() % 2400 == 0)
 	{
-		playSound("sound/enemy/chicken/cluck.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_4, self->x, self->y);
+		playSound("sound/enemy/chicken/cluck.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_2, self->x, self->y);
 	}
 
 	if (prand() % 30 == 0)

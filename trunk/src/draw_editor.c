@@ -16,7 +16,7 @@ extern Cursor cursor;
 
 void draw()
 {
-	char text[20];
+	char text[MAX_VALUE_LENGTH];
 
 	/* Draw the map */
 

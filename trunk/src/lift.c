@@ -87,7 +87,7 @@ static void touch(Entity *other)
 
 static void findTarget(int val)
 {
-	char targetName[30];
+	char targetName[MAX_VALUE_LENGTH];
 	Target *t;
 
 	if (self->active == ACTIVE)
@@ -171,7 +171,7 @@ static void moveToTarget()
 			self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
 			self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
 
-			self->thinkTime = self->health;
+			self->thinkTime = self->maxHealth;
 
 			self->action = &autoMove;
 		}
@@ -212,7 +212,7 @@ static void autoMove()
 
 static void setToStart()
 {
-	char targetName[30];
+	char targetName[MAX_VALUE_LENGTH];
 	Target *t;
 
 	if (self->type == AUTO_LIFT)
@@ -257,7 +257,7 @@ static void setToStart()
 
 		self->action = &autoMove;
 
-		self->health = self->thinkTime;
+		self->maxHealth = self->thinkTime;
 
 		if (self->active == INACTIVE)
 		{

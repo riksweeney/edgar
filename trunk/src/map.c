@@ -6,6 +6,10 @@
 #include "graphics.h"
 #include "audio.h"
 #include "properties.h"
+#include "entity.h"
+#include "target.h"
+#include "player.h"
+#include "music.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -25,7 +29,7 @@ static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 void loadMap(char *name)
 {
 	int x, y;
-	char itemName[255], line[MAX_LINE_LENGTH];
+	char itemName[MAX_MESSAGE_LENGTH], line[MAX_LINE_LENGTH];
 	FILE *fp;
 
 	freeMap();
@@ -73,6 +77,19 @@ void loadMap(char *name)
 			loadAmbience(itemName);
 
 			strcpy(map.ambienceName, itemName);
+		}
+		
+		else if (strcmpignorecase(itemName, "MUSIC") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			printf("Loading music from %s\n", itemName);
+
+			loadMusic(itemName);
+
+			strcpy(map.musicName, itemName);
 		}
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
@@ -139,7 +156,6 @@ void loadMap(char *name)
 void saveMap()
 {
 	int x, y;
-	char type[30];
 	FILE *fp;
 
 	self = &player;
@@ -163,7 +179,8 @@ void saveMap()
 
 		exit(1);
 	}
-
+	
+	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
 	fprintf(fp, "DATA\n");
@@ -182,54 +199,13 @@ void saveMap()
 
 	/* Now write out all of the Entities */
 
-	self = &player;
+	writePlayerToFile(fp);
 
-	fprintf(fp, "{\n");
-	fprintf(fp, "TYPE player_start\n");
-	fprintf(fp, "NAME player_start\n");
-	fprintf(fp, "START_X %d\n", (int)self->x);
-	fprintf(fp, "START_Y %d\n", (int)self->y);
-	fprintf(fp, "}\n\n");
-
-	for (x=0;x<MAX_ENTITIES;x++)
-	{
-		self = &entity[x];
-
-		if (self->inUse == IN_USE)
-		{
-			strcpy(type, getTypeByID(self->type));
-
-			fprintf(fp, "{\n");
-			fprintf(fp, "TYPE %s\n", type);
-			fprintf(fp, "NAME %s\n", self->name);
-			fprintf(fp, "START_X %d\n", (int)self->x);
-			fprintf(fp, "START_Y %d\n", (int)self->y);
-			fprintf(fp, "END_X %d\n", (int)self->endX);
-			fprintf(fp, "END_Y %d\n", (int)self->endY);
-			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
-			fprintf(fp, "HEALTH %d\n", self->health);
-			fprintf(fp, "SPEED %0.1f\n", self->speed);
-			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
-			fprintf(fp, "REQUIRES %s\n", self->requires);
-			fprintf(fp, "ACTIVE %s\n", self->active == ACTIVE ? "ACTIVE" : "INACTIVE");
-			fprintf(fp, "}\n\n");
-		}
-	}
+	writeEntitiesToFile(fp);
 
 	/* Now the targets */
 
-	for (x=0;x<MAX_TARGETS;x++)
-	{
-		if (target[x].active == IN_USE)
-		{
-			fprintf(fp, "{\n");
-			fprintf(fp, "TYPE TARGET\n");
-			fprintf(fp, "NAME %s\n", target[x].name);
-			fprintf(fp, "START_X %d\n", target[x].x);
-			fprintf(fp, "START_Y %d\n", target[x].y);
-			fprintf(fp, "}\n\n");
-		}
-	}
+	writeTargetsToFile(fp);
 
 	/* Close the file afterwards */
 

@@ -3,14 +3,20 @@
 #include "game.h"
 #include "weather.h"
 #include "font.h"
+#include "random.h"
+#include "music.h"
 
 extern Game game;
+
+static void shake(void);
 
 void initGame()
 {
 	game.weatherType = 0;
 
 	setWeather(game.weatherType);
+	
+	playMusic();
 }
 
 void doGame()
@@ -29,6 +35,18 @@ void doGame()
 		}
 
 		game.thinkTime = 0;
+	}
+	
+	if (game.shakeThinkTime > 0)
+	{
+		shake();
+		
+		game.shakeThinkTime--;
+		
+		if (game.shakeThinkTime <= 0)
+		{
+			game.offsetX = game.offsetY = 0;
+		}
 	}
 
 	if (game.weatherType != NO_WEATHER)
@@ -68,4 +86,31 @@ char *getGameSword()
 char *getGameShield()
 {
 	return game.shield;
+}
+
+void shakeScreen(int shakeStrength, int time)
+{
+	game.shakeThinkTime = time;
+	game.shakeStrength = shakeStrength;
+}
+
+static void shake()
+{
+	switch (game.shakeStrength)
+	{
+		case LIGHT:
+			game.offsetX = prand() % 2 * (prand() % 2 == 0 ? -1 : 1);
+			game.offsetY = prand() % 2 * (prand() % 2 == 0 ? -1 : 1);
+		break;
+		
+		case MEDIUM:
+			game.offsetX = prand() % 4 * (prand() % 2 == 0 ? -1 : 1);
+			game.offsetY = prand() % 4 * (prand() % 2 == 0 ? -1 : 1);
+		break;
+		
+		case STRONG:
+			game.offsetX = prand() % 6 * (prand() % 2 == 0 ? -1 : 1);
+			game.offsetY = prand() % 6 * (prand() % 2 == 0 ? -1 : 1);
+		break;
+	}
 }

@@ -61,6 +61,10 @@ int main(int argc, char *argv[])
 	/* Initialise the cursor */
 
 	initCursor();
+	
+	/* Initialise the line defs */
+	
+	initLineDefs();
 
 	/* Loop indefinitely for messages */
 
