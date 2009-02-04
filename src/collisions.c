@@ -30,8 +30,6 @@ void doCollisions()
 				y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
 				w = playerWeapon.w;
 				h = playerWeapon.h;
-				
-				/*printf("Checking weapon against %s\n", entity[i].name);*/
 
 				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, x, y, w, h) == 1)
 				{
@@ -46,16 +44,18 @@ void doCollisions()
 
 			for (j=0;j<MAX_ENTITIES;j++)
 			{
-				if (i != j && entity[j].inUse == IN_USE)
+				if (i == j || entity[j].inUse == NOT_IN_USE || (entity[i].type == ENEMY && entity[j].type == ENEMY))
 				{
-					if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, entity[j].x, entity[j].y, entity[j].w, entity[j].h) == 1)
-					{
-						if (entity[i].touch != NULL)
-						{
-							self = &entity[i];
+					continue;
+				}
 
-							self->touch(&entity[j]);
-						}
+				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, entity[j].x, entity[j].y, entity[j].w, entity[j].h) == 1)
+				{
+					if (entity[i].touch != NULL)
+					{
+						self = &entity[i];
+
+						self->touch(&entity[j]);
 					}
 				}
 			}

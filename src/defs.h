@@ -6,7 +6,7 @@
 
 #define TILE_SIZE 32
 
-#define GRAVITY_SPEED 1
+#define GRAVITY_SPEED 0.75
 
 #define MAX_FALL_SPEED 15
 
@@ -18,7 +18,7 @@
 
 #define MAX_ANIMATIONS 255
 
-#define MAX_ENTITIES 256
+#define MAX_ENTITIES 512
 
 #define BLANK_TILE 0
 
@@ -36,7 +36,7 @@
 
 #define PI 3.14159265
 
-#define MAX_MESSAGE_LENGTH 100
+#define MAX_MESSAGE_LENGTH 255
 
 #define MAX_INVENTORY_ITEMS 24
 
@@ -54,9 +54,13 @@
 
 #define MAX_DECORATIONS 100
 
-#define MAX_TARGETS 30
+#define MAX_TARGETS 60
 
 #define MAX_HUD_MESSAGES 5
+
+#define MAX_VALUE_LENGTH 60
+
+#define MAX_TRIGGERS 10
 
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
@@ -77,10 +81,6 @@
 #define MAX_SOUNDS 256
 
 #define ITEM_JUMP_HEIGHT -6
-
-#define HEART_FULL 101
-
-#define HEART_EMPTY 102
 
 enum
 {
@@ -134,7 +134,8 @@ enum
 	MANUAL_DOOR,
 	AUTO_DOOR,
 	WEAK_WALL,
-	SWITCH
+	SWITCH,
+	LINE_DEF
 };
 
 enum
@@ -174,8 +175,21 @@ enum
 	AMBIENCE_CHANNEL,
 	ENEMY_CHANNEL_1,
 	ENEMY_CHANNEL_2,
-	ENEMY_CHANNEL_3,
-	ENEMY_CHANNEL_4,
+	BOSS_CHANNEL,
+	LIFT_CHANNEL,
 	OBJECT_CHANNEL_1,
 	OBJECT_CHANNEL_2
+};
+
+enum
+{
+	LIGHT = 1,
+	MEDIUM,
+	STRONG
+};
+
+enum
+{
+	UPDATE_OBJECTIVE = 1,
+	ACTIVATE_ENTITY
 };

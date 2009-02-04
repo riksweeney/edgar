@@ -1,8 +1,10 @@
-#include "trigger.h"
+#include "headers.h"
 
-extern void updateObjective(char *);
+#include "entity.h"
 
-void addTrigger(char *name, int count, int targetType, int targetName)
+static Trigger trigger[MAX_TRIGGERS];
+
+void addTrigger(char *triggerName, int count, int targetType, char *targetName)
 {
 	int i;
 
@@ -15,14 +17,14 @@ void addTrigger(char *name, int count, int targetType, int targetName)
 			trigger[i].count = count;
 			trigger[i].targetType = targetType;
 
-			strcpy(trigger[i].name, name);
+			strcpy(trigger[i].triggerName, triggerName);
 			strcpy(trigger[i].targetName, targetName);
 
 			return;
 		}
 	}
 
-	printf("No free slots to add a Trigger\n");
+	printf("No free slots to add Trigger %s\n", triggerName);
 
 	exit(1);
 }
@@ -31,9 +33,14 @@ void fireTrigger(char *name)
 {
 	int i;
 
+	if (strlen(name) == 0)
+	{
+		return;
+	}
+
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
-		if (trigger[i].inUse == IN_USE && strcmpignorecase(trigger[i].name, name) == 0)
+		if (trigger[i].inUse == IN_USE && strcmpignorecase(trigger[i].targetName, name) == 0)
 		{
 			trigger[i].count--;
 
@@ -42,20 +49,22 @@ void fireTrigger(char *name)
 				switch (trigger[i].targetType)
 				{
 					case UPDATE_OBJECTIVE:
-						updateObjective(trigger[i].targetName);
+						/*updateObjective(trigger[i].targetName);*/
+					break;
+
+					case ACTIVATE_ENTITY:
+						activateEntitiesWithName(trigger[i].targetName, ACTIVE);
 					break;
 
 					default:
-						printf("Trigger Target Type %d does not exist\n");
 
-						exit(1);
 					break;
 				}
 
 				trigger[i].inUse = NOT_IN_USE;
-			}
 
-			return;
+				return;
+			}
 		}
 	}
 }

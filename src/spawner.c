@@ -41,34 +41,49 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 static void init()
 {
-	self->health = self->thinkTime;
-	
+	self->maxHealth = self->thinkTime;
+
 	self->action = &spawn;
-	
+
 	if (self->active == INACTIVE)
 	{
 		self->thinkTime = 0;
 	}
-	
+
+	if (self->health == 0)
+	{
+		self->health = -1;
+	}
+
 	self->action();
 }
 
 static void spawn()
 {
 	Entity *e;
-	
+
 	if (self->active == ACTIVE)
 	{
 		self->thinkTime--;
-	
+
 		if (self->thinkTime <= 0)
 		{
 			e = addEnemy(self->objectiveName, self->x, self->y);
-	
+
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->h - e->h) / 2;
-	
-			self->thinkTime = self->health;
+
+			self->thinkTime = self->maxHealth;
+
+			if (self->health != -1)
+			{
+				self->health--;
+
+				if (self->health == 0)
+				{
+					self->inUse = NOT_IN_USE;
+				}
+			}
 		}
 	}
 }

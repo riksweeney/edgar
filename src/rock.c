@@ -35,7 +35,7 @@ Entity *addLargeRock(int x, int y)
 
 	e->type = ENEMY;
 
-	e->health = e->thinkTime;
+	e->maxHealth = e->thinkTime;
 
 	e->dirX = 2 * (prand() % 2 == 0 ? -1 : 1);
 
@@ -66,9 +66,11 @@ Entity *addSmallRock(int x, int y)
 
 	e->draw = &drawLoopingAnimationToMap;
 
+	e->action = &smallRockFall;
+
 	e->type = ENEMY;
 
-	e->health = e->thinkTime;
+	e->maxHealth = e->thinkTime;
 
 	e->dirY = 0;
 
@@ -113,8 +115,6 @@ static void largeRockFall()
 		e->x += (self->w - e->w) / 2;
 		e->y += (self->h - e->h) / 2;
 
-		e->action = &smallRockFall;
-
 		e->dirX = -3;
 		e->dirY = -8;
 
@@ -122,8 +122,6 @@ static void largeRockFall()
 
 		e->x += (self->w - e->w) / 2;
 		e->y += (self->h - e->h) / 2;
-
-		e->action = &smallRockFall;
 
 		e->dirX = 3;
 		e->dirY = -8;

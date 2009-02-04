@@ -45,7 +45,7 @@ void initCursor()
 
 void doCursor()
 {
-	char name[30];
+	char name[MAX_VALUE_LENGTH];
 
 	cursor.x = input.mouseX;
 	cursor.y = input.mouseY;
@@ -111,6 +111,8 @@ void doCursor()
 
 				else
 				{
+					printf("Placing \"%s\"\n", cursor.entity.name);
+
 					if (strcmpignorecase(cursor.entity.name, "lift/lift_target") == 0)
 					{
 						sprintf(name, "NEW_TARGET_%03d", targetID);
@@ -254,7 +256,7 @@ void doCursor()
 void drawCursor()
 {
 	Entity *e;
-	
+
 	if (cursor.type == TILES)
 	{
 		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y);
@@ -264,7 +266,7 @@ void drawCursor()
 	else
 	{
 		e = isSpaceEmpty(&cursor.entity);
-		
+
 		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
 			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);

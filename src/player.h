@@ -7,3 +7,4 @@ void setPlayerWeapon(int);
 void autoSetPlayerWeapon(Entity *);
 void autoSetPlayerShield(Entity *);
 int getDistanceFromPlayer(Entity *);
+void writePlayerToFile(FILE *);

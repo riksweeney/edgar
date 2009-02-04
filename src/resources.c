@@ -20,6 +20,8 @@ extern Game game;
 #include "door.h"
 #include "weak_wall.h"
 #include "switch.h"
+#include "line_def.h"
+#include "music.h"
 
 void loadRequiredResources()
 {
@@ -41,6 +43,10 @@ void freeRequiredResources()
 	/* Free the sounds */
 
 	freeSounds();
+	
+	/* Free music */
+	
+	freeMusic();
 
 	/* Free the map data */
 
@@ -58,7 +64,7 @@ void freeRequiredResources()
 void loadResources(FILE *fp)
 {
 	int i, startX, startY, type, name;
-	char key[MAX_PROPS_FILES][30], value[MAX_PROPS_FILES][MAX_LINE_LENGTH], line[MAX_LINE_LENGTH];
+	char key[MAX_PROPS_FILES][MAX_VALUE_LENGTH], value[MAX_PROPS_FILES][MAX_LINE_LENGTH], line[MAX_LINE_LENGTH];
 	char *token;
 	Entity *e;
 
@@ -70,7 +76,10 @@ void loadResources(FILE *fp)
 
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
-		line[strlen(line) - 1] = '\0';
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
 		if (strlen(line) == 0 || line[0] == '#')
 		{
@@ -156,6 +165,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "SWITCH") == 0)
 			{
 				e = addSwitch(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "LINE_DEF") == 0)
+			{
+				e = addLineDef(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else
