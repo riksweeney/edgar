@@ -53,7 +53,7 @@ static void dropChickenFeed(int val)
 	{
 		addTemporaryItem("item/chicken_feed", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -10 : 10, ITEM_JUMP_HEIGHT);
 
-		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, 0, 0);
+		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 
 		self->thinkTime = self->maxHealth;
 	}

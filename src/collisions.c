@@ -127,12 +127,12 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (bottomRight == SLOPE_DOWN || topRight >= FOREGROUND_TILE_START || bottomRight >= FOREGROUND_TILE_START)
+				else if (bottomRight == SLOPE_DOWN)
 				{
 
 				}
 
-				else if (topRight != BLANK_TILE || bottomRight != BLANK_TILE)
+				else if ((topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < FOREGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -160,12 +160,12 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (bottomLeft == SLOPE_UP || topLeft >= FOREGROUND_TILE_START || bottomLeft >= FOREGROUND_TILE_START)
+				else if (bottomLeft == SLOPE_UP)
 				{
 
 				}
 
-				else if (topLeft != BLANK_TILE || bottomLeft != BLANK_TILE)
+				else if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (bottomLeft != BLANK_TILE && bottomLeft < FOREGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -246,12 +246,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (topRight >= FOREGROUND_TILE_START || bottomRight >= FOREGROUND_TILE_START)
-				{
-
-				}
-
-				else if (bottomLeft != BLANK_TILE || bottomRight != BLANK_TILE)
+				else if ((bottomLeft != BLANK_TILE && bottomLeft < FOREGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < FOREGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -268,12 +263,7 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move up */
 
-				if (topLeft >= FOREGROUND_TILE_START || topRight >= FOREGROUND_TILE_START)
-				{
-
-				}
-
-				else if (topLeft != BLANK_TILE || topRight != BLANK_TILE)
+				if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 

@@ -8,6 +8,7 @@
 #include "player.h"
 #include "custom_actions.h"
 #include "collisions.h"
+#include "random.h"
 
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
@@ -93,7 +94,10 @@ void addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY
 
 void dropRandomItem(int x, int y)
 {
-	addTemporaryItem("item/heart", x, y, LEFT, 0, ITEM_JUMP_HEIGHT);
+	if (prand() % 5 == 0)
+	{
+		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+	}
 }
 
 void generalItemAction()

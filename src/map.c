@@ -78,7 +78,7 @@ void loadMap(char *name)
 
 			strcpy(map.ambienceName, itemName);
 		}
-		
+
 		else if (strcmpignorecase(itemName, "MUSIC") == 0)
 		{
 			/* Load the map tiles */
@@ -179,7 +179,7 @@ void saveMap()
 
 		exit(1);
 	}
-	
+
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
