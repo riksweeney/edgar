@@ -97,6 +97,7 @@ void getInput()
 					
 					case SDLK_c:
 						input.interact = 1;
+						input.grabbing = 1;
 					break;
 
 					default:
@@ -135,6 +136,10 @@ void getInput()
 					case SDLK_COMMA:
 					case SDLK_MINUS:
 						input.previous = 0;
+					break;
+					
+					case SDLK_c:
+						input.grabbing = 0;
 					break;
 
 					default:

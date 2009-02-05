@@ -120,6 +120,11 @@ void doPlayer()
 				{
 					self->dirX -= self->speed;
 					playerWeapon.face = playerShield.face = self->face = LEFT;
+					
+					if (self->target != NULL)
+					{
+						self->target->dirX = -self->speed;
+					}
 
 					setEntityAnimation(&player, WALK);
 					setEntityAnimation(&playerShield, WALK);
@@ -130,6 +135,11 @@ void doPlayer()
 				{
 					self->dirX += self->speed;
 					playerWeapon.face = playerShield.face = self->face = RIGHT;
+					
+					if (self->target != NULL)
+					{
+						self->target->dirX = self->speed;
+					}
 
 					setEntityAnimation(&player, WALK);
 					setEntityAnimation(&playerShield, WALK);
@@ -191,7 +201,7 @@ void doPlayer()
 
 								self = &player;
 
-								player.dirY = self->standingOn->speed;
+								self->dirY = self->standingOn->speed;
 							}
 
 							input.down = 0;
@@ -203,11 +213,11 @@ void doPlayer()
 				{
 					if (playerWeapon.inUse == IN_USE)
 					{
-						player.animationCallback = &attackFinish;
+						self->animationCallback = &attackFinish;
 						playerShield.animationCallback = &attackFinish;
 						playerWeapon.animationCallback = &attackFinish;
 
-						player.flags |= ATTACKING;
+						self->flags |= ATTACKING;
 						playerShield.flags |= ATTACKING;
 						playerWeapon.flags |= ATTACKING;
 
@@ -228,9 +238,21 @@ void doPlayer()
 
 				if (input.interact == 1)
 				{
-					interactWithEntity(player.x, player.y, player.w, player.h);
+					interactWithEntity(self->x, self->y, self->w, self->h);
 
 					input.interact = 0;
+				}
+				
+				if (input.grabbing == 1)
+				{
+					self->flags |= GRABBING;
+				}
+				
+				else
+				{
+					self->flags &= ~GRABBING;
+					
+					self->target = NULL;
 				}
 
 				if (input.activate == 1)

@@ -5,6 +5,7 @@
 #include "entity.h"
 #include "hud.h"
 #include "properties.h"
+#include "audio.h"
 
 extern Entity *self;
 
@@ -56,6 +57,8 @@ static void activate(int val)
 			return;
 		}
 	}
+	
+	playSound("sound/common/switch.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 	
 	self->active = self->active == ACTIVE ? INACTIVE : ACTIVE;
 	

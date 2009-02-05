@@ -182,8 +182,6 @@ void doNothing(void)
 
 void entityDie()
 {
-	/*dropRandomItem(self->x + self->w / 2, self->y);*/
-
 	self->flags &= ~FLY;
 
 	self->thinkTime = 60;
@@ -202,6 +200,8 @@ void standardDie()
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = NOT_IN_USE;
+		
+		dropRandomItem(self->x + self->w / 2, self->y);
 
 		fireTrigger(self->objectiveName);
 	}
@@ -306,6 +306,8 @@ void pushEntity(Entity *other)
 
 				other->dirX = 0;
 			}
+			
+			other->target = self;
 		}
 	}
 
@@ -336,6 +338,8 @@ void pushEntity(Entity *other)
 
 				other->dirX = 0;
 			}
+			
+			other->target = self;
 		}
 	}
 
