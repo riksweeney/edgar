@@ -8,7 +8,7 @@ extern Entity player, playerShield, playerWeapon;
 
 void doCollisions()
 {
-	int i, j, x, y, w, h;
+	int i, x, y, w, h;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -42,22 +42,34 @@ void doCollisions()
 				}
 			}
 
-			for (j=0;j<MAX_ENTITIES;j++)
+			checkEntityToEntity(&entity[i]);
+		}
+	}
+}
+
+void checkEntityToEntity(Entity *e)
+{
+	int i;
+	Entity *temp;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (e == &entity[i] || entity[i].inUse == NOT_IN_USE || (e->type == ENEMY && entity[i].type == ENEMY))
+		{
+			continue;
+		}
+
+		if (collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		{
+			if (entity[i].touch != NULL)
 			{
-				if (i == j || entity[j].inUse == NOT_IN_USE || (entity[i].type == ENEMY && entity[j].type == ENEMY))
-				{
-					continue;
-				}
+				temp = self;
 
-				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, entity[j].x, entity[j].y, entity[j].w, entity[j].h) == 1)
-				{
-					if (entity[i].touch != NULL)
-					{
-						self = &entity[i];
+				self = &entity[i];
 
-						self->touch(&entity[j]);
-					}
-				}
+				self->touch(e);
+
+				self = temp;
 			}
 		}
 	}
@@ -119,11 +131,14 @@ void checkToMap(Entity *e)
 				{
 					if (i == e->h)
 					{
-						e->y -= e->dirX;
+						if (!(e->flags & FLY))
+						{
+							e->y -= e->dirX;
 
-						e->dirY = 0;
+							e->dirY = 0;
 
-						e->flags |= ON_GROUND;
+							e->flags |= ON_GROUND;
+						}
 					}
 				}
 
@@ -141,6 +156,11 @@ void checkToMap(Entity *e)
 					e->x -= e->w;
 
 					e->dirX = 0;
+
+					if ((e->flags & GRABBING) && e->target != NULL)
+					{
+						e->target->dirX = 0;
+					}
 				}
 			}
 
@@ -152,11 +172,14 @@ void checkToMap(Entity *e)
 				{
 					if (i == e->h)
 					{
-						e->y += e->dirX;
+						if (!(e->flags & FLY))
+						{
+							e->y += e->dirX;
 
-						e->dirY = 0;
+							e->dirY = 0;
 
-						e->flags |= ON_GROUND;
+							e->flags |= ON_GROUND;
+						}
 					}
 				}
 
@@ -172,6 +195,11 @@ void checkToMap(Entity *e)
 					e->x = (x1 + 1) * TILE_SIZE;
 
 					e->dirX = 0;
+
+					if ((e->flags & GRABBING) && e->target != NULL)
+					{
+						e->target->dirX = 0;
+					}
 				}
 			}
 		}
@@ -297,6 +325,11 @@ void checkToMap(Entity *e)
 		e->x = 0;
 
 		e->dirX = 0;
+
+		if ((e->flags & GRABBING) && e->target != NULL)
+		{
+			e->target->dirX = 0;
+		}
 	}
 
 	else if (e->x + e->w >= maxMapX())
@@ -304,6 +337,11 @@ void checkToMap(Entity *e)
 		e->x = maxMapX() - e->w - 1;
 
 		e->dirX = 0;
+
+		if ((e->flags & GRABBING) && e->target != NULL)
+		{
+			e->target->dirX = 0;
+		}
 	}
 }
 
@@ -318,7 +356,7 @@ int isAtEdge(Entity *e)
 
 	/* Return immediately if the tile isn't blank */
 
-	if (!(e->flags & ON_GROUND) || mapTileAt(x, y + 1) != BLANK_TILE)
+	if (!(e->flags & ON_GROUND) || (mapTileAt(x, y + 1) != BLANK_TILE && mapTileAt(x, y + 1) < FOREGROUND_TILE_START))
 	{
 		return 0;
 	}

@@ -48,7 +48,7 @@ void draw()
 
 	/* Draw the screen coordinates */
 
-	sprintf(text, "%5d : %5d", mapStartX() + cursor.x, mapStartY() + cursor.y);
+	sprintf(text, "%5d : %5d", getMapStartX() + cursor.x, getMapStartY() + cursor.y);
 
 	drawString(text, 0, 5, game.font, 1, 0);
 

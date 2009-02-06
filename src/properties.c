@@ -230,26 +230,6 @@ static void setFlags(Entity *e, char *flags)
 			e->flags |= INVULNERABLE;
 		}
 
-		else if (strcmpignorecase(token, "BURNING") == 0)
-		{
-			e->flags |= BURNING;
-		}
-
-		else if (strcmpignorecase(token, "FROZEN") == 0)
-		{
-			e->flags |= FROZEN;
-		}
-
-		else if (strcmpignorecase(token, "ELECTRIFIED") == 0)
-		{
-			e->flags |= ELECTRIFIED;
-		}
-
-		else if (strcmpignorecase(token, "STATIC") == 0)
-		{
-			e->flags |= STATIC;
-		}
-
 		else if (strcmpignorecase(token, "FLY") == 0)
 		{
 			e->flags |= FLY;

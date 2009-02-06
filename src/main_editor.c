@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
 	int go;
+	Entity startPos;
 
 	/* Start up SDL */
 
@@ -61,12 +62,42 @@ int main(int argc, char *argv[])
 	/* Initialise the cursor */
 
 	initCursor();
-	
+
 	/* Initialise the line defs */
-	
+
 	initLineDefs();
 
 	/* Loop indefinitely for messages */
+
+	printf("Player: %f %f\n", player.x, player.y);
+
+	startPos.x = (int)(player.x / TILE_SIZE);
+	startPos.y = (int)(player.y / TILE_SIZE);
+
+	printf("%f %f\n", startPos.x, startPos.y);
+
+	startPos.x *= TILE_SIZE;
+	startPos.y *= TILE_SIZE;
+
+	printf("%f %f\n", startPos.x, startPos.y);
+
+	startPos.x -= 9 * TILE_SIZE;
+	startPos.y -= 7 * TILE_SIZE;
+
+	printf("%f %f\n", startPos.x, startPos.y);
+
+	if (startPos.x < 0)
+	{
+		startPos.x = 0;
+	}
+
+	if (startPos.y < 0)
+	{
+		startPos.y = 0;
+	}
+
+	setMapStartX(startPos.x);
+	setMapStartY(startPos.y);
 
 	while (go == 1)
 	{
