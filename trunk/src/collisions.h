@@ -4,3 +4,4 @@ void checkToMap(Entity *);
 int isAtEdge(Entity *);
 int isValidOnMap(Entity *);
 Entity *isSpaceEmpty(Entity *);
+void checkEntityToEntity(Entity *);

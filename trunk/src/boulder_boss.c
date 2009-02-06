@@ -43,7 +43,9 @@ Entity *addBoulderBoss(int x, int y)
 
 	e->type = ENEMY;
 
-	e->flags |= NO_DRAW|FLY;
+	e->flags |= NO_DRAW|FLY|ATTACKING;
+
+	e->damage = 500;
 
 	setEntityAnimation(e, STAND);
 
@@ -55,7 +57,7 @@ static void initialise()
 	if (self->active == ACTIVE)
 	{
 		self->thinkTime--;
-		
+
 		adjustMusicVolume(-1);
 
 		if (self->thinkTime <= 0)
@@ -81,11 +83,11 @@ static void initialise()
 static void drop()
 {
 	setMusicVolume(-1);
-	
+
 	if (self->flags & ON_GROUND)
 	{
-		self->thinkTime = 90;
-		
+		self->thinkTime = 120;
+
 		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
@@ -148,11 +150,11 @@ static void chasePlayer()
 		self->touch = &pushEntity;
 
 		self->frameSpeed = 0;
-		
+
 		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);
 
 		shakeScreen(STRONG, 90);
-		
+
 		self->thinkTime = 90;
 	}
 }

@@ -19,3 +19,7 @@ void setTileAt(int, int, int);
 int nextTile(int);
 int prevTile(int);
 void centerMapOnEntity(Entity *);
+int getMapStartX(void);
+int getMapStartY(void);
+void setMapStartX(int);
+void setMapStartY(int);

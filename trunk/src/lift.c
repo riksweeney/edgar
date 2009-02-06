@@ -166,6 +166,8 @@ static void moveToTarget()
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
+		self->dirX = self->dirY = 0;
+
 		if (self->type == AUTO_LIFT)
 		{
 			self->targetX = (self->targetX == self->endX ? self->startX : self->endX);

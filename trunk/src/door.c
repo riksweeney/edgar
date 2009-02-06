@@ -45,10 +45,10 @@ static void setStart()
 	if (self->endX == 0 && self->endY == 0)
 	{
 		printf("WARNING: Door %s has no valid start\n", self->objectiveName);
-		
+
 		self->endY = self->startY - TILE_SIZE * 2;
 	}
-	
+
 	if (self->type == MANUAL_DOOR)
 	{
 		self->targetX = self->endX;
@@ -65,6 +65,7 @@ static void setStart()
 
 static void wait()
 {
+	self->dirX = self->dirY = 0;
 }
 
 static void touch(Entity *other)

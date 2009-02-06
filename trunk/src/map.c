@@ -83,13 +83,16 @@ void loadMap(char *name)
 		{
 			/* Load the map tiles */
 
-			sscanf(line, "%*s %s\n", itemName);
+			x = sscanf(line, "%*s %s\n", itemName);
 
-			printf("Loading music from %s\n", itemName);
+			if (x != 0)
+			{
+				printf("Loading music from %s\n", itemName);
 
-			loadMusic(itemName);
+				loadMusic(itemName);
 
-			strcpy(map.musicName, itemName);
+				strcpy(map.musicName, itemName);
+			}
 		}
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
@@ -470,14 +473,24 @@ void setMaxMapY(int max)
 	map.maxY = max;
 }
 
-int mapStartX()
+int getMapStartX()
 {
 	return map.startX;
 }
 
-int mapStartY()
+int getMapStartY()
 {
 	return map.startY;
+}
+
+void setMapStartX(int startX)
+{
+	map.startX = startX;
+}
+
+void setMapStartY(int startY)
+{
+	map.startY = startY;
 }
 
 void mapStartXNext(int val)

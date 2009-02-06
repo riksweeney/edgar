@@ -93,6 +93,11 @@ void doPlayer()
 			{
 				self->dirY = MAX_FALL_SPEED;
 			}
+
+			else if (self->dirY > 0 && self->dirY < 1)
+			{
+				self->dirY = 1;
+			}
 		}
 
 		else
@@ -119,11 +124,20 @@ void doPlayer()
 				if (input.left == 1)
 				{
 					self->dirX -= self->speed;
-					playerWeapon.face = playerShield.face = self->face = LEFT;
-					
-					if (self->target != NULL)
+
+					/* Only pull the target */
+
+					if ((self->flags & GRABBING) && self->target != NULL)
 					{
-						self->target->dirX = -self->speed;
+						if (self->target->x > self->x)
+						{
+							self->target->dirX = -self->speed;
+						}
+					}
+
+					else
+					{
+						playerWeapon.face = playerShield.face = self->face = LEFT;
 					}
 
 					setEntityAnimation(&player, WALK);
@@ -134,11 +148,20 @@ void doPlayer()
 				else if (input.right == 1)
 				{
 					self->dirX += self->speed;
-					playerWeapon.face = playerShield.face = self->face = RIGHT;
-					
-					if (self->target != NULL)
+
+					/* Only pull the target */
+
+					if ((self->flags & GRABBING) && self->target != NULL)
 					{
-						self->target->dirX = self->speed;
+						if (self->target->x < self->x)
+						{
+							self->target->dirX = self->speed;
+						}
+					}
+
+					else
+					{
+						playerWeapon.face = playerShield.face = self->face = RIGHT;
 					}
 
 					setEntityAnimation(&player, WALK);
@@ -151,6 +174,11 @@ void doPlayer()
 					setEntityAnimation(&player, STAND);
 					setEntityAnimation(&playerShield, STAND);
 					setEntityAnimation(&playerWeapon, STAND);
+
+					if ((self->flags & GRABBING) && self->target != NULL)
+					{
+						self->target->dirX = 0;
+					}
 				}
 
 				if (input.up == 1)
@@ -242,17 +270,22 @@ void doPlayer()
 
 					input.interact = 0;
 				}
-				
-				if (input.grabbing == 1)
+
+				if (input.grabbing == 1 && (self->flags & ON_GROUND))
 				{
 					self->flags |= GRABBING;
 				}
-				
+
 				else
 				{
 					self->flags &= ~GRABBING;
-					
-					self->target = NULL;
+
+					if (self->target != NULL)
+					{
+						self->target->flags &= ~HELPLESS;
+
+						self->target = NULL;
+					}
 				}
 
 				if (input.activate == 1)
@@ -285,6 +318,18 @@ void doPlayer()
 
 					input.fly = 0;
 				}
+			}
+		}
+
+		else
+		{
+			self->flags &= ~GRABBING;
+
+			if (self->target != NULL)
+			{
+				self->target->flags &= ~HELPLESS;
+
+				self->target = NULL;
 			}
 		}
 

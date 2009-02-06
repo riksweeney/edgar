@@ -95,7 +95,7 @@ void doCursor()
 	{
 		if (cursor.type == TILES)
 		{
-			setTileAt((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE, cursor.tileID);
+			setTileAt((getMapStartX() + cursor.x) / TILE_SIZE, (getMapStartY() + cursor.y) / TILE_SIZE, cursor.tileID);
 		}
 
 		else
@@ -106,7 +106,7 @@ void doCursor()
 			{
 				if (cursor.entityType == 0)
 				{
-					setPlayerLocation(mapStartX() + cursor.x, mapStartY() + cursor.y);
+					setPlayerLocation(getMapStartX() + cursor.x, getMapStartY() + cursor.y);
 				}
 
 				else
@@ -117,14 +117,14 @@ void doCursor()
 					{
 						sprintf(name, "NEW_TARGET_%03d", targetID);
 
-						addTarget(mapStartX() + cursor.x, mapStartY() + cursor.y, name);
+						addTarget(getMapStartX() + cursor.x, getMapStartY() + cursor.y, name);
 
 						targetID++;
 					}
 
 					else
 					{
-						addEntity(cursor.entity, mapStartX() + cursor.x, mapStartY() + cursor.y);
+						addEntity(cursor.entity, getMapStartX() + cursor.x, getMapStartY() + cursor.y);
 					}
 				}
 			}
@@ -137,7 +137,7 @@ void doCursor()
 	{
 		if (cursor.type == TILES)
 		{
-			setTileAt((mapStartX() + cursor.x) / TILE_SIZE, (mapStartY() + cursor.y) / TILE_SIZE, BLANK_TILE);
+			setTileAt((getMapStartX() + cursor.x) / TILE_SIZE, (getMapStartY() + cursor.y) / TILE_SIZE, BLANK_TILE);
 		}
 
 		else
@@ -272,8 +272,8 @@ void drawCursor()
 			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
 		}
 
-		cursor.entity.x = mapStartX() + cursor.x;
-		cursor.entity.y = mapStartY() + cursor.y;
+		cursor.entity.x = getMapStartX() + cursor.x;
+		cursor.entity.y = getMapStartY() + cursor.y;
 
 		self = &cursor.entity;
 

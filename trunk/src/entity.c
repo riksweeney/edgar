@@ -54,7 +54,7 @@ void doEntities()
 	{
 		self = &entity[i];
 
-		if (self->inUse == IN_USE && !(self->flags & STATIC))
+		if (self->inUse == IN_USE)
 		{
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
@@ -71,6 +71,11 @@ void doEntities()
 				if (self->dirY >= MAX_FALL_SPEED)
 				{
 					self->dirY = MAX_FALL_SPEED;
+				}
+
+				else if (self->dirY > 0 && self->dirY < 1)
+				{
+					self->dirY = 1;
 				}
 			}
 
@@ -173,7 +178,10 @@ void doNothing(void)
 		self->thinkTime = 0;
 	}
 
-	self->dirX = 0;
+	if (!(self->flags & HELPLESS))
+	{
+		self->dirX = 0;
+	}
 
 	checkToMap(self);
 
@@ -200,7 +208,7 @@ void standardDie()
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = NOT_IN_USE;
-		
+
 		dropRandomItem(self->x + self->w / 2, self->y);
 
 		fireTrigger(self->objectiveName);
@@ -272,6 +280,11 @@ void pushEntity(Entity *other)
 {
 	int pushable;
 
+	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR)
+	{
+		return;
+	}
+
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
@@ -291,6 +304,8 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
+				checkEntityToEntity(self);
+
 				if (self->dirX == 0)
 				{
 					pushable = 0;
@@ -305,9 +320,20 @@ void pushEntity(Entity *other)
 				other->x -= other->w;
 
 				other->dirX = 0;
+
+				if ((other->flags & GRABBING) && other->target != NULL)
+				{
+					other->target->x -= other->target->dirX;
+					other->target->dirX = 0;
+				}
 			}
-			
-			other->target = self;
+
+			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+			{
+				other->target = self;
+
+				self->flags |= HELPLESS;
+			}
 		}
 	}
 
@@ -323,6 +349,8 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
+				checkEntityToEntity(self);
+
 				if (self->dirX == 0)
 				{
 					pushable = 0;
@@ -337,9 +365,20 @@ void pushEntity(Entity *other)
 				other->x += self->w;
 
 				other->dirX = 0;
+
+				if ((other->flags & GRABBING) && other->target != NULL)
+				{
+					other->target->x -= other->target->dirX;
+					other->target->dirX = 0;
+				}
 			}
-			
-			other->target = self;
+
+			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+			{
+				other->target = self;
+
+				self->flags |= HELPLESS;
+			}
 		}
 	}
 

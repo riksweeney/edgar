@@ -41,11 +41,14 @@ Entity *addWeakWall(char *name, int x, int y)
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
-
 	if (other->flags & ATTACKING)
 	{
 		takeDamage(other, other->damage);
+	}
+
+	if (self->inUse == IN_USE)
+	{
+		pushEntity(other);
 	}
 }
 
@@ -54,6 +57,11 @@ static void takeDamage(Entity *other, int damage)
 	if (self->flags & INVULNERABLE)
 	{
 		return;
+	}
+
+	if (damage > 100)
+	{
+		self->die();
 	}
 
 	if (strcmpignorecase(self->requires, other->name) == 0)

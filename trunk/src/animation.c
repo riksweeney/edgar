@@ -329,14 +329,14 @@ void drawLoopingAnimationToMap()
 	{
 		if (self->parent == NULL)
 		{
-			x = self->x - mapStartX();
-			y = self->y - mapStartY();
+			x = self->x - getMapStartX();
+			y = self->y - getMapStartY();
 		}
 
 		else
 		{
-			x = self->x - mapStartX() + self->parent->w - self->w - self->offsetX;
-			y = self->y - mapStartY() + self->offsetY;
+			x = self->x - getMapStartX() + self->parent->w - self->w - self->offsetX;
+			y = self->y - getMapStartY() + self->offsetY;
 		}
 
 		drawFlippedImage(image, x, y);
@@ -346,14 +346,14 @@ void drawLoopingAnimationToMap()
 	{
 		if (self->parent == NULL)
 		{
-			x = self->x - mapStartX();
-			y = self->y - mapStartY();
+			x = self->x - getMapStartX();
+			y = self->y - getMapStartY();
 		}
 
 		else
 		{
-			x = self->x - mapStartX() + self->offsetX;
-			y = self->y - mapStartY() + self->offsetY;
+			x = self->x - getMapStartX() + self->offsetX;
+			y = self->y - getMapStartY() + self->offsetY;
 		}
 
 		drawImage(image, x, y);
@@ -367,7 +367,7 @@ void drawLineDefToMap()
 		return;
 	}
 
-	drawBox(self->x - mapStartX(), self->y - mapStartY(), self->w, self->h, 255, 0, 0);
+	drawBox(self->x - getMapStartX(), self->y - getMapStartY(), self->w, self->h, 255, 0, 0);
 }
 
 void setEntityAnimation(Entity *e, int animationID)
