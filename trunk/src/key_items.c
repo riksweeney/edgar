@@ -2,6 +2,7 @@
 
 #include "chicken_feed.h"
 #include "chicken_trap.h"
+#include "coal_pile.h"
 #include "custom_actions.h"
 #include "inventory.h"
 
@@ -9,7 +10,8 @@ extern Entity *self, player;
 
 static Constructor items[] = {
 {"item/chicken_feed_bag", &addChickenFeedBag},
-{"item/chicken_trap", &addChickenTrap}
+{"item/chicken_trap", &addChickenTrap},
+{"item/coal_pile", &addCoalPile}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

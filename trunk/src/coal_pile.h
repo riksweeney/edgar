@@ -1,0 +1,1 @@
+Entity *addCoalPile(int, int);

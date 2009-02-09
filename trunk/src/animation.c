@@ -281,8 +281,12 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 void drawLoopingAnimationToMap()
 {
 	int x, y;
+	int startX, startY;
 	SDL_Surface *image;
 	void (*callback)(void);
+	
+	startX = getMapStartX();
+	startY = getMapStartY();
 
 	self->frameTimer -= 1 * self->frameSpeed;
 
@@ -301,6 +305,11 @@ void drawLoopingAnimationToMap()
 				self->animationCallback = NULL;
 
 				callback();
+				
+				if (self->inUse == NOT_IN_USE)
+				{
+					return;
+				}
 			}
 		}
 
@@ -329,34 +338,40 @@ void drawLoopingAnimationToMap()
 	{
 		if (self->parent == NULL)
 		{
-			x = self->x - getMapStartX();
-			y = self->y - getMapStartY();
+			x = self->x - startX;
+			y = self->y - startY;
 		}
 
 		else
 		{
-			x = self->x - getMapStartX() + self->parent->w - self->w - self->offsetX;
-			y = self->y - getMapStartY() + self->offsetY;
+			x = self->x - startX + self->parent->w - self->w - self->offsetX;
+			y = self->y - startY + self->offsetY;
 		}
-
-		drawFlippedImage(image, x, y);
+		
+		if (x + image->w >= 0 && x < SCREEN_WIDTH && y + image->h >= 0 && y < SCREEN_HEIGHT)
+		{
+			drawFlippedImage(image, x, y);
+		}
 	}
 
 	else
 	{
 		if (self->parent == NULL)
 		{
-			x = self->x - getMapStartX();
-			y = self->y - getMapStartY();
+			x = self->x - startX;
+			y = self->y - startY;
 		}
 
 		else
 		{
-			x = self->x - getMapStartX() + self->offsetX;
-			y = self->y - getMapStartY() + self->offsetY;
+			x = self->x - startX + self->offsetX;
+			y = self->y - startY + self->offsetY;
 		}
 
-		drawImage(image, x, y);
+		if (x + image->w >= 0 && x < SCREEN_WIDTH && y + image->h >= 0 && y < SCREEN_HEIGHT)
+		{
+			drawImage(image, x, y);
+		}
 	}
 }
 

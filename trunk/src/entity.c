@@ -114,6 +114,21 @@ void doEntities()
 	}
 }
 
+void drawDoors()
+{
+	int i;
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		self = &entity[i];
+
+		if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+		{
+			self->draw();
+		}
+	}
+}
+
 void drawEntities(int drawAll)
 {
 	int i;

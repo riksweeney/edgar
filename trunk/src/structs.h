@@ -65,6 +65,7 @@ typedef struct Game
 	int thinkTime, weatherType, weatherThinkTime;
 	int audio, audioVolume;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
+	int gameType;
 	void (*action)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);

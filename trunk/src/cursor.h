@@ -1,3 +1,3 @@
-void initCursor(void);
+void initCursor(char *);
 void doCursor(void);
 void drawCursor(void);

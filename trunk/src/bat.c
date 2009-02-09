@@ -42,23 +42,32 @@ Entity *addBat(int x, int y)
 
 static void fly()
 {
+	int speed;
+	
 	if (!(self->flags & HELPLESS))
 	{
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
 		{
-			if (self->dirX == 0)
+			switch (prand() % 5)
 			{
-				self->dirX = self->speed * (prand() % 2 == 0 ? -1 : 1);
+				case 0:
+				case 1:
+					self->dirX = self->speed;
+				break;
+				
+				case 2:
+				case 3:
+					self->dirX = -self->speed;
+				break;
+				
+				default:
+					self->dirX = 0;
+				break;
 			}
-
-			else
-			{
-				self->dirX = 0;
-			}
-
-			self->thinkTime = 60 * prand() % 120;
+			
+			self->thinkTime = 180 + prand() % 120;
 		}
 
 		if (self->dirX < 0)
@@ -71,6 +80,13 @@ static void fly()
 			self->face = RIGHT;
 		}
 	}
+	
+	speed = self->dirX;
 
 	checkToMap(self);
+	
+	if (self->dirX == 0 && speed != 0)
+	{
+		self->dirX = speed * -1;
+	}
 }

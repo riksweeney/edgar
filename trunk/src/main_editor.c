@@ -40,14 +40,16 @@ int main(int argc, char *argv[])
 
 	go = 1;
 
-	if (argc == 2)
+	if (argc > 1)
 	{
 		loadMap(argv[1]);
 	}
 
 	else
 	{
-		loadMap("data/maps/map01.dat");
+		printf("Usage: %s <map file name>\n", argv[1]);
+		
+		exit(1);
 	}
 
 	/* Load the resources */
@@ -61,7 +63,7 @@ int main(int argc, char *argv[])
 
 	/* Initialise the cursor */
 
-	initCursor();
+	initCursor(argv[1]);
 
 	/* Initialise the line defs */
 
@@ -69,22 +71,14 @@ int main(int argc, char *argv[])
 
 	/* Loop indefinitely for messages */
 
-	printf("Player: %f %f\n", player.x, player.y);
-
 	startPos.x = (int)(player.x / TILE_SIZE);
 	startPos.y = (int)(player.y / TILE_SIZE);
 
-	printf("%f %f\n", startPos.x, startPos.y);
-
 	startPos.x *= TILE_SIZE;
 	startPos.y *= TILE_SIZE;
-
-	printf("%f %f\n", startPos.x, startPos.y);
-
+	
 	startPos.x -= 9 * TILE_SIZE;
 	startPos.y -= 7 * TILE_SIZE;
-
-	printf("%f %f\n", startPos.x, startPos.y);
 
 	if (startPos.x < 0)
 	{
@@ -103,7 +97,7 @@ int main(int argc, char *argv[])
 	{
 		/* Get the input */
 
-		getInput();
+		getInput(game.gameType);
 
 		/* Do the cursor */
 

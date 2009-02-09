@@ -3,6 +3,7 @@
 #include "random.h"
 #include "resources.h"
 #include "game.h"
+#include "record.h"
 
 extern Game game;
 
@@ -68,6 +69,10 @@ void init(char *title)
 
 void cleanup()
 {
+	/* Stop the replay data */
+	
+	flushBuffer(game.gameType);
+	
 	/* Free the Resources */
 
 	freeRequiredResources();

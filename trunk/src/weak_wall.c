@@ -54,11 +54,6 @@ static void touch(Entity *other)
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (self->flags & INVULNERABLE)
-	{
-		return;
-	}
-
 	if (damage > 100)
 	{
 		self->die();
@@ -73,19 +68,12 @@ static void takeDamage(Entity *other, int damage)
 			self->die();
 		}
 
-		else
-		{
-			setCustomAction(self, &invulnerableNoFlash, 20);
-		}
-
 		printf("Health %d\n", self->health);
 	}
 
 	else
 	{
-		setCustomAction(self, &invulnerableNoFlash, 20);
-
-		printf("Dink\n");
+		printf("Dink from %s\n", other->name);
 	}
 }
 

@@ -4,3 +4,4 @@ GFX_FILE data/gfx/enemy/bat.dat
 ANIM_FILE data/anim/enemy/bat.dat
 TYPE ENEMY
 FLAGS FLY
+SPEED 2

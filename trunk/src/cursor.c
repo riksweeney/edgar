@@ -14,19 +14,14 @@ extern Cursor cursor;
 extern Input input;
 extern Entity *self;
 
-static char *entityNames[] = {"edgar/edgar", "item/apple", "item/wooden_crate", "item/metal_crate",
-							  "enemy/bat", "weapon/pickaxe",
-							  "item/chicken_feed_bag", "enemy/chicken",
-							  "item/chicken_trap", "lift/mine_lift", "lift/lift_target", "common/spawner",
-							  "common/pressure_plate", "common/wooden_door", "wall/weak_mine_wall",
-							  "item/iron_key", "common/switch",
-							  NULL};
+static char entityNames[255][MAX_VALUE_LENGTH];
 static int entityNamesLength = 0;
 static int targetID = 1;
 
-void initCursor()
+void initCursor(char *name)
 {
-	int i = 0;
+	char line[MAX_LINE_LENGTH];
+	FILE *fp;
 
 	cursor.tileID = 0;
 	cursor.entityType = 0;
@@ -34,13 +29,29 @@ void initCursor()
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
+	
+	sprintf(line, "%sdata/cursor/%s", INSTALL_PATH, name);
 
-	while (entityNames[i] != NULL)
+	fp = fopen(line, "rb");
+	
+	if (fp == NULL)
 	{
-		i++;
+		printf("Failed to open cursor data file %s\n", line);
+		
+		exit(1);
 	}
-
-	entityNamesLength = i;
+	
+	while (fgets(entityNames[entityNamesLength], MAX_VALUE_LENGTH, fp) != NULL)
+	{
+		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\n')
+		{
+			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
+		}
+		
+		entityNamesLength++;
+	}
+	
+	fclose(fp);
 }
 
 void doCursor()

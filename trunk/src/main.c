@@ -12,6 +12,7 @@
 #include "input.h"
 #include "entity.h"
 #include "hud.h"
+#include "record.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];
@@ -24,7 +25,7 @@ Target target[MAX_TARGETS];
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
-	int go;
+	int go, i;
 
 	/* Start up SDL */
 
@@ -37,15 +38,29 @@ int main(int argc, char *argv[])
 	go = 1;
 
 	/* Load the resources */
-
-	if (argc == 2)
+	
+	for (i=1;i<argc;i++)
 	{
-		loadMap(argv[1]);
-	}
-
-	else
-	{
-		loadMap("data/maps/map01.dat");
+		printf("%s\n", argv[i]);
+		
+		if (strcmpignorecase("-record", argv[i]) == 0)
+		{
+			setRecordData(argv[i + 1]);
+			
+			i++;
+		}
+		
+		else if (strcmpignorecase("-replay", argv[i]) == 0)
+		{
+			setReplayData(argv[i + 1]);
+			
+			i++;
+		}
+		
+		else
+		{
+			loadMap(argv[i]);
+		}
 	}
 
 	loadRequiredResources();
@@ -53,12 +68,14 @@ int main(int argc, char *argv[])
 	/* Initialise the game variables */
 
 	initGame();
+	
+	/* Set replay data */
 
 	/* Loop indefinitely for messages */
 
 	while (go == 1)
 	{
-		getInput();
+		getInput(game.gameType);
 
 		/* Do the game */
 

@@ -8,6 +8,8 @@ static Entity decoration[MAX_DECORATIONS];
 extern Entity *self;
 
 static void move(void);
+static void wait(void);
+static void finish(void);
 
 void clearDecorations()
 {
@@ -29,6 +31,10 @@ Entity *getFreeDecoration()
 			memset(&decoration[i], 0, sizeof(Entity));
 
 			decoration[i].inUse = IN_USE;
+
+			decoration[i].active = ACTIVE;
+
+			decoration[i].frameSpeed = 1;
 
 			return &decoration[i];
 		}
@@ -135,6 +141,39 @@ void addStarExplosion(int x, int y)
 		e->action = &move;
 		e->draw = &drawLoopingAnimationToMap;
 	}
+}
+
+void addSparkle(int x, int y)
+{
+	Entity *e;
+	
+	e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return;
+	}
+
+	loadProperties("decoration/sparkle", e);
+	
+	e->thinkTime = 15;
+
+	e->x = x;
+	e->y = y;
+
+	e->action = &wait;
+	e->draw = &drawLoopingAnimationToMap;
+	e->animationCallback = &finish;
+}
+
+static void finish()
+{
+	self->inUse = NOT_IN_USE;
+}
+
+static void wait()
+{
+
 }
 
 static void move()

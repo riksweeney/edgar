@@ -30,6 +30,10 @@
 
 #define FOREGROUND_TILE_START 202
 
+#define JUMP_THROUGH_TILE_START 100
+
+#define JUMP_THROUGH_TILE_END 110
+
 #define MAX_LINE_LENGTH 1024
 
 #define MAX_PATH_LENGTH 1024
@@ -61,6 +65,8 @@
 #define MAX_VALUE_LENGTH 60
 
 #define MAX_TRIGGERS 10
+
+#define MAX_INPUTS 256
 
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
@@ -111,7 +117,8 @@ enum
 	ATTACKING = 64,
 	BLOCKING = 128,
 	ALWAYS_ON_TOP = 256,
-	GRABBING = 512
+	GRABBING = 512,
+	ATTACK_SUCCESS = 1024
 };
 
 enum
@@ -189,4 +196,11 @@ enum
 {
 	UPDATE_OBJECTIVE = 1,
 	ACTIVATE_ENTITY
+};
+
+enum
+{
+	NORMAL,
+	RECORDING,
+	REPLAYING
 };

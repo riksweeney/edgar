@@ -34,7 +34,7 @@ void loadMap(char *name)
 
 	freeMap();
 
-	sprintf(line, "%s%s", INSTALL_PATH, name);
+	sprintf(line, "%sdata/maps/%s", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
 
@@ -42,10 +42,14 @@ void loadMap(char *name)
 
 	if (fp == NULL)
 	{
-		printf("Failed to open map %s\n", name);
+		printf("Failed to open map %s\n", line);
 
 		exit(1);
 	}
+	
+	/* Set the filename */
+
+	strcpy(map.filename, line);
 
 	/* Read the data from the file into the map */
 
@@ -142,10 +146,6 @@ void loadMap(char *name)
 	/* Set the start coordinates */
 
 	map.startX = map.startY = 0;
-
-	/* Set the filename */
-
-	strcpy(map.filename, name);
 
 	/* Set the thinkTime */
 
