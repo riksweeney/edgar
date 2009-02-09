@@ -1,8 +1,10 @@
 #include "headers.h"
 
+#include "record.h"
+
 extern Input input;
 
-void getInput()
+void getInput(int gameType)
 {
 	SDL_Event event;
 
@@ -184,4 +186,18 @@ void getInput()
 	/* Get the mouse coordinates */
 
 	SDL_GetMouseState(&input.mouseX, &input.mouseY);
+	
+	switch (gameType)
+	{
+		case RECORDING:
+			putBuffer(input);
+		break;
+		
+		case REPLAYING:
+			input = getBuffer();
+		break;
+		
+		default:
+		break;
+	}
 }

@@ -246,8 +246,6 @@ void doPlayer()
 						playerWeapon.animationCallback = &attackFinish;
 
 						self->flags |= ATTACKING;
-						playerShield.flags |= ATTACKING;
-						playerWeapon.flags |= ATTACKING;
 
 						setEntityAnimation(&player, ATTACK_1);
 						setEntityAnimation(&playerShield, ATTACK_1);
@@ -271,21 +269,9 @@ void doPlayer()
 					input.interact = 0;
 				}
 
-				if (input.grabbing == 1 && (self->flags & ON_GROUND))
+				if (input.grabbing == 1)
 				{
 					self->flags |= GRABBING;
-				}
-
-				else
-				{
-					self->flags &= ~GRABBING;
-
-					if (self->target != NULL)
-					{
-						self->target->flags &= ~HELPLESS;
-
-						self->target = NULL;
-					}
 				}
 
 				if (input.activate == 1)
@@ -350,9 +336,7 @@ static void attackFinish()
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
 
-	player.flags &= ~ATTACKING;
-	playerShield.flags &= ~ATTACKING;
-	playerWeapon.flags &= ~ATTACKING;
+	player.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
@@ -449,9 +433,7 @@ static void takeDamage(Entity *other, int damage)
 		playerShield.animationCallback = NULL;
 		playerWeapon.animationCallback = NULL;
 
-		player.flags &= ~ATTACKING|BLOCKING;
-		playerShield.flags &= ~ATTACKING|BLOCKING;
-		playerWeapon.flags &= ~ATTACKING|BLOCKING;
+		player.flags &= ~(ATTACKING|ATTACK_SUCCESS|BLOCKING);
 
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);

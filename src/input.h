@@ -1,1 +1,1 @@
-void getInput(void);
+void getInput(int);

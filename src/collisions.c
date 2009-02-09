@@ -8,23 +8,15 @@ extern Entity player, playerShield, playerWeapon;
 
 void doCollisions()
 {
-	int i, x, y, w, h;
+	int i, x, y, w, h, hit;
+	
+	hit = 0;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == IN_USE)
 		{
-			if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player.x, player.y, player.w, player.h) == 1)
-			{
-				if (entity[i].touch != NULL)
-				{
-					self = &entity[i];
-
-					self->touch(&player);
-				}
-			}
-
-			if (playerWeapon.inUse == IN_USE && (playerWeapon.flags & ATTACKING))
+			if (playerWeapon.inUse == IN_USE && (player.flags & ATTACKING) && !(player.flags & ATTACK_SUCCESS))
 			{
 				x = playerWeapon.x + playerWeapon.offsetX * (player.face == LEFT ? -1 : 1);
 				y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
@@ -38,12 +30,29 @@ void doCollisions()
 						self = &entity[i];
 
 						self->touch(&playerWeapon);
+						
+						hit = 1;
 					}
 				}
 			}
+			
+			if (entity[i].touch != NULL)
+			{
+				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player.x, player.y, player.w, player.h) == 1)
+				{
+					self = &entity[i];
 
-			checkEntityToEntity(&entity[i]);
+					self->touch(&player);
+				}
+				
+				checkEntityToEntity(&entity[i]);
+			}
 		}
+	}
+	
+	if (hit == 1)
+	{
+		player.flags |= ATTACK_SUCCESS;
 	}
 }
 
@@ -54,23 +63,20 @@ void checkEntityToEntity(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e == &entity[i] || entity[i].inUse == NOT_IN_USE || (e->type == ENEMY && entity[i].type == ENEMY))
+		if (e == &entity[i] || entity[i].inUse == NOT_IN_USE || (e->type == ENEMY && entity[i].type == ENEMY) || entity[i].touch == NULL)
 		{
 			continue;
 		}
 
 		if (collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
-			if (entity[i].touch != NULL)
-			{
-				temp = self;
+			temp = self;
 
-				self = &entity[i];
+			self = &entity[i];
 
-				self->touch(e);
+			self->touch(e);
 
-				self = temp;
-			}
+			self = temp;
 		}
 	}
 }
@@ -146,6 +152,12 @@ void checkToMap(Entity *e)
 				{
 
 				}
+				
+				else if ((topRight >= JUMP_THROUGH_TILE_START && topRight <= JUMP_THROUGH_TILE_END) ||
+					((bottomRight >= JUMP_THROUGH_TILE_START && bottomRight <= JUMP_THROUGH_TILE_END)))
+				{
+				
+				}
 
 				else if ((topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < FOREGROUND_TILE_START))
 				{
@@ -186,6 +198,12 @@ void checkToMap(Entity *e)
 				else if (bottomLeft == SLOPE_UP)
 				{
 
+				}
+				
+				else if ((topLeft >= JUMP_THROUGH_TILE_START && topLeft <= JUMP_THROUGH_TILE_END) ||
+					((bottomLeft >= JUMP_THROUGH_TILE_START && bottomLeft <= JUMP_THROUGH_TILE_END)))
+				{
+				
 				}
 
 				else if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (bottomLeft != BLANK_TILE && bottomLeft < FOREGROUND_TILE_START))
@@ -290,8 +308,14 @@ void checkToMap(Entity *e)
 			else if (e->dirY < 0)
 			{
 				/* Trying to move up */
+				
+				if ((topLeft >= JUMP_THROUGH_TILE_START && topLeft <= JUMP_THROUGH_TILE_END) ||
+					((topRight >= JUMP_THROUGH_TILE_START && topRight <= JUMP_THROUGH_TILE_END)))
+				{
+				
+				}
 
-				if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START))
+				else if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 

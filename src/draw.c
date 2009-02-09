@@ -27,13 +27,13 @@ void draw()
 
 	drawMap(0);
 
-	/* Draw the decorations */
-
-	drawDecorations();
-
 	/* Draw the Entities */
 
 	drawEntities(0);
+	
+	/* Draw the decorations */
+
+	drawDecorations();
 
 	/* Draw the player */
 
