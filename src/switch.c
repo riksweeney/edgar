@@ -45,27 +45,29 @@ static void activate(int val)
 {
 	if (strlen(self->requires) != 0)
 	{
+		printf("Requires %s\n", self->requires);
+
 		if (removeInventoryItem(self->requires) == 1)
 		{
 			strcpy(self->requires, "");
 		}
-		
+
 		else
 		{
-			addHudMessage("%s is needed to activate this switch", self->requires);
-			
+			addHudMessage(BAD_MESSAGE, "%s is needed to activate this switch", self->requires);
+
 			return;
 		}
 	}
-	
+
 	playSound("sound/common/switch.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
-	
-	self->active = self->active == ACTIVE ? INACTIVE : ACTIVE;
-	
-	setEntityAnimation(self, self->active == ACTIVE ? WALK : STAND);
-	
+
+	self->active = self->active == TRUE ? FALSE : TRUE;
+
+	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+
 	printf("Activating entities with name %s\n", self->objectiveName);
-	
+
 	activateEntitiesWithName(self->objectiveName, self->active);
 }
 
@@ -76,7 +78,7 @@ static void wait()
 
 static void initialise()
 {
-	setEntityAnimation(self, self->active == ACTIVE ? WALK : STAND);
-	
+	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+
 	self->action = &wait;
 }

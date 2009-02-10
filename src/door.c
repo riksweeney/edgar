@@ -74,7 +74,7 @@ static void touch(Entity *other)
 
 	if (self->type == MANUAL_DOOR)
 	{
-		if (other->type == PLAYER && self->active == INACTIVE)
+		if (other->type == PLAYER && self->active == FALSE)
 		{
 			/* Look through the player's inventory */
 
@@ -82,12 +82,12 @@ static void touch(Entity *other)
 			{
 				self->action = &moveToTarget;
 
-				self->active = ACTIVE;
+				self->active = TRUE;
 			}
 
 			else
 			{
-				addHudMessage("%s is needed to open this door", self->requires);
+				addHudMessage(BAD_MESSAGE, "%s is needed to open this door", self->requires);
 			}
 		}
 	}
@@ -97,8 +97,8 @@ static void moveToTarget(void)
 {
 	if (self->type == AUTO_DOOR)
 	{
-		self->targetX = self->active == ACTIVE ? self->endX : self->startX;
-		self->targetY = self->active == ACTIVE ? self->endY : self->startY;
+		self->targetX = self->active == TRUE ? self->endX : self->startX;
+		self->targetY = self->active == TRUE ? self->endY : self->startY;
 	}
 
 	if (abs(self->x - self->targetX) > self->speed)

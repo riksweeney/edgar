@@ -66,6 +66,8 @@
 
 #define MAX_TRIGGERS 10
 
+#define MAX_OBJECTIVES 5
+
 #define MAX_INPUTS 256
 
 #ifdef WIN32
@@ -96,14 +98,8 @@ enum
 
 enum
 {
-	ACTIVE,
-	INACTIVE
-};
-
-enum
-{
-	NOT_IN_USE,
-	IN_USE
+	FALSE,
+	TRUE
 };
 
 enum
@@ -195,7 +191,8 @@ enum
 enum
 {
 	UPDATE_OBJECTIVE = 1,
-	ACTIVATE_ENTITY
+	ACTIVATE_ENTITY,
+	UPDATE_BOTH
 };
 
 enum
@@ -203,4 +200,11 @@ enum
 	NORMAL,
 	RECORDING,
 	REPLAYING
+};
+
+enum
+{
+	STANDARD_MESSAGE,
+	GOOD_MESSAGE,
+	BAD_MESSAGE
 };

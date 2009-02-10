@@ -40,13 +40,13 @@ void init(char *title)
 
 	/* Set the audio rate to 22050, 16 bit stereo, 2 channels and a 4096 byte buffer */
 
-	game.audio = ACTIVE;
+	game.audio = TRUE;
 
-	if (Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096) != 0)
+	if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 4096) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
 
-		game.audio = INACTIVE;
+		game.audio = FALSE;
 	}
 
 	else
@@ -70,9 +70,9 @@ void init(char *title)
 void cleanup()
 {
 	/* Stop the replay data */
-	
+
 	flushBuffer(game.gameType);
-	
+
 	/* Free the Resources */
 
 	freeRequiredResources();

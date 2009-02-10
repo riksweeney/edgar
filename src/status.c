@@ -29,7 +29,7 @@ void drawStatusPanel()
 
 	if (message.thinkTime > 0)
 	{
-		drawString(message.text, 0, SCREEN_HEIGHT - TILE_SIZE, game.font, 1, 0);
+		drawString(message.text, 0, SCREEN_HEIGHT - TILE_SIZE, game.font, 1, 0, 255, 255, 255);
 	}
 }
 

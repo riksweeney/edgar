@@ -25,13 +25,13 @@ Entity *getFreeEntity()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == NOT_IN_USE)
+		if (entity[i].inUse == FALSE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
 
-			entity[i].inUse = IN_USE;
+			entity[i].inUse = TRUE;
 
-			entity[i].active = ACTIVE;
+			entity[i].active = TRUE;
 
 			entity[i].frameSpeed = 1;
 
@@ -54,7 +54,7 @@ void doEntities()
 	{
 		self = &entity[i];
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
@@ -117,12 +117,12 @@ void doEntities()
 void drawDoors()
 {
 	int i;
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		self = &entity[i];
 
-		if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+		if (self->inUse == TRUE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
 		{
 			self->draw();
 		}
@@ -141,7 +141,7 @@ void drawEntities(int drawAll)
 		{
 			self = &entity[i];
 
-			if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
 			{
 				self->draw();
 			}
@@ -153,7 +153,7 @@ void drawEntities(int drawAll)
 		{
 			self = &entity[i];
 
-			if (self->inUse == IN_USE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
+			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
 			{
 				self->draw();
 			}
@@ -166,7 +166,7 @@ void drawEntities(int drawAll)
 		{
 			self = &entity[i];
 
-			if (self->inUse == IN_USE)
+			if (self->inUse == TRUE)
 			{
 				self->draw();
 			}
@@ -180,7 +180,7 @@ void removeEntity()
 
 	if (self->thinkTime <= 0)
 	{
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 }
 
@@ -212,8 +212,6 @@ void entityDie()
 	setCustomAction(self, &invulnerable, 60);
 
 	self->action = &standardDie;
-
-	self->touch = NULL;
 }
 
 void standardDie()
@@ -222,7 +220,7 @@ void standardDie()
 
 	if (self->thinkTime <= 0)
 	{
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 
 		dropRandomItem(self->x + self->w / 2, self->y);
 
@@ -257,11 +255,18 @@ void entityTakeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+			
 			self->dirX = other->face == RIGHT ? 12 : -12;
 		}
 
 		else
 		{
+			self->damage = 0;
+			
 			self->die();
 		}
 	}
@@ -270,6 +275,11 @@ void entityTakeDamage(Entity *other, int damage)
 void entityTouch(Entity *other)
 {
 	Entity *temp;
+	
+	if (self->damage <= 0)
+	{
+		return;
+	}
 
 	if (other->type == PLAYER)
 	{
@@ -282,7 +292,7 @@ void entityTouch(Entity *other)
 		self = temp;
 	}
 
-	else if (other->type == WEAPON)
+	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		if (self->takeDamage != NULL)
 		{
@@ -295,7 +305,7 @@ void pushEntity(Entity *other)
 {
 	int pushable;
 
-	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR)
+	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == AUTO_LIFT || other->type == MANUAL_LIFT)
 	{
 		return;
 	}
@@ -446,13 +456,13 @@ int addEntity(Entity e, int x, int y)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == NOT_IN_USE)
+		if (entity[i].inUse == FALSE)
 		{
 			entity[i] = e;
 
 			entity[i].currentFrame = 0;
 
-			entity[i].inUse = IN_USE;
+			entity[i].inUse = TRUE;
 
 			entity[i].x = x;
 
@@ -471,7 +481,7 @@ Entity *getEntityByObjectiveName(char *name)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
 		{
 			return &entity[i];
 		}
@@ -493,7 +503,7 @@ void activateEntitiesWithName(char *name, int active)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == IN_USE && strcmpignorecase(entity[i].requires, name) == 0)
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
 			entity[i].active = active;
 		}
@@ -507,7 +517,7 @@ void interactWithEntity(int x, int y, int w, int h)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == IN_USE && (entity[i].type == SWITCH))
+		if (entity[i].inUse == TRUE && (entity[i].type == SWITCH))
 		{
 			if (collision(x, y, w, h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 			{
@@ -529,7 +539,7 @@ void initLineDefs()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == IN_USE && entity[i].type == LINE_DEF)
+		if (entity[i].inUse == TRUE && entity[i].type == LINE_DEF)
 		{
 			self = &entity[i];
 
@@ -549,7 +559,7 @@ void writeEntitiesToFile(FILE *fp)
 	{
 		self = &entity[i];
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			strcpy(type, getTypeByID(self->type));
 
@@ -565,7 +575,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
-			fprintf(fp, "ACTIVE %s\n", self->active == ACTIVE ? "ACTIVE" : "INACTIVE");
+			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
 			fprintf(fp, "}\n\n");
 		}
 	}

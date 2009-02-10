@@ -13,6 +13,7 @@
 #include "entity.h"
 #include "hud.h"
 #include "record.h"
+#include "objective.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];
@@ -38,25 +39,25 @@ int main(int argc, char *argv[])
 	go = 1;
 
 	/* Load the resources */
-	
+
 	for (i=1;i<argc;i++)
 	{
 		printf("%s\n", argv[i]);
-		
+
 		if (strcmpignorecase("-record", argv[i]) == 0)
 		{
 			setRecordData(argv[i + 1]);
-			
+
 			i++;
 		}
-		
+
 		else if (strcmpignorecase("-replay", argv[i]) == 0)
 		{
 			setReplayData(argv[i + 1]);
-			
+
 			i++;
 		}
-		
+
 		else
 		{
 			loadMap(argv[i]);
@@ -68,8 +69,8 @@ int main(int argc, char *argv[])
 	/* Initialise the game variables */
 
 	initGame();
-	
-	/* Set replay data */
+
+	addObjective("Collect 10 pieces of Coal", "Landslide Trigger");
 
 	/* Loop indefinitely for messages */
 
@@ -104,9 +105,9 @@ int main(int argc, char *argv[])
 		/* Do collisions */
 
 		doCollisions();
-		
+
 		/* Do the HUD */
-		
+
 		doHud();
 
 		/* Draw the map */

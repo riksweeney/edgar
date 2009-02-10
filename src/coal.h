@@ -1,1 +1,0 @@
-void addCoal(int, int);

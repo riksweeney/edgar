@@ -305,7 +305,7 @@ void setProperty(Entity *e, char *name, char *value)
 
 	else if (strcmpignorecase(name, "ACTIVE") == 0)
 	{
-		e->active = strcmpignorecase(value, "ACTIVE") == 0 ? ACTIVE : INACTIVE;
+		e->active = strcmpignorecase(value, "TRUE") == 0 ? TRUE : FALSE;
 	}
 
 	else if (strcmpignorecase(name, "SFX_FILE") == 0)

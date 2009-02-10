@@ -28,21 +28,15 @@ void closeFont(TTF_Font *font)
 	}
 }
 
-void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int centerY)
+void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int centerY, int r, int g, int b)
 {
 	SDL_Rect dest;
 	SDL_Surface *surface;
-	SDL_Color foregroundColor, backgroundColor;
+	SDL_Color foregroundColor;
 
-	/* White text on a black background */
-
-	foregroundColor.r = 255;
-	foregroundColor.g = 255;
-	foregroundColor.b = 255;
-
-	backgroundColor.r = 0;
-	backgroundColor.g = 0;
-	backgroundColor.b = 0;
+	foregroundColor.r = r;
+	foregroundColor.g = g;
+	foregroundColor.b = b;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 

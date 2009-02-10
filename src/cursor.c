@@ -29,28 +29,28 @@ void initCursor(char *name)
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
-	
+
 	sprintf(line, "%sdata/cursor/%s", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
-	
+
 	if (fp == NULL)
 	{
 		printf("Failed to open cursor data file %s\n", line);
-		
+
 		exit(1);
 	}
-	
+
 	while (fgets(entityNames[entityNamesLength], MAX_VALUE_LENGTH, fp) != NULL)
 	{
 		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\n')
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
 		}
-		
+
 		entityNamesLength++;
 	}
-	
+
 	fclose(fp);
 }
 
@@ -157,7 +157,7 @@ void doCursor()
 
 			if (self != NULL)
 			{
-				self->inUse = NOT_IN_USE;
+				self->inUse = FALSE;
 			}
 		}
 	}
@@ -172,7 +172,7 @@ void doCursor()
 			{
 				cursor.entity = *self;
 
-				self->inUse = NOT_IN_USE;
+				self->inUse = FALSE;
 			}
 		}
 
@@ -195,6 +195,10 @@ void doCursor()
 				cursor.entityType = entityNamesLength - 1;
 			}
 
+			memset(&cursor.entity, 0, sizeof(Entity));
+
+			cursor.entity.draw = &drawLoopingAnimationToMap;
+
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 		}
 
@@ -216,6 +220,10 @@ void doCursor()
 			{
 				cursor.entityType = 0;
 			}
+
+			memset(&cursor.entity, 0, sizeof(Entity));
+
+			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 		}

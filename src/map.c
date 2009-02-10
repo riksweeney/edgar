@@ -46,7 +46,7 @@ void loadMap(char *name)
 
 		exit(1);
 	}
-	
+
 	/* Set the filename */
 
 	strcpy(map.filename, line);
@@ -163,7 +163,7 @@ void saveMap()
 
 	self = &player;
 
-	if (self->inUse == NOT_IN_USE)
+	if (self->inUse == FALSE)
 	{
 		printf("No player start defined\n");
 

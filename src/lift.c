@@ -90,7 +90,7 @@ static void findTarget(int val)
 	char targetName[MAX_VALUE_LENGTH];
 	Target *t;
 
-	if (self->active == ACTIVE)
+	if (self->active == TRUE)
 	{
 		if (self->action == &moveToTarget)
 		{
@@ -138,7 +138,7 @@ static void findTarget(int val)
 
 	else
 	{
-		addHudMessage("This lift is not active");
+		addHudMessage(BAD_MESSAGE, "This lift is not active");
 	}
 }
 
@@ -198,7 +198,7 @@ static void wait()
 
 static void autoMove()
 {
-	if (self->active == ACTIVE)
+	if (self->active == TRUE)
 	{
 		if (self->thinkTime > 0)
 		{
@@ -261,7 +261,7 @@ static void setToStart()
 
 		self->maxHealth = self->thinkTime;
 
-		if (self->active == INACTIVE)
+		if (self->active == FALSE)
 		{
 			self->thinkTime = 0;
 		}

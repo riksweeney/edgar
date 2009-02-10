@@ -22,9 +22,9 @@ void loadPlayer(int x, int y)
 {
 	loadProperties("edgar/edgar", &player);
 
-	if (player.inUse != IN_USE)
+	if (player.inUse != TRUE)
 	{
-		player.inUse = IN_USE;
+		player.inUse = TRUE;
 		player.x = x;
 		player.y = y;
 		player.dirX = player.dirY = 0;
@@ -64,7 +64,7 @@ void setPlayerLocation(int x, int y)
 
 	player.draw = &drawLoopingAnimationToMap;
 
-	player.inUse = IN_USE;
+	player.inUse = TRUE;
 }
 
 void doPlayer()
@@ -239,13 +239,13 @@ void doPlayer()
 
 				if (input.attack == 1)
 				{
-					if (playerWeapon.inUse == IN_USE)
+					if (playerWeapon.inUse == TRUE)
 					{
 						self->animationCallback = &attackFinish;
 						playerShield.animationCallback = &attackFinish;
 						playerWeapon.animationCallback = &attackFinish;
 
-						self->flags |= ATTACKING;
+						playerWeapon.flags |= ATTACKING;
 
 						setEntityAnimation(&player, ATTACK_1);
 						setEntityAnimation(&playerShield, ATTACK_1);
@@ -336,7 +336,7 @@ static void attackFinish()
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
 
-	player.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
@@ -347,13 +347,13 @@ void drawPlayer()
 {
 	self = &player;
 
-	if (self->inUse == IN_USE && (self->flags & NO_DRAW) == 0)
+	if (self->inUse == TRUE && (self->flags & NO_DRAW) == 0)
 	{
 		/* Draw the weapon */
 
 		self = &playerWeapon;
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			self->x = player.x;
 			self->y = player.y;
@@ -371,7 +371,7 @@ void drawPlayer()
 
 		self = &playerShield;
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			self->x = player.x;
 			self->y = player.y;
@@ -401,7 +401,7 @@ void setPlayerWeapon(int val)
 
 void autoSetPlayerWeapon(Entity *newWeapon)
 {
-	if (playerWeapon.inUse == NOT_IN_USE)
+	if (playerWeapon.inUse == FALSE)
 	{
 		playerWeapon = *newWeapon;
 
@@ -413,7 +413,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 
 void autoSetPlayerShield(Entity *newWeapon)
 {
-	if (playerShield.inUse == NOT_IN_USE)
+	if (playerShield.inUse == FALSE)
 	{
 		playerShield = *newWeapon;
 
@@ -433,7 +433,7 @@ static void takeDamage(Entity *other, int damage)
 		playerShield.animationCallback = NULL;
 		playerWeapon.animationCallback = NULL;
 
-		player.flags &= ~(ATTACKING|ATTACK_SUCCESS|BLOCKING);
+		playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);

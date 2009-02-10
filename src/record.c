@@ -70,13 +70,6 @@ void takeScreenshot()
 	sprintf(filename, "/home/rik/temp/edgar%06d.bmp", frame);
 
 	frame++;
-	
-	if (frame == 3600)
-	{
-		printf("Ending\n");
-		
-		exit(0);
-	}
 
 	SDL_SaveBMP(game.screen, filename);
 }

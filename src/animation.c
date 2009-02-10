@@ -284,7 +284,7 @@ void drawLoopingAnimationToMap()
 	int startX, startY;
 	SDL_Surface *image;
 	void (*callback)(void);
-	
+
 	startX = getMapStartX();
 	startY = getMapStartY();
 
@@ -305,8 +305,8 @@ void drawLoopingAnimationToMap()
 				self->animationCallback = NULL;
 
 				callback();
-				
-				if (self->inUse == NOT_IN_USE)
+
+				if (self->inUse == FALSE)
 				{
 					return;
 				}
@@ -347,7 +347,7 @@ void drawLoopingAnimationToMap()
 			x = self->x - startX + self->parent->w - self->w - self->offsetX;
 			y = self->y - startY + self->offsetY;
 		}
-		
+
 		if (x + image->w >= 0 && x < SCREEN_WIDTH && y + image->h >= 0 && y < SCREEN_HEIGHT)
 		{
 			drawFlippedImage(image, x, y);

@@ -45,7 +45,7 @@ static void init()
 
 	self->action = &spawn;
 
-	if (self->active == INACTIVE)
+	if (self->active == FALSE)
 	{
 		self->thinkTime = 0;
 	}
@@ -62,7 +62,7 @@ static void spawn()
 {
 	Entity *e;
 
-	if (self->active == ACTIVE)
+	if (self->active == TRUE)
 	{
 		self->thinkTime--;
 
@@ -81,7 +81,7 @@ static void spawn()
 
 				if (self->health == 0)
 				{
-					self->inUse = NOT_IN_USE;
+					self->inUse = FALSE;
 				}
 			}
 		}

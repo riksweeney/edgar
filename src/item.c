@@ -42,13 +42,15 @@ Entity *addPermanentItem(char *name, int x, int y)
 	{
 		e->touch = &pushEntity;
 	}
-	
+
 	else
 	{
 		e->touch = &keyItemTouch;
 	}
 
 	setEntityAnimation(e, STAND);
+
+	e->face = RIGHT;
 
 	return e;
 }
@@ -94,7 +96,7 @@ void addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY
 
 void dropRandomItem(int x, int y)
 {
-	if (prand() % 5 == 0)
+	if (prand() % 4 == 0)
 	{
 		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 	}
@@ -119,7 +121,7 @@ void generalItemAction()
 
 	if (self->thinkTime <= 0)
 	{
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 
 	checkToMap(self);
@@ -138,7 +140,7 @@ void healthTouch(Entity *other)
 			other->health = other->maxHealth;
 		}
 
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 }
 
@@ -148,7 +150,7 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerShield.name, e->name) == 0)
 		{
-			playerShield.inUse = NOT_IN_USE;
+			playerShield.inUse = FALSE;
 		}
 	}
 
@@ -156,7 +158,7 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerWeapon.name, e->name) == 0)
 		{
-			playerWeapon.inUse = NOT_IN_USE;
+			playerWeapon.inUse = FALSE;
 		}
 	}
 

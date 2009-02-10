@@ -29,6 +29,7 @@ typedef struct Entity
 	float startX, startY, endX, endY;
 	float targetX, targetY, speed;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
+	char description[MAX_MESSAGE_LENGTH];
 	struct Entity *standingOn, *parent, *target;
 	void (*action)(void);
 	void (*activate)(int);
@@ -38,6 +39,7 @@ typedef struct Entity
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 	void (*takeDamage)(struct Entity *, int);
 	void (*die)(void);
+	void (*pain)(void);
 } Entity;
 
 typedef struct Map
@@ -84,7 +86,7 @@ typedef struct Cursor
 typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
-	int thinkTime, inUse;
+	int thinkTime, inUse, type;
 } Message;
 
 typedef struct Inventory
@@ -128,3 +130,9 @@ typedef struct Trigger
 	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH];
 	int inUse, targetType, count;
 } Trigger;
+
+typedef struct Objective
+{
+	int inUse, active, completed;
+	char name[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
+} Objective;

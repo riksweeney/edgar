@@ -23,7 +23,7 @@ Entity *addLineDef(char *name, int x, int y)
 
 	strcpy(e->name, name);
 
-	/*e->flags |= NO_DRAW;*/
+	e->flags |= NO_DRAW;
 
 	e->type = LINE_DEF;
 
@@ -41,11 +41,11 @@ Entity *addLineDef(char *name, int x, int y)
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->active == TRUE)
 	{
-		activateEntitiesWithName(self->objectiveName, ACTIVE);
+		activateEntitiesWithName(self->objectiveName, TRUE);
 
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 }
 

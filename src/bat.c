@@ -5,10 +5,13 @@
 #include "entity.h"
 #include "random.h"
 #include "collisions.h"
+#include "audio.h"
 
 extern Entity *self;
 
 static void fly(void);
+static void die(void);
+static void pain(void);
 
 Entity *addBat(int x, int y)
 {
@@ -30,14 +33,25 @@ Entity *addBat(int x, int y)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->die = &die;
+	e->pain = &pain;
 	e->takeDamage = &entityTakeDamage;
-	e->die = &entityDie;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void die()
+{
+	entityDie();
+}
+
+static void pain()
+{
+	playSound("sound/enemy/bat/squeak.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_2, self->x, self->y);
 }
 
 static void fly()
