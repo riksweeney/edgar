@@ -26,13 +26,13 @@ Entity *getFreeDecoration()
 
 	for (i=0;i<MAX_DECORATIONS;i++)
 	{
-		if (decoration[i].inUse == NOT_IN_USE)
+		if (decoration[i].inUse == FALSE)
 		{
 			memset(&decoration[i], 0, sizeof(Entity));
 
-			decoration[i].inUse = IN_USE;
+			decoration[i].inUse = TRUE;
 
-			decoration[i].active = ACTIVE;
+			decoration[i].active = TRUE;
 
 			decoration[i].frameSpeed = 1;
 
@@ -55,7 +55,7 @@ void doDecorations()
 	{
 		self = &decoration[i];
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			self->action();
 		}
@@ -72,7 +72,7 @@ void drawDecorations()
 	{
 		self = &decoration[i];
 
-		if (self->inUse == IN_USE)
+		if (self->inUse == TRUE)
 		{
 			self->draw();
 		}
@@ -146,7 +146,7 @@ void addStarExplosion(int x, int y)
 void addSparkle(int x, int y)
 {
 	Entity *e;
-	
+
 	e = getFreeDecoration();
 
 	if (e == NULL)
@@ -155,7 +155,7 @@ void addSparkle(int x, int y)
 	}
 
 	loadProperties("decoration/sparkle", e);
-	
+
 	e->thinkTime = 15;
 
 	e->x = x;
@@ -168,7 +168,7 @@ void addSparkle(int x, int y)
 
 static void finish()
 {
-	self->inUse = NOT_IN_USE;
+	self->inUse = FALSE;
 }
 
 static void wait()
@@ -185,6 +185,6 @@ static void move()
 
 	if (self->thinkTime == 0)
 	{
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 }

@@ -46,7 +46,7 @@ static void touch(Entity *other)
 		takeDamage(other, other->damage);
 	}
 
-	if (self->inUse == IN_USE)
+	if (self->inUse == TRUE)
 	{
 		pushEntity(other);
 	}
@@ -97,5 +97,5 @@ static void die()
 	e->dirX = 3;
 	e->dirY = -8;
 
-	self->inUse = NOT_IN_USE;
+	self->inUse = FALSE;
 }

@@ -54,7 +54,7 @@ Entity *addBoulderBoss(int x, int y)
 
 static void initialise()
 {
-	if (self->active == ACTIVE)
+	if (self->active == TRUE)
 	{
 		self->thinkTime--;
 

@@ -37,11 +37,11 @@ Target *addTarget(int x, int y, char *name)
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == NOT_IN_USE)
+		if (target[i].active == FALSE)
 		{
 			memset(&target[i], 0, sizeof(Target));
 
-			target[i].active = IN_USE;
+			target[i].active = TRUE;
 
 			target[i].x = x;
 			target[i].y = y;
@@ -65,7 +65,7 @@ void drawTargets()
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == IN_USE)
+		if (target[i].active == TRUE)
 		{
 			self->x = target[i].x;
 			self->y = target[i].y;
@@ -81,7 +81,7 @@ Target *getTargetByName(char *name)
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == IN_USE && strcmpignorecase(target[i].name, name) == 0)
+		if (target[i].active == TRUE && strcmpignorecase(target[i].name, name) == 0)
 		{
 			return &target[i];
 		}
@@ -96,7 +96,7 @@ void writeTargetsToFile(FILE *fp)
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{
-		if (target[i].active == IN_USE)
+		if (target[i].active == TRUE)
 		{
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE TARGET\n");

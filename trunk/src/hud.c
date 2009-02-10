@@ -25,19 +25,19 @@ void doHud()
 
 		if (message[0].thinkTime <= 0)
 		{
-			message[0].inUse = NOT_IN_USE;
+			message[0].inUse = FALSE;
 
 			for (i=0;i<MAX_HUD_MESSAGES;i++)
 			{
-				if (message[i].inUse == NOT_IN_USE)
+				if (message[i].inUse == FALSE)
 				{
 					for (j=i;j<MAX_HUD_MESSAGES;j++)
 					{
-						if (message[j].inUse == IN_USE)
+						if (message[j].inUse == TRUE)
 						{
 							message[i] = message[j];
 
-							message[j].inUse = NOT_IN_USE;
+							message[j].inUse = FALSE;
 
 							break;
 						}
@@ -54,9 +54,22 @@ void drawHud()
 
 	drawImage(itemBox, (SCREEN_WIDTH - itemBox->w) / 2, 15);
 
-	if (message[0].inUse == IN_USE)
+	if (message[0].inUse == TRUE)
 	{
-		drawString(message[0].text, 0, 400, game.font, 1, 0);
+		switch (message[0].type)
+		{
+			case STANDARD_MESSAGE:
+				drawString(message[0].text, 0, 400, game.font, 1, 0, 255, 255, 255);
+			break;
+
+			case GOOD_MESSAGE:
+				drawString(message[0].text, 0, 400, game.font, 1, 0, 0, 200, 0);
+			break;
+
+			case BAD_MESSAGE:
+				drawString(message[0].text, 0, 400, game.font, 1, 0, 200, 0, 0);
+			break;
+		}
 	}
 }
 
@@ -68,7 +81,7 @@ void freeHud()
 	}
 }
 
-void addHudMessage(char *fmt, ...)
+void addHudMessage(int type, char *fmt, ...)
 {
 	char text[MAX_MESSAGE_LENGTH];
 	int i;
@@ -81,18 +94,20 @@ void addHudMessage(char *fmt, ...)
 
 	for (i=0;i<MAX_HUD_MESSAGES;i++)
 	{
-		if (message[i].inUse == IN_USE && strcmpignorecase(text, message[i].text) == 0)
+		if (message[i].inUse == TRUE && strcmpignorecase(text, message[i].text) == 0)
 		{
 			return;
 		}
 
-		else if (message[i].inUse == NOT_IN_USE)
+		else if (message[i].inUse == FALSE)
 		{
 			strcpy(message[i].text, text);
 
 			message[i].thinkTime = 180;
 
-			message[i].inUse = IN_USE;
+			message[i].inUse = TRUE;
+
+			message[i].type = type;
 
 			printf("Setting message %d to %s\n", i, text);
 

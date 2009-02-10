@@ -17,7 +17,7 @@ int addToInventory(Entity *e)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == NOT_IN_USE)
+		if (inventory.item[i].inUse == FALSE)
 		{
 			inventory.item[i] = *e;
 
@@ -27,7 +27,7 @@ int addToInventory(Entity *e)
 
 			setEntityAnimation(&inventory.item[i], STAND);
 
-			e->inUse = NOT_IN_USE;
+			e->inUse = FALSE;
 
 			if (inventory.item[i].type == WEAPON)
 			{
@@ -39,7 +39,7 @@ int addToInventory(Entity *e)
 				autoSetPlayerShield(&inventory.item[i]);
 			}
 
-			addHudMessage("Picked up %s", inventory.item[i].objectiveName);
+			addHudMessage(STANDARD_MESSAGE, "Picked up %s", inventory.item[i].objectiveName);
 
 			return 1;
 		}
@@ -55,7 +55,7 @@ void selectNextInventoryItem(int index)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE)
+		if (inventory.item[i].inUse == TRUE)
 		{
 			itemCount++;
 		}
@@ -85,7 +85,7 @@ void selectNextInventoryItem(int index)
 		}
 	}
 
-	while (inventory.item[i].inUse == NOT_IN_USE);
+	while (inventory.item[i].inUse == FALSE);
 
 	inventory.selectedIndex = i;
 }
@@ -96,7 +96,7 @@ Entity *getInventoryItem(char *name)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
 			return &inventory.item[i];
 		}
@@ -111,9 +111,9 @@ int removeInventoryItem(char *name)
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
-			inventory.item[i].inUse = NOT_IN_USE;
+			inventory.item[i].inUse = FALSE;
 
 			return 1;
 		}
@@ -124,11 +124,11 @@ int removeInventoryItem(char *name)
 
 void dropInventoryItem()
 {
-	if (inventory.item[inventory.selectedIndex].inUse == IN_USE)
+	if (inventory.item[inventory.selectedIndex].inUse == TRUE)
 	{
 		dropItem(&inventory.item[inventory.selectedIndex]);
 
-		inventory.item[inventory.selectedIndex].inUse = NOT_IN_USE;
+		inventory.item[inventory.selectedIndex].inUse = FALSE;
 
 		sortInventory();
 	}
@@ -138,7 +138,7 @@ void useInventoryItem()
 {
 	Entity *temp;
 
-	if (inventory.item[inventory.selectedIndex].inUse == IN_USE && inventory.item[inventory.selectedIndex].activate != NULL)
+	if (inventory.item[inventory.selectedIndex].inUse == TRUE && inventory.item[inventory.selectedIndex].activate != NULL)
 	{
 		temp = self;
 
@@ -146,7 +146,7 @@ void useInventoryItem()
 
 		self->activate(0);
 
-		if (inventory.item[inventory.selectedIndex].inUse == NOT_IN_USE)
+		if (inventory.item[inventory.selectedIndex].inUse == FALSE)
 		{
 			sortInventory();
 		}
@@ -161,15 +161,15 @@ static void sortInventory()
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == NOT_IN_USE)
+		if (inventory.item[i].inUse == FALSE)
 		{
 			for (j=i;j<MAX_INVENTORY_ITEMS;j++)
 			{
-				if (inventory.item[j].inUse == IN_USE)
+				if (inventory.item[j].inUse == TRUE)
 				{
 					inventory.item[i] = inventory.item[j];
 
-					inventory.item[j].inUse = NOT_IN_USE;
+					inventory.item[j].inUse = FALSE;
 
 					break;
 				}
@@ -177,7 +177,7 @@ static void sortInventory()
 		}
 	}
 
-	while (inventory.item[inventory.selectedIndex].inUse == NOT_IN_USE)
+	while (inventory.item[inventory.selectedIndex].inUse == FALSE)
 	{
 		inventory.selectedIndex--;
 
@@ -196,7 +196,7 @@ void doInventory()
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
-		if (inventory.item[i].inUse == IN_USE)
+		if (inventory.item[i].inUse == TRUE)
 		{
 			inventory.item[i].thinkTime--;
 
@@ -212,7 +212,7 @@ void drawSelectedInventoryItem(int x, int y, int w, int h)
 {
 	self = &inventory.item[inventory.selectedIndex];
 
-	if (self->inUse == IN_USE)
+	if (self->inUse == TRUE)
 	{
 		drawLoopingAnimation(self, x, y, w, h, 1);
 	}
@@ -222,7 +222,7 @@ void addRequiredToInventory(Entity *other)
 {
 	Entity *item;
 
-	if (other->type == PLAYER)
+	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
 		item = getInventoryItem(self->requires);
 
@@ -230,19 +230,16 @@ void addRequiredToInventory(Entity *other)
 		{
 			item->health++;
 
-			if (item->health >= item->maxHealth)
-			{
-				item->health = item->maxHealth;
-			}
+			self->inUse = FALSE;
 
+			addHudMessage(STANDARD_MESSAGE, "Picked up %s", self->objectiveName);
+			
 			fireTrigger(item->objectiveName);
-
-			self->inUse = NOT_IN_USE;
 		}
 
 		else
 		{
-			addHudMessage("%s is required to carry this item", self->requires);
+			addHudMessage(BAD_MESSAGE, "%s is required to carry this item", self->requires);
 		}
 	}
 }

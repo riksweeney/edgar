@@ -126,7 +126,7 @@ static void largeRockFall()
 		e->dirX = 3;
 		e->dirY = -8;
 
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 
 	checkToMap(self);
@@ -138,6 +138,6 @@ static void smallRockFall()
 
 	if (self->flags & ON_GROUND || self->standingOn != NULL)
 	{
-		self->inUse = NOT_IN_USE;
+		self->inUse = FALSE;
 	}
 }

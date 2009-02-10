@@ -2,3 +2,5 @@ HEALTH 1
 GFX_FILE data/gfx/item/coal.dat
 ANIM_FILE data/anim/item/coal.dat
 TYPE KEY_ITEM
+REQUIRES Coal Bag
+OBJECTIVE_NAME Coal

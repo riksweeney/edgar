@@ -50,7 +50,7 @@ void draw()
 
 	sprintf(text, "%5d : %5d", getMapStartX() + cursor.x, getMapStartY() + cursor.y);
 
-	drawString(text, 0, 5, game.font, 1, 0);
+	drawString(text, 0, 5, game.font, 1, 0, 255, 255, 255);
 
 	/* Swap the buffers */
 

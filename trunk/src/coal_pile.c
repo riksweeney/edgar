@@ -5,13 +5,17 @@
 #include "entity.h"
 #include "random.h"
 #include "decoration.h"
+#include "inventory.h"
+#include "hud.h"
 #include "item.h"
+#include "trigger.h"
+#include "custom_actions.h"
 
 extern Entity *self;
-extern Entity player;
 
-static void wait(void);
-static void touch(Entity *);
+static void pileWait(void);
+static void pileTouch(Entity *);
+static Entity *addCoal(int, int);
 
 Entity *addCoalPile(int x, int y)
 {
@@ -34,16 +38,53 @@ Entity *addCoalPile(int x, int y)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
-	e->touch = &touch;
+	e->action = &pileWait;
+	e->touch = &pileTouch;
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
-	
+
+	addTrigger("Coal Bag", 10, UPDATE_OBJECTIVE, "Collect 10 pieces of Coal");
+	addTrigger("LandSlide Trigger", 1, ACTIVATE_ENTITY, "LANDSLIDE_TRIGGER");
+
 	return e;
 }
 
-static void wait()
+static Entity *addCoal(int x, int y)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add Coal\n");
+
+		exit(1);
+	}
+
+	loadProperties("item/coal", e);
+
+	e->x = x;
+	e->y = y;
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+
+	e->thinkTime = 600;
+	e->type = ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &generalItemAction;
+	e->touch = &addRequiredToInventory;
+	e->draw = &drawLoopingAnimationToMap;
+
+	setCustomAction(e, &invulnerableNoFlash, 60);
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
+static void pileWait()
 {
 	if (prand() % 90 == 0)
 	{
@@ -51,13 +92,21 @@ static void wait()
 	}
 }
 
-static void touch(Entity *other)
+static void pileTouch(Entity *other)
 {
-	if (other->parent != NULL && strcmpignorecase(other->name, self->requires) == 0)
+	Entity *e;
+
+	pushEntity(other);
+
+	if ((other->flags & ATTACKING) && strcmpignorecase(other->name, self->requires) == 0)
 	{
-		if (prand() % 5 == 0)
+		if (prand() % 10 == 0)
 		{
-			addTemporaryItem("item/coal", self->x + self->w / 2, self->y + self->h / 2, RIGHT, 3, ITEM_JUMP_HEIGHT);
+			e = addCoal(self->x + self->w / 2, self->y);
+
+			e->y -= e->h + 1;
+
+			e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
 		}
 	}
 }

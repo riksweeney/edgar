@@ -7,6 +7,7 @@
 #include "hud.h"
 #include "game.h"
 #include "font.h"
+#include "record.h"
 
 extern Game game;
 extern Entity player;
@@ -30,7 +31,7 @@ void draw()
 	/* Draw the Entities */
 
 	drawEntities(0);
-	
+
 	/* Draw the decorations */
 
 	drawDecorations();
@@ -63,7 +64,9 @@ void draw()
 		sprintf(text, "%3d : %3d", (int)player.x + player.w - 1, (int)player.y + player.h - 1);
 	}
 
-	drawString(text, 5, 5, game.font, 0, 0);
+	/*drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);*/
+	
+	takeScreenshot();
 
 	/* Swap the buffers */
 
