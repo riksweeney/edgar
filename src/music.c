@@ -27,6 +27,8 @@ void freeMusic()
 		stopMusic();
 
 		Mix_FreeMusic(game.music);
+
+		game.music = NULL;
 	}
 }
 

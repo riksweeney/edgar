@@ -8,6 +8,7 @@
 #include "game.h"
 #include "font.h"
 #include "record.h"
+#include "graphics.h"
 
 extern Game game;
 extern Entity player;
@@ -18,7 +19,7 @@ void draw()
 
 	/* Clear the screen */
 
-	SDL_FillRect(game.screen, NULL, 0);
+	clearScreen(0, 0, 0);
 
 	/* Center the map */
 
@@ -66,7 +67,7 @@ void draw()
 
 	/*drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);*/
 	
-	takeScreenshot();
+	/*takeScreenshot();*/
 
 	/* Swap the buffers */
 

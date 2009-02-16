@@ -10,6 +10,7 @@
 #include "target.h"
 #include "player.h"
 #include "music.h"
+#include "game.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -31,8 +32,6 @@ void loadMap(char *name)
 	int x, y;
 	char itemName[MAX_MESSAGE_LENGTH], line[MAX_LINE_LENGTH];
 	FILE *fp;
-
-	freeMap();
 
 	sprintf(line, "%sdata/maps/%s", INSTALL_PATH, name);
 
@@ -69,6 +68,35 @@ void loadMap(char *name)
 
 			strcpy(map.tilesetName, itemName);
 		}
+		
+		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			printf("Setting background speed to %s\n", itemName);
+
+			map.backgroundSpeed = atof(itemName);
+		}
+		
+		else if (strcmpignorecase(itemName, "WRAP_X") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.wrapX = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+		}
+		
+		else if (strcmpignorecase(itemName, "WRAP_Y") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.wrapY = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+		}
 
 		else if (strcmpignorecase(itemName, "AMBIENCE") == 0)
 		{
@@ -89,7 +117,7 @@ void loadMap(char *name)
 
 			x = sscanf(line, "%*s %s\n", itemName);
 
-			if (x != 0)
+			if (x > 0)
 			{
 				printf("Loading music from %s\n", itemName);
 
@@ -154,6 +182,8 @@ void loadMap(char *name)
 	/* Close the file afterwards */
 
 	fclose(fp);
+
+	setTransition(TRANSITION_IN, NULL);
 }
 
 void saveMap()
@@ -186,6 +216,9 @@ void saveMap()
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
+	fprintf(fp, "BACKGROUND_SPEED %0.1f\n", map.backgroundSpeed);
+	fprintf(fp, "WRAP_X %s\n", map.wrapX == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "WRAP_Y %s\n", map.wrapY == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
@@ -271,6 +304,63 @@ static void loadMapTiles(char *dir)
 void drawMap(int depth)
 {
 	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
+	
+	/* Draw the background */
+
+	if (depth == 0)
+	{
+		map.backgroundStartX = map.startX * map.backgroundSpeed;
+		map.backgroundStartY = map.startY * map.backgroundSpeed;
+		
+		if (map.backgroundStartX + SCREEN_WIDTH > map.background->w && map.wrapX == FALSE)
+		{
+			map.backgroundStartX = map.background->w - SCREEN_WIDTH;
+		}
+		
+		if (map.backgroundStartY + SCREEN_HEIGHT > map.background->h && map.wrapY == FALSE)
+		{
+			map.backgroundStartY = map.background->h - SCREEN_HEIGHT;
+		}
+		
+		if (map.wrapX == FALSE && map.wrapY == FALSE)
+		{
+			drawClippedImage(map.background, map.backgroundStartX, map.backgroundStartY, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		}
+		
+		else if (map.wrapX == TRUE && map.wrapY == FALSE)
+		{
+			x = map.backgroundStartX % map.background->w;
+			
+			drawClippedImage(map.background, x, map.backgroundStartY, 0, 0, map.background->w - x, SCREEN_HEIGHT);
+			
+			drawClippedImage(map.background, 0, map.backgroundStartY, map.background->w - x, 0, x, SCREEN_HEIGHT);
+		}
+		
+		else if (map.wrapX == FALSE && map.wrapY == TRUE)
+		{
+			y = map.backgroundStartY % map.background->h;
+			
+			drawClippedImage(map.background, map.backgroundStartX, y, 0, 0, SCREEN_WIDTH, map.background->h - y);
+			
+			drawClippedImage(map.background, map.backgroundStartX, 0, 0, map.background->h - y, SCREEN_WIDTH, y);
+		}
+		
+		else
+		{
+			x = map.backgroundStartX % map.background->w;
+			y = map.backgroundStartY % map.background->h;
+			
+			clearScreen(0, 0, 0);
+			
+			drawClippedImage(map.background, x, y, 0, 0, map.background->w - x, map.background->h - y);
+			
+			drawClippedImage(map.background, 0, y, map.background->w - x, 0, x, SCREEN_HEIGHT);
+			
+			drawClippedImage(map.background, x, 0, 0, map.background->h - y, SCREEN_WIDTH, y);
+			
+			drawClippedImage(map.background, 0, 0, map.background->w - x, map.background->h - y, x, y);
+		}
+	}
 
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
@@ -279,13 +369,6 @@ void drawMap(int depth)
 	mapY = map.startY / TILE_SIZE;
 	y1 = (map.startY % TILE_SIZE) * -1;
 	y2 = y1 + SCREEN_HEIGHT + (y1 == 0 ? 0 : TILE_SIZE);
-
-	/* Draw the background */
-
-	if (depth == 0)
-	{
-		drawImage(map.background, 0, 0);
-	}
 
 	/* Draw the map starting at the startX and startY */
 
@@ -415,6 +498,8 @@ void freeMap()
 	if (map.background != NULL)
 	{
 		SDL_FreeSurface(map.background);
+
+		map.background = NULL;
 	}
 
 	/* Free the Map tiles */
@@ -424,6 +509,8 @@ void freeMap()
 		if (mapImages[i] != NULL)
 		{
 			SDL_FreeSurface(mapImages[i]);
+
+			mapImages[i] = NULL;
 		}
 	}
 
@@ -434,8 +521,12 @@ void freeMap()
 		if (map.ambience[i] != NULL)
 		{
 			Mix_FreeChunk(map.ambience[i]);
+
+			map.ambience[i] = NULL;
 		}
 	}
+	
+	memset(&map, 0, sizeof(Map));
 }
 
 SDL_Surface *tileImage(int id)

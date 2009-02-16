@@ -53,6 +53,15 @@ void loadPlayer(int x, int y)
 
 	else
 	{
+		player.flags = 0;
+
+		playerWeapon.inUse = FALSE;
+		playerShield.inUse = FALSE;
+
+		loadInventoryItems();
+
+		setEntityAnimation(&player, STAND);
+
 		setPlayerLocation(x, y);
 	}
 }
@@ -272,6 +281,18 @@ void doPlayer()
 				if (input.grabbing == 1)
 				{
 					self->flags |= GRABBING;
+				}
+
+				else
+				{
+					self->flags &= ~GRABBING;
+
+					if (self->target != NULL)
+					{
+						self->target->flags &= ~HELPLESS;
+
+						self->target = NULL;
+					}
 				}
 
 				if (input.activate == 1)

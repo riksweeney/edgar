@@ -69,6 +69,8 @@ void freeSprites()
 		if (sprite[i] != NULL)
 		{
 			SDL_FreeSurface(sprite[i]);
+			
+			sprite[i] = NULL;
 		}
 	}
 

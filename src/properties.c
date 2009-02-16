@@ -27,9 +27,15 @@ static Type type[] = {
 					{AUTO_DOOR, "AUTO_DOOR"},
 					{WEAK_WALL, "WEAK_WALL"},
 					{SWITCH, "SWITCH"},
-					{LINE_DEF, "LINE_DEF"}
+					{LINE_DEF, "LINE_DEF"},
+					{LEVEL_EXIT, "LEVEL_EXIT"}
 					};
 static int length = sizeof(type) / sizeof(Type);
+
+void freeProperties()
+{
+	memset(properties, 0, sizeof(Properties) * MAX_PROPS_FILES);
+}
 
 void loadProperties(char *name, Entity *e)
 {
@@ -245,6 +251,11 @@ static void setFlags(Entity *e, char *flags)
 			e->flags |= NO_DRAW;
 		}
 
+		else if (strcmpignorecase(token, "STACKABLE") == 0)
+		{
+			e->flags |= STACKABLE;
+		}
+
 		else
 		{
 			printf("Ignoring flag value %s\n", token);
@@ -343,6 +354,11 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "TYPE") == 0)
 	{
 		e->type = getTypeByName(value);
+	}
+
+	else if (strcmpignorecase(name, "FACE") == 0)
+	{
+		e->face = strcmpignorecase(value, "RIGHT") == 0 ? RIGHT : LEFT;
 	}
 
 	else

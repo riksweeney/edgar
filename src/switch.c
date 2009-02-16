@@ -49,7 +49,7 @@ static void activate(int val)
 
 		if (removeInventoryItem(self->requires) == 1)
 		{
-			strcpy(self->requires, "");
+			self->requires[0] = '\0';
 		}
 
 		else

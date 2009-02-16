@@ -1,4 +1,4 @@
-void clearDecorations(void);
+void freeDecorations(void);
 Entity *getFreeDecoration(void);
 void doDecorations(void);
 void drawDecorations(void);

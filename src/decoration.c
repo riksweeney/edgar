@@ -11,7 +11,7 @@ static void move(void);
 static void wait(void);
 static void finish(void);
 
-void clearDecorations()
+void freeDecorations()
 {
 	/* Clear the list */
 

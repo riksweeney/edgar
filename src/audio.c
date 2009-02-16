@@ -190,6 +190,8 @@ void freeSounds()
 			Mix_FreeChunk(sound[i].effect);
 
 			sound[i].name[0] = '\0';
+			
+			sound[i].effect = NULL;
 		}
 	}
 

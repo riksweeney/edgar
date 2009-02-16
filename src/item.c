@@ -150,6 +150,8 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerShield.name, e->name) == 0)
 		{
+			playerShield.name[0] = '\0';
+
 			playerShield.inUse = FALSE;
 		}
 	}
@@ -158,6 +160,8 @@ void dropItem(Entity *e)
 	{
 		if (strcmpignorecase(playerWeapon.name, e->name) == 0)
 		{
+			playerWeapon.name[0] = '\0';
+
 			playerWeapon.inUse = FALSE;
 		}
 	}

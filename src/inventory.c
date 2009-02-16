@@ -5,9 +5,11 @@
 #include "item.h"
 #include "hud.h"
 #include "trigger.h"
+#include "properties.h"
 
 static Inventory inventory;
 extern Entity *self;
+extern Entity playerWeapon, playerShield;
 
 static void sortInventory(void);
 
@@ -41,11 +43,11 @@ int addToInventory(Entity *e)
 
 			addHudMessage(STANDARD_MESSAGE, "Picked up %s", inventory.item[i].objectiveName);
 
-			return 1;
+			return TRUE;
 		}
 	}
 
-	return 0;
+	return FALSE;
 }
 
 void selectNextInventoryItem(int index)
@@ -107,7 +109,9 @@ Entity *getInventoryItem(char *name)
 
 int removeInventoryItem(char *name)
 {
-	int i;
+	int i, found;
+
+	found = FALSE;
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
@@ -115,11 +119,18 @@ int removeInventoryItem(char *name)
 		{
 			inventory.item[i].inUse = FALSE;
 
-			return 1;
+			found = TRUE;
+
+			break;
 		}
 	}
 
-	return 0;
+	if (found == TRUE)
+	{
+		sortInventory();
+	}
+
+	return found;
 }
 
 void dropInventoryItem()
@@ -233,7 +244,7 @@ void addRequiredToInventory(Entity *other)
 			self->inUse = FALSE;
 
 			addHudMessage(STANDARD_MESSAGE, "Picked up %s", self->objectiveName);
-			
+
 			fireTrigger(item->objectiveName);
 		}
 
@@ -242,4 +253,47 @@ void addRequiredToInventory(Entity *other)
 			addHudMessage(BAD_MESSAGE, "%s is required to carry this item", self->requires);
 		}
 	}
+}
+
+void loadInventoryItems()
+{
+	int i, j;
+	Entity e;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == TRUE)
+		{
+			printf("Reloading properties for %s\n", inventory.item[i].name);
+
+			loadProperties(inventory.item[i].name, &e);
+
+			printf("Realigning animations for %s\n", inventory.item[i].name);
+
+			for (j=0;j<MAX_ANIMATION_TYPES;j++)
+			{
+				inventory.item[i].animation[j] = e.animation[j];
+			}
+
+			printf("Resetting stand animation for %s\n", inventory.item[i].name);
+
+			setEntityAnimation(&inventory.item[i], STAND);
+
+			if (inventory.item[i].type == WEAPON && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
+			{
+				printf("Resetting player weapon\n");
+
+				autoSetPlayerWeapon(&inventory.item[i]);
+			}
+
+			else if (inventory.item[i].type == SHIELD && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
+			{
+				printf("Resetting player shield\n");
+
+				autoSetPlayerShield(&inventory.item[i]);
+			}
+		}
+	}
+
+	printf("Done reloading inventory\n");
 }

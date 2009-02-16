@@ -10,7 +10,7 @@
 
 extern Entity *self, entity[MAX_ENTITIES];
 
-void clearEntities()
+void freeEntities()
 {
 	/* Clear the list */
 
@@ -86,21 +86,6 @@ void doEntities()
 
 			if (!(self->flags & HELPLESS))
 			{
-				if (self->standingOn != NULL)
-				{
-					self->dirX += self->standingOn->dirX;
-
-					if (self->standingOn->dirY > 0)
-					{
-						self->dirY = self->standingOn->dirY;
-					}
-
-					else
-					{
-						self->dirY = 0;
-					}
-				}
-
 				self->action();
 
 				self->standingOn = NULL;
@@ -195,7 +180,7 @@ void doNothing(void)
 
 	if (!(self->flags & HELPLESS))
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
 
 	checkToMap(self);
@@ -259,14 +244,14 @@ void entityTakeDamage(Entity *other, int damage)
 			{
 				self->pain();
 			}
-			
+
 			self->dirX = other->face == RIGHT ? 12 : -12;
 		}
 
 		else
 		{
 			self->damage = 0;
-			
+
 			self->die();
 		}
 	}
@@ -275,7 +260,7 @@ void entityTakeDamage(Entity *other, int damage)
 void entityTouch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (self->damage <= 0)
 	{
 		return;
@@ -314,6 +299,45 @@ void pushEntity(Entity *other)
 	other->y -= other->dirY;
 
 	pushable = (self->flags & PUSHABLE);
+
+	/* Test the vertical movement */
+
+	if (other->dirY > 0)
+	{
+		/* Trying to move down */
+
+		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		{
+			/* Place the entity as close as possible */
+
+			other->y = self->y;
+			other->y -= other->h;
+
+			other->standingOn = self;
+			other->dirY = 0;
+			other->flags |= ON_GROUND;
+
+			if (self->activate != NULL)
+			{
+				self->activate(1);
+			}
+		}
+	}
+
+	else if (other->dirY < 0)
+	{
+		/* Trying to move up */
+
+		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		{
+			/* Place the entity as close as possible */
+
+			other->y = self->y;
+			other->y += self->h;
+
+			other->dirY = 0;
+		}
+	}
 
 	/* Test the horizontal movement */
 
@@ -407,43 +431,6 @@ void pushEntity(Entity *other)
 		}
 	}
 
-	if (other->dirY > 0)
-	{
-		/* Trying to move down */
-
-		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
-		{
-			/* Place the entity as close as possible */
-
-			other->y = self->y;
-			other->y -= other->h;
-
-			other->standingOn = self;
-			other->dirY = 0;
-			other->flags |= ON_GROUND;
-
-			if (self->activate != NULL)
-			{
-				self->activate(1);
-			}
-		}
-	}
-
-	else if (other->dirY < 0)
-	{
-		/* Trying to move up */
-
-		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
-		{
-			/* Place the entity as close as possible */
-
-			other->y = self->y;
-			other->y += self->h;
-
-			other->dirY = 0;
-		}
-	}
-
 	other->x += other->dirX;
 	other->y += other->dirY;
 }
@@ -468,11 +455,11 @@ int addEntity(Entity e, int x, int y)
 
 			entity[i].y = y;
 
-			return 1;
+			return TRUE;
 		}
 	}
 
-	return 0;
+	return FALSE;
 }
 
 Entity *getEntityByObjectiveName(char *name)
@@ -517,7 +504,7 @@ void interactWithEntity(int x, int y, int w, int h)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && (entity[i].type == SWITCH))
+		if (entity[i].inUse == TRUE && entity[i].activate != NULL)
 		{
 			if (collision(x, y, w, h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 			{
@@ -576,6 +563,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
+			fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
 			fprintf(fp, "}\n\n");
 		}
 	}

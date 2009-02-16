@@ -96,6 +96,8 @@ void addHudMessage(int type, char *fmt, ...)
 	{
 		if (message[i].inUse == TRUE && strcmpignorecase(text, message[i].text) == 0)
 		{
+			message[i].thinkTime = 180;
+
 			return;
 		}
 
@@ -116,4 +118,9 @@ void addHudMessage(int type, char *fmt, ...)
 	}
 
 	printf("Failed to set message to %s\n", text);
+}
+
+void freeHudMessages()
+{
+	memset(message, 0, sizeof(Message) * MAX_HUD_MESSAGES);
 }
