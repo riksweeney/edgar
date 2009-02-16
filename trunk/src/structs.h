@@ -49,7 +49,9 @@ typedef struct Map
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
-	int hasAmbience;
+	int hasAmbience, backgroundStartX, backgroundStartY;
+	int wrapX, wrapY;
+	float backgroundSpeed;
 	Entity *targetEntity;
 	SDL_Surface *background;
 	Mix_Chunk *ambience[MAX_AMBIENT_SOUNDS];
@@ -63,15 +65,17 @@ typedef struct Sound
 
 typedef struct Game
 {
-	char sword[MAX_VALUE_LENGTH], shield[MAX_VALUE_LENGTH];
 	int thinkTime, weatherType, weatherThinkTime;
 	int audio, audioVolume;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
-	int gameType;
+	int gameType, transitionX, transitionY;
+	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
 	void (*action)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);
-	SDL_Surface *screen;
+	void (*transition)(void);
+	void (*transitionCallback)(void);
+	SDL_Surface *screen, *tempSurface;
 	TTF_Font *font;
 	Mix_Music *music;
 } Game;
@@ -91,7 +95,7 @@ typedef struct Message
 
 typedef struct Inventory
 {
-	int selectedIndex;
+	int selectedIndex, quantity[MAX_INVENTORY_ITEMS];
 	Entity item[MAX_INVENTORY_ITEMS];
 } Inventory;
 

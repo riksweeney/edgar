@@ -57,6 +57,8 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			fscanf(fp, "%s", frameName);
 
 			animationID++;
+			
+			printf("Creating animation at index %d\n", animationID);
 
 			if (animationID == MAX_ANIMATIONS)
 			{
@@ -204,21 +206,29 @@ static void freeAnimation(Animation *anim)
 	if (anim->frameTimer != NULL)
 	{
 		free(anim->frameTimer);
+		
+		anim->frameTimer = NULL;
 	}
 
 	if (anim->frameID != NULL)
 	{
 		free(anim->frameID);
+		
+		anim->frameID = NULL;
 	}
 
 	if (anim->offsetX != NULL)
 	{
 		free(anim->offsetX);
+		
+		anim->offsetX = NULL;
 	}
 
 	if (anim->offsetY != NULL)
 	{
 		free(anim->offsetY);
+		
+		anim->offsetY = NULL;
 	}
 }
 

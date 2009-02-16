@@ -1,5 +1,5 @@
 void standardDie(void);
-void clearEntities(void);
+void freeEntities(void);
 Entity *getFreeEntity(void);
 void doEntities(void);
 void drawEntities(int);

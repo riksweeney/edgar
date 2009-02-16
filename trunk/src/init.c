@@ -69,17 +69,15 @@ void init(char *title)
 
 void cleanup()
 {
+	printf("Exiting\n");
+
 	/* Stop the replay data */
 
 	flushBuffer(game.gameType);
 
 	/* Free the Resources */
 
-	freeRequiredResources();
-
-	/* Free Game data */
-
-	freeGame();
+	freeAllResources();
 
 	/* Close SDL_TTF */
 

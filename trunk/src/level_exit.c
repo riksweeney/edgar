@@ -1,0 +1,91 @@
+#include "headers.h"
+
+#include "entity.h"
+#include "animation.h"
+#include "hud.h"
+#include "properties.h"
+#include "player.h"
+#include "game.h"
+#include "random.h"
+
+extern Entity *self;
+
+static void wait(void);
+static void touch(Entity *);
+static void activate(int);
+static void init(void);
+
+Entity *addLevelExit(char *name, int x, int y)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add the Level Exit\n");
+
+		exit(1);
+	}
+
+	loadProperties("common/level_exit", e);
+
+	e->x = x;
+	e->y = y;
+
+	e->endX = x;
+
+	strcpy(e->name, name);
+
+	e->action = &init;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &touch;
+	e->activate = &activate;
+	e->thinkTime = 60;
+
+	e->type = LEVEL_EXIT;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
+static void init()
+{
+	self->dirX = (self->face == RIGHT ? 10 : -10);
+	
+	self->action = &wait;
+	
+	self->action();
+}
+
+static void wait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 60;
+
+		self->x -= self->dirX * 2;
+	}
+
+	else if (self->thinkTime % 20 == 0)
+	{
+		self->x += self->dirX;
+	}
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		addHudMessage(GOOD_MESSAGE, "Press Action to go to the %s", self->requires);
+	}
+}
+
+static void activate(int val)
+{
+	setNextLevel(self->name, self->objectiveName);
+	
+	setTransition(TRANSITION_OUT, &goToNextMap);
+}

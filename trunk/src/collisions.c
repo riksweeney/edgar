@@ -64,7 +64,7 @@ void checkEntityToEntity(Entity *e)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY)
-			|| entity[i].touch == NULL)
+			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF)
 		{
 			continue;
 		}
@@ -383,7 +383,7 @@ int isAtEdge(Entity *e)
 
 	if (!(e->flags & ON_GROUND) || (mapTileAt(x, y + 1) != BLANK_TILE && mapTileAt(x, y + 1) < FOREGROUND_TILE_START))
 	{
-		return 0;
+		return FALSE;
 	}
 
 	/* There might still be Entities that can be walked on */
@@ -396,15 +396,15 @@ int isAtEdge(Entity *e)
 			{
 				if (collision(e->x + (e->face == LEFT ? -5 : 5), e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 0)
 				{
-					return 0;
+					return FALSE;
 				}
 
-				return 1;
+				return TRUE;
 			}
 		}
 	}
 
-	return 1;
+	return TRUE;
 }
 
 int isValidOnMap(Entity *e)
@@ -424,7 +424,7 @@ int isValidOnMap(Entity *e)
 		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
 			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
 		{
-			return 0;
+			return FALSE;
 		}
 
 		if (i == e->w)
@@ -453,7 +453,7 @@ int isValidOnMap(Entity *e)
 		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
 			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
 		{
-			return 0;
+			return FALSE;
 		}
 
 		if (i == e->h)
@@ -469,7 +469,7 @@ int isValidOnMap(Entity *e)
 		}
 	}
 
-	return 1;
+	return TRUE;
 }
 
 /* Very standard 2D collision detection routine */

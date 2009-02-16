@@ -44,7 +44,7 @@ void draw()
 
 	/* Draw the status panel */
 
-	drawStatusPanel();
+	/*drawStatusPanel();*/
 
 	/* Draw the screen coordinates */
 

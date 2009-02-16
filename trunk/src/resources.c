@@ -22,6 +22,9 @@ extern Game game;
 #include "switch.h"
 #include "line_def.h"
 #include "music.h"
+#include "entity.h"
+#include "level_exit.h"
+#include "decoration.h"
 
 void loadRequiredResources()
 {
@@ -34,8 +37,16 @@ void loadRequiredResources()
 	game.font = loadFont("font/blackWolf.ttf", 16);
 }
 
-void freeRequiredResources()
+void freeLevelResources()
 {
+	/* Free the entities */
+
+	freeEntities();
+
+	/* Free the decorations */
+
+	freeDecorations();
+
 	/* Free the animations */
 
 	freeAnimations();
@@ -43,9 +54,9 @@ void freeRequiredResources()
 	/* Free the sounds */
 
 	freeSounds();
-	
+
 	/* Free music */
-	
+
 	freeMusic();
 
 	/* Free the map data */
@@ -56,9 +67,26 @@ void freeRequiredResources()
 
 	freeSprites();
 
+	/* Free the properties */
+
+	freeProperties();
+
+	/* Free the HUD messages */
+
+	freeHudMessages();
+}
+
+void freeAllResources()
+{
+	freeLevelResources();
+
 	/* Free the hud */
 
 	freeHud();
+
+	/* Free the font */
+
+	closeFont(game.font);
 }
 
 void loadResources(FILE *fp)
@@ -170,6 +198,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "LINE_DEF") == 0)
 			{
 				e = addLineDef(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "LEVEL_EXIT") == 0)
+			{
+				e = addLevelExit(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else
