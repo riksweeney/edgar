@@ -22,7 +22,7 @@ extern Entity player;
 extern Target target[MAX_TARGETS];
 
 static void loadMapTiles(char *);
-static void loadMapBackground(char *name);
+static void loadMapBackground(char *name, int);
 static void loadAmbience(char *);
 
 static char *extensions[] = {"ogg", "mp3", "wav", NULL};
@@ -68,7 +68,7 @@ void loadMap(char *name)
 
 			strcpy(map.tilesetName, itemName);
 		}
-		
+
 		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED") == 0)
 		{
 			/* Load the map tiles */
@@ -77,25 +77,54 @@ void loadMap(char *name)
 
 			printf("Setting background speed to %s\n", itemName);
 
-			map.backgroundSpeed = atof(itemName);
+			map.backgroundSpeed[0] = atof(itemName);
 		}
-		
+
 		else if (strcmpignorecase(itemName, "WRAP_X") == 0)
 		{
 			/* Load the map tiles */
 
 			sscanf(line, "%*s %s\n", itemName);
 
-			map.wrapX = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+			map.wrapX[0] = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
 		}
-		
+
 		else if (strcmpignorecase(itemName, "WRAP_Y") == 0)
 		{
 			/* Load the map tiles */
 
 			sscanf(line, "%*s %s\n", itemName);
 
-			map.wrapY = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+			map.wrapY[0] = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+		}
+
+		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED_2") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			printf("Setting background speed 2 to %s\n", itemName);
+
+			map.backgroundSpeed[1] = atof(itemName);
+		}
+
+		else if (strcmpignorecase(itemName, "WRAP_X_2") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.wrapX[1] = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+		}
+
+		else if (strcmpignorecase(itemName, "WRAP_Y_2") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.wrapY[1] = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
 		}
 
 		else if (strcmpignorecase(itemName, "AMBIENCE") == 0)
@@ -216,9 +245,12 @@ void saveMap()
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
-	fprintf(fp, "BACKGROUND_SPEED %0.1f\n", map.backgroundSpeed);
-	fprintf(fp, "WRAP_X %s\n", map.wrapX == TRUE ? "TRUE" : "FALSE");
-	fprintf(fp, "WRAP_Y %s\n", map.wrapY == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "BACKGROUND_SPEED %0.1f\n", map.backgroundSpeed[0]);
+	fprintf(fp, "WRAP_X %s\n", map.wrapX[0] == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "WRAP_Y %s\n", map.wrapY[0] == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "BACKGROUND_SPEED_2 %0.1f\n", map.backgroundSpeed[1]);
+	fprintf(fp, "WRAP_X_2 %s\n", map.wrapX[1] == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "WRAP_Y_2 %s\n", map.wrapY[1] == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
@@ -298,67 +330,126 @@ static void loadMapTiles(char *dir)
 
 	sprintf(filename, "gfx/map/%s/background.png", dir);
 
-	loadMapBackground(filename);
+	loadMapBackground(filename, 0);
+
+	sprintf(filename, "gfx/map/%s/background1.png", dir);
+
+	loadMapBackground(filename, 1);
 }
 
 void drawMap(int depth)
 {
 	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
-	
+
 	/* Draw the background */
 
 	if (depth == 0)
 	{
-		map.backgroundStartX = map.startX * map.backgroundSpeed;
-		map.backgroundStartY = map.startY * map.backgroundSpeed;
-		
-		if (map.backgroundStartX + SCREEN_WIDTH > map.background->w && map.wrapX == FALSE)
+		map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
+		map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
+
+		if (map.backgroundStartX[0] + SCREEN_WIDTH > map.background[0]->w && map.wrapX[0] == FALSE)
 		{
-			map.backgroundStartX = map.background->w - SCREEN_WIDTH;
+			map.backgroundStartX[0] = map.background[0]->w - SCREEN_WIDTH;
 		}
-		
-		if (map.backgroundStartY + SCREEN_HEIGHT > map.background->h && map.wrapY == FALSE)
+
+		if (map.backgroundStartY[0] + SCREEN_HEIGHT > map.background[0]->h && map.wrapY[0] == FALSE)
 		{
-			map.backgroundStartY = map.background->h - SCREEN_HEIGHT;
+			map.backgroundStartY[0] = map.background[0]->h - SCREEN_HEIGHT;
 		}
-		
+
 		if (map.wrapX == FALSE && map.wrapY == FALSE)
 		{
-			drawClippedImage(map.background, map.backgroundStartX, map.backgroundStartY, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+			drawClippedImage(map.background[0], map.backgroundStartX[0], map.backgroundStartY[0], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		}
-		
-		else if (map.wrapX == TRUE && map.wrapY == FALSE)
+
+		else if (map.wrapX[0] == TRUE && map.wrapY[0] == FALSE)
 		{
-			x = map.backgroundStartX % map.background->w;
-			
-			drawClippedImage(map.background, x, map.backgroundStartY, 0, 0, map.background->w - x, SCREEN_HEIGHT);
-			
-			drawClippedImage(map.background, 0, map.backgroundStartY, map.background->w - x, 0, x, SCREEN_HEIGHT);
+			x = map.backgroundStartX[0] % map.background[0]->w;
+
+			drawClippedImage(map.background[0], x, map.backgroundStartY[0], 0, 0, map.background[0]->w - x, SCREEN_HEIGHT);
+
+			drawClippedImage(map.background[0], 0, map.backgroundStartY[0], map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
 		}
-		
-		else if (map.wrapX == FALSE && map.wrapY == TRUE)
+
+		else if (map.wrapX[0] == FALSE && map.wrapY[0] == TRUE)
 		{
-			y = map.backgroundStartY % map.background->h;
-			
-			drawClippedImage(map.background, map.backgroundStartX, y, 0, 0, SCREEN_WIDTH, map.background->h - y);
-			
-			drawClippedImage(map.background, map.backgroundStartX, 0, 0, map.background->h - y, SCREEN_WIDTH, y);
+			y = map.backgroundStartY[0] % map.background[0]->h;
+
+			drawClippedImage(map.background[0], map.backgroundStartX[0], y, 0, 0, SCREEN_WIDTH, map.background[0]->h - y);
+
+			drawClippedImage(map.background[0], map.backgroundStartX[0], 0, 0, map.background[0]->h - y, SCREEN_WIDTH, y);
 		}
-		
+
 		else
 		{
-			x = map.backgroundStartX % map.background->w;
-			y = map.backgroundStartY % map.background->h;
-			
+			x = map.backgroundStartX[0] % map.background[0]->w;
+			y = map.backgroundStartY[0] % map.background[0]->h;
+
 			clearScreen(0, 0, 0);
-			
-			drawClippedImage(map.background, x, y, 0, 0, map.background->w - x, map.background->h - y);
-			
-			drawClippedImage(map.background, 0, y, map.background->w - x, 0, x, SCREEN_HEIGHT);
-			
-			drawClippedImage(map.background, x, 0, 0, map.background->h - y, SCREEN_WIDTH, y);
-			
-			drawClippedImage(map.background, 0, 0, map.background->w - x, map.background->h - y, x, y);
+
+			drawClippedImage(map.background[0], x, y, 0, 0, map.background[0]->w - x, map.background[0]->h - y);
+
+			drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
+
+			drawClippedImage(map.background[0], x, 0, 0, map.background[0]->h - y, SCREEN_WIDTH, y);
+
+			drawClippedImage(map.background[0], 0, 0, map.background[0]->w - x, map.background[0]->h - y, x, y);
+		}
+
+		if (map.background[1] != NULL)
+		{
+			map.backgroundStartX[1] = map.startX * map.backgroundSpeed[1];
+			map.backgroundStartY[1] = map.startY * map.backgroundSpeed[1];
+
+			if (map.backgroundStartX[1] + SCREEN_WIDTH > map.background[1]->w && map.wrapX[1] == FALSE)
+			{
+				map.backgroundStartX[1] = map.background[1]->w - SCREEN_WIDTH;
+			}
+
+			if (map.backgroundStartY[1] + SCREEN_HEIGHT > map.background[1]->h && map.wrapY[1] == FALSE)
+			{
+				map.backgroundStartY[1] = map.background[1]->h - SCREEN_HEIGHT;
+			}
+
+			if (map.wrapX[1] == FALSE && map.wrapY[1] == FALSE)
+			{
+				drawClippedImage(map.background[1], map.backgroundStartX[1], map.backgroundStartY[1], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+			}
+
+			else if (map.wrapX[1] == TRUE && map.wrapY[1] == FALSE)
+			{
+				x = map.backgroundStartX[1] % map.background[1]->w;
+
+				drawClippedImage(map.background[1], x, map.backgroundStartY[1], 0, 0, map.background[1]->w - x, SCREEN_HEIGHT);
+
+				drawClippedImage(map.background[1], 0, map.backgroundStartY[1], map.background[1]->w - x, 0, x, SCREEN_HEIGHT);
+			}
+
+			else if (map.wrapX[1] == FALSE && map.wrapY[1] == TRUE)
+			{
+				y = map.backgroundStartY[1] % map.background[1]->h;
+
+				drawClippedImage(map.background[1], map.backgroundStartX[1], y, 0, 0, SCREEN_WIDTH, map.background[1]->h - y);
+
+				drawClippedImage(map.background[1], map.backgroundStartX[1], 0, 0, map.background[1]->h - y, SCREEN_WIDTH, y);
+			}
+
+			else
+			{
+				x = map.backgroundStartX[1] % map.background[1]->w;
+				y = map.backgroundStartY[1] % map.background[1]->h;
+
+				clearScreen(0, 0, 0);
+
+				drawClippedImage(map.background[1], x, y, 0, 0, map.background[1]->w - x, map.background[1]->h - y);
+
+				drawClippedImage(map.background[1], 0, y, map.background[1]->w - x, 0, x, SCREEN_HEIGHT);
+
+				drawClippedImage(map.background[1], x, 0, 0, map.background[1]->h - y, SCREEN_WIDTH, y);
+
+				drawClippedImage(map.background[1], 0, 0, map.background[1]->w - x, map.background[1]->h - y, x, y);
+			}
 		}
 	}
 
@@ -445,17 +536,29 @@ void centerEntityOnMap()
 	}
 }
 
-static void loadMapBackground(char *name)
+static void loadMapBackground(char *name, int index)
 {
+	FILE *fp;
+
 	/* Load the background image */
 
-	map.background = loadImage(name);
-
-	/* If we get back a NULL image, just exit */
-
-	if (map.background == NULL)
+	if (index == 0)
 	{
-		exit(1);
+		map.background[index] = loadImage(name);
+	}
+
+	else
+	{
+		fp = fopen(name, "rb");
+
+		if (fp == NULL)
+		{
+			return;
+		}
+
+		fclose(fp);
+
+		map.background[index] = loadImage(name);
 	}
 }
 
@@ -495,11 +598,18 @@ void freeMap()
 {
 	int i;
 
-	if (map.background != NULL)
+	if (map.background[0] != NULL)
 	{
-		SDL_FreeSurface(map.background);
+		SDL_FreeSurface(map.background[0]);
 
-		map.background = NULL;
+		map.background[0] = NULL;
+	}
+
+	if (map.background[1] != NULL)
+	{
+		SDL_FreeSurface(map.background[1]);
+
+		map.background[1] = NULL;
 	}
 
 	/* Free the Map tiles */
@@ -525,7 +635,7 @@ void freeMap()
 			map.ambience[i] = NULL;
 		}
 	}
-	
+
 	memset(&map, 0, sizeof(Map));
 }
 
@@ -577,11 +687,31 @@ int getMapStartY()
 void setMapStartX(int startX)
 {
 	map.startX = startX;
+
+	if (map.startX < 0)
+	{
+		map.startX = 0;
+	}
+
+	else if (map.startX + SCREEN_WIDTH >= map.maxX)
+	{
+		map.startX = map.maxX - SCREEN_WIDTH;
+	}
 }
 
 void setMapStartY(int startY)
 {
 	map.startY = startY;
+
+	if (map.startY < 0)
+	{
+		map.startY = 0;
+	}
+
+	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
+	{
+		map.startY = map.maxY - SCREEN_HEIGHT;
+	}
 }
 
 void mapStartXNext(int val)

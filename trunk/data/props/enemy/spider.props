@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/enemy/spider.dat
+ANIM_FILE data/anim/enemy/spider.dat
+TYPE ENEMY
+FLAGS FLY
+DAMAGE 1

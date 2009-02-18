@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/common/tree_stump.dat
+ANIM_FILE data/anim/common/tree_stump.dat
+TYPE ITEM
+FLAGS OBSTACLE

@@ -210,7 +210,13 @@ void loadProperties(char *name, Entity *e)
 
 static void setFlags(Entity *e, char *flags)
 {
-	char *token = strtok(flags, " |,");
+	char *token, *temp;
+	
+	temp = (char *)malloc(strlen(flags) + 1);
+	
+	strcpy(temp, flags);
+	
+	token = strtok(temp, " |,");
 
 	e->flags = 0;
 
@@ -255,6 +261,11 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= STACKABLE;
 		}
+		
+		else if (strcmpignorecase(token, "OBSTACLE") == 0)
+		{
+			e->flags |= OBSTACLE;
+		}
 
 		else
 		{
@@ -263,6 +274,8 @@ static void setFlags(Entity *e, char *flags)
 
 		token = strtok(NULL, " |,");
 	}
+	
+	free(temp);
 }
 
 void setProperty(Entity *e, char *name, char *value)

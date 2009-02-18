@@ -299,6 +299,11 @@ void pushEntity(Entity *other)
 	other->y -= other->dirY;
 
 	pushable = (self->flags & PUSHABLE);
+	
+	if (self->flags & OBSTACLE)
+	{
+		pushable = 0;
+	}
 
 	/* Test the vertical movement */
 

@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
-		else if (strcmpignorecase("-replay", argv[i]) == 0)
+		else if (strcmpignorecase("-playback", argv[i]) == 0)
 		{
 			setReplayData(argv[i + 1]);
 

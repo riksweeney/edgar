@@ -160,7 +160,7 @@ void checkToMap(Entity *e)
 
 				}
 
-				else if ((topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < FOREGROUND_TILE_START))
+				else if ((topRight != BLANK_TILE && topRight < BACKGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < BACKGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -207,7 +207,7 @@ void checkToMap(Entity *e)
 
 				}
 
-				else if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (bottomLeft != BLANK_TILE && bottomLeft < FOREGROUND_TILE_START))
+				else if ((topLeft != BLANK_TILE && topLeft < BACKGROUND_TILE_START) || (bottomLeft != BLANK_TILE && bottomLeft < BACKGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -293,7 +293,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if ((bottomLeft != BLANK_TILE && bottomLeft < FOREGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < FOREGROUND_TILE_START))
+				else if ((bottomLeft != BLANK_TILE && bottomLeft < BACKGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < BACKGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -316,7 +316,7 @@ void checkToMap(Entity *e)
 
 				}
 
-				else if ((topLeft != BLANK_TILE && topLeft < FOREGROUND_TILE_START) || (topRight != BLANK_TILE && topRight < FOREGROUND_TILE_START))
+				else if ((topLeft != BLANK_TILE && topLeft < BACKGROUND_TILE_START) || (topRight != BLANK_TILE && topRight < BACKGROUND_TILE_START))
 				{
 					/* Place the player as close to the solid tile as possible */
 
@@ -381,7 +381,7 @@ int isAtEdge(Entity *e)
 
 	/* Return immediately if the tile isn't blank */
 
-	if (!(e->flags & ON_GROUND) || (mapTileAt(x, y + 1) != BLANK_TILE && mapTileAt(x, y + 1) < FOREGROUND_TILE_START))
+	if (!(e->flags & ON_GROUND) || (mapTileAt(x, y + 1) != BLANK_TILE && mapTileAt(x, y + 1) < BACKGROUND_TILE_START))
 	{
 		return FALSE;
 	}
@@ -421,8 +421,10 @@ int isValidOnMap(Entity *e)
 		y1 = (e->y) / TILE_SIZE;
 		y2 = (e->y + e->h - 1) / TILE_SIZE;
 
-		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
-			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
+		if ((mapTileAt(x1, y1) < BACKGROUND_TILE_START && mapTileAt(x1, y1) > BLANK_TILE) ||
+			(mapTileAt(x2, y1) < BACKGROUND_TILE_START && mapTileAt(x2, y1) > BLANK_TILE) ||
+			(mapTileAt(x1, y2) < BACKGROUND_TILE_START && mapTileAt(x1, y2) > BLANK_TILE) ||
+			(mapTileAt(x2, y2) < BACKGROUND_TILE_START && mapTileAt(x2, y2) > BLANK_TILE))
 		{
 			return FALSE;
 		}
@@ -450,8 +452,10 @@ int isValidOnMap(Entity *e)
 		y1 = (e->y) / TILE_SIZE;
 		y2 = (e->y + i - 1) / TILE_SIZE;
 
-		if (mapTileAt(x1, y1) != BLANK_TILE || mapTileAt(x2, y1) != BLANK_TILE ||
-			mapTileAt(x1, y2) != BLANK_TILE || mapTileAt(x2, y2) != BLANK_TILE)
+		if ((mapTileAt(x1, y1) < BACKGROUND_TILE_START && mapTileAt(x1, y1) > BLANK_TILE) ||
+			(mapTileAt(x2, y1) < BACKGROUND_TILE_START && mapTileAt(x2, y1) > BLANK_TILE) ||
+			(mapTileAt(x1, y2) < BACKGROUND_TILE_START && mapTileAt(x1, y2) > BLANK_TILE) ||
+			(mapTileAt(x2, y2) < BACKGROUND_TILE_START && mapTileAt(x2, y2) > BLANK_TILE))
 		{
 			return FALSE;
 		}

@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/common/log.dat
+ANIM_FILE data/anim/common/log.dat
+TYPE ITEM
+FLAGS PUSHABLE
