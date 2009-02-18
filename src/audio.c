@@ -79,7 +79,7 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 	{
 		for (i=channelMin;i<=channelMax;i++)
 		{
-			if (Mix_Playing(i) == 0)
+			if (Mix_Playing(i) == FALSE)
 			{
 				channel = i;
 
@@ -190,7 +190,7 @@ void freeSounds()
 			Mix_FreeChunk(sound[i].effect);
 
 			sound[i].name[0] = '\0';
-			
+
 			sound[i].effect = NULL;
 		}
 	}

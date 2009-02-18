@@ -31,75 +31,75 @@ void getInput(int gameType)
 					break;
 
 					case SDLK_LEFT:
-						input.left = 1;
+						input.left = TRUE;
 					break;
 
 					case SDLK_RIGHT:
-						input.right = 1;
+						input.right = TRUE;
 					break;
 
 					case SDLK_UP:
-						input.up = 1;
+						input.up = TRUE;
 					break;
 
 					case SDLK_DOWN:
-						input.down = 1;
+						input.down = TRUE;
 					break;
 
 					case SDLK_SPACE:
-						input.jump = 1;
-						input.add = 1;
+						input.jump = TRUE;
+						input.add = TRUE;
 					break;
 
 					case SDLK_PERIOD:
 					case SDLK_EQUALS:
-						input.next = 1;
+						input.next = TRUE;
 					break;
 
 					case SDLK_COMMA:
 					case SDLK_MINUS:
-						input.previous = 1;
+						input.previous = TRUE;
 					break;
 
 					case SDLK_s:
-						input.save = 1;
+						input.save = TRUE;
 					break;
 
 					case SDLK_l:
-						input.load = 1;
+						input.load = TRUE;
 					break;
 
 					case SDLK_e:
-						input.toggle = 1;
+						input.toggle = TRUE;
 					break;
 
 					case SDLK_d:
-						input.drop = 1;
+						input.drop = TRUE;
 					break;
 
 					case SDLK_a:
-						input.activate = 1;
+						input.activate = TRUE;
 					break;
-					
+
 					case SDLK_x:
-						input.cut = 1;
+						input.cut = TRUE;
 					break;
 
 					case SDLK_RETURN:
-						input.attack = 1;
+						input.attack = TRUE;
 					break;
 
 					case SDLK_f:
-						input.fly = 1;
+						input.fly = TRUE;
 					break;
 
 					case SDLK_g:
-						input.snap = 1;
+						input.snap = TRUE;
 					break;
-					
+
 					case SDLK_c:
-						input.interact = 1;
-						input.grabbing = 1;
+						input.interact = TRUE;
+						input.grabbing = TRUE;
 					break;
 
 					default:
@@ -111,37 +111,37 @@ void getInput(int gameType)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_LEFT:
-						input.left = 0;
+						input.left = FALSE;
 					break;
 
 					case SDLK_RIGHT:
-						input.right = 0;
+						input.right = FALSE;
 					break;
 
 					case SDLK_UP:
-						input.up = 0;
+						input.up = FALSE;
 					break;
 
 					case SDLK_DOWN:
-						input.down = 0;
+						input.down = FALSE;
 					break;
 
 					case SDLK_SPACE:
-						input.add = 0;
+						input.add = FALSE;
 					break;
 
 					case SDLK_PERIOD:
 					case SDLK_EQUALS:
-						input.next = 0;
+						input.next = FALSE;
 					break;
 
 					case SDLK_COMMA:
 					case SDLK_MINUS:
-						input.previous = 0;
+						input.previous = FALSE;
 					break;
-					
+
 					case SDLK_c:
-						input.grabbing = 0;
+						input.grabbing = FALSE;
 					break;
 
 					default:
@@ -153,11 +153,11 @@ void getInput(int gameType)
 				switch(event.button.button)
 				{
 					case SDL_BUTTON_LEFT:
-						input.add = 1;
+						input.add = TRUE;
 					break;
 
 					case SDL_BUTTON_RIGHT:
-						input.remove = 1;
+						input.remove = TRUE;
 					break;
 
 					default:
@@ -169,11 +169,11 @@ void getInput(int gameType)
 				switch(event.button.button)
 				{
 					case SDL_BUTTON_LEFT:
-						input.add = 0;
+						input.add = FALSE;
 					break;
 
 					case SDL_BUTTON_RIGHT:
-						input.remove = 0;
+						input.remove = FALSE;
 					break;
 
 					default:
@@ -186,17 +186,17 @@ void getInput(int gameType)
 	/* Get the mouse coordinates */
 
 	SDL_GetMouseState(&input.mouseX, &input.mouseY);
-	
+
 	switch (gameType)
 	{
 		case RECORDING:
 			putBuffer(input);
 		break;
-		
+
 		case REPLAYING:
 			input = getBuffer();
 		break;
-		
+
 		default:
 		break;
 	}

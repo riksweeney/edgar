@@ -1,5 +1,5 @@
 DAMAGE 1
 GFX_FILE data/gfx/common/small_rock.dat
 ANIM_FILE data/anim/common/small_rock.dat
-TYPE ENEMY
-THINKTIME 60
+TYPE ITEM
+THINKTIME 30

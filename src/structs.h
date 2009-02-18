@@ -23,11 +23,12 @@ typedef struct Entity
 	int currentFrame, frameTimer, frameSpeed;
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
-	int maxHealth, damage, active;
+	int maxHealth, damage, active, maxThinkTime;
+	int targetX, targetY, environment;
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
-	float targetX, targetY, speed;
+	float speed;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
 	struct Entity *standingOn, *parent, *target;

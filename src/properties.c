@@ -211,11 +211,11 @@ void loadProperties(char *name, Entity *e)
 static void setFlags(Entity *e, char *flags)
 {
 	char *token, *temp;
-	
+
 	temp = (char *)malloc(strlen(flags) + 1);
-	
+
 	strcpy(temp, flags);
-	
+
 	token = strtok(temp, " |,");
 
 	e->flags = 0;
@@ -261,10 +261,15 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= STACKABLE;
 		}
-		
+
 		else if (strcmpignorecase(token, "OBSTACLE") == 0)
 		{
 			e->flags |= OBSTACLE;
+		}
+		
+		else if (strcmpignorecase(token, "FLOATS") == 0)
+		{
+			e->flags |= FLOATS;
 		}
 
 		else
@@ -274,7 +279,7 @@ static void setFlags(Entity *e, char *flags)
 
 		token = strtok(NULL, " |,");
 	}
-	
+
 	free(temp);
 }
 
@@ -320,6 +325,8 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "THINKTIME") == 0)
 	{
 		e->thinkTime = atoi(value);
+
+		e->maxThinkTime = e->thinkTime;
 	}
 
 	else if (strcmpignorecase(name, "SPEED") == 0)
@@ -380,7 +387,7 @@ void setProperty(Entity *e, char *name, char *value)
 		{
 			if (strcmpignorecase(name, ignoreProps[i]) == 0)
 			{
-				found = 1;
+				found = TRUE;
 
 				break;
 			}
@@ -388,7 +395,7 @@ void setProperty(Entity *e, char *name, char *value)
 			i++;
 		}
 
-		if (found == 0)
+		if (found == FALSE)
 		{
 			printf("Unknown property value %s\n", name);
 		}

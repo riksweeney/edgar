@@ -6,9 +6,13 @@
 
 #define TILE_SIZE 32
 
+#define PI 3.14159265
+
 #define GRAVITY_SPEED 0.75
 
-#define MAX_FALL_SPEED 15
+#define MAX_AIR_SPEED 15
+
+#define MAX_WATER_SPEED 0.5
 
 #define JUMP_HEIGHT 11
 
@@ -39,6 +43,10 @@
 #define BACKGROUND_TILE_END 150
 
 #define FOREGROUND_TILE_START 151
+
+#define WATER_TILE_START 200
+
+#define WATER_TILE_END 205
 
 #define MAX_TILES 255
 
@@ -126,7 +134,8 @@ enum
 	GRABBING = 512,
 	ATTACK_SUCCESS = 1024,
 	STACKABLE = 2048,
-	OBSTACLE = 4096
+	OBSTACLE = 4096,
+	FLOATS = 8192
 };
 
 enum
@@ -148,7 +157,8 @@ enum
 	WEAK_WALL,
 	SWITCH,
 	LINE_DEF,
-	LEVEL_EXIT
+	LEVEL_EXIT,
+	PROJECTILE
 };
 
 enum
@@ -244,4 +254,10 @@ enum
 {
 	TRANSITION_IN,
 	TRANSITION_OUT
+};
+
+enum
+{
+	AIR,
+	WATER
 };

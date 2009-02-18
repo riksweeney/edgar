@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
 	atexit(cleanup);
 
-	go = 1;
+	go = TRUE;
 
 	/* Load the resources */
 
@@ -58,6 +58,13 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
+		else if (strcmpignorecase("-bmpwrite", argv[i]) == 0)
+		{
+			setScreenshotDir(argv[i + 1]);
+
+			i++;
+		}
+
 		else
 		{
 			loadMap(argv[i]);
@@ -74,7 +81,7 @@ int main(int argc, char *argv[])
 
 	/* Loop indefinitely for messages */
 
-	while (go == 1)
+	while (go == TRUE)
 	{
 		getInput(game.gameType);
 

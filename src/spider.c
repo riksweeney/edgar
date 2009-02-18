@@ -11,9 +11,10 @@ extern Entity *self;
 
 static void move(void);
 static void die(void);
-static void pain(void);
 static void draw(void);
 static void init(void);
+static void takeDamage(Entity *, int);
+static void retreat(void);
 
 Entity *addSpider(int x, int y)
 {
@@ -36,8 +37,7 @@ Entity *addSpider(int x, int y)
 	e->draw = &draw;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->pain = &pain;
-	e->takeDamage = &entityTakeDamage;
+	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
 
@@ -51,9 +51,48 @@ static void die()
 	entityDie();
 }
 
-static void pain()
+static void takeDamage(Entity *other, int damage)
 {
-	playSound("sound/enemy/bat/squeak.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_2, self->x, self->y);
+	if (damage < self->health)
+	{
+		self->targetY = self->startY;
+
+		self->action = &retreat;
+	}
+
+	else
+	{
+		self->action = self->die;
+	}
+}
+
+static void retreat()
+{
+	if (abs(self->y - self->targetY) <= self->speed * 3)
+	{
+		self->y = self->targetY;
+	}
+
+	if (self->y == self->targetY)
+	{
+		self->dirX = self->dirY = 0;
+
+		self->thinkTime = 600;
+
+		self->targetY = self->endY;
+
+		self->action = &move;
+	}
+
+	else
+	{
+		self->y -= self->speed * 3;
+	}
+}
+
+static void wait()
+{
+
 }
 
 static void move()
@@ -65,16 +104,6 @@ static void move()
 
 	else
 	{
-		if (abs(self->x - self->targetX) > self->speed)
-		{
-			self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
-		}
-
-		else
-		{
-			self->x = self->targetX;
-		}
-
 		if (abs(self->y - self->targetY) > self->speed)
 		{
 			self->dirY = (self->y < self->targetY ? self->speed * 5 : -self->speed);
@@ -85,19 +114,25 @@ static void move()
 			self->y = self->targetY;
 		}
 
-		if (self->x == self->targetX && self->y == self->targetY)
+		if (self->y == self->targetY)
 		{
-			self->dirX = self->dirY = 0;
+			self->dirY = 0;
 
-			self->thinkTime = self->y == self->endY ? 0 : self->maxHealth;
+			if (self->maxThinkTime < 0 && self->endY == self->targetY)
+			{
+				self->action = &wait;
+			}
 
-			self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
-			self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
+			else
+			{
+				self->thinkTime = self->y == self->endY ? 0 : self->maxThinkTime;
+
+				self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
+			}
 		}
 
 		else
 		{
-			self->x += self->dirX;
 			self->y += self->dirY;
 		}
 	}
@@ -112,10 +147,7 @@ static void draw()
 
 static void init()
 {
-	self->targetX = self->endX;
 	self->targetY = self->endY;
-
-	self->maxHealth = self->thinkTime;
 
 	self->action = &move;
 

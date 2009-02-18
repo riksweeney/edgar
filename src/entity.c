@@ -66,16 +66,40 @@ void doEntities()
 
 			if (!(self->flags & FLY))
 			{
-				self->dirY += GRAVITY_SPEED;
-
-				if (self->dirY >= MAX_FALL_SPEED)
-				{
-					self->dirY = MAX_FALL_SPEED;
-				}
-
-				else if (self->dirY > 0 && self->dirY < 1)
-				{
-					self->dirY = 1;
+				switch (self->environment)
+				{	
+					case WATER:
+						self->dirY += GRAVITY_SPEED * 0.25;
+						
+						if (self->flags & FLOATS)
+						{
+							if (self->dirX != 0)
+							{
+								self->startX++;
+								
+								self->dirY = sin(self->startX * PI / 180) / 10;
+							}
+						}
+						
+						if (self->dirY >= MAX_WATER_SPEED)
+						{
+							self->dirY = MAX_WATER_SPEED;
+						}
+					break;
+					
+					default:
+						self->dirY += GRAVITY_SPEED;
+						
+						if (self->dirY >= MAX_AIR_SPEED)
+						{
+							self->dirY = MAX_AIR_SPEED;
+						}
+		
+						else if (self->dirY > 0 && self->dirY < 1)
+						{
+							self->dirY = 1;
+						}
+					break;
 				}
 			}
 
@@ -118,7 +142,7 @@ void drawEntities(int drawAll)
 {
 	int i;
 
-	if (drawAll == 0)
+	if (drawAll == FALSE)
 	{
 		/* Draw standard entities */
 
@@ -182,10 +206,60 @@ void doNothing(void)
 	{
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
+	
+	checkToMap(self);
+	
+	if (self->environment == WATER && (self->flags & FLOATS))
+	{
+		self->action = &floatLeftToRight;
+		
+		self->endX = self->dirX = 0.5;
+		
+		self->thinkTime = 0;
+	}
+
+	self->standingOn = NULL;
+}
+
+void moveLeftToRight()
+{
+	self->dirX = self->face == RIGHT ? self->speed : -self->speed;
+
+	if (isAtEdge(self) == TRUE)
+	{
+		self->face = self->face == RIGHT ? LEFT : RIGHT;
+
+		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
+	}
 
 	checkToMap(self);
 
 	self->standingOn = NULL;
+}
+
+void floatLeftToRight()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime == 0)
+		{
+			self->dirX = self->endX;
+		}
+	}
+
+	else
+	{
+		checkToMap(self);
+
+		if (self->dirX == 0)
+		{
+			self->endX *= -1;
+
+			self->thinkTime = 120;
+		}
+	}
 }
 
 void entityDie()
@@ -213,13 +287,6 @@ void standardDie()
 	}
 
 	self->dirX = 0;
-
-	self->dirY += GRAVITY_SPEED;
-
-	if (self->dirY >= MAX_FALL_SPEED)
-	{
-		self->dirY = MAX_FALL_SPEED;
-	}
 
 	checkToMap(self);
 }
@@ -266,7 +333,7 @@ void entityTouch(Entity *other)
 		return;
 	}
 
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->parent != other)
 	{
 		temp = self;
 
@@ -284,6 +351,16 @@ void entityTouch(Entity *other)
 			self->takeDamage(other, other->damage);
 		}
 	}
+
+	else if (other->type == PROJECTILE && self->parent != other)
+	{
+		if (self->takeDamage != NULL)
+		{
+			self->takeDamage(other, other->damage);
+		}
+
+		other->inUse = FALSE;
+	}
 }
 
 void pushEntity(Entity *other)
@@ -299,7 +376,7 @@ void pushEntity(Entity *other)
 	other->y -= other->dirY;
 
 	pushable = (self->flags & PUSHABLE);
-	
+
 	if (self->flags & OBSTACLE)
 	{
 		pushable = 0;
