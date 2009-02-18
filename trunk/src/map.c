@@ -212,7 +212,7 @@ void loadMap(char *name)
 
 	fclose(fp);
 
-	setTransition(TRANSITION_IN, NULL);
+	/*setTransition(TRANSITION_IN, NULL);*/
 }
 
 void saveMap()
@@ -326,6 +326,11 @@ static void loadMapTiles(char *dir)
 		fclose(fp);
 
 		mapImages[i] = loadImage(filename);
+		
+		if (i >= WATER_TILE_START && WATER_TILE_END)
+		{
+			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA, 128);
+		}
 	}
 
 	sprintf(filename, "gfx/map/%s/background.png", dir);
@@ -568,7 +573,7 @@ static void loadAmbience(char *dir)
 	char filename[MAX_PATH_LENGTH];
 	FILE *fp;
 
-	map.hasAmbience = 0;
+	map.hasAmbience = FALSE;
 
 	for (i=0;i<MAX_AMBIENT_SOUNDS;i++)
 	{
@@ -587,7 +592,7 @@ static void loadAmbience(char *dir)
 
 			map.ambience[i] = loadSound(filename);
 
-			map.hasAmbience = 1;
+			map.hasAmbience = TRUE;
 
 			break;
 		}

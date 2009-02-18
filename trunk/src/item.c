@@ -9,6 +9,7 @@
 #include "custom_actions.h"
 #include "collisions.h"
 #include "random.h"
+#include "inventory.h"
 
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
@@ -40,8 +41,6 @@ Entity *addPermanentItem(char *name, int x, int y)
 
 	else if ((e->flags & PUSHABLE) || (e->flags & OBSTACLE))
 	{
-		printf("Setting pushable for %s\n", e->name);
-		
 		e->touch = &pushEntity;
 	}
 
@@ -55,7 +54,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 	return e;
 }
 
-void addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY)
+Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY)
 {
 	Entity *e = getFreeEntity();
 
@@ -92,6 +91,8 @@ void addTemporaryItem(char *name, int x, int y, int face, float dirX, float dirY
 	}
 
 	setEntityAnimation(e, STAND);
+
+	return e;
 }
 
 void dropRandomItem(int x, int y)
@@ -173,4 +174,25 @@ void dropItem(Entity *e)
 	setCustomAction(e, &invulnerable, 180);
 
 	addEntity(*e, player.x, player.y);
+}
+
+void throwItem(int val)
+{
+	Entity *e;
+
+	e = addTemporaryItem(self->name, player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -7 : 7, 0);
+
+	self->inUse = FALSE;
+
+	e->type = PROJECTILE;
+
+	e->flags |= FLY;
+
+	e->touch = self->touch;
+
+	e->damage = self->damage;
+
+	e->parent = &player;
+
+	e->thinkTime = 600;
 }

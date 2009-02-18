@@ -35,8 +35,6 @@ Entity *addLargeRock(int x, int y)
 
 	e->type = ENEMY;
 
-	e->maxHealth = e->thinkTime;
-
 	e->dirX = 2 * (prand() % 2 == 0 ? -1 : 1);
 
 	e->x += e->dirX;
@@ -69,8 +67,6 @@ Entity *addSmallRock(int x, int y)
 	e->action = &smallRockFall;
 
 	e->type = ENEMY;
-
-	e->maxHealth = e->thinkTime;
 
 	e->dirY = 0;
 

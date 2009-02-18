@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/rock_pile.dat
+ANIM_FILE data/anim/item/rock_pile.dat
+TYPE KEY_ITEM
+THINKTIME 120

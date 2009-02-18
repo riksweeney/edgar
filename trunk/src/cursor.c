@@ -28,6 +28,8 @@ void initCursor(char *name)
 
 	loadProperties(entityNames[0], &cursor.entity);
 
+	cursor.entity.active = TRUE;
+
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
 	sprintf(line, "%sdata/cursor/%s", INSTALL_PATH, name);
@@ -101,11 +103,11 @@ void doCursor()
 
 		input.snap = 0;
 	}
-	
+
 	if (input.activate == 1)
 	{
 		cursor.entity.face = (cursor.entity.face == RIGHT ? LEFT : RIGHT);
-		
+
 		input.activate = 0;
 	}
 
@@ -129,8 +131,6 @@ void doCursor()
 
 				else
 				{
-					printf("Placing \"%s\"\n", cursor.entity.name);
-
 					if (strcmpignorecase(cursor.entity.name, "lift/lift_target") == 0)
 					{
 						sprintf(name, "NEW_TARGET_%03d", targetID);
@@ -207,6 +207,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
+
+			cursor.entity.active = TRUE;
 		}
 
 		input.previous = 0;
@@ -233,6 +235,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
+
+			cursor.entity.active = TRUE;
 		}
 
 		input.next = 0;

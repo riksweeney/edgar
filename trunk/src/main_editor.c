@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
 	atexit(cleanup);
 
-	go = 1;
+	go = TRUE;
 
 	if (argc > 1)
 	{
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		printf("Usage: %s <map file name>\n", argv[1]);
-		
+
 		exit(1);
 	}
 
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 
 	startPos.x *= TILE_SIZE;
 	startPos.y *= TILE_SIZE;
-	
+
 	startPos.x -= 9 * TILE_SIZE;
 	startPos.y -= 7 * TILE_SIZE;
 
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	setMapStartX(startPos.x);
 	setMapStartY(startPos.y);
 
-	while (go == 1)
+	while (go == TRUE)
 	{
 		/* Get the input */
 

@@ -15,7 +15,9 @@ item/coal_pile
 item/coal
 item/coal_bag
 common/level_exit
-common/tree_stump
+misc/tree_stump
 enemy/spider
-common/log
-common/tree_branch
+misc/log
+misc/tree_branch
+item/rock_pile
+misc/small_log

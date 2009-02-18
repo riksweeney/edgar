@@ -41,8 +41,6 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 static void init()
 {
-	self->maxHealth = self->thinkTime;
-
 	self->action = &spawn;
 
 	if (self->active == FALSE)
@@ -73,7 +71,7 @@ static void spawn()
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->h - e->h) / 2;
 
-			self->thinkTime = self->maxHealth;
+			self->thinkTime = self->maxThinkTime;
 
 			if (self->health != -1)
 			{

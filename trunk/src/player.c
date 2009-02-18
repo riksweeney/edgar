@@ -96,16 +96,35 @@ void doPlayer()
 
 		if (!(self->flags & FLY))
 		{
-			self->dirY += GRAVITY_SPEED;
-
-			if (self->dirY >= MAX_FALL_SPEED)
-			{
-				self->dirY = MAX_FALL_SPEED;
-			}
-
-			else if (self->dirY > 0 && self->dirY < 1)
-			{
-				self->dirY = 1;
+			switch (self->environment)
+			{	
+				case WATER:
+					self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
+					
+					if (self->dirY < -2)
+					{
+						self->dirY = -2;
+					}
+					
+					else if (self->dirY >= MAX_WATER_SPEED)
+					{
+						self->dirY = MAX_WATER_SPEED;
+					}
+				break;
+				
+				default:
+					self->dirY += GRAVITY_SPEED;
+					
+					if (self->dirY >= MAX_AIR_SPEED)
+					{
+						self->dirY = MAX_AIR_SPEED;
+					}
+	
+					else if (self->dirY > 0 && self->dirY < 1)
+					{
+						self->dirY = 1;
+					}
+				break;
 			}
 		}
 
@@ -124,7 +143,7 @@ void doPlayer()
 
 				if (self->standingOn->dirY > 0)
 				{
-					self->dirY = self->standingOn->dirY;
+					self->dirY = self->standingOn->dirY + 1;
 				}
 			}
 

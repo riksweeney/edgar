@@ -33,8 +33,6 @@ Entity *addChickenFeedBag(int x, int y)
 
 	e->face = LEFT;
 
-	e->maxHealth = e->thinkTime;
-
 	e->action = &doNothing;
 	e->touch = &keyItemTouch;
 	e->activate = &dropChickenFeed;
@@ -55,6 +53,6 @@ static void dropChickenFeed(int val)
 
 		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 
-		self->thinkTime = self->maxHealth;
+		self->thinkTime = self->maxThinkTime;
 	}
 }

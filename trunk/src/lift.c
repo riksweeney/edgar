@@ -173,7 +173,7 @@ static void moveToTarget()
 			self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
 			self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
 
-			self->thinkTime = self->maxHealth;
+			self->thinkTime = self->maxThinkTime;
 
 			self->action = &autoMove;
 		}
@@ -258,8 +258,6 @@ static void setToStart()
 		self->targetY = self->endY;
 
 		self->action = &autoMove;
-
-		self->maxHealth = self->thinkTime;
 
 		if (self->active == FALSE)
 		{

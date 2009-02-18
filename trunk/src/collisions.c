@@ -31,7 +31,7 @@ void doCollisions()
 
 						self->touch(&playerWeapon);
 
-						hit = 1;
+						hit = TRUE;
 					}
 				}
 			}
@@ -110,6 +110,10 @@ void checkToMap(Entity *e)
 	/* Remove the entity from the ground */
 
 	e->flags &= ~ON_GROUND;
+	
+	/* Set environment to air */
+	
+	e->environment = AIR;
 
 	/* Test the horizontal movement first */
 
@@ -146,6 +150,13 @@ void checkToMap(Entity *e)
 
 							e->flags |= ON_GROUND;
 						}
+
+						else if (e->type == PROJECTILE)
+						{
+							e->inUse = FALSE;
+
+							return;
+						}
 					}
 				}
 
@@ -173,6 +184,13 @@ void checkToMap(Entity *e)
 					if ((e->flags & GRABBING) && e->target != NULL)
 					{
 						e->target->dirX = 0;
+					}
+
+					else if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+
+						return;
 					}
 				}
 			}
@@ -218,6 +236,13 @@ void checkToMap(Entity *e)
 					if ((e->flags & GRABBING) && e->target != NULL)
 					{
 						e->target->dirX = 0;
+					}
+
+					else if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+
+						return;
 					}
 				}
 			}
@@ -276,6 +301,13 @@ void checkToMap(Entity *e)
 
 						e->flags |= ON_GROUND;
 					}
+
+					else if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+
+						return;
+					}
 				}
 
 				else if (bottomLeft == SLOPE_DOWN)
@@ -291,6 +323,13 @@ void checkToMap(Entity *e)
 
 						e->flags |= ON_GROUND;
 					}
+
+					else if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+
+						return;
+					}
 				}
 
 				else if ((bottomLeft != BLANK_TILE && bottomLeft < BACKGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < BACKGROUND_TILE_START))
@@ -303,6 +342,13 @@ void checkToMap(Entity *e)
 					e->dirY = 0;
 
 					e->flags |= ON_GROUND;
+
+					if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+
+						return;
+					}
 				}
 			}
 
@@ -323,6 +369,13 @@ void checkToMap(Entity *e)
 					e->y = (y1 + 1) * TILE_SIZE;
 
 					e->dirY = 0;
+				}
+
+				else if (e->type == PROJECTILE)
+				{
+					e->inUse = FALSE;
+
+					return;
 				}
 			}
 		}
@@ -367,6 +420,14 @@ void checkToMap(Entity *e)
 		{
 			e->target->dirX = 0;
 		}
+	}
+	
+	if ((topLeft >= WATER_TILE_START && topLeft <= WATER_TILE_END) ||
+		(bottomLeft >= WATER_TILE_START && bottomLeft <= WATER_TILE_END) ||
+		(topRight >= WATER_TILE_START && topRight <= WATER_TILE_END) ||
+		(bottomRight >= WATER_TILE_START && bottomRight <= WATER_TILE_END))
+	{
+		e->environment = WATER;
 	}
 }
 
