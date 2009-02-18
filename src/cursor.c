@@ -101,6 +101,13 @@ void doCursor()
 
 		input.snap = 0;
 	}
+	
+	if (input.activate == 1)
+	{
+		cursor.entity.face = (cursor.entity.face == RIGHT ? LEFT : RIGHT);
+		
+		input.activate = 0;
+	}
 
 	if (input.add == 1)
 	{

@@ -7,3 +7,4 @@ int isTransparent(SDL_Surface *, int, int);
 void drawCircle(int, int, int, int, int, int);
 void drawCircleFromSurface(int, int, int);
 void drawClippedImage(SDL_Surface *, int, int, int, int, int, int);
+void drawBoxToMap(int, int, int, int, int, int, int);

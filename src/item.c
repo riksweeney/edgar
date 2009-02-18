@@ -38,8 +38,10 @@ Entity *addPermanentItem(char *name, int x, int y)
 		e->activate = (e->type == WEAPON ? &setPlayerWeapon : &setPlayerShield);
 	}
 
-	else if (e->flags & PUSHABLE)
+	else if ((e->flags & PUSHABLE) || (e->flags & OBSTACLE))
 	{
+		printf("Setting pushable for %s\n", e->name);
+		
 		e->touch = &pushEntity;
 	}
 
@@ -49,8 +51,6 @@ Entity *addPermanentItem(char *name, int x, int y)
 	}
 
 	setEntityAnimation(e, STAND);
-
-	e->face = RIGHT;
 
 	return e;
 }

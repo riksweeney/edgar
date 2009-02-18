@@ -1,5 +1,7 @@
 #include "headers.h"
 
+#include "map.h"
+
 extern Game game;
 
 SDL_Surface *loadImage(char *name)
@@ -142,6 +144,22 @@ void drawBox(int x, int y, int w, int h, int r, int g, int b)
 	rect.h = h;
 
 	SDL_FillRect(game.screen, &rect, color);
+}
+
+void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
+{
+	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	SDL_Rect rect;
+
+	rect.x = x - getMapStartX();
+	rect.y = y - getMapStartY();
+	rect.w = w;
+	rect.h = h;
+	
+	if (rect.x >= 0 && rect.x + rect.w < SCREEN_WIDTH && rect.y >= 0 && rect.y + rect.h < SCREEN_HEIGHT)
+	{
+		SDL_FillRect(game.screen, &rect, color);
+	}
 }
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)

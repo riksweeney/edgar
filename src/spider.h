@@ -1,0 +1,1 @@
+Entity *addSpider(int, int);
