@@ -1,6 +1,7 @@
 #include "headers.h"
 
 #include "random.h"
+#include "save_png.h"
 
 static void saveBuffer(void);
 static void loadBuffer(void);

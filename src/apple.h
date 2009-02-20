@@ -1,1 +1,0 @@
-void addApple(int, int);
