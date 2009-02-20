@@ -9,6 +9,7 @@
 #include "font.h"
 #include "record.h"
 #include "graphics.h"
+#include "save_png.h"
 
 extern Game game;
 extern Entity player;

@@ -64,7 +64,7 @@ void checkEntityToEntity(Entity *e)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY)
-			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF)
+			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF || e->type == SPAWNER)
 		{
 			continue;
 		}
