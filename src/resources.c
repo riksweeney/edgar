@@ -25,6 +25,7 @@ extern Game game;
 #include "entity.h"
 #include "level_exit.h"
 #include "decoration.h"
+#include "trigger.h"
 
 void loadRequiredResources()
 {
@@ -92,9 +93,32 @@ void freeAllResources()
 void loadResources(FILE *fp)
 {
 	int i, startX, startY, type, name;
-	char key[MAX_PROPS_FILES][MAX_VALUE_LENGTH], value[MAX_PROPS_FILES][MAX_LINE_LENGTH], line[MAX_LINE_LENGTH];
+	char **key, **value, line[MAX_LINE_LENGTH];
 	char *token;
 	Entity *e;
+	
+	key = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
+	value = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
+	
+	if (key == NULL || value == NULL)
+	{
+		printf("Ran out of memory when loading properties\n");
+		
+		exit(1);
+	}
+	
+	for (i=0;i<MAX_PROPS_FILES;i++)
+	{
+		key[i] = (char *)malloc(MAX_VALUE_LENGTH);
+		value[i] = (char *)malloc(MAX_VALUE_LENGTH);
+		
+		if (key[i] == NULL || value[i] == NULL)
+		{
+			printf("Ran out of memory when loading properties\n");
+			
+			exit(1);
+		}
+	}
 
 	i = 0;
 
@@ -126,18 +150,6 @@ void loadResources(FILE *fp)
 		else if (strcmpignorecase(line, "}") == 0)
 		{
 			e = NULL;
-
-			if (type == -1 || startX == -1 || startY == -1 || name == -1)
-			{
-				printf("Property is missing basic values:\n");
-
-				for (i=0;i<MAX_PROPS_FILES;i++)
-				{
-					printf("%s = %s\n", key[i], value[i]);
-				}
-
-				exit(1);
-			}
 
 			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "HEALTH") == 0 ||
 				strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
@@ -204,6 +216,11 @@ void loadResources(FILE *fp)
 			{
 				e = addLevelExit(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
+			
+			else if (strcmpignorecase(value[type], "TRIGGER") == 0)
+			{
+				addTriggerFromResource(key, value);
+			}
 
 			else
 			{
@@ -221,9 +238,12 @@ void loadResources(FILE *fp)
 				}
 			}
 
-			memset(key, 0, sizeof(key));
-
-			memset(value, 0, sizeof(value));
+			for (i=0;i<MAX_PROPS_FILES;i++)
+			{
+				key[i][0] = '\0';
+				
+				value[i][0] = '\0';
+			}
 		}
 
 		else
@@ -267,4 +287,13 @@ void loadResources(FILE *fp)
 			i++;
 		}
 	}
+	
+	for (i=0;i<MAX_PROPS_FILES;i++)
+	{
+		free(key[i]);
+		free(value[i]);
+	}
+	
+	free(key);
+	free(value);
 }

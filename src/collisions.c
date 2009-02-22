@@ -422,6 +422,11 @@ void checkToMap(Entity *e)
 		}
 	}
 	
+	if (e->y > maxMapY())
+	{
+		e->fallout();
+	}
+	
 	if ((topLeft >= WATER_TILE_START && topLeft <= WATER_TILE_END) ||
 		(bottomLeft >= WATER_TILE_START && bottomLeft <= WATER_TILE_END) ||
 		(topRight >= WATER_TILE_START && topRight <= WATER_TILE_END) ||

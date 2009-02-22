@@ -2,8 +2,57 @@
 
 #include "entity.h"
 #include "objective.h"
+#include "trigger.h"
+
+static int getTriggerTypeByName(char *);
+static char *getTriggerTypeByID(int);
 
 static Trigger trigger[MAX_TRIGGERS];
+static Type type[] = {
+					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
+					{ACTIVATE_ENTITY, "ACTIVATE_ENTITY"},
+					{UPDATE_BOTH, "UPDATE_BOTH"}
+					};
+static int length = sizeof(type) / sizeof(Type);
+
+void addTriggerFromResource(char *key[], char *value[])
+{
+	int i, triggerName, count, targetType, targetName;
+	
+	triggerName = count = targetType = targetName = -1;
+	
+	for (i=0;i<MAX_PROPS_FILES;i++)
+	{
+		if (strcmpignorecase("TRIGGER_NAME", key[i]) == 0)
+		{
+			triggerName = i;
+		}
+		
+		else if (strcmpignorecase("TRIGGER_COUNT", key[i]) == 0)
+		{
+			count = i;
+		}
+		
+		else if (strcmpignorecase("TRIGGER_TYPE", key[i]) == 0)
+		{
+			targetType = i;
+		}
+		
+		else if (strcmpignorecase("TRIGGER_TARGET", key[i]) == 0)
+		{
+			targetName = i;
+		}
+	}
+	
+	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1)
+	{
+		printf("Trigger is missing resources\n");
+		
+		exit(1);
+	}
+	
+	addTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
+}
 
 void addTrigger(char *triggerName, int count, int targetType, char *targetName)
 {
@@ -78,4 +127,53 @@ void fireTrigger(char *name)
 			}
 		}
 	}
+}
+
+void writeTriggersToFile(FILE *fp)
+{
+	int i;
+
+	for (i=0;i<MAX_TRIGGERS;i++)
+	{
+		if (trigger[i].inUse == TRUE)
+		{
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE TRIGGER\n");
+			fprintf(fp, "TRIGGER_NAME %s\n", trigger[i].triggerName);
+			fprintf(fp, "TRIGGER_COUNT %d\n", trigger[i].count);
+			fprintf(fp, "TRIGGER_TYPE %s\n", getTriggerTypeByID(trigger[i].targetType));
+			fprintf(fp, "TRIGGER_TARGET %s\n", trigger[i].targetName);
+			fprintf(fp, "}\n\n");
+		}
+	}
+}
+
+static int getTriggerTypeByName(char *name)
+{
+	int i;
+
+	for (i=0;i<length;i++)
+	{
+		if (strcmpignorecase(name, type[i].name) == 0)
+		{
+			return type[i].id;
+		}
+	}
+
+	return -1;
+}
+
+static char *getTriggerTypeByID(int id)
+{
+	int i;
+
+	for (i=0;i<length;i++)
+	{
+		if (id == type[i].id)
+		{
+			return type[i].name;
+		}
+	}
+
+	return "UNKNOWN";
 }

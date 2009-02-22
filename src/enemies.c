@@ -5,13 +5,17 @@
 #include "rock.h"
 #include "boulder_boss.h"
 #include "spider.h"
+#include "beetle.h"
+#include "grub.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
 {"enemy/chicken", &addChicken},
 {"common/large_rock", &addLargeRock},
 {"boss/boulder_boss", &addBoulderBoss},
-{"enemy/spider", &addSpider}
+{"enemy/spider", &addSpider},
+{"enemy/beetle", &addBeetle},
+{"enemy/grub", &addGrub}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -29,7 +29,7 @@ void init(char *title)
 
 	/* Open a screen */
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF);
+	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE);
 
 	if (game.screen == NULL)
 	{
@@ -65,6 +65,11 @@ void init(char *title)
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
+}
+
+void toggleFullScreen()
+{
+	SDL_WM_ToggleFullScreen(game.screen);
 }
 
 void cleanup()

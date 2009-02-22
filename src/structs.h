@@ -35,6 +35,7 @@ typedef struct Entity
 	void (*action)(void);
 	void (*activate)(int);
 	void (*draw)(void);
+	void (*fallout)(void);
 	void (*touch)(struct Entity *);
 	void (*animationCallback)(void);
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
@@ -70,6 +71,7 @@ typedef struct Game
 	int audio, audioVolume;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
+	float checkpointX, checkpointY;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
 	void (*action)(void);
 	void (*weatherAction)(void);

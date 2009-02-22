@@ -10,6 +10,7 @@
 #include "collisions.h"
 #include "player.h"
 #include "entity.h"
+#include "game.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -17,6 +18,8 @@ extern Input input;
 
 static void takeDamage(Entity *, int);
 static void attackFinish(void);
+static void resetPlayer(void);
+static void fallout(void);
 
 void loadPlayer(int x, int y)
 {
@@ -47,6 +50,8 @@ void loadPlayer(int x, int y)
 		playerWeapon.parent = &player;
 
 		playerWeapon.face = playerShield.face = LEFT;
+		
+		player.fallout = &fallout;
 
 		centerMapOnEntity(&player);
 	}
@@ -78,12 +83,12 @@ void setPlayerLocation(int x, int y)
 
 void doPlayer()
 {
-	int i;
+	int i, j;
 
 	self = &player;
 
 	if (self->action == NULL)
-	{
+	{		
 		for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 		{
 			if (self->customThinkTime[i] > 0)
@@ -362,6 +367,14 @@ void doPlayer()
 		checkToMap(self);
 
 		self->standingOn = NULL;
+		
+		i = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
+		j = mapTileAt((self->x + self->w - 1) / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
+		
+		if ((self->flags & ON_GROUND) && ((i > BLANK_TILE && i < BACKGROUND_TILE_START) || (j > BLANK_TILE && j < BACKGROUND_TILE_START)))
+		{
+			setCheckpoint(self->x, self->y);
+		}
 	}
 
 	else
@@ -518,4 +531,31 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "START_X %d\n", (int)self->x);
 	fprintf(fp, "START_Y %d\n", (int)self->y);
 	fprintf(fp, "}\n\n");
+}
+
+static void fallout()
+{
+	player.thinkTime = 60;
+	
+	player.action = &resetPlayer;
+}
+
+static void resetPlayer()
+{
+	player.thinkTime--;
+	
+	if (player.thinkTime <= 0)
+	{
+		getCheckpoint(&player.x, &player.y);
+		
+		printf("Respawned at %f %f\n", player.x, player.y);
+		
+		player.action = NULL;
+		
+		player.dirX = player.dirY = 0;
+		
+		player.y--;
+		
+		setCustomAction(&player, &invulnerable, 60);
+	}
 }

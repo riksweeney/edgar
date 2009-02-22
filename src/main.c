@@ -26,7 +26,7 @@ Target target[MAX_TARGETS];
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
-	int go, i;
+	int go, i, mapID;
 
 	/* Start up SDL */
 
@@ -42,8 +42,6 @@ int main(int argc, char *argv[])
 
 	for (i=1;i<argc;i++)
 	{
-		printf("%s\n", argv[i]);
-
 		if (strcmpignorecase("-record", argv[i]) == 0)
 		{
 			setRecordData(argv[i + 1]);
@@ -67,8 +65,18 @@ int main(int argc, char *argv[])
 
 		else
 		{
-			loadMap(argv[i]);
+			mapID = i;
 		}
+	}
+	
+	if (game.gameType == RECORDING)
+	{
+		setMapFile(argv[mapID]);
+	}
+	
+	if (game.gameType != REPLAYING)
+	{
+		loadMap(argv[mapID]);
 	}
 
 	loadRequiredResources();

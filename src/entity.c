@@ -34,6 +34,8 @@ Entity *getFreeEntity()
 			entity[i].active = TRUE;
 
 			entity[i].frameSpeed = 1;
+			
+			entity[i].fallout = &removeEntity;
 
 			return &entity[i];
 		}
@@ -223,18 +225,14 @@ void doNothing(void)
 
 void moveLeftToRight()
 {
-	self->dirX = self->face == RIGHT ? self->speed : -self->speed;
-
-	if (isAtEdge(self) == TRUE)
+	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
-		self->face = self->face == RIGHT ? LEFT : RIGHT;
-
-		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
+		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+		
+		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-
+	
 	checkToMap(self);
-
-	self->standingOn = NULL;
 }
 
 void floatLeftToRight()
@@ -622,7 +620,6 @@ void initLineDefs()
 void writeEntitiesToFile(FILE *fp)
 {
 	int i;
-	char type[MAX_VALUE_LENGTH];
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -630,10 +627,8 @@ void writeEntitiesToFile(FILE *fp)
 
 		if (self->inUse == TRUE)
 		{
-			strcpy(type, getTypeByID(self->type));
-
 			fprintf(fp, "{\n");
-			fprintf(fp, "TYPE %s\n", type);
+			fprintf(fp, "TYPE %s\n", getTypeByID(self->type));
 			fprintf(fp, "NAME %s\n", self->name);
 			fprintf(fp, "START_X %d\n", (int)self->x);
 			fprintf(fp, "START_Y %d\n", (int)self->y);

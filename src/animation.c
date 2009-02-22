@@ -4,6 +4,7 @@
 #include "graphics.h"
 #include "sprites.h"
 #include "map.h"
+#include "collisions.h"
 
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
@@ -357,8 +358,8 @@ void drawLoopingAnimationToMap()
 			x = self->x - startX + self->parent->w - self->w - self->offsetX;
 			y = self->y - startY + self->offsetY;
 		}
-
-		if (x + image->w >= 0 && x < SCREEN_WIDTH && y + image->h >= 0 && y < SCREEN_HEIGHT)
+		
+		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawFlippedImage(image, x, y);
 		}
@@ -377,8 +378,8 @@ void drawLoopingAnimationToMap()
 			x = self->x - startX + self->offsetX;
 			y = self->y - startY + self->offsetY;
 		}
-
-		if (x + image->w >= 0 && x < SCREEN_WIDTH && y + image->h >= 0 && y < SCREEN_HEIGHT)
+		
+		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawImage(image, x, y);
 		}
@@ -392,7 +393,7 @@ void drawLineDefToMap()
 		return;
 	}
 
-	drawBox(self->x - getMapStartX(), self->y - getMapStartY(), self->w, self->h, 255, 0, 0);
+	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);
 }
 
 void setEntityAnimation(Entity *e, int animationID)

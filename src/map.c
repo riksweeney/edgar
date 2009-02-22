@@ -11,6 +11,7 @@
 #include "player.h"
 #include "music.h"
 #include "game.h"
+#include "trigger.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -33,7 +34,7 @@ void loadMap(char *name)
 	char itemName[MAX_MESSAGE_LENGTH], line[MAX_LINE_LENGTH];
 	FILE *fp;
 
-	sprintf(line, "%sdata/maps/%s", INSTALL_PATH, name);
+	sprintf(line, "%sdata/maps/%s.dat", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
 
@@ -212,7 +213,7 @@ void loadMap(char *name)
 
 	fclose(fp);
 
-	/*setTransition(TRANSITION_IN, NULL);*/
+	setTransition(TRANSITION_IN, NULL);
 }
 
 void saveMap()
@@ -274,6 +275,10 @@ void saveMap()
 	/* Now the targets */
 
 	writeTargetsToFile(fp);
+	
+	/* And the triggers */
+	
+	writeTriggersToFile(fp);
 
 	/* Close the file afterwards */
 
@@ -329,7 +334,7 @@ static void loadMapTiles(char *dir)
 		
 		if (i >= WATER_TILE_START && WATER_TILE_END)
 		{
-			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA, 128);
+			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA|SDL_RLEACCEL, 128);
 		}
 	}
 
@@ -523,7 +528,7 @@ void centerEntityOnMap()
 		}
 	}
 
-	map.startY = map.targetEntity->y + map.targetEntity->h - (SCREEN_HEIGHT / 2);
+	map.startY = map.targetEntity->y + map.targetEntity->h - SCREEN_HEIGHT / 1.5;
 
 	if (map.startY < 0)
 	{
@@ -656,6 +661,11 @@ SDL_Surface *mapImageAt(int x, int y)
 
 int mapTileAt(int x, int y)
 {
+	if (x < 0 || x >= MAX_MAP_X || y < 0 || y >= MAX_MAP_Y)
+	{
+		return BLANK_TILE;
+	}
+	
 	return map.tile[y][x];
 }
 

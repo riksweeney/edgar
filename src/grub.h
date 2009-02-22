@@ -1,0 +1,1 @@
+Entity *addGrub(int, int);
