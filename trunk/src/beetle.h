@@ -1,0 +1,1 @@
+Entity *addBeetle(int, int);

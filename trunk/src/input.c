@@ -1,6 +1,7 @@
 #include "headers.h"
 
 #include "record.h"
+#include "init.h"
 
 extern Input input;
 
@@ -14,11 +15,6 @@ void getInput(int gameType)
 	{
 		switch (event.type)
 		{
-			/*
-			** Closing the Window or pressing Escape will exit the program
-			** The arrow keys will scroll the map around
-			*/
-
 			case SDL_QUIT:
 				exit(0);
 			break;
@@ -100,6 +96,10 @@ void getInput(int gameType)
 					case SDLK_c:
 						input.interact = TRUE;
 						input.grabbing = TRUE;
+					break;
+					
+					case SDLK_F12:
+						toggleFullScreen();
 					break;
 
 					default:

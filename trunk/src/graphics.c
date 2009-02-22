@@ -1,6 +1,7 @@
 #include "headers.h"
 
 #include "map.h"
+#include "collisions.h"
 
 extern Game game;
 
@@ -148,7 +149,7 @@ void drawBox(int x, int y, int w, int h, int r, int g, int b)
 
 void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int color;
 	SDL_Rect rect;
 
 	rect.x = x - getMapStartX();
@@ -156,7 +157,9 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	rect.w = w;
 	rect.h = h;
 	
-	if (rect.x >= 0 && rect.x + rect.w < SCREEN_WIDTH && rect.y >= 0 && rect.y + rect.h < SCREEN_HEIGHT)
+	color = SDL_MapRGB(game.screen->format, r, g, b);
+	
+	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		SDL_FillRect(game.screen, &rect, color);
 	}

@@ -17,3 +17,4 @@ void interactWithEntity(int, int, int, int);
 void initLineDefs(void);
 void writeEntitiesToFile(FILE *);
 void floatLeftToRight(void);
+void moveLeftToRight(void);

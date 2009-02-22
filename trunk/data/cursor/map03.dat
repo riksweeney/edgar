@@ -8,5 +8,9 @@ misc/tree_stump
 enemy/spider
 misc/log
 misc/tree_branch
+misc/long_tree_branch
 item/rock_pile
 misc/small_log
+misc/small_tree
+enemy/grub
+weapon/pickaxe

@@ -355,3 +355,15 @@ void goToNextMap()
 
 	clearScreen(0, 0, 0);
 }
+
+void setCheckpoint(float x, float y)
+{
+	game.checkpointX = x;
+	game.checkpointY = y;
+}
+
+void getCheckpoint(float *x, float *y)
+{
+	*x = game.checkpointX;
+	*y = game.checkpointY;
+}

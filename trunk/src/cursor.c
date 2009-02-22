@@ -32,7 +32,7 @@ void initCursor(char *name)
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
-	sprintf(line, "%sdata/cursor/%s", INSTALL_PATH, name);
+	sprintf(line, "%sdata/cursor/%s.dat", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
 

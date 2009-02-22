@@ -42,6 +42,8 @@ int addToInventory(Entity *e)
 			}
 
 			addHudMessage(STANDARD_MESSAGE, "Picked up %s", inventory.item[i].objectiveName);
+			
+			fireTrigger(inventory.item[i].objectiveName);
 
 			return TRUE;
 		}

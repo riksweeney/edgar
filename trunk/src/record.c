@@ -2,6 +2,7 @@
 
 #include "random.h"
 #include "save_png.h"
+#include "map.h"
 
 static void saveBuffer(void);
 static void loadBuffer(void);
@@ -17,9 +18,10 @@ extern Game game;
 
 void setReplayData(char *name)
 {
+	char mapFile[6];
 	long seed;
 
-	printf("Setting record file to %s\n", name);
+	printf("Setting replay file to %s\n", name);
 
 	replayBuffer = fopen(name, "rb");
 
@@ -37,13 +39,21 @@ void setReplayData(char *name)
 	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
+	
+	fread(mapFile, 5, 1, replayBuffer);
+	
+	mapFile[5] = '\0';
+	
+	printf("Loading map %s\n", mapFile);
+	
+	loadMap(mapFile);
 }
 
 void setRecordData(char *name)
 {
 	long seed;
 
-	printf("Setting replay file to %s\n", name);
+	printf("Setting record file to %s\n", name);
 
 	replayBuffer = fopen(name, "wb");
 
@@ -63,6 +73,13 @@ void setRecordData(char *name)
 	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
+}
+
+void setMapFile(char *name)
+{
+	printf("Setting map to %s\n", name);
+	
+	fwrite(name, 5, 1, replayBuffer);
 }
 
 void setScreenshotDir(char *name)

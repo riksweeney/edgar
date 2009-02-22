@@ -1,8 +1,8 @@
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 
-#define MAX_MAP_X 400
-#define MAX_MAP_Y 300
+#define MAX_MAP_X 1200
+#define MAX_MAP_Y 600
 
 #define TILE_SIZE 32
 

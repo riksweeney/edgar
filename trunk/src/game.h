@@ -5,4 +5,5 @@ void shakeScreen(int, int);
 void setTransition(int, void (*)(void));
 void setNextLevel(char *, char *);
 void goToNextMap(void);
-
+void setCheckpoint(float, float);
+void getCheckpoint(float *, float *);

@@ -1,0 +1,5 @@
+HEALTH 25
+GFX_FILE data/gfx/misc/small_tree.dat
+ANIM_FILE data/anim/misc/small_tree.dat
+TYPE ITEM
+FLAGS OBSTACLE
