@@ -29,7 +29,7 @@ void init(char *title)
 
 	/* Open a screen */
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE|SDL_FULLSCREEN);
+	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE);
 
 	if (game.screen == NULL)
 	{
@@ -74,7 +74,17 @@ void toggleFullScreen()
 
 void cleanup()
 {
-	printf("Exiting\n");
+	float fps;
+
+	game.endTicks = SDL_GetTicks();
+
+	fps = game.frames;
+
+	fps /= (game.endTicks - game.startTicks);
+
+	fps *= 1000;
+
+	printf("%d frames in %ld milliseconds (%.2f fps)\n", game.frames, (game.endTicks - game.startTicks), fps);
 
 	/* Stop the replay data */
 

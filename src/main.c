@@ -68,12 +68,12 @@ int main(int argc, char *argv[])
 			mapID = i;
 		}
 	}
-	
+
 	if (game.gameType == RECORDING)
 	{
 		setMapFile(argv[mapID]);
 	}
-	
+
 	if (game.gameType != REPLAYING)
 	{
 		loadMap(argv[mapID]);
@@ -88,6 +88,8 @@ int main(int argc, char *argv[])
 	addObjective("Collect 10 pieces of Coal", "Landslide Trigger");
 
 	/* Loop indefinitely for messages */
+
+	game.startTicks = SDL_GetTicks();
 
 	while (go == TRUE)
 	{
@@ -134,6 +136,8 @@ int main(int argc, char *argv[])
 		delay(frameLimit);
 
 		frameLimit = SDL_GetTicks() + 16;
+
+		game.frames++;
 	}
 
 	/* Exit the program */

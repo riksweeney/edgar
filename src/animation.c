@@ -58,7 +58,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			fscanf(fp, "%s", frameName);
 
 			animationID++;
-			
+
 			printf("Creating animation at index %d\n", animationID);
 
 			if (animationID == MAX_ANIMATIONS)
@@ -207,28 +207,28 @@ static void freeAnimation(Animation *anim)
 	if (anim->frameTimer != NULL)
 	{
 		free(anim->frameTimer);
-		
+
 		anim->frameTimer = NULL;
 	}
 
 	if (anim->frameID != NULL)
 	{
 		free(anim->frameID);
-		
+
 		anim->frameID = NULL;
 	}
 
 	if (anim->offsetX != NULL)
 	{
 		free(anim->offsetX);
-		
+
 		anim->offsetX = NULL;
 	}
 
 	if (anim->offsetY != NULL)
 	{
 		free(anim->offsetY);
-		
+
 		anim->offsetY = NULL;
 	}
 }
@@ -303,11 +303,30 @@ void drawLoopingAnimationToMap()
 
 	if (self->frameTimer <= 0)
 	{
-		self->currentFrame++;
+		self->currentFrame += self->frameSpeed > 0 ? 1 : -1;
 
 		if (self->currentFrame >= animation[self->currentAnim].frameCount)
 		{
 			self->currentFrame = 0;
+
+			if (self->animationCallback != NULL)
+			{
+				callback = self->animationCallback;
+
+				self->animationCallback = NULL;
+
+				callback();
+
+				if (self->inUse == FALSE)
+				{
+					return;
+				}
+			}
+		}
+
+		else if (self->currentFrame < 0)
+		{
+			self->currentFrame = animation[self->currentAnim].frameCount - 1;
 
 			if (self->animationCallback != NULL)
 			{
@@ -358,7 +377,7 @@ void drawLoopingAnimationToMap()
 			x = self->x - startX + self->parent->w - self->w - self->offsetX;
 			y = self->y - startY + self->offsetY;
 		}
-		
+
 		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawFlippedImage(image, x, y);
@@ -378,7 +397,7 @@ void drawLoopingAnimationToMap()
 			x = self->x - startX + self->offsetX;
 			y = self->y - startY + self->offsetY;
 		}
-		
+
 		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawImage(image, x, y);
@@ -411,7 +430,7 @@ void setEntityAnimation(Entity *e, int animationID)
 			abort();
 		}
 
-		e->currentFrame = 0;
+		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
 		e->frameTimer = animation[e->currentAnim].frameTimer[0];
 
 		image = getSpriteImage(animation[e->currentAnim].frameID[0]);
