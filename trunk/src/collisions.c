@@ -438,7 +438,7 @@ void checkToMap(Entity *e)
 
 int isAtEdge(Entity *e)
 {
-	int x = e->x + e->dirX + (e->dirX > 0 ? e->w : 0);
+	int x = e->x + (e->dirX > 0 ? e->w : 0);
 	int y = e->y + e->h - 1;
 	int i;
 

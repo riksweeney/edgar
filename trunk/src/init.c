@@ -29,7 +29,7 @@ void init(char *title)
 
 	/* Open a screen */
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE);
+	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE|SDL_FULLSCREEN);
 
 	if (game.screen == NULL)
 	{
@@ -38,11 +38,11 @@ void init(char *title)
 		exit(1);
 	}
 
-	/* Set the audio rate to 22050, 16 bit stereo, 2 channels and a 4096 byte buffer */
+	/* Set the audio rate to 22050, default mix, 2 channels and a 1024 byte buffer */
 
 	game.audio = TRUE;
 
-	if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 4096) != 0)
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
 

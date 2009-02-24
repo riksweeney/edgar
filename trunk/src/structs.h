@@ -94,6 +94,7 @@ typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
 	int thinkTime, inUse, type;
+	SDL_Surface *surface;
 } Message;
 
 typedef struct Inventory

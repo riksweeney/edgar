@@ -275,9 +275,9 @@ void saveMap()
 	/* Now the targets */
 
 	writeTargetsToFile(fp);
-	
+
 	/* And the triggers */
-	
+
 	writeTriggersToFile(fp);
 
 	/* Close the file afterwards */
@@ -331,7 +331,7 @@ static void loadMapTiles(char *dir)
 		fclose(fp);
 
 		mapImages[i] = loadImage(filename);
-		
+
 		if (i >= WATER_TILE_START && WATER_TILE_END)
 		{
 			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA|SDL_RLEACCEL, 128);
@@ -665,7 +665,7 @@ int mapTileAt(int x, int y)
 	{
 		return BLANK_TILE;
 	}
-	
+
 	return map.tile[y][x];
 }
 
