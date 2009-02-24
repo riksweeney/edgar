@@ -156,9 +156,9 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	rect.y = y - getMapStartY();
 	rect.w = w;
 	rect.h = h;
-	
+
 	color = SDL_MapRGB(game.screen->format, r, g, b);
-	
+
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		SDL_FillRect(game.screen, &rect, color);
@@ -370,6 +370,57 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_FreeSurface(game.tempSurface);
 
 	SDL_FreeSurface(temp);
+}
+
+void drawBorder(int x, int y, int w, int h, int r, int g, int b)
+{
+	int color = SDL_MapRGB(game.screen->format, 0, 0, 0);
+	SDL_Rect rect;
+
+	rect.x = x - 5;
+	rect.y = y - 5;
+	rect.w = w + 10;
+	rect.h = h + 10;
+
+	SDL_FillRect(game.screen, &rect, color);
+
+	color = SDL_MapRGB(game.screen->format, r, g, b);
+
+	/* Top */
+
+	rect.x = x - 6;
+	rect.y = y - 6;
+	rect.w = w + 11;
+	rect.h = 1;
+
+	SDL_FillRect(game.screen, &rect, color);
+
+	/* Left */
+
+	rect.x = x - 6;
+	rect.y = y - 6;
+	rect.w = 1;
+	rect.h = h + 11;
+
+	SDL_FillRect(game.screen, &rect, color);
+
+	/* Right */
+
+	rect.x = x + w + 5;
+	rect.y = y - 6;
+	rect.w = 1;
+	rect.h = h + 11;
+
+	SDL_FillRect(game.screen, &rect, color);
+
+	/* Bottom */
+
+	rect.x = x - 6;
+	rect.y = y + h + 5;
+	rect.w = w + 11;
+	rect.h = 1;
+
+	SDL_FillRect(game.screen, &rect, color);
 }
 
 void clearScreen(int r, int g, int b)

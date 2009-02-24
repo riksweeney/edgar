@@ -347,7 +347,7 @@ void drawLoopingAnimationToMap()
 
 	if (self->face == LEFT)
 	{
-		if (self->parent == NULL)
+		if (self->parent == NULL || self->type == PROJECTILE)
 		{
 			x = self->x - startX;
 			y = self->y - startY;
@@ -367,7 +367,7 @@ void drawLoopingAnimationToMap()
 
 	else
 	{
-		if (self->parent == NULL)
+		if (self->parent == NULL || self->type == PROJECTILE)
 		{
 			x = self->x - startX;
 			y = self->y - startY;

@@ -9,6 +9,7 @@ extern Game game;
 
 static SDL_Surface *itemBox;
 static Message message[MAX_HUD_MESSAGES];
+static Message infoMessage;
 
 void initHud()
 {
@@ -46,6 +47,18 @@ void doHud()
 			}
 		}
 	}
+
+	infoMessage.thinkTime--;
+
+	if (infoMessage.thinkTime <= 0)
+	{
+		if (infoMessage.surface != NULL)
+		{
+			SDL_FreeSurface(infoMessage.surface);
+
+			infoMessage.surface = NULL;
+		}
+	}
 }
 
 void drawHud()
@@ -71,6 +84,13 @@ void drawHud()
 			break;
 		}
 	}
+
+	if (infoMessage.surface != NULL)
+	{
+		drawBorder((SCREEN_WIDTH - infoMessage.surface->w) / 2, 400, infoMessage.surface->w, infoMessage.surface->h, 255, 255, 255);
+
+		drawImage(infoMessage.surface, (SCREEN_WIDTH - infoMessage.surface->w) / 2, 400);
+	}
 }
 
 void freeHud()
@@ -78,6 +98,15 @@ void freeHud()
 	if (itemBox != NULL)
 	{
 		SDL_FreeSurface(itemBox);
+
+		itemBox = NULL;
+	}
+
+	if (infoMessage.surface != NULL)
+	{
+		SDL_FreeSurface(infoMessage.surface);
+
+		infoMessage.surface = NULL;
 	}
 }
 
@@ -123,4 +152,30 @@ void addHudMessage(int type, char *fmt, ...)
 void freeHudMessages()
 {
 	memset(message, 0, sizeof(Message) * MAX_HUD_MESSAGES);
+}
+
+void setInfoBoxMessage(char *fmt, ...)
+{
+	char text[MAX_MESSAGE_LENGTH];
+	va_list ap;
+
+	va_start(ap, fmt);
+	vsprintf(text, fmt, ap);
+	va_end(ap);
+
+	if (strcmpignorecase(text, infoMessage.text) != 0)
+	{
+		strcpy(infoMessage.text, text);
+
+		if (infoMessage.surface != NULL)
+		{
+			SDL_FreeSurface(infoMessage.surface);
+
+			infoMessage.surface = NULL;
+		}
+
+		infoMessage.surface = generateTextSurface(infoMessage.text, game.font);
+	}
+
+	infoMessage.thinkTime = 120;
 }

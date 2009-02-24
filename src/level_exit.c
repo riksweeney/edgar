@@ -52,9 +52,9 @@ Entity *addLevelExit(char *name, int x, int y)
 static void init()
 {
 	self->dirX = (self->face == RIGHT ? 10 : -10);
-	
+
 	self->action = &wait;
-	
+
 	self->action();
 }
 
@@ -79,13 +79,13 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		addHudMessage(GOOD_MESSAGE, "Press Action to go to the %s", self->requires);
+		setInfoBoxMessage("Press Action to go to the %s", self->requires);
 	}
 }
 
 static void activate(int val)
 {
 	setNextLevel(self->name, self->objectiveName);
-	
+
 	setTransition(TRANSITION_OUT, &goToNextMap);
 }
