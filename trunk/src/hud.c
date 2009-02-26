@@ -57,6 +57,8 @@ void doHud()
 			SDL_FreeSurface(infoMessage.surface);
 
 			infoMessage.surface = NULL;
+			
+			infoMessage.text[0] = '\0';
 		}
 	}
 }
@@ -154,7 +156,7 @@ void freeHudMessages()
 	memset(message, 0, sizeof(Message) * MAX_HUD_MESSAGES);
 }
 
-void setInfoBoxMessage(char *fmt, ...)
+void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 {
 	char text[MAX_MESSAGE_LENGTH];
 	va_list ap;
@@ -177,5 +179,5 @@ void setInfoBoxMessage(char *fmt, ...)
 		infoMessage.surface = generateTextSurface(infoMessage.text, game.font);
 	}
 
-	infoMessage.thinkTime = 120;
+	infoMessage.thinkTime = (thinkTime <= 0 ? 5 : thinkTime);
 }

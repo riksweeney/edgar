@@ -50,6 +50,7 @@ typedef struct Map
 	char musicName[MAX_VALUE_LENGTH];
 	int startX, startY;
 	int maxX, maxY, thinkTime;
+	int minX, minY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
 	int wrapX[2], wrapY[2];

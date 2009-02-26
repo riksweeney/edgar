@@ -28,7 +28,8 @@ static Type type[] = {
 					{WEAK_WALL, "WEAK_WALL"},
 					{SWITCH, "SWITCH"},
 					{LINE_DEF, "LINE_DEF"},
-					{LEVEL_EXIT, "LEVEL_EXIT"}
+					{LEVEL_EXIT, "LEVEL_EXIT"},
+					{SAVE_POINT, "SAVE_POINT"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 

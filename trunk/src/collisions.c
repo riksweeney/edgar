@@ -64,7 +64,8 @@ void checkEntityToEntity(Entity *e)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY)
-			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF || e->type == SPAWNER)
+			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF || e->type == SPAWNER
+			|| entity[i].type == SAVE_POINT)
 		{
 			continue;
 		}
@@ -110,9 +111,9 @@ void checkToMap(Entity *e)
 	/* Remove the entity from the ground */
 
 	e->flags &= ~ON_GROUND;
-	
+
 	/* Set environment to air */
-	
+
 	e->environment = AIR;
 
 	/* Test the horizontal movement first */
@@ -398,9 +399,9 @@ void checkToMap(Entity *e)
 	e->x += e->dirX;
 	e->y += e->dirY;
 
-	if (e->x < 0)
+	if (e->x < getMinMapX())
 	{
-		e->x = 0;
+		e->x = getMinMapX();
 
 		e->dirX = 0;
 
@@ -421,12 +422,12 @@ void checkToMap(Entity *e)
 			e->target->dirX = 0;
 		}
 	}
-	
+
 	if (e->y > maxMapY())
 	{
 		e->fallout();
 	}
-	
+
 	if ((topLeft >= WATER_TILE_START && topLeft <= WATER_TILE_END) ||
 		(bottomLeft >= WATER_TILE_START && bottomLeft <= WATER_TILE_END) ||
 		(topRight >= WATER_TILE_START && topRight <= WATER_TILE_END) ||
