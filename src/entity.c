@@ -7,6 +7,7 @@
 #include "decoration.h"
 #include "trigger.h"
 #include "properties.h"
+#include "map.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -34,7 +35,7 @@ Entity *getFreeEntity()
 			entity[i].active = TRUE;
 
 			entity[i].frameSpeed = 1;
-			
+
 			entity[i].fallout = &removeEntity;
 
 			return &entity[i];
@@ -69,34 +70,34 @@ void doEntities()
 			if (!(self->flags & FLY))
 			{
 				switch (self->environment)
-				{	
+				{
 					case WATER:
 						self->dirY += GRAVITY_SPEED * 0.25;
-						
+
 						if (self->flags & FLOATS)
 						{
 							if (self->dirX != 0)
 							{
 								self->startX++;
-								
+
 								self->dirY = sin(self->startX * PI / 180) / 10;
 							}
 						}
-						
+
 						if (self->dirY >= MAX_WATER_SPEED)
 						{
 							self->dirY = MAX_WATER_SPEED;
 						}
 					break;
-					
+
 					default:
 						self->dirY += GRAVITY_SPEED;
-						
+
 						if (self->dirY >= MAX_AIR_SPEED)
 						{
 							self->dirY = MAX_AIR_SPEED;
 						}
-		
+
 						else if (self->dirY > 0 && self->dirY < 1)
 						{
 							self->dirY = 1;
@@ -208,15 +209,15 @@ void doNothing(void)
 	{
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->environment == WATER && (self->flags & FLOATS))
 	{
 		self->action = &floatLeftToRight;
-		
+
 		self->endX = self->dirX = 0.5;
-		
+
 		self->thinkTime = 0;
 	}
 
@@ -228,10 +229,10 @@ void moveLeftToRight()
 	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
-		
+
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -240,7 +241,7 @@ void floatLeftToRight()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime == 0)
 		{
 			self->dirX = self->endX;

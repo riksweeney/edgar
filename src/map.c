@@ -201,6 +201,11 @@ void loadMap(char *name)
 	map.maxX = (map.maxX + 1) * TILE_SIZE;
 	map.maxY = (map.maxY + 1) * TILE_SIZE;
 
+	/* Set the minimum scroll position of the map */
+
+	map.minX = 0;
+	map.minY = 0;
+
 	/* Set the start coordinates */
 
 	map.startX = map.startY = 0;
@@ -513,35 +518,35 @@ void centerEntityOnMap()
 
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 
-	if (map.startX < 0)
+	if (map.startX < map.minX)
 	{
-		map.startX = 0;
+		map.startX = map.minX;
 	}
 
 	else if (map.startX + SCREEN_WIDTH >= map.maxX)
 	{
 		map.startX = map.maxX - SCREEN_WIDTH;
 
-		if (map.startX < 0)
+		if (map.startX < map.minX)
 		{
-			map.startX = 0;
+			map.startX = map.minX;
 		}
 	}
 
 	map.startY = map.targetEntity->y + map.targetEntity->h - SCREEN_HEIGHT / 1.5;
 
-	if (map.startY < 0)
+	if (map.startY < map.minY)
 	{
-		map.startY = 0;
+		map.startY = map.minY;
 	}
 
 	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
 	{
 		map.startY = map.maxY - SCREEN_HEIGHT;
 
-		if (map.startY < 0)
+		if (map.startY < map.minY)
 		{
-			map.startY = 0;
+			map.startY = map.minY;
 		}
 	}
 }
@@ -687,6 +692,26 @@ void setMaxMapX(int max)
 void setMaxMapY(int max)
 {
 	map.maxY = max;
+}
+
+void setMinMapX(int min)
+{
+	map.minX = min;
+}
+
+void setMinMapY(int min)
+{
+	map.minY = min;
+}
+
+int getMinMapX()
+{
+	return map.minX;
+}
+
+int getMinMapY()
+{
+	return map.minY;
 }
 
 int getMapStartX()

@@ -26,6 +26,7 @@ extern Game game;
 #include "level_exit.h"
 #include "decoration.h"
 #include "trigger.h"
+#include "save_point.h"
 
 void loadRequiredResources()
 {
@@ -215,6 +216,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "LEVEL_EXIT") == 0)
 			{
 				e = addLevelExit(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+			
+			else if (strcmpignorecase(value[type], "SAVE_POINT") == 0)
+			{
+				e = addSavePoint(atoi(value[startX]), atoi(value[startY]));
 			}
 			
 			else if (strcmpignorecase(value[type], "TRIGGER") == 0)
