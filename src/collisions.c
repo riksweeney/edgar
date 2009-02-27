@@ -398,10 +398,13 @@ void checkToMap(Entity *e)
 
 	e->x += e->dirX;
 	e->y += e->dirY;
-
-	if (e->x < getMinMapX())
+	
+	x1 = e->type == PLAYER ? getMinMapX() : 0;
+	y1 = e->type == PLAYER ? getMinMapY() : 0;
+	
+	if (e->x < x1)
 	{
-		e->x = getMinMapX();
+		e->x = x1;
 
 		e->dirX = 0;
 

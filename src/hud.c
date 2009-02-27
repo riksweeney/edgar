@@ -67,7 +67,7 @@ void drawHud()
 {
 	drawSelectedInventoryItem((SCREEN_WIDTH - itemBox->w) / 2, 15, itemBox->w, itemBox->h);
 
-	drawImage(itemBox, (SCREEN_WIDTH - itemBox->w) / 2, 15);
+	drawImage(itemBox, (SCREEN_WIDTH - itemBox->w) / 2, 15, FALSE);
 
 	if (message[0].inUse == TRUE)
 	{
@@ -91,7 +91,7 @@ void drawHud()
 	{
 		drawBorder((SCREEN_WIDTH - infoMessage.surface->w) / 2, 400, infoMessage.surface->w, infoMessage.surface->h, 255, 255, 255);
 
-		drawImage(infoMessage.surface, (SCREEN_WIDTH - infoMessage.surface->w) / 2, 400);
+		drawImage(infoMessage.surface, (SCREEN_WIDTH - infoMessage.surface->w) / 2, 400, FALSE);
 	}
 }
 

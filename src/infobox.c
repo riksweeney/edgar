@@ -38,6 +38,6 @@ void drawInfoBox()
 {
 	if (message.surface != NULL)
 	{
-		drawImage(message.surface, (SCREEN_WIDTH - message.surface->w) / 2, 400);
+		drawImage(message.surface, (SCREEN_WIDTH - message.surface->w) / 2, 400, FALSE);
 	}
 }

@@ -289,8 +289,8 @@ void drawCursor()
 
 	if (cursor.type == TILES)
 	{
-		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y);
-		drawImage(tileImage(BLANK_TILE), cursor.x, cursor.y);
+		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y, FALSE);
+		drawImage(tileImage(BLANK_TILE), cursor.x, cursor.y, FALSE);
 	}
 
 	else

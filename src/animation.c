@@ -280,12 +280,12 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 	if (center == 1)
 	{
-		drawImage(image, x + (w - image->w) / 2, y + (h - image->h) / 2);
+		drawImage(image, x + (w - image->w) / 2, y + (h - image->h) / 2, FALSE);
 	}
 
 	else
 	{
-		drawImage(image, x, y);
+		drawImage(image, x, y, FALSE);
 	}
 }
 
@@ -299,7 +299,7 @@ void drawLoopingAnimationToMap()
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	self->frameTimer -= 1 * self->frameSpeed;
+	self->frameTimer -= 1 * abs(self->frameSpeed);
 
 	if (self->frameTimer <= 0)
 	{
@@ -307,7 +307,7 @@ void drawLoopingAnimationToMap()
 
 		if (self->currentFrame >= animation[self->currentAnim].frameCount)
 		{
-			self->currentFrame = 0;
+			self->currentFrame = self->animationCallback == NULL ? 0 : animation[self->currentAnim].frameCount - 1;
 
 			if (self->animationCallback != NULL)
 			{
@@ -326,7 +326,7 @@ void drawLoopingAnimationToMap()
 
 		else if (self->currentFrame < 0)
 		{
-			self->currentFrame = animation[self->currentAnim].frameCount - 1;
+			self->currentFrame = self->animationCallback == NULL ? animation[self->currentAnim].frameCount - 1 : 0;
 
 			if (self->animationCallback != NULL)
 			{
@@ -380,7 +380,7 @@ void drawLoopingAnimationToMap()
 
 		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
-			drawFlippedImage(image, x, y);
+			drawFlippedImage(image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 		}
 	}
 
@@ -400,7 +400,7 @@ void drawLoopingAnimationToMap()
 
 		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
-			drawImage(image, x, y);
+			drawImage(image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 		}
 	}
 }
@@ -409,7 +409,7 @@ void drawLineDefToMap()
 {
 	if (self->flags & NO_DRAW)
 	{
-		return;
+		/*return;*/
 	}
 
 	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);

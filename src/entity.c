@@ -637,6 +637,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
+			fprintf(fp, "DAMAGE %d\n", self->damage);
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);

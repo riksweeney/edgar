@@ -490,7 +490,7 @@ void drawMap(int depth)
 			{
 				if (tileID != BLANK_TILE && tileID < FOREGROUND_TILE_START)
 				{
-					drawImage(mapImages[tileID], x, y);
+					drawImage(mapImages[tileID], x, y, FALSE);
 				}
 			}
 
@@ -498,7 +498,7 @@ void drawMap(int depth)
 			{
 				if (tileID >= FOREGROUND_TILE_START)
 				{
-					drawImage(mapImages[tileID], x, y);
+					drawImage(mapImages[tileID], x, y, FALSE);
 				}
 			}
 

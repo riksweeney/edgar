@@ -16,3 +16,5 @@ enemy/grub
 weapon/wood_axe
 common/save_point
 boss/grub_boss
+wall/weak_forest_wall
+weapon/pickaxe
