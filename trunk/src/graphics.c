@@ -5,6 +5,8 @@
 
 extern Game game;
 
+static void drawImageWhite(SDL_Surface *, int, int);
+
 SDL_Surface *loadImage(char *name)
 {
 	/* Load the image using SDL Image */
@@ -46,11 +48,18 @@ SDL_Surface *loadImage(char *name)
 	return image;
 }
 
-void drawImage(SDL_Surface *image, int x, int y)
+void drawImage(SDL_Surface *image, int x, int y, int white)
 {
 	SDL_Rect dest;
+	
+	if (white == TRUE)
+	{
+		drawImageWhite(image, x, y);
+		
+		return;	
+	}
 
-	/* Set the blitting rectangle to the size of the src image */
+	/* Set the blitting rectangle to the size of the source image */
 
 	dest.x = game.offsetX + x;
 	dest.y = game.offsetY + y;
@@ -79,9 +88,11 @@ void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int des
 	SDL_BlitSurface(image, &src, game.screen, &dest);
 }
 
-void drawFlippedImage(SDL_Surface *image, int destX, int destY)
+void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 {
+	unsigned char r, g, b;
 	int *pixels, x, y, pixel, rx, ry;
+	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
 	SDL_Rect dest;
 	SDL_Surface *flipped, *temp;
 
@@ -103,8 +114,18 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY)
 			pixel = pixels[(y * image->w) + x];
 
 			pixels = (int *)flipped->pixels;
-
-			pixels[(y * flipped->w) + rx] = pixel;
+			
+			if (white == TRUE)
+			{
+				SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+				
+				pixels[(y * flipped->w) + rx] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
+			}
+			
+			else
+			{
+				pixels[(y * flipped->w) + rx] = pixel;
+			}
 		}
 	}
 
@@ -428,6 +449,65 @@ void clearScreen(int r, int g, int b)
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 
 	SDL_FillRect(game.screen, NULL, color);
+}
+
+static void drawImageWhite(SDL_Surface *image, int destX, int destY)
+{
+	unsigned char r, g, b;
+	int *pixels, x, y, pixel;
+	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
+	SDL_Rect dest;
+	SDL_Surface *flipped, *temp;
+
+	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, image->w, image->h, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
+
+	flipped = SDL_DisplayFormat(temp);
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+
+	for (x=0;x<image->w;x++)
+	{
+		for (y=0;y<image->h;y++)
+		{
+			pixels = (int *)image->pixels;
+
+			pixel = pixels[(y * image->w) + x];
+			
+			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+
+			pixels = (int *)flipped->pixels;
+			
+			pixels[(y * flipped->w) + x] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
+		}
+	}
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+
+	if (image->flags & SDL_SRCCOLORKEY)
+	{
+		SDL_SetColorKey(flipped, SDL_RLEACCEL | SDL_SRCCOLORKEY, image->format->colorkey);
+	}
+
+	/* Set the blitting rectangle to the size of the src image */
+
+	dest.x = game.offsetX + destX;
+	dest.y = game.offsetY + destY;
+	dest.w = flipped->w;
+	dest.h = flipped->h;
+
+	/* Blit the entire image onto the screen at coordinates x and y */
+
+	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
+
+	SDL_FreeSurface(flipped);
+
+	SDL_FreeSurface(temp);
 }
 
 int isTransparent(SDL_Surface *image, int x, int y)

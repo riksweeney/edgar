@@ -112,3 +112,18 @@ void invulnerableNoFlash(int *thinkTime)
 		self->flags &= ~INVULNERABLE;
 	}
 }
+
+void flashWhite(int *thinkTime)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}

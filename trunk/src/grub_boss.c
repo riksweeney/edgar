@@ -9,21 +9,23 @@
 #include "music.h"
 #include "map.h"
 #include "random.h"
+#include "custom_actions.h"
 
 extern Entity *self, player;
 
 static void wait(void);
+static void spitStart(void);
 static void spit(void);
-static void fire(void);
-static void pain(void);
+static void spitEnd(void);
 static void initialise(void);
-static void spinAttack(void);
-static void finishSpin(void);
 static void takeDamage(Entity *, int);
 static void die(void);
-static void finishSpin(void);
 static void attackFinished(void);
 static void spinAttackStart(void);
+static void spinAttack(void);
+static void spinAttackEnd(void);
+static void doIntro(void);
+static void introPause(void);
 
 Entity *addGrubBoss(int x, int y)
 {
@@ -44,11 +46,13 @@ Entity *addGrubBoss(int x, int y)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &die;
-	e->pain = &pain;
 	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
+
+	e->flags |= NO_DRAW|FLY;
+
+	e->active = FALSE;
 
 	setEntityAnimation(e, STAND);
 
@@ -57,95 +61,179 @@ Entity *addGrubBoss(int x, int y)
 
 static void takeDamage(Entity *other, int damage)
 {
-	entityTakeDamage(other, damage);
-}
+	self->health -= damage;
+	
+	setCustomAction(self, &flashWhite, 6);
 
-static void pain()
-{
-
+	if (self->health < 0)
+	{
+		self->action = &die;
+	}
 }
 
 static void wait()
 {
-	self->thinkTime--;
+	self->dirX = 0;
+
+	/*self->thinkTime--;*/
 
 	if (self->thinkTime <= 0)
 	{
-		switch (prand() % 2)
+		if (prand() % 2 == 0)
 		{
-			case 0:
-				self->action = &spit;
+			self->action = &spitStart;
 
-				self->thinkTime = 3;
-			break;
+			self->thinkTime = 1 + (prand() % 4);
+		}
 
-			default:
-				self->action = &spinAttack;
-			break;
+		else
+		{
+			self->action = &spinAttackStart;
+
+			self->thinkTime = 60;
 		}
 	}
 
 	checkToMap(self);
 }
 
-static void spit()
+static void spitStart()
 {
-	if (self->thinkTime > 0)
+	if (self->frameSpeed > 0)
 	{
-		setEntityAnimation(self, ATTACK_1);
+		if (self->thinkTime > 0)
+		{
+			setEntityAnimation(self, ATTACK_1);
 
-		self->animationCallback = &fire;
+			self->animationCallback = &spit;
+		}
+
+		else
+		{
+			attackFinished();
+		}
 	}
 
 	else
 	{
+		self->animationCallback = &spitEnd;
+	}
+
+	checkToMap(self);
+}
+
+static void spitEnd()
+{
+	self->frameSpeed *= -1;
+}
+
+static void spit()
+{
+	printf("Firing shot\n");
+
+	self->thinkTime--;
+
+	self->frameSpeed *= -1;
+}
+
+static void initialise()
+{
+	int minX, minY;
+
+	minX = getMinMapX();
+	minY = getMinMapY();
+
+	if (getMapStartX() > minX)
+	{
+		minX = getMapStartX();
+	}
+
+	if (getMapStartY() > minY)
+	{
+		minY = getMapStartY();
+	}
+
+	if (self->active == TRUE)
+	{
+		adjustMusicVolume(-1);
+
+		if (minX < self->endX)
+		{
+			setMinMapX(minX + 1);
+		}
+
+		if (minY < self->endY)
+		{
+			setMinMapY(minY + 1);
+		}
+
+		if (minX == self->endX && minY == self->endY)
+		{
+			setMapStartX(minX);
+			setMapStartY(minY);
+
+			centerMapOnEntity(NULL);
+
+			self->dirX = self->speed;
+
+			setEntityAnimation(self, ATTACK_2);
+
+			self->action = &doIntro;
+
+			self->flags &= ~NO_DRAW;
+			self->flags &= ~FLY;
+
+			printf("Starting\n");
+		}
+	}
+}
+
+static void doIntro()
+{
+	if (self->dirX == 0)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		self->face = LEFT;
+
+		self->dirX = -3;
+
+		self->dirY = -8;
+
+		self->thinkTime = 1;
+	}
+
+	else if ((self->flags & ON_GROUND) && self->thinkTime == 1)
+	{
+		setEntityAnimation(self, STAND);
+
+		self->thinkTime = 60;
+
+		self->dirX = 0;
+
+		self->action = &introPause;
+	}
+
+	checkToMap(self);
+}
+
+static void introPause()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->touch = &entityTouch;
+
 		attackFinished();
 	}
 
 	checkToMap(self);
 }
 
-static void fire()
-{
-	printf("Firing shot\n");
-
-	self->thinkTime--;
-}
-
-static void initialise()
-{
-	if (self->active == TRUE)
-	{
-		adjustMusicVolume(-1);
-	}
-
-	if (getMinMapX() < self->endX)
-	{
-		setMinMapX(getMinMapX() + 1);
-	}
-
-	else
-	{
-		self->touch = &entityTouch;
-
-		self->action = &wait;
-	}
-}
-
-static void startSpin()
-{
-	setEntityAnimation(self, ATTACK_2);
-
-	self->animationCallback = &spinAttackStart;
-
-	self->thinkTime = 60;
-}
-
 static void spinAttackStart()
 {
-	setEntityAnimation(self, ATTACK_3);
-
-	self->action = &spinAttack;
+	setEntityAnimation(self, ATTACK_2);
 
 	if (self->thinkTime > 0)
 	{
@@ -154,6 +242,8 @@ static void spinAttackStart()
 		if (self->thinkTime == 0)
 		{
 			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
 
 			self->dirY = -8;
 		}
@@ -171,43 +261,45 @@ static void spinAttackStart()
 
 static void spinAttack()
 {
+	float speed = self->dirX;
+
 	checkToMap(self);
 
 	if (self->dirX == 0)
 	{
-		shakeScreen(LIGHT, 5);
+		shakeScreen(MEDIUM, 15);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
-		self->frameSpeed *= -1;
-
-		self->dirX = 2;
+		self->dirX = speed < 0 ? 3 : -3;
 
 		self->dirY = -6;
 
-		self->action = &finishSpin;
+		self->action = &spinAttackEnd;
 
 		self->thinkTime = 0;
 	}
 }
 
-static void finishSpin()
+static void spinAttackEnd()
 {
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND && self->thinkTime == 0)
 	{
-		self->frameSpeed *= -1;
+		self->dirX = 0;
 
-		setEntityAnimation(self, ATTACK_2);
-
-		self->animationCallback = &attackFinished;
+		self->action = &attackFinished;
 	}
 }
 
 static void attackFinished()
 {
-	self->thinkTime = 180;
+	setEntityAnimation(self, STAND);
+
+	self->frameSpeed = 1;
+
+	self->thinkTime = 90;
 
 	self->action = &wait;
 }
@@ -216,6 +308,8 @@ static void die()
 {
 	setMinMapX(0);
 	setMinMapX(0);
+
+	centerMapOnEntity(&player);
 
 	entityDie();
 }

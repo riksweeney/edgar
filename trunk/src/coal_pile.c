@@ -13,8 +13,8 @@
 
 extern Entity *self;
 
-static void pileWait(void);
-static void pileTouch(Entity *);
+static void wait(void);
+static void touch(Entity *);
 static Entity *addCoal(int, int);
 
 Entity *addCoalPile(int x, int y)
@@ -38,8 +38,8 @@ Entity *addCoalPile(int x, int y)
 
 	e->face = RIGHT;
 
-	e->action = &pileWait;
-	e->touch = &pileTouch;
+	e->action = &wait;
+	e->touch = &touch;
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
@@ -84,7 +84,7 @@ static Entity *addCoal(int x, int y)
 	return e;
 }
 
-static void pileWait()
+static void wait()
 {
 	if (prand() % 90 == 0)
 	{
@@ -92,21 +92,26 @@ static void pileWait()
 	}
 }
 
-static void pileTouch(Entity *other)
+static void touch(Entity *other)
 {
 	Entity *e;
 
 	pushEntity(other);
 
-	if ((other->flags & ATTACKING) && strcmpignorecase(other->name, self->requires) == 0)
+	if ((other->flags & ATTACKING))
 	{
-		if (prand() % 10 == 0)
+		if (strcmpignorecase(other->name, self->requires) == 0 && (prand() % 4) == 0)
 		{
 			e = addCoal(self->x + self->w / 2, self->y);
 
 			e->y -= e->h + 1;
 
 			e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
+		}
+
+		else
+		{
+			printf("Dink\n");
 		}
 	}
 }
