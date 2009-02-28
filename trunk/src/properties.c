@@ -366,6 +366,11 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->speed = atof(value);
 	}
+	
+	else if (strcmpignorecase(name, "WEIGHT") == 0)
+	{
+		e->weight = atof(value);
+	}
 
 	else if (strcmpignorecase(name, "FLAGS") == 0)
 	{

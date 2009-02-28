@@ -28,7 +28,7 @@ typedef struct Entity
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
-	float speed;
+	float speed, weight;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
 	struct Entity *standingOn, *parent, *target;

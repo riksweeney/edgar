@@ -4,6 +4,7 @@
 #include "init.h"
 
 extern Input input;
+extern Game game;
 
 void getInput(int gameType)
 {
@@ -100,6 +101,13 @@ void getInput(int gameType)
 					
 					case SDLK_F12:
 						toggleFullScreen();
+					break;
+					
+					case SDLK_F10:
+						if (game.gameType != RECORDING)
+						{
+							takeSingleScreenshot();
+						}
 					break;
 
 					default:

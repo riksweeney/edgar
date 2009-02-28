@@ -65,7 +65,7 @@ void checkEntityToEntity(Entity *e)
 	{
 		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY)
 			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF || e->type == SPAWNER
-			|| entity[i].type == SAVE_POINT)
+			|| entity[i].type == SAVE_POINT || (e->type == PROJECTILE && entity[i].type == PROJECTILE))
 		{
 			continue;
 		}
@@ -139,7 +139,7 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move right */
 
-				if (bottomRight == SLOPE_UP)
+				if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
 				{
 					if (i == e->h)
 					{
@@ -152,7 +152,7 @@ void checkToMap(Entity *e)
 							e->flags |= ON_GROUND;
 						}
 
-						else if (e->type == PROJECTILE)
+						if (e->type == PROJECTILE)
 						{
 							e->inUse = FALSE;
 
@@ -161,7 +161,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (bottomRight == SLOPE_DOWN)
+				else if (bottomRight >= SLOPE_DOWN_START && bottomRight <= SLOPE_DOWN_END)
 				{
 
 				}
@@ -187,7 +187,7 @@ void checkToMap(Entity *e)
 						e->target->dirX = 0;
 					}
 
-					else if (e->type == PROJECTILE)
+					if (e->type == PROJECTILE)
 					{
 						e->inUse = FALSE;
 
@@ -200,7 +200,7 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move left */
 
-				if (bottomLeft == SLOPE_DOWN)
+				if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
 					if (i == e->h)
 					{
@@ -215,7 +215,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (bottomLeft == SLOPE_UP)
+				else if (bottomLeft >= SLOPE_UP_START && bottomLeft <= SLOPE_UP_END)
 				{
 
 				}
@@ -239,7 +239,7 @@ void checkToMap(Entity *e)
 						e->target->dirX = 0;
 					}
 
-					else if (e->type == PROJECTILE)
+					if (e->type == PROJECTILE)
 					{
 						e->inUse = FALSE;
 
@@ -289,7 +289,7 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move down */
 
-				if (bottomRight == SLOPE_UP)
+				if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
 				{
 					if (i == e->w)
 					{
@@ -303,7 +303,7 @@ void checkToMap(Entity *e)
 						e->flags |= ON_GROUND;
 					}
 
-					else if (e->type == PROJECTILE)
+					if (e->type == PROJECTILE)
 					{
 						e->inUse = FALSE;
 
@@ -311,7 +311,7 @@ void checkToMap(Entity *e)
 					}
 				}
 
-				else if (bottomLeft == SLOPE_DOWN)
+				else if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
 					if (i == e->w)
 					{
@@ -325,7 +325,7 @@ void checkToMap(Entity *e)
 						e->flags |= ON_GROUND;
 					}
 
-					else if (e->type == PROJECTILE)
+					if (e->type == PROJECTILE)
 					{
 						e->inUse = FALSE;
 
@@ -370,13 +370,13 @@ void checkToMap(Entity *e)
 					e->y = (y1 + 1) * TILE_SIZE;
 
 					e->dirY = 0;
-				}
-
-				else if (e->type == PROJECTILE)
-				{
-					e->inUse = FALSE;
-
-					return;
+					
+					if (e->type == PROJECTILE)
+					{
+						e->inUse = FALSE;
+	
+						return;
+					}
 				}
 			}
 		}

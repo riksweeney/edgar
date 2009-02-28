@@ -1,3 +1,15 @@
+#include "headers.h"
+
+#include "animation.h"
+#include "properties.h"
+#include "entity.h"
+#include "audio.h"
+
+extern Entity *self;
+
+static void touch(Entity *);
+static void die(void);
+
 Entity *addShrub(int x, int y)
 {
 	Entity *e = getFreeEntity();
@@ -9,7 +21,7 @@ Entity *addShrub(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("misc/shrub", e);
+	loadProperties("misc/small_tree", e);
 
 	e->x = x;
 	e->y = y;
@@ -19,7 +31,6 @@ Entity *addShrub(int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->die = &die;
-	e->takeDamage = &takeDamage;
 
 	e->type = KEY_ITEM;
 

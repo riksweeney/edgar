@@ -6,3 +6,4 @@ Input getBuffer(void);
 void flushBuffer(int);
 void setScreenshotDir(char *);
 void setMapFile(char *);
+void takeSingleScreenshot(void);

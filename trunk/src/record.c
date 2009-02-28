@@ -103,6 +103,11 @@ void takeScreenshot()
 	}
 }
 
+void takeSingleScreenshot()
+{
+	SDL_SaveBMP(game.screen, "edgar.bmp");
+}
+
 void putBuffer(Input inp)
 {
 	inputBuffer[bufferID] = inp;
