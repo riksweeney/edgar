@@ -4,7 +4,6 @@
 #include "properties.h"
 #include "entity.h"
 #include "random.h"
-#include "collisions.h"
 #include "audio.h"
 
 extern Entity *self;

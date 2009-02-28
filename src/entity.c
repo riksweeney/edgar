@@ -35,6 +35,8 @@ Entity *getFreeEntity()
 			entity[i].active = TRUE;
 
 			entity[i].frameSpeed = 1;
+			
+			entity[i].weight = 1;
 
 			entity[i].fallout = &removeEntity;
 
@@ -91,7 +93,7 @@ void doEntities()
 					break;
 
 					default:
-						self->dirY += GRAVITY_SPEED;
+						self->dirY += GRAVITY_SPEED * self->weight;
 
 						if (self->dirY >= MAX_AIR_SPEED)
 						{
@@ -351,7 +353,7 @@ void entityTouch(Entity *other)
 		}
 	}
 
-	else if (other->type == PROJECTILE && self->parent != other)
+	else if (other->type == PROJECTILE && other->parent != self)
 	{
 		if (self->takeDamage != NULL)
 		{
@@ -639,6 +641,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");

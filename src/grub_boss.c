@@ -10,6 +10,7 @@
 #include "map.h"
 #include "random.h"
 #include "custom_actions.h"
+#include "projectile.h"
 
 extern Entity *self, player;
 
@@ -75,7 +76,7 @@ static void wait()
 {
 	self->dirX = 0;
 
-	/*self->thinkTime--;*/
+	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
@@ -83,7 +84,7 @@ static void wait()
 		{
 			self->action = &spitStart;
 
-			self->thinkTime = 1 + (prand() % 4);
+			self->thinkTime = 1;
 		}
 
 		else
@@ -129,7 +130,20 @@ static void spitEnd()
 
 static void spit()
 {
-	printf("Firing shot\n");
+	int x = (self->face == RIGHT ? 40 : 17);
+	int i = prand() % 3;
+	
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
+	
+	if (i == 1)
+	{
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
+	}
+	
+	if (i > 0)
+	{
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
+	}
 
 	self->thinkTime--;
 
@@ -140,40 +154,40 @@ static void initialise()
 {
 	int minX, minY;
 
-	minX = getMinMapX();
-	minY = getMinMapY();
-
-	if (getMapStartX() > minX)
-	{
-		minX = getMapStartX();
-	}
-
-	if (getMapStartY() > minY)
-	{
-		minY = getMapStartY();
-	}
+	minX = getMapStartX();
+	minY = getMapStartY();
 
 	if (self->active == TRUE)
 	{
 		adjustMusicVolume(-1);
-
+		
+		centerMapOnEntity(NULL);
+		
 		if (minX < self->endX)
 		{
-			setMinMapX(minX + 1);
+			minX++;
+		}
+		
+		else if (minX > self->endX)
+		{
+			minX--;
 		}
 
 		if (minY < self->endY)
 		{
-			setMinMapY(minY + 1);
+			minY++;
 		}
+		
+		else if (minY > self->endY)
+		{
+			minY--;
+		}
+		
+		setMapStartX(minX);
+		setMapStartY(minY);
 
 		if (minX == self->endX && minY == self->endY)
 		{
-			setMapStartX(minX);
-			setMapStartY(minY);
-
-			centerMapOnEntity(NULL);
-
 			self->dirX = self->speed;
 
 			setEntityAnimation(self, ATTACK_2);

@@ -16,11 +16,8 @@
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
 
-extern Input input;
-extern Entity entity[MAX_ENTITIES];
-extern Entity *self;
-extern Entity player;
-extern Target target[MAX_TARGETS];
+extern Entity *self, player;
+extern Game game;
 
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name, int);
@@ -181,6 +178,8 @@ void loadMap(char *name)
 					}
 				}
 			}
+			
+			fgets(line, MAX_LINE_LENGTH, fp);
 		}
 
 		else if (strcmpignorecase(itemName, "{") == 0)
@@ -485,7 +484,14 @@ void drawMap(int depth)
 		for (x=x1;x<x2;x+=TILE_SIZE)
 		{
 			tileID = map.tile[mapY][mapX];
-
+			/*
+			if (tileID != 0 && mapImages[tileID] == NULL)
+			{
+				printf("Tile %d is NULL\n", tileID);
+				
+				exit(0);
+			}
+			*/
 			if (depth == 0)
 			{
 				if (tileID != BLANK_TILE && tileID < FOREGROUND_TILE_START)
