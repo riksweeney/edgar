@@ -4,6 +4,7 @@
 #include "properties.h"
 #include "entity.h"
 #include "hud.h"
+#include "load_save.h"
 
 extern Entity *self;
 
@@ -61,17 +62,19 @@ static void touch(Entity *other)
 	
 	if (other->type == PLAYER)
 	{
-		self->thinkTime = 60;
+		self->thinkTime = 5;
 		
 		setEntityAnimation(self, WALK);
 		
 		self->currentFrame = frame;
 
-		setInfoBoxMessage(0, "Press Action to save your game");
+		setInfoBoxMessage(5, "Press Action to save your game");
 	}
 }
 
 static void activate(int val)
 {
-	printf("Saving game\n");
+	setInfoBoxMessage(5, "Saving game...");
+	
+	saveGame();
 }

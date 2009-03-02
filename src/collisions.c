@@ -412,6 +412,12 @@ void checkToMap(Entity *e)
 		{
 			e->target->dirX = 0;
 		}
+		
+		if (e->type == PROJECTILE)
+		{
+			e->inUse = FALSE;
+		}
+		
 	}
 
 	else if (e->x + e->w >= maxMapX())
@@ -423,6 +429,11 @@ void checkToMap(Entity *e)
 		if ((e->flags & GRABBING) && e->target != NULL)
 		{
 			e->target->dirX = 0;
+		}
+		
+		if (e->type == PROJECTILE)
+		{
+			e->inUse = FALSE;
 		}
 	}
 

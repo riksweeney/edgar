@@ -47,7 +47,7 @@ typedef struct Entity
 typedef struct Map
 {
 	char filename[MAX_VALUE_LENGTH], tilesetName[MAX_VALUE_LENGTH], ambienceName[MAX_VALUE_LENGTH];
-	char musicName[MAX_VALUE_LENGTH];
+	char musicName[MAX_VALUE_LENGTH], mapName[MAX_VALUE_LENGTH];
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int minX, minY;
@@ -84,6 +84,7 @@ typedef struct Game
 	SDL_Surface *screen, *tempSurface;
 	TTF_Font *font;
 	Mix_Music *music;
+	SDL_Joystick *joystick;
 } Game;
 
 typedef struct Cursor
@@ -147,3 +148,10 @@ typedef struct Objective
 	int inUse, active, completed;
 	char name[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
 } Objective;
+
+typedef struct PersistanceList
+{
+	char mapName[MAX_VALUE_LENGTH];
+	Entity entity;
+	struct PersistanceList *next;
+} PersistanceList;

@@ -8,3 +8,4 @@ void drawSelectedInventoryItem(int, int, int, int);
 int removeInventoryItem(char *);
 void addRequiredToInventory(Entity *);
 void loadInventoryItems(void);
+void writeInventoryToFile(FILE *);

@@ -10,7 +10,27 @@ static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
 extern Map map;
 
+static int getAnimationTypeByName(char *);
+static char *getAnimationTypeByID(int);
+
 static int animationID = -1;
+static Type type[] = {
+					{STAND, "STAND"},
+					{WALK, "WALK"},
+					{JUMP, "JUMP"},
+					{PAIN, "PAIN"},
+					{ATTACK_1, "ATTACK_1"},
+					{ATTACK_2, "ATTACK_2"},
+					{ATTACK_3, "ATTACK_3"},
+					{ATTACK_4, "ATTACK_4"},
+					{ATTACK_5, "ATTACK_5"},
+					{CUSTOM_1, "CUSTOM_1"},
+					{CUSTOM_2, "CUSTOM_2"},
+					{CUSTOM_3, "CUSTOM_3"},
+					{CUSTOM_4, "CUSTOM_4"},
+					{CUSTOM_5, "CUSTOM_5"},
+					{TAUNT, "TAUNT"}
+					};
 
 void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 {
@@ -67,63 +87,8 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				abort();
 			}
-
-			if (strcmpignorecase(frameName, "STAND") == 0)
-			{
-				animationIndex[STAND] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "WALK") == 0)
-			{
-				animationIndex[WALK] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "JUMP") == 0)
-			{
-				animationIndex[JUMP] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "PAIN") == 0)
-			{
-				animationIndex[PAIN] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "DIE") == 0)
-			{
-				animationIndex[DIE] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "ATTACK_1") == 0)
-			{
-				animationIndex[ATTACK_1] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "ATTACK_2") == 0)
-			{
-				animationIndex[ATTACK_2] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "ATTACK_3") == 0)
-			{
-				animationIndex[ATTACK_3] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "ATTACK_4") == 0)
-			{
-				animationIndex[ATTACK_4] = animationID;
-			}
-
-			else if (strcmpignorecase(frameName, "ATTACK_5") == 0)
-			{
-				animationIndex[ATTACK_5] = animationID;
-			}
-
-			else
-			{
-				printf("Unknown animation %s\n", frameName);
-
-				exit(1);
-			}
+			
+			animationIndex[getAnimationTypeByName(frameName)] = animationID;
 		}
 
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
@@ -425,7 +390,7 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		if (e->currentAnim == -1)
 		{
-			printf("Animation not set for %s index %d\n", e->name, animationID);
+			printf("Animation not set for %s index %s\n", e->name, getAnimationTypeByID(animationID));
 
 			abort();
 		}
@@ -446,4 +411,38 @@ void setEntityAnimation(Entity *e, int animationID)
 		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
 	}
+}
+
+static int getAnimationTypeByName(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_ANIMATION_TYPES;i++)
+	{
+		if (strcmpignorecase(name, type[i].name) == 0)
+		{
+			return type[i].id;
+		}
+	}
+
+	printf("Unknown animation %s\n", name);
+	
+	exit(1);
+}
+
+static char *getAnimationTypeByID(int id)
+{
+	int i;
+
+	for (i=0;i<MAX_ANIMATION_TYPES;i++)
+	{
+		if (id == type[i].id)
+		{
+			return type[i].name;
+		}
+	}
+
+	printf("Unknown animation index %d\n", id);
+	
+	exit(1);
 }

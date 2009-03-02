@@ -379,7 +379,7 @@ void setProperty(Entity *e, char *name, char *value)
 
 	else if (strcmpignorecase(name, "TYPE") == 0)
 	{
-		e->type = getTypeByName(value);
+		e->type = getEntityTypeByName(value);
 	}
 
 	else if (strcmpignorecase(name, "FACE") == 0)
@@ -408,7 +408,7 @@ void setProperty(Entity *e, char *name, char *value)
 	}
 }
 
-int getTypeByName(char *name)
+int getEntityTypeByName(char *name)
 {
 	int i;
 
@@ -423,7 +423,7 @@ int getTypeByName(char *name)
 	return -1;
 }
 
-char *getTypeByID(int id)
+char *getEntityTypeByID(int id)
 {
 	int i;
 

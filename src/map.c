@@ -46,15 +46,20 @@ void loadMap(char *name)
 
 	/* Set the filename */
 
-	strcpy(map.filename, line);
+	strcpy(map.filename, name);
 
 	/* Read the data from the file into the map */
 
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		sscanf(line, "%s", itemName);
+		
+		if (strcmpignorecase(itemName, "NAME") == 0)
+		{
+			strcpy(map.mapName, itemName);
+		}
 
-		if (strcmpignorecase(itemName, "TILESET") == 0)
+		else if (strcmpignorecase(itemName, "TILESET") == 0)
 		{
 			/* Load the map tiles */
 
@@ -223,6 +228,7 @@ void loadMap(char *name)
 void saveMap()
 {
 	int x, y;
+	char filename[MAX_LINE_LENGTH];
 	FILE *fp;
 
 	self = &player;
@@ -233,10 +239,12 @@ void saveMap()
 
 		return;
 	}
+	
+	sprintf(filename, "%sdata/maps/%s.dat", INSTALL_PATH, map.filename);
+	
+	printf("Saving map to %s\n", filename);
 
-	printf("Saving map to %s\n", map.filename);
-
-	fp = fopen(map.filename, "wb");
+	fp = fopen(filename, "wb");
 
 	/* If we can't open the map then exit */
 
@@ -246,7 +254,8 @@ void saveMap()
 
 		exit(1);
 	}
-
+	
+	fprintf(fp, "NAME %s\n", map.mapName);
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);
@@ -832,4 +841,9 @@ int prevTile(int id)
 void centerMapOnEntity(Entity *e)
 {
 	map.targetEntity = e;
+}
+
+char *getMapName()
+{
+	return map.filename;
 }

@@ -631,7 +631,7 @@ void writeEntitiesToFile(FILE *fp)
 		if (self->inUse == TRUE)
 		{
 			fprintf(fp, "{\n");
-			fprintf(fp, "TYPE %s\n", getTypeByID(self->type));
+			fprintf(fp, "TYPE %s\n", getEntityTypeByID(self->type));
 			fprintf(fp, "NAME %s\n", self->name);
 			fprintf(fp, "START_X %d\n", (int)self->x);
 			fprintf(fp, "START_Y %d\n", (int)self->y);

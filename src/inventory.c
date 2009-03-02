@@ -299,3 +299,34 @@ void loadInventoryItems()
 
 	printf("Done reloading inventory\n");
 }
+
+void writeInventoryToFile(FILE *fp)
+{
+	int i;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		self = &inventory.item[i];
+
+		if (self->inUse == TRUE)
+		{
+			fprintf(fp, "{\n");
+			fprintf(fp, "TYPE %s\n", getEntityTypeByID(self->type));
+			fprintf(fp, "NAME %s\n", self->name);
+			fprintf(fp, "START_X %d\n", (int)self->x);
+			fprintf(fp, "START_Y %d\n", (int)self->y);
+			fprintf(fp, "END_X %d\n", (int)self->endX);
+			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+			fprintf(fp, "HEALTH %d\n", self->health);
+			fprintf(fp, "DAMAGE %d\n", self->damage);
+			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+			fprintf(fp, "REQUIRES %s\n", self->requires);
+			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
+			fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
+			fprintf(fp, "}\n\n");
+		}
+	}
+}

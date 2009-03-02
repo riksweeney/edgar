@@ -52,8 +52,6 @@ void loadPlayer(int x, int y)
 		playerWeapon.face = playerShield.face = LEFT;
 		
 		player.fallout = &fallout;
-
-		centerMapOnEntity(&player);
 	}
 
 	else
@@ -69,6 +67,8 @@ void loadPlayer(int x, int y)
 
 		setPlayerLocation(x, y);
 	}
+	
+	centerMapOnEntity(&player);
 }
 
 void setPlayerLocation(int x, int y)
@@ -461,6 +461,8 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		playerWeapon.parent = &player;
 
 		playerWeapon.face = player.face;
+		
+		playerWeapon.inUse = TRUE;
 	}
 }
 
@@ -473,6 +475,8 @@ void autoSetPlayerShield(Entity *newWeapon)
 		playerShield.parent = &player;
 
 		playerShield.face = player.face;
+		
+		playerShield.inUse = TRUE;
 	}
 }
 
@@ -526,11 +530,68 @@ void writePlayerToFile(FILE *fp)
 	self = &player;
 
 	fprintf(fp, "{\n");
-	fprintf(fp, "TYPE player_start\n");
-	fprintf(fp, "NAME player_start\n");
+	fprintf(fp, "TYPE PLAYER_START\n");
+	fprintf(fp, "NAME PLAYER_START\n");
 	fprintf(fp, "START_X %d\n", (int)self->x);
 	fprintf(fp, "START_Y %d\n", (int)self->y);
+	fprintf(fp, "END_X %d\n", (int)self->endX);
+	fprintf(fp, "END_Y %d\n", (int)self->endY);
+	fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+	fprintf(fp, "HEALTH %d\n", self->health);
+	fprintf(fp, "DAMAGE %d\n", self->damage);
+	fprintf(fp, "SPEED %0.1f\n", self->speed);
+	fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+	fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+	fprintf(fp, "REQUIRES %s\n", self->requires);
+	fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
 	fprintf(fp, "}\n\n");
+	
+	self = &playerWeapon;
+	
+	if (self->active == TRUE)
+	{
+		fprintf(fp, "{\n");
+		fprintf(fp, "TYPE PLAYER_WEAPON\n");
+		fprintf(fp, "NAME %s\n", self->name);
+		fprintf(fp, "START_X %d\n", (int)self->x);
+		fprintf(fp, "START_Y %d\n", (int)self->y);
+		fprintf(fp, "END_X %d\n", (int)self->endX);
+		fprintf(fp, "END_Y %d\n", (int)self->endY);
+		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+		fprintf(fp, "HEALTH %d\n", self->health);
+		fprintf(fp, "DAMAGE %d\n", self->damage);
+		fprintf(fp, "SPEED %0.1f\n", self->speed);
+		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+		fprintf(fp, "REQUIRES %s\n", self->requires);
+		fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
+		fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
+		fprintf(fp, "}\n\n");
+	}
+	
+	self = &playerShield;
+	
+	if (self->active == TRUE)
+	{
+		fprintf(fp, "{\n");
+		fprintf(fp, "TYPE PLAYER_SHIELD\n");
+		fprintf(fp, "NAME %s\n", self->name);
+		fprintf(fp, "START_X %d\n", (int)self->x);
+		fprintf(fp, "START_Y %d\n", (int)self->y);
+		fprintf(fp, "END_X %d\n", (int)self->endX);
+		fprintf(fp, "END_Y %d\n", (int)self->endY);
+		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+		fprintf(fp, "HEALTH %d\n", self->health);
+		fprintf(fp, "DAMAGE %d\n", self->damage);
+		fprintf(fp, "SPEED %0.1f\n", self->speed);
+		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
+		fprintf(fp, "REQUIRES %s\n", self->requires);
+		fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
+		fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
+		fprintf(fp, "}\n\n");
+	}
 }
 
 static void fallout()

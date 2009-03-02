@@ -8,6 +8,7 @@
 #include "graphics.h"
 #include "resources.h"
 #include "map.h"
+#include "load_save.h"
 
 extern Game game;
 
@@ -331,6 +332,8 @@ void setNextLevel(char *name, char *playerStart)
 
 void goToNextMap()
 {
+	saveTemporaryData();
+	
 	printf("Freeing Resources\n");
 
 	freeLevelResources();

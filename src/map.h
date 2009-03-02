@@ -27,3 +27,4 @@ int getMapStartX(void);
 int getMapStartY(void);
 void setMapStartX(int);
 void setMapStartY(int);
+char *getMapName(void);

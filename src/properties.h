@@ -1,5 +1,5 @@
 void loadProperties(char *, Entity *);
 void setProperty(Entity *, char *, char *);
-char *getTypeByID(int);
-int getTypeByName(char *);
+char *getEntityTypeByID(int);
+int getEntityTypeByName(char *);
 void freeProperties(void);

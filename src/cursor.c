@@ -29,6 +29,7 @@ void initCursor(char *name)
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.active = TRUE;
+	cursor.entity.weight = 1;
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
@@ -209,6 +210,7 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
+			cursor.entity.weight = 1;
 		}
 
 		input.previous = 0;
@@ -237,6 +239,7 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
+			cursor.entity.weight = 1;
 		}
 
 		input.next = 0;

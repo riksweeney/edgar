@@ -4,14 +4,17 @@
 #include "resources.h"
 #include "game.h"
 #include "record.h"
+#include "load_save.h"
 
 extern Game game;
 
 void init(char *title)
 {
+	int joysticks, buttons;
+	
 	/* Initialise SDL Video and Audio */
 
-	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_AUDIO) < 0)
 	{
 		printf("Could not initialize SDL: %s\n", SDL_GetError());
 
@@ -53,6 +56,21 @@ void init(char *title)
 	{
 		game.audioVolume = MIX_MAX_VOLUME;
 	}
+	
+	joysticks = SDL_NumJoysticks();
+
+	if (joysticks > 0)
+	{
+		printf("Found %d joysticks Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
+
+		game.joystick = SDL_JoystickOpen(0);
+
+		buttons = SDL_JoystickNumButtons(game.joystick);
+
+		printf("Joystick has %d buttons\n", buttons);
+
+		printf("Joystick has %d axes\n", SDL_JoystickNumAxes(game.joystick));
+	}
 
 	/* Set the screen title */
 
@@ -65,6 +83,10 @@ void init(char *title)
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
+	
+	/* Set up the home directory */
+	
+	setupUserHomeDirectory();
 }
 
 void toggleFullScreen()
@@ -101,6 +123,13 @@ void cleanup()
 	/* Close the mixer */
 
 	Mix_CloseAudio();
+	
+	/* Close the joystick */
+	
+	if (game.joystick != NULL)
+	{
+		SDL_JoystickClose(game.joystick);
+	}
 
 	/* Shut down SDL */
 
