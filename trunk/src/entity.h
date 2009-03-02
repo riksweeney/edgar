@@ -18,3 +18,4 @@ void initLineDefs(void);
 void writeEntitiesToFile(FILE *);
 void floatLeftToRight(void);
 void moveLeftToRight(void);
+void writeEntityToFile(Entity *, FILE *);

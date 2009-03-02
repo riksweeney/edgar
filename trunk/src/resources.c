@@ -175,7 +175,7 @@ void loadResources(FILE *fp)
 
 			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)
 			{
-				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), getTypeByName(value[type]));
+				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), getEntityTypeByName(value[type]));
 			}
 
 			else if (strcmpignorecase(value[type], "SPAWNER") == 0)
@@ -195,7 +195,7 @@ void loadResources(FILE *fp)
 
 			else if (strcmpignorecase(value[type], "AUTO_DOOR") == 0 || strcmpignorecase(value[type], "MANUAL_DOOR") == 0)
 			{
-				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]), getTypeByName(value[type]));
+				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]), getEntityTypeByName(value[type]));
 			}
 
 			else if (strcmpignorecase(value[type], "WEAK_WALL") == 0)
@@ -220,7 +220,12 @@ void loadResources(FILE *fp)
 			
 			else if (strcmpignorecase(value[type], "SAVE_POINT") == 0)
 			{
-				e = addSavePoint(atoi(value[startX]), atoi(value[startY]));
+				/* Save points don't spawn for replays */
+				
+				if (game.gameType == NORMAL)
+				{
+					e = addSavePoint(atoi(value[startX]), atoi(value[startY]));
+				}
 			}
 			
 			else if (strcmpignorecase(value[type], "TRIGGER") == 0)

@@ -112,6 +112,8 @@
 
 #define ITEM_JUMP_HEIGHT -6
 
+#define CHUNK_SIZE 16384
+
 enum
 {
 	LEFT,
@@ -185,6 +187,12 @@ enum
 	ATTACK_3,
 	ATTACK_4,
 	ATTACK_5,
+	CUSTOM_1,
+	CUSTOM_2,
+	CUSTOM_3,
+	CUSTOM_4,
+	CUSTOM_5,
+	TAUNT,
 	MAX_ANIMATION_TYPES
 };
 

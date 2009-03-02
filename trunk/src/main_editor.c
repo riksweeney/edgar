@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		printf("Usage: %s <map file name>\n", argv[1]);
+		printf("Usage: %s <map file name>\n", argv[0]);
 
 		exit(1);
 	}
