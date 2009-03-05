@@ -1,1 +1,1 @@
-Entity *addGrub(int, int);
+Entity *addGrub(int, int, char *);

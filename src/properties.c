@@ -267,7 +267,7 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= OBSTACLE;
 		}
-		
+
 		else if (strcmpignorecase(token, "FLOATS") == 0)
 		{
 			e->flags |= FLOATS;
@@ -352,6 +352,11 @@ void setProperty(Entity *e, char *name, char *value)
 		e->maxHealth = e->health;
 	}
 
+	else if (strcmpignorecase(name, "MAX_HEALTH") == 0)
+	{
+		e->maxHealth = atoi(value);
+	}
+
 	else if (strcmpignorecase(name, "DAMAGE") == 0)
 	{
 		e->damage = atoi(value);
@@ -366,7 +371,7 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->speed = atof(value);
 	}
-	
+
 	else if (strcmpignorecase(name, "WEIGHT") == 0)
 	{
 		e->weight = atof(value);
@@ -403,7 +408,7 @@ void setProperty(Entity *e, char *name, char *value)
 
 		if (found == FALSE)
 		{
-			printf("Unknown property value %s\n", name);
+			printf("%s has unknown property value %s\n", e->name, name);
 		}
 	}
 }

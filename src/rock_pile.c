@@ -13,7 +13,7 @@ extern Entity *self, player;
 
 static void collectRock(Entity *);
 
-Entity *addRockPile(int x, int y)
+Entity *addRockPile(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -24,7 +24,7 @@ Entity *addRockPile(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("item/rock_pile", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

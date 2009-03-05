@@ -1,1 +1,1 @@
-Entity *addGrubBoss(int, int);
+Entity *addGrubBoss(int, int, char *);

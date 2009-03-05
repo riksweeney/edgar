@@ -39,14 +39,14 @@ void setReplayData(char *name)
 	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
-	
+
 	fread(mapFile, 5, 1, replayBuffer);
-	
+
 	mapFile[5] = '\0';
-	
+
 	printf("Loading map %s\n", mapFile);
-	
-	loadMap(mapFile);
+
+	loadMap(mapFile, TRUE);
 }
 
 void setRecordData(char *name)
@@ -78,7 +78,7 @@ void setRecordData(char *name)
 void setMapFile(char *name)
 {
 	printf("Setting map to %s\n", name);
-	
+
 	fwrite(name, 5, 1, replayBuffer);
 }
 

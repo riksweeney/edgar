@@ -6,6 +6,7 @@
 #include "collisions.h"
 #include "audio.h"
 #include "graphics.h"
+#include "custom_actions.h"
 
 extern Entity *self;
 
@@ -16,7 +17,7 @@ static void init(void);
 static void takeDamage(Entity *, int);
 static void retreat(void);
 
-Entity *addSpider(int x, int y)
+Entity *addSpider(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -27,7 +28,7 @@ Entity *addSpider(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("enemy/spider", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;
@@ -56,6 +57,8 @@ static void takeDamage(Entity *other, int damage)
 	if (damage < self->health)
 	{
 		self->targetY = self->startY;
+
+		setCustomAction(self, &flashWhite, 6);
 
 		self->action = &retreat;
 	}

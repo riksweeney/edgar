@@ -26,7 +26,12 @@ extern Game game;
 #include "level_exit.h"
 #include "decoration.h"
 #include "trigger.h"
+#include "global_trigger.h"
+#include "objective.h"
 #include "save_point.h"
+#include "inventory.h"
+
+static char **key, **value;
 
 void loadRequiredResources()
 {
@@ -69,6 +74,10 @@ void freeLevelResources()
 
 	freeSprites();
 
+	/* Free the triggers */
+
+	freeTriggers();
+
 	/* Free the properties */
 
 	freeProperties();
@@ -76,6 +85,19 @@ void freeLevelResources()
 	/* Free the HUD messages */
 
 	freeHudMessages();
+}
+
+void freeGameResources()
+{
+	freeLevelResources();
+
+	/* Free the Global Triggers */
+
+	freeGlobalTriggers();
+
+	/* Free the Objectives */
+
+	freeObjectives();
 }
 
 void freeAllResources()
@@ -93,32 +115,42 @@ void freeAllResources()
 
 void loadResources(FILE *fp)
 {
-	int i, startX, startY, type, name;
-	char **key, **value, line[MAX_LINE_LENGTH];
-	char *token;
+	int i, startX, startY, type, name, resourceType;
+	char *token, line[MAX_LINE_LENGTH], itemName[MAX_VALUE_LENGTH];
 	Entity *e;
-	
-	key = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
-	value = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
-	
+
+	resourceType = ENTITY_DATA;
+
 	if (key == NULL || value == NULL)
 	{
-		printf("Ran out of memory when loading properties\n");
-		
-		exit(1);
-	}
-	
-	for (i=0;i<MAX_PROPS_FILES;i++)
-	{
-		key[i] = (char *)malloc(MAX_VALUE_LENGTH);
-		value[i] = (char *)malloc(MAX_VALUE_LENGTH);
-		
-		if (key[i] == NULL || value[i] == NULL)
+		key = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
+		value = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
+
+		if (key == NULL || value == NULL)
 		{
 			printf("Ran out of memory when loading properties\n");
-			
+
 			exit(1);
 		}
+
+		for (i=0;i<MAX_PROPS_FILES;i++)
+		{
+			key[i] = (char *)malloc(MAX_VALUE_LENGTH);
+			value[i] = (char *)malloc(MAX_VALUE_LENGTH);
+
+			if (key[i] == NULL || value[i] == NULL)
+			{
+				printf("Ran out of memory when loading properties\n");
+
+				exit(1);
+			}
+		}
+	}
+
+	for (i=0;i<MAX_PROPS_FILES;i++)
+	{
+		key[i][0] = '\0';
+		value[i][0] = '\0';
 	}
 
 	i = 0;
@@ -139,7 +171,26 @@ void loadResources(FILE *fp)
 			continue;
 		}
 
-		if (strcmpignorecase(line, "{") == 0)
+		sscanf(line, "%s", itemName);
+
+		if (strcmpignorecase(itemName, "MAP_NAME") == 0)
+		{
+			printf("Encountered Map Data for %s. Returning\n", line);
+
+			break;
+		}
+
+		else if (strcmpignorecase(line, "PLAYER_INVENTORY") == 0)
+		{
+			resourceType = PLAYER_INVENTORY;
+		}
+
+		else if (strcmpignorecase(line, "ENTITY_DATA") == 0)
+		{
+			resourceType = ENTITY_DATA;
+		}
+
+		else if (strcmpignorecase(line, "{") == 0)
 		{
 			i = 0;
 
@@ -158,9 +209,19 @@ void loadResources(FILE *fp)
 				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
-			else if (strcmpignorecase(value[type], "player_start") == 0)
+			else if (strcmpignorecase(value[type], "PLAYER") == 0)
 			{
-				loadPlayer(atoi(value[startX]), atoi(value[startY]));
+				e = loadPlayer(atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "PLAYER_WEAPON") == 0)
+			{
+				setPlayerWeaponName(value[name]);
+			}
+
+			else if (strcmpignorecase(value[type], "PLAYER_SHIELD") == 0)
+			{
+				setPlayerShieldName(value[name]);
 			}
 
 			else if (strcmpignorecase(value[type], "KEY_ITEM") == 0)
@@ -217,20 +278,30 @@ void loadResources(FILE *fp)
 			{
 				e = addLevelExit(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
-			
+
 			else if (strcmpignorecase(value[type], "SAVE_POINT") == 0)
 			{
 				/* Save points don't spawn for replays */
-				
+
 				if (game.gameType == NORMAL)
 				{
 					e = addSavePoint(atoi(value[startX]), atoi(value[startY]));
 				}
 			}
-			
+
 			else if (strcmpignorecase(value[type], "TRIGGER") == 0)
 			{
 				addTriggerFromResource(key, value);
+			}
+
+			else if (strcmpignorecase(value[type], "GLOBAL_TRIGGER") == 0)
+			{
+				addGlobalTriggerFromResource(key, value);
+			}
+
+			else if (strcmpignorecase(value[type], "OBJECTIVE") == 0)
+			{
+				addObjectiveFromResource(key, value);
 			}
 
 			else
@@ -247,12 +318,19 @@ void loadResources(FILE *fp)
 						setProperty(e, key[i], value[i]);
 					}
 				}
+
+				if (resourceType == PLAYER_INVENTORY)
+				{
+					printf("Adding %s to inventory\n", e->name);
+
+					addToInventory(e);
+				}
 			}
 
 			for (i=0;i<MAX_PROPS_FILES;i++)
 			{
 				key[i][0] = '\0';
-				
+
 				value[i][0] = '\0';
 			}
 		}
@@ -298,13 +376,4 @@ void loadResources(FILE *fp)
 			i++;
 		}
 	}
-	
-	for (i=0;i<MAX_PROPS_FILES;i++)
-	{
-		free(key[i]);
-		free(value[i]);
-	}
-	
-	free(key);
-	free(value);
 }

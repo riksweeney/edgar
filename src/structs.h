@@ -1,5 +1,16 @@
 #include "defs.h"
 
+typedef struct BoundingBox
+{
+	int x, y, h, w;
+} BoundingBox;
+
+typedef struct Sprite
+{
+	SDL_Surface *image;
+	BoundingBox box;
+} Sprite;
+
 typedef struct Animation
 {
 	int frameCount;
@@ -32,6 +43,7 @@ typedef struct Entity
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
 	struct Entity *standingOn, *parent, *target;
+	BoundingBox box;
 	void (*action)(void);
 	void (*activate)(int);
 	void (*draw)(void);
@@ -122,7 +134,7 @@ typedef struct Properties
 typedef struct Constructor
 {
 	char name[MAX_VALUE_LENGTH];
-	Entity *(*construct)(int, int);
+	Entity *(*construct)(int, int, char *);
 } Constructor;
 
 typedef struct Target
@@ -148,10 +160,3 @@ typedef struct Objective
 	int inUse, active, completed;
 	char name[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
 } Objective;
-
-typedef struct PersistanceList
-{
-	char mapName[MAX_VALUE_LENGTH];
-	Entity entity;
-	struct PersistanceList *next;
-} PersistanceList;

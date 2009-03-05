@@ -35,6 +35,8 @@ Entity *addSavePoint(int x, int y)
 
 	e->type = SAVE_POINT;
 
+	e->health = 0;
+
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -43,38 +45,56 @@ Entity *addSavePoint(int x, int y)
 static void wait()
 {
 	int frame = self->currentFrame;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime < 0)
 	{
 		self->thinkTime = 0;
-		
+
 		setEntityAnimation(self, STAND);
-		
+
 		self->currentFrame = frame;
+	}
+
+	self->health--;
+
+	if (self->health < 0)
+	{
+		self->health = 0;
 	}
 }
 
 static void touch(Entity *other)
 {
 	int frame = self->currentFrame;
-	
+
 	if (other->type == PLAYER)
 	{
 		self->thinkTime = 5;
-		
+
 		setEntityAnimation(self, WALK);
-		
+
 		self->currentFrame = frame;
 
-		setInfoBoxMessage(5, "Press Action to save your game");
+		if (self->health == 0)
+		{
+			setInfoBoxMessage(5, "Press Action to save your game");
+		}
+
+		else
+		{
+			setInfoBoxMessage(5, "Game saved");
+		}
 	}
 }
 
 static void activate(int val)
 {
-	setInfoBoxMessage(5, "Saving game...");
-	
-	saveGame();
+	if (self->health == 0)
+	{
+		self->health = 120;
+
+		saveGame(0);
+	}
 }

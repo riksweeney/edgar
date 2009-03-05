@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		loadMap(argv[1]);
+		loadMap(argv[1], TRUE);
 	}
 
 	else
@@ -102,6 +102,10 @@ int main(int argc, char *argv[])
 		/* Do the cursor */
 
 		doCursor();
+
+		/* Do the map */
+
+		doMap();
 
 		/* Do the status panel */
 

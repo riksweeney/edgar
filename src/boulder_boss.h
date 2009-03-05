@@ -1,1 +1,1 @@
-Entity *addBoulderBoss(int, int);
+Entity *addBoulderBoss(int, int, char *);

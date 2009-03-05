@@ -11,7 +11,7 @@ extern Entity *self, player;
 
 static void dropChickenFeed(int);
 
-Entity *addChickenFeedBag(int x, int y)
+Entity *addChickenFeedBag(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -22,7 +22,7 @@ Entity *addChickenFeedBag(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("item/chicken_feed_bag", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

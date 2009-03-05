@@ -4,9 +4,6 @@
 #include "objective.h"
 #include "trigger.h"
 
-static int getTriggerTypeByName(char *);
-static char *getTriggerTypeByID(int);
-
 static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
 					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
@@ -15,48 +12,48 @@ static Type type[] = {
 					};
 static int length = sizeof(type) / sizeof(Type);
 
+void freeTriggers()
+{
+	/* Clear the list */
+
+	memset(trigger, 0, sizeof(Trigger) * MAX_TRIGGERS);
+}
+
 void addTriggerFromResource(char *key[], char *value[])
 {
 	int i, triggerName, count, targetType, targetName;
-	
+
 	triggerName = count = targetType = targetName = -1;
-	
+
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
 		if (strcmpignorecase("TRIGGER_NAME", key[i]) == 0)
 		{
 			triggerName = i;
 		}
-		
+
 		else if (strcmpignorecase("TRIGGER_COUNT", key[i]) == 0)
 		{
 			count = i;
 		}
-		
+
 		else if (strcmpignorecase("TRIGGER_TYPE", key[i]) == 0)
 		{
 			targetType = i;
 		}
-		
+
 		else if (strcmpignorecase("TRIGGER_TARGET", key[i]) == 0)
 		{
 			targetName = i;
 		}
 	}
-	
+
 	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1)
 	{
 		printf("Trigger is missing resources\n");
-		
+
 		exit(1);
 	}
-	
-	addTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
-}
-
-void addTrigger(char *triggerName, int count, int targetType, char *targetName)
-{
-	int i;
 
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
@@ -64,19 +61,19 @@ void addTrigger(char *triggerName, int count, int targetType, char *targetName)
 		{
 			trigger[i].inUse = TRUE;
 
-			trigger[i].count = count;
-			trigger[i].targetType = targetType;
+			trigger[i].count = atoi(value[count]);
+			trigger[i].targetType = getTriggerTypeByName(value[targetType]);
 
-			strcpy(trigger[i].triggerName, triggerName);
-			strcpy(trigger[i].targetName, targetName);
+			strcpy(trigger[i].triggerName, value[triggerName]);
+			strcpy(trigger[i].targetName, value[targetName]);
 
-			printf("Added trigger %s with count %d\n", trigger[i].triggerName, trigger[i].count);
+			printf("Added Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
 
 			return;
 		}
 	}
 
-	printf("No free slots to add Trigger %s\n", triggerName);
+	printf("No free slots to add Trigger \"%s\"\n", value[triggerName]);
 
 	exit(1);
 }
@@ -98,7 +95,7 @@ void fireTrigger(char *name)
 
 			if (trigger[i].count <= 0)
 			{
-				printf("Firing trigger %s\n", trigger[i].triggerName);
+				printf("Firing Trigger \"%s\"\n", trigger[i].triggerName);
 
 				switch (trigger[i].targetType)
 				{
@@ -148,7 +145,7 @@ void writeTriggersToFile(FILE *fp)
 	}
 }
 
-static int getTriggerTypeByName(char *name)
+int getTriggerTypeByName(char *name)
 {
 	int i;
 
@@ -163,7 +160,7 @@ static int getTriggerTypeByName(char *name)
 	return -1;
 }
 
-static char *getTriggerTypeByID(int id)
+char *getTriggerTypeByID(int id)
 {
 	int i;
 

@@ -1,1 +1,1 @@
-Entity *addChickenFeedBag(int, int);
+Entity *addChickenFeedBag(int, int, char *);

@@ -1,4 +1,6 @@
 void fireTrigger(char *);
-void addTrigger(char *, int, int, char *);
 void writeTriggersToFile(FILE *);
 void addTriggerFromResource(char *[], char *[]);
+void freeTriggers(void);
+int getTriggerTypeByName(char *);
+char *getTriggerTypeByID(int);

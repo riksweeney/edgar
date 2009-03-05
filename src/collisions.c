@@ -370,11 +370,11 @@ void checkToMap(Entity *e)
 					e->y = (y1 + 1) * TILE_SIZE;
 
 					e->dirY = 0;
-					
+
 					if (e->type == PROJECTILE)
 					{
 						e->inUse = FALSE;
-	
+
 						return;
 					}
 				}
@@ -398,10 +398,10 @@ void checkToMap(Entity *e)
 
 	e->x += e->dirX;
 	e->y += e->dirY;
-	
+
 	x1 = e->type == PLAYER ? getMinMapX() : 0;
 	y1 = e->type == PLAYER ? getMinMapY() : 0;
-	
+
 	if (e->x < x1)
 	{
 		e->x = x1;
@@ -412,12 +412,12 @@ void checkToMap(Entity *e)
 		{
 			e->target->dirX = 0;
 		}
-		
+
 		if (e->type == PROJECTILE)
 		{
 			e->inUse = FALSE;
 		}
-		
+
 	}
 
 	else if (e->x + e->w >= maxMapX())
@@ -430,7 +430,7 @@ void checkToMap(Entity *e)
 		{
 			e->target->dirX = 0;
 		}
-		
+
 		if (e->type == PROJECTILE)
 		{
 			e->inUse = FALSE;
@@ -448,6 +448,14 @@ void checkToMap(Entity *e)
 		(bottomRight >= WATER_TILE_START && bottomRight <= WATER_TILE_END))
 	{
 		e->environment = WATER;
+	}
+
+	else if ((topLeft >= LAVA_TILE_START && topLeft <= LAVA_TILE_END) ||
+		(bottomLeft >= LAVA_TILE_START && bottomLeft <= LAVA_TILE_END) ||
+		(topRight >= LAVA_TILE_START && topRight <= LAVA_TILE_END) ||
+		(bottomRight >= LAVA_TILE_START && bottomRight <= LAVA_TILE_END))
+	{
+		e->environment = LAVA;
 	}
 }
 

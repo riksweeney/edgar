@@ -1,4 +1,4 @@
-void loadPlayer(int, int);
+Entity *loadPlayer(int, int);
 void setPlayerLocation(int, int);
 void doPlayer(void);
 void drawPlayer(void);
@@ -8,3 +8,5 @@ void autoSetPlayerWeapon(Entity *);
 void autoSetPlayerShield(Entity *);
 int getDistanceFromPlayer(Entity *);
 void writePlayerToFile(FILE *);
+void setPlayerWeaponName(char *);
+void setPlayerShieldName(char *);

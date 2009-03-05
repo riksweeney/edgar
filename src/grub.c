@@ -11,7 +11,7 @@ extern Entity *self;
 static void die(void);
 static void pain(void);
 
-Entity *addGrub(int x, int y)
+Entity *addGrub(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -22,7 +22,7 @@ Entity *addGrub(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("enemy/grub", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

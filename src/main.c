@@ -14,6 +14,8 @@
 #include "hud.h"
 #include "record.h"
 #include "objective.h"
+#include "global_trigger.h"
+#include "load_save.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];
@@ -26,7 +28,7 @@ Target target[MAX_TARGETS];
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
-	int go, i, mapID;
+	int go, i, mapID, loadSave;
 
 	/* Start up SDL */
 
@@ -37,6 +39,8 @@ int main(int argc, char *argv[])
 	atexit(cleanup);
 
 	go = TRUE;
+
+	loadSave = FALSE;
 
 	/* Load the resources */
 
@@ -63,30 +67,47 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
+		else if (strcmpignorecase("-load", argv[i]) == 0)
+		{
+			loadSave = TRUE;
+
+			i++;
+		}
+
 		else
 		{
 			mapID = i;
 		}
 	}
 
-	if (game.gameType == RECORDING)
-	{
-		setMapFile(argv[mapID]);
-	}
-
-	if (game.gameType != REPLAYING)
-	{
-		loadMap(argv[mapID]);
-	}
-
 	loadRequiredResources();
+
+	if (loadSave == FALSE)
+	{
+		if (game.gameType == RECORDING)
+		{
+			setMapFile(argv[mapID]);
+		}
+
+		if (game.gameType != REPLAYING)
+		{
+			loadMap(argv[mapID], TRUE);
+		}
+	}
+
+	else
+	{
+		loadGame(0);
+	}
 
 	/* Initialise the game variables */
 
 	initGame();
+	/*
+	addGlobalTrigger("Chopped Wood", 2, UPDATE_OBJECTIVE, "Collect 2 logs");
 
-	addObjective("Collect 10 pieces of Coal", "Landslide Trigger");
-
+	addObjective("Collect 2 logs", "");
+	*/
 	/* Loop indefinitely for messages */
 
 	game.startTicks = SDL_GetTicks();

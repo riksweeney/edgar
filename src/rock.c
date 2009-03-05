@@ -13,7 +13,7 @@ static void shake(void);
 
 extern Entity *self;
 
-Entity *addLargeRock(int x, int y)
+Entity *addLargeRock(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 

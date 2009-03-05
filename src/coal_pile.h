@@ -1,1 +1,1 @@
-Entity *addCoalPile(int, int);
+Entity *addCoalPile(int, int, char *);

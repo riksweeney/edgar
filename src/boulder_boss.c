@@ -18,7 +18,7 @@ static void initialise(void);
 static void chasePlayer(void);
 static void idle(void);
 
-Entity *addBoulderBoss(int x, int y)
+Entity *addBoulderBoss(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 

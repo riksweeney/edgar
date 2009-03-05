@@ -15,7 +15,7 @@ static void resetTrap(void);
 static void activateTrap(void);
 static void touch(Entity *);
 
-Entity *addChickenTrap(int x, int y)
+Entity *addChickenTrap(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -26,7 +26,7 @@ Entity *addChickenTrap(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("item/chicken_trap", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

@@ -1,1 +1,1 @@
-Entity *addChicken(int, int);
+Entity *addChicken(int, int, char *);

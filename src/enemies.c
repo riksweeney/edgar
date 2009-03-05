@@ -5,9 +5,9 @@
 #include "rock.h"
 #include "boulder_boss.h"
 #include "spider.h"
-#include "beetle.h"
 #include "grub.h"
 #include "grub_boss.h"
+#include "fireball.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -15,9 +15,10 @@ static Constructor enemies[] = {
 {"common/large_rock", &addLargeRock},
 {"boss/boulder_boss", &addBoulderBoss},
 {"enemy/spider", &addSpider},
-{"enemy/beetle", &addBeetle},
+{"enemy/red_spider", &addSpider},
 {"enemy/grub", &addGrub},
-{"boss/grub_boss", &addGrubBoss}
+{"boss/grub_boss", &addGrubBoss},
+{"enemy/jumping_fireball", &addJumpingFireball}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
@@ -30,7 +31,7 @@ Entity *addEnemy(char *name, int x, int y)
 	{
 		if (strcmpignorecase(enemies[i].name, name) == 0)
 		{
-			return enemies[i].construct(x, y);
+			return enemies[i].construct(x, y, name);
 		}
 	}
 

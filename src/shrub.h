@@ -1,1 +1,1 @@
-Entity *addShrub(int, int);
+Entity *addShrub(int, int, char *);

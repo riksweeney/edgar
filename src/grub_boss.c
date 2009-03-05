@@ -28,7 +28,7 @@ static void spinAttackEnd(void);
 static void doIntro(void);
 static void introPause(void);
 
-Entity *addGrubBoss(int x, int y)
+Entity *addGrubBoss(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -39,7 +39,7 @@ Entity *addGrubBoss(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("boss/grub_boss", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

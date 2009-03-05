@@ -2,3 +2,5 @@ GFX_FILE data/gfx/wall/weak_forest_wall.dat
 ANIM_FILE data/anim/wall/weak_forest_wall.dat
 TYPE WEAK_WALL
 FLAGS FLY
+REQUIRES weapon/pickaxe
+HEALTH 3

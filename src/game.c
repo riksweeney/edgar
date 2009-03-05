@@ -9,6 +9,8 @@
 #include "resources.h"
 #include "map.h"
 #include "load_save.h"
+#include "entity.h"
+#include "player.h"
 
 extern Game game;
 
@@ -332,27 +334,43 @@ void setNextLevel(char *name, char *playerStart)
 
 void goToNextMap()
 {
-	saveTemporaryData();
+	Entity *start;
 	
+	saveTemporaryData();
+
 	printf("Freeing Resources\n");
 
 	freeLevelResources();
 
 	printf("Loading Map\n");
-
-	loadMap(game.nextMap);
+	
+	if (hasPersistance(game.nextMap) == FALSE)
+	{
+		loadMap(game.nextMap, TRUE);
+	}
+	
+	else
+	{
+		printf("Loading persistance data instead...\n");
+		
+		loadMap(game.nextMap, FALSE);
+		
+		loadPersitanceData(game.nextMap);
+	}
 
 	printf("Done\n");
-	/*
-	start = getEntityByObjectiveName(playerStart);
+	
+	start = getEntityByObjectiveName(game.playerStart);
 
 	if (start == NULL)
 	{
-		printf("Could not find player start %s\n", playerStart);
+		printf("Could not find player start %s\n", game.playerStart);
+		
+		exit(1);
 	}
 
-	setPlayerLocation(start->x, start->y);
-	*/
+	loadPlayer(start->x, start->y);
+	
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
 
