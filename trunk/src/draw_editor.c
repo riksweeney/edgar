@@ -18,9 +18,9 @@ void draw()
 {
 	char text[MAX_VALUE_LENGTH];
 
-	/* Draw the map */
+	/* Draw the map whole map */
 
-	drawMap(0);
+	drawMap(-1);
 
 	/* Draw the entities */
 
@@ -37,10 +37,6 @@ void draw()
 	/* Draw the player */
 
 	drawPlayer();
-
-	/* Draw the foreground map tiles */
-
-	drawMap(1);
 
 	/* Draw the status panel */
 

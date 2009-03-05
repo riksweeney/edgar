@@ -1,1 +1,1 @@
-Entity *addBat(int, int);
+Entity *addBat(int, int, char *);

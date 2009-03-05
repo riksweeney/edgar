@@ -4,6 +4,7 @@ item/metal_crate
 enemy/bat
 weapon/pickaxe
 lift/mine_lift
+lift/large_mine_lift
 lift/lift_target
 common/spawner
 common/pressure_plate
@@ -15,3 +16,6 @@ item/coal_pile
 item/coal
 item/coal_bag
 common/level_exit
+common/save_point
+enemy/red_spider
+enemy/jumping_fireball

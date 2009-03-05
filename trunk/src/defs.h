@@ -50,7 +50,11 @@
 
 #define WATER_TILE_START 200
 
-#define WATER_TILE_END 205
+#define WATER_TILE_END 207
+
+#define LAVA_TILE_START 208
+
+#define LAVA_TILE_END 215
 
 #define MAX_TILES 255
 
@@ -273,5 +277,12 @@ enum
 enum
 {
 	AIR,
-	WATER
+	WATER,
+	LAVA
+};
+
+enum
+{
+	PLAYER_INVENTORY,
+	ENTITY_DATA
 };

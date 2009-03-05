@@ -17,7 +17,7 @@ static void wait(void);
 static void touch(Entity *);
 static Entity *addCoal(int, int);
 
-Entity *addCoalPile(int x, int y)
+Entity *addCoalPile(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -28,7 +28,7 @@ Entity *addCoalPile(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("item/coal_pile", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;
@@ -43,9 +43,6 @@ Entity *addCoalPile(int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
-
-	addTrigger("Coal Bag", 10, UPDATE_OBJECTIVE, "Collect 10 pieces of Coal");
-	addTrigger("LandSlide Trigger", 1, ACTIVATE_ENTITY, "LANDSLIDE_TRIGGER");
 
 	return e;
 }

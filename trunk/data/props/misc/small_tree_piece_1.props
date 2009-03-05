@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/misc/small_tree_piece_1.dat
+ANIM_FILE data/anim/misc/small_tree_piece.dat
+TYPE ITEM
+THINKTIME 90

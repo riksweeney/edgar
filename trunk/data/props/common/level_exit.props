@@ -2,3 +2,4 @@ GFX_FILE data/gfx/common/level_exit.dat
 ANIM_FILE data/anim/common/level_exit.dat
 TYPE LEVEL_EXIT
 THINKTIME 60
+ACTIVE TRUE

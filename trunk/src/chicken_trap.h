@@ -1,1 +1,1 @@
-Entity *addChickenTrap(int, int);
+Entity *addChickenTrap(int, int, char *);

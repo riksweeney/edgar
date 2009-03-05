@@ -3,7 +3,7 @@
 #include "sprites.h"
 #include "graphics.h"
 
-static SDL_Surface *sprite[MAX_SPRITES];
+static Sprite sprite[MAX_SPRITES];
 
 static void loadSprite(char *);
 
@@ -57,7 +57,7 @@ void loadSpritesFromFile(char *name, int *index)
 
 static void loadSprite(char *name)
 {
-	sprite[spriteID] = loadImage(name);
+	sprite[spriteID].image = loadImage(name);
 }
 
 void freeSprites()
@@ -66,18 +66,18 @@ void freeSprites()
 
 	for (i=0;i<MAX_SPRITES;i++)
 	{
-		if (sprite[i] != NULL)
+		if (sprite[i].image != NULL)
 		{
-			SDL_FreeSurface(sprite[i]);
-			
-			sprite[i] = NULL;
+			SDL_FreeSurface(sprite[i].image);
+
+			sprite[i].image = NULL;
 		}
 	}
 
 	spriteID = 0;
 }
 
-SDL_Surface *getSpriteImage(int index)
+Sprite *getSprite(int index)
 {
-	return sprite[index];
+	return &sprite[index];
 }

@@ -5,6 +5,7 @@
 #include "item.h"
 #include "hud.h"
 #include "trigger.h"
+#include "global_trigger.h"
 #include "properties.h"
 
 static Inventory inventory;
@@ -42,8 +43,10 @@ int addToInventory(Entity *e)
 			}
 
 			addHudMessage(STANDARD_MESSAGE, "Picked up %s", inventory.item[i].objectiveName);
-			
+
 			fireTrigger(inventory.item[i].objectiveName);
+
+			fireGlobalTrigger(inventory.item[i].objectiveName);
 
 			return TRUE;
 		}
@@ -248,6 +251,8 @@ void addRequiredToInventory(Entity *other)
 			addHudMessage(STANDARD_MESSAGE, "Picked up %s", self->objectiveName);
 
 			fireTrigger(item->objectiveName);
+
+			fireGlobalTrigger(item->objectiveName);
 		}
 
 		else
@@ -285,14 +290,18 @@ void loadInventoryItems()
 			{
 				printf("Resetting player weapon\n");
 
-				autoSetPlayerWeapon(&inventory.item[i]);
+				self = &inventory.item[i];
+
+				setPlayerWeapon(1);
 			}
 
 			else if (inventory.item[i].type == SHIELD && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
 			{
 				printf("Resetting player shield\n");
 
-				autoSetPlayerShield(&inventory.item[i]);
+				self = &inventory.item[i];
+
+				setPlayerShield(1);
 			}
 		}
 	}

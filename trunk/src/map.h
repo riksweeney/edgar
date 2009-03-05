@@ -1,4 +1,4 @@
-void loadMap(char *);
+void loadMap(char *, int);
 void saveMap(void);
 void doMap(void);
 void drawMap(int);

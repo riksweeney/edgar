@@ -10,6 +10,7 @@ extern Entity *self;
 static void move(void);
 static void wait(void);
 static void finish(void);
+static void timeout(void);
 
 void freeDecorations()
 {
@@ -145,9 +146,7 @@ void addStarExplosion(int x, int y)
 
 void addSparkle(int x, int y)
 {
-	Entity *e;
-
-	e = getFreeDecoration();
+	Entity *e = getFreeDecoration();
 
 	if (e == NULL)
 	{
@@ -166,9 +165,41 @@ void addSparkle(int x, int y)
 	e->animationCallback = &finish;
 }
 
+Entity *addTrail(int x, int y, char *name, int thinkTime)
+{
+	Entity *e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return NULL;
+	}
+
+	loadProperties(name, e);
+
+	e->thinkTime = thinkTime;
+
+	e->x = x;
+	e->y = y;
+
+	e->action = &timeout;
+	e->draw = &drawLoopingAnimationToMap;
+
+	return e;
+}
+
 static void finish()
 {
 	self->inUse = FALSE;
+}
+
+static void timeout()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		finish();
+	}
 }
 
 static void wait()

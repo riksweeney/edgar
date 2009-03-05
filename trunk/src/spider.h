@@ -1,1 +1,1 @@
-Entity *addSpider(int, int);
+Entity *addSpider(int, int, char *);

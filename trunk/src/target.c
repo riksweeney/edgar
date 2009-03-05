@@ -8,7 +8,7 @@ extern Entity *self;
 
 static Entity targetEntity;
 
-void clearTargets()
+void freeTargets()
 {
 	/* Clear the list */
 

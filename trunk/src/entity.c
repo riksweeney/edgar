@@ -6,6 +6,7 @@
 #include "custom_actions.h"
 #include "decoration.h"
 #include "trigger.h"
+#include "global_trigger.h"
 #include "properties.h"
 #include "map.h"
 
@@ -35,7 +36,7 @@ Entity *getFreeEntity()
 			entity[i].active = TRUE;
 
 			entity[i].frameSpeed = 1;
-			
+
 			entity[i].weight = 1;
 
 			entity[i].fallout = &removeEntity;
@@ -285,6 +286,8 @@ void standardDie()
 		dropRandomItem(self->x + self->w / 2, self->y);
 
 		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
 	}
 
 	self->dirX = 0;
@@ -575,6 +578,8 @@ void activateEntitiesWithName(char *name, int active)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
+			printf("Activating %s\n", entity[i].requires);
+
 			entity[i].active = active;
 		}
 	}
@@ -594,6 +599,8 @@ void interactWithEntity(int x, int y, int w, int h)
 				e = self;
 
 				self = &entity[i];
+
+				printf("Activating %s (%s)\n", self->name, entity[i].name);
 
 				self->activate(1);
 

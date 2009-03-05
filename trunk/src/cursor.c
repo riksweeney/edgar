@@ -25,11 +25,16 @@ void initCursor(char *name)
 
 	cursor.tileID = 0;
 	cursor.entityType = 0;
+	cursor.entity.weight = 0;
 
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.active = TRUE;
-	cursor.entity.weight = 1;
+
+	if (cursor.entity.weight == 0)
+	{
+		cursor.entity.weight = 1;
+	}
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
@@ -207,10 +212,16 @@ void doCursor()
 
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
+			cursor.entity.weight = 0;
+
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			cursor.entity.weight = 1;
+
+			if (cursor.entity.weight == 0)
+			{
+				cursor.entity.weight = 1;
+			}
 		}
 
 		input.previous = 0;
@@ -236,10 +247,16 @@ void doCursor()
 
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
+			cursor.entity.weight = 0;
+
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			cursor.entity.weight = 1;
+
+			if (cursor.entity.weight == 0)
+			{
+				cursor.entity.weight = 1;
+			}
 		}
 
 		input.next = 0;

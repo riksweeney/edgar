@@ -13,7 +13,7 @@ static void fly(void);
 static void die(void);
 static void pain(void);
 
-Entity *addBat(int x, int y)
+Entity *addBat(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -24,7 +24,7 @@ Entity *addBat(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("enemy/bat", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

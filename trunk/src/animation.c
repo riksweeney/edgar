@@ -87,7 +87,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				abort();
 			}
-			
+
 			animationIndex[getAnimationTypeByName(frameName)] = animationID;
 		}
 
@@ -212,7 +212,7 @@ void freeAnimations()
 
 void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 {
-	SDL_Surface *image;
+	Sprite *sprite;
 
 	e->frameTimer--;
 
@@ -227,30 +227,30 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 		e->frameTimer = animation[e->currentAnim].frameTimer[e->currentFrame];
 
-		image = getSpriteImage(animation[e->currentAnim].frameID[e->currentFrame]);
+		sprite = getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
 
-		if (image == NULL)
+		if (sprite->image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
 		}
 
-		e->w = image->w;
-		e->h = image->h;
+		e->w = sprite->image->w;
+		e->h = sprite->image->h;
 	}
 
 	else
 	{
-		image = getSpriteImage(animation[e->currentAnim].frameID[e->currentFrame]);
+		sprite = getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
 	}
 
 	if (center == 1)
 	{
-		drawImage(image, x + (w - image->w) / 2, y + (h - image->h) / 2, FALSE);
+		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE);
 	}
 
 	else
 	{
-		drawImage(image, x, y, FALSE);
+		drawImage(sprite->image, x, y, FALSE);
 	}
 }
 
@@ -258,7 +258,7 @@ void drawLoopingAnimationToMap()
 {
 	int x, y;
 	int startX, startY;
-	SDL_Surface *image;
+	Sprite *sprite;
 	void (*callback)(void);
 
 	startX = getMapStartX();
@@ -310,15 +310,15 @@ void drawLoopingAnimationToMap()
 
 		self->frameTimer = animation[self->currentAnim].frameTimer[self->currentFrame];
 
-		image = getSpriteImage(animation[self->currentAnim].frameID[self->currentFrame]);
+		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 
-		if (image == NULL)
+		if (sprite->image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
 		}
 
-		self->w = image->w;
-		self->h = image->h;
+		self->w = sprite->image->w;
+		self->h = sprite->image->h;
 
 		self->offsetX = animation[self->currentAnim].offsetX[self->currentFrame];
 		self->offsetY = animation[self->currentAnim].offsetY[self->currentFrame];
@@ -326,7 +326,7 @@ void drawLoopingAnimationToMap()
 
 	else
 	{
-		image = getSpriteImage(animation[self->currentAnim].frameID[self->currentFrame]);
+		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 	}
 
 	if (self->face == LEFT)
@@ -343,9 +343,9 @@ void drawLoopingAnimationToMap()
 			y = self->y - startY + self->offsetY;
 		}
 
-		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
-			drawFlippedImage(image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 		}
 	}
 
@@ -363,9 +363,9 @@ void drawLoopingAnimationToMap()
 			y = self->y - startY + self->offsetY;
 		}
 
-		if (collision(x, y, image->w, image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
-			drawImage(image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 		}
 	}
 }
@@ -382,7 +382,7 @@ void drawLineDefToMap()
 
 void setEntityAnimation(Entity *e, int animationID)
 {
-	SDL_Surface *image;
+	Sprite *sprite;
 
 	if (e->currentAnim != e->animation[animationID])
 	{
@@ -398,15 +398,15 @@ void setEntityAnimation(Entity *e, int animationID)
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
 		e->frameTimer = animation[e->currentAnim].frameTimer[0];
 
-		image = getSpriteImage(animation[e->currentAnim].frameID[0]);
+		sprite = getSprite(animation[e->currentAnim].frameID[0]);
 
-		if (image == NULL)
+		if (sprite->image == NULL)
 		{
 			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[0]);
 		}
 
-		e->w = image->w;
-		e->h = image->h;
+		e->w = sprite->image->w;
+		e->h = sprite->image->h;
 
 		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
@@ -426,7 +426,7 @@ static int getAnimationTypeByName(char *name)
 	}
 
 	printf("Unknown animation %s\n", name);
-	
+
 	exit(1);
 }
 
@@ -443,6 +443,6 @@ static char *getAnimationTypeByID(int id)
 	}
 
 	printf("Unknown animation index %d\n", id);
-	
+
 	exit(1);
 }

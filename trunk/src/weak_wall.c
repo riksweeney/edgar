@@ -67,8 +67,6 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->die();
 		}
-
-		printf("Health %d\n", self->health);
 	}
 
 	else

@@ -15,7 +15,7 @@ static void wander(void);
 static void moveToFood(void);
 static void finishEating(void);
 
-Entity *addChicken(int x, int y)
+Entity *addChicken(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -26,7 +26,7 @@ Entity *addChicken(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("enemy/chicken", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;

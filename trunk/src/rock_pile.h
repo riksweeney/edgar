@@ -1,1 +1,1 @@
-Entity *addRockPile(int, int);
+Entity *addRockPile(int, int, char *);

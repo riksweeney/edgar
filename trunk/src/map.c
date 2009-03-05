@@ -15,6 +15,7 @@
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
+static int lavaTile;
 
 extern Entity *self, player;
 extern Game game;
@@ -25,11 +26,13 @@ static void loadAmbience(char *);
 
 static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
-void loadMap(char *name)
+void loadMap(char *name, int loadEntityResources)
 {
 	int x, y;
 	char itemName[MAX_MESSAGE_LENGTH], line[MAX_LINE_LENGTH];
 	FILE *fp;
+
+	lavaTile = LAVA_TILE_START;
 
 	sprintf(line, "%sdata/maps/%s.dat", INSTALL_PATH, name);
 
@@ -53,7 +56,7 @@ void loadMap(char *name)
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		sscanf(line, "%s", itemName);
-		
+
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
 			strcpy(map.mapName, itemName);
@@ -183,16 +186,16 @@ void loadMap(char *name)
 					}
 				}
 			}
-			
+
 			fgets(line, MAX_LINE_LENGTH, fp);
 		}
 
-		else if (strcmpignorecase(itemName, "{") == 0)
+		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "{") == 0)
 		{
 			loadResources(fp);
 		}
 
-		else if (strcmpignorecase(itemName, "}") == 0)
+		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "}") == 0)
 		{
 			printf("Parse error: encountered closing } without matching {\n");
 
@@ -216,7 +219,7 @@ void loadMap(char *name)
 
 	/* Set the thinkTime */
 
-	map.thinkTime = 120 + prand() % 1200;
+	map.thinkTime = 3;
 
 	/* Close the file afterwards */
 
@@ -239,9 +242,9 @@ void saveMap()
 
 		return;
 	}
-	
+
 	sprintf(filename, "%sdata/maps/%s.dat", INSTALL_PATH, map.filename);
-	
+
 	printf("Saving map to %s\n", filename);
 
 	fp = fopen(filename, "wb");
@@ -254,7 +257,7 @@ void saveMap()
 
 		exit(1);
 	}
-	
+
 	fprintf(fp, "NAME %s\n", map.mapName);
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
@@ -300,23 +303,18 @@ void saveMap()
 
 void doMap()
 {
-	int sound = prand() % MAX_AMBIENT_SOUNDS;
+	map.thinkTime--;
 
-	if (map.hasAmbience == 1)
+	if (map.thinkTime <= 0)
 	{
-		map.thinkTime--;
+		lavaTile++;
 
-		if (map.thinkTime <= 0)
+		if (lavaTile > LAVA_TILE_END)
 		{
-			while (map.ambience[sound] == NULL)
-			{
-				sound = prand() % MAX_AMBIENT_SOUNDS;
-			}
-
-			playSoundChunk(map.ambience[sound], -1);
-
-			map.thinkTime = 120 + prand() % 1200;
+			lavaTile = LAVA_TILE_START;
 		}
+
+		map.thinkTime = 3;
 	}
 }
 
@@ -345,7 +343,7 @@ static void loadMapTiles(char *dir)
 
 		mapImages[i] = loadImage(filename);
 
-		if (i >= WATER_TILE_START && WATER_TILE_END)
+		if (i >= WATER_TILE_START && i <= WATER_TILE_END)
 		{
 			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA|SDL_RLEACCEL, 128);
 		}
@@ -366,7 +364,7 @@ void drawMap(int depth)
 
 	/* Draw the background */
 
-	if (depth == 0)
+	if (depth <= 0)
 	{
 		map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
 		map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
@@ -492,24 +490,45 @@ void drawMap(int depth)
 
 		for (x=x1;x<x2;x+=TILE_SIZE)
 		{
-			tileID = map.tile[mapY][mapX];
+			switch (map.tile[mapY][mapX])
+			{
+				case LAVA_TILE_START:
+					tileID = lavaTile;
+				break;
+
+				default:
+					tileID = map.tile[mapY][mapX];
+				break;
+			}
+
+			if (tileID == BLANK_TILE)
+			{
+				mapX++;
+
+				continue;
+			}
 			/*
-			if (tileID != 0 && mapImages[tileID] == NULL)
+			if (mapImages[tileID] == NULL)
 			{
 				printf("Tile %d is NULL\n", tileID);
-				
+
 				exit(0);
 			}
 			*/
-			if (depth == 0)
+			if (depth == -1)
 			{
-				if (tileID != BLANK_TILE && tileID < FOREGROUND_TILE_START)
+				drawImage(mapImages[tileID], x, y, FALSE);
+			}
+
+			else if (depth == 0)
+			{
+				if (tileID < FOREGROUND_TILE_START)
 				{
 					drawImage(mapImages[tileID], x, y, FALSE);
 				}
 			}
 
-			else
+			else if (depth == 1)
 			{
 				if (tileID >= FOREGROUND_TILE_START)
 				{

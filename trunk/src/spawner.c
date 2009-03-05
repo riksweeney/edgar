@@ -4,6 +4,7 @@
 #include "enemies.h"
 #include "entity.h"
 #include "properties.h"
+#include "player.h"
 
 extern Entity *self;
 
@@ -48,7 +49,7 @@ static void init()
 		self->thinkTime = 0;
 	}
 
-	if (self->health == 0)
+	if (self->health <= 0)
 	{
 		self->health = -1;
 	}
@@ -66,15 +67,31 @@ static void spawn()
 
 		if (self->thinkTime <= 0)
 		{
-			e = addEnemy(self->objectiveName, self->x, self->y);
-
-			e->x += (self->w - e->w) / 2;
-			e->y += (self->h - e->h) / 2;
-
-			self->thinkTime = self->maxThinkTime;
-
-			if (self->health != -1)
+			if (self->health == -1)
 			{
+				/* Don't spawn if the player is too close */
+
+				if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
+				{
+					e = addEnemy(self->objectiveName, self->x, self->y);
+
+					e->x += (self->w - e->w) / 2;
+					e->y += (self->h - e->h) / 2;
+				}
+				
+				else
+				{
+					printf("Spawner not activating. Too close to player\n");
+				}
+			}
+
+			else
+			{
+				e = addEnemy(self->objectiveName, self->x, self->y);
+
+				e->x += (self->w - e->w) / 2;
+				e->y += (self->h - e->h) / 2;
+
 				self->health--;
 
 				if (self->health == 0)
@@ -82,6 +99,8 @@ static void spawn()
 					self->inUse = FALSE;
 				}
 			}
+
+			self->thinkTime = self->maxThinkTime;
 		}
 	}
 }

@@ -21,7 +21,7 @@ static void attackFinish(void);
 static void resetPlayer(void);
 static void fallout(void);
 
-void loadPlayer(int x, int y)
+Entity *loadPlayer(int x, int y)
 {
 	loadProperties("edgar/edgar", &player);
 
@@ -50,7 +50,7 @@ void loadPlayer(int x, int y)
 		playerWeapon.parent = &player;
 
 		playerWeapon.face = playerShield.face = LEFT;
-		
+
 		player.fallout = &fallout;
 	}
 
@@ -66,9 +66,13 @@ void loadPlayer(int x, int y)
 		setEntityAnimation(&player, STAND);
 
 		setPlayerLocation(x, y);
+
+		printf("Setting player start to %d %d\n", x, y);
 	}
-	
+
 	centerMapOnEntity(&player);
+
+	return &player;
 }
 
 void setPlayerLocation(int x, int y)
@@ -79,6 +83,18 @@ void setPlayerLocation(int x, int y)
 	player.draw = &drawLoopingAnimationToMap;
 
 	player.inUse = TRUE;
+
+	centerMapOnEntity(&player);
+}
+
+void setPlayerWeaponName(char *name)
+{
+	strcpy(playerWeapon.name, name);
+}
+
+void setPlayerShieldName(char *name)
+{
+	strcpy(playerShield.name, name);
 }
 
 void doPlayer()
@@ -88,7 +104,7 @@ void doPlayer()
 	self = &player;
 
 	if (self->action == NULL)
-	{		
+	{
 		for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 		{
 			if (self->customThinkTime[i] > 0)
@@ -102,29 +118,29 @@ void doPlayer()
 		if (!(self->flags & FLY))
 		{
 			switch (self->environment)
-			{	
+			{
 				case WATER:
 					self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
-					
+
 					if (self->dirY < -2)
 					{
 						self->dirY = -2;
 					}
-					
+
 					else if (self->dirY >= MAX_WATER_SPEED)
 					{
 						self->dirY = MAX_WATER_SPEED;
 					}
 				break;
-				
+
 				default:
 					self->dirY += GRAVITY_SPEED;
-					
+
 					if (self->dirY >= MAX_AIR_SPEED)
 					{
 						self->dirY = MAX_AIR_SPEED;
 					}
-	
+
 					else if (self->dirY > 0 && self->dirY < 1)
 					{
 						self->dirY = 1;
@@ -367,10 +383,10 @@ void doPlayer()
 		checkToMap(self);
 
 		self->standingOn = NULL;
-		
+
 		i = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 		j = mapTileAt((self->x + self->w - 1) / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
-		
+
 		if ((self->flags & ON_GROUND) && ((i > BLANK_TILE && i < BACKGROUND_TILE_START) || (j > BLANK_TILE && j < BACKGROUND_TILE_START)))
 		{
 			setCheckpoint(self->x, self->y);
@@ -461,7 +477,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		playerWeapon.parent = &player;
 
 		playerWeapon.face = player.face;
-		
+
 		playerWeapon.inUse = TRUE;
 	}
 }
@@ -475,7 +491,7 @@ void autoSetPlayerShield(Entity *newWeapon)
 		playerShield.parent = &player;
 
 		playerShield.face = player.face;
-		
+
 		playerShield.inUse = TRUE;
 	}
 }
@@ -517,11 +533,6 @@ static void takeDamage(Entity *other, int damage)
 
 int getDistanceFromPlayer(Entity *e)
 {
-	if (player.x < e->x)
-	{
-		return -getDistance(player.x + player.w, player.y, e->x, e->y);
-	}
-
 	return getDistance(player.x, player.y, e->x + e->w, e->y);
 }
 
@@ -530,14 +541,15 @@ void writePlayerToFile(FILE *fp)
 	self = &player;
 
 	fprintf(fp, "{\n");
-	fprintf(fp, "TYPE PLAYER_START\n");
-	fprintf(fp, "NAME PLAYER_START\n");
+	fprintf(fp, "TYPE PLAYER\n");
+	fprintf(fp, "NAME PLAYER\n");
 	fprintf(fp, "START_X %d\n", (int)self->x);
 	fprintf(fp, "START_Y %d\n", (int)self->y);
 	fprintf(fp, "END_X %d\n", (int)self->endX);
 	fprintf(fp, "END_Y %d\n", (int)self->endY);
 	fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 	fprintf(fp, "HEALTH %d\n", self->health);
+	fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 	fprintf(fp, "DAMAGE %d\n", self->damage);
 	fprintf(fp, "SPEED %0.1f\n", self->speed);
 	fprintf(fp, "WEIGHT %0.2f\n", self->weight);
@@ -546,10 +558,10 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
 	fprintf(fp, "}\n\n");
-	
+
 	self = &playerWeapon;
-	
-	if (self->active == TRUE)
+
+	if (self->inUse == TRUE)
 	{
 		fprintf(fp, "{\n");
 		fprintf(fp, "TYPE PLAYER_WEAPON\n");
@@ -560,6 +572,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "END_Y %d\n", (int)self->endY);
 		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 		fprintf(fp, "HEALTH %d\n", self->health);
+		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
 		fprintf(fp, "SPEED %0.1f\n", self->speed);
 		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
@@ -569,10 +582,10 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
 		fprintf(fp, "}\n\n");
 	}
-	
+
 	self = &playerShield;
-	
-	if (self->active == TRUE)
+
+	if (self->inUse == TRUE)
 	{
 		fprintf(fp, "{\n");
 		fprintf(fp, "TYPE PLAYER_SHIELD\n");
@@ -582,6 +595,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "END_X %d\n", (int)self->endX);
 		fprintf(fp, "END_Y %d\n", (int)self->endY);
 		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
 		fprintf(fp, "SPEED %0.1f\n", self->speed);
@@ -597,26 +611,26 @@ void writePlayerToFile(FILE *fp)
 static void fallout()
 {
 	player.thinkTime = 60;
-	
+
 	player.action = &resetPlayer;
 }
 
 static void resetPlayer()
 {
 	player.thinkTime--;
-	
+
 	if (player.thinkTime <= 0)
 	{
 		getCheckpoint(&player.x, &player.y);
-		
+
 		printf("Respawned at %f %f\n", player.x, player.y);
-		
+
 		player.action = NULL;
-		
+
 		player.dirX = player.dirY = 0;
-		
+
 		player.y--;
-		
+
 		setCustomAction(&player, &invulnerable, 60);
 	}
 }
