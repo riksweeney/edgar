@@ -83,7 +83,7 @@ void doEntities()
 							{
 								self->startX++;
 
-								self->dirY = sin(self->startX * PI / 180) / 10;
+								self->dirY = sin(DEG_TO_RAD(self->startX)) / 10;
 							}
 						}
 
@@ -235,6 +235,22 @@ void moveLeftToRight()
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
+
+	checkToMap(self);
+}
+
+void flyLeftToRight()
+{
+	if (self->dirX == 0)
+	{
+		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+
+		self->face = (self->face == RIGHT ? LEFT : RIGHT);
+	}
+	
+	self->thinkTime += 5;
+	
+	self->dirY += sin(DEG_TO_RAD(self->thinkTime)) / 3;
 
 	checkToMap(self);
 }

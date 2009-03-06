@@ -19,3 +19,4 @@ void writeEntitiesToFile(FILE *);
 void floatLeftToRight(void);
 void moveLeftToRight(void);
 void writeEntityToFile(Entity *, FILE *);
+void flyLeftToRight(void);
