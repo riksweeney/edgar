@@ -8,6 +8,7 @@
 #include "grub.h"
 #include "grub_boss.h"
 #include "fireball.h"
+#include "wasp.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -18,7 +19,8 @@ static Constructor enemies[] = {
 {"enemy/red_spider", &addSpider},
 {"enemy/grub", &addGrub},
 {"boss/grub_boss", &addGrubBoss},
-{"enemy/jumping_fireball", &addJumpingFireball}
+{"enemy/jumping_fireball", &addJumpingFireball},
+{"enemy/wasp", &addWasp}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -8,6 +8,8 @@
 
 #define PI 3.14159265
 
+#define DEG_TO_RAD(x) (x * PI / 180)
+
 #define GRAVITY_SPEED 0.75
 
 #define MAX_AIR_SPEED 15
