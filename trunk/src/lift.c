@@ -104,7 +104,7 @@ static void findTarget(int val)
 			self->health = 0;
 		}
 
-		sprintf(targetName, "%s_TARGET_%d", self->objectiveName, self->health);
+		snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", self->objectiveName, self->health);
 
 		/* Search for the lift's target */
 
@@ -219,7 +219,7 @@ static void setToStart()
 
 	if (self->type == AUTO_LIFT)
 	{
-		sprintf(targetName, "%s_START", self->objectiveName);
+		snprintf(targetName, sizeof(targetName), "%s_START", self->objectiveName);
 
 		/* Search for the lift's target */
 
@@ -238,7 +238,7 @@ static void setToStart()
 		self->startX = self->x;
 		self->startY = self->y;
 
-		sprintf(targetName, "%s_END", self->objectiveName);
+		snprintf(targetName, sizeof(targetName), "%s_END", self->objectiveName);
 
 		/* Search for the lift's target */
 
@@ -267,7 +267,7 @@ static void setToStart()
 
 	else
 	{
-		sprintf(targetName, "%s_TARGET_%d", self->objectiveName, self->health);
+		snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", self->objectiveName, self->health);
 
 		/* Search for the lift's target */
 

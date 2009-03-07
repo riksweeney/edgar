@@ -2,3 +2,5 @@ GFX_FILE data/gfx/misc/chopped_log.dat
 ANIM_FILE data/anim/misc/chopped_log.dat
 TYPE KEY_ITEM
 OBJECTIVE_NAME Chopped Log
+FLAGS STACKABLE
+HEALTH 1

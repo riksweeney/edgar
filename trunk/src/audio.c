@@ -63,7 +63,7 @@ static void preCacheSound(char *name)
 	chunk = loadSound(name);
 
 	sound[soundIndex].effect = chunk;
-	strcpy(sound[soundIndex].name, name);
+	STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 	soundIndex++;
 }
@@ -110,7 +110,7 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 		chunk = loadSound(name);
 
 		sound[soundIndex].effect = chunk;
-		strcpy(sound[soundIndex].name, name);
+		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
 	}
@@ -151,7 +151,7 @@ Mix_Chunk *loadSound(char *name)
 	char path[MAX_PATH_LENGTH];
 	Mix_Chunk *chunk;
 
-	sprintf(path, INSTALL_PATH"%s", name);
+	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
 
 	/* Load the sound specified by the filename */
 

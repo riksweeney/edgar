@@ -34,7 +34,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	lavaTile = LAVA_TILE_START;
 
-	sprintf(line, "%sdata/maps/%s.dat", INSTALL_PATH, name);
+	snprintf(line, sizeof(line), "%sdata/maps/%s.dat", INSTALL_PATH, name);
 
 	fp = fopen(line, "rb");
 
@@ -49,7 +49,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	/* Set the filename */
 
-	strcpy(map.filename, name);
+	STRNCPY(map.filename, name, sizeof(map.filename));
 
 	/* Read the data from the file into the map */
 
@@ -59,7 +59,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
-			strcpy(map.mapName, itemName);
+			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
 		}
 
 		else if (strcmpignorecase(itemName, "TILESET") == 0)
@@ -72,7 +72,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			loadMapTiles(itemName);
 
-			strcpy(map.tilesetName, itemName);
+			STRNCPY(map.tilesetName, itemName, sizeof(map.tilesetName));
 		}
 
 		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED") == 0)
@@ -143,7 +143,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			loadAmbience(itemName);
 
-			strcpy(map.ambienceName, itemName);
+			STRNCPY(map.ambienceName, itemName, sizeof(map.ambienceName));
 		}
 
 		else if (strcmpignorecase(itemName, "MUSIC") == 0)
@@ -158,7 +158,7 @@ void loadMap(char *name, int loadEntityResources)
 
 				loadMusic(itemName);
 
-				strcpy(map.musicName, itemName);
+				STRNCPY(map.musicName, itemName, sizeof(map.musicName));
 			}
 		}
 
@@ -243,7 +243,7 @@ void saveMap()
 		return;
 	}
 
-	sprintf(filename, "%sdata/maps/%s.dat", INSTALL_PATH, map.filename);
+	snprintf(filename, sizeof(filename), "%sdata/maps/%s.dat", INSTALL_PATH, map.filename);
 
 	printf("Saving map to %s\n", filename);
 
@@ -330,7 +330,7 @@ static void loadMapTiles(char *dir)
 
 	for (i=1;i<MAX_TILES;i++)
 	{
-		sprintf(filename, "gfx/map/%s/%d.png", dir, i);
+		snprintf(filename, sizeof(filename), "gfx/map/%s/%d.png", dir, i);
 
 		fp = fopen(filename, "rb");
 
@@ -349,11 +349,11 @@ static void loadMapTiles(char *dir)
 		}
 	}
 
-	sprintf(filename, "gfx/map/%s/background.png", dir);
+	snprintf(filename, sizeof(filename), "gfx/map/%s/background.png", dir);
 
 	loadMapBackground(filename, 0);
 
-	sprintf(filename, "gfx/map/%s/background1.png", dir);
+	snprintf(filename, sizeof(filename), "gfx/map/%s/background1.png", dir);
 
 	loadMapBackground(filename, 1);
 }
@@ -623,7 +623,7 @@ static void loadAmbience(char *dir)
 	{
 		for (j=0;extensions[j]!=NULL;j++)
 		{
-			sprintf(filename, "ambience/%s/%d.%s", dir, i, extensions[j]);
+			snprintf(filename, sizeof(filename), "ambience/%s/%d.%s", dir, i, extensions[j]);
 
 			fp = fopen(filename, "rb");
 

@@ -8,6 +8,7 @@ extern Entity *self;
 
 static void wait(void);
 static void activate(int);
+static void touch(Entity *);
 
 Entity *addPressurePlate(char *name, int x, int y)
 {
@@ -22,7 +23,7 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 	loadProperties(name, e);
 
-	e->touch = &pushEntity;
+	e->touch = &touch;
 
 	e->action = &wait;
 
@@ -54,6 +55,19 @@ static void wait()
 	}
 
 	self->health = 0;
+}
+
+static void touch(Entity *other)
+{
+	pushEntity(other);
+
+	if (other->standingOn == self)
+	{
+		if (strlen(self->requires) == 0 || strcmpignorecase(self->requires, other->objectiveName) == 0)
+		{
+			activate(1);
+		}
+	}
 }
 
 static void activate(int val)

@@ -55,8 +55,8 @@ void addObjective(char *objectiveName, char *completionTrigger)
 			objective[i].active = TRUE;
 			objective[i].completed = FALSE;
 
-			strcpy(objective[i].name, objectiveName);
-			strcpy(objective[i].completionTrigger, completionTrigger);
+			STRNCPY(objective[i].name, objectiveName, sizeof(objective[i].name));
+			STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
 
 			printf("Added new Objective: \"%s\"\n", objective[i].name);
 

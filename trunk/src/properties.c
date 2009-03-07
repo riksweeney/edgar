@@ -45,7 +45,7 @@ void loadProperties(char *name, Entity *e)
 	char *token;
 	FILE *fp;
 
-	sprintf(path, INSTALL_PATH"data/props/%s.props", name);
+	snprintf(path, sizeof(path), INSTALL_PATH"data/props/%s.props", name);
 
 	index = -1;
 
@@ -81,7 +81,7 @@ void loadProperties(char *name, Entity *e)
 					exit(1);
 				}
 
-				strcpy(properties[i].name, name);
+				STRNCPY(properties[i].name, name, sizeof(properties[i].name));
 
 				j = 0;
 
@@ -106,13 +106,13 @@ void loadProperties(char *name, Entity *e)
 
 					token = strtok(line, " ");
 
-					strcpy(properties[i].key[j], token);
+					STRNCPY(properties[i].key[j], token, sizeof(properties[i].key[j]));
 
 					token = strtok(NULL, "\0");
 
 					if (token != NULL)
 					{
-						strcpy(properties[i].value[j], token);
+						STRNCPY(properties[i].value[j], token, sizeof(properties[i].value[j]));
 					}
 
 					else
@@ -179,7 +179,7 @@ void loadProperties(char *name, Entity *e)
 	{
 		index = 0;
 
-		strcpy(e->name, name);
+		STRNCPY(e->name, name, sizeof(e->name));
 
 		for (j=0;j<MAX_PROPS_ENTRIES;j++)
 		{
@@ -215,7 +215,14 @@ static void setFlags(Entity *e, char *flags)
 
 	temp = (char *)malloc(strlen(flags) + 1);
 
-	strcpy(temp, flags);
+	if (temp == NULL)
+	{
+		printf("Could not allocate a whole %d bytes for flags...\n", strlen(flags) + 1);
+
+		exit(1);
+	}
+
+	STRNCPY(temp, flags, strlen(flags) + 1);
 
 	token = strtok(temp, " |,");
 
@@ -292,8 +299,18 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		return;
 	}
+	
+	if (strcmpignorecase(name, "X") == 0)
+	{
+		e->x = atoi(value);
+	}
 
-	if (strcmpignorecase(name, "START_X") == 0)
+	else if (strcmpignorecase(name, "Y") == 0)
+	{
+		e->y = atoi(value);
+	}
+
+	else if (strcmpignorecase(name, "START_X") == 0)
 	{
 		e->startX = atoi(value);
 	}
@@ -315,19 +332,27 @@ void setProperty(Entity *e, char *name, char *value)
 
 	else if (strcmpignorecase(name, "OBJECTIVE_NAME") == 0)
 	{
-		strcpy(e->objectiveName, value);
+		STRNCPY(e->objectiveName, value, sizeof(e->objectiveName));
 	}
 
 	else if (strcmpignorecase(name, "REQUIRES") == 0)
 	{
-		strcpy(e->requires, value);
+		STRNCPY(e->requires, value, sizeof(e->requires));
 	}
 
 	else if (strcmpignorecase(name, "THINKTIME") == 0)
 	{
 		e->thinkTime = atoi(value);
-
-		e->maxThinkTime = e->thinkTime;
+		
+		if (e->maxThinkTime == 0)
+		{
+			e->maxThinkTime = e->thinkTime;
+		}
+	}
+	
+	else if (strcmpignorecase(name, "MAX_THINKTIME") == 0)
+	{
+		e->maxThinkTime = atoi(value);
 	}
 
 	else if (strcmpignorecase(name, "SPEED") == 0)
