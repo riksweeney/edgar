@@ -64,8 +64,8 @@ void addTriggerFromResource(char *key[], char *value[])
 			trigger[i].count = atoi(value[count]);
 			trigger[i].targetType = getTriggerTypeByName(value[targetType]);
 
-			strcpy(trigger[i].triggerName, value[triggerName]);
-			strcpy(trigger[i].targetName, value[targetName]);
+			STRNCPY(trigger[i].triggerName, value[triggerName], sizeof(trigger[i].triggerName));
+			STRNCPY(trigger[i].targetName, value[targetName], sizeof(trigger[i].targetName));
 
 			printf("Added Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
 

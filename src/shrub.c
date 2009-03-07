@@ -73,7 +73,7 @@ static void die()
 
 	for (i=1;i<=8;i++)
 	{
-		sprintf(name, "misc/small_tree_piece_%d", i);
+		snprintf(name, sizeof(name), "misc/small_tree_piece_%d", i);
 
 		e = addTemporaryItem(name, self->x, self->y, RIGHT, 0, 0);
 

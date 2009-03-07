@@ -8,8 +8,6 @@
 
 #define PI 3.14159265
 
-#define DEG_TO_RAD(x) (x * PI / 180)
-
 #define GRAVITY_SPEED 0.75
 
 #define MAX_AIR_SPEED 15
@@ -103,6 +101,10 @@
 #else
 	#define strcmpignorecase(x, y) strcasecmp(x, y)
 #endif
+
+#define DEG_TO_RAD(x) (x * PI / 180)
+
+#define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
 #if DEV < 1
 

@@ -87,7 +87,7 @@ static void touch(Entity *other)
 
 			else
 			{
-				addHudMessage(BAD_MESSAGE, "%s is needed to open this door", self->requires);
+				setInfoBoxMessage(120, "%s is needed to open this door", self->requires);
 			}
 		}
 	}

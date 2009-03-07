@@ -26,7 +26,7 @@ static void removeTemporaryData(void);
 
 		name = getlogin();
 
-		strcpy(dir, "");
+		STRNCPY(dir, "", sizeof(dir));
 
 		if (name != NULL)
 		{
@@ -48,7 +48,7 @@ static void removeTemporaryData(void);
 
 		printf("User Home = %s\n", userHome);
 
-		sprintf(dir, "%s/.parallelrealities", userHome);
+		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -57,7 +57,7 @@ static void removeTemporaryData(void);
 			exit(1);
 		}
 
-		sprintf(dir, "%s/.parallelrealities/edgar", userHome);
+		snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -66,14 +66,14 @@ static void removeTemporaryData(void);
 			exit(1);
 		}
 
-		sprintf(gameSavePath, "%s/.parallelrealities/edgar/", userHome);
+		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 
 		removeTemporaryData();
 	}
 #else
 	void setupUserHomeDirectory()
 	{
-		strcpy(gameSavePath, "");
+		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
 
 		removeTemporaryData();
 	}
@@ -87,7 +87,7 @@ void loadGame(int slot)
 
 	freeGameResources();
 
-	sprintf(saveFile, "%ssave%d", gameSavePath, slot);
+	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
 	read = fopen(saveFile, "rb");
 
@@ -110,7 +110,7 @@ void loadGame(int slot)
 
 			loadMap(itemName, FALSE);
 
-			sprintf(mapName, "MAP_NAME %s", itemName);
+			snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
 		}
 
 		else if (strcmpignorecase(line, mapName) == 0)
@@ -133,7 +133,7 @@ void loadGame(int slot)
 void saveGame(int slot)
 {
 	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
-	char saveFile[MAX_PATH_LENGTH], tempfile[MAX_PATH_LENGTH];
+	char saveFile[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH];
 	char *mapName = getMapName();
 	int skipping = FALSE;
 	FILE *read;
@@ -141,10 +141,10 @@ void saveGame(int slot)
 
 	printf("Saving game\n");
 
-	sprintf(tempfile, "%stmpsave", gameSavePath);
-	sprintf(saveFile, "%ssave%d", gameSavePath, slot);
+	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
+	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
-	read = fopen(tempfile, "rb");
+	read = fopen(tempFile, "rb");
 
 	write = fopen(saveFile, "wb");
 
@@ -266,8 +266,8 @@ void saveTemporaryData()
 	FILE *read;
 	FILE *write;
 
-	sprintf(tempFile, "%stmpsave", gameSavePath);
-	sprintf(swapFile, "%sswap", gameSavePath);
+	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
+	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -373,9 +373,9 @@ int hasPersistance(char *mapName)
 	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH], tempFile[MAX_PATH_LENGTH];
 	FILE *read;
 
-	sprintf(itemName, "MAP_NAME %s", mapName);
+	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
-	sprintf(tempFile, "%stmpsave", gameSavePath);
+	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -408,9 +408,9 @@ void loadPersitanceData(char *mapName)
 	int found = FALSE;
 	FILE *read;
 
-	sprintf(itemName, "MAP_NAME %s", mapName);
+	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
-	sprintf(tempFile, "%stmpsave", gameSavePath);
+	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -449,7 +449,7 @@ static void removeTemporaryData()
 	FILE *fp;
 	char tempFile[MAX_PATH_LENGTH];
 
-	sprintf(tempFile, "%stmpsave", gameSavePath);
+	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	fp = fopen(tempFile, "rb");
 

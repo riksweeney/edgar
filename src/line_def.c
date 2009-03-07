@@ -21,7 +21,7 @@ Entity *addLineDef(char *name, int x, int y)
 		exit(1);
 	}
 
-	strcpy(e->name, name);
+	STRNCPY(e->name, name, sizeof(e->name));
 
 	e->flags |= NO_DRAW;
 
@@ -44,7 +44,7 @@ static void touch(Entity *other)
 	if (other->type == PLAYER && self->active == TRUE)
 	{
 		printf("Activating %s\n", self->objectiveName);
-		
+
 		activateEntitiesWithName(self->objectiveName, TRUE);
 
 		self->inUse = FALSE;

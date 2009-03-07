@@ -339,13 +339,13 @@ void loadResources(FILE *fp)
 		{
 			token = strtok(line, " ");
 
-			strcpy(key[i], token);
+			STRNCPY(key[i], token, MAX_VALUE_LENGTH);
 
 			token = strtok(NULL, "\0");
 
 			if (token != NULL)
 			{
-				strcpy(value[i], token);
+				STRNCPY(value[i], token, MAX_VALUE_LENGTH);
 			}
 
 			else

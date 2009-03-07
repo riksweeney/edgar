@@ -56,9 +56,8 @@ static void pain()
 static void init()
 {
 	self->targetX = self->endX;
-	self->targetY = self->endY;
-	
-	self->action = &flyLeftToRight;
-	
+
+	self->action = &flyToTarget;
+
 	self->action();
 }

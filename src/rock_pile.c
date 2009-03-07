@@ -55,7 +55,7 @@ static void collectRock(Entity *other)
 		{
 			rock = addSmallRock(other->x, other->y);
 
-			strcpy(rock->objectiveName, "Small Rock");
+			STRNCPY(rock->objectiveName, "Small Rock", sizeof(rock->objectiveName));
 
 			rock->activate = &throwItem;
 

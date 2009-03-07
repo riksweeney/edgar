@@ -247,9 +247,35 @@ void flyLeftToRight()
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-	
+
 	self->thinkTime += 5;
-	
+
+	self->dirY += sin(DEG_TO_RAD(self->thinkTime)) / 3;
+
+	checkToMap(self);
+}
+
+void flyToTarget()
+{
+	if (abs(self->x - self->targetX) > self->speed)
+	{
+		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->x = self->targetX;
+	}
+
+	if (self->x == self->targetX)
+	{
+		self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
+	}
+
+	self->face = (self->dirX > 0 ? RIGHT : LEFT);
+
+	self->thinkTime += 5;
+
 	self->dirY += sin(DEG_TO_RAD(self->thinkTime)) / 3;
 
 	checkToMap(self);
@@ -418,11 +444,12 @@ void pushEntity(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
-
+			/*
 			if (self->activate != NULL)
 			{
 				self->activate(1);
 			}
+			*/
 		}
 	}
 
@@ -645,7 +672,9 @@ void initLineDefs()
 
 void writeEntitiesToFile(FILE *fp)
 {
-	int i;
+	int i, count;
+
+	count = 0;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -656,10 +685,13 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE %s\n", getEntityTypeByID(self->type));
 			fprintf(fp, "NAME %s\n", self->name);
-			fprintf(fp, "START_X %d\n", (int)self->x);
-			fprintf(fp, "START_Y %d\n", (int)self->y);
+			fprintf(fp, "X %d\n", (int)self->x);
+			fprintf(fp, "Y %d\n", (int)self->y);
+			fprintf(fp, "START_X %d\n", (int)self->startX);
+			fprintf(fp, "START_Y %d\n", (int)self->startY);
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
@@ -670,6 +702,10 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
 			fprintf(fp, "FACE %s\n", self->face == RIGHT ? "RIGHT" : "LEFT");
 			fprintf(fp, "}\n\n");
+
+			count++;
 		}
 	}
+
+	printf("Total Entities in use: %d\n", count);
 }

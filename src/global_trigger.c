@@ -66,8 +66,8 @@ void addGlobalTrigger(char *triggerName, int count, int targetType, char *target
 			trigger[i].count = count;
 			trigger[i].targetType = targetType;
 
-			strcpy(trigger[i].triggerName, triggerName);
-			strcpy(trigger[i].targetName, targetName);
+			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
+			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
 

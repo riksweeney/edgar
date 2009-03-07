@@ -58,12 +58,12 @@ void draw()
 
 	if (player.face == LEFT)
 	{
-		sprintf(text, "%3d : %3d", (int)player.x, (int)player.y);
+		snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 	}
 
 	else
 	{
-		sprintf(text, "%3d : %3d", (int)player.x, (int)player.y);
+		snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 	}
 
 	drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);

@@ -328,14 +328,14 @@ static void wipeOutCircleToSmall()
 
 void setNextLevel(char *name, char *playerStart)
 {
-	strcpy(game.nextMap, name);
-	strcpy(game.playerStart, playerStart);
+	STRNCPY(game.nextMap, name, sizeof(game.nextMap));
+	STRNCPY(game.playerStart, playerStart, sizeof(game.playerStart));
 }
 
 void goToNextMap()
 {
 	Entity *start;
-	
+
 	saveTemporaryData();
 
 	printf("Freeing Resources\n");
@@ -343,34 +343,34 @@ void goToNextMap()
 	freeLevelResources();
 
 	printf("Loading Map\n");
-	
+
 	if (hasPersistance(game.nextMap) == FALSE)
 	{
 		loadMap(game.nextMap, TRUE);
 	}
-	
+
 	else
 	{
 		printf("Loading persistance data instead...\n");
-		
+
 		loadMap(game.nextMap, FALSE);
-		
+
 		loadPersitanceData(game.nextMap);
 	}
 
 	printf("Done\n");
-	
+
 	start = getEntityByObjectiveName(game.playerStart);
 
 	if (start == NULL)
 	{
 		printf("Could not find player start %s\n", game.playerStart);
-		
+
 		exit(1);
 	}
 
 	loadPlayer(start->x, start->y);
-	
+
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
 

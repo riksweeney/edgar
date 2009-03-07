@@ -46,7 +46,7 @@ Target *addTarget(int x, int y, char *name)
 			target[i].x = x;
 			target[i].y = y;
 
-			strcpy(target[i].name, name);
+			STRNCPY(target[i].name, name, sizeof(target[i].name));
 
 			return &target[i];
 		}

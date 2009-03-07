@@ -27,7 +27,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 	e->x = x;
 	e->y = y;
 
-	strcpy(e->requires, entityToSpawn);
+	STRNCPY(e->requires, entityToSpawn, sizeof(e->requires));
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -77,8 +77,14 @@ static void spawn()
 
 					e->x += (self->w - e->w) / 2;
 					e->y += (self->h - e->h) / 2;
+
+					e->startX = self->startX;
+					e->startY = self->startX;
+
+					e->endX = self->endX;
+					e->endY = self->endX;
 				}
-				
+
 				else
 				{
 					printf("Spawner not activating. Too close to player\n");
@@ -91,6 +97,12 @@ static void spawn()
 
 				e->x += (self->w - e->w) / 2;
 				e->y += (self->h - e->h) / 2;
+
+				e->startX = self->startX;
+				e->startY = self->startX;
+
+				e->endX = self->endX;
+				e->endY = self->endX;
 
 				self->health--;
 

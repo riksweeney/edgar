@@ -35,7 +35,7 @@ void drawStatusPanel()
 
 void setStatusMessage(char *text)
 {
-	strncpy(message.text, text, MAX_MESSAGE_LENGTH);
+	STRNCPY(message.text, text, sizeof(message.text));
 
 	message.thinkTime = 120;
 }

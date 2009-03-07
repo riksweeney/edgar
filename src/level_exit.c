@@ -33,7 +33,7 @@ Entity *addLevelExit(char *name, int x, int y)
 
 	e->endX = x;
 
-	strcpy(e->name, name);
+	STRNCPY(e->name, name, sizeof(e->name));
 
 	e->action = &init;
 

@@ -15,7 +15,7 @@ SDL_Surface *loadImage(char *name)
 	SDL_Surface *temp;
 	SDL_Surface *image;
 
-	sprintf(path, INSTALL_PATH"%s", name);
+	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
 
 	temp = IMG_Load(path);
 
@@ -51,12 +51,12 @@ SDL_Surface *loadImage(char *name)
 void drawImage(SDL_Surface *image, int x, int y, int white)
 {
 	SDL_Rect dest;
-	
+
 	if (white == TRUE)
 	{
 		drawImageWhite(image, x, y);
-		
-		return;	
+
+		return;
 	}
 
 	/* Set the blitting rectangle to the size of the source image */
@@ -114,14 +114,14 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 			pixel = pixels[(y * image->w) + x];
 
 			pixels = (int *)flipped->pixels;
-			
+
 			if (white == TRUE)
 			{
 				SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-				
+
 				pixels[(y * flipped->w) + rx] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
 			}
-			
+
 			else
 			{
 				pixels[(y * flipped->w) + rx] = pixel;
@@ -475,11 +475,11 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 			pixels = (int *)image->pixels;
 
 			pixel = pixels[(y * image->w) + x];
-			
+
 			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
 			pixels = (int *)flipped->pixels;
-			
+
 			pixels[(y * flipped->w) + x] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
 		}
 	}

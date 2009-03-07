@@ -84,7 +84,7 @@ void setMapFile(char *name)
 
 void setScreenshotDir(char *name)
 {
-	strcpy(screenshotPath, name);
+	STRNCPY(screenshotPath, name, sizeof(screenshotPath));
 
 	printf("Set screenshot directory to %s\n", screenshotPath);
 }
@@ -95,7 +95,7 @@ void takeScreenshot()
 
 	if (strlen(screenshotPath) != 0)
 	{
-		sprintf(filename, "%s/edgar%06d.bmp", screenshotPath, frame);
+		snprintf(filename, sizeof(filename), "%s/edgar%06d.bmp", screenshotPath, frame);
 
 		frame++;
 

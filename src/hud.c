@@ -57,7 +57,7 @@ void doHud()
 			SDL_FreeSurface(infoMessage.surface);
 
 			infoMessage.surface = NULL;
-			
+
 			infoMessage.text[0] = '\0';
 		}
 	}
@@ -119,7 +119,7 @@ void addHudMessage(int type, char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vsprintf(text, fmt, ap);
+	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
 
 
@@ -134,7 +134,7 @@ void addHudMessage(int type, char *fmt, ...)
 
 		else if (message[i].inUse == FALSE)
 		{
-			strcpy(message[i].text, text);
+			STRNCPY(message[i].text, text, sizeof(message[i].text));
 
 			message[i].thinkTime = 180;
 
@@ -162,12 +162,12 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vsprintf(text, fmt, ap);
+	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
 
 	if (strcmpignorecase(text, infoMessage.text) != 0)
 	{
-		strcpy(infoMessage.text, text);
+		STRNCPY(infoMessage.text, text, sizeof(infoMessage.text));
 
 		if (infoMessage.surface != NULL)
 		{

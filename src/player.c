@@ -89,12 +89,12 @@ void setPlayerLocation(int x, int y)
 
 void setPlayerWeaponName(char *name)
 {
-	strcpy(playerWeapon.name, name);
+	STRNCPY(playerWeapon.name, name, sizeof(playerWeapon.name));
 }
 
 void setPlayerShieldName(char *name)
 {
-	strcpy(playerShield.name, name);
+	STRNCPY(playerShield.name, name, sizeof(playerShield.name));
 }
 
 void doPlayer()

@@ -16,43 +16,72 @@ static void sortInventory(void);
 
 int addToInventory(Entity *e)
 {
-	int i;
+	int i, found;
+	
+	found = FALSE;
 
-	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	if (e->flags & STACKABLE)
 	{
-		if (inventory.item[i].inUse == FALSE)
+		printf("Item is stackable\n");
+		
+		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 		{
-			inventory.item[i] = *e;
-
-			inventory.item[i].face = RIGHT;
-
-			inventory.item[i].thinkTime = 0;
-
-			setEntityAnimation(&inventory.item[i], STAND);
-
-			e->inUse = FALSE;
-
-			if (inventory.item[i].type == WEAPON)
+			if (strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0)
 			{
-				autoSetPlayerWeapon(&inventory.item[i]);
+				printf("Stacking %s\n", e->objectiveName);
+				
+				inventory.item[i].health++;
+	
+				found = TRUE;
+				
+				break;
 			}
-
-			else if (inventory.item[i].type == SHIELD)
-			{
-				autoSetPlayerShield(&inventory.item[i]);
-			}
-
-			addHudMessage(STANDARD_MESSAGE, "Picked up %s", inventory.item[i].objectiveName);
-
-			fireTrigger(inventory.item[i].objectiveName);
-
-			fireGlobalTrigger(inventory.item[i].objectiveName);
-
-			return TRUE;
 		}
 	}
+	
+	if (found == FALSE)
+	{
+		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+		{
+			if (inventory.item[i].inUse == FALSE)
+			{
+				inventory.item[i] = *e;
+	
+				inventory.item[i].face = RIGHT;
+	
+				inventory.item[i].thinkTime = 0;
+	
+				setEntityAnimation(&inventory.item[i], STAND);
+	
+				if (inventory.item[i].type == WEAPON)
+				{
+					autoSetPlayerWeapon(&inventory.item[i]);
+				}
+	
+				else if (inventory.item[i].type == SHIELD)
+				{
+					autoSetPlayerShield(&inventory.item[i]);
+				}
+				
+				found = TRUE;
+				
+				break;
+			}
+		}
+	}
+	
+	if (found == TRUE)
+	{
+		e->inUse = FALSE;
+		
+		setInfoBoxMessage(120, "Picked up %s", inventory.item[i].objectiveName);
 
-	return FALSE;
+		fireTrigger(inventory.item[i].objectiveName);
+
+		fireGlobalTrigger(inventory.item[i].objectiveName);
+	}
+
+	return found;
 }
 
 void selectNextInventoryItem(int index)
