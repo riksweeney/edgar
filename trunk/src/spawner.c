@@ -83,6 +83,8 @@ static void spawn()
 
 					e->endX = self->endX;
 					e->endY = self->endX;
+					
+					e->face = self->face;
 				}
 
 				else

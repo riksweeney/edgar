@@ -277,7 +277,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			addHudMessage(STANDARD_MESSAGE, "Picked up %s", self->objectiveName);
+			setInfoBoxMessage(120, "Picked up %s", self->objectiveName);
 
 			fireTrigger(item->objectiveName);
 
@@ -286,7 +286,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			addHudMessage(BAD_MESSAGE, "%s is required to carry this item", self->requires);
+			setInfoBoxMessage(120, "%s is required to carry this item", self->requires);
 		}
 	}
 }

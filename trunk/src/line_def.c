@@ -43,7 +43,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		activateEntitiesWithName(self->objectiveName, TRUE);
+		activateEntitiesWithName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
 
 		self->inUse = FALSE;
 	}
