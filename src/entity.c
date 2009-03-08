@@ -116,6 +116,16 @@ void doEntities()
 
 			if (!(self->flags & HELPLESS))
 			{
+				if (self->standingOn != NULL)
+				{
+					self->dirX += self->standingOn->dirX;
+	
+					if (self->standingOn->dirY > 0)
+					{
+						self->dirY = self->standingOn->dirY + 1;
+					}
+				}
+				
 				self->action();
 
 				self->standingOn = NULL;
@@ -206,6 +216,11 @@ void doNothing(void)
 	if (self->thinkTime < 0)
 	{
 		self->thinkTime = 0;
+	}
+	
+	if (self->flags & PUSHABLE)
+	{
+		self->frameSpeed = 0;
 	}
 
 	if (!(self->flags & HELPLESS))
@@ -488,6 +503,11 @@ void pushEntity(Entity *other)
 				{
 					pushable = 0;
 				}
+				
+				else
+				{
+					self->frameSpeed = 1;
+				}
 			}
 
 			if (pushable == 0)
@@ -532,6 +552,11 @@ void pushEntity(Entity *other)
 				if (self->dirX == 0)
 				{
 					pushable = 0;
+				}
+				
+				else
+				{
+					self->frameSpeed = -1;
 				}
 			}
 

@@ -46,7 +46,7 @@ Entity *addLargeRock(int x, int y, char *name)
 	return e;
 }
 
-Entity *addSmallRock(int x, int y)
+Entity *addSmallRock(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -57,7 +57,7 @@ Entity *addSmallRock(int x, int y)
 		exit(1);
 	}
 
-	loadProperties("common/small_rock", e);
+	loadProperties(name, e);
 
 	e->x = x;
 	e->y = y;
@@ -106,7 +106,7 @@ static void largeRockFall()
 	{
 		playSound("sound/common/rock_bounce.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_1, self->x, self->y);
 
-		e = addSmallRock(self->x, self->y);
+		e = addSmallRock(self->x, self->y, "common/small_rock");
 
 		e->x += (self->w - e->w) / 2;
 		e->y += (self->h - e->h) / 2;
@@ -114,7 +114,7 @@ static void largeRockFall()
 		e->dirX = -3;
 		e->dirY = -8;
 
-		e = addSmallRock(self->x, self->y);
+		e = addSmallRock(self->x, self->y, "common/small_rock");
 
 		e->x += (self->w - e->w) / 2;
 		e->y += (self->h - e->h) / 2;

@@ -42,6 +42,8 @@ Entity *addPermanentItem(char *name, int x, int y)
 	else if ((e->flags & PUSHABLE) || (e->flags & OBSTACLE))
 	{
 		e->touch = &pushEntity;
+		
+		e->frameSpeed = 0;
 	}
 
 	else

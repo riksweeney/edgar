@@ -43,8 +43,6 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		printf("Activating %s\n", self->objectiveName);
-
 		activateEntitiesWithName(self->objectiveName, TRUE);
 
 		self->inUse = FALSE;

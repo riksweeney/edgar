@@ -53,7 +53,7 @@ static void collectRock(Entity *other)
 	{
 		if (self->thinkTime <= 0 && getInventoryItem("Small Rock") == NULL)
 		{
-			rock = addSmallRock(other->x, other->y);
+			rock = addSmallRock(other->x, other->y, "common/small_rock");
 
 			STRNCPY(rock->objectiveName, "Small Rock", sizeof(rock->objectiveName));
 
