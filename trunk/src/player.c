@@ -181,6 +181,8 @@ void doPlayer()
 						if (self->target->x > self->x)
 						{
 							self->target->dirX = -self->speed;
+							
+							self->target->frameSpeed = -1;
 						}
 					}
 
@@ -205,6 +207,8 @@ void doPlayer()
 						if (self->target->x < self->x)
 						{
 							self->target->dirX = self->speed;
+							
+							self->target->frameSpeed = 1;
 						}
 					}
 
@@ -227,6 +231,8 @@ void doPlayer()
 					if ((self->flags & GRABBING) && self->target != NULL)
 					{
 						self->target->dirX = 0;
+						
+						self->target->frameSpeed = 0;
 					}
 				}
 
@@ -330,6 +336,8 @@ void doPlayer()
 					if (self->target != NULL)
 					{
 						self->target->flags &= ~HELPLESS;
+						
+						self->target->frameSpeed = 0;
 
 						self->target = NULL;
 					}

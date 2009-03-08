@@ -67,11 +67,11 @@ static void spawn()
 
 		if (self->thinkTime <= 0)
 		{
-			if (self->health == -1)
+			if (self->health < 0)
 			{
 				/* Don't spawn if the player is too close */
 
-				if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
+				if (self->health == -1 || (self->health == -2 && getDistanceFromPlayer(self) > SCREEN_WIDTH))
 				{
 					e = addEnemy(self->objectiveName, self->x, self->y);
 

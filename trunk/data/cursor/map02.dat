@@ -19,3 +19,4 @@ common/level_exit
 common/save_point
 enemy/red_spider
 enemy/jumping_fireball
+item/mine_cart

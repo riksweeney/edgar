@@ -79,7 +79,7 @@ static void die()
 {
 	Entity *e;
 
-	e = addSmallRock(self->x, self->y);
+	e = addSmallRock(self->x, self->y, "common/small_rock");
 
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;
@@ -87,7 +87,7 @@ static void die()
 	e->dirX = -3;
 	e->dirY = -8;
 
-	e = addSmallRock(self->x, self->y);
+	e = addSmallRock(self->x, self->y, "common/small_rock");
 
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;

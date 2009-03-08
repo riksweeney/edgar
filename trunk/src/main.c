@@ -104,9 +104,9 @@ int main(int argc, char *argv[])
 
 	initGame();
 	/*
-	addGlobalTrigger("Chopped Wood", 2, UPDATE_OBJECTIVE, "Collect 2 Chopped Logs");
+	addGlobalTrigger("Chopped Log", 2, UPDATE_OBJECTIVE, "Collect 2 Chopped Logs");
 
-	addObjective("Collect 2 logs", "");
+	addObjective("Collect 2 Chopped Logs", "");
 	*/
 	/* Loop indefinitely for messages */
 

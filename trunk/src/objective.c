@@ -57,6 +57,8 @@ void addObjective(char *objectiveName, char *completionTrigger)
 
 			STRNCPY(objective[i].name, objectiveName, sizeof(objective[i].name));
 			STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
+			
+			setInfoBoxMessage(240, "New Objective: %s", objective[i].name);
 
 			printf("Added new Objective: \"%s\"\n", objective[i].name);
 
