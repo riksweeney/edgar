@@ -150,6 +150,8 @@ static void chasePlayer()
 		self->touch = &pushEntity;
 
 		self->frameSpeed = 0;
+		
+		self->active = FALSE;
 
 		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);
 

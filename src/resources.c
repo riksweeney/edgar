@@ -208,6 +208,11 @@ void loadResources(FILE *fp)
 			{
 				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
+			
+			else if (strcmpignorecase(value[type], "TEMP_ITEM") == 0)
+			{
+				e = addTemporaryItem(value[name], atoi(value[startX]), atoi(value[startY]), LEFT, 0, 0);
+			}
 
 			else if (strcmpignorecase(value[type], "PLAYER") == 0)
 			{

@@ -61,7 +61,6 @@ static void touch(Entity *other)
 
 static void die()
 {
-	char name[25];
 	int i;
 
 	Entity *e = addPermanentItem("misc/chopped_log", self->x, self->y);
@@ -71,17 +70,17 @@ static void die()
 
 	e->dirY = ITEM_JUMP_HEIGHT;
 
-	for (i=1;i<=8;i++)
+	for (i=0;i<8;i++)
 	{
-		snprintf(name, sizeof(name), "misc/small_tree_piece_%d", i);
-
-		e = addTemporaryItem(name, self->x, self->y, RIGHT, 0, 0);
+		e = addTemporaryItem("misc/small_tree_piece", self->x, self->y, RIGHT, 0, 0);
 
 		e->x += (self->x - e->x) / 2;
 		e->y += (self->y - e->y) / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+		
+		setEntityAnimation(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
 	}

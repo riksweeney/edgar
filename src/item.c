@@ -91,6 +91,11 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	{
 		e->touch = &healthTouch;
 	}
+	
+	else
+	{
+		e->type = TEMP_ITEM;
+	}
 
 	setEntityAnimation(e, STAND);
 
