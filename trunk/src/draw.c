@@ -10,6 +10,7 @@
 #include "record.h"
 #include "graphics.h"
 #include "save_png.h"
+#include "dialog.h"
 
 extern Game game;
 extern Entity player;
@@ -50,6 +51,10 @@ void draw()
 
 	drawHud();
 
+	/* Draw the dialog box */
+
+	drawDialogBox();
+
 	/* Draw the game statuses */
 
 	drawGame();
@@ -66,7 +71,7 @@ void draw()
 		snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 	}
 
-	drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);
+	/*drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);*/
 
 	takeScreenshot();
 

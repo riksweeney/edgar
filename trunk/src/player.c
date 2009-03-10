@@ -11,6 +11,7 @@
 #include "player.h"
 #include "entity.h"
 #include "game.h"
+#include "script.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -20,6 +21,7 @@ static void takeDamage(Entity *, int);
 static void attackFinish(void);
 static void resetPlayer(void);
 static void fallout(void);
+static void dialogWait(void);
 
 Entity *loadPlayer(int x, int y)
 {
@@ -181,7 +183,7 @@ void doPlayer()
 						if (self->target->x > self->x)
 						{
 							self->target->dirX = -self->speed;
-							
+
 							self->target->frameSpeed = -1;
 						}
 					}
@@ -207,7 +209,7 @@ void doPlayer()
 						if (self->target->x < self->x)
 						{
 							self->target->dirX = self->speed;
-							
+
 							self->target->frameSpeed = 1;
 						}
 					}
@@ -231,7 +233,7 @@ void doPlayer()
 					if ((self->flags & GRABBING) && self->target != NULL)
 					{
 						self->target->dirX = 0;
-						
+
 						self->target->frameSpeed = 0;
 					}
 				}
@@ -336,7 +338,7 @@ void doPlayer()
 					if (self->target != NULL)
 					{
 						self->target->flags &= ~HELPLESS;
-						
+
 						self->target->frameSpeed = 0;
 
 						self->target = NULL;
@@ -404,6 +406,26 @@ void doPlayer()
 	else
 	{
 		self->action();
+	}
+}
+
+void playerWaitForDialog()
+{
+	player.action = &dialogWait;
+}
+
+void playerResumeNormal()
+{
+	player.action = NULL;
+}
+
+static void dialogWait()
+{
+	if (input.interact == 1)
+	{
+		readNextScriptLine();
+		
+		input.interact = 0;
 	}
 }
 

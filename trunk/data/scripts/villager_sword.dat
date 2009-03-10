@@ -1,0 +1,19 @@
+TALK Villager Hello Edgar, what can I do for you today?
+TALK Edgar Do you have a sword I can borrow?
+TALK Villager I do have a sword and I you can have it if you do something for me first
+TALK Edgar OK... what do I have to do?
+TALK Villager Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
+TALK Villager You can lure them back to the pen by using this chicken feed
+TALK Edgar That's it?
+TALK Villager Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient
+TALK Edgar Do you have an axe?
+TALK Villager Erm... I left my axe in the forest somewhere. It should still be there
+TALK Edgar Isn't that forest dangerous?
+TALK Villager Not really, if anything gets in your way, just hit it with a weapon
+TALK Edgar Such as an axe?
+TALK Villager Yes, that would do the trick
+TALK Edgar ...
+TALK Villager But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago...
+TALK Villager Good luck!
+ADD OBJECTIVE "Collect 2 Chopped Logs" ""
+ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"

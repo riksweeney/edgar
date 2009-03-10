@@ -41,7 +41,7 @@ Entity *addWeakWall(char *name, int x, int y)
 
 static void touch(Entity *other)
 {
-	if (other->flags & ATTACKING)
+	if (self->active == TRUE && (other->flags & ATTACKING))
 	{
 		takeDamage(other, other->damage);
 	}

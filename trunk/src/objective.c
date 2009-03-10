@@ -7,11 +7,22 @@
 
 static Objective objective[MAX_OBJECTIVES];
 
+static void addObjective(char *, char *);
+
 void freeObjectives()
 {
 	/* Clear the list */
 
 	memset(objective, 0, sizeof(Objective) * MAX_OBJECTIVES);
+}
+
+void addObjectiveFromScript(char *line)
+{
+	char objectiveName[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
+
+	sscanf(line, "%*s %*s \"%[^\"]\" \"%[^\"]\"", objectiveName, completionTrigger);
+
+	addObjective(objectiveName, completionTrigger);
 }
 
 void addObjectiveFromResource(char *key[], char *value[])
@@ -57,7 +68,7 @@ void addObjective(char *objectiveName, char *completionTrigger)
 
 			STRNCPY(objective[i].name, objectiveName, sizeof(objective[i].name));
 			STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
-			
+
 			setInfoBoxMessage(240, "New Objective: %s", objective[i].name);
 
 			printf("Added new Objective: \"%s\"\n", objective[i].name);

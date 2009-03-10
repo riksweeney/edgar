@@ -30,6 +30,8 @@ extern Game game;
 #include "objective.h"
 #include "save_point.h"
 #include "inventory.h"
+#include "dialog.h"
+#include "script.h"
 
 static char **key, **value;
 
@@ -41,7 +43,7 @@ void loadRequiredResources()
 
 	/* Load the font */
 
-	game.font = loadFont("font/blackWolf.ttf", 16);
+	game.font = loadFont("font/vera.ttf", 16);
 }
 
 void freeLevelResources()
@@ -107,6 +109,14 @@ void freeAllResources()
 	/* Free the hud */
 
 	freeHud();
+
+	/* Free the dialog box */
+
+	freeDialogBox();
+
+	/* Free the script */
+
+	freeScript();
 
 	/* Free the font */
 
@@ -203,13 +213,12 @@ void loadResources(FILE *fp)
 		{
 			e = NULL;
 
-			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "HEALTH") == 0 ||
-				strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
+			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
 			{
 				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
-			
-			else if (strcmpignorecase(value[type], "TEMP_ITEM") == 0)
+
+			else if (strcmpignorecase(value[type], "TEMP_ITEM") == 0 || strcmpignorecase(value[type], "HEALTH") == 0)
 			{
 				e = addTemporaryItem(value[name], atoi(value[startX]), atoi(value[startY]), LEFT, 0, 0);
 			}
