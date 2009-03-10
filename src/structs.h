@@ -160,3 +160,9 @@ typedef struct Objective
 	int inUse, active, completed;
 	char name[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
 } Objective;
+
+typedef struct Script
+{
+	int line, lineCount;
+	char **text;
+} Script;

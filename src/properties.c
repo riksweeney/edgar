@@ -300,7 +300,7 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		return;
 	}
-	
+
 	if (strcmpignorecase(name, "X") == 0)
 	{
 		e->x = atoi(value);
@@ -344,13 +344,13 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "THINKTIME") == 0)
 	{
 		e->thinkTime = atoi(value);
-		
+
 		if (e->maxThinkTime == 0)
 		{
 			e->maxThinkTime = e->thinkTime;
 		}
 	}
-	
+
 	else if (strcmpignorecase(name, "MAX_THINKTIME") == 0)
 	{
 		e->maxThinkTime = atoi(value);
@@ -451,7 +451,9 @@ int getEntityTypeByName(char *name)
 		}
 	}
 
-	return -1;
+	printf("Unknown Entity Type %s\n", name);
+
+	exit(1);
 }
 
 char *getEntityTypeByID(int id)
@@ -466,5 +468,7 @@ char *getEntityTypeByID(int id)
 		}
 	}
 
-	return "UNKNOWN";
+	printf("Unknown Entity ID %d\n", id);
+
+	exit(1);
 }

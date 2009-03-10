@@ -9,6 +9,8 @@
 #include "global_trigger.h"
 #include "properties.h"
 #include "map.h"
+#include "enemies.h"
+#include "key_items.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -119,13 +121,13 @@ void doEntities()
 				if (self->standingOn != NULL)
 				{
 					self->dirX += self->standingOn->dirX;
-	
+
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY + 1;
 					}
 				}
-				
+
 				self->action();
 
 				self->standingOn = NULL;
@@ -217,7 +219,7 @@ void doNothing(void)
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	if (self->flags & PUSHABLE)
 	{
 		self->frameSpeed = 0;
@@ -327,7 +329,7 @@ void entityDie()
 
 	self->thinkTime = 60;
 
-	setCustomAction(self, &invulnerable, 60);
+	setCustomAction(self, &invulnerable, 240);
 
 	self->action = &standardDie;
 }
@@ -503,7 +505,7 @@ void pushEntity(Entity *other)
 				{
 					pushable = 0;
 				}
-				
+
 				else
 				{
 					self->frameSpeed = 1;
@@ -553,7 +555,7 @@ void pushEntity(Entity *other)
 				{
 					pushable = 0;
 				}
-				
+
 				else
 				{
 					self->frameSpeed = -1;
@@ -733,4 +735,33 @@ void writeEntitiesToFile(FILE *fp)
 	}
 
 	printf("Total Entities in use: %d\n", count);
+}
+
+void addEntityFromScript(char *line)
+{
+	char entityType[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH];
+	int x, y;
+	Entity *e;
+
+	sscanf(line, "%*s %*s %s %s \"%[^\"]\" %d %d", entityType, entityName, objectiveName, &x, &y);
+
+	if (strcmpignorecase(entityType, "WEAPON") == 0 || strcmpignorecase(entityType, "SHIELD") == 0 ||
+		strcmpignorecase(entityType, "ITEM") == 0)
+	{
+		printf("Adding %s to %d %d\n", entityName, x, y);
+		
+		e = addPermanentItem(entityName, x, y);
+		
+		STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+	}
+
+	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)
+	{
+		addKeyItem(entityName, x, y);
+	}
+
+	else if (strcmpignorecase(entityType, "ENEMY") == 0)
+	{
+		addEnemy(entityName, x, y);
+	}
 }

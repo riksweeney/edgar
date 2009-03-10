@@ -12,11 +12,22 @@ static Type type[] = {
 					};
 static int length = sizeof(type) / sizeof(Type);
 
+static void addTrigger(char *, int, int, char *);
+
 void freeTriggers()
 {
 	/* Clear the list */
 
 	memset(trigger, 0, sizeof(Trigger) * MAX_TRIGGERS);
+}
+
+void addTriggerFromScript(char *line)
+{
+	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH], count[MAX_VALUE_LENGTH];
+
+	sscanf(line, "%*s %*s \"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
+
+	addTrigger(triggerName, atoi(count), getTriggerTypeByName(targetType), targetName);
 }
 
 void addTriggerFromResource(char *key[], char *value[])
@@ -55,17 +66,24 @@ void addTriggerFromResource(char *key[], char *value[])
 		exit(1);
 	}
 
+	addTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
+}
+
+static void addTrigger(char *triggerName, int count, int targetType, char *targetName)
+{
+	int i;
+
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
 		if (trigger[i].inUse == FALSE)
 		{
 			trigger[i].inUse = TRUE;
 
-			trigger[i].count = atoi(value[count]);
-			trigger[i].targetType = getTriggerTypeByName(value[targetType]);
+			trigger[i].count = count;
+			trigger[i].targetType = targetType;
 
-			STRNCPY(trigger[i].triggerName, value[triggerName], sizeof(trigger[i].triggerName));
-			STRNCPY(trigger[i].targetName, value[targetName], sizeof(trigger[i].targetName));
+			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
+			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
 
@@ -73,7 +91,7 @@ void addTriggerFromResource(char *key[], char *value[])
 		}
 	}
 
-	printf("No free slots to add Trigger \"%s\"\n", value[triggerName]);
+	printf("No free slots to add Trigger \"%s\"\n", triggerName);
 
 	exit(1);
 }
@@ -157,7 +175,9 @@ int getTriggerTypeByName(char *name)
 		}
 	}
 
-	return -1;
+	printf("Unknown Trigger Type %s\n", name);
+
+	exit(1);
 }
 
 char *getTriggerTypeByID(int id)
@@ -172,5 +192,7 @@ char *getTriggerTypeByID(int id)
 		}
 	}
 
-	return "UNKNOWN";
+	printf("Unknown Trigger ID %d\n", id);
+
+	exit(1);
 }

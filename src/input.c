@@ -98,11 +98,14 @@ void getInput(int gameType)
 						input.interact = TRUE;
 						input.grabbing = TRUE;
 					break;
-					
+
 					case SDLK_F12:
-						toggleFullScreen();
+						if (game.gameType != RECORDING)
+						{
+							toggleFullScreen();
+						}
 					break;
-					
+
 					case SDLK_F10:
 						if (game.gameType != RECORDING)
 						{
@@ -135,6 +138,7 @@ void getInput(int gameType)
 					break;
 
 					case SDLK_SPACE:
+						input.jump = FALSE;
 						input.add = FALSE;
 					break;
 
@@ -148,10 +152,47 @@ void getInput(int gameType)
 						input.previous = FALSE;
 					break;
 
-					case SDLK_c:
-						input.grabbing = FALSE;
+					case SDLK_s:
+						input.save = FALSE;
 					break;
 
+					case SDLK_l:
+						input.load = FALSE;
+					break;
+
+					case SDLK_e:
+						input.toggle = FALSE;
+					break;
+
+					case SDLK_d:
+						input.drop = FALSE;
+					break;
+
+					case SDLK_a:
+						input.activate = FALSE;
+					break;
+
+					case SDLK_x:
+						input.cut = FALSE;
+					break;
+
+					case SDLK_RETURN:
+						input.attack = FALSE;
+					break;
+
+					case SDLK_f:
+						input.fly = FALSE;
+					break;
+
+					case SDLK_g:
+						input.snap = FALSE;
+					break;
+
+					case SDLK_c:
+						input.interact = FALSE;
+						input.grabbing = FALSE;
+					break;
+					
 					default:
 					break;
 				}

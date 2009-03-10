@@ -16,6 +16,8 @@
 #include "objective.h"
 #include "global_trigger.h"
 #include "load_save.h"
+#include "dialog.h"
+#include "script.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];
@@ -103,14 +105,12 @@ int main(int argc, char *argv[])
 	/* Initialise the game variables */
 
 	initGame();
-	/*
-	addGlobalTrigger("Chopped Log", 2, UPDATE_OBJECTIVE, "Collect 2 Chopped Logs");
 
-	addObjective("Collect 2 Chopped Logs", "");
-	*/
 	/* Loop indefinitely for messages */
 
 	game.startTicks = SDL_GetTicks();
+
+	loadScript("villager_shield");
 
 	while (go == TRUE)
 	{

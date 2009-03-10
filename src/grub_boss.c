@@ -12,7 +12,7 @@
 #include "custom_actions.h"
 #include "projectile.h"
 
-extern Entity *self, player;
+extern Entity *self, player, entity[MAX_ENTITIES];
 
 static void wait(void);
 static void spitStart(void);
@@ -68,6 +68,8 @@ static void takeDamage(Entity *other, int damage)
 
 	if (self->health < 0)
 	{
+		self->thinkTime = 180;
+		
 		self->action = &die;
 	}
 }
@@ -320,10 +322,25 @@ static void attackFinished()
 
 static void die()
 {
-	setMinMapX(0);
-	setMinMapX(0);
-
-	centerMapOnEntity(&player);
-
-	entityDie();
+	int i;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime == 0)
+	{
+		setMinMapX(0);
+		setMinMapX(0);
+	
+		centerMapOnEntity(&player);
+	
+		entityDie();
+		
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "GRUB_BOSS_WALL") == 0)
+			{
+				entity[i].active = TRUE;
+			}
+		}
+	}
 }
