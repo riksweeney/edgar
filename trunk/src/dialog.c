@@ -11,13 +11,13 @@ static SDL_Surface *dialogSurface;
 void createDialogBoxFromScript(char *msg)
 {
 	char *token;
-	
+
 	token = strtok(msg, " ");
-	
+
 	token = strtok(NULL, " ");
-	
+
 	token = strtok(NULL, "\0");
-	
+
 	createDialogBox(token);
 }
 
@@ -54,8 +54,6 @@ void createDialogBox(char *msg)
 
 	lines = i;
 
-	printf("Creating %d surfaces for the dialog text\n", lines);
-
 	surface = (SDL_Surface **)malloc(sizeof(SDL_Surface *) * lines);
 
 	if (surface == NULL)
@@ -76,23 +74,23 @@ void createDialogBox(char *msg)
 	while (token != NULL)
 	{
 		snprintf(word, sizeof(word), "%s ", token);
-		
+
 		surface[i] = generateTextSurface(word, game.font);
-		
+
 		if (h == 0)
 		{
 			h = surface[i]->h + 5;
 		}
-		
+
 		if (w + surface[i]->w > MAX_DIALOG_WIDTH)
 		{
 			w = 0;
-			
+
 			h += surface[i]->h + 5;
 		}
-		
+
 		w += surface[i]->w;
-		
+
 		if (w > maxWidth)
 		{
 			maxWidth = w;
@@ -111,8 +109,6 @@ void createDialogBox(char *msg)
 
 	SDL_FreeSurface(temp);
 
-	printf("Creating a dialog box of %d x %d\n", dialogSurface->w, dialogSurface->h);
-
 	w = h = 0;
 
 	for (i=0;i<lines;i++)
@@ -120,10 +116,10 @@ void createDialogBox(char *msg)
 		if (w + surface[i]->w > MAX_DIALOG_WIDTH)
 		{
 			w = 0;
-			
+
 			h += surface[i]->h + 5;
 		}
-		
+
 		dest.x = w;
 		dest.y = h;
 		dest.w = surface[i]->w;
@@ -131,15 +127,13 @@ void createDialogBox(char *msg)
 
 		SDL_BlitSurface(surface[i], NULL, dialogSurface, &dest);
 
-		printf("Blitted surface %d to %d %d\n", i, 0, h);
-		
 		w += surface[i]->w;
 
 		SDL_FreeSurface(surface[i]);
 	}
 
 	free(surface);
-	
+
 	free(text);
 }
 

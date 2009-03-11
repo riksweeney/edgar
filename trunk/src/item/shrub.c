@@ -1,12 +1,12 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
-#include "entity.h"
-#include "audio.h"
-#include "custom_actions.h"
-#include "item.h"
-#include "random.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../audio.h"
+#include "../custom_actions.h"
+#include "../item.h"
+#include "../random.h"
 
 extern Entity *self;
 
@@ -79,7 +79,7 @@ static void die()
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
-		
+
 		setEntityAnimation(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);

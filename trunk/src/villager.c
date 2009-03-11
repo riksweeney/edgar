@@ -1,4 +1,17 @@
+#include "headers.h"
 
+#include "animation.h"
+#include "properties.h"
+#include "entity.h"
+#include "random.h"
+#include "collisions.h"
+#include "audio.h"
+#include "script.h"
+
+extern Entity *self;
+
+static void wait(void);
+static void talk(int);
 
 Entity *addVillager(int x, int y, char *name)
 {
@@ -33,7 +46,9 @@ static void wait()
 	checkToMap(self);
 }
 
-static void talk()
+static void talk(int val)
 {
-	loadScript(
+	loadScript(self->requires);
+
+	readNextScriptLine();
 }

@@ -20,7 +20,7 @@ void addObjectiveFromScript(char *line)
 {
 	char objectiveName[MAX_MESSAGE_LENGTH], completionTrigger[MAX_VALUE_LENGTH];
 
-	sscanf(line, "%*s %*s \"%[^\"]\" \"%[^\"]\"", objectiveName, completionTrigger);
+	sscanf(line, "\"%[^\"]\" \"%[^\"]\"", objectiveName, completionTrigger);
 
 	addObjective(objectiveName, completionTrigger);
 }

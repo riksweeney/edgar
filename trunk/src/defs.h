@@ -24,7 +24,7 @@
 
 #define MAX_ENTITIES 512
 
-#define MAX_DIALOG_WIDTH 320
+#define MAX_DIALOG_WIDTH 480
 
 #define BLANK_TILE 0
 

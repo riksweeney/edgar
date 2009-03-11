@@ -743,16 +743,19 @@ void addEntityFromScript(char *line)
 	int x, y;
 	Entity *e;
 
-	sscanf(line, "%*s %*s %s %s \"%[^\"]\" %d %d", entityType, entityName, objectiveName, &x, &y);
+	sscanf(line, "%s %s \"%[^\"]\" %d %d", entityType, entityName, objectiveName, &x, &y);
 
 	if (strcmpignorecase(entityType, "WEAPON") == 0 || strcmpignorecase(entityType, "SHIELD") == 0 ||
 		strcmpignorecase(entityType, "ITEM") == 0)
 	{
 		printf("Adding %s to %d %d\n", entityName, x, y);
-		
+
 		e = addPermanentItem(entityName, x, y);
-		
-		STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+
+		if (strcmpignorecase(objectiveName, " ") != 0)
+		{
+			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+		}
 	}
 
 	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)

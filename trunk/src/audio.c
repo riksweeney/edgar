@@ -57,9 +57,7 @@ static void preCacheSound(char *name)
 
 		abort();
 	}
-
-	printf("Precaching %s\n", name);
-
+	
 	chunk = loadSound(name);
 
 	sound[soundIndex].effect = chunk;
@@ -154,8 +152,6 @@ Mix_Chunk *loadSound(char *name)
 	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
 
 	/* Load the sound specified by the filename */
-
-	printf("Loading sound %s\n", path);
 
 	chunk = Mix_LoadWAV(path);
 

@@ -21,15 +21,6 @@ void freeTriggers()
 	memset(trigger, 0, sizeof(Trigger) * MAX_TRIGGERS);
 }
 
-void addTriggerFromScript(char *line)
-{
-	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH], count[MAX_VALUE_LENGTH];
-
-	sscanf(line, "%*s %*s \"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
-
-	addTrigger(triggerName, atoi(count), getTriggerTypeByName(targetType), targetName);
-}
-
 void addTriggerFromResource(char *key[], char *value[])
 {
 	int i, triggerName, count, targetType, targetName;

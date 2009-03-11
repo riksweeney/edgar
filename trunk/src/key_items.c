@@ -1,12 +1,12 @@
 #include "headers.h"
 
-#include "chicken_feed.h"
-#include "chicken_trap.h"
-#include "coal_pile.h"
+#include "item/chicken_feed.h"
+#include "item/chicken_trap.h"
+#include "item/coal_pile.h"
 #include "custom_actions.h"
 #include "inventory.h"
-#include "rock_pile.h"
-#include "shrub.h"
+#include "item/rock_pile.h"
+#include "item/shrub.h"
 
 extern Entity *self, player;
 

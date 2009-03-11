@@ -1,16 +1,16 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
-#include "entity.h"
-#include "collisions.h"
-#include "game.h"
-#include "audio.h"
-#include "music.h"
-#include "map.h"
-#include "random.h"
-#include "custom_actions.h"
-#include "projectile.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../collisions.h"
+#include "../game.h"
+#include "../audio.h"
+#include "../music.h"
+#include "../map.h"
+#include "../random.h"
+#include "../custom_actions.h"
+#include "../projectile.h"
 
 extern Entity *self, player;
 
@@ -58,14 +58,14 @@ static void initialise()
 	if (self->active == TRUE)
 	{
 		adjustMusicVolume(-1);
-		
+
 		centerMapOnEntity(NULL);
-		
+
 		if (minX < self->endX)
 		{
 			minX++;
 		}
-		
+
 		else if (minX > self->endX)
 		{
 			minX--;
@@ -75,12 +75,12 @@ static void initialise()
 		{
 			minY++;
 		}
-		
+
 		else if (minY > self->endY)
 		{
 			minY--;
 		}
-		
+
 		setMapStartX(minX);
 		setMapStartY(minY);
 

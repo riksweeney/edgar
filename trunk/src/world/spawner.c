@@ -1,10 +1,10 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "enemies.h"
-#include "entity.h"
-#include "properties.h"
-#include "player.h"
+#include "../animation.h"
+#include "../enemies.h"
+#include "../entity.h"
+#include "../properties.h"
+#include "../player.h"
 
 extern Entity *self;
 
@@ -83,7 +83,7 @@ static void spawn()
 
 					e->endX = self->endX;
 					e->endY = self->endX;
-					
+
 					e->face = self->face;
 				}
 

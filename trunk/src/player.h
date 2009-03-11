@@ -12,3 +12,4 @@ void setPlayerWeaponName(char *);
 void setPlayerShieldName(char *);
 void playerWaitForDialog(void);
 void playerResumeNormal(void);
+void writePlayerMapStartToFile(FILE *);

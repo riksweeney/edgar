@@ -1,11 +1,12 @@
 #include "headers.h"
 
-#include "trigger.h"
+#include "global_trigger.h"
 #include "objective.h"
 #include "entity.h"
 #include "script.h"
 #include "dialog.h"
 #include "player.h"
+#include "inventory.h"
 
 extern Entity player;
 
@@ -22,7 +23,7 @@ void loadScript(char *name)
 	script.lineCount = 0;
 
 	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
-	
+
 	printf("Loading script file %s\n", filename);
 
 	fp = fopen(filename, "rb");
@@ -75,81 +76,177 @@ void loadScript(char *name)
 
 	fclose(fp);
 
+	script.skipping = FALSE;
+
 	playerWaitForDialog();
 }
 
 void readNextScriptLine()
 {
-	char command[10];
+	char *token, line[MAX_LINE_LENGTH];
 	int readAgain = TRUE;
 	Entity *e;
-	
+
 	while (readAgain == TRUE)
 	{
 		if (script.line == script.lineCount)
 		{
 			freeScript();
-			
+
 			freeDialogBox();
-			
+
 			playerResumeNormal();
-			
+
 			return;
 		}
-		
-		sscanf(script.text[script.line], "%s", command);
-	
-		if (strcmpignorecase("TALK", command) == 0)
+
+		STRNCPY(line, script.text[script.line], sizeof(line));
+
+		token = strtok(line, " ");
+
+		if (script.skipping == TRUE)
+		{
+			if (strcmpignorecase("END", token) == 0)
+			{
+				script.skipping = FALSE;
+			}
+		}
+
+		else if (strcmpignorecase("TALK", token) == 0)
 		{
 			createDialogBoxFromScript(script.text[script.line]);
-			
+
 			readAgain = FALSE;
 		}
-	
-		else if (strcmpignorecase("ADD", command) == 0)
+
+		else if (strcmpignorecase("ADD", token) == 0)
 		{
-			sscanf(script.text[script.line], "%*s %s", command);
-	
-			printf("Adding %s\n", command);
-	
-			if (strcmpignorecase("ENTITY", command) == 0)
+			token = strtok(NULL, " ");
+
+			printf("Adding %s\n", token);
+
+			if (strcmpignorecase("ENTITY", token) == 0)
 			{
-				addEntityFromScript(script.text[script.line]);
+				token = strtok(NULL, "\0");
+
+				addEntityFromScript(token);
 			}
-	
-			else if (strcmpignorecase("OBJECTIVE", command) == 0)
+
+			else if (strcmpignorecase("OBJECTIVE", token) == 0)
 			{
-				addObjectiveFromScript(script.text[script.line]);
+				token = strtok(NULL, "\0");
+
+				addObjectiveFromScript(token);
 			}
-	
-			else if (strcmpignorecase("TRIGGER", command) == 0)
+
+			else if (strcmpignorecase("TRIGGER", token) == 0)
 			{
-				addTriggerFromScript(script.text[script.line]);
+				token = strtok(NULL, "\0");
+
+				addGlobalTriggerFromScript(token);
 			}
 		}
-	
-		else if (strcmpignorecase("WALK", command) == 0)
+
+		else if (strcmpignorecase("IF", token) == 0)
 		{
-			sscanf(script.text[script.line], "%*s %s", command);
-	
-			if (strcmpignorecase(command, "EDGAR") == 0)
+			token = strtok(NULL, " ");
+
+			printf("Finding Entity %s\n", token);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e = &player;
 			}
-	
+
 			else
 			{
-				e = getEntityByObjectiveName(command);
+				e = getEntityByObjectiveName(token);
 			}
-	
+
 			if (e == NULL)
 			{
-				printf("WALK command could not find Entity %s\n", command);
-	
+				printf("IF command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+
+			token = strtok(NULL, " ");
+
+			if (strcmpignorecase(token, "HEALTH") == 0)
+			{
+				token = strtok(NULL, " ");
+
+				if (e->health != atoi(token))
+				{
+					printf("Skipping lines\n");
+
+					script.skipping = TRUE;
+				}
+			}
+		}
+
+		else if (strcmpignorecase("SET", token) == 0)
+		{
+			token = strtok(NULL, " ");
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				printf("SET command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+
+			token = strtok(NULL, " ");
+
+			if (strcmpignorecase(token, "HEALTH") == 0)
+			{
+				token = strtok(NULL, " ");
+
+				printf("Setting health of %s to %d\n", e->objectiveName, atoi(token));
+
+				e->health = atoi(token);
+			}
+		}
+
+		else if (strcmpignorecase("REMOVE", token) == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			getInventoryItemFromScript(token);
+		}
+
+		else if (strcmpignorecase("WALK", token) == 0)
+		{
+			token = strtok(NULL, " ");
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				printf("WALK command could not find Entity %s\n", token);
+
 				exit(1);
 			}
 		}
-		
+
 		script.line++;
 	}
 }
@@ -166,7 +263,7 @@ void freeScript()
 		}
 
 		free(script.text);
-		
+
 		script.text = NULL;
 	}
 }

@@ -15,8 +15,6 @@ void loadMusic(char *name)
 	if (game.music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
-
-		exit(1);
 	}
 }
 
@@ -36,6 +34,8 @@ void playMusic()
 {
 	if (game.music != NULL)
 	{
+		Mix_VolumeMusic(MIX_MAX_VOLUME);
+	
 		Mix_PlayMusic(game.music, -1);
 	}
 }
@@ -49,7 +49,7 @@ int adjustMusicVolume(int val)
 {
 	int current = Mix_VolumeMusic(-1);
 
-	if ((current == 0 && val < 0) || (current == 128 && val > 0))
+	if ((current == 0 && val < 0) || (current == MIX_MAX_VOLUME && val > 0))
 	{
 		return current;
 	}

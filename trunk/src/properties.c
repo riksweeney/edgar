@@ -374,8 +374,11 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "HEALTH") == 0)
 	{
 		e->health = atoi(value);
-
-		e->maxHealth = e->health;
+		
+		if (e->maxHealth < e->health)
+		{
+			e->maxHealth = e->health;
+		}
 	}
 
 	else if (strcmpignorecase(name, "MAX_HEALTH") == 0)

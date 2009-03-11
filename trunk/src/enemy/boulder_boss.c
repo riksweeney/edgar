@@ -1,13 +1,13 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
-#include "entity.h"
-#include "collisions.h"
-#include "game.h"
-#include "random.h"
-#include "audio.h"
-#include "music.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../collisions.h"
+#include "../game.h"
+#include "../random.h"
+#include "../audio.h"
+#include "../music.h"
 
 extern Entity *self;
 
@@ -150,7 +150,7 @@ static void chasePlayer()
 		self->touch = &pushEntity;
 
 		self->frameSpeed = 0;
-		
+
 		self->active = FALSE;
 
 		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);

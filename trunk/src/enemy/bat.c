@@ -1,11 +1,11 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
-#include "entity.h"
-#include "random.h"
-#include "collisions.h"
-#include "audio.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../random.h"
+#include "../collisions.h"
+#include "../audio.h"
 
 extern Entity *self;
 
@@ -57,7 +57,7 @@ static void pain()
 static void fly()
 {
 	int speed;
-	
+
 	if (!(self->flags & HELPLESS))
 	{
 		self->thinkTime--;
@@ -70,17 +70,17 @@ static void fly()
 				case 1:
 					self->dirX = self->speed;
 				break;
-				
+
 				case 2:
 				case 3:
 					self->dirX = -self->speed;
 				break;
-				
+
 				default:
 					self->dirX = 0;
 				break;
 			}
-			
+
 			self->thinkTime = 180 + prand() % 120;
 		}
 
@@ -94,11 +94,11 @@ static void fly()
 			self->face = RIGHT;
 		}
 	}
-	
+
 	speed = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && speed != 0)
 	{
 		self->dirX = speed * -1;

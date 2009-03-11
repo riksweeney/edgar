@@ -163,6 +163,6 @@ typedef struct Objective
 
 typedef struct Script
 {
-	int line, lineCount;
+	int line, lineCount, skipping;
 	char **text;
 } Script;

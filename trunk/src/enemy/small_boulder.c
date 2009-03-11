@@ -1,11 +1,11 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "entity.h"
-#include "properties.h"
-#include "collisions.h"
-#include "item.h"
-#include "random.h"
+#include "../animation.h"
+#include "../entity.h"
+#include "../properties.h"
+#include "../collisions.h"
+#include "../item.h"
+#include "../random.h"
 
 extern Entity *self;
 
@@ -29,7 +29,7 @@ Entity *addSmallBoulder(int x, int y, char *name)
 	e->y = y;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &entityTouch;
 
 	e->action = &roll;
@@ -46,23 +46,23 @@ Entity *addSmallBoulder(int x, int y, char *name)
 static void roll()
 {
 	float dirX = self->dirX;
-	
+
 	if (!(self->flags & ON_GROUND))
 	{
 		self->frameSpeed = 0;
-		
+
 		self->dirX = 0;
 	}
-	
+
 	else
 	{
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
-		
+
 		self->frameSpeed = 1;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		die();
@@ -84,7 +84,7 @@ static void die()
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
-		
+
 		setEntityAnimation(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
