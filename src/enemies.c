@@ -1,15 +1,16 @@
 #include "headers.h"
 
-#include "bat.h"
-#include "chicken.h"
-#include "rock.h"
-#include "boulder_boss.h"
-#include "spider.h"
-#include "grub.h"
-#include "grub_boss.h"
-#include "fireball.h"
-#include "wasp.h"
-#include "small_boulder.h"
+#include "enemy/bat.h"
+#include "enemy/chicken.h"
+#include "enemy/rock.h"
+#include "enemy/boulder_boss.h"
+#include "enemy/spider.h"
+#include "enemy/grub.h"
+#include "enemy/grub_boss.h"
+#include "enemy/fireball.h"
+#include "enemy/wasp.h"
+#include "enemy/small_boulder.h"
+#include "villager.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -23,7 +24,8 @@ static Constructor enemies[] = {
 {"enemy/jumping_fireball", &addJumpingFireball},
 {"enemy/wasp", &addWasp},
 {"common/small_rock", &addSmallRock},
-{"enemy/small_boulder", &addSmallBoulder}
+{"enemy/small_boulder", &addSmallBoulder},
+{"enemy/villager", &addVillager}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

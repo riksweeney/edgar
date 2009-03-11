@@ -25,7 +25,11 @@ static void dialogWait(void);
 
 Entity *loadPlayer(int x, int y)
 {
+	printf("Loading player: %d\n", player.health);
+	
 	loadProperties("edgar/edgar", &player);
+	
+	printf("Loaded player: %d\n", player.health);
 
 	if (player.inUse != TRUE)
 	{
@@ -305,7 +309,6 @@ void doPlayer()
 						playerWeapon.flags |= ATTACKING;
 
 						setEntityAnimation(&player, ATTACK_1);
-						setEntityAnimation(&playerShield, ATTACK_1);
 						setEntityAnimation(&playerWeapon, ATTACK_1);
 					}
 
@@ -558,12 +561,31 @@ static void takeDamage(Entity *other, int damage)
 				player.dirX = player.dirX < 0 ? 6 : -6;
 			}
 		}
+		
+		else
+		{
+			printf("Game Over\n");
+			
+			exit(0);
+		}
 	}
 }
 
 int getDistanceFromPlayer(Entity *e)
 {
 	return getDistance(player.x, player.y, e->x + e->w, e->y);
+}
+
+void writePlayerMapStartToFile(FILE *fp)
+{
+	self = &player;
+
+	fprintf(fp, "{\n");
+	fprintf(fp, "TYPE PLAYER\n");
+	fprintf(fp, "NAME PLAYER\n");
+	fprintf(fp, "START_X %d\n", (int)self->x);
+	fprintf(fp, "START_Y %d\n", (int)self->y);
+	fprintf(fp, "}\n\n");
 }
 
 void writePlayerToFile(FILE *fp)

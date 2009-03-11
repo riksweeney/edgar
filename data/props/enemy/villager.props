@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/enemy/wasp.dat
+ANIM_FILE data/anim/enemy/wasp.dat
+TYPE ENEMY
+HEALTH 1

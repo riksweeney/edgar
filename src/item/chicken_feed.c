@@ -1,11 +1,11 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "audio.h"
-#include "properties.h"
-#include "entity.h"
-#include "key_items.h"
-#include "item.h"
+#include "../animation.h"
+#include "../audio.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../key_items.h"
+#include "../item.h"
 
 extern Entity *self, player;
 

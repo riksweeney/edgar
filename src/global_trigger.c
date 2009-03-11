@@ -7,11 +7,22 @@
 
 static Trigger trigger[MAX_TRIGGERS];
 
+static void addGlobalTrigger(char *, int, int, char *);
+
 void freeGlobalTriggers()
 {
 	/* Clear the list */
 
 	memset(trigger, 0, sizeof(Trigger) * MAX_TRIGGERS);
+}
+
+void addGlobalTriggerFromScript(char *line)
+{
+	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH], count[MAX_VALUE_LENGTH];
+
+	sscanf(line, "\"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
+
+	addGlobalTrigger(triggerName, atoi(count), getTriggerTypeByName(targetType), targetName);
 }
 
 void addGlobalTriggerFromResource(char *key[], char *value[])
@@ -53,7 +64,7 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 	addGlobalTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
 }
 
-void addGlobalTrigger(char *triggerName, int count, int targetType, char *targetName)
+static void addGlobalTrigger(char *triggerName, int count, int targetType, char *targetName)
 {
 	int i;
 

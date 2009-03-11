@@ -47,8 +47,6 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 		exit(1);
 	}
 
-	printf("Loading animation data from %s\n", filename);
-
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
 		animationIndex[i] = -1;
@@ -78,8 +76,6 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			fscanf(fp, "%s", frameName);
 
 			animationID++;
-
-			printf("Creating animation at index %d\n", animationID);
 
 			if (animationID == MAX_ANIMATIONS)
 			{

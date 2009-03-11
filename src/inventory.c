@@ -7,6 +7,7 @@
 #include "trigger.h"
 #include "global_trigger.h"
 #include "properties.h"
+#include "entity.h"
 
 static Inventory inventory;
 extern Entity *self;
@@ -17,28 +18,28 @@ static void sortInventory(void);
 int addToInventory(Entity *e)
 {
 	int i, found;
-	
+
 	found = FALSE;
 
 	if (e->flags & STACKABLE)
 	{
 		printf("Item is stackable\n");
-		
+
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 		{
 			if (strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0)
 			{
 				printf("Stacking %s\n", e->objectiveName);
-				
+
 				inventory.item[i].health++;
-	
+
 				found = TRUE;
-				
+
 				break;
 			}
 		}
 	}
-	
+
 	if (found == FALSE)
 	{
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
@@ -46,34 +47,34 @@ int addToInventory(Entity *e)
 			if (inventory.item[i].inUse == FALSE)
 			{
 				inventory.item[i] = *e;
-	
+
 				inventory.item[i].face = RIGHT;
-	
+
 				inventory.item[i].thinkTime = 0;
-	
+
 				setEntityAnimation(&inventory.item[i], STAND);
-	
+
 				if (inventory.item[i].type == WEAPON)
 				{
 					autoSetPlayerWeapon(&inventory.item[i]);
 				}
-	
+
 				else if (inventory.item[i].type == SHIELD)
 				{
 					autoSetPlayerShield(&inventory.item[i]);
 				}
-				
+
 				found = TRUE;
-				
+
 				break;
 			}
 		}
 	}
-	
+
 	if (found == TRUE)
 	{
 		e->inUse = FALSE;
-		
+
 		setInfoBoxMessage(120, "Picked up %s", inventory.item[i].objectiveName);
 
 		fireTrigger(inventory.item[i].objectiveName);
@@ -336,6 +337,38 @@ void loadInventoryItems()
 	}
 
 	printf("Done reloading inventory\n");
+}
+
+void getInventoryItemFromScript(char *line)
+{
+	char itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
+	int quantity, success, failure;
+	Entity *e, *item;
+
+	sscanf(line, "\"%[^\"]\" %d %s %d %d", itemName, &quantity, entityName, &success, &failure);
+
+	e = getEntityByObjectiveName(entityName);
+
+	if (e == NULL)
+	{
+		printf("Could not find Entity %s to give item %s to\n", entityName, itemName);
+
+		exit(1);
+	}
+
+	item = getInventoryItem(itemName);
+
+	if (item != NULL && item->health == quantity)
+	{
+		removeInventoryItem(itemName);
+
+		e->health = success;
+	}
+
+	else
+	{
+		e->health = failure;
+	}
 }
 
 void writeInventoryToFile(FILE *fp)

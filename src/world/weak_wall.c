@@ -1,10 +1,10 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "entity.h"
-#include "animation.h"
-#include "properties.h"
-#include "custom_actions.h"
-#include "rock.h"
+#include "../entity.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../custom_actions.h"
+#include "../enemy/rock.h"
 
 extern Entity *self;
 

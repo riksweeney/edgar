@@ -1,12 +1,12 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "audio.h"
-#include "properties.h"
-#include "target.h"
-#include "collisions.h"
-#include "entity.h"
-#include "hud.h"
+#include "../animation.h"
+#include "../audio.h"
+#include "../properties.h"
+#include "../target.h"
+#include "../collisions.h"
+#include "../entity.h"
+#include "../hud.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -138,7 +138,7 @@ static void findTarget(int val)
 
 	else
 	{
-		addHudMessage(BAD_MESSAGE, "This lift is not active");
+		setInfoBoxMessage(120, "This lift is not active");
 	}
 }
 

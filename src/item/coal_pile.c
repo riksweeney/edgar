@@ -1,15 +1,15 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "properties.h"
-#include "animation.h"
-#include "entity.h"
-#include "random.h"
-#include "decoration.h"
-#include "inventory.h"
-#include "hud.h"
-#include "item.h"
-#include "trigger.h"
-#include "custom_actions.h"
+#include "../properties.h"
+#include "../animation.h"
+#include "../entity.h"
+#include "../random.h"
+#include "../decoration.h"
+#include "../inventory.h"
+#include "../hud.h"
+#include "../item.h"
+#include "../trigger.h"
+#include "../custom_actions.h"
 
 extern Entity *self;
 

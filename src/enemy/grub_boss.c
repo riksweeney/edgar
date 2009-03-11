@@ -1,16 +1,16 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
-#include "entity.h"
-#include "collisions.h"
-#include "game.h"
-#include "audio.h"
-#include "music.h"
-#include "map.h"
-#include "random.h"
-#include "custom_actions.h"
-#include "projectile.h"
+#include "../animation.h"
+#include "../properties.h"
+#include "../entity.h"
+#include "../collisions.h"
+#include "../game.h"
+#include "../audio.h"
+#include "../music.h"
+#include "../map.h"
+#include "../random.h"
+#include "../custom_actions.h"
+#include "../projectile.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -63,13 +63,13 @@ Entity *addGrubBoss(int x, int y, char *name)
 static void takeDamage(Entity *other, int damage)
 {
 	self->health -= damage;
-	
+
 	setCustomAction(self, &flashWhite, 6);
 
 	if (self->health < 0)
 	{
 		self->thinkTime = 180;
-		
+
 		self->action = &die;
 	}
 }
@@ -134,14 +134,14 @@ static void spit()
 {
 	int x = (self->face == RIGHT ? 40 : 17);
 	int i = prand() % 3;
-	
+
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
-	
+
 	if (i == 1)
 	{
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
 	}
-	
+
 	if (i > 0)
 	{
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
@@ -162,14 +162,14 @@ static void initialise()
 	if (self->active == TRUE)
 	{
 		adjustMusicVolume(-1);
-		
+
 		centerMapOnEntity(NULL);
-		
+
 		if (minX < self->endX)
 		{
 			minX++;
 		}
-		
+
 		else if (minX > self->endX)
 		{
 			minX--;
@@ -179,12 +179,12 @@ static void initialise()
 		{
 			minY++;
 		}
-		
+
 		else if (minY > self->endY)
 		{
 			minY--;
 		}
-		
+
 		setMapStartX(minX);
 		setMapStartY(minY);
 
@@ -323,18 +323,18 @@ static void attackFinished()
 static void die()
 {
 	int i;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime == 0)
 	{
 		setMinMapX(0);
 		setMinMapX(0);
-	
+
 		centerMapOnEntity(&player);
-	
+
 		entityDie();
-		
+
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "GRUB_BOSS_WALL") == 0)

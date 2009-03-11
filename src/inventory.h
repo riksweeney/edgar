@@ -9,3 +9,4 @@ int removeInventoryItem(char *);
 void addRequiredToInventory(Entity *);
 void loadInventoryItems(void);
 void writeInventoryToFile(FILE *);
+void getInventoryItemFromScript(char *);

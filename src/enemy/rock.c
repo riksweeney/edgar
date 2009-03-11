@@ -1,11 +1,11 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "audio.h"
-#include "entity.h"
-#include "properties.h"
-#include "collisions.h"
-#include "random.h"
+#include "../animation.h"
+#include "../audio.h"
+#include "../entity.h"
+#include "../properties.h"
+#include "../collisions.h"
+#include "../random.h"
 
 static void largeRockFall(void);
 static void smallRockFall(void);

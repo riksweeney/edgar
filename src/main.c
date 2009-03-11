@@ -110,8 +110,6 @@ int main(int argc, char *argv[])
 
 	game.startTicks = SDL_GetTicks();
 
-	loadScript("villager_shield");
-
 	while (go == TRUE)
 	{
 		getInput(game.gameType);

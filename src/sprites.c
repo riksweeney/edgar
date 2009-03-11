@@ -15,8 +15,6 @@ void loadSpritesFromFile(char *name, int *index)
 	int i;
 	FILE *fp = fopen(name, "rb");
 
-	printf("Loading sprites from %s\n", name);
-
 	if (fp == NULL)
 	{
 		printf("Failed to open graphics file: %s\n", name);

@@ -29,8 +29,6 @@ void initGame()
 	game.weatherType = 0;
 
 	setWeather(game.weatherType);
-
-	playMusic();
 }
 
 void doGame()

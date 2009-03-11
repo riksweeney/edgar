@@ -10,25 +10,25 @@ extern Game game;
 #include "font.h"
 #include "player.h"
 #include "enemies.h"
-#include "lift.h"
+#include "world/lift.h"
 #include "target.h"
 #include "item.h"
 #include "properties.h"
 #include "key_items.h"
-#include "spawner.h"
-#include "pressure_plate.h"
-#include "door.h"
-#include "weak_wall.h"
-#include "switch.h"
-#include "line_def.h"
+#include "world/spawner.h"
+#include "world/pressure_plate.h"
+#include "world/door.h"
+#include "world/weak_wall.h"
+#include "world/switch.h"
+#include "world/line_def.h"
 #include "music.h"
 #include "entity.h"
-#include "level_exit.h"
+#include "world/level_exit.h"
 #include "decoration.h"
 #include "trigger.h"
 #include "global_trigger.h"
 #include "objective.h"
-#include "save_point.h"
+#include "world/save_point.h"
 #include "inventory.h"
 #include "dialog.h"
 #include "script.h"
@@ -83,10 +83,10 @@ void freeLevelResources()
 	/* Free the properties */
 
 	freeProperties();
-
-	/* Free the HUD messages */
-
-	freeHudMessages();
+	
+	/* Free the targets */
+	
+	freeTargets();
 }
 
 void freeGameResources()
