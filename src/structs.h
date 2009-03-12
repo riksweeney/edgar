@@ -166,3 +166,10 @@ typedef struct Script
 	int line, lineCount, skipping;
 	char **text;
 } Script;
+
+typedef struct Hud
+{
+	int thinkTime;
+	SDL_Surface *itemBox, *heart, *emptyHeart;
+	Message infoMessage;
+} Hud;

@@ -63,20 +63,20 @@ void drawString(char *text, int x, int y, TTF_Font *font, int centerX, int cente
 	SDL_FreeSurface(surface);
 }
 
-SDL_Surface *generateTextSurface(char *text, TTF_Font *font)
+SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int br, int bg, int bb)
 {
 	SDL_Surface *surface;
 	SDL_Color foregroundColor, backgroundColor;
 
 	/* White text on a black background */
 
-	foregroundColor.r = 255;
-	foregroundColor.g = 255;
-	foregroundColor.b = 255;
+	foregroundColor.r = fr;
+	foregroundColor.g = fg;
+	foregroundColor.b = fb;
 
-	backgroundColor.r = 0;
-	backgroundColor.g = 0;
-	backgroundColor.b = 0;
+	backgroundColor.r = br;
+	backgroundColor.g = bg;
+	backgroundColor.b = bb;
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 

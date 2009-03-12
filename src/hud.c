@@ -8,31 +8,37 @@
 extern Game game;
 extern Entity player;
 
-static SDL_Surface *itemBox, *heart, *emptyHeart;
-static Message infoMessage;
+static Hud hud;
 
 void initHud()
 {
-	itemBox = loadImage(INSTALL_PATH"gfx/hud/item_box.png");
-	
-	heart = loadImage(INSTALL_PATH"gfx/hud/heart.png");
-	
-	emptyHeart = loadImage(INSTALL_PATH"gfx/hud/heart_empty.png");
+	hud.itemBox = loadImage(INSTALL_PATH"gfx/hud/item_box.png");
+
+	hud.heart = loadImage(INSTALL_PATH"gfx/hud/heart.png");
+
+	hud.emptyHeart = loadImage(INSTALL_PATH"gfx/hud/heart_empty.png");
 }
 
 void doHud()
 {
-	infoMessage.thinkTime--;
+	hud.thinkTime--;
 
-	if (infoMessage.thinkTime <= 0)
+	if (hud.thinkTime <= 0)
 	{
-		if (infoMessage.surface != NULL)
+		hud.thinkTime = 60;
+	}
+
+	hud.infoMessage.thinkTime--;
+
+	if (hud.infoMessage.thinkTime <= 0)
+	{
+		if (hud.infoMessage.surface != NULL)
 		{
-			SDL_FreeSurface(infoMessage.surface);
+			SDL_FreeSurface(hud.infoMessage.surface);
 
-			infoMessage.surface = NULL;
+			hud.infoMessage.surface = NULL;
 
-			infoMessage.text[0] = '\0';
+			hud.infoMessage.text[0] = '\0';
 		}
 	}
 }
@@ -40,71 +46,71 @@ void doHud()
 void drawHud()
 {
 	int i, h, w;
-	
-	drawSelectedInventoryItem((SCREEN_WIDTH - itemBox->w) / 2, 15, itemBox->w, itemBox->h);
 
-	drawImage(itemBox, (SCREEN_WIDTH - itemBox->w) / 2, 15, FALSE);
+	drawSelectedInventoryItem((SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h);
 
-	if (infoMessage.surface != NULL)
+	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE);
+
+	if (hud.infoMessage.surface != NULL)
 	{
-		drawBorder((SCREEN_WIDTH - infoMessage.surface->w) / 2, 400, infoMessage.surface->w, infoMessage.surface->h, 255, 255, 255);
+		drawBorder((SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 400, hud.infoMessage.surface->w, hud.infoMessage.surface->h, 255, 255, 255);
 
-		drawImage(infoMessage.surface, (SCREEN_WIDTH - infoMessage.surface->w) / 2, 400, FALSE);
+		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 400, FALSE);
 	}
-	
+
 	w = h = 5;
-	
+
 	for (i=0;i<player.maxHealth;i++)
 	{
 		if (i != 0 && (i % 10) == 0)
 		{
-			h += heart->h;
-			
+			h += hud.heart->h;
+
 			w = 5;
 		}
-		
+
 		if (i < player.health)
 		{
-			drawImage(heart, w, h, FALSE);
+			drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30));
 		}
-		
+
 		else
 		{
-			drawImage(emptyHeart, w, h, FALSE);
+			drawImage(hud.emptyHeart, w, h, FALSE);
 		}
-		
-		w += heart->w + 5;
+
+		w += hud.heart->w + 5;
 	}
 }
 
 void freeHud()
 {
-	if (itemBox != NULL)
+	if (hud.itemBox != NULL)
 	{
-		SDL_FreeSurface(itemBox);
+		SDL_FreeSurface(hud.itemBox);
 
-		itemBox = NULL;
-	}
-	
-	if (heart != NULL)
-	{
-		SDL_FreeSurface(heart);
-
-		heart = NULL;
-	}
-	
-	if (emptyHeart != NULL)
-	{
-		SDL_FreeSurface(emptyHeart);
-
-		emptyHeart = NULL;
+		hud.itemBox = NULL;
 	}
 
-	if (infoMessage.surface != NULL)
+	if (hud.heart != NULL)
 	{
-		SDL_FreeSurface(infoMessage.surface);
+		SDL_FreeSurface(hud.heart);
 
-		infoMessage.surface = NULL;
+		hud.heart = NULL;
+	}
+
+	if (hud.emptyHeart != NULL)
+	{
+		SDL_FreeSurface(hud.emptyHeart);
+
+		hud.emptyHeart = NULL;
+	}
+
+	if (hud.infoMessage.surface != NULL)
+	{
+		SDL_FreeSurface(hud.infoMessage.surface);
+
+		hud.infoMessage.surface = NULL;
 	}
 }
 
@@ -117,19 +123,19 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
 
-	if (strcmpignorecase(text, infoMessage.text) != 0)
+	if (strcmpignorecase(text, hud.infoMessage.text) != 0)
 	{
-		STRNCPY(infoMessage.text, text, sizeof(infoMessage.text));
+		STRNCPY(hud.infoMessage.text, text, sizeof(hud.infoMessage.text));
 
-		if (infoMessage.surface != NULL)
+		if (hud.infoMessage.surface != NULL)
 		{
-			SDL_FreeSurface(infoMessage.surface);
+			SDL_FreeSurface(hud.infoMessage.surface);
 
-			infoMessage.surface = NULL;
+			hud.infoMessage.surface = NULL;
 		}
 
-		infoMessage.surface = generateTextSurface(infoMessage.text, game.font);
+		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, 255, 255, 255, 0, 0, 0);
 	}
 
-	infoMessage.thinkTime = (thinkTime <= 0 ? 5 : thinkTime);
+	hud.infoMessage.thinkTime = (thinkTime <= 0 ? 5 : thinkTime);
 }

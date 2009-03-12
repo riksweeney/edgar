@@ -193,7 +193,7 @@ static void wipeOutLeftToRight()
 {
 	adjustMusicVolume(-1);
 
-	if (game.transitionX > SCREEN_WIDTH)
+	if (game.transitionX > SCREEN_WIDTH + 15)
 	{
 		game.transition = NULL;
 

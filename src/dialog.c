@@ -10,18 +10,18 @@ static SDL_Surface *dialogSurface;
 
 void createDialogBoxFromScript(char *msg)
 {
-	char *token;
+	char *text, *title;
 
-	token = strtok(msg, " ");
+	title = strtok(msg, " ");
 
-	token = strtok(NULL, " ");
+	title = strtok(NULL, " ");
 
-	token = strtok(NULL, "\0");
+	text = strtok(NULL, "\0");
 
-	createDialogBox(token);
+	createDialogBox(title, text);
 }
 
-void createDialogBox(char *msg)
+void createDialogBox(char *title, char *msg)
 {
 	char *text, *token, word[MAX_VALUE_LENGTH];
 	int i, lines, w, h, maxWidth;
@@ -54,6 +54,11 @@ void createDialogBox(char *msg)
 
 	lines = i;
 
+	if (title != NULL)
+	{
+		lines++;
+	}
+
 	surface = (SDL_Surface **)malloc(sizeof(SDL_Surface *) * lines);
 
 	if (surface == NULL)
@@ -71,15 +76,28 @@ void createDialogBox(char *msg)
 
 	maxWidth = w = h = 0;
 
+	if (title != NULL)
+	{
+		printf("Generating title: %s\n", title);
+
+		surface[i] = generateTextSurface(title, game.font, 255, 255, 0, 0, 0, 0);
+
+		h = surface[i]->h + 5;
+
+		maxWidth = surface[i]->w;
+
+		i++;
+	}
+
 	while (token != NULL)
 	{
 		snprintf(word, sizeof(word), "%s ", token);
 
-		surface[i] = generateTextSurface(word, game.font);
+		surface[i] = generateTextSurface(word, game.font, 255, 255, 255, 0, 0, 0);
 
-		if (h == 0)
+		if (h == 0 || (i == 1 && title != NULL))
 		{
-			h = surface[i]->h + 5;
+			h += surface[i]->h + 5;
 		}
 
 		if (w + surface[i]->w > MAX_DIALOG_WIDTH)
@@ -113,7 +131,7 @@ void createDialogBox(char *msg)
 
 	for (i=0;i<lines;i++)
 	{
-		if (w + surface[i]->w > MAX_DIALOG_WIDTH)
+		if (w + surface[i]->w > MAX_DIALOG_WIDTH || (title != NULL && i == 1))
 		{
 			w = 0;
 
