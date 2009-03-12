@@ -43,7 +43,7 @@ void loadRequiredResources()
 
 	/* Load the font */
 
-	game.font = loadFont("font/vera.ttf", 16);
+	game.font = loadFont("font/vera.ttf", 14);
 }
 
 void freeLevelResources()
@@ -83,9 +83,9 @@ void freeLevelResources()
 	/* Free the properties */
 
 	freeProperties();
-	
+
 	/* Free the targets */
-	
+
 	freeTargets();
 }
 
