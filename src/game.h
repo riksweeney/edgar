@@ -7,3 +7,4 @@ void setNextLevel(char *, char *);
 void goToNextMap(void);
 void setCheckpoint(float, float);
 void getCheckpoint(float *, float *);
+void pauseGame(void);

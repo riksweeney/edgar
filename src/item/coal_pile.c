@@ -95,20 +95,25 @@ static void touch(Entity *other)
 
 	pushEntity(other);
 
-	if ((other->flags & ATTACKING))
+	if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
 	{
-		if (strcmpignorecase(other->name, self->requires) == 0 && (prand() % 4) == 0)
+		if (strcmpignorecase(other->name, self->requires) == 0)
 		{
-			e = addCoal(self->x + self->w / 2, self->y);
-
-			e->y -= e->h + 1;
-
-			e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
+			if ((prand() % 4) == 0)
+			{
+				e = addCoal(self->x + self->w / 2, self->y);
+	
+				e->y -= e->h + 1;
+	
+				e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
+			}
 		}
 
 		else
 		{
 			printf("Dink\n");
 		}
+		
+		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }

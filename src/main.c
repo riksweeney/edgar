@@ -106,45 +106,58 @@ int main(int argc, char *argv[])
 
 	initGame();
 
+	/* Reset the controls */
+
+	setDefaultControls(FALSE);
+
 	/* Loop indefinitely for messages */
 
 	game.startTicks = SDL_GetTicks();
+
+	#if DEV == 1
+		printf("DEV Version\n");
+	#else
+		printf("Production Version\n");
+	#endif
 
 	while (go == TRUE)
 	{
 		getInput(game.gameType);
 
 		/* Do the game */
-
-		doGame();
-
-		/* Do the player, provided they still have enough lives left */
-
-		doPlayer();
-
-		/* Do the inventory */
-
-		doInventory();
-
-		/* Do the map */
-
-		doMap();
-
-		/* Do the Entities */
-
-		doEntities();
-
-		/* Do decorations */
-
-		doDecorations();
-
-		/* Do collisions */
-
-		doCollisions();
-
-		/* Do the HUD */
-
-		doHud();
+		
+		if (game.paused == FALSE)
+		{
+			doGame();
+	
+			/* Do the player, provided they still have enough lives left */
+	
+			doPlayer();
+	
+			/* Do the inventory */
+	
+			doInventory();
+	
+			/* Do the map */
+	
+			doMap();
+	
+			/* Do the Entities */
+	
+			doEntities();
+	
+			/* Do decorations */
+	
+			doDecorations();
+	
+			/* Do collisions */
+	
+			doCollisions();
+	
+			/* Do the HUD */
+	
+			doHud();
+		}
 
 		/* Draw the map */
 

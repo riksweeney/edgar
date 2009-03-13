@@ -1,2 +1,2 @@
-int compressFile(FILE *, FILE *);
-int decompressFile(FILE *, FILE *);
+int compressFile(char *, char *);
+int decompressFile(char *, char *);

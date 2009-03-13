@@ -105,6 +105,8 @@ void fireGlobalTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count--;
+			
+			printf("Trigger count is %d\n", trigger[i].count);
 
 			if (trigger[i].count <= 0)
 			{

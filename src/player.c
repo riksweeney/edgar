@@ -16,19 +16,23 @@
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
 extern Input input;
+extern Game game;
 
 static void takeDamage(Entity *, int);
 static void attackFinish(void);
 static void resetPlayer(void);
 static void fallout(void);
+static void falloutPause(void);
+static void resetPause(void);
+static void resetPlayer(void);
 static void dialogWait(void);
 
 Entity *loadPlayer(int x, int y)
 {
 	printf("Loading player: %d\n", player.health);
-	
+
 	loadProperties("edgar/edgar", &player);
-	
+
 	printf("Loaded player: %d\n", player.health);
 
 	if (player.inUse != TRUE)
@@ -109,6 +113,47 @@ void doPlayer()
 
 	self = &player;
 
+	/* Gravity always pulls the player down */
+
+	if (!(self->flags & FLY))
+	{
+		switch (self->environment)
+		{
+			case WATER:
+				self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
+
+				if (self->dirY < -2)
+				{
+					self->dirY = -2;
+				}
+
+				else if (self->dirY >= MAX_WATER_SPEED)
+				{
+					self->dirY = MAX_WATER_SPEED;
+				}
+			break;
+
+			default:
+				self->dirY += GRAVITY_SPEED;
+
+				if (self->dirY >= MAX_AIR_SPEED)
+				{
+					self->dirY = MAX_AIR_SPEED;
+				}
+
+				else if (self->dirY > 0 && self->dirY < 1)
+				{
+					self->dirY = 1;
+				}
+			break;
+		}
+	}
+
+	else
+	{
+		self->dirY = 0;
+	}
+
 	if (self->action == NULL)
 	{
 		for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
@@ -117,47 +162,6 @@ void doPlayer()
 			{
 				self->custom[i](&self->customThinkTime[i]);
 			}
-		}
-
-		/* Gravity always pulls the player down */
-
-		if (!(self->flags & FLY))
-		{
-			switch (self->environment)
-			{
-				case WATER:
-					self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
-
-					if (self->dirY < -2)
-					{
-						self->dirY = -2;
-					}
-
-					else if (self->dirY >= MAX_WATER_SPEED)
-					{
-						self->dirY = MAX_WATER_SPEED;
-					}
-				break;
-
-				default:
-					self->dirY += GRAVITY_SPEED;
-
-					if (self->dirY >= MAX_AIR_SPEED)
-					{
-						self->dirY = MAX_AIR_SPEED;
-					}
-
-					else if (self->dirY > 0 && self->dirY < 1)
-					{
-						self->dirY = 1;
-					}
-				break;
-			}
-		}
-
-		else
-		{
-			self->dirY = 0;
 		}
 
 		if (!(self->flags & HELPLESS))
@@ -393,7 +397,14 @@ void doPlayer()
 			}
 		}
 
+		i = player.environment;
+
 		checkToMap(self);
+
+		if (player.environment == WATER && i == AIR)
+		{
+			player.action = &fallout;
+		}
 
 		self->standingOn = NULL;
 
@@ -427,7 +438,7 @@ static void dialogWait()
 	if (input.interact == 1)
 	{
 		readNextScriptLine();
-		
+
 		input.interact = 0;
 	}
 }
@@ -561,11 +572,11 @@ static void takeDamage(Entity *other, int damage)
 				player.dirX = player.dirX < 0 ? 6 : -6;
 			}
 		}
-		
+
 		else
 		{
 			printf("Game Over\n");
-			
+
 			exit(0);
 		}
 	}
@@ -662,27 +673,68 @@ void writePlayerToFile(FILE *fp)
 
 static void fallout()
 {
-	player.thinkTime = 60;
+	player.thinkTime = 120;
 
-	player.action = &resetPlayer;
+	player.dirX = 0;
+
+	player.flags |= HELPLESS;
+
+	player.action = &falloutPause;
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+
+	checkToMap(&player);
 }
 
-static void resetPlayer()
+static void falloutPause()
 {
 	player.thinkTime--;
 
 	if (player.thinkTime <= 0)
 	{
-		getCheckpoint(&player.x, &player.y);
+		player.thinkTime = 60;
 
-		printf("Respawned at %f %f\n", player.x, player.y);
-
-		player.action = NULL;
-
-		player.dirX = player.dirY = 0;
-
-		player.y--;
-
-		setCustomAction(&player, &invulnerable, 60);
+		player.action = &resetPause;
 	}
+
+	checkToMap(&player);
+}
+
+static void resetPause()
+{
+	player.thinkTime--;
+
+	game.drawScreen = FALSE;
+
+	if (player.thinkTime <= 0)
+	{
+		player.action = &resetPlayer;
+	}
+
+	checkToMap(&player);
+}
+
+static void resetPlayer()
+{
+	game.drawScreen = TRUE;
+
+	player.draw = &drawLoopingAnimationToMap;
+
+	getCheckpoint(&player.x, &player.y);
+
+	printf("Respawned at %f %f\n", player.x, player.y);
+
+	player.action = NULL;
+
+	player.health--;
+
+	player.flags &= ~HELPLESS;
+
+	player.dirX = player.dirY = 0;
+
+	player.y--;
+
+	setCustomAction(&player, &invulnerable, 60);
 }

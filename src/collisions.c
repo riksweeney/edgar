@@ -52,7 +52,7 @@ void doCollisions()
 
 	if (hit == 1)
 	{
-		playerWeapon.flags |= ATTACK_SUCCESS;
+		/*playerWeapon.flags |= ATTACK_SUCCESS;*/
 	}
 }
 
@@ -442,20 +442,40 @@ void checkToMap(Entity *e)
 		e->fallout();
 	}
 
-	if ((topLeft >= WATER_TILE_START && topLeft <= WATER_TILE_END) ||
-		(bottomLeft >= WATER_TILE_START && bottomLeft <= WATER_TILE_END) ||
-		(topRight >= WATER_TILE_START && topRight <= WATER_TILE_END) ||
-		(bottomRight >= WATER_TILE_START && bottomRight <= WATER_TILE_END))
-	{
-		e->environment = WATER;
-	}
+	x1 = (e->x) / TILE_SIZE;
+	x2 = (e->x + e->w - 1) / TILE_SIZE;
 
-	else if ((topLeft >= LAVA_TILE_START && topLeft <= LAVA_TILE_END) ||
+	y1 = (e->y) / TILE_SIZE;
+	y2 = (e->y + e->h - 1) / TILE_SIZE;
+
+	topLeft     = mapTileAt(x1, y1);
+	topRight    = mapTileAt(x2, y1);
+	bottomLeft  = mapTileAt(x1, y2);
+	bottomRight = mapTileAt(x2, y2);
+
+	if ((topLeft >= LAVA_TILE_START && topLeft <= LAVA_TILE_END) ||
 		(bottomLeft >= LAVA_TILE_START && bottomLeft <= LAVA_TILE_END) ||
 		(topRight >= LAVA_TILE_START && topRight <= LAVA_TILE_END) ||
 		(bottomRight >= LAVA_TILE_START && bottomRight <= LAVA_TILE_END))
 	{
 		e->environment = LAVA;
+	}
+
+	else
+	{
+		y2 = (e->y + (e->h / 2)) / TILE_SIZE;
+
+		bottomLeft  = mapTileAt(x1, y2);
+		bottomRight = mapTileAt(x2, y2);
+
+		if ((topLeft >= WATER_TILE_START && topLeft <= WATER_TILE_END) &&
+			(bottomLeft >= WATER_TILE_START && bottomLeft <= WATER_TILE_END) &&
+			(topRight >= WATER_TILE_START && topRight <= WATER_TILE_END) &&
+			(bottomRight >= WATER_TILE_START && bottomRight <= WATER_TILE_END))
+		{
+			e->environment = WATER;
+
+		}
 	}
 }
 

@@ -47,6 +47,8 @@ static void roll()
 {
 	float dirX = self->dirX;
 
+	self->thinkTime--;
+
 	if (!(self->flags & ON_GROUND))
 	{
 		self->frameSpeed = 0;
@@ -54,7 +56,7 @@ static void roll()
 		self->dirX = 0;
 	}
 
-	else
+	else if (self->thinkTime <= 0)
 	{
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 

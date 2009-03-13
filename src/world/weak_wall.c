@@ -58,20 +58,26 @@ static void takeDamage(Entity *other, int damage)
 	{
 		self->die();
 	}
-
-	if (strcmpignorecase(self->requires, other->name) == 0)
+	
+	if (!(self->flags & INVULNERABLE))
 	{
-		self->health -= damage;
-
-		if (self->health <= 0)
+		if (strcmpignorecase(self->requires, other->name) == 0)
 		{
-			self->die();
+			self->health -= damage;
+			
+			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &invulnerableNoFlash, 20);
+	
+			if (self->health <= 0)
+			{
+				self->die();
+			}
 		}
-	}
-
-	else
-	{
-		printf("Dink from %s\n", other->name);
+	
+		else
+		{
+			printf("Dink from %s\n", other->name);
+		}
 	}
 }
 

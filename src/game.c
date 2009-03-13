@@ -28,6 +28,10 @@ void initGame()
 {
 	game.weatherType = 0;
 
+	game.drawScreen = TRUE;
+	
+	game.paused = FALSE;
+
 	setWeather(game.weatherType);
 }
 
@@ -385,4 +389,11 @@ void getCheckpoint(float *x, float *y)
 {
 	*x = game.checkpointX;
 	*y = game.checkpointY;
+}
+
+void pauseGame()
+{
+	game.paused = game.paused == TRUE ? FALSE : TRUE;
+	
+	/*pauseMusic();*/
 }

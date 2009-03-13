@@ -2,7 +2,7 @@
 
 #include "music.h"
 
-extern Game game;
+Mix_Music *music;
 
 void freeMusic(void);
 
@@ -10,9 +10,9 @@ void loadMusic(char *name)
 {
 	freeMusic();
 
-	game.music = Mix_LoadMUS(name);
+	music = Mix_LoadMUS(name);
 
-	if (game.music == NULL)
+	if (music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}
@@ -20,23 +20,23 @@ void loadMusic(char *name)
 
 void freeMusic()
 {
-	if (game.music != NULL)
+	if (music != NULL)
 	{
 		stopMusic();
 
-		Mix_FreeMusic(game.music);
+		Mix_FreeMusic(music);
 
-		game.music = NULL;
+		music = NULL;
 	}
 }
 
 void playMusic()
 {
-	if (game.music != NULL)
+	if (music != NULL)
 	{
 		Mix_VolumeMusic(MIX_MAX_VOLUME);
 	
-		Mix_PlayMusic(game.music, -1);
+		Mix_PlayMusic(music, -1);
 	}
 }
 
@@ -69,4 +69,20 @@ void setMusicVolume(int val)
 int getMusicVolume()
 {
 	return Mix_VolumeMusic(-1);
+}
+
+void pauseMusic()
+{
+	if (music != NULL)
+	{
+		if (Mix_PausedMusic())
+		{
+			Mix_ResumeMusic();
+		}
+		
+		else
+		{
+			Mix_PauseMusic();
+		}
+	}
 }

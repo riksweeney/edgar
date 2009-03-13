@@ -78,8 +78,6 @@ void createDialogBox(char *title, char *msg)
 
 	if (title != NULL)
 	{
-		printf("Generating title: %s\n", title);
-
 		surface[i] = generateTextSurface(title, game.font, 255, 255, 0, 0, 0, 0);
 
 		h = surface[i]->h + 5;
