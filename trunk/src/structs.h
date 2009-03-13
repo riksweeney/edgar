@@ -84,7 +84,7 @@ typedef struct Game
 	int audio, audioVolume;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
-	int frames;
+	int frames, drawScreen, paused;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
@@ -95,7 +95,6 @@ typedef struct Game
 	void (*transitionCallback)(void);
 	SDL_Surface *screen, *tempSurface;
 	TTF_Font *font;
-	Mix_Music *music;
 	SDL_Joystick *joystick;
 } Game;
 
@@ -173,3 +172,8 @@ typedef struct Hud
 	SDL_Surface *itemBox, *heart, *emptyHeart;
 	Message infoMessage;
 } Hud;
+
+typedef struct Control
+{
+	int button[MAX_CONTROLS];
+} Control;

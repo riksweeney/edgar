@@ -280,9 +280,9 @@ void addRequiredToInventory(Entity *other)
 
 			setInfoBoxMessage(120, "Picked up %s", self->objectiveName);
 
-			fireTrigger(item->objectiveName);
+			fireTrigger(self->objectiveName);
 
-			fireGlobalTrigger(item->objectiveName);
+			fireGlobalTrigger(self->objectiveName);
 		}
 
 		else

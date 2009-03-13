@@ -123,8 +123,6 @@ void readNextScriptLine()
 		{
 			token = strtok(NULL, " ");
 
-			printf("Adding %s\n", token);
-
 			if (strcmpignorecase("ENTITY", token) == 0)
 			{
 				token = strtok(NULL, "\0");
@@ -151,8 +149,6 @@ void readNextScriptLine()
 		{
 			token = strtok(NULL, " ");
 
-			printf("Finding Entity %s\n", token);
-
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e = &player;
@@ -178,8 +174,6 @@ void readNextScriptLine()
 
 				if (e->health != atoi(token))
 				{
-					printf("Skipping lines\n");
-
 					script.skipping = TRUE;
 				}
 			}
@@ -211,8 +205,6 @@ void readNextScriptLine()
 			if (strcmpignorecase(token, "HEALTH") == 0)
 			{
 				token = strtok(NULL, " ");
-
-				printf("Setting health of %s to %d\n", e->objectiveName, atoi(token));
 
 				e->health = atoi(token);
 			}

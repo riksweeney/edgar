@@ -12,7 +12,7 @@
 #include "resources.h"
 #include "load_save.h"
 
-static char gameSavePath[MAX_PATH_LENGTH];
+static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], zipFile[MAX_PATH_LENGTH];
 
 static void removeTemporaryData(void);
 
@@ -68,12 +68,18 @@ static void removeTemporaryData(void);
 
 		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 
+		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
+
+		snprintf(zipFile, sizeof(zipFile), "%szf", gameSavePath);
+
 		removeTemporaryData();
 	}
 #else
 	void setupUserHomeDirectory()
 	{
 		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
+		STRNCPY(tempFile, "tmpsave", sizeof(gameSavePath));
+		STRNCPY(zipFile, "zf", sizeof(gameSavePath));
 
 		removeTemporaryData();
 	}
@@ -133,7 +139,7 @@ void loadGame(int slot)
 void saveGame(int slot)
 {
 	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
-	char saveFile[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH];
+	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapName();
 	int skipping = FALSE;
 	FILE *read;
@@ -141,7 +147,6 @@ void saveGame(int slot)
 
 	printf("Saving game\n");
 
-	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
 	read = fopen(tempFile, "rb");
@@ -165,7 +170,8 @@ void saveGame(int slot)
 			{
 				sscanf(line, "%s", itemName);
 
-				if (strcmpignorecase("PLAYER_DATA", line) == 0 || strcmpignorecase("PLAYER_INVENTORY", line) == 0 || strcmpignorecase("PLAYER_LOCATION", line) == 0)
+				if (strcmpignorecase("PLAYER_DATA", line) == 0 || strcmpignorecase("PLAYER_INVENTORY", line) == 0 ||
+					strcmpignorecase("PLAYER_LOCATION", line) == 0)
 				{
 					skipping = TRUE;
 				}
@@ -260,13 +266,12 @@ void saveGame(int slot)
 void saveTemporaryData()
 {
 	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
-	char tempFile[MAX_PATH_LENGTH], swapFile[MAX_PATH_LENGTH];
+	char swapFile[MAX_PATH_LENGTH];
 	char *mapName = getMapName();
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
 
-	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
 	read = fopen(tempFile, "rb");
@@ -365,17 +370,17 @@ void saveTemporaryData()
 
 		exit(1);
 	}
+
+	compressFile(tempFile, zipFile);
 }
 
 int hasPersistance(char *mapName)
 {
 	int val = FALSE;
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH], tempFile[MAX_PATH_LENGTH];
+	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
 	FILE *read;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
-
-	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -404,13 +409,11 @@ int hasPersistance(char *mapName)
 
 void loadPersitanceData(char *mapName)
 {
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH], tempFile[MAX_PATH_LENGTH];
+	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
 	int found = FALSE;
 	FILE *read;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
-
-	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	read = fopen(tempFile, "rb");
 
@@ -447,9 +450,6 @@ void loadPersitanceData(char *mapName)
 static void removeTemporaryData()
 {
 	FILE *fp;
-	char tempFile[MAX_PATH_LENGTH];
-
-	snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 	fp = fopen(tempFile, "rb");
 

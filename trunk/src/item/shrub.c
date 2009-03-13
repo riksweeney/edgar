@@ -51,6 +51,7 @@ static void touch(Entity *other)
 		self->health--;
 
 		setCustomAction(self, &flashWhite, 6);
+		setCustomAction(self, &invulnerableNoFlash, 20);
 
 		if (self->health <= 0)
 		{

@@ -85,7 +85,7 @@ void doEntities()
 							{
 								self->startX++;
 
-								self->dirY = sin(DEG_TO_RAD(self->startX)) / 10;
+								self->dirY = sin(DEG_TO_RAD(self->startX)) / 20;
 							}
 						}
 
@@ -137,21 +137,6 @@ void doEntities()
 			{
 				checkToMap(self);
 			}
-		}
-	}
-}
-
-void drawDoors()
-{
-	int i;
-
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		self = &entity[i];
-
-		if (self->inUse == TRUE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
-		{
-			self->draw();
 		}
 	}
 }
@@ -366,7 +351,7 @@ void entityTakeDamage(Entity *other, int damage)
 		self->health -= damage;
 
 		setCustomAction(self, &helpless, 10);
-		setCustomAction(self, &invulnerable, 10);
+		setCustomAction(self, &invulnerable, 15);
 
 		if (self->health > 0)
 		{
@@ -375,7 +360,7 @@ void entityTakeDamage(Entity *other, int damage)
 				self->pain();
 			}
 
-			self->dirX = other->face == RIGHT ? 12 : -12;
+			self->dirX = other->face == RIGHT ? 6 : -6;
 		}
 
 		else

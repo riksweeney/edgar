@@ -8,7 +8,7 @@
 #include "../game.h"
 #include "../random.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void wait(void);
 static void touch(Entity *);
@@ -85,6 +85,8 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
+	player.flags |= HELPLESS;
+
 	setNextLevel(self->name, self->objectiveName);
 
 	setTransition(TRANSITION_OUT, &goToNextMap);

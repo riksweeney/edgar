@@ -93,6 +93,8 @@ int main(int argc, char *argv[])
 	setMapStartX(startPos.x);
 	setMapStartY(startPos.y);
 
+	setDefaultControls(TRUE);
+
 	while (go == TRUE)
 	{
 		/* Get the input */
