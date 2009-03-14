@@ -1,44 +1,44 @@
-IF Villager HEALTH 5
-TALK Villager Keep practising!
+IF Borson HEALTH 5
+TALK Borson Keep practising!
 END
-IF Villager HEALTH 2
-REMOVE "Coal Bag" 10 Villager 3 4
+IF Borson HEALTH 2
+REMOVE "Coal Bag" 10 10 Borson 3 4
 END
-IF Villager HEALTH 1
+IF Borson HEALTH 1
 TALK Edgar Hi
-TALK Villager Hello Edgar
+TALK Borson Hello Edgar
 TALK Edgar Can I borrow your shield?
-TALK Villager Off to practice your fighting skills?
+TALK Borson Off to practice your fighting skills?
 TALK Edgar Something like that
-TALK Villager If you run me an errand then you can have the shield
+TALK Borson If you run me an errand then you can have the shield
 TALK Edgar What do I have to do?
-TALK Villager Go to the mine and collect me some coal
+TALK Borson Go to the mine and collect me some coal
 TALK Edgar But we have plenty of coal!
-TALK Villager Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer
-TALK Villager I only need 10 pieces of the stuff, so it shouldn't take you very long
-TALK Villager Make sure you put it in a bag, touching it for too long will be bad for your health
+TALK Borson Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer
+TALK Borson I only need 10 pieces of the stuff, so it shouldn't take you very long
+TALK Borson Make sure you put it in a bag, touching it for too long will be bad for your health
 TALK Edgar Do you have a bag?
-TALK Villager No, you can probably find one in the mine though
+TALK Borson No, you can probably find one in the mine though
 TALK Edgar OK, I'll get the coal
 ADD ENTITY WEAPON weapon/pickaxe " " 1900 50
-TALK Villager Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter
+TALK Borson Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter
 ADD ENTITY ITEM item/iron_key "Mine Entrance Door Key" 2000 50
-TALK Villager You'll also need this key to get into the mine
+TALK Borson You'll also need this key to get into the mine
 TALK Edgar Thanks!
 ADD OBJECTIVE "Collect 10 pieces of Coal" "Landslide Trigger"
 ADD TRIGGER "Coal" 10 UPDATE_OBJECTIVE "Collect 10 pieces of Coal"
-SET Villager HEALTH 2
+SET Borson HEALTH 2
 END
-IF Villager HEALTH 3
-TALK Villager Thank you, Edgar, this coal is perfect!
+IF Borson HEALTH 3
+TALK Borson Thank you, Edgar, this coal is perfect!
 ADD ENTITY SHIELD weapon/small_wooden_shield " " 2000 50
-TALK Villager Here, have my shield and have fun!
+TALK Borson Here, have my shield and have fun!
 TALK Edgar Thanks!
-TALK Villager Just stay away from the Forbidden Swamp
+TALK Borson Just stay away from the Forbidden Swamp
 TALK Edgar Will do!
-SET Villager HEALTH 5
+SET Borson HEALTH 5
 END
-IF Villager HEALTH 4
-TALK Villager Have you managed to find the coal yet?
-SET Villager HEALTH 2
+IF Borson HEALTH 4
+TALK Borson Have you managed to find the coal yet?
+SET Borson HEALTH 2
 END

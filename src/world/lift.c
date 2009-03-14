@@ -138,7 +138,7 @@ static void findTarget(int val)
 
 	else
 	{
-		setInfoBoxMessage(120, "This lift is not active");
+		setInfoBoxMessage(120,  _("This lift is not active"));
 	}
 }
 

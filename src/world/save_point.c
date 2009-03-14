@@ -79,12 +79,12 @@ static void touch(Entity *other)
 
 		if (self->health == 0)
 		{
-			setInfoBoxMessage(5, "Press Action to save your game");
+			setInfoBoxMessage(5,  _("Press Action to save your game"));
 		}
 
 		else
 		{
-			setInfoBoxMessage(5, "Game saved");
+			setInfoBoxMessage(5,  _("Game saved"));
 		}
 	}
 }

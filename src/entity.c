@@ -733,8 +733,6 @@ void addEntityFromScript(char *line)
 	if (strcmpignorecase(entityType, "WEAPON") == 0 || strcmpignorecase(entityType, "SHIELD") == 0 ||
 		strcmpignorecase(entityType, "ITEM") == 0)
 	{
-		printf("Adding %s to %d %d\n", entityName, x, y);
-
 		e = addPermanentItem(entityName, x, y);
 
 		if (strcmpignorecase(objectiveName, " ") != 0)

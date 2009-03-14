@@ -3,12 +3,13 @@
 #include "entity.h"
 #include "objective.h"
 #include "trigger.h"
+#include "script.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
 					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
 					{ACTIVATE_ENTITY, "ACTIVATE_ENTITY"},
-					{UPDATE_BOTH, "UPDATE_BOTH"}
+					{RUN_SCRIPT, "RUN_SCRIPT"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -116,10 +117,10 @@ void fireTrigger(char *name)
 						activateEntitiesWithName(trigger[i].targetName, TRUE);
 					break;
 
-					case UPDATE_BOTH:
-						activateEntitiesWithName(trigger[i].targetName, TRUE);
+					case RUN_SCRIPT:
+						loadScript(trigger[i].targetName);
 
-						updateObjective(trigger[i].targetName);
+						readNextScriptLine();
 					break;
 
 					default:

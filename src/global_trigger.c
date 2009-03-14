@@ -4,6 +4,7 @@
 #include "objective.h"
 #include "trigger.h"
 #include "global_trigger.h"
+#include "script.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 
@@ -105,7 +106,7 @@ void fireGlobalTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count--;
-			
+
 			printf("Trigger count is %d\n", trigger[i].count);
 
 			if (trigger[i].count <= 0)
@@ -122,10 +123,10 @@ void fireGlobalTrigger(char *name)
 						activateEntitiesWithName(trigger[i].targetName, TRUE);
 					break;
 
-					case UPDATE_BOTH:
-						activateEntitiesWithName(trigger[i].targetName, TRUE);
+					case RUN_SCRIPT:
+						loadScript(trigger[i].targetName);
 
-						updateObjective(trigger[i].targetName);
+						readNextScriptLine();
 					break;
 
 					default:

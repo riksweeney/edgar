@@ -75,7 +75,7 @@ int addToInventory(Entity *e)
 	{
 		e->inUse = FALSE;
 
-		setInfoBoxMessage(120, "Picked up %s", inventory.item[i].objectiveName);
+		setInfoBoxMessage(120,  _("Picked up %s"), inventory.item[i].objectiveName);
 
 		fireTrigger(inventory.item[i].objectiveName);
 
@@ -278,7 +278,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			setInfoBoxMessage(120, "Picked up %s", self->objectiveName);
+			setInfoBoxMessage(120,  _("Picked up %s"), self->objectiveName);
 
 			fireTrigger(self->objectiveName);
 
@@ -287,7 +287,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(120, "%s is required to carry this item", self->requires);
+			setInfoBoxMessage(120, _("%s is required to carry this item"), self->requires);
 		}
 	}
 }
@@ -342,10 +342,10 @@ void loadInventoryItems()
 void getInventoryItemFromScript(char *line)
 {
 	char itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
-	int quantity, success, failure;
+	int quantity, success, failure, quantityToRemove;
 	Entity *e, *item;
 
-	sscanf(line, "\"%[^\"]\" %d %s %d %d", itemName, &quantity, entityName, &success, &failure);
+	sscanf(line, "\"%[^\"]\" %d %d %s %d %d", itemName, &quantity, &quantityToRemove, entityName, &success, &failure);
 
 	e = getEntityByObjectiveName(entityName);
 
@@ -358,9 +358,14 @@ void getInventoryItemFromScript(char *line)
 
 	item = getInventoryItem(itemName);
 
-	if (item != NULL && item->health == quantity)
+	if (item != NULL && item->health >= quantity)
 	{
-		removeInventoryItem(itemName);
+		item->health -= quantityToRemove;
+
+		if (item->health <= 0 || quantityToRemove == -1)
+		{
+			removeInventoryItem(itemName);
+		}
 
 		e->health = success;
 	}
