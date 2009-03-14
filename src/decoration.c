@@ -1,8 +1,8 @@
 #include "headers.h"
 
 #include "decoration.h"
-#include "animation.h"
-#include "properties.h"
+#include "graphics/animation.h"
+#include "system/properties.h"
 
 static Entity decoration[MAX_DECORATIONS];
 extern Entity *self;

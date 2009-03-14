@@ -1,11 +1,11 @@
 #include "../headers.h"
 
-#include "../animation.h"
-#include "../properties.h"
+#include "../graphics/animation.h"
+#include "../system/properties.h"
 #include "../entity.h"
-#include "../collisions.h"
-#include "../audio.h"
-#include "../graphics.h"
+#include "../system/random.h"
+#include "../audio/audio.h"
+#include "../graphics/graphics.h"
 #include "../custom_actions.h"
 
 extern Entity *self;

@@ -1,7 +1,7 @@
-#include "headers.h"
+#include "../headers.h"
 
 #include "audio.h"
-#include "geometry.h"
+#include "../geometry.h"
 
 static Sound sound[MAX_SOUNDS];
 extern Game game;

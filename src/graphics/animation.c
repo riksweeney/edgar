@@ -1,10 +1,10 @@
-#include "headers.h"
+#include "../headers.h"
 
 #include "animation.h"
 #include "graphics.h"
 #include "sprites.h"
-#include "map.h"
-#include "collisions.h"
+#include "../map.h"
+#include "../collisions.h"
 
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;

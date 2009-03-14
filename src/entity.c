@@ -2,15 +2,15 @@
 
 #include "entity.h"
 #include "collisions.h"
-#include "item.h"
+#include "item/item.h"
 #include "custom_actions.h"
 #include "decoration.h"
-#include "trigger.h"
-#include "global_trigger.h"
-#include "properties.h"
+#include "event/trigger.h"
+#include "event/global_trigger.h"
+#include "system/properties.h"
 #include "map.h"
-#include "enemies.h"
-#include "key_items.h"
+#include "enemy/enemies.h"
+#include "item/key_items.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 

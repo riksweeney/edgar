@@ -1,9 +1,9 @@
 #include "../headers.h"
 
-#include "../animation.h"
-#include "../audio.h"
-#include "../properties.h"
-#include "../target.h"
+#include "../graphics/animation.h"
+#include "../audio/audio.h"
+#include "../system/properties.h"
+#include "target.h"
 #include "../collisions.h"
 #include "../entity.h"
 #include "../hud.h"

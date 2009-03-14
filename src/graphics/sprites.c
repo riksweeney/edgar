@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "../headers.h"
 
 #include "sprites.h"
 #include "graphics.h"

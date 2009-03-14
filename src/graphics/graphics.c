@@ -1,7 +1,7 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "map.h"
-#include "collisions.h"
+#include "../map.h"
+#include "../collisions.h"
 
 extern Game game;
 

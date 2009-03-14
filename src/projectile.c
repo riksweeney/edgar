@@ -1,7 +1,7 @@
 #include "headers.h"
 
-#include "animation.h"
-#include "properties.h"
+#include "graphics/animation.h"
+#include "system/properties.h"
 #include "entity.h"
 #include "collisions.h"
 

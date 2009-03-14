@@ -1,16 +1,16 @@
 #include "../headers.h"
 
-#include "../animation.h"
-#include "../properties.h"
+#include "../graphics/animation.h"
+#include "../system/properties.h"
 #include "../entity.h"
-#include "../collisions.h"
-#include "../game.h"
-#include "../audio.h"
-#include "../music.h"
-#include "../map.h"
-#include "../random.h"
+#include "../system/random.h"
+#include "../audio/audio.h"
 #include "../custom_actions.h"
+#include "../collisions.h"
 #include "../projectile.h"
+#include "../map.h"
+#include "../game.h"
+#include "../audio/music.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 

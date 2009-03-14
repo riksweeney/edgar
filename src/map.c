@@ -1,17 +1,17 @@
 #include "headers.h"
 
 #include "map.h"
-#include "resources.h"
-#include "random.h"
-#include "graphics.h"
-#include "audio.h"
-#include "properties.h"
+#include "system/resources.h"
+#include "system/random.h"
+#include "graphics/graphics.h"
+#include "audio/audio.h"
+#include "system/properties.h"
 #include "entity.h"
-#include "target.h"
+#include "world/target.h"
 #include "player.h"
-#include "music.h"
+#include "audio/music.h"
 #include "game.h"
-#include "trigger.h"
+#include "event/trigger.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];

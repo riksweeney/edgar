@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "../headers.h"
 
 /*
 SDL PNG saving routine taken from pygame - Python Game Library

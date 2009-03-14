@@ -1,10 +1,10 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "entity.h"
+#include "../entity.h"
 #include "objective.h"
 #include "trigger.h"
 #include "global_trigger.h"
-#include "script.h"
+#include "../system/script.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 

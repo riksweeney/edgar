@@ -3,7 +3,7 @@
 #include "cursor.h"
 #include "init.h"
 #include "game.h"
-#include "resources.h"
+#include "system/resources.h"
 #include "map.h"
 #include "player.h"
 #include "inventory.h"

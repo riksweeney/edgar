@@ -1,8 +1,8 @@
 #include "../headers.h"
 
-#include "../animation.h"
+#include "../graphics/animation.h"
 #include "../entity.h"
-#include "../properties.h"
+#include "../system/properties.h"
 #include "../inventory.h"
 #include "../hud.h"
 

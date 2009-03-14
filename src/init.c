@@ -1,10 +1,10 @@
 #include "headers.h"
 
-#include "random.h"
-#include "resources.h"
+#include "system/random.h"
+#include "system/resources.h"
 #include "game.h"
-#include "record.h"
-#include "load_save.h"
+#include "system/record.h"
+#include "system/load_save.h"
 
 extern Game game;
 
