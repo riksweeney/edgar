@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "../headers.h"
 
 int compressFile(char *sourceName, char *destName)
 {

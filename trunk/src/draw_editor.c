@@ -7,8 +7,8 @@
 #include "player.h"
 #include "hud.h"
 #include "game.h"
-#include "font.h"
-#include "target.h"
+#include "graphics/font.h"
+#include "world/target.h"
 #include "status.h"
 
 extern Game game;

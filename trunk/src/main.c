@@ -2,7 +2,7 @@
 
 #include "init.h"
 #include "game.h"
-#include "resources.h"
+#include "system/resources.h"
 #include "map.h"
 #include "player.h"
 #include "inventory.h"
@@ -12,12 +12,12 @@
 #include "input.h"
 #include "entity.h"
 #include "hud.h"
-#include "record.h"
-#include "objective.h"
-#include "global_trigger.h"
-#include "load_save.h"
+#include "system/record.h"
+#include "event/objective.h"
+#include "event/global_trigger.h"
+#include "system/load_save.h"
 #include "dialog.h"
-#include "script.h"
+#include "system/script.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];

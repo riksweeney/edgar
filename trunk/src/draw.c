@@ -6,10 +6,10 @@
 #include "player.h"
 #include "hud.h"
 #include "game.h"
-#include "font.h"
-#include "record.h"
-#include "graphics.h"
-#include "save_png.h"
+#include "graphics/font.h"
+#include "system/record.h"
+#include "graphics/graphics.h"
+#include "graphics/save_png.h"
 #include "dialog.h"
 
 extern Game game;

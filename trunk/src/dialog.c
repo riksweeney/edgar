@@ -1,7 +1,7 @@
 #include "headers.h"
 
-#include "graphics.h"
-#include "font.h"
+#include "graphics/graphics.h"
+#include "graphics/font.h"
 #include "dialog.h"
 
 extern Game game;

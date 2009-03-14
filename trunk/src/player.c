@@ -1,7 +1,7 @@
 #include "headers.h"
 
-#include "animation.h"
-#include "properties.h"
+#include "graphics/animation.h"
+#include "system/properties.h"
 #include "map.h"
 #include "geometry.h"
 #include "inventory.h"
@@ -11,7 +11,7 @@
 #include "player.h"
 #include "entity.h"
 #include "game.h"
-#include "script.h"
+#include "system/script.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;

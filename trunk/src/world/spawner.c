@@ -1,9 +1,9 @@
 #include "../headers.h"
 
-#include "../animation.h"
-#include "../enemies.h"
+#include "../graphics/animation.h"
+#include "../enemy/enemies.h"
 #include "../entity.h"
-#include "../properties.h"
+#include "../system/properties.h"
 #include "../player.h"
 
 extern Entity *self;

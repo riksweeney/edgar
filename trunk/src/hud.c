@@ -1,9 +1,9 @@
 #include "headers.h"
 
-#include "animation.h"
-#include "graphics.h"
+#include "graphics/animation.h"
+#include "graphics/graphics.h"
 #include "inventory.h"
-#include "font.h"
+#include "graphics/font.h"
 
 extern Game game;
 extern Entity player;

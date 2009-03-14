@@ -1,8 +1,8 @@
 #include "headers.h"
 
-#include "random.h"
+#include "system/random.h"
 #include "map.h"
-#include "graphics.h"
+#include "graphics/graphics.h"
 #include "draw.h"
 
 static Droplet droplet[MAX_DROPS];

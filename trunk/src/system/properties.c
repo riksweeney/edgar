@@ -1,9 +1,9 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "sprites.h"
-#include "audio.h"
-#include "properties.h"
+#include "../graphics/animation.h"
+#include "../graphics/sprites.h"
+#include "../audio/audio.h"
+#include "../system/properties.h"
 
 static Properties properties[MAX_PROPS_FILES];
 

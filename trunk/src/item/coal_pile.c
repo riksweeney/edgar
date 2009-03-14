@@ -1,14 +1,14 @@
 #include "../headers.h"
 
-#include "../properties.h"
-#include "../animation.h"
+#include "../system/properties.h"
+#include "../graphics/animation.h"
 #include "../entity.h"
-#include "../random.h"
+#include "../system/random.h"
 #include "../decoration.h"
 #include "../inventory.h"
 #include "../hud.h"
-#include "../item.h"
-#include "../trigger.h"
+#include "../item/item.h"
+#include "../event/trigger.h"
 #include "../custom_actions.h"
 
 extern Entity *self;

@@ -1,11 +1,11 @@
 #include "../headers.h"
 
-#include "../animation.h"
-#include "../audio.h"
-#include "../properties.h"
+#include "../graphics/animation.h"
+#include "../audio/audio.h"
+#include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
-#include "../key_items.h"
+#include "../item/key_items.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 

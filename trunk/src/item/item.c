@@ -1,15 +1,15 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "entity.h"
-#include "item.h"
-#include "key_items.h"
-#include "properties.h"
-#include "player.h"
-#include "custom_actions.h"
-#include "collisions.h"
-#include "random.h"
-#include "inventory.h"
+#include "../graphics/animation.h"
+#include "../entity.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
+#include "../system/properties.h"
+#include "../player.h"
+#include "../custom_actions.h"
+#include "../collisions.h"
+#include "../system/random.h"
+#include "../inventory.h"
 
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;

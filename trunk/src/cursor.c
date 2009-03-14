@@ -1,13 +1,13 @@
 #include "headers.h"
 
-#include "animation.h"
+#include "graphics/animation.h"
 #include "entity.h"
-#include "properties.h"
+#include "system/properties.h"
 #include "map.h"
 #include "player.h"
 #include "collisions.h"
-#include "target.h"
-#include "graphics.h"
+#include "world/target.h"
+#include "graphics/graphics.h"
 #include "status.h"
 
 extern Cursor cursor;

@@ -1,6 +1,6 @@
 #include "headers.h"
 
-#include "font.h"
+#include "graphics/font.h"
 
 extern Game game;
 

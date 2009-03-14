@@ -1,12 +1,12 @@
 #include "headers.h"
 
-#include "animation.h"
+#include "graphics/animation.h"
 #include "player.h"
-#include "item.h"
+#include "item/item.h"
 #include "hud.h"
-#include "trigger.h"
-#include "global_trigger.h"
-#include "properties.h"
+#include "event/trigger.h"
+#include "event/global_trigger.h"
+#include "system/properties.h"
 #include "entity.h"
 
 static Inventory inventory;

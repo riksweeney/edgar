@@ -1,6 +1,6 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "hud.h"
+#include "../hud.h"
 #include "trigger.h"
 #include "global_trigger.h"
 #include "objective.h"

@@ -1,12 +1,12 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "global_trigger.h"
-#include "objective.h"
-#include "entity.h"
+#include "../event/global_trigger.h"
+#include "../event/objective.h"
+#include "../entity.h"
 #include "script.h"
-#include "dialog.h"
-#include "player.h"
-#include "inventory.h"
+#include "../dialog.h"
+#include "../player.h"
+#include "../inventory.h"
 
 extern Entity player;
 

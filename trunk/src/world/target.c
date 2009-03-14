@@ -1,7 +1,7 @@
-#include "headers.h"
+#include "../headers.h"
 
-#include "animation.h"
-#include "properties.h"
+#include "../graphics/animation.h"
+#include "../system/properties.h"
 
 extern Target target[MAX_TARGETS];
 extern Entity *self;
