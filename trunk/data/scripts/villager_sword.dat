@@ -6,7 +6,7 @@ REMOVE "Chopped Log" 2 2 Jacob 7 5
 END
 IF Jacob HEALTH 7
 TALK Jacob Thanks Edgar! My chickens are back and these logs will do me fine
-ADD ENTITY SHIELD weapon/basic_sword " " 2000 50
+ADD ENTITY SHIELD weapon/basic_sword " " 4030 2582
 TALK Jacob Take this sword, may it serve you well!
 TALK Edgar Thank you!
 SET Jacob HEALTH 8
@@ -30,7 +30,7 @@ TALK Edgar Do you have a sword I can borrow?
 TALK Jacob I do have a sword and I you can have it if you do something for me first
 TALK Edgar OK... what do I have to do?
 TALK Jacob Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
-ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 1900 50
+ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 4030 2582
 TALK Jacob You can lure them back to the pen by using this chicken feed
 TALK Edgar That's it?
 TALK Jacob Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient

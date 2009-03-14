@@ -34,7 +34,7 @@ Entity *addChicken(int x, int y, char *name)
 	e->action = &wander;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = NULL;
+	e->touch = &entityTouch;
 
 	e->type = ENEMY;
 
@@ -51,7 +51,7 @@ static void lookForFood()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == FALSE || (strcmpignorecase(entity[i].name, "item/chicken_feed") != 0 && strcmpignorecase(entity[i].name, "item/chicken_trap") != 0))
+		if (entity[i].active == FALSE || entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
 		{
 			continue;
 		}
@@ -60,7 +60,7 @@ static void lookForFood()
 		{
 			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
 
-			if (newDistance < 160 && (target == -1 || newDistance < distance))
+			if (newDistance < 320 && (target == -1 || newDistance < distance))
 			{
 				distance = newDistance;
 
@@ -77,8 +77,6 @@ static void lookForFood()
 
 		self->action = &moveToFood;
 
-		printf("Spotted chicken feed\n");
-
 		return;
 	}
 
@@ -87,6 +85,8 @@ static void lookForFood()
 
 static void wander()
 {
+	float dirX;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -134,8 +134,17 @@ static void wander()
 
 		setEntityAnimation(self, STAND);
 	}
+	
+	dirX = self->dirX;
 
 	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->face = (self->face == RIGHT ? LEFT : RIGHT);
+		
+		self->dirX = -dirX;
+	}
 }
 
 static void moveToFood()
@@ -179,8 +188,6 @@ static void moveToFood()
 static void finishEating()
 {
 	self->target->health--;
-
-	printf("Health is %d\n", self->target->health);
 
 	if (self->target->health <= 0)
 	{

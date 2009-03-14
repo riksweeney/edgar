@@ -11,7 +11,7 @@
 #include "player.h"
 #include "entity.h"
 #include "game.h"
-#include "system/script.h"
+#include "event/script.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -426,6 +426,10 @@ void doPlayer()
 
 void playerWaitForDialog()
 {
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+
 	player.action = &dialogWait;
 }
 

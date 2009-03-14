@@ -6,6 +6,8 @@
 #include "../entity.h"
 #include "../collisions.h"
 #include "../item/key_items.h"
+#include "../event/global_trigger.h"
+#include "../world/target.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -14,6 +16,8 @@ static void trapEntity(void);
 static void resetTrap(void);
 static void activateTrap(void);
 static void touch(Entity *);
+static void resetComplete(void);
+static void removeChicken(void);
 
 Entity *addChickenTrap(int x, int y, char *name)
 {
@@ -48,6 +52,11 @@ Entity *addChickenTrap(int x, int y, char *name)
 
 static void trapWait()
 {
+	if (self->target == NULL)
+	{
+		setEntityAnimation(self, STAND);
+	}
+	
 	self->health = self->maxHealth;
 
 	self->thinkTime = 180;
@@ -58,6 +67,8 @@ static void trapWait()
 static void trapEntity()
 {
 	setEntityAnimation(self, ATTACK_3);
+	
+	playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 
 	if (self->target == NULL)
 	{
@@ -68,7 +79,39 @@ static void trapEntity()
 
 	else
 	{
-		self->action = &trapWait;
+		fireGlobalTrigger("Chicken");
+		
+		self->thinkTime = 1800;
+		
+		self->action = &removeChicken;
+	}
+}
+
+static void removeChicken()
+{
+	Target *target;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		target = getTargetByName("CHICKEN_PEN_TARGET");
+		
+		if (target == NULL)
+		{
+			printf("Could not find CHICKEN_PEN_TARGET\n");
+			
+			exit(1);
+		}
+		
+		self->target->x = target->x;
+		self->target->y = target->y;
+		
+		self->target->flags &= ~HELPLESS;
+		
+		self->target = NULL;
+		
+		self->action = &resetTrap;
 	}
 }
 
@@ -82,8 +125,19 @@ static void resetTrap()
 
 		setEntityAnimation(self, ATTACK_2);
 
-		self->animationCallback = &trapWait;
+		self->animationCallback = &resetComplete;
 	}
+}
+
+static void resetComplete()
+{
+	self->target = NULL;
+	
+	self->action = &trapWait;
+	
+	self->touch = &touch;
+	
+	setEntityAnimation(self, STAND);
 }
 
 static void activateTrap()
@@ -98,28 +152,25 @@ static void activateTrap()
 	{
 		self->thinkTime = 0;
 
-		if (self->target == NULL)
+		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			for (i=0;i<MAX_ENTITIES;i++)
+			if (entity[i].inUse == TRUE && entity[i].type == ENEMY && strcmpignorecase(entity[i].name, "enemy/chicken") == 0)
 			{
-				if (entity[i].inUse == TRUE && entity[i].type == ENEMY && strcmpignorecase(entity[i].name, "enemy/chicken") == 0)
+				if (collision(self->x, self->y, self->w, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 				{
-					if (collision(self->x, self->y, self->w, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
-					{
-						self->target = &entity[i];
+					self->target = &entity[i];
 
-						self->target->flags |= HELPLESS;
+					self->target->flags |= HELPLESS;
+					
+					self->target->dirX = 0;
 
-						self->target->animationCallback = NULL;
+					self->target->animationCallback = NULL;
 
-						setEntityAnimation(self->target, STAND);
+					setEntityAnimation(self->target, STAND);
 
-						self->target->x = self->x + abs(self->target->w - self->w) / 2;
+					self->target->x = self->x + abs(self->target->w - self->w) / 2;
 
-						playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
-
-						break;
-					}
+					break;
 				}
 			}
 		}

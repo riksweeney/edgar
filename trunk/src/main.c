@@ -17,7 +17,7 @@
 #include "event/global_trigger.h"
 #include "system/load_save.h"
 #include "dialog.h"
-#include "system/script.h"
+#include "event/script.h"
 
 Input input;
 Entity *self, entity[MAX_ENTITIES];

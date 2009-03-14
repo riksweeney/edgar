@@ -259,8 +259,6 @@ void getInput(int gameType)
 			case SDL_JOYBUTTONDOWN:
 				key = event.jbutton.button;
 				
-				printf("%d\n", key);
-				
 				if (key == control.button[CONTROL_LEFT])
 				{
 					input.left = TRUE;

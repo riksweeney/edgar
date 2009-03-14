@@ -3,7 +3,7 @@
 #include "../entity.h"
 #include "objective.h"
 #include "trigger.h"
-#include "../system/script.h"
+#include "../event/script.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
@@ -102,6 +102,8 @@ void fireTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count--;
+			
+			printf("Updating Trigger \"%s\", %d to go\n", trigger[i].triggerName, trigger[i].count);
 
 			if (trigger[i].count <= 0)
 			{

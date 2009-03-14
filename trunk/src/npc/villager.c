@@ -6,7 +6,7 @@
 #include "../system/random.h"
 #include "../collisions.h"
 #include "../audio/audio.h"
-#include "../system/script.h"
+#include "../event/script.h"
 
 extern Entity *self;
 
