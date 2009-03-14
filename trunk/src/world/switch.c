@@ -54,7 +54,7 @@ static void activate(int val)
 
 		else
 		{
-			setInfoBoxMessage(120, "%s is needed to activate this switch", self->requires);
+			setInfoBoxMessage(120,  _("%s is needed to activate this switch"), self->requires);
 
 			return;
 		}

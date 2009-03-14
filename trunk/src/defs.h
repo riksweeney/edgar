@@ -108,9 +108,7 @@
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
-#if DEV < 1
-
-#else
+#if DEV == 1
 	#ifdef INSTALL_PATH
 		#undef INSTALL_PATH
 	#endif
@@ -123,6 +121,8 @@
 #define ITEM_JUMP_HEIGHT -6
 
 #define CHUNK_SIZE 16384
+
+#define _(string) gettext(string)
 
 enum
 {
@@ -240,7 +240,7 @@ enum
 {
 	UPDATE_OBJECTIVE = 1,
 	ACTIVATE_ENTITY,
-	UPDATE_BOTH
+	RUN_SCRIPT
 };
 
 enum

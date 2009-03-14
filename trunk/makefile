@@ -1,7 +1,6 @@
 VERSION = 0.1
 RELEASE = 1
 DEV = 1
-INSTALL_PATH = ""
 
 CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=$(INSTALL_PATH)
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz

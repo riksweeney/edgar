@@ -87,7 +87,7 @@ static void touch(Entity *other)
 
 			else
 			{
-				setInfoBoxMessage(120, "%s is needed to open this door", self->requires);
+				setInfoBoxMessage(120,  _("%s is needed to open this door"), self->requires);
 			}
 		}
 	}
