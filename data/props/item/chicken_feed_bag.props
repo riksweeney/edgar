@@ -2,3 +2,4 @@ THINKTIME 120
 GFX_FILE data/gfx/item/chicken_feed_bag.dat
 ANIM_FILE data/anim/item/chicken_feed_bag.dat
 TYPE KEY_ITEM
+OBJECTIVE_NAME Chicken Feed Bag

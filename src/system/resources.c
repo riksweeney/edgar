@@ -31,7 +31,7 @@ extern Game game;
 #include "../world/save_point.h"
 #include "../inventory.h"
 #include "../dialog.h"
-#include "script.h"
+#include "../event/script.h"
 
 static char **key, **value;
 

@@ -47,9 +47,13 @@ Entity *addChickenFeedBag(int x, int y, char *name)
 
 static void dropChickenFeed(int val)
 {
+	Entity *e;
+	
 	if (self->thinkTime <= 0)
 	{
-		addTemporaryItem("item/chicken_feed", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -10 : 10, ITEM_JUMP_HEIGHT);
+		e = addTemporaryItem("item/chicken_feed", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -10 : 10, ITEM_JUMP_HEIGHT);
+		
+		e->touch = &entityTouch;
 
 		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 
