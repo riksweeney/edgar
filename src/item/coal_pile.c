@@ -107,6 +107,8 @@ static void touch(Entity *other)
 	
 				e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
 			}
+			
+			setCustomAction(self, &flashWhite, 6);
 		}
 
 		else

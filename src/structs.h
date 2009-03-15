@@ -22,7 +22,7 @@ typedef struct Input
 {
 	int left, right, up, down, add, remove;
 	int previous, next, load, save, jump;
-	int mouseX, mouseY, toggle, drop;
+	int mouseX, mouseY, toggle;
 	int activate, attack, fly, snap, cut;
 	int interact, grabbing;
 } Input;
@@ -108,8 +108,9 @@ typedef struct Cursor
 typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
-	int thinkTime, inUse, type;
+	int thinkTime;
 	SDL_Surface *surface;
+	struct Message *next;
 } Message;
 
 typedef struct Inventory

@@ -11,6 +11,7 @@
 #include "compress.h"
 #include "resources.h"
 #include "load_save.h"
+#include "../hud.h"
 
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], zipFile[MAX_PATH_LENGTH];
 
@@ -87,9 +88,9 @@ static void removeTemporaryData(void);
 
 void loadGame(int slot)
 {
-	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
+	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], c;
 	char saveFile[MAX_PATH_LENGTH], line[MAX_LINE_LENGTH];
-	FILE *read;
+	FILE *read, *write;
 
 	freeGameResources();
 
@@ -126,12 +127,27 @@ void loadGame(int slot)
 			loadResources(read);
 		}
 	}
+	
+	rewind(read);
+	
+	write = fopen(tempFile, "wb");
+	
+	if (write == NULL)
+	{
+		printf("Could not write to temporary file\n");
+		
+		exit(1);
+	}
+	
+	while((c = fgetc(read)) != EOF)
+	{
+		fputc(c, write);
+	}
 
+	fclose(write);
 	fclose(read);
-
-	removeTemporaryData();
-
-	saveTemporaryData();
+	
+	freeMessageQueue();
 
 	printf("Load completed\n");
 }
@@ -153,12 +169,10 @@ void saveGame(int slot)
 
 	write = fopen(saveFile, "wb");
 
-	/* Save the player's position */
-
-	printf("Copying persisting data\n");
-
 	if (read != NULL)
 	{
+		printf("Copying persisting data\n");
+		
 		while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
@@ -217,6 +231,8 @@ void saveGame(int slot)
 
 		fclose(read);
 	}
+	
+	/* Save the player's position */
 
 	printf("Writing player location\n");
 
@@ -292,7 +308,8 @@ void saveTemporaryData()
 				sscanf(line, "%s", itemName);
 
 				if (strcmpignorecase("PLAYER_DATA", line) == 0 || strcmpignorecase("PLAYER_INVENTORY", line) == 0 ||
-					strcmpignorecase("GLOBAL_TRIGGER", line) == 0 || strcmpignorecase("OBJECTIVE", line) == 0)
+					strcmpignorecase("GLOBAL_TRIGGER", line) == 0 || strcmpignorecase("OBJECTIVE", line) == 0 ||
+					strcmpignorecase("PLAYER_LOCATION", line) == 0)
 				{
 					skipping = TRUE;
 				}

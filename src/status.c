@@ -4,8 +4,7 @@
 
 extern Game game;
 
-static Message message;
-
+/*
 void doStatusPanel()
 {
 	message.thinkTime--;
@@ -39,3 +38,4 @@ void setStatusMessage(char *text)
 
 	message.thinkTime = 120;
 }
+*/

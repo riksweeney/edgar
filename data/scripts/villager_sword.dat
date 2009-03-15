@@ -1,18 +1,20 @@
+IF Jacob HEALTH 5
+REMOVE "Chopped Log" 2 2 Jacob 7 6
+END
 IF Jacob HEALTH 8
 TALK Jacob Have fun!
 END
 IF Jacob HEALTH 6
-REMOVE "Chopped Log" 2 2 Jacob 7 5
+TALK Jacob Thanks for resucing my chickens, have you been to the forest yet?
+SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 7
+REMOVE "Chicken Feed Bag" 1 1 Jacob 7 7
 TALK Jacob Thanks Edgar! My chickens are back and these logs will do me fine
-ADD ENTITY SHIELD weapon/basic_sword " " 4030 2582
+#ADD ENTITY SHIELD weapon/basic_sword " " 4030 2582
 TALK Jacob Take this sword, may it serve you well!
 TALK Edgar Thank you!
 SET Jacob HEALTH 8
-END
-IF Jacob HEALTH 5
-TALK Jacob Thanks for resucing my chickens, have you been to the forest yet?
 END
 IF Jacob HEALTH 2
 REMOVE "Chopped Log" 2 2 Jacob 3 4

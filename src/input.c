@@ -82,11 +82,6 @@ void getInput(int gameType)
 					input.toggle = TRUE;
 				}
 
-				else if (key == control.button[CONTROL_DROP])
-				{
-					input.drop = TRUE;
-				}
-
 				else if (key == control.button[CONTROL_ACTIVATE])
 				{
 					input.activate = TRUE;
@@ -185,11 +180,6 @@ void getInput(int gameType)
 				else if (key == control.button[CONTROL_TOGGLE])
 				{
 					input.toggle = FALSE;
-				}
-
-				else if (key == control.button[CONTROL_DROP])
-				{
-					input.drop = FALSE;
 				}
 
 				else if (key == control.button[CONTROL_ACTIVATE])
@@ -299,11 +289,6 @@ void getInput(int gameType)
 					input.toggle = TRUE;
 				}
 
-				else if (key == control.button[CONTROL_DROP])
-				{
-					input.drop = TRUE;
-				}
-
 				else if (key == control.button[CONTROL_ACTIVATE])
 				{
 					input.activate = TRUE;
@@ -362,11 +347,6 @@ void getInput(int gameType)
 				else if (key == control.button[CONTROL_PREVIOUS])
 				{
 					input.previous = FALSE;
-				}
-
-				else if (key == control.button[CONTROL_DROP])
-				{
-					input.drop = FALSE;
 				}
 
 				else if (key == control.button[CONTROL_ACTIVATE])
@@ -431,19 +411,22 @@ void getInput(int gameType)
 	/* Get the mouse coordinates */
 
 	SDL_GetMouseState(&input.mouseX, &input.mouseY);
-
-	switch (gameType)
+	
+	if (game.paused == FALSE)
 	{
-		case RECORDING:
-			putBuffer(input);
-		break;
-
-		case REPLAYING:
-			input = getBuffer();
-		break;
-
-		default:
-		break;
+		switch (gameType)
+		{
+			case RECORDING:
+				putBuffer(input);
+			break;
+	
+			case REPLAYING:
+				input = getBuffer();
+			break;
+	
+			default:
+			break;
+		}
 	}
 }
 
@@ -462,7 +445,6 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_SAVE] = -1;
 		control.button[CONTROL_LOAD] = -1;
 		control.button[CONTROL_TOGGLE] = -1;
-		control.button[CONTROL_DROP] = -1;
 		control.button[CONTROL_ACTIVATE] = 0;
 		control.button[CONTROL_CUT] = -1;
 		control.button[CONTROL_ATTACK] = 2;
@@ -485,7 +467,6 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_SAVE] = SDLK_s;
 		control.button[CONTROL_LOAD] = SDLK_l;
 		control.button[CONTROL_TOGGLE] = SDLK_e;
-		control.button[CONTROL_DROP] = SDLK_d;
 		control.button[CONTROL_ACTIVATE] = SDLK_a;
 		control.button[CONTROL_CUT] = SDLK_x;
 		control.button[CONTROL_ATTACK] = SDLK_RETURN;

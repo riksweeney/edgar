@@ -8,6 +8,7 @@
 #include "../item/key_items.h"
 #include "../event/global_trigger.h"
 #include "../world/target.h"
+#include "../player.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -95,23 +96,31 @@ static void removeChicken()
 	
 	if (self->thinkTime <= 0)
 	{
-		target = getTargetByName("CHICKEN_PEN_TARGET");
-		
-		if (target == NULL)
+		if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 		{
-			printf("Could not find CHICKEN_PEN_TARGET\n");
+			target = getTargetByName("CHICKEN_PEN_TARGET");
 			
-			exit(1);
+			if (target == NULL)
+			{
+				printf("Could not find CHICKEN_PEN_TARGET\n");
+				
+				exit(1);
+			}
+			
+			self->target->x = target->x;
+			self->target->y = target->y;
+			
+			self->target->flags &= ~HELPLESS;
+			
+			self->target = NULL;
+			
+			self->action = &resetTrap;
 		}
 		
-		self->target->x = target->x;
-		self->target->y = target->y;
-		
-		self->target->flags &= ~HELPLESS;
-		
-		self->target = NULL;
-		
-		self->action = &resetTrap;
+		else
+		{
+			self->thinkTime = 1800;
+		}
 	}
 }
 

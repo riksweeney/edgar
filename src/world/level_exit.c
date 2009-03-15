@@ -86,6 +86,8 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	player.flags |= HELPLESS;
+	
+	player.dirX = 0;
 
 	setNextLevel(self->name, self->objectiveName);
 

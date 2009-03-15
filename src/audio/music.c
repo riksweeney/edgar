@@ -86,3 +86,10 @@ void pauseMusic()
 		}
 	}
 }
+
+void loadBossMusic()
+{
+	loadMusic("music/battle_of_the_fireflies.s3m");
+	
+	playMusic();
+}

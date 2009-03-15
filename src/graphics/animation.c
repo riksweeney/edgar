@@ -19,6 +19,7 @@ static Type type[] = {
 					{WALK, "WALK"},
 					{JUMP, "JUMP"},
 					{PAIN, "PAIN"},
+					{DIE, "DIE"},
 					{ATTACK_1, "ATTACK_1"},
 					{ATTACK_2, "ATTACK_2"},
 					{ATTACK_3, "ATTACK_3"},

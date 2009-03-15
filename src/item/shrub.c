@@ -46,16 +46,19 @@ static void touch(Entity *other)
 {
 	pushEntity(other);
 
-	if ((other->flags & ATTACKING) && strcmpignorecase(other->name, self->requires) == 0)
+	if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
 	{
-		self->health--;
-
-		setCustomAction(self, &flashWhite, 6);
-		setCustomAction(self, &invulnerableNoFlash, 20);
-
-		if (self->health <= 0)
+		if (strcmpignorecase(other->name, self->requires) == 0)
 		{
-			self->action = &die;
+			self->health--;
+	
+			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &invulnerableNoFlash, 20);
+	
+			if (self->health <= 0)
+			{
+				self->action = &die;
+			}
 		}
 	}
 }
