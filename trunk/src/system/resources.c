@@ -347,6 +347,8 @@ void loadResources(FILE *fp)
 
 				value[i][0] = '\0';
 			}
+			
+			i = 0;
 		}
 
 		else
@@ -390,4 +392,6 @@ void loadResources(FILE *fp)
 			i++;
 		}
 	}
+	
+	loadInventoryItems();
 }

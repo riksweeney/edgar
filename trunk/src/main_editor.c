@@ -109,10 +109,6 @@ int main(int argc, char *argv[])
 
 		doMap();
 
-		/* Do the status panel */
-
-		doStatusPanel();
-
 		/* Draw the map */
 
 		draw();

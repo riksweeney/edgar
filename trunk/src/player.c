@@ -100,11 +100,15 @@ void setPlayerLocation(int x, int y)
 void setPlayerWeaponName(char *name)
 {
 	STRNCPY(playerWeapon.name, name, sizeof(playerWeapon.name));
+	
+	playerWeapon.inUse = TRUE;
 }
 
 void setPlayerShieldName(char *name)
 {
 	STRNCPY(playerShield.name, name, sizeof(playerShield.name));
+	
+	playerShield.inUse = TRUE;
 }
 
 void doPlayer()
@@ -317,13 +321,6 @@ void doPlayer()
 					}
 
 					input.attack = 0;
-				}
-
-				if (input.drop == 1)
-				{
-					dropInventoryItem();
-
-					input.drop = 0;
 				}
 
 				if (input.interact == 1)

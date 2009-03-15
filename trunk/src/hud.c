@@ -4,11 +4,16 @@
 #include "graphics/graphics.h"
 #include "inventory.h"
 #include "graphics/font.h"
+#include "hud.h"
 
 extern Game game;
 extern Entity player;
 
 static Hud hud;
+static Message messageHead;
+
+static void addMessageToQueue(char *, int);
+static void getNextMessageFromQueue(void);
 
 void initHud()
 {
@@ -17,6 +22,8 @@ void initHud()
 	hud.heart = loadImage(INSTALL_PATH"gfx/hud/heart.png");
 
 	hud.emptyHeart = loadImage(INSTALL_PATH"gfx/hud/heart_empty.png");
+	
+	messageHead.next = NULL;
 }
 
 void doHud()
@@ -40,6 +47,8 @@ void doHud()
 
 			hud.infoMessage.text[0] = '\0';
 		}
+		
+		getNextMessageFromQueue();
 	}
 }
 
@@ -53,9 +62,9 @@ void drawHud()
 
 	if (hud.infoMessage.surface != NULL)
 	{
-		drawBorder((SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 400, hud.infoMessage.surface->w, hud.infoMessage.surface->h, 255, 255, 255);
+		drawBorder((SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 480 - hud.infoMessage.surface->h - 10, hud.infoMessage.surface->w, hud.infoMessage.surface->h, 255, 255, 255);
 
-		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 400, FALSE);
+		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 480 - hud.infoMessage.surface->h - 10, FALSE);
 	}
 
 	w = h = 5;
@@ -74,10 +83,7 @@ void drawHud()
 			drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30));
 		}
 
-		else
-		{
-			drawImage(hud.emptyHeart, w, h, FALSE);
-		}
+		drawImage(hud.emptyHeart, w, h, FALSE);
 
 		w += hud.heart->w + 5;
 	}
@@ -112,6 +118,8 @@ void freeHud()
 
 		hud.infoMessage.surface = NULL;
 	}
+	
+	freeMessageQueue();
 }
 
 void setInfoBoxMessage(int thinkTime, char *fmt, ...)
@@ -122,10 +130,50 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
+	
+	addMessageToQueue(text, thinkTime);
+}
 
-	if (strcmpignorecase(text, hud.infoMessage.text) != 0)
+static void addMessageToQueue(char *text, int thinkTime)
+{
+	Message *head, *msg;
+	
+	head = &messageHead;
+	
+	while (head->next != NULL)
 	{
-		STRNCPY(hud.infoMessage.text, text, sizeof(hud.infoMessage.text));
+		if (strcmpignorecase(text, head->text) == 0)
+		{
+			return;
+		}
+		
+		head = head->next;
+	}
+	
+	msg = (Message *)malloc(sizeof(Message));
+	
+	if (msg == NULL)
+	{
+		printf("Failed to allocate %d bytes for message queue\n", sizeof(Message));
+		
+		exit(1);
+	}
+	
+	STRNCPY(msg->text, text, sizeof(messageHead.text));
+	
+	msg->thinkTime = thinkTime;
+	msg->next = NULL;
+	
+	head->next = msg;
+}
+
+static void getNextMessageFromQueue()
+{
+	Message *head = messageHead.next;
+	
+	if (head != NULL)
+	{
+		STRNCPY(hud.infoMessage.text, head->text, sizeof(hud.infoMessage.text));
 
 		if (hud.infoMessage.surface != NULL)
 		{
@@ -135,7 +183,25 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 		}
 
 		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, 255, 255, 255, 0, 0, 0);
-	}
 
-	hud.infoMessage.thinkTime = (thinkTime <= 0 ? 5 : thinkTime);
+		hud.infoMessage.thinkTime = (head->thinkTime <= 0 ? 5 : head->thinkTime);
+		
+		messageHead.next = head->next;
+		
+		free(head);
+	}
+}
+
+void freeMessageQueue()
+{
+	Message *p, *q;
+	
+	for (p=messageHead.next;p!=NULL;p=q)
+	{
+		q = p->next;
+		
+		free(p);
+	}
+	
+	messageHead.next = NULL;
 }

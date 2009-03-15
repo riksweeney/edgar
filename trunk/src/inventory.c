@@ -325,7 +325,7 @@ void loadInventoryItems()
 				setPlayerWeapon(1);
 			}
 
-			else if (inventory.item[i].type == SHIELD && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
+			else if (inventory.item[i].type == SHIELD && strcmpignorecase(inventory.item[i].name, playerShield.name) == 0)
 			{
 				printf("Resetting player shield\n");
 
