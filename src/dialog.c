@@ -148,6 +148,8 @@ void createDialogBox(char *title, char *msg)
 		SDL_FreeSurface(surface[i]);
 	}
 
+	dialogSurface = addBorder(dialogSurface, 255, 255, 255);
+
 	free(surface);
 
 	free(text);
@@ -157,8 +159,6 @@ void drawDialogBox()
 {
 	if (dialogSurface != NULL)
 	{
-		drawBorder((SCREEN_WIDTH - dialogSurface->w) / 2, 50, dialogSurface->w, dialogSurface->h, 255, 255, 255);
-
 		drawImage(dialogSurface, (SCREEN_WIDTH - dialogSurface->w) / 2, 50, FALSE);
 	}
 }

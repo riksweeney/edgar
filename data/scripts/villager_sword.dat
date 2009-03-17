@@ -33,7 +33,7 @@ TALK Jacob I do have a sword and I you can have it if you do something for me fi
 TALK Edgar OK... what do I have to do?
 TALK Jacob Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
 ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 4030 2582
-TALK Jacob You can lure them back to the pen by using this chicken feed
+TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed
 TALK Edgar That's it?
 TALK Jacob Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient
 TALK Edgar Do you have an axe?

@@ -22,7 +22,7 @@ void initHud()
 	hud.heart = loadImage(INSTALL_PATH"gfx/hud/heart.png");
 
 	hud.emptyHeart = loadImage(INSTALL_PATH"gfx/hud/heart_empty.png");
-	
+
 	messageHead.next = NULL;
 }
 
@@ -47,7 +47,7 @@ void doHud()
 
 			hud.infoMessage.text[0] = '\0';
 		}
-		
+
 		getNextMessageFromQueue();
 	}
 }
@@ -62,8 +62,6 @@ void drawHud()
 
 	if (hud.infoMessage.surface != NULL)
 	{
-		drawBorder((SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 480 - hud.infoMessage.surface->h - 10, hud.infoMessage.surface->w, hud.infoMessage.surface->h, 255, 255, 255);
-
 		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 480 - hud.infoMessage.surface->h - 10, FALSE);
 	}
 
@@ -118,7 +116,7 @@ void freeHud()
 
 		hud.infoMessage.surface = NULL;
 	}
-	
+
 	freeMessageQueue();
 }
 
@@ -130,47 +128,47 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
-	
+
 	addMessageToQueue(text, thinkTime);
 }
 
 static void addMessageToQueue(char *text, int thinkTime)
 {
 	Message *head, *msg;
-	
+
 	head = &messageHead;
-	
+
 	while (head->next != NULL)
 	{
 		if (strcmpignorecase(text, head->text) == 0)
 		{
 			return;
 		}
-		
+
 		head = head->next;
 	}
-	
+
 	msg = (Message *)malloc(sizeof(Message));
-	
+
 	if (msg == NULL)
 	{
 		printf("Failed to allocate %d bytes for message queue\n", sizeof(Message));
-		
+
 		exit(1);
 	}
-	
+
 	STRNCPY(msg->text, text, sizeof(messageHead.text));
-	
+
 	msg->thinkTime = thinkTime;
 	msg->next = NULL;
-	
+
 	head->next = msg;
 }
 
 static void getNextMessageFromQueue()
 {
 	Message *head = messageHead.next;
-	
+
 	if (head != NULL)
 	{
 		STRNCPY(hud.infoMessage.text, head->text, sizeof(hud.infoMessage.text));
@@ -184,10 +182,12 @@ static void getNextMessageFromQueue()
 
 		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, 255, 255, 255, 0, 0, 0);
 
+		hud.infoMessage.surface = addBorder(hud.infoMessage.surface, 255, 255, 255);
+
 		hud.infoMessage.thinkTime = (head->thinkTime <= 0 ? 5 : head->thinkTime);
-		
+
 		messageHead.next = head->next;
-		
+
 		free(head);
 	}
 }
@@ -195,13 +195,13 @@ static void getNextMessageFromQueue()
 void freeMessageQueue()
 {
 	Message *p, *q;
-	
+
 	for (p=messageHead.next;p!=NULL;p=q)
 	{
 		q = p->next;
-		
+
 		free(p);
 	}
-	
+
 	messageHead.next = NULL;
 }

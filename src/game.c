@@ -29,8 +29,10 @@ void initGame()
 	game.weatherType = 0;
 
 	game.drawScreen = TRUE;
-	
+
 	game.paused = FALSE;
+
+	game.showHints = TRUE;
 
 	setWeather(game.weatherType);
 }
@@ -68,6 +70,16 @@ void doGame()
 	if (game.weatherType != NO_WEATHER)
 	{
 		game.weatherAction();
+	}
+}
+
+void freeGame()
+{
+	if (game.pauseSurface != NULL)
+	{
+		SDL_FreeSurface(game.pauseSurface);
+
+		game.pauseSurface = NULL;
 	}
 }
 
@@ -394,6 +406,14 @@ void getCheckpoint(float *x, float *y)
 void pauseGame()
 {
 	game.paused = game.paused == TRUE ? FALSE : TRUE;
-	
-	/*pauseMusic();*/
+
+	if (game.pauseSurface == NULL)
+	{
+		game.pauseSurface = addBorder(generateTextSurface(_("Paused"), game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255);
+	}
+}
+
+void showPauseDialog()
+{
+	drawImage(game.pauseSurface, (game.screen->w - game.pauseSurface->w) / 2, (game.screen->h - game.pauseSurface->h) / 2, FALSE);
 }

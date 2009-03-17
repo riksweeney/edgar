@@ -8,3 +8,5 @@ void goToNextMap(void);
 void setCheckpoint(float, float);
 void getCheckpoint(float *, float *);
 void pauseGame(void);
+void showPauseDialog(void);
+void freeGame(void);

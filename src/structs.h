@@ -81,7 +81,7 @@ typedef struct Sound
 typedef struct Game
 {
 	int thinkTime, weatherType, weatherThinkTime;
-	int audio, audioVolume;
+	int audio, audioVolume, showHints;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused;
@@ -93,7 +93,7 @@ typedef struct Game
 	void (*weatherDraw)(void);
 	void (*transition)(void);
 	void (*transitionCallback)(void);
-	SDL_Surface *screen, *tempSurface;
+	SDL_Surface *screen, *tempSurface, *pauseSurface;
 	TTF_Font *font;
 	SDL_Joystick *joystick;
 } Game;
@@ -178,3 +178,9 @@ typedef struct Control
 {
 	int button[MAX_CONTROLS];
 } Control;
+
+typedef struct Widget
+{
+	int *value, maxValue, minValue;
+	SDL_Surface *normalState, *selectedState;
+} Widget;

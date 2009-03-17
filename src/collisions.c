@@ -44,8 +44,12 @@ void doCollisions()
 
 					self->touch(&player);
 				}
-
-				checkEntityToEntity(&entity[i]);
+				
+				if (entity[i].type != SAVE_POINT && entity[i].type != LINE_DEF && entity[i].type != SPAWNER &&
+					entity[i].type != LEVEL_EXIT && entity[i].type != SWITCH)
+				{
+					checkEntityToEntity(&entity[i]);
+				}
 			}
 		}
 	}
@@ -63,9 +67,10 @@ void checkEntityToEntity(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY)
-			|| entity[i].touch == NULL || e->type == LEVEL_EXIT || e->type == LINE_DEF || e->type == SPAWNER
-			|| entity[i].type == SAVE_POINT || (e->type == PROJECTILE && entity[i].type == PROJECTILE))
+		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY) ||
+			entity[i].touch == NULL || entity[i].type == LEVEL_EXIT || entity[i].type == LINE_DEF ||
+			entity[i].type == SPAWNER || entity[i].type == SAVE_POINT || (e->type == WEAK_WALL && entity[i].type == WEAK_WALL) ||
+			(e->type == PROJECTILE && entity[i].type == PROJECTILE) || entity[i].type == SWITCH)
 		{
 			continue;
 		}

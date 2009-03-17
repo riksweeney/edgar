@@ -22,7 +22,7 @@ void loadScript(char *name)
 
 	script.lineCount = 0;
 
-	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
+	snprintf(filename, sizeof(filename), _("data/scripts/%s.dat"), name);
 
 	printf("Loading script file %s\n", filename);
 
@@ -207,6 +207,8 @@ void readNextScriptLine()
 				token = strtok(NULL, " ");
 
 				e->health = atoi(token);
+				
+				script.line = 0;
 			}
 		}
 

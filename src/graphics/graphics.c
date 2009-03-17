@@ -393,55 +393,64 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_FreeSurface(temp);
 }
 
-void drawBorder(int x, int y, int w, int h, int r, int g, int b)
+SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, 0, 0, 0);
+	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;
+	SDL_Surface *temp, *newSurface;
 
-	rect.x = x - 5;
-	rect.y = y - 5;
-	rect.w = w + 10;
-	rect.h = h + 10;
+	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, surface->w + 10, surface->h + 10, surface->format->BitsPerPixel, surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, 0);
 
-	SDL_FillRect(game.screen, &rect, color);
+	newSurface = SDL_DisplayFormat(temp);
 
-	color = SDL_MapRGB(game.screen->format, r, g, b);
+	rect.x = 5;
+	rect.y = 5;
+	rect.w = surface->w;
+	rect.h = surface->h;
+
+	SDL_BlitSurface(surface, NULL, newSurface, &rect);
 
 	/* Top */
 
-	rect.x = x - 6;
-	rect.y = y - 6;
-	rect.w = w + 11;
+	rect.x = 0;
+	rect.y = 0;
+	rect.w = newSurface->w;
 	rect.h = 1;
 
-	SDL_FillRect(game.screen, &rect, color);
+	SDL_FillRect(newSurface, &rect, color);
 
 	/* Left */
 
-	rect.x = x - 6;
-	rect.y = y - 6;
+	rect.x = 0;
+	rect.y = 0;
 	rect.w = 1;
-	rect.h = h + 11;
+	rect.h = newSurface->h;
 
-	SDL_FillRect(game.screen, &rect, color);
+	SDL_FillRect(newSurface, &rect, color);
 
 	/* Right */
 
-	rect.x = x + w + 5;
-	rect.y = y - 6;
+	rect.x = newSurface->w - 1;
+	rect.y = 0;
 	rect.w = 1;
-	rect.h = h + 11;
+	rect.h = newSurface->h;
 
-	SDL_FillRect(game.screen, &rect, color);
+	SDL_FillRect(newSurface, &rect, color);
 
 	/* Bottom */
 
-	rect.x = x - 6;
-	rect.y = y + h + 5;
-	rect.w = w + 11;
+	rect.x = 0;
+	rect.y = newSurface->h - 1;
+	rect.w = newSurface->w;
 	rect.h = 1;
 
-	SDL_FillRect(game.screen, &rect, color);
+	SDL_FillRect(newSurface, &rect, color);
+
+	SDL_FreeSurface(surface);
+
+	SDL_FreeSurface(temp);
+
+	return newSurface;
 }
 
 void clearScreen(int r, int g, int b)

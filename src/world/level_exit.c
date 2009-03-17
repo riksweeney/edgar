@@ -9,6 +9,7 @@
 #include "../system/random.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void wait(void);
 static void touch(Entity *);
@@ -77,7 +78,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && game.showHints == TRUE)
 	{
 		setInfoBoxMessage(0,  _("Press Action to go to the %s"), self->requires);
 	}
@@ -86,7 +87,7 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	player.flags |= HELPLESS;
-	
+
 	player.dirX = 0;
 
 	setNextLevel(self->name, self->objectiveName);

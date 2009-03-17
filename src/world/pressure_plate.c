@@ -3,8 +3,10 @@
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../hud.h"
 
 extern Entity *self;
+extern Game game;
 
 static void wait(void);
 static void activate(int);
@@ -66,6 +68,11 @@ static void touch(Entity *other)
 		if (strlen(self->requires) == 0 || strcmpignorecase(self->requires, other->objectiveName) == 0)
 		{
 			activate(1);
+		}
+
+		else
+		{
+			setInfoBoxMessage(0,  _("%s is required to use this Pressure Plate"), self->requires);
 		}
 	}
 }
