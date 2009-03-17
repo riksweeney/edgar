@@ -32,9 +32,14 @@ int main(int argc, char *argv[])
 	unsigned int frameLimit = SDL_GetTicks() + 16;
 	int go, i, mapID, loadSave;
 
+	setlocale(LC_ALL, "");
+	setlocale(LC_NUMERIC, "C");
+	textdomain("edgar");
+	bindtextdomain("edgar", LOCALE_DIR);
+
 	/* Start up SDL */
 
-	init("The Legend of Edgar");
+	init(_("The Legend of Edgar"));
 
 	/* Call the cleanup function when the program exits */
 
@@ -125,37 +130,37 @@ int main(int argc, char *argv[])
 		getInput(game.gameType);
 
 		/* Do the game */
-		
+
 		if (game.paused == FALSE)
 		{
 			doGame();
-	
+
 			/* Do the player, provided they still have enough lives left */
-	
+
 			doPlayer();
-	
+
 			/* Do the inventory */
-	
+
 			doInventory();
-	
+
 			/* Do the map */
-	
+
 			doMap();
-	
+
 			/* Do the Entities */
-	
+
 			doEntities();
-	
+
 			/* Do decorations */
-	
+
 			doDecorations();
-	
+
 			/* Do collisions */
-	
+
 			doCollisions();
-	
+
 			/* Do the HUD */
-	
+
 			doHud();
 		}
 

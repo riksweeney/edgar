@@ -409,7 +409,7 @@ void doPlayer()
 		i = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 		j = mapTileAt((self->x + self->w - 1) / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 
-		if ((self->flags & ON_GROUND) && ((i > BLANK_TILE && i < BACKGROUND_TILE_START) || (j > BLANK_TILE && j < BACKGROUND_TILE_START)))
+		if ((self->flags & ON_GROUND) && i > BLANK_TILE && i < BACKGROUND_TILE_START && j > BLANK_TILE && j < BACKGROUND_TILE_START)
 		{
 			setCheckpoint(self->x, self->y);
 		}
@@ -675,6 +675,8 @@ void writePlayerToFile(FILE *fp)
 
 static void fallout()
 {
+	centerMapOnEntity(NULL);
+	
 	player.thinkTime = 120;
 
 	player.dirX = 0;
@@ -720,6 +722,8 @@ static void resetPause()
 
 static void resetPlayer()
 {
+	centerMapOnEntity(&player);
+	
 	game.drawScreen = TRUE;
 
 	player.draw = &drawLoopingAnimationToMap;

@@ -5,6 +5,7 @@ extern Game game;
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
 #include "../map.h"
+#include "../game.h"
 #include "../graphics/sprites.h"
 #include "../hud.h"
 #include "../graphics/font.h"
@@ -117,6 +118,10 @@ void freeAllResources()
 	/* Free the script */
 
 	freeScript();
+
+	/* Free the game surfaces */
+
+	freeGame();
 
 	/* Free the font */
 
@@ -347,7 +352,7 @@ void loadResources(FILE *fp)
 
 				value[i][0] = '\0';
 			}
-			
+
 			i = 0;
 		}
 
@@ -392,6 +397,6 @@ void loadResources(FILE *fp)
 			i++;
 		}
 	}
-	
+
 	loadInventoryItems();
 }

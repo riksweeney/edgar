@@ -7,11 +7,14 @@
 #include "../collisions.h"
 #include "../audio/audio.h"
 #include "../event/script.h"
+#include "../hud.h"
 
 extern Entity *self;
+extern Game game;
 
 static void wait(void);
 static void talk(int);
+static void touch(Entity *);
 
 Entity *addVillager(int x, int y, char *name)
 {
@@ -33,6 +36,7 @@ Entity *addVillager(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &talk;
+	e->touch = &touch;
 
 	e->type = ENEMY;
 
@@ -51,4 +55,12 @@ static void talk(int val)
 	loadScript(self->requires);
 
 	readNextScriptLine();
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == PLAYER && game.showHints == TRUE)
+	{
+		setInfoBoxMessage(0,  _("Press Action to talk to %s"), self->objectiveName);
+	}
 }

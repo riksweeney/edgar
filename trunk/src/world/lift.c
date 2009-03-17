@@ -9,6 +9,7 @@
 #include "../hud.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
+extern Game game;
 
 static void autoMove(void);
 static void wait(void);
@@ -78,6 +79,11 @@ static void touch(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
+
+			if (self->type == MANUAL_LIFT && game.showHints == TRUE)
+			{
+				setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
+			}
 		}
 	}
 
