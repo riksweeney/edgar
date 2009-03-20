@@ -207,9 +207,21 @@ void readNextScriptLine()
 				token = strtok(NULL, " ");
 
 				e->health = atoi(token);
-				
-				script.line = 0;
 			}
+		}
+
+		else if (strcmpignorecase("ACTIVATE", token) == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			activateEntitiesWithName(token, TRUE);
+		}
+
+		else if (strcmpignorecase("DEACTIVATE", token) == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			activateEntitiesWithName(token, FALSE);
 		}
 
 		else if (strcmpignorecase("REMOVE", token) == 0)

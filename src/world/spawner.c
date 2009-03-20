@@ -5,6 +5,7 @@
 #include "../entity.h"
 #include "../system/properties.h"
 #include "../player.h"
+#include "../decoration.h"
 
 extern Entity *self;
 
@@ -22,12 +23,10 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 		exit(1);
 	}
 
-	loadProperties("common/spawner", e);
+	loadProperties(entityToSpawn, e);
 
 	e->x = x;
 	e->y = y;
-
-	STRNCPY(e->requires, entityToSpawn, sizeof(e->requires));
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -73,23 +72,29 @@ static void spawn()
 
 				if (self->health == -1 || (self->health == -2 && getDistanceFromPlayer(self) > SCREEN_WIDTH))
 				{
-					e = addEnemy(self->objectiveName, self->x, self->y);
+					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
+					{
+						e = addDecoration(self->objectiveName, self->x, self->y);
 
-					e->x += (self->w - e->w) / 2;
-					e->y += (self->h - e->h) / 2;
+						e->x += (self->w - e->w) / 2;
+						e->y += (self->h - e->h) / 2;
+					}
 
-					e->startX = self->startX;
-					e->startY = self->startX;
+					else
+					{
+						e = addEnemy(self->objectiveName, self->x, self->y);
 
-					e->endX = self->endX;
-					e->endY = self->endX;
+						e->x += (self->w - e->w) / 2;
+						e->y += (self->h - e->h) / 2;
 
-					e->face = self->face;
-				}
+						e->startX = self->startX;
+						e->startY = self->startX;
 
-				else
-				{
-					printf("Spawner not activating. Too close to player\n");
+						e->endX = self->endX;
+						e->endY = self->endX;
+
+						e->face = self->face;
+					}
 				}
 			}
 

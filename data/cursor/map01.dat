@@ -8,3 +8,5 @@ lift/lift_target
 common/switch
 common/level_exit
 common/save_point
+common/spawner
+misc/windmill_blades

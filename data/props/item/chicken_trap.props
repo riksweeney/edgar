@@ -5,3 +5,4 @@ ANIM_FILE data/anim/item/chicken_trap.dat
 TYPE KEY_ITEM
 FLAGS ALWAYS_ON_TOP
 SFX_FILE data/sfx/item/chicken_trap.dat
+REQUIRES Chicken Trap

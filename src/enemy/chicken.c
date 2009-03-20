@@ -86,7 +86,7 @@ static void lookForFood()
 static void wander()
 {
 	float dirX;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -128,28 +128,31 @@ static void wander()
 		self->face = RIGHT;
 	}
 
+	dirX = self->dirX;
+
 	if (self->dirX != 0 && isAtEdge(self) == 1)
 	{
 		self->dirX = 0;
-
-		setEntityAnimation(self, STAND);
 	}
-	
-	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
-		
+
 		self->dirX = -dirX;
 	}
 }
 
 static void moveToFood()
 {
-	if (self->target->health > 3 && abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
+	if (self->target->health <= 3)
+	{
+		self->action = &wander;
+	}
+
+	else if (abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
 
@@ -168,7 +171,7 @@ static void moveToFood()
 		}
 	}
 
-	else
+	else if (self->target->flags & ON_GROUND)
 	{
 		if (strcmpignorecase(self->target->name, "item/chicken_feed") == 0)
 		{
@@ -188,6 +191,8 @@ static void moveToFood()
 static void finishEating()
 {
 	self->target->health--;
+
+	setEntityAnimation(self, STAND);
 
 	if (self->target->health <= 0)
 	{

@@ -5,6 +5,7 @@ LOCALE_DIR = usr/share/locale/
 
 CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
+#LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
 OBJS      = animation.o audio.o collisions.o draw.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 OBJS     += lift.o main.o map.o player.o resources.o weather.o sprites.o bat.o properties.o custom_actions.o
 OBJS     += item.o status.o enemies.o hud.o random.o decoration.o chicken_feed.o chicken.o

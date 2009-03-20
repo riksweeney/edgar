@@ -29,11 +29,7 @@ static void dialogWait(void);
 
 Entity *loadPlayer(int x, int y)
 {
-	printf("Loading player: %d\n", player.health);
-
 	loadProperties("edgar/edgar", &player);
-
-	printf("Loaded player: %d\n", player.health);
 
 	if (player.inUse != TRUE)
 	{
@@ -100,14 +96,14 @@ void setPlayerLocation(int x, int y)
 void setPlayerWeaponName(char *name)
 {
 	STRNCPY(playerWeapon.name, name, sizeof(playerWeapon.name));
-	
+
 	playerWeapon.inUse = TRUE;
 }
 
 void setPlayerShieldName(char *name)
 {
 	STRNCPY(playerShield.name, name, sizeof(playerShield.name));
-	
+
 	playerShield.inUse = TRUE;
 }
 
@@ -419,6 +415,8 @@ void doPlayer()
 	{
 		self->action();
 	}
+
+	addToGrid(&player);
 }
 
 void playerWaitForDialog()
@@ -437,11 +435,15 @@ void playerResumeNormal()
 
 static void dialogWait()
 {
-	if (input.interact == 1)
+	if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)
 	{
 		readNextScriptLine();
 
 		input.interact = 0;
+		input.jump = 0;
+		input.attack = 0;
+		input.activate = 0;
+		input.block = 0;
 	}
 }
 
@@ -676,7 +678,7 @@ void writePlayerToFile(FILE *fp)
 static void fallout()
 {
 	centerMapOnEntity(NULL);
-	
+
 	player.thinkTime = 120;
 
 	player.dirX = 0;
@@ -723,7 +725,7 @@ static void resetPause()
 static void resetPlayer()
 {
 	centerMapOnEntity(&player);
-	
+
 	game.drawScreen = TRUE;
 
 	player.draw = &drawLoopingAnimationToMap;

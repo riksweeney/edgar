@@ -137,6 +137,8 @@ void doEntities()
 			{
 				checkToMap(self);
 			}
+
+			addToGrid(self);
 		}
 	}
 }
@@ -484,7 +486,7 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
-				checkEntityToEntity(self);
+				/*checkEntityToEntity(self);*/
 
 				if (self->dirX == 0)
 				{
@@ -534,7 +536,7 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
-				checkEntityToEntity(self);
+				/*checkEntityToEntity(self);*/
 
 				if (self->dirX == 0)
 				{

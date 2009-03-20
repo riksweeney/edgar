@@ -11,7 +11,7 @@ extern Game game;
 void init(char *title)
 {
 	int joysticks, buttons;
-	
+
 	/* Initialise SDL Video and Audio */
 
 	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_AUDIO) < 0)
@@ -56,7 +56,7 @@ void init(char *title)
 	{
 		game.audioVolume = MIX_MAX_VOLUME;
 	}
-	
+
 	joysticks = SDL_NumJoysticks();
 
 	if (joysticks > 0)
@@ -83,9 +83,9 @@ void init(char *title)
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
-	
+
 	/* Set up the home directory */
-	
+
 	setupUserHomeDirectory();
 }
 
@@ -123,13 +123,15 @@ void cleanup()
 	/* Close the mixer */
 
 	Mix_CloseAudio();
-	
+
 	/* Close the joystick */
-	
+
 	if (game.joystick != NULL)
 	{
 		SDL_JoystickClose(game.joystick);
 	}
+
+	printf("Exiting\n");
 
 	/* Shut down SDL */
 

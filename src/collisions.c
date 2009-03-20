@@ -6,12 +6,165 @@
 extern Entity entity[MAX_ENTITIES], *self;
 extern Entity player, playerShield, playerWeapon;
 
+static Grid grid[GRID_HEIGHT][GRID_WIDTH];
+
+static void addToList(int, int, Entity *);
+
+void initCollisionGrid()
+{
+	int x, y;
+
+	for (y=0;y<GRID_HEIGHT;y++)
+	{
+		for (x=0;x<GRID_WIDTH;x++)
+		{
+			grid[y][x].count = 0;
+			grid[y][x].listHead.next = NULL;
+		}
+	}
+}
+
+void addToGrid(Entity *e)
+{
+	int left, right, top, bottom;
+
+	left = e->x / TILE_SIZE / GRID_SIZE;
+	right = (e->x + e->w - 1) / TILE_SIZE / GRID_SIZE;
+
+	top = e->y / TILE_SIZE / GRID_SIZE;
+	bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+
+	addToList(top, left, e);
+
+	if (left != right)
+	{
+		addToList(top, right, e);
+	}
+
+	if (top != bottom)
+	{
+		addToList(bottom, left, e);
+	}
+
+	if (left != right && top != bottom)
+	{
+		addToList(bottom, right, e);
+	}
+}
+
+static void addToList(int y, int x, Entity *e)
+{
+	EntityList *listHead, *list;
+
+	listHead = &grid[y][x].listHead;
+
+	while (listHead->next != NULL)
+	{
+		listHead = listHead->next;
+	}
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	list->entity = e;
+	list->next = NULL;
+
+	listHead->next = list;
+
+	grid[y][x].count++;
+}
+
+void freeCollisionGrid()
+{
+	int x, y;
+	EntityList *p, *q;
+
+	for (y=0;y<GRID_HEIGHT;y++)
+	{
+		for (x=0;x<GRID_WIDTH;x++)
+		{
+			for (p=grid[y][x].listHead.next;p!=NULL;p=q)
+			{
+				q = p->next;
+
+				free(p);
+			}
+
+			grid[y][x].count = 0;
+			grid[y][x].listHead.next = NULL;
+		}
+	}
+}
+
 void doCollisions()
 {
-	int i, x, y, w, h, hit;
+	int i, j, x, y, w, h;
+	Entity *e1, *e2, *temp;
+	EntityList *list1, *list2;
 
-	hit = 0;
+	for (i=0;i<GRID_HEIGHT;i++)
+	{
+		for (j=0;j<GRID_WIDTH;j++)
+		{
+			for (list1=grid[i][j].listHead.next;list1!=NULL;list1=list1->next)
+			{
+				e1 = list1->entity;
 
+				if (e1->inUse == TRUE)
+				{
+					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
+					{
+						e2 = list2->entity;
+
+						if (e1 != e2 && e2->inUse == TRUE && e2->touch != NULL)
+						{
+							if (e1->type == ENEMY && e2->type == ENEMY)
+							{
+								continue;
+							}
+							
+							if (e1 == &player)
+							{
+								if (playerWeapon.inUse == TRUE && (playerWeapon.flags & ATTACKING))
+								{
+									if (e2 != &playerShield && e2 != &player)
+									{
+										x = playerWeapon.x + playerWeapon.offsetX * (player.face == LEFT ? -1 : 1);
+										y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
+										w = playerWeapon.w;
+										h = playerWeapon.h;
+	
+										if (collision(e2->x, e2->y, e2->w, e2->h, x, y, w, h) == TRUE)
+										{
+											temp = self;
+	
+											self = e2;
+	
+											self->touch(&playerWeapon);
+	
+											self = temp;
+										}
+									}
+								}
+							}
+
+							if (collision(e1->x, e1->y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
+							{
+								temp = self;
+
+								self = e2;
+
+								self->touch(e1);
+
+								self = temp;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE)
@@ -30,8 +183,6 @@ void doCollisions()
 						self = &entity[i];
 
 						self->touch(&playerWeapon);
-
-						hit = TRUE;
 					}
 				}
 			}
@@ -44,7 +195,7 @@ void doCollisions()
 
 					self->touch(&player);
 				}
-				
+
 				if (entity[i].type != SAVE_POINT && entity[i].type != LINE_DEF && entity[i].type != SPAWNER &&
 					entity[i].type != LEVEL_EXIT && entity[i].type != SWITCH)
 				{
@@ -53,13 +204,9 @@ void doCollisions()
 			}
 		}
 	}
-
-	if (hit == 1)
-	{
-		/*playerWeapon.flags |= ATTACK_SUCCESS;*/
-	}
+	*/
 }
-
+/*
 void checkEntityToEntity(Entity *e)
 {
 	int i;
@@ -87,7 +234,7 @@ void checkEntityToEntity(Entity *e)
 		}
 	}
 }
-
+*/
 Entity *isSpaceEmpty(Entity *e)
 {
 	int i;
@@ -506,14 +653,9 @@ int isAtEdge(Entity *e)
 	{
 		if (e != &entity[i] && (entity[i].flags & PUSHABLE))
 		{
-			if (collision(e->x + (e->face == LEFT ? -5 : 5), e->y + 5, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 1, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
-				if (collision(e->x + (e->face == LEFT ? -5 : 5), e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 0)
-				{
-					return FALSE;
-				}
-
-				return TRUE;
+				return FALSE;
 			}
 		}
 	}

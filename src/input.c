@@ -106,6 +106,11 @@ void getInput(int gameType)
 				{
 					input.snap = TRUE;
 				}
+				
+				else if (key == control.button[CONTROL_BLOCK])
+				{
+					input.block = TRUE;
+				}
 
 				else if (key == control.button[CONTROL_INTERACT])
 				{
@@ -206,6 +211,11 @@ void getInput(int gameType)
 				{
 					input.snap = FALSE;
 				}
+				
+				else if (key == control.button[CONTROL_BLOCK])
+				{
+					input.block = FALSE;
+				}
 
 				else if (key == control.button[CONTROL_INTERACT])
 				{
@@ -298,6 +308,11 @@ void getInput(int gameType)
 				{
 					input.attack = TRUE;
 				}
+				
+				else if (key == control.button[CONTROL_BLOCK])
+				{
+					input.block = TRUE;
+				}
 
 				else if (key == control.button[CONTROL_INTERACT])
 				{
@@ -357,6 +372,11 @@ void getInput(int gameType)
 				else if (key == control.button[CONTROL_ATTACK])
 				{
 					input.attack = FALSE;
+				}
+				
+				else if (key == control.button[CONTROL_BLOCK])
+				{
+					input.block = FALSE;
 				}
 
 				else if (key == control.button[CONTROL_INTERACT])
@@ -452,6 +472,7 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_SNAP] = -1;
 		control.button[CONTROL_INTERACT] = 3;
 		control.button[CONTROL_PAUSE] = 9;
+		control.button[CONTROL_BLOCK] = -1;
 	}
 	
 	else
@@ -474,5 +495,6 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_SNAP] = SDLK_g;
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;
+		control.button[CONTROL_BLOCK] = SDLK_b;
 	}
 }

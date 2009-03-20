@@ -33,6 +33,7 @@ extern Game game;
 #include "../inventory.h"
 #include "../dialog.h"
 #include "../event/script.h"
+#include "../collisions.h"
 
 static char **key, **value;
 
@@ -126,6 +127,10 @@ void freeAllResources()
 	/* Free the font */
 
 	closeFont(game.font);
+
+	/* Clear the collision grid */
+
+	freeCollisionGrid();
 }
 
 void loadResources(FILE *fp)

@@ -280,6 +280,11 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= FLOATS;
 		}
+		
+		else if (strcmpignorecase(token, "NO_TOUCH") == 0)
+		{
+			e->flags |= NO_TOUCH;
+		}
 
 		else
 		{
