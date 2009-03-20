@@ -46,7 +46,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 		e->frameSpeed = 0;
 	}
 
-	else
+	else if (!(e->flags & NO_TOUCH))
 	{
 		e->touch = &keyItemTouch;
 	}

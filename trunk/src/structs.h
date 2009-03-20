@@ -24,7 +24,7 @@ typedef struct Input
 	int previous, next, load, save, jump;
 	int mouseX, mouseY, toggle;
 	int activate, attack, fly, snap, cut;
-	int interact, grabbing;
+	int interact, grabbing, block;
 } Input;
 
 typedef struct Entity
@@ -184,3 +184,16 @@ typedef struct Widget
 	int *value, maxValue, minValue;
 	SDL_Surface *normalState, *selectedState;
 } Widget;
+
+typedef struct EntityList
+{
+	Entity *entity;
+	struct EntityList *next;
+} EntityList;
+
+typedef struct Grid
+{
+	int count;
+	EntityList listHead;
+	struct Grid *next;
+} Grid;

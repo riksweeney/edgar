@@ -9,6 +9,7 @@
 #include "../event/global_trigger.h"
 #include "../world/target.h"
 #include "../player.h"
+#include "../hud.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -81,6 +82,8 @@ static void trapEntity()
 	else
 	{
 		fireGlobalTrigger("Chicken");
+		
+		setInfoBoxMessage(120, _("Captured a chicken"));
 		
 		self->thinkTime = 1800;
 		
@@ -192,7 +195,7 @@ static void activateTrap()
 
 static void touch(Entity *other)
 {
-	if (other->type == ENEMY && strcmpignorecase(other->name, "enemy/chicken") == 0)
+	if (self->active == TRUE && other->type == ENEMY && strcmpignorecase(other->name, "enemy/chicken") == 0)
 	{
 		self->action = &activateTrap;
 

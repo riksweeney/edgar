@@ -80,7 +80,7 @@ static void touch(Entity *other)
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
 
-			if (self->type == MANUAL_LIFT && game.showHints == TRUE)
+			if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER)
 			{
 				setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
 			}

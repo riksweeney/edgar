@@ -45,10 +45,11 @@ TALK Jacob Yes, that would do the trick
 TALK Edgar ...
 TALK Jacob But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago...
 TALK Jacob Good luck!
-ADD OBJECTIVE "Collect 2 Chopped Logs" ""
+ACTIVATE Chicken Trap
+ADD OBJECTIVE "Collect 2 Chopped Logs" " "
 ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
-ADD OBJECTIVE "Rescue 5 Chickens" "CHICKEN_TRIGGER"
-ADD TRIGGER "Chicken" 5 UPDATE_OBJECTIVE "Rescue 5 Chickens"
+ADD OBJECTIVE "Rescue 10 Chickens" "CHICKEN_TRIGGER"
+ADD TRIGGER "Chicken" 10 UPDATE_OBJECTIVE "Rescue 10 Chickens"
 ADD TRIGGER "CHICKEN_TRIGGER" 1 RUN_SCRIPT "villager_sword_chickens"
 SET Jacob HEALTH 2
 END

@@ -193,7 +193,7 @@ void loadMap(char *name, int loadEntityResources)
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "{") == 0)
 		{
 			printf("Loading resources\n");
-			
+
 			loadResources(fp);
 		}
 
@@ -228,7 +228,7 @@ void loadMap(char *name, int loadEntityResources)
 	fclose(fp);
 
 	setTransition(TRANSITION_IN, NULL);
-	
+
 	playMusic();
 }
 

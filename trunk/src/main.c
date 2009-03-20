@@ -133,6 +133,8 @@ int main(int argc, char *argv[])
 
 		if (game.paused == FALSE)
 		{
+			freeCollisionGrid();
+
 			doGame();
 
 			/* Do the player, provided they still have enough lives left */

@@ -12,6 +12,29 @@ static void wait(void);
 static void finish(void);
 static void timeout(void);
 
+static Constructor decorations[] = {
+{"decoration/chimney_smoke", &addSmoke}
+};
+
+static int length = sizeof(decorations) / sizeof(Constructor);
+
+Entity *addDecoration(char *name, int x, int y)
+{
+	int i;
+
+	for (i=0;i<length;i++)
+	{
+		if (strcmpignorecase(decorations[i].name, name) == 0)
+		{
+			return decorations[i].construct(x, y, name);
+		}
+	}
+
+	printf("Could not find decoration %s\n", name);
+
+	exit(1);
+}
+
 void freeDecorations()
 {
 	/* Clear the list */
@@ -187,6 +210,33 @@ Entity *addTrail(int x, int y, char *name, int thinkTime)
 	return e;
 }
 
+Entity *addSmoke(int x, int y, char *name)
+{
+	Entity *e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return NULL;
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->dirX = 0;
+
+	e->dirY = -e->speed;
+
+	e->thinkTime = 300;
+
+	e->action = &move;
+	e->draw = &drawLoopingAnimationToMap;
+	e->animationCallback = &finish;
+
+	return e;
+}
+
 static void finish()
 {
 	self->inUse = FALSE;
@@ -195,7 +245,7 @@ static void finish()
 static void timeout()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		finish();

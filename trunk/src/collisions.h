@@ -5,3 +5,6 @@ int isAtEdge(Entity *);
 int isValidOnMap(Entity *);
 Entity *isSpaceEmpty(Entity *);
 void checkEntityToEntity(Entity *);
+void addToGrid(Entity *);
+void initCollisionGrid(void);
+void freeCollisionGrid(void);

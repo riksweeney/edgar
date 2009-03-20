@@ -89,11 +89,12 @@ void drawGame()
 	{
 		game.weatherDraw();
 	}
-
+	
 	if (game.transition != NULL)
 	{
 		game.transition();
 	}
+	
 }
 
 void setTransition(int type, void (*func)(void))
