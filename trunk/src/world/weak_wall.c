@@ -41,7 +41,7 @@ Entity *addWeakWall(char *name, int x, int y)
 
 static void touch(Entity *other)
 {
-	if (self->active == TRUE && (other->flags & ATTACKING))
+	if (self->active == TRUE && (other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
 	{
 		takeDamage(other, other->damage);
 	}
@@ -59,25 +59,24 @@ static void takeDamage(Entity *other, int damage)
 		self->die();
 	}
 	
-	if (!(self->flags & INVULNERABLE))
+	if (strcmpignorecase(self->requires, other->name) == 0)
 	{
-		if (strcmpignorecase(self->requires, other->name) == 0)
+		self->health -= damage;
+		
+		setCustomAction(self, &flashWhite, 6);
+		setCustomAction(self, &invulnerableNoFlash, 20);
+
+		if (self->health <= 0)
 		{
-			self->health -= damage;
-			
-			setCustomAction(self, &flashWhite, 6);
-			setCustomAction(self, &invulnerableNoFlash, 20);
-	
-			if (self->health <= 0)
-			{
-				self->die();
-			}
+			self->die();
 		}
-	
-		else
-		{
-			printf("Dink from %s\n", other->name);
-		}
+	}
+
+	else
+	{
+		printf("Dink from %s\n", other->name);
+		
+		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }
 

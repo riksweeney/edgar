@@ -65,10 +65,13 @@ static void takeDamage(Entity *other, int damage)
 	self->health -= damage;
 
 	setCustomAction(self, &flashWhite, 6);
+	setCustomAction(self, &invulnerableNoFlash, 20);
 
 	if (self->health < 0)
 	{
 		self->thinkTime = 180;
+		
+		self->touch = NULL;
 
 		self->action = &die;
 	}
@@ -325,8 +328,10 @@ static void die()
 	int i;
 
 	self->thinkTime--;
+	
+	printf("Dying %d\n", self->thinkTime);
 
-	if (self->thinkTime == 0)
+	if (self->thinkTime <= 0)
 	{
 		setMinMapX(0);
 		setMinMapX(0);

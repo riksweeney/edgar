@@ -181,7 +181,9 @@ typedef struct Control
 
 typedef struct Widget
 {
+	int x, y;
 	int *value, maxValue, minValue;
+	void (*action)(void);
 	SDL_Surface *normalState, *selectedState;
 } Widget;
 
@@ -197,3 +199,10 @@ typedef struct Grid
 	EntityList listHead;
 	struct Grid *next;
 } Grid;
+
+typedef struct Menu
+{
+	int index, x, y, w, h;
+	SDL_Surface *background;
+	Widget **widgets;
+} Menu;

@@ -410,7 +410,7 @@ void pauseGame()
 
 	if (game.pauseSurface == NULL)
 	{
-		game.pauseSurface = addBorder(generateTextSurface(_("Paused"), game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255);
+		game.pauseSurface = addBorder(generateTextSurface(_("Paused"), game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 	}
 }
 

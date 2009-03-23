@@ -34,6 +34,7 @@ extern Game game;
 #include "../dialog.h"
 #include "../event/script.h"
 #include "../collisions.h"
+#include "../menu/main_menu.h"
 
 static char **key, **value;
 
@@ -131,6 +132,10 @@ void freeAllResources()
 	/* Clear the collision grid */
 
 	freeCollisionGrid();
+	
+	/* Free the menus */
+	
+	freeMainMenu();
 }
 
 void loadResources(FILE *fp)

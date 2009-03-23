@@ -182,7 +182,7 @@ static void getNextMessageFromQueue()
 
 		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, 255, 255, 255, 0, 0, 0);
 
-		hud.infoMessage.surface = addBorder(hud.infoMessage.surface, 255, 255, 255);
+		hud.infoMessage.surface = addBorder(hud.infoMessage.surface, 255, 255, 255, 0, 0, 0);
 
 		hud.infoMessage.thinkTime = (head->thinkTime <= 0 ? 5 : head->thinkTime);
 

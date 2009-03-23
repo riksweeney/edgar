@@ -396,7 +396,7 @@ void entityTouch(Entity *other)
 
 	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
-		if (self->takeDamage != NULL)
+		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{
 			self->takeDamage(other, other->damage);
 		}
@@ -404,7 +404,7 @@ void entityTouch(Entity *other)
 
 	else if (other->type == PROJECTILE && other->parent != self)
 	{
-		if (self->takeDamage != NULL)
+		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{
 			self->takeDamage(other, other->damage);
 		}
