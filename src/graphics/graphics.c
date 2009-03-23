@@ -393,7 +393,7 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_FreeSurface(temp);
 }
 
-SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b)
+SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
 {
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;
@@ -402,6 +402,8 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b)
 	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, surface->w + 10, surface->h + 10, surface->format->BitsPerPixel, surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, 0);
 
 	newSurface = SDL_DisplayFormat(temp);
+	
+	SDL_FillRect(newSurface, NULL, SDL_MapRGB(game.screen->format, br, bg, bb));
 
 	rect.x = 5;
 	rect.y = 5;

@@ -17,6 +17,7 @@
 #include "wasp.h"
 #include "small_boulder.h"
 #include "../npc/villager.h"
+#include "../npc/borgan.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -31,7 +32,8 @@ static Constructor enemies[] = {
 {"enemy/wasp", &addWasp},
 {"common/small_rock", &addSmallRock},
 {"enemy/small_boulder", &addSmallBoulder},
-{"npc/villager", &addVillager}
+{"npc/villager", &addVillager},
+{"npc/borgan", &addBorgan}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -137,3 +137,8 @@ void cleanup()
 
 	SDL_Quit();
 }
+
+void quitGame()
+{
+	exit(0);
+}

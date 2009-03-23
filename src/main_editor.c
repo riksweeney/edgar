@@ -14,7 +14,7 @@
 #include "entity.h"
 #include "status.h"
 
-Input input;
+Input input, menuInput;
 Entity player, playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
 Animation animation[MAX_ANIMATIONS];
 Sound sound[MAX_SOUNDS];

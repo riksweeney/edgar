@@ -148,7 +148,7 @@ void createDialogBox(char *title, char *msg)
 		SDL_FreeSurface(surface[i]);
 	}
 
-	dialogSurface = addBorder(dialogSurface, 255, 255, 255);
+	dialogSurface = addBorder(dialogSurface, 255, 255, 255, 0, 0, 0);
 
 	free(surface);
 

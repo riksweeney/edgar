@@ -30,7 +30,8 @@ static Type type[] = {
 					{LINE_DEF, "LINE_DEF"},
 					{LEVEL_EXIT, "LEVEL_EXIT"},
 					{SAVE_POINT, "SAVE_POINT"},
-					{TEMP_ITEM, "TEMP_ITEM"}
+					{TEMP_ITEM, "TEMP_ITEM"},
+					{PROJECTILE, "PROJECTILE"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -279,11 +280,6 @@ static void setFlags(Entity *e, char *flags)
 		else if (strcmpignorecase(token, "FLOATS") == 0)
 		{
 			e->flags |= FLOATS;
-		}
-		
-		else if (strcmpignorecase(token, "NO_TOUCH") == 0)
-		{
-			e->flags |= NO_TOUCH;
 		}
 
 		else

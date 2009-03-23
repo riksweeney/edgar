@@ -11,6 +11,7 @@
 #include "graphics/graphics.h"
 #include "graphics/save_png.h"
 #include "dialog.h"
+#include "menu/main_menu.h"
 
 extern Game game;
 extern Entity player;
@@ -83,7 +84,7 @@ void draw()
 
 	else
 	{
-		showPauseDialog();
+		drawMainMenu();
 	}
 
 	/* Swap the buffers */

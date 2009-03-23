@@ -4,20 +4,22 @@
 #include "init.h"
 #include "game.h"
 
-extern Input input;
+extern Input input, menuInput;
 extern Game game;
 
 static Control control;
 
 void getInput(int gameType)
 {
-	int key;
+	int key, button;
 	SDL_Event event;
 
 	/* Loop through waiting messages and process them */
 
 	while (SDL_PollEvent(&event))
 	{
+		key = button = -1;
+		
 		switch (event.type)
 		{
 			case SDL_QUIT:
@@ -29,7 +31,7 @@ void getInput(int gameType)
 
 				if (key == SDLK_ESCAPE)
 				{
-					exit(0);
+					pauseGame();
 				}
 
 				else if (key == control.button[CONTROL_LEFT])
@@ -132,6 +134,31 @@ void getInput(int gameType)
 				{
 					pauseGame();
 				}
+				
+				else if (key == SDLK_UP)
+				{
+					menuInput.up = TRUE;
+				}
+				
+				else if (key == SDLK_DOWN)
+				{
+					menuInput.down = TRUE;
+				}
+				
+				else if (key == SDLK_RIGHT)
+				{
+					menuInput.right = TRUE;
+				}
+				
+				else if (key == SDLK_LEFT)
+				{
+					menuInput.left = TRUE;
+				}
+				
+				else if (key == SDLK_RETURN)
+				{
+					menuInput.attack = TRUE;
+				}
 			break;
 
 			case SDL_KEYUP:
@@ -221,6 +248,30 @@ void getInput(int gameType)
 				{
 					input.interact = FALSE;
 					input.grabbing = FALSE;
+				}
+				else if (key == SDLK_UP)
+				{
+					menuInput.up = FALSE;
+				}
+				
+				else if (key == SDLK_DOWN)
+				{
+					menuInput.down = FALSE;
+				}
+				
+				else if (key == SDLK_RIGHT)
+				{
+					menuInput.right = FALSE;
+				}
+				
+				else if (key == SDLK_LEFT)
+				{
+					menuInput.left = FALSE;
+				}
+				
+				else if (key == SDLK_RETURN)
+				{
+					menuInput.attack = FALSE;
 				}
 			break;
 
