@@ -172,7 +172,23 @@ void readNextScriptLine()
 			{
 				token = strtok(NULL, " ");
 
-				if (e->health != atoi(token))
+				if (strcmpignorecase(token, "NOT_MAX") == 0)
+				{
+					if (e->health == e->maxHealth)
+					{
+						script.skipping = TRUE;
+					}
+				}
+
+				else if (strcmpignorecase(token, "MAX") == 0)
+				{
+					if (e->health != e->maxHealth)
+					{
+						script.skipping = TRUE;
+					}
+				}
+
+				else if (e->health != atoi(token))
 				{
 					script.skipping = TRUE;
 				}

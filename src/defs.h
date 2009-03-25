@@ -182,7 +182,8 @@ enum
 	LEVEL_EXIT,
 	PROJECTILE,
 	SAVE_POINT,
-	TEMP_ITEM
+	TEMP_ITEM,
+	NPC
 };
 
 enum

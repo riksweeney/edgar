@@ -1,0 +1,8 @@
+IF Edgar HEALTH MAX
+TALK Maggie Hello Edgar
+TALK Edgar Hi Maggie
+END
+IF Edgar HEALTH NOT_MAX
+TALK Maggie Oh Edgar, you're hurt! Have some healing potion.
+TALK Edgar Thanks Maggie!
+END
