@@ -18,7 +18,7 @@
 #include "system/load_save.h"
 #include "dialog.h"
 #include "event/script.h"
-#include "menu/main_menu.h"
+#include "menu/menu.h"
 
 Input input, menuInput;
 Entity *self, entity[MAX_ENTITIES];
@@ -165,15 +165,11 @@ int main(int argc, char *argv[])
 			/* Do the HUD */
 
 			doHud();
-			
-			/* Do the menu */
-			
-			doMainMenu();
 		}
-		
+
 		else
 		{
-			doMainMenu();
+			doMenu();
 		}
 
 		/* Draw the map */

@@ -1,5 +1,21 @@
 #include "defs.h"
 
+typedef struct Widget
+{
+	int x, y;
+	int *value, maxValue, minValue;
+	void (*action)(void);
+	SDL_Surface *normalState, *selectedState;
+} Widget;
+
+typedef struct Menu
+{
+	int index, x, y, w, h, widgetCount;
+	SDL_Surface *background;
+	Widget **widgets;
+	void (*action)(void);
+} Menu;
+
 typedef struct BoundingBox
 {
 	int x, y, h, w;
@@ -89,10 +105,12 @@ typedef struct Game
 	long startTicks, endTicks;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
 	void (*action)(void);
+	void (*drawMenu)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);
 	void (*transition)(void);
 	void (*transitionCallback)(void);
+	Menu *menu;
 	SDL_Surface *screen, *tempSurface, *pauseSurface;
 	TTF_Font *font;
 	SDL_Joystick *joystick;
@@ -179,14 +197,6 @@ typedef struct Control
 	int button[MAX_CONTROLS];
 } Control;
 
-typedef struct Widget
-{
-	int x, y;
-	int *value, maxValue, minValue;
-	void (*action)(void);
-	SDL_Surface *normalState, *selectedState;
-} Widget;
-
 typedef struct EntityList
 {
 	Entity *entity;
@@ -199,10 +209,3 @@ typedef struct Grid
 	EntityList listHead;
 	struct Grid *next;
 } Grid;
-
-typedef struct Menu
-{
-	int index, x, y, w, h;
-	SDL_Surface *background;
-	Widget **widgets;
-} Menu;

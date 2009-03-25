@@ -19,7 +19,7 @@ void getInput(int gameType)
 	while (SDL_PollEvent(&event))
 	{
 		key = button = -1;
-		
+
 		switch (event.type)
 		{
 			case SDL_QUIT:
@@ -108,7 +108,7 @@ void getInput(int gameType)
 				{
 					input.snap = TRUE;
 				}
-				
+
 				else if (key == control.button[CONTROL_BLOCK])
 				{
 					input.block = TRUE;
@@ -129,32 +129,32 @@ void getInput(int gameType)
 				{
 					takeSingleScreenshot();
 				}
-				
+
 				else if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}
-				
+
 				else if (key == SDLK_UP)
 				{
 					menuInput.up = TRUE;
 				}
-				
+
 				else if (key == SDLK_DOWN)
 				{
 					menuInput.down = TRUE;
 				}
-				
+
 				else if (key == SDLK_RIGHT)
 				{
 					menuInput.right = TRUE;
 				}
-				
+
 				else if (key == SDLK_LEFT)
 				{
 					menuInput.left = TRUE;
 				}
-				
+
 				else if (key == SDLK_RETURN)
 				{
 					menuInput.attack = TRUE;
@@ -238,7 +238,7 @@ void getInput(int gameType)
 				{
 					input.snap = FALSE;
 				}
-				
+
 				else if (key == control.button[CONTROL_BLOCK])
 				{
 					input.block = FALSE;
@@ -253,22 +253,22 @@ void getInput(int gameType)
 				{
 					menuInput.up = FALSE;
 				}
-				
+
 				else if (key == SDLK_DOWN)
 				{
 					menuInput.down = FALSE;
 				}
-				
+
 				else if (key == SDLK_RIGHT)
 				{
 					menuInput.right = FALSE;
 				}
-				
+
 				else if (key == SDLK_LEFT)
 				{
 					menuInput.left = FALSE;
 				}
-				
+
 				else if (key == SDLK_RETURN)
 				{
 					menuInput.attack = FALSE;
@@ -306,10 +306,10 @@ void getInput(int gameType)
 					break;
 				}
 			break;
-			
+
 			case SDL_JOYBUTTONDOWN:
 				key = event.jbutton.button;
-				
+
 				if (key == control.button[CONTROL_LEFT])
 				{
 					input.left = TRUE;
@@ -359,7 +359,7 @@ void getInput(int gameType)
 				{
 					input.attack = TRUE;
 				}
-				
+
 				else if (key == control.button[CONTROL_BLOCK])
 				{
 					input.block = TRUE;
@@ -370,16 +370,16 @@ void getInput(int gameType)
 					input.interact = TRUE;
 					input.grabbing = TRUE;
 				}
-				
+
 				else if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}
 			break;
-			
+
 			case SDL_JOYBUTTONUP:
 				key = event.jbutton.button;
-				
+
 				if (key == control.button[CONTROL_LEFT])
 				{
 					input.left = FALSE;
@@ -424,7 +424,7 @@ void getInput(int gameType)
 				{
 					input.attack = FALSE;
 				}
-				
+
 				else if (key == control.button[CONTROL_BLOCK])
 				{
 					input.block = FALSE;
@@ -436,7 +436,7 @@ void getInput(int gameType)
 					input.grabbing = FALSE;
 				}
 			break;
-			
+
 			case SDL_JOYAXISMOTION:
 				if (event.jaxis.axis == 0)
 				{
@@ -444,12 +444,12 @@ void getInput(int gameType)
 					{
 						input.left = TRUE;
 					}
-					
+
 					else if (event.jaxis.value > 3200)
 					{
 						input.right = TRUE;
 					}
-					
+
 					else
 					{
 						input.left = FALSE;
@@ -463,12 +463,12 @@ void getInput(int gameType)
 					{
 						input.up = TRUE;
 					}
-					
+
 					else if (event.jaxis.value > 3200)
 					{
 						input.down = TRUE;
 					}
-					
+
 					else
 					{
 						input.up = FALSE;
@@ -482,7 +482,7 @@ void getInput(int gameType)
 	/* Get the mouse coordinates */
 
 	SDL_GetMouseState(&input.mouseX, &input.mouseY);
-	
+
 	if (game.paused == FALSE)
 	{
 		switch (gameType)
@@ -490,11 +490,11 @@ void getInput(int gameType)
 			case RECORDING:
 				putBuffer(input);
 			break;
-	
+
 			case REPLAYING:
 				input = getBuffer();
 			break;
-	
+
 			default:
 			break;
 		}
@@ -525,7 +525,7 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_PAUSE] = 9;
 		control.button[CONTROL_BLOCK] = -1;
 	}
-	
+
 	else
 	{
 		control.button[CONTROL_LEFT] = SDLK_LEFT;
@@ -548,4 +548,32 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_PAUSE] = SDLK_p;
 		control.button[CONTROL_BLOCK] = SDLK_b;
 	}
+}
+
+int getSingleInput()
+{
+	int key;
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event))
+	{
+		key = -1;
+
+		switch (event.type)
+		{
+			case SDL_QUIT:
+				exit(0);
+			break;
+
+			case SDL_KEYDOWN:
+				key = event.key.keysym.sym;
+			break;
+
+			case SDL_JOYBUTTONDOWN:
+				key = event.jbutton.button;
+			break;
+		}
+	}
+
+	return key == SDLK_ESCAPE ? -1 : key;
 }

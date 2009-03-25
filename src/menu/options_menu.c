@@ -3,7 +3,7 @@
 #include "widget.h"
 #include "../init.h"
 #include "../graphics/graphics.h"
-#include "options_menu.h"
+#include "main_menu.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -11,10 +11,13 @@ extern Game game;
 static Menu menu;
 
 static void loadMenuLayout(void);
-static void showOptionsMenu(void);
+static void toggleHints(void);
+static void showControlMenu(void);
+static void showSoundMenu(void);
+static void showMainMenu(void);
 static void doMenu(void);
 
-void drawMainMenu()
+void drawOptionsMenu()
 {
 	int i, x, y;
 
@@ -82,13 +85,13 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(line, sizeof(line), _("%sdata/menu/main_menu.dat"), INSTALL_PATH);
+	snprintf(line, sizeof(line), _("%sdata/menu/options_menu.dat"), INSTALL_PATH);
 
 	fp = fopen(line, "rb");
 
 	if (fp == NULL)
 	{
-		perror("Could not open Main Menu config file");
+		perror("Could not open Options Menu config file");
 
 		exit(1);
 	}
@@ -121,7 +124,7 @@ static void loadMenuLayout()
 
 			if (menu.widgets == NULL)
 			{
-				printf("Ran out of memory when creating Main Menu\n");
+				printf("Ran out of memory when creating Options Menu\n");
 
 				exit(1);
 			}
@@ -135,29 +138,24 @@ static void loadMenuLayout()
 
 				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
 
-				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
+				if (strcmpignorecase(menuID, "MENU_CONTROLS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showControlMenu, x, y);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
+				else if (strcmpignorecase(menuID, "MENU_SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showSoundMenu, x, y);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
+				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showOptionsMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &toggleHints, x, y);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
+				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &quitGame, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showMainMenu, x, y);
 				}
 
 				else
@@ -195,7 +193,19 @@ static void loadMenuLayout()
 	fclose(fp);
 }
 
-void freeMainMenu()
+Menu *initOptionsMenu()
+{
+	menu.action = &doMenu;
+
+	if (menu.widgets == NULL)
+	{
+		loadMenuLayout();
+	}
+
+	return &menu;
+}
+
+void freeOptionsMenu()
 {
 	int i;
 
@@ -217,21 +227,32 @@ void freeMainMenu()
 	}
 }
 
-Menu *initMainMenu()
+static void toggleHints()
 {
-	menu.action = &doMenu;
-
-	if (menu.widgets == NULL)
-	{
-		loadMenuLayout();
-	}
-
-	return &menu;
+	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
 }
 
-static void showOptionsMenu()
+static void showControlMenu()
 {
-	game.menu = initOptionsMenu();
+	/*
+	game.menu = initControlMenu();
 
-	game.drawMenu = &drawOptionsMenu;
+	game.drawMenu = &drawControlMenu;
+	*/
+}
+
+static void showSoundMenu()
+{
+	/*
+	game.menu = initSoundMenu();
+
+	game.drawMenu = &drawShowMenu;
+	*/
+}
+
+static void showMainMenu()
+{
+	game.menu = initMainMenu();
+
+	game.drawMenu = &drawMainMenu;
 }

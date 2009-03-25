@@ -11,6 +11,8 @@
 #include "system/load_save.h"
 #include "entity.h"
 #include "player.h"
+#include "menu/menu.h"
+#include "menu/main_menu.h"
 
 extern Game game;
 
@@ -33,6 +35,10 @@ void initGame()
 	game.paused = FALSE;
 
 	game.showHints = TRUE;
+
+	game.menu = initMainMenu();
+
+	game.drawMenu = &drawMainMenu;
 
 	setWeather(game.weatherType);
 }
@@ -89,12 +95,12 @@ void drawGame()
 	{
 		game.weatherDraw();
 	}
-	
+
 	if (game.transition != NULL)
 	{
 		game.transition();
 	}
-	
+
 }
 
 void setTransition(int type, void (*func)(void))
