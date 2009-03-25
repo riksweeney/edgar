@@ -1142,7 +1142,7 @@ FACE RIGHT
 }
 
 {
-TYPE ENEMY
+TYPE NPC
 NAME npc/villager
 X 3952
 Y 2560
@@ -1226,7 +1226,7 @@ FACE LEFT
 }
 
 {
-TYPE ENEMY
+TYPE NPC
 NAME npc/borgan
 X 321
 Y 2976

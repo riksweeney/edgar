@@ -35,6 +35,7 @@ extern Game game;
 #include "../event/script.h"
 #include "../collisions.h"
 #include "../menu/main_menu.h"
+#include "../npc/npc.h"
 
 static char **key, **value;
 
@@ -132,9 +133,9 @@ void freeAllResources()
 	/* Clear the collision grid */
 
 	freeCollisionGrid();
-	
+
 	/* Free the menus */
-	
+
 	freeMainMenu();
 }
 
@@ -261,6 +262,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "ENEMY") == 0)
 			{
 				e = addEnemy(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "NPC") == 0)
+			{
+				e = addNPC(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)

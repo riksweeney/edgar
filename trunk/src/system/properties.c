@@ -31,7 +31,8 @@ static Type type[] = {
 					{LEVEL_EXIT, "LEVEL_EXIT"},
 					{SAVE_POINT, "SAVE_POINT"},
 					{TEMP_ITEM, "TEMP_ITEM"},
-					{PROJECTILE, "PROJECTILE"}
+					{PROJECTILE, "PROJECTILE"},
+					{NPC, "NPC"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -375,7 +376,7 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "HEALTH") == 0)
 	{
 		e->health = atoi(value);
-		
+
 		if (e->maxHealth < e->health)
 		{
 			e->maxHealth = e->health;
