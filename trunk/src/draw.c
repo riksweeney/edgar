@@ -84,7 +84,7 @@ void draw()
 
 	else
 	{
-		drawMainMenu();
+		game.drawMenu();
 	}
 
 	/* Swap the buffers */
