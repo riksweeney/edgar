@@ -99,6 +99,16 @@ void readNextScriptLine()
 
 			return;
 		}
+		
+		else if (script.thinkTime != 0)
+		{
+			script.thinkTime--;
+			
+			if (script.thinkTime != 0)
+			{
+				return;
+			}
+		}
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
 
@@ -128,6 +138,13 @@ void readNextScriptLine()
 				token = strtok(NULL, "\0");
 
 				addEntityFromScript(token);
+			}
+			
+			else if (strcmpignorecase("DECORATION", token) == 0)
+			{
+				token = strtok(NULL, "\0");
+
+				addDecorationFromScript(token);
 			}
 
 			else if (strcmpignorecase("OBJECTIVE", token) == 0)
@@ -221,8 +238,16 @@ void readNextScriptLine()
 			if (strcmpignorecase(token, "HEALTH") == 0)
 			{
 				token = strtok(NULL, " ");
-
-				e->health = atoi(token);
+				
+				if (strcmpignorecase(token, "MAX") == 0)
+				{
+					e->health = e->maxHealth;
+				}
+				
+				else
+				{
+					e->health = atoi(token);
+				}
 			}
 		}
 
@@ -245,6 +270,13 @@ void readNextScriptLine()
 			token = strtok(NULL, "\0");
 
 			getInventoryItemFromScript(token);
+		}
+		
+		else if (strcmpignorecase("WAIT", token) == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			script.thinkTime = atoi(token);
 		}
 
 		else if (strcmpignorecase("WALK", token) == 0)
@@ -271,6 +303,11 @@ void readNextScriptLine()
 
 		script.line++;
 	}
+}
+
+int scriptWaiting()
+{
+	return script.thinkTime != 0;
 }
 
 void freeScript()

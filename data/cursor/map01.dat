@@ -1,7 +1,8 @@
 edgar/edgar
 enemy/chicken
 item/chicken_feed_bag
-npc/villager
+npc/borgan
+npc/maggie
 lift/mine_lift
 item/chicken_trap
 lift/lift_target

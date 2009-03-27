@@ -13,7 +13,8 @@ static void finish(void);
 static void timeout(void);
 
 static Constructor decorations[] = {
-{"decoration/chimney_smoke", &addSmoke}
+{"decoration/chimney_smoke", &addSmoke},
+{"decoration/sparkle", &addMultipleSparkles}
 };
 
 static int length = sizeof(decorations) / sizeof(Constructor);
@@ -167,6 +168,18 @@ void addStarExplosion(int x, int y)
 	}
 }
 
+void multipleSparkles(int x, int y, char *name)
+{
+	int i, count;
+	
+	count = prand() % 10 + 1;
+	
+	for (i=0;i<count;i++)
+	{
+		addSparkle();
+	}
+}
+
 void addSparkle(int x, int y)
 {
 	Entity *e = getFreeDecoration();
@@ -254,7 +267,8 @@ static void timeout()
 
 static void wait()
 {
-
+	self->x += self->dirX;
+	self->y += self->dirY;
 }
 
 static void move()
@@ -268,4 +282,31 @@ static void move()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+void addDecorationFromScript()
+{
+	char decorationName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
+	Entity *e;
+
+	sscanf(line, "%s \"%[^\"]\"", decorationName, entityName);
+	
+	if (strcmpignorecase(entityName, "Edgar") == 0)
+	{
+		e = &player;
+	}
+	
+	else
+	{
+		e = getEntityByObjectiveName(entityName);
+	}
+	
+	if (e == NULL)
+	{
+		printf("Decoration could not find Entity %s\n", entityName);
+		
+		exit(1);
+	}
+
+	addDecoration(decorationName, e->x + e->w / 2, e->y + e->h / 2);
 }

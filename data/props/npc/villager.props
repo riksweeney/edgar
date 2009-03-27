@@ -1,4 +1,4 @@
 GFX_FILE data/gfx/npc/borgan.dat
 ANIM_FILE data/anim/npc/borgan.dat
-TYPE ENEMY
+TYPE NPC
 HEALTH 1

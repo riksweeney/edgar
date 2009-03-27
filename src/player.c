@@ -435,7 +435,18 @@ void playerResumeNormal()
 
 static void dialogWait()
 {
-	if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)
+	if (scriptWaiting() == TRUE)
+	{
+		readNextScriptLine();
+
+		input.interact = 0;
+		input.jump = 0;
+		input.attack = 0;
+		input.activate = 0;
+		input.block = 0;
+	}
+	
+	else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)
 	{
 		readNextScriptLine();
 
