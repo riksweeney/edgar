@@ -7,3 +7,4 @@ void addSparkle(int, int);
 Entity *addTrail(int, int, char *, int);
 Entity *addDecoration(char *, int, int);
 Entity *addSmoke(int, int, char *);
+Entity *addMultipleSparkles(int, int, char *);

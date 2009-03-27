@@ -33,7 +33,12 @@ Entity *addPermanentItem(char *name, int x, int y)
 	e->action = &doNothing;
 	e->draw = &drawLoopingAnimationToMap;
 
-	if (e->type == WEAPON || e->type == SHIELD)
+	if (e->type == HEALTH)
+	{
+		e->touch = &healthTouch;
+	}
+
+	else if (e->type == WEAPON || e->type == SHIELD)
 	{
 		e->touch = &keyItemTouch;
 		e->activate = (e->type == WEAPON ? &setPlayerWeapon : &setPlayerShield);
@@ -42,7 +47,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 	else if ((e->flags & PUSHABLE) || (e->flags & OBSTACLE))
 	{
 		e->touch = &pushEntity;
-		
+
 		e->frameSpeed = 0;
 	}
 
@@ -91,7 +96,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	{
 		e->touch = &healthTouch;
 	}
-	
+
 	else
 	{
 		e->type = TEMP_ITEM;

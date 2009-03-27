@@ -181,7 +181,7 @@ typedef struct Objective
 
 typedef struct Script
 {
-	int line, lineCount, skipping;
+	int line, lineCount, skipping, thinkTime;
 	char **text;
 } Script;
 

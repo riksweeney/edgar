@@ -3,6 +3,9 @@ TALK Maggie Hello Edgar
 TALK Edgar Hi Maggie
 END
 IF Edgar HEALTH NOT_MAX
-TALK Maggie Oh Edgar, you're hurt! Have some healing potion.
+TALK Maggie Oh Edgar, you're hurt! Let me heal your wounds
+ADD DECORATION decoration/multiple_sparkles Edgar
+WAIT 180
 TALK Edgar Thanks Maggie!
+SET Edgar HEALTH MAX
 END

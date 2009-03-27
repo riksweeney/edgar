@@ -125,6 +125,8 @@ int main(int argc, char *argv[])
 	#else
 		printf("Production Version\n");
 	#endif
+	
+	player.health = 1;
 
 	while (go == TRUE)
 	{

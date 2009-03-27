@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/health_bottle.dat
+ANIM_FILE data/anim/item/health_bottle.dat
+TYPE HEALTH
+HEALTH 20
