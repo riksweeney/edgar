@@ -125,8 +125,6 @@ int main(int argc, char *argv[])
 	#else
 		printf("Production Version\n");
 	#endif
-	
-	player.health = 1;
 
 	while (go == TRUE)
 	{
@@ -179,8 +177,11 @@ int main(int argc, char *argv[])
 		draw();
 
 		/* Sleep briefly to stop sucking up all the CPU time */
-
-		delay(frameLimit);
+		
+		if (game.gameType != REPLAYING)
+		{
+			delay(frameLimit);
+		}
 
 		frameLimit = SDL_GetTicks() + 16;
 

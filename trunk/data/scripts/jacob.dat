@@ -51,6 +51,6 @@ ADD OBJECTIVE "Collect 2 Chopped Logs" " "
 ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
 ADD OBJECTIVE "Rescue 10 Chickens" "CHICKEN_TRIGGER"
 ADD TRIGGER "Chicken" 10 UPDATE_OBJECTIVE "Rescue 10 Chickens"
-ADD TRIGGER "CHICKEN_TRIGGER" 1 RUN_SCRIPT "villager_sword_chickens"
+ADD TRIGGER "CHICKEN_TRIGGER" 1 RUN_SCRIPT "jacob_chickens"
 SET Jacob HEALTH 2
 END

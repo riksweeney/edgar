@@ -85,7 +85,7 @@ static void trapEntity()
 		
 		setInfoBoxMessage(120, _("Captured a chicken"));
 		
-		self->thinkTime = 1800;
+		self->thinkTime = 0;
 		
 		self->action = &removeChicken;
 	}
@@ -122,7 +122,7 @@ static void removeChicken()
 		
 		else
 		{
-			self->thinkTime = 1800;
+			self->thinkTime = 180;
 		}
 	}
 }
