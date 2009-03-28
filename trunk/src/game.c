@@ -34,7 +34,7 @@ void initGame()
 
 	game.paused = FALSE;
 
-	game.showHints = TRUE;
+	game.showHints = FALSE;
 
 	game.menu = initMainMenu();
 

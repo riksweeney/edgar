@@ -7,6 +7,9 @@
 #include "../dialog.h"
 #include "../player.h"
 #include "../inventory.h"
+#include "../audio/audio.h"
+#include "../decoration.h"
+#include "../graphics/animation.h"
 
 extern Entity player;
 
@@ -83,9 +86,9 @@ void loadScript(char *name)
 
 void readNextScriptLine()
 {
-	char *token, line[MAX_LINE_LENGTH];
+	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH];
 	int readAgain = TRUE;
-	Entity *e;
+	Entity *e, *e2;
 
 	while (readAgain == TRUE)
 	{
@@ -99,37 +102,44 @@ void readNextScriptLine()
 
 			return;
 		}
-		
+
 		else if (script.thinkTime != 0)
 		{
 			script.thinkTime--;
-			
+
 			if (script.thinkTime != 0)
 			{
 				return;
 			}
 		}
 
+		else if (script.counter != 0)
+		{
+			return;
+		}
+
 		STRNCPY(line, script.text[script.line], sizeof(line));
 
 		token = strtok(line, " ");
 
+		STRNCPY(command, token, sizeof(command));
+
 		if (script.skipping == TRUE)
 		{
-			if (strcmpignorecase("END", token) == 0)
+			if (strcmpignorecase("END", command) == 0)
 			{
 				script.skipping = FALSE;
 			}
 		}
 
-		else if (strcmpignorecase("TALK", token) == 0)
+		else if (strcmpignorecase("TALK", command) == 0)
 		{
 			createDialogBoxFromScript(script.text[script.line]);
 
 			readAgain = FALSE;
 		}
 
-		else if (strcmpignorecase("ADD", token) == 0)
+		else if (strcmpignorecase("ADD", command) == 0)
 		{
 			token = strtok(NULL, " ");
 
@@ -139,7 +149,7 @@ void readNextScriptLine()
 
 				addEntityFromScript(token);
 			}
-			
+
 			else if (strcmpignorecase("DECORATION", token) == 0)
 			{
 				token = strtok(NULL, "\0");
@@ -162,7 +172,7 @@ void readNextScriptLine()
 			}
 		}
 
-		else if (strcmpignorecase("IF", token) == 0)
+		else if (strcmpignorecase("IF", command) == 0)
 		{
 			token = strtok(NULL, " ");
 
@@ -212,7 +222,7 @@ void readNextScriptLine()
 			}
 		}
 
-		else if (strcmpignorecase("SET", token) == 0)
+		else if (strcmpignorecase("SET", command) == 0)
 		{
 			token = strtok(NULL, " ");
 
@@ -238,48 +248,99 @@ void readNextScriptLine()
 			if (strcmpignorecase(token, "HEALTH") == 0)
 			{
 				token = strtok(NULL, " ");
-				
+
 				if (strcmpignorecase(token, "MAX") == 0)
 				{
 					e->health = e->maxHealth;
 				}
-				
+
 				else
 				{
 					e->health = atoi(token);
 				}
 			}
+
+			else if (strcmpignorecase("FACE", token) == 0)
+			{
+				token = strtok(NULL, " ");
+
+				if (strcmpignorecase(token, "LEFT") == 0)
+				{
+					e->face = LEFT;
+				}
+
+				else if (strcmpignorecase(token, "RIGHT") == 0)
+				{
+					e->face = RIGHT;
+				}
+
+				else
+				{
+					if (strcmpignorecase(token, "EDGAR") == 0)
+					{
+						e2 = &player;
+					}
+
+					else
+					{
+						e2 = getEntityByObjectiveName(token);
+					}
+
+					if (e2 == NULL)
+					{
+						printf("FACE command could not find Entity %s\n", token);
+
+						exit(1);
+					}
+
+					e->face = (e->x < e2->x ? RIGHT : LEFT);
+				}
+			}
+
+			else if (strcmpignorecase(token, "ANIMATION") == 0)
+			{
+				token = strtok(NULL, " ");
+
+				setEntityAnimation(e, getAnimationTypeByName(token));
+			}
 		}
 
-		else if (strcmpignorecase("ACTIVATE", token) == 0)
+		else if (strcmpignorecase("ACTIVATE", command) == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			activateEntitiesWithName(token, TRUE);
 		}
 
-		else if (strcmpignorecase("DEACTIVATE", token) == 0)
+		else if (strcmpignorecase("DEACTIVATE", command) == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			activateEntitiesWithName(token, FALSE);
 		}
 
-		else if (strcmpignorecase("REMOVE", token) == 0)
+		else if (strcmpignorecase("REMOVE", command) == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			getInventoryItemFromScript(token);
 		}
-		
-		else if (strcmpignorecase("WAIT", token) == 0)
+
+		else if (strcmpignorecase("WAIT", command) == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			script.thinkTime = atoi(token);
 		}
 
-		else if (strcmpignorecase("WALK", token) == 0)
+		else if (strcmpignorecase("PLAY_SOUND", command) == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			playSound(token, OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
+		}
+
+		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0)
 		{
 			token = strtok(NULL, " ");
 
@@ -295,9 +356,23 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("WALK command could not find Entity %s\n", token);
+				printf("WALK_TO command could not find Entity %s\n", token);
 
 				exit(1);
+			}
+
+			token = strtok(NULL, "\0");
+
+			printf("%s %s %s\n", command, e->objectiveName, token);
+
+			if (strcmpignorecase("WALK_TO", command) == 0)
+			{
+				entityWalkTo(e, token);
+			}
+
+			else
+			{
+				entityWalkToRelative(e, token);
 			}
 		}
 
@@ -307,7 +382,17 @@ void readNextScriptLine()
 
 int scriptWaiting()
 {
-	return script.thinkTime != 0;
+	return (script.thinkTime != 0 || script.counter != 0);
+}
+
+void setScriptCounter(int value)
+{
+	script.counter += value;
+
+	if (script.counter == 0)
+	{
+		readNextScriptLine();
+	}
 }
 
 void freeScript()

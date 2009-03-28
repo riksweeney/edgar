@@ -11,8 +11,14 @@
 #include "map.h"
 #include "enemy/enemies.h"
 #include "item/key_items.h"
+#include "event/script.h"
+#include "graphics/animation.h"
+#include "player.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
+
+static void scriptEntityMoveToTarget(void);
+static void entityMoveToTarget(void);
 
 void freeEntities()
 {
@@ -752,4 +758,146 @@ void addEntityFromScript(char *line)
 	{
 		addEnemy(entityName, x, y);
 	}
+}
+
+void entityWalkTo(Entity *e, char *coords)
+{
+	int x, y;
+	char wait[10];
+
+	sscanf(coords, "%d %d %s", &x, &y, wait);
+
+	e->targetX = x;
+	e->targetY = y;
+
+	if (!(e->flags & FLY))
+	{
+		e->targetY = e->y;
+	}
+
+	if (strcmpignorecase(wait, "WAIT") != 0)
+	{
+		e->action = &scriptEntityMoveToTarget;
+
+		setScriptCounter(1);
+	}
+
+	else
+	{
+		e->action = &entityMoveToTarget;
+	}
+
+	setEntityAnimation(e, WALK);
+}
+
+void entityWalkToRelative(Entity *e, char *coords)
+{
+	int x, y;
+	char wait[10];
+
+	sscanf(coords, "%d %d %s", &x, &y, wait);
+
+	e->targetX = self->x + x;
+	e->targetY = self->y + y;
+
+	if (!(e->flags & FLY))
+	{
+		e->targetY = e->y;
+	}
+
+	printf("%s will walk to %d %d\n", e->objectiveName, e->targetX, e->targetY);
+
+	if (strcmpignorecase(wait, "WAIT") == 0)
+	{
+		e->action = &scriptEntityMoveToTarget;
+
+		setScriptCounter(1);
+	}
+
+	else
+	{
+		e->action = &entityMoveToTarget;
+	}
+
+	setEntityAnimation(e, WALK);
+}
+
+static void scriptEntityMoveToTarget()
+{
+	self->face = (self->x < self->targetX) ? RIGHT : LEFT;
+
+	printf("1. %d %d -> %d %d\n", (int)self->x, (int)self->y, self->targetX, self->targetY);
+
+	if (abs(self->x - self->targetX) > self->speed)
+	{
+		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->x = self->targetX;
+	}
+
+	if (abs(self->y - self->targetY) > self->speed)
+	{
+		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->y = self->targetY;
+	}
+
+	if (self->x == self->targetX && self->y == self->targetY)
+	{
+		printf("%s reached Target\n", self->objectiveName);
+
+		if (self->type == PLAYER)
+		{
+			self->action = &playerWaitForDialog;
+		}
+
+		setEntityAnimation(self, STAND);
+
+		setScriptCounter(-1);
+	}
+
+	else
+	{
+		checkToMap(self);
+	}
+}
+
+static void entityMoveToTarget()
+{
+	self->face = (self->x < self->targetX) ? RIGHT : LEFT;
+
+	printf("2. %d %d -> %d %d\n", (int)self->x, (int)self->y, self->targetX, self->targetY);
+
+	if (abs(self->x - self->targetX) > self->speed)
+	{
+		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->x = self->targetX;
+	}
+
+	if (abs(self->y - self->targetY) > self->speed)
+	{
+		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->y = self->targetY;
+	}
+
+	if (self->x == self->targetX && self->y == self->targetY)
+	{
+		setEntityAnimation(self, STAND);
+	}
+
+	checkToMap(self);
 }
