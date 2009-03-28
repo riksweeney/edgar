@@ -90,10 +90,13 @@ void draw()
 	/* Swap the buffers */
 
 	SDL_Flip(game.screen);
-
-	/* Sleep briefly */
-
-	SDL_Delay(1);
+	
+	if (game.gameType != REPLAYING)
+	{
+		/* Sleep briefly */
+	
+		SDL_Delay(1);
+	}
 }
 
 void delay(unsigned int frameLimit)

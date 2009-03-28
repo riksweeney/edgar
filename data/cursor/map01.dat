@@ -3,6 +3,7 @@ enemy/chicken
 item/chicken_feed_bag
 npc/borgan
 npc/maggie
+npc/jacob
 lift/mine_lift
 item/chicken_trap
 lift/lift_target
