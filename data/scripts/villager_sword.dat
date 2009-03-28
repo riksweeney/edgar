@@ -1,3 +1,4 @@
+SET Jacob FACE Edgar
 IF Jacob HEALTH 5
 REMOVE "Chopped Log" 2 2 Jacob 7 6
 END

@@ -3,9 +3,11 @@
 #include "decoration.h"
 #include "graphics/animation.h"
 #include "system/properties.h"
+#include "system/random.h"
+#include "entity.h"
 
 static Entity decoration[MAX_DECORATIONS];
-extern Entity *self;
+extern Entity *self, player;
 
 static void move(void);
 static void wait(void);
@@ -14,7 +16,7 @@ static void timeout(void);
 
 static Constructor decorations[] = {
 {"decoration/chimney_smoke", &addSmoke},
-{"decoration/sparkle", &addMultipleSparkles}
+{"decoration/multiple_sparkles", &addMultipleSparkles}
 };
 
 static int length = sizeof(decorations) / sizeof(Constructor);
@@ -168,16 +170,19 @@ void addStarExplosion(int x, int y)
 	}
 }
 
-void multipleSparkles(int x, int y, char *name)
+Entity *addMultipleSparkles(int x, int y, char *name)
 {
-	int i, count;
-	
-	count = prand() % 10 + 1;
-	
-	for (i=0;i<count;i++)
+	int i, xx, yy;
+
+	for (i=0;i<5;i++)
 	{
-		addSparkle();
+		xx = x + (prand() % 30) * (prand() % 2 == 0 ? -1 : 1);
+		yy = y + (prand() % 30) * (prand() % 2 == 0 ? -1 : 1);
+
+		addSparkle(xx, yy);
 	}
+
+	return NULL;
 }
 
 void addSparkle(int x, int y)
@@ -284,27 +289,27 @@ static void move()
 	}
 }
 
-void addDecorationFromScript()
+void addDecorationFromScript(char *line)
 {
 	char decorationName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
 	Entity *e;
 
 	sscanf(line, "%s \"%[^\"]\"", decorationName, entityName);
-	
+
 	if (strcmpignorecase(entityName, "Edgar") == 0)
 	{
 		e = &player;
 	}
-	
+
 	else
 	{
 		e = getEntityByObjectiveName(entityName);
 	}
-	
+
 	if (e == NULL)
 	{
 		printf("Decoration could not find Entity %s\n", entityName);
-		
+
 		exit(1);
 	}
 

@@ -10,7 +10,6 @@ static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
 extern Map map;
 
-static int getAnimationTypeByName(char *);
 static char *getAnimationTypeByID(int);
 
 static int animationID = -1;
@@ -389,7 +388,7 @@ void setEntityAnimation(Entity *e, int animationID)
 		{
 			printf("Animation not set for %s index %s\n", e->name, getAnimationTypeByID(animationID));
 
-			abort();
+			exit(1);
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
@@ -410,7 +409,7 @@ void setEntityAnimation(Entity *e, int animationID)
 	}
 }
 
-static int getAnimationTypeByName(char *name)
+int getAnimationTypeByName(char *name)
 {
 	int i;
 

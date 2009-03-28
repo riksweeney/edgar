@@ -1,3 +1,4 @@
+SET Borgan FACE Edgar
 IF Borgan HEALTH 5
 TALK Borgan Keep practising!
 END

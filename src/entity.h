@@ -22,3 +22,5 @@ void writeEntityToFile(Entity *, FILE *);
 void flyLeftToRight(void);
 void flyToTarget(void);
 void addEntityFromScript(char *);
+void entityWalkTo(Entity *, char *);
+void entityWalkToRelative(Entity *, char *);
