@@ -384,7 +384,7 @@ void entityTouch(Entity *other)
 {
 	Entity *temp;
 
-	if (self->damage <= 0)
+	if (self->damage <= 0 || self->health <= 0)
 	{
 		return;
 	}
@@ -714,7 +714,10 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
-			fprintf(fp, "DAMAGE %d\n", self->damage);
+			if (self->type != WEAPON && self->type != SHIELD)
+			{
+				fprintf(fp, "DAMAGE %d\n", self->damage);
+			}
 			fprintf(fp, "SPEED %0.1f\n", self->speed);
 			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);

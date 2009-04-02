@@ -62,18 +62,21 @@ Entity *addGrubBoss(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
-	self->health -= damage;
-
-	setCustomAction(self, &flashWhite, 6);
-	setCustomAction(self, &invulnerableNoFlash, 20);
-
-	if (self->health < 0)
+	if (!(self->flags & INVULNERABLE))
 	{
-		self->thinkTime = 180;
-		
-		self->touch = NULL;
-
-		self->action = &die;
+		self->health -= damage;
+	
+		setCustomAction(self, &flashWhite, 6);
+		setCustomAction(self, &invulnerableNoFlash, 20);
+	
+		if (self->health < 0)
+		{
+			self->thinkTime = 180;
+			
+			self->touch = NULL;
+	
+			self->action = &die;
+		}
 	}
 }
 

@@ -220,6 +220,13 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			else
+			{
+				printf("Unknown IF command %s\n",token);
+				
+				exit(1);
+			}
 		}
 
 		else if (strcmpignorecase("SET", command) == 0)
@@ -302,6 +309,13 @@ void readNextScriptLine()
 				token = strtok(NULL, " ");
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
+			}
+			
+			else
+			{
+				printf("Unknown SET command %s\n", token);
+				
+				exit(1);
 			}
 		}
 

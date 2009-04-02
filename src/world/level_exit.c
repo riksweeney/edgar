@@ -78,7 +78,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && game.showHints == TRUE)
+	if (other->type == PLAYER)
 	{
 		setInfoBoxMessage(0,  _("Press Action to go to the %s"), self->requires);
 	}
