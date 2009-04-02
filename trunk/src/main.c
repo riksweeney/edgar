@@ -178,10 +178,7 @@ int main(int argc, char *argv[])
 
 		/* Sleep briefly to stop sucking up all the CPU time */
 		
-		if (game.gameType != REPLAYING)
-		{
-			delay(frameLimit);
-		}
+		delay(frameLimit);
 
 		frameLimit = SDL_GetTicks() + 16;
 

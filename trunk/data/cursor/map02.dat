@@ -3,6 +3,7 @@ item/wooden_crate
 item/metal_crate
 enemy/bat
 weapon/pickaxe
+weapon/wood_axe
 lift/mine_lift
 lift/large_mine_lift
 lift/lift_target

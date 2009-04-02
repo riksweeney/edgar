@@ -1,4 +1,5 @@
 SET Borgan FACE Edgar
+SET Borgan ANIMATION WALK
 IF Borgan HEALTH 5
 TALK Borgan Keep practising!
 END
@@ -49,3 +50,4 @@ IF Borgan HEALTH 4
 TALK Borgan Have you managed to find the coal yet?
 SET Borgan HEALTH 2
 END
+SET Borgan ANIMATION STAND

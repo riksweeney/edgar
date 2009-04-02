@@ -54,18 +54,24 @@ static void die()
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (damage < self->health)
+	if (!(self->flags & INVULNERABLE))
 	{
-		self->targetY = self->startY;
-
-		setCustomAction(self, &flashWhite, 6);
-
-		self->action = &retreat;
-	}
-
-	else
-	{
-		self->action = self->die;
+		if (damage < self->health)
+		{
+			self->targetY = self->startY;
+	
+			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &invulnerableNoFlash, 20);
+	
+			self->action = &retreat;
+		}
+	
+		else
+		{
+			self->health -= damage;
+			
+			self->action = self->die;
+		}
 	}
 }
 
@@ -143,7 +149,10 @@ static void move()
 
 static void draw()
 {
-	drawBoxToMap(self->startX + self->w / 2, self->startY, 1, (self->y - self->startY) + self->h / 2, 255, 255, 255);
+	if (self->health > 0)
+	{
+		drawBoxToMap(self->startX + self->w / 2, self->startY, 1, (self->y - self->startY) + self->h / 2, 255, 255, 255);
+	}
 
 	drawLoopingAnimationToMap();
 }
