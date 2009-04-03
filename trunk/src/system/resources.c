@@ -241,7 +241,7 @@ void loadResources(FILE *fp)
 
 			else if (strcmpignorecase(value[type], "PLAYER") == 0)
 			{
-				e = loadPlayer(atoi(value[startX]), atoi(value[startY]));
+				e = loadPlayer(atoi(value[startX]), atoi(value[startY]), NULL);
 			}
 
 			else if (strcmpignorecase(value[type], "PLAYER_WEAPON") == 0)

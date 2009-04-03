@@ -27,9 +27,9 @@ static void resetPause(void);
 static void resetPlayer(void);
 static void dialogWait(void);
 
-Entity *loadPlayer(int x, int y)
+Entity *loadPlayer(int x, int y, char *name)
 {
-	loadProperties("edgar/edgar", &player);
+	loadProperties(name == NULL ? "edgar/edgar" : name, &player);
 
 	if (player.inUse != TRUE)
 	{
@@ -445,7 +445,7 @@ static void dialogWait()
 		input.activate = 0;
 		input.block = 0;
 	}
-	
+
 	else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)
 	{
 		readNextScriptLine();
