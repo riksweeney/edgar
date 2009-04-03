@@ -1,4 +1,4 @@
-Entity *loadPlayer(int, int);
+Entity *loadPlayer(int, int, char *);
 void setPlayerLocation(int, int);
 void doPlayer(void);
 void drawPlayer(void);

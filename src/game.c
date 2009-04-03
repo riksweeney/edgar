@@ -390,7 +390,7 @@ void goToNextMap()
 		exit(1);
 	}
 
-	loadPlayer(start->x, start->y);
+	loadPlayer(start->x, start->y, NULL);
 
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
