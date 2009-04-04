@@ -516,6 +516,12 @@ void setPlayerShield(int val)
 	playerShield.parent = &player;
 
 	playerShield.face = player.face;
+	
+	setEntityAnimation(&playerShield, player.currentAnim);
+	
+	playerShield.currentFrame = player.currentFrame;
+	
+	playerShield.frameTimer = player.frameTimer;
 }
 
 void setPlayerWeapon(int val)
@@ -525,6 +531,12 @@ void setPlayerWeapon(int val)
 	playerWeapon.parent = &player;
 
 	playerWeapon.face = player.face;
+	
+	setEntityAnimation(&playerWeapon, player.currentAnim);
+	
+	playerWeapon.currentFrame = player.currentFrame;
+	
+	playerWeapon.frameTimer = player.frameTimer;
 }
 
 void autoSetPlayerWeapon(Entity *newWeapon)
@@ -538,6 +550,12 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		playerWeapon.face = player.face;
 
 		playerWeapon.inUse = TRUE;
+		
+		setEntityAnimation(&playerWeapon, player.currentAnim);
+		
+		playerWeapon.currentFrame = player.currentFrame;
+		
+		playerWeapon.frameTimer = player.frameTimer;
 	}
 }
 
@@ -552,6 +570,12 @@ void autoSetPlayerShield(Entity *newWeapon)
 		playerShield.face = player.face;
 
 		playerShield.inUse = TRUE;
+		
+		setEntityAnimation(&playerShield, player.currentAnim);
+		
+		playerShield.currentFrame = player.currentFrame;
+		
+		playerShield.frameTimer = player.frameTimer;
 	}
 }
 

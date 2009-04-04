@@ -11,3 +11,5 @@ common/switch
 common/level_exit
 common/save_point
 common/spawner
+weapon/small_wooden_shield
+weapon/pickaxe
