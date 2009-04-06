@@ -384,12 +384,12 @@ void entityTouch(Entity *other)
 {
 	Entity *temp;
 
-	if (self->damage <= 0 || self->health <= 0)
+	if (self->damage <= 0)
 	{
 		return;
 	}
 
-	if (other->type == PLAYER && self->parent != other)
+	if (other->type == PLAYER && self->parent != other && !(self->flags & INVULNERABLE))
 	{
 		temp = self;
 

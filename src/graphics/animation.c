@@ -67,7 +67,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			{
 				if (animation[animationID].frameCount == 0)
 				{
-					printf("Animation %d was created with 0 frames\n", animationID);
+					printf("Animation %d from file %s was created with 0 frames\n", animationID, filename);
 
 					exit(1);
 				}
@@ -155,7 +155,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 	if (animation[animationID].frameCount == 0)
 	{
-		printf("Animation %d was created with 0 frames\n", animationID);
+		printf("Animation %d from file %s was created with 0 frames\n", animationID, filename);
 
 		exit(1);
 	}

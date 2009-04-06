@@ -307,12 +307,11 @@ void doPlayer()
 					if (playerWeapon.inUse == TRUE)
 					{
 						self->animationCallback = &attackFinish;
-						playerShield.animationCallback = &attackFinish;
-						playerWeapon.animationCallback = &attackFinish;
 
 						playerWeapon.flags |= ATTACKING;
 
 						setEntityAnimation(&player, ATTACK_1);
+						setEntityAnimation(&playerShield, ATTACK_1);
 						setEntityAnimation(&playerWeapon, ATTACK_1);
 					}
 
@@ -417,6 +416,11 @@ void doPlayer()
 	}
 
 	addToGrid(&player);
+	
+	if (playerWeapon.flags & ATTACKING)
+	{
+		addToGrid(&playerWeapon);
+	}
 }
 
 void playerWaitForDialog()
