@@ -27,12 +27,24 @@ void initCollisionGrid()
 void addToGrid(Entity *e)
 {
 	int left, right, top, bottom;
-
-	left = e->x / TILE_SIZE / GRID_SIZE;
-	right = (e->x + e->w - 1) / TILE_SIZE / GRID_SIZE;
-
-	top = e->y / TILE_SIZE / GRID_SIZE;
-	bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+	
+	if (e == &playerWeapon)
+	{		
+		left = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
+		right = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1) + e->w - 1) / TILE_SIZE / GRID_SIZE;
+		
+		top = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1) + e->h - 1) / TILE_SIZE / GRID_SIZE;
+	}
+	
+	else
+	{
+		left = e->x / TILE_SIZE / GRID_SIZE;
+		right = (e->x + e->w - 1) / TILE_SIZE / GRID_SIZE;
+	
+		top = e->y / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+	}
 
 	addToList(top, left, e);
 
@@ -97,7 +109,7 @@ void freeCollisionGrid()
 
 void doCollisions()
 {
-	int i, j, x, y, w, h;
+	int i, j, x, y;
 	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
@@ -122,6 +134,11 @@ void doCollisions()
 								continue;
 							}
 							
+							if ((e1 == &player && e2 == &playerWeapon) || (e1 == &playerWeapon && e2 == &player))
+							{
+								continue;
+							}
+							/*
 							if (e1 == &player)
 							{
 								if (playerWeapon.inUse == TRUE && (playerWeapon.flags & ATTACKING))
@@ -146,8 +163,18 @@ void doCollisions()
 									}
 								}
 							}
-
-							if (collision(e1->x, e1->y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
+							*/
+							
+							x = e1->x;
+							y = e1->y;
+							
+							if (e1 == &playerWeapon)
+							{
+								x += e1->offsetX * (e1->face == LEFT ? -1 : 1);
+								y += e1->offsetY * (e1->face == LEFT ? -1 : 1);
+							}
+							
+							if (collision(x, y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
 							{
 								temp = self;
 
