@@ -143,7 +143,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				if (spriteIndex[animation[animationID].frameID[i]] == -1)
 				{
-					printf("Invalid sprite at animation index %d\n", animation[animationID].frameID[i]);
+					printf("Invalid sprite at animation index %d in file \n", animation[animationID].frameID[i], filename);
 
 					exit(1);
 				}

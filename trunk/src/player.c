@@ -178,7 +178,7 @@ void doPlayer()
 				}
 			}
 
-			if (self->animationCallback == NULL)
+			if (!(playerWeapon.flags & ATTACKING))
 			{
 				if (input.left == 1)
 				{
@@ -306,13 +306,13 @@ void doPlayer()
 				{
 					if (playerWeapon.inUse == TRUE)
 					{
-						self->animationCallback = &attackFinish;
-
 						playerWeapon.flags |= ATTACKING;
 
 						setEntityAnimation(&player, ATTACK_1);
 						setEntityAnimation(&playerShield, ATTACK_1);
 						setEntityAnimation(&playerWeapon, ATTACK_1);
+
+						playerWeapon.animationCallback = &attackFinish;
 					}
 
 					input.attack = 0;
@@ -416,7 +416,7 @@ void doPlayer()
 	}
 
 	addToGrid(&player);
-	
+
 	if (playerWeapon.flags & ATTACKING)
 	{
 		addToGrid(&playerWeapon);
@@ -520,11 +520,11 @@ void setPlayerShield(int val)
 	playerShield.parent = &player;
 
 	playerShield.face = player.face;
-	
+
 	setEntityAnimation(&playerShield, player.currentAnim);
-	
+
 	playerShield.currentFrame = player.currentFrame;
-	
+
 	playerShield.frameTimer = player.frameTimer;
 }
 
@@ -535,11 +535,11 @@ void setPlayerWeapon(int val)
 	playerWeapon.parent = &player;
 
 	playerWeapon.face = player.face;
-	
+
 	setEntityAnimation(&playerWeapon, player.currentAnim);
-	
+
 	playerWeapon.currentFrame = player.currentFrame;
-	
+
 	playerWeapon.frameTimer = player.frameTimer;
 }
 
@@ -554,11 +554,11 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		playerWeapon.face = player.face;
 
 		playerWeapon.inUse = TRUE;
-		
+
 		setEntityAnimation(&playerWeapon, player.currentAnim);
-		
+
 		playerWeapon.currentFrame = player.currentFrame;
-		
+
 		playerWeapon.frameTimer = player.frameTimer;
 	}
 }
@@ -574,11 +574,11 @@ void autoSetPlayerShield(Entity *newWeapon)
 		playerShield.face = player.face;
 
 		playerShield.inUse = TRUE;
-		
+
 		setEntityAnimation(&playerShield, player.currentAnim);
-		
+
 		playerShield.currentFrame = player.currentFrame;
-		
+
 		playerShield.frameTimer = player.frameTimer;
 	}
 }
