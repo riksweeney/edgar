@@ -102,12 +102,12 @@ static void touch(Entity *other)
 			if ((prand() % 4) == 0)
 			{
 				e = addCoal(self->x + self->w / 2, self->y);
-	
+
 				e->y -= e->h + 1;
-	
+
 				e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
 			}
-			
+
 			setCustomAction(self, &flashWhite, 6);
 		}
 
@@ -115,7 +115,7 @@ static void touch(Entity *other)
 		{
 			printf("Dink\n");
 		}
-		
+
 		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }
