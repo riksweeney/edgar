@@ -199,6 +199,7 @@ enum
 	JUMP,
 	PAIN,
 	DIE,
+	BLOCK,
 	ATTACK_1,
 	ATTACK_2,
 	ATTACK_3,

@@ -182,57 +182,73 @@ void doPlayer()
 			{
 				if (input.left == 1)
 				{
-					self->dirX -= self->speed;
-
-					/* Only pull the target */
-
-					if ((self->flags & GRABBING) && self->target != NULL)
-					{
-						if (self->target->x > self->x)
-						{
-							self->target->dirX = -self->speed;
-
-							self->target->frameSpeed = -1;
-						}
-					}
-
-					else
+					if (player.flags & BLOCKING)
 					{
 						playerWeapon.face = playerShield.face = self->face = LEFT;
 					}
 
-					setEntityAnimation(&player, WALK);
-					setEntityAnimation(&playerShield, WALK);
-					setEntityAnimation(&playerWeapon, WALK);
+					else
+					{
+						self->dirX -= self->speed;
+
+						/* Only pull the target */
+
+						if ((self->flags & GRABBING) && self->target != NULL)
+						{
+							if (self->target->x > self->x)
+							{
+								self->target->dirX = -self->speed;
+
+								self->target->frameSpeed = -1;
+							}
+						}
+
+						else
+						{
+							playerWeapon.face = playerShield.face = self->face = LEFT;
+						}
+
+						setEntityAnimation(&player, WALK);
+						setEntityAnimation(&playerShield, WALK);
+						setEntityAnimation(&playerWeapon, WALK);
+					}
 				}
 
 				else if (input.right == 1)
 				{
-					self->dirX += self->speed;
-
-					/* Only pull the target */
-
-					if ((self->flags & GRABBING) && self->target != NULL)
-					{
-						if (self->target->x < self->x)
-						{
-							self->target->dirX = self->speed;
-
-							self->target->frameSpeed = 1;
-						}
-					}
-
-					else
+					if (player.flags & BLOCKING)
 					{
 						playerWeapon.face = playerShield.face = self->face = RIGHT;
 					}
 
-					setEntityAnimation(&player, WALK);
-					setEntityAnimation(&playerShield, WALK);
-					setEntityAnimation(&playerWeapon, WALK);
+					else
+					{
+						self->dirX += self->speed;
+
+						/* Only pull the target */
+
+						if ((self->flags & GRABBING) && self->target != NULL)
+						{
+							if (self->target->x < self->x)
+							{
+								self->target->dirX = self->speed;
+
+								self->target->frameSpeed = 1;
+							}
+						}
+
+						else
+						{
+							playerWeapon.face = playerShield.face = self->face = RIGHT;
+						}
+
+						setEntityAnimation(&player, WALK);
+						setEntityAnimation(&playerShield, WALK);
+						setEntityAnimation(&playerWeapon, WALK);
+					}
 				}
 
-				else if (input.left == 0 && input.right == 0)
+				else if (input.left == 0 && input.right == 0 && !(player.flags & BLOCKING))
 				{
 					setEntityAnimation(&player, STAND);
 					setEntityAnimation(&playerShield, STAND);
@@ -302,7 +318,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.attack == 1)
+				if (input.attack == 1 && !(player.flags & BLOCKING))
 				{
 					if (playerWeapon.inUse == TRUE)
 					{
@@ -325,7 +341,7 @@ void doPlayer()
 					input.interact = 0;
 				}
 
-				if (input.grabbing == 1)
+				if (input.grabbing == 1 && !(player.flags & BLOCKING))
 				{
 					self->flags |= GRABBING;
 				}
@@ -344,6 +360,27 @@ void doPlayer()
 					}
 				}
 
+				if (input.block == 1 && playerShield.inUse == TRUE)
+				{
+					player.flags |= BLOCKING;
+
+					setEntityAnimation(&player, BLOCK);
+					setEntityAnimation(&playerShield, BLOCK);
+
+					playerShield.thinkTime++;
+				}
+
+				else if (input.block == 0 && (player.flags & BLOCKING))
+				{
+					player.flags &= ~BLOCKING;
+
+					setEntityAnimation(&player, STAND);
+					setEntityAnimation(&playerWeapon, STAND);
+					setEntityAnimation(&playerShield, STAND);
+
+					playerShield.thinkTime = 0;
+				}
+
 				if (input.activate == 1)
 				{
 					useInventoryItem();
@@ -358,7 +395,7 @@ void doPlayer()
 					input.next = input.previous = 0;
 				}
 
-				if (input.jump == 1)
+				if (input.jump == 1 && !(player.flags & BLOCKING))
 				{
 					if (self->flags & ON_GROUND)
 					{
@@ -397,6 +434,11 @@ void doPlayer()
 		if (player.environment == WATER && i == AIR)
 		{
 			player.action = &fallout;
+		}
+
+		else if (player.environment == LAVA)
+		{
+			exit(0);
 		}
 
 		self->standingOn = NULL;
@@ -481,16 +523,19 @@ void drawPlayer()
 
 	if (self->inUse == TRUE && (self->flags & NO_DRAW) == 0)
 	{
-		/* Draw the weapon */
-
-		self = &playerWeapon;
-
-		if (self->inUse == TRUE)
+		if (!(self->flags & BLOCKING))
 		{
-			self->x = player.x;
-			self->y = player.y;
+			/* Draw the weapon */
 
-			self->draw();
+			self = &playerWeapon;
+
+			if (self->inUse == TRUE)
+			{
+				self->x = player.x;
+				self->y = player.y;
+
+				self->draw();
+			}
 		}
 
 		/* Draw the player */
@@ -523,8 +568,6 @@ void setPlayerShield(int val)
 
 	setEntityAnimation(&playerShield, player.currentAnim);
 
-	playerShield.currentFrame = player.currentFrame;
-
 	playerShield.frameTimer = player.frameTimer;
 }
 
@@ -537,8 +580,6 @@ void setPlayerWeapon(int val)
 	playerWeapon.face = player.face;
 
 	setEntityAnimation(&playerWeapon, player.currentAnim);
-
-	playerWeapon.currentFrame = player.currentFrame;
 
 	playerWeapon.frameTimer = player.frameTimer;
 }
@@ -556,8 +597,6 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		playerWeapon.inUse = TRUE;
 
 		setEntityAnimation(&playerWeapon, player.currentAnim);
-
-		playerWeapon.currentFrame = player.currentFrame;
 
 		playerWeapon.frameTimer = player.frameTimer;
 	}
@@ -577,14 +616,34 @@ void autoSetPlayerShield(Entity *newWeapon)
 
 		setEntityAnimation(&playerShield, player.currentAnim);
 
-		playerShield.currentFrame = player.currentFrame;
-
 		playerShield.frameTimer = player.frameTimer;
 	}
 }
 
 static void takeDamage(Entity *other, int damage)
 {
+	if (player.flags & BLOCKING)
+	{
+		if (playerShield.health >= damage)
+		{
+			if (other->type == PROJECTILE)
+			{
+				other->inUse = FALSE;
+			}
+
+			else
+			{
+				player.dirX = other->dirX < 0 ? -2 : 2;
+				other->dirX = other->dirX < 0 ? -2 : 2;
+
+				checkToMap(&player);
+				checkToMap(other);
+			}
+
+			return;
+		}
+	}
+
 	if (!(player.flags & INVULNERABLE))
 	{
 		player.health -= damage;

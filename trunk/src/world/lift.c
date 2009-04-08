@@ -60,16 +60,13 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 static void touch(Entity *other)
 {
-	other->x -= other->dirX;
-	other->y -= other->dirY;
-
 	/* Test the horizontal movement */
 
 	if (other->dirY > 0)
 	{
 		/* Trying to move down */
 
-		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
 		{
 			/* Place the player as close to the solid tile as possible */
 
@@ -80,15 +77,12 @@ static void touch(Entity *other)
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
 
-			if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER)
+			if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER && self->dirY == 0)
 			{
 				setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
 			}
 		}
 	}
-
-	other->x += other->dirX;
-	other->y += other->dirY;
 }
 
 static void findTarget(int val)

@@ -19,6 +19,7 @@ static Type type[] = {
 					{JUMP, "JUMP"},
 					{PAIN, "PAIN"},
 					{DIE, "DIE"},
+					{BLOCK, "BLOCK"},
 					{ATTACK_1, "ATTACK_1"},
 					{ATTACK_2, "ATTACK_2"},
 					{ATTACK_3, "ATTACK_3"},
@@ -143,7 +144,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				if (spriteIndex[animation[animationID].frameID[i]] == -1)
 				{
-					printf("Invalid sprite at animation index %d in file \n", animation[animationID].frameID[i], filename);
+					printf("Invalid sprite at animation index %d in file %s\n", animation[animationID].frameID[i], filename);
 
 					exit(1);
 				}
@@ -388,7 +389,7 @@ void setEntityAnimation(Entity *e, int animationID)
 		{
 			printf("Animation not set for %s index %s\n", e->name, getAnimationTypeByID(animationID));
 
-			exit(1);
+			abort();
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);

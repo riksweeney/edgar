@@ -27,21 +27,21 @@ void initCollisionGrid()
 void addToGrid(Entity *e)
 {
 	int left, right, top, bottom;
-	
+
 	if (e == &playerWeapon)
-	{		
+	{
 		left = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
 		right = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1) + e->w - 1) / TILE_SIZE / GRID_SIZE;
-		
+
 		top = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
 		bottom = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1) + e->h - 1) / TILE_SIZE / GRID_SIZE;
 	}
-	
+
 	else
 	{
 		left = e->x / TILE_SIZE / GRID_SIZE;
 		right = (e->x + e->w - 1) / TILE_SIZE / GRID_SIZE;
-	
+
 		top = e->y / TILE_SIZE / GRID_SIZE;
 		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
 	}
@@ -133,7 +133,7 @@ void doCollisions()
 							{
 								continue;
 							}
-							
+
 							if ((e1 == &player && e2 == &playerWeapon) || (e1 == &playerWeapon && e2 == &player))
 							{
 								continue;
@@ -149,31 +149,31 @@ void doCollisions()
 										y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
 										w = playerWeapon.w;
 										h = playerWeapon.h;
-	
+
 										if (collision(e2->x, e2->y, e2->w, e2->h, x, y, w, h) == TRUE)
 										{
 											temp = self;
-	
+
 											self = e2;
-	
+
 											self->touch(&playerWeapon);
-	
+
 											self = temp;
 										}
 									}
 								}
 							}
 							*/
-							
+
 							x = e1->x;
 							y = e1->y;
-							
+
 							if (e1 == &playerWeapon)
 							{
 								x += e1->offsetX * (e1->face == LEFT ? -1 : 1);
 								y += e1->offsetY * (e1->face == LEFT ? -1 : 1);
 							}
-							
+
 							if (collision(x, y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
 							{
 								temp = self;
