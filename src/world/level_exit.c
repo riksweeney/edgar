@@ -8,7 +8,7 @@
 #include "../game.h"
 #include "../system/random.h"
 
-extern Entity *self, player;
+extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
 
 static void wait(void);
@@ -89,6 +89,8 @@ static void activate(int val)
 	player.flags |= HELPLESS;
 	
 	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&playerShield, STAND);
 
 	player.dirX = 0;
 

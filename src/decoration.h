@@ -9,3 +9,5 @@ Entity *addDecoration(char *, int, int);
 Entity *addSmoke(int, int, char *);
 Entity *addMultipleSparkles(int, int, char *);
 void addDecorationFromScript(char *);
+void addBlood(int, int);
+Entity *addBasicDecoration(int, int, char *);

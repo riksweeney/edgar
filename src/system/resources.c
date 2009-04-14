@@ -36,6 +36,7 @@ extern Game game;
 #include "../collisions.h"
 #include "../menu/main_menu.h"
 #include "../npc/npc.h"
+#include "../world/action_point.h"
 
 static char **key, **value;
 
@@ -304,9 +305,9 @@ void loadResources(FILE *fp)
 				e = addSwitch(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
-			else if (strcmpignorecase(value[type], "LINE_DEF") == 0)
+			else if (strcmpignorecase(value[type], "SCRIPT_LINE_DEF") == 0 || strcmpignorecase(value[type], "LINE_DEF") == 0)
 			{
-				e = addLineDef(value[name], atoi(value[startX]), atoi(value[startY]));
+				e = addLineDef(value[type], value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else if (strcmpignorecase(value[type], "LEVEL_EXIT") == 0)
@@ -337,6 +338,11 @@ void loadResources(FILE *fp)
 			else if (strcmpignorecase(value[type], "OBJECTIVE") == 0)
 			{
 				addObjectiveFromResource(key, value);
+			}
+			
+			else if (strcmpignorecase(value[type], "ACTION_POINT") == 0)
+			{
+				e = addActionPoint(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else

@@ -3,14 +3,16 @@
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../event/script.h"
 
 extern Entity *self;
 
-static void touch(Entity *);
+static void standardTouch(Entity *);
+static void scriptTouch(Entity *);
 static void wait(void);
 static void initialise(void);
 
-Entity *addLineDef(char *name, int x, int y)
+Entity *addLineDef(char *type, char *name, int x, int y)
 {
 	Entity *e = getFreeEntity();
 
@@ -24,12 +26,22 @@ Entity *addLineDef(char *name, int x, int y)
 	STRNCPY(e->name, name, sizeof(e->name));
 
 	e->flags |= NO_DRAW;
-
-	e->type = LINE_DEF;
-
+	
 	e->action = &initialise;
+	
+	if (strcmpignorecase(type, "SCRIPT_LINE_DEF") == 0)
+	{
+		e->type = SCRIPT_LINE_DEF;
 
-	e->touch = &touch;
+		e->touch = &scriptTouch;
+	}
+	
+	else
+	{
+		e->type = LINE_DEF;
+
+		e->touch = &standardTouch;
+	}
 
 	e->x = x;
 	e->y = y;
@@ -39,11 +51,23 @@ Entity *addLineDef(char *name, int x, int y)
 	return e;
 }
 
-static void touch(Entity *other)
+static void standardTouch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
 		activateEntitiesWithName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
+
+		self->inUse = FALSE;
+	}
+}
+
+static void scriptTouch(Entity *other)
+{
+	if (other->type == PLAYER && self->active == TRUE)
+	{
+		loadScript(self->objectiveName);
+		
+		readNextScriptLine();
 
 		self->inUse = FALSE;
 	}

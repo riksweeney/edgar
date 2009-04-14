@@ -301,25 +301,17 @@ void loadInventoryItems()
 	{
 		if (inventory.item[i].inUse == TRUE)
 		{
-			printf("Reloading properties for %s\n", inventory.item[i].name);
-
 			loadProperties(inventory.item[i].name, &e);
-
-			printf("Realigning animations for %s\n", inventory.item[i].name);
 
 			for (j=0;j<MAX_ANIMATION_TYPES;j++)
 			{
 				inventory.item[i].animation[j] = e.animation[j];
 			}
 
-			printf("Resetting stand animation for %s\n", inventory.item[i].name);
-
 			setEntityAnimation(&inventory.item[i], STAND);
 
 			if (inventory.item[i].type == WEAPON && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
 			{
-				printf("Resetting player weapon\n");
-
 				self = &inventory.item[i];
 
 				setPlayerWeapon(1);
@@ -327,8 +319,6 @@ void loadInventoryItems()
 
 			else if (inventory.item[i].type == SHIELD && strcmpignorecase(inventory.item[i].name, playerShield.name) == 0)
 			{
-				printf("Resetting player shield\n");
-
 				self = &inventory.item[i];
 
 				setPlayerShield(1);
@@ -341,11 +331,11 @@ void loadInventoryItems()
 
 void getInventoryItemFromScript(char *line)
 {
-	char itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
+	char command[15], itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
 	int quantity, success, failure, quantityToRemove;
 	Entity *e, *item;
 
-	sscanf(line, "\"%[^\"]\" %d %d %s %d %d", itemName, &quantity, &quantityToRemove, entityName, &success, &failure);
+	sscanf(line, "%s \"%[^\"]\" %d %d %s %d %d", command, itemName, &quantity, &quantityToRemove, entityName, &success, &failure);
 
 	e = getEntityByObjectiveName(entityName);
 
@@ -360,11 +350,14 @@ void getInventoryItemFromScript(char *line)
 
 	if (item != NULL && item->health >= quantity)
 	{
-		item->health -= quantityToRemove;
-
-		if (item->health <= 0 || quantityToRemove == -1)
+		if (strcmpignorecase(command, "REMOVE") == 0)
 		{
-			removeInventoryItem(itemName);
+			item->health -= quantityToRemove;
+	
+			if (item->health <= 0 || quantityToRemove == -1)
+			{
+				removeInventoryItem(itemName);
+			}
 		}
 
 		e->health = success;

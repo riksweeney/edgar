@@ -13,3 +13,5 @@ void setPlayerShieldName(char *);
 void playerWaitForDialog(void);
 void playerResumeNormal(void);
 void writePlayerMapStartToFile(FILE *);
+void increasePlayerMaxHealth(void);
+void syncWeaponShieldToPlayer(void);

@@ -519,7 +519,7 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_ACTIVATE] = 0;
 		control.button[CONTROL_CUT] = -1;
 		control.button[CONTROL_ATTACK] = 2;
-		control.button[CONTROL_FLY] = -1;
+		control.button[CONTROL_FLY] = SDLK_f;
 		control.button[CONTROL_SNAP] = -1;
 		control.button[CONTROL_INTERACT] = 3;
 		control.button[CONTROL_PAUSE] = 9;

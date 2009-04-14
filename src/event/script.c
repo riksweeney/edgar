@@ -10,6 +10,8 @@
 #include "../audio/audio.h"
 #include "../decoration.h"
 #include "../graphics/animation.h"
+#include "../game.h"
+#include "../map.h"
 
 extern Entity player;
 
@@ -65,14 +67,14 @@ void loadScript(char *name)
 			filename[strlen(filename) - 1] = '\0';
 		}
 
-		script.text[i] = (char *)malloc(strlen(filename));
+		script.text[i] = (char *)malloc(strlen(filename) + 1);
 
 		if (script.text[i] == NULL)
 		{
 			printf("Could not allocate %d bytes for script line %d\n", sizeof(char *) * script.lineCount, (i + 1));
 		}
 
-		STRNCPY(script.text[i], filename, strlen(filename));
+		STRNCPY(script.text[i], filename, strlen(filename) + 1);
 
 		i++;
 	}
@@ -295,7 +297,7 @@ void readNextScriptLine()
 
 					if (e2 == NULL)
 					{
-						printf("FACE command could not find Entity %s\n", token);
+						printf("FACE command could not find Entity \"%s\"\n", token);
 
 						exit(1);
 					}
@@ -332,16 +334,23 @@ void readNextScriptLine()
 
 			activateEntitiesWithName(token, FALSE);
 		}
-
-		else if (strcmpignorecase("REMOVE", command) == 0)
+		
+		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			getInventoryItemFromScript(token);
+			setNextLevelFromScript(token);
+		}
+
+		else if (strcmpignorecase("REMOVE", command) == 0 || strcmpignorecase("HAS_ITEM", command) == 0)
+		{
+			getInventoryItemFromScript(script.text[script.line]);
 		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)
 		{
+			freeDialogBox();
+			
 			token = strtok(NULL, "\0");
 
 			script.thinkTime = atoi(token);
@@ -353,9 +362,58 @@ void readNextScriptLine()
 
 			playSound(token, OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 		}
+		
+		else if (strcmpignorecase("KILL", command) == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			e = getEntityByObjectiveName(token);
+			
+			if (e == NULL)
+			{
+				printf("KILL command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+			
+			e->inUse = FALSE;
+		}
+		
+		else if (strcmpignorecase("FOLLOW", command) == 0)
+		{
+			freeDialogBox();
+			
+			token = strtok(NULL, "\0");
+			
+			if (strcmpignorecase("NONE", token) == 0)
+			{
+				e = NULL;
+			}
+			
+			else if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+			
+			else
+			{
+				e = getEntityByObjectiveName(token);
+				
+				if (e == NULL)
+				{
+					printf("FOLLOW command could not find Entity %s\n", token);
+	
+					exit(1);
+				}
+			}
+			
+			centerMapOnEntity(e);
+		}
 
 		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0)
 		{
+			freeDialogBox();
+			
 			token = strtok(NULL, " ");
 
 			if (strcmpignorecase(token, "EDGAR") == 0)

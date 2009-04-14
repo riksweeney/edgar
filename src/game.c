@@ -353,6 +353,18 @@ void setNextLevel(char *name, char *playerStart)
 	STRNCPY(game.playerStart, playerStart, sizeof(game.playerStart));
 }
 
+void setNextLevelFromScript(char *token)
+{
+	char *name, *playerStart;
+	
+	name = strtok(token, " ");
+	playerStart = strtok(NULL, "\0");
+	
+	setNextLevel(name, playerStart);
+	
+	setTransition(TRANSITION_OUT, &goToNextMap);
+}
+
 void goToNextMap()
 {
 	Entity *start;

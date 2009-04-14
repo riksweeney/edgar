@@ -1,0 +1,1 @@
+void throwGibs(char *, int);

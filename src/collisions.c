@@ -30,11 +30,20 @@ void addToGrid(Entity *e)
 
 	if (e == &playerWeapon)
 	{
-		left = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
-		right = (e->x + (e->offsetX * e->face == LEFT ? -1 : 1) + e->w - 1) / TILE_SIZE / GRID_SIZE;
+		if (e->face == LEFT)
+		{
+			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
+		}
+		
+		else
+		{
+			left = (e->x + e->offsetX) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_SIZE;
+		}
 
-		top = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1)) / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + (e->offsetY * e->face == LEFT ? -1 : 1) + e->h - 1) / TILE_SIZE / GRID_SIZE;
+		top = e->y / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
 	}
 
 	else
@@ -133,6 +142,11 @@ void doCollisions()
 							{
 								continue;
 							}
+							
+							if (e1->type == PROJECTILE && e2->type == PROJECTILE)
+							{
+								continue;
+							}
 
 							if ((e1 == &player && e2 == &playerWeapon) || (e1 == &playerWeapon && e2 == &player))
 							{
@@ -170,8 +184,18 @@ void doCollisions()
 
 							if (e1 == &playerWeapon)
 							{
-								x += e1->offsetX * (e1->face == LEFT ? -1 : 1);
-								y += e1->offsetY * (e1->face == LEFT ? -1 : 1);
+								if (e1->face == LEFT)
+								{
+									x += e1->parent->w - e1->w - e1->offsetX;
+								}
+								
+								else
+								{
+									x += e1->offsetX;
+								}
+								
+								
+								y += e1->offsetY;
 							}
 
 							if (collision(x, y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
@@ -325,10 +349,18 @@ void checkToMap(Entity *e)
 						if (!(e->flags & FLY))
 						{
 							e->y -= e->dirX;
-
-							e->dirY = 0;
-
-							e->flags |= ON_GROUND;
+							
+							if ((e->flags & BOUNCES) && e->dirY > 4)
+							{
+								e->dirY = -e->dirY * 2 / 3;
+							}
+							
+							else
+							{
+								e->dirY = 0;
+			
+								e->flags |= ON_GROUND;
+							}
 						}
 
 						if (e->type == PROJECTILE)
@@ -359,7 +391,7 @@ void checkToMap(Entity *e)
 
 					e->x -= e->w;
 
-					e->dirX = 0;
+					e->dirX = (e->flags & BOUNCES) ? -e->dirX : 0;
 
 					if ((e->flags & GRABBING) && e->target != NULL)
 					{
@@ -387,9 +419,17 @@ void checkToMap(Entity *e)
 						{
 							e->y += e->dirX;
 
-							e->dirY = 0;
-
-							e->flags |= ON_GROUND;
+							if ((e->flags & BOUNCES) && e->dirY > 4)
+							{
+								e->dirY = -e->dirY * 2 / 3;
+							}
+							
+							else
+							{
+								e->dirY = 0;
+			
+								e->flags |= ON_GROUND;
+							}
 						}
 					}
 				}
@@ -411,7 +451,7 @@ void checkToMap(Entity *e)
 
 					e->x = (x1 + 1) * TILE_SIZE;
 
-					e->dirX = 0;
+					e->dirX = (e->flags & BOUNCES) ? -e->dirX : 0;
 
 					if ((e->flags & GRABBING) && e->target != NULL)
 					{
@@ -477,9 +517,17 @@ void checkToMap(Entity *e)
 
 						e->y -= (((int)e->x + e->w - 1) % TILE_SIZE) + 1;
 
-						e->dirY = 0;
-
-						e->flags |= ON_GROUND;
+						if ((e->flags & BOUNCES) && e->dirY > 4)
+						{
+							e->dirY = -e->dirY * 2 / 3;
+						}
+						
+						else
+						{
+							e->dirY = 0;
+		
+							e->flags |= ON_GROUND;
+						}
 					}
 
 					if (e->type == PROJECTILE)
@@ -499,9 +547,17 @@ void checkToMap(Entity *e)
 
 						e->y -= TILE_SIZE - ((int)e->x) % TILE_SIZE;
 
-						e->dirY = 0;
-
-						e->flags |= ON_GROUND;
+						if ((e->flags & BOUNCES) && e->dirY > 4)
+						{
+							e->dirY = -e->dirY * 2 / 3;
+						}
+						
+						else
+						{
+							e->dirY = 0;
+		
+							e->flags |= ON_GROUND;
+						}
 					}
 
 					if (e->type == PROJECTILE)
@@ -518,10 +574,18 @@ void checkToMap(Entity *e)
 
 					e->y = y2 * TILE_SIZE;
 					e->y -= e->h;
-
-					e->dirY = 0;
-
-					e->flags |= ON_GROUND;
+					
+					if ((e->flags & BOUNCES) && e->dirY > 4)
+					{
+						e->dirY = -e->dirY * 2 / 3;
+					}
+					
+					else
+					{
+						e->dirY = 0;
+	
+						e->flags |= ON_GROUND;
+					}
 
 					if (e->type == PROJECTILE)
 					{
@@ -548,7 +612,7 @@ void checkToMap(Entity *e)
 
 					e->y = (y1 + 1) * TILE_SIZE;
 
-					e->dirY = 0;
+					e->dirY = (e->flags & BOUNCES) ? -e->dirY : 0;
 
 					if (e->type == PROJECTILE)
 					{

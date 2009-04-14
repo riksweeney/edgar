@@ -5,3 +5,4 @@ void drawLoopingAnimationToMap(void);
 void setEntityAnimation(Entity *, int);
 void drawLineDefToMap(void);
 int getAnimationTypeByName(char *);
+int getAnimationTypeAtIndex(Entity *);
