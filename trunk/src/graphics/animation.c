@@ -443,3 +443,20 @@ static char *getAnimationTypeByID(int id)
 
 	exit(1);
 }
+
+int getAnimationTypeAtIndex(Entity *e)
+{
+	int i;
+	
+	for (i=0;i<MAX_ANIMATION_TYPES;i++)
+	{
+		if (e->currentAnim == e->animation[i])
+		{
+			return i;
+		}
+	}
+	
+	printf("Failed to find animation at index %d\n", e->currentAnim);
+	
+	abort();
+}

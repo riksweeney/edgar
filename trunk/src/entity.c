@@ -91,7 +91,7 @@ void doEntities()
 							{
 								self->startX++;
 
-								self->dirY = sin(DEG_TO_RAD(self->startX)) / 20;
+								self->dirY = cos(DEG_TO_RAD(self->startX)) / 20;
 							}
 						}
 
@@ -143,8 +143,11 @@ void doEntities()
 			{
 				checkToMap(self);
 			}
-
-			addToGrid(self);
+			
+			if (self->inUse == TRUE)
+			{
+				addToGrid(self);
+			}
 		}
 	}
 }
@@ -239,14 +242,14 @@ void doNothing(void)
 
 void moveLeftToRight()
 {
+	checkToMap(self);
+	
 	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-
-	checkToMap(self);
 }
 
 void flyLeftToRight()
@@ -260,7 +263,7 @@ void flyLeftToRight()
 
 	self->thinkTime += 5;
 
-	self->dirY += sin(DEG_TO_RAD(self->thinkTime)) / 3;
+	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 3;
 
 	checkToMap(self);
 }
@@ -277,16 +280,16 @@ void flyToTarget()
 		self->x = self->targetX;
 	}
 
-	if (self->x == self->targetX)
+	if (self->x == self->targetX || self->dirX == 0)
 	{
-		self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
+		changeTarget();
 	}
 
 	self->face = (self->dirX > 0 ? RIGHT : LEFT);
 
 	self->thinkTime += 5;
 
-	self->dirY += sin(DEG_TO_RAD(self->thinkTime)) / 3;
+	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 3;
 
 	checkToMap(self);
 }
@@ -323,6 +326,8 @@ void entityDie()
 	self->thinkTime = 60;
 
 	setCustomAction(self, &invulnerable, 240);
+
+	self->frameSpeed = 0;
 
 	self->action = &standardDie;
 }
@@ -679,7 +684,7 @@ void initLineDefs()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == LINE_DEF)
+		if (entity[i].inUse == TRUE && (entity[i].type == LINE_DEF || entity[i].type == SCRIPT_LINE_DEF))
 		{
 			self = &entity[i];
 
@@ -688,6 +693,22 @@ void initLineDefs()
 			self->action();
 		}
 	}
+}
+
+void changeDirection()
+{
+	self->dirX *= -1;
+
+	checkToMap(self);
+
+	self->face = self->face == RIGHT ? LEFT : RIGHT;
+}
+
+void changeTarget()
+{
+	self->targetX = self->targetX == self->endX ? self->startX : self->endX;
+
+	self->face = self->face == RIGHT ? LEFT : RIGHT;
 }
 
 void writeEntitiesToFile(FILE *fp)
@@ -713,13 +734,20 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
-			fprintf(fp, "HEALTH %d\n", self->health);
-			if (self->type != WEAPON && self->type != SHIELD)
+			
+			if (strstr(self->name, "boss/") == NULL)
 			{
-				fprintf(fp, "DAMAGE %d\n", self->damage);
+				fprintf(fp, "HEALTH %d\n", self->health);
+				
+				if (self->type != WEAPON && self->type != SHIELD)
+				{
+					fprintf(fp, "DAMAGE %d\n", self->damage);
+				}
+				
+				fprintf(fp, "SPEED %0.1f\n", self->speed);
+				fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			}
-			fprintf(fp, "SPEED %0.1f\n", self->speed);
-			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+			
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
@@ -789,8 +817,15 @@ void entityWalkTo(Entity *e, char *coords)
 	{
 		e->action = &entityMoveToTarget;
 	}
+	
+	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
 	setEntityAnimation(e, WALK);
+	
+	if (e->type == PLAYER)
+	{
+		syncWeaponShieldToPlayer();
+	}
 }
 
 void entityWalkToRelative(Entity *e, char *coords)
@@ -808,8 +843,6 @@ void entityWalkToRelative(Entity *e, char *coords)
 		e->targetY = e->y;
 	}
 
-	printf("%s will walk to %d %d\n", e->objectiveName, e->targetX, e->targetY);
-
 	if (strcmpignorecase(wait, "WAIT") == 0)
 	{
 		e->action = &scriptEntityMoveToTarget;
@@ -821,16 +854,19 @@ void entityWalkToRelative(Entity *e, char *coords)
 	{
 		e->action = &entityMoveToTarget;
 	}
+	
+	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
 	setEntityAnimation(e, WALK);
+	
+	if (e->type == PLAYER)
+	{
+		syncWeaponShieldToPlayer();
+	}
 }
 
 static void scriptEntityMoveToTarget()
 {
-	self->face = (self->x < self->targetX) ? RIGHT : LEFT;
-
-	printf("1. %d %d -> %d %d\n", (int)self->x, (int)self->y, self->targetX, self->targetY);
-
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -853,14 +889,14 @@ static void scriptEntityMoveToTarget()
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
-		printf("%s reached Target\n", self->objectiveName);
+		setEntityAnimation(self, STAND);
 
 		if (self->type == PLAYER)
 		{
 			self->action = &playerWaitForDialog;
+			
+			syncWeaponShieldToPlayer();
 		}
-
-		setEntityAnimation(self, STAND);
 
 		setScriptCounter(-1);
 	}
@@ -873,10 +909,6 @@ static void scriptEntityMoveToTarget()
 
 static void entityMoveToTarget()
 {
-	self->face = (self->x < self->targetX) ? RIGHT : LEFT;
-
-	printf("2. %d %d -> %d %d\n", (int)self->x, (int)self->y, self->targetX, self->targetY);
-
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -900,6 +932,13 @@ static void entityMoveToTarget()
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
 		setEntityAnimation(self, STAND);
+		
+		if (self->type == PLAYER)
+		{
+			self->action = &playerWaitForDialog;
+			
+			syncWeaponShieldToPlayer();
+		}
 	}
 
 	checkToMap(self);

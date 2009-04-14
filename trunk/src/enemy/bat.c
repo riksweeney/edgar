@@ -36,6 +36,7 @@ Entity *addBat(int x, int y, char *name)
 	e->die = &die;
 	e->pain = &pain;
 	e->takeDamage = &entityTakeDamage;
+	e->reactToBlock = &changeDirection;
 
 	e->type = ENEMY;
 

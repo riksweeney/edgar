@@ -23,6 +23,7 @@ typedef struct BoundingBox
 
 typedef struct Sprite
 {
+	char name[MAX_FILE_LENGTH];
 	SDL_Surface *image;
 	BoundingBox box;
 } Sprite;
@@ -51,7 +52,7 @@ typedef struct Entity
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
 	int maxHealth, damage, active, maxThinkTime;
-	int targetX, targetY, environment;
+	int targetX, targetY, environment, element;
 	long flags;
 	float x, y, dirX, dirY;
 	float startX, startY, endX, endY;
@@ -69,6 +70,7 @@ typedef struct Entity
 	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 	void (*takeDamage)(struct Entity *, int);
 	void (*die)(void);
+	void (*reactToBlock)(void);
 	void (*pain)(void);
 } Entity;
 

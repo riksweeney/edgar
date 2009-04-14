@@ -8,9 +8,11 @@
 static Properties properties[MAX_PROPS_FILES];
 
 static void setFlags(Entity *, char *);
+static int getElementTypeByName(char *);
 
 static char *ignoreProps[] = {"GFX_FILE", "ANIM_FILE", "NAME", NULL};
-static Type type[] = {
+
+static Type entityType[] = {
 					{PLAYER, "PLAYER"},
 					{WEAPON, "WEAPON"},
 					{ITEM, "ITEM"},
@@ -32,9 +34,20 @@ static Type type[] = {
 					{SAVE_POINT, "SAVE_POINT"},
 					{TEMP_ITEM, "TEMP_ITEM"},
 					{PROJECTILE, "PROJECTILE"},
-					{NPC, "NPC"}
+					{NPC, "NPC"},
+					{ACTION_POINT, "ACTION_POINT"},
+					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"}
 					};
-static int length = sizeof(type) / sizeof(Type);
+static int entityLength = sizeof(entityType) / sizeof(Type);
+
+static Type elementType[] = {
+					{NO_ELEMENT, "NO_ELEMENT"},
+					{FIRE, "FIRE"},
+					{ICE, "ICE"},
+					{LIGHTNING, "LIGHTNING"},
+					{PHANTASMAL, "PHANTASMAL"},
+					};
+static int elementLength = sizeof(elementType) / sizeof(Type);
 
 void freeProperties()
 {
@@ -283,6 +296,16 @@ static void setFlags(Entity *e, char *flags)
 			e->flags |= FLOATS;
 		}
 
+		else if (strcmpignorecase(token, "UNBLOCKABLE") == 0)
+		{
+			e->flags |= UNBLOCKABLE;
+		}
+		
+		else if (strcmpignorecase(token, "BOUNCES") == 0)
+		{
+			e->flags |= BOUNCES;
+		}
+
 		else
 		{
 			printf("Ignoring flag value %s\n", token);
@@ -418,6 +441,11 @@ void setProperty(Entity *e, char *name, char *value)
 		e->type = getEntityTypeByName(value);
 	}
 
+	else if (strcmpignorecase(name, "ELEMENT") == 0)
+	{
+		e->element = getElementTypeByName(value);
+	}
+
 	else if (strcmpignorecase(name, "FACE") == 0)
 	{
 		e->face = strcmpignorecase(value, "RIGHT") == 0 ? RIGHT : LEFT;
@@ -448,11 +476,11 @@ int getEntityTypeByName(char *name)
 {
 	int i;
 
-	for (i=0;i<length;i++)
+	for (i=0;i<entityLength;i++)
 	{
-		if (strcmpignorecase(name, type[i].name) == 0)
+		if (strcmpignorecase(name, entityType[i].name) == 0)
 		{
-			return type[i].id;
+			return entityType[i].id;
 		}
 	}
 
@@ -465,15 +493,32 @@ char *getEntityTypeByID(int id)
 {
 	int i;
 
-	for (i=0;i<length;i++)
+	for (i=0;i<entityLength;i++)
 	{
-		if (id == type[i].id)
+		if (id == entityType[i].id)
 		{
-			return type[i].name;
+			return entityType[i].name;
 		}
 	}
 
 	printf("Unknown Entity ID %d\n", id);
+
+	exit(1);
+}
+
+static int getElementTypeByName(char *name)
+{
+	int i;
+
+	for (i=0;i<elementLength;i++)
+	{
+		if (strcmpignorecase(name, elementType[i].name) == 0)
+		{
+			return elementType[i].id;
+		}
+	}
+
+	printf("Unknown Element Type %s\n", name);
 
 	exit(1);
 }

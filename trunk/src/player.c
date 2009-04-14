@@ -12,6 +12,7 @@
 #include "entity.h"
 #include "game.h"
 #include "event/script.h"
+#include "hud.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -26,6 +27,7 @@ static void falloutPause(void);
 static void resetPause(void);
 static void resetPlayer(void);
 static void dialogWait(void);
+static void alignAnimations(Entity *);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -470,6 +472,8 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+	
+	player.dirX = 0;
 
 	player.action = &dialogWait;
 }
@@ -502,6 +506,8 @@ static void dialogWait()
 		input.activate = 0;
 		input.block = 0;
 	}
+	
+	checkToMap(&player);
 }
 
 static void attackFinish()
@@ -562,26 +568,14 @@ void setPlayerShield(int val)
 {
 	playerShield = *self;
 
-	playerShield.parent = &player;
-
-	playerShield.face = player.face;
-
-	setEntityAnimation(&playerShield, player.currentAnim);
-
-	playerShield.frameTimer = player.frameTimer;
+	alignAnimations(&playerShield);
 }
 
 void setPlayerWeapon(int val)
 {
 	playerWeapon = *self;
 
-	playerWeapon.parent = &player;
-
-	playerWeapon.face = player.face;
-
-	setEntityAnimation(&playerWeapon, player.currentAnim);
-
-	playerWeapon.frameTimer = player.frameTimer;
+	alignAnimations(&playerWeapon);
 }
 
 void autoSetPlayerWeapon(Entity *newWeapon)
@@ -590,15 +584,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 	{
 		playerWeapon = *newWeapon;
 
-		playerWeapon.parent = &player;
-
-		playerWeapon.face = player.face;
-
-		playerWeapon.inUse = TRUE;
-
-		setEntityAnimation(&playerWeapon, player.currentAnim);
-
-		playerWeapon.frameTimer = player.frameTimer;
+		alignAnimations(&playerWeapon);
 	}
 }
 
@@ -607,37 +593,72 @@ void autoSetPlayerShield(Entity *newWeapon)
 	if (playerShield.inUse == FALSE)
 	{
 		playerShield = *newWeapon;
-
-		playerShield.parent = &player;
-
-		playerShield.face = player.face;
-
-		playerShield.inUse = TRUE;
-
-		setEntityAnimation(&playerShield, player.currentAnim);
-
-		playerShield.frameTimer = player.frameTimer;
+		
+		alignAnimations(&playerShield);
 	}
+}
+
+static void alignAnimations(Entity *e)
+{
+	e->parent = &player;
+
+	e->face = player.face;
+
+	e->inUse = TRUE;
+
+	setEntityAnimation(e, getAnimationTypeAtIndex(&player));
+
+	e->currentFrame = player.currentFrame;
+
+	e->frameTimer = player.frameTimer;
 }
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (player.flags & BLOCKING)
+	Entity *temp;
+
+	if (other->dirX != 0 && (player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE))
 	{
-		if (playerShield.health >= damage)
+		if (other->type == PROJECTILE)
 		{
-			if (other->type == PROJECTILE)
+			if (player.face != other->face)
 			{
-				other->inUse = FALSE;
+				if (other->element == NO_ELEMENT || (playerShield.element == other->element))
+				{
+					if (other->reactToBlock != NULL)
+					{
+						other->reactToBlock();
+					}
+
+					else
+					{
+						other->inUse = FALSE;
+					}
+				}
+			}
+		}
+
+		else if (player.face != other->face)
+		{
+			player.dirX = other->dirX < 0 ? -2 : 2;
+			checkToMap(&player);
+
+			if (other->reactToBlock == NULL)
+			{
+				other->dirX = other->dirX < 0 ? 2 : -2;
+
+				checkToMap(other);
 			}
 
 			else
 			{
-				player.dirX = other->dirX < 0 ? -2 : 2;
-				other->dirX = other->dirX < 0 ? -2 : 2;
+				temp = self;
 
-				checkToMap(&player);
-				checkToMap(other);
+				self = other;
+
+				self->reactToBlock();
+
+				self = temp;
 			}
 
 			return;
@@ -657,6 +678,11 @@ static void takeDamage(Entity *other, int damage)
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
+		
+		if (self->type == PROJECTILE)
+		{
+			self->inUse = FALSE;
+		}
 
 		if (player.health > 0)
 		{
@@ -788,8 +814,11 @@ static void fallout()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-
-	checkToMap(&player);
+	
+	if (player.environment != AIR)
+	{
+		checkToMap(&player);
+	}
 }
 
 static void falloutPause()
@@ -802,8 +831,11 @@ static void falloutPause()
 
 		player.action = &resetPause;
 	}
-
-	checkToMap(&player);
+	
+	if (player.environment != AIR)
+	{
+		checkToMap(&player);
+	}
 }
 
 static void resetPause()
@@ -816,8 +848,11 @@ static void resetPause()
 	{
 		player.action = &resetPlayer;
 	}
-
-	checkToMap(&player);
+	
+	if (player.environment != AIR)
+	{
+		checkToMap(&player);
+	}
 }
 
 static void resetPlayer()
@@ -835,6 +870,13 @@ static void resetPlayer()
 	player.action = NULL;
 
 	player.health--;
+	
+	if (player.health <= 0)
+	{
+		printf("Game over\n");
+		
+		exit(0);
+	}
 
 	player.flags &= ~HELPLESS;
 
@@ -843,4 +885,22 @@ static void resetPlayer()
 	player.y--;
 
 	setCustomAction(&player, &invulnerable, 60);
+}
+
+void increasePlayerMaxHealth()
+{
+	player.maxHealth++;
+	
+	player.health = player.maxHealth;
+	
+	setInfoBoxMessage(120,  _("Maximum health has increased!"));
+}
+
+void syncWeaponShieldToPlayer()
+{
+	playerWeapon.face = playerShield.face = player.face;
+	playerWeapon.face = playerShield.face = player.face;
+	
+	setEntityAnimation(&playerWeapon, getAnimationTypeAtIndex(&player));
+	setEntityAnimation(&playerShield, getAnimationTypeAtIndex(&player));
 }

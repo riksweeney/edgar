@@ -1,7 +1,8 @@
 TYPE ENEMY
 GFX_FILE data/gfx/boss/grub_boss.dat
 ANIM_FILE data/anim/boss/grub_boss.dat
-SPEED 2
-HEALTH 300
+SPEED 12
+HEALTH 600
 ACTIVE FALSE
 DAMAGE 1
+FLAGS UNBLOCKABLE

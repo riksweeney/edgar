@@ -10,9 +10,9 @@ TALK Jacob Thanks for resucing my chickens, have you been to the forest yet?
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 7
-REMOVE "Chicken Feed Bag" 1 1 Jacob 7 7
+REMOVE "Chicken Feed Bag" 0 -1 Jacob 7 7
 TALK Jacob Thanks Edgar! My chickens are back and these logs will do me fine
-ADD ENTITY SHIELD weapon/basic_sword " " 4030 2582
+ADD ENTITY WEAPON weapon/basic_sword " " 4030 2582
 TALK Jacob Take this sword, may it serve you well!
 TALK Edgar Thank you!
 SET Jacob HEALTH 8

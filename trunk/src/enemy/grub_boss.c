@@ -11,6 +11,8 @@
 #include "../map.h"
 #include "../game.h"
 #include "../audio/music.h"
+#include "../graphics/gib.h"
+#include "../item/key_items.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -25,6 +27,9 @@ static void attackFinished(void);
 static void spinAttackStart(void);
 static void spinAttack(void);
 static void spinAttackEnd(void);
+static void bounceAttackStart(void);
+static void bounceAttack(void);
+static void bounceAttackEnd(void);
 static void doIntro(void);
 static void introPause(void);
 
@@ -65,97 +70,29 @@ static void takeDamage(Entity *other, int damage)
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
+		
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &invulnerableNoFlash, 20);
+		}
 	
-		setCustomAction(self, &flashWhite, 6);
-		setCustomAction(self, &invulnerableNoFlash, 20);
-	
-		if (self->health < 0)
+		else
 		{
 			self->thinkTime = 180;
 			
+			self->flags &= ~FLY;
+			
+			setEntityAnimation(self, STAND);
+			
+			self->frameSpeed = 0;
+			
+			self->takeDamage = NULL;
 			self->touch = NULL;
 	
 			self->action = &die;
 		}
 	}
-}
-
-static void wait()
-{
-	self->dirX = 0;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		if (prand() % 2 == 0)
-		{
-			self->action = &spitStart;
-
-			self->thinkTime = 1;
-		}
-
-		else
-		{
-			self->action = &spinAttackStart;
-
-			self->thinkTime = 60;
-		}
-	}
-
-	checkToMap(self);
-}
-
-static void spitStart()
-{
-	if (self->frameSpeed > 0)
-	{
-		if (self->thinkTime > 0)
-		{
-			setEntityAnimation(self, ATTACK_1);
-
-			self->animationCallback = &spit;
-		}
-
-		else
-		{
-			attackFinished();
-		}
-	}
-
-	else
-	{
-		self->animationCallback = &spitEnd;
-	}
-
-	checkToMap(self);
-}
-
-static void spitEnd()
-{
-	self->frameSpeed *= -1;
-}
-
-static void spit()
-{
-	int x = (self->face == RIGHT ? 40 : 17);
-	int i = prand() % 3;
-
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
-
-	if (i == 1)
-	{
-		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
-	}
-
-	if (i > 0)
-	{
-		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
-	}
-
-	self->thinkTime--;
-
-	self->frameSpeed *= -1;
 }
 
 static void initialise()
@@ -253,6 +190,92 @@ static void introPause()
 	checkToMap(self);
 }
 
+static void wait()
+{
+	int attack;
+	
+	self->dirX = 0;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		attack = prand() % 3;
+		
+		switch (attack)
+		{
+			case 0:
+				self->action = &spitStart;
+	
+				self->thinkTime = (prand() % 3) + 1;
+			break;
+			
+			case 1:
+				self->action = &spinAttackStart;
+	
+				self->thinkTime = 60;
+			break;
+			
+			default:
+				self->action = &bounceAttackStart;
+	
+				self->thinkTime = 60;
+			break;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void spitStart()
+{
+	if (self->frameSpeed > 0)
+	{
+		if (self->thinkTime > 0)
+		{
+			setEntityAnimation(self, ATTACK_1);
+
+			self->animationCallback = &spit;
+		}
+
+		else
+		{
+			attackFinished();
+		}
+	}
+
+	else
+	{
+		self->animationCallback = &spitEnd;
+	}
+
+	checkToMap(self);
+}
+
+static void spitEnd()
+{
+	self->frameSpeed *= -1;
+}
+
+static void spit()
+{
+	int x = (self->face == RIGHT ? 40 : 17);
+	
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
+	
+	if (self->health < 100)
+	{
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
+	}
+
+	self->thinkTime--;
+
+	self->frameSpeed *= -1;
+}
+
 static void spinAttackStart()
 {
 	setEntityAnimation(self, ATTACK_2);
@@ -273,6 +296,8 @@ static void spinAttackStart()
 
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
+		shakeScreen(MEDIUM, 15);
+		
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
@@ -307,7 +332,80 @@ static void spinAttackEnd()
 {
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND && self->thinkTime == 0)
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	{
+		self->dirX = 0;
+
+		self->action = &attackFinished;
+	}
+}
+
+static void bounceAttackStart()
+{
+	setEntityAnimation(self, ATTACK_2);
+
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
+
+			self->dirY = -8;
+		}
+	}
+
+	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
+	{
+		shakeScreen(MEDIUM, 15);
+		
+		self->dirX = (self->face == RIGHT ? 3 : -3);
+		
+		self->dirY = -14;
+
+		self->action = &bounceAttack;
+	}
+
+	checkToMap(self);
+}
+
+static void bounceAttack()
+{
+	float speed = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		shakeScreen(MEDIUM, 15);
+		
+		self->dirY = -14;
+	}
+
+	if (self->dirX == 0)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		self->face = (player.x > self->x ? RIGHT : LEFT);
+
+		self->dirX = speed < 0 ? 3 : -3;
+
+		self->dirY = -6;
+
+		self->action = &bounceAttackEnd;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void bounceAttackEnd()
+{
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
 	{
 		self->dirX = 0;
 
@@ -329,8 +427,11 @@ static void attackFinished()
 static void die()
 {
 	int i;
+	Entity *e;
 
 	self->thinkTime--;
+	
+	self->takeDamage = NULL;
 	
 	printf("Dying %d\n", self->thinkTime);
 
@@ -341,8 +442,6 @@ static void die()
 
 		centerMapOnEntity(&player);
 
-		entityDie();
-
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "GRUB_BOSS_WALL") == 0)
@@ -350,5 +449,13 @@ static void die()
 				entity[i].active = TRUE;
 			}
 		}
+		
+		throwGibs("boss/grub_boss_gib", 7);
+		
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+		
+		e->dirY = ITEM_JUMP_HEIGHT;
 	}
+	
+	checkToMap(self);
 }

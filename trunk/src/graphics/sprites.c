@@ -5,7 +5,7 @@
 
 static Sprite sprite[MAX_SPRITES];
 
-static void loadSprite(char *);
+static int loadSprite(char *);
 
 static int spriteID = 0;
 
@@ -43,9 +43,7 @@ void loadSpritesFromFile(char *name, int *index)
 			line[strlen(line) - 1] = '\0';
 		}
 
-		loadSprite(line);
-
-		index[i] = spriteID++;
+		index[i] = loadSprite(line);
 
 		i++;
 	}
@@ -53,9 +51,27 @@ void loadSpritesFromFile(char *name, int *index)
 	fclose(fp);
 }
 
-static void loadSprite(char *name)
+static int loadSprite(char *name)
 {
+	int i;
+
+	for (i=0;i<spriteID;i++)
+	{
+		if (strcmpignorecase(name, sprite[i].name) == 0)
+		{
+			return i;
+		}
+	}
+
 	sprite[spriteID].image = loadImage(name);
+
+	strncpy(sprite[spriteID].name, name, MAX_FILE_LENGTH);
+
+	i = spriteID;
+
+	spriteID++;
+
+	return i;
 }
 
 void freeSprites()
@@ -70,6 +86,8 @@ void freeSprites()
 
 			sprite[i].image = NULL;
 		}
+
+		sprite[i].name[0] = '\0';
 	}
 
 	spriteID = 0;

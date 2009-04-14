@@ -1,0 +1,11 @@
+TALK Edgar This place doesn't look so bad...
+WALK_TO Edgar 945 0 WAIT
+WAIT 120
+TALK Edgar What was that?
+WAIT 120
+TALK Edgar Uh Oh...
+FOLLOW NONE
+KILL WEAK_WALL_1
+KILL WEAK_WALL_2
+WAIT 180
+LOAD_LEVEL test Player Start

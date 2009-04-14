@@ -19,3 +19,6 @@ boss/grub_boss
 wall/weak_forest_wall
 enemy/wasp
 common/wooden_door
+weapon/pickaxe
+weapon/basic_sword
+weapon/small_wooden_shield

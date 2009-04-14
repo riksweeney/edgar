@@ -1,1 +1,1 @@
-Entity *addLineDef(char *, int, int);
+Entity *addLineDef(char *, char *, int, int);

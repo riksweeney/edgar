@@ -13,3 +13,5 @@ common/save_point
 common/spawner
 weapon/small_wooden_shield
 weapon/pickaxe
+weapon/basic_sword
+common/action_point

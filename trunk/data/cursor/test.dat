@@ -1,0 +1,15 @@
+edgar/edgar
+common/spawner
+enemy/bat
+enemy/grub
+enemy/wasp
+weapon/small_wooden_shield
+weapon/pickaxe
+weapon/wood_axe
+weapon/basic_sword
+common/switch
+wall/weak_mine_wall
+item/heart_container
+common/action_point
+common/level_exit
+lift/lift_target

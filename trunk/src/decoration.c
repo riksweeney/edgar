@@ -289,6 +289,48 @@ static void move()
 	}
 }
 
+void addBlood(int x, int y)
+{
+	Entity *e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return;
+	}
+
+	loadProperties("decoration/blood", e);
+
+	e->thinkTime = 60;
+
+	e->x = x;
+	e->y = y;
+	
+	e->dirY = 0.1;
+
+	e->action = &move;
+	e->draw = &drawLoopingAnimationToMap;
+}
+
+Entity *addBasicDecoration(int x, int y, char *name)
+{
+	Entity *e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return NULL;
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->action = &move;
+	e->draw = &drawLoopingAnimationToMap;
+	
+	return e;
+}
+
 void addDecorationFromScript(char *line)
 {
 	char decorationName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];

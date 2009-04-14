@@ -24,3 +24,5 @@ void flyToTarget(void);
 void addEntityFromScript(char *);
 void entityWalkTo(Entity *, char *);
 void entityWalkToRelative(Entity *, char *);
+void changeDirection(void);
+void changeTarget(void);

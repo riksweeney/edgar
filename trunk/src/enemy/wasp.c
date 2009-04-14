@@ -35,6 +35,7 @@ Entity *addWasp(int x, int y, char *name)
 	e->die = &die;
 	e->pain = &pain;
 	e->takeDamage = &entityTakeDamage;
+	e->reactToBlock = &changeTarget;
 
 	e->type = ENEMY;
 
