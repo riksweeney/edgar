@@ -37,6 +37,7 @@ extern Game game;
 #include "../menu/main_menu.h"
 #include "../npc/npc.h"
 #include "../world/action_point.h"
+#include "../world/falling_platform.h"
 
 static char **key, **value;
 
@@ -339,15 +340,22 @@ void loadResources(FILE *fp)
 			{
 				addObjectiveFromResource(key, value);
 			}
-			
+
 			else if (strcmpignorecase(value[type], "ACTION_POINT") == 0)
 			{
 				e = addActionPoint(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
+			else if (strcmpignorecase(value[type], "FALLING_PLATFORM") == 0)
+			{
+				e = addFallingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
+			}
+
 			else
 			{
 				printf("Unknown Entity type %s\n", value[type]);
+
+				exit(1);
 			}
 
 			if (e != NULL)

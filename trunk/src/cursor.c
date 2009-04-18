@@ -65,6 +65,7 @@ void initCursor(char *name)
 void doCursor()
 {
 	char name[MAX_VALUE_LENGTH];
+	int x, y;
 
 	cursor.x = input.mouseX;
 	cursor.y = input.mouseY;
@@ -115,6 +116,33 @@ void doCursor()
 		cursor.entity.face = (cursor.entity.face == RIGHT ? LEFT : RIGHT);
 
 		input.activate = 0;
+	}
+	
+	if (input.block == 1)
+	{
+		if (cursor.type == TILES)
+		{
+			x = (getMapStartX() + cursor.x) / TILE_SIZE;
+			y = (getMapStartY() + cursor.y) / TILE_SIZE;
+			
+			while (mapTileAt(x, y) == BLANK_TILE && x >= 0)
+			{
+				setTileAt(x, y, cursor.tileID);
+				
+				x--;
+			}
+			
+			x = (getMapStartX() + cursor.x) / TILE_SIZE;
+			
+			x++;
+			
+			while (mapTileAt(x, y) == BLANK_TILE && x < MAX_MAP_X)
+			{
+				setTileAt(x, y, cursor.tileID);
+				
+				x++;
+			}
+		}
 	}
 
 	if (input.add == 1)

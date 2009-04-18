@@ -177,7 +177,7 @@ int main(int argc, char *argv[])
 		draw();
 
 		/* Sleep briefly to stop sucking up all the CPU time */
-		
+
 		delay(frameLimit);
 
 		frameLimit = SDL_GetTicks() + 16;

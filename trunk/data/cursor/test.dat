@@ -13,3 +13,5 @@ item/heart_container
 common/action_point
 common/level_exit
 lift/lift_target
+lift/falling_platform
+enemy/red_grub

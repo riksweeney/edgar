@@ -32,7 +32,7 @@ Entity *addWeakWall(char *name, int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
-	e->die = die;
+	e->die = &die;
 
 	setEntityAnimation(e, STAND);
 
@@ -58,11 +58,11 @@ static void takeDamage(Entity *other, int damage)
 	{
 		self->die();
 	}
-	
+
 	if (strcmpignorecase(self->requires, other->name) == 0)
 	{
 		self->health -= damage;
-		
+
 		setCustomAction(self, &flashWhite, 6);
 		setCustomAction(self, &invulnerableNoFlash, 20);
 
@@ -75,7 +75,7 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		printf("Dink from %s\n", other->name);
-		
+
 		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }

@@ -392,17 +392,20 @@ void goToNextMap()
 	}
 
 	printf("Done\n");
-
-	start = getEntityByObjectiveName(game.playerStart);
-
-	if (start == NULL)
+	
+	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
 	{
-		printf("Could not find player start %s\n", game.playerStart);
-
-		exit(1);
+		start = getEntityByObjectiveName(game.playerStart);
+	
+		if (start == NULL)
+		{
+			printf("Could not find player start %s\n", game.playerStart);
+	
+			exit(1);
+		}
+	
+		loadPlayer(start->x, start->y, NULL);
 	}
-
-	loadPlayer(start->x, start->y, NULL);
 
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';

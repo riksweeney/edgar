@@ -171,7 +171,12 @@ void loadMap(char *name, int loadEntityResources)
 				for (x=0;x<MAX_MAP_X;x++)
 				{
 					fscanf(fp, "%d", &map.tile[y][x]);
-
+					/*
+					if (map.tile[y][x] != 0 && map.tile[y][x] <= 4)
+					{
+						map.tile[y][x] = 1 + (prand() % 4);
+					}
+					*/
 					if (map.tile[y][x] > 0)
 					{
 						if (x > map.maxX)

@@ -143,7 +143,7 @@ void doEntities()
 			{
 				checkToMap(self);
 			}
-			
+
 			if (self->inUse == TRUE)
 			{
 				addToGrid(self);
@@ -242,8 +242,10 @@ void doNothing(void)
 
 void moveLeftToRight()
 {
+	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
@@ -270,6 +272,11 @@ void flyLeftToRight()
 
 void flyToTarget()
 {
+	if (self->x == self->targetX || self->dirX == 0)
+	{
+		changeTarget();
+	}
+
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -278,11 +285,6 @@ void flyToTarget()
 	else
 	{
 		self->x = self->targetX;
-	}
-
-	if (self->x == self->targetX || self->dirX == 0)
-	{
-		changeTarget();
 	}
 
 	self->face = (self->dirX > 0 ? RIGHT : LEFT);
@@ -734,20 +736,20 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
-			
+
 			if (strstr(self->name, "boss/") == NULL)
 			{
 				fprintf(fp, "HEALTH %d\n", self->health);
-				
+
 				if (self->type != WEAPON && self->type != SHIELD)
 				{
 					fprintf(fp, "DAMAGE %d\n", self->damage);
 				}
-				
+
 				fprintf(fp, "SPEED %0.1f\n", self->speed);
 				fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			}
-			
+
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
@@ -817,11 +819,11 @@ void entityWalkTo(Entity *e, char *coords)
 	{
 		e->action = &entityMoveToTarget;
 	}
-	
+
 	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
 	setEntityAnimation(e, WALK);
-	
+
 	if (e->type == PLAYER)
 	{
 		syncWeaponShieldToPlayer();
@@ -854,11 +856,11 @@ void entityWalkToRelative(Entity *e, char *coords)
 	{
 		e->action = &entityMoveToTarget;
 	}
-	
+
 	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
 	setEntityAnimation(e, WALK);
-	
+
 	if (e->type == PLAYER)
 	{
 		syncWeaponShieldToPlayer();
@@ -894,7 +896,7 @@ static void scriptEntityMoveToTarget()
 		if (self->type == PLAYER)
 		{
 			self->action = &playerWaitForDialog;
-			
+
 			syncWeaponShieldToPlayer();
 		}
 
@@ -932,11 +934,11 @@ static void entityMoveToTarget()
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		if (self->type == PLAYER)
 		{
 			self->action = &playerWaitForDialog;
-			
+
 			syncWeaponShieldToPlayer();
 		}
 	}
