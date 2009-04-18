@@ -36,7 +36,8 @@ static Type entityType[] = {
 					{PROJECTILE, "PROJECTILE"},
 					{NPC, "NPC"},
 					{ACTION_POINT, "ACTION_POINT"},
-					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"}
+					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"},
+					{FALLING_PLATFORM, "FALLING_PLATFORM"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 
@@ -300,7 +301,7 @@ static void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= UNBLOCKABLE;
 		}
-		
+
 		else if (strcmpignorecase(token, "BOUNCES") == 0)
 		{
 			e->flags |= BOUNCES;

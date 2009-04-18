@@ -1,4 +1,4 @@
 GFX_FILE data/gfx/misc/tree_branch.dat
-ANIM_FILE data/anim/misc/tree_branch.dat
+ANIM_FILE data/anim/common/no_anim.dat
 TYPE ITEM
 FLAGS FLY|OBSTACLE

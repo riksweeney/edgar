@@ -4,13 +4,16 @@ extern Game game;
 
 TTF_Font *loadFont(char *name, int size)
 {
-	/* Use SDL_TTF to load the font at the specified size */
+	char path[MAX_PATH_LENGTH];
+	TTF_Font *font;
 
-	TTF_Font *font = TTF_OpenFont(name, size);
+	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
+
+	font = TTF_OpenFont(path, size);
 
 	if (font == NULL)
 	{
-		printf("Failed to open Font %s: %s\n", name, TTF_GetError());
+		printf("Failed to open Font %s: %s\n", path, TTF_GetError());
 
 		exit(1);
 	}

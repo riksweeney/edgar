@@ -1,3 +1,3 @@
 GFX_FILE data/gfx/item/iron_key.dat
-ANIM_FILE data/anim/item/iron_key.dat
+ANIM_FILE data/anim/common/no_anim.dat
 TYPE ITEM

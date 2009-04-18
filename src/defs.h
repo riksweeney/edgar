@@ -19,7 +19,7 @@
 
 #define MAX_WATER_SPEED 0.5
 
-#define JUMP_HEIGHT 11
+#define JUMP_HEIGHT 12
 
 #define TRANS_R 127
 #define TRANS_G 0
@@ -198,7 +198,8 @@ enum
 	TEMP_ITEM,
 	NPC,
 	ACTION_POINT,
-	SCRIPT_LINE_DEF
+	SCRIPT_LINE_DEF,
+	FALLING_PLATFORM
 };
 
 enum

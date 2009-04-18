@@ -222,11 +222,11 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else
 			{
 				printf("Unknown IF command %s\n",token);
-				
+
 				exit(1);
 			}
 		}
@@ -304,6 +304,11 @@ void readNextScriptLine()
 
 					e->face = (e->x < e2->x ? RIGHT : LEFT);
 				}
+				
+				if (e == &player)
+				{
+					syncWeaponShieldToPlayer();
+				}
 			}
 
 			else if (strcmpignorecase(token, "ANIMATION") == 0)
@@ -312,11 +317,11 @@ void readNextScriptLine()
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
 			}
-			
+
 			else
 			{
 				printf("Unknown SET command %s\n", token);
-				
+
 				exit(1);
 			}
 		}
@@ -334,7 +339,7 @@ void readNextScriptLine()
 
 			activateEntitiesWithName(token, FALSE);
 		}
-		
+
 		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
 		{
 			token = strtok(NULL, "\0");
@@ -350,7 +355,7 @@ void readNextScriptLine()
 		else if (strcmpignorecase("WAIT", command) == 0)
 		{
 			freeDialogBox();
-			
+
 			token = strtok(NULL, "\0");
 
 			script.thinkTime = atoi(token);
@@ -362,58 +367,58 @@ void readNextScriptLine()
 
 			playSound(token, OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 		}
-		
+
 		else if (strcmpignorecase("KILL", command) == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			e = getEntityByObjectiveName(token);
-			
+
 			if (e == NULL)
 			{
 				printf("KILL command could not find Entity %s\n", token);
 
 				exit(1);
 			}
-			
+	
 			e->inUse = FALSE;
 		}
-		
+
 		else if (strcmpignorecase("FOLLOW", command) == 0)
 		{
 			freeDialogBox();
-			
+
 			token = strtok(NULL, "\0");
-			
+
 			if (strcmpignorecase("NONE", token) == 0)
 			{
 				e = NULL;
 			}
-			
+
 			else if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e = &player;
 			}
-			
+
 			else
 			{
 				e = getEntityByObjectiveName(token);
-				
+
 				if (e == NULL)
 				{
 					printf("FOLLOW command could not find Entity %s\n", token);
-	
+
 					exit(1);
 				}
 			}
-			
+
 			centerMapOnEntity(e);
 		}
 
 		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0)
 		{
 			freeDialogBox();
-			
+
 			token = strtok(NULL, " ");
 
 			if (strcmpignorecase(token, "EDGAR") == 0)
