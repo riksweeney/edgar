@@ -35,7 +35,7 @@ void addToGrid(Entity *e)
 			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
 			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
 		}
-		
+
 		else
 		{
 			left = (e->x + e->offsetX) / TILE_SIZE / GRID_SIZE;
@@ -142,7 +142,7 @@ void doCollisions()
 							{
 								continue;
 							}
-							
+
 							if (e1->type == PROJECTILE && e2->type == PROJECTILE)
 							{
 								continue;
@@ -188,13 +188,13 @@ void doCollisions()
 								{
 									x += e1->parent->w - e1->w - e1->offsetX;
 								}
-								
+
 								else
 								{
 									x += e1->offsetX;
 								}
-								
-								
+
+
 								y += e1->offsetY;
 							}
 
@@ -203,6 +203,11 @@ void doCollisions()
 								temp = self;
 
 								self = e2;
+
+								if (strcmpignorecase("common/explosion", e1->name) == 0)
+								{
+									printf("%s is colliding %s\n", e1->name, self->name);
+								}
 
 								self->touch(e1);
 
@@ -214,78 +219,8 @@ void doCollisions()
 			}
 		}
 	}
-
-	/*
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if (entity[i].inUse == TRUE)
-		{
-			if (playerWeapon.inUse == TRUE && (playerWeapon.flags & ATTACKING) && !(playerWeapon.flags & ATTACK_SUCCESS))
-			{
-				x = playerWeapon.x + playerWeapon.offsetX * (player.face == LEFT ? -1 : 1);
-				y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
-				w = playerWeapon.w;
-				h = playerWeapon.h;
-
-				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, x, y, w, h) == 1)
-				{
-					if (entity[i].touch != NULL)
-					{
-						self = &entity[i];
-
-						self->touch(&playerWeapon);
-					}
-				}
-			}
-
-			if (entity[i].touch != NULL)
-			{
-				if (collision(entity[i].x, entity[i].y, entity[i].w, entity[i].h, player.x, player.y, player.w, player.h) == 1)
-				{
-					self = &entity[i];
-
-					self->touch(&player);
-				}
-
-				if (entity[i].type != SAVE_POINT && entity[i].type != LINE_DEF && entity[i].type != SPAWNER &&
-					entity[i].type != LEVEL_EXIT && entity[i].type != SWITCH)
-				{
-					checkEntityToEntity(&entity[i]);
-				}
-			}
-		}
-	}
-	*/
 }
-/*
-void checkEntityToEntity(Entity *e)
-{
-	int i;
-	Entity *temp;
 
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if (e == &entity[i] || entity[i].inUse == FALSE || (e->type == ENEMY && entity[i].type == ENEMY) ||
-			entity[i].touch == NULL || entity[i].type == LEVEL_EXIT || entity[i].type == LINE_DEF ||
-			entity[i].type == SPAWNER || entity[i].type == SAVE_POINT || (e->type == WEAK_WALL && entity[i].type == WEAK_WALL) ||
-			(e->type == PROJECTILE && entity[i].type == PROJECTILE) || entity[i].type == SWITCH)
-		{
-			continue;
-		}
-
-		if (collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
-		{
-			temp = self;
-
-			self = &entity[i];
-
-			self->touch(e);
-
-			self = temp;
-		}
-	}
-}
-*/
 Entity *isSpaceEmpty(Entity *e)
 {
 	int i;
@@ -349,16 +284,16 @@ void checkToMap(Entity *e)
 						if (!(e->flags & FLY))
 						{
 							e->y -= e->dirX;
-							
+
 							if ((e->flags & BOUNCES) && e->dirY > 4)
 							{
 								e->dirY = -e->dirY * 2 / 3;
 							}
-							
+
 							else
 							{
 								e->dirY = 0;
-			
+
 								e->flags |= ON_GROUND;
 							}
 						}
@@ -423,11 +358,11 @@ void checkToMap(Entity *e)
 							{
 								e->dirY = -e->dirY * 2 / 3;
 							}
-							
+
 							else
 							{
 								e->dirY = 0;
-			
+
 								e->flags |= ON_GROUND;
 							}
 						}
@@ -521,11 +456,11 @@ void checkToMap(Entity *e)
 						{
 							e->dirY = -e->dirY * 2 / 3;
 						}
-						
+
 						else
 						{
 							e->dirY = 0;
-		
+
 							e->flags |= ON_GROUND;
 						}
 					}
@@ -551,11 +486,11 @@ void checkToMap(Entity *e)
 						{
 							e->dirY = -e->dirY * 2 / 3;
 						}
-						
+
 						else
 						{
 							e->dirY = 0;
-		
+
 							e->flags |= ON_GROUND;
 						}
 					}
@@ -574,16 +509,16 @@ void checkToMap(Entity *e)
 
 					e->y = y2 * TILE_SIZE;
 					e->y -= e->h;
-					
+
 					if ((e->flags & BOUNCES) && e->dirY > 4)
 					{
 						e->dirY = -e->dirY * 2 / 3;
 					}
-					
+
 					else
 					{
 						e->dirY = 0;
-	
+
 						e->flags |= ON_GROUND;
 					}
 
@@ -702,6 +637,11 @@ void checkToMap(Entity *e)
 		(bottomRight >= LAVA_TILE_START && bottomRight <= LAVA_TILE_END))
 	{
 		e->environment = LAVA;
+
+		if (e->fallout != NULL)
+		{
+			e->fallout();
+		}
 	}
 
 	else
@@ -718,6 +658,10 @@ void checkToMap(Entity *e)
 		{
 			e->environment = WATER;
 
+			if (e->fallout != NULL)
+			{
+				e->fallout();
+			}
 		}
 	}
 }

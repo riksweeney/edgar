@@ -54,7 +54,7 @@ static void touch(Entity *other)
 {
 	/* Test the horizontal movement */
 
-	if (other->type == PLAYER && other->dirY > 0)
+	if (other->dirY > 0)
 	{
 		/* Trying to move down */
 

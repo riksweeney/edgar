@@ -13,9 +13,7 @@ extern Entity *self;
 
 static void wait(void);
 static void spit(void);
-static void takeDamage(Entity *, int);
-static void die(void);
-static void explode(void);
+static void spitFinish(void);
 
 Entity *addSpittingPlant(int x, int y, char *name)
 {
@@ -37,9 +35,9 @@ Entity *addSpittingPlant(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &die;
+	e->die = &entityDie;
 	e->pain = NULL;
-	e->takeDamage = &takeDamage;
+	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
 
 	e->type = ENEMY;
@@ -55,100 +53,55 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
+		self->action = &doNothing;
+
 		setEntityAnimation(self, ATTACK_1);
 
 		self->animationCallback = &spit;
 	}
 
-	self->thinkTime = self->maxThinkTime;
+	checkToMap(self);
 }
 
 static void spit()
 {
 	Entity *e;
+	int x, y;
 
-	e = addProjectile("common/green_blob", self, self->x, self->y, -2, 0);
+	x = self->x + self->w / 2;
+	y = self->y + 5;
 
-	e->flags |= FLY;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, -2, -2);
-
-	e->flags |= FLY;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, 0, -2);
+	e = addProjectile("common/green_blob", self, x, y, -6, 0);
 
 	e->flags |= FLY;
 
-	e = addProjectile("common/green_blob", self, self->x, self->y, 2, -2);
+	e = addProjectile("common/green_blob", self, x, y, -6, -6);
 
 	e->flags |= FLY;
 
-	e = addProjectile("common/green_blob", self, self->x, self->y, 2, 0);
+	e = addProjectile("common/green_blob", self, x, y, 0, -6);
 
 	e->flags |= FLY;
 
+	e = addProjectile("common/green_blob", self, x, y, 6, -6);
+
+	e->flags |= FLY;
+
+	e = addProjectile("common/green_blob", self, x, y, 6, 0);
+
+	e->flags |= FLY;
+
+	setEntityAnimation(self, ATTACK_2);
+
+	self->animationCallback = &spitFinish;
+}
+
+
+static void spitFinish()
+{
 	setEntityAnimation(self, STAND);
-}
 
-static void takeDamage(Entity *other, int damage)
-{
-	if (self->flags & INVULNERABLE)
-	{
-		return;
-	}
+	self->thinkTime = self->maxThinkTime;
 
-	if (damage != 0)
-	{
-		self->health -= damage;
-
-		setCustomAction(self, &helpless, 10);
-		setCustomAction(self, &invulnerable, 15);
-
-		if (self->health <= 0)
-		{
-			self->damage = 0;
-
-			self->die();
-		}
-	}
-}
-
-static void die()
-{
-	if (prand() % 5 == 0)
-	{
-		self->touch = NULL;
-
-		setEntityAnimation(self, DIE);
-
-		self->animationCallback = &explode;
-	}
-
-	else
-	{
-		entityDie();
-	}
-}
-
-static void explode()
-{
-	Entity *e;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, -2, -6);
-
-	e->weight = 0.5;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, -2, -8);
-
-	e->weight = 0.5;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, 2, 6);
-
-	e->weight = 0.5;
-
-	e = addProjectile("common/green_blob", self, self->x, self->y, 2, 8);
-
-	e->weight = 0.5;
-
-	entityDie();
+	self->action = &wait;
 }

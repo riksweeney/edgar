@@ -13,7 +13,7 @@
 #include "../game.h"
 #include "../map.h"
 
-extern Entity player;
+extern Entity player, *self;
 
 static Script script;
 
@@ -380,8 +380,18 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-	
-			e->inUse = FALSE;
+			
+			if (e->die != NULL)
+			{
+				self = e;
+				
+				self->die();
+			}
+			
+			else
+			{
+				e->inUse = FALSE;
+			}
 		}
 
 		else if (strcmpignorecase("FOLLOW", command) == 0)

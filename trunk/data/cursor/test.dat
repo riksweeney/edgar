@@ -15,3 +15,5 @@ common/level_exit
 lift/lift_target
 lift/falling_platform
 enemy/red_grub
+item/bomb
+enemy/spitting_plant

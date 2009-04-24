@@ -31,11 +31,11 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->action = &projectileMove;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &entityTouch;
 
 	e->type = PROJECTILE;
-	
+
 	e->parent = owner;
 
 	setEntityAnimation(e, STAND);
@@ -45,5 +45,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 static void projectileMove()
 {
+	self->face = self->dirX > 0 ? RIGHT : LEFT;
+
 	checkToMap(self);
 }

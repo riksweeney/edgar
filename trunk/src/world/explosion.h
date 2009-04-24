@@ -1,0 +1,1 @@
+Entity *addExplosion(int, int);

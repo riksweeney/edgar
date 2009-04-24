@@ -472,7 +472,7 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	player.dirX = 0;
 
 	player.action = &dialogWait;
@@ -506,7 +506,7 @@ static void dialogWait()
 		input.activate = 0;
 		input.block = 0;
 	}
-	
+
 	checkToMap(&player);
 }
 
@@ -593,7 +593,7 @@ void autoSetPlayerShield(Entity *newWeapon)
 	if (playerShield.inUse == FALSE)
 	{
 		playerShield = *newWeapon;
-		
+
 		alignAnimations(&playerShield);
 	}
 }
@@ -634,6 +634,8 @@ static void takeDamage(Entity *other, int damage)
 					{
 						other->inUse = FALSE;
 					}
+
+					return;
 				}
 			}
 		}
@@ -678,7 +680,7 @@ static void takeDamage(Entity *other, int damage)
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
-		
+
 		if (self->type == PROJECTILE)
 		{
 			self->inUse = FALSE;
@@ -814,7 +816,7 @@ static void fallout()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	if (player.environment != AIR)
 	{
 		checkToMap(&player);
@@ -831,7 +833,7 @@ static void falloutPause()
 
 		player.action = &resetPause;
 	}
-	
+
 	if (player.environment != AIR)
 	{
 		checkToMap(&player);
@@ -848,7 +850,7 @@ static void resetPause()
 	{
 		player.action = &resetPlayer;
 	}
-	
+
 	if (player.environment != AIR)
 	{
 		checkToMap(&player);
@@ -870,11 +872,11 @@ static void resetPlayer()
 	player.action = NULL;
 
 	player.health--;
-	
+
 	if (player.health <= 0)
 	{
 		printf("Game over\n");
-		
+
 		exit(0);
 	}
 
@@ -890,9 +892,9 @@ static void resetPlayer()
 void increasePlayerMaxHealth()
 {
 	player.maxHealth++;
-	
+
 	player.health = player.maxHealth;
-	
+
 	setInfoBoxMessage(120,  _("Maximum health has increased!"));
 }
 
@@ -900,7 +902,7 @@ void syncWeaponShieldToPlayer()
 {
 	playerWeapon.face = playerShield.face = player.face;
 	playerWeapon.face = playerShield.face = player.face;
-	
+
 	setEntityAnimation(&playerWeapon, getAnimationTypeAtIndex(&player));
 	setEntityAnimation(&playerShield, getAnimationTypeAtIndex(&player));
 }

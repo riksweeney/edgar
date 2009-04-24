@@ -8,6 +8,9 @@
 #include "rock_pile.h"
 #include "heart_container.h"
 #include "shrub.h"
+#include "stalactite.h"
+#include "bomb.h"
+#include "bomb_pile.h"
 
 extern Entity *self, player;
 
@@ -17,7 +20,10 @@ static Constructor items[] = {
 {"item/coal_pile", &addCoalPile},
 {"item/rock_pile", &addRockPile},
 {"misc/small_tree", &addShrub},
-{"item/heart_container", &addHeartContainer}
+{"item/heart_container", &addHeartContainer},
+{"item/stalactite", &addStalactite},
+{"item/bomb", &addBomb},
+{"item/bomb_pile", &addBombPile}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

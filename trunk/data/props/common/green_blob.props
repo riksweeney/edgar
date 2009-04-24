@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/green_blob.dat
+ANIM_FILE data/anim/common/no_anim.dat
+TYPE PROJECTILE
+DAMAGE 1
+SPEED 2

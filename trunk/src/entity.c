@@ -117,11 +117,6 @@ void doEntities()
 				}
 			}
 
-			else
-			{
-				self->dirY = 0;
-			}
-
 			if (!(self->flags & HELPLESS))
 			{
 				if (self->standingOn != NULL)
@@ -354,7 +349,7 @@ void standardDie()
 	checkToMap(self);
 }
 
-void entityTakeDamage(Entity *other, int damage)
+void entityTakeDamageFlinch(Entity *other, int damage)
 {
 	if (self->flags & INVULNERABLE)
 	{
@@ -366,7 +361,7 @@ void entityTakeDamage(Entity *other, int damage)
 		self->health -= damage;
 
 		setCustomAction(self, &helpless, 10);
-		setCustomAction(self, &invulnerable, 15);
+		setCustomAction(self, &invulnerable, 20);
 
 		if (self->health > 0)
 		{
@@ -387,6 +382,37 @@ void entityTakeDamage(Entity *other, int damage)
 	}
 }
 
+void entityTakeDamageNoFlinch(Entity *other, int damage)
+{
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		setCustomAction(self, &flashWhite, 6);
+		setCustomAction(self, &invulnerableNoFlash, 20);
+
+		if (self->health > 0)
+		{
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->damage = 0;
+
+			self->die();
+		}
+	}
+}
+
 void entityTouch(Entity *other)
 {
 	Entity *temp;
@@ -396,7 +422,7 @@ void entityTouch(Entity *other)
 		return;
 	}
 
-	if (other->type == PLAYER && self->parent != other && !(self->flags & INVULNERABLE))
+	if (other->type == PLAYER && self->parent != other)
 	{
 		temp = self;
 
