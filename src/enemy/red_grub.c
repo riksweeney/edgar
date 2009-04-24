@@ -39,7 +39,7 @@ Entity *addRedGrub(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->die = &die;
 	e->pain = &pain;
-	e->takeDamage = &entityTakeDamage;
+	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
 
 	e->type = ENEMY;
@@ -85,6 +85,8 @@ static void spinAttackStart()
 {
 	setEntityAnimation(self, ATTACK_2);
 
+	self->flags |= INVULNERABLE;
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -106,6 +108,8 @@ static void spinAttackStart()
 		self->action = &spinAttack;
 
 		self->thinkTime = 180;
+
+		self->flags |= ATTACKING;
 	}
 
 	checkToMap(self);
@@ -147,24 +151,33 @@ static void spinAttackEnd()
 	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
-		
+
 		setEntityAnimation(self, STAND);
-		
+
 		self->dirX = 0;
 
+		self->flags &= ~(ATTACKING|INVULNERABLE);
+
 		self->action = &lookForPlayer;
+
+		self->frameSpeed = 1;
 	}
 }
 
 static void reactToBlock()
 {
+	if (player.face == LEFT)
+	{
+		self->x = player.x - self->w;
+	}
+
+	else
+	{
+		self->x = player.x + player.w;
+	}
+
 	if (self->action == &spinAttack)
 	{
-		if (player.face == LEFT)
-		{
-			self->x = player.x + (player.face == LEFT ? -self->w : self->w);
-		}
-		
 		self->dirX = player.face == LEFT ? -5 : 5;
 
 		self->dirY = -6;

@@ -127,18 +127,18 @@ void loadGame(int slot)
 			loadResources(read);
 		}
 	}
-	
+
 	rewind(read);
-	
+
 	write = fopen(tempFile, "wb");
-	
+
 	if (write == NULL)
 	{
 		printf("Could not write to temporary file\n");
-		
+
 		exit(1);
 	}
-	
+
 	while((c = fgetc(read)) != EOF)
 	{
 		fputc(c, write);
@@ -146,7 +146,7 @@ void loadGame(int slot)
 
 	fclose(write);
 	fclose(read);
-	
+
 	freeMessageQueue();
 
 	printf("Load completed\n");
@@ -169,10 +169,12 @@ void saveGame(int slot)
 
 	write = fopen(saveFile, "wb");
 
+	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
+
 	if (read != NULL)
 	{
 		printf("Copying persisting data\n");
-		
+
 		while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
@@ -231,12 +233,10 @@ void saveGame(int slot)
 
 		fclose(read);
 	}
-	
+
 	/* Save the player's position */
 
 	printf("Writing player location\n");
-
-	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
 	fprintf(write, "MAP_NAME %s\n", mapName);
 

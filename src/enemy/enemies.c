@@ -17,6 +17,7 @@
 #include "wasp.h"
 #include "small_boulder.h"
 #include "red_grub.h"
+#include "spitting_plant.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -31,7 +32,8 @@ static Constructor enemies[] = {
 {"enemy/wasp", &addWasp},
 {"common/small_rock", &addSmallRock},
 {"enemy/small_boulder", &addSmallBoulder},
-{"enemy/red_grub", &addRedGrub}
+{"enemy/red_grub", &addRedGrub},
+{"enemy/spitting_plant", &addSpittingPlant}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
@@ -39,12 +41,20 @@ static int length = sizeof(enemies) / sizeof(Constructor);
 Entity *addEnemy(char *name, int x, int y)
 {
 	int i;
+	Entity *e;
 
 	for (i=0;i<length;i++)
 	{
 		if (strcmpignorecase(enemies[i].name, name) == 0)
 		{
-			return enemies[i].construct(x, y, name);
+			e = enemies[i].construct(x, y, name);
+
+			if (e->fallout == NULL)
+			{
+				e->fallout = &entityDie;
+			}
+
+			return e;
 		}
 	}
 

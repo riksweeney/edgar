@@ -660,7 +660,7 @@ FACE LEFT
 
 {
 TYPE LEVEL_EXIT
-NAME common/level_exit
+NAME map01
 X 20
 Y 626
 START_X 0
