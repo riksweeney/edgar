@@ -541,12 +541,12 @@ void setDefaultControls(int editor)
 		control.button[CONTROL_TOGGLE] = SDLK_e;
 		control.button[CONTROL_ACTIVATE] = SDLK_a;
 		control.button[CONTROL_CUT] = SDLK_x;
-		control.button[CONTROL_ATTACK] = SDLK_RETURN;
+		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
 		control.button[CONTROL_FLY] = SDLK_f;
 		control.button[CONTROL_SNAP] = SDLK_g;
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;
-		control.button[CONTROL_BLOCK] = SDLK_b;
+		control.button[CONTROL_BLOCK] = SDLK_LALT;
 	}
 }
 
