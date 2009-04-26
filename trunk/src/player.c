@@ -362,7 +362,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.block == 1 && playerShield.inUse == TRUE)
+				if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
 				{
 					player.flags |= BLOCKING;
 
@@ -432,16 +432,6 @@ void doPlayer()
 		i = player.environment;
 
 		checkToMap(self);
-
-		if (player.environment == WATER && i == AIR)
-		{
-			player.action = &fallout;
-		}
-
-		else if (player.environment == LAVA)
-		{
-			exit(0);
-		}
 
 		self->standingOn = NULL;
 
@@ -625,24 +615,34 @@ static void takeDamage(Entity *other, int damage)
 			{
 				if (other->element == NO_ELEMENT || (playerShield.element == other->element))
 				{
+					player.dirX = other->dirX < 0 ? -2 : 2;
+
+					checkToMap(&player);
+
 					if (other->reactToBlock != NULL)
 					{
-						other->reactToBlock();
-					}
+						temp = self;
 
-					else
-					{
-						other->inUse = FALSE;
-					}
+						self = other;
 
-					return;
+						self->reactToBlock();
+
+						self = temp;
+
+						return;
+					}
 				}
 			}
+
+			other->inUse = FALSE;
+
+			return;
 		}
 
 		else if (player.face != other->face)
 		{
 			player.dirX = other->dirX < 0 ? -2 : 2;
+
 			checkToMap(&player);
 
 			if (other->reactToBlock == NULL)
@@ -681,9 +681,9 @@ static void takeDamage(Entity *other, int damage)
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
 
-		if (self->type == PROJECTILE)
+		if (other->type == PROJECTILE)
 		{
-			self->inUse = FALSE;
+			other->inUse = FALSE;
 		}
 
 		if (player.health > 0)
@@ -803,23 +803,26 @@ void writePlayerToFile(FILE *fp)
 
 static void fallout()
 {
-	centerMapOnEntity(NULL);
-
-	player.thinkTime = 120;
-
-	player.dirX = 0;
-
-	player.flags |= HELPLESS;
-
-	player.action = &falloutPause;
-
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
-
-	if (player.environment != AIR)
+	if (!(player.flags & HELPLESS))
 	{
-		checkToMap(&player);
+		centerMapOnEntity(NULL);
+
+		player.thinkTime = 120;
+
+		player.dirX = 0;
+
+		player.flags |= HELPLESS;
+
+		player.action = &falloutPause;
+
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
+
+		if (player.environment != AIR)
+		{
+			checkToMap(&player);
+		}
 	}
 }
 

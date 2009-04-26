@@ -75,21 +75,31 @@ static void spit()
 
 	e->flags |= FLY;
 
+	e->reactToBlock = &bounceOffShield;
+
 	e = addProjectile("common/green_blob", self, x, y, -6, -6);
 
 	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
 
 	e = addProjectile("common/green_blob", self, x, y, 0, -6);
 
 	e->flags |= FLY;
 
+	e->reactToBlock = &bounceOffShield;
+
 	e = addProjectile("common/green_blob", self, x, y, 6, -6);
 
 	e->flags |= FLY;
 
+	e->reactToBlock = &bounceOffShield;
+
 	e = addProjectile("common/green_blob", self, x, y, 6, 0);
 
 	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
 
 	setEntityAnimation(self, ATTACK_2);
 

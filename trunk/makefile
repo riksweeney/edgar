@@ -4,8 +4,8 @@ DEV = 1
 LOCALE_DIR = usr/share/locale/
 
 CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
-#LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
-LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl
+LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
+#LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl
 MAIN_OBJS = draw.o main.o
 EDIT_OBJS = draw_editor.o main_editor.o cursor.o
 CORE_OBJS  = animation.o audio.o collisions.o entity.o font.o game.o graphics.o init.o input.o inventory.o
@@ -17,6 +17,7 @@ CORE_OBJS += spider.o rock_pile.o grub.o grub_boss.o save_point.o shrub.o projec
 CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialog.o script.o villager.o
 CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
+CORE_OBJS += jumping_slime.o
 PROG      = edgar
 ED_PROG   = mapeditor
 CXX       = gcc

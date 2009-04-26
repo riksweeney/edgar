@@ -46,6 +46,22 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 static void projectileMove()
 {
 	self->face = self->dirX > 0 ? RIGHT : LEFT;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 
 	checkToMap(self);
+}
+
+void bounceOffShield()
+{
+	self->dirX *= -1;
+
+	self->flags &= ~FLY;
+
+	self->touch = NULL;
 }

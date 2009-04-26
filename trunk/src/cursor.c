@@ -55,6 +55,11 @@ void initCursor(char *name)
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
 		}
+		
+		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\r')
+		{
+			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
+		}
 
 		entityNamesLength++;
 	}

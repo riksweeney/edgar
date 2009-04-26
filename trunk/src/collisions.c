@@ -143,9 +143,12 @@ void doCollisions()
 								continue;
 							}
 
-							if (e1->type == PROJECTILE && e2->type == PROJECTILE)
+							if (e1->type == PROJECTILE)
 							{
-								continue;
+								if (e2->type == PROJECTILE || (e1->parent != NULL && e1->parent->type == ENEMY && e2->type == ENEMY))
+								{
+									continue;
+								}
 							}
 
 							if ((e1 == &player && e2 == &playerWeapon) || (e1 == &playerWeapon && e2 == &player))
@@ -203,11 +206,6 @@ void doCollisions()
 								temp = self;
 
 								self = e2;
-
-								if (strcmpignorecase("common/explosion", e1->name) == 0)
-								{
-									printf("%s is colliding %s\n", e1->name, self->name);
-								}
 
 								self->touch(e1);
 
@@ -500,6 +498,53 @@ void checkToMap(Entity *e)
 						e->inUse = FALSE;
 
 						return;
+					}
+				}
+				
+				else if ((bottomLeft >= JUMP_THROUGH_TILE_START && bottomLeft <= JUMP_THROUGH_TILE_END) ||
+					((bottomRight >= JUMP_THROUGH_TILE_START && bottomRight <= JUMP_THROUGH_TILE_END)))
+				{
+					x1 = (e->x) / TILE_SIZE;
+					x2 = (e->x + i - 1) / TILE_SIZE;
+			
+					y1 = (e->y) / TILE_SIZE;
+					y2 = (e->y + e->h) / TILE_SIZE;
+					
+					topLeft     = mapTileAt(x1, y1);
+					topRight    = mapTileAt(x2, y1);
+					bottomLeft  = mapTileAt(x1, y2);
+					bottomRight = mapTileAt(x2, y2);
+					
+					if (!((bottomLeft >= JUMP_THROUGH_TILE_START && bottomLeft <= JUMP_THROUGH_TILE_END) ||
+						((bottomRight >= JUMP_THROUGH_TILE_START && bottomRight <= JUMP_THROUGH_TILE_END))))
+					{
+						x1 = (e->x) / TILE_SIZE;
+						x2 = (e->x + i - 1) / TILE_SIZE;
+				
+						y1 = (e->y) / TILE_SIZE;
+						y2 = (e->y + e->dirY + e->h) / TILE_SIZE;
+					
+						topLeft     = mapTileAt(x1, y1);
+						topRight    = mapTileAt(x2, y1);
+						bottomLeft  = mapTileAt(x1, y2);
+						bottomRight = mapTileAt(x2, y2);
+						
+						/* Place the player as close to the solid tile as possible */
+	
+						e->y = y2 * TILE_SIZE;
+						e->y -= e->h + 1;
+	
+						if ((e->flags & BOUNCES) && e->dirY > 4)
+						{
+							e->dirY = -e->dirY * 2 / 3;
+						}
+	
+						else
+						{
+							e->dirY = 0;
+	
+							e->flags |= ON_GROUND;
+						}
 					}
 				}
 

@@ -31,6 +31,11 @@ void preCacheSounds(char *filename)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
+		
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
 		preCacheSound(line);
 	}
