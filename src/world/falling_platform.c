@@ -53,8 +53,13 @@ static void wait()
 static void touch(Entity *other)
 {
 	/* Test the horizontal movement */
+	
+	if (other->type == PROJECTILE)
+	{
+		other->inUse = FALSE;
+	}
 
-	if (other->dirY > 0)
+	else if (other->dirY > 0)
 	{
 		/* Trying to move down */
 
@@ -125,6 +130,8 @@ static void resetPlatform()
 
 	if (self->y <= self->startY)
 	{
+		self->y = self->startY;
+
 		self->thinkTime = self->maxThinkTime;
 
 		self->action = &wait;
@@ -133,8 +140,13 @@ static void resetPlatform()
 
 static void initialize()
 {
-	self->startX = self->x;
-	self->startY = self->y;
+	if (self->x != self->startX || self->y != self->startY)
+	{
+		self->action = &resetPlatform;
+	}
 
-	self->action = &wait;
+	else
+	{
+		self->action = &wait;
+	}
 }

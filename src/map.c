@@ -375,9 +375,6 @@ void drawMap(int depth)
 
 	if (depth <= 0)
 	{
-		map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
-		map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
-
 		if (map.backgroundStartX[0] + SCREEN_WIDTH > map.background[0]->w && map.wrapX[0] == FALSE)
 		{
 			map.backgroundStartX[0] = map.background[0]->w - SCREEN_WIDTH;

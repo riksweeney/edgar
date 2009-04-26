@@ -6,6 +6,7 @@
 #include "../entity.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
+#include "../enemy/rock.h"
 
 extern Entity *self;
 
@@ -66,7 +67,7 @@ static void wait()
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (strcmpignorecase(self->requires, other->name) == 0)
+	if (strcmpignorecase(self->requires, other->name) == 0 || other->type == PROJECTILE)
 	{
 		self->health -= damage;
 
@@ -78,16 +79,16 @@ static void takeDamage(Entity *other, int damage)
 			if (self->thinkTime == 0)
 			{
 				self->flags &= ~FLY;
-				
+
 				self->health = self->maxHealth;
-				
+
 				self->thinkTime = 1;
 			}
-			
+
 			else
 			{
 				self->thinkTime = 300;
-				
+
 				self->die();
 			}
 		}
@@ -103,33 +104,53 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
+	Entity *e;
+
 	self->flags |= NO_DRAW;
-	
+
 	self->touch = NULL;
-	
+
 	self->action = &respawn;
+
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = -3;
+	e->dirY = -8;
+
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = 3;
+	e->dirY = -8;
 }
 
 static void respawn()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime == 0)
 	{
 		self->flags &= ~NO_DRAW;
-		
+
 		self->flags |= FLY;
-		
-		self->action = &doNothing;
-		
+
+		self->action = &wait;
+
 		self->health = self->maxHealth;
-		
+
 		self->touch = &touch;
-		
+
 		setCustomAction(self, &invulnerable, 180);
-		
+
 		self->x = self->startX;
-		
+
 		self->y = self->startY;
+		
+		self->dirX = self->dirY = 0;
 	}
 }

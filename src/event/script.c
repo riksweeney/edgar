@@ -66,6 +66,11 @@ void loadScript(char *name)
 		{
 			filename[strlen(filename) - 1] = '\0';
 		}
+		
+		if (filename[strlen(filename) - 1] == '\r')
+		{
+			filename[strlen(filename) - 1] = '\0';
+		}
 
 		script.text[i] = (char *)malloc(strlen(filename) + 1);
 

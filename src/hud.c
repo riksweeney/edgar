@@ -204,4 +204,13 @@ void freeMessageQueue()
 	}
 
 	messageHead.next = NULL;
+	
+	if (hud.infoMessage.surface != NULL)
+	{
+		SDL_FreeSurface(hud.infoMessage.surface);
+
+		hud.infoMessage.surface = NULL;
+
+		hud.infoMessage.text[0] = '\0';
+	}
 }

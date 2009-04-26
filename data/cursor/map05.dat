@@ -14,3 +14,7 @@ item/bomb_pile
 common/save_point
 common/spawner
 enemy/spitting_plant
+weapon/basic_sword
+weapon/small_wooden_shield
+wall/large_weak_cave_wall
+enemy/jumping_slime

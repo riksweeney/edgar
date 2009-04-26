@@ -5,6 +5,8 @@
 #include "../system/properties.h"
 #include "../custom_actions.h"
 #include "../enemy/rock.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 
@@ -54,8 +56,6 @@ static void touch(Entity *other)
 
 static void takeDamage(Entity *other, int damage)
 {
-	printf("Wall is hit by %s\n", other->name);
-	
 	if (damage > 100)
 	{
 		self->die();
@@ -103,4 +103,8 @@ static void die()
 	e->dirY = -8;
 
 	self->inUse = FALSE;
+	
+	fireTrigger(self->objectiveName);
+
+	fireGlobalTrigger(self->objectiveName);
 }

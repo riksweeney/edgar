@@ -42,6 +42,11 @@ void loadSpritesFromFile(char *name, int *index)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
+		
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
 		index[i] = loadSprite(line);
 

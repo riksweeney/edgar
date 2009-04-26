@@ -61,8 +61,13 @@ Entity *addLift(char *name, int startX, int startY, int type)
 static void touch(Entity *other)
 {
 	/* Test the horizontal movement */
+	
+	if (other->type == PROJECTILE)
+	{
+		other->inUse = FALSE;
+	}
 
-	if (other->dirY > 0)
+	else if (other->dirY > 0)
 	{
 		/* Trying to move down */
 

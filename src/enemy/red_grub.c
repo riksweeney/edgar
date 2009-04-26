@@ -70,7 +70,7 @@ static void lookForPlayer()
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
 
-	if (prand() % 60 == 0)
+	if (prand() % 120 == 0)
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
@@ -123,7 +123,7 @@ static void spinAttack()
 
 	checkToMap(self);
 
-	if (self->dirX == 0)
+	if (self->dirX == 0 || isAtEdge(self))
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 

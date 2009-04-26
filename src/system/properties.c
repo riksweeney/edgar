@@ -115,6 +115,11 @@ void loadProperties(char *name, Entity *e)
 					{
 						line[strlen(line) - 1] = '\0';
 					}
+					
+					if (line[strlen(line) - 1] == '\r')
+					{
+						line[strlen(line) - 1] = '\0';
+					}
 
 					if (line[0] == '#' || line[0] == '\n')
 					{

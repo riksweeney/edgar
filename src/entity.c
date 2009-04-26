@@ -47,7 +47,7 @@ Entity *getFreeEntity()
 
 			entity[i].weight = 1;
 
-			entity[i].fallout = &removeEntity;
+			entity[i].fallout = NULL;
 
 			return &entity[i];
 		}
@@ -237,6 +237,11 @@ void doNothing(void)
 
 void moveLeftToRight()
 {
+	if (self->dirX == 0)
+	{
+		self->face = self->face == RIGHT ? LEFT : RIGHT;
+	}
+	
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 	checkToMap(self);
@@ -272,6 +277,14 @@ void flyToTarget()
 		changeTarget();
 	}
 
+	self->face = (self->dirX > 0 ? RIGHT : LEFT);
+
+	self->thinkTime += 5;
+
+	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 15;
+
+	checkToMap(self);
+	
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -281,14 +294,6 @@ void flyToTarget()
 	{
 		self->x = self->targetX;
 	}
-
-	self->face = (self->dirX > 0 ? RIGHT : LEFT);
-
-	self->thinkTime += 5;
-
-	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 3;
-
-	checkToMap(self);
 }
 
 void floatLeftToRight()
@@ -458,6 +463,13 @@ void pushEntity(Entity *other)
 
 	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == AUTO_LIFT || other->type == MANUAL_LIFT)
 	{
+		return;
+	}
+	
+	if (other->type == PROJECTILE)
+	{
+		other->inUse = FALSE;
+		
 		return;
 	}
 
@@ -749,7 +761,7 @@ void writeEntitiesToFile(FILE *fp)
 	{
 		self = &entity[i];
 
-		if (self->inUse == TRUE)
+		if (self->inUse == TRUE && self->type != PROJECTILE)
 		{
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE %s\n", getEntityTypeByID(self->type));

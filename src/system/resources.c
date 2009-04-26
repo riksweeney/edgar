@@ -93,6 +93,10 @@ void freeLevelResources()
 	/* Free the targets */
 
 	freeTargets();
+	
+	/* Free the message queue */
+	
+	freeMessageQueue();
 }
 
 void freeGameResources()
@@ -190,6 +194,11 @@ void loadResources(FILE *fp)
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+		
+		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
 		}

@@ -106,6 +106,11 @@ void loadGame(int slot)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
+		
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
 		sscanf(line, "%s", itemName);
 
@@ -178,6 +183,11 @@ void saveGame(int slot)
 		while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
+			
+			if (line[strlen(line) - 1] == '\r')
 			{
 				line[strlen(line) - 1] = '\0';
 			}
@@ -302,6 +312,11 @@ void saveTemporaryData()
 			{
 				line[strlen(line) - 1] = '\0';
 			}
+			
+			if (line[strlen(line) - 1] == '\r')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
 
 			if (skipping == FALSE)
 			{
@@ -412,6 +427,11 @@ int hasPersistance(char *mapName)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
+		
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
 		if (strcmpignorecase(line, itemName) == 0)
 		{
@@ -442,6 +462,11 @@ void loadPersitanceData(char *mapName)
 	while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+		
+		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
