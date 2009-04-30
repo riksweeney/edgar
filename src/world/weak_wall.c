@@ -48,7 +48,7 @@ static void touch(Entity *other)
 		takeDamage(other, other->damage);
 	}
 
-	if (self->inUse == TRUE)
+	if (self->inUse == TRUE && other->type != LINE_DEF)
 	{
 		pushEntity(other);
 	}
@@ -103,7 +103,7 @@ static void die()
 	e->dirY = -8;
 
 	self->inUse = FALSE;
-	
+
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);

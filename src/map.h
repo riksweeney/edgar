@@ -28,3 +28,8 @@ int getMapStartY(void);
 void setMapStartX(int);
 void setMapStartY(int);
 char *getMapName(void);
+void cameraSnapToTargetEntity(void);
+void setCameraPosition(int, int);
+void limitCamera(int, int, int, int);
+void resetCameraLimits(void);
+void limitCameraFromScript(char *);

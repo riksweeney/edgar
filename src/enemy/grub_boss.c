@@ -13,6 +13,7 @@
 #include "../audio/music.h"
 #include "../graphics/gib.h"
 #include "../item/key_items.h"
+#include "../event/trigger.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -70,26 +71,26 @@ static void takeDamage(Entity *other, int damage)
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
-		
+
 		if (self->health > 0)
 		{
 			setCustomAction(self, &flashWhite, 6);
 			setCustomAction(self, &invulnerableNoFlash, 20);
 		}
-	
+
 		else
 		{
 			self->thinkTime = 180;
-			
+
 			self->flags &= ~FLY;
-			
+
 			setEntityAnimation(self, STAND);
-			
+
 			self->frameSpeed = 0;
-			
+
 			self->takeDamage = NULL;
 			self->touch = NULL;
-	
+
 			self->action = &die;
 		}
 	}
@@ -131,6 +132,8 @@ static void initialise()
 		setMapStartX(minX);
 		setMapStartY(minY);
 
+		setCameraPosition(minX, minY);
+
 		if (minX == self->endX && minY == self->endY)
 		{
 			self->dirX = self->speed;
@@ -141,8 +144,6 @@ static void initialise()
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
-
-			printf("Starting\n");
 		}
 	}
 }
@@ -193,7 +194,7 @@ static void introPause()
 static void wait()
 {
 	int attack;
-	
+
 	self->dirX = 0;
 
 	self->thinkTime--;
@@ -201,24 +202,28 @@ static void wait()
 	if (self->thinkTime <= 0)
 	{
 		attack = prand() % 3;
-		
+
 		switch (attack)
 		{
 			case 0:
 				self->action = &spitStart;
-	
+
 				self->thinkTime = (prand() % 3) + 1;
 			break;
-			
+
 			case 1:
 				self->action = &spinAttackStart;
-	
+				
+				self->flags |= INVULNERABLE;
+
 				self->thinkTime = 60;
 			break;
-			
+
 			default:
 				self->action = &bounceAttackStart;
-	
+				
+				self->flags |= INVULNERABLE;
+
 				self->thinkTime = 60;
 			break;
 		}
@@ -260,11 +265,11 @@ static void spitEnd()
 static void spit()
 {
 	int x = (self->face == RIGHT ? 40 : 17);
-	
+
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
-	
+
 	if (self->health < 100)
 	{
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
@@ -297,7 +302,7 @@ static void spinAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
@@ -361,9 +366,9 @@ static void bounceAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		self->dirX = (self->face == RIGHT ? 3 : -3);
-		
+
 		self->dirY = -14;
 
 		self->action = &bounceAttack;
@@ -377,11 +382,11 @@ static void bounceAttack()
 	float speed = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		self->dirY = -14;
 	}
 
@@ -415,6 +420,8 @@ static void bounceAttackEnd()
 
 static void attackFinished()
 {
+	self->flags &= ~INVULNERABLE;
+	
 	setEntityAnimation(self, STAND);
 
 	self->frameSpeed = 1;
@@ -426,13 +433,12 @@ static void attackFinished()
 
 static void die()
 {
-	int i;
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	self->takeDamage = NULL;
-	
+
 	printf("Dying %d\n", self->thinkTime);
 
 	if (self->thinkTime <= 0)
@@ -442,20 +448,14 @@ static void die()
 
 		centerMapOnEntity(&player);
 
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "GRUB_BOSS_WALL") == 0)
-			{
-				entity[i].active = TRUE;
-			}
-		}
-		
+		fireTrigger(self->objectiveName);
+
 		throwGibs("boss/grub_boss_gib", 7);
-		
+
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-		
+
 		e->dirY = ITEM_JUMP_HEIGHT;
 	}
-	
+
 	checkToMap(self);
 }

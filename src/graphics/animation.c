@@ -447,7 +447,7 @@ static char *getAnimationTypeByID(int id)
 int getAnimationTypeAtIndex(Entity *e)
 {
 	int i;
-	
+
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
 		if (e->currentAnim == e->animation[i])
@@ -455,8 +455,8 @@ int getAnimationTypeAtIndex(Entity *e)
 			return i;
 		}
 	}
-	
+
 	printf("Failed to find animation at index %d\n", e->currentAnim);
-	
+
 	abort();
 }

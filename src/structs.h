@@ -81,6 +81,8 @@ typedef struct Map
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int minX, minY;
+	int cameraX, cameraY;
+	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
 	int wrapX[2], wrapY[2];

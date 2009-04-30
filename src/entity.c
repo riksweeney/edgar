@@ -241,7 +241,7 @@ void moveLeftToRight()
 	{
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
 	}
-	
+
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 	checkToMap(self);
@@ -284,7 +284,7 @@ void flyToTarget()
 	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 15;
 
 	checkToMap(self);
-	
+
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -323,15 +323,22 @@ void floatLeftToRight()
 
 void entityDie()
 {
-	self->flags &= ~FLY;
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->flags &= ~FLY;
 
-	self->thinkTime = 60;
+		self->thinkTime = 60;
 
-	setCustomAction(self, &invulnerable, 240);
+		setCustomAction(self, &invulnerable, 240);
 
-	self->frameSpeed = 0;
+		self->frameSpeed = 0;
 
-	self->action = &standardDie;
+		self->action = &standardDie;
+
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+	}
 }
 
 void standardDie()
@@ -343,10 +350,6 @@ void standardDie()
 		self->inUse = FALSE;
 
 		dropRandomItem(self->x + self->w / 2, self->y);
-
-		fireTrigger(self->objectiveName);
-
-		fireGlobalTrigger(self->objectiveName);
 	}
 
 	self->dirX = 0;
@@ -365,11 +368,11 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 	{
 		self->health -= damage;
 
-		setCustomAction(self, &helpless, 10);
-		setCustomAction(self, &invulnerable, 20);
-
 		if (self->health > 0)
 		{
+			setCustomAction(self, &helpless, 10);
+			setCustomAction(self, &invulnerable, 20);
+
 			if (self->pain != NULL)
 			{
 				self->pain();
@@ -398,11 +401,11 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 	{
 		self->health -= damage;
 
-		setCustomAction(self, &flashWhite, 6);
-		setCustomAction(self, &invulnerableNoFlash, 20);
-
 		if (self->health > 0)
 		{
+			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &invulnerableNoFlash, 20);
+
 			if (self->pain != NULL)
 			{
 				self->pain();
@@ -465,11 +468,11 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
-	
+
 	if (other->type == PROJECTILE)
 	{
 		other->inUse = FALSE;
-		
+
 		return;
 	}
 
@@ -686,7 +689,15 @@ void activateEntitiesWithName(char *name, int active)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
-			printf("Activating %s\n", entity[i].requires);
+			if (active == TRUE)
+			{
+				printf("Activating %s\n", entity[i].requires);
+			}
+
+			else
+			{
+				printf("Deactivating %s\n", entity[i].requires);
+			}
 
 			entity[i].active = active;
 		}
@@ -875,8 +886,8 @@ void entityWalkToRelative(Entity *e, char *coords)
 
 	sscanf(coords, "%d %d %s", &x, &y, wait);
 
-	e->targetX = self->x + x;
-	e->targetY = self->y + y;
+	e->targetX = e->x + x;
+	e->targetY = e->y + y;
 
 	if (!(e->flags & FLY))
 	{

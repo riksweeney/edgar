@@ -1,6 +1,6 @@
-HEALTH 100
+HEALTH 140
 DAMAGE 1
-GFX_FILE data/gfx/enemy/jumping_slime.dat
+GFX_FILE data/gfx/enemy/purple_jumping_slime.dat
 ANIM_FILE data/anim/enemy/jumping_slime.dat
 TYPE ENEMY
 SPEED 2

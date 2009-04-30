@@ -241,14 +241,16 @@ Entity *isSpaceEmpty(Entity *e)
 
 void checkToMap(Entity *e)
 {
-	int i, x1, x2, y1, y2;
-	int topLeft, topRight, bottomLeft, bottomRight;
+	int i, x1, x2, y1, y2, previousEnvironment;
+	int topLeft, topRight, bottomLeft, bottomRight, previousY2;
 
 	/* Remove the entity from the ground */
 
 	e->flags &= ~ON_GROUND;
 
 	/* Set environment to air */
+
+	previousEnvironment = e->environment;
 
 	e->environment = AIR;
 
@@ -428,7 +430,7 @@ void checkToMap(Entity *e)
 		x2 = (e->x + i - 1) / TILE_SIZE;
 
 		y1 = (e->y + e->dirY) / TILE_SIZE;
-		y2 = (e->y + e->dirY + e->h) / TILE_SIZE;
+		y2 = (e->y + e->dirY + e->h - 1) / TILE_SIZE;
 
 		if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y)
 		{
@@ -500,49 +502,39 @@ void checkToMap(Entity *e)
 						return;
 					}
 				}
-				
+
 				else if ((bottomLeft >= JUMP_THROUGH_TILE_START && bottomLeft <= JUMP_THROUGH_TILE_END) ||
 					((bottomRight >= JUMP_THROUGH_TILE_START && bottomRight <= JUMP_THROUGH_TILE_END)))
 				{
+					previousY2 = y2;
+
 					x1 = (e->x) / TILE_SIZE;
 					x2 = (e->x + i - 1) / TILE_SIZE;
-			
-					y1 = (e->y) / TILE_SIZE;
-					y2 = (e->y + e->h) / TILE_SIZE;
-					
-					topLeft     = mapTileAt(x1, y1);
-					topRight    = mapTileAt(x2, y1);
+
+					y2 = (e->y + e->h - 1) / TILE_SIZE;
+
 					bottomLeft  = mapTileAt(x1, y2);
 					bottomRight = mapTileAt(x2, y2);
-					
+
 					if (!((bottomLeft >= JUMP_THROUGH_TILE_START && bottomLeft <= JUMP_THROUGH_TILE_END) ||
 						((bottomRight >= JUMP_THROUGH_TILE_START && bottomRight <= JUMP_THROUGH_TILE_END))))
 					{
-						x1 = (e->x) / TILE_SIZE;
-						x2 = (e->x + i - 1) / TILE_SIZE;
-				
-						y1 = (e->y) / TILE_SIZE;
-						y2 = (e->y + e->dirY + e->h) / TILE_SIZE;
-					
-						topLeft     = mapTileAt(x1, y1);
-						topRight    = mapTileAt(x2, y1);
-						bottomLeft  = mapTileAt(x1, y2);
-						bottomRight = mapTileAt(x2, y2);
-						
+						y2 = previousY2;
+
 						/* Place the player as close to the solid tile as possible */
-	
+
 						e->y = y2 * TILE_SIZE;
-						e->y -= e->h + 1;
-	
+						e->y -= e->h;
+
 						if ((e->flags & BOUNCES) && e->dirY > 4)
 						{
 							e->dirY = -e->dirY * 2 / 3;
 						}
-	
+
 						else
 						{
 							e->dirY = 0;
-	
+
 							e->flags |= ON_GROUND;
 						}
 					}
@@ -683,7 +675,7 @@ void checkToMap(Entity *e)
 	{
 		e->environment = LAVA;
 
-		if (e->fallout != NULL)
+		if (previousEnvironment != LAVA && e->fallout != NULL)
 		{
 			e->fallout();
 		}
@@ -703,7 +695,7 @@ void checkToMap(Entity *e)
 		{
 			e->environment = WATER;
 
-			if (e->fallout != NULL)
+			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
 				e->fallout();
 			}
