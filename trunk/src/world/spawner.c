@@ -43,16 +43,6 @@ static void init()
 {
 	self->action = &spawn;
 
-	if (self->active == FALSE)
-	{
-		self->thinkTime = 0;
-	}
-
-	if (self->health <= 0)
-	{
-		self->health = -1;
-	}
-
 	self->action();
 }
 

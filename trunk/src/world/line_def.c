@@ -26,16 +26,16 @@ Entity *addLineDef(char *type, char *name, int x, int y)
 	STRNCPY(e->name, name, sizeof(e->name));
 
 	e->flags |= NO_DRAW;
-	
+
 	e->action = &initialise;
-	
+
 	if (strcmpignorecase(type, "SCRIPT_LINE_DEF") == 0)
 	{
 		e->type = SCRIPT_LINE_DEF;
 
 		e->touch = &scriptTouch;
 	}
-	
+
 	else
 	{
 		e->type = LINE_DEF;
@@ -66,7 +66,7 @@ static void scriptTouch(Entity *other)
 	if (other->type == PLAYER && self->active == TRUE)
 	{
 		loadScript(self->objectiveName);
-		
+
 		readNextScriptLine();
 
 		self->inUse = FALSE;

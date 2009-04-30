@@ -235,6 +235,10 @@ void loadMap(char *name, int loadEntityResources)
 	setTransition(TRANSITION_IN, NULL);
 
 	playMusic();
+	
+	resetCameraLimits();
+
+	cameraSnapToTargetEntity();
 }
 
 void saveMap()
@@ -561,37 +565,68 @@ void centerEntityOnMap()
 
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 
-	if (map.startX < map.minX)
+	if (map.startX < (map.minX != map.cameraMinX ? map.cameraMinX : map.minX))
 	{
-		map.startX = map.minX;
+		map.startX = (map.minX != map.cameraMinX ? map.cameraMinX : map.minX);
 	}
 
-	else if (map.startX + SCREEN_WIDTH >= map.maxX)
+	else if (map.startX + SCREEN_WIDTH >= (map.maxX != map.cameraMaxX ? map.cameraMaxX : map.maxX))
 	{
-		map.startX = map.maxX - SCREEN_WIDTH;
+		map.startX = (map.maxX != map.cameraMaxX ? map.cameraMaxX : map.maxX) - SCREEN_WIDTH;
 
-		if (map.startX < map.minX)
+		if (map.startX < (map.minX != map.cameraMinX ? map.cameraMinX : map.minX))
 		{
-			map.startX = map.minX;
+			map.startX = (map.minX != map.cameraMinX ? map.cameraMinX : map.minX);
 		}
 	}
 
 	map.startY = map.targetEntity->y + map.targetEntity->h - SCREEN_HEIGHT / 1.5;
 
-	if (map.startY < map.minY)
+	if (map.startY < (map.minY != map.cameraMinY ? map.cameraMinY : map.minY))
 	{
-		map.startY = map.minY;
+		map.startY = (map.minY != map.cameraMinY ? map.cameraMinY : map.minY);
 	}
 
-	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
+	else if (map.startY + SCREEN_HEIGHT >= (map.maxY != map.cameraMaxY ? map.cameraMaxY : map.maxY))
 	{
-		map.startY = map.maxY - SCREEN_HEIGHT;
+		map.startY = (map.maxY != map.cameraMaxY ? map.cameraMaxY : map.maxY) - SCREEN_HEIGHT;
 
-		if (map.startY < map.minY)
+		if (map.startY < (map.minY != map.cameraMinY ? map.cameraMinY : map.minY))
 		{
-			map.startY = map.minY;
+			map.startY = (map.minY != map.cameraMinY ? map.cameraMinY : map.minY);
 		}
 	}
+	
+	if (abs(map.cameraX - map.startX) > map.targetEntity->speed)
+	{
+		map.cameraX += map.cameraX < map.startX ? map.targetEntity->speed : -map.targetEntity->speed;
+	}
+
+	else
+	{
+		map.cameraX = map.startX;
+	}
+	
+	if (abs(map.cameraY - map.startY) > map.targetEntity->speed)
+	{
+		if (map.cameraY < map.startY)
+		{
+			map.cameraY += (map.targetEntity->dirY > map.targetEntity->speed ? map.targetEntity->dirY : map.targetEntity->speed);
+		}
+
+		else
+		{
+			map.cameraY += (map.targetEntity->dirY < -map.targetEntity->speed ? map.targetEntity->dirY : -map.targetEntity->speed);
+		}
+	}
+
+	else
+	{
+		map.cameraY = map.startY;
+	}
+
+	map.startX = map.cameraX;
+	map.startY = map.cameraY;
 }
 
 static void loadMapBackground(char *name, int index)
@@ -864,6 +899,80 @@ int prevTile(int id)
 	while (mapImages[id] == NULL);
 
 	return id;
+}
+
+void cameraSnapToTargetEntity()
+{
+	if (map.targetEntity == NULL)
+	{
+		return;
+	}
+
+	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
+
+	if (map.startX < map.minX)
+	{
+		map.startX = map.minX;
+	}
+
+	else if (map.startX + SCREEN_WIDTH >= map.maxX)
+	{
+		map.startX = map.maxX - SCREEN_WIDTH;
+
+		if (map.startX < map.minX)
+		{
+			map.startX = map.minX;
+		}
+	}
+
+	map.startY = map.targetEntity->y + map.targetEntity->h - SCREEN_HEIGHT / 1.5;
+
+	if (map.startY < map.minY)
+	{
+		map.startY = map.minY;
+	}
+
+	else if (map.startY + SCREEN_HEIGHT >= map.maxY)
+	{
+		map.startY = map.maxY - SCREEN_HEIGHT;
+
+		if (map.startY < map.minY)
+		{
+			map.startY = map.minY;
+		}
+	}
+
+	map.cameraX = map.startX;
+	map.cameraY = map.startY;
+}
+
+void setCameraPosition(int x, int y)
+{
+	map.cameraX = x;
+	map.cameraY = y;
+}
+
+void limitCamera(int minX, int minY, int maxX, int maxY)
+{
+	map.cameraMinX = minX;
+	map.cameraMinY = minY;
+	
+	map.cameraMaxX = maxX;
+	map.cameraMaxY = maxY;
+}
+
+void limitCameraFromScript(char *line)
+{
+	sscanf(line, "%d %d %d %d", &map.cameraMinX, &map.cameraMinY, &map.cameraMaxX, &map.cameraMaxY);
+}
+
+void resetCameraLimits()
+{
+	map.cameraMinX = map.minX;
+	map.cameraMinY = map.minY;
+	
+	map.cameraMaxX = map.maxX;
+	map.cameraMaxY = map.maxY;
 }
 
 void centerMapOnEntity(Entity *e)

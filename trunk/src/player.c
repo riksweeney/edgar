@@ -74,8 +74,10 @@ Entity *loadPlayer(int x, int y, char *name)
 		setEntityAnimation(&player, STAND);
 
 		setPlayerLocation(x, y);
-
-		printf("Setting player start to %d %d\n", x, y);
+		
+		centerMapOnEntity(&player);
+	
+		cameraSnapToTargetEntity();
 	}
 
 	centerMapOnEntity(&player);
@@ -91,8 +93,6 @@ void setPlayerLocation(int x, int y)
 	player.draw = &drawLoopingAnimationToMap;
 
 	player.inUse = TRUE;
-
-	centerMapOnEntity(&player);
 }
 
 void setPlayerWeaponName(char *name)
@@ -611,7 +611,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (other->type == PROJECTILE)
 		{
-			if (player.face != other->face)
+			if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT))
 			{
 				if (other->element == NO_ELEMENT || (playerShield.element == other->element))
 				{
@@ -639,7 +639,7 @@ static void takeDamage(Entity *other, int damage)
 			return;
 		}
 
-		else if (player.face != other->face)
+		else if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT))
 		{
 			player.dirX = other->dirX < 0 ? -2 : 2;
 
@@ -647,6 +647,8 @@ static void takeDamage(Entity *other, int damage)
 
 			if (other->reactToBlock == NULL)
 			{
+				other->x = other->x < player.x ? player.x - other->w : player.x + player.w;
+
 				other->dirX = other->dirX < 0 ? 2 : -2;
 
 				checkToMap(other);
@@ -864,6 +866,8 @@ static void resetPlayer()
 {
 	centerMapOnEntity(&player);
 
+	cameraSnapToTargetEntity();
+
 	game.drawScreen = TRUE;
 
 	player.draw = &drawLoopingAnimationToMap;
@@ -873,6 +877,8 @@ static void resetPlayer()
 	printf("Respawned at %f %f\n", player.x, player.y);
 
 	player.action = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	player.health--;
 

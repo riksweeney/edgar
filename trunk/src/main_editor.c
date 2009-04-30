@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
 
 	go = TRUE;
 
+	printf("NO SUPPORT IS GIVEN FOR THIS PROGRAM, SO DON'T ASK HOW IT WORKS!\n");
+
 	if (argc > 1)
 	{
 		loadMap(argv[1], TRUE);

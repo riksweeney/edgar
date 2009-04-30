@@ -66,7 +66,7 @@ void loadScript(char *name)
 		{
 			filename[strlen(filename) - 1] = '\0';
 		}
-		
+
 		if (filename[strlen(filename) - 1] == '\r')
 		{
 			filename[strlen(filename) - 1] = '\0';
@@ -309,7 +309,7 @@ void readNextScriptLine()
 
 					e->face = (e->x < e2->x ? RIGHT : LEFT);
 				}
-				
+
 				if (e == &player)
 				{
 					syncWeaponShieldToPlayer();
@@ -385,14 +385,14 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-			
+
 			if (e->die != NULL)
 			{
 				self = e;
-				
+
 				self->die();
 			}
-			
+
 			else
 			{
 				e->inUse = FALSE;
@@ -466,6 +466,23 @@ void readNextScriptLine()
 			{
 				entityWalkToRelative(e, token);
 			}
+		}
+		
+		else if (strcmpignorecase("LIMIT_CAMERA", command) == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			limitCameraFromScript(token);
+		}
+		
+		else if (strcmpignorecase("RESET_CAMERA", command) == 0)
+		{
+			resetCameraLimits();
+		}
+
+		else if (command[0] != '#')
+		{
+			printf("Skipping unknown script command %s\n", command);
 		}
 
 		script.line++;

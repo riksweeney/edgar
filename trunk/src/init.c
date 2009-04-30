@@ -60,7 +60,7 @@ void init(char *title)
 	joysticks = SDL_NumJoysticks();
 	
 	buttons = 0;
-	
+	/*
 	if (joysticks > 0)
 	{
 		printf("Found %d joysticks Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
@@ -73,7 +73,7 @@ void init(char *title)
 
 		printf("Joystick has %d axes\n", SDL_JoystickNumAxes(game.joystick));
 	}
-	
+	*/
 	/* Set the screen title */
 
 	SDL_WM_SetCaption(title, NULL);

@@ -18,3 +18,6 @@ enemy/red_grub
 item/bomb
 enemy/spitting_plant
 enemy/jumping_slime
+enemy/purple_jumping_slime
+misc/small_log
+enemy/jumping_slime_egg

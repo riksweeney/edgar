@@ -53,7 +53,7 @@ static void wait()
 static void touch(Entity *other)
 {
 	/* Test the horizontal movement */
-	
+
 	if (other->type == PROJECTILE)
 	{
 		other->inUse = FALSE;
@@ -101,6 +101,8 @@ static void initFall()
 
 		self->x = self->startX;
 
+		self->touch = NULL;
+
 		checkToMap(self);
 
 		if (self->flags & ON_GROUND)
@@ -133,6 +135,8 @@ static void resetPlatform()
 		self->y = self->startY;
 
 		self->thinkTime = self->maxThinkTime;
+
+		self->touch = &touch;
 
 		self->action = &wait;
 	}

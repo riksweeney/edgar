@@ -55,7 +55,7 @@ void initCursor(char *name)
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
 		}
-		
+
 		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\r')
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
@@ -122,29 +122,29 @@ void doCursor()
 
 		input.activate = 0;
 	}
-	
+
 	if (input.block == 1)
 	{
 		if (cursor.type == TILES)
 		{
 			x = (getMapStartX() + cursor.x) / TILE_SIZE;
 			y = (getMapStartY() + cursor.y) / TILE_SIZE;
-			
+
 			while (mapTileAt(x, y) == BLANK_TILE && x >= 0)
 			{
 				setTileAt(x, y, cursor.tileID);
-				
+
 				x--;
 			}
-			
+
 			x = (getMapStartX() + cursor.x) / TILE_SIZE;
-			
+
 			x++;
-			
+
 			while (mapTileAt(x, y) == BLANK_TILE && x < MAX_MAP_X)
 			{
 				setTileAt(x, y, cursor.tileID);
-				
+
 				x++;
 			}
 		}
@@ -181,6 +181,12 @@ void doCursor()
 
 					else
 					{
+						cursor.entity.startX = getMapStartX() + cursor.x;
+						cursor.entity.startY = getMapStartY() + cursor.y;
+
+						cursor.entity.endX = getMapStartX() + cursor.x;
+						cursor.entity.endY = getMapStartY() + cursor.y;
+
 						addEntity(cursor.entity, getMapStartX() + cursor.x, getMapStartY() + cursor.y);
 					}
 				}
