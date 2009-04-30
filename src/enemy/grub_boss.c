@@ -74,8 +74,8 @@ static void takeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6);
-			setCustomAction(self, &invulnerableNoFlash, 20);
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 		}
 
 		else
@@ -213,7 +213,7 @@ static void wait()
 
 			case 1:
 				self->action = &spinAttackStart;
-				
+
 				self->flags |= INVULNERABLE;
 
 				self->thinkTime = 60;
@@ -221,7 +221,7 @@ static void wait()
 
 			default:
 				self->action = &bounceAttackStart;
-				
+
 				self->flags |= INVULNERABLE;
 
 				self->thinkTime = 60;
@@ -421,7 +421,7 @@ static void bounceAttackEnd()
 static void attackFinished()
 {
 	self->flags &= ~INVULNERABLE;
-	
+
 	setEntityAnimation(self, STAND);
 
 	self->frameSpeed = 1;

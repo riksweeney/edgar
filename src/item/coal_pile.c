@@ -74,8 +74,6 @@ static Entity *addCoal(int x, int y)
 	e->touch = &addRequiredToInventory;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setCustomAction(e, &invulnerableNoFlash, 60);
-
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -108,14 +106,15 @@ static void touch(Entity *other)
 				e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
 			}
 
-			setCustomAction(self, &flashWhite, 6);
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 		}
 
 		else
 		{
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			
 			printf("Dink\n");
 		}
-
-		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }

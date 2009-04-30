@@ -74,9 +74,9 @@ Entity *loadPlayer(int x, int y, char *name)
 		setEntityAnimation(&player, STAND);
 
 		setPlayerLocation(x, y);
-		
+
 		centerMapOnEntity(&player);
-	
+
 		cameraSnapToTargetEntity();
 	}
 
@@ -156,13 +156,16 @@ void doPlayer()
 		self->dirY = 0;
 	}
 
+	playerWeapon.frameSpeed = player.frameSpeed;
+	playerShield.frameSpeed = player.frameSpeed;
+
 	if (self->action == NULL)
 	{
 		for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 		{
-			if (self->customThinkTime[i] > 0)
+			if (self->customAction[i].thinkTime > 0)
 			{
-				self->custom[i](&self->customThinkTime[i]);
+				doCustomAction(&self->customAction[i]);
 			}
 		}
 
@@ -320,7 +323,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.attack == 1 && !(player.flags & BLOCKING))
+				if (input.attack == 1 && !(player.flags & BLOCKING) && !(player.flags & GRABBED))
 				{
 					if (playerWeapon.inUse == TRUE)
 					{
@@ -362,7 +365,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
+				if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
 				{
 					player.flags |= BLOCKING;
 
@@ -372,7 +375,7 @@ void doPlayer()
 					playerShield.thinkTime++;
 				}
 
-				else if (input.block == 0 && (player.flags & BLOCKING))
+				else if ((input.block == 0 && (player.flags & BLOCKING)))
 				{
 					player.flags &= ~BLOCKING;
 
@@ -631,12 +634,12 @@ static void takeDamage(Entity *other, int damage)
 
 						return;
 					}
+					
+					other->inUse = FALSE;
+		
+					return;
 				}
 			}
-
-			other->inUse = FALSE;
-
-			return;
 		}
 
 		else if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT))
@@ -690,9 +693,9 @@ static void takeDamage(Entity *other, int damage)
 
 		if (player.health > 0)
 		{
-			setCustomAction(&player, &helpless, 10);
+			setCustomAction(&player, &helpless, 10, 0);
 
-			setCustomAction(&player, &invulnerable, 60);
+			setCustomAction(&player, &invulnerable, 60, 0);
 
 			if (player.dirX == 0)
 			{
@@ -864,15 +867,15 @@ static void resetPause()
 
 static void resetPlayer()
 {
-	centerMapOnEntity(&player);
-
-	cameraSnapToTargetEntity();
-
 	game.drawScreen = TRUE;
 
 	player.draw = &drawLoopingAnimationToMap;
 
 	getCheckpoint(&player.x, &player.y);
+	
+	centerMapOnEntity(&player);
+
+	cameraSnapToTargetEntity();
 
 	printf("Respawned at %f %f\n", player.x, player.y);
 
@@ -895,7 +898,7 @@ static void resetPlayer()
 
 	player.y--;
 
-	setCustomAction(&player, &invulnerable, 60);
+	setCustomAction(&player, &invulnerable, 60, 0);
 }
 
 void increasePlayerMaxHealth()

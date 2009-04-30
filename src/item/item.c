@@ -91,7 +91,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = NULL;
 
 	if (e->type == HEALTH)
@@ -185,7 +185,7 @@ void dropItem(Entity *e)
 
 	e->action = &doNothing;
 
-	setCustomAction(e, &invulnerable, 180);
+	setCustomAction(e, &invulnerable, 180, 0);
 
 	addEntity(*e, player.x, player.y);
 }

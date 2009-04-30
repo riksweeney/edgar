@@ -28,6 +28,9 @@ Entity *addEgg(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
+	e->startX = x;
+	e->startY = y;
+
 	e->action = &wait;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -48,8 +51,18 @@ static void wait()
 {
 	self->thinkTime--;
 
+	if (self->thinkTime <= 60 && self->thinkTime > 0)
+	{
+		if (self->thinkTime % 4 == 0)
+		{
+			self->x = self->startX + (2 * (self->x < self->startX ? 1 : -1));
+		}
+	}
+
 	if (self->thinkTime <= 0)
 	{
+		self->x = self->startX;
+
 		/*
 		setEntityAnimation(self, ATTACK_1);
 

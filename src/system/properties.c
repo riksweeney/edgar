@@ -115,7 +115,7 @@ void loadProperties(char *name, Entity *e)
 					{
 						line[strlen(line) - 1] = '\0';
 					}
-					
+
 					if (line[strlen(line) - 1] == '\r')
 					{
 						line[strlen(line) - 1] = '\0';
@@ -390,6 +390,8 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "SPEED") == 0)
 	{
 		e->speed = atof(value);
+
+		e->originalSpeed = e->speed;
 	}
 
 	else if (strcmpignorecase(name, "ACTIVE") == 0)

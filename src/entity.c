@@ -72,9 +72,9 @@ void doEntities()
 		{
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
-				if (self->customThinkTime[j] > 0)
+				if (self->customAction[j].thinkTime > 0)
 				{
-					self->custom[j](&self->customThinkTime[j]);
+					doCustomAction(&self->customAction[j]);
 				}
 			}
 
@@ -147,11 +147,11 @@ void doEntities()
 	}
 }
 
-void drawEntities(int drawAll)
+void drawEntities(int depth)
 {
 	int i;
 
-	if (drawAll == FALSE)
+	if (depth == 0)
 	{
 		/* Draw standard entities */
 
@@ -164,7 +164,10 @@ void drawEntities(int drawAll)
 				self->draw();
 			}
 		}
+	}
 
+	else if (depth == 1)
+	{
 		/* Draw entities that must appear at the front */
 
 		for (i=0;i<MAX_ENTITIES;i++)
@@ -329,7 +332,7 @@ void entityDie()
 
 		self->thinkTime = 60;
 
-		setCustomAction(self, &invulnerable, 240);
+		setCustomAction(self, &invulnerable, 240, 0);
 
 		self->frameSpeed = 0;
 
@@ -370,8 +373,8 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &helpless, 10);
-			setCustomAction(self, &invulnerable, 20);
+			setCustomAction(self, &helpless, 10, 0);
+			setCustomAction(self, &invulnerable, 20, 0);
 
 			if (self->pain != NULL)
 			{
@@ -403,8 +406,8 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6);
-			setCustomAction(self, &invulnerableNoFlash, 20);
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
 			if (self->pain != NULL)
 			{

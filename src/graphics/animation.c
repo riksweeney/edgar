@@ -261,7 +261,7 @@ void drawLoopingAnimationToMap()
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	self->frameTimer -= 1 * abs(self->frameSpeed);
+	self->frameTimer -= 1 * fabs(self->frameSpeed);
 
 	if (self->frameTimer <= 0)
 	{

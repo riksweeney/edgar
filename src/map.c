@@ -558,10 +558,14 @@ void drawMap(int depth)
 
 void centerEntityOnMap()
 {
+	float speed;
+	
 	if (map.targetEntity == NULL)
 	{
 		return;
 	}
+	
+	speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
 
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 
@@ -597,9 +601,9 @@ void centerEntityOnMap()
 		}
 	}
 	
-	if (abs(map.cameraX - map.startX) > map.targetEntity->speed)
+	if (abs(map.cameraX - map.startX) > speed)
 	{
-		map.cameraX += map.cameraX < map.startX ? map.targetEntity->speed : -map.targetEntity->speed;
+		map.cameraX += map.cameraX < map.startX ? speed : -speed;
 	}
 
 	else
@@ -607,16 +611,16 @@ void centerEntityOnMap()
 		map.cameraX = map.startX;
 	}
 	
-	if (abs(map.cameraY - map.startY) > map.targetEntity->speed)
+	if (abs(map.cameraY - map.startY) > speed)
 	{
 		if (map.cameraY < map.startY)
 		{
-			map.cameraY += (map.targetEntity->dirY > map.targetEntity->speed ? map.targetEntity->dirY : map.targetEntity->speed);
+			map.cameraY += (map.targetEntity->dirY > speed ? map.targetEntity->dirY : speed);
 		}
 
 		else
 		{
-			map.cameraY += (map.targetEntity->dirY < -map.targetEntity->speed ? map.targetEntity->dirY : -map.targetEntity->speed);
+			map.cameraY += (map.targetEntity->dirY < -speed ? map.targetEntity->dirY : -speed);
 		}
 	}
 

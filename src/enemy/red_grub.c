@@ -103,7 +103,9 @@ static void spinAttackStart()
 
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
-		self->dirX = (self->face == RIGHT ? self->speed * 4 : -self->speed * 4);
+		self->speed = self->originalSpeed * 4;
+		
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
 
@@ -161,6 +163,8 @@ static void spinAttackEnd()
 		self->action = &lookForPlayer;
 
 		self->frameSpeed = 1;
+		
+		self->speed = self->originalSpeed;
 	}
 }
 

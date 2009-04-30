@@ -51,10 +51,10 @@ static void touch(Entity *other)
 		if (strcmpignorecase(other->name, self->requires) == 0)
 		{
 			self->health--;
-	
-			setCustomAction(self, &flashWhite, 6);
-			setCustomAction(self, &invulnerableNoFlash, 20);
-	
+
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
 			if (self->health <= 0)
 			{
 				self->action = &die;

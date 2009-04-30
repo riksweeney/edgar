@@ -59,17 +59,17 @@ static void takeDamage(Entity *other, int damage)
 		if (damage < self->health)
 		{
 			self->targetY = self->startY;
-	
-			setCustomAction(self, &flashWhite, 6);
-			setCustomAction(self, &invulnerableNoFlash, 20);
-	
+
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
 			self->action = &retreat;
 		}
-	
+
 		else
 		{
 			self->health -= damage;
-			
+
 			self->action = self->die;
 		}
 	}
