@@ -2,7 +2,7 @@
 
 extern Entity *self;
 
-void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
+void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int accumulates)
 {
 	int i;
 	Entity *temp;
@@ -11,13 +11,13 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 	{
 		/* Search for an already existing action */
 
-		if (e->customThinkTime[i] != 0 && e->custom[i] == func)
+		if (e->customAction[i].thinkTime != 0 && e->customAction[i].action == func)
 		{
-			printf("Boosting current action\n");
-
-			if (thinkTime > e->customThinkTime[i])
+			if (thinkTime >= e->customAction[i].thinkTime)
 			{
-				e->customThinkTime[i] = thinkTime;
+				e->customAction[i].thinkTime = thinkTime;
+
+				e->customAction[i].counter += accumulates;
 			}
 
 			return;
@@ -26,11 +26,13 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 
 	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 	{
-		if (e->customThinkTime[i] == 0)
+		if (e->customAction[i].thinkTime == 0)
 		{
-			e->custom[i] = func;
+			e->customAction[i].action = func;
 
-			e->customThinkTime[i] = thinkTime + 1;
+			e->customAction[i].thinkTime = thinkTime + 1;
+
+			e->customAction[i].counter = accumulates;
 
 			/* Execute the custom action once */
 
@@ -38,7 +40,7 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 
 			self = e;
 
-			self->custom[i](&e->customThinkTime[i]);
+			self->customAction[i].action(&self->customAction[i].thinkTime, &self->customAction[i].counter);
 
 			self = temp;
 
@@ -51,7 +53,12 @@ void setCustomAction(Entity *e, void (*func)(int *), int thinkTime)
 	exit(1);
 }
 
-void helpless(int *thinkTime)
+void doCustomAction(CustomAction *customAction)
+{
+	customAction->action(&customAction->thinkTime, &customAction->counter);
+}
+
+void helpless(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
 
@@ -73,7 +80,7 @@ void helpless(int *thinkTime)
 	}
 }
 
-void invulnerable(int *thinkTime)
+void invulnerable(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
 
@@ -98,7 +105,7 @@ void invulnerable(int *thinkTime)
 	}
 }
 
-void invulnerableNoFlash(int *thinkTime)
+void invulnerableNoFlash(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
 
@@ -113,7 +120,7 @@ void invulnerableNoFlash(int *thinkTime)
 	}
 }
 
-void flashWhite(int *thinkTime)
+void flashWhite(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
 
@@ -125,5 +132,22 @@ void flashWhite(int *thinkTime)
 	else
 	{
 		self->flags &= ~FLASH;
+	}
+}
+
+void slowDown(int *thinkTime, int *counter)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->frameSpeed = 1.0f / (*counter);
+		self->speed = self->originalSpeed / (*counter);
+	}
+
+	else
+	{
+		self->frameSpeed = 1;
+		self->speed = self->originalSpeed;
 	}
 }

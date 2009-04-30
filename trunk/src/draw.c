@@ -48,6 +48,10 @@ void draw()
 
 			drawPlayer();
 
+			/* Draw the Entities that appear on top */
+
+			drawEntities(1);
+
 			/* Draw the foreground map tiles */
 
 			drawMap(1);
@@ -90,7 +94,7 @@ void draw()
 	/* Swap the buffers */
 
 	SDL_Flip(game.screen);
-	
+
 	/* Sleep briefly */
 
 	SDL_Delay(1);

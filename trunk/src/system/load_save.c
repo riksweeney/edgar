@@ -153,6 +153,8 @@ void loadGame(int slot)
 	fclose(read);
 
 	freeMessageQueue();
+	
+	cameraSnapToTargetEntity();
 
 	printf("Load completed\n");
 }

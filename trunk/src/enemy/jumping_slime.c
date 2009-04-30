@@ -246,4 +246,7 @@ static void layEgg()
 
 	e->x = self->x + (self->w - e->w) / 2;
 	e->y = self->y;
+	
+	e->startX = e->x;
+	e->startY = e->y;
 }

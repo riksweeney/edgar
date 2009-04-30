@@ -71,8 +71,8 @@ static void takeDamage(Entity *other, int damage)
 	{
 		self->health -= damage;
 
-		setCustomAction(self, &flashWhite, 6);
-		setCustomAction(self, &invulnerableNoFlash, 20);
+		setCustomAction(self, &flashWhite, 6, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
 		if (self->health <= 0)
 		{
@@ -96,9 +96,9 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
+		setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		
 		printf("Dink from %s\n", other->name);
-
-		setCustomAction(self, &invulnerableNoFlash, 20);
 	}
 }
 
@@ -145,12 +145,12 @@ static void respawn()
 
 		self->touch = &touch;
 
-		setCustomAction(self, &invulnerable, 180);
+		setCustomAction(self, &invulnerable, 180, 0);
 
 		self->x = self->startX;
 
 		self->y = self->startY;
-		
+
 		self->dirX = self->dirY = 0;
 	}
 }

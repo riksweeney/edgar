@@ -44,30 +44,36 @@ typedef struct Input
 	int interact, grabbing, block;
 } Input;
 
+typedef struct CustomAction
+{
+	int thinkTime, counter;
+	void (*action)(int *, int *);
+} CustomAction;
+
 typedef struct Entity
 {
 	int inUse, w, h, offsetX, offsetY;
 	int thinkTime, face;
-	int currentFrame, frameTimer, frameSpeed;
+	int currentFrame;
 	int type, animation[MAX_ANIMATION_TYPES];
-	int currentAnim, health, customThinkTime[MAX_CUSTOM_ACTIONS];
+	int currentAnim, health;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
 	long flags;
-	float x, y, dirX, dirY;
+	float x, y, dirX, dirY, frameSpeed, frameTimer;
 	float startX, startY, endX, endY;
-	float speed, weight;
+	float originalSpeed, speed, weight;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
 	struct Entity *standingOn, *parent, *target;
 	BoundingBox box;
+	CustomAction customAction[MAX_CUSTOM_ACTIONS];
 	void (*action)(void);
 	void (*activate)(int);
 	void (*draw)(void);
 	void (*fallout)(void);
 	void (*touch)(struct Entity *);
 	void (*animationCallback)(void);
-	void (*custom[MAX_CUSTOM_ACTIONS])(int *);
 	void (*takeDamage)(struct Entity *, int);
 	void (*die)(void);
 	void (*reactToBlock)(void);

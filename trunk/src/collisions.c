@@ -155,32 +155,6 @@ void doCollisions()
 							{
 								continue;
 							}
-							/*
-							if (e1 == &player)
-							{
-								if (playerWeapon.inUse == TRUE && (playerWeapon.flags & ATTACKING))
-								{
-									if (e2 != &playerShield && e2 != &player)
-									{
-										x = playerWeapon.x + playerWeapon.offsetX * (player.face == LEFT ? -1 : 1);
-										y = playerWeapon.y + playerWeapon.offsetY * (player.face == LEFT ? -1 : 1);
-										w = playerWeapon.w;
-										h = playerWeapon.h;
-
-										if (collision(e2->x, e2->y, e2->w, e2->h, x, y, w, h) == TRUE)
-										{
-											temp = self;
-
-											self = e2;
-
-											self->touch(&playerWeapon);
-
-											self = temp;
-										}
-									}
-								}
-							}
-							*/
 
 							x = e1->x;
 							y = e1->y;

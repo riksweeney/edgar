@@ -24,7 +24,7 @@ void draw()
 
 	/* Draw the entities */
 
-	drawEntities(1);
+	drawEntities(-1);
 
 	/* Draw the targets */
 
