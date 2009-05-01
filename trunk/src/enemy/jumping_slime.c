@@ -75,7 +75,7 @@ static void pain()
 
 static void wait()
 {
-	if (prand() % 4 == 0)
+	if (prand() % 8 == 0)
 	{
 		if (collision(self->x - 160, self->y, 320 + self->w, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
@@ -92,7 +92,7 @@ static void purpleWait()
 {
 	if (prand() % 4 == 0)
 	{
-		if (collision(self->x - 160, self->y, 320 + self->w, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x - 240, self->y, 480 + self->w, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &purpleAttack;
 
@@ -148,7 +148,7 @@ static void purpleAttack()
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
 
-			if (prand() % 4 == 0)
+			if (prand() % 8 == 0)
 			{
 				layEgg();
 			}
@@ -171,14 +171,14 @@ static void purpleAttack()
 }
 
 static void swim()
-{		
+{
 	if (prand() % 30 == 0)
 	{
 		if (prand() % 5 == 0 && collision(self->x - 160, self->y - 128, 320 + self->w, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &jumpOut;
 		}
-		
+
 		else
 		{
 			self->dirX = prand() % 2 == 0 ? -self->speed : self->speed;
@@ -192,9 +192,9 @@ static void swim()
 	if (self->environment == AIR)
 	{
 		self->flags &= ~FLY;
-		
+
 		self->dirX = 0;
-		
+
 		self->action = &purpleAttack;
 	}
 }
@@ -202,7 +202,7 @@ static void swim()
 static void jumpOut()
 {
 	/* Jump towards the player */
-	
+
 	if (self->environment == WATER)
 	{
 		self->dirY = -14;
@@ -211,15 +211,15 @@ static void jumpOut()
 	self->dirX = player.x < self->x ? -self->speed : self->speed;
 
 	checkToMap(self);
-	
+
 	if (self->environment == AIR)
 	{
 		self->flags &= ~FLY;
-		
+
 		if (self->flags & ON_GROUND)
 		{
 			self->dirX = 0;
-			
+
 			self->action = &purpleAttack;
 		}
 	}
@@ -230,7 +230,7 @@ static void fallout()
 	if (self->environment == WATER)
 	{
 		self->flags |= FLY;
-		
+
 		self->action = &swim;
 	}
 
@@ -242,11 +242,21 @@ static void fallout()
 
 static void layEgg()
 {
-	Entity *e = addEnemy("enemy/jumping_slime_egg", 0, 0);
+	int count, i;
+	Entity *e;
 
-	e->x = self->x + (self->w - e->w) / 2;
-	e->y = self->y;
-	
-	e->startX = e->x;
-	e->startY = e->y;
+	count = 1 + (prand() % 5);
+
+	for (i=0;i<count;i++)
+	{
+		e = addEnemy("enemy/jumping_slime_egg", 0, 0);
+
+		e->x = self->x + (self->w - e->w) / 2;
+		e->y = self->y;
+
+		e->x += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
+
+		e->startX = e->x;
+		e->startY = e->y;
+	}
 }
