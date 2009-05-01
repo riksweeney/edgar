@@ -27,3 +27,5 @@ void entityWalkTo(Entity *, char *);
 void entityWalkToRelative(Entity *, char *);
 void changeDirection(void);
 void changeTarget(void);
+void entityDieNoDrop(void);
+void noItemDie(void);

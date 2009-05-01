@@ -139,6 +139,11 @@ void slowDown(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
 
+	if (*counter <= 0)
+	{
+		(*counter) = 1;
+	}
+
 	if (*thinkTime != 0)
 	{
 		self->frameSpeed = 1.0f / (*counter);

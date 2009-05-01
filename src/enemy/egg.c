@@ -6,6 +6,7 @@
 #include "../collisions.h"
 #include "../audio/audio.h"
 #include "../enemy/enemies.h"
+#include "../item/item.h"
 
 extern Entity *self, player;
 
@@ -35,7 +36,7 @@ Entity *addEgg(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &entityDieNoDrop;
 	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
@@ -63,11 +64,6 @@ static void wait()
 	{
 		self->x = self->startX;
 
-		/*
-		setEntityAnimation(self, ATTACK_1);
-
-		self->animationCallback = &hatch;
-		*/
 		self->action = &hatch;
 	}
 
@@ -76,10 +72,28 @@ static void wait()
 
 static void hatch()
 {
-	Entity *e = addEnemy(self->objectiveName, 0, 0);
+	Entity *e;
+
+	e = addTemporaryItem(self->name, self->x, self->y, self->face, 0, 0);
+
+	e->dirX = -3;
+	e->dirY = -2;
+	e->face = RIGHT;
+
+	setEntityAnimation(e, WALK);
+
+	e = addTemporaryItem(self->name, self->x, self->y, self->face, 0, 0);
+
+	e->dirX = 3;
+	e->dirY = -2;
+	e->face = RIGHT;
+
+	setEntityAnimation(e, JUMP);
+
+	e = addEnemy(self->objectiveName, 0, 0);
 
 	e->x = self->x + (self->w - e->w) / 2;
 	e->y = self->y;
 
-	self->die();
+	self->inUse = FALSE;
 }

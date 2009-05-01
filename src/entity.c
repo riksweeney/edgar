@@ -360,6 +360,40 @@ void standardDie()
 	checkToMap(self);
 }
 
+void entityDieNoDrop()
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->flags &= ~FLY;
+
+		self->thinkTime = 60;
+
+		setCustomAction(self, &invulnerable, 240, 0);
+
+		self->frameSpeed = 0;
+
+		self->action = &noItemDie;
+
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+	}
+}
+
+void noItemDie()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	self->dirX = 0;
+
+	checkToMap(self);
+}
+
 void entityTakeDamageFlinch(Entity *other, int damage)
 {
 	if (self->flags & INVULNERABLE)
@@ -428,12 +462,7 @@ void entityTouch(Entity *other)
 {
 	Entity *temp;
 
-	if (self->damage <= 0)
-	{
-		return;
-	}
-
-	if (other->type == PLAYER && self->parent != other)
+	if (other->type == PLAYER && self->parent != other && self->damage != 0)
 	{
 		temp = self;
 

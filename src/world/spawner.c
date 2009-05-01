@@ -41,6 +41,13 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 static void init()
 {
+	if (strlen(self->objectiveName) == 0)
+	{
+		printf("Spawner at %f %f is not set correctly\n", self->x, self->y);
+
+		exit(1);
+	}
+
 	self->action = &spawn;
 
 	self->action();
