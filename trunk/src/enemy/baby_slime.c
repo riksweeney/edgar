@@ -17,6 +17,7 @@ static void stickToPlayer(void);
 static void attack(void);
 static void grab(Entity *other);
 static void fallOff(void);
+static void stickToPlayerAndDrain(void);
 
 Entity *addBabySlime(int x, int y, char *name)
 {
@@ -36,11 +37,11 @@ Entity *addBabySlime(int x, int y, char *name)
 
 	e->action = &attack;
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = &grab;
 	e->die = &entityDieNoDrop;
 	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = NULL;
+	e->touch = &grab;
 
 	e->type = ENEMY;
 
@@ -73,6 +74,8 @@ static void attack()
 
 	if (self->thinkTime <= 0)
 	{
+		self->touch = NULL;
+		
 		self->die();
 	}
 }
@@ -99,13 +102,21 @@ static void grab(Entity *other)
 
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
-		self->startX += (prand() % (other->w / 2)) * (prand() % 2 == 0 ? 1 : -1);
+		self->startX = (prand() % (other->w / 2)) * (prand() % 2 == 0 ? 1 : -1);
 
 		self->startY = prand() % (other->h - self->h);
 
 		setCustomAction(other, &slowDown, 3, 1);
 
-		self->action = &stickToPlayer;
+		if (strcmpignorecase(self->name, "enemy/red_baby_slime") == 0)
+		{
+			self->action = &stickToPlayerAndDrain;
+		}
+		
+		else
+		{
+			self->action = &stickToPlayer;
+		}
 
 		self->touch = NULL;
 
@@ -121,6 +132,11 @@ static void grab(Entity *other)
 
 static void stickToPlayer()
 {
+	if (self->health <= 0)
+	{
+		return;
+	}
+	
 	setCustomAction(&player, &slowDown, 3, 0);
 
 	if (game.showHints == TRUE)
@@ -142,6 +158,66 @@ static void stickToPlayer()
 			self->damage--;
 		}
 
+		self->thinkTime = 0;
+	}
+
+	if (self->damage <= 0)
+	{
+		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
+
+		self->dirY = -6;
+
+		setCustomAction(&player, &slowDown, 3, -1);
+
+		self->action = &fallOff;
+
+		player.flags &= ~GRABBED;
+	}
+}
+
+static void stickToPlayerAndDrain()
+{
+	Entity *temp;
+	
+	if (self->health <= 0)
+	{
+		return;
+	}
+
+	setCustomAction(&player, &slowDown, 3, 0);
+
+	if (game.showHints == TRUE)
+	{
+		setInfoBoxMessage(0,  _("Quickly turn left and right to shake off the slimes!"));
+	}
+
+	self->x = player.x + (player.w - self->w) / 2 + self->startX;
+	self->y = player.y + self->startY;
+
+	self->thinkTime++;
+
+	if (self->face != player.face)
+	{
+		self->face = player.face;
+
+		if (self->thinkTime <= 15)
+		{
+			self->damage--;
+		}
+
+		self->thinkTime = 0;
+	}
+	
+	if (self->thinkTime >= 60)
+	{
+		temp = self;
+		
+		self = &player;
+		
+		self->takeDamage(temp, 1);
+		
+		self = temp;
+		
 		self->thinkTime = 0;
 	}
 

@@ -48,6 +48,8 @@ Entity *getFreeEntity()
 			entity[i].weight = 1;
 
 			entity[i].fallout = NULL;
+			
+			entity[i].currentAnim = -1;
 
 			return &entity[i];
 		}
@@ -524,11 +526,11 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move down */
 
-		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x + other->box.x, other->y + other->dirY + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
 		{
 			/* Place the entity as close as possible */
 
-			other->y = self->y;
+			other->y = self->y + self->box.y;
 			other->y -= other->h;
 
 			other->standingOn = self;
@@ -547,11 +549,11 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move up */
 
-		if (collision(other->x, other->y + other->dirY, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x + other->box.x, other->y + other->dirY + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
 		{
 			/* Place the entity as close as possible */
 
-			other->y = self->y;
+			other->y = self->y + self->box.y;
 			other->y += self->h;
 
 			other->dirY = 0;
@@ -564,7 +566,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move right */
 
-		if (collision(other->x + other->dirX, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x + other->dirX + other->box.x, other->y + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
 		{
 			if (pushable != 0)
 			{
@@ -589,7 +591,7 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				other->x = self->x;
+				other->x = self->x + self->box.x;
 				other->x -= other->w;
 
 				other->dirX = 0;
@@ -614,7 +616,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move left */
 
-		if (collision(other->x + other->dirX, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		if (collision(other->x + other->dirX + other->box.x, other->y + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
 		{
 			if (pushable != 0)
 			{
@@ -639,7 +641,7 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				other->x = self->x;
+				other->x = self->x + self->box.x;
 				other->x += self->w;
 
 				other->dirX = 0;
@@ -1025,4 +1027,32 @@ static void entityMoveToTarget()
 	}
 
 	checkToMap(self);
+}
+
+void rotateAroundStartPoint()
+{
+	float x, y, radians;
+
+	x = self->endX;
+	y = self->endY;
+
+	self->thinkTime += self->speed;
+
+	if (self->thinkTime >= 360)
+	{
+		self->thinkTime = 0;
+	}
+
+	radians = DEG_TO_RAD(self->thinkTime);
+
+	self->x = (x * cos(radians) - y * sin(radians));
+	self->y = (x * sin(radians) + y * cos(radians));
+
+	self->x += self->startX - (self->w / 2);
+	self->y += self->startY - (self->h / 2);
+}
+
+void bounce()
+{
+
 }

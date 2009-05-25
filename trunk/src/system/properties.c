@@ -7,7 +7,6 @@
 
 static Properties properties[MAX_PROPS_FILES];
 
-static void setFlags(Entity *, char *);
 static int getElementTypeByName(char *);
 
 static char *ignoreProps[] = {"GFX_FILE", "ANIM_FILE", "NAME", NULL};
@@ -231,7 +230,7 @@ void loadProperties(char *name, Entity *e)
 	}
 }
 
-static void setFlags(Entity *e, char *flags)
+void setFlags(Entity *e, char *flags)
 {
 	char *token, *temp;
 
@@ -310,6 +309,98 @@ static void setFlags(Entity *e, char *flags)
 		else if (strcmpignorecase(token, "BOUNCES") == 0)
 		{
 			e->flags |= BOUNCES;
+		}
+
+		else
+		{
+			printf("Ignoring flag value %s\n", token);
+		}
+
+		token = strtok(NULL, " |,");
+	}
+
+	free(temp);
+}
+
+void unsetFlags(Entity *e, char *flags)
+{
+	char *token, *temp;
+
+	temp = (char *)malloc(strlen(flags) + 1);
+
+	if (temp == NULL)
+	{
+		printf("Could not allocate a whole %d bytes for flags...\n", strlen(flags) + 1);
+
+		exit(1);
+	}
+
+	STRNCPY(temp, flags, strlen(flags) + 1);
+
+	token = strtok(temp, " |,");
+
+	e->flags = 0;
+
+	while (token != NULL)
+	{
+		if (strcmpignorecase(token, "ON_GROUND") == 0)
+		{
+			e->flags &= ~ON_GROUND;
+		}
+
+		else if (strcmpignorecase(token, "PUSHABLE") == 0)
+		{
+			e->flags &= ~PUSHABLE;
+		}
+
+		else if (strcmpignorecase(token, "HELPLESS") == 0)
+		{
+			e->flags &= ~HELPLESS;
+		}
+
+		else if (strcmpignorecase(token, "INVULNERABLE") == 0)
+		{
+			e->flags &= ~INVULNERABLE;
+		}
+
+		else if (strcmpignorecase(token, "FLY") == 0)
+		{
+			e->flags &= ~FLY;
+		}
+
+		else if (strcmpignorecase(token, "ALWAYS_ON_TOP") == 0)
+		{
+			e->flags &= ~ALWAYS_ON_TOP;
+		}
+
+		else if (strcmpignorecase(token, "NO_DRAW") == 0)
+		{
+			e->flags &= ~NO_DRAW;
+		}
+
+		else if (strcmpignorecase(token, "STACKABLE") == 0)
+		{
+			e->flags &= ~STACKABLE;
+		}
+
+		else if (strcmpignorecase(token, "OBSTACLE") == 0)
+		{
+			e->flags &= ~OBSTACLE;
+		}
+
+		else if (strcmpignorecase(token, "FLOATS") == 0)
+		{
+			e->flags &= ~FLOATS;
+		}
+
+		else if (strcmpignorecase(token, "UNBLOCKABLE") == 0)
+		{
+			e->flags &= ~UNBLOCKABLE;
+		}
+
+		else if (strcmpignorecase(token, "BOUNCES") == 0)
+		{
+			e->flags &= ~BOUNCES;
 		}
 
 		else

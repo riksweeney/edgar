@@ -85,12 +85,17 @@ static void spawn()
 						e->y += (self->h - e->h) / 2;
 
 						e->startX = self->startX;
-						e->startY = self->startX;
+						e->startY = self->startY;
 
 						e->endX = self->endX;
-						e->endY = self->endX;
+						e->endY = self->endY;
 
 						e->face = self->face;
+					}
+
+					if (self->speed != 0)
+					{
+						e->speed = self->speed;
 					}
 				}
 			}
@@ -103,10 +108,17 @@ static void spawn()
 				e->y += (self->h - e->h) / 2;
 
 				e->startX = self->startX;
-				e->startY = self->startX;
+				e->startY = self->startY;
 
 				e->endX = self->endX;
-				e->endY = self->endX;
+				e->endY = self->endY;
+
+				e->face = self->face;
+
+				if (self->speed != 0)
+				{
+					e->speed = self->speed;
+				}
 
 				self->health--;
 

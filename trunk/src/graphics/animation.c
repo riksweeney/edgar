@@ -233,6 +233,8 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 		e->w = sprite->image->w;
 		e->h = sprite->image->h;
+		
+		e->box = sprite->box;
 	}
 
 	else
@@ -319,6 +321,8 @@ void drawLoopingAnimationToMap()
 
 		self->offsetX = animation[self->currentAnim].offsetX[self->currentFrame];
 		self->offsetY = animation[self->currentAnim].offsetY[self->currentFrame];
+		
+		self->box = sprite->box;
 	}
 
 	else
@@ -407,6 +411,8 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
+		
+		e->box = sprite->box;
 	}
 }
 

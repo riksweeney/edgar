@@ -12,6 +12,7 @@
 #include "../graphics/animation.h"
 #include "../game.h"
 #include "../map.h"
+#include "../system/properties.h"
 
 extern Entity player, *self;
 
@@ -272,6 +273,20 @@ void readNextScriptLine()
 				{
 					e->health = atoi(token);
 				}
+			}
+			
+			else if (strcmpignorecase("FLAG", token) == 0)
+			{
+				token = strtok(NULL, " ");
+				
+				setFlags(e, token);
+			}
+			
+			else if (strcmpignorecase("REMOVE_FLAG", token) == 0)
+			{
+				token = strtok(NULL, " ");
+				
+				unsetFlags(e, token);
 			}
 
 			else if (strcmpignorecase("FACE", token) == 0)

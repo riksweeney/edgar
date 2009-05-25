@@ -15,6 +15,7 @@ static void die(void);
 static void draw(void);
 static void init(void);
 static void takeDamage(Entity *, int);
+static void redTakeDamage(Entity *, int);
 static void retreat(void);
 
 Entity *addSpider(int x, int y, char *name)
@@ -38,7 +39,16 @@ Entity *addSpider(int x, int y, char *name)
 	e->draw = &draw;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->takeDamage = &takeDamage;
+	
+	if (strcmpignorecase(name, "enemy/red_spider") == 0)
+	{
+		e->takeDamage = &redTakeDamage;
+	}
+	
+	else
+	{
+		e->takeDamage = &takeDamage;
+	}
 
 	e->type = ENEMY;
 
@@ -67,6 +77,19 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		else
+		{
+			self->health -= damage;
+
+			self->action = self->die;
+		}
+	}
+}
+
+static void redTakeDamage(Entity *other, int damage)
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		if (damage >= self->health)
 		{
 			self->health -= damage;
 

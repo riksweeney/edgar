@@ -12,6 +12,7 @@
 #include "audio/music.h"
 #include "game.h"
 #include "event/trigger.h"
+#include "weather.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -50,6 +51,10 @@ void loadMap(char *name, int loadEntityResources)
 	/* Set the filename */
 
 	STRNCPY(map.filename, name, sizeof(map.filename));
+
+	/* Reset the weather */
+
+	setWeather(NO_WEATHER);
 
 	/* Read the data from the file into the map */
 
@@ -162,6 +167,17 @@ void loadMap(char *name, int loadEntityResources)
 			}
 		}
 
+		else if (strcmpignorecase(itemName, "WEATHER") == 0)
+		{
+			/* Load the map tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			x = getWeatherTypeByName(itemName);
+
+			setWeather(x);
+		}
+
 		else if (strcmpignorecase(itemName, "DATA") == 0)
 		{
 			map.maxX = map.maxY = 0;
@@ -235,7 +251,7 @@ void loadMap(char *name, int loadEntityResources)
 	setTransition(TRANSITION_IN, NULL);
 
 	playMusic();
-	
+
 	resetCameraLimits();
 
 	cameraSnapToTargetEntity();
@@ -281,6 +297,7 @@ void saveMap()
 	fprintf(fp, "BACKGROUND_SPEED_2 %0.1f\n", map.backgroundSpeed[1]);
 	fprintf(fp, "WRAP_X_2 %s\n", map.wrapX[1] == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "WRAP_Y_2 %s\n", map.wrapY[1] == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "WEATHER %s\n", getWeather());
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
@@ -559,12 +576,12 @@ void drawMap(int depth)
 void centerEntityOnMap()
 {
 	float speed;
-	
+
 	if (map.targetEntity == NULL)
 	{
 		return;
 	}
-	
+
 	speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
 
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
@@ -600,7 +617,7 @@ void centerEntityOnMap()
 			map.startY = (map.minY != map.cameraMinY ? map.cameraMinY : map.minY);
 		}
 	}
-	
+
 	if (abs(map.cameraX - map.startX) > speed)
 	{
 		map.cameraX += map.cameraX < map.startX ? speed : -speed;
@@ -610,7 +627,7 @@ void centerEntityOnMap()
 	{
 		map.cameraX = map.startX;
 	}
-	
+
 	if (abs(map.cameraY - map.startY) > speed)
 	{
 		if (map.cameraY < map.startY)
@@ -960,7 +977,7 @@ void limitCamera(int minX, int minY, int maxX, int maxY)
 {
 	map.cameraMinX = minX;
 	map.cameraMinY = minY;
-	
+
 	map.cameraMaxX = maxX;
 	map.cameraMaxY = maxY;
 }
@@ -974,7 +991,7 @@ void resetCameraLimits()
 {
 	map.cameraMinX = map.minX;
 	map.cameraMinY = map.minY;
-	
+
 	map.cameraMaxX = map.maxX;
 	map.cameraMaxY = map.maxY;
 }

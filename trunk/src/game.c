@@ -28,8 +28,6 @@ static void wipeOutCircleToSmall(void);
 
 void initGame()
 {
-	game.weatherType = 0;
-
 	game.drawScreen = TRUE;
 
 	game.paused = FALSE;
@@ -39,8 +37,6 @@ void initGame()
 	game.menu = initMainMenu();
 
 	game.drawMenu = &drawMainMenu;
-
-	setWeather(game.weatherType);
 }
 
 void doGame()

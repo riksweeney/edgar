@@ -58,19 +58,40 @@ void loadSpritesFromFile(char *name, int *index)
 
 static int loadSprite(char *name)
 {
-	int i;
+	int i, x, y, w, h, read;
+	char filename[MAX_FILE_LENGTH];
+	
+	read = sscanf(name, "%s %d %d %d %d\n", filename, &x, &y, &w, &h);
 
 	for (i=0;i<spriteID;i++)
 	{
-		if (strcmpignorecase(name, sprite[i].name) == 0)
+		if (strcmpignorecase(filename, sprite[i].name) == 0)
 		{
 			return i;
 		}
 	}
 
-	sprite[spriteID].image = loadImage(name);
+	sprite[spriteID].image = loadImage(filename);
 
-	strncpy(sprite[spriteID].name, name, MAX_FILE_LENGTH);
+	strncpy(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
+	
+	if (read == 5)
+	{
+		printf("Setting bounding box information for %s\n", filename);
+		
+		sprite[spriteID].box.x = x;
+		sprite[spriteID].box.y = y;
+		sprite[spriteID].box.w = w;
+		sprite[spriteID].box.h = h;
+	}
+	
+	else
+	{
+		sprite[spriteID].box.x = 0;
+		sprite[spriteID].box.y = 0;
+		sprite[spriteID].box.w = sprite[spriteID].image->w;
+		sprite[spriteID].box.h = sprite[spriteID].image->h;
+	}
 
 	i = spriteID;
 

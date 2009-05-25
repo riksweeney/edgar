@@ -22,6 +22,9 @@
 #include "egg.h"
 #include "golem_boss.h"
 #include "baby_slime.h"
+#include "spinner.h"
+#include "snake_boss.h"
+#include "floating_snapper.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -42,7 +45,11 @@ static Constructor enemies[] = {
 {"enemy/purple_jumping_slime", &addJumpingSlime},
 {"enemy/jumping_slime_egg", &addEgg},
 {"boss/golem_boss", &addGolemBoss},
-{"enemy/baby_slime", &addBabySlime}
+{"enemy/baby_slime", &addBabySlime},
+{"enemy/red_baby_slime", &addBabySlime},
+{"enemy/eye_spinner", &addSpinner},
+{"boss/snake_boss", &addSnakeBoss},
+{"enemy/floating_snapper", &addFloatingSnapper},
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
