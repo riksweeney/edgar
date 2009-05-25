@@ -1,0 +1,17 @@
+IF Raft_Point HEALTH 1
+HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 3
+END
+IF Raft_Point HEALTH 0
+TALK Edgar Aw, not again!
+ADD OBJECTIVE "Collect 6 Chopped Logs" " "
+ADD TRIGGER "Raft Chopped Log" 6 UPDATE_OBJECTIVE "Collect 6 Chopped Logs"
+SET Raft_Point HEALTH 1
+END
+IF Raft_Point HEALTH 3
+TALK Edgar I need 6 Chopped Logs to build a raft
+SET Raft_Point HEALTH 1
+END
+IF Raft_Point HEALTH 2
+TALK Edgar This had better be the last time I have to do this...
+KILL Raft_Point
+END

@@ -113,7 +113,7 @@ static void attack()
 
 		if (self->thinkTime == 0)
 		{
-			self->dirY = -(8 + prand() % 4);
+			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
 		}
@@ -144,7 +144,7 @@ static void purpleAttack()
 
 		if (self->thinkTime == 0)
 		{
-			self->dirY = -(8 + prand() % 4);
+			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
 

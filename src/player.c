@@ -816,7 +816,7 @@ static void fallout()
 
 		player.dirX = 0;
 
-		player.flags |= HELPLESS;
+		player.flags |= HELPLESS|INVULNERABLE;
 
 		player.action = &falloutPause;
 
@@ -892,7 +892,7 @@ static void resetPlayer()
 		exit(0);
 	}
 
-	player.flags &= ~HELPLESS;
+	player.flags &= ~(HELPLESS|NO_DRAW);
 
 	player.dirX = player.dirY = 0;
 

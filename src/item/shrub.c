@@ -7,6 +7,8 @@
 #include "../custom_actions.h"
 #include "item.h"
 #include "../system/random.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 
@@ -73,6 +75,9 @@ static void die()
 	e->y += (self->y - e->y) / 2;
 
 	e->dirY = ITEM_JUMP_HEIGHT;
+	
+	fireTrigger(self->objectiveName);
+	fireGlobalTrigger(self->objectiveName);
 
 	for (i=0;i<8;i++)
 	{

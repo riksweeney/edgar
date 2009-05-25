@@ -4,6 +4,7 @@
 #include "map.h"
 #include "graphics/graphics.h"
 #include "draw.h"
+#include "weather.h"
 
 static Droplet droplet[MAX_DROPS];
 extern Game game;
@@ -17,6 +18,15 @@ static void snow(void);
 static void storm(void);
 static void drawRain(void);
 static void drawSnow(void);
+
+static Type weatherType[] = {
+					{NO_WEATHER, "NO_WEATHER"},
+					{LIGHT_RAIN, "LIGHT_RAIN"},
+					{HEAVY_RAIN, "HEAVY_RAIN"},
+					{STORMY, "STORMY"},
+					{SNOW, "SNOW"},
+					};
+static int weatherLength = sizeof(weatherType) / sizeof(Type);
 
 void setWeather(int weatherType)
 {
@@ -41,8 +51,15 @@ void setWeather(int weatherType)
 			game.weatherAction = &initSnow;
 			game.weatherDraw = &drawSnow;
 		break;
+		
+		default:
+			game.weatherAction = NULL;
+			game.weatherDraw = NULL;
+		break;
+		
 	}
-
+	
+	game.weatherType = weatherType;
 	game.weatherThinkTime = 60;
 }
 
@@ -215,4 +232,43 @@ static void drawSnow()
 			drawBox(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
 		}
 	}
+}
+
+int getWeatherTypeByName(char *name)
+{
+	int i;
+
+	for (i=0;i<weatherLength;i++)
+	{
+		if (strcmpignorecase(name, weatherType[i].name) == 0)
+		{
+			return weatherType[i].id;
+		}
+	}
+
+	printf("Unknown Weather Type %s\n", name);
+
+	exit(1);
+}
+
+char *getWeatherTypeByID(int id)
+{
+	int i;
+
+	for (i=0;i<weatherLength;i++)
+	{
+		if (id == weatherType[i].id)
+		{
+			return weatherType[i].name;
+		}
+	}
+
+	printf("Unknown Weather ID %d\n", id);
+
+	exit(1);
+}
+
+char *getWeather()
+{
+	return getWeatherTypeByID(game.weatherType);
 }

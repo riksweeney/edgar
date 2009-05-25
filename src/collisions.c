@@ -48,11 +48,11 @@ void addToGrid(Entity *e)
 
 	else
 	{
-		left = e->x / TILE_SIZE / GRID_SIZE;
-		right = (e->x + e->w - 1) / TILE_SIZE / GRID_SIZE;
+		left = (e->x + e->box.x) / TILE_SIZE / GRID_SIZE;
+		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_SIZE;
 
-		top = e->y / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_SIZE;
 	}
 
 	addToList(top, left, e);
@@ -156,8 +156,8 @@ void doCollisions()
 								continue;
 							}
 
-							x = e1->x;
-							y = e1->y;
+							x = e1->x + e1->box.x;
+							y = e1->y + e1->box.y;
 
 							if (e1 == &playerWeapon)
 							{
@@ -175,7 +175,7 @@ void doCollisions()
 								y += e1->offsetY;
 							}
 
-							if (collision(x, y, e1->w, e1->h, e2->x, e2->y, e2->w, e2->h) == TRUE)
+							if (collision(x, y, e1->box.w, e1->box.h, e2->x + e2->box.x, e2->y + e2->box.y, e2->box.w, e2->box.h) == TRUE)
 							{
 								temp = self;
 
@@ -628,6 +628,8 @@ void checkToMap(Entity *e)
 
 	if (e->y > maxMapY())
 	{
+		e->flags &= ~HELPLESS;
+		
 		e->fallout();
 	}
 
@@ -651,6 +653,8 @@ void checkToMap(Entity *e)
 
 		if (previousEnvironment != LAVA && e->fallout != NULL)
 		{
+			e->flags &= ~HELPLESS;
+			
 			e->fallout();
 		}
 	}
@@ -671,6 +675,8 @@ void checkToMap(Entity *e)
 
 			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
+				e->flags &= ~HELPLESS;
+				
 				e->fallout();
 			}
 		}

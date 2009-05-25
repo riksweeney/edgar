@@ -29,3 +29,4 @@ void changeDirection(void);
 void changeTarget(void);
 void entityDieNoDrop(void);
 void noItemDie(void);
+void rotateAroundStartPoint(void);
