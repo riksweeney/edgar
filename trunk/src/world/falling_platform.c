@@ -47,7 +47,22 @@ Entity *addFallingPlatform(int x, int y, char *name)
 
 static void wait()
 {
+	if (self->maxThinkTime < 0)
+	{
+		if (self->health == 0)
+		{
+			resetPlatform();
+		}
 
+		else
+		{
+			self->dirY = self->speed;
+
+			checkToMap(self);
+		}
+
+		self->health = 0;
+	}
 }
 
 static void touch(Entity *other)
@@ -75,7 +90,12 @@ static void touch(Entity *other)
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
 
-			if (!(self->flags & ON_GROUND))
+			if (self->maxThinkTime < 0)
+			{
+				self->health = 1;
+			}
+
+			else if (!(self->flags & ON_GROUND))
 			{
 				self->action = &initFall;
 			}
@@ -126,7 +146,7 @@ static void resetWait()
 
 static void resetPlatform()
 {
-	self->dirY = -self->speed;
+	self->dirY = self->maxThinkTime < 0 ? -self->speed / 2 : -self->speed;
 
 	checkToMap(self);
 
@@ -153,4 +173,6 @@ static void initialize()
 	{
 		self->action = &wait;
 	}
+
+	self->health = 0;
 }
