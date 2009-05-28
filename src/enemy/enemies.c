@@ -25,6 +25,8 @@
 #include "spinner.h"
 #include "snake_boss.h"
 #include "floating_snapper.h"
+#include "enemy_generator.h"
+#include "flying_bug.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -50,6 +52,8 @@ static Constructor enemies[] = {
 {"enemy/eye_spinner", &addSpinner},
 {"boss/snake_boss", &addSnakeBoss},
 {"enemy/floating_snapper", &addFloatingSnapper},
+{"enemy/bee_hive", &addEnemyGenerator},
+{"enemy/flying_bug", &addFlyingBug}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

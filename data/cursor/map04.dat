@@ -21,3 +21,5 @@ item/bomb_pile
 common/action_point
 enemy/floating_snapper
 enemy/red_grub
+enemy/bee_hive
+enemy/red_spider
