@@ -58,7 +58,7 @@ static void trapWait()
 	{
 		setEntityAnimation(self, STAND);
 	}
-	
+
 	self->health = self->maxHealth;
 
 	self->thinkTime = 180;
@@ -69,7 +69,7 @@ static void trapWait()
 static void trapEntity()
 {
 	setEntityAnimation(self, ATTACK_3);
-	
+
 	playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
 
 	if (self->target == NULL)
@@ -81,12 +81,10 @@ static void trapEntity()
 
 	else
 	{
-		fireGlobalTrigger("Chicken");
-		
 		setInfoBoxMessage(120, _("Captured a chicken"));
-		
+
 		self->thinkTime = 0;
-		
+
 		self->action = &removeChicken;
 	}
 }
@@ -94,32 +92,34 @@ static void trapEntity()
 static void removeChicken()
 {
 	Target *target;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 		{
 			target = getTargetByName("CHICKEN_PEN_TARGET");
-			
+
 			if (target == NULL)
 			{
 				printf("Could not find CHICKEN_PEN_TARGET\n");
-				
+
 				exit(1);
 			}
-			
+
+			fireGlobalTrigger("Chicken");
+
 			self->target->x = target->x;
 			self->target->y = target->y;
-			
+
 			self->target->flags &= ~HELPLESS;
-			
+
 			self->target = NULL;
-			
+
 			self->action = &resetTrap;
 		}
-		
+
 		else
 		{
 			self->thinkTime = 180;
@@ -144,11 +144,11 @@ static void resetTrap()
 static void resetComplete()
 {
 	self->target = NULL;
-	
+
 	self->action = &trapWait;
-	
+
 	self->touch = &touch;
-	
+
 	setEntityAnimation(self, STAND);
 }
 
@@ -173,7 +173,7 @@ static void activateTrap()
 					self->target = &entity[i];
 
 					self->target->flags |= HELPLESS;
-					
+
 					self->target->dirX = 0;
 
 					self->target->animationCallback = NULL;

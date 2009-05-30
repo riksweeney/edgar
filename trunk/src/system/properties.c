@@ -105,7 +105,7 @@ void loadProperties(char *name, Entity *e)
 				{
 					if (j == MAX_PROPS_ENTRIES)
 					{
-						printf("Cannot add any more properities\n");
+						printf("Cannot add any more properties for %s\n", name);
 
 						exit(1);
 					}
@@ -160,6 +160,13 @@ void loadProperties(char *name, Entity *e)
 
 				break;
 			}
+			
+			if (i == MAX_PROPS_FILES)
+			{
+				printf("Cannot add any more property files\n");
+				
+				exit(1);
+			}
 		}
 
 		if (graphicsIndex != -1 && animationIndex != -1)
@@ -169,7 +176,7 @@ void loadProperties(char *name, Entity *e)
 			loadAnimationData(properties[i].value[animationIndex], sprites, properties[i].animations);
 		}
 
-		else if (graphicsIndex == 0)
+		else if (graphicsIndex == -1)
 		{
 			printf("No graphics file found for %s\n", name);
 

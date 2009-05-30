@@ -83,7 +83,7 @@
 
 #define MAX_PROPS_ENTRIES 20
 
-#define MAX_PROPS_FILES 30
+#define MAX_PROPS_FILES 256
 
 #define MAX_CUSTOM_ACTIONS 4
 

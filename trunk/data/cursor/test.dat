@@ -27,3 +27,6 @@ enemy/red_baby_slime
 enemy/floating_snapper
 enemy/flying_bug
 enemy/bee_hive
+item/health_potion
+enemy/red_spider
+common/save_point

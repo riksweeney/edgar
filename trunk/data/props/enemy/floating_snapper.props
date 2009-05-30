@@ -1,4 +1,3 @@
-HEALTH 50
 DAMAGE 1
 GFX_FILE data/gfx/enemy/floating_snapper.dat
 ANIM_FILE data/anim/enemy/floating_snapper.dat
@@ -7,3 +6,4 @@ SPEED 1.5
 FLAGS INVULNERABLE
 THINKTIME 120
 START_X 0
+HEALTH 0

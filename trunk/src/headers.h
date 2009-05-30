@@ -8,6 +8,8 @@
 #include <locale.h>
 #include <zlib.h>
 #include <libintl.h>
+#include <dirent.h>
+#include <sys/types.h>
 
 #ifndef WIN32
 	#include <sys/stat.h>

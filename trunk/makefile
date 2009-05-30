@@ -11,8 +11,9 @@ else
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
 endif
 
-MAIN_OBJS = draw.o main.o
-EDIT_OBJS = draw_editor.o main_editor.o cursor.o
+PAK_OBJS   = pak.o
+MAIN_OBJS  = draw.o main.o
+EDIT_OBJS  = draw_editor.o main_editor.o cursor.o
 CORE_OBJS  = animation.o audio.o collisions.o entity.o font.o game.o graphics.o init.o input.o inventory.o
 CORE_OBJS += lift.o map.o player.o resources.o weather.o sprites.o bat.o properties.o custom_actions.o
 CORE_OBJS += item.o status.o enemies.o hud.o random.o decoration.o chicken_feed.o chicken.o
@@ -23,20 +24,22 @@ CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialo
 CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
-CORE_OBJS += enemy_generator.o flying_bug.o
+CORE_OBJS += enemy_generator.o flying_bug.o potions.o
 
 ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
+PAK_PROG  = pak.exe
 else
 PROG      = edgar
 ED_PROG   = mapeditor
+PAK_PROG  = pak
 endif
 
 CXX       = gcc
 
 # top-level rule to create the program.
-all: redo_deps makefile.dep $(PROG) $(ED_PROG)
+all: redo_deps makefile.dep $(PROG) $(ED_PROG) $(PAK_PROG)
 
 redo_deps:
 	rm makefile.dep
@@ -64,6 +67,13 @@ ifeq ($(DEV), 0)
 	rm $(ED_PROG)
 endif
 
+# linking the program.
+$(PAK_PROG): $(PAK_OBJS)
+	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+ifeq ($(DEV), 0)
+	rm $(PAK_PROG)
+endif
+
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	rm $(PROG) $(ED_PROG) *.o
+	rm $(PROG) $(ED_PROG) $(PAK_PROG) *.o
