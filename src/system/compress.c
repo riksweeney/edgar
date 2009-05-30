@@ -2,99 +2,32 @@
 
 int compressFile(char *sourceName, char *destName)
 {
-	int ret, flush;
-	unsigned have;
-	z_stream strm;
-	unsigned char in[CHUNK_SIZE];
-	unsigned char out[CHUNK_SIZE];
-	FILE *source, *dest;
+	unsigned char *buffer;
+	long fileSize;
+	FILE *fp;
+	gzFile *source, *dest;
 
-	source = fopen(sourceName, "rb");
+	fp = fopen(sourceName, "rb");
 
-	if (source == NULL)
-	{
-		printf("Failed to read %s for compressing\n", sourceName);
+	fseek(fp, 0L, SEEK_END);
 
-		exit(1);
-	}
+	fileSize = ftell(fp);
 
-	dest = fopen(destName, "wb");
+	fclose(fp);
 
-	if (dest == NULL)
-	{
-		fclose(source);
+	buffer = (unsigned char)malloc(fileSize * sizeof(unsigned char));
 
-		printf("Failed to write %s for compressing\n", destName);
+	source = gzopen(sourceName, "rb");
 
-		exit(1);
-	}
+	gzread(source, buffer, fileSize);
 
-	/* allocate deflate state */
-	strm.zalloc = Z_NULL;
-	strm.zfree = Z_NULL;
-	strm.opaque = Z_NULL;
+	gzclose(source);
 
-	ret = deflateInit(&strm, Z_DEFAULT_COMPRESSION);
+	dest = gzopen(destName, "wb");
 
-	if (ret != Z_OK)
-	{
-		fclose(source);
-		fclose(dest);
+	gzwrite(dest, buffer, fileSize);
 
-		return ret;
-	}
-
-	/* compress until end of file */
-	do
-	{
-		strm.avail_in = fread(in, 1, CHUNK_SIZE, source);
-
-		if (ferror(source))
-		{
-			(void)deflateEnd(&strm);
-
-			fclose(source);
-			fclose(dest);
-
-			return Z_ERRNO;
-		}
-
-		flush = feof(source) ? Z_FINISH : Z_NO_FLUSH;
-		strm.next_in = in;
-
-		/* run deflate() on input until output buffer not full, finish
-			compression if all of source has been read in */
-		do
-		{
-			strm.avail_out = CHUNK_SIZE;
-			strm.next_out = out;
-			ret = deflate(&strm, flush);    /* no bad return value */
-			have = CHUNK_SIZE - strm.avail_out;
-
-			if (fwrite(out, 1, have, dest) != have || ferror(dest))
-			{
-				(void)deflateEnd(&strm);
-
-				fclose(source);
-				fclose(dest);
-
-				return Z_ERRNO;
-			}
-
-		}
-
-		while (strm.avail_out == 0);
-
-		/* done when last data in file processed */
-	}
-
-	while (flush != Z_FINISH);
-
-	/* clean up and return */
-	(void)deflateEnd(&strm);
-
-	fclose(source);
-	fclose(dest);
+	gzclose(dest);
 
 	return Z_OK;
 }

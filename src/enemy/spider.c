@@ -39,12 +39,12 @@ Entity *addSpider(int x, int y, char *name)
 	e->draw = &draw;
 	e->touch = &entityTouch;
 	e->die = &die;
-	
+
 	if (strcmpignorecase(name, "enemy/red_spider") == 0)
 	{
 		e->takeDamage = &redTakeDamage;
 	}
-	
+
 	else
 	{
 		e->takeDamage = &takeDamage;
@@ -129,6 +129,8 @@ static void wait()
 
 static void move()
 {
+	self->weight = 1;
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -160,12 +162,16 @@ static void move()
 				self->thinkTime = self->y == self->endY ? 0 : self->maxThinkTime;
 
 				self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
+
+				self->weight = (self->targetY == self->endY ? 2 : 3);
 			}
 		}
 
 		else
 		{
 			self->y += self->dirY;
+
+			self->weight = (self->dirY > 0 ? 2 : 3);
 		}
 	}
 }
@@ -182,7 +188,15 @@ static void draw()
 
 static void init()
 {
-	self->targetY = self->endY;
+	if (self->y == self->startY)
+	{
+		self->targetY = self->endY;
+	}
+
+	else
+	{
+		self->targetY = self->weight == 2 ? self->endY : self->startY;
+	}
 
 	self->action = &move;
 

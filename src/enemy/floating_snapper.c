@@ -53,33 +53,33 @@ Entity *addFloatingSnapper(int x, int y, char *name)
 static void floatUpAndDown()
 {
 	self->endX++;
-	
+
 	if (self->endX >= 360)
 	{
 		self->endX = 0;
 	}
-	
+
 	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 5;
 }
 
 static void wait()
 {
 	floatUpAndDown();
-	
+
 	if (self->maxThinkTime < 0)
 	{
 		self->health = 1;
-		
+
 		if (self->thinkTime < 0)
 		{
 			self->thinkTime = abs(self->maxThinkTime);
 		}
 	}
-	
+
 	if (self->health == 1)
 	{
 		self->thinkTime--;
-		
+
 		if (self->x == self->startX || (self->thinkTime % 4 == 0))
 		{
 			self->x = self->startX + (3 * (self->x < self->startX ? 1 : -1));
@@ -87,6 +87,8 @@ static void wait()
 
 		if (self->thinkTime <= 0)
 		{
+			self->x = self->startX;
+
 			self->action = &snapShut;
 		}
 	}
@@ -100,18 +102,18 @@ static void wait()
 static void touch(Entity *other)
 {
 	pushEntity(other);
-	
+
 	if (other->standingOn == self && other->type == PLAYER && self->health == 0)
 	{
 		self->health = 1;
 	}
-	
+
 }
 
 static void snapShut()
 {
 	floatUpAndDown();
-	
+
 	setEntityAnimation(self, ATTACK_1);
 
 	self->touch = &trap;
@@ -126,7 +128,7 @@ static void trap(Entity *other)
 	if (other->type == PLAYER)
 	{
 		other->flags |= NO_DRAW;
-		
+
 		other->fallout();
 	}
 }
@@ -134,9 +136,9 @@ static void trap(Entity *other)
 static void snapShutFinish()
 {
 	floatUpAndDown();
-	
+
 	self->action = &snapShutFinish;
-	
+
 	setEntityAnimation(self, ATTACK_1);
 
 	self->thinkTime--;
@@ -145,18 +147,18 @@ static void snapShutFinish()
 	{
 		self->action = &reopen;
 	}
-	
+
 	self->health = 2;
-	
+
 	self->touch = &touch;
 }
 
 static void reopen()
 {
 	floatUpAndDown();
-	
+
 	self->action = &reopen;
-	
+
 	self->frameSpeed *= -1;
 
 	setEntityAnimation(self, ATTACK_1);
@@ -167,7 +169,7 @@ static void reopen()
 static void reopenFinish()
 {
 	floatUpAndDown();
-	
+
 	setEntityAnimation(self, STAND);
 
 	self->thinkTime = self->maxThinkTime;
@@ -181,9 +183,7 @@ static void reopenFinish()
 
 static void init()
 {
-	self->health = 0;
-	
-	self->action = &wait;
-	
+	self->action = self->health == 2 ? &snapShutFinish : &wait;
+
 	self->action();
 }

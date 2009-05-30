@@ -11,6 +11,7 @@
 #include "stalactite.h"
 #include "bomb.h"
 #include "bomb_pile.h"
+#include "potions.h"
 
 extern Entity *self, player;
 
@@ -23,7 +24,8 @@ static Constructor items[] = {
 {"item/heart_container", &addHeartContainer},
 {"item/stalactite", &addStalactite},
 {"item/bomb", &addBomb},
-{"item/bomb_pile", &addBombPile}
+{"item/bomb_pile", &addBombPile},
+{"item/health_potion", &addHealthPotion}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
