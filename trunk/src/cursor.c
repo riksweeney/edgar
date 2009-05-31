@@ -9,6 +9,7 @@
 #include "world/target.h"
 #include "graphics/graphics.h"
 #include "status.h"
+#include "system/pak.h"
 
 extern Cursor cursor;
 extern Input input;
@@ -20,8 +21,8 @@ static int targetID = 1;
 
 void initCursor(char *name)
 {
-	char line[MAX_LINE_LENGTH];
-	FILE *fp;
+	char line[MAX_LINE_LENGTH], *token;
+	unsigned char *buffer;
 
 	cursor.tileID = 0;
 	cursor.entityType = 0;
@@ -38,19 +39,16 @@ void initCursor(char *name)
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
-	snprintf(line, sizeof(line), "%sdata/cursor/%s.dat", INSTALL_PATH, name);
+	snprintf(line, sizeof(line), "data/cursor/%s.dat", name);
+	
+	buffer = loadFileFromPak(line);
+	
+	token = strtok((char *)buffer, "\n");
 
-	fp = fopen(line, "rb");
-
-	if (fp == NULL)
+	do
 	{
-		printf("Failed to open cursor data file %s\n", line);
-
-		exit(1);
-	}
-
-	while (fgets(entityNames[entityNamesLength], MAX_VALUE_LENGTH, fp) != NULL)
-	{
+		STRNCPY(entityNames[entityNamesLength], token, MAX_VALUE_LENGTH);
+		
 		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\n')
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
@@ -62,9 +60,18 @@ void initCursor(char *name)
 		}
 
 		entityNamesLength++;
+		
+		token = strtok(NULL, "\n");
+		
+		if (token != NULL && (int)token[0] < 0)
+		{
+			break;
+		}
 	}
-
-	fclose(fp);
+	
+	while (token != NULL);
+	
+	free(buffer);
 }
 
 void doCursor()

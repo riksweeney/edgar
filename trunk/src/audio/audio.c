@@ -2,6 +2,7 @@
 
 #include "audio.h"
 #include "../geometry.h"
+#include "../system/pak.h"
 
 static Sound sound[MAX_SOUNDS];
 extern Game game;
@@ -159,6 +160,8 @@ Mix_Chunk *loadSound(char *name)
 	/* Load the sound specified by the filename */
 
 	chunk = Mix_LoadWAV(path);
+	
+	/*chunk = loadSoundFromPak(name);*/
 
 	if (chunk == NULL)
 	{

@@ -15,7 +15,7 @@ int compressFile(char *sourceName, char *destName)
 
 	fclose(fp);
 
-	buffer = (unsigned char)malloc(fileSize * sizeof(unsigned char));
+	buffer = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
 
 	source = gzopen(sourceName, "rb");
 

@@ -2,6 +2,7 @@
 
 #include "sprites.h"
 #include "graphics.h"
+#include "../system/pak.h"
 
 static Sprite sprite[MAX_SPRITES];
 
@@ -11,23 +12,22 @@ static int spriteID = 0;
 
 void loadSpritesFromFile(char *name, int *index)
 {
-	char line[MAX_LINE_LENGTH];
+	char *line;
+	unsigned char *buffer;
 	int i;
-	FILE *fp = fopen(name, "rb");
-
-	if (fp == NULL)
-	{
-		printf("Failed to open graphics file: %s\n", name);
-
-		exit(1);
-	}
+	
+	buffer = loadFileFromPak(name);
 
 	i = 0;
+	
+	line = strtok((char *)buffer, "\n");
 
-	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	do
 	{
 		if (line[0] == '#' || line[0] == '\n')
 		{
+			line = strtok(NULL, "\n");
+			
 			continue;
 		}
 
@@ -51,9 +51,13 @@ void loadSpritesFromFile(char *name, int *index)
 		index[i] = loadSprite(line);
 
 		i++;
+		
+		line = strtok(NULL, "\n");
 	}
+	
+	while (line != NULL);
 
-	fclose(fp);
+	free(buffer);
 }
 
 static int loadSprite(char *name)

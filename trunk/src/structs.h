@@ -219,3 +219,9 @@ typedef struct Grid
 	EntityList listHead;
 	struct Grid *next;
 } Grid;
+
+typedef struct FileData
+{
+	char filename[MAX_FILE_LENGTH];
+	long fileSize, compressedSize, offset;
+} FileData;

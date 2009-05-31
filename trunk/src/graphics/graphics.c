@@ -2,6 +2,7 @@
 
 #include "../map.h"
 #include "../collisions.h"
+#include "../system/pak.h"
 
 extern Game game;
 
@@ -18,6 +19,8 @@ SDL_Surface *loadImage(char *name)
 	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
 
 	temp = IMG_Load(path);
+	
+	/*temp = loadImageFromPak(name);*/
 
 	if (temp == NULL)
 	{

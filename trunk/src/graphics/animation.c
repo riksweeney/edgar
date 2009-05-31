@@ -5,6 +5,7 @@
 #include "sprites.h"
 #include "../map.h"
 #include "../collisions.h"
+#include "../system/pak.h"
 
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
@@ -35,29 +36,28 @@ static Type type[] = {
 
 void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 {
-	char frameName[MAX_MESSAGE_LENGTH];
+	char *frameName, *line, *savePtr;
+	unsigned char *buffer;
 	int i;
-	FILE *fp;
+	
+	printf("Loading animation from %s\n", filename);
 
-	fp = fopen(filename, "rb");
-
-	if (fp == NULL)
-	{
-		printf("Failed to open animation file: %s\n", filename);
-
-		exit(1);
-	}
+	buffer = loadFileFromPak(filename);
 
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
 		animationIndex[i] = -1;
 	}
+	
+	line = strtok((char *)buffer, "\n");
 
-	while (!feof(fp))
+	do
 	{
-		i = fscanf(fp, "%s", frameName);
-
-		if (i == -1 || frameName[0] == '#' || frameName[0] == '\n')
+		printf("Line is %s\n", line);
+		
+		frameName = strtok_r(line, " ", &savePtr);
+		
+		if (frameName[0] == '#' || frameName[0] == '\n')
 		{
 			continue;
 		}
@@ -74,7 +74,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 				}
 			}
 
-			fscanf(fp, "%s", frameName);
+			frameName = strtok_r(NULL, " ", &savePtr);
 
 			animationID++;
 
@@ -90,7 +90,9 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
 		{
-			fscanf(fp, "%d", &animation[animationID].frameCount);
+			frameName = strtok_r(NULL, " ", &savePtr);
+			
+			animation[animationID].frameCount = atoi(frameName);
 
 			/* Allocate space for the frame timer */
 
@@ -138,7 +140,31 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 			for (i=0;i<animation[animationID].frameCount;i++)
 			{
-				fscanf(fp, "%d %d %d %d", &animation[animationID].frameID[i], &animation[animationID].frameTimer[i], &animation[animationID].offsetX[i], &animation[animationID].offsetY[i]);
+				line = strtok(NULL, "\n");
+				
+				frameName = strtok_r(line, " ", &savePtr);
+				
+				printf("Adding frameID %s\n", frameName);
+				
+				animation[animationID].frameID[i] = atoi(frameName);
+				
+				frameName = strtok_r(NULL, " ", &savePtr);
+				
+				printf("Adding frame timer %s\n", frameName);
+				
+				animation[animationID].frameTimer[i] = atoi(frameName);
+				
+				frameName = strtok_r(NULL, " ", &savePtr);
+				
+				printf("Adding frame X %s\n", frameName);
+				
+				animation[animationID].offsetX[i] = atoi(frameName);
+				
+				frameName = strtok_r(NULL, "\0", &savePtr);
+				
+				printf("Adding frame Y %s\n", frameName);
+				
+				animation[animationID].offsetY[i] = atoi(frameName);
 
 				/* Reassign the Animation frame to the appropriate Sprite index */
 
@@ -152,7 +178,18 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 				animation[animationID].frameID[i] = spriteIndex[animation[animationID].frameID[i]];
 			}
 		}
+		
+		line = strtok(NULL, "\n");
+		
+		printf("Next line is %s\n", line);
+		
+		if (line != NULL && (int)line[0] < 0)
+		{
+			break;
+		}
 	}
+	
+	while (line != NULL);
 
 	if (animation[animationID].frameCount == 0)
 	{
@@ -161,7 +198,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 		exit(1);
 	}
 
-	fclose(fp);
+	free(buffer);
 }
 
 static void freeAnimation(Animation *anim)
