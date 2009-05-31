@@ -38,11 +38,16 @@ extern Game game;
 #include "../npc/npc.h"
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
+#include "pak.h"
 
 static char **key, **value;
 
 void loadRequiredResources()
 {
+	/* Init the PAK file */
+	
+	initPakFile();
+	
 	/* Load the hud */
 
 	initHud();
@@ -143,6 +148,10 @@ void freeAllResources()
 	/* Free the menus */
 
 	freeMainMenu();
+	
+	/* Free the pak file */
+	
+	freePakFile();
 }
 
 void loadResources(FILE *fp)

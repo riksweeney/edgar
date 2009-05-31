@@ -2,8 +2,9 @@ VERSION = 0.1
 RELEASE = 1
 DEV = 1
 LOCALE_DIR = usr/share/locale/
+PAK_FILE = data.pak
 
-CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\"
+CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
 ifeq ($(OS),Windows_NT)
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
@@ -11,7 +12,7 @@ else
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
 endif
 
-PAK_OBJS   = pak.o
+PAK_OBJS   = pak_creator.o
 MAIN_OBJS  = draw.o main.o
 EDIT_OBJS  = draw_editor.o main_editor.o cursor.o
 CORE_OBJS  = animation.o audio.o collisions.o entity.o font.o game.o graphics.o init.o input.o inventory.o
@@ -24,7 +25,7 @@ CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialo
 CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
-CORE_OBJS += enemy_generator.o flying_bug.o potions.o
+CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o
 
 ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
@@ -63,17 +64,11 @@ endif
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
 	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
-ifeq ($(DEV), 0)
-	rm $(ED_PROG)
-endif
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
 	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
-ifeq ($(DEV), 0)
-	rm $(PAK_PROG)
-endif
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	rm $(PROG) $(ED_PROG) $(PAK_PROG) *.o
+	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) *.o

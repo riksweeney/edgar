@@ -2,15 +2,19 @@
 
 #include "music.h"
 
-Mix_Music *music;
+static Mix_Music *music;
 
 void freeMusic(void);
 
 void loadMusic(char *name)
 {
+	char path[MAX_PATH_LENGTH];
+
+	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
+	
 	freeMusic();
 
-	music = Mix_LoadMUS(name);
+	music = Mix_LoadMUS(path);
 
 	if (music == NULL)
 	{

@@ -4,6 +4,7 @@
 #include "../graphics/sprites.h"
 #include "../audio/audio.h"
 #include "../system/properties.h"
+#include "pak.h"
 
 static Properties properties[MAX_PROPS_FILES];
 
@@ -57,11 +58,10 @@ void freeProperties()
 void loadProperties(char *name, Entity *e)
 {
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
-	char path[MAX_PATH_LENGTH], line[MAX_LINE_LENGTH];
-	char *token;
-	FILE *fp;
+	char path[MAX_PATH_LENGTH], *line, *token, *savePtr;
+	unsigned char *buffer;
 
-	snprintf(path, sizeof(path), INSTALL_PATH"data/props/%s.props", name);
+	snprintf(path, sizeof(path), "data/props/%s.props", name);
 
 	index = -1;
 
@@ -88,20 +88,18 @@ void loadProperties(char *name, Entity *e)
 		{
 			if (strlen(properties[i].name) == 0)
 			{
-				fp = fopen(path, "rb");
-
-				if (fp == NULL)
-				{
-					printf("Failed to open properties file %s\n", path);
-
-					exit(1);
-				}
+				buffer = loadFileFromPak(path);
+				
+				line = strtok((char *)buffer, "\n");
 
 				STRNCPY(properties[i].name, name, sizeof(properties[i].name));
 
 				j = 0;
+				
+				token = "";
+				savePtr = "";
 
-				while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+				do
 				{
 					if (j == MAX_PROPS_ENTRIES)
 					{
@@ -122,14 +120,16 @@ void loadProperties(char *name, Entity *e)
 
 					if (line[0] == '#' || line[0] == '\n')
 					{
+						line = strtok(NULL, "\n");
+						
 						continue;
 					}
 
-					token = strtok(line, " ");
+					token = strtok_r(line, " ", &savePtr);
 
 					STRNCPY(properties[i].key[j], token, sizeof(properties[i].key[j]));
 
-					token = strtok(NULL, "\0");
+					token = strtok_r(NULL, "\0", &savePtr);
 
 					if (token != NULL)
 					{
@@ -154,9 +154,18 @@ void loadProperties(char *name, Entity *e)
 					}
 
 					j++;
+					
+					line = strtok(NULL, "\n");
+					
+					if (line != NULL && (int)line[0] < 0)
+					{
+						break;
+					}
 				}
 
-				fclose(fp);
+				while (line != NULL);
+				
+				free(buffer);
 
 				break;
 			}

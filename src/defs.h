@@ -119,8 +119,14 @@
 	#ifdef INSTALL_PATH
 		#undef INSTALL_PATH
 	#endif
+	
+	#ifdef PAK_FILE
+		#undef PAK_FILE
+	#endif
 
 	#define INSTALL_PATH ""
+	
+	#define PAK_FILE "data.pak"
 #endif
 
 #define MAX_SOUNDS 256

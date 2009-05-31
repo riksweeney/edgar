@@ -1,9 +1,8 @@
 #include "headers.h"
 
 FILE *pak;
-int dirs = 0, files = 0;
-int totalFiles = 0;
-unsigned char *buffer, *output;
+int totalFiles, fileID = 0;
+FileData *fileData;
 
 int countFiles(char *);
 void cleanup(void);
@@ -11,7 +10,7 @@ void recurseDirectory(char *);
 
 int main(int argc, char *argv[])
 {
-	int i, files = 0;
+	int i, length;
 
 	if (argc < 3)
 	{
@@ -24,17 +23,21 @@ int main(int argc, char *argv[])
 
 	for (i=1;i<argc-1;i++)
 	{
-		files += countFiles(argv[i]);
+		totalFiles += countFiles(argv[i]);
 	}
 
-	printf("There are %d files\n", files);
-
-	printf("Paking...000%%\n");
-
-	fflush(stdout);
-
-	output = NULL;
-	buffer = NULL;
+	printf("Will compress %d files\n", totalFiles);
+	
+	printf("Compressing 00%%...\r");
+	
+	fileData = (FileData *)malloc(totalFiles * sizeof(FileData));
+	
+	if (fileData == NULL)
+	{
+		printf("Failed to create File Data\n");
+		
+		exit(1);
+	}
 
 	atexit(cleanup);
 
@@ -42,12 +45,12 @@ int main(int argc, char *argv[])
 	{
 		recurseDirectory(argv[i]);
 	}
-	/*
-	unsigned int pos = ftell(pak);
+	
+	length = ftell(pak);
 
-	for (int i = 0 ; i < files ; i++)
+	for (i=0;i<totalFiles;i++)
 	{
-		if (fileData[i].fSize == 0)
+		if (fileData[i].fileSize == 0)
 		{
 			break;
 		}
@@ -55,18 +58,16 @@ int main(int argc, char *argv[])
 		fwrite(&fileData[i], sizeof(FileData), 1, pak);
 	}
 
-	unsigned int numberOfFiles = totalFiles;
+	length = SDL_SwapLE32(length);
+	totalFiles = SDL_SwapLE32(totalFiles);
 
-	pos = SDL_SwapLE32(pos);
-	numberOfFiles = SDL_SwapLE32(numberOfFiles);
-
-	fwrite(&pos, sizeof(unsigned int), 1, pak);
-	fwrite(&numberOfFiles, sizeof(unsigned int), 1, pak);
+	fwrite(&length, sizeof(long), 1, pak);
+	fwrite(&totalFiles, sizeof(int), 1, pak);
 
 	fclose(pak);
 
-	printf("\nPak: All Done. Added %d files\n", numberOfFiles);
-	*/
+	printf("Compressing 100%%\nCompleted\n");
+	
 	return 0;
 }
 
@@ -74,7 +75,7 @@ int countFiles(char *dirName)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
-	char filename[1024];
+	char filename[MAX_FILE_LENGTH];
 	int count = 0;
 
 	dirp = opendir(dirName);
@@ -87,8 +88,6 @@ int countFiles(char *dirName)
 		}
 
 		sprintf(filename, "%s/%s", dirName, dfile->d_name);
-
-		printf("Opening file %s\n", filename);
 
 		dirp2 = opendir(filename);
 
@@ -110,15 +109,7 @@ int countFiles(char *dirName)
 
 void cleanup()
 {
-	if (buffer != NULL)
-	{
-		free(buffer);
-	}
 
-	if (output != NULL)
-	{
-		free(output);
-	}
 }
 
 void recurseDirectory(char *dirName)
@@ -129,6 +120,8 @@ void recurseDirectory(char *dirName)
 	char filename[1024];
 	unsigned long fileSize, compressedSize, ensuredSize;
 	gzFile fp;
+	float percentage;
+	unsigned char *buffer, *output;
 
 	dirp = opendir(dirName);
 
@@ -146,9 +139,7 @@ void recurseDirectory(char *dirName)
 			continue;
 		}
 
-		sprintf(filename, "%s/%s", dirName, dfile->d_name);
-
-		printf("Trying to open %s\n", filename);
+		snprintf(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
 
 		dirp2 = opendir(filename);
 
@@ -173,7 +164,7 @@ void recurseDirectory(char *dirName)
 				exit(1);
 			}
 
-			fseek(infile, SEEK_SET, SEEK_END);
+			fseek(infile, 0L, SEEK_END);
 
 			fileSize = ftell(infile);
 
@@ -183,11 +174,6 @@ void recurseDirectory(char *dirName)
 
 			fclose(infile);
 
-			if (buffer != NULL)
-			{
-				free(buffer);
-			}
-
 			buffer = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
 
 			if (buffer == NULL)
@@ -195,11 +181,6 @@ void recurseDirectory(char *dirName)
 				printf("Could not create buffer\n");
 
 				exit(1);
-			}
-
-			if (output != NULL)
-			{
-				free(output);
 			}
 
 			output = (unsigned char *)malloc(ensuredSize * sizeof(unsigned char));
@@ -226,19 +207,33 @@ void recurseDirectory(char *dirName)
 
 			compressedSize = gzread(fp, buffer, fileSize);
 
-			printf("Read %ld into buffer\n", compressedSize);
-
 			gzclose(fp);
 
-			printf("Trying to compress %s with a max size of %ld\n", filename, ensuredSize);
-
 			compress2(output, &compressedSize, buffer, ensuredSize, 9);
-
-			printf("%s %ld -> %ld\n", filename, fileSize, compressedSize);
+			
+			percentage = fileID;
+			
+			percentage /= totalFiles;
+			
+			percentage *= 100;
+			
+			printf("Compressing %02d%%...\r", (int)percentage);
+			
+			STRNCPY(fileData[fileID].filename, filename, MAX_FILE_LENGTH);
+			
+			fileData[fileID].fileSize = fileSize;
+			fileData[fileID].compressedSize = compressedSize;
+			fileData[fileID].offset = ftell(pak);
+			
+			fwrite(output, 1, compressedSize, pak);
+			
+			fileID++;
+			
+			free(buffer);
+			
+			free(output);
 		}
 	}
 
 	closedir(dirp);
-
-	dirs++;
 }
