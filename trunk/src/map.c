@@ -13,6 +13,7 @@
 #include "game.h"
 #include "event/trigger.h"
 #include "weather.h"
+#include "system/pak.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -30,23 +31,14 @@ static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 void loadMap(char *name, int loadEntityResources)
 {
 	int x, y;
-	char itemName[MAX_MESSAGE_LENGTH], line[MAX_LINE_LENGTH];
-	FILE *fp;
+	char itemName[MAX_MESSAGE_LENGTH], filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
+	unsigned char *buffer;
 
 	lavaTile = LAVA_TILE_START;
 
-	snprintf(line, sizeof(line), "%sdata/maps/%s.dat", INSTALL_PATH, name);
-
-	fp = fopen(line, "rb");
-
-	/* If we can't open the map then exit */
-
-	if (fp == NULL)
-	{
-		printf("Failed to open map %s\n", line);
-
-		exit(1);
-	}
+	snprintf(filename, sizeof(filename), "data/maps/%s.dat", name);
+	
+	buffer = loadFileFromPak(filename);
 
 	/* Set the filename */
 
@@ -57,10 +49,14 @@ void loadMap(char *name, int loadEntityResources)
 	setWeather(NO_WEATHER);
 
 	/* Read the data from the file into the map */
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
-	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	while (line != NULL)
 	{
 		sscanf(line, "%s", itemName);
+		
+		printf("Got '%s' from '%s'\n", itemName, line);
 
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
@@ -180,13 +176,17 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
 		{
+			line = strtok_r(NULL, "\n", &savePtr1);
+			
 			map.maxX = map.maxY = 0;
 
 			for (y=0;y<MAX_MAP_Y;y++)
 			{
+				token = strtok_r(line, " ", &savePtr2);
+				
 				for (x=0;x<MAX_MAP_X;x++)
 				{
-					fscanf(fp, "%d", &map.tile[y][x]);
+					map.tile[y][x] = atoi(token);
 					/*
 					if (map.tile[y][x] != 0 && map.tile[y][x] <= 4)
 					{
@@ -205,17 +205,24 @@ void loadMap(char *name, int loadEntityResources)
 							map.maxY = y;
 						}
 					}
+					
+					token = strtok_r(NULL, " ", &savePtr2);
+				}
+				
+				if (y + 1 != MAX_MAP_Y)
+				{
+					line = strtok_r(NULL, "\n", &savePtr1);
 				}
 			}
 
-			fgets(line, MAX_LINE_LENGTH, fp);
+			/*fgets(line, MAX_LINE_LENGTH, fp);*/
 		}
 
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "{") == 0)
 		{
 			printf("Loading resources\n");
 
-			loadResources(fp);
+			loadResources(savePtr1);
 		}
 
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "}") == 0)
@@ -224,6 +231,8 @@ void loadMap(char *name, int loadEntityResources)
 
 			exit(1);
 		}
+		
+		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
 	/* Set the maximum scroll position of the map */
@@ -246,7 +255,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	/* Close the file afterwards */
 
-	fclose(fp);
+	free(buffer);
 
 	setTransition(TRANSITION_IN, NULL);
 

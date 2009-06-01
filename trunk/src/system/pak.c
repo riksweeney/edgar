@@ -1,8 +1,8 @@
 #include "../headers.h"
+#include "pak.h"
 
 static unsigned char *uncompressFile(char *);
 static SDL_RWops *uncompressFileRW(char *);
-static unsigned char *readFile(char *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
@@ -166,7 +166,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 	return rw;
 }
 
-static unsigned char *readFile(char *name)
+unsigned char *readFile(char *name)
 {
 	long length;
 	FILE *fp;
@@ -185,18 +185,19 @@ static unsigned char *readFile(char *name)
 
 	length = ftell(fp);
 	
-	buffer = (unsigned char *)malloc(length * sizeof(unsigned char));
+	buffer = (unsigned char *)malloc((2 + length) * sizeof(unsigned char));
 	
 	if (buffer == NULL)
 	{
-		printf("Failed to allocate %ld bytes to load %s\n", length, name);
+		printf("Failed to allocate %ld bytes to load %s\n", (1 + length) * sizeof(unsigned char), name);
 	}
 	
 	fseek(fp, 0L, SEEK_SET);
 	
 	fread(buffer, length, 1, fp);
 	
-	buffer[length - 1] = '\0';
+	buffer[length] = '\n';
+	buffer[length + 1] = '\0';
 	
 	fclose(fp);
 	
@@ -242,7 +243,7 @@ static unsigned char *uncompressFile(char *name)
 		exit(1);
 	}
 	
-	dest = (unsigned char *)malloc(fileData[index].fileSize * sizeof(unsigned char));
+	dest = (unsigned char *)malloc((fileData[index].fileSize + 2) * sizeof(unsigned char));
 	
 	if (dest == NULL)
 	{
@@ -268,7 +269,8 @@ static unsigned char *uncompressFile(char *name)
 	
 	fclose(fp);
 	
-	dest[size - 1] = '\0';
+	dest[size] = '\n';
+	dest[size + 1] = '\0';
 	
 	return dest;
 }

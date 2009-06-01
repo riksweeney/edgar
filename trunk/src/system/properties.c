@@ -58,7 +58,7 @@ void freeProperties()
 void loadProperties(char *name, Entity *e)
 {
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
-	char path[MAX_PATH_LENGTH], *line, *token, *savePtr;
+	char path[MAX_PATH_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 
 	snprintf(path, sizeof(path), "data/props/%s.props", name);
@@ -90,16 +90,13 @@ void loadProperties(char *name, Entity *e)
 			{
 				buffer = loadFileFromPak(path);
 				
-				line = strtok((char *)buffer, "\n");
+				line = strtok_r((char *)buffer, "\n", &savePtr1);
 
 				STRNCPY(properties[i].name, name, sizeof(properties[i].name));
 
 				j = 0;
-				
-				token = "";
-				savePtr = "";
 
-				do
+				while (line != NULL)
 				{
 					if (j == MAX_PROPS_ENTRIES)
 					{
@@ -120,16 +117,16 @@ void loadProperties(char *name, Entity *e)
 
 					if (line[0] == '#' || line[0] == '\n')
 					{
-						line = strtok(NULL, "\n");
+						line = strtok_r(NULL, "\n", &savePtr1);
 						
 						continue;
 					}
 
-					token = strtok_r(line, " ", &savePtr);
+					token = strtok_r(line, " ", &savePtr2);
 
 					STRNCPY(properties[i].key[j], token, sizeof(properties[i].key[j]));
 
-					token = strtok_r(NULL, "\0", &savePtr);
+					token = strtok_r(NULL, "\0", &savePtr2);
 
 					if (token != NULL)
 					{
@@ -155,15 +152,8 @@ void loadProperties(char *name, Entity *e)
 
 					j++;
 					
-					line = strtok(NULL, "\n");
-					
-					if (line != NULL && (int)line[0] < 0)
-					{
-						break;
-					}
+					line = strtok_r(NULL, "\n", &savePtr1);
 				}
-
-				while (line != NULL);
 				
 				free(buffer);
 
@@ -248,7 +238,7 @@ void loadProperties(char *name, Entity *e)
 
 void setFlags(Entity *e, char *flags)
 {
-	char *token, *temp;
+	char *token, *temp, *savePtr;
 
 	temp = (char *)malloc(strlen(flags) + 1);
 
@@ -261,7 +251,7 @@ void setFlags(Entity *e, char *flags)
 
 	STRNCPY(temp, flags, strlen(flags) + 1);
 
-	token = strtok(temp, " |,");
+	token = strtok_r(temp, " |,", &savePtr);
 
 	e->flags = 0;
 
@@ -332,7 +322,7 @@ void setFlags(Entity *e, char *flags)
 			printf("Ignoring flag value %s\n", token);
 		}
 
-		token = strtok(NULL, " |,");
+		token = strtok_r(NULL, " |,", &savePtr);
 	}
 
 	free(temp);
@@ -340,7 +330,7 @@ void setFlags(Entity *e, char *flags)
 
 void unsetFlags(Entity *e, char *flags)
 {
-	char *token, *temp;
+	char *token, *temp, *savePtr;
 
 	temp = (char *)malloc(strlen(flags) + 1);
 
@@ -353,7 +343,7 @@ void unsetFlags(Entity *e, char *flags)
 
 	STRNCPY(temp, flags, strlen(flags) + 1);
 
-	token = strtok(temp, " |,");
+	token = strtok_r(temp, " |,", &savePtr);
 
 	e->flags = 0;
 
@@ -424,7 +414,7 @@ void unsetFlags(Entity *e, char *flags)
 			printf("Ignoring flag value %s\n", token);
 		}
 
-		token = strtok(NULL, " |,");
+		token = strtok_r(NULL, " |,", &savePtr);
 	}
 
 	free(temp);

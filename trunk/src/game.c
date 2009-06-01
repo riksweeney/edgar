@@ -351,10 +351,10 @@ void setNextLevel(char *name, char *playerStart)
 
 void setNextLevelFromScript(char *token)
 {
-	char *name, *playerStart;
+	char *name, *playerStart, *savePtr;
 	
-	name = strtok(token, " ");
-	playerStart = strtok(NULL, "\0");
+	name = strtok_r(token, " ", &savePtr);
+	playerStart = strtok_r(NULL, "\0", &savePtr);
 	
 	setNextLevel(name, playerStart);
 	

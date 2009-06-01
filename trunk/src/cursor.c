@@ -21,7 +21,7 @@ static int targetID = 1;
 
 void initCursor(char *name)
 {
-	char line[MAX_LINE_LENGTH], *token;
+	char line[MAX_LINE_LENGTH], *token, *savePtr;
 	unsigned char *buffer;
 
 	cursor.tileID = 0;
@@ -43,9 +43,9 @@ void initCursor(char *name)
 	
 	buffer = loadFileFromPak(line);
 	
-	token = strtok((char *)buffer, "\n");
+	token = strtok_r((char *)buffer, "\n", &savePtr);
 
-	do
+	while (token != NULL)
 	{
 		STRNCPY(entityNames[entityNamesLength], token, MAX_VALUE_LENGTH);
 		
@@ -61,15 +61,8 @@ void initCursor(char *name)
 
 		entityNamesLength++;
 		
-		token = strtok(NULL, "\n");
-		
-		if (token != NULL && (int)token[0] < 0)
-		{
-			break;
-		}
+		token = strtok_r(NULL, "\n", &savePtr);
 	}
-	
-	while (token != NULL);
 	
 	free(buffer);
 }

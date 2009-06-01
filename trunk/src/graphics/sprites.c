@@ -12,7 +12,7 @@ static int spriteID = 0;
 
 void loadSpritesFromFile(char *name, int *index)
 {
-	char *line;
+	char *line, *savePtr;
 	unsigned char *buffer;
 	int i;
 	
@@ -20,13 +20,13 @@ void loadSpritesFromFile(char *name, int *index)
 
 	i = 0;
 	
-	line = strtok((char *)buffer, "\n");
+	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-	do
+	while (line != NULL)
 	{
 		if (line[0] == '#' || line[0] == '\n')
 		{
-			line = strtok(NULL, "\n");
+			line = strtok_r(NULL, "\n", &savePtr);
 			
 			continue;
 		}
@@ -52,10 +52,8 @@ void loadSpritesFromFile(char *name, int *index)
 
 		i++;
 		
-		line = strtok(NULL, "\n");
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
-	while (line != NULL);
 
 	free(buffer);
 }

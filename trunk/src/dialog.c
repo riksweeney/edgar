@@ -10,20 +10,20 @@ static SDL_Surface *dialogSurface;
 
 void createDialogBoxFromScript(char *msg)
 {
-	char *text, *title;
+	char *text, *title, *savePtr;
 
-	title = strtok(msg, " ");
+	title = strtok_r(msg, " ", &savePtr);
 
-	title = strtok(NULL, " ");
+	title = strtok_r(NULL, " ", &savePtr);
 
-	text = strtok(NULL, "\0");
+	text = strtok_r(NULL, "\0", &savePtr);
 
 	createDialogBox(title, text);
 }
 
 void createDialogBox(char *title, char *msg)
 {
-	char *text, *token, word[MAX_VALUE_LENGTH];
+	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr;
 	int i, lines, w, h, maxWidth;
 	SDL_Surface **surface, *temp;
 	SDL_Rect dest;
@@ -41,7 +41,7 @@ void createDialogBox(char *title, char *msg)
 
 	STRNCPY(text, msg, strlen(msg) + 1);
 
-	token = strtok(text, " ");
+	token = strtok_r(text, " ", &savePtr);
 
 	i = 0;
 
@@ -49,7 +49,7 @@ void createDialogBox(char *title, char *msg)
 	{
 		i++;
 
-		token = strtok(NULL, " ");
+		token = strtok_r(NULL, " ", &savePtr);
 	}
 
 	lines = i;
@@ -70,7 +70,7 @@ void createDialogBox(char *title, char *msg)
 
 	STRNCPY(text, msg, strlen(msg) + 1);
 
-	token = strtok(text, " ");
+	token = strtok_r(text, " ", &savePtr);
 
 	i = 0;
 
@@ -114,7 +114,7 @@ void createDialogBox(char *title, char *msg)
 
 		i++;
 
-		token = strtok(NULL, " ");
+		token = strtok_r(NULL, " ", &savePtr);
 	}
 
 	h -= 5;
