@@ -13,6 +13,7 @@
 #include "../game.h"
 #include "../map.h"
 #include "../system/properties.h"
+#include "../system/pak.h"
 
 extern Entity player, *self;
 
@@ -20,9 +21,9 @@ static Script script;
 
 void loadScript(char *name)
 {
-	char filename[MAX_PATH_LENGTH];
+	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
+	unsigned char *buffer;
 	int i;
-	FILE *fp;
 
 	freeScript();
 
@@ -31,20 +32,32 @@ void loadScript(char *name)
 	snprintf(filename, sizeof(filename), _("data/scripts/%s.dat"), name);
 
 	printf("Loading script file %s\n", filename);
-
-	fp = fopen(filename, "rb");
-
-	if (fp == NULL)
+	
+	buffer = loadFileFromPak(filename);
+	
+	text = (char *)malloc((strlen((char *)buffer) + 1) * sizeof(char));
+	
+	if (text == NULL)
 	{
-		printf("Failed to open script file %s\n", filename);
+		printf("Could not allocate a whole %d bytes for script %s\n", sizeof(char *) * (strlen((char *)buffer) + 1), filename);
 
 		exit(1);
 	}
+	
+	STRNCPY(text, (char *)buffer, strlen((char *)buffer) + 1);
+	
+	line = strtok_r((char *)text, "\n", &savePtr);
 
-	while (fgets(filename, MAX_PATH_LENGTH, fp) != NULL)
+	while (line != NULL)
 	{
+		printf("Reading %s\n", line);
+		
 		script.lineCount++;
+		
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
+	
+	free(text);
 
 	script.text = (char **)malloc(sizeof(char *) * script.lineCount);
 
@@ -55,37 +68,39 @@ void loadScript(char *name)
 		exit(1);
 	}
 
-	fseek(fp, 0L, SEEK_SET);
-
 	script.line = 0;
 
 	i = 0;
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-	while (fgets(filename, MAX_PATH_LENGTH, fp) != NULL)
+	while (line != NULL)
 	{
-		if (filename[strlen(filename) - 1] == '\n')
+		if (line[strlen(line) - 1] == '\n')
 		{
-			filename[strlen(filename) - 1] = '\0';
+			line[strlen(line) - 1] = '\0';
 		}
 
-		if (filename[strlen(filename) - 1] == '\r')
+		if (line[strlen(line) - 1] == '\r')
 		{
-			filename[strlen(filename) - 1] = '\0';
+			line[strlen(line) - 1] = '\0';
 		}
 
-		script.text[i] = (char *)malloc(strlen(filename) + 1);
+		script.text[i] = (char *)malloc(strlen(line) + 1);
 
 		if (script.text[i] == NULL)
 		{
 			printf("Could not allocate %d bytes for script line %d\n", sizeof(char *) * script.lineCount, (i + 1));
 		}
 
-		STRNCPY(script.text[i], filename, strlen(filename) + 1);
+		STRNCPY(script.text[i], line, strlen(line) + 1);
 
 		i++;
+		
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
-	fclose(fp);
+	free(buffer);
 
 	script.skipping = FALSE;
 
@@ -94,7 +109,7 @@ void loadScript(char *name)
 
 void readNextScriptLine()
 {
-	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH];
+	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH], *savePtr;
 	int readAgain = TRUE;
 	Entity *e, *e2;
 
@@ -128,7 +143,7 @@ void readNextScriptLine()
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
 
-		token = strtok(line, " ");
+		token = strtok_r(line, " ", &savePtr);
 
 		STRNCPY(command, token, sizeof(command));
 
@@ -149,32 +164,32 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("ADD", command) == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase("ENTITY", token) == 0)
 			{
-				token = strtok(NULL, "\0");
+				token = strtok_r(NULL, "\0", &savePtr);
 
 				addEntityFromScript(token);
 			}
 
 			else if (strcmpignorecase("DECORATION", token) == 0)
 			{
-				token = strtok(NULL, "\0");
+				token = strtok_r(NULL, "\0", &savePtr);
 
 				addDecorationFromScript(token);
 			}
 
 			else if (strcmpignorecase("OBJECTIVE", token) == 0)
 			{
-				token = strtok(NULL, "\0");
+				token = strtok_r(NULL, "\0", &savePtr);
 
 				addObjectiveFromScript(token);
 			}
 
 			else if (strcmpignorecase("TRIGGER", token) == 0)
 			{
-				token = strtok(NULL, "\0");
+				token = strtok_r(NULL, "\0", &savePtr);
 
 				addGlobalTriggerFromScript(token);
 			}
@@ -182,7 +197,7 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("IF", command) == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
@@ -201,11 +216,11 @@ void readNextScriptLine()
 				exit(1);
 			}
 
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase(token, "HEALTH") == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 
 				if (strcmpignorecase(token, "NOT_MAX") == 0)
 				{
@@ -239,7 +254,7 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("SET", command) == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
@@ -258,11 +273,11 @@ void readNextScriptLine()
 				exit(1);
 			}
 
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase(token, "HEALTH") == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 
 				if (strcmpignorecase(token, "MAX") == 0)
 				{
@@ -277,21 +292,21 @@ void readNextScriptLine()
 			
 			else if (strcmpignorecase("FLAG", token) == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 				
 				setFlags(e, token);
 			}
 			
 			else if (strcmpignorecase("REMOVE_FLAG", token) == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 				
 				unsetFlags(e, token);
 			}
 
 			else if (strcmpignorecase("FACE", token) == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 
 				if (strcmpignorecase(token, "LEFT") == 0)
 				{
@@ -333,7 +348,7 @@ void readNextScriptLine()
 
 			else if (strcmpignorecase(token, "ANIMATION") == 0)
 			{
-				token = strtok(NULL, " ");
+				token = strtok_r(NULL, " ", &savePtr);
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
 			}
@@ -348,21 +363,21 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("ACTIVATE", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			activateEntitiesWithName(token, TRUE);
 		}
 
 		else if (strcmpignorecase("DEACTIVATE", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			activateEntitiesWithName(token, FALSE);
 		}
 
 		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			setNextLevelFromScript(token);
 		}
@@ -376,21 +391,21 @@ void readNextScriptLine()
 		{
 			freeDialogBox();
 
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			script.thinkTime = atoi(token);
 		}
 
 		else if (strcmpignorecase("PLAY_SOUND", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			playSound(token, OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
 		}
 
 		else if (strcmpignorecase("KILL", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			e = getEntityByObjectiveName(token);
 
@@ -418,7 +433,7 @@ void readNextScriptLine()
 		{
 			freeDialogBox();
 
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			if (strcmpignorecase("NONE", token) == 0)
 			{
@@ -449,7 +464,7 @@ void readNextScriptLine()
 		{
 			freeDialogBox();
 
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
@@ -468,7 +483,7 @@ void readNextScriptLine()
 				exit(1);
 			}
 
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 
 			printf("%s %s %s\n", command, e->objectiveName, token);
 
@@ -485,7 +500,7 @@ void readNextScriptLine()
 		
 		else if (strcmpignorecase("LIMIT_CAMERA", command) == 0)
 		{
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr);
 			
 			limitCameraFromScript(token);
 		}

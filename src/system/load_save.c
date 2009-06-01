@@ -12,6 +12,7 @@
 #include "resources.h"
 #include "load_save.h"
 #include "../hud.h"
+#include "pak.h"
 
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], zipFile[MAX_PATH_LENGTH];
 
@@ -129,7 +130,7 @@ void loadGame(int slot)
 		{
 			printf("Loading entities for map %s\n", mapName);
 
-			loadResources(read);
+			/*loadResources(read);*/
 		}
 	}
 
@@ -448,20 +449,17 @@ int hasPersistance(char *mapName)
 
 void loadPersitanceData(char *mapName)
 {
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
+	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	int found = FALSE;
-	FILE *read;
+	unsigned char *buffer;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
-	read = fopen(tempFile, "rb");
+	buffer = readFile(tempFile);
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-	if (read == NULL)
-	{
-		perror("Persistance file wasn't found!");
-	}
-
-	while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
+	while (line != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
 		{
@@ -477,11 +475,13 @@ void loadPersitanceData(char *mapName)
 		{
 			found = TRUE;
 
-			loadResources(read);
+			loadResources(savePtr);
 		}
+		
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
-	fclose(read);
+	free(buffer);
 
 	if (found == FALSE)
 	{

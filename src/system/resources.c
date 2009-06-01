@@ -154,10 +154,10 @@ void freeAllResources()
 	freePakFile();
 }
 
-void loadResources(FILE *fp)
+void loadResources(char *buffer)
 {
 	int i, startX, startY, type, name, resourceType;
-	char *token, line[MAX_LINE_LENGTH], itemName[MAX_VALUE_LENGTH];
+	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2;
 	Entity *e;
 
 	resourceType = ENTITY_DATA;
@@ -199,9 +199,13 @@ void loadResources(FILE *fp)
 	name = type = startX = startY = -1;
 
 	e = NULL;
+	
+	line = strtok_r(NULL, "\n", &buffer);
 
-	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	while (line != NULL)
 	{
+		printf("Got %s\n", line);
+		
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
@@ -406,11 +410,13 @@ void loadResources(FILE *fp)
 
 		else
 		{
-			token = strtok(line, " ");
+			token = strtok_r(line, " ", &savePtr2);
+			
+			printf("Got '%s' from '%s'\n", token, line);
 
 			STRNCPY(key[i], token, MAX_VALUE_LENGTH);
 
-			token = strtok(NULL, "\0");
+			token = strtok_r(NULL, "\0", &savePtr2);
 
 			if (token != NULL)
 			{
@@ -444,6 +450,8 @@ void loadResources(FILE *fp)
 
 			i++;
 		}
+		
+		line = strtok_r(NULL, "\n", &buffer);
 	}
 
 	loadInventoryItems();
