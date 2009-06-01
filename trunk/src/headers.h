@@ -16,6 +16,8 @@
 	#include <pwd.h>
 	#include <unistd.h>
 	#include <errno.h>
+#else
+	#include "strtok_r.h"
 #endif
 
 #include "SDL/SDL.h"

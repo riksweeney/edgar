@@ -89,25 +89,28 @@ static void removeTemporaryData(void);
 
 void loadGame(int slot)
 {
-	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], c;
-	char saveFile[MAX_PATH_LENGTH], line[MAX_LINE_LENGTH];
-	FILE *read, *write;
+	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
+	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
+	unsigned char *buffer;
+	FILE *write;
 
 	freeGameResources();
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
-	read = fopen(saveFile, "rb");
+	buffer = decompressFile(saveFile);
 
 	printf("Reading save data\n");
 
-	while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
+	line = strtok_r((char *)buffer, "\n", &savePtr);
+
+	while (line != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
@@ -130,11 +133,11 @@ void loadGame(int slot)
 		{
 			printf("Loading entities for map %s\n", mapName);
 
-			/*loadResources(read);*/
+			loadResources(savePtr);
 		}
-	}
 
-	rewind(read);
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
 
 	write = fopen(tempFile, "wb");
 
@@ -145,16 +148,12 @@ void loadGame(int slot)
 		exit(1);
 	}
 
-	while((c = fgetc(read)) != EOF)
-	{
-		fputc(c, write);
-	}
+	fwrite(buffer, strlen((char *)buffer), 1, write);
 
 	fclose(write);
-	fclose(read);
 
 	freeMessageQueue();
-	
+
 	cameraSnapToTargetEntity();
 
 	printf("Load completed\n");
@@ -189,7 +188,7 @@ void saveGame(int slot)
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-			
+
 			if (line[strlen(line) - 1] == '\r')
 			{
 				line[strlen(line) - 1] = '\0';
@@ -290,6 +289,8 @@ void saveGame(int slot)
 	/* Save the player data */
 
 	fclose(write);
+
+	compressFile(saveFile);
 }
 
 void saveTemporaryData()
@@ -315,7 +316,7 @@ void saveTemporaryData()
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-			
+
 			if (line[strlen(line) - 1] == '\r')
 			{
 				line[strlen(line) - 1] = '\0';
@@ -406,7 +407,7 @@ void saveTemporaryData()
 		exit(1);
 	}
 
-	compressFile(tempFile, zipFile);
+	compressFile(tempFile);
 }
 
 int hasPersistance(char *mapName)
@@ -430,7 +431,7 @@ int hasPersistance(char *mapName)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
@@ -455,8 +456,8 @@ void loadPersitanceData(char *mapName)
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
-	buffer = readFile(tempFile);
-	
+	buffer = decompressFile(tempFile);
+
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
 	while (line != NULL)
@@ -465,7 +466,7 @@ void loadPersitanceData(char *mapName)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
@@ -477,7 +478,7 @@ void loadPersitanceData(char *mapName)
 
 			loadResources(savePtr);
 		}
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 

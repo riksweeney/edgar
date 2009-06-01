@@ -23,6 +23,7 @@ Inventory inventory;
 Droplet droplet[MAX_DROPS];
 Cursor cursor;
 Target target[MAX_TARGETS];
+Control control;
 
 int main(int argc, char *argv[])
 {

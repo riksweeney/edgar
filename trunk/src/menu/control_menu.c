@@ -5,17 +5,20 @@
 #include "../graphics/graphics.h"
 #include "options_menu.h"
 #include "../system/pak.h"
+#include "../input.h"
 
 extern Input input, menuInput;
 extern Game game;
+extern Control control;
 
 static Menu menu;
 
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
+static void redefineKey(void);
 
-void drawMainMenu()
+void drawControlMenu()
 {
 	int i, x, y;
 
@@ -83,7 +86,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/main_menu.dat"));
+	snprintf(filename, sizeof(filename), _("data/menu/control_menu.dat"));
 
 	buffer = loadFileFromPak(filename);
 
@@ -134,7 +137,7 @@ static void loadMenuLayout()
 
 			if (menu.widgets == NULL)
 			{
-				printf("Ran out of memory when creating Main Menu\n");
+				printf("Ran out of memory when creating Control Menu\n");
 
 				exit(1);
 			}
@@ -148,29 +151,64 @@ static void loadMenuLayout()
 
 				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
 
-				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
+				if (strcmpignorecase(menuID, "UP") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_UP], 0, 0, &redefineKey, x, y);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
+				else if (strcmpignorecase(menuID, "DOWN") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_DOWN], 0, 0, &redefineKey, x, y);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
+				else if (strcmpignorecase(menuID, "LEFT") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_LEFT], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "RIGHT") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_RIGHT], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "ATTACK") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_ATTACK], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "BLOCK") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_BLOCK], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "JUMP") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_JUMP], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "INTERACT") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_INTERACT], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "USE") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_ACTIVATE], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_PREVIOUS], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_NEXT], 0, 0, &redefineKey, x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showOptionsMenu, x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &quitGame, x, y);
 				}
 
 				else
@@ -210,7 +248,19 @@ static void loadMenuLayout()
 	free(buffer);
 }
 
-void freeMainMenu()
+Menu *initControlMenu()
+{
+	menu.action = &doMenu;
+
+	if (menu.widgets == NULL)
+	{
+		loadMenuLayout();
+	}
+
+	return &menu;
+}
+
+void freeControlMenu()
 {
 	int i;
 
@@ -232,16 +282,15 @@ void freeMainMenu()
 	}
 }
 
-Menu *initMainMenu()
+static void redefineKey()
 {
-	menu.action = &doMenu;
+	int key = getSingleInput();
+	Widget *w = menu.widgets[menu.index];
 
-	if (menu.widgets == NULL)
+	if (key != -1)
 	{
-		loadMenuLayout();
+		(*w->value) = key;
 	}
-
-	return &menu;
 }
 
 static void showOptionsMenu()

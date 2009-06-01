@@ -1,11 +1,10 @@
 #include "../headers.h"
 
-int compressFile(char *sourceName, char *destName)
+void compressFile(char *sourceName)
 {
-	unsigned char *buffer;
-	long fileSize;
+	unsigned char *source, *dest;
+	unsigned long fileSize, compressedSize, ensuredSize;
 	FILE *fp;
-	gzFile *source, *dest;
 
 	fp = fopen(sourceName, "rb");
 
@@ -13,139 +12,98 @@ int compressFile(char *sourceName, char *destName)
 
 	fileSize = ftell(fp);
 
-	fclose(fp);
+	ensuredSize = fileSize * 1.01 + 12;
 
-	buffer = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
+	fseek(fp, 0L, SEEK_SET);
 
-	source = gzopen(sourceName, "rb");
-
-	gzread(source, buffer, fileSize);
-
-	gzclose(source);
-
-	dest = gzopen(destName, "wb");
-
-	gzwrite(dest, buffer, fileSize);
-
-	gzclose(dest);
-
-	return Z_OK;
-}
-
-int decompressFile(char *sourceName, char *destName)
-{
-	int ret;
-	unsigned have;
-	z_stream strm;
-	unsigned char in[CHUNK_SIZE];
-	unsigned char out[CHUNK_SIZE];
-	FILE *source, *dest;
-
-	source = fopen(sourceName, "rb");
+	source = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
 
 	if (source == NULL)
 	{
-		printf("Failed to read %s for decompressing\n", sourceName);
+		printf("Failed to allocate %ld bytes to compress save file\n", fileSize * sizeof(unsigned char));
 
 		exit(1);
 	}
 
-	dest = fopen(destName, "wb");
+	dest = (unsigned char *)malloc(ensuredSize * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
-		fclose(source);
+		printf("Failed to allocate %ld bytes to compress save file\n", ensuredSize * sizeof(unsigned char));
 
-		printf("Failed to write %s for decompressing\n", destName);
+		exit(1);
+	}
+	
+	compressedSize = ensuredSize;
+
+	fread(source, fileSize, 1, fp);
+
+	fclose(fp);
+
+	compress2(dest, &compressedSize, source, fileSize, 9);
+
+	printf("Compressed from %ld to %ld\n", fileSize, compressedSize);
+
+	fp = fopen(sourceName, "wb");
+
+	fwrite(&fileSize, sizeof(unsigned long), 1, fp);
+
+	fwrite(dest, compressedSize, 1, fp);
+
+	free(source);
+
+	free(dest);
+
+	fclose(fp);
+}
+
+unsigned char *decompressFile(char *sourceName)
+{
+	unsigned char *source, *dest;
+	unsigned long compressedSize, fileSize;
+	FILE *fp;
+
+	fp = fopen(sourceName, "rb");
+
+	fseek(fp, 0L, SEEK_END);
+
+	compressedSize = ftell(fp);
+
+	compressedSize -= sizeof(unsigned long);
+
+	fseek(fp, 0L, SEEK_SET);
+
+	fread(&fileSize, sizeof(unsigned long), 1, fp);
+
+	source = (unsigned char *)malloc(compressedSize * sizeof(unsigned char));
+
+	if (source == NULL)
+	{
+		printf("Failed to allocate %ld bytes to compress save file\n", compressedSize * sizeof(unsigned char));
 
 		exit(1);
 	}
 
-	/* allocate inflate state */
-	strm.zalloc = Z_NULL;
-	strm.zfree = Z_NULL;
-	strm.opaque = Z_NULL;
-	strm.avail_in = 0;
-	strm.next_in = Z_NULL;
+	dest = (unsigned char *)malloc((fileSize + 1) * sizeof(unsigned char));
 
-	ret = inflateInit(&strm);
-
-	if (ret != Z_OK)
+	if (dest == NULL)
 	{
-		fclose(source);
-		fclose(dest);
+		printf("Failed to allocate %ld bytes to compress save file\n", (fileSize + 1) * sizeof(unsigned char));
 
-		return ret;
+		exit(1);
 	}
 
-	/* decompress until deflate stream ends or end of file */
-	do
-	{
-		strm.avail_in = fread(in, 1, CHUNK_SIZE, source);
+	fread(source, compressedSize, 1, fp);
 
-		if (ferror(source))
-		{
-			(void)inflateEnd(&strm);
+	printf("Decompressing from %ld to %ld\n", compressedSize, fileSize);
 
-			fclose(source);
-			fclose(dest);
+	uncompress(dest, &fileSize, source, compressedSize);
 
-			return Z_ERRNO;
-		}
+	dest[fileSize] = '\0';
 
-		if (strm.avail_in == 0)
-		{
-			break;
-		}
+	fclose(fp);
 
-		strm.next_in = in;
+	free(source);
 
-		/* run inflate() on input until output buffer not full */
-		do
-		{
-			strm.avail_out = CHUNK_SIZE;
-			strm.next_out = out;
-			ret = inflate(&strm, Z_NO_FLUSH);
-
-			switch (ret)
-			{
-				case Z_NEED_DICT:
-					ret = Z_DATA_ERROR;     /* and fall through */
-				case Z_DATA_ERROR:
-				case Z_MEM_ERROR:
-					(void)inflateEnd(&strm);
-
-					fclose(source);
-					fclose(dest);
-
-					return ret;
-			}
-
-			have = CHUNK_SIZE - strm.avail_out;
-
-			if (fwrite(out, 1, have, dest) != have || ferror(dest))
-			{
-				(void)inflateEnd(&strm);
-
-				fclose(source);
-				fclose(dest);
-
-				return Z_ERRNO;
-			}
-		}
-
-		while (strm.avail_out == 0);
-
-		/* done when inflate() says it's done */
-	}
-
-	while (ret != Z_STREAM_END);
-
-	/* clean up and return */
-	(void)inflateEnd(&strm);
-
-	fclose(source);
-	fclose(dest);
-
-	return ret == Z_STREAM_END ? Z_OK : Z_DATA_ERROR;
+	return dest;
 }

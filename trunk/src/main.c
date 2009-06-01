@@ -27,6 +27,7 @@ Game game;
 Droplet droplet[MAX_DROPS];
 Entity player, playerShield, playerWeapon;
 Target target[MAX_TARGETS];
+Control control;
 
 int main(int argc, char *argv[])
 {

@@ -37,7 +37,7 @@ void loadMap(char *name, int loadEntityResources)
 	lavaTile = LAVA_TILE_START;
 
 	snprintf(filename, sizeof(filename), "data/maps/%s.dat", name);
-	
+
 	buffer = loadFileFromPak(filename);
 
 	/* Set the filename */
@@ -49,14 +49,12 @@ void loadMap(char *name, int loadEntityResources)
 	setWeather(NO_WEATHER);
 
 	/* Read the data from the file into the map */
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
 	while (line != NULL)
 	{
 		sscanf(line, "%s", itemName);
-		
-		printf("Got '%s' from '%s'\n", itemName, line);
 
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
@@ -177,13 +175,13 @@ void loadMap(char *name, int loadEntityResources)
 		else if (strcmpignorecase(itemName, "DATA") == 0)
 		{
 			line = strtok_r(NULL, "\n", &savePtr1);
-			
+
 			map.maxX = map.maxY = 0;
 
 			for (y=0;y<MAX_MAP_Y;y++)
 			{
 				token = strtok_r(line, " ", &savePtr2);
-				
+
 				for (x=0;x<MAX_MAP_X;x++)
 				{
 					map.tile[y][x] = atoi(token);
@@ -205,10 +203,10 @@ void loadMap(char *name, int loadEntityResources)
 							map.maxY = y;
 						}
 					}
-					
+
 					token = strtok_r(NULL, " ", &savePtr2);
 				}
-				
+
 				if (y + 1 != MAX_MAP_Y)
 				{
 					line = strtok_r(NULL, "\n", &savePtr1);
@@ -231,7 +229,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			exit(1);
 		}
-		
+
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
@@ -281,7 +279,7 @@ void saveMap()
 		return;
 	}
 
-	snprintf(filename, sizeof(filename), "%sdata/maps/%s.dat", INSTALL_PATH, map.filename);
+	snprintf(filename, sizeof(filename), "data/maps/%s.dat", map.filename);
 
 	printf("Saving map to %s\n", filename);
 
@@ -361,7 +359,6 @@ static void loadMapTiles(char *dir)
 {
 	int i;
 	char filename[255];
-	FILE *fp;
 
 	/* Load the blank tile for the editor */
 
@@ -371,14 +368,10 @@ static void loadMapTiles(char *dir)
 	{
 		snprintf(filename, sizeof(filename), "gfx/map/%s/%d.png", dir, i);
 
-		fp = fopen(filename, "rb");
-
-		if (fp == NULL)
+		if (existsInPak(filename) == FALSE)
 		{
 			continue;
 		}
-
-		fclose(fp);
 
 		mapImages[i] = loadImage(filename);
 
@@ -661,8 +654,6 @@ void centerEntityOnMap()
 
 static void loadMapBackground(char *name, int index)
 {
-	FILE *fp;
-
 	/* Load the background image */
 
 	if (index == 0)
@@ -672,14 +663,10 @@ static void loadMapBackground(char *name, int index)
 
 	else
 	{
-		fp = fopen(name, "rb");
-
-		if (fp == NULL)
+		if (existsInPak(name) == FALSE)
 		{
 			return;
 		}
-
-		fclose(fp);
 
 		map.background[index] = loadImage(name);
 	}
@@ -689,7 +676,6 @@ static void loadAmbience(char *dir)
 {
 	int i, j;
 	char filename[MAX_PATH_LENGTH];
-	FILE *fp;
 
 	map.hasAmbience = FALSE;
 
@@ -699,14 +685,10 @@ static void loadAmbience(char *dir)
 		{
 			snprintf(filename, sizeof(filename), "ambience/%s/%d.%s", dir, i, extensions[j]);
 
-			fp = fopen(filename, "rb");
-
-			if (fp == NULL)
+			if (existsInPak(filename) == FALSE)
 			{
 				continue;
 			}
-
-			fclose(fp);
 
 			map.ambience[i] = loadSound(filename);
 

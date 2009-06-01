@@ -14,34 +14,31 @@ static int soundIndex = 0;
 
 void preCacheSounds(char *filename)
 {
-	char line[MAX_LINE_LENGTH];
-	FILE *fp;
+	char *line, *savePtr;
+	unsigned char *buffer;
 
-	fp = fopen(filename, "rb");
+	buffer = loadFileFromPak(filename);
 
-	if (fp == NULL)
-	{
-		printf("Failed to open sfx file: %s\n", filename);
+	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-		exit(1);
-	}
-
-	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	while (line != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
 
 		preCacheSound(line);
+
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
-	fclose(fp);
+	free(buffer);
 }
 
 static void preCacheSound(char *name)
@@ -63,7 +60,7 @@ static void preCacheSound(char *name)
 
 		abort();
 	}
-	
+
 	chunk = loadSound(name);
 
 	sound[soundIndex].effect = chunk;
@@ -155,13 +152,11 @@ Mix_Chunk *loadSound(char *name)
 	char path[MAX_PATH_LENGTH];
 	Mix_Chunk *chunk;
 
-	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
+	snprintf(path, sizeof(path), "%s", name);
 
 	/* Load the sound specified by the filename */
 
-	chunk = Mix_LoadWAV(path);
-	
-	/*chunk = loadSoundFromPak(name);*/
+	chunk = loadSoundFromPak(name);
 
 	if (chunk == NULL)
 	{

@@ -4,4 +4,5 @@ SDL_Surface *loadImageFromPak(char *);
 Mix_Chunk *loadSoundFromPak(char *);
 Mix_Music *loadMusicFromPak(char *);
 unsigned char *loadFileFromPak(char *);
-unsigned char *readFile(char *);
+TTF_Font *loadFontFromPak(char *, int);
+int existsInPak(char *);

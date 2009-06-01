@@ -17,11 +17,11 @@ static void getNextMessageFromQueue(void);
 
 void initHud()
 {
-	hud.itemBox = loadImage(INSTALL_PATH"gfx/hud/item_box.png");
+	hud.itemBox = loadImage("gfx/hud/item_box.png");
 
-	hud.heart = loadImage(INSTALL_PATH"gfx/hud/heart.png");
+	hud.heart = loadImage("gfx/hud/heart.png");
 
-	hud.emptyHeart = loadImage(INSTALL_PATH"gfx/hud/heart_empty.png");
+	hud.emptyHeart = loadImage("gfx/hud/heart_empty.png");
 
 	messageHead.next = NULL;
 }
@@ -204,7 +204,7 @@ void freeMessageQueue()
 	}
 
 	messageHead.next = NULL;
-	
+
 	if (hud.infoMessage.surface != NULL)
 	{
 		SDL_FreeSurface(hud.infoMessage.surface);
