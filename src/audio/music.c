@@ -10,8 +10,8 @@ void loadMusic(char *name)
 {
 	char path[MAX_PATH_LENGTH];
 
-	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
-	
+	snprintf(path, sizeof(path), "%s", name);
+
 	freeMusic();
 
 	music = Mix_LoadMUS(path);
@@ -39,7 +39,7 @@ void playMusic()
 	if (music != NULL)
 	{
 		Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
+
 		Mix_PlayMusic(music, -1);
 	}
 }
@@ -83,7 +83,7 @@ void pauseMusic()
 		{
 			Mix_ResumeMusic();
 		}
-		
+
 		else
 		{
 			Mix_PauseMusic();
@@ -94,6 +94,6 @@ void pauseMusic()
 void loadBossMusic()
 {
 	loadMusic("music/battle_of_the_fireflies.s3m");
-	
+
 	playMusic();
 }

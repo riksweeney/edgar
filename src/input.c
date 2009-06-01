@@ -6,8 +6,7 @@
 
 extern Input input, menuInput;
 extern Game game;
-
-static Control control;
+extern Control control;
 
 void getInput(int gameType)
 {

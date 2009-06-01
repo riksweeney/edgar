@@ -214,15 +214,11 @@ static void wait()
 			case 1:
 				self->action = &spinAttackStart;
 
-				self->flags |= INVULNERABLE;
-
 				self->thinkTime = 60;
 			break;
 
 			default:
 				self->action = &bounceAttackStart;
-
-				self->flags |= INVULNERABLE;
 
 				self->thinkTime = 60;
 			break;
@@ -283,6 +279,8 @@ static void spit()
 
 static void spinAttackStart()
 {
+	self->flags |= INVULNERABLE;
+	
 	setEntityAnimation(self, ATTACK_2);
 
 	if (self->thinkTime > 0)
@@ -347,6 +345,8 @@ static void spinAttackEnd()
 
 static void bounceAttackStart()
 {
+	self->flags |= INVULNERABLE;
+	
 	setEntityAnimation(self, ATTACK_2);
 
 	if (self->thinkTime > 0)

@@ -1,19 +1,15 @@
 #include "../headers.h"
+#include "../system/pak.h"
 
 extern Game game;
 
 TTF_Font *loadFont(char *name, int size)
 {
-	char path[MAX_PATH_LENGTH];
-	TTF_Font *font;
-
-	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
-
-	font = TTF_OpenFont(path, size);
+	TTF_Font *font = loadFontFromPak(name, size);
 
 	if (font == NULL)
 	{
-		printf("Failed to open Font %s: %s\n", path, TTF_GetError());
+		printf("Failed to open Font %s: %s\n", name, TTF_GetError());
 
 		exit(1);
 	}

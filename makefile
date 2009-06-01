@@ -12,7 +12,7 @@ else
 LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
 endif
 
-PAK_OBJS   = pak_creator.o
+PAK_OBJS   = pak_creator.o pak.o
 MAIN_OBJS  = draw.o main.o
 EDIT_OBJS  = draw_editor.o main_editor.o cursor.o
 CORE_OBJS  = animation.o audio.o collisions.o entity.o font.o game.o graphics.o init.o input.o inventory.o
@@ -25,7 +25,11 @@ CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialo
 CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
-CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o
+CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o
+
+ifeq ($(OS),Windows_NT)
+CORE_OBJS += strtok_r.o
+endif
 
 ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
@@ -57,7 +61,7 @@ include makefile.dep
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
 	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
-ifeq ($(DEV), 0)
+ifeq ($(DEV), 3)
 	strip $(PROG)
 endif
 	

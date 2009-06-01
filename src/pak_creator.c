@@ -1,4 +1,5 @@
 #include "headers.h"
+#include "system/pak.h"
 
 FILE *pak;
 int totalFiles, fileID = 0;
@@ -7,6 +8,7 @@ FileData *fileData;
 int countFiles(char *);
 void cleanup(void);
 void recurseDirectory(char *);
+void testPAK(void);
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +17,7 @@ int main(int argc, char *argv[])
 	if (argc < 3)
 	{
 		printf("Usage   : pak <directory names> <outputname>\n");
-		printf("Example : pak data music gfx sound data.pak\n");
+		printf("Example : pak data music gfx sound font data.pak\n");
 		exit(1);
 	}
 
@@ -27,15 +29,15 @@ int main(int argc, char *argv[])
 	}
 
 	printf("Will compress %d files\n", totalFiles);
-	
+
 	printf("Compressing 00%%...\r");
-	
+
 	fileData = (FileData *)malloc(totalFiles * sizeof(FileData));
-	
+
 	if (fileData == NULL)
 	{
 		printf("Failed to create File Data\n");
-		
+
 		exit(1);
 	}
 
@@ -45,7 +47,7 @@ int main(int argc, char *argv[])
 	{
 		recurseDirectory(argv[i]);
 	}
-	
+
 	length = ftell(pak);
 
 	for (i=0;i<totalFiles;i++)
@@ -68,6 +70,8 @@ int main(int argc, char *argv[])
 
 	printf("Compressing 100%%\nCompleted\n");
 	
+	testPAK();
+
 	return 0;
 }
 
@@ -118,6 +122,7 @@ void recurseDirectory(char *dirName)
 	struct dirent *dfile;
 	FILE *infile;
 	char filename[1024];
+	int compressionResult;
 	unsigned long fileSize, compressedSize, ensuredSize;
 	gzFile fp;
 	float percentage;
@@ -170,11 +175,11 @@ void recurseDirectory(char *dirName)
 
 			ensuredSize = fileSize * 1.01 + 12;
 
-			compressedSize = 0;
+			compressedSize = ensuredSize;
 
 			fclose(infile);
 
-			buffer = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
+			buffer = (unsigned char *)malloc((fileSize + 1) * sizeof(unsigned char));
 
 			if (buffer == NULL)
 			{
@@ -205,35 +210,80 @@ void recurseDirectory(char *dirName)
 				exit(1);
 			}
 
-			compressedSize = gzread(fp, buffer, fileSize);
+			gzread(fp, buffer, fileSize);
 
 			gzclose(fp);
 
-			compress2(output, &compressedSize, buffer, ensuredSize, 9);
+			compressionResult = compress2(output, &compressedSize, buffer, fileSize, 9);
 			
+			if (compressionResult != Z_OK)
+			{
+				printf("Compression of %s failed\n", filename);
+				
+				if (compressionResult == Z_BUF_ERROR)
+				{
+					printf("Buffer too small\n");
+					
+					exit(1);
+				}
+				
+				if (compressionResult == Z_MEM_ERROR)
+				{
+					printf("Out of RAM\n");
+					
+					exit(1);
+				}
+				
+				if (compressionResult == Z_STREAM_ERROR)
+				{
+					printf("Stream error\n");
+					
+					exit(1);
+				}
+			}
+
 			percentage = fileID;
-			
+
 			percentage /= totalFiles;
-			
+
 			percentage *= 100;
-			
+
 			printf("Compressing %02d%%...\r", (int)percentage);
-			
+
 			STRNCPY(fileData[fileID].filename, filename, MAX_FILE_LENGTH);
-			
+
 			fileData[fileID].fileSize = fileSize;
 			fileData[fileID].compressedSize = compressedSize;
 			fileData[fileID].offset = ftell(pak);
-			
-			fwrite(output, 1, compressedSize, pak);
-			
+
+			fwrite(output, compressedSize, 1, pak);
+
 			fileID++;
-			
+
 			free(buffer);
-			
+
 			free(output);
 		}
 	}
 
 	closedir(dirp);
+}
+
+void testPAK()
+{
+	unsigned char *buffer;
+	
+	initPakFile();
+	
+	buffer = loadFileFromPak("data/gfx/common/level_exit.dat");
+	
+	printf("Got back '%s'\n", buffer);
+	
+	free(buffer);
+	
+	buffer = loadFileFromPak("data/gfx/common/action_point.dat");
+	
+	printf("Got back '%s'\n", buffer);
+	
+	free(buffer);
 }

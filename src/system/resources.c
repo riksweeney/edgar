@@ -45,9 +45,9 @@ static char **key, **value;
 void loadRequiredResources()
 {
 	/* Init the PAK file */
-	
+
 	initPakFile();
-	
+
 	/* Load the hud */
 
 	initHud();
@@ -98,9 +98,9 @@ void freeLevelResources()
 	/* Free the targets */
 
 	freeTargets();
-	
+
 	/* Free the message queue */
-	
+
 	freeMessageQueue();
 }
 
@@ -148,9 +148,9 @@ void freeAllResources()
 	/* Free the menus */
 
 	freeMainMenu();
-	
+
 	/* Free the pak file */
-	
+
 	freePakFile();
 }
 
@@ -199,25 +199,25 @@ void loadResources(char *buffer)
 	name = type = startX = startY = -1;
 
 	e = NULL;
-	
+
 	line = strtok_r(NULL, "\n", &buffer);
 
 	while (line != NULL)
 	{
-		printf("Got %s\n", line);
-		
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
 
-		if (strlen(line) == 0 || line[0] == '#')
+		if (line[0] == '#' || line[0] == '\n')
 		{
+			line = strtok_r(NULL, "\n", &buffer);
+
 			continue;
 		}
 
@@ -411,8 +411,6 @@ void loadResources(char *buffer)
 		else
 		{
 			token = strtok_r(line, " ", &savePtr2);
-			
-			printf("Got '%s' from '%s'\n", token, line);
 
 			STRNCPY(key[i], token, MAX_VALUE_LENGTH);
 
@@ -450,7 +448,7 @@ void loadResources(char *buffer)
 
 			i++;
 		}
-		
+
 		line = strtok_r(NULL, "\n", &buffer);
 	}
 

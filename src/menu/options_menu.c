@@ -4,6 +4,8 @@
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "main_menu.h"
+#include "control_menu.h"
+#include "../system/pak.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -78,45 +80,57 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char line[MAX_LINE_LENGTH], menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token;
+	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
+	unsigned char *buffer;
 	int x, y, i;
-	FILE *fp;
 	SDL_Surface *temp;
 
 	i = 0;
 
-	snprintf(line, sizeof(line), _("%sdata/menu/options_menu.dat"), INSTALL_PATH);
+	snprintf(filename, sizeof(filename), _("data/menu/options_menu.dat"));
 
-	fp = fopen(line, "rb");
+	buffer = loadFileFromPak(filename);
 
-	if (fp == NULL)
+	line = strtok_r((char *)buffer, "\n", &savePtr1);
+
+	while (line != NULL)
 	{
-		perror("Could not open Options Menu config file");
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
-		exit(1);
-	}
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
 
-	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
-	{
-		token = strtok(line, " ");
+		if (line[0] == '#' || line[0] == '\n')
+		{
+			line = strtok_r(NULL, "\n", &savePtr1);
+
+			continue;
+		}
+
+		token = strtok_r(line, " ", &savePtr2);
 
 		if (strcmpignorecase(token, "WIDTH") == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr2);
 
 			menu.w = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "HEIGHT") == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr2);
 
 			menu.h = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
 		{
-			token = strtok(NULL, " ");
+			token = strtok_r(NULL, " ", &savePtr2);
 
 			menu.widgetCount = atoi(token);
 
@@ -134,7 +148,7 @@ static void loadMenuLayout()
 		{
 			if (menu.widgets != NULL)
 			{
-				token = strtok(NULL, "\0");
+				token = strtok_r(NULL, "\0", &savePtr2);
 
 				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
 
@@ -175,6 +189,8 @@ static void loadMenuLayout()
 				exit(1);
 			}
 		}
+
+		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
 	if (menu.w == 0 || menu.h == 0)
@@ -190,7 +206,7 @@ static void loadMenuLayout()
 
 	SDL_FreeSurface(temp);
 
-	fclose(fp);
+	free(buffer);
 }
 
 Menu *initOptionsMenu()
@@ -234,11 +250,9 @@ static void toggleHints()
 
 static void showControlMenu()
 {
-	/*
 	game.menu = initControlMenu();
 
 	game.drawMenu = &drawControlMenu;
-	*/
 }
 
 static void showSoundMenu()

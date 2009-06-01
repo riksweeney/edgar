@@ -12,19 +12,14 @@ SDL_Surface *loadImage(char *name)
 {
 	/* Load the image using SDL Image */
 
-	char path[MAX_PATH_LENGTH];
 	SDL_Surface *temp;
 	SDL_Surface *image;
 
-	snprintf(path, sizeof(path), INSTALL_PATH"%s", name);
-
-	temp = IMG_Load(path);
-	
-	/*temp = loadImageFromPak(name);*/
+	temp = loadImageFromPak(name);
 
 	if (temp == NULL)
 	{
-		printf("Failed to load image %s\n", path);
+		printf("Failed to load image %s\n", name);
 
 		exit(1);
 	}
@@ -405,7 +400,7 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, surface->w + 10, surface->h + 10, surface->format->BitsPerPixel, surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, 0);
 
 	newSurface = SDL_DisplayFormat(temp);
-	
+
 	SDL_FillRect(newSurface, NULL, SDL_MapRGB(game.screen->format, br, bg, bb));
 
 	rect.x = 5;
