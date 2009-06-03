@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 #include "pak.h"
 
@@ -121,6 +140,13 @@ static SDL_RWops *uncompressFileRW(char *name)
 	#if DEV == 1
 		fp = fopen(name, "rb");
 
+		if (fp == NULL)
+		{
+			printf("Failed to open %s\n", name);
+
+			exit(1);
+		}
+
 		fseek(fp, 0L, SEEK_END);
 
 		size = ftell(fp);
@@ -131,7 +157,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", size * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s\n", size * sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -160,6 +186,13 @@ static SDL_RWops *uncompressFileRW(char *name)
 		}
 
 		fp = fopen(pakFile, "rb");
+
+		if (fp == NULL)
+		{
+			printf("Failed to open PAK file %s\n", pakFile);
+
+			exit(1);
+		}
 
 		fseek(fp, fileData[index].offset, SEEK_SET);
 
@@ -219,6 +252,13 @@ static unsigned char *uncompressFile(char *name)
 	#if DEV == 1
 		fp = fopen(name, "rb");
 
+		if (fp == NULL)
+		{
+			printf("Failed to open %s\n", name);
+
+			exit(1);
+		}
+
 		fseek(fp, 0L, SEEK_END);
 
 		size = ftell(fp);
@@ -229,13 +269,13 @@ static unsigned char *uncompressFile(char *name)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", (size + 2) * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s\n", (size + 2) * sizeof(unsigned char), name);
 
 			exit(1);
 		}
 
 		fread(dest, size, 1, fp);
-		
+
 		dest[size] = '\n';
 		dest[size + 1] = '\0';
 
@@ -262,6 +302,13 @@ static unsigned char *uncompressFile(char *name)
 
 		fp = fopen(pakFile, "rb");
 
+		if (fp == NULL)
+		{
+			printf("Failed to open PAK file %s\n", pakFile);
+
+			exit(1);
+		}
+
 		fseek(fp, fileData[index].offset, SEEK_SET);
 
 		source = (unsigned char *)malloc(fileData[index].compressedSize * sizeof(unsigned char));
@@ -287,7 +334,7 @@ static unsigned char *uncompressFile(char *name)
 		size = fileData[index].fileSize;
 
 		uncompress(dest, &size, source, fileData[index].compressedSize);
-		
+
 		dest[size] = '\0';
 
 		if (size != fileData[index].fileSize)

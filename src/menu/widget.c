@@ -1,7 +1,27 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "../graphics/graphics.h"
 #include "../graphics/font.h"
+#include "label.h"
 
 extern Game game;
 
@@ -34,19 +54,26 @@ Widget *createWidget(char *text, int *controlValue, int minValue, int maxValue, 
 
 	w->y = y;
 
+	w->label = NULL;
+
 	return w;
 }
 
-void drawWidget(Widget *w, int selected)
+void drawWidget(Widget *w, Menu *m, int selected)
 {
 	int x, y;
 
-	x = w->x < 0 ? (SCREEN_WIDTH - w->normalState->w) / 2 : w->x;
-	y = w->y < 0 ? (SCREEN_HEIGHT - w->normalState->h) / 2 : w->y;
+	x = w->x < 0 ? (m->w - w->normalState->w) / 2 : w->x;
+	y = w->y < 0 ? (m->h - w->normalState->h) / 2 : w->y;
 
-	if (w != NULL)
+	x += m->x;
+	y += m->y;
+
+	drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE);
+
+	if (w->label != NULL)
 	{
-		drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE);
+		drawLabel(w->label, m);
 	}
 }
 
@@ -66,6 +93,11 @@ void freeWidget(Widget *w)
 			SDL_FreeSurface(w->selectedState);
 
 			w->selectedState = NULL;
+		}
+
+		if (w->label != NULL)
+		{
+			freeLabel(w->label);
 		}
 
 		free(w);

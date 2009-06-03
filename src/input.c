@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "headers.h"
 
 #include "system/record.h"
@@ -549,15 +568,22 @@ void setDefaultControls(int editor)
 	}
 }
 
+void flushInputs()
+{
+	SDL_Event event;
+	
+	while (SDL_PollEvent(&event)) {}
+}
+
 int getSingleInput()
 {
 	int key;
 	SDL_Event event;
+	
+	key = -2;
 
-	while (SDL_PollEvent(&event))
+	if (SDL_PollEvent(&event))
 	{
-		key = -1;
-
 		switch (event.type)
 		{
 			case SDL_QUIT:
@@ -575,4 +601,124 @@ int getSingleInput()
 	}
 
 	return key == SDLK_ESCAPE ? -1 : key;
+}
+
+void writeControlsToFile(FILE *fp)
+{
+	fprintf(fp, "CONTROLS\n");
+	fprintf(fp, "LEFT %d\n", control.button[CONTROL_LEFT]);
+	fprintf(fp, "RIGHT %d\n", control.button[CONTROL_RIGHT]);
+	fprintf(fp, "UP %d\n", control.button[CONTROL_UP]);
+	fprintf(fp, "DOWN %d\n", control.button[CONTROL_DOWN]);
+	fprintf(fp, "JUMP %d\n", control.button[CONTROL_JUMP]);
+	fprintf(fp, "ATTACK %d\n", control.button[CONTROL_ATTACK]);
+	fprintf(fp, "BLOCK %d\n", control.button[CONTROL_BLOCK]);
+	fprintf(fp, "PREVIOUS %d\n", control.button[CONTROL_PREVIOUS]);
+	fprintf(fp, "NEXT %d\n", control.button[CONTROL_NEXT]);
+	fprintf(fp, "ACTIVATE %d\n", control.button[CONTROL_ACTIVATE]);
+	fprintf(fp, "INTERACT %d\n", control.button[CONTROL_INTERACT]);
+	fprintf(fp, "PAUSE %d\n", control.button[CONTROL_PAUSE]);
+}
+
+void readControlsFromFile(char *buffer)
+{
+	char *line, *token, *savePtr;
+	
+	line = strtok_r(buffer, "\n", &savePtr);
+	
+	while (line != NULL)
+	{
+		token = strtok(line, " ");
+		
+		if (strcmpignorecase(token, "LEFT") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_LEFT] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "RIGHT") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_RIGHT] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "UP") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_UP] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "DOWN") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_DOWN] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "JUMP") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_JUMP] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "ATTACK") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_ATTACK] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "BLOCK") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_BLOCK] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "PREVIOUS") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_PREVIOUS] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "NEXT") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_NEXT] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "ACTIVATE") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_ACTIVATE] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "INTERACT") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_INTERACT] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "PAUSE") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			control.button[CONTROL_PAUSE] = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "GAME_SETTINGS") == 0)
+		{
+			break;
+		}
+		
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
 }

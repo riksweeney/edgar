@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "headers.h"
 
 #include "game.h"
@@ -32,7 +51,7 @@ void initGame()
 
 	game.paused = FALSE;
 
-	game.showHints = FALSE;
+	game.showHints = TRUE;
 
 	game.menu = initMainMenu();
 
@@ -352,12 +371,12 @@ void setNextLevel(char *name, char *playerStart)
 void setNextLevelFromScript(char *token)
 {
 	char *name, *playerStart, *savePtr;
-	
+
 	name = strtok_r(token, " ", &savePtr);
 	playerStart = strtok_r(NULL, "\0", &savePtr);
-	
+
 	setNextLevel(name, playerStart);
-	
+
 	setTransition(TRANSITION_OUT, &goToNextMap);
 }
 
@@ -388,18 +407,18 @@ void goToNextMap()
 	}
 
 	printf("Done\n");
-	
+
 	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
 	{
 		start = getEntityByObjectiveName(game.playerStart);
-	
+
 		if (start == NULL)
 		{
 			printf("Could not find player start %s\n", game.playerStart);
-	
+
 			exit(1);
 		}
-	
+
 		loadPlayer(start->x, start->y, NULL);
 	}
 
@@ -423,15 +442,49 @@ void getCheckpoint(float *x, float *y)
 
 void pauseGame()
 {
+	SDL_Surface *temp;
 	game.paused = game.paused == TRUE ? FALSE : TRUE;
 
-	if (game.pauseSurface == NULL)
+	if (game.paused == TRUE)
 	{
-		game.pauseSurface = addBorder(generateTextSurface(_("Paused"), game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
+		if (game.pauseSurface == NULL)
+		{
+			temp = SDL_CreateRGBSurface(SDL_SWSURFACE, game.screen->w, game.screen->h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
+
+			game.pauseSurface = SDL_DisplayFormat(temp);
+
+			SDL_FreeSurface(temp);
+
+			SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
+		}
+	}
+
+	else
+	{
+		if (game.menu->returnAction != NULL)
+		{
+			game.paused = TRUE;
+			
+			game.menu->returnAction();
+		}
+		
+		else
+		{
+			if (game.pauseSurface != NULL)
+			{
+				SDL_FreeSurface(game.pauseSurface);
+	
+				game.pauseSurface = NULL;
+			}
+			
+			game.menu = initMainMenu();
+		
+			game.drawMenu = &drawMainMenu;
+		}
 	}
 }
 
 void showPauseDialog()
 {
-	drawImage(game.pauseSurface, (game.screen->w - game.pauseSurface->w) / 2, (game.screen->h - game.pauseSurface->h) / 2, FALSE);
+	drawImage(game.pauseSurface, 0, 0, FALSE);
 }

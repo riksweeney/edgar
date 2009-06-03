@@ -1,6 +1,27 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "widget.h"
+#include "../draw.h"
+#include "label.h"
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "options_menu.h"
@@ -17,19 +38,17 @@ static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
 static void redefineKey(void);
+static void realignGrid(void);
 
 void drawControlMenu()
 {
-	int i, x, y;
+	int i;
 
-	x = (SCREEN_WIDTH - menu.background->w) / 2;
-	y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	drawImage(menu.background, x, y, FALSE);
+	drawImage(menu.background, menu.x, menu.y, FALSE);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
-		drawWidget(menu.widgets[i], menu.index == i);
+		drawWidget(menu.widgets[i], &menu, menu.index == i);
 	}
 }
 
@@ -154,56 +173,85 @@ static void loadMenuLayout()
 				if (strcmpignorecase(menuID, "UP") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_UP], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_UP]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "DOWN") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_DOWN], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_DOWN]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "LEFT") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_LEFT], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_LEFT]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "RIGHT") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_RIGHT], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_RIGHT]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "ATTACK") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_ATTACK], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_ATTACK]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "BLOCK") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_BLOCK], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_BLOCK]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "JUMP") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_JUMP], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_JUMP]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "INTERACT") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_INTERACT], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_INTERACT]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "USE") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_ACTIVATE], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_ACTIVATE]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_PREVIOUS], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_PREVIOUS]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_NEXT], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_NEXT]), menu.widgets[i]->x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "PAUSE") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_PAUSE], 0, 0, &redefineKey, x, y);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_PAUSE]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -246,6 +294,11 @@ static void loadMenuLayout()
 	SDL_FreeSurface(temp);
 
 	free(buffer);
+
+	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
+	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
+	
+	realignGrid();
 }
 
 Menu *initControlMenu()
@@ -256,8 +309,34 @@ Menu *initControlMenu()
 	{
 		loadMenuLayout();
 	}
+	
+	menu.returnAction = &showOptionsMenu;
 
 	return &menu;
+}
+
+static void realignGrid()
+{
+	int i, maxWidth = 0;
+	
+	if (menu.widgets != NULL)
+	{
+		for (i=0;i<menu.widgetCount;i++)
+		{
+			if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
+			{
+				maxWidth = menu.widgets[i]->normalState->w;
+			}
+		}
+		
+		for (i=0;i<menu.widgetCount;i++)
+		{
+			if (menu.widgets[i]->label != NULL)
+			{
+				menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			}
+		}
+	}
 }
 
 void freeControlMenu()
@@ -284,13 +363,37 @@ void freeControlMenu()
 
 static void redefineKey()
 {
-	int key = getSingleInput();
+	int key, oldKey;
 	Widget *w = menu.widgets[menu.index];
+	
+	key = -2;
+	
+	updateLabelText(w->label, "?");
+
+	oldKey = (*w->value);
+	
+	flushInputs();
+
+	while (key == -2)
+	{
+		key = getSingleInput();
+		
+		draw();
+	}
 
 	if (key != -1)
 	{
 		(*w->value) = key;
 	}
+
+	else
+	{
+		key = oldKey;
+	}
+
+	updateLabelText(w->label, SDL_GetKeyName(key));
+	
+	realignGrid();
 }
 
 static void showOptionsMenu()
