@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "headers.h"
 
 #include "init.h"
@@ -13,6 +32,7 @@
 #include "entity.h"
 #include "hud.h"
 #include "system/record.h"
+#include "system/load_save.h"
 #include "event/objective.h"
 #include "event/global_trigger.h"
 #include "system/load_save.h"
@@ -51,6 +71,8 @@ int main(int argc, char *argv[])
 
 	loadSave = FALSE;
 
+	mapID = -1;
+
 	/* Load the resources */
 
 	for (i=1;i<argc;i++)
@@ -82,11 +104,12 @@ int main(int argc, char *argv[])
 
 			i++;
 		}
-
-		else
-		{
-			mapID = i;
-		}
+		#if DEV == 1
+			else
+			{
+				mapID = i;
+			}
+		#endif
 	}
 
 	loadRequiredResources();
@@ -95,12 +118,12 @@ int main(int argc, char *argv[])
 	{
 		if (game.gameType == RECORDING)
 		{
-			setMapFile(argv[mapID]);
+			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
 		}
 
 		if (game.gameType != REPLAYING)
 		{
-			loadMap(argv[mapID], TRUE);
+			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
 		}
 	}
 
@@ -116,6 +139,10 @@ int main(int argc, char *argv[])
 	/* Reset the controls */
 
 	setDefaultControls(FALSE);
+	
+	/* Load the settings */
+	
+	loadSettings();
 
 	/* Loop indefinitely for messages */
 

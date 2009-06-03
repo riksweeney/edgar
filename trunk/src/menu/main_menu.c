@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "widget.h"
@@ -5,6 +24,8 @@
 #include "../graphics/graphics.h"
 #include "options_menu.h"
 #include "../system/pak.h"
+#include "../system/load_save.h"
+#include "../game.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -14,19 +35,17 @@ static Menu menu;
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
+static void showSaveDialog(void);
 
 void drawMainMenu()
 {
-	int i, x, y;
+	int i;
 
-	x = (SCREEN_WIDTH - menu.background->w) / 2;
-	y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	drawImage(menu.background, x, y, FALSE);
+	drawImage(menu.background, menu.x, menu.y, FALSE);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
-		drawWidget(menu.widgets[i], menu.index == i);
+		drawWidget(menu.widgets[i], &menu, menu.index == i);
 	}
 }
 
@@ -155,7 +174,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showSaveDialog, x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
@@ -208,6 +227,9 @@ static void loadMenuLayout()
 	SDL_FreeSurface(temp);
 
 	free(buffer);
+
+	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
+	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
 }
 
 void freeMainMenu()
@@ -240,6 +262,8 @@ Menu *initMainMenu()
 	{
 		loadMenuLayout();
 	}
+	
+	menu.returnAction = NULL;
 
 	return &menu;
 }
@@ -249,4 +273,11 @@ static void showOptionsMenu()
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
+}
+
+static void showSaveDialog()
+{
+	loadGame(0);
+	
+	pauseGame();
 }

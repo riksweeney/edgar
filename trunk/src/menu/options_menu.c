@@ -1,6 +1,26 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "widget.h"
+#include "label.h"
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "main_menu.h"
@@ -21,16 +41,13 @@ static void doMenu(void);
 
 void drawOptionsMenu()
 {
-	int i, x, y;
+	int i;
 
-	x = (SCREEN_WIDTH - menu.background->w) / 2;
-	y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	drawImage(menu.background, x, y, FALSE);
+	drawImage(menu.background, menu.x, menu.y, FALSE);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
-		drawWidget(menu.widgets[i], menu.index == i);
+		drawWidget(menu.widgets[i], &menu, menu.index == i);
 	}
 }
 
@@ -165,6 +182,8 @@ static void loadMenuLayout()
 				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &toggleHints, x, y);
+					
+					menu.widgets[i]->label = createLabel(_("Yes"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -207,6 +226,9 @@ static void loadMenuLayout()
 	SDL_FreeSurface(temp);
 
 	free(buffer);
+
+	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
+	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
 }
 
 Menu *initOptionsMenu()
@@ -217,6 +239,8 @@ Menu *initOptionsMenu()
 	{
 		loadMenuLayout();
 	}
+	
+	menu.returnAction = &showMainMenu;
 
 	return &menu;
 }
@@ -245,7 +269,11 @@ void freeOptionsMenu()
 
 static void toggleHints()
 {
+	Widget *w = menu.widgets[menu.index];
+	
 	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
+	
+	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
 }
 
 static void showControlMenu()

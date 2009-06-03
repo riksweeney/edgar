@@ -1,10 +1,36 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "defs.h"
+
+typedef struct Label
+{
+	int x, y;
+	SDL_Surface *text;
+} Label;
 
 typedef struct Widget
 {
 	int x, y;
 	int *value, maxValue, minValue;
 	void (*action)(void);
+	Label *label;
 	SDL_Surface *normalState, *selectedState;
 } Widget;
 
@@ -13,7 +39,9 @@ typedef struct Menu
 	int index, x, y, w, h, widgetCount;
 	SDL_Surface *background;
 	Widget **widgets;
+	Label **labels;
 	void (*action)(void);
+	void (*returnAction)(void);
 } Menu;
 
 typedef struct BoundingBox

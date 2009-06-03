@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "../entity.h"
@@ -13,8 +32,9 @@
 #include "load_save.h"
 #include "../hud.h"
 #include "pak.h"
+#include "../input.h"
 
-static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], zipFile[MAX_PATH_LENGTH];
+static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH];
 
 static void removeTemporaryData(void);
 
@@ -72,8 +92,6 @@ static void removeTemporaryData(void);
 
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
-		snprintf(zipFile, sizeof(zipFile), "%szf", gameSavePath);
-
 		removeTemporaryData();
 	}
 #else
@@ -81,7 +99,6 @@ static void removeTemporaryData(void);
 	{
 		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
 		STRNCPY(tempFile, "tmpsave", sizeof(gameSavePath));
-		STRNCPY(zipFile, "zf", sizeof(gameSavePath));
 
 		removeTemporaryData();
 	}
@@ -97,6 +114,8 @@ void loadGame(int slot)
 	freeGameResources();
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+	
+	printf("Loading save data from %s\n", saveFile);
 
 	buffer = decompressFile(saveFile);
 
@@ -509,4 +528,79 @@ static void removeTemporaryData()
 			exit(1);
 		}
 	}
+}
+
+void loadSettings()
+{
+	FILE *fp;
+	char settingsFile[MAX_PATH_LENGTH], *line, *savePtr;
+	unsigned char *buffer;
+	long length;
+	
+	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
+	
+	fp = fopen(settingsFile, "rb");
+	
+	if (fp == NULL)
+	{
+		printf("No settings file found in %s\n", settingsFile);
+		
+		return;
+	}
+	
+	fseek(fp, 0L, SEEK_END);
+	
+	length = ftell(fp);
+	
+	buffer = (unsigned char *)malloc((length + 1) * sizeof(unsigned char));
+	
+	if (buffer == NULL)
+	{
+		printf("Could not allocate a whole %ld bytes for config file...\n", length);
+		
+		exit(1);
+	}
+	
+	fseek(fp, 0L, SEEK_SET);
+	
+	fread(buffer, length, 1, fp);
+	
+	buffer[length] = '\0';
+	
+	fclose(fp);
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr);
+	
+	while (line != NULL)
+	{
+		if (strcmpignorecase(line, "CONTROLS") == 0)
+		{
+			readControlsFromFile(savePtr);
+		}
+		
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
+	
+	free(buffer);
+}
+
+void saveSettings()
+{
+	FILE *fp;
+	char settingsFile[MAX_PATH_LENGTH];
+	
+	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
+	
+	fp = fopen(settingsFile, "wb");
+	
+	if (fp == NULL)
+	{
+		perror("Could not save settings");
+		
+		exit(1);
+	}
+	
+	writeControlsToFile(fp);
+	
+	fclose(fp);
 }
