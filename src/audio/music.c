@@ -20,10 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "music.h"
+#include "../map.h"
 
-static Mix_Music *music;
-
-void freeMusic(void);
+extern Game game;
 
 void loadMusic(char *name)
 {
@@ -33,34 +32,57 @@ void loadMusic(char *name)
 
 	freeMusic();
 
-	music = Mix_LoadMUS(path);
+	game.music = Mix_LoadMUS(path);
 
-	if (music == NULL)
+	if (game.music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}
 }
 
-void freeMusic()
+void freeAllMusic()
 {
-	if (music != NULL)
+	if (game.music != NULL)
 	{
 		stopMusic();
 
-		Mix_FreeMusic(music);
+		Mix_FreeMusic(game.music);
 
-		music = NULL;
+		game.music = NULL;
+	}
+	
+	if (game.bossMusic != NULL)
+	{
+		stopMusic();
+
+		Mix_FreeMusic(game.bossMusic);
+
+		game.bossMusic = NULL;
+	}
+}
+
+void freeMusic()
+{
+	if (game.music != NULL)
+	{
+		stopMusic();
+
+		Mix_FreeMusic(game.music);
+
+		game.music = NULL;
 	}
 }
 
 void playMusic()
 {
-	if (music != NULL)
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	
+	if (game.music == NULL)
 	{
-		Mix_VolumeMusic(MIX_MAX_VOLUME);
-
-		Mix_PlayMusic(music, -1);
+		loadMusic(getMapMusic());
 	}
+	
+	Mix_PlayMusic(game.music, -1);
 }
 
 void stopMusic()
@@ -68,35 +90,24 @@ void stopMusic()
 	Mix_HaltMusic();
 }
 
-int adjustMusicVolume(int val)
+void fadeOutMusic(int time)
 {
-	int current = Mix_VolumeMusic(-1);
-
-	if ((current == 0 && val < 0) || (current == MIX_MAX_VOLUME && val > 0))
-	{
-		return current;
-	}
-
-	current += val;
-
-	Mix_VolumeMusic(current);
-
-	return current;
+	Mix_FadeOutMusic(time);
 }
 
-void setMusicVolume(int val)
+void fadeInMusic(int time)
 {
-	Mix_VolumeMusic(val);
+	Mix_FadeInMusic(game.music, -1, time);
 }
 
-int getMusicVolume()
+void setMusicVolume()
 {
-	return Mix_VolumeMusic(-1);
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void pauseMusic()
 {
-	if (music != NULL)
+	if (game.music != NULL)
 	{
 		if (Mix_PausedMusic())
 		{
@@ -110,9 +121,44 @@ void pauseMusic()
 	}
 }
 
-void loadBossMusic()
-{
-	loadMusic("music/battle_of_the_fireflies.s3m");
+void playBossMusic()
+{	
+	if (game.bossMusic == NULL)
+	{
+		loadBossMusic("music/terrortech_inc_.xm");
+	}
+	
+	stopMusic();
 
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	
+	Mix_PlayMusic(game.bossMusic, -1);
+}
+
+void loadBossMusic(char *name)
+{
+	char path[MAX_PATH_LENGTH];
+
+	snprintf(path, sizeof(path), "%s", name);
+
+	freeMusic();
+
+	game.bossMusic = Mix_LoadMUS(path);
+
+	if (game.music == NULL)
+	{
+		printf("Could not load music file %s: %s\n", name, Mix_GetError());
+	}
+}
+
+void resumeMusic()
+{
 	playMusic();
+}
+
+void fadeBossMusic()
+{
+	fadeOutMusic(4000);
+	
+	Mix_HookMusicFinished(resumeMusic);
 }

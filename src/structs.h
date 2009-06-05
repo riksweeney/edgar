@@ -29,7 +29,9 @@ typedef struct Widget
 {
 	int x, y;
 	int *value, maxValue, minValue;
-	void (*action)(void);
+	void (*clickAction)(void);
+	void (*rightAction)(void);
+	void (*leftAction)(void);
 	Label *label;
 	SDL_Surface *normalState, *selectedState;
 } Widget;
@@ -135,7 +137,9 @@ typedef struct Sound
 typedef struct Game
 {
 	int thinkTime, weatherType, weatherThinkTime;
-	int audio, audioVolume, showHints;
+	int audio, hasConfig, fullscreen;
+	int sfxDefaultVolume, sfxVolume, musicDefaultVolume, musicVolume;
+	int showHints, status;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused;
@@ -152,6 +156,7 @@ typedef struct Game
 	SDL_Surface *screen, *tempSurface, *pauseSurface;
 	TTF_Font *font;
 	SDL_Joystick *joystick;
+	Mix_Music *music, *bossMusic;
 } Game;
 
 typedef struct Cursor

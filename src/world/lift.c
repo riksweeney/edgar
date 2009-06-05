@@ -72,6 +72,8 @@ Entity *addLift(char *name, int startX, int startY, int type)
 	e->x = e->startX = startX;
 	e->y = e->startY = startY;
 
+	e->flags |= OBSTACLE;
+
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -80,7 +82,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 static void touch(Entity *other)
 {
 	/* Test the horizontal movement */
-	
+
 	if (other->type == PROJECTILE)
 	{
 		other->inUse = FALSE;

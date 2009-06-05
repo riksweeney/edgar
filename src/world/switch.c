@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../system/properties.h"
 #include "../audio/audio.h"
+#include "../collisions.h"
 
 extern Entity *self;
 extern Game game;
@@ -162,6 +163,8 @@ static void wait()
 			setEntityAnimation(self, STAND);
 		}
 	}
+
+	checkToMap(self);
 }
 
 static void initialise()

@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-Widget *createWidget(char *text, int *controlValue, int minValue, int maxValue, void (*clickAction)(void), int x, int y)
+Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), void (*rightAction)(void), void (*clickAction)(void), int x, int y)
 {
 	Widget *w;
 
@@ -44,11 +44,11 @@ Widget *createWidget(char *text, int *controlValue, int minValue, int maxValue, 
 
 	w->value = controlValue;
 
-	w->minValue = minValue;
+	w->leftAction = leftAction;
 
-	w->maxValue = maxValue;
+	w->rightAction = rightAction;
 
-	w->action = clickAction;
+	w->clickAction = clickAction;
 
 	w->x = x;
 

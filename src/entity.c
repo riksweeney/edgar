@@ -67,7 +67,7 @@ Entity *getFreeEntity()
 			entity[i].weight = 1;
 
 			entity[i].fallout = NULL;
-			
+
 			entity[i].currentAnim = -1;
 
 			return &entity[i];
@@ -305,7 +305,7 @@ void flyToTarget()
 
 	self->thinkTime += 5;
 
-	self->dirY += cos(DEG_TO_RAD(self->thinkTime)) / 15;
+	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
 
 	checkToMap(self);
 
@@ -838,20 +838,10 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
-
-			if (strstr(self->name, "boss/") == NULL)
-			{
-				fprintf(fp, "HEALTH %d\n", self->health);
-
-				if (self->type != WEAPON && self->type != SHIELD)
-				{
-					fprintf(fp, "DAMAGE %d\n", self->damage);
-				}
-
-				fprintf(fp, "SPEED %0.1f\n", self->speed);
-				fprintf(fp, "WEIGHT %0.2f\n", self->weight);
-			}
-
+			fprintf(fp, "HEALTH %d\n", self->health);
+			fprintf(fp, "DAMAGE %d\n", self->damage);
+			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");

@@ -27,3 +27,4 @@ void checkEntityToEntity(Entity *);
 void addToGrid(Entity *);
 void initCollisionGrid(void);
 void freeCollisionGrid(void);
+void checkEntityToEntity(Entity *);

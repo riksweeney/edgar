@@ -124,7 +124,7 @@ static void initialise()
 
 	if (self->active == TRUE)
 	{
-		adjustMusicVolume(-1);
+		fadeOutMusic(3000);
 
 		centerMapOnEntity(NULL);
 
@@ -163,6 +163,8 @@ static void initialise()
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
+			
+			playBossMusic();
 		}
 	}
 }
@@ -474,6 +476,8 @@ static void die()
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 
 		e->dirY = ITEM_JUMP_HEIGHT;
+		
+		fadeBossMusic();
 	}
 
 	checkToMap(self);

@@ -96,7 +96,7 @@ void freeLevelResources()
 
 	/* Free music */
 
-	freeMusic();
+	freeAllMusic();
 
 	/* Free the map data */
 

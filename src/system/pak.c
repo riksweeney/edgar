@@ -236,6 +236,8 @@ static SDL_RWops *uncompressFileRW(char *name)
 	fclose(fp);
 
 	rw = SDL_RWFromMem(dest, size);
+	
+	free(dest);
 
 	return rw;
 }

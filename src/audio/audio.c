@@ -36,6 +36,11 @@ void preCacheSounds(char *filename)
 	char *line, *savePtr;
 	unsigned char *buffer;
 
+	if (game.audio == FALSE)
+	{
+		return;
+	}
+
 	buffer = loadFileFromPak(filename);
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
@@ -93,6 +98,11 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 	int i, distance, volume, channel;
 	Mix_Chunk *chunk = NULL;
 
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	channel = channelMin;
 
 	if (channelMin != channelMax)
@@ -139,21 +149,20 @@ void playSound(char *name, int channelMin, int channelMax, int x, int y)
 
 	distance = getDistance(player.x, player.y, x, y);
 
-	volume = game.audioVolume;
+	volume = game.sfxDefaultVolume * VOLUME_STEPS;
 
 	if (distance < SCREEN_WIDTH * 0.75)
 	{
-		volume = game.audioVolume;
 	}
 
 	else if (distance < SCREEN_WIDTH * 1)
 	{
-		volume = game.audioVolume / 2;
+		volume /= 2;
 	}
 
 	else if (distance < SCREEN_WIDTH * 1.25)
 	{
-		volume = game.audioVolume / 4;
+		volume /= 4;
 	}
 
 	else
@@ -170,6 +179,11 @@ Mix_Chunk *loadSound(char *name)
 {
 	char path[MAX_PATH_LENGTH];
 	Mix_Chunk *chunk;
+
+	if (game.audio == FALSE)
+	{
+		return NULL;
+	}
 
 	snprintf(path, sizeof(path), "%s", name);
 
@@ -191,10 +205,7 @@ void playSoundChunk(Mix_Chunk *chunk, int channel)
 {
 	/* Play the sound on the first free channel and only play it once */
 
-	if (game.audio == TRUE)
-	{
-		Mix_PlayChannel(channel, chunk, 0);
-	}
+	Mix_PlayChannel(channel, chunk, 0);
 }
 
 void freeSounds()
@@ -214,4 +225,23 @@ void freeSounds()
 	}
 
 	soundIndex = 0;
+}
+
+int initAudio()
+{
+	/* Set the audio rate to 22050, default mix, 2 channels and a 1024 byte buffer */
+
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
+	{
+		printf("Could not open audio: %s\n", Mix_GetError());
+
+		game.audio = FALSE;
+	}
+
+	else
+	{
+		game.audio = TRUE;
+	}
+
+	return game.audio;
 }

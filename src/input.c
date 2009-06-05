@@ -138,12 +138,12 @@ void getInput(int gameType)
 					input.grabbing = TRUE;
 				}
 
-				else if (key == SDLK_F12 && game.gameType != RECORDING)
+				else if (key == FULL_SCREEN_KEY && game.gameType != RECORDING)
 				{
 					toggleFullScreen();
 				}
 
-				else if (key == SDLK_F10 && game.gameType != RECORDING)
+				else if (key == SCREEN_SHOT_KEY && game.gameType != RECORDING)
 				{
 					takeSingleScreenshot();
 				}
@@ -519,7 +519,7 @@ void getInput(int gameType)
 	}
 }
 
-void setDefaultControls(int editor)
+void resetControls(int editor)
 {
 	if (game.joystick != NULL && editor == FALSE)
 	{
@@ -571,7 +571,7 @@ void setDefaultControls(int editor)
 void flushInputs()
 {
 	SDL_Event event;
-	
+
 	while (SDL_PollEvent(&event)) {}
 }
 
@@ -579,7 +579,7 @@ int getSingleInput()
 {
 	int key;
 	SDL_Event event;
-	
+
 	key = -2;
 
 	if (SDL_PollEvent(&event))
@@ -623,102 +623,102 @@ void writeControlsToFile(FILE *fp)
 void readControlsFromFile(char *buffer)
 {
 	char *line, *token, *savePtr;
-	
+
 	line = strtok_r(buffer, "\n", &savePtr);
-	
+
 	while (line != NULL)
 	{
 		token = strtok(line, " ");
-		
+
 		if (strcmpignorecase(token, "LEFT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_LEFT] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "RIGHT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_RIGHT] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "UP") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_UP] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "DOWN") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_DOWN] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "JUMP") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_JUMP] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "ATTACK") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_ATTACK] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "BLOCK") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_BLOCK] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "PREVIOUS") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_PREVIOUS] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "NEXT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_NEXT] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "ACTIVATE") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_ACTIVATE] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "INTERACT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_INTERACT] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "PAUSE") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			control.button[CONTROL_PAUSE] = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "GAME_SETTINGS") == 0)
 		{
-			break;
+			readGameSettingsFromFile(savePtr);
 		}
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 }

@@ -4,12 +4,12 @@ DEV = 1
 LOCALE_DIR = usr/share/locale/
 PAK_FILE = data.pak
 
-CFLAGS    = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
 ifeq ($(OS),Windows_NT)
-LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
+LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
 else
-LFLAGS    = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
+LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
 endif
 
 PAK_OBJS   = pak_creator.o pak.o
@@ -25,7 +25,7 @@ CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialo
 CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
-CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o
+CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o sound_menu.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
@@ -44,15 +44,10 @@ endif
 CXX       = gcc
 
 # top-level rule to create the program.
-all: redo_deps makefile.dep $(PROG) $(ED_PROG) $(PAK_PROG)
+all: makefile.dep $(PROG) $(ED_PROG) $(PAK_PROG)
 
-redo_deps:
-	rm makefile.dep
-
-makefile.dep : src/*/*.c
+makefile.dep : src/*/*.c src/*.c
 	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
-	
-include makefile.dep
 
 # compiling other source files.
 %.o:
@@ -73,3 +68,5 @@ $(PAK_PROG): $(PAK_OBJS)
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) *.o
+
+include makefile.dep

@@ -24,12 +24,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "game.h"
 #include "system/record.h"
 #include "system/load_save.h"
+#include "audio/audio.h"
 
 extern Game game;
 
 void init(char *title)
 {
 	int joysticks, buttons;
+	long flags;
+	
+	/* Set up the home directory */
+
+	setupUserHomeDirectory();
 
 	/* Initialise SDL Video and Audio */
 
@@ -49,9 +55,20 @@ void init(char *title)
 		exit(1);
 	}
 
+	flags = SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE;
+
+	/* Load the settings */
+
+	loadConfig();
+
+	if (game.fullscreen == TRUE)
+	{
+		flags |= SDL_FULLSCREEN;
+	}
+
 	/* Open a screen */
 
-	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE|SDL_DOUBLEBUF|SDL_HWSURFACE);
+	game.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, flags);
 
 	if (game.screen == NULL)
 	{
@@ -60,24 +77,13 @@ void init(char *title)
 		exit(1);
 	}
 
-	/* Set the audio rate to 22050, default mix, 2 channels and a 1024 byte buffer */
-
-	game.audio = TRUE;
-
-	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
+	if (game.audio == TRUE)
 	{
-		printf("Could not open audio: %s\n", Mix_GetError());
-
-		game.audio = FALSE;
-	}
-
-	else
-	{
-		game.audioVolume = MIX_MAX_VOLUME;
+		initAudio();
 	}
 
 	joysticks = SDL_NumJoysticks();
-	
+
 	buttons = 0;
 	/*
 	if (joysticks > 0)
@@ -104,10 +110,6 @@ void init(char *title)
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
-
-	/* Set up the home directory */
-
-	setupUserHomeDirectory();
 }
 
 void toggleFullScreen()
@@ -132,10 +134,10 @@ void cleanup()
 	/* Stop the replay data */
 
 	flushBuffer(game.gameType);
-	
+
 	/* Save the settings */
-	
-	saveSettings();
+
+	saveConfig();
 
 	/* Free the Resources */
 

@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "compress.h"
 #include "resources.h"
+#include "../game.h"
 #include "load_save.h"
 #include "../hud.h"
 #include "pak.h"
@@ -37,6 +38,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH];
 
 static void removeTemporaryData(void);
+static void copyFile(char *, char *);
+
+extern Game game;
 
 #ifndef WIN32
 	void setupUserHomeDirectory()
@@ -114,7 +118,7 @@ void loadGame(int slot)
 	freeGameResources();
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
-	
+
 	printf("Loading save data from %s\n", saveFile);
 
 	buffer = decompressFile(saveFile);
@@ -308,6 +312,10 @@ void saveGame(int slot)
 	/* Save the player data */
 
 	fclose(write);
+	
+	#if DEV == 1
+		copyFile(saveFile, "savedata");
+	#endif
 
 	compressFile(saveFile);
 }
@@ -425,6 +433,10 @@ void saveTemporaryData()
 
 		exit(1);
 	}
+	
+	#if DEV == 1
+		copyFile(tempFile, "tmpdata");
+	#endif
 
 	compressFile(tempFile);
 }
@@ -530,77 +542,112 @@ static void removeTemporaryData()
 	}
 }
 
-void loadSettings()
+void loadConfig()
 {
 	FILE *fp;
 	char settingsFile[MAX_PATH_LENGTH], *line, *savePtr;
 	unsigned char *buffer;
 	long length;
-	
+
+	game.hasConfig = FALSE;
+
 	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
-	
+
 	fp = fopen(settingsFile, "rb");
-	
+
 	if (fp == NULL)
 	{
-		printf("No settings file found in %s\n", settingsFile);
-		
+		resetControls(FALSE);
+
+		resetGameSettings();
+
 		return;
 	}
-	
+
 	fseek(fp, 0L, SEEK_END);
-	
+
 	length = ftell(fp);
-	
+
 	buffer = (unsigned char *)malloc((length + 1) * sizeof(unsigned char));
-	
+
 	if (buffer == NULL)
 	{
 		printf("Could not allocate a whole %ld bytes for config file...\n", length);
-		
+
 		exit(1);
 	}
-	
+
 	fseek(fp, 0L, SEEK_SET);
-	
+
 	fread(buffer, length, 1, fp);
-	
+
 	buffer[length] = '\0';
-	
+
 	fclose(fp);
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr);
-	
+
 	while (line != NULL)
 	{
 		if (strcmpignorecase(line, "CONTROLS") == 0)
 		{
 			readControlsFromFile(savePtr);
 		}
-		
+
+		else if (strcmpignorecase(line, "GAME_SETTINGS") == 0)
+		{
+			readGameSettingsFromFile(savePtr);
+		}
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
+	game.hasConfig = TRUE;
+
 	free(buffer);
 }
 
-void saveSettings()
+void saveConfig()
 {
 	FILE *fp;
 	char settingsFile[MAX_PATH_LENGTH];
-	
+
 	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
-	
+
 	fp = fopen(settingsFile, "wb");
-	
+
 	if (fp == NULL)
 	{
 		perror("Could not save settings");
-		
+
 		exit(1);
 	}
-	
+
 	writeControlsToFile(fp);
-	
+
+	writeGameSettingsToFile(fp);
+
 	fclose(fp);
+}
+
+static void copyFile(char *src, char *dest)
+{
+	char c;
+	FILE *sourceFile, *destFile;
+	
+	sourceFile = fopen(src, "rb");
+	
+	destFile = fopen(dest, "wb");
+	
+	c = fgetc(sourceFile);
+	
+	while (c != EOF)
+	{
+		fputc(c, destFile);
+		
+		c = fgetc(sourceFile);
+	}
+	
+	fclose(sourceFile);
+	fclose(destFile);
 }
