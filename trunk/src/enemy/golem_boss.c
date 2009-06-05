@@ -79,7 +79,7 @@ static void initialise()
 	
 	if (self->active == TRUE)
 	{
-		adjustMusicVolume(-1);
+		fadeOutMusic(2000);
 
 		if (minX == self->endX && minY == self->endY)
 		{

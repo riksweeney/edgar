@@ -30,3 +30,6 @@ void pauseGame(void);
 void showPauseDialog(void);
 void freeGame(void);
 void setNextLevelFromScript(char *);
+void writeGameSettingsToFile(FILE *);
+void readGameSettingsFromFile(char *);
+void resetGameSettings(void);

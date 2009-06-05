@@ -23,5 +23,5 @@ void saveTemporaryData(void);
 void setupUserHomeDirectory(void);
 void loadPersitanceData(char *);
 int hasPersistance(char *);
-void saveSettings(void);
-void loadSettings(void);
+void saveConfig(void);
+void loadConfig(void);

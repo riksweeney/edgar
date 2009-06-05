@@ -31,6 +31,7 @@ extern Entity *self;
 static void jump(void);
 static void draw(void);
 static void move(void);
+static void fallout(void);
 
 Entity *addJumpingFireball(int x, int y, char *name)
 {
@@ -52,6 +53,7 @@ Entity *addJumpingFireball(int x, int y, char *name)
 
 	e->draw = &draw;
 	e->touch = &entityTouch;
+	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -80,6 +82,7 @@ Entity *addFireball(int x, int y, char *name)
 
 	e->draw = &draw;
 	e->touch = &entityTouch;
+	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -127,4 +130,9 @@ static void jump()
 static void draw()
 {
 	drawLoopingAnimationToMap();
+}
+
+static void fallout()
+{
+
 }

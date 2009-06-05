@@ -52,3 +52,4 @@ void setCameraPosition(int, int);
 void limitCamera(int, int, int, int);
 void resetCameraLimits(void);
 void limitCameraFromScript(char *);
+char *getMapMusic(void);

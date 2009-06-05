@@ -18,11 +18,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void loadMusic(char *);
+void freeAllMusic(void);
 void freeMusic(void);
 void playMusic(void);
+void playBossMusic(void);
 void stopMusic(void);
-int adjustMusicVolume(int);
-void setMusicVolume(int);
-int getMusicVolume(void);
 void pauseMusic(void);
-void loadBossMusic(void);
+void loadBossMusic(char *);
+void fadeOutMusic(int);
+void fadeInMusic(int);
+void setMusicVolume(void);
+void resumeMusic(void);
+void fadeBossMusic(void);

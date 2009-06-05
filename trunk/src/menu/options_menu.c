@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "main_menu.h"
 #include "control_menu.h"
+#include "sound_menu.h"
 #include "../system/pak.h"
 
 extern Input input, menuInput;
@@ -85,13 +86,39 @@ static void doMenu()
 	{
 		w = menu.widgets[menu.index];
 
-		if (w->action != NULL)
+		if (w->clickAction != NULL)
 		{
-			w->action();
+			w->clickAction();
 		}
 
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
+	}
+	
+	else if (input.left == TRUE || menuInput.left == TRUE)
+	{
+		w = menu.widgets[menu.index];
+
+		if (w->rightAction != NULL)
+		{
+			w->rightAction();
+		}
+
+		menuInput.left = FALSE;
+		input.left = FALSE;
+	}
+	
+	else if (input.right == TRUE || menuInput.right == TRUE)
+	{
+		w = menu.widgets[menu.index];
+
+		if (w->leftAction != NULL)
+		{
+			w->leftAction();
+		}
+
+		menuInput.right = FALSE;
+		input.right = FALSE;
 	}
 }
 
@@ -171,24 +198,24 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_CONTROLS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showControlMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showControlMenu, x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showSoundMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showSoundMenu, x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &toggleHints, x, y);
-					
-					menu.widgets[i]->label = createLabel(_("Yes"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i] = createWidget(menuName, NULL, &toggleHints, &toggleHints, &toggleHints, x, y);
+
+					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &showMainMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showMainMenu, x, y);
 				}
 
 				else
@@ -239,7 +266,7 @@ Menu *initOptionsMenu()
 	{
 		loadMenuLayout();
 	}
-	
+
 	menu.returnAction = &showMainMenu;
 
 	return &menu;
@@ -270,9 +297,9 @@ void freeOptionsMenu()
 static void toggleHints()
 {
 	Widget *w = menu.widgets[menu.index];
-	
+
 	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
-	
+
 	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
 }
 
@@ -285,11 +312,9 @@ static void showControlMenu()
 
 static void showSoundMenu()
 {
-	/*
 	game.menu = initSoundMenu();
 
-	game.drawMenu = &drawShowMenu;
-	*/
+	game.drawMenu = &drawSoundMenu;
 }
 
 static void showMainMenu()

@@ -52,6 +52,8 @@ void initGame()
 	game.paused = FALSE;
 
 	game.showHints = TRUE;
+	
+	game.status = IN_GAME;
 
 	game.menu = initMainMenu();
 
@@ -208,7 +210,7 @@ static void shake()
 
 static void wipeOutRightToLeft()
 {
-	adjustMusicVolume(-1);
+	fadeOutMusic(1000);
 
 	if (game.transitionX <= -15)
 	{
@@ -229,7 +231,7 @@ static void wipeOutRightToLeft()
 
 static void wipeOutLeftToRight()
 {
-	adjustMusicVolume(-1);
+	fadeOutMusic(1000);
 
 	if (game.transitionX > SCREEN_WIDTH + 15)
 	{
@@ -443,7 +445,17 @@ void getCheckpoint(float *x, float *y)
 void pauseGame()
 {
 	SDL_Surface *temp;
-	game.paused = game.paused == TRUE ? FALSE : TRUE;
+	
+	switch (game.status)
+	{
+		case IN_GAME:
+			game.paused = game.paused == TRUE ? FALSE : TRUE;
+		break;
+		
+		default:
+			game.paused = TRUE;
+		break;
+	}
 
 	if (game.paused == TRUE)
 	{
@@ -464,21 +476,21 @@ void pauseGame()
 		if (game.menu->returnAction != NULL)
 		{
 			game.paused = TRUE;
-			
+
 			game.menu->returnAction();
 		}
-		
+
 		else
 		{
 			if (game.pauseSurface != NULL)
 			{
 				SDL_FreeSurface(game.pauseSurface);
-	
+
 				game.pauseSurface = NULL;
 			}
-			
+
 			game.menu = initMainMenu();
-		
+
 			game.drawMenu = &drawMainMenu;
 		}
 	}
@@ -487,4 +499,72 @@ void pauseGame()
 void showPauseDialog()
 {
 	drawImage(game.pauseSurface, 0, 0, FALSE);
+}
+
+void resetGameSettings()
+{
+	game.audio = TRUE;
+	game.sfxDefaultVolume = 10;
+	game.musicDefaultVolume = 10;
+	game.showHints = TRUE;
+	game.fullscreen = FALSE;
+}
+
+void writeGameSettingsToFile(FILE *fp)
+{
+	fprintf(fp, "GAME_SETTINGS\n");
+	fprintf(fp, "AUDIO %d\n", game.audio);
+	fprintf(fp, "SFX_VOLUME %d\n", game.sfxDefaultVolume);
+	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
+	fprintf(fp, "HINTS %d\n", game.showHints);
+	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
+}
+
+void readGameSettingsFromFile(char *buffer)
+{
+	char *line, *token, *savePtr;
+
+	line = strtok_r(buffer, "\n", &savePtr);
+
+	while (line != NULL)
+	{
+		token = strtok(line, " ");
+
+		if (strcmpignorecase(token, "AUDIO") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.audio = atoi(token);
+		}
+
+		else if (strcmpignorecase(token, "SFX_VOLUME") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.sfxDefaultVolume = atoi(token);
+		}
+
+		else if (strcmpignorecase(token, "MUSIC_VOLUME") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.musicDefaultVolume = atoi(token);
+		}
+
+		else if (strcmpignorecase(token, "HINTS") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.showHints = atoi(token);
+		}
+
+		else if (strcmpignorecase(token, "FULLSCREEN") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.fullscreen = atoi(token);
+		}
+
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
 }

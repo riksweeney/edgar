@@ -32,7 +32,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 #include "hud.h"
 #include "system/record.h"
-#include "system/load_save.h"
 #include "event/objective.h"
 #include "event/global_trigger.h"
 #include "system/load_save.h"
@@ -135,14 +134,6 @@ int main(int argc, char *argv[])
 	/* Initialise the game variables */
 
 	initGame();
-
-	/* Reset the controls */
-
-	setDefaultControls(FALSE);
-	
-	/* Load the settings */
-	
-	loadSettings();
 
 	/* Loop indefinitely for messages */
 

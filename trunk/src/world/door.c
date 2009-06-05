@@ -54,6 +54,8 @@ Entity *addDoor(char *name, int x, int y, int type)
 	e->touch = &touch;
 	e->action = &setStart;
 
+	e->flags |= OBSTACLE;
+
 	setEntityAnimation(e, STAND);
 
 	return e;

@@ -59,6 +59,8 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 	e->maxHealth = e->health;
 
+	e->flags |= OBSTACLE;
+
 	setEntityAnimation(e, STAND);
 
 	return e;

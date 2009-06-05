@@ -138,23 +138,35 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 	#ifdef INSTALL_PATH
 		#undef INSTALL_PATH
 	#endif
-	
+
 	#ifdef PAK_FILE
 		#undef PAK_FILE
 	#endif
 
 	#define INSTALL_PATH ""
-	
+
 	#define PAK_FILE "data.pak"
+#endif
+
+#if SDL_BYTEORDER == SDL_LIL_ENDIAN
+	#define SWAP16(X) (X)
+	#define SWAP32(X) (X)
+#else
+	#define SWAP16(X) SDL_Swap16(X)
+	#define SWAP32(X) SDL_Swap32(X)
 #endif
 
 #define MAX_SOUNDS 256
 
 #define ITEM_JUMP_HEIGHT -6
 
-#define CHUNK_SIZE 16384
-
 #define _(string) gettext(string)
+
+#define SCREEN_SHOT_KEY SDLK_F10
+
+#define FULL_SCREEN_KEY SDLK_F12
+
+#define VOLUME_STEPS 12.8
 
 enum
 {
@@ -360,4 +372,11 @@ enum
 	CONTROL_PAUSE,
 	CONTROL_BLOCK,
 	MAX_CONTROLS
+};
+
+enum
+{
+	IN_MENU,
+	IN_GAME,
+	IN_INVENTORY
 };

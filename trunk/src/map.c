@@ -603,7 +603,15 @@ void centerEntityOnMap()
 		return;
 	}
 
-	speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
+	if (map.targetEntity->standingOn != NULL && fabs(map.targetEntity->standingOn->speed) > fabs(map.targetEntity->speed))
+	{
+		speed = map.targetEntity->standingOn->speed;
+	}
+
+	else
+	{
+		speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
+	}
 
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 
@@ -697,6 +705,11 @@ static void loadAmbience(char *dir)
 	char filename[MAX_PATH_LENGTH];
 
 	map.hasAmbience = FALSE;
+
+	if (game.audio == FALSE)
+	{
+		return;
+	}
 
 	for (i=0;i<MAX_AMBIENT_SOUNDS;i++)
 	{
@@ -1014,4 +1027,9 @@ void centerMapOnEntity(Entity *e)
 char *getMapName()
 {
 	return map.filename;
+}
+
+char *getMapMusic()
+{
+	return map.musicName;
 }

@@ -60,12 +60,6 @@ Entity *addBoulderBoss(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->die = &entityDie;
 
-	e->type = ENEMY;
-
-	e->flags |= NO_DRAW|FLY|ATTACKING;
-
-	e->damage = 500;
-
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -73,36 +67,51 @@ Entity *addBoulderBoss(int x, int y, char *name)
 
 static void initialise()
 {
-	if (self->active == TRUE)
+	if (self->health == 0)
 	{
-		self->thinkTime--;
-
-		adjustMusicVolume(-1);
-
-		if (self->thinkTime <= 0)
+		if (self->active == TRUE)
 		{
-			self->x = self->startX;
-			self->y = self->startY;
+			self->thinkTime--;
 
-			self->touch = &touch;
+			fadeOutMusic(3000);
 
-			self->flags &= ~NO_DRAW;
-			self->flags &= ~FLY;
+			if (self->thinkTime <= 0)
+			{
+				self->x = self->startX;
+				self->y = self->startY;
 
-			self->action = &drop;
+				self->touch = &touch;
+
+				self->flags &= ~(NO_DRAW|FLY);
+				
+				self->flags |= ATTACKING;
+
+				self->action = &drop;
+
+				self->health = 1;
+			}
+		}
+
+		else
+		{
+			self->thinkTime = 120;
 		}
 	}
 
 	else
 	{
-		self->thinkTime = 120;
+		self->flags &= ~(NO_DRAW|FLY);
+
+		self->touch = &pushEntity;
+
+		self->frameSpeed = 0;
+
+		self->action = &idle;
 	}
 }
 
 static void drop()
 {
-	setMusicVolume(-1);
-
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime = 120;
@@ -123,6 +132,8 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
+		playBossMusic();
+		
 		setEntityAnimation(self, WALK);
 
 		self->endX = -2.0f;
@@ -177,12 +188,16 @@ static void chasePlayer()
 		shakeScreen(STRONG, 90);
 
 		self->thinkTime = 90;
+		
+		fadeBossMusic();
+		
+		self->health = 1;
 	}
 }
 
 static void idle()
 {
-	adjustMusicVolume(1);
+
 }
 
 static void touch(Entity *other)
