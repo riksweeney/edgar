@@ -84,13 +84,15 @@ void setWeather(int weatherType)
 
 static void initLightRain()
 {
-	int i;
+	int i, startX;
+	
+	startX = getMapStartX();
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS/2;i++)
 	{
-		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].x = startX + prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -104,13 +106,15 @@ static void initLightRain()
 
 static void initHeavyRain()
 {
-	int i;
+	int i, startX;
+	
+	startX = getMapStartX();
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].x = startX + prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -124,7 +128,11 @@ static void initHeavyRain()
 
 static void rain()
 {
-	int i;
+	int i, maxY, startX;
+	
+	maxY = maxMapY() * TILE_SIZE;
+	
+	startX = getMapStartX();
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
@@ -133,9 +141,9 @@ static void rain()
 			droplet[i].x += droplet[i].dirX;
 			droplet[i].y += droplet[i].dirY;
 
-			if (droplet[i].y >= SCREEN_HEIGHT || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+			if (droplet[i].y >= maxY || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 			{
-				droplet[i].x = prand() % SCREEN_WIDTH;
+				droplet[i].x = startX + prand() % SCREEN_WIDTH;
 				droplet[i].y = -8 - prand() % 20;
 
 				droplet[i].dirX = 0;
@@ -147,13 +155,15 @@ static void rain()
 
 static void initStorm()
 {
-	int i;
+	int i, startX;
+	
+	startX = getMapStartX();
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].x = startX + prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -179,13 +189,15 @@ static void storm()
 
 static void initSnow()
 {
-	int i;
+	int i, startX;
+	
+	startX = getMapStartX();
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = prand() % SCREEN_WIDTH;
+		droplet[i].x = startX + prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
@@ -199,7 +211,11 @@ static void initSnow()
 
 static void snow()
 {
-	int i;
+	int i, startX, maxY;
+	
+	maxY = maxMapY() * TILE_SIZE;
+	
+	startX = getMapStartX();
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
@@ -211,9 +227,9 @@ static void snow()
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
 		}
 
-		if (droplet[i].y >= SCREEN_HEIGHT || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+		if (droplet[i].y >= maxY || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 		{
-			droplet[i].x = prand() % SCREEN_WIDTH;
+			droplet[i].x = startX + prand() % SCREEN_WIDTH;
 			droplet[i].y = -8 - prand() % 20;
 
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
@@ -224,13 +240,15 @@ static void snow()
 
 static void drawRain()
 {
-	int i;
+	int i, startX;
+	
+	startX = getMapStartX();
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
 		if (droplet[i].active == TRUE)
 		{
-			drawBox(droplet[i].x, droplet[i].y, 1, 8, 255, 255, 255);
+			drawBox(droplet[i].x - startX, droplet[i].y, 1, 8, 255, 255, 255);
 		}
 	}
 

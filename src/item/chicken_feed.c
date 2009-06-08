@@ -74,7 +74,7 @@ static void dropChickenFeed(int val)
 		
 		e->touch = &entityTouch;
 
-		playSound("sound/common/throw.ogg", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
+		playSound("sound/common/throw.ogg", -1, player.x, player.y);
 
 		self->thinkTime = self->maxThinkTime;
 	}

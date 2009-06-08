@@ -88,7 +88,7 @@ static void call(int val)
 			}
 		}
 
-		playSound("sound/common/switch.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+		playSound("sound/common/switch.wav", -1, self->x, self->y);
 
 		self->active = TRUE;
 
@@ -137,7 +137,7 @@ static void activate(int val)
 		}
 	}
 
-	playSound("sound/common/switch.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+	playSound("sound/common/switch.wav", -1, self->x, self->y);
 
 	self->active = self->active == TRUE ? FALSE : TRUE;
 
@@ -158,7 +158,7 @@ static void wait()
 		{
 			self->active = FALSE;
 
-			playSound("sound/common/switch.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+			playSound("sound/common/switch.wav", -1, self->x, self->y);
 
 			setEntityAnimation(self, STAND);
 		}

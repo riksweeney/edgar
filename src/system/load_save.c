@@ -113,7 +113,6 @@ void loadGame(int slot)
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
 	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
 	unsigned char *buffer;
-	FILE *write;
 
 	freeGameResources();
 
@@ -162,18 +161,7 @@ void loadGame(int slot)
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
-	write = fopen(tempFile, "wb");
-
-	if (write == NULL)
-	{
-		printf("Could not write to temporary file\n");
-
-		exit(1);
-	}
-
-	fwrite(buffer, strlen((char *)buffer), 1, write);
-
-	fclose(write);
+	copyFile(saveFile, tempFile);
 
 	freeMessageQueue();
 
@@ -184,9 +172,10 @@ void loadGame(int slot)
 
 void saveGame(int slot)
 {
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
+	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
 	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapName();
+	unsigned char *buffer;
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
@@ -204,19 +193,25 @@ void saveGame(int slot)
 	if (read != NULL)
 	{
 		printf("Copying persisting data\n");
-
-		while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
+		
+		fclose(read);
+		
+		buffer = decompressFile(tempFile);
+	
+		line = strtok_r((char *)buffer, "\n", &savePtr);
+	
+		while (line != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-
+	
 			if (line[strlen(line) - 1] == '\r')
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-
+			
 			if (skipping == FALSE)
 			{
 				sscanf(line, "%s", itemName);
@@ -264,9 +259,11 @@ void saveGame(int slot)
 					}
 				}
 			}
+			
+			line = strtok_r(NULL, "\n", &savePtr);
 		}
-
-		fclose(read);
+		
+		free(buffer);
 	}
 
 	/* Save the player's position */
@@ -322,9 +319,10 @@ void saveGame(int slot)
 
 void saveTemporaryData()
 {
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
+	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	char swapFile[MAX_PATH_LENGTH];
 	char *mapName = getMapName();
+	unsigned char *buffer;
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
@@ -337,7 +335,13 @@ void saveTemporaryData()
 
 	if (read != NULL)
 	{
-		while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
+		fclose(read);
+		
+		buffer = decompressFile(tempFile);
+	
+		line = strtok_r((char *)buffer, "\n", &savePtr);
+		
+		while (line != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
 			{
@@ -397,9 +401,11 @@ void saveTemporaryData()
 					}
 				}
 			}
+			
+			line = strtok_r(NULL, "\n", &savePtr);
 		}
-
-		fclose(read);
+		
+		free(buffer);
 
 		if (remove(tempFile) != 0)
 		{
@@ -444,7 +450,8 @@ void saveTemporaryData()
 int hasPersistance(char *mapName)
 {
 	int val = FALSE;
-	char line[MAX_LINE_LENGTH], itemName[MAX_MESSAGE_LENGTH];
+	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
+	unsigned char *buffer;
 	FILE *read;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
@@ -453,10 +460,18 @@ int hasPersistance(char *mapName)
 
 	if (read == NULL)
 	{
+		printf("No persistance data found\n");
+		
 		return val;
 	}
+	
+	fclose(read);
+	
+	buffer = decompressFile(tempFile);
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-	while (fgets(line, MAX_LINE_LENGTH, read) != NULL)
+	while (line != NULL)
 	{
 		if (line[strlen(line) - 1] == '\n')
 		{
@@ -467,14 +482,20 @@ int hasPersistance(char *mapName)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
+		
+		printf("%s == %s\n", itemName, line);
 
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			val = TRUE;
 		}
+		
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
-
-	fclose(read);
+	
+	free(buffer);
+	
+	printf("Persistance data found: %d\n", val);
 
 	return val;
 }
@@ -506,6 +527,8 @@ void loadPersitanceData(char *mapName)
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			found = TRUE;
+			
+			printf("Loading peristance data for: %s\n", itemName);
 
 			loadResources(savePtr);
 		}

@@ -69,8 +69,6 @@ void loadScript(char *name)
 
 	while (line != NULL)
 	{
-		printf("Reading %s\n", line);
-		
 		script.lineCount++;
 		
 		line = strtok_r(NULL, "\n", &savePtr);
@@ -371,6 +369,13 @@ void readNextScriptLine()
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
 			}
+			
+			else if (strcmpignorecase(token, "DIR_X") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e->dirX = atoi(token);
+			}
 
 			else
 			{
@@ -419,7 +424,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			playSound(token, OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, player.x, player.y);
+			playSound(token, -1, player.x, player.y);
 		}
 
 		else if (strcmpignorecase("KILL", command) == 0)

@@ -89,7 +89,7 @@ static void trapEntity()
 {
 	setEntityAnimation(self, ATTACK_3);
 
-	playSound("sound/item/trap_close.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_2, self->x, self->y);
+	playSound("sound/item/trap_close.wav", -1, self->x, self->y);
 
 	if (self->target == NULL)
 	{

@@ -46,6 +46,7 @@ extern Game game;
 #include "../world/level_exit.h"
 #include "../decoration.h"
 #include "../event/trigger.h"
+#include "../event/script.h"
 #include "../event/global_trigger.h"
 #include "../event/objective.h"
 #include "../world/save_point.h"
@@ -134,6 +135,10 @@ void freeGameResources()
 	/* Free the Objectives */
 
 	freeObjectives();
+	
+	/* Free the scripts */
+	
+	freeScript();
 }
 
 void freeAllResources()
