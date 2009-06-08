@@ -51,6 +51,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 
 	e->action = &doNothing;
 	e->draw = &drawLoopingAnimationToMap;
+	e->die = &entityDie;
 
 	if (e->type == HEALTH)
 	{

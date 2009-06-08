@@ -1,0 +1,8 @@
+SET Edgar FACE LEFT
+TALK Edgar That was easy! And I can always get back later!
+KILL Raft
+WAIT 180
+TALK Edgar Oh....
+SET Edgar FACE RIGHT
+TALK Edgar Guess I have no choice now.
+TALK Edgar Hang on Dad, I'm coming...

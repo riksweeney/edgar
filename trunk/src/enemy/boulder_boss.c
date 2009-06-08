@@ -116,7 +116,7 @@ static void drop()
 	{
 		self->thinkTime = 120;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);
+		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, self->x, self->y);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
@@ -183,7 +183,7 @@ static void chasePlayer()
 
 		self->active = FALSE;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, BOSS_CHANNEL, self->x, self->y);
+		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, self->x, self->y);
 
 		shakeScreen(STRONG, 90);
 

@@ -93,29 +93,14 @@ static void preCacheSound(char *name)
 	soundIndex++;
 }
 
-void playSound(char *name, int channelMin, int channelMax, int x, int y)
+void playSound(char *name, int channel, int x, int y)
 {
-	int i, distance, volume, channel;
+	int i, distance, volume;
 	Mix_Chunk *chunk = NULL;
 
 	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
 	{
 		return;
-	}
-
-	channel = channelMin;
-
-	if (channelMin != channelMax)
-	{
-		for (i=channelMin;i<=channelMax;i++)
-		{
-			if (Mix_Playing(i) == FALSE)
-			{
-				channel = i;
-
-				break;
-			}
-		}
 	}
 
 	for (i=0;i<soundIndex;i++)
@@ -241,6 +226,10 @@ int initAudio()
 	else
 	{
 		game.audio = TRUE;
+		
+		Mix_AllocateChannels(16);
+		
+		Mix_ReserveChannels(2);
 	}
 
 	return game.audio;

@@ -98,6 +98,8 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		cameraSnapToTargetEntity();
 	}
+	
+	player.action = NULL;
 
 	centerMapOnEntity(&player);
 

@@ -367,8 +367,10 @@ void getInventoryItemFromScript(char *line)
 
 	item = getInventoryItem(itemName);
 
-	if (item != NULL && item->health >= quantity)
+	if (item != NULL && (item->health >= quantity || quantity == 1))
 	{
+		printf("Found item %s\n", itemName);
+		
 		if (strcmpignorecase(command, "REMOVE") == 0)
 		{
 			item->health -= quantityToRemove;
@@ -384,6 +386,16 @@ void getInventoryItemFromScript(char *line)
 
 	else
 	{
+		if (item == NULL)
+		{
+			printf("Could not find item %s\n", itemName);
+		}
+		
+		else
+		{
+			printf("Only found %d of %d required\n", item->health, quantity);
+		}
+		
 		e->health = failure;
 	}
 }

@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void preCacheSounds(char *);
-void playSound(char *, int, int, int, int);
+void playSound(char *, int, int, int);
 Mix_Chunk *loadSound(char *);
 void playSoundChunk(Mix_Chunk *, int);
 void freeSounds(void);

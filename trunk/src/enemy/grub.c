@@ -69,5 +69,5 @@ static void die()
 
 static void pain()
 {
-	playSound("sound/enemy/bat/squeak.wav", ENEMY_CHANNEL_1, ENEMY_CHANNEL_2, self->x, self->y);
+	playSound("sound/enemy/bat/squeak.wav", -1, self->x, self->y);
 }

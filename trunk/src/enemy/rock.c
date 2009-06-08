@@ -123,7 +123,7 @@ static void largeRockFall()
 
 	if (self->flags & ON_GROUND)
 	{
-		playSound("sound/common/rock_bounce.wav", OBJECT_CHANNEL_1, OBJECT_CHANNEL_1, self->x, self->y);
+		playSound("sound/common/rock_bounce.wav", -1, self->x, self->y);
 
 		e = addSmallRock(self->x, self->y, "common/small_rock");
 
