@@ -30,3 +30,4 @@ void fadeInMusic(int);
 void setMusicVolume(void);
 void resumeMusic(void);
 void fadeBossMusic(void);
+void loadGameOverMusic(void);

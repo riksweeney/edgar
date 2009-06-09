@@ -52,7 +52,7 @@ void initGame()
 	game.paused = FALSE;
 
 	game.showHints = TRUE;
-	
+
 	game.status = IN_GAME;
 
 	game.menu = initMainMenu();
@@ -78,15 +78,18 @@ void doGame()
 		game.thinkTime = 0;
 	}
 
-	if (game.shakeThinkTime > 0)
+	if (game.shakeThinkTime > 0 || game.shakeThinkTime == -1)
 	{
 		shake();
 
-		game.shakeThinkTime--;
-
-		if (game.shakeThinkTime <= 0)
+		if (game.shakeThinkTime > 0)
 		{
-			game.offsetX = game.offsetY = 0;
+			game.shakeThinkTime--;
+
+			if (game.shakeThinkTime <= 0)
+			{
+				game.offsetX = game.offsetY = 0;
+			}
 		}
 	}
 
@@ -445,13 +448,13 @@ void getCheckpoint(float *x, float *y)
 void pauseGame()
 {
 	SDL_Surface *temp;
-	
+
 	switch (game.status)
 	{
 		case IN_GAME:
 			game.paused = game.paused == TRUE ? FALSE : TRUE;
 		break;
-		
+
 		default:
 			game.paused = TRUE;
 		break;

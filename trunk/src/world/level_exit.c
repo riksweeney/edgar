@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../game.h"
 #include "../system/random.h"
+#include "../audio/music.h"
 
 extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
@@ -116,4 +117,6 @@ static void activate(int val)
 	setNextLevel(self->name, self->objectiveName);
 
 	setTransition(TRANSITION_OUT, &goToNextMap);
+	
+	fadeOutMusic(2000);
 }

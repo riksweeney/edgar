@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "game.h"
 #include "event/script.h"
 #include "hud.h"
+#include "audio/music.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -46,6 +47,7 @@ static void falloutPause(void);
 static void resetPause(void);
 static void resetPlayer(void);
 static void dialogWait(void);
+static void playerDie(void);
 static void alignAnimations(Entity *);
 
 Entity *loadPlayer(int x, int y, char *name)
@@ -79,6 +81,8 @@ Entity *loadPlayer(int x, int y, char *name)
 		playerWeapon.face = playerShield.face = LEFT;
 
 		player.fallout = &fallout;
+		
+		player.die = &playerDie;
 	}
 
 	else
@@ -98,7 +102,7 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		cameraSnapToTargetEntity();
 	}
-	
+
 	player.action = NULL;
 
 	centerMapOnEntity(&player);
@@ -655,9 +659,9 @@ static void takeDamage(Entity *other, int damage)
 
 						return;
 					}
-					
+
 					other->inUse = FALSE;
-		
+
 					return;
 				}
 			}
@@ -731,9 +735,7 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			printf("Game Over\n");
-
-			exit(0);
+			player.die();
 		}
 	}
 }
@@ -845,6 +847,11 @@ static void fallout()
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
 
+		if (player.environment == LAVA)
+		{
+			player.health = 0;
+		}
+
 		if (player.environment != AIR)
 		{
 			checkToMap(&player);
@@ -871,18 +878,33 @@ static void falloutPause()
 
 static void resetPause()
 {
-	player.thinkTime--;
-
-	game.drawScreen = FALSE;
-
-	if (player.thinkTime <= 0)
+	if (player.health <= 1)
 	{
-		player.action = &resetPlayer;
+		player.health = 0;
+
+		if (player.environment != AIR)
+		{
+			checkToMap(&player);
+		}
+		
+		player.die();
 	}
 
-	if (player.environment != AIR)
+	else if (player.health > 0)
 	{
-		checkToMap(&player);
+		player.thinkTime--;
+
+		game.drawScreen = FALSE;
+
+		if (player.thinkTime <= 0)
+		{
+			player.action = &resetPlayer;
+		}
+
+		if (player.environment != AIR)
+		{
+			checkToMap(&player);
+		}
 	}
 }
 
@@ -893,7 +915,7 @@ static void resetPlayer()
 	player.draw = &drawLoopingAnimationToMap;
 
 	getCheckpoint(&player.x, &player.y);
-	
+
 	centerMapOnEntity(&player);
 
 	cameraSnapToTargetEntity();
@@ -905,13 +927,6 @@ static void resetPlayer()
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	player.health--;
-
-	if (player.health <= 0)
-	{
-		printf("Game over\n");
-
-		exit(0);
-	}
 
 	player.flags &= ~(HELPLESS|NO_DRAW);
 
@@ -938,4 +953,19 @@ void syncWeaponShieldToPlayer()
 
 	setEntityAnimation(&playerWeapon, getAnimationTypeAtIndex(&player));
 	setEntityAnimation(&playerShield, getAnimationTypeAtIndex(&player));
+}
+
+static void playerDie()
+{
+	player.flags |= HELPLESS;
+	
+	player.takeDamage = NULL;
+	
+	player.fallout = NULL;
+	
+	player.dirX = 0;
+	
+	player.action = NULL;
+	
+	loadGameOverMusic();
 }

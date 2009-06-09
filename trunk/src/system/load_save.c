@@ -72,8 +72,6 @@ extern Game game;
 
 		userHome = pass->pw_dir;
 
-		printf("User Home = %s\n", userHome);
-
 		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
@@ -112,6 +110,7 @@ void loadGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
 	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
+	int loadedMap = FALSE;
 	unsigned char *buffer;
 
 	freeGameResources();
@@ -142,13 +141,23 @@ void loadGame(int slot)
 
 		if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
-			sscanf(line, "%*s %s\n", itemName);
-
-			printf("Loading save location %s\n", itemName);
-
-			loadMap(itemName, FALSE);
-
-			snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
+			if (loadedMap == TRUE)
+			{
+				printf("Already loaded Map data\n");
+			}
+			
+			else
+			{
+				sscanf(line, "%*s %s\n", itemName);
+	
+				printf("Loading save location %s\n", itemName);
+	
+				loadMap(itemName, FALSE);
+	
+				snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
+				
+				loadedMap = TRUE;
+			}
 		}
 
 		else if (strcmpignorecase(line, mapName) == 0)
@@ -161,7 +170,13 @@ void loadGame(int slot)
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
+	free(buffer);
+
 	copyFile(saveFile, tempFile);
+
+	buffer = decompressFile(tempFile);
+
+	free(buffer);
 
 	freeMessageQueue();
 
@@ -193,31 +208,31 @@ void saveGame(int slot)
 	if (read != NULL)
 	{
 		printf("Copying persisting data\n");
-		
+
 		fclose(read);
-		
+
 		buffer = decompressFile(tempFile);
-	
+
 		line = strtok_r((char *)buffer, "\n", &savePtr);
-	
+
 		while (line != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-	
+
 			if (line[strlen(line) - 1] == '\r')
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-			
+
 			if (skipping == FALSE)
 			{
 				sscanf(line, "%s", itemName);
 
-				if (strcmpignorecase("PLAYER_DATA", line) == 0 || strcmpignorecase("PLAYER_INVENTORY", line) == 0 ||
-					strcmpignorecase("PLAYER_LOCATION", line) == 0)
+				if (strcmpignorecase("PLAYER_DATA", itemName) == 0 || strcmpignorecase("PLAYER_INVENTORY", itemName) == 0 ||
+					strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 				{
 					skipping = TRUE;
 				}
@@ -259,10 +274,10 @@ void saveGame(int slot)
 					}
 				}
 			}
-			
+
 			line = strtok_r(NULL, "\n", &savePtr);
 		}
-		
+
 		free(buffer);
 	}
 
@@ -309,7 +324,7 @@ void saveGame(int slot)
 	/* Save the player data */
 
 	fclose(write);
-	
+
 	#if DEV == 1
 		copyFile(saveFile, "savedata");
 	#endif
@@ -336,11 +351,11 @@ void saveTemporaryData()
 	if (read != NULL)
 	{
 		fclose(read);
-		
+
 		buffer = decompressFile(tempFile);
-	
+
 		line = strtok_r((char *)buffer, "\n", &savePtr);
-		
+
 		while (line != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
@@ -401,10 +416,10 @@ void saveTemporaryData()
 					}
 				}
 			}
-			
+
 			line = strtok_r(NULL, "\n", &savePtr);
 		}
-		
+
 		free(buffer);
 
 		if (remove(tempFile) != 0)
@@ -439,7 +454,7 @@ void saveTemporaryData()
 
 		exit(1);
 	}
-	
+
 	#if DEV == 1
 		copyFile(tempFile, "tmpdata");
 	#endif
@@ -461,14 +476,14 @@ int hasPersistance(char *mapName)
 	if (read == NULL)
 	{
 		printf("No persistance data found\n");
-		
+
 		return val;
 	}
-	
+
 	fclose(read);
-	
+
 	buffer = decompressFile(tempFile);
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
 	while (line != NULL)
@@ -482,20 +497,16 @@ int hasPersistance(char *mapName)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
-		printf("%s == %s\n", itemName, line);
 
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			val = TRUE;
 		}
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	free(buffer);
-	
-	printf("Persistance data found: %d\n", val);
 
 	return val;
 }
@@ -527,7 +538,7 @@ void loadPersitanceData(char *mapName)
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			found = TRUE;
-			
+
 			printf("Loading peristance data for: %s\n", itemName);
 
 			loadResources(savePtr);
@@ -576,12 +587,12 @@ void loadConfig()
 
 	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
 
+	resetControls(FALSE);
+
 	fp = fopen(settingsFile, "rb");
 
 	if (fp == NULL)
 	{
-		resetControls(FALSE);
-
 		resetGameSettings();
 
 		return;
@@ -657,20 +668,19 @@ static void copyFile(char *src, char *dest)
 {
 	char c;
 	FILE *sourceFile, *destFile;
-	
+
 	sourceFile = fopen(src, "rb");
-	
+
 	destFile = fopen(dest, "wb");
-	
-	c = fgetc(sourceFile);
-	
-	while (c != EOF)
+
+	while (!feof(sourceFile))
 	{
-		fputc(c, destFile);
-		
 		c = fgetc(sourceFile);
+
+		fputc(c, destFile);
 	}
-	
+
 	fclose(sourceFile);
+
 	fclose(destFile);
 }

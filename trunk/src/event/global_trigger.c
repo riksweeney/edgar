@@ -139,7 +139,7 @@ void fireGlobalTrigger(char *name)
 					break;
 
 					case ACTIVATE_ENTITY:
-						activateEntitiesWithName(trigger[i].targetName, TRUE);
+						activateEntitiesWithRequiredName(trigger[i].targetName, TRUE);
 					break;
 
 					case RUN_SCRIPT:

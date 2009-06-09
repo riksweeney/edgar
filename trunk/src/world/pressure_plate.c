@@ -72,7 +72,7 @@ static void wait()
 	{
 		setEntityAnimation(self, STAND);
 
-		activateEntitiesWithName(self->objectiveName, FALSE);
+		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 
 		self->maxHealth = self->health;
 	}
@@ -106,7 +106,7 @@ static void activate(int val)
 	{
 		setEntityAnimation(self, WALK);
 
-		activateEntitiesWithName(self->objectiveName, TRUE);
+		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
 		self->maxHealth = self->health;
 	}

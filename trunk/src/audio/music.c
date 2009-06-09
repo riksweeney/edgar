@@ -24,6 +24,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
+static void playGameOverMusic(void);
+
 void loadMusic(char *name)
 {
 	char path[MAX_PATH_LENGTH];
@@ -161,4 +163,18 @@ void fadeBossMusic()
 	fadeOutMusic(4000);
 	
 	Mix_HookMusicFinished(resumeMusic);
+}
+
+void loadGameOverMusic()
+{
+	fadeOutMusic(2000);
+	
+	Mix_HookMusicFinished(playGameOverMusic);
+}
+
+static void playGameOverMusic()
+{
+	loadMusic("music/oxide_-_sadness.xm");
+	
+	playMusic();
 }

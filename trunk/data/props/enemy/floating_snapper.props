@@ -7,3 +7,4 @@ FLAGS INVULNERABLE
 THINKTIME 120
 START_X 0
 HEALTH 0
+SFX_FILE data/sfx/enemy/floating_snapper.dat
