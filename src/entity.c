@@ -727,7 +727,7 @@ Entity *getEntityByObjectiveName(char *name)
 	return NULL;
 }
 
-void activateEntitiesWithName(char *name, int active)
+void activateEntitiesWithRequiredName(char *name, int active)
 {
 	int i;
 
@@ -750,6 +750,36 @@ void activateEntitiesWithName(char *name, int active)
 			else
 			{
 				printf("Deactivating %s\n", entity[i].requires);
+			}
+
+			entity[i].active = active;
+		}
+	}
+}
+
+void activateEntitiesWithObjectiveName(char *name, int active)
+{
+	int i;
+
+	if (name == NULL || strlen(name) == 0)
+	{
+		printf("Name is blank!\n");
+
+		exit(1);
+	}
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			if (active == TRUE)
+			{
+				printf("Activating %s\n", entity[i].objectiveName);
+			}
+
+			else
+			{
+				printf("Deactivating %s\n", entity[i].objectiveName);
 			}
 
 			entity[i].active = active;

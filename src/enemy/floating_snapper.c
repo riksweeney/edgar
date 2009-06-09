@@ -109,6 +109,8 @@ static void wait()
 			self->x = self->startX;
 
 			self->action = &snapShut;
+			
+			playSound("sound/enemy/floating_snapper/chomp.wav", -1, self->x, self->y);
 		}
 	}
 
@@ -149,6 +151,11 @@ static void trap(Entity *other)
 		other->flags |= NO_DRAW;
 
 		other->fallout();
+
+		if (other->health == 1)
+		{
+			self->health = 5;
+		}
 	}
 }
 
@@ -160,16 +167,19 @@ static void snapShutFinish()
 
 	setEntityAnimation(self, ATTACK_1);
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->health != 5)
 	{
-		self->action = &reopen;
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &reopen;
+		}
+
+		self->health = 2;
+
+		self->touch = &touch;
 	}
-
-	self->health = 2;
-
-	self->touch = &touch;
 }
 
 static void reopen()

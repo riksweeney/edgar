@@ -145,7 +145,7 @@ static void activate(int val)
 
 	printf("Activating entities with name %s\n", self->objectiveName);
 
-	activateEntitiesWithName(self->objectiveName, self->active);
+	activateEntitiesWithRequiredName(self->objectiveName, self->active);
 }
 
 static void wait()

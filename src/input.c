@@ -521,6 +521,26 @@ void getInput(int gameType)
 
 void resetControls(int editor)
 {
+	control.button[CONTROL_LEFT] = -1;
+	control.button[CONTROL_RIGHT] = -1;
+	control.button[CONTROL_UP] = -1;
+	control.button[CONTROL_DOWN] = -1;
+	control.button[CONTROL_JUMP] = 1;
+	control.button[CONTROL_ADD] = -1;
+	control.button[CONTROL_NEXT] = -1;
+	control.button[CONTROL_PREVIOUS] = -1;
+	control.button[CONTROL_SAVE] = -1;
+	control.button[CONTROL_LOAD] = -1;
+	control.button[CONTROL_TOGGLE] = -1;
+	control.button[CONTROL_ACTIVATE] = -1;
+	control.button[CONTROL_CUT] = -1;
+	control.button[CONTROL_ATTACK] = -1;
+	control.button[CONTROL_FLY] = -1;
+	control.button[CONTROL_SNAP] = -1;
+	control.button[CONTROL_INTERACT] = -1;
+	control.button[CONTROL_PAUSE] = -1;
+	control.button[CONTROL_BLOCK] = -1;
+
 	if (game.joystick != NULL && editor == FALSE)
 	{
 		control.button[CONTROL_LEFT] = -1;
@@ -560,7 +580,9 @@ void resetControls(int editor)
 		control.button[CONTROL_ACTIVATE] = SDLK_a;
 		control.button[CONTROL_CUT] = SDLK_x;
 		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
-		control.button[CONTROL_FLY] = SDLK_f;
+		#if DEV == 1
+			control.button[CONTROL_FLY] = SDLK_f;
+		#endif
 		control.button[CONTROL_SNAP] = SDLK_g;
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;

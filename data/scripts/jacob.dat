@@ -46,7 +46,7 @@ TALK Jacob Yes, that would do the trick
 TALK Edgar ...
 TALK Jacob But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago...
 TALK Jacob Good luck!
-ACTIVATE Chicken Trap
+ACTIVATE_REQUIRED Chicken Trap
 ADD OBJECTIVE "Collect 2 Chopped Logs" " "
 ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
 ADD OBJECTIVE "Rescue 10 Chickens" "CHICKEN_TRIGGER"

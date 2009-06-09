@@ -70,29 +70,27 @@ void setWeather(int weatherType)
 			game.weatherAction = &initSnow;
 			game.weatherDraw = &drawSnow;
 		break;
-		
+
 		default:
 			game.weatherAction = NULL;
 			game.weatherDraw = NULL;
 		break;
-		
+
 	}
-	
+
 	game.weatherType = weatherType;
 	game.weatherThinkTime = 60;
 }
 
 static void initLightRain()
 {
-	int i, startX;
-	
-	startX = getMapStartX();
+	int i;
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS/2;i++)
 	{
-		droplet[i].x = startX + prand() % SCREEN_WIDTH;
+		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -106,15 +104,13 @@ static void initLightRain()
 
 static void initHeavyRain()
 {
-	int i, startX;
-	
-	startX = getMapStartX();
+	int i;
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = startX + prand() % SCREEN_WIDTH;
+		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -129,21 +125,22 @@ static void initHeavyRain()
 static void rain()
 {
 	int i, maxY, startX;
-	
+
 	maxY = maxMapY() * TILE_SIZE;
-	
+
 	startX = getMapStartX();
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
 		if (droplet[i].active == TRUE)
 		{
-			droplet[i].x += droplet[i].dirX;
 			droplet[i].y += droplet[i].dirY;
 
-			if (droplet[i].y >= maxY || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+			droplet[i].x = (int)droplet[i].x % SCREEN_WIDTH;
+
+			if (droplet[i].y >= maxY || mapTileAt((startX + droplet[i].x) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 			{
-				droplet[i].x = startX + prand() % SCREEN_WIDTH;
+				droplet[i].x = prand() % SCREEN_WIDTH;
 				droplet[i].y = -8 - prand() % 20;
 
 				droplet[i].dirX = 0;
@@ -155,15 +152,13 @@ static void rain()
 
 static void initStorm()
 {
-	int i, startX;
-	
-	startX = getMapStartX();
+	int i;
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = startX + prand() % SCREEN_WIDTH;
+		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0;
@@ -189,15 +184,13 @@ static void storm()
 
 static void initSnow()
 {
-	int i, startX;
-	
-	startX = getMapStartX();
+	int i;
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
-		droplet[i].x = startX + prand() % SCREEN_WIDTH;
+		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
@@ -212,9 +205,9 @@ static void initSnow()
 static void snow()
 {
 	int i, startX, maxY;
-	
+
 	maxY = maxMapY() * TILE_SIZE;
-	
+
 	startX = getMapStartX();
 
 	for (i=0;i<MAX_DROPS;i++)
@@ -222,14 +215,16 @@ static void snow()
 		droplet[i].x += droplet[i].dirX;
 		droplet[i].y += droplet[i].dirY;
 
+		droplet[i].x = (int)droplet[i].x % SCREEN_WIDTH;
+
 		if (prand() % 30 == 0)
 		{
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
 		}
 
-		if (droplet[i].y >= maxY || mapTileAt(droplet[i].x / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+		if (droplet[i].y >= maxY || mapTileAt((droplet[i].x + startX) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 		{
-			droplet[i].x = startX + prand() % SCREEN_WIDTH;
+			droplet[i].x = prand() % SCREEN_WIDTH;
 			droplet[i].y = -8 - prand() % 20;
 
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
@@ -240,33 +235,38 @@ static void snow()
 
 static void drawRain()
 {
-	int i, startX;
-	
-	startX = getMapStartX();
-
-	for (i=0;i<MAX_DROPS;i++)
-	{
-		if (droplet[i].active == TRUE)
-		{
-			drawBox(droplet[i].x - startX, droplet[i].y, 1, 8, 255, 255, 255);
-		}
-	}
+	int i, startY;
 
 	if (game.weatherThinkTime >= -10 && game.weatherThinkTime < 0)
 	{
 		clearScreen(255, 255, 255);
 	}
+
+	else
+	{
+		startY = getMapStartY();
+
+		for (i=0;i<MAX_DROPS;i++)
+		{
+			if (droplet[i].active == TRUE)
+			{
+				drawBox(droplet[i].x, droplet[i].y - startY, 1, 8, 255, 255, 255);
+			}
+		}
+	}
 }
 
 static void drawSnow()
 {
-	int i;
+	int i, startY;
+
+	startY = getMapStartY();
 
 	for (i=0;i<MAX_DROPS;i++)
 	{
 		if (droplet[i].active == TRUE)
 		{
-			drawBox(droplet[i].x, droplet[i].y, 2, 2, 255, 255, 255);
+			drawBox(droplet[i].x, droplet[i].y - startY, 2, 2, 255, 255, 255);
 		}
 	}
 }

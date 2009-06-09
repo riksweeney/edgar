@@ -74,7 +74,7 @@ static void standardTouch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		activateEntitiesWithName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
+		activateEntitiesWithRequiredName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
 
 		self->inUse = FALSE;
 	}

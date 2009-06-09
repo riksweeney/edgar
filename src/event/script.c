@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../inventory.h"
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../decoration.h"
 #include "../graphics/animation.h"
 #include "../game.h"
@@ -35,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/pak.h"
 
 extern Entity player, *self;
+extern Game game;
 
 static Script script;
 
@@ -51,29 +53,29 @@ void loadScript(char *name)
 	snprintf(filename, sizeof(filename), _("data/scripts/%s.dat"), name);
 
 	printf("Loading script file %s\n", filename);
-	
+
 	buffer = loadFileFromPak(filename);
-	
+
 	text = (char *)malloc((strlen((char *)buffer) + 1) * sizeof(char));
-	
+
 	if (text == NULL)
 	{
 		printf("Could not allocate a whole %d bytes for script %s\n", sizeof(char *) * (strlen((char *)buffer) + 1), filename);
 
 		exit(1);
 	}
-	
+
 	STRNCPY(text, (char *)buffer, strlen((char *)buffer) + 1);
-	
+
 	line = strtok_r((char *)text, "\n", &savePtr);
 
 	while (line != NULL)
 	{
 		script.lineCount++;
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	free(text);
 
 	script.text = (char **)malloc(sizeof(char *) * script.lineCount);
@@ -88,7 +90,7 @@ void loadScript(char *name)
 	script.line = 0;
 
 	i = 0;
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
 	while (line != NULL)
@@ -113,7 +115,7 @@ void loadScript(char *name)
 		STRNCPY(script.text[i], line, strlen(line) + 1);
 
 		i++;
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
@@ -306,18 +308,18 @@ void readNextScriptLine()
 					e->health = atoi(token);
 				}
 			}
-			
+
 			else if (strcmpignorecase("FLAG", token) == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				setFlags(e, token);
 			}
-			
+
 			else if (strcmpignorecase("REMOVE_FLAG", token) == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				unsetFlags(e, token);
 			}
 
@@ -369,12 +371,19 @@ void readNextScriptLine()
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
 			}
-			
+
 			else if (strcmpignorecase(token, "DIR_X") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
 
 				e->dirX = atoi(token);
+			}
+			
+			else if (strcmpignorecase(token, "DIR_Y") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e->dirY = atoi(token);
 			}
 
 			else
@@ -385,18 +394,36 @@ void readNextScriptLine()
 			}
 		}
 
-		else if (strcmpignorecase("ACTIVATE", command) == 0)
+		else if (strcmpignorecase("ACTIVATE_REQUIRED", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
+			
+			printf("Script is activating %s\n", token);
 
-			activateEntitiesWithName(token, TRUE);
+			activateEntitiesWithRequiredName(token, TRUE);
 		}
 
-		else if (strcmpignorecase("DEACTIVATE", command) == 0)
+		else if (strcmpignorecase("DEACTIVATE_REQUIRED", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			activateEntitiesWithName(token, FALSE);
+			activateEntitiesWithRequiredName(token, FALSE);
+		}
+		
+		else if (strcmpignorecase("ACTIVATE_OBJECTIVE", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			printf("Script is activating %s\n", token);
+
+			activateEntitiesWithObjectiveName(token, TRUE);
+		}
+
+		else if (strcmpignorecase("DEACTIVATE_OBJECTIVE", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			activateEntitiesWithObjectiveName(token, FALSE);
 		}
 
 		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
@@ -425,6 +452,79 @@ void readNextScriptLine()
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			playSound(token, -1, player.x, player.y);
+		}
+
+		else if (strcmpignorecase("MUSIC", command) == 0)
+		{
+			token = strtok_r(NULL, " ", &savePtr);
+
+			if (strcmpignorecase("START", token) == 0)
+			{
+				playMusic();
+			}
+
+			else if (strcmpignorecase("STOP", token) == 0)
+			{
+				stopMusic();
+			}
+
+			else if (strcmpignorecase("FADE_DOWN", token) == 0)
+			{
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				fadeOutMusic(atoi(token));
+			}
+
+			else if (strcmpignorecase("FADE_UP", token) == 0)
+			{
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				fadeInMusic(atoi(token));
+			}
+
+			else if (strcmpignorecase("LOAD", token) == 0)
+			{
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				loadMusic(token);
+			}
+		}
+
+		else if (strcmpignorecase("SHAKE_SCREEN", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			if (strcmpignorecase("LIGHT", token) == 0)
+			{
+				game.shakeStrength = LIGHT;
+
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				game.shakeThinkTime = atoi(token);
+			}
+
+			else if (strcmpignorecase("MEDIUM", token) == 0)
+			{
+				game.shakeStrength = MEDIUM;
+
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				game.shakeThinkTime = atoi(token);
+			}
+
+			else if (strcmpignorecase("STRONG", token) == 0)
+			{
+				game.shakeStrength = STRONG;
+
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				game.shakeThinkTime = atoi(token);
+			}
+
+			else if (strcmpignorecase("STOP", token) == 0)
+			{
+				game.shakeThinkTime = 1;
+			}
 		}
 
 		else if (strcmpignorecase("KILL", command) == 0)
@@ -521,14 +621,14 @@ void readNextScriptLine()
 				entityWalkToRelative(e, token);
 			}
 		}
-		
+
 		else if (strcmpignorecase("LIMIT_CAMERA", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			limitCameraFromScript(token);
 		}
-		
+
 		else if (strcmpignorecase("RESET_CAMERA", command) == 0)
 		{
 			resetCameraLimits();
@@ -573,4 +673,6 @@ void freeScript()
 
 		script.text = NULL;
 	}
+	
+	freeDialogBox();
 }
