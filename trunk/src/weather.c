@@ -250,7 +250,7 @@ static void drawRain()
 		{
 			if (droplet[i].active == TRUE)
 			{
-				drawBox(droplet[i].x, droplet[i].y - startY, 1, 8, 255, 255, 255);
+				drawBox(droplet[i].x, droplet[i].y - startY, 1, 8, 220, 220, 220);
 			}
 		}
 	}

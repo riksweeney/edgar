@@ -34,6 +34,7 @@ extern Entity *self, player;
 static void dropBomb(int);
 static void wait(void);
 static void explode(void);
+static void startFuse(void);
 
 Entity *addBomb(int x, int y, char *name)
 {
@@ -55,7 +56,7 @@ Entity *addBomb(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &startFuse;
 	e->touch = &keyItemTouch;
 	e->activate = &dropBomb;
 
@@ -68,6 +69,13 @@ Entity *addBomb(int x, int y, char *name)
 	return e;
 }
 
+static void startFuse()
+{
+	self->targetX = playSound("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+
+	self->action = &wait;
+}
+
 static void wait()
 {
 	checkToMap(self);
@@ -78,13 +86,13 @@ static void dropBomb(int val)
 	self->thinkTime = 0;
 
 	self->touch = NULL;
-	
+
 	setEntityAnimation(self, WALK);
 
 	self->animationCallback = &explode;
 
 	self->active = TRUE;
-	
+
 	self->health = 10;
 
 	addEntity(*self, player.x, player.y);
@@ -95,19 +103,21 @@ static void dropBomb(int val)
 static void explode()
 {
 	int x, y;
-	
+
 	self->flags |= NO_DRAW|FLY;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		x = self->x;
 		y = self->y;
-		
+
+		stopSound(self->targetX);
+
 		x += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
 		y += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
-		
+
 		addExplosion(x, y);
 
 		self->health--;
@@ -119,6 +129,6 @@ static void explode()
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	self->action = &explode;
 }

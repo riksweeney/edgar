@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/script.h"
 #include "hud.h"
 #include "audio/music.h"
+#include "audio/audio.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -49,6 +50,7 @@ static void resetPlayer(void);
 static void dialogWait(void);
 static void playerDie(void);
 static void alignAnimations(Entity *);
+static void gameOverTimeOut(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -81,7 +83,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		playerWeapon.face = playerShield.face = LEFT;
 
 		player.fallout = &fallout;
-		
+
 		player.die = &playerDie;
 	}
 
@@ -358,6 +360,8 @@ void doPlayer()
 						setEntityAnimation(&playerShield, ATTACK_1);
 						setEntityAnimation(&playerWeapon, ATTACK_1);
 
+						playSound("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
 						playerWeapon.animationCallback = &attackFinish;
 					}
 
@@ -580,6 +584,13 @@ void drawPlayer()
 			self->draw();
 		}
 	}
+
+	self = &player;
+
+	if (self->health <= 0 && self->thinkTime <= 0)
+	{
+		drawGameOver();
+	}
 }
 
 void setPlayerShield(int val)
@@ -635,6 +646,11 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 
+	if (player.health <= 0)
+	{
+		return;
+	}
+
 	if (other->dirX != 0 && (player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE))
 	{
 		if (other->type == PROJECTILE)
@@ -646,6 +662,8 @@ static void takeDamage(Entity *other, int damage)
 					player.dirX = other->dirX < 0 ? -2 : 2;
 
 					checkToMap(&player);
+
+					playSound("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 					if (other->reactToBlock != NULL)
 					{
@@ -673,10 +691,12 @@ static void takeDamage(Entity *other, int damage)
 
 			checkToMap(&player);
 
+			playSound("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+			other->x = other->x < player.x ? player.x - other->w - 4 : player.x + player.w + 4;
+
 			if (other->reactToBlock == NULL)
 			{
-				other->x = other->x < player.x ? player.x - other->w : player.x + player.w;
-
 				other->dirX = other->dirX < 0 ? 2 : -2;
 
 				checkToMap(other);
@@ -849,7 +869,7 @@ static void fallout()
 
 		if (player.environment == LAVA)
 		{
-			player.health = 0;
+			player.die();
 		}
 
 		if (player.environment != AIR)
@@ -886,7 +906,7 @@ static void resetPause()
 		{
 			checkToMap(&player);
 		}
-		
+
 		player.die();
 	}
 
@@ -957,15 +977,44 @@ void syncWeaponShieldToPlayer()
 
 static void playerDie()
 {
+	setEntityAnimation(&player, DIE);
+	setEntityAnimation(&playerShield, DIE);
+	setEntityAnimation(&playerWeapon, DIE);
+
+	player.health = 0;
+
 	player.flags |= HELPLESS;
-	
-	player.takeDamage = NULL;
-	
+
 	player.fallout = NULL;
-	
+
 	player.dirX = 0;
-	
-	player.action = NULL;
-	
+
+	player.thinkTime = 180;
+
+	player.action = &gameOverTimeOut;
+
+	doGameOver();
+
 	loadGameOverMusic();
+}
+
+static void gameOverTimeOut()
+{
+	player.thinkTime--;
+
+	if (player.thinkTime <= 0)
+	{
+		player.action = NULL;
+	}
+
+	checkToMap(&player);
+}
+
+void freePlayer()
+{
+	player.inUse = FALSE;
+	
+	playerWeapon.inUse = FALSE;
+	
+	playerShield.inUse = FALSE;
 }

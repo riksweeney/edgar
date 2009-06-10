@@ -378,7 +378,7 @@ void readNextScriptLine()
 
 				e->dirX = atoi(token);
 			}
-			
+
 			else if (strcmpignorecase(token, "DIR_Y") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
@@ -397,7 +397,7 @@ void readNextScriptLine()
 		else if (strcmpignorecase("ACTIVATE_REQUIRED", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			printf("Script is activating %s\n", token);
 
 			activateEntitiesWithRequiredName(token, TRUE);
@@ -409,11 +409,11 @@ void readNextScriptLine()
 
 			activateEntitiesWithRequiredName(token, FALSE);
 		}
-		
+
 		else if (strcmpignorecase("ACTIVATE_OBJECTIVE", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			printf("Script is activating %s\n", token);
 
 			activateEntitiesWithObjectiveName(token, TRUE);
@@ -451,7 +451,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			playSound(token, -1, player.x, player.y);
+			playSound(token, -1, player.x, player.y, 0);
 		}
 
 		else if (strcmpignorecase("MUSIC", command) == 0)
@@ -673,6 +673,6 @@ void freeScript()
 
 		script.text = NULL;
 	}
-	
+
 	freeDialogBox();
 }

@@ -34,3 +34,4 @@ void playerResumeNormal(void);
 void writePlayerMapStartToFile(FILE *);
 void increasePlayerMaxHealth(void);
 void syncWeaponShieldToPlayer(void);
+void freePlayer(void);

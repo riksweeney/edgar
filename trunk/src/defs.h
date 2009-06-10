@@ -162,9 +162,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define _(string) gettext(string)
 
-#define SCREEN_SHOT_KEY SDLK_F10
+#define SCREENSHOT_KEY SDLK_F10
 
-#define FULL_SCREEN_KEY SDLK_F12
+#define FULLSCREEN_KEY SDLK_F12
 
 #define VOLUME_STEPS 12.8
 
@@ -370,6 +370,7 @@ enum
 
 enum
 {
+	IN_TITLE,
 	IN_MENU,
 	IN_GAME,
 	IN_INVENTORY

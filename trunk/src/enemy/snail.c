@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void die(void);
-static void pain(void);
 static void hideStart(void);
 static void hide(void);
 static void hideEnd(void);
@@ -59,7 +58,6 @@ Entity *addSnail(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->pain = &pain;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 
@@ -73,11 +71,6 @@ Entity *addSnail(int x, int y, char *name)
 static void die()
 {
 	entityDie();
-}
-
-static void pain()
-{
-	playSound("sound/enemy/bat/squeak.wav", -1, self->x, self->y);
 }
 
 static void lookForPlayer()
@@ -147,7 +140,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (self->face == other->face)
 		{
-			printf("Dink\n");
+			playSound("sound/common/dink.ogg", -1, self->x, self->y, 0);
 		}
 
 		else

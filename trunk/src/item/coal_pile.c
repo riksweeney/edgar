@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../event/trigger.h"
 #include "../custom_actions.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 
@@ -132,8 +133,8 @@ static void touch(Entity *other)
 		else
 		{
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
-			
-			printf("Dink\n");
+
+			playSound("sound/common/dink.ogg", -1, self->x, self->y, 0);
 		}
 	}
 }

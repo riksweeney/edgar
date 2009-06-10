@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	if (argc < 3)
 	{
 		printf("Usage   : pak <directory names> <outputname>\n");
-		printf("Example : pak data music gfx sound font data.pak\n");
+		printf("Example : pak data music gfx sound font locale data.pak\n");
 		exit(1);
 	}
 

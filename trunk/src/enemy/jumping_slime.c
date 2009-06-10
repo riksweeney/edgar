@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void die(void);
-static void pain(void);
 static void wait(void);
 static void purpleWait(void);
 static void attack(void);
@@ -71,7 +70,6 @@ Entity *addJumpingSlime(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->pain = &pain;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
 
@@ -85,11 +83,6 @@ Entity *addJumpingSlime(int x, int y, char *name)
 static void die()
 {
 	entityDie();
-}
-
-static void pain()
-{
-	playSound("sound/enemy/bat/squeak.wav", -1, self->x, self->y);
 }
 
 static void wait()

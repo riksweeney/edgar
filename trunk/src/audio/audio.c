@@ -93,14 +93,14 @@ static void preCacheSound(char *name)
 	soundIndex++;
 }
 
-void playSound(char *name, int channel, int x, int y)
+int playSound(char *name, int channel, int x, int y, int loops)
 {
 	int i, distance, volume;
 	Mix_Chunk *chunk = NULL;
 
 	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
 	{
-		return;
+		return -1;
 	}
 
 	for (i=0;i<soundIndex;i++)
@@ -152,12 +152,12 @@ void playSound(char *name, int channel, int x, int y)
 
 	else
 	{
-		return;
+		return -1;
 	}
 
 	Mix_VolumeChunk(chunk, volume);
 
-	playSoundChunk(chunk, channel);
+	return playSoundChunk(chunk, channel, loops);
 }
 
 Mix_Chunk *loadSound(char *name)
@@ -186,11 +186,11 @@ Mix_Chunk *loadSound(char *name)
 	return chunk;
 }
 
-void playSoundChunk(Mix_Chunk *chunk, int channel)
+int playSoundChunk(Mix_Chunk *chunk, int channel, int loops)
 {
-	/* Play the sound on the first free channel and only play it once */
+	/* Play the sound on the first free channel */
 
-	Mix_PlayChannel(channel, chunk, 0);
+	return Mix_PlayChannel(channel, chunk, loops);
 }
 
 void freeSounds()
@@ -226,11 +226,21 @@ int initAudio()
 	else
 	{
 		game.audio = TRUE;
-		
+
 		Mix_AllocateChannels(16);
-		
+
 		Mix_ReserveChannels(2);
 	}
 
 	return game.audio;
+}
+
+void stopSound(int channel)
+{
+	if (channel == -1 || game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
+	Mix_HaltChannel(channel);
 }

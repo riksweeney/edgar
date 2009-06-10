@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "collisions.h"
 #include "map.h"
+#include "audio/audio.h"
 
 extern Entity entity[MAX_ENTITIES], *self;
 extern Entity player, playerShield, playerWeapon;
@@ -648,7 +649,7 @@ void checkToMap(Entity *e)
 	if (e->y > maxMapY())
 	{
 		e->flags &= ~HELPLESS;
-		
+
 		e->fallout();
 	}
 
@@ -672,8 +673,10 @@ void checkToMap(Entity *e)
 
 		if (previousEnvironment != LAVA && e->fallout != NULL)
 		{
+			playSound("sound/common/lava.ogg", -1, self->x, self->y, 0);
+
 			e->flags &= ~HELPLESS;
-			
+
 			e->fallout();
 		}
 	}
@@ -694,8 +697,10 @@ void checkToMap(Entity *e)
 
 			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
+				playSound("sound/common/splash.ogg", -1, self->x, self->y, 0);
+
 				e->flags &= ~HELPLESS;
-				
+
 				e->fallout();
 			}
 		}

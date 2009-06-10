@@ -55,7 +55,6 @@ Entity *addSpittingPlant(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &entityDie;
-	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
 
@@ -119,6 +118,8 @@ static void spit()
 	e->flags |= FLY;
 
 	e->reactToBlock = &bounceOffShield;
+
+	playSound("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 	setEntityAnimation(self, ATTACK_2);
 

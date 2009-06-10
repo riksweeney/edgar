@@ -21,5 +21,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void loadCommonSounds()
 {
-	loadSoundToIndex("sound/common/pop.wav", POP_SFX);
+	loadSoundToIndex("sound/common/pop.ogg", POP_SFX);
 }

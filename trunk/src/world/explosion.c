@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void finish(void);
+static void explode(void);
 
 Entity *addExplosion(int x, int y)
 {
@@ -50,7 +51,7 @@ Entity *addExplosion(int x, int y)
 
 	e->face = RIGHT;
 
-	e->action = &doNothing;
+	e->action = &explode;
 	e->touch = &entityTouch;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -60,6 +61,13 @@ Entity *addExplosion(int x, int y)
 	e->animationCallback = &finish;
 
 	return e;
+}
+
+static void explode()
+{
+	playSound("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+
+	self->action = &doNothing;
 }
 
 static void finish()

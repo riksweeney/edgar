@@ -50,3 +50,4 @@ void changeTarget(void);
 void entityDieNoDrop(void);
 void noItemDie(void);
 void rotateAroundStartPoint(void);
+void enemyPain(void);

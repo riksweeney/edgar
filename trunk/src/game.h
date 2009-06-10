@@ -33,3 +33,5 @@ void setNextLevelFromScript(char *);
 void writeGameSettingsToFile(FILE *);
 void readGameSettingsFromFile(char *);
 void resetGameSettings(void);
+void doGameOver(void);
+void drawGameOver(void);

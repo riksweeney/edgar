@@ -33,6 +33,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/script.h"
 #include "graphics/animation.h"
 #include "player.h"
+#include "system/random.h"
+#include "audio/audio.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -359,6 +361,8 @@ void entityDie()
 
 		self->action = &standardDie;
 
+		self->damage = 0;
+
 		fireTrigger(self->objectiveName);
 
 		fireGlobalTrigger(self->objectiveName);
@@ -476,6 +480,26 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 			self->die();
 		}
+	}
+}
+
+void enemyPain()
+{
+	int i = prand() % 3;
+
+	switch (i)
+	{
+		case 0:
+			playSound("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+		break;
+
+		case 1:
+			playSound("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+		break;
+
+		default:
+			playSound("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+		break;
 	}
 }
 

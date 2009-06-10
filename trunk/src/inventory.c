@@ -34,6 +34,13 @@ extern Entity playerWeapon, playerShield;
 
 static void sortInventory(void);
 
+void freeInventory()
+{
+	/* Clear the list */
+
+	memset(&inventory, 0, sizeof(Inventory) * MAX_INVENTORY_ITEMS);
+}
+
 int addToInventory(Entity *e)
 {
 	int i, found;
@@ -369,8 +376,6 @@ void getInventoryItemFromScript(char *line)
 
 	if (item != NULL && (item->health >= quantity || quantity == 1))
 	{
-		printf("Found item %s\n", itemName);
-		
 		if (strcmpignorecase(command, "REMOVE") == 0)
 		{
 			item->health -= quantityToRemove;

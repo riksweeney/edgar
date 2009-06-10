@@ -51,8 +51,6 @@ void initGame()
 
 	game.paused = FALSE;
 
-	game.showHints = TRUE;
-
 	game.status = IN_GAME;
 
 	game.menu = initMainMenu();
@@ -106,6 +104,13 @@ void freeGame()
 		SDL_FreeSurface(game.pauseSurface);
 
 		game.pauseSurface = NULL;
+	}
+
+	if (game.gameOverSurface != NULL)
+	{
+		SDL_FreeSurface(game.gameOverSurface);
+
+		game.gameOverSurface = NULL;
 	}
 }
 
@@ -452,50 +457,50 @@ void pauseGame()
 	switch (game.status)
 	{
 		case IN_GAME:
-			game.paused = game.paused == TRUE ? FALSE : TRUE;
+			game.paused = TRUE;
+
+			game.status = IN_MENU;
+
+			if (game.pauseSurface == NULL)
+			{
+				temp = SDL_CreateRGBSurface(SDL_SWSURFACE, game.screen->w, game.screen->h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
+
+				game.pauseSurface = SDL_DisplayFormat(temp);
+
+				SDL_FreeSurface(temp);
+
+				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
+			}
+		break;
+
+		case IN_MENU:
+			if (game.menu->returnAction != NULL)
+			{
+				game.menu->returnAction();
+			}
+
+			else
+			{
+				if (game.pauseSurface != NULL)
+				{
+					SDL_FreeSurface(game.pauseSurface);
+
+					game.pauseSurface = NULL;
+				}
+
+				game.paused = FALSE;
+
+				game.status = IN_GAME;
+
+				game.menu = initMainMenu();
+
+				game.drawMenu = &drawMainMenu;
+			}
 		break;
 
 		default:
-			game.paused = TRUE;
+
 		break;
-	}
-
-	if (game.paused == TRUE)
-	{
-		if (game.pauseSurface == NULL)
-		{
-			temp = SDL_CreateRGBSurface(SDL_SWSURFACE, game.screen->w, game.screen->h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-			game.pauseSurface = SDL_DisplayFormat(temp);
-
-			SDL_FreeSurface(temp);
-
-			SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
-		}
-	}
-
-	else
-	{
-		if (game.menu->returnAction != NULL)
-		{
-			game.paused = TRUE;
-
-			game.menu->returnAction();
-		}
-
-		else
-		{
-			if (game.pauseSurface != NULL)
-			{
-				SDL_FreeSurface(game.pauseSurface);
-
-				game.pauseSurface = NULL;
-			}
-
-			game.menu = initMainMenu();
-
-			game.drawMenu = &drawMainMenu;
-		}
 	}
 }
 
@@ -507,7 +512,7 @@ void showPauseDialog()
 void resetGameSettings()
 {
 	game.audio = TRUE;
-	game.sfxDefaultVolume = 10;
+	game.sfxDefaultVolume = 5;
 	game.musicDefaultVolume = 10;
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
@@ -570,4 +575,26 @@ void readGameSettingsFromFile(char *buffer)
 
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
+}
+
+void doGameOver()
+{
+	if (game.gameOverSurface == NULL)
+	{
+		game.gameOverSurface = loadImage("gfx/common/gameover.png");
+	}
+
+	game.transitionX = 0;
+}
+
+void drawGameOver()
+{
+	game.transitionX += 3;
+
+	if (game.transitionX >= game.gameOverSurface->w)
+	{
+		game.transitionX = game.gameOverSurface->w;
+	}
+
+	drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.transitionX, game.gameOverSurface->h);
 }

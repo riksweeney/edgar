@@ -93,6 +93,11 @@ Entity *addEnemy(char *name, int x, int y)
 				e->fallout = &entityDie;
 			}
 
+			if (e->pain == NULL)
+			{
+				e->pain = &enemyPain;
+			}
+
 			return e;
 		}
 	}

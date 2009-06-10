@@ -94,7 +94,7 @@ static void doMenu()
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
 	}
-	
+
 	else if (input.left == TRUE || menuInput.left == TRUE)
 	{
 		w = menu.widgets[menu.index];
@@ -107,7 +107,7 @@ static void doMenu()
 		menuInput.left = FALSE;
 		input.left = FALSE;
 	}
-	
+
 	else if (input.right == TRUE || menuInput.right == TRUE)
 	{
 		w = menu.widgets[menu.index];

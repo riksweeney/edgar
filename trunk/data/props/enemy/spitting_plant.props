@@ -1,4 +1,5 @@
 GFX_FILE data/gfx/enemy/spitting_plant.dat
+SFX_FILE data/sfx/enemy/spitting_plant.dat
 ANIM_FILE data/anim/enemy/spitting_plant.dat
 TYPE ENEMY
 DAMAGE 2

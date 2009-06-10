@@ -1,6 +1,6 @@
 VERSION = 0.1
 RELEASE = 1
-DEV = 1
+DEV = 0
 LOCALE_DIR = usr/share/locale/
 PAK_FILE = data.pak
 

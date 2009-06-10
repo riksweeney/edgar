@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../game.h"
 #include "../audio/music.h"
+#include "../audio/audio.h"
 #include "../graphics/gib.h"
 #include "../item/key_items.h"
 #include "../event/trigger.h"
@@ -163,7 +164,7 @@ static void initialise()
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
-			
+
 			playBossMusic();
 		}
 	}
@@ -193,6 +194,8 @@ static void doIntro()
 		self->dirX = 0;
 
 		self->action = &introPause;
+
+		playSound("sound/boss/grub_boss/roar.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -301,7 +304,7 @@ static void spit()
 static void spinAttackStart()
 {
 	self->flags |= INVULNERABLE;
-	
+
 	setEntityAnimation(self, ATTACK_2);
 
 	if (self->thinkTime > 0)
@@ -367,7 +370,7 @@ static void spinAttackEnd()
 static void bounceAttackStart()
 {
 	self->flags |= INVULNERABLE;
-	
+
 	setEntityAnimation(self, ATTACK_2);
 
 	if (self->thinkTime > 0)
@@ -476,7 +479,7 @@ static void die()
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		fadeBossMusic();
 	}
 
