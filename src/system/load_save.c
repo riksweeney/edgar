@@ -106,16 +106,35 @@ extern Game game;
 	}
 #endif
 
-void loadGame(int slot)
+void newGame()
+{
+	freeGameResources();
+	
+	loadMap("map01", TRUE);
+	
+	cameraSnapToTargetEntity();
+}
+
+int loadGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
 	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
 	int loadedMap = FALSE;
 	unsigned char *buffer;
-
-	freeGameResources();
+	FILE *fp;
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+
+	fp = fopen(saveFile, "rb");
+
+	if (fp == NULL)
+	{
+		return FALSE;
+	}
+
+	fclose(fp);
+
+	freeGameResources();
 
 	printf("Loading save data from %s\n", saveFile);
 
@@ -145,17 +164,17 @@ void loadGame(int slot)
 			{
 				printf("Already loaded Map data\n");
 			}
-			
+
 			else
 			{
 				sscanf(line, "%*s %s\n", itemName);
-	
+
 				printf("Loading save location %s\n", itemName);
-	
+
 				loadMap(itemName, FALSE);
-	
+
 				snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
-				
+
 				loadedMap = TRUE;
 			}
 		}
@@ -178,11 +197,11 @@ void loadGame(int slot)
 
 	free(buffer);
 
-	freeMessageQueue();
-
 	cameraSnapToTargetEntity();
 
 	printf("Load completed\n");
+
+	return TRUE;
 }
 
 void saveGame(int slot)
@@ -202,6 +221,8 @@ void saveGame(int slot)
 	read = fopen(tempFile, "rb");
 
 	write = fopen(saveFile, "wb");
+	
+	fprintf(write, "VERSION %0.2f\n", VERSION);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 

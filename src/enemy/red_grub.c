@@ -29,7 +29,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void die(void);
-static void pain(void);
 static void reactToBlock(void);
 static void lookForPlayer(void);
 static void spinAttackStart(void);
@@ -57,7 +56,6 @@ Entity *addRedGrub(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->pain = &pain;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
 
@@ -71,11 +69,6 @@ Entity *addRedGrub(int x, int y, char *name)
 static void die()
 {
 	entityDie();
-}
-
-static void pain()
-{
-	playSound("sound/enemy/bat/squeak.wav", -1, self->x, self->y);
 }
 
 static void lookForPlayer()
@@ -123,7 +116,7 @@ static void spinAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		self->speed = self->originalSpeed * 4;
-		
+
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
@@ -182,7 +175,7 @@ static void spinAttackEnd()
 		self->action = &lookForPlayer;
 
 		self->frameSpeed = 1;
-		
+
 		self->speed = self->originalSpeed;
 	}
 }

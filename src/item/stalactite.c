@@ -116,8 +116,8 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		setCustomAction(self, &invulnerableNoFlash, 20, 0);
-		
-		printf("Dink from %s\n", other->name);
+
+		playSound("sound/common/dink.ogg", -1, self->x, self->y, 0);
 	}
 }
 

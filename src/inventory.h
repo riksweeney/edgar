@@ -29,3 +29,4 @@ void addRequiredToInventory(Entity *);
 void loadInventoryItems(void);
 void writeInventoryToFile(FILE *);
 void getInventoryItemFromScript(char *);
+void freeInventory(void);

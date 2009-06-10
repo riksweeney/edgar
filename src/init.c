@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/record.h"
 #include "system/load_save.h"
 #include "audio/audio.h"
+#include "system/pak.h"
 
 extern Game game;
 
@@ -32,7 +33,7 @@ void init(char *title)
 {
 	int joysticks, buttons;
 	long flags;
-	
+
 	/* Set up the home directory */
 
 	setupUserHomeDirectory();
@@ -85,7 +86,7 @@ void init(char *title)
 	joysticks = SDL_NumJoysticks();
 
 	buttons = 0;
-	/*
+	
 	if (joysticks > 0)
 	{
 		printf("Found %d joysticks Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
@@ -98,7 +99,7 @@ void init(char *title)
 
 		printf("Joystick has %d axes\n", SDL_JoystickNumAxes(game.joystick));
 	}
-	*/
+	
 	/* Set the screen title */
 
 	SDL_WM_SetCaption(title, NULL);
@@ -110,6 +111,10 @@ void init(char *title)
 	/* Set the prandom seed */
 
 	setSeed(time(NULL));
+
+	/* Init the PAK file */
+
+	initPakFile();
 }
 
 void toggleFullScreen()

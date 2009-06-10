@@ -38,6 +38,7 @@ extern Game game;
 void setReplayData(char *name)
 {
 	char mapFile[6];
+	double version;
 	long seed;
 
 	printf("Setting replay file to %s\n", name);
@@ -52,6 +53,15 @@ void setReplayData(char *name)
 	}
 
 	game.gameType = REPLAYING;
+	
+	fread(&version, sizeof(double), 1, replayBuffer);
+	
+	printf("This version : %0.2f Replay version %0.2f\n", VERSION, version);
+	
+	if (version != VERSION)
+	{
+		printf("This replay is from a different version and may not function correctly\n");
+	}
 
 	fread(&seed, sizeof(long), 1, replayBuffer);
 
@@ -71,6 +81,7 @@ void setReplayData(char *name)
 void setRecordData(char *name)
 {
 	long seed;
+	double version = VERSION;
 
 	printf("Setting record file to %s\n", name);
 
@@ -86,6 +97,8 @@ void setRecordData(char *name)
 	game.gameType = RECORDING;
 
 	seed = time(NULL);
+	
+	fwrite(&version, sizeof(double), 1, replayBuffer);
 
 	fwrite(&seed, sizeof(long), 1, replayBuffer);
 

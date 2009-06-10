@@ -150,7 +150,7 @@ static void findTarget(int val)
 
 				self->action = &moveToTarget;
 
-				playSound("sound/common/mine_lift.wav", -1, self->x, self->y);
+				playSound("sound/common/mine_lift.ogg", -1, self->x, self->y, 0);
 			}
 		}
 

@@ -109,8 +109,8 @@ static void wait()
 			self->x = self->startX;
 
 			self->action = &snapShut;
-			
-			playSound("sound/enemy/floating_snapper/chomp.wav", -1, self->x, self->y);
+
+			playSound("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
 		}
 	}
 

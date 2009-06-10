@@ -77,7 +77,9 @@ void loadMap(char *name, int loadEntityResources)
 
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
-			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
+			token = strtok(line, "\0");
+			
+			STRNCPY(map.mapName, token, sizeof(map.mapName));
 		}
 
 		else if (strcmpignorecase(itemName, "TILESET") == 0)

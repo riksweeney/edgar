@@ -64,10 +64,6 @@ static char **key, **value;
 
 void loadRequiredResources()
 {
-	/* Init the PAK file */
-
-	initPakFile();
-
 	/* Load the hud */
 
 	initHud();
@@ -135,10 +131,18 @@ void freeGameResources()
 	/* Free the Objectives */
 
 	freeObjectives();
-	
+
 	/* Free the scripts */
-	
+
 	freeScript();
+
+	/* Free the inventory */
+
+	freeInventory();
+	
+	/* Free the player */
+	
+	freePlayer();
 }
 
 void freeAllResources()

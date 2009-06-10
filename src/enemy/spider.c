@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void move(void);
-static void die(void);
 static void draw(void);
 static void init(void);
 static void takeDamage(Entity *, int);
@@ -57,7 +56,7 @@ Entity *addSpider(int x, int y, char *name)
 
 	e->draw = &draw;
 	e->touch = &entityTouch;
-	e->die = &die;
+	e->die = &entityDie;
 
 	if (strcmpignorecase(name, "enemy/red_spider") == 0)
 	{
@@ -74,11 +73,6 @@ Entity *addSpider(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
-}
-
-static void die()
-{
-	entityDie();
 }
 
 static void takeDamage(Entity *other, int damage)

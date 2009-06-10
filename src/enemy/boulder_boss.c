@@ -83,7 +83,7 @@ static void initialise()
 				self->touch = &touch;
 
 				self->flags &= ~(NO_DRAW|FLY);
-				
+
 				self->flags |= ATTACKING;
 
 				self->action = &drop;
@@ -116,7 +116,7 @@ static void drop()
 	{
 		self->thinkTime = 120;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, self->x, self->y);
+		playSound("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
@@ -133,7 +133,7 @@ static void wait()
 	if (self->thinkTime <= 0)
 	{
 		playBossMusic();
-		
+
 		setEntityAnimation(self, WALK);
 
 		self->endX = -2.0f;
@@ -183,14 +183,14 @@ static void chasePlayer()
 
 		self->active = FALSE;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.wav", BOSS_CHANNEL, self->x, self->y);
+		playSound("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(STRONG, 90);
 
 		self->thinkTime = 90;
-		
+
 		fadeBossMusic();
-		
+
 		self->health = 1;
 	}
 }

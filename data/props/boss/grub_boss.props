@@ -6,3 +6,4 @@ HEALTH 600
 ACTIVE FALSE
 DAMAGE 1
 FLAGS UNBLOCKABLE
+SFX_FILE data/sfx/boss/grub_boss.dat

@@ -1,7 +1,10 @@
-IF Raft_Point HEALTH 1
-HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 3
-END
 IF Raft_Point HEALTH 0
+REMOVE "Chopped Log" 6 6 Raft_Point 2 8
+END
+IF Raft_Point HEALTH 1
+REMOVE "Chopped Log" 6 6 Raft_Point 2 3
+END
+IF Raft_Point HEALTH 8
 TALK Edgar To get to the Forbidden Swamp I'll need to build a raft.
 TALK Edgar I can build the raft if I chop down enough trees from the forest
 ADD OBJECTIVE "Collect 6 Chopped Logs" " "

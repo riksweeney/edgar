@@ -77,7 +77,7 @@ void freeMusic()
 
 void playMusic()
 {
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
 	
 	if (game.music == NULL)
 	{
@@ -104,7 +104,7 @@ void fadeInMusic(int time)
 
 void setMusicVolume()
 {
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
 }
 
 void pauseMusic()
@@ -132,7 +132,7 @@ void playBossMusic()
 	
 	stopMusic();
 
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
 	
 	Mix_PlayMusic(game.bossMusic, -1);
 }

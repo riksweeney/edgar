@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/rock.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 
@@ -96,8 +97,8 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		setCustomAction(self, &invulnerableNoFlash, 20, 0);
-		
-		printf("Dink from %s\n", other->name);
+
+		playSound("sound/common/dink.ogg", -1, self->x, self->y, 0);
 	}
 }
 
@@ -126,4 +127,6 @@ static void die()
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);
+
+	playSound("sound/common/crumble.ogg", -1, self->x, self->y, 0);
 }

@@ -36,6 +36,7 @@ static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
 static void showSaveDialog(void);
+static void doNewGame(void);
 
 void drawMainMenu()
 {
@@ -91,7 +92,7 @@ static void doMenu()
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
 	}
-	
+
 	else if (input.left == TRUE || menuInput.left == TRUE)
 	{
 		w = menu.widgets[menu.index];
@@ -104,7 +105,7 @@ static void doMenu()
 		menuInput.left = FALSE;
 		input.left = FALSE;
 	}
-	
+
 	else if (input.right == TRUE || menuInput.right == TRUE)
 	{
 		w = menu.widgets[menu.index];
@@ -195,7 +196,7 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &doNewGame, x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
@@ -288,7 +289,7 @@ Menu *initMainMenu()
 	{
 		loadMenuLayout();
 	}
-	
+
 	menu.returnAction = NULL;
 
 	return &menu;
@@ -303,7 +304,15 @@ static void showOptionsMenu()
 
 static void showSaveDialog()
 {
-	loadGame(0);
+	if (loadGame(0) == TRUE)
+	{
+		pauseGame();
+	}
+}
+
+static void doNewGame()
+{
+	newGame();
 	
 	pauseGame();
 }

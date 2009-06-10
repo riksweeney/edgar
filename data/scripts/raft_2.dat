@@ -1,7 +1,10 @@
-IF Raft_Point HEALTH 1
-HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 3
+IF Raft_Point HEALTH 9
+REMOVE "Chopped Log" 6 6 Raft_Point 2 8
 END
-IF Raft_Point HEALTH 0
+IF Raft_Point HEALTH 1
+REMOVE "Chopped Log" 6 6 Raft_Point 2 3
+END
+IF Raft_Point HEALTH 8
 TALK Edgar Aw, not again!
 ADD OBJECTIVE "Collect 6 Chopped Logs" " "
 ADD TRIGGER "Raft Chopped Log" 6 UPDATE_OBJECTIVE "Collect 6 Chopped Logs"
@@ -13,5 +16,6 @@ SET Raft_Point HEALTH 1
 END
 IF Raft_Point HEALTH 2
 TALK Edgar This had better be the last time I have to do this...
+ADD ENTITY ITEM misc/raft "Raft" 8384 1280
 KILL Raft_Point
 END

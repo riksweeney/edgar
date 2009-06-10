@@ -128,7 +128,12 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		loadGame(0);
+		if (loadGame(0) == FALSE)
+		{
+			printf("No saved game in slot 0\n");
+
+			exit(1);
+		}
 	}
 
 	/* Initialise the game variables */
@@ -149,49 +154,36 @@ int main(int argc, char *argv[])
 	{
 		getInput(game.gameType);
 
-		/* Do the game */
-
-		if (game.paused == FALSE)
+		switch (game.status)
 		{
-			freeCollisionGrid();
+			case IN_GAME:
+				freeCollisionGrid();
 
-			doGame();
+				doGame();
 
-			/* Do the player, provided they still have enough lives left */
+				doPlayer();
 
-			doPlayer();
+				doInventory();
 
-			/* Do the inventory */
+				doMap();
 
-			doInventory();
+				doEntities();
 
-			/* Do the map */
+				doDecorations();
 
-			doMap();
+				doCollisions();
 
-			/* Do the Entities */
+				doHud();
+			break;
 
-			doEntities();
+			case IN_MENU:
+				doMenu();
+			break;
 
-			/* Do decorations */
-
-			doDecorations();
-
-			/* Do collisions */
-
-			doCollisions();
-
-			/* Do the HUD */
-
-			doHud();
+			default:
+				doMenu();
+			break;
 		}
-
-		else
-		{
-			doMenu();
-		}
-
-		/* Draw the map */
 
 		draw();
 

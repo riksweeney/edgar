@@ -47,7 +47,7 @@ void getInput(int gameType)
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
 
-				if (key == SDLK_ESCAPE)
+				if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}
@@ -138,19 +138,14 @@ void getInput(int gameType)
 					input.grabbing = TRUE;
 				}
 
-				else if (key == FULL_SCREEN_KEY && game.gameType != RECORDING)
+				else if (key == FULLSCREEN_KEY && game.gameType != RECORDING)
 				{
 					toggleFullScreen();
 				}
 
-				else if (key == SCREEN_SHOT_KEY && game.gameType != RECORDING)
+				else if (key == SCREENSHOT_KEY && game.gameType != RECORDING)
 				{
 					takeSingleScreenshot();
-				}
-
-				else if (key == control.button[CONTROL_PAUSE])
-				{
-					pauseGame();
 				}
 
 				else if (key == SDLK_UP)
@@ -388,11 +383,6 @@ void getInput(int gameType)
 					input.interact = TRUE;
 					input.grabbing = TRUE;
 				}
-
-				else if (key == control.button[CONTROL_PAUSE])
-				{
-					pauseGame();
-				}
 			break;
 
 			case SDL_JOYBUTTONUP:
@@ -622,7 +612,7 @@ int getSingleInput()
 		}
 	}
 
-	return key == SDLK_ESCAPE ? -1 : key;
+	return (key == SDLK_ESCAPE || key == SCREENSHOT_KEY || key == FULLSCREEN_KEY) ? -1 : key;
 }
 
 void writeControlsToFile(FILE *fp)

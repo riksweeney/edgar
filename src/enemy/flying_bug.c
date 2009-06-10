@@ -54,7 +54,6 @@ Entity *addFlyingBug(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &entityDie;
-	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeTarget;
 
@@ -68,9 +67,9 @@ Entity *addFlyingBug(int x, int y, char *name)
 static void init()
 {
 	self->thinkTime = 0;
-	
+
 	self->action = &wait;
-	
+
 	self->action();
 }
 
@@ -105,7 +104,7 @@ static void changeRandomTarget()
 static void moveToTarget()
 {
 	float x, y;
-	
+
 	if (self->dirX == 0 || self->dirY == 0)
 	{
 		changeRandomTarget();

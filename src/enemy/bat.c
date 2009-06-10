@@ -71,7 +71,7 @@ static void die()
 
 static void pain()
 {
-	playSound("sound/enemy/bat/squeak.wav", -1, self->x, self->y);
+	playSound("sound/enemy/bat/squeak.ogg", -1, self->x, self->y, 0);
 }
 
 static void fly()

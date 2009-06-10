@@ -131,7 +131,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 void dropRandomItem(int x, int y)
 {
-	if (prand() % 4 == 0)
+	if (prand() % 3 == 0)
 	{
 		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 	}
