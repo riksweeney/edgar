@@ -123,8 +123,6 @@ Mix_Music *loadMusicFromPak(char *name)
 
 	music = Mix_LoadMUS_RW(rw);
 
-	SDL_FreeRW(rw);
-
 	return music;
 }
 
