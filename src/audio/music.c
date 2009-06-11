@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "music.h"
 #include "../map.h"
+#include "../system/pak.h"
 
 extern Game game;
 
@@ -28,13 +29,9 @@ static void playGameOverMusic(void);
 
 void loadMusic(char *name)
 {
-	char path[MAX_PATH_LENGTH];
-
-	snprintf(path, sizeof(path), "%s", name);
-
 	freeMusic();
 
-	game.music = Mix_LoadMUS(path);
+	game.music = loadMusicFromPak(name);
 
 	if (game.music == NULL)
 	{
