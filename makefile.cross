@@ -1,7 +1,7 @@
 VERSION = 0.1
 RELEASE = 1
 DEV = 0
-PAK_FILE = data.pak
+PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
 
