@@ -77,9 +77,9 @@ void loadMap(char *name, int loadEntityResources)
 
 		if (strcmpignorecase(itemName, "NAME") == 0)
 		{
-			token = strtok(line, "\0");
-			
-			STRNCPY(map.mapName, token, sizeof(map.mapName));
+			sscanf(line, "%*s %[^$]s\n", itemName);
+
+			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
 		}
 
 		else if (strcmpignorecase(itemName, "TILESET") == 0)

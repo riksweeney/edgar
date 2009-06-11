@@ -1,26 +1,26 @@
-# Blob Wars : Metal Blob Solid script
+# The Legend of Edgar script
 
-Name "Blob Wars : Metal Blob Solid"
-OutFile "blobwars-1.11-1.installer.exe"
-InstallDir "$PROGRAMFILES\Parallel Realities\BlobWars"
+Name "The Legend of Edgar"
+OutFile "edgar-0.1-1.installer.exe"
+InstallDir "$PROGRAMFILES\Parallel Realities\Edgar"
 Page Directory
 Page InstFiles
 
 Section "Main"
   SetOutPath $INSTDIR
-  File blobwars.exe
-  File blobwars.pak
-  File blobwars.ico
+  File edgar.exe
+  File data.pak
+  File edgar.ico
   File *.dll
   File /r locale
   File /r doc
 SectionEnd
 
 Section "Shortcuts"
-	CreateDirectory "$SMPROGRAMS\Parallel Realities\BlobWars"
-	CreateShortCut "$SMPROGRAMS\Parallel Realities\BlobWars\BlobWars.lnk" "$INSTDIR\blobwars.exe" "" $INSTDIR\blobwars.ico 0 "" ""
-	CreateShortCut "$SMPROGRAMS\Parallel Realities\BlobWars\Uninstall.lnk" "$INSTDIR\uninstaller.exe"
-	CreateShortCut "$DESKTOP\BlobWars.lnk" "$INSTDIR\blobwars.exe" "" "$INSTDIR\blobwars.ico" 0 "" ""
+	CreateDirectory "$SMPROGRAMS\Parallel Realities\Edgar"
+	CreateShortCut "$SMPROGRAMS\Parallel Realities\Edgar\Edgar.lnk" "$INSTDIR\edgar.exe" "" $INSTDIR\edgar.ico 0 "" ""
+	CreateShortCut "$SMPROGRAMS\Parallel Realities\Edgar\Uninstall.lnk" "$INSTDIR\uninstaller.exe"
+	CreateShortCut "$DESKTOP\Edgar.lnk" "$INSTDIR\edgar.exe" "" "$INSTDIR\edgar.ico" 0 "" ""
 SectionEnd
 
 Section "CreateUninstaller"
@@ -28,8 +28,8 @@ Section "CreateUninstaller"
 SectionEnd
 
 Section "Uninstall"
-  Delete "$SMPROGRAMS\Parallel Realities\BlobWars\*.*"
-  Delete "$SMPROGRAMS\Parallel Realities\BlobWars"
-  Delete "$DESKTOP\BlobWars.lnk"
+  Delete "$SMPROGRAMS\Parallel Realities\Edgar\*.*"
+  Delete "$SMPROGRAMS\Parallel Realities\Edgar"
+  Delete "$DESKTOP\Edgar.lnk"
   RMDir /r "$INSTDIR"
 SectionEnd

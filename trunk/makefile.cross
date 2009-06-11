@@ -5,17 +5,11 @@ PAK_FILE = data.pak
 DOCS = doc/*
 ICONS = icons/
 
-ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
-else
-PROG      = edgar
-ED_PROG   = mapeditor
-PAK_PROG  = pak
-endif
 
-CXX       = gcc
+CXX       = i586-mingw32msvc-gcc
 
 PREFIX = $(DESTDIR)/usr
 BIN_DIR = $(PREFIX)/games/
@@ -24,20 +18,11 @@ ICON_DIR = $(PREFIX)/share/icons/hicolor/
 DESKTOP_DIR = $(PREFIX)/share/applications/
 LOCALE_DIR = $(PREFIX)/share/locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
-
-ifeq ($(OS),Windows_NT)
 DATA_DIR =
-else
-DATA_DIR = $(PREFIX)/share/games/edgar/
-endif
 
 CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-ifeq ($(OS),Windows_NT)
 LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
-else
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
-endif
 
 PAK_OBJS   = pak_creator.o pak.o
 MAIN_OBJS  = draw.o main.o
@@ -53,10 +38,7 @@ CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o hea
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
 CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o sound_menu.o
-
-ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
-endif
 
 # top-level rule to create the program.
 .PHONY: all
@@ -90,49 +72,5 @@ clean:
 	
 buildpak:
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
-
-# install
-install:
-
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
-
-	mkdir -p $(BIN_DIR)
-	mkdir -p $(DATA_DIR)
-	mkdir -p $(DOC_DIR)
-	mkdir -p $(ICON_DIR)16x16/apps
-	mkdir -p $(ICON_DIR)32x32/apps
-	mkdir -p $(ICON_DIR)64x64/apps
-	mkdir -p $(DESKTOP_DIR)
-
-	install -o root -g games -m 755 $(PROG) $(BIN_DIR)$(PROG)
-	install -o root -g games -m 644 $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
-	install -o root -g games -m 644 $(DOCS) $(DOC_DIR)
-	cp $(ICONS)$(PROG).png $(ICON_DIR)16x16/apps/
-	cp $(ICONS)$(PROG).png $(ICON_DIR)32x32/apps/
-	cp $(ICONS)$(PROG).png $(ICON_DIR)64x64/apps/
-	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
-
-	@for f in $(LOCALE_MO); do \
-		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
-		mkdir -p $(LOCALE_DIR)$$lang/LC_MESSAGES; \
-		echo "cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
-		cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
-	done
-
-uninstall:
-	$(RM) $(BIN_DIR)$(PROG)
-	$(RM) $(DATA_DIR)$(PAK_FILE)
-	$(RM) -r $(DOC_DIR)
-	$(RM) $(ICON_DIR)$(ICONS)$(PROG).png
-	$(RM) $(ICON_DIR)16x16/apps/$(PROG).png
-	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
-	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
-	$(RM) $(DESKTOP_DIR)$(PROG).desktop
-
-	@for f in $(LOCALE_MO); do \
-		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
-		echo "$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
-		$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo; \
-	done
 
 include makefile.dep

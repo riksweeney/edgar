@@ -44,6 +44,18 @@ void getInput(int gameType)
 				exit(0);
 			break;
 
+			case SDL_ACTIVEEVENT:
+				if ((event.active.state & SDL_APPINPUTFOCUS) && event.active.gain == FALSE)
+				{
+					focusLost();
+				}
+
+				else if ((event.active.state & SDL_APPACTIVE) && event.active.gain == FALSE)
+				{
+					focusLost();
+				}
+			break;
+
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
 

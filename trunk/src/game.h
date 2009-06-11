@@ -35,3 +35,4 @@ void readGameSettingsFromFile(char *);
 void resetGameSettings(void);
 void doGameOver(void);
 void drawGameOver(void);
+void focusLost(void);

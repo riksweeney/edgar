@@ -106,6 +106,19 @@ Mix_Music *loadMusicFromPak(char *name)
 	SDL_RWops *rw;
 	Mix_Music *music;
 
+	#if DEV == 1
+		FILE *fp;
+
+		fp = fopen(name, "rb");
+
+		if (fp == NULL)
+		{
+			return NULL;
+		}
+
+		fclose(fp);
+	#endif
+
 	rw = uncompressFileRW(name);
 
 	music = Mix_LoadMUS_RW(rw);
