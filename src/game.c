@@ -504,6 +504,14 @@ void pauseGame()
 	}
 }
 
+void focusLost()
+{
+	if (game.paused == FALSE)
+	{
+		pauseGame();
+	}
+}
+
 void showPauseDialog()
 {
 	drawImage(game.pauseSurface, 0, 0, FALSE);

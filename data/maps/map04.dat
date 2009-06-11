@@ -1,4 +1,4 @@
-NAME NAME NAME NAME NAME NAME The Forbidden Swamp
+NAME The Forbidden Swamp
 MUSIC music/forbidden_zone.mod
 TILESET swamp
 AMBIENCE swamp
@@ -613,7 +613,7 @@ DATA
 {
 TYPE PLAYER
 NAME PLAYER
-START_X 1106
+START_X 1114
 START_Y 1098
 }
 
