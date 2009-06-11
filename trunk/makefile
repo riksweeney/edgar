@@ -1,10 +1,37 @@
 VERSION = 0.1
 RELEASE = 1
 DEV = 0
-LOCALE_DIR = usr/share/locale/
 PAK_FILE = data.pak
+DOCS = doc/*
+ICONS = icons/
 
-CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(INSTALL_PATH)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+ifeq ($(OS),Windows_NT)
+PROG      = edgar.exe
+ED_PROG   = mapeditor.exe
+PAK_PROG  = pak.exe
+else
+PROG      = edgar
+ED_PROG   = mapeditor
+PAK_PROG  = pak
+endif
+
+CXX       = gcc
+
+PREFIX = $(DESTDIR)/usr
+BIN_DIR = $(PREFIX)/games/
+DOC_DIR = $(PREFIX)/share/doc/$(PROG)/
+ICON_DIR = $(PREFIX)/share/icons/hicolor/
+DESKTOP_DIR = $(PREFIX)/share/applications/
+LOCALE_DIR = $(PREFIX)/share/locale/
+LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
+
+ifeq ($(OS),Windows_NT)
+DATA_DIR =
+else
+DATA_DIR = $(PREFIX)/share/games/edgar/
+endif
+
+CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
 ifeq ($(OS),Windows_NT)
 LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
@@ -31,20 +58,9 @@ ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
 endif
 
-ifeq ($(OS),Windows_NT)
-PROG      = edgar.exe
-ED_PROG   = mapeditor.exe
-PAK_PROG  = pak.exe
-else
-PROG      = edgar
-ED_PROG   = mapeditor
-PAK_PROG  = pak
-endif
-
-CXX       = gcc
-
 # top-level rule to create the program.
-all: makefile.dep $(PROG) $(ED_PROG) $(PAK_PROG)
+.PHONY: all
+all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO)
 
 makefile.dep : src/*/*.c src/*.c
 	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
@@ -52,6 +68,9 @@ makefile.dep : src/*/*.c src/*.c
 # compiling other source files.
 %.o:
 	$(CXX) $(CFLAGS) -c -s $<
+	
+%.mo: %.po
+	msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
@@ -67,6 +86,53 @@ $(PAK_PROG): $(PAK_OBJS)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) *.o
+	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
+	
+buildpak:
+	./pak data gfx music sound font $(PAK_FILE)
+
+# install
+install:
+
+	./pak data gfx music sound font $(PAK_FILE)
+
+	mkdir -p $(BIN_DIR)
+	mkdir -p $(DATA_DIR)
+	mkdir -p $(DOC_DIR)
+	mkdir -p $(ICON_DIR)16x16/apps
+	mkdir -p $(ICON_DIR)32x32/apps
+	mkdir -p $(ICON_DIR)64x64/apps
+	mkdir -p $(DESKTOP_DIR)
+
+	install -o root -g games -m 755 $(PROG) $(BIN_DIR)$(PROG)
+	install -o root -g games -m 644 $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+	install -o root -g games -m 644 $(DOCS) $(DOC_DIR)
+	cp $(ICONS)$(PROG).png $(ICON_DIR)16x16/apps/
+	cp $(ICONS)$(PROG).png $(ICON_DIR)32x32/apps/
+	cp $(ICONS)$(PROG).png $(ICON_DIR)64x64/apps/
+	cp $(ICONS)$(PROG).desktop $(DESKTOP_DIR)
+
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		mkdir -p $(LOCALE_DIR)$$lang/LC_MESSAGES; \
+		echo "cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
+
+uninstall:
+	$(RM) $(BIN_DIR)$(PROG)
+	$(RM) $(DATA_DIR)$(PAK_FILE)
+	$(RM) -r $(DOC_DIR)
+	$(RM) $(ICON_DIR)$(ICONS)$(PROG).png
+	$(RM) $(ICON_DIR)16x16/apps/$(PROG).png
+	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
+	$(RM) $(ICON_DIR)64x64/apps/$(PROG).png
+	$(RM) $(DESKTOP_DIR)$(PROG).desktop
+
+	@for f in $(LOCALE_MO); do \
+		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
+		echo "$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo; \
+	done
 
 include makefile.dep
