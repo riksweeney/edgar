@@ -27,7 +27,6 @@ FileData *fileData;
 int countFiles(char *);
 void cleanup(void);
 void recurseDirectory(char *);
-void testPAK(void);
 
 int main(int argc, char *argv[])
 {
@@ -36,7 +35,7 @@ int main(int argc, char *argv[])
 	if (argc < 3)
 	{
 		printf("Usage   : pak <directory names> <outputname>\n");
-		printf("Example : pak data music gfx sound font locale data.pak\n");
+		printf("Example : pak data music gfx sound font data.pak\n");
 		exit(1);
 	}
 
@@ -88,8 +87,6 @@ int main(int argc, char *argv[])
 	fclose(pak);
 
 	printf("Compressing 100%%\nCompleted\n");
-	
-	testPAK();
 
 	return 0;
 }
@@ -286,23 +283,4 @@ void recurseDirectory(char *dirName)
 	}
 
 	closedir(dirp);
-}
-
-void testPAK()
-{
-	unsigned char *buffer;
-	
-	initPakFile();
-	
-	buffer = loadFileFromPak("data/gfx/common/level_exit.dat");
-	
-	printf("Got back '%s'\n", buffer);
-	
-	free(buffer);
-	
-	buffer = loadFileFromPak("data/gfx/common/action_point.dat");
-	
-	printf("Got back '%s'\n", buffer);
-	
-	free(buffer);
 }
