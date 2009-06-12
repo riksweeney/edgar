@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include <png.h>
 #include <ctype.h>
 #include <locale.h>
 #include <zlib.h>
