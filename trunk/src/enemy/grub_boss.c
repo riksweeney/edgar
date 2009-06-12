@@ -73,7 +73,7 @@ Entity *addGrubBoss(int x, int y, char *name)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->takeDamage = &takeDamage;
+	e->takeDamage = NULL;
 
 	e->type = ENEMY;
 
@@ -88,6 +88,8 @@ Entity *addGrubBoss(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
+	int i;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -96,6 +98,23 @@ static void takeDamage(Entity *other, int damage)
 		{
 			setCustomAction(self, &flashWhite, 6, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+			i = prand() % 3;
+
+			switch (i)
+			{
+				case 0:
+					playSound("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+				break;
+
+				case 1:
+					playSound("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+				break;
+
+				default:
+					playSound("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+				break;
+			}
 		}
 
 		else
@@ -112,6 +131,8 @@ static void takeDamage(Entity *other, int damage)
 			self->touch = NULL;
 
 			self->action = &die;
+
+			playSound("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 	}
 }
@@ -208,6 +229,7 @@ static void introPause()
 	if (self->thinkTime <= 0)
 	{
 		self->touch = &entityTouch;
+		self->takeDamage = &takeDamage;
 
 		attackFinished();
 	}
@@ -295,6 +317,8 @@ static void spit()
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
 	}
+	
+	playSound("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime--;
 
@@ -475,6 +499,8 @@ static void die()
 		fireTrigger(self->objectiveName);
 
 		throwGibs("boss/grub_boss_gib", 7);
+
+		playSound("sound/boss/grub_boss/explode.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 

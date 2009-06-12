@@ -673,11 +673,16 @@ void checkToMap(Entity *e)
 
 		if (previousEnvironment != LAVA && e->fallout != NULL)
 		{
-			playSound("sound/common/lava.ogg", -1, self->x, self->y, 0);
+			/* Fire based entities won't die */
 
-			e->flags &= ~HELPLESS;
+			if (e->element != FIRE)
+			{
+				playSound("sound/common/lava.ogg", -1, self->x, self->y, 0);
 
-			e->fallout();
+				e->flags &= ~(HELPLESS|INVULNERABLE);
+
+				e->fallout();
+			}
 		}
 	}
 
@@ -699,7 +704,7 @@ void checkToMap(Entity *e)
 			{
 				playSound("sound/common/splash.ogg", -1, self->x, self->y, 0);
 
-				e->flags &= ~HELPLESS;
+				e->flags &= ~(HELPLESS|INVULNERABLE);
 
 				e->fallout();
 			}

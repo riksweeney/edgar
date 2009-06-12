@@ -9,16 +9,17 @@ Page InstFiles
 Section "Main"
   SetOutPath $INSTDIR
   File edgar.exe
-  File data.pak
+  File edgar.pak
   File edgar.ico
   File *.dll
-  File /r locale
+  #File /r locale
   File /r doc
 SectionEnd
 
 Section "Shortcuts"
 	CreateDirectory "$SMPROGRAMS\Parallel Realities\Edgar"
 	CreateShortCut "$SMPROGRAMS\Parallel Realities\Edgar\Edgar.lnk" "$INSTDIR\edgar.exe" "" $INSTDIR\edgar.ico 0 "" ""
+	CreateShortCut "$SMPROGRAMS\Parallel Realities\Edgar\Help.lnk" "$INSTDIR\doc\index.html" "" "" 0 "" ""
 	CreateShortCut "$SMPROGRAMS\Parallel Realities\Edgar\Uninstall.lnk" "$INSTDIR\uninstaller.exe"
 	CreateShortCut "$DESKTOP\Edgar.lnk" "$INSTDIR\edgar.exe" "" "$INSTDIR\edgar.ico" 0 "" ""
 SectionEnd

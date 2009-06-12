@@ -4,3 +4,4 @@ TYPE ENEMY
 DAMAGE 1
 HEALTH 60
 SPEED 2
+SFX_FILE data/sfx/enemy/red_grub.dat

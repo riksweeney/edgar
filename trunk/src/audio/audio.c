@@ -230,6 +230,8 @@ int initAudio()
 		Mix_AllocateChannels(16);
 
 		Mix_ReserveChannels(2);
+
+		Mix_Volume(-1, MIX_MAX_VOLUME);
 	}
 
 	return game.audio;
