@@ -101,6 +101,11 @@ static void attack()
 
 static void grab(Entity *other)
 {
+	if (self->health <= 0)
+	{
+		return;
+	}
+
 	if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
@@ -151,11 +156,6 @@ static void grab(Entity *other)
 
 static void stickToPlayer()
 {
-	if (self->health <= 0)
-	{
-		return;
-	}
-	
 	setCustomAction(&player, &slowDown, 3, 0);
 
 	if (game.showHints == TRUE)
@@ -198,11 +198,6 @@ static void stickToPlayerAndDrain()
 {
 	Entity *temp;
 	
-	if (self->health <= 0)
-	{
-		return;
-	}
-
 	setCustomAction(&player, &slowDown, 3, 0);
 
 	if (game.showHints == TRUE)
