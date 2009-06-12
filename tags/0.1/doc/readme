@@ -1,0 +1,35 @@
+Blob Wars : Metal Blob Solid
+
+Version 1.04
+
+LICENSE
+
+	GNU GPL - Please read LICENSE for more information
+
+
+INSTALLATION
+
+	Untar the archive and then run,
+	
+	make
+	
+	After make has [successfully] completed run,
+	
+	make install
+	
+	You will need to be root in order to perform the above step. After that has [again, sucessfully]
+	completed type,
+	
+	blobwars
+	
+	to run the game.
+	
+	
+PLAYING
+
+	Please see the game manual (installed in /usr/share/doc/blobwars/index.html) for instructions.
+
+
+Stephen Sweeney
+stephen.sweeney@parallelrealities.co.uk
+http://www.parallelrealities.co.uk/blobWars.php

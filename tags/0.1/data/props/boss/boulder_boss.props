@@ -1,0 +1,8 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/boulder_boss.dat
+ANIM_FILE data/anim/boss/boulder_boss.dat
+SPEED 2
+HEALTH 0
+SFX_FILE data/sfx/boss/boulder_boss.dat
+FLAGS UNBLOCKABLE|NO_DRAW|FLY|ATTACKING
+DAMAGE 500
