@@ -10,45 +10,28 @@ DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.win32.zip"
 
 #############################
 
-echo "Cleaning..."
+echo "Creating Windows Distribution for $APPNAME (Version $APPVERSION, Release $APPRELEASE)"
+
+PATH=/opt/SDL-1.2.13/bin:$PATH
 
 mkdir -p dist
-rm -rf dist/*
-mkdir -p dist/$APPDIR
 
-echo "Copying Files..."
+cd dist
 
-cp makefile dist/$APPDIR
-cp install.nsi dist/$APPDIR
-cp icons/edgar.ico dist/$APPDIR
-cp -r src dist/$APPDIR
-cp -r data dist/$APPDIR
-cp -r gfx dist/$APPDIR
-cp -r music dist/$APPDIR
-cp -r sound dist/$APPDIR
-cp -r doc dist/$APPDIR
-cp -r icons dist/$APPDIR
-cp -r locale dist/$APPDIR
+echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-cd dist/$APPDIR
+#svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
+svn export http://reddwarf/svn/Edgar/trunk $APPDIR
 
-make pak
-make buildpak
-rm pak
-rm *.o
-make
+cd $APPDIR
 
-cp ~/Windows/runtime/* .
+make -f makefile.cross
 
-rm *.o
-rm -rf data
-rm -rf gfx
-rm -rf icons
-rm -rf music
-rm -rf sound
-rm -rf src
-rm -rf makefile
-rm -rf makefile.windows
+make -f makefile.cross buildpak
+
+cp ~/.windows/runtime/* .
+
+cp icons/edgar.ico .
 
 makensis install.nsi
 

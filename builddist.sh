@@ -1,6 +1,14 @@
+if [ $# -ne 1 ]
+	then
+	echo ""
+	echo "Usage $0 <version>"
+	echo ""
+	exit 1
+fi
+
 ###### VARIABLES ############
 
-APPVERSION="0.1"
+APPVERSION="$1"
 APPRELEASE="1"
 
 ARCH="i586"
@@ -23,6 +31,7 @@ echo "Creating Distribution for $APPNAME (Version $APPVERSION, Release $APPRELEA
 rm -rf dist/*
 
 mkdir -p dist
+
 cd dist
 
 echo "Cleaning..."
@@ -39,10 +48,8 @@ echo "Removing unwanted data files..."
 rm -rf $APPDIR/dev
 rm $APPDIR/normalize.sh
 rm $APPDIR/disclaimer.txt
-rm $APPDIR/*.spec
+rm $APPDIR/*.spec*
 rm $APPDIR/*.sh
-rm $APPDIR/*.nsi
-rm $APPDIR/*.txt
 rm $APPDIR/*.nsi
 
 for i in `find . -name *.wav`;do
@@ -77,24 +84,35 @@ done
 tar zhcf $DISTNAME $APPDIR
 
 echo "Removing Copied Data..."
+
 rm -rf $APPDIR
 
 echo "Preparing to Build..."
+
 cp $DISTNAME $RPMROOT/SOURCES
 
 echo "Building RPMs..."
+
 cd ..
+
 rpmbuild -bb $SPECNAME --target $ARCH --define "name $APPNAME" --define "version $APPVERSION" --define "release $APPRELEASE"
 
 echo "Retrieving RPMs"
+
 mv $RPMROOT/RPMS/$ARCH/*.* dist/
 
 echo "Running Alien..."
+
 cd dist
+
 alien -k *.rpm
 
 echo "Renaming..."
 
 mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
+
+cd ..
+
+./buildwindows
 
 echo "All Done..."

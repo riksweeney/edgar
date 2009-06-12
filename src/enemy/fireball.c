@@ -31,7 +31,6 @@ extern Entity *self;
 static void jump(void);
 static void draw(void);
 static void move(void);
-static void fallout(void);
 
 Entity *addJumpingFireball(int x, int y, char *name)
 {
@@ -53,7 +52,6 @@ Entity *addJumpingFireball(int x, int y, char *name)
 
 	e->draw = &draw;
 	e->touch = &entityTouch;
-	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -82,7 +80,6 @@ Entity *addFireball(int x, int y, char *name)
 
 	e->draw = &draw;
 	e->touch = &entityTouch;
-	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -109,6 +106,8 @@ static void jump()
 
 		if (self->thinkTime <= 0)
 		{
+			playSound("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+
 			self->dirY = -self->speed;
 
 			self->thinkTime = self->maxThinkTime;
@@ -130,9 +129,4 @@ static void jump()
 static void draw()
 {
 	drawLoopingAnimationToMap();
-}
-
-static void fallout()
-{
-
 }

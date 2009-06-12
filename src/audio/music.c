@@ -49,7 +49,7 @@ void freeAllMusic()
 
 		game.music = NULL;
 	}
-	
+
 	if (game.bossMusic != NULL)
 	{
 		stopMusic();
@@ -72,15 +72,27 @@ void freeMusic()
 	}
 }
 
+void freeBossMusic()
+{
+	if (game.bossMusic != NULL)
+	{
+		stopMusic();
+
+		Mix_FreeMusic(game.bossMusic);
+
+		game.bossMusic = NULL;
+	}
+}
+
 void playMusic()
 {
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
+
 	if (game.music == NULL)
 	{
 		loadMusic(getMapMusic());
 	}
-	
+
 	Mix_PlayMusic(game.music, -1);
 }
 
@@ -121,30 +133,26 @@ void pauseMusic()
 }
 
 void playBossMusic()
-{	
+{
 	if (game.bossMusic == NULL)
 	{
 		loadBossMusic("music/terrortech_inc_.xm");
 	}
-	
+
 	stopMusic();
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
+
 	Mix_PlayMusic(game.bossMusic, -1);
 }
 
 void loadBossMusic(char *name)
 {
-	char path[MAX_PATH_LENGTH];
+	freeBossMusic();
 
-	snprintf(path, sizeof(path), "%s", name);
+	game.bossMusic = Mix_LoadMUS(name);
 
-	freeMusic();
-
-	game.bossMusic = Mix_LoadMUS(path);
-
-	if (game.music == NULL)
+	if (game.bossMusic == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}
@@ -158,20 +166,20 @@ void resumeMusic()
 void fadeBossMusic()
 {
 	fadeOutMusic(4000);
-	
+
 	Mix_HookMusicFinished(resumeMusic);
 }
 
 void loadGameOverMusic()
 {
 	fadeOutMusic(2000);
-	
+
 	Mix_HookMusicFinished(playGameOverMusic);
 }
 
 static void playGameOverMusic()
 {
 	loadMusic("music/oxide_-_sadness.xm");
-	
+
 	playMusic();
 }

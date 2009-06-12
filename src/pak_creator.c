@@ -150,7 +150,7 @@ void recurseDirectory(char *dirName)
 	{
 		printf("%s: Directory does not exist or is not accessable\n", dirName);
 
-		return;
+		exit(1);
 	}
 
 	while ((dfile = readdir(dirp)))
@@ -231,29 +231,29 @@ void recurseDirectory(char *dirName)
 			gzclose(fp);
 
 			compressionResult = compress2(output, &compressedSize, buffer, fileSize, 9);
-			
+
 			if (compressionResult != Z_OK)
 			{
 				printf("Compression of %s failed\n", filename);
-				
+
 				if (compressionResult == Z_BUF_ERROR)
 				{
 					printf("Buffer too small\n");
-					
+
 					exit(1);
 				}
-				
+
 				if (compressionResult == Z_MEM_ERROR)
 				{
 					printf("Out of RAM\n");
-					
+
 					exit(1);
 				}
-				
+
 				if (compressionResult == Z_STREAM_ERROR)
 				{
 					printf("Stream error\n");
-					
+
 					exit(1);
 				}
 			}

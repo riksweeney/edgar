@@ -148,6 +148,8 @@ static void spinAttack()
 		self->action = &spinAttackEnd;
 
 		self->thinkTime = 0;
+
+		playSound("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 	}
 
 	else if (self->thinkTime <= 0)
