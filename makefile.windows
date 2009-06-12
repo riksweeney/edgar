@@ -10,10 +10,11 @@ ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
 
 CXX       = i586-mingw32msvc-gcc
+SDLC      = /opt/Windows/bin/sdl-config
 
-CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = `$(SDLC) --cflags` -Wall -pg -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
+LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -pg -lSDLmain
 
 PAK_OBJS   = pak_creator.o pak.o
 MAIN_OBJS  = draw.o main.o
@@ -47,21 +48,21 @@ makefile.dep : src/*/*.c src/*.c
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
+	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
+	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+	$(CXX) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
 	
 buildpak:
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	wine $(PAK_PROG) data gfx music sound font $(PAK_FILE)
 
 include makefile.dep
