@@ -12,7 +12,7 @@ Section "Main"
   File edgar.pak
   File edgar.ico
   File *.dll
-  #File /r locale
+  File /r locale
   File /r doc
 SectionEnd
 
