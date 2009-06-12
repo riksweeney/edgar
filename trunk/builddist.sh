@@ -39,18 +39,28 @@ echo "Removing unwanted data files..."
 rm -rf $APPDIR/dev
 rm $APPDIR/normalize.sh
 rm $APPDIR/disclaimer.txt
+rm $APPDIR/*.spec
+rm $APPDIR/*.sh
+rm $APPDIR/*.nsi
+rm $APPDIR/*.txt
+rm $APPDIR/*.nsi
+
 for i in `find . -name *.wav`;do
 	rm $i
 done
+
 for i in `find . -name *.xcf`;do
 	rm $i
 done
+
 for i in `find . -name *.gif`;do
 	rm $i
 done
+
 for i in `find . -name *.blend*`;do
 	rm $i
 done
+
 for i in `find . -name rock_2_4w.jpg`;do
 	rm $i
 done
