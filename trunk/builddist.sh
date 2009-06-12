@@ -40,8 +40,7 @@ echo "Syncing ZIP data file..."
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-#svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
-svn export http://reddwarf/svn/Edgar/trunk $APPDIR
+svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 
@@ -51,6 +50,7 @@ rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec
 rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
+rm $APPDIR/makefile.windows
 
 for i in `find . -name *.wav`;do
 	rm $i
@@ -113,8 +113,6 @@ mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
 
 cd ..
 
-cd ..
-
-./buildwindows
+./buildwindows.sh $1
 
 echo "All Done..."
