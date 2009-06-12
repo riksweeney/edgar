@@ -48,7 +48,7 @@ echo "Removing unwanted data files..."
 rm -rf $APPDIR/dev
 rm $APPDIR/normalize.sh
 rm $APPDIR/disclaimer.txt
-rm $APPDIR/*.spec*
+rm $APPDIR/*.spec
 rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
 
@@ -110,6 +110,8 @@ alien -k *.rpm
 echo "Renaming..."
 
 mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
+
+cd ..
 
 cd ..
 
