@@ -99,7 +99,7 @@ void draw()
 				snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 			}
 
-			/*drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);*/
+			drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);
 		}
 
 		takeScreenshot();

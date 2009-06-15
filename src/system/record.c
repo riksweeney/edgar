@@ -35,7 +35,7 @@ static char screenshotPath[MAX_PATH_LENGTH];
 
 extern Game game;
 
-void setReplayData(char *name)
+void setReplayData(char *name, int loadedGame)
 {
 	char mapFile[6];
 	double version;
@@ -72,10 +72,13 @@ void setReplayData(char *name)
 	fread(mapFile, 5, 1, replayBuffer);
 
 	mapFile[5] = '\0';
-
-	printf("Loading map %s\n", mapFile);
-
-	loadMap(mapFile, TRUE);
+	
+	if (loadedGame == FALSE)
+	{
+		printf("Loading map %s\n", mapFile);
+	
+		loadMap(mapFile, TRUE);
+	}
 }
 
 void setRecordData(char *name)

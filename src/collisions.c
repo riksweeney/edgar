@@ -213,6 +213,88 @@ void doCollisions()
 	}
 }
 
+void checkEntityToEntity(Entity *e)
+{
+	int i, j, x, y;
+	Entity *e1, *e2, *temp;
+	EntityList *list1, *list2;
+
+	for (i=0;i<GRID_HEIGHT;i++)
+	{
+		for (j=0;j<GRID_WIDTH;j++)
+		{
+			for (list1=grid[i][j].listHead.next;list1!=NULL;list1=list1->next)
+			{
+				e1 = list1->entity;
+
+				if (e1 != e)
+				{
+					continue;
+				}
+
+				if (e1->inUse == TRUE)
+				{
+					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
+					{
+						e2 = list2->entity;
+
+						if (e1 != e2 && e2->inUse == TRUE && e2->touch != NULL)
+						{
+							if (e1->type == ENEMY && e2->type == ENEMY)
+							{
+								continue;
+							}
+
+							if (e1->type == PROJECTILE)
+							{
+								if (e2->type == PROJECTILE || (e1->parent != NULL && e1->parent->type == ENEMY && e2->type == ENEMY))
+								{
+									continue;
+								}
+							}
+
+							if ((e1 == &player && e2 == &playerWeapon) || (e1 == &playerWeapon && e2 == &player))
+							{
+								continue;
+							}
+
+							x = e1->x + e1->box.x;
+							y = e1->y + e1->box.y;
+
+							if (e1 == &playerWeapon)
+							{
+								if (e1->face == LEFT)
+								{
+									x += e1->parent->w - e1->w - e1->offsetX;
+								}
+
+								else
+								{
+									x += e1->offsetX;
+								}
+
+
+								y += e1->offsetY;
+							}
+
+							if (collision(x, y, e1->box.w, e1->box.h, e2->x + e2->box.x, e2->y + e2->box.y, e2->box.w, e2->box.h) == TRUE)
+							{
+								temp = self;
+
+								self = e2;
+
+								self->touch(e1);
+
+								self = temp;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 Entity *isSpaceEmpty(Entity *e)
 {
 	int i;
@@ -236,7 +318,7 @@ Entity *isSpaceEmpty(Entity *e)
 void checkToMap(Entity *e)
 {
 	int i, x1, x2, y1, y2, previousEnvironment;
-	int topLeft, topRight, bottomLeft, bottomRight, previousY2;
+	int topLeft, topRight, bottomLeft, bottomRight, previousY2, previous;
 
 	/* Remove the entity from the ground */
 
@@ -271,6 +353,10 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move right */
 
+				previous = (e->x + e->w - 1) / TILE_SIZE;
+
+				previous = mapTileAt(previous, y2);
+
 				if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
 				{
 					if (i == e->h)
@@ -299,6 +385,11 @@ void checkToMap(Entity *e)
 							return;
 						}
 					}
+				}
+
+				else if ((previous >= SLOPE_UP_START && previous <= SLOPE_UP_END) &&
+					!(bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END))
+				{
 				}
 
 				else if (bottomRight >= SLOPE_DOWN_START && bottomRight <= SLOPE_DOWN_END)
@@ -340,6 +431,10 @@ void checkToMap(Entity *e)
 			{
 				/* Trying to move left */
 
+				previous = (e->x) / TILE_SIZE;
+
+				previous = mapTileAt(previous, y2);
+
 				if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
 					if (i == e->h)
@@ -361,6 +456,11 @@ void checkToMap(Entity *e)
 							}
 						}
 					}
+				}
+
+				else if ((previous >= SLOPE_DOWN_START && previous <= SLOPE_DOWN_END) &&
+					!(bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END))
+				{
 				}
 
 				else if (bottomLeft >= SLOPE_UP_START && bottomLeft <= SLOPE_UP_END)
@@ -714,18 +814,83 @@ void checkToMap(Entity *e)
 
 int isAtEdge(Entity *e)
 {
+	int i, tile;
 	int x = e->x + (e->dirX > 0 ? e->w : 0);
 	int y = e->y + e->h - 1;
-	int i;
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
 
+	y++;
+
+	tile = mapTileAt(x, y);
+
 	/* Return immediately if the tile isn't blank */
 
-	if (!(e->flags & ON_GROUND) || (mapTileAt(x, y + 1) != BLANK_TILE && mapTileAt(x, y + 1) < BACKGROUND_TILE_START))
+	if (!(e->flags & ON_GROUND) || (tile != BLANK_TILE && tile < BACKGROUND_TILE_START))
 	{
 		return FALSE;
+	}
+
+	if (e->w > TILE_SIZE)
+	{
+		if (e->dirX > 0)
+		{
+			for (i=0;;)
+			{
+				x = e->x + i;
+
+				x /= TILE_SIZE;
+
+				tile = mapTileAt(x, y);
+
+				if (tile >= SLOPE_DOWN_START && tile <= SLOPE_DOWN_END)
+				{
+					return FALSE;
+				}
+
+				if (i == e->w)
+				{
+					break;
+				}
+
+				i += TILE_SIZE;
+
+				if (i > e->w)
+				{
+					i = e->w;
+				}
+			}
+		}
+
+		else
+		{
+			for (i=e->w;;)
+			{
+				x = e->x + i;
+
+				x /= TILE_SIZE;
+
+				tile = mapTileAt(x, y);
+
+				if (tile >= SLOPE_UP_START && tile <= SLOPE_UP_END)
+				{
+					return FALSE;
+				}
+
+				if (i == 0)
+				{
+					break;
+				}
+
+				i -= TILE_SIZE;
+
+				if (i < 0)
+				{
+					i = 0;
+				}
+			}
+		}
 	}
 
 	/* There might still be Entities that can be walked on */

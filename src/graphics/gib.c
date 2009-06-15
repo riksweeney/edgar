@@ -38,8 +38,8 @@ void throwGibs(char *name, int gibs)
 	{
 		e = addTemporaryItem(name, self->x, self->y, RIGHT, 0, 0);
 
-		e->x += (self->x - e->x) / 2;
-		e->y += (self->y - e->y) / 2;
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = -12 - (prand() % 4);
@@ -63,11 +63,11 @@ static void drawGib()
 			addBlood(self->x + self->w / 2, self->y + self->h / 2);
 		}
 	}
-	
+
 	else
 	{
 		self->frameSpeed = 0;
 	}
-	
+
 	drawLoopingAnimationToMap();
 }

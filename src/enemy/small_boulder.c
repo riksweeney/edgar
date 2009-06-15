@@ -81,6 +81,13 @@ static void roll()
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->frameSpeed = 1;
+
+		if (self->health != 1)
+		{
+			self->targetX = playSound("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+
+			self->health = 1;
+		}
 	}
 
 	checkToMap(self);
@@ -101,8 +108,8 @@ static void die()
 	{
 		e = addTemporaryItem("misc/small_boulder_piece", self->x, self->y, self->face, 0, 0);
 
-		e->x += (self->x - e->x) / 2;
-		e->y += (self->y - e->y) / 2;
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
@@ -110,6 +117,8 @@ static void die()
 		setEntityAnimation(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
+
+		stopSound(self->targetX);
 	}
 
 	self->inUse = FALSE;

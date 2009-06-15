@@ -210,244 +210,257 @@ void doPlayer()
 				}
 			}
 
-			if (!(playerWeapon.flags & ATTACKING))
+			if (input.left == 1)
 			{
-				if (input.left == 1)
+				if (player.flags & BLOCKING)
 				{
-					if (player.flags & BLOCKING)
-					{
-						playerWeapon.face = playerShield.face = self->face = LEFT;
-					}
+					playerWeapon.face = playerShield.face = self->face = LEFT;
+				}
 
-					else
+				else
+				{
+					if ((playerWeapon.flags & ATTACKING) && !(player.flags & ON_GROUND))
 					{
 						self->dirX -= self->speed;
-
+					}
+					
+					else if (!(playerWeapon.flags & ATTACKING))
+					{
+						self->dirX -= self->speed;
+						
 						/* Only pull the target */
-
+	
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
 							if (self->target->x > self->x)
 							{
 								self->target->dirX = -self->speed;
-
+	
 								self->target->frameSpeed = -1;
 							}
 						}
-
+	
 						else
 						{
 							playerWeapon.face = playerShield.face = self->face = LEFT;
 						}
-
+	
 						setEntityAnimation(&player, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
 					}
 				}
+			}
 
-				else if (input.right == 1)
+			else if (input.right == 1)
+			{
+				if (player.flags & BLOCKING)
 				{
-					if (player.flags & BLOCKING)
-					{
-						playerWeapon.face = playerShield.face = self->face = RIGHT;
-					}
+					playerWeapon.face = playerShield.face = self->face = RIGHT;
+				}
 
-					else
+				else
+				{
+					if ((playerWeapon.flags & ATTACKING) && !(player.flags & ON_GROUND))
 					{
 						self->dirX += self->speed;
-
+					}
+					
+					else if (!(playerWeapon.flags & ATTACKING))
+					{
+						self->dirX += self->speed;
+	
 						/* Only pull the target */
-
+	
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
 							if (self->target->x < self->x)
 							{
 								self->target->dirX = self->speed;
-
+	
 								self->target->frameSpeed = 1;
 							}
 						}
-
+	
 						else
 						{
 							playerWeapon.face = playerShield.face = self->face = RIGHT;
 						}
-
+	
 						setEntityAnimation(&player, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
 					}
 				}
+			}
 
-				else if (input.left == 0 && input.right == 0 && !(player.flags & BLOCKING))
+			else if (input.left == 0 && input.right == 0 && !(player.flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
+			{
+				setEntityAnimation(&player, STAND);
+				setEntityAnimation(&playerShield, STAND);
+				setEntityAnimation(&playerWeapon, STAND);
+
+				if ((self->flags & GRABBING) && self->target != NULL)
 				{
-					setEntityAnimation(&player, STAND);
-					setEntityAnimation(&playerShield, STAND);
-					setEntityAnimation(&playerWeapon, STAND);
+					self->target->dirX = 0;
 
-					if ((self->flags & GRABBING) && self->target != NULL)
-					{
-						self->target->dirX = 0;
-
-						self->target->frameSpeed = 0;
-					}
+					self->target->frameSpeed = 0;
 				}
+			}
 
-				if (input.up == 1)
+			if (input.up == 1)
+			{
+				if (self->flags & FLY)
 				{
-					if (self->flags & FLY)
-					{
-						self->dirY = -1;
-					}
-
-					else
-					{
-						if (self->standingOn != NULL)
-						{
-							if (self->standingOn->activate != NULL)
-							{
-								printf("Trying to activate %s\n", self->standingOn->objectiveName);
-
-								self = self->standingOn;
-
-								self->activate(1);
-
-								self = &player;
-							}
-
-							input.up = 0;
-						}
-					}
-				}
-
-				if (input.down == 1)
-				{
-					if (self->flags & FLY)
-					{
-						self->dirY = 1;
-					}
-
-					else
-					{
-						if (self->standingOn != NULL)
-						{
-							if (self->standingOn->activate != NULL)
-							{
-								printf("Trying to activate %s\n", self->standingOn->objectiveName);
-
-								self = self->standingOn;
-
-								self->activate(-1);
-
-								self = &player;
-
-								self->dirY = self->standingOn->speed;
-							}
-
-							input.down = 0;
-						}
-					}
-				}
-
-				if (input.attack == 1 && !(player.flags & BLOCKING) && !(player.flags & GRABBED))
-				{
-					if (playerWeapon.inUse == TRUE)
-					{
-						playerWeapon.flags |= ATTACKING;
-
-						setEntityAnimation(&player, ATTACK_1);
-						setEntityAnimation(&playerShield, ATTACK_1);
-						setEntityAnimation(&playerWeapon, ATTACK_1);
-
-						playSound("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-
-						playerWeapon.animationCallback = &attackFinish;
-					}
-
-					input.attack = 0;
-				}
-
-				if (input.interact == 1)
-				{
-					interactWithEntity(self->x, self->y, self->w, self->h);
-
-					input.interact = 0;
-				}
-
-				if (input.grabbing == 1 && !(player.flags & BLOCKING))
-				{
-					self->flags |= GRABBING;
+					self->dirY = -1;
 				}
 
 				else
 				{
-					self->flags &= ~GRABBING;
-
-					if (self->target != NULL)
+					if (self->standingOn != NULL)
 					{
-						self->target->flags &= ~HELPLESS;
+						if (self->standingOn->activate != NULL)
+						{
+							printf("Trying to activate %s\n", self->standingOn->objectiveName);
 
-						self->target->frameSpeed = 0;
+							self = self->standingOn;
 
-						self->target = NULL;
+							self->activate(1);
+
+							self = &player;
+						}
+
+						input.up = 0;
 					}
 				}
-
-				if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
-				{
-					player.flags |= BLOCKING;
-
-					setEntityAnimation(&player, BLOCK);
-					setEntityAnimation(&playerShield, BLOCK);
-
-					playerShield.thinkTime++;
-				}
-
-				else if ((input.block == 0 && (player.flags & BLOCKING)))
-				{
-					player.flags &= ~BLOCKING;
-
-					setEntityAnimation(&player, STAND);
-					setEntityAnimation(&playerWeapon, STAND);
-					setEntityAnimation(&playerShield, STAND);
-
-					playerShield.thinkTime = 0;
-				}
-
-				if (input.activate == 1)
-				{
-					useInventoryItem();
-
-					input.activate = 0;
-				}
-
-				if (input.next == 1 || input.previous == 1)
-				{
-					selectNextInventoryItem(input.next == 1 ? 1 : -1);
-
-					input.next = input.previous = 0;
-				}
-
-				if (input.jump == 1 && !(player.flags & BLOCKING))
-				{
-					if (self->flags & ON_GROUND)
-					{
-						self->dirY = -JUMP_HEIGHT;
-					}
-
-					input.jump = 0;
-				}
-				#if DEV == 1
-					if (input.fly == 1)
-					{
-						self->flags ^= FLY;
-
-						input.fly = 0;
-					}
-				#endif
 			}
-		}
+
+			if (input.down == 1)
+			{
+				if (self->flags & FLY)
+				{
+					self->dirY = 1;
+				}
+
+				else
+				{
+					if (self->standingOn != NULL)
+					{
+						if (self->standingOn->activate != NULL)
+						{
+							printf("Trying to activate %s\n", self->standingOn->objectiveName);
+
+							self = self->standingOn;
+
+							self->activate(-1);
+
+							self = &player;
+
+							self->dirY = self->standingOn->speed;
+						}
+
+						input.down = 0;
+					}
+				}
+			}
+
+			if (input.attack == 1 && !(player.flags & BLOCKING) && !(player.flags & GRABBED))
+			{
+				if (playerWeapon.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
+				{
+					playerWeapon.flags |= ATTACKING;
+
+					setEntityAnimation(&player, ATTACK_1);
+					setEntityAnimation(&playerShield, ATTACK_1);
+					setEntityAnimation(&playerWeapon, ATTACK_1);
+
+					playSound("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+					playerWeapon.animationCallback = &attackFinish;
+				}
+
+				input.attack = 0;
+			}
+
+			if (input.interact == 1)
+			{
+				interactWithEntity(self->x, self->y, self->w, self->h);
+
+				input.interact = 0;
+			}
+
+			if (input.grabbing == 1 && !(player.flags & BLOCKING))
+			{
+				self->flags |= GRABBING;
+			}
+
+			else
+			{
+				self->flags &= ~GRABBING;
+
+				if (self->target != NULL)
+				{
+					self->target->flags &= ~HELPLESS;
+
+					self->target->frameSpeed = 0;
+
+					self->target = NULL;
+				}
+			}
+
+			if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
+			{
+				player.flags |= BLOCKING;
+
+				setEntityAnimation(&player, BLOCK);
+				setEntityAnimation(&playerShield, BLOCK);
+
+				playerShield.thinkTime++;
+			}
+
+			else if ((input.block == 0 && (player.flags & BLOCKING)))
+			{
+				player.flags &= ~BLOCKING;
+
+				setEntityAnimation(&player, STAND);
+				setEntityAnimation(&playerWeapon, STAND);
+				setEntityAnimation(&playerShield, STAND);
+
+				playerShield.thinkTime = 0;
+			}
+
+			if (input.activate == 1)
+			{
+				useInventoryItem();
+
+				input.activate = 0;
+			}
+
+			if (input.next == 1 || input.previous == 1)
+			{
+				selectNextInventoryItem(input.next == 1 ? 1 : -1);
+
+				input.next = input.previous = 0;
+			}
+
+			if (input.jump == 1 && !(player.flags & BLOCKING))
+			{
+				if (self->flags & ON_GROUND)
+				{
+					self->dirY = -JUMP_HEIGHT;
+				}
+
+				input.jump = 0;
+			}
+			#if DEV == 1
+				if (input.fly == 1)
+				{
+					self->flags ^= FLY;
+
+					input.fly = 0;
+				}
+			#endif
+	}
 
 		else
 		{
@@ -1013,8 +1026,8 @@ static void gameOverTimeOut()
 void freePlayer()
 {
 	player.inUse = FALSE;
-	
+
 	playerWeapon.inUse = FALSE;
-	
+
 	playerShield.inUse = FALSE;
 }

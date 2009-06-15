@@ -143,40 +143,13 @@ static void initialise()
 
 	minX = getMapStartX();
 	minY = getMapStartY();
-
+	
 	if (self->active == TRUE)
 	{
-		fadeOutMusic(3000);
-
-		centerMapOnEntity(NULL);
-
-		if (minX < self->endX)
+		if (cameraAtMinimum())
 		{
-			minX++;
-		}
-
-		else if (minX > self->endX)
-		{
-			minX--;
-		}
-
-		if (minY < self->endY)
-		{
-			minY++;
-		}
-
-		else if (minY > self->endY)
-		{
-			minY--;
-		}
-
-		setMapStartX(minX);
-		setMapStartY(minY);
-
-		setCameraPosition(minX, minY);
-
-		if (minX == self->endX && minY == self->endY)
-		{
+			centerMapOnEntity(NULL);
+			
 			self->dirX = self->speed;
 
 			setEntityAnimation(self, ATTACK_2);
@@ -491,11 +464,6 @@ static void die()
 
 	if (self->thinkTime <= 0)
 	{
-		setMinMapX(0);
-		setMinMapX(0);
-
-		centerMapOnEntity(&player);
-
 		fireTrigger(self->objectiveName);
 
 		throwGibs("boss/grub_boss_gib", 7);

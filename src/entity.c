@@ -563,6 +563,52 @@ void pushEntity(Entity *other)
 		pushable = 0;
 	}
 
+	if (other->dirX == 0 && self->dirX != 0)
+	{
+		/* Place self as close to other as possible */
+		
+		if (other->x < self->x)
+		{
+			self->x = other->x + other->box.x + other->w + 1;
+		}
+
+		else
+		{
+			self->x = other->x - other->box.x - self->w - 1;
+		}
+
+		self->dirX = 0;
+
+		other->dirX = 0;
+
+		return;
+	}
+
+	if (other->dirX != 0 && self->dirX != 0 && SIGN(other->dirX) != SIGN(self->dirX))
+	{
+		/* Place self as close to other as possible */
+		
+		if (other->x < self->x)
+		{
+			self->x = other->x + other->box.x + other->w + 1;
+		}
+
+		else
+		{
+			self->x = other->x - other->box.x - self->w - 1;
+		}
+		
+		other->x -= other->dirX;
+		
+		self->x -= self->dirX;
+
+		self->dirX = 0;
+
+		other->dirX = 0;
+
+		return;
+	}
+
 	/* Test the vertical movement */
 
 	if (other->dirY > 0)
@@ -617,7 +663,7 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
-				/*checkEntityToEntity(self);*/
+				checkEntityToEntity(self);
 
 				if (self->dirX == 0)
 				{
@@ -667,7 +713,7 @@ void pushEntity(Entity *other)
 
 				checkToMap(self);
 
-				/*checkEntityToEntity(self);*/
+				checkEntityToEntity(self);
 
 				if (self->dirX == 0)
 				{
@@ -1015,6 +1061,13 @@ void entityWalkToRelative(Entity *e, char *coords)
 
 static void scriptEntityMoveToTarget()
 {
+	if (self->speed == 0)
+	{
+		printf("%s has a speed of 0 and will not move!\n", self->objectiveName);
+
+		exit(1);
+	}
+
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -1057,6 +1110,13 @@ static void scriptEntityMoveToTarget()
 
 static void entityMoveToTarget()
 {
+	if (self->speed == 0)
+	{
+		printf("%s has a speed of 0 and will not move!\n", self->objectiveName);
+
+		exit(1);
+	}
+
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);

@@ -54,7 +54,7 @@ done
 
 cd $APPDIR
 
-make
+make VERSION=$1
 
 make buildpak
 
@@ -62,7 +62,7 @@ cp edgar.pak windows.pak
 
 make clean
 
-make -f makefile.windows
+make -f makefile.windows VERSION=$1
 
 cp /opt/Windows/lib/*.dll .
 

@@ -633,6 +633,13 @@ void readNextScriptLine()
 		{
 			resetCameraLimits();
 		}
+		
+		else if (strcmpignorecase("CAMERA_SPEED", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			setCameraSpeed(atof(token));
+		}
 
 		else if (command[0] != '#')
 		{

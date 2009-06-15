@@ -33,6 +33,7 @@ extern Entity *self;
 static void touch(Entity *);
 static void takeDamage(Entity *, int);
 static void die(void);
+static void fallout(void);
 
 Entity *addWeakWall(char *name, int x, int y)
 {
@@ -55,6 +56,7 @@ Entity *addWeakWall(char *name, int x, int y)
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
 	e->die = &die;
+	e->fallout = &fallout;
 
 	setEntityAnimation(e, STAND);
 
@@ -129,4 +131,9 @@ static void die()
 	fireGlobalTrigger(self->objectiveName);
 
 	playSound("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+}
+
+static void fallout()
+{
+
 }

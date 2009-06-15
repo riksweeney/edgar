@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../collisions.h"
 #include "../game.h"
+#include "../decoration.h"
 
 extern Entity *self;
 
@@ -36,6 +37,7 @@ static void touch(Entity *);
 static void initialise(void);
 static void chasePlayer(void);
 static void idle(void);
+static void addDust(void);
 
 Entity *addBoulderBoss(int x, int y, char *name)
 {
@@ -120,6 +122,8 @@ static void drop()
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
+		addDust();
+
 		self->action = &wait;
 	}
 
@@ -133,6 +137,8 @@ static void wait()
 	if (self->thinkTime <= 0)
 	{
 		playBossMusic();
+
+		playSound("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 		setEntityAnimation(self, WALK);
 
@@ -171,6 +177,8 @@ static void chasePlayer()
 	if (onGround == 0 && (self->flags && ON_GROUND))
 	{
 		shakeScreen(LIGHT, 5);
+
+		addDust();
 	}
 
 	if (self->dirX == 0)
@@ -192,6 +200,8 @@ static void chasePlayer()
 		fadeBossMusic();
 
 		self->health = 1;
+
+		addDust();
 	}
 }
 
@@ -211,5 +221,15 @@ static void touch(Entity *other)
 		self->die();
 
 		self = temp;
+	}
+}
+
+static void addDust()
+{
+	int i;
+
+	for (i=0;i<25;i++)
+	{
+		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 	}
 }
