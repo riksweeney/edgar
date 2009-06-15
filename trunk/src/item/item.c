@@ -29,9 +29,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../inventory.h"
+#include "../custom_actions.h"
 
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
+
+static void respawn(void);
+static void itemFallout(void);
 
 Entity *addPermanentItem(char *name, int x, int y)
 {
@@ -52,6 +56,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 	e->action = &doNothing;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
+	e->fallout = &itemFallout;
 
 	if (e->type == HEALTH)
 	{
@@ -229,4 +234,29 @@ void throwItem(int val)
 	e->parent = &player;
 
 	e->thinkTime = 600;
+}
+
+static void itemFallout()
+{
+	if (!(self->flags & HELPLESS))
+	{
+		self->thinkTime = 120;
+
+		self->action = &respawn;
+	}
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		self->flags &= ~HELPLESS;
+
+		setCustomAction(self, &invulnerable, 180, 0);
+	}
 }

@@ -18,3 +18,6 @@ weapon/wood_axe
 enemy/flying_bug
 common/spawner
 enemy/red_grub
+enemy/chicken
+enemy/jumping_slime
+wall/weak_mine_wall

@@ -615,6 +615,11 @@ void centerEntityOnMap()
 		speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
 	}
 
+	if (map.cameraSpeed != -1)
+	{
+		speed = map.cameraSpeed;
+	}
+
 	map.startX = map.targetEntity->x - (SCREEN_WIDTH / 2);
 
 	if (map.startX < (map.minX != map.cameraMinX ? map.cameraMinX : map.minX))
@@ -1021,9 +1026,21 @@ void resetCameraLimits()
 	map.cameraMaxY = map.maxY;
 }
 
+int cameraAtMinimum()
+{
+	return (map.cameraMinX == map.startX && map.cameraMinY == map.startY);
+}
+
+void setCameraSpeed(float speed)
+{
+	map.cameraSpeed = speed;
+}
+
 void centerMapOnEntity(Entity *e)
 {
 	map.targetEntity = e;
+
+	map.cameraSpeed = -1;
 }
 
 char *getMapName()

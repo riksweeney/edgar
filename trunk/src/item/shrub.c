@@ -90,11 +90,11 @@ static void die()
 
 	Entity *e = addPermanentItem("misc/chopped_log", self->x, self->y);
 
-	e->x += (self->x - e->x) / 2;
-	e->y += (self->y - e->y) / 2;
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
 
 	e->dirY = ITEM_JUMP_HEIGHT;
-	
+
 	fireTrigger(self->objectiveName);
 	fireGlobalTrigger(self->objectiveName);
 
@@ -102,8 +102,8 @@ static void die()
 	{
 		e = addTemporaryItem("misc/small_tree_piece", self->x, self->y, RIGHT, 0, 0);
 
-		e->x += (self->x - e->x) / 2;
-		e->y += (self->y - e->y) / 2;
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->w - e->w) / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);

@@ -117,12 +117,12 @@ typedef struct Map
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int minX, minY;
-	int cameraX, cameraY;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
 	int wrapX[2], wrapY[2];
-	float backgroundSpeed[2];
+	float backgroundSpeed[2], cameraSpeed;
+	float cameraX, cameraY;
 	Entity *targetEntity;
 	SDL_Surface *background[2];
 	Mix_Chunk *ambience[MAX_AMBIENT_SOUNDS];

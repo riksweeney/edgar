@@ -78,9 +78,6 @@ int main(int argc, char *argv[])
 		fwrite(&fileData[i], sizeof(FileData), 1, pak);
 	}
 
-	length = SDL_SwapLE32(length);
-	totalFiles = SDL_SwapLE32(totalFiles);
-
 	fwrite(&length, sizeof(long), 1, pak);
 	fwrite(&totalFiles, sizeof(int), 1, pak);
 

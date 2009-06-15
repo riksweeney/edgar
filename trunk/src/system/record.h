@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void takeScreenshot(void);
-void setReplayData(char *);
+void setReplayData(char *, int);
 void setRecordData(char *);
 void putBuffer(Input);
 Input getBuffer(void);

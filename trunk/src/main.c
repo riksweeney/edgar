@@ -51,7 +51,7 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
-	int go, i, mapID, loadSave;
+	int go, i, mapID, loadSave, recordingID, replayingID;
 
 	setlocale(LC_ALL, "");
 	setlocale(LC_NUMERIC, "C");
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
 	loadSave = FALSE;
 
-	mapID = -1;
+	mapID = recordingID = replayingID = -1;
 
 	/* Load the resources */
 
@@ -78,14 +78,20 @@ int main(int argc, char *argv[])
 	{
 		if (strcmpignorecase("-record", argv[i]) == 0)
 		{
-			setRecordData(argv[i + 1]);
+			if (recordingID == -1)
+			{
+				recordingID = i + 1;
+			}
 
 			i++;
 		}
 
 		else if (strcmpignorecase("-playback", argv[i]) == 0)
 		{
-			setReplayData(argv[i + 1]);
+			if (replayingID == -1)
+			{
+				replayingID = i + 1;
+			}
 
 			i++;
 		}
@@ -100,8 +106,6 @@ int main(int argc, char *argv[])
 		else if (strcmpignorecase("-load", argv[i]) == 0)
 		{
 			loadSave = TRUE;
-
-			i++;
 		}
 		#if DEV == 1
 			else
@@ -109,6 +113,13 @@ int main(int argc, char *argv[])
 				mapID = i;
 			}
 		#endif
+	}
+	
+	if (replayingID != -1 && recordingID != -1)
+	{
+		printf("Cannot record and replay at the same time\n");
+		
+		exit(1);
 	}
 
 	loadRequiredResources();
@@ -133,6 +144,21 @@ int main(int argc, char *argv[])
 			printf("No saved game in slot 0\n");
 
 			exit(1);
+		}
+	}
+	
+	if (replayingID != -1)
+	{
+		setReplayData(argv[replayingID], loadSave);
+	}
+	
+	if (recordingID != -1)
+	{
+		setRecordData(argv[recordingID]);
+		
+		if (loadSave == TRUE)
+		{
+			setMapFile(getMapName());
 		}
 	}
 

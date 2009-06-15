@@ -195,11 +195,109 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	rect.w = w;
 	rect.h = h;
 
-	color = SDL_MapRGB(game.screen->format, r, g, b);
-
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
+		color = SDL_MapRGB(game.screen->format, r, g, b);
+		
 		SDL_FillRect(game.screen, &rect, color);
+	}
+}
+
+void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
+{
+	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int lDelta, sDelta, cycle, lStep, sStep;
+	int startX, startY;
+	int *pixels;
+	
+	startX = getMapStartX();
+	startY = getMapStartY();
+	
+	x1 -= startX;
+	y1 -= startY;
+	
+	x2 -= startX;
+	y2 -= startY;
+	
+	if (collision(x1, y1, x2 - x1, y2 - y1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == FALSE)
+	{
+		return;
+	}
+
+	lDelta = x2 - x1;
+	sDelta = y2 - y1;
+	
+	lStep = SIGN(lDelta);
+	lDelta = abs(lDelta);
+	
+	sStep = SIGN(sDelta);
+	sDelta = abs(sDelta);
+	
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_LockSurface(game.screen);
+	}
+	
+	pixels = (int *)game.screen->pixels;
+	
+	if (sDelta < lDelta)
+	{
+		cycle = lDelta >> 1;
+		
+		while (x1 != x2)
+		{
+			if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+			{
+				pixels[(y1 * game.screen->w) + x1] = color;
+			}
+			
+			cycle += sDelta;
+			
+			if (cycle > lDelta)
+			{
+				cycle -= lDelta;
+				
+				y1 += sStep;
+			}
+			
+			x1 += lStep;
+		}
+		
+		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+		{			
+			pixels[(y1 * game.screen->w) + x1] = color;
+		}
+	}
+	
+	cycle = sDelta >> 1;
+	
+	while (y1 != y2)
+	{
+		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+		{
+			pixels[(y1 * game.screen->w) + x1] = color;
+		}
+		
+		cycle += lDelta;
+		
+		if (cycle > sDelta)
+		{
+			cycle -= sDelta;
+			
+			x1 += lStep;
+		}
+		
+		y1 += sStep;
+	}
+	
+	if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+	{
+		pixels[(y1 * game.screen->w) + x1] = color;
+	}
+	
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_UnlockSurface(game.screen);
 	}
 }
 

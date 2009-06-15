@@ -6,5 +6,5 @@ for i in `find /home/rik/Edgar -name *.wav`;do
 done
 normalize-audio -m $files
 for i in `find /home/rik/Edgar -name *.wav`;do
-	oggenc $i
+	oggenc -q 2 $i
 done
