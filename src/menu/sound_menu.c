@@ -102,7 +102,7 @@ static void doMenu()
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
 	}
-	
+
 	else if (input.left == TRUE || menuInput.left == TRUE)
 	{
 		w = menu.widgets[menu.index];
@@ -115,7 +115,7 @@ static void doMenu()
 		menuInput.left = FALSE;
 		input.left = FALSE;
 	}
-	
+
 	else if (input.right == TRUE || menuInput.right == TRUE)
 	{
 		w = menu.widgets[menu.index];
@@ -206,36 +206,36 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y);
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(game.audio == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "SFX_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y);
-					
+					menu.widgets[i] = createWidget(menuName, &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE);
+
 					text = getVolumePercent(game.sfxDefaultVolume);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-					
+
 					free(text);
 				}
 
 				else if (strcmpignorecase(menuID, "MUSIC_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y);
-					
+					menu.widgets[i] = createWidget(menuName, &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE);
+
 					text = getVolumePercent(game.musicDefaultVolume);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-					
+
 					free(text);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
 
 				else
@@ -259,7 +259,7 @@ static void loadMenuLayout()
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w == 0 || menu.h == 0)
+	if (menu.w <= 0 || menu.h <= 0)
 	{
 		printf("Menu dimensions must be greater than 0\n");
 
@@ -350,14 +350,14 @@ static void toggleSound()
 	{
 		stopMusic();
 	}
-	
+
 	else
 	{
 		if (initAudio() == TRUE)
 		{
 			playMusic();
 		}
-		
+
 		else
 		{
 			game.audio = FALSE;
@@ -370,28 +370,28 @@ static void toggleSound()
 static void lowerSFXVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
+
 	changeVolume(&game.sfxDefaultVolume, &game.sfxVolume, w, -1);
 }
 
 static void raiseSFXVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
+
 	changeVolume(&game.sfxDefaultVolume, &game.sfxVolume, w, 1);
 }
 
 static void lowerMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
+
 	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, -1);
 }
 
 static void raiseMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
+
 	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, 1);
 }
 
@@ -399,7 +399,7 @@ static void changeVolume(int *maxVolume, int *currentVolume, Widget *w, int adju
 {
 	int align = (*maxVolume) == (*currentVolume) ? TRUE : FALSE;
 	char *text;
-	
+
 	*maxVolume += adjustment;
 
 	if (*maxVolume < 0)
@@ -411,18 +411,18 @@ static void changeVolume(int *maxVolume, int *currentVolume, Widget *w, int adju
 	{
 		*maxVolume = 10;
 	}
-	
+
 	if (align == TRUE)
 	{
 		*currentVolume = *maxVolume;
 	}
-	
+
 	setMusicVolume();
-	
+
 	text = getVolumePercent(*maxVolume);
 
 	updateLabelText(w->label, text);
-	
+
 	free(text);
 }
 

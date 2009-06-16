@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 0.11
+
+* Fixed a problem with music loading
+* Should now compile and run correctly on 64 bit cpus
+* Edgar can now attack in the air whilst moving
+
 Version 0.10
 
 * Initial release

@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), void (*rightAction)(void), void (*clickAction)(void), int x, int y)
+Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), void (*rightAction)(void), void (*clickAction)(void), int x, int y, int border)
 {
 	Widget *w;
 
@@ -38,9 +38,19 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 		exit(1);
 	}
 
-	w->normalState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
+	if (border == TRUE)
+	{
+		w->normalState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 
-	w->selectedState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 200, 0), 255, 255, 255, 0, 200, 0);
+		w->selectedState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 200, 0), 255, 255, 255, 0, 200, 0);
+	}
+
+	else
+	{
+		w->normalState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 0, 0, 0, 0, 0, 0);
+
+		w->selectedState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 200, 0), 0, 200, 0, 0, 200, 0);
+	}
 
 	w->value = controlValue;
 

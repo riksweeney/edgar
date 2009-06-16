@@ -35,10 +35,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "pak.h"
 #include "../input.h"
 
-static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH];
+static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH];
 
 static void removeTemporaryData(void);
 static void copyFile(char *, char *);
+static void updateSaveFileIndex(int);
 
 extern Game game;
 
@@ -67,6 +68,7 @@ extern Game game;
 		if (pass == NULL)
 		{
 			printf("Couldn't determine the user home directory. Exiting.\n");
+
 			exit(1);
 		}
 
@@ -100,7 +102,8 @@ extern Game game;
 	void setupUserHomeDirectory()
 	{
 		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
-		STRNCPY(tempFile, "tmpsave", sizeof(gameSavePath));
+		STRNCPY(tempFile, "tmpsave", sizeof(tempFile));
+		STRNCPY(saveFileIndex, "saveheader", sizeof(saveFileIndex));
 
 		removeTemporaryData();
 	}
@@ -109,9 +112,9 @@ extern Game game;
 void newGame()
 {
 	freeGameResources();
-	
+
 	loadMap("map01", TRUE);
-	
+
 	cameraSnapToTargetEntity();
 }
 
@@ -198,7 +201,7 @@ int loadGame(int slot)
 	free(buffer);
 
 	cameraSnapToTargetEntity();
-	
+
 	freeMessageQueue();
 
 	printf("Load completed\n");
@@ -223,7 +226,7 @@ void saveGame(int slot)
 	read = fopen(tempFile, "rb");
 
 	write = fopen(saveFile, "wb");
-	
+
 	fprintf(write, "VERSION %0.2f\n", VERSION);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
@@ -353,6 +356,43 @@ void saveGame(int slot)
 	#endif
 
 	compressFile(saveFile);
+
+	updateSaveFileIndex(slot);
+}
+
+static void updateSaveFileIndex(int slot)
+{
+	char **data = getSaveFileIndex();
+	time_t rawtime;
+	struct tm *timeinfo;
+	char buffer[MAX_VALUE_LENGTH], saveName[MAX_VALUE_LENGTH];
+	FILE *fp;
+	int i;
+
+	time (&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer, MAX_VALUE_LENGTH, "%H:%M %d %b %Y", timeinfo);
+
+	snprintf(saveName, MAX_VALUE_LENGTH, "%s - %s", getMapName(), buffer);
+
+	STRNCPY(data[slot], saveName, MAX_VALUE_LENGTH);
+
+	fp = fopen(saveFileIndex, "wb");
+
+	if (fp == NULL)
+	{
+		perror("Could not update save data file. Game was still saved though.");
+	}
+
+	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	{
+		fprintf(fp, "%s\n", data[i]);
+
+		printf("updateSaveData: %d is '%s'\n", i, data[i]);
+	}
+
+	fclose(fp);
 }
 
 void saveTemporaryData()
@@ -706,4 +746,63 @@ static void copyFile(char *src, char *dest)
 	fclose(sourceFile);
 
 	fclose(destFile);
+}
+
+char *getGameSavePath()
+{
+	return gameSavePath;
+}
+
+char **getSaveFileIndex()
+{
+	int i;
+	FILE *fp;
+	char **entries;
+
+	entries = (char **)malloc(sizeof(char *) * MAX_SAVE_SLOTS);
+
+	if (entries == NULL)
+	{
+		printf("Failed to allocate a whole %d bytes for save data\n", sizeof(char *) * MAX_SAVE_SLOTS);
+
+		exit(1);
+	}
+
+	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	{
+		entries[i] = (char *)malloc(sizeof(char *) * MAX_PATH_LENGTH);
+
+		if (entries[i] == NULL)
+		{
+			printf("Failed to allocate a whole %d bytes for save data\n", sizeof(char) * MAX_PATH_LENGTH);
+
+			exit(1);
+		}
+
+		entries[i][0] = '\0';
+	}
+
+	fp = fopen(saveFileIndex, "rb");
+
+	if (fp == NULL)
+	{
+		return entries;
+	}
+
+	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	{
+		if (fgets(entries[i], MAX_PATH_LENGTH, fp) == NULL)
+		{
+			entries[i][0] = '\0';
+		}
+
+		else
+		{
+			entries[i][strlen(entries[i]) - 1] = '\0';
+		}
+	}
+
+	fclose(fp);
+
+	return entries;
 }

@@ -74,6 +74,11 @@ static void init()
 {
 	self->dirX = (self->face == RIGHT ? 10 : -10);
 
+	if (self->active == FALSE)
+	{
+		self->flags |= NO_DRAW;
+	}
+
 	self->action = &wait;
 
 	self->action();
@@ -98,7 +103,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->active == TRUE)
 	{
 		setInfoBoxMessage(0,  _("Press Action to go to the %s"), self->requires);
 	}
@@ -107,7 +112,7 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	player.flags |= HELPLESS;
-	
+
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
@@ -117,6 +122,6 @@ static void activate(int val)
 	setNextLevel(self->name, self->objectiveName);
 
 	setTransition(TRANSITION_OUT, &goToNextMap);
-	
+
 	fadeOutMusic(2000);
 }

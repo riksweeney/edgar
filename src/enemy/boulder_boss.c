@@ -160,7 +160,7 @@ static void chasePlayer()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 150;
+		self->thinkTime = 120;
 
 		self->endX -= 0.04f;
 
