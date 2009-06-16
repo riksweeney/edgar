@@ -97,23 +97,12 @@ static void touch(Entity *other)
 		setEntityAnimation(self, WALK);
 
 		self->currentFrame = frame;
-
-		if (self->health == 0)
-		{
-			setInfoBoxMessage(5,  _("Press Action to save your game"));
-		}
-
-		else
-		{
-			setInfoBoxMessage(5,  _("Game saved"));
-		}
+		
+		setInfoBoxMessage(5,  _("Press Action to save your game"));
 	}
 }
 
 static void activate(int val)
 {
-	if (self->health == 0)
-	{
-		showSaveDialog();
-	}
+	showSaveDialog();
 }
