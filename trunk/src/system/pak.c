@@ -19,8 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 #include "pak.h"
+#include "load_save.h"
 
-static unsigned char *uncompressFile(char *);
+static unsigned char *uncompressFile(char *, int);
 static SDL_RWops *uncompressFileRW(char *);
 
 static FileData *fileData;
@@ -98,12 +99,11 @@ Mix_Chunk *loadSoundFromPak(char *name)
 
 unsigned char *loadFileFromPak(char *name)
 {
-	return uncompressFile(name);
+	return uncompressFile(name, FALSE);
 }
 
 Mix_Music *loadMusicFromPak(char *name)
 {
-	SDL_RWops *rw;
 	Mix_Music *music;
 
 	#if DEV == 1
@@ -117,13 +117,33 @@ Mix_Music *loadMusicFromPak(char *name)
 		}
 
 		fclose(fp);
+
+		music = Mix_LoadMUS(name);
+
+		return music;
+	#else
+		unsigned char *file;
+		char temp[MAX_PATH_LENGTH];
+
+		printf("Uncompressing %s\n", name);
+
+		file = uncompressFile(name, TRUE);
+
+		printf("Uncompressed to %s\n", file);
+
+		STRNCPY(temp, (char *)file, sizeof(temp));
+
+		printf("Loading '%s'\n", temp);
+
+		music = Mix_LoadMUS(temp);
+
+		if (music == NULL)
+		{
+			printf("Couldn't load %s\n", temp);
+		}
+
+		return music;
 	#endif
-
-	rw = uncompressFileRW(name);
-
-	music = Mix_LoadMUS_RW(rw);
-
-	return music;
 }
 
 TTF_Font *loadFontFromPak(char *name, int size)
@@ -251,11 +271,11 @@ static SDL_RWops *uncompressFileRW(char *name)
 	return rw;
 }
 
-static unsigned char *uncompressFile(char *name)
+static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index;
 	unsigned long size;
-	unsigned char *source, *dest;
+	unsigned char *source, *dest, filename[MAX_PATH_LENGTH];
 	FILE *fp;
 
 	index = i = -1;
@@ -354,6 +374,34 @@ static unsigned char *uncompressFile(char *name)
 
 			exit(1);
 		}
+
+		if (writeToFile == TRUE)
+		{
+			printf("Writing to %s\n", getGameSavePath());
+
+			fclose(fp);
+
+			snprintf((char *)filename, sizeof(filename), "%spakdata", getGameSavePath());
+
+			printf("Writing %s to %s\n", filename, getGameSavePath());
+
+			fp = fopen((char *)filename, "wb");
+
+			if (fp == NULL)
+			{
+				perror("Failed to write pak data to temp file");
+
+				exit(1);
+			}
+
+			printf("Writing data\n");
+
+			fwrite(dest, size, 1, fp);
+
+			printf("Wrote %s to %s\n", name, filename);
+
+			free(dest);
+		}
 	#endif
 
 	if (source != NULL)
@@ -363,7 +411,7 @@ static unsigned char *uncompressFile(char *name)
 
 	fclose(fp);
 
-	return dest;
+	return (writeToFile == TRUE ? filename : dest);
 }
 
 int existsInPak(char *name)

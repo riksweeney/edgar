@@ -24,23 +24,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "main_menu.h"
-#include "control_menu.h"
+#include "io_menu.h"
 #include "sound_menu.h"
+#include "../game.h"
 #include "../system/pak.h"
+#include "../system/load_save.h"
 
 extern Input input, menuInput;
 extern Game game;
+extern Entity *self;
 
 static Menu menu;
 
-static void loadMenuLayout(void);
-static void toggleHints(void);
-static void showControlMenu(void);
-static void showSoundMenu(void);
+static void loadMenuLayout(int);
 static void showMainMenu(void);
 static void doMenu(void);
+static void saveGameInSlot(void);
+static void loadGameInSlot(void);
 
-void drawOptionsMenu()
+void drawIOMenu()
 {
 	int i;
 
@@ -94,44 +96,19 @@ static void doMenu()
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
 	}
-
-	else if (input.left == TRUE || menuInput.left == TRUE)
-	{
-		w = menu.widgets[menu.index];
-
-		if (w->rightAction != NULL)
-		{
-			w->rightAction();
-		}
-
-		menuInput.left = FALSE;
-		input.left = FALSE;
-	}
-
-	else if (input.right == TRUE || menuInput.right == TRUE)
-	{
-		w = menu.widgets[menu.index];
-
-		if (w->leftAction != NULL)
-		{
-			w->leftAction();
-		}
-
-		menuInput.right = FALSE;
-		input.right = FALSE;
-	}
 }
 
-static void loadMenuLayout()
+static void loadMenuLayout(int saving)
 {
-	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
+	char filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
+	char **saveFile;
 	unsigned char *buffer;
 	int x, y, i;
 	SDL_Surface *temp;
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/options_menu.dat"));
+	snprintf(filename, sizeof(filename), _("data/menu/io_menu.dat"));
 
 	buffer = loadFileFromPak(filename);
 
@@ -172,71 +149,18 @@ static void loadMenuLayout()
 			menu.h = atoi(token);
 		}
 
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token);
-
-			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				printf("Ran out of memory when creating Options Menu\n");
-
-				exit(1);
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "MENU_CONTROLS") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showControlMenu, x, y, TRUE);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_SOUND") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showSoundMenu, x, y, TRUE);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, &toggleHints, &toggleHints, &toggleHints, x, y, TRUE);
-
-					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
-				}
-
-				else
-				{
-					printf("Unknown widget %s\n", menuID);
-
-					exit(1);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				printf("Widget Count must be defined!\n");
-
-				exit(1);
-			}
-		}
-
 		line = strtok_r(NULL, "\n", &savePtr1);
+	}
+
+	menu.widgetCount = MAX_SAVE_SLOTS + 1;
+
+	menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+
+	if (menu.widgets == NULL)
+	{
+		printf("Ran out of memory when creating IO Menu\n");
+
+		exit(1);
 	}
 
 	if (menu.w <= 0 || menu.h <= 0)
@@ -254,25 +178,47 @@ static void loadMenuLayout()
 
 	free(buffer);
 
+	saveFile = getSaveFileIndex();
+
+	x = y = 5;
+
+	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	{
+		if (saveFile == NULL || strlen(saveFile[i]) == 0)
+		{
+			menu.widgets[i] = createWidget("<Empty>", NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : NULL, -1, y, FALSE);
+		}
+
+		else
+		{
+			menu.widgets[i] = createWidget(saveFile[i], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE);
+		}
+
+		y += menu.widgets[i]->normalState->h + 5;
+	}
+
+	y += 15;
+
+	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE);
+
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
 }
 
-Menu *initOptionsMenu()
+Menu *initIOMenu(int saving)
 {
 	menu.action = &doMenu;
 
-	if (menu.widgets == NULL)
-	{
-		loadMenuLayout();
-	}
+	freeIOMenu();
 
-	menu.returnAction = &showMainMenu;
+	loadMenuLayout(saving);
+
+	menu.returnAction = saving == TRUE ? NULL : &showMainMenu;
 
 	return &menu;
 }
 
-void freeOptionsMenu()
+void freeIOMenu()
 {
 	int i;
 
@@ -294,32 +240,26 @@ void freeOptionsMenu()
 	}
 }
 
-static void toggleHints()
-{
-	Widget *w = menu.widgets[menu.index];
-
-	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
-
-	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
-}
-
-static void showControlMenu()
-{
-	game.menu = initControlMenu();
-
-	game.drawMenu = &drawControlMenu;
-}
-
-static void showSoundMenu()
-{
-	game.menu = initSoundMenu();
-
-	game.drawMenu = &drawSoundMenu;
-}
-
 static void showMainMenu()
 {
 	game.menu = initMainMenu();
 
 	game.drawMenu = &drawMainMenu;
+}
+
+static void loadGameInSlot()
+{
+	if (loadGame(menu.index) == TRUE)
+	{
+		menu.returnAction = NULL;
+
+		pauseGame();
+	}
+}
+
+static void saveGameInSlot()
+{
+	saveGame(menu.index);
+
+	pauseGame();
 }

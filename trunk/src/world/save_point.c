@@ -24,8 +24,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../hud.h"
 #include "../system/load_save.h"
+#include "../game.h"
 
 extern Entity *self;
+extern Game game;
 
 static void wait(void);
 static void touch(Entity *);
@@ -112,8 +114,6 @@ static void activate(int val)
 {
 	if (self->health == 0)
 	{
-		self->health = 120;
-
-		saveGame(0);
+		showSaveDialog();
 	}
 }

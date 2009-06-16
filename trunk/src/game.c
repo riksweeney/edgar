@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 #include "menu/menu.h"
 #include "menu/main_menu.h"
+#include "menu/io_menu.h"
 
 extern Game game;
 
@@ -502,6 +503,19 @@ void pauseGame()
 
 		break;
 	}
+}
+
+void showSaveDialog()
+{
+	pauseGame();
+
+	game.status = IN_MENU;
+
+	game.paused = TRUE;
+
+	game.menu = initIOMenu(TRUE);
+
+	game.drawMenu = &drawIOMenu;
 }
 
 void focusLost()

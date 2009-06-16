@@ -36,3 +36,4 @@ void resetGameSettings(void);
 void doGameOver(void);
 void drawGameOver(void);
 void focusLost(void);
+void showSaveDialog(void);

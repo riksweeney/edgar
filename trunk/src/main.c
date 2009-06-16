@@ -107,18 +107,17 @@ int main(int argc, char *argv[])
 		{
 			loadSave = TRUE;
 		}
-		#if DEV == 1
-			else
-			{
-				mapID = i;
-			}
-		#endif
+
+		else
+		{
+			mapID = i;
+		}
 	}
-	
+
 	if (replayingID != -1 && recordingID != -1)
 	{
 		printf("Cannot record and replay at the same time\n");
-		
+
 		exit(1);
 	}
 
@@ -146,16 +145,16 @@ int main(int argc, char *argv[])
 			exit(1);
 		}
 	}
-	
+
 	if (replayingID != -1)
 	{
 		setReplayData(argv[replayingID], loadSave);
 	}
-	
+
 	if (recordingID != -1)
 	{
 		setRecordData(argv[recordingID]);
-		
+
 		if (loadSave == TRUE)
 		{
 			setMapFile(getMapName());

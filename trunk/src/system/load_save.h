@@ -26,3 +26,5 @@ int hasPersistance(char *);
 void saveConfig(void);
 void loadConfig(void);
 void newGame(void);
+char *getGameSavePath(void);
+char **getSaveFileIndex(void);

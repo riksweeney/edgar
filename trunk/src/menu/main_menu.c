@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "options_menu.h"
+#include "io_menu.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../game.h"
@@ -35,7 +36,7 @@ static Menu menu;
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
-static void showSaveDialog(void);
+static void showLoadDialog(void);
 static void doNewGame(void);
 
 void drawMainMenu()
@@ -196,27 +197,27 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, &doNewGame, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doNewGame, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showSaveDialog, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showLoadDialog, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, 0, 0, NULL, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &quitGame, x, y);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &quitGame, x, y, TRUE);
 				}
 
 				else
@@ -240,14 +241,14 @@ static void loadMenuLayout()
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w == 0 || menu.h == 0)
+	if (menu.w <= 0 || menu.h <= 0)
 	{
 		printf("Menu dimensions must be greater than 0\n");
 
 		exit(1);
 	}
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0x000000cc);
+	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0xff000000);
 
 	menu.background = addBorder(SDL_DisplayFormat(temp), 255, 255, 255, 0, 0, 0);
 
@@ -302,17 +303,16 @@ static void showOptionsMenu()
 	game.drawMenu = &drawOptionsMenu;
 }
 
-static void showSaveDialog()
+static void showLoadDialog()
 {
-	if (loadGame(0) == TRUE)
-	{
-		pauseGame();
-	}
+	game.menu = initIOMenu(FALSE);
+
+	game.drawMenu = &drawIOMenu;
 }
 
 static void doNewGame()
 {
 	newGame();
-	
+
 	pauseGame();
 }
