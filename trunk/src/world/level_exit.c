@@ -111,17 +111,20 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	player.flags |= HELPLESS;
+	if (self->active == TRUE)
+	{
+		player.flags |= HELPLESS;
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
-	setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
+		setEntityAnimation(&playerShield, STAND);
 
-	player.dirX = 0;
+		player.dirX = 0;
 
-	setNextLevel(self->name, self->objectiveName);
+		setNextLevel(self->name, self->objectiveName);
 
-	setTransition(TRANSITION_OUT, &goToNextMap);
+		setTransition(TRANSITION_OUT, &goToNextMap);
 
-	fadeOutMusic(2000);
+		fadeOutMusic(2000);
+	}
 }

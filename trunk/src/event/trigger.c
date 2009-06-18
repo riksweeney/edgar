@@ -59,7 +59,7 @@ void addTriggerFromResource(char *key[], char *value[])
 		{
 			count = i;
 		}
-		
+
 		else if (strcmpignorecase("TRIGGER_TOTAL", key[i]) == 0)
 		{
 			total = i;
@@ -75,11 +75,11 @@ void addTriggerFromResource(char *key[], char *value[])
 			targetName = i;
 		}
 	}
-	
+
 	if (total == -1 && count != -1)
 	{
 		total = count;
-		
+
 		count = 0;
 	}
 
@@ -136,14 +136,16 @@ void fireTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count++;
-			
+
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
 				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d of %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
-				
+
+				freeMessageQueue();
+
 				setInfoBoxMessage(120, message);
 			}
-			
+
 			printf("Updating Trigger \"%s\", %d of %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
 
 			if (trigger[i].count == trigger[i].total)

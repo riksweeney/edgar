@@ -360,7 +360,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 			exit(1);
 		}
 
-		fread(source, fileData[i].compressedSize, 1, fp);
+		fread(source, fileData[index].compressedSize, 1, fp);
 
 		size = fileData[index].fileSize;
 

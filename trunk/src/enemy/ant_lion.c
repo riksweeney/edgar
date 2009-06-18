@@ -40,6 +40,7 @@ static void trapTarget(Entity *);
 static void leave(void);
 static void addDust(void);
 static void wait(void);
+static void noTouch(Entity *);
 
 Entity *addAntLion(int x, int y, char *name)
 {
@@ -60,7 +61,7 @@ Entity *addAntLion(int x, int y, char *name)
 	e->action = &patrol;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = NULL;
+	e->touch = &noTouch;
 	e->die = NULL;
 	e->takeDamage = NULL;
 
@@ -96,12 +97,8 @@ static void lookForFood()
 {
 	int i;
 
-	printf("Looking for player\n");
-
 	if (collision(self->x - 320, self->y, 640, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
-		printf("Spotted player\n");
-
 		self->target = &player;
 
 		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
@@ -157,9 +154,9 @@ static void hunt()
 
 	else
 	{
-		self->dirX = self->targetX < self->x ? -self->target->speed * 1.5 : self->target->speed * 1.5;
+		self->dirX = self->targetX < self->x ? -self->target->speed * 3 : self->target->speed * 3;
 
-		self->touch = NULL;
+		self->touch = &noTouch;
 	}
 
 	checkToMap(self);
@@ -182,7 +179,9 @@ static void hunt()
 
 		self->action = &patrol;
 
-		self->touch = NULL;
+		self->target = NULL;
+		
+		self->touch = &noTouch;
 
 		stopSound(BOSS_CHANNEL);
 
@@ -196,12 +195,12 @@ static void trapTarget(Entity *other)
 {
 	Entity *temp;
 
-	if (other != self->target)
+	if (self->target == NULL || other != self->target)
 	{
 		return;
 	}
 
-	if (!(self->target->flags & ON_GROUND))
+	if (abs((self->y + self->h) - (other->y + other->h)) > 5)
 	{
 		return;
 	}
@@ -227,6 +226,8 @@ static void trapTarget(Entity *other)
 	}
 
 	self = temp;
+
+	self->target = NULL;
 
 	self->action = &wait;
 
@@ -263,4 +264,9 @@ static void wait()
 static void addDust()
 {
 	addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+}
+
+static void noTouch(Entity *other)
+{
+
 }

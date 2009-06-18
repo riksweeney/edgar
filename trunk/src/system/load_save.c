@@ -95,7 +95,7 @@ extern Game game;
 		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
 
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
-		
+
 		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
 
 		removeTemporaryData();
@@ -385,7 +385,7 @@ static void updateSaveFileIndex(int slot)
 	if (fp == NULL)
 	{
 		perror("Could not update save data file. Game was still saved though.");
-		
+
 		return;
 	}
 
@@ -759,7 +759,7 @@ char **getSaveFileIndex()
 {
 	int i;
 	FILE *fp;
-	char **entries;
+	char **entries, save0[MAX_PATH_LENGTH];
 
 	entries = (char **)malloc(sizeof(char *) * MAX_SAVE_SLOTS);
 
@@ -788,6 +788,19 @@ char **getSaveFileIndex()
 
 	if (fp == NULL)
 	{
+		/* Check for a save game from version 0.1 */
+
+		snprintf(save0, sizeof(save0), "%ssave0", gameSavePath);
+
+		fp = fopen(save0, "rb");
+
+		if (fp != NULL)
+		{
+			fclose(fp);
+
+			STRNCPY(entries[0], "Saved Game", MAX_PATH_LENGTH);
+		}
+
 		return entries;
 	}
 

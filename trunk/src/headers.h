@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <libintl.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <stdarg.h>
 
 #ifndef WIN32
 	#include <sys/stat.h>

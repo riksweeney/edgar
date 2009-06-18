@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "io_menu.h"
 #include "sound_menu.h"
 #include "../game.h"
+#include "../hud.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../audio/audio.h"
@@ -96,7 +97,7 @@ static void doMenu()
 		if (w->clickAction != NULL)
 		{
 			playSound("sound/common/click.ogg");
-			
+
 			w->clickAction();
 		}
 
@@ -262,6 +263,10 @@ static void loadGameInSlot()
 	{
 		menu.returnAction = NULL;
 
+		freeMessageQueue();
+
+		setInfoBoxMessage(120, _("Game Loaded"));
+
 		pauseGame();
 	}
 }
@@ -269,6 +274,10 @@ static void loadGameInSlot()
 static void saveGameInSlot()
 {
 	saveGame(menu.index);
+
+	freeMessageQueue();
+
+	setInfoBoxMessage(120, _("Game Saved"));
 
 	pauseGame();
 }

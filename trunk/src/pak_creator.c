@@ -26,15 +26,27 @@ FileData *fileData;
 int countFiles(char *);
 void cleanup(void);
 void recurseDirectory(char *);
+static void testPak(char *);
 
 int main(int argc, char *argv[])
 {
 	int i, length;
 
-	if (argc < 3)
+	if (argc == 3)
+	{
+		if (strcmpignorecase(argv[1], "-test") == 0)
+		{
+			testPak(argv[2]);
+
+			exit(0);
+		}
+	}
+
+	else if (argc < 3)
 	{
 		printf("Usage   : pak <directory names> <outputname>\n");
-		printf("Example : pak data music gfx sound font data.pak\n");
+		printf("Example : pak data music gfx sound font edgar.pak\n");
+
 		exit(1);
 	}
 
@@ -279,4 +291,100 @@ void recurseDirectory(char *dirName)
 	}
 
 	closedir(dirp);
+}
+
+static void testPak(char *pakFile)
+{
+	FileData *fileData;
+	int fileCount, i;
+	long offset;
+	unsigned long size;
+	FILE *fp;
+	unsigned char *source, *dest;
+
+	fp = fopen(pakFile, "rb");
+
+	if (fp == NULL)
+	{
+		printf("Failed to open PAK file %s\n", pakFile);
+
+		exit(1);
+	}
+
+	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+
+	fread(&offset, sizeof(long), 1, fp);
+	fread(&fileCount, sizeof(int), 1, fp);
+
+	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
+
+	if (fileData == NULL)
+	{
+		printf("Could not allocate %d bytes for FileData\n", fileCount * sizeof(FileData));
+
+		exit(1);
+	}
+
+	fseek(fp, offset, SEEK_SET);
+
+	fread(fileData, sizeof(FileData), fileCount, fp);
+
+	printf("Loaded up PAK file with %d entries\n", fileCount);
+
+	for (i=0;i<fileCount;i++)
+	{
+		printf("'%s' at offset %ld : %ld -> %ld\n", fileData[i].filename, fileData[i].offset, fileData[i].compressedSize, fileData[i].fileSize);
+	}
+
+	for (i=0;i<fileCount;i++)
+	{
+		rewind(fp);
+		
+		printf("Testing %s...", fileData[i].filename);
+
+		fseek(fp, fileData[i].offset, SEEK_SET);
+
+		source = (unsigned char *)malloc(fileData[i].compressedSize * sizeof(unsigned char));
+
+		if (source == NULL)
+		{
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
+
+			exit(1);
+		}
+
+		dest = (unsigned char *)malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
+
+		if (dest == NULL)
+		{
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
+
+			exit(1);
+		}
+
+		fread(source, fileData[i].compressedSize, 1, fp);
+
+		size = fileData[i].fileSize;
+
+		uncompress(dest, &size, source, fileData[i].compressedSize);
+
+		dest[size] = '\0';
+
+		if (size != fileData[i].fileSize)
+		{
+			printf("Failed to decompress %s. Expected %ld, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
+
+			exit(1);
+		}
+
+		free(source);
+
+		free(dest);
+
+		printf("OK\n");
+	}
+	
+	fclose(fp);
+
+	free(fileData);
 }
