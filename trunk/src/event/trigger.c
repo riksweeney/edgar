@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "objective.h"
 #include "trigger.h"
 #include "../event/script.h"
+#include "../hud.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
@@ -32,7 +33,7 @@ static Type type[] = {
 					};
 static int length = sizeof(type) / sizeof(Type);
 
-static void addTrigger(char *, int, int, char *);
+static void addTrigger(char *, int, int, int, char *);
 
 void freeTriggers()
 {
@@ -43,9 +44,9 @@ void freeTriggers()
 
 void addTriggerFromResource(char *key[], char *value[])
 {
-	int i, triggerName, count, targetType, targetName;
+	int i, triggerName, count, targetType, targetName, total;
 
-	triggerName = count = targetType = targetName = -1;
+	total = triggerName = count = targetType = targetName = -1;
 
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
@@ -58,6 +59,11 @@ void addTriggerFromResource(char *key[], char *value[])
 		{
 			count = i;
 		}
+		
+		else if (strcmpignorecase("TRIGGER_TOTAL", key[i]) == 0)
+		{
+			total = i;
+		}
 
 		else if (strcmpignorecase("TRIGGER_TYPE", key[i]) == 0)
 		{
@@ -69,18 +75,25 @@ void addTriggerFromResource(char *key[], char *value[])
 			targetName = i;
 		}
 	}
+	
+	if (total == -1 && count != -1)
+	{
+		total = count;
+		
+		count = 0;
+	}
 
-	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1)
+	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1 || total == -1)
 	{
 		printf("Trigger is missing resources\n");
 
 		exit(1);
 	}
 
-	addTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
+	addTrigger(value[triggerName], atoi(value[count]), atoi(value[total]), getTriggerTypeByName(value[targetType]), value[targetName]);
 }
 
-static void addTrigger(char *triggerName, int count, int targetType, char *targetName)
+static void addTrigger(char *triggerName, int count, int total, int targetType, char *targetName)
 {
 	int i;
 
@@ -91,12 +104,13 @@ static void addTrigger(char *triggerName, int count, int targetType, char *targe
 			trigger[i].inUse = TRUE;
 
 			trigger[i].count = count;
+			trigger[i].total = total;
 			trigger[i].targetType = targetType;
 
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
-			printf("Added Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
+			printf("Added Trigger \"%s\" with total %d\n", trigger[i].triggerName, trigger[i].total);
 
 			return;
 		}
@@ -110,6 +124,7 @@ static void addTrigger(char *triggerName, int count, int targetType, char *targe
 void fireTrigger(char *name)
 {
 	int i;
+	char message[MAX_MESSAGE_LENGTH];
 
 	if (strlen(name) == 0)
 	{
@@ -120,11 +135,18 @@ void fireTrigger(char *name)
 	{
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
-			trigger[i].count--;
+			trigger[i].count++;
 			
-			printf("Updating Trigger \"%s\", %d to go\n", trigger[i].triggerName, trigger[i].count);
+			if (trigger[i].targetType == UPDATE_OBJECTIVE)
+			{
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d of %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
+				
+				setInfoBoxMessage(120, message);
+			}
+			
+			printf("Updating Trigger \"%s\", %d of %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
 
-			if (trigger[i].count <= 0)
+			if (trigger[i].count == trigger[i].total)
 			{
 				printf("Firing Trigger \"%s\"\n", trigger[i].triggerName);
 
@@ -169,6 +191,7 @@ void writeTriggersToFile(FILE *fp)
 			fprintf(fp, "TYPE TRIGGER\n");
 			fprintf(fp, "TRIGGER_NAME %s\n", trigger[i].triggerName);
 			fprintf(fp, "TRIGGER_COUNT %d\n", trigger[i].count);
+			fprintf(fp, "TRIGGER_TOTAL %d\n", trigger[i].total);
 			fprintf(fp, "TRIGGER_TYPE %s\n", getTriggerTypeByID(trigger[i].targetType));
 			fprintf(fp, "TRIGGER_TARGET %s\n", trigger[i].targetName);
 			fprintf(fp, "}\n\n");

@@ -451,7 +451,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			playSound(token, -1, player.x, player.y, 0);
+			playSoundToMap(token, -1, player.x, player.y, 0);
 		}
 
 		else if (strcmpignorecase("MUSIC", command) == 0)
@@ -633,11 +633,11 @@ void readNextScriptLine()
 		{
 			resetCameraLimits();
 		}
-		
+
 		else if (strcmpignorecase("CAMERA_SPEED", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			setCameraSpeed(atof(token));
 		}
 

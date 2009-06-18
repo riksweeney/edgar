@@ -421,6 +421,11 @@ void drawLineDefToMap()
 void setEntityAnimation(Entity *e, int animationID)
 {
 	Sprite *sprite;
+	
+	if (e->inUse == FALSE)
+	{
+		return;
+	}
 
 	if (e->currentAnim != e->animation[animationID])
 	{

@@ -46,6 +46,8 @@ void initCursor(char *name)
 	cursor.tileID = 0;
 	cursor.entityType = 0;
 	cursor.entity.weight = 0;
+	
+	cursor.entity.inUse = TRUE;
 
 	loadProperties(entityNames[0], &cursor.entity);
 
@@ -271,6 +273,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
+			
+			cursor.entity.inUse = TRUE;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
@@ -306,6 +310,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
+			
+			cursor.entity.inUse = TRUE;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 

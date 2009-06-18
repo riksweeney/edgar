@@ -129,7 +129,7 @@ static void wander()
 
 	if (prand() % 2400 == 0)
 	{
-		playSound("sound/enemy/chicken/cluck.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/chicken/cluck.ogg", -1, self->x, self->y, 0);
 	}
 
 	if (prand() % 30 == 0)

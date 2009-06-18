@@ -215,7 +215,7 @@ void saveGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
 	char saveFile[MAX_PATH_LENGTH];
-	char *mapName = getMapName();
+	char *mapName = getMapFilename();
 	unsigned char *buffer;
 	int skipping = FALSE;
 	FILE *read;
@@ -401,7 +401,7 @@ void saveTemporaryData()
 {
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	char swapFile[MAX_PATH_LENGTH];
-	char *mapName = getMapName();
+	char *mapName = getMapFilename();
 	unsigned char *buffer;
 	int skipping = FALSE;
 	FILE *read;

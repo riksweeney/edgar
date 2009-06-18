@@ -140,7 +140,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (self->face == other->face)
 		{
-			playSound("sound/common/dink.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 		}
 
 		else

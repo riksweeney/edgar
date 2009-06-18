@@ -104,15 +104,15 @@ static void takeDamage(Entity *other, int damage)
 			switch (i)
 			{
 				case 0:
-					playSound("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
 				break;
 
 				case 1:
-					playSound("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
 				break;
 
 				default:
-					playSound("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
 				break;
 			}
 		}
@@ -132,7 +132,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->action = &die;
 
-			playSound("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
 	}
 }
@@ -143,13 +143,13 @@ static void initialise()
 
 	minX = getMapStartX();
 	minY = getMapStartY();
-	
+
 	if (self->active == TRUE)
 	{
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
-			
+
 			self->dirX = self->speed;
 
 			setEntityAnimation(self, ATTACK_2);
@@ -189,7 +189,7 @@ static void doIntro()
 
 		self->action = &introPause;
 
-		playSound("sound/boss/grub_boss/roar.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/roar.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -290,8 +290,8 @@ static void spit()
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
 		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
 	}
-	
-	playSound("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->thinkTime--;
 
@@ -468,7 +468,7 @@ static void die()
 
 		throwGibs("boss/grub_boss_gib", 7);
 
-		playSound("sound/boss/grub_boss/explode.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/explode.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 

@@ -65,7 +65,7 @@ Entity *addExplosion(int x, int y)
 
 static void explode()
 {
-	playSound("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
 
 	self->action = &doNothing;
 }

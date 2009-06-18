@@ -38,6 +38,8 @@ Target *addTarget(int x, int y, char *name)
 {
 	int i;
 
+	targetEntity.inUse = TRUE;
+
 	loadProperties("lift/lift_target", &targetEntity);
 
 	targetEntity.draw = &drawLoopingAnimationToMap;

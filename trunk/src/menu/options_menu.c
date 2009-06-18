@@ -27,6 +27,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "control_menu.h"
 #include "sound_menu.h"
 #include "../system/pak.h"
+#include "../init.h"
+#include "../audio/audio.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -39,6 +41,7 @@ static void showControlMenu(void);
 static void showSoundMenu(void);
 static void showMainMenu(void);
 static void doMenu(void);
+static void toggleFullscreen(void);
 
 void drawOptionsMenu()
 {
@@ -67,6 +70,8 @@ static void doMenu()
 
 		menuInput.down = FALSE;
 		input.down = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.up == TRUE || menuInput.up == TRUE)
@@ -80,6 +85,8 @@ static void doMenu()
 
 		menuInput.up = FALSE;
 		input.up = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.attack == TRUE || menuInput.attack == TRUE)
@@ -93,6 +100,8 @@ static void doMenu()
 
 		menuInput.attack = FALSE;
 		input.attack = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.left == TRUE || menuInput.left == TRUE)
@@ -106,6 +115,8 @@ static void doMenu()
 
 		menuInput.left = FALSE;
 		input.left = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.right == TRUE || menuInput.right == TRUE)
@@ -119,6 +130,8 @@ static void doMenu()
 
 		menuInput.right = FALSE;
 		input.right = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 }
 
@@ -213,6 +226,13 @@ static void loadMenuLayout()
 					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
+				else if (strcmpignorecase(menuID, "MENU_FULLSCREEN") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
+
+					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+				}
+
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
@@ -249,6 +269,8 @@ static void loadMenuLayout()
 	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
 
 	menu.background = addBorder(SDL_DisplayFormat(temp), 255, 255, 255, 0, 0, 0);
+
+	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
 
 	SDL_FreeSurface(temp);
 
@@ -301,6 +323,17 @@ static void toggleHints()
 	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
 
 	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
+}
+
+static void toggleFullscreen()
+{
+	Widget *w = menu.widgets[menu.index];
+
+	game.fullscreen = game.fullscreen == TRUE ? FALSE : TRUE;
+
+	toggleFullScreen();
+
+	updateLabelText(w->label, game.fullscreen == TRUE ? _("Yes") : _("No"));
 }
 
 static void showControlMenu()

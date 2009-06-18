@@ -777,7 +777,7 @@ void checkToMap(Entity *e)
 
 			if (e->element != FIRE)
 			{
-				playSound("sound/common/lava.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/lava.ogg", -1, self->x, self->y, 0);
 
 				e->flags &= ~(HELPLESS|INVULNERABLE);
 
@@ -802,7 +802,7 @@ void checkToMap(Entity *e)
 
 			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
-				playSound("sound/common/splash.ogg", -1, self->x, self->y, 0);
+				playSoundToMap("sound/common/splash.ogg", -1, self->x, self->y, 0);
 
 				e->flags &= ~(HELPLESS|INVULNERABLE);
 

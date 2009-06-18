@@ -51,6 +51,7 @@ static void dialogWait(void);
 static void playerDie(void);
 static void alignAnimations(Entity *);
 static void gameOverTimeOut(void);
+static void touch(Entity *other);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -106,6 +107,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	}
 
 	player.action = NULL;
+	
+	player.touch = &touch;
 
 	centerMapOnEntity(&player);
 
@@ -223,28 +226,28 @@ void doPlayer()
 					{
 						self->dirX -= self->speed;
 					}
-					
+
 					else if (!(playerWeapon.flags & ATTACKING))
 					{
 						self->dirX -= self->speed;
-						
+
 						/* Only pull the target */
-	
+
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
 							if (self->target->x > self->x)
 							{
 								self->target->dirX = -self->speed;
-	
+
 								self->target->frameSpeed = -1;
 							}
 						}
-	
+
 						else
 						{
 							playerWeapon.face = playerShield.face = self->face = LEFT;
 						}
-	
+
 						setEntityAnimation(&player, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
@@ -265,28 +268,28 @@ void doPlayer()
 					{
 						self->dirX += self->speed;
 					}
-					
+
 					else if (!(playerWeapon.flags & ATTACKING))
 					{
 						self->dirX += self->speed;
-	
+
 						/* Only pull the target */
-	
+
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
 							if (self->target->x < self->x)
 							{
 								self->target->dirX = self->speed;
-	
+
 								self->target->frameSpeed = 1;
 							}
 						}
-	
+
 						else
 						{
 							playerWeapon.face = playerShield.face = self->face = RIGHT;
 						}
-	
+
 						setEntityAnimation(&player, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
@@ -374,7 +377,7 @@ void doPlayer()
 					setEntityAnimation(&playerShield, ATTACK_1);
 					setEntityAnimation(&playerWeapon, ATTACK_1);
 
-					playSound("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 					playerWeapon.animationCallback = &attackFinish;
 				}
@@ -408,7 +411,7 @@ void doPlayer()
 				}
 			}
 
-			if (input.block == 1 && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
+			if (input.block == 1 && (player.flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
 			{
 				player.flags |= BLOCKING;
 
@@ -676,7 +679,7 @@ static void takeDamage(Entity *other, int damage)
 
 					checkToMap(&player);
 
-					playSound("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 					if (other->reactToBlock != NULL)
 					{
@@ -704,7 +707,7 @@ static void takeDamage(Entity *other, int damage)
 
 			checkToMap(&player);
 
-			playSound("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+			playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 			other->x = other->x < player.x ? player.x - other->w - 4 : player.x + player.w + 4;
 
@@ -1030,4 +1033,13 @@ void freePlayer()
 	playerWeapon.inUse = FALSE;
 
 	playerShield.inUse = FALSE;
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&playerShield, STAND);
+}
+
+static void touch(Entity *other)
+{
+
 }

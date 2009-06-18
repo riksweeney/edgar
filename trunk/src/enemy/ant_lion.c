@@ -36,10 +36,10 @@ static void patrol(void);
 static void lookForFood(void);
 static void moveToTarget(void);
 static void hunt(void);
-static void trapTarget(void);
-static void init(void);
+static void trapTarget(Entity *);
 static void leave(void);
 static void addDust(void);
+static void wait(void);
 
 Entity *addAntLion(int x, int y, char *name)
 {
@@ -57,7 +57,7 @@ Entity *addAntLion(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
+	e->action = &patrol;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -104,7 +104,7 @@ static void lookForFood()
 
 		self->target = &player;
 
-		/*playSound("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);*/
+		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 		self->action = &hunt;
 	}
@@ -118,7 +118,7 @@ static void lookForFood()
 			{
 				self->target = &entity[i];
 
-				/*playSound("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);*/
+				playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 				self->action = &hunt;
 
@@ -151,11 +151,15 @@ static void hunt()
 	if (abs(self->x - self->targetX) <= self->speed)
 	{
 		self->dirX = 0;
+
+		self->touch = &trapTarget;
 	}
 
 	else
 	{
 		self->dirX = self->targetX < self->x ? -self->target->speed * 1.5 : self->target->speed * 1.5;
+
+		self->touch = NULL;
 	}
 
 	checkToMap(self);
@@ -178,31 +182,33 @@ static void hunt()
 
 		self->action = &patrol;
 
+		self->touch = NULL;
+
 		stopSound(BOSS_CHANNEL);
 
 		return;
 	}
 
-	if (self->target->flags & ON_GROUND)
-	{
-		if (abs(self->x - self->targetX) <= self->speed)
-		{
-			/* Trapping */
-
-			trapTarget();
-		}
-	}
-
 	addDust();
 }
 
-static void trapTarget()
+static void trapTarget(Entity *other)
 {
 	Entity *temp;
 
-	/*playSound("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);*/
-	
-	playSound("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	if (other != self->target)
+	{
+		return;
+	}
+
+	if (!(self->target->flags & ON_GROUND))
+	{
+		return;
+	}
+
+	playSoundToMap("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	self->flags &= ~NO_DRAW;
 
 	self->target->flags |= NO_DRAW;
 
@@ -210,35 +216,48 @@ static void trapTarget()
 
 	self = self->target;
 
-	if (self->type != PLAYER)
-	{
-		self->inUse = FALSE;
-	}
-
-	else
+	if (self->type == PLAYER)
 	{
 		self->die();
 	}
 
+	else
+	{
+		self->inUse = FALSE;
+	}
+
 	self = temp;
 
-	self->health = 1;
+	self->action = &wait;
 
-	self->action = &leave;
+	self->touch = NULL;
+
+	self->thinkTime = 120;
+
+	self->targetY = self->y + self->h;
 }
 
 static void leave()
 {
-	self->flags |= NO_DRAW;
+	if (self->y < self->targetY)
+	{
+		self->y += 0.25;
+	}
 
-	self->touch = NULL;
+	else
+	{
+		self->inUse = FALSE;
+	}
 }
 
-static void init()
+static void wait()
 {
-	self->action = self->health == 1 ? &leave : &patrol;
+	self->thinkTime--;
 
-	self->action();
+	if (self->thinkTime <= 0)
+	{
+		self->action = &leave;
+	}
 }
 
 static void addDust()
