@@ -86,9 +86,11 @@ static void touch(Entity *other)
 	if (other->type == PROJECTILE)
 	{
 		other->inUse = FALSE;
+
+		return;
 	}
 
-	else if (other->dirY > 0)
+	else if (other->dirY > 0 && other->touch != NULL)
 	{
 		/* Trying to move down */
 

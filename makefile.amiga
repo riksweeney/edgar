@@ -12,9 +12,9 @@ PAK_PROG  = pak.exe
 CXX       = m68k-amigaos-gcc
 SDLC      = /opt/Amiga/bin/sdl-config
 
-CFLAGS = `$(SDLC) --cflags` -Wall -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = `$(SDLC) --cflags` -fno-builtin-scalb -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -pg -lSDLmain
+LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDLmain
 
 PAK_OBJS   = pak_creator.o pak.o
 MAIN_OBJS  = draw.o main.o

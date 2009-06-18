@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static Trigger trigger[MAX_TRIGGERS];
 
-static void addGlobalTrigger(char *, int, int, char *);
+static void addGlobalTrigger(char *, int, int, int, char *);
 
 void freeGlobalTriggers()
 {
@@ -42,14 +42,14 @@ void addGlobalTriggerFromScript(char *line)
 
 	sscanf(line, "\"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
 
-	addGlobalTrigger(triggerName, atoi(count), getTriggerTypeByName(targetType), targetName);
+	addGlobalTrigger(triggerName, 0, atoi(count), getTriggerTypeByName(targetType), targetName);
 }
 
 void addGlobalTriggerFromResource(char *key[], char *value[])
 {
-	int i, triggerName, count, targetType, targetName;
+	int i, triggerName, count, targetType, targetName, total;
 
-	triggerName = count = targetType = targetName = -1;
+	total = triggerName = count = targetType = targetName = -1;
 
 	for (i=0;i<MAX_PROPS_FILES;i++)
 	{
@@ -63,6 +63,11 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 			count = i;
 		}
 
+		else if (strcmpignorecase("TRIGGER_TOTAL", key[i]) == 0)
+		{
+			total = i;
+		}
+
 		else if (strcmpignorecase("TRIGGER_TYPE", key[i]) == 0)
 		{
 			targetType = i;
@@ -74,17 +79,24 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 		}
 	}
 
-	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1)
+	if (total == -1 && count != -1)
+	{
+		total = count;
+
+		count = 0;
+	}
+
+	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1 || total == -1)
 	{
 		printf("Trigger is missing resources\n");
 
 		exit(1);
 	}
 
-	addGlobalTrigger(value[triggerName], atoi(value[count]), getTriggerTypeByName(value[targetType]), value[targetName]);
+	addGlobalTrigger(value[triggerName], atoi(value[count]), atoi(value[total]), getTriggerTypeByName(value[targetType]), value[targetName]);
 }
 
-static void addGlobalTrigger(char *triggerName, int count, int targetType, char *targetName)
+static void addGlobalTrigger(char *triggerName, int count, int total, int targetType, char *targetName)
 {
 	int i;
 
@@ -95,6 +107,7 @@ static void addGlobalTrigger(char *triggerName, int count, int targetType, char 
 			trigger[i].inUse = TRUE;
 
 			trigger[i].count = count;
+			trigger[i].total = total;
 			trigger[i].targetType = targetType;
 
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
@@ -173,6 +186,7 @@ void writeGlobalTriggersToFile(FILE *fp)
 			fprintf(fp, "TYPE GLOBAL_TRIGGER\n");
 			fprintf(fp, "TRIGGER_NAME %s\n", trigger[i].triggerName);
 			fprintf(fp, "TRIGGER_COUNT %d\n", trigger[i].count);
+			fprintf(fp, "TRIGGER_TOTAL %d\n", trigger[i].total);
 			fprintf(fp, "TRIGGER_TYPE %s\n", getTriggerTypeByID(trigger[i].targetType));
 			fprintf(fp, "TRIGGER_TARGET %s\n", trigger[i].targetName);
 			fprintf(fp, "}\n\n");

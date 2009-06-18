@@ -113,8 +113,10 @@ void updateObjective(char *objectiveName)
 			{
 				printf("Completing objective \"%s\"\n", objective[i].name);
 
+				freeMessageQueue();
+
 				setInfoBoxMessage(180,  _("Objective Completed: %s"), objective[i].name);
-				
+
 				printf("Firing triggers with name %s\n", objective[i].completionTrigger);
 
 				fireTrigger(objective[i].completionTrigger);

@@ -51,7 +51,7 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
-	int go, i, mapID, loadSave, recordingID, replayingID;
+	int go, i, mapID, loadSlot, recordingID, replayingID;
 
 	setlocale(LC_ALL, "");
 	setlocale(LC_NUMERIC, "C");
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 
 	go = TRUE;
 
-	loadSave = FALSE;
+	loadSlot = -1;
 
 	mapID = recordingID = replayingID = -1;
 
@@ -105,13 +105,16 @@ int main(int argc, char *argv[])
 
 		else if (strcmpignorecase("-load", argv[i]) == 0)
 		{
-			loadSave = TRUE;
-		}
+			loadSlot = atoi(argv[i + 1]);
 
-		else
-		{
-			mapID = i;
+			i++;
 		}
+		#if DEV == 1
+			else
+			{
+				mapID = i;
+			}
+		#endif
 	}
 
 	if (replayingID != -1 && recordingID != -1)
@@ -123,7 +126,7 @@ int main(int argc, char *argv[])
 
 	loadRequiredResources();
 
-	if (loadSave == FALSE)
+	if (loadSlot == -1)
 	{
 		if (game.gameType == RECORDING)
 		{
@@ -138,9 +141,9 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		if (loadGame(0) == FALSE)
+		if (loadGame(loadSlot) == FALSE)
 		{
-			printf("No saved game in slot 0\n");
+			printf("No saved game in slot %d\n", loadSlot);
 
 			exit(1);
 		}
@@ -148,14 +151,14 @@ int main(int argc, char *argv[])
 
 	if (replayingID != -1)
 	{
-		setReplayData(argv[replayingID], loadSave);
+		setReplayData(argv[replayingID], loadSlot == -1 ? FALSE : TRUE);
 	}
 
 	if (recordingID != -1)
 	{
 		setRecordData(argv[recordingID]);
 
-		if (loadSave == TRUE)
+		if (loadSlot != -1)
 		{
 			setMapFile(getMapFilename());
 		}

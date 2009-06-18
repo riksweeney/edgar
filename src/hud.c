@@ -231,5 +231,7 @@ void freeMessageQueue()
 		hud.infoMessage.surface = NULL;
 
 		hud.infoMessage.text[0] = '\0';
+
+		hud.infoMessage.thinkTime = 0;
 	}
 }
