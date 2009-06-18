@@ -110,7 +110,7 @@ static void wait()
 
 			self->action = &snapShut;
 
-			playSound("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
 		}
 	}
 

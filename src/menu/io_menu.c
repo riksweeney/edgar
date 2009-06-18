@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
+#include "../audio/audio.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -69,6 +70,8 @@ static void doMenu()
 
 		menuInput.down = FALSE;
 		input.down = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.up == TRUE || menuInput.up == TRUE)
@@ -82,6 +85,8 @@ static void doMenu()
 
 		menuInput.up = FALSE;
 		input.up = FALSE;
+
+		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.attack == TRUE || menuInput.attack == TRUE)
@@ -90,6 +95,8 @@ static void doMenu()
 
 		if (w->clickAction != NULL)
 		{
+			playSound("sound/common/click.ogg");
+			
 			w->clickAction();
 		}
 
@@ -173,6 +180,8 @@ static void loadMenuLayout(int saving)
 	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
 
 	menu.background = addBorder(SDL_DisplayFormat(temp), 255, 255, 255, 0, 0, 0);
+
+	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
 
 	SDL_FreeSurface(temp);
 

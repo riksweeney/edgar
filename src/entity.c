@@ -490,15 +490,15 @@ void enemyPain()
 	switch (i)
 	{
 		case 0:
-			playSound("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
 		break;
 
 		case 1:
-			playSound("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
 		break;
 
 		default:
-			playSound("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+			playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
 		break;
 	}
 }
@@ -545,6 +545,11 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
+	
+	if (other->touch == NULL)
+	{
+		return;
+	}
 
 	if (other->type == PROJECTILE)
 	{
@@ -566,7 +571,7 @@ void pushEntity(Entity *other)
 	if (other->dirX == 0 && self->dirX != 0)
 	{
 		/* Place self as close to other as possible */
-		
+
 		if (other->x < self->x)
 		{
 			self->x = other->x + other->box.x + other->w + 1;
@@ -587,7 +592,7 @@ void pushEntity(Entity *other)
 	if (other->dirX != 0 && self->dirX != 0 && SIGN(other->dirX) != SIGN(self->dirX))
 	{
 		/* Place self as close to other as possible */
-		
+
 		if (other->x < self->x)
 		{
 			self->x = other->x + other->box.x + other->w + 1;
@@ -597,9 +602,9 @@ void pushEntity(Entity *other)
 		{
 			self->x = other->x - other->box.x - self->w - 1;
 		}
-		
+
 		other->x -= other->dirX;
-		
+
 		self->x -= self->dirX;
 
 		self->dirX = 0;

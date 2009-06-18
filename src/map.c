@@ -1043,7 +1043,7 @@ void centerMapOnEntity(Entity *e)
 	map.cameraSpeed = -1;
 }
 
-char *getMapName()
+char *getMapFilename()
 {
 	return map.filename;
 }
@@ -1051,4 +1051,9 @@ char *getMapName()
 char *getMapMusic()
 {
 	return map.musicName;
+}
+
+char *getMapName()
+{
+	return map.mapName;
 }

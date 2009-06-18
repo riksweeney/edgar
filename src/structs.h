@@ -213,7 +213,7 @@ typedef struct Type
 typedef struct Trigger
 {
 	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH];
-	int inUse, targetType, count;
+	int inUse, targetType, count, total;
 } Trigger;
 
 typedef struct Objective

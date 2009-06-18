@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
 
 		if (loadSave == TRUE)
 		{
-			setMapFile(getMapName());
+			setMapFile(getMapFilename());
 		}
 	}
 

@@ -93,7 +93,7 @@ static void preCacheSound(char *name)
 	soundIndex++;
 }
 
-int playSound(char *name, int channel, int x, int y, int loops)
+int playSoundToMap(char *name, int channel, int x, int y, int loops)
 {
 	int i, distance, volume;
 	Mix_Chunk *chunk = NULL;
@@ -158,6 +158,48 @@ int playSound(char *name, int channel, int x, int y, int loops)
 	Mix_VolumeChunk(chunk, volume);
 
 	return playSoundChunk(chunk, channel, loops);
+}
+
+void playSound(char *name)
+{
+	int i;
+	Mix_Chunk *chunk = NULL;
+
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
+	for (i=0;i<soundIndex;i++)
+	{
+		if (strcmpignorecase(sound[i].name, name) == 0)
+		{
+			chunk = sound[i].effect;
+
+			break;
+		}
+	}
+
+	if (chunk == NULL)
+	{
+		if (soundIndex == MAX_SOUNDS)
+		{
+			printf("Ran out of space for sounds\n");
+
+			abort();
+		}
+
+		chunk = loadSound(name);
+
+		sound[soundIndex].effect = chunk;
+		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
+
+		soundIndex++;
+	}
+
+	Mix_VolumeChunk(chunk, game.sfxDefaultVolume);
+
+	playSoundChunk(chunk, -1, 0);
 }
 
 Mix_Chunk *loadSound(char *name)

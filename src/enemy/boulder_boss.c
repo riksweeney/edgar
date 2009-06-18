@@ -118,7 +118,7 @@ static void drop()
 	{
 		self->thinkTime = 120;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
@@ -138,7 +138,7 @@ static void wait()
 	{
 		playBossMusic();
 
-		playSound("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 		setEntityAnimation(self, WALK);
 
@@ -191,7 +191,7 @@ static void chasePlayer()
 
 		self->active = FALSE;
 
-		playSound("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		shakeScreen(STRONG, 90);
 

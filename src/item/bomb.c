@@ -71,7 +71,7 @@ Entity *addBomb(int x, int y, char *name)
 
 static void startFuse()
 {
-	self->targetX = playSound("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+	self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
 
 	self->action = &wait;
 }

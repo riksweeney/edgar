@@ -89,7 +89,7 @@ static void trapEntity()
 {
 	setEntityAnimation(self, ATTACK_3);
 
-	playSound("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
 
 	if (self->target == NULL)
 	{
@@ -100,8 +100,6 @@ static void trapEntity()
 
 	else
 	{
-		setInfoBoxMessage(120, _("Captured a chicken"));
-
 		self->thinkTime = 0;
 
 		self->action = &removeChicken;

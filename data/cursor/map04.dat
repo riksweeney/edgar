@@ -25,6 +25,6 @@ enemy/bee_hive
 enemy/red_spider
 item/health_potion
 misc/chopped_log
-enemy/ant_lion
+boss/ant_lion
 enemy/grub
 enemy/jumping_slime

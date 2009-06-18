@@ -97,15 +97,15 @@ static void takeDamage(Entity *other, int damage)
 			switch (i)
 			{
 				case 0:
-					playSound("sound/common/splat1.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
 				break;
 
 				case 1:
-					playSound("sound/common/splat2.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
 				break;
 
 				default:
-					playSound("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+					playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
 				break;
 			}
 		}
@@ -131,64 +131,79 @@ static void takeDamage(Entity *other, int damage)
 static void initialise()
 {
 	int minX, minY;
+	float radians;
 
 	minX = getMapStartX();
 	minY = getMapStartY();
-	
+
+	self->thinkTime++;
+
+	if (self->thinkTime >= 360)
+	{
+		self->thinkTime = 0;
+	}
+
 	if (self->active == TRUE)
 	{
+		if (self->thinkTime == 1 || self->thinkTime == 181)
+		{
+			self->thinkTime = 0;
+		}
+
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
-			
-			self->dirX = self->speed;
 
-			setEntityAnimation(self, CUSTOM_1);
+			self->dirX = self->speed;
 
 			self->action = &doIntro;
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
 
-			self->thinkTime = 120;
-			
+			self->thinkTime = 180;
+
 			printf("Starting\n");
 		}
 	}
+
+	radians = DEG_TO_RAD(self->thinkTime);
+
+	self->x = self->startX + (10 * sin(radians) - 0 * sin(radians));
 }
 
 static void doIntro()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		self->flags |= NO_DRAW;
-		
 		for (i=0;i<11;i++)
 		{
 			e = addTemporaryItem("boss/fly_boss_cocoon_piece", self->x, self->y, RIGHT, 0, 0);
-	
+
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->w - e->w) / 2;
-	
+
 			e->dirX = (prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
-	
+
 			setEntityAnimation(e, i);
-	
+
 			e->thinkTime = 180 + (prand() % 60);
 		}
-		
-		playSound("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
+		self->draw = &drawLoopingAnimationToMap;
+
+		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
 		self->takeDamage = &takeDamage;
-		
+
 		self->action = &introPause;
-		
+
 		self->thinkTime = 120;
 	}
 }
@@ -196,11 +211,11 @@ static void doIntro()
 static void introPause()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		playBossMusic();
-		
+
 		self->action = &wait;
 	}
 }
@@ -212,8 +227,8 @@ static void wait()
 
 static void drawSuspended()
 {
-	drawLine(self->startX + self->w / 2, self->startY, self->startX + self->w / 2, self->y, 255, 255, 255);
-	
+	drawLine(self->startX + self->w / 2, self->startY, self->x + self->w / 2, self->y + 15, 255, 255, 255);
+
 	drawLoopingAnimationToMap();
 }
 
