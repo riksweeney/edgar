@@ -36,6 +36,7 @@ extern Entity player, playerShield, playerWeapon;
 
 static void respawn(void);
 static void itemFallout(void);
+static void noTouch(Entity *);
 
 Entity *addPermanentItem(char *name, int x, int y)
 {
@@ -117,7 +118,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
 
-	e->touch = NULL;
+	e->touch = &noTouch;
 
 	if (e->type == HEALTH)
 	{
@@ -259,4 +260,9 @@ static void respawn()
 
 		setCustomAction(self, &invulnerable, 180, 0);
 	}
+}
+
+static void noTouch(Entity *other)
+{
+
 }

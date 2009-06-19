@@ -468,8 +468,6 @@ static void die()
 
 		throwGibs("boss/grub_boss_gib", 7);
 
-		playSoundToMap("sound/boss/grub_boss/explode.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 
 		e->dirY = ITEM_JUMP_HEIGHT;

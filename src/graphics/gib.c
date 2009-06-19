@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 
@@ -50,6 +51,8 @@ void throwGibs(char *name, int gibs)
 
 		e->draw = &drawGib;
 	}
+	
+	playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }

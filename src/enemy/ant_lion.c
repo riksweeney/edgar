@@ -29,6 +29,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../decoration.h"
 #include "../game.h"
+#include "../player.h"
+#include "../graphics/gib.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -41,6 +43,7 @@ static void leave(void);
 static void addDust(void);
 static void wait(void);
 static void noTouch(Entity *);
+static void attack(void);
 
 Entity *addAntLion(int x, int y, char *name)
 {
@@ -193,8 +196,6 @@ static void hunt()
 
 static void trapTarget(Entity *other)
 {
-	Entity *temp;
-
 	if (self->target == NULL || other != self->target)
 	{
 		return;
@@ -204,38 +205,56 @@ static void trapTarget(Entity *other)
 	{
 		return;
 	}
-
-	playSoundToMap("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
-	self->flags &= ~NO_DRAW;
-
-	self->target->flags |= NO_DRAW;
-
-	temp = self;
-
-	self = self->target;
-
-	if (self->type == PLAYER)
-	{
-		self->die();
-	}
-
-	else
-	{
-		self->inUse = FALSE;
-	}
-
-	self = temp;
-
-	self->target = NULL;
-
-	self->action = &wait;
-
+	
+	/* Trap the target */
+	
+	self->action = &attack;
+	
 	self->touch = NULL;
+	
+	self->y += self->h;
+	
+	self->flags &= ~NO_DRAW;
+}
 
-	self->thinkTime = 120;
-
-	self->targetY = self->y + self->h;
+static void attack()
+{
+	Entity *temp;
+	
+	self->y -= 15;
+	
+	if (self->y < self->startY)
+	{
+		self->y = self->startY;
+		
+		playSoundToMap("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+		temp = self;
+	
+		self = self->target;
+	
+		if (self->type == PLAYER)
+		{
+			playerGib();
+		}
+	
+		else
+		{
+			throwGibs("enemy/grub_gibs", 7);
+		}
+	
+		self = temp;
+	
+		self->target = NULL;
+	
+		self->action = &wait;
+	
+		self->touch = NULL;
+	
+		self->thinkTime = 120;
+	
+		self->targetY = self->y + self->h;
+	}
 }
 
 static void leave()
