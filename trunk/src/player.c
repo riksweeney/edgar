@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "hud.h"
 #include "audio/music.h"
 #include "audio/audio.h"
+#include "graphics/gib.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -1001,8 +1002,6 @@ static void playerDie()
 
 	player.flags |= HELPLESS;
 
-	player.fallout = NULL;
-
 	player.dirX = 0;
 
 	player.thinkTime = 180;
@@ -1042,4 +1041,15 @@ void freePlayer()
 static void touch(Entity *other)
 {
 
+}
+
+void playerGib()
+{
+	throwGibs("edgar/edgar_gibs", 6);
+	
+	player.inUse = TRUE;
+	
+	playerDie();
+	
+	player.flags |= NO_DRAW;
 }

@@ -36,3 +36,4 @@ void increasePlayerMaxHealth(void);
 void syncWeaponShieldToPlayer(void);
 void freePlayer(void);
 void resetPlayerAnimations(void);
+void playerGib(void);
