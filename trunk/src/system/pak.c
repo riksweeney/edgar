@@ -31,7 +31,6 @@ static int fileCount;
 void initPakFile()
 {
 	#if DEV == 0
-		int i;
 		long offset;
 		FILE *fp;
 
