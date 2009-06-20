@@ -31,6 +31,7 @@ static void initFall(void);
 static void resetWait(void);
 static void resetPlatform(void);
 static void initialize(void);
+static void fallout(void);
 
 extern Entity *self;
 
@@ -53,6 +54,8 @@ Entity *addFallingPlatform(int x, int y, char *name)
 	e->touch = &touch;
 
 	e->action = &initialize;
+	
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -194,4 +197,9 @@ static void initialize()
 	}
 
 	self->health = 0;
+}
+
+static void fallout()
+{
+
 }

@@ -122,6 +122,8 @@ static void attack()
 	if (self->flags & ON_GROUND)
 	{
 		self->face = player.x < self->x ? LEFT : RIGHT;
+		
+		self->dirX = 0;
 
 		if (self->thinkTime == 0)
 		{
@@ -141,8 +143,6 @@ static void attack()
 	if (onGround == 0 && self->flags & ON_GROUND)
 	{
 		self->thinkTime = 30 + prand () % 60;
-
-		self->dirX = 0;
 	}
 }
 
@@ -153,6 +153,8 @@ static void purpleAttack()
 	if (self->flags & ON_GROUND)
 	{
 		self->face = player.x < self->x ? LEFT : RIGHT;
+		
+		self->dirX = 0;
 
 		if (self->thinkTime == 0)
 		{
@@ -177,8 +179,6 @@ static void purpleAttack()
 	if (onGround == 0 && self->flags & ON_GROUND)
 	{
 		self->thinkTime = 30 + prand () % 60;
-
-		self->dirX = 0;
 	}
 }
 

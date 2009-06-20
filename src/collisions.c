@@ -314,6 +314,9 @@ void checkToMap(Entity *e)
 {
 	int i, x1, x2, y1, y2, previousEnvironment;
 	int topLeft, topRight, bottomLeft, bottomRight, previousY2, previous;
+	int tempX, tempY, wasOnGround;
+	
+	wasOnGround = (e->flags & ON_GROUND);
 
 	/* Remove the entity from the ground */
 
@@ -352,14 +355,51 @@ void checkToMap(Entity *e)
 
 				previous = mapTileAt(previous, y2);
 
-				if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
+				if (previous >= SLOPE_UP_START && previous <= SLOPE_UP_END)
+				{
+					if (i == e->h)
+					{
+						if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
+						{
+							e->y -= e->dirX;
+
+							e->dirY = 0;
+
+							e->flags |= ON_GROUND;
+						}
+
+						else if (bottomRight != BLANK_TILE && bottomRight < BACKGROUND_TILE_START)
+						{
+							e->y = (int)((e->y + e->h - 1) / TILE_SIZE);
+
+							e->y *= TILE_SIZE;
+
+							e->y -= e->h;
+
+							e->dirY = 0;
+
+							e->flags |= ON_GROUND;
+
+							previous = mapTileAt(x2, (e->y + e->h - 1) / TILE_SIZE);
+
+							if (previous >= SLOPE_UP_START && previous <= SLOPE_UP_END)
+							{
+								e->y -= e->dirX;
+
+								e->dirY = 0;
+
+								e->flags |= ON_GROUND;
+							}
+						}
+					}
+				}
+
+				else if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
 				{
 					if (i == e->h)
 					{
 						if (!(e->flags & FLY))
 						{
-							e->y -= e->dirX;
-
 							if ((e->flags & BOUNCES) && e->dirY > 4)
 							{
 								e->dirY = -e->dirY * 2 / 3;
@@ -371,6 +411,15 @@ void checkToMap(Entity *e)
 
 								e->flags |= ON_GROUND;
 							}
+						}
+
+						else
+						{
+							e->x = x2 * TILE_SIZE;
+
+							e->x -= e->w;
+
+							e->dirX = 0;
 						}
 
 						if (e->type == PROJECTILE)
@@ -387,9 +436,9 @@ void checkToMap(Entity *e)
 				{
 				}
 
-				else if (bottomRight >= SLOPE_DOWN_START && bottomRight <= SLOPE_DOWN_END)
+				else if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
-
+					e->flags |= ON_GROUND;
 				}
 
 				else if ((topRight >= JUMP_THROUGH_TILE_START && topRight <= JUMP_THROUGH_TILE_END) ||
@@ -430,14 +479,51 @@ void checkToMap(Entity *e)
 
 				previous = mapTileAt(previous, y2);
 
-				if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
+				if (previous >= SLOPE_DOWN_START && previous <= SLOPE_DOWN_END)
+				{
+					if (i == e->h)
+					{
+						if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
+						{
+							e->y += e->dirX;
+
+							e->dirY = 0;
+
+							e->flags |= ON_GROUND;
+						}
+
+						else if (bottomLeft != BLANK_TILE && bottomLeft < BACKGROUND_TILE_START)
+						{
+							e->y = (int)((e->y + e->h - 1) / TILE_SIZE);
+
+							e->y *= TILE_SIZE;
+
+							e->y -= e->h;
+
+							e->dirY = 0;
+
+							e->flags |= ON_GROUND;
+
+							previous = mapTileAt(x1, (e->y + e->h - 1) / TILE_SIZE);
+
+							if (previous >= SLOPE_DOWN_START && previous <= SLOPE_DOWN_END)
+							{
+								e->y += e->dirX;
+
+								e->dirY = 0;
+
+								e->flags |= ON_GROUND;
+							}
+						}
+					}
+				}
+
+				else if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
 					if (i == e->h)
 					{
 						if (!(e->flags & FLY))
 						{
-							e->y += e->dirX;
-
 							if ((e->flags & BOUNCES) && e->dirY > 4)
 							{
 								e->dirY = -e->dirY * 2 / 3;
@@ -450,6 +536,20 @@ void checkToMap(Entity *e)
 								e->flags |= ON_GROUND;
 							}
 						}
+
+						else
+						{
+							e->x = (x1 + 1) * TILE_SIZE;
+
+							e->dirX = 0;
+						}
+
+						if (e->type == PROJECTILE)
+						{
+							e->inUse = FALSE;
+
+							return;
+						}
 					}
 				}
 
@@ -458,9 +558,9 @@ void checkToMap(Entity *e)
 				{
 				}
 
-				else if (bottomLeft >= SLOPE_UP_START && bottomLeft <= SLOPE_UP_END)
+				else if (bottomRight >= SLOPE_UP_START && bottomRight <= SLOPE_UP_END)
 				{
-
+					e->flags |= ON_GROUND;
 				}
 
 				else if ((topLeft >= JUMP_THROUGH_TILE_START && topLeft <= JUMP_THROUGH_TILE_END) ||
@@ -536,21 +636,28 @@ void checkToMap(Entity *e)
 				{
 					if (i == e->w)
 					{
-						e->y = (y2 + 1) * TILE_SIZE;
-						e->y -= e->h;
+						tempX = (int)(e->x + i - 1) % TILE_SIZE;
+						tempY = (int)(e->y + e->dirY + e->h - 1) % TILE_SIZE;
 
-						e->y -= (((int)e->x + e->w - 1) % TILE_SIZE) + 1;
+						tempX = TILE_SIZE - tempX;
 
-						if ((e->flags & BOUNCES) && e->dirY > 4)
+						if (tempY > tempX || wasOnGround != 0)
 						{
-							e->dirY = -e->dirY * 2 / 3;
-						}
+							e->y = y2 * TILE_SIZE;
+							e->y -= e->h;
+							e->y += tempX + 1;
 
-						else
-						{
-							e->dirY = 0;
+							if ((e->flags & BOUNCES) && e->dirY > 4)
+							{
+								e->dirY = -e->dirY * 2 / 3;
+							}
 
-							e->flags |= ON_GROUND;
+							else
+							{
+								e->dirY = 0;
+
+								e->flags |= ON_GROUND;
+							}
 						}
 					}
 
@@ -564,23 +671,28 @@ void checkToMap(Entity *e)
 
 				else if (bottomLeft >= SLOPE_DOWN_START && bottomLeft <= SLOPE_DOWN_END)
 				{
-					if (i == e->w)
+					if (i == (e->w > TILE_SIZE ? TILE_SIZE : e->w))
 					{
-						e->y = (y2 + 1) * TILE_SIZE;
-						e->y -= e->h;
+						tempX = (int)(e->x) % TILE_SIZE;
+						tempY = (int)(e->y + e->dirY + e->h - 1) % TILE_SIZE;
 
-						e->y -= TILE_SIZE - ((int)e->x) % TILE_SIZE;
-
-						if ((e->flags & BOUNCES) && e->dirY > 4)
+						if (tempY > tempX || wasOnGround != 0)
 						{
-							e->dirY = -e->dirY * 2 / 3;
-						}
+							e->y = y2 * TILE_SIZE;
+							e->y -= e->h;
+							e->y += tempX + 1;
 
-						else
-						{
-							e->dirY = 0;
+							if ((e->flags & BOUNCES) && e->dirY > 4)
+							{
+								e->dirY = -e->dirY * 2 / 3;
+							}
 
-							e->flags |= ON_GROUND;
+							else
+							{
+								e->dirY = 0;
+
+								e->flags |= ON_GROUND;
+							}
 						}
 					}
 
@@ -741,9 +853,9 @@ void checkToMap(Entity *e)
 		}
 	}
 
-	if (e->y > maxMapY())
+	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
 	{
-		e->flags &= ~HELPLESS;
+		e->flags &= ~HELPLESS|INVULNERABLE;
 
 		e->fallout();
 	}
@@ -798,10 +910,13 @@ void checkToMap(Entity *e)
 			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
 				playSoundToMap("sound/common/splash.ogg", -1, self->x, self->y, 0);
-
-				e->flags &= ~(HELPLESS|INVULNERABLE);
-
-				e->fallout();
+				
+				if (!(e->flags & FLOATS))
+				{
+					e->flags &= ~(HELPLESS|INVULNERABLE);
+					
+					e->fallout();
+				}
 			}
 		}
 	}

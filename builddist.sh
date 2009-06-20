@@ -51,6 +51,7 @@ rm $APPDIR/*.spec
 rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
 rm $APPDIR/makefile.windows
+rm $APPDIR/makefile.amiga
 
 for i in `find . -name *.wav`;do
 	rm $i

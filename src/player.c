@@ -108,7 +108,7 @@ Entity *loadPlayer(int x, int y, char *name)
 	}
 
 	player.action = NULL;
-	
+
 	player.touch = &touch;
 
 	centerMapOnEntity(&player);
@@ -1046,10 +1046,10 @@ static void touch(Entity *other)
 void playerGib()
 {
 	throwGibs("edgar/edgar_gibs", 6);
-	
+
 	player.inUse = TRUE;
-	
+
 	playerDie();
-	
+
 	player.flags |= NO_DRAW;
 }

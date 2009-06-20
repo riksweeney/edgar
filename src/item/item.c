@@ -117,6 +117,8 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->fallout = &entityDie;
 
 	e->touch = &noTouch;
 
@@ -239,26 +241,25 @@ void throwItem(int val)
 
 static void itemFallout()
 {
-	if (!(self->flags & HELPLESS))
-	{
-		self->thinkTime = 120;
+	self->thinkTime = 300;
 
-		self->action = &respawn;
-	}
+	self->action = &respawn;
 }
 
 static void respawn()
 {
 	self->thinkTime--;
+	
+	checkToMap(self);
 
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->startX;
 		self->y = self->startY;
 
-		self->flags &= ~HELPLESS;
-
 		setCustomAction(self, &invulnerable, 180, 0);
+		
+		self->action = &doNothing;
 	}
 }
 

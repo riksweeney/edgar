@@ -158,6 +158,8 @@ static void initialise()
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
+			
+			self->touch = &entityTouch;
 
 			playBossMusic();
 		}

@@ -1,6 +1,6 @@
-Blob Wars : Metal Blob Solid
+The Legend of Edgar
 
-Version 1.04
+Version 0.11
 
 LICENSE
 
@@ -20,16 +20,16 @@ INSTALLATION
 	You will need to be root in order to perform the above step. After that has [again, sucessfully]
 	completed type,
 	
-	blobwars
+	edgar
 	
 	to run the game.
 	
 	
 PLAYING
 
-	Please see the game manual (installed in /usr/share/doc/blobwars/index.html) for instructions.
+	Please see the game manual (installed in /usr/share/doc/edgar/index.html) for instructions.
 
 
-Stephen Sweeney
-stephen.sweeney@parallelrealities.co.uk
-http://www.parallelrealities.co.uk/blobWars.php
+Richard Sweeney
+richard.sweeney@parallelrealities.co.uk
+http://www.parallelrealities.co.uk/edgar.php
