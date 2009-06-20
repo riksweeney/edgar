@@ -1,0 +1,5 @@
+DAMAGE 3
+GFX_FILE data/gfx/weapon/wood_axe.dat
+ANIM_FILE data/anim/weapon/wood_axe.dat
+TYPE WEAPON
+OBJECTIVE_NAME Wood Axe
