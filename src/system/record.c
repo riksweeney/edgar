@@ -73,7 +73,7 @@ void setReplayData(char *name, int loadedGame)
 
 	mapFile[5] = '\0';
 	
-	if (loadedGame == FALSE)
+	if (loadedGame == TRUE)
 	{
 		printf("Loading map %s\n", mapFile);
 	
