@@ -160,7 +160,7 @@ void getInput(int gameType)
 					takeSingleScreenshot();
 				}
 
-				else if (key == SDLK_UP)
+				if (key == SDLK_UP)
 				{
 					menuInput.up = TRUE;
 				}
@@ -274,7 +274,8 @@ void getInput(int gameType)
 					input.interact = FALSE;
 					input.grabbing = FALSE;
 				}
-				else if (key == SDLK_UP)
+				
+				if (key == SDLK_UP)
 				{
 					menuInput.up = FALSE;
 				}

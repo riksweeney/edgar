@@ -122,10 +122,10 @@ static void activate(int val)
 {
 	if (strlen(self->requires) != 0)
 	{
-		printf("Requires %s\n", self->requires);
-
 		if (removeInventoryItem(self->requires) == 1)
 		{
+			setInfoBoxMessage(120,  _("Used %s"), self->requires);
+			
 			self->requires[0] = '\0';
 		}
 

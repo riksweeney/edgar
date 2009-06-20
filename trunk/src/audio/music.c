@@ -160,6 +160,8 @@ void loadBossMusic(char *name)
 
 void resumeMusic()
 {
+	Mix_HookMusicFinished(NULL);
+	
 	playMusic();
 }
 
@@ -179,6 +181,8 @@ void loadGameOverMusic()
 
 static void playGameOverMusic()
 {
+	Mix_HookMusicFinished(NULL);
+	
 	loadMusic("music/oxide_-_sadness.xm");
 
 	playMusic();

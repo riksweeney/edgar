@@ -172,6 +172,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define SIGN(x) ((x) > 0 ? 1 : ((x) == 0 ? 0 : (-1)))
 
+#if SDL_BYTEORDER == SDL_LIL_ENDIAN
+#define SWAP16(X)    (X)
+#define SWAP32(X)    (X)
+#else
+#define SWAP16(X)    SDL_Swap16(X)
+#define SWAP32(X)    SDL_Swap32(X)
+#endif
+
 enum
 {
 	LEFT,

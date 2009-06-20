@@ -24,6 +24,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "trigger.h"
 #include "global_trigger.h"
 #include "../event/script.h"
+#include "../hud.h"
+#include "../inventory.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 
@@ -39,10 +41,21 @@ void freeGlobalTriggers()
 void addGlobalTriggerFromScript(char *line)
 {
 	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH], count[MAX_VALUE_LENGTH];
+	int currentValue;
+	Entity *e;
+	
+	currentValue = 0;
 
 	sscanf(line, "\"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
+	
+	e = getInventoryItem(triggerName);
+	
+	if (e != NULL)
+	{
+		currentValue = e->health;
+	}
 
-	addGlobalTrigger(triggerName, 0, atoi(count), getTriggerTypeByName(targetType), targetName);
+	addGlobalTrigger(triggerName, currentValue, atoi(count), getTriggerTypeByName(targetType), targetName);
 }
 
 void addGlobalTriggerFromResource(char *key[], char *value[])
@@ -113,7 +126,7 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
-			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].count);
+			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
 
 			return;
 		}
@@ -127,6 +140,7 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 void fireGlobalTrigger(char *name)
 {
 	int i;
+	char message[MAX_MESSAGE_LENGTH];
 
 	if (strlen(name) == 0)
 	{
@@ -137,11 +151,20 @@ void fireGlobalTrigger(char *name)
 	{
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
-			trigger[i].count--;
+			trigger[i].count++;
+			
+			if (trigger[i].targetType == UPDATE_OBJECTIVE)
+			{
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d of %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
 
-			printf("Updating Trigger \"%s\", %d to go\n", trigger[i].triggerName, trigger[i].count);
+				freeMessageQueue();
 
-			if (trigger[i].count <= 0)
+				setInfoBoxMessage(120, message);
+			}
+
+			printf("Updating Trigger \"%s\", %d of %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
+
+			if (trigger[i].count == trigger[i].total)
 			{
 				printf("Firing global trigger %s\n", trigger[i].triggerName);
 

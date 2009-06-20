@@ -101,6 +101,8 @@ static void trapEntity()
 	else
 	{
 		self->thinkTime = 0;
+		
+		fireGlobalTrigger("Chicken");
 
 		self->action = &removeChicken;
 	}
@@ -124,8 +126,6 @@ static void removeChicken()
 
 				exit(1);
 			}
-
-			fireGlobalTrigger("Chicken");
 
 			self->target->x = target->x;
 			self->target->y = target->y;

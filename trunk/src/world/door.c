@@ -101,6 +101,8 @@ static void touch(Entity *other)
 
 			if (removeInventoryItem(self->requires) == 1)
 			{
+				setInfoBoxMessage(120,  _("Used %s"), self->requires);
+				
 				self->action = &moveToTarget;
 
 				self->active = TRUE;

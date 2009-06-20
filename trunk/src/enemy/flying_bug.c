@@ -55,7 +55,7 @@ Entity *addFlyingBug(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->reactToBlock = &changeTarget;
+	e->reactToBlock = &changeRandomTarget;
 
 	e->type = ENEMY;
 

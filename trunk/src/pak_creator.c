@@ -315,6 +315,9 @@ static void testPak(char *pakFile)
 
 	fread(&offset, sizeof(long), 1, fp);
 	fread(&fileCount, sizeof(int), 1, fp);
+	
+	offset = SWAP32(offset);
+	fileCount = SWAP32(fileCount);
 
 	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
 
@@ -333,6 +336,10 @@ static void testPak(char *pakFile)
 
 	for (i=0;i<fileCount;i++)
 	{
+		fileData[i].offset = SWAP32(fileData[i].offset);
+		fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
+		fileData[i].fileSize = SWAP32(fileData[i].fileSize);
+		
 		printf("'%s' at offset %ld : %ld -> %ld\n", fileData[i].filename, fileData[i].offset, fileData[i].compressedSize, fileData[i].fileSize);
 	}
 

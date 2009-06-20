@@ -260,7 +260,7 @@ void saveGame(int slot)
 				sscanf(line, "%s", itemName);
 
 				if (strcmpignorecase("PLAYER_DATA", itemName) == 0 || strcmpignorecase("PLAYER_INVENTORY", itemName) == 0 ||
-					strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
+					strcmpignorecase("PLAYER_LOCATION", itemName) == 0 || strcmpignorecase("VERSION", itemName) == 0)
 				{
 					skipping = TRUE;
 				}

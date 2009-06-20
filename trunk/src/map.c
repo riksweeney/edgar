@@ -75,11 +75,13 @@ void loadMap(char *name, int loadEntityResources)
 	{
 		sscanf(line, "%s", itemName);
 
-		if (strcmpignorecase(itemName, "NAME") == 0)
+		if (strcmpignorecase(itemName, "MAP_NAME") == 0)
 		{
 			sscanf(line, "%*s %[^$]s\n", itemName);
 
 			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
+			
+			printf("Setting mapName to %s\n", map.mapName);
 		}
 
 		else if (strcmpignorecase(itemName, "TILESET") == 0)
@@ -315,7 +317,7 @@ void saveMap()
 		exit(1);
 	}
 
-	fprintf(fp, "NAME %s\n", map.mapName);
+	fprintf(fp, "MAP_NAME %s\n", map.mapName);
 	fprintf(fp, "MUSIC %s\n", map.musicName);
 	fprintf(fp, "TILESET %s\n", map.tilesetName);
 	fprintf(fp, "AMBIENCE %s\n", map.ambienceName);

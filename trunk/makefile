@@ -93,7 +93,7 @@ buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 
 # install
-install:
+install: all
 
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 

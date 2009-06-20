@@ -309,8 +309,6 @@ void flyToTarget()
 
 	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
 
-	checkToMap(self);
-
 	if (abs(self->x - self->targetX) > self->speed)
 	{
 		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
@@ -319,7 +317,11 @@ void flyToTarget()
 	else
 	{
 		self->x = self->targetX;
+		
+		self->dirX = 0;
 	}
+
+	checkToMap(self);
 }
 
 void floatLeftToRight()
@@ -545,7 +547,7 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
-	
+
 	if (other->touch == NULL)
 	{
 		return;
@@ -566,27 +568,6 @@ void pushEntity(Entity *other)
 	if (self->flags & OBSTACLE)
 	{
 		pushable = 0;
-	}
-
-	if (other->dirX == 0 && self->dirX != 0)
-	{
-		/* Place self as close to other as possible */
-
-		if (other->x < self->x)
-		{
-			self->x = other->x + other->box.x + other->w + 1;
-		}
-
-		else
-		{
-			self->x = other->x - other->box.x - self->w - 1;
-		}
-
-		self->dirX = 0;
-
-		other->dirX = 0;
-
-		return;
 	}
 
 	if (other->dirX != 0 && self->dirX != 0 && SIGN(other->dirX) != SIGN(self->dirX))

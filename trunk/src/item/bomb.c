@@ -35,6 +35,7 @@ static void dropBomb(int);
 static void wait(void);
 static void explode(void);
 static void startFuse(void);
+static void touch(Entity *);
 
 Entity *addBomb(int x, int y, char *name)
 {
@@ -85,7 +86,7 @@ static void dropBomb(int val)
 {
 	self->thinkTime = 0;
 
-	self->touch = NULL;
+	self->touch = &touch;
 
 	setEntityAnimation(self, WALK);
 
@@ -131,4 +132,9 @@ static void explode()
 	}
 
 	self->action = &explode;
+}
+
+static void touch(Entity *other)
+{
+
 }
