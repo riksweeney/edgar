@@ -90,18 +90,16 @@ static void trapEntity()
 	setEntityAnimation(self, ATTACK_3);
 
 	playSoundToMap("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
+	
+	self->thinkTime = 180;
 
 	if (self->target == NULL)
 	{
-		self->thinkTime = 180;
-
 		self->action = &resetTrap;
 	}
 
 	else
-	{
-		self->thinkTime = 0;
-		
+	{	
 		fireGlobalTrigger("Chicken");
 
 		self->action = &removeChicken;
@@ -116,31 +114,23 @@ static void removeChicken()
 
 	if (self->thinkTime <= 0)
 	{
-		if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
+		target = getTargetByName("CHICKEN_PEN_TARGET");
+
+		if (target == NULL)
 		{
-			target = getTargetByName("CHICKEN_PEN_TARGET");
+			printf("Could not find CHICKEN_PEN_TARGET\n");
 
-			if (target == NULL)
-			{
-				printf("Could not find CHICKEN_PEN_TARGET\n");
-
-				exit(1);
-			}
-
-			self->target->x = target->x;
-			self->target->y = target->y;
-
-			self->target->flags &= ~HELPLESS;
-
-			self->target = NULL;
-
-			self->action = &resetTrap;
+			exit(1);
 		}
 
-		else
-		{
-			self->thinkTime = 180;
-		}
+		self->target->x = target->x;
+		self->target->y = target->y;
+
+		self->target->flags &= ~HELPLESS;
+
+		self->target = NULL;
+
+		self->action = &resetTrap;
 	}
 }
 

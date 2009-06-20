@@ -50,9 +50,6 @@ void initPakFile()
 
 		fread(&offset, sizeof(long), 1, fp);
 		fread(&fileCount, sizeof(int), 1, fp);
-		
-		offset = SWAP32(offset);
-		fileCount = SWAP32(fileCount);
 
 		fileData = (FileData *)malloc(fileCount * sizeof(FileData));
 
@@ -68,13 +65,6 @@ void initPakFile()
 		fread(fileData, sizeof(FileData), fileCount, fp);
 
 		printf("Loaded up PAK file with %d entries\n", fileCount);
-		
-		for (i=0;i<fileCount;i++)
-		{
-			fileData[i].offset = SWAP32(fileData[i].offset);
-			fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
-			fileData[i].fileSize = SWAP32(fileData[i].fileSize);
-		}
 
 		fclose(fp);
 	#else

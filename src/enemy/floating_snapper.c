@@ -122,7 +122,10 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
+	if (strcmpignorecase(other->name, self->name) != 0)
+	{
+		pushEntity(other);
+	}
 
 	if (other->standingOn == self && other->type == PLAYER && self->health == 0)
 	{
