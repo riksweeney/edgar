@@ -7,3 +7,5 @@ enemy/jumping_slime
 enemy/bee_hive
 enemy/flying_bug
 weapon/small_wooden_shield
+item/small_log
+misc/raft

@@ -128,12 +128,23 @@ int main(int argc, char *argv[])
 
 	if (loadSlot == -1)
 	{
-		if (game.gameType == RECORDING)
+		if (recordingID != -1)
 		{
+			setRecordData(argv[recordingID]);
+			
 			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
+			
+			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
 		}
 
-		if (game.gameType != REPLAYING)
+		else if (replayingID != -1)
+		{
+			setReplayData(argv[replayingID], TRUE);
+			
+			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
+		}
+		
+		else
 		{
 			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
 		}
@@ -147,20 +158,17 @@ int main(int argc, char *argv[])
 
 			exit(1);
 		}
-	}
-
-	if (replayingID != -1)
-	{
-		setReplayData(argv[replayingID], loadSlot == -1 ? FALSE : TRUE);
-	}
-
-	if (recordingID != -1)
-	{
-		setRecordData(argv[recordingID]);
-
-		if (loadSlot != -1)
+		
+		if (recordingID != -1)
 		{
+			setRecordData(argv[recordingID]);
+	
 			setMapFile(getMapFilename());
+		}
+		
+		else if (replayingID != -1)
+		{
+			setReplayData(argv[replayingID], TRUE);
 		}
 	}
 

@@ -570,31 +570,6 @@ void pushEntity(Entity *other)
 		pushable = 0;
 	}
 
-	if (other->dirX != 0 && self->dirX != 0 && SIGN(other->dirX) != SIGN(self->dirX))
-	{
-		/* Place self as close to other as possible */
-
-		if (other->x < self->x)
-		{
-			self->x = other->x + other->box.x + other->w + 1;
-		}
-
-		else
-		{
-			self->x = other->x - other->box.x - self->w - 1;
-		}
-
-		other->x -= other->dirX;
-
-		self->x -= self->dirX;
-
-		self->dirX = 0;
-
-		other->dirX = 0;
-
-		return;
-	}
-
 	/* Test the vertical movement */
 
 	if (other->dirY > 0)
@@ -613,7 +588,7 @@ void pushEntity(Entity *other)
 			other->flags |= ON_GROUND;
 			/*
 			if (self->activate != NULL)
-			{
+			{ 
 				self->activate(1);
 			}
 			*/
