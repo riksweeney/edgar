@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "enemies.h"
 #include "../custom_actions.h"
 #include "../hud.h"
+#include "../player.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -73,7 +74,7 @@ static void attack()
 {
 	int onGround = (self->flags & ON_GROUND);
 
-	self->face = player.x < self->x ? LEFT : RIGHT;
+	facePlayer();
 
 	if ((self->flags & ON_GROUND) && (prand() % 30 == 0))
 	{

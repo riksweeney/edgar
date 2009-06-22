@@ -64,6 +64,6 @@ clean:
 	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
 	
 buildpak: $(PAK_PROG)
-	wine $(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	wine $(PAK_PROG) data gfx music sound font patch $(PAK_FILE)
 
 include makefile.dep

@@ -72,7 +72,7 @@ mv windows.pak edgar.pak
 
 makensis install.nsi
 
-mv *.installer.exe ../
+mv *.installer.exe ../edgar-$1-1.installer.exe
 
 cd ..
 

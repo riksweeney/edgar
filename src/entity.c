@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/trigger.h"
 #include "event/global_trigger.h"
 #include "system/properties.h"
+#include "system/resources.h"
 #include "map.h"
 #include "enemy/enemies.h"
 #include "item/key_items.h"
@@ -35,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 #include "system/random.h"
 #include "audio/audio.h"
+#include "system/pak.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1134,9 +1136,4 @@ void rotateAroundStartPoint()
 
 	self->x += self->startX - (self->w / 2);
 	self->y += self->startY - (self->h / 2);
-}
-
-void bounce()
-{
-
 }

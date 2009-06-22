@@ -53,6 +53,7 @@ static void playerDie(void);
 static void alignAnimations(Entity *);
 static void gameOverTimeOut(void);
 static void touch(Entity *other);
+static void applySlime(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -1052,4 +1053,67 @@ void playerGib()
 	playerDie();
 
 	player.flags |= NO_DRAW;
+}
+
+void facePlayer()
+{
+	self->face = player.x < self->x ? LEFT : RIGHT;
+}
+
+void setPlayerSlimed(int thinkTime)
+{
+	Entity *e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		printf("No free slots to add Slimed Player\n");
+
+		exit(1);
+	}
+
+	loadProperties("edgar/edgar_slimed", e);
+
+	e->x = player.x;
+	e->y = player.y;
+
+	e->type = ENEMY;
+
+	e->face = player.face;
+
+	e->action = &applySlime;
+	e->touch = touch;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, STAND);
+
+	e->thinkTime = thinkTime;
+}
+
+static void applySlime()
+{
+	self->thinkTime--;
+	
+	self->face = player.face;
+	
+	player.dirX = 0;
+	
+	self->x = player.x;
+	self->y = player.y;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+		
+		player.flags &= ~HELPLESS;
+	}
+	
+	else
+	{
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
+		setEntityAnimation(&playerShield, STAND);
+		
+		player.flags |= HELPLESS;
+	}
 }

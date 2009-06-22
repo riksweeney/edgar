@@ -241,8 +241,6 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "{") == 0)
 		{
-			printf("Loading resources\n");
-
 			loadResources(savePtr1);
 		}
 

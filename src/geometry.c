@@ -23,3 +23,16 @@ int getDistance(int x1, int y1, int x2, int y2)
 {
 	return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 }
+
+void calculatePath(float startX, float startY, float endX, float endY, float *dirX, float *dirY)
+{
+	double x, y, t;
+
+	x = endX - startX;
+	y = endY - startY;
+
+	t = fabs(x) + fabs(y);
+
+	*dirX = t == 0 ? 0 : x / t;
+	*dirY = t == 0 ? 0 : y / t;
+}
