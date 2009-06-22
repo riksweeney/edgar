@@ -182,10 +182,10 @@ void freeAllResources()
 	freePakFile();
 }
 
-void loadResources(char *buffer)
+char *loadResources(char *buffer)
 {
 	int i, startX, startY, type, name, resourceType;
-	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2;
+	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2, *savePtr;
 	Entity *e;
 
 	resourceType = ENTITY_DATA;
@@ -228,7 +228,7 @@ void loadResources(char *buffer)
 
 	e = NULL;
 
-	line = strtok_r(NULL, "\n", &buffer);
+	line = strtok_r(buffer, "\n", &savePtr);
 
 	while (line != NULL)
 	{
@@ -244,7 +244,7 @@ void loadResources(char *buffer)
 
 		if (line[0] == '#' || line[0] == '\n')
 		{
-			line = strtok_r(NULL, "\n", &buffer);
+			line = strtok_r(NULL, "\n", &savePtr);
 
 			continue;
 		}
@@ -254,6 +254,13 @@ void loadResources(char *buffer)
 		if (strcmpignorecase(itemName, "MAP_NAME") == 0)
 		{
 			printf("Encountered Map Data for %s. Returning\n", line);
+
+			break;
+		}
+		
+		else if (strcmpignorecase(itemName, "UPDATE_ENTITY") == 0 || strcmpignorecase(itemName, "REMOVE_ENTITY") == 0)
+		{
+			printf("Encountered Patch Instruction %s. Returning\n", line);
 
 			break;
 		}
@@ -280,7 +287,7 @@ void loadResources(char *buffer)
 		else if (strcmpignorecase(line, "}") == 0)
 		{
 			e = NULL;
-
+			
 			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
 			{
 				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
@@ -477,8 +484,63 @@ void loadResources(char *buffer)
 			i++;
 		}
 
-		line = strtok_r(NULL, "\n", &buffer);
+		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
 	loadInventoryItems();
+	
+	return line;
+}
+
+void patchEntities(double versionFile, char *mapName)
+{
+	char patchFile[MAX_PATH_LENGTH], *line, *savePtr, itemName[MAX_VALUE_LENGTH];
+	int skipping = FALSE;
+	unsigned char *buffer;
+	
+	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
+	
+	printf("Looking for %s\n", patchFile);
+	
+	if (existsInPak(patchFile) == TRUE)
+	{
+		printf("Found %s in pakFile\n", patchFile);
+		
+		buffer = loadFileFromPak(patchFile);
+		
+		line = strtok_r((char *)buffer, "\n", &savePtr);
+		
+		while (line != NULL)
+		{
+			if (line[strlen(line) - 1] == '\n')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
+
+			if (line[strlen(line) - 1] == '\r')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
+			
+			sscanf(line, "%s", itemName);
+			
+			if (strcmpignorecase(itemName, "MAP_NAME") == 0)
+			{
+				sscanf(line, "%*s %s\n", itemName);
+				
+				skipping = strcmpignorecase(itemName, mapName) == 0 ? FALSE : TRUE;
+			}
+			
+			if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
+			{
+				printf("Adding new Entity\n");
+				
+				loadResources(savePtr);
+			}
+			
+			line = strtok_r(NULL, "\n", &savePtr);
+		}
+		
+		free(buffer);
+	}
 }

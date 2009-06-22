@@ -21,4 +21,5 @@ void loadRequiredResources(void);
 void freeAllResources(void);
 void freeLevelResources(void);
 void freeGameResources(void);
-void loadResources(char *);
+char *loadResources(char *);
+void patchEntities(double, char *);

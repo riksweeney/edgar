@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../graphics/graphics.h"
+#include "../geometry.h"
 
 extern Entity *self;
 
@@ -87,18 +88,13 @@ static void wait()
 
 static void changeRandomTarget()
 {
-	float x, y, t;
-
 	self->targetX = self->x + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
 	self->targetY = self->y + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
 
-	x = self->targetX - self->x;
-	y = self->targetY - self->y;
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-	t = fabs(x) + fabs(y);
-
-	self->dirX = x / t * self->speed;
-	self->dirY = y / t * self->speed;
+	self->dirX *= self->speed;
+	self->dirY *= self->speed;
 }
 
 static void moveToTarget()
@@ -115,7 +111,7 @@ static void moveToTarget()
 
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) < fabs(self->dirX) && fabs(self->targetY - self->y) < fabs(self->dirY))
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
 		self->thinkTime = 120 + (prand() % self->maxThinkTime);
 

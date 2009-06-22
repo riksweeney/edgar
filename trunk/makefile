@@ -1,4 +1,4 @@
-VERSION = 0.11
+VERSION = 0.12
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -90,12 +90,12 @@ clean:
 	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
 	
 buildpak: $(PAK_PROG)
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font patch $(PAK_FILE)
 
 # install
 install: all
 
-	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font patch $(PAK_FILE)
 
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)

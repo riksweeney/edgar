@@ -37,3 +37,5 @@ void syncWeaponShieldToPlayer(void);
 void freePlayer(void);
 void resetPlayerAnimations(void);
 void playerGib(void);
+void facePlayer(void);
+void setPlayerSlimed(int);
