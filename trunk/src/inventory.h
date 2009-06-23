@@ -18,7 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 int addToInventory(Entity *);
-void selectNextInventoryItem(int);
+void moveInventoryCursor(int);
+void selectInventoryItem(void);
 Entity *getInventoryItem(char *);
 void dropInventoryItem(void);
 void useInventoryItem(void);
@@ -30,3 +31,6 @@ void loadInventoryItems(void);
 void writeInventoryToFile(FILE *);
 void getInventoryItemFromScript(char *);
 void freeInventory(void);
+void drawInventory(void);
+void nextInventoryItem(int);
+void setInventoryDialogMessage(char *, ...);

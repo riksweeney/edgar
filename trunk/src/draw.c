@@ -28,9 +28,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/font.h"
 #include "system/record.h"
 #include "graphics/graphics.h"
-#include "graphics/save_png.h"
 #include "dialog.h"
-#include "menu/main_menu.h"
+#include "inventory.h"
 
 extern Game game;
 extern Entity player;
@@ -45,61 +44,72 @@ void draw()
 	{
 		clearScreen(0, 0, 0);
 
-		if (game.drawScreen == TRUE)
+		switch (game.status)
 		{
-			/* Center the map */
+			case IN_INVENTORY:
+				showPauseDialog();
 
-			centerEntityOnMap();
+				drawInventory();
+			break;
 
-			/* Draw the mid-ground map tiles */
+			default:
+				if (game.drawScreen == TRUE)
+				{
+					/* Center the map */
 
-			drawMap(0);
+					centerEntityOnMap();
 
-			/* Draw the Entities */
+					/* Draw the mid-ground map tiles */
 
-			drawEntities(0);
+					drawMap(0);
 
-			/* Draw the decorations */
+					/* Draw the Entities */
 
-			drawDecorations();
+					drawEntities(0);
 
-			/* Draw the player */
+					/* Draw the decorations */
 
-			drawPlayer();
+					drawDecorations();
 
-			/* Draw the Entities that appear on top */
+					/* Draw the player */
 
-			drawEntities(1);
+					drawPlayer();
 
-			/* Draw the foreground map tiles */
+					/* Draw the Entities that appear on top */
 
-			drawMap(1);
+					drawEntities(1);
 
-			/* Draw the hud */
+					/* Draw the foreground map tiles */
 
-			drawHud();
+					drawMap(1);
 
-			/* Draw the dialog box */
+					/* Draw the hud */
 
-			drawDialogBox();
+					drawHud();
 
-			/* Draw the game statuses */
+					/* Draw the dialog box */
 
-			drawGame();
+					drawDialogBox();
 
-			/* Draw the screen coordinates */
+					/* Draw the game statuses */
 
-			if (player.face == LEFT)
-			{
-				snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
-			}
+					drawGame();
 
-			else
-			{
-				snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
-			}
+					/* Draw the screen coordinates */
 
-			/* drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255); */
+					if (player.face == LEFT)
+					{
+						snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+					}
+
+					else
+					{
+						snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+					}
+
+					/* drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255); */
+				}
+			break;
 		}
 
 		takeScreenshot();

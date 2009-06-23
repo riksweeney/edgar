@@ -112,7 +112,6 @@ static void loadMenuLayout(int saving)
 	char **saveFile;
 	unsigned char *buffer;
 	int x, y, i;
-	SDL_Surface *temp;
 
 	i = 0;
 
@@ -178,13 +177,9 @@ static void loadMenuLayout(int saving)
 		exit(1);
 	}
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-	menu.background = addBorder(SDL_DisplayFormat(temp), 255, 255, 255, 0, 0, 0);
+	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
 	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
-
-	SDL_FreeSurface(temp);
 
 	free(buffer);
 

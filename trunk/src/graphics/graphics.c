@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../collisions.h"
 #include "../system/pak.h"
+#include "graphics.h"
 
 extern Game game;
 
@@ -111,11 +112,9 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 	int *pixels, x, y, pixel, rx, ry;
 	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
 	SDL_Rect dest;
-	SDL_Surface *flipped, *temp;
+	SDL_Surface *flipped;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, image->w, image->h, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
-
-	flipped = SDL_DisplayFormat(temp);
+	flipped = createSurface(image->w, image->h);
 
 	if (SDL_MUSTLOCK(image))
 	{
@@ -168,8 +167,6 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
 
 	SDL_FreeSurface(flipped);
-
-	SDL_FreeSurface(temp);
 }
 
 void drawBox(int x, int y, int w, int h, int r, int g, int b)
@@ -198,7 +195,7 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		color = SDL_MapRGB(game.screen->format, r, g, b);
-		
+
 		SDL_FillRect(game.screen, &rect, color);
 	}
 }
@@ -209,16 +206,16 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
 	int *pixels;
-	
+
 	startX = getMapStartX();
 	startY = getMapStartY();
-	
+
 	x1 -= startX;
 	y1 -= startY;
-	
+
 	x2 -= startX;
 	y2 -= startY;
-	
+
 	if (collision(x1, y1, x2 - x1, y2 - y1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == FALSE)
 	{
 		return;
@@ -226,75 +223,75 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	lDelta = x2 - x1;
 	sDelta = y2 - y1;
-	
+
 	lStep = SIGN(lDelta);
 	lDelta = abs(lDelta);
-	
+
 	sStep = SIGN(sDelta);
 	sDelta = abs(sDelta);
-	
+
 	if (SDL_MUSTLOCK(game.screen))
 	{
 		SDL_LockSurface(game.screen);
 	}
-	
+
 	pixels = (int *)game.screen->pixels;
-	
+
 	if (sDelta < lDelta)
 	{
 		cycle = lDelta >> 1;
-		
+
 		while (x1 != x2)
 		{
 			if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
 			{
 				pixels[(y1 * game.screen->w) + x1] = color;
 			}
-			
+
 			cycle += sDelta;
-			
+
 			if (cycle > lDelta)
 			{
 				cycle -= lDelta;
-				
+
 				y1 += sStep;
 			}
-			
+
 			x1 += lStep;
 		}
-		
+
 		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
-		{			
+		{
 			pixels[(y1 * game.screen->w) + x1] = color;
 		}
 	}
-	
+
 	cycle = sDelta >> 1;
-	
+
 	while (y1 != y2)
 	{
 		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
 		{
 			pixels[(y1 * game.screen->w) + x1] = color;
 		}
-		
+
 		cycle += lDelta;
-		
+
 		if (cycle > sDelta)
 		{
 			cycle -= sDelta;
-			
+
 			x1 += lStep;
 		}
-		
+
 		y1 += sStep;
 	}
-	
+
 	if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
 	{
 		pixels[(y1 * game.screen->w) + x1] = color;
 	}
-	
+
 	if (SDL_MUSTLOCK(game.screen))
 	{
 		SDL_UnlockSurface(game.screen);
@@ -336,11 +333,8 @@ void drawCircleFromSurface(int x, int y, int radius)
 {
 	int y1, y2;
 	SDL_Rect src, dest;
-	SDL_Surface *temp;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, game.screen->w, game.screen->h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-	game.tempSurface = SDL_DisplayFormat(temp);
+	game.tempSurface = createSurface(game.screen->w, game.screen->h);
 
 	SDL_BlitSurface(game.screen, NULL, game.tempSurface, NULL);
 
@@ -504,19 +498,15 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
 
 	SDL_FreeSurface(game.tempSurface);
-
-	SDL_FreeSurface(temp);
 }
 
 SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
 {
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;
-	SDL_Surface *temp, *newSurface;
+	SDL_Surface *newSurface;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, surface->w + 10, surface->h + 10, surface->format->BitsPerPixel, surface->format->Rmask, surface->format->Gmask, surface->format->Bmask, 0);
-
-	newSurface = SDL_DisplayFormat(temp);
+	newSurface = createSurface(surface->w + 10, surface->h + 10);
 
 	SDL_FillRect(newSurface, NULL, SDL_MapRGB(game.screen->format, br, bg, bb));
 
@@ -565,8 +555,6 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 
 	SDL_FreeSurface(surface);
 
-	SDL_FreeSurface(temp);
-
 	return newSurface;
 }
 
@@ -583,11 +571,9 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 	int *pixels, x, y, pixel;
 	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
 	SDL_Rect dest;
-	SDL_Surface *flipped, *temp;
+	SDL_Surface *flipped;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, image->w, image->h, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
-
-	flipped = SDL_DisplayFormat(temp);
+	flipped = createSurface(image->w, image->h);
 
 	if (SDL_MUSTLOCK(image))
 	{
@@ -632,8 +618,6 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
 
 	SDL_FreeSurface(flipped);
-
-	SDL_FreeSurface(temp);
 }
 
 int isTransparent(SDL_Surface *image, int x, int y)
@@ -658,4 +642,17 @@ int isTransparent(SDL_Surface *image, int x, int y)
 	SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
 	return (r == TRANS_R && g == TRANS_G && b == TRANS_B);
+}
+
+SDL_Surface *createSurface(int width, int height)
+{
+	SDL_Surface *temp, *newSurface;
+
+	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
+
+	newSurface = SDL_DisplayFormat(temp);
+
+	SDL_FreeSurface(temp);
+
+	return newSurface;
 }

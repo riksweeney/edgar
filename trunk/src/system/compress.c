@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void compressFile(char *sourceName)
 {
 	unsigned char *source, *dest;
-	unsigned long fileSize, compressedSize, ensuredSize;
+	uLongf fileSize, compressedSize, ensuredSize;
 	FILE *fp;
 
 	fp = fopen(sourceName, "rb");
@@ -65,7 +65,7 @@ void compressFile(char *sourceName)
 
 	fp = fopen(sourceName, "wb");
 
-	fwrite(&fileSize, sizeof(unsigned long), 1, fp);
+	fwrite(&fileSize, sizeof(uLongf), 1, fp);
 
 	fwrite(dest, compressedSize, 1, fp);
 
@@ -79,7 +79,7 @@ void compressFile(char *sourceName)
 unsigned char *decompressFile(char *sourceName)
 {
 	unsigned char *source, *dest;
-	unsigned long compressedSize, fileSize;
+	uLongf compressedSize, fileSize;
 	FILE *fp;
 
 	fp = fopen(sourceName, "rb");
@@ -95,11 +95,11 @@ unsigned char *decompressFile(char *sourceName)
 
 	compressedSize = ftell(fp);
 
-	compressedSize -= sizeof(unsigned long);
+	compressedSize -= sizeof(uLongf);
 
 	fseek(fp, 0L, SEEK_SET);
 
-	fread(&fileSize, sizeof(unsigned long), 1, fp);
+	fread(&fileSize, sizeof(uLongf), 1, fp);
 
 	source = (unsigned char *)malloc(compressedSize * sizeof(unsigned char));
 

@@ -31,7 +31,7 @@ static int fileCount;
 void initPakFile()
 {
 	#if DEV == 0
-		long offset;
+		Uint32 offset;
 		FILE *fp;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
@@ -45,9 +45,9 @@ void initPakFile()
 			exit(1);
 		}
 
-		fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+		fseek(fp, -(sizeof(Uint32) + sizeof(int)), SEEK_END);
 
-		fread(&offset, sizeof(long), 1, fp);
+		fread(&offset, sizeof(Uint32), 1, fp);
 		fread(&fileCount, sizeof(int), 1, fp);
 
 		fileData = (FileData *)malloc(fileCount * sizeof(FileData));
@@ -161,7 +161,7 @@ TTF_Font *loadFontFromPak(char *name, int size)
 static SDL_RWops *uncompressFileRW(char *name)
 {
 	int i, index;
-	unsigned long size;
+	uLongf size;
 	unsigned char *source, *dest;
 	FILE *fp;
 	SDL_RWops *rw;
@@ -274,7 +274,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index;
-	unsigned long size;
+	uLongf size;
 	unsigned char *source, *dest, filename[MAX_PATH_LENGTH];
 	FILE *fp;
 

@@ -31,7 +31,11 @@ else
 DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
+ifeq ($(DEV),1)
+CFLAGS = -Wall -g -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+else
 CFLAGS = -Wall -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+endif
 
 ifeq ($(OS),Windows_NT)
 LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
@@ -53,7 +57,7 @@ CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o hea
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
 CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o sound_menu.o fly_boss.o ant_lion.o
-CORE_OBJS += io_menu.o
+CORE_OBJS += io_menu.o inventory_menu.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
@@ -90,12 +94,12 @@ clean:
 	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
 	
 buildpak: $(PAK_PROG)
-	./$(PAK_PROG) data gfx music sound font patch $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 
 # install
 install: all
 
-	./$(PAK_PROG) data gfx music sound font patch $(PAK_FILE)
+	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)
