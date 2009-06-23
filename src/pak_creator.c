@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 		fwrite(&fileData[i], sizeof(FileData), 1, pak);
 	}
 
-	fwrite(&length, sizeof(long), 1, pak);
+	fwrite(&length, sizeof(uLongf), 1, pak);
 	fwrite(&totalFiles, sizeof(int), 1, pak);
 
 	fclose(pak);
@@ -147,7 +147,7 @@ void recurseDirectory(char *dirName)
 	FILE *infile;
 	char filename[1024];
 	int compressionResult;
-	unsigned long fileSize, compressedSize, ensuredSize;
+	uLongf fileSize, compressedSize, ensuredSize;
 	gzFile fp;
 	float percentage;
 	unsigned char *buffer, *output;
@@ -297,8 +297,7 @@ static void testPak(char *pakFile)
 {
 	FileData *fileData;
 	int fileCount, i;
-	long offset;
-	unsigned long size;
+	uLongf offset, size;
 	FILE *fp;
 	unsigned char *source, *dest;
 
@@ -311,9 +310,9 @@ static void testPak(char *pakFile)
 		exit(1);
 	}
 
-	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+	fseek(fp, -(sizeof(uLongf) + sizeof(int)), SEEK_END);
 
-	fread(&offset, sizeof(long), 1, fp);
+	fread(&offset, sizeof(uLongf), 1, fp);
 	fread(&fileCount, sizeof(int), 1, fp);
 
 	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
@@ -339,7 +338,7 @@ static void testPak(char *pakFile)
 	for (i=0;i<fileCount;i++)
 	{
 		rewind(fp);
-		
+
 		printf("Testing %s...", fileData[i].filename);
 
 		fseek(fp, fileData[i].offset, SEEK_SET);
@@ -383,7 +382,7 @@ static void testPak(char *pakFile)
 
 		printf("OK\n");
 	}
-	
+
 	fclose(fp);
 
 	free(fileData);

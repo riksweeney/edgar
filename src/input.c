@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Input input, menuInput;
 extern Game game;
 extern Control control;
+extern Entity player;
 
 void getInput(int gameType)
 {
@@ -62,6 +63,14 @@ void getInput(int gameType)
 				if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
+				}
+
+				if (key == control.button[CONTROL_INVENTORY])
+				{
+					if (!(player.flags & HELPLESS))
+					{
+						pauseGameInventory();
+					}
 				}
 
 				else if (key == control.button[CONTROL_LEFT])
@@ -274,7 +283,7 @@ void getInput(int gameType)
 					input.interact = FALSE;
 					input.grabbing = FALSE;
 				}
-				
+
 				if (key == SDLK_UP)
 				{
 					menuInput.up = FALSE;
@@ -335,6 +344,19 @@ void getInput(int gameType)
 
 			case SDL_JOYBUTTONDOWN:
 				key = event.jbutton.button;
+
+				if (key == control.button[CONTROL_PAUSE])
+				{
+					pauseGame();
+				}
+
+				if (key == control.button[CONTROL_INVENTORY])
+				{
+					if (!(player.flags & HELPLESS))
+					{
+						pauseGameInventory();
+					}
+				}
 
 				if (key == control.button[CONTROL_LEFT])
 				{
@@ -583,6 +605,7 @@ void resetControls(int editor)
 		control.button[CONTROL_ACTIVATE] = SDLK_a;
 		control.button[CONTROL_CUT] = SDLK_x;
 		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
+		control.button[CONTROL_INVENTORY] = SDLK_z;
 		#if DEV == 1
 			control.button[CONTROL_FLY] = SDLK_f;
 		#endif
@@ -638,6 +661,7 @@ void writeControlsToFile(FILE *fp)
 	fprintf(fp, "JUMP %d\n", control.button[CONTROL_JUMP]);
 	fprintf(fp, "ATTACK %d\n", control.button[CONTROL_ATTACK]);
 	fprintf(fp, "BLOCK %d\n", control.button[CONTROL_BLOCK]);
+	fprintf(fp, "INVENTORY %d\n", control.button[CONTROL_INVENTORY]);
 	fprintf(fp, "PREVIOUS %d\n", control.button[CONTROL_PREVIOUS]);
 	fprintf(fp, "NEXT %d\n", control.button[CONTROL_NEXT]);
 	fprintf(fp, "ACTIVATE %d\n", control.button[CONTROL_ACTIVATE]);
@@ -737,6 +761,13 @@ void readControlsFromFile(char *buffer)
 			token = strtok(NULL, "\0");
 
 			control.button[CONTROL_PAUSE] = atoi(token);
+		}
+
+		else if (strcmpignorecase(token, "INVENTORY") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			control.button[CONTROL_INVENTORY] = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "GAME_SETTINGS") == 0)

@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dialog.h"
 #include "event/script.h"
 #include "menu/menu.h"
+#include "menu/inventory_menu.h"
 
 Input input, menuInput;
 Entity *self, entity[MAX_ENTITIES];
@@ -131,19 +132,19 @@ int main(int argc, char *argv[])
 		if (recordingID != -1)
 		{
 			setRecordData(argv[recordingID]);
-			
+
 			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
-			
+
 			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
 		}
 
 		else if (replayingID != -1)
 		{
 			setReplayData(argv[replayingID], TRUE);
-			
+
 			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
 		}
-		
+
 		else
 		{
 			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
@@ -158,14 +159,14 @@ int main(int argc, char *argv[])
 
 			exit(1);
 		}
-		
+
 		if (recordingID != -1)
 		{
 			setRecordData(argv[recordingID]);
-	
+
 			setMapFile(getMapFilename());
 		}
-		
+
 		else if (replayingID != -1)
 		{
 			setReplayData(argv[replayingID], TRUE);
@@ -210,6 +211,10 @@ int main(int argc, char *argv[])
 				doCollisions();
 
 				doHud();
+			break;
+
+			case IN_INVENTORY:
+				doInventoryMenu();
 			break;
 
 			case IN_MENU:

@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/gib.h"
 #include "../item/key_items.h"
 #include "../event/trigger.h"
+#include "../hud.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -119,6 +120,8 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->health = 0;
+
 			self->thinkTime = 180;
 
 			self->flags &= ~FLY;
@@ -158,8 +161,14 @@ static void initialise()
 
 			self->flags &= ~NO_DRAW;
 			self->flags &= ~FLY;
-			
+
 			self->touch = &entityTouch;
+
+			self->endX = self->damage;
+
+			self->damage = 0;
+
+			initBossHealthBar();
 
 			playBossMusic();
 		}
@@ -205,6 +214,8 @@ static void introPause()
 	{
 		self->touch = &entityTouch;
 		self->takeDamage = &takeDamage;
+		
+		self->damage = self->endX;
 
 		attackFinished();
 	}
@@ -466,6 +477,8 @@ static void die()
 
 	if (self->thinkTime <= 0)
 	{
+		freeBossHealthBar();
+
 		fireTrigger(self->objectiveName);
 
 		throwGibs("boss/grub_boss_gib", 7);

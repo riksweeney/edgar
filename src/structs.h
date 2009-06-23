@@ -176,8 +176,10 @@ typedef struct Message
 
 typedef struct Inventory
 {
-	int selectedIndex, quantity[MAX_INVENTORY_ITEMS];
+	int selectedIndex, x, y, cursorIndex;
 	Entity item[MAX_INVENTORY_ITEMS];
+	SDL_Surface *background, *cursor, *description;
+
 } Inventory;
 
 typedef struct Droplet
@@ -230,7 +232,7 @@ typedef struct Script
 
 typedef struct Hud
 {
-	int thinkTime;
+	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth;
 	SDL_Surface *itemBox, *heart, *emptyHeart;
 	Message infoMessage;
 } Hud;
@@ -256,5 +258,5 @@ typedef struct Grid
 typedef struct FileData
 {
 	char filename[MAX_FILE_LENGTH];
-	long fileSize, compressedSize, offset;
+	uLongf fileSize, compressedSize, offset;
 } FileData;

@@ -17,24 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void initGame(void);
-void doGame(void);
-void drawGame(void);
-void shakeScreen(int, int);
-void setTransition(int, void (*)(void));
-void setNextLevel(char *, char *);
-void goToNextMap(void);
-void setCheckpoint(float, float);
-void getCheckpoint(float *, float *);
-void pauseGame(void);
-void showPauseDialog(void);
-void freeGame(void);
-void setNextLevelFromScript(char *);
-void writeGameSettingsToFile(FILE *);
-void readGameSettingsFromFile(char *);
-void resetGameSettings(void);
-void doGameOver(void);
-void drawGameOver(void);
-void focusLost(void);
-void showSaveDialog(void);
-void pauseGameInventory(void);
+void doInventoryMenu(void);

@@ -164,21 +164,21 @@ int loadGame(int slot)
 		}
 
 		sscanf(line, "%s", itemName);
-		
+
 		if (strcmpignorecase("VERSION", itemName) == 0)
 		{
 			sscanf(line, "%*s %s\n", itemName);
-			
+
 			version = atof(itemName);
-			
+
 			printf("VERSION IS %0.2f\n", version);
-			
+
 			if (version < VERSION)
 			{
 				printf("Need to patch save file\n");
-				
+
 				patchGame = TRUE;
-				
+
 				break;
 			}
 		}
@@ -203,37 +203,37 @@ int loadGame(int slot)
 
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	if (patchGame == TRUE)
 	{
 		free(buffer);
-		
+
 		version += 0.01;
-		
+
 		while (version <= VERSION)
 		{
 			patchSaveGame(saveFile, version);
-			
+
 			version += 0.01;
 		}
-		
+
 		printf("Patch completed. Replacing save game.\n");
-		
+
 		#if DEV == 1
 			copyFile(tempFile, "tmpdata");
 		#endif
-		
+
 		copyFile(tempFile, saveFile);
-		
+
 		compressFile(saveFile);
-		
+
 		printf("Loading new save\n");
-		
+
 		return loadGame(slot);
 	}
 
 	free(buffer);
-	
+
 	copyFile(saveFile, tempFile);
 
 	buffer = decompressFile(tempFile);
@@ -255,30 +255,30 @@ static void patchSaveGame(char *saveFile, double version)
 	unsigned char *buffer, *originalBuffer;
 	int savedLocation = FALSE;
 	FILE *newSave;
-	
+
 	freeGameResources();
-	
+
 	newSave = fopen(tempFile, "wb");
 
 	printf("PATCHING save data from %s\n", saveFile);
 
 	buffer = decompressFile(saveFile);
-	
+
 	originalBuffer = (unsigned char *)malloc((strlen((char *)buffer) + 1) * sizeof(unsigned char));
-	
+
 	if (originalBuffer == NULL)
 	{
 		printf("Could not allocate %d bytes to patch save game\n", (strlen((char *)buffer) + 1) * sizeof(unsigned char));
-		
+
 		exit(0);
 	}
-	
+
 	strcpy((char *)originalBuffer, (char *)buffer);
 
 	printf("Reading save data\n");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
-	
+
 	mapName = NULL;
 
 	while (line != NULL)
@@ -294,87 +294,87 @@ static void patchSaveGame(char *saveFile, double version)
 		}
 
 		sscanf(line, "%s", itemName);
-		
+
 		if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
 			sscanf(line, "%*s %s\n", location);
 		}
-		
+
 		else if (strcmpignorecase("MAP_NAME", itemName) == 0)
 		{
 			if (mapName == NULL || strcmpignorecase(line, mapName) == 0)
 			{
 				sscanf(line, "%*s %s\n", itemName);
-				
+
 				mapName = loadResources(savePtr);
-				
+
 				/* Rewind to start */
-				
+
 				free(buffer);
-				
+
 				buffer = (unsigned char *)malloc((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char));
-				
+
 				if (buffer == NULL)
 				{
 					printf("Could not allocate %d bytes to patch save game\n", (strlen((char *)originalBuffer) + 1) * sizeof(unsigned char));
-					
+
 					exit(0);
 				}
-				
+
 				strcpy((char *)buffer, (char *)originalBuffer);
-				
+
 				line = strtok_r((char *)buffer, "\n", &savePtr);
-				
+
 				/* Load up the patch file */
-				
+
 				patchEntities(version, itemName);
-				
+
 				if (savedLocation == FALSE)
 				{
 					fprintf(newSave, "VERSION %0.2f\n", version);
-				
+
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
-					
+
 					savedLocation = TRUE;
 				}
-						
+
 				fprintf(newSave, "MAP_NAME %s\n", itemName);
-				
+
 				if (strcmpignorecase(itemName, location) == 0)
 				{
 					fprintf(newSave, "PLAYER_DATA\n");
-				
+
 					writePlayerToFile(newSave);
-					
+
 					fprintf(newSave, "PLAYER_INVENTORY\n");
-				
+
 					writeInventoryToFile(newSave);
 				}
-				
+
 				fprintf(newSave, "ENTITY_DATA\n");
-			
+
 				/* Now write out all of the Entities */
-			
+
 				writeEntitiesToFile(newSave);
-			
+
 				/* Now the targets */
-			
+
 				writeTargetsToFile(newSave);
-			
+
 				/* And the triggers */
-			
+
 				writeTriggersToFile(newSave);
-			
+
 				/* Add the global triggers */
-			
+
 				writeGlobalTriggersToFile(newSave);
-			
+
 				/* Add the objectives */
-			
+
 				writeObjectivesToFile(newSave);
-				
+
 				freeLevelResources();
-				
+
 				if (mapName == NULL)
 				{
 					break;
@@ -386,9 +386,9 @@ static void patchSaveGame(char *saveFile, double version)
 	}
 
 	free(buffer);
-	
+
 	free(originalBuffer);
-	
+
 	fclose(newSave);
 }
 

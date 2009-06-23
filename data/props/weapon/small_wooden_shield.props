@@ -3,3 +3,4 @@ GFX_FILE data/gfx/weapon/small_wooden_shield.dat
 ANIM_FILE data/anim/weapon/small_wooden_shield.dat
 TYPE SHIELD
 OBJECTIVE_NAME Small Wooden Shield
+DESCRIPTION A small shield that provides basic protection

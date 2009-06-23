@@ -2,4 +2,5 @@ DAMAGE 1
 GFX_FILE data/gfx/weapon/pickaxe.dat
 ANIM_FILE data/anim/weapon/pickaxe.dat
 TYPE WEAPON
-OBJECTIVE_NAME Pick Axe
+OBJECTIVE_NAME Pickaxe
+DESCRIPTION A pickaxe lent to you by Borgan

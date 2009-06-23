@@ -23,10 +23,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../player.h"
+#include "../game.h"
+#include "../inventory.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void useHealthPotion(int);
 
@@ -65,6 +68,11 @@ static void useHealthPotion(int val)
 {
 	if (player.health != player.maxHealth)
 	{
+		if (game.status == IN_INVENTORY)
+		{
+			setInventoryDialogMessage("Used %s", self->objectiveName);
+		}
+		
 		player.health = player.maxHealth;
 
 		self->inUse = FALSE;

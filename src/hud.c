@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "hud.h"
 
 extern Game game;
-extern Entity player;
+extern Entity player, *self;
 
 static Hud hud;
 static Message messageHead;
@@ -43,6 +43,8 @@ void initHud()
 	hud.emptyHeart = loadImage("gfx/hud/heart_empty.png");
 
 	messageHead.next = NULL;
+
+	hud.bossHealth = NULL;
 }
 
 void doHud()
@@ -69,19 +71,78 @@ void doHud()
 
 		getNextMessageFromQueue();
 	}
+
+	if (hud.bossHealth != NULL)
+	{
+		if (hud.bossHealthIndex < *hud.bossHealth)
+		{
+			hud.bossHealthIndex += (*hud.bossHealth / 100);
+
+			if (hud.bossHealthIndex > *hud.bossHealth)
+			{
+				hud.bossHealthIndex = *hud.bossHealth;
+			}
+		}
+
+		else if (*hud.bossHealth < hud.bossHealthIndex)
+		{
+			hud.bossHealthIndex--;
+
+			if (hud.bossHealthIndex < *hud.bossHealth)
+			{
+				hud.bossHealthIndex = *hud.bossHealth;
+			}
+		}
+	}
 }
 
 void drawHud()
 {
-	int i, h, w;
+	int i, x, y, h, w;
+	float percentage, clipWidth;
 
 	drawSelectedInventoryItem((SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h);
 
 	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE);
 
+	percentage = 0;
+
+	if (hud.bossHealth != NULL)
+	{
+		x = SCREEN_WIDTH - 6;
+		y = 5;
+
+		x -= (hud.heart->w + 5) * 10;
+
+		percentage = hud.bossHealthIndex * 100;
+
+		percentage /= hud.bossMaxHealth;
+
+		for (i=10;i<=100;i+=10)
+		{
+			if (i <= percentage)
+			{
+				drawImage(hud.heart, x, y, FALSE);
+			}
+
+			else if (i - 10 < percentage)
+			{
+				clipWidth = (percentage - (i - 10)) / 10;
+
+				w = hud.heart->w * clipWidth;
+
+				drawClippedImage(hud.heart, 0, 0, x, y, w, hud.heart->h);
+			}
+
+			drawImage(hud.emptyHeart, x, y, FALSE);
+
+			x += hud.heart->w + 5;
+		}
+	}
+
 	if (hud.infoMessage.surface != NULL)
 	{
-		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, 480 - hud.infoMessage.surface->h - 10, FALSE);
+		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE);
 	}
 
 	w = h = 5;
@@ -234,4 +295,18 @@ void freeMessageQueue()
 
 		hud.infoMessage.thinkTime = 0;
 	}
+}
+
+void initBossHealthBar()
+{
+	hud.bossHealth = &self->health;
+
+	hud.bossMaxHealth = self->health;
+
+	hud.bossHealthIndex = 0;
+}
+
+void freeBossHealthBar()
+{
+	hud.bossHealth = NULL;
 }

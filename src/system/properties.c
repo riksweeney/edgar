@@ -574,6 +574,11 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->face = strcmpignorecase(value, "RIGHT") == 0 ? RIGHT : LEFT;
 	}
+	
+	else if (strcmpignorecase(name, "DESCRIPTION") == 0)
+	{
+		STRNCPY(e->description, value, sizeof(e->description));
+	}
 
 	else
 	{

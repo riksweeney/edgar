@@ -37,14 +37,14 @@ void createDialogBoxFromScript(char *msg)
 
 	text = strtok_r(NULL, "\0", &savePtr);
 
-	createDialogBox(title, text);
+	dialogSurface = createDialogBox(title, text);
 }
 
-void createDialogBox(char *title, char *msg)
+SDL_Surface *createDialogBox(char *title, char *msg)
 {
 	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr;
 	int i, lines, w, h, maxWidth;
-	SDL_Surface **surface, *temp;
+	SDL_Surface **surface, *tempSurface;
 	SDL_Rect dest;
 
 	freeDialogBox();
@@ -138,11 +138,7 @@ void createDialogBox(char *title, char *msg)
 
 	h -= 5;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, maxWidth, h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-	dialogSurface = SDL_DisplayFormat(temp);
-
-	SDL_FreeSurface(temp);
+	tempSurface = createSurface(maxWidth, h);
 
 	w = h = 0;
 
@@ -160,18 +156,20 @@ void createDialogBox(char *title, char *msg)
 		dest.w = surface[i]->w;
 		dest.h = surface[i]->h;
 
-		SDL_BlitSurface(surface[i], NULL, dialogSurface, &dest);
+		SDL_BlitSurface(surface[i], NULL, tempSurface, &dest);
 
 		w += surface[i]->w;
 
 		SDL_FreeSurface(surface[i]);
 	}
 
-	dialogSurface = addBorder(dialogSurface, 255, 255, 255, 0, 0, 0);
+	tempSurface = addBorder(tempSurface, 255, 255, 255, 0, 0, 0);
 
 	free(surface);
 
 	free(text);
+
+	return tempSurface;
 }
 
 void drawDialogBox()

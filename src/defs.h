@@ -94,7 +94,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_MESSAGE_LENGTH 256
 
-#define MAX_INVENTORY_ITEMS 24
+#define MAX_INVENTORY_ITEMS 25
 
 #define MAX_DROPS 240
 
@@ -131,6 +131,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #else
 	#define strcmpignorecase(x, y) strcasecmp(x, y)
 #endif
+
+#define INVENTORY_BOX_SIZE 42
+
+#define INVENTORY_BOX_COUNT 5
 
 #define DEG_TO_RAD(x) (x * PI / 180)
 
@@ -377,6 +381,7 @@ enum
 	CONTROL_GRABBING,
 	CONTROL_PAUSE,
 	CONTROL_BLOCK,
+	CONTROL_INVENTORY,
 	MAX_CONTROLS
 };
 

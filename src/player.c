@@ -84,10 +84,6 @@ Entity *loadPlayer(int x, int y, char *name)
 		playerWeapon.parent = &player;
 
 		playerWeapon.face = playerShield.face = LEFT;
-
-		player.fallout = &fallout;
-
-		player.die = &playerDie;
 	}
 
 	else
@@ -107,6 +103,10 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		cameraSnapToTargetEntity();
 	}
+	
+	player.fallout = &fallout;
+
+	player.die = &playerDie;
 
 	player.action = NULL;
 
@@ -188,8 +188,8 @@ void doPlayer()
 		self->dirY = 0;
 	}
 
-	playerWeapon.frameSpeed = player.frameSpeed;
-	playerShield.frameSpeed = player.frameSpeed;
+	playerWeapon.frameSpeed = self->frameSpeed;
+	playerShield.frameSpeed = self->frameSpeed;
 
 	if (self->action == NULL)
 	{
@@ -217,14 +217,14 @@ void doPlayer()
 
 			if (input.left == 1)
 			{
-				if (player.flags & BLOCKING)
+				if (self->flags & BLOCKING)
 				{
 					playerWeapon.face = playerShield.face = self->face = LEFT;
 				}
 
 				else
 				{
-					if ((playerWeapon.flags & ATTACKING) && !(player.flags & ON_GROUND))
+					if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
 					{
 						self->dirX -= self->speed;
 					}
@@ -250,7 +250,7 @@ void doPlayer()
 							playerWeapon.face = playerShield.face = self->face = LEFT;
 						}
 
-						setEntityAnimation(&player, WALK);
+						setEntityAnimation(self, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
 					}
@@ -259,14 +259,14 @@ void doPlayer()
 
 			else if (input.right == 1)
 			{
-				if (player.flags & BLOCKING)
+				if (self->flags & BLOCKING)
 				{
 					playerWeapon.face = playerShield.face = self->face = RIGHT;
 				}
 
 				else
 				{
-					if ((playerWeapon.flags & ATTACKING) && !(player.flags & ON_GROUND))
+					if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
 					{
 						self->dirX += self->speed;
 					}
@@ -292,16 +292,16 @@ void doPlayer()
 							playerWeapon.face = playerShield.face = self->face = RIGHT;
 						}
 
-						setEntityAnimation(&player, WALK);
+						setEntityAnimation(self, WALK);
 						setEntityAnimation(&playerShield, WALK);
 						setEntityAnimation(&playerWeapon, WALK);
 					}
 				}
 			}
 
-			else if (input.left == 0 && input.right == 0 && !(player.flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
+			else if (input.left == 0 && input.right == 0 && !(self->flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
 			{
-				setEntityAnimation(&player, STAND);
+				setEntityAnimation(self, STAND);
 				setEntityAnimation(&playerShield, STAND);
 				setEntityAnimation(&playerWeapon, STAND);
 
@@ -369,17 +369,17 @@ void doPlayer()
 				}
 			}
 
-			if (input.attack == 1 && !(player.flags & BLOCKING) && !(player.flags & GRABBED))
+			if (input.attack == 1 && !(self->flags & BLOCKING) && !(self->flags & GRABBED))
 			{
 				if (playerWeapon.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
 				{
 					playerWeapon.flags |= ATTACKING;
 
-					setEntityAnimation(&player, ATTACK_1);
+					setEntityAnimation(self, ATTACK_1);
 					setEntityAnimation(&playerShield, ATTACK_1);
 					setEntityAnimation(&playerWeapon, ATTACK_1);
 
-					playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 					playerWeapon.animationCallback = &attackFinish;
 				}
@@ -394,7 +394,7 @@ void doPlayer()
 				input.interact = 0;
 			}
 
-			if (input.grabbing == 1 && !(player.flags & BLOCKING))
+			if (input.grabbing == 1 && !(self->flags & BLOCKING))
 			{
 				self->flags |= GRABBING;
 			}
@@ -413,21 +413,21 @@ void doPlayer()
 				}
 			}
 
-			if (input.block == 1 && (player.flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(player.flags & GRABBED))
+			if (input.block == 1 && (self->flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(self->flags & GRABBED))
 			{
-				player.flags |= BLOCKING;
+				self->flags |= BLOCKING;
 
-				setEntityAnimation(&player, BLOCK);
+				setEntityAnimation(self, BLOCK);
 				setEntityAnimation(&playerShield, BLOCK);
 
 				playerShield.thinkTime++;
 			}
 
-			else if ((input.block == 0 && (player.flags & BLOCKING)))
+			else if ((input.block == 0 && (self->flags & BLOCKING)))
 			{
-				player.flags &= ~BLOCKING;
+				self->flags &= ~BLOCKING;
 
-				setEntityAnimation(&player, STAND);
+				setEntityAnimation(self, STAND);
 				setEntityAnimation(&playerWeapon, STAND);
 				setEntityAnimation(&playerShield, STAND);
 
@@ -443,12 +443,12 @@ void doPlayer()
 
 			if (input.next == 1 || input.previous == 1)
 			{
-				selectNextInventoryItem(input.next == 1 ? 1 : -1);
+				nextInventoryItem(input.next == 1 ? 1 : -1);
 
 				input.next = input.previous = 0;
 			}
 
-			if (input.jump == 1 && !(player.flags & BLOCKING))
+			if (input.jump == 1 && !(self->flags & BLOCKING))
 			{
 				if (self->flags & ON_GROUND)
 				{
@@ -465,7 +465,7 @@ void doPlayer()
 					input.fly = 0;
 				}
 			#endif
-	}
+		}
 
 		else
 		{
@@ -479,7 +479,7 @@ void doPlayer()
 			}
 		}
 
-		i = player.environment;
+		i = self->environment;
 
 		checkToMap(self);
 
@@ -499,7 +499,7 @@ void doPlayer()
 		self->action();
 	}
 
-	addToGrid(&player);
+	addToGrid(self);
 
 	if (playerWeapon.flags & ATTACKING)
 	{
@@ -616,6 +616,11 @@ void setPlayerShield(int val)
 	playerShield = *self;
 
 	alignAnimations(&playerShield);
+	
+	if (game.status == IN_INVENTORY)
+	{
+		setInventoryDialogMessage("Equipped %s", playerShield.objectiveName);
+	}
 }
 
 void setPlayerWeapon(int val)
@@ -623,6 +628,11 @@ void setPlayerWeapon(int val)
 	playerWeapon = *self;
 
 	alignAnimations(&playerWeapon);
+	
+	if (game.status == IN_INVENTORY)
+	{
+		setInventoryDialogMessage("Equipped %s", playerWeapon.objectiveName);
+	}
 }
 
 void autoSetPlayerWeapon(Entity *newWeapon)
@@ -1063,7 +1073,7 @@ void facePlayer()
 void setPlayerSlimed(int thinkTime)
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		printf("No free slots to add Slimed Player\n");
@@ -1093,27 +1103,27 @@ void setPlayerSlimed(int thinkTime)
 static void applySlime()
 {
 	self->thinkTime--;
-	
+
 	self->face = player.face;
-	
+
 	player.dirX = 0;
-	
+
 	self->x = player.x;
 	self->y = player.y;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
-		
+
 		player.flags &= ~HELPLESS;
 	}
-	
+
 	else
 	{
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
 		setEntityAnimation(&playerShield, STAND);
-		
+
 		player.flags |= HELPLESS;
 	}
 }

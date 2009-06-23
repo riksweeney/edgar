@@ -113,6 +113,13 @@ void freeGame()
 
 		game.gameOverSurface = NULL;
 	}
+
+	if (game.pauseSurface != NULL)
+	{
+		SDL_FreeSurface(game.pauseSurface);
+
+		game.pauseSurface = NULL;
+	}
 }
 
 void drawGame()
@@ -453,8 +460,6 @@ void getCheckpoint(float *x, float *y)
 
 void pauseGame()
 {
-	SDL_Surface *temp;
-
 	switch (game.status)
 	{
 		case IN_GAME:
@@ -464,17 +469,13 @@ void pauseGame()
 
 			if (game.pauseSurface == NULL)
 			{
-				temp = SDL_CreateRGBSurface(SDL_SWSURFACE, game.screen->w, game.screen->h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-				game.pauseSurface = SDL_DisplayFormat(temp);
-
-				SDL_FreeSurface(temp);
+				game.pauseSurface = createSurface(game.screen->w, game.screen->h);
 
 				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
 			}
 		break;
 
-		case IN_MENU:
+		default:
 			if (game.menu->returnAction != NULL)
 			{
 				game.menu->returnAction();
@@ -498,10 +499,6 @@ void pauseGame()
 				game.drawMenu = &drawMainMenu;
 			}
 		break;
-
-		default:
-
-		break;
 	}
 }
 
@@ -518,9 +515,37 @@ void showSaveDialog()
 	game.drawMenu = &drawIOMenu;
 }
 
+void pauseGameInventory()
+{
+	switch (game.status)
+	{
+		case IN_GAME:
+			game.status = IN_INVENTORY;
+
+			if (game.pauseSurface == NULL)
+			{
+				game.pauseSurface = createSurface(game.screen->w, game.screen->h);
+
+				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
+			}
+		break;
+
+		case IN_INVENTORY:
+			if (game.pauseSurface != NULL)
+			{
+				SDL_FreeSurface(game.pauseSurface);
+
+				game.pauseSurface = NULL;
+			}
+
+			game.status = IN_GAME;
+		break;
+	}
+}
+
 void focusLost()
 {
-	if (game.paused == FALSE)
+	if (game.paused == FALSE && game.status != IN_INVENTORY)
 	{
 		pauseGame();
 	}

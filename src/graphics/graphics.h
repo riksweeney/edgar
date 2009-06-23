@@ -29,3 +29,4 @@ void drawClippedImage(SDL_Surface *, int, int, int, int, int, int);
 void drawBoxToMap(int, int, int, int, int, int, int);
 SDL_Surface *addBorder(SDL_Surface *, int, int, int, int, int, int);
 void drawLine(int, int, int, int, int, int, int);
+SDL_Surface *createSurface(int, int);

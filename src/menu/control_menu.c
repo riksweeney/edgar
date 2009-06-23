@@ -138,7 +138,6 @@ static void loadMenuLayout()
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
-	SDL_Surface *temp;
 
 	i = 0;
 
@@ -269,19 +268,26 @@ static void loadMenuLayout()
 
 					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_ACTIVATE]), menu.widgets[i]->x, y);
 				}
-
+				
 				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_PREVIOUS]), menu.widgets[i]->x, y);
 				}
-
+				
 				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_NEXT]), menu.widgets[i]->x, y);
+				}
+
+				else if (strcmpignorecase(menuID, "INVENTORY") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_INVENTORY], NULL, NULL, &redefineKey, x, y, TRUE);
+
+					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_INVENTORY]), menu.widgets[i]->x, y);
 				}
 
 				else if (strcmpignorecase(menuID, "PAUSE") == 0)
@@ -324,13 +330,9 @@ static void loadMenuLayout()
 		exit(1);
 	}
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, menu.w, menu.h, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
-
-	menu.background = addBorder(SDL_DisplayFormat(temp), 255, 255, 255, 0, 0, 0);
+	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
 	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
-
-	SDL_FreeSurface(temp);
 
 	free(buffer);
 
