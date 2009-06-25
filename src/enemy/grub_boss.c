@@ -214,7 +214,7 @@ static void introPause()
 	{
 		self->touch = &entityTouch;
 		self->takeDamage = &takeDamage;
-		
+
 		self->damage = self->endX;
 
 		attackFinished();
@@ -472,8 +472,6 @@ static void die()
 	self->thinkTime--;
 
 	self->takeDamage = NULL;
-
-	printf("Dying %d\n", self->thinkTime);
 
 	if (self->thinkTime <= 0)
 	{

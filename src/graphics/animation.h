@@ -25,3 +25,4 @@ void setEntityAnimation(Entity *, int);
 void drawLineDefToMap(void);
 int getAnimationTypeByName(char *);
 int getAnimationTypeAtIndex(Entity *);
+int hasEntityAnimation(Entity *, int);

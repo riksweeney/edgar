@@ -25,6 +25,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "collisions.h"
 
 static void projectileMove(void);
+static void projectileDie(void);
+static void removeProjectile(void);
 
 extern Entity *self;
 
@@ -56,6 +58,16 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->parent = owner;
+	
+	if (hasEntityAnimation(e, DIE) == TRUE)
+	{
+		e->die = &projectileDie;
+	}
+	
+	else
+	{
+		e->die = &removeProjectile;
+	}
 
 	setEntityAnimation(e, STAND);
 
@@ -83,4 +95,20 @@ void bounceOffShield()
 	self->flags &= ~FLY;
 
 	self->touch = NULL;
+}
+
+static void projectileDie()
+{
+	setEntityAnimation(self, DIE);
+	
+	self->touch = NULL;
+	
+	self->dirX = self->dirY = 0;
+	
+	self->animationCallback = &removeProjectile;
+}
+
+static void removeProjectile()
+{
+	self->inUse = FALSE;
 }

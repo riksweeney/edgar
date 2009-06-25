@@ -424,7 +424,7 @@ void checkToMap(Entity *e)
 
 						if (e->type == PROJECTILE)
 						{
-							e->inUse = FALSE;
+							e->die();
 
 							return;
 						}
@@ -464,7 +464,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -546,7 +546,7 @@ void checkToMap(Entity *e)
 
 						if (e->type == PROJECTILE)
 						{
-							e->inUse = FALSE;
+							e->die();
 
 							return;
 						}
@@ -584,7 +584,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -663,7 +663,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -698,7 +698,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -762,7 +762,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -789,7 +789,7 @@ void checkToMap(Entity *e)
 
 					if (e->type == PROJECTILE)
 					{
-						e->inUse = FALSE;
+						e->die();
 
 						return;
 					}
@@ -831,7 +831,7 @@ void checkToMap(Entity *e)
 
 		if (e->type == PROJECTILE)
 		{
-			e->inUse = FALSE;
+			e->die();
 		}
 
 	}
@@ -849,7 +849,7 @@ void checkToMap(Entity *e)
 
 		if (e->type == PROJECTILE)
 		{
-			e->inUse = FALSE;
+			e->die();
 		}
 	}
 

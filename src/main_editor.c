@@ -117,6 +117,8 @@ int main(int argc, char *argv[])
 	setMapStartY(startPos.y);
 
 	resetControls(TRUE);
+	
+	game.status = IN_EDITOR;
 
 	while (go == TRUE)
 	{

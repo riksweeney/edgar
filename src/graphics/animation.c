@@ -65,17 +65,17 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 	{
 		animationIndex[i] = -1;
 	}
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
 	while (line != NULL)
 	{
 		frameName = strtok_r(line, " ", &savePtr2);
-		
+
 		if (frameName[0] == '#' || frameName[0] == '\n')
 		{
 			line = strtok_r(NULL, "\n", &savePtr1);
-			
+
 			continue;
 		}
 
@@ -108,7 +108,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
 		{
 			frameName = strtok_r(NULL, " ", &savePtr2);
-			
+
 			animation[animationID].frameCount = atoi(frameName);
 
 			/* Allocate space for the frame timer */
@@ -158,21 +158,21 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			for (i=0;i<animation[animationID].frameCount;i++)
 			{
 				line = strtok_r(NULL, "\n", &savePtr1);
-				
+
 				frameName = strtok_r(line, " ", &savePtr2);
-				
+
 				animation[animationID].frameID[i] = atoi(frameName);
-				
+
 				frameName = strtok_r(NULL, " ", &savePtr2);
-				
+
 				animation[animationID].frameTimer[i] = atoi(frameName);
-				
+
 				frameName = strtok_r(NULL, " ", &savePtr2);
-				
+
 				animation[animationID].offsetX[i] = atoi(frameName);
-				
+
 				frameName = strtok_r(NULL, "\0", &savePtr2);
-				
+
 				animation[animationID].offsetY[i] = atoi(frameName);
 
 				/* Reassign the Animation frame to the appropriate Sprite index */
@@ -187,7 +187,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 				animation[animationID].frameID[i] = spriteIndex[animation[animationID].frameID[i]];
 			}
 		}
-		
+
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
@@ -270,7 +270,7 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 		e->w = sprite->image->w;
 		e->h = sprite->image->h;
-		
+
 		e->box = sprite->box;
 	}
 
@@ -358,7 +358,7 @@ void drawLoopingAnimationToMap()
 
 		self->offsetX = animation[self->currentAnim].offsetX[self->currentFrame];
 		self->offsetY = animation[self->currentAnim].offsetY[self->currentFrame];
-		
+
 		self->box = sprite->box;
 	}
 
@@ -421,7 +421,7 @@ void drawLineDefToMap()
 void setEntityAnimation(Entity *e, int animationID)
 {
 	Sprite *sprite;
-	
+
 	if (e->inUse == FALSE)
 	{
 		return;
@@ -445,7 +445,9 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		if (sprite->image == NULL)
 		{
-			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[0]);
+			printf("Image index %d for %s is NULL!\n", animation[e->currentAnim].frameID[0], e->name);
+
+			exit(1);
 		}
 
 		e->w = sprite->image->w;
@@ -453,9 +455,14 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
-		
+
 		e->box = sprite->box;
 	}
+}
+
+int hasEntityAnimation(Entity *e, int animationID)
+{
+	return e->animation[animationID] == -1 ? FALSE : TRUE;
 }
 
 int getAnimationTypeByName(char *name)
