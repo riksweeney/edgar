@@ -7,3 +7,8 @@ misc/small_log
 misc/raft
 misc/chopped_log
 item/iron_key
+lift/large_mine_lift
+item/mine_cart
+lift/lift_target
+lift/mine_lift
+item/wooden_crate

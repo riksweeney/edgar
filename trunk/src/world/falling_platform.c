@@ -89,11 +89,19 @@ static void wait()
 
 static void touch(Entity *other)
 {
+	Entity *temp;
+	
 	/* Test the horizontal movement */
 
 	if (other->type == PROJECTILE)
 	{
-		other->inUse = FALSE;
+		temp = self;
+
+		self = other;
+
+		self->die();
+
+		self = temp;
 	}
 
 	else if (other->dirY > 0)

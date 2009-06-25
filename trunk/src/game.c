@@ -545,7 +545,7 @@ void pauseGameInventory()
 
 void focusLost()
 {
-	if (game.paused == FALSE && game.status != IN_INVENTORY)
+	if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR)
 	{
 		pauseGame();
 	}

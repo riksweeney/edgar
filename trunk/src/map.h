@@ -56,3 +56,4 @@ char *getMapMusic(void);
 void setCameraSpeed(float);
 int cameraAtMinimum(void);
 char *getMapName(void);
+int getDistanceFromCamera(int, int);

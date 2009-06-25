@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/trigger.h"
 #include "weather.h"
 #include "system/pak.h"
+#include "geometry.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -80,7 +81,7 @@ void loadMap(char *name, int loadEntityResources)
 			sscanf(line, "%*s %[^$]s\n", itemName);
 
 			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
-			
+
 			printf("Setting mapName to %s\n", map.mapName);
 		}
 
@@ -608,11 +609,31 @@ void centerEntityOnMap()
 	if (map.targetEntity->standingOn != NULL && fabs(map.targetEntity->standingOn->speed) > fabs(map.targetEntity->speed))
 	{
 		speed = map.targetEntity->standingOn->speed;
+
+		if (speed < fabs(map.targetEntity->standingOn->dirX))
+		{
+			speed = fabs(map.targetEntity->standingOn->dirX);
+		}
+
+		if (speed < fabs(map.targetEntity->standingOn->dirY))
+		{
+			speed = fabs(map.targetEntity->standingOn->dirY);
+		}
 	}
 
 	else
 	{
 		speed = map.targetEntity->originalSpeed > map.targetEntity->speed ? map.targetEntity->originalSpeed : map.targetEntity->speed;
+
+		if (speed < fabs(map.targetEntity->dirX))
+		{
+			speed = fabs(map.targetEntity->dirX);
+		}
+
+		if (speed < fabs(map.targetEntity->dirY))
+		{
+			speed = fabs(map.targetEntity->dirY);
+		}
 	}
 
 	if (map.cameraSpeed != -1)
@@ -1056,4 +1077,9 @@ char *getMapMusic()
 char *getMapName()
 {
 	return map.mapName;
+}
+
+int getDistanceFromCamera(int x, int y)
+{
+	return getDistance(map.cameraX + SCREEN_WIDTH / 2, map.cameraY + SCREEN_HEIGHT / 2, x, y);
 }

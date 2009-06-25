@@ -42,6 +42,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
+static void scriptDoNothing(void);
 
 void freeEntities()
 {
@@ -319,7 +320,7 @@ void flyToTarget()
 	else
 	{
 		self->x = self->targetX;
-		
+
 		self->dirX = 0;
 	}
 
@@ -537,13 +538,20 @@ void entityTouch(Entity *other)
 			self->takeDamage(other, other->damage);
 		}
 
-		other->inUse = FALSE;
+		temp = self;
+
+		self = other;
+
+		self->die();
+
+		self = temp;
 	}
 }
 
 void pushEntity(Entity *other)
 {
 	int pushable;
+	Entity *temp;
 
 	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == AUTO_LIFT || other->type == MANUAL_LIFT)
 	{
@@ -557,7 +565,13 @@ void pushEntity(Entity *other)
 
 	if (other->type == PROJECTILE)
 	{
-		other->inUse = FALSE;
+		temp = self;
+		
+		self = other;
+		
+		self->die();
+		
+		self = temp;
 
 		return;
 	}
@@ -590,7 +604,7 @@ void pushEntity(Entity *other)
 			other->flags |= ON_GROUND;
 			/*
 			if (self->activate != NULL)
-			{ 
+			{
 				self->activate(1);
 			}
 			*/
@@ -963,7 +977,7 @@ void entityWalkTo(Entity *e, char *coords)
 		e->targetY = e->y;
 	}
 
-	if (strcmpignorecase(wait, "WAIT") != 0)
+	if (strcmpignorecase(wait, "WAIT") == 0)
 	{
 		e->action = &scriptEntityMoveToTarget;
 
@@ -1041,6 +1055,11 @@ static void scriptEntityMoveToTarget()
 		self->x = self->targetX;
 	}
 
+	if (!(self->flags & FLY))
+	{
+		self->targetY = self->y;
+	}
+
 	if (abs(self->y - self->targetY) > self->speed)
 	{
 		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
@@ -1062,13 +1081,28 @@ static void scriptEntityMoveToTarget()
 			syncWeaponShieldToPlayer();
 		}
 
+		else
+		{
+			self->dirX = 0;
+			self->dirY = 0;
+
+			self->action = &scriptDoNothing;
+		}
+
 		setScriptCounter(-1);
+
+		printf("At target\n");
 	}
 
 	else
 	{
 		checkToMap(self);
 	}
+}
+
+static void scriptDoNothing()
+{
+	checkToMap(self);
 }
 
 static void entityMoveToTarget()
@@ -1088,6 +1122,11 @@ static void entityMoveToTarget()
 	else
 	{
 		self->x = self->targetX;
+	}
+
+	if (!(self->flags & FLY))
+	{
+		self->targetY = self->y;
 	}
 
 	if (abs(self->y - self->targetY) > self->speed)

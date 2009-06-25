@@ -103,7 +103,7 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		cameraSnapToTargetEntity();
 	}
-	
+
 	player.fallout = &fallout;
 
 	player.die = &playerDie;
@@ -616,7 +616,7 @@ void setPlayerShield(int val)
 	playerShield = *self;
 
 	alignAnimations(&playerShield);
-	
+
 	if (game.status == IN_INVENTORY)
 	{
 		setInventoryDialogMessage("Equipped %s", playerShield.objectiveName);
@@ -628,7 +628,7 @@ void setPlayerWeapon(int val)
 	playerWeapon = *self;
 
 	alignAnimations(&playerWeapon);
-	
+
 	if (game.status == IN_INVENTORY)
 	{
 		setInventoryDialogMessage("Equipped %s", playerWeapon.objectiveName);
@@ -705,8 +705,14 @@ static void takeDamage(Entity *other, int damage)
 
 						return;
 					}
+					
+					temp = self;
 
-					other->inUse = FALSE;
+					self = other;
+
+					self->die();
+
+					self = temp;
 
 					return;
 				}
@@ -761,7 +767,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->inUse = FALSE;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (player.health > 0)
@@ -790,7 +802,7 @@ static void takeDamage(Entity *other, int damage)
 
 int getDistanceFromPlayer(Entity *e)
 {
-	return getDistance(player.x, player.y, e->x + e->w, e->y);
+	return getDistance(player.x, player.y, e->x, e->y);
 }
 
 void writePlayerMapStartToFile(FILE *fp)

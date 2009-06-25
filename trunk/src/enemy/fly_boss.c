@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../hud.h"
 #include "../player.h"
+#include "../decoration.h"
 
 extern Entity *self, player;
 
@@ -74,6 +75,9 @@ static void stingAttackMoveToPosition(void);
 static void stingAttack(void);
 static void stingAttackPause(void);
 static void fallout(void);
+static void ramTouch(Entity *);
+static void die(void);
+static void dieFinish(void);
 
 Entity *addFlyBoss(int x, int y, char *name)
 {
@@ -104,6 +108,8 @@ Entity *addFlyBoss(int x, int y, char *name)
 	e->active = FALSE;
 
 	e->fallout = &fallout;
+
+	e->die = &die;
 
 	setEntityAnimation(e, CUSTOM_1);
 
@@ -226,6 +232,8 @@ static void introPause()
 	}
 
 	facePlayer();
+	
+	self->health = 1;
 }
 
 static void wait()
@@ -238,9 +246,9 @@ static void wait()
 
 	hover();
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		i = self->health < 100 ? prand() % 5 : prand() % 4;
+		i = self->health <= (self->maxHealth / 10) ? prand() % 10 : prand() % 4;
 
 		switch (i)
 		{
@@ -262,7 +270,7 @@ static void wait()
 				self->action = &slimeFireInit;
 			break;
 
-			case 4:
+			default:
 				self->action = &stingAttackInit;
 			break;
 		}
@@ -353,6 +361,8 @@ static void dropInit()
 {
 	Target *left, *right;
 
+	setEntityAnimation(self, ATTACK_1);
+
 	self->dirY = 0;
 
 	left = getTargetByName("FLY_BOSS_TARGET_TOP_LEFT");
@@ -396,18 +406,17 @@ static void dropInit()
 
 	else
 	{
-		self->thinkTime = 60;
+		self->thinkTime = 0;
 
 		self->action = &drop;
 
 		self->dirX = 0;
 	}
-
-	hover();
 }
 
 static void drop()
 {
+	int i;
 	long onGround = (self->flags & ON_GROUND);
 
 	self->thinkTime--;
@@ -419,6 +428,8 @@ static void drop()
 
 	else
 	{
+		self->frameSpeed = 0;
+
 		self->thinkTime = 0;
 
 		self->flags &= ~FLY;
@@ -432,6 +443,11 @@ static void drop()
 			self->thinkTime = 90;
 
 			self->action = &dropWait;
+
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
 		}
 	}
 }
@@ -439,6 +455,8 @@ static void drop()
 static void dropWait()
 {
 	self->thinkTime--;
+	
+	facePlayer();
 
 	if (self->thinkTime <= 0)
 	{
@@ -556,7 +574,7 @@ static void fireSlime()
 		{
 			self->thinkTime = 60;
 
-			self->action = prand() % 3 == 0 ? &bulletFireMoveToPosition : &attackFinished;
+			self->action = ((player.flags & HELPLESS) || prand() % 3 == 0) ? &bulletFireMoveToPosition : &attackFinished;
 		}
 
 		else
@@ -608,15 +626,15 @@ static void moveToHeadButtRange()
 
 	playerX = player.x + (self->face == RIGHT ? 0 : player.w - 1);
 
-	if (abs(bossX - playerX) < 8)
+	if (abs(bossX - playerX) < 24)
 	{
 		self->dirX = 0;
+
+		self->touch = &ramTouch;
 
 		self->action = &headButt;
 
 		self->reactToBlock = &reactToHeadButtBlock;
-
-		self->thinkTime = 60;
 	}
 
 	else
@@ -624,6 +642,34 @@ static void moveToHeadButtRange()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		checkToMap(self);
+	}
+}
+
+static void headButt()
+{
+	facePlayer();
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+
+		checkToMap(self);
+
+		self->thinkTime = 120;
+
+		if (prand() % 2 == 0)
+		{
+			self->action = &attackFinished;
+
+			self->touch = &entityTouch;
+		}
+
+		else
+		{
+			self->action = &moveToHeadButtRange;
+		}
 	}
 }
 
@@ -657,10 +703,16 @@ static void stingAttack()
 	if (self->thinkTime == 0)
 	{
 		self->dirX = self->face == LEFT ? -12 : 12;
+
+		self->flags |= ATTACKING;
+
+		self->touch = &ramTouch;
 	}
 
 	else if (self->thinkTime < 0)
 	{
+		self->thinkTime = 0;
+
 		if (self->dirX == 0)
 		{
 			shakeScreen(MEDIUM, 15);
@@ -672,6 +724,8 @@ static void stingAttack()
 			self->dirX = self->face == LEFT ? 4 : -4;
 
 			self->action = &stingAttackPause;
+
+			self->touch = &entityTouch;
 
 			self->thinkTime = 180;
 		}
@@ -701,33 +755,36 @@ static void fallout()
 {
 	if (self->environment == WATER)
 	{
-
+		self->flags |= HELPLESS;
 	}
 }
 
-static void headButt()
+static void die()
 {
-	facePlayer();
+	self->thinkTime = 120;
+
+	self->flags &= ~FLY;
+
+	self->action = &dieFinish;
+}
+
+static void dieFinish()
+{
+	Entity *e;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+		freeBossHealthBar();
 
-		checkToMap(self);
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 
-		self->thinkTime = 120;
+		e->dirY = ITEM_JUMP_HEIGHT;
 
-		if (prand() % 4 == 0)
-		{
-			self->action = &attackFinished;
-		}
+		fadeBossMusic();
 
-		else
-		{
-			self->action = &moveToHeadButtRange;
-		}
+		entityDieNoDrop();
 	}
 }
 
@@ -742,7 +799,7 @@ static void slimePlayer(Entity *other)
 			setPlayerSlimed(120);
 		}
 
-		self->inUse = FALSE;
+		self->die();
 	}
 }
 
@@ -798,9 +855,9 @@ static void takeDamage(Entity *other, int damage)
 
 		self->health -= damage;
 
-		if (self->health <= 0)
+		if (self->health <= (self->maxHealth / 10))
 		{
-			self->health = 1;
+			self->health = (self->maxHealth / 10);
 
 			if (prand() % 3 == 0)
 			{
@@ -841,16 +898,51 @@ static void attackFinished()
 
 	if (self->thinkTime <= 0)
 	{
+		self->frameSpeed = 1;
+
+		/* Stop the player from being hit when the animation changes */
+		
+		if (self->face == RIGHT)
+		{
+			self->x -= self->w - self->box.w;
+		}
+		
+		else
+		{
+			self->x += self->box.x;
+		}
+
+		setEntityAnimation(self, STAND);
+
 		self->dirX = 0;
-		self->dirY = 0;
+		self->dirY = 1;
 
 		self->startX = 0;
 		self->startY = self->y;
+
+		self->flags &= ~ATTACKING;
 
 		self->flags |= UNBLOCKABLE|FLY;
 
 		self->action = &flyToTopTarget;
 
 		self->reactToBlock = NULL;
+	}
+
+	checkToMap(self);
+}
+
+static void ramTouch(Entity *other)
+{
+	int health = player.health;
+
+	entityTouch(other);
+
+	if (player.health < health)
+	{
+		if (self->action == &stingAttack || self->action == &headButt)
+		{
+			reactToHeadButtBlock();
+		}
 	}
 }

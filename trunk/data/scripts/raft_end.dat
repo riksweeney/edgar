@@ -1,5 +1,5 @@
 SET Edgar FACE LEFT
-SET Raft FLAG HELPLESS|FLY
+SET Raft ADD_FLAG HELPLESS|FLY
 SET Raft DIR_X 0
 SET Raft DIR_Y 0
 TALK Edgar That was easy! And I can always get back later!

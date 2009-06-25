@@ -258,5 +258,5 @@ typedef struct Grid
 typedef struct FileData
 {
 	char filename[MAX_FILE_LENGTH];
-	uLongf fileSize, compressedSize, offset;
+	unsigned long fileSize, compressedSize, offset;
 } FileData;

@@ -309,7 +309,7 @@ void readNextScriptLine()
 				}
 			}
 
-			else if (strcmpignorecase("FLAG", token) == 0)
+			else if (strcmpignorecase("ADD_FLAG", token) == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
 
@@ -370,6 +370,13 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
+			}
+
+			else if (strcmpignorecase(token, "SPEED") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e->speed = atof(token);
 			}
 
 			else if (strcmpignorecase(token, "DIR_X") == 0)

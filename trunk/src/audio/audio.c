@@ -22,10 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio.h"
 #include "../geometry.h"
 #include "../system/pak.h"
+#include "../map.h"
 
 static Sound sound[MAX_SOUNDS];
 extern Game game;
-extern Entity player;
 
 static void preCacheSound(char *);
 
@@ -130,9 +130,9 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		soundIndex++;
 	}
 
-	/* The further away the player is, the quieter the sound */
+	/* The further away the camera is, the quieter the sound */
 
-	distance = getDistance(player.x, player.y, x, y);
+	distance = getDistanceFromCamera(x, y);
 
 	volume = game.sfxDefaultVolume * VOLUME_STEPS;
 
