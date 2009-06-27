@@ -566,11 +566,11 @@ void pushEntity(Entity *other)
 	if (other->type == PROJECTILE)
 	{
 		temp = self;
-		
+
 		self = other;
-		
+
 		self->die();
-		
+
 		self = temp;
 
 		return;
@@ -636,6 +636,8 @@ void pushEntity(Entity *other)
 		{
 			if (pushable != 0)
 			{
+				self->y -= self->dirY;
+
 				self->dirX += other->dirX;
 
 				checkToMap(self);
@@ -651,6 +653,8 @@ void pushEntity(Entity *other)
 				{
 					self->frameSpeed = 1;
 				}
+
+				self->y += self->dirY;
 			}
 
 			if (pushable == 0)
@@ -686,6 +690,8 @@ void pushEntity(Entity *other)
 		{
 			if (pushable != 0)
 			{
+				self->y -= self->dirY;
+
 				self->dirX += other->dirX;
 
 				checkToMap(self);
@@ -701,6 +707,8 @@ void pushEntity(Entity *other)
 				{
 					self->frameSpeed = -1;
 				}
+
+				self->y += self->dirY;
 			}
 
 			if (pushable == 0)
@@ -766,6 +774,21 @@ Entity *getEntityByObjectiveName(char *name)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			return &entity[i];
+		}
+	}
+
+	return NULL;
+}
+
+Entity *getEntityByStartXY(int x, int y)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && entity[i].startX == x && entity[i].startY == y)
 		{
 			return &entity[i];
 		}
@@ -964,10 +987,10 @@ void addEntityFromScript(char *line)
 
 void entityWalkTo(Entity *e, char *coords)
 {
-	int x, y;
-	char wait[10];
+	int x, y, read;
+	char wait[10], anim[10];
 
-	sscanf(coords, "%d %d %s", &x, &y, wait);
+	read = sscanf(coords, "%d %d %s %s", &x, &y, wait, anim);
 
 	e->targetX = x;
 	e->targetY = y;
@@ -991,7 +1014,15 @@ void entityWalkTo(Entity *e, char *coords)
 
 	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
-	setEntityAnimation(e, WALK);
+	if (read == 4)
+	{
+		setEntityAnimation(e, getAnimationTypeByName(anim));
+	}
+
+	else
+	{
+		setEntityAnimation(e, WALK);
+	}
 
 	if (e->type == PLAYER)
 	{
@@ -1001,10 +1032,10 @@ void entityWalkTo(Entity *e, char *coords)
 
 void entityWalkToRelative(Entity *e, char *coords)
 {
-	int x, y;
-	char wait[10];
+	int x, y, read;
+	char wait[10], anim[10];
 
-	sscanf(coords, "%d %d %s", &x, &y, wait);
+	read = sscanf(coords, "%d %d %s %s", &x, &y, wait, anim);
 
 	e->targetX = e->x + x;
 	e->targetY = e->y + y;
@@ -1028,7 +1059,15 @@ void entityWalkToRelative(Entity *e, char *coords)
 
 	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
 
-	setEntityAnimation(e, WALK);
+	if (read == 4)
+	{
+		setEntityAnimation(e, getAnimationTypeByName(anim));
+	}
+
+	else
+	{
+		setEntityAnimation(e, WALK);
+	}
 
 	if (e->type == PLAYER)
 	{

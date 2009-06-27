@@ -58,16 +58,18 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->parent = owner;
-	
+
 	if (hasEntityAnimation(e, DIE) == TRUE)
 	{
 		e->die = &projectileDie;
 	}
-	
+
 	else
 	{
 		e->die = &removeProjectile;
 	}
+
+	e->face = e->dirX > 0 ? RIGHT : LEFT;
 
 	setEntityAnimation(e, STAND);
 
@@ -76,10 +78,8 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 static void projectileMove()
 {
-	self->face = self->dirX > 0 ? RIGHT : LEFT;
-	
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
@@ -100,11 +100,11 @@ void bounceOffShield()
 static void projectileDie()
 {
 	setEntityAnimation(self, DIE);
-	
+
 	self->touch = NULL;
-	
+
 	self->dirX = self->dirY = 0;
-	
+
 	self->animationCallback = &removeProjectile;
 }
 

@@ -31,7 +31,7 @@ static int fileCount;
 void initPakFile()
 {
 	#if DEV == 0
-		long offset;
+		unsigned long offset;
 		FILE *fp;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
@@ -45,16 +45,16 @@ void initPakFile()
 			exit(1);
 		}
 
-		fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
 
-		fread(&offset, sizeof(long), 1, fp);
+		fread(&offset, sizeof(unsigned long), 1, fp);
 		fread(&fileCount, sizeof(int), 1, fp);
 
 		fileData = (FileData *)malloc(fileCount * sizeof(FileData));
 
 		if (fileData == NULL)
 		{
-			printf("Could not allocate %d bytes for FileData\n", fileCount * sizeof(FileData));
+			printf("Failed to allocate %d bytes for FileData\n", fileCount * (int)sizeof(FileData));
 
 			exit(1);
 		}
@@ -188,7 +188,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s\n", size * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s\n", size * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -231,7 +231,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (source == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -240,7 +240,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -300,7 +300,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s\n", (size + 2) * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s\n", (size + 2) * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -346,7 +346,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (source == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}
@@ -355,7 +355,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * sizeof(unsigned char), name);
+			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 
 			exit(1);
 		}

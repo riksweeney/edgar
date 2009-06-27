@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 0.12
+
+* The game should now work on 64 bit CPUs
+* Added the Swamp Boss
+* Added basic inventory system so the player can see items and their quantities
+
 Version 0.11
 
 * Fixed a problem with music loading

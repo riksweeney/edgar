@@ -33,7 +33,7 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 
 	if (w == NULL)
 	{
-		printf("Failed to allocate %d bytes to create Widget %s\n", sizeof(Widget), text);
+		printf("Failed to allocate %d bytes to create Widget %s\n", (int)sizeof(Widget), text);
 
 		exit(1);
 	}

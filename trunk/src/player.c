@@ -1137,5 +1137,7 @@ static void applySlime()
 		setEntityAnimation(&playerShield, STAND);
 
 		player.flags |= HELPLESS;
+		
+		player.flags &= ~BLOCKING;
 	}
 }

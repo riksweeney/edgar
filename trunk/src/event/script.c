@@ -60,7 +60,7 @@ void loadScript(char *name)
 
 	if (text == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for script %s\n", sizeof(char *) * (strlen((char *)buffer) + 1), filename);
+		printf("Failed to allocate a whole %d bytes for script %s\n", (int)sizeof(char *) * (strlen((char *)buffer) + 1), filename);
 
 		exit(1);
 	}
@@ -82,7 +82,7 @@ void loadScript(char *name)
 
 	if (script.text == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for script %s\n", sizeof(char *) * script.lineCount, filename);
+		printf("Failed to allocate a whole %d bytes for script %s\n", (int)sizeof(char *) * script.lineCount, filename);
 
 		exit(1);
 	}
@@ -109,7 +109,7 @@ void loadScript(char *name)
 
 		if (script.text[i] == NULL)
 		{
-			printf("Could not allocate %d bytes for script line %d\n", sizeof(char *) * script.lineCount, (i + 1));
+			printf("Failed to allocate %d bytes for script line %d\n", (int)sizeof(char *) * script.lineCount, (i + 1));
 		}
 
 		STRNCPY(script.text[i], line, strlen(line) + 1);
@@ -391,6 +391,13 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 
 				e->dirY = atoi(token);
+			}
+			
+			else if (strcmpignorecase(token, "FRAME_SPEED") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e->frameSpeed = atof(token);
 			}
 
 			else

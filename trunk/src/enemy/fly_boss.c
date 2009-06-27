@@ -72,6 +72,7 @@ static void drop(void);
 static void dropWait(void);
 static void stingAttackInit(void);
 static void stingAttackMoveToPosition(void);
+static void stingAttackWindUp(void);
 static void stingAttack(void);
 static void stingAttackPause(void);
 static void fallout(void);
@@ -232,8 +233,6 @@ static void introPause()
 	}
 
 	facePlayer();
-	
-	self->health = 1;
 }
 
 static void wait()
@@ -336,6 +335,13 @@ static void flyToTopTarget()
 
 static void moveToTarget()
 {
+	self->thinkTime--;
+
+	if (self->thinkTime == 0)
+	{
+		self->damage = 1;
+	}
+
 	checkToMap(self);
 
 	facePlayer();
@@ -455,7 +461,7 @@ static void drop()
 static void dropWait()
 {
 	self->thinkTime--;
-	
+
 	facePlayer();
 
 	if (self->thinkTime <= 0)
@@ -601,7 +607,9 @@ static void headButtMoveToPosition()
 	{
 		self->flags &= ~(FLY|UNBLOCKABLE);
 
-		self->maxThinkTime = 30;
+		setEntityAnimation(self, ATTACK_2);
+
+		self->thinkTime = 60;
 
 		self->x = self->targetX;
 		self->y = self->targetY;
@@ -622,54 +630,60 @@ static void moveToHeadButtRange()
 
 	facePlayer();
 
-	bossX = self->x + (self->face == LEFT ? 0 : self->w - 1);
+	self->thinkTime--;
 
-	playerX = player.x + (self->face == RIGHT ? 0 : player.w - 1);
-
-	if (abs(bossX - playerX) < 24)
+	if (self->thinkTime <= 0)
 	{
-		self->dirX = 0;
+		bossX = self->x + (self->face == LEFT ? 0 : self->w - 1);
 
-		self->touch = &ramTouch;
+		playerX = player.x + (self->face == RIGHT ? 0 : player.w - 1);
 
-		self->action = &headButt;
+		if (abs(bossX - playerX) < 24)
+		{
+			self->dirX = 0;
 
-		self->reactToBlock = &reactToHeadButtBlock;
+			self->touch = &ramTouch;
+
+			self->action = &headButt;
+
+			self->reactToBlock = &reactToHeadButtBlock;
+		}
+
+		else
+		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		}
 	}
 
-	else
-	{
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-		checkToMap(self);
-	}
+	checkToMap(self);
 }
 
 static void headButt()
 {
 	facePlayer();
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->flags & ON_GROUND)
 	{
-		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+		self->dirX = 0;
+	}
 
-		checkToMap(self);
+	self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+	self->dirY = -3;
 
-		self->thinkTime = 120;
+	checkToMap(self);
 
-		if (prand() % 2 == 0)
-		{
-			self->action = &attackFinished;
+	self->thinkTime = 120;
 
-			self->touch = &entityTouch;
-		}
+	if (prand() % 2 == 0)
+	{
+		self->action = &attackFinished;
 
-		else
-		{
-			self->action = &moveToHeadButtRange;
-		}
+		self->touch = &ramTouch;
+	}
+
+	else
+	{
+		self->action = &moveToHeadButtRange;
 	}
 }
 
@@ -682,15 +696,41 @@ static void stingAttackInit()
 
 static void stingAttackMoveToPosition()
 {
+	int bottomY;
+
 	checkToMap(self);
 
 	facePlayer();
 
 	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
-		self->thinkTime = 60;
-
 		self->dirY = 0;
+
+		self->dirX = 0;
+
+		bottomY = self->y + self->h - 1;
+
+		setEntityAnimation(self, ATTACK_3);
+
+		self->y = bottomY - self->h;
+
+		self->frameSpeed = 12;
+
+		self->thinkTime = 120;
+
+		self->action = &stingAttackWindUp;
+	}
+}
+
+static void stingAttackWindUp()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime == 0)
+	{
+		self->thinkTime = 15;
+
+		self->dirX = self->face == RIGHT ? -4 : 4;
 
 		self->action = &stingAttack;
 	}
@@ -702,7 +742,7 @@ static void stingAttack()
 
 	if (self->thinkTime == 0)
 	{
-		self->dirX = self->face == LEFT ? -12 : 12;
+		self->dirX = self->face == LEFT ? -24 : 24;
 
 		self->flags |= ATTACKING;
 
@@ -711,11 +751,11 @@ static void stingAttack()
 
 	else if (self->thinkTime < 0)
 	{
-		self->thinkTime = 0;
-
 		if (self->dirX == 0)
 		{
 			shakeScreen(MEDIUM, 15);
+
+			self->frameSpeed = 0;
 
 			self->flags &= ~FLY;
 
@@ -726,6 +766,8 @@ static void stingAttack()
 			self->action = &stingAttackPause;
 
 			self->touch = &entityTouch;
+
+			setEntityAnimation(self, ATTACK_2);
 
 			self->thinkTime = 180;
 		}
@@ -756,6 +798,8 @@ static void fallout()
 	if (self->environment == WATER)
 	{
 		self->flags |= HELPLESS;
+
+		self->dirX = 0;
 	}
 }
 
@@ -796,7 +840,7 @@ static void slimePlayer(Entity *other)
 
 		if (!(other->flags & HELPLESS))
 		{
-			setPlayerSlimed(120);
+			setPlayerSlimed(180);
 		}
 
 		self->die();
@@ -838,16 +882,18 @@ static void selectRandomBottomTarget()
 static void reactToHeadButtBlock()
 {
 	self->dirX = (self->face == LEFT ? 4 : -4);
-	self->dirY = -3;
+	self->dirY = -6;
 
-	setCustomAction(self, &helpless, 10, 0);
+	setCustomAction(self, &helpless, 15, 0);
 
 	checkToMap(self);
 }
 
 static void takeDamage(Entity *other, int damage)
 {
-	int i;
+	int i, minHealth;
+	
+	minHealth = self->maxHealth / 10;
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -855,9 +901,9 @@ static void takeDamage(Entity *other, int damage)
 
 		self->health -= damage;
 
-		if (self->health <= (self->maxHealth / 10))
+		if (self->health <= minHealth)
 		{
-			self->health = (self->maxHealth / 10);
+			self->health = minHealth;
 
 			if (prand() % 3 == 0)
 			{
@@ -865,7 +911,7 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 
-		if (i >= 100 && self->health < 100)
+		if (i >= minHealth && self->health < minHealth)
 		{
 			setInfoBoxMessage(180,  _("The wall on the right looks weak..."));
 		}
@@ -894,27 +940,23 @@ static void takeDamage(Entity *other, int damage)
 
 static void attackFinished()
 {
+	int bottomY;
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->frameSpeed = 1;
 
-		/* Stop the player from being hit when the animation changes */
-		
-		if (self->face == RIGHT)
-		{
-			self->x -= self->w - self->box.w;
-		}
-		
-		else
-		{
-			self->x += self->box.x;
-		}
+		bottomY = self->y + self->h - 1;
+
+		self->frameSpeed = 1;
 
 		setEntityAnimation(self, STAND);
 
-		self->dirX = 0;
+		self->y = bottomY - self->h - 1;
+
+		self->dirX = self->face == RIGHT ? -1 : 1;
 		self->dirY = 1;
 
 		self->startX = 0;
@@ -924,9 +966,15 @@ static void attackFinished()
 
 		self->flags |= UNBLOCKABLE|FLY;
 
+		/* Stop the player from being hit when the animation changes */
+
+		self->damage = 0;
+
 		self->action = &flyToTopTarget;
 
 		self->reactToBlock = NULL;
+
+		self->thinkTime = 30;
 	}
 
 	checkToMap(self);
@@ -940,7 +988,7 @@ static void ramTouch(Entity *other)
 
 	if (player.health < health)
 	{
-		if (self->action == &stingAttack || self->action == &headButt)
+		if (self->action == &stingAttack || self->action == &moveToHeadButtRange || self->action == &attackFinished)
 		{
 			reactToHeadButtBlock();
 		}

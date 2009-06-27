@@ -232,7 +232,7 @@ static void addMessageToQueue(char *text, int thinkTime)
 
 	if (msg == NULL)
 	{
-		printf("Failed to allocate %d bytes for message queue\n", sizeof(Message));
+		printf("Failed to allocate %d bytes for message queue\n", (int)sizeof(Message));
 
 		exit(1);
 	}
