@@ -68,6 +68,13 @@ void loadMap(char *name, int loadEntityResources)
 
 	setWeather(NO_WEATHER);
 
+	/* Reset the minimum and maximum scrolling */
+
+	map.minX = MAX_MAP_X;
+	map.minY = 0;
+	
+	map.maxX = map.maxY = 0;
+
 	/* Read the data from the file into the map */
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
@@ -228,6 +235,14 @@ void loadMap(char *name, int loadEntityResources)
 						}
 					}
 
+					if (map.tile[y][x] > 0)
+					{
+						if (x < map.minX)
+						{
+							map.minX = x;
+						}
+					}
+
 					token = strtok_r(NULL, " ", &savePtr2);
 				}
 
@@ -262,8 +277,8 @@ void loadMap(char *name, int loadEntityResources)
 
 	/* Set the minimum scroll position of the map */
 
-	map.minX = 0;
-	map.minY = 0;
+	map.minX  = map.minX * TILE_SIZE;
+	map.minY  = map.minY * TILE_SIZE;
 
 	/* Set the start coordinates */
 

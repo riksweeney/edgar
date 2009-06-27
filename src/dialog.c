@@ -53,7 +53,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	if (text == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for the Dialog Text\n", strlen(msg) + 1);
+		printf("Failed to allocate a whole %d bytes for the Dialog Text\n", (int)strlen(msg) + 1);
 
 		exit(1);
 	}
@@ -82,7 +82,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	if (surface == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for the Dialog Surfaces\n", sizeof(SDL_Surface *) * lines);
+		printf("Failed to allocate a whole %d bytes for the Dialog Surfaces\n", (int)sizeof(SDL_Surface *) * lines);
 
 		exit(1);
 	}

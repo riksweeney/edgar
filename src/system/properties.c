@@ -108,7 +108,7 @@ void loadProperties(char *name, Entity *e)
 			if (strlen(properties[i].name) == 0)
 			{
 				buffer = loadFileFromPak(path);
-				
+
 				line = strtok_r((char *)buffer, "\n", &savePtr1);
 
 				STRNCPY(properties[i].name, name, sizeof(properties[i].name));
@@ -137,7 +137,7 @@ void loadProperties(char *name, Entity *e)
 					if (line[0] == '#' || line[0] == '\n')
 					{
 						line = strtok_r(NULL, "\n", &savePtr1);
-						
+
 						continue;
 					}
 
@@ -170,19 +170,19 @@ void loadProperties(char *name, Entity *e)
 					}
 
 					j++;
-					
+
 					line = strtok_r(NULL, "\n", &savePtr1);
 				}
-				
+
 				free(buffer);
 
 				break;
 			}
-			
+
 			if (i == MAX_PROPS_FILES)
 			{
 				printf("Cannot add any more property files\n");
-				
+
 				exit(1);
 			}
 		}
@@ -263,7 +263,7 @@ void setFlags(Entity *e, char *flags)
 
 	if (temp == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for flags...\n", strlen(flags) + 1);
+		printf("Failed to allocate a whole %d bytes for flags...\n", (int)strlen(flags) + 1);
 
 		exit(1);
 	}
@@ -355,7 +355,7 @@ void unsetFlags(Entity *e, char *flags)
 
 	if (temp == NULL)
 	{
-		printf("Could not allocate a whole %d bytes for flags...\n", strlen(flags) + 1);
+		printf("Failed to allocate a whole %d bytes for flags...\n", (int)strlen(flags) + 1);
 
 		exit(1);
 	}
@@ -574,7 +574,7 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->face = strcmpignorecase(value, "RIGHT") == 0 ? RIGHT : LEFT;
 	}
-	
+
 	else if (strcmpignorecase(name, "DESCRIPTION") == 0)
 	{
 		STRNCPY(e->description, value, sizeof(e->description));

@@ -139,9 +139,9 @@ void freeGameResources()
 	/* Free the inventory */
 
 	freeInventory();
-	
+
 	/* Free the player */
-	
+
 	freePlayer();
 }
 
@@ -257,7 +257,7 @@ char *loadResources(char *buffer)
 
 			break;
 		}
-		
+
 		else if (strcmpignorecase(itemName, "UPDATE_ENTITY") == 0 || strcmpignorecase(itemName, "REMOVE_ENTITY") == 0)
 		{
 			printf("Encountered Patch Instruction %s. Returning\n", line);
@@ -287,7 +287,7 @@ char *loadResources(char *buffer)
 		else if (strcmpignorecase(line, "}") == 0)
 		{
 			e = NULL;
-			
+
 			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
 			{
 				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
@@ -488,28 +488,30 @@ char *loadResources(char *buffer)
 	}
 
 	loadInventoryItems();
-	
+
 	return line;
 }
 
 void patchEntities(double versionFile, char *mapName)
 {
 	char patchFile[MAX_PATH_LENGTH], *line, *savePtr, itemName[MAX_VALUE_LENGTH];
-	int skipping = FALSE;
+	int skipping = FALSE, x, y, read, found;
 	unsigned char *buffer;
-	
+	Entity *e;
+	Target *t;
+
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
-	
+
 	printf("Looking for %s\n", patchFile);
-	
+
 	if (existsInPak(patchFile) == TRUE)
 	{
 		printf("Found %s in pakFile\n", patchFile);
-		
+
 		buffer = loadFileFromPak(patchFile);
-		
+
 		line = strtok_r((char *)buffer, "\n", &savePtr);
-		
+
 		while (line != NULL)
 		{
 			if (line[strlen(line) - 1] == '\n')
@@ -521,26 +523,66 @@ void patchEntities(double versionFile, char *mapName)
 			{
 				line[strlen(line) - 1] = '\0';
 			}
-			
+
 			sscanf(line, "%s", itemName);
-			
+
 			if (strcmpignorecase(itemName, "MAP_NAME") == 0)
 			{
 				sscanf(line, "%*s %s\n", itemName);
-				
+
 				skipping = strcmpignorecase(itemName, mapName) == 0 ? FALSE : TRUE;
 			}
-			
-			if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
+
+			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
 			{
 				printf("Adding new Entity\n");
-				
+
 				loadResources(savePtr);
 			}
-			
+
+			else if (strcmpignorecase(itemName, "REMOVE_ENTITY") == 0 && skipping == FALSE)
+			{
+				read = sscanf(line, "%*s %s %d %d\n", itemName, &x, &y);
+
+				found = FALSE;
+
+				e = getEntityByObjectiveName(itemName);
+
+				if (e != NULL)
+				{
+					e->inUse = FALSE;
+
+					found = TRUE;
+				}
+
+				if (found == FALSE)
+				{
+					t = getTargetByName(itemName);
+
+					if (t != NULL)
+					{
+						t->active = FALSE;
+
+						found = TRUE;
+					}
+				}
+
+				if (found == FALSE && read == 3)
+				{
+					e = getEntityByStartXY(x, y);
+
+					if (e != NULL)
+					{
+						e->inUse = FALSE;
+
+						found = TRUE;
+					}
+				}
+			}
+
 			line = strtok_r(NULL, "\n", &savePtr);
 		}
-		
+
 		free(buffer);
 	}
 }

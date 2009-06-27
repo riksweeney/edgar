@@ -12,3 +12,5 @@ item/mine_cart
 lift/lift_target
 lift/mine_lift
 item/wooden_crate
+enemy/chicken
+item/chicken_feed_bag

@@ -209,12 +209,18 @@ static void moveToFood()
 
 static void finishEating()
 {
+	int backX;
+	
 	self->target->health--;
+	
+	backX = self->x + self->w - 1;
 
 	setEntityAnimation(self, STAND);
 
 	if (self->target->health <= 0)
 	{
+		self->x = backX - self->w;
+		
 		self->target->inUse = FALSE;
 
 		self->target = NULL;

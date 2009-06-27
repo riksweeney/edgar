@@ -197,6 +197,13 @@ void recurseDirectory(char *dirName)
 			fseek(infile, 0L, SEEK_END);
 
 			fileSize = ftell(infile);
+			
+			if (fileSize == 0)
+			{
+				printf("%s is an empty file.\n", filename);
+				
+				exit(0);
+			}
 
 			ensuredSize = fileSize * 1.01 + 12;
 
@@ -298,7 +305,8 @@ static void testPak(char *pakFile)
 {
 	FileData *fileData;
 	int fileCount, i;
-	unsigned long offset, size;
+	long offset;
+	unsigned long size;
 	FILE *fp;
 	unsigned char *source, *dest;
 
@@ -311,9 +319,9 @@ static void testPak(char *pakFile)
 		exit(1);
 	}
 
-	fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
+	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
 
-	fread(&offset, sizeof(unsigned long), 1, fp);
+	fread(&offset, sizeof(long), 1, fp);
 	fread(&fileCount, sizeof(int), 1, fp);
 
 	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
@@ -339,7 +347,7 @@ static void testPak(char *pakFile)
 	for (i=0;i<fileCount;i++)
 	{
 		rewind(fp);
-
+		
 		printf("Testing %s...", fileData[i].filename);
 
 		fseek(fp, fileData[i].offset, SEEK_SET);
@@ -383,7 +391,7 @@ static void testPak(char *pakFile)
 
 		printf("OK\n");
 	}
-
+	
 	fclose(fp);
 
 	free(fileData);

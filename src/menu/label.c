@@ -32,7 +32,7 @@ Label *createLabel(char *text, int x, int y)
 
 	if (l == NULL)
 	{
-		printf("Failed to allocate %d bytes to create Label %s\n", sizeof(Label), text);
+		printf("Failed to allocate %d bytes to create Label %s\n", (int)sizeof(Label), text);
 
 		exit(1);
 	}

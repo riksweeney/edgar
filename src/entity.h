@@ -51,3 +51,4 @@ void entityDieNoDrop(void);
 void noItemDie(void);
 void rotateAroundStartPoint(void);
 void enemyPain(void);
+Entity *getEntityByStartXY(int, int);

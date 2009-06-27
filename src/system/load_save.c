@@ -123,7 +123,7 @@ void newGame()
 
 int loadGame(int slot)
 {
-	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
+	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], backup[MAX_PATH_LENGTH];
 	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
 	double version;
 	unsigned char *buffer;
@@ -209,6 +209,14 @@ int loadGame(int slot)
 		free(buffer);
 
 		version += 0.01;
+			
+		/* Back up the original save file */
+		
+		snprintf(backup, sizeof(backup), "%s.bak", saveFile);
+		
+		copyFile(saveFile, backup);
+		
+		printf("Backed up original save to %s\n", backup);
 
 		while (version <= VERSION)
 		{
@@ -268,7 +276,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 	if (originalBuffer == NULL)
 	{
-		printf("Could not allocate %d bytes to patch save game\n", (strlen((char *)buffer) + 1) * sizeof(unsigned char));
+		printf("Failed to allocate %d bytes to patch save game\n", (int)((strlen((char *)buffer) + 1) * sizeof(unsigned char)));
 
 		exit(0);
 	}
@@ -316,7 +324,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 				if (buffer == NULL)
 				{
-					printf("Could not allocate %d bytes to patch save game\n", (strlen((char *)originalBuffer) + 1) * sizeof(unsigned char));
+					printf("Failed to allocate %d bytes to patch save game\n", (int)((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char)));
 
 					exit(0);
 				}
@@ -852,7 +860,7 @@ void loadConfig()
 
 	if (buffer == NULL)
 	{
-		printf("Could not allocate a whole %ld bytes for config file...\n", length);
+		printf("Failed to allocate a whole %ld bytes for config file...\n", length);
 
 		exit(1);
 	}
@@ -946,7 +954,7 @@ char **getSaveFileIndex()
 
 	if (entries == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for save data\n", sizeof(char *) * MAX_SAVE_SLOTS);
+		printf("Failed to allocate a whole %d bytes for save data\n", (int)sizeof(char *) * MAX_SAVE_SLOTS);
 
 		exit(1);
 	}
@@ -957,7 +965,7 @@ char **getSaveFileIndex()
 
 		if (entries[i] == NULL)
 		{
-			printf("Failed to allocate a whole %d bytes for save data\n", sizeof(char) * MAX_PATH_LENGTH);
+			printf("Failed to allocate a whole %d bytes for save data\n", (int)sizeof(char) * MAX_PATH_LENGTH);
 
 			exit(1);
 		}

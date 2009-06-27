@@ -31,7 +31,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "draw.h"
 #include "input.h"
 #include "entity.h"
-#include "status.h"
 #include "system/load_save.h"
 
 Input input, menuInput;

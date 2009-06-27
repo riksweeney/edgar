@@ -65,7 +65,7 @@ void setReplayData(char *name, int loadedGame)
 
 	fread(&seed, sizeof(long), 1, replayBuffer);
 
-	printf("Setting seed %d\n", seed);
+	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
 
@@ -105,7 +105,7 @@ void setRecordData(char *name)
 
 	fwrite(&seed, sizeof(long), 1, replayBuffer);
 
-	printf("Setting seed %d\n", seed);
+	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
 }
