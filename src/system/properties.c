@@ -301,11 +301,6 @@ void setFlags(Entity *e, char *flags)
 			e->flags |= FLY;
 		}
 
-		else if (strcmpignorecase(token, "ALWAYS_ON_TOP") == 0)
-		{
-			e->flags |= ALWAYS_ON_TOP;
-		}
-
 		else if (strcmpignorecase(token, "NO_DRAW") == 0)
 		{
 			e->flags |= NO_DRAW;
@@ -338,7 +333,9 @@ void setFlags(Entity *e, char *flags)
 
 		else
 		{
-			printf("Ignoring flag value %s\n", token);
+			printf("Unknown flag value %s\n", token);
+			
+			exit(0);
 		}
 
 		token = strtok_r(NULL, " |,", &savePtr);
@@ -393,11 +390,6 @@ void unsetFlags(Entity *e, char *flags)
 			e->flags &= ~FLY;
 		}
 
-		else if (strcmpignorecase(token, "ALWAYS_ON_TOP") == 0)
-		{
-			e->flags &= ~ALWAYS_ON_TOP;
-		}
-
 		else if (strcmpignorecase(token, "NO_DRAW") == 0)
 		{
 			e->flags &= ~NO_DRAW;
@@ -430,7 +422,9 @@ void unsetFlags(Entity *e, char *flags)
 
 		else
 		{
-			printf("Ignoring flag value %s\n", token);
+			printf("Unknown flag value %s\n", token);
+			
+			exit(0);
 		}
 
 		token = strtok_r(NULL, " |,", &savePtr);
@@ -553,6 +547,19 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "WEIGHT") == 0)
 	{
 		e->weight = atof(value);
+	}
+	
+	else if (strcmpignorecase(name, "LAYER") == 0)
+	{
+		if (strcmpignorecase(value, "BACKGROUND_LAYER") == 0)
+		{
+			e->layer = BACKGROUND_LAYER;
+		}
+		
+		else if (strcmpignorecase(value, "FOREGROUND_LAYER") == 0)
+		{
+			e->layer = FOREGROUND_LAYER;
+		}
 	}
 
 	else if (strcmpignorecase(name, "FLAGS") == 0)

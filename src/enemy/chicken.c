@@ -213,13 +213,16 @@ static void finishEating()
 	
 	self->target->health--;
 	
-	backX = self->x + self->w - 1;
+	backX = self->x + self->w;
 
 	setEntityAnimation(self, STAND);
 
 	if (self->target->health <= 0)
 	{
-		self->x = backX - self->w;
+		if (self->face == LEFT)
+		{
+			self->x = backX - (self->w - 1);
+		}
 		
 		self->target->inUse = FALSE;
 

@@ -6,6 +6,7 @@ Version 0.12
 * The game should now work on 64 bit CPUs
 * Added the Swamp Boss
 * Added basic inventory system so the player can see items and their quantities
+* The Forest map now has proper scroll limits
 
 Version 0.11
 

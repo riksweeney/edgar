@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../hud.h"
 #include "../player.h"
-#include "../decoration.h"
+#include "../graphics/decoration.h"
 
 extern Entity *self, player;
 
@@ -260,7 +260,7 @@ static void wait()
 			break;
 
 			case 2:
-				self->thinkTime = 300;
+				self->thinkTime = 120 + prand() % 180;
 
 				self->action = &dropInit;
 			break;

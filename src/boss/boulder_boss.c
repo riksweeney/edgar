@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../collisions.h"
 #include "../game.h"
-#include "../decoration.h"
+#include "../graphics/decoration.h"
 
 extern Entity *self;
 
@@ -118,7 +118,7 @@ static void drop()
 	{
 		self->thinkTime = 120;
 
-		playSoundToMap("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
 
 		shakeScreen(STRONG, self->thinkTime / 2);
 
@@ -191,7 +191,7 @@ static void chasePlayer()
 
 		self->active = FALSE;
 
-		playSoundToMap("sound/boss/boulder_boss/boulder_crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
 
 		shakeScreen(STRONG, 90);
 

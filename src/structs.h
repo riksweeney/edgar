@@ -83,7 +83,7 @@ typedef struct CustomAction
 typedef struct Entity
 {
 	int inUse, w, h, offsetX, offsetY;
-	int thinkTime, face;
+	int thinkTime, face, layer;
 	int currentFrame;
 	int type, animation[MAX_ANIMATION_TYPES];
 	int currentAnim, health;

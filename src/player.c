@@ -690,6 +690,8 @@ static void takeDamage(Entity *other, int damage)
 					player.dirX = other->dirX < 0 ? -2 : 2;
 
 					checkToMap(&player);
+					
+					setCustomAction(&player, &helpless, 2, 0);
 
 					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
@@ -724,6 +726,8 @@ static void takeDamage(Entity *other, int damage)
 			player.dirX = other->dirX < 0 ? -2 : 2;
 
 			checkToMap(&player);
+			
+			setCustomAction(&player, &helpless, 2, 0);
 
 			playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 

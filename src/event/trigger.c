@@ -139,14 +139,14 @@ void fireTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d of %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 
 				setInfoBoxMessage(120, message);
 			}
 
-			printf("Updating Trigger \"%s\", %d of %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
+			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
 
 			if (trigger[i].count == trigger[i].total)
 			{
