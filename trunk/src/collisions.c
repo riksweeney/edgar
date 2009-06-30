@@ -52,27 +52,27 @@ void addToGrid(Entity *e)
 	{
 		if (e->face == LEFT)
 		{
-			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
-			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
+			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_COUNT;
+			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_COUNT;
 		}
 
 		else
 		{
-			left = (e->x + e->offsetX) / TILE_SIZE / GRID_SIZE;
-			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_SIZE;
+			left = (e->x + e->offsetX) / TILE_SIZE / GRID_COUNT;
+			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_COUNT;
 		}
 
-		top = e->y / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+		top = e->y / TILE_SIZE / GRID_COUNT;
+		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_COUNT;
 	}
 
 	else
 	{
-		left = (e->x + e->box.x) / TILE_SIZE / GRID_SIZE;
-		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_SIZE;
+		left = (e->x + e->box.x) / TILE_SIZE / GRID_COUNT;
+		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_COUNT;
 
-		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_SIZE;
+		top = (e->y + e->box.y) / TILE_SIZE / GRID_COUNT;
+		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_COUNT;
 	}
 
 	addToList(top, left, e);

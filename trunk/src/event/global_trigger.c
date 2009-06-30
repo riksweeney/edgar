@@ -43,13 +43,13 @@ void addGlobalTriggerFromScript(char *line)
 	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH], count[MAX_VALUE_LENGTH];
 	int currentValue;
 	Entity *e;
-	
+
 	currentValue = 0;
 
 	sscanf(line, "\"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
-	
+
 	e = getInventoryItem(triggerName);
-	
+
 	if (e != NULL)
 	{
 		currentValue = e->health;
@@ -152,17 +152,17 @@ void fireGlobalTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count++;
-			
+
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d of %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 
 				setInfoBoxMessage(120, message);
 			}
 
-			printf("Updating Trigger \"%s\", %d of %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
+			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
 
 			if (trigger[i].count == trigger[i].total)
 			{

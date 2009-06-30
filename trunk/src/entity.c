@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "collisions.h"
 #include "item/item.h"
 #include "custom_actions.h"
-#include "decoration.h"
+#include "graphics/decoration.h"
 #include "event/trigger.h"
 #include "event/global_trigger.h"
 #include "system/properties.h"
@@ -74,6 +74,8 @@ Entity *getFreeEntity()
 			entity[i].fallout = NULL;
 
 			entity[i].currentAnim = -1;
+			
+			entity[i].layer = MID_GROUND_LAYER;
 
 			return &entity[i];
 		}
@@ -177,43 +179,28 @@ void drawEntities(int depth)
 {
 	int i;
 
-	if (depth == 0)
+	/* Draw standard entities */
+	
+	if (depth == -1)
 	{
-		/* Draw standard entities */
-
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-
-			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && !(self->flags & ALWAYS_ON_TOP))
+	
+			if (self->inUse == TRUE && !(self->flags & NO_DRAW))
 			{
 				self->draw();
 			}
 		}
 	}
-
-	else if (depth == 1)
-	{
-		/* Draw entities that must appear at the front */
-
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			self = &entity[i];
-
-			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && (self->flags & ALWAYS_ON_TOP))
-			{
-				self->draw();
-			}
-		}
-	}
-
+	
 	else
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-
-			if (self->inUse == TRUE)
+	
+			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && self->layer == depth)
 			{
 				self->draw();
 			}

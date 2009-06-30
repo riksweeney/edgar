@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "map.h"
-#include "decoration.h"
+#include "graphics/decoration.h"
 #include "entity.h"
 #include "player.h"
 #include "hud.h"
@@ -49,6 +49,8 @@ void draw()
 			case IN_INVENTORY:
 				showPauseDialog();
 
+				drawHud();
+
 				drawInventory();
 			break;
 
@@ -59,29 +61,37 @@ void draw()
 
 					centerEntityOnMap();
 
-					/* Draw the mid-ground map tiles */
+					/* Draw the map background */
 
 					drawMap(0);
 
 					/* Draw the Entities */
 
-					drawEntities(0);
+					drawEntities(BACKGROUND_LAYER);
 
-					/* Draw the decorations */
+					/* Draw the mid-ground map tiles */
 
-					drawDecorations();
+					drawMap(1);
+
+					/* Draw the Entities that appear in the mid-ground */
+
+					drawEntities(MID_GROUND_LAYER);
 
 					/* Draw the player */
 
 					drawPlayer();
 
-					/* Draw the Entities that appear on top */
+					/* Draw the decorations */
 
-					drawEntities(1);
+					drawDecorations();
 
 					/* Draw the foreground map tiles */
 
-					drawMap(1);
+					drawMap(2);
+
+					/* Draw the Entities that appear in the foreground */
+
+					drawEntities(FOREGROUND_LAYER);
 
 					/* Draw the hud */
 

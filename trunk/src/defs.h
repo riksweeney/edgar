@@ -23,10 +23,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_MAP_X 1200
 #define MAX_MAP_Y 600
 
-#define GRID_SIZE 30
+#define GRID_COUNT 60
 
-#define GRID_WIDTH 40
-#define GRID_HEIGHT 20
+#define GRID_WIDTH 20
+#define GRID_HEIGHT 10
 
 #define TILE_SIZE 32
 
@@ -176,14 +176,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define SIGN(x) ((x) > 0 ? 1 : ((x) == 0 ? 0 : (-1)))
 
-#if SDL_BYTEORDER == SDL_LIL_ENDIAN
-#define SWAP16(X)    (X)
-#define SWAP32(X)    (X)
-#else
-#define SWAP16(X)    SDL_Swap16(X)
-#define SWAP32(X)    SDL_Swap32(X)
-#endif
-
 enum
 {
 	LEFT,
@@ -206,7 +198,7 @@ enum
 	FLY = 32,
 	ATTACKING = 64,
 	BLOCKING = 128,
-	ALWAYS_ON_TOP = 256,
+	/*ALWAYS_ON_TOP = 256,*/
 	GRABBING = 512,
 	ATTACK_SUCCESS = 1024,
 	STACKABLE = 2048,
@@ -392,4 +384,11 @@ enum
 	IN_GAME,
 	IN_INVENTORY,
 	IN_EDITOR
+};
+
+enum
+{
+	BACKGROUND_LAYER,
+	MID_GROUND_LAYER,
+	FOREGROUND_LAYER
 };

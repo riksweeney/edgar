@@ -542,7 +542,12 @@ void drawMap(int depth)
 			}
 		}
 	}
-
+	
+	if (depth == 0)
+	{
+		return;
+	}
+	
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
 	x2 = x1 + SCREEN_WIDTH + (x1 == 0 ? 0 : TILE_SIZE);
@@ -589,7 +594,7 @@ void drawMap(int depth)
 				drawImage(mapImages[tileID], x, y, FALSE);
 			}
 
-			else if (depth == 0)
+			else if (depth == 1)
 			{
 				if (tileID < FOREGROUND_TILE_START)
 				{
@@ -597,7 +602,7 @@ void drawMap(int depth)
 				}
 			}
 
-			else if (depth == 1)
+			else if (depth == 2)
 			{
 				if (tileID >= FOREGROUND_TILE_START)
 				{

@@ -118,7 +118,7 @@ static void purpleWait()
 
 static void attack()
 {
-	int onGround = (self->flags & ON_GROUND);
+	long onGround = (self->flags & ON_GROUND);
 
 	if (self->flags & ON_GROUND)
 	{

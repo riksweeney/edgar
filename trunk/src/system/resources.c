@@ -44,7 +44,7 @@ extern Game game;
 #include "../audio/music.h"
 #include "../entity.h"
 #include "../world/level_exit.h"
-#include "../decoration.h"
+#include "../graphics/decoration.h"
 #include "../event/trigger.h"
 #include "../event/script.h"
 #include "../event/global_trigger.h"

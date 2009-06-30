@@ -28,10 +28,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "bat.h"
 #include "chicken.h"
 #include "rock.h"
-#include "boulder_boss.h"
 #include "spider.h"
 #include "grub.h"
-#include "grub_boss.h"
 #include "fireball.h"
 #include "wasp.h"
 #include "small_boulder.h"
@@ -39,15 +37,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spitting_plant.h"
 #include "jumping_slime.h"
 #include "egg.h"
-#include "golem_boss.h"
 #include "baby_slime.h"
 #include "spinner.h"
-#include "snake_boss.h"
 #include "floating_snapper.h"
 #include "enemy_generator.h"
 #include "flying_bug.h"
-#include "fly_boss.h"
-#include "ant_lion.h"
+
+#include "../boss/ant_lion.h"
+#include "../boss/boulder_boss.h"
+#include "../boss/grub_boss.h"
+#include "../boss/golem_boss.h"
+#include "../boss/snake_boss.h"
+#include "../boss/fly_boss.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},

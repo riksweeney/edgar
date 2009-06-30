@@ -180,6 +180,8 @@ static void doIntro()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = LEFT;
 
@@ -231,7 +233,7 @@ static void wait()
 
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		attack = prand() % 3;
 
@@ -334,6 +336,8 @@ static void spinAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
@@ -352,6 +356,8 @@ static void spinAttack()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
@@ -400,6 +406,8 @@ static void bounceAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? 3 : -3);
 
@@ -420,6 +428,8 @@ static void bounceAttack()
 	if (self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirY = -14;
 	}
@@ -427,6 +437,8 @@ static void bounceAttack()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
+		
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 

@@ -72,7 +72,7 @@ Entity *addBabySlime(int x, int y, char *name)
 
 static void attack()
 {
-	int onGround = (self->flags & ON_GROUND);
+	long onGround = (self->flags & ON_GROUND);
 
 	facePlayer();
 
@@ -145,7 +145,9 @@ static void grab(Entity *other)
 
 		self->touch = NULL;
 
-		self->flags |= (GRABBING|ALWAYS_ON_TOP);
+		self->flags |= GRABBING;
+		
+		self->layer = FOREGROUND_LAYER;
 
 		other->flags |= GRABBED;
 

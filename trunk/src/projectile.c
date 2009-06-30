@@ -58,6 +58,13 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->parent = owner;
+	
+	if (e->thinkTime == 0)
+	{
+		printf("No valid thinktime defined for %s\n", name);
+		
+		exit(1);
+	}
 
 	if (hasEntityAnimation(e, DIE) == TRUE)
 	{

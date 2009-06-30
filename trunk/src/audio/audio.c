@@ -231,7 +231,7 @@ Mix_Chunk *loadSound(char *name)
 int playSoundChunk(Mix_Chunk *chunk, int channel, int loops)
 {
 	/* Play the sound on the first free channel */
-
+	
 	return Mix_PlayChannel(channel, chunk, loops);
 }
 
