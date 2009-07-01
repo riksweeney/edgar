@@ -117,6 +117,8 @@ void newGame()
 	freeGameResources();
 
 	loadMap("map01", TRUE);
+	
+	initGame();
 
 	cameraSnapToTargetEntity();
 }
@@ -181,6 +183,11 @@ int loadGame(int slot)
 
 				break;
 			}
+		}
+		
+		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
+		{
+			sscanf(line, "%*s %ld\n", &game.playTime);
 		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
@@ -419,6 +426,8 @@ void saveGame(int slot)
 	write = fopen(saveFile, "wb");
 
 	fprintf(write, "VERSION %0.2f\n", VERSION);
+	
+	fprintf(write, "PLAY_TIME %ld\n", game.playTime);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 

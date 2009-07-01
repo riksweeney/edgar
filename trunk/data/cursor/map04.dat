@@ -31,3 +31,4 @@ enemy/jumping_slime
 wall/invisible_wall
 boss/snake_boss
 lift/lift_target
+common/level_exit
