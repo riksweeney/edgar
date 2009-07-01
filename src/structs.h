@@ -144,7 +144,7 @@ typedef struct Game
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused;
 	float checkpointX, checkpointY;
-	long startTicks, endTicks;
+	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
 	void (*action)(void);
 	void (*drawMenu)(void);

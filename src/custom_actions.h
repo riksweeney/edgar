@@ -24,3 +24,4 @@ void invulnerable(int *, int *);
 void invulnerableNoFlash(int *, int *);
 void flashWhite(int *, int *);
 void slowDown(int *, int *);
+void clearCustomActions(Entity *);

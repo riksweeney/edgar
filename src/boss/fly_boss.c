@@ -444,6 +444,8 @@ static void drop()
 
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
 			shakeScreen(LIGHT, 15);
 
 			self->thinkTime = 90;

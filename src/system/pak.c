@@ -377,13 +377,9 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (writeToFile == TRUE)
 		{
-			printf("Writing to %s\n", getGameSavePath());
-
 			fclose(fp);
 
 			snprintf((char *)filename, sizeof(filename), "%spakdata", getGameSavePath());
-
-			printf("Writing %s to %s\n", filename, getGameSavePath());
 
 			fp = fopen((char *)filename, "wb");
 
@@ -394,11 +390,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 				exit(1);
 			}
 
-			printf("Writing data\n");
-
 			fwrite(dest, size, 1, fp);
-
-			printf("Wrote %s to %s\n", name, filename);
 
 			free(dest);
 		}

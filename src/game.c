@@ -96,6 +96,8 @@ void doGame()
 	{
 		game.weatherAction();
 	}
+	
+	game.playTime++;
 }
 
 void freeGame()

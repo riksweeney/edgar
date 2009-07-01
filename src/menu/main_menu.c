@@ -323,4 +323,6 @@ static void doNewGame()
 	newGame();
 
 	pauseGame();
+	
+	game.playTime = 0;
 }

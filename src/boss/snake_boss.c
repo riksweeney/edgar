@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static int bodyParts = 10;
+static Entity *headPart;
 
 static void bodyWait(void);
 static void initialise(void);
@@ -76,6 +77,7 @@ static void crushAttackFinish(void);
 static void addSmokeAlongBody(void);
 static void stunned(void);
 static void crushAttackHit(Entity *);
+static void bodyTakeDamage(Entity *, int);
 
 Entity *addSnakeBoss(int x, int y, char *name)
 {
@@ -203,8 +205,6 @@ static void headWait()
 				self->action = &crushAttackInit;
 			break;
 		}
-		
-		self->action = &stunned;
 	}
 }
 
@@ -302,7 +302,7 @@ static void createBody()
 		body[i]->draw = &drawLoopingAnimationToMap;
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
-		body[i]->takeDamage = NULL;
+		body[i]->takeDamage = &bodyTakeDamage;
 
 		body[i]->type = ENEMY;
 
@@ -327,6 +327,8 @@ static void createBody()
 	self->inUse = FALSE;
 
 	self = head;
+
+	headPart = head;
 
 	/* Link the sections */
 
@@ -435,6 +437,8 @@ static void shotAttackInit()
 	self->dirY *= 4;
 
 	self->action = &shotAttackWindUp;
+	
+	self->flags |= UNBLOCKABLE;
 }
 
 static void shotAttackWindUp()
@@ -781,6 +785,16 @@ static void alignBodyToHead()
 			e->flags &= ~NO_DRAW;
 		}
 
+		if (self->flags & FLASH)
+		{
+			e->flags |= FLASH;
+		}
+
+		else
+		{
+			e->flags &= ~FLASH;
+		}
+
 		e = e->target;
 	}
 }
@@ -837,11 +851,11 @@ static void takeDamage(Entity *other, int damage)
 		else
 		{
 			setEntityAnimation(self, PAIN);
-			
+
 			self->health = 0;
-			
+
 			self->thinkTime = 60;
-			
+
 			self->damage = 0;
 
 			self->takeDamage = NULL;
@@ -850,10 +864,12 @@ static void takeDamage(Entity *other, int damage)
 			self->targetX = self->endX;
 			self->targetY = self->endY - 128;
 
+			clearCustomActions(self);
+
 			self->action = &die;
-			
+
 			self->dirX = self->face == RIGHT ? 2 : -2;
-			
+
 			self->flags &= ~(HELPLESS|FLY);
 		}
 	}
@@ -862,48 +878,48 @@ static void takeDamage(Entity *other, int damage)
 static void die()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	self->action = &die;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & FLY)
 	{
 		if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 		{
 			self->dirX = self->dirY = 0;
-	
+
 			self->thinkTime = 120;
-	
+
 			self->action = &fallToGround;
 		}
 	}
-	
+
 	else
 	{
 		if (self->flags & ON_GROUND)
 		{
 			self->dirX = 0;
-			
+
 			if (onGround == 0)
 			{
 				addSmokeAlongBody();
 			}
-			
+
 			self->thinkTime--;
-			
+
 			if (self->thinkTime <= 0)
 			{
 				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-			
+
 				self->dirX *= 2;
 				self->dirY *= 2;
-				
+
 				self->flags |= FLY;
 			}
 		}
 	}
-	
+
 	alignBodyToHead();
 }
 
@@ -918,7 +934,7 @@ static void fallToGround()
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == LEFT ? -8 : 8;
-		
+
 		setEntityAnimation(self, DIE);
 	}
 
@@ -927,7 +943,7 @@ static void fallToGround()
 	if (self->flags & ON_GROUND)
 	{
 		setEntityAnimation(self, PAIN);
-		
+
 		self->thinkTime = 180;
 
 		self->dirX = 0;
@@ -959,7 +975,7 @@ static void fallToGround()
 static void dieWait()
 {
 	Entity *e;
-	
+
 	checkToMap(self);
 
 	self->thinkTime--;
@@ -1056,12 +1072,12 @@ static void specialShotTouch(Entity *other)
 static void biteReactToBlock()
 {
 	self->maxThinkTime--;
-	
+
 	if (self->maxThinkTime <= 0)
 	{
 		self->action = &attackFinished;
 	}
-	
+
 	else
 	{
 		self->targetX = self->endX + (self->face == LEFT ? -32 : 32);
@@ -1113,6 +1129,26 @@ static void addSmokeAlongBody()
 	{
 		addSmoke((self->face == LEFT ? self->x : self->endX) + (prand() % bodyLength), self->y + prand() % self->h, "decoration/dust");
 	}
-	
+
 	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+}
+
+static void bodyTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+	
+	if (headPart->takeDamage != NULL)
+	{
+		/* Hitting the body only does half the damage */
+	
+		damage /= 2;
+	
+		temp = self;
+	
+		self = headPart;
+		
+		self->takeDamage(other, damage);
+	
+		self = temp;
+	}
 }

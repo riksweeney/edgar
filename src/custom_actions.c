@@ -72,6 +72,16 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 	exit(1);
 }
 
+void clearCustomActions(Entity *e)
+{
+	int i;
+
+	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
+	{
+		e->customAction[i].thinkTime = 0;
+	}
+}
+
 void doCustomAction(CustomAction *customAction)
 {
 	customAction->action(&customAction->thinkTime, &customAction->counter);
