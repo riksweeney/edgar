@@ -46,7 +46,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 		exit(1);
 	}
 
-	loadProperties(strcmpignorecase(name, "common/falling_platform") == 0 ? "falling_platform/cave_platform" : name, e);
+	loadProperties(strcmpignorecase(name, "lift/falling_platform") == 0 ? "falling_platform/cave_falling_platform" : name, e);
 
 	e->type = FALLING_PLATFORM;
 	e->action = &wait;
