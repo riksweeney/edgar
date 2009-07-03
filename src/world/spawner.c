@@ -74,6 +74,7 @@ static void init()
 
 static void spawn()
 {
+	int distance;
 	Entity *e;
 
 	if (self->active == TRUE)
@@ -84,9 +85,11 @@ static void spawn()
 		{
 			if (self->health < 0)
 			{
-				/* Don't spawn if the player is too close */
+				/* Don't spawn if the player is too close or too far away */
 
-				if (self->health == -1 || (self->health == -2 && getDistanceFromPlayer(self) > SCREEN_WIDTH))
+				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
+
+				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH * 2))
 				{
 					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
 					{

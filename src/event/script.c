@@ -134,7 +134,12 @@ void readNextScriptLine()
 
 	while (readAgain == TRUE)
 	{
-		if (script.line == script.lineCount)
+		if (script.counter != 0)
+		{
+			return;
+		}
+
+		else if (script.line == script.lineCount)
 		{
 			freeScript();
 
@@ -153,11 +158,6 @@ void readNextScriptLine()
 			{
 				return;
 			}
-		}
-
-		else if (script.counter != 0)
-		{
-			return;
 		}
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
@@ -392,7 +392,7 @@ void readNextScriptLine()
 
 				e->dirY = atoi(token);
 			}
-			
+
 			else if (strcmpignorecase(token, "FRAME_SPEED") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);

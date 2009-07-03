@@ -74,7 +74,7 @@ Entity *getFreeEntity()
 			entity[i].fallout = NULL;
 
 			entity[i].currentAnim = -1;
-			
+
 			entity[i].layer = MID_GROUND_LAYER;
 
 			return &entity[i];
@@ -111,6 +111,7 @@ void doEntities()
 				switch (self->environment)
 				{
 					case WATER:
+					case SLIME:
 						self->dirY += GRAVITY_SPEED * 0.25;
 
 						if (self->flags & FLOATS)
@@ -180,26 +181,26 @@ void drawEntities(int depth)
 	int i;
 
 	/* Draw standard entities */
-	
+
 	if (depth == -1)
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-	
-			if (self->inUse == TRUE && !(self->flags & NO_DRAW))
+
+			if (self->inUse == TRUE)
 			{
 				self->draw();
 			}
 		}
 	}
-	
+
 	else
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			self = &entity[i];
-	
+
 			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && self->layer == depth)
 			{
 				self->draw();
@@ -540,11 +541,16 @@ void pushEntity(Entity *other)
 	int pushable;
 	Entity *temp;
 
+	if (other->flags & OBSTACLE)
+	{
+		return;
+	}
+	/*
 	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == AUTO_LIFT || other->type == MANUAL_LIFT)
 	{
 		return;
 	}
-
+	*/
 	if (other->touch == NULL)
 	{
 		return;
@@ -1116,8 +1122,6 @@ static void scriptEntityMoveToTarget()
 		}
 
 		setScriptCounter(-1);
-
-		printf("At target\n");
 	}
 
 	else

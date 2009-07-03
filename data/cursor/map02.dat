@@ -10,7 +10,7 @@ lift/large_mine_lift
 lift/lift_target
 common/spawner
 common/pressure_plate
-common/wooden_door
+door/metal_door
 wall/weak_mine_wall
 item/iron_key
 common/switch

@@ -58,6 +58,7 @@ extern Game game;
 #include "../npc/npc.h"
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
+#include "../status_panel.h"
 #include "pak.h"
 
 static char **key, **value;
@@ -180,6 +181,10 @@ void freeAllResources()
 	/* Free the pak file */
 
 	freePakFile();
+
+	/* Free the status panel */
+
+	freeStatusPanel();
 }
 
 char *loadResources(char *buffer)

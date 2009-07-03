@@ -154,6 +154,7 @@ void doPlayer()
 		switch (self->environment)
 		{
 			case WATER:
+			case SLIME:
 				self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
 
 				if (self->dirY < -2)
@@ -690,7 +691,7 @@ static void takeDamage(Entity *other, int damage)
 					player.dirX = other->dirX < 0 ? -2 : 2;
 
 					checkToMap(&player);
-					
+
 					setCustomAction(&player, &helpless, 2, 0);
 
 					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
@@ -707,7 +708,7 @@ static void takeDamage(Entity *other, int damage)
 
 						return;
 					}
-					
+
 					temp = self;
 
 					self = other;
@@ -726,7 +727,7 @@ static void takeDamage(Entity *other, int damage)
 			player.dirX = other->dirX < 0 ? -2 : 2;
 
 			checkToMap(&player);
-			
+
 			setCustomAction(&player, &helpless, 2, 0);
 
 			playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
@@ -942,7 +943,7 @@ static void falloutPause()
 
 static void resetPause()
 {
-	if (player.health <= 1)
+	if (player.health <= (player.environment == SLIME ? 2 : 1))
 	{
 		player.health = 0;
 
@@ -990,7 +991,7 @@ static void resetPlayer()
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	player.health--;
+	player.health -= (player.environment == SLIME ? 2 : 1);
 
 	player.flags &= ~(HELPLESS|NO_DRAW);
 
@@ -1141,7 +1142,7 @@ static void applySlime()
 		setEntityAnimation(&playerShield, STAND);
 
 		player.flags |= HELPLESS;
-		
+
 		player.flags &= ~BLOCKING;
 	}
 }

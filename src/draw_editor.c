@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "game.h"
 #include "graphics/font.h"
 #include "world/target.h"
+#include "status_panel.h"
 
 extern Game game;
 extern Cursor cursor;
@@ -58,7 +59,7 @@ void draw()
 
 	/* Draw the status panel */
 
-	/*drawStatusPanel();*/
+	drawStatusPanel();
 
 	/* Draw the screen coordinates */
 

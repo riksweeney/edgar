@@ -1,2 +1,6 @@
 edgar/edgar
 common/level_exit
+common/save_point
+wall/weak_cave_wall
+wall/fortress_weak_wall
+weapon/pickaxe

@@ -72,13 +72,6 @@ Entity *addLevelExit(char *name, int x, int y)
 
 static void init()
 {
-	self->dirX = (self->face == RIGHT ? 10 : -10);
-
-	if (self->active == FALSE)
-	{
-		self->flags |= NO_DRAW;
-	}
-
 	self->action = &wait;
 
 	self->action();
@@ -86,18 +79,30 @@ static void init()
 
 static void wait()
 {
+	self->dirX = (self->face == RIGHT ? 10 : -10);
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 60;
 
-		self->x -= self->dirX * 2;
+		self->x = self->startX;
 	}
 
 	else if (self->thinkTime % 20 == 0)
 	{
 		self->x += self->dirX;
+	}
+	
+	if (self->active == FALSE)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
 	}
 }
 

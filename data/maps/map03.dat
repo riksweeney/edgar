@@ -3454,7 +3454,7 @@ FACE LEFT
 
 {
 TYPE MANUAL_DOOR
-NAME common/wooden_door
+NAME door/metal_door
 X 33568
 Y 3456
 START_X 33568
