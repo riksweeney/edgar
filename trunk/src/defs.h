@@ -82,7 +82,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define LAVA_TILE_END 511
 
-#define MAX_TILES 512
+#define SLIME_TILE_START 512
+
+#define SLIME_TILE_END 519
+
+#define MAX_TILES 520
 
 #define MAX_LINE_LENGTH 1024
 
@@ -110,7 +114,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_DECORATIONS 100
 
-#define MAX_TARGETS 60
+#define MAX_TARGETS 255
 
 #define MAX_HUD_MESSAGES 5
 
@@ -341,7 +345,8 @@ enum
 {
 	AIR,
 	WATER,
-	LAVA
+	LAVA,
+	SLIME
 };
 
 enum

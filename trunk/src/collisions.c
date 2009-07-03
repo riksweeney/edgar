@@ -315,7 +315,7 @@ void checkToMap(Entity *e)
 	int i, x1, x2, y1, y2, previousEnvironment;
 	int topLeft, topRight, bottomLeft, bottomRight, previousY2, previous;
 	int tempX, tempY, wasOnGround;
-	
+
 	wasOnGround = (e->flags & ON_GROUND);
 
 	/* Remove the entity from the ground */
@@ -893,6 +893,26 @@ void checkToMap(Entity *e)
 		}
 	}
 
+	else if ((topLeft >= SLIME_TILE_START && topLeft <= SLIME_TILE_END) ||
+		(bottomLeft >= SLIME_TILE_START && bottomLeft <= SLIME_TILE_END) ||
+		(topRight >= SLIME_TILE_START && topRight <= SLIME_TILE_END) ||
+		(bottomRight >= SLIME_TILE_START && bottomRight <= SLIME_TILE_END))
+	{
+		e->environment = SLIME;
+
+		if (previousEnvironment != SLIME && e->fallout != NULL)
+		{
+			/* Slime based entities won't die */
+
+			if (e->element != SLIME)
+			{
+				e->flags &= ~(HELPLESS|INVULNERABLE);
+
+				e->fallout();
+			}
+		}
+	}
+
 	else
 	{
 		y2 = (e->y + (e->h / 2)) / TILE_SIZE;
@@ -910,11 +930,11 @@ void checkToMap(Entity *e)
 			if (previousEnvironment != WATER && e->fallout != NULL)
 			{
 				playSoundToMap("sound/common/splash.ogg", -1, self->x, self->y, 0);
-				
+
 				if (!(e->flags & FLOATS))
 				{
 					e->flags &= ~(HELPLESS|INVULNERABLE);
-					
+
 					e->fallout();
 				}
 			}

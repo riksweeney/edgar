@@ -82,7 +82,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	/* Test the horizontal movement */
 
 	if (other->type == PROJECTILE)
@@ -180,50 +180,55 @@ static void findTarget(int val)
 
 static void moveToTarget()
 {
-	if (abs(self->x - self->targetX) > self->speed)
+	if (self->active == TRUE)
 	{
-		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
-	}
-
-	else
-	{
-		self->x = self->targetX;
-	}
-
-	if (abs(self->y - self->targetY) > self->speed)
-	{
-		self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
-	}
-
-	else
-	{
-		self->y = self->targetY;
-	}
-
-	if (self->x == self->targetX && self->y == self->targetY)
-	{
-		self->dirX = self->dirY = 0;
-
-		if (self->type == AUTO_LIFT)
+		if (abs(self->x - self->targetX) > self->speed)
 		{
-			self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
-			self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
-
-			self->thinkTime = self->maxThinkTime;
-
-			self->action = &autoMove;
+			self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
 		}
 
 		else
 		{
-			self->action = &wait;
+			self->x = self->targetX;
 		}
-	}
 
-	else
-	{
-		self->x += self->dirX;
-		self->y += self->dirY;
+		if (abs(self->y - self->targetY) > self->speed)
+		{
+			self->dirY = (self->y < self->targetY ? self->speed : -self->speed);
+		}
+
+		else
+		{
+			self->y = self->targetY;
+		}
+
+		if (self->x == self->targetX && self->y == self->targetY)
+		{
+			self->dirX = self->dirY = 0;
+
+			if (self->type == AUTO_LIFT)
+			{
+				self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
+				self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
+
+				self->health = self->targetX == self->endX ? 0 : 1;
+
+				self->thinkTime = self->maxThinkTime;
+
+				self->action = &autoMove;
+			}
+
+			else
+			{
+				self->action = &wait;
+			}
+		}
+
+		else
+		{
+			self->x += self->dirX;
+			self->y += self->dirY;
+		}
 	}
 }
 
@@ -255,45 +260,21 @@ static void setToStart()
 
 	if (self->type == AUTO_LIFT)
 	{
-		snprintf(targetName, sizeof(targetName), "%s_START", self->objectiveName);
-
-		/* Search for the lift's target */
-
-		t = getTargetByName(targetName);
-
-		if (t == NULL)
-		{
-			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
-
-			t = addTarget(self->x, self->y, targetName);
-		}
-
-		self->x = t->x;
-		self->y = t->y;
-
-		self->startX = self->x;
-		self->startY = self->y;
-
-		snprintf(targetName, sizeof(targetName), "%s_END", self->objectiveName);
-
-		/* Search for the lift's target */
-
-		t = getTargetByName(targetName);
-
-		if (t == NULL)
-		{
-			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
-
-			t = addTarget(self->x, self->y, targetName);
-		}
-
-		self->endX = t->x;
-		self->endY = t->y;
-
-		self->targetX = self->endX;
-		self->targetY = self->endY;
+		/* Auto lifts just use their start and end points */
 
 		self->action = &autoMove;
+
+		if (self->health == 0)
+		{
+			self->targetX = self->endX;
+			self->targetY = self->endY;
+		}
+
+		else
+		{
+			self->targetX = self->startX;
+			self->targetY = self->startY;
+		}
 
 		if (self->active == FALSE)
 		{

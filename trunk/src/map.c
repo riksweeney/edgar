@@ -37,7 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
-static int lavaTile;
+static int lavaTile, waterTile, slimeTile;
 
 extern Entity *self, player;
 extern Game game;
@@ -56,6 +56,10 @@ void loadMap(char *name, int loadEntityResources)
 
 	lavaTile = LAVA_TILE_START;
 
+	slimeTile = SLIME_TILE_START;
+
+	waterTile = WATER_TILE_START + 1;
+
 	snprintf(filename, sizeof(filename), "data/maps/%s.dat", name);
 
 	buffer = loadFileFromPak(filename);
@@ -72,7 +76,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	map.minX = MAX_MAP_X;
 	map.minY = 0;
-	
+
 	map.maxX = map.maxY = 0;
 
 	/* Read the data from the file into the map */
@@ -388,6 +392,20 @@ void doMap()
 			lavaTile = LAVA_TILE_START;
 		}
 
+		waterTile++;
+
+		if (waterTile > WATER_TILE_END)
+		{
+			waterTile = WATER_TILE_START + 1;
+		}
+
+		slimeTile++;
+
+		if (slimeTile > SLIME_TILE_END)
+		{
+			slimeTile = SLIME_TILE_START;
+		}
+
 		map.thinkTime = 3;
 	}
 }
@@ -542,12 +560,12 @@ void drawMap(int depth)
 			}
 		}
 	}
-	
+
 	if (depth == 0)
 	{
 		return;
 	}
-	
+
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
 	x2 = x1 + SCREEN_WIDTH + (x1 == 0 ? 0 : TILE_SIZE);
@@ -568,6 +586,14 @@ void drawMap(int depth)
 			{
 				case LAVA_TILE_START:
 					tileID = lavaTile;
+				break;
+
+				case SLIME_TILE_START:
+					tileID = slimeTile;
+				break;
+
+				case WATER_TILE_START + 1:
+					tileID = waterTile;
 				break;
 
 				default:

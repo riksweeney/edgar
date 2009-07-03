@@ -43,7 +43,7 @@ Entity *addDoor(char *name, int x, int y, int type)
 		exit(1);
 	}
 
-	loadProperties(name, e);
+	loadProperties(strcmpignorecase(name, "common/wooden_door") == 0 ? "door/metal_door" : name, e);
 
 	e->x = x;
 	e->y = y;
@@ -68,6 +68,13 @@ static void setStart()
 		printf("WARNING: Door %s has no valid start\n", self->objectiveName);
 
 		self->endY = self->startY - TILE_SIZE * 2;
+	}
+
+	if (self->speed == 0)
+	{
+		printf("Door at %0.0f %0.0f has no speed and will not move\n", self->x, self->y);
+
+		exit(1);
 	}
 
 	if (self->type == MANUAL_DOOR)
@@ -102,7 +109,7 @@ static void touch(Entity *other)
 			if (removeInventoryItem(self->requires) == 1)
 			{
 				setInfoBoxMessage(120,  _("Used %s"), self->requires);
-				
+
 				self->action = &moveToTarget;
 
 				self->active = TRUE;

@@ -69,7 +69,7 @@ for i in `find . -name *.blend*`;do
 	rm $i
 done
 
-for i in `find . -name rock_2_4w.jpg`;do
+for i in `find . -name *.jpg`;do
 	rm $i
 done
 

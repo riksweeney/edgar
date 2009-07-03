@@ -18,7 +18,7 @@ common/save_point
 boss/grub_boss
 wall/weak_forest_wall
 enemy/wasp
-common/wooden_door
+door/metal_door
 weapon/pickaxe
 weapon/basic_sword
 weapon/small_wooden_shield

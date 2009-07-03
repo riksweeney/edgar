@@ -46,7 +46,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 		exit(1);
 	}
 
-	loadProperties(name, e);
+	loadProperties(strcmpignorecase(name, "common/falling_platform") == 0 ? "falling_platform/cave_platform" : name, e);
 
 	e->type = FALLING_PLATFORM;
 	e->action = &wait;
@@ -54,7 +54,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 	e->touch = &touch;
 
 	e->action = &initialize;
-	
+
 	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -90,7 +90,7 @@ static void wait()
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	/* Test the horizontal movement */
 
 	if (other->type == PROJECTILE)

@@ -1,8 +1,8 @@
 IF Raft_Point HEALTH 0
-REMOVE "Chopped Log" 6 6 Raft_Point 2 8
+HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 8
 END
 IF Raft_Point HEALTH 1
-REMOVE "Chopped Log" 6 6 Raft_Point 2 3
+HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 3
 END
 IF Raft_Point HEALTH 8
 TALK Edgar To get to the Forbidden Swamp I'll need to build a raft.
@@ -30,6 +30,7 @@ TALK Edgar I'm not going to the swamp without a sword and shield
 SET Raft_Point HEALTH 2
 END
 IF Raft_Point HEALTH 4
+REMOVE "Chopped Log" 6 6 Raft_Point 4 4
 TALK Edgar OK, here goes!
 KILL Raft_Point
 ADD ENTITY ITEM misc/raft "Raft" 9856 905

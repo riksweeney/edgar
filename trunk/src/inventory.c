@@ -48,14 +48,14 @@ void freeInventory()
 
 		inventory.background = NULL;
 	}
-	
+
 	if (inventory.description != NULL)
 	{
 		SDL_FreeSurface(inventory.description);
 
 		inventory.description = NULL;
 	}
-	
+
 	if (inventory.cursor != NULL)
 	{
 		SDL_FreeSurface(inventory.cursor);
@@ -137,12 +137,12 @@ int addToInventory(Entity *e)
 void moveInventoryCursor(int index)
 {
 	inventory.cursorIndex += index;
-	
+
 	if (index == 1 && (inventory.cursorIndex % INVENTORY_BOX_COUNT) == 0)
 	{
 		inventory.cursorIndex -= INVENTORY_BOX_COUNT;
 	}
-	
+
 	else if (index == -1 && (inventory.cursorIndex == -1 || (inventory.cursorIndex % INVENTORY_BOX_COUNT) == INVENTORY_BOX_COUNT - 1))
 	{
 		inventory.cursorIndex += INVENTORY_BOX_COUNT;
@@ -157,7 +157,7 @@ void moveInventoryCursor(int index)
 	{
 		inventory.cursorIndex += MAX_INVENTORY_ITEMS;
 	}
-	
+
 	if (inventory.description != NULL)
 	{
 		SDL_FreeSurface(inventory.description);
@@ -168,23 +168,30 @@ void moveInventoryCursor(int index)
 
 void nextInventoryItem(int index)
 {
+	int currentIndex = inventory.selectedIndex;
+
 	inventory.selectedIndex += index;
-	
+
 	while (inventory.item[inventory.selectedIndex].inUse == FALSE)
 	{
+		if (inventory.selectedIndex == currentIndex)
+		{
+			break;
+		}
+
 		inventory.selectedIndex += index;
-		
+
 		if (inventory.selectedIndex >= MAX_INVENTORY_ITEMS)
 		{
 			inventory.selectedIndex = 0;
 		}
-	
+
 		else if (inventory.selectedIndex < 0)
 		{
 			inventory.selectedIndex = MAX_INVENTORY_ITEMS - 1;
 		}
 	}
-	
+
 	if (inventory.description != NULL)
 	{
 		SDL_FreeSurface(inventory.description);
@@ -262,7 +269,7 @@ void useInventoryItem()
 	if (inventory.item[inventory.selectedIndex].inUse == TRUE && inventory.item[inventory.selectedIndex].activate != NULL)
 	{
 		temp = self;
-		
+
 		index = inventory.selectedIndex;
 
 		self = &inventory.item[inventory.selectedIndex];
@@ -272,7 +279,7 @@ void useInventoryItem()
 		if (inventory.item[inventory.selectedIndex].inUse == FALSE)
 		{
 			sortInventory();
-			
+
 			if (index == inventory.cursorIndex)
 			{
 				inventory.cursorIndex = inventory.selectedIndex;
@@ -531,9 +538,9 @@ void drawInventory()
 			x = inventory.x;
 		}
 	}
-	
+
 	e = &inventory.item[inventory.cursorIndex];
-	
+
 	if (inventory.description == NULL)
 	{
 		if (e->inUse == TRUE)
@@ -542,39 +549,39 @@ void drawInventory()
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", e->description, e->health);
 			}
-			
+
 			else if (strlen(e->description) == 0 && strlen(e->objectiveName) != 0)
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s", e->objectiveName);
 			}
-			
+
 			else
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s", e->description);
 			}
-		
+
 			inventory.description = createDialogBox(NULL, description);
-			
+
 			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
 		}
 	}
-	
+
 	else
 	{
 		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
 	}
-	
+
 	if (inventory.cursor == NULL)
 	{
 		inventory.cursor = loadImage("gfx/hud/inventory_cursor.png");
 	}
-	
+
 	x = (inventory.cursorIndex % INVENTORY_BOX_COUNT) * INVENTORY_BOX_SIZE;
 	y = (inventory.cursorIndex / INVENTORY_BOX_COUNT) * INVENTORY_BOX_SIZE;
-	
+
 	x += inventory.x;
 	y += inventory.y;
-	
+
 	drawImage(inventory.cursor, x, y, FALSE);
 }
 
@@ -586,11 +593,11 @@ void setInventoryDialogMessage(char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
-	
+
 	if (inventory.description != NULL)
 	{
 		SDL_FreeSurface(inventory.description);
 	}
-	
+
 	inventory.description = createDialogBox(NULL, text);
 }

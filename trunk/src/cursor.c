@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "world/target.h"
 #include "graphics/graphics.h"
 #include "system/pak.h"
+#include "status_panel.h"
 
 extern Cursor cursor;
 extern Input input;
@@ -45,7 +46,7 @@ void initCursor(char *name)
 	cursor.tileID = 0;
 	cursor.entityType = 0;
 	cursor.entity.weight = 0;
-	
+
 	cursor.entity.inUse = TRUE;
 
 	loadProperties(entityNames[0], &cursor.entity);
@@ -60,15 +61,15 @@ void initCursor(char *name)
 	cursor.entity.draw = &drawLoopingAnimationToMap;
 
 	snprintf(line, sizeof(line), "data/cursor/%s.dat", name);
-	
+
 	buffer = loadFileFromPak(line);
-	
+
 	token = strtok_r((char *)buffer, "\n", &savePtr);
 
 	while (token != NULL)
 	{
 		STRNCPY(entityNames[entityNamesLength], token, MAX_VALUE_LENGTH);
-		
+
 		if (entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] == '\n')
 		{
 			entityNames[entityNamesLength][strlen(entityNames[entityNamesLength]) - 1] = '\0';
@@ -80,10 +81,10 @@ void initCursor(char *name)
 		}
 
 		entityNamesLength++;
-		
+
 		token = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	free(buffer);
 }
 
@@ -272,7 +273,7 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
-			
+
 			cursor.entity.inUse = TRUE;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
@@ -309,7 +310,7 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
-			
+
 			cursor.entity.inUse = TRUE;
 
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
@@ -383,6 +384,16 @@ void drawCursor()
 		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
 			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
+		}
+
+		if (e != NULL)
+		{
+			setStatusPanelMessage("%s : %d %d", (strlen(e->objectiveName) == 0 ? e->name : e->objectiveName), (int)e->x, (int)e->y);
+		}
+
+		else
+		{
+			setStatusPanelMessage("");
 		}
 
 		cursor.entity.x = getMapStartX() + cursor.x;
