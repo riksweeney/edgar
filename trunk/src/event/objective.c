@@ -88,7 +88,7 @@ void addObjective(char *objectiveName, char *completionTrigger)
 			STRNCPY(objective[i].name, objectiveName, sizeof(objective[i].name));
 			STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
 
-			setInfoBoxMessage(240,  _("New Objective: %s"), objective[i].name);
+			setInfoBoxMessage(60,  _("New Objective: %s"), objective[i].name);
 
 			printf("Added new Objective: \"%s\" with trigger \"%s\"\n", objective[i].name, objective[i].completionTrigger);
 
@@ -115,7 +115,7 @@ void updateObjective(char *objectiveName)
 
 				freeMessageQueue();
 
-				setInfoBoxMessage(180,  _("Objective Completed: %s"), objective[i].name);
+				setInfoBoxMessage(60,  _("Objective Completed: %s"), objective[i].name);
 
 				printf("Firing triggers with name %s\n", objective[i].completionTrigger);
 

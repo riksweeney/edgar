@@ -154,15 +154,15 @@ static void chasePlayer()
 {
 	long onGround = self->flags & ON_GROUND;
 
-	self->dirX -= 0.01f;
+	self->dirX -= 0.02f;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 120;
+		self->thinkTime = 95;
 
-		self->endX -= 0.04f;
+		self->endX -= 0.08f;
 
 		self->frameSpeed++;
 	}
@@ -181,7 +181,7 @@ static void chasePlayer()
 		addDust();
 	}
 
-	if (self->dirX == 0)
+	if (self->dirX == 0 && abs(self->endX) > 2)
 	{
 		self->action = &idle;
 

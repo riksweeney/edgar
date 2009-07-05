@@ -29,7 +29,8 @@ static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
 					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
 					{ACTIVATE_ENTITY, "ACTIVATE_ENTITY"},
-					{RUN_SCRIPT, "RUN_SCRIPT"}
+					{RUN_SCRIPT, "RUN_SCRIPT"},
+					{UPDATE_TRIGGER, "UPDATE_TRIGGER"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -143,7 +144,7 @@ void fireTrigger(char *name)
 
 				freeMessageQueue();
 
-				setInfoBoxMessage(120, message);
+				setInfoBoxMessage(60, message);
 			}
 
 			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);

@@ -7,3 +7,8 @@ door/metal_door
 lift/mine_lift
 lift/lift_target
 common/spawner
+common/switch
+falling_platform/sewer_falling_platform
+item/iron_key
+common/action_point
+common/trap_door

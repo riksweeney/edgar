@@ -1,7 +1,8 @@
 edgar/edgar
-common/wooden_door
-item/wooden_crate
+door/metal_door
+item/metal_crate
 common/pressure_plate
 door/metal_door
 lift/mine_lift
 common/spawner
+common/switch

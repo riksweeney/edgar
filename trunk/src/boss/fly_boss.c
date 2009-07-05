@@ -807,6 +807,8 @@ static void fallout()
 
 static void die()
 {
+	self->damage = 0;
+	
 	self->thinkTime = 120;
 
 	self->flags &= ~FLY;
@@ -909,13 +911,13 @@ static void takeDamage(Entity *other, int damage)
 
 			if (prand() % 3 == 0)
 			{
-				setInfoBoxMessage(180,  _("The wall on the right looks weak..."));
+				setInfoBoxMessage(60,  _("The wall on the right looks weak..."));
 			}
 		}
 
 		if (i >= minHealth && self->health < minHealth)
 		{
-			setInfoBoxMessage(180,  _("The wall on the right looks weak..."));
+			setInfoBoxMessage(60,  _("The wall on the right looks weak..."));
 		}
 
 		setCustomAction(self, &flashWhite, 6, 0);

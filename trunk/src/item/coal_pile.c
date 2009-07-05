@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/trigger.h"
 #include "../custom_actions.h"
 #include "../audio/audio.h"
+#include "../collisions.h"
 
 extern Entity *self;
 
@@ -105,6 +106,8 @@ static void wait()
 	{
 		addSparkle(self->x + (prand() % self->w), self->y + (prand() % self->h));
 	}
+	
+	checkToMap(self);
 }
 
 static void touch(Entity *other)
