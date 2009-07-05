@@ -611,8 +611,8 @@ static void crushAttackMoveToPosition()
 {
 	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-	self->dirX *= 6;
-	self->dirY *= 6;
+	self->dirX *= 9;
+	self->dirY *= 9;
 
 	checkToMap(self);
 

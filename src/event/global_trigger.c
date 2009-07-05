@@ -52,7 +52,9 @@ void addGlobalTriggerFromScript(char *line)
 
 	if (e != NULL)
 	{
-		currentValue = e->health;
+		printf("Found an item in the inventory with name %s\n", triggerName);
+		
+		currentValue = (e->flags & STACKABLE) ? e->health : 1;
 	}
 
 	addGlobalTrigger(triggerName, currentValue, atoi(count), getTriggerTypeByName(targetType), targetName);
@@ -127,6 +129,13 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
+			
+			if (count == total)
+			{
+				printf("Already got all the items needed for this trigger!\n");
+				
+				fireGlobalTrigger(triggerName);
+			}
 
 			return;
 		}
@@ -159,12 +168,12 @@ void fireGlobalTrigger(char *name)
 
 				freeMessageQueue();
 
-				setInfoBoxMessage(120, message);
+				setInfoBoxMessage(60, message);
 			}
 
 			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
 
-			if (trigger[i].count == trigger[i].total)
+			if (trigger[i].count >= trigger[i].total)
 			{
 				printf("Firing global trigger %s\n", trigger[i].triggerName);
 
@@ -172,6 +181,11 @@ void fireGlobalTrigger(char *name)
 				{
 					case UPDATE_OBJECTIVE:
 						updateObjective(trigger[i].targetName);
+					break;
+					
+					case UPDATE_TRIGGER:
+						printf("Updating trigger %s\n", trigger[i].targetName);
+						fireGlobalTrigger(trigger[i].targetName);
 					break;
 
 					case ACTIVATE_ENTITY:

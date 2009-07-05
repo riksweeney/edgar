@@ -49,8 +49,11 @@ static void wipeOutCircleToSmall(void);
 void initGame()
 {
 	game.drawScreen = TRUE;
-
-	game.paused = FALSE;
+	
+	if (game.paused == TRUE)
+	{
+		pauseGame();
+	}
 
 	game.status = IN_GAME;
 

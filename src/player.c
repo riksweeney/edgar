@@ -1008,7 +1008,7 @@ void increasePlayerMaxHealth()
 
 	player.health = player.maxHealth;
 
-	setInfoBoxMessage(120,  _("Maximum health has increased!"));
+	setInfoBoxMessage(60,  _("Maximum health has increased!"));
 }
 
 void syncWeaponShieldToPlayer()

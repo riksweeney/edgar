@@ -56,7 +56,8 @@ static Type entityType[] = {
 					{NPC, "NPC"},
 					{ACTION_POINT, "ACTION_POINT"},
 					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"},
-					{FALLING_PLATFORM, "FALLING_PLATFORM"}
+					{FALLING_PLATFORM, "FALLING_PLATFORM"},
+					{TRAP_DOOR, "TRAP_DOOR"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 

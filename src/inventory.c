@@ -124,7 +124,7 @@ int addToInventory(Entity *e)
 	{
 		e->inUse = FALSE;
 
-		setInfoBoxMessage(120,  _("Picked up %s"), inventory.item[i].objectiveName);
+		setInfoBoxMessage(60,  _("Picked up %s"), inventory.item[i].objectiveName);
 
 		fireTrigger(inventory.item[i].objectiveName);
 
@@ -367,7 +367,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			setInfoBoxMessage(120,  _("Picked up %s"), self->objectiveName);
+			setInfoBoxMessage(60,  _("Picked up %s"), self->objectiveName);
 
 			fireTrigger(self->objectiveName);
 
@@ -376,7 +376,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(120, _("%s is required to carry this item"), self->requires);
+			setInfoBoxMessage(60, _("%s is required to carry this item"), self->requires);
 		}
 	}
 }

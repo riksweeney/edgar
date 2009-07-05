@@ -321,8 +321,6 @@ static void showLoadDialog()
 static void doNewGame()
 {
 	newGame();
-
-	pauseGame();
 	
 	game.playTime = 0;
 }

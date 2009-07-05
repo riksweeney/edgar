@@ -85,6 +85,11 @@ static void wait()
 
 		self->health = 0;
 	}
+	
+	else
+	{
+		self->dirY = 0;
+	}
 }
 
 static void touch(Entity *other)
@@ -143,6 +148,8 @@ static void initFall()
 		{
 			self->x = self->startX + (3 * (self->x < self->startX ? 1 : -1));
 		}
+		
+		self->dirY = 0;
 	}
 
 	else

@@ -9,8 +9,8 @@ PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
 
-CXX       = m68k-amigaos-gcc
-SDLC      = /usr/local/amiga/m68k-amigaos/bin/sdl-config
+CXX       = ppc-amigaos-gcc
+SDLC      = /usr/local/amiga/ppc-amigaos/SDK/clib2/bin/sdl-config
 
 CFLAGS = `$(SDLC) --cflags` -fno-builtin-scalb -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 

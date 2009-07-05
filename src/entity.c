@@ -76,6 +76,11 @@ Entity *getFreeEntity()
 			entity[i].currentAnim = -1;
 
 			entity[i].layer = MID_GROUND_LAYER;
+			
+			if (i > MAX_ENTITIES - 20)
+			{
+				printf("WARNING : COMPACTING ENTITIES!\n");
+			}
 
 			return &entity[i];
 		}
@@ -805,16 +810,6 @@ void activateEntitiesWithRequiredName(char *name, int active)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
-			if (active == TRUE)
-			{
-				printf("Activating %s\n", entity[i].requires);
-			}
-
-			else
-			{
-				printf("Deactivating %s\n", entity[i].requires);
-			}
-
 			entity[i].active = active;
 		}
 	}

@@ -53,15 +53,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 	e->type = type;
 
-	if (type == AUTO_LIFT)
-	{
-		e->action = &autoMove;
-	}
-
-	else
-	{
-		e->activate = &findTarget;
-	}
+	e->activate = &findTarget;
 
 	e->touch = &touch;
 
@@ -81,6 +73,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 static void touch(Entity *other)
 {
+	int bottomBefore;
 	Entity *temp;
 
 	/* Test the horizontal movement */
@@ -104,18 +97,23 @@ static void touch(Entity *other)
 
 		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
 		{
-			/* Place the player as close to the solid tile as possible */
-
-			other->y = self->y;
-			other->y -= other->h;
-
-			other->standingOn = self;
-			other->dirY = 0;
-			other->flags |= ON_GROUND;
-
-			if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER && self->dirY == 0)
+			bottomBefore = other->y + other->h - other->dirY - 1;
+			
+			if (abs(bottomBefore - self->y) < self->h - 1)
 			{
-				setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
+				/* Place the player as close to the solid tile as possible */
+	
+				other->y = self->y;
+				other->y -= other->h;
+	
+				other->standingOn = self;
+				other->dirY = 0;
+				other->flags |= ON_GROUND;
+	
+				if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER && self->dirY == 0)
+				{
+					setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
+				}
 			}
 		}
 	}
@@ -174,7 +172,7 @@ static void findTarget(int val)
 
 	else
 	{
-		setInfoBoxMessage(120,  _("This lift is not active"));
+		setInfoBoxMessage(60,  _("This lift is not active"));
 	}
 }
 
@@ -230,6 +228,11 @@ static void moveToTarget()
 			self->y += self->dirY;
 		}
 	}
+	
+	else
+	{
+		self->dirX = self->dirY = 0;
+	}
 }
 
 static void wait()
@@ -250,6 +253,11 @@ static void autoMove()
 		{
 			self->action = &moveToTarget;
 		}
+	}
+	
+	else
+	{
+		self->dirY = self->dirX = 0;
 	}
 }
 
@@ -298,7 +306,7 @@ static void setToStart()
 
 		else
 		{
-			printf("Could not find target %s for lift %s!\n", targetName, self->objectiveName);
+			printf("Could not find target %s for lift %s at %f %f!\n", targetName, self->objectiveName, self->x, self->y);
 
 			addTarget(self->x, self->y, targetName);
 		}

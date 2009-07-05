@@ -58,6 +58,7 @@ extern Game game;
 #include "../npc/npc.h"
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
+#include "../world/trap_door.h"
 #include "../status_panel.h"
 #include "pak.h"
 
@@ -144,6 +145,10 @@ void freeGameResources()
 	/* Free the player */
 
 	freePlayer();
+	
+	/* Clear the boss meter */
+	
+	freeBossHealthBar();
 }
 
 void freeAllResources()
@@ -361,6 +366,11 @@ char *loadResources(char *buffer)
 			else if (strcmpignorecase(value[type], "WEAK_WALL") == 0)
 			{
 				e = addWeakWall(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+			
+			else if (strcmpignorecase(value[type], "TRAP_DOOR") == 0)
+			{
+				e = addTrapDoor(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else if (strcmpignorecase(value[type], "SWITCH") == 0)

@@ -63,11 +63,13 @@ Entity *addDoor(char *name, int x, int y, int type)
 
 static void setStart()
 {
-	if (self->endX == 0 && self->endY == 0)
+	if ((self->endX == 0 && self->endY == 0) || (self->endX == self->startX && self->endY == self->startY))
 	{
-		printf("WARNING: Door %s has no valid start\n", self->objectiveName);
+		printf("WARNING: Door %s at %0.0f %0.0f has no valid end\n", self->objectiveName, self->x, self->y);
 
 		self->endY = self->startY - TILE_SIZE * 2;
+		
+		printf("Setting to %f\n", self->endY);
 	}
 
 	if (self->speed == 0)
@@ -108,7 +110,7 @@ static void touch(Entity *other)
 
 			if (removeInventoryItem(self->requires) == 1)
 			{
-				setInfoBoxMessage(120,  _("Used %s"), self->requires);
+				setInfoBoxMessage(60,  _("Used %s"), self->requires);
 
 				self->action = &moveToTarget;
 
@@ -117,9 +119,14 @@ static void touch(Entity *other)
 
 			else
 			{
-				setInfoBoxMessage(120,  _("%s is needed to open this door"), self->requires);
+				setInfoBoxMessage(60,  _("%s is needed to open this door"), self->requires);
 			}
 		}
+	}
+	
+	else if (self->active == FALSE)
+	{
+		setInfoBoxMessage(60,  _("This door is locked"));
 	}
 }
 
