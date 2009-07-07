@@ -1,14 +1,1 @@
-TALK Edgar There's a note here
-TALK Note I've been trapped down here for what seems like an eternity
-TALK Note To get out of this place I need 3 Access Keys to work the lifts
-TALK Note So far I have only found 1
-TALK Note To make matters worse, I can only reach some switches with a carefully placed arrow
-TALK Note But spares aren't common and I have run out
-TALK Note If I don't find a way out of here soon, I fear I may starve
-SET Edgar FACE RIGHT
-TALK Edgar If I don't get out of here I'll suffer the same fate...
-ADD OBJECTIVE "Collect 3 Access Keys" ""
-ADD TRIGGER "Access Keys" 3 UPDATE_TRIGGER "Collect 3 Access Keys"
-ADD TRIGGER "Access Key 1" 1 UPDATE_TRIGGER "Access Keys"
-ADD TRIGGER "Access Key 2" 1 UPDATE_TRIGGER "Access Keys"
-ADD TRIGGER "Access Key 3" 1 UPDATE_TRIGGER "Access Keys"
+TALK Narrator Something is supposed to happen now, but it's not in this version. Check back later!

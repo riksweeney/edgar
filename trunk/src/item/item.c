@@ -67,7 +67,24 @@ Entity *addPermanentItem(char *name, int x, int y)
 	else if (e->type == WEAPON || e->type == SHIELD)
 	{
 		e->touch = &keyItemTouch;
-		e->activate = (e->type == WEAPON ? &setPlayerWeapon : &setPlayerShield);
+
+		if (e->type == WEAPON)
+		{
+			if (strcmpignorecase("weapon/normal_arrow", e->name) == 0)
+			{
+				e->activate = &setBowAmmo;
+			}
+
+			else
+			{
+				e->activate = &setPlayerWeapon;
+			}
+		}
+
+		else
+		{
+			e->activate = &setPlayerShield;
+		}
 	}
 
 	else if ((e->flags & PUSHABLE) || (e->flags & OBSTACLE))
@@ -117,19 +134,26 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->fallout = &entityDie;
 
 	e->touch = &noTouch;
 
-	if (e->type == HEALTH)
+	switch (e->type)
 	{
-		e->touch = &healthTouch;
-	}
+		case HEALTH:
+			e->touch = &healthTouch;
+		break;
 
-	else
-	{
-		e->type = TEMP_ITEM;
+		case WEAPON:
+			e->touch = &keyItemTouch;
+
+			e->activate = &setBowAmmo;
+		break;
+
+		default:
+			e->type = TEMP_ITEM;
+		break;
 	}
 
 	setEntityAnimation(e, STAND);
@@ -141,7 +165,23 @@ void dropRandomItem(int x, int y)
 {
 	if (prand() % 3 == 0)
 	{
-		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+		if (getInventoryItem("weapon/bow") != NULL)
+		{
+			if (prand() % 2 == 0)
+			{
+				addTemporaryItem("weapon/arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+			}
+
+			if (prand() % 2 == 0)
+			{
+				addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+			}
+		}
+
+		else
+		{
+			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+		}
 	}
 }
 
@@ -249,7 +289,7 @@ static void itemFallout()
 static void respawn()
 {
 	self->thinkTime--;
-	
+
 	checkToMap(self);
 
 	if (self->thinkTime <= 0)
@@ -258,7 +298,7 @@ static void respawn()
 		self->y = self->startY;
 
 		setCustomAction(self, &invulnerable, 180, 0);
-		
+
 		self->action = &doNothing;
 	}
 }

@@ -76,7 +76,7 @@ Entity *getFreeEntity()
 			entity[i].currentAnim = -1;
 
 			entity[i].layer = MID_GROUND_LAYER;
-			
+
 			if (i > MAX_ENTITIES - 20)
 			{
 				printf("WARNING : COMPACTING ENTITIES!\n");
@@ -150,28 +150,23 @@ void doEntities()
 					break;
 				}
 			}
+			
+			if (self->standingOn != NULL)
+			{
+				self->dirX += self->standingOn->dirX;
+			}
 
 			if (!(self->flags & HELPLESS))
 			{
-				if (self->standingOn != NULL)
-				{
-					self->dirX += self->standingOn->dirX;
-
-					if (self->standingOn->dirY > 0)
-					{
-						self->dirY = self->standingOn->dirY + 1;
-					}
-				}
-
 				self->action();
-
-				self->standingOn = NULL;
 			}
 
 			else
 			{
 				checkToMap(self);
 			}
+
+			self->standingOn = NULL;
 
 			if (self->inUse == TRUE)
 			{
@@ -238,10 +233,7 @@ void doNothing(void)
 		self->frameSpeed = 0;
 	}
 
-	if (!(self->flags & HELPLESS))
-	{
-		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	}
+	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 
 	checkToMap(self);
 
@@ -550,12 +542,7 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
-	/*
-	if (other->type == MANUAL_DOOR || other->type == AUTO_DOOR || other->type == AUTO_LIFT || other->type == MANUAL_LIFT)
-	{
-		return;
-	}
-	*/
+	
 	if (other->touch == NULL)
 	{
 		return;
@@ -573,7 +560,7 @@ void pushEntity(Entity *other)
 
 		return;
 	}
-
+	
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
@@ -583,7 +570,7 @@ void pushEntity(Entity *other)
 	{
 		pushable = 0;
 	}
-
+	
 	/* Test the vertical movement */
 
 	if (other->dirY > 0)
@@ -600,12 +587,6 @@ void pushEntity(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
-			/*
-			if (self->activate != NULL)
-			{
-				self->activate(1);
-			}
-			*/
 		}
 	}
 

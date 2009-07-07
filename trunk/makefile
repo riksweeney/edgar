@@ -57,7 +57,7 @@ CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o hea
 CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
 CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o sound_menu.o fly_boss.o ant_lion.o
-CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o
+CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o arrow_target.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
@@ -91,7 +91,7 @@ $(PAK_PROG): $(PAK_OBJS)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o
+	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
 	
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)

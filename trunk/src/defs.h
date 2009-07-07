@@ -130,6 +130,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_SAVE_SLOTS 10
 
+#define MAX_STACKABLES 20
+
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else

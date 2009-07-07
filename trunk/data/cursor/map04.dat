@@ -7,7 +7,7 @@ enemy/spider
 misc/small_tree
 common/spawner
 weapon/wood_axe
-lift/falling_platform
+falling_platform/cave_falling_platform
 misc/small_log
 wall/weak_forest_wall
 weapon/basic_sword
