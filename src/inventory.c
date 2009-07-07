@@ -72,19 +72,25 @@ int addToInventory(Entity *e)
 
 	if (e->flags & STACKABLE)
 	{
-		printf("Item is stackable\n");
-
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 		{
 			if (strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0)
 			{
-				printf("Stacking %s\n", e->objectiveName);
+				if (inventory.item[i].health < MAX_STACKABLES)
+				{
+					inventory.item[i].health++;
 
-				inventory.item[i].health++;
+					found = TRUE;
 
-				found = TRUE;
+					break;
+				}
 
-				break;
+				else
+				{
+					setInfoBoxMessage(10,  _("Cannot carry any more %s"), inventory.item[i].objectiveName);
+					
+					return FALSE;
+				}
 			}
 		}
 	}
@@ -111,6 +117,11 @@ int addToInventory(Entity *e)
 				else if (inventory.item[i].type == SHIELD)
 				{
 					autoSetPlayerShield(&inventory.item[i]);
+				}
+				
+				if ((inventory.item[i].flags & STACKABLE) && inventory.item[i].health == 0)
+				{
+					inventory.item[i].health = 1;
 				}
 
 				found = TRUE;

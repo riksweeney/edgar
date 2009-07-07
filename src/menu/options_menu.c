@@ -229,7 +229,7 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(menuName, NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)

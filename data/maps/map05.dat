@@ -640,7 +640,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 1702
 Y 5109
 START_X 1702
@@ -661,7 +661,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 1801
 Y 5043
 START_X 1801
@@ -682,7 +682,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 1933
 Y 5043
 START_X 1933
@@ -703,7 +703,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2035
 Y 5108
 START_X 2035
@@ -724,7 +724,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2160
 Y 5108
 START_X 2160
@@ -745,7 +745,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2268
 Y 5055
 START_X 2268
@@ -766,7 +766,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2390
 Y 4974
 START_X 2390
@@ -787,7 +787,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2594
 Y 5092
 START_X 2594
@@ -808,7 +808,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2257
 Y 3371
 START_X 2257
@@ -829,7 +829,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2382
 Y 3333
 START_X 2382
@@ -934,7 +934,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 1467
 Y 3400
 START_X 1467
@@ -955,7 +955,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 1609
 Y 3367
 START_X 1609
@@ -1123,7 +1123,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 2497
 Y 5029
 START_X 2497
@@ -1501,7 +1501,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 7520
 Y 3488
 START_X 7520
@@ -1522,7 +1522,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 7424
 Y 3424
 START_X 7424
@@ -1543,7 +1543,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 7296
 Y 3456
 START_X 7296
@@ -1564,7 +1564,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 7200
 Y 3520
 START_X 7200
@@ -1585,7 +1585,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 7104
 Y 3584
 START_X 7104
@@ -2530,7 +2530,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8128
 Y 3360
 START_X 8128
@@ -2551,7 +2551,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8032
 Y 3424
 START_X 8032
@@ -2572,7 +2572,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8032
 Y 3296
 START_X 8032
@@ -2593,7 +2593,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8128
 Y 3232
 START_X 8128
@@ -2614,7 +2614,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8224
 Y 3200
 START_X 8224
@@ -2635,7 +2635,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8352
 Y 3200
 START_X 8352
@@ -2698,7 +2698,7 @@ FACE LEFT
 
 {
 TYPE FALLING_PLATFORM
-NAME lift/falling_platform
+NAME falling_platform/cave_falling_platform
 X 8480
 Y 3200
 START_X 8480

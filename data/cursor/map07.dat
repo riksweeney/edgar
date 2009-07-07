@@ -12,3 +12,8 @@ falling_platform/sewer_falling_platform
 item/iron_key
 common/action_point
 common/trap_door
+weapon/bow
+weapon/normal_arrow
+item/arrow_target
+weapon/basic_sword
+weapon/small_wooden_shield

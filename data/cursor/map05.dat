@@ -1,6 +1,6 @@
 edgar/edgar
 common/level_exit
-lift/falling_platform
+falling_platform/cave_falling_platform
 enemy/red_grub
 enemy/grub
 misc/small_log

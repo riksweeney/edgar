@@ -6,3 +6,4 @@ door/metal_door
 lift/mine_lift
 common/spawner
 common/switch
+common/trap_door

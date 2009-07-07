@@ -35,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio/music.h"
 #include "audio/audio.h"
 #include "graphics/gib.h"
+#include "projectile.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -54,6 +55,10 @@ static void alignAnimations(Entity *);
 static void gameOverTimeOut(void);
 static void touch(Entity *other);
 static void applySlime(void);
+static void swingSword(void);
+static void drawBow(void);
+static void fireArrow(void);
+static int usingBow(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -238,12 +243,9 @@ void doPlayer()
 
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
-							if (self->target->x > self->x)
-							{
-								self->target->dirX = -self->speed;
+							self->target->dirX = -self->speed;
 
-								self->target->frameSpeed = -1;
-							}
+							self->target->frameSpeed = -1;
 						}
 
 						else
@@ -280,12 +282,9 @@ void doPlayer()
 
 						if ((self->flags & GRABBING) && self->target != NULL)
 						{
-							if (self->target->x < self->x)
-							{
-								self->target->dirX = self->speed;
+							self->target->dirX = self->speed;
 
-								self->target->frameSpeed = 1;
-							}
+							self->target->frameSpeed = 1;
 						}
 
 						else
@@ -376,13 +375,7 @@ void doPlayer()
 				{
 					playerWeapon.flags |= ATTACKING;
 
-					setEntityAnimation(self, ATTACK_1);
-					setEntityAnimation(&playerShield, ATTACK_1);
-					setEntityAnimation(&playerWeapon, ATTACK_1);
-
-					playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-
-					playerWeapon.animationCallback = &attackFinish;
+					playerWeapon.action();
 				}
 
 				input.attack = 0;
@@ -566,44 +559,63 @@ static void attackFinish()
 
 void drawPlayer()
 {
-	self = &player;
-
-	if (self->inUse == TRUE && (self->flags & NO_DRAW) == 0)
+	int hasBow = usingBow();
+	
+	if (!(player.flags & NO_DRAW))
 	{
-		if (!(self->flags & BLOCKING))
+		/* Draw the weapon if it's not a firing bow */
+	
+		self = &playerWeapon;
+	
+		if ((self->inUse == TRUE && hasBow == FALSE) || (hasBow == TRUE && !(self->flags & ATTACKING)))
 		{
-			/* Draw the weapon */
-
+			if (!(self->flags & BLOCKING))
+			{
+				if (self->inUse == TRUE)
+				{
+					self->x = player.x;
+					self->y = player.y;
+	
+					self->draw();
+				}
+			}
+		}
+	
+		/* Draw the player */
+	
+		self = &player;
+	
+		self->draw();
+	
+		self = &playerWeapon;
+	
+		/* Draw the bow on top if it's being fired */
+	
+		if (hasBow == TRUE && (self->flags & ATTACKING))
+		{
 			self = &playerWeapon;
-
+	
+			self->x = player.x;
+			self->y = player.y;
+	
+			self->draw();
+		}
+	
+		else
+		{
+			/* Draw the shield */
+	
+			self = &playerShield;
+	
 			if (self->inUse == TRUE)
 			{
 				self->x = player.x;
 				self->y = player.y;
-
+	
 				self->draw();
 			}
 		}
-
-		/* Draw the player */
-
-		self = &player;
-
-		self->draw();
-
-		/* Draw the shield */
-
-		self = &playerShield;
-
-		if (self->inUse == TRUE)
-		{
-			self->x = player.x;
-			self->y = player.y;
-
-			self->draw();
-		}
 	}
-
 	self = &player;
 
 	if (self->health <= 0 && self->thinkTime <= 0)
@@ -614,13 +626,28 @@ void drawPlayer()
 
 void setPlayerShield(int val)
 {
+	if (usingBow() == TRUE)
+	{
+		if (game.status == IN_INVENTORY)
+		{
+			setInventoryDialogMessage(_("Cannot equip shields when using the bow"));
+		}
+
+		else
+		{
+			setInfoBoxMessage(60, _("Cannot equip shields when using the bow"));
+		}
+
+		return;
+	}
+
 	playerShield = *self;
 
 	alignAnimations(&playerShield);
 
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage("Equipped %s", playerShield.objectiveName);
+		setInventoryDialogMessage(_("Equipped %s"), playerShield.objectiveName);
 	}
 }
 
@@ -630,9 +657,23 @@ void setPlayerWeapon(int val)
 
 	alignAnimations(&playerWeapon);
 
+	/* Unset the shield */
+
+	if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
+	{
+		playerWeapon.action = &drawBow;
+
+		playerShield.inUse = FALSE;
+	}
+
+	else
+	{
+		playerWeapon.action = &swingSword;
+	}
+
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage("Equipped %s", playerWeapon.objectiveName);
+		setInventoryDialogMessage(_("Equipped %s"), playerWeapon.objectiveName);
 	}
 }
 
@@ -640,7 +681,16 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 {
 	if (playerWeapon.inUse == FALSE)
 	{
+		/* Don't auto set the bow if the shield is in use */
+
+		if (usingBow() == TRUE)
+		{
+			return;
+		}
+
 		playerWeapon = *newWeapon;
+
+		playerWeapon.action = (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0 ? &drawBow : &swingSword);
 
 		alignAnimations(&playerWeapon);
 	}
@@ -675,7 +725,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 
-	if (player.health <= 0)
+	if (player.health <= 0 || other->parent == &playerWeapon)
 	{
 		return;
 	}
@@ -1145,4 +1195,110 @@ static void applySlime()
 
 		player.flags &= ~BLOCKING;
 	}
+}
+
+static void swingSword()
+{
+	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(&playerShield, ATTACK_1);
+	setEntityAnimation(&playerWeapon, ATTACK_1);
+
+	playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+	playerWeapon.animationCallback = &attackFinish;
+}
+
+static void drawBow()
+{
+	if (!(player.flags & ON_GROUND))
+	{
+		printf("Firing arrow immediately\n");
+		
+		fireArrow();
+	}
+	
+	else
+	{
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerShield, ATTACK_1);
+		setEntityAnimation(&playerWeapon, ATTACK_1);
+	
+		playerWeapon.animationCallback = &fireArrow;
+	}
+}
+
+static void fireArrow()
+{
+	Entity *arrow, *e;
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, ATTACK_1);
+	setEntityAnimation(&playerWeapon, ATTACK_2);
+
+	arrow = getInventoryItem(playerWeapon.requires);
+
+	if (arrow != NULL)
+	{
+		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
+
+		e->face = player.face;
+
+		e->flags |= FLY;
+
+		arrow->health--;
+
+		if (arrow->health <= 0)
+		{
+			removeInventoryItem(playerWeapon.requires);
+		}
+	}
+
+	playerWeapon.animationCallback = &attackFinish;
+}
+
+void setBowAmmo(int val)
+{
+	Entity *bow = getInventoryItem("weapon/bow");
+
+	if (bow != NULL)
+	{
+		if (game.status == IN_INVENTORY)
+		{
+			setInventoryDialogMessage(_("Bow will now fire %s"), self->objectiveName);
+		}
+
+		else
+		{
+			setInfoBoxMessage(60, _("Bow will now fire %s"), self->objectiveName);
+		}
+
+		STRNCPY(bow->requires, self->name, sizeof(bow->requires));
+
+		self = bow;
+
+		setPlayerWeapon(0);
+	}
+
+	else
+	{
+		if (game.status == IN_INVENTORY)
+		{
+			setInventoryDialogMessage(_("A bow is required to use this item"));
+		}
+
+		else
+		{
+			setInfoBoxMessage(60, _("A bow is required to use this item"));
+		}
+	}
+}
+
+static int usingBow()
+{
+	if (playerWeapon.inUse == TRUE && strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
+	{
+		return TRUE;
+	}
+
+	return FALSE;
 }
