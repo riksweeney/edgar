@@ -42,6 +42,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "floating_snapper.h"
 #include "enemy_generator.h"
 #include "flying_bug.h"
+#include "eye_stalk.h"
+#include "snail.h"
+#include "snail_shell.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -77,7 +80,12 @@ static Constructor enemies[] = {
 {"enemy/bee_hive", &addEnemyGenerator},
 {"enemy/flying_bug", &addFlyingBug},
 {"boss/fly_boss", &addFlyBoss},
-{"boss/ant_lion", &addAntLion}
+{"boss/ant_lion", &addAntLion},
+{"enemy/eye_stalk", &addEyeStalk},
+{"enemy/snail", &addSnail},
+{"enemy/purple_snail", &addSnail},
+{"enemy/purple_snail_shell", &addSnailShell},
+{"enemy/snail_shell", &addSnailShell}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -87,7 +87,7 @@ int addToInventory(Entity *e)
 
 				else
 				{
-					setInfoBoxMessage(10,  _("Cannot carry any more %s"), inventory.item[i].objectiveName);
+					setInfoBoxMessage(10, _("Cannot carry any more %s"), inventory.item[i].objectiveName);
 					
 					return FALSE;
 				}
@@ -558,17 +558,17 @@ void drawInventory()
 		{
 			if (e->flags & STACKABLE)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", e->description, e->health);
+				snprintf(description, MAX_MESSAGE_LENGTH, _("%s (%d)"), e->description, e->health);
 			}
 
 			else if (strlen(e->description) == 0 && strlen(e->objectiveName) != 0)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s", e->objectiveName);
+				snprintf(description, MAX_MESSAGE_LENGTH, _("%s"), e->objectiveName);
 			}
 
 			else
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, "%s", e->description);
+				snprintf(description, MAX_MESSAGE_LENGTH, _("%s"), e->description);
 			}
 
 			inventory.description = createDialogBox(NULL, description);

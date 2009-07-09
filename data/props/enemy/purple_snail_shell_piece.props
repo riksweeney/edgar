@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/enemy/purple_snail_shell_piece.dat
+ANIM_FILE data/anim/enemy/snail_shell_piece.dat
+TYPE ITEM
+THINKTIME 300

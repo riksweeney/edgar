@@ -150,7 +150,7 @@ void doEntities()
 					break;
 				}
 			}
-			
+
 			if (self->standingOn != NULL)
 			{
 				self->dirX += self->standingOn->dirX;
@@ -339,6 +339,8 @@ void floatLeftToRight()
 
 void entityDie()
 {
+	self->damage = 0;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
@@ -370,13 +372,18 @@ void standardDie()
 		dropRandomItem(self->x + self->w / 2, self->y);
 	}
 
-	self->dirX = 0;
-
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
 }
 
 void entityDieNoDrop()
 {
+	self->damage = 0;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
@@ -404,9 +411,12 @@ void noItemDie()
 		self->inUse = FALSE;
 	}
 
-	self->dirX = 0;
-
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
 }
 
 void entityTakeDamageFlinch(Entity *other, int damage)
@@ -542,7 +552,7 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
-	
+
 	if (other->touch == NULL)
 	{
 		return;
@@ -560,7 +570,7 @@ void pushEntity(Entity *other)
 
 		return;
 	}
-	
+
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
@@ -570,7 +580,7 @@ void pushEntity(Entity *other)
 	{
 		pushable = 0;
 	}
-	
+
 	/* Test the vertical movement */
 
 	if (other->dirY > 0)
@@ -894,7 +904,7 @@ void writeEntitiesToFile(FILE *fp)
 	{
 		self = &entity[i];
 
-		if (self->inUse == TRUE && self->type != PROJECTILE)
+		if (self->inUse == TRUE && self->type != PROJECTILE && !(self->flags & DO_NOT_PERSIST))
 		{
 			fprintf(fp, "{\n");
 			fprintf(fp, "TYPE %s\n", getEntityTypeByID(self->type));

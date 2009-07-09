@@ -36,13 +36,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../geometry.h"
 #include "../hud.h"
-#include "../enemy/baby_slime.h"
 #include "../projectile.h"
 
 extern Entity *self, player;
 
 static int bodyParts = 10;
-static Entity *headPart;
 
 static void bodyWait(void);
 static void initialise(void);
@@ -272,7 +270,7 @@ static void createBody()
 
 	if (body == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for snake body...\n", bodyParts * (int)sizeof(Entity *));
+		printf("Failed to allocate a whole %d bytes for Snake Boss body...\n", bodyParts * (int)sizeof(Entity *));
 
 		exit(1);
 	}
@@ -328,8 +326,6 @@ static void createBody()
 
 	self = head;
 
-	headPart = head;
-
 	/* Link the sections */
 
 	for (i=bodyParts-1;i>=0;i--)
@@ -343,6 +339,8 @@ static void createBody()
 		{
 			body[i - 1]->target = body[i];
 		}
+
+		body[i]->head = self;
 	}
 
 	free(body);
@@ -437,7 +435,7 @@ static void shotAttackInit()
 	self->dirY *= 4;
 
 	self->action = &shotAttackWindUp;
-	
+
 	self->flags |= UNBLOCKABLE;
 }
 
@@ -774,6 +772,8 @@ static void alignBodyToHead()
 		e->y = (e->target == NULL ? self->endY : y);
 
 		e->damage = self->damage;
+
+		e->face = self->face;
 
 		if (self->flags & NO_DRAW)
 		{
@@ -1136,19 +1136,19 @@ static void addSmokeAlongBody()
 static void bodyTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
-	if (headPart->takeDamage != NULL)
+
+	if (self->head->takeDamage != NULL)
 	{
 		/* Hitting the body only does half the damage */
-	
+
 		damage /= 2;
-	
+
 		temp = self;
-	
-		self = headPart;
-		
+
+		self = self->head;
+
 		self->takeDamage(other, damage);
-	
+
 		self = temp;
 	}
 }

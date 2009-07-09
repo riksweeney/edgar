@@ -26,16 +26,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
+#include "../item/item.h"
+#include "../projectile.h"
+#include "snail_shell.h"
 
 extern Entity *self, player;
 
-static void die(void);
-static void hideStart(void);
-static void hide(void);
-static void hideEnd(void);
-static void lookForPlayer(void);
-static void resume(void);
 static void takeDamage(Entity *, int);
+static void die(void);
+static void lookForPlayer(void);
+static void spitAttackInit(void);
+static void spitAttack(void);
+static void spitAttackFinish(void);
+static void attacking(void);
 
 Entity *addSnail(int x, int y, char *name)
 {
@@ -53,11 +56,19 @@ Entity *addSnail(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForPlayer;
+	if (strcmpignorecase(name, "enemy/purple_snail") == 0)
+	{
+		e->action = &lookForPlayer;
+	}
 
+	else
+	{
+		e->action = &moveLeftToRight;
+	}
+
+	e->die = &die;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 
@@ -68,9 +79,54 @@ Entity *addSnail(int x, int y, char *name)
 	return e;
 }
 
+static void takeDamage(Entity *other, int damage)
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		/* Can't be hurt if not facing the player */
+
+		if (self->face == other->face)
+		{
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		}
+
+		else
+		{
+			entityTakeDamageNoFlinch(other, damage);
+		}
+	}
+}
+
 static void die()
 {
-	entityDie();
+	Entity *e;
+
+	if (prand() % 3 == 0)
+	{
+		/* Drop a shell */
+
+		setEntityAnimation(self, WALK);
+
+		if (strcmpignorecase(self->name, "enemy/purple_snail") == 0)
+		{
+			e = addSnailShell(self->x, self->y, "enemy/purple_snail_shell");
+		}
+
+		else
+		{
+			e = addSnailShell(self->x, self->y, "enemy/snail_shell");
+		}
+
+		e->face = self->face;
+
+		e->x += (self->w - e->w) / 2;
+	}
+
+	self->die = &entityDie;
+
+	self->die();
 }
 
 static void lookForPlayer()
@@ -84,79 +140,58 @@ static void lookForPlayer()
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
 
-	if (prand() % 120 == 0)
+	if (player.health > 0 && prand() % 30 == 0)
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			self->action = &hideStart;
+			self->action = &spitAttackInit;
+
+			self->dirX = 0;
 		}
 	}
 }
 
-static void hideStart()
+static void spitAttackInit()
 {
-	self->dirX = 0;
-
 	setEntityAnimation(self, ATTACK_1);
 
-	self->flags |= INVULNERABLE;
+	self->animationCallback = &spitAttack;
 
-	self->animationCallback = &hide;
+	self->action = &attacking;
 }
 
-static void hide()
+static void spitAttack()
 {
+	int x, y;
+	Entity *e;
+
+	x = self->x + (self->face == LEFT ? -5 : self->w - 6);
+	y = self->y + 21;
+
+	e = addProjectile("common/green_blob", self, x, y, (self->face == LEFT ? -6 : 6), 0);
+
+	e->y -= e->h / 2;
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
 	setEntityAnimation(self, ATTACK_2);
 
-	self->action = &hide;
-
-	if (prand() % 240 == 0)
-	{
-		self->frameSpeed *= -1;
-
-		setEntityAnimation(self, ATTACK_1);
-
-		self->action = &hideEnd;
-	}
+	self->animationCallback = &spitAttackFinish;
 }
 
-static void hideEnd()
+static void spitAttackFinish()
 {
-	self->animationCallback = &resume;
-}
-
-static void resume()
-{
-	self->frameSpeed *= -1;
-
 	setEntityAnimation(self, STAND);
 
 	self->action = &lookForPlayer;
+
+	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 }
 
-static void takeDamage(Entity *other, int damage)
+static void attacking()
 {
-	if (!(self->flags & INVULNERABLE))
-	{
-		if (self->face == other->face)
-		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-		}
 
-		else
-		{
-			self->health -= damage;
-
-			if (self->health > 0)
-			{
-				setCustomAction(self, &helpless, 10, 0);
-				setCustomAction(self, &invulnerable, 20, 0);
-			}
-
-			else
-			{
-				self->die();
-			}
-		}
-	}
 }
+

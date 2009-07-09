@@ -155,6 +155,12 @@ void doCollisions()
 					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
 					{
 						e2 = list2->entity;
+						
+						if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
+							((e1->flags & PLAYER_TOUCH_ONLY) && e2->type == PLAYER))
+						{
+							continue;
+						}
 
 						if (e1 != e2 && e2->inUse == TRUE && e2->touch != NULL)
 						{
@@ -906,6 +912,8 @@ void checkToMap(Entity *e)
 
 			if (e->element != SLIME)
 			{
+				playSoundToMap("sound/common/slime.ogg", -1, self->x, self->y, 0);
+				
 				e->flags &= ~(HELPLESS|INVULNERABLE);
 
 				e->fallout();

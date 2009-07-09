@@ -67,6 +67,7 @@ static Type elementType[] = {
 					{ICE, "ICE"},
 					{LIGHTNING, "LIGHTNING"},
 					{PHANTASMAL, "PHANTASMAL"},
+					{SLIME, "SLIME"}
 					};
 static int elementLength = sizeof(elementType) / sizeof(Type);
 
@@ -332,10 +333,20 @@ void setFlags(Entity *e, char *flags)
 			e->flags |= BOUNCES;
 		}
 
+		else if (strcmpignorecase(token, "DO_NOT_PERSIST") == 0)
+		{
+			e->flags |= DO_NOT_PERSIST;
+		}
+		
+		else if (strcmpignorecase(token, "PLAYER_TOUCH_ONLY") == 0)
+		{
+			e->flags |= PLAYER_TOUCH_ONLY;
+		}
+
 		else
 		{
 			printf("Unknown flag value %s\n", token);
-			
+
 			exit(0);
 		}
 
@@ -424,7 +435,7 @@ void unsetFlags(Entity *e, char *flags)
 		else
 		{
 			printf("Unknown flag value %s\n", token);
-			
+
 			exit(0);
 		}
 
@@ -549,14 +560,14 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->weight = atof(value);
 	}
-	
+
 	else if (strcmpignorecase(name, "LAYER") == 0)
 	{
 		if (strcmpignorecase(value, "BACKGROUND_LAYER") == 0)
 		{
 			e->layer = BACKGROUND_LAYER;
 		}
-		
+
 		else if (strcmpignorecase(value, "FOREGROUND_LAYER") == 0)
 		{
 			e->layer = FOREGROUND_LAYER;

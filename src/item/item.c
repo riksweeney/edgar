@@ -135,7 +135,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	e->action = &generalItemAction;
 	e->draw = &drawLoopingAnimationToMap;
 
-	e->fallout = &entityDie;
+	e->fallout = &entityDieNoDrop;
 
 	e->touch = &noTouch;
 

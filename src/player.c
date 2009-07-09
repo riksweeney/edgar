@@ -410,7 +410,8 @@ void doPlayer()
 			if (input.block == 1 && (self->flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(self->flags & GRABBED))
 			{
 				self->flags |= BLOCKING;
-
+				
+				setEntityAnimation(&playerWeapon, STAND);
 				setEntityAnimation(self, BLOCK);
 				setEntityAnimation(&playerShield, BLOCK);
 
@@ -569,7 +570,7 @@ void drawPlayer()
 	
 		if ((self->inUse == TRUE && hasBow == FALSE) || (hasBow == TRUE && !(self->flags & ATTACKING)))
 		{
-			if (!(self->flags & BLOCKING))
+			if (!(player.flags & BLOCKING))
 			{
 				if (self->inUse == TRUE)
 				{

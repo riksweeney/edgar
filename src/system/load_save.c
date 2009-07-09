@@ -114,6 +114,8 @@ extern Game game;
 
 void newGame()
 {
+	removeTemporaryData();
+	
 	freeGameResources();
 
 	loadMap("map01", TRUE);

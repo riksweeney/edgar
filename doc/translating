@@ -1,0 +1,21 @@
+Translating
+-----------
+
+If you want to translate The Legend of Edgar into another language, you will need to download the
+source code as this has the "messages.po" file in it.
+
+If you have used GNU Gettext then you should be quite familiar with the process. Unfortunately I don't
+have any experience with it so I cannot offer any assistance.
+
+If the game has any untranslatable strings then let me know.
+
+Finally, just remember that while you are translating the game you might run into secrets or spoilers so
+if you don't want your enjoyment of the game ruined then it may be best to leave the translating until later!
+
+You can send the .po files to the address below
+
+Richard Sweeney
+richard.sweeney@parallelrealities.co.uk
+http://www.parallelrealities.co.uk
+
+(NB: This email address does not accept HTML formatted messages. Plain text only)
