@@ -70,7 +70,7 @@ static void useHealthPotion(int val)
 	{
 		if (game.status == IN_INVENTORY)
 		{
-			setInventoryDialogMessage("Used %s", self->objectiveName);
+			setInventoryDialogMessage(_("Used %s"), self->objectiveName);
 		}
 		
 		player.health = player.maxHealth;

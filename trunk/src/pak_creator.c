@@ -197,11 +197,11 @@ void recurseDirectory(char *dirName)
 			fseek(infile, 0L, SEEK_END);
 
 			fileSize = ftell(infile);
-			
+
 			if (fileSize == 0)
 			{
 				printf("%s is an empty file.\n", filename);
-				
+
 				exit(0);
 			}
 
@@ -347,7 +347,7 @@ static void testPak(char *pakFile)
 	for (i=0;i<fileCount;i++)
 	{
 		rewind(fp);
-		
+
 		printf("Testing %s...", fileData[i].filename);
 
 		fseek(fp, fileData[i].offset, SEEK_SET);
@@ -391,8 +391,10 @@ static void testPak(char *pakFile)
 
 		printf("OK\n");
 	}
-	
+
 	fclose(fp);
 
 	free(fileData);
+
+	printf("Test completed. No errors found\n");
 }

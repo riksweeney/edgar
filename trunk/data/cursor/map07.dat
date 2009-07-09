@@ -5,6 +5,7 @@ item/metal_crate
 common/pressure_plate
 door/metal_door
 lift/mine_lift
+lift/large_mine_lift
 lift/lift_target
 common/spawner
 common/switch
@@ -17,3 +18,7 @@ weapon/normal_arrow
 item/arrow_target
 weapon/basic_sword
 weapon/small_wooden_shield
+enemy/eye_stalk
+common/spawner
+enemy/snail
+enemy/purple_snail

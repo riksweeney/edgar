@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../player.h"
 #include "../graphics/decoration.h"
+#include "../projectile.h"
 
 extern Entity *self;
 
@@ -89,7 +90,7 @@ static void spawn()
 
 				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
 
-				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH * 2))
+				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH + TILE_SIZE))
 				{
 					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
 					{
@@ -97,6 +98,19 @@ static void spawn()
 
 						e->x += (self->w - e->w) / 2;
 						e->y += (self->h - e->h) / 2;
+					}
+					
+					else if (strcmpignorecase(self->name, "common/projectile_spawner") == 0)
+					{
+						e = addProjectile(self->objectiveName, self, self->x, self->y, 0, 0);
+
+						e->x += (self->w - e->w) / 2;
+						e->y += (self->h - e->h) / 2;
+						
+						if (e->flags & FLY)
+						{
+							e->dirX = (self->face == LEFT ? -self->speed : self->speed);
+						}
 					}
 
 					else
@@ -119,6 +133,8 @@ static void spawn()
 					{
 						e->speed = self->speed;
 					}
+					
+					self->thinkTime = self->maxThinkTime;
 				}
 			}
 
@@ -148,9 +164,9 @@ static void spawn()
 				{
 					self->inUse = FALSE;
 				}
+				
+				self->thinkTime = self->maxThinkTime;
 			}
-
-			self->thinkTime = self->maxThinkTime;
 		}
 	}
 }

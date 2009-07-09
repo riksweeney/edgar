@@ -95,7 +95,7 @@ typedef struct Entity
 	float originalSpeed, speed, weight;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
-	struct Entity *standingOn, *parent, *target;
+	struct Entity *standingOn, *parent, *target, *head;
 	BoundingBox box;
 	CustomAction customAction[MAX_CUSTOM_ACTIONS];
 	void (*action)(void);

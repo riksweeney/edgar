@@ -164,7 +164,7 @@ void fireGlobalTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
+				snprintf(message, MAX_MESSAGE_LENGTH, _("%s (%d / %d)"), trigger[i].targetName, trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 
