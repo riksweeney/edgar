@@ -8,12 +8,14 @@
 #include "../item/item.h"
 #include "../projectile.h"
 #include "../system/random.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 
 static void touch(Entity *);
 static void shatter(void);
 static void wait(void);
+static void explode(void);
 
 Entity *addSnailShell(int x, int y, char *name)
 {
@@ -65,7 +67,7 @@ static void wait()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->inUse = FALSE;
+		self->action = &explode;
 	}
 	
 	checkToMap(self);
@@ -79,6 +81,70 @@ static void touch(Entity *other)
 	{
 		entityTakeDamageNoFlinch(other, other->damage);
 	}
+}
+
+static void explode()
+{
+	Entity *e;
+	char name[MAX_VALUE_LENGTH];
+	
+	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	
+	snprintf(name, sizeof(name), "%s_piece", self->name);
+
+	e = addProjectile(name, self, self->x, self->y, -12, 0);
+	
+	e->reactToBlock = &bounceOffShield;
+	
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+	
+	e->flags |= FLY;
+	
+	setEntityAnimation(e, 0);
+	
+	e->parent = e;
+	
+	e = addProjectile(name, self, self->x, self->y, 12, 0);
+	
+	e->reactToBlock = &bounceOffShield;
+	
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+	
+	e->flags |= FLY;
+	
+	setEntityAnimation(e, 1);
+	
+	e->parent = e;
+	
+	e = addProjectile(name, self, self->x, self->y, -12, -6);
+	
+	e->reactToBlock = &bounceOffShield;
+	
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+	
+	e->flags |= FLY;
+	
+	setEntityAnimation(e, 2);
+	
+	e->parent = e;
+	
+	e = addProjectile(name, self, self->x, self->y, 12, -6);
+	
+	e->reactToBlock = &bounceOffShield;
+	
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+	
+	e->flags |= FLY;
+	
+	setEntityAnimation(e, 3);
+	
+	e->parent = e;
+	
+	self->inUse = FALSE;
 }
 
 static void shatter()
@@ -99,7 +165,7 @@ static void shatter()
 		}
 
 		e->x += (self->w - e->w) / 2;
-		e->y += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);

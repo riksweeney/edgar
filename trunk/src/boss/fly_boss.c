@@ -173,7 +173,7 @@ static void doIntro()
 			e = addTemporaryItem("boss/fly_boss_cocoon_piece", self->x, self->y, RIGHT, 0, 0);
 
 			e->x += (self->w - e->w) / 2;
-			e->y += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
 
 			e->dirX = (prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT - (prand() % ITEM_JUMP_HEIGHT);

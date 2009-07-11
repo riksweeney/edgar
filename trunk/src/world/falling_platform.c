@@ -109,7 +109,7 @@ static void touch(Entity *other)
 		self = temp;
 	}
 
-	else if (other->dirY > 0)
+	else if (other->type == PLAYER && other->dirY > 0)
 	{
 		/* Trying to move down */
 

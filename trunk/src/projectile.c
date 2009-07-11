@@ -58,11 +58,11 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->parent = owner;
-	
+
 	if (e->thinkTime == 0)
 	{
 		printf("No valid thinktime defined for %s\n", name);
-		
+
 		exit(1);
 	}
 
@@ -106,6 +106,8 @@ void bounceOffShield()
 
 static void projectileDie()
 {
+	self->damage = 0;
+
 	setEntityAnimation(self, DIE);
 
 	self->touch = NULL;

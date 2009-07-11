@@ -99,17 +99,18 @@ static void spawn()
 						e->x += (self->w - e->w) / 2;
 						e->y += (self->h - e->h) / 2;
 					}
-					
+
 					else if (strcmpignorecase(self->name, "common/projectile_spawner") == 0)
 					{
 						e = addProjectile(self->objectiveName, self, self->x, self->y, 0, 0);
 
 						e->x += (self->w - e->w) / 2;
-						e->y += (self->h - e->h) / 2;
-						
+
 						if (e->flags & FLY)
 						{
 							e->dirX = (self->face == LEFT ? -self->speed : self->speed);
+
+							e->y += (self->h - e->h) / 2;
 						}
 					}
 
@@ -133,7 +134,7 @@ static void spawn()
 					{
 						e->speed = self->speed;
 					}
-					
+
 					self->thinkTime = self->maxThinkTime;
 				}
 			}
@@ -164,7 +165,7 @@ static void spawn()
 				{
 					self->inUse = FALSE;
 				}
-				
+
 				self->thinkTime = self->maxThinkTime;
 			}
 		}

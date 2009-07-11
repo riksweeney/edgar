@@ -165,11 +165,11 @@ void dropRandomItem(int x, int y)
 {
 	if (prand() % 3 == 0)
 	{
-		if (getInventoryItem("weapon/bow") != NULL)
+		if (getInventoryItem(_("Bow")) != NULL)
 		{
 			if (prand() % 2 == 0)
 			{
-				addTemporaryItem("weapon/arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+				addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 			}
 
 			if (prand() % 2 == 0)

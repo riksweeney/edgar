@@ -1,11 +1,3 @@
 edgar/edgar
-weapon/basic_sword
-door/metal_door
-item/metal_crate
-common/pressure_plate
-door/metal_door
 lift/mine_lift
-common/spawner
-common/switch
-common/trap_door
-enemy/snail_shell
+common/save_point

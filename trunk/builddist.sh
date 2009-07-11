@@ -28,24 +28,31 @@ SPECNAME="$APPNAME.spec"
 
 echo "Creating Distribution for $APPNAME (Version $APPVERSION, Release $APPRELEASE)"
 
+echo "Cleaning..."
+
 rm -rf dist/*
 
 mkdir -p dist
 
 cd dist
 
-echo "Cleaning..."
-
-echo "Syncing ZIP data file..."
-
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
 svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
 
+echo "Generating messages.po"
+
+cd $APPDIR
+
+chmod +x generate_po.sh
+
+./generate_po.sh
+
+cd ..
+
 echo "Removing unwanted data files..."
 
 rm -rf $APPDIR/dev
-rm $APPDIR/normalize.sh
 rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec
 rm $APPDIR/*.sh

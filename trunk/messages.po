@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-07 21:11+0100\n"
+"POT-Creation-Date: 2009-07-11 10:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,8 +20,16 @@ msgstr ""
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
 
+#: src/item/item.c:168
+msgid "Bow"
+msgstr ""
+
 #: src/item/bomb_pile.c:73 src/item/bomb_pile.c:77
 msgid "Bomb"
+msgstr ""
+
+#: src/item/rock_pile.c:73 src/item/rock_pile.c:77
+msgid "Small Rock"
 msgstr ""
 
 #: src/item/potions.c:73 src/world/switch.c:80 src/world/switch.c:129
@@ -30,25 +38,25 @@ msgstr ""
 msgid "Used %s"
 msgstr ""
 
-#: src/player.c:633 src/player.c:638
+#: src/player.c:646 src/player.c:651
 msgid "Cannot equip shields when using the bow"
 msgstr ""
 
-#: src/player.c:650 src/player.c:676
+#: src/player.c:663 src/player.c:689
 #, c-format
 msgid "Equipped %s"
 msgstr ""
 
-#: src/player.c:1061
+#: src/player.c:1074
 msgid "Maximum health has increased!"
 msgstr ""
 
-#: src/player.c:1267 src/player.c:1272
+#: src/player.c:1285 src/player.c:1290
 #, c-format
 msgid "Bow will now fire %s"
 msgstr ""
 
-#: src/player.c:1286 src/player.c:1291
+#: src/player.c:1304 src/player.c:1309
 msgid "A bow is required to use this item"
 msgstr ""
 

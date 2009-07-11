@@ -542,7 +542,7 @@ void drawInventory()
 
 		x += INVENTORY_BOX_SIZE;
 
-		if (i != 0 && (i % INVENTORY_BOX_COUNT == 0))
+		if (i != 0 && (i % (INVENTORY_BOX_COUNT - 1) == 0))
 		{
 			y += INVENTORY_BOX_SIZE;
 

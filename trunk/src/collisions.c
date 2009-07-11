@@ -155,9 +155,9 @@ void doCollisions()
 					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
 					{
 						e2 = list2->entity;
-						
+
 						if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
-							((e1->flags & PLAYER_TOUCH_ONLY) && e2->type == PLAYER))
+							((e1->flags & PLAYER_TOUCH_ONLY) && e2->type != PLAYER))
 						{
 							continue;
 						}
@@ -245,6 +245,12 @@ void checkEntityToEntity(Entity *e)
 							{
 								continue;
 							}
+							
+							if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
+								((e1->flags & PLAYER_TOUCH_ONLY) && e2->type != PLAYER))
+							{
+								continue;
+							}
 
 							if (e1->type == PROJECTILE)
 							{
@@ -282,9 +288,9 @@ void checkEntityToEntity(Entity *e)
 							{
 								temp = self;
 
-								self = e2;
+								self = e1;
 
-								self->touch(e1);
+								self->touch(e2);
 
 								self = temp;
 							}
@@ -862,7 +868,11 @@ void checkToMap(Entity *e)
 	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
-
+		
+		printf("%s fell out of map\n", e->name);
+		
+		exit(0);
+		
 		e->fallout();
 	}
 
@@ -913,7 +923,7 @@ void checkToMap(Entity *e)
 			if (e->element != SLIME)
 			{
 				playSoundToMap("sound/common/slime.ogg", -1, self->x, self->y, 0);
-				
+
 				e->flags &= ~(HELPLESS|INVULNERABLE);
 
 				e->fallout();
