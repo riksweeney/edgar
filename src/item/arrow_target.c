@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void wait(void);
+static void init(void);
 static void touch(Entity *);
 
 Entity *addArrowTarget(int x, int y, char *name)
@@ -45,7 +46,7 @@ Entity *addArrowTarget(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
@@ -59,21 +60,27 @@ Entity *addArrowTarget(int x, int y, char *name)
 
 static void wait()
 {
-	if (self->maxThinkTime == 0)
-	{
-		setEntityAnimation(self, self->health == 0 ? STAND : WALK);
-	}
+
+}
+
+static void init()
+{
+	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+
+	self->action = &wait;
 }
 
 static void touch(Entity *other)
 {
 	Entity *temp;
 
-	if (self->health == 0 && strcmpignorecase(other->name, self->requires) == 0)
+	if (strcmpignorecase(other->name, self->requires) == 0)
 	{
-		self->health = 1;
+		self->active = self->active == TRUE ? FALSE : TRUE;
 
-		fireTrigger(self->objectiveName);
+		setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+
+		activateEntitiesWithRequiredName(self->objectiveName, self->active);
 
 		if (other->type == PROJECTILE)
 		{

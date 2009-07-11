@@ -44,7 +44,7 @@ Entity *addLineDef(char *type, char *name, int x, int y)
 
 	STRNCPY(e->name, name, sizeof(e->name));
 
-	e->flags |= NO_DRAW;
+	e->flags |= (NO_DRAW|PLAYER_TOUCH_ONLY);
 
 	e->action = &initialise;
 

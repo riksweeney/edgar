@@ -547,6 +547,8 @@ void pushEntity(Entity *other)
 {
 	int pushable;
 	Entity *temp;
+	static int depth = 0;
+	long wasOnGround;
 
 	if (other->flags & OBSTACLE)
 	{
@@ -576,7 +578,7 @@ void pushEntity(Entity *other)
 
 	pushable = (self->flags & PUSHABLE);
 
-	if (self->flags & OBSTACLE)
+	if ((self->flags & OBSTACLE) || depth == 1)
 	{
 		pushable = 0;
 	}
@@ -600,7 +602,7 @@ void pushEntity(Entity *other)
 		}
 	}
 
-	else if (other->dirY < 0)
+	else if (other->dirY < 0 && !(self->flags & ON_GROUND))
 	{
 		/* Trying to move up */
 
@@ -628,10 +630,21 @@ void pushEntity(Entity *other)
 				self->y -= self->dirY;
 
 				self->dirX += other->dirX;
+				
+				wasOnGround = (self->flags & ON_GROUND);
 
 				checkToMap(self);
+				
+				if (wasOnGround != 0)
+				{
+					self->flags |= ON_GROUND;
+				}
+
+				depth++;
 
 				checkEntityToEntity(self);
+
+				depth--;
 
 				if (self->dirX == 0)
 				{
@@ -649,9 +662,18 @@ void pushEntity(Entity *other)
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-
-				other->x = self->x + self->box.x;
-				other->x -= other->w;
+				
+				if (other->x < self->x)
+				{
+					other->x = self->x + self->box.x;
+					other->x -= other->w;
+				}
+				
+				else
+				{
+					other->x = self->x + self->box.x;
+					other->x += self->w;
+				}
 
 				other->dirX = 0;
 
@@ -683,9 +705,20 @@ void pushEntity(Entity *other)
 
 				self->dirX += other->dirX;
 
+				wasOnGround = (self->flags & ON_GROUND);
+
 				checkToMap(self);
+				
+				if (wasOnGround != 0)
+				{
+					self->flags |= ON_GROUND;
+				}
+
+				depth++;
 
 				checkEntityToEntity(self);
+
+				depth--;
 
 				if (self->dirX == 0)
 				{
@@ -703,9 +736,18 @@ void pushEntity(Entity *other)
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-
-				other->x = self->x + self->box.x;
-				other->x += self->w;
+				
+				if (other->x > self->x)
+				{
+					other->x = self->x + self->box.x;
+					other->x += self->w;
+				}
+				
+				else
+				{
+					other->x = self->x + self->box.x;
+					other->x -= other->w;
+				}
 
 				other->dirX = 0;
 
@@ -722,6 +764,29 @@ void pushEntity(Entity *other)
 
 				self->flags |= HELPLESS;
 			}
+		}
+	}
+
+	else
+	{
+		if (self->x > other->x && depth == 1)
+		{
+			/* Place the entity as close as possible */
+
+			self->x = other->x + other->box.x;
+			self->x += other->w;
+
+			self->dirX = 0;
+		}
+
+		else if (depth == 1)
+		{
+			/* Place the entity as close as possible */
+
+			self->x = other->x + other->box.x;
+			self->x -= self->w;
+
+			self->dirX = 0;
 		}
 	}
 
@@ -821,16 +886,6 @@ void activateEntitiesWithObjectiveName(char *name, int active)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
 		{
-			if (active == TRUE)
-			{
-				printf("Activating %s\n", entity[i].objectiveName);
-			}
-
-			else
-			{
-				printf("Deactivating %s\n", entity[i].objectiveName);
-			}
-
 			entity[i].active = active;
 		}
 	}
@@ -850,8 +905,6 @@ void interactWithEntity(int x, int y, int w, int h)
 				e = self;
 
 				self = &entity[i];
-
-				printf("Activating %s (%s)\n", self->name, entity[i].name);
 
 				self->activate(1);
 

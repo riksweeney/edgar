@@ -2,3 +2,5 @@ GFX_FILE data/gfx/enemy/snail_shell_piece.dat
 ANIM_FILE data/anim/enemy/snail_shell_piece.dat
 TYPE ITEM
 THINKTIME 90
+DAMAGE 1
+FLAGS PLAYER_TOUCH_ONLY

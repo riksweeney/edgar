@@ -210,6 +210,18 @@ void doPlayer()
 		if (!(self->flags & HELPLESS))
 		{
 			self->dirX = 0;
+			
+			if (!(self->flags & ON_GROUND))
+			{
+				self->flags &= ~GRABBING;
+	
+				if (self->target != NULL)
+				{
+					self->target->flags &= ~HELPLESS;
+	
+					self->target = NULL;
+				}
+			}
 
 			if (self->standingOn != NULL)
 			{
@@ -1253,13 +1265,18 @@ static void fireArrow()
 			removeInventoryItem(playerWeapon.requires);
 		}
 	}
+	
+	else
+	{
+		printf("Couldn't get %s\n", playerWeapon.requires);
+	}
 
 	playerWeapon.animationCallback = &attackFinish;
 }
 
 void setBowAmmo(int val)
 {
-	Entity *bow = getInventoryItem("weapon/bow");
+	Entity *bow = getInventoryItem("Bow");
 
 	if (bow != NULL)
 	{
