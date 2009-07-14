@@ -84,9 +84,7 @@ static void scriptTouch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		loadScript(self->objectiveName);
-
-		readNextScriptLine();
+		runScript(self->objectiveName);
 
 		self->inUse = FALSE;
 	}

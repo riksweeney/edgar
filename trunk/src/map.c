@@ -494,8 +494,6 @@ void drawMap(int depth)
 			x = map.backgroundStartX[0] % map.background[0]->w;
 			y = map.backgroundStartY[0] % map.background[0]->h;
 
-			clearScreen(0, 0, 0);
-
 			drawClippedImage(map.background[0], x, y, 0, 0, map.background[0]->w - x, map.background[0]->h - y);
 
 			drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
@@ -547,8 +545,6 @@ void drawMap(int depth)
 			{
 				x = map.backgroundStartX[1] % map.background[1]->w;
 				y = map.backgroundStartY[1] % map.background[1]->h;
-
-				clearScreen(0, 0, 0);
 
 				drawClippedImage(map.background[1], x, y, 0, 0, map.background[1]->w - x, map.background[1]->h - y);
 

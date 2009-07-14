@@ -119,11 +119,6 @@ Entity *addFlyBoss(int x, int y, char *name)
 
 static void initialise()
 {
-	int minX, minY;
-
-	minX = getMapStartX();
-	minY = getMapStartY();
-
 	self->thinkTime++;
 
 	if (self->thinkTime >= 360)

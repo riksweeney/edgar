@@ -164,9 +164,7 @@ void fireTrigger(char *name)
 					break;
 
 					case RUN_SCRIPT:
-						loadScript(trigger[i].targetName);
-
-						readNextScriptLine();
+						runScript(trigger[i].targetName);
 					break;
 
 					default:

@@ -38,3 +38,4 @@ void drawGameOver(void);
 void focusLost(void);
 void showSaveDialog(void);
 void pauseGameInventory(void);
+char *getPlayTimeAsString(void);

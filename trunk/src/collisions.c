@@ -97,6 +97,11 @@ static void addToList(int y, int x, Entity *e)
 {
 	EntityList *listHead, *list;
 
+	if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT)
+	{
+		return;
+	}
+
 	listHead = &grid[y][x].listHead;
 
 	while (listHead->next != NULL)
@@ -245,7 +250,7 @@ void checkEntityToEntity(Entity *e)
 							{
 								continue;
 							}
-							
+
 							if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
 								((e1->flags & PLAYER_TOUCH_ONLY) && e2->type != PLAYER))
 							{
@@ -313,7 +318,8 @@ Entity *isSpaceEmpty(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (entity[i].inUse == TRUE && e != &entity[i]
+			&& collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 		{
 			return &entity[i];
 		}
@@ -868,12 +874,17 @@ void checkToMap(Entity *e)
 	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
-		
+
 		printf("%s fell out of map\n", e->name);
-		
-		exit(0);
-		
+
 		e->fallout();
+	}
+
+	else if (e->y < -300)
+	{
+		/* Way too high... */
+
+		e->dirY = 0;
 	}
 
 	x1 = (e->x) / TILE_SIZE;

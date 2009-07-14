@@ -36,3 +36,21 @@ void calculatePath(float startX, float startY, float endX, float endY, float *di
 	*dirX = t == 0 ? 0 : x / t;
 	*dirY = t == 0 ? 0 : y / t;
 }
+
+void calculateTrajectory(int startX, int endX, float weight, float flightTime, float height, float *dirX, float *dirY)
+{
+	float hDistance;
+	
+	hDistance = abs(startX - endX);
+	
+	*dirX = hDistance / flightTime;
+	
+	if (startX > endX)
+	{
+		*dirX *= -1;
+	}
+	
+	flightTime /= 2;
+	
+	*dirY = -(height + 0.5 * weight * GRAVITY_SPEED * flightTime * flightTime) / flightTime;
+}

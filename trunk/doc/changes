@@ -9,9 +9,11 @@ Version 0.12
 * The Forest map now has proper scroll limits
 * Water animates
 * Raft interaction point only takes away the logs when the objective has been completed
-* Added the Sewer and Fortress outskirts maps
+* Added the Sewer and Fortress Outskirts maps
 * Made Edgar move 25% faster
 * Persistance file is now deleted when starting a new game
+* Fixed a problem with some Entities moving into a non existant collision grid
+* The game attempts to patch your saved game but YMMV
 
 Version 0.11
 

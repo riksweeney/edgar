@@ -148,6 +148,11 @@ static void activate(int val)
 	printf("Activating entities with name %s\n", self->objectiveName);
 
 	activateEntitiesWithRequiredName(self->objectiveName, self->active);
+	
+	if (self->maxThinkTime != 0)
+	{
+		self->thinkTime = self->maxThinkTime;
+	}
 }
 
 static void wait()
@@ -158,7 +163,14 @@ static void wait()
 
 		if (self->thinkTime == 0)
 		{
-			self->active = FALSE;
+			self->active = self->active == TRUE ? FALSE : TRUE;
+			
+			/* Switch time out */
+			
+			if (strcmpignorecase(self->name, "common/switch") == 0)
+			{
+				activateEntitiesWithRequiredName(self->objectiveName, self->active);
+			}
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 

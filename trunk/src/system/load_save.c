@@ -115,11 +115,11 @@ extern Game game;
 void newGame()
 {
 	removeTemporaryData();
-	
+
 	freeGameResources();
 
 	loadMap("map01", TRUE);
-	
+
 	initGame();
 
 	cameraSnapToTargetEntity();
@@ -186,7 +186,7 @@ int loadGame(int slot)
 				break;
 			}
 		}
-		
+
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %ld\n", &game.playTime);
@@ -218,13 +218,13 @@ int loadGame(int slot)
 		free(buffer);
 
 		version += 0.01;
-			
+
 		/* Back up the original save file */
-		
+
 		snprintf(backup, sizeof(backup), "%s.bak", saveFile);
-		
+
 		copyFile(saveFile, backup);
-		
+
 		printf("Backed up original save to %s\n", backup);
 
 		while (version <= VERSION)
@@ -268,7 +268,7 @@ int loadGame(int slot)
 
 static void patchSaveGame(char *saveFile, double version)
 {
-	char location[MAX_VALUE_LENGTH], *line, *savePtr, itemName[MAX_MESSAGE_LENGTH], *mapName;
+	char location[MAX_VALUE_LENGTH], *line, *savePtr, itemName[MAX_MESSAGE_LENGTH], *returnedName, mapName[MAX_VALUE_LENGTH];
 	unsigned char *buffer, *originalBuffer;
 	int savedLocation = FALSE;
 	FILE *newSave;
@@ -296,7 +296,9 @@ static void patchSaveGame(char *saveFile, double version)
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
-	mapName = NULL;
+	returnedName = NULL;
+
+	mapName[0] = '\0';
 
 	while (line != NULL)
 	{
@@ -319,11 +321,22 @@ static void patchSaveGame(char *saveFile, double version)
 
 		else if (strcmpignorecase("MAP_NAME", itemName) == 0)
 		{
-			if (mapName == NULL || strcmpignorecase(line, mapName) == 0)
+			if (strlen(mapName) == 0 || strcmpignorecase(line, mapName) == 0)
 			{
 				sscanf(line, "%*s %s\n", itemName);
 
-				mapName = loadResources(savePtr);
+				printf("Will patch %s\n", itemName);
+
+				printf("Loading resources for %s\n", itemName);
+
+				returnedName = loadResources(savePtr);
+
+				if (returnedName != NULL)
+				{
+					STRNCPY(mapName, returnedName, sizeof(mapName));
+				}
+
+				printf("Resources loaded for %s\n", itemName);
 
 				/* Rewind to start */
 
@@ -341,6 +354,8 @@ static void patchSaveGame(char *saveFile, double version)
 				strcpy((char *)buffer, (char *)originalBuffer);
 
 				line = strtok_r((char *)buffer, "\n", &savePtr);
+
+				printf("Applying patch to %s\n", itemName);
 
 				/* Load up the patch file */
 
@@ -392,7 +407,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 				freeLevelResources();
 
-				if (mapName == NULL)
+				if (returnedName == NULL)
 				{
 					break;
 				}
@@ -411,7 +426,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 void saveGame(int slot)
 {
-	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
+	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr, *playTimeString;
 	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapFilename();
 	unsigned char *buffer;
@@ -428,7 +443,7 @@ void saveGame(int slot)
 	write = fopen(saveFile, "wb");
 
 	fprintf(write, "VERSION %0.2f\n", VERSION);
-	
+
 	fprintf(write, "PLAY_TIME %ld\n", game.playTime);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
@@ -560,6 +575,12 @@ void saveGame(int slot)
 	compressFile(saveFile);
 
 	updateSaveFileIndex(slot);
+
+	playTimeString = getPlayTimeAsString();
+
+	printf("Play Time : %s\n", playTimeString);
+
+	free(playTimeString);
 }
 
 static void updateSaveFileIndex(int slot)
