@@ -49,7 +49,7 @@ static void wipeOutCircleToSmall(void);
 void initGame()
 {
 	game.drawScreen = TRUE;
-	
+
 	if (game.paused == TRUE)
 	{
 		pauseGame();
@@ -99,7 +99,7 @@ void doGame()
 	{
 		game.weatherAction();
 	}
-	
+
 	game.playTime++;
 }
 
@@ -550,10 +550,12 @@ void pauseGameInventory()
 
 void focusLost()
 {
-	if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR)
-	{
-		pauseGame();
-	}
+	#if DEV == 0
+		if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR)
+		{
+			pauseGame();
+		}
+	#endif
 }
 
 void showPauseDialog()
@@ -649,4 +651,34 @@ void drawGameOver()
 	}
 
 	drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.transitionX, game.gameOverSurface->h);
+}
+
+char *getPlayTimeAsString()
+{
+	/* 1 second is 60 frames */
+
+	int hours, minutes;
+	long tempTime;
+	char *timeString;
+
+	timeString = (char *)malloc(15 * sizeof(char));
+
+	if (timeString == NULL)
+	{
+		printf("Failed to allocate a whole %d bytes for Play Time string...\n", 15 * (int)sizeof(char));
+
+		exit(0);
+	}
+
+	tempTime = game.playTime;
+
+	hours = tempTime / (60 * 60 * 60);
+
+	tempTime -= hours * 60 * 60 * 60;
+
+	minutes = tempTime / (60 * 60);
+
+	snprintf(timeString, 15, "%dH %dM", hours, minutes);
+
+	return timeString;
 }

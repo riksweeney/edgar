@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 extern Game game;
+extern Entity player;
 
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
@@ -145,9 +146,9 @@ void freeGameResources()
 	/* Free the player */
 
 	freePlayer();
-	
+
 	/* Clear the boss meter */
-	
+
 	freeBossHealthBar();
 }
 
@@ -367,7 +368,7 @@ char *loadResources(char *buffer)
 			{
 				e = addWeakWall(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
-			
+
 			else if (strcmpignorecase(value[type], "TRAP_DOOR") == 0)
 			{
 				e = addTrapDoor(value[name], atoi(value[startX]), atoi(value[startY]));
@@ -510,6 +511,7 @@ char *loadResources(char *buffer)
 void patchEntities(double versionFile, char *mapName)
 {
 	char patchFile[MAX_PATH_LENGTH], *line, *savePtr, itemName[MAX_VALUE_LENGTH];
+	char key[MAX_VALUE_LENGTH], value[MAX_VALUE_LENGTH];
 	int skipping = FALSE, x, y, read, found;
 	unsigned char *buffer;
 	Entity *e;
@@ -550,7 +552,7 @@ void patchEntities(double versionFile, char *mapName)
 
 			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
 			{
-				printf("Adding new Entity\n");
+				printf("Adding new Entities to %s\n", mapName);
 
 				loadResources(savePtr);
 			}
@@ -560,6 +562,8 @@ void patchEntities(double versionFile, char *mapName)
 				read = sscanf(line, "%*s %s %d %d\n", itemName, &x, &y);
 
 				found = FALSE;
+
+				printf("Removing %s\n", itemName);
 
 				e = getEntityByObjectiveName(itemName);
 
@@ -592,6 +596,26 @@ void patchEntities(double versionFile, char *mapName)
 
 						found = TRUE;
 					}
+				}
+			}
+
+			else if (strcmpignorecase(itemName, "UPDATE_ENTITY") == 0 && skipping == FALSE)
+			{
+				read = sscanf(line, "%*s %s %s %s\n", itemName, key, value);
+
+				if (strcmpignorecase(itemName, "PLAYER") == 0)
+				{
+					e = &player;
+				}
+
+				else
+				{
+					e = getEntityByObjectiveName(itemName);
+				}
+
+				if (e != NULL)
+				{
+					setProperty(e, key, value);
 				}
 			}
 

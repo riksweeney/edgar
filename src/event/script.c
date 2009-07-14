@@ -40,7 +40,7 @@ extern Game game;
 
 static Script script;
 
-void loadScript(char *name)
+void runScript(char *name)
 {
 	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
 	unsigned char *buffer;
@@ -124,6 +124,8 @@ void loadScript(char *name)
 	script.skipping = FALSE;
 
 	playerWaitForDialog();
+	
+	readNextScriptLine();
 }
 
 void readNextScriptLine()
@@ -399,6 +401,13 @@ void readNextScriptLine()
 
 				e->frameSpeed = atof(token);
 			}
+			
+			else if (strcmpignorecase(token, "RESUME_NORMAL_FUNCTION") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e->action = e->resumeNormalFunction;
+			}
 
 			else
 			{
@@ -502,6 +511,11 @@ void readNextScriptLine()
 
 				loadMusic(token);
 			}
+		}
+		
+		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)
+		{
+			playBossMusic();
 		}
 
 		else if (strcmpignorecase("SHAKE_SCREEN", command) == 0)
@@ -634,6 +648,32 @@ void readNextScriptLine()
 			{
 				entityWalkToRelative(e, token);
 			}
+		}
+		
+		else if (strcmpignorecase("JUMP", command) == 0)
+		{
+			freeDialogBox();
+
+			token = strtok_r(NULL, " ", &savePtr);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				printf("JUMP command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+			
+			e->dirY = -JUMP_HEIGHT;
 		}
 
 		else if (strcmpignorecase("LIMIT_CAMERA", command) == 0)

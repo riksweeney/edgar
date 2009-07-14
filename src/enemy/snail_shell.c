@@ -94,6 +94,8 @@ static void explode()
 
 	e = addProjectile(name, self, self->x, self->y, -12, 0);
 	
+	e->parent = e;
+	
 	e->reactToBlock = &bounceOffShield;
 	
 	e->x += (self->w - e->w) / 2;
@@ -106,6 +108,8 @@ static void explode()
 	e->parent = e;
 	
 	e = addProjectile(name, self, self->x, self->y, 12, 0);
+	
+	e->parent = e;
 	
 	e->reactToBlock = &bounceOffShield;
 	
@@ -120,6 +124,8 @@ static void explode()
 	
 	e = addProjectile(name, self, self->x, self->y, -12, -6);
 	
+	e->parent = e;
+	
 	e->reactToBlock = &bounceOffShield;
 	
 	e->x += (self->w - e->w) / 2;
@@ -132,6 +138,8 @@ static void explode()
 	e->parent = e;
 	
 	e = addProjectile(name, self, self->x, self->y, 12, -6);
+	
+	e->parent = e;
 	
 	e->reactToBlock = &bounceOffShield;
 	

@@ -90,9 +90,7 @@ static void wait()
 
 static void talk(int val)
 {
-	loadScript(self->requires);
-
-	readNextScriptLine();
+	runScript(self->requires);
 }
 
 static void touch(Entity *other)

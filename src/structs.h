@@ -108,6 +108,7 @@ typedef struct Entity
 	void (*die)(void);
 	void (*reactToBlock)(void);
 	void (*pain)(void);
+	void (*resumeNormalFunction)(void);
 } Entity;
 
 typedef struct Map

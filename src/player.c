@@ -210,15 +210,15 @@ void doPlayer()
 		if (!(self->flags & HELPLESS))
 		{
 			self->dirX = 0;
-			
+
 			if (!(self->flags & ON_GROUND))
 			{
 				self->flags &= ~GRABBING;
-	
+
 				if (self->target != NULL)
 				{
 					self->target->flags &= ~HELPLESS;
-	
+
 					self->target = NULL;
 				}
 			}
@@ -422,7 +422,7 @@ void doPlayer()
 			if (input.block == 1 && (self->flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(self->flags & GRABBED))
 			{
 				self->flags |= BLOCKING;
-				
+
 				setEntityAnimation(&playerWeapon, STAND);
 				setEntityAnimation(self, BLOCK);
 				setEntityAnimation(&playerShield, BLOCK);
@@ -573,13 +573,13 @@ static void attackFinish()
 void drawPlayer()
 {
 	int hasBow = usingBow();
-	
+
 	if (!(player.flags & NO_DRAW))
 	{
 		/* Draw the weapon if it's not a firing bow */
-	
+
 		self = &playerWeapon;
-	
+
 		if ((self->inUse == TRUE && hasBow == FALSE) || (hasBow == TRUE && !(self->flags & ATTACKING)))
 		{
 			if (!(player.flags & BLOCKING))
@@ -588,43 +588,43 @@ void drawPlayer()
 				{
 					self->x = player.x;
 					self->y = player.y;
-	
+
 					self->draw();
 				}
 			}
 		}
-	
+
 		/* Draw the player */
-	
+
 		self = &player;
-	
+
 		self->draw();
-	
+
 		self = &playerWeapon;
-	
+
 		/* Draw the bow on top if it's being fired */
-	
+
 		if (hasBow == TRUE && (self->flags & ATTACKING))
 		{
 			self = &playerWeapon;
-	
+
 			self->x = player.x;
 			self->y = player.y;
-	
+
 			self->draw();
 		}
-	
+
 		else
 		{
 			/* Draw the shield */
-	
+
 			self = &playerShield;
-	
+
 			if (self->inUse == TRUE)
 			{
 				self->x = player.x;
 				self->y = player.y;
-	
+
 				self->draw();
 			}
 		}
@@ -900,7 +900,7 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "HEALTH %d\n", self->health);
 	fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 	fprintf(fp, "DAMAGE %d\n", self->damage);
-	fprintf(fp, "SPEED %0.1f\n", self->speed);
+	/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
 	fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 	fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 	fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -923,7 +923,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
-		fprintf(fp, "SPEED %0.1f\n", self->speed);
+		/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
 		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 		fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -947,7 +947,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
-		fprintf(fp, "SPEED %0.1f\n", self->speed);
+		/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
 		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 		fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -1226,16 +1226,16 @@ static void drawBow()
 	if (!(player.flags & ON_GROUND))
 	{
 		printf("Firing arrow immediately\n");
-		
+
 		fireArrow();
 	}
-	
+
 	else
 	{
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, ATTACK_1);
 		setEntityAnimation(&playerWeapon, ATTACK_1);
-	
+
 		playerWeapon.animationCallback = &fireArrow;
 	}
 }
@@ -1265,7 +1265,7 @@ static void fireArrow()
 			removeInventoryItem(playerWeapon.requires);
 		}
 	}
-	
+
 	else
 	{
 		printf("Couldn't get %s\n", playerWeapon.requires);
@@ -1290,7 +1290,7 @@ void setBowAmmo(int val)
 			setInfoBoxMessage(60, _("Bow will now fire %s"), self->objectiveName);
 		}
 
-		STRNCPY(bow->requires, self->name, sizeof(bow->requires));
+		STRNCPY(bow->requires, self->objectiveName, sizeof(bow->requires));
 
 		self = bow;
 

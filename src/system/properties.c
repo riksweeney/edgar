@@ -274,8 +274,6 @@ void setFlags(Entity *e, char *flags)
 
 	token = strtok_r(temp, " |,", &savePtr);
 
-	e->flags = 0;
-
 	while (token != NULL)
 	{
 		if (strcmpignorecase(token, "ON_GROUND") == 0)
@@ -342,6 +340,11 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= PLAYER_TOUCH_ONLY;
 		}
+		
+		else if (strcmpignorecase(token, "ATTACKING") == 0)
+		{
+			e->flags |= ATTACKING;
+		}
 
 		else
 		{
@@ -372,8 +375,6 @@ void unsetFlags(Entity *e, char *flags)
 	STRNCPY(temp, flags, strlen(flags) + 1);
 
 	token = strtok_r(temp, " |,", &savePtr);
-
-	e->flags = 0;
 
 	while (token != NULL)
 	{
@@ -430,6 +431,11 @@ void unsetFlags(Entity *e, char *flags)
 		else if (strcmpignorecase(token, "BOUNCES") == 0)
 		{
 			e->flags &= ~BOUNCES;
+		}
+		
+		else if (strcmpignorecase(token, "ATTACKING") == 0)
+		{
+			e->flags &= ~ATTACKING;
 		}
 
 		else
@@ -576,6 +582,8 @@ void setProperty(Entity *e, char *name, char *value)
 
 	else if (strcmpignorecase(name, "FLAGS") == 0)
 	{
+		e->flags = 0;
+		
 		setFlags(e, value);
 	}
 

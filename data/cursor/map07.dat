@@ -22,3 +22,8 @@ enemy/eye_stalk
 common/spawner
 enemy/snail
 enemy/purple_snail
+boss/flying_maggot
+wall/sewer_weak_wall
+boss/flying_maggot_2
+item/health_potion
+weapon/pickaxe

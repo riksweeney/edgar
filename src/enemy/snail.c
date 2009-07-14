@@ -103,7 +103,7 @@ static void die()
 {
 	Entity *e;
 
-	if (prand() % 3 == 0)
+	if ((prand() % 3 == 0) && isSpaceEmpty(self) == NULL)
 	{
 		/* Drop a shell */
 
@@ -154,6 +154,8 @@ static void lookForPlayer()
 static void spitAttackInit()
 {
 	setEntityAnimation(self, ATTACK_1);
+	
+	playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
 	self->animationCallback = &spitAttack;
 
@@ -167,8 +169,6 @@ static void spitAttack()
 
 	x = self->x + (self->face == LEFT ? -5 : self->w - 6);
 	y = self->y + 21;
-	
-	playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
 	e = addProjectile("common/green_blob", self, x, y, (self->face == LEFT ? -6 : 6), 0);
 

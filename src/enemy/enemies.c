@@ -52,6 +52,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/golem_boss.h"
 #include "../boss/snake_boss.h"
 #include "../boss/fly_boss.h"
+#include "../boss/flying_maggot.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -85,7 +86,9 @@ static Constructor enemies[] = {
 {"enemy/snail", &addSnail},
 {"enemy/purple_snail", &addSnail},
 {"enemy/purple_snail_shell", &addSnailShell},
-{"enemy/snail_shell", &addSnailShell}
+{"enemy/snail_shell", &addSnailShell},
+{"boss/flying_maggot", &addFlyingMaggot},
+{"boss/flying_maggot_2", &addFlyingMaggot}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
