@@ -136,7 +136,7 @@ static void firstEncounter()
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
 	
-		facePlayer();
+		self->face = LEFT;
 		
 		self->action = &firstEncounterMoveToPosition;
 		

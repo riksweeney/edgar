@@ -8,7 +8,7 @@ TALK Note If I don't find a way out of here soon, I fear I may starve
 SET Edgar FACE RIGHT
 TALK Edgar If I don't get out of here I'll suffer the same fate...
 ADD OBJECTIVE "Collect 3 Access Keys" ""
-ADD TRIGGER "Access Keys" 3 UPDATE_TRIGGER "Collect 3 Access Keys"
+ADD TRIGGER "Access Keys" 3 UPDATE_OBJECTIVE "Collect 3 Access Keys"
 ADD TRIGGER "Access Key 1" 1 UPDATE_TRIGGER "Access Keys"
 ADD TRIGGER "Access Key 2" 1 UPDATE_TRIGGER "Access Keys"
 ADD TRIGGER "Access Key 3" 1 UPDATE_TRIGGER "Access Keys"
