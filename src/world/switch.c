@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../collisions.h"
 
-extern Entity *self;
+extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void activate(int);
@@ -78,7 +78,7 @@ static void call(int val)
 			if (removeInventoryItem(self->requires) == 1)
 			{
 				setInfoBoxMessage(60,  _("Used %s"), self->requires);
-				
+
 				self->requires[0] = '\0';
 			}
 
@@ -122,12 +122,14 @@ static void call(int val)
 
 static void activate(int val)
 {
+	int i, remaining = 0;
+
 	if (strlen(self->requires) != 0)
 	{
 		if (removeInventoryItem(self->requires) == 1)
 		{
 			setInfoBoxMessage(60,  _("Used %s"), self->requires);
-			
+
 			self->requires[0] = '\0';
 		}
 
@@ -145,10 +147,33 @@ static void activate(int val)
 
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
 
-	printf("Activating entities with name %s\n", self->objectiveName);
+	if (self->active == TRUE)
+	{
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			if (entity[i].inUse == TRUE && self != &entity[i] && entity[i].active == FALSE
+				&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+			{
+				remaining++;
+			}
+		}
 
-	activateEntitiesWithRequiredName(self->objectiveName, self->active);
-	
+		if (remaining == 0)
+		{
+			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		}
+
+		else
+		{
+			setInfoBoxMessage(30,  _("%d more to go..."), remaining);
+		}
+	}
+
+	else
+	{
+		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
+	}
+
 	if (self->maxThinkTime != 0)
 	{
 		self->thinkTime = self->maxThinkTime;
@@ -164,9 +189,9 @@ static void wait()
 		if (self->thinkTime == 0)
 		{
 			self->active = self->active == TRUE ? FALSE : TRUE;
-			
+
 			/* Switch time out */
-			
+
 			if (strcmpignorecase(self->name, "common/switch") == 0)
 			{
 				activateEntitiesWithRequiredName(self->objectiveName, self->active);

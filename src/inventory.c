@@ -88,7 +88,7 @@ int addToInventory(Entity *e)
 				else
 				{
 					setInfoBoxMessage(10, _("Cannot carry any more %s"), inventory.item[i].objectiveName);
-					
+
 					return FALSE;
 				}
 			}
@@ -118,7 +118,7 @@ int addToInventory(Entity *e)
 				{
 					autoSetPlayerShield(&inventory.item[i]);
 				}
-				
+
 				if ((inventory.item[i].flags & STACKABLE) && inventory.item[i].health == 0)
 				{
 					inventory.item[i].health = 1;

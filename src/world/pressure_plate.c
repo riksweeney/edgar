@@ -24,12 +24,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../hud.h"
 
-extern Entity *self;
+extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void wait(void);
 static void activate(int);
 static void touch(Entity *);
+static void init(void);
 
 Entity *addPressurePlate(char *name, int x, int y)
 {
@@ -46,7 +47,7 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 	e->touch = &touch;
 
-	e->action = &wait;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -66,6 +67,13 @@ Entity *addPressurePlate(char *name, int x, int y)
 	return e;
 }
 
+static void init()
+{
+	self->health = self->maxHealth = 0;
+
+	self->action = &wait;
+}
+
 static void wait()
 {
 	if (self->health != self->maxHealth)
@@ -75,6 +83,8 @@ static void wait()
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 
 		self->maxHealth = self->health;
+
+		self->active = FALSE;
 	}
 
 	self->health = 0;
@@ -100,13 +110,34 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
+	int i, remaining = 0;
+
 	self->health = val;
 
 	if (self->health != self->maxHealth)
 	{
 		setEntityAnimation(self, WALK);
 
-		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		self->active = TRUE;
+
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			if (entity[i].inUse == TRUE && self != &entity[i] && entity[i].active == FALSE
+				&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+			{
+				remaining++;
+			}
+		}
+
+		if (remaining == 0)
+		{
+			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		}
+
+		else
+		{
+			setInfoBoxMessage(30,  _("%d more to go..."), remaining);
+		}
 
 		self->maxHealth = self->health;
 	}
