@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../hud.h"
 #include "../player.h"
+#include "../geometry.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -38,6 +39,7 @@ static void clawAttack(void);
 static void stingAttack(void);
 static void attackFinished(void);
 static void attack(void);
+static void takeDamage(Entity *, int);
 
 Entity *addScorpion(int x, int y, char *name)
 {
@@ -45,7 +47,7 @@ Entity *addScorpion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Baby Slime\n");
+		printf("No free slots to add a Scorpion\n");
 
 		exit(1);
 	}
@@ -59,9 +61,8 @@ Entity *addScorpion(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->pain = NULL;
-	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
+	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
 
@@ -70,39 +71,47 @@ Entity *addScorpion(int x, int y, char *name)
 	return e;
 }
 
+static void takeDamage(Entity *other, int damage)
+{
+	entityTakeDamageNoFlinch(other, damage);
+
+	if (other->type == WEAPON && self->action != &attack && self->health > 0)
+	{
+		self->action = &attack;
+		
+		facePlayer();
+	}
+}
+
 static void lookForPlayer()
 {
-	checkToMap(self);
+	setEntityAnimation(self, WALK);
 
-	if (self->dirX == 0)
+	moveLeftToRight();
+
+	if (player.health > 0 && prand() % 10 == 0)
 	{
-		self->face = self->face == LEFT ? RIGHT : LEFT;
-
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	}
-
-	if (prand() % 5 == 0)
-	{
-		if (collision(self->x - 320, self->y, 640, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &attack;
 
-			self->dirX = 0;
+			facePlayer();
 		}
 	}
-
-	facePlayer();
 }
 
 static void attack()
 {
-	int width = self->face == LEFT ? self->x : self->x + self->w - 1;
-	int move;
+	int distance, move;
+
+	distance = getHorizontalDistance(self, &player);
 
 	/* Move into attack range */
 
-	if (abs(width - self->x) > 32)
+	if (distance > 2)
 	{
+		setEntityAnimation(self, WALK);
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		self->thinkTime = 60 + prand() % 120;
@@ -110,6 +119,10 @@ static void attack()
 
 	else
 	{
+		self->dirX = 0;
+
+		setEntityAnimation(self, STAND);
+
 		move = prand() % 3;
 
 		switch (move)
@@ -121,6 +134,7 @@ static void attack()
 
 			default:
 				self->action = &stingAttack;
+				self->action = &clawAttack;
 			break;
 		}
 	}
@@ -128,11 +142,18 @@ static void attack()
 	facePlayer();
 
 	checkToMap(self);
+	
+	if (isAtEdge(self) == TRUE)
+	{
+		self->action = &lookForPlayer;
+	}
 }
 
 static void clawAttack()
 {
 	setEntityAnimation(self, ATTACK_1);
+
+	self->flags |= ATTACKING;
 
 	self->animationCallback = &attackFinished;
 }
@@ -141,24 +162,28 @@ static void stingAttack()
 {
 	setEntityAnimation(self, ATTACK_2);
 
-	self->flags |= UNBLOCKABLE;
+	self->flags |= ATTACKING|UNBLOCKABLE;
 
 	self->animationCallback = &attackFinished;
 }
 
 static void attackFinished()
 {
-	self->flags &= ~UNBLOCKABLE;
+	self->action = &attackFinished;
 
-	self->thinkTime = 60 + prand() % 120;
+	setEntityAnimation(self, STAND);
 
-	if (collision(self->x - 320, self->y, 640, self->h, player.x, player.y, player.w, player.h) == 1)
+	self->flags &= ~(UNBLOCKABLE|ATTACKING);
+
+	if (collision(self->x + self->face == LEFT ? -160 : self->w, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
 		self->action = &attack;
 	}
 
 	else
 	{
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		
 		self->action = &lookForPlayer;
 	}
 }

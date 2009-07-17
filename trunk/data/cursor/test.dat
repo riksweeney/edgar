@@ -3,3 +3,10 @@ lift/mine_lift
 common/save_point
 common/pressure_plate
 common/switch
+enemy/snail
+weapon/bow
+weapon/normal_arrow
+weapon/small_wooden_shield
+enemy/purple_snail
+enemy/scorpion
+weapon/basic_sword

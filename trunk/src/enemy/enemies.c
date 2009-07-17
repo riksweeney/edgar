@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "eye_stalk.h"
 #include "snail.h"
 #include "snail_shell.h"
+#include "scorpion.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -88,7 +89,8 @@ static Constructor enemies[] = {
 {"enemy/purple_snail_shell", &addSnailShell},
 {"enemy/snail_shell", &addSnailShell},
 {"boss/flying_maggot", &addFlyingMaggot},
-{"boss/flying_maggot_2", &addFlyingMaggot}
+{"boss/flying_maggot_2", &addFlyingMaggot},
+{"enemy/scorpion", &addScorpion}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-11 10:59+0100\n"
+"POT-Creation-Date: 2009-07-15 08:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Small Rock"
 msgstr ""
 
-#: src/item/potions.c:73 src/world/switch.c:80 src/world/switch.c:129
+#: src/item/potions.c:73 src/world/switch.c:80 src/world/switch.c:131
 #: src/world/door.c:113
 #, c-format
 msgid "Used %s"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "data/menu/control_menu.dat"
 msgstr ""
 
-#: src/npc/npc.c:83 src/npc/borgan.c:102 src/npc/villager.c:83
+#: src/npc/npc.c:81 src/npc/borgan.c:100 src/npc/villager.c:81
 #, c-format
 msgid "Press Action to talk to %s"
 msgstr ""
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Objective Completed: %s"
 msgstr ""
 
-#: src/boss/fly_boss.c:914 src/boss/fly_boss.c:920
+#: src/boss/fly_boss.c:909 src/boss/fly_boss.c:915
 msgid "The wall on the right looks weak..."
 msgstr ""
 
@@ -142,12 +142,17 @@ msgstr ""
 msgid "The Legend of Edgar"
 msgstr ""
 
-#: src/world/switch.c:87 src/world/switch.c:136
+#: src/world/switch.c:87 src/world/switch.c:138
 #, c-format
 msgid "%s is needed to activate this switch"
 msgstr ""
 
-#: src/world/switch.c:183
+#: src/world/switch.c:168 src/world/pressure_plate.c:139
+#, c-format
+msgid "%d more to go..."
+msgstr ""
+
+#: src/world/switch.c:220
 msgid "Press Action to use this switch"
 msgstr ""
 
@@ -155,7 +160,7 @@ msgstr ""
 msgid "Press Action to save your game"
 msgstr ""
 
-#: src/world/pressure_plate.c:96
+#: src/world/pressure_plate.c:106
 #, c-format
 msgid "%s is required to use this Pressure Plate"
 msgstr ""

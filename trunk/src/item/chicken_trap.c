@@ -90,7 +90,7 @@ static void trapEntity()
 	setEntityAnimation(self, ATTACK_3);
 
 	playSoundToMap("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
-	
+
 	self->thinkTime = 180;
 
 	if (self->target == NULL)
@@ -99,8 +99,8 @@ static void trapEntity()
 	}
 
 	else
-	{	
-		fireGlobalTrigger("Chicken");
+	{
+		fireGlobalTrigger(_("Chicken"));
 
 		self->action = &removeChicken;
 	}

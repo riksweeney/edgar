@@ -81,6 +81,8 @@ Entity *addSnail(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		/* Can't be hurt if not facing the player */
@@ -90,6 +92,17 @@ static void takeDamage(Entity *other, int damage)
 			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock();
+
+				self = temp;
+			}
 		}
 
 		else
@@ -154,7 +167,7 @@ static void lookForPlayer()
 static void spitAttackInit()
 {
 	setEntityAnimation(self, ATTACK_1);
-	
+
 	playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
 	self->animationCallback = &spitAttack;

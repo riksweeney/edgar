@@ -40,17 +40,38 @@ void calculatePath(float startX, float startY, float endX, float endY, float *di
 void calculateTrajectory(int startX, int endX, float weight, float flightTime, float height, float *dirX, float *dirY)
 {
 	float hDistance;
-	
+
 	hDistance = abs(startX - endX);
-	
+
 	*dirX = hDistance / flightTime;
-	
+
 	if (startX > endX)
 	{
 		*dirX *= -1;
 	}
-	
+
 	flightTime /= 2;
-	
+
 	*dirY = -(height + 0.5 * weight * GRAVITY_SPEED * flightTime * flightTime) / flightTime;
+}
+
+int getHorizontalDistance(Entity *e1, Entity *e2)
+{
+	int x1, x2;
+
+	if (e1->x < e2->x)
+	{
+		x1 = e1->x + e1->box.x + e1->box.w - 1;
+
+		x2 = e2->x + e2->w - 1 - e2->box.x - e2->box.w;
+	}
+
+	else
+	{
+		x1 = e1->x + e1->w - 1 - e1->box.x - e1->box.w;
+
+		x2 = e2->x + e2->box.x + e2->box.w - 1;
+	}
+
+	return abs(x1 - x2);
 }

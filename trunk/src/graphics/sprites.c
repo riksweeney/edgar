@@ -98,8 +98,6 @@ static int loadSprite(char *name)
 	
 	if (read == 5)
 	{
-		printf("Setting bounding box information for %s\n", filename);
-		
 		sprite[spriteID].box.x = x;
 		sprite[spriteID].box.y = y;
 		sprite[spriteID].box.w = w;
