@@ -24,10 +24,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/properties.h"
 #include "entity.h"
 #include "collisions.h"
+#include "system/random.h"
 
 static void projectileMove(void);
 static void projectileDie(void);
 static void removeProjectile(void);
+static void stickToTargetWait(void);
 
 extern Entity *self;
 
@@ -121,4 +123,58 @@ static void projectileDie()
 static void removeProjectile()
 {
 	self->inUse = FALSE;
+}
+
+void stickToTarget()
+{
+	if (self->target != NULL)
+	{
+		self->thinkTime = 600;
+
+		self->action = &stickToTargetWait;
+
+		self->flags |= DO_NOT_PERSIST;
+
+		self->touch = NULL;
+
+		self->startX = prand() % 6;
+
+		self->startY = prand() % 4 * prand() % 2 == 0 ? -1 : 1;
+	}
+
+	else
+	{
+		if (hasEntityAnimation(self, DIE) == TRUE)
+		{
+			self->die = &projectileDie;
+		}
+
+		else
+		{
+			self->die = &removeProjectile;
+		}
+
+		self->die();
+	}
+}
+
+static void stickToTargetWait()
+{
+	self->thinkTime--;
+
+	if (self->target == NULL || self->target->inUse == FALSE || self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+
+		return;
+	}
+
+	self->x = self->target->x;
+	self->y = self->target->y;
+
+	self->face = self->target->face == LEFT ? RIGHT : LEFT;
+
+	self->x += self->face == RIGHT ? -self->w + self->startX : self->target->w - self->targetX;
+
+	self->y += self->startY;
 }

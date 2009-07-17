@@ -743,7 +743,7 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (other->dirX != 0 && (player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE))
+	if ((player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE))
 	{
 		if (other->type == PROJECTILE)
 		{
@@ -785,9 +785,18 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 
-		else if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT))
+		else if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT)
+			|| ((other->flags & ATTACKING) && ((other->x < player.x && player.face == LEFT) || (other->x > player.x && player.face == RIGHT))))
 		{
-			player.dirX = other->dirX < 0 ? -2 : 2;
+			if (other->dirX != 0)
+			{
+				player.dirX = other->dirX < 0 ? -2 : 2;
+			}
+
+			else
+			{
+				player.dirX = player.x < other->x ? -6 : 6;
+			}
 
 			checkToMap(&player);
 
@@ -852,7 +861,15 @@ static void takeDamage(Entity *other, int damage)
 
 			if (player.dirX == 0)
 			{
-				player.dirX = other->dirX < 0 ? -6 : 6;
+				if (other->dirX == 0)
+				{
+					player.dirX = other->x > player.x ? -6 : 6;
+				}
+
+				else
+				{
+					player.dirX = other->dirX < 0 ? -6 : 6;
+				}
 			}
 
 			else
@@ -1253,6 +1270,8 @@ static void fireArrow()
 	if (arrow != NULL)
 	{
 		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
+
+		e->die = &stickToTarget;
 
 		e->face = player.face;
 

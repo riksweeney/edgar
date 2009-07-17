@@ -345,6 +345,8 @@ void entityDie()
 	{
 		self->flags &= ~FLY;
 
+		self->flags |= DO_NOT_PERSIST;
+
 		self->thinkTime = 60;
 
 		setCustomAction(self, &invulnerable, 240, 0);
@@ -388,6 +390,8 @@ void entityDieNoDrop()
 	{
 		self->flags &= ~FLY;
 
+		self->flags |= DO_NOT_PERSIST;
+
 		self->thinkTime = 60;
 
 		setCustomAction(self, &invulnerable, 240, 0);
@@ -430,6 +434,11 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 	{
 		self->health -= damage;
 
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
 		if (self->health > 0)
 		{
 			setCustomAction(self, &helpless, 10, 0);
@@ -462,6 +471,11 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 	if (damage != 0)
 	{
 		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
 
 		if (self->health > 0)
 		{
@@ -630,11 +644,11 @@ void pushEntity(Entity *other)
 				self->y -= self->dirY;
 
 				self->dirX += other->dirX;
-				
+
 				wasOnGround = (self->flags & ON_GROUND);
 
 				checkToMap(self);
-				
+
 				if (wasOnGround != 0)
 				{
 					self->flags |= ON_GROUND;
@@ -662,13 +676,13 @@ void pushEntity(Entity *other)
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-				
+
 				if (other->x < self->x)
 				{
 					other->x = self->x + self->box.x;
 					other->x -= other->w;
 				}
-				
+
 				else
 				{
 					other->x = self->x + self->box.x;
@@ -708,7 +722,7 @@ void pushEntity(Entity *other)
 				wasOnGround = (self->flags & ON_GROUND);
 
 				checkToMap(self);
-				
+
 				if (wasOnGround != 0)
 				{
 					self->flags |= ON_GROUND;
@@ -736,13 +750,13 @@ void pushEntity(Entity *other)
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-				
+
 				if (other->x > self->x)
 				{
 					other->x = self->x + self->box.x;
 					other->x += self->w;
 				}
-				
+
 				else
 				{
 					other->x = self->x + self->box.x;

@@ -143,7 +143,7 @@ void freeCollisionGrid()
 
 void doCollisions()
 {
-	int i, j, x, y;
+	int i, j, x1, y1, x2, y2, w1, h1, w2, h2;
 	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
@@ -155,7 +155,7 @@ void doCollisions()
 			{
 				e1 = list1->entity;
 
-				if (e1->inUse == TRUE)
+				if (e1->inUse == TRUE && e1->touch != NULL)
 				{
 					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
 					{
@@ -182,26 +182,56 @@ void doCollisions()
 								continue;
 							}
 
-							x = e1->x + e1->box.x;
-							y = e1->y + e1->box.y;
+							if (e1->face == RIGHT)
+							{
+								x1 = e1->x + e1->box.x;
+							}
+
+							else
+							{
+								x1 = e1->x + e1->w - e1->box.w - e1->box.x;
+							}
+
+							y1 = e1->y + e1->box.y;
+
+							w1 = e1->box.w;
+							h1 = e1->box.h;
+
+							if (e2->face == RIGHT)
+							{
+								x2 = e2->x + e2->box.x;
+							}
+
+							else
+							{
+								x2 = e2->x + e2->w - e2->box.w - e2->box.x;
+							}
+
+							y2 = e2->y + e2->box.y;
+
+							w2 = e2->box.w;
+							h2 = e2->box.h;
 
 							if (e1 == &playerWeapon)
 							{
+								x1 = e1->x + e1->box.x;
+								y1 = e1->y + e1->box.y;
+
 								if (e1->face == LEFT)
 								{
-									x += e1->parent->w - e1->w - e1->offsetX;
+									x1 += e1->parent->w - e1->w - e1->offsetX;
 								}
 
 								else
 								{
-									x += e1->offsetX;
+									x1 += e1->offsetX;
 								}
 
 
-								y += e1->offsetY;
+								y1 += e1->offsetY;
 							}
 
-							if (collision(x, y, e1->box.w, e1->box.h, e2->x + e2->box.x, e2->y + e2->box.y, e2->box.w, e2->box.h) == TRUE)
+							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
 								temp = self;
 
@@ -221,7 +251,7 @@ void doCollisions()
 
 void checkEntityToEntity(Entity *e)
 {
-	int i, j, x, y;
+	int i, j, x1, y1, x2, y2, w1, h1, w2, h2;
 	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
@@ -270,26 +300,56 @@ void checkEntityToEntity(Entity *e)
 								continue;
 							}
 
-							x = e1->x + e1->box.x;
-							y = e1->y + e1->box.y;
+							if (e1->face == RIGHT)
+							{
+								x1 = e1->x + e1->box.x;
+							}
+
+							else
+							{
+								x1 = e1->x + e1->w - e1->box.w - e1->box.x;
+							}
+
+							y1 = e1->y + e1->box.y;
+
+							w1 = e1->box.w;
+							h1 = e1->box.h;
+
+							if (e2->face == RIGHT)
+							{
+								x2 = e2->x + e2->box.x;
+							}
+
+							else
+							{
+								x2 = e2->x + e2->w - e2->box.w - e2->box.x;
+							}
+
+							y2 = e2->y + e2->box.y;
+
+							w2 = e2->box.w;
+							h2 = e2->box.h;
 
 							if (e1 == &playerWeapon)
 							{
+								x1 = e1->x + e1->box.x;
+								y1 = e1->y + e1->box.y;
+
 								if (e1->face == LEFT)
 								{
-									x += e1->parent->w - e1->w - e1->offsetX;
+									x1 += e1->parent->w - e1->w - e1->offsetX;
 								}
 
 								else
 								{
-									x += e1->offsetX;
+									x1 += e1->offsetX;
 								}
 
 
-								y += e1->offsetY;
+								y1 += e1->offsetY;
 							}
 
-							if (collision(x, y, e1->box.w, e1->box.h, e2->x + e2->box.x, e2->y + e2->box.y, e2->box.w, e2->box.h) == TRUE)
+							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
 								temp = self;
 
@@ -874,8 +934,6 @@ void checkToMap(Entity *e)
 	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
-
-		printf("%s fell out of map\n", e->name);
 
 		e->fallout();
 	}
