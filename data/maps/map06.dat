@@ -1,5 +1,5 @@
 MAP_NAME Outside the Fortress
-MUSIC none
+MUSIC music/spacebrain_-_haunted.mod
 TILESET outskirts
 AMBIENCE outskirts
 BACKGROUND_SPEED 0.3

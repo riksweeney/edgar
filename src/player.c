@@ -519,6 +519,11 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+	
+	if (player.target != NULL)
+	{
+		player.face = player.x < player.target->x ? LEFT : RIGHT;
+	}
 
 	player.dirX = 0;
 
@@ -527,6 +532,8 @@ void playerWaitForDialog()
 
 void playerResumeNormal()
 {
+	player.target = NULL;
+	
 	player.action = NULL;
 }
 
