@@ -496,9 +496,9 @@ void drawMap(int depth)
 
 			drawClippedImage(map.background[0], x, y, 0, 0, map.background[0]->w - x, map.background[0]->h - y);
 
-			drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
+			drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, map.background[0]->h - y);
 
-			drawClippedImage(map.background[0], x, 0, 0, map.background[0]->h - y, SCREEN_WIDTH, y);
+			drawClippedImage(map.background[0], x, 0, 0, map.background[0]->h - y, map.background[0]->w - x, y);
 
 			drawClippedImage(map.background[0], 0, 0, map.background[0]->w - x, map.background[0]->h - y, x, y);
 		}
@@ -548,9 +548,9 @@ void drawMap(int depth)
 
 				drawClippedImage(map.background[1], x, y, 0, 0, map.background[1]->w - x, map.background[1]->h - y);
 
-				drawClippedImage(map.background[1], 0, y, map.background[1]->w - x, 0, x, SCREEN_HEIGHT);
+				drawClippedImage(map.background[1], 0, y, map.background[1]->w - x, 0, x, map.background[1]->h - y);
 
-				drawClippedImage(map.background[1], x, 0, 0, map.background[1]->h - y, SCREEN_WIDTH, y);
+				drawClippedImage(map.background[1], x, 0, 0, map.background[1]->h - y, map.background[1]->w - x, y);
 
 				drawClippedImage(map.background[1], 0, 0, map.background[1]->w - x, map.background[1]->h - y, x, y);
 			}

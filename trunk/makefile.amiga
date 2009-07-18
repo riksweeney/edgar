@@ -12,9 +12,9 @@ PAK_PROG  = pak
 CXX       = ppc-amigaos-gcc
 SDLC      = /usr/local/amiga/ppc-amigaos/SDK/clib2/bin/sdl-config
 
-CFLAGS = `$(SDLC) --cflags` -fno-builtin-scalb -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = `$(SDLC) --cflags` -fno-builtin-scalb -DNO_GETTEXT -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-LFLAGS = `$(SDLC) --libs` -lintl -lSDL_mixer -lSDL_image -lSDL_ttf -lSDL -lpng -ljpeg -lfreetype -lz -ldebug
+LFLAGS = `$(SDLC) --libs` -lSDL_mixer -lSDL_image -lSDL_ttf -lSDL -lpng12 -ljpeg -lfreetype -lzip -ldebug
 
 PAK_OBJS   = pak_creator.o
 MAIN_OBJS  = draw.o main.o

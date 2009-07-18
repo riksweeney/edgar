@@ -29,6 +29,11 @@ static void playGameOverMusic(void);
 
 void loadMusic(char *name)
 {
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	freeMusic();
 
 	game.music = loadMusicFromPak(name);
@@ -86,6 +91,11 @@ void freeBossMusic()
 
 void playMusic()
 {
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
 	if (game.music == NULL)
@@ -134,6 +144,11 @@ void pauseMusic()
 
 void playBossMusic()
 {
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	if (game.bossMusic == NULL)
 	{
 		loadBossMusic("music/terrortech_inc_.xm");
@@ -148,6 +163,11 @@ void playBossMusic()
 
 void loadBossMusic(char *name)
 {
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	freeBossMusic();
 
 	game.bossMusic = Mix_LoadMUS(name);
@@ -161,7 +181,7 @@ void loadBossMusic(char *name)
 void resumeMusic()
 {
 	Mix_HookMusicFinished(NULL);
-	
+
 	playMusic();
 }
 
@@ -181,8 +201,13 @@ void loadGameOverMusic()
 
 static void playGameOverMusic()
 {
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+
 	Mix_HookMusicFinished(NULL);
-	
+
 	loadMusic("music/oxide_-_sadness.xm");
 
 	playMusic();

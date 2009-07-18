@@ -675,6 +675,51 @@ void readNextScriptLine()
 			
 			e->dirY = -JUMP_HEIGHT;
 		}
+		
+		else if (strcmpignorecase("WATCH", command) == 0)
+		{
+			freeDialogBox();
+
+			token = strtok_r(NULL, " ", &savePtr);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				printf("WATCH command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+			
+			token = strtok_r(NULL, " ", &savePtr);
+			
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e2 = &player;
+			}
+
+			else
+			{
+				e2 = getEntityByObjectiveName(token);
+			}
+
+			if (e2 == NULL)
+			{
+				printf("FACE command could not find Entity \"%s\"\n", token);
+
+				exit(1);
+			}
+			
+			e->target = e2;
+		}
 
 		else if (strcmpignorecase("LIMIT_CAMERA", command) == 0)
 		{

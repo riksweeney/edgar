@@ -172,7 +172,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define ITEM_JUMP_HEIGHT -6
 
-#define _(string) gettext(string)
+#ifndef NO_GETTEXT
+	#define _(string) gettext(string)
+#else
+	#define _(string) string
+#endif
 
 #define SCREENSHOT_KEY SDLK_F10
 

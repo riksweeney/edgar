@@ -25,10 +25,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <ctype.h>
 #include <locale.h>
 #include <zlib.h>
-#include <libintl.h>
 #include <dirent.h>
 #include <sys/types.h>
 #include <stdarg.h>
+
+#ifndef NO_GETTEXT
+	#include <libintl.h>
+#endif
 
 #ifndef WIN32
 	#include <sys/stat.h>
