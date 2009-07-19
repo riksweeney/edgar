@@ -136,8 +136,6 @@ static void rain()
 		{
 			droplet[i].y += droplet[i].dirY;
 
-			droplet[i].x = (int)droplet[i].x % SCREEN_WIDTH;
-
 			if (droplet[i].y >= maxY || mapTileAt((startX + droplet[i].x) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 			{
 				droplet[i].x = prand() % SCREEN_WIDTH;

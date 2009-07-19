@@ -37,6 +37,7 @@ static void wait(void);
 static void setToStart(void);
 static void moveToTarget(void);
 static void touch(Entity *);
+static Target *getLiftTarget(char *, int);
 
 Entity *addLift(char *name, int startX, int startY, int type)
 {
@@ -74,7 +75,9 @@ Entity *addLift(char *name, int startX, int startY, int type)
 static void touch(Entity *other)
 {
 	int bottomBefore;
+	float dirX;
 	Entity *temp;
+	Target *t;
 
 	/* Test the horizontal movement */
 
@@ -101,6 +104,42 @@ static void touch(Entity *other)
 			
 			if (abs(bottomBefore - self->y) < self->h - 1)
 			{
+				if (self->dirY < 0)
+				{
+					other->y -= self->dirY;
+					
+					other->dirY = self->dirY;
+					
+					dirX = other->dirX;
+					
+					other->dirX = 0;
+					
+					checkToMap(other);
+					
+					other->dirX = dirX;
+					
+					if (other->dirY == 0)
+					{
+						self->y = other->y + other->h;
+						
+						if (self->type == AUTO_LIFT)
+						{
+							self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
+							self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
+						}
+						
+						else
+						{
+							self->health--;
+							
+							t = getLiftTarget(self->objectiveName, self->health);
+							
+							self->targetX = t->x;
+							self->targetY = t->y;
+						}
+					}
+				}
+				
 				/* Place the player as close to the solid tile as possible */
 	
 				other->y = self->y;
@@ -119,9 +158,19 @@ static void touch(Entity *other)
 	}
 }
 
-static void findTarget(int val)
+static Target *getLiftTarget(char *name, int targetID)
 {
 	char targetName[MAX_VALUE_LENGTH];
+
+	snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", name, targetID);
+	
+	/* Search for the lift's target */
+	
+	return getTargetByName(targetName);
+}
+
+static void findTarget(int val)
+{
 	Target *t;
 
 	if (self->active == TRUE)
@@ -138,11 +187,9 @@ static void findTarget(int val)
 			self->health = 0;
 		}
 
-		snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", self->objectiveName, self->health);
-
 		/* Search for the lift's target */
 
-		t = getTargetByName(targetName);
+		t = getLiftTarget(self->objectiveName, self->health);
 
 		if (t != NULL)
 		{
