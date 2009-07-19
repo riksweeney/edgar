@@ -1,4 +1,4 @@
-VERSION = 0.12
+VERSION = 0.20
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -14,7 +14,7 @@ SDLC      = /usr/local/amiga/ppc-amigaos/SDK/clib2/bin/sdl-config
 
 CFLAGS = `$(SDLC) --cflags` -fno-builtin-scalb -DNO_GETTEXT -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-LFLAGS = `$(SDLC) --libs` -lSDL_image -ltiff -lpng12 -ljpeg -lz -lSDL_mixer -lsmpeg -lvorbisfile -lvorbis -lSDL_ttf -lfreetype -lz -lSDL -lauto -lpthread -lunix
+LFLAGS = `$(SDLC) --libs` -lSDL_image -ltiff -lpng12 -ljpeg -lz -lSDL_mixer -lsmpeg -logg -lvorbisfile -lvorbis -lSDL_ttf -lfreetype -lz -lSDL -lauto -lpthread -lunix
 
 PAK_OBJS   = pak_creator.o
 MAIN_OBJS  = draw.o main.o
