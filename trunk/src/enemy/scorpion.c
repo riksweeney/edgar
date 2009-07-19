@@ -113,8 +113,6 @@ static void attack()
 		setEntityAnimation(self, WALK);
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-		self->thinkTime = 60 + prand() % 120;
 	}
 
 	else
@@ -154,6 +152,8 @@ static void clawAttack()
 	setEntityAnimation(self, ATTACK_1);
 
 	self->flags |= ATTACKING;
+	
+	self->thinkTime = 60;
 
 	self->animationCallback = &attackFinished;
 }
@@ -169,21 +169,26 @@ static void stingAttack()
 
 static void attackFinished()
 {
+	self->thinkTime--;
+	
 	self->action = &attackFinished;
 
 	setEntityAnimation(self, STAND);
 
 	self->flags &= ~(UNBLOCKABLE|ATTACKING);
-
-	if (collision(self->x + self->face == LEFT ? -160 : self->w, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+	
+	if (self->thinkTime <= 0)
 	{
-		self->action = &attack;
-	}
-
-	else
-	{
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
-		self->action = &lookForPlayer;
+		if (collision(self->x + self->face == LEFT ? -160 : self->w, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		{
+			self->action = &attack;
+		}
+	
+		else
+		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			
+			self->action = &lookForPlayer;
+		}
 	}
 }

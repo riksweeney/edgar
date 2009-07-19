@@ -121,6 +121,8 @@ mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
 
 cd ..
 
+chmod +x buildwindows.sh
+
 ./buildwindows.sh $1
 
 echo "All Done..."

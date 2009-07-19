@@ -453,6 +453,10 @@ void getInventoryItemFromScript(char *line)
 		if (strcmpignorecase(command, "REMOVE") == 0)
 		{
 			item->health -= quantityToRemove;
+			
+			updateTrigger(itemName, quantityToRemove);
+			
+			updateGlobalTrigger(itemName, quantityToRemove);
 
 			if (item->health <= 0 || quantityToRemove == -1)
 			{

@@ -209,6 +209,26 @@ void fireGlobalTrigger(char *name)
 	}
 }
 
+void updateGlobalTrigger(char *name, int value)
+{
+	int i;
+
+	if (strlen(name) == 0)
+	{
+		return;
+	}
+
+	for (i=0;i<MAX_TRIGGERS;i++)
+	{
+		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
+		{
+			printf("Modifying global trigger value from %d to %d\n", trigger[i].count, (trigger[i].count - value));
+			
+			trigger[i].count -= value;
+		}
+	}
+}
+
 void writeGlobalTriggersToFile(FILE *fp)
 {
 	int i;

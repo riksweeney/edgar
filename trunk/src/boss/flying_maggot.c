@@ -337,6 +337,8 @@ static void firstEncounterDie()
 	
 	self->startX = self->x;
 	
+	self->animationCallback = NULL;
+	
 	setEntityAnimation(self, STAND);
 }
 
@@ -384,6 +386,8 @@ static void secondEncounterDie()
 	self->startY = 0;
 	
 	self->startX = self->x;
+	
+	self->animationCallback = NULL;
 	
 	setEntityAnimation(self, STAND);
 }

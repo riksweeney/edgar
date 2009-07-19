@@ -154,6 +154,11 @@ void doEntities()
 			if (self->standingOn != NULL)
 			{
 				self->dirX += self->standingOn->dirX;
+				
+				if (self->standingOn->dirY > 0)
+				{
+					self->dirY = self->standingOn->dirY + 1;
+				}
 			}
 
 			if (!(self->flags & HELPLESS))
@@ -365,6 +370,11 @@ void entityDie()
 
 void standardDie()
 {
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -375,11 +385,6 @@ void standardDie()
 	}
 
 	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-	}
 }
 
 void entityDieNoDrop()
@@ -408,6 +413,11 @@ void entityDieNoDrop()
 
 void noItemDie()
 {
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -416,11 +426,6 @@ void noItemDie()
 	}
 
 	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-	}
 }
 
 void entityTakeDamageFlinch(Entity *other, int damage)
