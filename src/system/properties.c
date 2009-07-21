@@ -57,7 +57,8 @@ static Type entityType[] = {
 					{ACTION_POINT, "ACTION_POINT"},
 					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"},
 					{FALLING_PLATFORM, "FALLING_PLATFORM"},
-					{TRAP_DOOR, "TRAP_DOOR"}
+					{TRAP_DOOR, "TRAP_DOOR"},
+					{CONVEYOR_BELT, "CONVEYOR_BELT"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 
@@ -335,12 +336,12 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= DO_NOT_PERSIST;
 		}
-		
+
 		else if (strcmpignorecase(token, "PLAYER_TOUCH_ONLY") == 0)
 		{
 			e->flags |= PLAYER_TOUCH_ONLY;
 		}
-		
+
 		else if (strcmpignorecase(token, "ATTACKING") == 0)
 		{
 			e->flags |= ATTACKING;
@@ -432,7 +433,7 @@ void unsetFlags(Entity *e, char *flags)
 		{
 			e->flags &= ~BOUNCES;
 		}
-		
+
 		else if (strcmpignorecase(token, "ATTACKING") == 0)
 		{
 			e->flags &= ~ATTACKING;
@@ -583,7 +584,7 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "FLAGS") == 0)
 	{
 		e->flags = 0;
-		
+
 		setFlags(e, value);
 	}
 

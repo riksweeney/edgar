@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-15 08:17+0100\n"
+"POT-Creation-Date: 2009-07-20 08:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,31 +32,35 @@ msgstr ""
 msgid "Small Rock"
 msgstr ""
 
+#: src/item/chicken_trap.c:103
+msgid "Chicken"
+msgstr ""
+
 #: src/item/potions.c:73 src/world/switch.c:80 src/world/switch.c:131
 #: src/world/door.c:113
 #, c-format
 msgid "Used %s"
 msgstr ""
 
-#: src/player.c:646 src/player.c:651
+#: src/player.c:653 src/player.c:658
 msgid "Cannot equip shields when using the bow"
 msgstr ""
 
-#: src/player.c:663 src/player.c:689
+#: src/player.c:670 src/player.c:696
 #, c-format
 msgid "Equipped %s"
 msgstr ""
 
-#: src/player.c:1074
+#: src/player.c:1098
 msgid "Maximum health has increased!"
 msgstr ""
 
-#: src/player.c:1285 src/player.c:1290
+#: src/player.c:1311 src/player.c:1316
 #, c-format
 msgid "Bow will now fire %s"
 msgstr ""
 
-#: src/player.c:1304 src/player.c:1309
+#: src/player.c:1330 src/player.c:1335
 msgid "A bow is required to use this item"
 msgstr ""
 
@@ -138,7 +142,7 @@ msgstr ""
 msgid "The wall on the right looks weak..."
 msgstr ""
 
-#: src/main.c:64
+#: src/main.c:66
 msgid "The Legend of Edgar"
 msgstr ""
 
@@ -147,7 +151,7 @@ msgstr ""
 msgid "%s is needed to activate this switch"
 msgstr ""
 
-#: src/world/switch.c:168 src/world/pressure_plate.c:139
+#: src/world/switch.c:168 src/world/pressure_plate.c:140
 #, c-format
 msgid "%d more to go..."
 msgstr ""
@@ -160,7 +164,7 @@ msgstr ""
 msgid "Press Action to save your game"
 msgstr ""
 
-#: src/world/pressure_plate.c:106
+#: src/world/pressure_plate.c:107
 #, c-format
 msgid "%s is required to use this Pressure Plate"
 msgstr ""
@@ -183,11 +187,11 @@ msgstr ""
 msgid "Press Action to go to the %s"
 msgstr ""
 
-#: src/world/lift.c:115
+#: src/world/lift.c:154
 msgid "Push Up or Down to use this lift"
 msgstr ""
 
-#: src/world/lift.c:175
+#: src/world/lift.c:222
 msgid "This lift is not active"
 msgstr ""
 
@@ -206,12 +210,12 @@ msgstr ""
 msgid "%s is required to carry this item"
 msgstr ""
 
-#: src/inventory.c:561
+#: src/inventory.c:565
 #, c-format
 msgid "%s (%d)"
 msgstr ""
 
-#: src/inventory.c:566 src/inventory.c:571
+#: src/inventory.c:570 src/inventory.c:575
 #, c-format
 msgid "%s"
 msgstr ""
