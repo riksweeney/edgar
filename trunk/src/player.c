@@ -1278,7 +1278,7 @@ static void fireArrow()
 	{
 		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
 
-		e->die = &stickToTarget;
+		/*e->die = &stickToTarget;*/
 
 		e->face = player.face;
 

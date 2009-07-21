@@ -60,6 +60,7 @@ extern Entity player;
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
 #include "../world/trap_door.h"
+#include "../world/conveyor_belt.h"
 #include "../status_panel.h"
 #include "pak.h"
 
@@ -372,6 +373,11 @@ char *loadResources(char *buffer)
 			else if (strcmpignorecase(value[type], "TRAP_DOOR") == 0)
 			{
 				e = addTrapDoor(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "CONVEYOR_BELT") == 0)
+			{
+				e = addConveyorBelt(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else if (strcmpignorecase(value[type], "SWITCH") == 0)
