@@ -41,12 +41,10 @@ Entity *addActionPoint(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for an Action Point!\n");
+		printf("No free slots to add an Action Point\n");
 
 		exit(1);
 	}
-	
-	printf("Adding action point\n");
 
 	loadProperties(name, e);
 
@@ -73,9 +71,9 @@ Entity *addActionPoint(char *name, int x, int y)
 static void wait()
 {
 	self->thinkTime++;
-	
+
 	self->dirY = 0.2 * cos(DEG_TO_RAD(self->thinkTime));
-	
+
 	self->y += self->dirY;
 }
 

@@ -36,7 +36,7 @@ Entity *addTrapDoor(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for a Trap Door!\n");
+		printf("No free slots to add a Trap Door\n");
 
 		exit(1);
 	}
@@ -64,9 +64,9 @@ Entity *addTrapDoor(char *name, int x, int y)
 static void wait()
 {
 	self->touch = self->active == FALSE ? &touch : NULL;
-	
+
 	self->action = &wait;
-	
+
 	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
 }
 

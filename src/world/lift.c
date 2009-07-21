@@ -45,7 +45,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for a Lift!\n");
+		printf("No free slots to add a Lift\n");
 
 		exit(1);
 	}
@@ -101,54 +101,54 @@ static void touch(Entity *other)
 		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
 		{
 			bottomBefore = other->y + other->h - other->dirY - 1;
-			
+
 			if (abs(bottomBefore - self->y) < self->h - 1)
 			{
 				if (self->dirY < 0)
 				{
 					other->y -= self->dirY;
-					
+
 					other->dirY = self->dirY;
-					
+
 					dirX = other->dirX;
-					
+
 					other->dirX = 0;
-					
+
 					checkToMap(other);
-					
+
 					other->dirX = dirX;
-					
+
 					if (other->dirY == 0)
 					{
 						self->y = other->y + other->h;
-						
+
 						if (self->type == AUTO_LIFT)
 						{
 							self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
 							self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
 						}
-						
+
 						else
 						{
 							self->health--;
-							
+
 							t = getLiftTarget(self->objectiveName, self->health);
-							
+
 							self->targetX = t->x;
 							self->targetY = t->y;
 						}
 					}
 				}
-				
+
 				/* Place the player as close to the solid tile as possible */
-	
+
 				other->y = self->y;
 				other->y -= other->h;
-	
+
 				other->standingOn = self;
 				other->dirY = 0;
 				other->flags |= ON_GROUND;
-	
+
 				if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER && self->dirY == 0)
 				{
 					setInfoBoxMessage(0,  _("Push Up or Down to use this lift"));
@@ -163,9 +163,9 @@ static Target *getLiftTarget(char *name, int targetID)
 	char targetName[MAX_VALUE_LENGTH];
 
 	snprintf(targetName, sizeof(targetName), "%s_TARGET_%d", name, targetID);
-	
+
 	/* Search for the lift's target */
-	
+
 	return getTargetByName(targetName);
 }
 
@@ -275,7 +275,7 @@ static void moveToTarget()
 			self->y += self->dirY;
 		}
 	}
-	
+
 	else
 	{
 		self->dirX = self->dirY = 0;
@@ -301,7 +301,7 @@ static void autoMove()
 			self->action = &moveToTarget;
 		}
 	}
-	
+
 	else
 	{
 		self->dirY = self->dirX = 0;

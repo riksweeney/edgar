@@ -37,7 +37,7 @@ Entity *addLineDef(char *type, char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for a Line def!\n");
+		printf("No free slots to add a Line def\n");
 
 		exit(1);
 	}
@@ -102,7 +102,7 @@ static void initialise()
 
 	self->w = abs(self->startX - self->endX) + 1;
 	self->h = abs(self->startY - self->endY) + 1;
-	
+
 	self->box.x = 0;
 	self->box.y = 0;
 	self->box.w = self->w;

@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
-	
+
 	#ifndef NO_GETTEXT
 		setlocale(LC_ALL, "");
 		setlocale(LC_NUMERIC, "C");
@@ -155,8 +155,16 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		game.gameType = RECORDING;
-		
+		if (recordingID != -1)
+		{
+			game.gameType = RECORDING;
+		}
+
+		else if (replayingID != -1)
+		{
+			game.gameType = REPLAYING;
+		}
+
 		if (loadGame(loadSlot) == FALSE)
 		{
 			printf("No saved game in slot %d\n", loadSlot);
