@@ -39,7 +39,7 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for a Pressure Plate!\n");
+		printf("No free slots to add a Pressure Plate\n");
 
 		exit(1);
 	}

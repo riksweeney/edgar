@@ -154,7 +154,7 @@ void doEntities()
 			if (self->standingOn != NULL)
 			{
 				self->dirX += self->standingOn->dirX;
-				
+
 				if (self->standingOn->dirY > 0)
 				{
 					self->dirY = self->standingOn->dirY + 1;
@@ -374,7 +374,7 @@ void standardDie()
 	{
 		self->dirX = 0;
 	}
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -417,7 +417,7 @@ void noItemDie()
 	{
 		self->dirX = 0;
 	}
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -876,7 +876,7 @@ void activateEntitiesWithRequiredName(char *name, int active)
 
 	if (name == NULL || strlen(name) == 0)
 	{
-		printf("Name is blank!\n");
+		printf("Activate Required Entities : Name is blank!\n");
 
 		exit(1);
 	}
@@ -896,7 +896,7 @@ void activateEntitiesWithObjectiveName(char *name, int active)
 
 	if (name == NULL || strlen(name) == 0)
 	{
-		printf("Name is blank!\n");
+		printf("Activate Objective Entities : Name is blank!\n");
 
 		exit(1);
 	}

@@ -41,7 +41,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("Couldn't get a free slot for a Falling Platform!\n");
+		printf("No free slots to add a Falling Platform\n");
 
 		exit(1);
 	}
@@ -85,7 +85,7 @@ static void wait()
 
 		self->health = 0;
 	}
-	
+
 	else
 	{
 		self->dirY = 0;
@@ -148,7 +148,7 @@ static void initFall()
 		{
 			self->x = self->startX + (3 * (self->x < self->startX ? 1 : -1));
 		}
-		
+
 		self->dirY = 0;
 	}
 
