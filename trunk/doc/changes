@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.30
+
+* Fixed a problem with sprite priorities
+
 Version 0.20
 
 * The game should now work on 64 bit CPUs

@@ -54,25 +54,30 @@ Entity *addConveyorBelt(char *name, int x, int y)
 
 static void wait()
 {
-	if (self->active == FALSE && self->health == 0)
+	if (self->active != self->dirY)
 	{
-		self->dirX = 0;
-	}
-
-	else
-	{
-		if (self->active == TRUE)
+		if (self->active == FALSE && self->health == 0)
 		{
-			self->frameSpeed = self->face == LEFT ? -self->frameSpeed : self->frameSpeed;
-
-			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			self->dirX = 0;
 		}
 
 		else
 		{
-			self->frameSpeed = self->face == RIGHT ? -self->frameSpeed : self->frameSpeed;
+			if (self->active == TRUE)
+			{
+				self->frameSpeed = self->face == LEFT ? -abs(self->frameSpeed) : self->frameSpeed;
 
-			self->dirX = self->face == RIGHT ? -self->speed : self->speed;
+				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+			}
+
+			else
+			{
+				self->frameSpeed = self->face == RIGHT ? -abs(self->frameSpeed) : self->frameSpeed;
+
+				self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
+			}
 		}
+
+		self->dirY = self->active;
 	}
 }

@@ -328,7 +328,7 @@ static void testPak(char *pakFile)
 
 	if (fileData == NULL)
 	{
-		printf("Could not allocate %d bytes for FileData\n", fileCount * sizeof(FileData));
+		printf("Could not allocate %d bytes for FileData\n", (int)(fileCount * sizeof(FileData)));
 
 		exit(1);
 	}
