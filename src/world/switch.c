@@ -182,7 +182,7 @@ static void activate(int val)
 
 static void wait()
 {
-	if (self->thinkTime > 0 && strlen(self->requires) == 0)
+	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
 
@@ -199,7 +199,7 @@ static void wait()
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
-			setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+			setEntityAnimation(self, STAND);
 		}
 	}
 
