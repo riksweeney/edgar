@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/purple_diamond.dat
+ANIM_FILE data/anim/item/diamond.dat
+TYPE ITEM
+OBJECTIVE_NAME Purple Diamond
+DESCRIPTION A Purple Diamond

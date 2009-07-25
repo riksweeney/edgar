@@ -78,7 +78,12 @@ int addToInventory(Entity *e)
 			{
 				if (inventory.item[i].health < MAX_STACKABLES)
 				{
-					inventory.item[i].health++;
+					inventory.item[i].health += (e->health == 0 ? 1 : e->health);
+
+					if (inventory.item[i].health > MAX_STACKABLES)
+					{
+						inventory.item[i].health = MAX_STACKABLES;
+					}
 
 					found = TRUE;
 
@@ -453,9 +458,9 @@ void getInventoryItemFromScript(char *line)
 		if (strcmpignorecase(command, "REMOVE") == 0)
 		{
 			item->health -= quantityToRemove;
-			
+
 			updateTrigger(itemName, quantityToRemove);
-			
+
 			updateGlobalTrigger(itemName, quantityToRemove);
 
 			if (item->health <= 0 || quantityToRemove == -1)
