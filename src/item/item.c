@@ -163,17 +163,13 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 void dropRandomItem(int x, int y)
 {
-	Entity *e;
-
 	if (prand() % 3 == 0)
 	{
 		if (getInventoryItem(_("Bow")) != NULL)
 		{
 			if (prand() % 2 == 0)
 			{
-				e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-				e->health = 1 + (prand() % 3);
+				addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 			}
 
 			if (prand() % 2 == 0)
