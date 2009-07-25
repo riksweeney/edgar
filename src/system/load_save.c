@@ -227,11 +227,16 @@ int loadGame(int slot)
 
 		printf("Backed up original save to %s\n", backup);
 
-		while (version <= VERSION)
+		while (TRUE)
 		{
 			patchSaveGame(saveFile, version);
 
 			version += 0.01;
+			
+			if (version > VERSION)
+			{
+				break;
+			}
 		}
 
 		printf("Patch completed. Replacing save game.\n");
