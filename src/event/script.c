@@ -60,7 +60,7 @@ void runScript(char *name)
 
 	if (text == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for script %s\n", (int)(sizeof(char *) * (strlen((char *)buffer) + 1)), filename);
+		printf("Failed to allocate a whole %d bytes for script %s\n", (int)sizeof(char *) * (strlen((char *)buffer) + 1), filename);
 
 		exit(1);
 	}
@@ -82,7 +82,7 @@ void runScript(char *name)
 
 	if (script.text == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for script %s\n", (int)(sizeof(char *) * script.lineCount), filename);
+		printf("Failed to allocate a whole %d bytes for script %s\n", (int)sizeof(char *) * script.lineCount, filename);
 
 		exit(1);
 	}
@@ -109,7 +109,7 @@ void runScript(char *name)
 
 		if (script.text[i] == NULL)
 		{
-			printf("Failed to allocate %d bytes for script line %d\n", (int)(sizeof(char *) * script.lineCount), (i + 1));
+			printf("Failed to allocate %d bytes for script line %d\n", (int)sizeof(char *) * script.lineCount, (i + 1));
 		}
 
 		STRNCPY(script.text[i], line, strlen(line) + 1);
@@ -124,7 +124,7 @@ void runScript(char *name)
 	script.skipping = FALSE;
 
 	playerWaitForDialog();
-
+	
 	readNextScriptLine();
 }
 
@@ -401,7 +401,7 @@ void readNextScriptLine()
 
 				e->frameSpeed = atof(token);
 			}
-
+			
 			else if (strcmpignorecase(token, "RESUME_NORMAL_FUNCTION") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
@@ -512,7 +512,7 @@ void readNextScriptLine()
 				loadMusic(token);
 			}
 		}
-
+		
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)
 		{
 			playBossMusic();
@@ -649,7 +649,7 @@ void readNextScriptLine()
 				entityWalkToRelative(e, token);
 			}
 		}
-
+		
 		else if (strcmpignorecase("JUMP", command) == 0)
 		{
 			freeDialogBox();
@@ -672,10 +672,10 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-
+			
 			e->dirY = -JUMP_HEIGHT;
 		}
-
+		
 		else if (strcmpignorecase("WATCH", command) == 0)
 		{
 			freeDialogBox();
@@ -698,9 +698,9 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-
+			
 			token = strtok_r(NULL, " ", &savePtr);
-
+			
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e2 = &player;
@@ -717,7 +717,7 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-
+			
 			e->target = e2;
 		}
 
