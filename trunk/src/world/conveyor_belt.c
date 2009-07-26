@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void wait(void);
+static void init(void);
 
 Entity *addConveyorBelt(char *name, int x, int y)
 {
@@ -43,7 +44,7 @@ Entity *addConveyorBelt(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &pushEntity;
 
@@ -59,25 +60,40 @@ static void wait()
 		if (self->active == FALSE && self->health == 0)
 		{
 			self->dirX = 0;
+			
+			self->frameSpeed = 0;
 		}
 
 		else
 		{
 			if (self->active == TRUE)
 			{
-				self->frameSpeed = self->face == LEFT ? -abs(self->frameSpeed) : self->frameSpeed;
-
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
 			}
 
 			else
 			{
-				self->frameSpeed = self->face == RIGHT ? -abs(self->frameSpeed) : self->frameSpeed;
-
 				self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
 			}
 		}
 
 		self->dirY = self->active;
 	}
+}
+
+static void init()
+{
+	if (self->active == TRUE)
+	{
+		self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+	}
+
+	else
+	{
+		self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
+	}
+	
+	self->dirY = self->active;
+	
+	self->action = &wait;
 }

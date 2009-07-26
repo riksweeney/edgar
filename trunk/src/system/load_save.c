@@ -176,7 +176,12 @@ int loadGame(int slot)
 			version = atof(itemName);
 
 			printf("VERSION IS %0.2f\n", version);
+		}
 
+		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
+		{
+			sscanf(line, "%*s %ld\n", &game.playTime);
+			
 			if (version < VERSION)
 			{
 				printf("Need to patch save file\n");
@@ -185,11 +190,6 @@ int loadGame(int slot)
 
 				break;
 			}
-		}
-
-		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
-		{
-			sscanf(line, "%*s %ld\n", &game.playTime);
 		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
@@ -227,11 +227,16 @@ int loadGame(int slot)
 
 		printf("Backed up original save to %s\n", backup);
 
-		while (version <= VERSION)
+		while (TRUE)
 		{
 			patchSaveGame(saveFile, version);
 
 			version += 0.01;
+			
+			if (version > VERSION)
+			{
+				break;
+			}
 		}
 
 		printf("Patch completed. Replacing save game.\n");
@@ -364,6 +369,8 @@ static void patchSaveGame(char *saveFile, double version)
 				if (savedLocation == FALSE)
 				{
 					fprintf(newSave, "VERSION %0.2f\n", version);
+					
+					fprintf(newSave, "PLAY_TIME %ld\n", game.playTime);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 

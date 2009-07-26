@@ -111,7 +111,7 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	int i, remaining = 0;
+	int remaining;
 
 	self->health = val;
 
@@ -121,14 +121,7 @@ static void activate(int val)
 
 		self->active = TRUE;
 
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			if (entity[i].inUse == TRUE && self != &entity[i] && entity[i].active == FALSE
-				&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
-			{
-				remaining++;
-			}
-		}
+		remaining = countSiblings(self);
 
 		if (remaining == 0)
 		{
@@ -142,6 +135,6 @@ static void activate(int val)
 
 		self->maxHealth = self->health;
 
-		playSoundToMap("sound/common/pressure_plate.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 	}
 }

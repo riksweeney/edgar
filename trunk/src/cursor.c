@@ -328,9 +328,15 @@ void doCursor()
 
 	if (input.save == 1)
 	{
-		saveMap();
-
-		printf("Saved\n");
+		if (saveMap() == TRUE)
+		{
+			setStatusPanelMessage("Saved");
+		}
+		
+		else
+		{
+			setStatusPanelMessage("Saving Failed");
+		}
 
 		input.save = 0;
 	}
