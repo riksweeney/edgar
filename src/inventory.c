@@ -138,9 +138,17 @@ int addToInventory(Entity *e)
 
 	if (found == TRUE)
 	{
+		if ((inventory.item[i].flags & STACKABLE) && e->health > 1)
+		{
+			setInfoBoxMessage(60,  _("Picked up %s x %d"), inventory.item[i].objectiveName, e->health);
+		}
+		
+		else
+		{
+			setInfoBoxMessage(60,  _("Picked up %s"), inventory.item[i].objectiveName);
+		}
+		
 		e->inUse = FALSE;
-
-		setInfoBoxMessage(60,  _("Picked up %s"), inventory.item[i].objectiveName);
 
 		fireTrigger(inventory.item[i].objectiveName);
 

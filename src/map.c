@@ -305,7 +305,7 @@ void loadMap(char *name, int loadEntityResources)
 	cameraSnapToTargetEntity();
 }
 
-void saveMap()
+int saveMap()
 {
 	int x, y;
 	char filename[MAX_LINE_LENGTH];
@@ -317,7 +317,7 @@ void saveMap()
 	{
 		printf("No player start defined\n");
 
-		return;
+		return FALSE;
 	}
 
 	snprintf(filename, sizeof(filename), "data/maps/%s.dat", map.filename);
@@ -377,6 +377,8 @@ void saveMap()
 	/* Close the file afterwards */
 
 	fclose(fp);
+	
+	return TRUE;
 }
 
 void doMap()
@@ -557,11 +559,6 @@ void drawMap(int depth)
 		}
 	}
 
-	if (depth == 0)
-	{
-		return;
-	}
-
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
 	x2 = x1 + SCREEN_WIDTH + (x1 == 0 ? 0 : TILE_SIZE);
@@ -611,25 +608,33 @@ void drawMap(int depth)
 				exit(0);
 			}
 			*/
-			if (depth == -1)
+			
+			switch (depth)
 			{
-				drawImage(mapImages[tileID], x, y, FALSE);
-			}
-
-			else if (depth == 1)
-			{
-				if (tileID < FOREGROUND_TILE_START)
-				{
+				case 0:
+					if (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END)
+					{
+						drawImage(mapImages[tileID], x, y, FALSE);
+					}
+				break;
+				
+				case 1:
+					if (tileID < BACKGROUND_TILE_START)
+					{
+						drawImage(mapImages[tileID], x, y, FALSE);
+					}
+				break;
+				
+				case 2:
+					if (tileID >= FOREGROUND_TILE_START)
+					{
+						drawImage(mapImages[tileID], x, y, FALSE);
+					}
+				break;
+				
+				default:
 					drawImage(mapImages[tileID], x, y, FALSE);
-				}
-			}
-
-			else if (depth == 2)
-			{
-				if (tileID >= FOREGROUND_TILE_START)
-				{
-					drawImage(mapImages[tileID], x, y, FALSE);
-				}
+				break;
 			}
 
 			mapX++;

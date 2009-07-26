@@ -1264,3 +1264,19 @@ void rotateAroundStartPoint()
 	self->x += self->startX - (self->w / 2);
 	self->y += self->startY - (self->h / 2);
 }
+
+int countSiblings(Entity *sibling)
+{
+	int i, remaining = 0;
+	
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && sibling != &entity[i] && entity[i].active == FALSE && sibling->type == entity[i].type
+			&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+		{
+			remaining++;
+		}
+	}
+	
+	return remaining;
+}

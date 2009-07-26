@@ -19,10 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../event/trigger.h"
+#include "../hud.h"
 
 extern Entity *self;
 
@@ -60,7 +62,25 @@ Entity *addArrowTarget(int x, int y, char *name)
 
 static void wait()
 {
-
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 0;
+			
+			self->active = self->active == TRUE ? FALSE : TRUE;
+			
+			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+			
+			activateEntitiesWithRequiredName(self->objectiveName, self->active);
+			
+			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+			
+			stopSound(self->startX);
+		}
+	}
 }
 
 static void init()
@@ -72,16 +92,11 @@ static void init()
 
 static void touch(Entity *other)
 {
+	int remaining;
 	Entity *temp;
 
 	if (strcmpignorecase(other->name, self->requires) == 0)
 	{
-		self->active = self->active == TRUE ? FALSE : TRUE;
-
-		setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
-
-		activateEntitiesWithRequiredName(self->objectiveName, self->active);
-
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -92,5 +107,36 @@ static void touch(Entity *other)
 
 			self = temp;
 		}
+		
+		/* Don't toggle if a timer */
+		
+		if (self->maxThinkTime != 0 && self->thinkTime != 0)
+		{
+			self->thinkTime = self->maxThinkTime;
+			
+			return;
+		}
+		
+		remaining = countSiblings(self);
+		
+		if (remaining == 0)
+		{
+			self->active = self->active == TRUE ? FALSE : TRUE;
+	
+			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	
+			activateEntitiesWithRequiredName(self->objectiveName, self->active);
+			
+			self->thinkTime = self->maxThinkTime;
+			
+			self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+		}
+
+		else
+		{
+			setInfoBoxMessage(30,  _("%d more to go..."), remaining);
+		}
+		
+		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 	}
 }

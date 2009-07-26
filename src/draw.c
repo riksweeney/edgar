@@ -64,14 +64,14 @@ void draw()
 					/* Draw the map background */
 
 					drawMap(0);
+					
+					/* Draw the Entities */
+
+					drawEntities(BACKGROUND_LAYER);
 
 					/* Draw the mid-ground map tiles */
 
 					drawMap(1);
-
-					/* Draw the Entities */
-
-					drawEntities(BACKGROUND_LAYER);
 
 					/* Draw the Entities that appear in the mid-ground */
 

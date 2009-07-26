@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 void loadMap(char *, int);
-void saveMap(void);
+int saveMap(void);
 void doMap(void);
 void drawMap(int);
 void centerEntityOnMap(void);

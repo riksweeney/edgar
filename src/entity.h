@@ -52,3 +52,4 @@ void noItemDie(void);
 void rotateAroundStartPoint(void);
 void enemyPain(void);
 Entity *getEntityByStartXY(int, int);
+int countSiblings(Entity *);

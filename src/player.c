@@ -338,8 +338,6 @@ void doPlayer()
 					{
 						if (self->standingOn->activate != NULL)
 						{
-							printf("Trying to activate %s\n", self->standingOn->objectiveName);
-
 							self = self->standingOn;
 
 							self->activate(1);
@@ -365,8 +363,6 @@ void doPlayer()
 					{
 						if (self->standingOn->activate != NULL)
 						{
-							printf("Trying to activate %s\n", self->standingOn->objectiveName);
-
 							self = self->standingOn;
 
 							self->activate(-1);
@@ -994,6 +990,8 @@ static void fallout()
 		player.flags |= HELPLESS|INVULNERABLE;
 
 		player.action = &falloutPause;
+		
+		player.touch = NULL;
 
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);
@@ -1075,6 +1073,8 @@ static void resetPlayer()
 	printf("Respawned at %f %f\n", player.x, player.y);
 
 	player.action = NULL;
+	
+	player.touch = &touch;
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 

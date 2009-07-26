@@ -122,7 +122,7 @@ static void call(int val)
 
 static void activate(int val)
 {
-	int i, remaining = 0;
+	int remaining;
 
 	if (strlen(self->requires) != 0)
 	{
@@ -149,15 +149,8 @@ static void activate(int val)
 
 	if (self->active == TRUE)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			if (entity[i].inUse == TRUE && self != &entity[i] && entity[i].active == FALSE
-				&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
-			{
-				remaining++;
-			}
-		}
-
+		remaining = countSiblings(self);
+		
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
@@ -177,6 +170,8 @@ static void activate(int val)
 	if (self->maxThinkTime != 0)
 	{
 		self->thinkTime = self->maxThinkTime;
+		
+		self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 	}
 }
 
@@ -200,6 +195,8 @@ static void wait()
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
 			setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+			
+			stopSound(self->startX);
 		}
 	}
 
