@@ -185,7 +185,7 @@ static void activateTrap()
 
 					self->target->animationCallback = NULL;
 
-					setEntityAnimation(self->target, STAND);
+					setEntityAnimation(self->target, CUSTOM_1);
 
 					self->target->x = self->x + abs(self->target->w - self->w) / 2;
 

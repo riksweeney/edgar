@@ -57,11 +57,22 @@ static void wait()
 {
 	if (self->active != self->dirY)
 	{
-		if (self->active == FALSE && self->health == 0)
+		if (self->health == 0)
 		{
-			self->dirX = 0;
 			
-			self->frameSpeed = 0;
+			if (self->active == TRUE)
+			{
+				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+				
+				self->frameSpeed = 1;
+			}
+			
+			else
+			{
+				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+				
+				self->frameSpeed = 0;
+			}
 		}
 
 		else
@@ -69,11 +80,15 @@ static void wait()
 			if (self->active == TRUE)
 			{
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+				
+				self->frameSpeed = abs(self->frameSpeed);
 			}
-
+			
 			else
 			{
 				self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
+				
+				self->frameSpeed = -abs(self->frameSpeed);
 			}
 		}
 
@@ -83,14 +98,38 @@ static void wait()
 
 static void init()
 {
-	if (self->active == TRUE)
+	if (self->health == 0)
 	{
-		self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+		if (self->active == TRUE)
+		{
+			self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+			
+			self->frameSpeed = 1;
+		}
+		
+		else
+		{
+			self->dirX = 0;
+			
+			self->frameSpeed = 0;
+		}
 	}
 
 	else
 	{
-		self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
+		if (self->active == TRUE)
+		{
+			self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+			
+			self->frameSpeed = abs(self->frameSpeed);
+		}
+		
+		else
+		{
+			self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
+			
+			self->frameSpeed = -abs(self->frameSpeed);
+		}
 	}
 	
 	self->dirY = self->active;
