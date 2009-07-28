@@ -12,6 +12,7 @@ item/iron_key
 common/switch
 wall/fortress_weak_wall
 weapon/basic_sword
+weapon/small_wooden_shield
 item/red_gem
 item/green_gem
 item/blue_gem
@@ -25,3 +26,8 @@ enemy/laser_grid
 wall/wooden_door
 weapon/wood_axe
 item/bomb_pile
+enemy/red_bat
+common/spawner
+common/action_point
+enemy/ceiling_snapper
+enemy/gazer

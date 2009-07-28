@@ -527,6 +527,16 @@ void writeInventoryToFile(FILE *fp)
 	}
 }
 
+void clearInventoryDescription()
+{
+	if (inventory.description != NULL)
+	{
+		SDL_FreeSurface(inventory.description);
+		
+		inventory.description = NULL;
+	}
+}
+
 void drawInventory()
 {
 	int i, x, y;

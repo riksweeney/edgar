@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "draw.h"
 #include "weather.h"
+#include "game.h"
 
 static Droplet droplet[MAX_DROPS];
 extern Game game;
@@ -174,8 +175,10 @@ static void storm()
 
 	game.weatherThinkTime--;
 
-	if (game.weatherThinkTime < -60)
+	if (game.weatherThinkTime <= 0)
 	{
+		fadeFromWhite();
+
 		game.weatherThinkTime = 600 + prand() % 1200;
 	}
 }
@@ -192,7 +195,7 @@ static void initSnow()
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
-		droplet[i].dirY = 01.f + 0.1f * (prand() % 10);
+		droplet[i].dirY = 0.1f + 0.1f * (prand() % 10);
 
 		droplet[i].active = TRUE;
 	}
@@ -248,7 +251,7 @@ static void drawRain()
 		{
 			if (droplet[i].active == TRUE)
 			{
-				drawBox(droplet[i].x, droplet[i].y - startY, 1, 8, 220, 220, 220);
+				drawBox(game.screen, droplet[i].x, droplet[i].y - startY, 1, 8, 220, 220, 220);
 			}
 		}
 	}
@@ -264,7 +267,7 @@ static void drawSnow()
 	{
 		if (droplet[i].active == TRUE)
 		{
-			drawBox(droplet[i].x, droplet[i].y - startY, 2, 2, 255, 255, 255);
+			drawBox(game.screen, droplet[i].x, droplet[i].y - startY, 2, 2, 255, 255, 255);
 		}
 	}
 }

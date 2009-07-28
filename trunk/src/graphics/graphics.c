@@ -169,9 +169,9 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 	SDL_FreeSurface(flipped);
 }
 
-void drawBox(int x, int y, int w, int h, int r, int g, int b)
+void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int color = SDL_MapRGB(surface->format, r, g, b);
 	SDL_Rect rect;
 
 	rect.x = x;
@@ -179,7 +179,7 @@ void drawBox(int x, int y, int w, int h, int r, int g, int b)
 	rect.w = w;
 	rect.h = h;
 
-	SDL_FillRect(game.screen, &rect, color);
+	SDL_FillRect(surface, &rect, color);
 }
 
 void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)

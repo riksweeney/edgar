@@ -759,13 +759,13 @@ void pushEntity(Entity *other)
 				if (other->x > self->x)
 				{
 					other->x = self->x + self->box.x;
-					other->x += self->w;
+					other->x += self->box.w;
 				}
 
 				else
 				{
 					other->x = self->x + self->box.x;
-					other->x -= other->w;
+					other->x -= other->box.w;
 				}
 
 				other->dirX = 0;

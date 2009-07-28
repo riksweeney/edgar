@@ -5,8 +5,15 @@ END
 IF Jacob HEALTH 8
 TALK Jacob Have fun!
 END
+IF Jacob HEALTH 9
+TALK Jacob Wow, you caught them all, thanks alot!
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
+TALK Edgar Thanks Jacob
+SET Jacob HEALTH 8
+END
 IF Jacob HEALTH 6
-TALK Jacob Thanks for resucing my chickens, have you been to the forest yet?
+TALK Jacob Thanks for resucing my chickens, have you got me 2 logs from the forest yet?
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 7
@@ -24,7 +31,7 @@ IF Jacob HEALTH 3
 TALK Jacob Thanks for the logs, have you had any luck with the chickens?
 END
 IF Jacob HEALTH 4
-TALK Jacob I'll give you a sword if you get me 2 chopped logs from the forest and rescue all of my chickens
+TALK Jacob I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 5 of my chickens
 SET Jacob HEALTH 2
 END
 IF Jacob HEALTH 1
@@ -34,7 +41,7 @@ TALK Jacob I do have a sword and you can have it if you do something for me firs
 TALK Edgar OK... what do I have to do?
 TALK Jacob Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
 ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 4030 2582
-TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed
+TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 5 would be very helpful. I can get the rest myself.
 TALK Edgar That's it?
 TALK Jacob Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient
 TALK Edgar Do you have an axe?
@@ -49,8 +56,23 @@ TALK Jacob Good luck!
 ACTIVATE_REQUIRED Chicken Trap
 ADD OBJECTIVE "Collect 2 Chopped Logs" " "
 ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
-ADD OBJECTIVE "Rescue 10 Chickens" "CHICKEN_TRIGGER"
-ADD TRIGGER "Chicken" 10 UPDATE_OBJECTIVE "Rescue 10 Chickens"
+ADD OBJECTIVE "Rescue 5 Chickens" "CHICKEN_TRIGGER"
+ADD TRIGGER "Chicken" 5 UPDATE_OBJECTIVE "Rescue 5 Chickens"
 ADD TRIGGER "CHICKEN_TRIGGER" 1 RUN_SCRIPT "jacob_chickens"
+ADD TRIGGER "Chicken" 10 RUN_SCRIPT "jacob_potion"
 SET Jacob HEALTH 2
+END
+IF Jacob HEALTH 10
+TALK Jacob Wow, you caught them all, thanks alot!
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
+TALK Edgar Thanks Jacob
+SET Jacob HEALTH 5
+END
+IF Jacob HEALTH 11
+TALK Jacob Wow, you caught them all, thanks alot!
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
+TALK Edgar Thanks Jacob
+SET Jacob HEALTH 3
 END

@@ -1,3 +1,22 @@
+/*
+Copyright (C) 2009 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #include "../headers.h"
 
 #include "../graphics/animation.h"
@@ -32,7 +51,7 @@ Entity *addSnailShell(int x, int y, char *name)
 
 	e->x = x;
 	e->y = y;
-	
+
 	e->action = &wait;
 	e->die = &shatter;
 	e->draw = &drawLoopingAnimationToMap;
@@ -48,7 +67,7 @@ Entity *addSnailShell(int x, int y, char *name)
 static void wait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime < 120)
 	{
 		if (self->thinkTime % 3 == 0)
@@ -56,7 +75,7 @@ static void wait()
 			self->flags ^= FLASH;
 		}
 	}
-	
+
 	else if (self->thinkTime < 180)
 	{
 		if (self->thinkTime % 6 == 0)
@@ -64,12 +83,12 @@ static void wait()
 			self->flags ^= FLASH;
 		}
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &explode;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -87,71 +106,71 @@ static void explode()
 {
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
-	
+
 	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
-	
+
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 
 	e = addProjectile(name, self, self->x, self->y, -12, 0);
-	
+
 	e->parent = e;
-	
+
 	e->reactToBlock = &bounceOffShield;
-	
+
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;
-	
+
 	e->flags |= FLY;
-	
+
 	setEntityAnimation(e, 0);
-	
+
 	e->parent = e;
-	
+
 	e = addProjectile(name, self, self->x, self->y, 12, 0);
-	
+
 	e->parent = e;
-	
+
 	e->reactToBlock = &bounceOffShield;
-	
+
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;
-	
+
 	e->flags |= FLY;
-	
+
 	setEntityAnimation(e, 1);
-	
+
 	e->parent = e;
-	
+
 	e = addProjectile(name, self, self->x, self->y, -12, -6);
-	
+
 	e->parent = e;
-	
+
 	e->reactToBlock = &bounceOffShield;
-	
+
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;
-	
+
 	e->flags |= FLY;
-	
+
 	setEntityAnimation(e, 2);
-	
+
 	e->parent = e;
-	
+
 	e = addProjectile(name, self, self->x, self->y, 12, -6);
-	
+
 	e->parent = e;
-	
+
 	e->reactToBlock = &bounceOffShield;
-	
+
 	e->x += (self->w - e->w) / 2;
 	e->y += (self->h - e->h) / 2;
-	
+
 	e->flags |= FLY;
-	
+
 	setEntityAnimation(e, 3);
-	
+
 	e->parent = e;
-	
+
 	self->inUse = FALSE;
 }
 
@@ -166,7 +185,7 @@ static void shatter()
 		{
 			e = addTemporaryItem("enemy/purple_snail_shell_piece", self->x, self->y, RIGHT, 0, 0);
 		}
-		
+
 		else
 		{
 			e = addTemporaryItem("enemy/snail_shell_piece", self->x, self->y, RIGHT, 0, 0);

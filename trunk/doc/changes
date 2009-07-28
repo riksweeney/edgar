@@ -4,6 +4,9 @@ CHANGE LOG
 Version 0.30
 
 * Fixed the chickens (again)
+* Reduced the number of chickens to catch to 5 (new games only)
+* Fixed the sprite priorities (again)
+* Added the Cellar map
 
 Version 0.21
 

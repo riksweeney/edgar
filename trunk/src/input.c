@@ -67,7 +67,7 @@ void getInput(int gameType)
 
 				if (key == control.button[CONTROL_INVENTORY])
 				{
-					if (!(player.flags & HELPLESS))
+					if (!(player.flags & HELPLESS) && player.action == NULL)
 					{
 						pauseGameInventory();
 					}
@@ -352,7 +352,7 @@ void getInput(int gameType)
 
 				if (key == control.button[CONTROL_INVENTORY])
 				{
-					if (!(player.flags & HELPLESS))
+					if (!(player.flags & HELPLESS) && player.action == NULL)
 					{
 						pauseGameInventory();
 					}
