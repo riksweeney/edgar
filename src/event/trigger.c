@@ -173,8 +173,6 @@ void fireTrigger(char *name)
 				}
 
 				trigger[i].inUse = FALSE;
-
-				return;
 			}
 		}
 	}

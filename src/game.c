@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "menu/menu.h"
 #include "menu/main_menu.h"
 #include "menu/io_menu.h"
+#include "inventory.h"
 
 extern Game game;
 
@@ -45,6 +46,7 @@ static void wipeInCircleToLarge(void);
 static void wipeInCircleToSmall(void);
 static void wipeOutCircleToLarge(void);
 static void wipeOutCircleToSmall(void);
+static void fadeToNormal(void);
 
 void initGame()
 {
@@ -64,20 +66,14 @@ void initGame()
 
 void doGame()
 {
-	/* Decrease game's thinktime */
+	/* Execute the action if there is one */
 
-	game.thinkTime--;
-
-	if (game.thinkTime <= 0)
+	if (game.action != NULL)
 	{
-		/* Execute the action if there is one */
-
 		if (game.action != NULL)
 		{
 			game.action();
 		}
-
-		game.thinkTime = 0;
 	}
 
 	if (game.shakeThinkTime > 0 || game.shakeThinkTime == -1)
@@ -125,6 +121,13 @@ void freeGame()
 
 		game.pauseSurface = NULL;
 	}
+
+	if (game.alphaSurface != NULL)
+	{
+		SDL_FreeSurface(game.alphaSurface);
+
+		game.alphaSurface = NULL;
+	}
 }
 
 void drawGame()
@@ -134,11 +137,15 @@ void drawGame()
 		game.weatherDraw();
 	}
 
+	if (game.alphaSurface != NULL)
+	{
+		drawImage(game.alphaSurface, 0, 0, FALSE);
+	}
+
 	if (game.transition != NULL)
 	{
 		game.transition();
 	}
-
 }
 
 void setTransition(int type, void (*func)(void))
@@ -245,7 +252,7 @@ static void wipeOutRightToLeft()
 		return;
 	}
 
-	drawBox(game.transitionX < 0 ? 0 : game.transitionX, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.screen, game.transitionX < 0 ? 0 : game.transitionX, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
 
 	game.transitionX -= 15;
 }
@@ -266,7 +273,7 @@ static void wipeOutLeftToRight()
 		return;
 	}
 
-	drawBox(0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.screen, 0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
 
 	game.transitionX += 15;
 }
@@ -285,7 +292,7 @@ static void wipeInLeftToRight()
 		return;
 	}
 
-	drawBox(game.transitionX, 0, SCREEN_WIDTH - game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.screen, game.transitionX, 0, SCREEN_WIDTH - game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
 
 	game.transitionX += 15;
 }
@@ -304,7 +311,7 @@ static void wipeInRightToLeft()
 		return;
 	}
 
-	drawBox(0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
+	drawBox(game.screen, 0, 0, game.transitionX, SCREEN_HEIGHT, 0, 0, 0);
 
 	game.transitionX -= 15;
 }
@@ -526,6 +533,8 @@ void pauseGameInventory()
 	{
 		case IN_GAME:
 			game.status = IN_INVENTORY;
+			
+			clearInventoryDescription();
 
 			if (game.pauseSurface == NULL)
 			{
@@ -681,4 +690,44 @@ char *getPlayTimeAsString()
 	snprintf(timeString, 15, "%dH %dM", hours, minutes);
 
 	return timeString;
+}
+
+void fadeFromWhite()
+{
+	game.thinkTime = 60;
+
+	if (game.alphaSurface != NULL)
+	{
+		SDL_FreeSurface(game.alphaSurface);
+
+		game.alphaSurface = NULL;
+	}
+
+	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
+
+	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, 255, 255, 255);
+
+	SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, 200);
+
+	game.action = &fadeToNormal;
+}
+
+static void fadeToNormal()
+{
+	float alpha = 200 / 60;
+
+	alpha *= game.thinkTime;
+
+	SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+
+	game.thinkTime--;
+
+	if (game.thinkTime <= 0)
+	{
+		SDL_FreeSurface(game.alphaSurface);
+
+		game.alphaSurface = NULL;
+
+		game.action = NULL;
+	}
 }

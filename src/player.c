@@ -515,7 +515,7 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? LEFT : RIGHT;
@@ -529,7 +529,7 @@ void playerWaitForDialog()
 void playerResumeNormal()
 {
 	player.target = NULL;
-	
+
 	player.action = NULL;
 }
 
@@ -990,7 +990,7 @@ static void fallout()
 		player.flags |= HELPLESS|INVULNERABLE;
 
 		player.action = &falloutPause;
-		
+
 		player.touch = NULL;
 
 		setEntityAnimation(&player, STAND);
@@ -1073,7 +1073,7 @@ static void resetPlayer()
 	printf("Respawned at %f %f\n", player.x, player.y);
 
 	player.action = NULL;
-	
+
 	player.touch = &touch;
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
@@ -1172,6 +1172,17 @@ void playerGib()
 void facePlayer()
 {
 	self->face = player.x < self->x ? LEFT : RIGHT;
+}
+
+void setPlayerStunned()
+{
+	setCustomAction(&player, &dizzy, 120, 0);
+	
+	setEntityAnimation(&player, DIE);
+	setEntityAnimation(&playerShield, DIE);
+	setEntityAnimation(&playerWeapon, DIE);
+	
+	player.dirX = 0;
 }
 
 void setPlayerSlimed(int thinkTime)

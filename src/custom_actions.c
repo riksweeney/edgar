@@ -19,6 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
+#include "graphics/animation.h"
+
 extern Entity *self;
 
 void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int accumulates)
@@ -183,5 +185,24 @@ void slowDown(int *thinkTime, int *counter)
 	{
 		self->frameSpeed = 1;
 		self->speed = self->originalSpeed;
+	}
+}
+
+void dizzy(int *thinkTime, int *counter)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->flags |= HELPLESS;
+
+		setEntityAnimation(self, DIE);
+	}
+
+	else
+	{
+		self->flags &= ~HELPLESS;
+
+		setEntityAnimation(self, STAND);
 	}
 }

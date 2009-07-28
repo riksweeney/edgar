@@ -154,7 +154,7 @@ typedef struct Game
 	void (*transition)(void);
 	void (*transitionCallback)(void);
 	Menu *menu;
-	SDL_Surface *screen, *tempSurface, *pauseSurface, *gameOverSurface;
+	SDL_Surface *screen, *tempSurface, *pauseSurface, *gameOverSurface, *alphaSurface;
 	TTF_Font *font;
 	SDL_Joystick *joystick;
 	Mix_Music *music, *bossMusic;

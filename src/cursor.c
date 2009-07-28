@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Cursor cursor;
 extern Input input;
 extern Entity *self;
+extern Game game;
 
 static char entityNames[255][MAX_VALUE_LENGTH];
 static int entityNamesLength = 0;
@@ -332,7 +333,7 @@ void doCursor()
 		{
 			setStatusPanelMessage("Saved");
 		}
-		
+
 		else
 		{
 			setStatusPanelMessage("Saving Failed");
@@ -389,7 +390,7 @@ void drawCursor()
 
 		if (isValidOnMap(&cursor.entity) == 0 || e != NULL)
 		{
-			drawBox(cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
+			drawBox(game.screen, cursor.x, cursor.y, cursor.entity.w, cursor.entity.h, 255, 0, 0);
 		}
 
 		if (e != NULL)

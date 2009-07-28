@@ -34,3 +34,4 @@ void freeInventory(void);
 void drawInventory(void);
 void nextInventoryItem(int);
 void setInventoryDialogMessage(char *, ...);
+void clearInventoryDescription(void);

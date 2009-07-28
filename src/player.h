@@ -40,3 +40,4 @@ void playerGib(void);
 void facePlayer(void);
 void setPlayerSlimed(int);
 void setBowAmmo(int);
+void setPlayerStunned(void);

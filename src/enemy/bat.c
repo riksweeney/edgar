@@ -25,12 +25,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
+#include "../geometry.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void fly(void);
 static void die(void);
 static void pain(void);
+static void dartDownInit(void);
+static void dartDown(void);
+static void dartDownFinish(void);
+static void dartReactToBlock(void);
 
 Entity *addBat(int x, int y, char *name)
 {
@@ -48,14 +53,24 @@ Entity *addBat(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &fly;
-
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &die;
 	e->pain = &pain;
-	e->takeDamage = &entityTakeDamageFlinch;
+
+	if (strcmpignorecase(name, "enemy/red_bat") == 0)
+	{
+		e->takeDamage = &entityTakeDamageNoFlinch;
+	}
+
+	else
+	{
+		e->takeDamage = &entityTakeDamageFlinch;
+	}
+
 	e->reactToBlock = &changeDirection;
+
+	e->action = &fly;
 
 	e->type = ENEMY;
 
@@ -78,41 +93,38 @@ static void fly()
 {
 	int speed;
 
-	if (!(self->flags & HELPLESS))
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
 	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		switch (prand() % 5)
 		{
-			switch (prand() % 5)
-			{
-				case 0:
-				case 1:
-					self->dirX = self->speed;
-				break;
+			case 0:
+			case 1:
+				self->dirX = self->speed;
+			break;
 
-				case 2:
-				case 3:
-					self->dirX = -self->speed;
-				break;
+			case 2:
+			case 3:
+				self->dirX = -self->speed;
+			break;
 
-				default:
-					self->dirX = 0;
-				break;
-			}
-
-			self->thinkTime = 180 + prand() % 120;
+			default:
+				self->dirX = 0;
+			break;
 		}
 
-		if (self->dirX < 0)
-		{
-			self->face = LEFT;
-		}
+		self->thinkTime = 180 + prand() % 120;
+	}
 
-		else if (self->dirX > 0)
-		{
-			self->face = RIGHT;
-		}
+	if (self->dirX < 0)
+	{
+		self->face = LEFT;
+	}
+
+	else if (self->dirX > 0)
+	{
+		self->face = RIGHT;
 	}
 
 	speed = self->dirX;
@@ -123,4 +135,96 @@ static void fly()
 	{
 		self->dirX = speed * -1;
 	}
+
+	if (player.health > 0 && prand() % 120 == 0 && (strcmpignorecase(self->name, "enemy/red_bat") == 0))
+	{
+		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
+		{
+			self->action = &dartDownInit;
+
+			self->thinkTime = 60;
+
+			self->dirX = 0;
+		}
+	}
+}
+
+static void dartDownInit()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = player.x;
+		self->targetY = player.y + player.h;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed * 6;
+		self->dirY *= self->speed * 6;
+
+		self->action = &dartDown;
+
+		self->reactToBlock = &dartReactToBlock;
+	}
+}
+
+static void dartDown()
+{
+	if (self->dirY == 0 || self->dirX == 0)
+	{
+		self->thinkTime = 0;
+
+		self->dirX = self->dirY = 0;
+
+		self->action = &dartDownFinish;
+	}
+
+	checkToMap(self);
+}
+
+static void dartDownFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= FLY;
+
+		self->dirY = -self->speed;
+
+		checkToMap(self);
+
+		if (self->dirY == 0 || self->y <= self->startY)
+		{
+			self->action = &fly;
+
+			self->dirX = self->dirY = 0;
+
+			self->reactToBlock = &changeDirection;
+		}
+	}
+
+	else
+	{
+		checkToMap(self);
+
+		if (self->flags & ON_GROUND)
+		{
+			self->dirX = 0;
+		}
+	}
+}
+
+static void dartReactToBlock()
+{
+	self->flags &= ~FLY;
+
+	self->dirX = self->x < player.x ? -3 : 3;
+
+	self->dirY = -5;
+
+	self->thinkTime = 60;
+
+	self->action = &dartDownFinish;
 }

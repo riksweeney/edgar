@@ -39,3 +39,4 @@ void focusLost(void);
 void showSaveDialog(void);
 void pauseGameInventory(void);
 char *getPlayTimeAsString(void);
+void fadeFromWhite(void);
