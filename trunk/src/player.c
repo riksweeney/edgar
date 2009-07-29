@@ -199,6 +199,8 @@ void doPlayer()
 
 	if (self->action == NULL)
 	{
+		self->flags &= ~(HELPLESS|INVULNERABLE|FLASH);
+
 		for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 		{
 			if (self->customAction[i].thinkTime > 0)
@@ -207,10 +209,10 @@ void doPlayer()
 			}
 		}
 
+		self->dirX = 0;
+
 		if (!(self->flags & HELPLESS))
 		{
-			self->dirX = 0;
-
 			if (!(self->flags & ON_GROUND))
 			{
 				self->flags &= ~GRABBING;
@@ -479,6 +481,16 @@ void doPlayer()
 				self->target->flags &= ~HELPLESS;
 
 				self->target = NULL;
+			}
+
+			if (self->standingOn != NULL)
+			{
+				self->dirX += self->standingOn->dirX;
+
+				if (self->standingOn->dirY > 0)
+				{
+					self->dirY = self->standingOn->dirY + 1;
+				}
 			}
 		}
 
@@ -841,9 +853,12 @@ static void takeDamage(Entity *other, int damage)
 
 		playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerShield, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
+		if (player.currentAnim != player.animation[DIE])
+		{
+			setEntityAnimation(&player, STAND);
+			setEntityAnimation(&playerShield, STAND);
+			setEntityAnimation(&playerWeapon, STAND);
+		}
 
 		if (other->type == PROJECTILE)
 		{
@@ -1132,11 +1147,6 @@ static void gameOverTimeOut()
 {
 	player.thinkTime--;
 
-	if (player.thinkTime <= 0)
-	{
-		player.action = NULL;
-	}
-
 	checkToMap(&player);
 }
 
@@ -1176,13 +1186,24 @@ void facePlayer()
 
 void setPlayerStunned()
 {
+	player.flags &= ~BLOCKING;
+
 	setCustomAction(&player, &dizzy, 120, 0);
-	
+
 	setEntityAnimation(&player, DIE);
 	setEntityAnimation(&playerShield, DIE);
 	setEntityAnimation(&playerWeapon, DIE);
-	
+
 	player.dirX = 0;
+}
+
+void doStunned()
+{
+	player.flags &= ~BLOCKING;
+
+	setEntityAnimation(&player, DIE);
+	setEntityAnimation(&playerShield, DIE);
+	setEntityAnimation(&playerWeapon, DIE);
 }
 
 void setPlayerSlimed(int thinkTime)
@@ -1260,8 +1281,6 @@ static void drawBow()
 {
 	if (!(player.flags & ON_GROUND))
 	{
-		printf("Firing arrow immediately\n");
-
 		fireArrow();
 	}
 

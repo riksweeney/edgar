@@ -97,21 +97,38 @@ static void fly()
 
 	if (self->thinkTime <= 0)
 	{
-		switch (prand() % 5)
+		if (strcmpignorecase(self->name, "enemy/red_bat") == 0)
 		{
-			case 0:
-			case 1:
-				self->dirX = self->speed;
-			break;
+			switch (prand() % 2)
+			{
+				case 0:
+					self->dirX = self->speed;
+				break;
 
-			case 2:
-			case 3:
-				self->dirX = -self->speed;
-			break;
+				default:
+					self->dirX = -self->speed;
+				break;
+			}
+		}
 
-			default:
-				self->dirX = 0;
-			break;
+		else
+		{
+			switch (prand() % 5)
+			{
+				case 0:
+				case 1:
+					self->dirX = self->speed;
+				break;
+
+				case 2:
+				case 3:
+					self->dirX = -self->speed;
+				break;
+
+				default:
+					self->dirX = 0;
+				break;
+			}
 		}
 
 		self->thinkTime = 180 + prand() % 120;
