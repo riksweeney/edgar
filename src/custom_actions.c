@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "graphics/animation.h"
+#include "player.h"
 
 extern Entity *self;
 
@@ -100,8 +101,6 @@ void helpless(int *thinkTime, int *counter)
 
 	else
 	{
-		self->flags &= ~HELPLESS;
-
 		self->dirX = 0;
 
 		if (self->flags & FLY)
@@ -118,11 +117,6 @@ void invulnerable(int *thinkTime, int *counter)
 	if (*thinkTime != 0)
 	{
 		self->flags |= INVULNERABLE;
-	}
-
-	else
-	{
-		self->flags &= ~INVULNERABLE;
 	}
 
 	if ((*thinkTime) % 3 == 0)
@@ -144,11 +138,6 @@ void invulnerableNoFlash(int *thinkTime, int *counter)
 	{
 		self->flags |= INVULNERABLE;
 	}
-
-	else
-	{
-		self->flags &= ~INVULNERABLE;
-	}
 }
 
 void flashWhite(int *thinkTime, int *counter)
@@ -158,11 +147,6 @@ void flashWhite(int *thinkTime, int *counter)
 	if (*thinkTime != 0)
 	{
 		self->flags |= FLASH;
-	}
-
-	else
-	{
-		self->flags &= ~FLASH;
 	}
 }
 
@@ -195,14 +179,5 @@ void dizzy(int *thinkTime, int *counter)
 	if (*thinkTime != 0)
 	{
 		self->flags |= HELPLESS;
-
-		setEntityAnimation(self, DIE);
-	}
-
-	else
-	{
-		self->flags &= ~HELPLESS;
-
-		setEntityAnimation(self, STAND);
 	}
 }

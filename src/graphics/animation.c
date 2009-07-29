@@ -384,6 +384,8 @@ void drawLoopingAnimationToMap()
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+
+			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
 
@@ -404,6 +406,8 @@ void drawLoopingAnimationToMap()
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+
+			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
 }

@@ -103,6 +103,8 @@ void doEntities()
 
 		if (self->inUse == TRUE)
 		{
+			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH);
+
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
 				if (self->customAction[j].thinkTime > 0)
@@ -331,6 +333,8 @@ void floatLeftToRight()
 
 	else
 	{
+		self->dirX = self->endX;
+		
 		checkToMap(self);
 
 		if (self->dirX == 0)
@@ -565,6 +569,7 @@ void entityTouch(Entity *other)
 void pushEntity(Entity *other)
 {
 	int pushable;
+	int x1, x2, y1, y2;
 	Entity *temp;
 	static int depth = 0;
 	long wasOnGround;
@@ -594,6 +599,30 @@ void pushEntity(Entity *other)
 
 	other->x -= other->dirX;
 	other->y -= other->dirY;
+	
+	if (self->face == RIGHT)
+	{
+		x1 = self->x + self->box.x;
+	}
+	
+	else
+	{
+		x1 = self->x + self->w - self->box.w - self->box.x;
+	}
+	
+	y1 = self->y + self->box.y;
+	
+	if (other->face == RIGHT)
+	{
+		x2 = other->x + other->box.x;
+	}
+	
+	else
+	{
+		x2 = other->x + other->w - other->box.w - other->box.x;
+	}
+	
+	y2 = other->y + other->box.y;
 
 	pushable = (self->flags & PUSHABLE);
 
@@ -608,7 +637,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move down */
 
-		if (collision(other->x + other->box.x, other->y + other->dirY + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
+		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
 			/* Place the entity as close as possible */
 
@@ -625,7 +654,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move up */
 
-		if (collision(other->x + other->box.x, other->y + other->dirY + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
+		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
 			/* Place the entity as close as possible */
 
@@ -642,7 +671,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move right */
 
-		if (collision(other->x + other->dirX + other->box.x, other->y + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{
@@ -716,7 +745,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move left */
 
-		if (collision(other->x + other->dirX + other->box.x, other->y + other->box.y, other->box.w, other->box.h, self->x + self->box.x, self->y + self->box.y, self->box.w, self->box.h) == 1)
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{
@@ -1268,7 +1297,7 @@ void rotateAroundStartPoint()
 int countSiblings(Entity *sibling)
 {
 	int i, remaining = 0;
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && sibling != &entity[i] && entity[i].active == FALSE && sibling->type == entity[i].type
@@ -1277,6 +1306,6 @@ int countSiblings(Entity *sibling)
 			remaining++;
 		}
 	}
-	
+
 	return remaining;
 }

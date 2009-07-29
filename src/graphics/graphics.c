@@ -46,7 +46,7 @@ SDL_Surface *loadImage(char *name)
 
 	/* Make the background transparent */
 
-	SDL_SetColorKey(temp, (SDL_SRCCOLORKEY|SDL_RLEACCEL), SDL_MapRGB(temp->format, TRANS_R, TRANS_G, TRANS_B));
+	SDL_SetColorKey(temp, SDL_SRCCOLORKEY|SDL_RLEACCEL, SDL_MapRGB(temp->format, TRANS_R, TRANS_G, TRANS_B));
 
 	/* Convert the image to the screen's native format */
 
@@ -152,7 +152,7 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 
 	if (image->flags & SDL_SRCCOLORKEY)
 	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL | SDL_SRCCOLORKEY, image->format->colorkey);
+		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
 	}
 
 	/* Set the blitting rectangle to the size of the src image */
@@ -565,6 +565,65 @@ void clearScreen(int r, int g, int b)
 	SDL_FillRect(game.screen, NULL, color);
 }
 
+void drawHitBox(int startX, int startY, int w, int h)
+{
+	int red, x, y, *pixels, transparent;
+	SDL_Rect dest;
+	SDL_Surface *image;
+
+	red = SDL_MapRGB(game.screen->format, 255, 0, 0);
+
+	transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
+
+	image = createSurface(w, h);
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+
+	for (y=0;y<image->h;y++)
+	{
+		for (x=0;x<image->w;x++)
+		{
+			if (y == 0 || y == (image->h - 1))
+			{
+				pixels = (int *)image->pixels;
+
+				pixels[(y * image->w) + x] = red;
+			}
+
+			else if (x == 0 || x == (image->w - 1))
+			{
+				pixels = (int *)image->pixels;
+
+				pixels[(y * image->w) + x] = red;
+			}
+
+			else
+			{
+				pixels[(y * image->w) + x] = transparent;
+			}
+		}
+	}
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+
+	SDL_SetColorKey(image, SDL_RLEACCEL|SDL_SRCCOLORKEY, SDL_MapRGB(image->format, TRANS_R, TRANS_G, TRANS_B));
+
+	dest.x = startX;
+	dest.y = startY;
+	dest.w = image->w;
+	dest.h = image->h;
+
+	SDL_BlitSurface(image, NULL, game.screen, &dest);
+
+	SDL_FreeSurface(image);
+}
+
 static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 {
 	unsigned char r, g, b;
@@ -603,7 +662,7 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 
 	if (image->flags & SDL_SRCCOLORKEY)
 	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL | SDL_SRCCOLORKEY, image->format->colorkey);
+		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
 	}
 
 	/* Set the blitting rectangle to the size of the src image */
