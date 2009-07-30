@@ -7,6 +7,7 @@ Version 0.30
 * Reduced the number of chickens to catch to 5 (new games only)
 * Fixed the sprite priorities (again)
 * Added the Cellar map
+* Fixed health drop chance when using the bow
 
 Version 0.21
 

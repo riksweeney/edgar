@@ -209,10 +209,10 @@ void doPlayer()
 			}
 		}
 
-		self->dirX = 0;
-
 		if (!(self->flags & HELPLESS))
 		{
+			self->dirX = 0;
+			
 			if (!(self->flags & ON_GROUND))
 			{
 				self->flags &= ~GRABBING;
@@ -227,7 +227,7 @@ void doPlayer()
 
 			if (self->standingOn != NULL)
 			{
-				self->dirX += self->standingOn->dirX;
+				self->dirX = self->standingOn->dirX;
 
 				if (self->standingOn->dirY > 0)
 				{
@@ -485,7 +485,7 @@ void doPlayer()
 
 			if (self->standingOn != NULL)
 			{
-				self->dirX += self->standingOn->dirX;
+				self->dirX = self->standingOn->dirX;
 
 				if (self->standingOn->dirY > 0)
 				{

@@ -155,7 +155,7 @@ void doEntities()
 
 			if (self->standingOn != NULL)
 			{
-				self->dirX += self->standingOn->dirX;
+				self->dirX = self->standingOn->dirX;
 
 				if (self->standingOn->dirY > 0)
 				{

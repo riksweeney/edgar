@@ -172,6 +172,6 @@ static void trapEntity(Entity *other)
 
 		self->action = &biteFinish;
 
-		self->touch = &pushEntity;
+		self->touch = &touch;
 	}
 }
