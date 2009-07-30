@@ -178,19 +178,28 @@ void dropRandomItem(int x, int y)
 	{
 		if (getInventoryItem(_("Bow")) != NULL)
 		{
-			if (prand() % 2 == 0)
+			switch (prand() % 3)
 			{
-				e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-				e->health = 1 + (prand() % 3);
-			}
-
-			if (prand() % 2 == 0)
-			{
-				addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+				case 0:
+					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+				break;
+				
+				case 1:
+					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+		
+					e->health = 1 + (prand() % 3);
+				break;
+				
+				default:
+					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+					
+					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+		
+					e->health = 1 + (prand() % 3);
+				break;
 			}
 		}
-
+		
 		else
 		{
 			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);

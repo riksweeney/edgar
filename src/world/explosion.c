@@ -28,6 +28,7 @@ extern Entity *self;
 
 static void finish(void);
 static void explode(void);
+static void die(void);
 
 Entity *addExplosion(int x, int y)
 {
@@ -53,6 +54,8 @@ Entity *addExplosion(int x, int y)
 
 	e->action = &explode;
 	e->touch = &entityTouch;
+	
+	e->die = &die;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -73,4 +76,9 @@ static void explode()
 static void finish()
 {
 	self->inUse = FALSE;
+}
+
+static void die()
+{
+	/* Do nothing */
 }

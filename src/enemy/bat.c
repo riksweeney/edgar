@@ -173,7 +173,7 @@ static void dartDownInit()
 	if (self->thinkTime <= 0)
 	{
 		self->targetX = player.x;
-		self->targetY = player.y + player.h;
+		self->targetY = player.y + player.h / 2;
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
@@ -190,7 +190,7 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
-		self->thinkTime = 0;
+		self->thinkTime = 1;
 
 		self->dirX = self->dirY = 0;
 
@@ -204,14 +204,15 @@ static void dartDownFinish()
 {
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime == 0)
 	{
-		self->flags |= FLY;
-
 		self->dirY = -self->speed;
-
-		checkToMap(self);
-
+		
+		self->flags |= FLY;
+	}
+	
+	else if (self->thinkTime < 0)
+	{
 		if (self->dirY == 0 || self->y <= self->startY)
 		{
 			self->action = &fly;
@@ -224,13 +225,13 @@ static void dartDownFinish()
 
 	else
 	{
-		checkToMap(self);
-
 		if (self->flags & ON_GROUND)
 		{
 			self->dirX = 0;
 		}
 	}
+	
+	checkToMap(self);
 }
 
 static void dartReactToBlock()
