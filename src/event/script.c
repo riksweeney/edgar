@@ -713,7 +713,7 @@ void readNextScriptLine()
 
 			if (e2 == NULL)
 			{
-				printf("FACE command could not find Entity \"%s\"\n", token);
+				printf("WATCH command could not find Entity \"%s\"\n", token);
 
 				exit(1);
 			}

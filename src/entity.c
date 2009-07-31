@@ -112,7 +112,7 @@ void doEntities()
 					doCustomAction(&self->customAction[j]);
 				}
 			}
-			
+
 			if (!(self->flags & TELEPORTING))
 			{
 				if (!(self->flags & FLY))
@@ -122,31 +122,31 @@ void doEntities()
 						case WATER:
 						case SLIME:
 							self->dirY += GRAVITY_SPEED * 0.25;
-	
+
 							if (self->flags & FLOATS)
 							{
 								if (self->dirX != 0)
 								{
 									self->startX++;
-	
+
 									self->dirY = cos(DEG_TO_RAD(self->startX)) / 20;
 								}
 							}
-	
+
 							if (self->dirY >= MAX_WATER_SPEED)
 							{
 								self->dirY = MAX_WATER_SPEED;
 							}
 						break;
-	
+
 						default:
 							self->dirY += GRAVITY_SPEED;
-			
+
 							if (self->dirY >= MAX_AIR_SPEED)
 							{
 								self->dirY = MAX_AIR_SPEED;
 							}
-			
+
 							else if (self->dirY > 0 && self->dirY < 1)
 							{
 								self->dirY = 1;
@@ -154,20 +154,20 @@ void doEntities()
 						break;
 					}
 				}
-	
+
 				if (!(self->flags & HELPLESS))
 				{
 					self->action();
 				}
-	
+
 				self->standingOn = NULL;
-	
+
 				if (self->inUse == TRUE)
 				{
 					addToGrid(self);
 				}
 			}
-			
+
 			else
 			{
 				doTeleport();
@@ -260,7 +260,7 @@ void moveLeftToRight()
 	}
 
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
-	
+
 	if (self->standingOn != NULL)
 	{
 		self->dirX = self->standingOn->dirX;
@@ -1320,7 +1320,7 @@ void doTeleport()
 {
 	int i;
 	Entity *e;
-	
+
 	if (abs(self->x - self->targetX) < fabs(self->dirX) && abs(self->y - self->targetY) < fabs(self->dirY))
 	{
 		self->flags &= ~(NO_DRAW|HELPLESS|TELEPORTING);
@@ -1333,32 +1333,34 @@ void doTeleport()
 			cameraSnapToTargetEntity();
 		}
 
-		addStarExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
 		self->dirY = self->dirX = 0;
-		
+
 		self->standingOn = NULL;
-		
+
 		playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : 1), self->x, self->y, 0);
 	}
 
 	else
 	{
 		self->flags |= NO_DRAW|HELPLESS|INVULNERABLE;
-		
+
 		self->x += self->dirX;
 		self->y += self->dirY;
 
 		for (i=0;i<5;i++)
 		{
-			e = addBasicDecoration(self->x, self->y, "decoration/star");
-			
+			e = addBasicDecoration(self->x, self->y, "decoration/blue_particle");
+
 			if (e != NULL)
 			{
 				e->x += prand() % self->w;
 				e->y += prand() % self->h;
-	
+
 				e->thinkTime = 5 + prand() % 15;
+
+				setEntityAnimation(e, prand() % 5);
 			}
 		}
 	}
