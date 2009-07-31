@@ -29,11 +29,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../graphics/decoration.h"
 #include "../geometry.h"
+#include "../system/random.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void wait(void);
+static void draw(void);
 static void activate(int);
 static void touch(Entity *);
 static void nextLevelPause(void);
@@ -57,7 +59,7 @@ Entity *addTeleporter(char *name, int x, int y)
 
 	e->action = &wait;
 
-	e->draw = &drawLoopingAnimationToMap;
+	e->draw = &draw;
 
 	e->activate = &activate;
 
@@ -74,6 +76,31 @@ Entity *addTeleporter(char *name, int x, int y)
 static void wait()
 {
 	checkToMap(self);
+}
+
+static void draw()
+{
+	Entity *e;
+	
+	if (prand() % 5 == 0)
+	{
+		e = addBasicDecoration(self->x, self->y, "decoration/particle");
+
+		if (e != NULL)
+		{
+			e->x += prand() % self->w;
+
+			e->thinkTime = 30 + prand() % 60;
+			
+			e->dirY = -5 - prand() % 15;
+			
+			e->dirY /= 10;
+
+			setEntityAnimation(e, prand() % 5);
+		}
+	}
+	
+	drawLoopingAnimationToMap();
 }
 
 static void touch(Entity *other)
@@ -106,9 +133,6 @@ static void activate(int val)
 		self->target->targetY = self->endY;
 
 		calculatePath(self->target->x, self->target->y, self->target->targetX, self->target->targetY, &self->target->dirX, &self->target->dirY);
-
-		self->target->dirX *= TELEPORT_SPEED;
-		self->target->dirY *= TELEPORT_SPEED;
 
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 

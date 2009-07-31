@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/random.h"
 #include "audio/audio.h"
 #include "system/pak.h"
+#include "geometry.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1319,6 +1320,7 @@ int countSiblings(Entity *sibling)
 void doTeleport()
 {
 	int i;
+	float speed;
 	Entity *e;
 
 	if (abs(self->x - self->targetX) < fabs(self->dirX) && abs(self->y - self->targetY) < fabs(self->dirY))
@@ -1345,20 +1347,29 @@ void doTeleport()
 	else
 	{
 		self->flags |= NO_DRAW|HELPLESS|INVULNERABLE;
+		
+		speed = getDistance(self->x, self->y, self->targetX, self->targetY) / 20;
+		
+		speed = speed < TELEPORT_SPEED ? TELEPORT_SPEED : (speed > 30 ? 30 : speed);
+		
+		normalize(&self->dirX, &self->dirY);
+		
+		self->dirX *= speed;
+		self->dirY *= speed;
 
 		self->x += self->dirX;
 		self->y += self->dirY;
 
 		for (i=0;i<5;i++)
 		{
-			e = addBasicDecoration(self->x, self->y, "decoration/blue_particle");
+			e = addBasicDecoration(self->x, self->y, "decoration/particle");
 
 			if (e != NULL)
 			{
 				e->x += prand() % self->w;
 				e->y += prand() % self->h;
 
-				e->thinkTime = 5 + prand() % 15;
+				e->thinkTime = 5 + prand() % 30;
 
 				setEntityAnimation(e, prand() % 5);
 			}
