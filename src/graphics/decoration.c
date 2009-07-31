@@ -130,7 +130,7 @@ void addStarExplosion(int x, int y)
 	int i;
 	Entity *e;
 
-	for (i=0;i<8;i++)
+	for (i=0;i<40;i++)
 	{
 		e = getFreeDecoration();
 
@@ -141,45 +141,23 @@ void addStarExplosion(int x, int y)
 
 		loadProperties("decoration/star", e);
 
-		switch (i)
+		e->dirX = prand() % 20;
+		e->dirY = prand() % 20;
+
+		if (prand() % 2 == 0)
 		{
-			case 0:
-				e->dirX = -3;
-				e->dirY = -3;
-			break;
-
-			case 1:
-				e->dirX = 3;
-				e->dirY = -3;
-			break;
-
-			case 2:
-				e->dirX = 3;
-				e->dirY = 3;
-			break;
-
-			case 3:
-				e->dirX = 0;
-				e->dirY = 3;
-			break;
-
-			case 4:
-				e->dirX = 0;
-				e->dirY = -3;
-			break;
-
-			case 5:
-				e->dirX = 3;
-				e->dirY = 0;
-			break;
-
-			default:
-				e->dirX = -3;
-				e->dirY = 0;
-			break;
+			e->dirX *= -1;
 		}
 
-		e->thinkTime = 15;
+		if (prand() % 2 == 0)
+		{
+			e->dirY *= -1;
+		}
+
+		e->dirX /= 10;
+		e->dirY /= 10;
+
+		e->thinkTime = 20 + (prand() % 30);
 
 		e->x = x;
 		e->y = y;
@@ -265,7 +243,7 @@ Entity *addSmoke(int x, int y, char *name)
 
 	e->dirY = -e->speed;
 
-	e->thinkTime = 300;
+	e->thinkTime = 240 + prand() % 60;
 
 	e->action = &move;
 	e->draw = &drawLoopingAnimationToMap;
@@ -323,7 +301,7 @@ void addBlood(int x, int y)
 
 	e->x = x;
 	e->y = y;
-	
+
 	e->dirY = 0.1;
 
 	e->action = &move;
@@ -346,7 +324,7 @@ Entity *addBasicDecoration(int x, int y, char *name)
 
 	e->action = &move;
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	return e;
 }
 

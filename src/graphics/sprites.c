@@ -34,11 +34,11 @@ void loadSpritesFromFile(char *name, int *index)
 	char *line, *savePtr;
 	unsigned char *buffer;
 	int i;
-	
+
 	buffer = loadFileFromPak(name);
 
 	i = 0;
-	
+
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
 	while (line != NULL)
@@ -46,7 +46,7 @@ void loadSpritesFromFile(char *name, int *index)
 		if (line[0] == '#' || line[0] == '\n')
 		{
 			line = strtok_r(NULL, "\n", &savePtr);
-			
+
 			continue;
 		}
 
@@ -61,7 +61,7 @@ void loadSpritesFromFile(char *name, int *index)
 		{
 			line[strlen(line) - 1] = '\0';
 		}
-		
+
 		if (line[strlen(line) - 1] == '\r')
 		{
 			line[strlen(line) - 1] = '\0';
@@ -70,7 +70,7 @@ void loadSpritesFromFile(char *name, int *index)
 		index[i] = loadSprite(line);
 
 		i++;
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
 
@@ -79,10 +79,10 @@ void loadSpritesFromFile(char *name, int *index)
 
 static int loadSprite(char *name)
 {
-	int i, x, y, w, h, read;
+	int i, x, y, w, h, read, alpha;
 	char filename[MAX_FILE_LENGTH];
-	
-	read = sscanf(name, "%s %d %d %d %d\n", filename, &x, &y, &w, &h);
+
+	read = sscanf(name, "%s %d %d %d %d %d\n", filename, &x, &y, &w, &h, &alpha);
 
 	for (i=0;i<spriteID;i++)
 	{
@@ -94,8 +94,8 @@ static int loadSprite(char *name)
 
 	sprite[spriteID].image = loadImage(filename);
 
-	strncpy(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
-	
+	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
+
 	if (read == 5)
 	{
 		sprite[spriteID].box.x = x;
@@ -103,7 +103,17 @@ static int loadSprite(char *name)
 		sprite[spriteID].box.w = w;
 		sprite[spriteID].box.h = h;
 	}
-	
+
+	else if (read == 6)
+	{
+		sprite[spriteID].box.x = w == -1 ? 0 : x;
+		sprite[spriteID].box.y = w == -1 ? 0 : y;
+		sprite[spriteID].box.w = w == -1 ? sprite[spriteID].image->w : w;
+		sprite[spriteID].box.h = w == -1 ? sprite[spriteID].image->h : h;
+
+		SDL_SetAlpha(sprite[spriteID].image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+	}
+
 	else
 	{
 		sprite[spriteID].box.x = 0;

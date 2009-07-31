@@ -112,72 +112,65 @@ void doEntities()
 					doCustomAction(&self->customAction[j]);
 				}
 			}
-
-			if (!(self->flags & FLY))
+			
+			if (!(self->flags & TELEPORTING))
 			{
-				switch (self->environment)
+				if (!(self->flags & FLY))
 				{
-					case WATER:
-					case SLIME:
-						self->dirY += GRAVITY_SPEED * 0.25;
-
-						if (self->flags & FLOATS)
-						{
-							if (self->dirX != 0)
+					switch (self->environment)
+					{
+						case WATER:
+						case SLIME:
+							self->dirY += GRAVITY_SPEED * 0.25;
+	
+							if (self->flags & FLOATS)
 							{
-								self->startX++;
-
-								self->dirY = cos(DEG_TO_RAD(self->startX)) / 20;
+								if (self->dirX != 0)
+								{
+									self->startX++;
+	
+									self->dirY = cos(DEG_TO_RAD(self->startX)) / 20;
+								}
 							}
-						}
-
-						if (self->dirY >= MAX_WATER_SPEED)
-						{
-							self->dirY = MAX_WATER_SPEED;
-						}
-					break;
-
-					default:
-						self->dirY += GRAVITY_SPEED * self->weight;
-
-						if (self->dirY >= MAX_AIR_SPEED)
-						{
-							self->dirY = MAX_AIR_SPEED;
-						}
-
-						else if (self->dirY > 0 && self->dirY < 1)
-						{
-							self->dirY = 1;
-						}
-					break;
+	
+							if (self->dirY >= MAX_WATER_SPEED)
+							{
+								self->dirY = MAX_WATER_SPEED;
+							}
+						break;
+	
+						default:
+							self->dirY += GRAVITY_SPEED;
+			
+							if (self->dirY >= MAX_AIR_SPEED)
+							{
+								self->dirY = MAX_AIR_SPEED;
+							}
+			
+							else if (self->dirY > 0 && self->dirY < 1)
+							{
+								self->dirY = 1;
+							}
+						break;
+					}
 				}
-			}
-
-			if (self->standingOn != NULL)
-			{
-				self->dirX = self->standingOn->dirX;
-
-				if (self->standingOn->dirY > 0)
+	
+				if (!(self->flags & HELPLESS))
 				{
-					self->dirY = self->standingOn->dirY + 1;
+					self->action();
+				}
+	
+				self->standingOn = NULL;
+	
+				if (self->inUse == TRUE)
+				{
+					addToGrid(self);
 				}
 			}
-
-			if (!(self->flags & HELPLESS))
-			{
-				self->action();
-			}
-
+			
 			else
 			{
-				checkToMap(self);
-			}
-
-			self->standingOn = NULL;
-
-			if (self->inUse == TRUE)
-			{
-				addToGrid(self);
+				doTeleport();
 			}
 		}
 	}
@@ -240,7 +233,10 @@ void doNothing(void)
 		self->frameSpeed = 0;
 	}
 
-	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+	if (!(self->flags & GRABBED))
+	{
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+	}
 
 	checkToMap(self);
 
@@ -264,6 +260,16 @@ void moveLeftToRight()
 	}
 
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	
+	if (self->standingOn != NULL)
+	{
+		self->dirX = self->standingOn->dirX;
+
+		if (self->standingOn->dirY > 0)
+		{
+			self->dirY = self->standingOn->dirY + 1;
+		}
+	}
 
 	checkToMap(self);
 
@@ -334,7 +340,7 @@ void floatLeftToRight()
 	else
 	{
 		self->dirX = self->endX;
-		
+
 		checkToMap(self);
 
 		if (self->dirX == 0)
@@ -599,29 +605,29 @@ void pushEntity(Entity *other)
 
 	other->x -= other->dirX;
 	other->y -= other->dirY;
-	
+
 	if (self->face == RIGHT)
 	{
 		x1 = self->x + self->box.x;
 	}
-	
+
 	else
 	{
 		x1 = self->x + self->w - self->box.w - self->box.x;
 	}
-	
+
 	y1 = self->y + self->box.y;
-	
+
 	if (other->face == RIGHT)
 	{
 		x2 = other->x + other->box.x;
 	}
-	
+
 	else
 	{
 		x2 = other->x + other->w - other->box.w - other->box.x;
 	}
-	
+
 	y2 = other->y + other->box.y;
 
 	pushable = (self->flags & PUSHABLE);
@@ -736,7 +742,7 @@ void pushEntity(Entity *other)
 			{
 				other->target = self;
 
-				self->flags |= HELPLESS;
+				self->flags |= GRABBED;
 			}
 		}
 	}
@@ -810,7 +816,7 @@ void pushEntity(Entity *other)
 			{
 				other->target = self;
 
-				self->flags |= HELPLESS;
+				self->flags |= GRABBED;
 			}
 		}
 	}
@@ -1308,4 +1314,52 @@ int countSiblings(Entity *sibling)
 	}
 
 	return remaining;
+}
+
+void doTeleport()
+{
+	int i;
+	Entity *e;
+	
+	if (abs(self->x - self->targetX) < fabs(self->dirX) && abs(self->y - self->targetY) < fabs(self->dirY))
+	{
+		self->flags &= ~(NO_DRAW|HELPLESS|TELEPORTING);
+
+		self->x = self->targetX;
+		self->y = self->targetY;
+
+		if (self->type == PLAYER)
+		{
+			cameraSnapToTargetEntity();
+		}
+
+		addStarExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->dirY = self->dirX = 0;
+		
+		self->standingOn = NULL;
+		
+		playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : 1), self->x, self->y, 0);
+	}
+
+	else
+	{
+		self->flags |= NO_DRAW|HELPLESS|INVULNERABLE;
+		
+		self->x += self->dirX;
+		self->y += self->dirY;
+
+		for (i=0;i<5;i++)
+		{
+			e = addBasicDecoration(self->x, self->y, "decoration/star");
+			
+			if (e != NULL)
+			{
+				e->x += prand() % self->w;
+				e->y += prand() % self->h;
+	
+				e->thinkTime = 5 + prand() % 15;
+			}
+		}
+	}
 }

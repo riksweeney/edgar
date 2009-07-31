@@ -62,6 +62,7 @@ extern Entity player;
 #include "../world/trap_door.h"
 #include "../world/conveyor_belt.h"
 #include "../status_panel.h"
+#include "../world/teleporter.h"
 #include "pak.h"
 
 static char **key, **value;
@@ -358,6 +359,11 @@ char *loadResources(char *buffer)
 			else if (strcmpignorecase(value[type], "PRESSURE_PLATE") == 0)
 			{
 				e = addPressurePlate(value[name], atoi(value[startX]), atoi(value[startY]));
+			}
+
+			else if (strcmpignorecase(value[type], "TELEPORTER") == 0)
+			{
+				e = addTeleporter(value[name], atoi(value[startX]), atoi(value[startY]));
 			}
 
 			else if (strcmpignorecase(value[type], "AUTO_DOOR") == 0 || strcmpignorecase(value[type], "MANUAL_DOOR") == 0)

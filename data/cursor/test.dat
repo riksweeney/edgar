@@ -4,3 +4,12 @@ lift/lift_target
 item/chicken_feed
 enemy/chicken
 item/mine_cart
+item/wooden_crate
+common/teleporter
+wall/weak_forest_wall
+enemy/scorpion
+enemy/red_grub
+enemy/grub
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right

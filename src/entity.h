@@ -53,3 +53,4 @@ void rotateAroundStartPoint(void);
 void enemyPain(void);
 Entity *getEntityByStartXY(int, int);
 int countSiblings(Entity *);
+void doTeleport(void);

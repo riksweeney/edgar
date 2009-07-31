@@ -155,6 +155,11 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
 	}
 
+	if (image->flags & SDL_SRCALPHA)
+	{
+		SDL_SetAlpha(flipped, SDL_SRCALPHA|SDL_RLEACCEL, image->format->alpha);
+	}
+
 	/* Set the blitting rectangle to the size of the src image */
 
 	dest.x = game.offsetX + destX;

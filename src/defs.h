@@ -132,6 +132,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_STACKABLES 20
 
+#define TELEPORT_SPEED 10
+
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
@@ -218,7 +220,8 @@ enum
 	UNBLOCKABLE = 32768,
 	BOUNCES = 65536,
 	GRABBED = 131072,
-	PLAYER_TOUCH_ONLY = 262144
+	PLAYER_TOUCH_ONLY = 262144,
+	TELEPORTING = 524288
 };
 
 enum
@@ -258,7 +261,8 @@ enum
 	SCRIPT_LINE_DEF,
 	FALLING_PLATFORM,
 	TRAP_DOOR,
-	CONVEYOR_BELT
+	CONVEYOR_BELT,
+	TELEPORTER
 };
 
 enum
