@@ -17,8 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-int getDistance(int, int, int, int);
-void calculatePath(float, float, float, float, float *, float *);
-void calculateTrajectory(int, int, float, float, float, float *, float *);
-int getHorizontalDistance(Entity *, Entity *);
-void normalize(float *, float *);
+Entity *addTeleporter(char *, int, int);

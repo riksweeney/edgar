@@ -37,6 +37,21 @@ void calculatePath(float startX, float startY, float endX, float endY, float *di
 	*dirY = t == 0 ? 0 : y / t;
 }
 
+void normalize(float *dirX, float *dirY)
+{
+	float normal;
+
+	if (*dirX == 0 && *dirY == 0)
+	{
+		return;
+	}
+
+	normal = fabs(*dirX) > fabs(*dirY) ? fabs(*dirX) : fabs(*dirY);
+
+	*dirX /= normal;
+	*dirY /= normal;
+}
+
 void calculateTrajectory(int startX, int endX, float weight, float flightTime, float height, float *dirX, float *dirY)
 {
 	float hDistance;

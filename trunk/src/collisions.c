@@ -155,6 +155,11 @@ void doCollisions()
 			{
 				e1 = list1->entity;
 
+				if (e1->flags & TELEPORTING)
+				{
+					continue;
+				}
+
 				if (e1->inUse == TRUE && e1->touch != NULL)
 				{
 					for (list2=grid[i][j].listHead.next;list2!=NULL;list2=list2->next)
@@ -163,6 +168,11 @@ void doCollisions()
 
 						if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
 							((e1->flags & PLAYER_TOUCH_ONLY) && e2->type != PLAYER))
+						{
+							continue;
+						}
+
+						if (e2->flags & TELEPORTING)
 						{
 							continue;
 						}
@@ -1114,7 +1124,7 @@ int isAtEdge(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL)))
+		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & (PUSHABLE|OBSTACLE)) || (entity[i].type == WEAK_WALL)))
 		{
 			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 128, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{

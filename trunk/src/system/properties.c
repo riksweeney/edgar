@@ -58,7 +58,8 @@ static Type entityType[] = {
 					{SCRIPT_LINE_DEF, "SCRIPT_LINE_DEF"},
 					{FALLING_PLATFORM, "FALLING_PLATFORM"},
 					{TRAP_DOOR, "TRAP_DOOR"},
-					{CONVEYOR_BELT, "CONVEYOR_BELT"}
+					{CONVEYOR_BELT, "CONVEYOR_BELT"},
+					{TELEPORTER, "TELEPORTER"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 
