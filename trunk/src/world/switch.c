@@ -150,7 +150,7 @@ static void activate(int val)
 	if (self->active == TRUE)
 	{
 		remaining = countSiblings(self);
-		
+
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
@@ -170,7 +170,7 @@ static void activate(int val)
 	if (self->maxThinkTime != 0)
 	{
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 	}
 }
@@ -195,8 +195,11 @@ static void wait()
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
 			setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
-			
-			stopSound(self->startX);
+
+			if (self->maxThinkTime != 0)
+			{
+				stopSound(self->startX);
+			}
 		}
 	}
 

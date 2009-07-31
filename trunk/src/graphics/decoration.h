@@ -30,3 +30,4 @@ Entity *addMultipleSparkles(int, int, char *);
 void addDecorationFromScript(char *);
 void addBlood(int, int);
 Entity *addBasicDecoration(int, int, char *);
+void addParticleExplosion(int, int);

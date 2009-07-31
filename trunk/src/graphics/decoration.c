@@ -167,6 +167,50 @@ void addStarExplosion(int x, int y)
 	}
 }
 
+void addParticleExplosion(int x, int y)
+{
+	int i;
+	Entity *e;
+
+	for (i=0;i<40;i++)
+	{
+		e = getFreeDecoration();
+
+		if (e == NULL)
+		{
+			return;
+		}
+
+		loadProperties("decoration/blue_particle", e);
+
+		e->dirX = prand() % 20;
+		e->dirY = prand() % 20;
+
+		if (prand() % 2 == 0)
+		{
+			e->dirX *= -1;
+		}
+
+		if (prand() % 2 == 0)
+		{
+			e->dirY *= -1;
+		}
+
+		e->dirX /= 10;
+		e->dirY /= 10;
+
+		e->thinkTime = 20 + (prand() % 30);
+
+		e->x = x;
+		e->y = y;
+
+		e->action = &move;
+		e->draw = &drawLoopingAnimationToMap;
+
+		setEntityAnimation(e, prand() % 5);
+	}
+}
+
 Entity *addMultipleSparkles(int x, int y, char *name)
 {
 	int i, xx, yy;

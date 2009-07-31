@@ -37,7 +37,7 @@ void doInventoryMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	if (input.down == TRUE)
+	else if (input.down == TRUE)
 	{
 		moveInventoryCursor(5);
 
@@ -55,7 +55,7 @@ void doInventoryMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	if (input.right == TRUE)
+	else if (input.right == TRUE)
 	{
 		moveInventoryCursor(1);
 
@@ -64,13 +64,24 @@ void doInventoryMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE)
+	if (input.attack == TRUE || input.activate == TRUE)
 	{
 		input.attack = FALSE;
-		
+
+		input.activate = FALSE;
+
 		selectInventoryItem();
-		
+
 		useInventoryItem();
+
+		playSound("sound/common/click.ogg");
+	}
+
+	else if (input.block == TRUE)
+	{
+		input.block = FALSE;
+
+		selectInventoryItem();
 
 		playSound("sound/common/click.ogg");
 	}

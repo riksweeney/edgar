@@ -101,6 +101,11 @@ void drawHud()
 	int i, x, y, h, w;
 	float percentage, clipWidth;
 
+	if (game.status == IN_INVENTORY)
+	{
+		drawBox(game.screen, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
+	}
+
 	drawSelectedInventoryItem((SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h);
 
 	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE);

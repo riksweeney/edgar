@@ -82,7 +82,7 @@ static void lookForPlayer()
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
 
-	if (prand() % 120 == 0)
+	if (player.health != 0 && prand() % 120 == 0)
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{

@@ -109,9 +109,9 @@ static void activate(int val)
 
 		self->target->dirX *= TELEPORT_SPEED;
 		self->target->dirY *= TELEPORT_SPEED;
-		
+
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : 1), self->target->x, self->target->y, 0);
 	}
 
@@ -128,8 +128,8 @@ static void activate(int val)
 
 		self->action = &nextLevelPause;
 
-		addStarExplosion(self->target->x + self->target->w / 2, self->target->y + self->target->h / 2);
-		
+		addParticleExplosion(self->target->x + self->target->w / 2, self->target->y + self->target->h / 2);
+
 		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : 1), self->target->x, self->target->y, 0);
 	}
 
