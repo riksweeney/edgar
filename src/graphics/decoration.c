@@ -181,7 +181,7 @@ void addParticleExplosion(int x, int y)
 			return;
 		}
 
-		loadProperties("decoration/blue_particle", e);
+		loadProperties("decoration/particle", e);
 
 		e->dirX = prand() % 20;
 		e->dirY = prand() % 20;

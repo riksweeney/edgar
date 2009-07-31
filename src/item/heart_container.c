@@ -82,7 +82,7 @@ static void draw()
 	
 	if (prand() % 10 == 0)
 	{
-		e = addBasicDecoration(self->x + prand() % self->w, self->y + prand() % 25, "decoration/blue_particle");
+		e = addBasicDecoration(self->x + prand() % self->w, self->y + prand() % 25, "decoration/particle");
 		
 		if (e != NULL)
 		{
