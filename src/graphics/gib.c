@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void drawGib(void);
+static int drawGib(void);
 
 void throwGibs(char *name, int gibs)
 {
@@ -57,20 +57,23 @@ void throwGibs(char *name, int gibs)
 	self->inUse = FALSE;
 }
 
-static void drawGib()
+static int drawGib()
 {
-	if (!(self->flags & ON_GROUND))
+	if (drawLoopingAnimationToMap() == TRUE)
 	{
-		if (prand() % 6 == 0)
+		if (!(self->flags & ON_GROUND))
 		{
-			addBlood(self->x + self->w / 2, self->y + self->h / 2);
+			if (prand() % 6 == 0)
+			{
+				addBlood(self->x + self->w / 2, self->y + self->h / 2);
+			}
+		}
+	
+		else
+		{
+			self->frameSpeed = 0;
 		}
 	}
-
-	else
-	{
-		self->frameSpeed = 0;
-	}
-
-	drawLoopingAnimationToMap();
+	
+	return TRUE;
 }

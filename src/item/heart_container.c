@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void touch(Entity *);
-static void draw(void);
+static int draw(void);
 
 Entity *addHeartContainer(int x, int y, char *name)
 {
@@ -76,11 +76,11 @@ static void touch(Entity *other)
 	}
 }
 
-static void draw()
+static int draw()
 {
 	Entity *e;
 	
-	if (prand() % 10 == 0)
+	if (drawLoopingAnimationToMap() == TRUE && (prand() % 10 == 0))
 	{
 		e = addBasicDecoration(self->x + prand() % self->w, self->y + prand() % 25, "decoration/particle");
 		
@@ -92,5 +92,5 @@ static void draw()
 		}
 	}
 	
-	drawLoopingAnimationToMap();
+	return TRUE;
 }

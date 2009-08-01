@@ -35,7 +35,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void wait(void);
-static void draw(void);
+static int draw(void);
 static void activate(int);
 static void touch(Entity *);
 static void nextLevelPause(void);
@@ -75,32 +75,47 @@ Entity *addTeleporter(char *name, int x, int y)
 
 static void wait()
 {
+	if (self->active == FALSE)
+	{
+		setEntityAnimation(self, STAND);
+	}
+	
+	else
+	{
+		setEntityAnimation(self, WALK);
+	}
+	
 	checkToMap(self);
 }
 
-static void draw()
+static int draw()
 {
 	Entity *e;
 	
-	if (prand() % 5 == 0)
+	if (drawLoopingAnimationToMap() == TRUE && self->active == TRUE)
 	{
-		e = addBasicDecoration(self->x, self->y, "decoration/particle");
-
-		if (e != NULL)
+		if (prand() % 3 == 0)
 		{
-			e->x += prand() % self->w;
-
-			e->thinkTime = 30 + prand() % 60;
-			
-			e->dirY = -5 - prand() % 15;
-			
-			e->dirY /= 10;
-
-			setEntityAnimation(e, prand() % 5);
+			e = addBasicDecoration(self->x + self->w / 2, self->y, "decoration/particle");
+	
+			if (e != NULL)
+			{
+				e->x += (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
+				
+				e->y -= e->h;
+	
+				e->thinkTime = 30 + prand() % 60;
+				
+				e->dirY = -5 - prand() % 15;
+				
+				e->dirY /= 10;
+	
+				setEntityAnimation(e, prand() % 5);
+			}
 		}
 	}
 	
-	drawLoopingAnimationToMap();
+	return TRUE;
 }
 
 static void touch(Entity *other)

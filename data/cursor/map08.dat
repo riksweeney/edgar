@@ -32,3 +32,5 @@ common/action_point
 enemy/ceiling_snapper
 enemy/gazer
 enemy/red_spider
+common/teleporter
+item/power_generator

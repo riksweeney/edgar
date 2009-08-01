@@ -77,9 +77,11 @@ void doInventoryMenu()
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.block == TRUE)
+	else if (input.block == TRUE || input.interact == TRUE)
 	{
 		input.block = FALSE;
+		
+		input.interact = FALSE;
 
 		selectInventoryItem();
 

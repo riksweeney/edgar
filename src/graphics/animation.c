@@ -290,12 +290,14 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 	}
 }
 
-void drawLoopingAnimationToMap()
+int drawLoopingAnimationToMap()
 {
-	int x, y;
+	int x, y, drawn;
 	int startX, startY;
 	Sprite *sprite;
 	void (*callback)(void);
+	
+	drawn = FALSE;
 
 	startX = getMapStartX();
 	startY = getMapStartY();
@@ -320,7 +322,7 @@ void drawLoopingAnimationToMap()
 
 				if (self->inUse == FALSE)
 				{
-					return;
+					return drawn;
 				}
 			}
 		}
@@ -339,7 +341,7 @@ void drawLoopingAnimationToMap()
 
 				if (self->inUse == FALSE)
 				{
-					return;
+					return drawn;
 				}
 			}
 		}
@@ -383,6 +385,8 @@ void drawLoopingAnimationToMap()
 
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
+			drawn = TRUE;
+			
 			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 
 			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
@@ -405,21 +409,22 @@ void drawLoopingAnimationToMap()
 
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
+			drawn = TRUE;
+			
 			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 
 			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
+	
+	return drawn;
 }
 
-void drawLineDefToMap()
+int drawLineDefToMap()
 {
-	if (self->flags & NO_DRAW)
-	{
-		/*return;*/
-	}
-
 	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);
+	
+	return TRUE;
 }
 
 void setEntityAnimation(Entity *e, int animationID)

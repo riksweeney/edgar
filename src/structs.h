@@ -100,7 +100,7 @@ typedef struct Entity
 	CustomAction customAction[MAX_CUSTOM_ACTIONS];
 	void (*action)(void);
 	void (*activate)(int);
-	void (*draw)(void);
+	int (*draw)(void);
 	void (*fallout)(void);
 	void (*touch)(struct Entity *);
 	void (*animationCallback)(void);

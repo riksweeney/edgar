@@ -8,6 +8,9 @@ Version 0.30
 * Fixed the sprite priorities (again)
 * Added the Cellar map
 * Fixed health drop chance when using the bow
+* Fixed corruption of items when swapping items in the inventory
+* Selecting an inventory item using the block or interact button will only select it for use rather than using it immediately. Useful for bombs.
+
 
 Version 0.21
 

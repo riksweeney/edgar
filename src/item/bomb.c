@@ -94,7 +94,7 @@ static void dropBomb(int val)
 
 	self->active = TRUE;
 
-	self->health = 10;
+	self->health = 30;
 
 	addEntity(*self, player.x, player.y);
 
@@ -111,19 +111,19 @@ static void explode()
 
 	if (self->thinkTime <= 0)
 	{
-		x = self->x;
-		y = self->y;
+		x = self->x + self->w / 2;
+		y = self->y + self->h / 2;
 
 		stopSound(self->targetX);
 
-		x += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
-		y += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
+		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
+		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		addExplosion(x, y);
 
 		self->health--;
 
-		self->thinkTime = 15;
+		self->thinkTime = 5;
 
 		if (self->health == 0)
 		{

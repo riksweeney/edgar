@@ -29,7 +29,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void jump(void);
-static void draw(void);
 static void move(void);
 
 Entity *addJumpingFireball(int x, int y, char *name)
@@ -50,7 +49,7 @@ Entity *addJumpingFireball(int x, int y, char *name)
 
 	e->action = &jump;
 
-	e->draw = &draw;
+	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
@@ -78,7 +77,7 @@ Entity *addFireball(int x, int y, char *name)
 
 	e->action = &move;
 
-	e->draw = &draw;
+	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
@@ -124,9 +123,4 @@ static void jump()
 	}
 
 	checkToMap(self);
-}
-
-static void draw()
-{
-	drawLoopingAnimationToMap();
 }

@@ -155,7 +155,20 @@ void doEntities()
 						break;
 					}
 				}
-
+				
+				if (self->standingOn != NULL)
+				{
+					if (self->standingOn->dirX != 0)
+					{
+						self->dirX = self->standingOn->dirX;
+					}
+			
+					if (self->standingOn->dirY > 0)
+					{
+						self->dirY = self->standingOn->dirY + 1;
+					}
+				}
+				
 				if (!(self->flags & HELPLESS))
 				{
 					self->action();
@@ -259,18 +272,13 @@ void moveLeftToRight()
 	{
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
 	}
-
-	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
-
-	if (self->standingOn != NULL)
+	
+	if (self->standingOn == NULL)
 	{
-		self->dirX = self->standingOn->dirX;
-
-		if (self->standingOn->dirY > 0)
-		{
-			self->dirY = self->standingOn->dirY + 1;
-		}
+		self->dirX = 0;
 	}
+
+	self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
 
 	checkToMap(self);
 
@@ -381,7 +389,7 @@ void entityDie()
 
 void standardDie()
 {
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) && self->standingOn == NULL)
 	{
 		self->dirX = 0;
 	}
@@ -424,7 +432,7 @@ void entityDieNoDrop()
 
 void noItemDie()
 {
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) && self->standingOn == NULL)
 	{
 		self->dirX = 0;
 	}
@@ -1323,17 +1331,12 @@ void doTeleport()
 	float speed;
 	Entity *e;
 
-	if (abs(self->x - self->targetX) < fabs(self->dirX) && abs(self->y - self->targetY) < fabs(self->dirY))
+	if (abs(self->x - self->targetX) < TELEPORT_SPEED && abs(self->y - self->targetY) < TELEPORT_SPEED)
 	{
 		self->flags &= ~(NO_DRAW|HELPLESS|TELEPORTING);
 
 		self->x = self->targetX;
 		self->y = self->targetY;
-
-		if (self->type == PLAYER)
-		{
-			cameraSnapToTargetEntity();
-		}
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 

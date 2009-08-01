@@ -225,7 +225,7 @@ static void dartDownFinish()
 
 	else
 	{
-		if (self->flags & ON_GROUND)
+		if ((self->flags & ON_GROUND) && self->standingOn == NULL)
 		{
 			self->dirX = 0;
 		}

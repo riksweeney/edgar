@@ -44,7 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void drawSuspended(void);
+static int drawSuspended(void);
 static void takeDamage(Entity *, int);
 static void initialise(void);
 static void doIntro(void);
@@ -273,11 +273,13 @@ static void wait()
 	}
 }
 
-static void drawSuspended()
+static int drawSuspended()
 {
 	drawLine(self->startX + self->w / 2, self->startY, self->x + self->w / 2, self->y + 15, 255, 255, 255);
 
 	drawLoopingAnimationToMap();
+	
+	return TRUE;
 }
 
 static void hover()
