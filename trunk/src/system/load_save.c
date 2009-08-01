@@ -133,6 +133,8 @@ int loadGame(int slot)
 	unsigned char *buffer;
 	int patchGame = FALSE;
 	FILE *fp;
+	
+	savePtr = NULL;
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
@@ -277,6 +279,8 @@ static void patchSaveGame(char *saveFile, double version)
 	unsigned char *buffer, *originalBuffer;
 	int savedLocation = FALSE;
 	FILE *newSave;
+	
+	savePtr = NULL;
 
 	freeGameResources();
 
@@ -440,6 +444,8 @@ void saveGame(int slot)
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
+	
+	savePtr = NULL;
 
 	printf("Saving game\n");
 
@@ -634,6 +640,8 @@ void saveTemporaryData()
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
+	
+	savePtr = NULL;
 
 	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
@@ -761,6 +769,8 @@ int hasPersistance(char *mapName)
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	unsigned char *buffer;
 	FILE *read;
+	
+	savePtr = NULL;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 
@@ -809,6 +819,8 @@ void loadPersitanceData(char *mapName)
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	int found = FALSE;
 	unsigned char *buffer;
+	
+	savePtr = NULL;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
 

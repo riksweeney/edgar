@@ -45,6 +45,8 @@ void runScript(char *name)
 	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
 	unsigned char *buffer;
 	int i;
+	
+	savePtr = NULL;
 
 	freeScript();
 

@@ -96,7 +96,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && self->active == FALSE && self->health == 0)
+	if (other->type == PLAYER && self->active == FALSE && self->health > 0)
 	{
 		setInfoBoxMessage(0,  _("Press Action to interact"));
 	}
@@ -104,7 +104,7 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	if (self->active == FALSE && self->health == 0)
+	if (self->active == FALSE && self->health > 0)
 	{
 		if (removeInventoryItem(self->requires) == TRUE)
 		{

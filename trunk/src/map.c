@@ -53,6 +53,9 @@ void loadMap(char *name, int loadEntityResources)
 	int x, y;
 	char itemName[MAX_MESSAGE_LENGTH], filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
+	
+	savePtr1 = NULL;
+	savePtr2 = NULL;
 
 	lavaTile = LAVA_TILE_START;
 

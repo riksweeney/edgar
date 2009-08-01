@@ -175,7 +175,7 @@ static void findTarget(int val)
 
 	if (self->active == TRUE)
 	{
-		if (self->action == &moveToTarget)
+		if (self->action == &moveToTarget || self->type == AUTO_LIFT)
 		{
 			return;
 		}

@@ -138,6 +138,8 @@ static void loadMenuLayout()
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
+	
+	savePtr1 = NULL;
 
 	i = 0;
 

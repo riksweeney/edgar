@@ -43,6 +43,8 @@ void initCursor(char *name)
 {
 	char line[MAX_LINE_LENGTH], *token, *savePtr;
 	unsigned char *buffer;
+	
+	savePtr = NULL;
 
 	cursor.tileID = 0;
 	cursor.entityType = 0;

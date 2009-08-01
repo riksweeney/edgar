@@ -200,6 +200,8 @@ char *loadResources(char *buffer)
 	int i, startX, startY, type, name, resourceType;
 	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2, *savePtr;
 	Entity *e;
+	
+	savePtr = NULL;
 
 	resourceType = ENTITY_DATA;
 
@@ -528,6 +530,8 @@ void patchEntities(double versionFile, char *mapName)
 	unsigned char *buffer;
 	Entity *e;
 	Target *t;
+	
+	savePtr = NULL;
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
 

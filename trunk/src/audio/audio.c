@@ -35,6 +35,8 @@ void preCacheSounds(char *filename)
 {
 	char *line, *savePtr;
 	unsigned char *buffer;
+	
+	savePtr = NULL;
 
 	if (game.audio == FALSE)
 	{
