@@ -83,6 +83,8 @@ void loadProperties(char *name, Entity *e)
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
 	char path[MAX_PATH_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
+	
+	savePtr1 = NULL;
 
 	snprintf(path, sizeof(path), "data/props/%s.props", name);
 

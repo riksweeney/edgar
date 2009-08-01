@@ -58,6 +58,8 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 	char *frameName, *line, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int i;
+	
+	savePtr1 = NULL;
 
 	buffer = loadFileFromPak(filename);
 

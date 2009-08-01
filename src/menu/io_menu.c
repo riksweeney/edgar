@@ -112,6 +112,9 @@ static void loadMenuLayout(int saving)
 	char **saveFile;
 	unsigned char *buffer;
 	int x, y, i;
+	
+	savePtr1 = NULL;
+	savePtr2 = NULL;
 
 	i = 0;
 

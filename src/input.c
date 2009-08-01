@@ -672,6 +672,8 @@ void writeControlsToFile(FILE *fp)
 void readControlsFromFile(char *buffer)
 {
 	char *line, *token, *savePtr;
+	
+	savePtr = NULL;
 
 	line = strtok_r(buffer, "\n", &savePtr);
 

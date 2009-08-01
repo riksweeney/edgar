@@ -61,8 +61,6 @@ Entity *addKeyItem(char *name, int x, int y)
 	{
 		if (strcmpignorecase(items[i].name, name) == 0)
 		{
-			printf("Adding Key Item %s to %d %d\n", items[i].name, x, y);
-
 			return items[i].construct(x, y, name);
 		}
 	}

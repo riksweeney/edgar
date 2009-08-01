@@ -2,7 +2,7 @@ WAIT 60
 SET Edgar FACE LEFT
 TALK Edgar These machines aren't working.
 WALK_TO Edgar 8178 0 WAIT
-TALK Edgar It looks like a gem should fit in this hole, maybe I can find some placements.
+TALK Edgar It looks like a gem should fit in this hole, maybe I can find some replacements.
 ADD OBJECTIVE "Find 4 Gems" " "
 ADD TRIGGER "Gems" 4 UPDATE_OBJECTIVE "Find 4 Gems"
 ADD TRIGGER "Green Gem" 1 UPDATE_TRIGGER "Gems"

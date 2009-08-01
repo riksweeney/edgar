@@ -34,6 +34,8 @@ void loadSpritesFromFile(char *name, int *index)
 	char *line, *savePtr;
 	unsigned char *buffer;
 	int i;
+	
+	savePtr = NULL;
 
 	buffer = loadFileFromPak(name);
 

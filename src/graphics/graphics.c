@@ -575,6 +575,8 @@ void drawHitBox(int startX, int startY, int w, int h)
 	int red, x, y, *pixels, transparent;
 	SDL_Rect dest;
 	SDL_Surface *image;
+	
+	pixels = NULL;
 
 	red = SDL_MapRGB(game.screen->format, 255, 0, 0);
 

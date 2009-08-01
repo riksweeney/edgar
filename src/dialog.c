@@ -46,6 +46,8 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	int i, lines, w, h, maxWidth;
 	SDL_Surface **surface, *tempSurface;
 	SDL_Rect dest;
+	
+	savePtr = NULL;
 
 	freeDialogBox();
 

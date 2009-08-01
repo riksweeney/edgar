@@ -143,6 +143,18 @@ static void fly()
 	{
 		self->face = RIGHT;
 	}
+	
+	/* Red bats always try and stay at their minimum height */
+	
+	if (self->y > self->startY && strcmpignorecase(self->name, "enemy/red_bat") == 0)
+	{
+		self->dirY = -self->speed;
+	}
+	
+	else
+	{
+		self->dirY = 0;
+	}
 
 	speed = self->dirX;
 

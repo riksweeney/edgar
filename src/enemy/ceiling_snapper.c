@@ -82,7 +82,7 @@ static void wait()
 
 		e->x -= e->w / 2;
 
-		e->damage = 0;
+		e->touch = NULL;
 	}
 
 	x = self->x - 16;
