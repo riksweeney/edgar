@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void move(void);
-static void draw(void);
+static int draw(void);
 static void init(void);
 static void takeDamage(Entity *, int);
 static void redTakeDamage(Entity *, int);
@@ -189,7 +189,7 @@ static void move()
 	}
 }
 
-static void draw()
+static int draw()
 {
 	if (self->health > 0)
 	{
@@ -197,6 +197,8 @@ static void draw()
 	}
 
 	drawLoopingAnimationToMap();
+	
+	return TRUE;
 }
 
 static void init()

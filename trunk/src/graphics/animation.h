@@ -20,9 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void loadAnimationData(char *, int *, int *);
 void freeAnimations(void);
 void drawLoopingAnimation(Entity *, int, int, int, int, int);
-void drawLoopingAnimationToMap(void);
+int drawLoopingAnimationToMap(void);
 void setEntityAnimation(Entity *, int);
-void drawLineDefToMap(void);
+int drawLineDefToMap(void);
 int getAnimationTypeByName(char *);
 int getAnimationTypeAtIndex(Entity *);
 int hasEntityAnimation(Entity *, int);

@@ -1,11 +1,13 @@
+WAIT 60
+SET Edgar FACE LEFT
 TALK Edgar These machines aren't working.
-WALK_TO Edgar 8130 0 WAIT
+WALK_TO Edgar 8178 0 WAIT
 TALK Edgar It looks like a gem should fit in this hole, maybe I can find some placements.
 ADD OBJECTIVE "Find 4 Gems" " "
-ADD OBJECTIVE "Repair Generators" " "
-ADD TRIGGER "Generators" 4 UPDATE_OBJECTIVE "Repair Generators"
 ADD TRIGGER "Gems" 4 UPDATE_OBJECTIVE "Find 4 Gems"
 ADD TRIGGER "Green Gem" 1 UPDATE_TRIGGER "Gems"
 ADD TRIGGER "Red Gem" 1 UPDATE_TRIGGER "Gems"
 ADD TRIGGER "Blue Gem" 1 UPDATE_TRIGGER "Gems"
 ADD TRIGGER "Purple Gem" 1 UPDATE_TRIGGER "Gems"
+ADD OBJECTIVE "Repair Generators" " "
+ADD TRIGGER "Generators" 4 UPDATE_OBJECTIVE "Repair Generators"

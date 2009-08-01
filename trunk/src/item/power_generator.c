@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
+#include "../collisions.h"
 
 extern Entity *self;
 
@@ -72,12 +73,30 @@ Entity *addPowerGenerator(int x, int y, char *name)
 
 static void wait()
 {
-
+	checkToMap(self);
+	
+	if (self->health < 0)
+	{
+		if (self->active == TRUE)
+		{
+			self->health *= -1;
+			
+			fireTrigger(self->objectiveName);
+			
+			fireGlobalTrigger(self->objectiveName);
+			
+			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
+			
+			setEntityAnimation(self, self->health);
+			
+			self->frameSpeed = 1;
+		}
+	}
 }
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->active == FALSE && self->health == 0)
 	{
 		setInfoBoxMessage(0,  _("Press Action to interact"));
 	}
@@ -85,20 +104,25 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	if (removeInventoryItem(self->requires) == TRUE)
+	if (self->active == FALSE && self->health == 0)
 	{
-		self->active = TRUE;
+		if (removeInventoryItem(self->requires) == TRUE)
+		{
+			self->active = TRUE;
+			
+			fireTrigger(self->objectiveName);
+			
+			fireGlobalTrigger(self->objectiveName);
+			
+			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
+			
+			setEntityAnimation(self, self->health);
+		}
 		
-		fireTrigger(self->objectiveName);
-		
-		fireGlobalTrigger(self->objectiveName);
-		
-		setEntityAnimation(self, WALK);
-	}
-	
-	else
-	{
-		setInfoBoxMessage(0,  _("%s is required"), self->requires);
+		else
+		{
+			setInfoBoxMessage(60,  _("%s is required"), self->requires);
+		}
 	}
 }
 
@@ -106,7 +130,14 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, self->health);
+	}
+	
+	else if (self->active == FALSE && self->health < 0)
+	{
+		setEntityAnimation(self, -self->health);
+		
+		self->frameSpeed = 0;
 	}
 	
 	self->action = &wait;
