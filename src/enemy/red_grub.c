@@ -78,8 +78,8 @@ static void lookForPlayer()
 	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
-
-		self->face = (self->face == RIGHT ? LEFT : RIGHT);
+		
+		self->face = (self->dirX < 0 ? LEFT : RIGHT);
 	}
 
 	if (player.health != 0 && prand() % 120 == 0)

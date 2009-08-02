@@ -273,16 +273,24 @@ void moveLeftToRight()
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
 	}
 	
-	if (self->standingOn == NULL)
+	if (self->standingOn == NULL || self->standingOn->dirX == 0)
+	{
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+	
+	else
+	{
+		self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
+	}
+	
+	if (isAtEdge(self) == TRUE)
 	{
 		self->dirX = 0;
 	}
 
-	self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
-
 	checkToMap(self);
 
-	if (self->dirX == 0 || isAtEdge(self) == TRUE)
+	if (self->dirX == 0)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
 

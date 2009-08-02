@@ -674,17 +674,9 @@ void setPlayerShield(int val)
 {
 	if (usingBow() == TRUE)
 	{
-		if (game.status == IN_INVENTORY)
-		{
-			setInventoryDialogMessage(_("Cannot equip shields when using the bow"));
-		}
-
-		else
-		{
-			setInfoBoxMessage(60, _("Cannot equip shields when using the bow"));
-		}
-
-		return;
+		/* Unequip the bow */
+		
+		playerWeapon.inUse = FALSE;
 	}
 
 	playerShield = *self;
