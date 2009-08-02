@@ -153,16 +153,6 @@ static void wander()
 	{
 		self->dirX = 0;
 	}
-	
-	if (self->standingOn != NULL)
-	{
-		self->dirX = self->standingOn->dirX;
-
-		if (self->standingOn->dirY > 0)
-		{
-			self->dirY = self->standingOn->dirY + 1;
-		}
-	}
 
 	checkToMap(self);
 
@@ -184,16 +174,6 @@ static void moveToFood()
 	else if (abs(self->x + (self->face == RIGHT ? self->w : 0) - self->target->x) > self->speed)
 	{
 		self->dirX = self->target->x < self->x ? -self->speed : self->speed;
-		
-		if (self->standingOn != NULL)
-		{
-			self->dirX = self->standingOn->dirX;
-	
-			if (self->standingOn->dirY > 0)
-			{
-				self->dirY = self->standingOn->dirY + 1;
-			}
-		}
 
 		self->face = (self->dirX < 0 ? LEFT : RIGHT);
 

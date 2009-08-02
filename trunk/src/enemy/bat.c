@@ -91,8 +91,6 @@ static void pain()
 
 static void fly()
 {
-	int speed;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -156,13 +154,13 @@ static void fly()
 		self->dirY = 0;
 	}
 
-	speed = self->dirX;
-
 	checkToMap(self);
 
-	if (self->dirX == 0 && speed != 0)
+	if (self->dirX == 0)
 	{
-		self->dirX = speed * -1;
+		self->dirX = self->face == LEFT ? self->speed : -self->speed;
+		
+		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
 
 	if (player.health > 0 && prand() % 120 == 0 && (strcmpignorecase(self->name, "enemy/red_bat") == 0))

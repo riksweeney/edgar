@@ -1124,9 +1124,9 @@ int isAtEdge(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & (PUSHABLE|OBSTACLE)) || (entity[i].type == WEAK_WALL)))
+		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL)))
 		{
-			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 128, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
+			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 5, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
 				return FALSE;
 			}

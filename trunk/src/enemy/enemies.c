@@ -49,6 +49,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "laser_grid.h"
 #include "ceiling_snapper.h"
 #include "gazer.h"
+#include "sludge.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -97,7 +98,8 @@ static Constructor enemies[] = {
 {"enemy/scorpion", &addScorpion},
 {"enemy/laser_grid", &addLaserGrid},
 {"enemy/ceiling_snapper", &addCeilingSnapper},
-{"enemy/gazer", &addGazer}
+{"enemy/gazer", &addGazer},
+{"enemy/sludge", &addSludge}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
