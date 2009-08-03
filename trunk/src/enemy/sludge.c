@@ -30,7 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void lookForPlayer(void);
+static void wander(void);
+static void init(void);
 static void teleportAttackStart(void);
 static void teleportAttack(void);
 static void teleportAttackFinishPause(void);
@@ -54,7 +55,7 @@ Entity *addSludge(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForPlayer;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -69,22 +70,21 @@ Entity *addSludge(int x, int y, char *name)
 	return e;
 }
 
-static void lookForPlayer()
+static void wander()
 {
 	setEntityAnimation(self, STAND);
 	
-	self->action = &lookForPlayer;
+	self->action = &wander;
 	
 	moveLeftToRight();
 	
-	if (player.health > 0 && prand() % 60 == 0)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
-		{
-			self->action = &teleportAttackStart;
+		self->action = &teleportAttackStart;
 
-			self->dirX = 0;
-		}
+		self->dirX = 0;
 	}
 }
 
@@ -94,7 +94,7 @@ static void teleportAttackStart()
 	
 	self->animationCallback = &teleportAttack;
 	
-	self->thinkTime = 180;
+	self->thinkTime = 120 + prand() % 180;
 	
 	checkToMap(self);
 }
@@ -109,42 +109,29 @@ static void teleportAttack()
 	
 	setEntityAnimation(self, ATTACK_2);
 	
-	self->dirX = self->x < player.x ? self->speed * 3 : -self->speed * 3;
-	
 	if (isAtEdge(self) == 1)
 	{
 		self->dirX = 0;
 	}
 	
+	self->dirX = (self->face == LEFT ? -self->speed : self->speed) * 3;
+	
 	checkToMap(self);
 	
 	if (self->dirX == 0)
-	{	
-		self->thinkTime--;
-		
-		if (self->thinkTime <= 0)
-		{
-			/* Give up */
-			
-			self->action = &teleportAttackFinish;
-		}
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
 	
-	else
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		if (fabs(self->x - player.x) < fabs(self->dirX))
-		{
-			self->action = &teleportAttackFinishPause;
-			
-			self->dirX = 0;
-			
-			self->thinkTime = 30;
-		}
+		self->action = &teleportAttackFinishPause;
 		
-		else
-		{
-			self->thinkTime = 180;
-		}
+		self->dirX = 0;
+		
+		self->thinkTime = 30;
 	}
 }
 
@@ -166,7 +153,9 @@ static void teleportAttackFinish()
 {
 	self->touch = &entityTouch;
 	
-	setEntityAnimation(self, ATTACK_3);
+	self->frameSpeed = -1;
+	
+	setEntityAnimation(self, ATTACK_1);
 	
 	self->animationCallback = &turnToFacePlayer;
 	
@@ -175,14 +164,23 @@ static void teleportAttackFinish()
 
 static void turnToFacePlayer()
 {
-	facePlayer();
+	self->frameSpeed = 1;
 	
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	
-	self->action = &lookForPlayer;
+	self->action = &wander;
+	
+	self->thinkTime = 120 + prand() % 180;
 }
 
 static void touch(Entity *other)
 {
 
+}
+
+static void init()
+{
+	self->thinkTime = 120 + prand() % 180;
+	
+	self->action = &wander;
 }
