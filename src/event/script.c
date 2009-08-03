@@ -266,6 +266,16 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			if (strcmpignorecase(token, "MAX_HEALTH") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				if (e->maxHealth != atoi(token))
+				{
+					script.skipping = TRUE;
+				}
+			}
 
 			else
 			{

@@ -1,0 +1,6 @@
+TALK Narrator You'll be able to access the rest of the fortress from here, but it's not in this version so check back later!
+IF EDGAR MAX_HEALTH 6
+TALK Narrator By the way, you only have 6 hit points at the moment. A good player would have 7 by now and a very good player would have 8.
+TALK Narrator An excellent player would have 9.
+TALK Narrator While you're waiting for the next version, why don't you go hunting for those extra hit points?
+END
