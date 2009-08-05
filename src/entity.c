@@ -155,20 +155,20 @@ void doEntities()
 						break;
 					}
 				}
-				
+
 				if (self->standingOn != NULL)
 				{
 					if (self->standingOn->dirX != 0)
 					{
 						self->dirX = self->standingOn->dirX;
 					}
-			
+
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY + 1;
 					}
 				}
-				
+
 				if (!(self->flags & HELPLESS))
 				{
 					self->action();
@@ -272,17 +272,17 @@ void moveLeftToRight()
 	{
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
 	}
-	
+
 	if (self->standingOn == NULL || self->standingOn->dirX == 0)
 	{
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 	}
-	
+
 	else
 	{
 		self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
 	}
-	
+
 	if (isAtEdge(self) == TRUE)
 	{
 		self->dirX = 0;
@@ -388,10 +388,6 @@ void entityDie()
 		self->action = &standardDie;
 
 		self->damage = 0;
-
-		fireTrigger(self->objectiveName);
-
-		fireGlobalTrigger(self->objectiveName);
 	}
 }
 
@@ -406,6 +402,10 @@ void standardDie()
 
 	if (self->thinkTime <= 0)
 	{
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+		
 		self->inUse = FALSE;
 
 		dropRandomItem(self->x + self->w / 2, self->y);
@@ -449,6 +449,10 @@ void noItemDie()
 
 	if (self->thinkTime <= 0)
 	{
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+		
 		self->inUse = FALSE;
 	}
 
@@ -962,6 +966,26 @@ void activateEntitiesWithObjectiveName(char *name, int active)
 	}
 }
 
+void activateEntitiesValueWithObjectiveName(char *name, int value)
+{
+	int i;
+	Entity *temp;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && entity[i].activate != NULL && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			temp = self;
+
+			self = &entity[i];
+
+			self->activate(value - self->health);
+
+			self = temp;
+		}
+	}
+}
+
 void interactWithEntity(int x, int y, int w, int h)
 {
 	int i;
@@ -1043,7 +1067,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
-			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "SPEED %0.2f\n", self->speed);
 			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -1085,6 +1109,13 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "ENEMY") == 0)
 	{
 		addEnemy(entityName, x, y);
+	}
+
+	else
+	{
+		printf("ADD ENTITY command encountered unknown entity %s\n", entityType);
+
+		exit(1);
 	}
 }
 
@@ -1358,13 +1389,13 @@ void doTeleport()
 	else
 	{
 		self->flags |= NO_DRAW|HELPLESS|INVULNERABLE;
-		
+
 		speed = getDistance(self->x, self->y, self->targetX, self->targetY) / 20;
-		
+
 		speed = speed < TELEPORT_SPEED ? TELEPORT_SPEED : (speed > 30 ? 30 : speed);
-		
+
 		normalize(&self->dirX, &self->dirY);
-		
+
 		self->dirX *= speed;
 		self->dirY *= speed;
 

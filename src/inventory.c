@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/properties.h"
 #include "entity.h"
 #include "dialog.h"
+#include "inventory.h"
 
 static Inventory inventory;
 extern Entity *self;
@@ -142,12 +143,12 @@ int addToInventory(Entity *e)
 		{
 			setInfoBoxMessage(60,  _("Picked up %s x %d"), inventory.item[i].objectiveName, e->health);
 		}
-		
+
 		else
 		{
 			setInfoBoxMessage(60,  _("Picked up %s"), inventory.item[i].objectiveName);
 		}
-		
+
 		e->inUse = FALSE;
 
 		fireTrigger(inventory.item[i].objectiveName);
@@ -229,6 +230,8 @@ void selectInventoryItem(void)
 	if (inventory.item[inventory.cursorIndex].inUse == TRUE)
 	{
 		inventory.selectedIndex = inventory.cursorIndex;
+
+		setInventoryDialogMessage(_("Readied %s"), inventory.item[inventory.cursorIndex].objectiveName);
 	}
 }
 
@@ -516,7 +519,7 @@ void writeInventoryToFile(FILE *fp)
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
-			fprintf(fp, "SPEED %0.1f\n", self->speed);
+			fprintf(fp, "SPEED %0.2f\n", self->speed);
 			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -532,7 +535,7 @@ void clearInventoryDescription()
 	if (inventory.description != NULL)
 	{
 		SDL_FreeSurface(inventory.description);
-		
+
 		inventory.description = NULL;
 	}
 }

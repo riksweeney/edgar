@@ -26,3 +26,5 @@ void flashWhite(int *, int *);
 void slowDown(int *, int *);
 void clearCustomActions(Entity *);
 void dizzy(int *, int *);
+void regenerate(int *, int *);
+void addCustomActionFromScript(Entity *, char *);

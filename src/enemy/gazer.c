@@ -141,14 +141,14 @@ static void gazeInit()
 static void gaze()
 {
 	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
-	
+
 	fadeFromWhite();
 
 	if ((player.x < self->x && player.face == RIGHT) || (player.x > self->x && player.face == LEFT))
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			setPlayerStunned();
+			setPlayerStunned(120);
 
 			self->thinkTime = 30;
 		}

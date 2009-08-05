@@ -537,6 +537,12 @@ void doPlayer()
 
 void playerWaitForDialog()
 {
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
@@ -675,7 +681,7 @@ void setPlayerShield(int val)
 	if (usingBow() == TRUE)
 	{
 		/* Unequip the bow */
-		
+
 		playerWeapon.inUse = FALSE;
 	}
 
@@ -945,7 +951,7 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "HEALTH %d\n", self->health);
 	fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 	fprintf(fp, "DAMAGE %d\n", self->damage);
-	/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
+	/*fprintf(fp, "SPEED %0.2f\n", self->speed); Don't write the speed */
 	fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 	fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 	fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -968,7 +974,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
-		/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
+		/*fprintf(fp, "SPEED %0.2f\n", self->speed); Don't write the speed */
 		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 		fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -992,7 +998,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
-		/*fprintf(fp, "SPEED %0.1f\n", self->speed); Don't write the speed */
+		/*fprintf(fp, "SPEED %0.2f\n", self->speed); Don't write the speed */
 		fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 		fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 		fprintf(fp, "REQUIRES %s\n", self->requires);
@@ -1194,11 +1200,11 @@ void facePlayer()
 	self->face = player.x < self->x ? LEFT : RIGHT;
 }
 
-void setPlayerStunned()
+void setPlayerStunned(int thinkTime)
 {
 	player.flags &= ~BLOCKING;
 
-	setCustomAction(&player, &dizzy, 120, 0);
+	setCustomAction(&player, &dizzy, thinkTime, 0);
 
 	setEntityAnimation(&player, DIE);
 	setEntityAnimation(&playerShield, DIE);

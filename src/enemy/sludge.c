@@ -73,13 +73,13 @@ Entity *addSludge(int x, int y, char *name)
 static void wander()
 {
 	setEntityAnimation(self, STAND);
-	
+
 	self->action = &wander;
-	
+
 	moveLeftToRight();
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &teleportAttackStart;
@@ -91,46 +91,46 @@ static void wander()
 static void teleportAttackStart()
 {
 	setEntityAnimation(self, ATTACK_1);
-	
+
 	self->animationCallback = &teleportAttack;
-	
+
 	self->thinkTime = 120 + prand() % 180;
-	
+
 	checkToMap(self);
 }
 
 static void teleportAttack()
 {
 	self->action = &teleportAttack;
-	
+
 	self->touch = &touch;
-	
+
 	self->flags |= INVULNERABLE;
-	
+
 	setEntityAnimation(self, ATTACK_2);
-	
+
+	self->dirX = (self->face == LEFT ? -self->speed : self->speed) * 3;
+
 	if (isAtEdge(self) == 1)
 	{
 		self->dirX = 0;
 	}
-	
-	self->dirX = (self->face == LEFT ? -self->speed : self->speed) * 3;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &teleportAttackFinishPause;
-		
+
 		self->dirX = 0;
-		
+
 		self->thinkTime = 30;
 	}
 }
@@ -138,13 +138,13 @@ static void teleportAttack()
 static void teleportAttackFinishPause()
 {
 	checkToMap(self);
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~INVULNERABLE;
-		
+
 		self->action = &teleportAttackFinish;
 	}
 }
@@ -152,24 +152,24 @@ static void teleportAttackFinishPause()
 static void teleportAttackFinish()
 {
 	self->touch = &entityTouch;
-	
+
 	self->frameSpeed = -1;
-	
+
 	setEntityAnimation(self, ATTACK_1);
-	
+
 	self->animationCallback = &turnToFacePlayer;
-	
+
 	checkToMap(self);
 }
 
 static void turnToFacePlayer()
 {
 	self->frameSpeed = 1;
-	
+
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	
+
 	self->action = &wander;
-	
+
 	self->thinkTime = 120 + prand() % 180;
 }
 
@@ -181,6 +181,6 @@ static void touch(Entity *other)
 static void init()
 {
 	self->thinkTime = 120 + prand() % 180;
-	
+
 	self->action = &wander;
 }
