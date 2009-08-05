@@ -67,8 +67,6 @@ Entity *addSwitch(char *name, int x, int y)
 
 static void call(int val)
 {
-	Entity *e, *temp;
-
 	if (self->thinkTime == 0)
 	{
 		if (strlen(self->requires) != 0)
@@ -98,25 +96,7 @@ static void call(int val)
 
 		self->thinkTime = 120;
 
-		e = getEntityByObjectiveName(self->objectiveName);
-
-		if (e != NULL)
-		{
-			temp = self;
-
-			self = e;
-
-			self->activate(temp->health - self->health);
-
-			self = temp;
-		}
-
-		else
-		{
-			printf("Could not find an Entity called %s\n", self->objectiveName);
-
-			exit(1);
-		}
+		activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
 	}
 }
 

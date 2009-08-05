@@ -39,6 +39,7 @@ static void showOptionsMenu(void);
 static void doMenu(void);
 static void showLoadDialog(void);
 static void doNewGame(void);
+static void doTutorial(void);
 
 void drawMainMenu()
 {
@@ -137,7 +138,7 @@ static void loadMenuLayout()
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
-	
+
 	savePtr1 = NULL;
 
 	i = 0;
@@ -210,6 +211,11 @@ static void loadMenuLayout()
 				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doNewGame, x, y, TRUE);
+				}
+
+				else if (strcmpignorecase(menuID, "MENU_TUTORIAL") == 0)
+				{
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doTutorial, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
@@ -323,6 +329,13 @@ static void showLoadDialog()
 static void doNewGame()
 {
 	newGame();
-	
+
+	game.playTime = 0;
+}
+
+static void doTutorial()
+{
+	tutorial();
+
 	game.playTime = 0;
 }

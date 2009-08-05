@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity entity[MAX_ENTITIES], *self;
 extern Entity player, playerShield, playerWeapon;
 
-static Grid grid[GRID_HEIGHT][GRID_WIDTH];
+static Grid grid[GRID_MAX_Y][GRID_MAX_X];
 
 static void addToList(int, int, Entity *);
 
@@ -34,9 +34,9 @@ void initCollisionGrid()
 {
 	int x, y;
 
-	for (y=0;y<GRID_HEIGHT;y++)
+	for (y=0;y<GRID_MAX_Y;y++)
 	{
-		for (x=0;x<GRID_WIDTH;x++)
+		for (x=0;x<GRID_MAX_X;x++)
 		{
 			grid[y][x].count = 0;
 			grid[y][x].listHead.next = NULL;
@@ -52,27 +52,27 @@ void addToGrid(Entity *e)
 	{
 		if (e->face == LEFT)
 		{
-			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_COUNT;
-			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_COUNT;
+			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
 		}
 
 		else
 		{
-			left = (e->x + e->offsetX) / TILE_SIZE / GRID_COUNT;
-			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_COUNT;
+			left = (e->x + e->offsetX) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_SIZE;
 		}
 
-		top = e->y / TILE_SIZE / GRID_COUNT;
-		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_COUNT;
+		top = e->y / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
 	}
 
 	else
 	{
-		left = (e->x + e->box.x) / TILE_SIZE / GRID_COUNT;
-		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_COUNT;
+		left = (e->x + e->box.x) / TILE_SIZE / GRID_SIZE;
+		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_SIZE;
 
-		top = (e->y + e->box.y) / TILE_SIZE / GRID_COUNT;
-		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_COUNT;
+		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_SIZE;
 	}
 
 	addToList(top, left, e);
@@ -97,7 +97,7 @@ static void addToList(int y, int x, Entity *e)
 {
 	EntityList *listHead, *list;
 
-	if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT)
+	if (x < 0 || x >= GRID_MAX_X || y < 0 || y >= GRID_MAX_Y)
 	{
 		return;
 	}
@@ -124,9 +124,9 @@ void freeCollisionGrid()
 	int x, y;
 	EntityList *p, *q;
 
-	for (y=0;y<GRID_HEIGHT;y++)
+	for (y=0;y<GRID_MAX_Y;y++)
 	{
-		for (x=0;x<GRID_WIDTH;x++)
+		for (x=0;x<GRID_MAX_X;x++)
 		{
 			for (p=grid[y][x].listHead.next;p!=NULL;p=q)
 			{
@@ -147,9 +147,9 @@ void doCollisions()
 	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
-	for (i=0;i<GRID_HEIGHT;i++)
+	for (i=0;i<GRID_MAX_Y;i++)
 	{
-		for (j=0;j<GRID_WIDTH;j++)
+		for (j=0;j<GRID_MAX_X;j++)
 		{
 			for (list1=grid[i][j].listHead.next;list1!=NULL;list1=list1->next)
 			{
@@ -265,9 +265,9 @@ void checkEntityToEntity(Entity *e)
 	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
-	for (i=0;i<GRID_HEIGHT;i++)
+	for (i=0;i<GRID_MAX_Y;i++)
 	{
-		for (j=0;j<GRID_WIDTH;j++)
+		for (j=0;j<GRID_MAX_X;j++)
 		{
 			for (list1=grid[i][j].listHead.next;list1!=NULL;list1=list1->next)
 			{

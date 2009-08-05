@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../system/properties.h"
 #include "../system/pak.h"
+#include "../custom_actions.h"
 
 extern Entity player, *self;
 extern Game game;
@@ -45,7 +46,7 @@ void runScript(char *name)
 	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
 	unsigned char *buffer;
 	int i;
-	
+
 	savePtr = NULL;
 
 	freeScript();
@@ -216,6 +217,13 @@ void readNextScriptLine()
 
 				addGlobalTriggerFromScript(token);
 			}
+
+			else
+			{
+				printf("ADD command encountered unknown action %s\n", token);
+
+				exit(1);
+			}
 		}
 
 		else if (strcmpignorecase("IF", command) == 0)
@@ -266,8 +274,8 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
-			if (strcmpignorecase(token, "MAX_HEALTH") == 0)
+
+			else if (strcmpignorecase(token, "MAX_HEALTH") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
 
@@ -662,6 +670,34 @@ void readNextScriptLine()
 			}
 		}
 
+		else if (strcmpignorecase("CUSTOM_ACTION", command) == 0)
+		{
+			freeDialogBox();
+
+			token = strtok_r(NULL, " ", &savePtr);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				printf("JUMP command could not find Entity %s\n", token);
+
+				exit(1);
+			}
+			
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			addCustomActionFromScript(e, token);
+		}
+		
 		else if (strcmpignorecase("JUMP", command) == 0)
 		{
 			freeDialogBox();

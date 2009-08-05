@@ -1,18 +1,19 @@
 CHANGE LOG
 ----------
 
-Version 0.30
+Version 0.25
 
 * Fixed the chickens (again)
-* Reduced the number of chickens to catch to 5 (new games only)
+* Reduced the number of chickens to catch to 3 (and there was much rejoicing)
 * Fixed the sprite priorities (again)
-* Added the Cellar map
+* Added the Basement map
 * Fixed health drop chance when using the bow
 * Fixed corruption of items when swapping items in the inventory
 * Selecting an inventory item using the block or interact button will only select it for use rather than using it immediately. Useful for bombs.
+* Slight performance improvements
+* Added a tutorial level
 
-
-Version 0.21
+Version 0.22
 
 * Fixed a problem with sprite priorities, so now you know what killed you in the Forbidden Swamp
 

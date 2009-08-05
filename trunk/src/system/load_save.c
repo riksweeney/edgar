@@ -125,6 +125,19 @@ void newGame()
 	cameraSnapToTargetEntity();
 }
 
+void tutorial()
+{
+	removeTemporaryData();
+
+	freeGameResources();
+
+	loadMap("tutorial", TRUE);
+
+	initGame();
+
+	cameraSnapToTargetEntity();
+}
+
 int loadGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], backup[MAX_PATH_LENGTH];
@@ -133,7 +146,7 @@ int loadGame(int slot)
 	unsigned char *buffer;
 	int patchGame = FALSE;
 	FILE *fp;
-	
+
 	savePtr = NULL;
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
@@ -183,7 +196,7 @@ int loadGame(int slot)
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %ld\n", &game.playTime);
-			
+
 			if (version < VERSION)
 			{
 				printf("Need to patch save file\n");
@@ -234,7 +247,7 @@ int loadGame(int slot)
 			patchSaveGame(saveFile, version);
 
 			version += 0.01;
-			
+
 			if (version > VERSION)
 			{
 				break;
@@ -279,7 +292,7 @@ static void patchSaveGame(char *saveFile, double version)
 	unsigned char *buffer, *originalBuffer;
 	int savedLocation = FALSE;
 	FILE *newSave;
-	
+
 	savePtr = NULL;
 
 	freeGameResources();
@@ -373,7 +386,7 @@ static void patchSaveGame(char *saveFile, double version)
 				if (savedLocation == FALSE)
 				{
 					fprintf(newSave, "VERSION %0.2f\n", version);
-					
+
 					fprintf(newSave, "PLAY_TIME %ld\n", game.playTime);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
@@ -444,7 +457,7 @@ void saveGame(int slot)
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
-	
+
 	savePtr = NULL;
 
 	printf("Saving game\n");
@@ -640,7 +653,7 @@ void saveTemporaryData()
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
-	
+
 	savePtr = NULL;
 
 	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
@@ -769,7 +782,7 @@ int hasPersistance(char *mapName)
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	unsigned char *buffer;
 	FILE *read;
-	
+
 	savePtr = NULL;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
@@ -819,7 +832,7 @@ void loadPersitanceData(char *mapName)
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
 	int found = FALSE;
 	unsigned char *buffer;
-	
+
 	savePtr = NULL;
 
 	snprintf(itemName, sizeof(itemName), "MAP_NAME %s", mapName);
@@ -900,8 +913,12 @@ void loadConfig()
 	{
 		resetGameSettings();
 
+		game.firstRun = TRUE;
+
 		return;
 	}
+
+	game.firstRun = FALSE;
 
 	fseek(fp, 0L, SEEK_END);
 

@@ -58,6 +58,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/snake_boss.h"
 #include "../boss/fly_boss.h"
 #include "../boss/flying_maggot.h"
+#include "../boss/golem_rock_dropper.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -99,7 +100,9 @@ static Constructor enemies[] = {
 {"enemy/laser_grid", &addLaserGrid},
 {"enemy/ceiling_snapper", &addCeilingSnapper},
 {"enemy/gazer", &addGazer},
-{"enemy/sludge", &addSludge}
+{"enemy/sludge", &addSludge},
+{"boss/golem_rock_dropper", &addGolemRockDropper},
+{"enemy/tutorial_spitting_plant", &addSpittingPlant}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

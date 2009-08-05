@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/animation.h"
 #include "player.h"
 #include "map.h"
+#include "custom_actions.h"
 
 extern Entity *self;
 
@@ -83,6 +84,27 @@ void clearCustomActions(Entity *e)
 	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 	{
 		e->customAction[i].thinkTime = 0;
+	}
+}
+
+void addCustomActionFromScript(Entity *e, char *line)
+{
+	char actionName[MAX_VALUE_LENGTH];
+	int thinkTime, accumulates;
+	void (*action)(int *, int *);
+	
+	action = NULL;
+	
+	sscanf(line, "%s %d %d", actionName, &thinkTime, &accumulates);
+	
+	if (strcmpignorecase(actionName, "REGENERATE") == 0)
+	{
+		action = &regenerate;
+	}
+	
+	if (action != NULL)
+	{
+		setCustomAction(e, action, thinkTime, accumulates);
 	}
 }
 
@@ -181,4 +203,9 @@ void dizzy(int *thinkTime, int *counter)
 	{
 		self->flags |= HELPLESS;
 	}
+}
+
+void regenerate(int *thinkTime, int *counter)
+{
+	self->health = self->maxHealth;
 }

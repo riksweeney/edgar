@@ -53,7 +53,7 @@ void loadMap(char *name, int loadEntityResources)
 	int x, y;
 	char itemName[MAX_MESSAGE_LENGTH], filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
-	
+
 	savePtr1 = NULL;
 	savePtr2 = NULL;
 
@@ -380,7 +380,7 @@ int saveMap()
 	/* Close the file afterwards */
 
 	fclose(fp);
-	
+
 	return TRUE;
 }
 
@@ -611,7 +611,7 @@ void drawMap(int depth)
 				exit(0);
 			}
 			*/
-			
+
 			switch (depth)
 			{
 				case 0:
@@ -620,21 +620,21 @@ void drawMap(int depth)
 						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
-				
+
 				case 1:
 					if (tileID < BACKGROUND_TILE_START)
 					{
 						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
-				
+
 				case 2:
 					if (tileID >= FOREGROUND_TILE_START)
 					{
 						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
-				
+
 				default:
 					drawImage(mapImages[tileID], x, y, FALSE);
 				break;

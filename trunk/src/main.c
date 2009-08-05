@@ -52,6 +52,7 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit = SDL_GetTicks() + 16;
+	char *firstMap;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
 
 	#ifndef NO_GETTEXT
@@ -131,25 +132,27 @@ int main(int argc, char *argv[])
 
 	if (loadSlot == -1)
 	{
+		firstMap = game.firstRun == TRUE ? "tutorial" : "map01";
+
 		if (recordingID != -1)
 		{
 			setRecordData(argv[recordingID]);
 
-			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
+			setMapFile(mapID == -1 ? firstMap : argv[mapID]);
 
-			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
+			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
 		}
 
 		else if (replayingID != -1)
 		{
 			setReplayData(argv[replayingID], TRUE);
 
-			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
+			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
 		}
 
 		else
 		{
-			loadMap(mapID == -1 ? "map01" : argv[mapID], TRUE);
+			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
 		}
 	}
 

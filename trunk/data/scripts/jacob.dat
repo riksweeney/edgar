@@ -5,13 +5,6 @@ END
 IF Jacob HEALTH 8
 TALK Jacob Have fun!
 END
-IF Jacob HEALTH 9
-TALK Jacob Wow, you caught them all, thanks alot!
-ADD ENTITY ITEM item/health_potion " " 4030 2582
-TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
-TALK Edgar Thanks Jacob
-SET Jacob HEALTH 8
-END
 IF Jacob HEALTH 6
 TALK Jacob Thanks for resucing my chickens, have you got me 2 logs from the forest yet?
 SET Jacob HEALTH 5
@@ -41,7 +34,7 @@ TALK Jacob I do have a sword and you can have it if you do something for me firs
 TALK Edgar OK... what do I have to do?
 TALK Jacob Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
 ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 4030 2582
-TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 5 would be very helpful. I can get the rest myself.
+TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself.
 TALK Edgar That's it?
 TALK Jacob Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient
 TALK Edgar Do you have an axe?
@@ -56,23 +49,82 @@ TALK Jacob Good luck!
 ACTIVATE_REQUIRED Chicken Trap
 ADD OBJECTIVE "Collect 2 Chopped Logs" " "
 ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
-ADD OBJECTIVE "Rescue 5 Chickens" "CHICKEN_TRIGGER"
-ADD TRIGGER "Chicken" 5 UPDATE_OBJECTIVE "Rescue 5 Chickens"
+ADD OBJECTIVE "Rescue 3 Chickens" "CHICKEN_TRIGGER"
+ADD TRIGGER "Chicken" 3 UPDATE_OBJECTIVE "Rescue 3 Chickens"
 ADD TRIGGER "CHICKEN_TRIGGER" 1 RUN_SCRIPT "jacob_chickens"
-ADD TRIGGER "Chicken" 10 RUN_SCRIPT "jacob_potion"
+ADD TRIGGER "Chicken" 6 RUN_SCRIPT "jacob_potion"
+ADD TRIGGER "Chicken" 10 RUN_SCRIPT "jacob_potion_2"
 SET Jacob HEALTH 2
 END
+IF Jacob HEALTH 9
+TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
+TALK Edgar Thanks Jacob
+SET Jacob HEALTH 8
+END
 IF Jacob HEALTH 10
-TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
 ADD ENTITY ITEM item/health_potion " " 4030 2582
 TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
 TALK Edgar Thanks Jacob
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 11
-TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
 ADD ENTITY ITEM item/health_potion " " 4030 2582
 TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
 TALK Edgar Thanks Jacob
+SET Jacob HEALTH 3
+END
+IF Jacob HEALTH 12
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob Here, I have these for you
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Maggie made me this health potion but you can have it
+TALK Jacob And this is something very special
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
+SET Jacob HEALTH 8
+END
+IF Jacob HEALTH 13
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob Here, I have these for you
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Maggie made me this health potion but you can have it
+TALK Jacob And this is something very special
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
+SET Jacob HEALTH 5
+END
+IF Jacob HEALTH 14
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob Here, I have these for you
+ADD ENTITY ITEM item/health_potion " " 4030 2582
+TALK Jacob Maggie made me this health potion but you can have it
+TALK Jacob And this is something very special
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
+SET Jacob HEALTH 3
+END
+IF Jacob HEALTH 15
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
+SET Jacob HEALTH 8
+END
+IF Jacob HEALTH 16
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
+SET Jacob HEALTH 5
+END
+IF Jacob HEALTH 17
+TALK Jacob Wow, you caught them all, thanks alot!
+TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
+ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+TALK Jacob May this help you on your way to becoming a strong warrior
 SET Jacob HEALTH 3
 END

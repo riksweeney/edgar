@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "bomb_pile.h"
 #include "potions.h"
 #include "power_generator.h"
+#include "grabber.h"
 #include "../world/arrow_target.h"
 
 extern Entity *self, player;
@@ -48,7 +49,8 @@ static Constructor items[] = {
 {"item/bomb_pile", &addBombPile},
 {"item/health_potion", &addHealthPotion},
 {"item/arrow_target", &addArrowTarget},
-{"item/power_generator", &addPowerGenerator}
+{"item/power_generator", &addPowerGenerator},
+{"item/grabber", &addGrabber}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
