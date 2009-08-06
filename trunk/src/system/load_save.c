@@ -123,6 +123,8 @@ void newGame()
 	initGame();
 
 	cameraSnapToTargetEntity();
+
+	game.playTime = 0;
 }
 
 void tutorial()
@@ -142,7 +144,7 @@ int loadGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], backup[MAX_PATH_LENGTH];
 	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
-	double version;
+	double version = 0;
 	unsigned char *buffer;
 	int patchGame = FALSE;
 	FILE *fp;

@@ -20,30 +20,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "widget.h"
+#include "../draw.h"
 #include "label.h"
 #include "../init.h"
 #include "../graphics/graphics.h"
-#include "main_menu.h"
-#include "control_menu.h"
-#include "sound_menu.h"
 #include "../system/pak.h"
-#include "../init.h"
+#include "../input.h"
 #include "../audio/audio.h"
+#include "yes_no_menu.h"
 
 extern Input input, menuInput;
 extern Game game;
+extern Control control;
 
 static Menu menu;
+static void (*yesAction)(void);
+static void (*noAction)(void);
 
-static void loadMenuLayout(void);
-static void toggleHints(void);
-static void showControlMenu(void);
-static void showSoundMenu(void);
-static void showMainMenu(void);
+static void loadMenuLayout(char *);
 static void doMenu(void);
-static void toggleFullscreen(void);
+static void doYes(void);
+static void doNo(void);
 
-void drawOptionsMenu()
+void drawYesNoMenu()
 {
 	int i;
 
@@ -59,32 +58,32 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.down == TRUE || menuInput.down == TRUE)
+	if (input.right == TRUE || menuInput.right == TRUE)
 	{
 		menu.index++;
 
 		if (menu.index == menu.widgetCount)
 		{
-			menu.index = 0;
+			menu.index = 2;
 		}
 
-		menuInput.down = FALSE;
-		input.down = FALSE;
+		menuInput.right = FALSE;
+		input.right = FALSE;
 
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.up == TRUE || menuInput.up == TRUE)
+	else if (input.left == TRUE || menuInput.left == TRUE)
 	{
 		menu.index--;
 
-		if (menu.index < 0)
+		if (menu.index < 2)
 		{
 			menu.index = menu.widgetCount - 1;
 		}
 
-		menuInput.up = FALSE;
-		input.up = FALSE;
+		menuInput.left = FALSE;
+		input.left = FALSE;
 
 		playSound("sound/common/click.ogg");
 	}
@@ -93,49 +92,19 @@ static void doMenu()
 	{
 		w = menu.widgets[menu.index];
 
+		menuInput.attack = FALSE;
+		input.attack = FALSE;
+
+		playSound("sound/common/click.ogg");
+
 		if (w->clickAction != NULL)
 		{
-			menuInput.attack = FALSE;
-			input.attack = FALSE;
-
-			playSound("sound/common/click.ogg");
-
 			w->clickAction();
-		}
-	}
-
-	else if (input.left == TRUE || menuInput.left == TRUE)
-	{
-		w = menu.widgets[menu.index];
-
-		if (w->rightAction != NULL)
-		{
-			menuInput.left = FALSE;
-			input.left = FALSE;
-
-			playSound("sound/common/click.ogg");
-
-			w->rightAction();
-		}
-	}
-
-	else if (input.right == TRUE || menuInput.right == TRUE)
-	{
-		w = menu.widgets[menu.index];
-
-		if (w->leftAction != NULL)
-		{
-			menuInput.right = FALSE;
-			input.right = FALSE;
-
-			playSound("sound/common/click.ogg");
-
-			w->leftAction();
 		}
 	}
 }
 
-static void loadMenuLayout()
+static void loadMenuLayout(char *text)
 {
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
@@ -145,7 +114,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/options_menu.dat"));
+	snprintf(filename, sizeof(filename), _("data/menu/yes_no_menu.dat"));
 
 	buffer = loadFileFromPak(filename);
 
@@ -190,13 +159,13 @@ static void loadMenuLayout()
 		{
 			token = strtok_r(NULL, " ", &savePtr2);
 
-			menu.widgetCount = atoi(token);
+			menu.widgetCount = atoi(token) + 2;
 
 			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
 
 			if (menu.widgets == NULL)
 			{
-				printf("Ran out of memory when creating Options Menu\n");
+				printf("Ran out of memory when creating Yes / No Menu\n");
 
 				exit(1);
 			}
@@ -206,37 +175,25 @@ static void loadMenuLayout()
 		{
 			if (menu.widgets != NULL)
 			{
+				if (i == 0)
+				{
+					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE);
+
+					menu.widgets[i++] = createWidget(_("Any unsaved progress will be lost"), NULL, NULL, NULL, NULL, -1, 70, FALSE);
+				}
+
 				token = strtok_r(NULL, "\0", &savePtr2);
 
 				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
 
-				if (strcmpignorecase(menuID, "MENU_CONTROLS") == 0)
+				if (strcmpignorecase(menuID, "MENU_YES") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showControlMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, doYes, x, y, TRUE);
 				}
 
-				else if (strcmpignorecase(menuID, "MENU_SOUND") == 0)
+				else if (strcmpignorecase(menuID, "MENU_NO") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showSoundMenu, x, y, TRUE);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, &toggleHints, &toggleHints, &toggleHints, x, y, TRUE);
-
-					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_FULLSCREEN") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
-
-					menu.widgets[i]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
-				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, doNo, x, y, TRUE);
 				}
 
 				else
@@ -267,6 +224,23 @@ static void loadMenuLayout()
 		exit(1);
 	}
 
+	/* Resize */
+
+	if (menu.widgets[0]->selectedState->w > menu.widgets[1]->selectedState->w)
+	{
+		menu.w = menu.widgets[0]->selectedState->w + 20;
+	}
+
+	else
+	{
+		menu.w = menu.widgets[1]->selectedState->w + 20;
+	}
+
+	x = menu.widgets[2]->normalState->w + menu.widgets[3]->normalState->w + 20;
+
+	menu.widgets[2]->x = (menu.w - x) / 2;
+	menu.widgets[3]->x = menu.widgets[2]->x + menu.widgets[2]->selectedState->w + 20;
+
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
 	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
@@ -277,21 +251,28 @@ static void loadMenuLayout()
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
 }
 
-Menu *initOptionsMenu()
+Menu *initYesNoMenu(char *text, void (*yes)(void), void (*no)(void))
 {
 	menu.action = &doMenu;
 
-	if (menu.widgets == NULL)
+	yesAction = yes;
+	noAction = no;
+
+	if (menu.widgets != NULL)
 	{
-		loadMenuLayout();
+		freeYesNoMenu();
 	}
 
-	menu.returnAction = &showMainMenu;
+	loadMenuLayout(text);
+
+	menu.index = 3;
+
+	menu.returnAction = NULL;
 
 	return &menu;
 }
 
-void freeOptionsMenu()
+void freeYesNoMenu()
 {
 	int i;
 
@@ -313,43 +294,12 @@ void freeOptionsMenu()
 	}
 }
 
-static void toggleHints()
+static void doYes()
 {
-	Widget *w = menu.widgets[menu.index];
-
-	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
-
-	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
+	yesAction();
 }
 
-static void toggleFullscreen()
+static void doNo()
 {
-	Widget *w = menu.widgets[menu.index];
-
-	game.fullscreen = game.fullscreen == TRUE ? FALSE : TRUE;
-
-	toggleFullScreen();
-
-	updateLabelText(w->label, game.fullscreen == TRUE ? _("Yes") : _("No"));
-}
-
-static void showControlMenu()
-{
-	game.menu = initControlMenu();
-
-	game.drawMenu = &drawControlMenu;
-}
-
-static void showSoundMenu()
-{
-	game.menu = initSoundMenu();
-
-	game.drawMenu = &drawSoundMenu;
-}
-
-static void showMainMenu()
-{
-	game.menu = initMainMenu();
-
-	game.drawMenu = &drawMainMenu;
+	noAction();
 }

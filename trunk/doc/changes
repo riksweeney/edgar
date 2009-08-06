@@ -12,6 +12,7 @@ Version 0.25
 * Selecting an inventory item using the block or interact button will only select it for use rather than using it immediately. Useful for bombs.
 * Slight performance improvements
 * Added a tutorial level
+* Added confirmations to menu options
 
 Version 0.22
 

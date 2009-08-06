@@ -24,6 +24,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "options_menu.h"
 #include "io_menu.h"
+#include "yes_no_menu.h"
+#include "about_menu.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../game.h"
@@ -40,6 +42,9 @@ static void doMenu(void);
 static void showLoadDialog(void);
 static void doNewGame(void);
 static void doTutorial(void);
+static void doQuit(void);
+static void showMainMenu(void);
+static void showAboutMenu(void);
 
 void drawMainMenu()
 {
@@ -93,13 +98,13 @@ static void doMenu()
 
 		if (w->clickAction != NULL)
 		{
+			menuInput.attack = FALSE;
+			input.attack = FALSE;
+
+			playSound("sound/common/click.ogg");
+
 			w->clickAction();
 		}
-
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
-
-		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.left == TRUE || menuInput.left == TRUE)
@@ -108,13 +113,13 @@ static void doMenu()
 
 		if (w->rightAction != NULL)
 		{
+			menuInput.left = FALSE;
+			input.left = FALSE;
+
+			playSound("sound/common/click.ogg");
+
 			w->rightAction();
 		}
-
-		menuInput.left = FALSE;
-		input.left = FALSE;
-
-		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.right == TRUE || menuInput.right == TRUE)
@@ -123,13 +128,13 @@ static void doMenu()
 
 		if (w->leftAction != NULL)
 		{
+			menuInput.right = FALSE;
+			input.right = FALSE;
+
+			playSound("sound/common/click.ogg");
+
 			w->leftAction();
 		}
-
-		menuInput.right = FALSE;
-		input.right = FALSE;
-
-		playSound("sound/common/click.ogg");
 	}
 }
 
@@ -230,12 +235,12 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showAboutMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &quitGame, x, y, TRUE);
+					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doQuit, x, y, TRUE);
 				}
 
 				else
@@ -319,6 +324,13 @@ static void showOptionsMenu()
 	game.drawMenu = &drawOptionsMenu;
 }
 
+static void showAboutMenu()
+{
+	game.menu = initAboutMenu();
+
+	game.drawMenu = &drawAboutMenu;
+}
+
 static void showLoadDialog()
 {
 	game.menu = initIOMenu(FALSE);
@@ -328,14 +340,28 @@ static void showLoadDialog()
 
 static void doNewGame()
 {
-	newGame();
+	game.menu = initYesNoMenu(_("Start a new game?"), &newGame, &showMainMenu);
 
-	game.playTime = 0;
+	game.drawMenu = &drawYesNoMenu;
 }
 
 static void doTutorial()
 {
-	tutorial();
+	game.menu = initYesNoMenu(_("Play the tutorial?"), &tutorial, &showMainMenu);
 
-	game.playTime = 0;
+	game.drawMenu = &drawYesNoMenu;
+}
+
+static void doQuit()
+{
+	game.menu = initYesNoMenu(_("Exit the game?"), &quitGame, &showMainMenu);
+
+	game.drawMenu = &drawYesNoMenu;
+}
+
+static void showMainMenu()
+{
+	game.menu = initMainMenu();
+
+	game.drawMenu = &drawMainMenu;
 }

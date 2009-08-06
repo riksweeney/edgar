@@ -93,13 +93,13 @@ static void doMenu()
 
 		if (w->clickAction != NULL)
 		{
+			menuInput.attack = FALSE;
+			input.attack = FALSE;
+
+			playSound("sound/common/click.ogg");
+
 			w->clickAction();
 		}
-
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
-
-		playSound("sound/common/click.ogg");
 	}
 
 	else if (input.left == TRUE || menuInput.left == TRUE)
@@ -138,7 +138,7 @@ static void loadMenuLayout()
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
-	
+
 	savePtr1 = NULL;
 
 	i = 0;
@@ -270,14 +270,14 @@ static void loadMenuLayout()
 
 					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_ACTIVATE]), menu.widgets[i]->x, y);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(SDL_GetKeyName(control.button[CONTROL_PREVIOUS]), menu.widgets[i]->x, y);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
 				{
 					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, x, y, TRUE);
