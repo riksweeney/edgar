@@ -35,18 +35,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../game.h"
 #include "../player.h"
+#include "../geometry.h"
 
 extern Entity *self, player;
 
 static void initialise(void);
-static void doIntro(void);
+static void headReform(void);
+static void headReform2(void);
+static void reform(void);
+static void reform2(void);
+static void shatter(void);
+static void initialShatter(void);
 static void die(void);
 static void takeDamage(Entity *, int);
-static void doIntro(void);
-static void walkIn(void);
-static void roar(void);
+static void shatter(void);
+static void reform(void);
+static void headReform(void);
+static void reform2(void);
+static void headReform2(void);
 static void commence(void);
 static void wait(void);
+static void headWait(void);
+static void partWait(void);
 static void attackFinished(void);
 static void stompAttackStart(void);
 static void stompAttack(void);
@@ -55,8 +65,6 @@ static void stompAttackFinish(void);
 static void attackFinished(void);
 static void stunnedTouch(Entity *);
 static void takeDamage(Entity *, int);
-static void stunned(void);
-static void standUp(void);
 static void die(void);
 static void dieFinish(void);
 static void throwRockStart(void);
@@ -81,7 +89,7 @@ Entity *addGolemBoss(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &initialise;
+	e->action = &initialShatter;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
@@ -90,13 +98,130 @@ Entity *addGolemBoss(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	e->flags |= NO_DRAW|FLY;
-
 	e->active = FALSE;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void initialShatter()
+{
+	shatter();
+
+	self->action = &initialise;
+}
+
+static void shatter()
+{
+	int i;
+	Entity *e, *previous;
+
+	setEntityAnimation(self, CUSTOM_1);
+
+	self->maxThinkTime = 7;
+
+	self->targetX = self->x;
+	self->targetY = self->y;
+
+	previous = self;
+
+	for (i=0;i<self->maxThinkTime;i++)
+	{
+		e = getFreeEntity();
+
+		loadProperties("boss/golem_boss_piece", e);
+
+		if (e == NULL)
+		{
+			printf("No free slots to add a Golem Boss Body Part\n");
+
+			exit(1);
+		}
+
+		switch (i)
+		{
+			case 0: /* Back hand */
+
+			break;
+
+			case 1: /* Back forearm  */
+
+			break;
+
+			case 2: /* Back shoulder  */
+
+			break;
+
+			case 3: /* Back foot  */
+
+			break;
+
+			case 4: /* Back leg  */
+
+			break;
+
+			case 5: /* Back hip joint  */
+
+			break;
+
+			case 6: /* Torso  */
+
+			break;
+
+			case 7: /* Hip  */
+
+			break;
+
+			case 8: /* Front hip joint  */
+
+			break;
+
+			case 9: /* Front leg  */
+
+			break;
+
+			case 10: /* Front foot  */
+
+			break;
+
+			case 11: /* Front shoulder  */
+
+			break;
+
+			case 12: /* Front forearm  */
+
+			break;
+
+			case 13: /* Front hand  */
+
+			break;
+		}
+
+		setEntityAnimation(e, i);
+
+		e->action = &partWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->dirX = prand() % 4 * (prand() % 2 == 0 ? -1 : 1);
+
+		e->dirY = -prand() % 6;
+
+		e->head = previous;
+
+		previous = e;
+
+		e->x = self->x;
+
+		e->y = self->y;
+
+		e->face = self->face;
+	}
+
+	self->thinkTime = 300;
+
+	self->action = headWait;
 }
 
 static void initialise()
@@ -114,73 +239,11 @@ static void initialise()
 		{
 			centerMapOnEntity(NULL);
 
-			self->action = &doIntro;
-
-			self->maxThinkTime = 3;
-
-			self->thinkTime = 45;
-		}
-	}
-}
-
-static void doIntro()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		printf("Crunch\n");
-
-		self->maxThinkTime--;
-
-		if (self->maxThinkTime == 0)
-		{
-			setEntityAnimation(self, WALK);
-
-			self->action = &walkIn;
-
-			self->targetX = self->x - 640;
-
-			self->thinkTime = 60;
-		}
-
-		else
-		{
-			self->thinkTime = 45;
+			self->action = &headReform;
 		}
 	}
 
 	checkToMap(self);
-}
-
-static void walkIn()
-{
-	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
-	{
-		setEntityAnimation(self, STAND);
-
-		self->dirX = 0;
-
-		self->thinkTime = 60;
-
-		self->action = &roar;
-	}
-
-	checkToMap(self);
-}
-
-static void roar()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		printf("Roar!\n");
-
-		self->resumeNormalFunction = &commence;
-
-		runScript("golem_intro_done");
-	}
 }
 
 static void commence()
@@ -340,9 +403,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->touch = &stunnedTouch;
 
-			self->action = &stunned;
-
-			setEntityAnimation(self, PAIN);
+			self->action = &shatter;
 
 			self->thinkTime = 300;
 		}
@@ -357,9 +418,7 @@ static void takeDamage(Entity *other, int damage)
 
 		self->touch = &stunnedTouch;
 
-		self->action = &stunned;
-
-		setEntityAnimation(self, PAIN);
+		self->action = &shatter;
 
 		self->thinkTime = 300;
 
@@ -388,29 +447,6 @@ static void takeDamage(Entity *other, int damage)
 	{
 		runScript("golem_grabbers");
 	}
-}
-
-static void stunned()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		setEntityAnimation(self, CUSTOM_1);
-
-		self->touch = &entityTouch;
-
-		self->animationCallback = &standUp;
-	}
-
-	self->damage = 0;
-}
-
-static void standUp()
-{
-	self->damage = 1;
-
-	self->action = &attackFinished;
 }
 
 static void throwRockStart()
@@ -549,4 +585,143 @@ static void dieFinish()
 
 		entityDieNoDrop();
 	}
+}
+
+static void reform()
+{
+	if (self->head->active == TRUE)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			/* Move towards the head */
+
+			if (fabs(self->x - self->head->x) <= fabs(self->dirX))
+			{
+				if (self->dirX != 0)
+				{
+					self->dirX = 0;
+
+					self->head->maxThinkTime--;
+
+					self->action = &partWait;
+				}
+			}
+
+			else
+			{
+				self->dirX = self->head->x > self->x ? self->speed : -self->speed;
+			}
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void headReform()
+{
+	Entity *e;
+
+	if (self->maxThinkTime == 0)
+	{
+		self->action = &headReform2;
+
+		self->flags |= FLY;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= 8;
+		self->dirY *= 8;
+
+		e = self->target;
+
+		while (e != NULL)
+		{
+			self->maxThinkTime++;
+
+			e->action = &reform2;
+
+			e->flags |= FLY;
+
+			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+			e->dirX *= 8;
+			e->dirY *= 8;
+
+			e = e->target;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void reform2()
+{
+	if (fabs(self->x - self->targetX) <= fabs(self->dirX) && fabs(self->y - self->targetY) <= fabs(self->dirY))
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->head->maxThinkTime--;
+
+		self->action = &partWait;
+	}
+}
+
+static void headReform2()
+{
+	if (fabs(self->x - self->targetX) <= fabs(self->dirX) && fabs(self->y - self->targetY) <= fabs(self->dirY))
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+
+		if (self->maxThinkTime == 0)
+		{
+			self->thinkTime = 30;
+
+			if (self->health == self->maxHealth)
+			{
+				self->action = &commence;
+			}
+
+			else
+			{
+				self->action = &wait;
+			}
+		}
+
+		checkToMap(self);
+	}
+}
+
+static void partWait()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+}
+
+static void headWait()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &headReform;
+
+		e = self->target;
+
+		while (e != NULL)
+		{
+			e->action = &reform;
+		}
+	}
+
+	checkToMap(self);
 }

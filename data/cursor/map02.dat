@@ -26,5 +26,5 @@ enemy/small_boulder
 wall/weak_mine_wall_secret
 boss/golem_boss
 item/grabber
-boss/golem_rock_dropper
+boss/golem_boss
 common/action_point
