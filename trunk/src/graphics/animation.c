@@ -58,7 +58,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 	char *frameName, *line, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int i;
-	
+
 	savePtr1 = NULL;
 
 	buffer = loadFileFromPak(filename);
@@ -298,7 +298,7 @@ int drawLoopingAnimationToMap()
 	int startX, startY;
 	Sprite *sprite;
 	void (*callback)(void);
-	
+
 	drawn = FALSE;
 
 	startX = getMapStartX();
@@ -388,7 +388,7 @@ int drawLoopingAnimationToMap()
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawn = TRUE;
-			
+
 			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 
 			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
@@ -412,20 +412,20 @@ int drawLoopingAnimationToMap()
 		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 		{
 			drawn = TRUE;
-			
+
 			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
 
 			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
-	
+
 	return drawn;
 }
 
 int drawLineDefToMap()
 {
 	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);
-	
+
 	return TRUE;
 }
 
@@ -444,9 +444,9 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		if (e->currentAnim == -1)
 		{
-			printf("Animation not set for %s index %s\n", e->name, getAnimationTypeByID(animationID));
+			printf("Animation %s not set for %s\n", getAnimationTypeByID(animationID), e->name);
 
-			abort();
+			exit(1);
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);

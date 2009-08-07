@@ -286,8 +286,10 @@ Entity *addSmoke(int x, int y, char *name)
 	e->dirX = 0;
 
 	e->dirY = -e->speed;
-
-	e->thinkTime = 240 + prand() % 60;
+	
+	e->frameSpeed *= 10;
+	
+	e->frameSpeed /= 1 + prand() % 10;
 
 	e->action = &move;
 	e->draw = &drawLoopingAnimationToMap;

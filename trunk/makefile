@@ -93,7 +93,7 @@ $(PAK_PROG): $(PAK_OBJS)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	rm $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
+	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
 	
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
