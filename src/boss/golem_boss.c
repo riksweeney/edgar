@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../event/trigger.h"
 #include "../item/key_items.h"
+#include "../item/item.h"
 #include "../collisions.h"
 #include "../event/script.h"
 #include "../custom_actions.h"
@@ -36,8 +37,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../player.h"
 #include "../geometry.h"
+#include "../graphics/decoration.h"
+#include "../world/target.h"
+#include "../enemy/rock.h"
 
-extern Entity *self, player;
+extern Entity *self, player, entity[MAX_ENTITIES];
 
 static void initialise(void);
 static void headReform(void);
@@ -72,6 +76,9 @@ static void throwRock(void);
 static void rockWait(void);
 static void jumpAttackStart(void);
 static void jumpAttack(void);
+static void rockTouch(Entity *);
+static void rockPush(Entity *);
+static void explodeOnGround(void);
 
 Entity *addGolemBoss(int x, int y, char *name)
 {
@@ -94,7 +101,6 @@ Entity *addGolemBoss(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
 	e->die = &die;
-	e->touch = &entityTouch;
 
 	e->type = ENEMY;
 
@@ -107,9 +113,13 @@ Entity *addGolemBoss(int x, int y, char *name)
 
 static void initialShatter()
 {
+	self->y = self->startY;
+	
 	shatter();
 
 	self->action = &initialise;
+
+	self->touch = NULL;
 }
 
 static void shatter()
@@ -117,14 +127,30 @@ static void shatter()
 	int i;
 	Entity *e, *previous;
 
-	setEntityAnimation(self, CUSTOM_1);
-
-	self->maxThinkTime = 7;
+	self->dirX = 0;
+	self->dirY = 0;
 
 	self->targetX = self->x;
-	self->targetY = self->y;
+	self->targetY = self->startY;
+
+	setEntityAnimation(self, CUSTOM_1);
+
+	self->maxThinkTime = 14;
 
 	previous = self;
+	
+	if (self->target != NULL)
+	{
+		e = self;
+		
+		self = e->target;
+		
+		self->die();
+		
+		self = e;
+		
+		self->target = NULL;
+	}
 
 	for (i=0;i<self->maxThinkTime;i++)
 	{
@@ -142,59 +168,73 @@ static void shatter()
 		switch (i)
 		{
 			case 0: /* Back hand */
-
+				e->targetX = 21;
+				e->targetY = 90;
 			break;
 
 			case 1: /* Back forearm  */
-
+				e->targetX = 22;
+				e->targetY = 53;
 			break;
 
 			case 2: /* Back shoulder  */
-
+				e->targetX = 21;
+				e->targetY = 36;
 			break;
 
 			case 3: /* Back foot  */
-
+				e->targetX = 24;
+				e->targetY = 155;
 			break;
 
 			case 4: /* Back leg  */
-
+				e->targetX = 24;
+				e->targetY = 108;
 			break;
 
 			case 5: /* Back hip joint  */
-
+				e->targetX = 13;
+				e->targetY = 95;
 			break;
 
 			case 6: /* Torso  */
-
+				e->targetX = 0;
+				e->targetY = 21;
 			break;
 
 			case 7: /* Hip  */
-
+				e->targetX = 10;
+				e->targetY = 78;
 			break;
 
 			case 8: /* Front hip joint  */
-
+				e->targetX = 13;
+				e->targetY = 95;
 			break;
 
 			case 9: /* Front leg  */
-
+				e->targetX = 16;
+				e->targetY = 108;
 			break;
 
 			case 10: /* Front foot  */
-
+				e->targetX = 16;
+				e->targetY = 155;
 			break;
 
 			case 11: /* Front shoulder  */
-
+				e->targetX = 21;
+				e->targetY = 36;
 			break;
 
 			case 12: /* Front forearm  */
-
+				e->targetX = 22;
+				e->targetY = 52;
 			break;
 
 			case 13: /* Front hand  */
-
+				e->targetX = 21;
+				e->targetY = 90;
 			break;
 		}
 
@@ -204,24 +244,48 @@ static void shatter()
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->dirX = prand() % 4 * (prand() % 2 == 0 ? -1 : 1);
+		e->dirX = 1 + prand() % 12 * (prand() % 2 == 0 ? -1 : 1);
 
 		e->dirY = -prand() % 6;
 
-		e->head = previous;
+		previous->target = e;
 
-		previous = e;
+		e->head = self;
 
 		e->x = self->x;
 
 		e->y = self->y;
 
 		e->face = self->face;
+
+		e->thinkTime = prand() % 60;
+		
+		e->touch = &entityTouch;
+		
+		e->damage = 0;
+
+		if (e->face == LEFT)
+		{
+			e->targetX = self->x + self->w - e->w - e->targetX;
+		}
+
+		else
+		{
+			e->targetX = self->x + e->targetX;
+		}
+
+		e->targetY += self->startY;
+
+		e->target = NULL;
+
+		previous = e;
 	}
+
+	self->touch = &stunnedTouch;
 
 	self->thinkTime = 300;
 
-	self->action = headWait;
+	self->action = &headWait;
 }
 
 static void initialise()
@@ -231,15 +295,15 @@ static void initialise()
 	minX = getMapStartX();
 	minY = getMapStartY();
 
-	self->flags |= NO_DRAW;
-
 	if (self->active == TRUE)
 	{
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
 
-			self->action = &headReform;
+			self->thinkTime = 0;
+
+			self->action = &headWait;
 		}
 	}
 
@@ -257,33 +321,40 @@ static void commence()
 
 static void wait()
 {
-	int attack = prand() % 3;
+	int attack;
+	
+	self->thinkTime--;
 
-	switch (attack)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		case 0:
-			setEntityAnimation(self, ATTACK_2);
+		attack = prand() % 3;
 
-			self->thinkTime = 90;
+		switch (attack)
+		{
+			case 0:
+				self->maxThinkTime = 5;
 
-			self->action = &throwRockStart;
-		break;
+				self->action = &throwRockStart;
+			break;
 
-		case 1:
-			self->action = &stompAttackStart;
-		break;
+			case 1:
+				self->action = &stompAttackStart;
+			break;
 
-		default:
-			self->action = &jumpAttackStart;
-		break;
+			default:
+				self->action = &jumpAttackStart;
+			break;
+		}
 	}
+
+	facePlayer();
 
 	checkToMap(self);
 }
 
 static void stompAttackStart()
 {
-	setEntityAnimation(self, ATTACK_1);
+	/*setEntityAnimation(self, ATTACK_1);*/
 
 	self->dirX = 0;
 
@@ -293,7 +364,7 @@ static void stompAttackStart()
 
 	self->action = &stompAttack;
 
-	self->animationCallback = stompShake;
+	self->animationCallback = &stompShake;
 
 	checkToMap(self);
 }
@@ -314,9 +385,15 @@ static void stompAttack()
 
 static void stompShake()
 {
+	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
 	shakeScreen(STRONG, 120);
+	
+	activateEntitiesValueWithObjectiveName("GOLEM_ROCK_DROPPER", 5);
 
 	self->frameSpeed = 0;
+
+	self->thinkTime = 120;
 
 	if (player.flags & ON_GROUND)
 	{
@@ -324,8 +401,6 @@ static void stompShake()
 	}
 
 	self->action = &stompAttackFinish;
-
-	activateEntitiesValueWithObjectiveName("GOLEM_ROCK_DROPPER", 10);
 }
 
 static void stompAttackFinish()
@@ -346,6 +421,8 @@ static void attackFinished()
 
 	setEntityAnimation(self, STAND);
 
+	self->thinkTime = 60;
+
 	self->action = &wait;
 
 	checkToMap(self);
@@ -364,25 +441,25 @@ static void stunnedTouch(Entity *other)
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{
-			self->takeDamage(other, other->damage);
+			self->takeDamage(other, other->damage * 3);
 		}
 	}
 }
 
 static void takeDamage(Entity *other, int damage)
 {
-	int health;
+	int i, health;
 	Entity *temp;
 
 	if (self->flags & INVULNERABLE)
 	{
 		return;
 	}
+	
+	health = self->health;
 
 	if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
 	{
-		health = self->health;
-
 		self->health -= damage;
 
 		if (self->health > 0)
@@ -398,14 +475,19 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->health = 19;
+
 			setCustomAction(self, &flashWhite, 6, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
-			self->touch = &stunnedTouch;
+			/* Don't reshatter */
 
-			self->action = &shatter;
+			if (self->currentAnim != self->animation[CUSTOM_1])
+			{
+				self->action = &shatter;
 
-			self->thinkTime = 300;
+				self->thinkTime = 300;
+			}
 		}
 	}
 
@@ -413,10 +495,13 @@ static void takeDamage(Entity *other, int damage)
 	{
 		self->health -= damage;
 
+		if (self->health < 0)
+		{
+			self->health = 19;
+		}
+
 		setCustomAction(self, &flashWhite, 6, 0);
 		setCustomAction(self, &invulnerableNoFlash, 20, 0);
-
-		self->touch = &stunnedTouch;
 
 		self->action = &shatter;
 
@@ -443,9 +528,15 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, 20, 0);
 	}
 
-	if (health > 10 && self->health <= 10)
-	{
-		runScript("golem_grabbers");
+	if (health > 20 && self->health <= 20)
+	{	
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "ROCK_GRABBER") == 0)
+			{
+				entity[i].health = 1;
+			}
+		}
 	}
 }
 
@@ -455,22 +546,26 @@ static void throwRockStart()
 
 	Entity *e;
 
-	self->thinkTime--;
+	e = addEnemy("enemy/small_boulder", self->x, self->y);
 
-	if (self->thinkTime <= 0)
-	{
-		e = addEnemy("enemy/large_boulder", self->x, self->y);
+	e->x += self->face == RIGHT ? self->w : -e->w;
 
-		e->frameSpeed = 0;
+	e->dirX = 0;
+	e->dirY = 0;
 
-		e->action = &rockWait;
+	e->face = RIGHT;
 
-		self->thinkTime = 120;
+	e->frameSpeed = 0;
 
-		self->target = e;
+	e->flags |= FLY;
 
-		self->action = &throwRock;
-	}
+	e->action = &rockWait;
+
+	self->target = e;
+
+	self->action = &throwRock;
+
+	self->thinkTime = 90;
 }
 
 static void throwRock()
@@ -479,35 +574,41 @@ static void throwRock()
 
 	if (self->thinkTime <= 0)
 	{
-		self->target->dirX = self->face == LEFT ? -6 : 6;
+		self->target->flags &= ~FLY;
+
+		self->target->dirX = self->face == LEFT ? -2 * self->maxThinkTime : 2 * self->maxThinkTime;
 
 		self->target->dirY = -10;
 
+		self->target->touch = &rockTouch;
+
 		self->target = NULL;
 
-		self->action = &attackFinished;
-	}
-}
+		self->maxThinkTime--;
 
-static void rockWait()
-{
-	checkToMap(self);
+		if (self->maxThinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
 
-	if ((self->flags & ON_GROUND))
-	{
-		self->action = &doNothing;
+		else
+		{
+			self->thinkTime = 60;
 
-		self->touch = &pushEntity;
+			self->action = &throwRockStart;
+		}
 	}
 }
 
 static void jumpAttackStart()
 {
-	self->maxThinkTime = 3;
+	self->maxThinkTime = 4;
 
-	self->dirY =- 10;
+	/* First jump is on the spot */
 
-	self->dirX = self->face == LEFT ? -6 : 6;
+	self->dirY =- 13;
+
+	self->dirX = 0;
 
 	self->action = &jumpAttack;
 
@@ -518,7 +619,12 @@ static void jumpAttackStart()
 
 static void jumpAttack()
 {
+	int i;
 	int wasOnGround = self->flags & ON_GROUND;
+	float dirX;
+	Entity *e;
+
+	dirX = self->dirX;
 
 	checkToMap(self);
 
@@ -526,11 +632,33 @@ static void jumpAttack()
 	{
 		if (wasOnGround == 0)
 		{
-			self->maxThinkTime--;
+			/* Stop if you hit the wall while jumping */
+
+			if (self->dirX == 0 && self->maxThinkTime != 4)
+			{
+				self->maxThinkTime = 0;
+			}
+
+			else
+			{
+				self->maxThinkTime--;
+			}
 
 			self->dirX = 0;
 
-			shakeScreen(15, MEDIUM);
+			shakeScreen(MEDIUM, 30);
+
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			for (i=0;i<30;i++)
+			{
+				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+				if (e != NULL)
+				{
+					e -= prand() % e->h;
+				}
+			}
 
 			self->thinkTime = 30;
 
@@ -546,7 +674,7 @@ static void jumpAttack()
 
 			if (self->thinkTime <= 0)
 			{
-				self->dirY =- 10;
+				self->dirY =- 13;
 
 				self->dirX = self->face == LEFT ? -6 : 6;
 
@@ -558,61 +686,139 @@ static void jumpAttack()
 
 static void die()
 {
-	self->damage = 0;
+	Entity *e;
+	
+	if (self->active == TRUE)
+	{
+		/* Disable all the parts */
+		
+		self->damage = 0;
+		
+		e = self->target;
+		
+		while (e != NULL)
+		{
+			e->action = &partWait;
+			
+			e->dirX = 0;
+			
+			e->dirY = 0;
+			
+			e->flags &= ~FLY;
+			
+			e = e->target;
+		}
+		
+		shakeScreen(MEDIUM, 0);
+	
+		stopSound(BOSS_CHANNEL);
+		
+		self->active = FALSE;
+		
+		self->action = &headWait;
+		
+		self->die = &dieFinish;
+		
+		self->resumeNormalFunction = &explodeOnGround;
+		
+		runScript("golem_boss_die");
+	}
+}
 
-	self->thinkTime = 120;
-
-	self->flags &= ~FLY;
-
-	self->action = &dieFinish;
+static void explodeOnGround()
+{
+	int i;
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		for (i=0;i<20;i++)
+		{
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+	
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+	
+			e->dirX = (1 + prand() % 50) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = -7 - prand() % 5;
+			
+			e->dirX /= 10;
+		}
+		
+		self->touch = NULL;
+		
+		self->flags |= NO_DRAW;
+		
+		self->active = TRUE;
+		
+		self->thinkTime = 120;
+	
+		self->action = &dieFinish;
+	}
 }
 
 static void dieFinish()
 {
 	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	
+	if (self->active == TRUE)
 	{
-		freeBossHealthBar();
-
-		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-
-		e->dirY = ITEM_JUMP_HEIGHT;
-
-		fadeBossMusic();
-
-		entityDieNoDrop();
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			freeBossHealthBar();
+		
+			e = addKeyItem("item/heart_container", self->x, self->y);
+			
+			e->x += (self->w - e->w) / 2;
+		
+			e->dirY = ITEM_JUMP_HEIGHT;
+		
+			fadeBossMusic();
+			
+			e = self->target;
+			
+			while (e != NULL)
+			{
+				e->thinkTime = 60 + prand() % 120;
+				
+				e->action = &generalItemAction;
+				
+				e = e->target;
+			}
+		
+			self->inUse = FALSE;
+			
+			runScript("golem_boss_die_finish");
+		}
 	}
 }
 
 static void reform()
 {
-	if (self->head->active == TRUE)
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
 	{
-		self->thinkTime--;
+		/* Move towards the head */
 
-		if (self->thinkTime <= 0)
+		if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 		{
-			/* Move towards the head */
+			self->dirX = 0;
 
-			if (fabs(self->x - self->head->x) <= fabs(self->dirX))
-			{
-				if (self->dirX != 0)
-				{
-					self->dirX = 0;
+			self->head->maxThinkTime--;
+			
+			printf("Reforming1 : %d to go\n", self->head->maxThinkTime);
 
-					self->head->maxThinkTime--;
+			self->action = &partWait;
+		}
 
-					self->action = &partWait;
-				}
-			}
-
-			else
-			{
-				self->dirX = self->head->x > self->x ? self->speed : -self->speed;
-			}
+		else
+		{
+			self->dirX = self->targetX > self->x ? self->speed : -self->speed;
 		}
 	}
 
@@ -622,6 +828,7 @@ static void reform()
 static void headReform()
 {
 	Entity *e;
+	float speed;
 
 	if (self->maxThinkTime == 0)
 	{
@@ -629,10 +836,11 @@ static void headReform()
 
 		self->flags |= FLY;
 
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		speed = 5 + prand() % 15;
 
-		self->dirX *= 8;
-		self->dirY *= 8;
+		speed /= 10;
+
+		self->dirY = -speed;
 
 		e = self->target;
 
@@ -644,10 +852,11 @@ static void headReform()
 
 			e->flags |= FLY;
 
-			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+			speed = 5 + prand() % 15;
 
-			e->dirX *= 8;
-			e->dirY *= 8;
+			speed /= 10;
+
+			e->dirY = -speed;
 
 			e = e->target;
 		}
@@ -658,27 +867,35 @@ static void headReform()
 
 static void reform2()
 {
-	if (fabs(self->x - self->targetX) <= fabs(self->dirX) && fabs(self->y - self->targetY) <= fabs(self->dirY))
+	if (self->y <= self->targetY)
 	{
-		self->dirX = 0;
 		self->dirY = 0;
 
+		self->y = self->targetY;
+
 		self->head->maxThinkTime--;
+		
+		printf("Reforming2 : %d to go\n", self->head->maxThinkTime);
 
 		self->action = &partWait;
 	}
+
+	checkToMap(self);
 }
 
 static void headReform2()
 {
-	if (fabs(self->x - self->targetX) <= fabs(self->dirX) && fabs(self->y - self->targetY) <= fabs(self->dirY))
+	Entity *e;
+
+	if (self->y <= self->targetY)
 	{
-		self->dirX = 0;
 		self->dirY = 0;
+
+		self->y = self->targetY;
 
 		if (self->maxThinkTime == 0)
 		{
-			self->thinkTime = 30;
+			self->thinkTime = 90;
 
 			if (self->health == self->maxHealth)
 			{
@@ -689,39 +906,159 @@ static void headReform2()
 			{
 				self->action = &wait;
 			}
-		}
 
-		checkToMap(self);
+			setEntityAnimation(self, STAND);
+
+			self->flags &= ~FLY;
+
+			e = self->target;
+
+			while (e != NULL)
+			{
+				e->inUse = FALSE;
+
+				e = e->target;
+			}
+			
+			self->target = NULL;
+
+			shakeScreen(MEDIUM, 30);
+
+			stopSound(BOSS_CHANNEL);
+
+			self->touch = &entityTouch;
+		}
 	}
+
+	checkToMap(self);
 }
 
 static void partWait()
 {
+	int i;
+	long onGround = self->flags & ON_GROUND;
+	Entity *e;
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
+
+		if (onGround == 0)
+		{
+			for (i=0;i<5;i++)
+			{
+				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+				if (e != NULL)
+				{
+					e -= prand() % e->h;
+				}
+			}
+		}
 	}
 }
 
 static void headWait()
 {
+	int i;
+	long onGround = self->flags & ON_GROUND;
 	Entity *e;
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->active == TRUE)
 	{
-		self->action = &headReform;
+		self->thinkTime--;
 
-		e = self->target;
-
-		while (e != NULL)
+		if (self->thinkTime <= 0)
 		{
-			e->action = &reform;
+			playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+
+			shakeScreen(MEDIUM, -1);
+
+			self->action = &headReform;
+
+			e = self->target;
+
+			while (e != NULL)
+			{
+				e->action = &reform;
+
+				e = e->target;
+			}
 		}
 	}
 
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			for (i=0;i<5;i++)
+			{
+				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+				if (e != NULL)
+				{
+					e -= prand() % e->h;
+				}
+			}
+		}
+	}
+}
+
+static void rockWait()
+{
+	float dirX = self->dirX;
+	
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) || (self->dirX == 0 && dirX != 0 && !(self->flags & ON_GROUND)))
+	{
+		if (prand() % 3 == 0)
+		{
+			self->action = &doNothing;
+
+			self->flags |= PUSHABLE;
+
+			self->touch = &rockPush;
+		}
+
+		else
+		{
+			self->die();
+		}
+	}
+}
+
+static void rockTouch(Entity *other)
+{
+	Entity *temp;
+
+	if (other->type == PLAYER)
+	{
+		temp = self;
+
+		self = other;
+
+		self->takeDamage(temp, temp->damage);
+
+		self = temp;
+
+		self->die();
+	}
+}
+
+static void rockPush(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		pushEntity(other);
+	}
+
+	else if (other->type == ENEMY)
+	{
+		self->die();
+	}
 }

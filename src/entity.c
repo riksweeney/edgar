@@ -171,6 +171,11 @@ void doEntities()
 
 				if (!(self->flags & HELPLESS))
 				{
+					if (self->action == NULL)
+					{
+						printf("%s has a NULL action!\n", self->name);
+					}
+					
 					self->action();
 				}
 
@@ -903,6 +908,21 @@ Entity *getEntityByObjectiveName(char *name)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			return &entity[i];
+		}
+	}
+
+	return NULL;
+}
+
+Entity *getEntityByRequiredName(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
 		{
 			return &entity[i];
 		}

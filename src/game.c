@@ -62,6 +62,8 @@ void initGame()
 	game.menu = initMainMenu();
 
 	game.drawMenu = &drawMainMenu;
+
+	game.shakeThinkTime = 0;
 }
 
 void doGame()
@@ -211,6 +213,8 @@ void setTransition(int type, void (*func)(void))
 
 void shakeScreen(int shakeStrength, int time)
 {
+	game.offsetX = game.offsetY = 0;
+	
 	game.shakeThinkTime = time;
 	game.shakeStrength = shakeStrength;
 }
@@ -533,7 +537,7 @@ void pauseGameInventory()
 	{
 		case IN_GAME:
 			game.status = IN_INVENTORY;
-			
+
 			clearInventoryDescription();
 
 			if (game.pauseSurface == NULL)
@@ -584,7 +588,7 @@ void resetGameSettings()
 void writeGameSettingsToFile(FILE *fp)
 {
 	fprintf(fp, "GAME_SETTINGS\n");
-	fprintf(fp, "AUDIO %d\n", game.audio);
+	fprintf(fp, "AUDIO %d\n", game.audio == TRUE ? TRUE : game.audioDisabled);
 	fprintf(fp, "SFX_VOLUME %d\n", game.sfxDefaultVolume);
 	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
 	fprintf(fp, "HINTS %d\n", game.showHints);
@@ -594,7 +598,7 @@ void writeGameSettingsToFile(FILE *fp)
 void readGameSettingsFromFile(char *buffer)
 {
 	char *line, *token, *savePtr;
-	
+
 	savePtr = NULL;
 
 	line = strtok_r(buffer, "\n", &savePtr);

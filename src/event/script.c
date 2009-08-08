@@ -632,7 +632,8 @@ void readNextScriptLine()
 			centerMapOnEntity(e);
 		}
 
-		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0)
+		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0
+			|| strcmpignorecase("REQUIRES_WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO_RELATIVE", command) == 0)
 		{
 			freeDialogBox();
 
@@ -645,7 +646,7 @@ void readNextScriptLine()
 
 			else
 			{
-				e = getEntityByObjectiveName(token);
+				e = (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0) ? getEntityByObjectiveName(token) : getEntityByRequiredName(token);
 			}
 
 			if (e == NULL)
@@ -659,7 +660,7 @@ void readNextScriptLine()
 
 			printf("%s %s %s\n", command, e->objectiveName, token);
 
-			if (strcmpignorecase("WALK_TO", command) == 0)
+			if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO", command) == 0)
 			{
 				entityWalkTo(e, token);
 			}
@@ -688,7 +689,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("JUMP command could not find Entity %s\n", token);
+				printf("CUSTOM_ACTION command could not find Entity %s\n", token);
 
 				exit(1);
 			}

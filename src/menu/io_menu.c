@@ -112,7 +112,7 @@ static void loadMenuLayout(int saving)
 	char **saveFile;
 	unsigned char *buffer;
 	int x, y, i;
-	
+
 	savePtr1 = NULL;
 	savePtr2 = NULL;
 
@@ -265,7 +265,7 @@ static void loadGameInSlot()
 
 		setInfoBoxMessage(60, _("Game Loaded"));
 
-		pauseGame();
+		initGame();
 	}
 }
 
