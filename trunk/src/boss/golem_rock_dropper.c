@@ -70,6 +70,8 @@ static void followPlayer()
 
 		if (abs(self->x - self->targetX) <= abs(self->dirX))
 		{
+			self->x = self->targetX;
+			
 			self->dirX = 0;
 		}
 

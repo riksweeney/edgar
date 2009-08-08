@@ -13,6 +13,7 @@ Version 0.25
 * Slight performance improvements
 * Added a tutorial level
 * Added confirmations to menu options
+* Used sound frequency 44100 to prevent crackles (thanks Fish Fillets)
 
 Version 0.22
 

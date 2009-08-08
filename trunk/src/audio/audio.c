@@ -35,7 +35,7 @@ void preCacheSounds(char *filename)
 {
 	char *line, *savePtr;
 	unsigned char *buffer;
-	
+
 	savePtr = NULL;
 
 	if (game.audio == FALSE)
@@ -258,11 +258,15 @@ void freeSounds()
 
 int initAudio()
 {
-	/* Set the audio rate to 22050, default mix, 2 channels and a 1024 byte buffer */
+	/* Set the audio rate to 44100, default mix, 2 channels and a 1024 byte buffer */
 
-	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
+	game.audioDisabled = FALSE;
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
+
+		game.audioDisabled = TRUE;
 
 		game.audio = FALSE;
 	}
