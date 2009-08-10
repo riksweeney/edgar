@@ -123,6 +123,8 @@ static void dropRock()
 
 		if (self->thinkTime <= 0)
 		{
+			setEntityAnimation(self, STAND);
+			
 			moveToStart();
 		}
 	}

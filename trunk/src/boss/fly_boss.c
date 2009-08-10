@@ -799,6 +799,8 @@ static void fallout()
 		self->flags |= HELPLESS;
 
 		self->dirX = 0;
+		
+		self->action = &doNothing;
 	}
 }
 

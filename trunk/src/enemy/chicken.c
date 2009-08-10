@@ -70,7 +70,7 @@ static void lookForFood()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].active == FALSE || entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
+		if (entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
 		{
 			continue;
 		}

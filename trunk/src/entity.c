@@ -122,7 +122,7 @@ void doEntities()
 					{
 						case WATER:
 						case SLIME:
-							self->dirY += GRAVITY_SPEED * 0.25;
+							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
 
 							if (self->flags & FLOATS)
 							{
@@ -141,7 +141,7 @@ void doEntities()
 						break;
 
 						default:
-							self->dirY += GRAVITY_SPEED;
+							self->dirY += GRAVITY_SPEED * self->weight;
 
 							if (self->dirY >= MAX_AIR_SPEED)
 							{
@@ -171,12 +171,12 @@ void doEntities()
 
 				if (!(self->flags & HELPLESS))
 				{
-					if (self->action == NULL)
-					{
-						printf("%s has a NULL action!\n", self->name);
-					}
-					
 					self->action();
+				}
+				
+				else
+				{
+					checkToMap(self);
 				}
 
 				self->standingOn = NULL;
@@ -263,7 +263,7 @@ void doNothing(void)
 	{
 		self->action = &floatLeftToRight;
 
-		self->endX = self->dirX = 0.5;
+		self->endX = self->dirX = 1.0;
 
 		self->thinkTime = 0;
 	}
@@ -398,9 +398,9 @@ void entityDie()
 
 void standardDie()
 {
-	if ((self->flags & ON_GROUND) && self->standingOn == NULL)
+	if (self->flags & ON_GROUND)
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 	}
 
 	self->thinkTime--;
@@ -445,9 +445,9 @@ void entityDieNoDrop()
 
 void noItemDie()
 {
-	if ((self->flags & ON_GROUND) && self->standingOn == NULL)
+	if (self->flags & ON_GROUND)
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 	}
 
 	self->thinkTime--;
@@ -600,7 +600,7 @@ void entityTouch(Entity *other)
 
 void pushEntity(Entity *other)
 {
-	int pushable;
+	int pushable, collided;
 	int x1, x2, y1, y2;
 	Entity *temp;
 	static int depth = 0;
@@ -662,6 +662,8 @@ void pushEntity(Entity *other)
 	{
 		pushable = 0;
 	}
+	
+	collided = FALSE;
 
 	/* Test the vertical movement */
 
@@ -679,6 +681,8 @@ void pushEntity(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
+			
+			collided = TRUE;
 		}
 	}
 
@@ -694,12 +698,14 @@ void pushEntity(Entity *other)
 			other->y += self->h;
 
 			other->dirY = 0;
+			
+			collided = TRUE;
 		}
 	}
 
 	/* Test the horizontal movement */
 
-	if (other->dirX > 0)
+	if (other->dirX > 0 && collided == FALSE)
 	{
 		/* Trying to move right */
 
@@ -770,10 +776,12 @@ void pushEntity(Entity *other)
 
 				self->flags |= GRABBED;
 			}
+			
+			collided = TRUE;
 		}
 	}
 
-	else if (other->dirX < 0)
+	else if (other->dirX < 0 && collided == FALSE)
 	{
 		/* Trying to move left */
 
@@ -844,10 +852,12 @@ void pushEntity(Entity *other)
 
 				self->flags |= GRABBED;
 			}
+			
+			collided = TRUE;
 		}
 	}
 
-	else
+	else if (collided == FALSE)
 	{
 		if (self->x > other->x && depth == 1)
 		{
@@ -1437,4 +1447,9 @@ void doTeleport()
 			}
 		}
 	}
+}
+
+int getLeftEdge(Entity *e)
+{
+	return e->face == RIGHT ? e->x + e->box.x : e->x + e->w - e->box.w - e->box.x;
 }

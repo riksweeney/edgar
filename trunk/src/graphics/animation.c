@@ -431,11 +431,24 @@ int drawLineDefToMap()
 
 void setEntityAnimation(Entity *e, int animationID)
 {
+	int previousRightEdge, previousAnim, newRightEdge;
 	Sprite *sprite;
 
 	if (e->inUse == FALSE)
 	{
 		return;
+	}
+
+	previousAnim = e->currentAnim;
+
+	if (previousAnim == -1)
+	{
+		previousRightEdge = -1;
+	}
+
+	else
+	{
+		previousRightEdge = e->x + e->w;
 	}
 
 	if (e->currentAnim != e->animation[animationID])
@@ -468,6 +481,15 @@ void setEntityAnimation(Entity *e, int animationID)
 		e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
 
 		e->box = sprite->box;
+
+		/* Align the right edge to stop it looking bad */
+
+		if (e->face == LEFT && previousAnim != -1)
+		{
+			newRightEdge = e->x + e->w;
+
+			e->x += (previousRightEdge - newRightEdge);
+		}
 	}
 }
 
