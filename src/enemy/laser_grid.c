@@ -69,9 +69,9 @@ static void init()
 	{
 		addLaser();
 	}
-	
+
 	self->action = &wait;
-	
+
 	self->health = self->active;
 }
 
@@ -80,37 +80,37 @@ static void wait()
 	if (self->maxThinkTime != 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->active = self->active == TRUE ? FALSE : TRUE;
-			
+
 			if (self->active == TRUE)
 			{
 				addLaser();
 			}
-			
+
 			else
 			{
 				removeLaser();
 			}
-			
+
 			self->thinkTime = self->maxThinkTime;
 		}
 	}
-	
+
 	else if (self->active != self->health)
 	{
 		if (self->active == TRUE)
 		{
 			addLaser();
 		}
-		
+
 		else
 		{
 			removeLaser();
 		}
-		
+
 		self->health = self->active;
 	}
 }
@@ -119,40 +119,42 @@ static void addLaser()
 {
 	int i;
 	Entity *e;
-	
+
 	for (i=self->startY;i<self->endY;i+=32)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			printf("No free slots to add a Laser\n");
-	
+
 			exit(1);
 		}
-	
+
 		loadProperties("enemy/laser", e);
-	
+
 		e->x = self->x;
 		e->y = i;
-	
+
 		e->action = &laserWait;
-	
+
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &entityTouch;
-		
+
 		e->head = self;
-		
+
 		e->currentFrame = prand() % 6;
-	
+
 		setEntityAnimation(e, STAND);
 	}
+
+	playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
 }
 
 static void removeLaser()
 {
 	int i;
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && entity[i].head == self)
@@ -164,5 +166,5 @@ static void removeLaser()
 
 static void laserWait()
 {
-	
+
 }

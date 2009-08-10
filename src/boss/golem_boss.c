@@ -73,6 +73,7 @@ static void die(void);
 static void dieFinish(void);
 static void throwRockStart(void);
 static void throwRock(void);
+static void throwRockFinish(void);
 static void rockWait(void);
 static void jumpAttackStart(void);
 static void jumpAttack(void);
@@ -132,6 +133,8 @@ static void shatter()
 
 	self->targetX = self->x;
 	self->targetY = self->startY;
+	
+	self->animationCallback = NULL;
 
 	setEntityAnimation(self, CUSTOM_1);
 
@@ -168,72 +171,72 @@ static void shatter()
 		switch (i)
 		{
 			case 0: /* Back hand */
-				e->targetX = 21;
+				e->targetX = 28;
 				e->targetY = 90;
 			break;
 
 			case 1: /* Back forearm  */
-				e->targetX = 22;
+				e->targetX = 29;
 				e->targetY = 53;
 			break;
 
 			case 2: /* Back shoulder  */
-				e->targetX = 21;
+				e->targetX = 28;
 				e->targetY = 36;
 			break;
 
 			case 3: /* Back foot  */
-				e->targetX = 24;
+				e->targetX = 31;
 				e->targetY = 155;
 			break;
 
 			case 4: /* Back leg  */
-				e->targetX = 24;
+				e->targetX = 31;
 				e->targetY = 108;
 			break;
 
 			case 5: /* Back hip joint  */
-				e->targetX = 13;
+				e->targetX = 20;
 				e->targetY = 95;
 			break;
 
 			case 6: /* Torso  */
-				e->targetX = 0;
+				e->targetX = 7;
 				e->targetY = 21;
 			break;
 
 			case 7: /* Hip  */
-				e->targetX = 10;
+				e->targetX = 17;
 				e->targetY = 78;
 			break;
 
 			case 8: /* Front hip joint  */
-				e->targetX = 13;
+				e->targetX = 20;
 				e->targetY = 95;
 			break;
 
 			case 9: /* Front leg  */
-				e->targetX = 16;
+				e->targetX = 23;
 				e->targetY = 108;
 			break;
 
 			case 10: /* Front foot  */
-				e->targetX = 16;
+				e->targetX = 23;
 				e->targetY = 155;
 			break;
 
 			case 11: /* Front shoulder  */
-				e->targetX = 21;
+				e->targetX = 28;
 				e->targetY = 36;
 			break;
 
 			case 12: /* Front forearm  */
-				e->targetX = 22;
+				e->targetX = 29;
 				e->targetY = 52;
 			break;
 
 			case 13: /* Front hand  */
-				e->targetX = 21;
+				e->targetX = 28;
 				e->targetY = 90;
 			break;
 		}
@@ -354,13 +357,9 @@ static void wait()
 
 static void stompAttackStart()
 {
-	/*setEntityAnimation(self, ATTACK_1);*/
+	setEntityAnimation(self, ATTACK_1);
 
 	self->dirX = 0;
-
-	self->frameSpeed = 0;
-
-	self->thinkTime = 90;
 
 	self->action = &stompAttack;
 
@@ -371,20 +370,13 @@ static void stompAttackStart()
 
 static void stompAttack()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->frameSpeed = 1;
-
-		self->thinkTime = 180;
-	}
-
 	checkToMap(self);
 }
 
 static void stompShake()
 {
+	setEntityAnimation(self, ATTACK_2);
+	
 	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	shakeScreen(STRONG, 120);
@@ -417,7 +409,7 @@ static void stompAttackFinish()
 
 static void attackFinished()
 {
-	self->frameSpeed = 0;
+	self->frameSpeed = 1;
 
 	setEntityAnimation(self, STAND);
 
@@ -543,7 +535,16 @@ static void takeDamage(Entity *other, int damage)
 static void throwRockStart()
 {
 	/* Crouch to pick up rock */
+	
+	setEntityAnimation(self, ATTACK_3);
+	
+	self->animationCallback = &throwRock;
+	
+	checkToMap(self);
+}
 
+static void throwRock()
+{
 	Entity *e;
 
 	e = addEnemy("enemy/small_boulder", self->x, self->y);
@@ -561,43 +562,43 @@ static void throwRockStart()
 
 	e->action = &rockWait;
 
-	self->target = e;
+	e->flags &= ~FLY;
 
-	self->action = &throwRock;
+	e->dirX = self->face == LEFT ? -2 * self->maxThinkTime : 2 * self->maxThinkTime;
 
-	self->thinkTime = 90;
+	e->dirY = -10;
+
+	e->touch = &rockTouch;
+	
+	setEntityAnimation(self, ATTACK_4);
+	
+	self->thinkTime = 60;
+	
+	self->action = &throwRockFinish;
 }
 
-static void throwRock()
+static void throwRockFinish()
 {
 	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	
+	if (self->thinkTime == 0)
 	{
-		self->target->flags &= ~FLY;
-
-		self->target->dirX = self->face == LEFT ? -2 * self->maxThinkTime : 2 * self->maxThinkTime;
-
-		self->target->dirY = -10;
-
-		self->target->touch = &rockTouch;
-
-		self->target = NULL;
-
 		self->maxThinkTime--;
-
+	
 		if (self->maxThinkTime <= 0)
 		{
 			self->action = &attackFinished;
 		}
-
+	
 		else
 		{
-			self->thinkTime = 60;
-
-			self->action = &throwRockStart;
+			setEntityAnimation(self, ATTACK_5);
+			
+			self->animationCallback = &throwRock;
 		}
 	}
+	
+	checkToMap(self);
 }
 
 static void jumpAttackStart()

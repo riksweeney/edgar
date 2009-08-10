@@ -4,3 +4,9 @@ common/switch
 enemy/small_boulder
 common/spawner
 boss/golem_rock_dropper
+enemy/grub
+enemy/bat
+weapon/pickaxe
+enemy/floating_snapper
+item/test_crate
+boss/golem_boss

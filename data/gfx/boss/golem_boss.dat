@@ -1,2 +1,14 @@
-gfx/boss/golem/golem_boss_stand00.png
-gfx/boss/golem/golem_boss_head_piece.png 26 0 30 42
+gfx/boss/golem/golem_boss_stand00.png 16 0 47 208
+gfx/boss/golem/golem_boss_stand01.png 16 0 47 208
+gfx/boss/golem/golem_boss_stand02.png 16 0 47 208
+gfx/boss/golem/golem_boss_stand03.png 16 0 47 208
+gfx/boss/golem/golem_boss_head_piece.png 33 0 30 42
+gfx/boss/golem/golem_boss_stomp00.png 16 0 64 208
+gfx/boss/golem/golem_boss_stomp01.png 16 0 87 208
+gfx/boss/golem/golem_boss_stomp02.png 16 0 67 208
+gfx/boss/golem/golem_boss_stomp03.png 16 0 67 208
+gfx/boss/golem/golem_boss_throw00.png 0 51 108 157
+gfx/boss/golem/golem_boss_throw01.png 0 51 108 157
+gfx/boss/golem/golem_boss_throw02.png 0 51 108 157
+gfx/boss/golem/golem_boss_throw03.png 0 51 108 157
+gfx/boss/golem/golem_boss_throw04.png 0 51 108 157

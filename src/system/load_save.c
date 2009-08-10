@@ -198,7 +198,10 @@ int loadGame(int slot)
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %ld\n", &game.playTime);
+		}
 
+		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
+		{
 			if (version < VERSION)
 			{
 				printf("Need to patch save file\n");
@@ -207,10 +210,7 @@ int loadGame(int slot)
 
 				break;
 			}
-		}
-
-		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
-		{
+			
 			sscanf(line, "%*s %s\n", itemName);
 
 			printf("Loading save location %s\n", itemName);

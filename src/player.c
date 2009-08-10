@@ -489,7 +489,7 @@ void doPlayer()
 
 				if (self->standingOn != NULL)
 				{
-					self->dirX = self->standingOn->dirX;
+					self->dirX += self->standingOn->dirX;
 
 					if (self->standingOn->dirY > 0)
 					{
@@ -550,6 +550,9 @@ void playerWaitForDialog()
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
+
+		playerWeapon.face = player.face;
+		playerShield.face = player.face;
 	}
 
 	player.dirX = 0;
@@ -1250,6 +1253,16 @@ void setPlayerSlimed(int thinkTime)
 	setEntityAnimation(e, STAND);
 
 	e->thinkTime = thinkTime;
+
+	player.dirX = 0;
+
+	setCustomAction(&player, &helpless, thinkTime, 0);
+
+	player.flags &= ~BLOCKING;
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&playerShield, STAND);
 }
 
 static void applySlime()
@@ -1266,19 +1279,6 @@ static void applySlime()
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
-
-		player.flags &= ~HELPLESS;
-	}
-
-	else
-	{
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
-		setEntityAnimation(&playerShield, STAND);
-
-		player.flags |= HELPLESS;
-
-		player.flags &= ~BLOCKING;
 	}
 }
 
@@ -1325,6 +1325,8 @@ static void fireArrow()
 		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
 
 		playSoundToMap("sound/edgar/arrow.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+		e->reactToBlock = &bounceOffShield;
 
 		/*e->die = &stickToTarget;*/
 
