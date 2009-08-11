@@ -101,7 +101,17 @@ static void teleportAttackStart()
 
 static void teleportAttack()
 {
-	self->action = &teleportAttack;
+	if (self->action != teleportAttack)
+	{
+		self->action = &teleportAttack;
+
+		self->dirX = (self->face == LEFT ? -self->speed : self->speed) * 3;
+	}
+
+	if (self->dirX == 0)
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
+	}
 
 	self->touch = &touch;
 
@@ -117,11 +127,6 @@ static void teleportAttack()
 	}
 
 	checkToMap(self);
-
-	if (self->dirX == 0)
-	{
-		self->face = self->face == LEFT ? RIGHT : LEFT;
-	}
 
 	self->thinkTime--;
 

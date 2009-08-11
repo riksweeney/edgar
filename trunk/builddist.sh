@@ -57,6 +57,8 @@ rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec
 rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
+rm $APPDIR/*.txt
+rm $APPDIR/*.dat
 rm $APPDIR/makefile.windows
 rm $APPDIR/makefile.amiga
 
