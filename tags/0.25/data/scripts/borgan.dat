@@ -1,0 +1,53 @@
+SET Borgan FACE Edgar
+SET Borgan ANIMATION WALK
+IF Borgan HEALTH 5
+TALK Borgan Keep practising!
+END
+IF Borgan HEALTH 2
+REMOVE "Coal Bag" 10 -1 Borgan 3 4
+END
+IF Borgan HEALTH 1
+TALK Edgar Hi
+TALK Borgan Hello Edgar
+TALK Edgar Can I borrow your shield?
+TALK Borgan Off to practice your fighting skills?
+TALK Edgar Something like that
+TALK Borgan If you run me an errand then you can have the shield
+TALK Edgar What do I have to do?
+TALK Borgan Go to the mine and collect me some coal
+TALK Edgar But we have plenty of coal!
+TALK Borgan Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer
+TALK Borgan I only need 10 pieces of the stuff, so it shouldn't take you very long
+TALK Borgan Make sure you put it in a bag, touching it for too long will be bad for your health
+TALK Edgar Do you have a bag?
+TALK Borgan No, you can probably find one in the mine though
+TALK Edgar OK, I'll get the coal
+ADD ENTITY WEAPON weapon/pickaxe " " 256 3000
+TALK Borgan Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter
+ADD ENTITY ITEM item/iron_key "Mine Entrance Door Key" 224 3000
+TALK Borgan You'll also need this key to get into the mine
+TALK Edgar Thanks!
+ADD OBJECTIVE "Collect 10 pieces of Coal" "Landslide Trigger"
+ADD TRIGGER "Coal" 10 UPDATE_OBJECTIVE "Collect 10 pieces of Coal"
+SET Borgan HEALTH 2
+END
+IF Borgan HEALTH 3
+TALK Borgan Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you.
+TALK Edgar The bats were the least of my worries...
+TALK Edgar Say, I heard that something happened in that mine a few years ago
+TALK Borgan Er, yeah, there was what you'd call an "incident", but that part of the mine was sealed up a long time ago
+TALK Edgar Right...
+ADD ENTITY SHIELD weapon/small_wooden_shield " " 256 3000
+TALK Borgan Here, have my shield and have fun!
+TALK Edgar Thanks!
+TALK Borgan Just stay away from the Forbidden Swamp
+TALK Edgar Will do, can I hold on to your pickaxe for a while?
+TALK Borgan Sure thing, just bring it back in one piece
+TALK Edgar Thanks, Borgan!
+SET Borgan HEALTH 5
+END
+IF Borgan HEALTH 4
+TALK Borgan Have you managed to find the coal yet?
+SET Borgan HEALTH 2
+END
+SET Borgan ANIMATION STAND
