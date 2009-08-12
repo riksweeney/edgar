@@ -1,0 +1,6 @@
+HEALTH 1
+DAMAGE 3
+GFX_FILE data/gfx/enemy/laser.dat
+ANIM_FILE data/anim/enemy/laser.dat
+TYPE ENEMY
+FLAGS DO_NOT_PERSIST

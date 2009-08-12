@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-20 08:23+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/enemy/baby_slime.c:166 src/enemy/baby_slime.c:208
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr ""
+
+#: src/item/item.c:168
+msgid "Bow"
+msgstr ""
+
+#: src/item/bomb_pile.c:73 src/item/bomb_pile.c:77
+msgid "Bomb"
+msgstr ""
+
+#: src/item/rock_pile.c:73 src/item/rock_pile.c:77
+msgid "Small Rock"
+msgstr ""
+
+#: src/item/chicken_trap.c:103
+msgid "Chicken"
+msgstr ""
+
+#: src/item/potions.c:73 src/world/switch.c:80 src/world/switch.c:131
+#: src/world/door.c:113
+#, c-format
+msgid "Used %s"
+msgstr ""
+
+#: src/player.c:653 src/player.c:658
+msgid "Cannot equip shields when using the bow"
+msgstr ""
+
+#: src/player.c:670 src/player.c:696
+#, c-format
+msgid "Equipped %s"
+msgstr ""
+
+#: src/player.c:1098
+msgid "Maximum health has increased!"
+msgstr ""
+
+#: src/player.c:1311 src/player.c:1316
+#, c-format
+msgid "Bow will now fire %s"
+msgstr ""
+
+#: src/player.c:1330 src/player.c:1335
+msgid "A bow is required to use this item"
+msgstr ""
+
+#: src/menu/options_menu.c:146
+#, c-format
+msgid "data/menu/options_menu.dat"
+msgstr ""
+
+#: src/menu/options_menu.c:225 src/menu/options_menu.c:232
+#: src/menu/options_menu.c:320 src/menu/options_menu.c:331
+#: src/menu/sound_menu.c:220 src/menu/sound_menu.c:374
+msgid "Yes"
+msgstr ""
+
+#: src/menu/options_menu.c:225 src/menu/options_menu.c:232
+#: src/menu/options_menu.c:320 src/menu/options_menu.c:331
+#: src/menu/sound_menu.c:220 src/menu/sound_menu.c:374
+msgid "No"
+msgstr ""
+
+#: src/menu/main_menu.c:143
+#, c-format
+msgid "data/menu/main_menu.dat"
+msgstr ""
+
+#: src/menu/io_menu.c:118
+#, c-format
+msgid "data/menu/io_menu.dat"
+msgstr ""
+
+#: src/menu/io_menu.c:207
+msgid "Back"
+msgstr ""
+
+#: src/menu/io_menu.c:263
+msgid "Game Loaded"
+msgstr ""
+
+#: src/menu/io_menu.c:275
+msgid "Game Saved"
+msgstr ""
+
+#: src/menu/sound_menu.c:151
+#, c-format
+msgid "data/menu/sound_menu.dat"
+msgstr ""
+
+#: src/menu/control_menu.c:144
+#, c-format
+msgid "data/menu/control_menu.dat"
+msgstr ""
+
+#: src/npc/npc.c:81 src/npc/borgan.c:100 src/npc/villager.c:81
+#, c-format
+msgid "Press Action to talk to %s"
+msgstr ""
+
+#: src/event/global_trigger.c:167
+#, c-format
+msgid "%s (%d / %d)"
+msgstr ""
+
+#: src/event/script.c:53
+#, c-format
+msgid "data/scripts/%s.dat"
+msgstr ""
+
+#: src/event/objective.c:91
+#, c-format
+msgid "New Objective: %s"
+msgstr ""
+
+#: src/event/objective.c:118
+#, c-format
+msgid "Objective Completed: %s"
+msgstr ""
+
+#: src/boss/fly_boss.c:909 src/boss/fly_boss.c:915
+msgid "The wall on the right looks weak..."
+msgstr ""
+
+#: src/main.c:66
+msgid "The Legend of Edgar"
+msgstr ""
+
+#: src/world/switch.c:87 src/world/switch.c:138
+#, c-format
+msgid "%s is needed to activate this switch"
+msgstr ""
+
+#: src/world/switch.c:168 src/world/pressure_plate.c:140
+#, c-format
+msgid "%d more to go..."
+msgstr ""
+
+#: src/world/switch.c:220
+msgid "Press Action to use this switch"
+msgstr ""
+
+#: src/world/save_point.c:92
+msgid "Press Action to save your game"
+msgstr ""
+
+#: src/world/pressure_plate.c:107
+#, c-format
+msgid "%s is required to use this Pressure Plate"
+msgstr ""
+
+#: src/world/door.c:122
+#, c-format
+msgid "%s is needed to open this door"
+msgstr ""
+
+#: src/world/door.c:129
+msgid "This door is locked"
+msgstr ""
+
+#: src/world/action_point.c:86
+msgid "Press Action to interact"
+msgstr ""
+
+#: src/world/level_exit.c:113
+#, c-format
+msgid "Press Action to go to the %s"
+msgstr ""
+
+#: src/world/lift.c:154
+msgid "Push Up or Down to use this lift"
+msgstr ""
+
+#: src/world/lift.c:222
+msgid "This lift is not active"
+msgstr ""
+
+#: src/inventory.c:90
+#, c-format
+msgid "Cannot carry any more %s"
+msgstr ""
+
+#: src/inventory.c:138 src/inventory.c:381
+#, c-format
+msgid "Picked up %s"
+msgstr ""
+
+#: src/inventory.c:390
+#, c-format
+msgid "%s is required to carry this item"
+msgstr ""
+
+#: src/inventory.c:565
+#, c-format
+msgid "%s (%d)"
+msgstr ""
+
+#: src/inventory.c:570 src/inventory.c:575
+#, c-format
+msgid "%s"
+msgstr ""
