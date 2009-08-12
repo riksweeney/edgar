@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../hud.h"
 #include "../player.h"
+#include "../geometry.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -143,6 +144,7 @@ static void summon()
 	char summonList[MAX_VALUE_LENGTH], enemyToSummon[MAX_VALUE_LENGTH];
 	char *token;
 	int summonIndex = 0, summonCount = 0;
+	Entity *e;
 
 	STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);
 
@@ -186,7 +188,17 @@ static void summon()
 
 	printf("Summoning %s\n", enemyToSummon);
 
-	addEnemy(enemyToSummon, self->x, self->y);
+	e = addEnemy(enemyToSummon, self->x, self->y);
+
+	e->targetX = self->x;
+
+	e->targetX += (100 + prand() % 100) * (prand() % 2 == 0 ? -1 : 1);
+
+	e->targetY = self->y + 50 + (prand() % 100);
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
 
