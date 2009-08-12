@@ -1,5 +1,5 @@
 MAP_NAME Tutorial Map
-MUSIC 
+MUSIC music/jk_village.xm
 TILESET caves
 AMBIENCE grasslands
 BACKGROUND_SPEED 0.3
