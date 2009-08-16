@@ -18,8 +18,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 SDL_Surface *loadImage(char *);
-void drawImage(SDL_Surface *, int, int, int);
-void drawFlippedImage(SDL_Surface *, int, int, int);
+void drawImage(SDL_Surface *, int, int, int, int);
+void drawFlippedImage(SDL_Surface *, int, int, int, int);
 void drawBox(SDL_Surface *, int, int, int, int, int, int, int);
 void clearScreen(int, int, int);
 int isTransparent(SDL_Surface *, int, int);

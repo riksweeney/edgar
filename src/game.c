@@ -141,7 +141,7 @@ void drawGame()
 
 	if (game.alphaSurface != NULL)
 	{
-		drawImage(game.alphaSurface, 0, 0, FALSE);
+		drawImage(game.alphaSurface, 0, 0, FALSE, 200);
 	}
 
 	if (game.transition != NULL)
@@ -573,7 +573,7 @@ void focusLost()
 
 void showPauseDialog()
 {
-	drawImage(game.pauseSurface, 0, 0, FALSE);
+	drawImage(game.pauseSurface, 0, 0, FALSE, 255);
 }
 
 void resetGameSettings()
@@ -712,8 +712,6 @@ void fadeFromWhite()
 	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
 
 	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, 255, 255, 255);
-
-	SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, 200);
 
 	game.action = &fadeToNormal;
 }

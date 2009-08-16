@@ -108,7 +108,7 @@ void drawHud()
 
 	drawSelectedInventoryItem((SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h);
 
-	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE);
+	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE, 255);
 
 	percentage = 0;
 
@@ -127,7 +127,7 @@ void drawHud()
 		{
 			if (i <= percentage)
 			{
-				drawImage(hud.heart, x, y, FALSE);
+				drawImage(hud.heart, x, y, FALSE, 255);
 			}
 
 			else if (i - 10 < percentage)
@@ -139,7 +139,7 @@ void drawHud()
 				drawClippedImage(hud.heart, 0, 0, x, y, w, hud.heart->h);
 			}
 
-			drawImage(hud.emptyHeart, x, y, FALSE);
+			drawImage(hud.emptyHeart, x, y, FALSE, 255);
 
 			x += hud.heart->w + 5;
 		}
@@ -147,7 +147,7 @@ void drawHud()
 
 	if (hud.infoMessage.surface != NULL)
 	{
-		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE);
+		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE, 255);
 	}
 
 	w = h = 5;
@@ -163,10 +163,10 @@ void drawHud()
 
 		if (i < player.health)
 		{
-			drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30));
+			drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30), 255);
 		}
 
-		drawImage(hud.emptyHeart, w, h, FALSE);
+		drawImage(hud.emptyHeart, w, h, FALSE, 255);
 
 		w += hud.heart->w + 5;
 	}

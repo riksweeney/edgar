@@ -86,7 +86,7 @@ typedef struct Entity
 	int thinkTime, face, layer;
 	int currentFrame;
 	int type, animation[MAX_ANIMATION_TYPES];
-	int currentAnim, health;
+	int currentAnim, health, alpha;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
 	long flags;

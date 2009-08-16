@@ -3,6 +3,6 @@ ANIM_FILE data/anim/enemy/jumping_fireball.dat
 TYPE ENEMY
 DAMAGE 1
 SPEED 8
-WEIGHT 0.1
+WEIGHT 0.3
 THINKTIME 120
 ELEMENT FIRE

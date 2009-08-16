@@ -110,6 +110,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	}
 
 	clearCustomActions(&player);
+	
+	player.alpha = 255;
 
 	player.fallout = &fallout;
 
