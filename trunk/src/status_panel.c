@@ -54,7 +54,7 @@ void drawStatusPanel()
 {
 	if (panel != NULL)
 	{
-		drawImage(panel, (SCREEN_WIDTH - panel->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE);
+		drawImage(panel, (SCREEN_WIDTH - panel->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE, 255);
 	}
 }
 

@@ -550,13 +550,11 @@ void drawInventory()
 	{
 		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT, INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT);
 
-		SDL_SetAlpha(inventory.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
-
 		inventory.x = (SCREEN_WIDTH - inventory.background->w) / 2;
 		inventory.y = (SCREEN_HEIGHT - inventory.background->h) / 2;
 	}
 
-	drawImage(inventory.background, inventory.x, inventory.y, FALSE);
+	drawImage(inventory.background, inventory.x, inventory.y, FALSE, 196);
 
 	x = inventory.x;
 	y = inventory.y;
@@ -603,13 +601,13 @@ void drawInventory()
 
 			inventory.description = createDialogBox(NULL, description);
 
-			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
+			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
 		}
 	}
 
 	else
 	{
-		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
+		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
 	}
 
 	if (inventory.cursor == NULL)
@@ -623,7 +621,7 @@ void drawInventory()
 	x += inventory.x;
 	y += inventory.y;
 
-	drawImage(inventory.cursor, x, y, FALSE);
+	drawImage(inventory.cursor, x, y, FALSE, 255);
 }
 
 void setInventoryDialogMessage(char *fmt, ...)

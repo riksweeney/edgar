@@ -66,7 +66,7 @@ SDL_Surface *loadImage(char *name)
 	return image;
 }
 
-void drawImage(SDL_Surface *image, int x, int y, int white)
+void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 {
 	SDL_Rect dest;
 
@@ -83,10 +83,17 @@ void drawImage(SDL_Surface *image, int x, int y, int white)
 	dest.y = game.offsetY + y;
 	dest.w = image->w;
 	dest.h = image->h;
+	
+	if (alpha != 255)
+	{
+		SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+	}
 
 	/* Blit the entire image onto the screen at coordinates x and y */
 
 	SDL_BlitSurface(image, NULL, game.screen, &dest);
+	
+	SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, 255);
 }
 
 void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int destY, int width, int height)
@@ -106,7 +113,7 @@ void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int des
 	SDL_BlitSurface(image, &src, game.screen, &dest);
 }
 
-void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
+void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int alpha)
 {
 	unsigned char r, g, b;
 	int *pixels, x, y, pixel, rx, ry;
@@ -154,10 +161,10 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white)
 	{
 		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
 	}
-
-	if (image->flags & SDL_SRCALPHA)
+	
+	if (alpha != 255 && white == FALSE)
 	{
-		SDL_SetAlpha(flipped, SDL_SRCALPHA|SDL_RLEACCEL, image->format->alpha);
+		SDL_SetAlpha(flipped, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
 	}
 
 	/* Set the blitting rectangle to the size of the src image */

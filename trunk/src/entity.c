@@ -77,6 +77,8 @@ Entity *getFreeEntity()
 			entity[i].currentAnim = -1;
 
 			entity[i].layer = MID_GROUND_LAYER;
+			
+			entity[i].alpha = 255;
 
 			if (i > MAX_ENTITIES - 20)
 			{

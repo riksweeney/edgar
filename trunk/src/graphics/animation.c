@@ -283,12 +283,12 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 	if (center == 1)
 	{
-		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE);
+		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE, e->alpha);
 	}
 
 	else
 	{
-		drawImage(sprite->image, x, y, FALSE);
+		drawImage(sprite->image, x, y, FALSE, e->alpha);
 	}
 }
 
@@ -370,7 +370,12 @@ int drawLoopingAnimationToMap()
 	{
 		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 	}
-
+	
+	if (self->alpha <= 0)
+	{
+		return FALSE;
+	}
+	
 	if (self->face == LEFT)
 	{
 		if (self->parent == NULL || self->type == PROJECTILE)
@@ -389,7 +394,7 @@ int drawLoopingAnimationToMap()
 		{
 			drawn = TRUE;
 
-			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
 
 			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
@@ -413,7 +418,7 @@ int drawLoopingAnimationToMap()
 		{
 			drawn = TRUE;
 
-			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE);
+			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
 
 			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
