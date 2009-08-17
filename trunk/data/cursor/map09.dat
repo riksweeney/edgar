@@ -16,3 +16,4 @@ lift/lift_target
 common/switch
 item/wooden_crate
 common/pressure_plate
+enemy/summoner

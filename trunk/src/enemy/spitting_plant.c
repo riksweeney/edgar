@@ -84,26 +84,14 @@ static void wait()
 static void spit()
 {
 	Entity *e;
-	int x, y, zeroDamage;
+	int x, y;
 
 	x = self->x + self->w / 2;
 	y = self->y + 5;
 
-	zeroDamage = FALSE;
-
-	if (strcmpignorecase(self->name, "enemy/tutorial_spitting_plant") == 0)
-	{
-		zeroDamage = TRUE;
-	}
-
 	e = addProjectile("common/green_blob", self, x, y, -6, 0);
 
 	e->flags |= FLY;
-
-	if (zeroDamage == TRUE)
-	{
-		e->damage = 0;
-	}
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -111,21 +99,11 @@ static void spit()
 
 	e->flags |= FLY;
 
-	if (zeroDamage == TRUE)
-	{
-		e->damage = 0;
-	}
-
 	e->reactToBlock = &bounceOffShield;
 
 	e = addProjectile("common/green_blob", self, x, y, 0, -6);
 
 	e->flags |= FLY;
-
-	if (zeroDamage == TRUE)
-	{
-		e->damage = 0;
-	}
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -133,21 +111,11 @@ static void spit()
 
 	e->flags |= FLY;
 
-	if (zeroDamage == TRUE)
-	{
-		e->damage = 0;
-	}
-
 	e->reactToBlock = &bounceOffShield;
 
 	e = addProjectile("common/green_blob", self, x, y, 6, 0);
 
 	e->flags |= FLY;
-
-	if (zeroDamage == TRUE)
-	{
-		e->damage = 0;
-	}
 
 	e->reactToBlock = &bounceOffShield;
 

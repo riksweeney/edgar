@@ -1278,7 +1278,7 @@ static void applySlime()
 	self->x = player.x;
 	self->y = player.y;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 || player.health <= 0)
 	{
 		self->inUse = FALSE;
 	}

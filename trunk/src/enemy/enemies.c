@@ -50,6 +50,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ceiling_snapper.h"
 #include "gazer.h"
 #include "sludge.h"
+#include "summoner.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -102,7 +103,7 @@ static Constructor enemies[] = {
 {"enemy/gazer", &addGazer},
 {"enemy/sludge", &addSludge},
 {"boss/golem_rock_dropper", &addGolemRockDropper},
-{"enemy/tutorial_spitting_plant", &addSpittingPlant}
+{"enemy/summoner", &addSummoner}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
