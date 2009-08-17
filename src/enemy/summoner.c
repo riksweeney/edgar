@@ -72,7 +72,11 @@ Entity *addSummoner(int x, int y, char *name)
 
 static void lookForPlayer()
 {
+	float dirX;
+	
 	self->thinkTime--;
+	
+	self->action = &lookForPlayer;
 
 	if (self->thinkTime <= 0)
 	{
@@ -107,29 +111,41 @@ static void lookForPlayer()
 	}
 
 	self->dirY = 0;
+	
+	dirX = self->dirX;
 
 	checkToMap(self);
 
-	if (self->dirX == 0)
+	if (self->dirX == 0 && dirX != 0)
 	{
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
 
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
+	
+	self->endX--;
 
-	if (player.health > 0 && prand() % 30 == 0)
+	if (self->endX <= 0 && player.health > 0 && prand() % 30 == 0)
 	{
+		self->endX = 0;
+		
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &summonWait;
 
-			setEntityAnimation(self, ATTACK_1);
+			/*setEntityAnimation(self, ATTACK_1);*/
 
 			self->animationCallback = &summon;
+			
+			self->action = &summon;
+			
+			self->action = &lookForPlayer;
 
 			self->dirX = 0;
 		}
 	}
+	
+	hover();
 }
 
 static void summonWait()
@@ -174,7 +190,7 @@ static void summon()
 
 	while (token != NULL)
 	{
-		if (summonIndex == summonIndex)
+		if (summonCount == summonIndex)
 		{
 			break;
 		}
@@ -186,8 +202,6 @@ static void summon()
 
 	snprintf(enemyToSummon, MAX_VALUE_LENGTH, "enemy/%s", token);
 
-	printf("Summoning %s\n", enemyToSummon);
-
 	e = addEnemy(enemyToSummon, self->x, self->y);
 
 	e->targetX = self->x;
@@ -195,16 +209,45 @@ static void summon()
 	e->targetX += (100 + prand() % 100) * (prand() % 2 == 0 ? -1 : 1);
 
 	e->targetY = self->y + 50 + (prand() % 100);
+	
+	e->x = e->targetX;
+	
+	e->y = e->targetY;
+	
+	while (isValidOnMap(e) == FALSE)
+	{
+		e->targetX = self->x;
+	
+		e->targetX += (100 + prand() % 100) * (prand() % 2 == 0 ? -1 : 1);
+	
+		e->targetY = self->y + 50 + (prand() % 100);
+		
+		e->x = e->targetX;
+		
+		e->y = e->targetY;
+	}
+	
+	e->targetX = e->x;
+	
+	e->targetY = e->y;
+	
+	e->x = self->x;
+	
+	e->y = self->y;
 
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-	self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
 
-	setEntityAnimation(self, ATTACK_2);
+	/*setEntityAnimation(self, ATTACK_2);*/
 
 	self->animationCallback = &lookForPlayer;
+	
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	
+	self->endX = 600;
 }
 
 static void hover()
