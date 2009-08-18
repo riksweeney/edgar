@@ -69,6 +69,11 @@ SDL_Surface *loadImage(char *name)
 void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 {
 	SDL_Rect dest;
+	
+	if (alpha == 0)
+	{
+		return;
+	}
 
 	if (white == TRUE)
 	{

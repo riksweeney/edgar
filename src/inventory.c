@@ -260,7 +260,20 @@ int removeInventoryItem(char *name)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
-			inventory.item[i].inUse = FALSE;
+			if (inventory.item[i].flags & STACKABLE)
+			{
+				inventory.item[i].health--;
+				
+				if (inventory.item[i].health <= 0)
+				{
+					inventory.item[i].inUse = FALSE;
+				}
+			}
+			
+			else
+			{
+				inventory.item[i].inUse = FALSE;
+			}
 
 			found = TRUE;
 

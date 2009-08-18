@@ -84,7 +84,7 @@ static void preCacheSound(char *name)
 	{
 		printf("Ran out of space for sounds\n");
 
-		abort();
+		exit(1);
 	}
 
 	chunk = loadSound(name);
@@ -121,7 +121,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		{
 			printf("Ran out of space for sounds\n");
 
-			abort();
+			exit(1);
 		}
 
 		chunk = loadSound(name);
@@ -188,12 +188,13 @@ void playSound(char *name)
 		{
 			printf("Ran out of space for sounds\n");
 
-			abort();
+			exit(1);
 		}
 
 		chunk = loadSound(name);
 
 		sound[soundIndex].effect = chunk;
+
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;

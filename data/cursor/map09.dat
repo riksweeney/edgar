@@ -17,3 +17,10 @@ common/switch
 item/wooden_crate
 common/pressure_plate
 enemy/summoner
+weapon/basic_sword
+weapon/small_wooden_shield
+common/spawner
+common/save_point
+common/action_point
+item/gazer_eye_slot
+item/gazer_eye

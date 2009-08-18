@@ -41,6 +41,7 @@ static void changeSymbol(int);
 static void doSymbolMatch(void);
 static void die(void);
 static void bounce(void);
+static void appear(void);
 
 Entity *addSymbolBlock(int x, int y, char *name)
 {
@@ -77,12 +78,22 @@ Entity *addSymbolBlock(int x, int y, char *name)
 
 static void wait()
 {
+	if (self->touch == NULL && self->active == TRUE)
+	{
+		self->action = &appear;
+	}
+	
 	checkToMap(self);
 }
 
 static void autoSymbolChange()
 {
-	if (self->damage > 0)
+	if (self->startY == -1)
+	{
+		self->damage = 0;
+	}
+	
+	else if (self->damage > 0)
 	{
 		self->damage--;
 
@@ -106,6 +117,12 @@ static void autoTouch(Entity *other)
 	if (other->dirY == 0 && dirY < 0)
 	{
 		self->damage = self->damage == 0 ? 1 : 0;
+		
+		self->flags &= ~FLY;
+		
+		self->dirY = -5;
+		
+		self->action = &bounce;
 
 		if (self->damage == 0)
 		{
@@ -148,7 +165,7 @@ static void bounce()
 		
 		self->dirY = 0;
 		
-		self->action = &wait;
+		self->action = self->health < 0 ? &autoSymbolChange : &wait;
 	}
 }
 
@@ -159,21 +176,23 @@ static void init()
 		self->action = self->health < 0 ? &autoSymbolChange : &wait;
 
 		self->touch = self->health < 0 ? &autoTouch : &touch;
-		
-		if (self->health >= 0)
-		{
-			self->damage = 0;
-		}
-		
-		self->thinkTime = prand() % self->maxThinkTime;
 	}
 
 	else
 	{
+		self->alpha = 0;
+		
 		self->action = &wait;
 
-		self->touch = &pushEntity;
+		self->touch = NULL;
 	}
+	
+	if (self->health >= 0)
+	{
+		self->damage = 0;
+	}
+	
+	self->thinkTime = prand() % self->maxThinkTime;
 
 	setEntityAnimation(self, self->thinkTime);
 }
@@ -294,4 +313,20 @@ static void die()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void appear()
+{
+	self->alpha += 3;
+	
+	if (self->alpha >= 255)
+	{
+		self->alpha = 255;
+		
+		self->action = self->health < 0 ? &autoSymbolChange : &wait;
+		
+		self->touch = self->health < 0 ? &autoTouch : &touch;
+	}
+	
+	checkToMap(self);
 }

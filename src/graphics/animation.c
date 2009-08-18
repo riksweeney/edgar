@@ -101,7 +101,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			{
 				printf("Ran out of space for animations\n");
 
-				abort();
+				exit(1);
 			}
 
 			animationIndex[getAnimationTypeByName(frameName)] = animationID;
@@ -370,12 +370,12 @@ int drawLoopingAnimationToMap()
 	{
 		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 	}
-	
+
 	if (self->alpha <= 0)
 	{
 		return FALSE;
 	}
-	
+
 	if (self->face == LEFT)
 	{
 		if (self->parent == NULL || self->type == PROJECTILE)
@@ -551,5 +551,5 @@ int getAnimationTypeAtIndex(Entity *e)
 
 	printf("Failed to find animation at index %d\n", e->currentAnim);
 
-	abort();
+	exit(1);
 }
