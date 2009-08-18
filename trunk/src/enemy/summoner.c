@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../player.h"
 #include "../geometry.h"
+#include "../item/item.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -38,6 +39,8 @@ static void lookForPlayer(void);
 static void summon(void);
 static void summonWait(void);
 static void hover(void);
+static void summonEnd(void);
+static void die(void);
 
 Entity *addSummoner(int x, int y, char *name)
 {
@@ -57,10 +60,9 @@ Entity *addSummoner(int x, int y, char *name)
 
 	e->action = &lookForPlayer;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDieNoDrop;
-	e->pain = NULL;
-	e->takeDamage = &entityTakeDamageFlinch;
-	e->reactToBlock = NULL;
+	e->die = &die;
+	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
@@ -73,45 +75,16 @@ Entity *addSummoner(int x, int y, char *name)
 static void lookForPlayer()
 {
 	float dirX;
-	
+
 	self->thinkTime--;
-	
-	self->action = &lookForPlayer;
 
-	if (self->thinkTime <= 0)
+	if (self->dirX == 0)
 	{
-		switch (prand() % 5)
-		{
-			case 0:
-			case 1:
-				self->dirX = self->speed;
-			break;
-
-			case 2:
-			case 3:
-				self->dirX = -self->speed;
-			break;
-
-			default:
-				self->dirX = 0;
-			break;
-		}
-
-		self->thinkTime = 180 + prand() % 120;
+		self->dirX = self->face == LEFT ? self->speed : -self->speed;
 	}
 
-	if (self->dirX < 0)
-	{
-		self->face = LEFT;
-	}
+	self->face = self->dirX > 0 ? RIGHT : LEFT;
 
-	else if (self->dirX > 0)
-	{
-		self->face = RIGHT;
-	}
-
-	self->dirY = 0;
-	
 	dirX = self->dirX;
 
 	checkToMap(self);
@@ -122,37 +95,31 @@ static void lookForPlayer()
 
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
-	
-	self->endX--;
 
-	if (self->endX <= 0 && player.health > 0 && prand() % 30 == 0)
+	if (self->thinkTime <= 0 && player.health > 0 && prand() % 30 == 0)
 	{
-		self->endX = 0;
-		
+		self->thinkTime = 0;
+
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &summonWait;
 
-			/*setEntityAnimation(self, ATTACK_1);*/
+			setEntityAnimation(self, ATTACK_1);
 
 			self->animationCallback = &summon;
-			
-			self->action = &summon;
-			
-			self->action = &lookForPlayer;
 
 			self->dirX = 0;
 		}
 	}
-	
+
 	hover();
 }
 
 static void summonWait()
 {
-	hover();
-
 	checkToMap(self);
+	
+	hover();
 }
 
 static void summon()
@@ -175,7 +142,7 @@ static void summon()
 
 	if (summonCount == 0)
 	{
-		printf("Summoner at %f %f has no summon list\n", self->endX, self->endY);
+		printf("Summoner at %f %f has no summon list\n", self->x, self->y);
 
 		exit(1);
 	}
@@ -206,34 +173,11 @@ static void summon()
 
 	e->targetX = self->x;
 
-	e->targetX += (100 + prand() % 100) * (prand() % 2 == 0 ? -1 : 1);
+	e->targetY = self->y;
 
-	e->targetY = self->y + 50 + (prand() % 100);
-	
 	e->x = e->targetX;
-	
+
 	e->y = e->targetY;
-	
-	while (isValidOnMap(e) == FALSE)
-	{
-		e->targetX = self->x;
-	
-		e->targetX += (100 + prand() % 100) * (prand() % 2 == 0 ? -1 : 1);
-	
-		e->targetY = self->y + 50 + (prand() % 100);
-		
-		e->x = e->targetX;
-		
-		e->y = e->targetY;
-	}
-	
-	e->targetX = e->x;
-	
-	e->targetY = e->y;
-	
-	e->x = self->x;
-	
-	e->y = self->y;
 
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
@@ -241,13 +185,9 @@ static void summon()
 
 	self->action = &summonWait;
 
-	/*setEntityAnimation(self, ATTACK_2);*/
+	setEntityAnimation(self, ATTACK_2);
 
-	self->animationCallback = &lookForPlayer;
-	
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	
-	self->endX = 600;
+	self->animationCallback = &summonEnd;
 }
 
 static void hover()
@@ -259,5 +199,30 @@ static void hover()
 		self->startX = 0;
 	}
 
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 16;
+	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+}
+
+static void summonEnd()
+{
+	setEntityAnimation(self, STAND);
+	
+	self->action = &lookForPlayer;
+	
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+	self->thinkTime = 600;
+}
+
+static void die()
+{
+	Entity *e;
+
+	if (prand() % 3 == 0)
+	{
+		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
+
+		e->x -= e->w / 2;
+	}
+
+	entityDie();
 }

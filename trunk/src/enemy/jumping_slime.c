@@ -163,7 +163,7 @@ static void purpleAttack()
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
 
-			if (prand() % 8 == 0)
+			if (player.health > 0 && (prand() % 8 == 0))
 			{
 				layEgg();
 			}

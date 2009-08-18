@@ -869,12 +869,12 @@ int mapTileAt(int x, int y)
 	return map.tile[y][x];
 }
 
-int maxMapX()
+int getMaxMapX()
 {
 	return map.maxX;
 }
 
-int maxMapY()
+int getMaxMapY()
 {
 	return map.maxY;
 }

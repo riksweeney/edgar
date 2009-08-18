@@ -60,7 +60,7 @@ CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label
 CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o arrow_target.o eye_stalk.o snail_shell.o
 CORE_OBJS += flying_maggot.o conveyor_belt.o power_generator.o laser_grid.o ceiling_snapper.o gazer.o
 CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o about_menu.o summoner.o energy_drainer.o
-CORE_OBJS += symbol_block.o number_block.o force_field.o
+CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

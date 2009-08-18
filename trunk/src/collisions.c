@@ -903,8 +903,8 @@ void checkToMap(Entity *e)
 	e->x += e->dirX;
 	e->y += e->dirY;
 
-	x1 = e->type == PLAYER ? getMinMapX() : 0;
-	y1 = e->type == PLAYER ? getMinMapY() : 0;
+	x1 = getMinMapX();
+	y1 = getMinMapY();
 
 	if (e->x < x1)
 	{
@@ -924,9 +924,9 @@ void checkToMap(Entity *e)
 
 	}
 
-	else if (e->x + e->w >= maxMapX())
+	else if (e->x + e->w >= getMaxMapX())
 	{
-		e->x = maxMapX() - e->w - 1;
+		e->x = getMaxMapX() - e->w - 1;
 
 		e->dirX = 0;
 
@@ -941,7 +941,7 @@ void checkToMap(Entity *e)
 		}
 	}
 
-	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
+	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
 
@@ -1139,6 +1139,11 @@ int isAtEdge(Entity *e)
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
+	
+	if (e->x < getMinMapX() || e->x + e->w > getMaxMapX() || e->h < 0 || e->y + e->h > getMaxMapY())
+	{
+		return FALSE;
+	}
 
 	i = e->w > TILE_SIZE ? TILE_SIZE : e->w;
 
