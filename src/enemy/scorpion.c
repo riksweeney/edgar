@@ -156,6 +156,8 @@ static void clawAttack()
 	self->thinkTime = 60;
 
 	self->animationCallback = &attackFinished;
+	
+	checkToMap(self);
 }
 
 static void stingAttack()
@@ -191,4 +193,6 @@ static void attackFinished()
 			self->action = &lookForPlayer;
 		}
 	}
+	
+	checkToMap(self);
 }

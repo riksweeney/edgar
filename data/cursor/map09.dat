@@ -24,3 +24,4 @@ common/save_point
 common/action_point
 item/gazer_eye_slot
 item/gazer_eye
+falling_platform/castle_falling_platform
