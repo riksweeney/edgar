@@ -173,6 +173,8 @@ static void spitAttackInit()
 	self->animationCallback = &spitAttack;
 
 	self->action = &attacking;
+	
+	checkToMap(self);
 }
 
 static void spitAttack()
@@ -207,6 +209,5 @@ static void spitAttackFinish()
 
 static void attacking()
 {
-
+	checkToMap(self);
 }
-
