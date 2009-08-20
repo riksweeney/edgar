@@ -34,9 +34,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void touch(Entity *);
-static void setAllBlockValues(char *, int);
+static void spring(void);
 static void wait(void);
-static void init(void);
 
 Entity *addSpring(int x, int y, char *name)
 {
@@ -58,8 +57,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &init;
-	e->activate = &activate;
+	e->action = &wait;
 	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -73,23 +71,53 @@ Entity *addSpring(int x, int y, char *name)
 
 static void wait()
 {
+	if (!(self->flags & GRABBED))
+	{
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+	}
+	
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
-	float dirY;
-	Entity *e;
-
-	dirY = self->dirY;
-
 	pushEntity(other);
 
 	if (other->standingOn == self)
 	{
-		if (dirY > 0)
-		{
-			self->dirY = dirY * (2 / 3);
-		}
+		self->frameSpeed = 1;
+		
+		setEntityAnimation(self, WALK);
+		
+		self->thinkTime = 30;
+		
+		other->y = self->y - other->h;
+		
+		other->dirY = -20;
+		
+		self->thinkTime = 30;
+		
+		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
+		
+		self->action = &spring;
 	}
+}
+
+static void spring()
+{
+	if (!(self->flags & GRABBED))
+	{
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, STAND);
+		
+		self->action = &wait;
+	}
+	
+	checkToMap(self);
 }

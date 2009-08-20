@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "symbol_block.h"
 #include "force_field.h"
 #include "gazer_eye_slot.h"
+#include "spring.h"
 
 extern Entity *self, player;
 
@@ -56,7 +57,8 @@ static Constructor items[] = {
 {"item/grabber", &addGrabber},
 {"item/symbol_block", &addSymbolBlock},
 {"item/force_field", &addForceField},
-{"item/gazer_eye_slot", &addGazerEyeSlot}
+{"item/gazer_eye_slot", &addGazerEyeSlot},
+{"item/spring", &addSpring}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
