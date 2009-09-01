@@ -33,11 +33,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Game game;
 
-static void stickToPlayer(void);
-static void attack(void);
-static void grab(Entity *other);
-static void fallOff(void);
-static void stickToPlayerAndDrain(void);
+static void fly(void);
+static void die(void);
+static void stoneFinish(void);
+static void dieWait(void);
+static void reanimate(void);
+static void flyToTop(void);
+static void stoneTakeDamage(Entity *, int);
 
 Entity *addInvulnerableFlyer(int x, int y, char *name)
 {
@@ -55,13 +57,12 @@ Entity *addInvulnerableFlyer(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &attack;
+	e->action = &fly;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
-	e->pain = NULL;
-	e->takeDamage = &entityTakeDamageFlinch;
+	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	e->touch = &grab;
+	e->touch = &entityTouch;
 
 	e->type = ENEMY;
 

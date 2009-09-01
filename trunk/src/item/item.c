@@ -183,23 +183,23 @@ void dropRandomItem(int x, int y)
 				case 0:
 					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 				break;
-				
+
 				case 1:
 					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-		
+
 					e->health = 1 + (prand() % 3);
 				break;
-				
+
 				default:
 					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-					
+
 					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-		
+
 					e->health = 1 + (prand() % 3);
 				break;
 			}
 		}
-		
+
 		else
 		{
 			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);

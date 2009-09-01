@@ -70,7 +70,7 @@ Entity *addSymbolBlock(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	e->thinkTime = 0;
-	
+
 	e->die = &die;
 
 	return e;
@@ -82,7 +82,7 @@ static void wait()
 	{
 		self->action = &appear;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -92,7 +92,7 @@ static void autoSymbolChange()
 	{
 		self->damage = 0;
 	}
-	
+
 	else if (self->damage > 0)
 	{
 		self->damage--;
@@ -109,19 +109,19 @@ static void autoSymbolChange()
 static void autoTouch(Entity *other)
 {
 	float dirY;
-	
+
 	dirY = other->dirY;
-	
+
 	pushEntity(other);
-	
+
 	if (other->dirY == 0 && dirY < 0)
 	{
 		self->damage = self->damage == 0 ? 1 : 0;
-		
+
 		self->flags &= ~FLY;
-		
+
 		self->dirY = -5;
-		
+
 		self->action = &bounce;
 
 		if (self->damage == 0)
@@ -134,19 +134,21 @@ static void autoTouch(Entity *other)
 static void touch(Entity *other)
 {
 	float dirY;
-	
+
 	dirY = other->dirY;
-	
+
 	pushEntity(other);
-	
+
 	if (other->dirY == 0 && dirY < 0)
 	{
 		self->flags &= ~FLY;
-		
+
 		self->dirY = -5;
-		
+
+		self->weight = 2;
+
 		self->action = &bounce;
-		
+
 		changeSymbol(1);
 
 		doSymbolMatch();
@@ -156,15 +158,15 @@ static void touch(Entity *other)
 static void bounce()
 {
 	checkToMap(self);
-	
+
 	if (self->y >= self->endY)
 	{
 		self->y = self->endY;
-		
+
 		self->flags |= FLY;
-		
+
 		self->dirY = 0;
-		
+
 		self->action = self->health < 0 ? &autoSymbolChange : &wait;
 	}
 }
@@ -181,18 +183,30 @@ static void init()
 	else
 	{
 		self->alpha = 0;
-		
+
 		self->action = &wait;
 
 		self->touch = NULL;
 	}
-	
+
 	if (self->health >= 0)
 	{
 		self->damage = 0;
 	}
-	
-	self->thinkTime = prand() % self->maxThinkTime;
+
+	/* Don't re-randomise if the player has adjusted it */
+
+	if (self->weight != 2)
+	{
+		self->thinkTime = prand() % self->maxThinkTime;
+
+		/* Only randomize the required block once since it's not reachable */
+
+		if (self->startY == -1)
+		{
+			self->weight = 2;
+		}
+	}
 
 	setEntityAnimation(self, self->thinkTime);
 }
@@ -220,9 +234,9 @@ static void doSymbolMatch()
 	Entity **list;
 
 	count = 0;
-	
+
 	remaining = 0;
-	
+
 	required = -1;
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -232,12 +246,12 @@ static void doSymbolMatch()
 			count++;
 
 			/* Only do validation if all the blocks have stopped */
-			
+
 			if (entity[i].damage != 0)
 			{
 				return;
 			}
-			
+
 			if (entity[i].startY == -1)
 			{
 				required = entity[i].thinkTime;
@@ -275,28 +289,28 @@ static void doSymbolMatch()
 		{
 			setInfoBoxMessage(30,  _("Complete"));
 		}
-		
+
 		for (i=0;i<count;i++)
 		{
 			list[i]->action = &wait;
 			list[i]->touch = NULL;
-			
+
 			list[i]->thinkTime = 60;
-			
+
 			list[i]->action = &die;
 		}
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 	}
-	
+
 	else if (self->health < 0)
-	{	
+	{
 		for (i=0;i<count;i++)
 		{
 			list[i]->damage = 30 + prand() % 30;
-		}	
+		}
 	}
-	
+
 	else if (self->thinkTime == required)
 	{
 		setInfoBoxMessage(30,  _("%d more to go..."), remaining);
@@ -307,8 +321,10 @@ static void doSymbolMatch()
 
 static void die()
 {
+	self->flags |= DO_NOT_PERSIST;
+
 	self->alpha -= 3;
-	
+
 	if (self->alpha <= 0)
 	{
 		self->inUse = FALSE;
@@ -318,15 +334,15 @@ static void die()
 static void appear()
 {
 	self->alpha += 3;
-	
+
 	if (self->alpha >= 255)
 	{
 		self->alpha = 255;
-		
+
 		self->action = self->health < 0 ? &autoSymbolChange : &wait;
-		
+
 		self->touch = self->health < 0 ? &autoTouch : &touch;
 	}
-	
+
 	checkToMap(self);
 }

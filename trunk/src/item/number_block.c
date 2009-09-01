@@ -34,9 +34,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void touch(Entity *);
+static Entity *getNextBlock(char *, int);
 static void setAllBlockValues(char *, int);
 static void wait(void);
 static void init(void);
+static void die(void);
+static void killAllBlocks(char *);
 
 Entity *addNumberBlock(int x, int y, char *name)
 {
@@ -85,25 +88,32 @@ static void touch(Entity *other)
 	{
 		if (self->health == 1)
 		{
-			e = getEntityByRequiredName(self->requires);
+			e = getNextBlock(self->objectiveName, self->thinkTime + 1);
 
-			if (strcmpignorecase(e->name, self->name) == 0)
+			/* Another number block */
+
+			if (e != NULL)
 			{
-				self->health = 2;
-
 				e->health = 1;
 
-				setEntityAnimation(self, self->health);
+				playSoundToMap("sound/item/number_block.ogg", -1, self->x, self->y, 0);
 
-				setEntityAnimation(e, e->health);
+				/*setEntityAnimation(e, e->health);*/
 			}
 
 			else
 			{
-				activateEntitiesWithRequiredName(self->requires, self->active);
+				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
-				setAllBlockValues(self->objectiveName, 2);
+				if (self->damage == -1)
+				{
+					killAllBlocks(self->objectiveName);
+				}
 			}
+
+			self->health = 2;
+
+			setEntityAnimation(self, self->health);
 		}
 
 		else if (self->health == 0)
@@ -115,7 +125,15 @@ static void touch(Entity *other)
 
 static void init()
 {
-	setEntityAnimation(self, self->health);
+	if (self->thinkTime == 0 && self->health != 2)
+	{
+		setAllBlockValues(self->objectiveName, 0);
+	}
+
+	else
+	{
+		setEntityAnimation(self, self->health == 2 ? 2 : 0);
+	}
 
 	self->action = &wait;
 }
@@ -128,9 +146,50 @@ static void setAllBlockValues(char *name, int value)
 	{
 		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0)
 		{
-			entity[i].health = value == 0 && entity[i].thinkTime != 0 ? 1 : value;
+			entity[i].health = (value == 0 && entity[i].thinkTime == 0) ? 1 : value;
 
-			setEntityAnimation(self, self->health);
+			setEntityAnimation(&entity[i], entity[i].health == 1 ? 0 : entity[i].health);
 		}
+	}
+}
+
+static void killAllBlocks(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			entity[i].action = &die;
+		}
+	}
+}
+
+static Entity *getNextBlock(char *name, int value)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0
+			&& entity[i].thinkTime == value)
+		{
+			return &entity[i];
+		}
+	}
+
+	return NULL;
+}
+
+static void die()
+{
+	self->flags |= DO_NOT_PERSIST;
+
+	self->alpha -= 3;
+
+	if (self->alpha <= 0)
+	{
+		self->inUse = FALSE;
 	}
 }

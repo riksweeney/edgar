@@ -1,6 +1,16 @@
 CHANGE LOG
 ----------
 
+Version 0.30
+
+* Fixed the scorpion's movement after its attack is blocked
+* Lifts no longer change direction when using your weapon in a tight passage
+* Added the Fortress Map
+* Added the Lab Map
+* The Forbidden Swamp boss can no longer be frozen by standing behind her
+* Added proper joypad support
+* Game no longer crashes when the fading music is interrupted
+
 Version 0.25
 
 * Fixed the chickens (again)

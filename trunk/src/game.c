@@ -64,6 +64,10 @@ void initGame()
 	game.drawMenu = &drawMainMenu;
 
 	game.shakeThinkTime = 0;
+	
+	game.action = NULL;
+	
+	game.thinkTime = 0;
 }
 
 void doGame()
@@ -142,6 +146,11 @@ void drawGame()
 	if (game.alphaSurface != NULL)
 	{
 		drawImage(game.alphaSurface, 0, 0, FALSE, 200);
+	}
+	
+	if (game.action == &doGameOver)
+	{
+		drawGameOver();
 	}
 
 	if (game.transition != NULL)
@@ -646,7 +655,7 @@ void readGameSettingsFromFile(char *buffer)
 	}
 }
 
-void doGameOver()
+void initGameOver()
 {
 	if (game.gameOverSurface == NULL)
 	{
@@ -654,12 +663,17 @@ void doGameOver()
 	}
 
 	game.transitionX = 0;
+	
+	game.action = &doGameOver;
+}
+
+void doGameOver()
+{
+	game.transitionX += 3;
 }
 
 void drawGameOver()
 {
-	game.transitionX += 3;
-
 	if (game.transitionX >= game.gameOverSurface->w)
 	{
 		game.transitionX = game.gameOverSurface->w;

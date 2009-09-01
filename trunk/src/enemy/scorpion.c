@@ -149,6 +149,8 @@ static void attack()
 
 static void clawAttack()
 {
+	self->dirX = 0;
+	
 	setEntityAnimation(self, ATTACK_1);
 
 	self->flags |= ATTACKING;
@@ -172,6 +174,8 @@ static void stingAttack()
 static void attackFinished()
 {
 	self->thinkTime--;
+	
+	self->dirX = 0;
 	
 	self->action = &attackFinished;
 

@@ -512,6 +512,28 @@ void getInventoryItemFromScript(char *line)
 	}
 }
 
+void useInventoryItemFromScript(char *itemName)
+{
+	Entity *item, *temp;
+
+	item = getInventoryItem(itemName);
+	
+	if (item == NULL)
+	{
+		printf("Could not find Inventory Item %s\n", itemName);
+		
+		exit(1);
+	}
+	
+	temp = self;
+	
+	self = item;
+	
+	self->activate(0);
+	
+	self = temp;
+}
+
 void writeInventoryToFile(FILE *fp)
 {
 	int i;

@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void wait(void);
+static void init(void);
 static void dropRock(void);
 static void grabRock(void);
 static void moveToTarget(void);
@@ -60,15 +61,13 @@ Entity *addGrabber(int x, int y, char *name)
 
 	e->face = LEFT;
 
-	e->action = &wait;
+	e->action = &init;
 	e->touch = &touch;
 	e->activate = &activate;
 
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
-
-	addChain(e);
 
 	return e;
 }
@@ -107,13 +106,21 @@ static void dropRock()
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~(HELPLESS|FLY);
-
-		self->target->type = PROJECTILE;
-
-		self->target->damage = 100;
-
-		self->target->parent = self;
-
+		
+		if (self->target->type == ENEMY)
+		{
+			self->target->type = PROJECTILE;
+	
+			self->target->damage = 100;
+			
+			self->target->parent = self;
+		}
+		
+		else
+		{
+			self->target->touch = &pushEntity;
+		}
+			
 		self->target = NULL;
 	}
 
@@ -187,28 +194,7 @@ static void touch(Entity *other)
 	
 	if (self->active == TRUE)
 	{
-		if ((other->flags & ON_GROUND) && strcmpignorecase(other->name, "enemy/small_boulder") == 0)
-		{
-			setEntityAnimation(self, STAND);
-
-			other->flags |= HELPLESS|FLY;
-
-			other->touch = &entityTouch;
-
-			other->damage = 0;
-
-			self->target = other;
-
-			self->action = &moveToEnd;
-
-			self->active = FALSE;
-
-			self->dirY = -self->speed;
-
-			self->dirX = 1;
-		}
-
-		else if (strcmpignorecase(other->name, "boss/golem_boss") == 0)
+		if (strcmpignorecase(other->name, "boss/golem_boss") == 0)
 		{
 			setEntityAnimation(self, STAND);
 
@@ -227,6 +213,27 @@ static void touch(Entity *other)
 			{
 				moveToStart();
 			}
+		}
+		
+		else if ((other->flags & PUSHABLE) && (other->flags & ON_GROUND))
+		{
+			setEntityAnimation(self, STAND);
+
+			other->flags |= HELPLESS|FLY;
+
+			other->touch = &entityTouch;
+
+			other->damage = 0;
+
+			self->target = other;
+
+			self->action = &moveToEnd;
+
+			self->active = FALSE;
+
+			self->dirY = -self->speed;
+
+			self->dirX = 1;
 		}
 	}
 }
@@ -284,7 +291,9 @@ static void addChain(Entity *parent)
 
 	chainHeight = e->h;
 
-	chainCount = (SCREEN_HEIGHT / chainHeight) + 1;
+	chainCount = (int)parent->weight;
+	
+	printf("Count is %d\n", chainCount);
 
 	e->inUse = FALSE;
 
@@ -333,4 +342,11 @@ static void chainWait()
 
 	self->y = self->head->y;
 	self->y -= self->h;
+}
+
+static void init()
+{
+	addChain(self);
+	
+	self->action = &wait;
 }

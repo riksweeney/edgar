@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "item.h"
 #include "../hud.h"
 #include "../inventory.h"
+#include "../custom_actions.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
 #include "../collisions.h"
@@ -36,6 +37,8 @@ extern Entity *self, entity[MAX_ENTITIES];
 static void touch(Entity *);
 static void spring(void);
 static void wait(void);
+static void fallout(void);
+static void respawn(void);
 
 Entity *addSpring(int x, int y, char *name)
 {
@@ -59,6 +62,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->action = &wait;
 	e->touch = &touch;
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -75,7 +79,7 @@ static void wait()
 	{
 		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -86,19 +90,19 @@ static void touch(Entity *other)
 	if (other->standingOn == self)
 	{
 		self->frameSpeed = 1;
-		
+
 		setEntityAnimation(self, WALK);
-		
+
 		self->thinkTime = 30;
-		
+
 		other->y = self->y - other->h;
-		
+
 		other->dirY = -20;
-		
+
 		self->thinkTime = 30;
-		
+
 		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
-		
+
 		self->action = &spring;
 	}
 }
@@ -109,15 +113,39 @@ static void spring()
 	{
 		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		self->action = &wait;
 	}
-	
+
 	checkToMap(self);
+}
+
+static void fallout()
+{
+	self->thinkTime = 300;
+
+	self->action = &respawn;
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		setCustomAction(self, &invulnerable, 180, 0);
+
+		self->action = &wait;
+	}
 }
