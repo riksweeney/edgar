@@ -26,3 +26,7 @@ item/gazer_eye_slot
 item/gazer_eye
 falling_platform/castle_falling_platform
 item/spring
+enemy/centurion
+item/number_block
+item/arrow_target
+enemy/armadillo

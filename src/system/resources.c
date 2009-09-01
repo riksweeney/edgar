@@ -63,6 +63,7 @@ extern Entity player;
 #include "../world/conveyor_belt.h"
 #include "../status_panel.h"
 #include "../world/teleporter.h"
+#include "../world/vanishing_platform.h"
 #include "pak.h"
 
 static char **key, **value;
@@ -200,7 +201,7 @@ char *loadResources(char *buffer)
 	int i, startX, startY, type, name, resourceType;
 	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2, *savePtr;
 	Entity *e;
-	
+
 	savePtr = NULL;
 
 	resourceType = ENTITY_DATA;
@@ -438,6 +439,11 @@ char *loadResources(char *buffer)
 				e = addFallingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
 			}
 
+			else if (strcmpignorecase(value[type], "VANISHING_PLATFORM") == 0)
+			{
+				e = addVanishingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
+			}
+
 			else
 			{
 				printf("Unknown Entity type %s\n", value[type]);
@@ -530,7 +536,7 @@ void patchEntities(double versionFile, char *mapName)
 	unsigned char *buffer;
 	Entity *e;
 	Target *t;
-	
+
 	savePtr = NULL;
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);

@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../game.h"
 #include "../inventory.h"
+#include "../custom_actions.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
 
@@ -32,6 +33,8 @@ extern Entity *self, player;
 extern Game game;
 
 static void useHealthPotion(int);
+static void useSlimePotion(int);
+static void useInvisibilityPotion(int);
 
 Entity *addHealthPotion(int x, int y, char *name)
 {
@@ -82,4 +85,85 @@ static void useHealthPotion(int val)
 			self->inUse = FALSE;
 		}
 	}
+}
+
+Entity *addSlimePotion(int x, int y, char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add a Slime Potion\n");
+
+		exit(1);
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->thinkTime = 0;
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &doNothing;
+	e->touch = &keyItemTouch;
+	e->draw = &drawLoopingAnimationToMap;
+	e->activate = &useSlimePotion;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
+static void useSlimePotion(int val)
+{
+	becomeJumpingSlime(self->health);
+	
+	if (player.element == WATER)
+	{
+		loadProperties("item/empty_potion", self);
+		
+		self->activate = NULL;
+		
+		self->health = 0;
+	}
+}
+
+Entity *addInvisibilityPotion(int x, int y, char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add a Slime Potion\n");
+
+		exit(1);
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->thinkTime = 0;
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &doNothing;
+	e->touch = &keyItemTouch;
+	e->draw = &drawLoopingAnimationToMap;
+	e->activate = &useInvisibilityPotion;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
+static void useInvisibilityPotion(int val)
+{
+	setCustomAction(&player, &invisible, 60 * 10, 0);
 }

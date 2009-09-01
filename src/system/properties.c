@@ -59,7 +59,8 @@ static Type entityType[] = {
 					{FALLING_PLATFORM, "FALLING_PLATFORM"},
 					{TRAP_DOOR, "TRAP_DOOR"},
 					{CONVEYOR_BELT, "CONVEYOR_BELT"},
-					{TELEPORTER, "TELEPORTER"}
+					{TELEPORTER, "TELEPORTER"},
+					{VANISHING_PLATFORM, "VANISHING_PLATFORM"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 
@@ -83,7 +84,7 @@ void loadProperties(char *name, Entity *e)
 	int i, j, index, animationIndex, graphicsIndex, sprites[256];
 	char path[MAX_PATH_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
-	
+
 	savePtr1 = NULL;
 
 	snprintf(path, sizeof(path), "data/props/%s.props", name);

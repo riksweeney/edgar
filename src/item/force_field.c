@@ -97,6 +97,8 @@ static void fadeOut()
 		self->touch = NULL;
 		
 		self->action = &wait;
+		
+		self->active = FALSE;
 	}
 }
 
@@ -111,6 +113,8 @@ static void fadeIn()
 		self->touch = &pushEntity;
 		
 		self->action = &wait;
+		
+		self->active = TRUE;
 	}
 }
 

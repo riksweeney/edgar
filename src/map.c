@@ -655,9 +655,9 @@ void centerEntityOnMap()
 	{
 		speed = map.targetEntity->standingOn->speed;
 
-		if (speed < fabs(map.targetEntity->standingOn->dirX))
+		if (speed < fabs(map.targetEntity->dirX))
 		{
-			speed = fabs(map.targetEntity->standingOn->dirX);
+			speed = fabs(map.targetEntity->dirX);
 		}
 
 		if (speed < fabs(map.targetEntity->standingOn->dirY))

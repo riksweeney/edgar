@@ -77,7 +77,7 @@ Entity *getFreeEntity()
 			entity[i].currentAnim = -1;
 
 			entity[i].layer = MID_GROUND_LAYER;
-			
+
 			entity[i].alpha = 255;
 
 			if (i > MAX_ENTITIES - 20)
@@ -175,7 +175,7 @@ void doEntities()
 				{
 					self->action();
 				}
-				
+
 				else
 				{
 					checkToMap(self);
@@ -412,7 +412,7 @@ void standardDie()
 		fireTrigger(self->objectiveName);
 
 		fireGlobalTrigger(self->objectiveName);
-		
+
 		self->inUse = FALSE;
 
 		dropRandomItem(self->x + self->w / 2, self->y);
@@ -459,7 +459,7 @@ void noItemDie()
 		fireTrigger(self->objectiveName);
 
 		fireGlobalTrigger(self->objectiveName);
-		
+
 		self->inUse = FALSE;
 	}
 
@@ -605,6 +605,7 @@ void pushEntity(Entity *other)
 	int pushable, collided;
 	int x1, x2, y1, y2;
 	Entity *temp;
+	float dirX;
 	static int depth = 0;
 	long wasOnGround;
 
@@ -613,7 +614,7 @@ void pushEntity(Entity *other)
 		return;
 	}
 
-	if (other->touch == NULL)
+	if (other->touch == NULL || other->type == WEAPON)
 	{
 		return;
 	}
@@ -664,7 +665,7 @@ void pushEntity(Entity *other)
 	{
 		pushable = 0;
 	}
-	
+
 	collided = FALSE;
 
 	/* Test the vertical movement */
@@ -675,6 +676,28 @@ void pushEntity(Entity *other)
 
 		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
+			if (self->dirY < 0)
+			{
+				other->y -= self->dirY;
+
+				other->dirY = self->dirY;
+
+				dirX = other->dirX;
+
+				other->dirX = 0;
+
+				checkToMap(other);
+
+				if (other->dirY == 0)
+				{
+					self->y = other->y + other->h;
+
+					self->dirY = 0;
+				}
+
+				other->dirX = dirX;
+			}
+
 			/* Place the entity as close as possible */
 
 			other->y = self->y + self->box.y;
@@ -683,7 +706,7 @@ void pushEntity(Entity *other)
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
-			
+
 			collided = TRUE;
 		}
 	}
@@ -700,7 +723,7 @@ void pushEntity(Entity *other)
 			other->y += self->h;
 
 			other->dirY = 0;
-			
+
 			collided = TRUE;
 		}
 	}
@@ -751,16 +774,18 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				if (other->x < self->x)
+				if (getLeftEdge(other) < getLeftEdge(self))
 				{
-					other->x = self->x + self->box.x;
-					other->x -= other->w;
+					other->x = getLeftEdge(self);
+
+					other->x -= other->box.w;
 				}
 
 				else
 				{
-					other->x = self->x + self->box.x;
-					other->x += self->w;
+					other->x = getLeftEdge(self);
+
+					other->x += self->box.w;
 				}
 
 				other->dirX = 0;
@@ -778,7 +803,7 @@ void pushEntity(Entity *other)
 
 				self->flags |= GRABBED;
 			}
-			
+
 			collided = TRUE;
 		}
 	}
@@ -827,16 +852,16 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				if (other->x > self->x)
+				if (getRightEdge(other) > getRightEdge(self))
 				{
-					other->x = self->x + self->box.x;
-					other->x += self->box.w;
+					other->x = getRightEdge(self);
+
+					other->x -= self->box.x;
 				}
 
 				else
 				{
-					other->x = self->x + self->box.x;
-					other->x -= other->box.w;
+					other->x = getRightEdge(self);
 				}
 
 				other->dirX = 0;
@@ -854,7 +879,7 @@ void pushEntity(Entity *other)
 
 				self->flags |= GRABBED;
 			}
-			
+
 			collided = TRUE;
 		}
 	}
@@ -1415,7 +1440,7 @@ void doTeleport()
 
 		self->standingOn = NULL;
 
-		playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : 1), self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : -1), self->x, self->y, 0);
 	}
 
 	else
@@ -1454,4 +1479,9 @@ void doTeleport()
 int getLeftEdge(Entity *e)
 {
 	return e->face == RIGHT ? e->x + e->box.x : e->x + e->w - e->box.w - e->box.x;
+}
+
+int getRightEdge(Entity *e)
+{
+	return e->face == RIGHT ? e->x + e->box.x + e->box.w : e->x + e->w - e->box.x;
 }

@@ -1124,7 +1124,7 @@ int isAtEdge(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL)))
+		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE)))
 		{
 			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 5, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
@@ -1139,7 +1139,7 @@ int isAtEdge(Entity *e)
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
-	
+
 	if (e->x < getMinMapX() || e->x + e->w > getMaxMapX() || e->h < 0 || e->y + e->h > getMaxMapY())
 	{
 		return FALSE;

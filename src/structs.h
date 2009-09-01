@@ -240,6 +240,7 @@ typedef struct Hud
 
 typedef struct Control
 {
+	int deadZone;
 	int button[MAX_CONTROLS];
 } Control;
 

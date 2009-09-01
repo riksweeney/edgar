@@ -480,6 +480,13 @@ void readNextScriptLine()
 		{
 			getInventoryItemFromScript(script.text[script.line]);
 		}
+		
+		else if (strcmpignorecase("USE_ITEM", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			useInventoryItemFromScript(token);
+		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)
 		{
