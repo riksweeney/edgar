@@ -145,7 +145,7 @@ void cleanup()
 	flushBuffer(game.gameType);
 
 	/* Save the settings */
-	
+
 	if (game.status != IN_EDITOR)
 	{
 		saveConfig();

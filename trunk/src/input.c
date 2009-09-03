@@ -647,7 +647,7 @@ int getSingleInput()
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
 			break;
-			
+
 			case SDL_JOYAXISMOTION:
 				return -1;
 			break;

@@ -276,7 +276,7 @@ int initAudio()
 	{
 		game.audio = TRUE;
 
-		Mix_AllocateChannels(16);
+		Mix_AllocateChannels(MAX_CHANNELS);
 
 		Mix_ReserveChannels(2);
 
@@ -288,7 +288,7 @@ int initAudio()
 
 void stopSound(int channel)
 {
-	if (channel == -1 || game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (channel < 0 || game.audio == FALSE || game.sfxDefaultVolume == 0 || channel > MAX_CHANNELS)
 	{
 		return;
 	}

@@ -62,13 +62,17 @@ Entity *addBubble(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
-	float dirY;
+	if (other->y < self->y)
+	{
+		pushEntity(other);
 
-	dirY = other->dirY;
+		if (self->dirY == 0 && self->dirX == 0)
+		{
+			self->die();
+		}
+	}
 
-	pushEntity(other);
-
-	if (self->dirY == 0 && self->dirX == 0)
+	else
 	{
 		self->die();
 	}

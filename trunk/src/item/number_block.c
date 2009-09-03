@@ -96,9 +96,7 @@ static void touch(Entity *other)
 			{
 				e->health = 1;
 
-				playSoundToMap("sound/item/number_block.ogg", -1, self->x, self->y, 0);
-
-				/*setEntityAnimation(e, e->health);*/
+				setEntityAnimation(e, e->health);
 			}
 
 			else
@@ -111,9 +109,11 @@ static void touch(Entity *other)
 				}
 			}
 
+			playSoundToMap("sound/item/number_block.ogg", -1, self->x, self->y, 0);
+
 			self->health = 2;
 
-			setEntityAnimation(self, self->health);
+			/*setEntityAnimation(self, self->health);*/
 		}
 
 		else if (self->health == 0)
