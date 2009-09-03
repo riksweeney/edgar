@@ -49,6 +49,7 @@ extern Entity player;
 #include "../event/trigger.h"
 #include "../event/script.h"
 #include "../event/global_trigger.h"
+#include "../event/map_trigger.h"
 #include "../event/objective.h"
 #include "../world/save_point.h"
 #include "../inventory.h"
@@ -422,6 +423,11 @@ char *loadResources(char *buffer)
 			else if (strcmpignorecase(value[type], "GLOBAL_TRIGGER") == 0)
 			{
 				addGlobalTriggerFromResource(key, value);
+			}
+
+			else if (strcmpignorecase(value[type], "MAP_TRIGGER") == 0)
+			{
+				addMapTriggerFromResource(key, value);
 			}
 
 			else if (strcmpignorecase(value[type], "OBJECTIVE") == 0)

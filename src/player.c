@@ -112,7 +112,7 @@ Entity *loadPlayer(int x, int y, char *name)
 	}
 
 	clearCustomActions(&player);
-	
+
 	player.alpha = 255;
 
 	player.fallout = &fallout;
@@ -341,7 +341,7 @@ void doPlayer()
 					{
 						self->dirY = -self->speed;
 					}
-					
+
 					else if (self->flags & FLY)
 					{
 						self->dirY = -self->speed;
@@ -360,7 +360,7 @@ void doPlayer()
 								self = &player;
 							}
 						}
-						
+
 						input.up = 0;
 					}
 				}
@@ -472,12 +472,12 @@ void doPlayer()
 					{
 						self->dirY = -self->speed;
 					}
-					
+
 					else if (self->flags & ON_GROUND)
 					{
 						self->dirY = -JUMP_HEIGHT;
 					}
-					
+
 					if (!(self->element == WATER && self->environment == WATER))
 					{
 						input.jump = 0;
@@ -520,7 +520,7 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-				
+
 				if (self->environment == AIR && i == WATER && self->dirY < 0)
 				{
 					self->dirY = -JUMP_HEIGHT;
@@ -707,10 +707,10 @@ void setPlayerShield(int val)
 	if (player.element == WATER)
 	{
 		setInventoryDialogMessage(_("Cannot equip items whilst transmogrified"));
-		
+
 		return;
 	}
-	
+
 	if (usingBow() == TRUE)
 	{
 		/* Unequip the bow */
@@ -733,10 +733,10 @@ void setPlayerWeapon(int val)
 	if (player.element == WATER)
 	{
 		setInventoryDialogMessage(_("Cannot equip items whilst transmogrified"));
-		
+
 		return;
 	}
-	
+
 	playerWeapon = *self;
 
 	alignAnimations(&playerWeapon);
@@ -767,7 +767,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 	{
 		return;
 	}
-	
+
 	if (playerWeapon.inUse == FALSE)
 	{
 		/* Don't auto set the bow if the shield is in use */
@@ -791,7 +791,7 @@ void autoSetPlayerShield(Entity *newWeapon)
 	{
 		return;
 	}
-	
+
 	if (playerShield.inUse == FALSE)
 	{
 		playerShield = *newWeapon;
@@ -1199,7 +1199,7 @@ void syncWeaponShieldToPlayer()
 static void playerDie()
 {
 	/* Change back to Edgar */
-	
+
 	if (player.element == WATER)
 	{
 		becomeEdgar();
@@ -1268,12 +1268,12 @@ void facePlayer()
 void setPlayerStunned(int thinkTime)
 {
 	/* Change back to Edgar */
-	
+
 	if (player.element == WATER)
 	{
 		becomeEdgar();
 	}
-	
+
 	player.flags &= ~BLOCKING;
 
 	setCustomAction(&player, &dizzy, thinkTime, 0);
@@ -1304,9 +1304,9 @@ void setPlayerSlimed(int thinkTime)
 
 		exit(1);
 	}
-	
+
 	/* Change back to Edgar */
-	
+
 	if (player.element == WATER)
 	{
 		becomeEdgar();
@@ -1476,51 +1476,51 @@ static int usingBow()
 void becomeJumpingSlime(int seconds)
 {
 	int health, originalX, originalY, maxHealth;
-	
+
 	originalX = player.x;
 	originalY = player.y;
-	
+
 	player.x = player.x + player.w / 2;
 	player.y = player.y + player.h / 2;
-	
+
 	health = player.health;
 	maxHealth = player.maxHealth;
-	
+
 	loadProperties("enemy/purple_jumping_slime", &player);
-	
+
 	player.x -= player.w / 2;
 	player.y -= player.h / 2;
-	
+
 	/* If there wasn't enough space to transform then don't do anything */
-	
+
 	if (isValidOnMap(&player) == FALSE)
 	{
 		loadProperties("edgar/edgar", &player);
-		
+
 		player.x = originalX;
 		player.y = originalY;
-		
+
 		setInfoBoxMessage(60,  _("Cannot transmogrify here..."));
 	}
-	
+
 	else
 	{
 		player.element = WATER;
-		
+
 		player.type = PLAYER;
-		
+
 		playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-	
+
 		addParticleExplosion(player.x + player.w / 2, player.y + player.h / 2);
-		
+
 		playerWeapon.inUse = FALSE;
 		playerShield.inUse = FALSE;
-		
+
 		player.fallout = &slimeFallout;
-	
+
 		setCustomAction(&player, &slimeTimeout, 60 * seconds, 0);
 	}
-	
+
 	player.health = health;
 	player.maxHealth = maxHealth;
 }
@@ -1528,28 +1528,28 @@ void becomeJumpingSlime(int seconds)
 void becomeEdgar()
 {
 	int bottom, midX;
-	
+
 	midX = player.x + player.w / 2;
-	
+
 	bottom = player.y + player.h;
-	
+
 	addParticleExplosion(player.x + player.w / 2, player.y + player.h / 2);
-	
+
 	loadProperties("edgar/edgar", &player);
-	
+
 	player.x = midX;
-	
+
 	player.x -= player.w / 2;
-	
+
 	player.element = NO_ELEMENT;
-	
+
 	player.environment = AIR;
-	
+
 	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-	
+
 	player.fallout = &fallout;
-	
+
 	clearCustomAction(&player, &slimeTimeout);
-	
+
 	player.y = bottom - player.h;
 }

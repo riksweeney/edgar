@@ -292,8 +292,6 @@ static void addChain(Entity *parent)
 	chainHeight = e->h;
 
 	chainCount = (int)parent->weight;
-	
-	printf("Count is %d\n", chainCount);
 
 	e->inUse = FALSE;
 

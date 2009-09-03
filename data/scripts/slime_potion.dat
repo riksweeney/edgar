@@ -1,10 +1,12 @@
-TALK Edgar There's a note here
+TALK Edgar Oh, what's this?
+WALK_TO EDGAR 34715 0 WAIT
+TALK Edgar There's a note here too
 TALK Note The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time
-TALK Note So far I can only transmogrify myself into one create but with a bit more time anything should be possible
-WAIT 60
+TALK Note So far I can only transmogrify myself into one creature but with a bit more time anything should be possible
 TALK Edgar There's a tiny bit left, it should be safe to drink
 TALK Edgar OK, here goes nothing...
 USE_ITEM Potion of Transmogrification
+ACTIVATE_OBJECTIVE POTION_LASER
 WAIT 150
 TALK Edgar Urgh!! This is horrible!
 TALK Edgar Borgan told me that Slimes can swim in water though, so maybe this will be useful...

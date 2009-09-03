@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "menu/main_menu.h"
 #include "menu/io_menu.h"
 #include "inventory.h"
+#include "event/map_trigger.h"
 
 extern Game game;
 
@@ -64,9 +65,9 @@ void initGame()
 	game.drawMenu = &drawMainMenu;
 
 	game.shakeThinkTime = 0;
-	
+
 	game.action = NULL;
-	
+
 	game.thinkTime = 0;
 }
 
@@ -147,7 +148,7 @@ void drawGame()
 	{
 		drawImage(game.alphaSurface, 0, 0, FALSE, 200);
 	}
-	
+
 	if (game.action == &doGameOver)
 	{
 		drawGameOver();
@@ -223,7 +224,7 @@ void setTransition(int type, void (*func)(void))
 void shakeScreen(int shakeStrength, int time)
 {
 	game.offsetX = game.offsetY = 0;
-	
+
 	game.shakeThinkTime = time;
 	game.shakeStrength = shakeStrength;
 }
@@ -449,6 +450,8 @@ void goToNextMap()
 		loadPersitanceData(game.nextMap);
 	}
 
+	fireMapTrigger(game.nextMap);
+
 	printf("Done\n");
 
 	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
@@ -663,7 +666,7 @@ void initGameOver()
 	}
 
 	game.transitionX = 0;
-	
+
 	game.action = &doGameOver;
 }
 

@@ -42,6 +42,7 @@ static void doSymbolMatch(void);
 static void die(void);
 static void bounce(void);
 static void appear(void);
+static int getRequired();
 
 Entity *addSymbolBlock(int x, int y, char *name)
 {
@@ -173,6 +174,8 @@ static void bounce()
 
 static void init()
 {
+	int required;
+
 	if (self->active == TRUE)
 	{
 		self->action = self->health < 0 ? &autoSymbolChange : &wait;
@@ -198,7 +201,23 @@ static void init()
 
 	if (self->weight != 2)
 	{
+		required = getRequired();
+
+		if (required == -1)
+		{
+			printf("Couldn't find master block for %s\n", self->objectiveName);
+
+			exit(0);
+		}
+
 		self->thinkTime = prand() % self->maxThinkTime;
+
+		/* Don't start on the required block otherwise the player won't adjust it */
+
+		while (self->startY != -1 && self->thinkTime == required)
+		{
+			self->thinkTime = prand() % self->maxThinkTime;
+		}
 
 		/* Only randomize the required block once since it's not reachable */
 
@@ -345,4 +364,22 @@ static void appear()
 	}
 
 	checkToMap(self);
+}
+
+static int getRequired()
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+		{
+			if (entity[i].startY == -1)
+			{
+				return entity[i].thinkTime;
+			}
+		}
+	}
+
+	return -1;
 }

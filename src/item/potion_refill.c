@@ -23,30 +23,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
-#include "key_items.h"
-#include "item.h"
 #include "../hud.h"
 #include "../inventory.h"
-#include "../custom_actions.h"
-#include "../event/trigger.h"
-#include "../event/global_trigger.h"
 #include "../collisions.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
-static void touch(Entity *);
-static void spring(void);
+static void activate(int);
 static void wait(void);
-static void fallout(void);
-static void respawn(void);
+static void touch(Entity *);
 
-Entity *addSpring(int x, int y, char *name)
+Entity *addPotionRefill(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Spring\n");
+		printf("No free slots to add a Potion Refill\n");
 
 		exit(1);
 	}
@@ -61,8 +54,8 @@ Entity *addSpring(int x, int y, char *name)
 	e->face = RIGHT;
 
 	e->action = &wait;
+	e->activate = &activate;
 	e->touch = &touch;
-	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -75,77 +68,32 @@ Entity *addSpring(int x, int y, char *name)
 
 static void wait()
 {
-	if (!(self->flags & GRABBED))
-	{
-		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
-	}
-
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
-
-	if (other->standingOn == self)
+	if (other->type == PLAYER)
 	{
-		self->frameSpeed = 1;
-
-		setEntityAnimation(self, WALK);
-
-		self->thinkTime = 30;
-
-		other->y = self->y - other->h;
-
-		other->dirY = -22;
-
-		self->thinkTime = 30;
-
-		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
-
-		self->action = &spring;
+		setInfoBoxMessage(0,  _("Press Action to interact"));
 	}
 }
 
-static void spring()
+static void activate(int val)
 {
-	if (!(self->flags & GRABBED))
+	Entity *e;
+
+	e = getInventoryItem(self->requires);
+
+	if (e != NULL)
 	{
-		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+		loadProperties(self->objectiveName, e);
+
+		setInfoBoxMessage(60,  _("Obtained %s"), e->objectiveName);
 	}
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	else
 	{
-		setEntityAnimation(self, STAND);
-
-		self->action = &wait;
-	}
-
-	checkToMap(self);
-}
-
-static void fallout()
-{
-	self->thinkTime = 300;
-
-	self->action = &respawn;
-}
-
-static void respawn()
-{
-	self->thinkTime--;
-
-	checkToMap(self);
-
-	if (self->thinkTime <= 0)
-	{
-		self->x = self->startX;
-		self->y = self->startY;
-
-		setCustomAction(self, &invulnerable, 180, 0);
-
-		self->action = &wait;
+		setInfoBoxMessage(60,  _("%s is required"), self->requires);
 	}
 }

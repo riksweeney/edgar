@@ -118,7 +118,7 @@ void doEntities()
 
 			if (!(self->flags & TELEPORTING))
 			{
-				if (!(self->flags & FLY))
+				if (!(self->flags & (FLY|GRABBED)))
 				{
 					switch (self->environment)
 					{
@@ -156,6 +156,11 @@ void doEntities()
 							}
 						break;
 					}
+				}
+				
+				if (self->flags & GRABBED)
+				{
+					self->dirY = 0;
 				}
 
 				if (self->standingOn != NULL)

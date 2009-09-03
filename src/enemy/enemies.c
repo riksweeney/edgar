@@ -101,6 +101,7 @@ static Constructor enemies[] = {
 {"boss/flying_maggot_2", &addFlyingMaggot},
 {"enemy/scorpion", &addScorpion},
 {"enemy/laser_grid", &addLaserGrid},
+{"enemy/horizontal_laser_grid", &addLaserGrid},
 {"enemy/ceiling_snapper", &addCeilingSnapper},
 {"enemy/gazer", &addGazer},
 {"enemy/sludge", &addSludge},

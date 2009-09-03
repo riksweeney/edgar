@@ -188,6 +188,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define SIGN(x) ((x) > 0 ? 1 : ((x) == 0 ? 0 : (-1)))
 
+#define MAX_CHANNELS 16
+
 enum
 {
 	LEFT,
