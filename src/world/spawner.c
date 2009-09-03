@@ -108,9 +108,7 @@ static void spawn()
 
 						if (e->flags & FLY)
 						{
-							e->dirX = (self->face == LEFT ? -e->speed : e->speed);
-
-							e->face = self->face;
+							e->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 							e->y += (self->h - e->h) / 2;
 						}

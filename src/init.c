@@ -146,10 +146,7 @@ void cleanup()
 
 	/* Save the settings */
 
-	if (game.status != IN_EDITOR)
-	{
-		saveConfig();
-	}
+	saveConfig();
 
 	/* Free the Resources */
 

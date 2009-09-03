@@ -44,7 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TRANS_G 0
 #define TRANS_B 127
 
-#define MAX_ANIMATIONS 1024
+#define MAX_ANIMATIONS 255
 
 #define MAX_ENTITIES 1024
 
@@ -188,8 +188,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define SIGN(x) ((x) > 0 ? 1 : ((x) == 0 ? 0 : (-1)))
 
-#define MAX_CHANNELS 16
-
 enum
 {
 	LEFT,
@@ -264,8 +262,7 @@ enum
 	FALLING_PLATFORM,
 	TRAP_DOOR,
 	CONVEYOR_BELT,
-	TELEPORTER,
-	VANISHING_PLATFORM
+	TELEPORTER
 };
 
 enum

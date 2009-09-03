@@ -50,9 +50,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ceiling_snapper.h"
 #include "gazer.h"
 #include "sludge.h"
-#include "summoner.h"
-#include "centurion.h"
-#include "armadillo.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -101,14 +98,11 @@ static Constructor enemies[] = {
 {"boss/flying_maggot_2", &addFlyingMaggot},
 {"enemy/scorpion", &addScorpion},
 {"enemy/laser_grid", &addLaserGrid},
-{"enemy/horizontal_laser_grid", &addLaserGrid},
 {"enemy/ceiling_snapper", &addCeilingSnapper},
 {"enemy/gazer", &addGazer},
 {"enemy/sludge", &addSludge},
 {"boss/golem_rock_dropper", &addGolemRockDropper},
-{"enemy/summoner", &addSummoner},
-{"enemy/centurion", &addCenturion},
-{"enemy/armadillo", &addArmadillo}
+{"enemy/tutorial_spitting_plant", &addSpittingPlant}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -42,5 +42,3 @@ void setPlayerSlimed(int);
 void setBowAmmo(int);
 void setPlayerStunned(int);
 void doStunned(void);
-void becomeJumpingSlime(int);
-void becomeEdgar(void);

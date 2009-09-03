@@ -36,7 +36,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio/audio.h"
 #include "graphics/gib.h"
 #include "projectile.h"
-#include "graphics/decoration.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -47,7 +46,6 @@ static void takeDamage(Entity *, int);
 static void attackFinish(void);
 static void resetPlayer(void);
 static void fallout(void);
-static void slimeFallout(void);
 static void falloutPause(void);
 static void resetPause(void);
 static void resetPlayer(void);
@@ -112,8 +110,6 @@ Entity *loadPlayer(int x, int y, char *name)
 	}
 
 	clearCustomActions(&player);
-
-	player.alpha = 255;
 
 	player.fallout = &fallout;
 
@@ -337,14 +333,9 @@ void doPlayer()
 
 				if (input.up == 1)
 				{
-					if (self->element == WATER && self->environment == WATER)
+					if (self->flags & FLY)
 					{
-						self->dirY = -self->speed;
-					}
-
-					else if (self->flags & FLY)
-					{
-						self->dirY = -self->speed;
+						self->dirY = -1;
 					}
 
 					else
@@ -359,17 +350,17 @@ void doPlayer()
 
 								self = &player;
 							}
-						}
 
-						input.up = 0;
+							input.up = 0;
+						}
 					}
 				}
 
 				if (input.down == 1)
 				{
-					if (self->environment == WATER || (self->flags & FLY))
+					if (self->flags & FLY)
 					{
-						self->dirY = self->speed;
+						self->dirY = 1;
 					}
 
 					else
@@ -468,20 +459,12 @@ void doPlayer()
 
 				if (input.jump == 1 && !(self->flags & BLOCKING))
 				{
-					if (self->element == WATER && self->environment == WATER)
-					{
-						self->dirY = -self->speed;
-					}
-
-					else if (self->flags & ON_GROUND)
+					if (self->flags & ON_GROUND)
 					{
 						self->dirY = -JUMP_HEIGHT;
 					}
 
-					if (!(self->element == WATER && self->environment == WATER))
-					{
-						input.jump = 0;
-					}
+					input.jump = 0;
 				}
 				#if DEV == 1
 					if (input.fly == 1)
@@ -506,7 +489,7 @@ void doPlayer()
 
 				if (self->standingOn != NULL)
 				{
-					self->dirX = self->standingOn->dirX;
+					self->dirX += self->standingOn->dirX;
 
 					if (self->standingOn->dirY > 0)
 					{
@@ -520,11 +503,6 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-
-				if (self->environment == AIR && i == WATER && self->dirY < 0)
-				{
-					self->dirY = -JUMP_HEIGHT;
-				}
 			}
 
 			self->standingOn = NULL;
@@ -532,8 +510,7 @@ void doPlayer()
 			i = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 			j = mapTileAt((self->x + self->w - 1) / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 
-			if ((self->flags & ON_GROUND) && i > BLANK_TILE && i < BACKGROUND_TILE_START && j > BLANK_TILE
-				&& j < BACKGROUND_TILE_START && self->environment != WATER)
+			if ((self->flags & ON_GROUND) && i > BLANK_TILE && i < BACKGROUND_TILE_START && j > BLANK_TILE && j < BACKGROUND_TILE_START)
 			{
 				setCheckpoint(self->x, self->y);
 			}
@@ -696,21 +673,14 @@ void drawPlayer()
 	}
 	self = &player;
 
-	if (self->health <= 0 && self->thinkTime == 0)
+	if (self->health <= 0 && self->thinkTime <= 0)
 	{
-		initGameOver();
+		drawGameOver();
 	}
 }
 
 void setPlayerShield(int val)
 {
-	if (player.element == WATER)
-	{
-		setInventoryDialogMessage(_("Cannot equip items whilst transmogrified"));
-
-		return;
-	}
-
 	if (usingBow() == TRUE)
 	{
 		/* Unequip the bow */
@@ -730,13 +700,6 @@ void setPlayerShield(int val)
 
 void setPlayerWeapon(int val)
 {
-	if (player.element == WATER)
-	{
-		setInventoryDialogMessage(_("Cannot equip items whilst transmogrified"));
-
-		return;
-	}
-
 	playerWeapon = *self;
 
 	alignAnimations(&playerWeapon);
@@ -763,11 +726,6 @@ void setPlayerWeapon(int val)
 
 void autoSetPlayerWeapon(Entity *newWeapon)
 {
-	if (player.element == WATER)
-	{
-		return;
-	}
-
 	if (playerWeapon.inUse == FALSE)
 	{
 		/* Don't auto set the bow if the shield is in use */
@@ -787,11 +745,6 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 
 void autoSetPlayerShield(Entity *newWeapon)
 {
-	if (player.element == WATER)
-	{
-		return;
-	}
-
 	if (playerShield.inUse == FALSE)
 	{
 		playerShield = *newWeapon;
@@ -1058,14 +1011,6 @@ void writePlayerToFile(FILE *fp)
 	}
 }
 
-static void slimeFallout()
-{
-	if (player.environment != WATER)
-	{
-		fallout();
-	}
-}
-
 static void fallout()
 {
 	if (!(player.flags & HELPLESS))
@@ -1198,13 +1143,6 @@ void syncWeaponShieldToPlayer()
 
 static void playerDie()
 {
-	/* Change back to Edgar */
-
-	if (player.element == WATER)
-	{
-		becomeEdgar();
-	}
-
 	setEntityAnimation(&player, DIE);
 	setEntityAnimation(&playerShield, DIE);
 	setEntityAnimation(&playerWeapon, DIE);
@@ -1267,13 +1205,6 @@ void facePlayer()
 
 void setPlayerStunned(int thinkTime)
 {
-	/* Change back to Edgar */
-
-	if (player.element == WATER)
-	{
-		becomeEdgar();
-	}
-
 	player.flags &= ~BLOCKING;
 
 	setCustomAction(&player, &dizzy, thinkTime, 0);
@@ -1303,13 +1234,6 @@ void setPlayerSlimed(int thinkTime)
 		printf("No free slots to add Slimed Player\n");
 
 		exit(1);
-	}
-
-	/* Change back to Edgar */
-
-	if (player.element == WATER)
-	{
-		becomeEdgar();
 	}
 
 	loadProperties("edgar/edgar_slimed", e);
@@ -1352,7 +1276,7 @@ static void applySlime()
 	self->x = player.x;
 	self->y = player.y;
 
-	if (self->thinkTime <= 0 || player.health <= 0)
+	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}
@@ -1471,85 +1395,4 @@ static int usingBow()
 	}
 
 	return FALSE;
-}
-
-void becomeJumpingSlime(int seconds)
-{
-	int health, originalX, originalY, maxHealth;
-
-	originalX = player.x;
-	originalY = player.y;
-
-	player.x = player.x + player.w / 2;
-	player.y = player.y + player.h / 2;
-
-	health = player.health;
-	maxHealth = player.maxHealth;
-
-	loadProperties("enemy/purple_jumping_slime", &player);
-
-	player.x -= player.w / 2;
-	player.y -= player.h / 2;
-
-	/* If there wasn't enough space to transform then don't do anything */
-
-	if (isValidOnMap(&player) == FALSE)
-	{
-		loadProperties("edgar/edgar", &player);
-
-		player.x = originalX;
-		player.y = originalY;
-
-		setInfoBoxMessage(60,  _("Cannot transmogrify here..."));
-	}
-
-	else
-	{
-		player.element = WATER;
-
-		player.type = PLAYER;
-
-		playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-
-		addParticleExplosion(player.x + player.w / 2, player.y + player.h / 2);
-
-		playerWeapon.inUse = FALSE;
-		playerShield.inUse = FALSE;
-
-		player.fallout = &slimeFallout;
-
-		setCustomAction(&player, &slimeTimeout, 60 * seconds, 0);
-	}
-
-	player.health = health;
-	player.maxHealth = maxHealth;
-}
-
-void becomeEdgar()
-{
-	int bottom, midX;
-
-	midX = player.x + player.w / 2;
-
-	bottom = player.y + player.h;
-
-	addParticleExplosion(player.x + player.w / 2, player.y + player.h / 2);
-
-	loadProperties("edgar/edgar", &player);
-
-	player.x = midX;
-
-	player.x -= player.w / 2;
-
-	player.element = NO_ELEMENT;
-
-	player.environment = AIR;
-
-	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-
-	player.fallout = &fallout;
-
-	clearCustomAction(&player, &slimeTimeout);
-
-	player.y = bottom - player.h;
 }

@@ -109,8 +109,6 @@ static int draw()
 				e->dirY = -5 - prand() % 15;
 				
 				e->dirY /= 10;
-				
-				e->alpha = 128;
 	
 				setEntityAnimation(e, prand() % 5);
 			}

@@ -48,7 +48,7 @@ void drawIOMenu()
 {
 	int i;
 
-	drawImage(menu.background, menu.x, menu.y, FALSE, 196);
+	drawImage(menu.background, menu.x, menu.y, FALSE);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
@@ -181,6 +181,8 @@ static void loadMenuLayout(int saving)
 	}
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+
+	SDL_SetAlpha(menu.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
 
 	free(buffer);
 

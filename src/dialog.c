@@ -178,7 +178,7 @@ void drawDialogBox()
 {
 	if (dialogSurface != NULL)
 	{
-		drawImage(dialogSurface, (SCREEN_WIDTH - dialogSurface->w) / 2, 50, FALSE, 255);
+		drawImage(dialogSurface, (SCREEN_WIDTH - dialogSurface->w) / 2, 50, FALSE);
 	}
 }
 

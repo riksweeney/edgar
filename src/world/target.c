@@ -83,8 +83,6 @@ void drawTargets()
 	int i;
 
 	self = &targetEntity;
-	
-	self->alpha = 255;
 
 	for (i=0;i<MAX_TARGETS;i++)
 	{

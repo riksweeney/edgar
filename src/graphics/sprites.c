@@ -106,6 +106,16 @@ static int loadSprite(char *name)
 		sprite[spriteID].box.h = h;
 	}
 
+	else if (read == 6)
+	{
+		sprite[spriteID].box.x = w == -1 ? 0 : x;
+		sprite[spriteID].box.y = w == -1 ? 0 : y;
+		sprite[spriteID].box.w = w == -1 ? sprite[spriteID].image->w : w;
+		sprite[spriteID].box.h = w == -1 ? sprite[spriteID].image->h : h;
+
+		SDL_SetAlpha(sprite[spriteID].image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+	}
+
 	else
 	{
 		sprite[spriteID].box.x = 0;

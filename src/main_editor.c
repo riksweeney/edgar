@@ -79,9 +79,6 @@ int main(int argc, char *argv[])
 	loadRequiredResources();
 
 	/* Load the background image */
-	
-	setMinMapX(0);
-	setMinMapY(0);
 
 	setMaxMapX(MAX_MAP_X * TILE_SIZE);
 	setMaxMapY(MAX_MAP_Y * TILE_SIZE);

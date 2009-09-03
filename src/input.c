@@ -345,8 +345,6 @@ void getInput(int gameType)
 			case SDL_JOYBUTTONDOWN:
 				key = event.jbutton.button;
 
-				key = -(key + 1000);
-
 				if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
@@ -425,8 +423,6 @@ void getInput(int gameType)
 			case SDL_JOYBUTTONUP:
 				key = event.jbutton.button;
 
-				key = -(key + 1000);
-
 				if (key == control.button[CONTROL_LEFT])
 				{
 					input.left = FALSE;
@@ -487,12 +483,12 @@ void getInput(int gameType)
 			case SDL_JOYAXISMOTION:
 				if (event.jaxis.axis == 0)
 				{
-					if (event.jaxis.value < -control.deadZone)
+					if (event.jaxis.value < -3200)
 					{
 						input.left = TRUE;
 					}
 
-					else if (event.jaxis.value > control.deadZone)
+					else if (event.jaxis.value > 3200)
 					{
 						input.right = TRUE;
 					}
@@ -506,12 +502,12 @@ void getInput(int gameType)
 
 				if (event.jaxis.axis == 1)
 				{
-					if (event.jaxis.value < -control.deadZone)
+					if (event.jaxis.value < -3200)
 					{
 						input.up = TRUE;
 					}
 
-					else if (event.jaxis.value > control.deadZone)
+					else if (event.jaxis.value > 3200)
 					{
 						input.down = TRUE;
 					}
@@ -618,8 +614,6 @@ void resetControls(int editor)
 		control.button[CONTROL_PAUSE] = SDLK_p;
 		control.button[CONTROL_BLOCK] = SDLK_LALT;
 	}
-
-	control.deadZone = 6000;
 }
 
 void flushInputs()
@@ -648,14 +642,8 @@ int getSingleInput()
 				key = event.key.keysym.sym;
 			break;
 
-			case SDL_JOYAXISMOTION:
-				return -1;
-			break;
-
 			case SDL_JOYBUTTONDOWN:
 				key = event.jbutton.button;
-
-				key = -(key + 1000);
 			break;
 		}
 	}
@@ -679,13 +667,12 @@ void writeControlsToFile(FILE *fp)
 	fprintf(fp, "ACTIVATE %d\n", control.button[CONTROL_ACTIVATE]);
 	fprintf(fp, "INTERACT %d\n", control.button[CONTROL_INTERACT]);
 	fprintf(fp, "PAUSE %d\n", control.button[CONTROL_PAUSE]);
-	fprintf(fp, "DEAD_ZONE %d\n", control.deadZone);
 }
 
 void readControlsFromFile(char *buffer)
 {
 	char *line, *token, *savePtr;
-
+	
 	savePtr = NULL;
 
 	line = strtok_r(buffer, "\n", &savePtr);
@@ -783,13 +770,6 @@ void readControlsFromFile(char *buffer)
 			token = strtok(NULL, "\0");
 
 			control.button[CONTROL_INVENTORY] = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "DEAD_ZONE") == 0)
-		{
-			token = strtok(NULL, "\0");
-
-			control.deadZone = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "GAME_SETTINGS") == 0)

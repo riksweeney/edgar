@@ -373,12 +373,7 @@ static void biteAttackWindUp()
 
 	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
-		self->targetX = player.x;
-
-		if (abs(self->x - self->targetX) > 320)
-		{
-			self->targetX = self->face == RIGHT ? self->x + 320 - self->w - 1 : self->x - 320;
-		}
+		self->targetX = self->face == RIGHT ? self->x + 320 - self->w - 1 : self->x - 320;
 
 		self->action = &biteAttack;
 

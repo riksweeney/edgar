@@ -260,20 +260,7 @@ int removeInventoryItem(char *name)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
-			if (inventory.item[i].flags & STACKABLE)
-			{
-				inventory.item[i].health--;
-				
-				if (inventory.item[i].health <= 0)
-				{
-					inventory.item[i].inUse = FALSE;
-				}
-			}
-			
-			else
-			{
-				inventory.item[i].inUse = FALSE;
-			}
+			inventory.item[i].inUse = FALSE;
 
 			found = TRUE;
 
@@ -512,28 +499,6 @@ void getInventoryItemFromScript(char *line)
 	}
 }
 
-void useInventoryItemFromScript(char *itemName)
-{
-	Entity *item, *temp;
-
-	item = getInventoryItem(itemName);
-	
-	if (item == NULL)
-	{
-		printf("Could not find Inventory Item %s\n", itemName);
-		
-		exit(1);
-	}
-	
-	temp = self;
-	
-	self = item;
-	
-	self->activate(0);
-	
-	self = temp;
-}
-
 void writeInventoryToFile(FILE *fp)
 {
 	int i;
@@ -585,11 +550,13 @@ void drawInventory()
 	{
 		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT, INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT);
 
+		SDL_SetAlpha(inventory.background, SDL_SRCALPHA|SDL_RLEACCEL, 196);
+
 		inventory.x = (SCREEN_WIDTH - inventory.background->w) / 2;
 		inventory.y = (SCREEN_HEIGHT - inventory.background->h) / 2;
 	}
 
-	drawImage(inventory.background, inventory.x, inventory.y, FALSE, 196);
+	drawImage(inventory.background, inventory.x, inventory.y, FALSE);
 
 	x = inventory.x;
 	y = inventory.y;
@@ -636,13 +603,13 @@ void drawInventory()
 
 			inventory.description = createDialogBox(NULL, description);
 
-			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
+			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
 		}
 	}
 
 	else
 	{
-		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
+		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE);
 	}
 
 	if (inventory.cursor == NULL)
@@ -656,7 +623,7 @@ void drawInventory()
 	x += inventory.x;
 	y += inventory.y;
 
-	drawImage(inventory.cursor, x, y, FALSE, 255);
+	drawImage(inventory.cursor, x, y, FALSE);
 }
 
 void setInventoryDialogMessage(char *fmt, ...)

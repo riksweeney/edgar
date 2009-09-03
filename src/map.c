@@ -434,6 +434,11 @@ static void loadMapTiles(char *dir)
 		}
 
 		mapImages[i] = loadImage(filename);
+
+		if (i >= WATER_TILE_START && i <= WATER_TILE_END)
+		{
+			SDL_SetAlpha(mapImages[i], SDL_SRCALPHA|SDL_RLEACCEL, 128);
+		}
 	}
 
 	snprintf(filename, sizeof(filename), "gfx/map/%s/background.png", dir);
@@ -612,26 +617,26 @@ void drawMap(int depth)
 				case 0:
 					if (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END)
 					{
-						drawImage(mapImages[tileID], x, y, FALSE, 255);
+						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
 
 				case 1:
 					if (tileID < BACKGROUND_TILE_START)
 					{
-						drawImage(mapImages[tileID], x, y, FALSE, 255);
+						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
 
 				case 2:
 					if (tileID >= FOREGROUND_TILE_START)
 					{
-						drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
+						drawImage(mapImages[tileID], x, y, FALSE);
 					}
 				break;
 
 				default:
-					drawImage(mapImages[tileID], x, y, FALSE, 255);
+					drawImage(mapImages[tileID], x, y, FALSE);
 				break;
 			}
 
@@ -655,9 +660,9 @@ void centerEntityOnMap()
 	{
 		speed = map.targetEntity->standingOn->speed;
 
-		if (speed < fabs(map.targetEntity->dirX))
+		if (speed < fabs(map.targetEntity->standingOn->dirX))
 		{
-			speed = fabs(map.targetEntity->dirX);
+			speed = fabs(map.targetEntity->standingOn->dirX);
 		}
 
 		if (speed < fabs(map.targetEntity->standingOn->dirY))
@@ -869,12 +874,12 @@ int mapTileAt(int x, int y)
 	return map.tile[y][x];
 }
 
-int getMaxMapX()
+int maxMapX()
 {
 	return map.maxX;
 }
 
-int getMaxMapY()
+int maxMapY()
 {
 	return map.maxY;
 }

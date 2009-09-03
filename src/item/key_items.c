@@ -34,14 +34,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "power_generator.h"
 #include "grabber.h"
 #include "../world/arrow_target.h"
-#include "symbol_block.h"
-#include "force_field.h"
-#include "gazer_eye_slot.h"
-#include "spring.h"
-#include "number_block.h"
-#include "bubble_machine.h"
-#include "bubble.h"
-#include "potion_refill.h"
 
 extern Entity *self, player;
 
@@ -56,19 +48,9 @@ static Constructor items[] = {
 {"item/bomb", &addBomb},
 {"item/bomb_pile", &addBombPile},
 {"item/health_potion", &addHealthPotion},
-{"item/slime_potion", &addSlimePotion},
-{"item/invisibility_potion", &addInvisibilityPotion},
 {"item/arrow_target", &addArrowTarget},
 {"item/power_generator", &addPowerGenerator},
-{"item/grabber", &addGrabber},
-{"item/symbol_block", &addSymbolBlock},
-{"item/force_field", &addForceField},
-{"item/gazer_eye_slot", &addGazerEyeSlot},
-{"item/spring", &addSpring},
-{"item/number_block", &addNumberBlock},
-{"item/bubble_machine", &addBubbleMachine},
-{"item/bubble", &addBubble},
-{"item/potion_refill", &addPotionRefill}
+{"item/grabber", &addGrabber}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

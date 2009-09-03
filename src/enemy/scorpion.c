@@ -149,8 +149,6 @@ static void attack()
 
 static void clawAttack()
 {
-	self->dirX = 0;
-	
 	setEntityAnimation(self, ATTACK_1);
 
 	self->flags |= ATTACKING;
@@ -158,8 +156,6 @@ static void clawAttack()
 	self->thinkTime = 60;
 
 	self->animationCallback = &attackFinished;
-	
-	checkToMap(self);
 }
 
 static void stingAttack()
@@ -174,8 +170,6 @@ static void stingAttack()
 static void attackFinished()
 {
 	self->thinkTime--;
-	
-	self->dirX = 0;
 	
 	self->action = &attackFinished;
 
@@ -197,6 +191,4 @@ static void attackFinished()
 			self->action = &lookForPlayer;
 		}
 	}
-	
-	checkToMap(self);
 }

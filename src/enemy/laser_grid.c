@@ -119,67 +119,33 @@ static void addLaser()
 {
 	int i;
 	Entity *e;
-	
-	if (strcmpignorecase(self->name, "enemy/horizontal_laser_grid") == 0)
+
+	for (i=self->startY;i<self->endY;i+=32)
 	{
-		for (i=self->startX;i<self->endX;i+=32)
+		e = getFreeEntity();
+
+		if (e == NULL)
 		{
-			e = getFreeEntity();
-	
-			if (e == NULL)
-			{
-				printf("No free slots to add a Laser\n");
-	
-				exit(1);
-			}
-	
-			loadProperties("enemy/horizontal_laser", e);
-	
-			e->x = i;
-			e->y = self->y;
-	
-			e->action = &laserWait;
-	
-			e->draw = &drawLoopingAnimationToMap;
-			e->touch = &entityTouch;
-	
-			e->head = self;
-	
-			e->currentFrame = prand() % 6;
-	
-			setEntityAnimation(e, STAND);
+			printf("No free slots to add a Laser\n");
+
+			exit(1);
 		}
-	}
-	
-	else
-	{
-		for (i=self->startY;i<self->endY;i+=32)
-		{
-			e = getFreeEntity();
-	
-			if (e == NULL)
-			{
-				printf("No free slots to add a Laser\n");
-	
-				exit(1);
-			}
-	
-			loadProperties("enemy/laser", e);
-	
-			e->x = self->x;
-			e->y = i;
-	
-			e->action = &laserWait;
-	
-			e->draw = &drawLoopingAnimationToMap;
-			e->touch = &entityTouch;
-	
-			e->head = self;
-	
-			e->currentFrame = prand() % 6;
-	
-			setEntityAnimation(e, STAND);
-		}
+
+		loadProperties("enemy/laser", e);
+
+		e->x = self->x;
+		e->y = i;
+
+		e->action = &laserWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		e->currentFrame = prand() % 6;
+
+		setEntityAnimation(e, STAND);
 	}
 
 	playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);

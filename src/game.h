@@ -33,7 +33,6 @@ void setNextLevelFromScript(char *);
 void writeGameSettingsToFile(FILE *);
 void readGameSettingsFromFile(char *);
 void resetGameSettings(void);
-void initGameOver(void);
 void doGameOver(void);
 void drawGameOver(void);
 void focusLost(void);

@@ -79,7 +79,7 @@ void drawWidget(Widget *w, Menu *m, int selected)
 	x += m->x;
 	y += m->y;
 
-	drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE, 255);
+	drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE);
 
 	if (w->label != NULL)
 	{

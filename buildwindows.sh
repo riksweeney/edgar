@@ -32,23 +32,23 @@ svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 
-for i in `find . -name *.wav | grep -v doc`;do
+for i in `find . -name *.wav`;do
 	rm $i
 done
 
-for i in `find . -name *.xcf | grep -v doc`;do
+for i in `find . -name *.xcf`;do
 	rm $i
 done
 
-for i in `find . -name *.gif | grep -v doc`;do
+for i in `find . -name *.gif`;do
 	rm $i
 done
 
-for i in `find . -name *.blend* | grep -v doc`;do
+for i in `find . -name *.blend*`;do
 	rm $i
 done
 
-for i in `find . -name *.jpg | grep -v doc`;do
+for i in `find . -name rock_2_4w.jpg`;do
 	rm $i
 done
 

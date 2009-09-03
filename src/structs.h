@@ -86,7 +86,7 @@ typedef struct Entity
 	int thinkTime, face, layer;
 	int currentFrame;
 	int type, animation[MAX_ANIMATION_TYPES];
-	int currentAnim, health, alpha;
+	int currentAnim, health;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
 	long flags;
@@ -240,7 +240,6 @@ typedef struct Hud
 
 typedef struct Control
 {
-	int deadZone;
 	int button[MAX_CONTROLS];
 } Control;
 
