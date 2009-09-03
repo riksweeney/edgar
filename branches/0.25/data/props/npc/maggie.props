@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/npc/maggie.dat
+ANIM_FILE data/anim/npc/maggie.dat
+TYPE NPC
+HEALTH 1

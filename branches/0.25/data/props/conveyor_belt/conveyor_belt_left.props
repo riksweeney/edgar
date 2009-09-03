@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/conveyor_belt_left.dat
+ANIM_FILE data/anim/common/conveyor_belt.dat
+TYPE CONVEYOR_BELT
+FLAGS FLY|OBSTACLE
+SPEED 1.5
