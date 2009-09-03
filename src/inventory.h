@@ -35,4 +35,3 @@ void drawInventory(void);
 void nextInventoryItem(int);
 void setInventoryDialogMessage(char *, ...);
 void clearInventoryDescription(void);
-void useInventoryItemFromScript(char *);

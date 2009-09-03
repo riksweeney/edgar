@@ -57,4 +57,3 @@ int countSiblings(Entity *);
 void doTeleport(void);
 void activateEntitiesValueWithObjectiveName(char *, int);
 int getLeftEdge(Entity *);
-int getRightEdge(Entity *);

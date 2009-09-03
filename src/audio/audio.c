@@ -84,7 +84,7 @@ static void preCacheSound(char *name)
 	{
 		printf("Ran out of space for sounds\n");
 
-		exit(1);
+		abort();
 	}
 
 	chunk = loadSound(name);
@@ -121,7 +121,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 		{
 			printf("Ran out of space for sounds\n");
 
-			exit(1);
+			abort();
 		}
 
 		chunk = loadSound(name);
@@ -188,13 +188,12 @@ void playSound(char *name)
 		{
 			printf("Ran out of space for sounds\n");
 
-			exit(1);
+			abort();
 		}
 
 		chunk = loadSound(name);
 
 		sound[soundIndex].effect = chunk;
-
 		STRNCPY(sound[soundIndex].name, name, sizeof(sound[soundIndex].name));
 
 		soundIndex++;
@@ -276,7 +275,7 @@ int initAudio()
 	{
 		game.audio = TRUE;
 
-		Mix_AllocateChannels(MAX_CHANNELS);
+		Mix_AllocateChannels(16);
 
 		Mix_ReserveChannels(2);
 
@@ -288,7 +287,7 @@ int initAudio()
 
 void stopSound(int channel)
 {
-	if (channel < 0 || game.audio == FALSE || game.sfxDefaultVolume == 0 || channel > MAX_CHANNELS)
+	if (channel == -1 || game.audio == FALSE || game.sfxDefaultVolume == 0)
 	{
 		return;
 	}

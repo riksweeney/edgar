@@ -55,8 +55,6 @@ void initCursor(char *name)
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.active = TRUE;
-	
-	cursor.entity.alpha = 255;
 
 	if (cursor.entity.weight == 0)
 	{
@@ -284,8 +282,6 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			
-			cursor.entity.alpha = 255;
 
 			if (cursor.entity.weight == 0)
 			{
@@ -323,8 +319,6 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			
-			cursor.entity.alpha = 255;
 
 			if (cursor.entity.weight == 0)
 			{
@@ -388,9 +382,8 @@ void drawCursor()
 
 	if (cursor.type == TILES)
 	{
-		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y, FALSE, 255);
-		
-		drawImage(tileImage(BLANK_TILE), cursor.x, cursor.y, FALSE, 255);
+		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y, FALSE);
+		drawImage(tileImage(BLANK_TILE), cursor.x, cursor.y, FALSE);
 	}
 
 	else

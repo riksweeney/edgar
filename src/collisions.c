@@ -903,8 +903,8 @@ void checkToMap(Entity *e)
 	e->x += e->dirX;
 	e->y += e->dirY;
 
-	x1 = getMinMapX();
-	y1 = getMinMapY();
+	x1 = e->type == PLAYER ? getMinMapX() : 0;
+	y1 = e->type == PLAYER ? getMinMapY() : 0;
 
 	if (e->x < x1)
 	{
@@ -924,9 +924,9 @@ void checkToMap(Entity *e)
 
 	}
 
-	else if (e->x + e->w >= getMaxMapX())
+	else if (e->x + e->w >= maxMapX())
 	{
-		e->x = getMaxMapX() - e->w - 1;
+		e->x = maxMapX() - e->w - 1;
 
 		e->dirX = 0;
 
@@ -941,7 +941,7 @@ void checkToMap(Entity *e)
 		}
 	}
 
-	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
+	if (e->y > maxMapY() && e->y - e->dirY <= maxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
 
@@ -1124,7 +1124,7 @@ int isAtEdge(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE)))
+		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL)))
 		{
 			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 5, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
@@ -1139,11 +1139,6 @@ int isAtEdge(Entity *e)
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
-
-	if (e->x < getMinMapX() || e->x + e->w > getMaxMapX() || e->h < 0 || e->y + e->h > getMaxMapY())
-	{
-		return FALSE;
-	}
 
 	i = e->w > TILE_SIZE ? TILE_SIZE : e->w;
 

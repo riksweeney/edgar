@@ -1,5 +1,5 @@
-gfx/decoration/blue_particle.png
-gfx/decoration/red_particle.png
-gfx/decoration/yellow_particle.png
-gfx/decoration/green_particle.png
-gfx/decoration/purple_particle.png
+gfx/decoration/blue_particle.png -1 -1 -1 -1 128
+gfx/decoration/red_particle.png -1 -1 -1 -1 128
+gfx/decoration/yellow_particle.png -1 -1 -1 -1 128
+gfx/decoration/green_particle.png -1 -1 -1 -1 128
+gfx/decoration/purple_particle.png -1 -1 -1 -1 128

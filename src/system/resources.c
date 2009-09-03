@@ -49,7 +49,6 @@ extern Entity player;
 #include "../event/trigger.h"
 #include "../event/script.h"
 #include "../event/global_trigger.h"
-#include "../event/map_trigger.h"
 #include "../event/objective.h"
 #include "../world/save_point.h"
 #include "../inventory.h"
@@ -64,7 +63,6 @@ extern Entity player;
 #include "../world/conveyor_belt.h"
 #include "../status_panel.h"
 #include "../world/teleporter.h"
-#include "../world/vanishing_platform.h"
 #include "pak.h"
 
 static char **key, **value;
@@ -202,7 +200,7 @@ char *loadResources(char *buffer)
 	int i, startX, startY, type, name, resourceType;
 	char *token, *line, itemName[MAX_VALUE_LENGTH], *savePtr2, *savePtr;
 	Entity *e;
-
+	
 	savePtr = NULL;
 
 	resourceType = ENTITY_DATA;
@@ -425,11 +423,6 @@ char *loadResources(char *buffer)
 				addGlobalTriggerFromResource(key, value);
 			}
 
-			else if (strcmpignorecase(value[type], "MAP_TRIGGER") == 0)
-			{
-				addMapTriggerFromResource(key, value);
-			}
-
 			else if (strcmpignorecase(value[type], "OBJECTIVE") == 0)
 			{
 				addObjectiveFromResource(key, value);
@@ -443,11 +436,6 @@ char *loadResources(char *buffer)
 			else if (strcmpignorecase(value[type], "FALLING_PLATFORM") == 0)
 			{
 				e = addFallingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "VANISHING_PLATFORM") == 0)
-			{
-				e = addVanishingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
 			}
 
 			else
@@ -542,7 +530,7 @@ void patchEntities(double versionFile, char *mapName)
 	unsigned char *buffer;
 	Entity *e;
 	Target *t;
-
+	
 	savePtr = NULL;
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);

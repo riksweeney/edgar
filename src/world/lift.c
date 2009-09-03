@@ -94,11 +94,6 @@ static void touch(Entity *other)
 		return;
 	}
 
-	else if (other->type == WEAPON)
-	{
-		return;
-	}
-
 	else if ((other->dirY > 0 || (other->flags & ON_GROUND)) && other->touch != NULL)
 	{
 		/* Trying to move down */

@@ -68,7 +68,7 @@ void drawLabel(Label *l, Menu *m)
 
 	if (l != NULL)
 	{
-		drawImage(l->text, x, y, FALSE, 255);
+		drawImage(l->text, x, y, FALSE);
 	}
 }
 

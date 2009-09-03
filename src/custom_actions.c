@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/animation.h"
 #include "player.h"
 #include "map.h"
-#include "hud.h"
 #include "custom_actions.h"
 
 extern Entity *self;
@@ -78,23 +77,6 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 	exit(1);
 }
 
-void clearCustomAction(Entity *e, void (*func)(int *, int *))
-{
-	int i;
-	
-	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
-	{
-		/* Search for an already existing action */
-
-		if (e->customAction[i].thinkTime != 0 && e->customAction[i].action == func)
-		{
-			e->customAction[i].thinkTime = 0;
-
-			return;
-		}
-	}	
-}
-
 void clearCustomActions(Entity *e)
 {
 	int i;
@@ -118,11 +100,6 @@ void addCustomActionFromScript(Entity *e, char *line)
 	if (strcmpignorecase(actionName, "REGENERATE") == 0)
 	{
 		action = &regenerate;
-	}
-	
-	else if (strcmpignorecase(actionName, "BECOME_SLIME") == 0)
-	{
-		action = &slimeTimeout;
 	}
 	
 	if (action != NULL)
@@ -231,23 +208,4 @@ void dizzy(int *thinkTime, int *counter)
 void regenerate(int *thinkTime, int *counter)
 {
 	self->health = self->maxHealth;
-}
-
-void slimeTimeout(int *thinkTime, int *counter)
-{
-	(*thinkTime)--;
-	
-	setInfoBoxMessage(5,  _("%d"), *thinkTime / 60);
-
-	if (*thinkTime == 0)
-	{
-		becomeEdgar();
-	}
-}
-
-void invisible(int *thinkTime, int *counter)
-{
-	(*thinkTime)--;
-	
-	self->alpha = *thinkTime == 0 ? 255 : 64;
 }

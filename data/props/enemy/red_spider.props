@@ -3,5 +3,5 @@ ANIM_FILE data/anim/enemy/red_spider.dat
 TYPE ENEMY
 FLAGS FLY
 DAMAGE 1
-HEALTH 30
+HEALTH 3
 SPEED 2

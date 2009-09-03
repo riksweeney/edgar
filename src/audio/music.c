@@ -79,10 +79,10 @@ void freeMusic()
 
 void freeBossMusic()
 {
-	stopMusic();
-
 	if (game.bossMusic != NULL)
 	{
+		stopMusic();
+
 		Mix_FreeMusic(game.bossMusic);
 
 		game.bossMusic = NULL;
@@ -149,12 +149,12 @@ void playBossMusic()
 		return;
 	}
 
-	freeBossMusic();
-
 	if (game.bossMusic == NULL)
 	{
 		loadBossMusic("music/terrortech_inc_.xm");
 	}
+
+	stopMusic();
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 

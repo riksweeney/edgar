@@ -81,8 +81,6 @@ Entity *getFreeDecoration()
 			decoration[i].active = TRUE;
 
 			decoration[i].frameSpeed = 1;
-			
-			decoration[i].alpha = 255;
 
 			return &decoration[i];
 		}

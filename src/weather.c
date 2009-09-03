@@ -127,7 +127,7 @@ static void rain()
 {
 	int i, maxY, startX;
 
-	maxY = getMaxMapY();
+	maxY = maxMapY();
 
 	startX = getMapStartX();
 
@@ -207,7 +207,7 @@ static void snow()
 {
 	int i, startX, maxY;
 
-	maxY = getMaxMapY();
+	maxY = maxMapY();
 
 	startX = getMapStartX();
 

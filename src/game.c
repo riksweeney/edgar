@@ -34,7 +34,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "menu/main_menu.h"
 #include "menu/io_menu.h"
 #include "inventory.h"
-#include "event/map_trigger.h"
 
 extern Game game;
 
@@ -65,10 +64,6 @@ void initGame()
 	game.drawMenu = &drawMainMenu;
 
 	game.shakeThinkTime = 0;
-
-	game.action = NULL;
-
-	game.thinkTime = 0;
 }
 
 void doGame()
@@ -146,12 +141,7 @@ void drawGame()
 
 	if (game.alphaSurface != NULL)
 	{
-		drawImage(game.alphaSurface, 0, 0, FALSE, 200);
-	}
-
-	if (game.action == &doGameOver)
-	{
-		drawGameOver();
+		drawImage(game.alphaSurface, 0, 0, FALSE);
 	}
 
 	if (game.transition != NULL)
@@ -224,7 +214,7 @@ void setTransition(int type, void (*func)(void))
 void shakeScreen(int shakeStrength, int time)
 {
 	game.offsetX = game.offsetY = 0;
-
+	
 	game.shakeThinkTime = time;
 	game.shakeStrength = shakeStrength;
 }
@@ -450,8 +440,6 @@ void goToNextMap()
 		loadPersitanceData(game.nextMap);
 	}
 
-	fireMapTrigger(game.nextMap);
-
 	printf("Done\n");
 
 	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
@@ -585,7 +573,7 @@ void focusLost()
 
 void showPauseDialog()
 {
-	drawImage(game.pauseSurface, 0, 0, FALSE, 255);
+	drawImage(game.pauseSurface, 0, 0, FALSE);
 }
 
 void resetGameSettings()
@@ -658,7 +646,7 @@ void readGameSettingsFromFile(char *buffer)
 	}
 }
 
-void initGameOver()
+void doGameOver()
 {
 	if (game.gameOverSurface == NULL)
 	{
@@ -666,17 +654,12 @@ void initGameOver()
 	}
 
 	game.transitionX = 0;
-
-	game.action = &doGameOver;
-}
-
-void doGameOver()
-{
-	game.transitionX += 3;
 }
 
 void drawGameOver()
 {
+	game.transitionX += 3;
+
 	if (game.transitionX >= game.gameOverSurface->w)
 	{
 		game.transitionX = game.gameOverSurface->w;
@@ -729,6 +712,8 @@ void fadeFromWhite()
 	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
 
 	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, 255, 255, 255);
+
+	SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, 200);
 
 	game.action = &fadeToNormal;
 }
