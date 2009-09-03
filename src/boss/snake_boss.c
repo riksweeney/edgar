@@ -149,6 +149,8 @@ static void initialise()
 
 			self->thinkTime = 60;
 
+			self->face = LEFT;
+
 			self->action = &riseUp;
 
 			playBossMusic();
@@ -210,7 +212,7 @@ static void riseUp()
 {
 	Entity *e, *smoke;
 
-	facePlayer();
+	/*facePlayer();*/
 
 	self->thinkTime--;
 
@@ -348,7 +350,7 @@ static void createBody()
 
 static void biteAttackInit()
 {
-	facePlayer();
+	/*facePlayer();*/
 
 	setEntityAnimation(self, ATTACK_1);
 
@@ -371,12 +373,7 @@ static void biteAttackWindUp()
 
 	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
-		self->targetX = player.x;
-
-		if (abs(self->x - self->targetX) > 320)
-		{
-			self->targetX = self->face == RIGHT ? self->x + 320 - self->w - 1 : self->x - 320;
-		}
+		self->targetX = self->face == RIGHT ? self->x + 320 - self->w - 1 : self->x - 320;
 
 		self->action = &biteAttack;
 
@@ -422,7 +419,7 @@ static void biteAttack()
 
 static void shotAttackInit()
 {
-	facePlayer();
+	/*facePlayer();*/
 
 	setEntityAnimation(self, ATTACK_1);
 
@@ -533,6 +530,7 @@ static void changeSidesInit()
 
 static void changeSides()
 {
+	int side;
 	Entity *e, *smoke;
 	Target *t;
 
@@ -551,7 +549,21 @@ static void changeSides()
 
 		self->thinkTime = 120;
 
-		t = getTargetByName(prand() % 2 == 0 ? "SNAKE_BOSS_TARGET_RIGHT" : "SNAKE_BOSS_TARGET_LEFT");
+		side = prand() % 2;
+
+		if (side == 0)
+		{
+			t = getTargetByName("SNAKE_BOSS_TARGET_LEFT");
+
+			self->face = RIGHT;
+		}
+
+		else
+		{
+			t = getTargetByName("SNAKE_BOSS_TARGET_RIGHT");
+
+			self->face = LEFT;
+		}
 
 		if (t == NULL)
 		{
