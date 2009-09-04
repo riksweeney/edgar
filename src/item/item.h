@@ -25,3 +25,4 @@ void healthTouch(Entity *);
 void dropItem(Entity *);
 void throwItem(int);
 Entity *dropCollectableItem(char *, int, int, int);
+void itemFallout(void);

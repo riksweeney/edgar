@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "collisions.h"
 #include "map.h"
 #include "audio/audio.h"
+#include "entity.h"
 
 extern Entity entity[MAX_ENTITIES], *self;
 extern Entity player, playerShield, playerWeapon;
@@ -59,20 +60,20 @@ void addToGrid(Entity *e)
 		else
 		{
 			left = (e->x + e->offsetX) / TILE_SIZE / GRID_SIZE;
-			right = (e->x + e->offsetX + e->w - 1) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->offsetX + e->w) / TILE_SIZE / GRID_SIZE;
 		}
 
 		top = e->y / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + e->h - 1) / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->h) / TILE_SIZE / GRID_SIZE;
 	}
 
 	else
 	{
-		left = (e->x + e->box.x) / TILE_SIZE / GRID_SIZE;
-		right = (e->x + e->box.x + e->box.w - 1) / TILE_SIZE / GRID_SIZE;
+		left = getLeftEdge(e) / TILE_SIZE / GRID_SIZE;
+		right = getRightEdge(e) / TILE_SIZE / GRID_SIZE;
 
 		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
-		bottom = (e->y + e->box.y + e->box.h - 1) / TILE_SIZE / GRID_SIZE;
+		bottom = (e->y + e->box.y + e->box.h) / TILE_SIZE / GRID_SIZE;
 	}
 
 	addToList(top, left, e);
@@ -192,30 +193,14 @@ void doCollisions()
 								continue;
 							}
 
-							if (e1->face == RIGHT)
-							{
-								x1 = e1->x + e1->box.x;
-							}
-
-							else
-							{
-								x1 = e1->x + e1->w - e1->box.w - e1->box.x;
-							}
+							x1 = getLeftEdge(e1);
 
 							y1 = e1->y + e1->box.y;
 
 							w1 = e1->box.w;
 							h1 = e1->box.h;
 
-							if (e2->face == RIGHT)
-							{
-								x2 = e2->x + e2->box.x;
-							}
-
-							else
-							{
-								x2 = e2->x + e2->w - e2->box.w - e2->box.x;
-							}
+							x2 = getLeftEdge(e2);
 
 							y2 = e2->y + e2->box.y;
 
@@ -310,30 +295,14 @@ void checkEntityToEntity(Entity *e)
 								continue;
 							}
 
-							if (e1->face == RIGHT)
-							{
-								x1 = e1->x + e1->box.x;
-							}
-
-							else
-							{
-								x1 = e1->x + e1->w - e1->box.w - e1->box.x;
-							}
+							x1 = getLeftEdge(e1);
 
 							y1 = e1->y + e1->box.y;
 
 							w1 = e1->box.w;
 							h1 = e1->box.h;
 
-							if (e2->face == RIGHT)
-							{
-								x2 = e2->x + e2->box.x;
-							}
-
-							else
-							{
-								x2 = e2->x + e2->w - e2->box.w - e2->box.x;
-							}
+							x2 = getLeftEdge(e2);
 
 							y2 = e2->y + e2->box.y;
 
@@ -363,9 +332,9 @@ void checkEntityToEntity(Entity *e)
 							{
 								temp = self;
 
-								self = e1;
+								self = e2;
 
-								self->touch(e2);
+								self->touch(e1);
 
 								self = temp;
 							}

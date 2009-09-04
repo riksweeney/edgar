@@ -35,7 +35,6 @@ extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
 
 static void respawn(void);
-static void itemFallout(void);
 static void noTouch(Entity *);
 
 Entity *addPermanentItem(char *name, int x, int y)
@@ -301,7 +300,7 @@ void throwItem(int val)
 	e->thinkTime = 600;
 }
 
-static void itemFallout()
+void itemFallout()
 {
 	self->thinkTime = 300;
 

@@ -96,7 +96,7 @@ static void touch(Entity *other)
 			{
 				e->health = 1;
 
-				setEntityAnimation(e, e->health);
+				/*setEntityAnimation(e, e->health);*/
 			}
 
 			else
@@ -113,7 +113,7 @@ static void touch(Entity *other)
 
 			self->health = 2;
 
-			/*setEntityAnimation(self, self->health);*/
+			setEntityAnimation(self, self->health);
 		}
 
 		else if (self->health == 0)
