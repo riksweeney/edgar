@@ -106,21 +106,21 @@ static void dropRock()
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~(HELPLESS|FLY);
-		
+
 		if (self->target->type == ENEMY)
 		{
 			self->target->type = PROJECTILE;
-	
+
 			self->target->damage = 100;
-			
+
 			self->target->parent = self;
 		}
-		
+
 		else
 		{
 			self->target->touch = &pushEntity;
 		}
-			
+
 		self->target = NULL;
 	}
 
@@ -131,7 +131,7 @@ static void dropRock()
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, STAND);
-			
+
 			moveToStart();
 		}
 	}
@@ -140,6 +140,11 @@ static void dropRock()
 static void grabRock()
 {
 	self->dirY = self->speed;
+
+	if (self->standingOn != NULL)
+	{
+		touch(self->standingOn);
+	}
 
 	checkToMap(self);
 
@@ -153,6 +158,24 @@ static void grabRock()
 
 static void moveToTarget()
 {
+	/* Move vertically first */
+
+	if (self->y > self->targetY)
+	{
+		self->dirY = -self->speed;
+
+		self->dirX = 0;
+	}
+
+	/* Now move horizontally */
+
+	else
+	{
+		self->dirX = self->targetX < self->x ? -self->speed : self->speed;
+
+		self->dirY = 0;
+	}
+
 	checkToMap(self);
 
 	if (self->target != NULL)
@@ -174,9 +197,9 @@ static void moveToTarget()
 			if (self->x == self->endX && self->y == self->endY)
 			{
 				setEntityAnimation(self, STAND);
-				
+
 				self->health = 2;
-	
+
 				self->startX = self->endX;
 				self->startY = self->endY;
 			}
@@ -191,7 +214,7 @@ static void moveToTarget()
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (self->active == TRUE)
 	{
 		if (strcmpignorecase(other->name, "boss/golem_boss") == 0)
@@ -201,11 +224,11 @@ static void touch(Entity *other)
 			if (other->currentAnim == other->animation[CUSTOM_1] && self->health == 2)
 			{
 				temp = self;
-				
+
 				self = other;
-				
+
 				self->die();
-				
+
 				self = temp;
 			}
 
@@ -214,7 +237,7 @@ static void touch(Entity *other)
 				moveToStart();
 			}
 		}
-		
+
 		else if ((other->flags & PUSHABLE) && (other->flags & ON_GROUND))
 		{
 			setEntityAnimation(self, STAND);
@@ -224,6 +247,10 @@ static void touch(Entity *other)
 			other->touch = &entityTouch;
 
 			other->damage = 0;
+
+			other->y = self->y + self->h / 2;
+
+			other->x = self->x + (self->w - other->w) / 2;
 
 			self->target = other;
 
@@ -243,11 +270,6 @@ static void moveToStart()
 	self->targetX = self->startX;
 	self->targetY = self->startY;
 
-	calculatePath(self->x, self->y, self->startX, self->startY, &self->dirX, &self->dirY);
-
-	self->dirX *= self->speed;
-	self->dirY *= self->speed;
-
 	self->action = &moveToTarget;
 
 	self->active = FALSE;
@@ -257,11 +279,6 @@ static void moveToEnd()
 {
 	self->targetX = self->endX;
 	self->targetY = self->endY;
-
-	calculatePath(self->x, self->y, self->endX, self->endY, &self->dirX, &self->dirY);
-
-	self->dirX *= self->speed;
-	self->dirY *= self->speed;
 
 	self->action = &moveToTarget;
 
@@ -345,6 +362,6 @@ static void chainWait()
 static void init()
 {
 	addChain(self);
-	
+
 	self->action = &wait;
 }

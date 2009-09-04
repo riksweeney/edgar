@@ -37,8 +37,6 @@ extern Entity *self, entity[MAX_ENTITIES];
 static void touch(Entity *);
 static void spring(void);
 static void wait(void);
-static void fallout(void);
-static void respawn(void);
 
 Entity *addSpring(int x, int y, char *name)
 {
@@ -62,7 +60,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->action = &wait;
 	e->touch = &touch;
-	e->fallout = &fallout;
+	e->fallout = &itemFallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -124,28 +122,4 @@ static void spring()
 	}
 
 	checkToMap(self);
-}
-
-static void fallout()
-{
-	self->thinkTime = 300;
-
-	self->action = &respawn;
-}
-
-static void respawn()
-{
-	self->thinkTime--;
-
-	checkToMap(self);
-
-	if (self->thinkTime <= 0)
-	{
-		self->x = self->startX;
-		self->y = self->startY;
-
-		setCustomAction(self, &invulnerable, 180, 0);
-
-		self->action = &wait;
-	}
 }

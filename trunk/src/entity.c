@@ -157,7 +157,7 @@ void doEntities()
 						break;
 					}
 				}
-				
+
 				if (self->flags & GRABBED)
 				{
 					self->dirY = 0;
@@ -614,12 +614,12 @@ void pushEntity(Entity *other)
 	static int depth = 0;
 	long wasOnGround;
 
-	if (other->flags & OBSTACLE)
+	if (other->touch == NULL || other->type == WEAPON)
 	{
 		return;
 	}
-
-	if (other->touch == NULL || other->type == WEAPON)
+	
+	if (other->flags & OBSTACLE)
 	{
 		return;
 	}
@@ -640,27 +640,11 @@ void pushEntity(Entity *other)
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
-	if (self->face == RIGHT)
-	{
-		x1 = self->x + self->box.x;
-	}
-
-	else
-	{
-		x1 = self->x + self->w - self->box.w - self->box.x;
-	}
+	x1 = getLeftEdge(self);
 
 	y1 = self->y + self->box.y;
 
-	if (other->face == RIGHT)
-	{
-		x2 = other->x + other->box.x;
-	}
-
-	else
-	{
-		x2 = other->x + other->w - other->box.w - other->box.x;
-	}
+	x2 = getLeftEdge(other);
 
 	y2 = other->y + other->box.y;
 
@@ -779,19 +763,9 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				if (getLeftEdge(other) < getLeftEdge(self))
-				{
-					other->x = getLeftEdge(self);
+				other->x = getLeftEdge(self);
 
-					other->x -= other->box.w;
-				}
-
-				else
-				{
-					other->x = getLeftEdge(self);
-
-					other->x += self->box.w;
-				}
+				other->x -= other->box.w;
 
 				other->dirX = 0;
 
@@ -857,17 +831,7 @@ void pushEntity(Entity *other)
 			{
 				/* Place the entity as close as possible */
 
-				if (getRightEdge(other) > getRightEdge(self))
-				{
-					other->x = getRightEdge(self);
-
-					other->x -= self->box.x;
-				}
-
-				else
-				{
-					other->x = getRightEdge(self);
-				}
+				other->x = getRightEdge(self);
 
 				other->dirX = 0;
 
@@ -895,8 +859,7 @@ void pushEntity(Entity *other)
 		{
 			/* Place the entity as close as possible */
 
-			self->x = other->x + other->box.x;
-			self->x += other->w;
+			self->x = getRightEdge(other);
 
 			self->dirX = 0;
 		}
@@ -905,8 +868,9 @@ void pushEntity(Entity *other)
 		{
 			/* Place the entity as close as possible */
 
-			self->x = other->x + other->box.x;
-			self->x -= self->w;
+			self->x = getLeftEdge(other);
+
+			self->x -= self->box.w;
 
 			self->dirX = 0;
 		}
