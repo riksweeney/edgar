@@ -61,7 +61,7 @@ CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o ar
 CORE_OBJS += flying_maggot.o conveyor_belt.o power_generator.o laser_grid.o ceiling_snapper.o gazer.o
 CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o about_menu.o summoner.o energy_drainer.o
 CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o spring.o invulnerable_flyer.o centurion.o
-CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_refill.o
+CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "number_block.h"
 #include "bubble_machine.h"
 #include "bubble.h"
-#include "potion_refill.h"
+#include "potion_dispenser.h"
 
 extern Entity *self, player;
 
@@ -68,7 +68,7 @@ static Constructor items[] = {
 {"item/number_block", &addNumberBlock},
 {"item/bubble_machine", &addBubbleMachine},
 {"item/bubble", &addBubble},
-{"item/potion_refill", &addPotionRefill}
+{"item/potion_dispenser", &addPotionDispenser}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

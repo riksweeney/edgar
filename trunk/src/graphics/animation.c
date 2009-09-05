@@ -396,7 +396,7 @@ int drawLoopingAnimationToMap()
 
 			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
 
-			drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);
+			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
 
@@ -420,7 +420,7 @@ int drawLoopingAnimationToMap()
 
 			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
 
-			drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);
+			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
 		}
 	}
 

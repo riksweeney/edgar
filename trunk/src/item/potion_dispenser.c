@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../inventory.h"
 #include "../collisions.h"
+#include "key_items.h"
 
 extern Entity *self;
 
@@ -33,13 +34,13 @@ static void activate(int);
 static void wait(void);
 static void touch(Entity *);
 
-Entity *addPotionRefill(int x, int y, char *name)
+Entity *addPotionDispenser(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Potion Refill\n");
+		printf("No free slots to add a Potion Dispenser\n");
 
 		exit(1);
 	}
@@ -82,14 +83,12 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	Entity *e;
-
-	e = getInventoryItem(self->requires);
-
-	if (e != NULL)
+	
+	if (removeInventoryItem(self->requires) == TRUE)
 	{
-		loadProperties(self->objectiveName, e);
+		e = addKeyItem(self->objectiveName, 0, 0);
 
-		setInfoBoxMessage(60,  _("Obtained %s"), e->objectiveName);
+		addToInventory(e);
 	}
 
 	else
