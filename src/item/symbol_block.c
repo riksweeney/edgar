@@ -277,6 +277,8 @@ static void doSymbolMatch()
 			}
 		}
 	}
+	
+	printf("There are %d blocks\n", count);
 
 	list = (Entity **)malloc(count * sizeof(Entity *));
 

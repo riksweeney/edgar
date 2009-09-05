@@ -13,7 +13,6 @@ item/metal_crate
 item/spring
 common/spawner
 enemy/eye_stalk
-common/spawner
 common/pressure_plate
 item/bubble_machine
 item/invisibility_potion
@@ -24,3 +23,8 @@ enemy/laser_grid
 enemy/horizontal_laser_grid
 item/force_field
 item/health_potion
+item/potion_dispenser
+common/level_exit
+wall/invisible_wall
+weapon/small_wooden_shield
+weapon/basic_sword

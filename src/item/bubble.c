@@ -47,7 +47,7 @@ Entity *addBubble(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->type = ITEM;
+	e->type = KEY_ITEM;
 
 	e->action = &floatUp;
 	e->touch = &touch;

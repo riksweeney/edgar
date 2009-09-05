@@ -14,3 +14,8 @@ item/bubble_machine
 item/test_crate
 enemy/red_grub
 item/number_block
+item/potion_dispenser
+item/empty_potion
+item/symbol_block
+item/force_field
+common/save_point

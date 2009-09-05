@@ -77,6 +77,8 @@ static void wait()
 		
 		else
 		{
+			self->flags |= DO_NOT_PERSIST;
+			
 			self->action = &fadeOut;
 		}
 		
