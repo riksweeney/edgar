@@ -149,9 +149,21 @@ static void activate(int val)
 
 	if (self->maxThinkTime != 0)
 	{
-		self->thinkTime = self->maxThinkTime;
-
-		self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+		/* Cancel the current timer */
+		
+		if (self->thinkTime > 0)
+		{
+			self->thinkTime = 0;
+			
+			stopSound(self->startX);
+		}
+		
+		else
+		{
+			self->thinkTime = self->maxThinkTime;
+	
+			self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+		}
 	}
 }
 
