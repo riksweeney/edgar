@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 
 static Entity decoration[MAX_DECORATIONS];
+static int decorationIndex = 0;
 extern Entity *self, player;
 
 static void move(void);
@@ -66,12 +67,19 @@ void freeDecorations()
 
 Entity *getFreeDecoration()
 {
-	int i;
+	int i, count;
+	
+	count = 0;
 
 	/* Loop through all the Decorations and find a free slot */
 
-	for (i=0;i<MAX_DECORATIONS;i++)
+	for (i=decorationIndex;;i++)
 	{
+		if (i >= MAX_DECORATIONS)
+		{
+			i = 0;
+		}
+		
 		if (decoration[i].inUse == FALSE)
 		{
 			memset(&decoration[i], 0, sizeof(Entity));
@@ -83,8 +91,17 @@ Entity *getFreeDecoration()
 			decoration[i].frameSpeed = 1;
 			
 			decoration[i].alpha = 255;
+			
+			decorationIndex = i + 1;
 
 			return &decoration[i];
+		}
+		
+		count++;
+		
+		if (count >= MAX_DECORATIONS)
+		{
+			break;
 		}
 	}
 

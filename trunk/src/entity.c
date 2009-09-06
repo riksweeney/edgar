@@ -45,6 +45,8 @@ static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
 
+static int entityIndex = 0;
+
 void freeEntities()
 {
 	/* Clear the list */
@@ -54,12 +56,19 @@ void freeEntities()
 
 Entity *getFreeEntity()
 {
-	int i;
-
+	int i, count;
+	
+	count = 0;
+	
 	/* Loop through all the entities and find a free slot */
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (i=entityIndex;;i++)
 	{
+		if (i >= MAX_ENTITIES)
+		{
+			i = 0;
+		}
+		
 		if (entity[i].inUse == FALSE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
@@ -79,13 +88,17 @@ Entity *getFreeEntity()
 			entity[i].layer = MID_GROUND_LAYER;
 
 			entity[i].alpha = 255;
-
-			if (i > MAX_ENTITIES - 20)
-			{
-				printf("WARNING : COMPACTING ENTITIES!\n");
-			}
+			
+			entityIndex = i + 1;
 
 			return &entity[i];
+		}
+		
+		count++;
+		
+		if (count >= MAX_ENTITIES)
+		{
+			break;
 		}
 	}
 
@@ -388,6 +401,8 @@ void entityDie()
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
+		
+		self->weight = fabs(self->weight);
 
 		self->flags |= DO_NOT_PERSIST;
 
@@ -433,6 +448,8 @@ void entityDieNoDrop()
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
+		
+		self->weight = fabs(self->weight);
 
 		self->flags |= DO_NOT_PERSIST;
 

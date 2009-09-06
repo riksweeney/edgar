@@ -140,7 +140,7 @@ static void touch(Entity *other)
 
 	pushEntity(other);
 
-	if (other->dirY == 0 && dirY < 0)
+	if (other->dirY == 0 && dirY < 0 && other->type == PLAYER)
 	{
 		self->flags &= ~FLY;
 

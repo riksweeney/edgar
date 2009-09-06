@@ -17,23 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-int addToInventory(Entity *);
-void moveInventoryCursor(int);
-void selectInventoryItem(void);
-Entity *getInventoryItem(char *);
-void dropInventoryItem(void);
-void useInventoryItem(void);
-void doInventory(void);
-void drawSelectedInventoryItem(int, int, int, int);
-int removeInventoryItem(char *);
-void addRequiredToInventory(Entity *);
-void loadInventoryItems(void);
-void writeInventoryToFile(FILE *);
-void getInventoryItemFromScript(char *);
-void freeInventory(void);
-void drawInventory(void);
-void nextInventoryItem(int);
-void setInventoryDialogMessage(char *, ...);
-void clearInventoryDescription(void);
-void useInventoryItemFromScript(char *);
-void replaceInventoryItem(char *, Entity *);
+Entity *addCeilingCrawler(int, int, char *);

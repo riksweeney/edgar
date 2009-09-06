@@ -250,6 +250,31 @@ Entity *getInventoryItem(char *name)
 	return NULL;
 }
 
+void replaceInventoryItem(char *name, Entity *e)
+{
+	int i;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		{
+			inventory.item[i] = *e;
+			
+			inventory.item[i].face = RIGHT;
+
+			inventory.item[i].thinkTime = 0;
+
+			setEntityAnimation(&inventory.item[i], STAND);
+			
+			return;
+		}
+	}
+	
+	printf("Could not find inventory item %s to replace\n", name);
+	
+	exit(1);
+}
+
 int removeInventoryItem(char *name)
 {
 	int i, found;

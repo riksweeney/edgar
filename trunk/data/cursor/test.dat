@@ -19,3 +19,4 @@ item/empty_potion
 item/symbol_block
 item/force_field
 common/save_point
+enemy/ceiling_crawler

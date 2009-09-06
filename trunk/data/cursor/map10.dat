@@ -28,3 +28,8 @@ common/level_exit
 wall/invisible_wall
 weapon/small_wooden_shield
 weapon/basic_sword
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right
+item/ton_weight
+item/empty_potion

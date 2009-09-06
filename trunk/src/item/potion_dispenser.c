@@ -76,7 +76,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(0,  _("Press Action to interact"));
+		setInfoBoxMessage(15,  _("Press Action to interact"));
 	}
 }
 
@@ -84,11 +84,13 @@ static void activate(int val)
 {
 	Entity *e;
 	
-	if (removeInventoryItem(self->requires) == TRUE)
+	if (getInventoryItem(self->requires) != NULL)
 	{
 		e = addKeyItem(self->objectiveName, 0, 0);
-
-		addToInventory(e);
+		
+		replaceInventoryItem(self->requires, e);
+		
+		setInfoBoxMessage(60,  _("Obtained %s"), e->objectiveName);
 	}
 
 	else

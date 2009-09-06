@@ -31,7 +31,7 @@ Entity *addArmadillo(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Armadillo\n");
+		printf("No free slots to add an Armadillo\n");
 
 		exit(1);
 	}

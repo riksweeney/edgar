@@ -21,6 +21,7 @@ int collision(int, int, int, int, int, int, int, int);
 void doCollisions(void);
 void checkToMap(Entity *);
 int isAtEdge(Entity *);
+int isAtCeilingEdge(Entity *);
 int isValidOnMap(Entity *);
 Entity *isSpaceEmpty(Entity *);
 void checkEntityToEntity(Entity *);

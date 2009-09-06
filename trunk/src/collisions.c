@@ -1105,6 +1105,90 @@ int isAtEdge(Entity *e)
 	return TRUE;
 }
 
+int isAtCeilingEdge(Entity *e)
+{
+	int i, tile;
+	int x = e->x + (e->dirX > 0 ? e->w : 0);
+	int y = e->y;
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	y--;
+
+	tile = mapTileAt(x, y);
+
+	/* Return immediately if the tile isn't blank */
+
+	if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
+	{
+		return FALSE;
+	}
+
+	if (e->w > TILE_SIZE)
+	{
+		if (e->dirX > 0)
+		{
+			for (i=0;;)
+			{
+				x = e->x + i;
+
+				x /= TILE_SIZE;
+
+				tile = mapTileAt(x, y);
+
+				if (tile >= SLOPE_DOWN_START && tile <= SLOPE_DOWN_END)
+				{
+					return FALSE;
+				}
+
+				if (i == e->w)
+				{
+					break;
+				}
+
+				i += TILE_SIZE;
+
+				if (i > e->w)
+				{
+					i = e->w;
+				}
+			}
+		}
+
+		else
+		{
+			for (i=e->w;;)
+			{
+				x = e->x + i;
+
+				x /= TILE_SIZE;
+
+				tile = mapTileAt(x, y);
+
+				if (tile >= SLOPE_UP_START && tile <= SLOPE_UP_END)
+				{
+					return FALSE;
+				}
+
+				if (i == 0)
+				{
+					break;
+				}
+
+				i -= TILE_SIZE;
+
+				if (i < 0)
+				{
+					i = 0;
+				}
+			}
+		}
+	}
+
+	return TRUE;
+}
+
 int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
