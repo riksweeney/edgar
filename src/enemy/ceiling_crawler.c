@@ -34,11 +34,13 @@ static void moveOnFloor(void);
 static void moveOnCeiling(void);
 static void changeFloor(void);
 static int safeToDrop(void);
+static int safeToRise(void);
 static void attackInit(void);
 static void attackWait(void);
 static void fireShot(void);
 static void attackFinished(void);
 static void riseUp(void);
+static void changeWait(void);
 
 Entity *addCeilingCrawler(int x, int y, char *name)
 {
@@ -85,15 +87,19 @@ static void moveOnFloor()
 		
 		if (self->thinkTime <= 0)
 		{
-			self->dirY = -GRAVITY_SPEED * self->weight;
+			if (safeToRise() == TRUE)
+			{	
+				self->dirX = 0;
+				
+				self->thinkTime = 60;
+				
+				self->action = &changeWait;
+			}
 			
-			self->flags |= FLY;
-			
-			self->thinkTime = self->maxThinkTime;
-			
-			self->dirX = 0;
-			
-			self->action = &changeFloor;
+			else
+			{
+				self->thinkTime = self->maxThinkTime;
+			}
 		}
 	}
 }
@@ -134,16 +140,38 @@ static void moveOnCeiling()
 		{
 			if (safeToDrop() == TRUE)
 			{
-				self->flags &= ~FLY;
-				
 				self->dirX = 0;
 				
-				self->action = &changeFloor;
+				self->thinkTime = 60;
+				
+				self->action = &changeWait;
 			}
 			
-			self->thinkTime = self->maxThinkTime;
+			else
+			{
+				self->thinkTime = self->maxThinkTime;
+			}
 		}
 	}
+}
+
+static void changeWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags ^= FLY;
+		
+		if (self->flags & FLY)
+		{
+			self->dirY = -GRAVITY_SPEED * self->weight;
+		}
+		
+		self->action = &changeFloor;
+	}
+	
+	checkToMap(self);
 }
 
 static void changeFloor()
@@ -152,6 +180,8 @@ static void changeFloor()
 	
 	if (self->dirY == 0 || self->standingOn != NULL)
 	{
+		self->thinkTime = self->maxThinkTime;
+		
 		self->action = !(self->flags & FLY) ? &moveOnFloor : &moveOnCeiling;
 		
 		setEntityAnimation(self, !(self->flags & FLY) ? STAND : WALK);
@@ -178,7 +208,7 @@ static int safeToDrop()
 	
 	y++;
 	
-	for (i=0;i<20;i++)
+	for (i=0;i<15;i++)
 	{
 		tile = mapTileAt(x, y);
 		
@@ -188,6 +218,34 @@ static int safeToDrop()
 		}
 		
 		y++;
+	}
+	
+	return FALSE;
+}
+
+static int safeToRise()
+{
+	int x, y, i, tile;
+	
+	x = self->x + self->w / 2;
+	
+	y = self->y;
+	
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+	
+	y--;
+	
+	for (i=0;i<15;i++)
+	{
+		tile = mapTileAt(x, y);
+		
+		if (tile != BLANK_TILE && (tile < BACKGROUND_TILE_START || tile > FOREGROUND_TILE_START))
+		{
+			return tile < BACKGROUND_TILE_START ? TRUE : FALSE;
+		}
+		
+		y--;
 	}
 	
 	return FALSE;

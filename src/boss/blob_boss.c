@@ -211,7 +211,7 @@ static void activate(int val)
 {
 	Entity *e, *temp;
 
-	e = getInventoryItem(_("Tesla Charge"));
+	e = getInventoryItem(_("Tesla Pack"));
 
 	if (e != NULL)
 	{
@@ -219,7 +219,9 @@ static void activate(int val)
 
 		self = e;
 
-		e->activate(val);
+		self->target = e;
+
+		self->activate(val);
 
 		self = temp;
 	}
@@ -229,11 +231,11 @@ static void stunnedTouch(Entity *other)
 {
 	Entity *e, *temp;
 
-	e = getInventoryItem(_("Tesla Charge"));
+	e = getInventoryItem(_("Tesla Pack"));
 
 	if (e != NULL)
 	{
-		setInfoBoxMessage(5,  _("Press Action to attach the Tesla Charge"));
+		setInfoBoxMessage(5,  _("Press Action to attach the Tesla Pack"));
 	}
 }
 

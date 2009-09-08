@@ -740,135 +740,129 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move right */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
+		if (pushable != 0)
 		{
-			if (pushable != 0)
+			self->y -= self->dirY;
+
+			self->dirX += ceil(other->dirX);
+
+			wasOnGround = (self->flags & ON_GROUND);
+
+			checkToMap(self);
+
+			if (wasOnGround != 0)
 			{
-				self->y -= self->dirY;
-
-				self->dirX += other->dirX;
-
-				wasOnGround = (self->flags & ON_GROUND);
-
-				checkToMap(self);
-
-				if (wasOnGround != 0)
-				{
-					self->flags |= ON_GROUND;
-				}
-
-				depth++;
-
-				checkEntityToEntity(self);
-
-				depth--;
-
-				if (self->dirX == 0)
-				{
-					pushable = 0;
-				}
-
-				else
-				{
-					self->frameSpeed = 1;
-				}
-
-				self->y += self->dirY;
+				self->flags |= ON_GROUND;
 			}
 
-			if (pushable == 0)
+			depth++;
+
+			checkEntityToEntity(self);
+
+			depth--;
+
+			if (self->dirX == 0)
 			{
-				/* Place the entity as close as possible */
-
-				other->x = getLeftEdge(self);
-
-				other->x -= other->box.w;
-
-				other->dirX = 0;
-
-				if ((other->flags & GRABBING) && other->target != NULL)
-				{
-					other->target->x -= other->target->dirX;
-					other->target->dirX = 0;
-				}
+				pushable = 0;
 			}
 
-			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+			else
 			{
-				other->target = self;
-
-				self->flags |= GRABBED;
+				self->frameSpeed = 1;
 			}
 
-			collided = TRUE;
+			self->y += self->dirY;
 		}
-	}
+
+		if (pushable == 0)
+		{
+			/* Place the entity as close as possible */
+
+			other->x = getLeftEdge(self);
+
+			other->x -= other->box.w;
+
+			other->dirX = 0;
+
+			if ((other->flags & GRABBING) && other->target != NULL)
+			{
+				other->target->x -= other->target->dirX;
+				other->target->dirX = 0;
+			}
+		}
+
+		if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+		{
+			other->target = self;
+
+			self->flags |= GRABBED;
+		}
+
+		collided = TRUE;
+}
 
 	else if (other->dirX < 0 && collided == FALSE)
 	{
 		/* Trying to move left */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
+		if (pushable != 0)
 		{
-			if (pushable != 0)
+			self->y -= self->dirY;
+
+			self->dirX += floor(other->dirX);
+
+			wasOnGround = (self->flags & ON_GROUND);
+
+			checkToMap(self);
+
+			if (wasOnGround != 0)
 			{
-				self->y -= self->dirY;
-
-				self->dirX += other->dirX;
-
-				wasOnGround = (self->flags & ON_GROUND);
-
-				checkToMap(self);
-
-				if (wasOnGround != 0)
-				{
-					self->flags |= ON_GROUND;
-				}
-
-				depth++;
-
-				checkEntityToEntity(self);
-
-				depth--;
-
-				if (self->dirX == 0)
-				{
-					pushable = 0;
-				}
-
-				else
-				{
-					self->frameSpeed = -1;
-				}
-
-				self->y += self->dirY;
+				self->flags |= ON_GROUND;
 			}
 
-			if (pushable == 0)
+			depth++;
+
+			checkEntityToEntity(self);
+
+			depth--;
+
+			if (self->dirX == 0)
 			{
-				/* Place the entity as close as possible */
-
-				other->x = getRightEdge(self);
-
-				other->dirX = 0;
-
-				if ((other->flags & GRABBING) && other->target != NULL)
-				{
-					other->target->x -= other->target->dirX;
-					other->target->dirX = 0;
-				}
+				pushable = 0;
 			}
 
-			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+			else
 			{
-				other->target = self;
-
-				self->flags |= GRABBED;
+				self->frameSpeed = -1;
 			}
 
-			collided = TRUE;
+			self->y += self->dirY;
 		}
-	}
+
+		if (pushable == 0)
+		{
+			/* Place the entity as close as possible */
+
+			other->x = getRightEdge(self);
+
+			other->dirX = 0;
+
+			if ((other->flags & GRABBING) && other->target != NULL)
+			{
+				other->target->x -= other->target->dirX;
+				other->target->dirX = 0;
+			}
+		}
+
+		if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
+		{
+			other->target = self;
+
+			self->flags |= GRABBED;
+		}
+
+		collided = TRUE;
+}
 
 	else if (collided == FALSE)
 	{

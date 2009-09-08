@@ -42,6 +42,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "bubble_machine.h"
 #include "bubble.h"
 #include "potion_dispenser.h"
+#include "tesla_charger.h"
+#include "tesla_pack.h"
 
 extern Entity *self, player;
 
@@ -68,7 +70,10 @@ static Constructor items[] = {
 {"item/number_block", &addNumberBlock},
 {"item/bubble_machine", &addBubbleMachine},
 {"item/bubble", &addBubble},
-{"item/potion_dispenser", &addPotionDispenser}
+{"item/potion_dispenser", &addPotionDispenser},
+{"item/tesla_charger", &addTeslaCharger},
+{"item/tesla_pack_empty", &addTeslaPack},
+{"item/tesla_pack_full", &addTeslaPack}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
