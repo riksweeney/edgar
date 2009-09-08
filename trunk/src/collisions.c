@@ -1265,13 +1265,13 @@ int isValidOnMap(Entity *e)
 
 /* Very standard 2D collision detection routine */
 
-int collision(int x0, int y0, int w0, int h0, int x2, int y2, int w1, int h1)
+int collision(float x0, float y0, int w0, int h0, float x2, float y2, int w1, int h1)
 {
-	int x1 = x0 + w0 - 1;
-	int y1 = y0 + h0 - 1;
+	float x1 = x0 + w0 - 1;
+	float y1 = y0 + h0 - 1;
 
-	int x3 = x2 + w1 - 1;
-	int y3 = y2 + h1 - 1;
+	float x3 = x2 + w1 - 1;
+	float y3 = y2 + h1 - 1;
 
 	return !(x1<x2 || x3<x0 || y1<y2 || y3<y0);
 }

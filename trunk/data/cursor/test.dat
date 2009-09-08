@@ -20,3 +20,5 @@ item/symbol_block
 item/force_field
 common/save_point
 enemy/ceiling_crawler
+item/wooden_crate
+enemy/two_headed_tortoise

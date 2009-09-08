@@ -218,13 +218,6 @@ static void init()
 		{
 			self->thinkTime = prand() % self->maxThinkTime;
 		}
-
-		/* Only randomize the required block once since it's not reachable */
-
-		if (self->startY == -1)
-		{
-			self->weight = 2;
-		}
 	}
 
 	setEntityAnimation(self, self->thinkTime);
@@ -378,6 +371,15 @@ static int getRequired()
 		{
 			if (entity[i].startY == -1)
 			{
+				/* Randomize the required block if not already done */
+				
+				if (entity[i].weight != 2)
+				{
+					entity[i].thinkTime = prand() % entity[i].maxThinkTime;
+					
+					entity[i].weight = 2;
+				}
+				
 				return entity[i].thinkTime;
 			}
 		}
