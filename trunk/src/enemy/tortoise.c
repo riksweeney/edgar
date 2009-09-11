@@ -25,23 +25,33 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
+#include "../custom_actions.h"
 
 extern Entity *self;
 
 static void walk(void);
 static void wait(void);
-static void changeFaceStart(void);
-static void changeFace(void);
-static void changeFaceFinish(void);
+static void init(void);
+static void changeWalkDirectionStart(void);
+static void changeWalkDirection(void);
+static void changeWalkDirectionFinish(void);
+static void changeHeadStart(void);
 static void changeHead(void);
+static void changeHeadFinish(void);
+static void electrifyStart(void);
+static void electrify(void);
+static void electrifyFinish(void);
+static void createElectricity(void);
+static void takeDamage(Entity *, int);
+static void doElectricity(void);
 
-Entity *addTwoHeadedTortoise(int x, int y, char *name)
+Entity *addTortoise(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Two-Headed Tortoise\n");
+		printf("No free slots to add a Tortoise\n");
 
 		exit(1);
 	}
@@ -51,12 +61,12 @@ Entity *addTwoHeadedTortoise(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &walk;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &entityDie;
-	e->takeDamage = &entityTakeDamageFlinch;
+	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 
 	e->type = ENEMY;
@@ -76,53 +86,60 @@ static void walk()
 	{
 		self->dirX = 0;
 
-		if (prand() % 2 == 0)
-		{
-			self->action = &changeHead;
-			self->action = &changeFaceStart;
-		}
+		/* Good Head */
 
-		else
+		if (self->startX == 0)
 		{
-			self->action = &changeFaceStart;
+			if (prand() % 5 == 0)
+			{
+				self->action = &changeHeadStart;
+				self->action = &changeWalkDirectionStart;
+			}
+
+			else
+			{
+				self->thinkTime = 60;
+				
+				self->action = &electrifyStart;
+			}
 		}
 	}
 }
 
-static void changeFaceStart()
+static void changeWalkDirectionStart()
 {
 	setEntityAnimation(self, CUSTOM_1);
 
 	self->action = &wait;
 
-	self->animationCallback = &changeFace;
-	
+	self->animationCallback = &changeWalkDirection;
+
 	self->thinkTime = 60;
 }
 
-static void changeFace()
+static void changeWalkDirection()
 {
 	self->thinkTime--;
-	
-	self->action = &changeFace;
-	
+
+	self->action = &changeWalkDirection;
+
 	setEntityAnimation(self, CUSTOM_3);
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
-	
+
 		self->frameSpeed = -1;
-	
+
 		setEntityAnimation(self, CUSTOM_1);
-	
-		self->animationCallback = &changeFaceFinish;
-		
+
+		self->animationCallback = &changeWalkDirectionFinish;
+
 		self->action = &wait;
 	}
 }
 
-static void changeFaceFinish()
+static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
 
@@ -131,8 +148,8 @@ static void changeFaceFinish()
 	self->action = &walk;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	
-	self->thinkTime = 180 + prand() % 420;
+
+	self->thinkTime = 120 + prand() % 120;
 }
 
 static void wait()
@@ -140,7 +157,234 @@ static void wait()
 	checkToMap(self);
 }
 
+static void changeHeadStart()
+{
+	setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
+
+	self->action = &wait;
+
+	self->animationCallback = &changeHead;
+
+	self->thinkTime = 60;
+}
+
 static void changeHead()
 {
+	self->thinkTime--;
 
+	self->action = &changeHead;
+
+	setEntityAnimation(self, CUSTOM_3);
+
+	if (self->thinkTime <= 0)
+	{
+		self->startX = self->startX == 0 ? 1 : 0;
+
+		self->frameSpeed = -1;
+
+		setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
+
+		self->animationCallback = &changeHeadFinish;
+
+		self->action = &wait;
+	}
+}
+
+static void changeHeadFinish()
+{
+	self->frameSpeed = 1;
+
+	setEntityAnimation(self, self->startX == 0 ? STAND : WALK);
+
+	self->action = &walk;
+
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+	self->thinkTime = 120 + prand() % 120;
+}
+
+static void init()
+{
+	if (strcmpignorecase("enemy/tortoise", self->name) == 0)
+	{
+		setEntityAnimation(self, STAND);
+
+		self->startX = 0;
+	}
+
+	else
+	{
+		setEntityAnimation(self, WALK);
+
+		self->startX = 1;
+	}
+
+	self->action = &walk;
+
+	self->thinkTime = 120 + prand() % 120;
+}
+
+static void electrifyStart()
+{
+	self->dirX = 0;
+	
+	self->frameSpeed = 0;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->frameSpeed = 1;
+		
+		setEntityAnimation(self, CUSTOM_1);
+	
+		self->animationCallback = &createElectricity;
+	}
+
+	checkToMap(self);
+}
+
+static void createElectricity()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add Tortoise electricity\n");
+
+		exit(1);
+	}
+
+	loadProperties("enemy/tortoise_electricity", e);
+
+	playSoundToMap("sound/enemy/tortoise/tortoise_electric.ogg", -1, self->x, self->y, 0);
+
+	setEntityAnimation(e, STAND);
+
+	e->action = &doElectricity;
+
+	e->touch = &entityTouch;
+
+	e->takeDamage = &takeDamage;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->target = self;
+
+	e->face = self->face;
+
+	e->x = self->x;
+
+	e->y = self->y;
+
+	self->target = e;
+
+	self->frameSpeed = 1;
+
+	setEntityAnimation(self, ATTACK_1);
+
+	self->action = &electrify;
+
+	self->thinkTime = 120;
+}
+
+static void electrify()
+{
+	self->thinkTime--;
+
+	self->element = LIGHTNING;
+
+	if (self->thinkTime <= 0)
+	{
+		self->frameSpeed = -1;
+
+		setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
+
+		self->animationCallback = &electrifyFinish;
+
+		self->action = &wait;
+
+		self->element = NO_ELEMENT;
+
+		self->target->inUse = FALSE;
+	}
+
+	checkToMap(self);
+}
+
+static void electrifyFinish()
+{
+	setEntityAnimation(self, self->startX == 0 ? STAND : WALK);
+
+	self->frameSpeed = 1;
+
+	self->action = &walk;
+
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+	self->thinkTime = 120 + prand() % 120;
+
+	checkToMap(self);
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (damage != 0)
+	{
+		if (self->element == NO_ELEMENT)
+		{
+			entityTakeDamageNoFlinch(other, damage);
+		}
+
+		else
+		{
+			if (other->type == WEAPON)
+			{
+				/* Damage the player instead */
+
+				temp = self;
+
+				self = other->parent;
+
+				self->takeDamage(temp, temp->damage);
+
+				self = temp;
+
+				return;
+			}
+
+			else if (other->type == PROJECTILE)
+			{
+				self->health -= damage;
+
+				other->target = self;
+			}
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0);
+				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->damage = 0;
+
+				self->die();
+			}
+		}
+	}
+}
+
+static void doElectricity()
+{
+	self->x = self->target->x + self->target->w / 2 - self->w / 2;
+	self->y = self->target->y + self->target->h / 2 - self->h / 2;
 }

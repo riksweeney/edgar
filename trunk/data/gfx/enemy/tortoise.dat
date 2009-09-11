@@ -1,10 +1,20 @@
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_walk00.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_walk01.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_walk02.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_walk03.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_walk04.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_retract00.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_retract01.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_retract02.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_retract03.png
-gfx/enemy/two_headed_tortoise/two_headed_tortoise_retract04.png
+gfx/enemy/tortoise/tortoise_walk00.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk01.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk02.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk03.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk04.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_retract00.png 21 0 79 48
+gfx/enemy/tortoise/tortoise_retract01.png 21 0 74 48
+gfx/enemy/tortoise/tortoise_retract02.png 21 0 69 48
+gfx/enemy/tortoise/tortoise_retract03.png 21 0 64 48
+gfx/enemy/tortoise/tortoise_retract04.png 21 0 63 48
+gfx/enemy/tortoise/tortoise_walk_evil00.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk_evil01.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk_evil02.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk_evil03.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_walk_evil04.png 21 0 84 48
+gfx/enemy/tortoise/tortoise_retract_evil00.png 21 0 79 48
+gfx/enemy/tortoise/tortoise_retract_evil01.png 21 0 74 48
+gfx/enemy/tortoise/tortoise_retract_evil02.png 21 0 69 48
+gfx/enemy/tortoise/tortoise_retract_evil03.png 21 0 64 48
+gfx/enemy/tortoise/tortoise_electrify00.png
