@@ -1,0 +1,9 @@
+GFX_FILE data/gfx/enemy/tortoise_electricity.dat
+ANIM_FILE data/anim/enemy/tortoise_electricity.dat
+TYPE ENEMY
+DAMAGE 2
+HEALTH 100
+SPEED 1
+FLAGS DO_NOT_PERSIST
+ELEMENT LIGHTNING
+LAYER BACKGROUND_LAYER

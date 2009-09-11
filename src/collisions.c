@@ -431,7 +431,7 @@ void checkToMap(Entity *e)
 
 							e->y *= TILE_SIZE;
 
-							e->y -= e->h;
+							e->y -= e->h + 0.5;
 
 							e->dirY = 0;
 
@@ -555,7 +555,7 @@ void checkToMap(Entity *e)
 
 							e->y *= TILE_SIZE;
 
-							e->y -= e->h;
+							e->y -= e->h + 0.5;
 
 							e->dirY = 0;
 
@@ -596,7 +596,7 @@ void checkToMap(Entity *e)
 
 						else
 						{
-							e->x = (x1 + 1) * TILE_SIZE;
+							e->x = x1 * TILE_SIZE;
 
 							e->dirX = 0;
 						}

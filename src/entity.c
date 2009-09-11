@@ -45,8 +45,6 @@ static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
 
-static int entityIndex = 0;
-
 void freeEntities()
 {
 	/* Clear the list */
@@ -56,19 +54,12 @@ void freeEntities()
 
 Entity *getFreeEntity()
 {
-	int i, count;
-	
-	count = 0;
+	int i;
 	
 	/* Loop through all the entities and find a free slot */
 
-	for (i=entityIndex;;i++)
+	for (i=0;<MAX_ENTITIES;i++)
 	{
-		if (i >= MAX_ENTITIES)
-		{
-			i = 0;
-		}
-		
 		if (entity[i].inUse == FALSE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
@@ -88,17 +79,13 @@ Entity *getFreeEntity()
 			entity[i].layer = MID_GROUND_LAYER;
 
 			entity[i].alpha = 255;
-			
-			entityIndex = i + 1;
 
 			return &entity[i];
 		}
 		
-		count++;
-		
-		if (count >= MAX_ENTITIES)
+		if (i >= MAX_ENTITIES - 20)
 		{
-			break;
+			printf("WARNING, compacting Entities!\n");
 		}
 	}
 
@@ -137,6 +124,7 @@ void doEntities()
 					{
 						case WATER:
 						case SLIME:
+						case LAVA:
 							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
 
 							if (self->flags & FLOATS)

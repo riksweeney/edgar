@@ -61,12 +61,29 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 static void init()
 {
+	Entity *e;
+
 	if (strlen(self->objectiveName) == 0)
 	{
 		printf("Spawner at %f %f is not set correctly\n", self->x, self->y);
 
 		exit(1);
 	}
+
+	/* Precache the Entities to spawn */
+
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add spawner entity\n");
+
+		exit(1);
+	}
+
+	loadProperties(self->objectiveName, e);
+
+	e->inUse = FALSE;
 
 	self->action = &spawn;
 

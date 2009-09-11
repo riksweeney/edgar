@@ -168,6 +168,7 @@ void doPlayer()
 			{
 				case WATER:
 				case SLIME:
+				case LAVA:
 					self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
 
 					if (self->dirY < -2)
@@ -1086,11 +1087,6 @@ static void fallout()
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
 
-		if (player.environment == LAVA)
-		{
-			player.die();
-		}
-
 		if (player.environment != AIR)
 		{
 			checkToMap(&player);
@@ -1117,7 +1113,7 @@ static void falloutPause()
 
 static void resetPause()
 {
-	if (player.health <= (player.environment == SLIME ? 2 : 1))
+	if (player.health <= (player.environment == SLIME ? 2 : (player.environment == WATER ? 1 : 9999)))
 	{
 		player.health = 0;
 
