@@ -55,10 +55,10 @@ void freeEntities()
 Entity *getFreeEntity()
 {
 	int i;
-	
+
 	/* Loop through all the entities and find a free slot */
 
-	for (i=0;<MAX_ENTITIES;i++)
+	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == FALSE)
 		{
@@ -82,7 +82,7 @@ Entity *getFreeEntity()
 
 			return &entity[i];
 		}
-		
+
 		if (i >= MAX_ENTITIES - 20)
 		{
 			printf("WARNING, compacting Entities!\n");
@@ -124,7 +124,6 @@ void doEntities()
 					{
 						case WATER:
 						case SLIME:
-						case LAVA:
 							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
 
 							if (self->flags & FLOATS)
@@ -389,7 +388,7 @@ void entityDie()
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
-		
+
 		self->weight = fabs(self->weight);
 
 		self->flags |= DO_NOT_PERSIST;
@@ -436,7 +435,7 @@ void entityDieNoDrop()
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->flags &= ~FLY;
-		
+
 		self->weight = fabs(self->weight);
 
 		self->flags |= DO_NOT_PERSIST;
@@ -623,7 +622,7 @@ void pushEntity(Entity *other)
 	{
 		return;
 	}
-	
+
 	if (other->flags & OBSTACLE)
 	{
 		return;

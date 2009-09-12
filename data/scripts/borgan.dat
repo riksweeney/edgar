@@ -44,6 +44,7 @@ TALK Borgan Just stay away from the Forbidden Swamp
 TALK Edgar Will do, can I hold on to your pickaxe for a while?
 TALK Borgan Sure thing, just bring it back in one piece
 TALK Edgar Thanks, Borgan!
+ADD MAP_TRIGGER "map02" ACTIVATE_ENTITY "BORGAN_COMPLETE"
 SET Borgan HEALTH 5
 END
 IF Borgan HEALTH 4

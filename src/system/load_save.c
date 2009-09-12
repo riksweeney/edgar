@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
+#include "../event/map_trigger.h"
 #include "../event/objective.h"
 #include "../world/target.h"
 #include "../map.h"
@@ -210,7 +211,7 @@ int loadGame(int slot)
 
 				break;
 			}
-			
+
 			sscanf(line, "%*s %s\n", itemName);
 
 			printf("Loading save location %s\n", itemName);
@@ -427,6 +428,10 @@ static void patchSaveGame(char *saveFile, double version)
 
 				writeGlobalTriggersToFile(newSave);
 
+				/* Add the map triggers */
+
+				writeMapTriggersToFile(newSave);
+
 				/* Add the objectives */
 
 				writeObjectivesToFile(newSave);
@@ -587,6 +592,10 @@ void saveGame(int slot)
 	/* Add the global triggers */
 
 	writeGlobalTriggersToFile(write);
+
+	/* Add the map triggers */
+
+	writeMapTriggersToFile(write);
 
 	/* Add the objectives */
 

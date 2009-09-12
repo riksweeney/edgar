@@ -4,3 +4,8 @@ enemy/chicken
 enemy/grub
 enemy/red_grub
 lift/mine_lift
+common/level_exit
+common/action_point
+common/spawner
+common/pressure_plate
+enemy/fire_burner

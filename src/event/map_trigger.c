@@ -36,6 +36,15 @@ void freeMapTriggers()
 	memset(trigger, 0, sizeof(Trigger) * MAX_TRIGGERS);
 }
 
+void addMapTriggerFromScript(char *line)
+{
+	char triggerName[MAX_VALUE_LENGTH], targetName[MAX_VALUE_LENGTH], targetType[MAX_VALUE_LENGTH];
+
+	sscanf(line, "\"%[^\"]\" %s \"%[^\"]\"", triggerName, targetType, targetName);
+
+	addMapTrigger(triggerName, 0, 1, getTriggerTypeByName(targetType), targetName);
+}
+
 void addMapTriggerFromResource(char *key[], char *value[])
 {
 	int i, triggerName, count, targetType, targetName, total;

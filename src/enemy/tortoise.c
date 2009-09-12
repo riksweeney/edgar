@@ -99,7 +99,7 @@ static void walk()
 			else
 			{
 				self->thinkTime = 60;
-				
+
 				self->action = &electrifyStart;
 			}
 		}
@@ -227,17 +227,17 @@ static void init()
 static void electrifyStart()
 {
 	self->dirX = 0;
-	
+
 	self->frameSpeed = 0;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->frameSpeed = 1;
-		
+
 		setEntityAnimation(self, CUSTOM_1);
-	
+
 		self->animationCallback = &createElectricity;
 	}
 
@@ -386,5 +386,5 @@ static void takeDamage(Entity *other, int damage)
 static void doElectricity()
 {
 	self->x = self->target->x + self->target->w / 2 - self->w / 2;
-	self->y = self->target->y + self->target->h / 2 - self->h / 2;
+	self->y = self->target->y + self->target->h - self->h;
 }

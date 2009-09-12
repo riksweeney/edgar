@@ -55,6 +55,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "armadillo.h"
 #include "ceiling_crawler.h"
 #include "tortoise.h"
+#include "fire_burner.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -112,7 +113,8 @@ static Constructor enemies[] = {
 {"enemy/centurion", &addCenturion},
 {"enemy/armadillo", &addArmadillo},
 {"enemy/ceiling_crawler", &addCeilingCrawler},
-{"enemy/tortoise", &addTortoise}
+{"enemy/tortoise", &addTortoise},
+{"enemy/fire_burner", &addFireBurner}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
