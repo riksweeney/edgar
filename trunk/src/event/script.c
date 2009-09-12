@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../event/global_trigger.h"
+#include "../event/map_trigger.h"
 #include "../event/objective.h"
 #include "../entity.h"
 #include "script.h"
@@ -216,6 +217,13 @@ void readNextScriptLine()
 				token = strtok_r(NULL, "\0", &savePtr);
 
 				addGlobalTriggerFromScript(token);
+			}
+
+			else if (strcmpignorecase("MAP_TRIGGER", token) == 0)
+			{
+				token = strtok_r(NULL, "\0", &savePtr);
+
+				addMapTriggerFromScript(token);
 			}
 
 			else
@@ -480,11 +488,11 @@ void readNextScriptLine()
 		{
 			getInventoryItemFromScript(script.text[script.line]);
 		}
-		
+
 		else if (strcmpignorecase("USE_ITEM", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			useInventoryItemFromScript(token);
 		}
 
@@ -700,12 +708,12 @@ void readNextScriptLine()
 
 				exit(1);
 			}
-			
+
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			addCustomActionFromScript(e, token);
 		}
-		
+
 		else if (strcmpignorecase("JUMP", command) == 0)
 		{
 			freeDialogBox();

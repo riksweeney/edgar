@@ -1,12 +1,2 @@
-TALK Edgar What's this?
-WALK_TO Edgar 192 384 WAIT
-WAIT 60
-TALK Edgar There's a tiny bit left
-TALK Edgar OK, here goes nothing...
-USE_ITEM Potion of Transmogrification
-WAIT 150
-TALK Edgar Urgh!! This is horrible!
-TALK Edgar Borgan told me that Slimes can swim in water though, so maybe this will be useful...
-TALK Narrator When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around
-TALK Narrator Pushing up or jump will make you jump out of the water if you're near the surface
-TALK Narrator Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again
+TALK Edgar Setting trigger
+ADD MAP_TRIGGER "test" ACTIVATE_ENTITY "TEST_SPAWNER"

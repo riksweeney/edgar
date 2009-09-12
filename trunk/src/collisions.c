@@ -1011,7 +1011,7 @@ void checkToMap(Entity *e)
 int isAtEdge(Entity *e)
 {
 	int i, tile;
-	int x = e->x + (e->dirX > 0 ? e->w : 0);
+	int x = e->face == LEFT ? floor(e->x) : ceil(e->x) + e->w;
 	int y = e->y + e->h - 1;
 
 	x /= TILE_SIZE;
@@ -1089,13 +1089,20 @@ int isAtEdge(Entity *e)
 		}
 	}
 
+	x = e->face == LEFT ? floor(e->x) : ceil(e->x);
+
+	if (e->face == RIGHT)
+	{
+		x += e->w;
+	}
+
 	/* There might still be Entities that can be walked on */
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE)))
 		{
-			if (collision(e->x + (e->face == LEFT ? 0 : e->w), e->y + e->h, 1, 5, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
+			if (collision(x, e->y, 1, e->h + 10, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
 				return FALSE;
 			}

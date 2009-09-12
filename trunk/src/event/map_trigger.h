@@ -24,3 +24,4 @@ void freeMapTriggers(void);
 int getMapTriggerTypeByName(char *);
 char *getMapTriggerTypeByID(int);
 void updateMapTrigger(char *, int);
+void addMapTriggerFromScript(char *);

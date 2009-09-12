@@ -284,6 +284,8 @@ static void fireShot()
 	
 	e->action = &riseUp;
 	
+	e->flags |= DO_NOT_PERSIST;
+	
 	e->head = self;
 	
 	e->thinkTime = 5;
