@@ -114,6 +114,10 @@ Entity *loadPlayer(int x, int y, char *name)
 	clearCustomActions(&player);
 
 	player.alpha = 255;
+	
+	player.element = NO_ELEMENT;
+	
+	player.weight = 1;
 
 	player.fallout = &fallout;
 
@@ -169,7 +173,7 @@ void doPlayer()
 				case WATER:
 				case SLIME:
 				case LAVA:
-					self->dirY += (self->flags & FLOATS) ? -GRAVITY_SPEED * 0.6 : GRAVITY_SPEED * 0.25;
+					self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
 
 					if (self->dirY < -2)
 					{
@@ -183,7 +187,7 @@ void doPlayer()
 				break;
 
 				default:
-					self->dirY += GRAVITY_SPEED;
+					self->dirY += GRAVITY_SPEED * self->weight;
 
 					if (self->dirY >= MAX_AIR_SPEED)
 					{
@@ -551,6 +555,9 @@ void doPlayer()
 		{
 			addToGrid(&playerWeapon);
 		}
+		
+		playerWeapon.alpha = player.alpha;
+		playerShield.alpha = player.alpha;
 	}
 
 	else

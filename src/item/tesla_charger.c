@@ -154,11 +154,16 @@ static void activate(int val)
 
 	else
 	{
-		printf("Placing back in charger\n");
+		e = getInventoryItem(_("Tesla Charge"));
 
-		self->health = 0;
-
-		self->thinkTime = 180;
+		if (e != NULL && e->health == 0)
+		{
+			removeInventoryItem(e->objectiveName);
+			
+			self->health = 0;
+	
+			self->thinkTime = 180;
+		}
 	}
 
 	setChargeState();

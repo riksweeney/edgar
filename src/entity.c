@@ -618,7 +618,7 @@ void pushEntity(Entity *other)
 	static int depth = 0;
 	long wasOnGround;
 
-	if (other->touch == NULL || other->type == WEAPON)
+	if (other->touch == NULL || other->type == WEAPON || (other->flags & PLAYER_TOUCH_ONLY))
 	{
 		return;
 	}
