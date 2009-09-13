@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/high_striker.dat
+ANIM_FILE data/anim/item/high_striker.dat
+TYPE KEY_ITEM
+FLAGS OBSTACLE
+OBJECTIVE_NAME High Striker

@@ -79,6 +79,11 @@ static void burnStart()
 {
 	self->health = 1;
 	
+	if (self->startY == -1)
+	{
+		self->startX = playSoundToMap("sound/enemy/fire_burner/flame.ogg", -1, self->x, self->y, 0);
+	}
+	
 	self->thinkTime = self->maxThinkTime;
 	
 	setEntityAnimation(self, WALK);
@@ -100,6 +105,11 @@ static void burn()
 	
 	if (self->thinkTime <= 0)
 	{
+		if (self->startY == -1)
+		{
+			stopSound(self->startX);
+		}
+	
 		self->frameSpeed = -1;
 		
 		setEntityAnimation(self, WALK);

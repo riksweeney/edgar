@@ -44,6 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "potion_dispenser.h"
 #include "tesla_charger.h"
 #include "tesla_pack.h"
+#include "high_striker.h"
 
 extern Entity *self, player;
 
@@ -70,6 +71,7 @@ static Constructor items[] = {
 {"item/number_block", &addNumberBlock},
 {"item/bubble_machine", &addBubbleMachine},
 {"item/bubble", &addBubble},
+{"item/high_striker", &addHighStriker},
 {"item/potion_dispenser", &addPotionDispenser},
 {"item/tesla_charger", &addTeslaCharger},
 {"item/tesla_pack_empty", &addTeslaPack},

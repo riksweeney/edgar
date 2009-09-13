@@ -9,3 +9,5 @@ common/action_point
 common/spawner
 common/pressure_plate
 enemy/fire_burner
+item/ton_weight
+item/high_striker
