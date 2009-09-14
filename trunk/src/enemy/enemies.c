@@ -65,6 +65,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/fly_boss.h"
 #include "../boss/flying_maggot.h"
 #include "../boss/golem_rock_dropper.h"
+#include "../boss/blob_boss.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -114,7 +115,8 @@ static Constructor enemies[] = {
 {"enemy/armadillo", &addArmadillo},
 {"enemy/ceiling_crawler", &addCeilingCrawler},
 {"enemy/tortoise", &addTortoise},
-{"enemy/fire_burner", &addFireBurner}
+{"enemy/fire_burner", &addFireBurner},
+{"boss/blob_boss_1", &addBlobBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

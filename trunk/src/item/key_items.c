@@ -45,6 +45,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "tesla_charger.h"
 #include "tesla_pack.h"
 #include "high_striker.h"
+#include "containment_unit.h"
+#include "containment_unit_controls.h"
 
 extern Entity *self, player;
 
@@ -75,7 +77,9 @@ static Constructor items[] = {
 {"item/potion_dispenser", &addPotionDispenser},
 {"item/tesla_charger", &addTeslaCharger},
 {"item/tesla_pack_empty", &addTeslaPack},
-{"item/tesla_pack_full", &addTeslaPack}
+{"item/tesla_pack_full", &addTeslaPack},
+{"item/containment_unit", &addContainmentUnit},
+{"item/containment_unit_controls", &addContainmentUnitControls}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

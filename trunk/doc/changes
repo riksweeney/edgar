@@ -8,6 +8,7 @@ Version 0.30
 * Added the Fortress Map
 * Added the Lab Map
 * Added proper joypad support
+* Fixed scrolling speed when standing on a lift
 
 Version 0.26
 

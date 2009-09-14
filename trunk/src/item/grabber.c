@@ -171,6 +171,8 @@ static void moveToTarget()
 
 	else
 	{
+		self->y = self->targetY;
+
 		self->dirX = self->targetX < self->x ? -self->speed : self->speed;
 
 		self->dirY = 0;
@@ -203,6 +205,11 @@ static void moveToTarget()
 				self->startX = self->endX;
 				self->startY = self->endY;
 			}
+		}
+
+		else if (self->health == -1)
+		{
+			self->health = 0;
 		}
 
 		self->active = FALSE;
@@ -238,7 +245,7 @@ static void touch(Entity *other)
 			}
 		}
 
-		else if ((other->flags & PUSHABLE) && (other->flags & ON_GROUND))
+		else if (((other->flags & PUSHABLE) && (other->flags & ON_GROUND)) || (self->health == -1 && self->target == NULL))
 		{
 			setEntityAnimation(self, STAND);
 
@@ -247,6 +254,10 @@ static void touch(Entity *other)
 			other->touch = &entityTouch;
 
 			other->damage = 0;
+
+			other->dirX = 0;
+
+			other->dirY = 0;
 
 			other->y = self->y + self->h / 2;
 
@@ -261,6 +272,10 @@ static void touch(Entity *other)
 			self->dirY = -self->speed;
 
 			self->dirX = 1;
+
+			/* Allow grabbing to be resumed when reloading the game */
+
+			self->health = -1;
 		}
 	}
 }
@@ -282,7 +297,7 @@ static void moveToEnd()
 
 	self->action = &moveToTarget;
 
-	self->active = FALSE;
+	self->active = TRUE;
 }
 
 static void activate(int val)

@@ -37,3 +37,7 @@ weapon/bow
 item/tesla_charger
 enemy/fire_burner
 item/high_striker
+item/containment_unit
+item/containment_unit_controls
+boss/blob_boss_1
+weapon/pickaxe

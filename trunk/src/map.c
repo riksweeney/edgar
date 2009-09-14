@@ -81,6 +81,8 @@ void loadMap(char *name, int loadEntityResources)
 	map.minY = 0;
 
 	map.maxX = map.maxY = 0;
+	
+	map.forceMinY = FALSE;
 
 	/* Read the data from the file into the map */
 
@@ -114,7 +116,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the background speed */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -125,7 +127,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "WRAP_X") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the wrapping */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -134,7 +136,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "WRAP_Y") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the wrapping */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -143,7 +145,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "BACKGROUND_SPEED_2") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the background speed */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -154,7 +156,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "WRAP_X_2") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the wrapping */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -163,7 +165,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "WRAP_Y_2") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the wrapping */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -172,7 +174,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "AMBIENCE") == 0)
 		{
-			/* Load the map tiles */
+			/* Load the ambience */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -185,7 +187,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "MUSIC") == 0)
 		{
-			/* Load the map tiles */
+			/* Load the music */
 
 			x = sscanf(line, "%*s %s\n", itemName);
 
@@ -201,13 +203,27 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "WEATHER") == 0)
 		{
-			/* Load the map tiles */
+			/* Set the weather */
 
 			sscanf(line, "%*s %s\n", itemName);
 
 			x = getWeatherTypeByName(itemName);
 
 			setWeather(x);
+		}
+		
+		else if (strcmpignorecase(itemName, "MIN_Y") == 0)
+		{
+			/* The the map's minimum Y */
+
+			sscanf(line, "%*s %s\n", itemName);
+			
+			map.forceMinY = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+			
+			if (map.forceMinY == TRUE)
+			{
+				map.minY = MAX_MAP_Y;
+			}
 		}
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
@@ -240,13 +256,15 @@ void loadMap(char *name, int loadEntityResources)
 						{
 							map.maxY = y;
 						}
-					}
-
-					if (map.tile[y][x] > 0)
-					{
+						
 						if (x < map.minX)
 						{
 							map.minX = x;
+						}
+						
+						if (map.forceMinY == TRUE && y < map.minY)
+						{
+							map.minY = y;
 						}
 					}
 
@@ -349,6 +367,7 @@ int saveMap()
 	fprintf(fp, "WRAP_X_2 %s\n", map.wrapX[1] == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "WRAP_Y_2 %s\n", map.wrapY[1] == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "WEATHER %s\n", getWeather());
+	fprintf(fp, "MIN_Y %s\n", map.forceMinY == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */

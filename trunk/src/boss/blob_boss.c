@@ -35,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../event/trigger.h"
 #include "../hud.h"
+#include "../inventory.h"
 
 extern Entity *self, player;
 
@@ -44,6 +45,15 @@ static void takeDamage(Entity *, int);
 static void attackFinished(void);
 static void doIntro(void);
 static void introPause(void);
+static void floatInContainer(void);
+static void stunnedTouch(Entity *);
+static void splitAttackInit(void);
+static void scatterAndAttack(void);
+static void partTakeDamage(Entity *, int);
+static void partWait(void);
+static void partAttack(void);
+static void activate(int);
+static void leaveFinish(void);
 
 Entity *addBlobBoss(int x, int y, char *name)
 {
@@ -61,14 +71,24 @@ Entity *addBlobBoss(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &initialise;
+	if (strcmpignorecase("boss/blob_boss_1", name) == 0)
+	{
+		e->action = &floatInContainer;
+		e->takeDamage = NULL;
+		e->activate = &activate;
+	}
+
+	else
+	{
+		e->action = &initialise;
+		e->touch = &stunnedTouch;
+
+		e->flags |= NO_DRAW|FLY;
+	}
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->takeDamage = NULL;
 
 	e->type = ENEMY;
-
-	e->flags |= NO_DRAW|FLY;
 
 	e->active = FALSE;
 
@@ -116,7 +136,7 @@ static void doIntro()
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (self->flags & ON_GROUND && (onGround == 0))
 	{
 		self->face = LEFT;
 
@@ -153,6 +173,7 @@ static void wait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
+		self->action = &splitAttackInit;
 	}
 
 	checkToMap(self);
@@ -219,7 +240,7 @@ static void activate(int val)
 
 		self = e;
 
-		self->target = e;
+		self->target = temp;
 
 		self->activate(val);
 
@@ -229,7 +250,7 @@ static void activate(int val)
 
 static void stunnedTouch(Entity *other)
 {
-	Entity *e, *temp;
+	Entity *e;
 
 	e = getInventoryItem(_("Tesla Pack"));
 
@@ -277,8 +298,15 @@ static void splitAttackInit()
 	}
 }
 
+static void scatterAndAttack()
+{
+	self->action = &partAttack;
+}
+
 static void partTakeDamage(Entity *other, int damage)
 {
+	int i;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -325,4 +353,52 @@ static void partAttack()
 static void partWait()
 {
 	checkToMap(self);
+}
+
+static void floatInContainer()
+{
+	if (self->active == TRUE)
+	{
+		self->health--;
+	}
+	
+	if (self->health > 0)
+	{
+		self->thinkTime++;
+
+		if (self->thinkTime >= 360)
+		{
+			self->thinkTime = 0;
+		}
+
+		self->y = self->startY + cos(DEG_TO_RAD(self->thinkTime)) * 32;
+	}
+	
+	else
+	{
+		self->flags |= DO_NOT_PERSIST;
+
+		if (self->y < self->endY)
+		{
+			self->flags &= ~FLY;
+
+			checkToMap(self);
+		}
+
+		else if (self->thinkTime > 0)
+		{
+			self->y = self->endY;
+
+			self->flags |= FLY;
+
+			setEntityAnimation(self, WALK);
+
+			self->animationCallback = &leaveFinish;
+		}
+	}
+}
+
+static void leaveFinish()
+{
+	self->inUse = FALSE;
 }
