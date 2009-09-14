@@ -731,7 +731,9 @@ void pushEntity(Entity *other)
 		{
 			self->y -= self->dirY;
 
-			self->dirX += ceil(other->dirX);
+			/*self->dirX += ceil(other->dirX);*/
+
+			self->dirX += other->dirX;
 
 			wasOnGround = (self->flags & ON_GROUND);
 
@@ -796,7 +798,9 @@ void pushEntity(Entity *other)
 		{
 			self->y -= self->dirY;
 
-			self->dirX += floor(other->dirX);
+			/*self->dirX += floor(other->dirX);*/
+
+			self->dirX += other->dirX;
 
 			wasOnGround = (self->flags & ON_GROUND);
 

@@ -11,3 +11,7 @@ common/pressure_plate
 enemy/fire_burner
 item/ton_weight
 item/high_striker
+item/grabber
+common/save_point
+common/switch
+item/wooden_crate

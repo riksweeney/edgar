@@ -597,6 +597,11 @@ void setProperty(Entity *e, char *name, char *value)
 		e->type = getEntityTypeByName(value);
 	}
 
+	else if (strcmpignorecase(name, "ALPHA") == 0)
+	{
+		e->alpha = atoi(value);
+	}
+
 	else if (strcmpignorecase(name, "ELEMENT") == 0)
 	{
 		e->element = getElementTypeByName(value);

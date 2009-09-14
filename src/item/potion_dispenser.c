@@ -90,6 +90,8 @@ static void activate(int val)
 		
 		replaceInventoryItem(self->requires, e);
 		
+		playSound("sound/item/fill_potion.ogg");
+		
 		setInfoBoxMessage(60,  _("Obtained %s"), e->objectiveName);
 	}
 
