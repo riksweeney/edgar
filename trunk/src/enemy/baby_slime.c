@@ -95,7 +95,7 @@ static void attack()
 	if (self->thinkTime <= 0)
 	{
 		self->touch = NULL;
-		
+
 		self->die();
 	}
 }
@@ -137,7 +137,7 @@ static void grab(Entity *other)
 		{
 			self->action = &stickToPlayerAndDrain;
 		}
-		
+
 		else
 		{
 			self->action = &stickToPlayer;
@@ -146,14 +146,14 @@ static void grab(Entity *other)
 		self->touch = NULL;
 
 		self->flags |= GRABBING;
-		
+
 		self->layer = FOREGROUND_LAYER;
 
 		other->flags |= GRABBED;
 
 		self->thinkTime = 0;
 
-		self->damage = 3 + (prand() % 17);
+		self->mental = 3 + (prand() % 3);
 	}
 }
 
@@ -177,13 +177,13 @@ static void stickToPlayer()
 
 		if (self->thinkTime <= 15)
 		{
-			self->damage--;
+			self->mental--;
 		}
 
 		self->thinkTime = 0;
 	}
 
-	if (self->damage <= 0)
+	if (self->mental <= 0)
 	{
 		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
 
@@ -200,7 +200,7 @@ static void stickToPlayer()
 static void stickToPlayerAndDrain()
 {
 	Entity *temp;
-	
+
 	setCustomAction(&player, &slowDown, 3, 0);
 
 	if (game.showHints == TRUE)
@@ -219,26 +219,26 @@ static void stickToPlayerAndDrain()
 
 		if (self->thinkTime <= 15)
 		{
-			self->damage--;
+			self->mental--;
 		}
 
 		self->thinkTime = 0;
 	}
-	
+
 	if (self->thinkTime >= 60)
 	{
 		temp = self;
-		
+
 		self = &player;
-		
+
 		self->takeDamage(temp, 1);
-		
+
 		self = temp;
-		
+
 		self->thinkTime = 0;
 	}
 
-	if (self->damage <= 0)
+	if (self->mental <= 0)
 	{
 		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
 

@@ -114,9 +114,9 @@ Entity *loadPlayer(int x, int y, char *name)
 	clearCustomActions(&player);
 
 	player.alpha = 255;
-	
+
 	player.element = NO_ELEMENT;
-	
+
 	player.weight = 1;
 
 	player.fallout = &fallout;
@@ -555,7 +555,7 @@ void doPlayer()
 		{
 			addToGrid(&playerWeapon);
 		}
-		
+
 		playerWeapon.alpha = player.alpha;
 		playerShield.alpha = player.alpha;
 	}
@@ -1212,9 +1212,13 @@ static void playerDie()
 	setEntityAnimation(&playerShield, DIE);
 	setEntityAnimation(&playerWeapon, DIE);
 
+	player.frameSpeed = 1;
+
 	player.health = 0;
 
 	player.flags |= HELPLESS;
+
+	playerWeapon.flags &= ~ATTACKING;
 
 	player.dirX = 0;
 

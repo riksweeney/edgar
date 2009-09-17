@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../inventory.h"
 #include "../audio/audio.h"
+#include "tesla_pack.h"
 
 extern Entity *self;
 
@@ -134,18 +135,9 @@ static void activate(int val)
 
 	if (self->health == 3)
 	{
-		printf("Adding charge to inventory\n");
+		printf("Adding pack to inventory\n");
 
-		e = getFreeEntity();
-
-		if (e == NULL)
-		{
-			printf("No free slots to add a Tesla Charge\n");
-
-			exit(1);
-		}
-
-		loadProperties("item/tesla_pack_full", e);
+		e = addTeslaPack(0, 0, "item/tesla_pack_full");
 
 		addToInventory(e);
 
@@ -154,7 +146,7 @@ static void activate(int val)
 
 	else
 	{
-		e = getInventoryItem(_("Tesla Charge"));
+		e = getInventoryItem(_("Tesla Pack"));
 
 		if (e != NULL && e->health == 0)
 		{
@@ -177,16 +169,16 @@ static void touch(Entity *other)
 	{
 		if (self->health == 3)
 		{
-			setInfoBoxMessage(0,  _("Press Action to retrieve Tesla Charge"));
+			setInfoBoxMessage(0,  _("Press Action to retrieve Tesla Pack"));
 		}
 
 		else if (self->health == -1)
 		{
-			e = getInventoryItem(_("Tesla Charge"));
+			e = getInventoryItem(_("Tesla Pack"));
 
 			if (e != NULL && e->health == 0)
 			{
-				setInfoBoxMessage(0,  _("Press Action to replace Tesla Charge"));
+				setInfoBoxMessage(0,  _("Press Action to replace Tesla Pack"));
 			}
 		}
 	}
