@@ -23,10 +23,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../hud.h"
+#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../inventory.h"
 #include "key_items.h"
 #include "../audio/audio.h"
+#include "../custom_actions.h"
 
 extern Entity *self;
 
@@ -73,16 +75,19 @@ static void wait()
 	if (self->target != NULL)
 	{
 		self->x = self->target->x + self->target->w / 2;
-		self->y = self->target->y + self->target->w / 2;
+		self->y = self->target->y + self->target->h / 2;
 
 		self->x -= self->w / 2;
 		self->y -= self->h / 2;
 
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->target->startX == 0)
 		{
-			shockTarget();
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->action = &shockTarget;
+			}
 		}
 	}
 
@@ -94,9 +99,17 @@ static void wait()
 
 static void shockTarget()
 {
-	self->target->health -= 100;
+	Entity *temp;
+	
+	playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
 
-	self->target->maxHealth -= 100;
+	temp = self;
+
+	self = self->target;
+
+	self->takeDamage(temp, 1000);
+
+	self = temp;
 
 	self->thinkTime = 120;
 
@@ -105,18 +118,19 @@ static void shockTarget()
 
 static void shockEnd()
 {
-	self->x = self->target->x;
-	self->y = self->target->y;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->target = NULL;
 
+		self->health = 0;
+
 		self->touch = &keyItemTouch;
 
 		self->action = &wait;
+
+		loadProperties("item/tesla_pack_empty", self);
 	}
 }
 
@@ -124,7 +138,7 @@ static void activate(int val)
 {
 	if (self->target != NULL)
 	{
-		self->thinkTime = 60;
+		self->thinkTime = 30;
 
 		addEntity(*self, self->target->x, self->target->y);
 

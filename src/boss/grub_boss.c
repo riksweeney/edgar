@@ -89,8 +89,6 @@ Entity *addGrubBoss(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
-	int i;
-
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -100,22 +98,7 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &flashWhite, 6, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
-			i = prand() % 3;
-
-			switch (i)
-			{
-				case 0:
-					playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
-				break;
-
-				case 1:
-					playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
-				break;
-
-				default:
-					playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
-				break;
-			}
+			enemyPain();
 		}
 
 		else
@@ -180,7 +163,7 @@ static void doIntro()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = LEFT;
@@ -336,7 +319,7 @@ static void spinAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
@@ -356,7 +339,7 @@ static void spinAttack()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);
@@ -406,7 +389,7 @@ static void bounceAttackStart()
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = (self->face == RIGHT ? 3 : -3);
@@ -428,7 +411,7 @@ static void bounceAttack()
 	if (self->flags & ON_GROUND)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->dirY = -14;
@@ -437,7 +420,7 @@ static void bounceAttack()
 	if (self->dirX == 0)
 	{
 		shakeScreen(MEDIUM, 15);
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 
 		self->face = (player.x > self->x ? RIGHT : LEFT);

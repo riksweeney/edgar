@@ -617,6 +617,11 @@ void pushEntity(Entity *other)
 	float dirX;
 	static int depth = 0;
 	long wasOnGround;
+	
+	if (strcmpignorecase(self->name, "boss/blob_boss_part") == 0)
+	{
+		printf("Hitting\n");
+	}
 
 	if (other->touch == NULL || other->type == WEAPON || (other->flags & PLAYER_TOUCH_ONLY))
 	{

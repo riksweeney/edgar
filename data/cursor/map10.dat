@@ -41,3 +41,5 @@ item/containment_unit
 item/containment_unit_controls
 boss/blob_boss_1
 weapon/pickaxe
+boss/blob_boss_2
+enemy/tortoise

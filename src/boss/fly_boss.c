@@ -278,7 +278,7 @@ static int drawSuspended()
 	drawLine(self->startX + self->w / 2, self->startY, self->x + self->w / 2, self->y + 15, 255, 255, 255);
 
 	drawLoopingAnimationToMap();
-	
+
 	return TRUE;
 }
 
@@ -442,7 +442,7 @@ static void drop()
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
 			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-			
+
 			shakeScreen(LIGHT, 15);
 
 			self->thinkTime = 90;
@@ -799,7 +799,7 @@ static void fallout()
 		self->flags |= HELPLESS;
 
 		self->dirX = 0;
-		
+
 		self->action = &doNothing;
 	}
 }
@@ -807,7 +807,7 @@ static void fallout()
 static void die()
 {
 	self->damage = 0;
-	
+
 	self->thinkTime = 120;
 
 	self->flags &= ~FLY;
@@ -895,7 +895,7 @@ static void reactToHeadButtBlock()
 static void takeDamage(Entity *other, int damage)
 {
 	int i, minHealth;
-	
+
 	minHealth = self->maxHealth / 10;
 
 	if (!(self->flags & INVULNERABLE))
@@ -922,22 +922,7 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &flashWhite, 6, 0);
 		setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
-		i = prand() % 3;
-
-		switch (i)
-		{
-			case 0:
-				playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
-			break;
-
-			case 1:
-				playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
-			break;
-
-			default:
-				playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
-			break;
-		}
+		enemyPain();
 	}
 }
 

@@ -813,8 +813,6 @@ static void alignBodyToHead()
 
 static void takeDamage(Entity *other, int damage)
 {
-	int i;
-
 	if (!(self->flags & INVULNERABLE))
 	{
 		/* Only takes proper damage against its own shot */
@@ -842,22 +840,7 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &flashWhite, 6, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
-			i = prand() % 3;
-
-			switch (i)
-			{
-				case 0:
-					playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
-				break;
-
-				case 1:
-					playSoundToMap("sound/common/splat2.ogg", -1, self->x, self->y, 0);
-				break;
-
-				default:
-					playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
-				break;
-			}
+			enemyPain();
 		}
 
 		else
