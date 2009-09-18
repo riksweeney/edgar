@@ -617,11 +617,6 @@ void pushEntity(Entity *other)
 	float dirX;
 	static int depth = 0;
 	long wasOnGround;
-	
-	if (strcmpignorecase(self->name, "boss/blob_boss_part") == 0)
-	{
-		printf("Hitting\n");
-	}
 
 	if (other->touch == NULL || other->type == WEAPON || (other->flags & PLAYER_TOUCH_ONLY))
 	{
@@ -772,9 +767,17 @@ void pushEntity(Entity *other)
 		{
 			/* Place the entity as close as possible */
 
-			other->x = getLeftEdge(self);
+			other->x = getLeftEdge(self) - other->w;
 
-			other->x -= other->box.w;
+			if (other->face == RIGHT)
+			{
+				other->x += other->w - other->box.x - other->box.w;
+			}
+
+			else
+			{
+				other->x += other->w - other->box.w;
+			}
 
 			other->dirX = 0;
 
@@ -841,6 +844,16 @@ void pushEntity(Entity *other)
 
 			other->x = getRightEdge(self);
 
+			if (other->face == RIGHT)
+			{
+				other->x -= other->box.x;
+			}
+
+			else
+			{
+				other->x -= other->w - (other->box.w + other->box.x);
+			}
+
 			other->dirX = 0;
 
 			if ((other->flags & GRABBING) && other->target != NULL)
@@ -858,7 +871,7 @@ void pushEntity(Entity *other)
 		}
 
 		collided = TRUE;
-}
+	}
 
 	else if (collided == FALSE)
 	{

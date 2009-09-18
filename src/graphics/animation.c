@@ -489,11 +489,14 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		/* Align the right edge to stop it looking bad */
 
-		if (e->face == LEFT && previousAnim != -1)
+		if (previousAnim != -1)
 		{
-			newRightEdge = e->x + e->w;
+			if (e->face == LEFT)
+			{
+				newRightEdge = e->x + e->w;
 
-			e->x += (previousRightEdge - newRightEdge);
+				e->x += (previousRightEdge - newRightEdge);
+			}
 		}
 	}
 }

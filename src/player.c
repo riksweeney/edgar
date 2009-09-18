@@ -641,6 +641,9 @@ static void attackFinish()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+	
+	playerWeapon.x = playerShield.x = player.x;
+	playerWeapon.y = playerShield.y = player.y;
 }
 
 void drawPlayer()

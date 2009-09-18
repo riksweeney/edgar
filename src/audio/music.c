@@ -29,7 +29,7 @@ static void playGameOverMusic(void);
 
 void loadMusic(char *name)
 {
-	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
@@ -91,7 +91,7 @@ void freeBossMusic()
 
 void playMusic()
 {
-	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
@@ -144,7 +144,7 @@ void pauseMusic()
 
 void playBossMusic()
 {
-	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
@@ -163,7 +163,7 @@ void playBossMusic()
 
 void loadBossMusic(char *name)
 {
-	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
@@ -201,7 +201,7 @@ void loadGameOverMusic()
 
 static void playGameOverMusic()
 {
-	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
