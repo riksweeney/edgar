@@ -77,6 +77,12 @@ static void explodeWait(void);
 static void eatTakeDamage(Entity *, int);
 static void shudder(void);
 static Target *getTarget(void);
+static void grubAttackInit(void);
+static void grubAttackWait(void);
+static void spinAttackStart(void);
+static void spinAttack(void);
+static void spinAttackEnd(void);
+static void grubAttackFinish(void);
 
 Entity *addBlobBoss(int x, int y, char *name)
 {
@@ -132,9 +138,7 @@ static void initialise()
 		{
 			centerMapOnEntity(NULL);
 
-			self->maxThinkTime = 60;
-
-			self->startX = self->maxThinkTime;
+			self->startX = self->maxThinkTime = 60;
 
 			self->thinkTime = 6;
 
@@ -145,8 +149,6 @@ static void initialise()
 			setEntityAnimation(self, WALK);
 
 			self->frameSpeed = 0;
-
-			self->mental = 30;
 		}
 	}
 }
@@ -263,6 +265,8 @@ static void introPause()
 		initBossHealthBar();
 
 		self->touch = &entityTouch;
+		
+		self->mental = 15;
 	}
 }
 
@@ -275,37 +279,214 @@ static void wait()
 	facePlayer();
 
 	self->thinkTime--;
+	
+	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->health <= 250)
-		{
-			self->action = &splitAttackInit;
-		}
-
-		else if (self->mental <= 0)
+		if (self->mental <= 0)
 		{
 			self->action = &eatInit;
 		}
 
-		else
+		else if (self->health > 3000)
 		{
-			i = prand() % 2;
-
+			self->action = &bounceAroundInit;
+		}
+		
+		else if (self->health > 2000)
+		{
+			self->action = prand() % 2 == 0 ? &bounceAroundInit : &punchAttackInit;
+		}
+		
+		else if (self->health > 1000)
+		{
+			i = prand() % 3;
+			
 			switch (i)
 			{
 				case 0:
 					self->action = &punchAttackInit;
 				break;
 
-				default:
+				case 1:
 					self->action = &bounceAroundInit;
+				break;
+
+				default:
+					self->action = &grubAttackInit;
+				break;
+			}
+		}
+		
+		else
+		{
+			i = prand() % 2;
+			
+			switch (i)
+			{
+				case 0:
+					self->action = &splitAttackInit;
+				break;
+				
+				case 1:
+					self->action = &punchAttackInit;
 				break;
 			}
 		}
 	}
 
 	checkToMap(self);
+}
+
+static void grubAttackInit()
+{
+	facePlayer();
+
+	setEntityAnimation(self, ATTACK_2);
+
+	self->thinkTime = 30;
+
+	self->animationCallback = &grubAttackWait;
+
+	self->maxThinkTime = 1 + prand() % 5;
+}
+
+static void grubAttackWait()
+{
+	setEntityAnimation(self, ATTACK_3);
+	
+	self->thinkTime--;
+
+	self->action = &grubAttackWait;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, ATTACK_4);
+
+		self->action = &spinAttackStart;
+
+		self->thinkTime = 1;
+	}
+}
+
+static void spinAttackStart()
+{
+	self->flags |= INVULNERABLE;
+
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
+
+			self->dirY = -8;
+		}
+	}
+
+	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
+	{
+		self->speed = self->originalSpeed * 6;
+
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+
+		self->action = &spinAttack;
+
+		self->thinkTime = 180;
+
+		self->flags |= ATTACKING;
+	}
+
+	checkToMap(self);
+}
+
+static void spinAttack()
+{
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->dirX == 0 || isAtEdge(self))
+	{
+		shakeScreen(MEDIUM, 15);
+
+		self->dirX = self->face == LEFT ? 3 : -3;
+
+		self->dirY = -6;
+
+		self->action = &spinAttackEnd;
+
+		self->thinkTime = 0;
+
+		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+
+		facePlayer();
+	}
+
+	else if (self->thinkTime <= 0)
+	{
+		self->action = &spinAttackEnd;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void spinAttackEnd()
+{
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	{
+		facePlayer();
+
+		self->dirX = 0;
+
+		self->maxThinkTime--;
+		
+		if (self->maxThinkTime > 0)
+		{
+			self->action = &spinAttackStart;
+			
+			self->thinkTime = 0;
+		}
+		
+		else
+		{
+			self->action = &grubAttackFinish;
+			
+			self->thinkTime = 30;
+		}
+	}
+}
+
+static void grubAttackFinish()
+{
+	if (self->frameSpeed > 0)
+	{
+		self->frameSpeed = -1;
+		
+		facePlayer();
+	
+		setEntityAnimation(self, ATTACK_2);
+		
+		self->animationCallback = &attackFinished;
+		
+		self->frameSpeed = 0;
+	}
+	
+	else if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->frameSpeed = -1;
+		}
+	}
 }
 
 static void eatInit()
@@ -319,7 +500,7 @@ static void eatInit()
 	self->action = &eatAttack;
 
 	self->takeDamage = &eatTakeDamage;
-	
+
 	self->mental = 10000;
 }
 
@@ -387,8 +568,10 @@ static void eatExplode()
 	Target *t;
 
 	self->maxThinkTime = 0;
-	
+
 	t = getTarget();
+	
+	self->startX = 0;
 
 	for (i=0;i<60;i++)
 	{
@@ -427,8 +610,10 @@ static void eatExplode()
 		e->head = self;
 
 		e->type = ENEMY;
-		
+
 		e->targetX = t->x;
+		
+		self->startX++;
 	}
 
 	self->target = NULL;
@@ -442,13 +627,13 @@ static void eatExplode()
 	self->flags |= NO_DRAW;
 
 	self->frameSpeed = 0;
-	
+
 	self->touch = NULL;
 }
 
 static void bounceAroundInit()
 {
-	self->maxThinkTime = 5 + prand() % 15;
+	self->maxThinkTime = 8;
 
 	self->touch = &entityTouch;
 
@@ -478,7 +663,7 @@ static void bounceAround()
 		}
 	}
 
-	if (self->dirX == 0 && self->maxThinkTime != 10)
+	if (self->dirX == 0 && self->maxThinkTime != 8)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 
@@ -492,7 +677,7 @@ static void punchAttackInit()
 
 	self->maxThinkTime = 3 + prand() % 3;
 
-	/*self->layer = BACKGROUND_LAYER;*/
+	self->layer = BACKGROUND_LAYER;
 
 	self->action = &punchSink;
 }
@@ -509,7 +694,7 @@ static void punchSink()
 	else
 	{
 		self->y = self->targetY;
-		
+
 		setEntityAnimation(self, ATTACK_1);
 
 		if (self->maxThinkTime > 0 && player.health > 0)
@@ -556,29 +741,36 @@ static void lookForPlayer()
 static void punch()
 {
 	Entity *e;
-	
+
 	if (self->y > self->targetY)
 	{
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
 		{
+			if (self->thinkTime == 0)
+			{
+				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+				shakeScreen(MEDIUM, 15);
+			}
+
 			e = addSmallRock(self->x, self->y, "common/small_rock");
-	
+
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->h - e->h) / 2;
-	
+
 			e->dirX = -3;
 			e->dirY = -8;
-	
+
 			e = addSmallRock(self->x, self->y, "common/small_rock");
-	
+
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->h - e->h) / 2;
-	
+
 			e->dirX = 3;
 			e->dirY = -8;
-			
+
 			self->y -= 12;
 
 			if (self->y <= self->targetY)
@@ -612,7 +804,7 @@ static void punchFinish()
 	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		if (self->y > self->targetY)
 		{
 			self->y -= 2;
@@ -638,7 +830,9 @@ static void attackFinished()
 
 	self->layer = MID_GROUND_LAYER;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
+
+	self->speed = self->originalSpeed;
 
 	self->dirX = 0;
 
@@ -651,7 +845,7 @@ static void attackFinished()
 	self->action = &wait;
 
 	self->touch = &entityTouch;
-	
+
 	self->activate = NULL;
 }
 
@@ -662,11 +856,11 @@ static void takeDamage(Entity *other, int damage)
 		if (other->element == LIGHTNING)
 		{
 			self->health -= damage;
-			
+
 			self->thinkTime = 120;
-			
+
 			self->startX = self->x;
-			
+
 			self->action = &shudder;
 		}
 
@@ -703,28 +897,28 @@ static void eatTakeDamage(Entity *other, int damage)
 static void activate(int val)
 {
 	Entity *e, *temp;
-	
+
 	if (!(self->flags & NO_DRAW))
 	{
 		e = getInventoryItem(_("Tesla Pack"));
-		
+
 		printf("Getting pack\n");
-	
-		if (e != NULL)
+
+		if (e != NULL && e->health != 0)
 		{
 			printf("Using pack\n");
-			
+
 			temp = self;
-	
+
 			self = e;
-	
+
 			self->target = temp;
-	
+
 			self->activate(val);
-	
+
 			self = temp;
 		}
-		
+
 		else
 		{
 			printf("Could not find pack\n");
@@ -735,12 +929,12 @@ static void activate(int val)
 static void stunnedTouch(Entity *other)
 {
 	Entity *e;
-	
+
 	if (!(self->flags & NO_DRAW))
 	{
 		e = getInventoryItem(_("Tesla Pack"));
-	
-		if (e != NULL)
+
+		if (e != NULL && e->health != 0)
 		{
 			setInfoBoxMessage(5,  _("Press Action to attach the Tesla Pack"));
 		}
@@ -754,7 +948,7 @@ static void splitAttackInit()
 	Target *t;
 
 	self->maxThinkTime = 0;
-	
+
 	t = getTarget();
 
 	for (i=0;i<60;i++)
@@ -802,7 +996,7 @@ static void splitAttackInit()
 		e->type = ENEMY;
 
 		e->thinkTime = 60;
-		
+
 		e->targetX = t->x;
 	}
 
@@ -1001,8 +1195,11 @@ static void fallOff()
 static void partWait()
 {
 	int startX, endX;
+	int endY;
 
 	startX = getMapStartX();
+
+	endY = getMapStartY();
 
 	endX = startX + SCREEN_WIDTH;
 
@@ -1016,6 +1213,13 @@ static void partWait()
 	else if (self->x > endX)
 	{
 		self->x = endX - self->w - 5;
+	}
+
+	if (self->y > endY + SCREEN_HEIGHT)
+	{
+		printf("Out of bounds\n");
+
+		exit(0);
 	}
 
 	if (self->flags & ON_GROUND)
@@ -1041,12 +1245,10 @@ static void explodeWait()
 
 		self->action = &headWait;
 
-		self->mental = 30;
-
 		self->touch = &stunnedTouch;
-		
+
 		self->activate = &activate;
-		
+
 		self->takeDamage = &takeDamage;
 	}
 }
@@ -1065,8 +1267,6 @@ static void headWait()
 
 		self->maxThinkTime = 0;
 
-		self->startX = 60;
-
 		self->action = &headReform;
 	}
 }
@@ -1077,6 +1277,21 @@ static void headReform()
 
 	if (self->startX <= 0)
 	{
+		if (self->health > 2000)
+		{
+			self->mental = 15;
+		}
+		
+		else if (self->health > 1000)
+		{
+			self->mental = 20;
+		}
+		
+		else
+		{
+			printf("Will now do final set of attacks\n");
+		}
+	
 		self->action = &attackFinished;
 	}
 }
@@ -1132,20 +1347,35 @@ static void leaveFinish()
 static void shudder()
 {
 	self->thinkTime--;
-	
+
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
-	
+
 	self->startY += 90;
 
 	if (self->startY >= 360)
 	{
 		self->startY = 0;
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->startX;
 		
+		if (self->health > 2000)
+		{
+			self->mental = 20;
+		}
+		
+		else if (self->health > 1000)
+		{
+			self->mental = 30;
+		}
+		
+		else
+		{
+			printf("Will now do final set of attacks\n");
+		}
+
 		self->action = &attackFinished;
 	}
 }
@@ -1160,6 +1390,6 @@ static Target *getTarget()
 
 		exit(1);
 	}
-	
+
 	return t;
 }

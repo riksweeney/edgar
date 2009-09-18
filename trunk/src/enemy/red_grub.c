@@ -78,7 +78,7 @@ static void lookForPlayer()
 	if (self->dirX == 0 || isAtEdge(self) == TRUE)
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
-		
+
 		self->face = (self->dirX < 0 ? LEFT : RIGHT);
 	}
 
@@ -131,17 +131,13 @@ static void spinAttackStart()
 
 static void spinAttack()
 {
-	float speed = self->dirX;
-
 	self->thinkTime--;
 
 	checkToMap(self);
 
 	if (self->dirX == 0 || isAtEdge(self))
 	{
-		self->face = (player.x > self->x ? RIGHT : LEFT);
-
-		self->dirX = speed < 0 ? 3 : -3;
+		self->dirX = self->face == LEFT ? 3 : -3;
 
 		self->dirY = -6;
 
@@ -150,6 +146,8 @@ static void spinAttack()
 		self->thinkTime = 0;
 
 		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+
+		self->face = (player.x > self->x ? RIGHT : LEFT);
 	}
 
 	else if (self->thinkTime <= 0)

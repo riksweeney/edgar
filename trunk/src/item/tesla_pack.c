@@ -62,6 +62,8 @@ Entity *addTeslaPack(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->activate = &activate;
+	
+	e->die = &entityDieNoDrop;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -74,13 +76,15 @@ static void wait()
 {
 	if (self->target != NULL)
 	{
+		self->layer = BACKGROUND_LAYER;
+
 		self->x = self->target->x + self->target->w / 2;
 		self->y = self->target->y + self->target->h / 2;
 
 		self->x -= self->w / 2;
 		self->y -= self->h / 2;
 
-		if (self->target->startX == 0)
+		if (self->target->startX <= 0)
 		{
 			self->thinkTime--;
 
@@ -93,6 +97,8 @@ static void wait()
 
 	else
 	{
+		self->layer = FOREGROUND_LAYER;
+
 		checkToMap(self);
 	}
 }
@@ -100,7 +106,7 @@ static void wait()
 static void shockTarget()
 {
 	Entity *temp;
-	
+
 	playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
 
 	temp = self;
@@ -122,15 +128,23 @@ static void shockEnd()
 
 	if (self->thinkTime <= 0)
 	{
-		self->target = NULL;
-
-		self->health = 0;
-
-		self->touch = &keyItemTouch;
-
-		self->action = &wait;
-
-		loadProperties("item/tesla_pack_empty", self);
+		if (self->target->health < 1000)
+		{
+			self->die();
+		}
+		
+		else
+		{
+			self->target = NULL;
+	
+			self->health = 0;
+	
+			self->touch = &keyItemTouch;
+	
+			self->action = &wait;
+	
+			loadProperties("item/tesla_pack_empty", self);
+		}
 	}
 }
 
