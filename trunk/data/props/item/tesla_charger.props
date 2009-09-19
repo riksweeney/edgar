@@ -3,3 +3,4 @@ GFX_FILE data/gfx/item/tesla_charger.dat
 ANIM_FILE data/anim/item/tesla_charger.dat
 TYPE KEY_ITEM
 FLAGS FLY
+LAYER BACKGROUND_LAYER
