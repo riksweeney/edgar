@@ -29,6 +29,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "key_items.h"
 #include "../audio/audio.h"
 #include "../custom_actions.h"
+#include "../world/explosion.h"
+#include "../system/random.h"
 
 extern Entity *self;
 
@@ -36,6 +38,7 @@ static void wait(void);
 static void shockTarget(void);
 static void shockEnd(void);
 static void activate(int);
+static void die(void);
 
 Entity *addTeslaPack(int x, int y, char *name)
 {
@@ -62,8 +65,8 @@ Entity *addTeslaPack(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->activate = &activate;
-	
-	e->die = &entityDieNoDrop;
+
+	e->die = &die;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -130,21 +133,27 @@ static void shockEnd()
 	{
 		if (self->target->health < 1000)
 		{
-			self->die();
-		}
+			self->target = NULL;
+
+			self->health = 0;
 		
+			self->mental = 20;
+
+			self->action = &die;
+		}
+
 		else
 		{
 			self->target = NULL;
-	
+
 			self->health = 0;
-	
+
 			self->touch = &keyItemTouch;
-	
+
 			self->action = &wait;
-	
-			loadProperties("item/tesla_pack_empty", self);
 		}
+		
+		loadProperties("item/tesla_pack_empty", self);
 	}
 }
 
@@ -158,4 +167,31 @@ static void activate(int val)
 
 		self->inUse = FALSE;
 	}
+}
+
+static void die()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addExplosion(self->x + prand() % self->w, self->y + prand() % self->h);
+
+		e->damage = 0;
+
+		e->touch = NULL;
+
+		self->thinkTime = 8;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->inUse = FALSE;
+		}
+	}
+	
+	checkToMap(self);
 }

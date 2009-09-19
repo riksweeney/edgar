@@ -468,9 +468,9 @@ void setEntityAnimation(Entity *e, int animationID)
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
-		e->frameTimer = animation[e->currentAnim].frameTimer[0];
+		e->frameTimer = animation[e->currentAnim].frameTimer[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1];
 
-		sprite = getSprite(animation[e->currentAnim].frameID[0]);
+		sprite = getSprite(animation[e->currentAnim].frameID[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1]);
 
 		if (sprite->image == NULL)
 		{
@@ -555,4 +555,27 @@ int getAnimationTypeAtIndex(Entity *e)
 	printf("Failed to find animation at index %d\n", e->currentAnim);
 
 	exit(1);
+}
+
+void setFrameData(Entity *e)
+{
+	Sprite *sprite;
+
+	if (e->inUse == FALSE)
+	{
+		return;
+	}
+	
+	e->currentFrame += (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
+	e->frameTimer = animation[e->currentAnim].frameTimer[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1];
+	
+	sprite = getSprite(animation[e->currentAnim].frameID[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1]);
+	
+	e->w = sprite->image->w;
+	e->h = sprite->image->h;
+
+	e->offsetX = animation[e->currentAnim].offsetX[e->currentFrame];
+	e->offsetY = animation[e->currentAnim].offsetY[e->currentFrame];
+
+	e->box = sprite->box;
 }

@@ -76,13 +76,22 @@ static void eatExplode(void);
 static void explodeWait(void);
 static void eatTakeDamage(Entity *, int);
 static void shudder(void);
-static Target *getTarget(void);
+static Target *getCenterTarget(void);
 static void grubAttackInit(void);
 static void grubAttackWait(void);
 static void spinAttackStart(void);
 static void spinAttack(void);
 static void spinAttackEnd(void);
 static void grubAttackFinish(void);
+static void punch2AttackInit(void);
+static void punch2Sink(void);
+static void punch2(void);
+static void die(void);
+static void dieSink(void);
+static void dieRise(void);
+static void dieSplit(void);
+static void dieWait(void);
+static void partFinalDie(void);
 
 Entity *addBlobBoss(int x, int y, char *name)
 {
@@ -227,6 +236,8 @@ static void reform()
 	{
 		if (fabs(self->targetX - self->x) <= fabs(self->dirX))
 		{
+			printf("Current %f\n", self->head->startX);
+
 			self->head->startX--;
 
 			self->head->flags &= ~NO_DRAW;
@@ -265,8 +276,10 @@ static void introPause()
 		initBossHealthBar();
 
 		self->touch = &entityTouch;
-		
+
 		self->mental = 15;
+
+		self->endY = self->y;
 	}
 }
 
@@ -279,7 +292,7 @@ static void wait()
 	facePlayer();
 
 	self->thinkTime--;
-	
+
 	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
 
 	if (self->thinkTime <= 0 && player.health > 0)
@@ -293,16 +306,16 @@ static void wait()
 		{
 			self->action = &bounceAroundInit;
 		}
-		
+
 		else if (self->health > 2000)
 		{
 			self->action = prand() % 2 == 0 ? &bounceAroundInit : &punchAttackInit;
 		}
-		
+
 		else if (self->health > 1000)
 		{
 			i = prand() % 3;
-			
+
 			switch (i)
 			{
 				case 0:
@@ -318,25 +331,164 @@ static void wait()
 				break;
 			}
 		}
-		
+
 		else
 		{
 			i = prand() % 2;
-			
+
 			switch (i)
 			{
 				case 0:
 					self->action = &splitAttackInit;
 				break;
-				
+
 				case 1:
-					self->action = &punchAttackInit;
+					self->action = &punch2AttackInit;
 				break;
 			}
 		}
 	}
 
 	checkToMap(self);
+}
+
+static void punch2AttackInit()
+{
+	Target *t;
+
+	t = getCenterTarget();
+
+	self->startX = t->x;
+
+	t = getTargetByName(player.x < self->x ? "BLOB_TARGET_LEFT" : "BLOB_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		printf("Blob Boss could not find target\n");
+
+		exit(1);
+	}
+
+	self->endX = t->x;
+
+	self->targetY = self->y + self->h;
+
+	self->layer = BACKGROUND_LAYER;
+
+	self->action = &punch2Sink;
+}
+
+static void punch2Sink()
+{
+	int x;
+	Target *t;
+
+	if (self->y < self->targetY)
+	{
+		self->y += 3;
+	}
+
+	else
+	{
+		self->y = self->targetY;
+
+		setEntityAnimation(self, CUSTOM_1);
+
+		if (self->x != self->endX)
+		{
+			x = self->x < self->endX ? 48 : -48;
+
+			self->x += x;
+
+			if (x < 0 && self->x < self->endX)
+			{
+				self->x = self->endX;
+			}
+
+			else if (x > 0 && self->x > self->endX)
+			{
+				self->x = self->endX;
+			}
+
+			self->thinkTime = 15;
+
+			self->targetY = self->y - self->h;
+
+			self->action = &punch2;
+		}
+
+		else
+		{
+			self->action = &punchFinish;
+
+			t = getCenterTarget();
+
+			self->targetX = t->x;
+
+			self->targetY = self->y - self->h;
+
+			self->dirX = self->speed;
+		}
+	}
+}
+
+static void punch2()
+{
+	Entity *e;
+
+	if (self->y > self->targetY)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			if (self->thinkTime == 0)
+			{
+				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+				shakeScreen(MEDIUM, 15);
+			}
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			self->y -= 12;
+
+			if (self->y <= self->targetY)
+			{
+				self->y = self->targetY;
+
+				self->thinkTime = self->x != self->endX ? 30 : 90;
+			}
+		}
+	}
+
+	else
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime < 0)
+		{
+			self->targetY = self->y + self->h;
+
+			self->action = &punch2Sink;
+		}
+	}
+
+	facePlayer();
 }
 
 static void grubAttackInit()
@@ -355,7 +507,7 @@ static void grubAttackInit()
 static void grubAttackWait()
 {
 	setEntityAnimation(self, ATTACK_3);
-	
+
 	self->thinkTime--;
 
 	self->action = &grubAttackWait;
@@ -446,18 +598,18 @@ static void spinAttackEnd()
 		self->dirX = 0;
 
 		self->maxThinkTime--;
-		
+
 		if (self->maxThinkTime > 0)
 		{
 			self->action = &spinAttackStart;
-			
+
 			self->thinkTime = 0;
 		}
-		
+
 		else
 		{
 			self->action = &grubAttackFinish;
-			
+
 			self->thinkTime = 30;
 		}
 	}
@@ -468,20 +620,20 @@ static void grubAttackFinish()
 	if (self->frameSpeed > 0)
 	{
 		self->frameSpeed = -1;
-		
+
 		facePlayer();
-	
+
 		setEntityAnimation(self, ATTACK_2);
-		
+
 		self->animationCallback = &attackFinished;
-		
+
 		self->frameSpeed = 0;
 	}
-	
+
 	else if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->frameSpeed = -1;
@@ -569,8 +721,8 @@ static void eatExplode()
 
 	self->maxThinkTime = 0;
 
-	t = getTarget();
-	
+	t = getCenterTarget();
+
 	self->startX = 0;
 
 	for (i=0;i<60;i++)
@@ -601,6 +753,10 @@ static void eatExplode()
 
 		e->dirY = -6 - prand() % 4;
 
+		e->touch = &entityTouch;
+
+		e->damage = 0;
+
 		e->action = &partWait;
 
 		e->pain = &enemyPain;
@@ -612,7 +768,7 @@ static void eatExplode()
 		e->type = ENEMY;
 
 		e->targetX = t->x;
-		
+
 		self->startX++;
 	}
 
@@ -628,12 +784,14 @@ static void eatExplode()
 
 	self->frameSpeed = 0;
 
+	self->maxThinkTime = 1;
+
 	self->touch = NULL;
 }
 
 static void bounceAroundInit()
 {
-	self->maxThinkTime = 8;
+	self->maxThinkTime = 7;
 
 	self->touch = &entityTouch;
 
@@ -663,7 +821,7 @@ static void bounceAround()
 		}
 	}
 
-	if (self->dirX == 0 && self->maxThinkTime != 8)
+	if (self->dirX == 0 && self->maxThinkTime != 7)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 
@@ -708,7 +866,7 @@ static void punchSink()
 		{
 			self->action = &punchFinish;
 
-			t = getTarget();
+			t = getCenterTarget();
 
 			self->targetX = t->x;
 
@@ -803,7 +961,7 @@ static void punchFinish()
 {
 	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
 
 		if (self->y > self->targetY)
 		{
@@ -829,14 +987,14 @@ static void attackFinished()
 	self->flags &= ~INVULNERABLE;
 
 	self->layer = MID_GROUND_LAYER;
+	
+	self->frameSpeed = 1;
 
 	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
 
 	self->speed = self->originalSpeed;
 
 	self->dirX = 0;
-
-	self->frameSpeed = 1;
 
 	self->thinkTime = 90;
 
@@ -864,7 +1022,7 @@ static void takeDamage(Entity *other, int damage)
 			self->action = &shudder;
 		}
 
-		else if (self->health > 0)
+		else if (self->health > 1000)
 		{
 			setCustomAction(self, &flashWhite, 6, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
@@ -872,6 +1030,30 @@ static void takeDamage(Entity *other, int damage)
 			self->mental--;
 
 			enemyPain();
+		}
+
+		else if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+			self->health -= damage;
+
+			if (self->health > 0)
+			{
+				enemyPain();
+			}
+
+			else
+			{
+				self->thinkTime = 120;
+
+				self->startX = self->x;
+
+				self->damage = 0;
+
+				self->action = &shudder;
+			}
 		}
 	}
 }
@@ -949,7 +1131,7 @@ static void splitAttackInit()
 
 	self->maxThinkTime = 0;
 
-	t = getTarget();
+	t = getCenterTarget();
 
 	for (i=0;i<60;i++)
 	{
@@ -1004,7 +1186,7 @@ static void splitAttackInit()
 
 	self->action = &headWait;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, BLOCK);
 
 	self->flags |= NO_DRAW;
 
@@ -1019,8 +1201,6 @@ static void partDie()
 
 	setEntityAnimation(self, STAND);
 
-	printf("%d to go\n", self->head->maxThinkTime);
-
 	self->action = &partWait;
 
 	self->touch = NULL;
@@ -1031,6 +1211,19 @@ static void partDie()
 static void partAttack()
 {
 	long onGround = (self->flags & ON_GROUND);
+	int startX, endX;
+	int endY;
+
+	startX = getMapStartX();
+
+	endY = getMapStartY();
+
+	endX = startX + SCREEN_WIDTH;
+
+	if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+	{
+		self->x = self->head->x;
+	}
 
 	checkToMap(self);
 
@@ -1205,26 +1398,14 @@ static void partWait()
 
 	checkToMap(self);
 
-	if (self->x < startX)
-	{
-		self->x = startX;
-	}
-
-	else if (self->x > endX)
-	{
-		self->x = endX - self->w - 5;
-	}
-
-	if (self->y > endY + SCREEN_HEIGHT)
-	{
-		printf("Out of bounds\n");
-
-		exit(0);
-	}
-
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
+	}
+
+	if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+	{
+		self->x = self->head->x;
 	}
 
 	if (self->head->maxThinkTime == 0 && self->head->startX != 0)
@@ -1261,11 +1442,15 @@ static void headWait()
 
 	if (self->maxThinkTime <= 0)
 	{
-		t = getTarget();
+		printf("Head wait complete\n");
+
+		t = getCenterTarget();
 
 		self->x = t->x - self->w / 2;
 
 		self->maxThinkTime = 0;
+
+		self->startX = 60;
 
 		self->action = &headReform;
 	}
@@ -1281,17 +1466,17 @@ static void headReform()
 		{
 			self->mental = 15;
 		}
-		
+
 		else if (self->health > 1000)
 		{
 			self->mental = 20;
 		}
-		
+
 		else
 		{
 			printf("Will now do final set of attacks\n");
 		}
-	
+
 		self->action = &attackFinished;
 	}
 }
@@ -1360,27 +1545,27 @@ static void shudder()
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->startX;
-		
+
 		if (self->health > 2000)
 		{
 			self->mental = 20;
 		}
-		
+
 		else if (self->health > 1000)
 		{
 			self->mental = 30;
 		}
-		
-		else
+
+		else if (self->health > 0)
 		{
 			printf("Will now do final set of attacks\n");
 		}
 
-		self->action = &attackFinished;
+		self->action = self->action = self->health <= 0 ? &die : &attackFinished;
 	}
 }
 
-static Target *getTarget()
+static Target *getCenterTarget()
 {
 	Target *t = getTargetByName("BLOB_TARGET");
 
@@ -1392,4 +1577,186 @@ static Target *getTarget()
 	}
 
 	return t;
+}
+
+static void die()
+{
+	Target *t;
+
+	t = getCenterTarget();
+
+	self->targetY = self->endY + self->h;
+
+	self->targetX = t->x;
+
+	self->action = &dieSink;
+
+	/*self->layer = BACKGROUND_LAYER;*/
+}
+
+static void dieSink()
+{
+	if (self->y < self->targetY)
+	{
+		self->y += 3;
+	}
+
+	else
+	{
+		self->y = self->targetY;
+
+		setEntityAnimation(self, STAND);
+
+		if (fabs(self->x - self->targetX) <= fabs(self->speed))
+		{
+			self->dirX = 0;
+
+			self->thinkTime = 60;
+
+			self->action = &dieRise;
+		}
+
+		else
+		{
+			self->x += self->x < self->targetX ? self->speed : -self->speed;
+		}
+	}
+}
+
+static void dieRise()
+{
+	if (self->y > self->endY)
+	{
+		self->y -= 3;
+	}
+
+	else
+	{
+		self->y = self->endY;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->frameSpeed = -1;
+
+			setEntityAnimation(self, WALK);
+
+			self->mental = 30;
+
+			self->frameSpeed = 0;
+
+			self->action = dieSplit;
+		}
+	}
+}
+
+static void dieSplit()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			printf("No free slots to add a Blob Boss Part\n");
+
+			exit(1);
+		}
+
+		loadProperties("boss/blob_boss_part", e);
+
+		setEntityAnimation(e, STAND);
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->type = ENEMY;
+
+		e->damage = 0;
+
+		e->touch = NULL;
+
+		e->head = self;
+
+		e->action = &partFinalDie;
+
+		e->die = &entityDieNoDrop;
+
+		e->x = self->x + self->box.x + self->box.w / 2 - e->w / 2;
+
+		e->y = self->y + self->box.y + self->box.h / 2 - e->h / 2;
+
+		e->thinkTime = 120;
+
+		e->dirX = 10 + prand() % 80;
+
+		e->dirX /= 10;
+
+		e->dirX *= prand() % 2 == 0 ? -1 : 1;
+
+		e->dirY = -4 - prand() % 12;
+
+		e->targetX = self->x + self->w / 2;
+
+		self->mental--;
+
+		if (self->mental == 0)
+		{
+			if (self->currentFrame == 0)
+			{
+				self->flags |= NO_DRAW;
+
+				self->thinkTime = 120;
+
+				self->action = &dieWait;
+
+				return;
+			}
+
+			else
+			{
+				self->mental = 30;
+
+				self->currentFrame--;
+			}
+		}
+
+		self->thinkTime = 3;
+	}
+
+	checkToMap(self);
+}
+
+static void dieWait()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		freeBossHealthBar();
+
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		fadeBossMusic();
+
+		entityDieNoDrop();
+	}
+}
+
+static void partFinalDie()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->die();
+	}
 }
