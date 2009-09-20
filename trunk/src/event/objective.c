@@ -129,6 +129,24 @@ void updateObjective(char *objectiveName)
 	}
 }
 
+void modifyObjective(char *objectiveName, char *completionTrigger)
+{
+	int i;
+
+	for (i=0;i<MAX_OBJECTIVES;i++)
+	{
+		if (objective[i].inUse == TRUE && objective[i].active == TRUE && objective[i].completed == FALSE)
+		{
+			if (strcmpignorecase(objective[i].name, objectiveName) == 0)
+			{
+				STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
+				
+				break;
+			}
+		}
+	}
+}
+
 void writeObjectivesToFile(FILE *fp)
 {
 	int i;

@@ -17,7 +17,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-int collision(float, float, int, int, float, float, int, int);
+int collision(int, int, int, int, int, int, int, int);
 void doCollisions(void);
 void checkToMap(Entity *);
 int isAtEdge(Entity *);

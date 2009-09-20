@@ -89,7 +89,7 @@ void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 	dest.w = image->w;
 	dest.h = image->h;
 	
-	if (alpha != 255)
+	if (alpha != 255 && alpha != -1)
 	{
 		SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
 	}

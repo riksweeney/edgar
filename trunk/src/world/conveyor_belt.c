@@ -59,7 +59,6 @@ static void wait()
 	{
 		if (self->health == 0)
 		{
-			
 			if (self->active == TRUE)
 			{
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
