@@ -1123,7 +1123,24 @@ static void falloutPause()
 
 static void resetPause()
 {
-	if (player.health <= (player.environment == SLIME ? 2 : (player.environment == WATER ? 1 : 9999)))
+	int minHealth;
+	
+	switch (player.environment)
+	{
+		case LAVA:
+			minHealth = 99999;
+		break;
+		
+		case SLIME:
+			minHealth = 2;
+		break;
+		
+		default:
+			minHealth = 1;
+		break;
+	}
+	
+	if (player.health <= minHealth)
 	{
 		player.health = 0;
 

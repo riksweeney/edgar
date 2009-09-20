@@ -726,151 +726,157 @@ void pushEntity(Entity *other)
 	if (other->dirX > 0 && collided == FALSE)
 	{
 		/* Trying to move right */
-
-		if (pushable != 0)
+		
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
-			self->y -= self->dirY;
-
-			/*self->dirX += ceil(other->dirX);*/
-
-			self->dirX += other->dirX;
-
-			wasOnGround = (self->flags & ON_GROUND);
-
-			checkToMap(self);
-
-			if (wasOnGround != 0)
+			if (pushable != 0)
 			{
-				self->flags |= ON_GROUND;
+				self->y -= self->dirY;
+	
+				/*self->dirX += ceil(other->dirX);*/
+	
+				self->dirX += other->dirX;
+	
+				wasOnGround = (self->flags & ON_GROUND);
+	
+				checkToMap(self);
+	
+				if (wasOnGround != 0)
+				{
+					self->flags |= ON_GROUND;
+				}
+	
+				depth++;
+	
+				checkEntityToEntity(self);
+	
+				depth--;
+	
+				if (self->dirX == 0)
+				{
+					pushable = 0;
+				}
+	
+				else
+				{
+					self->frameSpeed = 1;
+				}
+	
+				self->y += self->dirY;
 			}
-
-			depth++;
-
-			checkEntityToEntity(self);
-
-			depth--;
-
-			if (self->dirX == 0)
+	
+			if (pushable == 0)
 			{
-				pushable = 0;
+				/* Place the entity as close as possible */
+	
+				other->x = getLeftEdge(self) - other->w;
+	
+				if (other->face == RIGHT)
+				{
+					other->x += other->w - other->box.x - other->box.w;
+				}
+	
+				else
+				{
+					other->x += other->w - other->box.w;
+				}
+	
+				other->dirX = 0;
+	
+				if ((other->flags & GRABBING) && other->target != NULL)
+				{
+					other->target->x -= other->target->dirX;
+					other->target->dirX = 0;
+				}
 			}
-
-			else
+	
+			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
 			{
-				self->frameSpeed = 1;
+				other->target = self;
+	
+				self->flags |= GRABBED;
 			}
-
-			self->y += self->dirY;
+	
+			collided = TRUE;
 		}
-
-		if (pushable == 0)
-		{
-			/* Place the entity as close as possible */
-
-			other->x = getLeftEdge(self) - other->w;
-
-			if (other->face == RIGHT)
-			{
-				other->x += other->w - other->box.x - other->box.w;
-			}
-
-			else
-			{
-				other->x += other->w - other->box.w;
-			}
-
-			other->dirX = 0;
-
-			if ((other->flags & GRABBING) && other->target != NULL)
-			{
-				other->target->x -= other->target->dirX;
-				other->target->dirX = 0;
-			}
-		}
-
-		if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
-		{
-			other->target = self;
-
-			self->flags |= GRABBED;
-		}
-
-		collided = TRUE;
-}
+	}
 
 	else if (other->dirX < 0 && collided == FALSE)
 	{
 		/* Trying to move left */
-
-		if (pushable != 0)
+		
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
-			self->y -= self->dirY;
-
-			/*self->dirX += floor(other->dirX);*/
-
-			self->dirX += other->dirX;
-
-			wasOnGround = (self->flags & ON_GROUND);
-
-			checkToMap(self);
-
-			if (wasOnGround != 0)
+			if (pushable != 0)
 			{
-				self->flags |= ON_GROUND;
+				self->y -= self->dirY;
+	
+				/*self->dirX += floor(other->dirX);*/
+	
+				self->dirX += other->dirX;
+	
+				wasOnGround = (self->flags & ON_GROUND);
+	
+				checkToMap(self);
+	
+				if (wasOnGround != 0)
+				{
+					self->flags |= ON_GROUND;
+				}
+	
+				depth++;
+	
+				checkEntityToEntity(self);
+	
+				depth--;
+	
+				if (self->dirX == 0)
+				{
+					pushable = 0;
+				}
+	
+				else
+				{
+					self->frameSpeed = -1;
+				}
+	
+				self->y += self->dirY;
 			}
-
-			depth++;
-
-			checkEntityToEntity(self);
-
-			depth--;
-
-			if (self->dirX == 0)
+	
+			if (pushable == 0)
 			{
-				pushable = 0;
+				/* Place the entity as close as possible */
+	
+				other->x = getRightEdge(self);
+	
+				if (other->face == RIGHT)
+				{
+					other->x -= other->box.x;
+				}
+	
+				else
+				{
+					other->x -= other->w - (other->box.w + other->box.x);
+				}
+	
+				other->dirX = 0;
+	
+				if ((other->flags & GRABBING) && other->target != NULL)
+				{
+					other->target->x -= other->target->dirX;
+					other->target->dirX = 0;
+				}
 			}
-
-			else
+	
+			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
 			{
-				self->frameSpeed = -1;
+				other->target = self;
+	
+				self->flags |= GRABBED;
 			}
-
-			self->y += self->dirY;
+	
+			collided = TRUE;
 		}
-
-		if (pushable == 0)
-		{
-			/* Place the entity as close as possible */
-
-			other->x = getRightEdge(self);
-
-			if (other->face == RIGHT)
-			{
-				other->x -= other->box.x;
-			}
-
-			else
-			{
-				other->x -= other->w - (other->box.w + other->box.x);
-			}
-
-			other->dirX = 0;
-
-			if ((other->flags & GRABBING) && other->target != NULL)
-			{
-				other->target->x -= other->target->dirX;
-				other->target->dirX = 0;
-			}
-		}
-
-		if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
-		{
-			other->target = self;
-
-			self->flags |= GRABBED;
-		}
-
-		collided = TRUE;
 	}
 
 	else if (collided == FALSE)

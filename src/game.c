@@ -146,7 +146,7 @@ void drawGame()
 
 	if (game.alphaSurface != NULL)
 	{
-		drawImage(game.alphaSurface, 0, 0, FALSE, 200);
+		drawImage(game.alphaSurface, 0, 0, FALSE, -1);
 	}
 
 	if (game.action == &doGameOver)
