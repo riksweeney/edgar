@@ -1722,6 +1722,8 @@ static void dieSplit()
 				self->mental = 30;
 
 				self->currentFrame--;
+				
+				setFrameData(self);
 			}
 		}
 
