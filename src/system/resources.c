@@ -577,11 +577,11 @@ void patchEntities(double versionFile, char *mapName)
 
 				skipping = strcmpignorecase(itemName, mapName) == 0 ? FALSE : TRUE;
 			}
-			
-			else if (strcmpignorecase(line, "UPDATE_OBJECTIVE") == 0 && skipping == FALSE)
+
+			else if (strcmpignorecase(itemName, "MODIFY_OBJECTIVE") == 0 && skipping == FALSE)
 			{
-				sscanf(line, "\"%[^\"]\" \"%[^\"]\"", key, value);
-				
+				sscanf(line, "%*s \"%[^\"]\" \"%[^\"]\"", key, value);
+
 				printf("Updating Objective %s\n", key);
 
 				modifyObjective(key, value);

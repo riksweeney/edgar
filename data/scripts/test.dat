@@ -1,2 +1,1 @@
-TALK Edgar Setting trigger
-ADD MAP_TRIGGER "test" ACTIVATE_ENTITY "TEST_SPAWNER"
+ADD OBJECTIVE "This is a blank objective" " "

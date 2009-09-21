@@ -140,7 +140,7 @@ void modifyObjective(char *objectiveName, char *completionTrigger)
 			if (strcmpignorecase(objective[i].name, objectiveName) == 0)
 			{
 				STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
-				
+
 				break;
 			}
 		}
