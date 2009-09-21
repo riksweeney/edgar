@@ -641,7 +641,7 @@ static void attackFinish()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	playerWeapon.x = playerShield.x = player.x;
 	playerWeapon.y = playerShield.y = player.y;
 }
@@ -1124,22 +1124,22 @@ static void falloutPause()
 static void resetPause()
 {
 	int minHealth;
-	
+
 	switch (player.environment)
 	{
 		case LAVA:
 			minHealth = 99999;
 		break;
-		
+
 		case SLIME:
 			minHealth = 2;
 		break;
-		
+
 		default:
 			minHealth = 1;
 		break;
 	}
-	
+
 	if (player.health <= minHealth)
 	{
 		player.health = 0;
