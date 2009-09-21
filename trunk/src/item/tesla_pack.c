@@ -39,6 +39,7 @@ static void shockTarget(void);
 static void shockEnd(void);
 static void activate(int);
 static void die(void);
+static void shockWait(void);
 
 Entity *addTeslaPack(int x, int y, char *name)
 {
@@ -108,7 +109,35 @@ static void wait()
 
 static void shockTarget()
 {
-	Entity *temp;
+	Entity *temp, *e;
+	
+	e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		printf("No free slots to add a Tesla Shock\n");
+
+		exit(1);
+	}
+
+	loadProperties("item/tesla_shock", e);
+
+	e->x = self->target->x;
+	e->y = self->target->y;
+
+	e->face = self->target->face;
+
+	e->action = &shockWait;
+
+	e->touch = NULL;
+
+	e->activate = NULL;
+
+	e->die = NULL;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, STAND);
 
 	playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
 
@@ -194,4 +223,14 @@ static void die()
 	}
 	
 	checkToMap(self);
+}
+
+static void shockWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }

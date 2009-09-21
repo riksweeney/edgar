@@ -113,6 +113,8 @@ void stopMusic()
 
 void fadeOutMusic(int time)
 {
+	Mix_HookMusicFinished(NULL);
+	
 	Mix_FadeOutMusic(time);
 }
 
