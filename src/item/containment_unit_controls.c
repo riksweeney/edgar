@@ -94,7 +94,7 @@ static void touch(Entity *other)
 {
 	Entity *temp;
 	
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->health > 0)
 	{
 		setInfoBoxMessage(0,  _("Press Action to retrieve Purple Gem"));
 	}

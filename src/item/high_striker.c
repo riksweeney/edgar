@@ -66,6 +66,11 @@ static void init()
 		self->health = self->maxHealth = 0;
 	}
 	
+	else
+	{
+		setEntityAnimation(self, self->health);
+	}
+	
 	self->maxThinkTime = self->thinkTime = 0;
 
 	self->action = &wait;
