@@ -566,10 +566,7 @@ void setFrameData(Entity *e)
 		return;
 	}
 	
-	e->currentFrame += (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
-	e->frameTimer = animation[e->currentAnim].frameTimer[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1];
-	
-	sprite = getSprite(animation[e->currentAnim].frameID[e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1]);
+	sprite = getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
 	
 	e->w = sprite->image->w;
 	e->h = sprite->image->h;
