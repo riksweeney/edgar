@@ -1,0 +1,21 @@
+TALK Narrator You'll be able to access the rest of the fortress from here, but it's not in this version so check back later!
+IF EDGAR MAX_HEALTH 6
+TALK Narrator By the way, you only have 6 hit points at the moment. A good player would have 7 or 8 by now and a very good player would have 9.
+TALK Narrator An excellent player would have 10.
+TALK Narrator While you're waiting for the next version, why don't you go hunting for those extra hit points?
+TALK Narrator Here's a hint : Check the mine again
+END
+IF EDGAR MAX_HEALTH 7
+TALK Narrator Good work, you have 7 hit points. You can have up 10 hit points by this point though so why not have another look around?
+TALK Narrator Here's a hint : Check the mine again
+END
+IF EDGAR MAX_HEALTH 8
+TALK Narrator Good work, you have 8 hit points. You can have up 10 hit points by this point though so why not have another look around?
+TALK Narrator Here's a hint : Check the mine again
+END
+IF EDGAR MAX_HEALTH 9
+TALK Narrator Nice one, you have 9 hit points, but you missed one on your journey. Why not try and hunt it down?
+END
+IF EDGAR MAX_HEALTH 10
+TALK Narrator 10 hit points? You are a master player!
+END
