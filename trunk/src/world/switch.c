@@ -32,9 +32,12 @@ extern Game game;
 
 static void activate(int);
 static void call(int);
+static void reset(int);
+static void wait(void);
 static void wait(void);
 static void initialise(void);
 static void touch(Entity *);
+static void resetTouch(Entity *);
 
 Entity *addSwitch(char *name, int x, int y)
 {
@@ -55,8 +58,24 @@ Entity *addSwitch(char *name, int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
 	e->action = &initialise;
-	e->touch = &touch;
-	e->activate = strcmpignorecase(name, "common/call_switch") == 0 ? &call : &activate;
+
+	if (strcmpignorecase(name, "common/call_switch") == 0)
+	{
+		e->activate = &call;
+		e->touch = &touch;
+	}
+
+	else if (strcmpignorecase(name, "common/reset_switch") == 0)
+	{
+		e->activate = &reset;
+		e->touch = &resetTouch;
+	}
+
+	else
+	{
+		e->activate = &activate;
+		e->touch = &touch;
+	}
 
 	e->type = SWITCH;
 
@@ -150,18 +169,18 @@ static void activate(int val)
 	if (self->maxThinkTime != 0)
 	{
 		/* Cancel the current timer */
-		
+
 		if (self->thinkTime > 0)
 		{
 			self->thinkTime = 0;
-			
+
 			stopSound(self->startX);
 		}
-		
+
 		else
 		{
 			self->thinkTime = self->maxThinkTime;
-	
+
 			self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 		}
 	}
@@ -198,6 +217,37 @@ static void wait()
 	checkToMap(self);
 }
 
+static void reset(int val)
+{
+	Entity *e, *temp;
+
+	if (self->thinkTime == 0)
+	{
+		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+
+		self->active = TRUE;
+
+		setEntityAnimation(self, WALK);
+
+		self->thinkTime = 120;
+
+		e = getEntityByObjectiveName(self->objectiveName);
+
+		if (e != NULL && e->fallout != NULL)
+		{
+			temp = self;
+
+			self = e;
+
+			self->fallout();
+
+			self->thinkTime = 0;
+
+			self = temp;
+		}
+	}
+}
+
 static void initialise()
 {
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
@@ -210,5 +260,13 @@ static void touch(Entity *other)
 	if (other->type == PLAYER && game.showHints == TRUE)
 	{
 		setInfoBoxMessage(0,  _("Press Action to use this switch"));
+	}
+}
+
+static void resetTouch(Entity *other)
+{
+	if (other->type == PLAYER && game.showHints == TRUE)
+	{
+		setInfoBoxMessage(0,  _("Press Action to reset puzzle blocks"));
 	}
 }

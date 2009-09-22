@@ -44,6 +44,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
+static void addEntityToList(EntityList *, Entity *);
 
 void freeEntities()
 {
@@ -726,77 +727,77 @@ void pushEntity(Entity *other)
 	if (other->dirX > 0 && collided == FALSE)
 	{
 		/* Trying to move right */
-		
+
 		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{
 				self->y -= self->dirY;
-	
+
 				/*self->dirX += ceil(other->dirX);*/
-	
+
 				self->dirX += other->dirX;
-	
+
 				wasOnGround = (self->flags & ON_GROUND);
-	
+
 				checkToMap(self);
-	
+
 				if (wasOnGround != 0)
 				{
 					self->flags |= ON_GROUND;
 				}
-	
+
 				depth++;
-	
+
 				checkEntityToEntity(self);
-	
+
 				depth--;
-	
+
 				if (self->dirX == 0)
 				{
 					pushable = 0;
 				}
-	
+
 				else
 				{
 					self->frameSpeed = 1;
 				}
-	
+
 				self->y += self->dirY;
 			}
-	
+
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-	
+
 				other->x = getLeftEdge(self) - other->w;
-	
+
 				if (other->face == RIGHT)
 				{
 					other->x += other->w - other->box.x - other->box.w;
 				}
-	
+
 				else
 				{
 					other->x += other->w - other->box.w;
 				}
-	
+
 				other->dirX = 0;
-	
+
 				if ((other->flags & GRABBING) && other->target != NULL)
 				{
 					other->target->x -= other->target->dirX;
 					other->target->dirX = 0;
 				}
 			}
-	
+
 			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
 			{
 				other->target = self;
-	
+
 				self->flags |= GRABBED;
 			}
-	
+
 			collided = TRUE;
 		}
 	}
@@ -804,77 +805,77 @@ void pushEntity(Entity *other)
 	else if (other->dirX < 0 && collided == FALSE)
 	{
 		/* Trying to move left */
-		
+
 		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{
 				self->y -= self->dirY;
-	
+
 				/*self->dirX += floor(other->dirX);*/
-	
+
 				self->dirX += other->dirX;
-	
+
 				wasOnGround = (self->flags & ON_GROUND);
-	
+
 				checkToMap(self);
-	
+
 				if (wasOnGround != 0)
 				{
 					self->flags |= ON_GROUND;
 				}
-	
+
 				depth++;
-	
+
 				checkEntityToEntity(self);
-	
+
 				depth--;
-	
+
 				if (self->dirX == 0)
 				{
 					pushable = 0;
 				}
-	
+
 				else
 				{
 					self->frameSpeed = -1;
 				}
-	
+
 				self->y += self->dirY;
 			}
-	
+
 			if (pushable == 0)
 			{
 				/* Place the entity as close as possible */
-	
+
 				other->x = getRightEdge(self);
-	
+
 				if (other->face == RIGHT)
 				{
 					other->x -= other->box.x;
 				}
-	
+
 				else
 				{
 					other->x -= other->w - (other->box.w + other->box.x);
 				}
-	
+
 				other->dirX = 0;
-	
+
 				if ((other->flags & GRABBING) && other->target != NULL)
 				{
 					other->target->x -= other->target->dirX;
 					other->target->dirX = 0;
 				}
 			}
-	
+
 			if ((other->flags & GRABBING) && other->target == NULL && (self->flags & PUSHABLE))
 			{
 				other->target = self;
-	
+
 				self->flags |= GRABBED;
 			}
-	
+
 			collided = TRUE;
 		}
 	}
@@ -961,6 +962,52 @@ Entity *getEntityByRequiredName(char *name)
 	}
 
 	return NULL;
+}
+
+EntityList *getEntitiesObjectiveName(char *name)
+{
+	int i;
+	EntityList *list;
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	if (list == NULL)
+	{
+		printf("Failed to allocate a whole %ld bytes for Entity List\n", sizeof(EntityList));
+	}
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		{
+			addEntityToList(list, &entity[i]);
+		}
+	}
+
+	return list;
+}
+
+EntityList *getEntitiesByRequiredName(char *name)
+{
+	int i;
+	EntityList *list;
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	if (list == NULL)
+	{
+		printf("Failed to allocate a whole %ld bytes for Entity List\n", sizeof(EntityList));
+	}
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
+		{
+			addEntityToList(list, &entity[i]);
+		}
+	}
+
+	return list;
 }
 
 Entity *getEntityByStartXY(int x, int y)
@@ -1479,4 +1526,23 @@ int getLeftEdge(Entity *e)
 int getRightEdge(Entity *e)
 {
 	return e->face == RIGHT ? e->x + e->box.x + e->box.w : e->x + e->w - e->box.x;
+}
+
+static void addEntityToList(EntityList *head, Entity *e)
+{
+	EntityList *listHead, *list;
+
+	listHead = head;
+
+	while (listHead->next != NULL)
+	{
+		listHead = listHead->next;
+	}
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	list->entity = e;
+	list->next = NULL;
+
+	listHead->next = list;
 }

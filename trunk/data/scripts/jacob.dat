@@ -24,7 +24,7 @@ IF Jacob HEALTH 3
 TALK Jacob Thanks for the logs, have you had any luck with the chickens?
 END
 IF Jacob HEALTH 4
-TALK Jacob I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 5 of my chickens
+TALK Jacob I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens
 SET Jacob HEALTH 2
 END
 IF Jacob HEALTH 1
