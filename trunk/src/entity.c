@@ -973,7 +973,7 @@ EntityList *getEntitiesObjectiveName(char *name)
 
 	if (list == NULL)
 	{
-		printf("Failed to allocate a whole %ld bytes for Entity List\n", sizeof(EntityList));
+		printf("Failed to allocate a whole %d bytes for Entity List\n", (int)sizeof(EntityList));
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -996,7 +996,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 
 	if (list == NULL)
 	{
-		printf("Failed to allocate a whole %ld bytes for Entity List\n", sizeof(EntityList));
+		printf("Failed to allocate a whole %d bytes for Entity List\n", (int)sizeof(EntityList));
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
