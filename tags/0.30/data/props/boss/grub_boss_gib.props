@@ -1,6 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/grub_boss_gib.dat
-ANIM_FILE data/anim/boss/grub_boss_gib.dat
-SPEED 2
-THINKTIME 180
-FLAGS BOUNCES
