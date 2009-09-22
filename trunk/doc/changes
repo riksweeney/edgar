@@ -6,7 +6,7 @@ Version 0.30
 * Fixed the scorpion's movement after its attack is blocked
 * Lifts no longer change direction when using your weapon in a tight passage
 * Added the Fortress Map
-* Added the Lab Map
+* Added the Laboratory Map
 * Added proper joypad support
 * Fixed scrolling speed when standing on a lift
 
