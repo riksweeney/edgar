@@ -275,10 +275,19 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index;
 	unsigned long size;
-	unsigned char *source, *dest, filename[MAX_PATH_LENGTH];
+	unsigned char *source, *dest, *filename;
 	FILE *fp;
 
 	index = i = -1;
+
+	filename = (unsigned char *)malloc(MAX_PATH_LENGTH);
+
+	if (filename == NULL)
+	{
+		printf("Failed to allocate a whole %d bytes for filename\n", MAX_PATH_LENGTH);
+
+		exit(1);
+	}
 
 	#if DEV == 1
 		fp = fopen(name, "rb");
@@ -403,7 +412,15 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 	fclose(fp);
 
-	return (writeToFile == TRUE ? filename : dest);
+	if (writeToFile == TRUE)
+	{
+		return filename;
+	}
+
+	else
+	{
+		return dest;
+	}
 }
 
 int existsInPak(char *name)

@@ -118,7 +118,7 @@ static void loadMenuLayout(int saving)
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/io_menu.dat"));
+	snprintf(filename, sizeof(filename), "data/menu/io_menu.dat");
 
 	buffer = loadFileFromPak(filename);
 

@@ -145,12 +145,12 @@ static void loadMenuLayout()
 	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2, *text;
 	unsigned char *buffer;
 	int x, y, i;
-	
+
 	savePtr1 = NULL;
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/sound_menu.dat"));
+	snprintf(filename, sizeof(filename), "data/menu/sound_menu.dat");
 
 	buffer = loadFileFromPak(filename);
 
@@ -217,36 +217,36 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(game.audio == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "SFX_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE);
 
 					text = getVolumePercent(game.sfxDefaultVolume);
 
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(_(text), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 
 					free(text);
 				}
 
 				else if (strcmpignorecase(menuID, "MUSIC_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE);
 
 					text = getVolumePercent(game.musicDefaultVolume);
 
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(_(text), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 
 					free(text);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
 
 				else

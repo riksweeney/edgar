@@ -148,7 +148,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/main_menu.dat"));
+	snprintf(filename, sizeof(filename), "data/menu/main_menu.dat");
 
 	buffer = loadFileFromPak(filename);
 
@@ -215,32 +215,32 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doNewGame, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_TUTORIAL") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doTutorial, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doTutorial, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showLoadDialog, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showLoadDialog, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showAboutMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showAboutMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &doQuit, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doQuit, x, y, TRUE);
 				}
 
 				else

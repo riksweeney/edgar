@@ -500,7 +500,7 @@ void getInventoryItemFromScript(char *line)
 		exit(1);
 	}
 
-	item = getInventoryItem(itemName);
+	item = getInventoryItem(_(itemName));
 
 	if (item != NULL && (item->health >= quantity || quantity == 1))
 	{
@@ -508,13 +508,13 @@ void getInventoryItemFromScript(char *line)
 		{
 			item->health -= quantityToRemove;
 
-			updateTrigger(itemName, quantityToRemove);
+			updateTrigger(_(itemName), quantityToRemove);
 
-			updateGlobalTrigger(itemName, quantityToRemove);
+			updateGlobalTrigger(_(itemName), quantityToRemove);
 
 			if (item->health <= 0 || quantityToRemove == -1)
 			{
-				removeInventoryItem(itemName);
+				removeInventoryItem(_(itemName));
 			}
 		}
 
@@ -525,7 +525,7 @@ void getInventoryItemFromScript(char *line)
 	{
 		if (item == NULL)
 		{
-			printf("Could not find item %s\n", itemName);
+			printf("Could not find item %s\n", _(itemName));
 		}
 
 		else
