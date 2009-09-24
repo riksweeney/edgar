@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/gazer_eye_slot.dat
+ANIM_FILE data/anim/item/gazer_eye_slot.dat
+TYPE KEY_ITEM
+REQUIRES Gazer Eyeball
+LAYER BACKGROUND_LAYER
+ACTIVE FALSE
