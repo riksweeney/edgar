@@ -62,6 +62,8 @@ int main(int argc, char *argv[])
 		bindtextdomain("edgar", LOCALE_DIR);
 	#endif
 
+	printf("Locale is %s\n", setlocale(LC_ALL, ""));
+
 	/* Start up SDL */
 
 	init(_("The Legend of Edgar"));

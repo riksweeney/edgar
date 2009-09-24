@@ -1,4 +1,4 @@
-VERSION = 0.30
+VERSION = 0.31
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -9,10 +9,12 @@ ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
+PO_PROG   = po_creator.exe
 else
 PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
+PO_PROG   = po_creator
 endif
 
 CXX       = gcc
@@ -44,6 +46,7 @@ LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
 endif
 
 PAK_OBJS   = pak_creator.o
+PO_OBJS    = po_creator.o
 MAIN_OBJS  = draw.o main.o
 EDIT_OBJS  = draw_editor.o main_editor.o cursor.o
 CORE_OBJS  = animation.o audio.o collisions.o entity.o font.o game.o graphics.o init.o input.o inventory.o
@@ -71,7 +74,7 @@ endif
 
 # top-level rule to create the program.
 .PHONY: all
-all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO)
+all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO) $(PO_PROG)
 
 makefile.dep : src/*/*.c src/*.c
 	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
@@ -94,10 +97,14 @@ $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
 	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+	
+# linking the program.
+$(PO_PROG): $(PO_OBJS)
+	$(CXX) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
+	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
 	
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)

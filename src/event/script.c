@@ -54,7 +54,7 @@ void runScript(char *name)
 
 	script.lineCount = 0;
 
-	snprintf(filename, sizeof(filename), _("data/scripts/%s.dat"), name);
+	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
 
 	printf("Loading script file %s\n", filename);
 
@@ -493,7 +493,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			useInventoryItemFromScript(token);
+			useInventoryItemFromScript(_(token));
 		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)

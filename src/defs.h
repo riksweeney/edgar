@@ -153,11 +153,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 		#undef INSTALL_PATH
 	#endif
 
+	#ifdef LOCALE_DIR
+		#undef LOCALE_DIR
+	#endif
+
 	#ifdef PAK_FILE
 		#undef PAK_FILE
 	#endif
 
 	#define INSTALL_PATH ""
+
+	#define LOCALE_DIR "locale/"
 
 	#define PAK_FILE "data.pak"
 #endif

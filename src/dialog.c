@@ -37,7 +37,7 @@ void createDialogBoxFromScript(char *msg)
 
 	text = strtok_r(NULL, "\0", &savePtr);
 
-	dialogSurface = createDialogBox(title, text);
+	dialogSurface = createDialogBox(_(title), _(text));
 }
 
 SDL_Surface *createDialogBox(char *title, char *msg)

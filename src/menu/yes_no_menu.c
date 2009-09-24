@@ -114,7 +114,7 @@ static void loadMenuLayout(char *text)
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/yes_no_menu.dat"));
+	snprintf(filename, sizeof(filename), "data/menu/yes_no_menu.dat");
 
 	buffer = loadFileFromPak(filename);
 
@@ -188,12 +188,12 @@ static void loadMenuLayout(char *text)
 
 				if (strcmpignorecase(menuID, "MENU_YES") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, doYes, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doYes, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_NO") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, doNo, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doNo, x, y, TRUE);
 				}
 
 				else

@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.31
+* Gravity now affects Edgar again when updating from an older version
+* Added most translation strings
+
 Version 0.30
 
 * Fixed the scorpion's movement after its attack is blocked

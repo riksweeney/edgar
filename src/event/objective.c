@@ -41,7 +41,7 @@ void addObjectiveFromScript(char *line)
 
 	sscanf(line, "\"%[^\"]\" \"%[^\"]\"", objectiveName, completionTrigger);
 
-	addObjective(objectiveName, completionTrigger);
+	addObjective(_(objectiveName), _(completionTrigger));
 }
 
 void addObjectiveFromResource(char *key[], char *value[])

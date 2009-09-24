@@ -44,16 +44,6 @@ echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
 svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
 
-echo "Generating messages.po"
-
-cd $APPDIR
-
-chmod +x generate_po.sh
-
-./generate_po.sh
-
-cd ..
-
 echo "Removing unwanted data files..."
 
 rm -rf $APPDIR/dev

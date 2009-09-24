@@ -145,7 +145,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), _("data/menu/options_menu.dat"));
+	snprintf(filename, sizeof(filename), "data/menu/options_menu.dat");
 
 	buffer = loadFileFromPak(filename);
 
@@ -212,31 +212,31 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_CONTROLS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showControlMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showControlMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showSoundMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showSoundMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_HINTS") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, &toggleHints, &toggleHints, &toggleHints, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleHints, &toggleHints, &toggleHints, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_FULLSCREEN") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
 				}
 
 				else

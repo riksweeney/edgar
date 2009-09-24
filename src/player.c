@@ -1013,7 +1013,7 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 	fprintf(fp, "DAMAGE %d\n", self->damage);
 	/*fprintf(fp, "SPEED %0.2f\n", self->speed); Don't write the speed */
-	fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+	/*fprintf(fp, "WEIGHT %0.2f\n", self->weight); Don't write the weight */
 	fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 	fprintf(fp, "REQUIRES %s\n", self->requires);
 	fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");
