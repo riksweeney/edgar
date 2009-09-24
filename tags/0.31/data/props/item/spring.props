@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/spring.dat
+ANIM_FILE data/anim/item/spring.dat
+TYPE KEY_ITEM
+FLAGS PUSHABLE

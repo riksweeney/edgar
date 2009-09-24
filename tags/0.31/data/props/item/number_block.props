@@ -1,0 +1,5 @@
+HEALTH 0
+GFX_FILE data/gfx/item/number_block.dat
+ANIM_FILE data/anim/item/number_block.dat
+TYPE KEY_ITEM
+FLAGS PUSHABLE|OBSTACLE|FLY
