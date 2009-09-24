@@ -1,3 +1,0 @@
-ADD OBJECTIVE "Kill all Bats!" "Tutorial Complete"
-ADD TRIGGER "TUTORIAL_MONSTER" 15 UPDATE_OBJECTIVE "Kill all Bats!"
-ADD TRIGGER "Tutorial Complete" 1 RUN_SCRIPT "tutorial_finish"
