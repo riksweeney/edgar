@@ -388,7 +388,9 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		{
 			fclose(fp);
 
-			snprintf((char *)filename, sizeof(filename), "%spakdata", getGameSavePath());
+			snprintf((unsigned char *)filename, MAX_PATH_LENGTH, "%spakdata", getGameSavePath());
+			
+			printf("Writing to %s\n", filename);
 
 			fp = fopen((char *)filename, "wb");
 
