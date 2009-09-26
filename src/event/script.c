@@ -493,7 +493,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			useInventoryItemFromScript(_(token));
+			useInventoryItemFromScript(token);
 		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)

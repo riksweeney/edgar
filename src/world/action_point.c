@@ -81,7 +81,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && game.showHints == TRUE)
 	{
-		setInfoBoxMessage(0,  _("Press Action to interact"));
+		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
 }
 

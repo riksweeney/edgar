@@ -14,11 +14,14 @@ int main(int argc, char *argv[])
 	char *token;
 
 	memset(added, 0, 4096 * MAX_LINE_LENGTH);
+	
+	value[0] = '\0';
+	value2[0] = '\0';
 
 	poIndex = 0;
 
 	/* Scripts */
-
+	/*
 	dirp = opendir("data/scripts");
 
 	while ((dfile = readdir(dirp)))
@@ -57,7 +60,7 @@ int main(int argc, char *argv[])
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", token);
 				}
 			}
-			/*
+			
 			else if (strstr(line, "ADD ENTITY ITEM") != NULL)
 			{
 				sscanf(line, "%*s %*s %*s %*s \"%[^\"]\"", value);
@@ -67,7 +70,7 @@ int main(int argc, char *argv[])
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", value);
 				}
 			}
-			*/
+			
 			else if (strstr(line, "ADD OBJECTIVE") != NULL)
 			{
 				sscanf(line, "%*s %*s \"%[^\"]\"", value);
@@ -81,12 +84,12 @@ int main(int argc, char *argv[])
 			else if (strstr(line, "ADD TRIGGER") != NULL && strstr(line, "UPDATE_OBJECTIVE") != NULL)
 			{
 				sscanf(line, "%*s %*s \"%[^\"]\" %*d %*s \"%[^\"]\"", value, value2);
-				/*
+				
 				if (textAlreadyAdded(value) == FALSE)
 				{
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", value);
 				}
-				*/
+				
 				if (textAlreadyAdded(value2) == FALSE)
 				{
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", value2);
@@ -98,7 +101,7 @@ int main(int argc, char *argv[])
 	}
 
 	closedir(dirp);
-
+	*/
 	dirp = opendir("data/props/item");
 
 	while ((dfile = readdir(dirp)))
@@ -135,7 +138,7 @@ int main(int argc, char *argv[])
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", token);
 				}
 			}
-			/*
+			
 			else if (strstr(line, "OBJECTIVE_NAME") != NULL && strstr(token, "/"))
 			{
 				token = strtok(line, " ");
@@ -147,14 +150,13 @@ int main(int argc, char *argv[])
 					printf("msgid \"%s\"\nmsgstr \"\"\n\n", token);
 				}
 			}
-			*/
 		}
 
 		fclose(fp);
 	}
 
 	closedir(dirp);
-	/*
+	
 	dirp = opendir("data/props/weapon");
 
 	while ((dfile = readdir(dirp)))
@@ -209,7 +211,7 @@ int main(int argc, char *argv[])
 	}
 
 	closedir(dirp);
-
+	/*
 	dirp = opendir("data/maps");
 
 	while ((dfile = readdir(dirp)))

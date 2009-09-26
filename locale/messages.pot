@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-21 22:23+0100\n"
-"PO-Revision-Date: 2009-09-23 09:27-0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2009-09-26 15:07+0100\n"
+"Last-Translator: Richard Sweeney <richard.sweeney@parallelrealities.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1072,3 +1072,82 @@ msgstr ""
 
 msgid "Tutorial Complete"
 msgstr ""
+
+msgid "A potion which will transform you..."
+msgstr ""
+
+msgid "A Green Gem"
+msgstr ""
+
+msgid "A Blue Gem"
+msgstr ""
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr ""
+
+msgid "A potion which will restore all of your health"
+msgstr ""
+
+msgid "A Red Gem"
+msgstr ""
+
+msgid "A powerful bomb"
+msgstr ""
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr ""
+
+msgid "The eyeball from a Gazer"
+msgstr ""
+
+msgid "A Tesla Pack. It has no charge."
+msgstr ""
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr ""
+
+msgid "A Purple Gem"
+msgstr ""
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr ""
+
+msgid "An empty potion bottle"
+msgstr ""
+
+msgid "A bag of chicken feed"
+msgstr ""
+
+msgid "A bag suitable for carrying coal"
+msgstr ""
+
+msgid "Basic Sword"
+msgstr ""
+
+msgid "A Sword given to you by Jacob"
+msgstr ""
+
+msgid "A bow"
+msgstr ""
+
+msgid "Small Wooden Shield"
+msgstr ""
+
+msgid "A small shield that provides basic protection"
+msgstr ""
+
+msgid "Normal Arrow"
+msgstr ""
+
+msgid "Normal Arrows"
+msgstr ""
+
+msgid "An axe suitable for chopping trees"
+msgstr ""
+
+msgid "Pickaxe"
+msgstr ""
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr ""
+

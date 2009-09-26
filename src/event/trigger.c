@@ -108,8 +108,8 @@ static void addTrigger(char *triggerName, int count, int total, int targetType, 
 			trigger[i].total = total;
 			trigger[i].targetType = targetType;
 
-			STRNCPY(trigger[i].triggerName, _(triggerName), sizeof(trigger[i].triggerName));
-			STRNCPY(trigger[i].targetName, _(targetName), sizeof(trigger[i].targetName));
+			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
+			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Trigger \"%s\" with total %d\n", trigger[i].triggerName, trigger[i].total);
 
@@ -140,7 +140,7 @@ void fireTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", trigger[i].targetName, trigger[i].count, trigger[i].total);
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 

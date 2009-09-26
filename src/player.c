@@ -735,7 +735,7 @@ void setPlayerShield(int val)
 
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage(_("Equipped %s"), playerShield.objectiveName);
+		setInventoryDialogMessage("Equipped %s", _(playerShield.objectiveName));
 	}
 }
 
@@ -768,7 +768,7 @@ void setPlayerWeapon(int val)
 
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage(_("Equipped %s"), playerWeapon.objectiveName);
+		setInventoryDialogMessage("Equipped %s", _(playerWeapon.objectiveName));
 	}
 }
 
@@ -1207,7 +1207,7 @@ void increasePlayerMaxHealth()
 
 	player.health = player.maxHealth;
 
-	setInfoBoxMessage(60,  _("Maximum health has increased!"));
+	setInfoBoxMessage(60, _("Maximum health has increased!"));
 }
 
 void syncWeaponShieldToPlayer()
@@ -1461,12 +1461,12 @@ void setBowAmmo(int val)
 	{
 		if (game.status == IN_INVENTORY)
 		{
-			setInventoryDialogMessage(_("Bow will now fire %s"), self->objectiveName);
+			setInventoryDialogMessage("Bow will now fire %s", _(self->objectiveName));
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, _("Bow will now fire %s"), self->objectiveName);
+			setInfoBoxMessage(60, "Bow will now fire %s", _(self->objectiveName));
 		}
 
 		STRNCPY(bow->requires, self->objectiveName, sizeof(bow->requires));

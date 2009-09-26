@@ -93,7 +93,7 @@ int addToInventory(Entity *e)
 
 				else
 				{
-					setInfoBoxMessage(10, _("Cannot carry any more %s"), inventory.item[i].objectiveName);
+					setInfoBoxMessage(10, "Cannot carry any more %s", _(inventory.item[i].objectiveName));
 
 					return FALSE;
 				}
@@ -141,12 +141,12 @@ int addToInventory(Entity *e)
 	{
 		if ((inventory.item[i].flags & STACKABLE) && e->health > 1)
 		{
-			setInfoBoxMessage(60,  _("Picked up %s x %d"), inventory.item[i].objectiveName, e->health);
+			setInfoBoxMessage(60, "Picked up %s x %d", _(inventory.item[i].objectiveName), e->health);
 		}
 
 		else
 		{
-			setInfoBoxMessage(60,  _("Picked up %s"), inventory.item[i].objectiveName);
+			setInfoBoxMessage(60, "Picked up %s", _(inventory.item[i].objectiveName));
 		}
 
 		e->inUse = FALSE;
@@ -231,7 +231,7 @@ void selectInventoryItem(void)
 	{
 		inventory.selectedIndex = inventory.cursorIndex;
 
-		setInventoryDialogMessage(_("Readied %s"), inventory.item[inventory.cursorIndex].objectiveName);
+		setInventoryDialogMessage("Readied %s", _(inventory.item[inventory.cursorIndex].objectiveName));
 	}
 }
 
@@ -432,7 +432,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			setInfoBoxMessage(60,  _("Picked up %s"), self->objectiveName);
+			setInfoBoxMessage(60, "Picked up %s", _(self->objectiveName));
 
 			fireTrigger(self->objectiveName);
 
@@ -441,7 +441,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(60, _("%s is required to carry this item"), self->requires);
+			setInfoBoxMessage(60, "%s is required to carry this item", _(self->requires));
 		}
 	}
 }
@@ -500,7 +500,7 @@ void getInventoryItemFromScript(char *line)
 		exit(1);
 	}
 
-	item = getInventoryItem(_(itemName));
+	item = getInventoryItem(itemName);
 
 	if (item != NULL && (item->health >= quantity || quantity == 1))
 	{
@@ -508,13 +508,13 @@ void getInventoryItemFromScript(char *line)
 		{
 			item->health -= quantityToRemove;
 
-			updateTrigger(_(itemName), quantityToRemove);
+			updateTrigger(itemName, quantityToRemove);
 
-			updateGlobalTrigger(_(itemName), quantityToRemove);
+			updateGlobalTrigger(itemName, quantityToRemove);
 
 			if (item->health <= 0 || quantityToRemove == -1)
 			{
-				removeInventoryItem(_(itemName));
+				removeInventoryItem(itemName);
 			}
 		}
 
@@ -646,17 +646,17 @@ void drawInventory()
 		{
 			if (e->flags & STACKABLE)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, _("%s (%d)"), e->description, e->health);
+				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->description), e->health);
 			}
 
 			else if (strlen(e->description) == 0 && strlen(e->objectiveName) != 0)
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, _("%s"), e->objectiveName);
+				snprintf(description, MAX_MESSAGE_LENGTH, "%s", _(e->objectiveName));
 			}
 
 			else
 			{
-				snprintf(description, MAX_MESSAGE_LENGTH, _("%s"), e->description);
+				snprintf(description, MAX_MESSAGE_LENGTH, "%s", _(e->description));
 			}
 
 			inventory.description = createDialogBox(NULL, description);
