@@ -125,8 +125,8 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			trigger[i].total = total;
 			trigger[i].targetType = targetType;
 
-			STRNCPY(trigger[i].triggerName, _(triggerName), sizeof(trigger[i].triggerName));
-			STRNCPY(trigger[i].targetName, _(targetName), sizeof(trigger[i].targetName));
+			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
+			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
 			
@@ -164,7 +164,7 @@ void fireGlobalTrigger(char *name)
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
-				snprintf(message, MAX_MESSAGE_LENGTH, _("%s (%d / %d)"), trigger[i].targetName, trigger[i].count, trigger[i].total);
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 
 				freeMessageQueue();
 

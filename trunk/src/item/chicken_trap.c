@@ -100,7 +100,9 @@ static void trapEntity()
 
 	else
 	{
-		fireGlobalTrigger(_("Chicken"));
+		/* Internal, do not translate */
+		
+		fireGlobalTrigger("Chicken");
 
 		self->action = &removeChicken;
 	}

@@ -89,7 +89,7 @@ static void touch(Entity *other)
 
 		self->currentFrame = frame;
 
-		setInfoBoxMessage(5,  _("Press Action to save your game"));
+		setInfoBoxMessage(5, _("Press Action to save your game"));
 	}
 }
 

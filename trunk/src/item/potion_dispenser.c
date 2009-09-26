@@ -92,11 +92,11 @@ static void activate(int val)
 		
 		playSound("sound/item/fill_potion.ogg");
 		
-		setInfoBoxMessage(60,  _("Obtained %s"), e->objectiveName);
+		setInfoBoxMessage(60, "Obtained %s", _(e->objectiveName));
 	}
 
 	else
 	{
-		setInfoBoxMessage(60,  _("%s is required"), self->requires);
+		setInfoBoxMessage(60, "%s is required", _(self->requires));
 	}
 }

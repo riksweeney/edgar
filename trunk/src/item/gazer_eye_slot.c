@@ -123,7 +123,7 @@ static void activate(int val)
 		
 		else
 		{
-			setInfoBoxMessage(60,  _("%s is required"), self->requires);
+			setInfoBoxMessage(60,  "%s is required", _(self->requires));
 		}
 	}
 }

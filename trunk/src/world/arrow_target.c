@@ -137,7 +137,7 @@ static void touch(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(30,  _("%d more to go..."), remaining);
+			setInfoBoxMessage(30, _("%d more to go..."), remaining);
 		}
 
 		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);

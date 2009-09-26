@@ -104,7 +104,7 @@ static void touch(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(0,  _("%s is required to use this Pressure Plate"), self->requires);
+			setInfoBoxMessage(0, "%s is required to use this Pressure Plate", _(self->requires));
 		}
 	}
 }
@@ -130,7 +130,7 @@ static void activate(int val)
 
 		else
 		{
-			setInfoBoxMessage(30,  _("%d more to go..."), remaining);
+			setInfoBoxMessage(30, _("%d more to go..."), remaining);
 		}
 
 		self->maxHealth = self->health;
