@@ -25,7 +25,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "global_trigger.h"
 #include "../event/script.h"
 #include "../hud.h"
+#include "../hud.h"
 #include "../inventory.h"
+#include "../graphics/graphics.h"
+#include "../dialog.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 
@@ -113,7 +116,7 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 
 static void addGlobalTrigger(char *triggerName, int count, int total, int targetType, char *targetName)
 {
-	int i;
+	int i, j;
 
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
@@ -130,11 +133,14 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 
 			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
 			
-			if (count == total)
+			if (count >= total)
 			{
 				printf("Already got all the items needed for this trigger!\n");
 				
-				fireGlobalTrigger(triggerName);
+				for (j=0;j<total;j++)
+				{
+					fireGlobalTrigger(triggerName);
+				}
 			}
 
 			return;
@@ -225,6 +231,49 @@ void updateGlobalTrigger(char *name, int value)
 			trigger[i].count -= value;
 		}
 	}
+}
+
+SDL_Surface *listObjectives()
+{
+	int i;
+	char message[MAX_MESSAGE_LENGTH], *allMessages;
+	SDL_Surface *image;
+	
+	allMessages = (char *)malloc(MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+	
+	if (allMessages == NULL)
+	{
+		printf("Could allocate a whole %d bytes for Objective list\n", MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+		
+		exit(1);
+	}
+	
+	allMessages[0] = '\0';
+
+	for (i=0;i<MAX_TRIGGERS;i++)
+	{
+		if (trigger[i].inUse == TRUE && trigger[i].targetType == UPDATE_OBJECTIVE)
+		{
+			snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+			
+			strncat(allMessages, message, MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+		}
+	}
+	
+	/* Remove the last line break and space */
+	
+	allMessages[strlen(allMessages) - 2] = '\0';
+	
+	if (strlen(allMessages) == 0)
+	{
+		strncat(allMessages, _("No Objectives"), MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+	}
+	
+	image = createDialogBox(NULL, allMessages);
+	
+	free(allMessages);
+	
+	return image;
 }
 
 void writeGlobalTriggersToFile(FILE *fp)

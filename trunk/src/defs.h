@@ -120,13 +120,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_VALUE_LENGTH 60
 
-#define MAX_TRIGGERS 10
+#define MAX_TRIGGERS 20
 
-#define MAX_OBJECTIVES 5
+#define MAX_OBJECTIVES 10
 
 #define MAX_INPUTS 256
-
-#define MAX_ITEMS_IN_SLOT 10
 
 #define MAX_SAVE_SLOTS 10
 

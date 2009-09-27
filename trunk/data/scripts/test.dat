@@ -1,1 +1,1 @@
-ADD OBJECTIVE "This is a blank objective" " "
+ADD TRIGGER "TEST_ENEMY" 5 UPDATE_OBJECTIVE "Kill 5 Enemies"

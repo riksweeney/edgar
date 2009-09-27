@@ -1,0 +1,5 @@
+TALK Edgar Whatever that thing was it was draining the power from that generator and using it against me.
+TALK Edgar That might explain why that lift wasn't working. Defeating the other drainers should restore the power.
+ADD OBJECTIVE "Defeat all Energy Drainers" "DRAINER_TRIGGER"
+ADD TRIGGER "DRAINER" 8 UPDATE_OBJECTIVE "Defeat all Energy Drainers"
+ADD TRIGGER "DRAINER_TRIGGER" 1 RUN_SCRIPT "drainers_complete"

@@ -181,8 +181,7 @@ typedef struct Inventory
 {
 	int selectedIndex, x, y, cursorIndex;
 	Entity item[MAX_INVENTORY_ITEMS];
-	SDL_Surface *background, *cursor, *description;
-
+	SDL_Surface *background, *cursor, *description, *objectives;
 } Inventory;
 
 typedef struct Droplet

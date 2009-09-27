@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../system/random.h"
 #include "../audio/music.h"
+#include "../custom_actions.h"
 
 extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
@@ -119,6 +120,8 @@ static void activate(int val)
 	if (self->active == TRUE)
 	{
 		player.flags |= HELPLESS;
+		
+		setCustomAction(&player, &helpless, 600, 0);
 
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
