@@ -63,6 +63,13 @@ void freeInventory()
 
 		inventory.cursor = NULL;
 	}
+	
+	if (inventory.objectives != NULL)
+	{
+		SDL_FreeSurface(inventory.objectives);
+
+		inventory.objectives = NULL;
+	}
 }
 
 int addToInventory(Entity *e)
@@ -598,6 +605,13 @@ void clearInventoryDescription()
 
 		inventory.description = NULL;
 	}
+	
+	if (inventory.objectives != NULL)
+	{
+		SDL_FreeSurface(inventory.objectives);
+
+		inventory.objectives = NULL;
+	}
 }
 
 void drawInventory()
@@ -611,7 +625,7 @@ void drawInventory()
 		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT, INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT);
 
 		inventory.x = (SCREEN_WIDTH - inventory.background->w) / 2;
-		inventory.y = (SCREEN_HEIGHT - inventory.background->h) / 2;
+		inventory.y = 64;
 	}
 
 	drawImage(inventory.background, inventory.x, inventory.y, FALSE, 196);
@@ -669,6 +683,11 @@ void drawInventory()
 	{
 		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
 	}
+	
+	if (inventory.objectives == NULL)
+	{
+		inventory.objectives = listObjectives();
+	}
 
 	if (inventory.cursor == NULL)
 	{
@@ -682,6 +701,8 @@ void drawInventory()
 	y += inventory.y;
 
 	drawImage(inventory.cursor, x, y, FALSE, 255);
+	
+	drawImage(inventory.objectives, (SCREEN_WIDTH - inventory.objectives->w) / 2, 325, FALSE, 255);
 }
 
 void setInventoryDialogMessage(char *fmt, ...)

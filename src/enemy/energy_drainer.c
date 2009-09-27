@@ -42,6 +42,9 @@ static void moveToRecharge(void);
 static void recharge(void);
 static void init(void);
 static void takeDamage(Entity *, int);
+static void die(void);
+static void ballWait(void);
+static void returnToGenerator(void);
 
 Entity *addEnergyDrainer(int x, int y, char *name)
 {
@@ -61,7 +64,7 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDieNoDrop;
+	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
@@ -92,11 +95,11 @@ static void lookForPlayer()
 		self->face = RIGHT;
 	}
 
-	if (self->maxThinkTime > 0)
+	if (self->mental > 0)
 	{
 		if (player.health > 0 && prand() % 30 == 0)
 		{
-			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
+			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y - 64, 160, 128, player.x, player.y, player.w, player.h) == 1)
 			{
 				self->action = &attackWait;
 
@@ -126,11 +129,13 @@ static void fireEnergy()
 	e->dirX *= e->speed;
 	e->dirY *= e->speed;
 
-	self->maxThinkTime--;
+	self->mental--;
 
-	if (self->maxThinkTime <= 0)
+	if (self->mental <= 0)
 	{
 		self->action = &moveToRecharge;
+		
+		self->touch = &entityTouch;
 	}
 }
 
@@ -167,9 +172,9 @@ static void recharge()
 
 	if (self->thinkTime <= 0)
 	{
-		self->maxThinkTime++;
+		self->mental++;
 
-		if (self->maxThinkTime == 3)
+		if (self->mental == 3)
 		{
 			self->action = &lookForPlayer;
 
@@ -206,7 +211,7 @@ static void init()
 	self->targetX -= self->w;
 	self->targetY -= self->h;
 
-	self->action = &lookForPlayer;
+	self->action = (self->mental > 0 ? &lookForPlayer : &moveToRecharge);
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -259,5 +264,85 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+	}
+}
+
+static void die()
+{
+	Entity *e;
+	
+	e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		printf("No free slots to add an Energy Drainer Ball\n");
+
+		exit(1);
+	}
+
+	loadProperties("enemy/energy_drainer_ball", e);
+	
+	e->x = self->x + self->w / 2;
+	e->y = self->y + self->h / 2;
+	
+	e->startX = e->x;
+	e->startY = e->y;
+	
+	e->targetX = self->targetX;
+	e->targetY = self->targetY;
+	
+	STRNCPY(e->objectiveName, self->objectiveName, sizeof(e->objectiveName));
+	
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
+
+	e->action = &ballWait;
+	e->draw = &drawLoopingAnimationToMap;
+	e->die = NULL;
+	e->touch = NULL;
+
+	e->type = ENEMY;
+
+	setEntityAnimation(e, STAND);
+	
+	e->thinkTime = 120;
+	
+	entityDie();
+}
+
+static void ballWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->y = self->startY;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX = self->speed;
+		self->dirY = self->speed;
+		
+		self->action = &returnToGenerator;
+	}
+	
+	else
+	{
+		self->endY++;
+		
+		self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * 16;
+	}
+}
+
+static void returnToGenerator()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+	
+	if (fabs(self->x - self->targetX) <= self->speed && fabs(self->y - self->targetY) <= self->speed)
+	{
+		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		
+		self->inUse = FALSE;
 	}
 }

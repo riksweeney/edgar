@@ -1579,4 +1579,17 @@ void becomeEdgar()
 	clearCustomAction(&player, &slimeTimeout);
 
 	player.y = bottom - player.h;
+	
+	if (player.health > 0)
+	{
+		if (strlen(playerWeapon.name) > 0)
+		{
+			playerWeapon.inUse = TRUE;
+		}
+		
+		if (strlen(playerShield.name) > 0)
+		{
+			playerShield.inUse = TRUE;
+		}
+	}
 }

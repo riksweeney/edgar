@@ -1,6 +1,12 @@
 CHANGE LOG
 ----------
 
+Version 0.35
+* Corrected errors in the translation handling
+* Edgar's weapon and shield are re-equipped after transforming back
+* The inventory screen now shows the current Objectives and their completion status
+* Fixed behaviour of flying creatures hitting slopes
+
 Version 0.31
 * Gravity now affects Edgar again when updating from an older version
 * Added most translation strings

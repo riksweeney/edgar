@@ -601,6 +601,11 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->alpha = atoi(value);
 	}
+	
+	else if (strcmpignorecase(name, "MENTAL") == 0)
+	{
+		e->mental = atoi(value);
+	}
 
 	else if (strcmpignorecase(name, "ELEMENT") == 0)
 	{

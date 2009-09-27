@@ -214,7 +214,7 @@ void doCollisions()
 
 								if (e1->face == LEFT)
 								{
-									x1 += e1->parent->w - e1->w - e1->offsetX;
+									x1 -= e1->offsetX;
 								}
 
 								else
@@ -473,7 +473,7 @@ void checkToMap(Entity *e)
 						else
 						{
 							e->x = x2 * TILE_SIZE;
-
+		
 							e->x -= e->w;
 
 							e->dirX = 0;
@@ -596,7 +596,7 @@ void checkToMap(Entity *e)
 
 						else
 						{
-							e->x = x1 * TILE_SIZE;
+							e->x = (x1 + 1) * TILE_SIZE;
 
 							e->dirX = 0;
 						}
