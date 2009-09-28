@@ -562,11 +562,6 @@ void setProperty(Entity *e, char *name, char *value)
 		e->thinkTime = atoi(value);
 	}
 
-	else if (strcmpignorecase(name, "SPEED") == 0)
-	{
-		e->speed = atof(value);
-	}
-
 	else if (strcmpignorecase(name, "WEIGHT") == 0)
 	{
 		e->weight = atof(value);
@@ -601,7 +596,7 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->alpha = atoi(value);
 	}
-	
+
 	else if (strcmpignorecase(name, "MENTAL") == 0)
 	{
 		e->mental = atoi(value);

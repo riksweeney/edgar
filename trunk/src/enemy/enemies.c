@@ -56,6 +56,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ceiling_crawler.h"
 #include "tortoise.h"
 #include "fire_burner.h"
+#include "energy_drainer.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -117,7 +118,8 @@ static Constructor enemies[] = {
 {"enemy/tortoise", &addTortoise},
 {"enemy/fire_burner", &addFireBurner},
 {"boss/blob_boss_1", &addBlobBoss},
-{"boss/blob_boss_2", &addBlobBoss}
+{"boss/blob_boss_2", &addBlobBoss},
+{"enemy/energy_drainer", &addEnergyDrainer}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

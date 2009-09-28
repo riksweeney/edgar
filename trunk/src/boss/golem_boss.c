@@ -657,7 +657,7 @@ static void jumpAttack()
 
 				if (e != NULL)
 				{
-					e -= prand() % e->h;
+					e->y -= prand() % e->h;
 				}
 			}
 
@@ -954,7 +954,7 @@ static void partWait()
 
 				if (e != NULL)
 				{
-					e -= prand() % e->h;
+					e->y -= prand() % e->h;
 				}
 			}
 		}
@@ -1002,7 +1002,7 @@ static void headWait()
 
 				if (e != NULL)
 				{
-					e -= prand() % e->h;
+					e->y -= prand() % e->h;
 				}
 			}
 		}

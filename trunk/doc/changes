@@ -6,6 +6,8 @@ Version 0.35
 * Edgar's weapon and shield are re-equipped after transforming back
 * The inventory screen now shows the current Objectives and their completion status
 * Fixed behaviour of flying creatures hitting slopes
+* Countdown timer no longer flickers when trying to display other messages
+* Fixed a potentially nasty bug on the Golem Boss
 
 Version 0.31
 * Gravity now affects Edgar again when updating from an older version
