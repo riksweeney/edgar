@@ -81,7 +81,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 void clearCustomAction(Entity *e, void (*func)(int *, int *))
 {
 	int i;
-	
+
 	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 	{
 		/* Search for an already existing action */
@@ -92,7 +92,7 @@ void clearCustomAction(Entity *e, void (*func)(int *, int *))
 
 			return;
 		}
-	}	
+	}
 }
 
 void clearCustomActions(Entity *e)
@@ -110,21 +110,21 @@ void addCustomActionFromScript(Entity *e, char *line)
 	char actionName[MAX_VALUE_LENGTH];
 	int thinkTime, accumulates;
 	void (*action)(int *, int *);
-	
+
 	action = NULL;
-	
+
 	sscanf(line, "%s %d %d", actionName, &thinkTime, &accumulates);
-	
+
 	if (strcmpignorecase(actionName, "REGENERATE") == 0)
 	{
 		action = &regenerate;
 	}
-	
+
 	else if (strcmpignorecase(actionName, "BECOME_SLIME") == 0)
 	{
 		action = &slimeTimeout;
 	}
-	
+
 	if (action != NULL)
 	{
 		setCustomAction(e, action, thinkTime, accumulates);
@@ -236,7 +236,9 @@ void regenerate(int *thinkTime, int *counter)
 void slimeTimeout(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
-	
+
+	freeMessageQueue();
+
 	setInfoBoxMessage(5, "%d", *thinkTime / 60);
 
 	if (*thinkTime == 0)
@@ -248,6 +250,6 @@ void slimeTimeout(int *thinkTime, int *counter)
 void invisible(int *thinkTime, int *counter)
 {
 	(*thinkTime)--;
-	
+
 	self->alpha = *thinkTime == 0 ? 255 : 64;
 }

@@ -60,9 +60,11 @@ int main(int argc, char *argv[])
 		setlocale(LC_NUMERIC, "C");
 		textdomain("edgar");
 		bindtextdomain("edgar", LOCALE_DIR);
-	#endif
 
-	printf("Locale is %s\n", setlocale(LC_ALL, ""));
+		printf("Locale is %s\n", setlocale(LC_ALL, ""));
+		printf("Numeric is %s\n", setlocale(LC_NUMERIC, ""));
+		printf("atof(2.75) is %f\n", atof("2.75"));
+	#endif
 
 	/* Start up SDL */
 

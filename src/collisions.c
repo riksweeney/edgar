@@ -796,6 +796,13 @@ void checkToMap(Entity *e)
 							e->flags |= ON_GROUND;
 						}
 					}
+					
+					if (e->type == PROJECTILE)
+					{
+						e->die();
+
+						return;
+					}
 				}
 
 				else if ((bottomLeft != BLANK_TILE && bottomLeft < BACKGROUND_TILE_START) || (bottomRight != BLANK_TILE && bottomRight < BACKGROUND_TILE_START))
