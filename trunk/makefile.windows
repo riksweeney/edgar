@@ -12,7 +12,7 @@ PAK_PROG  = pak.exe
 CXX       = i586-mingw32msvc-gcc
 SDLC      = /opt/Windows/bin/sdl-config
 
-CFLAGS = `$(SDLC) --cflags` -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = `$(SDLC) --cflags` -O2 -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
 LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDLmain
 
