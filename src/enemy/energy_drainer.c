@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "enemies.h"
 #include "../custom_actions.h"
 #include "../hud.h"
+#include "../game.h"
 #include "../player.h"
 #include "../geometry.h"
 #include "../projectile.h"
@@ -51,6 +52,9 @@ static void createSpark(void);
 static void sparkWait(void);
 static void stunned(void);
 static void stunFinish(void);
+static void groundShockStart(void);
+static void groundShock(void);
+static void groundShockFinish(void);
 
 Entity *addEnergyDrainer(int x, int y, char *name)
 {
@@ -113,15 +117,11 @@ static void lookForPlayer()
 		{
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y - 64, 160, 128, player.x, player.y, player.w, player.h) == 1)
 			{
-				self->action = &fireEnergy;
-
-				/*setEntityAnimation(self, ATTACK_1);*/
-
-				/*self->animationCallback = &fireEnergy;*/
+				self->action = prand() % 2 == 0 ? &fireEnergy : &groundShockStart;
 
 				self->dirX = 0;
 
-				self->thinkTime = 60;
+				self->thinkTime = 30;
 			}
 		}
 	}
@@ -236,7 +236,7 @@ static void recharge()
 			self->action = &lookForPlayer;
 
 			self->takeDamage = &takeDamage;
-			
+
 			createSpark();
 		}
 
@@ -275,14 +275,14 @@ static void init()
 	self->target = e;
 
 	self->y = self->startY;
-	
+
 	if (self->mental > 0)
 	{
 		self->action = &lookForPlayer;
-		
+
 		createSpark();
 	}
-	
+
 	else
 	{
 		self->action = &moveToRecharge;
@@ -300,7 +300,7 @@ static void takeDamage(Entity *other, int damage)
 
 	if (damage != 0)
 	{
-		if (other->type == WEAPON && self->mental > 0)
+		if (other->type == WEAPON)
 		{
 			/* Damage the player instead */
 
@@ -316,25 +316,27 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		else if (other->type == PROJECTILE)
-		{			
+		{
 			self->health -= damage;
 
 			other->target = self;
-			
+
 			/* Don't become stunned if you have no mental, init? */
-			
+
 			if (self->mental > 0)
 			{
 				self->dirX = 0;
-				
+
 				self->action = &stunned;
-				
+
+				self->touch = &entityTouch;
+
 				self->flags &= ~FLY;
-				
+
 				self->maxThinkTime = self->mental;
-				
+
 				self->mental = 0;
-				
+
 				self->thinkTime = 180;
 			}
 		}
@@ -382,7 +384,7 @@ static void die()
 
 	e->targetX = self->targetX;
 	e->targetY = self->targetY;
-	
+
 	e->target = self->target;
 
 	e->x -= e->w / 2;
@@ -398,7 +400,7 @@ static void die()
 	setEntityAnimation(e, STAND);
 
 	e->thinkTime = 120;
-	
+
 	self->mental = 0;
 
 	entityDie();
@@ -451,9 +453,9 @@ static void hover()
 static void createSpark()
 {
 	Entity *e;
-	
+
 	e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		printf("No free slots to add an Energy Drainer Spark\n");
@@ -462,7 +464,7 @@ static void createSpark()
 	}
 
 	loadProperties("enemy/energy_drainer_spark", e);
-	
+
 	e->action = &sparkWait;
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = NULL;
@@ -471,12 +473,12 @@ static void createSpark()
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
-	
+
 	e->head = self;
-	
+
 	e->x = e->head->x + e->head->w / 2;
 	e->y = e->head->y + e->head->h / 2;
-	
+
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;
 }
@@ -487,12 +489,12 @@ static void sparkWait()
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		self->x = self->head->x + self->head->w / 2;
 		self->y = self->head->y + self->head->h / 2;
-		
+
 		self->x -= self->w / 2;
 		self->y -= self->h / 2;
 	}
@@ -503,9 +505,9 @@ static void stunned()
 	int i;
 	long onGround = self->flags & ON_GROUND;
 	Entity *e;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		if (onGround == 0)
@@ -520,17 +522,17 @@ static void stunned()
 				}
 			}
 		}
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->action = &stunFinish;
-			
+
 			self->flags |= FLY;
-			
+
 			self->dirY = -2.5;
-			
+
 			self->thinkTime = 60;
 		}
 	}
@@ -539,19 +541,97 @@ static void stunned()
 static void stunFinish()
 {
 	checkToMap(self);
-	
+
 	if (self->y < self->startY)
 	{
 		self->thinkTime--;
-		
+
+		self->y = self->startY;
+
 		self->dirY = 0;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->mental = self->maxThinkTime;
-			
+
 			createSpark();
-			
+
+			self->action = &lookForPlayer;
+		}
+	}
+}
+
+static void groundShockStart()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+
+		self->action = &groundShock;
+	}
+
+	hover();
+}
+
+static void groundShock()
+{
+	long onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			self->thinkTime = 60;
+
+			shakeScreen(LIGHT, 15);
+
+			self->mental -= 3;
+
+			if (self->mental <= 0)
+			{
+				self->touch = &entityTouch;
+			}
+		}
+
+		else
+		{
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->flags |= FLY;
+
+				self->dirY = -2.5;
+
+				self->action = &groundShockFinish;
+			}
+		}
+	}
+}
+
+static void groundShockFinish()
+{
+	checkToMap(self);
+
+	if (self->y < self->startY)
+	{
+		self->thinkTime--;
+
+		self->y = self->startY;
+
+		self->dirY = 0;
+
+		if (self->mental <= 0)
+		{
+			self->action = &moveToRecharge;
+		}
+
+		else
+		{
 			self->action = &lookForPlayer;
 		}
 	}
