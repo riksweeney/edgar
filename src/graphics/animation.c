@@ -427,6 +427,77 @@ int drawLoopingAnimationToMap()
 	return drawn;
 }
 
+int drawSpriteToMap()
+{
+	int x, y, drawn;
+	int startX, startY;
+	Sprite *sprite;
+
+	drawn = FALSE;
+
+	startX = getMapStartX();
+	startY = getMapStartY();
+
+	self->frameTimer -= 1 * fabs(self->frameSpeed);
+	
+	sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
+
+	if (self->alpha <= 0)
+	{
+		return FALSE;
+	}
+
+	if (self->face == LEFT)
+	{
+		if (self->parent == NULL || self->type == PROJECTILE)
+		{
+			x = self->x - startX;
+			y = self->y - startY;
+		}
+
+		else
+		{
+			x = self->x - startX + self->parent->w - self->w - self->offsetX;
+			y = self->y - startY + self->offsetY;
+		}
+
+		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+		{
+			drawn = TRUE;
+
+			drawFlippedImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
+
+			/*drawHitBox(x + self->w - self->box.w - self->box.x, y + self->box.y, self->box.w, self->box.h);*/
+		}
+	}
+
+	else
+	{
+		if (self->parent == NULL || self->type == PROJECTILE)
+		{
+			x = self->x - startX;
+			y = self->y - startY;
+		}
+
+		else
+		{
+			x = self->x - startX + self->offsetX;
+			y = self->y - startY + self->offsetY;
+		}
+
+		if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
+		{
+			drawn = TRUE;
+
+			drawImage(sprite->image, x, y, (self->flags & FLASH) ? TRUE : FALSE, self->alpha);
+
+			/*drawHitBox(x + self->box.x, y + self->box.y, self->box.w, self->box.h);*/
+		}
+	}
+
+	return drawn;
+}
+
 int drawLineDefToMap()
 {
 	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);

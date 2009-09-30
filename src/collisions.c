@@ -473,7 +473,7 @@ void checkToMap(Entity *e)
 						else
 						{
 							e->x = x2 * TILE_SIZE;
-		
+
 							e->x -= e->w;
 
 							e->dirX = 0;
@@ -796,7 +796,7 @@ void checkToMap(Entity *e)
 							e->flags |= ON_GROUND;
 						}
 					}
-					
+
 					if (e->type == PROJECTILE)
 					{
 						e->die();
@@ -1275,6 +1275,48 @@ int isValidOnMap(Entity *e)
 	}
 
 	return TRUE;
+}
+
+int getMapFloor(int x, int y)
+{
+	int maxY = getMaxMapY();
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	while (mapTileAt(x, y) == BLANK_TILE)
+	{
+		y++;
+
+		if (y * TILE_SIZE >= maxY)
+		{
+			break;
+		}
+	}
+
+	y *= TILE_SIZE;
+
+	return y;
+}
+
+int getMapCeiling(int x, int y)
+{
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	while (mapTileAt(x, y) == BLANK_TILE)
+	{
+		y--;
+
+		if (y <= -TILE_SIZE)
+		{
+			break;
+		}
+	}
+
+	y = y * TILE_SIZE + TILE_SIZE;
+
+	return y;
 }
 
 /* Very standard 2D collision detection routine */

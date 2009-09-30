@@ -29,3 +29,5 @@ void addToGrid(Entity *);
 void initCollisionGrid(void);
 void freeCollisionGrid(void);
 void checkEntityToEntity(Entity *);
+int getMapFloor(int, int);
+int getMapCeiling(int, int);

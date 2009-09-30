@@ -455,6 +455,15 @@ void entityDieNoDrop()
 	}
 }
 
+void entityDieVanish()
+{
+	fireTrigger(self->objectiveName);
+
+	fireGlobalTrigger(self->objectiveName);
+	
+	self->inUse = FALSE;
+}
+
 void noItemDie()
 {
 	if (self->flags & ON_GROUND)
@@ -619,7 +628,7 @@ void pushEntity(Entity *other)
 	static int depth = 0;
 	long wasOnGround;
 
-	if (other->touch == NULL || other->type == WEAPON || (other->flags & PLAYER_TOUCH_ONLY))
+	if (other->touch == NULL || (other->type == WEAPON && other->flags & ATTACKING) || (other->flags & PLAYER_TOUCH_ONLY))
 	{
 		return;
 	}
