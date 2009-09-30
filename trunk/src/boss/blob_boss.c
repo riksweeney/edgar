@@ -1749,7 +1749,7 @@ static void dieWait()
 
 		fadeBossMusic();
 
-		entityDieNoDrop();
+		entityDieVanish();
 	}
 }
 

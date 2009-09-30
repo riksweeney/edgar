@@ -98,7 +98,7 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-	surface = TTF_RenderText_Shaded(font, text, foregroundColor, backgroundColor);
+	surface = TTF_RenderUTF8_Shaded(font, text, foregroundColor, backgroundColor);
 
 	if (surface == NULL)
 	{

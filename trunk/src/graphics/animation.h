@@ -27,3 +27,4 @@ int getAnimationTypeByName(char *);
 int getAnimationTypeAtIndex(Entity *);
 int hasEntityAnimation(Entity *, int);
 void setFrameData(Entity *);
+int drawSpriteToMap(void);
