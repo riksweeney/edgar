@@ -438,8 +438,6 @@ int drawSpriteToMap()
 	startX = getMapStartX();
 	startY = getMapStartY();
 
-	self->frameTimer -= 1 * fabs(self->frameSpeed);
-	
 	sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 
 	if (self->alpha <= 0)

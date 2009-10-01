@@ -80,13 +80,13 @@ static void wait()
 static void sink()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
-		
+
 		self->y++;
-		
+
 		if (self->y >= self->endY)
 		{
 			self->inUse = FALSE;
@@ -98,7 +98,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == FALSE)
 	{
-		setInfoBoxMessage(0,  _("Press Action to interact"));
+		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
 }
 
@@ -109,21 +109,21 @@ static void activate(int val)
 		if (removeInventoryItem(self->requires) == TRUE)
 		{
 			self->active = TRUE;
-			
+
 			self->thinkTime = 60;
-			
+
 			fireTrigger(self->objectiveName);
-			
+
 			fireGlobalTrigger(self->objectiveName);
-			
+
 			setEntityAnimation(self, WALK);
-			
+
 			self->action = &sink;
 		}
-		
+
 		else
 		{
-			setInfoBoxMessage(60,  "%s is required", _(self->requires));
+			setInfoBoxMessage(60, _("%s is required"), _(self->requires));
 		}
 	}
 }
@@ -133,14 +133,14 @@ static void init()
 	if (self->active == TRUE)
 	{
 		setEntityAnimation(self, WALK);
-		
+
 		self->action = &sink;
 	}
-	
+
 	else
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		self->action = &wait;
 	}
 }

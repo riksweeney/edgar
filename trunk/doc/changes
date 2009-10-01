@@ -9,7 +9,10 @@ Version 0.35
 * Countdown timer no longer flickers when trying to display other messages
 * Fixed a potentially nasty bug on the Golem Boss
 * Weapons no longer fall through lifts, pressure plates and other objects
-
+* Fixed weapon collision detection
+* Added Polish translation
+* Added next section of the Cellar Map
+* Fixed a problem with Map Triggers accumulating
 
 Version 0.31
 * Gravity now affects Edgar again when updating from an older version

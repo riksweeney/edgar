@@ -108,9 +108,9 @@ static void init()
 	self->action = &fly;
 
 	self->mental = 1;
-	
+
 	createBeam(1);
-	
+
 	createBeam(-1);
 }
 
@@ -135,15 +135,6 @@ static void fly()
 	{
 		self->endX = getMapCeiling(self->x + self->w / 2, self->y);
 		self->endY = getMapFloor(self->x + self->w / 2, self->y);
-
-		self->box.y = self->endX - self->y;
-		self->box.h = self->endY - self->endX;
-	}
-
-	else
-	{
-		self->box.y = self->box.y;
-		self->box.h = self->box.h;
 	}
 }
 
@@ -267,9 +258,6 @@ static void die()
 	e->x = self->x + self->w / 2;
 	e->y = self->y + self->h / 2;
 
-	e->startX = e->x;
-	e->startY = e->y;
-
 	e->targetX = self->targetX;
 	e->targetY = self->targetY;
 
@@ -278,16 +266,19 @@ static void die()
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;
 
+	e->startY = e->y;
+
 	e->action = &ballWait;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = NULL;
 	e->touch = NULL;
+	e->fallout = &beamFallout;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
-	e->thinkTime = 120;
+	e->thinkTime = 180;
 
 	self->mental = 0;
 
@@ -300,8 +291,6 @@ static void ballWait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->y = self->startY;
-
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->dirX *= self->speed;
@@ -312,7 +301,7 @@ static void ballWait()
 
 	else
 	{
-		self->endY++;
+		self->endY += 5;
 
 		self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * 16;
 	}
@@ -335,7 +324,7 @@ static int draw()
 {
 	/*
 	if ((self->mental == 1) && self->health > 0)
-	{	
+	{
 		drawLine(self->x + self->w / 2, self->endX, self->x + self->w / 2, self->endY, 255, 0, 0);
 	}
 	*/
@@ -358,9 +347,9 @@ static void createBeam(int dir)
 	}
 
 	loadProperties("enemy/energy_beam", e);
-	
+
 	e->head = self;
-	
+
 	e->x = self->x;
 	e->y = self->y;
 
@@ -370,10 +359,12 @@ static void createBeam(int dir)
 	e->takeDamage = NULL;
 	e->fallout = &beamFallout;
 	e->reactToBlock = NULL;
-	e->touch = NULL;
+	e->touch = &entityTouch;
 
 	e->type = ENEMY;
-	
+
+	e->face = RIGHT;
+
 	e->frameSpeed = dir;
 
 	setEntityAnimation(e, STAND);
@@ -383,14 +374,29 @@ static void createBeam(int dir)
 
 static void beamWait()
 {
-	if (self->head->mental == 0)
+	if (self->head->inUse == TRUE)
 	{
-		self->flags |= NO_DRAW;
+		if (self->head->mental == 0)
+		{
+			self->flags |= NO_DRAW;
+			
+			self->touch = NULL;
+		}
+
+		else
+		{
+			self->flags &= ~NO_DRAW;
+			
+			self->box.y = self->head->endX - self->head->y;
+			self->box.h = self->head->endY - self->head->endX;
+			
+			self->touch = &entityTouch;
+		}
 	}
-	
+
 	else
 	{
-		self->flags &= ~NO_DRAW;
+		self->inUse = FALSE;
 	}
 }
 
@@ -405,13 +411,13 @@ static int upBeamDraw()
 	{
 		self->x = self->head->x;
 		self->y = self->head->endX;
-		
+
 		drawLoopingAnimationToMap();
-		
+
 		while (self->y < self->head->y)
 		{
 			self->y += self->h;
-			
+
 			drawSpriteToMap();
 		}
 	}
@@ -425,13 +431,13 @@ static int downBeamDraw()
 	{
 		self->x = self->head->x;
 		self->y = self->head->endY - self->h;
-		
+
 		drawLoopingAnimationToMap();
-		
+
 		while (self->y > self->head->y + self->head->h)
 		{
 			self->y -= self->h;
-			
+
 			drawSpriteToMap();
 		}
 	}

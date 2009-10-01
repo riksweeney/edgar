@@ -94,14 +94,14 @@ static void call(int val)
 
 			if (removeInventoryItem(self->requires) == 1)
 			{
-				setInfoBoxMessage(60,  "Used %s", _(self->requires));
+				setInfoBoxMessage(60, _("Used %s"), _(self->requires));
 
 				self->requires[0] = '\0';
 			}
 
 			else
 			{
-				setInfoBoxMessage(60, "%s is needed to activate this switch", _(self->requires));
+				setInfoBoxMessage(60, _("%s is needed to activate this switch"), _(self->requires));
 
 				return;
 			}
@@ -127,14 +127,14 @@ static void activate(int val)
 	{
 		if (removeInventoryItem(self->requires) == 1)
 		{
-			setInfoBoxMessage(60, "Used %s", _(self->requires));
+			setInfoBoxMessage(60, _("Used %s"), _(self->requires));
 
 			self->requires[0] = '\0';
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, "%s is needed to activate this switch", _(self->requires));
+			setInfoBoxMessage(60, _("%s is needed to activate this switch"), _(self->requires));
 
 			return;
 		}

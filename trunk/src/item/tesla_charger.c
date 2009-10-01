@@ -151,9 +151,9 @@ static void activate(int val)
 		if (e != NULL && e->health == 0)
 		{
 			removeInventoryItem(e->objectiveName);
-			
+
 			self->health = 0;
-	
+
 			self->thinkTime = 180;
 		}
 	}
@@ -169,7 +169,7 @@ static void touch(Entity *other)
 	{
 		if (self->health == 3)
 		{
-			setInfoBoxMessage(0,  _("Press Action to retrieve Tesla Pack"));
+			setInfoBoxMessage(0, _("Press Action to retrieve Tesla Pack"));
 		}
 
 		else if (self->health == -1)
@@ -178,7 +178,7 @@ static void touch(Entity *other)
 
 			if (e != NULL && e->health == 0)
 			{
-				setInfoBoxMessage(0,  _("Press Action to replace Tesla Pack"));
+				setInfoBoxMessage(0, _("Press Action to replace Tesla Pack"));
 			}
 		}
 	}

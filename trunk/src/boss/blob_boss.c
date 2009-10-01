@@ -987,7 +987,7 @@ static void attackFinished()
 	self->flags &= ~INVULNERABLE;
 
 	self->layer = MID_GROUND_LAYER;
-	
+
 	self->frameSpeed = 1;
 
 	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
@@ -1118,7 +1118,7 @@ static void stunnedTouch(Entity *other)
 
 		if (e != NULL && e->health != 0)
 		{
-			setInfoBoxMessage(5,  _("Press Action to attach the Tesla Pack"));
+			setInfoBoxMessage(5, _("Press Action to attach the Tesla Pack"));
 		}
 	}
 }
@@ -1722,7 +1722,7 @@ static void dieSplit()
 				self->mental = 30;
 
 				self->currentFrame--;
-				
+
 				setFrameData(self);
 			}
 		}

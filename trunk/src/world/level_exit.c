@@ -81,7 +81,7 @@ static void init()
 static void wait()
 {
 	self->dirX = (self->face == RIGHT ? 10 : -10);
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -95,12 +95,12 @@ static void wait()
 	{
 		self->x += self->dirX;
 	}
-	
+
 	if (self->active == FALSE)
 	{
 		self->flags |= NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags &= ~NO_DRAW;
@@ -111,7 +111,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		setInfoBoxMessage(0, "Press Action to go to the %s", _(self->requires));
+		setInfoBoxMessage(0, _("Press Action to go to the %s"), _(self->requires));
 	}
 }
 
@@ -120,7 +120,7 @@ static void activate(int val)
 	if (self->active == TRUE)
 	{
 		player.flags |= HELPLESS;
-		
+
 		setCustomAction(&player, &helpless, 600, 0);
 
 		setEntityAnimation(&player, STAND);

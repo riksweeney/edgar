@@ -64,7 +64,7 @@ void draw()
 					/* Draw the map background */
 
 					drawMap(0);
-					
+
 					/* Draw the Entities */
 
 					drawEntities(BACKGROUND_LAYER);

@@ -76,27 +76,27 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(15,  _("Press Action to interact"));
+		setInfoBoxMessage(15, _("Press Action to interact"));
 	}
 }
 
 static void activate(int val)
 {
 	Entity *e;
-	
+
 	if (getInventoryItem(self->requires) != NULL)
 	{
 		e = addKeyItem(self->objectiveName, 0, 0);
-		
+
 		replaceInventoryItem(self->requires, e);
-		
+
 		playSound("sound/item/fill_potion.ogg");
-		
-		setInfoBoxMessage(60, "Obtained %s", _(e->objectiveName));
+
+		setInfoBoxMessage(60, _("Obtained %s"), _(e->objectiveName));
 	}
 
 	else
 	{
-		setInfoBoxMessage(60, "%s is required", _(self->requires));
+		setInfoBoxMessage(60, _("%s is required"), _(self->requires));
 	}
 }

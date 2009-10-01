@@ -74,21 +74,21 @@ Entity *addPowerGenerator(int x, int y, char *name)
 static void wait()
 {
 	checkToMap(self);
-	
+
 	if (self->health < 0)
 	{
 		if (self->active == TRUE)
 		{
 			self->health *= -1;
-			
+
 			fireTrigger(self->objectiveName);
-			
+
 			fireGlobalTrigger(self->objectiveName);
-			
+
 			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
-			
+
 			setEntityAnimation(self, self->health);
-			
+
 			self->frameSpeed = 1;
 		}
 	}
@@ -109,19 +109,19 @@ static void activate(int val)
 		if (removeInventoryItem(self->requires) == TRUE)
 		{
 			self->active = TRUE;
-			
+
 			fireTrigger(self->objectiveName);
-			
+
 			fireGlobalTrigger(self->objectiveName);
-			
+
 			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
-			
+
 			setEntityAnimation(self, self->health);
 		}
-		
+
 		else
 		{
-			setInfoBoxMessage(60, "%s is required", _(self->requires));
+			setInfoBoxMessage(60, _("%s is required"), _(self->requires));
 		}
 	}
 }
@@ -132,13 +132,13 @@ static void init()
 	{
 		setEntityAnimation(self, self->health);
 	}
-	
+
 	else if (self->active == FALSE && self->health < 0)
 	{
 		setEntityAnimation(self, -self->health);
-		
+
 		self->frameSpeed = 0;
 	}
-	
+
 	self->action = &wait;
 }

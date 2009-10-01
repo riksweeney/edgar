@@ -73,7 +73,7 @@ static void useHealthPotion(int val)
 	{
 		if (game.status == IN_INVENTORY)
 		{
-			setInventoryDialogMessage("Used %s", _(self->objectiveName));
+			setInventoryDialogMessage(_("Used %s"), _(self->objectiveName));
 		}
 
 		player.health = player.maxHealth;
@@ -121,13 +121,13 @@ Entity *addSlimePotion(int x, int y, char *name)
 static void useSlimePotion(int val)
 {
 	becomeJumpingSlime(self->health);
-	
+
 	if (player.element == WATER)
 	{
 		loadProperties("item/empty_potion", self);
-		
+
 		self->activate = NULL;
-		
+
 		self->health = 0;
 	}
 }

@@ -70,6 +70,8 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 static void init()
 {
+	self->face = RIGHT;
+
 	self->health = self->maxHealth = 0;
 
 	self->action = &wait;
@@ -104,7 +106,7 @@ static void touch(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(0, "%s is required to use this Pressure Plate", _(self->requires));
+			setInfoBoxMessage(0, _("%s is required to use this Pressure Plate"), _(self->requires));
 		}
 	}
 }

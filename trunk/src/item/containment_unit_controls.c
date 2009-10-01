@@ -93,12 +93,12 @@ static void wait()
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (other->type == PLAYER && self->health > 0)
 	{
-		setInfoBoxMessage(0,  _("Press Action to retrieve Purple Gem"));
+		setInfoBoxMessage(0, _("Press Action to retrieve Purple Gem"));
 	}
-	
+
 	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
