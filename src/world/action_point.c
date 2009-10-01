@@ -72,6 +72,8 @@ static void wait()
 {
 	self->thinkTime++;
 
+	self->face = RIGHT;
+
 	self->dirY = 0.2 * cos(DEG_TO_RAD(self->thinkTime));
 
 	self->y += self->dirY;

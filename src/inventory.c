@@ -63,7 +63,7 @@ void freeInventory()
 
 		inventory.cursor = NULL;
 	}
-	
+
 	if (inventory.objectives != NULL)
 	{
 		SDL_FreeSurface(inventory.objectives);
@@ -100,7 +100,7 @@ int addToInventory(Entity *e)
 
 				else
 				{
-					setInfoBoxMessage(10, "Cannot carry any more %s", _(inventory.item[i].objectiveName));
+					setInfoBoxMessage(10, _("Cannot carry any more %s"), _(inventory.item[i].objectiveName));
 
 					return FALSE;
 				}
@@ -148,12 +148,12 @@ int addToInventory(Entity *e)
 	{
 		if ((inventory.item[i].flags & STACKABLE) && e->health > 1)
 		{
-			setInfoBoxMessage(60, "Picked up %s x %d", _(inventory.item[i].objectiveName), e->health);
+			setInfoBoxMessage(60, _("Picked up %s x %d"), _(inventory.item[i].objectiveName), e->health);
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, "Picked up %s", _(inventory.item[i].objectiveName));
+			setInfoBoxMessage(60, _("Picked up %s"), _(inventory.item[i].objectiveName));
 		}
 
 		e->inUse = FALSE;
@@ -238,7 +238,7 @@ void selectInventoryItem(void)
 	{
 		inventory.selectedIndex = inventory.cursorIndex;
 
-		setInventoryDialogMessage("Readied %s", _(inventory.item[inventory.cursorIndex].objectiveName));
+		setInventoryDialogMessage(_("Readied %s"), _(inventory.item[inventory.cursorIndex].objectiveName));
 	}
 }
 
@@ -266,19 +266,19 @@ void replaceInventoryItem(char *name, Entity *e)
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
 		{
 			inventory.item[i] = *e;
-			
+
 			inventory.item[i].face = RIGHT;
 
 			inventory.item[i].thinkTime = 0;
 
 			setEntityAnimation(&inventory.item[i], STAND);
-			
+
 			return;
 		}
 	}
-	
+
 	printf("Could not find inventory item %s to replace\n", name);
-	
+
 	exit(1);
 }
 
@@ -295,13 +295,13 @@ int removeInventoryItem(char *name)
 			if (inventory.item[i].flags & STACKABLE)
 			{
 				inventory.item[i].health--;
-				
+
 				if (inventory.item[i].health <= 0)
 				{
 					inventory.item[i].inUse = FALSE;
 				}
 			}
-			
+
 			else
 			{
 				inventory.item[i].inUse = FALSE;
@@ -439,7 +439,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			setInfoBoxMessage(60, "Picked up %s", _(self->objectiveName));
+			setInfoBoxMessage(60, _("Picked up %s"), _(self->objectiveName));
 
 			fireTrigger(self->objectiveName);
 
@@ -448,7 +448,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(60, "%s is required to carry this item", _(self->requires));
+			setInfoBoxMessage(60, _("%s is required to carry this item"), _(self->requires));
 		}
 	}
 }
@@ -549,20 +549,20 @@ void useInventoryItemFromScript(char *itemName)
 	Entity *item, *temp;
 
 	item = getInventoryItem(itemName);
-	
+
 	if (item == NULL)
 	{
 		printf("Could not find Inventory Item %s\n", itemName);
-		
+
 		exit(1);
 	}
-	
+
 	temp = self;
-	
+
 	self = item;
-	
+
 	self->activate(0);
-	
+
 	self = temp;
 }
 
@@ -605,7 +605,7 @@ void clearInventoryDescription()
 
 		inventory.description = NULL;
 	}
-	
+
 	if (inventory.objectives != NULL)
 	{
 		SDL_FreeSurface(inventory.objectives);
@@ -683,7 +683,7 @@ void drawInventory()
 	{
 		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
 	}
-	
+
 	if (inventory.objectives == NULL)
 	{
 		inventory.objectives = listObjectives();
@@ -701,7 +701,7 @@ void drawInventory()
 	y += inventory.y;
 
 	drawImage(inventory.cursor, x, y, FALSE, 255);
-	
+
 	drawImage(inventory.objectives, (SCREEN_WIDTH - inventory.objectives->w) / 2, 325, FALSE, 255);
 }
 

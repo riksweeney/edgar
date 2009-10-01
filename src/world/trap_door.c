@@ -63,6 +63,8 @@ Entity *addTrapDoor(char *name, int x, int y)
 
 static void wait()
 {
+	self->face = RIGHT;
+
 	self->touch = self->active == FALSE ? &touch : NULL;
 
 	self->action = &wait;

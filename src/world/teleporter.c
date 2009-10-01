@@ -75,48 +75,50 @@ Entity *addTeleporter(char *name, int x, int y)
 
 static void wait()
 {
+	self->face = RIGHT;
+
 	if (self->active == FALSE)
 	{
 		setEntityAnimation(self, STAND);
 	}
-	
+
 	else
 	{
 		setEntityAnimation(self, WALK);
 	}
-	
+
 	checkToMap(self);
 }
 
 static int draw()
 {
 	Entity *e;
-	
+
 	if (drawLoopingAnimationToMap() == TRUE && self->active == TRUE)
 	{
 		if (prand() % 3 == 0)
 		{
 			e = addBasicDecoration(self->x + self->w / 2, self->y, "decoration/particle");
-	
+
 			if (e != NULL)
 			{
 				e->x += (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
-				
+
 				e->y -= e->h;
-	
+
 				e->thinkTime = 30 + prand() % 60;
-				
+
 				e->dirY = -5 - prand() % 15;
-				
+
 				e->dirY /= 10;
-				
+
 				e->alpha = 128;
-	
+
 				setEntityAnimation(e, prand() % 5);
 			}
 		}
 	}
-	
+
 	return TRUE;
 }
 

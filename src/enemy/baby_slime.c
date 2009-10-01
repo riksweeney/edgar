@@ -163,7 +163,7 @@ static void stickToPlayer()
 
 	if (game.showHints == TRUE)
 	{
-		setInfoBoxMessage(0,  _("Quickly turn left and right to shake off the slimes!"));
+		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
 	}
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;
@@ -205,7 +205,7 @@ static void stickToPlayerAndDrain()
 
 	if (game.showHints == TRUE)
 	{
-		setInfoBoxMessage(0,  _("Quickly turn left and right to shake off the slimes!"));
+		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
 	}
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;

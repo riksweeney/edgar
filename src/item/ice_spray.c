@@ -68,6 +68,6 @@ static void sprayIce(int val)
 	{
 		self->thinkTime = self->maxThinkTime;
 
-		setInfoBoxMessage(30,  _("Not working in this version!"));
+		setInfoBoxMessage(30, _("Not working in this version!"));
 	}
 }

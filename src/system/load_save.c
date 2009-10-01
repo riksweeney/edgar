@@ -699,7 +699,7 @@ void saveTemporaryData()
 
 				if (strcmpignorecase("PLAYER_DATA", line) == 0 || strcmpignorecase("PLAYER_INVENTORY", line) == 0 ||
 					strcmpignorecase("GLOBAL_TRIGGER", line) == 0 || strcmpignorecase("OBJECTIVE", line) == 0 ||
-					strcmpignorecase("PLAYER_LOCATION", line) == 0)
+					strcmpignorecase("PLAYER_LOCATION", line) == 0 || strcmpignorecase("MAP_TRIGGER", line) == 0)
 				{
 					skipping = TRUE;
 				}

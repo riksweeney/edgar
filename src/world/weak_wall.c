@@ -34,6 +34,7 @@ static void touch(Entity *);
 static void takeDamage(Entity *, int);
 static void die(void);
 static void fallout(void);
+static void init(void);
 
 Entity *addWeakWall(char *name, int x, int y)
 {
@@ -51,7 +52,7 @@ Entity *addWeakWall(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->action = &doNothing;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
@@ -61,6 +62,13 @@ Entity *addWeakWall(char *name, int x, int y)
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void init()
+{
+	self->face = RIGHT;
+
+	self->action = &doNothing;
 }
 
 static void touch(Entity *other)

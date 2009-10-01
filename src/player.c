@@ -735,7 +735,7 @@ void setPlayerShield(int val)
 
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage("Equipped %s", _(playerShield.objectiveName));
+		setInventoryDialogMessage(_("Equipped %s"), _(playerShield.objectiveName));
 	}
 }
 
@@ -768,7 +768,7 @@ void setPlayerWeapon(int val)
 
 	if (game.status == IN_INVENTORY)
 	{
-		setInventoryDialogMessage("Equipped %s", _(playerWeapon.objectiveName));
+		setInventoryDialogMessage(_("Equipped %s"), _(playerWeapon.objectiveName));
 	}
 }
 
@@ -778,12 +778,17 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 	{
 		return;
 	}
+	
+	if (strcmpignorecase(newWeapon->name, "weapon/normal_arrow") == 0)
+	{
+		return;
+	}
 
 	if (playerWeapon.inUse == FALSE)
 	{
 		/* Don't auto set the bow if the shield is in use */
 
-		if (usingBow() == TRUE)
+		if (strcmpignorecase(newWeapon->name, "weapon/bow") == 0 && playerShield.inUse == TRUE)
 		{
 			return;
 		}
@@ -798,7 +803,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 
 void autoSetPlayerShield(Entity *newWeapon)
 {
-	if (player.element == WATER)
+	if (player.element == WATER || usingBow() == TRUE)
 	{
 		return;
 	}
@@ -1461,12 +1466,12 @@ void setBowAmmo(int val)
 	{
 		if (game.status == IN_INVENTORY)
 		{
-			setInventoryDialogMessage("Bow will now fire %s", _(self->objectiveName));
+			setInventoryDialogMessage(_("Bow will now fire %s"), _(self->objectiveName));
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, "Bow will now fire %s", _(self->objectiveName));
+			setInfoBoxMessage(60, _("Bow will now fire %s"), _(self->objectiveName));
 		}
 
 		STRNCPY(bow->requires, self->objectiveName, sizeof(bow->requires));
@@ -1527,7 +1532,7 @@ void becomeJumpingSlime(int seconds)
 		player.x = originalX;
 		player.y = originalY;
 
-		setInfoBoxMessage(60,  _("Cannot transmogrify here..."));
+		setInfoBoxMessage(60, _("Cannot transmogrify here..."));
 	}
 
 	else

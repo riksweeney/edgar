@@ -53,8 +53,8 @@ void addToGrid(Entity *e)
 	{
 		if (e->face == LEFT)
 		{
-			left = (e->x + e->parent->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
-			right = (e->x + e->parent->w - e->w - e->offsetX) / TILE_SIZE / GRID_SIZE;
+			left = (e->x - e->w + e->offsetX - 1) / TILE_SIZE / GRID_SIZE;
+			right = (e->x + e->offsetX - 1) / TILE_SIZE / GRID_SIZE;
 		}
 
 		else
@@ -209,21 +209,18 @@ void doCollisions()
 
 							if (e1 == &playerWeapon)
 							{
-								x1 = e1->x + e1->box.x;
-								y1 = e1->y + e1->box.y;
-
 								if (e1->face == LEFT)
 								{
-									x1 -= e1->offsetX;
+									x1 = e1->parent->x - e1->w + e1->offsetX - 1;
 								}
 
 								else
 								{
-									x1 += e1->offsetX;
+									x1 = e1->x + e1->offsetX;
 								}
 
 
-								y1 += e1->offsetY;
+								y1 = e1->y + e1->offsetY;
 							}
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)

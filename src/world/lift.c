@@ -318,6 +318,8 @@ static void setToStart()
 	char targetName[MAX_VALUE_LENGTH];
 	Target *t;
 
+	self->face = RIGHT;
+
 	if (self->type == AUTO_LIFT)
 	{
 		/* Auto lifts just use their start and end points */

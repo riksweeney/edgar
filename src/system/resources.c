@@ -134,6 +134,10 @@ void freeGameResources()
 	/* Free the Global Triggers */
 
 	freeGlobalTriggers();
+	
+	/* Free the map triggers */
+	
+	freeMapTriggers();
 
 	/* Free the Objectives */
 

@@ -1,352 +1,220 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-21 22:23+0100\n"
-"PO-Revision-Date: 2009-09-23 09:27-0000\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/enemy/baby_slime.c:166
-#: src/enemy/baby_slime.c:208
+msgid ""
+msgstr ""
+
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
 
-#: src/item/item.c:178
 msgid "Bow"
 msgstr ""
 
-#: src/item/ice_spray.c:71
 msgid "Not working in this version!"
 msgstr ""
 
-#: src/item/gazer_eye_slot.c:101
-#: src/item/potion_dispenser.c:79
-#: src/item/power_generator.c:101
-#: src/world/action_point.c:84
 msgid "Press Action to interact"
 msgstr ""
 
-#: src/item/gazer_eye_slot.c:126
-#: src/item/potion_dispenser.c:100
-#: src/item/power_generator.c:124
-#, c-format
 msgid "%s is required"
 msgstr ""
 
-#: src/item/bomb_pile.c:73
-#: src/item/bomb_pile.c:77
 msgid "Bomb"
 msgstr ""
 
-#: src/item/rock_pile.c:73
-#: src/item/rock_pile.c:77
 msgid "Small Rock"
 msgstr ""
 
-#: src/item/containment_unit_controls.c:99
 msgid "Press Action to retrieve Purple Gem"
 msgstr ""
 
-#: src/item/chicken_trap.c:103
 msgid "Chicken"
 msgstr ""
 
-#: src/item/tesla_charger.c:149
-#: src/item/tesla_charger.c:177
-#: src/boss/blob_boss.c:1085
-#: src/boss/blob_boss.c:1117
 msgid "Tesla Pack"
 msgstr ""
 
-#: src/item/tesla_charger.c:172
 msgid "Press Action to retrieve Tesla Pack"
 msgstr ""
 
-#: src/item/tesla_charger.c:181
 msgid "Press Action to replace Tesla Pack"
 msgstr ""
 
-#: src/item/potion_dispenser.c:95
-#, c-format
 msgid "Obtained %s"
 msgstr ""
 
-#: src/item/symbol_block.c:302
 msgid "Complete"
 msgstr ""
 
-#: src/item/symbol_block.c:328
-#: src/world/switch.c:141
-#: src/world/pressure_plate.c:133
-#: src/world/arrow_target.c:140
-#, c-format
 msgid "%d more to go..."
 msgstr ""
 
-#: src/item/potions.c:76
-#: src/world/switch.c:78
-#: src/world/switch.c:111
-#: src/world/door.c:113
-#, c-format
 msgid "Used %s"
 msgstr ""
 
-#: src/player.c:720
-#: src/player.c:746
 msgid "Cannot equip items whilst transmogrified"
 msgstr ""
 
-#: src/player.c:738
-#: src/player.c:771
-#, c-format
 msgid "Equipped %s"
 msgstr ""
 
-#: src/player.c:1210
 msgid "Maximum health has increased!"
 msgstr ""
 
-#: src/player.c:1464
-#: src/player.c:1469
-#, c-format
 msgid "Bow will now fire %s"
 msgstr ""
 
-#: src/player.c:1483
-#: src/player.c:1488
 msgid "A bow is required to use this item"
 msgstr ""
 
-#: src/player.c:1530
 msgid "Cannot transmogrify here..."
 msgstr ""
 
-#: src/menu/options_menu.c:148
-#, c-format
 msgid "data/menu/options_menu.dat"
 msgstr ""
 
-#: src/menu/options_menu.c:227
-#: src/menu/options_menu.c:234
-#: src/menu/options_menu.c:320
-#: src/menu/options_menu.c:331
-#: src/menu/sound_menu.c:222
-#: src/menu/sound_menu.c:374
 msgid "Yes"
 msgstr ""
 
-#: src/menu/options_menu.c:227
-#: src/menu/options_menu.c:234
-#: src/menu/options_menu.c:320
-#: src/menu/options_menu.c:331
-#: src/menu/sound_menu.c:222
-#: src/menu/sound_menu.c:374
 msgid "No"
 msgstr ""
 
-#: src/menu/main_menu.c:151
-#, c-format
 msgid "data/menu/main_menu.dat"
 msgstr ""
 
-#: src/menu/main_menu.c:341
 msgid "Start a new game?"
 msgstr ""
 
-#: src/menu/main_menu.c:348
 msgid "Play the tutorial?"
 msgstr ""
 
-#: src/menu/main_menu.c:355
 msgid "Exit the game?"
 msgstr ""
 
-#: src/menu/io_menu.c:121
-#, c-format
 msgid "data/menu/io_menu.dat"
 msgstr ""
 
-#: src/menu/io_menu.c:208
 msgid "Back"
 msgstr ""
 
-#: src/menu/io_menu.c:264
 msgid "Game Loaded"
 msgstr ""
 
-#: src/menu/io_menu.c:276
 msgid "Game Saved"
 msgstr ""
 
-#: src/menu/sound_menu.c:153
-#, c-format
 msgid "data/menu/sound_menu.dat"
 msgstr ""
 
-#: src/menu/about_menu.c:86
 msgid "Copyright Parallel Realities 2009"
 msgstr ""
 
-#: src/menu/about_menu.c:88
 msgid "OK"
 msgstr ""
 
-#: src/menu/yes_no_menu.c:117
-#, c-format
 msgid "data/menu/yes_no_menu.dat"
 msgstr ""
 
-#: src/menu/yes_no_menu.c:182
 msgid "Any unsaved progress will be lost"
 msgstr ""
 
-#: src/menu/control_menu.c:152
-#, c-format
 msgid "data/menu/control_menu.dat"
 msgstr ""
 
-#: src/menu/control_menu.c:649
-#, c-format
 msgid "Joy Button #%d"
 msgstr ""
 
-#: src/npc/npc.c:81
-#: src/npc/borgan.c:100
-#: src/npc/villager.c:81
-#, c-format
 msgid "Press Action to talk to %s"
 msgstr ""
 
-#: src/custom_actions.c:240
-#, c-format
 msgid "%d"
 msgstr ""
 
-#: src/event/global_trigger.c:167
-#, c-format
 msgid "%s (%d / %d)"
 msgstr ""
 
-#: src/event/script.c:57
-#, c-format
 msgid "data/scripts/%s.dat"
 msgstr ""
 
-#: src/event/objective.c:91
-#, c-format
 msgid "New Objective: %s"
 msgstr ""
 
-#: src/event/objective.c:118
-#, c-format
 msgid "Objective Completed: %s"
 msgstr ""
 
-#: src/boss/fly_boss.c:913
-#: src/boss/fly_boss.c:919
 msgid "The wall on the right looks weak..."
 msgstr ""
 
-#: src/boss/golem_boss.c:517
 msgid "This weapon is not having any effect..."
 msgstr ""
 
-#: src/boss/blob_boss.c:1121
 msgid "Press Action to attach the Tesla Pack"
 msgstr ""
 
-#: src/main.c:67
 msgid "The Legend of Edgar"
 msgstr ""
 
-#: src/world/switch.c:85
-#: src/world/switch.c:118
-#, c-format
 msgid "%s is needed to activate this switch"
 msgstr ""
 
-#: src/world/switch.c:212
 msgid "Press Action to use this switch"
 msgstr ""
 
-#: src/world/save_point.c:92
 msgid "Press Action to save your game"
 msgstr ""
 
-#: src/world/pressure_plate.c:107
-#, c-format
 msgid "%s is required to use this Pressure Plate"
 msgstr ""
 
-#: src/world/door.c:122
-#, c-format
 msgid "%s is needed to open this door"
 msgstr ""
 
-#: src/world/door.c:129
 msgid "This door is locked"
 msgstr ""
 
-#: src/world/teleporter.c:138
 msgid "This teleporter is not active"
 msgstr ""
 
-#: src/world/level_exit.c:113
-#, c-format
 msgid "Press Action to go to the %s"
 msgstr ""
 
-#: src/world/lift.c:159
 msgid "Push Up or Down to use this lift"
 msgstr ""
 
-#: src/world/lift.c:227
 msgid "This lift is not active"
 msgstr ""
 
-#: src/inventory.c:96
-#, c-format
 msgid "Cannot carry any more %s"
 msgstr ""
 
-#: src/inventory.c:144
-#, c-format
 msgid "Picked up %s x %d"
 msgstr ""
 
-#: src/inventory.c:149
-#: src/inventory.c:435
-#, c-format
 msgid "Picked up %s"
 msgstr ""
 
-#: src/inventory.c:234
-#, c-format
 msgid "Readied %s"
 msgstr ""
 
-#: src/inventory.c:444
-#, c-format
 msgid "%s is required to carry this item"
 msgstr ""
 
-#: src/inventory.c:649
-#, c-format
 msgid "%s (%d)"
 msgstr ""
 
-#: src/inventory.c:654
-#: src/inventory.c:659
-#, c-format
 msgid "%s"
 msgstr ""
 
@@ -1152,4 +1020,10 @@ msgid "That might explain why that lift wasn't working. Defeating the other drai
 msgstr ""
 
 msgid "Defeat all Energy Drainers"
+msgstr ""
+
+msgid "No Objectives"
+msgstr ""
+
+msgid "Press Action to reset puzzle blocks"
 msgstr ""

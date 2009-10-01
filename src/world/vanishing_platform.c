@@ -66,6 +66,8 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 
 static void wait()
 {
+	self->face = RIGHT;
+
 	self->thinkTime--;
 
 	if (self->thinkTime == 0)

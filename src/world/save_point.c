@@ -65,6 +65,8 @@ static void wait()
 {
 	int frame = self->currentFrame;
 
+	self->face = RIGHT;
+
 	self->thinkTime--;
 
 	if (self->thinkTime < 0)
