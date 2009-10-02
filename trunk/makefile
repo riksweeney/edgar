@@ -142,7 +142,7 @@ uninstall:
 	$(RM) $(BIN_DIR)$(PROG)
 	$(RM) $(DATA_DIR)$(PAK_FILE)
 	$(RM) $(DOC_DIR)*
-	$(RM) $(DOC_DIR)
+	$(RM) -r $(DOC_DIR)
 	$(RM) $(ICON_DIR)$(ICONS)$(PROG).png
 	$(RM) $(ICON_DIR)16x16/apps/$(PROG).png
 	$(RM) $(ICON_DIR)32x32/apps/$(PROG).png
