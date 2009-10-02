@@ -13,6 +13,8 @@ Version 0.35
 * Added Polish translation
 * Added next section of the Cellar Map
 * Fixed a problem with Map Triggers accumulating
+* Starting a new game during a Gazer's flash no longer leaves the screen white
+* Blob Boss's punch can no longer get stuck in the scenery
 
 Version 0.31
 * Gravity now affects Edgar again when updating from an older version

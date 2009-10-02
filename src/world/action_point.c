@@ -70,6 +70,16 @@ Entity *addActionPoint(char *name, int x, int y)
 
 static void wait()
 {
+	if (self->active == TRUE)
+	{
+		self->flags &= ~NO_DRAW;
+	}
+
+	else
+	{
+		self->flags |= NO_DRAW;
+	}
+
 	self->thinkTime++;
 
 	self->face = RIGHT;
@@ -81,7 +91,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && game.showHints == TRUE)
+	if (other->type == PLAYER && game.showHints == TRUE && self->active == TRUE)
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
@@ -89,5 +99,8 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	runScript(self->requires);
+	if (self->active == TRUE)
+	{
+		runScript(self->requires);
+	}
 }

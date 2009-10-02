@@ -69,6 +69,13 @@ void initGame()
 	game.action = NULL;
 
 	game.thinkTime = 0;
+
+	if (game.alphaSurface != NULL)
+	{
+		SDL_FreeSurface(game.alphaSurface);
+
+		game.alphaSurface = NULL;
+	}
 }
 
 void doGame()
