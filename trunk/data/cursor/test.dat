@@ -1,11 +1,2 @@
 edgar/edgar
-enemy/tortoise
-wall/weak_cave_wall
-item/ice_spray
-weapon/basic_sword
-weapon/pickaxe
-enemy/energy_drainer
-common/level_exit
-common/save_point
-weapon/bow
-weapon/normal_arrow
+enemy/gazer

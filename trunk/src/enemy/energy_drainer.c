@@ -44,11 +44,9 @@ static void stunned(void);
 static void stunFinish(void);
 static void returnToGenerator(void);
 static int draw(void);
-static void createBeam(int);
+static void createBeam(void);
 static void beamWait(void);
-static void beamFallout(void);
-static int upBeamDraw(void);
-static int downBeamDraw(void);
+static int beamDraw(void);
 
 Entity *addEnergyDrainer(int x, int y, char *name)
 {
@@ -72,6 +70,7 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
+	e->fallout = &die;
 
 	e->type = ENEMY;
 
@@ -109,9 +108,7 @@ static void init()
 
 	self->mental = 1;
 
-	createBeam(1);
-
-	createBeam(-1);
+	createBeam();
 }
 
 static void fly()
@@ -272,7 +269,7 @@ static void die()
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = NULL;
 	e->touch = NULL;
-	e->fallout = &beamFallout;
+	e->fallout = NULL;
 
 	e->type = ENEMY;
 
@@ -333,7 +330,7 @@ static int draw()
 	return TRUE;
 }
 
-static void createBeam(int dir)
+static void createBeam()
 {
 	Entity *e;
 
@@ -354,18 +351,15 @@ static void createBeam(int dir)
 	e->y = self->y;
 
 	e->action = &init;
-	e->draw = dir == 1 ? &upBeamDraw : &downBeamDraw;
-	e->die = &die;
+	e->draw = &beamDraw;
+	e->die = NULL;
 	e->takeDamage = NULL;
-	e->fallout = &beamFallout;
 	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
 
 	e->face = RIGHT;
-
-	e->frameSpeed = dir;
 
 	setEntityAnimation(e, STAND);
 
@@ -379,17 +373,17 @@ static void beamWait()
 		if (self->head->mental == 0)
 		{
 			self->flags |= NO_DRAW;
-			
+
 			self->touch = NULL;
 		}
 
 		else
 		{
 			self->flags &= ~NO_DRAW;
-			
-			self->box.y = self->head->endX - self->head->y;
+
+			self->box.y = self->head->endX - self->y;
 			self->box.h = self->head->endY - self->head->endX;
-			
+
 			self->touch = &entityTouch;
 		}
 	}
@@ -400,12 +394,7 @@ static void beamWait()
 	}
 }
 
-static void beamFallout()
-{
-
-}
-
-static int upBeamDraw()
+static int beamDraw()
 {
 	if (self->head->mental == 1 && self->head->health > 0)
 	{
@@ -414,29 +403,9 @@ static int upBeamDraw()
 
 		drawLoopingAnimationToMap();
 
-		while (self->y < self->head->y)
+		while (self->y < self->head->endY - self->h)
 		{
 			self->y += self->h;
-
-			drawSpriteToMap();
-		}
-	}
-
-	return TRUE;
-}
-
-static int downBeamDraw()
-{
-	if (self->head->mental == 1 && self->head->health > 0)
-	{
-		self->x = self->head->x;
-		self->y = self->head->endY - self->h;
-
-		drawLoopingAnimationToMap();
-
-		while (self->y > self->head->y + self->head->h)
-		{
-			self->y -= self->h;
 
 			drawSpriteToMap();
 		}

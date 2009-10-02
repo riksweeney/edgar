@@ -831,6 +831,30 @@ static void bounceAround()
 
 static void punchAttackInit()
 {
+	Target *t;
+
+	t = getTargetByName("BLOB_TARGET_LEFT");
+
+	if (t == NULL)
+	{
+		printf("Blob Boss could not find target\n");
+
+		exit(1);
+	}
+
+	self->startX = t->x;
+
+	t = getTargetByName("BLOB_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		printf("Blob Boss could not find target\n");
+
+		exit(1);
+	}
+
+	self->endX = t->x;
+
 	self->targetY = self->y + self->h;
 
 	self->maxThinkTime = 3 + prand() % 3;
@@ -893,6 +917,28 @@ static void lookForPlayer()
 	else
 	{
 		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			self->targetY = self->y - self->h;
+
+			self->thinkTime = 30;
+
+			self->action = &punch;
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			self->targetY = self->y - self->h;
+
+			self->thinkTime = 30;
+
+			self->action = &punch;
+		}
 	}
 }
 

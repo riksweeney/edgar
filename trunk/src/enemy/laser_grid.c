@@ -27,12 +27,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../geometry.h"
 
-extern Entity entity[MAX_ENTITIES], *self;
+extern Entity *self;
 
 static void init(void);
 static void wait(void);
 static void addLaser(void);
-static void removeLaser(void);
 static void laserWait(void);
 
 Entity *addLaserGrid(int x, int y, char *name)
@@ -65,10 +64,7 @@ Entity *addLaserGrid(int x, int y, char *name)
 
 static void init()
 {
-	if (self->active == TRUE)
-	{
-		addLaser();
-	}
+	addLaser();
 
 	self->action = &wait;
 
@@ -85,32 +81,12 @@ static void wait()
 		{
 			self->active = self->active == TRUE ? FALSE : TRUE;
 
-			if (self->active == TRUE)
-			{
-				addLaser();
-			}
-
-			else
-			{
-				removeLaser();
-			}
-
 			self->thinkTime = self->maxThinkTime;
 		}
 	}
 
 	else if (self->active != self->health)
 	{
-		if (self->active == TRUE)
-		{
-			addLaser();
-		}
-
-		else
-		{
-			removeLaser();
-		}
-
 		self->health = self->active;
 	}
 }
@@ -119,65 +95,69 @@ static void addLaser()
 {
 	int i;
 	Entity *e;
-	
+
 	if (strcmpignorecase(self->name, "enemy/horizontal_laser_grid") == 0)
 	{
 		for (i=self->startX;i<self->endX;i+=32)
 		{
 			e = getFreeEntity();
-	
+
 			if (e == NULL)
 			{
 				printf("No free slots to add a Laser\n");
-	
+
 				exit(1);
 			}
-	
+
 			loadProperties("enemy/horizontal_laser", e);
-	
+
 			e->x = i;
 			e->y = self->y;
-	
+
 			e->action = &laserWait;
-	
+
 			e->draw = &drawLoopingAnimationToMap;
 			e->touch = &entityTouch;
-	
+
 			e->head = self;
-	
+
 			e->currentFrame = prand() % 6;
-	
+
+			e->face = RIGHT;
+
 			setEntityAnimation(e, STAND);
 		}
 	}
-	
+
 	else
 	{
 		for (i=self->startY;i<self->endY;i+=32)
 		{
 			e = getFreeEntity();
-	
+
 			if (e == NULL)
 			{
 				printf("No free slots to add a Laser\n");
-	
+
 				exit(1);
 			}
-	
+
 			loadProperties("enemy/laser", e);
-	
+
 			e->x = self->x;
 			e->y = i;
-	
+
 			e->action = &laserWait;
-	
+
 			e->draw = &drawLoopingAnimationToMap;
 			e->touch = &entityTouch;
-	
+
 			e->head = self;
-	
+
 			e->currentFrame = prand() % 6;
-	
+
+			e->face = RIGHT;
+
 			setEntityAnimation(e, STAND);
 		}
 	}
@@ -185,20 +165,19 @@ static void addLaser()
 	playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
 }
 
-static void removeLaser()
-{
-	int i;
-
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if (entity[i].inUse == TRUE && entity[i].head == self)
-		{
-			entity[i].inUse = FALSE;
-		}
-	}
-}
-
 static void laserWait()
 {
+	if (self->head->active == TRUE)
+	{
+		self->flags &= ~NO_DRAW;
 
+		self->touch = &entityTouch;
+	}
+
+	else
+	{
+		self->flags |= NO_DRAW;
+
+		self->touch = NULL;
+	}
 }
