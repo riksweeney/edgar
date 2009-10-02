@@ -1,7 +1,7 @@
 CHANGE LOG
 ----------
 
-Version 0.35
+Version 0.32
 * Corrected errors in the translation handling
 * Edgar's weapon and shield are re-equipped after transforming back
 * The inventory screen now shows the current Objectives and their completion status
@@ -11,8 +11,7 @@ Version 0.35
 * Weapons no longer fall through lifts, pressure plates and other objects
 * Fixed weapon collision detection
 * Added Polish translation
-* Added next section of the Cellar Map
-* Fixed a problem with Map Triggers accumulating
+* Fixed a problem with Map Triggers accumulating which would eventually lead to a crash when changing maps
 * Starting a new game during a Gazer's flash no longer leaves the screen white
 * Blob Boss's punch can no longer get stuck in the scenery
 
