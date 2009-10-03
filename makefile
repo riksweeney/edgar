@@ -151,7 +151,7 @@ uninstall:
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
-		echo "$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		echo "$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
 		$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
 
