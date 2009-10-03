@@ -78,11 +78,13 @@ done
 
 echo "Creating GZIP... $DISTNAME"
 
-cp $APPDIR/edgar.spec.base $APPDIR/edgar.spec
+cp $APPDIR/edgar.spec.base edgar.spec
 
 for f in `ls $APPDIR/locale/*.mo`; do \
-	FILE=`echo $f | cut -d'/' -f2 | cut -d'.' -f1`
-	echo "/usr/share/locale/$FILE/LC_MESSAGES/edgar.mo" >> edgar.spec
+	FILE=`echo $f | cut -d'/' -f4 | cut -d'.' -f1`
+	LINE="/usr/share/locale/$FILE/LC_MESSAGES/edgar.mo"
+	echo "Adding $LINE"
+	echo $LINE >> edgar.spec
 done
 
 tar zhcf $DISTNAME $APPDIR
@@ -97,17 +99,13 @@ cp $DISTNAME $RPMROOT/SOURCES
 
 echo "Building RPMs..."
 
-cd ..
-
 rpmbuild -bb $SPECNAME --target $ARCH --define "name $APPNAME" --define "version $APPVERSION" --define "release $APPRELEASE"
 
 echo "Retrieving RPMs"
 
-mv $RPMROOT/RPMS/$ARCH/*.* dist/
+mv $RPMROOT/RPMS/$ARCH/*.* .
 
 echo "Running Alien..."
-
-cd dist
 
 alien -k *.rpm
 
