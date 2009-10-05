@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/purple_gem.dat
+ANIM_FILE data/anim/item/gem.dat
+TYPE ITEM
+OBJECTIVE_NAME Purple Gem
+DESCRIPTION A Purple Gem
