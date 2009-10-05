@@ -71,6 +71,8 @@ void getInput(int gameType)
 					{
 						pauseGameInventory();
 					}
+					
+					input.inventory = TRUE;
 				}
 
 				else if (key == control.button[CONTROL_LEFT])
@@ -308,6 +310,11 @@ void getInput(int gameType)
 				{
 					menuInput.attack = FALSE;
 				}
+				
+				else if (key == control.button[CONTROL_INVENTORY])
+				{
+					input.inventory = FALSE;
+				}
 			break;
 
 			case SDL_MOUSEBUTTONDOWN:
@@ -350,14 +357,6 @@ void getInput(int gameType)
 				if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
-				}
-
-				if (key == control.button[CONTROL_INVENTORY])
-				{
-					if (!(player.flags & HELPLESS) && player.action == NULL)
-					{
-						pauseGameInventory();
-					}
 				}
 
 				if (key == control.button[CONTROL_LEFT])
@@ -419,6 +418,16 @@ void getInput(int gameType)
 				{
 					input.interact = TRUE;
 					input.grabbing = TRUE;
+				}
+				
+				else if (key == control.button[CONTROL_INVENTORY])
+				{
+					if (!(player.flags & HELPLESS) && player.action == NULL)
+					{
+						pauseGameInventory();
+					}
+					
+					input.inventory = TRUE;
 				}
 			break;
 
@@ -482,6 +491,11 @@ void getInput(int gameType)
 					input.interact = FALSE;
 					input.grabbing = FALSE;
 				}
+				
+				else if (key == control.button[CONTROL_INVENTORY])
+				{
+					input.inventory = FALSE;
+				}
 			break;
 
 			case SDL_JOYAXISMOTION:
@@ -540,12 +554,22 @@ void getInput(int gameType)
 
 			case REPLAYING:
 				input = getBuffer();
+				
+				if (input.inventory == TRUE)
+				{
+					if (!(player.flags & HELPLESS) && player.action == NULL)
+					{
+						pauseGameInventory();
+					}
+				}
 			break;
 
 			default:
 			break;
 		}
 	}
+	
+	input.inventory = FALSE;
 }
 
 void resetControls(int editor)

@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "decoration.h"
 #include "animation.h"
+#include "graphics.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../entity.h"
@@ -33,6 +34,7 @@ static void move(void);
 static void wait(void);
 static void finish(void);
 static void timeout(void);
+static int drawPixel(void);
 
 static Constructor decorations[] = {
 {"decoration/chimney_smoke", &addSmoke},
@@ -418,4 +420,29 @@ void addDecorationFromScript(char *line)
 	}
 
 	addDecoration(decorationName, e->x + e->w / 2, e->y + e->h / 2);
+}
+
+Entity *addPixelDecoration(int x, int y)
+{
+	Entity *e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return NULL;
+	}
+
+	e->x = x;
+	e->y = y;
+
+	e->action = &move;
+	e->draw = &drawPixel;
+
+	return e;
+}
+
+static int drawPixel()
+{
+	putPixelToMap(self->x, self->y, 255, 0, 255);
+	
+	return TRUE;
 }
