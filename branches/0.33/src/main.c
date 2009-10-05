@@ -56,14 +56,11 @@ int main(int argc, char *argv[])
 	int go, i, mapID, loadSlot, recordingID, replayingID;
 
 	#ifndef NO_GETTEXT
-		setlocale(LC_ALL, "");
-		setlocale(LC_NUMERIC, "C");
+		printf("Locale is %s\n", setlocale(LC_ALL, ""));
+		printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
+		printf("atof(2.75) is %f\n", atof("2.75"));
 		textdomain("edgar");
 		bindtextdomain("edgar", LOCALE_DIR);
-
-		printf("Locale is %s\n", setlocale(LC_ALL, ""));
-		printf("Numeric is %s\n", setlocale(LC_NUMERIC, ""));
-		printf("atof(2.75) is %f\n", atof("2.75"));
 	#endif
 
 	/* Start up SDL */
