@@ -217,6 +217,38 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	}
 }
 
+void putPixelToMap(int x, int y, int r, int g, int b)
+{
+	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	int startX, startY;
+	int *pixels;
+
+	startX = getMapStartX();
+	startY = getMapStartY();
+
+	x -= startX;
+	y -= startY;
+
+	if (collision(x, y, 1, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == FALSE)
+	{
+		return;
+	}
+	
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_LockSurface(game.screen);
+	}
+	
+	pixels = (int *)game.screen->pixels;
+	
+	pixels[(y * game.screen->w) + x] = color;
+	
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_UnlockSurface(game.screen);
+	}
+}
+
 void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 {
 	int color = SDL_MapRGB(game.screen->format, r, g, b);

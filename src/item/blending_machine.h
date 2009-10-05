@@ -17,18 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void freeDecorations(void);
-Entity *getFreeDecoration(void);
-void doDecorations(void);
-void drawDecorations(void);
-void addStarExplosion(int, int);
-void addSparkle(int, int);
-Entity *addTrail(int, int, char *, int);
-Entity *addDecoration(char *, int, int);
-Entity *addSmoke(int, int, char *);
-Entity *addMultipleSparkles(int, int, char *);
-void addDecorationFromScript(char *);
-void addBlood(int, int);
-Entity *addBasicDecoration(int, int, char *);
-void addParticleExplosion(int, int);
-Entity *addPixelDecoration(int, int);
+Entity *addBlendingMachine(int, int, char *);
