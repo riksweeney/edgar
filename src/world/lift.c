@@ -261,7 +261,7 @@ static void moveToTarget()
 				self->targetX = (self->targetX == self->endX ? self->startX : self->endX);
 				self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
 
-				self->health = self->targetX == self->endX ? 0 : 1;
+				self->health = (self->x == self->endX && self->y == self->endY) ? 0 : 1;
 
 				self->thinkTime = self->maxThinkTime;
 
@@ -326,7 +326,7 @@ static void setToStart()
 
 		self->action = &autoMove;
 
-		if (self->health == 0)
+		if (self->health == 1)
 		{
 			self->targetX = self->endX;
 			self->targetY = self->endY;
