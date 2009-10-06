@@ -48,7 +48,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "containment_unit.h"
 #include "containment_unit_controls.h"
 #include "ice_spray.h"
-#include "blending_machine.h"
 
 extern Entity *self, player;
 
@@ -82,8 +81,7 @@ static Constructor items[] = {
 {"item/tesla_pack_full", &addTeslaPack},
 {"item/containment_unit", &addContainmentUnit},
 {"item/containment_unit_controls", &addContainmentUnitControls},
-{"item/ice_spray", &addIceSpray},
-{"item/blender", &addBlendingMachine}
+{"item/ice_spray", &addIceSpray}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

@@ -31,4 +31,3 @@ void addDecorationFromScript(char *);
 void addBlood(int, int);
 Entity *addBasicDecoration(int, int, char *);
 void addParticleExplosion(int, int);
-Entity *addPixelDecoration(int, int);

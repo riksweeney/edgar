@@ -1,8 +1,5 @@
 CHANGE LOG
 ----------
-Version 0.33
-* Fixed setlocale (3rd time's the charm)
-* Fixed behaviour of lifts when loading games
 
 Version 0.32
 * Corrected errors in the translation handling

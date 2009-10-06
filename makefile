@@ -67,7 +67,7 @@ CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o 
 CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o spring.o invulnerable_flyer.o centurion.o
 CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
-CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o
+CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
@@ -151,7 +151,7 @@ uninstall:
 
 	@for f in $(LOCALE_MO); do \
 		lang=`echo $$f | sed -e 's/^locale\///;s/\.mo$$//'`; \
-		echo "$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
+		echo "$(RM) $(LOCALEDIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
 		$(RM) $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
 

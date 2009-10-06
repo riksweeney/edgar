@@ -32,7 +32,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void wait(void);
-static void init(void);
 static void bite(void);
 static void biteFinish(void);
 static void touch(Entity *);
@@ -60,22 +59,13 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 
 	e->takeDamage = &entityTakeDamageNoFlinch;
 
-	e->action = &init;
+	e->action = &wait;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
-}
-
-static void init()
-{
-	self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
-	
-	self->endY -= self->startY;
-	
-	self->action = &wait;
 }
 
 static void wait()
@@ -97,7 +87,7 @@ static void wait()
 
 	x = self->x - 16;
 
-	if (player.health > 0 && collision(x, self->y, self->w + 32, self->endY, player.x, player.y, player.w, player.h) == 1)
+	if (player.health > 0 && collision(x, self->y, self->w + 32, 480, player.x, player.y, player.w, player.h) == 1)
 	{
 		self->action = &bite;
 

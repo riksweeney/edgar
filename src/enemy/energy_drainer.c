@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
-#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
@@ -31,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../game.h"
 #include "../player.h"
-#include "../item/item.h"
 #include "../geometry.h"
 #include "../graphics/graphics.h"
 
@@ -132,9 +130,8 @@ static void fly()
 
 	if (self->mental == 1)
 	{
-		self->endX = MAX(getMapCeiling(self->x + self->w - 1, self->y), getMapCeiling(self->x, self->y));
-		
-		self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
+		self->endX = getMapCeiling(self->x + self->w / 2, self->y);
+		self->endY = getMapFloor(self->x + self->w / 2, self->y);
 	}
 }
 
@@ -281,10 +278,6 @@ static void die()
 	e->thinkTime = 180;
 
 	self->mental = 0;
-	
-	/* Drop 1 arrow */
-	
-	addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 
 	entityDie();
 }
@@ -319,8 +312,6 @@ static void returnToGenerator()
 	if (fabs(self->x - self->targetX) <= fabs(self->dirX) && fabs(self->y - self->targetY) <= fabs(self->dirY))
 	{
 		self->target->frameSpeed = 1;
-		
-		self->target->active = TRUE;
 
 		self->inUse = FALSE;
 	}
@@ -405,63 +396,18 @@ static void beamWait()
 
 static int beamDraw()
 {
-	int drawn;
-	Entity *e;
-	
 	if (self->head->mental == 1 && self->head->health > 0)
 	{
 		self->x = self->head->x;
 		self->y = self->head->endX;
 
-		drawn = drawLoopingAnimationToMap();
-		
-		if (drawn == TRUE)
-		{
-			e = addPixelDecoration(self->x + self->w / 2, self->y);
-			
-			if (e != NULL)
-			{
-				e->dirX = prand() % 20;
-				e->dirY = prand() % 20;
-		
-				if (prand() % 2 == 0)
-				{
-					e->dirX *= -1;
-				}
-		
-				e->dirX /= 10;
-				e->dirY /= 10;
-		
-				e->thinkTime = 20 + (prand() % 30);
-			}
-		}
+		drawLoopingAnimationToMap();
 
 		while (self->y < self->head->endY - self->h)
 		{
 			self->y += self->h;
 
-			drawn = drawSpriteToMap();
-		}
-		
-		if (drawn == TRUE)
-		{
-			e = addPixelDecoration(self->x + self->w / 2, self->head->endY);
-			
-			if (e != NULL)
-			{
-				e->dirX = prand() % 20;
-				e->dirY = -prand() % 20;
-		
-				if (prand() % 2 == 0)
-				{
-					e->dirX *= -1;
-				}
-		
-				e->dirX /= 10;
-				e->dirY /= 10;
-		
-				e->thinkTime = 20 + (prand() % 30);
-			}
+			drawSpriteToMap();
 		}
 	}
 
