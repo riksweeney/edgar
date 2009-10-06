@@ -1,0 +1,38 @@
+IF Raft_Point HEALTH 0
+HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 8
+END
+IF Raft_Point HEALTH 1
+HAS_ITEM "Chopped Log" 6 6 Raft_Point 2 3
+END
+IF Raft_Point HEALTH 8
+TALK Edgar To get to the Forbidden Swamp I'll need to build a raft.
+TALK Edgar I can build the raft if I chop down enough trees from the forest
+ADD OBJECTIVE "Collect 6 Chopped Logs" " "
+ADD TRIGGER "Chopped Log" 6 UPDATE_OBJECTIVE "Collect 6 Chopped Logs"
+SET Raft_Point HEALTH 1
+END
+IF Raft_Point HEALTH 3
+TALK Edgar I need 6 Chopped Logs to build a raft
+SET Raft_Point HEALTH 1
+END
+IF Raft_Point HEALTH 2
+HAS_ITEM "Basic Sword" 1 1 Raft_Point 6 5
+HAS_ITEM "Small Wooden Shield" 1 1 Raft_Point 7 5
+END
+IF Raft_Point HEALTH 6
+HAS_ITEM "Small Wooden Shield" 1 1 Raft_Point 4 5
+END
+IF Raft_Point HEALTH 7
+HAS_ITEM "Basic Sword" 1 1 Raft_Point 4 5
+END
+IF Raft_Point HEALTH 5
+TALK Edgar I'm not going to the swamp without a sword and shield
+SET Raft_Point HEALTH 2
+END
+IF Raft_Point HEALTH 4
+REMOVE "Chopped Log" 6 6 Raft_Point 4 4
+TALK Edgar OK, here goes!
+KILL Raft_Point
+ADD ENTITY ITEM misc/raft "Raft" 9856 905
+SET Raft FACE LEFT
+END
