@@ -1,2 +1,3 @@
 TALK Edgar I don't think my shield will protect me from those fireballs. I'll have to find get a stronger one...
-TALK Narrator You won't be able to do this bit in this version, check back later!
+ADD OBJECTIVE "Obtain a Fire Shield" " "
+ADD TRIGGER "Fire Shield" 1 UPDATE_OBJECTIVE "Obtain a Fire Shield"

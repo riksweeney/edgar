@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/pak.h"
 #include "../custom_actions.h"
+#include "../system/random.h"
 
 extern Entity player, *self;
 extern Game game;
@@ -277,6 +278,16 @@ void readNextScriptLine()
 					}
 				}
 
+				else if (strcmpignorecase(token, "NOT") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (e->health == atoi(token))
+					{
+						script.skipping = TRUE;
+					}
+				}
+
 				else if (e->health != atoi(token))
 				{
 					script.skipping = TRUE;
@@ -331,6 +342,13 @@ void readNextScriptLine()
 				if (strcmpignorecase(token, "MAX") == 0)
 				{
 					e->health = e->maxHealth;
+				}
+				
+				else if (strcmpignorecase(token, "RANDOM") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+					
+					e->health = (prand() % atoi(token)) + 1;
 				}
 
 				else
