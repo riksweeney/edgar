@@ -1027,3 +1027,12 @@ msgstr ""
 
 msgid "Press Action to reset puzzle blocks"
 msgstr ""
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr ""
+
+msgid "I need a Purple Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr ""
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr ""

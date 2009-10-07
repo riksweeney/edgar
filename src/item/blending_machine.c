@@ -69,7 +69,7 @@ static void wait()
 {
 	if (self->health == 6)
 	{
-		self->thinkTime = 300;
+		self->thinkTime = 600;
 
 		self->action = &blend;
 	}
@@ -102,7 +102,7 @@ static void blendFinish()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && self->active == TRUE)
+	if (other->type == PLAYER)
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
@@ -110,7 +110,15 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	runScript(self->requires);
+	if (self->active == TRUE)
+	{
+		runScript(self->requires);
+	}
+	
+	else
+	{
+		setInfoBoxMessage(60, _("This machine is not active"));
+	}
 }
 
 static void init()
@@ -118,4 +126,33 @@ static void init()
 	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
 
 	self->action = &wait;
+}
+
+static void handleWait()
+{
+	if (self->head->health == 6)
+	{
+		if (self->head->health == 420)
+		{
+			setEntityAnimation(self, WALK);
+		}
+	}
+	
+	else
+	{
+		setEntityAnimation(self, STAND);
+	}
+}
+
+static void switchWait()
+{
+	if (self->head->health == 6 && self->head->health == 420)
+	{
+		setEntityAnimation(self, WALK);
+	}
+	
+	else
+	{
+		setEntityAnimation(self, STAND);
+	}
 }
