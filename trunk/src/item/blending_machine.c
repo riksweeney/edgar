@@ -35,10 +35,14 @@ static void blendFinish(void);
 static void touch(Entity *);
 static void init(void);
 static void activate(int);
+static void handleWait(void);
+static void switchWait(void);
+static Entity *addComponent(char *);
 
 Entity *addBlendingMachine(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
+	Entity *component;
 
 	if (e == NULL)
 	{
@@ -62,6 +66,32 @@ Entity *addBlendingMachine(int x, int y, char *name)
 
 	setEntityAnimation(e, STAND);
 
+	component = addComponent("item/blender_wheel");
+
+	component->action = &handleWait;
+
+	component->face = RIGHT;
+
+	component->parent = e;
+
+	component->x = x;
+
+	component->y = y;
+
+	component = addComponent("item/blender_switch");
+
+	component->action = &switchWait;
+
+	component->face = RIGHT;
+
+	component->frameSpeed = 0;
+
+	component->parent = e;
+
+	component->x = x;
+
+	component->y = y;
+
 	return e;
 }
 
@@ -79,12 +109,25 @@ static void wait()
 
 static void blend()
 {
-	setEntityAnimation(self, ATTACK_1);
-
 	self->thinkTime--;
+
+	switch (self->thinkTime)
+	{
+		case 420:
+			setEntityAnimation(self, ATTACK_2);
+		break;
+
+		case 300:
+			setEntityAnimation(self, ATTACK_3);
+		break;
+	}
 
 	if (self->thinkTime <= 0)
 	{
+		self->thinkTime = 90;
+
+		setEntityAnimation(self, ATTACK_4);
+
 		self->action = &blendFinish;
 	}
 
@@ -93,11 +136,16 @@ static void blend()
 
 static void blendFinish()
 {
-	self->health = 0;
+	self->thinkTime--;
 
-	self->action = &wait;
+	if (self->thinkTime <= 0)
+	{
+		self->health = 0;
 
-	setEntityAnimation(self, WALK);
+		self->action = &wait;
+
+		setEntityAnimation(self, ATTACK_1);
+	}
 }
 
 static void touch(Entity *other)
@@ -114,7 +162,7 @@ static void activate(int val)
 	{
 		runScript(self->requires);
 	}
-	
+
 	else
 	{
 		setInfoBoxMessage(60, _("This machine is not active"));
@@ -123,21 +171,43 @@ static void activate(int val)
 
 static void init()
 {
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	setEntityAnimation(self, self->active == FALSE ? STAND : ATTACK_1);
 
-	self->action = &wait;
+	self->action = self->thinkTime > 0 ? &blend : &wait;
+}
+
+static Entity *addComponent(char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		printf("No free slots to add a Blending Machine\n");
+
+		exit(1);
+	}
+
+	loadProperties(name, e);
+
+	e->type = KEY_ITEM;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
 }
 
 static void handleWait()
 {
-	if (self->head->health == 6)
+	if (self->parent->health != 0)
 	{
-		if (self->head->health == 420)
+		if (self->parent->health == 420)
 		{
 			setEntityAnimation(self, WALK);
 		}
 	}
-	
+
 	else
 	{
 		setEntityAnimation(self, STAND);
@@ -146,11 +216,26 @@ static void handleWait()
 
 static void switchWait()
 {
-	if (self->head->health == 6 && self->head->health == 420)
+	if (self->parent->health != 0)
 	{
-		setEntityAnimation(self, WALK);
+		switch (self->parent->health)
+		{
+			case 300:
+			case 240:
+				self->currentFrame++;
+
+				setFrameData(self);
+			break;
+
+			case 120:
+			case 90:
+				self->currentFrame--;
+
+				setFrameData(self);
+			break;
+		}
 	}
-	
+
 	else
 	{
 		setEntityAnimation(self, STAND);

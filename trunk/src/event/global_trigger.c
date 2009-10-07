@@ -262,7 +262,10 @@ SDL_Surface *listObjectives()
 	
 	/* Remove the last line break and space */
 	
-	allMessages[strlen(allMessages) - 2] = '\0';
+	if (strlen(allMessages) > 0)
+	{
+		allMessages[strlen(allMessages) - 2] = '\0';
+	}
 	
 	if (strlen(allMessages) == 0)
 	{

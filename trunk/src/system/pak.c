@@ -141,6 +141,8 @@ Mix_Music *loadMusicFromPak(char *name)
 		{
 			printf("Couldn't load %s\n", temp);
 		}
+		
+		free(file);
 
 		return music;
 	#endif

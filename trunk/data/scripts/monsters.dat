@@ -1,0 +1,17 @@
+IF MONSTER_BOOK HEALTH 1
+SET MONSTER_BOOK HEALTH RANDOM 5
+END
+IF MONSTER_BOOK HEALTH 0
+TALK Edgar Ah, here is a conpendium of monsters
+TALK Edgar 34 volumes! How can there be so many monsters in the world?!
+TALK Edgar Looks like they're in alphabetical order though
+TALK Edgar Slime, Green... Slime, Purple... Sludge, Green...
+TALK Edgar Sludge, Red
+TALK Book Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces
+TALK Book Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans
+TALK Book They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate
+TALK Book Smacker, Lesser...
+TALK Edgar Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance...
+TALK Edgar Besides, what's the worst that could happen?
+SET MONSTER_BOOK HEALTH 1
+END
