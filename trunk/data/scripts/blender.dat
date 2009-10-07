@@ -13,7 +13,7 @@ IF BLENDER HEALTH 2
 HAS_ITEM "Empty Bottle" 1 1 BLENDER 4 5
 END
 IF BLENDER HEALTH 5
-TALK Edgar I need still need an Empty Bottle to put the potion in
+TALK Edgar I still need an Empty Bottle to put the potion in
 SET BLENDER HEALTH 1
 END
 IF BLENDER HEALTH 4
