@@ -172,6 +172,12 @@ void doCollisions()
 						{
 							continue;
 						}
+						
+						if ((e1->type == CONVEYOR_BELT && e2->type == CONVEYOR_BELT) ||
+							(e1->type == WEAK_WALL && e2->type == WEAK_WALL))
+						{
+							continue;
+						}
 
 						if (e2->flags & TELEPORTING)
 						{

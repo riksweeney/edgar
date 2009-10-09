@@ -1,5 +1,62 @@
 IF MONSTER_BOOK HEALTH 1
-SET MONSTER_BOOK HEALTH RANDOM 5
+TALK Edgar I wonder what other monsters there are. I'll pick a page at random...
+SET MONSTER_BOOK HEALTH RANDOM 7
+END
+IF MONSTER_BOOK HEALTH 1
+TALK Edgar Gazer
+TALK Book Gazers are flying cycloptic creatures found in various places
+TALK Book Their single eye is usually closed and they rely on sonar for movement
+TALK Book They use their strong sense of smell to look out for predator and prey alike
+TALK Book Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it
+TALK Book This attack is only effective however if the victim is facing the Gazer
+TALK Book A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 2
+TALK Edgar Centurion, Grey
+TALK Book Centurions are magically created creatures, usually dispatched as sentries or guards
+TALK Book Though slow moving, their massive size allows them to simply march through any defense
+TALK Book Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats
+TALK Book While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 3
+TALK Edgar Splitter
+TALK Book Splitters are harmless monsters unless attacked.
+TALK Book Upon sustaining too much damage they will split in two and attack their predator
+TALK Book If one of these sustains too much damage it will split once again and continue to attack
+TALK Book Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on
+TALK Book If all its parts are still alive, a splitter will reform itself after a while and heal its wounds
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 4
+TALK Edgar Grub, Red
+TALK Book Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat
+TALK Book Upon reaching maturity they will form a cocoon and morph into a wasp
+TALK Book Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 5
+TALK Edgar Tortoise, Master
+TALK Book Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads
+TALK Book They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves
+TALK Book And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves
+TALK Book But additionally, if they receive too much energy from healing, they evolve and go on the rampage
+TALK Book In this state they will smash through any defense and produce dark matter which destroys anything it touches
+TALK Book However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 6
+TALK Edgar Venus Flytrap
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 7
+TALK Edgar Hoover, Pink
+SET MONSTER_BOOK HEALTH 1
+END
+IF MONSTER_BOOK HEALTH 8
+TALK Edgar Summoner, Dark
+SET MONSTER_BOOK HEALTH 1
 END
 IF MONSTER_BOOK HEALTH 0
 TALK Edgar Ah, here is a conpendium of monsters

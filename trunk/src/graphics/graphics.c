@@ -186,6 +186,45 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int a
 	SDL_FreeSurface(flipped);
 }
 
+SDL_Surface *flipImage(SDL_Surface *image)
+{
+	int *pixels, x, y, pixel, rx, ry;
+	SDL_Surface *flipped;
+
+	flipped = createSurface(image->w, image->h);
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+
+	for (x=0, rx=flipped->w-1;x<flipped->w;x++, rx--)
+	{
+		for (y=0, ry=flipped->h-1;y<flipped->h;y++, ry--)
+		{
+			pixels = (int *)image->pixels;
+
+			pixel = pixels[(y * image->w) + x];
+
+			pixels = (int *)flipped->pixels;
+
+			pixels[(y * flipped->w) + rx] = pixel;
+		}
+	}
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+
+	if (image->flags & SDL_SRCCOLORKEY)
+	{
+		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
+	}
+
+	return flipped;
+}
+
 void drawBox(SDL_Surface *surface, int x, int y, int w, int h, int r, int g, int b)
 {
 	int color = SDL_MapRGB(surface->format, r, g, b);

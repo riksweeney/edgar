@@ -128,6 +128,10 @@ void runScript(char *name)
 
 	script.skipping = FALSE;
 
+	script.currentDepth = 0;
+
+	script.requiredDepth = 0;
+
 	playerWaitForDialog();
 
 	readNextScriptLine();
@@ -175,9 +179,26 @@ void readNextScriptLine()
 
 		if (script.skipping == TRUE)
 		{
-			if (strcmpignorecase("END", command) == 0)
+			if (strcmpignorecase("IF", command) == 0)
 			{
-				script.skipping = FALSE;
+				script.currentDepth++;
+			}
+
+			else if (strcmpignorecase("END", command) == 0)
+			{
+				script.currentDepth--;
+
+				if (script.currentDepth == script.requiredDepth)
+				{
+					script.skipping = FALSE;
+
+					if (script.currentDepth < 0)
+					{
+						printf("Script error, unmatched END\n");
+
+						exit(1);
+					}
+				}
 			}
 		}
 
@@ -310,6 +331,13 @@ void readNextScriptLine()
 
 				exit(1);
 			}
+
+			script.currentDepth++;
+
+			if (script.skipping == FALSE)
+			{
+				script.requiredDepth++;
+			}
 		}
 
 		else if (strcmpignorecase("SET", command) == 0)
@@ -343,11 +371,11 @@ void readNextScriptLine()
 				{
 					e->health = e->maxHealth;
 				}
-				
+
 				else if (strcmpignorecase(token, "RANDOM") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
-					
+
 					e->health = (prand() % atoi(token)) + 1;
 				}
 

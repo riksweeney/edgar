@@ -229,6 +229,7 @@ typedef struct Objective
 typedef struct Script
 {
 	int line, lineCount, skipping, thinkTime, counter;
+	int requiredDepth, currentDepth;
 	char **text;
 } Script;
 

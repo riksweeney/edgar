@@ -117,6 +117,28 @@ static int loadSprite(char *name)
 	i = spriteID;
 
 	spriteID++;
+	
+	sprite[spriteID].image = flipImage(sprite[spriteID - 1].image);
+
+	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);
+
+	if (read == 5)
+	{
+		sprite[spriteID].box.x = x;
+		sprite[spriteID].box.y = y;
+		sprite[spriteID].box.w = w;
+		sprite[spriteID].box.h = h;
+	}
+
+	else
+	{
+		sprite[spriteID].box.x = 0;
+		sprite[spriteID].box.y = 0;
+		sprite[spriteID].box.w = sprite[spriteID].image->w;
+		sprite[spriteID].box.h = sprite[spriteID].image->h;
+	}
+
+	spriteID++;
 
 	return i;
 }
