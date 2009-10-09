@@ -2,7 +2,7 @@ IF WEAPON_BOOK HEALTH 2
 TALK Edgar I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance
 TALK Edgar Once I've found all these items I'll have to find a place to create the shield
 END
-IF WEAPON_BOOK NOT HEALTH 2
+IF WEAPON_BOOK HEALTH NOT 2
 TALK Edgar There's a book here about enchanting weapons
 TALK Edgar Maybe I can create a shield...
 TALK Edgar Swords... Armour... Wands...
@@ -17,7 +17,7 @@ TALK Book The fat of a Darsh (left to stand for 3 months)
 TALK Book Powered Condor bones
 TALK Book 3 eyes of the Gazer
 TALK Book The freshly cut tentacle from a female Red Sludge
-TALK Book A shield to enchant
+TALK Book The shield to apply the enchantment
 TALK Book Add the root, fat and bones into the cauldron and mix together with the crushed Gazer eyes and Sludge tentacle
 TALK Book When the mixture turns bright blue, add the shield
 IF WEAPON_BOOK HEALTH 1
@@ -33,7 +33,7 @@ TALK Edgar And the Gazers hang around in the basement so that's not a problem
 TALK Edgar What I do need to find is a Red Sludge, but I have no idea where to find one
 TALK Edgar I can't use my current shield in the experiment in case it backfires so I'll have to find another one
 END
-ACTIVATE_REQUIRED monsters
+ACTIVATE_OBJECTIVE MONSTER_BOOK
 ADD OBJECTIVE "Obtain 3 Gazer Eyes" " "
 ADD TRIGGER "Gazer Eyeball" 3 UPDATE_OBJECTIVE "Obtain 3 Gazer Eyes"
 ADD OBJECTIVE "Obtain 1 Red Sludge Tentacle" " "

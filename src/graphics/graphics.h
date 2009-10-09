@@ -32,3 +32,4 @@ void drawLine(int, int, int, int, int, int, int);
 SDL_Surface *createSurface(int, int);
 void drawHitBox(int, int, int, int);
 void putPixelToMap(int, int, int, int, int);
+SDL_Surface *flipImage(SDL_Surface *);
