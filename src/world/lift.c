@@ -94,7 +94,7 @@ static void touch(Entity *other)
 		return;
 	}
 
-	else if (other->type == WEAPON)
+	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		return;
 	}

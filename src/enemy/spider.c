@@ -105,6 +105,8 @@ static void redTakeDamage(Entity *other, int damage)
 		if (damage >= self->health)
 		{
 			self->health -= damage;
+			
+			self->dirY = -ITEM_JUMP_HEIGHT;
 
 			self->action = self->die;
 		}
@@ -112,9 +114,9 @@ static void redTakeDamage(Entity *other, int damage)
 		else if (self->maxThinkTime < 0)
 		{
 			self->targetY = 1800;
+			
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 		}
-		
-		setCustomAction(self, &invulnerableNoFlash, 20, 0);
 	}
 }
 

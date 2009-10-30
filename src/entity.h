@@ -30,7 +30,7 @@ void entityTakeDamageNoFlinch(Entity *, int);
 void entityTakeDamageFlinch(Entity *, int);
 void entityTouch(Entity *);
 void pushEntity(Entity *);
-int addEntity(Entity, int, int);
+Entity *addEntity(Entity, int, int);
 Entity *getEntityByObjectiveName(char *);
 Entity *getEntityByRequiredName(char *);
 void activateEntitiesWithRequiredName(char *, int);

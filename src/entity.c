@@ -460,7 +460,7 @@ void entityDieVanish()
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);
-	
+
 	self->inUse = FALSE;
 }
 
@@ -916,11 +916,9 @@ void pushEntity(Entity *other)
 	other->y += other->dirY;
 }
 
-int addEntity(Entity e, int x, int y)
+Entity *addEntity(Entity e, int x, int y)
 {
 	int i;
-
-	/* Loop through the entities and perform their action */
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -936,11 +934,11 @@ int addEntity(Entity e, int x, int y)
 
 			entity[i].y = y;
 
-			return TRUE;
+			return &entity[i];
 		}
 	}
 
-	return FALSE;
+	return NULL;
 }
 
 Entity *getEntityByObjectiveName(char *name)
@@ -1171,6 +1169,8 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "START_Y %d\n", (int)self->startY);
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
+			fprintf(fp, "DIR_X %0.2f\n", self->dirX);
+			fprintf(fp, "DIR_Y %0.2f\n", self->dirY);
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "MENTAL %d\n", self->mental);
@@ -1402,6 +1402,8 @@ static void entityMoveToTarget()
 	else
 	{
 		self->x = self->targetX;
+
+		self->dirX = 0;
 	}
 
 	if (!(self->flags & FLY))
@@ -1417,6 +1419,8 @@ static void entityMoveToTarget()
 	else
 	{
 		self->y = self->targetY;
+
+		self->dirY = 0;
 	}
 
 	if (self->x == self->targetX && self->y == self->targetY)

@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.35
 * Added the rest of the Basement Map
+* Sprite flipping is cached rather than being done on the fly
 
 
 Version 0.33

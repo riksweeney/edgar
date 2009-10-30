@@ -37,3 +37,4 @@ void setInventoryDialogMessage(char *, ...);
 void clearInventoryDescription(void);
 void useInventoryItemFromScript(char *);
 void replaceInventoryItem(char *, Entity *);
+Entity *getCurrentInventoryItem(void);
