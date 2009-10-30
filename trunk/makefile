@@ -1,4 +1,4 @@
-VERSION = 0.33
+VERSION = 0.35
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -67,7 +67,7 @@ CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o 
 CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o spring.o invulnerable_flyer.o centurion.o
 CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
-CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o
+CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

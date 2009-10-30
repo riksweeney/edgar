@@ -567,6 +567,16 @@ void setProperty(Entity *e, char *name, char *value)
 		e->weight = atof(value);
 	}
 
+	else if (strcmpignorecase(name, "DIR_X") == 0)
+	{
+		e->dirX = atof(value);
+	}
+
+	else if (strcmpignorecase(name, "DIR_Y") == 0)
+	{
+		e->dirY = atof(value);
+	}
+
 	else if (strcmpignorecase(name, "LAYER") == 0)
 	{
 		if (strcmpignorecase(value, "BACKGROUND_LAYER") == 0)

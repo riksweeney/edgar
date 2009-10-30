@@ -257,6 +257,11 @@ Entity *getInventoryItem(char *name)
 	return NULL;
 }
 
+Entity *getCurrentInventoryItem()
+{
+	return &inventory.item[inventory.selectedIndex];
+}
+
 void replaceInventoryItem(char *name, Entity *e)
 {
 	int i;
