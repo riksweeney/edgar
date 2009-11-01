@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../collisions.h"
 #include "key_items.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -40,9 +41,7 @@ Entity *addPotionDispenser(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Potion Dispenser\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Potion Dispenser");
 	}
 
 	loadProperties(name, e);

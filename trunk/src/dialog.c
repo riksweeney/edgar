@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "graphics/font.h"
 #include "dialog.h"
+#include "system/error.h"
 
 extern Game game;
 
@@ -55,9 +56,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	if (text == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for the Dialog Text\n", (int)strlen(msg) + 1);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(msg) + 1);
 	}
 
 	STRNCPY(text, msg, strlen(msg) + 1);
@@ -84,18 +83,14 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	if (surface == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for the Dialog Surfaces\n", (int)sizeof(SDL_Surface *) * lines);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Surface *) * lines);
 	}
 	
 	lineBreaks = (int *)malloc(sizeof(int) * lines);
 
 	if (lineBreaks == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for the line breaks\n", (int)sizeof(int) * lines);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for the line breaks", (int)sizeof(int) * lines);
 	}
 
 	STRNCPY(text, msg, strlen(msg) + 1);

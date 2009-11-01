@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 #include "collisions.h"
 #include "system/random.h"
+#include "system/error.h"
 
 static void projectileMove(void);
 static void projectileDie(void);
@@ -39,9 +40,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a projectile\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a projectile");
 	}
 
 	loadProperties(name, e);
@@ -64,9 +63,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 	if (e->thinkTime == 0)
 	{
-		printf("No valid thinktime defined for %s\n", name);
-
-		exit(1);
+		showErrorAndExit("No valid thinktime defined for %s", name);
 	}
 
 	if (hasEntityAnimation(e, DIE) == TRUE)

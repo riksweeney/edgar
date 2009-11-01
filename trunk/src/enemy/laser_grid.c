@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../collisions.h"
 #include "../geometry.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -40,9 +41,7 @@ Entity *addLaserGrid(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Laser Grid\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Laser Grid");
 	}
 
 	loadProperties(name, e);
@@ -104,9 +103,7 @@ static void addLaser()
 
 			if (e == NULL)
 			{
-				printf("No free slots to add a Laser\n");
-
-				exit(1);
+				showErrorAndExit("No free slots to add a Laser");
 			}
 
 			loadProperties("enemy/horizontal_laser", e);
@@ -137,9 +134,7 @@ static void addLaser()
 
 			if (e == NULL)
 			{
-				printf("No free slots to add a Laser\n");
-
-				exit(1);
+				showErrorAndExit("No free slots to add a Laser");
 			}
 
 			loadProperties("enemy/laser", e);

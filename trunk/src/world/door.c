@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../inventory.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -38,9 +39,7 @@ Entity *addDoor(char *name, int x, int y, int type)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Door\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Door");
 	}
 
 	loadProperties(strcmpignorecase(name, "common/wooden_door") == 0 ? "door/metal_door" : name, e);
@@ -76,9 +75,7 @@ static void setStart()
 
 	if (self->speed == 0)
 	{
-		printf("Door at %0.0f %0.0f has no speed and will not move\n", self->x, self->y);
-
-		exit(1);
+		showErrorAndExit("Door at %0.0f %0.0f has no speed and will not move", self->x, self->y);
 	}
 
 	if (self->type == MANUAL_DOOR)

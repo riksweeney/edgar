@@ -59,13 +59,18 @@ void getInput(int gameType)
 
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
+				
+				if (game.status == IN_ERROR)
+				{
+					exit(0);
+				}
 
 				if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}
 
-				if (key == control.button[CONTROL_INVENTORY])
+				else if (key == control.button[CONTROL_INVENTORY])
 				{
 					if (!(player.flags & HELPLESS) && player.action == NULL)
 					{
@@ -353,13 +358,18 @@ void getInput(int gameType)
 				key = event.jbutton.button;
 
 				key = -(key + 1000);
+				
+				if (game.status == IN_ERROR)
+				{
+					exit(0);
+				}
 
 				if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}
 
-				if (key == control.button[CONTROL_LEFT])
+				else if (key == control.button[CONTROL_LEFT])
 				{
 					input.left = TRUE;
 				}

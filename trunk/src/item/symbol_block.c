@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../system/random.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -50,9 +51,7 @@ Entity *addSymbolBlock(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Symbol Block\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Symbol Block");
 	}
 
 	loadProperties(name, e);
@@ -205,9 +204,7 @@ static void init()
 
 		if (required == -1)
 		{
-			printf("Couldn't find master block for %s\n", self->objectiveName);
-
-			exit(0);
+			showErrorAndExit("Couldn't find master block for %s", self->objectiveName);
 		}
 
 		self->thinkTime = prand() % self->maxThinkTime;
@@ -275,7 +272,7 @@ static void doSymbolMatch()
 
 	if (list == NULL)
 	{
-		printf("Failed to allocate %d bytes for Symbol Blocks...\n", count * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate %d bytes for Symbol Blocks...", count * (int)sizeof(Entity *));
 	}
 
 	count = 0;

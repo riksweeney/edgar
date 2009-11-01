@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/pak.h"
 #include "../custom_actions.h"
 #include "../system/random.h"
+#include "../system/error.h"
 
 extern Entity player, *self;
 extern Game game;
@@ -65,9 +66,7 @@ void runScript(char *name)
 
 	if (text == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for script %s\n", (int)(sizeof(char *) * (strlen((char *)buffer) + 1)), filename);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * (strlen((char *)buffer) + 1)), filename);
 	}
 
 	STRNCPY(text, (char *)buffer, strlen((char *)buffer) + 1);
@@ -87,9 +86,7 @@ void runScript(char *name)
 
 	if (script.text == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for script %s\n", (int)(sizeof(char *) * script.lineCount), filename);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for script %s", (int)(sizeof(char *) * script.lineCount), filename);
 	}
 
 	script.line = 0;
@@ -114,7 +111,7 @@ void runScript(char *name)
 
 		if (script.text[i] == NULL)
 		{
-			printf("Failed to allocate %d bytes for script line %d\n", (int)(sizeof(char *) * script.lineCount), (i + 1));
+			showErrorAndExit("Failed to allocate %d bytes for script line %d", (int)(sizeof(char *) * script.lineCount), (i + 1));
 		}
 
 		STRNCPY(script.text[i], line, strlen(line) + 1);
@@ -194,9 +191,7 @@ void readNextScriptLine()
 
 					if (script.currentDepth < 0)
 					{
-						printf("Script error, unmatched END\n");
-
-						exit(1);
+						showErrorAndExit("Script error, unmatched END");
 					}
 				}
 			}
@@ -250,9 +245,7 @@ void readNextScriptLine()
 
 			else
 			{
-				printf("ADD command encountered unknown action %s\n", token);
-
-				exit(1);
+				showErrorAndExit("ADD command encountered unknown action %s", token);
 			}
 		}
 
@@ -272,9 +265,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("IF command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("IF command could not find Entity %s", token);
 			}
 
 			token = strtok_r(NULL, " ", &savePtr);
@@ -327,9 +318,7 @@ void readNextScriptLine()
 
 			else
 			{
-				printf("Unknown IF command %s\n",token);
-
-				exit(1);
+				showErrorAndExit("Unknown IF command %s",token);
 			}
 
 			script.currentDepth++;
@@ -356,9 +345,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("SET command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("SET command could not find Entity %s", token);
 			}
 
 			token = strtok_r(NULL, " ", &savePtr);
@@ -427,9 +414,7 @@ void readNextScriptLine()
 
 					if (e2 == NULL)
 					{
-						printf("FACE command could not find Entity \"%s\"\n", token);
-
-						exit(1);
+						showErrorAndExit("FACE command could not find Entity \"%s\"", token);
 					}
 
 					e->face = (e->x < e2->x ? RIGHT : LEFT);
@@ -485,9 +470,7 @@ void readNextScriptLine()
 
 			else
 			{
-				printf("Unknown SET command %s\n", token);
-
-				exit(1);
+				showErrorAndExit("Unknown SET command %s", token);
 			}
 		}
 
@@ -644,9 +627,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("KILL command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("KILL command could not find Entity %s", token);
 			}
 
 			if (e->die != NULL)
@@ -684,9 +665,7 @@ void readNextScriptLine()
 
 				if (e == NULL)
 				{
-					printf("FOLLOW command could not find Entity %s\n", token);
-
-					exit(1);
+					showErrorAndExit("FOLLOW command could not find Entity %s", token);
 				}
 			}
 
@@ -712,9 +691,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("WALK_TO command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("WALK_TO command could not find Entity %s", token);
 			}
 
 			token = strtok_r(NULL, "\0", &savePtr);
@@ -750,9 +727,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("CUSTOM_ACTION command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("CUSTOM_ACTION command could not find Entity %s", token);
 			}
 
 			token = strtok_r(NULL, "\0", &savePtr);
@@ -778,9 +753,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("JUMP command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("JUMP command could not find Entity %s", token);
 			}
 
 			e->dirY = -JUMP_HEIGHT;
@@ -804,9 +777,7 @@ void readNextScriptLine()
 
 			if (e == NULL)
 			{
-				printf("WATCH command could not find Entity %s\n", token);
-
-				exit(1);
+				showErrorAndExit("WATCH command could not find Entity %s", token);
 			}
 
 			token = strtok_r(NULL, " ", &savePtr);
@@ -823,9 +794,7 @@ void readNextScriptLine()
 
 			if (e2 == NULL)
 			{
-				printf("WATCH command could not find Entity \"%s\"\n", token);
-
-				exit(1);
+				showErrorAndExit("WATCH command could not find Entity \"%s\"", token);
 			}
 
 			e->target = e2;

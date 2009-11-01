@@ -19,6 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "error.h"
+
 void compressFile(char *sourceName)
 {
 	unsigned char *source, *dest;
@@ -39,18 +41,14 @@ void compressFile(char *sourceName)
 
 	if (source == NULL)
 	{
-		printf("Failed to allocate %ld bytes to compress save file\n", fileSize * sizeof(unsigned char));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %ld bytes to compress save file", fileSize * sizeof(unsigned char));
 	}
 
 	dest = (unsigned char *)malloc(ensuredSize * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
-		printf("Failed to allocate %ld bytes to compress save file\n", ensuredSize * sizeof(unsigned char));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %ld bytes to compress save file", ensuredSize * sizeof(unsigned char));
 	}
 
 	compressedSize = ensuredSize;
@@ -86,9 +84,7 @@ unsigned char *decompressFile(char *sourceName)
 
 	if (fp == NULL)
 	{
-		printf("Could not open save file %s\n", sourceName);
-
-		exit(1);
+		showErrorAndExit("Could not open save file %s", sourceName);
 	}
 
 	fseek(fp, 0L, SEEK_END);
@@ -105,18 +101,14 @@ unsigned char *decompressFile(char *sourceName)
 
 	if (source == NULL)
 	{
-		printf("Failed to allocate %ld bytes to compress save file\n", compressedSize * sizeof(unsigned char));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %ld bytes to compress save file", compressedSize * sizeof(unsigned char));
 	}
 
 	dest = (unsigned char *)malloc((fileSize + 1) * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
-		printf("Failed to allocate %ld bytes to compress save file\n", (fileSize + 1) * sizeof(unsigned char));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %ld bytes to compress save file", (fileSize + 1) * sizeof(unsigned char));
 	}
 
 	fread(source, compressedSize, 1, fp);

@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../geometry.h"
 #include "../item/item.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -48,9 +49,7 @@ Entity *addSummoner(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Summoner\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Summoner");
 	}
 
 	loadProperties(name, e);
@@ -142,9 +141,7 @@ static void summon()
 
 	if (summonCount == 0)
 	{
-		printf("Summoner at %f %f has no summon list\n", self->x, self->y);
-
-		exit(1);
+		showErrorAndExit("Summoner at %f %f has no summon list", self->x, self->y);
 	}
 
 	summonIndex = prand() % summonCount;

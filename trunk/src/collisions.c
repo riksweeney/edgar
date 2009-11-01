@@ -172,9 +172,10 @@ void doCollisions()
 						{
 							continue;
 						}
-						
+
 						if ((e1->type == CONVEYOR_BELT && e2->type == CONVEYOR_BELT) ||
-							(e1->type == WEAK_WALL && e2->type == WEAK_WALL))
+							(e1->type == WEAK_WALL && e2->type == WEAK_WALL) ||
+							(e1->type == ANTI_GRAVITY && e2->type == ANTI_GRAVITY))
 						{
 							continue;
 						}

@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -41,9 +42,7 @@ Entity *addRedGrub(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Red Grub\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Red Grub");
 	}
 
 	loadProperties(name, e);

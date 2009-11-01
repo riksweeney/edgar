@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../hud.h"
 #include "../event/script.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -46,9 +47,7 @@ Entity *addBlendingMachine(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Blending Machine\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Blending Machine");
 	}
 
 	loadProperties(name, e);
@@ -182,9 +181,7 @@ static Entity *addComponent(char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Blending Machine\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Blending Machine");
 	}
 
 	loadProperties(name, e);

@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../player.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -49,9 +50,7 @@ Entity *addEyeStalk(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Eye Stalk\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Eye Stalk");
 	}
 
 	loadProperties(name, e);
@@ -185,9 +184,7 @@ static void createBody()
 
 	if (body == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for Eye Stalk body...\n", bodyParts * (int)sizeof(Entity *));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for Eye Stalk body...\n", bodyParts * (int)sizeof(Entity *));
 	}
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
@@ -200,9 +197,7 @@ static void createBody()
 
 		if (body[i] == NULL)
 		{
-			printf("No free slots to add a Eye Stalk body part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Eye Stalk body part");
 		}
 
 		loadProperties(bodyName, body[i]);
@@ -228,7 +223,7 @@ static void createBody()
 
 	if (head == NULL)
 	{
-		printf("No free slots to add an Eye Stalk head\n");
+		showErrorAndExit("No free slots to add an Eye Stalk head");
 	}
 
 	*head = *self;

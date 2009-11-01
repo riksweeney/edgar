@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../hud.h"
 #include "../projectile.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -85,9 +86,7 @@ Entity *addSnakeBoss(int x, int y, char *name)
 
 	if (head == NULL)
 	{
-		printf("No free slots to add a Snake Boss\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Snake Boss");
 	}
 
 	loadProperties(name, head);
@@ -138,9 +137,7 @@ static void initialise()
 
 			if (t == NULL)
 			{
-				printf("Snake boss is missing target\n");
-
-				exit(1);
+				showErrorAndExit("Snake boss is missing target");
 			}
 
 			setSnakePosition(t->x, t->y);
@@ -272,9 +269,7 @@ static void createBody()
 
 	if (body == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for Snake Boss body...\n", bodyParts * (int)sizeof(Entity *));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for Snake Boss body...", bodyParts * (int)sizeof(Entity *));
 	}
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
@@ -287,9 +282,7 @@ static void createBody()
 
 		if (body[i] == NULL)
 		{
-			printf("No free slots to add a Snake Boss body part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Snake Boss body part");
 		}
 
 		loadProperties(bodyName, body[i]);
@@ -319,7 +312,7 @@ static void createBody()
 
 	if (head == NULL)
 	{
-		printf("No free slots to add a Snake Boss head\n");
+		showErrorAndExit("No free slots to add a Snake Boss head");
 	}
 
 	*head = *self;
@@ -567,9 +560,7 @@ static void changeSides()
 
 		if (t == NULL)
 		{
-			printf("Snake boss is missing target\n");
-
-			exit(1);
+			showErrorAndExit("Snake boss is missing target");
 		}
 
 		self->damage = 0;

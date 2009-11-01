@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../audio/music.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
@@ -43,9 +44,7 @@ Entity *addLevelExit(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Level Exit\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Level Exit");
 	}
 
 	loadProperties("common/level_exit", e);

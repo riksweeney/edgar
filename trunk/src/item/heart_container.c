@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../system/random.h"
 #include "../graphics/decoration.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -40,9 +41,7 @@ Entity *addHeartContainer(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a heart container\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Heart Container");
 	}
 
 	loadProperties(name, e);

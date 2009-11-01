@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "sprites.h"
 #include "graphics.h"
 #include "../system/pak.h"
+#include "../system/error.h"
 
 static Sprite sprite[MAX_SPRITES];
 
@@ -34,7 +35,7 @@ void loadSpritesFromFile(char *name, int *index)
 	char *line, *savePtr;
 	unsigned char *buffer;
 	int i;
-	
+
 	savePtr = NULL;
 
 	buffer = loadFileFromPak(name);
@@ -54,9 +55,7 @@ void loadSpritesFromFile(char *name, int *index)
 
 		if (spriteID == MAX_SPRITES)
 		{
-			printf("Ran out of space for Sprites\n");
-
-			abort();
+			showErrorAndExit("Ran out of space for Sprites\n");
 		}
 
 		if (line[strlen(line) - 1] == '\n')
@@ -117,7 +116,7 @@ static int loadSprite(char *name)
 	i = spriteID;
 
 	spriteID++;
-	
+
 	sprite[spriteID].image = flipImage(sprite[spriteID - 1].image);
 
 	STRNCPY(sprite[spriteID].name, filename, MAX_FILE_LENGTH);

@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../player.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -46,9 +47,7 @@ Entity *addChickenTrap(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add chicken trap\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add chicken trap");
 	}
 
 	loadProperties(name, e);
@@ -120,9 +119,7 @@ static void removeChicken()
 
 		if (target == NULL)
 		{
-			printf("Could not find CHICKEN_PEN_TARGET\n");
-
-			exit(1);
+			showErrorAndExit("Could not find CHICKEN_PEN_TARGET");
 		}
 
 		self->target->x = target->x;

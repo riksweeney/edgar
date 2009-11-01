@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../graphics/decoration.h"
 #include "../projectile.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -38,9 +39,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Spawner\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Spawner");
 	}
 
 	loadProperties(entityToSpawn, e);
@@ -65,9 +64,7 @@ static void init()
 
 	if (strlen(self->objectiveName) == 0)
 	{
-		printf("Spawner at %f %f is not set correctly\n", self->x, self->y);
-
-		exit(1);
+		showErrorAndExit("Spawner at %f %f is not set correctly", self->x, self->y);
 	}
 
 	/* Precache the Entities to spawn */
@@ -76,9 +73,7 @@ static void init()
 
 	if (e == NULL)
 	{
-		printf("No free slots to add spawner entity\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add spawner entity");
 	}
 
 	loadProperties(self->objectiveName, e);

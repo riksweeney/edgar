@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../projectile.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -40,9 +41,7 @@ Entity *addSpittingPlant(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Spitting Plant\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Spitting Plant");
 	}
 
 	loadProperties(name, e);

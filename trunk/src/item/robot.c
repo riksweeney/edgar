@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../event/script.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -46,9 +47,7 @@ Entity *addRobot(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Robot\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Robot");
 	}
 
 	loadProperties(name, e);

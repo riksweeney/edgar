@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio/audio.h"
 #include "system/pak.h"
 #include "geometry.h"
+#include "system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -542,7 +543,13 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 		if (self->health > 0)
 		{
 			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+			
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			}
 
 			if (self->pain != NULL)
 			{
@@ -980,7 +987,7 @@ EntityList *getEntitiesObjectiveName(char *name)
 
 	if (list == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for Entity List\n", (int)sizeof(EntityList));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -1003,7 +1010,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 
 	if (list == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for Entity List\n", (int)sizeof(EntityList));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -1038,9 +1045,7 @@ void activateEntitiesWithRequiredName(char *name, int active)
 
 	if (name == NULL || strlen(name) == 0)
 	{
-		printf("Activate Required Entities : Name is blank!\n");
-
-		exit(1);
+		showErrorAndExit("Activate Required Entities : Name is blank!");
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -1058,9 +1063,7 @@ void activateEntitiesWithObjectiveName(char *name, int active)
 
 	if (name == NULL || strlen(name) == 0)
 	{
-		printf("Activate Objective Entities : Name is blank!\n");
-
-		exit(1);
+		showErrorAndExit("Activate Objective Entities : Name is blank!");
 	}
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -1222,9 +1225,7 @@ void addEntityFromScript(char *line)
 
 	else
 	{
-		printf("ADD ENTITY command encountered unknown entity %s\n", entityType);
-
-		exit(1);
+		showErrorAndExit("ADD ENTITY command encountered unknown entity %s", entityType);
 	}
 }
 
@@ -1322,9 +1323,7 @@ static void scriptEntityMoveToTarget()
 {
 	if (self->speed == 0)
 	{
-		printf("%s has a speed of 0 and will not move!\n", self->objectiveName);
-
-		exit(1);
+		showErrorAndExit("%s has a speed of 0 and will not move!", self->objectiveName);
 	}
 
 	if (abs(self->x - self->targetX) > self->speed)
@@ -1389,9 +1388,7 @@ static void entityMoveToTarget()
 {
 	if (self->speed == 0)
 	{
-		printf("%s has a speed of 0 and will not move!\n", self->objectiveName);
-
-		exit(1);
+		showErrorAndExit("%s has a speed of 0 and will not move!", self->objectiveName);
 	}
 
 	if (abs(self->x - self->targetX) > self->speed)

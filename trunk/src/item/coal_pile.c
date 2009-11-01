@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -44,9 +45,7 @@ Entity *addCoalPile(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Coal Pile\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add Coal Pile");
 	}
 
 	loadProperties(name, e);
@@ -74,9 +73,7 @@ static Entity *addCoal(int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Coal\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add Coal");
 	}
 
 	loadProperties("item/coal", e);

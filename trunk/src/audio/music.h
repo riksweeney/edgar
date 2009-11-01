@@ -23,7 +23,7 @@ void freeMusic(void);
 void playMusic(void);
 void playBossMusic(void);
 void stopMusic(void);
-void pauseMusic(void);
+void pauseMusic(int);
 void loadBossMusic(char *);
 void fadeOutMusic(int);
 void fadeInMusic(int);

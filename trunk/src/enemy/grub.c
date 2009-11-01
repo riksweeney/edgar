@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -35,9 +36,7 @@ Entity *addGrub(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Grub\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Grub");
 	}
 
 	loadProperties(name, e);

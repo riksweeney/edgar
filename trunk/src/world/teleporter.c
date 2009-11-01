@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../geometry.h"
 #include "../system/random.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
@@ -46,9 +47,7 @@ Entity *addTeleporter(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Teleporter\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Teleporter");
 	}
 
 	loadProperties("common/teleporter", e);

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -36,9 +37,7 @@ Entity *addExplosion(int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Explosion\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Explosion");
 	}
 
 	loadProperties("common/explosion", e);

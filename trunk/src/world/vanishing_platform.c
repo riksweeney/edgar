@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../collisions.h"
 #include "../entity.h"
+#include "../system/error.h"
 
 static void wait(void);
 static void initialize(void);
@@ -37,9 +38,7 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Vanishing Platform\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Vanishing Platform");
 	}
 
 	loadProperties(name, e);

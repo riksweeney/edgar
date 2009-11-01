@@ -39,6 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../world/target.h"
 #include "../player.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -99,9 +100,7 @@ Entity *addBlobBoss(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Blob Boss\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Blob Boss");
 	}
 
 	loadProperties(name, e);
@@ -174,9 +173,7 @@ static void doIntro()
 
 		if (e == NULL)
 		{
-			printf("No free slots to add a Blob Boss Part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Blob Boss Part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);
@@ -364,9 +361,7 @@ static void punch2AttackInit()
 
 	if (t == NULL)
 	{
-		printf("Blob Boss could not find target\n");
-
-		exit(1);
+		showErrorAndExit("Blob Boss could not find target");
 	}
 
 	self->endX = t->x;
@@ -731,9 +726,7 @@ static void eatExplode()
 
 		if (e == NULL)
 		{
-			printf("No free slots to add a Blob Boss part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Blob Boss part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);
@@ -837,9 +830,7 @@ static void punchAttackInit()
 
 	if (t == NULL)
 	{
-		printf("Blob Boss could not find target\n");
-
-		exit(1);
+		showErrorAndExit("Blob Boss could not find target\n");
 	}
 
 	self->startX = t->x;
@@ -848,9 +839,7 @@ static void punchAttackInit()
 
 	if (t == NULL)
 	{
-		printf("Blob Boss could not find target\n");
-
-		exit(1);
+		showErrorAndExit("Blob Boss could not find target\n");
 	}
 
 	self->endX = t->x;
@@ -1185,9 +1174,7 @@ static void splitAttackInit()
 
 		if (e == NULL)
 		{
-			printf("No free slots to add a Blob Boss part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Blob Boss part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);
@@ -1617,9 +1604,7 @@ static Target *getCenterTarget()
 
 	if (t == NULL)
 	{
-		printf("Blob Boss could not find target\n");
-
-		exit(1);
+		showErrorAndExit("Blob Boss could not find target");
 	}
 
 	return t;
@@ -1709,9 +1694,7 @@ static void dieSplit()
 
 		if (e == NULL)
 		{
-			printf("No free slots to add a Blob Boss Part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Blob Boss Part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);

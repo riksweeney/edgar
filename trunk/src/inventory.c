@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 #include "dialog.h"
 #include "inventory.h"
+#include "system/error.h"
 
 static Inventory inventory;
 extern Entity *self;
@@ -82,7 +83,7 @@ int addToInventory(Entity *e)
 	{
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 		{
-			if (strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0)
+			if (strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0 && inventory.item[i].inUse == TRUE)
 			{
 				if (inventory.item[i].health < MAX_STACKABLES)
 				{
@@ -282,9 +283,7 @@ void replaceInventoryItem(char *name, Entity *e)
 		}
 	}
 
-	printf("Could not find inventory item %s to replace\n", name);
-
-	exit(1);
+	showErrorAndExit("Could not find inventory item %s to replace", name);
 }
 
 int removeInventoryItem(char *name)
@@ -507,9 +506,7 @@ void getInventoryItemFromScript(char *line)
 
 	if (e == NULL)
 	{
-		printf("Could not find Entity %s to give item %s to\n", entityName, itemName);
-
-		exit(1);
+		showErrorAndExit("Could not find Entity %s to give item %s to", entityName, itemName);
 	}
 
 	item = getInventoryItem(itemName);
@@ -557,9 +554,7 @@ void useInventoryItemFromScript(char *itemName)
 
 	if (item == NULL)
 	{
-		printf("Could not find Inventory Item %s\n", itemName);
-
-		exit(1);
+		showErrorAndExit("Could not find Inventory Item %s", itemName);
 	}
 
 	temp = self;

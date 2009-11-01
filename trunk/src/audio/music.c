@@ -128,11 +128,11 @@ void setMusicVolume()
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 }
 
-void pauseMusic()
+void pauseMusic(int pause)
 {
 	if (game.music != NULL)
 	{
-		if (Mix_PausedMusic())
+		if (pause == FALSE)
 		{
 			Mix_ResumeMusic();
 		}

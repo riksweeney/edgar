@@ -65,6 +65,8 @@ extern Entity player;
 #include "../status_panel.h"
 #include "../world/teleporter.h"
 #include "../world/vanishing_platform.h"
+#include "../world/anti_gravity_field.h"
+#include "error.h"
 #include "pak.h"
 
 static char **key, **value;
@@ -134,9 +136,9 @@ void freeGameResources()
 	/* Free the Global Triggers */
 
 	freeGlobalTriggers();
-	
+
 	/* Free the map triggers */
-	
+
 	freeMapTriggers();
 
 	/* Free the Objectives */
@@ -218,9 +220,7 @@ char *loadResources(char *buffer)
 
 		if (key == NULL || value == NULL)
 		{
-			printf("Ran out of memory when loading properties\n");
-
-			exit(1);
+			showErrorAndExit("Ran out of memory when loading properties");
 		}
 
 		for (i=0;i<MAX_PROPS_FILES;i++)
@@ -230,9 +230,7 @@ char *loadResources(char *buffer)
 
 			if (key[i] == NULL || value[i] == NULL)
 			{
-				printf("Ran out of memory when loading properties\n");
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when loading properties");
 			}
 		}
 	}
@@ -454,11 +452,14 @@ char *loadResources(char *buffer)
 				e = addVanishingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
 			}
 
+			else if (strcmpignorecase(value[type], "ANTI_GRAVITY") == 0)
+			{
+				e = addAntiGravityField(atoi(value[startX]), atoi(value[startY]), value[name]);
+			}
+
 			else
 			{
-				printf("Unknown Entity type %s\n", value[type]);
-
-				exit(1);
+				showErrorAndExit("Unknown Entity type %s", value[type]);
 			}
 
 			if (e != NULL)

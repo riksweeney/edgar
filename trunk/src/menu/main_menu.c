@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/load_save.h"
 #include "../game.h"
 #include "../audio/audio.h"
+#include "../system/error.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -199,9 +200,7 @@ static void loadMenuLayout()
 
 			if (menu.widgets == NULL)
 			{
-				printf("Ran out of memory when creating Main Menu\n");
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when creating Main Menu");
 			}
 		}
 
@@ -245,9 +244,7 @@ static void loadMenuLayout()
 
 				else
 				{
-					printf("Unknown widget %s\n", menuID);
-
-					exit(1);
+					showErrorAndExit("Unknown widget %s", menuID);
 				}
 
 				i++;
@@ -255,9 +252,7 @@ static void loadMenuLayout()
 
 			else
 			{
-				printf("Widget Count must be defined!\n");
-
-				exit(1);
+				showErrorAndExit("Widget Count must be defined!");
 			}
 		}
 
@@ -266,9 +261,7 @@ static void loadMenuLayout()
 
 	if (menu.w <= 0 || menu.h <= 0)
 	{
-		printf("Menu dimensions must be greater than 0\n");
-
-		exit(1);
+		showErrorAndExit("Menu dimensions must be greater than 0");
 	}
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -34,9 +35,7 @@ Entity *addConveyorBelt(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a conveyor belt\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Conveyor Belt");
 	}
 
 	loadProperties(name, e);

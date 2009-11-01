@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "random.h"
 #include "../graphics/save_png.h"
 #include "../map.h"
+#include "error.h"
 
 static void saveBuffer(void);
 static void loadBuffer(void);
@@ -47,9 +48,7 @@ void setReplayData(char *name, int loadedGame)
 
 	if (replayBuffer == NULL)
 	{
-		printf("Failed to open replay data %s\n", name);
-
-		exit(1);
+		showErrorAndExit("Failed to open replay data %s", name);
 	}
 
 	game.gameType = REPLAYING;
@@ -92,9 +91,7 @@ void setRecordData(char *name)
 
 	if (replayBuffer == NULL)
 	{
-		printf("Failed to open replay data %s\n", name);
-
-		exit(1);
+		showErrorAndExit("Failed to open replay data %s", name);
 	}
 
 	game.gameType = RECORDING;

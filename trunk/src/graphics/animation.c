@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../collisions.h"
 #include "../system/pak.h"
+#include "../system/error.h"
 
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
@@ -87,9 +88,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 			{
 				if (animation[animationID].frameCount == 0)
 				{
-					printf("Animation %d from file %s was created with 0 frames\n", animationID, filename);
-
-					exit(1);
+					showErrorAndExit("Animation %d from file %s was created with 0 frames\n", animationID, filename);
 				}
 			}
 
@@ -99,9 +98,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 			if (animationID == MAX_ANIMATIONS)
 			{
-				printf("Ran out of space for animations\n");
-
-				exit(1);
+				showErrorAndExit("Ran out of space for animations\n");
 			}
 
 			animationIndex[getAnimationTypeByName(frameName)] = animationID;
@@ -119,9 +116,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 			if (animation[animationID].frameTimer == NULL)
 			{
-				printf("Ran out of memory when creating the animation for %s\n", filename);
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
 			/* Allocate space for the frame timer */
@@ -130,9 +125,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 			if (animation[animationID].frameID == NULL)
 			{
-				printf("Ran out of memory when creating the animation for %s\n", filename);
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
 			/* Allocate space for the offsets */
@@ -141,18 +134,14 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 			if (animation[animationID].offsetX == NULL)
 			{
-				printf("Ran out of memory when creating the animation for %s\n", filename);
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
 			animation[animationID].offsetY = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].offsetY == NULL)
 			{
-				printf("Ran out of memory when creating the animation for %s\n", filename);
-
-				exit(1);
+				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
 			/* Now load up each frame */
@@ -181,9 +170,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 				if (spriteIndex[animation[animationID].frameID[i]] == -1)
 				{
-					printf("Invalid sprite at animation index %d in file %s\n", animation[animationID].frameID[i], filename);
-
-					exit(1);
+					showErrorAndExit("Invalid sprite at animation index %d in file %s", animation[animationID].frameID[i], filename);
 				}
 
 				animation[animationID].frameID[i] = spriteIndex[animation[animationID].frameID[i]];
@@ -195,9 +182,7 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 	if (animation[animationID].frameCount == 0)
 	{
-		printf("Animation %d from file %s was created with 0 frames\n", animationID, filename);
-
-		exit(1);
+		showErrorAndExit("Animation %d from file %s was created with 0 frames", animationID, filename);
 	}
 
 	free(buffer);
@@ -267,7 +252,7 @@ void drawLoopingAnimation(Entity *e, int x, int y, int w, int h, int center)
 
 		if (sprite->image == NULL)
 		{
-			printf("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
+			showErrorAndExit("Image index %d is NULL!\n", animation[e->currentAnim].frameID[e->currentFrame]);
 		}
 
 		e->w = sprite->image->w;
@@ -362,7 +347,7 @@ int drawLoopingAnimationToMap()
 
 		if (sprite->image == NULL)
 		{
-			printf("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
+			showErrorAndExit("Image index %d is NULL!\n", animation[self->currentAnim].frameID[self->currentFrame]);
 		}
 
 		self->w = sprite->image->w;
@@ -537,9 +522,7 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		if (e->currentAnim == -1)
 		{
-			printf("Animation %s not set for %s\n", getAnimationTypeByID(animationID), e->name);
-
-			exit(1);
+			showErrorAndExit("Animation %s not set for %s", getAnimationTypeByID(animationID), e->name);
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
@@ -549,9 +532,7 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		if (sprite->image == NULL)
 		{
-			printf("Image index %d for %s is NULL!\n", animation[e->currentAnim].frameID[0], e->name);
-
-			exit(1);
+			showErrorAndExit("Image index %d for %s is NULL!", animation[e->currentAnim].frameID[0], e->name);
 		}
 
 		e->w = sprite->image->w;
@@ -593,9 +574,9 @@ int getAnimationTypeByName(char *name)
 		}
 	}
 
-	printf("Unknown animation %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Unknown animation %s", name);
+	
+	return 0;
 }
 
 static char *getAnimationTypeByID(int id)
@@ -610,9 +591,9 @@ static char *getAnimationTypeByID(int id)
 		}
 	}
 
-	printf("Unknown animation index %d\n", id);
-
-	exit(1);
+	showErrorAndExit("Unknown animation index %d", id);
+	
+	return 0;
 }
 
 int getAnimationTypeAtIndex(Entity *e)
@@ -627,9 +608,9 @@ int getAnimationTypeAtIndex(Entity *e)
 		}
 	}
 
-	printf("Failed to find animation at index %d\n", e->currentAnim);
-
-	exit(1);
+	showErrorAndExit("Failed to find animation at index %d", e->currentAnim);
+	
+	return 0;
 }
 
 void setFrameData(Entity *e)

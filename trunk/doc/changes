@@ -4,6 +4,9 @@ CHANGE LOG
 Version 0.35
 * Added the rest of the Basement Map
 * Sprite flipping is cached rather than being done on the fly
+* Added missing lift call switches
+* Fixed the arrows falling through the lift after the first Maggot encounter
+* The game now reports any catchable errors (segfaults still need to be caught with gdb)
 
 
 Version 0.33

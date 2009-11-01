@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../geometry.h"
 #include "../event/script.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -47,9 +48,7 @@ Entity *addGrabber(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Grabber\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Grabber");
 	}
 
 	loadProperties(name, e);
@@ -314,9 +313,7 @@ static void addChain(Entity *parent)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Grabber Chain\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Grabber Chain");
 	}
 
 	loadProperties("item/grabber_chain", e);
@@ -337,9 +334,7 @@ static void addChain(Entity *parent)
 
 		if (e == NULL)
 		{
-			printf("No free slots to add Grabber Chain\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Grabber Chain");
 		}
 
 		loadProperties("item/grabber_chain", e);

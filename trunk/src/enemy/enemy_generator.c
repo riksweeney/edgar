@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "../player.h"
 #include "enemies.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -39,9 +40,7 @@ Entity *addEnemyGenerator(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Enemy Generator\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Enemy Generator");
 	}
 
 	loadProperties(name, e);
@@ -69,9 +68,7 @@ static void init()
 {
 	if (strlen(self->objectiveName) == 0)
 	{
-		printf("Enemy Generator at %f %f is not set correctly\n", self->x, self->y);
-
-		exit(1);
+		showErrorAndExit("Enemy Generator at %f %f is not set correctly", self->x, self->y);
 	}
 
 	self->action = &wait;

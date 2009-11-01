@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "trigger.h"
 #include "global_trigger.h"
 #include "objective.h"
+#include "../system/error.h"
 
 static Objective objective[MAX_OBJECTIVES];
 
@@ -65,9 +66,7 @@ void addObjectiveFromResource(char *key[], char *value[])
 
 	if (objectiveName == -1)
 	{
-		printf("Objective name is missing\n");
-
-		exit(1);
+		showErrorAndExit("Objective name is missing");
 	}
 
 	addObjective(value[objectiveName], completionTrigger == -1 ? "" : value[completionTrigger]);
@@ -96,9 +95,7 @@ void addObjective(char *objectiveName, char *completionTrigger)
 		}
 	}
 
-	printf("No free slots to add Objective \"%s\"\n", objectiveName);
-
-	exit(1);
+	showErrorAndExit("No free slots to add Objective \"%s\"", objectiveName);
 }
 
 void updateObjective(char *objectiveName)

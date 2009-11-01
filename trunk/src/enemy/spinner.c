@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "enemies.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 Entity *addSpinner(int x, int y, char *name)
 {
@@ -34,9 +35,7 @@ Entity *addSpinner(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Spinner\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Spinner");
 	}
 
 	loadProperties(name, e);
