@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../player.h"
 #include "../graphics/decoration.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -86,9 +87,7 @@ Entity *addFlyBoss(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Fly Boss\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Fly Boss");
 	}
 
 	loadProperties(name, e);
@@ -312,9 +311,7 @@ static void flyToTopTarget()
 
 	if (t == NULL)
 	{
-		printf("Fly boss is missing target\n");
-
-		exit(1);
+		showErrorAndExit("Fly boss is missing target");
 	}
 
 	self->targetX = t->x;
@@ -866,9 +863,7 @@ static void selectRandomBottomTarget()
 
 	if (t == NULL)
 	{
-		printf("Fly boss is missing target\n");
-
-		exit(1);
+		showErrorAndExit("Fly boss is missing target");
 	}
 
 	self->targetX = t->x;

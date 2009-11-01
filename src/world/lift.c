@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../entity.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
@@ -45,9 +46,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Lift\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Lift");
 	}
 
 	loadProperties(name, e);

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "../graphics/font.h"
 #include "label.h"
+#include "../system/error.h"
 
 extern Game game;
 
@@ -33,9 +34,7 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 
 	if (w == NULL)
 	{
-		printf("Failed to allocate %d bytes to create Widget %s\n", (int)sizeof(Widget), text);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %d bytes to create Widget %s", (int)sizeof(Widget), text);
 	}
 
 	if (border == TRUE)

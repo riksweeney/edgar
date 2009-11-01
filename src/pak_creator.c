@@ -67,8 +67,6 @@ int main(int argc, char *argv[])
 	if (fileData == NULL)
 	{
 		printf("Failed to create File Data\n");
-
-		exit(1);
 	}
 
 	atexit(cleanup);
@@ -315,8 +313,6 @@ static void testPak(char *pakFile)
 	if (fp == NULL)
 	{
 		printf("Failed to open PAK file %s\n", pakFile);
-
-		exit(1);
 	}
 
 	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
@@ -357,8 +353,6 @@ static void testPak(char *pakFile)
 		if (source == NULL)
 		{
 			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
-
-			exit(1);
 		}
 
 		dest = (unsigned char *)malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
@@ -366,8 +360,6 @@ static void testPak(char *pakFile)
 		if (dest == NULL)
 		{
 			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
-
-			exit(1);
 		}
 
 		fread(source, fileData[i].compressedSize, 1, fp);
@@ -381,8 +373,6 @@ static void testPak(char *pakFile)
 		if (size != fileData[i].fileSize)
 		{
 			printf("Failed to decompress %s. Expected %ld, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
-
-			exit(1);
 		}
 
 		free(source);

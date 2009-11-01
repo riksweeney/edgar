@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "item.h"
 #include "../inventory.h"
 #include "../item/bomb.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -38,9 +39,7 @@ Entity *addBombPile(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Bomb Pile\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add Bomb Pile");
 	}
 
 	loadProperties(name, e);

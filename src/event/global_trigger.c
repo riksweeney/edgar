@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../graphics/graphics.h"
 #include "../dialog.h"
+#include "../system/error.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 
@@ -106,9 +107,7 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 
 	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1 || total == -1)
 	{
-		printf("Trigger is missing resources\n");
-
-		exit(1);
+		showErrorAndExit("Trigger is missing resources");
 	}
 
 	addGlobalTrigger(value[triggerName], atoi(value[count]), atoi(value[total]), getTriggerTypeByName(value[targetType]), value[targetName]);
@@ -147,9 +146,7 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 		}
 	}
 
-	printf("No free slots to add global trigger \"%s\"\n", triggerName);
-
-	exit(1);
+	showErrorAndExit("No free slots to add global trigger \"%s\"", triggerName);
 }
 
 void fireGlobalTrigger(char *name)
@@ -243,9 +240,7 @@ SDL_Surface *listObjectives()
 	
 	if (allMessages == NULL)
 	{
-		printf("Could allocate a whole %d bytes for Objective list\n", MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
-		
-		exit(1);
+		showErrorAndExit("Could allocate a whole %d bytes for Objective list", MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 	}
 	
 	allMessages[0] = '\0';

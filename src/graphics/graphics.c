@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/pak.h"
 #include "graphics.h"
+#include "../system/error.h"
 
 extern Game game;
 
@@ -39,9 +40,7 @@ SDL_Surface *loadImage(char *name)
 
 	if (temp == NULL)
 	{
-		printf("Failed to load image %s\n", name);
-
-		exit(1);
+		showErrorAndExit("Failed to load image %s", name);
 	}
 
 	/* Make the background transparent */
@@ -56,9 +55,7 @@ SDL_Surface *loadImage(char *name)
 
 	if (image == NULL)
 	{
-		printf("Failed to convert image %s to native format\n", name);
-
-		exit(1);
+		showErrorAndExit("Failed to convert image %s to native format", name);
 	}
 
 	/* Return the processed image */

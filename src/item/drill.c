@@ -17,15 +17,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
+#include "../system/error.h"
+
 Entity *addDrill(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Drill\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Drill");
 	}
 
 	loadProperties(name, e);

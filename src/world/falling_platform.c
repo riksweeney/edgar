@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../collisions.h"
+#include "../system/error.h"
 #include "../entity.h"
 
 static void wait(void);
@@ -41,9 +42,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Falling Platform\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Falling Platform");
 	}
 
 	loadProperties(strcmpignorecase(name, "lift/falling_platform") == 0 ? "falling_platform/cave_falling_platform" : name, e);

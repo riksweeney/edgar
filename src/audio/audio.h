@@ -25,3 +25,4 @@ int playSoundChunk(Mix_Chunk *, int, int);
 void freeSounds(void);
 int initAudio(void);
 void stopSound(int);
+void pauseSound(int);

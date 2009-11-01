@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../projectile.h"
 #include "../game.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -44,9 +45,7 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Ceiling Snapper\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Ceiling Snapper");
 	}
 
 	loadProperties(name, e);

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../system/pak.h"
 #include "../map.h"
+#include "../system/error.h"
 
 static Sound sound[MAX_SOUNDS];
 extern Game game;
@@ -82,9 +83,7 @@ static void preCacheSound(char *name)
 
 	if (soundIndex == MAX_SOUNDS)
 	{
-		printf("Ran out of space for sounds\n");
-
-		exit(1);
+		showErrorAndExit("Ran out of space for sounds\n");
 	}
 
 	chunk = loadSound(name);
@@ -119,9 +118,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 	{
 		if (soundIndex == MAX_SOUNDS)
 		{
-			printf("Ran out of space for sounds\n");
-
-			exit(1);
+			showErrorAndExit("Ran out of space for sounds\n");
 		}
 
 		chunk = loadSound(name);
@@ -186,9 +183,7 @@ void playSound(char *name)
 	{
 		if (soundIndex == MAX_SOUNDS)
 		{
-			printf("Ran out of space for sounds\n");
-
-			exit(1);
+			showErrorAndExit("Ran out of space for sounds\n");
 		}
 
 		chunk = loadSound(name);
@@ -223,9 +218,7 @@ Mix_Chunk *loadSound(char *name)
 
 	if (chunk == NULL)
 	{
-		printf("Failed to load sound %s\n", path);
-
-		exit(1);
+		showErrorAndExit("Failed to load sound %s", path);
 	}
 
 	return chunk;
@@ -294,4 +287,22 @@ void stopSound(int channel)
 	}
 
 	Mix_HaltChannel(channel);
+}
+
+void pauseSound(int pause)
+{
+	if (game.audio == FALSE || game.sfxDefaultVolume == 0)
+	{
+		return;
+	}
+	
+	if (pause == TRUE)
+	{
+		Mix_Pause(-1);
+	}
+	
+	else
+	{
+		Mix_Resume(-1);
+	}
 }

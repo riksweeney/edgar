@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../player.h"
 #include "../graphics/gib.h"
+#include "../system/error.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -51,9 +52,7 @@ Entity *addAntLion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Ant Lion\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Ant Lion");
 	}
 
 	loadProperties(name, e);

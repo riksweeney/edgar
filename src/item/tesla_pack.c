@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../world/explosion.h"
 #include "../system/random.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -47,9 +48,7 @@ Entity *addTeslaPack(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Tesla Pack\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Tesla Pack");
 	}
 
 	loadProperties(name, e);
@@ -115,9 +114,7 @@ static void shockTarget()
 	
 	if (e == NULL)
 	{
-		printf("No free slots to add a Tesla Shock\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Tesla Shock");
 	}
 
 	loadProperties("item/tesla_shock", e);

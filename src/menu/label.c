@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../graphics/graphics.h"
 #include "../graphics/font.h"
+#include "../system/error.h"
 
 extern Game game;
 
@@ -32,9 +33,7 @@ Label *createLabel(char *text, int x, int y)
 
 	if (l == NULL)
 	{
-		printf("Failed to allocate %d bytes to create Label %s\n", (int)sizeof(Label), text);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %d bytes to create Label %s", (int)sizeof(Label), text);
 	}
 
 	l->text = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);

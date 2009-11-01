@@ -35,10 +35,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/objective.h"
 #include "event/global_trigger.h"
 #include "system/load_save.h"
+#include "system/error.h"
 #include "dialog.h"
 #include "event/script.h"
 #include "menu/menu.h"
 #include "menu/inventory_menu.h"
+#include "system/error.h"
 
 Input input, menuInput;
 Entity *self, entity[MAX_ENTITIES];
@@ -124,9 +126,7 @@ int main(int argc, char *argv[])
 
 	if (replayingID != -1 && recordingID != -1)
 	{
-		printf("Cannot record and replay at the same time\n");
-
-		exit(1);
+		showErrorAndExit("Cannot record and replay at the same time");
 	}
 
 	loadRequiredResources();
@@ -171,9 +171,7 @@ int main(int argc, char *argv[])
 
 		if (loadGame(loadSlot) == FALSE)
 		{
-			printf("No saved game in slot %d\n", loadSlot);
-
-			exit(1);
+			showErrorAndExit("No saved game in slot %d", loadSlot);
 		}
 
 		if (recordingID != -1)

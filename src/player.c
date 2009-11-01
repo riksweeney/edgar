@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/gib.h"
 #include "projectile.h"
 #include "graphics/decoration.h"
+#include "system/error.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -118,6 +119,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.element = NO_ELEMENT;
 
 	player.weight = 1;
+
+	player.originalWeight = player.weight;
 
 	player.fallout = &fallout;
 
@@ -778,7 +781,7 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 	{
 		return;
 	}
-	
+
 	if (strcmpignorecase(newWeapon->name, "weapon/normal_arrow") == 0)
 	{
 		return;
@@ -1332,9 +1335,7 @@ void setPlayerSlimed(int thinkTime)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Slimed Player\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add Slimed Player");
 	}
 
 	/* Change back to Edgar */

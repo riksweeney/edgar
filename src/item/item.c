@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../inventory.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
@@ -43,9 +44,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add item %s\n", name);
-
-		exit(1);
+		showErrorAndExit("No free slots to add item %s", name);
 	}
 
 	loadProperties(name, e);
@@ -109,9 +108,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 	if (e == NULL)
 	{
-		printf("No free slots to add item %s\n", name);
-
-		exit(1);
+		showErrorAndExit("No free slots to add item %s", name);
 	}
 
 	loadProperties(name, e);
@@ -121,9 +118,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 
 	if (e->thinkTime <= 0)
 	{
-		printf("No valid thinkTime defined for %s\n", name);
-
-		exit(1);
+		showErrorAndExit("No valid thinkTime defined for %s", name);
 	}
 
 	e->dirX = dirX;

@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../system/load_save.h"
 #include "../game.h"
+#include "../system/error.h"
 
 extern Entity *self;
 extern Game game;
@@ -39,9 +40,7 @@ Entity *addSavePoint(int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Save Point\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Save Point");
 	}
 
 	loadProperties("common/save_point", e);

@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../custom_actions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -51,9 +52,7 @@ Entity *addTortoise(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Tortoise\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Tortoise");
 	}
 
 	loadProperties(name, e);
@@ -250,9 +249,7 @@ static void createElectricity()
 
 	if (e == NULL)
 	{
-		printf("No free slots to add Tortoise electricity\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add Tortoise electricity");
 	}
 
 	loadProperties("enemy/tortoise_electricity", e);

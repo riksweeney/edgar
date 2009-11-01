@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 #include "pak.h"
 #include "load_save.h"
+#include "error.h"
 
 static unsigned char *uncompressFile(char *, int);
 static SDL_RWops *uncompressFileRW(char *);
@@ -40,9 +41,7 @@ void initPakFile()
 
 		if (fp == NULL)
 		{
-			printf("Failed to open PAK file %s\n", pakFile);
-
-			exit(1);
+			showErrorAndExit("Failed to open PAK file %s", pakFile);
 		}
 
 		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
@@ -54,9 +53,7 @@ void initPakFile()
 
 		if (fileData == NULL)
 		{
-			printf("Failed to allocate %d bytes for FileData\n", fileCount * (int)sizeof(FileData));
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
 		}
 
 		fseek(fp, offset, SEEK_SET);
@@ -175,9 +172,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (fp == NULL)
 		{
-			printf("Failed to open %s\n", name);
-
-			exit(1);
+			showErrorAndExit("Failed to open %s", name);
 		}
 
 		fseek(fp, 0L, SEEK_END);
@@ -190,9 +185,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s\n", size * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s", size * (int)sizeof(unsigned char), name);
 		}
 
 		fread(dest, size, 1, fp);
@@ -213,18 +206,14 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (index == -1)
 		{
-			printf("Failed to find %s in PAK file\n", name);
-
-			exit(1);
+			showErrorAndExit("Failed to find %s in PAK file", name);
 		}
 
 		fp = fopen(pakFile, "rb");
 
 		if (fp == NULL)
 		{
-			printf("Failed to open PAK file %s\n", pakFile);
-
-			exit(1);
+			showErrorAndExit("Failed to open PAK file %s", pakFile);
 		}
 
 		fseek(fp, fileData[index].offset, SEEK_SET);
@@ -233,18 +222,14 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (source == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 		}
 
 		dest = (unsigned char *)malloc(fileData[index].fileSize * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
 		fread(source, fileData[i].compressedSize, 1, fp);
@@ -255,9 +240,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		if (size != fileData[index].fileSize)
 		{
-			printf("Failed to decompress %s. Expected %ld, got %ld\n", fileData[index].filename, fileData[index].fileSize, size);
-
-			exit(1);
+			showErrorAndExit("Failed to decompress %s. Expected %ld, got %ld", fileData[index].filename, fileData[index].fileSize, size);
 		}
 	#endif
 
@@ -286,9 +269,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 	if (filename == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for filename\n", MAX_PATH_LENGTH);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for filename", MAX_PATH_LENGTH);
 	}
 
 	#if DEV == 1
@@ -296,9 +277,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (fp == NULL)
 		{
-			printf("Failed to open %s\n", name);
-
-			exit(1);
+			showErrorAndExit("Failed to open %s", name);
 		}
 
 		fseek(fp, 0L, SEEK_END);
@@ -311,9 +290,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s\n", (size + 2) * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s", (size + 2) * (int)sizeof(unsigned char), name);
 		}
 
 		fread(dest, size, 1, fp);
@@ -337,18 +314,14 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (index == -1)
 		{
-			printf("Failed to find %s in PAK file\n", name);
-
-			exit(1);
+			showErrorAndExit("Failed to find %s in PAK file", name);
 		}
 
 		fp = fopen(pakFile, "rb");
 
 		if (fp == NULL)
 		{
-			printf("Failed to open PAK file %s\n", pakFile);
-
-			exit(1);
+			showErrorAndExit("Failed to open PAK file %s", pakFile);
 		}
 
 		fseek(fp, fileData[index].offset, SEEK_SET);
@@ -357,18 +330,14 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (source == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 		}
 
 		dest = (unsigned char *)malloc((fileData[index].fileSize + 1) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[index].fileSize * (int)sizeof(unsigned char), name);
-
-			exit(1);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
 		fread(source, fileData[index].compressedSize, 1, fp);
@@ -381,9 +350,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		if (size != fileData[index].fileSize)
 		{
-			printf("Failed to decompress %s. Expected %ld, got %ld\n", fileData[index].filename, fileData[index].fileSize, size);
-
-			exit(1);
+			showErrorAndExit("Failed to decompress %s. Expected %ld, got %ld", fileData[index].filename, fileData[index].fileSize, size);
 		}
 
 		if (writeToFile == TRUE)

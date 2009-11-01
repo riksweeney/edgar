@@ -22,7 +22,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../graphics/sprites.h"
 #include "../audio/audio.h"
-#include "../system/properties.h"
+#include "properties.h"
+#include "error.h"
 #include "pak.h"
 
 static Properties properties[MAX_PROPS_FILES];
@@ -60,7 +61,8 @@ static Type entityType[] = {
 					{TRAP_DOOR, "TRAP_DOOR"},
 					{CONVEYOR_BELT, "CONVEYOR_BELT"},
 					{TELEPORTER, "TELEPORTER"},
-					{VANISHING_PLATFORM, "VANISHING_PLATFORM"}
+					{VANISHING_PLATFORM, "VANISHING_PLATFORM"},
+					{ANTI_GRAVITY, "ANTI_GRAVITY"}
 					};
 static int entityLength = sizeof(entityType) / sizeof(Type);
 
@@ -126,9 +128,7 @@ void loadProperties(char *name, Entity *e)
 				{
 					if (j == MAX_PROPS_ENTRIES)
 					{
-						printf("Cannot add any more properties for %s\n", name);
-
-						exit(1);
+						showErrorAndExit("Cannot add any more properties for %s", name);
 					}
 
 					if (line[strlen(line) - 1] == '\n')
@@ -161,9 +161,7 @@ void loadProperties(char *name, Entity *e)
 
 					else
 					{
-						printf("%s: %s is missing value\n", name, properties[i].key[j]);
-
-						exit(1);
+						showErrorAndExit("%s: %s is missing value", name, properties[i].key[j]);
 					}
 
 					if (strcmpignorecase(properties[i].key[j], "GFX_FILE") == 0)
@@ -188,9 +186,7 @@ void loadProperties(char *name, Entity *e)
 
 			if (i == MAX_PROPS_FILES)
 			{
-				printf("Cannot add any more property files\n");
-
-				exit(1);
+				showErrorAndExit("Cannot add any more property files");
 			}
 		}
 
@@ -203,23 +199,17 @@ void loadProperties(char *name, Entity *e)
 
 		else if (graphicsIndex == -1)
 		{
-			printf("No graphics file found for %s\n", name);
-
-			exit(1);
+			showErrorAndExit("No graphics file found for %s", name);
 		}
 
 		else
 		{
-			printf("No animation file found for %s\n", name);
-
-			exit(1);
+			showErrorAndExit("No animation file found for %s", name);
 		}
 
 		if (i == MAX_PROPS_FILES)
 		{
-			printf("No free slots for properties file %s\n", name);
-
-			exit(1);
+			showErrorAndExit("No free slots for properties file %s", name);
 		}
 	}
 
@@ -251,9 +241,7 @@ void loadProperties(char *name, Entity *e)
 
 		if (index == 0)
 		{
-			printf("No animations defined for %s\n", name);
-
-			exit(1);
+			showErrorAndExit("No animations defined for %s", name);
 		}
 
 		e->currentAnim = -1;
@@ -270,9 +258,7 @@ void setFlags(Entity *e, char *flags)
 
 	if (temp == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for flags...\n", (int)strlen(flags) + 1);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for flags...", (int)strlen(flags) + 1);
 	}
 
 	STRNCPY(temp, flags, strlen(flags) + 1);
@@ -353,9 +339,7 @@ void setFlags(Entity *e, char *flags)
 
 		else
 		{
-			printf("Unknown flag value %s\n", token);
-
-			exit(0);
+			showErrorAndExit("Unknown flag value %s", token);
 		}
 
 		token = strtok_r(NULL, " |,", &savePtr);
@@ -372,9 +356,7 @@ void unsetFlags(Entity *e, char *flags)
 
 	if (temp == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for flags...\n", (int)strlen(flags) + 1);
-
-		exit(1);
+		showErrorAndExit("Failed to allocate a whole %d bytes for flags...", (int)strlen(flags) + 1);
 	}
 
 	STRNCPY(temp, flags, strlen(flags) + 1);
@@ -445,9 +427,7 @@ void unsetFlags(Entity *e, char *flags)
 
 		else
 		{
-			printf("Unknown flag value %s\n", token);
-
-			exit(0);
+			showErrorAndExit("Unknown flag value %s", token);
 		}
 
 		token = strtok_r(NULL, " |,", &savePtr);
@@ -565,6 +545,8 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "WEIGHT") == 0)
 	{
 		e->weight = atof(value);
+
+		e->originalWeight = e->weight;
 	}
 
 	else if (strcmpignorecase(name, "DIR_X") == 0)
@@ -660,9 +642,9 @@ int getEntityTypeByName(char *name)
 		}
 	}
 
-	printf("Unknown Entity Type %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Unknown Entity Type %s", name);
+	
+	return 0;
 }
 
 char *getEntityTypeByID(int id)
@@ -677,9 +659,9 @@ char *getEntityTypeByID(int id)
 		}
 	}
 
-	printf("Unknown Entity ID %d\n", id);
-
-	exit(1);
+	showErrorAndExit("Unknown Entity ID %d", id);
+	
+	return 0;
 }
 
 static int getElementTypeByName(char *name)
@@ -694,7 +676,7 @@ static int getElementTypeByName(char *name)
 		}
 	}
 
-	printf("Unknown Element Type %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Unknown Element Type %s", name);
+	
+	return 0;
 }

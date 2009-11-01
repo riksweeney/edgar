@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../event/trigger.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -38,9 +39,7 @@ Entity *addArrowTarget(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Arrow Target\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Arrow Target");
 	}
 
 	loadProperties(name, e);

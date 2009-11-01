@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../graphics/animation.h"
 #include "../system/properties.h"
+#include "../system/error.h"
 
 extern Target target[MAX_TARGETS];
 extern Entity *self;
@@ -48,9 +49,7 @@ Target *addTarget(int x, int y, char *name)
 	{
 		if (strcmpignorecase(name, target[i].name) == 0)
 		{
-			printf("Duplicate target name %s\n", name);
-
-			exit(1);
+			showErrorAndExit("Duplicate target name %s", name);
 		}
 	}
 
@@ -73,9 +72,9 @@ Target *addTarget(int x, int y, char *name)
 		}
 	}
 
-	printf("No free slots to add a target\n");
-
-	exit(1);
+	showErrorAndExit("No free slots to add a target");
+	
+	return NULL;
 }
 
 void drawTargets()

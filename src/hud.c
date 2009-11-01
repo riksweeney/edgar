@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "inventory.h"
 #include "graphics/font.h"
 #include "hud.h"
+#include "system/error.h"
 
 extern Game game;
 extern Entity player, *self;
@@ -237,9 +238,7 @@ static void addMessageToQueue(char *text, int thinkTime)
 
 	if (msg == NULL)
 	{
-		printf("Failed to allocate %d bytes for message queue\n", (int)sizeof(Message));
-
-		exit(1);
+		showErrorAndExit("Failed to allocate %d bytes for message queue", (int)sizeof(Message));
 	}
 
 	STRNCPY(msg->text, text, sizeof(messageHead.text));

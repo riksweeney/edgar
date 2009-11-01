@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../entity.h"
+#include "../system/error.h"
 
 static Entity decoration[MAX_DECORATIONS];
 static int decorationIndex = 0;
@@ -55,9 +56,9 @@ Entity *addDecoration(char *name, int x, int y)
 		}
 	}
 
-	printf("Could not find decoration %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Could not find decoration %s\n", name);
+	
+	return NULL;
 }
 
 void freeDecorations()
@@ -414,9 +415,7 @@ void addDecorationFromScript(char *line)
 
 	if (e == NULL)
 	{
-		printf("Decoration could not find Entity %s\n", entityName);
-
-		exit(1);
+		showErrorAndExit("Decoration could not find Entity %s\n", entityName);
 	}
 
 	addDecoration(decorationName, e->x + e->w / 2, e->y + e->h / 2);

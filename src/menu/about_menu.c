@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../input.h"
 #include "../audio/audio.h"
 #include "main_menu.h"
+#include "../system/error.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -76,9 +77,7 @@ static void loadMenuLayout()
 
 	if (menu.widgets == NULL)
 	{
-		printf("Ran out of memory when creating About Menu\n");
-
-		exit(1);
+		showErrorAndExit("Ran out of memory when creating About Menu");
 	}
 
 	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, 20, FALSE);

@@ -22,8 +22,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../system/properties.h"
+#include "../system/random.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
+#include "../system/error.h"
 
 extern Entity *self;
+
+static void die(void);
 
 Entity *addArmadillo(int x, int y, char *name)
 {
@@ -31,9 +37,7 @@ Entity *addArmadillo(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Armadillo\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Armadillo");
 	}
 
 	loadProperties(name, e);
@@ -43,7 +47,7 @@ Entity *addArmadillo(int x, int y, char *name)
 
 	e->action = &moveLeftToRight;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -53,4 +57,20 @@ Entity *addArmadillo(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void die()
+{
+	Entity *e;
+	
+	if (prand() % 3 == 0)
+	{
+		e = addKeyItem("item/spike_ball", self->x + self->w / 2, self->y);
+
+		e->x -= e->w / 2;
+		
+		e->action = &generalItemAction;
+	}
+	
+	entityDie();
 }

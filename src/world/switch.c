@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
@@ -45,9 +46,7 @@ Entity *addSwitch(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Switch\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Switch");
 	}
 
 	loadProperties(name, e);

@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../projectile.h"
 #include "snail_shell.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -46,9 +47,7 @@ Entity *addSnail(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Snail\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Snail");
 	}
 
 	loadProperties(name, e);

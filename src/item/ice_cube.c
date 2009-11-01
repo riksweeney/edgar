@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "key_items.h"
 #include "../system/random.h"
 #include "../world/explosion.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -43,9 +44,7 @@ Entity *addIceCube(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Ice Cube\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Ice Cube");
 	}
 
 	loadProperties(name, e);

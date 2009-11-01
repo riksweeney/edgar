@@ -67,6 +67,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/flying_maggot.h"
 #include "../boss/golem_rock_dropper.h"
 #include "../boss/blob_boss.h"
+#include "../system/error.h"
 
 static Constructor enemies[] = {
 {"enemy/bat", &addBat},
@@ -149,7 +150,7 @@ Entity *addEnemy(char *name, int x, int y)
 		}
 	}
 
-	printf("Could not find enemy %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Could not find enemy %s", name);
+	
+	return NULL;
 }

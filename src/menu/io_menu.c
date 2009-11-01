@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../audio/audio.h"
+#include "../system/error.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -168,16 +169,12 @@ static void loadMenuLayout(int saving)
 
 	if (menu.widgets == NULL)
 	{
-		printf("Ran out of memory when creating IO Menu\n");
-
-		exit(1);
+		showErrorAndExit("Ran out of memory when creating IO Menu");
 	}
 
 	if (menu.w <= 0 || menu.h <= 0)
 	{
-		printf("Menu dimensions must be greater than 0\n");
-
-		exit(1);
+		showErrorAndExit("Menu dimensions must be greater than 0");
 	}
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);

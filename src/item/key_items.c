@@ -49,6 +49,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "containment_unit_controls.h"
 #include "ice_spray.h"
 #include "blending_machine.h"
+#include "spike_ball.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -83,7 +85,8 @@ static Constructor items[] = {
 {"item/containment_unit", &addContainmentUnit},
 {"item/containment_unit_controls", &addContainmentUnitControls},
 {"item/ice_spray", &addIceSpray},
-{"item/blender", &addBlendingMachine}
+{"item/blender", &addBlendingMachine},
+{"item/spike_ball", &addSpikeBall}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -100,9 +103,9 @@ Entity *addKeyItem(char *name, int x, int y)
 		}
 	}
 
-	printf("Could not find key item %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Could not find key item %s", name);
+	
+	return NULL;
 }
 
 void keyItemTouch(Entity *other)

@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../event/script.h"
 #include "../audio/music.h"
+#include "../system/error.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -66,9 +67,7 @@ Entity *addFlyingMaggot(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Flying Maggot\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Flying Maggot");
 	}
 
 	loadProperties(name, e);
@@ -121,9 +120,7 @@ static void firstEncounter()
 		
 		if (t == NULL)
 		{
-			printf("Flying Maggot cannot find target\n");
-			
-			exit(0);
+			showErrorAndExit("Flying Maggot cannot find target");
 		}
 		
 		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);

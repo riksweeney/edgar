@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
+#include "../system/error.h"
 
 extern Entity *self;
 extern Game game;
@@ -38,9 +39,7 @@ Entity *addHighStriker(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a High Striker\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a High Striker");
 	}
 
 	loadProperties(name, e);

@@ -35,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "menu/io_menu.h"
 #include "inventory.h"
 #include "event/map_trigger.h"
+#include "system/error.h"
 
 extern Game game;
 
@@ -467,9 +468,7 @@ void goToNextMap()
 
 		if (start == NULL)
 		{
-			printf("Could not find player start %s\n", game.playerStart);
-
-			exit(1);
+			showErrorAndExit("Could not find player start %s", game.playerStart);
 		}
 
 		loadPlayer(start->x, start->y, NULL);
@@ -583,7 +582,7 @@ void pauseGameInventory()
 void focusLost()
 {
 	#if DEV == 0
-		if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR)
+		if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR && game.status != IN_ERROR)
 		{
 			pauseGame();
 		}
@@ -704,9 +703,7 @@ char *getPlayTimeAsString()
 
 	if (timeString == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for Play Time string...\n", 15 * (int)sizeof(char));
-
-		exit(0);
+		showErrorAndExit("Failed to allocate a whole %d bytes for Play Time string...", 15 * (int)sizeof(char));
 	}
 
 	tempTime = game.playTime;

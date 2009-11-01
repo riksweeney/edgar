@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
 #include "../audio/audio.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -42,9 +43,7 @@ Entity *addWeakWall(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add %s\n", name);
-
-		exit(1);
+		showErrorAndExit("No free slots to add %s", name);
 	}
 
 	loadProperties(name, e);

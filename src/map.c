@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "weather.h"
 #include "system/pak.h"
 #include "geometry.h"
+#include "system/error.h"
 
 static Map map;
 static SDL_Surface *mapImages[MAX_TILES];
@@ -287,9 +288,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "}") == 0)
 		{
-			printf("Parse error: encountered closing } without matching {\n");
-
-			exit(1);
+			showErrorAndExit("Parse error: encountered closing } without matching {");
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr1);
@@ -351,9 +350,7 @@ int saveMap()
 
 	if (fp == NULL)
 	{
-		printf("Failed to open map %s\n", map.filename);
-
-		exit(1);
+		showErrorAndExit("Failed to open map %s", map.filename);
 	}
 
 	fprintf(fp, "MAP_NAME %s\n", map.mapName);

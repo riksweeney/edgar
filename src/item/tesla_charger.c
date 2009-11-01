@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../audio/audio.h"
 #include "tesla_pack.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -43,9 +44,7 @@ Entity *addTeslaCharger(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Tesla Charger\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Tesla Charger");
 	}
 
 	loadProperties(name, e);
@@ -135,8 +134,6 @@ static void activate(int val)
 
 	if (self->health == 3)
 	{
-		printf("Adding pack to inventory\n");
-
 		e = addTeslaPack(0, 0, "item/tesla_pack_full");
 
 		addToInventory(e);

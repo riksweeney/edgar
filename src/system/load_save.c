@@ -35,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "pak.h"
 #include "../input.h"
+#include "error.h"
 
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH];
 
@@ -310,9 +311,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 	if (originalBuffer == NULL)
 	{
-		printf("Failed to allocate %d bytes to patch save game\n", (int)((strlen((char *)buffer) + 1) * sizeof(unsigned char)));
-
-		exit(0);
+		showErrorAndExit("Failed to allocate %d bytes to patch save game", (int)((strlen((char *)buffer) + 1) * sizeof(unsigned char)));
 	}
 
 	strcpy((char *)originalBuffer, (char *)buffer);
@@ -371,9 +370,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 				if (buffer == NULL)
 				{
-					printf("Failed to allocate %d bytes to patch save game\n", (int)((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char)));
-
-					exit(0);
+					showErrorAndExit("Failed to allocate %d bytes to patch save game", (int)((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char)));
 				}
 
 				strcpy((char *)buffer, (char *)originalBuffer);
@@ -749,9 +746,7 @@ void saveTemporaryData()
 
 		if (remove(tempFile) != 0)
 		{
-			perror("Could not remove temporary file");
-
-			exit(1);
+			showErrorAndExit("Could not remove temporary file");
 		}
 	}
 
@@ -775,9 +770,7 @@ void saveTemporaryData()
 
 	if (rename(swapFile, tempFile) != 0)
 	{
-		perror("Could not rename temporary file");
-
-		exit(1);
+		showErrorAndExit("Could not rename temporary file");
 	}
 
 	#if DEV == 1
@@ -880,9 +873,7 @@ void loadPersitanceData(char *mapName)
 
 	if (found == FALSE)
 	{
-		printf("Failed to find persistance data!\n");
-
-		exit(1);
+		showErrorAndExit("Failed to find persistance data!");
 	}
 }
 
@@ -939,7 +930,7 @@ void loadConfig()
 
 	if (buffer == NULL)
 	{
-		printf("Failed to allocate a whole %ld bytes for config file...\n", length);
+		showErrorAndExit("Failed to allocate a whole %ld bytes for config file...", length);
 
 		exit(1);
 	}
@@ -1033,7 +1024,7 @@ char **getSaveFileIndex()
 
 	if (entries == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for save data\n", (int)sizeof(char *) * MAX_SAVE_SLOTS);
+		showErrorAndExit("Failed to allocate a whole %d bytes for save data", (int)sizeof(char *) * MAX_SAVE_SLOTS);
 
 		exit(1);
 	}
@@ -1044,7 +1035,7 @@ char **getSaveFileIndex()
 
 		if (entries[i] == NULL)
 		{
-			printf("Failed to allocate a whole %d bytes for save data\n", (int)sizeof(char) * MAX_PATH_LENGTH);
+			showErrorAndExit("Failed to allocate a whole %d bytes for save data", (int)sizeof(char) * MAX_PATH_LENGTH);
 
 			exit(1);
 		}

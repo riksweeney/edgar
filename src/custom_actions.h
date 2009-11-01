@@ -31,3 +31,4 @@ void regenerate(int *, int *);
 void addCustomActionFromScript(Entity *, char *);
 void slimeTimeout(int *, int *);
 void invisible(int *, int *);
+void antiGravity(int *, int *);

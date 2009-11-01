@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -42,9 +43,7 @@ Entity *addHealthPotion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Health Potion\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Health Potion");
 	}
 
 	loadProperties(name, e);
@@ -93,9 +92,7 @@ Entity *addSlimePotion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Slime Potion\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Slime Potion");
 	}
 
 	loadProperties(name, e);
@@ -138,9 +135,7 @@ Entity *addInvisibilityPotion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Slime Potion\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Slime Potion");
 	}
 
 	loadProperties(name, e);

@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../world/target.h"
 #include "../enemy/rock.h"
+#include "../system/error.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -87,9 +88,7 @@ Entity *addGolemBoss(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Golem Boss\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Golem Boss");
 	}
 
 	loadProperties(name, e);
@@ -163,9 +162,7 @@ static void shatter()
 
 		if (e == NULL)
 		{
-			printf("No free slots to add a Golem Boss Body Part\n");
-
-			exit(1);
+			showErrorAndExit("No free slots to add a Golem Boss Body Part");
 		}
 
 		switch (i)

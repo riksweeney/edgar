@@ -1,7 +1,8 @@
 edgar/edgar
-enemy/gazer
-enemy/energy_drainer
-lift/mine_lift
+common/switch
+enemy/grub
+enemy/armadillo
+weapon/basic_sword
+weapon/small_wooden_shield
 common/save_point
-common/action_point
-weapon/normal_arrow
+item/spike_ball

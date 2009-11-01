@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../geometry.h"
 #include "../graphics/graphics.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
@@ -56,9 +57,7 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Energy Drainer\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Energy Drainer");
 	}
 
 	loadProperties(name, e);
@@ -91,9 +90,7 @@ static void init()
 
 	if (e == NULL)
 	{
-		printf("Energy Drainer could not find Entity %s\n", self->requires);
-
-		exit(1);
+		showErrorAndExit("Energy Drainer could not find Entity %s\n", self->requires);
 	}
 
 	self->targetX = e->x + e->w / 2;
@@ -248,9 +245,7 @@ static void die()
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Energy Drainer Ball\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Energy Drainer Ball");
 	}
 
 	loadProperties("enemy/energy_drainer_ball", e);
@@ -347,9 +342,7 @@ static void createBeam()
 
 	if (e == NULL)
 	{
-		printf("No free slots to add an Energy Beam\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add an Energy Beam");
 	}
 
 	loadProperties("enemy/energy_beam", e);

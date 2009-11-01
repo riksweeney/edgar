@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "trigger.h"
 #include "../event/script.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 
@@ -88,9 +89,7 @@ void addMapTriggerFromResource(char *key[], char *value[])
 
 	if (triggerName == -1 || count == -1 || targetType == -1 || targetName == -1 || total == -1)
 	{
-		printf("Map Trigger is missing resources\n");
-
-		exit(1);
+		showErrorAndExit("Map Trigger is missing resources");
 	}
 
 	addMapTrigger(value[triggerName], atoi(value[count]), atoi(value[total]), getTriggerTypeByName(value[targetType]), value[targetName]);
@@ -129,9 +128,7 @@ static void addMapTrigger(char *triggerName, int count, int total, int targetTyp
 		}
 	}
 
-	printf("No free slots to add Map Trigger \"%s\"\n", triggerName);
-
-	exit(1);
+	showErrorAndExit("No free slots to add Map Trigger \"%s\"", triggerName);
 }
 
 void fireMapTrigger(char *name)

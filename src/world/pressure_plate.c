@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../hud.h"
+#include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
@@ -39,9 +40,7 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add a Pressure Plate\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add a Pressure Plate");
 	}
 
 	loadProperties(name, e);

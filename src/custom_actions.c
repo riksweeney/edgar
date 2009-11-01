@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "map.h"
 #include "hud.h"
 #include "custom_actions.h"
+#include "system/error.h"
 
 extern Entity *self;
 
@@ -73,9 +74,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 		}
 	}
 
-	printf("No free slots for Custom Action\n");
-
-	exit(1);
+	showErrorAndExit("No free slots for Custom Action");
 }
 
 void clearCustomAction(Entity *e, void (*func)(int *, int *))
@@ -252,4 +251,24 @@ void invisible(int *thinkTime, int *counter)
 	(*thinkTime)--;
 
 	self->alpha = *thinkTime == 0 ? 255 : 64;
+}
+
+void antiGravity(int *thinkTime, int *counter)
+{
+	(*thinkTime)--;
+
+	if (!(self->flags & FLY))
+	{
+		if (*thinkTime != 0)
+		{
+			self->weight = 0;
+			self->dirY = -0.2;
+		}
+
+		else
+		{
+			self->weight = self->originalWeight;
+			self->dirY = 0;
+		}
+	}
 }

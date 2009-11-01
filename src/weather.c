@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "draw.h"
 #include "weather.h"
 #include "game.h"
+#include "system/error.h"
 
 static Droplet droplet[MAX_DROPS];
 extern Game game;
@@ -284,9 +285,9 @@ int getWeatherTypeByName(char *name)
 		}
 	}
 
-	printf("Unknown Weather Type %s\n", name);
-
-	exit(1);
+	showErrorAndExit("Unknown Weather Type %s", name);
+	
+	return 0;
 }
 
 char *getWeatherTypeByID(int id)
@@ -301,9 +302,9 @@ char *getWeatherTypeByID(int id)
 		}
 	}
 
-	printf("Unknown Weather ID %d\n", id);
-
-	exit(1);
+	showErrorAndExit("Unknown Weather ID %d", id);
+	
+	return 0;
 }
 
 char *getWeather()

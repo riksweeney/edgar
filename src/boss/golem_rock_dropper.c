@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../enemy/enemies.h"
 #include "../collisions.h"
+#include "../system/error.h"
 
 extern Entity *self, player;
 
@@ -37,9 +38,7 @@ Entity *addGolemRockDropper(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		printf("No free slots to add the Golem Rock Dropper\n");
-
-		exit(1);
+		showErrorAndExit("No free slots to add the Golem Rock Dropper");
 	}
 
 	loadProperties(name, e);

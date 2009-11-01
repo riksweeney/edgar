@@ -33,34 +33,26 @@ static void writeData(char *name, png_bytep *rows, int w, int h, int colortype, 
 
 	if (fp == NULL)
 	{
-		printf("Could not save %s\n", name);
-
-		exit(1);
+		showErrorAndExit("Could not save %s\n", name);
 	}
 
 	pngPtr = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
 	if (pngPtr == NULL)
 	{
-		printf("Failed to create PNG structure\n");
-
-		exit(1);
+		showErrorAndExit("Failed to create PNG structure");
 	}
 
 	infoPtr = png_create_info_struct(pngPtr);
 
 	if (infoPtr == NULL)
 	{
-		printf("Failed to create PNG info\n");
-
-		exit(1);
+		showErrorAndExit("Failed to create PNG info");
 	}
 
 	if (setjmp(png_jmpbuf(pngPtr)) != 0)
 	{
-		printf("PNG Jump point failed\n");
-
-		exit(1);
+		showErrorAndExit("PNG Jump point failed\n");
 	}
 
 	png_init_io(pngPtr, fp);
@@ -118,9 +110,7 @@ void savePNG(SDL_Surface *surface, char *name)
 
 	if (temp == NULL)
 	{
-		printf("Error creating PNG surface\n");
-
-		exit(1);
+		showErrorAndExit("Error creating PNG surface\n");
 	}
 
 	surf_flags = surface->flags & (SDL_SRCALPHA | SDL_SRCCOLORKEY);
@@ -150,9 +140,7 @@ void savePNG(SDL_Surface *surface, char *name)
 
 		if (ss_rows == NULL)
 		{
-			printf("Ran out of memory when creating PNG rows\n");
-
-			exit(1);
+			showErrorAndExit("Ran out of memory when creating PNG rows\n");
 		}
 	}
 
