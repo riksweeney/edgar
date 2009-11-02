@@ -62,6 +62,7 @@ static void swingSword(void);
 static void drawBow(void);
 static void fireArrow(void);
 static int usingBow(void);
+static void playerWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -81,6 +82,10 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.thinkTime = 0;
 
 		player.maxHealth = player.health = 5;
+
+		#if DEV == 1
+			player.maxHealth = player.health = 7;
+		#endif
 
 		setEntityAnimation(&player, STAND);
 
@@ -1598,4 +1603,34 @@ void becomeEdgar()
 			playerShield.inUse = TRUE;
 		}
 	}
+}
+
+void setPlayerLocked(int lock)
+{
+	if (lock == TRUE)
+	{
+		player.action = &playerWait;
+
+		player.animationCallback = NULL;
+		playerShield.animationCallback = NULL;
+		playerWeapon.animationCallback = NULL;
+
+		playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
+
+		player.dirX = 0;
+	}
+
+	else
+	{
+		player.action = NULL;
+	}
+}
+
+static void playerWait()
+{
+
 }

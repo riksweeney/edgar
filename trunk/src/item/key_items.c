@@ -19,6 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../system/error.h"
+
 #include "chicken_feed.h"
 #include "chicken_trap.h"
 #include "coal_pile.h"
@@ -50,7 +52,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ice_spray.h"
 #include "blending_machine.h"
 #include "spike_ball.h"
-#include "../system/error.h"
+#include "code_door.h"
+#include "code_display.h"
 
 extern Entity *self, player;
 
@@ -86,7 +89,9 @@ static Constructor items[] = {
 {"item/containment_unit_controls", &addContainmentUnitControls},
 {"item/ice_spray", &addIceSpray},
 {"item/blender", &addBlendingMachine},
-{"item/spike_ball", &addSpikeBall}
+{"item/spike_ball", &addSpikeBall},
+{"item/code_door", &addCodeDoor},
+{"item/code_display", &addCodeDisplay}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -104,7 +109,7 @@ Entity *addKeyItem(char *name, int x, int y)
 	}
 
 	showErrorAndExit("Could not find key item %s", name);
-	
+
 	return NULL;
 }
 

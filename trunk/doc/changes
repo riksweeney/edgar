@@ -7,7 +7,7 @@ Version 0.35
 * Added missing lift call switches
 * Fixed the arrows falling through the lift after the first Maggot encounter
 * The game now reports any catchable errors (segfaults still need to be caught with gdb)
-
+* Added the Library Map
 
 Version 0.33
 * The game now works correctly for locales using comma as their decimal separator

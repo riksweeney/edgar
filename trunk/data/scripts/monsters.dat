@@ -1,6 +1,6 @@
 IF MONSTER_BOOK HEALTH 1
 TALK Edgar I wonder what other monsters there are. I'll pick a page at random...
-SET MONSTER_BOOK HEALTH RANDOM 7
+SET MONSTER_BOOK HEALTH RANDOM 9
 END
 IF MONSTER_BOOK HEALTH 1
 TALK Edgar Gazer
@@ -42,7 +42,7 @@ TALK Book Master Tortoises are frightening beasts. Found in far away lands they 
 TALK Book They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves
 TALK Book And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves
 TALK Book But additionally, if they receive too much energy from healing, they evolve and go on the rampage
-TALK Book In this state they will smash through any defense and produce dark matter which destroys anything it touches
+TALK Book In this state they will smash through any defense and produce Dark Matter which destroys anything it touches
 TALK Book However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items
 SET MONSTER_BOOK HEALTH 1
 END
@@ -58,8 +58,17 @@ IF MONSTER_BOOK HEALTH 8
 TALK Edgar Summoner, Dark
 SET MONSTER_BOOK HEALTH 1
 END
+IF MONSTER_BOOK HEALTH 9
+TALK Edgar Grimlore
+TALK Book Grimlore is a creature from another dimension. It can be summoned using powerful dark magic
+TALK Book The most common reason to summon this beast is to act as a bodyguard
+TALK Book There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension
+TALK Book But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible
+TALK Book Or they will die very quickly
+SET MONSTER_BOOK HEALTH 1
+END
 IF MONSTER_BOOK HEALTH 0
-TALK Edgar Ah, here is a conpendium of monsters
+TALK Edgar Ah, here is a compendium of monsters
 TALK Edgar 34 volumes! How can there be so many monsters in the world?!
 TALK Edgar Looks like they're in alphabetical order though
 TALK Edgar Slime, Green... Slime, Purple... Sludge, Green...

@@ -1,9 +1,3 @@
 edgar/edgar
-common/switch
-enemy/grub
-enemy/armadillo
-weapon/basic_sword
-weapon/small_wooden_shield
-common/save_point
-item/spike_ball
-enemy/jumping_fireball
+item/code_door
+item/code_display
