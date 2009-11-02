@@ -377,7 +377,7 @@ msgstr ""
 msgid "This must be the coal wants me to mine for him"
 msgstr ""
 
-msgid "I don't think my shield will protect me from those fireballs. I'll have to find get a stronger one..."
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
 msgstr ""
 
 msgid "You won't be able to do this bit in this version, check back later!"
@@ -1031,8 +1031,14 @@ msgstr ""
 msgid "It looks like a blender. I could use this to liquidise something"
 msgstr ""
 
-msgid "I need a Purple Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr ""
 
 msgid "I still need an Empty Bottle to put the potion in"
+msgstr ""
+
+msgid "So this is the Fortress."
+msgstr ""
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
 msgstr ""

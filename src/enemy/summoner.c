@@ -222,5 +222,8 @@ static void die()
 		e->x -= e->w / 2;
 	}
 	*/
+	
+	self->dirY = 0;
+	
 	entityDie();
 }

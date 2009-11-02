@@ -44,3 +44,4 @@ void setPlayerStunned(int);
 void doStunned(void);
 void becomeJumpingSlime(int);
 void becomeEdgar(void);
+void setPlayerLocked(int);
