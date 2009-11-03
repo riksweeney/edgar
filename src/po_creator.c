@@ -2,15 +2,17 @@
 
 static int textAlreadyAdded(char *text);
 
-static char added[4096][MAX_LINE_LENGTH];
+static char added[8192][MAX_LINE_LENGTH];
 static int poIndex;
 
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char line[MAX_LINE_LENGTH];
+	char line[MAX_LINE_LENGTH], filename[MAX_LINE_LENGTH], *token;
+	DIR *dirp, *dirp2;
+	struct dirent *dfile;
 
-	memset(added, 0, 4096 * MAX_LINE_LENGTH);
+	memset(added, 0, 8192 * MAX_LINE_LENGTH);
 
 	poIndex = 0;
 
@@ -63,6 +65,70 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(fp);
+
+	dirp = opendir("data/scripts");
+
+	if (dirp == NULL)
+	{
+		printf("Failed to open data/scripts\n");
+
+		exit(1);
+	}
+
+	while ((dfile = readdir(dirp)))
+	{
+		if (dfile->d_name[0] == '.')
+		{
+			continue;
+		}
+
+		snprintf(filename, sizeof(filename), "data/scripts/%s", dfile->d_name);
+
+		dirp2 = opendir(filename);
+
+		if (dirp2)
+		{
+			closedir(dirp2);
+
+			continue;
+		}
+
+		else
+		{
+			fp = fopen(filename, "rb");
+
+			while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+			{
+				if (line[strlen(line) - 1] == '\n')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (line[strlen(line) - 1] == '\r')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (strstr(line, "TALK") != NULL)
+				{
+					token = strtok(line, " ");
+
+					token = strtok(NULL, " ");
+
+					token = strtok(NULL, "\0");
+
+					if (textAlreadyAdded(token) == FALSE)
+					{
+						printf("msgid \"%s\"\nmsgstr \"\"\n\n", token);
+					}
+				}
+			}
+
+			fclose(fp);
+		}
+	}
+
+	closedir(dirp);
 
 	return 0;
 }
