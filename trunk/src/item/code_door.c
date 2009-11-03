@@ -216,7 +216,7 @@ static void clearInputCode()
 	{
 		setEntityAnimation(self->target, 0);
 
-		self->thinkTime = 20;
+		self->thinkTime = self->mental > strlen(self->target->requires) ? 0 : 20;
 
 		self->action = &displayInputCode;
 	}
