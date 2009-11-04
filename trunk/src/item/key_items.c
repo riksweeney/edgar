@@ -54,6 +54,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spike_ball.h"
 #include "code_door.h"
 #include "code_display.h"
+#include "light_sphere.h"
 
 extern Entity *self, player;
 
@@ -91,7 +92,8 @@ static Constructor items[] = {
 {"item/blender", &addBlendingMachine},
 {"item/spike_ball", &addSpikeBall},
 {"item/code_door", &addCodeDoor},
-{"item/code_display", &addCodeDisplay}
+{"item/code_display", &addCodeDisplay},
+{"item/light_sphere", &addLightSphere}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

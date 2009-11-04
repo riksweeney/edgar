@@ -34,7 +34,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Input input;
 
-static void sink(void);
 static void activate(int);
 static void wait(void);
 static void init(void);
@@ -81,25 +80,6 @@ static void wait()
 	}
 
 	checkToMap(self);
-}
-
-static void sink()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		setEntityAnimation(self->target, 0);
-
-		self->thinkTime = 0;
-
-		self->y++;
-
-		if (self->y >= self->endY)
-		{
-			self->inUse = FALSE;
-		}
-	}
 }
 
 static void touch(Entity *other)
@@ -186,13 +166,13 @@ static void displayInputCode()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 20;
+		self->thinkTime = self->maxThinkTime;
 
 		self->target->health = (int)self->target->requires[self->mental];
 
 		setEntityAnimation(self->target, self->target->health);
 
-		if (self->mental > strlen(self->target->requires))
+		if (self->mental == strlen(self->target->requires))
 		{
 			self->mental = 0;
 
@@ -201,6 +181,8 @@ static void displayInputCode()
 
 		else
 		{
+			playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+
 			self->mental++;
 
 			self->action = &clearInputCode;
@@ -216,7 +198,7 @@ static void clearInputCode()
 	{
 		setEntityAnimation(self->target, 0);
 
-		self->thinkTime = self->mental > strlen(self->target->requires) ? 0 : 20;
+		self->thinkTime = self->mental > strlen(self->target->requires) ? 0 : self->maxThinkTime;
 
 		self->action = &displayInputCode;
 	}
@@ -265,6 +247,8 @@ static void readInputCode()
 
 		if ((int)self->target->requires[self->mental] == val)
 		{
+			playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+
 			self->mental++;
 
 			if (self->target->requires[self->mental] == '\0')
@@ -273,30 +257,36 @@ static void readInputCode()
 
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
-				setInfoBoxMessage(120, _("Correct Sequence"));
+				setInfoBoxMessage(60, _("Correct Sequence"));
 
-				self->action = &sink;
+				self->active = TRUE;
+
+				self->touch = NULL;
+
+				self->action = &wait;
 			}
 		}
 
 		else
 		{
+			playSoundToMap("sound/item/buzzer.ogg", -1, self->x, self->y, 0);
+
 			self->mental = 0;
 
 			self->action = &wait;
 
-			self->thinkTime = 20;
+			self->thinkTime = self->maxThinkTime;
 
 			self->activate = &activate;
 
 			self->touch = &touch;
 
-			setInfoBoxMessage(120, _("Incorrect Sequence"));
+			setInfoBoxMessage(60, _("Incorrect Sequence"));
 
 			setPlayerLocked(FALSE);
 		}
 
-		self->thinkTime = 20;
+		self->thinkTime = self->maxThinkTime;
 	}
 
 	self->thinkTime--;
@@ -316,9 +306,7 @@ static void init()
 
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(self, WALK);
-
-		self->action = &sink;
+		self->touch = NULL;
 	}
 
 	else
@@ -335,7 +323,7 @@ static void init()
 		}
 
 		self->target = e;
-
-		self->action = &wait;
 	}
+
+	self->action = &wait;
 }
