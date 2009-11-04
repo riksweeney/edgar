@@ -1,3 +1,8 @@
 edgar/edgar
 common/action_point
 common/level_exit
+lift/castle_lift
+lift/lift_target
+door/metal_door
+item/iron_key
+common/switch
