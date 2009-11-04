@@ -1,5 +1,5 @@
 MAP_NAME The Library
-MUSIC none
+MUSIC music/bookofshadows.xm
 TILESET library
 AMBIENCE none
 BACKGROUND_SPEED 0.3

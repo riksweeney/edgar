@@ -2,7 +2,7 @@ CHANGE LOG
 ----------
 
 Version 0.35
-* Added the rest of the Basement Map
+* Updated the Basement Map
 * Sprite flipping is cached rather than being done on the fly
 * Added missing lift call switches
 * Fixed the arrows falling through the lift after the first Maggot encounter
@@ -60,7 +60,7 @@ Version 0.25
 * Added confirmations to menu options
 * Used sound frequency 44100 to prevent crackles (thanks Fish Fillets)
 * More arrows are now dropped by enemies
-* Minor update to the mine
+* Minor update to the Mine
 
 Version 0.22
 
