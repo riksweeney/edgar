@@ -100,6 +100,8 @@ static void touch(Entity *other)
 
 			else
 			{
+                setInfoBoxMessage(60, _("Complete"));
+                
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
 				if (self->damage == -1)

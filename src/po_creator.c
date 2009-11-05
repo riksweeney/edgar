@@ -116,10 +116,12 @@ int main(int argc, char *argv[])
 					token = strtok(NULL, " ");
 
 					token = strtok(NULL, "\0");
+					
+					snprintf(line, sizeof(line), "msgid \"%s\"", token);
 
-					if (textAlreadyAdded(token) == FALSE)
+					if (textAlreadyAdded(line) == FALSE)
 					{
-						printf("msgid \"%s\"\nmsgstr \"\"\n\n", token);
+						printf("%s\nmsgstr \"\"\n\n", line);
 					}
 				}
 			}

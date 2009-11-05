@@ -6,3 +6,5 @@ lift/lift_target
 door/metal_door
 item/iron_key
 common/switch
+item/code_door
+item/code_display
