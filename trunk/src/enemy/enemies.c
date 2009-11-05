@@ -57,6 +57,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "tortoise.h"
 #include "fire_burner.h"
 #include "energy_drainer.h"
+#include "book.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -120,7 +121,8 @@ static Constructor enemies[] = {
 {"enemy/fire_burner", &addFireBurner},
 {"boss/blob_boss_1", &addBlobBoss},
 {"boss/blob_boss_2", &addBlobBoss},
-{"enemy/energy_drainer", &addEnergyDrainer}
+{"enemy/energy_drainer", &addEnergyDrainer},
+{"enemy/book", &addBook}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
@@ -151,6 +153,6 @@ Entity *addEnemy(char *name, int x, int y)
 	}
 
 	showErrorAndExit("Could not find enemy %s", name);
-	
+
 	return NULL;
 }

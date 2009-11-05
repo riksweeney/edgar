@@ -60,8 +60,6 @@ Entity *addCodeDoor(int x, int y, char *name)
 	e->type = KEY_ITEM;
 
 	e->action = &init;
-	e->touch = &touch;
-	e->activate = &activate;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -76,7 +74,12 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self->target, 0);
+		if (self->target != NULL)
+		{
+            setEntityAnimation(self->target, 0);
+		}
+
+		self->thinkTime = 0;
 	}
 
 	checkToMap(self);
@@ -97,6 +100,8 @@ static void activate(int val)
 		if (removeInventoryItem(self->requires) == TRUE)
 		{
 			self->requires[0] = '\0';
+
+			setEntityAnimation(self, WALK);
 		}
 
 		else
@@ -304,12 +309,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	if (self->active == TRUE)
-	{
-		self->touch = NULL;
-	}
-
-	else
+	if (self->active == FALSE)
 	{
 		setEntityAnimation(self, STAND);
 
@@ -323,6 +323,14 @@ static void init()
 		}
 
 		self->target = e;
+
+        self->touch = &touch;
+        self->activate = &activate;
+	}
+
+	if (strlen(self->requires) == 0)
+	{
+		setEntityAnimation(self, WALK);
 	}
 
 	self->action = &wait;

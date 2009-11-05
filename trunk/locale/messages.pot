@@ -1042,3 +1042,337 @@ msgstr ""
 
 msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
 msgstr ""
+
+msgid "Try hitting the light..."
+msgstr ""
+
+msgid "This machine is not active"
+msgstr ""
+
+msgid "Repeat the sequence"
+msgstr ""
+
+msgid "Correct Sequence"
+msgstr ""
+
+msgid "Incorrect Sequence"
+msgstr ""
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr ""
+
+msgid "Please report this error to Parallel Realities"
+msgstr ""
+
+msgid "The game will now exit"
+msgstr ""
+
+msgid "You'll be able to access the rest of the fortress from here, but it's not in this version so check back later!"
+msgstr ""
+
+msgid "By the way, you only have 6 hit points at the moment. A good player would have 7 or 8 by now and a very good player would have 9."
+msgstr ""
+
+msgid "An excellent player would have 10."
+msgstr ""
+
+msgid "While you're waiting for the next version, why don't you go hunting for those extra hit points?"
+msgstr ""
+
+msgid "Here's a hint : Check the mine again"
+msgstr ""
+
+msgid "Good work, you have 7 hit points. You can have up 10 hit points by this point though so why not have another look around?"
+msgstr ""
+
+msgid "Good work, you have 8 hit points. You can have up 10 hit points by this point though so why not have another look around?"
+msgstr ""
+
+msgid "Nice one, you have 9 hit points, but you missed one on your journey. Why not try and hunt it down?"
+msgstr ""
+
+msgid "10 hit points? You are a master player!"
+msgstr ""
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr ""
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr ""
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr ""
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr ""
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr ""
+
+msgid "There's a book here about enchanting weapons"
+msgstr ""
+
+msgid "Maybe I can create a shield..."
+msgstr ""
+
+msgid "Swords... Armour... Wands..."
+msgstr ""
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr ""
+
+msgid "Here we go: Shields"
+msgstr ""
+
+msgid "Shield of Fire Resistance"
+msgstr ""
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "One must gather the following"
+msgstr ""
+
+msgid "The root of a Mandrake"
+msgstr ""
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr ""
+
+msgid "Powered Condor bones"
+msgstr ""
+
+msgid "3 eyes of the Gazer"
+msgstr ""
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr ""
+
+msgid "The shield to apply the enchantment"
+msgstr ""
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr ""
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr ""
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr ""
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr ""
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr ""
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr ""
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr ""
+
+msgid "Hmmm..."
+msgstr ""
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr ""
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr ""
+
+msgid "Wow, a laboratory!"
+msgstr ""
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr ""
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr ""
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr ""
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr ""
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr ""
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr ""
+
+msgid "Gazer"
+msgstr ""
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr ""
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr ""
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr ""
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr ""
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr ""
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr ""
+
+msgid "Centurion, Grey"
+msgstr ""
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr ""
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr ""
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr ""
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr ""
+
+msgid "Splitter"
+msgstr ""
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr ""
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr ""
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr ""
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr ""
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr ""
+
+msgid "Grub, Red"
+msgstr ""
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr ""
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr ""
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr ""
+
+msgid "Tortoise, Master"
+msgstr ""
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr ""
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr ""
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr ""
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr ""
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr ""
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr ""
+
+msgid "Venus Flytrap"
+msgstr ""
+
+msgid "Hoover, Pink"
+msgstr ""
+
+msgid "Summoner, Dark"
+msgstr ""
+
+msgid "Grimlore"
+msgstr ""
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr ""
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr ""
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr ""
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr ""
+
+msgid "Or they will die very quickly"
+msgstr ""
+
+msgid "Ah, here is a compendium of monsters"
+msgstr ""
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr ""
+
+msgid "Looks like they're in alphabetical order though"
+msgstr ""
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr ""
+
+msgid "Sludge, Red"
+msgstr ""
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr ""
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr ""
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr ""
+
+msgid "Smacker, Lesser..."
+msgstr ""
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr ""
+
+msgid "Besides, what's the worst that could happen?"
+msgstr ""
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr ""
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr ""
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr ""
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr ""
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr ""
+
+msgid "I've already checked, he's not down there..."
+msgstr ""
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr ""
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr ""
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr ""
+

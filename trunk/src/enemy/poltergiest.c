@@ -239,6 +239,9 @@ static void bookAttackPlayer()
 	{
 		self->startX = 0;
 	}
+	
+	dirX = self->dirX;
+	dirY = self->dirY;
 
 	checkToMap(self);
 
