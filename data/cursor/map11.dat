@@ -8,3 +8,11 @@ item/iron_key
 common/switch
 item/code_door
 item/code_display
+common/spawner
+weapon/basic_sword
+weapon/small_wooden_shield
+wall/wooden_door
+item/instruction_card
+common/trap_door
+item/glass_wall
+enemy/spike_wall
