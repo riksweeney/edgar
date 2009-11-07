@@ -22,25 +22,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../system/random.h"
 #include "../collisions.h"
-#include "key_items.h"
+#include "../audio/audio.h"
+#include "../event/script.h"
+#include "../hud.h"
 #include "../system/error.h"
 
-extern Entity *self, player;
+extern Entity *self;
+extern Game game;
 
-static void dropBomb(int);
 static void wait(void);
-static void explode(void);
-static void startFuse(void);
+static void talk(int);
 static void touch(Entity *);
 
-Entity *addBomb(int x, int y, char *name)
+Entity *addBorgan(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Bomb");
+		showErrorAndExit("No free slots to add Borgan");
 	}
 
 	loadProperties(name, e);
@@ -48,88 +50,52 @@ Entity *addBomb(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->type = KEY_ITEM;
-
-	e->face = RIGHT;
-
-	e->action = &startFuse;
-	e->touch = &keyItemTouch;
-	e->activate = &dropBomb;
+	e->action = &wait;
 
 	e->draw = &drawLoopingAnimationToMap;
+	e->activate = &talk;
+	e->touch = &touch;
 
-	e->active = FALSE;
+	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
 }
 
-static void startFuse()
-{
-	self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
-
-	self->action = &wait;
-}
-
 static void wait()
 {
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (prand() % 4 == 0)
+		{
+			setEntityAnimation(self, STAND);
+			
+			self->thinkTime = 120;
+		}
+		
+		else
+		{
+			setEntityAnimation(self, STAND);
+			
+			self->thinkTime = 300 + (prand() % 300);
+		}
+	}
+	
 	checkToMap(self);
 }
 
-static void dropBomb(int val)
+static void talk(int val)
 {
-	self->thinkTime = 0;
-
-	self->touch = &touch;
-
-	setEntityAnimation(self, WALK);
-
-	self->animationCallback = &explode;
-
-	self->active = TRUE;
-
-	self->health = 30;
-
-	addEntity(*self, player.x, player.y);
-
-	self->inUse = FALSE;
-}
-
-static void explode()
-{
-	int x, y;
-
-	self->flags |= NO_DRAW|FLY;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		x = self->x + self->w / 2;
-		y = self->y + self->h / 2;
-
-		stopSound(self->targetX);
-
-		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
-		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
-
-		addExplosion(x, y);
-
-		self->health--;
-
-		self->thinkTime = 5;
-
-		if (self->health == 0)
-		{
-			self->inUse = FALSE;
-		}
-	}
-
-	self->action = &explode;
+	runScript(self->requires);
 }
 
 static void touch(Entity *other)
 {
-
+	if (other->type == PLAYER && game.showHints == TRUE)
+	{
+		setInfoBoxMessage(0, _("Press Action to talk to %s"), self->objectiveName);
+	}
 }

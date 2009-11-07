@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../audio/audio.h"
 #include "../entity.h"
 #include "../system/properties.h"
 #include "../system/random.h"
@@ -93,8 +94,15 @@ static void lookForPlayer()
 
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
-
-	if (player.health > 0 && prand() % 60 == 0)
+    
+	self->thinkTime--;
+    
+	if (self->thinkTime < 0)
+	{
+		self->thinkTime = 0;
+	}
+	
+	if (player.health > 0 && self->thinkTime == 0 && prand() % 20 == 0)
 	{
 		self->thinkTime = 0;
 
@@ -133,8 +141,8 @@ static void dartDownInit()
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-		self->dirX *= self->speed * 6;
-		self->dirY *= self->speed * 6;
+		self->dirX *= self->speed * 10;
+		self->dirY *= self->speed * 10;
 
 		self->action = &dartDown;
 
@@ -173,6 +181,8 @@ static void dartDownFinish()
 	{
 		if (self->dirY == 0 || self->y <= self->startY)
 		{
+			self->thinkTime = 60;
+			
 			self->action = &lookForPlayer;
 
 			self->dirX = self->dirY = 0;
@@ -207,14 +217,14 @@ static void dartReactToBlock()
 
 static void hover()
 {
-	self->startX++;
+	self->startX += 5;
 
 	if (self->startX >= 360)
 	{
 		self->startX = 0;
 	}
 
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
 }
 
 static void castFireInit()
@@ -223,9 +233,11 @@ static void castFireInit()
 
 	if (self->thinkTime <= 0)
 	{
-		self->mental = 5;
+		self->endX = 5;
 
 		self->action = &castFire;
+
+		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
 	}
 
 	hover();
@@ -233,12 +245,14 @@ static void castFireInit()
 
 static void castFire()
 {
-	Entity *e = getFreeEntity();
+	Entity *e;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
+		e = getFreeEntity();
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add Fire");
@@ -249,8 +263,8 @@ static void castFire()
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
 
-		e->w -= e->w / 2;
-		e->h -= e->h / 2;
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
 
 		e->action = &fireDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -263,9 +277,9 @@ static void castFire()
 
 		setEntityAnimation(e, STAND);
 
-		self->mental--;
+		self->endX--;
 
-		if (self->mental <= 0)
+		if (self->endX <= 0)
 		{
 			self->thinkTime = 60;
 
@@ -274,7 +288,7 @@ static void castFire()
 
 		else
 		{
-			self->thinkTime = 10;
+			self->thinkTime = 3;
 		}
 	}
 }
@@ -285,20 +299,24 @@ static void castFireFinish()
 
 	if (self->thinkTime <= 0)
 	{
+        self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		
+		self->thinkTime = 60;
+        
 		self->action = &lookForPlayer;
 	}
 }
 
 static void fireDrop()
 {
-	checkToMap(self);
-
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->action = &fireMove;
 	}
+
+	checkToMap(self);
 }
 
 static void fireMove()

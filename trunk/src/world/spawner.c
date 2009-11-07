@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../system/random.h"
 
 extern Entity *self;
 
@@ -61,6 +62,8 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 static void init()
 {
 	Entity *e;
+	char spawnList[MAX_VALUE_LENGTH];
+	char *token;
 
 	if (strlen(self->objectiveName) == 0)
 	{
@@ -76,7 +79,16 @@ static void init()
 		showErrorAndExit("No free slots to add spawner entity");
 	}
 
-	loadProperties(self->objectiveName, e);
+	STRNCPY(spawnList, self->objectiveName, MAX_VALUE_LENGTH);
+
+	token = strtok(spawnList, "|");
+
+	while (token != NULL)
+	{
+		loadProperties(token, e);
+
+		token = strtok(NULL, "|");
+	}
 
 	e->inUse = FALSE;
 
@@ -88,6 +100,9 @@ static void init()
 static void spawn()
 {
 	int distance;
+	char spawnList[MAX_VALUE_LENGTH];
+	char *token;
+	int spawnIndex = 0, spawnCount = 0;
 	Entity *e;
 
 	if (self->active == TRUE)
@@ -130,7 +145,43 @@ static void spawn()
 
 					else
 					{
-						e = addEnemy(self->objectiveName, self->x, self->y);
+						STRNCPY(spawnList, self->objectiveName, MAX_VALUE_LENGTH);
+
+						token = strtok(spawnList, "|");
+
+						while (token != NULL)
+						{
+							token = strtok(NULL, "|");
+
+							spawnCount++;
+						}
+
+						if (spawnCount == 0)
+						{
+							showErrorAndExit("Spawner at %f %f has no spawn list", self->x, self->y);
+						}
+
+						spawnIndex = prand() % spawnCount;
+
+						STRNCPY(spawnList, self->objectiveName, MAX_VALUE_LENGTH);
+
+						spawnCount = 0;
+
+						token = strtok(spawnList, "|");
+
+						while (token != NULL)
+						{
+							if (spawnCount == spawnIndex)
+							{
+								break;
+							}
+
+							token = strtok(NULL, "|");
+
+							spawnCount++;
+						}
+
+						e = addEnemy(token, self->x, self->y);
 
 						e->x += (self->w - e->w) / 2;
 						e->y += (self->h - e->h) / 2;
@@ -155,7 +206,43 @@ static void spawn()
 
 			else
 			{
-				e = addEnemy(self->objectiveName, self->x, self->y);
+				STRNCPY(spawnList, self->objectiveName, MAX_VALUE_LENGTH);
+
+				token = strtok(spawnList, "|");
+
+				while (token != NULL)
+				{
+					token = strtok(NULL, "|");
+
+					spawnCount++;
+				}
+
+				if (spawnCount == 0)
+				{
+					showErrorAndExit("Spawner at %f %f has no spawn list", self->x, self->y);
+				}
+
+				spawnIndex = prand() % spawnCount;
+
+				STRNCPY(spawnList, self->objectiveName, MAX_VALUE_LENGTH);
+
+				spawnCount = 0;
+
+				token = strtok(spawnList, "|");
+
+				while (token != NULL)
+				{
+					if (spawnCount == spawnIndex)
+					{
+						break;
+					}
+
+					token = strtok(NULL, "|");
+
+					spawnCount++;
+				}
+
+				e = addEnemy(token, self->x, self->y);
 
 				e->x += (self->w - e->w) / 2;
 				e->y += (self->h - e->h) / 2;
