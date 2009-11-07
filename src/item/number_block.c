@@ -36,11 +36,12 @@ extern Entity *self, entity[MAX_ENTITIES];
 
 static void touch(Entity *);
 static Entity *getNextBlock(char *, int);
-static void setAllBlockValues(char *, int);
+static void setAllBlockValues(int);
 static void wait(void);
 static void init(void);
 static void die(void);
-static void killAllBlocks(char *);
+static void killAllBlocks(void);
+static Entity *getFirstBlock(char *);
 
 Entity *addNumberBlock(int x, int y, char *name)
 {
@@ -87,7 +88,7 @@ static void touch(Entity *other)
 	{
 		if (self->health == 1)
 		{
-			e = getNextBlock(self->objectiveName, self->thinkTime + 1);
+			e = self->target;
 
 			/* Another number block */
 
@@ -101,12 +102,12 @@ static void touch(Entity *other)
 			else
 			{
                 setInfoBoxMessage(60, _("Complete"));
-                
+
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
 				if (self->damage == -1)
 				{
-					killAllBlocks(self->objectiveName);
+					killAllBlocks();
 				}
 			}
 
@@ -119,16 +120,36 @@ static void touch(Entity *other)
 
 		else if (self->health == 0)
 		{
-			setAllBlockValues(self->objectiveName, 0);
+			setAllBlockValues(0);
 		}
 	}
 }
 
 static void init()
 {
+	Entity *first, *next;
+
+	first = getFirstBlock(self->objectiveName);
+
+	self->head = first;
+
+	if (first->target == NULL)
+	{
+		next = getNextBlock(first->objectiveName, first->thinkTime + 1);
+
+		while (next != NULL)
+		{
+			first->target = next;
+
+			first = next;
+
+			next = getNextBlock(first->objectiveName, first->thinkTime + 1);
+		}
+	}
+
 	if (self->thinkTime == 0 && self->health != 2)
 	{
-		setAllBlockValues(self->objectiveName, 0);
+		setAllBlockValues(0);
 	}
 
 	else
@@ -139,31 +160,47 @@ static void init()
 	self->action = &wait;
 }
 
-static void setAllBlockValues(char *name, int value)
+static Entity *getFirstBlock(char *name)
 {
 	int i;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM
+			&& strcmpignorecase(entity[i].objectiveName, name) == 0 && entity[i].thinkTime == 0)
 		{
-			entity[i].health = (value == 0 && entity[i].thinkTime == 0) ? 1 : value;
-
-			setEntityAnimation(&entity[i], entity[i].health == 1 ? 0 : entity[i].health);
+			return &entity[i];
 		}
+	}
+
+	showErrorAndExit("Could not find first Number Block for %s", entity[i].objectiveName);
+
+	return NULL;
+}
+
+static void setAllBlockValues(int value)
+{
+	Entity *block = self->head;
+
+	while (block != NULL)
+	{
+		block->health = (value == 0 && block->thinkTime == 0) ? 1 : value;
+
+		setEntityAnimation(block, block->health == 1 ? 0 : block->health);
+
+		block = block->target;
 	}
 }
 
-static void killAllBlocks(char *name)
+static void killAllBlocks()
 {
-	int i;
+	Entity *block = self->head;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	while (block != NULL)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0)
-		{
-			entity[i].action = &die;
-		}
+		block->action = &die;
+
+		block = block->target;
 	}
 }
 
