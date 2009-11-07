@@ -2,3 +2,5 @@ edgar/edgar
 item/code_door
 item/code_display
 door/metal_door
+common/spawner
+enemy/red_book
