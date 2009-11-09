@@ -345,6 +345,8 @@ static void wait()
 				self->action = &jumpAttackStart;
 			break;
 		}
+		
+		shatter();
 	}
 
 	facePlayer();
@@ -797,11 +799,25 @@ static void dieFinish()
 
 static void reform()
 {
+	int startX, endX;
+	int endY;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		/* Move towards the head */
+		
+		startX = getMapStartX();
+
+		endY = getMapStartY();
+
+		endX = startX + SCREEN_WIDTH;
+
+		if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+		{
+			self->x = self->head->x;
+		}
 
 		if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 		{
@@ -940,7 +956,7 @@ static void partWait()
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
-	{
+	{	
 		self->dirX = 0;
 
 		if (onGround == 0)

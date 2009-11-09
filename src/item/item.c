@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self;
-extern Entity player, playerShield, playerWeapon;
+extern Entity player;
 
 static void respawn(void);
 static void noTouch(Entity *);
@@ -241,37 +241,6 @@ void healthTouch(Entity *other)
 
 		self->inUse = FALSE;
 	}
-}
-
-void dropItem(Entity *e)
-{
-	if (e->type == SHIELD)
-	{
-		if (strcmpignorecase(playerShield.name, e->name) == 0)
-		{
-			playerShield.name[0] = '\0';
-
-			playerShield.inUse = FALSE;
-		}
-	}
-
-	else if (e->type == WEAPON)
-	{
-		if (strcmpignorecase(playerWeapon.name, e->name) == 0)
-		{
-			playerWeapon.name[0] = '\0';
-
-			playerWeapon.inUse = FALSE;
-		}
-	}
-
-	e->dirY = ITEM_JUMP_HEIGHT;
-
-	e->action = &doNothing;
-
-	setCustomAction(e, &invulnerable, 180, 0);
-
-	addEntity(*e, player.x, player.y);
 }
 
 void throwItem(int val)
