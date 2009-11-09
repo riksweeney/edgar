@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "projectile.h"
 #include "graphics/decoration.h"
 #include "system/error.h"
+#include "item/item.h"
 
 extern Entity player, playerShield, playerWeapon;
 extern Entity *self;
@@ -1633,4 +1634,46 @@ void setPlayerLocked(int lock)
 static void playerWait()
 {
 
+}
+
+Entity *removePlayerWeapon()
+{
+	Entity *e;
+	
+	if (playerWeapon.inUse == TRUE)
+	{
+		removeInventoryItem(playerWeapon.objectiveName);
+		
+		e = addPermanentItem(playerWeapon.name, self->x, self->y);
+		
+		playerWeapon.inUse = FALSE;
+	}
+	
+	else
+	{
+		e = NULL;
+	}
+	
+	return e;
+}
+
+Entity *removePlayerShield()
+{
+	Entity *e;
+	
+	if (playerShield.inUse == TRUE)
+	{
+		removeInventoryItem(playerShield.objectiveName);
+		
+		e = addPermanentItem(playerShield.name, self->x, self->y);
+		
+		playerShield.inUse = FALSE;
+	}
+	
+	else
+	{
+		e = NULL;
+	}
+	
+	return e;
 }

@@ -17,11 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-Entity *addPermanentItem(char *, int, int);
-Entity *addTemporaryItem(char *, int, int, int, float, float);
-void dropRandomItem(int, int);
-void generalItemAction(void);
-void healthTouch(Entity *);
-void throwItem(int);
-Entity *dropCollectableItem(char *, int, int, int);
-void itemFallout(void);
+Entity *addWhirlwind(int, int, char *);

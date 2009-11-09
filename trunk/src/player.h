@@ -45,3 +45,5 @@ void doStunned(void);
 void becomeJumpingSlime(int);
 void becomeEdgar(void);
 void setPlayerLocked(int);
+Entity *removePlayerWeapon(void);
+Entity *removePlayerShield(void);

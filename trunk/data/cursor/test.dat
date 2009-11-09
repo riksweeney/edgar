@@ -4,3 +4,8 @@ item/code_display
 door/metal_door
 common/spawner
 enemy/red_book
+misc/chopped_log
+common/save_point
+enemy/whirlwind
+weapon/basic_sword
+weapon/small_wooden_shield

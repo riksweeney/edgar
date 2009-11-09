@@ -263,7 +263,7 @@ void doNothing(void)
 
 	if (!(self->flags & GRABBED))
 	{
-		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
 	}
 
 	checkToMap(self);
@@ -944,6 +944,8 @@ Entity *addEntity(Entity e, int x, int y)
 			return &entity[i];
 		}
 	}
+	
+	showErrorAndExit("Could not add Entity", e.name);
 
 	return NULL;
 }

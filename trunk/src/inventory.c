@@ -325,18 +325,6 @@ int removeInventoryItem(char *name)
 	return found;
 }
 
-void dropInventoryItem()
-{
-	if (inventory.item[inventory.selectedIndex].inUse == TRUE)
-	{
-		dropItem(&inventory.item[inventory.selectedIndex]);
-
-		inventory.item[inventory.selectedIndex].inUse = FALSE;
-
-		sortInventory();
-	}
-}
-
 void useInventoryItem()
 {
 	int index;
