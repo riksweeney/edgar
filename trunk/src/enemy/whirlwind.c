@@ -66,18 +66,18 @@ Entity *addWhirlwind(int x, int y, char *name)
 static void move()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 90;
-		
+
 		self->dirX = 0;
-		
+
 		self->action = &wait;
-		
+
 		self->touch = &entityTouch;
 	}
-	
+
 	else
 	{
 		moveLeftToRight();
@@ -87,89 +87,133 @@ static void move()
 static void wait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 180 + prand() % 180;
-		
+
 		self->action = &move;
-		
+
 		self->touch = &touch;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && !(other->flags & INVULNERABLE))
+	if (other->health > 0 && self->health > 0 && other->type == PLAYER && !(other->flags & INVULNERABLE))
 	{
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
+
 		self->target = other;
-		
+
 		self->dirX = 0;
-		
+
 		self->thinkTime = 60;
-		
+
+		other->dirX = 0;
+		other->dirY = 0;
+
 		setCustomAction(other, &helpless, 60, 0);
 		setCustomAction(other, &invulnerableNoFlash, 60, 0);
-		
+
 		self->action = &suckIn;
-		
-		self->target->flags |= NO_DRAW;
+
+		self->targetX = self->x + self->w / 2 - other->w / 2;
+	}
+
+	else if (other->type == WEAPON && (other->flags & ATTACKING))
+	{
+		/* Take very little damage when in a whirlwind */
+
+		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
+		{
+			self->takeDamage(other, other->damage > 2 ? 2 : other->damage);
+		}
+	}
+
+	else if (other->type == PROJECTILE && other->parent != self && other->parent->type != ENEMY)
+	{
+		/* Reflect the projectile */
+
+		other->face = other->face == LEFT ? RIGHT : LEFT;
+
+		other->damage = 2;
+
+		other->dirX *= -1;
+
+		other->parent = self;
 	}
 }
 
 static void suckIn()
 {
 	Entity *e;
-	
-	self->target->x = self->x + self->w / 2 - self->target->w / 2;
-	
-	self->target->y = self->y;
-	
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
+
+	if (fabs(self->target->x - self->targetX) > fabs(4))
 	{
-		e = removePlayerWeapon();
-		
-		if (e != NULL)
+		self->target->x += self->target->x > self->targetX ? -4 : 4;
+
+		setCustomAction(self->target, &helpless, 60, 0);
+		setCustomAction(self->target, &invulnerableNoFlash, 60, 0);
+	}
+
+	else
+	{
+		self->target->flags |= NO_DRAW;
+
+		self->target->x = self->targetX;
+
+		self->target->y = self->y;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
 		{
-			e->x = self->x;
-			e->y = self->y;
-			
-			e->dirX = 16 * (prand() % 2 == 0 ? -1 : 1);
-			e->dirY = -12;
-			
-			setCustomAction(e, &invulnerable, 120, 0);
+			e = removePlayerWeapon();
+
+			if (e != NULL)
+			{
+				e->x = self->x;
+				e->y = self->y;
+
+				e->dirX = 8 * (prand() % 2 == 0 ? -1 : 1);
+				e->dirY = -12;
+
+				setCustomAction(e, &invulnerable, 120, 0);
+			}
+
+			e = removePlayerShield();
+
+			if (e != NULL)
+			{
+				e->x = self->x;
+				e->y = self->y;
+
+				e->dirX = 8 * (prand() % 2 == 0 ? -1 : 1);
+				e->dirY = -12;
+
+				setCustomAction(e, &invulnerable, 120, 0);
+			}
+
+			setCustomAction(self->target, &invulnerable, 60, 0);
+
+			setPlayerStunned(30);
+
+			self->target->dirX = 6 * (prand() % 2 == 0 ? -1 : 1);
+			self->target->dirY = -8;
+
+			self->target->flags &= ~NO_DRAW;
+
+			self->target = NULL;
+
+			self->thinkTime = 180 + prand() % 180;
+
+			self->action = &move;
 		}
-		
-		e = removePlayerShield();
-		
-		if (e != NULL)
-		{
-			e->x = self->x;
-			e->y = self->y;
-			
-			e->dirX = 16 * (prand() % 2 == 0 ? -1 : 1);
-			e->dirY = -12;
-			
-			setCustomAction(e, &invulnerable, 120, 0);
-		}
-		
-		setCustomAction(self->target, &invulnerable, 60, 0);
-		
-		setPlayerStunned(60);
-		
-		self->target->dirX = 6 * (prand() % 2 == 0 ? -1 : 1);
-		self->target->dirY = -8;
-		
-		self->target->flags &= ~NO_DRAW;
-		
-		self->target = NULL;
-		
-		self->thinkTime = 180 + prand() % 180;
-		
-		self->action = &move;
 	}
 }

@@ -1111,7 +1111,8 @@ int isAtEdge(Entity *e)
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE)))
+		if (e != &entity[i] && entity[i].inUse == TRUE
+			&& ((entity[i].flags & PUSHABLE) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE) || (entity[i].type == TRAP_DOOR)))
 		{
 			if (collision(x, e->y, 1, e->h + 10, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{
