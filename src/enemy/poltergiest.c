@@ -47,6 +47,8 @@ static void takeDamage(Entity *, int);
 static void stunned(void);
 static void stunFinish(void);
 static void lightKill(int);
+static void hover(void);
+static void die(void);
 
 Entity *addPoltergiest(int x, int y, char *name)
 {
@@ -65,8 +67,6 @@ Entity *addPoltergiest(int x, int y, char *name)
 	if (strcmpignorecase(name, "enemy/poltergiest_1") == 0)
 	{
 		e->action = &createBooks;
-
-		e->takeDamage = &entityTakeDamageNoFlinch;
 	}
 
 	else if (strcmpignorecase(name, "enemy/poltergiest_2") == 0)
@@ -78,9 +78,14 @@ Entity *addPoltergiest(int x, int y, char *name)
 		e->takeDamage = &takeDamage;
 	}
 
+	else
+	{
+		showErrorAndExit("Poltergiest name not defined correctly: %s", name);
+	}
+	
+	e->die = &die;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
 
 	e->type = ENEMY;
 
@@ -122,6 +127,8 @@ static void bookLookForPlayer()
 			self->thinkTime = 180;
 		}
 	}
+	
+	hover();
 }
 
 static void throwBooks()
@@ -134,14 +141,18 @@ static void throwBooks()
 
 		if (self->thinkTime <= 0)
 		{
+			self->dirX = self->face == LEFT ? self->speed : -self->speed;
+			
 			createBooks();
 		}
 	}
+	
+	hover();
 }
 
 static void createBooks()
 {
-	int i;
+	int i, j;
 	Entity *e;
 
 	for (i=0;i<6;i++)
@@ -153,7 +164,26 @@ static void createBooks()
 			showErrorAndExit("No free slots to add a Poltergiest Book");
 		}
 
-		loadProperties("enemy/book", e);
+		j = prand() % 4;
+
+		switch (j)
+		{
+			case 0:
+				loadProperties("enemy/red_book", e);
+			break;
+
+			case 1:
+				loadProperties("enemy/green_book", e);
+			break;
+
+			case 2:
+				loadProperties("enemy/yellow_book", e);
+			break;
+
+			default:
+				loadProperties("enemy/blue_book", e);
+			break;
+		}
 
 		e->x = self->x;
 		e->y = self->y;
@@ -163,7 +193,12 @@ static void createBooks()
 
 		e->thinkTime = i * 60;
 
+		e->startX = e->thinkTime;
+
+		e->flags |= DO_NOT_PERSIST;
+
 		e->action = &rotateAroundTarget;
+		e->pain = &enemyPain;
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &entityTouch;
 		e->die = &bookDie;
@@ -185,7 +220,7 @@ static void rotateAroundTarget()
 	float startX, startY, endX, endY;
 
 	x = 0;
-	y = 128;
+	y = 64;
 
 	self->startX += self->speed;
 
@@ -194,7 +229,7 @@ static void rotateAroundTarget()
 		self->startX = 0;
 	}
 
-	radians = DEG_TO_RAD(self->thinkTime);
+	radians = DEG_TO_RAD(self->startX);
 
 	self->x = (x * cos(radians) - y * sin(radians));
 	self->y = (x * sin(radians) + y * cos(radians));
@@ -205,7 +240,7 @@ static void rotateAroundTarget()
 	self->x += (self->head->w - self->w) / 2;
 	self->y += (self->head->h - self->h) / 2;
 
-	if (self->head->action == &throwBooks)
+	if (self->head->action == &throwBooks && player.health > 0)
 	{
 		self->mental--;
 
@@ -223,9 +258,14 @@ static void rotateAroundTarget()
 
 			calculatePath(startX, startY, endX, endY, &self->dirX, &self->dirY);
 
-			self->dirX *= 4;
-			self->dirY *= 4;
+			self->dirX *= 8;
+			self->dirY *= 8;
 		}
+	}
+	
+	else if (self->head->health <= 0)
+	{
+		entityDie();
 	}
 }
 
@@ -239,7 +279,7 @@ static void bookAttackPlayer()
 	{
 		self->startX = 0;
 	}
-	
+
 	dirX = self->dirX;
 	dirY = self->dirY;
 
@@ -249,23 +289,20 @@ static void bookAttackPlayer()
 	{
 		self->action = &bookReturn;
 	}
+	
+	else if (self->head->health <= 0)
+	{
+		entityDie();
+	}
 }
 
 static void bookReactToBlock()
 {
-	if (player.face == LEFT)
-	{
-		self->x = player.x - self->w;
-	}
+	self->flags &= ~FLY;
 
-	else
-	{
-		self->x = player.x + player.w;
-	}
+	self->dirX = self->x < player.x ? -5 : 5;
 
-	self->dirX = player.face == LEFT ? -5 : 5;
-
-	self->dirY = -6;
+	self->dirY = -5;
 
 	self->action = &bookAttackEnd;
 
@@ -292,6 +329,8 @@ static void bookAttackEnd()
 
 	if (self->thinkTime <= 0)
 	{
+		self->flags |= FLY;
+		
 		self->action = &bookReturn;
 	}
 
@@ -315,8 +354,8 @@ static void bookReturn()
 
 	calculatePath(startX, startY, endX, endY, &self->dirX, &self->dirY);
 
-	self->dirX *= self->speed;
-	self->dirY *= self->speed;
+	self->dirX *= 4;
+	self->dirY *= 4;
 
 	checkToMap(self);
 
@@ -329,13 +368,23 @@ static void bookReturn()
 
 	if (fabs(startX - endX) <= fabs(self->dirX) && fabs(startY - endY) <= fabs(self->dirY))
 	{
+		self->mental = 60 + prand() % 180;
+		
 		self->action = &rotateAroundTarget;
 	}
 }
 
 static void bookDie()
 {
-	self->target->mental--;
+	self->head->mental--;
+	
+	if (strcmpignorecase(self->head->name, "enemy/poltergiest_1") == 0)
+	{
+		if (self->head->mental <= 0)
+		{
+			self->head->action = self->head->die;
+		}
+	}
 
 	entityDie();
 }
@@ -404,18 +453,35 @@ static void stunFinish()
 
 static void lightKill(int val)
 {
-	Entity *e;
-
 	if (val == -1 && self->health <= 0)
 	{
-		entityDie();
-
-		e = addPermanentItem("item/code_card", self->x + self->w / 2, self->y);
-
-		e->x -= e->w / 2;
-
-		e->dirY = ITEM_JUMP_HEIGHT;
-
-		STRNCPY(e->objectiveName, self->requires, sizeof(e->objectiveName));
+		self->die();
 	}
+}
+
+static void die()
+{
+	Entity *e;
+
+	e = addPermanentItem("item/code_card", self->x + self->w / 2, self->y);
+
+	e->x -= e->w / 2;
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+
+	STRNCPY(e->objectiveName, self->requires, sizeof(e->objectiveName));
+	
+	entityDie();
+}
+
+static void hover()
+{
+	self->startX += 5;
+
+	if (self->startX >= 360)
+	{
+		self->startX = 0;
+	}
+
+	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
 }

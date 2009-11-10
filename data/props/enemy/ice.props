@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/ice.dat
+ANIM_FILE data/anim/enemy/ice.dat
+TYPE ENEMY
+DAMAGE 0
+FLAGS DO_NOT_PERSIST
+ELEMENT ICE

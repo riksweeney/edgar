@@ -38,7 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../system/error.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void init(void);
 static void firstEncounter(void);
@@ -74,7 +74,7 @@ Entity *addFlyingMaggot(int x, int y, char *name)
 
 	e->x = x;
 	e->y = y;
-	
+
 	e->draw = &drawLoopingAnimationToMap;
 	e->action = &init;
 	e->resumeNormalFunction = &init;
@@ -97,7 +97,7 @@ static void init()
 				self->action = &firstEncounter;
 				self->die = &firstEncounterDie;
 			break;
-			
+
 			case 1:
 				self->action = &secondEncounter;
 				self->die = &secondEncounterDie;
@@ -109,34 +109,34 @@ static void init()
 static void firstEncounter()
 {
 	Target *t;
-	
+
 	if (cameraAtMinimum())
 	{
 		centerMapOnEntity(NULL);
-		
+
 		self->takeDamage = &entityTakeDamageNoFlinch;
-		
+
 		t = getTargetByName("FIRST_ENCOUNTER_INTRO_TARGET");
-		
+
 		if (t == NULL)
 		{
 			showErrorAndExit("Flying Maggot cannot find target");
 		}
-		
+
 		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		self->targetX = t->x;
 		self->targetY = t->y;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-	
+
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
-	
+
 		self->face = LEFT;
-		
+
 		self->action = &firstEncounterMoveToPosition;
-		
+
 		self->startX = 0;
 	}
 }
@@ -144,28 +144,28 @@ static void firstEncounter()
 static void firstEncounterMoveToPosition()
 {
 	checkToMap(self);
-	
+
 	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
-		
+
 		self->startY = self->y;
-		
+
 		self->dirY = 0;
 
 		self->dirX = 0;
 
 		setEntityAnimation(self, STAND);
-		
+
 		self->thinkTime = 300;
 
 		self->action = &firstEncounterWait;
-		
+
 		playBossMusic();
-		
+
 		initBossHealthBar();
-		
+
 		self->touch = &entityTouch;
 	}
 }
@@ -173,97 +173,97 @@ static void firstEncounterMoveToPosition()
 static void firstEncounterWait()
 {
 	self->thinkTime--;
-	
+
 	self->action = &firstEncounterWait;
-	
+
 	self->frameSpeed = 1;
-	
+
 	if (self->thinkTime > 0)
 	{
 		setEntityAnimation(self, STAND);
 	}
-	
+
 	else
 	{
 		self->maxThinkTime = 5;
-		
+
 		setEntityAnimation(self, ATTACK_1);
-		
+
 		self->animationCallback = &fireBouncingBalls;
 	}
-	
+
 	hover();
 }
 
 static void fireBouncingBalls()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	setEntityAnimation(self, ATTACK_2);
-	
+
 	self->action = &fireBouncingBalls;
-	
+
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		e = addProjectile("boss/flying_maggot_bounce_shot", self, self->x, self->y + 16, 0, 0);
-		
+
 		e->type = ENEMY;
-		
+
 		e->parent = NULL;
-	
+
 		e->face = self->face;
-		
+
 		e->dirX = self->face == LEFT ? -e->speed : e->speed;
-		
+
 		e->action = &shotBounce;
-		
+
 		e->touch = &shotTouch;
-		
+
 		e->die = &entityDieNoDrop;
-		
+
 		self->maxThinkTime--;
-		
+
 		if (self->maxThinkTime <= 0)
 		{
 			self->action = &fireBouncingBallsFinish;
-			
+
 			self->thinkTime = 300;
 		}
-		
+
 		else
 		{
 			self->thinkTime = 60;
 		}
 	}
-	
+
 	hover();
 }
 
 static void secondEncounter()
 {
 	initBossHealthBar();
-	
+
 	self->thinkTime = 60;
-	
+
 	self->action = &secondEncounterWait;
-	
+
 	self->takeDamage = &entityTakeDamageNoFlinch;
-	
+
 	self->touch = &entityTouch;
 }
 
 static void secondEncounterWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->maxThinkTime = 3;
-		
+
 		self->action = &fireBouncingBalls2;
-	
+
 		checkToMap(self);
 	}
 }
@@ -271,43 +271,43 @@ static void secondEncounterWait()
 static void fireBouncingBalls2()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		e = addProjectile("boss/flying_maggot_bounce_shot_2", self, self->x + (self->face == RIGHT ? 113 : 3), self->y + 20, 0, 0);
-		
+
 		e->type = ENEMY;
-		
+
 		e->parent = NULL;
-	
+
 		e->face = self->face;
-		
+
 		e->dirX = self->face == LEFT ? -e->speed : e->speed;
-		
+
 		e->startY = prand() % 3 == 0 ? -11 : -10;
-		
+
 		e->action = &shotBounce2;
-		
+
 		e->touch = &shotTouch;
-		
+
 		e->reactToBlock = &bounceAway;
-		
+
 		e->takeDamage = &entityTakeDamageNoFlinch;
-		
+
 		e->die = &entityDieNoDrop;
-		
+
 		e->parent = self;
-		
+
 		self->maxThinkTime--;
-		
+
 		self->thinkTime = 120;
-		
+
 		if (self->maxThinkTime <= 0)
 		{
 			self->thinkTime = 300;
-			
+
 			self->action = &secondEncounterWait;
 		}
 	}
@@ -316,106 +316,89 @@ static void fireBouncingBalls2()
 static void fireBouncingBallsFinish()
 {
 	self->frameSpeed = -1;
-	
+
 	setEntityAnimation(self, ATTACK_1);
-	
+
 	self->animationCallback = &firstEncounterWait;
 }
 
 static void firstEncounterDie()
 {
 	self->touch = NULL;
-	
+
 	self->thinkTime = 120;
-	
+
 	self->action = &firstEncounterLeave;
-	
+
 	self->startY = 0;
-	
+
 	self->startX = self->x;
-	
+
 	self->animationCallback = NULL;
-	
+
 	setEntityAnimation(self, STAND);
 }
 
 static void firstEncounterLeave()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->startX;
-		
+
 		self->die = &removeMaggot;
-		
+
 		runScript("flying_maggot_die_1");
 	}
-	
+
 	shudder();
 }
 
 static void secondEncounterDie()
 {
-	int i;
-	Entity *temp;
-	
-	temp = self;
-	
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, "boss/flying_maggot_bounce_shot_2") == 0)
-		{
-			self = &entity[i];
-			
-			self->die();
-		}
-	}
-	
-	self = temp;
-	
 	self->thinkTime = 120;
-	
+
 	self->action = &secondEncounterLeave;
-	
+
 	self->dirX = 0;
-	
+
 	self->startY = 0;
-	
+
 	self->startX = self->x;
-	
+
 	self->animationCallback = NULL;
-	
+
 	setEntityAnimation(self, STAND);
 }
 
 static void secondEncounterLeave()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->startX;
-		
+
 		self->die = &removeMaggot;
-		
+
 		self->damage = 1;
-		
+
 		runScript("flying_maggot_die_2");
 	}
-	
+
 	shudder();
 }
 
 static void shotBounce()
 {
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirY = -10;
@@ -425,30 +408,35 @@ static void shotBounce()
 static void shotBounce2()
 {
 	checkToMap(self);
-	
+
+	if (self->parent->health <= 0)
+	{
+		self->die();
+	}
+
 	if (self->dirX == 0)
 	{
 		self->dirX = self->startX * -1;
 	}
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirY = self->startY;
 	}
-	
+
 	self->startX = self->dirX;
 }
 
 static void shotTouch(Entity *other)
 {
 	int health;
-	
+
 	Entity *temp;
-	
+
 	if (other->type == PLAYER && self->damage != 0)
 	{
 		health = other->health;
-		
+
 		temp = self;
 
 		self = other;
@@ -456,13 +444,13 @@ static void shotTouch(Entity *other)
 		self->takeDamage(temp, temp->damage);
 
 		self = temp;
-		
+
 		if (other->health != health)
 		{
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
@@ -492,7 +480,7 @@ static void hover()
 static void shudder()
 {
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
-	
+
 	self->startY += 90;
 
 	if (self->startY >= 360)
@@ -504,8 +492,8 @@ static void shudder()
 static void removeMaggot()
 {
 	self->inUse = FALSE;
-	
+
 	freeBossHealthBar();
-	
+
 	fadeBossMusic();
 }

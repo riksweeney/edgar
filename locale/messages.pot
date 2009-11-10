@@ -83,16 +83,10 @@ msgstr ""
 msgid "Cannot transmogrify here..."
 msgstr ""
 
-msgid "data/menu/options_menu.dat"
-msgstr ""
-
 msgid "Yes"
 msgstr ""
 
 msgid "No"
-msgstr ""
-
-msgid "data/menu/main_menu.dat"
 msgstr ""
 
 msgid "Start a new game?"
@@ -104,9 +98,6 @@ msgstr ""
 msgid "Exit the game?"
 msgstr ""
 
-msgid "data/menu/io_menu.dat"
-msgstr ""
-
 msgid "Back"
 msgstr ""
 
@@ -116,22 +107,13 @@ msgstr ""
 msgid "Game Saved"
 msgstr ""
 
-msgid "data/menu/sound_menu.dat"
-msgstr ""
-
 msgid "Copyright Parallel Realities 2009"
 msgstr ""
 
 msgid "OK"
 msgstr ""
 
-msgid "data/menu/yes_no_menu.dat"
-msgstr ""
-
 msgid "Any unsaved progress will be lost"
-msgstr ""
-
-msgid "data/menu/control_menu.dat"
 msgstr ""
 
 msgid "Joy Button #%d"
@@ -1065,33 +1047,6 @@ msgid "Please report this error to Parallel Realities"
 msgstr ""
 
 msgid "The game will now exit"
-msgstr ""
-
-msgid "You'll be able to access the rest of the fortress from here, but it's not in this version so check back later!"
-msgstr ""
-
-msgid "By the way, you only have 6 hit points at the moment. A good player would have 7 or 8 by now and a very good player would have 9."
-msgstr ""
-
-msgid "An excellent player would have 10."
-msgstr ""
-
-msgid "While you're waiting for the next version, why don't you go hunting for those extra hit points?"
-msgstr ""
-
-msgid "Here's a hint : Check the mine again"
-msgstr ""
-
-msgid "Good work, you have 7 hit points. You can have up 10 hit points by this point though so why not have another look around?"
-msgstr ""
-
-msgid "Good work, you have 8 hit points. You can have up 10 hit points by this point though so why not have another look around?"
-msgstr ""
-
-msgid "Nice one, you have 9 hit points, but you missed one on your journey. Why not try and hunt it down?"
-msgstr ""
-
-msgid "10 hit points? You are a master player!"
 msgstr ""
 
 msgid "It looks like a blender. I could use this to liqudise something"

@@ -47,3 +47,4 @@ void becomeEdgar(void);
 void setPlayerLocked(int);
 Entity *removePlayerWeapon(void);
 Entity *removePlayerShield(void);
+void setPlayerFrozen(int);

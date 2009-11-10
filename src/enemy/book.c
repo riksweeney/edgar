@@ -29,6 +29,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
+#include "../player.h"
+#include "../projectile.h"
 
 extern Entity *self, player;
 
@@ -40,10 +42,12 @@ static void dartDownFinish(void);
 static void dartReactToBlock(void);
 static void castFireInit(void);
 static void castFire(void);
-static void castFireFinish(void);
+static void castFinish(void);
 static void fireDrop(void);
 static void fireMove(void);
 static void fireBlock(void);
+static void castIceInit(void);
+static void iceTouch(Entity *);
 
 Entity *addBook(int x, int y, char *name)
 {
@@ -94,19 +98,28 @@ static void lookForPlayer()
 
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
-    
+
 	self->thinkTime--;
-    
+
 	if (self->thinkTime < 0)
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	if (player.health > 0 && self->thinkTime == 0 && prand() % 20 == 0)
 	{
 		self->thinkTime = 0;
 
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
+		if (self->mental == 3)
+		{
+			self->action = &castIceInit;
+
+			self->thinkTime = 60;
+
+			self->dirX = 0;
+		}
+
+		else if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
 		{
 			switch (self->mental)
 			{
@@ -182,7 +195,7 @@ static void dartDownFinish()
 		if (self->dirY == 0 || self->y <= self->startY)
 		{
 			self->thinkTime = 60;
-			
+
 			self->action = &lookForPlayer;
 
 			self->dirX = self->dirY = 0;
@@ -283,7 +296,7 @@ static void castFire()
 		{
 			self->thinkTime = 60;
 
-			self->action = &castFireFinish;
+			self->action = &castFinish;
 		}
 
 		else
@@ -293,16 +306,16 @@ static void castFire()
 	}
 }
 
-static void castFireFinish()
+static void castFinish()
 {
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
         self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->thinkTime = 60;
-        
+
 		self->action = &lookForPlayer;
 	}
 }
@@ -332,4 +345,51 @@ static void fireMove()
 static void fireBlock()
 {
 	self->inUse = FALSE;
+}
+
+static void castIceInit()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		for (i=0;i<2;i++)
+		{
+			e = addProjectile("enemy/ice", self, 0, 0, i == 0 ? -6 : 6, ITEM_JUMP_HEIGHT);
+
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
+
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &iceTouch;
+
+			e->face = self->face;
+
+			e->type = ENEMY;
+
+			setEntityAnimation(e, STAND);
+		}
+
+		self->thinkTime = 60;
+
+		self->action = &castFinish;
+	}
+
+	hover();
+}
+
+static void iceTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		setPlayerFrozen(60);
+
+		self->inUse = FALSE;
+	}
 }

@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "projectile.h"
 #include "graphics/decoration.h"
 #include "system/error.h"
+#include "system/random.h"
 #include "item/item.h"
 
 extern Entity player, playerShield, playerWeapon;
@@ -64,6 +65,7 @@ static void drawBow(void);
 static void fireArrow(void);
 static int usingBow(void);
 static void playerWait(void);
+static void applyIce(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -849,45 +851,42 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if ((player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE))
+	if ((player.flags & BLOCKING) && !(other->flags & UNBLOCKABLE) && (other->element == NO_ELEMENT || (playerShield.element == other->element)))
 	{
 		if (other->type == PROJECTILE)
 		{
 			if ((other->dirX > 0 && player.face == LEFT) || (other->dirX < 0 && player.face == RIGHT))
 			{
-				if (other->element == NO_ELEMENT || (playerShield.element == other->element))
+				player.dirX = other->dirX < 0 ? -2 : 2;
+
+				checkToMap(&player);
+
+				setCustomAction(&player, &helpless, 2, 0);
+
+				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+				if (other->reactToBlock != NULL)
 				{
-					player.dirX = other->dirX < 0 ? -2 : 2;
-
-					checkToMap(&player);
-
-					setCustomAction(&player, &helpless, 2, 0);
-
-					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-
-					if (other->reactToBlock != NULL)
-					{
-						temp = self;
-
-						self = other;
-
-						self->reactToBlock();
-
-						self = temp;
-
-						return;
-					}
-
 					temp = self;
 
 					self = other;
 
-					self->die();
+					self->reactToBlock();
 
 					self = temp;
 
 					return;
 				}
+
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+
+				return;
 			}
 		}
 
@@ -1639,41 +1638,125 @@ static void playerWait()
 Entity *removePlayerWeapon()
 {
 	Entity *e;
-	
+
 	if (playerWeapon.inUse == TRUE)
 	{
 		removeInventoryItem(playerWeapon.objectiveName);
-		
+
 		e = addPermanentItem(playerWeapon.name, self->x, self->y);
-		
+
 		playerWeapon.inUse = FALSE;
 	}
-	
+
 	else
 	{
 		e = NULL;
 	}
-	
+
 	return e;
 }
 
 Entity *removePlayerShield()
 {
 	Entity *e;
-	
+
 	if (playerShield.inUse == TRUE)
 	{
 		removeInventoryItem(playerShield.objectiveName);
-		
+
 		e = addPermanentItem(playerShield.name, self->x, self->y);
-		
+
 		playerShield.inUse = FALSE;
 	}
-	
+
 	else
 	{
 		e = NULL;
 	}
-	
+
 	return e;
+}
+
+void setPlayerFrozen(int thinkTime)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Iced Player");
+	}
+
+	/* Change back to Edgar */
+
+	if (player.element == WATER)
+	{
+		becomeEdgar();
+	}
+
+	loadProperties("edgar/edgar_frozen", e);
+
+	playSoundToMap("sound/common/freeze.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+	e->x = player.x;
+	e->y = player.y;
+
+	e->type = ENEMY;
+
+	e->face = player.face;
+
+	e->action = &applyIce;
+	e->touch = touch;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, STAND);
+
+	e->thinkTime = thinkTime;
+
+	player.dirX = 0;
+
+	setCustomAction(&player, &helpless, thinkTime, 0);
+
+	player.flags &= ~BLOCKING;
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&playerShield, STAND);
+}
+
+static void applyIce()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	self->face = player.face;
+
+	player.dirX = 0;
+
+	self->x = player.x;
+	self->y = player.y;
+
+	if (self->thinkTime <= 0 || player.health <= 0)
+	{
+		for (i=0;i<8;i++)
+		{
+			e = addTemporaryItem("common/ice_piece", self->x, self->y, RIGHT, 0, 0);
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->w - e->w) / 2;
+
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimation(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+		}
+
+		playSoundToMap("sound/common/shatter.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+		self->inUse = FALSE;
+	}
 }

@@ -19,3 +19,5 @@ enemy/spike_wall
 weapon/bow
 weapon/normal_arrow
 enemy/summoner
+enemy/poltergiest_1
+common/save_point
