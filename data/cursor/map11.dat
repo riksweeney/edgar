@@ -16,3 +16,6 @@ item/instruction_card
 common/trap_door
 item/glass_wall
 enemy/spike_wall
+weapon/bow
+weapon/normal_arrow
+enemy/summoner
