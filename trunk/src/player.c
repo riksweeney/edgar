@@ -1632,7 +1632,7 @@ void setPlayerLocked(int lock)
 
 static void playerWait()
 {
-
+	checkToMap(self);
 }
 
 Entity *removePlayerWeapon()

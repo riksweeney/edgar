@@ -21,3 +21,7 @@ weapon/normal_arrow
 enemy/summoner
 enemy/poltergiest_1
 common/save_point
+item/robot_direction
+item/robot
+item/centurion_statue
+common/anti_gravity

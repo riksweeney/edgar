@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../system/error.h"
 #include "../hud.h"
+#include "../player.h"
 
 extern Entity *self, player;
 
@@ -73,6 +74,13 @@ Entity *addPoltergiest(int x, int y, char *name)
 	{
 		e->action = &createBooks;
 
+		e->takeDamage = &entityTakeDamageNoFlinch;
+	}
+
+	else if (strcmpignorecase(name, "enemy/poltergiest_3") == 0)
+	{
+		e->action = &createBooks;
+
 		e->activate = &lightKill;
 
 		e->takeDamage = &takeDamage;
@@ -82,7 +90,7 @@ Entity *addPoltergiest(int x, int y, char *name)
 	{
 		showErrorAndExit("Poltergiest name not defined correctly: %s", name);
 	}
-	
+
 	e->die = &die;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -127,7 +135,7 @@ static void bookLookForPlayer()
 			self->thinkTime = 180;
 		}
 	}
-	
+
 	hover();
 }
 
@@ -135,18 +143,26 @@ static void throwBooks()
 {
 	self->dirX = 0;
 
-	if (self->mental <= 0)
+	if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 	{
-		self->thinkTime--;
+		self->action = &bookLookForPlayer;
+	}
 
-		if (self->thinkTime <= 0)
+	else
+	{
+		if (self->mental <= 0)
 		{
-			self->dirX = self->face == LEFT ? self->speed : -self->speed;
-			
-			createBooks();
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->dirX = self->face == LEFT ? self->speed : -self->speed;
+
+				createBooks();
+			}
 		}
 	}
-	
+
 	hover();
 }
 
@@ -262,7 +278,7 @@ static void rotateAroundTarget()
 			self->dirY *= 8;
 		}
 	}
-	
+
 	else if (self->head->health <= 0)
 	{
 		entityDie();
@@ -289,7 +305,7 @@ static void bookAttackPlayer()
 	{
 		self->action = &bookReturn;
 	}
-	
+
 	else if (self->head->health <= 0)
 	{
 		entityDie();
@@ -330,7 +346,7 @@ static void bookAttackEnd()
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= FLY;
-		
+
 		self->action = &bookReturn;
 	}
 
@@ -369,7 +385,7 @@ static void bookReturn()
 	if (fabs(startX - endX) <= fabs(self->dirX) && fabs(startY - endY) <= fabs(self->dirY))
 	{
 		self->mental = 60 + prand() % 180;
-		
+
 		self->action = &rotateAroundTarget;
 	}
 }
@@ -377,7 +393,7 @@ static void bookReturn()
 static void bookDie()
 {
 	self->head->mental--;
-	
+
 	if (strcmpignorecase(self->head->name, "enemy/poltergiest_1") == 0)
 	{
 		if (self->head->mental <= 0)
@@ -469,8 +485,8 @@ static void die()
 
 	e->dirY = ITEM_JUMP_HEIGHT;
 
-	STRNCPY(e->objectiveName, self->requires, sizeof(e->objectiveName));
-	
+	STRNCPY(e->objectiveName, self->objectiveName, sizeof(e->objectiveName));
+
 	entityDie();
 }
 
