@@ -69,13 +69,11 @@ static void move()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 90;
+		self->thinkTime = 60;
 
 		self->dirX = 0;
 
 		self->action = &wait;
-
-		self->touch = &entityTouch;
 	}
 
 	else
@@ -90,11 +88,9 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 180 + prand() % 180;
+		self->thinkTime = 120 + prand() % 120;
 
 		self->action = &move;
-
-		self->touch = &touch;
 	}
 
 	checkToMap(self);

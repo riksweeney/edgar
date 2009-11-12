@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "key_items.h"
 #include "../map.h"
 #include "../hud.h"
+#include "../player.h"
 #include "../inventory.h"
 #include "../event/script.h"
 #include "../custom_actions.h"
@@ -40,6 +41,7 @@ static void instructionMove(void);
 static void finish(void);
 static void returnMove(void);
 static void wait(void);
+static void init(void);
 
 Entity *addRobot(int x, int y, char *name)
 {
@@ -59,7 +61,7 @@ Entity *addRobot(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &init;
 	e->touch = &touch;
 	e->activate = &activate;
 
@@ -72,6 +74,16 @@ Entity *addRobot(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	if (self->health == 2)
+	{
+		self->touch = NULL;
+	}
+	
+	self->action = &wait;
+}
+
 static void wait()
 {
 	checkToMap(self);
@@ -79,33 +91,46 @@ static void wait()
 
 static void touch(Entity *other)
 {
+	float dirX, dirY;
+	
 	if (self->active == FALSE && other->type == PLAYER)
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
 
-	else if (self->health == 1 && self->dirX == 0 && self->dirY == 0)
+	else if (self->health == 1 && fabs(self->x - other->x) <= fabs(self->dirX) && fabs(self->y - other->y) <= fabs(self->dirY))
 	{
-		if (strcmpignorecase(other->name, "item/robot_return"))
+		if (strcmpignorecase(other->name, "item/robot_direction") == 0)
 		{
+			dirY = dirX = 0;
+			
 			switch (other->health)
 			{
 				case 0:
-					self->dirY = -self->speed;
+					dirY = -self->speed;
 				break;
 
 				case 1:
-					self->dirY = self->speed;
+					dirY = self->speed;
 				break;
 
 				case 2:
-					self->dirX = -self->speed;
+					dirX = -self->speed;
 				break;
 
-				case 3:
-					self->dirX = self->speed;
+				default:
+					dirX = self->speed;
 				break;
 			}
+			
+			if (dirY != self->dirY || dirX != self->dirX)
+			{
+				self->x = other->x;
+				self->y = other->y;	
+			}
+			
+			self->dirY = dirY;
+			self->dirX = dirX;
 		}
 	}
 }
@@ -122,6 +147,10 @@ static void activate(int val)
 	else
 	{
 		e = addEntity(*e, self->x, self->y);
+		
+		e->touch = NULL;
+		
+		e->flags |= NO_DRAW;
 
 		removeInventoryItem(e->objectiveName);
 
@@ -133,9 +162,7 @@ static void activate(int val)
 
 		self->mental = 0;
 
-		self->health = 1;
-
-		setCustomAction(&player, &helpless, 5, 0);
+		setPlayerLocked(TRUE);
 
 		centerMapOnEntity(self);
 	}
@@ -177,6 +204,8 @@ static void processNextInstruction()
 	else
 	{
 		self->thinkTime = 30;
+		
+		printf("Out of instructions\n");
 
 		self->action = &finish;
 	}
@@ -194,16 +223,38 @@ static void instructionMove()
 	{
 		processNextInstruction();
 	}
+	
+	else if (self->x == self->endX && self->y == self->endY)
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->action = &wait;
+		
+		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		
+		centerMapOnEntity(&player);
+		
+		setPlayerLocked(FALSE);
+		
+		self->health = 2;
+		
+		self->target->inUse = FALSE;
+		
+		self->target = NULL;
+	}
 }
 
 static void finish()
 {
 	self->thinkTime--;
 
-	setCustomAction(&player, &helpless, 5, 0);
-
 	if (self->thinkTime <= 0)
 	{
+		printf("Returning\n");
+		
+		self->health = 1;
+		
 		self->mental = 0;
 
 		self->action = &returnMove;
@@ -213,13 +264,32 @@ static void finish()
 static void returnMove()
 {
 	checkToMap(self);
-
-	setCustomAction(&player, &helpless, 5, 0);
-
-	if (self->dirX == 0 && self->dirY == 0)
+	
+	if (self->x == self->startX && self->y == self->startY)
 	{
 		centerMapOnEntity(&player);
 
 		self->action = &wait;
+		
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->active = FALSE;
+		
+		setPlayerLocked(FALSE);
+		
+		self->health = 0;
+		
+		self->action = &wait;
+		
+		self->target->flags &= ~NO_DRAW;
+		
+		self->target->x = self->x;
+		
+		self->target->y = self->y;
+		
+		self->target->dirY = ITEM_JUMP_HEIGHT;
+		
+		self->target = NULL;
 	}
 }

@@ -56,6 +56,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "code_display.h"
 #include "light_sphere.h"
 #include "glass_wall.h"
+#include "robot.h"
 
 extern Entity *self, player;
 
@@ -95,7 +96,8 @@ static Constructor items[] = {
 {"item/code_door", &addCodeDoor},
 {"item/code_display", &addCodeDisplay},
 {"item/light_sphere", &addLightSphere},
-{"item/glass_wall", &addGlassWall}
+{"item/glass_wall", &addGlassWall},
+{"item/robot", &addRobot}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

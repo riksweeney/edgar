@@ -2149,7 +2149,7 @@ DAMAGE 0
 SPEED 0.00
 WEIGHT 1.00
 OBJECTIVE_NAME Fortress-Basement
-REQUIRES Fortress Ground Floor 
+REQUIRES Fortress Ground Floor
 ACTIVE TRUE
 FACE RIGHT
 }

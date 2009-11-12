@@ -521,9 +521,6 @@ msgstr ""
 msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
 msgstr ""
 
-msgid "A sequence will happen now to activate the lift down by the sewer entrance"
-msgstr ""
-
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
 msgstr ""
 
@@ -1331,3 +1328,173 @@ msgstr ""
 msgid "Nothing. I guess I'll have to keep on looking"
 msgstr ""
 
+msgid "Push Up or Down to raise or lower the platform"
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an "incident", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an "incident""
+msgstr ""
+
+msgid "There's a book here about enchanting equipment"
+msgstr ""
+
+msgid "It's a book about enchanting equipment"
+msgstr ""
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr ""
+
+msgid "I wonder what other monsters there are..."
+msgstr ""
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr ""
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr ""
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr ""
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr ""
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr ""
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr ""
+
+msgid "Venus Flytrap, mobile"
+msgstr ""
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr ""
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr ""
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr ""
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr ""
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr ""
+
+msgid "Up"
+msgstr ""
+
+msgid "Down"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Jump"
+msgstr ""
+
+msgid "Attack"
+msgstr ""
+
+msgid "Block"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Use Item"
+msgstr ""
+
+msgid "Previous Item"
+msgstr ""
+
+msgid "Next Item"
+msgstr ""
+
+msgid "Previous Item"
+msgstr ""
+
+msgid "Inventory"
+msgstr ""
+
+msgid "Pause"
+msgstr ""
+
+msgid "Dead Zone"
+msgstr ""
+
+msgid "Sound"
+msgstr ""
+
+msgid "SFX Volume"
+msgstr ""
+
+msgid "Music Volume"
+msgstr ""
+
+msgid "Ice Spray"
+msgstr ""
+
+msgid "Library"
+msgstr ""
+
+msgid "Right Wing Lift Key"
+msgstr ""
+
+msgid "Mine Entrance Door Key"
+msgstr ""
+
+msgid "Village"
+msgstr ""
+
+msgid "Cave"
+msgstr ""
+
+msgid "Fortress Outskirts"
+msgstr ""
+
+msgid "Forbidden Swamp"
+msgstr ""
+
+msgid "Sewage Restricted Zone Key"
+msgstr ""
+
+msgid "Basement"
+msgstr ""
+
+msgid "Fortress Ground Floor"
+msgstr ""
+
+msgid "Sewer"
+msgstr ""
+
+msgid "Fortress Main Key"
+msgstr ""
+
+msgid "Demolition Storage Key"
+msgstr ""
+
+msgid "Teleporter Access Key 1"
+msgstr ""
+
+msgid "Teleporter Access Key 2"
+msgstr ""
+
+msgid "Teleporter Access Key 3"
+msgstr ""
+
+msgid "Laboratory"
+msgstr ""
+
+msgid "Empty Bottle"
+msgstr ""
+
+msgid "First Floor Key"
+msgstr ""
