@@ -195,6 +195,8 @@ static void dartDownFinish()
 		if (self->dirY == 0 || self->y <= self->startY)
 		{
 			self->thinkTime = 60;
+			
+			self->startY = self->y;
 
 			self->action = &lookForPlayer;
 
