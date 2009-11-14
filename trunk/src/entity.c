@@ -263,7 +263,15 @@ void doNothing(void)
 
 	if (!(self->flags & GRABBED))
 	{
-		self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
+		if (self->flags & PUSHABLE)
+		{
+			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
+		}
+		
+		else
+		{
+			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
+		}
 	}
 
 	checkToMap(self);

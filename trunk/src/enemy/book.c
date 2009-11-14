@@ -106,20 +106,20 @@ static void lookForPlayer()
 		self->thinkTime = 0;
 	}
 
-	if (player.health > 0 && self->thinkTime == 0 && prand() % 20 == 0)
+	if (self->mental == 3 && self->thinkTime <= 0)
+	{
+		self->action = &castIceInit;
+
+		self->thinkTime = 60;
+
+		self->dirX = 0;
+	}
+
+	else if (player.health > 0 && self->thinkTime == 0 && prand() % 20 == 0)
 	{
 		self->thinkTime = 0;
 
-		if (self->mental == 3)
-		{
-			self->action = &castIceInit;
-
-			self->thinkTime = 60;
-
-			self->dirX = 0;
-		}
-
-		else if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
 		{
 			switch (self->mental)
 			{
@@ -314,7 +314,15 @@ static void castFinish()
 	{
         self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-		self->thinkTime = 60;
+		if (self->mental == 3)
+		{
+			self->thinkTime = 120 + prand() % 120;
+		}
+
+		else
+		{
+			self->thinkTime = 60;
+		}
 
 		self->action = &lookForPlayer;
 	}
@@ -349,16 +357,21 @@ static void fireBlock()
 
 static void castIceInit()
 {
-	int i;
+	float i;
 	Entity *e;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		for (i=0;i<2;i++)
+		for (i=-3;i<=3;i+=1.5f)
 		{
-			e = addProjectile("enemy/ice", self, 0, 0, i == 0 ? -6 : 6, ITEM_JUMP_HEIGHT);
+			if (i == 0)
+			{
+				continue;
+			}
+
+			e = addProjectile("enemy/ice", self, 0, 0, i, ITEM_JUMP_HEIGHT);
 
 			e->x = self->x + self->w / 2;
 			e->y = self->y + self->h / 2;
@@ -370,8 +383,6 @@ static void castIceInit()
 			e->touch = &iceTouch;
 
 			e->face = self->face;
-
-			e->type = ENEMY;
 
 			setEntityAnimation(e, STAND);
 		}
@@ -386,9 +397,9 @@ static void castIceInit()
 
 static void iceTouch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && other->element != ICE)
 	{
-		setPlayerFrozen(60);
+		setPlayerFrozen(120);
 
 		self->inUse = FALSE;
 	}

@@ -1692,13 +1692,18 @@ void setPlayerFrozen(int thinkTime)
 	{
 		becomeEdgar();
 	}
+	
+	player.element = ICE;
 
 	loadProperties("edgar/edgar_frozen", e);
 
 	playSoundToMap("sound/common/freeze.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
-	e->x = player.x;
-	e->y = player.y;
+	e->x = player.x + player.w / 2;
+	e->y = player.y + player.h / 2;
+	
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
 
 	e->type = ENEMY;
 
@@ -1719,33 +1724,39 @@ void setPlayerFrozen(int thinkTime)
 
 	player.flags &= ~BLOCKING;
 
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
 	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
 }
 
 static void applyIce()
 {
 	int i;
 	Entity *e;
-
+	
 	self->thinkTime--;
 
 	self->face = player.face;
 
 	player.dirX = 0;
 
-	self->x = player.x;
-	self->y = player.y;
-
+	player.x = self->x + self->w / 2 - player.w / 2;
+	player.y = self->y + self->h / 2 - player.h / 2;
+	
 	if (self->thinkTime <= 0 || player.health <= 0)
 	{
 		for (i=0;i<8;i++)
 		{
 			e = addTemporaryItem("common/ice_piece", self->x, self->y, RIGHT, 0, 0);
 
-			e->x += (self->w - e->w) / 2;
-			e->y += (self->w - e->w) / 2;
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
 
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
@@ -1758,5 +1769,9 @@ static void applyIce()
 		playSoundToMap("sound/common/shatter.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->inUse = FALSE;
+		
+		player.element = NO_ELEMENT;
 	}
+	
+	checkToMap(self);
 }
