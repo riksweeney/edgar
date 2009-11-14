@@ -177,7 +177,7 @@ static void suckIn()
 				e->x = self->x;
 				e->y = self->y;
 
-				e->dirX = 8 * (prand() % 2 == 0 ? -1 : 1);
+				e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0);
@@ -190,7 +190,7 @@ static void suckIn()
 				e->x = self->x;
 				e->y = self->y;
 
-				e->dirX = 8 * (prand() % 2 == 0 ? -1 : 1);
+				e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0);
@@ -200,7 +200,7 @@ static void suckIn()
 
 			setPlayerStunned(30);
 
-			self->target->dirX = 6 * (prand() % 2 == 0 ? -1 : 1);
+			self->target->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 			self->target->dirY = -8;
 
 			self->target->flags &= ~NO_DRAW;
@@ -212,4 +212,6 @@ static void suckIn()
 			self->action = &move;
 		}
 	}
+
+	checkToMap(self);
 }

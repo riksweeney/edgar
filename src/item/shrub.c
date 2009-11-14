@@ -102,8 +102,8 @@ static void die()
 	{
 		e = addTemporaryItem("misc/small_tree_piece", self->x, self->y, RIGHT, 0, 0);
 
-		e->x += (self->w - e->w) / 2;
-		e->y += (self->w - e->w) / 2;
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
 
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);

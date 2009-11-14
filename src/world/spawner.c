@@ -62,7 +62,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 static void init()
 {
 	Entity *e;
-	char spawnList[MAX_VALUE_LENGTH];
+	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
 
 	if (strlen(self->objectiveName) == 0)
@@ -85,7 +85,17 @@ static void init()
 
 	while (token != NULL)
 	{
-		loadProperties(token, e);
+		if (strcmpignorecase(self->name, "common/spawner") == 0 && strstr(token, "enemy/") == NULL)
+		{
+			snprintf(name, sizeof(name), "enemy/%s", token);
+		}
+		
+		else
+		{
+			snprintf(name, sizeof(name), "%s", token);
+		}
+		
+		loadProperties(name, e);
 
 		token = strtok(NULL, "|");
 	}
@@ -100,7 +110,7 @@ static void init()
 static void spawn()
 {
 	int distance;
-	char spawnList[MAX_VALUE_LENGTH];
+	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
 	int spawnIndex = 0, spawnCount = 0;
 	Entity *e;
@@ -180,8 +190,18 @@ static void spawn()
 
 							spawnCount++;
 						}
+						
+						if (strstr(token, "enemy/") == NULL)
+						{
+							snprintf(name, sizeof(name), "enemy/%s", token);
+						}
+						
+						else
+						{
+							snprintf(name, sizeof(name), "%s", token);
+						}
 
-						e = addEnemy(token, self->x, self->y);
+						e = addEnemy(name, self->x, self->y);
 
 						e->x += (self->w - e->w) / 2;
 						e->y += (self->h - e->h) / 2;
@@ -242,7 +262,17 @@ static void spawn()
 					spawnCount++;
 				}
 
-				e = addEnemy(token, self->x, self->y);
+				if (strstr(token, "enemy/") == NULL)
+				{
+					snprintf(name, sizeof(name), "enemy/%s", token);
+				}
+				
+				else
+				{
+					snprintf(name, sizeof(name), "%s", token);
+				}
+
+				e = addEnemy(name, self->x, self->y);
 
 				e->x += (self->w - e->w) / 2;
 				e->y += (self->h - e->h) / 2;

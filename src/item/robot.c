@@ -80,7 +80,7 @@ static void init()
 	{
 		self->touch = NULL;
 	}
-	
+
 	self->action = &wait;
 }
 
@@ -92,7 +92,7 @@ static void wait()
 static void touch(Entity *other)
 {
 	float dirX, dirY;
-	
+
 	if (self->active == FALSE && other->type == PLAYER)
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
@@ -103,7 +103,7 @@ static void touch(Entity *other)
 		if (strcmpignorecase(other->name, "item/robot_direction") == 0)
 		{
 			dirY = dirX = 0;
-			
+
 			switch (other->health)
 			{
 				case 0:
@@ -122,13 +122,13 @@ static void touch(Entity *other)
 					dirX = self->speed;
 				break;
 			}
-			
+
 			if (dirY != self->dirY || dirX != self->dirX)
 			{
 				self->x = other->x;
-				self->y = other->y;	
+				self->y = other->y;
 			}
-			
+
 			self->dirY = dirY;
 			self->dirX = dirX;
 		}
@@ -144,12 +144,17 @@ static void activate(int val)
 		runScript("instruction_card");
 	}
 
+	else if (strlen(e->requires) == 0)
+	{
+		runScript("no_instructions");
+	}
+
 	else
 	{
 		e = addEntity(*e, self->x, self->y);
-		
+
 		e->touch = NULL;
-		
+
 		e->flags |= NO_DRAW;
 
 		removeInventoryItem(e->objectiveName);
@@ -204,7 +209,7 @@ static void processNextInstruction()
 	else
 	{
 		self->thinkTime = 30;
-		
+
 		printf("Out of instructions\n");
 
 		self->action = &finish;
@@ -223,24 +228,24 @@ static void instructionMove()
 	{
 		processNextInstruction();
 	}
-	
+
 	else if (self->x == self->endX && self->y == self->endY)
 	{
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		self->action = &wait;
-		
+
 		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-		
+
 		centerMapOnEntity(&player);
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		self->health = 2;
-		
+
 		self->target->inUse = FALSE;
-		
+
 		self->target = NULL;
 	}
 }
@@ -252,9 +257,9 @@ static void finish()
 	if (self->thinkTime <= 0)
 	{
 		printf("Returning\n");
-		
+
 		self->health = 1;
-		
+
 		self->mental = 0;
 
 		self->action = &returnMove;
@@ -264,32 +269,32 @@ static void finish()
 static void returnMove()
 {
 	checkToMap(self);
-	
+
 	if (self->x == self->startX && self->y == self->startY)
 	{
 		centerMapOnEntity(&player);
 
 		self->action = &wait;
-		
+
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		self->active = FALSE;
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		self->health = 0;
-		
+
 		self->action = &wait;
-		
+
 		self->target->flags &= ~NO_DRAW;
-		
+
 		self->target->x = self->x;
-		
+
 		self->target->y = self->y;
-		
+
 		self->target->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		self->target = NULL;
 	}
 }
