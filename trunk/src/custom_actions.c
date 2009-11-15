@@ -262,7 +262,7 @@ void antiGravity(int *thinkTime, int *counter)
 		if (*thinkTime != 0)
 		{
 			self->weight = 0;
-			self->dirY = -0.2;
+			self->dirY = -1;
 		}
 
 		else

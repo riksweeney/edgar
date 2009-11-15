@@ -157,6 +157,8 @@ Entity *addEnemy(char *name, int x, int y)
 			{
 				e->pain = &enemyPain;
 			}
+			
+			e->originalWeight = e->weight;
 
 			return e;
 		}
