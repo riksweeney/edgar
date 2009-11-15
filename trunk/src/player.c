@@ -1262,6 +1262,13 @@ static void playerDie()
 	player.thinkTime = 180;
 
 	player.action = &gameOverTimeOut;
+	
+	if (player.element == ICE)
+	{
+		player.flags |= NO_DRAW;
+		playerShield.flags |= NO_DRAW;
+		playerWeapon.flags |= NO_DRAW;
+	}
 
 	doGameOver();
 
