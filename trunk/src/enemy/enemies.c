@@ -61,6 +61,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spike_wall.h"
 #include "whirlwind.h"
 #include "poltergiest.h"
+#include "large_book.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -132,7 +133,8 @@ static Constructor enemies[] = {
 {"enemy/spike_wall", &addSpikeWall},
 {"enemy/whirlwind", &addWhirlwind},
 {"enemy/poltergiest_1", &addPoltergiest},
-{"enemy/poltergiest_2", &addPoltergiest}
+{"enemy/poltergiest_2", &addPoltergiest},
+{"enemy/large_red_book", &addLargeBook}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

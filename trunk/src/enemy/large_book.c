@@ -23,33 +23,34 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../system/properties.h"
-#include "../system/random.h"
-#include "../item/item.h"
 #include "../collisions.h"
-#include "../geometry.h"
-#include "../item/key_items.h"
 #include "../system/error.h"
 #include "../player.h"
 #include "../projectile.h"
+#include "../geometry.h"
+#include "../world/target.h"
 
 extern Entity *self, player;
 
 static void hover(void);
-static void lookForPlayer(void);
-static void dartDownInit(void);
-static void dartDown(void);
-static void dartDownFinish(void);
-static void dartReactToBlock(void);
+static void redWait(void);
+static void redDie(void);
+static void redDieInit(void);
+static void shudder(void);
+static void hover(void);
 static void castFireInit(void);
+static void throwFire(void);
 static void castFire(void);
 static void castFinish(void);
 static void fireDrop(void);
+static void fireFall(void);
 static void fireMove(void);
+static void fireBounce(void);
 static void fireBlock(void);
-static void castIceInit(void);
-static void iceTouch(Entity *);
+static void fireAttack(void);
+static void fireAttackPause(void);
 
-Entity *addBook(int x, int y, char *name)
+Entity *addLargeBook(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -63,12 +64,15 @@ Entity *addBook(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForPlayer;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->reactToBlock = &changeDirection;
+	
+	if (strcmpignorecase(name, "enemy/large_red_book") == 0)
+	{
+		e->action = &redWait;
+		e->die = &redDieInit;
+	}
 
 	e->type = ENEMY;
 
@@ -77,157 +81,136 @@ Entity *addBook(int x, int y, char *name)
 	return e;
 }
 
-static void lookForPlayer()
+static void redWait()
 {
-	float dirX;
-
-	if (self->dirX == 0)
+	if (self->active == TRUE)
 	{
-		self->dirX = self->face == LEFT ? self->speed : -self->speed;
+		self->action = &fireAttack;
 	}
-
-	self->face = self->dirX > 0 ? RIGHT : LEFT;
-
-	dirX = self->dirX;
-
+	
 	checkToMap(self);
-
-	if (self->dirX == 0 && dirX != 0)
-	{
-		self->dirX = self->face == LEFT ? self->speed : -self->speed;
-
-		self->face = self->face == LEFT ? RIGHT : LEFT;
-	}
-
-	self->thinkTime--;
-
-	if (self->thinkTime < 0)
-	{
-		self->thinkTime = 0;
-	}
-
-	if (self->mental == 3 && self->thinkTime <= 0)
-	{
-		self->action = &castIceInit;
-
-		self->thinkTime = 60;
-
-		self->dirX = 0;
-	}
-
-	else if (player.health > 0 && self->thinkTime == 0 && prand() % 20 == 0)
-	{
-		self->thinkTime = 0;
-
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
-		{
-			switch (self->mental)
-			{
-				case 0: /* Ram player */
-					self->action = &dartDownInit;
-
-					self->thinkTime = 60;
-				break;
-
-				default: /* Cast fire */
-					self->action = &castFireInit;
-
-					self->thinkTime = 60;
-				break;
-			}
-
-			self->dirX = 0;
-		}
-	}
 
 	hover();
 }
 
-static void dartDownInit()
+static void redDieInit()
+{
+	Target *t;
+	
+	self->touch = NULL;
+	
+	self->maxThinkTime++;
+	
+	switch (self->maxThinkTime)
+	{
+		case 1:
+			t = getTargetByName("RED_BOOK_TARGET_1");
+			
+			self->action = &redDie;
+		break;
+		
+		default:
+			t = getTargetByName("RED_BOOK_TARGET_2");
+			
+			self->action = &redDie;
+		break;
+	}
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Red Book cannot find target");
+	}
+	
+	self->startX = self->x;
+	self->startY = 0;
+	
+	self->targetX = t->x;
+	self->targetY = t->y;
+	
+	self->thinkTime = 60;
+}
+
+static void redDie()
 {
 	self->thinkTime--;
-
+	
 	if (self->thinkTime <= 0)
 	{
-		self->targetX = player.x;
-		self->targetY = player.y + player.h / 2;
+		if (self->maxThinkTime == 3)
+		{
+			entityDie();
+		}
+		
+		else
+		{
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		self->dirX *= self->speed * 10;
-		self->dirY *= self->speed * 10;
-
-		self->action = &dartDown;
-
-		self->reactToBlock = &dartReactToBlock;
+			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
+			self->touch = &entityTouch;
+			
+			self->action = &redWait;
+			
+			self->active = FALSE;
+			
+			self->startX = self->targetX;
+			self->startY = self->targetY;
+			
+			self->health = self->maxHealth * 1.5;
+		}
 	}
+	
+	else
+	{
+		shudder();
+	}
+}
 
+static void fireAttack()
+{
+	self->thinkTime--;
+	
+	if (player.health > 0 && self->thinkTime <= 0)
+	{
+		self->action = &castFireInit;
+	}
+	
+	facePlayer();
+	
+	checkToMap(self);
+	
 	hover();
 }
 
-static void dartDown()
-{
-	if (self->dirY == 0 || self->dirX == 0)
-	{
-		self->thinkTime = 1;
-
-		self->dirX = self->dirY = 0;
-
-		self->action = &dartDownFinish;
-	}
-
-	checkToMap(self);
-}
-
-static void dartDownFinish()
+static void fireAttackPause()
 {
 	self->thinkTime--;
-
-	if (self->thinkTime == 0)
+	
+	if (self->thinkTime <= 0)
 	{
-		self->dirY = -self->speed;
-
-		self->flags |= FLY;
-	}
-
-	else if (self->thinkTime < 0)
-	{
-		if (self->dirY == 0 || self->y <= self->startY)
+		self->action = &fireAttack;
+		
+		switch (self->maxThinkTime)
 		{
-			self->thinkTime = 60;
+			case 0:
+				self->mental = 5;
+			break;
 			
-			self->startY = self->y;
-
-			self->action = &lookForPlayer;
-
-			self->dirX = self->dirY = 0;
-
-			self->reactToBlock = &changeDirection;
+			case 1:
+				self->mental = 3;
+			break;
+			
+			default:
+				self->mental = 3;
+			break;
 		}
 	}
-
-	else
-	{
-		if ((self->flags & ON_GROUND) && self->standingOn == NULL)
-		{
-			self->dirX = 0;
-		}
-	}
-
+	
 	checkToMap(self);
-}
-
-static void dartReactToBlock()
-{
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -3 : 3;
-
-	self->dirY = -5;
-
-	self->thinkTime = 60;
-
-	self->action = &dartDownFinish;
+	
+	hover();	
 }
 
 static void hover()
@@ -248,14 +231,69 @@ static void castFireInit()
 
 	if (self->thinkTime <= 0)
 	{
-		self->endX = 5;
+		self->endX = 6;
 
-		self->action = &castFire;
+		self->action = self->maxThinkTime == 2 ? &throwFire : &castFire;
 
 		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
 	}
 
 	hover();
+}
+
+static void throwFire()
+{
+	int i;
+	float dir;
+	Entity *e;
+
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		for (i=0;i<5;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Fire");
+			}
+
+			loadProperties("enemy/fire", e);
+
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
+
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+			
+			dir = self->mental == 2 ? 1.50 : 1.75;
+			
+			e->dirY = -9;
+			e->dirX = self->face == LEFT ? -(i * dir) : (i * dir);
+			e->weight = 0.4;
+			
+			e->thinkTime = 20;
+			
+			e->action = &fireFall;
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+			e->reactToBlock = &fireBlock;
+			
+			e->head = self;
+
+			e->face = self->face;
+
+			e->type = ENEMY;
+
+			setEntityAnimation(e, STAND);
+		}
+	}
+	
+	self->thinkTime = 90;
+	
+	self->action = &castFinish;
 }
 
 static void castFire()
@@ -280,11 +318,13 @@ static void castFire()
 
 		e->x -= e->w / 2;
 		e->y -= e->h / 2;
-
+		
 		e->action = &fireDrop;
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &entityTouch;
 		e->reactToBlock = &fireBlock;
+		
+		e->head = self;
 
 		e->face = self->face;
 
@@ -296,7 +336,7 @@ static void castFire()
 
 		if (self->endX <= 0)
 		{
-			self->thinkTime = 60;
+			self->thinkTime = 30;
 
 			self->action = &castFinish;
 		}
@@ -314,19 +354,19 @@ static void castFinish()
 
 	if (self->thinkTime <= 0)
 	{
-        self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-		if (self->mental == 3)
+        self->mental--;
+		
+		if (self->mental <= 0)
 		{
-			self->thinkTime = 120 + prand() % 120;
+			self->thinkTime = 180;
+			
+			self->action = &fireAttackPause;
 		}
-
+		
 		else
 		{
-			self->thinkTime = 60;
+			self->action = &fireAttack;
 		}
-
-		self->action = &lookForPlayer;
 	}
 }
 
@@ -334,12 +374,40 @@ static void fireDrop()
 {
 	if (self->flags & ON_GROUND)
 	{
-		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
-
-		self->action = &fireMove;
+		switch (self->head->maxThinkTime)
+		{
+			case 0:
+				self->dirX = (self->face == LEFT ? -self->speed : self->speed);
+				
+				self->action = &fireMove;
+			break;
+			
+			case 1:
+				self->dirX = (self->face == LEFT ? -4 : 4);
+				
+				self->action = &fireBounce;
+			break;
+		}
 	}
 
 	checkToMap(self);
+}
+
+static void fireFall()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->inUse = FALSE;
+		}
+	}
 }
 
 static void fireMove()
@@ -352,57 +420,34 @@ static void fireMove()
 	}
 }
 
+static void fireBounce()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirY = -15;
+	}
+
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
 static void fireBlock()
 {
 	self->inUse = FALSE;
 }
 
-static void castIceInit()
+static void shudder()
 {
-	float i;
-	Entity *e;
+	self->startY += 90;
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->startY >= 360)
 	{
-		for (i=-3;i<=3;i+=1.5f)
-		{
-			if (i == 0)
-			{
-				continue;
-			}
-
-			e = addProjectile("enemy/ice", self, 0, 0, i, ITEM_JUMP_HEIGHT);
-
-			e->x = self->x + self->w / 2;
-			e->y = self->y + self->h / 2;
-
-			e->x -= e->w / 2;
-			e->y -= e->h / 2;
-
-			e->draw = &drawLoopingAnimationToMap;
-			e->touch = &iceTouch;
-
-			e->face = self->face;
-
-			setEntityAnimation(e, STAND);
-		}
-
-		self->thinkTime = 60;
-
-		self->action = &castFinish;
-	}
-
-	hover();
-}
-
-static void iceTouch(Entity *other)
-{
-	if (other->type == PLAYER && other->element != ICE)
-	{
-		setPlayerFrozen(120);
-
-		self->inUse = FALSE;
+		self->startY = 0;
 	}
 }

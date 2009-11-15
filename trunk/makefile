@@ -69,7 +69,7 @@ CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
 CORE_OBJS += error.o code_door.o code_display.o light_sphere.o poltergiest.o book.o movable_lift.o glass_wall.o spike_wall.o
-CORE_OBJS += whirlwind.o
+CORE_OBJS += whirlwind.o large_book.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
