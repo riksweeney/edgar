@@ -399,7 +399,7 @@ static void castIceInit()
 
 static void iceTouch(Entity *other)
 {
-	if (other->type == PLAYER && other->element != ICE)
+	if (other->type == PLAYER && other->element != ICE && !(other->flags & INVULNERABLE))
 	{
 		setPlayerFrozen(120);
 
