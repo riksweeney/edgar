@@ -20,27 +20,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
-#include "../collisions.h"
-#include "../custom_actions.h"
-#include "../audio/audio.h"
-#include "key_items.h"
+#include "../item/key_items.h"
+#include "../item/item.h"
 #include "../system/error.h"
+#include "../player.h"
 
 extern Entity *self;
 
 static void activate(int);
-static void takeDamage(Entity *, int);
-static void wait(void);
 
-Entity *addGlassWall(int x, int y, char *name)
+Entity *addTuningFork(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Glass Wall");
+		showErrorAndExit("No free slots to add a Tuning Fork");
 	}
 
 	loadProperties(name, e);
@@ -50,16 +48,14 @@ Entity *addGlassWall(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->face = RIGHT;
+	e->face = LEFT;
 
-	e->action = &wait;
-	e->touch = &pushEntity;
+	e->action = &doNothing;
+	e->touch = &keyItemTouch;
 	e->activate = &activate;
-	e->takeDamage = &takeDamage;
+	e->die = &keyItemRespawn;
 
 	e->draw = &drawLoopingAnimationToMap;
-
-	e->active = FALSE;
 
 	setEntityAnimation(e, STAND);
 
@@ -68,30 +64,21 @@ Entity *addGlassWall(int x, int y, char *name)
 
 static void activate(int val)
 {
-	if (val == 100)
+	Entity *e, *temp;
+	
+	e = getEntityByRequiredName("TUNING_FORK");
+	
+	if (e != NULL)
 	{
-		self->active = TRUE;
-	}
-}
-
-static void wait()
-{
-	if (self->active == TRUE)
-	{
-		self->thinkTime--;
-		
-		if (self->thinkTime <= 0)
+		if (getDistanceFromPlayer(e) < 128)
 		{
-			self->inUse = FALSE;
+			temp = self;
+			
+			self = e;
+			
+			self->activate(100);
+			
+			self = temp;
 		}
 	}
-	
-	checkToMap(self);
-}
-
-static void takeDamage(Entity *other, int damage)
-{
-	setCustomAction(self, &invulnerableNoFlash, 20, 0);
-
-	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
 }

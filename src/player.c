@@ -607,6 +607,8 @@ void playerResumeNormal()
 	player.target = NULL;
 
 	player.action = NULL;
+	
+	player.flags &= ~INVULNERABLE;
 }
 
 static void dialogWait()
@@ -639,6 +641,8 @@ static void dialogWait()
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
 	}
+	
+	player.flags |= INVULNERABLE;
 }
 
 static void attackFinish()

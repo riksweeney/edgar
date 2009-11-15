@@ -50,6 +50,7 @@ static void stunFinish(void);
 static void lightKill(int);
 static void hover(void);
 static void die(void);
+static void recreateBooks(void);
 
 Entity *addPoltergiest(int x, int y, char *name)
 {
@@ -132,7 +133,7 @@ static void bookLookForPlayer()
 		{
 			self->action = &throwBooks;
 
-			self->thinkTime = 180;
+			self->thinkTime = 300;
 		}
 	}
 
@@ -141,8 +142,8 @@ static void bookLookForPlayer()
 
 static void throwBooks()
 {
-	self->dirX = 0;
-
+	float dirX;
+	
 	if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 	{
 		self->action = &bookLookForPlayer;
@@ -152,18 +153,53 @@ static void throwBooks()
 	{
 		if (self->mental <= 0)
 		{
+			if (self->dirX == 0)
+			{
+				self->dirX = self->face == LEFT ? self->speed : -self->speed;
+			}
+
+			self->face = self->dirX > 0 ? RIGHT : LEFT;
+
+			dirX = self->dirX;
+
+			checkToMap(self);
+
+			if (self->dirX == 0 && dirX != 0)
+			{
+				self->dirX = self->face == LEFT ? self->speed : -self->speed;
+
+				self->face = self->face == LEFT ? RIGHT : LEFT;
+			}
+			
 			self->thinkTime--;
 
 			if (self->thinkTime <= 0)
 			{
-				self->dirX = self->face == LEFT ? self->speed : -self->speed;
-
-				createBooks();
+				self->thinkTime = 90;
+				
+				self->action = &recreateBooks;
 			}
+		}
+		
+		else
+		{
+			self->dirX = 0;
 		}
 	}
 
 	hover();
+}
+
+static void recreateBooks()
+{
+	self->dirX = 0;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &createBooks;
+	}
 }
 
 static void createBooks()
@@ -330,6 +366,11 @@ static void bookReactToBlock()
 	{
 		self->startX = 0;
 	}
+	
+	if (self->head->health <= 0)
+	{
+		entityDie();
+	}
 }
 
 static void bookAttackEnd()
@@ -355,6 +396,11 @@ static void bookAttackEnd()
 	if (self->startX >= 360)
 	{
 		self->startX = 0;
+	}
+	
+	if (self->head->health <= 0)
+	{
+		entityDie();
 	}
 }
 
@@ -387,6 +433,11 @@ static void bookReturn()
 		self->mental = 60 + prand() % 180;
 
 		self->action = &rotateAroundTarget;
+	}
+	
+	if (self->head->health <= 0)
+	{
+		entityDie();
 	}
 }
 
