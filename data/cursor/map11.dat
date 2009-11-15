@@ -25,3 +25,5 @@ item/robot_direction
 item/robot
 item/centurion_statue
 common/anti_gravity
+enemy/large_red_book
+weapon/wood_axe
