@@ -34,6 +34,7 @@ static void move(void);
 static void wait(void);
 static void touch(Entity *);
 static void suckIn(void);
+static void die(void);
 
 Entity *addWhirlwind(int x, int y, char *name)
 {
@@ -51,7 +52,7 @@ Entity *addWhirlwind(int x, int y, char *name)
 
 	e->action = &moveLeftToRight;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -113,6 +114,10 @@ static void touch(Entity *other)
 
 		other->dirX = 0;
 		other->dirY = 0;
+		
+		setPlayerLocked(TRUE);
+		
+		setPlayerLocked(FALSE);
 
 		setCustomAction(other, &helpless, 60, 0);
 		setCustomAction(other, &invulnerableNoFlash, 60, 0);
@@ -214,4 +219,26 @@ static void suckIn()
 	}
 
 	checkToMap(self);
+}
+
+static void die()
+{
+	if (self->target != NULL)
+	{
+		if (self->target->type == PLAYER)
+		{
+			setCustomAction(self->target, &invulnerable, 60, 0);
+
+			setPlayerStunned(30);
+
+			self->target->flags &= ~NO_DRAW;
+		}
+		
+		else
+		{
+			self->target->inUse = FALSE;
+		}
+	}
+	
+	entityDie();
 }

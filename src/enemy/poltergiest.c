@@ -427,6 +427,14 @@ static void bookReturn()
 	{
 		self->startX = 0;
 	}
+	
+	/* If a book gets completely stuck in the scenary */
+	
+	if (self->dirX == 0 && self->dirY == 0)
+	{
+		self->x = self->endX;
+		self->y = self->endY;
+	}
 
 	if (fabs(startX - endX) <= fabs(self->dirX) && fabs(startY - endY) <= fabs(self->dirY))
 	{
