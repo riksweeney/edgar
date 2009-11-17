@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void dropBomb(int);
 static void wait(void);
@@ -83,21 +84,24 @@ static void wait()
 
 static void dropBomb(int val)
 {
-	self->thinkTime = 0;
+	if (game.status == IN_GAME)
+	{
+		self->thinkTime = 0;
 
-	self->touch = &touch;
+		self->touch = &touch;
 
-	setEntityAnimation(self, WALK);
+		setEntityAnimation(self, WALK);
 
-	self->animationCallback = &explode;
+		self->animationCallback = &explode;
 
-	self->active = TRUE;
+		self->active = TRUE;
 
-	self->health = 30;
+		self->health = 30;
 
-	addEntity(*self, player.x, player.y);
+		addEntity(*self, player.x, player.y);
 
-	self->inUse = FALSE;
+		self->inUse = FALSE;
+	}
 }
 
 static void explode()

@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void sprayIce(int);
 
@@ -63,7 +64,7 @@ Entity *addIceSpray(int x, int y, char *name)
 
 static void sprayIce(int val)
 {
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
 		self->thinkTime = self->maxThinkTime;
 
