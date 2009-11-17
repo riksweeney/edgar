@@ -65,19 +65,21 @@ Entity *addTuningFork(int x, int y, char *name)
 static void activate(int val)
 {
 	Entity *e, *temp;
-	
+
+	playSoundToMap("sound/item/tuning_fork.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
 	e = getEntityByRequiredName("TUNING_FORK");
-	
+
 	if (e != NULL)
 	{
 		if (getDistanceFromPlayer(e) < 128)
 		{
 			temp = self;
-			
+
 			self = e;
-			
+
 			self->activate(100);
-			
+
 			self = temp;
 		}
 	}

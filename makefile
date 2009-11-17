@@ -56,9 +56,9 @@ CORE_OBJS += item.o enemies.o hud.o random.o decoration.o chicken_feed.o chicken
 CORE_OBJS += key_items.o record.o geometry.o chicken_trap.o target.o spawner.o rock.o pressure_plate.o door.o
 CORE_OBJS += weak_wall.o switch.o line_def.o boulder_boss.o trigger.o music.o coal_pile.o objective.o level_exit.o
 CORE_OBJS += spider.o rock_pile.o grub.o grub_boss.o save_point.o shrub.o projectile.o load_save.o
-CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialog.o script.o villager.o
-CORE_OBJS += main_menu.o widget.o borgan.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
-CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o jumping_plant.o explosion.o bomb_pile.o
+CORE_OBJS += compress.o global_trigger.o fireball.o wasp.o small_boulder.o dialog.o script.o
+CORE_OBJS += main_menu.o widget.o menu.o options_menu.o npc.o gib.o heart_container.o action_point.o
+CORE_OBJS += falling_platform.o spitting_plant.o red_grub.o stalactite.o bomb.o explosion.o bomb_pile.o
 CORE_OBJS += jumping_slime.o egg.o golem_boss.o baby_slime.o spinner.o snail.o floating_snapper.o snake_boss.o
 CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label.o sound_menu.o fly_boss.o ant_lion.o
 CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o arrow_target.o eye_stalk.o snail_shell.o
@@ -69,7 +69,7 @@ CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
 CORE_OBJS += error.o code_door.o code_display.o light_sphere.o poltergiest.o book.o movable_lift.o glass_wall.o spike_wall.o
-CORE_OBJS += whirlwind.o large_book.o tuning_fork.o
+CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

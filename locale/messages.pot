@@ -1418,9 +1418,6 @@ msgstr ""
 msgid "Next Item"
 msgstr ""
 
-msgid "Previous Item"
-msgstr ""
-
 msgid "Inventory"
 msgstr ""
 
@@ -1478,9 +1475,6 @@ msgstr ""
 msgid "Fortress Main Key"
 msgstr ""
 
-msgid "Demolition Storage Key"
-msgstr ""
-
 msgid "Teleporter Access Key 1"
 msgstr ""
 
@@ -1497,4 +1491,94 @@ msgid "Empty Bottle"
 msgstr ""
 
 msgid "First Floor Key"
+msgstr ""
+
+msgid "Press Action to retrieve %s"
+msgstr ""
+
+msgid "Hmm, this is new."
+msgstr ""
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr ""
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr ""
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr ""
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr ""
+
+msgid "There's a plaque here"
+msgstr ""
+
+msgid "Place the 4 statues in the correct order"
+msgstr ""
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr ""
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr ""
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr ""
+
+msgid "Tuning Fork"
+msgstr ""
+
+msgid "Second Floor Keycard"
+msgstr ""
+
+msgid "Instruction Card #1"
+msgstr ""
+
+msgid "Instruction Card #2"
+msgstr ""
+
+msgid "Centurion Statue"
+msgstr ""
+
+msgid "Spider Statue"
+msgstr ""
+
+msgid "Tortoise Statue"
+msgstr ""
+
+msgid "Scorpion Statue"
+msgstr ""
+
+msgid "A Blue Gem"
+msgstr ""
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr ""
+
+msgid "A Green Gem"
+msgstr ""
+
+msgid "A Purple Gem"
+msgstr ""
+
+msgid "A Red Gem"
+msgstr ""
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr ""
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr ""
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr ""
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr ""
+
+msgid "A Tuning Fork"
+msgstr ""
+
+msgid "A chopped log"
 msgstr ""

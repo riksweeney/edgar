@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../collisions.h"
@@ -123,13 +124,15 @@ static void touch(Entity *other)
 		setCustomAction(other, &invulnerableNoFlash, 60, 0);
 
 		self->action = &suckIn;
+		
+		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
 
 		self->targetX = self->x + self->w / 2 - other->w / 2;
 	}
 
 	else if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
-		/* Take very little damage when in a whirlwind */
+		/* Take very little damage */
 
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{

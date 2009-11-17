@@ -10,6 +10,7 @@ Version 0.40
 * Added the Library Map
 * The Golem Boss should no longer get stuck when reforming
 * Removed redundant translation strings
+* Items such as Bombs can no longer be thrown while in the inventory screen
 
 Version 0.33
 * The game now works correctly for locales using comma as their decimal separator

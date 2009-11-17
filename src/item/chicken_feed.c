@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void dropChickenFeed(int);
 
@@ -67,7 +68,7 @@ static void dropChickenFeed(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
 		e = addTemporaryItem("item/chicken_feed", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -5 : 5, ITEM_JUMP_HEIGHT);
 

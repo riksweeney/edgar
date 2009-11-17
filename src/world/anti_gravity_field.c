@@ -74,7 +74,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (self->active == TRUE)
+	if (self->active == TRUE && !(other->flags & FLY))
 	{
 		setCustomAction(other, &antiGravity, 5, 0);
 	}

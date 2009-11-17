@@ -62,6 +62,10 @@ int main(int argc, char *argv[])
 
 	printf("NO SUPPORT IS GIVEN FOR THIS PROGRAM, SO DON'T ASK HOW IT WORKS!\n");
 
+	/* Load the resources */
+
+	loadRequiredResources();
+
 	if (argc > 1)
 	{
 		loadMap(argv[1], TRUE);
@@ -74,12 +78,8 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	/* Load the resources */
-
-	loadRequiredResources();
-
 	/* Load the background image */
-	
+
 	setMinMapX(0);
 	setMinMapY(0);
 
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 	setMapStartY(startPos.y);
 
 	resetControls(TRUE);
-	
+
 	game.status = IN_EDITOR;
 
 	while (go == TRUE)

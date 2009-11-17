@@ -260,7 +260,7 @@ Entity *getInventoryItem(char *name)
 
 Entity *getCurrentInventoryItem()
 {
-	return &inventory.item[inventory.selectedIndex];
+	return inventory.item[inventory.selectedIndex].inUse == TRUE ? &inventory.item[inventory.selectedIndex] : NULL;
 }
 
 void replaceInventoryItem(char *name, Entity *e)

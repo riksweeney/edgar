@@ -132,6 +132,134 @@ int main(int argc, char *argv[])
 
 	closedir(dirp);
 
+	dirp = opendir("data/props/item");
+
+	if (dirp == NULL)
+	{
+		printf("Failed to open data/props/item\n");
+
+		exit(1);
+	}
+
+	while ((dfile = readdir(dirp)))
+	{
+		if (dfile->d_name[0] == '.')
+		{
+			continue;
+		}
+
+		snprintf(filename, sizeof(filename), "data/props/item/%s", dfile->d_name);
+
+		dirp2 = opendir(filename);
+
+		if (dirp2)
+		{
+			closedir(dirp2);
+
+			continue;
+		}
+
+		else
+		{
+			fp = fopen(filename, "rb");
+
+			while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+			{
+				if (line[strlen(line) - 1] == '\n')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (line[strlen(line) - 1] == '\r')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (strstr(line, "DESCRIPTION") != NULL)
+				{
+					token = strtok(line, " ");
+
+					token = strtok(NULL, "\0");
+
+					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+
+					if (textAlreadyAdded(line) == FALSE)
+					{
+						printf("%s\nmsgstr \"\"\n\n", line);
+					}
+				}
+			}
+
+			fclose(fp);
+		}
+	}
+
+	closedir(dirp);
+
+	dirp = opendir("data/props/weapon");
+
+	if (dirp == NULL)
+	{
+		printf("Failed to open data/props/weapon\n");
+
+		exit(1);
+	}
+
+	while ((dfile = readdir(dirp)))
+	{
+		if (dfile->d_name[0] == '.')
+		{
+			continue;
+		}
+
+		snprintf(filename, sizeof(filename), "data/props/weapon/%s", dfile->d_name);
+
+		dirp2 = opendir(filename);
+
+		if (dirp2)
+		{
+			closedir(dirp2);
+
+			continue;
+		}
+
+		else
+		{
+			fp = fopen(filename, "rb");
+
+			while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+			{
+				if (line[strlen(line) - 1] == '\n')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (line[strlen(line) - 1] == '\r')
+				{
+					line[strlen(line) - 1] = '\0';
+				}
+
+				if (strstr(line, "DESCRIPTION") != NULL)
+				{
+					token = strtok(line, " ");
+
+					token = strtok(NULL, "\0");
+
+					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+
+					if (textAlreadyAdded(line) == FALSE)
+					{
+						printf("%s\nmsgstr \"\"\n\n", line);
+					}
+				}
+			}
+
+			fclose(fp);
+		}
+	}
+
+	closedir(dirp);
+
 	return 0;
 }
 

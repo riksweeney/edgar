@@ -78,14 +78,21 @@ static void wait()
 {
 	if (self->active == TRUE)
 	{
+		if ((self->thinkTime % 60) == 0)
+		{
+			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+		}
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
+			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

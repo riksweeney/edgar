@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void wait(void);
 static void explode(void);
@@ -68,34 +69,34 @@ Entity *addSpikeBall(int x, int y, char *name)
 static void throwBall(int val)
 {
 	Entity *e;
-	
-	if (self->thinkTime <= 0)
+
+	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
 		setEntityAnimation(self, WALK);
-	
+
 		self->active = TRUE;
-	
+
 		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
-		
+
 		e->thinkTime = 120;
-	
+
 		e->touch = &touch;
-		
+
 		e->action = &wait;
-		
+
 		e->dirX = player.face == LEFT ? -8 : 8;
-		
+
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
-	
+
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			self->inUse = FALSE;
 		}
-		
+
 		else
 		{
 			self->thinkTime = 120;
@@ -106,20 +107,20 @@ static void throwBall(int val)
 static void wait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &explode;
-		
+
 		self->flags |= FLY;
-		
+
 		self->dirY = -4;
-		
+
 		self->thinkTime = 15;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -130,27 +131,27 @@ static void explode()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		for (i=0;i<360;i+=12)
 		{
 			e = addProjectile("weapon/spike", &player, 0, 0, 0, 0);
-			
+
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + self->h / 2 - e->h / 2;
-			
+
 			e->dirX = (0 * cos(DEG_TO_RAD(i)) - 12 * sin(DEG_TO_RAD(i)));
 			e->dirY = (0 * sin(DEG_TO_RAD(i)) + 12 * cos(DEG_TO_RAD(i)));
-			
+
 			e->flags |= FLY;
 		}
-		
+
 		self->inUse = FALSE;
 	}
-	
+
 	checkToMap(self);
 }
 
