@@ -26,13 +26,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../audio/audio.h"
 #include "key_items.h"
+#include "item.h"
 #include "../system/error.h"
+#include "../system/random.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 
 static void activate(int);
 static void takeDamage(Entity *, int);
 static void wait(void);
+static void die(void);
 
 Entity *addGlassWall(int x, int y, char *name)
 {
@@ -80,6 +85,10 @@ static void wait()
 	{
 		if ((self->thinkTime % 60) == 0)
 		{
+			self->mental++;
+			
+			setEntityAnimation(self, self->mental);
+			
 			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
 		}
 
@@ -89,11 +98,38 @@ static void wait()
 		{
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
 
-			self->inUse = FALSE;
+			self->action = &die;
 		}
 	}
 
 	checkToMap(self);
+}
+
+static void die()
+{
+	int i;
+	Entity *e;
+
+	fireTrigger(self->objectiveName);
+	
+	fireGlobalTrigger(self->objectiveName);
+
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem("item/glass_wall_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimation(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+
+	self->inUse = FALSE;	
 }
 
 static void takeDamage(Entity *other, int damage)

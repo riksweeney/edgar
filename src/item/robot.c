@@ -108,18 +108,30 @@ static void touch(Entity *other)
 			{
 				case 0:
 					dirY = -self->speed;
+					
+					setEntityAnimation(self, JUMP);
 				break;
 
 				case 1:
 					dirY = self->speed;
+					
+					setEntityAnimation(self, JUMP);
 				break;
 
 				case 2:
 					dirX = -self->speed;
+					
+					setEntityAnimation(self, WALK);
+					
+					self->face = LEFT;
 				break;
 
 				default:
 					dirX = self->speed;
+					
+					setEntityAnimation(self, WALK);
+					
+					self->face = RIGHT;
 				break;
 			}
 
@@ -186,18 +198,28 @@ static void processNextInstruction()
 	{
 		case 'u':
 			self->dirY = -self->speed;
+			setEntityAnimation(self, JUMP);
 		break;
 
 		case 'd':
 			self->dirY = self->speed;
+			setEntityAnimation(self, JUMP);
 		break;
 
 		case 'l':
 			self->dirX = -self->speed;
+			
+			setEntityAnimation(self, WALK);
+			
+			self->face = LEFT;
 		break;
 
 		case 'r':
 			self->dirX = self->speed;
+			
+			setEntityAnimation(self, WALK);
+			
+			self->face = RIGHT;
 		break;
 	}
 
@@ -235,6 +257,8 @@ static void instructionMove()
 		self->dirY = 0;
 
 		self->action = &wait;
+		
+		setEntityAnimation(self, STAND);
 
 		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 

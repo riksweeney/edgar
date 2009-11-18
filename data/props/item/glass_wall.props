@@ -1,4 +1,4 @@
 GFX_FILE data/gfx/item/glass_wall.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/glass_wall.dat
 TYPE KEY_ITEM
-ALPHA 128
+ALPHA 160

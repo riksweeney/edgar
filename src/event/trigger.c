@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "objective.h"
 #include "trigger.h"
+#include "../inventory.h"
 #include "../event/script.h"
 #include "../hud.h"
 #include "../system/error.h"
@@ -31,7 +32,9 @@ static Type type[] = {
 					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
 					{ACTIVATE_ENTITY, "ACTIVATE_ENTITY"},
 					{RUN_SCRIPT, "RUN_SCRIPT"},
-					{UPDATE_TRIGGER, "UPDATE_TRIGGER"}
+					{UPDATE_TRIGGER, "UPDATE_TRIGGER"},
+					{KILL_ENTITY, "KILL_ENTITY"},
+					{REMOVE_INVENTORY_ITEM, "REMOVE_INVENTORY_ITEM"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 
@@ -164,6 +167,14 @@ void fireTrigger(char *name)
 						runScript(trigger[i].targetName);
 					break;
 
+					case KILL_ENTITY:
+						killEntity(trigger[i].targetName);
+					break;
+
+					case REMOVE_INVENTORY_ITEM:
+						removeInventoryItem(trigger[i].targetName);
+					break;
+
 					default:
 
 					break;
@@ -189,7 +200,7 @@ void updateTrigger(char *name, int value)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			printf("Modifying trigger value from %d to %d\n", trigger[i].count, (trigger[i].count - value));
-			
+
 			trigger[i].count -= value;
 		}
 	}
@@ -228,7 +239,7 @@ int getTriggerTypeByName(char *name)
 	}
 
 	showErrorAndExit("Unknown Trigger Type %s", name);
-	
+
 	return 0;
 }
 
@@ -245,6 +256,6 @@ char *getTriggerTypeByID(int id)
 	}
 
 	showErrorAndExit("Unknown Trigger ID %d", id);
-	
+
 	return 0;
 }

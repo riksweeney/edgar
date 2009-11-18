@@ -1,5 +1,5 @@
-GFX_FILE data/gfx/item/robot_direction.dat
-ANIM_FILE data/anim/common/no_anim.dat
+GFX_FILE data/gfx/item/robot.dat
+ANIM_FILE data/anim/item/robot.dat
 TYPE KEY_ITEM
 FLAGS FLY
 ACTIVE FALSE

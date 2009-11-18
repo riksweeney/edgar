@@ -267,7 +267,7 @@ void doNothing(void)
 		{
 			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 		}
-		
+
 		else
 		{
 			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
@@ -551,9 +551,9 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 		if (self->health > 0)
 		{
 			setCustomAction(self, &flashWhite, 6, 0);
-			
+
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-			
+
 			if (other->type != PROJECTILE)
 			{
 				setCustomAction(self, &invulnerableNoFlash, 20, 0);
@@ -952,7 +952,7 @@ Entity *addEntity(Entity e, int x, int y)
 			return &entity[i];
 		}
 	}
-	
+
 	showErrorAndExit("Could not add Entity", e.name);
 
 	return NULL;
@@ -1568,4 +1568,14 @@ static void addEntityToList(EntityList *head, Entity *e)
 	list->next = NULL;
 
 	listHead->next = list;
+}
+
+void killEntity(char *name)
+{
+	Entity *e = getEntityByObjectiveName(name);
+
+	if (e != NULL)
+	{
+		e->inUse = FALSE;
+	}
 }

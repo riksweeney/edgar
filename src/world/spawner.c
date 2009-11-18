@@ -85,7 +85,7 @@ static void init()
 
 	while (token != NULL)
 	{
-		if (strcmpignorecase(self->name, "common/spawner") == 0 && strstr(token, "enemy/") == NULL)
+		if (strcmpignorecase(self->name, "common/spawner") == 0 && strstr(token, "/") == NULL)
 		{
 			snprintf(name, sizeof(name), "enemy/%s", token);
 		}
@@ -191,7 +191,7 @@ static void spawn()
 							spawnCount++;
 						}
 						
-						if (strstr(token, "enemy/") == NULL)
+						if (strstr(token, "/") == NULL)
 						{
 							snprintf(name, sizeof(name), "enemy/%s", token);
 						}
@@ -262,7 +262,7 @@ static void spawn()
 					spawnCount++;
 				}
 
-				if (strstr(token, "enemy/") == NULL)
+				if (strstr(token, "/") == NULL)
 				{
 					snprintf(name, sizeof(name), "enemy/%s", token);
 				}
