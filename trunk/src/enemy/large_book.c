@@ -174,6 +174,8 @@ static void fireAttack()
 	
 	if (player.health > 0 && self->thinkTime <= 0)
 	{
+		self->endY = self->endY == 1 ? 0 : 1;
+		
 		self->action = &castFireInit;
 	}
 	
@@ -383,7 +385,9 @@ static void fireDrop()
 			break;
 			
 			case 1:
-				self->dirX = (self->face == LEFT ? -4 : 4);
+				self->dirX = self->head->endY == 1 ? 4.5 : 4;
+				
+				self->dirX *= (self->face == LEFT ? -1 : 1);
 				
 				self->action = &fireBounce;
 			break;

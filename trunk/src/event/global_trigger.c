@@ -57,7 +57,7 @@ void addGlobalTriggerFromScript(char *line)
 	if (e != NULL)
 	{
 		printf("Found an item in the inventory with name %s\n", triggerName);
-		
+
 		currentValue = (e->flags & STACKABLE) ? e->health : 1;
 	}
 
@@ -131,11 +131,11 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
 			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
-			
+
 			if (count >= total)
 			{
 				printf("Already got all the items needed for this trigger!\n");
-				
+
 				for (j=0;j<total;j++)
 				{
 					fireGlobalTrigger(triggerName);
@@ -185,7 +185,7 @@ void fireGlobalTrigger(char *name)
 					case UPDATE_OBJECTIVE:
 						updateObjective(trigger[i].targetName);
 					break;
-					
+
 					case UPDATE_TRIGGER:
 						printf("Updating trigger %s\n", trigger[i].targetName);
 						fireGlobalTrigger(trigger[i].targetName);
@@ -197,6 +197,14 @@ void fireGlobalTrigger(char *name)
 
 					case RUN_SCRIPT:
 						runScript(trigger[i].targetName);
+					break;
+
+					case KILL_ENTITY:
+						killEntity(trigger[i].targetName);
+					break;
+
+					case REMOVE_INVENTORY_ITEM:
+						removeInventoryItem(trigger[i].targetName);
 					break;
 
 					default:
@@ -224,7 +232,7 @@ void updateGlobalTrigger(char *name, int value)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			printf("Modifying global trigger value from %d to %d\n", trigger[i].count, (trigger[i].count - value));
-			
+
 			trigger[i].count -= value;
 		}
 	}
@@ -235,14 +243,14 @@ SDL_Surface *listObjectives()
 	int i;
 	char message[MAX_MESSAGE_LENGTH], *allMessages;
 	SDL_Surface *image;
-	
+
 	allMessages = (char *)malloc(MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
-	
+
 	if (allMessages == NULL)
 	{
 		showErrorAndExit("Could allocate a whole %d bytes for Objective list", MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 	}
-	
+
 	allMessages[0] = '\0';
 
 	for (i=0;i<MAX_TRIGGERS;i++)
@@ -250,27 +258,27 @@ SDL_Surface *listObjectives()
 		if (trigger[i].inUse == TRUE && trigger[i].targetType == UPDATE_OBJECTIVE)
 		{
 			snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
-			
+
 			strncat(allMessages, message, MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 		}
 	}
-	
+
 	/* Remove the last line break and space */
-	
+
 	if (strlen(allMessages) > 0)
 	{
 		allMessages[strlen(allMessages) - 2] = '\0';
 	}
-	
+
 	if (strlen(allMessages) == 0)
 	{
 		strncat(allMessages, _("No Objectives"), MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 	}
-	
+
 	image = createDialogBox(NULL, allMessages);
-	
+
 	free(allMessages);
-	
+
 	return image;
 }
 

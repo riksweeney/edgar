@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "objective.h"
 #include "trigger.h"
+#include "../inventory.h"
 #include "../event/script.h"
 #include "../hud.h"
 #include "../system/error.h"
@@ -106,11 +107,11 @@ static void addMapTrigger(char *triggerName, int count, int total, int targetTyp
 			if (strcmpignorecase(trigger[i].triggerName, triggerName) == 0 &&strcmpignorecase(trigger[i].targetName, targetName) == 0)
 			{
 				printf("Skipping duplicate Map Trigger %s %s\n", triggerName, targetName);
-				
+
 				return;
 			}
 		}
-		
+
 		if (trigger[i].inUse == FALSE)
 		{
 			trigger[i].inUse = TRUE;
@@ -174,6 +175,14 @@ void fireMapTrigger(char *name)
 
 					case RUN_SCRIPT:
 						runScript(trigger[i].targetName);
+					break;
+
+					case KILL_ENTITY:
+						killEntity(trigger[i].targetName);
+					break;
+
+					case REMOVE_INVENTORY_ITEM:
+						removeInventoryItem(trigger[i].targetName);
 					break;
 
 					default:
