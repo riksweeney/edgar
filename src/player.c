@@ -599,6 +599,8 @@ void playerWaitForDialog()
 
 	player.dirX = 0;
 
+	player.flags |= INVULNERABLE;
+
 	player.action = &dialogWait;
 }
 
@@ -607,7 +609,7 @@ void playerResumeNormal()
 	player.target = NULL;
 
 	player.action = NULL;
-	
+
 	player.flags &= ~INVULNERABLE;
 }
 
@@ -641,8 +643,6 @@ static void dialogWait()
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
 	}
-	
-	player.flags |= INVULNERABLE;
 }
 
 static void attackFinish()
@@ -1262,7 +1262,7 @@ static void playerDie()
 	player.thinkTime = 180;
 
 	player.action = &gameOverTimeOut;
-	
+
 	if (player.element == ICE)
 	{
 		player.flags |= NO_DRAW;
@@ -1703,7 +1703,7 @@ void setPlayerFrozen(int thinkTime)
 	{
 		becomeEdgar();
 	}
-	
+
 	player.element = ICE;
 
 	loadProperties("edgar/edgar_frozen", e);
@@ -1712,7 +1712,7 @@ void setPlayerFrozen(int thinkTime)
 
 	e->x = player.x + player.w / 2;
 	e->y = player.y + player.h / 2;
-	
+
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;
 
@@ -1750,7 +1750,7 @@ static void applyIce()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	self->face = player.face;
@@ -1759,7 +1759,7 @@ static void applyIce()
 
 	player.x = self->x + self->w / 2 - player.w / 2;
 	player.y = self->y + self->h / 2 - player.h / 2;
-	
+
 	if (self->thinkTime <= 0 || player.health <= 0)
 	{
 		for (i=0;i<8;i++)
@@ -1780,9 +1780,9 @@ static void applyIce()
 		playSoundToMap("sound/common/shatter.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->inUse = FALSE;
-		
+
 		player.element = NO_ELEMENT;
 	}
-	
+
 	checkToMap(self);
 }

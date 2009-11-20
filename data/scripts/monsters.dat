@@ -1,3 +1,7 @@
+IF MONSTER_BOOK HEALTH -1
+TALK Edgar This entire section is about monsters
+TALK Edgar I don't have any reason to read these but I'll keep it in mind in case I do
+END
 IF MONSTER_BOOK HEALTH 9
 TALK Edgar I wonder what other monsters there are...
 TALK Edgar Grimlore
