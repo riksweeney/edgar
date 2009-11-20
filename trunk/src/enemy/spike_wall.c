@@ -27,13 +27,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../collisions.h"
 #include "../geometry.h"
+#include "../world/target.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
 
 extern Entity *self;
 
+static void init(void);
 static void move(void);
+static void moveStartEnd(void);
 static void touch(Entity *other);
+static void followTargets(void);
 
 Entity *addSpikeWall(int x, int y, char *name)
 {
@@ -49,7 +53,7 @@ Entity *addSpikeWall(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &move;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->touch = &touch;
@@ -61,24 +65,117 @@ Entity *addSpikeWall(int x, int y, char *name)
 	return e;
 }
 
-static void move()
+static void init()
+{
+	switch (self->mental)
+	{
+		case 0:
+			self->action = &move;
+		break;
+
+		case 1:
+			self->action = &moveStartEnd;
+		break;
+
+		case 2:
+			self->action = &followTargets;
+		break;
+	}
+}
+
+static void followTargets()
+{
+	Target *t;
+	char name[MAX_VALUE_LENGTH];
+
+	checkToMap(self);
+
+	if (fabs(self->x - self->startX) <= fabs(self->dirX) && fabs(self->y - self->startY) <= fabs(self->dirY))
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		self->thinkTime++;
+
+		if (self->thinkTime > self->maxThinkTime)
+		{
+			self->thinkTime = 0;
+		}
+
+		snprintf(name, sizeof(name), "%s_TARGET_%d", self->objectiveName, self->thinkTime);
+
+		t = getTargetByName(name);
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Could not find target ", name);
+		}
+		
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->startX = t->x;
+		self->startY = t->y;
+
+		if (self->x != self->startX)
+		{
+			self->dirX = self->startX < self->x ? -self->speed : self->speed;
+		}
+
+		if (self->y != self->startY)
+		{
+			self->dirY = self->startY < self->y ? -self->speed : self->speed;
+		}
+	}
+}
+
+static void moveStartEnd()
 {
 	float dirX;
-	
+
 	if (self->active == TRUE || self->health == 1)
 	{
 		dirX = self->dirX;
-		
+
 		self->health = 1;
-		
+
 		checkToMap(self);
-		
+
+		if (self->x <= self->startX || self->x >= self->endX)
+		{
+			self->dirX = 0;
+		}
+
 		if (self->dirX == 0)
 		{
 			self->dirX = (dirX > 0 ? -self->speed : self->speed);
 		}
 	}
-	
+
+	else
+	{
+		checkToMap(self);
+	}
+}
+
+static void move()
+{
+	float dirX;
+
+	if (self->active == TRUE || self->health == 1)
+	{
+		dirX = self->dirX;
+
+		self->health = 1;
+
+		checkToMap(self);
+
+		if (self->dirX == 0)
+		{
+			self->dirX = (dirX > 0 ? -self->speed : self->speed);
+		}
+	}
+
 	else
 	{
 		checkToMap(self);
@@ -91,7 +188,7 @@ static void touch(Entity *other)
 	{
 		entityTouch(other);
 	}
-	
+
 	else
 	{
 		pushEntity(other);
