@@ -124,6 +124,18 @@ int main(int argc, char *argv[])
 						printf("%s\nmsgstr \"\"\n\n", line);
 					}
 				}
+
+				else if (strstr(line, "ADD OBJECTIVE") != NULL)
+				{
+					sscanf(line, "%*s %*s \"%[^\"]\"", filename);
+
+					snprintf(line, sizeof(line), "msgid \"%s\"", filename);
+
+					if (textAlreadyAdded(line) == FALSE)
+					{
+						printf("%s\nmsgstr \"\"\n\n", line);
+					}
+				}
 			}
 
 			fclose(fp);

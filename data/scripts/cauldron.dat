@@ -1,13 +1,18 @@
+IF CAULDRON HEALTH 4
+TALK Edgar Maybe this wasn't such a good idea after all...
+END
 IF CAULDRON HEALTH 0
 TALK Edgar It's a cauldron. Maggie has one just like this
 END
 IF CAULDRON HEALTH 1
 HAS_ITEM "Eyeball Smoothie" 1 1 CAULDRON 2 3
+IF CAULDRON HEALTH 2
 HAS_ITEM "Old Shield" 1 1 CAULDRON 2 3
 END
-IF CAULDRON HEALTH 1
+END
+IF CAULDRON HEALTH 2
 TALK Edgar Right, here goes!
-SET CAULDRON HEALTH 0
+SET CAULDRON HEALTH 4
 END
 IF CAULDRON HEALTH 3
 TALK Edgar I need all the main ingredients

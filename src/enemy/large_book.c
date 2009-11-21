@@ -125,9 +125,9 @@ static void redDieInit()
 
 	switch (self->maxThinkTime)
 	{
-		case 1:
+		case 2:
 			t = getTargetByName("RED_BOOK_TARGET_1");
-			
+
 			activateEntitiesWithRequiredName("RED_BOOK_STAGE_1", TRUE);
 
 			self->action = &redDie;
@@ -135,7 +135,7 @@ static void redDieInit()
 
 		default:
 			t = getTargetByName("RED_BOOK_TARGET_2");
-			
+
 			activateEntitiesWithRequiredName("RED_BOOK_STAGE_2", TRUE);
 
 			self->action = &redDie;
@@ -162,7 +162,7 @@ static void redDie()
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->maxThinkTime == 3)
+		if (self->maxThinkTime == 4)
 		{
 			entityDie();
 		}
@@ -222,11 +222,11 @@ static void fireAttackPause()
 
 		switch (self->maxThinkTime)
 		{
-			case 0:
+			case 1:
 				self->mental = 5;
 			break;
 
-			case 1:
+			case 2:
 				self->mental = 3;
 			break;
 
@@ -249,7 +249,7 @@ static void castFireInit()
 	{
 		self->endX = 6;
 
-		self->action = self->maxThinkTime == 2 ? &throwFire : &castFire;
+		self->action = self->maxThinkTime == 3 ? &throwFire : &castFire;
 
 		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
 	}
@@ -303,6 +303,8 @@ static void throwFire()
 
 			e->type = ENEMY;
 
+			e->flags |= DO_NOT_PERSIST;
+
 			setEntityAnimation(e, STAND);
 		}
 	}
@@ -345,6 +347,8 @@ static void castFire()
 		e->face = self->face;
 
 		e->type = ENEMY;
+
+		e->flags |= DO_NOT_PERSIST;
 
 		setEntityAnimation(e, STAND);
 
@@ -392,13 +396,13 @@ static void fireDrop()
 	{
 		switch (self->head->maxThinkTime)
 		{
-			case 0:
+			case 1:
 				self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 				self->action = &fireMove;
 			break;
 
-			case 1:
+			case 2:
 				self->dirX = self->head->endY == 1 ? 4.5 : 4;
 
 				self->dirX *= (self->face == LEFT ? -1 : 1);
@@ -480,9 +484,9 @@ static void blueDieInit()
 
 	switch (self->maxThinkTime)
 	{
-		case 1:
+		case 2:
 			t = getTargetByName("BLUE_BOOK_TARGET_1");
-			
+
 			activateEntitiesWithRequiredName("BLUE_BOOK_STAGE_1", TRUE);
 
 			self->action = &blueDie;
@@ -490,7 +494,7 @@ static void blueDieInit()
 
 		default:
 			t = getTargetByName("BLUE_BOOK_TARGET_2");
-			
+
 			activateEntitiesWithRequiredName("BLUE_BOOK_STAGE_2", TRUE);
 
 			self->action = &blueDie;
@@ -517,7 +521,7 @@ static void blueDie()
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->maxThinkTime == 3)
+		if (self->maxThinkTime == 4)
 		{
 			entityDie();
 		}
@@ -573,17 +577,17 @@ static void castIceInit()
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->maxThinkTime == 0)
+		if (self->maxThinkTime == 1)
 		{
 			self->endX = 5 + prand() % 6;
-			
+
 			self->action = &castIce;
 		}
 
 		else
 		{
 			self->endX = 3 + prand() % 4;
-			
+
 			self->action = &createIceWall;
 		}
 	}
@@ -634,10 +638,10 @@ static void castIce()
 		e->face = self->face;
 
 		e->type = ENEMY;
-		
+
 		e->thinkTime = 30;
-		
-		e->flags |= FLY;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
 
 		setEntityAnimation(e, STAND);
 
@@ -655,9 +659,9 @@ static void castIce()
 			self->thinkTime = 30;
 		}
 	}
-	
+
 	checkToMap(self);
-	
+
 	hover();
 }
 
@@ -671,7 +675,7 @@ static void createIceWall()
 	if (self->thinkTime <= 0)
 	{
 		mapFloor = getMapFloor(self->x, self->y);
-		
+
 		for (i=0;i<2;i++)
 		{
 			e = getFreeEntity();
@@ -700,6 +704,8 @@ static void createIceWall()
 
 			e->type = ENEMY;
 
+			e->flags |= DO_NOT_PERSIST;
+
 			e->head = self;
 
 			e->thinkTime = 60;
@@ -721,9 +727,9 @@ static void createIceWall()
 			self->thinkTime = 90;
 		}
 	}
-	
+
 	checkToMap(self);
-	
+
 	hover();
 }
 
@@ -774,17 +780,17 @@ static void iceWallMove()
 		else if (self->thinkTime < 0 && self->dirX == 0)
 		{
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
-			
+
 			for (i=0;i<8;i++)
 			{
 				e = addTemporaryItem("misc/ice_wall_piece", self->x, self->y, RIGHT, 0, 0);
-				
+
 				e->x = self->x + self->w / 2;
 				e->x -= e->w / 2;
-				
+
 				e->y = self->y + self->h / 2;
 				e->y -= e->h / 2;
-				
+
 				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
@@ -792,7 +798,7 @@ static void iceWallMove()
 
 				e->thinkTime = 60 + (prand() % 60);
 			}
-			
+
 			self->inUse = FALSE;
 		}
 
@@ -827,30 +833,30 @@ static void iceDrop()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~FLY;
 	}
-	
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
 		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
-		
+
 		for (i=0;i<8;i++)
 		{
 			e = addTemporaryItem("misc/ice_spike_piece", self->x, self->y, RIGHT, 0, 0);
-			
+
 			e->x = self->x + self->w / 2;
 			e->x -= e->w / 2;
-			
+
 			e->y = self->y + self->h / 2;
 			e->y -= e->h / 2;
-			
+
 			e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
@@ -858,7 +864,7 @@ static void iceDrop()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		self->inUse = FALSE;
 	}
 }

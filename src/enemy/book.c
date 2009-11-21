@@ -195,7 +195,7 @@ static void dartDownFinish()
 		if (self->dirY == 0 || self->y <= self->startY)
 		{
 			self->thinkTime = 60;
-			
+
 			self->startY = self->y;
 
 			self->action = &lookForPlayer;
@@ -289,6 +289,8 @@ static void castFire()
 		e->face = self->face;
 
 		e->type = ENEMY;
+
+		e->flags |= DO_NOT_PERSIST;
 
 		setEntityAnimation(e, STAND);
 

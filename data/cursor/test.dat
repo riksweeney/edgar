@@ -11,3 +11,5 @@ weapon/basic_sword
 weapon/small_wooden_shield
 enemy/poltergiest_1
 enemy/blue_book
+weapon/bow
+weapon/normal_arrow
