@@ -115,16 +115,16 @@ static void touch(Entity *other)
 
 		other->dirX = 0;
 		other->dirY = 0;
-		
+
 		setPlayerLocked(TRUE);
-		
+
 		setPlayerLocked(FALSE);
 
 		setCustomAction(other, &helpless, 60, 0);
 		setCustomAction(other, &invulnerableNoFlash, 60, 0);
 
 		self->action = &suckIn;
-		
+
 		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
 
 		self->targetX = self->x + self->w / 2 - other->w / 2;
@@ -151,6 +151,8 @@ static void touch(Entity *other)
 		other->dirX *= -1;
 
 		other->parent = self;
+
+		playSoundToMap("sound/enemy/whirlwind/ricochet.ogg", -1, self->x, self->y, 0);
 	}
 }
 
@@ -236,12 +238,12 @@ static void die()
 
 			self->target->flags &= ~NO_DRAW;
 		}
-		
+
 		else
 		{
 			self->target->inUse = FALSE;
 		}
 	}
-	
+
 	entityDie();
 }

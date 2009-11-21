@@ -11,6 +11,7 @@ Version 0.40
 * The Golem Boss should no longer get stuck when reforming
 * Removed redundant translation strings
 * Items such as Bombs can no longer be thrown while in the inventory screen
+* The wooden doors now look slightly more like wooden doors
 
 Version 0.33
 * The game now works correctly for locales using comma as their decimal separator

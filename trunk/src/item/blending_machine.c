@@ -181,7 +181,7 @@ static Entity *addComponent(char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Blending Machine");
+		showErrorAndExit("No free slots to add a Blending Machine Component");
 	}
 
 	loadProperties(name, e);
