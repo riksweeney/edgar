@@ -42,7 +42,11 @@ void freeInventory()
 {
 	/* Clear the list */
 
-	memset(&inventory, 0, sizeof(Inventory) * MAX_INVENTORY_ITEMS);
+	memset(inventory.item, 0, sizeof(Entity) * MAX_INVENTORY_ITEMS);
+	
+	inventory.selectedIndex = 0;
+	
+	inventory.cursorIndex = 0;
 
 	if (inventory.background != NULL)
 	{

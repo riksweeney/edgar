@@ -259,7 +259,7 @@ SDL_Surface *listObjectives()
 		{
 			snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 
-			strncat(allMessages, message, MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+			strncat(allMessages, message, (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - 1);
 		}
 	}
 
@@ -272,7 +272,7 @@ SDL_Surface *listObjectives()
 
 	if (strlen(allMessages) == 0)
 	{
-		strncat(allMessages, _("No Objectives"), MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+		strncat(allMessages, _("No Objectives"), (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - 1);
 	}
 
 	image = createDialogBox(NULL, allMessages);
