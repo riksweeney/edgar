@@ -1182,10 +1182,8 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "START_Y %d\n", (int)self->startY);
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
-			/*
 			fprintf(fp, "DIR_X %0.2f\n", self->dirX);
 			fprintf(fp, "DIR_Y %0.2f\n", self->dirY);
-			*/
 			fprintf(fp, "MAX_THINKTIME %d\n", self->maxThinkTime);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 			fprintf(fp, "MENTAL %d\n", self->mental);
