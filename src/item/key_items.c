@@ -60,6 +60,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "tuning_fork.h"
 #include "pedestal.h"
 #include "cauldron.h"
+#include "soul_bottle.h"
 
 extern Entity *self, player;
 
@@ -103,7 +104,8 @@ static Constructor items[] = {
 {"item/robot", &addRobot},
 {"item/tuning_fork", &addTuningFork},
 {"item/pedestal", &addPedestal},
-{"item/cauldron", &addCauldron}
+{"item/cauldron", &addCauldron},
+{"item/soul_bottle", &addSoulBottle}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

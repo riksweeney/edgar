@@ -20,21 +20,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
-#include "../entity.h"
 #include "../system/properties.h"
+#include "../entity.h"
+#include "key_items.h"
+#include "../hud.h"
 #include "../system/error.h"
 
-extern Entity *self;
+extern Entity *self, player;
+extern Game game;
 
-static void move(void);
+static void useBottle(int);
 
-Entity *addSpikeSphere(int x, int y, char *name)
+Entity *addSoulBottle(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Spike Sphere");
+		showErrorAndExit("No free slots to add a Soul Bottle");
 	}
 
 	loadProperties(name, e);
@@ -42,25 +45,29 @@ Entity *addSpikeSphere(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &move;
-	e->draw = &drawLoopingAnimationToMap;
-	e->touch = &entityTouch;
+	e->type = KEY_ITEM;
 
-	e->type = ENEMY;
+	e->face = RIGHT;
+
+	e->action = &doNothing;
+	e->touch = &keyItemTouch;
+	e->activate = &useBottle;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->active = FALSE;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
 }
 
-static void move()
+static void useBottle(int val)
 {
-	self->endY += self->speed;
-
-	if (self->endY >= 360)
+	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
-		self->endY = 0;
-	}
+		self->thinkTime = self->maxThinkTime;
 
-	self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * self->mental;
+		setInfoBoxMessage(30, _("Not working in this version!"));
+	}
 }

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
 #include "../entity.h"
+#include "../custom_actions.h"
 #include "../system/properties.h"
 #include "../collisions.h"
 #include "../system/error.h"
@@ -65,6 +66,12 @@ static void iceAttackPause(void);
 static void createIceWall(void);
 static void iceWallMove(void);
 static void iceWallTouch(Entity *);
+static void teleportToOtherSide(void);
+static void createIceBlock(void);
+static void iceBlockDrop(void);
+static void iceBlockTakeDamage(Entity *, int);
+static void iceBlockTouch(Entity *);
+static void iceBlockDie(void);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -247,7 +254,7 @@ static void castFireInit()
 
 	if (self->thinkTime <= 0)
 	{
-		self->endX = 6;
+		self->endX = 7;
 
 		self->action = self->maxThinkTime == 3 ? &throwFire : &castFire;
 
@@ -284,7 +291,7 @@ static void throwFire()
 			e->x -= e->w / 2;
 			e->y -= e->h / 2;
 
-			dir = self->mental == 2 ? 1.50 : 1.75;
+			dir = self->mental == 2 ? 1.25 : 1.75;
 
 			e->dirY = -9;
 			e->dirX = self->face == LEFT ? -(i * dir) : (i * dir);
@@ -309,7 +316,7 @@ static void throwFire()
 		}
 	}
 
-	self->thinkTime = 30;
+	self->thinkTime = 60;
 
 	self->action = &castFireFinish;
 }
@@ -380,7 +387,7 @@ static void castFireFinish()
 		{
 			self->thinkTime = 180;
 
-			self->action = &fireAttackPause;
+			self->action = self->maxThinkTime == 2 ? &teleportToOtherSide : &fireAttackPause;
 		}
 
 		else
@@ -403,9 +410,7 @@ static void fireDrop()
 			break;
 
 			case 2:
-				self->dirX = self->head->endY == 1 ? 4.5 : 4;
-
-				self->dirX *= (self->face == LEFT ? -1 : 1);
+				self->dirX = (self->face == LEFT ? -4 : 4);
 
 				self->action = &fireBounce;
 			break;
@@ -584,11 +589,18 @@ static void castIceInit()
 			self->action = &castIce;
 		}
 
-		else
+		else if (self->maxThinkTime == 2)
 		{
 			self->endX = 3 + prand() % 4;
 
 			self->action = &createIceWall;
+		}
+		
+		else
+		{
+			self->endX = 5 + prand() % 6;
+
+			self->action = &createIceBlock;
 		}
 	}
 
@@ -719,7 +731,7 @@ static void createIceWall()
 		{
 			self->thinkTime = 0;
 
-			self->action = &castIceFinish;
+			self->action = &teleportToOtherSide;
 		}
 
 		else
@@ -797,6 +809,8 @@ static void iceWallMove()
 				setEntityAnimation(e, i);
 
 				e->thinkTime = 60 + (prand() % 60);
+				
+				e->touch = NULL;
 			}
 
 			self->inUse = FALSE;
@@ -863,6 +877,8 @@ static void iceDrop()
 			setEntityAnimation(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
+			
+			e->touch = NULL;
 		}
 
 		self->inUse = FALSE;
@@ -917,4 +933,276 @@ static void hover()
 	}
 
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
+}
+
+static void teleportToOtherSide()
+{
+	Target *t;
+	
+	if (strcmpignorecase(self->name, "enemy/large_red_book") == 0)
+	{
+		t = getTargetByName("RED_BOOK_LEFT_SIDE");
+		
+		if (t == NULL)
+		{
+			showErrorAndExit("Red Book cannot find target");
+		}
+		
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("RED_BOOK_TARGET_1");
+			
+			if (t == NULL)
+			{
+				showErrorAndExit("Red Book cannot find target");
+			}
+		}
+		
+		self->action = &fireAttackPause;
+	}
+	
+	else if (strcmpignorecase(self->name, "enemy/large_blue_book") == 0)
+	{
+		t = getTargetByName("BLUE_BOOK_RIGHT_SIDE");
+		
+		if (t == NULL)
+		{
+			showErrorAndExit("Blue Book cannot find target");
+		}
+		
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("BLUE_BOOK_TARGET_1");
+			
+			if (t == NULL)
+			{
+				showErrorAndExit("Blue Book cannot find target");
+			}
+		}
+		
+		self->action = &castIceFinish;
+	}
+	
+	self->targetX = t->x;
+	self->targetY = t->y;
+	
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+}
+
+static void createIceBlock()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice Block");
+		}
+
+		loadProperties("edgar/edgar_frozen", e);
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2;
+		e->targetY = self->y - 100 - (prand() % 60);
+
+		e->x -= e->w / 2;
+		
+		e->damage = 1;
+		
+		e->health = 50;
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		e->action = &iceBlockDrop;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+		e->pain = &enemyPain;
+		e->die = &iceBlockDie;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 30;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
+
+		setEntityAnimation(e, STAND);
+
+		self->endX--;
+
+		if (self->endX <= 0)
+		{
+			self->thinkTime = 0;
+
+			self->action = &castIceFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 60;
+		}
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void iceBlockDrop()
+{
+	if (self->standingOn != NULL)
+	{
+		self->standingOn->action = self->standingOn->die;
+	}
+	
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 && (self->flags & FLY))
+	{
+		self->flags &= ~FLY;
+		
+		self->thinkTime = 300;
+	}
+
+	if (self->flags & ON_GROUND)
+	{
+		self->touch = &iceBlockTouch;
+		
+		self->takeDamage = &iceBlockTakeDamage;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->die();
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void iceBlockTouch(Entity *other)
+{
+	Entity *temp;
+	
+	pushEntity(other);
+	
+	if (other->type == WEAPON && (other->flags & ATTACKING))
+	{
+		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
+		{
+			self->takeDamage(other, other->damage);
+		}
+	}
+
+	else if (other->type == PROJECTILE && other->parent != self)
+	{
+		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
+		{
+			self->takeDamage(other, other->damage);
+		}
+
+		temp = self;
+
+		self = other;
+
+		self->die();
+
+		self = temp;
+	}
+}
+
+void iceBlockTakeDamage(Entity *other, int damage)
+{
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+	
+	if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
+	{
+		self->damage = 0;
+
+		self->die();
+	}
+
+	else if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->damage = 0;
+
+			self->die();
+		}
+	}
+}
+
+static void iceBlockDie()
+{
+	int i;
+	Entity *e;
+	
+	for (i=0;i<8;i++)
+	{
+		e = addTemporaryItem("common/ice_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimation(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+		
+		e->touch = NULL;
+	}
+
+	playSoundToMap("sound/common/shatter.ogg", -1, player.x, player.y, 0);
+
+	self->inUse = FALSE;
 }
