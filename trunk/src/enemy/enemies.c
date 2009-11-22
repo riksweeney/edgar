@@ -62,6 +62,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "whirlwind.h"
 #include "poltergiest.h"
 #include "large_book.h"
+#include "spike_sphere.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -72,6 +73,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/flying_maggot.h"
 #include "../boss/golem_rock_dropper.h"
 #include "../boss/blob_boss.h"
+
 #include "../system/error.h"
 
 static Constructor enemies[] = {
@@ -135,7 +137,8 @@ static Constructor enemies[] = {
 {"enemy/poltergiest_1", &addPoltergiest},
 {"enemy/poltergiest_2", &addPoltergiest},
 {"enemy/large_red_book", &addLargeBook},
-{"enemy/large_blue_book", &addLargeBook}
+{"enemy/large_blue_book", &addLargeBook},
+{"enemy/spike_sphere", &addSpikeSphere},
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
