@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/enemy/exploding_spike_sphere.dat
+ANIM_FILE data/anim/enemy/spike_sphere.dat
+TYPE ENEMY
+DAMAGE 1
+FLAGS FLY|UNBLOCKABLE
+THINKTIME 90
+HEALTH 50
