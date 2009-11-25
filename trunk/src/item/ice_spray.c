@@ -19,10 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "key_items.h"
+#include "ice_cube.h"
 #include "../hud.h"
 #include "../system/error.h"
 
@@ -64,10 +66,20 @@ Entity *addIceSpray(int x, int y, char *name)
 
 static void sprayIce(int val)
 {
+	Entity *e;
+
 	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
-		self->thinkTime = self->maxThinkTime;
+		e = addIceCube(player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, "item/ice_cube");
 
-		setInfoBoxMessage(30, _("Not working in this version!"));
+		e->dirX = player.face == LEFT ? -5 : 5;
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		e->face = player.face;
+
+		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
+
+		self->thinkTime = self->maxThinkTime;
 	}
 }

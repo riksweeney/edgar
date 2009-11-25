@@ -19,14 +19,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../entity.h"
+#include "../custom_actions.h"
 #include "../system/properties.h"
 #include "../system/error.h"
 
 extern Entity *self;
 
 static void move(void);
+static void takeDamage(Entity *, int);
 
 Entity *addSpikeSphere(int x, int y, char *name)
 {
@@ -45,6 +48,7 @@ Entity *addSpikeSphere(int x, int y, char *name)
 	e->action = &move;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
 
@@ -63,4 +67,11 @@ static void move()
 	}
 
 	self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * self->mental;
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
 }

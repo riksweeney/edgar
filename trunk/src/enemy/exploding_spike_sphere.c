@@ -29,9 +29,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void init(void);
 static void die(void);
 static void explode(void);
+static void floatUpAndDown(void);
 
 Entity *addExplodingSpikeSphere(int x, int y, char *name)
 {
@@ -47,7 +48,7 @@ Entity *addExplodingSpikeSphere(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
@@ -60,9 +61,30 @@ Entity *addExplodingSpikeSphere(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void init()
 {
-	moveLeftToRight();
+	switch (self->mental)
+	{
+		case 0:
+			self->action = &moveLeftToRight;
+		break;
+		
+		default:
+			self->action = &floatUpAndDown;
+		break;
+	}
+}
+
+static void floatUpAndDown()
+{
+	self->endY += self->speed;
+
+	if (self->endY >= 360)
+	{
+		self->endY = 0;
+	}
+
+	self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * self->mental;
 }
 
 static void die()
@@ -78,14 +100,6 @@ static void die()
 	if (self->thinkTime < 120)
 	{
 		if (self->thinkTime % 3 == 0)
-		{
-			self->flags ^= FLASH;
-		}
-	}
-
-	else if (self->thinkTime < 180)
-	{
-		if (self->thinkTime % 6 == 0)
 		{
 			self->flags ^= FLASH;
 		}
