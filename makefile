@@ -1,4 +1,4 @@
-VERSION = 0.40
+VERSION = 0.41
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -70,6 +70,7 @@ CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burn
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
 CORE_OBJS += error.o code_door.o code_display.o light_sphere.o poltergiest.o book.o movable_lift.o glass_wall.o spike_wall.o
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
+CORE_OBJS += thunder_cloud.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
