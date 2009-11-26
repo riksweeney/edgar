@@ -41,6 +41,7 @@ void setReplayData(char *name, int loadedGame)
 	char mapFile[6];
 	double version;
 	long seed;
+	int read;
 
 	printf("Setting replay file to %s\n", name);
 
@@ -53,7 +54,7 @@ void setReplayData(char *name, int loadedGame)
 
 	game.gameType = REPLAYING;
 
-	fread(&version, sizeof(double), 1, replayBuffer);
+	read = fread(&version, sizeof(double), 1, replayBuffer);
 
 	printf("This version : %0.2f Replay version %0.2f\n", VERSION, version);
 
@@ -62,13 +63,13 @@ void setReplayData(char *name, int loadedGame)
 		printf("This replay is from a different version and may not function correctly\n");
 	}
 
-	fread(&seed, sizeof(long), 1, replayBuffer);
+	read = fread(&seed, sizeof(long), 1, replayBuffer);
 
 	printf("Setting seed %ld\n", seed);
 
 	setSeed(seed);
 
-	fread(mapFile, 5, 1, replayBuffer);
+	read = fread(mapFile, 5, 1, replayBuffer);
 
 	mapFile[5] = '\0';
 

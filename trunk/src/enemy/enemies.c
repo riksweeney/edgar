@@ -64,6 +64,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "large_book.h"
 #include "spike_sphere.h"
 #include "exploding_spike_sphere.h"
+#include "thunder_cloud.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -140,8 +141,10 @@ static Constructor enemies[] = {
 {"enemy/poltergiest_3", &addPoltergiest},
 {"enemy/large_red_book", &addLargeBook},
 {"enemy/large_blue_book", &addLargeBook},
+{"enemy/large_yellow_book", &addLargeBook},
 {"enemy/spike_sphere", &addSpikeSphere},
-{"enemy/exploding_spike_sphere", &addExplodingSpikeSphere}
+{"enemy/exploding_spike_sphere", &addExplodingSpikeSphere},
+{"enemy/thunder_cloud", &addThunderCloud}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void compressFile(char *sourceName)
 {
+	int read;
 	unsigned char *source, *dest;
 	unsigned long fileSize, compressedSize, ensuredSize;
 	FILE *fp;
@@ -53,7 +54,7 @@ void compressFile(char *sourceName)
 
 	compressedSize = ensuredSize;
 
-	fread(source, fileSize, 1, fp);
+	read = fread(source, fileSize, 1, fp);
 
 	fclose(fp);
 
@@ -79,6 +80,7 @@ unsigned char *decompressFile(char *sourceName)
 	unsigned char *source, *dest;
 	unsigned long compressedSize, fileSize;
 	FILE *fp;
+	int read;
 
 	fp = fopen(sourceName, "rb");
 
@@ -95,7 +97,7 @@ unsigned char *decompressFile(char *sourceName)
 
 	fseek(fp, 0L, SEEK_SET);
 
-	fread(&fileSize, sizeof(unsigned long), 1, fp);
+	read = fread(&fileSize, sizeof(unsigned long), 1, fp);
 
 	source = (unsigned char *)malloc(compressedSize * sizeof(unsigned char));
 
@@ -111,7 +113,7 @@ unsigned char *decompressFile(char *sourceName)
 		showErrorAndExit("Failed to allocate %ld bytes to compress save file", (fileSize + 1) * sizeof(unsigned char));
 	}
 
-	fread(source, compressedSize, 1, fp);
+	read = fread(source, compressedSize, 1, fp);
 
 	printf("Decompressing from %ld to %ld\n", compressedSize, fileSize);
 

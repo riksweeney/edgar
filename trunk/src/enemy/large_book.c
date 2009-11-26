@@ -32,7 +32,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../system/random.h"
 #include "../world/target.h"
-#include "../enemy/rock.h"
+#include "rock.h"
+#include "thunder_cloud.h"
 #include "../item/item.h"
 
 extern Entity *self, player;
@@ -72,6 +73,13 @@ static void iceBlockDrop(void);
 static void iceBlockTakeDamage(Entity *, int);
 static void iceBlockTouch(Entity *);
 static void iceBlockDie(void);
+static void yellowWait(void);
+static void yellowDieInit(void);
+static void yellowDie(void);
+static void castLightningInit(void);
+static void createThunderCloud(void);
+static void createThunderCloudFinish(void);
+static void lightningAttack(void);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -97,10 +105,16 @@ Entity *addLargeBook(int x, int y, char *name)
 		e->die = &redDieInit;
 	}
 
-	if (strcmpignorecase(name, "enemy/large_blue_book") == 0)
+	else if (strcmpignorecase(name, "enemy/large_blue_book") == 0)
 	{
 		e->action = &blueWait;
 		e->die = &blueDieInit;
+	}
+	
+	else if (strcmpignorecase(name, "enemy/large_yellow_book") == 0)
+	{
+		e->action = &yellowWait;
+		e->die = &yellowDieInit;
 	}
 
 	e->type = ENEMY;
@@ -1205,4 +1219,167 @@ static void iceBlockDie()
 	playSoundToMap("sound/common/shatter.ogg", -1, player.x, player.y, 0);
 
 	self->inUse = FALSE;
+}
+
+static void yellowWait()
+{
+	if (self->active == TRUE)
+	{
+		self->action = &lightningAttack;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void yellowDieInit()
+{
+	Target *t;
+
+	self->touch = NULL;
+
+	self->maxThinkTime++;
+
+	switch (self->maxThinkTime)
+	{
+		case 2:
+			t = getTargetByName("YELLOW_BOOK_TARGET_1");
+
+			activateEntitiesWithRequiredName("YELLOW_BOOK_TARGET_1", TRUE);
+
+			self->action = &yellowDie;
+		break;
+
+		default:
+			t = getTargetByName("YELLOW_BOOK_TARGET_2");
+
+			activateEntitiesWithRequiredName("YELLOW_BOOK_STAGE_2", TRUE);
+
+			self->action = &yellowDie;
+		break;
+	}
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Yellow Book cannot find target");
+	}
+
+	self->startX = self->x;
+	self->startY = 0;
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->thinkTime = 60;
+}
+
+static void yellowDie()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 4)
+		{
+			entityDie();
+		}
+
+		else
+		{
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			self->touch = &entityTouch;
+
+			self->action = &yellowWait;
+
+			self->active = FALSE;
+
+			self->startX = self->targetX;
+			self->startY = self->targetY;
+
+			self->health = self->maxHealth * 1.5;
+		}
+	}
+
+	else
+	{
+		shudder();
+	}
+}
+
+static void lightningAttack()
+{
+	self->thinkTime--;
+
+	if (player.health > 0 && self->thinkTime <= 0)
+	{
+		self->endY = self->endY == 1 ? 0 : 1;
+		
+		self->action = &castLightningInit;
+	}
+
+	facePlayer();
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void castLightningInit()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 1)
+		{
+			self->action = &createThunderCloud;
+		}
+	}
+
+	hover();
+}
+
+static void createThunderCloud()
+{
+	Entity *e = addThunderCloud(self->x, self->y, "enemy/thunder_cloud");
+	
+	e->x = self->x + self->w / 2;
+	e->y = self->y + self->h / 2;
+
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
+
+	e->targetX = player.x + player.w / 2;
+	e->targetY = self->y - 100 - (prand() % 60);
+
+	e->x -= e->w / 2;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	e->head = self;
+
+	e->face = RIGHT;
+
+	setEntityAnimation(e, STAND);
+	
+	self->action = &createThunderCloudFinish;
+}
+
+static void createThunderCloudFinish()
+{
+	facePlayer();
+
+	checkToMap(self);
+
+	hover();
 }
