@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "player.h"
 #include "item/item.h"
+#include "item/key_items.h"
 #include "hud.h"
 #include "event/trigger.h"
 #include "event/global_trigger.h"
@@ -459,6 +460,8 @@ void loadInventoryItems()
 		if (inventory.item[i].inUse == TRUE)
 		{
 			loadProperties(inventory.item[i].name, &e);
+			
+			inventory.item[i].fallout = &keyItemFallout;
 
 			for (j=0;j<MAX_ANIMATION_TYPES;j++)
 			{

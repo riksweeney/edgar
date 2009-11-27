@@ -80,6 +80,11 @@ static void castLightningInit(void);
 static void createThunderCloud(void);
 static void createThunderCloudFinish(void);
 static void lightningAttack(void);
+static void createLightningWave(void);
+static void createLightningWaveInit(void);
+static void lightningAttackPause(void);
+static void castLightningFinish(void);
+static void lightningWaveStart(void);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -110,7 +115,7 @@ Entity *addLargeBook(int x, int y, char *name)
 		e->action = &blueWait;
 		e->die = &blueDieInit;
 	}
-	
+
 	else if (strcmpignorecase(name, "enemy/large_yellow_book") == 0)
 	{
 		e->action = &yellowWait;
@@ -609,7 +614,7 @@ static void castIceInit()
 
 			self->action = &createIceWall;
 		}
-		
+
 		else
 		{
 			self->endX = 5 + prand() % 6;
@@ -823,7 +828,7 @@ static void iceWallMove()
 				setEntityAnimation(e, i);
 
 				e->thinkTime = 60 + (prand() % 60);
-				
+
 				e->touch = NULL;
 			}
 
@@ -891,7 +896,7 @@ static void iceDrop()
 			setEntityAnimation(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
-			
+
 			e->touch = NULL;
 		}
 
@@ -952,54 +957,76 @@ static void hover()
 static void teleportToOtherSide()
 {
 	Target *t;
-	
+
 	if (strcmpignorecase(self->name, "enemy/large_red_book") == 0)
 	{
 		t = getTargetByName("RED_BOOK_LEFT_SIDE");
-		
+
 		if (t == NULL)
 		{
 			showErrorAndExit("Red Book cannot find target");
 		}
-		
+
 		if ((int)t->x == (int)self->x)
 		{
 			t = getTargetByName("RED_BOOK_TARGET_1");
-			
+
 			if (t == NULL)
 			{
 				showErrorAndExit("Red Book cannot find target");
 			}
 		}
-		
+
 		self->action = &fireAttackPause;
 	}
-	
+
 	else if (strcmpignorecase(self->name, "enemy/large_blue_book") == 0)
 	{
 		t = getTargetByName("BLUE_BOOK_RIGHT_SIDE");
-		
+
 		if (t == NULL)
 		{
 			showErrorAndExit("Blue Book cannot find target");
 		}
-		
+
 		if ((int)t->x == (int)self->x)
 		{
 			t = getTargetByName("BLUE_BOOK_TARGET_1");
-			
+
 			if (t == NULL)
 			{
 				showErrorAndExit("Blue Book cannot find target");
 			}
 		}
-		
+
 		self->action = &castIceFinish;
 	}
-	
+
+	else if (strcmpignorecase(self->name, "enemy/large_yellow_book") == 0)
+	{
+		t = getTargetByName("YELLOW_BOOK_RIGHT_SIDE");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Yellow Book cannot find target");
+		}
+
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("YELLOW_BOOK_TARGET_1");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Yellow Book cannot find target");
+			}
+		}
+
+		self->action = &castLightningFinish;
+	}
+
 	self->targetX = t->x;
 	self->targetY = t->y;
-	
+
 	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
@@ -1034,9 +1061,9 @@ static void createIceBlock()
 		e->targetY = self->y - 100 - (prand() % 60);
 
 		e->x -= e->w / 2;
-		
+
 		e->damage = 1;
-		
+
 		e->health = 50;
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
@@ -1089,37 +1116,37 @@ static void iceBlockDrop()
 	{
 		self->standingOn->action = self->standingOn->die;
 	}
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0 && (self->flags & FLY))
 	{
 		self->flags &= ~FLY;
-		
+
 		self->thinkTime = 300;
 	}
 
 	if (self->flags & ON_GROUND)
 	{
 		self->touch = &iceBlockTouch;
-		
+
 		self->takeDamage = &iceBlockTakeDamage;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->die();
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static void iceBlockTouch(Entity *other)
 {
 	Entity *temp;
-	
+
 	pushEntity(other);
-	
+
 	if (other->type == WEAPON && (other->flags & ATTACKING))
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
@@ -1151,7 +1178,7 @@ void iceBlockTakeDamage(Entity *other, int damage)
 	{
 		return;
 	}
-	
+
 	if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
 	{
 		self->damage = 0;
@@ -1198,7 +1225,7 @@ static void iceBlockDie()
 {
 	int i;
 	Entity *e;
-	
+
 	for (i=0;i<8;i++)
 	{
 		e = addTemporaryItem("common/ice_piece", self->x, self->y, RIGHT, 0, 0);
@@ -1212,7 +1239,7 @@ static void iceBlockDie()
 		setEntityAnimation(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
-		
+
 		e->touch = NULL;
 	}
 
@@ -1246,7 +1273,7 @@ static void yellowDieInit()
 		case 2:
 			t = getTargetByName("YELLOW_BOOK_TARGET_1");
 
-			activateEntitiesWithRequiredName("YELLOW_BOOK_TARGET_1", TRUE);
+			activateEntitiesWithRequiredName("YELLOW_BOOK_STAGE_1", TRUE);
 
 			self->action = &yellowDie;
 		break;
@@ -1319,7 +1346,7 @@ static void lightningAttack()
 	if (player.health > 0 && self->thinkTime <= 0)
 	{
 		self->endY = self->endY == 1 ? 0 : 1;
-		
+
 		self->action = &castLightningInit;
 	}
 
@@ -1340,6 +1367,17 @@ static void castLightningInit()
 		{
 			self->action = &createThunderCloud;
 		}
+
+		if (self->maxThinkTime == 2)
+		{
+			facePlayer();
+
+			self->endX = 0;
+
+			self->targetX = self->x + (self->face == RIGHT ? 64 : -64);
+
+			self->action = &createLightningWaveInit;
+		}
 	}
 
 	hover();
@@ -1348,7 +1386,7 @@ static void castLightningInit()
 static void createThunderCloud()
 {
 	Entity *e = addThunderCloud(self->x, self->y, "enemy/thunder_cloud");
-	
+
 	e->x = self->x + self->w / 2;
 	e->y = self->y + self->h / 2;
 
@@ -1371,7 +1409,7 @@ static void createThunderCloud()
 	e->face = RIGHT;
 
 	setEntityAnimation(e, STAND);
-	
+
 	self->action = &createThunderCloudFinish;
 }
 
@@ -1382,4 +1420,165 @@ static void createThunderCloudFinish()
 	checkToMap(self);
 
 	hover();
+}
+
+static void createLightningWaveInit()
+{
+	Entity *e;
+
+	if (self->endX == 0)
+	{
+		e = addThunderCloud(self->x, self->y, "enemy/thunder_cloud");
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = self->targetX;
+		e->targetY = getMapCeiling(self->x, self->y);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, STAND);
+
+		e->action = &lightningWaveStart;
+
+		self->endX = 1;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void lightningWaveStart()
+{
+	self->head->action = &createLightningWave;
+
+	self->inUse = FALSE;
+}
+
+static void createLightningWave()
+{
+	int i, top, bottom, valid;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		bottom = getMapFloor(self->x, self->y);
+		top    = getMapCeiling(self->x, self->y);
+
+		valid = TRUE;
+
+		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+
+		for (i=top;i<bottom;i+=32)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add lightning");
+			}
+
+			loadProperties("enemy/lightning", e);
+
+			setEntityAnimation(e, STAND);
+
+			e->x = self->targetX + self->w / 2 - e->w / 2;
+			e->y = i;
+
+			e->action = &lightningWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->currentFrame = prand() % 6;
+
+			e->face = RIGHT;
+
+			e->thinkTime = 15;
+
+			if (isValidOnMap(e) == FALSE)
+			{
+				valid = FALSE;
+
+				e->inUse = FALSE;
+
+				break;
+			}
+		}
+
+		if (valid == TRUE)
+		{
+			e = addSmallRock(self->targetX, bottom, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->targetX, bottom, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			self->targetX += self->face == RIGHT ? 64 : -64;
+
+			self->thinkTime = 45;
+		}
+
+		else
+		{
+			self->action = &teleportToOtherSide;
+		}
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void lightningAttackPause()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &lightningAttack;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void castLightningFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 180;
+
+		self->action = &lightningAttackPause;
+	}
 }

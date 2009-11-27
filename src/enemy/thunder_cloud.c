@@ -24,10 +24,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../entity.h"
-#include "../enemy/enemies.h"
+#include "enemies.h"
 #include "../collisions.h"
 #include "../system/error.h"
-#include "../enemy/rock.h"
+#include "rock.h"
+#include "thunder_cloud.h"
 
 extern Entity *self, player;
 
@@ -35,7 +36,6 @@ static void followPlayer(void);
 static void init(void);
 static void die(void);
 static void castLightning(void);
-static void lightningWait(void);
 static void castLightningFinish(void);
 
 Entity *addThunderCloud(int x, int y, char *name)
@@ -68,7 +68,7 @@ static void init()
 		self->startY = self->y;
 
 		self->endY = getMapFloor(self->x, self->y);
-		
+
 		printf("Floor is %f\n", self->endY);
 	}
 
@@ -96,13 +96,13 @@ static void followPlayer()
 	}
 
 	checkToMap(self);
-	
+
 	if (self->head->maxThinkTime != 1)
 	{
 		setEntityAnimation(self, DIE);
-		
+
 		self->animationCallback = &entityDieVanish;
-		
+
 		self->action = &die;
 	}
 }
@@ -128,7 +128,7 @@ static void castLightning()
 			}
 
 			loadProperties("enemy/lightning", e);
-			
+
 			setEntityAnimation(e, STAND);
 
 			e->x = self->x + self->w / 2 - e->w / 2;
@@ -182,7 +182,7 @@ static void castLightningFinish()
 	}
 }
 
-static void lightningWait()
+void lightningWait()
 {
 	self->thinkTime--;
 
@@ -194,5 +194,5 @@ static void lightningWait()
 
 static void die()
 {
-	
+
 }
