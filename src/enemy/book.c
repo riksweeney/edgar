@@ -31,7 +31,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../player.h"
 #include "../projectile.h"
-#include "../item/ice_cube.h"
 
 extern Entity *self, player;
 
@@ -49,7 +48,6 @@ static void fireMove(void);
 static void fireBlock(void);
 static void castIceInit(void);
 static void iceTouch(Entity *);
-static void iceFallout(void);
 
 Entity *addBook(int x, int y, char *name)
 {
@@ -387,7 +385,6 @@ static void castIceInit()
 
 			e->draw = &drawLoopingAnimationToMap;
 			e->touch = &iceTouch;
-			e->fallout = &iceFallout;
 
 			e->face = self->face;
 
@@ -400,21 +397,6 @@ static void castIceInit()
 	}
 
 	hover();
-}
-
-static void iceFallout()
-{
-	Entity *e;
-	
-	if (self->environment == WATER)
-	{
-		e = addIceCube(self->x + self->w / 2, self->y + self->h / 2, "item/ice_cube");
-		
-		e->x = e->w / 2;
-		e->y = e->h / 2;
-	}
-	
-	self->inUse = FALSE;
 }
 
 static void iceTouch(Entity *other)

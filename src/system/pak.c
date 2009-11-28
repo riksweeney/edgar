@@ -34,7 +34,6 @@ void initPakFile()
 	#if DEV == 0
 		unsigned long offset;
 		FILE *fp;
-		int read;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
@@ -47,8 +46,8 @@ void initPakFile()
 
 		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
 
-		read = fread(&offset, sizeof(unsigned long), 1, fp);
-		read = fread(&fileCount, sizeof(int), 1, fp);
+		fread(&offset, sizeof(unsigned long), 1, fp);
+		fread(&fileCount, sizeof(int), 1, fp);
 
 		fileData = (FileData *)malloc(fileCount * sizeof(FileData));
 
@@ -59,7 +58,7 @@ void initPakFile()
 
 		fseek(fp, offset, SEEK_SET);
 
-		read = fread(fileData, sizeof(FileData), fileCount, fp);
+		fread(fileData, sizeof(FileData), fileCount, fp);
 
 		printf("Loaded up PAK file with %d entries\n", fileCount);
 
@@ -139,7 +138,7 @@ Mix_Music *loadMusicFromPak(char *name)
 		{
 			printf("Couldn't load %s\n", temp);
 		}
-
+		
 		free(file);
 
 		return music;
@@ -165,7 +164,6 @@ static SDL_RWops *uncompressFileRW(char *name)
 	unsigned char *source, *dest;
 	FILE *fp;
 	SDL_RWops *rw;
-	int read;
 
 	index = i = -1;
 
@@ -190,7 +188,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s", size * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(dest, size, 1, fp);
+		fread(dest, size, 1, fp);
 
 		source = NULL;
 	#else
@@ -234,7 +232,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(source, fileData[i].compressedSize, 1, fp);
+		fread(source, fileData[i].compressedSize, 1, fp);
 
 		size = fileData[index].fileSize;
 
@@ -260,7 +258,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 static unsigned char *uncompressFile(char *name, int writeToFile)
 {
-	int i, index, read;
+	int i, index;
 	unsigned long size;
 	unsigned char *source, *dest, *filename;
 	FILE *fp;
@@ -295,7 +293,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s", (size + 2) * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(dest, size, 1, fp);
+		fread(dest, size, 1, fp);
 
 		dest[size] = '\n';
 		dest[size + 1] = '\0';
@@ -342,7 +340,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(source, fileData[index].compressedSize, 1, fp);
+		fread(source, fileData[index].compressedSize, 1, fp);
 
 		size = fileData[index].fileSize;
 
