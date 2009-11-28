@@ -85,6 +85,8 @@ static void createLightningWaveInit(void);
 static void lightningAttackPause(void);
 static void castLightningFinish(void);
 static void lightningWaveStart(void);
+static void castLightningBolt(void);
+static void lightningBolt(void);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -210,7 +212,7 @@ static void redDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * 1.5;
+			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
 		}
 	}
 
@@ -567,7 +569,7 @@ static void blueDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * 1.5;
+			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
 		}
 	}
 
@@ -643,6 +645,8 @@ static void castIce()
 
 		loadProperties("enemy/ice_spike", e);
 
+		setEntityAnimation(e, STAND);
+
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
 
@@ -652,13 +656,11 @@ static void castIce()
 		e->targetX = player.x + player.w / 2;
 		e->targetY = self->y - 100 - (prand() % 60);
 
-		e->x -= e->w / 2;
-
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
 
 		e->action = &iceDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -673,8 +675,6 @@ static void castIce()
 		e->thinkTime = 30;
 
 		e->flags |= FLY|DO_NOT_PERSIST;
-
-		setEntityAnimation(e, STAND);
 
 		self->endX--;
 
@@ -930,110 +930,6 @@ static void castIceFinish()
 	}
 }
 
-static void shudder()
-{
-	self->startY += 90;
-
-	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
-
-	if (self->startY >= 360)
-	{
-		self->startY = 0;
-	}
-}
-
-static void hover()
-{
-	self->startX += 5;
-
-	if (self->startX >= 360)
-	{
-		self->startX = 0;
-	}
-
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
-}
-
-static void teleportToOtherSide()
-{
-	Target *t;
-
-	if (strcmpignorecase(self->name, "enemy/large_red_book") == 0)
-	{
-		t = getTargetByName("RED_BOOK_LEFT_SIDE");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Red Book cannot find target");
-		}
-
-		if ((int)t->x == (int)self->x)
-		{
-			t = getTargetByName("RED_BOOK_TARGET_1");
-
-			if (t == NULL)
-			{
-				showErrorAndExit("Red Book cannot find target");
-			}
-		}
-
-		self->action = &fireAttackPause;
-	}
-
-	else if (strcmpignorecase(self->name, "enemy/large_blue_book") == 0)
-	{
-		t = getTargetByName("BLUE_BOOK_RIGHT_SIDE");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Blue Book cannot find target");
-		}
-
-		if ((int)t->x == (int)self->x)
-		{
-			t = getTargetByName("BLUE_BOOK_TARGET_1");
-
-			if (t == NULL)
-			{
-				showErrorAndExit("Blue Book cannot find target");
-			}
-		}
-
-		self->action = &castIceFinish;
-	}
-
-	else if (strcmpignorecase(self->name, "enemy/large_yellow_book") == 0)
-	{
-		t = getTargetByName("YELLOW_BOOK_RIGHT_SIDE");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Yellow Book cannot find target");
-		}
-
-		if ((int)t->x == (int)self->x)
-		{
-			t = getTargetByName("YELLOW_BOOK_TARGET_1");
-
-			if (t == NULL)
-			{
-				showErrorAndExit("Yellow Book cannot find target");
-			}
-		}
-
-		self->action = &castLightningFinish;
-	}
-
-	self->targetX = t->x;
-	self->targetY = t->y;
-
-	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-
-	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-}
-
 static void createIceBlock()
 {
 	Entity *e;
@@ -1051,6 +947,8 @@ static void createIceBlock()
 
 		loadProperties("edgar/edgar_frozen", e);
 
+		setEntityAnimation(e, STAND);
+
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
 
@@ -1060,8 +958,6 @@ static void createIceBlock()
 		e->targetX = player.x + player.w / 2;
 		e->targetY = self->y - 100 - (prand() % 60);
 
-		e->x -= e->w / 2;
-
 		e->damage = 1;
 
 		e->health = 50;
@@ -1070,7 +966,7 @@ static void createIceBlock()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
 
 		e->action = &iceBlockDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -1087,8 +983,6 @@ static void createIceBlock()
 		e->thinkTime = 30;
 
 		e->flags |= FLY|DO_NOT_PERSIST;
-
-		setEntityAnimation(e, STAND);
 
 		self->endX--;
 
@@ -1329,7 +1223,7 @@ static void yellowDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * 1.5;
+			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
 		}
 	}
 
@@ -1368,7 +1262,7 @@ static void castLightningInit()
 			self->action = &createThunderCloud;
 		}
 
-		if (self->maxThinkTime == 2)
+		else if (self->maxThinkTime == 2)
 		{
 			facePlayer();
 
@@ -1377,6 +1271,17 @@ static void castLightningInit()
 			self->targetX = self->x + (self->face == RIGHT ? 64 : -64);
 
 			self->action = &createLightningWaveInit;
+		}
+
+		else
+		{
+			facePlayer();
+
+			self->endX = 5;
+
+			self->targetX = self->x + (self->face == RIGHT ? 64 : -64);
+
+			self->action = &castLightningBolt;
 		}
 	}
 
@@ -1396,19 +1301,15 @@ static void createThunderCloud()
 	e->targetX = player.x + player.w / 2;
 	e->targetY = self->y - 100 - (prand() % 60);
 
-	e->x -= e->w / 2;
-
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
 
 	e->head = self;
 
 	e->face = RIGHT;
-
-	setEntityAnimation(e, STAND);
 
 	self->action = &createThunderCloudFinish;
 }
@@ -1441,9 +1342,9 @@ static void createLightningWaveInit()
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -1543,7 +1444,7 @@ static void createLightningWave()
 
 			self->targetX += self->face == RIGHT ? 64 : -64;
 
-			self->thinkTime = 45;
+			self->thinkTime = 30;
 		}
 
 		else
@@ -1581,4 +1482,234 @@ static void castLightningFinish()
 
 		self->action = &lightningAttackPause;
 	}
+}
+
+static void castLightningBolt()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add lightning");
+		}
+
+		loadProperties("enemy/lightning", e);
+
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = getMapCeiling(self->x, self->y);
+
+		e->startY = e->targetY;
+		e->endY   = getMapFloor(self->x, self->y);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, STAND);
+
+		e->action = &lightningBolt;
+		
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 0;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
+
+		setEntityAnimation(e, STAND);
+
+		self->endX--;
+
+		if (self->endX <= 0)
+		{
+			self->thinkTime = 0;
+
+			self->action = &castLightningFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void lightningBolt()
+{
+	int i;
+	Entity *e;
+
+	self->flags |= NO_DRAW;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+		
+		for (i=self->startY;i<self->endY;i+=32)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add lightning");
+			}
+
+			loadProperties("enemy/lightning", e);
+
+			setEntityAnimation(e, STAND);
+
+			e->x = self->targetX + self->w / 2 - e->w / 2;
+			e->y = i;
+
+			e->action = &lightningWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->currentFrame = prand() % 6;
+
+			e->face = RIGHT;
+
+			e->thinkTime = 15;
+		}
+
+		self->inUse = FALSE;
+	}
+}
+
+static void shudder()
+{
+	self->startY += 90;
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+}
+
+static void hover()
+{
+	self->startX += 5;
+
+	if (self->startX >= 360)
+	{
+		self->startX = 0;
+	}
+
+	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
+}
+
+static void teleportToOtherSide()
+{
+	Target *t;
+
+	if (strcmpignorecase(self->name, "enemy/large_red_book") == 0)
+	{
+		t = getTargetByName("RED_BOOK_LEFT_SIDE");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Red Book cannot find target");
+		}
+
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("RED_BOOK_TARGET_1");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Red Book cannot find target");
+			}
+		}
+
+		self->action = &fireAttackPause;
+	}
+
+	else if (strcmpignorecase(self->name, "enemy/large_blue_book") == 0)
+	{
+		t = getTargetByName("BLUE_BOOK_RIGHT_SIDE");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Blue Book cannot find target");
+		}
+
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("BLUE_BOOK_TARGET_1");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Blue Book cannot find target");
+			}
+		}
+
+		self->action = &castIceFinish;
+	}
+
+	else if (strcmpignorecase(self->name, "enemy/large_yellow_book") == 0)
+	{
+		t = getTargetByName("YELLOW_BOOK_RIGHT_SIDE");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Yellow Book cannot find target");
+		}
+
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("YELLOW_BOOK_TARGET_1");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Yellow Book cannot find target");
+			}
+		}
+
+		self->action = &castLightningFinish;
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 }

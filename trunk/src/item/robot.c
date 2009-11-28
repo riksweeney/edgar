@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../collisions.h"
 #include "key_items.h"
+#include "item.h"
 #include "../map.h"
 #include "../hud.h"
 #include "../player.h"
@@ -79,6 +80,8 @@ static void init()
 	if (self->health == 2)
 	{
 		self->touch = NULL;
+		
+		self->activate = NULL;
 	}
 
 	self->action = &wait;
@@ -163,6 +166,8 @@ static void activate(int val)
 
 	else
 	{
+		runScript("robot_start");
+		
 		e = addEntity(*e, self->x, self->y);
 
 		e->touch = NULL;
@@ -232,8 +237,6 @@ static void processNextInstruction()
 	{
 		self->thinkTime = 30;
 
-		printf("Out of instructions\n");
-
 		self->action = &finish;
 	}
 
@@ -253,6 +256,8 @@ static void instructionMove()
 
 	else if (self->x == self->endX && self->y == self->endY)
 	{
+		runScript("robot_end");
+		
 		self->dirX = 0;
 		self->dirY = 0;
 
@@ -271,6 +276,10 @@ static void instructionMove()
 		self->target->inUse = FALSE;
 
 		self->target = NULL;
+		
+		self->touch = NULL;
+		
+		self->activate = NULL;
 	}
 }
 
@@ -280,8 +289,6 @@ static void finish()
 
 	if (self->thinkTime <= 0)
 	{
-		printf("Returning\n");
-
 		self->health = 1;
 
 		self->mental = 0;
@@ -296,6 +303,8 @@ static void returnMove()
 
 	if (self->x == self->startX && self->y == self->startY)
 	{
+		runScript("robot_end");
+		
 		centerMapOnEntity(&player);
 
 		self->action = &wait;
@@ -318,7 +327,11 @@ static void returnMove()
 		self->target->y = self->y;
 
 		self->target->dirY = ITEM_JUMP_HEIGHT;
-
+		
+		self->target->touch = &keyItemTouch;
+		
 		self->target = NULL;
+		
+		setEntityAnimation(self, STAND);
 	}
 }

@@ -247,7 +247,7 @@ void removeEntity()
 	}
 }
 
-void doNothing(void)
+void doNothing()
 {
 	self->thinkTime--;
 
@@ -1502,8 +1502,11 @@ void doTeleport()
 		self->dirY = self->dirX = 0;
 
 		self->standingOn = NULL;
-
-		playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : -1), self->x, self->y, 0);
+		
+		if (!(self->flags & NO_END_TELEPORT_SOUND))
+		{
+			playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : -1), self->x, self->y, 0);
+		}
 	}
 
 	else
