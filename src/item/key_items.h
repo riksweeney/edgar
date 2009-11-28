@@ -20,4 +20,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 Entity *addKeyItem(char *, int, int);
 void keyItemTouch(Entity *);
 void keyItemRespawn(void);
-void keyItemFallout(void);

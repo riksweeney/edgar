@@ -302,7 +302,7 @@ void recurseDirectory(char *dirName)
 static void testPak(char *pakFile)
 {
 	FileData *fileData;
-	int fileCount, i, read;
+	int fileCount, i;
 	long offset;
 	unsigned long size;
 	FILE *fp;
@@ -317,8 +317,8 @@ static void testPak(char *pakFile)
 
 	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
 
-	read = fread(&offset, sizeof(long), 1, fp);
-	read = fread(&fileCount, sizeof(int), 1, fp);
+	fread(&offset, sizeof(long), 1, fp);
+	fread(&fileCount, sizeof(int), 1, fp);
 
 	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
 
@@ -331,7 +331,7 @@ static void testPak(char *pakFile)
 
 	fseek(fp, offset, SEEK_SET);
 
-	read = fread(fileData, sizeof(FileData), fileCount, fp);
+	fread(fileData, sizeof(FileData), fileCount, fp);
 
 	printf("Loaded up PAK file with %d entries\n", fileCount);
 
@@ -362,7 +362,7 @@ static void testPak(char *pakFile)
 			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
 		}
 
-		read = fread(source, fileData[i].compressedSize, 1, fp);
+		fread(source, fileData[i].compressedSize, 1, fp);
 
 		size = fileData[i].fileSize;
 

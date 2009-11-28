@@ -902,7 +902,6 @@ void loadConfig()
 	char settingsFile[MAX_PATH_LENGTH], *line, *savePtr;
 	unsigned char *buffer;
 	long length;
-	int read;
 
 	game.hasConfig = FALSE;
 
@@ -938,7 +937,7 @@ void loadConfig()
 
 	fseek(fp, 0L, SEEK_SET);
 
-	read = fread(buffer, length, 1, fp);
+	fread(buffer, length, 1, fp);
 
 	buffer[length] = '\0';
 

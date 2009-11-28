@@ -20,16 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../system/error.h"
-#include "../custom_actions.h"
-#include "../inventory.h"
-#include "../entity.h"
-#include "item.h"
-#include "key_items.h"
-#include "../collisions.h"
 
 #include "chicken_feed.h"
 #include "chicken_trap.h"
 #include "coal_pile.h"
+#include "../custom_actions.h"
+#include "../inventory.h"
 #include "rock_pile.h"
 #include "heart_container.h"
 #include "shrub.h"
@@ -117,20 +113,12 @@ static int length = sizeof(items) / sizeof(Constructor);
 Entity *addKeyItem(char *name, int x, int y)
 {
 	int i;
-	Entity *e;
 
 	for (i=0;i<length;i++)
 	{
 		if (strcmpignorecase(items[i].name, name) == 0)
 		{
-			e = items[i].construct(x, y, name);
-			
-			if (e->fallout == NULL)
-			{
-				e->fallout = &itemFallout;
-			}
-			
-			return e;
+			return items[i].construct(x, y, name);
 		}
 	}
 
@@ -147,30 +135,12 @@ void keyItemTouch(Entity *other)
 	}
 }
 
-void keyItemFallout()
-{
-	self->dirX = 0;
-	
-	self->thinkTime = 300;
-
-	self->action = &keyItemRespawn;
-}
-
 void keyItemRespawn()
 {
-	self->thinkTime--;
+	self->x = player.x + (player.w - self->w) / 2;
+	self->y = player.y + player.h - self->h;
 
-	checkToMap(self);
+	self->dirY = ITEM_JUMP_HEIGHT;
 
-	if (self->thinkTime <= 0)
-	{
-		self->x = player.x + (player.w - self->w) / 2;
-		self->y = player.y + player.h - self->h;
-
-		self->dirY = ITEM_JUMP_HEIGHT;
-
-		setCustomAction(self, &invulnerable, 180, 0);
-		
-		self->action = &doNothing;
-	}
+	setCustomAction(self, &invulnerable, 180, 0);
 }

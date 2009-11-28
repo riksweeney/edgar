@@ -1,11 +1,6 @@
 CHANGE LOG
 ----------
 
-Version 0.41
-* Fixed the Golem Boss (again)
-* Fixed a broken Action Point in the Fortress
-* Sequence blocks can no longer be grabbed and moved around
-
 Version 0.40
 * Updated the Basement Map
 * Sprite flipping is cached rather than being done on the fly

@@ -345,6 +345,8 @@ static void wait()
 				self->action = &jumpAttackStart;
 			break;
 		}
+		
+		shatter();
 	}
 
 	facePlayer();

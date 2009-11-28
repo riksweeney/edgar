@@ -53,6 +53,7 @@ Entity *addTuningFork(int x, int y, char *name)
 	e->action = &doNothing;
 	e->touch = &keyItemTouch;
 	e->activate = &activate;
+	e->die = &keyItemRespawn;
 
 	e->draw = &drawLoopingAnimationToMap;
 

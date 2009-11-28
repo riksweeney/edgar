@@ -71,26 +71,6 @@ Entity *addIceCube(int x, int y, char *name)
 
 static void wait()
 {
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-		
-		self->thinkTime--;
-		
-		if (self->thinkTime < 90)
-		{
-			if (self->thinkTime % 3 == 0)
-			{
-				self->flags ^= NO_DRAW;
-			}
-		}
-
-		if (self->thinkTime <= 0)
-		{
-			self->inUse = FALSE;
-		}
-	}
-	
 	checkToMap(self);
 }
 
@@ -98,17 +78,9 @@ static void fallout()
 {
 	if (self->environment == WATER)
 	{
-		self->x += self->w / 2;
-		
-		playSoundToMap("sound/common/freeze.ogg", -1, self->x, self->y, 0);
-		
-		loadProperties("item/ice_platform", self);
-		
 		self->element = WATER;
 
 		setEntityAnimation(self, ATTACK_1);
-		
-		self->x -= self->w / 2;
 
 		self->animationCallback = &growFinish;
 
@@ -121,8 +93,6 @@ static void fallout()
 		self->dirX = self->dirY = 0;
 
 		self->startX = 0;
-		
-		self->startY = self->y;
 
 		self->flags |= FLY;
 	}

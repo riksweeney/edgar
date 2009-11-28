@@ -65,8 +65,6 @@ Entity *addPermanentItem(char *name, int x, int y)
 	else if (e->type == WEAPON || e->type == SHIELD)
 	{
 		e->touch = &keyItemTouch;
-		
-		e->fallout = &keyItemFallout;
 
 		if (e->type == WEAPON)
 		{
