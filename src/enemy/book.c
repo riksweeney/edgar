@@ -405,15 +405,15 @@ static void castIceInit()
 static void iceFallout()
 {
 	Entity *e;
-	
+
 	if (self->environment == WATER)
 	{
 		e = addIceCube(self->x + self->w / 2, self->y + self->h / 2, "item/ice_cube");
-		
-		e->x = e->w / 2;
-		e->y = e->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
 	}
-	
+
 	self->inUse = FALSE;
 }
 
