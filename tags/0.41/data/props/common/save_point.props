@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/save_point.dat
+ANIM_FILE data/anim/common/save_point.dat
+TYPE SAVE_POINT
+THINKTIME 60
+FLAGS PLAYER_TOUCH_ONLY
