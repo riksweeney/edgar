@@ -138,7 +138,7 @@ static Constructor enemies[] = {
 {"enemy/poltergiest_2", &addPoltergiest},
 {"enemy/large_red_book", &addLargeBook},
 {"enemy/large_blue_book", &addLargeBook},
-{"enemy/spike_sphere", &addSpikeSphere},
+{"enemy/spike_sphere", &addSpikeSphere}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
