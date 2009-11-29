@@ -58,7 +58,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spike_ball.h"
 #include "code_door.h"
 #include "code_display.h"
-#include "light_sphere.h"
+#include "skull.h"
 #include "glass_wall.h"
 #include "robot.h"
 #include "tuning_fork.h"
@@ -103,7 +103,7 @@ static Constructor items[] = {
 {"item/spike_ball", &addSpikeBall},
 {"item/code_door", &addCodeDoor},
 {"item/code_display", &addCodeDisplay},
-{"item/light_sphere", &addSkull},
+{"item/skull", &addSkull},
 {"item/glass_wall", &addGlassWall},
 {"item/robot", &addRobot},
 {"item/tuning_fork", &addTuningFork},
