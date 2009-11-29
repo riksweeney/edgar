@@ -103,7 +103,7 @@ static Constructor items[] = {
 {"item/spike_ball", &addSpikeBall},
 {"item/code_door", &addCodeDoor},
 {"item/code_display", &addCodeDisplay},
-{"item/light_sphere", &addLightSphere},
+{"item/light_sphere", &addSkull},
 {"item/glass_wall", &addGlassWall},
 {"item/robot", &addRobot},
 {"item/tuning_fork", &addTuningFork},

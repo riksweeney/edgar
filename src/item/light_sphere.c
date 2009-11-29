@@ -34,15 +34,15 @@ extern Entity *self;
 
 static void wait(void);
 static int draw(void);
-static void takeDamage(Entity *, int);
+static void activate(int);
 
-Entity *addLightSphere(int x, int y, char *name)
+Entity *addSkull(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Light Sphere");
+		showErrorAndExit("No free slots to add a Skull");
 	}
 
 	loadProperties(name, e);
@@ -55,7 +55,9 @@ Entity *addLightSphere(int x, int y, char *name)
 	e->face = RIGHT;
 
 	e->action = &wait;
-	e->takeDamage = &takeDamage;
+	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->touch = &entityTouch;
+	e->activate = &activate;
 
 	e->draw = &draw;
 
@@ -75,45 +77,17 @@ static int draw()
 
 static void wait()
 {
-	checkToMap(self);
+	self->startX += 5;
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->startX >= 360)
 	{
-		self->thinkTime = 0;
+		self->startX = 0;
 	}
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startX)) * 8;
 }
 
-static void takeDamage(Entity *other, int damage)
+static void activate(int val)
 {
-	Entity *e;
-
-	if (self->flags & INVULNERABLE)
-	{
-		return;
-	}
-
-	if (self->thinkTime <= 0)
-	{
-		if (other->type == PROJECTILE)
-		{
-			other->target = self;
-		}
-
-		setCustomAction(self, &invulnerable, 20, 0);
-
-		self->thinkTime = 180;
-
-		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
-
-		fadeFromWhite();
-
-		e = getEntityByObjectiveName(self->requires);
-
-		if (e != NULL)
-		{
-			e->activate(-1);
-		}
-	}
+	setEntityAnimation(self, val == 1 ? WALK : STAND);
 }

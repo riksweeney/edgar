@@ -45,9 +45,8 @@ static void bookAttackEnd(void);
 static void bookReturn(void);
 static void bookDie(void);
 static void takeDamage(Entity *, int);
-static void stunned(void);
-static void stunFinish(void);
-static void lightKill(int);
+static void retreatToLight(void);
+static void recharge(void);
 static void hover(void);
 static void die(void);
 static void recreateBooks(void);
@@ -81,8 +80,6 @@ Entity *addPoltergiest(int x, int y, char *name)
 	else if (strcmpignorecase(name, "enemy/poltergiest_3") == 0)
 	{
 		e->action = &createBooks;
-
-		e->activate = &lightKill;
 
 		e->takeDamage = &takeDamage;
 	}
@@ -466,71 +463,109 @@ static void bookDie()
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (!(self->flags & INVULNERABLE))
+	if (self->flags & INVULNERABLE)
 	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
 		if (self->health > 0)
 		{
-			self->health -= damage;
+			setCustomAction(self, &flashWhite, 6, 0);
 
-			if (self->health <= 0)
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
 			{
-				self->touch = NULL;
-
-				self->action = &stunned;
-
-				if (prand() % 3 == 0)
-				{
-					setInfoBoxMessage(60, _("Try hitting the light..."));
-				}
-
-				self->thinkTime = 300;
+				setCustomAction(self, &invulnerableNoFlash, 20, 0);
 			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->action = &retreatToLight;
+
+			if (prand() % 3 == 0)
+			{
+				setInfoBoxMessage(60, _("Try hitting the light..."));
+			}
+
+			self->thinkTime = 300;
 		}
 	}
 }
 
-static void stunned()
+static void retreatToLight()
 {
-	self->flags &= ~FLY;
+	Entity *e;
+	
+	e = getEntityByObjectiveName(self->requires);
+	
+	if (e == NULL)
+	{
+		die();
+	}
 
+	else
+	{
+		self->target = e;
+		
+		self->targetX = e->x + e->w / 2 - self->w / 2;
+		self->targetY = e->y + e->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+		
+		self->thinkTime = 300;
+		
+		self->action = &recharge;
+	}
+}
+
+static void recharge()
+{
+	self->target->activate(1);
+	
+	self->flags |= NO_DRAW;
+	
+	self->touch = NULL;
+	
 	self->thinkTime--;
-
+	
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 30;
+		self->targetX = self->startX;
+		self->targetY = self->startY;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+		
+		self->health = self->maxHealth;
+		
+		self->action = &createBooks;
+		
 		self->touch = &entityTouch;
-
-		self->action = &stunFinish;
-	}
-
-	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-	}
-}
-
-static void stunFinish()
-{
-	self->flags |= FLY;
-
-	self->dirY = -4;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->action = &bookLookForPlayer;
-	}
-}
-
-static void lightKill(int val)
-{
-	if (val == -1 && self->health <= 0)
-	{
-		self->die();
+		
+		self->target->activate(0);
 	}
 }
 
