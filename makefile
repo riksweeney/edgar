@@ -68,7 +68,7 @@ CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o
 CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
-CORE_OBJS += error.o code_door.o code_display.o light_sphere.o poltergiest.o book.o movable_lift.o glass_wall.o spike_wall.o
+CORE_OBJS += error.o code_door.o code_display.o skull.o poltergiest.o book.o movable_lift.o glass_wall.o spike_wall.o
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
 CORE_OBJS += thunder_cloud.o
 
