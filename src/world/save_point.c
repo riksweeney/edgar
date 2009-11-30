@@ -89,8 +89,11 @@ static void touch(Entity *other)
 		setEntityAnimation(self, WALK);
 
 		self->currentFrame = frame;
-
-		setInfoBoxMessage(5, _("Press Action to save your game"));
+		
+		if (game.showHints == TRUE)
+		{
+			setInfoBoxMessage(5, _("Press Action to save your game"));
+		}
 	}
 }
 

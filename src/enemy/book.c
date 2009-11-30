@@ -291,6 +291,8 @@ static void castFire()
 		e->face = self->face;
 
 		e->type = ENEMY;
+		
+		e->thinkTime = 600;
 
 		e->flags |= DO_NOT_PERSIST;
 
@@ -336,8 +338,17 @@ static void castFinish()
 
 static void fireDrop()
 {
-	if (self->flags & ON_GROUND)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
+		self->inUse = FALSE;
+	}
+	
+	else if (self->flags & ON_GROUND)
+	{
+		self->thinkTime = 600;
+		
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->action = &fireMove;
@@ -349,8 +360,10 @@ static void fireDrop()
 static void fireMove()
 {
 	checkToMap(self);
+	
+	self->thinkTime--;
 
-	if (self->dirX == 0)
+	if (self->dirX == 0 || self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}
