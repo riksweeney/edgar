@@ -45,7 +45,7 @@ static void bookAttackEnd(void);
 static void bookReturn(void);
 static void bookDie(void);
 static void takeDamage(Entity *, int);
-static void retreatToLight(void);
+static void retreatToSkull(void);
 static void recharge(void);
 static void hover(void);
 static void die(void);
@@ -496,19 +496,14 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			self->action = &retreatToLight;
-
-			if (prand() % 3 == 0)
-			{
-				setInfoBoxMessage(60, _("Try hitting the light..."));
-			}
+			self->action = &retreatToSkull;
 
 			self->thinkTime = 300;
 		}
 	}
 }
 
-static void retreatToLight()
+static void retreatToSkull()
 {
 	Entity *e;
 	
@@ -534,13 +529,28 @@ static void retreatToLight()
 		
 		self->thinkTime = 300;
 		
+		self->target->mental++;
+		
+		if (self->target->mental > 1)
+		{
+			setInfoBoxMessage(60, _("Try hitting the skull..."));
+		}
+		
 		self->action = &recharge;
 	}
 }
 
 static void recharge()
 {
-	self->target->activate(1);
+	Entity *temp;
+	
+	temp = self;
+	
+	self = temp->target;
+	
+	self->activate(1);
+	
+	self = temp;
 	
 	self->flags |= NO_DRAW;
 	
@@ -548,10 +558,10 @@ static void recharge()
 	
 	self->thinkTime--;
 	
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 || self->target->health <= 0)
 	{
-		self->targetX = self->startX;
-		self->targetY = self->startY;
+		self->targetX = self->endX;
+		self->targetY = self->endY;
 		
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
@@ -565,7 +575,13 @@ static void recharge()
 		
 		self->touch = &entityTouch;
 		
-		self->target->activate(0);
+		temp = self;
+		
+		self = temp->target;
+		
+		self->activate(0);
+		
+		self = temp;
 	}
 }
 

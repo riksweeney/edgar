@@ -35,10 +35,14 @@ extern Entity *self;
 static void wait(void);
 static int draw(void);
 static void activate(int);
+static void chainWait(void);
+static int drawChain(void);
 
 Entity *addSkull(int x, int y, char *name)
 {
-	Entity *e = getFreeEntity();
+	Entity *e, *chain;
+	
+	e = getFreeEntity();
 
 	if (e == NULL)
 	{
@@ -58,33 +62,85 @@ Entity *addSkull(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->touch = &entityTouch;
 	e->activate = &activate;
+	e->die = &entityDie;
 
 	e->draw = &draw;
 
 	setEntityAnimation(e, STAND);
+	
+	chain = getFreeEntity();
+
+	if (chain == NULL)
+	{
+		showErrorAndExit("No free slots to add a Skull Chain");
+	}
+
+	loadProperties("item/skull_chain", chain);
+	
+	chain->head = e;
+	
+	chain->draw = &drawChain;
+	
+	chain->action = &chainWait;
+	
+	chain->die = &entityDieVanish;
 
 	return e;
 }
 
 static int draw()
 {
-	drawLine(self->startX + self->w / 2, self->startY, self->x + self->w / 2, self->y, 255, 255, 255);
-
 	drawLoopingAnimationToMap();
 
 	return TRUE;
 }
 
+static void chainWait()
+{
+	if (self->head->health > 0)
+	{
+		self->x = self->head->endX + self->head->w / 2 - self->w / 2;
+		self->y = self->head->startY;
+	}
+	
+	else
+	{
+		self->die();
+	}
+}
+
+static int drawChain()
+{
+	int i;
+	float partDistanceX, partDistanceY;
+
+	partDistanceX = self->head->x + self->head->w / 2 - self->w / 2 - self->x;
+	partDistanceY = self->head->y - self->y;
+
+	partDistanceX /= 8;
+	partDistanceY /= 8;
+	
+	for (i=0;i<8;i++)
+	{
+		drawSpriteToMap();
+		
+		self->x += partDistanceX;
+		self->y += partDistanceY;
+	}
+	
+	return TRUE;
+}
+
 static void wait()
 {
-	self->startX += 5;
+	self->thinkTime += 2;
 
-	if (self->startX >= 360)
+	if (self->thinkTime >= 360)
 	{
-		self->startX = 0;
+		self->thinkTime = 0;
 	}
 
-	self->x = self->startX + sin(DEG_TO_RAD(self->startX)) * 8;
+	self->x = self->endX + sin(DEG_TO_RAD(self->thinkTime)) * 8;
 }
 
 static void activate(int val)
