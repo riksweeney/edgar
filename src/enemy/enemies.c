@@ -139,6 +139,7 @@ static Constructor enemies[] = {
 {"enemy/poltergiest_1", &addPoltergiest},
 {"enemy/poltergiest_2", &addPoltergiest},
 {"enemy/poltergiest_3", &addPoltergiest},
+{"enemy/poltergiest_4", &addPoltergiest},
 {"enemy/large_red_book", &addLargeBook},
 {"enemy/large_blue_book", &addLargeBook},
 {"enemy/large_yellow_book", &addLargeBook},
