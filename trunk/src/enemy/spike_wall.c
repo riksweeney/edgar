@@ -101,7 +101,13 @@ static void followTargets()
 		{
 			self->thinkTime = 0;
 		}
-
+		
+		self->dirX = 0;
+		self->dirY = 0;
+	}
+	
+	if (self->dirX == 0 && self->dirY == 0)
+	{
 		snprintf(name, sizeof(name), "%s_TARGET_%d", self->objectiveName, self->thinkTime);
 
 		t = getTargetByName(name);
@@ -110,9 +116,6 @@ static void followTargets()
 		{
 			showErrorAndExit("Could not find target ", name);
 		}
-		
-		self->dirX = 0;
-		self->dirY = 0;
 
 		self->startX = t->x;
 		self->startY = t->y;

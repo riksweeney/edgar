@@ -50,6 +50,7 @@ static void recharge(void);
 static void hover(void);
 static void die(void);
 static void recreateBooks(void);
+static void skullWait(void);
 
 Entity *addPoltergiest(int x, int y, char *name)
 {
@@ -78,6 +79,13 @@ Entity *addPoltergiest(int x, int y, char *name)
 	}
 
 	else if (strcmpignorecase(name, "enemy/poltergiest_3") == 0)
+	{
+		e->action = &createBooks;
+
+		e->takeDamage = &takeDamage;
+	}
+	
+	else if (strcmpignorecase(name, "enemy/poltergiest_4") == 0)
 	{
 		e->action = &createBooks;
 
@@ -140,7 +148,7 @@ static void bookLookForPlayer()
 static void throwBooks()
 {
 	float dirX;
-	
+
 	if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 	{
 		self->action = &bookLookForPlayer;
@@ -167,17 +175,17 @@ static void throwBooks()
 
 				self->face = self->face == LEFT ? RIGHT : LEFT;
 			}
-			
+
 			self->thinkTime--;
 
 			if (self->thinkTime <= 0)
 			{
 				self->thinkTime = 90;
-				
+
 				self->action = &recreateBooks;
 			}
 		}
-		
+
 		else
 		{
 			self->dirX = 0;
@@ -190,9 +198,9 @@ static void throwBooks()
 static void recreateBooks()
 {
 	self->dirX = 0;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &createBooks;
@@ -363,7 +371,7 @@ static void bookReactToBlock()
 	{
 		self->startX = 0;
 	}
-	
+
 	if (self->head->health <= 0)
 	{
 		entityDie();
@@ -394,7 +402,7 @@ static void bookAttackEnd()
 	{
 		self->startX = 0;
 	}
-	
+
 	if (self->head->health <= 0)
 	{
 		entityDie();
@@ -424,13 +432,19 @@ static void bookReturn()
 	{
 		self->startX = 0;
 	}
-	
-	/* If a book gets completely stuck in the scenary */
-	
+
+	/* If a book gets completely stuck in the scenery */
+
 	if (self->dirX == 0 && self->dirY == 0)
 	{
-		self->x = self->endX;
-		self->y = self->endY;
+		self->x = endX;
+		self->y = endY;
+		
+		startX = 0;
+		startY = 0;
+		
+		endX = 0;
+		endY = 0;
 	}
 
 	if (fabs(startX - endX) <= fabs(self->dirX) && fabs(startY - endY) <= fabs(self->dirY))
@@ -439,7 +453,7 @@ static void bookReturn()
 
 		self->action = &rotateAroundTarget;
 	}
-	
+
 	if (self->head->health <= 0)
 	{
 		entityDie();
@@ -506,9 +520,9 @@ static void takeDamage(Entity *other, int damage)
 static void retreatToSkull()
 {
 	Entity *e;
-	
+
 	e = getEntityByObjectiveName(self->requires);
-	
+
 	if (e == NULL)
 	{
 		die();
@@ -517,7 +531,7 @@ static void retreatToSkull()
 	else
 	{
 		self->target = e;
-		
+
 		self->targetX = e->x + e->w / 2 - self->w / 2;
 		self->targetY = e->y + e->h / 2 - self->h / 2;
 
@@ -526,61 +540,91 @@ static void retreatToSkull()
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
 		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
-		
+
 		self->thinkTime = 300;
-		
-		self->target->mental++;
-		
-		if (self->target->mental > 1)
+
+		self->target->maxThinkTime++;
+
+		if (self->target->maxThinkTime > 1)
 		{
 			setInfoBoxMessage(60, _("Try hitting the skull..."));
 		}
-		
-		self->action = &recharge;
+
+		self->action = strcmpignorecase(self->name, "enemy/poltergiest_4") == 0 ? &recharge : &skullWait;
+	}
+}
+
+static void skullWait()
+{
+	Entity *temp;
+
+	temp = self;
+
+	self = temp->target;
+
+	self->activate(1);
+
+	self = temp;
+
+	self->flags |= NO_DRAW;
+
+	self->touch = NULL;
+
+	if (self->target->health <= 0)
+	{
+		temp = addPermanentItem("item/code_card", self->target->x + self->target->w / 2, self->target->y);
+
+		temp->x -= temp->w / 2;
+
+		temp->dirY = ITEM_JUMP_HEIGHT;
+
+		STRNCPY(temp->objectiveName, self->objectiveName, sizeof(temp->objectiveName));
+
+		self->inUse = FALSE;
 	}
 }
 
 static void recharge()
 {
 	Entity *temp;
-	
+
 	temp = self;
-	
+
 	self = temp->target;
-	
+
 	self->activate(1);
-	
+
 	self = temp;
-	
+
 	self->flags |= NO_DRAW;
-	
+
 	self->touch = NULL;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0 || self->target->health <= 0)
 	{
 		self->targetX = self->endX;
 		self->targetY = self->endY;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
 		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
-		
+
 		self->health = self->maxHealth;
-		
+
 		self->action = &createBooks;
-		
+
 		self->touch = &entityTouch;
-		
+
 		temp = self;
-		
+
 		self = temp->target;
-		
+
 		self->activate(0);
-		
+
 		self = temp;
 	}
 }
