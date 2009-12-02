@@ -605,7 +605,7 @@ msgstr ""
 msgid "Urgh!! This is horrible!"
 msgstr ""
 
-msgid "told me that Slimes can swim in water though, so maybe this will be useful..."
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
 msgstr ""
 
 msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
@@ -1022,7 +1022,7 @@ msgstr ""
 msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
 msgstr ""
 
-msgid "Try hitting the light..."
+msgid "Try hitting the skull..."
 msgstr ""
 
 msgid "This machine is not active"
@@ -1299,9 +1299,6 @@ msgid "Great, that's all it says. I don't even know how to tell the difference b
 msgstr ""
 
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
-
-msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
 msgstr ""
 
 msgid "To move Edgar left and right, use the arrow keys."

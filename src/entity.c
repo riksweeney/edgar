@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "geometry.h"
 #include "system/error.h"
 
+static int entityIndex = 0;
 extern Entity *self, entity[MAX_ENTITIES];
 
 static void scriptEntityMoveToTarget(void);
@@ -52,16 +53,25 @@ void freeEntities()
 	/* Clear the list */
 
 	memset(entity, 0, sizeof(Entity) * MAX_ENTITIES);
+	
+	entityIndex = 0;
 }
 
 Entity *getFreeEntity()
 {
-	int i;
+	int i, count;
+	
+	count = 0;
 
 	/* Loop through all the entities and find a free slot */
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (i=entityIndex;;i++)
 	{
+		if (i >= MAX_ENTITIES)
+		{
+			i = 0;
+		}
+		
 		if (entity[i].inUse == FALSE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
@@ -84,8 +94,15 @@ Entity *getFreeEntity()
 
 			return &entity[i];
 		}
+		
+		count++;
+		
+		if (count >= MAX_ENTITIES)
+		{
+			break;
+		}
 
-		if (i >= MAX_ENTITIES - 20)
+		if (count >= MAX_ENTITIES - 20)
 		{
 			printf("WARNING, compacting Entities!\n");
 		}
@@ -94,6 +111,11 @@ Entity *getFreeEntity()
 	/* Return NULL if you couldn't any free slots */
 
 	return NULL;
+}
+
+void resetEntityIndex()
+{
+	entityIndex = 0;
 }
 
 void doEntities()
