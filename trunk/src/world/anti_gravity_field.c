@@ -74,8 +74,35 @@ static void wait()
 
 static void touch(Entity *other)
 {
+	int bottomBefore;
+
 	if (self->active == TRUE && !(other->flags & FLY))
 	{
-		setCustomAction(other, &antiGravity, 5, 0);
+		if (other->dirY > 0)
+		{
+			bottomBefore = other->y + other->h - other->dirY - 1;
+
+			if (bottomBefore < self->y)
+			{
+				/* Place the player as close to the solid tile as possible */
+
+				other->y = self->y;
+				other->y -= other->h;
+
+				other->standingOn = self;
+				other->dirY = 0;
+				other->flags |= ON_GROUND;
+			}
+
+			else
+			{
+				setCustomAction(other, &antiGravity, 2, 0);
+			}
+		}
+
+		else
+		{
+			setCustomAction(other, &antiGravity, 2, 0);
+		}
 	}
 }

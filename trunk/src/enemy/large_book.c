@@ -1513,7 +1513,7 @@ static void castLightningBolt()
 		e->targetY = getMapCeiling(self->x, self->y);
 
 		e->startY = e->targetY;
-		e->endY   = getMapFloor(self->x, self->y);
+		e->endY   = getMapFloor(e->targetX, e->targetY);
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
@@ -1528,7 +1528,7 @@ static void castLightningBolt()
 		setEntityAnimation(e, STAND);
 
 		e->action = &lightningBolt;
-		
+
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->head = self;
@@ -1565,7 +1565,7 @@ static void castLightningBolt()
 
 static void lightningBolt()
 {
-	int i;
+	int i, middle;
 	Entity *e;
 
 	self->flags |= NO_DRAW;
@@ -1575,7 +1575,7 @@ static void lightningBolt()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
-		
+
 		for (i=self->startY;i<self->endY;i+=32)
 		{
 			e = getFreeEntity();
@@ -1589,7 +1589,12 @@ static void lightningBolt()
 
 			setEntityAnimation(e, STAND);
 
-			e->x = self->targetX + self->w / 2 - e->w / 2;
+			if (i == self->startY)
+			{
+				middle = self->targetX + self->w / 2 - e->w / 2;
+			}
+
+			e->x = middle;
 			e->y = i;
 
 			e->action = &lightningWait;
@@ -1605,6 +1610,22 @@ static void lightningBolt()
 
 			e->thinkTime = 15;
 		}
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -8;
 
 		self->inUse = FALSE;
 	}

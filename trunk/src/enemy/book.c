@@ -32,6 +32,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../projectile.h"
 #include "../item/ice_cube.h"
+#include "thunder_cloud.h"
+#include "rock.h"
 
 extern Entity *self, player;
 
@@ -50,6 +52,8 @@ static void fireBlock(void);
 static void castIceInit(void);
 static void iceTouch(Entity *);
 static void iceFallout(void);
+static void castLightningBolt(void);
+static void lightningBolt(void);
 
 Entity *addBook(int x, int y, char *name)
 {
@@ -131,8 +135,14 @@ static void lookForPlayer()
 					self->thinkTime = 60;
 				break;
 
-				default: /* Cast fire */
+				case 1: /* Cast fire */
 					self->action = &castFireInit;
+
+					self->thinkTime = 60;
+				break;
+
+				case 2: /* Cast fire */
+					self->action = &castLightningBolt;
 
 					self->thinkTime = 60;
 				break;
@@ -291,7 +301,7 @@ static void castFire()
 		e->face = self->face;
 
 		e->type = ENEMY;
-		
+
 		e->thinkTime = 600;
 
 		e->flags |= DO_NOT_PERSIST;
@@ -339,16 +349,16 @@ static void castFinish()
 static void fireDrop()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	else if (self->flags & ON_GROUND)
 	{
 		self->thinkTime = 600;
-		
+
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->action = &fireMove;
@@ -360,7 +370,7 @@ static void fireDrop()
 static void fireMove()
 {
 	checkToMap(self);
-	
+
 	self->thinkTime--;
 
 	if (self->dirX == 0 || self->thinkTime <= 0)
@@ -435,6 +445,137 @@ static void iceTouch(Entity *other)
 	if (other->type == PLAYER && other->element != ICE && !(other->flags & INVULNERABLE) && other->health > 0)
 	{
 		setPlayerFrozen(120);
+
+		self->inUse = FALSE;
+	}
+}
+
+static void castLightningBolt()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add lightning");
+		}
+
+		loadProperties("enemy/lightning", e);
+
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = getMapCeiling(self->x, self->y);
+
+		e->startY = e->targetY;
+		e->endY   = getMapFloor(e->targetX, e->targetY);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, STAND);
+
+		e->action = &lightningBolt;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 0;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
+
+		setEntityAnimation(e, STAND);
+
+		self->thinkTime = 30;
+
+		self->action = &castFinish;
+	}
+}
+
+static void lightningBolt()
+{
+	int i, middle;
+	Entity *e;
+
+	self->flags |= NO_DRAW;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+
+		for (i=self->startY;i<self->endY;i+=32)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add lightning");
+			}
+
+			loadProperties("enemy/lightning", e);
+
+			setEntityAnimation(e, STAND);
+
+			if (i == self->startY)
+			{
+				middle = self->targetX + self->w / 2 - e->w / 2;
+			}
+
+			e->x = middle;
+			e->y = i;
+
+			e->action = &lightningWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->currentFrame = prand() % 6;
+
+			e->face = RIGHT;
+
+			e->thinkTime = 15;
+		}
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -8;
 
 		self->inUse = FALSE;
 	}

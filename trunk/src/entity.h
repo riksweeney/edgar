@@ -60,3 +60,4 @@ int getLeftEdge(Entity *);
 int getRightEdge(Entity *);
 void entityDieVanish(void);
 void killEntity(char *);
+void resetEntityIndex(void);
