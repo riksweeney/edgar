@@ -143,6 +143,7 @@ static Constructor enemies[] = {
 {"enemy/large_red_book", &addLargeBook},
 {"enemy/large_blue_book", &addLargeBook},
 {"enemy/large_yellow_book", &addLargeBook},
+{"enemy/large_green_book", &addLargeBook},
 {"enemy/spike_sphere", &addSpikeSphere},
 {"enemy/exploding_spike_sphere", &addExplodingSpikeSphere},
 {"enemy/thunder_cloud", &addThunderCloud}
@@ -170,7 +171,7 @@ Entity *addEnemy(char *name, int x, int y)
 			{
 				e->pain = &enemyPain;
 			}
-			
+
 			e->originalWeight = e->weight;
 
 			return e;

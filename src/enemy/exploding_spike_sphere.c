@@ -89,8 +89,6 @@ static void floatUpAndDown()
 
 static void die()
 {
-	self->flags &= ~FLY;
-	
 	self->flags |= INVULNERABLE;
 	
 	self->dirX = 0;
