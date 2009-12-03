@@ -82,9 +82,9 @@ Entity *addSkull(int x, int y, char *name)
 static void init()
 {
 	Entity *chain;
-	
+
 	self->action = self->mental == 0 ? &swing : &wait;
-	
+
 	if (self->mental == 0)
 	{
 		chain = getFreeEntity();
@@ -178,7 +178,7 @@ static void activate(int val)
 	if (self->mental == 1)
 	{
 		self->action = &followPlayer;
-		
+
 		self->mental = 2;
 	}
 
@@ -218,7 +218,7 @@ static void dropOnPlayer()
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
-	{		
+	{
 		self->flags &= ~FLY;
 
 		onGround = (self->flags & ON_GROUND);
@@ -254,10 +254,10 @@ static void dropWait()
 		if (self->y < self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->dirY = 0;
 
-			self->action = followPlayer;
+			self->action = &followPlayer;
 		}
 
 		else

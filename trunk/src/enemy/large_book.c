@@ -33,8 +33,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../world/target.h"
 #include "rock.h"
+#include "book.h"
 #include "thunder_cloud.h"
 #include "../item/item.h"
+#include "../graphics/decoration.h"
 
 extern Entity *self, player;
 
@@ -87,6 +89,19 @@ static void castLightningFinish(void);
 static void lightningWaveStart(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
+static void greenWait(void);
+static void greenDieInit(void);
+static void greenDie(void);
+static void physicalAttack(void);
+static void physicalAttackPause(void);
+static void physicalAttackInit(void);
+static void physicalAttackFinish(void);
+static void summon(void);
+static void summon2(void);
+static void followPlayer(void);
+static void dropOnPlayer(void);
+static void dropWait(void);
+static void takeDamage(Entity *, int);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -104,7 +119,7 @@ Entity *addLargeBook(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->takeDamage = &takeDamage;
 
 	if (strcmpignorecase(name, "enemy/large_red_book") == 0)
 	{
@@ -122,6 +137,12 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &yellowWait;
 		e->die = &yellowDieInit;
+	}
+
+	else
+	{
+		e->action = &greenWait;
+		e->die = &greenDieInit;
 	}
 
 	e->type = ENEMY;
@@ -658,9 +679,9 @@ static void castIce()
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		e->action = &iceDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -964,9 +985,9 @@ static void createIceBlock()
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		e->action = &iceBlockDrop;
 		e->draw = &drawLoopingAnimationToMap;
@@ -1303,9 +1324,9 @@ static void createThunderCloud()
 
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-	/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 	e->head = self;
 
@@ -1344,7 +1365,7 @@ static void createLightningWaveInit()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -1519,7 +1540,7 @@ static void castLightningBolt()
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		/*playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);*/
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		e->head = self;
 
@@ -1724,6 +1745,28 @@ static void teleportToOtherSide()
 
 		self->action = &castLightningFinish;
 	}
+	
+	else
+	{
+		t = getTargetByName("GREEN_BOOK_RIGHT_SIDE");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Green Book cannot find target");
+		}
+
+		if ((int)t->x == (int)self->x)
+		{
+			t = getTargetByName("GREEN_BOOK_TARGET_2");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Green Book cannot find target");
+			}
+		}
+
+		self->action = &physicalAttackPause;
+	}
 
 	self->targetX = t->x;
 	self->targetY = t->y;
@@ -1733,4 +1776,475 @@ static void teleportToOtherSide()
 	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+}
+
+static void greenWait()
+{
+	if (self->active == TRUE)
+	{
+		self->action = &physicalAttack;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void greenDieInit()
+{
+	Target *t;
+
+	self->touch = NULL;
+
+	self->maxThinkTime++;
+
+	switch (self->maxThinkTime)
+	{
+		case 2:
+			t = getTargetByName("GREEN_BOOK_TARGET_1");
+
+			activateEntitiesWithRequiredName("GREEN_BOOK_STAGE_1", TRUE);
+
+			self->action = &greenDie;
+		break;
+
+		default:
+			t = getTargetByName("GREEN_BOOK_TARGET_2");
+
+			activateEntitiesWithRequiredName("GREEN_BOOK_STAGE_2", TRUE);
+
+			self->action = &greenDie;
+		break;
+	}
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Green Book cannot find target");
+	}
+
+	self->startX = self->x;
+	self->startY = 0;
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->thinkTime = 60;
+}
+
+static void greenDie()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 4)
+		{
+			entityDie();
+		}
+
+		else
+		{
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+			self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+			playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			self->touch = &entityTouch;
+
+			self->action = &greenWait;
+
+			self->active = FALSE;
+
+			self->startX = self->targetX;
+			self->startY = self->targetY;
+
+			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
+		}
+	}
+
+	else
+	{
+		shudder();
+	}
+}
+
+static void physicalAttack()
+{
+	self->thinkTime--;
+
+	if (player.health > 0 && self->thinkTime <= 0)
+	{
+		self->endY = self->endY == 1 ? 0 : 1;
+
+		self->action = &physicalAttackInit;
+	}
+
+	facePlayer();
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void physicalAttackInit()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 1)
+		{
+			self->endX = 3;
+
+			self->face = RIGHT;
+
+			self->action = &summon;
+		}
+
+		else if (self->maxThinkTime == 2)
+		{
+			self->endX = 3;
+			
+			self->mental = 0;
+			
+			self->action = &followPlayer;
+		}
+		
+		else if (self->maxThinkTime == 3)
+		{
+			self->endX = 1;
+			
+			self->action = &summon2;
+		}
+	}
+
+	hover();
+}
+
+static void summon()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addBook(self->x, self->y, "enemy/green_book");
+		
+		e->pain = &enemyPain;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2 + 32;
+		e->targetY = player.y - 32 - prand() % 64;
+
+		e->startY = e->targetY;
+
+		e->x = e->targetX;
+		e->y = e->targetY;
+
+		if (isValidOnMap(e) == TRUE)
+		{
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
+
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+
+			e->health = 30;
+
+			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			e->face = RIGHT;
+
+			self->endX--;
+		}
+
+		if (self->endX <= 0)
+		{
+			self->thinkTime = 300;
+
+			self->action = &physicalAttackFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 45;
+		}
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void followPlayer()
+{
+	self->targetX = player.x - self->w / 2 + player.w / 2;
+
+	/* Position above the player */
+
+	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+
+		self->thinkTime = 15;
+		
+		if (player.health > 0)
+		{
+			self->action = &dropOnPlayer;
+		}
+		
+		else
+		{
+			hover();
+		}
+	}
+
+	else
+	{
+		self->dirX = self->targetX < self->x ? -player.speed * 3 : player.speed * 3;
+	}
+
+	checkToMap(self);
+}
+
+static void dropOnPlayer()
+{
+	int i;
+	long onGround;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+
+		onGround = (self->flags & ON_GROUND);
+
+		checkToMap(self);
+
+		if (onGround == 0 && (self->flags & ON_GROUND))
+		{
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
+			if ((player.flags & ON_GROUND) && !(player.flags & INVULNERABLE))
+			{
+				setPlayerStunned(150);
+			}
+
+			shakeScreen(MEDIUM, 15);
+
+			self->thinkTime = 15;
+
+			self->action = &dropWait;
+
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+			
+			self->endX--;
+			
+			if (self->endX == 0)
+			{
+				self->mental = 1;
+				
+				self->endX = 4;
+			}
+			
+			self->targetY = self->y;
+		}
+	}
+}
+
+static void dropWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= FLY;
+
+		if (self->y < self->startY)
+		{
+			self->y = self->startY;
+
+			self->dirY = 0;
+
+			self->action = &followPlayer;
+		}
+
+		else
+		{
+			if (self->mental == 1 && self->y < self->targetY - 64)
+			{
+				self->dirY = 0;
+				
+				self->mental = 0;
+				
+				self->action = &dropOnPlayer;
+			}
+			
+			self->dirY = -4;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void summon2()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		i = prand() % 4;
+		
+		switch (i)
+		{
+			case 0:
+				e = addBook(self->x, self->y, "enemy/green_book");
+			break;
+			
+			case 1:
+				e = addBook(self->x, self->y, "enemy/yellow_book");
+			break;
+			
+			case 2:
+				e = addBook(self->x, self->y, "enemy/red_book");
+			break;
+			
+			default:
+				e = addBook(self->x, self->y, "enemy/blue_book");
+			break;
+		}
+		
+		e->pain = &enemyPain;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2 + (self->face == RIGHT ? 64 : -64);
+		e->targetY = player.y - 32 - prand() % 64;
+
+		e->startY = e->targetY;
+
+		e->x = e->targetX;
+		e->y = e->targetY;
+
+		if (isValidOnMap(e) == TRUE)
+		{
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
+
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+
+			e->health = 30;
+
+			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			e->face = RIGHT;
+
+			self->endX--;
+		}
+
+		if (self->endX <= 0)
+		{
+			self->thinkTime = 120;
+
+			self->action = &physicalAttackFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 45;
+		}
+	}
+	
+	facePlayer();
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void physicalAttackPause()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &physicalAttack;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void physicalAttackFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 180;
+
+		self->action = self->maxThinkTime == 3 ? &teleportToOtherSide : &physicalAttackPause;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+void takeDamage(Entity *other, int damage)
+{
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->die();
+		}
+	}
 }
