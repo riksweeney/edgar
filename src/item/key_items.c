@@ -65,6 +65,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "pedestal.h"
 #include "cauldron.h"
 #include "soul_bottle.h"
+#include "instruction_machine.h"
 
 extern Entity *self, player;
 
@@ -109,7 +110,8 @@ static Constructor items[] = {
 {"item/tuning_fork", &addTuningFork},
 {"item/pedestal", &addPedestal},
 {"item/cauldron", &addCauldron},
-{"item/soul_bottle", &addSoulBottle}
+{"item/soul_bottle", &addSoulBottle},
+{"item/instruction_machine", &addInstructionMachine}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -124,12 +126,12 @@ Entity *addKeyItem(char *name, int x, int y)
 		if (strcmpignorecase(items[i].name, name) == 0)
 		{
 			e = items[i].construct(x, y, name);
-			
+
 			if (e->fallout == NULL)
 			{
 				e->fallout = &itemFallout;
 			}
-			
+
 			return e;
 		}
 	}
@@ -150,7 +152,7 @@ void keyItemTouch(Entity *other)
 void keyItemFallout()
 {
 	self->dirX = 0;
-	
+
 	self->thinkTime = 300;
 
 	self->action = &keyItemRespawn;
@@ -170,7 +172,7 @@ void keyItemRespawn()
 		self->dirY = ITEM_JUMP_HEIGHT;
 
 		setCustomAction(self, &invulnerable, 180, 0);
-		
+
 		self->action = &doNothing;
 	}
 }

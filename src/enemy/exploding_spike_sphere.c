@@ -139,6 +139,9 @@ static void explode()
 
 		e = addExplosion(x, y);
 		
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+		
 		e->damage = 2;
 
 		self->health--;

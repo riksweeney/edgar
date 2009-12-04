@@ -53,14 +53,14 @@ void freeEntities()
 	/* Clear the list */
 
 	memset(entity, 0, sizeof(Entity) * MAX_ENTITIES);
-	
+
 	entityIndex = 0;
 }
 
 Entity *getFreeEntity()
 {
 	int i, count;
-	
+
 	count = 0;
 
 	/* Loop through all the entities and find a free slot */
@@ -71,7 +71,7 @@ Entity *getFreeEntity()
 		{
 			i = 0;
 		}
-		
+
 		if (entity[i].inUse == FALSE)
 		{
 			memset(&entity[i], 0, sizeof(Entity));
@@ -92,19 +92,21 @@ Entity *getFreeEntity()
 
 			entity[i].alpha = 255;
 
+			entityIndex = i + 1;
+
 			return &entity[i];
 		}
-		
+
 		count++;
-		
+
 		if (count >= MAX_ENTITIES)
 		{
-			break;
-		}
+			if (count >= MAX_ENTITIES - 20)
+			{
+				printf("WARNING, compacting Entities!\n");
+			}
 
-		if (count >= MAX_ENTITIES - 20)
-		{
-			printf("WARNING, compacting Entities!\n");
+			break;
 		}
 	}
 
@@ -1524,7 +1526,7 @@ void doTeleport()
 		self->dirY = self->dirX = 0;
 
 		self->standingOn = NULL;
-		
+
 		if (!(self->flags & NO_END_TELEPORT_SOUND))
 		{
 			playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : -1), self->x, self->y, 0);
