@@ -1535,6 +1535,12 @@ msgstr ""
 msgid "Instruction Card #2"
 msgstr ""
 
+msgid "Instruction Card #3"
+msgstr ""
+
+msgid "Instruction Card #4"
+msgstr ""
+
 msgid "Centurion Statue"
 msgstr ""
 
@@ -1620,4 +1626,55 @@ msgid "However, since you can't read the instructions on the card, you will have
 msgstr ""
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr ""
+
+msgid "Enter the directions"
+msgstr ""
+
+msgid "Out of space for instructions"
+msgstr ""
+
+msgid "I need a blank card to put the instructions on"
+msgstr ""
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr ""
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr ""
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr ""
+
+msgid "Find another shield"
+msgstr ""
+
+msgid "Blend eyeballs and tentacle"
+msgstr ""
+
+msgid "Obtain a Fire Shield"
+msgstr ""
+
+msgid "More water?!"
+msgstr ""
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr ""
+
+msgid "I'll have to find another way of getting across"
+msgstr ""
+
+msgid "I'll have to find something to help me get across"
+msgstr ""
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr ""
+
+msgid "I'll have to find another mine around here..."
+msgstr ""
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr ""
+
+msgid "A bottle capable of capturing souls"
 msgstr ""

@@ -101,11 +101,11 @@ static void followTargets()
 		{
 			self->thinkTime = 0;
 		}
-		
+
 		self->dirX = 0;
 		self->dirY = 0;
 	}
-	
+
 	if (self->dirX == 0 && self->dirY == 0)
 	{
 		snprintf(name, sizeof(name), "%s_TARGET_%d", self->objectiveName, self->thinkTime);
@@ -146,6 +146,8 @@ static void moveStartEnd()
 
 		if (self->x <= self->startX || self->x >= self->endX)
 		{
+			self->x = self->x <= self->startX ? self->startX : self->endX;
+
 			self->dirX = 0;
 		}
 

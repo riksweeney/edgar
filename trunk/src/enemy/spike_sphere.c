@@ -28,8 +28,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void move(void);
 static void takeDamage(Entity *, int);
+static void moveVertical(void);
+static void init(void);
+static void moveHorizontal(void);
 
 Entity *addSpikeSphere(int x, int y, char *name)
 {
@@ -45,7 +47,7 @@ Entity *addSpikeSphere(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &move;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
@@ -57,7 +59,12 @@ Entity *addSpikeSphere(int x, int y, char *name)
 	return e;
 }
 
-static void move()
+static void init()
+{
+	self->action = self->maxThinkTime == 1 ? &moveHorizontal : &moveVertical;
+}
+
+static void moveVertical()
 {
 	self->endY += self->speed;
 
@@ -67,6 +74,18 @@ static void move()
 	}
 
 	self->y = self->startY + cos(DEG_TO_RAD(self->endY)) * self->mental;
+}
+
+static void moveHorizontal()
+{
+	self->endX += self->speed;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+
+	self->x = self->startX + cos(DEG_TO_RAD(self->endX)) * self->mental;
 }
 
 static void takeDamage(Entity *other, int damage)
