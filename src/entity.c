@@ -977,7 +977,7 @@ Entity *addEntity(Entity e, int x, int y)
 		}
 	}
 
-	showErrorAndExit("Could not add Entity", e.name);
+	showErrorAndExit("Could not add Entity %s", e.name);
 
 	return NULL;
 }
@@ -1144,7 +1144,7 @@ void interactWithEntity(int x, int y, int w, int h)
 
 				self = &entity[i];
 
-				self->activate(1);
+				self->activate(0);
 
 				self = e;
 			}
