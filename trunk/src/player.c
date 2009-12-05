@@ -1255,7 +1255,7 @@ static void playerDie()
 
 	player.flags |= HELPLESS;
 
-	playerWeapon.flags &= ~ATTACKING;
+	playerWeapon.flags &= ~(ATTACKING|FLY);
 
 	player.dirX = 0;
 

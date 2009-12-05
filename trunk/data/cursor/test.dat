@@ -15,3 +15,4 @@ weapon/bow
 weapon/normal_arrow
 enemy/exploding_spike_sphere
 enemy/yellow_book
+item/moveable_lift

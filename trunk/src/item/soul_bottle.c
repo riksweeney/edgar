@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "key_items.h"
+#include "../inventory.h"
 #include "../hud.h"
 #include "../system/error.h"
 
@@ -30,6 +31,8 @@ extern Entity *self, player;
 extern Game game;
 
 static void useBottle(int);
+static void soulActivate(void);
+static void soulTouch(Entity *);
 
 Entity *addSoulBottle(int x, int y, char *name)
 {
@@ -64,10 +67,48 @@ Entity *addSoulBottle(int x, int y, char *name)
 
 static void useBottle(int val)
 {
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
-	{
-		self->thinkTime = self->maxThinkTime;
+	Entity *e;
 
-		setInfoBoxMessage(30, _("Not working in this version!"));
+	if (game.status == IN_GAME)
+	{
+		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), self->y);
+
+		e->dirX = player.face == LEFT ? -5 : 5;
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		e->face = player.face;
+
+		e->action = &soulActivate;
+
+		e->touch = &soulTouch;
+
+		e->thinkTime = 300;
+
+		removeInventoryItem(self->objectiveName);
+	}
+}
+
+static void soulActivate()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &doNothing;
+
+		self->touch = &keyItemTouch;
+	}
+}
+
+static void soulTouch(Entity *other)
+{
+	if (strcmpignorecase(other->name, "enemy/spirit") == 0)
+	{
+		loadProperties("full_soul_bottle", self);
+
+		self->touch = &keyItemTouch;
+
+		self->activate = NULL;
 	}
 }

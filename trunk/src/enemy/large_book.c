@@ -1962,6 +1962,11 @@ static void summon()
 
 			self->endX--;
 		}
+		
+		else
+		{
+			e->inUse = FALSE;
+		}
 
 		if (self->endX <= 0)
 		{
@@ -2157,6 +2162,11 @@ static void summon2()
 			e->face = RIGHT;
 
 			self->endX--;
+		}
+		
+		else
+		{
+			e->inUse = FALSE;
 		}
 
 		if (self->endX <= 0)

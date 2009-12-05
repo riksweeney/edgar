@@ -476,7 +476,7 @@ static void castLightningBolt()
 		e->y -= e->h / 2;
 
 		e->targetX = player.x + player.w / 2 - e->w / 2;
-		e->targetY = getMapCeiling(self->x, self->y);
+		e->targetY = getMapCeiling(e->targetX, self->y);
 
 		e->startY = e->targetY;
 		e->endY   = getMapFloor(e->targetX, e->targetY);

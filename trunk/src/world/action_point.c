@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Game game;
-extern Entity *self;
+extern Entity *self, player;
 
 static void wait(void);
 static void touch(Entity *);
@@ -90,7 +90,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && game.showHints == TRUE && self->active == TRUE)
+	if (other->type == PLAYER && game.showHints == TRUE && self->active == TRUE && (player.flags & ON_GROUND))
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
@@ -98,7 +98,7 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	if (self->active == TRUE)
+	if (self->active == TRUE && (player.flags & ON_GROUND))
 	{
 		runScript(self->requires);
 	}
