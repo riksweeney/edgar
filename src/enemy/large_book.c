@@ -233,7 +233,7 @@ static void redDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
+			self->health = self->maxHealth;
 		}
 	}
 
@@ -590,7 +590,7 @@ static void blueDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
+			self->health = self->maxHealth;
 		}
 	}
 
@@ -1244,7 +1244,7 @@ static void yellowDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
+			self->health = self->maxHealth;
 		}
 	}
 
@@ -1320,7 +1320,7 @@ static void createThunderCloud()
 	e->y -= e->h / 2;
 
 	e->targetX = player.x + player.w / 2;
-	e->targetY = self->y - 100 - (prand() % 60);
+	e->targetY = self->y - 150;
 
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
@@ -1859,7 +1859,7 @@ static void greenDie()
 			self->startX = self->targetX;
 			self->startY = self->targetY;
 
-			self->health = self->maxHealth * (self->maxThinkTime == 2 ? 1.5 : 1.75);
+			self->health = self->maxHealth;
 		}
 	}
 

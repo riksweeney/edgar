@@ -97,7 +97,7 @@ static void followPlayer()
 
 	checkToMap(self);
 
-	if (self->head->maxThinkTime != 1)
+	if (self->head == NULL || self->head->maxThinkTime != 1)
 	{
 		setEntityAnimation(self, DIE);
 

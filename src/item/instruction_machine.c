@@ -71,7 +71,7 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && self->active == FALSE)
+	if (other->type == PLAYER)
 	{
 		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
@@ -83,7 +83,7 @@ static void activate(int val)
 
 	if (e == NULL)
 	{
-		runScript("blank_card_required");
+		setInfoBoxMessage(60, _("%s is required"), _(self->requires));
 	}
 
 	else
@@ -106,6 +106,7 @@ static void activate(int val)
 
 static void readInputCode()
 {
+	char c;
 	int val;
 	Entity *e;
 
@@ -139,10 +140,12 @@ static void readInputCode()
 
 	else if (input.attack == 1)
 	{
+		input.attack = 0;
+		
 		val = 5;
 	}
-
-	else if (input.attack == 1)
+	
+	else
 	{
 		val = -1;
 	}
@@ -161,6 +164,13 @@ static void readInputCode()
 		{
 			setInfoBoxMessage(300, _("Out of space for instructions"));
 		}
+		
+		self->touch = &touch;
+		self->activate = &activate;
+
+		self->action = &wait;
+		
+		printf("%s\n", e->requires);
 	}
 
 	else if (val != -1)
@@ -168,12 +178,33 @@ static void readInputCode()
 		setEntityAnimation(self->target, val);
 
 		playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+		
+		switch (val)
+		{
+			case 1:
+				c = 'u';
+			break;
+			
+			case 2:
+				c = 'd';
+			break;
+			
+			case 3:
+				c = 'l';
+			break;
+			
+			default:
+				c = 'r';
+			break;
+		}
 
-		self->target->requires[self->mental] = val;
+		self->target->requires[self->mental] = c;
 
 		self->target->requires[self->mental + 1] = '\0';
 
 		self->mental++;
+		
+		printf("%s\n", self->target->requires);
 
 		self->thinkTime = self->maxThinkTime;
 	}

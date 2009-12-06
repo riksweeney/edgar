@@ -660,6 +660,26 @@ void patchEntities(double versionFile, char *mapName)
 					setProperty(e, key, value);
 				}
 			}
+			
+			else if (strcmpignorecase(itemName, "UPDATE_ENTITY_BY_START") == 0 && skipping == FALSE)
+			{
+				read = sscanf(line, "%*s %d %d %s %s\n", &x, &y, key, value);
+				
+				if (strcmpignorecase(itemName, "PLAYER") == 0)
+				{
+					e = &player;
+				}
+
+				else
+				{
+					e = getEntityByStartXY(x, y);
+				}
+				
+				if (e != NULL)
+				{
+					setProperty(e, key, value);
+				}
+			}
 
 			line = strtok_r(NULL, "\n", &savePtr);
 		}
