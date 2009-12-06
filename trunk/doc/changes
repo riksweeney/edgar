@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.45
 * Added the rest of the Library Map
+* Health dropping is now more generous when a bow is equipped
 
 Version 0.41
 * Fixed the Golem Boss (again)

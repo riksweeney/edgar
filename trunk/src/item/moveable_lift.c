@@ -33,7 +33,7 @@ extern Entity *self;
 static void touch(Entity *);
 static void activate(int);
 
-Entity *addMovableLift(int x, int y, char *name)
+Entity *addMoveableLift(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 

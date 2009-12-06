@@ -550,7 +550,7 @@ static void retreatToSkull()
 			setInfoBoxMessage(60, _("Try hitting the skull..."));
 		}
 
-		self->action = strcmpignorecase(self->name, "enemy/poltergiest_4") == 0 ? &recharge : &skullWait;
+		self->action = strcmpignorecase(self->name, "enemy/poltergiest_3") == 0 ? &recharge : &skullWait;
 	}
 }
 

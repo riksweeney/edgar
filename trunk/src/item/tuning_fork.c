@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 
 extern Game game;
-extern Entity *self;
+extern Entity *self, entity[MAX_ENTITIES];
 
 static void activate(int);
 
@@ -64,24 +64,27 @@ Entity *addTuningFork(int x, int y, char *name)
 
 static void activate(int val)
 {
-	Entity *e, *temp;
+	int i;
+	Entity *temp;
+	
 	if (game.status == IN_GAME)
 	{
 		playSoundToMap("sound/item/tuning_fork.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
-		e = getEntityByRequiredName("TUNING_FORK");
-
-		if (e != NULL)
+		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			if (getDistanceFromPlayer(e) < 128)
+			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, "TUNING_FORK") == 0)
 			{
-				temp = self;
+				if (getDistanceFromPlayer(&entity[i]) < 128)
+				{
+					temp = self;
+					
+					self = &entity[i];
 
-				self = e;
+					self->activate(100);
 
-				self->activate(100);
-
-				self = temp;
+					self = temp;
+				}
 			}
 		}
 	}

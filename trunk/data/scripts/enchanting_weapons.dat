@@ -25,7 +25,8 @@ TALK Edgar There might be potions room or lab where I can find the roots, fat an
 TALK Edgar And the Gazers hang around in the basement so that's not a problem
 TALK Edgar What I do need to find is a Red Sludge, but I have no idea where to find one
 TALK Edgar I can't use my current shield in the experiment in case it backfires so I'll have to find another one
-ACTIVATE_OBJECTIVE MONSTER_BOOK
+SET MONSTER_BOOK HEALTH 0
+ACTIVATE_REQUIRED WEAPON_BOOK_TRIGGER
 ADD OBJECTIVE "Obtain 3 Gazer Eyes" " "
 ADD TRIGGER "Gazer Eyeball" 3 UPDATE_OBJECTIVE "Obtain 3 Gazer Eyes"
 ADD OBJECTIVE "Obtain 1 Red Sludge Tentacle" " "

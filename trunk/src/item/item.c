@@ -179,13 +179,14 @@ void dropRandomItem(int x, int y)
 	{
 		if (getInventoryItem(_("Bow")) != NULL)
 		{
-			switch (prand() % 3)
+			switch (prand() % 4)
 			{
 				case 0:
+				case 1:
 					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 				break;
 
-				case 1:
+				case 2:
 					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 
 					e->health = 1 + (prand() % 3);
