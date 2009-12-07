@@ -1,8 +1,8 @@
 HEALTH 150
 DAMAGE 1
-GFX_FILE data/gfx/enemy/summoner.dat
-ANIM_FILE data/anim/enemy/summoner.dat
+GFX_FILE data/gfx/enemy/poltergiest.dat
+ANIM_FILE data/anim/common/no_anim.dat
 TYPE ENEMY
 SPEED 2
 FLAGS FLY
-ALPHA 128
+ALPHA 192
