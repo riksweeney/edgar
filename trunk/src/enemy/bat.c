@@ -140,14 +140,14 @@ static void fly()
 	{
 		self->face = RIGHT;
 	}
-	
+
 	/* Red bats always try and stay at their minimum height */
-	
+
 	if (self->y > self->startY && strcmpignorecase(self->name, "enemy/red_bat") == 0)
 	{
 		self->dirY = -self->speed;
 	}
-	
+
 	else
 	{
 		self->dirY = 0;
@@ -158,7 +158,7 @@ static void fly()
 	if (self->dirX == 0)
 	{
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
-		
+
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
 
@@ -216,10 +216,10 @@ static void dartDownFinish()
 	if (self->thinkTime == 0)
 	{
 		self->dirY = -self->speed;
-		
+
 		self->flags |= FLY;
 	}
-	
+
 	else if (self->thinkTime < 0)
 	{
 		if (self->dirY == 0 || self->y <= self->startY)
@@ -239,7 +239,7 @@ static void dartDownFinish()
 			self->dirX = 0;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

@@ -103,7 +103,7 @@ static void wait()
 	{
 		addSparkle(self->x + (prand() % self->w), self->y + (prand() % self->h));
 	}
-	
+
 	checkToMap(self);
 }
 

@@ -1027,7 +1027,7 @@ static void createIceBlock()
 
 static void iceBlockDrop()
 {
-	if (self->standingOn != NULL)
+	if (self->standingOn != NULL && strcmpignorecase(self->name, self->standingOn->name) == 0)
 	{
 		self->standingOn->action = self->standingOn->die;
 	}
@@ -1745,7 +1745,7 @@ static void teleportToOtherSide()
 
 		self->action = &castLightningFinish;
 	}
-	
+
 	else
 	{
 		t = getTargetByName("GREEN_BOOK_RIGHT_SIDE");
@@ -1905,16 +1905,16 @@ static void physicalAttackInit()
 		else if (self->maxThinkTime == 2)
 		{
 			self->endX = 3;
-			
+
 			self->mental = 0;
-			
+
 			self->action = &followPlayer;
 		}
-		
+
 		else if (self->maxThinkTime == 3)
 		{
 			self->endX = 1;
-			
+
 			self->action = &summon2;
 		}
 	}
@@ -1931,7 +1931,7 @@ static void summon()
 	if (self->thinkTime <= 0)
 	{
 		e = addBook(self->x, self->y, "enemy/green_book");
-		
+
 		e->pain = &enemyPain;
 
 		e->targetX = player.x + player.w / 2 - e->w / 2 + 32;
@@ -1962,7 +1962,7 @@ static void summon()
 
 			self->endX--;
 		}
-		
+
 		else
 		{
 			e->inUse = FALSE;
@@ -1999,12 +1999,12 @@ static void followPlayer()
 		self->dirX = 0;
 
 		self->thinkTime = 15;
-		
+
 		if (player.health > 0)
 		{
 			self->action = &dropOnPlayer;
 		}
-		
+
 		else
 		{
 			hover();
@@ -2037,7 +2037,7 @@ static void dropOnPlayer()
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
 			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-			
+
 			if ((player.flags & ON_GROUND) && !(player.flags & INVULNERABLE))
 			{
 				setPlayerStunned(150);
@@ -2053,16 +2053,16 @@ static void dropOnPlayer()
 			{
 				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
-			
+
 			self->endX--;
-			
+
 			if (self->endX == 0)
 			{
 				self->mental = 1;
-				
+
 				self->endX = 4;
 			}
-			
+
 			self->targetY = self->y;
 		}
 	}
@@ -2090,12 +2090,12 @@ static void dropWait()
 			if (self->mental == 1 && self->y < self->targetY - 64)
 			{
 				self->dirY = 0;
-				
+
 				self->mental = 0;
-				
+
 				self->action = &dropOnPlayer;
 			}
-			
+
 			self->dirY = -4;
 		}
 	}
@@ -2113,26 +2113,26 @@ static void summon2()
 	if (self->thinkTime <= 0)
 	{
 		i = prand() % 4;
-		
+
 		switch (i)
 		{
 			case 0:
 				e = addBook(self->x, self->y, "enemy/green_book");
 			break;
-			
+
 			case 1:
 				e = addBook(self->x, self->y, "enemy/yellow_book");
 			break;
-			
+
 			case 2:
 				e = addBook(self->x, self->y, "enemy/red_book");
 			break;
-			
+
 			default:
 				e = addBook(self->x, self->y, "enemy/blue_book");
 			break;
 		}
-		
+
 		e->pain = &enemyPain;
 
 		e->targetX = player.x + player.w / 2 - e->w / 2 + (self->face == RIGHT ? 64 : -64);
@@ -2163,7 +2163,7 @@ static void summon2()
 
 			self->endX--;
 		}
-		
+
 		else
 		{
 			e->inUse = FALSE;
@@ -2181,7 +2181,7 @@ static void summon2()
 			self->thinkTime = 45;
 		}
 	}
-	
+
 	facePlayer();
 
 	checkToMap(self);

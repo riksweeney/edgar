@@ -4,6 +4,7 @@ CHANGE LOG
 Version 0.45
 * Added the rest of the Library Map
 * Health dropping is now more generous when a bow is equipped
+* Music and sound effects are halted when the game is paused
 
 Version 0.41
 * Fixed the Golem Boss (again)

@@ -104,13 +104,13 @@ static void addStatue(int val)
 			self->target->x -= self->target->w / 2;
 
 			self->target->y = self->y - self->target->h;
-			
+
 			self->target->flags |= FLY;
 
 			self->target->touch = NULL;
-			
+
 			self->target->action = &statueWait;
-			
+
 			removeInventoryItem(e->objectiveName);
 
 			validate();
@@ -122,7 +122,7 @@ static void addStatue(int val)
 		e = addEntity(*self->target, 0, 0);
 
 		addToInventory(e);
-		
+
 		self->target->inUse = FALSE;
 
 		self->target = NULL;
@@ -201,14 +201,14 @@ static void init()
 	if (strlen(self->objectiveName) != 0)
 	{
 		printf("Pedestal is getting %s\n", self->objectiveName);
-		
+
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			if (entity[i].inUse == TRUE && entity[i].type == ITEM
 				&& strcmpignorecase(entity[i].objectiveName, self->objectiveName) == 0)
 			{
 				e = &entity[i];
-				
+
 				break;
 			}
 		}
@@ -217,7 +217,7 @@ static void init()
 		{
 			showErrorAndExit("Pedestal could not get statue %s", self->objectiveName);
 		}
-		
+
 		printf("Pedestal is got %s\n", e->objectiveName);
 
 		self->target = e;
@@ -227,11 +227,11 @@ static void init()
 		self->target->x -= self->target->w / 2;
 
 		self->target->y = self->y - self->target->h;
-		
+
 		self->target->flags |= FLY;
 
 		self->target->touch = NULL;
-		
+
 		self->target->action = &statueWait;
 	}
 
@@ -242,5 +242,5 @@ static void init()
 
 static void statueWait()
 {
-	
+
 }

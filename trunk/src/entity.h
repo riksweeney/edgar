@@ -61,3 +61,4 @@ int getRightEdge(Entity *);
 void entityDieVanish(void);
 void killEntity(char *);
 void resetEntityIndex(void);
+void freeList(EntityList *);

@@ -182,7 +182,7 @@ static void hunt()
 		self->action = &patrol;
 
 		self->target = NULL;
-		
+
 		self->touch = &noTouch;
 
 		stopSound(BOSS_CHANNEL);
@@ -204,54 +204,54 @@ static void trapTarget(Entity *other)
 	{
 		return;
 	}
-	
+
 	/* Trap the target */
-	
+
 	self->action = &attack;
-	
+
 	self->touch = NULL;
-	
+
 	self->y += self->h;
-	
+
 	self->flags &= ~NO_DRAW;
 }
 
 static void attack()
 {
 	Entity *temp;
-	
+
 	self->y -= 15;
-	
+
 	if (self->y < self->startY)
 	{
 		self->y = self->startY;
-		
+
 		playSoundToMap("sound/boss/ant_lion/eat.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-	
+
 		temp = self;
-	
+
 		self = self->target;
-	
+
 		if (self->type == PLAYER)
 		{
 			playerGib();
 		}
-	
+
 		else
 		{
 			throwGibs("enemy/grub_gibs", 7);
 		}
-	
+
 		self = temp;
-	
+
 		self->target = NULL;
-	
+
 		self->action = &wait;
-	
+
 		self->touch = NULL;
-	
+
 		self->thinkTime = 120;
-	
+
 		self->targetY = self->y + self->h;
 	}
 }

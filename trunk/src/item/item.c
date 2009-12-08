@@ -65,7 +65,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 	else if (e->type == WEAPON || e->type == SHIELD)
 	{
 		e->touch = &keyItemTouch;
-		
+
 		e->fallout = &keyItemFallout;
 
 		if (e->type == WEAPON)
@@ -93,7 +93,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 
 		e->frameSpeed = 0;
 	}
-	
+
 	else if (e->flags & NO_DRAW)
 	{
 		e->touch = &noTouch;

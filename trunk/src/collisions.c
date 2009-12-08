@@ -1289,7 +1289,7 @@ int getMapFloor(int x, int y)
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	tileID = mapTileAt(x, y);
 
 	while (tileID == BLANK_TILE || (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END))
@@ -1300,7 +1300,7 @@ int getMapFloor(int x, int y)
 		{
 			break;
 		}
-		
+
 		tileID = mapTileAt(x, y);
 	}
 
@@ -1312,10 +1312,10 @@ int getMapFloor(int x, int y)
 int getMapCeiling(int x, int y)
 {
 	int tileID;
-	
+
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	tileID = mapTileAt(x, y);
 
 	while (tileID == BLANK_TILE || (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END))
@@ -1326,7 +1326,7 @@ int getMapCeiling(int x, int y)
 		{
 			break;
 		}
-		
+
 		tileID = mapTileAt(x, y);
 	}
 

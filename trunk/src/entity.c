@@ -1024,6 +1024,8 @@ EntityList *getEntitiesObjectiveName(char *name)
 		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
 	}
 
+	list->next = NULL;
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
@@ -1047,6 +1049,8 @@ EntityList *getEntitiesByRequiredName(char *name)
 		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
 	}
 
+	list->next = NULL;
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
@@ -1056,6 +1060,20 @@ EntityList *getEntitiesByRequiredName(char *name)
 	}
 
 	return list;
+}
+
+void freeList(EntityList *list)
+{
+	EntityList *p, *q;
+
+	for (p=list->next;p!=NULL;p=q)
+	{
+		q = p->next;
+
+		free(p);
+	}
+
+	free(list);
 }
 
 Entity *getEntityByStartXY(int x, int y)

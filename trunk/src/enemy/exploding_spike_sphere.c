@@ -68,7 +68,7 @@ static void init()
 		case 0:
 			self->action = &moveLeftToRight;
 		break;
-		
+
 		default:
 			self->action = &floatUpAndDown;
 		break;
@@ -90,9 +90,9 @@ static void floatUpAndDown()
 static void die()
 {
 	self->flags |= INVULNERABLE;
-	
+
 	self->dirX = 0;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime < 120)
@@ -106,12 +106,12 @@ static void die()
 	if (self->thinkTime <= 0)
 	{
 		self->health = 10;
-		
+
 		self->touch = NULL;
-		
+
 		self->action = &explode;
 	}
-	
+
 	else
 	{
 		self->action = &die;
@@ -138,10 +138,10 @@ static void explode()
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		e = addExplosion(x, y);
-		
+
 		e->x -= e->w / 2;
 		e->y -= e->h / 2;
-		
+
 		e->damage = 2;
 
 		self->health--;
@@ -153,6 +153,6 @@ static void explode()
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	self->action = &explode;
 }

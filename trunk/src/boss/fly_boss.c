@@ -195,8 +195,6 @@ static void doIntro()
 
 		self->startX = 0;
 
-		initBossHealthBar();
-
 		facePlayer();
 	}
 
@@ -222,6 +220,8 @@ static void introPause()
 	if (self->thinkTime <= 0)
 	{
 		playBossMusic();
+
+		initBossHealthBar();
 
 		self->action = &wait;
 	}

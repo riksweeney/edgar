@@ -36,7 +36,6 @@ extern Entity *self, player;
 static void hover(void);
 static void touch(Entity *);
 static void lookForPlayer(void);
-static void moveToPlayer(void);
 static void teleportPlayer(void);
 static void die(void);
 
@@ -95,37 +94,7 @@ static void lookForPlayer()
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
 
-	if (player.health > 0 && prand() % 20 == 0)
-	{
-		self->thinkTime = 0;
-
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
-		{
-			self->action = &moveToPlayer;
-
-			self->dirX = 0;
-		}
-	}
-
 	hover();
-}
-
-static void moveToPlayer()
-{
-	facePlayer();
-
-	self->dirX = self->face == LEFT ? -player.speed * 2 : player.speed * 2;
-
-	checkToMap(self);
-
-	if (self->x <= self->startX || self->x >= self->endX)
-	{
-		self->x = (self->x <= self->startX ? self->startX : self->endX);
-
-		self->dirX = 0;
-
-		self->action = &lookForPlayer;
-	}
 }
 
 static void touch(Entity *other)
@@ -152,11 +121,11 @@ static void teleportPlayer()
 
 	calculatePath(player.x, player.y, player.targetX, player.targetY, &player.dirX, &player.dirY);
 
-	self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+	player.flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
-	fireTrigger(self->objectiveName);
+	activateEntitiesWithObjectiveName("SPIRIT_POINT", TRUE);
 }
 
 static void die()

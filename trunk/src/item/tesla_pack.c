@@ -109,9 +109,9 @@ static void wait()
 static void shockTarget()
 {
 	Entity *temp, *e;
-	
+
 	e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add a Tesla Shock");
@@ -162,7 +162,7 @@ static void shockEnd()
 			self->target = NULL;
 
 			self->health = 0;
-		
+
 			self->mental = 20;
 
 			self->action = &die;
@@ -178,7 +178,7 @@ static void shockEnd()
 
 			self->action = &wait;
 		}
-		
+
 		loadProperties("item/tesla_pack_empty", self);
 	}
 }
@@ -218,14 +218,14 @@ static void die()
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static void shockWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;

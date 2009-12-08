@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "weather.h"
 #include "graphics/font.h"
 #include "system/random.h"
+#include "audio/audio.h"
 #include "audio/music.h"
 #include "graphics/graphics.h"
 #include "system/resources.h"
@@ -507,6 +508,10 @@ void pauseGame()
 
 				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
 			}
+
+			pauseMusic(TRUE);
+
+			pauseSound(TRUE);
 		break;
 
 		default:
@@ -532,6 +537,10 @@ void pauseGame()
 
 				game.drawMenu = &drawMainMenu;
 			}
+
+			pauseMusic(FALSE);
+
+			pauseSound(FALSE);
 		break;
 	}
 }

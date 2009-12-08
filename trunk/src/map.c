@@ -82,7 +82,7 @@ void loadMap(char *name, int loadEntityResources)
 	map.minY = 0;
 
 	map.maxX = map.maxY = 0;
-	
+
 	map.forceMinY = FALSE;
 
 	/* Read the data from the file into the map */
@@ -212,15 +212,15 @@ void loadMap(char *name, int loadEntityResources)
 
 			setWeather(x);
 		}
-		
+
 		else if (strcmpignorecase(itemName, "MIN_Y") == 0)
 		{
 			/* The the map's minimum Y */
 
 			sscanf(line, "%*s %s\n", itemName);
-			
+
 			map.forceMinY = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
-			
+
 			if (map.forceMinY == TRUE)
 			{
 				map.minY = MAX_MAP_Y;
@@ -257,12 +257,12 @@ void loadMap(char *name, int loadEntityResources)
 						{
 							map.maxY = y;
 						}
-						
+
 						if (x < map.minX)
 						{
 							map.minX = x;
 						}
-						
+
 						if (map.forceMinY == TRUE && y < map.minY)
 						{
 							map.minY = y;
