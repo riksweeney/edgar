@@ -122,7 +122,7 @@ static void attack()
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
-		
+
 		self->dirX = 0;
 
 		if (self->thinkTime == 0)
@@ -153,7 +153,7 @@ static void purpleAttack()
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
-		
+
 		self->dirX = 0;
 
 		if (self->thinkTime == 0)

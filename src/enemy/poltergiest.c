@@ -84,7 +84,7 @@ Entity *addPoltergiest(int x, int y, char *name)
 
 		e->takeDamage = &takeDamage;
 	}
-	
+
 	else if (strcmpignorecase(name, "enemy/poltergiest_4") == 0)
 	{
 		e->action = &createBooks;
@@ -191,6 +191,8 @@ static void throwBooks()
 			self->dirX = 0;
 		}
 	}
+	
+	facePlayer();
 
 	hover();
 }
@@ -439,10 +441,10 @@ static void bookReturn()
 	{
 		self->x = endX;
 		self->y = endY;
-		
+
 		startX = 0;
 		startY = 0;
-		
+
 		endX = 0;
 		endY = 0;
 	}

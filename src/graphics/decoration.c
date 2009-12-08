@@ -57,7 +57,7 @@ Entity *addDecoration(char *name, int x, int y)
 	}
 
 	showErrorAndExit("Could not find decoration %s\n", name);
-	
+
 	return NULL;
 }
 
@@ -71,7 +71,7 @@ void freeDecorations()
 Entity *getFreeDecoration()
 {
 	int i, count;
-	
+
 	count = 0;
 
 	/* Loop through all the Decorations and find a free slot */
@@ -82,7 +82,7 @@ Entity *getFreeDecoration()
 		{
 			i = 0;
 		}
-		
+
 		if (decoration[i].inUse == FALSE)
 		{
 			memset(&decoration[i], 0, sizeof(Entity));
@@ -92,16 +92,16 @@ Entity *getFreeDecoration()
 			decoration[i].active = TRUE;
 
 			decoration[i].frameSpeed = 1;
-			
+
 			decoration[i].alpha = 255;
-			
+
 			decorationIndex = i + 1;
 
 			return &decoration[i];
 		}
-		
+
 		count++;
-		
+
 		if (count >= MAX_DECORATIONS)
 		{
 			break;
@@ -308,9 +308,9 @@ Entity *addSmoke(int x, int y, char *name)
 	e->dirX = 0;
 
 	e->dirY = -e->speed;
-	
+
 	e->frameSpeed *= 10;
-	
+
 	e->frameSpeed /= 1 + prand() % 10;
 
 	e->action = &move;
@@ -442,6 +442,6 @@ Entity *addPixelDecoration(int x, int y)
 static int drawPixel()
 {
 	putPixelToMap(self->x, self->y, 255, 0, 255);
-	
+
 	return TRUE;
 }

@@ -117,7 +117,7 @@ static void lookForPlayer()
 static void summonWait()
 {
 	checkToMap(self);
-	
+
 	hover();
 }
 
@@ -202,9 +202,9 @@ static void hover()
 static void summonEnd()
 {
 	setEntityAnimation(self, STAND);
-	
+
 	self->action = &lookForPlayer;
-	
+
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->thinkTime = 600;
@@ -214,7 +214,7 @@ static void die()
 {
 	/*
 	Entity *e;
-	
+
 	if (prand() % 3 == 0)
 	{
 		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
@@ -222,8 +222,8 @@ static void die()
 		e->x -= e->w / 2;
 	}
 	*/
-	
+
 	self->dirY = 0;
-	
+
 	entityDie();
 }

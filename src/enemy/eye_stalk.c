@@ -190,7 +190,7 @@ static void createBody()
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
 
 	/* Create in reverse order so that it is drawn correctly */
-	
+
 	resetEntityIndex();
 
 	for (i=bodyParts-1;i>=0;i--)

@@ -100,7 +100,7 @@ static void wait()
 			e->endY = self->endY;
 
 			e->face = self->face;
-			
+
 			self->thinkTime = (rand() % self->maxThinkTime);
 		}
 	}

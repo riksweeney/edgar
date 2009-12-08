@@ -71,9 +71,9 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 static void init()
 {
 	self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
-	
+
 	self->endY -= self->startY;
-	
+
 	self->action = &wait;
 }
 

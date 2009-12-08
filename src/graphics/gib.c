@@ -51,7 +51,7 @@ void throwGibs(char *name, int gibs)
 
 		e->draw = &drawGib;
 	}
-	
+
 	playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
@@ -68,12 +68,12 @@ static int drawGib()
 				addBlood(self->x + self->w / 2, self->y + self->h / 2);
 			}
 		}
-	
+
 		else
 		{
 			self->frameSpeed = 0;
 		}
 	}
-	
+
 	return TRUE;
 }

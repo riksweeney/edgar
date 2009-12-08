@@ -50,7 +50,7 @@ Entity *addSmallBoulder(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->touch = &entityTouch;
-	
+
 	e->die = &die;
 
 	e->action = &roll;

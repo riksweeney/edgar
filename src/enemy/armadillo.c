@@ -62,15 +62,15 @@ Entity *addArmadillo(int x, int y, char *name)
 static void die()
 {
 	Entity *e;
-	
+
 	if (prand() % 3 == 0)
 	{
 		e = addKeyItem("item/spike_ball", self->x + self->w / 2, self->y);
 
 		e->x -= e->w / 2;
-		
+
 		e->action = &generalItemAction;
 	}
-	
+
 	entityDie();
 }

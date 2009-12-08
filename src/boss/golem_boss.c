@@ -799,13 +799,13 @@ static void reform()
 {
 	int startX, endX;
 	int endY;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		/* Move towards the head */
-		
+
 		startX = getMapStartX();
 
 		endY = getMapStartY();
@@ -954,7 +954,7 @@ static void partWait()
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
-	{	
+	{
 		self->dirX = 0;
 
 		if (onGround == 0)

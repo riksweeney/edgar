@@ -334,12 +334,12 @@ int drawLoopingAnimationToMap()
 		}
 
 		self->frameTimer = animation[self->currentAnim].frameTimer[self->currentFrame];
-		
+
 		if (self->face == LEFT)
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 		}
-		
+
 		else
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
@@ -365,7 +365,7 @@ int drawLoopingAnimationToMap()
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 		}
-		
+
 		else
 		{
 			sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
@@ -406,7 +406,7 @@ int drawLoopingAnimationToMap()
 			y = self->y - startY + self->offsetY;
 		}
 	}
-	
+
 	if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		drawn = TRUE;
@@ -429,12 +429,12 @@ int drawSpriteToMap()
 
 	startX = getMapStartX();
 	startY = getMapStartY();
-	
+
 	if (self->face == LEFT)
 	{
 		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
 	}
-	
+
 	else
 	{
 		sprite = getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
@@ -474,7 +474,7 @@ int drawSpriteToMap()
 			y = self->y - startY + self->offsetY;
 		}
 	}
-	
+
 	if (collision(x, y, sprite->image->w, sprite->image->h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		drawn = TRUE;
@@ -575,7 +575,7 @@ int getAnimationTypeByName(char *name)
 	}
 
 	showErrorAndExit("Unknown animation %s", name);
-	
+
 	return 0;
 }
 
@@ -592,7 +592,7 @@ static char *getAnimationTypeByID(int id)
 	}
 
 	showErrorAndExit("Unknown animation index %d", id);
-	
+
 	return 0;
 }
 
@@ -609,7 +609,7 @@ int getAnimationTypeAtIndex(Entity *e)
 	}
 
 	showErrorAndExit("Failed to find animation at index %d", e->currentAnim);
-	
+
 	return 0;
 }
 

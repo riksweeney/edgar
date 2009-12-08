@@ -53,9 +53,9 @@ void showErrorAndExit(char *fmt, ...)
 	error2 = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
 
 	error3 = generateTextSurface(_("The game will now exit"), game.font, 0, 220, 0, 0, 0, 0);
-	
+
 	printf("%s\n", text);
-	
+
 	#if DEV == 1
 		exit(1);
 	#endif
@@ -133,9 +133,9 @@ void showErrorAndExit(char *fmt, ...)
 	SDL_FreeSurface(error3);
 
 	game.status = IN_ERROR;
-	
+
 	stopMusic();
-	
+
 	drawError();
 }
 
@@ -144,19 +144,19 @@ static void drawError()
 	do
 	{
 		getInput(game.gameType);
-		
+
 		clearScreen(0, 0, 0);
-		
+
 		SDL_BlitSurface(game.tempSurface, NULL, game.screen, NULL);
-		
+
 		/* Swap the buffers */
-	
+
 		SDL_Flip(game.screen);
-	
+
 		/* Sleep briefly */
-	
+
 		SDL_Delay(16);
 	}
-	
+
 	while (TRUE);
 }

@@ -44,9 +44,9 @@ void freeInventory()
 	/* Clear the list */
 
 	memset(inventory.item, 0, sizeof(Entity) * MAX_INVENTORY_ITEMS);
-	
+
 	inventory.selectedIndex = 0;
-	
+
 	inventory.cursorIndex = 0;
 
 	if (inventory.background != NULL)
@@ -460,7 +460,7 @@ void loadInventoryItems()
 		if (inventory.item[i].inUse == TRUE)
 		{
 			loadProperties(inventory.item[i].name, &e);
-			
+
 			inventory.item[i].fallout = &keyItemFallout;
 
 			for (j=0;j<MAX_ANIMATION_TYPES;j++)

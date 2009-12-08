@@ -86,9 +86,9 @@ static void wait()
 		if ((self->thinkTime % 60) == 0)
 		{
 			self->mental++;
-			
+
 			setEntityAnimation(self, self->mental);
-			
+
 			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
 		}
 
@@ -111,7 +111,7 @@ static void die()
 	Entity *e;
 
 	fireTrigger(self->objectiveName);
-	
+
 	fireGlobalTrigger(self->objectiveName);
 
 	for (i=0;i<7;i++)
@@ -129,7 +129,7 @@ static void die()
 		e->thinkTime = 60 + (prand() % 60);
 	}
 
-	self->inUse = FALSE;	
+	self->inUse = FALSE;
 }
 
 static void takeDamage(Entity *other, int damage)

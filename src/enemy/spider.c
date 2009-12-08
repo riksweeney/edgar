@@ -104,16 +104,16 @@ static void redTakeDamage(Entity *other, int damage)
 		if (damage >= self->health)
 		{
 			self->health -= damage;
-			
+
 			self->dirY = -ITEM_JUMP_HEIGHT;
 
 			self->action = self->die;
 		}
-		
+
 		else if (self->maxThinkTime < 0)
 		{
 			self->targetY = 1800;
-			
+
 			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 		}
 	}
@@ -148,12 +148,12 @@ static void wait()
 	if (self->targetY > 0)
 	{
 		self->targetY -= 20;
-		
+
 		if (self->targetY < 0)
 		{
 			self->targetY = 0;
 		}
-		
+
 		self->x = self->startX + sin(DEG_TO_RAD(self->targetY)) * 10;
 	}
 }
@@ -186,7 +186,7 @@ static void move()
 			if (self->maxThinkTime < 0 && self->endY == self->targetY)
 			{
 				self->targetY = 0;
-				
+
 				self->action = &wait;
 			}
 
@@ -217,7 +217,7 @@ static int draw()
 	}
 
 	drawLoopingAnimationToMap();
-	
+
 	return TRUE;
 }
 

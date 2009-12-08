@@ -89,12 +89,12 @@ static void init()
 		{
 			snprintf(name, sizeof(name), "enemy/%s", token);
 		}
-		
+
 		else
 		{
 			snprintf(name, sizeof(name), "%s", token);
 		}
-		
+
 		loadProperties(name, e);
 
 		token = strtok(NULL, "|");
@@ -109,7 +109,7 @@ static void init()
 
 static void spawn()
 {
-	int distance;
+	int distance, spawnDistance;
 	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
 	int spawnIndex = 0, spawnCount = 0;
@@ -121,13 +121,17 @@ static void spawn()
 
 		if (self->thinkTime <= 0)
 		{
+			self->thinkTime = 0;
+
 			if (self->health < 0)
 			{
 				/* Don't spawn if the player is too close or too far away */
 
 				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
+				
+				spawnDistance = SCREEN_WIDTH * 3 / 4;
 
-				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH + TILE_SIZE))
+				if (self->health == -1 || (self->health == -2 && distance > spawnDistance && distance < spawnDistance + TILE_SIZE))
 				{
 					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
 					{
@@ -190,12 +194,12 @@ static void spawn()
 
 							spawnCount++;
 						}
-						
+
 						if (strstr(token, "/") == NULL)
 						{
 							snprintf(name, sizeof(name), "enemy/%s", token);
 						}
-						
+
 						else
 						{
 							snprintf(name, sizeof(name), "%s", token);
@@ -266,7 +270,7 @@ static void spawn()
 				{
 					snprintf(name, sizeof(name), "enemy/%s", token);
 				}
-				
+
 				else
 				{
 					snprintf(name, sizeof(name), "%s", token);

@@ -80,7 +80,7 @@ Entity *addContainmentUnitControls(int x, int y, char *name)
 static void init()
 {
 	setEntityAnimation(self, self->active == TRUE ? STAND : WALK);
-	
+
 	self->takeDamage = self->active == TRUE ? takeDamage : NULL;
 
 	self->action = &wait;

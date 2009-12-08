@@ -235,7 +235,12 @@ void doPlayer()
 
 			if (!(self->flags & HELPLESS))
 			{
-				self->dirX = 0;
+				/* Don't reset the speed if being pulled towards target */
+
+				if (!(self->flags & ATTRACTED))
+				{
+					self->dirX = 0;
+				}
 
 				if (!(self->flags & ON_GROUND))
 				{
