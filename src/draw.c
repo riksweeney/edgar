@@ -151,9 +151,9 @@ void delay(unsigned int frameLimit)
 		return;
 	}
 
-	if (frameLimit > ticks + 16)
+	if (frameLimit > ticks + game.fps)
 	{
-		SDL_Delay(16);
+		SDL_Delay(game.fps);
 	}
 
 	else

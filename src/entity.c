@@ -204,6 +204,11 @@ void doEntities()
 
 				if (!(self->flags & HELPLESS))
 				{
+					if (self->action == NULL)
+					{
+						showErrorAndExit("%s has no action function", self->name);
+					}
+
 					self->action();
 				}
 
@@ -242,6 +247,11 @@ void drawEntities(int depth)
 
 			if (self->inUse == TRUE)
 			{
+				if (self->draw == NULL)
+				{
+					showErrorAndExit("%s has no draw function", self->name);
+				}
+
 				self->draw();
 			}
 		}
@@ -255,6 +265,11 @@ void drawEntities(int depth)
 
 			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && self->layer == depth)
 			{
+				if (self->draw == NULL)
+				{
+					showErrorAndExit("%s has no draw function", self->name);
+				}
+
 				self->draw();
 			}
 		}
@@ -316,6 +331,8 @@ void moveLeftToRight()
 {
 	if (self->dirX == 0)
 	{
+		self->x += self->face == LEFT ? self->box.x : -self->box.x;
+
 		self->face = self->face == RIGHT ? LEFT : RIGHT;
 	}
 
@@ -348,6 +365,8 @@ void flyLeftToRight()
 {
 	if (self->dirX == 0)
 	{
+		self->x += self->face == LEFT ? self->box.x : -self->box.x;
+
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);

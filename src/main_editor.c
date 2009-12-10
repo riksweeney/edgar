@@ -46,7 +46,7 @@ Control control;
 
 int main(int argc, char *argv[])
 {
-	unsigned int frameLimit = SDL_GetTicks() + 16;
+	unsigned int frameLimit;
 	int go;
 	Entity startPos;
 
@@ -121,6 +121,10 @@ int main(int argc, char *argv[])
 	resetControls(TRUE);
 
 	game.status = IN_EDITOR;
+	
+	game.fps = 1000 / 60;
+	
+	frameLimit = SDL_GetTicks() + game.fps;
 
 	while (go == TRUE)
 	{
@@ -144,7 +148,7 @@ int main(int argc, char *argv[])
 
 		delay(frameLimit);
 
-		frameLimit = SDL_GetTicks() + 16;
+		frameLimit = SDL_GetTicks() + game.fps;
 	}
 
 	/* Exit the program */
