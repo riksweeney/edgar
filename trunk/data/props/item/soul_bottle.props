@@ -1,5 +1,5 @@
 GFX_FILE data/gfx/item/soul_bottle.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/soul_bottle.dat
 TYPE KEY_ITEM
 OBJECTIVE_NAME Soul Bottle
 DESCRIPTION A bottle capable of capturing souls

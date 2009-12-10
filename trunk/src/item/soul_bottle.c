@@ -25,7 +25,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "key_items.h"
 #include "../inventory.h"
 #include "../hud.h"
+#include "../collisions.h"
 #include "../system/error.h"
+#include "../event/trigger.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -71,9 +73,11 @@ static void useBottle(int val)
 
 	if (game.status == IN_GAME)
 	{
-		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), self->y);
+		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), player.y);
 
 		e->dirX = player.face == LEFT ? -5 : 5;
+
+		e->flags &= ~ON_GROUND;
 
 		e->dirY = ITEM_JUMP_HEIGHT;
 
@@ -82,8 +86,10 @@ static void useBottle(int val)
 		e->action = &soulActivate;
 
 		e->touch = &soulTouch;
-
-		e->thinkTime = 300;
+		
+		e->health = 0;
+		
+		setEntityAnimation(e, WALK);
 
 		removeInventoryItem(self->objectiveName);
 	}
@@ -91,24 +97,64 @@ static void useBottle(int val)
 
 static void soulActivate()
 {
-	self->thinkTime--;
+	Entity *e;
 
-	if (self->thinkTime <= 0)
+	if (self->flags & ON_GROUND)
 	{
-		self->action = &doNothing;
+		if (self->health == 0)
+		{
+			e = getFreeEntity();
 
-		self->touch = &keyItemTouch;
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Bottle Magic");
+			}
+
+			loadProperties("item/bottle_magic", e);
+			
+			setEntityAnimation(e, STAND);
+
+			e->x = self->x + self->w / 2 - e->w / 2;
+			e->y = self->y - e->h;
+			
+			e->action = &doNothing;
+			e->draw = &drawLoopingAnimationToMap;
+			
+			self->target = e;
+			
+			self->health = 1;
+		}
+		
+		self->dirX = 0;
 	}
+	
+	checkToMap(self);
 }
 
 static void soulTouch(Entity *other)
 {
-	if (strcmpignorecase(other->name, "enemy/spirit") == 0)
+	if (self->health == 1 && other->type == PLAYER)
 	{
-		loadProperties("full_soul_bottle", self);
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
+		
+		keyItemTouch(other);
+	}
+	
+	else if (self->health == 1 && strcmpignorecase(other->name, "enemy/spirit") == 0)
+	{
+		loadProperties("item/full_soul_bottle", self);
 
 		self->touch = &keyItemTouch;
+		
+		self->action = &doNothing;
 
 		self->activate = NULL;
+		
+		fireTrigger(other->objectiveName);
+
+		other->inUse = FALSE;
 	}
 }

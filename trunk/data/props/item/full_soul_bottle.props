@@ -1,4 +1,4 @@
-GFX_FILE data/gfx/item/soul_bottle.dat
+GFX_FILE data/gfx/item/full_soul_bottle.dat
 ANIM_FILE data/anim/common/no_anim.dat
 TYPE ITEM
 OBJECTIVE_NAME Full Soul Bottle

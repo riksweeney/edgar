@@ -53,7 +53,7 @@ Control control;
 
 int main(int argc, char *argv[])
 {
-	unsigned int frameLimit = SDL_GetTicks() + 16;
+	unsigned int frameLimit;
 	char *firstMap;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
 
@@ -76,6 +76,8 @@ int main(int argc, char *argv[])
 	go = TRUE;
 
 	loadSlot = -1;
+	
+	game.fps = 1000 / 60;
 
 	mapID = recordingID = replayingID = -1;
 
@@ -200,6 +202,10 @@ int main(int argc, char *argv[])
 	#else
 		printf("Production Version\n");
 	#endif
+	
+	frameLimit = SDL_GetTicks() + game.fps;
+	
+	printf("FPS is %d\n", game.fps);
 
 	while (go == TRUE)
 	{
@@ -246,7 +252,7 @@ int main(int argc, char *argv[])
 
 		delay(frameLimit);
 
-		frameLimit = SDL_GetTicks() + 16;
+		frameLimit = SDL_GetTicks() + game.fps;
 
 		game.frames++;
 	}
