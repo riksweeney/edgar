@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 	go = TRUE;
 
 	loadSlot = -1;
-	
+
 	game.fps = 1000 / 60;
 
 	mapID = recordingID = replayingID = -1;
@@ -202,10 +202,8 @@ int main(int argc, char *argv[])
 	#else
 		printf("Production Version\n");
 	#endif
-	
+
 	frameLimit = SDL_GetTicks() + game.fps;
-	
-	printf("FPS is %d\n", game.fps);
 
 	while (go == TRUE)
 	{
