@@ -39,13 +39,6 @@ void showErrorAndExit(char *fmt, ...)
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
 
-	if (game.tempSurface != NULL)
-	{
-		SDL_FreeSurface(game.tempSurface);
-
-		game.tempSurface = NULL;
-	}
-
 	title = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);
 
 	error1 = generateTextSurface(text, game.font, 220, 220, 220, 0, 0, 0);
@@ -63,6 +56,13 @@ void showErrorAndExit(char *fmt, ...)
 	if (title == NULL || error1 == NULL || error2 == NULL || error3 == NULL)
 	{
 		exit(1);
+	}
+
+	if (game.tempSurface != NULL)
+	{
+		SDL_FreeSurface(game.tempSurface);
+
+		game.tempSurface = NULL;
 	}
 
 	game.tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);

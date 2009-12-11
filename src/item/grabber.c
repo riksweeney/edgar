@@ -84,6 +84,10 @@ static void wait()
 
 		else
 		{
+			self->target->y = self->y + self->h / 2;
+
+			self->target->x = self->x + (self->w - self->target->w) / 2;
+
 			self->thinkTime = 60;
 
 			setEntityAnimation(self, WALK);
@@ -105,6 +109,10 @@ static void dropRock()
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~(HELPLESS|FLY);
+
+		self->target->y = self->y + self->h / 2;
+
+		self->target->x = self->x + (self->w - self->target->w) / 2;
 
 		if (self->target->type == ENEMY)
 		{
@@ -181,6 +189,10 @@ static void moveToTarget()
 
 	if (self->target != NULL)
 	{
+		self->target->y = self->y + self->h / 2;
+
+		self->target->x = self->x + (self->w - self->target->w) / 2;
+
 		self->target->x += self->dirX;
 		self->target->y += self->dirY;
 	}

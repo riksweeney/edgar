@@ -66,7 +66,7 @@ SDL_Surface *loadImage(char *name)
 void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 {
 	SDL_Rect dest;
-	
+
 	if (alpha == 0)
 	{
 		return;
@@ -85,7 +85,7 @@ void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 	dest.y = game.offsetY + y;
 	dest.w = image->w;
 	dest.h = image->h;
-	
+
 	if (alpha != 255 && alpha != -1)
 	{
 		SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
@@ -94,7 +94,7 @@ void drawImage(SDL_Surface *image, int x, int y, int white, int alpha)
 	/* Blit the entire image onto the screen at coordinates x and y */
 
 	SDL_BlitSurface(image, NULL, game.screen, &dest);
-	
+
 	SDL_SetAlpha(image, SDL_SRCALPHA|SDL_RLEACCEL, 255);
 }
 
@@ -163,20 +163,20 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int a
 	{
 		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
 	}
-	
+
 	if (alpha != 255 && white == FALSE)
 	{
 		SDL_SetAlpha(flipped, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
 	}
 
-	Set the blitting rectangle to the size of the src image 
+	Set the blitting rectangle to the size of the src image
 
 	dest.x = game.offsetX + destX;
 	dest.y = game.offsetY + destY;
 	dest.w = flipped->w;
 	dest.h = flipped->h;
 
-	Blit the entire image onto the screen at coordinates x and y 
+	Blit the entire image onto the screen at coordinates x and y
 
 	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
 
@@ -269,16 +269,16 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 	{
 		return;
 	}
-	
+
 	if (SDL_MUSTLOCK(game.screen))
 	{
 		SDL_LockSurface(game.screen);
 	}
-	
+
 	pixels = (int *)game.screen->pixels;
-	
+
 	pixels[(y * game.screen->w) + x] = color;
-	
+
 	if (SDL_MUSTLOCK(game.screen))
 	{
 		SDL_UnlockSurface(game.screen);
@@ -583,6 +583,8 @@ void drawCircleFromSurface(int x, int y, int radius)
 	SDL_BlitSurface(game.tempSurface, &src, game.screen, &dest);
 
 	SDL_FreeSurface(game.tempSurface);
+
+	game.tempSurface = NULL;
 }
 
 SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg, int bb)
@@ -655,7 +657,7 @@ void drawHitBox(int startX, int startY, int w, int h)
 	int red, x, y, *pixels, transparent;
 	SDL_Rect dest;
 	SDL_Surface *image;
-	
+
 	pixels = NULL;
 
 	red = SDL_MapRGB(game.screen->format, 255, 0, 0);

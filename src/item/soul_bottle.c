@@ -86,9 +86,11 @@ static void useBottle(int val)
 		e->action = &soulActivate;
 
 		e->touch = &soulTouch;
-		
+
 		e->health = 0;
-		
+
+		e->thinkTime = 300;
+
 		setEntityAnimation(e, WALK);
 
 		removeInventoryItem(self->objectiveName);
@@ -111,23 +113,37 @@ static void soulActivate()
 			}
 
 			loadProperties("item/bottle_magic", e);
-			
+
 			setEntityAnimation(e, STAND);
 
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y - e->h;
-			
+
 			e->action = &doNothing;
 			e->draw = &drawLoopingAnimationToMap;
-			
+
 			self->target = e;
-			
+
 			self->health = 1;
 		}
-		
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			if (self->target != NULL)
+			{
+				self->target->inUse = FALSE;
+			}
+
+			setEntityAnimation(self, STAND);
+
+			self->touch = &keyItemTouch;
+		}
+
 		self->dirX = 0;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -139,20 +155,20 @@ static void soulTouch(Entity *other)
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		keyItemTouch(other);
 	}
-	
+
 	else if (self->health == 1 && strcmpignorecase(other->name, "enemy/spirit") == 0)
 	{
 		loadProperties("item/full_soul_bottle", self);
 
 		self->touch = &keyItemTouch;
-		
+
 		self->action = &doNothing;
 
 		self->activate = NULL;
-		
+
 		fireTrigger(other->objectiveName);
 
 		other->inUse = FALSE;
