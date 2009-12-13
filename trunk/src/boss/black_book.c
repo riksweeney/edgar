@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../system/error.h"
 #include "../geometry.h"
+#include "../enemy/enemies.h"
 
 extern Entity *self;
 
@@ -97,13 +98,34 @@ static void initialise()
 
 static void doIntro()
 {
+	Entity *e;
+	Target *t;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		printf("Summoning\n");
+		
+		e = addEnemy("boss/mataeus", self->x, self->y);
+		
+		t = getTargetByName("MATAEUS_RIGHT_TARGET");
 
-		self->thinkTime = 60;
+		if (t == NULL)
+		{
+			showErrorAndExit("Mataeus cannot find target");
+		}
+
+		e->targetX = t->x;
+		e->targetY = t->y;
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->thinkTime = 120;
 
 		self->action = &summonLeave;
 	}

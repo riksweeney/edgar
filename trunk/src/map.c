@@ -1144,3 +1144,13 @@ int getDistanceFromCamera(int x, int y)
 {
 	return getDistance(map.cameraX + SCREEN_WIDTH / 2, map.cameraY + SCREEN_HEIGHT / 2, x, y);
 }
+
+int outOfBounds(Entity *e)
+{
+	if (e->x < map.startX || e->x > map.startX + SCREEN_WIDTH || e->y < map.startY || e->y > map.startY + SCREEN_HEIGHT)
+	{
+		return TRUE;
+	}
+	
+	return FALSE;
+}

@@ -131,7 +131,7 @@ Entity *addKeyItem(char *name, int x, int y)
 
 			if (e->fallout == NULL)
 			{
-				e->fallout = &itemFallout;
+				e->fallout = &keyItemFallout;
 			}
 
 			return e;
@@ -155,7 +155,7 @@ void keyItemFallout()
 {
 	self->dirX = 0;
 
-	self->thinkTime = 300;
+	self->thinkTime = 120;
 
 	self->action = &keyItemRespawn;
 }
@@ -173,8 +173,10 @@ void keyItemRespawn()
 
 		self->dirY = ITEM_JUMP_HEIGHT;
 
-		setCustomAction(self, &invulnerable, 180, 0);
+		setCustomAction(self, &invulnerable, 60, 0);
 
 		self->action = &doNothing;
+		
+		self->touch = &keyItemTouch;
 	}
 }

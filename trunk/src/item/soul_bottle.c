@@ -35,6 +35,7 @@ extern Game game;
 static void useBottle(int);
 static void soulActivate(void);
 static void soulTouch(Entity *);
+static void bottleFill(void);
 
 Entity *addSoulBottle(int x, int y, char *name)
 {
@@ -161,16 +162,33 @@ static void soulTouch(Entity *other)
 
 	else if (self->health == 1 && strcmpignorecase(other->name, "enemy/spirit") == 0)
 	{
-		loadProperties("item/full_soul_bottle", self);
+		self->touch = NULL;
 
-		self->touch = &keyItemTouch;
-
-		self->action = &doNothing;
+		self->action = &bottleFill;
 
 		self->activate = NULL;
 
 		fireTrigger(other->objectiveName);
+		
+		other->target = self;
 
-		other->inUse = FALSE;
+		other->action = other->die;
+		
+		self->mental = 11;
+	}
+}
+
+static void bottleFill()
+{
+	if (self->mental <= 10)
+	{
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
+		
+		loadProperties("item/full_soul_bottle", self);
+		
+		self->touch = &keyItemTouch;
 	}
 }

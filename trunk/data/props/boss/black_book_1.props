@@ -1,0 +1,7 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/black_book.dat
+ANIM_FILE data/anim/common/no_anim.dat
+HEALTH 1000
+FLAGS FLY|UNBLOCKABLE
+DAMAGE 1
+ACTIVE FALSE

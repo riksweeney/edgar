@@ -441,7 +441,7 @@ Entity *addPixelDecoration(int x, int y)
 
 static int drawPixel()
 {
-	putPixelToMap(self->x, self->y, 255, 0, 255);
+	putPixelToMap(self->x, self->y, self->health, self->maxHealth, self->mental);
 
 	return TRUE;
 }

@@ -266,6 +266,8 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	FILE *fp;
 
 	index = i = -1;
+	
+	filename = NULL;
 
 	filename = (unsigned char *)malloc(MAX_PATH_LENGTH);
 
@@ -381,6 +383,11 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	if (source != NULL)
 	{
 		free(source);
+	}
+	
+	if (filename != NULL)
+	{
+		free(filename);
 	}
 
 	fclose(fp);

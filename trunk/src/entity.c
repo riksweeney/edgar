@@ -46,7 +46,6 @@ extern Entity *self, entity[MAX_ENTITIES];
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
-static void addEntityToList(EntityList *, Entity *);
 
 void freeEntities()
 {
@@ -708,6 +707,13 @@ void pushEntity(Entity *other)
 
 		return;
 	}
+	
+	/* Fudge */
+	
+	if (other->dirY == 0 && self->dirY != 0)
+	{
+		other->dirY = 1;
+	}
 
 	other->x -= other->dirX;
 	other->y -= other->dirY;
@@ -1081,7 +1087,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 	return list;
 }
 
-void freeList(EntityList *list)
+void freeEntityList(EntityList *list)
 {
 	EntityList *p, *q;
 
@@ -1613,7 +1619,7 @@ int getRightEdge(Entity *e)
 	return e->face == RIGHT ? e->x + e->box.x + e->box.w : e->x + e->w - e->box.x;
 }
 
-static void addEntityToList(EntityList *head, Entity *e)
+void addEntityToList(EntityList *head, Entity *e)
 {
 	EntityList *listHead, *list;
 

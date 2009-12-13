@@ -77,10 +77,7 @@ static void touch(Entity *other)
 		takeDamage(other, other->damage);
 	}
 
-	if (self->inUse == TRUE && other->type != LINE_DEF)
-	{
-		pushEntity(other);
-	}
+	pushEntity(other);
 }
 
 static void takeDamage(Entity *other, int damage)

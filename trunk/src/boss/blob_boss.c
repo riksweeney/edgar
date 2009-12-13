@@ -218,6 +218,12 @@ static void doIntro()
 static void reform()
 {
 	checkToMap(self);
+	
+	if (outOfBounds(self) == TRUE)
+	{
+		self->x = self->targetX;
+		self->y = self->targetY;
+	}
 
 	if (self->thinkTime > 0)
 	{
@@ -761,6 +767,8 @@ static void eatExplode()
 		e->type = ENEMY;
 
 		e->targetX = t->x;
+		
+		e->targetY = t->y;
 
 		self->startX++;
 	}
@@ -1213,6 +1221,8 @@ static void splitAttackInit()
 		e->thinkTime = 60;
 
 		e->targetX = t->x;
+		
+		e->targetY = t->y;
 	}
 
 	self->maxThinkTime = 60;
@@ -1244,18 +1254,11 @@ static void partDie()
 static void partAttack()
 {
 	long onGround = (self->flags & ON_GROUND);
-	int startX, endX;
-	int endY;
-
-	startX = getMapStartX();
-
-	endY = getMapStartY();
-
-	endX = startX + SCREEN_WIDTH;
-
-	if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+	
+	if (outOfBounds(self) == TRUE)
 	{
-		self->x = self->head->x;
+		self->x = self->targetX;
+		self->y = self->targetY;
 	}
 
 	checkToMap(self);
@@ -1420,25 +1423,17 @@ static void fallOff()
 
 static void partWait()
 {
-	int startX, endX;
-	int endY;
-
-	startX = getMapStartX();
-
-	endY = getMapStartY();
-
-	endX = startX + SCREEN_WIDTH;
-
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
 	}
-
-	if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+	
+	if (outOfBounds(self) == TRUE)
 	{
-		self->x = self->head->x;
+		self->x = self->targetX;
+		self->y = self->targetY;
 	}
 
 	if (self->head->maxThinkTime == 0 && self->head->startX != 0)

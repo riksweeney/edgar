@@ -23,9 +23,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/pak.h"
 #include "graphics.h"
+#include "sprites.h"
+#include "decoration.h"
+#include "../entity.h"
+#include "../system/random.h"
 #include "../system/error.h"
 
 extern Game game;
+extern Entity *self;
 
 static void drawImageWhite(SDL_Surface *, int, int);
 
@@ -766,6 +771,64 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
 
 	SDL_FreeSurface(flipped);
+}
+
+EntityList *createPixelsFromSprite(Sprite *sprite)
+{
+	unsigned char r, g, b;
+	int *pixels, i, x, y, pixel;
+	SDL_Surface *image = sprite->image;
+	Entity *d;
+	EntityList *list;
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	if (list == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
+	list->next = NULL;
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+
+	for (i=0;i<MAX_DECORATIONS;i++)
+	{
+		x = prand() % image->w;
+		y = prand() % image->h;
+		
+		pixels = (int *)image->pixels;
+
+		pixel = pixels[(y * image->w) + x];
+
+		SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+		
+		if (r != TRANS_R && g != TRANS_G && b != TRANS_B)
+		{
+			d = addPixelDecoration(self->x + x, self->y + y);
+			
+			if (d != NULL)
+			{
+				d->health = r;
+				
+				d->maxHealth = g;
+				
+				d->mental = b;
+				
+				addEntityToList(list, d);
+			}
+		}
+	}
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+	
+	return list;
 }
 
 int isTransparent(SDL_Surface *image, int x, int y)

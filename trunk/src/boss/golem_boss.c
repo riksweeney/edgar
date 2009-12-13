@@ -797,24 +797,16 @@ static void dieFinish()
 
 static void reform()
 {
-	int startX, endX;
-	int endY;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		/* Move towards the head */
 
-		startX = getMapStartX();
-
-		endY = getMapStartY();
-
-		endX = startX + SCREEN_WIDTH;
-
-		if (self->x < startX || self->x > endX || self->y > endY + SCREEN_HEIGHT)
+		if (outOfBounds(self) == TRUE)
 		{
 			self->x = self->head->x;
+			self->y = self->head->y;
 		}
 
 		if (fabs(self->x - self->targetX) <= fabs(self->dirX))

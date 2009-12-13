@@ -28,3 +28,4 @@ int getAnimationTypeAtIndex(Entity *);
 int hasEntityAnimation(Entity *, int);
 void setFrameData(Entity *);
 int drawSpriteToMap(void);
+Sprite *getCurrentSprite(Entity *);

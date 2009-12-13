@@ -257,13 +257,18 @@ void throwItem(int val)
 
 	e = addTemporaryItem(self->name, player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -7 : 7, 0);
 
-	self->inUse = FALSE;
+	self->health--;
+
+	if (self->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
 
 	e->type = PROJECTILE;
 
 	e->flags |= FLY;
 
-	e->touch = self->touch;
+	e->touch = &entityTouch;
 
 	e->damage = self->damage;
 
@@ -274,7 +279,7 @@ void throwItem(int val)
 
 void itemFallout()
 {
-	self->thinkTime = 300;
+	self->thinkTime = 120;
 
 	self->action = &respawn;
 }
@@ -290,7 +295,7 @@ static void respawn()
 		self->x = self->startX;
 		self->y = self->startY;
 
-		setCustomAction(self, &invulnerable, 180, 0);
+		setCustomAction(self, &invulnerable, 60, 0);
 
 		self->action = &doNothing;
 	}
