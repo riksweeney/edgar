@@ -632,3 +632,13 @@ void setFrameData(Entity *e)
 
 	e->box = sprite->box;
 }
+
+Sprite *getCurrentSprite(Entity *e)
+{
+	if (self->face == LEFT)
+	{
+		return getSprite(animation[self->currentAnim].frameID[self->currentFrame] + 1);
+	}
+
+	return getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
+}

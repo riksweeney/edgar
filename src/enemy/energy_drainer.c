@@ -239,7 +239,7 @@ static void stunFinish()
 
 static void die()
 {
-	Entity *e;
+	Entity *e, *arrow;
 
 	e = getFreeEntity();
 
@@ -277,9 +277,11 @@ static void die()
 
 	self->mental = 0;
 
-	/* Drop 1 arrow */
+	/* Drop between 1 and 3 arrows */
 
-	addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+	
+	arrow->health = 1 + (prand() % 3);
 
 	entityDie();
 }
@@ -426,6 +428,12 @@ static int beamDraw()
 				e->dirY /= 10;
 
 				e->thinkTime = 20 + (prand() % 30);
+				
+				e->health = 255;
+				
+				e->maxHealth = 0;
+				
+				e->mental = 255;
 			}
 		}
 

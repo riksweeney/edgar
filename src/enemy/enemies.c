@@ -150,8 +150,8 @@ static Constructor enemies[] = {
 {"enemy/spike_sphere", &addSpikeSphere},
 {"enemy/exploding_spike_sphere", &addExplodingSpikeSphere},
 {"enemy/thunder_cloud", &addThunderCloud},
-{"boss/black_book", &addBlackBook},
-{"boss/mateus", &addMateus},
+{"boss/black_book_1", &addBlackBook},
+{"boss/mataeus", &addMataeus},
 {"enemy/spirit", &addSpirit}
 };
 

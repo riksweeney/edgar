@@ -262,6 +262,13 @@ void doPlayer()
 					{
 						self->dirY = self->standingOn->dirY + 1;
 					}
+					
+					else if (self->standingOn->dirY < 0)
+					{
+						self->dirY = self->standingOn->dirY;
+					}
+					
+					self->flags |= ON_GROUND;
 				}
 
 				if (input.left == 1)
@@ -1474,7 +1481,7 @@ static void fireArrow()
 
 	else
 	{
-		printf("Couldn't get %s\n", playerWeapon.requires);
+		setInfoBoxMessage(30, _("Out of arrows!"));
 	}
 
 	playerWeapon.animationCallback = &attackFinish;

@@ -35,7 +35,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../map.h"
 #include "../player.h"
+#include "../item/key_items.h"
+#include "../item/item.h"
+#include "../projectile.h"
 #include "../system/error.h"
+#include "../world/weak_wall.h"
 
 extern Entity *self, player;
 
@@ -45,25 +49,29 @@ static void introPause(void);
 static void wait(void);
 static void hover(void);
 static void raiseBlocks(void);
-static void fireBlockTouch(Entity *);
-static void fireBlockEnd(void);
-static void blockFire(void);
-static void fireBlockWait(void);
-static void raiseBlocksWait(void);
+static void lightingBlockTouch(Entity *);
+static void lightingBlockEnd(void);
+static void lightingBlockAttack(void);
+static void lightingBlockWait(void);
+static void raiseLightningBlocksWait(void);
 static void attackFinished(void);
-static void fireBlockWait(void);
+static void lightingBlockWait(void);
 static void knifeThrowInit(void);
 static void knifeWait(void);
 static void knifeAttack(void);
 static void knifeBlock(void);
+static void knifeBlockWait(void);
+static void takeDamage(Entity *, int);
+static void knifeThrow(void);
+static void throwKnife(int);
 
-Entity *addMateus(int x, int y, char *name)
+Entity *addMataeus(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Mateus");
+		showErrorAndExit("No free slots to add Mataeus");
 	}
 
 	loadProperties(name, e);
@@ -92,6 +100,8 @@ static void initialise()
 	setEntityAnimation(self, CUSTOM_1);
 
 	self->action = &doIntro;
+	
+	self->startY = self->y;
 }
 
 static void doIntro()
@@ -108,13 +118,9 @@ static void doIntro()
 
 static void introPause()
 {
-	hover();
-
 	self->dirX = 0.5;
 
 	checkToMap(self);
-
-	self->thinkTime--;
 
 	playBossMusic();
 
@@ -129,6 +135,8 @@ static void introPause()
 
 static void attackFinished()
 {
+	self->startY = self->y;
+	
 	self->frameSpeed = 1;
 
 	self->dirX = 0;
@@ -141,13 +149,17 @@ static void attackFinished()
 
 	self->touch = &entityTouch;
 
+	self->takeDamage = &takeDamage;
+	
+	setEntityAnimation(self, STAND);
+
 	hover();
 }
 
 static void wait()
 {
 	int i;
-	
+
 	self->dirX = 0;
 
 	facePlayer();
@@ -157,28 +169,36 @@ static void wait()
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		i = prand() % 2;
-		
+
 		switch (i)
 		{
 			case 0:
 				self->mental = 0;
-		
+
 				self->action = &raiseBlocks;
 			break;
-			
+
 			default:
 				self->action = &knifeThrowInit;
 			break;
 		}
+		
+		self->mental = 0;
+
+		self->action = &knifeThrowInit;
 	}
 
 	hover();
 }
 
-static void raiseBlocksWait()
+static void raiseLightningBlocksWait()
 {
-	if (self->mental <= 0)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
+		self->mental = 0;
+		
 		self->action = &attackFinished;
 	}
 
@@ -205,108 +225,103 @@ static void raiseBlocks()
 	x = getMapStartX();
 	y = getMapFloor(self->x, self->y);
 
-	for (i=0;i<19;i++)
+	for (i=0;i<20;i++)
 	{
-		e = getFreeEntity();
-
-		e->x = x;
-		e->y = y;
+		e = addWeakWall("wall/mataeus_wall", x, y);
 
 		e->action = &initialise;
 
 		e->draw = &drawLoopingAnimationToMap;
-		e->touch = fireBlockTouch;
+		e->touch = &lightingBlockTouch;
 		e->die = NULL;
 		e->takeDamage = NULL;
-		e->action = &fireBlockWait;
+		e->action = &lightingBlockWait;
 
 		e->head = self;
 
-		e->targetY = e->y - 240;
-
-		e->maxThinkTime = 180;
-
-		e->thinkTime = 180 + (i * 60);
+		e->targetY = e->y - 180;
 
 		e->type = ENEMY;
+		
+		e->dirY = -1;
 
 		setEntityAnimation(e, STAND);
 
 		x += TILE_SIZE;
-
-		self->mental++;
+		
+		e->maxThinkTime = i;
 	}
+	
+	self->thinkTime = 600;
+	
+	self->mental = 1;
 
-	self->action = &raiseBlocksWait;
+	self->action = &raiseLightningBlocksWait;
 }
 
-static void fireBlockWait()
+static void lightingBlockWait()
 {
-	if (self->y > self->targetY)
+	if (self->y <= self->targetY)
 	{
-		self->y -= 4;
-	}
-
-	else
-	{
+		self->dirY = 0;
+		
 		self->y = self->targetY;
 
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->mental == 1)
 		{
 			self->thinkTime = 30;
-
-			self->health = 1;
-
-			self->action = &blockFire;
-
-			self->thinkTime = self->maxThinkTime;
+			
+			self->action = &lightingBlockAttack;
+			
+			setEntityAnimation(self, ATTACK_1);
+			
+			self->damage = 1;
+		}
+		
+		if (self->head->mental <= 0)
+		{
+			self->thinkTime = self->maxThinkTime * 15;
+			
+			self->action = &lightingBlockEnd;
 		}
 	}
+	
+	checkToMap(self);
 }
 
-static void blockFire()
+static void lightingBlockAttack()
 {
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->mental--;
-
-		self->health = 0;
-
-		if (self->mental <= 0)
-		{
-			self->head->mental--;
-
-			self->action = &fireBlockEnd;
-		}
-
-		else
-		{
-			self->thinkTime = self->maxThinkTime;
-
-			self->action = &fireBlockWait;
-		}
+		self->damage = 0;
+		
+		self->mental = 0;
+		
+		setEntityAnimation(self, STAND);
 	}
 }
 
-static void fireBlockTouch(Entity *other)
+static void lightingBlockTouch(Entity *other)
 {
-	if (self->health == 1)
-	{
-		entityTouch(other);
-	}
+	entityTouch(other);
 
 	pushEntity(other);
+	
+	if (self->mental == 0 && other->standingOn == self)
+	{
+		self->mental = 1;
+	}
 }
 
-static void fireBlockEnd()
+static void lightingBlockEnd()
 {
 	Entity *e;
 
-	if (self->head->mental <= 0)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -338,6 +353,13 @@ static void knifeThrowInit()
 	for (i=0;i<8;i++)
 	{
 		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a Mataeus Knife");
+		}
+		
+		loadProperties("boss/mataeus_knife", e);
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
@@ -354,20 +376,46 @@ static void knifeThrowInit()
 		e->health = radians;
 
 		e->head = self;
-
-		e->thinkTime = 120;
+		
+		setEntityAnimation(e, WALK);
 	}
+	
+	self->thinkTime = 120;
+	
+	self->action = &knifeThrow;
+}
+
+static void knifeThrow()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			self->mental = 1;
+		}
+		
+		else
+		{
+			self->action = &attackFinished;
+		}
+		
+		self->thinkTime = 120;
+	}
+	
+	hover();
 }
 
 static void knifeWait()
 {
 	float startX, startY, endX, endY;
-	
+
 	self->mental += 4;
 
-	if (self->mental >= 128)
+	if (self->mental >= 64)
 	{
-		self->mental = 128;
+		self->mental = 64;
 	}
 
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
@@ -380,20 +428,24 @@ static void knifeWait()
 	{
 		self->action = &knifeAttack;
 
-		self->reactToBlock = &knifeBlock;
+		self->reactToBlock = (prand() % 8 == 0) ? &knifeBlock : &bounceOffShield;
 
 		startX = self->x;
 		startY = self->y;
 
 		endX = player.x + player.w / 2;
-		endY = player.y + player.h / 2;
+		endY = player.y;
 
 		calculatePath(startX, startY, endX, endY, &self->dirX, &self->dirY);
 
-		self->dirX *= 12;
-		self->dirY *= 12;
+		self->dirX *= 20;
+		self->dirY *= 20;
 
 		self->thinkTime = 60;
+		
+		facePlayer();
+		
+		setEntityAnimation(self, ATTACK_1);
 	}
 }
 
@@ -421,4 +473,77 @@ static void knifeBlock()
 	self->dirY = -5;
 
 	self->thinkTime = 120;
+
+	self->damage = 0;
+
+	self->action = &knifeBlockWait;
+	
+	self->activate = &throwKnife;
+}
+
+static void throwKnife(int val)
+{
+	Entity *e;
+	
+	e = addProjectile(self->name, &player, player.face == LEFT ? 0 : player.w, player.y + 15, player.face == RIGHT ? self->speed : -self->speed, 0);
+
+	e->reactToBlock = &bounceOffShield;
+
+	e->face = player.face;
+
+	e->flags |= FLY;
+
+	self->health--;
+
+	if (self->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void knifeBlockWait()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		self->touch = &keyItemTouch;
+
+		self->activate = &throwItem;
+	}
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	if (self->health > 1000)
+	{
+		if (strcmpignorecase(other->name, "item/mataeus_knife") != 0)
+		{
+			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+			if (prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, _("This weapon is not having any effect..."));
+			}
+
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		}
+
+		else
+		{
+			self->health -= damage;
+
+			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+
+			other->inUse = FALSE;
+
+			if (self->health <= 1000)
+			{
+				self->takeDamage = &entityTakeDamageNoFlinch;
+			}
+		}
+	}
 }

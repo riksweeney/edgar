@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../geometry.h"
+#include "../graphics/graphics.h"
 #include "../system/error.h"
 #include "../system/random.h"
 #include "../system/properties.h"
@@ -38,6 +39,9 @@ static void touch(Entity *);
 static void lookForPlayer(void);
 static void teleportPlayer(void);
 static void die(void);
+static void moveRandomly(void);
+static void moveAboveBottle(void);
+static void moveIntoBottle(void);
 
 Entity *addSpirit(int x, int y, char *name)
 {
@@ -130,7 +134,104 @@ static void teleportPlayer()
 
 static void die()
 {
+	EntityList *list = createPixelsFromSprite(getCurrentSprite(self));
+	EntityList *l;
+	Entity *e;
+	int i;
+	
+	i = 0;
 
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		e = l->entity;
+		
+		e->target = self->target;
+		
+		e->targetX = e->x + (prand() % 160) * (prand() % 2 == 0 ? -1 : 1);
+		e->targetY = e->y + (prand() % 160) * (prand() % 2 == 0 ? -1 : 1);
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 6;
+		e->dirY *= 6;
+		
+		e->action = &moveRandomly;
+		
+		i++;
+	}
+	
+	self->target->mental = i;
+	
+	freeEntityList(list);
+	
+	self->inUse = FALSE;
+}
+
+static void moveRandomly()
+{
+	if (fabs(self->dirX) <= 0.1 && fabs(self->dirY) <= 0.1)
+	{
+		self->targetX = self->target->x + (prand() % self->target->w / 2);
+		self->targetY = self->target->y - 96 - (prand () % 64);
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 6;
+		self->dirY *= 6;
+		
+		self->action = &moveAboveBottle;
+	}
+	
+	else
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+		
+		self->dirX *= 0.95;
+		self->dirY *= 0.95;
+	}
+}
+
+static void moveAboveBottle()
+{
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	{
+		self->thinkTime = 60 + (prand() % 60);
+		
+		self->targetX = self->target->x + self->target->w / 2;
+		self->targetY = self->target->y + self->target->h / 2;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 6;
+		self->dirY *= 6;
+		
+		self->action = &moveIntoBottle;
+	}
+	
+	else
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+	}
+}
+
+static void moveIntoBottle()
+{
+	self->thinkTime--;
+	
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	{
+		self->target->mental--;
+		
+		self->inUse = FALSE;
+	}
+	
+	else
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+	}
 }
 
 static void hover()

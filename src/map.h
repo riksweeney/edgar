@@ -57,3 +57,4 @@ void setCameraSpeed(float);
 int cameraAtMinimum(void);
 char *getMapName(void);
 int getDistanceFromCamera(int, int);
+int outOfBounds(Entity *);

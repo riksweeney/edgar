@@ -98,6 +98,8 @@ TALK Edgar Great, that's all it says. I don't even know how to tell the differen
 TALK Edgar Besides, what's the worst that could happen?
 TALK Edgar I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank
 TALK Edgar I'll have to find another mine around here...
+ACTIVATE_REQUIRED MONSTER_BOOK_TRIGGER
+SET BLACK_BOOK_1 REMOVE_FLAG NO_DRAW
 SET MONSTER_BOOK HEALTH 1
 END
 IF MONSTER_BOOK HEALTH 10
