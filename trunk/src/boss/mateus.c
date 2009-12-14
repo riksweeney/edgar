@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/weak_wall.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void initialise(void);
 static void doIntro(void);
@@ -63,7 +64,6 @@ static void knifeBlock(void);
 static void knifeBlockWait(void);
 static void takeDamage(Entity *, int);
 static void knifeThrow(void);
-static void throwKnife(int);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -350,7 +350,7 @@ static void knifeThrowInit()
 	int i, radians;
 	Entity *e;
 
-	for (i=0;i<8;i++)
+	for (i=0;i<6;i++)
 	{
 		e = getFreeEntity();
 		
@@ -359,12 +359,26 @@ static void knifeThrowInit()
 			showErrorAndExit("No free slots to add a Mataeus Knife");
 		}
 		
-		loadProperties("boss/mataeus_knife", e);
+		radians = prand() % 7;
+		
+		if (radians == 0)
+		{
+			loadProperties("boss/mataeus_knife_special", e);
+			
+			e->reactToBlock = &knifeBlock;
+		}
+		
+		else
+		{
+			loadProperties("boss/mataeus_knife", e);
+			
+			e->reactToBlock = &bounceOffShield;
+		}
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
 
-		radians = DEG_TO_RAD(i * 45);
+		radians = DEG_TO_RAD(i * 60);
 
 		e->x += (0 * cos(radians) - 0 * sin(radians));
 		e->y += (0 * sin(radians) + 0 * cos(radians));
@@ -380,7 +394,7 @@ static void knifeThrowInit()
 		setEntityAnimation(e, WALK);
 	}
 	
-	self->thinkTime = 120;
+	self->thinkTime = 30;
 	
 	self->action = &knifeThrow;
 }
@@ -428,8 +442,6 @@ static void knifeWait()
 	{
 		self->action = &knifeAttack;
 
-		self->reactToBlock = (prand() % 8 == 0) ? &knifeBlock : &bounceOffShield;
-
 		startX = self->x;
 		startY = self->y;
 
@@ -438,14 +450,16 @@ static void knifeWait()
 
 		calculatePath(startX, startY, endX, endY, &self->dirX, &self->dirY);
 
-		self->dirX *= 20;
-		self->dirY *= 20;
+		self->dirX *= 30;
+		self->dirY *= 30;
 
 		self->thinkTime = 60;
 		
 		facePlayer();
 		
 		setEntityAnimation(self, ATTACK_1);
+		
+		self->health = 1;
 	}
 }
 
@@ -478,27 +492,7 @@ static void knifeBlock()
 
 	self->action = &knifeBlockWait;
 	
-	self->activate = &throwKnife;
-}
-
-static void throwKnife(int val)
-{
-	Entity *e;
-	
-	e = addProjectile(self->name, &player, player.face == LEFT ? 0 : player.w, player.y + 15, player.face == RIGHT ? self->speed : -self->speed, 0);
-
-	e->reactToBlock = &bounceOffShield;
-
-	e->face = player.face;
-
-	e->flags |= FLY;
-
-	self->health--;
-
-	if (self->health <= 0)
-	{
-		self->inUse = FALSE;
-	}
+	self->activate = &throwItem;
 }
 
 static void knifeBlockWait()
@@ -507,7 +501,11 @@ static void knifeBlockWait()
 
 	if (self->flags & ON_GROUND)
 	{
+		self->thinkTime = 120;
+		
 		self->dirX = 0;
+		
+		self->action = &generalItemAction;
 
 		self->touch = &keyItemTouch;
 
