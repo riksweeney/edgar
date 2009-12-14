@@ -29,11 +29,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../inventory.h"
+#include "../projectile.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
 
 extern Entity *self;
 extern Entity player;
+extern Game game;
 
 static void respawn(void);
 static void noTouch(Entity *);
@@ -254,27 +256,30 @@ void healthTouch(Entity *other)
 void throwItem(int val)
 {
 	Entity *e;
-
-	e = addTemporaryItem(self->name, player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -7 : 7, 0);
-
-	self->health--;
-
-	if (self->health <= 0)
+	
+	if (game.status == IN_GAME)
 	{
-		self->inUse = FALSE;
+		e = addProjectile(self->name, &player, player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face == LEFT ? -self->speed : self->speed, 0);
+
+		e->type = PROJECTILE;
+
+		e->flags |= FLY;
+
+		e->touch = &entityTouch;
+
+		e->damage = self->damage;
+
+		e->parent = &player;
+
+		e->thinkTime = 600;
+		
+		self->health--;
+
+		if (self->health <= 0)
+		{
+			self->inUse = FALSE;
+		}
 	}
-
-	e->type = PROJECTILE;
-
-	e->flags |= FLY;
-
-	e->touch = &entityTouch;
-
-	e->damage = self->damage;
-
-	e->parent = &player;
-
-	e->thinkTime = 600;
 }
 
 void itemFallout()

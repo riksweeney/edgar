@@ -97,7 +97,9 @@ static void projectileMove()
 
 void bounceOffShield()
 {
-	self->dirX *= -1;
+	self->dirX = (self->dirX < 0 ? 5 : -5);
+	
+	self->dirY = -5;
 
 	self->flags &= ~FLY;
 
