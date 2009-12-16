@@ -263,11 +263,6 @@ void doPlayer()
 						self->dirY = self->standingOn->dirY + 1;
 					}
 					
-					else if (self->standingOn->dirY < 0)
-					{
-						self->dirY = self->standingOn->dirY;
-					}
-					
 					self->flags |= ON_GROUND;
 				}
 

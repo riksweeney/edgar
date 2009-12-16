@@ -176,38 +176,25 @@ Entity *dropCollectableItem(char *name, int x, int y, int face)
 void dropRandomItem(int x, int y)
 {
 	Entity *e;
-
-	if (prand() % 3 == 0)
+	
+	if (getInventoryItem(_("Bow")) != NULL)
 	{
-		if (getInventoryItem(_("Bow")) != NULL)
-		{
-			switch (prand() % 4)
-			{
-				case 0:
-				case 1:
-					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-				break;
-
-				case 2:
-					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-					e->health = 1 + (prand() % 3);
-				break;
-
-				default:
-					addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-					e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-					e->health = 1 + (prand() % 3);
-				break;
-			}
-		}
-
-		else
+		if (prand() % 3 == 0)
 		{
 			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 		}
+		
+		if (prand() % 3 == 0)
+		{
+			e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+			e->health = 1 + (prand() % 3);
+		}
+	}
+
+	else if (prand() % 3 == 0)
+	{
+		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 	}
 }
 

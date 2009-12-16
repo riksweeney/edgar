@@ -188,11 +188,11 @@ static void throwBooks()
 
 		else
 		{
+			facePlayer();
+			
 			self->dirX = 0;
 		}
 	}
-	
-	facePlayer();
 
 	hover();
 }
