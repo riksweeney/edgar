@@ -39,7 +39,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../projectile.h"
 #include "../system/error.h"
-#include "../world/weak_wall.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -49,14 +48,7 @@ static void doIntro(void);
 static void introPause(void);
 static void wait(void);
 static void hover(void);
-static void raiseBlocks(void);
-static void lightingBlockTouch(Entity *);
-static void lightingBlockEnd(void);
-static void lightingBlockAttack(void);
-static void lightingBlockWait(void);
-static void raiseLightningBlocksWait(void);
 static void attackFinished(void);
-static void lightingBlockWait(void);
 static void knifeThrowInit(void);
 static void knifeWait(void);
 static void knifeAttack(void);
@@ -64,6 +56,8 @@ static void knifeBlock(void);
 static void knifeBlockWait(void);
 static void takeDamage(Entity *, int);
 static void knifeThrow(void);
+static void ceilingDropInit(void);
+static void ceilingDropWait(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -100,7 +94,7 @@ static void initialise()
 	setEntityAnimation(self, CUSTOM_1);
 
 	self->action = &doIntro;
-	
+
 	self->startY = self->y;
 }
 
@@ -131,12 +125,12 @@ static void introPause()
 	self->thinkTime = 90;
 
 	facePlayer();
+
+	self->startY = self->y;
 }
 
 static void attackFinished()
 {
-	self->startY = self->y;
-	
 	self->frameSpeed = 1;
 
 	self->dirX = 0;
@@ -150,7 +144,7 @@ static void attackFinished()
 	self->touch = &entityTouch;
 
 	self->takeDamage = &takeDamage;
-	
+
 	setEntityAnimation(self, STAND);
 
 	hover();
@@ -173,33 +167,17 @@ static void wait()
 		switch (i)
 		{
 			case 0:
-				self->mental = 0;
-
-				self->action = &raiseBlocks;
+				self->action = &ceilingDropInit;
 			break;
 
 			default:
 				self->action = &knifeThrowInit;
 			break;
 		}
-		
+
 		self->mental = 0;
 
 		self->action = &knifeThrowInit;
-	}
-
-	hover();
-}
-
-static void raiseLightningBlocksWait()
-{
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
-	{
-		self->mental = 0;
-		
-		self->action = &attackFinished;
 	}
 
 	hover();
@@ -217,134 +195,6 @@ static void hover()
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
 }
 
-static void raiseBlocks()
-{
-	int i, x, y;
-	Entity *e;
-
-	x = getMapStartX();
-	y = getMapFloor(self->x, self->y);
-
-	for (i=0;i<20;i++)
-	{
-		e = addWeakWall("wall/mataeus_wall", x, y);
-
-		e->action = &initialise;
-
-		e->draw = &drawLoopingAnimationToMap;
-		e->touch = &lightingBlockTouch;
-		e->die = NULL;
-		e->takeDamage = NULL;
-		e->action = &lightingBlockWait;
-
-		e->head = self;
-
-		e->targetY = e->y - 180;
-
-		e->type = ENEMY;
-		
-		e->dirY = -1;
-
-		setEntityAnimation(e, STAND);
-
-		x += TILE_SIZE;
-		
-		e->maxThinkTime = i;
-	}
-	
-	self->thinkTime = 600;
-	
-	self->mental = 1;
-
-	self->action = &raiseLightningBlocksWait;
-}
-
-static void lightingBlockWait()
-{
-	if (self->y <= self->targetY)
-	{
-		self->dirY = 0;
-		
-		self->y = self->targetY;
-
-		if (self->mental == 1)
-		{
-			self->thinkTime = 30;
-			
-			self->action = &lightingBlockAttack;
-			
-			setEntityAnimation(self, ATTACK_1);
-			
-			self->damage = 1;
-		}
-		
-		if (self->head->mental <= 0)
-		{
-			self->thinkTime = self->maxThinkTime * 15;
-			
-			self->action = &lightingBlockEnd;
-		}
-	}
-	
-	checkToMap(self);
-}
-
-static void lightingBlockAttack()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->damage = 0;
-		
-		self->mental = 0;
-		
-		setEntityAnimation(self, STAND);
-	}
-}
-
-static void lightingBlockTouch(Entity *other)
-{
-	entityTouch(other);
-
-	pushEntity(other);
-	
-	if (self->mental == 0 && other->standingOn == self)
-	{
-		self->mental = 1;
-	}
-}
-
-static void lightingBlockEnd()
-{
-	Entity *e;
-
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
-	{
-		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
-		e = addSmallRock(self->x, self->y, "common/small_rock");
-
-		e->x += (self->w - e->w) / 2;
-		e->y += (self->h - e->h) / 2;
-
-		e->dirX = -3;
-		e->dirY = -8;
-
-		e = addSmallRock(self->x, self->y, "common/small_rock");
-
-		e->x += (self->w - e->w) / 2;
-		e->y += (self->h - e->h) / 2;
-
-		e->dirX = 3;
-		e->dirY = -8;
-
-		self->inUse = FALSE;
-	}
-}
-
 static void knifeThrowInit()
 {
 	int i, radians;
@@ -353,25 +203,25 @@ static void knifeThrowInit()
 	for (i=0;i<6;i++)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a Mataeus Knife");
 		}
-		
+
 		radians = prand() % 7;
-		
+
 		if (radians == 0)
 		{
 			loadProperties("boss/mataeus_knife_special", e);
-			
+
 			e->reactToBlock = &knifeBlock;
 		}
-		
+
 		else
 		{
 			loadProperties("boss/mataeus_knife", e);
-			
+
 			e->reactToBlock = &bounceOffShield;
 		}
 
@@ -390,34 +240,34 @@ static void knifeThrowInit()
 		e->health = radians;
 
 		e->head = self;
-		
+
 		setEntityAnimation(e, WALK);
 	}
-	
+
 	self->thinkTime = 30;
-	
+
 	self->action = &knifeThrow;
 }
 
 static void knifeThrow()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->mental == 0)
 		{
 			self->mental = 1;
 		}
-		
+
 		else
 		{
 			self->action = &attackFinished;
 		}
-		
+
 		self->thinkTime = 120;
 	}
-	
+
 	hover();
 }
 
@@ -454,11 +304,11 @@ static void knifeWait()
 		self->dirY *= 30;
 
 		self->thinkTime = 60;
-		
+
 		facePlayer();
-		
+
 		setEntityAnimation(self, ATTACK_1);
-		
+
 		self->health = 1;
 	}
 }
@@ -491,7 +341,7 @@ static void knifeBlock()
 	self->damage = 0;
 
 	self->action = &knifeBlockWait;
-	
+
 	self->activate = &throwItem;
 }
 
@@ -502,15 +352,57 @@ static void knifeBlockWait()
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime = 120;
-		
+
 		self->dirX = 0;
-		
+
 		self->action = &generalItemAction;
 
 		self->touch = &keyItemTouch;
 
 		self->activate = &throwItem;
 	}
+}
+
+static void ceilingDropInit()
+{
+	EntityList *list = getEntitiesByObjectiveName("MATAEUS_CEILING");
+	EntityList *l;
+	Entity *e;
+	int i;
+
+	i = 0;
+
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		e = l->entity;
+
+		if (prand() % 3 == 0)
+		{
+			e->thinkTime = prand() % 600;
+
+			e->mental = 1;
+		}
+	}
+
+	freeEntityList(list);
+
+	self->thinkTime = 600;
+
+	self->action = &ceilingDropWait;
+
+	hover();
+}
+
+static void ceilingDropWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	hover();
 }
 
 static void takeDamage(Entity *other, int damage)

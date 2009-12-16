@@ -63,3 +63,5 @@ void killEntity(char *);
 void resetEntityIndex(void);
 void freeEntityList(EntityList *);
 void addEntityToList(EntityList *, Entity *);
+EntityList *getEntitiesByObjectiveName(char *);
+EntityList *getEntitiesByRequiredName(char *);

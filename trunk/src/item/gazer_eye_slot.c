@@ -118,6 +118,8 @@ static void activate(int val)
 			setEntityAnimation(self, WALK);
 
 			self->action = &sink;
+			
+			setInfoBoxMessage(60, _("Used %s"), _(self->requires));
 		}
 
 		else

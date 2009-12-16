@@ -707,9 +707,9 @@ void pushEntity(Entity *other)
 
 		return;
 	}
-	
+
 	/* Fudge */
-	
+
 	if (other->dirY == 0 && self->dirY != 0)
 	{
 		other->dirY = 1;
@@ -1037,7 +1037,7 @@ Entity *getEntityByRequiredName(char *name)
 	return NULL;
 }
 
-EntityList *getEntitiesObjectiveName(char *name)
+EntityList *getEntitiesByObjectiveName(char *name)
 {
 	int i;
 	EntityList *list;
