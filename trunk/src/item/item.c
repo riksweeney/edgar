@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../projectile.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 extern Entity player;
@@ -244,9 +245,11 @@ void throwItem(int val)
 {
 	Entity *e;
 	
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && self->thinkTime <= 0 && !(player.flags & BLOCKING))
 	{
-		e = addProjectile(self->name, &player, player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face == LEFT ? -self->speed : self->speed, 0);
+		e = addProjectile(self->name, &player, player.x + (player.face == RIGHT ? player.w : 0), player.y, player.face == LEFT ? -self->speed : self->speed, 0);
+		
+		e->y = player.y + (player.h - e->h) / 2;
 
 		e->type = PROJECTILE;
 
@@ -261,11 +264,15 @@ void throwItem(int val)
 		e->thinkTime = 600;
 		
 		self->health--;
+		
+		self->thinkTime = 30;
 
 		if (self->health <= 0)
 		{
 			self->inUse = FALSE;
 		}
+		
+		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 	}
 }
 

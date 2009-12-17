@@ -92,7 +92,7 @@ static void touch(Entity *other)
 		
 		if (game.showHints == TRUE)
 		{
-			setInfoBoxMessage(5, _("Press Action to save your game"));
+			setInfoBoxMessage(0, _("Press Action to save your game"));
 		}
 	}
 }

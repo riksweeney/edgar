@@ -106,7 +106,7 @@ int addToInventory(Entity *e)
 
 				else
 				{
-					setInfoBoxMessage(10, _("Cannot carry any more %s"), _(inventory.item[i].objectiveName));
+					setInfoBoxMessage(0, _("Cannot carry any more %s"), _(inventory.item[i].objectiveName));
 
 					return FALSE;
 				}

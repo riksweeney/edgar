@@ -25,8 +25,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../collisions.h"
 #include "../player.h"
+#include "../map.h"
 #include "../system/error.h"
 #include "../system/random.h"
+#include "../audio/audio.h"
 
 extern Entity *self;
 
@@ -36,6 +38,9 @@ static void initFall(void);
 static void resetWait(void);
 static void resetPlatform(void);
 static void touch(Entity *);
+static void lavaWait(void);
+static void lavaResetMove(void);
+static void lavaResetWait(void);
 
 Entity *addMataeusWall(int x, int y, char *name)
 {
@@ -67,7 +72,7 @@ static void wait()
 {
 	checkToMap(self);
 
-	if (self->mental == 1)
+	if (self->mental != 0)
 	{
 		self->thinkTime--;
 
@@ -83,7 +88,7 @@ static void wait()
 static void initFall()
 {
 	int i;
-	long onGround = self->flags & ON_GROUND;
+	int tileX, tileY;
 
 	self->thinkTime--;
 
@@ -93,12 +98,12 @@ static void initFall()
 		{
 			self->x = self->startX + (3 * (self->x < self->startX ? 1 : -1));
 		}
-
-		self->dirY = 0;
 	}
 
 	else
 	{
+		self->flags &= ~FLY;
+
 		self->thinkTime = 0;
 
 		self->x = self->startX;
@@ -109,21 +114,50 @@ static void initFall()
 
 		if (self->flags & ON_GROUND)
 		{
-			if (onGround == 0)
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+
+			for (i=0;i<20;i++)
 			{
-				for (i=0;i<20;i++)
-				{
-					addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
-				}
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 			}
 
 			self->damage = 0;
 
-			self->thinkTime = 120;
+			self->thinkTime = 30;
 
-			self->action = &resetWait;
+			self->action = self->mental == 1 ? &resetWait : &lavaWait;
+
+			if (self->mental == 2)
+			{
+				self->flags |= FLY;
+
+				tileX = (self->x + 16) / TILE_SIZE;
+				tileY = (self->y + 16) / TILE_SIZE;
+
+				self->targetX = tileX;
+				self->targetY = tileY;
+
+				for (i=0;i<3;i++)
+				{
+					tileY++;
+
+					setTileAt(tileX, tileY, LAVA_TILE_START);
+				}
+			}
 		}
 	}
+}
+
+static void lavaWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &lavaResetMove;
+	}
+
+	checkToMap(self);
 }
 
 static void resetWait()
@@ -132,19 +166,25 @@ static void resetWait()
 
 	if (self->thinkTime <= 0)
 	{
+		self->flags |= FLY;
+
 		self->action = &resetPlatform;
 	}
+
+	checkToMap(self);
 }
 
 static void resetPlatform()
 {
-	self->dirY = self->maxThinkTime < 0 ? -self->speed / 2 : -self->speed;
+	self->dirY = -3;
 
 	checkToMap(self);
 
 	if (self->y <= self->startY)
 	{
 		self->y = self->startY;
+		
+		self->dirY = 0;
 
 		self->thinkTime = self->maxThinkTime;
 
@@ -154,15 +194,95 @@ static void resetPlatform()
 	}
 }
 
+static void lavaResetMove()
+{
+	self->dirY = -3;
+
+	checkToMap(self);
+
+	if (self->y <= self->startY + 256)
+	{
+		self->y = self->startY + 256;
+		
+		self->dirY = 0;
+
+		self->thinkTime = 60 + prand() % 180;
+
+		self->action = &lavaResetWait;
+	}
+}
+
+static void lavaResetWait()
+{
+	int i, tileX, tileY;
+
+	if (self->mental == 3 || self->mental == 4)
+	{
+		if (self->mental == 3)
+		{
+			tileX = self->targetX;
+			tileY = self->targetY;
+
+			for (i=0;i<3;i++)
+			{
+				tileY++;
+
+				setTileAt(tileX, tileY, 1 + prand() % 3);
+			}
+
+			self->mental = 4;
+		}
+
+		self->thinkTime--;
+
+		if (self->thinkTime > 0 && self->thinkTime <= 30)
+		{
+			if (self->x == self->startX || (self->thinkTime % 4 == 0))
+			{
+				self->x = self->startX + (3 * (self->x < self->startX ? 1 : -1));
+			}
+		}
+
+		else if (self->thinkTime <= 0)
+		{
+			self->x = self->startX;
+			
+			self->dirY = -9;
+
+			if (self->y <= self->startY)
+			{
+				self->y = self->startY;
+
+				self->thinkTime = self->maxThinkTime;
+
+				self->action = &wait;
+
+				self->mental = 0;
+			}
+		}
+	}
+
+	checkToMap(self);
+}
+
 static void touch(Entity *other)
 {
 	int bottomBefore;
 	float dirX;
 	Entity *temp;
 
-	entityTouch(other);
+	if (other->type == PLAYER && self->damage != 0)
+	{
+		temp = self;
 
-	if (other->type == PLAYER && other->dirY > 0)
+		self = other;
+
+		self->takeDamage(temp, temp->damage);
+
+		self = temp;
+	}
+
+	if (other->type == PLAYER && other->dirY > 0 && !(other->flags & NO_DRAW))
 	{
 		/* Trying to move down */
 
@@ -208,8 +328,6 @@ static void touch(Entity *other)
 				other->standingOn = self;
 				other->dirY = 0;
 				other->flags |= ON_GROUND;
-
-				self->mental = 1;
 			}
 		}
 	}
