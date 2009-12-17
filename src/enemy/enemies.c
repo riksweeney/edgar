@@ -77,7 +77,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/golem_rock_dropper.h"
 #include "../boss/blob_boss.h"
 #include "../boss/black_book.h"
-#include "../boss/mateus.h"
+#include "../boss/mataeus.h"
 #include "../boss/mataeus_wall.h"
 
 #include "../system/error.h"

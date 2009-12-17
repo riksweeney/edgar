@@ -461,7 +461,7 @@ void doPlayer()
 					setEntityAnimation(self, BLOCK);
 					setEntityAnimation(&playerShield, BLOCK);
 
-					playerShield.thinkTime++;
+					playerShield.mental++;
 				}
 
 				else if ((input.block == 0 && (self->flags & BLOCKING)))
@@ -472,7 +472,7 @@ void doPlayer()
 					setEntityAnimation(&playerWeapon, STAND);
 					setEntityAnimation(&playerShield, STAND);
 
-					playerShield.thinkTime = 0;
+					playerShield.mental = 0;
 				}
 
 				if (input.activate == 1)
@@ -576,6 +576,13 @@ void doPlayer()
 
 		playerWeapon.alpha = player.alpha;
 		playerShield.alpha = player.alpha;
+		
+		playerShield.thinkTime--;
+		
+		if (playerShield.thinkTime <= 0)
+		{
+			playerShield.thinkTime = 0;
+		}
 	}
 
 	else
@@ -873,8 +880,13 @@ static void takeDamage(Entity *other, int damage)
 				checkToMap(&player);
 
 				setCustomAction(&player, &helpless, 2, 0);
-
-				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+				
+				if (playerShield.thinkTime <= 0)
+				{
+					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					
+					playerShield.thinkTime = 5;
+				}
 
 				if (other->reactToBlock != NULL)
 				{
@@ -918,7 +930,12 @@ static void takeDamage(Entity *other, int damage)
 
 			setCustomAction(&player, &helpless, 2, 0);
 
-			playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+			if (playerShield.thinkTime <= 0)
+			{
+				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+				
+				playerShield.thinkTime = 5;
+			}
 
 			other->x = other->x < player.x ? player.x - other->w - 4 : player.x + player.w + 4;
 
@@ -1309,13 +1326,18 @@ static void touch(Entity *other)
 
 void playerGib()
 {
-	throwGibs("edgar/edgar_gibs", 6);
+	/* Don't multigib */
+	
+	if (player.health > 0)
+	{
+		throwGibs("edgar/edgar_gibs", 6);
 
-	player.inUse = TRUE;
+		player.inUse = TRUE;
 
-	playerDie();
+		playerDie();
 
-	player.flags |= NO_DRAW;
+		player.flags |= NO_DRAW;
+	}
 }
 
 void facePlayer()

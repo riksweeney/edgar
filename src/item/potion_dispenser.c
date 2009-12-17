@@ -75,7 +75,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(15, _("Press Action to interact"));
+		setInfoBoxMessage(0, _("Press Action to interact"));
 	}
 }
 

@@ -1161,7 +1161,7 @@ static void stunnedTouch(Entity *other)
 
 		if (e != NULL && e->health != 0)
 		{
-			setInfoBoxMessage(5, _("Press Action to attach the Tesla Pack"));
+			setInfoBoxMessage(0, _("Press Action to attach the Tesla Pack"));
 		}
 	}
 }

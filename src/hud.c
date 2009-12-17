@@ -220,9 +220,12 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 
 static void addMessageToQueue(char *text, int thinkTime)
 {
+	int i;
 	Message *head, *msg;
 
 	head = &messageHead;
+	
+	i = 0;
 
 	while (head->next != NULL)
 	{
@@ -232,6 +235,13 @@ static void addMessageToQueue(char *text, int thinkTime)
 		}
 
 		head = head->next;
+		
+		i++;
+		
+		if (i > 1 && thinkTime == 0)
+		{
+			return;
+		}
 	}
 
 	msg = (Message *)malloc(sizeof(Message));

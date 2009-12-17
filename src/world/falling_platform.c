@@ -20,11 +20,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../collisions.h"
 #include "../system/error.h"
 #include "../entity.h"
+#include "../audio/audio.h"
 
 static void wait(void);
 static void touch(Entity *);
@@ -142,6 +144,8 @@ static void touch(Entity *other)
 
 static void initFall()
 {
+	int i;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime > 0)
@@ -166,6 +170,16 @@ static void initFall()
 
 		if (self->flags & ON_GROUND)
 		{
+			if (self->environment == AIR)
+			{
+				playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+				
+				for (i=0;i<20;i++)
+				{
+					addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+				}
+			}
+			
 			self->thinkTime = 120;
 
 			self->action = &resetWait;
