@@ -265,7 +265,7 @@ void throwItem(int val)
 		
 		self->health--;
 		
-		self->thinkTime = 30;
+		self->thinkTime = 15;
 
 		if (self->health <= 0)
 		{
