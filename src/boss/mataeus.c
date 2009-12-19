@@ -64,6 +64,8 @@ static void verticalKnifeWait(void);
 static void lavaCeilingDropWait(void);
 static void lavaCeilingDropInit(void);
 static void lavaCeilingDropEnd(void);
+static void stunned(void);
+static void stunFinish(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -171,28 +173,37 @@ static void wait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		i = prand() % 3;
-
-		switch (i)
+		if (self->health >= 1500)
 		{
-			case 0:
-				self->action = &ceilingDropInit;
-			break;
+			i = prand() % 2;
 
-			case 1:
-				self->action = &verticalKnifeThrowInit;
-			break;
-			
-			case 2:
-				self->action = &lavaCeilingDropInit;
-			break;
+			switch (i)
+			{
+				case 0:
+					self->action = &ceilingDropInit;
+				break;
 
-			default:
-				self->action = &knifeThrowInit;
-			break;
+				default:
+					self->action = &knifeThrowInit;
+				break;
+			}
 		}
-		
-		self->action = &verticalKnifeThrowInit;
+
+		else if (self->health >= 1000)
+		{
+			i = prand() % 2;
+
+			switch (i)
+			{
+				case 0:
+					self->action = &lavaCeilingDropInit;
+				break;
+
+				default:
+					self->action = &verticalKnifeThrowInit;
+				break;
+			}
+		}
 	}
 
 	hover();
@@ -258,7 +269,7 @@ static void knifeThrowInit()
 
 		setEntityAnimation(e, WALK);
 	}
-	
+
 	self->mental = 0;
 
 	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -306,7 +317,7 @@ static void verticalKnifeThrowInit()
 
 		setEntityAnimation(e, WALK);
 	}
-	
+
 	self->mental = 0;
 
 	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -342,43 +353,34 @@ static void knifeThrow()
 
 static void verticalKnifeWait()
 {
-	float startX, startY, endX, endY;
-	
 	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
-		
+
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		if (self->head->mental == 1)
 		{
 			self->thinkTime = 30;
 
 			self->action = &knifeAttack;
 
-			startX = self->x;
-			startY = self->y;
-
-			endX = player.x + player.w / 2;
-			endY = player.y;
-
-			calculatePath(startX, startY, endX, endY, &self->dirX, &self->dirY);
-
-			self->dirX *= 20;
-			self->dirY *= 20;
+			self->dirX = 0;
+			self->dirY = 16;
+			
+			self->startX = self->dirX;
+			self->startY = self->dirY;
 
 			self->thinkTime = 60;
-
-			facePlayer();
 
 			setEntityAnimation(self, ATTACK_2);
 
 			self->health = 1;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -415,6 +417,9 @@ static void knifeWait()
 
 		self->dirX *= 30;
 		self->dirY *= 30;
+		
+		self->startX = self->dirX;
+		self->startY = self->dirY;
 
 		self->thinkTime = 60;
 
@@ -430,7 +435,7 @@ static void knifeAttack()
 {
 	checkToMap(self);
 
-	if (self->dirX == 0 || self->dirY == 0)
+	if (self->dirX != self->startX || self->dirY == self->startY)
 	{
 		self->damage = 0;
 
@@ -466,7 +471,7 @@ static void knifeBlock()
 
 	self->thinkTime = 120;
 
-	self->damage = 100;
+	self->damage = 50;
 
 	self->action = &knifeBlockWait;
 
@@ -504,9 +509,9 @@ static void ceilingDropInit()
 	{
 		e = l->entity;
 
-		if (e->mental == 0 && (prand() % 2 == 0))
+		if (e->mental == 0)
 		{
-			e->thinkTime = prand() % 600;
+			e->thinkTime = prand() % 1200;
 
 			e->mental = 1;
 		}
@@ -514,7 +519,7 @@ static void ceilingDropInit()
 
 	freeEntityList(list);
 
-	self->thinkTime = 300;
+	self->thinkTime = 60;
 
 	self->action = &ceilingDropWait;
 
@@ -548,7 +553,7 @@ static void lavaCeilingDropInit()
 
 		if (e->mental == 0)
 		{
-			e->thinkTime = prand() % 600;
+			e->thinkTime = prand() % 300;
 
 			e->mental = 2;
 		}
@@ -568,7 +573,7 @@ static void lavaCeilingDropWait()
 	EntityList *list;
 	EntityList *l;
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -581,9 +586,9 @@ static void lavaCeilingDropWait()
 
 			e->mental = 3;
 		}
-		
+
 		self->thinkTime = 300;
-		
+
 		self->action = &lavaCeilingDropEnd;
 	}
 
@@ -593,18 +598,25 @@ static void lavaCeilingDropWait()
 static void lavaCeilingDropEnd()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &attackFinished;
 	}
-	
+
 	hover();
 }
 
 static void takeDamage(Entity *other, int damage)
 {
-	if (self->health > 1500)
+	int health;
+	
+	if (self->flags & HELPLESS)
+	{
+		entityTakeDamageNoFlinch(other, damage);
+	}
+	
+	else
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
@@ -620,6 +632,8 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			health = self->health;
+
 			self->health -= damage;
 
 			setCustomAction(self, &flashWhite, 6, 0);
@@ -628,6 +642,58 @@ static void takeDamage(Entity *other, int damage)
 			other->inUse = FALSE;
 
 			enemyPain();
+
+			if ((health >= 1500 && self->health < 1500) || (health >= 1000 && self->health < 1000))
+			{
+				self->flags &= ~FLY;
+
+				self->action = &stunned;
+			}
 		}
+	}
+}
+
+static void stunned()
+{
+	int i;
+	long onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		setCustomAction(self, &helpless, 300, 0);
+
+		if (onGround == 0)
+		{
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+
+		self->action = &stunFinish;
+	}
+}
+
+static void stunFinish()
+{
+	self->flags |= FLY;
+
+	self->dirY = -6;
+
+	self->startX = 0;
+
+	checkToMap(self);
+
+	if (self->y <= self->startY)
+	{
+		self->y = self->startY;
+
+		self->action = &attackFinished;
 	}
 }

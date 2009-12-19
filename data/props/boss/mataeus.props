@@ -1,6 +1,6 @@
 TYPE ENEMY
 GFX_FILE data/gfx/enemy/spirit.dat
 ANIM_FILE data/anim/boss/mataeus.dat
-HEALTH 2000
+HEALTH 1000
 FLAGS FLY
 DAMAGE 1
