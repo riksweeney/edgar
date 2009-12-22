@@ -145,7 +145,7 @@ static void firstEncounterMoveToPosition()
 {
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;

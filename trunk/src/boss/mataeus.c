@@ -53,7 +53,9 @@ static void knifeThrowInit(void);
 static void knifeWait(void);
 static void knifeAttack(void);
 static void knifeBlock(void);
+static void specialKnifeBlock(void);
 static void knifeBlockWait(void);
+static void specialKnifeBlockWait(void);
 static void takeDamage(Entity *, int);
 static void knifeThrow(void);
 static void ceilingDropInit(void);
@@ -66,6 +68,7 @@ static void lavaCeilingDropInit(void);
 static void lavaCeilingDropEnd(void);
 static void stunned(void);
 static void stunFinish(void);
+static void resetCeiling(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -173,7 +176,9 @@ static void wait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->health >= 1500)
+		self->maxThinkTime = 0;
+		
+		if (self->health > 1500)
 		{
 			i = prand() % 2;
 
@@ -189,20 +194,31 @@ static void wait()
 			}
 		}
 
-		else if (self->health >= 1000)
+		else if (self->health > 500)
 		{
-			i = prand() % 2;
+			i = prand() % 3;
 
 			switch (i)
 			{
 				case 0:
 					self->action = &lavaCeilingDropInit;
 				break;
-
-				default:
+				
+				case 1:
+					self->maxThinkTime = 3 + prand() % 3;
+					
 					self->action = &verticalKnifeThrowInit;
 				break;
+				
+				default:
+					self->action = &knifeThrowInit;
+				break;
 			}
+		}
+		
+		else
+		{
+			printf("Final set of attacks\n");
 		}
 	}
 
@@ -241,14 +257,14 @@ static void knifeThrowInit()
 		{
 			loadProperties("boss/mataeus_knife_special", e);
 
-			e->reactToBlock = &knifeBlock;
+			e->reactToBlock = &specialKnifeBlock;
 		}
 
 		else
 		{
 			loadProperties("boss/mataeus_knife", e);
 
-			e->reactToBlock = &bounceOffShield;
+			e->reactToBlock = &knifeBlock;
 		}
 
 		e->x = self->x + self->w / 2 - e->w / 2;
@@ -285,7 +301,7 @@ static void verticalKnifeThrowInit()
 	Entity *e;
 
 	startX = getMapStartX();
-	startY = getMapStartY() + 64;
+	startY = getMapStartY() + 96;
 
 	for (i=0;i<6;i++)
 	{
@@ -301,7 +317,7 @@ static void verticalKnifeThrowInit()
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
 
-		e->targetX = startX + 64 + (i * 96);
+		e->targetX = startX + (i * 96) + (self->maxThinkTime % 2 == 0 ? 0 : 48);
 		e->targetY = startY;
 
 		e->action = &verticalKnifeWait;
@@ -335,17 +351,17 @@ static void knifeThrow()
 	{
 		if (self->mental == 0)
 		{
-			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}
 
 		else
 		{
-			self->action = &attackFinished;
+			self->maxThinkTime--;
+			
+			self->action = self->maxThinkTime > 0 ? &verticalKnifeThrowInit : &attackFinished;
 		}
-
-		self->thinkTime = 120;
 	}
 
 	hover();
@@ -353,7 +369,7 @@ static void knifeThrow()
 
 static void verticalKnifeWait()
 {
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
@@ -367,7 +383,7 @@ static void verticalKnifeWait()
 
 			self->action = &knifeAttack;
 
-			self->dirX = 0;
+			self->dirX = 0.01;
 			self->dirY = 16;
 			
 			self->startX = self->dirX;
@@ -429,13 +445,18 @@ static void knifeWait()
 
 		self->health = 1;
 	}
+	
+	else if (self->head->flags & HELPLESS)
+	{
+		entityDieNoDrop();
+	}
 }
 
 static void knifeAttack()
 {
 	checkToMap(self);
 
-	if (self->dirX != self->startX || self->dirY == self->startY)
+	if (self->dirX == 0 || self->dirY == 0)
 	{
 		self->damage = 0;
 
@@ -461,6 +482,23 @@ static void knifeDie()
 	}
 }
 
+static void specialKnifeBlock()
+{
+	self->flags &= ~FLY;
+
+	self->dirX = self->x < player.x ? -5 : 5;
+
+	self->dirY = -5;
+
+	self->thinkTime = 120;
+
+	self->damage = 50;
+
+	self->action = &specialKnifeBlockWait;
+
+	self->activate = &throwItem;
+}
+
 static void knifeBlock()
 {
 	self->flags &= ~FLY;
@@ -478,7 +516,7 @@ static void knifeBlock()
 	self->activate = &throwItem;
 }
 
-static void knifeBlockWait()
+static void specialKnifeBlockWait()
 {
 	checkToMap(self);
 
@@ -493,6 +531,18 @@ static void knifeBlockWait()
 		self->touch = &keyItemTouch;
 
 		self->activate = &throwItem;
+	}
+}
+
+static void knifeBlockWait()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->action = prand() % 10 == 0 ? entityDie : entityDieNoDrop;
+		
+		self->dirX = 0;
 	}
 }
 
@@ -543,13 +593,14 @@ static void lavaCeilingDropInit()
 	EntityList *list = getEntitiesByObjectiveName("MATAEUS_CEILING");
 	EntityList *l;
 	Entity *e;
-	int i;
 
-	i = 0;
+	self->mental = 0;
 
 	for (l=list->next;l!=NULL;l=l->next)
 	{
 		e = l->entity;
+		
+		e->head = self;
 
 		if (e->mental == 0)
 		{
@@ -557,6 +608,8 @@ static void lavaCeilingDropInit()
 
 			e->mental = 2;
 		}
+		
+		self->mental++;
 	}
 
 	freeEntityList(list);
@@ -587,7 +640,7 @@ static void lavaCeilingDropWait()
 			e->mental = 3;
 		}
 
-		self->thinkTime = 300;
+		self->thinkTime = 600;
 
 		self->action = &lavaCeilingDropEnd;
 	}
@@ -611,7 +664,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	int health;
 	
-	if (self->flags & HELPLESS)
+	if (self->health <= 1500 || (self->flags & HELPLESS))
 	{
 		entityTakeDamageNoFlinch(other, damage);
 	}
@@ -637,17 +690,18 @@ static void takeDamage(Entity *other, int damage)
 			self->health -= damage;
 
 			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
 
 			other->inUse = FALSE;
 
 			enemyPain();
 
-			if ((health >= 1500 && self->health < 1500) || (health >= 1000 && self->health < 1000))
+			if ((health > 1500 && self->health <= 1500))
 			{
 				self->flags &= ~FLY;
 
 				self->action = &stunned;
+				
+				resetCeiling();
 			}
 		}
 	}
@@ -696,4 +750,20 @@ static void stunFinish()
 
 		self->action = &attackFinished;
 	}
+}
+
+static void resetCeiling()
+{
+	EntityList *list = getEntitiesByObjectiveName("MATAEUS_CEILING");
+	EntityList *l;
+	Entity *e;
+
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		e = l->entity;
+
+		e->mental = 0;
+	}
+
+	freeEntityList(list);	
 }

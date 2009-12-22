@@ -310,6 +310,23 @@ void doNothing()
 		{
 			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
 		}
+		
+		if (self->standingOn != NULL)
+		{
+			self->dirX = self->standingOn->dirX;
+
+			if (self->standingOn->dirY > 0)
+			{
+				self->dirY = self->standingOn->dirY + 1;
+			}
+			
+			else if (self->standingOn->dirY == 0)
+			{
+				self->dirY = 0;
+			}
+			
+			self->flags |= ON_GROUND;
+		}
 	}
 
 	checkToMap(self);
@@ -1646,4 +1663,9 @@ void killEntity(char *name)
 	{
 		e->inUse = FALSE;
 	}
+}
+
+int atTarget()
+{
+	return (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY));
 }

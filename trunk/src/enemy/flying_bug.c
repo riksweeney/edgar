@@ -110,7 +110,7 @@ static void moveToTarget()
 
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->thinkTime = 120 + (prand() % self->maxThinkTime);
 

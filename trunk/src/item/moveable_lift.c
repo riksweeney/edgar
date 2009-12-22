@@ -54,6 +54,7 @@ Entity *addMoveableLift(int x, int y, char *name)
 	e->action = &doNothing;
 	e->touch = &touch;
 	e->activate = &activate;
+	e->fallout = &itemFallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 

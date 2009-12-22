@@ -366,7 +366,7 @@ static void biteAttackWindUp()
 {
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->targetX = self->face == RIGHT ? self->x + 320 - self->w - 1 : self->x - 320;
 
@@ -435,7 +435,7 @@ static void shotAttackWindUp()
 {
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->maxThinkTime = 5;
 
@@ -532,7 +532,7 @@ static void changeSides()
 	self->x += self->dirX;
 	self->y += self->dirY;
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->flags |= NO_DRAW;
 
@@ -619,7 +619,7 @@ static void crushAttackMoveToPosition()
 
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->y = self->targetY;
 
@@ -736,7 +736,7 @@ static void returnToStart()
 {
 	checkToMap(self);
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->y = self->targetY;
 
@@ -873,7 +873,7 @@ static void die()
 
 	if (self->flags & FLY)
 	{
-		if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+		if (atTarget())
 		{
 			self->dirX = self->dirY = 0;
 
