@@ -340,7 +340,7 @@ static void moveToTarget()
 
 	facePlayer();
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->thinkTime = 120;
 
@@ -481,7 +481,7 @@ static void bulletFireMoveToPosition()
 
 	facePlayer();
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->maxThinkTime = 5 + prand() % 15;
 
@@ -541,7 +541,7 @@ static void slimeFireMoveToPosition()
 
 	facePlayer();
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->maxThinkTime = 1 + prand() % 4;
 
@@ -599,7 +599,7 @@ static void headButtMoveToPosition()
 
 	facePlayer();
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->flags &= ~(FLY|UNBLOCKABLE);
 
@@ -698,7 +698,7 @@ static void stingAttackMoveToPosition()
 
 	facePlayer();
 
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->dirY = 0;
 

@@ -65,3 +65,4 @@ void freeEntityList(EntityList *);
 void addEntityToList(EntityList *, Entity *);
 EntityList *getEntitiesByObjectiveName(char *);
 EntityList *getEntitiesByRequiredName(char *);
+int atTarget(void);

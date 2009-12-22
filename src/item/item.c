@@ -185,7 +185,7 @@ void dropRandomItem(int x, int y)
 			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 		}
 		
-		if (prand() % 3 == 0)
+		if (prand() % 5 == 0)
 		{
 			e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 

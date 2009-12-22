@@ -263,6 +263,11 @@ void doPlayer()
 						self->dirY = self->standingOn->dirY + 1;
 					}
 					
+					else if (self->standingOn->dirY == 0)
+					{
+						self->dirY = 0;
+					}
+					
 					self->flags |= ON_GROUND;
 				}
 
@@ -1287,7 +1292,7 @@ static void playerDie()
 
 	player.action = &gameOverTimeOut;
 
-	if (player.element == ICE)
+	if (player.element == ICE || player.environment == LAVA || player.environment == SLIME)
 	{
 		player.flags |= NO_DRAW;
 		playerShield.flags |= NO_DRAW;

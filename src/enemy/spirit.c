@@ -194,7 +194,7 @@ static void moveRandomly()
 
 static void moveAboveBottle()
 {
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->thinkTime = 60 + (prand() % 60);
 		
@@ -220,7 +220,7 @@ static void moveIntoBottle()
 {
 	self->thinkTime--;
 	
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (atTarget())
 	{
 		self->target->mental--;
 		
