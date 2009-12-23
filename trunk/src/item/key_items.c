@@ -131,7 +131,7 @@ Entity *addKeyItem(char *name, int x, int y)
 
 			if (e->fallout == NULL)
 			{
-				e->fallout = &keyItemFallout;
+				e->fallout = &itemFallout;
 			}
 
 			return e;

@@ -10,3 +10,4 @@ wall/weak_cave_wall
 weapon/basic_sword
 enemy/bat
 common/switch
+common/reset_switch
