@@ -320,7 +320,7 @@ void doNothing()
 				self->dirY = self->standingOn->dirY + 1;
 			}
 			
-			else if (self->standingOn->dirY == 0)
+			else if (self->standingOn->dirY == 0 && self->standingOn->dirX == 0)
 			{
 				self->dirY = 0;
 			}
@@ -723,13 +723,6 @@ void pushEntity(Entity *other)
 		self = temp;
 
 		return;
-	}
-
-	/* Fudge */
-
-	if (other->dirY == 0 && self->dirY != 0)
-	{
-		other->dirY = 1;
 	}
 
 	other->x -= other->dirX;
