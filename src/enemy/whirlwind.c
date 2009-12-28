@@ -120,8 +120,8 @@ static void touch(Entity *other)
 
 		setPlayerLocked(FALSE);
 
-		setCustomAction(other, &helpless, 60, 0);
-		setCustomAction(other, &invulnerableNoFlash, 60, 0);
+		setCustomAction(other, &helpless, 60, 0, 0);
+		setCustomAction(other, &invulnerableNoFlash, 60, 0, 0);
 
 		self->action = &suckIn;
 
@@ -164,8 +164,8 @@ static void suckIn()
 	{
 		self->target->x += self->target->x > self->targetX ? -4 : 4;
 
-		setCustomAction(self->target, &helpless, 60, 0);
-		setCustomAction(self->target, &invulnerableNoFlash, 60, 0);
+		setCustomAction(self->target, &helpless, 60, 0, 0);
+		setCustomAction(self->target, &invulnerableNoFlash, 60, 0, 0);
 	}
 
 	else
@@ -190,7 +190,7 @@ static void suckIn()
 				e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = -12;
 
-				setCustomAction(e, &invulnerable, 120, 0);
+				setCustomAction(e, &invulnerable, 120, 0, 0);
 			}
 
 			e = removePlayerShield();
@@ -203,10 +203,10 @@ static void suckIn()
 				e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = -12;
 
-				setCustomAction(e, &invulnerable, 120, 0);
+				setCustomAction(e, &invulnerable, 120, 0, 0);
 			}
 
-			setCustomAction(self->target, &invulnerable, 60, 0);
+			setCustomAction(self->target, &invulnerable, 60, 0, 0);
 
 			setPlayerStunned(30);
 
@@ -232,7 +232,7 @@ static void die()
 	{
 		if (self->target->type == PLAYER)
 		{
-			setCustomAction(self->target, &invulnerable, 60, 0);
+			setCustomAction(self->target, &invulnerable, 60, 0, 0);
 
 			setPlayerStunned(30);
 

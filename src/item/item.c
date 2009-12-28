@@ -294,7 +294,7 @@ static void respawn()
 		self->x = self->startX;
 		self->y = self->startY;
 
-		setCustomAction(self, &invulnerable, 60, 0);
+		setCustomAction(self, &invulnerable, 60, 0, 0);
 
 		self->action = &doNothing;
 	}

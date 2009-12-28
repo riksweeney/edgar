@@ -90,7 +90,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			if (other->reactToBlock != NULL)
 			{

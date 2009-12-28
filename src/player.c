@@ -223,7 +223,7 @@ void doPlayer()
 
 		if (self->action == NULL)
 		{
-			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH);
+			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
 
 			for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 			{
@@ -879,7 +879,7 @@ static void takeDamage(Entity *other, int damage)
 
 				checkToMap(&player);
 
-				setCustomAction(&player, &helpless, 2, 0);
+				setCustomAction(&player, &helpless, 2, 0, 0);
 				
 				if (playerShield.thinkTime <= 0)
 				{
@@ -928,7 +928,7 @@ static void takeDamage(Entity *other, int damage)
 
 			checkToMap(&player);
 
-			setCustomAction(&player, &helpless, 2, 0);
+			setCustomAction(&player, &helpless, 2, 0, 0);
 
 			if (playerShield.thinkTime <= 0)
 			{
@@ -991,9 +991,9 @@ static void takeDamage(Entity *other, int damage)
 
 		if (player.health > 0)
 		{
-			setCustomAction(&player, &helpless, 10, 0);
+			setCustomAction(&player, &helpless, 10, 0, 0);
 
-			setCustomAction(&player, &invulnerable, 60, 0);
+			setCustomAction(&player, &invulnerable, 60, 0, 0);
 
 			if (player.dirX == 0)
 			{
@@ -1239,7 +1239,7 @@ static void resetPlayer()
 
 	player.y--;
 
-	setCustomAction(&player, &invulnerable, 60, 0);
+	setCustomAction(&player, &invulnerable, 60, 0, 0);
 }
 
 void increasePlayerMaxHealth()
@@ -1324,13 +1324,15 @@ static void touch(Entity *other)
 
 }
 
-void playerGib()
+EntityList *playerGib()
 {
+	EntityList *list = NULL;
+	
 	/* Don't multigib */
 	
 	if (player.health > 0)
 	{
-		throwGibs("edgar/edgar_gibs", 6);
+		list = throwGibs("edgar/edgar_gibs", 6);
 
 		player.inUse = TRUE;
 
@@ -1338,6 +1340,8 @@ void playerGib()
 
 		player.flags |= NO_DRAW;
 	}
+	
+	return list;
 }
 
 void facePlayer()
@@ -1356,7 +1360,7 @@ void setPlayerStunned(int thinkTime)
 
 	player.flags &= ~BLOCKING;
 
-	setCustomAction(&player, &dizzy, thinkTime, 0);
+	setCustomAction(&player, &dizzy, thinkTime, 0, 0);
 
 	setEntityAnimation(&player, DIE);
 	setEntityAnimation(&playerShield, DIE);
@@ -1410,7 +1414,7 @@ void setPlayerSlimed(int thinkTime)
 
 	player.dirX = 0;
 
-	setCustomAction(&player, &helpless, thinkTime, 0);
+	setCustomAction(&player, &helpless, thinkTime, 0, 0);
 
 	player.flags &= ~BLOCKING;
 
@@ -1596,7 +1600,7 @@ void becomeJumpingSlime(int seconds)
 
 		player.fallout = &slimeFallout;
 
-		setCustomAction(&player, &slimeTimeout, 60 * seconds, 0);
+		setCustomAction(&player, &slimeTimeout, 60 * seconds, 0, 0);
 	}
 
 	player.health = health;
@@ -1760,7 +1764,7 @@ void setPlayerFrozen(int thinkTime)
 
 	player.dirX = 0;
 
-	setCustomAction(&player, &helpless, thinkTime, 0);
+	setCustomAction(&player, &helpless, thinkTime, 0, 0);
 
 	player.flags &= ~BLOCKING;
 

@@ -117,10 +117,7 @@ static void initFall()
 
 		self->x = self->startX;
 		
-		if (self->mental <= 1)
-		{
-			self->damage = 1;
-		}
+		self->damage = 1;
 
 		checkToMap(self);
 
@@ -251,7 +248,7 @@ static void lavaResetWait()
 			{
 				tileY++;
 
-				setTileAt(tileX, tileY, 1 + prand() % 3);
+				setTileAt(tileX, tileY, i == 0 ? 4 : 1 + prand() % 3);
 			}
 
 			self->mental = 4;

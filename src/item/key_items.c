@@ -173,7 +173,7 @@ void keyItemRespawn()
 
 		self->dirY = ITEM_JUMP_HEIGHT;
 
-		setCustomAction(self, &invulnerable, 60, 0);
+		setCustomAction(self, &invulnerable, 60, 0, 0);
 
 		self->action = &doNothing;
 		

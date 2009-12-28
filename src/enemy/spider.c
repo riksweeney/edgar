@@ -82,8 +82,8 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->targetY = self->startY;
 
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			self->action = &retreat;
 		}
@@ -114,7 +114,7 @@ static void redTakeDamage(Entity *other, int damage)
 		{
 			self->targetY = 1800;
 
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 		}
 	}
 }

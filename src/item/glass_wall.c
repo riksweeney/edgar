@@ -134,7 +134,7 @@ static void die()
 
 static void takeDamage(Entity *other, int damage)
 {
-	setCustomAction(self, &invulnerableNoFlash, 20, 0);
+	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
 }

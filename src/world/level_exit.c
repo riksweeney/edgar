@@ -120,8 +120,8 @@ static void activate(int val)
 	{
 		player.flags |= HELPLESS;
 
-		setCustomAction(&player, &helpless, 600, 0);
-		setCustomAction(&player, &invulnerableNoFlash, 600, 0);
+		setCustomAction(&player, &helpless, 600, 0, 0);
+		setCustomAction(&player, &invulnerableNoFlash, 600, 0, 0);
 
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
