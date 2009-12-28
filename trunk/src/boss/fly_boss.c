@@ -882,7 +882,7 @@ static void reactToHeadButtBlock()
 	self->dirX = (self->face == LEFT ? 4 : -4);
 	self->dirY = -6;
 
-	setCustomAction(self, &helpless, 15, 0);
+	setCustomAction(self, &helpless, 15, 0, 0);
 
 	checkToMap(self);
 }
@@ -914,8 +914,8 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(60, _("The wall on the right looks weak..."));
 		}
 
-		setCustomAction(self, &flashWhite, 6, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 		enemyPain();
 	}

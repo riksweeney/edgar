@@ -453,8 +453,8 @@ static void takeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			if (self->pain != NULL)
 			{
@@ -466,8 +466,8 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->health = 19;
 
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			/* Don't reshatter */
 
@@ -489,8 +489,8 @@ static void takeDamage(Entity *other, int damage)
 			self->health = 19;
 		}
 
-		setCustomAction(self, &flashWhite, 6, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 		self->action = &shatter;
 
@@ -514,7 +514,7 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(60, _("This weapon is not having any effect..."));
 		}
 
-		setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 	}
 
 	if (health > 20 && self->health <= 20)

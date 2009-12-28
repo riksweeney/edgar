@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int accumulates)
+void setCustomAction(Entity *e, void (*func)(int *, int *, float *), int thinkTime, int accumulates, float customValue)
 {
 	int i;
 	Entity *temp;
@@ -44,6 +44,8 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 				e->customAction[i].thinkTime = thinkTime;
 
 				e->customAction[i].counter += accumulates;
+				
+				e->customAction[i].value = customValue;
 			}
 
 			return;
@@ -59,6 +61,8 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 			e->customAction[i].thinkTime = thinkTime + 1;
 
 			e->customAction[i].counter = accumulates;
+			
+			e->customAction[i].value = customValue;
 
 			/* Execute the custom action once */
 
@@ -66,7 +70,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 
 			self = e;
 
-			self->customAction[i].action(&self->customAction[i].thinkTime, &self->customAction[i].counter);
+			self->customAction[i].action(&self->customAction[i].thinkTime, &self->customAction[i].counter, &self->customAction[i].value);
 
 			self = temp;
 
@@ -77,7 +81,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *), int thinkTime, int a
 	showErrorAndExit("No free slots for Custom Action");
 }
 
-void clearCustomAction(Entity *e, void (*func)(int *, int *))
+void clearCustomAction(Entity *e, void (*func)(int *, int *, float *))
 {
 	int i;
 
@@ -108,7 +112,7 @@ void addCustomActionFromScript(Entity *e, char *line)
 {
 	char actionName[MAX_VALUE_LENGTH];
 	int thinkTime, accumulates;
-	void (*action)(int *, int *);
+	void (*action)(int *, int *, float *);
 
 	action = NULL;
 
@@ -126,16 +130,16 @@ void addCustomActionFromScript(Entity *e, char *line)
 
 	if (action != NULL)
 	{
-		setCustomAction(e, action, thinkTime, accumulates);
+		setCustomAction(e, action, thinkTime, accumulates, 0);
 	}
 }
 
 void doCustomAction(CustomAction *customAction)
 {
-	customAction->action(&customAction->thinkTime, &customAction->counter);
+	customAction->action(&customAction->thinkTime, &customAction->counter, &customAction->value);
 }
 
-void helpless(int *thinkTime, int *counter)
+void helpless(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -155,7 +159,7 @@ void helpless(int *thinkTime, int *counter)
 	}
 }
 
-void invulnerable(int *thinkTime, int *counter)
+void invulnerable(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -175,7 +179,7 @@ void invulnerable(int *thinkTime, int *counter)
 	}
 }
 
-void invulnerableNoFlash(int *thinkTime, int *counter)
+void invulnerableNoFlash(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -185,7 +189,7 @@ void invulnerableNoFlash(int *thinkTime, int *counter)
 	}
 }
 
-void flashWhite(int *thinkTime, int *counter)
+void flashWhite(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -195,7 +199,7 @@ void flashWhite(int *thinkTime, int *counter)
 	}
 }
 
-void slowDown(int *thinkTime, int *counter)
+void slowDown(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -217,7 +221,7 @@ void slowDown(int *thinkTime, int *counter)
 	}
 }
 
-void dizzy(int *thinkTime, int *counter)
+void dizzy(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -227,12 +231,12 @@ void dizzy(int *thinkTime, int *counter)
 	}
 }
 
-void regenerate(int *thinkTime, int *counter)
+void regenerate(int *thinkTime, int *counter, float *value)
 {
 	self->health = self->maxHealth;
 }
 
-void slimeTimeout(int *thinkTime, int *counter)
+void slimeTimeout(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
@@ -246,14 +250,26 @@ void slimeTimeout(int *thinkTime, int *counter)
 	}
 }
 
-void invisible(int *thinkTime, int *counter)
+void invisible(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
 	self->alpha = *thinkTime == 0 ? 255 : 64;
 }
 
-void antiGravity(int *thinkTime, int *counter)
+void attract(int *thinkTime, int *counter, float *value)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->flags |= ATTRACTED;
+		
+		self->dirX = *value;
+	}
+}
+
+void antiGravity(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 

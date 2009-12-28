@@ -1067,8 +1067,8 @@ static void takeDamage(Entity *other, int damage)
 
 		else if (self->health > 1000)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			self->mental--;
 
@@ -1077,8 +1077,8 @@ static void takeDamage(Entity *other, int damage)
 
 		else if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			self->health -= damage;
 
@@ -1105,8 +1105,8 @@ static void eatTakeDamage(Entity *other, int damage)
 {
 	if (!(self->flags & INVULNERABLE))
 	{
-		setCustomAction(self, &flashWhite, 6, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0);
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 		self->mental--;
 
@@ -1319,7 +1319,7 @@ static void partGrab(Entity *other)
 
 		self->startY = prand() % (other->h - self->h);
 
-		setCustomAction(other, &slowDown, 3, 1);
+		setCustomAction(other, &slowDown, 3, 1, 0);
 
 		self->action = &stickToPlayerAndDrain;
 
@@ -1341,7 +1341,7 @@ static void stickToPlayerAndDrain()
 {
 	Entity *temp;
 
-	setCustomAction(&player, &slowDown, 3, 0);
+	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;
 	self->y = player.y + self->startY;
@@ -1386,7 +1386,7 @@ static void stickToPlayerAndDrain()
 
 		self->dirY = -6;
 
-		setCustomAction(&player, &slowDown, 3, -1);
+		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &fallOff;
 

@@ -3,11 +3,12 @@ CHANGE LOG
 
 Version 0.45
 * Added the rest of the Library Map
-* Health dropping is now more generous when a bow is equipped
+* Health dropping now works correctly when the bow is equipped
 * Music and sound effects are halted when the game is paused
 * Items in a grabber should now stay put better
 * Energy drainers now drop between 1 and 3 arrows when they die
 * The Blob Boss should no longer get stuck when reforming
+* Added switches that reset puzzle blocks, play the tutorial to see how they work
 
 Version 0.41
 * Fixed the Golem Boss (again)

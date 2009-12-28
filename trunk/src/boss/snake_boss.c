@@ -830,8 +830,8 @@ static void takeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			enemyPain();
 		}
@@ -1092,7 +1092,7 @@ static void stunned()
 	{
 		self->dirX = 0;
 
-		setCustomAction(self, &helpless, 300, 0);
+		setCustomAction(self, &helpless, 300, 0, 0);
 
 		if (onGround == 0)
 		{

@@ -247,7 +247,7 @@ static void instructionMove()
 {
 	checkToMap(self);
 
-	setCustomAction(&player, &helpless, 5, 0);
+	setCustomAction(&player, &helpless, 5, 0, 0);
 
 	if (self->dirX == 0 && self->dirY == 0)
 	{

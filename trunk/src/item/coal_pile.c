@@ -126,13 +126,13 @@ static void touch(Entity *other)
 				e->dirX = (4 + (prand() % 2)) * (prand() % 2 == 0 ? -1 : 1);
 			}
 
-			setCustomAction(self, &flashWhite, 6, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 		}
 
 		else
 		{
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 		}

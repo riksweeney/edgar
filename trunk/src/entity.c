@@ -131,7 +131,7 @@ void doEntities()
 
 		if (self->inUse == TRUE)
 		{
-			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH);
+			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
 
 			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
 			{
@@ -464,7 +464,7 @@ void entityDie()
 
 		self->thinkTime = 60;
 
-		setCustomAction(self, &invulnerable, 240, 0);
+		setCustomAction(self, &invulnerable, 240, 0, 0);
 
 		self->frameSpeed = 0;
 
@@ -511,7 +511,7 @@ void entityDieNoDrop()
 
 		self->thinkTime = 60;
 
-		setCustomAction(self, &invulnerable, 240, 0);
+		setCustomAction(self, &invulnerable, 240, 0, 0);
 
 		self->frameSpeed = 0;
 
@@ -571,8 +571,8 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &helpless, 10, 0);
-			setCustomAction(self, &invulnerable, 20, 0);
+			setCustomAction(self, &helpless, 10, 0, 0);
+			setCustomAction(self, &invulnerable, 20, 0, 0);
 
 			if (self->pain != NULL)
 			{
@@ -609,13 +609,13 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 			}
 
 			if (self->pain != NULL)
@@ -676,7 +676,7 @@ void entityTouch(Entity *other)
 		}
 	}
 
-	else if (other->type == PROJECTILE && other->parent != self)
+	else if (other->type == PROJECTILE && other->parent != self && self->health > 0)
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{

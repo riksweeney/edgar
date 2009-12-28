@@ -130,7 +130,7 @@ static void grab(Entity *other)
 
 		self->startY = prand() % (other->h - self->h);
 
-		setCustomAction(other, &slowDown, 3, 1);
+		setCustomAction(other, &slowDown, 3, 1, 0);
 
 		if (strcmpignorecase(self->name, "enemy/red_baby_slime") == 0)
 		{
@@ -158,7 +158,7 @@ static void grab(Entity *other)
 
 static void stickToPlayer()
 {
-	setCustomAction(&player, &slowDown, 3, 0);
+	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	if (game.showHints == TRUE)
 	{
@@ -188,7 +188,7 @@ static void stickToPlayer()
 
 		self->dirY = -6;
 
-		setCustomAction(&player, &slowDown, 3, -1);
+		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &fallOff;
 
@@ -200,7 +200,7 @@ static void stickToPlayerAndDrain()
 {
 	Entity *temp;
 
-	setCustomAction(&player, &slowDown, 3, 0);
+	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	if (game.showHints == TRUE)
 	{
@@ -243,7 +243,7 @@ static void stickToPlayerAndDrain()
 
 		self->dirY = -6;
 
-		setCustomAction(&player, &slowDown, 3, -1);
+		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &fallOff;
 

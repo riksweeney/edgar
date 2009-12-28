@@ -39,9 +39,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../graphics/gib.h"
 
 extern Entity *self, player;
 extern Game game;
+
+static int bodyParts = 20;
 
 static void initialise(void);
 static void doIntro(void);
@@ -69,6 +72,32 @@ static void lavaCeilingDropEnd(void);
 static void stunned(void);
 static void stunFinish(void);
 static void resetCeiling(void);
+static void dropAnchor(void);
+static void alignChainToAnchor(void);
+static void anchorTakeDamage(Entity *, int);
+static void chainTakeDamage(Entity *, int);
+static void chainWait(void);
+static void anchorWait(void);
+static void anchorInGround(void);
+static void anchorDie(void);
+static void openRift(void);
+static void openRiftWait(void);
+static void riftRise(void);
+static void riftAttract(void);
+static void riftSink(void);
+static void riftKnifeThrowInit(void);
+static void riftKnifeThrow(void);
+static void riftTouch(Entity *);
+static void riftKillBoss(void);
+static int isAnchored(void);
+static void die(void);
+static void addRiftEnergy(int, int);
+static void energyMoveToRift(void);
+static void dieWait(void);
+static void riftDestroyWait(void);
+static void gibWait(void);
+static void createShield(void);
+static void shieldWait(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -107,7 +136,11 @@ static void initialise()
 
 	self->action = &doIntro;
 
+	self->startX = self->x;
 	self->startY = self->y;
+	
+	self->endX = self->x;
+	self->endY = self->y;
 }
 
 static void doIntro()
@@ -132,7 +165,7 @@ static void introPause()
 
 	initBossHealthBar();
 
-	self->action = &attackFinished;
+	self->action = &createShield;
 
 	self->thinkTime = 90;
 
@@ -178,6 +211,11 @@ static void wait()
 	{
 		self->maxThinkTime = 0;
 		
+		if (self->health == self->maxHealth && (prand() % 20 == 0))
+		{
+			setInfoBoxMessage(120, _("Try using Mataeus's knives against him..."));
+		}
+		
 		if (self->health > 1500)
 		{
 			i = prand() % 2;
@@ -218,7 +256,27 @@ static void wait()
 		
 		else
 		{
-			printf("Final set of attacks\n");
+			if (isAnchored() == FALSE)
+			{
+				self->action = &dropAnchor;
+			}
+			
+			else
+			{
+				i = prand() % 3;
+				
+				switch (i)
+				{
+					case 0:
+					case 1:
+						self->action = &knifeThrowInit;
+					break;
+
+					default:
+						self->action = &openRift;
+					break;
+				}
+			}
 		}
 	}
 
@@ -297,13 +355,15 @@ static void knifeThrowInit()
 
 static void verticalKnifeThrowInit()
 {
-	int i, startX, startY;
+	int i, startX, startY, knives;
 	Entity *e;
 
 	startX = getMapStartX();
 	startY = getMapStartY() + 96;
+	
+	knives = self->maxThinkTime % 2 == 0 ? 7 : 6;
 
-	for (i=0;i<6;i++)
+	for (i=0;i<knives;i++)
 	{
 		e = getFreeEntity();
 
@@ -317,7 +377,7 @@ static void verticalKnifeThrowInit()
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
 
-		e->targetX = startX + (i * 96) + (self->maxThinkTime % 2 == 0 ? 0 : 48);
+		e->targetX = startX + (i * 96) + (self->maxThinkTime % 2 == 0 ? 8 : 56);
 		e->targetY = startY;
 
 		e->action = &verticalKnifeWait;
@@ -338,7 +398,7 @@ static void verticalKnifeThrowInit()
 
 	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
-	self->thinkTime = 90;
+	self->thinkTime = 60;
 
 	self->action = &knifeThrow;
 }
@@ -680,7 +740,7 @@ static void takeDamage(Entity *other, int damage)
 				setInfoBoxMessage(60, _("This weapon is not having any effect..."));
 			}
 
-			setCustomAction(self, &invulnerableNoFlash, 20, 0);
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 		}
 
 		else
@@ -689,7 +749,9 @@ static void takeDamage(Entity *other, int damage)
 
 			self->health -= damage;
 
-			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			
+			setCustomAction(self->target, &flashWhite, 6, 0, 0);
 
 			other->inUse = FALSE;
 
@@ -718,7 +780,7 @@ static void stunned()
 	{
 		self->dirX = 0;
 
-		setCustomAction(self, &helpless, 300, 0);
+		setCustomAction(self, &helpless, 300, 0, 0);
 
 		if (onGround == 0)
 		{
@@ -766,4 +828,924 @@ static void resetCeiling()
 	}
 
 	freeEntityList(list);	
+}
+
+static void dropAnchor()
+{
+	Entity **body, *anchor;
+	int i;
+	
+	body = (Entity **)malloc(bodyParts * sizeof(Entity *));
+
+	if (body == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Mataeus Anchor chain...", bodyParts * (int)sizeof(Entity *));
+	}
+
+	/* Create in reverse order so that it is drawn correctly */
+
+	resetEntityIndex();
+
+	for (i=bodyParts-1;i>=0;i--)
+	{
+		body[i] = getFreeEntity();
+
+		if (body[i] == NULL)
+		{
+			showErrorAndExit("No free slots to add a Mataeus Chain");
+		}
+
+		loadProperties("boss/mataeus_anchor_chain", body[i]);
+
+		body[i]->x = self->x;
+		body[i]->y = self->y;
+
+		body[i]->action = &chainWait;
+
+		body[i]->draw = &drawLoopingAnimationToMap;
+		body[i]->touch = &entityTouch;
+		body[i]->die = &entityDieNoDrop;
+		body[i]->takeDamage = &chainTakeDamage;
+
+		body[i]->type = ENEMY;
+
+		setEntityAnimation(body[i], STAND);
+	}
+
+	/* Create the anchor so that it's on top */
+
+	anchor = getFreeEntity();
+	
+	if (anchor == NULL)
+	{
+		showErrorAndExit("No free slots to add Mataeus Anchor");
+	}
+	
+	loadProperties("boss/mataeus_anchor", anchor);
+
+	anchor->action = &anchorWait;
+
+	anchor->draw = &drawLoopingAnimationToMap;
+	anchor->touch = NULL;
+	anchor->die = &anchorDie;
+	anchor->takeDamage = &anchorTakeDamage;
+	anchor->pain = &enemyPain;
+
+	anchor->type = ENEMY;
+
+	setEntityAnimation(anchor, STAND);
+	
+	anchor->x = self->x + self->w / 2 - anchor->w / 2;
+	anchor->y = self->y + self->h / 2 - anchor->h / 2;
+	
+	anchor->endX = anchor->x;
+	anchor->endY = anchor->y;
+
+	/* Link the sections */
+
+	for (i=bodyParts-1;i>=0;i--)
+	{
+		if (i == 0)
+		{
+			anchor->target = body[i];
+		}
+
+		else
+		{
+			body[i - 1]->target = body[i];
+		}
+
+		body[i]->head = anchor;
+		
+		body[i]->x = anchor->x + anchor->w / 2 - body[i]->w / 2;
+	}
+	
+	anchor->head = self;
+	
+	self->target = anchor;
+	
+	self->action = &attackFinished;
+}
+
+static void alignChainToAnchor()
+{
+	float x, y, partDistanceX, partDistanceY;
+	Entity *e;
+
+	x = self->x + self->w / 2;
+	y = self->y;
+	
+	self->endX = self->head->x + self->head->w / 2;
+	
+	partDistanceX = fabs(self->endX - x);
+	partDistanceY = fabs(self->endY - self->y);
+	
+	partDistanceX /= bodyParts;
+	partDistanceY /= bodyParts;
+
+	e = self->target;
+
+	while (e != NULL)
+	{
+		x -= partDistanceX;
+		y -= partDistanceY;
+
+		e->x = (e->target == NULL ? self->endX : x - e->w / 2);
+		e->y = (e->target == NULL ? self->endY : y);
+
+		e->damage = self->damage;
+
+		e->face = self->face;
+
+		if (self->flags & NO_DRAW)
+		{
+			e->flags |= NO_DRAW;
+		}
+
+		else
+		{
+			e->flags &= ~NO_DRAW;
+		}
+
+		if (self->flags & FLASH)
+		{
+			e->flags |= FLASH;
+		}
+
+		else
+		{
+			e->flags &= ~FLASH;
+		}
+
+		e = e->target;
+	}
+}
+
+static void anchorTakeDamage(Entity *other, int damage)
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
+		{
+			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+			if (prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, _("This weapon is not having any effect..."));
+			}
+
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		}
+
+		else
+		{
+			self->health -= damage;
+
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			other->inUse = FALSE;
+
+			enemyPain();
+			
+			if (self->health <= 0)
+			{
+				self->die();
+			}
+		}
+	}
+}
+
+static void chainTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+	
+	temp = self;
+
+	self = self->head;
+
+	self->takeDamage(other, damage);
+
+	self = temp;
+}
+
+static void chainWait()
+{
+	checkToMap(self);
+}
+
+static void anchorWait()
+{
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->targetY = self->y + self->h / 2;
+		
+		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		shakeScreen(MEDIUM, 15);
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
+
+		e->dirX = 3;
+		e->dirY = -8;
+		
+		self->action = &anchorInGround;
+	}
+	
+	self->endY = self->head->y + self->head->h / 2 - self->h / 2;
+	
+	alignChainToAnchor();
+}
+
+static void anchorInGround()
+{
+	self->y += 3;
+	
+	if (self->y >= self->targetY)
+	{
+		self->y = self->targetY;
+	}
+	
+	self->endY = self->head->y + self->head->h / 2 - self->h / 2;
+	
+	alignChainToAnchor();
+}
+
+static void anchorDie()
+{
+	Entity *e;
+
+	e = self;
+
+	self = self->target;
+
+	while (self != NULL)
+	{
+		self->die();
+
+		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		self->dirY = ITEM_JUMP_HEIGHT;
+
+		self = self->target;
+	}
+
+	self = e;
+
+	self->die = &entityDieVanish;
+
+	self->die();
+
+	self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+	self->dirY = ITEM_JUMP_HEIGHT;	
+}
+
+static void openRift()
+{
+	Entity *e;
+	
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Rift");
+	}
+	
+	loadProperties("boss/mataeus_rift", e);
+	
+	e->action = &riftRise;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->die = NULL;
+	e->takeDamage = NULL;
+
+	e->type = ENEMY;
+
+	setEntityAnimation(e, STAND);
+	
+	e->x = self->x + self->w / 2 - e->w / 2;
+	e->y = self->y + self->h / 2 - e->h / 2;
+	
+	self->mental = 0;
+	
+	self->action = &openRiftWait;
+	
+	e->head = self;
+	
+	e->targetX = getMapStartX() + SCREEN_WIDTH / 2 - e->w / 2;
+	e->targetY = getMapFloor(e->x, e->y);
+	
+	e->startY = e->targetY - e->h;
+	
+	e->endY = e->targetY;
+	
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+	
+	e->health = -1;
+
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	self->thinkTime = 120;
+	
+	self->targetX = e->targetX + e->w / 2 - self->w / 2;
+	self->targetY = e->startY + e->h / 2 - self->h / 2;
+}
+
+static void openRiftWait()
+{
+	if (self->flags & ATTRACTED)
+	{
+		if (isAnchored() == FALSE)
+		{
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 6;
+			self->dirY *= 6;
+			
+			self->face = RIGHT;
+			
+			self->thinkTime = 30;
+			
+			self->action = &die;
+		}
+		
+		else
+		{
+			if (self->x <= self->endX - 64)
+			{
+				self->x = self->endX - 64;
+			}
+			
+			if (player.health > 0)
+			{
+				self->action = &riftKnifeThrowInit;
+			}
+		}
+	}
+	
+	else
+	{
+		self->dirX = 1;
+		
+		if (fabs(self->x - self->endX) <= fabs(self->dirX))
+		{
+			self->dirX = 0;
+			
+			self->thinkTime--;
+			
+			if (self->thinkTime <= 0)
+			{
+				self->action = &attackFinished;
+			}
+		}
+	}
+	
+	checkToMap(self);
+	
+	hover();
+}
+
+static void riftKnifeThrowInit()
+{
+	int i, radians;
+	Entity *e;
+
+	for (i=0;i<6;i++)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a Mataeus Knife");
+		}
+
+		loadProperties("boss/mataeus_knife", e);
+
+		e->reactToBlock = &knifeBlock;
+
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+
+		radians = DEG_TO_RAD(i * 60);
+
+		e->x += (0 * cos(radians) - 0 * sin(radians));
+		e->y += (0 * sin(radians) + 0 * cos(radians));
+
+		e->action = &knifeWait;
+		e->touch = &entityTouch;
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->health = radians;
+
+		e->head = self;
+
+		setEntityAnimation(e, WALK);
+	}
+
+	self->mental = 0;
+
+	playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	self->thinkTime = 60;
+
+	self->action = &riftKnifeThrow;
+	
+	if (self->x <= self->endX - 64)
+	{
+		self->x = self->endX - 64;
+	}
+}
+
+static void riftKnifeThrow()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
+
+			self->mental = 1;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+			
+			self->action = &openRiftWait;
+		}
+	}
+	
+	if (self->x <= self->endX - 64)
+	{
+		self->x = self->endX - 64;
+	}
+
+	hover();
+}
+
+static void riftRise()
+{
+	if (self->health == -1)
+	{
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	}
+	
+	self->y -= 0.5;
+	
+	self->head->thinkTime = 120;
+	
+	if (self->y <= self->startY)
+	{
+		stopSound(self->health);
+		
+		self->y = self->startY;
+		
+		self->thinkTime = 300;
+		
+		setEntityAnimation(self, WALK);
+		
+		self->touch = &riftTouch;
+		
+		self->head->mental = 1;
+		
+		self->action = &riftAttract;
+		
+		setCustomAction(&player, &attract, 2, 0, 0);
+	}
+	
+	addSmoke(self->x + prand() % self->w, self->endY - prand() % 10, "decoration/dust");
+}
+
+static void riftAttract()
+{
+	Entity *temp;
+	
+	setCustomAction(self->head, &attract, 2, 0, -2.5);
+	
+	setCustomAction(&player, &attract, 2, 0, (player.x < (self->x + self->w / 2) ? (player.speed - 0.5) : -(player.speed - 0.5)));
+	
+	self->thinkTime--;
+	
+	temp = self;
+	
+	self = temp->head;
+	
+	if (isAnchored() == FALSE)
+	{
+		temp->thinkTime = 60000;
+	}
+	
+	self = temp;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->health = -1;
+		
+		self->touch = NULL;
+		
+		setEntityAnimation(self, STAND);
+		
+		self->action = &riftSink;
+		
+		self->damage = 0;
+	}
+	
+	if (prand() % 3 == 0)
+	{
+		addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+	}
+	
+	checkToMap(self);
+}
+
+static void riftSink()
+{
+	if (self->health == -1)
+	{
+		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	}
+	
+	self->y += 0.5;
+	
+	if (self->y >= self->endY)
+	{
+		stopSound(self->health);
+		
+		self->inUse = FALSE;
+	}
+	
+	addSmoke(self->x + prand() % self->w, self->endY - prand() % 10, "decoration/dust");
+}
+
+static void riftTouch(Entity *other)
+{
+	int i;
+	Entity *temp, *e;
+	EntityList *list, *l;
+	
+	i = 0;
+	
+	if (other->type == PLAYER && player.health > 0)
+	{
+		temp = self;
+		
+		self = other;
+		
+		list = playerGib();
+		
+		for (l=list->next;l!=NULL;l=l->next)
+		{
+			e = l->entity;
+			
+			e->head = temp;
+			
+			e->x = temp->x + temp->w / 2 - e->w / 2;
+			e->y = temp->y + temp->h / 2 - e->h / 2;
+			
+			e->startX = e->x;
+			e->startY = e->y;
+			
+			e->mental = 0;
+			
+			e->health = prand() % 360;
+			
+			e->dirX = 1;
+			
+			e->action = &gibWait;
+			
+			e->thinkTime = 180;
+			
+			i++;
+		}
+		
+		freeEntityList(list);
+		
+		self = temp;
+		
+		self->action = &riftDestroyWait;
+		
+		self->mental = i;
+	}
+	
+	else if (strcmpignorecase(other->name, "boss/mataeus") == 0)
+	{
+		temp = self;
+		
+		/* Mataeus */
+		
+		self = other;
+		
+		list = throwGibs("boss/mataeus_gibs", 11);
+		
+		for (l=list->next;l!=NULL;l=l->next)
+		{
+			e = l->entity;
+			
+			e->head = temp;
+			
+			e->x = temp->x + temp->w / 2 - e->w / 2;
+			e->y = temp->y + temp->h / 2 - e->h / 2;
+			
+			e->startX = e->x;
+			e->startY = e->y;
+			
+			e->mental = 0;
+			
+			e->health = prand() % 360;
+			
+			e->dirX = 1;
+			
+			e->action = &gibWait;
+			
+			e->thinkTime = 180;
+			
+			i++;
+		}
+		
+		freeEntityList(list);
+		
+		self->health = 1;
+		
+		self->inUse = TRUE;
+		
+		self->action = &doNothing;
+		
+		self->flags |= NO_DRAW;
+		
+		self->touch = NULL;
+		
+		/* Rift */
+		
+		self = temp;
+		
+		self->mental = i;
+		
+		self->target = other;
+		
+		self->touch = NULL;
+		
+		self->thinkTime = 120;
+		
+		self->action = &riftKillBoss;
+	}
+}
+
+static void riftKillBoss()
+{
+	checkToMap(self);
+	
+	if (self->mental <= 0)
+	{
+		self->target->health = 0;
+		
+		self->target->action = &dieWait;
+		
+		self->target->thinkTime = 420;
+		
+		self->health = -1;
+		
+		self->touch = NULL;
+		
+		setEntityAnimation(self, STAND);
+		
+		self->action = &riftSink;
+		
+		self->damage = 0;
+	}
+	
+	checkToMap(self);
+}
+
+static int isAnchored()
+{
+	return (self->target != NULL && self->target->health > 0 && strcmpignorecase(self->target->name, "boss/mataeus_anchor") == 0);
+}
+
+static void die()
+{
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime < -330)
+	{
+		self->dirX *= 12;
+		self->dirY *= 12;
+	}
+	
+	else if (self->thinkTime <= 0 && self->thinkTime >= -120)
+	{
+		self->dirX *= -0.25;
+		self->dirY *= -0.25;
+	}
+	
+	else if (self->thinkTime <= -150 && self->thinkTime >= -270)
+	{
+		self->dirX *= -0.25;
+		self->dirY *= -0.25;
+	}
+	
+	else if (self->thinkTime <= -270 && self->thinkTime >= -330)
+	{
+		self->dirX *= 0;
+		self->dirY *= 0;
+	}
+
+	else
+	{
+		self->dirX *= 6;
+		self->dirY *= 6;
+	}
+	
+	if (atTarget())
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->health = 0;
+		
+		self->action = &dieWait;
+		
+		self->flags |= NO_DRAW;
+		
+		self->damage = 0;
+		
+		self->thinkTime = 450;
+	}
+	
+	checkToMap(self);
+}
+
+static void addRiftEnergy(int x, int y)
+{
+	Entity *e;
+	
+	e = addBasicDecoration(x, y, "decoration/rift_energy");
+	
+	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	
+	x -= e->w / 2;
+	y -= e->h / 2;
+	
+	e->targetX = x;
+	e->targetY = y;
+	
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+	
+	e->dirX *= 8;
+	e->dirY *= 8;
+	
+	e->action = &energyMoveToRift;
+}
+
+static void energyMoveToRift()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+	
+	if (atTarget())
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void dieWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		freeBossHealthBar();
+
+		fadeBossMusic();
+
+		entityDieVanish();
+	}
+}
+
+static void riftDestroyWait()
+{
+	checkToMap(self);
+	
+	if (self->mental <= 0)
+	{
+		setEntityAnimation(self, STAND);
+		
+		self->action = &riftSink;
+	}
+}
+
+static void gibWait()
+{
+	float radians;
+	
+	if (self->dirX == -1)
+	{
+		self->mental -= 2;
+		
+		if (self->mental <= 0)
+		{
+			self->head->mental--;
+			
+			self->inUse = FALSE;
+		}
+	}
+	
+	else
+	{
+		self->mental += 2;
+		
+		if (self->mental >= 160)
+		{
+			self->mental = 160;
+			
+			self->thinkTime--;
+			
+			if (self->thinkTime <= 0)
+			{
+				self->dirX = -1;
+			}
+		}
+	}
+	
+	self->health += 8;
+	
+	radians = DEG_TO_RAD(self->health);
+	
+	self->x = (0 * cos(radians) - self->mental * sin(radians));
+	self->y = (0 * sin(radians) + self->mental * cos(radians));
+	
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void createShield()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Mataeus Shield");
+	}
+
+	loadProperties("boss/mataeus_shield", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &shieldWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->type = ENEMY;
+	
+	e->head = self;
+	
+	e->alpha = 128;
+	
+	self->target = e;
+
+	setEntityAnimation(e, STAND);
+	
+	e->x = self->x + self->w / 2 - e->w / 2;
+	e->y = self->y + self->h / 2 - e->h / 2;
+	
+	self->action = &attackFinished;
+}
+
+static void shieldWait()
+{
+	float radians;
+	
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+	self->y = self->head->y + self->head->h / 2 - self->h / 2;
+	
+	if (self->head->health <= 1500)
+	{
+		self->inUse = FALSE;
+	}
+	
+	self->thinkTime += 5;
+	
+	radians = DEG_TO_RAD(self->thinkTime);
+	
+	self->alpha = 128 + (64 * cos(radians));
 }

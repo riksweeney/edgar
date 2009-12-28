@@ -36,7 +36,7 @@ void increasePlayerMaxHealth(void);
 void syncWeaponShieldToPlayer(void);
 void freePlayer(void);
 void resetPlayerAnimations(void);
-void playerGib(void);
+EntityList *playerGib(void);
 void facePlayer(void);
 void setPlayerSlimed(int);
 void setBowAmmo(int);

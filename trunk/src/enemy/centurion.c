@@ -216,7 +216,7 @@ static void die()
 
 		self->thinkTime = 60;
 
-		setCustomAction(self, &invulnerableNoFlash, 240, 0);
+		setCustomAction(self, &invulnerableNoFlash, 240, 0, 0);
 
 		self->frameSpeed = 0;
 

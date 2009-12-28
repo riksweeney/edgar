@@ -77,7 +77,8 @@ typedef struct Input
 typedef struct CustomAction
 {
 	int thinkTime, counter;
-	void (*action)(int *, int *);
+	float value;
+	void (*action)(int *, int *, float *);
 } CustomAction;
 
 typedef struct Entity

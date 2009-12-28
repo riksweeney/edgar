@@ -51,6 +51,7 @@ static void hover(void);
 static void die(void);
 static void recreateBooks(void);
 static void skullWait(void);
+static void init(void);
 
 Entity *addPoltergiest(int x, int y, char *name)
 {
@@ -87,7 +88,7 @@ Entity *addPoltergiest(int x, int y, char *name)
 
 	else if (strcmpignorecase(name, "enemy/poltergiest_4") == 0)
 	{
-		e->action = &createBooks;
+		e->action = &init;
 
 		e->takeDamage = &takeDamage;
 	}
@@ -495,13 +496,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (self->health > 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0);
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 			}
 
 			if (self->pain != NULL)
@@ -546,6 +547,13 @@ static void retreatToSkull()
 		self->thinkTime = 300;
 
 		self->target->maxThinkTime++;
+		
+		if (self->target->mental >= 1)
+		{
+			self->target->mental = 1;
+			
+			self->target->maxThinkTime = 0;
+		}
 
 		if (self->target->maxThinkTime > 1)
 		{
@@ -656,4 +664,19 @@ static void hover()
 	}
 
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
+}
+
+static void init()
+{
+	if (self->health > 0)
+	{
+		self->action = &createBooks;
+	}
+	
+	else
+	{
+		self->action = &retreatToSkull;
+
+		self->thinkTime = 300;
+	}
 }

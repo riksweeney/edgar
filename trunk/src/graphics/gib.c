@@ -25,15 +25,26 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
+#include "../system/error.h"
 
 extern Entity *self;
 
 static int drawGib(void);
 
-void throwGibs(char *name, int gibs)
+EntityList *throwGibs(char *name, int gibs)
 {
 	int i;
 	Entity *e;
+	EntityList *list;
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	if (list == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
+	list->next = NULL;
 
 	for (i=0;i<gibs;i++)
 	{
@@ -50,11 +61,15 @@ void throwGibs(char *name, int gibs)
 		e->thinkTime = 180 + (prand() % 120);
 
 		e->draw = &drawGib;
+		
+		addEntityToList(list, e);
 	}
 
 	playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
+	
+	return list;
 }
 
 static int drawGib()
