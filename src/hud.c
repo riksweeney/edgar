@@ -214,18 +214,23 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
+	
+	if (hud.infoMessage.surface != NULL && thinkTime == 0)
+	{
+		if (strcmpignorecase(hud.infoMessage.text, text) != 0)
+		{
+			return;
+		}
+	}
 
 	addMessageToQueue(text, thinkTime);
 }
 
 static void addMessageToQueue(char *text, int thinkTime)
 {
-	int i;
 	Message *head, *msg;
 
 	head = &messageHead;
-	
-	i = 0;
 
 	while (head->next != NULL)
 	{
@@ -235,13 +240,6 @@ static void addMessageToQueue(char *text, int thinkTime)
 		}
 
 		head = head->next;
-		
-		i++;
-		
-		if (i > 1 && thinkTime == 0)
-		{
-			return;
-		}
 	}
 
 	msg = (Message *)malloc(sizeof(Message));

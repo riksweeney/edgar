@@ -548,6 +548,10 @@ void pauseGame()
 void showSaveDialog()
 {
 	pauseGame();
+	
+	pauseMusic(FALSE);
+
+	pauseSound(FALSE);
 
 	game.status = IN_MENU;
 
