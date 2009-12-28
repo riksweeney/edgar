@@ -227,7 +227,7 @@ static void lavaResetMove()
 		
 		self->head->mental--;
 
-		self->thinkTime = 60 + prand() % 180;
+		self->thinkTime = 60 + prand() % 300;
 
 		self->action = &lavaResetWait;
 	}
@@ -272,6 +272,8 @@ static void lavaResetWait()
 
 			if (self->y <= self->startY)
 			{
+				self->head->mental--;
+				
 				self->y = self->startY;
 
 				self->thinkTime = self->maxThinkTime;

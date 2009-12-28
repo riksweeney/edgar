@@ -98,6 +98,9 @@ static void riftDestroyWait(void);
 static void gibWait(void);
 static void createShield(void);
 static void shieldWait(void);
+static void horizontalKnifeThrowInit(void);
+static void horizontalKnifeWait(void);
+static void horizontalKnifeThrowWait(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -211,9 +214,14 @@ static void wait()
 	{
 		self->maxThinkTime = 0;
 		
-		if (self->health == self->maxHealth && (prand() % 20 == 0))
+		if (self->health == self->maxHealth)
 		{
-			setInfoBoxMessage(120, _("Try using Mataeus's knives against him..."));
+			self->mental++;
+			
+			if ((self->mental % 50) == 0)
+			{
+				setInfoBoxMessage(120, _("Try using Mataeus's knives against him..."));
+			}
 		}
 		
 		if (self->health > 1500)
@@ -263,13 +271,18 @@ static void wait()
 			
 			else
 			{
-				i = prand() % 3;
+				i = prand() % 5;
 				
 				switch (i)
 				{
 					case 0:
 					case 1:
 						self->action = &knifeThrowInit;
+					break;
+					
+					case 2:
+					case 3:
+						self->action = &horizontalKnifeThrowInit;
 					break;
 
 					default:
@@ -686,6 +699,7 @@ static void lavaCeilingDropWait()
 	EntityList *list;
 	EntityList *l;
 	Entity *e;
+	int i = 0;
 
 	self->thinkTime--;
 
@@ -698,11 +712,17 @@ static void lavaCeilingDropWait()
 			e = l->entity;
 
 			e->mental = 3;
+			
+			e->head = self;
+			
+			i++;
 		}
 
-		self->thinkTime = 600;
+		self->thinkTime = 60;
 
 		self->action = &lavaCeilingDropEnd;
+		
+		self->mental = i;
 	}
 
 	hover();
@@ -710,11 +730,14 @@ static void lavaCeilingDropWait()
 
 static void lavaCeilingDropEnd()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->mental <= 0)
 	{
-		self->action = &attackFinished;
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
 	}
 
 	hover();
@@ -1269,6 +1292,10 @@ static void riftKnifeThrowInit()
 	{
 		self->x = self->endX - 64;
 	}
+	
+	checkToMap(self);
+	
+	hover();
 }
 
 static void riftKnifeThrow()
@@ -1296,6 +1323,8 @@ static void riftKnifeThrow()
 	{
 		self->x = self->endX - 64;
 	}
+	
+	checkToMap(self);
 
 	hover();
 }
@@ -1544,7 +1573,7 @@ static void die()
 	
 	self->thinkTime--;
 	
-	if (self->thinkTime < -330)
+	if (self->thinkTime < -300)
 	{
 		self->dirX *= 12;
 		self->dirY *= 12;
@@ -1562,7 +1591,7 @@ static void die()
 		self->dirY *= -0.25;
 	}
 	
-	else if (self->thinkTime <= -270 && self->thinkTime >= -330)
+	else if (self->thinkTime <= -270 && self->thinkTime >= -300)
 	{
 		self->dirX *= 0;
 		self->dirY *= 0;
@@ -1748,4 +1777,107 @@ static void shieldWait()
 	radians = DEG_TO_RAD(self->thinkTime);
 	
 	self->alpha = 128 + (64 * cos(radians));
+}
+
+static void horizontalKnifeThrowInit()
+{
+	int i, mapFloor;
+	Entity *e;
+	
+	mapFloor = getMapFloor(self->x, self->y);
+	
+	for (i=0;i<10;i++)
+	{
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a Mataeus Knife");
+		}
+
+		loadProperties("boss/mataeus_knife", e);
+		
+		setEntityAnimation(e, WALK);
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+
+		e->targetX = getMapStartX() + (i % 2 == 0 ? 5 : SCREEN_WIDTH - e->w - 5);
+		e->targetY = mapFloor - 48;
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 30;
+		e->dirY *= 30;
+
+		e->action = &horizontalKnifeWait;
+		e->touch = &entityTouch;
+		e->draw = &drawLoopingAnimationToMap;
+		
+		e->reactToBlock = &knifeBlock;
+		
+		e->health = 0;
+		
+		e->thinkTime = 180 + 30 * i;
+
+		e->head = self;
+
+		self->maxThinkTime--;
+
+		playSoundToMap("sound/boss/mataeus/create_knife.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
+		self->thinkTime = e->thinkTime;
+		
+		self->action = &horizontalKnifeThrowWait;
+	}
+}
+
+static void horizontalKnifeThrowWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
+	
+	hover();
+}
+
+static void horizontalKnifeWait()
+{
+	self->thinkTime--;
+	
+	if (self->health == 0)
+	{
+		if (atTarget())
+		{
+			self->dirX = 0;
+			self->dirY = 0;
+			
+			self->thinkTime--;
+		}
+		
+		if (self->thinkTime <= 0)
+		{
+			self->action = &knifeAttack;
+			
+			facePlayer();
+
+			self->dirX = (self->face == RIGHT ? 25 : -25);
+			self->dirY = 0.01;
+
+			self->thinkTime = 60;
+
+			setEntityAnimation(self, ATTACK_3);
+
+			self->health = 1;
+			
+			playSoundToMap("sound/boss/mataeus/throw_knife.ogg", -1, self->x, self->y, 0);
+		}
+	}
+	
+	checkToMap(self);
 }
