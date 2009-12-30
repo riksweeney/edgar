@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -101,6 +101,8 @@ static void touch(Entity *other)
 		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
 
 		self->action = &spring;
+		
+		other->standingOn = NULL;
 	}
 }
 

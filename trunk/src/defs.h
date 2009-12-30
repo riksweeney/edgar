@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -98,8 +98,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_MESSAGE_LENGTH 256
 
-#define MAX_INVENTORY_ITEMS 25
-
 #define MAX_DROPS 240
 
 #define MAX_SPRITES 4096
@@ -140,7 +138,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define INVENTORY_BOX_SIZE 42
 
-#define INVENTORY_BOX_COUNT 5
+#define INVENTORY_ROW_COUNT 5
+
+#define INVENTORY_COLUMN_COUNT 6
+
+#define MAX_INVENTORY_ITEMS 30
 
 #define DEG_TO_RAD(x) (x * PI / 180)
 

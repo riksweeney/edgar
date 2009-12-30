@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -79,6 +79,11 @@ static void wait()
 		if (self->thinkTime <= 0)
 		{
 			self->active = self->active == TRUE ? FALSE : TRUE;
+			
+			if (self->active == TRUE)
+			{
+				playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
+			}
 
 			self->thinkTime = self->maxThinkTime;
 		}
@@ -156,8 +161,6 @@ static void addLaser()
 			setEntityAnimation(e, STAND);
 		}
 	}
-
-	playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
 }
 
 static void laserWait()

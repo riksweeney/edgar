@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -455,6 +455,10 @@ static void fireDrop()
 				self->dirX = (self->face == LEFT ? -4 : 4);
 
 				self->action = &fireBounce;
+			break;
+			
+			default:
+				self->inUse = FALSE;
 			break;
 		}
 	}

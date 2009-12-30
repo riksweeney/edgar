@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -385,7 +385,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		free(source);
 	}
 	
-	if (filename != NULL)
+	if (filename != NULL && writeToFile == FALSE)
 	{
 		free(filename);
 	}
