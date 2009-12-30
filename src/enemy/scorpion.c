@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -41,6 +41,9 @@ static void stingAttack(void);
 static void attackFinished(void);
 static void attack(void);
 static void takeDamage(Entity *, int);
+static void clawWait(void);
+static void addClaw(void);
+static void clawAttackFinished(void);
 
 Entity *addScorpion(int x, int y, char *name)
 {
@@ -56,7 +59,7 @@ Entity *addScorpion(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForPlayer;
+	e->action = &addClaw;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->pain = NULL;
@@ -68,6 +71,33 @@ Entity *addScorpion(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void addClaw()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Scorpion Claw");
+	}
+
+	loadProperties("enemy/scorpion_claw", e);
+
+	e->action = &clawWait;
+	e->draw = &drawLoopingAnimationToMap;
+	e->pain = NULL;
+	e->touch = NULL;
+	
+	e->head = self;
+
+	e->type = ENEMY;
+	
+	e->flags |= ATTACKING;
+
+	setEntityAnimation(e, STAND);
+	
+	self->action = &lookForPlayer;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -107,7 +137,7 @@ static void attack()
 
 	/* Move into attack range */
 
-	if (distance > 2)
+	if (distance > 18)
 	{
 		setEntityAnimation(self, WALK);
 
@@ -121,6 +151,8 @@ static void attack()
 		setEntityAnimation(self, STAND);
 
 		move = prand() % 3;
+		
+		self->mental = 1;
 
 		switch (move)
 		{
@@ -155,10 +187,13 @@ static void clawAttack()
 	self->flags |= ATTACKING;
 	
 	self->thinkTime = 60;
-
-	self->animationCallback = &attackFinished;
 	
 	checkToMap(self);
+	
+	if (self->mental == 2)
+	{
+		self->action = &attackFinished;
+	}
 }
 
 static void stingAttack()
@@ -172,11 +207,11 @@ static void stingAttack()
 
 static void attackFinished()
 {
+	self->mental = 0;
+	
 	self->thinkTime--;
 	
 	self->dirX = 0;
-	
-	self->action = &attackFinished;
 
 	setEntityAnimation(self, STAND);
 
@@ -184,7 +219,7 @@ static void attackFinished()
 	
 	if (self->thinkTime <= 0)
 	{
-		if (collision(self->x + self->face == LEFT ? -160 : self->w, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &attack;
 		}
@@ -198,4 +233,57 @@ static void attackFinished()
 	}
 	
 	checkToMap(self);
+}
+
+static void clawWait()
+{
+	self->face = self->head->face;
+	
+	if (self->head->health <= 0)
+	{
+		entityDieNoDrop();
+	}
+	
+	else
+	{
+		if (self->head->mental == 1)
+		{
+			self->touch = &entityTouch;
+			
+			self->animationCallback = &clawAttackFinished;
+			
+			self->dirX = self->face == LEFT ? -4 : 4;
+		}
+	}
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+	
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+	
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}
+
+static void clawAttackFinished()
+{
+	self->touch = NULL;
+	
+	self->head->mental = 2;
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -84,23 +84,31 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		/* Can't be hurt if not facing the player */
+		/* Can't be hurt if not facing the player unless using pickaxe */
 
 		if (self->face == other->face)
 		{
-			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
-
-			if (other->reactToBlock != NULL)
+			if (strcmpignorecase(other->name, "weapon/pickaxe") != 0)
 			{
-				temp = self;
+				playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
-				self = other;
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
-				self->reactToBlock();
+				if (other->reactToBlock != NULL)
+				{
+					temp = self;
 
-				self = temp;
+					self = other;
+
+					self->reactToBlock();
+
+					self = temp;
+				}
+			}
+			
+			else
+			{
+				entityTakeDamageNoFlinch(other, damage * 5);
 			}
 		}
 

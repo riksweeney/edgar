@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -44,48 +44,15 @@ void loadMusic(char *name)
 	}
 }
 
-void freeAllMusic()
-{
-	if (game.music != NULL)
-	{
-		stopMusic();
-
-		Mix_FreeMusic(game.music);
-
-		game.music = NULL;
-	}
-
-	if (game.bossMusic != NULL)
-	{
-		stopMusic();
-
-		Mix_FreeMusic(game.bossMusic);
-
-		game.bossMusic = NULL;
-	}
-}
-
 void freeMusic()
 {
+	stopMusic();
+	
 	if (game.music != NULL)
 	{
-		stopMusic();
-
 		Mix_FreeMusic(game.music);
 
 		game.music = NULL;
-	}
-}
-
-void freeBossMusic()
-{
-	stopMusic();
-
-	if (game.bossMusic != NULL)
-	{
-		Mix_FreeMusic(game.bossMusic);
-
-		game.bossMusic = NULL;
 	}
 }
 
@@ -95,13 +62,15 @@ void playMusic()
 	{
 		return;
 	}
-
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
+	
+	freeMusic();
 
 	if (game.music == NULL)
 	{
 		loadMusic(getMapMusic());
 	}
+	
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
 	Mix_PlayMusic(game.music, -1);
 }
@@ -151,16 +120,13 @@ void playBossMusic()
 		return;
 	}
 
-	freeBossMusic();
+	freeMusic();
 
-	if (game.bossMusic == NULL)
-	{
-		loadBossMusic("music/terrortech_inc_.xm");
-	}
+	loadBossMusic("music/terrortech_inc_.xm");
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
-	Mix_PlayMusic(game.bossMusic, -1);
+	Mix_PlayMusic(game.music, -1);
 }
 
 void loadBossMusic(char *name)
@@ -170,11 +136,11 @@ void loadBossMusic(char *name)
 		return;
 	}
 
-	freeBossMusic();
+	freeMusic();
 
-	game.bossMusic = Mix_LoadMUS(name);
+	game.music = loadMusicFromPak(name);
 
-	if (game.bossMusic == NULL)
+	if (game.music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}

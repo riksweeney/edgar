@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ void doInventoryMenu()
 {
 	if (input.up == TRUE)
 	{
-		moveInventoryCursor(-5);
+		moveInventoryCursor(-INVENTORY_COLUMN_COUNT);
 
 		input.up = FALSE;
 
@@ -39,7 +39,7 @@ void doInventoryMenu()
 
 	else if (input.down == TRUE)
 	{
-		moveInventoryCursor(5);
+		moveInventoryCursor(INVENTORY_COLUMN_COUNT);
 
 		input.down = FALSE;
 

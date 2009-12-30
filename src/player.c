@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -656,6 +656,9 @@ static void dialogWait()
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
+		
+		playerShield.face = player.face;
+		playerWeapon.face = player.face;
 	}
 }
 

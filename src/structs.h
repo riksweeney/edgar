@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -160,7 +160,7 @@ typedef struct Game
 	SDL_Surface *screen, *tempSurface, *pauseSurface, *gameOverSurface, *alphaSurface;
 	TTF_Font *font;
 	SDL_Joystick *joystick;
-	Mix_Music *music, *bossMusic;
+	Mix_Music *music;
 } Game;
 
 typedef struct Cursor

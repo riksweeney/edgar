@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -168,6 +168,13 @@ int addToInventory(Entity *e)
 
 		fireGlobalTrigger(inventory.item[i].objectiveName);
 	}
+	
+	else
+	{
+		setInfoBoxMessage(0, _("Cannot pick up %s. Inventory full"), _(inventory.item[i].objectiveName));
+
+		return FALSE;
+	}
 
 	return found;
 }
@@ -176,14 +183,14 @@ void moveInventoryCursor(int index)
 {
 	inventory.cursorIndex += index;
 
-	if (index == 1 && (inventory.cursorIndex % INVENTORY_BOX_COUNT) == 0)
+	if (index == 1 && (inventory.cursorIndex % INVENTORY_COLUMN_COUNT) == 0)
 	{
-		inventory.cursorIndex -= INVENTORY_BOX_COUNT;
+		inventory.cursorIndex -= INVENTORY_COLUMN_COUNT;
 	}
 
-	else if (index == -1 && (inventory.cursorIndex == -1 || (inventory.cursorIndex % INVENTORY_BOX_COUNT) == INVENTORY_BOX_COUNT - 1))
+	else if (index == -1 && (inventory.cursorIndex == -1 || (inventory.cursorIndex % INVENTORY_COLUMN_COUNT) == INVENTORY_COLUMN_COUNT - 1))
 	{
-		inventory.cursorIndex += INVENTORY_BOX_COUNT;
+		inventory.cursorIndex += INVENTORY_COLUMN_COUNT;
 	}
 
 	if (inventory.cursorIndex >= MAX_INVENTORY_ITEMS)
@@ -617,7 +624,7 @@ void drawInventory()
 
 	if (inventory.background == NULL)
 	{
-		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT, INVENTORY_BOX_SIZE * INVENTORY_BOX_COUNT);
+		inventory.background = createSurface(INVENTORY_BOX_SIZE * INVENTORY_COLUMN_COUNT, INVENTORY_BOX_SIZE * INVENTORY_ROW_COUNT);
 
 		inventory.x = (SCREEN_WIDTH - inventory.background->w) / 2;
 		inventory.y = 64;
@@ -639,7 +646,7 @@ void drawInventory()
 
 		x += INVENTORY_BOX_SIZE;
 
-		if (i != 0 && ((i + 1) % INVENTORY_BOX_COUNT == 0))
+		if (i != 0 && ((i + 1) % INVENTORY_COLUMN_COUNT == 0))
 		{
 			y += INVENTORY_BOX_SIZE;
 
@@ -689,8 +696,8 @@ void drawInventory()
 		inventory.cursor = loadImage("gfx/hud/inventory_cursor.png");
 	}
 
-	x = (inventory.cursorIndex % INVENTORY_BOX_COUNT) * INVENTORY_BOX_SIZE;
-	y = (inventory.cursorIndex / INVENTORY_BOX_COUNT) * INVENTORY_BOX_SIZE;
+	x = (inventory.cursorIndex % INVENTORY_COLUMN_COUNT) * INVENTORY_BOX_SIZE;
+	y = (inventory.cursorIndex / INVENTORY_COLUMN_COUNT) * INVENTORY_BOX_SIZE;
 
 	x += inventory.x;
 	y += inventory.y;

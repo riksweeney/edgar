@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009 Parallel Realities
+Copyright (C) 2009-2010 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -195,10 +195,10 @@ void loadMap(char *name, int loadEntityResources)
 			if (x > 0)
 			{
 				printf("Loading music from %s\n", itemName);
-
-				loadMusic(itemName);
-
+				
 				STRNCPY(map.musicName, itemName, sizeof(map.musicName));
+
+				loadMusic(map.musicName);
 			}
 		}
 

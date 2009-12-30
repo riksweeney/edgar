@@ -9,6 +9,7 @@ Version 0.45
 * Energy drainers now drop between 1 and 3 arrows when they die
 * The Blob Boss should no longer get stuck when reforming
 * Added switches that reset puzzle blocks, play the tutorial to see how they work
+* Boss music actually plays now
 
 Version 0.41
 * Fixed the Golem Boss (again)
