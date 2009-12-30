@@ -63,12 +63,7 @@ void playMusic()
 		return;
 	}
 	
-	freeMusic();
-
-	if (game.music == NULL)
-	{
-		loadMusic(getMapMusic());
-	}
+	loadMusic(getMapMusic());
 	
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
@@ -178,5 +173,7 @@ static void playGameOverMusic()
 
 	loadMusic("music/oxide_-_sadness.xm");
 
-	playMusic();
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(game.music, -1);
 }

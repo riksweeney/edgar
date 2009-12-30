@@ -10,6 +10,7 @@ Version 0.45
 * The Blob Boss should no longer get stuck when reforming
 * Added switches that reset puzzle blocks, play the tutorial to see how they work
 * Boss music actually plays now
+* Increased the inventory size
 
 Version 0.41
 * Fixed the Golem Boss (again)

@@ -525,6 +525,8 @@ void getInventoryItemFromScript(char *line)
 
 			if (item->health <= 0 || quantityToRemove == -1)
 			{
+				item->health = 0;
+				
 				removeInventoryItem(itemName);
 			}
 		}

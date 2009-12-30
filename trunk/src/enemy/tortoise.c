@@ -382,6 +382,11 @@ static void takeDamage(Entity *other, int damage)
 
 static void doElectricity()
 {
+	if (self->target->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+	
 	self->x = self->target->x + self->target->w / 2 - self->w / 2;
 	self->y = self->target->y + self->target->h - self->h;
 }

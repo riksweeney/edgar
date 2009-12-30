@@ -117,15 +117,18 @@ Entity *addSlimePotion(int x, int y, char *name)
 
 static void useSlimePotion(int val)
 {
-	becomeJumpingSlime(self->health);
-
-	if (player.element == WATER)
+	if (game.status == IN_GAME)
 	{
-		loadProperties("item/empty_potion", self);
+		becomeJumpingSlime(self->health);
 
-		self->activate = NULL;
+		if (player.element == WATER)
+		{
+			loadProperties("item/empty_potion", self);
 
-		self->health = 0;
+			self->activate = NULL;
+
+			self->health = 0;
+		}
 	}
 }
 
@@ -135,7 +138,7 @@ Entity *addInvisibilityPotion(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Slime Potion");
+		showErrorAndExit("No free slots to add an Invisibility Potion");
 	}
 
 	loadProperties(name, e);
