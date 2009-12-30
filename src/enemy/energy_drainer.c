@@ -462,6 +462,12 @@ static int beamDraw()
 				e->dirY /= 10;
 
 				e->thinkTime = 20 + (prand() % 30);
+				
+				e->health = 255;
+				
+				e->maxHealth = 0;
+				
+				e->mental = 255;
 			}
 		}
 	}

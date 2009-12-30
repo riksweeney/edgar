@@ -170,7 +170,7 @@ static void turnToFacePlayer()
 {
 	self->frameSpeed = 1;
 
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	self->dirX = (prand() % 2 == 0) ? -self->speed : self->speed;
 
 	self->action = &wander;
 

@@ -332,6 +332,8 @@ static void spinAttackStart()
 static void spinAttack()
 {
 	float speed = self->dirX;
+	
+	self->flags |= INVULNERABLE;
 
 	checkToMap(self);
 
@@ -404,6 +406,8 @@ static void bounceAttackStart()
 static void bounceAttack()
 {
 	float speed = self->dirX;
+	
+	self->flags |= INVULNERABLE;
 
 	checkToMap(self);
 
