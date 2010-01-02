@@ -58,7 +58,6 @@ Entity *addBoulderBoss(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
-	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->die = &entityDie;
 
 	setEntityAnimation(e, STAND);

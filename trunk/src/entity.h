@@ -53,7 +53,7 @@ void noItemDie(void);
 void rotateAroundStartPoint(void);
 void enemyPain(void);
 Entity *getEntityByStartXY(int, int);
-int countSiblings(Entity *);
+int countSiblings(Entity *, int *);
 void doTeleport(void);
 void activateEntitiesValueWithObjectiveName(char *, int);
 int getLeftEdge(Entity *);

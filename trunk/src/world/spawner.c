@@ -217,6 +217,13 @@ static void spawn()
 						e->endY = self->endY;
 
 						e->face = self->face;
+						
+						if (self->health == -2)
+						{
+							e->flags |= SPAWNED_IN;
+							
+							e->spawnTime = 18000;
+						}
 					}
 
 					if (self->speed != 0)
