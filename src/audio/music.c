@@ -56,7 +56,7 @@ void freeMusic()
 	}
 }
 
-void playMusic()
+void playMapMusic()
 {
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
@@ -145,7 +145,7 @@ void resumeMusic()
 {
 	Mix_HookMusicFinished(NULL);
 
-	playMusic();
+	playMapMusic();
 }
 
 void fadeBossMusic()

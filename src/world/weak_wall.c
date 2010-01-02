@@ -87,7 +87,7 @@ static void takeDamage(Entity *other, int damage)
 		self->die();
 	}
 
-	if (strcmpignorecase(self->requires, other->name) == 0)
+	else if (strcmpignorecase(self->requires, other->name) == 0)
 	{
 		self->health -= damage;
 

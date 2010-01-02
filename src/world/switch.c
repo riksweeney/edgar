@@ -120,7 +120,7 @@ static void call(int val)
 
 static void activate(int val)
 {
-	int remaining;
+	int remaining, total;
 
 	if (strlen(self->requires) != 0)
 	{
@@ -147,11 +147,16 @@ static void activate(int val)
 
 	if (self->active == TRUE)
 	{
-		remaining = countSiblings(self);
+		remaining = countSiblings(self, &total);
 
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+			
+			if (total > 0)
+			{
+				setInfoBoxMessage(30, _("Complete"), remaining);
+			}
 		}
 
 		else

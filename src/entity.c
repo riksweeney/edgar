@@ -217,6 +217,11 @@ void doEntities()
 				}
 
 				self->standingOn = NULL;
+				
+				if (self->flags & SPAWNED_IN)
+				{
+					self->spawnTime--;
+				}
 
 				if (self->inUse == TRUE)
 				{
@@ -234,7 +239,7 @@ void doEntities()
 
 void drawEntities(int depth)
 {
-	int i;
+	int i, drawn;
 
 	/* Draw standard entities */
 
@@ -269,7 +274,22 @@ void drawEntities(int depth)
 					showErrorAndExit("%s has no draw function", self->name);
 				}
 
-				self->draw();
+				drawn = self->draw();
+				
+				/* Live for 5 minutes whilst on the screen */
+				
+				if (drawn == TRUE && (self->flags & SPAWNED_IN))
+				{
+					self->spawnTime = 18000;
+				}
+				
+				else if (drawn == FALSE && (self->flags & SPAWNED_IN) && self->spawnTime <= 0 && (self->spawnTime % 60 == 0))
+				{
+					if (self->health != 0)
+					{
+						self->action = &entityDieNoDrop;
+					}
+				}
 			}
 		}
 	}
@@ -453,6 +473,8 @@ void floatLeftToRight()
 void entityDie()
 {
 	self->damage = 0;
+	
+	self->health = 0;
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -500,6 +522,8 @@ void standardDie()
 void entityDieNoDrop()
 {
 	self->damage = 0;
+	
+	self->health = 0;
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -1266,6 +1290,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "MENTAL %d\n", self->mental);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
+			fprintf(fp, "SPAWNTIME %d\n", self->spawnTime);
 			fprintf(fp, "SPEED %0.2f\n", self->speed);
 			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
@@ -1545,16 +1570,23 @@ void rotateAroundStartPoint()
 	self->y += self->startY - (self->h / 2);
 }
 
-int countSiblings(Entity *sibling)
+int countSiblings(Entity *sibling, int *total)
 {
 	int i, remaining = 0;
+	
+	*total = 0;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && sibling != &entity[i] && entity[i].active == FALSE && sibling->type == entity[i].type
+		if (entity[i].inUse == TRUE && sibling != &entity[i] && sibling->type == entity[i].type
 			&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
 		{
-			remaining++;
+			if (entity[i].active == FALSE)
+			{
+				remaining++;
+			}
+			
+			(*total)++;
 		}
 	}
 

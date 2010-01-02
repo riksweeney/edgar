@@ -141,6 +141,8 @@ static void shockTarget()
 	temp = self;
 
 	self = self->target;
+	
+	self->flags &= ~INVULNERABLE;
 
 	self->takeDamage(temp, 1000);
 

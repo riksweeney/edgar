@@ -90,7 +90,7 @@ typedef struct Entity
 	int currentAnim, health, alpha;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
-	int mental;
+	int mental, spawnTime;
 	long flags;
 	float x, y, dirX, dirY, frameSpeed, frameTimer;
 	float startX, startY, endX, endY;

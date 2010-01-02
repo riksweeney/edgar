@@ -318,7 +318,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	setTransition(TRANSITION_IN, NULL);
 
-	playMusic();
+	playMapMusic();
 
 	resetCameraLimits();
 
