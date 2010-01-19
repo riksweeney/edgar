@@ -328,27 +328,6 @@ void readNextScriptLine()
 				script.requiredDepth++;
 			}
 		}
-		
-		else if (strcmpignorecase("WHILE", command) == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr);
-
-			if (strcmpignorecase(token, "EXISTS") == 0)
-			{
-				token = strtok_r(NULL, " ", &savePtr);
-				
-				e = getEntityByObjectiveName(token);
-				
-				if (e != NULL)
-				{
-					freeDialogBox();
-
-					script.thinkTime = 15;
-					
-					script.line--;
-				}
-			}
-		}
 
 		else if (strcmpignorecase("SET", command) == 0)
 		{
@@ -568,7 +547,7 @@ void readNextScriptLine()
 
 			if (strcmpignorecase("START", token) == 0)
 			{
-				playMapMusic();
+				playMusic();
 			}
 
 			else if (strcmpignorecase("STOP", token) == 0)

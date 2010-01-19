@@ -1059,8 +1059,6 @@ static void takeDamage(Entity *other, int damage)
 			self->health -= damage;
 
 			self->thinkTime = 120;
-			
-			setCustomAction(self, &invulnerableNoFlash, 120, 0, 0);
 
 			self->startX = self->x;
 

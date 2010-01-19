@@ -593,16 +593,6 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->mental = atoi(value);
 	}
-	
-	else if (strcmpignorecase(name, "SPAWNTIME") == 0)
-	{
-		e->spawnTime = atoi(value);
-		
-		if (e->spawnTime > 0)
-		{
-			e->flags |= SPAWNED_IN;
-		}
-	}
 
 	else if (strcmpignorecase(name, "ELEMENT") == 0)
 	{

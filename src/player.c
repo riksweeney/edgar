@@ -242,7 +242,7 @@ void doPlayer()
 					self->dirX = 0;
 				}
 
-				if (!(self->flags & ON_GROUND) || (self->standingOn != NULL && self->standingOn->dirY != 0))
+				if (!(self->flags & ON_GROUND))
 				{
 					self->flags &= ~GRABBING;
 

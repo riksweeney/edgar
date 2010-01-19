@@ -79,7 +79,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/black_book.h"
 #include "../boss/mataeus.h"
 #include "../boss/mataeus_wall.h"
-#include "../boss/boulder_boss_2.h"
 
 #include "../system/error.h"
 
@@ -155,8 +154,7 @@ static Constructor enemies[] = {
 {"boss/black_book_1", &addBlackBook},
 {"boss/mataeus", &addMataeus},
 {"enemy/spirit", &addSpirit},
-{"boss/mataeus_wall", &addMataeusWall},
-{"boss/boulder_boss_2", &addBoulderBoss2}
+{"boss/mataeus_wall", &addMataeusWall}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

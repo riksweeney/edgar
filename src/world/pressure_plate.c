@@ -23,17 +23,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
-#include "../collisions.h"
 #include "../hud.h"
 #include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
-static void init(void);
 static void wait(void);
 static void activate(int);
 static void touch(Entity *);
+static void init(void);
 
 Entity *addPressurePlate(char *name, int x, int y)
 {
@@ -57,6 +56,12 @@ Entity *addPressurePlate(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
+	e->health = 0;
+
+	e->maxHealth = e->health;
+
+	e->flags |= OBSTACLE;
+
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -64,32 +69,27 @@ Entity *addPressurePlate(char *name, int x, int y)
 
 static void init()
 {
-	setEntityAnimation(self, self->thinkTime <= 0 ? STAND : WALK);
-	
+	self->face = RIGHT;
+
+	self->health = self->maxHealth = 0;
+
 	self->action = &wait;
 }
 
 static void wait()
 {
-	self->thinkTime--;
-	
-	if (self->thinkTime == 0)
+	if (self->health != self->maxHealth)
 	{
-		printf("Deactivating\n");
-		
 		setEntityAnimation(self, STAND);
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 
+		self->maxHealth = self->health;
+
 		self->active = FALSE;
 	}
-	
-	else if (self->thinkTime < 0)
-	{
-		self->thinkTime = -1;
-	}
-	
-	checkToMap(self);
+
+	self->health = 0;
 }
 
 static void touch(Entity *other)
@@ -112,24 +112,21 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	int remaining, total;
-	
-	if (self->thinkTime == -1)
+	int remaining;
+
+	self->health = val;
+
+	if (self->health != self->maxHealth)
 	{
 		setEntityAnimation(self, WALK);
 
 		self->active = TRUE;
 
-		remaining = countSiblings(self, &total);
+		remaining = countSiblings(self);
 
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-			
-			if (total > 0)
-			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
-			}
 		}
 
 		else
@@ -141,6 +138,4 @@ static void activate(int val)
 
 		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 	}
-	
-	self->thinkTime = 5;
 }

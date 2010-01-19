@@ -67,7 +67,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "soul_bottle.h"
 #include "instruction_machine.h"
 #include "moveable_lift.h"
-#include "mine_cart.h"
 
 extern Entity *self, player;
 
@@ -114,8 +113,7 @@ static Constructor items[] = {
 {"item/cauldron", &addCauldron},
 {"item/soul_bottle", &addSoulBottle},
 {"item/instruction_machine", &addInstructionMachine},
-{"item/moveable_lift", &addMoveableLift},
-{"item/mine_cart", &addMineCart}
+{"item/moveable_lift", &addMoveableLift}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
