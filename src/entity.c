@@ -1266,6 +1266,7 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "MENTAL %d\n", self->mental);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
+			fprintf(fp, "SPAWNTIME %d\n", 0);
 			fprintf(fp, "SPEED %0.2f\n", self->speed);
 			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);

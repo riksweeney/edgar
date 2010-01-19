@@ -593,6 +593,11 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->mental = atoi(value);
 	}
+	
+	else if (strcmpignorecase(name, "SPAWNTIME") == 0)
+	{
+		
+	}
 
 	else if (strcmpignorecase(name, "ELEMENT") == 0)
 	{
