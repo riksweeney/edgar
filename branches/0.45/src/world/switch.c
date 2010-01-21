@@ -250,6 +250,11 @@ static void reset(int val)
 static void initialise()
 {
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	
+	if (strlen(self->objectiveName) == 0)
+	{
+		showErrorAndExit("Call switch at %d %d has no Target", (int)self->x, (int)self->y);
+	}
 
 	self->action = &wait;
 }
