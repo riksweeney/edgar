@@ -253,7 +253,7 @@ static void initialise()
 	
 	if (strlen(self->objectiveName) == 0)
 	{
-		showErrorAndExit("Call switch at %d %d has no Target", (int)self->x, (int)self->y);
+		showErrorAndExit("Switch at %d %d has no Target", (int)self->x, (int)self->y);
 	}
 
 	self->action = &wait;
