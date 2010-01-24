@@ -120,7 +120,7 @@ typedef struct Map
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int minX, minY;
-	int forceMinY;
+	int forceMinY, darkMap;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
@@ -237,7 +237,7 @@ typedef struct Script
 typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth;
-	SDL_Surface *itemBox, *heart, *emptyHeart;
+	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight;
 	Message infoMessage;
 } Hud;
 
