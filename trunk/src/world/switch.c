@@ -254,6 +254,11 @@ static void reset(int val)
 
 static void initialise()
 {
+	if (strlen(self->objectiveName) == 0)
+	{
+		showErrorAndExit("Switch at %d %d has no Target", (int)self->x, (int)self->y);
+	}
+	
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
 
 	self->action = &wait;

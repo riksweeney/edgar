@@ -85,6 +85,10 @@ void loadMap(char *name, int loadEntityResources)
 
 	map.forceMinY = FALSE;
 
+	/* Reset the clipping */
+
+	map.darkMap = FALSE;
+
 	/* Read the data from the file into the map */
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
@@ -173,6 +177,15 @@ void loadMap(char *name, int loadEntityResources)
 			map.wrapY[1] = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
 		}
 
+		else if (strcmpignorecase(itemName, "DARK_MAP") == 0)
+		{
+			/* Set the darkness */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.darkMap = (strcmpignorecase(itemName, "TRUE") == 0 ? TRUE : FALSE);
+		}
+
 		else if (strcmpignorecase(itemName, "AMBIENCE") == 0)
 		{
 			/* Load the ambience */
@@ -195,7 +208,7 @@ void loadMap(char *name, int loadEntityResources)
 			if (x > 0)
 			{
 				printf("Loading music from %s\n", itemName);
-				
+
 				STRNCPY(map.musicName, itemName, sizeof(map.musicName));
 
 				loadMusic(map.musicName);
@@ -365,6 +378,7 @@ int saveMap()
 	fprintf(fp, "WRAP_Y_2 %s\n", map.wrapY[1] == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "WEATHER %s\n", getWeather());
 	fprintf(fp, "MIN_Y %s\n", map.forceMinY == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "DARK_MAP %s\n", map.darkMap == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
@@ -1151,6 +1165,11 @@ int outOfBounds(Entity *e)
 	{
 		return TRUE;
 	}
-	
+
 	return FALSE;
+}
+
+int mapIsDark()
+{
+	return map.darkMap;
 }

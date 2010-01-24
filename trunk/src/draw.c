@@ -38,6 +38,8 @@ extern Entity player;
 void draw()
 {
 	char text[MAX_VALUE_LENGTH];
+	int clipX, clipY;
+	SDL_Rect rect;
 
 	/* Clear the screen */
 
@@ -48,6 +50,8 @@ void draw()
 		switch (game.status)
 		{
 			case IN_INVENTORY:
+				SDL_SetClipRect(game.screen, NULL);
+
 				showPauseDialog();
 
 				drawHud();
@@ -61,6 +65,26 @@ void draw()
 					/* Center the map */
 
 					centerEntityOnMap();
+
+					if (mapIsDark() == TRUE)
+					{
+						/* Set the clipping bounds */
+
+						clipX = player.x + player.w / 2 - 96 - getMapStartX();
+						clipY = player.y + player.h / 2 - 96 - getMapStartY();
+
+						rect.x = clipX;
+						rect.y = clipY;
+
+						rect.w = rect.h = 192;
+
+						SDL_SetClipRect(game.screen, &rect);
+					}
+
+					else
+					{
+						SDL_SetClipRect(game.screen, NULL);
+					}
 
 					/* Draw the map background */
 
@@ -93,6 +117,15 @@ void draw()
 					/* Draw the Entities that appear in the foreground */
 
 					drawEntities(FOREGROUND_LAYER);
+
+					if (mapIsDark() == TRUE)
+					{
+						/* Draw the spotlight */
+
+						drawSpotlight(clipX, clipY);
+
+						SDL_SetClipRect(game.screen, NULL);
+					}
 
 					/* Draw the hud */
 
@@ -128,6 +161,8 @@ void draw()
 
 	else
 	{
+		SDL_SetClipRect(game.screen, NULL);
+
 		showPauseDialog();
 
 		game.drawMenu();
