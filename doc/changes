@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.46
 * Fixed / removed broken lift switches in the Village and Mines
+* Fixed a crash in the Mines
 * Fixed the robot on the 3rd floor of the Library
 * Fixed a potential crash when the whirlwinds steal your weapons
 * The Fire Shield objective cannot be accepted multiple times
