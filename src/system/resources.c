@@ -288,6 +288,13 @@ char *loadResources(char *buffer)
 		{
 			resourceType = PLAYER_INVENTORY;
 		}
+		
+		else if (strstr(line, "INVENTORY_INDEX") != NULL)
+		{
+			sscanf(line, "%*s %d", &startX);
+			
+			setInventoryIndex(startX);
+		}
 
 		else if (strcmpignorecase(line, "ENTITY_DATA") == 0)
 		{

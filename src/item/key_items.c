@@ -178,5 +178,7 @@ void keyItemRespawn()
 		self->action = &doNothing;
 		
 		self->touch = &keyItemTouch;
+		
+		self->environment = AIR;
 	}
 }
