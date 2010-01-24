@@ -734,3 +734,15 @@ void setInventoryDialogMessage(char *fmt, ...)
 
 	inventory.description = createDialogBox(NULL, text);
 }
+
+void setInventoryIndex(int val)
+{
+	inventory.selectedIndex = val;
+	
+	moveInventoryCursor(val);
+}
+
+int getInventoryIndex()
+{
+	return inventory.selectedIndex;
+}
