@@ -664,6 +664,11 @@ void patchEntities(double versionFile, char *mapName)
 
 				if (e != NULL)
 				{
+					if (strcmpignorecase(value, "NULL") == 0)
+					{
+						STRNCPY(value, "", sizeof(value));
+					}
+					
 					setProperty(e, key, value);
 				}
 			}
@@ -684,6 +689,11 @@ void patchEntities(double versionFile, char *mapName)
 				
 				if (e != NULL)
 				{
+					if (strcmpignorecase(value, "NULL") == 0)
+					{
+						STRNCPY(value, "", sizeof(value));
+					}
+					
 					setProperty(e, key, value);
 				}
 			}
