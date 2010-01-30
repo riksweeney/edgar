@@ -102,11 +102,14 @@ static void addMapTrigger(char *triggerName, int count, int total, int targetTyp
 
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
-		/* Don't add duplicates */
-		
-		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, triggerName) == 0)
+		if (trigger[i].inUse == TRUE)
 		{
-			return;
+			if (strcmpignorecase(trigger[i].triggerName, triggerName) == 0 &&strcmpignorecase(trigger[i].targetName, targetName) == 0)
+			{
+				printf("Skipping duplicate Map Trigger %s %s\n", triggerName, targetName);
+
+				return;
+			}
 		}
 
 		if (trigger[i].inUse == FALSE)

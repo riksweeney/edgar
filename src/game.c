@@ -514,6 +514,10 @@ void pauseGame()
 			pauseSound(TRUE);
 		break;
 
+		case IN_EDITOR:
+			exit(0);
+		break;
+
 		default:
 			if (game.menu->returnAction != NULL)
 			{
@@ -548,7 +552,7 @@ void pauseGame()
 void showSaveDialog()
 {
 	pauseGame();
-	
+
 	pauseMusic(FALSE);
 
 	pauseSound(FALSE);

@@ -39,7 +39,7 @@ Entity *addBombPile(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Bomb Pile");
+		showErrorAndExit("No free slots to add a Bomb Pile");
 	}
 
 	loadProperties(name, e);

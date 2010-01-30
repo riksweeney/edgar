@@ -45,7 +45,7 @@ Entity *addCoalPile(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Coal Pile");
+		showErrorAndExit("No free slots to add a Coal Pile");
 	}
 
 	loadProperties(name, e);

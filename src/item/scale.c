@@ -23,23 +23,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
-#include "key_items.h"
-#include "item.h"
 #include "../system/error.h"
 #include "../hud.h"
 
 extern Entity *self;
 
+static void init(void);
+static void wait(void);
 static void touch(Entity *);
-static void activate(int);
 
-Entity *addMoveableLift(int x, int y, char *name)
+Entity *addScale(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Moveable Lift");
+		showErrorAndExit("No free slots to add a Scale");
 	}
 
 	loadProperties(name, e);
@@ -51,10 +50,8 @@ Entity *addMoveableLift(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &doNothing;
+	e->action = &init;
 	e->touch = &touch;
-	e->activate = &activate;
-	e->fallout = &itemFallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -65,33 +62,71 @@ Entity *addMoveableLift(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	EntityList *list = getEntitiesByObjectiveName(self->objectiveName);
+	EntityList *l;
+	Entity *e;
+	int i;
+
+	i = 0;
+
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		e = l->entity;
+
+		if (e != self)
+		{
+			self->target = e;
+
+			break;
+		}
+	}
+
+	freeEntityList(list);
+
+	self->targetY = self->endY - self->startY;
+
+	self->action = &wait;
+}
+
+static void wait()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		self->y += self->speed;
+
+		self->target->y -= self->speed;
+
+		if (self->y >= self->endY)
+		{
+			self->y = self->endY;
+
+			self->target->y = self->startY;
+		}
+	}
+
+	else
+	{
+		self->y -= 2;
+
+		if (self->y <= self->targetY)
+		{
+			self->y = self->targetY;
+
+			self->target->y = self->targetY;
+		}
+	}
+}
+
 static void touch(Entity *other)
 {
 	pushEntity(other);
 
-	if (other->standingOn == self)
+	if (other->standingOn != NULL && other->standingOn->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Push Up or Down to raise or lower the platform"));
-
-		self->thinkTime = 120;
+		self->thinkTime = 3;
 	}
-}
-
-static void activate(int val)
-{
-	self->health += val;
-
-	if (self->health < 0)
-	{
-		self->health = 0;
-	}
-
-	else if (self->health > 2)
-	{
-		self->health = 2;
-	}
-
-	setEntityAnimation(self, self->health);
-
-	self->thinkTime = 120;
 }

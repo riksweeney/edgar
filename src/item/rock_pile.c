@@ -39,7 +39,7 @@ Entity *addRockPile(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Rock Pile\n");
+		showErrorAndExit("No free slots to add a Rock Pile\n");
 	}
 
 	loadProperties(name, e);

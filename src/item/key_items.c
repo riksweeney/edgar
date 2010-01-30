@@ -68,6 +68,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "instruction_machine.h"
 #include "moveable_lift.h"
 #include "mine_cart.h"
+#include "rock_container.h"
+#include "scale.h"
 
 extern Entity *self, player;
 
@@ -115,7 +117,9 @@ static Constructor items[] = {
 {"item/soul_bottle", &addSoulBottle},
 {"item/instruction_machine", &addInstructionMachine},
 {"item/moveable_lift", &addMoveableLift},
-{"item/mine_cart", &addMineCart}
+{"item/mine_cart", &addMineCart},
+{"item/rock_container", &addRockContainer},
+{"item/scale", &addScale}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -178,7 +182,7 @@ void keyItemRespawn()
 		setCustomAction(self, &invulnerable, 60, 0, 0);
 
 		self->action = &doNothing;
-		
+
 		self->touch = &keyItemTouch;
 	}
 }
