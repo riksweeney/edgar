@@ -118,6 +118,15 @@ int addToInventory(Entity *e)
 	{
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 		{
+			/* Don't add duplicates */
+			
+			if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, e->objectiveName) == 0)
+			{
+				found = TRUE;
+				
+				break;
+			}
+			
 			if (inventory.item[i].inUse == FALSE)
 			{
 				inventory.item[i] = *e;
@@ -724,4 +733,16 @@ void setInventoryDialogMessage(char *fmt, ...)
 	}
 
 	inventory.description = createDialogBox(NULL, text);
+}
+
+void setInventoryIndex(int val)
+{
+	inventory.selectedIndex = val;
+	
+	moveInventoryCursor(val);
+}
+
+int getInventoryIndex()
+{
+	return inventory.selectedIndex;
 }

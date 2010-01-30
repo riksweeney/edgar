@@ -114,7 +114,15 @@ static void call(int val)
 
 		self->thinkTime = 120;
 
-		activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+		if (strlen(self->objectiveName) != 0)
+		{
+			activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+		}
+		
+		else
+		{
+			printf("Switch at %d %d has no Target\n", (int)self->x, (int)self->y);
+		}
 	}
 }
 
@@ -255,6 +263,13 @@ static void reset(int val)
 static void initialise()
 {
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	
+	#if DEV == 1
+	if (strlen(self->objectiveName) == 0)
+	{
+		showErrorAndExit("Switch at %d %d has no Target", (int)self->x, (int)self->y);
+	}
+	#endif
 
 	self->action = &wait;
 }
