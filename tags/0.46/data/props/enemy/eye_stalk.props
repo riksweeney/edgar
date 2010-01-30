@@ -1,8 +1,0 @@
-HEALTH 50
-DAMAGE 1
-GFX_FILE data/gfx/enemy/eye_stalk.dat
-ANIM_FILE data/anim/enemy/eye_stalk.dat
-TYPE ENEMY
-FLAGS FLY
-ELEMENT SLIME
-SPEED 2
