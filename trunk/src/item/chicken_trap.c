@@ -47,7 +47,7 @@ Entity *addChickenTrap(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add chicken trap");
+		showErrorAndExit("No free slots to add a Chicken Trap");
 	}
 
 	loadProperties(name, e);

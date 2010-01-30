@@ -78,13 +78,6 @@ void addObjective(char *objectiveName, char *completionTrigger)
 
 	for (i=0;i<MAX_OBJECTIVES;i++)
 	{
-		/* Don't add duplicates */
-		
-		if (objective[i].inUse == TRUE && strcmpignorecase(objective[i].name, objectiveName) == 0)
-		{
-			return;
-		}
-		
 		if (objective[i].inUse == FALSE)
 		{
 			objective[i].inUse = TRUE;

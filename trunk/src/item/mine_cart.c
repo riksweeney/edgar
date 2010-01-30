@@ -87,6 +87,16 @@ static void touch(Entity *other)
 	
 	else
 	{
+		if (other->type != PLAYER)
+		{
+			self->flags |= OBSTACLE;
+		}
+		
+		else
+		{
+			self->flags &= ~OBSTACLE;
+		}
+		
 		pushEntity(other);
 	}
 }

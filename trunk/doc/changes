@@ -1,6 +1,16 @@
 CHANGE LOG
 ----------
 
+Version 0.46
+* Fixed / removed broken lift switches in the Village and Mines
+* Fixed a crash in the Mines
+* Fixed the robot on the 3rd floor of the Library
+* Fixed a potential crash when the whirlwinds steal your weapons
+* The Fire Shield objective cannot be accepted multiple times
+* Weapons can no longer be permanently lost in the water
+* Fixed the Fly Boss's death sequence
+* Saved games now store the currently selected inventory item
+
 Version 0.45
 * Added the rest of the Library Map
 * Health dropping now works correctly when the bow is equipped

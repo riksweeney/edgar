@@ -38,7 +38,7 @@ Entity *addChickenFeedBag(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add chicken feed bag");
+		showErrorAndExit("No free slots to add a Chicken Feed Bag");
 	}
 
 	loadProperties(name, e);

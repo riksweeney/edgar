@@ -75,8 +75,6 @@ static void wait()
 	
 	if (self->thinkTime == 0)
 	{
-		printf("Deactivating\n");
-		
 		setEntityAnimation(self, STAND);
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
