@@ -43,8 +43,6 @@ void initHud()
 
 	hud.emptyHeart = loadImage("gfx/hud/heart_empty.png");
 
-	hud.spotlight = loadImage("gfx/hud/spotlight.png");
-
 	messageHead.next = NULL;
 
 	hud.bossHealth = NULL;
@@ -198,13 +196,6 @@ void freeHud()
 		hud.emptyHeart = NULL;
 	}
 
-	if (hud.spotlight != NULL)
-	{
-		SDL_FreeSurface(hud.spotlight);
-
-		hud.spotlight = NULL;
-	}
-
 	if (hud.infoMessage.surface != NULL)
 	{
 		SDL_FreeSurface(hud.infoMessage.surface);
@@ -223,7 +214,7 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
-
+	
 	if (hud.infoMessage.surface != NULL && thinkTime == 0)
 	{
 		if (strcmpignorecase(hud.infoMessage.text, text) != 0)
@@ -330,9 +321,4 @@ void initBossHealthBar()
 void freeBossHealthBar()
 {
 	hud.bossHealth = NULL;
-}
-
-void drawSpotlight(int x, int y)
-{
-	drawImage(hud.spotlight, x, y, FALSE, 255);
 }

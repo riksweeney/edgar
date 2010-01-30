@@ -91,7 +91,7 @@ static void init()
 
 static void touch(Entity *other)
 {
-	int remaining, total;
+	int remaining;
 	Entity *temp;
 
 	if (strcmpignorecase(other->name, self->requires) == 0)
@@ -116,7 +116,7 @@ static void touch(Entity *other)
 			return;
 		}
 
-		remaining = countSiblings(self, &total);
+		remaining = countSiblings(self);
 
 		if (remaining == 0)
 		{
@@ -131,11 +131,6 @@ static void touch(Entity *other)
 			if (self->maxThinkTime != 0)
 			{
 				self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
-			}
-			
-			if (total > 0)
-			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
 			}
 		}
 

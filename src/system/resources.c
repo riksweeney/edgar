@@ -288,6 +288,13 @@ char *loadResources(char *buffer)
 		{
 			resourceType = PLAYER_INVENTORY;
 		}
+		
+		else if (strstr(line, "INVENTORY_INDEX") != NULL)
+		{
+			sscanf(line, "%*s %d", &startX);
+			
+			setInventoryIndex(startX);
+		}
 
 		else if (strcmpignorecase(line, "ENTITY_DATA") == 0)
 		{
@@ -657,6 +664,11 @@ void patchEntities(double versionFile, char *mapName)
 
 				if (e != NULL)
 				{
+					if (strcmpignorecase(value, "NULL") == 0)
+					{
+						STRNCPY(value, "", sizeof(value));
+					}
+					
 					setProperty(e, key, value);
 				}
 			}
@@ -677,6 +689,11 @@ void patchEntities(double versionFile, char *mapName)
 				
 				if (e != NULL)
 				{
+					if (strcmpignorecase(value, "NULL") == 0)
+					{
+						STRNCPY(value, "", sizeof(value));
+					}
+					
 					setProperty(e, key, value);
 				}
 			}

@@ -90,7 +90,7 @@ typedef struct Entity
 	int currentAnim, health, alpha;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
-	int mental, spawnTime;
+	int mental;
 	long flags;
 	float x, y, dirX, dirY, frameSpeed, frameTimer;
 	float startX, startY, endX, endY;
@@ -120,7 +120,7 @@ typedef struct Map
 	int startX, startY;
 	int maxX, maxY, thinkTime;
 	int minX, minY;
-	int forceMinY, darkMap;
+	int forceMinY;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
@@ -237,7 +237,7 @@ typedef struct Script
 typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth;
-	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight;
+	SDL_Surface *itemBox, *heart, *emptyHeart;
 	Message infoMessage;
 } Hud;
 

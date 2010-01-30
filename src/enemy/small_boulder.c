@@ -32,8 +32,6 @@ extern Entity *self;
 
 static void roll(void);
 static void die(void);
-static void dieInLava(void);
-static void fallout(void);
 
 Entity *addSmallBoulder(int x, int y, char *name)
 {
@@ -54,8 +52,6 @@ Entity *addSmallBoulder(int x, int y, char *name)
 	e->touch = &entityTouch;
 
 	e->die = &die;
-	
-	e->fallout = &fallout;
 
 	e->action = &roll;
 
@@ -74,7 +70,7 @@ static void roll()
 
 	self->thinkTime--;
 
-	if (!(self->flags & ON_GROUND) && self->mental == 0)
+	if (!(self->flags & ON_GROUND))
 	{
 		self->frameSpeed = 0;
 
@@ -96,13 +92,8 @@ static void roll()
 	}
 
 	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
-	{
-		self->mental = 1;
-	}
 
-	if (self->dirX == 0 && dirX != 0 && self->mental == 1 && self->element == AIR)
+	if (self->dirX == 0 && dirX != 0)
 	{
 		self->die();
 	}
@@ -132,32 +123,4 @@ static void die()
 	}
 
 	self->inUse = FALSE;
-}
-
-
-static void fallout()
-{
-	self->element = FIRE;
-	
-	self->dirX = 0;
-	
-	self->dirY = 0;
-	
-	self->frameSpeed = 0;
-	
-	self->flags |= DO_NOT_PERSIST;
-	
-	self->action = &dieInLava;
-}
-	
-static void dieInLava()
-{
-	self->dirY = 1.5;
-	
-	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
-	{
-		self->inUse = FALSE;
-	}
 }

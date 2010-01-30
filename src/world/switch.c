@@ -113,14 +113,22 @@ static void call(int val)
 		setEntityAnimation(self, WALK);
 
 		self->thinkTime = 120;
-
-		activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+		
+		if (strlen(self->objectiveName) != 0)
+		{
+			activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+		}
+		
+		else
+		{
+			printf("Switch at %d %d has no Target\n", (int)self->x, (int)self->y);
+		}
 	}
 }
 
 static void activate(int val)
 {
-	int remaining, total;
+	int remaining;
 
 	if (strlen(self->requires) != 0)
 	{
@@ -147,16 +155,11 @@ static void activate(int val)
 
 	if (self->active == TRUE)
 	{
-		remaining = countSiblings(self, &total);
+		remaining = countSiblings(self);
 
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-			
-			if (total > 0)
-			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
-			}
 		}
 
 		else
@@ -254,12 +257,14 @@ static void reset(int val)
 
 static void initialise()
 {
+	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	
+	#if DEV == 1
 	if (strlen(self->objectiveName) == 0)
 	{
 		showErrorAndExit("Switch at %d %d has no Target", (int)self->x, (int)self->y);
 	}
-	
-	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	#endif
 
 	self->action = &wait;
 }

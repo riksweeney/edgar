@@ -38,3 +38,5 @@ void clearInventoryDescription(void);
 void useInventoryItemFromScript(char *);
 void replaceInventoryItem(char *, Entity *);
 Entity *getCurrentInventoryItem(void);
+void setInventoryIndex(int);
+int getInventoryIndex(void);

@@ -25,4 +25,3 @@ void setInfoBoxMessage(int, char *, ...);
 void freeMessageQueue(void);
 void initBossHealthBar(void);
 void freeBossHealthBar(void);
-void drawSpotlight(int, int);

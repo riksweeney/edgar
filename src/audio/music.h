@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void loadMusic(char *);
 void freeMusic(void);
-void playMapMusic(void);
+void playMusic(void);
 void playBossMusic(void);
 void stopMusic(void);
 void pauseMusic(int);

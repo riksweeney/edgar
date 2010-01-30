@@ -567,6 +567,8 @@ void saveGame(int slot)
 	writePlayerToFile(write);
 
 	printf("Writing player inventory\n");
+	
+	fprintf(write, "INVENTORY_INDEX %d\n", getInventoryIndex());
 
 	fprintf(write, "PLAYER_INVENTORY\n");
 

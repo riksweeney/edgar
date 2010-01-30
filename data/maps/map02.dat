@@ -3969,7 +3969,7 @@ FACE LEFT
 }
 
 {
-TYPE KEY_ITEM
+TYPE ITEM
 NAME item/mine_cart
 X 8392
 Y 9090

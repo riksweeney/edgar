@@ -76,8 +76,11 @@ static void touch(Entity *other)
 	{
 		takeDamage(other, other->damage);
 	}
-
-	pushEntity(other);
+	
+	if (self->inUse == TRUE)
+	{
+		pushEntity(other);
+	}
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -87,7 +90,7 @@ static void takeDamage(Entity *other, int damage)
 		self->die();
 	}
 
-	else if (strcmpignorecase(self->requires, other->name) == 0)
+	if (strcmpignorecase(self->requires, other->name) == 0)
 	{
 		self->health -= damage;
 
