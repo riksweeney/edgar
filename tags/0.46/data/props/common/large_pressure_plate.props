@@ -1,0 +1,8 @@
+DAMAGE 1
+GFX_FILE data/gfx/common/large_pressure_plate.dat
+ANIM_FILE data/anim/common/pressure_plate.dat
+TYPE PRESSURE_PLATE
+THINKTIME 30
+#SFX_FILE data/sfx/common/pressure_plate.dat
+ACTIVE FALSE
+FLAGS FLY|OBSTACLE
