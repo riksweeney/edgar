@@ -1,0 +1,15 @@
+TALK Edgar Hey, what's this?
+WALK_TO Edgar 20900 0 WAIT
+TALK Edgar Looks pretty harmless, I'll try stepping on it
+JUMP Edgar
+WALK_TO_RELATIVE Edgar -96 0
+WAIT 120
+TALK Edgar Wow! That was cool! This must be a mechanical teleporter.
+SET Edgar FACE LEFT
+TALK Edgar I wonder if it works both ways...
+JUMP Edgar
+WALK_TO_RELATIVE Edgar -96 0
+WAIT 120
+SET Edgar FACE RIGHT
+TALK Edgar Horray!
+TALK Edgar Not only is this going to save me a lot of walking, it's also loads of fun!

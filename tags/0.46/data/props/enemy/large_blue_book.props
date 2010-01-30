@@ -1,0 +1,7 @@
+HEALTH 200
+DAMAGE 1
+GFX_FILE data/gfx/enemy/large_blue_book.dat
+ANIM_FILE data/anim/enemy/book.dat
+TYPE ENEMY
+FLAGS FLY
+ACTIVE FALSE
