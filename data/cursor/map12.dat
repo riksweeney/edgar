@@ -23,4 +23,10 @@ enemy/red_bat
 weapon/small_wooden_shield
 item/bomb_pile
 wall/large_weak_mine_wall
-world/conveyor_belt
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right
+item/metal_crate
+item/grabber
+item/rock
+common/reset_switch
