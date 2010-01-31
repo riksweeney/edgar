@@ -21,3 +21,6 @@ enemy/red_spider
 weapon/basic_sword
 enemy/red_bat
 weapon/small_wooden_shield
+item/bomb_pile
+wall/large_weak_mine_wall
+world/conveyor_belt

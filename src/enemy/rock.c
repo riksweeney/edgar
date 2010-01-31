@@ -50,6 +50,7 @@ Entity *addLargeRock(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->action = &shake;
+	e->fallout = &entityDieNoDrop;
 
 	e->type = ENEMY;
 
