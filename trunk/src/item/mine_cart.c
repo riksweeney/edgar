@@ -75,6 +75,11 @@ static void touch(Entity *other)
 	{
 		self->health++;
 		
+		if (self->health == 1)
+		{
+			setInfoBoxMessage(60, _("Filling mine cart..."));
+		}
+		
 		if (self->health >= 6)
 		{
 			STRNCPY(self->objectiveName, "Full Mine Cart", sizeof(self->objectiveName));
@@ -98,5 +103,7 @@ static void touch(Entity *other)
 		}
 		
 		pushEntity(other);
+		
+		self->flags &= ~OBSTACLE;
 	}
 }

@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/item/lava_geyzer.dat
+ANIM_FILE data/anim/item/lava_geyzer.dat
+TYPE KEY_ITEM
+ELEMENT FIRE
+THINKTIME 180
+SPEED 4
+FLAGS FLY
