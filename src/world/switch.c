@@ -89,8 +89,6 @@ static void call(int val)
 	{
 		if (strlen(self->requires) != 0)
 		{
-			printf("Requires %s\n", self->requires);
-
 			if (removeInventoryItem(self->requires) == 1)
 			{
 				setInfoBoxMessage(60, _("Used %s"), _(self->requires));
@@ -243,7 +241,7 @@ static void reset(int val)
 
 		self->thinkTime = 120;
 
-		e = getEntityByObjectiveName(self->objectiveName);
+		e = self->health < 0 ? getEntityByRequiredName(self->objectiveName) : getEntityByObjectiveName(self->objectiveName);
 
 		if (e != NULL && e->fallout != NULL)
 		{

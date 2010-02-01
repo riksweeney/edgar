@@ -101,7 +101,7 @@ static void touch(Entity *other)
 			activate(1);
 		}
 
-		else
+		else if (other->type == PLAYER)
 		{
 			setInfoBoxMessage(0, _("%s is required to use this Pressure Plate"), _(self->requires));
 		}

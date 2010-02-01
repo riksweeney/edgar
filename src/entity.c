@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio/audio.h"
 #include "system/pak.h"
 #include "geometry.h"
+#include "hud.h"
 #include "system/error.h"
 
 static int entityIndex = 0;
@@ -1198,8 +1199,16 @@ void activateEntitiesValueWithObjectiveName(char *name, int value)
 			temp = self;
 
 			self = &entity[i];
-
-			self->activate(value - self->health);
+			
+			if (self->type == MANUAL_LIFT && self->active == FALSE)
+			{
+				setInfoBoxMessage(90, _("This lift is not active"));
+			}
+			
+			else
+			{
+				self->activate(value - self->health);
+			}
 
 			self = temp;
 		}

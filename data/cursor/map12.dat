@@ -30,3 +30,5 @@ item/metal_crate
 item/grabber
 item/rock
 common/reset_switch
+enemy/sludge
+item/lava_geyzer
