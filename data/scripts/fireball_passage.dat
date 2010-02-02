@@ -1,4 +1,7 @@
 TALK Edgar I don't think my shield will protect me from those fireballs. I'll have to find a stronger one...
+IF FIREBALL_PASSAGE_POINT HEALTH 0
 ADD OBJECTIVE "Obtain a Fire Shield" " "
 ADD TRIGGER "Fire Shield" 1 UPDATE_OBJECTIVE "Obtain a Fire Shield"
 ADD MAP_TRIGGER "map11" RUN_SCRIPT "weapon_book_update"
+SET FIREBALL_PASSAGE_POINT HEALTH 1
+END

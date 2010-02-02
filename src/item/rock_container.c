@@ -113,7 +113,15 @@ static void move()
 	
 	else
 	{
-		self->dirY = self->mental == 1 ? -self->speed : self->speed;
+		if (self->speed > 0)
+		{
+			self->dirY = self->mental == 1 ? -self->speed : self->speed;
+		}
+		
+		else
+		{
+			self->dirY = self->mental == 1 ? self->speed : -self->speed;
+		}
 		
 		self->y += self->dirY;
 		
@@ -123,7 +131,7 @@ static void move()
 			
 			self->mental = 2;
 			
-			self->endX = 180;
+			self->endX = self->speed > 0 ? 180 : 0;
 			
 			self->dirY *= -1;
 			
@@ -138,7 +146,7 @@ static void move()
 			
 			self->mental = 1;
 			
-			self->endX = 0;
+			self->endX = self->speed > 0 ? 0 : 180;
 			
 			self->dirY *= -1;
 			
@@ -162,7 +170,7 @@ static void rotateAroundTarget()
 		self->endX = 0;
 	}
 
-	if (self->originalSpeed >= 180)
+	if (fabs(self->originalSpeed) >= 180)
 	{
 		self->endX = self->endX == 0 ? 0 : 180;
 		
@@ -183,5 +191,5 @@ static void rotateAroundTarget()
 	
 	self->dirX = self->x - prevX;
 	
-	self->dirY = self->speed;
+	self->dirY = fabs(self->speed);
 }

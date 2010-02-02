@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../system/error.h"
 
@@ -81,7 +82,7 @@ static void createBase()
 	e->action = &baseWait;
 
 	e->draw = &drawBase;
-	
+
 	e->head = self;
 
 	setEntityAnimation(e, STAND);
@@ -90,17 +91,17 @@ static void createBase()
 static void init()
 {
 	createBase();
-	
+
 	switch (self->mental)
 	{
 		case 0:
 			self->action = &wait;
 		break;
-		
+
 		case 1:
 			self->action = &riseUp;
 		break;
-		
+
 		default:
 			self->action = &fallDown;
 		break;
@@ -110,23 +111,25 @@ static void init()
 static void wait()
 {
 	/* Bob up and down */
-	
+
 	self->health++;
-	
+
 	if (self->health >= 360)
 	{
 		self->health = 0;
 	}
-	
+
 	self->y = self->endY + sin(DEG_TO_RAD(self->health)) * 12;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &riseUp;
+
+		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -135,27 +138,27 @@ static void riseUp()
 	if (self->y == self->startY)
 	{
 		self->thinkTime--;
-		
+
 		checkToMap(self);
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->action = &fallDown;
 		}
 	}
-	
+
 	else
 	{
 		self->dirY = -self->speed;
-		
+
 		checkToMap(self);
-		
+
 		if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->dirY = 0;
-			
+
 			self->thinkTime = 240;
 		}
 	}
@@ -164,19 +167,19 @@ static void riseUp()
 static void fallDown()
 {
 	self->dirY = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->y >= self->endY)
 	{
 		self->y = self->endY;
-		
+
 		self->dirY = 0;
-		
+
 		self->health = 0;
-		
+
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->action = &wait;
 	}
 }
@@ -184,7 +187,7 @@ static void fallDown()
 static void baseWait()
 {
 	checkToMap(self);
-	
+
 	self->x = self->head->x;
 	self->y = self->head->y + self->head->h;
 }
@@ -192,17 +195,17 @@ static void baseWait()
 static int drawBase()
 {
 	int y;
-	
+
 	drawLoopingAnimationToMap();
-	
+
 	y = self->head->endY + self->h;
-	
+
 	while (self->y < y)
 	{
 		drawSpriteToMap();
-		
+
 		self->y += self->h;
 	}
-	
+
 	return TRUE;
 }

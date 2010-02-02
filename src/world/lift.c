@@ -229,7 +229,9 @@ static void findTarget(int val)
 
 static void moveToTarget()
 {
-	if (self->active == TRUE)
+	/* Allow Manual lifts to continue moving even if they're suddenly inactive */
+
+	if (self->active == TRUE || self->type == MANUAL_LIFT)
 	{
 		if (abs(self->x - self->targetX) > self->speed)
 		{
