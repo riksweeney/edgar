@@ -297,6 +297,11 @@ int main(int argc, char *argv[])
 static int textAlreadyAdded(char *text)
 {
 	int i;
+	
+	if (strcmpignorecase("msgid \"\"", text) == 0)
+	{
+		return TRUE;
+	}
 
 	for (i=0;i<poIndex;i++)
 	{

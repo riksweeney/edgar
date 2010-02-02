@@ -14,9 +14,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid ""
-msgstr ""
-
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
 
@@ -126,9 +123,6 @@ msgid "%d"
 msgstr ""
 
 msgid "%s (%d / %d)"
-msgstr ""
-
-msgid "data/scripts/%s.dat"
 msgstr ""
 
 msgid "New Objective: %s"
@@ -500,7 +494,7 @@ msgstr ""
 msgid "Thanks Maggie!"
 msgstr ""
 
-msgid "said that a section of the mine was sealed up after an \"incident\""
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "There must be something around here..."
@@ -1328,12 +1322,6 @@ msgstr ""
 msgid "Push Up or Down to raise or lower the platform"
 msgstr ""
 
-msgid "Er, yeah, there was what you'd call an "incident", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
-msgid "Borgan said that a section of the mine was sealed up after an "incident""
-msgstr ""
-
 msgid "There's a book here about enchanting equipment"
 msgstr ""
 
@@ -1677,4 +1665,91 @@ msgid "Creates ice cubes that expand on contact with water"
 msgstr ""
 
 msgid "A bottle capable of capturing souls"
+msgstr ""
+
+msgid "Try using Mataeus's knives against him..."
+msgstr ""
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr ""
+
+msgid "Filling mine cart..."
+msgstr ""
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr ""
+
+msgid "Out of arrows!"
+msgstr ""
+
+msgid "There's something moving around down there..."
+msgstr ""
+
+msgid "Good riddance..."
+msgstr ""
+
+msgid "Huh, déjà vu..."
+msgstr ""
+
+msgid "If the lift is out of order then it must be reset"
+msgstr ""
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr ""
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr ""
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr ""
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr ""
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr ""
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr ""
+
+msgid "The robot will then follow the instructions on the card"
+msgstr ""
+
+msgid "If the directions aren't correct you can try again"
+msgstr ""
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr ""
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr ""
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr ""
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr ""
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr ""
+
+msgid "OK, off I go..."
+msgstr ""
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr ""
+
+msgid "It's a portrait"
+msgstr ""
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr ""
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr ""
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr ""
+
+msgid "A bottle with a soul trapped inside"
 msgstr ""
