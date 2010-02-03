@@ -6,4 +6,4 @@ if [ $# -ne 2 ]
 	exit 1
 fi
 
-svn copy http://reddwarf/svn/Edgar/trunk http://reddwarf/svn/Edgar/tags/$1 -m "$2"
+svn copy http://reddwarf/svn/Edgar/trunk http://reddwarf/svn/Edgar/tags/$1 -m "Tagging $1"

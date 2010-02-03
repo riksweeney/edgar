@@ -64,17 +64,22 @@ Entity *addRockContainer(int x, int y, char *name)
 static void init()
 {
 	float height, circ;
-	
+
 	height = (self->endY - self->startY) * 2;
-	
+
 	circ = PI * 2.0f * self->health;
-	
+	/*
 	printf("Length is %f\n", circ + height);
 	printf("Speed is %f\n", self->speed);
-	
+
 	printf("Time to move is %f\n", (circ + height) / self->speed);
-	
-	self->action = &move;
+	*/
+	if (self->thinkTime > 0)
+	{
+		self->weight = 0;
+	}
+
+	self->action = self->weight == 0 ? &move : &rotateAroundTarget;
 }
 
 static void touch(Entity *other)
@@ -110,48 +115,48 @@ static void move()
 	{
 		self->thinkTime--;
 	}
-	
+
 	else
 	{
 		if (self->speed > 0)
 		{
 			self->dirY = self->mental == 1 ? -self->speed : self->speed;
 		}
-		
+
 		else
 		{
 			self->dirY = self->mental == 1 ? self->speed : -self->speed;
 		}
-		
+
 		self->y += self->dirY;
-		
+
 		if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->mental = 2;
-			
+
 			self->endX = self->speed > 0 ? 180 : 0;
-			
+
 			self->dirY *= -1;
-			
-			self->originalSpeed = 0;
-			
+
+			self->weight = 0;
+
 			self->action = &rotateAroundTarget;
 		}
-		
+
 		else if (self->y >= self->endY)
 		{
 			self->y = self->endY;
-			
+
 			self->mental = 1;
-			
+
 			self->endX = self->speed > 0 ? 0 : 180;
-			
+
 			self->dirY *= -1;
-			
-			self->originalSpeed = 0;
-			
+
+			self->weight = 0;
+
 			self->action = &rotateAroundTarget;
 		}
 	}
@@ -162,25 +167,25 @@ static void rotateAroundTarget()
 	float prevX, radians;
 
 	self->endX += self->speed * 0.5;
-	
-	self->originalSpeed += self->speed * 0.5;
-	
+
+	self->weight += self->speed * 0.5;
+
 	if (self->endX >= 360)
 	{
 		self->endX = 0;
 	}
 
-	if (fabs(self->originalSpeed) >= 180)
+	if (fabs(self->weight) >= 180)
 	{
 		self->endX = self->endX == 0 ? 0 : 180;
-		
-		self->originalSpeed = 0;
-		
+
+		self->weight = 0;
+
 		self->action = &move;
 	}
 
 	radians = DEG_TO_RAD(self->endX);
-	
+
 	prevX = self->x;
 
 	self->x = (self->health * cos(radians) - 0 * sin(radians));
@@ -188,8 +193,8 @@ static void rotateAroundTarget()
 
 	self->x += self->startX;
 	self->y += self->mental == 1 ? self->endY : self->startY;
-	
+
 	self->dirX = self->x - prevX;
-	
+
 	self->dirY = fabs(self->speed);
 }

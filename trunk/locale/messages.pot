@@ -104,9 +104,6 @@ msgstr ""
 msgid "Game Saved"
 msgstr ""
 
-msgid "Copyright Parallel Realities 2009"
-msgstr ""
-
 msgid "OK"
 msgstr ""
 
@@ -237,9 +234,6 @@ msgid "Trap Door Switch Key"
 msgstr ""
 
 msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr ""
-
-msgid "You won't be able to restore the power in this version. Check back later!"
 msgstr ""
 
 msgid "Keep practising!"
@@ -482,13 +476,7 @@ msgstr ""
 msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
 msgstr ""
 
-msgid "Maggie Hello Edgar"
-msgstr ""
-
 msgid "Hi Maggie"
-msgstr ""
-
-msgid "Maggie Oh Edgar, you're hurt! Let me heal your wounds"
 msgstr ""
 
 msgid "Thanks Maggie!"
@@ -1688,7 +1676,7 @@ msgstr ""
 msgid "Good riddance..."
 msgstr ""
 
-msgid "Huh, d√©j√† vu..."
+msgid "Huh, dÈj‡† vu..."
 msgstr ""
 
 msgid "If the lift is out of order then it must be reset"

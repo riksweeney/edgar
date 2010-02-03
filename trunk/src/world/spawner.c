@@ -128,7 +128,7 @@ static void spawn()
 				/* Don't spawn if the player is too close or too far away */
 
 				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
-				
+
 				spawnDistance = SCREEN_WIDTH * 3 / 4;
 
 				if (self->health == -1 || (self->health == -2 && distance > spawnDistance && distance < spawnDistance + TILE_SIZE))
@@ -217,11 +217,11 @@ static void spawn()
 						e->endY = self->endY;
 
 						e->face = self->face;
-						
+
 						if (self->health == -2)
 						{
-							e->flags |= SPAWNED_IN;
-							
+							e->flags |= SPAWNED_IN_TIME;
+
 							e->spawnTime = 18000;
 						}
 					}
