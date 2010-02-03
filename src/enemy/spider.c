@@ -91,6 +91,10 @@ static void takeDamage(Entity *other, int damage)
 		else
 		{
 			self->health -= damage;
+			
+			self->flags &= ~FLY;
+
+			self->dirY = -ITEM_JUMP_HEIGHT;
 
 			self->action = self->die;
 		}
@@ -104,6 +108,8 @@ static void redTakeDamage(Entity *other, int damage)
 		if (damage >= self->health)
 		{
 			self->health -= damage;
+			
+			self->flags &= ~FLY;
 
 			self->dirY = -ITEM_JUMP_HEIGHT;
 

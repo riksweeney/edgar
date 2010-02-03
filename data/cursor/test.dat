@@ -1,5 +1,4 @@
 edgar/edgar
-enemy/energy_drainer
-item/power_generator
-enemy/scorpion
-common/spawner
+common/large_pressure_plate
+item/mine_cart
+enemy/sludge

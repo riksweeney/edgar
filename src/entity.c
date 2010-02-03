@@ -218,7 +218,7 @@ void doEntities()
 				}
 
 				self->standingOn = NULL;
-				
+
 				if (self->flags & SPAWNED_IN)
 				{
 					self->spawnTime--;
@@ -276,14 +276,14 @@ void drawEntities(int depth)
 				}
 
 				drawn = self->draw();
-				
+
 				/* Live for 5 minutes whilst on the screen */
-				
+
 				if (drawn == TRUE && (self->flags & SPAWNED_IN))
 				{
-					self->spawnTime = 18000;
+					self->spawnTime = SPAWNED_IN_TIME;
 				}
-				
+
 				else if (drawn == FALSE && (self->flags & SPAWNED_IN) && self->spawnTime <= 0 && (self->spawnTime % 60 == 0))
 				{
 					if (self->health != 0)
@@ -331,7 +331,7 @@ void doNothing()
 		{
 			self->dirX = self->standingOn != NULL ? self->standingOn->dirX : (self->flags & ON_GROUND ? 0 : self->dirX);
 		}
-		
+
 		if (self->standingOn != NULL)
 		{
 			self->dirX = self->standingOn->dirX;
@@ -340,12 +340,12 @@ void doNothing()
 			{
 				self->dirY = self->standingOn->dirY + 1;
 			}
-			
+
 			else if (self->standingOn->dirY == 0 && self->standingOn->dirX == 0)
 			{
 				self->dirY = 0;
 			}
-			
+
 			self->flags |= ON_GROUND;
 		}
 	}
@@ -474,7 +474,7 @@ void floatLeftToRight()
 void entityDie()
 {
 	self->damage = 0;
-	
+
 	self->health = 0;
 
 	if (!(self->flags & INVULNERABLE))
@@ -523,7 +523,7 @@ void standardDie()
 void entityDieNoDrop()
 {
 	self->damage = 0;
-	
+
 	self->health = 0;
 
 	if (!(self->flags & INVULNERABLE))
@@ -1199,12 +1199,12 @@ void activateEntitiesValueWithObjectiveName(char *name, int value)
 			temp = self;
 
 			self = &entity[i];
-			
+
 			if (self->type == MANUAL_LIFT && self->active == FALSE)
 			{
 				setInfoBoxMessage(90, _("This lift is not active"));
 			}
-			
+
 			else
 			{
 				self->activate(value - self->health);
@@ -1582,7 +1582,7 @@ void rotateAroundStartPoint()
 int countSiblings(Entity *sibling, int *total)
 {
 	int i, remaining = 0;
-	
+
 	*total = 0;
 
 	for (i=0;i<MAX_ENTITIES;i++)
@@ -1594,7 +1594,7 @@ int countSiblings(Entity *sibling, int *total)
 			{
 				remaining++;
 			}
-			
+
 			(*total)++;
 		}
 	}

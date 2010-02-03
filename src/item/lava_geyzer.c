@@ -125,9 +125,9 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->action = &riseUp;
+		self->mental = 1;
 
-		playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+		self->action = &riseUp;
 	}
 
 	checkToMap(self);
@@ -143,6 +143,8 @@ static void riseUp()
 
 		if (self->thinkTime <= 0)
 		{
+			self->mental = 2;
+
 			self->action = &fallDown;
 		}
 	}
@@ -179,6 +181,8 @@ static void fallDown()
 		self->health = 0;
 
 		self->thinkTime = self->maxThinkTime;
+
+		self->mental = 0;
 
 		self->action = &wait;
 	}

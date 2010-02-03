@@ -130,6 +130,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define TELEPORT_SPEED 10
 
+#define SPAWNED_IN_TIME 18000
+
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
@@ -144,7 +146,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_INVENTORY_ITEMS 30
 
-#define DEG_TO_RAD(x) (x * PI / 180)
+#define DEG_TO_RAD(x) ((x) * PI / 180)
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
