@@ -263,6 +263,8 @@ static void layEgg()
 	{
 		e = addEnemy("enemy/jumping_slime_egg", 0, 0);
 
+		e->thinkTime = 120 + (prand() % 180);
+
 		e->x = self->x + (self->w - e->w) / 2;
 		e->y = self->y;
 

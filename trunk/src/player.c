@@ -66,6 +66,7 @@ static void fireArrow(void);
 static int usingBow(void);
 static void playerWait(void);
 static void applyIce(void);
+static void applyWebbing(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -262,7 +263,7 @@ void doPlayer()
 					{
 						self->dirY = self->standingOn->dirY + 1;
 					}
-					
+
 					self->flags |= ON_GROUND;
 				}
 
@@ -576,9 +577,9 @@ void doPlayer()
 
 		playerWeapon.alpha = player.alpha;
 		playerShield.alpha = player.alpha;
-		
+
 		playerShield.thinkTime--;
-		
+
 		if (playerShield.thinkTime <= 0)
 		{
 			playerShield.thinkTime = 0;
@@ -656,7 +657,7 @@ static void dialogWait()
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
-		
+
 		playerShield.face = player.face;
 		playerWeapon.face = player.face;
 	}
@@ -883,11 +884,11 @@ static void takeDamage(Entity *other, int damage)
 				checkToMap(&player);
 
 				setCustomAction(&player, &helpless, 2, 0, 0);
-				
+
 				if (playerShield.thinkTime <= 0)
 				{
 					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-					
+
 					playerShield.thinkTime = 5;
 				}
 
@@ -936,7 +937,7 @@ static void takeDamage(Entity *other, int damage)
 			if (playerShield.thinkTime <= 0)
 			{
 				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-				
+
 				playerShield.thinkTime = 5;
 			}
 
@@ -1330,9 +1331,9 @@ static void touch(Entity *other)
 EntityList *playerGib()
 {
 	EntityList *list = NULL;
-	
+
 	/* Don't multigib */
-	
+
 	if (player.health > 0)
 	{
 		list = throwGibs("edgar/edgar_gibs", 6);
@@ -1343,7 +1344,7 @@ EntityList *playerGib()
 
 		player.flags |= NO_DRAW;
 	}
-	
+
 	return list;
 }
 
@@ -1757,7 +1758,7 @@ void setPlayerFrozen(int thinkTime)
 	e->face = player.face;
 
 	e->action = &applyIce;
-	e->touch = touch;
+	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -1815,6 +1816,83 @@ static void applyIce()
 
 		playSoundToMap("sound/common/shatter.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
+		self->inUse = FALSE;
+
+		player.element = NO_ELEMENT;
+	}
+
+	checkToMap(self);
+}
+
+void setPlayerWrapped(int thinkTime)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Wrapped Player");
+	}
+
+	/* Change back to Edgar */
+
+	if (player.element == WATER)
+	{
+		becomeEdgar();
+	}
+
+	player.flags |= WRAPPED;
+
+	loadProperties("edgar/edgar_wrapped", e);
+
+	e->x = player.x + player.w / 2;
+	e->y = player.y + player.h / 2;
+
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
+
+	e->type = ENEMY;
+
+	e->face = player.face;
+
+	e->action = &applyWebbing;
+	e->touch = &touch;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, STAND);
+
+	e->thinkTime = thinkTime;
+
+	player.dirX = 0;
+
+	setCustomAction(&player, &helpless, thinkTime, 0, 0);
+
+	player.flags &= ~BLOCKING;
+
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+}
+
+static void applyWebbing()
+{
+	self->thinkTime--;
+
+	self->face = player.face;
+
+	player.dirX = 0;
+
+	player.x = self->x + self->w / 2 - player.w / 2;
+	player.y = self->y + self->h / 2 - player.h / 2;
+
+	if (self->thinkTime <= 0 || player.health <= 0)
+	{
 		self->inUse = FALSE;
 
 		player.element = NO_ELEMENT;

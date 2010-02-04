@@ -1676,7 +1676,7 @@ msgstr ""
 msgid "Good riddance..."
 msgstr ""
 
-msgid "Huh, déjà  vu..."
+msgid "Huh, dÃ©jÃ  vu..."
 msgstr ""
 
 msgid "If the lift is out of order then it must be reset"

@@ -855,14 +855,12 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
-				depth++;
-
-				checkEntityToEntity(self);
-
-				depth--;
-
-				if (self->dirX == 0)
+				if (checkEntityToEntity(self) == TRUE)
 				{
+					self->x -= other->dirX;
+					
+					self->dirX = 0;
+
 					pushable = 0;
 				}
 
@@ -876,20 +874,6 @@ void pushEntity(Entity *other)
 
 			if (pushable == 0)
 			{
-				/* Place the entity as close as possible */
-
-				other->x = getLeftEdge(self) - other->w;
-
-				if (other->face == RIGHT)
-				{
-					other->x += other->w - other->box.x - other->box.w;
-				}
-
-				else
-				{
-					other->x += other->w - other->box.w;
-				}
-
 				other->dirX = 0;
 
 				if ((other->flags & GRABBING) && other->target != NULL)
@@ -933,14 +917,12 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
-				depth++;
-
-				checkEntityToEntity(self);
-
-				depth--;
-
-				if (self->dirX == 0)
+				if (checkEntityToEntity(self) == TRUE)
 				{
+					self->x -= other->dirX;
+					
+					self->dirX = 0;
+
 					pushable = 0;
 				}
 
@@ -954,20 +936,6 @@ void pushEntity(Entity *other)
 
 			if (pushable == 0)
 			{
-				/* Place the entity as close as possible */
-
-				other->x = getRightEdge(self);
-
-				if (other->face == RIGHT)
-				{
-					other->x -= other->box.x;
-				}
-
-				else
-				{
-					other->x -= other->w - (other->box.w + other->box.x);
-				}
-
 				other->dirX = 0;
 
 				if ((other->flags & GRABBING) && other->target != NULL)
