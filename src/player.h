@@ -48,3 +48,4 @@ void setPlayerLocked(int);
 Entity *removePlayerWeapon(void);
 Entity *removePlayerShield(void);
 void setPlayerFrozen(int);
+void setPlayerWrapped(int);
