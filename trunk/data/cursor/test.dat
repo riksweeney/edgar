@@ -3,3 +3,5 @@ common/large_pressure_plate
 misc/tree_stump
 enemy/sludge
 item/wooden_crate
+item/rock_container
+common/save_point

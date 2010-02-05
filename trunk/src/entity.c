@@ -813,7 +813,7 @@ void pushEntity(Entity *other)
 		}
 	}
 
-	else if (other->dirY < 0 && !(self->flags & ON_GROUND))
+	else if (other->dirY < 0)
 	{
 		/* Trying to move up */
 
