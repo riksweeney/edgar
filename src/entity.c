@@ -776,7 +776,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move down */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
+		if (other->y + other->box.h < self->y + 3 && other->y + other->box.h + other->dirY >= self->y)
 		{
 			if (self->dirY < 0)
 			{
@@ -813,7 +813,7 @@ void pushEntity(Entity *other)
 		}
 	}
 
-	else if (other->dirY < 0)
+	else if (other->dirY < 0 && self->y < other->y)
 	{
 		/* Trying to move up */
 
@@ -842,8 +842,6 @@ void pushEntity(Entity *other)
 			{
 				self->y -= self->dirY;
 
-				/*self->dirX += ceil(other->dirX);*/
-
 				self->dirX += other->dirX;
 
 				wasOnGround = (self->flags & ON_GROUND);
@@ -855,10 +853,14 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
-				if (checkEntityToEntity(self) == TRUE)
+				/* Ensure that only the horizontal movement is checked */
+
+				self->y -= self->dirY;
+
+				if (checkEntityToEntity(self) != NULL)
 				{
 					self->x -= other->dirX;
-					
+
 					self->dirX = 0;
 
 					pushable = 0;
@@ -904,8 +906,6 @@ void pushEntity(Entity *other)
 			{
 				self->y -= self->dirY;
 
-				/*self->dirX += floor(other->dirX);*/
-
 				self->dirX += other->dirX;
 
 				wasOnGround = (self->flags & ON_GROUND);
@@ -917,10 +917,14 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
-				if (checkEntityToEntity(self) == TRUE)
+				/* Ensure that only the horizontal movement is checked */
+
+				self->y -= self->dirY;
+
+				if (checkEntityToEntity(self) != NULL)
 				{
 					self->x -= other->dirX;
-					
+
 					self->dirX = 0;
 
 					pushable = 0;

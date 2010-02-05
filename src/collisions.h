@@ -24,7 +24,7 @@ int isAtEdge(Entity *);
 int isAtCeilingEdge(Entity *);
 int isValidOnMap(Entity *);
 Entity *isSpaceEmpty(Entity *);
-int checkEntityToEntity(Entity *);
+Entity *checkEntityToEntity(Entity *);
 void addToGrid(Entity *);
 void initCollisionGrid(void);
 void freeCollisionGrid(void);

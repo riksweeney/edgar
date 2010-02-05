@@ -232,6 +232,11 @@ void doCollisions()
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
+								if (e1->type == PLAYER)
+								{
+									printf("%s hit %s\n", e1->name, e2->name);
+								}
+
 								temp = self;
 
 								self = e2;
@@ -248,7 +253,7 @@ void doCollisions()
 	}
 }
 
-int checkEntityToEntity(Entity *e)
+Entity *checkEntityToEntity(Entity *e)
 {
 	int i, j, x1, y1, x2, y2, w1, h1, w2, h2;
 	Entity *e1, *e2;
@@ -334,7 +339,7 @@ int checkEntityToEntity(Entity *e)
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
-								return TRUE;
+								return e2;
 							}
 						}
 					}
@@ -343,7 +348,7 @@ int checkEntityToEntity(Entity *e)
 		}
 	}
 
-	return FALSE;
+	return NULL;
 }
 
 Entity *isSpaceEmpty(Entity *e)
