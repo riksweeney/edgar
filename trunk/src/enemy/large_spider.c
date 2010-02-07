@@ -59,7 +59,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &moveLeftToRight;
+	e->action = &lookForPlayer;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->touch = &entityTouch;
@@ -124,7 +124,7 @@ static void moveAndJump()
 	{
 		if (isGapJumpable() == TRUE)
 		{
-			self->thinkTime = 30;
+			self->thinkTime = 60;
 
 			self->action = &jumpOverGap;
 
@@ -133,18 +133,18 @@ static void moveAndJump()
 
 		else if (canDropDown() == FALSE)
 		{
+			printf("Cannot drop down\n");
+			
 			self->dirX = 0;
 		}
 	}
 
 	checkToMap(self);
-
+	
 	if (self->dirX == 0)
 	{
 		if (canJumpUp() == TRUE)
 		{
-			self->dirY = -JUMP_HEIGHT;
-
 			self->action = &jumpUp;
 		}
 
@@ -160,8 +160,13 @@ static void moveAndJump()
 static void jumpUp()
 {
 	long onGround;
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirY = -JUMP_HEIGHT;
+	}
 
-	self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 	onGround = (self->flags & ON_GROUND);
 
@@ -183,21 +188,24 @@ static void jumpOverGap()
 
 		self->thinkTime--;
 	}
-
-	self->dirX = (self->face == RIGHT ? -self->speed * 2 : self->speed * 2);
-
-	if (self->flags & ON_GROUND)
+	
+	else
 	{
-		self->dirY = ITEM_JUMP_HEIGHT;
-	}
+		self->dirX = (self->face == RIGHT ? self->speed * 3 : -self->speed * 3);
+		
+		if (self->flags & ON_GROUND)
+		{
+			self->dirY = -JUMP_HEIGHT;
+		}
 
-	onGround = (self->flags & ON_GROUND);
+		onGround = (self->flags & ON_GROUND);
 
-	checkToMap(self);
+		checkToMap(self);
 
-	if (onGround == 0 && (self->flags & ON_GROUND))
-	{
-		self->action = &lookForPlayer;
+		if (onGround == 0 && (self->flags & ON_GROUND))
+		{
+			self->action = &lookForPlayer;
+		}
 	}
 }
 
@@ -263,16 +271,16 @@ static int canJumpUp()
 
 	y -= 4;
 
-	x += self->face == LEFT ? -1 : 1;
+	x += self->face == LEFT ? -1 : 0;
 
 	tile = mapTileAt(x, y);
 
 	if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
 	{
-		return TRUE;
+		return FALSE;
 	}
 
-	return FALSE;
+	return TRUE;
 }
 
 static int canDropDown()
@@ -284,7 +292,7 @@ static int canDropDown()
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
 
-	y += 3;
+	y += 4;
 
 	tile = mapTileAt(x, y);
 

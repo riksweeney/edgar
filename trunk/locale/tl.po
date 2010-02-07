@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Mabilis na lumiko sa kaliwa at kanang upang maiwasan ang mga slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Hindi nagtatrabaho sa ang bersyon na ito!"
+
+msgid "Press Action to interact"
+msgstr "Pindutin ang Aksyon upang makipag-ugnayan"
+
+msgid "%s is required"
+msgstr "%s ay kinakailangan"
+
+msgid "Bomb"
+msgstr "Bomba"
+
+msgid "Small Rock"
+msgstr "Maliit na Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Pindutin ang Aksyon upang makuha ang Purple Gem"
+
+msgid "Chicken"
+msgstr "Manok"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Pindutin ang Aksyon upang makuha ang Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Pindutin ang Aksyon upang palitan ang Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Nakuha %s"
+
+msgid "Complete"
+msgstr "Kumpletuhin"
+
+msgid "%d more to go..."
+msgstr "%d pa para pumunta ..."
+
+msgid "Used %s"
+msgstr "Ginamit %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Hindi maaring magbigay ng kasangkapan bagay habang transmogrified"
+
+msgid "Equipped %s"
+msgstr "Bang %s"
+
+msgid "Maximum health has increased!"
+msgstr "Pinakamataas na kalusugan ay nadagdagan!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow ay sunog na ngayon %s"
+
+msgid "A bow is required to use this item"
+msgstr "Pangguhit ay kinakailangan upang gamitin ang bagay na ito"
+
+msgid "Cannot transmogrify here..."
+msgstr "Hindi maaring palitan dito ..."
+
+msgid "Yes"
+msgstr "Oo"
+
+msgid "No"
+msgstr "Hindi"
+
+msgid "Start a new game?"
+msgstr "Magsimula ng isang bagong laro?"
+
+msgid "Play the tutorial?"
+msgstr "Play ang tutorial?"
+
+msgid "Exit the game?"
+msgstr "Lumabas ang laro?"
+
+msgid "Back"
+msgstr "Balik"
+
+msgid "Game Loaded"
+msgstr "Game load"
+
+msgid "Game Saved"
+msgstr "Game Naka-save na"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Anumang pag-unlad hindi naka-save ay mawawala"
+
+msgid "Joy Button #%d"
+msgstr "Joy Pindutan # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Pindutin ang Action makipag-usap sa %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Bagong layunin: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Layunin Nakumpleto: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Ang mga pader sa kanan Mukhang mahina ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Armas na ito ay hindi pagkakaroon ng anumang epekto ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Pindutin ang Aksyon upang ilakip ang Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "Ang Legend ng Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s ay kinakailangan upang ma-activate ang paglilipat na ito"
+
+msgid "Press Action to use this switch"
+msgstr "Pindutin ang Aksyon upang magamit ang lumipat"
+
+msgid "Press Action to save your game"
+msgstr "Pindutin ang Aksyon upang i-save ang iyong mga laro"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s ay kinakailangan upang gamitin ang Presyon Larawan"
+
+msgid "%s is needed to open this door"
+msgstr "%s ay kinakailangan upang buksan ang pinto"
+
+msgid "This door is locked"
+msgstr "Pinto na ito ay naka-lock"
+
+msgid "This teleporter is not active"
+msgstr "Teleporter na ito ay hindi aktibo"
+
+msgid "Press Action to go to the %s"
+msgstr "Pindutin ang Aksyon upang pumunta sa %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up Down o upang magamit ang pag-angat"
+
+msgid "This lift is not active"
+msgstr "Angat na ito ay hindi aktibo"
+
+msgid "Cannot carry any more %s"
+msgstr "Hindi carry ng iba pang %s"
+
+msgid "Picked up %s x %d"
+msgstr "Matutunan sa %s x %d"
+
+msgid "Picked up %s"
+msgstr "Matutunan sa %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s ay kinakailangan upang dalhin ang item na ito"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Imbakan Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Coal Bag Imbakan Lumipat Key"
+
+msgid "Large Room Key"
+msgstr "Malaking Room Key"
+
+msgid "Coal Bag"
+msgstr "Coal Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell Key"
+
+msgid "Wood Axe"
+msgstr "Wood palakol"
+
+msgid "Health Potion"
+msgstr "Health gayuma"
+
+msgid "Outflow Key"
+msgstr "Pag-agos Key"
+
+msgid "Flow Control Key"
+msgstr "Daloy ng Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Basura Processing Key"
+
+msgid "Access Key 1"
+msgstr "Access Key 1"
+
+msgid "Access Key 2"
+msgstr "Access Key 2"
+
+msgid "Access Key 3"
+msgstr "Access Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Bitag Door Lumipat Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Angat na ito ay walang kapangyarihan. Hindi ko na maaaring gamitin ito hanggang sa ako ibalik ang kapangyarihan"
+
+msgid "Keep practising!"
+msgstr "Panatilihin ang pagsasanay!"
+
+msgid "Hi"
+msgstr "Hi"
+
+msgid "Hello Edgar"
+msgstr "Hello Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Maaari ko bang hiramin ang iyong kalasag?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Sarado sa pagsasanay ang inyong mga kasanayan sa pakikipaglaban?"
+
+msgid "Something like that"
+msgstr "May nais na"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Kung patakbuhin mo ako ng lakad at pagkatapos ay maaari kang magkaroon ng kalasag"
+
+msgid "What do I have to do?"
+msgstr "Ano ang kailangan kong gawin?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Pumunta sa minahan at mangulekta sa akin ang ilang karbon"
+
+msgid "But we have plenty of coal!"
+msgstr "Ngunit kami ng maraming patong!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Oo, ngunit ito ay hindi sa anumang lumang karbon, karbon na ito ay espesyal, ito Burns hotter at tumatagal na"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Ko lang kailangan 10 piraso ng mga bagay-bagay, kaya hindi ito dapat magtagal ikaw ay lubhang mahaba"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Siguraduhin na ang ilagay mo ito sa isang bag, hawakan ito para sa masyadong mahaba ay masama para sa inyong kalusugan"
+
+msgid "Do you have a bag?"
+msgstr "Mayroon ka ng bag?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Hindi, maaari mong mahanap ang marahil isa sa akin kahit na"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, Kukunin ko ang mga uling"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Narito, lumabas ito piko. Maaari mong gamitin ito sa minahan ng karbon at hack sa pamamagitan ng anumang mga weaker pader ninyong matagpuan ang"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Kailangan mo ring ang susi sa kumuha sa minahan"
+
+msgid "Thanks!"
+msgstr "Salamat!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Salamat sa iyo, Edgar, karbon na ito ay perpekto! Hope sa bats hindi matakot sa iyo."
+
+msgid "The bats were the least of my worries..."
+msgstr "Ang bats ay ang hindi bababa ng aking mga alalahanin ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Say, narinig ko na may nangyari na sa akin ng ilang taon na ang nakaraan"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Ay, yeah, nagkaroon ng kung ano ang gusto mo tawag ng isang  insidente , ngunit na bahagi ng minahan ay sealed up ng isang mahabang oras nakaraan"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Dito, ang aking kalasag at magsaya!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Basta lumayo mula sa lumubog Ipinagbabawal"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Makakagambala ba ang gawin, ang maaari kong kumapit sa iyong piko para sa isang habang?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Sure bagay, dalhin lamang ito sa likod sa isang piraso"
+
+msgid "Thanks, Borgan!"
+msgstr "Salamat, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Nakarating na pinamamahalaang upang mahanap ang karbon pa?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Maaari mong hilahin ang ilang mga bagay sa paligid sa pamamagitan ng panunulak laban sa kanila habang hawak na down ang Action button."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Maaari mo nang hilahin ito sa paligid hanggang sa inyo na pumunta ang pindutan ng Aksyon"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Batong ito asta masyadong malakas para sa aking Pumili ng palakol. Kukunin ko na gumamit ng isang bagay sino pa ang paririto sa kumuha sa pamamagitan ng ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, ano ang nangyari?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Mukhang ito ay hindi na tulad ng isang magandang ideya na matapos ang lahat"
+
+msgid "There must be way out of here..."
+msgstr "Dapat ay may paraan ng dito ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Ito ay dapat na patong ng gustong ako sa akin para sa kanya"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Hindi ko isipin ang aking kalasag ay maprotektahan mula sa akin ang mga fireballs. Kukuha ako makahanap ng mas malakas na ng isa ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Ikaw ay hindi maaaring gawin ito sa bit ang bersyon na ito, bumalik ulit mamaya!"
+
+msgid "Strange creature..."
+msgstr "Strange nilikha ..."
+
+msgid "Wait, what was that?"
+msgstr "Maghintay, kung ano ang na?"
+
+msgid "You again?!"
+msgstr "Ka ulit?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Manggagaway ay dapat kinuha tatay sa kanyang mangarap ng gising. Kukunin ko sa pagsagip sa kanya mula doon."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ang tanging paraan upang makakuha ng kastilyo ay sa pamamagitan ng Bawal na lumubog sa Silangan."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "May isang lake sa pagitan ng Village at ang bana kaya kailangan ko na kailangan ang isang balsa upang makakuha ng kabuuan."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Kukunin ko rin kailangan ng isang tabak at kalasag upang ipagtanggol ang aking sarili. Maaari bang makausap at upang makakuha ang mga ito kahit na."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Something ay dapat na mangyari dito, ngunit ito ay hindi ang bersyon na ito kaya bumalik ulit mamaya!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Salamat sa resucing aking chickens, ikaw ay may nakuha ako 2 logs mula sa kagubatan pa?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Salamat Edgar! Aking chickens ay sa likod at sa mga logs ay gawin sa akin pagmultahin"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Lumabas ito tabak, maaaring maglingkod sa inyo!"
+
+msgid "Thank you!"
+msgstr "Salamat!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Salamat para sa logs, ikaw ay may anumang luck sa mga chickens?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Kukunin ko na magbibigay sa iyo ng tabak kung makuha na ninyo ako 2 tinadtad logs mula sa kagubatan at iligtas ng hindi bababa sa 3 ng aking mga chickens"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, ano ang magagawa ko para sa iyo ngayon?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Mayroon ka ng isang tabak Maaari ko bang hiramin?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Ako magkaroon ng isang tabak at maaari mo ito kung gagawin mo ng isang bagay para sa akin ang unang"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... kung ano ang kailangan kong gawin?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Ang ilan sa aking mga chickens ay nakatakas mula sa kanilang mga panulat at nais ko ay tunay nagpapasalamat kung maaari mong makuha ang mga ito sa likod para sa akin"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Ako na-set up ang ilang mga traps na malapit sa kanilang mga panulat, maaari mo pang-akit sa kanila na ang traps gamit ang chicken feed. Hindi ko kailangan ang lahat ng mga ito, ngunit hindi bababa sa 3 na magiging very helpful. Maaari ba akong makakuha ng pahinga ang sarili ko."
+
+msgid "That's it?"
+msgstr "That's ito?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Hindi lubos. Maaari ka ring makakuha ng ako ng ilang kahoy mula sa kagubatan? 2 logs dapat ay sapat na"
+
+msgid "Do you have an axe?"
+msgstr "Mayroon ka ng isang palakol?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Iniwan ko ang aking palakol sa gubat sa tabi-tabi. Ito ay dapat pa rin bang"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Ay hindi na mapanganib na kagubatan?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Hindi talaga, kung anumang bagay na nakukuha sa iyong mga daan, pindutin lamang ito ng isang armas"
+
+msgid "Such as an axe?"
+msgstr "Tulad ng isang palakol?"
+
+msgid "Yes, that would do the trick"
+msgstr "Oo, na gawin ang mga kakaibang ugali"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Pero seryoso, may wala doon na maaari talagang saktan ka. Problema na iyon ay dealt sa isang mahabang oras sa nakaraan ..."
+
+msgid "Good luck!"
+msgstr "Good luck!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, thanks Edgar, ako lamang ang kailangan 3, pero salamat para sa karagdagang tulong!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Dito, Maggie na ginawa sa akin ito sa kalusugan ng gayuma ngunit hindi ko ito kailangan ng sa gayon bakit hindi ikaw ito?"
+
+msgid "Thanks Jacob"
+msgstr "Salamat Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, ikaw nahuli ang lahat ng mga ito, thanks a lot!"
+
+msgid "Here, I have these for you"
+msgstr "Narito, ako ang mga ito para sa iyo"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie na ginawa sa akin ito sa kalusugan ng gayuma ngunit maaari mo ito"
+
+msgid "And this is something very special"
+msgstr "At ito ay isang bagay na napaka-espesyal na"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "May na ito sa iyo sa iyong mga paraan upang maging isang malakas na mandirigma"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Ikaw ay nai-save na ako ng isang pulutong ng mga oras. Maggie na ginawa sa akin ng isang bagay sino pa ang paririto ngunit dahil ikaw ay helpful sa gayon, maaari mong makuha ito."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Salamat Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan said na ang isang seksyon ng minahan ay sealed up pagkatapos ng isang  insidente "
+
+msgid "There must be something around here..."
+msgstr "Dapat ay may isang bagay sa paligid dito ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, drawbridge ay up. Dapat ay may isa pang pasukan ..."
+
+msgid "Wait, what's that?"
+msgstr "Maghintay, ano na?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Siguro kaya kong lagusan ang aking paraan ka .."
+
+msgid "These machines aren't working."
+msgstr "Ang mga makina ay hindi gumagana."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Tila isang perlas dapat magkakasya sa butas na ito, marahil ako makakahanap ng ilang kapalit."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Tila ito ay mahigpit na maipit doon. Ako malamang tumanggal ito kasama ng piko ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Upang makakuha ng Ipinagbabawal lumubog makikita ko na kailangan upang makabuo ng isang balsa."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Ako magtayo ng balsa kung ako pumalakol down ng sapat na mga puno mula sa kagubatan"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Kailangan ko ng 6 tinadtad Logs na bumuo ng isang balsa"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Hindi ko na pagpunta sa lumubog na walang tabak at kalasag"
+
+msgid "OK, here goes!"
+msgstr "OK, here goes!"
+
+msgid "Aw, not again!"
+msgstr "AW, hindi na ulit!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Ito ay mas mabuti na ang huling oras na kailangan kong gawin ito ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Na iyon ay easy! At maaari kong laging bumalik mamaya!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Hulaan Wala akong pumili sa ngayon."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Bumitin sa tatay, I'm coming ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Something ay dapat na mangyari ngayon, ngunit ito ay hindi ang bersyon na ito. Balikan muli mamaya!"
+
+msgid "There's a note here"
+msgstr "May isang nota dito"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "I've been trapped down dito para sa kung ano ang anyong tulad ng isang kawalang-hanggan"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Upang makakuha ng lugar na ito kailangan ko 3 Access Keys sa trabaho ang mga lifts"
+
+msgid "So far I have only found 1"
+msgstr "Kaya lang malayo ako ay natagpuan 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Upang gumawa ng bagay na mas masahol pa, maaari ko lang maabot ang ilang mga switch na may isang maingat na inilagay arrow"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Subalit spares ay hindi pangkaraniwan at ako maubusan"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Kung hindi ako makahanap ng isang paraan ng dito sa lalong madaling panahon, takot ko na maaari kong mamatay sa gutom"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Kung hindi ako makakuha ng out dito kukunin ko na magdusa ang parehong kapalaran ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, ano ito?"
+
+msgid "There's a note here too"
+msgstr "May tandaan dito masyadong"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Ang gayuma ay perpekto! Quaffing ito ay maging isang tao sa isang tao para sa isang maliit na halaga ng oras"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Sa ngayon ko lang palitan ang aking sarili sa isang tao ngunit may kaunti pang panahon anumang bagay na dapat ay posible"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "May isang maliit na maliit bukado kaliwa, ito ay dapat na ligtas na inumin"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, here goes wala ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Ito ay kakila-kilabot!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan sinabi sa akin na Slimes maaari lumangoy sa tubig kahit na, kaya baka ito ay maging kapaki-pakinabang ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Kapag transformed sa isang putik, maaari mong ilipat ang buong bilang normal. Maaari ka ring lumangoy sa tubig at gamitin up at down upang ilipat sa paligid"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Panunulak up o tumalon ay gumawa ka tumalon labas ng tubig kung ikaw ay malapit sa ibabaw"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Panatilihin ang isang mata sa timer sa ibaba ng screen. Kapag ito umabot sa 0 ikaw ay awtomatikong naging tao muli"
+
+msgid "This place doesn't look so bad..."
+msgstr "Sa lugar na ito ay hindi hitsura kaya masamang ..."
+
+msgid "What was that?"
+msgstr "Ano na?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, Natutuwa akong maging out of may"
+
+msgid "Now to get through this swamp"
+msgstr "Ngayon sa kumuha ito sa pamamagitan ng lumubog"
+
+msgid "Hey, what's this?"
+msgstr "Uy, ano ito?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Mukhang medyo hindi nakakapinsala, kailangan kong subukan apak ito"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Na iyon ay cool! Ito ay dapat maging isang makina teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "Siguro kung ito ay gumagana sa parehong paraan ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Hindi lamang na ito ay pagpunta upang i-save ako ng isang pulutong ng mga naglalakad, ito ay naglo-load din ng fun!"
+
+msgid "Now try out your shield"
+msgstr "Ngayon, subukan ang iyong kalasag"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Harangan ang Yelo samaan ng loob sa pamamagitan ng mga halaman at lumundag sa susunod na pasimano"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Ang ilang mga bagay sa laro ay maaaring hunhon at hinila"
+
+msgid "To push an item, simply walk into it"
+msgstr "Upang push ng isang item, i-lakad sa mga ito"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Upang pull ng isang item, maglakad sa habang pagpindot ng Aksyon"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Maaari mo nang hilahin ang bagay sa paligid hanggang sa inyo na pumunta ng Aksyon"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Hilain ang mga kahon sa iba pang panig at gamitin ito upang maabot ang ungos"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Ito ang huling bahagi ng tutorial at magturo sa iyo upang harangan at atake ng mga kaaway"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Una, dapat kang magbigay ng tabak na ito dahil ito ay may higit na hanay at ang karagdagang pinsala kaysa sa piko"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Pindutin ang z upang tingnan ang iyong imbentaryo, i-highlight ng tabak at pindutin ang Attack (kaliwa ctrl) o Gamitin ang Item (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Pindutin ang z muli upang isara ang iyong imbentaryo"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Paminsan-minsan, pinatay kaaway ay drop ng kalusugan na kung saan ay lumipas pagkatapos ng ilang segundo, kaya itong kunin mabilis!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Kung bat ay nakakakuha sa malapit sa inyo, hold harangan at ito ay harmlessly bounce off mo"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Ngayon patayin ang lahat ng mga bats sa lugar!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Mayroong dalawang mga uri ng pinto sa ang laro. Manual pinto at Automatic pintuan."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manual pinto nangangailangan ng susi para buksan ang mga ito, Automatic pinto nangangailangan ng switch."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Upang buksan ang isang naka-lock ang pinto na ikaw ang susi para sa, i-lakad sa mga ito. Diyan ay hindi mangilangan sa may ang susi pinili sa iyong imbentaryo."
+
+msgid "Open the door and continue to the right"
+msgstr "Buksan ang pinto at magpatuloy sa kanan"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Pagbati! Ngayon ay alam mo ang mga pangunahing kaalaman sa paglalaro ng mga dapat mong subukan ang pangunahing mga laro"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Kung nais mong muling paglalaro tutorial na ito, pindutin ang Escape at piliin Tutorial mula sa menu ng"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Para malaro ang pangunahing laro, pindutin Escape at piliin ang New Game mula sa menu ng"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Pindutin ang Space kapag natapos mo na ang pagbabasa upang pumunta sa susunod na dialog box"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Maaari ka ring pumunta sa susunod na dialog box sa pamamagitan ng pagpindot Attack (kaliwa ctrl), Block (kaliwa alt), Tumalon (space), Action (c) o Gamitin ang Item (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Ito ay ang tutorial para sa The Legend ng Edgar. Ito tutorial ay magpapaliwanag kung paano mag-play ang laro."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Upang umalis sa tutorial na ito, pindutin ang Escape at gamitin ang Up Down at mga arrow key upang pumili ng isang opsyon. Pindutin ang Bumalik sa piliin ito."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Upang ilipat ang kaliwa at kanan, gamitin ang mga arrow key."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Upang gumawa ng tumalon, pindutin ang space. Maaari mong ilipat sa hangin kapag jumping."
+
+msgid "To interact with an item, press c"
+msgstr "Upang makipag-ugnayan sa isang item, pindutin c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Maglakad papunta sa Aksyon Point at pindutin c"
+
+msgid "To collect an item from your"
+msgstr "Upang mangolekta ng isang item mula sa iyong"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Upang pick up ng isang item, i-lakad sa mga ito. Kahit anong collectable items ay idadagdag sa iyong imbentaryo."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Maaari mong tingnan ang mga nilalaman ng iyong imbentaryo sa pamamagitan ng pagpindot z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Sapagkat sa imbentaryo, gamitin ang mga arrow key upang tingnan ang mga item."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Maaari mong gamitin ang isang item agad sa pamamagitan ng pagpindot Attack (kaliwa ctrl) o Gamitin ang Item (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Maaari mong handa ng isang item para gamitin sa pamamagitan ng pagpindot Block (kaliwa alt) o Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Maglakad sa paglipas ng susi sa itong kunin"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Maaari mong baguhin ang lahat ng mga kontrol sa ang laro sa pamamagitan ng pagpindot Escape at pagpili ng opsyon sa menu"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Piliin ang I-configure Kontrol gamit ang mga pindutan ng arrow at pindutin ang Return"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Gamitin ang mga arrow key upang piliin ang control na gusto mong baguhin at pindutin ang Ibalik."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Next, pindutin ang key na nais mong gamitin sa halip."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Anuman ng kung ano ang mga key na pinili mo, maaari kayong mag-navigate ang menu na gamit ang mga pindutan ng arrow at Bumalik"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Tandaan na sa tutorial na ito, ang default keys ay ipinapalagay"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Kapag natapos mo na ang pag-configure ang mga pindutan ng, pumunta karapatan sa susunod na Action Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Piko ay isa sa maraming mga armas ikaw ay magkasalubong sa laro"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Maaari mong gamitin ito bilang kapwa ng sandata at ng isang kasangkapan"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Piliin ang piko at magpatuloy sa susunod na Action Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Congratulations, natagpuan mo ang isang lihim na!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Mayroong maraming mga lihim sa pangunahing laro upang panatilihin ang isang tumingin sa labas para sa kanila"
+
+msgid "Here's a hint to get you started"
+msgstr "Narito ang isang pahiwatig para makasimula"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Kahit na nangangailangan lamang sa iyo upang mahuli 3 ng kanyang chickens, bakit hindi dapat nice sa kanya at mahuli ng karagdagang impormasyon? May 10 libot sa mapa sa lahat"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Ang kalasag ay maprotektahan ka mula sa pinaka-atake ng kaaway"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Ang ilang mga kaaway na pag-atake ay hindi maaaring hinarangan"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Panganib sa kapaligiran, tulad ng pagbagsak ng bato, ay hindi maaaring hinarangan"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Upang harangan ang isang pag-atake, pindutin block (kaliwa alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Ikaw ay dapat na nakaharap sa mga atake sa matagumpay na na-block na ito"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Tandaan na hindi ka maaaring ilipat habang blocking, ngunit maaari kang mukha ng ibang mga paraan. Ikaw rin ay hindi maaaring block sa hangin"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Piliin ang mga kalasag at magpatuloy sa kanan"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Ito ay isang mahina sa dingding, ito ay maaaring smashed pababa gamit ang piko"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Upang gamitin ang piko, pindutin Attack (kaliwa ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "na hindi lahat ng mahina ang mga pader ay pupuksain sa paggamit ng piko"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Wasakin ang pader gamit ang piko at magpatuloy"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Something's dapat na maging dito ngunit ito ay hindi ang bersyon na ito, bumalik ulit mamaya!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Mangolekta ng 10 piraso ng Coal"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Mangolekta ng 2 tinadtad Logs"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rescue 3 Chickens"
+
+msgid "Find 4 Gems"
+msgstr "Maghanap ng mga 4 Diamante"
+
+msgid "Repair Generators"
+msgstr "Ayusin ang mga Generators"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Mangolekta ng 6 tinadtad Logs"
+
+msgid "Collect 3 Access Keys"
+msgstr "Mangolekta ng 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Ito ay isang blangko ang layunin"
+
+msgid "Kill all Bats!"
+msgstr "Patayin ang lahat ng Bats!"
+
+msgid "Coal"
+msgstr "Coal"
+
+msgid "Chopped Log"
+msgstr "Tinadtad Lumikha ng account"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Lila Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "Bagong Game"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Ang Opsyon"
+
+msgid "About"
+msgstr "Tungkol sa"
+
+msgid "Quit"
+msgstr "Tumigil"
+
+msgid "Configure Controls"
+msgstr "Itakda ang Kontrol"
+
+msgid "Configure Sound"
+msgstr "Itakda ang Sound"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Ipakita ang mga paalala"
+
+msgid "A potion which will transform you..."
+msgstr "Ang isang gayuma na kung saan ay ibahin ang anyo mo ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Lumilikha ng mataas na absorbant maliliit na cubes na yelo"
+
+msgid "A potion which will restore all of your health"
+msgstr "Ang isang gayuma na kung saan ay ibalik ang lahat ng iyong kalusugan"
+
+msgid "A powerful bomb"
+msgstr "Isang malakas na bomba"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Ang isang gayuma na nagpapakita ng nakikita mo sa ilang mga kaaway"
+
+msgid "The eyeball from a Gazer"
+msgstr "Ang eyeball mula sa isang Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Tesla Pack. Ito ay walang bayad."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Isang Summoner's Staff. Hindi na ito maaaring gamitin ng mga tao."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Tesla Pack. Ito ay ganap na sisingilin."
+
+msgid "An empty potion bottle"
+msgstr "Ang isang walang laman na bote gayuma"
+
+msgid "A bag of chicken feed"
+msgstr "Ang isang bag ng chicken feed"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Isang bag na angkop para sa pagdala ng karbon"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Isang Sword ibinigay sa iyo sa pamamagitan ng Jacob"
+
+msgid "A bow"
+msgstr "Ang sumang-ayon"
+
+msgid "Small Wooden Shield"
+msgstr "Maliit na kahoy Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Ang isang maliit na kalasag na nagbibigay ng pangunahing proteksyon"
+
+msgid "Normal Arrow"
+msgstr "Normal Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal arrow"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Palakol ng isang angkop para sa pagpuputol puno"
+
+msgid "Pickaxe"
+msgstr "Piko"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Piko Isang Mahal na Araw sa iyo sa pamamagitan Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Sunog mitsero Key"
+
+msgid "Potion Room Key"
+msgstr "Gayuma Room Key"
+
+msgid "Surge Passage Key"
+msgstr "Surge daanan Key"
+
+msgid "Demolition Storage Key"
+msgstr "Demolisyon Imbakan Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Anuman ang bagay na iyon ay ito ay draining ang kapangyarihan mula sa generator at paggamit nito laban sa akin."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Na maaaring ipaliwanag kung bakit angat na hindi gumagana. Paggapi sa iba pang mga drainers dapat ibalik ang kapangyarihan."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Magpawalang-bisa sa lahat ng Enerhiya Drainers"
+
+msgid "No Objectives"
+msgstr "Walang mga Layunin"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Pindutin ang Aksyon upang i-reset ang mga bloke-isip nang malalim"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Tila isang blender. Maaari ko bang gamitin ito sa liquidise ng isang bagay"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Kailangan ko ng Red putik galamay at 3 Gazer Eyeballs sa gawin ang gayuma"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Ko pa rin kailangan ng isang Empty Bottle upang ilagay ang gayuma sa"
+
+msgid "So this is the Fortress."
+msgstr "Kaya ito ang muog."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Tila isang pulutong ng mga pintuan ng simulan sa iba pang mga lugar, ang dapat kong magkaroon ng isang maayos na tumingin sa paligid bago ko pumunta sa kahit saan pa ..."
+
+msgid "Try hitting the skull..."
+msgstr "Subukan ang paghagupit ang bungo ..."
+
+msgid "This machine is not active"
+msgstr "Makina na ito ay hindi aktibo"
+
+msgid "Repeat the sequence"
+msgstr "Ulitin ang pagkakasunod-sunod"
+
+msgid "Correct Sequence"
+msgstr "Tamang Sequence"
+
+msgid "Incorrect Sequence"
+msgstr "Maling Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Ang Legend ng Edgar ay nakaranas ang mga sumusunod na error"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Paki-report ang error na ito kahanay katotohanan"
+
+msgid "The game will now exit"
+msgstr "Ang laro ay ngayon lumabas"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Tila isang blender. Maaari ko bang gamitin ito sa liqudise ng isang bagay"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Ito ay dapat na patong ng Borgan gustong ako sa akin para sa kanya"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Na maaaring ipaliwanag kung bakit angat na hindi gumagana. Paggapi sa iba pang mga drainers dapat ibalik ang kapangyarihan dito."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Kailangan kong makahanap ng 3 mata Gazer, 1 Red putik at mga galamay ng dagdag na panangga upang lumikha ng isang Shield ng Fire pagtutol"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Kapag ako natagpuan lahat ng mga bagay na ito ang kukunin ko upang mahanap ang isang lugar upang lumikha ng kalasag"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "May isang libro dito tungkol sa mga armas kaakit-akit"
+
+msgid "Maybe I can create a shield..."
+msgstr "Siguro ang maaari kong lumikha ng isang kalasag ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Lakas ... Ng armas ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid libro. Ito ay hindi sa mga order at may index walang"
+
+msgid "Here we go: Shields"
+msgstr "Narito pumunta namin: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield ng Fire pagtutol"
+
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgid "One must gather the following"
+msgstr "Dapat Isa magtipon ang mga sumusunod na"
+
+msgid "The root of a Mandrake"
+msgstr "Ang mga ugat ng halaman ng mendreik"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Ang taba ng isang Darsh (kaliwa tumayo para sa 3 buwan)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor buto"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 mga mata ng Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Ang sariwa hiwa galamay mula sa isang babae Red putik"
+
+msgid "The shield to apply the enchantment"
+msgstr "Ang kalasag na mag-aplay sa pagka-akit"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Timpla ng Gazer mga mata at putik galamay sa isang makinis na likido"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Idagdag ang mga ugat, taba at buto sa kawa at haluin gamit ang pinaghalo mata Gazer at putik galamay"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Kapag nag-halo ang nagiging maliwanag na bughaw, idagdag ang kalasag"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Ko na makikita sa halos lahat ng mga bagay na ito sa lab kaya hindi ko kailangan mag-alala tungkol sa mga"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "At ang Gazers umistambay sa basement nang sa gayon ay hindi isang problema"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Ano ang gagawin ko na kailangan upang mahanap ang isang Red putik, ngunit Wala akong ideya kung saan sa mapulot isa"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Hindi ko gamitin ang aking kasalukuyang mga kalasag sa eksperimento sa kasong ito backfires kaya ang kukunin ko upang mahanap ang isa pa"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "May maaaring potions kuwarto o laboratoryo kung saan ako makakahanap ng The Roots, mataba at buto upang hindi ko na kailangan mag-alala tungkol sa mga"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Kailangan mo ng pagtuturo ng card na gusto mong gamitin ang naka-highlight sa iyong imbentaryo kahon"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, isang laboratoryo!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Pag-ibig ko nanonood Maggie gumawa ng lumunok at potions, marahil ako gumawa ng ilang sa aking sarili dito!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, hindi ko na nakita sa gayon maraming mga libro sa isang lugar!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Dapat ay may impormasyon tungkol sa bawat paksa dito, ito ay maaaring maging kapaki-pakinabang ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, hangin ang nararamdaman sisingilin, ito reminds me of Maggie bahay kapag siya ang paggawa ng lumunok. Kailangan kong maging maingat."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, ikaw ay nasaktan! Hayaan akong pagalingin ang iyong mga sugat"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Siguro kung ano ang iba pang mga monsters may mga. Susunduin isang pahina at random ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers ay lumilipad cycloptic nilalang na matatagpuan sa iba't-ibang lugar"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Ang kanilang nag-iisang mata kadalasan ay sarado at umaasa lamang sila sa paniktik-submarino para sa kilusan"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Gamitin nila ang kanilang malakas na pang-amoy upang tumingin sa labas para sa paninila at manghuli kapwa"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers atake (at ipagtanggol ang kanilang sarili) sa pamamagitan ng pagbubukas ng kanilang mga mata na kung saan ay masilaw anumang bagay na pagtingin sa mga ito"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Pag-atake na ito ay epektibo lamang subalit kung ang biktima ay nakaharap sa Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Isang Gazer's eyeball ay naglalaman ng kahima-himala at pag-aari ay isang pangkaraniwang sangkap sa oras ng paggawa paghahanda"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions ay magically nilikha nilalang, kadalasang despatsado bilang sentries o mga tanod"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Kahit na mabagal na ang paglipat, ang kanilang napakalaking sukat ay nagbibigay-daan sa kanila na lang martsa sa pamamagitan ng anumang pagtatanggol"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Sa halip na armas, marami ang may malaking pagtira sa mga driver na ginagamit nila upang kalugin sa lupa at tumaranta pagbabanta"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Habang Grey Centurions ay gagamitin upang bantayan panlabas perimeters, Red Centurions ay kilala sa umiiral at ito ay ginagamit upang protektahan ang mga lugar ng malaking kahalagahan"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters ay hindi makasasama monsters maliban na lamang kung attacked."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Sa nagtutukod masyadong maraming pinsala sila ay split sa dalawang at atake sa kanilang paninila"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Kung ang isa sa mga sustains masyadong maraming pinsala ito ay split muli at magpatuloy sa pag-atake"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Panghuli, isa sa huling split ay gumawa ng napakaliit na bersyon ay ganap na hindi nakakapinsala at sa estado na ito ay maaaring i stepped on"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Kung ang lahat ng mga bahagi nito ay patuloy ang buhay, ang isang splitter ay reporma sa kanyang sarili matapos ang isang habang at pagalingin ang kanyang mga sugat"
+
+msgid "Grub, Red"
+msgstr "Uod, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Red Grubs ay mas agresibo kaysa sa kanilang counterparts green at atake sa anumang bagay na tinitingnan nila bilang isang banta"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Sa pag-abot sa kapanahunan sila ay bumuo ng isang bahay-uod at morph sa isang putakti"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Ang ilang mga gayunpaman ay morph sa isang putakti queen. Ang mga queens ay maaaring makabuo ng isang lamod kaya ng mga humahawak nito manghuli sa lugar"
+
+msgid "Tortoise, Master"
+msgstr "Pagong, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Tortoises ay nakakatakot beasts. Found in malayo lupain nagtataglay sila ng kakayahan upang baguhin ang kanilang mga ulo"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Pagsasama-samahin nila ang lahat ng kakayahan ng kanilang mga pinsan upang huminga ng bumbero, gumawa ng yelo at makoryente ang kanilang mga sarili"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "At siyempre ang mga ito ay tinatablan din sa pag-atake mula sa pagtutugma ng mga sangkap, lubhang kaganyak-ganyak ng enerhiya upang pagalingin ang kanilang mga sarili"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Subalit karagdagan, kung sila ay makakatanggap ng masyadong maraming enerhiya mula sa healing, sila evolve at pumunta sa magalit nang labis"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Sa ganitong estado ay bagsak sila sa pamamagitan ng anumang pagtatanggol at gumawa ng Dark Matter na destroys anumang bagay na ito touches"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Gayunman, ang shell ng isang rampaging Master pagong ay lubhang kaakit-akit at ito ay isang mahalagang sangkap kapag lumilikha ng malakas na magics at mga bagay"
+
+msgid "Venus Flytrap"
+msgstr "Venus panghuli ng langaw"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Rosas"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Maitim"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore ay isang likha mula sa iba pang laki. Ito ay maaaring summoned gamit ang malakas na madilim magic"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Ang pinaka-karaniwang dahilan sa magpasundo hayop na ito ay upang kumilos bilang isang tanod"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Walang alam na paraan upang pumatay Grimlore dahil sa nagtutukod kritikal na pinsala ay ito lamang ang bumalik sa kanyang sariling laki"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Subalit kahit injuring ito ay isang panghabang-panahon gawain. Kahit sino encountering ito nilikha ay pinapayuhan na makatakas sa lalong madaling panahon"
+
+msgid "Or they will die very quickly"
+msgstr "O sila ay mamatay napakabilis"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, dito ay isang kompendyum ng mga monsters"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 volumes! Paano bang maging maraming monsters sa mundo?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Mukhang na ang mga ito sa alpabetikong kaayusan bagaman"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Putik, Green ... Putik, Purple ... Putik, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Putik, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Hindi tulad ng kanyang green pinsan, ang Red putik mananatiling malalim sa ilalim ng lupa at bihira, kung kahit minsan, ibabaw"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Its ginustong tahanan ay matuyo at mineral mayaman na lugar at bilang isang resulta ay natagpuan lingid sa mga lugar ng mga mina ang inabandunang mga tao sa pamamagitan ng"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Sila ay napaka maalaga ng mga tao at pag-atake sa paningin, kadalasan pagsusuka up ang isang asido na kumukuha ng oras upang mawala"
+
+msgid "Smacker, Lesser..."
+msgstr "Matunog na halik, mas maliit ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Mahusay, na ang lahat ng sinasabi nito. Hindi ko kahit na alam kung paano sabihin ang pagkakaiba sa pagitan ng isang lalaki at babae. Kukunin ko na lang na kumuha ng isang pagkakataon ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Bukod, ano ang pinakamasama na maaaring mangyari?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Upang ilipat Edgar kaliwa at kanan, gamitin ang mga arrow key."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Upang gumawa Edgar tumalon, pindutin ang space. Maaari mong ilipat sa hangin kapag jumping."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Kahit na Jacob lamang nangangailangan sa iyo upang mahuli 3 ng kanyang chickens, bakit hindi dapat nice sa kanya at mahuli ng karagdagang impormasyon? May 10 libot sa mapa sa lahat"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Tandaan na hindi lahat ng mahina ang mga pader ay pupuksain sa paggamit ng piko"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Na ako nasuri, siya ay hindi down na may ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Ko na narinig ng mga tao na bumabagsak sa mabuti bago, marahil tatay sa may ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "Tatay !!!!! AY DOWN MO BANG ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Wala. Ako hulaan ang kukunin ko para mapanatili sa mga naghahanap ng"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up o Down upang taasan o babaan ang platform"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "May isang libro tungkol dito kaakit-akit na kagamitan"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Ito ay isang libro tungkol sa kaakit-akit na kagamitan"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Wala akong anumang dahilan na basahin ito ngunit kailangan kong itago ito sa isip sa kaso ko"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Siguro kung ano ang iba pang mga monsters may mga ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Katulad ng regular na Summoners, Maitim Summoners tawag sa ibang beasts na gawin ang kanilang mga pag-bid"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Dagdag pa nito bagaman sila teleport maikling distances upang makatakas mula sa kanilang mga opponents"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Ang kanilang mga tauhan ay lubhang kaakit-akit at bagaman hindi ito maaaring gamitin ng mga tao direkta, ang kahima-himala-aari ay ginagamit sa oras ng paggawa sa paglikha ng"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Rosas Hoovers ay maliit quadrupeds na may mahabang nguso"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Ang pangunahing puropse ng nguso ay upang maghanap ng pagkain para sa pagkain ngunit ito rin ang gumaganap bilang isang mekanismo sa pagtatanggol"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "at higit sa kaya ng pagsunod ng isang paninila baya sa pamamagitan lamang ng pamumulaklak malayo sa kanila"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus panghuli ng langaw, mobile"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Venus Flytraps may nagbago mga pinagmulan at nagagawang lumipat sa kanilang mga pagkain sa halip na naghihintay para sa mga ito na dumating sa kanila"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Ang kanilang mga necks ay incredibly nababanat at nagagawang kunan ng larawan sa kanilang manghuli mula sa isang mumunti layo layo"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Na dapat gawin ito. Inaasahan namin na ang ibang pag-angat ng pantahi ay dapat na ngayon ay nagtatrabaho"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Angat na ito ay hindi gumagana. Hindi ko na maaaring gamitin ito hanggang sa ako ibalik ang kapangyarihan"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Salamin na mukhang masyadong makapal para sa akin sa pumutok, kukunin ko na ang ilang mga iba pang mga paraan ng mundo na ito ..."
+
+msgid "Up"
+msgstr "Taas"
+
+msgid "Down"
+msgstr "Baba"
+
+msgid "Left"
+msgstr "Kaliwa"
+
+msgid "Right"
+msgstr "Kanan"
+
+msgid "Jump"
+msgstr "Tumalon"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Block"
+
+msgid "Action"
+msgstr "Aksyon"
+
+msgid "Use Item"
+msgstr "Gamitin ang Item"
+
+msgid "Previous Item"
+msgstr "Previous Item"
+
+msgid "Next Item"
+msgstr "Next Item"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Pause"
+msgstr "I-pause"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Music Volume"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Library"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lift Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Entrance Door Key"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Kuta dakong labas ng bayan"
+
+msgid "Forbidden Swamp"
+msgstr "Ipinagbabawal lumubog"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Dumi sa alkantarilya Restricted Zone Key"
+
+msgid "Basement"
+msgstr "Basement"
+
+msgid "Fortress Ground Floor"
+msgstr "Kuta Ground Floor"
+
+msgid "Sewer"
+msgstr "Pantahi"
+
+msgid "Fortress Main Key"
+msgstr "Kuta Main Key"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access Key 3"
+
+msgid "Laboratory"
+msgstr "Laboratory"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "First Floor Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Pindutin ang Aksyon upang makuha ang %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, ito ay bago."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Hindi ito ang hitsura ito maaari saktan ako kahit na, pero may isa lamang na paraan upang malaman ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Angat na ito ay kontrolado ng plato na presyon, ngunit hindi ko maaaring manatili sa mga ito at gamitin ang pag-angat ng sabay-sabay"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Ang kukunin ko upang mahanap ang isang bagay sino pa ang paririto tumayo sa presyon ng plato para sa akin ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Ang card na ito ay walang laman, ang kukunin ko na maglagay ng ilang mga tagubilin sa ito sa gumawa ito useable."
+
+msgid "There's a plaque here"
+msgstr "May isang plaka dito"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Ilagay ang 4 statues sa tamang order"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Ikaw ay hindi maaaring makahanap ng lahat ng 4 statues sa ang bersyon na ito, kaya bumalik mamaya!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Kailangan mo ang mga rebulto na nais mong gamitin ang naka-highlight sa iyong imbentaryo kahon"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Walang nangyari. Hindi ko naisip na ang karapatan upang"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Second Floor Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Ang tagubilin Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Ang tagubilin Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Ang tagubilin Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Ang tagubilin Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion rebulto"
+
+msgid "Spider Statue"
+msgstr "Spider rebulto"
+
+msgid "Tortoise Statue"
+msgstr "Pagong rebulto"
+
+msgid "Scorpion Statue"
+msgstr "Alakdan rebulto"
+
+msgid "A Blue Gem"
+msgstr "Ang Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Ang rebulto ng Centurion. Ito ay may 2 paa."
+
+msgid "A Green Gem"
+msgstr "Ang Green Gem"
+
+msgid "A Purple Gem"
+msgstr "Ang Lila Gem"
+
+msgid "A Red Gem"
+msgstr "A Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Ang rebulto ng isang alakdan. Ito ay may 6 paa."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Ang rebulto ng isang Spider. Ito ay may mga paa 8."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Ang isang mataas na Armadillo Ball. Ay magkahiwa-hiwalay spikes kapag thrown."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Ang rebulto ng isang pagong. Ito ay may 4 na paa."
+
+msgid "A Tuning Fork"
+msgstr "Isang Tuning Fork"
+
+msgid "A chopped log"
+msgstr "Isang tinadtad mag-log"
+
+msgid "Narrator"
+msgstr "Tagapagsalaysay"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Ito ay isang kaldero. Maggie ay isa lamang ang nais na ito"
+
+msgid "Right, here goes!"
+msgstr "Kanan, dito napupunta!"
+
+msgid "I need all the main ingredients"
+msgstr "Kailangan ko ang lahat ng mga pangunahing ingredients"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Red putik galamay at isang ekstrang kalasag"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Ako din kailangan sa timpla ng eyeballs at ang mga galamay sa isang likido"
+
+msgid "This entire section is about monsters"
+msgstr "Ang buong section ay tungkol sa monsters"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Wala akong anumang dahilan upang basahin ang mga ito ngunit kailangan kong itago ito sa isip sa kaso ko"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, ang cute maliit na makina!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Ito ay nakuha ng isang maliit na puwang sa likod ng mga ito. Ako hulaan ko bang ilagay ang isang bagay sa may sa gumawa ito ang mga bagay-bagay"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Ang mga robot ay gumagamit ng mga kard sa pagtuturo upang ilipat sa paligid"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Gamitin ang mga tagubilin sa gabay ng robot upang buksan ang mga lugar na hindi mo ma-access ang"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Gayunman, dahil hindi mo maaaring basahin ang mga tagubilin sa card, magkakaroon ka na subukan ang lahat ng mga ito sa labas hanggang sa isa sa mga gawa"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Kung ang mga robot ay hindi maabot ang target nito, pagkatapos ito ay babalik sa kanyang panimulang posisyon na nagpapahintulot sa inyo na subukan muli"
+
+msgid "Enter the directions"
+msgstr "Ipasok ang mga direksyon"
+
+msgid "Out of space for instructions"
+msgstr "Out ng space para sa mga tagubilin"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Kailangan ko ng isang blangko card upang ilagay ang mga tagubilin sa"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Siguro ito ay hindi na tulad ng isang magandang ideya na matapos ang lahat ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Kumuha ng 3 Gazer mata"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Kumuha ng 1 Red putik galamay"
+
+msgid "Find another shield"
+msgstr "Maghanap ng iba pang kalasag"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Timpla eyeballs at mga galamay"
+
+msgid "Obtain a Fire Shield"
+msgstr "• Kumuha ng isang Fire Shield"
+
+msgid "More water?!"
+msgstr "Higit pang tubig?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Hindi ko iniisip na ma-turn sa isang putik ay pagpunta sa makakatulong sa akin dito, dahil hindi ko maaaring ma-bumalik pagkatapos"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Kukuha ako makahanap ng ibang paraan ng pagkuha sa kabuuan"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Ang kukunin ko upang mahanap ang isang bagay upang makatulong sa akin makakuha ng buong"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Hindi ko nakita ang anumang Sludges sa akin kapag ako ay nagpunta upang makakuha ng Borgan's ng karbon at kahit na kung mayroong anumang hindi ko bumalik doon dahil ang aking balsa sank"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Kukuha ako makahanap ng isa pang minahan sa paligid dito ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Lumilikha ng cubes ng yelo na mapalawak sa pakikipag-ugnayan sa tubig"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Isang bote kaya ng pagkuha ng kaluluwa"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Subukang gumamit ng Mataeus's kutsilyo laban sa kanya ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Hindi pick up %s. Inventory buong"
+
+msgid "Filling mine cart..."
+msgstr "Pagpuno ng minahan ng cart ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright kahanay katotohanan 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Out ng arrow!"
+
+msgid "There's something moving around down there..."
+msgstr "May isang bagay na gumagalaw sa paligid down na may ..."
+
+msgid "Good riddance..."
+msgstr "Good riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Kung ang pag-angat ay out of order pagkatapos ito ay kailangang i-reset"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "May mga 4-reset switch kasama ang pag-angat ng katawan ng poste na dapat i-reset"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Maging sigurado na i-reset ang angat upang maiwasan ang isang mahabang paglalakad pabalik sa ibabaw ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Makina na ito ay may puwang sa parehong sukat ng mga baraha. Ako hulaan maaari ko itong gamitin upang lumikha ng bagong mga tagubilin."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Upang lumikha ng isang bagong hanay ng mga tagubilin na kailangan mo upang magsingit ng isang blangko card"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Ikaw ay pagkatapos ay sesenyasan na input ang mga tagubilin para sa mga robot na sumunod. Ito ay ginawa sa parehong paraan na ang pagkakasunod-sunod na pinto"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Kapag natapos mo na ang inputting ang mga direksyon, pindutin Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Ang mga robot ay pagkatapos ay sundin ang mga tagubilin sa card"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Kung ang mga direksyon ay hindi tama ang maaari mong subukang muli"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Lugar na ito ay mabaliw, gusto kong mas mahusay na magmadali at hanapin ang tatay bago ang pagtatapos ko sa pagkuha ng pumatay!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Kaya, gumawa na ng Bumbero Shield ko bang makakuha ng isang galamay Red putik"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Red Sludges manirahan sa mga mina kaya ang kukunin ko upang mahanap ang isang banda rito"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Ako din kailangan ng isang ekstrang kalasag, pero umasa ako doon ay dapat na isang armoury sa paligid"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Ang Gazer eyeballs madaling sapat na, maaari ko na lang bumalik sa basement"
+
+msgid "OK, off I go..."
+msgstr "OK, off pumunta ako ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Ikaw ay hindi maaaring makuha ang mga galamay o panangga sa ang bersyon na ito, kaya bumalik ulit mamaya!"
+
+msgid "It's a portrait"
+msgstr "Ito ay isang larawan"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Espiritu iyon ay hindi pagpunta sa ipaalam sa akin ang nakalipas, ang kukunin ko upang mahanap ang isang paraan upang makakuha ng alisan ng ito"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "I-reset switch daan sa iyo upang i-reset ang posisyon ng isang bagay na sa mapa"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Kung ang isang bagay ay nagiging unreachable pagkatapos ay maaari mong gamitin ang lumipat sa ilagay ito pabalik sa kanyang orihinal na lugar"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Isang bote na may isang kaluluwa trapped sa loob ng"
+

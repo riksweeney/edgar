@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Rapidamente, Xire á esquerda e á dereita a sacudir a Limosa!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Non funciona nesta versión!"
+
+msgid "Press Action to interact"
+msgstr "Prensa Acción de interactuar"
+
+msgid "%s is required"
+msgstr "%s é necesario"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Pequenas Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Prensa Acción para recuperar Purple Gem"
+
+msgid "Chicken"
+msgstr "Galiña"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Prensa Acción para recuperar Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Prensa Acción para substituír Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Obtidos %s"
+
+msgid "Complete"
+msgstr "Complete"
+
+msgid "%d more to go..."
+msgstr "%d máis para ir ..."
+
+msgid "Used %s"
+msgstr "Usado %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Non se pode equipar os envíos transmogrified"
+
+msgid "Equipped %s"
+msgstr "Powered %s"
+
+msgid "Maximum health has increased!"
+msgstr "Máximo de saúde ten aumentado!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow agora lume %s"
+
+msgid "A bow is required to use this item"
+msgstr "Un arco fai falta para usar este elemento"
+
+msgid "Cannot transmogrify here..."
+msgstr "Non se pode metamorfose aquí ..."
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Start a new game?"
+msgstr "Iniciar un novo xogo?"
+
+msgid "Play the tutorial?"
+msgstr "Xoga o tutorial?"
+
+msgid "Exit the game?"
+msgstr "Saír do xogo?"
+
+msgid "Back"
+msgstr "Costas"
+
+msgid "Game Loaded"
+msgstr "Xogo Loaded"
+
+msgid "Game Saved"
+msgstr "Game Saved"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Calquera progreso non gardados serán perdidas"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Prensa Acción de falar con %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Novo obxectivo: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Obxectivo Completed: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "A parede do lado dereito parece fraco ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Esta arma é non ter ningún efecto ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Prensa Acción para xuntar o paquete de Tesla"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s é necesario para activar esta opción"
+
+msgid "Press Action to use this switch"
+msgstr "Prensa Acción para utilizar esta opción"
+
+msgid "Press Action to save your game"
+msgstr "Prensa acción para salvar o seu xogo"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s é necesario para usar esa presión Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s é necesario para abrir esa porta"
+
+msgid "This door is locked"
+msgstr "A porta está bloqueada"
+
+msgid "This teleporter is not active"
+msgstr "Esta teletransporte non está activado"
+
+msgid "Press Action to go to the %s"
+msgstr "Prensa Acción para ir ao %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Empurre para arriba ou para abaixo para empregar este elevado"
+
+msgid "This lift is not active"
+msgstr "Este ascensor non está activado"
+
+msgid "Cannot carry any more %s"
+msgstr "Non se pode transportar máis %s"
+
+msgid "Picked up %s x %d"
+msgstr "Pegou %s x %d"
+
+msgid "Picked up %s"
+msgstr "Pegou %s"
+
+msgid "Readied %s"
+msgstr "Preparar %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s é necesario para realizar este elemento"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Almacenamento da"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Carbón saco de almacenamento da Switch"
+
+msgid "Large Room Key"
+msgstr "Large room Key"
+
+msgid "Coal Bag"
+msgstr "Saco de carbón"
+
+msgid "Forest Cell Key"
+msgstr "Bosque da Cela"
+
+msgid "Wood Axe"
+msgstr "Wood Ambito"
+
+msgid "Health Potion"
+msgstr "Health Potion"
+
+msgid "Outflow Key"
+msgstr "Saída da"
+
+msgid "Flow Control Key"
+msgstr "Control de Fluxo da"
+
+msgid "Waste Processing Key"
+msgstr "Procesamento de residuos da"
+
+msgid "Access Key 1"
+msgstr "Chave de Acceso 1"
+
+msgid "Access Key 2"
+msgstr "Chave de Acceso 2"
+
+msgid "Access Key 3"
+msgstr "Chave de Acceso 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "O ascensor non ten poder. Eu non vou ser capaz de usalo ata que eu restaurar o poder"
+
+msgid "Keep practising!"
+msgstr "Continuar practicando!"
+
+msgid "Hi"
+msgstr "Ola"
+
+msgid "Hello Edgar"
+msgstr "Hola Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Me pode prestar o seu escudo?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Off para practicar as súas habilidades de loita?"
+
+msgid "Something like that"
+msgstr "Algo así"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Se executar un lixo me entón pode que o escudo"
+
+msgid "What do I have to do?"
+msgstr "O que eu teño que facer?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Vai á mina e recoller-me un pouco de carbón"
+
+msgid "But we have plenty of coal!"
+msgstr "Pero temos abundancia de carbón!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Si, pero iso non é ningún carbón de idade, este carbón é especial, ela queima máis quente e dura máis tempo"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Eu só teño de 10 pezas do material, por iso non debe levar moito tempo"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Asegúrese de poñelas nun saco, toca-lo por moito tempo será malo para a saúde"
+
+msgid "Do you have a bag?"
+msgstr "Ten unha bolsa?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Non, pode ser atopar un na mina aínda que"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, eu vou comezar a carbón"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Aquí, tome este cabeza. Pode usala para a mina de carbón e cortar a través de calquera paredes máis débil que atopa"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Tamén precisa desta clave para entrar na mina"
+
+msgid "Thanks!"
+msgstr "Grazas!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Thank you, Edgar, ese carbón é perfecto! Espero que os morcegos non te asustado."
+
+msgid "The bats were the least of my worries..."
+msgstr "Os morcegos foron a menor das miñas preocupacións ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Dicir, eu oín que algo sucedeu na mina que hai algúns anos"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, si, non era o que chamaría un  incidente , pero que parte da mina foi selado ata un tempo atrás"
+
+msgid "Right..."
+msgstr "Un ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Aquí, o meu escudo e divertirse!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Só queda lonxe do encoro Prohibido"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Vai facer, eu podo prender sobre a súa cabeza por un tempo?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Claro, pode poñelas de novo en un anaco"
+
+msgid "Thanks, Borgan!"
+msgstr "Grazas, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Xa puido atopar a carbón aínda?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Podes puxar algúns elementos ao redor, empurrando-os mentres mantén premer o botón de acción."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Pode entón puxa-lo arredor ata que solte o botón de acción"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Esta rocha parece forte de máis para a miña pick Axe. Vou ter que usar outra cousa para pasar ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, o que aconteceu?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Semella que esta non era unha idea tan boa despois de todo"
+
+msgid "There must be way out of here..."
+msgstr "Debe haber xeito de saír de aquí ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Este debe ser o carbón quere que eu a miña para el"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Eu non creo que o meu escudo ha protexer-me das bolas de lume. Vou ter que atopar unha máis forte ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Non será capaz de facer algo nesta versión, comproba de novo máis tarde"
+
+msgid "Strange creature..."
+msgstr "Criatura estraña ..."
+
+msgid "Wait, what was that?"
+msgstr "Espere, o que foi aquilo?"
+
+msgid "You again?!"
+msgstr "Vostede de novo?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "O feiticeiro debeu ser o pai do seu castelo. Vou ter que rescate-lo de alí."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "A única forma de chegar ao castelo é a través do encoro Prohibida a leste."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hai un lago, entre a aldea ea Swamp entón eu vou ter que un barco a atravesar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Eu tamén teño unha espada e escudo para me defender. Eu podo falar e para obter estes aínda."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Algo está a ocorrer aquí, pero non é nesta versión iso volva máis tarde!"
+
+msgid "Have fun!"
+msgstr "Disfrútao!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Grazas por resucing miñas galiñas, que me pegou 2 toras do bosque aínda?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Gracias Edgar! As miñas galiñas están de volta e eses rexistros me fará ben"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Tomé esta espada, e que lle sirva ben!"
+
+msgid "Thank you!"
+msgstr "Grazas!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Thanks for the logs, xa tivo algunha sorte coas galiñas?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Vou che dar unha espada, se me 2 toras cortada do bosque e de rescate de polo menos 3 das miñas galiñas"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hola Edgar, o que podo facer por ti hoxe?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Tes unha espada para me prestar?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Eu teño unha espada e pode telo se fai algo para min primeiro"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... o que debo facer?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Algunhas das miñas galiñas escaparon da súa pena e eu quedaría moi grata se pode se atope los de volta para min"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Teño creado algunhas trampas preto da súa pluma, pode atrae-los para as trampas usando este feed galiña. Eu non preciso de todos eles, pero polo menos 3 sería moi útil. Eu podo pegar o resto só."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Non é ben así. Tamén pode obter-me un pouco de madeira do bosque? 2 rexistros debe ser suficiente"
+
+msgid "Do you have an axe?"
+msgstr "Ten un machado?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Deixei o meu Machado na selva, en algún lugar. Debe estar alí"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Non é que o bosque é perigosa?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Non por iso, se algo queda no seu camiño, pode bater-lo con un arma"
+
+msgid "Such as an axe?"
+msgstr "Tal como un machado?"
+
+msgid "Yes, that would do the trick"
+msgstr "Si, iso faría o truco"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Pero, falando serio, non hai nada alí que realmente pode prexudicalo. Este problema foi tratado hai moito tempo ..."
+
+msgid "Good luck!"
+msgstr "Boa sorte!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, gracias Edgar, eu só precisaba de 3, pero, gracias a axuda adicional!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Aquí, Maggie me fixo esa poción de saúde, pero eu non teño, entón porque non ten?"
+
+msgid "Thanks Jacob"
+msgstr "Grazas Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Guau, que pegou todos eles, moitas grazas!"
+
+msgid "Here, I have these for you"
+msgstr "Aquí, eu teño estes para ti"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie me fixo esa poción de saúde, pero pode telo"
+
+msgid "And this is something very special"
+msgstr "E isto é algo moi especial"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Que este axudar no seu camiño para facer un guerreiro forte"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Vostede me salvo unha morea de tempo. Maggie me fixo outra cousa, pero sempre que teña sido tan útil, podes telo."
+
+msgid "Hi Maggie"
+msgstr "Ola Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Grazas Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan dixo que unha parte da mina foi pechada logo de que un  incidente "
+
+msgid "There must be something around here..."
+msgstr "Debe haber algo por aquí ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, a ponte levadiça é superior. Debe haber outra entrada ..."
+
+msgid "Wait, what's that?"
+msgstr "Espere, o que é iso?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Poida que eu puidese túnel meu camiño dentro .."
+
+msgid "These machines aren't working."
+msgstr "Estas máquinas non están funcionando."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Parece unha xoia debe caber nese burato, talvez poida atopar algunhas substitucións."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "It looks like it's firmemente encravado alí dentro. Eu probablemente pode solta-la coa cabeza ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Para chegar ao Pantano Prohibida vou ter para construír unha flota."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Podo construír a flota se eu derrubar árbores suficiente do bosque"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Eu teño 6 Históricos picada para construír unha flota"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Eu non estou indo ao brejo sen unha espada e escudo"
+
+msgid "OK, here goes!"
+msgstr "OK, aquí vai!"
+
+msgid "Aw, not again!"
+msgstr "Ah, outra vez non!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Esta mellor que sexa a última vez que eu teño que facer isto ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Esta foi doado! E podo sempre volver máis tarde!"
+
+msgid "Oh...."
+msgstr "Ah ...."
+
+msgid "Guess I have no choice now."
+msgstr "Creo que eu non teño opción agora."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hang on Pai, eu estou chegando ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Algo está a suceder agora, pero non é nesta versión. Volte máis tarde!"
+
+msgid "There's a note here"
+msgstr "Hai unha nota aquí"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Estou presa aquí para o que parece unha eternidade"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Para saír deste lugar Eu teño de 3 claves de acceso ó traballo dos ascensores"
+
+msgid "So far I have only found 1"
+msgstr "Ata agora só está 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Para empeorar as cousas, só podo chegar a algunhas opcións cunha frecha coidadosamente feitas"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Pero norte non son comúns e xa esgotou"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Se eu non atopar un xeito de saír de aquí logo, eu temo que poden morrer de fame"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Se eu non saia de aquí, eu vou sufrir o mesmo destino ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, what's this?"
+
+msgid "There's a note here too"
+msgstr "Hai aquí tamén unha nota"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "A poción é perfecto! Quaffing vai virar un ser humano nunha criatura dunha pequena cantidade de tempo"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Ata agora eu só me podo metamorfose nunha criatura, pero con un pouco máis nada de tempo debe ser posíbel"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Hai un pouquiño á esquerda, debe ser segura para beber"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, aquí vai nada ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Isto é horrible!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan me dixo que Slim pode nadar na auga que, tal vez por iso este será o mellor ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Cando transformado nun Slim, pode moverse normalmente. Tamén pode nadar na auga e logo arriba e abaixo para moverse"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Empurrando cara arriba ou para saltar fará vostede saltar fóra da auga se está preto da superficie"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Manteña un ollo no cronómetro na parte inferior da pantalla. Ao chegar a 0 que automaticamente se converte humano de novo"
+
+msgid "This place doesn't look so bad..."
+msgstr "Este lugar non parece tan malo ..."
+
+msgid "What was that?"
+msgstr "O que foi?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Ufa, estou feliz por estar fóra de alí"
+
+msgid "Now to get through this swamp"
+msgstr "Agora, para obter a través deste encoro"
+
+msgid "Hey, what's this?"
+msgstr "Hey, what's this?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Parece bastante inofensivo, vou tentar pisar nel"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Guau! Isto foi legal! Este debe ser un teletransporte mecánica."
+
+msgid "I wonder if it works both ways..."
+msgstr "Quere saber se funciona nos dous sentidos ..."
+
+msgid "Horray!"
+msgstr "Oh!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Non só iso me vai salvar unha morea de pé, tamén é moi divertido!"
+
+msgid "Now try out your shield"
+msgstr "Agora proba o seu escudo"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Bloquear as pelotas cuspiu pola planta e salto ata o bordo seguinte"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Algúns elementos en The Game pode ser empurrado e tirada"
+
+msgid "To push an item, simply walk into it"
+msgstr "Para empurrar un elemento, simplemente andar nel"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Para elimina un elemento, entran mantendo Prema Acción"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Pode entón elimina o elemento arredor ata que vai deixar de Acción"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Puxe a caixa do outro lado e usa-a para alcanzar a bordo"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Esta é a derradeira parte do tutorial e ha ensinar-lle a bloquear e atacar inimigos"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Primeiro, ten que equipar a espada unha vez que ten máis alcance e fai máis dano do que a cabeza"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Prema z para ver o seu inventario, marca a espada e prema Ataque (esquerda Ctrl) ou Usar Item (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Prema Z novamente a pechar o seu inventario"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Ás veces, os inimigos mortos vai caer de saúde, que ha desaparecer despois duns segundos, para procura-lo axiña!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Se un morcego está quedando a preto de ti, Manteña bloqueo e ha causar danos Ricochet en ti"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Agora, matar todos os morcegos na área!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Existen dous tipos de porta en The Game. Manual de portas e portas automáticas."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manual portas esixen claves para abri-los, portas automáticas requiren switches."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Para abrir unha porta protexida que ten a chave para, simplemente andar nel. Non é necesario ter a clave seleccionada no seu inventario."
+
+msgid "Open the door and continue to the right"
+msgstr "Abre a porta e segue cara a dereita"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Parabéns! Agora xa sabe o básico do xogo, ten que tentar The Game principal"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Se quere reproducir este tutorial, preme Escape e selecciona Tutorial no menú"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Para xogar The Game principal, preme Escape e seleccione New Game no menú"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Espazo de prensa cando teña rematado a lectura para ir á seguinte caixa de diálogo"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Tamén pode pasar á seguinte cadro de diálogo premendo Ataque (esquerda Ctrl), Bloco de esquerdas (ALT), Salto (espazo), Action (c) ou o uso do (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Este é o tutorial para The Legend of Edgar. Este tutorial ha explicar como xogar o The Game."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Para saír deste tutorial, preme Escape e utilizar as teclas arriba e frecha para abaixo para escoller unha opción. Prema Intro para selecciona-lo."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Para mover á esquerda e dereita, usa as frechas do teclado."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Para facer saltar, espazo prensa. Pode mover-se no ar cando salta."
+
+msgid "To interact with an item, press c"
+msgstr "Para interactuar con un elemento, prema C"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Camiño ata o punto de acción e prema C"
+
+msgid "To collect an item from your"
+msgstr "Para a obtención dun elemento do teu"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Para incorporarse un elemento, simplemente andar nel. Os elementos colecionáveis será engadida ao seu inventario."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Podes ver o contido do seu inventario presionando z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Aínda que no inventario, usa as frechas para ver os elementos."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Podes usar un elemento inmediatamente premendo Ataque (esquerda Ctrl) ou Usar Item (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Pode listo para usar un elemento presionando Bloco de esquerdas (ALT) ou Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Camiñar sobre a clave para pegá-lo"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Vostede pode modificar todos os controis en The Game presionando Escape e seleccionando opcións no menú"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Seleccione Configurar controis usando as frechas e prema Intro"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Empregue as frechas para seleccionar o control que quere cambialo e prema Intro."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "A continuación, prema a tecla que desexe utilizar."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Independentemente do que as claves que escoller, sempre pode navegar polos menús utilizando as teclas de frechas e Retorno"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Teña en conta que neste tutorial, as teclas por defecto será asumido"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Cando remata de cambiar as claves, vaia á dereita na seguinte acción Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "A cabeza é unha das moitas armas que atopará en The Game"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Pode usalo como unha arma e unha ferramenta"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Tome a cabeza e seguir para a próxima acción Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Parabéns, vostede atopou un segredo!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Hai moitos segredos de The Game principal, para manter un ollar atento a eles"
+
+msgid "Here's a hint to get you started"
+msgstr "Aquí vai unha información para vostede comezar"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Aínda que só esixe que incorporarse 3 das súas galiñas, porque non sería bo para el, e ir máis? Hai 10 vagando o mapa en todos os"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "O escudo ha protexer vostede de ataques máis inimigo"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Algúns ataques inimigos non poden ser bloqueadas"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Riscos ambientais, como a caída de pedras, non pode ser bloqueado"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Para bloquear un ataque, preme e Manteña bloque de esquerda (ALT)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Debe estar de fronte para o ataque para bloquea-lo con éxito"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Teña en conta que non pode moverse mentres o bloqueo, pero pode enfrontar o outro lado. Vostede non pode bloquear no aire"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Colla o escudo e continúe á dereita"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Esta é unha parede feble, pode ser dobres para abaixo usando a cabeza"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Para utilizar a cabeza, preme Attack (esquerda ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "que non todas as paredes débil pode ser destruida a cabeza"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Destruír a parede coa cabeza e seguir"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Something's debería estar aquí, pero non é nesta versión, comproba de novo máis tarde"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Peto 10 anacos de carbón"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Históricos Collect Chopped 2"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rescue 3 galiña"
+
+msgid "Find 4 Gems"
+msgstr "Atopar 4 Gemas"
+
+msgid "Repair Generators"
+msgstr "Reparación Xeradores"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Históricos Collect Chopped 6"
+
+msgid "Collect 3 Access Keys"
+msgstr "Recopilar 3 Teclas de acceso"
+
+msgid "This is a blank objective"
+msgstr "Este é un obxectivo en branco"
+
+msgid "Kill all Bats!"
+msgstr "Mate todos os morcegos!"
+
+msgid "Coal"
+msgstr "Carbón"
+
+msgid "Chopped Log"
+msgstr "Chopped Entrar"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter da"
+
+msgid "New Game"
+msgstr "Novo Xogo"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Opcións"
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "Quit"
+msgstr "Saír"
+
+msgid "Configure Controls"
+msgstr "Configurar Controls"
+
+msgid "Configure Sound"
+msgstr "Configurar son"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Amosar Suxestións"
+
+msgid "A potion which will transform you..."
+msgstr "A poción que ha transformar vostede ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Crea altamente absorbente cubos de xeo en miniatura"
+
+msgid "A potion which will restore all of your health"
+msgstr "A poción que ha dar de toda a súa saúde"
+
+msgid "A powerful bomb"
+msgstr "Unha bomba poderosa"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "A poción que converte-lo invisible aos inimigos determinados"
+
+msgid "The eyeball from a Gazer"
+msgstr "O globo ocular dunha Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Pack Tesla. Non ten ningún custo."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Staff Summoner's. Non pode ser usado por persoas."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Pack Tesla. É totalmente gratuito."
+
+msgid "An empty potion bottle"
+msgstr "Unha botella de poción baleira"
+
+msgid "A bag of chicken feed"
+msgstr "Un saco de polo feed"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Unha bolsa para o transporte de carbón"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Unha espada púxollo o Jacob"
+
+msgid "A bow"
+msgstr "Un arco"
+
+msgid "Small Wooden Shield"
+msgstr "Small Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Un pequeno escudo que proporciona protección básica"
+
+msgid "Normal Arrow"
+msgstr "Normal Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Un machado axeitado para cortar árbores"
+
+msgid "Pickaxe"
+msgstr "Cabeza"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A cabeza prestar-lle por Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Potion room Key"
+
+msgid "Surge Passage Key"
+msgstr "Xorde paso clave"
+
+msgid "Demolition Storage Key"
+msgstr "Demolición de almacenamento de claves"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "O que quere que a cousa foi se esvaziado o poder que o xerador e usalo contra min."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Isto podería explicar por que o ascensor non estaba funcionando. Escorredores de derrotar o outro debe restaurar o poder."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Derrota todos Drainers Enerxía"
+
+msgid "No Objectives"
+msgstr "No Obxectivos"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Prensa Acción para repor bloques puzzle"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Semella un liquidificador. Eu podería usar isto para algo liquidifique"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Eu teño unha lama vermella Tentacle e 3 Gazer Eyeballs para facer a poción"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Eu aínda teño unha botella baleira para poñer a poza no"
+
+msgid "So this is the Fortress."
+msgstr "Entón esta é a fortaleza."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Parece unha morea de conducir fóra de portas para outras áreas, eu debería ter unha boa ollada antes de ir en calquera outro lugar ..."
+
+msgid "Try hitting the skull..."
+msgstr "Probe a bater o cranio ..."
+
+msgid "This machine is not active"
+msgstr "Esta máquina non está activado"
+
+msgid "Repeat the sequence"
+msgstr "Repita a secuencia"
+
+msgid "Correct Sequence"
+msgstr "Secuencia correcta"
+
+msgid "Incorrect Sequence"
+msgstr "Secuencia incorrecta"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "The Legend of Edgar encontrou o seguinte erro"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Por favor reporte este erro a realidades paralelas"
+
+msgid "The game will now exit"
+msgstr "The Game will now exit"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Semella un liquidificador. Eu podería usar isto para algo liqudise"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Este debe ser o carbón Borgan quere que eu a miña para el"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Isto podería explicar por que o ascensor non estaba funcionando. Escorredores de derrotar o outro debe restaurar o poder aquí."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "¿Necesito atopar 3 Eyes Gazer, 1 Red Sludge Tentacle e un escudo extra para crear un escudo de Resistencia ó lume"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Unha vez podo atopar todos estes elementos eu vou ter que atopar un lugar para crear o escudo"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Hai un libro aquí sobre armas encantadora"
+
+msgid "Maybe I can create a shield..."
+msgstr "Poida que eu poida crear un escudo ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Espadas ... Armadura ... Pausa ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Libro Stupid. Non está en orde e non hai índice"
+
+msgid "Here we go: Shields"
+msgstr "Aquí imos nós: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Escudo de Resistencia ó lume"
+
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+msgid "One must gather the following"
+msgstr "É preciso reunir os seguintes"
+
+msgid "The root of a Mandrake"
+msgstr "A raíz dun Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "A graxa dun Darsh (deixar en repouso durante 3 meses)"
+
+msgid "Powered Condor bones"
+msgstr "Powered ósos Cóndor"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 ollos do contemplados"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "O tentáculos recén cortada dunha femia lama vermella"
+
+msgid "The shield to apply the enchantment"
+msgstr "O escudo de aplicar o encanto"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Mestura os ollos Gazer e tentáculos lodos de depuración en un líquido homoxéneo"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Engadir a raíz, graxa e ósos dentro do caldeiro e mestura ben cos ollos mesturados Gazer e tentáculos Sludge"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Cando a mestura queda azul brillante, engadir o escudo"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Vin a maioría destes elementos no laboratorio para que eu non se preocupe con aqueles"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "E o Gazers deambular no soto de modo que non é un problema"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "O que eu teño de atopar é unha lama vermella, pero non teño idea de onde atopar un"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Non podo usar o meu escudo actual no experimento, no caso todo dá mal por iso vou ter que buscar outro"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Pode haber pocións sala ou laboratorio onde podo atopar The Roots, graxa e ósos polo que non se preocupe con aqueles"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Debe ter a tarxeta de educación que quere empregar en destaque no seu buzón de inventario"
+
+msgid "Wow, a laboratory!"
+msgstr "Guau, un laboratorio!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "I love watching Maggie facer feitizos e pocións, talvez poida facer algunha das miñas aquí!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Uau, eu nunca vin tantos libros nun só sitio!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Non debe haber información sobre cada tema aquí, iso podería ser útil ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, o aire se sente cobra, el me lembra da casa de Maggie, cando estaba a facer feitizos. Eu debería ter coidado."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, está ferido! Deixe-me curar as súas feridas"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Pregunta-me que existen outros monstros. Eu vou ir unha páxina ao acaso ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers son criaturas voadoras cycloptic atopados en varios lugares"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "O seu único ollo é normalmente pechado e eles contan o sonar para o movemento"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Eles usan o seu sentido de cheiro forte de ollar para fóra presa e presa tanto"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers ataque (e se defender), abrindo os seus ollos que enfeitiza calquera ollar para ela"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Ese ataque só é eficaz no entanto, se a vítima está de fronte para o Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Un globo ocular Gazer ten propiedades máxicas e é un ingrediente común en período de preparación"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions son Magic creado criaturas, xeralmente expedidos como sentinela ou gardas"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "A pesares de lento, o seu enorme tamaño que lles permite simplemente marcha a través de calquera defensa"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "En vez de armas, moitos motores enorme pila que usan para sacudir o chan e desorientado as ameazas"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Mentres Grey Centurions será utilizado para garda de perímetros, Red Centurions Sábese que existen e son utilizados para protexer as zonas de grande importancia"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Divisores son monstros inofensivos a non ser atacado."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Despois lesada demais serán divididos en dous e ataque seu predador"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Se un destes sufrir danos moi só pode dividir unha vez máis e seguen a atacar"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Finalmente, unha separación final ha producir versións moi pequenas que son totalmente inofensivas e nese estado pode ser simplemente pisou"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Se todas as súas pezas aínda están vivos, un divisor vai reformar-se despois dun tempo e curar as súas feridas"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Red Grubs son máis agresivos que os verdes e vai atacar calquera cousa que eles ven como unha ameaza"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Ao acadar a fase adulta que pode formar un casulo e converterse nunha Vespa"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Algúns, sen embargo, han converterse nunha abella raíña. Esas raíñas pode producir un moco-como substancia capaz de soster a súa presa en lugar"
+
+msgid "Tortoise, Master"
+msgstr "Tortoise, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master tartarugas son feras asustado. Atopar en terras afastadas, que posúen a capacidade de cambiar as súas cabezas"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Eles combinan todas as habilidades dos seus primos para cuspir lume, xeo e criarse eletrificar"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "E, claro, eles tamén son impermeables a ataques de elementos correspondentes, absorbendo a enerxía para curar"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Pero alén diso, se eles reciben moita enerxía de cura, elas evolúen e ir a Rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Nese estado, eles van romper a través de calquera defensa e producir Dark Matter que destrúe todo o que toca"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "No entanto, a casca dunha axitación Master Tortoise é moi máxico e é un ingrediente esencial na creación de potentes magias e elementos"
+
+msgid "Venus Flytrap"
+msgstr "Trampa de Venus"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore é unha criatura de outra dimensión. Pode ser chamado usando maxia negra poderosa"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "A razón máis común para convocar esta besta é actuar como un gardacostas"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Non hai ningunha forma coñecida para matar Grimlore desde a sustentar as feridas críticos el simplemente volver á súa propia dimensión"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Pero, mesmo ferindo é unha tarefa monumental. Calquera un encontro con esta criatura se aconsella a fuxir o máis axiña posible"
+
+msgid "Or they will die very quickly"
+msgstr "Ou eles van morrer moi rapidamente"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, aquí é un compendio de monstros"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 volumes! Como pode haber tantos monstros no mundo?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Parece que está en orde alfabética, aínda que"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slim, Green ... Slim, Purple ... Lama, verde ..."
+
+msgid "Sludge, Red"
+msgstr "Lamas, Vermello"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Ao contrario do seu curmán verde, a lama vermella queda profundamente no subsolo e, raramente, ou nunca, as superficies"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "O seu hábitat preferido son secos e as áreas minerais ricos e como resultado ter sido atopado escondidos en áreas de minas abandonadas por seres humanos"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Son moi cautelosos cos seres humanos e vai atacar en vista, xeralmente vomitar un ácido que leva tempo para evaporarse"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker Pequena ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Gran, iso é todo o que di. Eu non sei como dicir a diferenza entre un macho e femia. Vou só dar unha oportunidade ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Ademais, o que é a peor cousa que podería acontecer?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Para mover Edgar esquerda e á dereita, usa as frechas do teclado."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Para facer Edgar salto, espazo prensa. Pode mover-se no ar cando salta."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Aínda que Xacob só esixe que incorporarse 3 das súas galiñas, porque non sería bo para el, e ir máis? Hai 10 vagando o mapa en todos os"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Teña en conta que non todas as paredes débil pode ser destruida a cabeza"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Eu xa marcada, el non está alí en baixo ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Xa oín falar de persoas caendo no pozo antes, quizais o meu pai está aí dentro ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! Are you down NON ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Nada. Creo que vou ter que seguir buscando"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Empurre para arriba ou para abaixo para aumentar ou diminuír a plataforma"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Hai un libro aquí sobre equipos encantadora"
+
+msgid "It's a book about enchanting equipment"
+msgstr "É un libro sobre o equipo encantadora"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Eu non teño ningún motivo para ler isto, pero vou perder la presente o caso de eu facer"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Pregunta-me que existen outros monstros ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Así como Summoners regular, Summoners Dark chamada noutros animais para facer o seu tiro"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Ademais aínda que poden teleportar curtas distancias para escapar dos seus opoñentes"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Seu equipo é moi máxico e aínda que non poida ser usado por persoas directamente, as súas propiedades máxicas son usadas na creación de maxia"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers son quadrúpedes de pequeno tamaño con un fociño longo"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "O puropse primario do fociño é de forraxe para a alimentación, pero tamén serve como un mecanismo de defensa"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "e son máis capaces de manter un predador na bahía simplemente exaltar"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Trampa de Venus, mobles"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile dion evolucionaron raíces e son capaces de mover-se para os seus alimentos no canto de esperar que chegue a eles"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Seus pescozos son incrible elástico e son capaces de agarrar a súa presa dende unha distancia considerábel"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Isto debe facelo. Esperamos que plantexa outra polo sumidoiros agora debe estar funcionando"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Este ascensor non está funcionando. Eu non vou ser capaz de usalo ata que eu restaurar o poder"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Que o cristal se parece moi groso para min, crack, eu vou ter que atopar outra forma de romper iso ..."
+
+msgid "Up"
+msgstr "Subir"
+
+msgid "Down"
+msgstr "Abaixo"
+
+msgid "Left"
+msgstr "Esquerdo"
+
+msgid "Right"
+msgstr "Dereito"
+
+msgid "Jump"
+msgstr "Ir"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Bloquear"
+
+msgid "Action"
+msgstr "Acción"
+
+msgid "Use Item"
+msgstr "Use Item"
+
+msgid "Previous Item"
+msgstr "O elemento anterior"
+
+msgid "Next Item"
+msgstr "Seguinte Item"
+
+msgid "Inventory"
+msgstr "Inventario"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Son"
+
+msgid "SFX Volume"
+msgstr "Volume SFX"
+
+msgid "Music Volume"
+msgstr "Music Volume"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Biblioteca"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lift Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Entrance door Key"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Fortaleza Periferia"
+
+msgid "Forbidden Swamp"
+msgstr "Prohibida Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Sumidoiros da Zona Restrinxida"
+
+msgid "Basement"
+msgstr "Basement"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortaleza Terreo"
+
+msgid "Sewer"
+msgstr "Sumidoiros"
+
+msgid "Fortress Main Key"
+msgstr "Fortaleza principal da"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Chave de Acceso 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Chave de Acceso 3"
+
+msgid "Laboratory"
+msgstr "Laboratorio"
+
+msgid "Empty Bottle"
+msgstr "Botella baleira"
+
+msgid "First Floor Key"
+msgstr "Primeiro andar da"
+
+msgid "Press Action to retrieve %s"
+msgstr "Prensa Acción para recuperar %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, isto é novo."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "El non mira como ela pode ferir-me embora, pero só hai unha maneira de descubrir ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Ese elevado é controlado por un prato de presión, pero eu non podo estar nel e usar o ascensor, ao mesmo tempo"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Vou ter que buscar outra cousa para estar sobre o prato de presión para min ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Esta tarxeta é branco, eu vou ter que poñer algunhas instrucións sobre el para facelo utilizable."
+
+msgid "There's a plaque here"
+msgstr "Hai unha tarxeta aquí"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Pon as 4 estatuas na orde correcta"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Non será capaz de atopar todas as 4 estatuas nesta versión, así que voltar máis tarde!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Debe ter a imaxe que quere empregar en destaque no seu buzón de inventario"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Nada aconteceu. Eu non creo que esa é a orde correcta"
+
+msgid "Tuning Fork"
+msgstr "Diapasão"
+
+msgid "Second Floor Keycard"
+msgstr "Second Floor Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Instrución Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Instrución Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Instrución Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Instrución Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Estatua"
+
+msgid "Spider Statue"
+msgstr "Spider Statue"
+
+msgid "Tortoise Statue"
+msgstr "Tortoise Estatua"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Estatua"
+
+msgid "A Blue Gem"
+msgstr "A Pedra Azul"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Unha estatua dun Centurion. Tem 2 pernas."
+
+msgid "A Green Gem"
+msgstr "A Gem Verde"
+
+msgid "A Purple Gem"
+msgstr "A Gem Purple"
+
+msgid "A Red Gem"
+msgstr "Unha pedra vermella"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Unha estatua dun escorpión. Ela ten 6 patas."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Unha estatua dunha araña. Tem 8 pernas."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Un tatuar Spike Ball. Estender picos cando accionada."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Unha estatua dunha tartaruga. Ten 4 pernas."
+
+msgid "A Tuning Fork"
+msgstr "A Fork Tuning"
+
+msgid "A chopped log"
+msgstr "Un rexistro chopped"
+
+msgid "Narrator"
+msgstr "Narrador"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "É un caldeiro. Maggie ten exactamente como este"
+
+msgid "Right, here goes!"
+msgstr "Ben, aquí vai!"
+
+msgid "I need all the main ingredients"
+msgstr "Eu preciso de todos os principais ingredientes"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Red Sludge Tentacle e un escudo de reposición"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Eu tamén preciso mesturar os ollos e os tentáculos en un líquido"
+
+msgid "This entire section is about monsters"
+msgstr "Esta sección é todo sobre monstros"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Eu non teño ningún motivo para ler estas mais vou perder la presente o caso de eu facer"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey Wow, que unha máquina bonitinho!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "El ten unha pequena fenda na parte de atrás del. Coido que poñer algo alí para facelo facer cousas"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "O robot utiliza tarxetas de instrución para moverse"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Use as instrucións para guiar o robot para abrir áreas que non pode acceder"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "No entanto, sempre que non pode ler as instrucións sobre a tarxeta, terá que probar todas elas ata unha fábrica"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Se o robot non chegar ao seu destino, el ha voltar á súa posición inicial que lle permite volver tentar"
+
+msgid "Enter the directions"
+msgstr "Introduce os sentidos"
+
+msgid "Out of space for instructions"
+msgstr "Fóra do espazo para obter instruccións"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Eu teño un cartón en branco para poñer as instrucións sobre"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Poida que esta non era unha idea tan boa despois de todo ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Obter 3 Eyes Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Obter 1 lama vermella Tentacle"
+
+msgid "Find another shield"
+msgstr "Atopar un outro escudo"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Globos oculares Blend e Tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "Obter un escudo de lume"
+
+msgid "More water?!"
+msgstr "Máis auga?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Eu non creo que ser capaz de converterse nun Slim vai axudar-me aquí, pois eu podería non ser capaz de voltar máis tarde"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Vou ter que atopar outra forma de obtención a través de"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Vou ter que atopar algo para me axudar a atravesar"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Eu non vexo ningún Lamas na mina cando eu fun pegar o carbón Borgan e mesmo se houbese algún que non podo volver alí dende a miña balsa afundirse"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Vou ter que buscar outra mina por aquí ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Crea cubos de xeo que se expanden en contacto coa auga"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Unha botella capaz de capturar as almas"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Intente coitelos mataeus contra el ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Non se pode incorporarse %s. Inventario completo"
+
+msgid "Filling mine cart..."
+msgstr "Enchendo carrinhos de mina ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Realidades paralelas Copyright 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Fóra de frechas!"
+
+msgid "There's something moving around down there..."
+msgstr "Hai algo que circulan por aí ..."
+
+msgid "Good riddance..."
+msgstr "Good Riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Se o ascensor está fóra de orde, entón debe ser reposta"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Hai 4 claves de reset carón do pozo do ascensor, que debe ser reposta"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Asegúrese de axustar o ascensor, para evitar unha longa camiña de volta á superficie ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Esta máquina ten un slot do mesmo tamaño que as tarxetas. Coido que pode usalo para crear novas instrucións."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Para crear un novo conxunto de instrucións que precisa inserir un cartón en branco"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Lle será solicitado para introducir as instrucións para o robot a continuación. Iso está feito da mesma forma que as portas secuencia"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Cando teña rematado de introducir as direccións, preme Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "O robot, entón, siga as instruccións da tarxeta"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Se as direccións non estean correctas, podes probar de novo"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Este lugar é unha loucura, é mellor eu apressar-se e atopar o meu pai antes de acabar por ficar morto!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Así, para crear o Fire Shield eu teño que ir nun tentáculos Red Sludge"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Red Lamas viven en minas entón eu vou ter que buscar un por aquí"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Eu tamén teño un escudo de reposición, pero eu creo que debería ser en torno a un arsenal"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Os globos oculares Gazer son fáciles o suficiente, podo simplemente atrás para o soto"
+
+msgid "OK, off I go..."
+msgstr "OK, alá vou eu ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Non será capaz de obter o tentáculos ou escudo nesta versión, así que comproba de novo máis tarde"
+
+msgid "It's a portrait"
+msgstr "É un retrato"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Ese espírito non vai deixar-me pasado, eu vou ter que atopar un xeito de se librar del"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset switches permiten que para axustar a posición dun obxecto no mapa"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Se un obxecto se fai inaccesíbel, daquela pode empregar a opción para poñelas de volta no seu lugar orixinal"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Unha botella cunha alma presa no interior"
+

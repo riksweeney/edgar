@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "מהר לפנות שמאלה וימינה כדי להתנער slimes!"
+
+msgid "Bow"
+msgstr "פרפר"
+
+msgid "Not working in this version!"
+msgstr "לא עובד בגירסה זו!"
+
+msgid "Press Action to interact"
+msgstr "הקש פעילות אינטראקציה"
+
+msgid "%s is required"
+msgstr "%s נדרש"
+
+msgid "Bomb"
+msgstr "פצצה"
+
+msgid "Small Rock"
+msgstr "קטן רוק"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "הקש פעילות לאחזר סגול רן"
+
+msgid "Chicken"
+msgstr "עוף"
+
+msgid "Tesla Pack"
+msgstr "טסלה Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "הקש פעילות לאחזר טסלה Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "הקש פעילות להחליף טסלה Pack"
+
+msgid "Obtained %s"
+msgstr "לקבל %s"
+
+msgid "Complete"
+msgstr "השלם"
+
+msgid "%d more to go..."
+msgstr "%d יותר ללכת ..."
+
+msgid "Used %s"
+msgstr "משמש %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "לא ניתן לצייד את הפריטים תוך transmogrified"
+
+msgid "Equipped %s"
+msgstr "מאובזרת %s"
+
+msgid "Maximum health has increased!"
+msgstr "בריאות מקסימלית גדל!"
+
+msgid "Bow will now fire %s"
+msgstr "באו עכשיו אש %s"
+
+msgid "A bow is required to use this item"
+msgstr "קשת נדרש להשתמש פריט זה"
+
+msgid "Cannot transmogrify here..."
+msgstr "לא יכול transmogrify כאן ..."
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Start a new game?"
+msgstr "התחל משחק חדש?"
+
+msgid "Play the tutorial?"
+msgstr "שחק הדרכה?"
+
+msgid "Exit the game?"
+msgstr "יציאה את המשחק?"
+
+msgid "Back"
+msgstr "חזרה"
+
+msgid "Game Loaded"
+msgstr "משחק טעון"
+
+msgid "Game Saved"
+msgstr "משחקים שמורים"
+
+msgid "OK"
+msgstr "אישור"
+
+msgid "Any unsaved progress will be lost"
+msgstr "כל התקדמות שלא נשמרה תאבד"
+
+msgid "Joy Button #%d"
+msgstr "וי לחצן # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "הקש פעילות לדבר %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "ניו המטרה: %s"
+
+msgid "Objective Completed: %s"
+msgstr "המטרה הושלם: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "הקיר מימין נראה חלש ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "נשק זה לא שיש השפעה כלשהי ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "הקש פעילות לצרף את חבילת טסלה"
+
+msgid "The Legend of Edgar"
+msgstr "אגדה של אדגר"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s יש צורך להפעיל את זה לעבור"
+
+msgid "Press Action to use this switch"
+msgstr "הקש פעילות כדי להשתמש בבורר זה"
+
+msgid "Press Action to save your game"
+msgstr "הקש פעולה כדי להציל את המשחק שלך"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s נדרש להשתמש הלחץ הזה פלייט"
+
+msgid "%s is needed to open this door"
+msgstr "%s יש צורך לפתוח את הדלת"
+
+msgid "This door is locked"
+msgstr "זו הדלת נעולה"
+
+msgid "This teleporter is not active"
+msgstr "Teleporter זה אינו פעיל"
+
+msgid "Press Action to go to the %s"
+msgstr "הקש פעילות לנסוע %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "דוחף למעלה או למטה כדי להשתמש להרים"
+
+msgid "This lift is not active"
+msgstr "זה להרים אינו פעיל"
+
+msgid "Cannot carry any more %s"
+msgstr "לא יכול לסחוב עוד %s"
+
+msgid "Picked up %s x %d"
+msgstr "הרים %s x %d"
+
+msgid "Picked up %s"
+msgstr "הרים %s"
+
+msgid "Readied %s"
+msgstr "הכין %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s נדרש לבצע פריט זה"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "מחסן קי"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "תיק אחסון הפחם Switch קי"
+
+msgid "Large Room Key"
+msgstr "מפתח חדר גדול"
+
+msgid "Coal Bag"
+msgstr "תיק פחם"
+
+msgid "Forest Cell Key"
+msgstr "יער סלולרי קי"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "בריאות Potion"
+
+msgid "Outflow Key"
+msgstr "תזרים קי"
+
+msgid "Flow Control Key"
+msgstr "Flow Control קי"
+
+msgid "Waste Processing Key"
+msgstr "בזבוז עיבוד קי"
+
+msgid "Access Key 1"
+msgstr "מפתח גישה 1"
+
+msgid "Access Key 2"
+msgstr "מפתח גישה 2"
+
+msgid "Access Key 3"
+msgstr "מפתח גישה 3"
+
+msgid "Trap Door Switch Key"
+msgstr "מלכודת דלת Switch קי"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "זה להרים אין כוח. אני לא יוכל להשתמש בו עד שאני לשחזר את הכוח"
+
+msgid "Keep practising!"
+msgstr "תמשיך לתרגל!"
+
+msgid "Hi"
+msgstr "הי"
+
+msgid "Hello Edgar"
+msgstr "שלום אדגר"
+
+msgid "Can I borrow your shield?"
+msgstr "אפשר לשאול את המגן שלך?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "לתרגל את מיומנויות הלחימה שלך?"
+
+msgid "Something like that"
+msgstr "משהו כזה"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "אם אתה מפעיל לי שליחות אז אתה יכול לקבל את המגן"
+
+msgid "What do I have to do?"
+msgstr "מה אני צריך לעשות?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "ללכת במכרה ולאסוף אותי כמה פחם"
+
+msgid "But we have plenty of coal!"
+msgstr "אבל יש לנו הרבה פחם!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "כן, אבל זה לא כל הפחם הישן, זה פחם הוא מיוחד, זה שורף חמה מחזיק מעמד יותר זמן"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "אני רק צריך 10 חתיכות של החומר, כך שזה לא צריך לקחת לך הרבה זמן"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "הקפד לשים אותו בשקית, לגעת בו יותר מדי זמן יהיה מזיק לבריאות שלך"
+
+msgid "Do you have a bag?"
+msgstr "האם יש לך תיק?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "לא, מן הסתם תמצא אחד במכרה אף"
+
+msgid "OK, I'll get the coal"
+msgstr "בסדר, אני אביא את הפחם"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "הנה, קח את זה מעדר. אתה יכול להשתמש בו כדי במכרה פחם לפרוץ דרך כל הקירות חלש אתה נתקל"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "עליך גם זה המפתח להיכנס במכרה"
+
+msgid "Thanks!"
+msgstr "תודה!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "תודה לך, אדגר, זה פחם היא מושלמת! מקווה העטלפים לא להפחיד אותך."
+
+msgid "The bats were the least of my worries..."
+msgstr "העטלפים היו הדאגה שלי ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "תגיד, שמעתי שמשהו קרה שלי כי לפני כמה שנים"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "אה, כן, היה מה שנקרא  האירוע , אבל זה חלק של המכרה היה חתום מזמן"
+
+msgid "Right..."
+msgstr "צודק ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "הנה, יש המגן שלי ויש לי כיף!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "רק להתרחק מן הביצה האסורה"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "אעשה, אני יכול להחזיק מעדר שלך זמן?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "בטח, רק להחזיר אותו בריא ושלם"
+
+msgid "Thanks, Borgan!"
+msgstr "תודה, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "האם הצליח למצוא את הפחם עדיין?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "אתה יכול למשוך כמה פריטים על ידי לחיצת סביב נגדם תוך להחזיק את לחצן הפעולה."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "לאחר מכן תוכל למשוך אותו סביב עד ושחרר את לחצן פעולה"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "סלע זה נראה חזק מדי פיק שלי גרזן. אני אצטרך להשתמש במשהו אחר לעבור ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, מה קרה?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "נראה כאילו זה לא היה רעיון טוב אחרי הכל"
+
+msgid "There must be way out of here..."
+msgstr "חייבת להיות דרך החוצה מכאן ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "זה חייב להיות פחם רוצה שאני שלי בשבילו"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "אני לא חושב מגן שלי יהיה להגן עלי מפני אלה fireballs. אני צריך למצוא אחד חזק ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "אתה לא תוכל לעשות את זה קצת בגירסה זו, נסה שוב במועד מאוחר!"
+
+msgid "Strange creature..."
+msgstr "יצור מוזר ..."
+
+msgid "Wait, what was that?"
+msgstr "חכה, מה זה היה?"
+
+msgid "You again?!"
+msgstr "שוב אתה?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "הקוסם ודאי לקח אבא לטירה שלו. אני צריך לחלץ אותו משם."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "הדרך היחידה להגיע לטירה היא דרך הביצה האסורה למזרח."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "יש אגם בין הכפר לבין הביצה כך אני צריך הרפסודה לחצות."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "אני גם צריך חרב מגן כדי להגן על עצמי. אני יכול לדבר ולהשיג כי אלה."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "משהו אמור לקרות כאן, אבל זה לא כך בגירסה זו נסה שוב במועד מאוחר!"
+
+msgid "Have fun!"
+msgstr "תהנה!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "תודה על resucing התרנגולות שלי, יש לך אותי 2 יומני מן היער עדיין?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "תודה אדגר! תרנגולות שלי לאחור אלה יומני יעשה לי טוב"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "קח את החרב, זה יכול לשרת אותך היטב!"
+
+msgid "Thank you!"
+msgstr "תודה!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "תודה על יומני, היה לך מזל עם התרנגולות?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "אני אתן לך חרב אם אתה מבין אותי 2 יומני קצוצים מן היער ולהציל לפחות 3 של תרנגולות שלי"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "אדגר שלום, מה אני יכול לעשות בשבילך היום?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "האם יש לך חרב אני יכול לשאול?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "יש לי חרב אתה יכול לקבל את זה אם אתה עושה משהו בשבילי הראשון"
+
+msgid "OK... what do I have to do?"
+msgstr "אישור ... מה אני צריך לעשות?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "כמה תרנגולות שלי יש ברח עט שלהם ואני יהיה אסיר תודה אם תוכל להחזיר אותם בשבילי"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "אני צריך להגדיר כמה מלכודות ליד עט שלהם, אתה יכול לפתות אותם באמצעות מלכודות זה להאכיל תרנגולת. אני לא צריך את כולם, אבל לפחות 3 יהיה מועיל מאוד. אני יכול להשיג את שאר עצמי."
+
+msgid "That's it?"
+msgstr "זהו זה?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "לא ממש. אתה יכול גם להביא לי קצת עץ מן היער? 2 יומני צריך להספיק"
+
+msgid "Do you have an axe?"
+msgstr "האם יש לך גרזן?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "ERM ... עזבתי את הגרזן שלי ביער איפשהו. זה עדיין צריך להיות שם"
+
+msgid "Isn't that forest dangerous?"
+msgstr "זה לא יער מסוכן?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "לא באמת, אם משהו מפריע שלך, רק להכות בו עם נשק"
+
+msgid "Such as an axe?"
+msgstr "כמו גרזן?"
+
+msgid "Yes, that would do the trick"
+msgstr "כן, זה יעשה את הטריק"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "אבל ברצינות, אין שום דבר שם זה יכול באמת לפגוע בך. כי הבעיה טופלה לפני זמן רב ..."
+
+msgid "Good luck!"
+msgstr "בהצלחה!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "אה, תודה אדגר, אני צריך רק 3, אבל תודה על העזרה נוספים!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "הנה, מגי זה גרם לי שיקוי בריאות אבל אני לא צריך את זה אז למה אתה לא צריך את זה?"
+
+msgid "Thanks Jacob"
+msgstr "תודה יעקב"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "וואו, תפסת את כולם, תודה רבה!"
+
+msgid "Here, I have these for you"
+msgstr "הנה, יש לי בשבילך אלה"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "מגי זה גרם לי שיקוי בריאות אבל אתה יכול לקבל את זה"
+
+msgid "And this is something very special"
+msgstr "וזה משהו מאוד מיוחד"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "במאי זה לעזור לך בדרכך להפוך לוחם חזק"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "הצלת אותי הרבה זמן. מגי גרם לי משהו אחר, אבל מאז יש לך כל כך מועיל, אתה יכול לקבל את זה."
+
+msgid "Hi Maggie"
+msgstr "היי מגי"
+
+msgid "Thanks Maggie!"
+msgstr "תודה מגי!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan אמר כי קטע של המכרה היה חתום לאחר  התקרית "
+
+msgid "There must be something around here..."
+msgstr "חייב להיות משהו כאן ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "לעזאזל, הוא מתרומם למעלה. חייבת להיות כניסה נוספת ..."
+
+msgid "Wait, what's that?"
+msgstr "חכה, מה זה?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "אולי אני יכול המנהרה הדרך שלי פנימה .."
+
+msgid "These machines aren't working."
+msgstr "המכונות האלה לא עובד."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "זה נראה כמו פנינה צריכים להתאים לחור הזה, אולי אני יכול למצוא כמה תחליפים."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "זה נראה כאילו זה תקוע חזק שם. אני יכול כנראה לשחרר אותו עם מעדר ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "כדי להגיע הביצה האסורה אני צריך לבנות רפסודה."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "אני יכול לבנות את הרפסודה אם אני מספיק לכרות עצים מן היער"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "אני צריך 6 יומני קצוץ לבנות רפסודה"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "אני לא מתכוון הביצה בלי חרב ומגן"
+
+msgid "OK, here goes!"
+msgstr "אוקיי, הנה זה בא!"
+
+msgid "Aw, not again!"
+msgstr "אוי, לא שוב!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "זה היה יותר טוב להיות הפעם האחרונה שאני צריך לעשות זה ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "זה היה קל! ואני תמיד יכול לחזור מאוחר יותר!"
+
+msgid "Oh...."
+msgstr "אה ...."
+
+msgid "Guess I have no choice now."
+msgstr "לנחש אין לי ברירה עכשיו."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "חכה אבא, אני בא ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "משהו אמור לקרות עכשיו, אבל זה לא בגירסה זו. בדוק שוב מאוחר יותר!"
+
+msgid "There's a note here"
+msgstr "יש לציין כאן"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "הייתי לכוד כאן למטה עבור מה שנראה כמו נצח"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "לצאת מהמקום הזה אני צריך 3 מפתחות גישה לעבודה המעליות"
+
+msgid "So far I have only found 1"
+msgstr "עד כה יש לי רק למצוא 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "כדי להחמיר את המצב, אני יכול רק להגיע כמה מתגים עם חץ בזהירות"
+
+msgid "But spares aren't common and I have run out"
+msgstr "אבל חס אינם נפוצים ואני כבר אזלו"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "אם אני לא אמצא דרך לצאת מכאן בקרוב, אני חושש שאני עלול לגווע ברעב"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "אם אני לא אצא מכאן אני מוכן לסבול גורל דומה ..."
+
+msgid "Oh, what's this?"
+msgstr "אה, מה זה?"
+
+msgid "There's a note here too"
+msgstr "יש לציין גם כאן"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "השיקוי היא מושלמת! סביאה זה יהפוך אדם לתוך יצור עבור כמות קטנה של זמן"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "עד כה אני יכול רק transmogrify עצמי לתוך יצור אחד אבל עם קצת יותר זמן דבר צריך להיות אפשרי"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "יש טיפה שמאלה, זה צריך להיות בטוח לשתות"
+
+msgid "OK, here goes nothing..."
+msgstr "בסדר, שום דבר לא הולך כאן ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh!! זה נורא!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan אמר לי Slimes יכולים לשחות במים, ולכן אולי זה יהיה שימושי ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "כאשר הופך מפלצתיים, אתה יכול לנוע כרגיל. אתה יכול גם לשחות במים ולהשתמש מעלה ומטה כדי לנוע"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "הקדמת או לקפוץ יגרום לך לקפוץ מחוץ למים אם אתה קרוב לפני השטח"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "לפקוח עין על השעון בתחתית המסך. כאשר יגיע 0 אתה יהפוך באופן אוטומטי אדם שוב"
+
+msgid "This place doesn't look so bad..."
+msgstr "המקום הזה לא נראה כל כך רע ..."
+
+msgid "What was that?"
+msgstr "מה זה היה?"
+
+msgid "Uh Oh..."
+msgstr "אה אה ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "אוף, אני שמח להיות משם"
+
+msgid "Now to get through this swamp"
+msgstr "עכשיו זה לעבור את הביצה"
+
+msgid "Hey, what's this?"
+msgstr "היי, מה זה?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "נראה די תמים, אני אנסה לדרוך על זה"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "וואו! זה היה מגניב! זה חייב להיות teleporter מכני."
+
+msgid "I wonder if it works both ways..."
+msgstr "אני תוהה אם זה עובד בשני הכיוונים ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "לא רק זה הולך להציל אותי הרבה הליכה, זה גם המון כיף!"
+
+msgid "Now try out your shield"
+msgstr "עכשיו נסה את המגן שלך"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "לחסום את כדורי ירק על ידי המפעל ו לקפוץ מדף הבא"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "פריטים מסוימים של המשחק יכול להיות דחף ומשך"
+
+msgid "To push an item, simply walk into it"
+msgstr "לדחוף פריט, פשוט להיכנס לתוך זה"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "למשוך פריט, נכנס תוך החזקת מקש פעילות"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "לאחר מכן תוכל למשוך את הפריט מסביב עד שאתה להרפות פעילות"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "משוך את התיבה על הצד השני ולהשתמש בו כדי להגיע מדף"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "זה החלק האחרון של הדרכה וגם ילמד אותך כדי לחסום ולתקוף אויבים"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "ראשית, כדאי לצייד את החרב שכן יש טווח יותר ועושה נזק יותר מעדר"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "הקש Z כדי להציג המלאי שלך, הדגש את החרב וללחוץ התקפה (CTRL השמאלי) או השתמש פריט (א)"
+
+msgid "Press z again to close your inventory"
+msgstr "הקש Z שוב כדי לסגור המלאי שלך"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "מדי פעם, אויבים הרוג יירד בריאות אשר ייעלמו אחרי כמה שניות, להרים אותו כל כך מהר!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "אם בת היא להגיע קרוב אליך, להחזיק לחסום וזה יהיה בלתי מזיק ומוחזרת לך"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "עכשיו להרוג את כל העטלפים באזור!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "ישנם שני סוגים של דלת במשחק. דלתות ידניים דלתות אוטומטיות."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "דלתות ידני דורשים המקשים כדי לפתוח אותם, דלתות אוטומטיים דורשים בוררים."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "כדי לפתוח דלת נעולה כי יש לך את המפתח, פשוט להיכנס לתוך זה. אין צורך לקבל את המפתח נבחרים המלאי שלך."
+
+msgid "Open the door and continue to the right"
+msgstr "לפתוח את הדלת ולהמשיך ימינה"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "מזל טוב! עכשיו אתה יודע את היסודות של משחק אתה צריך לנסות את המשחק המרכזי"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "אם אתה רוצה משחק חוזר מדריך זה, הקש בריחה בחר מדריך מתפריט"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "לשחק את המשחק הראשי, הקש בריחה לבחור משחק חדש מתוך התפריט"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "הקש שטח כאשר סיים לקרוא לך ללכת תיבת שיח הבאה"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "אתה יכול גם לעבור תיבת שיח הבא על ידי לחיצה על התקפה (CTRL השמאלי), בלוק (ALT שמאלי), קפיצה (רווח), פעילות (ג) או השתמש פריט (א)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "זהו מדריך עבור אגדה של אדגר. מדריך זה יסביר כיצד לשחק את המשחק."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "כדי לצאת במדריך זה, הקש בריחה להשתמש מלמעלה למטה במקשי החיצים כדי לבחור אפשרות. חזרה הקש כדי לבחור אותו."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "לנוע שמאלה וימינה, השתמש במקשי החיצים."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "כדי לבצע קפיצה, רווח הקש. ניתן להעביר באוויר כאשר קופץ."
+
+msgid "To interact with an item, press c"
+msgstr "כדי לקיים אינטראקציה עם פריט, הקש C"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "ניגש אל נקודת פעילות ולחץ C"
+
+msgid "To collect an item from your"
+msgstr "לאסוף פריט שלך"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "להרים פריט, פשוט להיכנס לתוך זה. כל הפריטים collectable יתווספו למלאי שלך."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "אתה יכול להציג את התוכן של המלאי שלך על ידי לחיצה על Z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "בעוד בשנת המלאי, השתמש במקשי החיצים כדי להציג את הפריטים."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "אתה יכול להשתמש פריט מיד על ידי לחיצה על התקפה (CTRL השמאלי) או השתמש פריט (א)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "אתה יכול מוכנה פריט לשימוש על ידי לחיצה על בלוק (ALT שמאלי) או פעילות (C)"
+
+msgid "Walk over the key to pick it up"
+msgstr "ללכת על מקש כדי להרים אותה"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "אתה יכול לשנות את כל הפקדים של המשחק על ידי לחיצה על בריחה ובחירת אפשרויות בתפריט"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "בחר בקרת תצורה באמצעות מקשי החצים וחזור העיתונות"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "השתמש במקשי החיצים כדי לבחור את הפקד שברצונך לשנות ולחץ חזרה."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "הבא, הקש על מקש שברצונך להשתמש במקום."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "ללא קשר מה המפתחות תבחר, אתה תמיד יכול לנווט בין התפריטים בעזרת מקשי החצים ו השבות"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "שים לב כי במדריך זה, את מפתחות ברירת המחדל תהיה הניחו"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "לאחר שתסיים להגדיר את המפתחות, ללכת ישר הפעולה הבאה פוינט"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "הוא אחד מעדר נשק רבים תיתקל במשחק"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "אתה יכול להשתמש בה הן נשק וכלי"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "להרים את מכוש ולהמשיך הפעולה הבאה פוינט"
+
+msgid "Congratulations, you found a secret!"
+msgstr "מזל טוב, מצאת סוד!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "יש סודות רבים של המשחק הראשי כדי לשמור לחפש אותם"
+
+msgid "Here's a hint to get you started"
+msgstr "הנה רמז לך להתחיל"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "אמנם רק מחייב אותך לתפוס 3 תרנגולות שלו, למה לא להיות נחמד אליו ולתפוס יותר? יש 10 נדודים את המפה בכל"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "המגן יגנו עליכם מפני התקפות האויב ביותר"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "כמה התקפות האויב לא יכול להיחסם"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "במפגעים סביבתיים, כגון סלעים נופלים, לא יכול להיות חסום"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "כדי לחסום התקפה, הקש לחסום להחזיק (ALT שמאלי)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "אתה חייב להיות מול ההתקפה כדי לחסום את זה בהצלחה"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "שים לב שאתה לא יכול לזוז בזמן חוסם, אבל אתה יכול להתמודד עם דרך אחרת. אתה גם לא יכול לחסום באוויר"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "להרים את המגן ולהמשיך ימינה"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "זהו קיר חלש, זה יכול להיות מרוסק למטה באמצעות מעדר"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "כדי להשתמש מעדר, הקש התקפה (CTRL השמאלי)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "כי לא כל קירות חלשים יכולים להיהרס באמצעות מעדר"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "להרוס את הקיר באמצעות מעדר ולהמשיך"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "משהו אמור להיות כאן אבל זה לא בגירסה זו, נסה שוב במועד מאוחר!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "לאסוף 10 חתיכות של קול"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "יומני איסוף 2 קצוץ"
+
+msgid "Rescue 3 Chickens"
+msgstr "תרנגולות הצלה 3"
+
+msgid "Find 4 Gems"
+msgstr "מצא 4 אבני חן"
+
+msgid "Repair Generators"
+msgstr "תיקון גנרטורים"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "יומני איסוף קצוץ 6"
+
+msgid "Collect 3 Access Keys"
+msgstr "לאסוף 3 מפתחות גישה"
+
+msgid "This is a blank objective"
+msgstr "זוהי המטרה ריק"
+
+msgid "Kill all Bats!"
+msgstr "להרוג את כל העטלפים!"
+
+msgid "Coal"
+msgstr "פחם"
+
+msgid "Chopped Log"
+msgstr "קצוץ התחבר"
+
+msgid "Green Gem"
+msgstr "גרין רן"
+
+msgid "Red Gem"
+msgstr "רן האדום"
+
+msgid "Blue Gem"
+msgstr "בלו ג 'רן"
+
+msgid "Purple Gem"
+msgstr "סגול רן"
+
+msgid "Teleporter Key"
+msgstr "Teleporter קי"
+
+msgid "New Game"
+msgstr "משחק חדש"
+
+msgid "Tutorial"
+msgstr "מדריך"
+
+msgid "Load Game"
+msgstr "טעןמשחק"
+
+msgid "Options"
+msgstr "אפשרויות"
+
+msgid "About"
+msgstr "על"
+
+msgid "Quit"
+msgstr "צא"
+
+msgid "Configure Controls"
+msgstr "בקרת תצורה"
+
+msgid "Configure Sound"
+msgstr "להגדיר סאונד"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "רמזים הצג"
+
+msgid "A potion which will transform you..."
+msgstr "שיקוי אשר יהפכו אותך ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "יוצר מאוד absorbant קוביות קרח מיניאטורי"
+
+msgid "A potion which will restore all of your health"
+msgstr "שיקוי אשר יחזיר את כל הבריאות שלך"
+
+msgid "A powerful bomb"
+msgstr "פצצה רבת עוצמה"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "שיקוי אשר הופך אותך בלתי נראה לאויבים מסוימים"
+
+msgid "The eyeball from a Gazer"
+msgstr "גלגל העין מתוך Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "ערכת טסלה. אין לה כל תשלום."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Summoner של צוות. זה לא יכול להיות בשימוש על ידי בני אדם."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "ערכת טסלה. היא טעונה במלואה."
+
+msgid "An empty potion bottle"
+msgstr "בקבוק משקה ריק"
+
+msgid "A bag of chicken feed"
+msgstr "שק של עוף להאכיל"
+
+msgid "A bag suitable for carrying coal"
+msgstr "תיק מתאים נושאת פחם"
+
+msgid "Basic Sword"
+msgstr "יסוד חרב"
+
+msgid "A Sword given to you by Jacob"
+msgstr "חרב שנתן לך יעקב"
+
+msgid "A bow"
+msgstr "קשת"
+
+msgid "Small Wooden Shield"
+msgstr "עץ קטנים מגן"
+
+msgid "A small shield that provides basic protection"
+msgstr "מגן קטן המספק הגנה בסיסית"
+
+msgid "Normal Arrow"
+msgstr "רגיל חץ"
+
+msgid "Normal Arrows"
+msgstr "רגיל חצים"
+
+msgid "An axe suitable for chopping trees"
+msgstr "גרזן מתאים חוטב עצים"
+
+msgid "Pickaxe"
+msgstr "מכוש"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "מעדר השאיל לך על ידי Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner קי"
+
+msgid "Potion Room Key"
+msgstr "שיקוי חדר קי"
+
+msgid "Surge Passage Key"
+msgstr "נחשול המעבר קי"
+
+msgid "Demolition Storage Key"
+msgstr "הריסת מחסן קי"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "מה זה היה הדבר היה מרוקן את החשמל כי הגנרטור ולהשתמש בו נגד לי."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "זה יכול להסביר למה להרים כי לא היה עובד. להביס את drainers אחרים צריכים להחזיר את הכוח."
+
+msgid "Defeat all Energy Drainers"
+msgstr "להביס כל Drainers אנרגיה"
+
+msgid "No Objectives"
+msgstr "לא יעדים"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "הקש פעילות לאפס גושי פאזל"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "זה נראה כמו בבלנדר. אני יכול להשתמש בזה כדי liquidise משהו"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "אני צריך האדום בוצה Tentacle ו 3 Gazer העיניים כדי להפוך את השיקוי"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "אני עדיין צריך בקבוק ריק לשים את השיקוי ב"
+
+msgid "So this is the Fortress."
+msgstr "אז זה מבצר."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "זה נראה כמו הרבה דלתות להוביל את לאזורים אחרים, הייתי צריכה נאותה להסתכל מסביב לפני שאני הולך לשום מקום אחר ..."
+
+msgid "Try hitting the skull..."
+msgstr "נסה להכות את הגולגולת ..."
+
+msgid "This machine is not active"
+msgstr "מכונה זו אינה פעילה"
+
+msgid "Repeat the sequence"
+msgstr "חזור על רצף"
+
+msgid "Correct Sequence"
+msgstr "רצף נכון"
+
+msgid "Incorrect Sequence"
+msgstr "רצף שגוי"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "אגדה של אדגר נתקל השגיאה הבאה"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "אנא דווח על שגיאה זו המציאות מקבילי"
+
+msgid "The game will now exit"
+msgstr "המשחק ייסגר כעת"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "זה נראה כמו בבלנדר. אני יכול להשתמש בזה כדי liqudise משהו"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "זה חייב להיות פחם Borgan רוצה שאני שלי בשבילו"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "זה יכול להסביר למה להרים כי לא היה עובד. להביס את drainers אחרים צריכים להחזיר את הכוח כאן."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "אני צריך למצוא 3 עיניים Gazer, 1 האדום בוצה Tentacle ו מגן נוסף כדי ליצור מגן של אש ההתנגדות"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "פעם מצאתי את כל הפריטים הללו אני אצטרך למצוא מקום כדי ליצור את המגן"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "יש ספר פה על נשק קסום"
+
+msgid "Maybe I can create a shield..."
+msgstr "אולי אני יכול ליצור מגן ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "חרבות ... שריון ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "ספר מטופש. זה לא בסדר ואין מדד"
+
+msgid "Here we go: Shields"
+msgstr "הנה אנחנו מתחילים: שילדס"
+
+msgid "Shield of Fire Resistance"
+msgstr "מגן האש ההתנגדות"
+
+msgid "Ingredients"
+msgstr "המצרכים"
+
+msgid "One must gather the following"
+msgstr "צריך לאסוף את הפעולות הבאות"
+
+msgid "The root of a Mandrake"
+msgstr "השורש של מנדרייק"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "השומן של דארש (משמאל לעמוד במשך 3 חודשים)"
+
+msgid "Powered Condor bones"
+msgstr "עצמות מופעל קונדור"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 העיניים של Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "זרוע טרי חתוך מתוך נקבה האדום בוצה"
+
+msgid "The shield to apply the enchantment"
+msgstr "המגן להחיל את הקסם"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "תערובת והעיניים Gazer זרוע בוצה לתוך נוזל חלקות"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "הוסף את השורש, שומן ועצמות לתוך קלחת ומערבבים יחד עם מיזג עיניים Gazer ו זרוע בוצה"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "כאשר התערובת הופך כחול בהיר, להוסיף את המגן"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "ראיתי את רוב הפריטים הללו במעבדה אז אני לא צריך לדאוג אלו"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "ואת Gazers להסתובב במרתף כך לא בעיה"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "מה אני צריך למצוא הוא בוצה האדום, אבל אין לי מושג איפה למצוא אחד"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "אני לא יכול להשתמש המגן הנוכחי שלי בניסוי במקרה זה backfires אז אני אצטרך למצוא עוד אחד"
+
+msgid "Hmmm..."
+msgstr "המממ ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "אולי יש חדר שיקויים או במעבדה איפה אני יכול למצוא את השורשים, שומן ועצמות אז אני לא צריך לדאוג אלו"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "עליך להיות בעל תעודת הוראה אתה רוצה להשתמש בהדגשה בתיבת המלאי שלך"
+
+msgid "Wow, a laboratory!"
+msgstr "וואו, מעבדה!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "אני אוהב לצפות מגי לחשים ושיקויים לעשות, אולי אני יכול לעשות כמה משלי כאן!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "וואו, מעולם לא ראיתי כל כך הרבה ספרים במקום אחד!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "בטח יש מידע על כל נושא כאן, זה יכול להיות שימושי ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "המממ, את האוויר מרגיש מחויב, זה מזכיר לי את הבית של מגי כשהיא היתה עושה קסמים. אני צריך להיות זהיר."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "הו, אדגר, אתה נפגע! תן לי לרפא את הפצעים שלך"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "אני תוהה מה יש מפלצות אחרות. אני אקח דף באקראי ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers טסים יצורים cycloptic נמצא במקומות שונים"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "עין אחת שלהם היא בדרך כלל סגורה והם מסתמכים על סונאר לתנועה"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "הם משתמשים תחושה חזקה של ריח שלהם כדי לחפש טרף טורף ו כאחד"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "התקפה Gazers (וגם להגן על עצמם) על ידי פתיחת העין אשר לסמא כלום מסתכל עליה שלהם"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "התקפה זו אולם הוא יעיל רק אם הקורבן הוא פונה Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Gazer של גלגל העין מכילה תכונות מאגיות ומהווה מרכיב נפוץ הקסם הכנה"
+
+msgid "Centurion, Grey"
+msgstr "צנטוריון, גריי"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions הם יצורים שנוצרו באופן קסום, בדרך כלל שיגרה או כמו זקיפים השומרים"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "למרות זז לאט, גודל מאסיבי שלהם מאפשר להם פשוט לצעוד דרך כל ההגנה"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "במקום נשק, יש נהגים רבים ערימה ענקית שבה הם משתמשים כדי ללחוץ הקרקע לבלבל איומים"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "בעוד Centurions גריי ישמשו השומר היקפה החיצוני, Centurions האדום ידועים להתקיים משמשות כדי להגן על שטחים בעל חשיבות רבה"
+
+msgid "Splitter"
+msgstr "ספליטר"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters הם מפלצות לא מזיק אלא אם כן תקף."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "על הנזק מזין יותר מדי הם לשניים לתקוף הטורף שלהם"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "אם אחד של נזק אלה שמחזיק יותר מדי זה יהיה לפצל שוב ולהמשיך לתקוף"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "לבסוף, אחד הפיצול הסופי יהיה לייצר גירסאות מאוד קטנות שהן בלתי מזיק לחלוטין ובמצב הזה יכול להיות צעד פשוט על"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "אם כל החלקים שלה עדיין בחיים, ספליטר תהיה רפורמה עצמו אחרי זמן מה לרפא את פצעיו"
+
+msgid "Grub, Red"
+msgstr "גרב, האדום"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "זחלים האדום הם יותר אגרסיביים מאשר מקביליהם הירוקים שלהם והם תוקפים כל דבר שהם רואים כאיום"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "על בשלות להגיע הם יהוו המעטפת ואת מורף לתוך צרעה"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "חלק אולם יהיה מורף לתוך צרעה המלכה. מלכות אלה יכולים לייצר ריר כמו חומר מסוגל להחזיק את טרפו במקום"
+
+msgid "Tortoise, Master"
+msgstr "צב, הורים"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "יחידת צבים הם חיות מפחיד. נמצא רחוק אדמות שיש להם את היכולת לשנות את ראשיהם"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "הם לשלב את כל היכולות של בני הדודים שלהם לנשום אש, ליצור קרח לחשמל את עצמם"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "וכמובן, הם גם אטום בפני התקפות מן ההתאמה של אלמנטים, סופג את האנרגיה לרפא את עצמם"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "אבל בנוסף, אם הם מקבלים יותר מדי אנרגיה מן הריפוי, הם מתפתחים ללכת על השתוללות"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "במצב זה הם לרסק דרך ההגנה כל ולהפיק Dark Matter שהורס כל דבר שהיא נוגעת"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "עם זאת, את קליפת צב הורים מתפרע מאוד קסום הוא מרכיב חיוני בעת יצירת magics עוצמה ופריטים"
+
+msgid "Venus Flytrap"
+msgstr "ונוס Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "הובר, פינק"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore הוא יצור מן במימד אחר. זה יכול להיות זימן באמצעות קסם אפל רב עוצמה"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "הסיבה הנפוצה ביותר לזמן הזה החיה היא לפעול כמו שומר ראש"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "אין דרך לדעת להרוג Grimlore מאז מזין על פציעות קריטיות יהיה פשוט לחזור ממד משלו"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "אבל אפילו ופצעו אותו היא משימה מונומנטלית. מישהו נתקל היצור הזה מומלץ לברוח מהר ככל האפשר"
+
+msgid "Or they will die very quickly"
+msgstr "או שהם ימותו מהר מאוד"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "אה, הנה הוא compendium של מפלצות"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 כרכים! איך יכול להיות כל כך הרבה מפלצות בעולם?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "נראה שהם בסדר אלפביתי על פי"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "רפש, ירוק ... רפש, סגול ... רפש, ירוק ..."
+
+msgid "Sludge, Red"
+msgstr "בוצה, האדום"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "שלא כמו בן דודו הירוק שלה, בוצה האדום נשאר עמוק מתחת לאדמה, ורק לעתים רחוקות, אם בכלל, משטחים"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "הגידול המועדפת שלה יבשות באזורים מינרל עשיר וכתוצאה מכך נמצאו אורב באזורים של מכרות נטושים על ידי בני אדם"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "הם מאוד חשדנים כלפי בני אדם יתקוף על המראה, בדרך כלל הקאות את חומצת שלוקח זמן להתאדות"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, לסר ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "נהדר, זה כל מה שזה אומר. אני אפילו לא יודע איך לספר את ההבדל בין הזכר לנקבה. אני רק לקחת סיכון ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "חוץ מזה, מה הכי גרוע שיכול לקרות?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "אדגר לנוע שמאלה וימינה, השתמש במקשי החיצים."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "כדי לבצע קפיצה אדגר, שטח הקש. ניתן להעביר באוויר כאשר קופץ."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "אף יעקב מחייב אותך רק כדי לתפוס 3 תרנגולות שלו, למה לא להיות נחמד אליו ולתפוס יותר? יש 10 נדודים את המפה בכל"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "שים לב שלא כל קירות חלשים יכולים להיהרס באמצעות מעדר"
+
+msgid "I've already checked, he's not down there..."
+msgstr "כבר בדקתי, הוא לא שם למטה ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "שמעתי על אנשים נופלים לתוך הבאר לפני, אולי אבא שם ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ARE אותך לשם ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "כלום. אני מניח שאני אצטרך לשמור על מבט"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "דוחף למעלה או למטה כדי להגדיל או להקטין את פלטפורמת"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "יש ספר כאן על ציוד קסום"
+
+msgid "It's a book about enchanting equipment"
+msgstr "זה ספר על ציוד קסום"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "אין לי שום סיבה לקרוא את זה אבל אני אשמור אותו בראש במקרה אני"
+
+msgid "I wonder what other monsters there are..."
+msgstr "אני תוהה מה יש מפלצות אחרות ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "בדיוק כמו Summoners קבוע, Summoners כהה להתקשר חיות אחרות לעשות את ההצעה שלהם"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "בנוסף על פי שהם יכולים טלפורט למרחקים קצרים לברוח מתנגדיהם"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "הצוות שלהם מאוד קסום ואף לא ניתן להשתמש ישירות על ידי בני אדם, תכונות מאגיות שלה משמשים ליצירת לאיית"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers פינק הם quadrupeds קטן עם חוטם ארוך"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Puropse העיקרי של חוטם הוא לנבור אחר מזון, אך הוא משמש גם כמנגנון הגנה"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "והם יותר מסוגל להחזיק בשליטה על ידי טורף פשוט לפוצץ אותם"
+
+msgid "Venus Flytrap, mobile"
+msgstr "ונוס Flytrap, סלולרי"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "נייד Flytraps ונוס התפתחו השורשים מסוגלים לעבור את האוכל שלהם ולא לחכות שזה יגיע אליהם"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "צווארם הם מאוד אלסטיים ומסוגלים הצמד לעבר טרפם ממרחק ניכר משם"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "כי צריך לעשות את זה. יש לקוות כי להרים אחרים על ידי הביוב אמור כעת לעבוד"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "זה להרים הוא לא עובד. אני לא יוכל להשתמש בו עד שאני לשחזר את הכוח"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "נראה כי הזכוכית עבה מדי בשבילי כדי סדק, אני אצטרך למצוא דרך אחרת של ניפוץ זה ..."
+
+msgid "Up"
+msgstr "למעלה"
+
+msgid "Down"
+msgstr "למטה"
+
+msgid "Left"
+msgstr "שמאל"
+
+msgid "Right"
+msgstr "ימין"
+
+msgid "Jump"
+msgstr "קפיצה"
+
+msgid "Attack"
+msgstr "התקפה"
+
+msgid "Block"
+msgstr "חסום"
+
+msgid "Action"
+msgstr "פעילות"
+
+msgid "Use Item"
+msgstr "השתמש פריט"
+
+msgid "Previous Item"
+msgstr "פריט קודם"
+
+msgid "Next Item"
+msgstr "פריט הבא"
+
+msgid "Inventory"
+msgstr "מלאי"
+
+msgid "Pause"
+msgstr "השהה"
+
+msgid "Dead Zone"
+msgstr "אזור מת"
+
+msgid "Sound"
+msgstr "סאונד"
+
+msgid "SFX Volume"
+msgstr "נפח SFX"
+
+msgid "Music Volume"
+msgstr "נפח מוסיקה"
+
+msgid "Ice Spray"
+msgstr "ספריי קרח"
+
+msgid "Library"
+msgstr "ספריה"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing הרם קי"
+
+msgid "Mine Entrance Door Key"
+msgstr "שלי Entrance Door קי"
+
+msgid "Village"
+msgstr "הכפר"
+
+msgid "Cave"
+msgstr "מערה"
+
+msgid "Fortress Outskirts"
+msgstr "בפאתי המצודה"
+
+msgid "Forbidden Swamp"
+msgstr "אסור הביצה"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "ביוב המוגבלים קי"
+
+msgid "Basement"
+msgstr "מרתף"
+
+msgid "Fortress Ground Floor"
+msgstr "מבצר קומת כניסה"
+
+msgid "Sewer"
+msgstr "ביוב"
+
+msgid "Fortress Main Key"
+msgstr "מבצר מפתח ראשי"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter מפתח גישה 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter מפתח גישה 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter מפתח גישה 3"
+
+msgid "Laboratory"
+msgstr "מעבדה"
+
+msgid "Empty Bottle"
+msgstr "בקבוק ריק"
+
+msgid "First Floor Key"
+msgstr "קומה ראשונה קי"
+
+msgid "Press Action to retrieve %s"
+msgstr "הקש פעילות לאחזר %s"
+
+msgid "Hmm, this is new."
+msgstr "הממ, זה חדש."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "זה לא נראה כמו שזה יכול לפגוע בי אף, אבל יש רק דרך אחת לגלות ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "זה להרים נשלטת על ידי צלחת כי הלחץ, אבל אני לא יכול לעמוד על זה טרמפ ולהשתמש באותו זמן"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "אני אצטרך למצוא משהו אחר כדי לעמוד על הצלחת הלחץ בשבילי ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "כרטיס זה ריק, אני אצטרך לשים כמה הוראות על זה כדי שיהיה שמיש."
+
+msgid "There's a plaque here"
+msgstr "יש כאן רובד"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "מקום 4 הפסלים בסדר הנכון"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "אתה לא תוכל למצוא את כל הפסלים 4 בגירסה זו, כדי לחזור מאוחר יותר!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "בטח יש לך פסל אתה רוצה להשתמש בהדגשה בתיבת המלאי שלך"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "שום דבר לא קרה. אני לא חושב שזה הסדר הנכון"
+
+msgid "Tuning Fork"
+msgstr "מזלג"
+
+msgid "Second Floor Keycard"
+msgstr "קומה שנייה Keycard"
+
+msgid "Instruction Card #1"
+msgstr "הדרכה כרטיס # 1"
+
+msgid "Instruction Card #2"
+msgstr "הדרכה כרטיס # 2"
+
+msgid "Instruction Card #3"
+msgstr "הדרכה כרטיס # 3"
+
+msgid "Instruction Card #4"
+msgstr "הדרכה כרטיס # 4"
+
+msgid "Centurion Statue"
+msgstr "צנטוריון פסל"
+
+msgid "Spider Statue"
+msgstr "פסל עכביש"
+
+msgid "Tortoise Statue"
+msgstr "צב פסל"
+
+msgid "Scorpion Statue"
+msgstr "פסל העקרב"
+
+msgid "A Blue Gem"
+msgstr "פנינה כחול"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "פסל של צנטוריון. יש לו 2 הרגליים."
+
+msgid "A Green Gem"
+msgstr "רן גרין"
+
+msgid "A Purple Gem"
+msgstr "פנינה סגול"
+
+msgid "A Red Gem"
+msgstr "רן האדום"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "פסל של עקרב. יש 6 רגליים."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "פסל של עכביש. יש 8 רגליים."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "ארמדילו ספייק בול. האם פיזור דוקרנים כאשר נזרק."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "פסל של צב. יש 4 רגליים."
+
+msgid "A Tuning Fork"
+msgstr "מזלג כוונון"
+
+msgid "A chopped log"
+msgstr "יומן קצוץ"
+
+msgid "Narrator"
+msgstr "קריין"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "זה קלחת. מגי יש רק אחד כזה"
+
+msgid "Right, here goes!"
+msgstr "בסדר, הנה זה בא!"
+
+msgid "I need all the main ingredients"
+msgstr "אני צריך את כל המרכיבים העיקריים"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer העיניים, 1 האדום בוצה Tentacle ו מגן חילוף"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "אני גם צריך למזג את העיניים ואת זרוע לתוך נוזל"
+
+msgid "This entire section is about monsters"
+msgstr "סעיף זה כולו על מפלצות"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "אין לי שום סיבה לקרוא את אלה אבל אני אשמור אותו בראש במקרה אני"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "היי וואו, איזה מכונת חמוד!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "זה יש חריץ קטן על גבו של זה. אני מניח שמתי שם משהו כדי להפוך אותה לעשות דברים"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "הרובוט משתמש תעודות הוראה לנוע"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "השתמש הוראות להנחות את הרובוט כדי לפתוח שטחים שאתה לא יכול לגשת"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "עם זאת, מאז לא ניתן לקרוא את ההוראות על הכרטיס, יהיה לך לנסות את כולם עד אחד עובד"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "אם הרובוט לא להגיע היעד שלו, אז הוא יחזור למצב ההתחלה שלה המאפשר לך לנסות שוב"
+
+msgid "Enter the directions"
+msgstr "הזן את הכיוונים"
+
+msgid "Out of space for instructions"
+msgstr "מתוך מרחב הוראות"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "אני צריך כרטיס ריק לשים את ההוראות"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "אולי זה לא רעיון כל כך טוב אחרי הכול ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "להשיג 3 עיניים Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "להשיג 1 האדום בוצה Tentacle"
+
+msgid "Find another shield"
+msgstr "מצא עוד המגן"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "גלגלי מיזוג ו משושים"
+
+msgid "Obtain a Fire Shield"
+msgstr "להשיג מגן אש"
+
+msgid "More water?!"
+msgstr "עוד מים?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "אני לא חושב היכולת להפוך מפלצתיים הוא הולך לעזור לי כאן, מאז אני לא יוכל לחזור אחר כך"
+
+msgid "I'll have to find another way of getting across"
+msgstr "אני אצטרך למצוא דרך אחרת להגיע לרוחב"
+
+msgid "I'll have to find something to help me get across"
+msgstr "אני אצטרך למצוא משהו כדי לעזור לי לקבל פני"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "אני לא רואה שום Sludges במכרה כאשר הלכתי לקחת את Borgan של פחם ואף אם היו כאלה אני לא יכול לחזור לשם מאז הרפסודה שלי צנח"
+
+msgid "I'll have to find another mine around here..."
+msgstr "אני אצטרך למצוא אחר שלי כאן ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "יוצר קוביות קרח כי להרחיב על מגע עם מים"
+
+msgid "A bottle capable of capturing souls"
+msgstr "בקבוק מסוגל ללכוד נשמות"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "נסה להשתמש Mataeus של סכינים נגדו ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "לא יכול להרים %s. מלאי מלא"
+
+msgid "Filling mine cart..."
+msgstr "מילוי העגלה שלי ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "מציאויות מקבילות זכויות יוצרים 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "מתוך החצים!"
+
+msgid "There's something moving around down there..."
+msgstr "יש משהו מסתובב שם למטה ..."
+
+msgid "Good riddance..."
+msgstr "ברוך שפטרנו ..."
+
+msgid "Huh, déjà vu..."
+msgstr "אה, דז 'ה וו ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "אם להרים הוא מקולקל אז זה חייב להיות לאפס"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "יש 4 בוררי לאפס לאורך בפיר המעלית אשר חייב להיות לאפס"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "הקפד על מנת לאפס את המעלית כדי למנוע הליכה ארוכה בחזרה אל פני המים ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "זו מכונה יש חריץ בגודל זהה את הקלפים. אני מניח שאני יכול להשתמש בו כדי ליצור הוראות חדשות."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "כדי ליצור קבוצה חדשה של ההוראות אתה צריך להוסיף כרטיס ריק"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "לאחר מכן שתתבקש קלט את ההוראות עבור הרובוט לעקוב. זה נעשה באותה דרך כמו דלתות רצף"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "לאחר שסיימת המזינים את ההוראות, הקש Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "הרובוט יהיה מכן בצע את ההוראות על הכרטיס"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "אם כיוונים לא נכונים אתה יכול לנסות שוב"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "המקום הזה הוא מטורף, כדאי למהר למצוא אבא לפני שאני בסופו של דבר נהרגים!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "לכן, כדי ליצור מגן אש כי אני צריך לקבל אדום זרוע בוצה"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Sludges האדום לחיות במכרות אז אני אצטרך למצוא אחד כאן"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "אני גם צריך מגן לחסוך, אבל אני חושב שלא צריכה להיות סביב נשקיה"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "גלגלי העיניים Gazer הם די קל, אני יכול רק לחזור למרתף"
+
+msgid "OK, off I go..."
+msgstr "אישור, משם אני הולך ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "אתה לא תוכל לקבל את זרוע או מגן בגירסה זו, לכן בדוק שוב מאוחר יותר!"
+
+msgid "It's a portrait"
+msgstr "זה דיוקן"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "כי הרוח היא לא תיתן לי בעבר, אני אצטרך למצוא דרך להיפטר ממנו"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "איפוס בוררי מאפשרים לך לאפס את המיקום של האובייקט על המפה"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "אם אובייקט הופך בלתי מושג אז אתה יכול להשתמש בבורר להחזיר אותו במקום המקורי"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "בקבוק עם נשמה לכוד בתוך"
+

@@ -776,7 +776,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move down */
 
-		if (other->y + other->box.h < self->y + 3 && other->y + other->box.h + other->dirY >= self->y)
+		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
 			if (self->dirY < 0)
 			{

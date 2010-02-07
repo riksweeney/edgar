@@ -93,7 +93,7 @@ static void wait()
 static void touch(Entity *other)
 {
 	pushEntity(other);
-
+	
 	if (other->standingOn == self)
 	{
 		if (strlen(self->requires) == 0 || strcmpignorecase(self->requires, other->objectiveName) == 0)

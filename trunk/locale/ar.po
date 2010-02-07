@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "سرعان ما تتحول اليمنى واليسرى للتخلص من الأوحال!"
+
+msgid "Bow"
+msgstr "القوس"
+
+msgid "Not working in this version!"
+msgstr "لا تعمل في هذا الإصدار!"
+
+msgid "Press Action to interact"
+msgstr "الصحافة العمل على التفاعل"
+
+msgid "%s is required"
+msgstr "%s مطلوب"
+
+msgid "Bomb"
+msgstr "قنبلة"
+
+msgid "Small Rock"
+msgstr "الصخرة الصغيرة"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "اضغط على العمل لاسترداد بيربل الاحجار الكريمة"
+
+msgid "Chicken"
+msgstr "دجاجة"
+
+msgid "Tesla Pack"
+msgstr "تسلا حزمة"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "اضغط على العمل لاسترداد حزمة تسلا"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "اضغط على العمل لتحل محل حزمة تسلا"
+
+msgid "Obtained %s"
+msgstr "حصلت %s"
+
+msgid "Complete"
+msgstr "كامل"
+
+msgid "%d more to go..."
+msgstr "%d المزيد من الذهاب..."
+
+msgid "Used %s"
+msgstr "تستخدم %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "لا يمكن تجهيز سلع بينما transmogrified"
+
+msgid "Equipped %s"
+msgstr "تجهيز %s"
+
+msgid "Maximum health has increased!"
+msgstr "أقصى قدر من الصحة قد زاد!"
+
+msgid "Bow will now fire %s"
+msgstr "القوس الآن النار %s"
+
+msgid "A bow is required to use this item"
+msgstr "والقوس هو مطلوب لاستخدام هذا البند"
+
+msgid "Cannot transmogrify here..."
+msgstr "لا يمكن تحويله هنا..."
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "No"
+msgstr "لا"
+
+msgid "Start a new game?"
+msgstr "بدء لعبة جديدة؟"
+
+msgid "Play the tutorial?"
+msgstr "لعب البرنامج التعليمي؟"
+
+msgid "Exit the game?"
+msgstr "خروج من هذه اللعبة؟"
+
+msgid "Back"
+msgstr "خلف"
+
+msgid "Game Loaded"
+msgstr "اللعبة المحملة"
+
+msgid "Game Saved"
+msgstr "اللعبة المحفوظة"
+
+msgid "OK"
+msgstr "موافق"
+
+msgid "Any unsaved progress will be lost"
+msgstr "أي تقدم ستفقد"
+
+msgid "Joy Button #%d"
+msgstr "الفرح زر # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "اضغط على العمل لاجراء محادثات مع %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "الهدف الجديد : %s"
+
+msgid "Objective Completed: %s"
+msgstr "الهدف المنجزة : %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "الجدار على اليمين يبدو ضعيفا..."
+
+msgid "This weapon is not having any effect..."
+msgstr "هذا السلاح هو عدم وجود أي أثر..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "اضغط على العمل لتعلق حزمة تسلا"
+
+msgid "The Legend of Edgar"
+msgstr "أسطورة ادغار"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s هناك حاجة لتفعيل هذا التبديل"
+
+msgid "Press Action to use this switch"
+msgstr "اضغط على العمل لاستخدام هذا التبديل"
+
+msgid "Press Action to save your game"
+msgstr "اضغط على العمل لإنقاذ لعبتك"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s مطلوب لاستخدام هذا الضغط بلايت"
+
+msgid "%s is needed to open this door"
+msgstr "%s هناك حاجة لفتح هذا الباب"
+
+msgid "This door is locked"
+msgstr "هذا الباب مقفل"
+
+msgid "This teleporter is not active"
+msgstr "هذا teleporter غير نشط"
+
+msgid "Press Action to go to the %s"
+msgstr "اضغط على العمل للذهاب إلى %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "دفع أعلى أو لأسفل لاستخدام هذا المصعد"
+
+msgid "This lift is not active"
+msgstr "هذا المصعد غير نشط"
+
+msgid "Cannot carry any more %s"
+msgstr "لا يمكن تحمل أي مزيد من %s"
+
+msgid "Picked up %s x %d"
+msgstr "التقطت %s س %d"
+
+msgid "Picked up %s"
+msgstr "التقطت %s"
+
+msgid "Readied %s"
+msgstr "جهز %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s هو مطلوب لتنفيذ هذا البند"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "التخزين الرئيسية"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "الفحم حقيبة التخزين مفتاح التبديل"
+
+msgid "Large Room Key"
+msgstr "مفتاح الغرفة الكبيرة"
+
+msgid "Coal Bag"
+msgstr "كيس الفحم"
+
+msgid "Forest Cell Key"
+msgstr "الخلية الرئيسية للغابات"
+
+msgid "Wood Axe"
+msgstr "الخشب فأس"
+
+msgid "Health Potion"
+msgstr "جرعة صحية"
+
+msgid "Outflow Key"
+msgstr "تدفق مفتاح"
+
+msgid "Flow Control Key"
+msgstr "تدفق التحكم الرئيسية"
+
+msgid "Waste Processing Key"
+msgstr "مفتاح معالجة النفايات"
+
+msgid "Access Key 1"
+msgstr "مفتاح الوصول 1"
+
+msgid "Access Key 2"
+msgstr "مفتاح الوصول 2"
+
+msgid "Access Key 3"
+msgstr "مفتاح الوصول 3"
+
+msgid "Trap Door Switch Key"
+msgstr "فخ الباب مفتاح التبديل"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "رفع هذا لا يوجد لديه السلطة. أنا لن تكون قادرة على استخدامها حتى أنا استعادة السلطة"
+
+msgid "Keep practising!"
+msgstr "الحفاظ على ممارسة!"
+
+msgid "Hi"
+msgstr "مرحبا"
+
+msgid "Hello Edgar"
+msgstr "مرحبا ادغار"
+
+msgid "Can I borrow your shield?"
+msgstr "يمكنني الاقتراض الدرع الخاص بك؟"
+
+msgid "Off to practice your fighting skills?"
+msgstr "إيقاف ممارسة مهاراتك القتال؟"
+
+msgid "Something like that"
+msgstr "شيء من هذا القبيل"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "إذا قمت بتشغيل لي لقضاء حاجة ثم هل يمكن أن يكون الدرع"
+
+msgid "What do I have to do?"
+msgstr "ماذا علي أن أفعل؟"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "الذهاب الى منجم وجمع لي بعض الفحم"
+
+msgid "But we have plenty of coal!"
+msgstr "ولكن لدينا الكثير من الفحم!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "نعم ، ولكن هذا ليس أي الفحم الحجري القديم ، وهذا هو الفحم الخاصة ، وأنها تحرق سخونة وتستمر لفترة أطول"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "أنا فقط بحاجة 10 قطعة من الاشياء ، لذلك لا ينبغي أن تتخذ لك طويل جدا"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "تأكد من وضعها في حقيبة ، وانه لمس لفترة طويلة جدا وسوف يكون سيئا لصحتك"
+
+msgid "Do you have a bag?"
+msgstr "هل لديك حقيبة؟"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "لا ، وربما يمكنك العثور على واحد في المنجم على الرغم من"
+
+msgid "OK, I'll get the coal"
+msgstr "حسنا ، سوف أحصل على الفحم"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "هنا ، أغتنم هذه الفأس. يمكنك استخدامه لمنجم الفحم والإختراق من خلال أي الجدران الضعيفة واجهتك"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "أنت أيضا بحاجة إلى هذا المفتاح للوصول الى منجم"
+
+msgid "Thanks!"
+msgstr "شكرا!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "أشكركم ، إدغار ، وهذا هو الكمال الفحم! نأمل من الخفافيش لا تخيف لكم."
+
+msgid "The bats were the least of my worries..."
+msgstr "الخفافيش هي أقل من مخاوفي..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "أقول ، لقد سمعت ان شيئا ما حدث في هذا المنجم منذ بضع سنوات"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "إيه ، نعم ، كان هناك ما كنت تدعو الى  حادثة  ، ولكن هذا جزء من الألغام كانت اغلقت منذ وقت طويل"
+
+msgid "Right..."
+msgstr "الحق..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "هنا ، يكون لي درع والمتعة!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "مجرد البقاء بعيدا عن مستنقع المحرمة"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "لن تفعل ، لا أستطيع على عقد لديك معول لفترة من الوقت؟"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "الشيء المؤكد أن مجرد إعادته في قطعة واحدة"
+
+msgid "Thanks, Borgan!"
+msgstr "شكرا ، بورجان!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "كنت قد تمكنت من العثور على الفحم حتى الآن؟"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "يمكنك سحب بعض البنود حولها عن طريق دفع ضدهم في حين الضغط باستمرار على زر العمل."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "يمكنك عندئذ ان تسحبه نحو حتى يمكنك ترك الزر العمل"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "هذه الصخرة تبدو قوية للغاية بالنسبة لي اختيار فأس. سآخذ على استخدام شيء آخر للحصول على طريق..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh ، ماذا حدث؟"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "يبدو أن هذا لم يكن هذه فكرة جيدة بعد كل شيء"
+
+msgid "There must be way out of here..."
+msgstr "يجب ان تكون هناك طريقة للخروج من هنا..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "هذا يجب أن يكون الفحم يريد مني أن الألغام له"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "لا أعتقد أن بلدي الدرع ستحمي لي من هذه نارية. سآخذ للعثور على أحد أقوى..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "أنت لن تكون قادرة على فعل هذا الشيء في هذا الإصدار ، الاختيار مرة أخرى في وقت لاحق!"
+
+msgid "Strange creature..."
+msgstr "مخلوق غريب..."
+
+msgid "Wait, what was that?"
+msgstr "مهلا ، ما هذا؟"
+
+msgid "You again?!"
+msgstr "كنت مرة أخرى؟!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "الساحر يجب أن تتخذ داد إلى قصره. سآخذ لانقاذه من هناك."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "السبيل الوحيد للوصول الى القلعة من خلال مستنقع المحرمة إلى الشرق."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "هناك بحيرة بين القرية ومستنقع لذا أنا بحاجة للحصول على مجموعة كبيرة عبر."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "أنا أيضا في حاجة إلى السيف والدرع للدفاع عن نفسي. أستطيع أن أتحدث إلى والحصول على الرغم من هذه."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "شيء من المفترض أن يحدث ذلك هنا ، ولكنها ليست في هذا الإصدار وذلك من مراجعة في وقت لاحق!"
+
+msgid "Have fun!"
+msgstr "وقد متعة!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "وذلك بفضل لresucing دجاجاتي ، وقد حصلت لي 2 جذوع الأشجار من الغابة بعد؟"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "بفضل إدغار! دجاجاتي عدنا وهذه السجلات ستفعل لي غرامة"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "يأخذ هذا السيف ، قد يكون خير عون لكم!"
+
+msgid "Thank you!"
+msgstr "شكرا لك!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "الشكر للسجلات ، هل كان لديك أي حظ مع الدجاج؟"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "سأعطيك سيفا اذا كان لديك لي 2 المفروم جذوع الأشجار من الغابة وانقاذ ما لا يقل عن 3 من دجاجاتي"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "مرحبا إدغار ، ماذا يمكنني ان افعل لك اليوم؟"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "هل لديك السيف أستطيع اقتراض؟"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "ولدي السيف ويمكنك الحصول عليها إذا كنت تفعل شيئا بالنسبة لي أولا"
+
+msgid "OK... what do I have to do?"
+msgstr "موافق... ماذا علي أن أفعل؟"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "بعض زملائي في الدجاج قد هرب من ركلة جزاء) وسأكون في غاية الامتنان لكم لو يمكن أن يحصل عليها بالنسبة لي"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "لقد شكلت بعض الفخاخ بالقرب من ركلة جزاء) ، يمكنك استدراجهم إلى الفخاخ استخدام هذا العلف للدجاج. ولست بحاجة لهم جميعا ، ولكن ما لا يقل عن 3 من شأنه أن يكون مفيدا جدا. يمكنني أن أحصل على راحة نفسي."
+
+msgid "That's it?"
+msgstr "هذا كل شيء؟"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "ليس تماما. يمكنك أيضا الحصول على لي بعض الأخشاب من الغابات؟ 2 سجلات ينبغي أن يكون كافيا"
+
+msgid "Do you have an axe?"
+msgstr "هل لديك بفأس؟"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "إدارة مخاطر المؤسسات... لقد غادرت بلدي فأس في مكان ما في الغابة. فإنه ينبغي أن يكون لا يزال هناك"
+
+msgid "Isn't that forest dangerous?"
+msgstr "غير أن غابات خطير؟"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "ليس في الواقع ، إذا كان أي شيء يحصل في طريقك ، انها مجرد ضرب بسلاح"
+
+msgid "Such as an axe?"
+msgstr "مثل بفأس؟"
+
+msgid "Yes, that would do the trick"
+msgstr "نعم ، من شأنها أن تفعل خدعة"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "ولكن على محمل الجد ، لا يوجد شيء هناك يمكن ان تضر حقا لك. التي تم التعامل مع المشكلة منذ وقت طويل..."
+
+msgid "Good luck!"
+msgstr "حظ سعيد!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "أوه ، وذلك بفضل إدغار ، أنا فقط بحاجة 3 ، ولكن الشكر للمساعدة إضافية!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "هنا ، ماغي جعلني هذا جرعة صحية لكني لا تحتاج إلى ذلك لماذا لا يكون ذلك؟"
+
+msgid "Thanks Jacob"
+msgstr "شكر يعقوب"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "نجاح باهر ، وكنت القبض عليهم جميعا ، وبفضل الكثير!"
+
+msgid "Here, I have these for you"
+msgstr "هنا ، أود أن هذه لك"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "ماغي جعلني هذا الصحة جرعة ولكن هل يمكن أن يكون"
+
+msgid "And this is something very special"
+msgstr "وهذا هو شيء خاص جدا"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "وهذا قد تساعدك في طريقك لتصبح محارب قوي"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "حفظت لي الكثير من الوقت. ماغي جعلني شيئا آخر ولكن كنت قد تعرضت منذ ذلك مفيدا ، هل يمكن أن يكون عليه."
+
+msgid "Hi Maggie"
+msgstr "مرحبا ماغي"
+
+msgid "Thanks Maggie!"
+msgstr "بفضل ماجي!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "بورجان قال ان قسما من المنجم كانت مختومة حتى بعد  حادثة "
+
+msgid "There must be something around here..."
+msgstr "يجب أن يكون هناك شيء حولها هنا..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat ، الجسر المتحرك متروك. يجب أن يكون هناك مدخل آخر..."
+
+msgid "Wait, what's that?"
+msgstr "مهلا ، ما هذا؟"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "ربما أكون قد نفق في طريقي فيها.."
+
+msgid "These machines aren't working."
+msgstr "هذه الآلات التي لا تعمل."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "يبدو وكأنه جوهرة ينبغي أن تندرج في هذا الثقب ، وربما يمكنني العثور على بعض البدلاء."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "يبدو انها مثبتة بإحكام في هناك. ربما أستطيع أن يرخي مع معول..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "للوصول الى مستنقع المحرمة أنا بحاجة لبناء أساسات."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "أستطيع بناء أساسات لو كنت اقتلاع الاشجار من الغابات بما فيه الكفاية"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "أحتاج 6 سجلات المفروم لبناء أساسات"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "أنا لا أذهب إلى مستنقع دون سيفا ودرعا"
+
+msgid "OK, here goes!"
+msgstr "موافق ، وهنا يذهب!"
+
+msgid "Aw, not again!"
+msgstr "تشطيب ، وليس مرة أخرى!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "هذا قد يكون أفضل في المرة الأخيرة لا بد لي من القيام بذلك..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "ان كان من السهل! وأستطيع دائما العودة في وقت لاحق!"
+
+msgid "Oh...."
+msgstr "يا...."
+
+msgid "Guess I have no choice now."
+msgstr "اعتقد ان لا خيار لها الآن."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "شنق على أبي ، وأنا قادمة..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "شيء من المفترض أن يحدث ذلك الآن ، ولكنها ليست في هذا الإصدار. الاختيار مرة أخرى في وقت لاحق!"
+
+msgid "There's a note here"
+msgstr "هناك نلاحظ هنا"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "لقد حوصروا أسفل هنا للاطلاع على ما يبدو وكأنه الدهر"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "للخروج من هذا المكان ولست بحاجة 3 مفاتيح الوصول للعمل المصاعد"
+
+msgid "So far I have only found 1"
+msgstr "حتى الآن إلا أنني وجدت 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "لجعل الأمور أسوأ ، لا يسعني إلا أن الوصول إلى بعض المفاتيح مع السهم وضعت بعناية"
+
+msgid "But spares aren't common and I have run out"
+msgstr "ولكن قطع الغيار ليست شائعة ولقد نفد"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "إذا كنت لا تجد سبيلا للخروج من هنا قريبا ، وأخشى أنني قد يموت جوعا"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "إذا كنت لا نخرج من هنا سوف يعانون من نفس المصير..."
+
+msgid "Oh, what's this?"
+msgstr "أوه ، ما هذا؟"
+
+msgid "There's a note here too"
+msgstr "هناك نلاحظ هنا أيضا"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "وجرعة مثالية! تجرع أنه سيؤدي إلى تحويل الإنسان إلى مخلوق لكمية صغيرة من الوقت"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "حتى الآن أنا نفسي لا يمكن إلا أن تحويله إلى مخلوق واحد ولكن مع شيء من أي شيء يجب أن يكون وقت ممكن"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "ان هناك عددا قليلا من اليسار ، ينبغي أن تكون صالحة للشرب"
+
+msgid "OK, here goes nothing..."
+msgstr "موافق ، وهنا يذهب شيء..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! هذا أمر فظيع!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "بورجان قال لي إن الأوحال يمكن السباحة في المياه الرغم من ذلك ، ولذلك ربما يكون هذا مفيدا..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "عندما تتحول إلى الوحل ، يمكنك التحرك بشكل طبيعي. يمكنك أيضا السباحة في المياه واستخدامها صعودا ونزولا على التحرك"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "يرفع أو القفز سوف تجعلك تقفز خارج الماء إذا كنت بالقرب من السطح"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "إبقاء العين على الموقت في أسفل الشاشة. عندما تصل إلى 0 سوف تصبح تلقائيا الإنسان مرة أخرى"
+
+msgid "This place doesn't look so bad..."
+msgstr "هذا المكان لا يبدو سيئا للغاية..."
+
+msgid "What was that?"
+msgstr "ماذا كان ذلك؟"
+
+msgid "Uh Oh..."
+msgstr "أه أوه..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "أوففف ، وأنا سعيد أن يكون من هناك"
+
+msgid "Now to get through this swamp"
+msgstr "الآن من خلال الحصول على هذا المستنقع"
+
+msgid "Hey, what's this?"
+msgstr "مهلا ، ما هذا؟"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "جميلة تبدو غير ضارة ، سأحاول يطأه بقدمه"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "واو! التي كانت باردة! هذا يجب أن يكون teleporter الميكانيكية."
+
+msgid "I wonder if it works both ways..."
+msgstr "وأتساءل عما إذا كان يعمل في كلا الاتجاهين..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "ليس هذا فقط هو الذهاب لانقاذ لي الكثير من المشي ، كما انه من الاحمال من المرح!"
+
+msgid "Now try out your shield"
+msgstr "الآن جرب بك الدرع"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "كتلة الكريات بصق بها النبات وتقفز إلى الحافة القادمة"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "ويمكن تصنيف بعض البنود في المباراة التي يتم دفعها وسحبها"
+
+msgid "To push an item, simply walk into it"
+msgstr "لدفع بندا ، وذلك ببساطة تخترقه"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "لسحب عنصر ، في حين أن المشي باستمرار العمل"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "يمكنك بعد ذلك سحب هذا البند من حولها حتى يمكنك ترك العمل"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "سحب مربع على الجانب الآخر ، واستخدامها للوصول إلى الحافة"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "هذا هو الجزء الأخير من البرنامج التعليمي ، وسوف يعلمك لعرقلة وهجوم الأعداء"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "أولا ، يجب أن نجهز السيف نظرا لأنه لم يفعل أكثر من مجموعة وأكثر ضررا من معول"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "ض الصحافة لعرض الجرد ، وتسليط الضوء على السيف وهجوم الصحافة (يسار السيطرة) ، أو استخدام البند (أ)"
+
+msgid "Press z again to close your inventory"
+msgstr "ض الصحافة مرة أخرى لإغلاق المخزون الخاص بك"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "أحيانا ، سوف القتيل أعداء قطرة الصحية التي سوف تتلاشى بعد بضع ثوان ، حتى يستلم المركبة بسرعة!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "إذا كانت الخفافيش هو الحصول على مقربة منك ، عرقلة عقد يسبب أي أذى ، وأنها سوف ترتد لك"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "الآن قتل جميع من الخفافيش في المنطقة!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "هناك نوعان من الباب في اللعبة. دليل الأبواب والأبواب التلقائية."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "أبواب دليل تتطلب مفاتيح لفتح لهم أبواب التلقائية تتطلب مفاتيح."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "لفتح الباب المغلق أن لديك مفتاح ، ببساطة تخترقه. ليست هناك حاجة إلى أن المفتاح المحدد في المخزون الخاص بك."
+
+msgid "Open the door and continue to the right"
+msgstr "فتح الباب والاستمرار في الحق"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "تهانينا! الآن أنت تعرف أساسيات اللعب عليك أن تحاول اللعبة الرئيسية"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "إذا كنت تريد إعادة هذا البرنامج التعليمي ، اضغط على الهروب وحدد البرنامج التعليمي من القائمة"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "للعب اللعبة الرئيسية ، اضغط على الهروب واختر لعبة جديدة من القائمة"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "الصحافة الفضاء عند الانتهاء من القراءة إلى الانتقال إلى مربع الحوار التالي"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "يمكنك أيضا الانتقال إلى مربع الحوار التالي عن طريق الضغط على هجوم (يسار السيطرة) ، بلوك (يسار بديل) ، انتقل (الفضاء) ، العمل (ج) أو استخدام البند (أ)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "هذا هو البرنامج التعليمي للأسطورة ادغار. هذا البرنامج التعليمي سوف يشرح كيف تلعب لعبة."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "للخروج من هذا البرنامج التعليمي ، اضغط على الهروب واستخدام لأعلى وأسفل مفاتيح الأسهم لاختيار أحد الخيارات. اضغط على العودة لتحديده."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "التحرك يمينا ويسارا واستخدام مفاتيح الأسهم."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "لجعل القفز ، اضغط على الفضاء. يمكنك الانتقال في الهواء عندما قفز."
+
+msgid "To interact with an item, press c"
+msgstr "على التفاعل مع عنصر ، اضغط ج"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "المشي لاكثر من جهة العمل والصحافة ج"
+
+msgid "To collect an item from your"
+msgstr "لجمع بندا من حسابك"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "لالتقاط أي بند ، ببساطة تخترقه. وأي سلع تحصيل تضاف إلى المخزون الخاص بك."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "يمكنك عرض محتويات المخزون الخاص بك عن طريق الضغط على ض"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "بينما في الجرد ، واستخدام مفاتيح الأسهم لعرض سلع."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "يمكنك استخدام عنصر على الفور عن طريق الضغط على هجوم (يسار السيطرة) ، أو استخدام البند (أ)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "يمكنك بندا جاهزة للاستخدام عن طريق الضغط على كتلة (يسار بديل) أو العمل (ج)"
+
+msgid "Walk over the key to pick it up"
+msgstr "المشي فوق المفتاح لاستلامه"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "يمكنك تغيير جميع عناصر التحكم في اللعبة عن طريق الضغط على الهروب ، وتحديد خيارات في القائمة"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "حدد تكوين عناصر التحكم باستخدام مفاتيح الأسهم والعودة الصحافة"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "استخدام مفاتيح الأسهم لتحديد عنصر التحكم الذي تريد تغييره ، واضغط على العودة."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "المقبل ، اضغط على مفتاح التي تريد استخدامها بدلا من ذلك."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "بغض النظر عما مفاتيح اخترت ، يمكنك دائما أن تنقل في القوائم باستخدام مفاتيح الأسهم والعودة"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "علما بأن في هذا البرنامج التعليمي ، سوف المفاتيح الافتراضية يمكن افتراض"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "عند الانتهاء من تكوين مفاتيح ، الحق في الذهاب إلى العمل المقبل نقطة"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "ومعول هي واحدة من الكثير من الاسلحة التي سوف تواجه في اللعبة"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "كنت كما أنه يمكن استخدام كل سلاح وأداة"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "التقط الفأس ، ومواصلة العمل في النقاط التالية"
+
+msgid "Congratulations, you found a secret!"
+msgstr "تهانينا ، يمكنك العثور عليها سرا!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "هناك الكثير من الأسرار في اللعبة الرئيسية حتى تبقي يعتنون بهم"
+
+msgid "Here's a hint to get you started"
+msgstr "وهنا إشارة إلى الحصول على انك بدأته"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "على الرغم من أن يتطلب منك فقط للقبض على 3 من الدجاج ، لماذا لا يكون لطيفا معه والصيد اكثر؟ هناك 10 تجول في جميع الخريطة"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "الدرع سوف حمايتكم من معظم الهجمات العدو"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "بعض هجمات العدو لا يمكن أن يكون قد تم حظره"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "الأخطار البيئية ، مثل سقوط الصخور ، لا يمكن أن يكون قد تم حظره"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "لمنع هجوم والصحافة وعرقلة عقد (يسار بديل)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "يجب عليك أن تواجه هذا الهجوم بنجاح لمنعه"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "علما أنه لا يمكنك الانتقال المحافظة على حجب ، ولكن يمكنك مواجهة طريقة أخرى. كنت أيضا لا يمكن أن كتلة في الهواء"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "التقط الدرع ومواصلة الحق"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "هذا هو الجدار ضعيفة ، يمكن أن يكون حطمت باستخدام معول"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "لاستخدام الفأس ، اضغط على هجوم (يسار السيطرة)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "أنه ليست كل الجدران الضعيفة يمكن تدميرها باستخدام معول"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "تدمير الجدار باستخدام الفأس وتواصل"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "شيء من المفترض أن تكون هنا ولكن ليس في هذا الإصدار ، الاختيار مرة أخرى في وقت لاحق!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "جمع 10 قطعة من الفحم"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "2 المفروم جمع سجلات"
+
+msgid "Rescue 3 Chickens"
+msgstr "انقاذ 3 الدجاج"
+
+msgid "Find 4 Gems"
+msgstr "العثور على 4 الجواهر"
+
+msgid "Repair Generators"
+msgstr "إصلاح مولدات"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "جمع 6 المفروم سجلات"
+
+msgid "Collect 3 Access Keys"
+msgstr "3 جمع مفاتيح الوصول"
+
+msgid "This is a blank objective"
+msgstr "هذا هو هدف فارغة"
+
+msgid "Kill all Bats!"
+msgstr "قتل كل الخفافيش!"
+
+msgid "Coal"
+msgstr "الفحم"
+
+msgid "Chopped Log"
+msgstr "المفروم المفتاح"
+
+msgid "Green Gem"
+msgstr "جوهرة الخضراء"
+
+msgid "Red Gem"
+msgstr "الحمراء جوهرة"
+
+msgid "Blue Gem"
+msgstr "جوهرة زرقاء"
+
+msgid "Purple Gem"
+msgstr "الأرجواني الاحجار الكريمة"
+
+msgid "Teleporter Key"
+msgstr "Teleporter مفتاح"
+
+msgid "New Game"
+msgstr "لعبة جديدة"
+
+msgid "Tutorial"
+msgstr "البرنامج التعليمي"
+
+msgid "Load Game"
+msgstr "تحميل اللعبة"
+
+msgid "Options"
+msgstr "خيارات"
+
+msgid "About"
+msgstr "حول"
+
+msgid "Quit"
+msgstr "استقال"
+
+msgid "Configure Controls"
+msgstr "تكوين عناصر"
+
+msgid "Configure Sound"
+msgstr "تكوين الصوت"
+
+msgid "Fullscreen"
+msgstr "ملء الشاشة"
+
+msgid "Show Hints"
+msgstr "إظهار تلميحات"
+
+msgid "A potion which will transform you..."
+msgstr "ألف جرعة والذي سيغير لك..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "يخلق درجة عالية absorbant مكعبات الثلج مصغرة"
+
+msgid "A potion which will restore all of your health"
+msgstr "ألف جرعة الذي سيؤدي إلى استعادة جميع صحتك"
+
+msgid "A powerful bomb"
+msgstr "أدى انفجار قنبلة قوية"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "ألف جرعة مما يجعل لكم غير مرئية لبعض الأعداء"
+
+msgid "The eyeball from a Gazer"
+msgstr "مقلة العين من الناظر"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "وهناك حزمة تسلا. ليس لديها أي تهمة."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "والمستدعي للموظفين. ولا يمكن أن تستخدم من قبل البشر."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "وهناك حزمة تسلا. انها مشحونة بالكامل."
+
+msgid "An empty potion bottle"
+msgstr "جرعة زجاجة فارغة"
+
+msgid "A bag of chicken feed"
+msgstr "ألف كيس من علف الدواجن"
+
+msgid "A bag suitable for carrying coal"
+msgstr "حقيبة مناسبة لحمل الفحم"
+
+msgid "Basic Sword"
+msgstr "الأساسية السيف"
+
+msgid "A Sword given to you by Jacob"
+msgstr "وقال سيف المعطاة لك من قبل يعقوب"
+
+msgid "A bow"
+msgstr "القوس"
+
+msgid "Small Wooden Shield"
+msgstr "درع خشبي صغير"
+
+msgid "A small shield that provides basic protection"
+msgstr "درع الصغيرة التي توفر الحماية الأساسية"
+
+msgid "Normal Arrow"
+msgstr "سهم عادي"
+
+msgid "Normal Arrows"
+msgstr "أسهم عادية"
+
+msgid "An axe suitable for chopping trees"
+msgstr "بفأس مناسبة لتقطيع الأشجار"
+
+msgid "Pickaxe"
+msgstr "معول"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "ومعول قدمت إليكم من بورجان"
+
+msgid "Fire Burner Key"
+msgstr "موقد النار مفتاح"
+
+msgid "Potion Room Key"
+msgstr "جرعة مفتاح الغرفة"
+
+msgid "Surge Passage Key"
+msgstr "تصاعد مفتاح المرور"
+
+msgid "Demolition Storage Key"
+msgstr "هدم التخزين الرئيسية"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "مهما كان هذا الشيء كان من استنزاف الطاقة من المولدات الكهربائية التي واستخدامه ضدي."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "هذا قد يفسر لماذا لم يتم رفع هذا العمل. هزيمة تجفيف أخرى ينبغي استعادة السلطة."
+
+msgid "Defeat all Energy Drainers"
+msgstr "هزيمة كل طاقة المصرفات"
+
+msgid "No Objectives"
+msgstr "لا الأهداف"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "اضغط على العمل لإعادة القطع اللغز"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "يبدو خلاط. ويمكن استخدام هذا لشيء liquidise"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "أحتاج إلى الأحمر الحمأة اللامسة و3 الناظر مقل لجعل جرعة دواء"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "ما زلت بحاجة زجاجة فارغة لوضع جرعة في"
+
+msgid "So this is the Fortress."
+msgstr "لذلك هذا هو القلعة."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "يبدو ان الكثير من الأبواب تفضي الى خارج مناطق أخرى ، وينبغي أن لدي السليم ننظر حولنا قبل أن أذهب في أي مكان آخر..."
+
+msgid "Try hitting the skull..."
+msgstr "محاولة ضرب الجمجمة..."
+
+msgid "This machine is not active"
+msgstr "هذه الآلة ليست نشطة"
+
+msgid "Repeat the sequence"
+msgstr "تكرار تسلسل"
+
+msgid "Correct Sequence"
+msgstr "التسلسل الصحيح"
+
+msgid "Incorrect Sequence"
+msgstr "تسلسل غير الصحيحة"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "أسطورة ادغار واجه الخطأ التالية"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "الرجاء الإبلاغ عن هذا الخطأ إلى حقائق وبالتوازي"
+
+msgid "The game will now exit"
+msgstr "وسيتم الآن إنهاء لعبة"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "يبدو خلاط. ويمكن استخدام هذا لشيء liqudise"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "هذا يجب أن يكون الفحم بورجان يريد مني أن الألغام له"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "هذا قد يفسر لماذا لم يتم رفع هذا العمل. هزيمة تجفيف أخرى ينبغي استعادة القوة هنا."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "ولست بحاجة للعثور على 3 عيون الناظر ، 1 الأحمر الحمأة اللامسة ودرع إضافية لإنشاء درع لمقاومة الحريق"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "مرة واحدة لقد وجدت جميع هذه العناصر سآخذ ليجد لنفسه مكانا لإنشاء درع"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "هناك كتاب هنا عن الأسلحة ساحر"
+
+msgid "Maybe I can create a shield..."
+msgstr "ربما أستطيع أن إنشاء درع..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "السيوف... المدرعات... الصولجانات..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "كتاب غبي. انها ليست في النظام وليس هناك مؤشر"
+
+msgid "Here we go: Shields"
+msgstr "هنا نذهب : شيلدز"
+
+msgid "Shield of Fire Resistance"
+msgstr "درع للمقاومة الحريق"
+
+msgid "Ingredients"
+msgstr "المكونات"
+
+msgid "One must gather the following"
+msgstr "واحد يجب جمع ما يلي"
+
+msgid "The root of a Mandrake"
+msgstr "جذر ماندريك"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "الدهون في الدرش (من اليسار إلى الوقوف لمدة 3 أشهر)"
+
+msgid "Powered Condor bones"
+msgstr "عظام كوندور مدعوم"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 أعين الناظر"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "واللامسة طازجة قطع من الإناث الأحمر الحمأة"
+
+msgid "The shield to apply the enchantment"
+msgstr "درع لتطبيق سحر"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "مزيج من أعين الناظر واللامسة الحمأة إلى سائل السلس"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "إضافة الجذر ، والدهون والعظام في مرجل وجنبا إلى جنب مع مزيج أعين الناظر المخلوطة والحمأة اللامسة"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "عندما يتحول الخليط ذات ألوان زرقاء زاهية ، إضافة درع"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "رأيت معظم هذه البنود في المختبر لذا لا داعي للقلق بشأن تلك"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "والناظرون تسكع في الطابق السفلي بحيث ليست مشكلة"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "ما أقوم به هو ضرورة إيجاد والحمأة الأحمر ، ولكن ليس لدي فكرة عن مكان العثور على واحد"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "لا استطيع ان استخدم سلطتي الدرع الحالية في التجربة في حال توجيه ضربة ارتدادية حتى سآخذ للعثور على واحد آخر"
+
+msgid "Hmmm..."
+msgstr "هممم..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "قد تكون هناك غرفة أو الجرع المختبر حيث يمكن العثور على جذور ، والدهون والعظام ولذا لا داعي للقلق بشأن تلك"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "يجب أن لديك بطاقة تعليمات كنت ترغب في استخدام الضوء في المربع الخاص بك الجرد"
+
+msgid "Wow, a laboratory!"
+msgstr "نجاح باهر ، ومختبر!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "أنا أحب مشاهدة ماجي جعل نوبات والجرع ، وربما أستطيع أن أدلي ببعض من بلدي هنا!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "نجاح باهر ، وأنا لم أر قط ذلك العديد من الكتب في مكان واحد!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "يجب أن تكون هناك معلومات حول كل الموضوع هنا ، وهذا يمكن أن تكون مفيدة..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "هممم ، يشعر اتهم الهواء ، فإنه يذكرني ماغي المنزل عندما كانت القرارات نوبات. وأرجو أن نكون حذرين."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "يا إدغار ، كنت يصب! اسمحوا لي أن تلتئم جراحكم"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "وأنا أتساءل عن وحوش أخرى هناك. أنا اختيار صفحة عشوائيا..."
+
+msgid "Gazer"
+msgstr "الناظر"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "الناظرون تحلق cycloptic المخلوقات وجدت في أماكن مختلفة"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "وعين واحدة هي عادة ما تكون مغلقة وأنها تعتمد على السونار للحركة"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "انهم يستخدمون بحاسة الشم القوية للأبحث عن المفترس والفريسة على حد سواء"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "الناظرون الهجوم والدفاع عن أنفسهم) من خلال فتح أعينهم والتي سوف تبهر أي شيء يبحث فيه"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "هذا الهجوم هو الوحيد الفعال ولكن إذا كانت الضحية التي تواجه الناظر"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "والناظر في مقلة العين السحرية ، ويحتوي على خصائص هو العنصر المشترك في إعداد الإملائي"
+
+msgid "Centurion, Grey"
+msgstr "الروماني ، غراي"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "القدماء هم خلق مخلوقات سحرية ، وعادة ما ارسلت كما الخفر أو حراس"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "على الرغم من بطء الحركة وحجمها الهائل يسمح لهم ببساطة من خلال أي مسيرة الدفاع"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "بدلا من الأسلحة ، وكثير من السائقين كومة ضخمة والتي تستخدم ليهز الارض وأربك التهديدات"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "بينما غراي القدماء وسوف تستخدم لحراسة محيط الخارجي ، والأحمر القدماء المعروف أنها موجودة وتستخدم لحماية المناطق ذات الأهمية الكبيرة"
+
+msgid "Splitter"
+msgstr "التقسيم"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "الخطان وحوش غير ضارة إلا إذا تعرضت لهجوم."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "على الحفاظ على الكثير من الأضرار التي سوف تنقسم الى قسمين ، والهجوم على المفترس"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "إذا كانت واحدة من هذه يحافظ على الكثير من الضرر سيكون تقسيم مرة أخرى وتواصل الهجوم"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "وأخيرا ، سوف انشقاق واحد نهائي إنتاج إصدارات الصغيرة جدا والتي هي غير مؤذية تماما ، وهذا في حالة يمكن ببساطة داس على"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "إذا كانت جميع أجزائه لا تزال على قيد الحياة ، سوف الخائن إصلاح نفسها بعد حين ، وتضميد جراحها"
+
+msgid "Grub, Red"
+msgstr "نكش ، الأحمر."
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "أحمر اليرقات اكثر عدوانية من نظرائهم الخضراء وستهاجم أي شيء يرونه تهديدا"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "عند بلوغ النضج ، فإنه سوف يشكل شرنقة وتتحول إلى حالة دبور"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "لكن بعض وسوف يتحول نحلة ملكة. هذه الملكات يمكن ان تنتج مادة تشبه المخاط قادر على السيطرة على فريسته في مكان"
+
+msgid "Tortoise, Master"
+msgstr "السلحفاة ، رسالة ماجستير"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "سيد السلاحف وحوش مخيفة. وجدت في أماكن بعيدة الأراضي التي تملك القدرة على تغيير رؤوسهم"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "فهي تجمع كل قدرات أبناء عمومتهم للتنفس النار ، وخلق الجليد وكهرب أنفسهم"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "وبالطبع هم أيضا منيع لهجمات من عناصر التصفح ، واستيعاب الطاقة لمداواة أنفسهم"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "ولكن بالإضافة إلى ذلك ، إذا كانت تتلقى الكثير من الطاقة من الشفاء ، وأنها تتطور والقيام باعمال تخريب"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "في هذه الحالة سوف يكسر أي من خلال الدفاع وتنتج مادة مظلمة الذي يدمر كل ما تمسه"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "ومع ذلك ، فإن قذيفة الهائجين ماجستير السلحفاة السحرية للغاية وعنصر أساسي عند إنشاء قوة السحر والبنود"
+
+msgid "Venus Flytrap"
+msgstr "فينوس صائدة الذباب"
+
+msgid "Hoover, Pink"
+msgstr "هوفر ، وردي"
+
+msgid "Summoner, Dark"
+msgstr "المستدعي ، داكن"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore هو مخلوق من بعدا آخر. ويمكن استدعاء باستخدام قوة السحر المظلمة"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "والسبب الأكثر شيوعا لاستدعاء هذا الوحش هو أن يقوم بدور حارس شخصي"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "لا توجد طريقة معروفة لقتل Grimlore منذ عليها من اصابات حرجة سيكون ببساطة العودة إلى البعد الخاص"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "ولكن حتى اصابة انها مهمة ضخمة. أي شخص يواجه هذا المخلوق هو نصح من الهرب في أسرع وقت ممكن"
+
+msgid "Or they will die very quickly"
+msgstr "أو أنهم سوف يموتون بسرعة"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "آه ، هنا هو خلاصة وافية من الوحوش"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 مجلدا! كيف يمكن أن يكون هناك الكثير من وحوش في العالم؟!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "يبدو أنهم في الترتيب الأبجدي على الرغم من"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "سال لعابه ، أخضر... سال لعابه ، أرجواني... الحمأة ، أخضر..."
+
+msgid "Sludge, Red"
+msgstr "الحمأة ، الأحمر."
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "خلافا لابن عمه الخضراء ، والحمأة الأحمر يبقى في أعماق الأرض ، ونادرا ما ، السطوح"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "موئله المفضلة هي الجافة والمناطق الغنية بالثروات المعدنية ونتيجة لذلك تم العثور على الكامنة في مجالات المناجم المهجورة من قبل البشر"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "وهم حذرين جدا من البشر ، وسوف الهجوم على البصر ، وعادة ما يتقيئون حمض الذي يستغرق وقتا لتتبخر"
+
+msgid "Smacker, Lesser..."
+msgstr "قبلة قوية ، طنب..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "عظيم ، وهذا كل ما تقول. أنا لا أعرف حتى كيفية معرفة الفرق بين الذكور والإناث. سآخذ فقط لاتخاذ فرصة..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "الى جانب ذلك ، ما هو أسوأ ما يمكن أن يحدث؟"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "لنقل إدغار اليسار واليمين ، استخدم مفاتيح الأسهم."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "لجعل إدغار القفز ، والفضاء الصحافة. يمكنك الانتقال في الهواء عندما قفز."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "على الرغم من أن يعقوب يتطلب منك فقط للقبض على 3 من الدجاج ، لماذا لا يكون لطيفا معه والصيد اكثر؟ هناك 10 تجول في جميع الخريطة"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "علما بأن جميع الجدران الضعيفة لا يمكن تدميرها باستخدام معول"
+
+msgid "I've already checked, he's not down there..."
+msgstr "لقد سبق فحصها ، وقال انه ليست هناك باستمرار..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "لقد سمعت من الناس الوقوع في جيدا من قبل ، وربما في داد هناك..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "الوراثي!!!!! هل أنت إلى أسفل هناك؟!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "لا شيء. اعتقد انني سوف يكون ليبقي على البحث"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "دفع أعلى أو لأسفل لرفع أو خفض منصة"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "هناك كتاب هنا عن معدات ساحر"
+
+msgid "It's a book about enchanting equipment"
+msgstr "انه كتاب عن المعدات ساحر"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "ليس لدي أي سبب لقراءة هذا ولكنني سوف يبقيه في الاعتبار في حال أفعل"
+
+msgid "I wonder what other monsters there are..."
+msgstr "وأنا أتساءل عن وحوش أخرى هناك..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "تماما مثل حاشرين العادية ، حاشرين الظلام الدعوة في البهائم الأخرى للقيام بالمهام الموكلة"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "وبالإضافة إلى ذلك على الرغم من أنها يمكن أن تنقل الهوائي مسافات قصيرة للهروب من خصومهم"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "موظفيها إلى حد كبير السحرية وعلى الرغم من أنه لا يمكن أن تستخدم من قبل البشر مباشرة ، وخصائصه السحرية التي تستخدم في إنشاء الإملائي"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "الوردي Hoovers هي ذوات الأربع الصغيرة مع أنف طويلة"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "وpuropse الرئيسي للأنف ويبحثون عن الطعام ولكنه أيضا بمثابة آلية دفاعية"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "وأكثر من قادرة على الحفاظ على الحيوانات المفترسة في خليج ببساطة عن طريق نسفها بعيدا"
+
+msgid "Venus Flytrap, mobile"
+msgstr "فينوس صائدة الذباب والمتنقلة"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "المحمول فينوس صائدات الذباب تطورت الجذور وقادرون على التحرك لطعامهم بدلا من انتظار أن تأتي إليها"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "أعناقهم بشكل لا يصدق مرنة وقادرة على المفاجئة على فرائسها من مسافة كبيرة بعيدا"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "ينبغي أن نفعل ذلك. نأمل أن ترفع غيرها من المجاري الآن يجب أن يكون العمل"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "هذا المصعد لا يعمل. أنا لن تكون قادرة على استخدامها حتى أنا استعادة السلطة"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "يبدو أن زجاج سميكة للغاية بالنسبة لي للقضاء ، وأنا يجب أن تجد طريقة أخرى لتحطيم ذلك..."
+
+msgid "Up"
+msgstr "فوق"
+
+msgid "Down"
+msgstr "أسفل"
+
+msgid "Left"
+msgstr "يسار"
+
+msgid "Right"
+msgstr "صحيح"
+
+msgid "Jump"
+msgstr "القفز"
+
+msgid "Attack"
+msgstr "هجوم"
+
+msgid "Block"
+msgstr "كتلة"
+
+msgid "Action"
+msgstr "العمل"
+
+msgid "Use Item"
+msgstr "استخدام البند"
+
+msgid "Previous Item"
+msgstr "البند السابق"
+
+msgid "Next Item"
+msgstr "البند التالي"
+
+msgid "Inventory"
+msgstr "جرد"
+
+msgid "Pause"
+msgstr "وقفة"
+
+msgid "Dead Zone"
+msgstr "قتلى المنطقة"
+
+msgid "Sound"
+msgstr "الصوت"
+
+msgid "SFX Volume"
+msgstr "سفإكس حجم التداول"
+
+msgid "Music Volume"
+msgstr "الموسيقى حجم التداول"
+
+msgid "Ice Spray"
+msgstr "رذاذ الثلج"
+
+msgid "Library"
+msgstr "المكتبة"
+
+msgid "Right Wing Lift Key"
+msgstr "اليمين ارفع مفتاح"
+
+msgid "Mine Entrance Door Key"
+msgstr "مفتاح باب مدخل المنجم"
+
+msgid "Village"
+msgstr "قرية"
+
+msgid "Cave"
+msgstr "كهف"
+
+msgid "Fortress Outskirts"
+msgstr "قلعة مشارف"
+
+msgid "Forbidden Swamp"
+msgstr "ممنوع مستنقع"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "المجاري منطقة محظورة مفتاح"
+
+msgid "Basement"
+msgstr "القبو"
+
+msgid "Fortress Ground Floor"
+msgstr "قلعة الأرضى"
+
+msgid "Sewer"
+msgstr "مجرور"
+
+msgid "Fortress Main Key"
+msgstr "القلعة الرئيسية الرئيسية"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter الوصول إلى مفتاح 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter الوصول إلى مفتاح 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter الوصول إلى مفتاح 3"
+
+msgid "Laboratory"
+msgstr "المختبر"
+
+msgid "Empty Bottle"
+msgstr "زجاجة فارغة"
+
+msgid "First Floor Key"
+msgstr "الطابق الأول مفتاح"
+
+msgid "Press Action to retrieve %s"
+msgstr "اضغط على العمل لاسترداد %s"
+
+msgid "Hmm, this is new."
+msgstr "هم ، وهذا هو الجديد."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "انها لا تبدو انها يمكن ان تؤذي لي رغم ذلك ، ولكن هناك طريقة واحدة فقط لمعرفة..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "هذا هو رفع اللوحة التي يسيطر عليها الضغط ، لكنني لا يمكن أن يقف عليها ، واستخدام المصعد في نفس الوقت"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "سآخذ لتجد شيئا آخر للوقوف على لوحة الضغط بالنسبة لي..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "هذه البطاقة فارغة ، أنا يجب أن أضع بعض الإرشادات التي تظهر على أنها لجعلها صالحة للاستعمال."
+
+msgid "There's a plaque here"
+msgstr "هناك لوحة تذكارية هنا"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "مكان التماثيل 4 بالترتيب الصحيح"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "أنت لن تكون قادرة على العثور على كل التماثيل 4 في هذا الإصدار ، وذلك يعود في وقت لاحق!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "يجب أن يكون التمثال كنت ترغب في استخدام الضوء في المربع الخاص بك الجرد"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "لم يحدث شيء. لا أعتقد أن هذا هو الترتيب الصحيح"
+
+msgid "Tuning Fork"
+msgstr "الشوكة الرنانة"
+
+msgid "Second Floor Keycard"
+msgstr "الطابق الثاني Keycard"
+
+msgid "Instruction Card #1"
+msgstr "تعليمات بطاقة # 1"
+
+msgid "Instruction Card #2"
+msgstr "تعليمات بطاقة # 2"
+
+msgid "Instruction Card #3"
+msgstr "تعليمات بطاقة # 3"
+
+msgid "Instruction Card #4"
+msgstr "تعليمات بطاقة # 4"
+
+msgid "Centurion Statue"
+msgstr "تمثال القائد الروماني"
+
+msgid "Spider Statue"
+msgstr "عنكبوت تمثال"
+
+msgid "Tortoise Statue"
+msgstr "تمثال السلحفاة"
+
+msgid "Scorpion Statue"
+msgstr "العقرب تمثال"
+
+msgid "A Blue Gem"
+msgstr "وقال جيم الأزرق"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "تمثال لسنتوريون. 2 فقد ساقيه."
+
+msgid "A Green Gem"
+msgstr "وقال جيم الخضراء"
+
+msgid "A Purple Gem"
+msgstr "وقال جيم بيربل"
+
+msgid "A Red Gem"
+msgstr "وقال جيم الأحمر"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "تمثال لعقرب. لها 6 أرجل."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "تمثال لالعنكبوت. 8 فقد ساقيه."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "وأرماديلو سبايك الكرة. سوف مبعثر التموج عندما القيت."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "تمثال من السلحفاة. فقد 4 الساقين."
+
+msgid "A Tuning Fork"
+msgstr "شوكة والتضبيط"
+
+msgid "A chopped log"
+msgstr "وسجل المفروم"
+
+msgid "Narrator"
+msgstr "الراوي"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "انها المرجل. ماجي واحد فقط من هذا القبيل"
+
+msgid "Right, here goes!"
+msgstr "الحق ، وهنا يذهب!"
+
+msgid "I need all the main ingredients"
+msgstr "أحتاج جميع المكونات الرئيسية"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 الناظر مقل ، 1 الأحمر الحمأة اللامسة ودرع الغيار"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "وأود أيضا أن الحاجة إلى مزج مقل العيون واللامسة إلى سائل"
+
+msgid "This entire section is about monsters"
+msgstr "هذا القسم بالكامل عن وحوش"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "ليس لدي أي سبب لقراءة هذه ولكنني سوف يبقيه في الاعتبار في حال أفعل"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "يا نجاح باهر ، ما لطيف آلة قليلا!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "انها حصلت على فتحة صغيرة في الجزء الخلفي منه. أعتقد أنني في وضع شيء هناك لجعله يفعل أشياء"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "الروبوت يستخدم بطاقات التعليمات على التحرك"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "استخدام تعليمات لتوجيه الروبوت لفتح المناطق التي لا يمكنك الوصول"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "ومع ذلك ، حيث لا يمكنك قراءة التعليمات الموجودة على البطاقة ، سيكون لديك لمحاولة كل منهم يعمل بها حتى واحد"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "إذا كان الروبوت لا يصل الى الهدف ، ثم أنها سوف تعود إلى نقطة انطلاقها مما يسمح لك حاول مرة أخرى"
+
+msgid "Enter the directions"
+msgstr "أدخل الاتجاهات"
+
+msgid "Out of space for instructions"
+msgstr "للخروج من الفضاء للحصول على تعليمات"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "أحتاج إلى بطاقة فارغة لوضع تعليمات حول"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "ربما لهذا لم يكن هذه فكرة جيدة بعد كل شيء..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "3 الحصول على الناظر العيون"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "1 الحصول الأحمر الحمأة اللامسة"
+
+msgid "Find another shield"
+msgstr "العثور على آخر الدرع"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "مزيج مقل العيون واللامسة"
+
+msgid "Obtain a Fire Shield"
+msgstr "الحصول على درع النار"
+
+msgid "More water?!"
+msgstr "المزيد من المياه؟!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "لا أعتقد أن تكون قادرة على ان يتحول الى الوحل هو الذهاب الى مساعدة لي هنا ، وبما انني قد لا تكون قادرة على العودة بعد ذلك"
+
+msgid "I'll have to find another way of getting across"
+msgstr "سآخذ لإيجاد طريقة أخرى للوصول عبر"
+
+msgid "I'll have to find something to help me get across"
+msgstr "سآخذ لتجد شيئا لمساعدتي للحصول عبر"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "لا أرى أي الحمأة فى المنجم عندما ذهبت للحصول على بورجان من الفحم ، وحتى إذا كانت هناك أي لا أستطيع الحصول على العودة الى هناك منذ تقريري أساسات غرقت"
+
+msgid "I'll have to find another mine around here..."
+msgstr "سآخذ العثور على لغم آخر بالقرب من هنا..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "يخلق مكعبات الثلج التي توسع على تماس مع الماء"
+
+msgid "A bottle capable of capturing souls"
+msgstr "زجاجة قادرة على التقاط النفوس"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "حاول استخدام Mataeus والسكاكين ضده..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "لا يمكن أن تلتقط %s. جرد كامل"
+
+msgid "Filling mine cart..."
+msgstr "ملء عربة المنجم..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "المؤلف حقائق الموازي 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "من السهام!"
+
+msgid "There's something moving around down there..."
+msgstr "هناك شيء يتحرك الى هناك..."
+
+msgid "Good riddance..."
+msgstr "حسن بئس المصير..."
+
+msgid "Huh, déjà vu..."
+msgstr "هاه ، déjà فو..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "اذا رفع هو خارج عن النظام فلا بد من أن إعادة تعيين"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "هناك 4 مفاتيح إعادة تعيين طول بيت المصعد الذي يجب أن يكون إعادة تعيين"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "مما لا شك فيه لإعادة رفع لتجنب وجود طويل المشي مرة أخرى إلى السطح..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "هذا الجهاز يحتوي على فتحة بنفس حجم البطاقات. اعتقد انني يمكن استخدامه لإنشاء تعليمات جديدة."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "لإنشاء مجموعة جديدة من التعليمات التي تحتاج إلى إدخال بطاقة فارغة"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "وعندها يمكنك أن تكون المطالبة ، لإدخال توجيهات للروبوت والمتابعة. هذا هو الحال في بنفس الطريقة التي الأبواب تسلسل"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "عند الانتهاء من إدخال هذه الاتجاهات ، وهجوم الصحافة"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "الروبوت سوف ثم اتبع الإرشادات الموجودة على البطاقة"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "إذا كانت اتجاهات غير صحيحة يمكنك المحاولة مرة أخرى"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "هذا المكان هو مجنون ، وكنت أفضل عجلوا وتجد الأب قبل أن يقتل في نهاية المطاف!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "لذلك ، لإنشاء درع ان الحريق لا بد لي من الحصول على الأحمر الحمأة اللامسة"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "أحمر الحمأة يعيشون في لغما حتى سآخذ للعثور على واحدة بالقرب من هنا؟"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "أنا أيضا في حاجة إلى درع الغيار ، ولكن أعتقد أنه يجب أن يكون حول مستودع الأسلحة"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "مقل العيون الناظر من السهل بما فيه الكفاية ، ويمكنني أن مجرد العودة الى الطابق السفلي"
+
+msgid "OK, off I go..."
+msgstr "موافق ، قبالة أذهب..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "أنت لن تكون قادرة على الحصول على اللامسة أو الدرع في هذا الإصدار ، حتى تحقق لاحقا!"
+
+msgid "It's a portrait"
+msgstr "انها صورة"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "بهذه الروح لن اسمحوا لي الماضية ، سآخذ لايجاد وسيلة للتخلص منه"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "إعادة تعيين مفاتيح تسمح لك لإعادة كائن موقف على الخريطة"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "إذا كائن تصبح غير قابلة للوصول بعد ذلك يمكنك استخدام مفتاح لوضعه مرة أخرى في مكانها الأصلي"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "زجاجة مع محاصرين داخل الروح"
+

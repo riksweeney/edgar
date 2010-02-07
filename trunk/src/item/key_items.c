@@ -71,6 +71,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "rock_container.h"
 #include "scale.h"
 #include "lava_geyzer.h"
+#include "crusher.h"
 
 extern Entity *self, player;
 
@@ -121,7 +122,8 @@ static Constructor items[] = {
 {"item/mine_cart", &addMineCart},
 {"item/rock_container", &addRockContainer},
 {"item/scale", &addScale},
-{"item/lava_geyzer", &addLavaGeyzer}
+{"item/lava_geyzer", &addLavaGeyzer},
+{"item/crusher", &addCrusher}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
