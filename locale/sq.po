@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Shpejt nga ana e majtë dhe të drejtë të shkundë slimes!"
+
+msgid "Bow"
+msgstr "Përkuluni"
+
+msgid "Not working in this version!"
+msgstr "Not working in this version!"
+
+msgid "Press Action to interact"
+msgstr "Shtypni Veprimit për të bashkëvepruar"
+
+msgid "%s is required"
+msgstr "%s është e nevojshme"
+
+msgid "Bomb"
+msgstr "Bombë"
+
+msgid "Small Rock"
+msgstr "Vogla Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Shtypni Veprimit për të rifitoj Purple Gem"
+
+msgid "Chicken"
+msgstr "Zog pule"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Shtypni Veprimit për të rifitoj Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Shtypni Veprimit për të zëvendësuar Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Merren %s"
+
+msgid "Complete"
+msgstr "Complete"
+
+msgid "%d more to go..."
+msgstr "%d më shumë për të shkuar ..."
+
+msgid "Used %s"
+msgstr "Used %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Nuk mund të pajis artikuj ndërsa transmogrified"
+
+msgid "Equipped %s"
+msgstr "Pajisur %s"
+
+msgid "Maximum health has increased!"
+msgstr "Shëndetësore maksimale është rritur!"
+
+msgid "Bow will now fire %s"
+msgstr "Përkuluni tani do zjarr %s"
+
+msgid "A bow is required to use this item"
+msgstr "Një hark i kërkohet të përdorë këtë artikull"
+
+msgid "Cannot transmogrify here..."
+msgstr "Nuk mund të shndërroj këtu ..."
+
+msgid "Yes"
+msgstr "Po"
+
+msgid "No"
+msgstr "Jo"
+
+msgid "Start a new game?"
+msgstr "Fillo një lojë të re?"
+
+msgid "Play the tutorial?"
+msgstr "Play tutorial?"
+
+msgid "Exit the game?"
+msgstr "Dil lojë?"
+
+msgid "Back"
+msgstr "Pas"
+
+msgid "Game Loaded"
+msgstr "Game Loaded"
+
+msgid "Game Saved"
+msgstr "Game Saved"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Çdo përparim unsaved do të jetë humbur"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Shtypni Veprimit për të biseduar me %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Re Objektivi: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Objektivi Kompletuar: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Muri më duket e drejtë të dobët ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Kjo armë nuk është të ketë ndonjë efekt ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Shtypni Veprimit për të bashkëngjitni Pack Tesla"
+
+msgid "The Legend of Edgar"
+msgstr "Legjenda e Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s është e nevojshme për të aktivizuar këtë kaloni"
+
+msgid "Press Action to use this switch"
+msgstr "Shtypni Veprimit për të përdorur këtë kaloni"
+
+msgid "Press Action to save your game"
+msgstr "Shtypni Veprimit për të shpëtuar lojë tuaj"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s është e nevojshme për të përdorur këtë Presioni Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s është e nevojshme për të hapur këtë derë"
+
+msgid "This door is locked"
+msgstr "Kjo derë është e mbyllur"
+
+msgid "This teleporter is not active"
+msgstr "Kjo teleporter nuk është aktiv"
+
+msgid "Press Action to go to the %s"
+msgstr "Shtypni Veprimit për të shkuar në %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push lart ose poshtë për të përdorur këtë ashensor"
+
+msgid "This lift is not active"
+msgstr "Kjo ngre nuk është aktiv"
+
+msgid "Cannot carry any more %s"
+msgstr "Nuk mund të kryejnë asnjë më shumë %s"
+
+msgid "Picked up %s x %d"
+msgstr "Kap %s x %d"
+
+msgid "Picked up %s"
+msgstr "Kap %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s është e nevojshme për të kryer këtë artikull"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Storage Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Qymyr Qese Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Large-it Key"
+
+msgid "Coal Bag"
+msgstr "Thëngjilli Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell Key"
+
+msgid "Wood Axe"
+msgstr "Druri Axe"
+
+msgid "Health Potion"
+msgstr "Health Potion"
+
+msgid "Outflow Key"
+msgstr "Rrjedhje kryesore"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Përpunimi i mbeturinave Key"
+
+msgid "Access Key 1"
+msgstr "Access Key 1"
+
+msgid "Access Key 2"
+msgstr "Access Key 2"
+
+msgid "Access Key 3"
+msgstr "Access Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Kjo ngre nuk ka pushtet. Unë nuk do të jetë në gjendje ta përdorin atë deri sa unë të rivendosur pushtetin"
+
+msgid "Keep practising!"
+msgstr "Keep ushtrimin!"
+
+msgid "Hi"
+msgstr "'Njatjeta"
+
+msgid "Hello Edgar"
+msgstr "Edgar hello"
+
+msgid "Can I borrow your shield?"
+msgstr "Mund ta marr mburojën tuaj?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Jashtë të praktikoni aftësitë tuaja luftuar?"
+
+msgid "Something like that"
+msgstr "Diçka si kjo"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Nëse ju drejtuar me një porosi atëherë ju mund të ketë mburojë"
+
+msgid "What do I have to do?"
+msgstr "Çfarë duhet të bëj?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Shko te minave dhe të mbledhë disa qymyr"
+
+msgid "But we have plenty of coal!"
+msgstr "Por ne kemi shumë të qymyr!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Po, por kjo nuk është ndonjë qymyr e vjetër, kjo e qymyrit është i posaçëm, ajo djeg hotter dhe zgjat më"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Unë vetëm nevojë për 10 copë stuff, kështu që nuk duhet të jeni shumë të gjatë"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Sigurohuni që të vendosni atë në një qese, duke prekur atë për një kohë të gjatë do të jetë i keq për shëndetin tuaj"
+
+msgid "Do you have a bag?"
+msgstr "A keni një qese?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Jo, ju ndoshta mund të gjeni një në minierë pse"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, unë do të merrni qymyr"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Këtu, largoje këtë pickaxe. Ju mund të përdorni atë për të minierë qymyri dhe hap rrugë çdo mureve të dobët hasni"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Ju gjithashtu duhet ky kyç për të marrë në minierë"
+
+msgid "Thanks!"
+msgstr "Faleminderit!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Thank you, Edgar, ky qymyr is perfect! Hope shkop nuk e tremb ju."
+
+msgid "The bats were the least of my worries..."
+msgstr "Shkopinj ishin pak e shqetësimet e mia ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Thuaj, kam dëgjuar se diçka ka ndodhur në këtë minierë disa vjet më parë"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, vërtet, nuk ishte ajo që ju do të thërrasë një  incident , por se një pjesë e minierës u nënshkrua një kohë të gjatë më parë"
+
+msgid "Right..."
+msgstr "Drejta ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Këtu, janë mburoja ime dhe have fun!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Vetëm qëndroni larg nga swamp Ndaluar"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Do të bëjë, mund të mbajë në të pickaxe tuaj për një kohë?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Sure gjë, vetëm ta sjellë atë përsëri në një copë"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "A keni arritur të gjeni qymyr akoma?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Ju mund të tërheqë disa artikuj rreth duke i shtyrë kundër tyre ndërsa mbajtur butonin e Veprimit."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Ju mund pastaj ta tërheqë atë rreth deri sa ju le të shkojnë e buton Veprimit"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Ky shkëmb shumë i fortë duket për tim Pick Axe. Unë do të duhet të përdorin diçka tjetër për të marrë përmes ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, çfarë ndodhi?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Duket si e tillë kjo nuk ishte një ide të mirë pas të gjitha"
+
+msgid "There must be way out of here..."
+msgstr "Nuk duhet të jetë rrugë nga këtu ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Kjo duhet të jetë qymyri do me mua për atë"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Unë nuk mendoj se mburoja ime do të mbrojë mua nga ato fireballs. Unë do të duhet të gjejmë një më të fortë ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Ju nuk do të jetë në gjendje të bëjë këtë pak në këtë version, kontrolloni sërish më vonë!"
+
+msgid "Strange creature..."
+msgstr "Krijesë e çuditshme ..."
+
+msgid "Wait, what was that?"
+msgstr "Prisni, se çfarë ishte kjo?"
+
+msgid "You again?!"
+msgstr "Ju përsëri?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Magjistari duhet të ketë marrë Dad në kështjellën e tij. Do të duhet për të shpëtuar atë nga atje."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Mënyra e vetme për të shkuar në kështjellë është nëpërmjet swamp ndaluar të Lindjes."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Ka një liqen midis fshatit dhe mbush me ujë kështu që unë do të duhet një traget për të marrë të gjithë."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Unë do të duhet edhe një shpatë dhe mburojë për të mbrojtur veten. Unë mund të flas për të dhe për të marrë këto pse."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Diçka është supozuar të ndodhë këtu, por kjo nuk është në këtë version deri kontrolloni sërish më vonë!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Thanks for resucing pulat e mia, a keni marrë me 2 shkrimet e nga pylli akoma?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Edgar thanks! Pulat e mia janë kthyer dhe këto shkrimet e fundit do të bëjë me gjobë"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Merre këtë shpatë, ju mund të shërbejë mirë!"
+
+msgid "Thank you!"
+msgstr "Faleminderit!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Faleminderit për shkrimet, a keni pasur ndonje fat me pula?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Unë do të ju jap një shpatë në qoftë se ju merrni me 2 shkrimet e copëtuar nga pylli dhe shpëtim të paktën 3 nga pulat e mia"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, çfarë mund të bëj për ju sot?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "A keni një shpatë unë mund të huazoj?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Unë kam një shpatë dhe ju mund të keni atë nëse ju bëni diçka për mua e parë"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... çfarë duhet të bëj?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Disa nga pulat e mia kanë shpëtuar nga pendën e tyre dhe unë do të jetë shumë mirënjohës nëse ju mund t'i merrni mbrapa për mua"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Kam ngritur disa kurthe pranë stilolaps e tyre, ju mund të joshur ata që të kurthe duke përdorur këtë ushqim pule. Unë nuk kam nevojë të gjithë, por së paku 3 do të jetë shumë e dobishme. Unë mund të merrni pushim veten."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Not quite. Mund të merrni edhe mua disa dru nga pylli? 2 logs duhet të jetë i mjaftueshëm"
+
+msgid "Do you have an axe?"
+msgstr "A keni një sëpatë?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Kam mbetur sëpatë time në pyll diku. Ajo duhet të jetë ende atje"
+
+msgid "Isn't that forest dangerous?"
+msgstr "A nuk është që pylli të rrezikshme?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Jo me të vërtetë, nëse çdo gjë merr në rrugën tuaj, vetëm goditi atë me një armë"
+
+msgid "Such as an axe?"
+msgstr "Si një sëpatë?"
+
+msgid "Yes, that would do the trick"
+msgstr "Po, që do të bëjnë mashtrim"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Por seriozisht, nuk ka asgjë në të vërtetë atje që mund të dëmtojë ju. Ky problem është trajtuar me një kohë të gjatë më parë ..."
+
+msgid "Good luck!"
+msgstr "Paç fat!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, thanks Edgar, i nevojitet vetëm 3, por falë për ndihmë shtesë!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Këtu, Maggie bërë me këtë ilaç shëndetësor, por unë nuk kam nevojë për atë në mënyrë pse nuk keni?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jakobi"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, ju kapi të gjithë, thanks a lot!"
+
+msgid "Here, I have these for you"
+msgstr "Këtu, unë kam këto për ju"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie bërë me këtë ilaç e shëndetit, por ju mund të keni atë"
+
+msgid "And this is something very special"
+msgstr "Dhe kjo është diçka shumë e veçantë"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Maj të këtij t'ju ndihmojë në rrugën tuaj për t'u bërë një luftëtar i fortë"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Ju ruajtur me shumë kohë. Maggie bërë me diçka tjetër, por kur ju keni qenë kaq të dobishme, ju mund të keni atë."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Thanks Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan tha se një pjesë e minierës u miratuan pas një  incident "
+
+msgid "There must be something around here..."
+msgstr "Nuk duhet të jetë diçka rreth këtu ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, urë lëvizëse është e lart. Nuk duhet të jetë një hyrje ..."
+
+msgid "Wait, what's that?"
+msgstr "Prisni, çfarë është kjo?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Ndoshta unë mund të tunelit rrugën time in .."
+
+msgid "These machines aren't working."
+msgstr "Këto makina nuk janë duke punuar."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Ajo duket si një gur i çmuar duhet të përshtatet në këtë vrimë, ndoshta unë mund të gjeni disa zëvendësimet."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Ajo duket si ajo e wedged fort në atje. Unë ndoshta mund ta liroj atë me pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Për të marrë në moçal ndaluar unë do të duhet për të ndërtuar një traget."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Unë mund të ndërtuar traget në qoftë se unë pres poshtë pemëve të mjaftueshme nga pylli"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Unë kam nevojë për 6 Shkrime copëtuar për të ndërtuar një traget"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Unë nuk jam do te fundos pa shpatë dhe mburojë"
+
+msgid "OK, here goes!"
+msgstr "OK, këtu shkon!"
+
+msgid "Aw, not again!"
+msgstr "Aw, nuk përsëri!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Kjo ishte më mirë të jetë hera e fundit që unë kam për të bërë këtë ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Kjo ishte e lehtë! Dhe unë gjithmonë mund të kthehet më vonë!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Guess kam asnjë zgjedhje tani."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hang on Dad, I'm coming ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Diçka është supozuar të ndodhë tani, por nuk është në këtë version. Kontrolloni sërish më vonë!"
+
+msgid "There's a note here"
+msgstr "Ka një shënim këtu"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Unë kam qenë bllokuar poshtë këtu për atë që duket si një përjetësi"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Për të dal nga ky vend duhet Keys 3 Qasja për të punuar ashensorët"
+
+msgid "So far I have only found 1"
+msgstr "Deri tani kam gjetur vetem 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Për t'i bërë gjërat edhe më keq, unë vetëm mund të arrijnë disa ndizet me një shigjetë e vendosur me kujdes"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Por spares nuk janë të zakonshme dhe kam drejtuar nga"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Nëse unë nuk gjej një mënyrë për të dalë nga këtu shpejti, kam frikë unë mund të mohoj"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Në qoftë se unë nuk dal nga këtu unë do të vuaj fatin e njëjtë ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, çfarë është kjo?"
+
+msgid "There's a note here too"
+msgstr "Ka një shënim këtu edhe"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Ilaç është i përsosur! Quaffing ajo do të kthehet në një krijesë njerëzore në një për një sasi të vogël të kohës"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Deri tani unë vetëm mund të shndërroj veten në një krijesë, por me pak asgjë më shumë kohë duhet të jetë e mundur"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Ka një grimcë majtë, ajo duhet të jetë i sigurt për të pirë"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, këtu shkon asgjë ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh!! Kjo është e tmerrshme!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan tha se Slimes mund të notoni në ujë edhe pse, kështu që ndoshta kjo do të jetë e dobishme ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Kur transformohet në një zhul, ju mund të lëvizë si normale. Ju gjithashtu mund të notuar në ujë dhe përdorim deri poshtë dhe të lëvizë"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Shtyn lart apo do të bëjë kërcimin hidhesh nga uji në qoftë se jeni pranë sipërfaqes"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Mbani një sy në timer në fund të ekranit. Kur ai arrin 0 ju automatikisht do të bëhet përsëri e njeriut"
+
+msgid "This place doesn't look so bad..."
+msgstr "Ky vend nuk duket aq e keqe ..."
+
+msgid "What was that?"
+msgstr "Cili ishte ai?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Uf, unë jam i kënaqur që të jetë nga atje"
+
+msgid "Now to get through this swamp"
+msgstr "Tani për të marrë përmes këtij swamp"
+
+msgid "Hey, what's this?"
+msgstr "Hey, what's this?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Duket goxha i parrezikshëm, I'll try rritjen më të"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Kjo ishte cool! Kjo duhet të jetë një teleporter mekanike."
+
+msgid "I wonder if it works both ways..."
+msgstr "Pyes veten nëse ajo punon dy mënyra të ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Jo vetëm që ky do të shpëtojë me një shumë në këmbë, është edhe ngarkesa e fun!"
+
+msgid "Now try out your shield"
+msgstr "Tani provoni mburoja juaj"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blloku fishekëve zënkë nga bimore dhe kërcejnë deri në parvaz ardhshëm"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Disa artikuj në lojë mund të jenë shtyrë dhe tërhequr"
+
+msgid "To push an item, simply walk into it"
+msgstr "Për të nxitur një objekt, thjesht të ecin në të"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Të tërheqë një objekt, ecni në ndërkohë mbajtur Veprimit"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Ju mund pastaj ta tërheqë pika rreth derisa ju le të shkojnë e Veprimit"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Pull kuti mbi anën tjetër dhe e përdorin atë për të arritur parvaz"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Kjo është pjesa e fundit e tutorial dhe do të mësojmë për të bllokuar dhe goditjen e armiqve"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Së pari, ju duhet të pajisë shpatë që ajo ka varg më shumë dhe bën më shumë dëm sesa pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Shtyp z për të parë inventarit tuaj, theksoj shpata dhe shtypni Sulmi (majtas ctrl) ose Përdorimi Pika (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Shtyp z përsëri për të mbyllur inventarit tuaj"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Herë pas here, do të bien të vrarë armiqtë e shëndetit që do të zhduken pas disa sekonda, kështu që të vini ta merrni shpejt!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Në qoftë se një lakuriq nate po të afërt për ju, të mbajë bllok dhe ai do të kërcej jashtë harmlessly ju"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Tani i vrasin të gjitha të shkop në rajon!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Ka dy lloje të dyerve në lojë. Manuale dhe dyer dyer automatike."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Dyert Manuali i kërkon çelësat për hapjen e tyre, dyer automatike kërkojnë switches."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Për të hapur një derë e mbyllur që keni kyç për, thjesht të ecin në të. Nuk ka nevojë të ketë kryesore zgjedhur në inventarin tuaj."
+
+msgid "Open the door and continue to the right"
+msgstr "Hapur derën dhe të vazhdojë të drejtën"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Urime! Tani ju e dini bazat e luajtur ju duhet të provoni lojë kryesore"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Nëse ju doni të sërish këtë tutorial, shtypi arratisjes dhe zgjidhni Tutorial nga menu"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Për të luajnë lojë kryesore, shtypi arratisjes dhe zgjidhni New Game nga menu"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Press Hapësirë kur ju keni përfunduar leximin për të shkuar në kutinë e ardhshëm dialogun"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Ju gjithashtu mund të shkojë në kutinë e ardhshëm dialogun duke shtypur Sulmi (majtas ctrl), Blloku (majtas alt), Enciklopedia e Lirë Shko (hapësirë), Action (c) ose Përdorimi pika (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Kjo është tutorial për Legjenda e Edgar. Ky tutorial do të shpjegojë se si të luajë lojë."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Për këtë tutorial dalje, shtypi arratisjes dhe përdorimin Up dhe Down arrow çelësat për të zgjedhur një opsion. Kthehuni Shtypni për të zgjedhur atë."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Për të lëvizur majtas dhe djathtas, përdorim çelësat arrow."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Për të bërë kërcim, hapësirë për shtyp. Ju mund të lëvizin në ajër kur kërcejnë."
+
+msgid "To interact with an item, press c"
+msgstr "Për të bashkëvepruar me një objekt, shtypni C"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Ecni mbi të Pika Veprimit dhe shtypni C"
+
+msgid "To collect an item from your"
+msgstr "Për të mbledhur një objekt nga tuaj"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Për të marr një send, thjesht të ecin në të. Çdo artikuj mbledhshëm do të shtohet inventarit tuaj."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Ju mund të shikoni përmbajtjen e inventarit tuaj duke shtypur z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Përderisa në inventar, përdor çelësat për të parë arrow artikuj."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Ju mund të përdorni një artikull menjëherë duke shtypur Sulmi (majtas ctrl) ose Përdorimi Pika (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Ju mund të gatshme një artikull për përdorim duke shtypur Block (majtas alt) ose të Veprimit (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Ecni mbi kyçe të vini ta merrni"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Ju mund të ndryshojë të gjitha kontrollet në lojë duke shtypur arratisjes dhe përzgjedhjen Options në menynë"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Zgjidhni Konfiguro Kontrollet duke përdorur çelësat arrow dhe Kthim shtypi"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Use arrow keys për të zgjedhur kontrollit doni të ndryshoni dhe shtypni Kthehuni."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Tjetër, shtyp kyç që ju doni të përdorni në vend."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Pavarësisht nga çfarë çelësat që ju zgjidhni, ju mund të lundruar gjithmonë menutë duke përdorur çelësat arrow dhe Kthim"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Vini re se në këtë tutorial, çelësat default do të marrë përsipër"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Kur të keni mbaruar konfigurimin çelësat, shkoni drejtë të Veprimit të ardhshëm Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Pickaxe është një armë shumë ju do të hasni në lojë"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Ju mund ta përdorni atë si një armë si dhe një mjet"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Marr pickaxe dhe vazhdojnë të Veprimit të ardhshëm Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Urime, keni gjetur një sekret!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Ka shumë sekrete në lojë kryesore kështu që mbajnë një kujdes për ta"
+
+msgid "Here's a hint to get you started"
+msgstr "Këtu ka një aluzion për t'ia filluar"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Edhe pse vetëm kërkon që ju të kapur 3 nga pulat e tij, pse jo të këndshme për të kapur atë dhe më shumë? Ka 10 përçart hartë në të gjitha"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Mburoja do të ju mbrojnë nga sulmet e armikut më të"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Disa sulme armiku nuk mund të bllokohet"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Rreziqet e mjedisit, të tilla si shkëmbinj në rënie, nuk mund të bllokohet"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Për të bllokuar një sulm, shtypni dhe mbani bllok (majtas alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Ju duhet të përballet me sulm të bllokojë me sukses të"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Vini re se ju nuk mund të lëvizin ndërsa bllokimi, por ju mund të përballet me mënyra të tjera. Ju gjithashtu nuk mund të bllokojë në ajër"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Marr mburoja dhe vazhdojnë të drejtën"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Kjo është një mur të dobët, ai mund të jetë thyen poshtë duke përdorur pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Për të përdorur pickaxe, shtypi Attack (majtas ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "se jo të gjitha muret e dobët mund të jenë shkatërruar duke përdorur pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Shkatërrojë murin duke përdorur pickaxe dhe vazhdojnë"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Diçka është menduar të jetë këtu, por kjo nuk është në këtë version, kontrolloni sërish më vonë!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Mblidhni 10 copë e Qymyrit"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Regjistrat Mblidhni 2 copëtuar"
+
+msgid "Rescue 3 Chickens"
+msgstr "3 Rescue Pulat"
+
+msgid "Find 4 Gems"
+msgstr "Gjej 4 Gurë Kristali"
+
+msgid "Repair Generators"
+msgstr "Riparimi Gjeneratorë"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Regjistrat Mblidhni 6 copëtuar"
+
+msgid "Collect 3 Access Keys"
+msgstr "Mblidhni 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Ky është një objektiv bosh"
+
+msgid "Kill all Bats!"
+msgstr "I vrasin të gjitha shkop!"
+
+msgid "Coal"
+msgstr "Thëngjilli"
+
+msgid "Chopped Log"
+msgstr "Copëtuar Identifikohu"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Gem kuqe"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Gem purple"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "New Game"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "About"
+msgstr "Rreth"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "Configure Controls"
+msgstr "Configure Controls"
+
+msgid "Configure Sound"
+msgstr "Configure Tone"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Show aludon"
+
+msgid "A potion which will transform you..."
+msgstr "Një ilaç i cili do të transformojë ju ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Krijon shumë absorbant cubes miniaturë akull"
+
+msgid "A potion which will restore all of your health"
+msgstr "Një ilaç i cili do të rikthejë të gjitha të shëndetit tuaj"
+
+msgid "A powerful bomb"
+msgstr "Një bombë e fuqishme"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Një ilaç që ju bën të padukshëm të armiqve të caktuara"
+
+msgid "The eyeball from a Gazer"
+msgstr "Kokërdhok nga një ëndërrimtar"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Një Pak Tesla. Ajo ka asnjë përgjegjës."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Një Shtabit të thirrësit. Ajo nuk mund të përdoret nga njerëzit."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Një Pak Tesla. Kjo është plotësisht e ngarkuar."
+
+msgid "An empty potion bottle"
+msgstr "Një shishe bosh ilaç"
+
+msgid "A bag of chicken feed"
+msgstr "Një qese me pule feed"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Një qese të përshtatshme për kryerjen e thëngjillit"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Një shpatë dhënë për ju nga Jacob"
+
+msgid "A bow"
+msgstr "Një hark"
+
+msgid "Small Wooden Shield"
+msgstr "Të vogla druri Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Një mburojë të vogla që ofron mbrojtje themelore"
+
+msgid "Normal Arrow"
+msgstr "Normale Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normale Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Një sëpatë të përshtatshme për shëndoshë pemëve"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Një pickaxe me qira te ju Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Zjarri Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Ilaç Dhoma Key"
+
+msgid "Surge Passage Key"
+msgstr "Rritja Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Demolition Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Çfarëdo që të ishte ajo gjë që ishte me teper e pushtetit nga ai gjenerator dhe duke e përdorur atë kundër meje."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Kjo mund të shpjegojë pse që të heqë nuk ishte duke punuar. Mposhtur drainers të tjera duhet të rivendosur pushtetin."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Humbjen e të gjitha Drainers Energjisë"
+
+msgid "No Objectives"
+msgstr "Nuk Objektivat"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Shtypni Veprimit për të rivendosur blloqe mister"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Ajo duket si një përzierje. Unë mund të përdorni këtë liquidise diçka"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Unë kam nevojë për një llum të Kuq brith dhe 3 shikimet ëndërrimtar për të bërë ilaç"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Unë ende nevojë për një shishe bosh ilaç për të vënë në"
+
+msgid "So this is the Fortress."
+msgstr "Pra, kjo është Kalaja."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Ajo duket si një shumë e dyerve të çoj në zona të tjera, unë duhet të ketë një sy përreth duhur para se të shkoj diku tjetër ..."
+
+msgid "Try hitting the skull..."
+msgstr "Provoni goditur kafkë ..."
+
+msgid "This machine is not active"
+msgstr "Kjo makinë nuk është aktiv"
+
+msgid "Repeat the sequence"
+msgstr "Përsëriteni rend"
+
+msgid "Correct Sequence"
+msgstr "Rend Correct"
+
+msgid "Incorrect Sequence"
+msgstr "Rend Incorrect"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Legjenda e Edgar ka pasur gabim në vijim"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Ju lutem raportoni këtë gabim në Realitete Paralele"
+
+msgid "The game will now exit"
+msgstr "Loja do tani dalje"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Ajo duket si një përzierje. Unë mund të përdorni këtë liqudise diçka"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Kjo duhet të jetë qymyri Borgan do me mua për atë"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Kjo mund të shpjegojë pse që të heqë nuk ishte duke punuar. Mposhtur drainers të tjera duhet të rivendosur pushtetin këtu."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Unë kam nevojë për të gjetur 3 Sytë ëndërrimtar, 1 Kuq llum brith dhe nje mbrojtje shtesë për të krijuar një Mburoja e zjarrit Rezistenca"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Pasi unë e kam gjetur të gjitha këto artikuj unë do të duhet të gjejnë një vend për të krijuar mburojë"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Ka një libër këtu për armë të këndshëm"
+
+msgid "Maybe I can create a shield..."
+msgstr "Ndoshta unë mund të krijojë një mburojë ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Shpata ... Blinduar ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid libër. Kjo nuk është në rregull dhe nuk ka asnjë tregues"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Mburoja e zjarrit Rezistenca"
+
+msgid "Ingredients"
+msgstr "Përbërësit"
+
+msgid "One must gather the following"
+msgstr "Njeriu duhet të mblidhen pas"
+
+msgid "The root of a Mandrake"
+msgstr "Rrënjë e një Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Dhjami i një Darsh (në të majtë të qëndrojë për 3 muaj)"
+
+msgid "Powered Condor bones"
+msgstr "Eshtrat Powered kondor"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 sytë e ëndërrimtar"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Brith fllad prerë nga një femër Kuq llum"
+
+msgid "The shield to apply the enchantment"
+msgstr "Mburojë për të aplikuar magji"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Përzierje sytë ëndërrimtar dhe brith llum në një lëng të qetë"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Shto rrënjë, yndyrë dhe e eshtra në kazan dhe përzierje së bashku me sytë përzier brith ëndërrimtar dhe llum"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Kur kthehet përzierje blu të ndritshme, shtoni mburojë"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Unë e kam parë se shumica e këtyre artikujve në laborator kështu që unë nuk duhet të shqetësohen për ato"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Dhe Gazers sorollatem në bodrum kështu që nuk është një problem"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Çfarë duhet të bëj për të gjetur një llum të Kuq, por unë nuk kam asnjë ide se ku mund të gjeni një"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Unë nuk mund të përdorë mburojën time aktuale në eksperiment në rast se backfires kështu që unë do të duhet të gjejë një tjetër"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Nuk mund të potions dhomë ose laborator ku mund të gjej rrënjët, yndyrë dhe kockat kështu që unë nuk duhet të shqetësohen për ato"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Ju duhet të keni kartën udhëzim që dëshironi të përdorni të theksuara në kutinë tuaj inventar"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, një laborator!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "I love shikuar Maggie të dikton dhe potions, ndoshta unë mund të bëjë disa të mi këtu!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, unë kurrë nuk kam parë kaq shumë libra në një vend!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Duhet të ketë informacion për çdo subjekt këtu, kjo mund të jetë e dobishme ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, ajrore ndjehet i akuzuar, ai kujton mua e shtëpisë Maggie kur ajo ishte duke bërë dikton. Unë duhet të jenë të kujdesshëm."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Edgar Oh, ju jeni lënduar! Më lejoni të shëroj plagët tuaja"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Pyes veten se çfarë monsters tjera ka. Unë do të marr një faqe me hamendje ..."
+
+msgid "Gazer"
+msgstr "Ëndërrimtar"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers janë krijesa cycloptic fluturim gjetur në vende të ndryshme"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Syri i tyre i vetëm është e mbyllur zakonisht dhe ata mbështeten në hidrolokator për lëvizjen"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Ata përdorin kuptimin e tyre të fortë të nuhatjes për të parë jashtë për grabitqar dhe pre ashtu"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Sulm Gazers (dhe të mbrojnë veten e tyre) duke hapur sytë e tyre që do të habis asgjë shikuar atë"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Ky sulm është i vetëm efektiv megjithatë nëse viktima është duke u përballur ëndërrimtar"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Kokërdhok Një ëndërrimtar përmban pronat magjike dhe është një përbërës të përbashkët në përgatitjen spell"
+
+msgid "Centurion, Grey"
+msgstr "Centurioni, Gri"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurionët janë krijuar krijesa magjike, si zakonisht dërgoi sentries ose roje"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Edhe pse i ngadalshëm lëviz, madhësia e tyre masive u lejon atyre të thjesht marshim përmes ndonjë mbrojtje"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Në vend të armëve, shumë shoferë grumbull i madh që ata përdorin për të shkundur tokë dhe kërcënimeve çorodit"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Ndërsa Grey centurionët do të përdoret për të ruajtur parametrat e jashtme, Red centurionët janë të njohur për të ekzistojnë dhe janë përdorur për të mbrojtur zonat me rëndësi të madhe"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters janë të padëmshme monsters mos sulmuar."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Me mbajtjen e shumë dëme që do të ndahet në dy dhe goditjen e tyre grabitqar"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Nëse një nga këto dëme mban shumë se do të ndahet përsëri dhe vazhdojnë të sulmojnë"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Së fundi, një ndarje përfundimtare do të prodhojë shumë versione të vogla të cilat janë krejtësisht të padëmshme dhe në këtë gjendje mund të jetë thjesht dha në"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Nëse të gjitha pjesët e saj janë ende gjallë, një dhimbje e rëndë koke do reformë vetë pas një kohë dhe shëroj plagët e saj"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Kuq Grubs janë më agresive se sa homologët e tyre të gjelbra dhe do të sulmojë çdo gjë që e shohin si një kërcënim"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Me arritjen e pjekurisë ata do të formojnë një fshikëz dhe morph në një grenzë"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Disa megjithatë do morph në një grenzë mbretëreshë. Këto mbretëreshat mund të prodhojnë një mukozë-si substancë në gjendje të mbajnë pre e saj në vend"
+
+msgid "Tortoise, Master"
+msgstr "Breshkë, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Tortoises kafshët janë të frikshme. Gjetur në larg tokave se ata i posedojnë aftësinë për të ndryshuar kokat e tyre"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Ata kombinojnë të gjitha aftësitë e kushërinjtë e tyre për të marrë frymë zjarr, krijojnë akull dhe elektrifikoj veten"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Dhe sigurisht ata janë gjithashtu indiferent ndaj sulmeve nga matching elemente, thithjen e energjisë për të shëruar veten"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Por përveç kësaj, në qoftë se ata marrin energji shumë nga shërim, ato evoluojnë dhe shko në inat"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Në këtë shtet do të bëhet copë e çikë me çdo mbrojtje dhe për të prodhuar Dark Matter që shkatërron çdo gjë që prek"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Megjithatë, një predhë e Tortoise inatosur Master është shumë magjike dhe është një përbërës thelbësor kur krijohen magji e fuqishme dhe artikuj"
+
+msgid "Venus Flytrap"
+msgstr "Venus mizakapëse"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Thërret, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore është një krijesë nga një tjetër dimension. Ajo mund të thirren duke përdorur magji të fuqishme të errëta"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Arsyeja më e zakonshme për të mbledhë kësaj kafshe është të veprojë si një truproje"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Nuk ka asnjë mënyrë për të njohur për të vrarë Grimlore që mbi mbajtjen e të plagosur kritik ai thjesht do të kthehen në dimensionin e vet"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Por edhe duke plagosur është një detyrë e monumentale. Kushdo ndeshi në këtë krijesë është këshilluar që të ikin sa më shpejt të jetë e mundur"
+
+msgid "Or they will die very quickly"
+msgstr "Ose ata do të vdesin shumë shpejt"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, këtu është një përmbledhje e monsters"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 vëllime! Si mund të ketë monsters kaq shumë në botë?"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Duket sikur ata janë në rend alfabetik pse"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Fëlliqësi, Green ... Fëlliqësi, Purple ... Llum, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Llum, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Ndryshe nga kushëriri i saj jeshile, llum Kuq qëndron thellë nëntokësore dhe rrallë, nëse ndonjëherë, sipërfaqet"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Habitatit të saj të preferuar janë të thata dhe zonat e pasura minerale dhe si rezultat janë gjetur tek përgjojnë nëpër zonat e minierave të braktisura nga njerëzit"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Ata janë shumë të kujdesshëm ndaj njerëzve dhe do të sulmit mbi të parit e, zakonisht të vjella deri një acid i cili merr kohë për të zhduket"
+
+msgid "Smacker, Lesser..."
+msgstr "Puthje pllaq-plluq, Vogël ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Madhe, që është e gjitha ajo thotë. Unë nuk e di edhe se si të tregoj ndryshimin në mes një mashkulli dhe femra. Do të marr vetëm për të marrë një shans ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Përveç kësaj, ajo që është e keqe që mund të ndodhë?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Edgar për të lëvizur majtas dhe djathtas, përdorim çelësat arrow."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Për të bërë kërcim Edgar, hapësirë për shtyp. Ju mund të lëvizin në ajër kur kërcejnë."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Edhe pse Jakobi vetëm kërkon që ju të kapur 3 nga pulat e tij, pse jo të këndshme për të kapur atë dhe më shumë? Ka 10 përçart hartë në të gjitha"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Vini re se jo të gjitha muret e dobët mund të jenë shkatërruar duke përdorur pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Unë e kam zgjedhur tashmë, ai nuk është aty poshtë ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Unë kam dëgjuar për njerëz bien në edhe më parë, ndoshta Dad në ka ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "Dad !!!!! ARE YOU DOWN KA ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Asgjë. I guess I'll duhet të mbajnë në kërkim"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push lart ose poshtë për të rritur ose të ulët platformë"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Ka një libër këtu për pajisjet shumë i këndshëm"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Është një libër shumë i këndshëm për pajisje"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Unë nuk kam ndonjë arsye dhe ta lexoni këtë, por unë do të mbaj në mend në atë rast unë nuk"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Pyes veten se çfarë monsters tjera ka ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Ashtu si Summoners rregullt, Summoners Dark telefononi në kafshë të tjera për të bërë oferta e tyre"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Përveç kësaj edhe pse ata mund të teleport distanca e shkurtër për të shpëtuar nga kundërshtarët e tyre"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Personeli i tyre është shumë magjike dhe edhe pse ajo nuk mund të përdoret nga njerëzit direkt, vetitë e saj magjike janë përdorur në krijimin spell"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers janë quadrupeds të vogla me një feçkë gjatë"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Puropse kryesor i feçkë është të foragjere për ushqimin por gjithashtu shërben si një mekanizëm mbrojtës"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "dhe janë më shumë se sa të aftë për të mbajtur një grabitqar në gji nga thjesht defekt ata larg"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus mizakapëse, celular"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Venus Flytraps kanë evoluar rrënjë dhe janë në gjendje për të lëvizur në ushqimin e tyre në vend se të priste që ai të vijë tek ata"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Qafat e tyre janë tepër elastike dhe janë në gjendje të parakohshme në pre e tyre nga një distancë të konsiderueshme larg"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Kjo duhet ta bëjë atë. Shpresojmë që të heqë të tjera nga Kanalizim tani duhet të punojnë"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Kjo ngre nuk është duke punuar. Unë nuk do të jetë në gjendje ta përdorin atë deri sa unë të rivendosur pushtetin"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Kjo xhami duket shumë e trashë për mua për të goditur, unë do të duhet të gjejnë ndonjë mënyrë tjetër të shkatërrimtar të ..."
+
+msgid "Up"
+msgstr "Lart"
+
+msgid "Down"
+msgstr "Poshtë"
+
+msgid "Left"
+msgstr "Larguar"
+
+msgid "Right"
+msgstr "I drejtë"
+
+msgid "Jump"
+msgstr "Shko"
+
+msgid "Attack"
+msgstr "Sulmi"
+
+msgid "Block"
+msgstr "Blloku"
+
+msgid "Action"
+msgstr "Veprimi"
+
+msgid "Use Item"
+msgstr "Përdorimi Item"
+
+msgid "Previous Item"
+msgstr "Previous Item"
+
+msgid "Next Item"
+msgstr "Next Item"
+
+msgid "Inventory"
+msgstr "Inventari"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "Sasia SFX"
+
+msgid "Music Volume"
+msgstr "Sasia Music"
+
+msgid "Ice Spray"
+msgstr "Akull Spray"
+
+msgid "Library"
+msgstr "Biblioteka"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing heqin Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Door Mine Hyrja kryesore"
+
+msgid "Village"
+msgstr "Fshati"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Kalaja periferi"
+
+msgid "Forbidden Swamp"
+msgstr "Forbidden swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Zona e kufizuar e ujërave të zeza Key"
+
+msgid "Basement"
+msgstr "Bodrum"
+
+msgid "Fortress Ground Floor"
+msgstr "Kalaja Ground Floor"
+
+msgid "Sewer"
+msgstr "Kanalizimi"
+
+msgid "Fortress Main Key"
+msgstr "Kalaja kryesore kryesore"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access Key 3"
+
+msgid "Laboratory"
+msgstr "Laborator"
+
+msgid "Empty Bottle"
+msgstr "Shishe Empty"
+
+msgid "First Floor Key"
+msgstr "First Floor Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Shtypni Veprimit për të rifitoj %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, kjo është e re."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Kjo nuk duket si ajo mund të dëmtojë edhe mua, por ka vetëm një mënyrë për të gjetur ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Kjo ngre është kontrolluar deri në atë pjatë presion, por unë nuk mund të qëndrojë mbi atë dhe përdorimin ashensor në të njëjtën kohë"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Do të duhet të gjejnë diçka tjetër për të qëndruar në pjatë presionin për mua ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Kjo kartë është bosh, unë do të duhet të vënë disa udhëzime mbi atë për ta bërë atë përdorshme.Më."
+
+msgid "There's a plaque here"
+msgstr "Ka një pllakë këtu"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Vendi 4 statuja në mënyrë korrekte"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Ju nuk do të jetë në gjendje të gjeni të gjitha 4 statuja në këtë version, kështu që vijnë sërish më vonë!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Ju duhet të keni statujë që dëshironi të përdorni të theksuara në kutinë tuaj inventar"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Asgjë nuk ndodhi. Unë nuk mendoj se kjo është mënyrë e drejtë"
+
+msgid "Tuning Fork"
+msgstr "Diapazon"
+
+msgid "Second Floor Keycard"
+msgstr "Kati i dytë Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Udhëzim Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Udhëzim Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Udhëzim Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Udhëzim Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurioni Statuja"
+
+msgid "Spider Statue"
+msgstr "Statuja spider"
+
+msgid "Tortoise Statue"
+msgstr "Breshkë Statuja"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Statuja"
+
+msgid "A Blue Gem"
+msgstr "Një Gem Blue"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Një statujë e centurionit. Ajo ka 2 këmbët."
+
+msgid "A Green Gem"
+msgstr "Një Gem Green"
+
+msgid "A Purple Gem"
+msgstr "Një Gem Purple"
+
+msgid "A Red Gem"
+msgstr "Një Gem Kuq"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Një statujë e një Scorpion. Ajo ka 6 këmbët."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Një statujë e një Spider. Ajo ka 8 këmbët."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Një Spike Armadillo Ball. Do të shpërndaj spikes kur hidhet."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Një statujë e një Tortoise. Ajo ka 4 këmbët."
+
+msgid "A Tuning Fork"
+msgstr "Një Fork akordim"
+
+msgid "A chopped log"
+msgstr "Një log copëtuar"
+
+msgid "Narrator"
+msgstr "Folës"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Kjo është një kazan. Maggie ka vetëm një si kjo"
+
+msgid "Right, here goes!"
+msgstr "Drejta, këtu shkon!"
+
+msgid "I need all the main ingredients"
+msgstr "Unë kam nevojë për të gjithë përbërësit kryesor"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 ëndërrimtar shikimet, 1 Kuq llum brith dhe një mburojë rezervë"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Unë gjithashtu duhet të shkrihen dhe shikimet brith në një lëng"
+
+msgid "This entire section is about monsters"
+msgstr "Ky seksion ka të bëjë me tërë monsters"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Unë nuk kam asnjë arsye për të lexuar këto, por unë do të mbaj në mend në atë rast unë nuk"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, what a cute makine pak!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "It's got një interval kohe pak më mbrapa e tij. I guess I vënë diçka në atje për ta bërë atë nuk stuff"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Robot përdor kartat udhëzim të lëvizë rreth"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Përdorimi udhëzime për të drejtuar robot për të hapur zona që ju nuk mund të hyni"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Megjithatë, kur ju nuk mund ta lexoni udhëzimet mbi kartë, ju do të duhet të provoni nxori jashtë të gjithë deri në një punëve"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Nëse robot nuk ka arritur objektivin e saj, atëherë ajo do të kthehet në pozicionin e saj duke filluar lejuar ju që të provoni përsëri"
+
+msgid "Enter the directions"
+msgstr "Shkruani drejtimet"
+
+msgid "Out of space for instructions"
+msgstr "Nga hapësirë për udhëzime"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Unë kam nevojë për një kartë bosh për të vënë udhëzimet për"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Ndoshta kjo nuk ishte i tillë një ide të mirë pas të gjithë ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Merrni 3 Eyes ëndërrimtar"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Merrni 1 Kuq llum brith"
+
+msgid "Find another shield"
+msgstr "Gjej një tjetër mburojë"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Shikimet përzierje dhe brith"
+
+msgid "Obtain a Fire Shield"
+msgstr "Merrni një zjarr Shield"
+
+msgid "More water?!"
+msgstr "Më shumë ujë?"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Unë nuk mendoj se janë në gjendje të kthehet në një baltë do të ndihmojë mua këtu, pasi që unë nuk mund të jetë në gjendje të kthehet më pas"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Unë do të duhet të gjejmë një mënyrë tjetër për të hyrë në të gjithë"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Do të duhet të gjejnë diçka për të ndihmuar me të marrë nëpër"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Unë nuk shoh ndonjë Sludges në minierë, kur shkova për të marrë qymyr Borgan dhe edhe nëse ka patur ndonjë Unë nuk mund të kthehet atje prej trap mi mbyt"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Unë do të duhet të gjejmë një tjetër e minave rreth këtu ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Krijon cubes akull që zgjerohet në kontakt me ujin"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Një shishe aftë të kapte shpirtrat"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Provoni të përdorni thika Mataeus kundër tij ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Nuk mund të vini deri %s. Inventari plotë"
+
+msgid "Filling mine cart..."
+msgstr "Plotësimi karrocë minave ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Realitete paralele Copyright 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Nga shigjetat!"
+
+msgid "There's something moving around down there..."
+msgstr "Ka diçka që shkon poshtë aty rreth ..."
+
+msgid "Good riddance..."
+msgstr "Mirë riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Nëse heqin është jashtë rendit atëherë ajo duhet të rishkruhet"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Ka 4 çelsin reset përgjatë bosht ashensor i cili duhet të rishkruhet"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Jetë i sigurt për të rivendosur të hequr për të shmangur një shëtitje të gjatë prapa në sipërfaqe ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Kjo makinë ka një vrimë të njëjtën madhësi si kartat. I guess mund ta përdorin atë për të krijuar udhëzime të reja."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Për të krijuar një seri e re e udhëzimeve që ju duhet për të futur një kartë bosh"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Ju pastaj do të nxitet për ta input udhëzime për robot për t'u ndjekur. Kjo është bërë në të njëjtën mënyrë si dyert rend"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Kur të keni mbaruar inputting drejtimet, shtypi Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Robot do të ndiqni udhëzimet mbi kartë"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Në qoftë se udhëzimet nuk janë të sakta ju mund të provoni përsëri"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Ky vend është i çmendur, unë mirë e bëj me ngut dhe për të gjetur Dad para se të përfundojnë duke u vranë!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Pra, për të krijuar se zjarrit Mburoja unë duhet të merrni një brith llum Kuq"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Kuq Sludges jetojnë në minierat e kështu që unë do të duhet të gjejnë një rreth këtu"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Unë gjithashtu nevojë për një mburojë rezervë, por unë supozoj se duhet të jetë një uzinë armësh rreth"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Ëndërrimtar shikimet janë të lehta të mjaftueshme, unë vetëm mund të kthehet në bodrumin"
+
+msgid "OK, off I go..."
+msgstr "OK, larg të shkoj ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Ju nuk do të jetë në gjendje të merrni brith ose mburojë në këtë version, kështu që kontrolloni sërish më vonë!"
+
+msgid "It's a portrait"
+msgstr "Është një portret"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Kjo frymë nuk është e do të më lejoni të kaluarën, unë do të duhet të gjejnë një mënyrë për të shpëtoj prej tij"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset switches ju lejojnë të rivendosur pozitën e një objekti në hartë"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Nëse një objekt të bëhet i pakapshëm atëherë ju mund të përdorni kaloni për ta vënë atë në vendin e saj origjinal"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Një shishe me një shpirt të bllokuar brenda"
+

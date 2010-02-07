@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Gyflym trowch i'r chwith ac i'r dde oddi ar y ysgwyd slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Nad ydynt yn gweithio yn y fersiwn!"
+
+msgid "Press Action to interact"
+msgstr "Datganiadau Gweithredu i ryngweithio"
+
+msgid "%s is required"
+msgstr "%s Mae angen"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Small Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Datganiadau i'r wasg Gweithredu nôl Glaswellt y Gem"
+
+msgid "Chicken"
+msgstr "Cyw iâr"
+
+msgid "Tesla Pack"
+msgstr "Pecyn Tesla"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Datganiadau Gweithredu i adfer Tesla Pecyn"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Datganiadau Gweithredu i gymryd lle Tesla Pecyn"
+
+msgid "Obtained %s"
+msgstr "A gafwyd %s"
+
+msgid "Complete"
+msgstr "Cwblhau"
+
+msgid "%d more to go..."
+msgstr "%d mwy i fynd ..."
+
+msgid "Used %s"
+msgstr "Defnyddio %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Methu rhoi'r eitemau tra'n transmogrified"
+
+msgid "Equipped %s"
+msgstr "Chyfarpar %s"
+
+msgid "Maximum health has increased!"
+msgstr "Uchafswm iechyd wedi cynyddu!"
+
+msgid "Bow will now fire %s"
+msgstr "Bydd Bow nawr tân %s"
+
+msgid "A bow is required to use this item"
+msgstr "Mae bwa Mae angen i ddefnyddio eitem hon"
+
+msgid "Cannot transmogrify here..."
+msgstr "Methu transmogrify yma ..."
+
+msgid "Yes"
+msgstr "Ydw"
+
+msgid "No"
+msgstr "Dim"
+
+msgid "Start a new game?"
+msgstr "Cychwyn gêm newydd?"
+
+msgid "Play the tutorial?"
+msgstr "Chwarae tiwtorial?"
+
+msgid "Exit the game?"
+msgstr "Adael y gêm?"
+
+msgid "Back"
+msgstr "Yn ôl"
+
+msgid "Game Loaded"
+msgstr "Gêm Loaded"
+
+msgid "Game Saved"
+msgstr "Gêm Cadwyd"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Bydd unrhyw gynnydd yn cael eu colli heb eu cadw"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Datganiadau Gweithredu i siarad â %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Newydd Amcan: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Amcan Cwblhawyd: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Y wal ar y dde yn edrych yn wan ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Nid yw'r arf yn cael unrhyw effaith ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Datganiadau Gweithredu i osod y Pecyn Tesla"
+
+msgid "The Legend of Edgar"
+msgstr "Y Chwedl Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s Mae angen at activate newid hwn"
+
+msgid "Press Action to use this switch"
+msgstr "Datganiadau Gweithredu i ddefnyddio'r newid"
+
+msgid "Press Action to save your game"
+msgstr "Datganiadau Gweithredu i gadw eich gêm"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s Mae angen i ddefnyddio'r Gwasgedd Plât"
+
+msgid "%s is needed to open this door"
+msgstr "%s Mae angen i agor y drws hwn"
+
+msgid "This door is locked"
+msgstr "Mae hyn drws wedi ei gloi"
+
+msgid "This teleporter is not active"
+msgstr "Nid yw hyn yn weithgar teleporter"
+
+msgid "Press Action to go to the %s"
+msgstr "Datganiadau Gweithredu i fynd i'r %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Gwthio fyny neu i lawr i ddefnyddio'r lifft"
+
+msgid "This lift is not active"
+msgstr "Nid yw'r lifft yn weithgar"
+
+msgid "Cannot carry any more %s"
+msgstr "Ni all gario unrhyw mwy o %s"
+
+msgid "Picked up %s x %d"
+msgstr "Codi i %s x %d"
+
+msgid "Picked up %s"
+msgstr "Dewis i %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s Mae angen i gynnal yr eitem hon"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Storio Allweddol"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Glo Bag Storio Newid Allweddol"
+
+msgid "Large Room Key"
+msgstr "Ystafell Mawr Allweddol"
+
+msgid "Coal Bag"
+msgstr "Glo Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell Allweddol"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "Iechyd Potion"
+
+msgid "Outflow Key"
+msgstr "All-lif Allweddol"
+
+msgid "Flow Control Key"
+msgstr "Llif Rheoli Allweddol"
+
+msgid "Waste Processing Key"
+msgstr "Gwastraff Prosesu Allweddol"
+
+msgid "Access Key 1"
+msgstr "Mynediad Allweddol 1"
+
+msgid "Access Key 2"
+msgstr "Mynediad Allweddol 2"
+
+msgid "Access Key 3"
+msgstr "Mynediad Allweddol 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Newid Allweddol"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Mae hyn wedi codi unrhyw bwer. Na fyddaf yn gallu ei ddefnyddio hyd nes i mi adfer y pwer"
+
+msgid "Keep practising!"
+msgstr "Cadwch ymarfer!"
+
+msgid "Hi"
+msgstr "Hi"
+
+msgid "Hello Edgar"
+msgstr "Helo Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Gaf i fenthyg dy darian?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Oddi ar i ymarfer eich sgiliau diffodd?"
+
+msgid "Something like that"
+msgstr "Rhywbeth fel bod"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Os ydych chi'n rhedeg 'm an errand, yna gallwch gael y darian"
+
+msgid "What do I have to do?"
+msgstr "Beth ddylwn i ei wneud?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Ewch i'r pwll a chasglu mi rhai glo"
+
+msgid "But we have plenty of coal!"
+msgstr "Ond mae gennym ddigon o lo!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Oes, ond nid yw hyn yn unrhyw hen glo, glo hyn yn arbennig, mae'n llosgiadau boethach ac mae'n para hirach"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Fi ond angen 10 o ddarnau o stwff, felly ni ddylai fod yn mynd â chi yn hir iawn"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Gwnewch yn siŵr eich bod yn ei roi mewn bag, cyffwrdd ei gyfer yn rhy hir yn ddrwg i'ch iechyd"
+
+msgid "Do you have a bag?"
+msgstr "Oes gennych chi bag?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Na, mae'n debyg y gallwch ddod o hyd i un yn y pwll er"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, fe alla i gael y glo"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Yma, yn y pickaxe. Gallwch ei ddefnyddio i pwll glo a darnia drwy unrhyw waliau gwannach dewch ar eu traws"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Byddwch hefyd angen hyn yn allweddol i fynd i mewn i'r pwll"
+
+msgid "Thanks!"
+msgstr "Diolch!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Ddiolch 'ch, Edgar, y glo yn berffaith! Nid Hope yr ystlumod oedd dychryn chi."
+
+msgid "The bats were the least of my worries..."
+msgstr "Mae'r ystlumod oedd y lleiaf o fy pryderon ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Dweud, Rwy'n clywed bod rhywbeth wedi digwydd yn y mwynglawdd ychydig flynyddoedd yn ôl"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, yeah, roedd yr hyn y byddech yn galw  digwyddiad , ond y rhan honno o'r pwll oedd wedi'i selio i fyny amser maith yn ôl"
+
+msgid "Right..."
+msgstr "Hawl ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Yma, wedi fy tarian a chael hwyl!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Dim ond yn aros i ffwrdd o'r gors Forbidden"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Yn gwneud gallu, yr wyf yn dal ar eich pickaxe am ychydig?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Peth Cadarn, dim ond yn dod yn ôl mewn un darn"
+
+msgid "Thanks, Borgan!"
+msgstr "Diolch, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Ydych chi wedi llwyddo i ddod o hyd i'r glo eto?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Gallwch dynnu rhai eitemau o gwmpas gan gwthio yn eu herbyn, tra'n dal i lawr y botwm Gweithredu."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Yna, gallwch dynnu o gwmpas nes i chi gadewch i fynd ar y botwm Gweithredu"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Mae hyn yn graig yn edrych yn rhy gryf ar gyfer fy Dewis Axe. Bydd rhaid i mi ddefnyddio rhywbeth arall i gael drwy ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, beth ddigwyddodd?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Nid Edrych fel hyn yn y fath syniad da ar ôl yr holl"
+
+msgid "There must be way out of here..."
+msgstr "Mae'n rhaid fod yna ffordd allan o yma ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Rhaid i hyn fod yn glo eisiau i mi mwynglawdd iddo"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Dwi ddim yn meddwl y bydd fy darian amddiffyn 'm chan hynny fireballs. Bydd yn rhaid i mi ddod o hyd i un cryfach ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Ni fyddwch yn gallu gwneud hyn ychydig yn y fersiwn hwn, check back yn ddiweddarach!"
+
+msgid "Strange creature..."
+msgstr "Creadur Strange ..."
+
+msgid "Wait, what was that?"
+msgstr "Aros, beth oedd yn bod?"
+
+msgid "You again?!"
+msgstr "Chi eto?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Rhaid i'r sorcerer wedi cymryd at ei Dad castell. Bydd yn rhaid i mi ei achub oddi yno."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Yr unig ffordd i gyrraedd y castell yw drwy siglen Forbidden i'r Dwyrain."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Mae llyn rhwng y pentref a'r siglen felly bydd angen i mi gael rafft i gael ar draws."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "'N annhymerus' hefyd angen cleddyf a tharian i amddiffyn fy hun. Rwy'n gallu siarad ac i gael y rhain er."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Rhywbeth i fod i ddigwydd yma, ond nid yn y fersiwn hwn felly gofynnwch yn ôl yn ddiweddarach!"
+
+msgid "Have fun!"
+msgstr "Cael hwyl!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Diolch am fy resucing ieir, ydych chi wedi 'm 2 o'r cofnodion y goedwig eto?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Edgar Diolch! Fy ieir yn ôl a bydd y rhain goed braf i mi ei wneud"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Gall Cymerwch y cleddyf, mae'n gwasanaethu chi hefyd!"
+
+msgid "Thank you!"
+msgstr "Ddiolch 'ch!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Diolch am y logiau, a ydych wedi cael unrhyw lwc gyda'r ieir?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "'N annhymerus' anrhega 'ch cleddyf os ydych yn cael' m 2 logiau torri o'r goedwig ac achub o leiaf 3 o fy ieir"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, beth gallaf ei wneud i chi heddiw?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Oes gennych chi cleddyf gallaf fenthyg?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Oes gennyf chleddyf a gallwch ei gael os ydych yn gwneud rhywbeth i mi yn gyntaf"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... beth mae'n rhaid i mi ei wneud?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Mae rhai o fy ieir wedi dianc o'r eu pen, a byddwn yn ddiolchgar iawn os y gallwch eu cael yn ôl i mi"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Rwyf wedi sefydlu rhai trapiau ger eu pen, gallwch eu denu i ddefnyddio trapiau hyn yn bwydo i cyw iâr. Nid oes angen i bob un ohonynt, ond o leiaf 3 byddai yn ddefnyddiol iawn. Alla i gael y gweddill fy hun."
+
+msgid "That's it?"
+msgstr "Dyna 'i?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Nid eithaf. Gallwch hefyd gael i mi rhai pren o'r goedwig? 2 Dylai cofnodion fod yn ddigon"
+
+msgid "Do you have an axe?"
+msgstr "Oes gennych chi bwyell?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "ERM ... I mi adael fy bwyell yn y goedwig yn rhywle. Dylai fod yn dal i fod yno"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Yw nad yw coedwig beryglus?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Nid mewn gwirionedd, os oes unrhyw beth yn cael yn eich ffordd, jyst daro â arf"
+
+msgid "Such as an axe?"
+msgstr "O'r fath fel bwyell?"
+
+msgid "Yes, that would do the trick"
+msgstr "Ie, a fyddai'n gwneud y gamp"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Ond o ddifrif, does dim byd yno sy'n gallu niweidio chi mewn gwirionedd. Y broblem yn ymdrin â amser maith yn ôl ..."
+
+msgid "Good luck!"
+msgstr "Good luck!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "O, diolch Edgar, yr wyf yn unig angen 3, ond diolch am yr help ychwanegol!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Yma, Maggie yn gwneud i mi hwn potion iechyd ond dwi ddim yn angen, felly pam na wnewch chi ei gael?"
+
+msgid "Thanks Jacob"
+msgstr "Diolch Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, rydych yn dal i bob un ohonynt, ddiolch choelbren!"
+
+msgid "Here, I have these for you"
+msgstr "Yma, rwyf wedi hyn i chi"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie yn gwneud i mi hwn potion iechyd, ond gallwch gael ei"
+
+msgid "And this is something very special"
+msgstr "Ac mae hyn yn rhywbeth arbennig iawn"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Gall hyn eich helpu ar eich ffordd i fod yn rhyfelwr cryf"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Rydych achub fi dipyn o amser. Maggie gwneud rhywbeth arall i mi, ond ers i chi wedi bod mor ddefnyddiol, gallwch ei gael."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Maggie Diolch!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan Dywedodd fod adran o'r pwll ei selio ar ôl i  digwyddiad "
+
+msgid "There must be something around here..."
+msgstr "Rhaid cael rhywbeth o amgylch yma ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, y pont godi i fyny. Mae'n rhaid fod yna fynedfa arall ..."
+
+msgid "Wait, what's that?"
+msgstr "Aros, beth sy'n bod?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Efallai y gallwn i twnnel fy ffordd i mewn .."
+
+msgid "These machines aren't working."
+msgstr "Nid yw'r peiriannau yn gweithio."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Mae'n edrych yn debyg i drysor dylai ffitio yn y twll, efallai y gallaf ddod o hyd i rai adnewyddu."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Mae'n edrych fel ei fod yn wedged dynn yno. Gallaf ei debyg loosen â'r pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "I gyrraedd y siglen Forbidden bydd angen i mi adeiladu rafft."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Gallaf adeiladu rafft os ydw i dorri i lawr digon o goed o'r goedwig"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Fi angen 6 Logiau wedi'u torri'n i adeiladu rafft"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Dydw i ddim yn mynd i'r siglen heb cleddyf a tharian"
+
+msgid "OK, here goes!"
+msgstr "OK, yma yn mynd!"
+
+msgid "Aw, not again!"
+msgstr "AW, nid yw eto!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Roedd hyn yn well y tro olaf rhaid i mi wneud hyn ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Oedd yn hawdd! A allaf gael bob amser yn ôl yn nes ymlaen!"
+
+msgid "Oh...."
+msgstr "O ...."
+
+msgid "Guess I have no choice now."
+msgstr "Dyfalu Does gen i ddim dewis bellach."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hongian ar Dad, rwy'n dod ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Rhywbeth i fod i ddigwydd yn awr, ond nid yn y fersiwn hwn. Dewch yn ôl yn ddiweddarach!"
+
+msgid "There's a note here"
+msgstr "Mae nodyn yma"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Rydw i wedi bod yn gaeth i lawr yma am yr hyn a ymddengys fel yn eternity"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "I fynd allan o'r lle hwn Fi angen 3 Bysellau Mynediad i weithio y lifftiau"
+
+msgid "So far I have only found 1"
+msgstr "Hyd yn hyn, rwyf wedi dod o hyd yn unig 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "I wneud pethau'n waeth, ond gallaf gyrraedd rhai switsys gyda arrow gosod yn ofalus"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Ond nid sbâr yn gyffredin, ac yr wyf wedi rhedeg allan"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Os nad ydw i'n dod o hyd i ffordd allan o yma cyn bo hir, rwy'n ofni efallai I starve"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Os nad ydw i'n cael y tu allan i yma byddaf yn dioddef yr un dynged ..."
+
+msgid "Oh, what's this?"
+msgstr "O, beth yw hwn?"
+
+msgid "There's a note here too"
+msgstr "Mae nodyn yma hefyd"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Mae'r potion yn berffaith! Quaffing bydd yn troi dynol yn creadur am swm bach o amser"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Dylai Hyd yn hyn, dim ond y gallaf transmogrify fy hun i mewn i un creadur, ond gydag amser ychydig unrhyw beth arall y bydd yn bosibl"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Mae ychydig bach chwith, dylai fod yn ddiogel i'w yfed"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, yma yn mynd dim ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Mae hyn yn ofnadwy!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan dweud wrtha i fod yn gallu Slimes nofio mewn dŵr er, felly efallai y bydd hyn yn ddefnyddiol ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Pan drawsnewid yn Slime, gallwch symud o gwmpas fel arfer. Gallwch hefyd yn nofio yn y dwr ac yn defnyddio fyny ac i lawr i symud o gwmpas"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Gwthio i fyny neu i neidio a fydd yn gwneud i chi neidio allan o'r dŵr os ydych yn agos i'r wyneb"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Cadwch lygad ar y timer ar waelod y sgrîn. Pan mae'n cyrraedd 0 byddwch yn awtomatig yn dod yn dynol eto"
+
+msgid "This place doesn't look so bad..."
+msgstr "Mae hyn yn digwydd nad yw'n edrych mor wael ..."
+
+msgid "What was that?"
+msgstr "Beth oedd hynny?"
+
+msgid "Uh Oh..."
+msgstr "UH O ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, rwy'n falch o fod allan o yno"
+
+msgid "Now to get through this swamp"
+msgstr "Nawr i gael drwy'r gors"
+
+msgid "Hey, what's this?"
+msgstr "Hey, beth yw hwn?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Yn edrych yn eithaf diniwed, 'n annhymerus' brofi camu ar ei"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Dyna oedd cŵl! Rhaid i hyn fod yn teleporter mecanyddol."
+
+msgid "I wonder if it works both ways..."
+msgstr "Tybed os yw'n gweithio ddwy ffordd ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Nid yn unig yw hyn yn mynd i mi arbed llawer o gerdded, mae hefyd yn llawer o hwyl!"
+
+msgid "Now try out your shield"
+msgstr "Nawr ceisiwch eich darian"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Bloc y pelenni spat gan y planhigyn a naid hyd at y ysgafell nesaf"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Gall rhai eitemau yn y gêm yn cael ei gwthio a thynnu"
+
+msgid "To push an item, simply walk into it"
+msgstr "I wthio eitem, dim ond cerdded i mewn iddo"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "I dynnu eitem, gerdded i mewn tra'n dal i lawr Gweithredu"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Yna, gallwch dynnu yr eitem o amgylch tan i chi gadewch i fynd Gweithredu"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Tynnwch y blwch ar yr ochr arall ac yn ei ddefnyddio i gyrraedd y ysgafell"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Mae hyn yn rhan olaf y tiwtorial a bydd yn eich dysgu i rwystro ac ymosod gelyn"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Yn gyntaf, dylech sicrhau bod gan y cleddyf oherwydd ei fod wedi amrywiaeth mwy a gwneud mwy o ddifrod na'r pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Z wasg i weld eich rhestr, yn tynnu sylw at y cleddyf a wasg Attack (ctrl chwith) neu Defnyddiwch yr eitem (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Datganiadau i'r wasg z eto i gau eich rhestr"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "O bryd i'w gilydd, bydd y gelyn ladd a ollyngir i iechyd a fydd yn vanish ar ôl ychydig eiliadau, felly ei godi yn gyflym!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Os bydd ystlumod yn cael i gau i chi, yn cynnal bloc a bydd yn harmlessly bownsio oddi ar eich"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Bellach yn lladd yr holl ystlumod yn yr ardal!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Mae dau fath o drws yn y gêm. Drysau llaw a drysau awtomatig."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Drysau Llawlyfr angen allweddi i agor iddynt, drysau awtomatig angen switsys."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "I agor drws wedi ei gloi bod gennych y allweddol ar gyfer, dim ond cerdded i mewn iddo. Nid oes angen i gael y allweddol dethol yn eich rhestr."
+
+msgid "Open the door and continue to the right"
+msgstr "Agorwch y drws ac yn parhau ar y dde"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Llongyfarchiadau! Nawr eich bod yn gwybod yr elfennau sylfaenol o chwarae dylech roi cynnig ar y gêm prif"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Os ydych chi eisiau replay hyn tiwtorial, wasg a Dianc dewiswch Tiwtorial o'r ddewislen"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "I chwarae'r gêm prif, wasg Escape a dewiswch Newydd Gêm o'r ddewislen"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Datganiadau i'r wasg Space pan fyddwch wedi gorffen darllen i fynd i'r bocs nesaf"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Gallwch hefyd symud i'r bocs nesaf drwy wasgu Attack (ctrl chwith), Bloc (chwith alt), Neidio (lle), Gweithredu (c) neu Defnyddiwch yr eitem (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Mae hyn yn y tiwtorial ar gyfer y Chwedl Edgar. Bydd hyn tiwtorial yn esbonio sut i chwarae'r gêm."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "I adael y tiwtorial, wasg a Dianc defnyddio'r Up and Down bysellau saeth i ddewis opsiwn. Dychwelyd i'r wasg i'w dewis."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "I symud i'r chwith ac i'r dde, yn defnyddio'r bysellau saeth."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "I wneud naid, lle i'r wasg. Gallwch symud yn yr awyr wrth neidio."
+
+msgid "To interact with an item, press c"
+msgstr "I ryngweithio gyda eitem, y wasg c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Gerdded ar hyd i'r Pwynt Gweithredu a'r wasg c"
+
+msgid "To collect an item from your"
+msgstr "I gasglu eitem gan eich"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Er mwyn dod o hyd i eitem, dim ond cerdded i mewn iddo. Bydd unrhyw eitemau ei gasglu yn cael ei ychwanegu i'ch rhestr."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Gallwch weld cynnwys eich rhestr drwy wasgu'r z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Tra yn y rhestr, defnyddiwch y bysellau saeth i weld yr eitemau."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Gallwch ddefnyddio eitem ar unwaith drwy wasgu'r Attack (ctrl chwith) neu Defnyddiwch yr eitem (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Gallwch eitem yn barod i'w defnyddio gan wasgu Block (chwith alt) neu Gweithredu (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Gerdded ar hyd yr allwedd i ei godi"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Gallwch newid yr holl reolaethau yn y gêm drwy wasgu'r Dianc a dewis Opsiynau yn y ddewislen"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Dewiswch Ffurfweddu Rheolaethau ddefnyddio'r bysellau saeth a Dychwelyd i'r wasg"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Defnyddiwch y bysellau saeth i ddewis rheoli ydych eisiau i newid a Dychwelyd i'r wasg."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Nesaf, pwyswch yr allwedd yr ydych eisiau ei ddefnyddio yn lle hynny."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Waeth beth allweddi ydych yn dewis, allwch chi bob amser fynd y dewislenni ddefnyddio'r bysellau saeth a Dychwelyd"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Nodi bod yn y tiwtorial, bydd yr allweddi rhagosod cymryd yn ganiataol"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Pan fyddwch wedi gorffen ffurfweddu yr allweddi, ewch i'r dde ar Waith nesaf Pwynt"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Mae'r pickaxe yn un o nifer o arfau byddwch yn dod ar draws yn y gêm"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Gallwch ei defnyddio fel arf yn arf a"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Codwch y pickaxe ac yn parhau i Gweithredu nesaf Pwynt"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Llongyfarchiadau, rydych chi'n dod o hyd yn gyfrinach!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Mae llawer o cyfrinachau yn y brif gêm felly cadwch lygad am eu"
+
+msgid "Here's a hint to get you started"
+msgstr "Dyma blas i chi gychwyn"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Er mai dim ond yn gofyn i chi ddal 3 ei ieir, pam na fod yn neis iddo a dal mwy? Mae 10 yn crwydro ar y map yn yr holl"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Bydd Tarian yn eich amddiffyn rhag ymosodiadau gelyn mwyaf"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Ni all rhai ymosodiadau gelyn yn cael ei atal"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Ni all Peryglon amgylcheddol, megis creigiau yn gostwng, yn cael eu blocio"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "I rwystro ymosodiad, y wasg a bloc yn cynnal (chwith alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Rhaid i chi fod yn wynebu'r yr ymosodiad llwyddiannus bloc er mwyn iddo"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Noder na allwch symud tra blocio, ond gallwch wynebu'r ffordd arall. Nad ydych yn gallu hefyd bloc yn yr awyr"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Codwch y darian ac yn parhau ar y dde"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Mae hwn yn wal wan, gall fod yn torri i lawr gan ddefnyddio'r pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "I ddefnyddio'r pickaxe, wasg Attack (chwith Ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "Nid yw y gall yr holl waliau wan yn cael ei dinistrio gan ddefnyddio'r pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Dinistrio y wal ddefnyddio'r pickaxe ac yn parhau"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Something's i fod yma, ond nid yn y fersiwn hwn, check back yn ddiweddarach!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Casglu 10 darnau o Glo"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Cofnodion Casglu 2 wedi'u torri'n"
+
+msgid "Rescue 3 Chickens"
+msgstr "Achub 3 Ieir"
+
+msgid "Find 4 Gems"
+msgstr "Dod o hyd i 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Atgyweirio generaduron"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Cofnodion Casglu 6 wedi'u torri'n"
+
+msgid "Collect 3 Access Keys"
+msgstr "Casglu 3 Bysellau Mynediad"
+
+msgid "This is a blank objective"
+msgstr "Mae hyn yn amcan wag"
+
+msgid "Kill all Bats!"
+msgstr "Lladd yr holl ystlumod!"
+
+msgid "Coal"
+msgstr "Glo"
+
+msgid "Chopped Log"
+msgstr "Wedi'i dorri Mewngofnodi"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Porffor Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Allweddol"
+
+msgid "New Game"
+msgstr "Gêm Newydd"
+
+msgid "Tutorial"
+msgstr "Tiwtorial"
+
+msgid "Load Game"
+msgstr "Gêm Llwytho"
+
+msgid "Options"
+msgstr "Dewisiadau"
+
+msgid "About"
+msgstr "Amdanom ni"
+
+msgid "Quit"
+msgstr "Roi'r gorau iddi"
+
+msgid "Configure Controls"
+msgstr "Ffurfweddu Rheolaethau"
+
+msgid "Configure Sound"
+msgstr "Ffurfweddu Sain"
+
+msgid "Fullscreen"
+msgstr "Sgrîn Llawn"
+
+msgid "Show Hints"
+msgstr "Dangos awgrymiadau"
+
+msgid "A potion which will transform you..."
+msgstr "A potion a fydd yn trawsnewid i chi ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Creu ciwbiau iâ absorbant bychan iawn"
+
+msgid "A potion which will restore all of your health"
+msgstr "A potion a fydd yn adfer yr holl eich iechyd"
+
+msgid "A powerful bomb"
+msgstr "A bom pwerus"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Mae potion sy'n renders eich gelynion yn anweledig i rai"
+
+msgid "The eyeball from a Gazer"
+msgstr "Mae'r eyeball o Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Pecyn Tesla. Nad oes ganddo ddim."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Summoner Staff. Ni ellir ei ddefnyddio gan bobl."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Pecyn Tesla. Mae'n cael ei godi yn llawn."
+
+msgid "An empty potion bottle"
+msgstr "Mae potel potion gwag"
+
+msgid "A bag of chicken feed"
+msgstr "Bag o gyw iâr feed"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Bag addas ar gyfer cario glo"
+
+msgid "Basic Sword"
+msgstr "Sylfaenol Cleddyf"
+
+msgid "A Sword given to you by Jacob"
+msgstr "A Cleddyf a roddir i chi gan Jacob"
+
+msgid "A bow"
+msgstr "A bwa"
+
+msgid "Small Wooden Shield"
+msgstr "Bach pren Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Mae Tarian bach sy'n darparu diogelu sylfaenol"
+
+msgid "Normal Arrow"
+msgstr "Saeth arferol"
+
+msgid "Normal Arrows"
+msgstr "Arferol Saethau"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Bwyell addas ar gyfer torri coed"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A pickaxe benthyg i chi gan Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Tân Llosgydd Allweddol"
+
+msgid "Potion Room Key"
+msgstr "Ystafell Potion Allweddol"
+
+msgid "Surge Passage Key"
+msgstr "Ymchwydd Passage Allweddol"
+
+msgid "Demolition Storage Key"
+msgstr "Dymchwel Storio Allweddol"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Beth bynnag a beth oedd ei fod yn draenio y pŵer gan y cynhyrchydd ac yn ei ddefnyddio yn fy erbyn."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Efallai Dyna esbonio pam nad oedd lifft nad ydynt yn gweithio. Dylai curo y drainers eraill adfer y pŵer."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Trechu holl Drainers Ynni"
+
+msgid "No Objectives"
+msgstr "Dim Amcanion"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Datganiadau Gweithredu i ailosod blociau pos"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Mae'n edrych yn debyg i cymysgydd. Allais defnyddio hyn i liquidise rhywbeth"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Rwyf angen Sludge Coch Tentacle a 3 Gazer Eyeballs i wneud y potion"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Rwy'n dal i fod angen Potel Wag i roi'r potion yn"
+
+msgid "So this is the Fortress."
+msgstr "Felly, mae hyn yn y Fortress."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Mae'n edrych yn debyg i lawer o drysau arwain i ffwrdd i ardaloedd eraill, dylai Mae gen i go iawn edrych o gwmpas cyn i mi fynd i unman arall ..."
+
+msgid "Try hitting the skull..."
+msgstr "Rhowch gynnig ar y benglog taro ..."
+
+msgid "This machine is not active"
+msgstr "Nid yw'r peiriant yn weithgar"
+
+msgid "Repeat the sequence"
+msgstr "Ailadrodd y dilyniant"
+
+msgid "Correct Sequence"
+msgstr "Trefn yn gywir"
+
+msgid "Incorrect Sequence"
+msgstr "Sequence anghywir"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Y Chwedl Edgar wedi dod ar draws gwall canlynol"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Os gwelwch yn dda adroddiad y gwall hwn i realiti Parallel"
+
+msgid "The game will now exit"
+msgstr "Bydd y gêm yn awr allanfa"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Mae'n edrych yn debyg i cymysgydd. Allais defnyddio hyn i liqudise rhywbeth"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Rhaid i hyn fod y glo Borgan eisiau i mi mwynglawdd iddo"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Efallai Dyna esbonio pam nad oedd lifft nad ydynt yn gweithio. Dylai curo y drainers eraill adfer y pwer yma."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Angen i mi ddod o hyd i 3 Llygaid Gazer, 1 Goch Sludge Tentacle a tharian ychwanegol i greu Shield Tân Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Unwaith Rwyf wedi gweld yr holl eitemau hyn bydd yn rhaid i mi ddod o hyd i le i greu y darian"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Mae llyfr yma am arfau swynol"
+
+msgid "Maybe I can create a shield..."
+msgstr "Efallai Gallaf greu darian ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Cleddyfau ... Arfwisg ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid llyfr. Nid yw'n er ac nid oes mynegai"
+
+msgid "Here we go: Shields"
+msgstr "Yma rydym yn mynd: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Tarian Tân Resistance"
+
+msgid "Ingredients"
+msgstr "Cynhwysion"
+
+msgid "One must gather the following"
+msgstr "Rhaid i un gasglu'r canlynol"
+
+msgid "The root of a Mandrake"
+msgstr "Wraidd o Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Y braster o Darsh (ar y chwith i sefyll am 3 mis)"
+
+msgid "Powered Condor bones"
+msgstr "Powered esgyrn Condor"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 llygaid y Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Mae'r tentacle dorri ffres o ferched Coch Sludge"
+
+msgid "The shield to apply the enchantment"
+msgstr "Y darian i wneud cais i'r Hud"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Cyfuniad y llygaid Gazer a tentacle Sludge yn hylif llyfn"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Ychwanegwch y gwraidd, braster a esgyrn yn y crochan a chymysgu â'r llygaid Gazer cymysg a Sludge tentacle"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Pan fydd y cymysgedd yn troi'n las llachar, ychwanegwch y darian"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Rwyf wedi gweld y rhan fwyaf o'r eitemau hyn yn y labordy felly dwi ddim yn angen i chi boeni am y rhai"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "A Gazers hongian o gwmpas yn yr islawr nid felly dyna broblem"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Beth allaf i ei oes angen i ddod o hyd yw Sludge Coch, ond nid oes gennyf syniad ble i ddod o hyd i un"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Ni allaf i ddefnyddio fy darian ar hyn o bryd yn yr arbrawf mewn achos mae'n backfires felly bydd rhaid i mi ddod o hyd i un arall"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Efallai y bydd potions ystafell neu labordy lle gallaf ddod o hyd i'r gwreiddiau, braster a esgyrn felly dwi ddim yn angen i chi boeni am y rhai"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Rhaid i chi gael y cerdyn gyfarwyddyd ydych yn dymuno defnyddio a amlygwyd yn eich blwch rhestr"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, labordy!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Rwyf wrth fy modd yn gwylio Maggie cyfnodau a potions, efallai y gallaf wneud fy hun yma!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, dydw i erioed wedi gweld fel llawer o lyfrau yn un lle!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Rhaid cael gwybodaeth am bob pwnc yma, gallai hyn fod yn ddefnyddiol ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, yr aer yn teimlo a godir, mae'n fy atgoffa o Maggie's tŷ pan oedd yn egluro'r wneud. Ddylwn i fod yn ofalus."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "O Edgar, rydych yn brifo! Gadewch i mi gwella eich clwyfau"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Tybed beth anghenfilod eraill mae yna. 'N annhymerus' ddewis tudalen ar hap ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers yn hedfan greaduriaid cycloptic dod o hyd i mewn mannau amrywiol"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Unigol eu llygaid ar gau fel arfer ac maent yn dibynnu ar Sonar ar gyfer symud"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Maent yn defnyddio eu synnwyr cryf o arogl i edrych allan ar gyfer anifeiliaid sy'n bla a ysglyfaeth fel ei gilydd"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers ymosod (ac amddiffyn eu hunain) drwy agor eu llygaid a fydd yn Dazzle unrhyw beth yn edrych ar ei"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Ymosodiad hwn yn unig yn effeithiol, fodd bynnag os yw'r dioddefwr yn wynebu'r Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "A Gazer's eyeball yn cynnwys eiddo hudolus ac mae'n gynhwysyn cyffredin mewn sillafu baratoi"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions yn cael eu creu hudol greaduriaid, dosbarthu fel arfer fel sentries neu gardiau"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Er araf, eu maint enfawr yn eu galluogi i syml orymdeithio drwy unrhyw amddiffyn"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Yn hytrach na breichiau, gan lawer o yrwyr pentwr mawr y maent yn eu defnyddio i ysgwyd y ddaear a bygythiadau disorientate"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Er y bydd Centurions Llwyd yn cael ei ddefnyddio i warchod ffiniau'r allanol, Centurions coch yn hysbys yn bodoli ac yn cael eu defnyddio i ddiogelu ardaloedd o bwysigrwydd mawr"
+
+msgid "Splitter"
+msgstr "Hollti"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters yn anghenfilod yn ddiniwed oni bai ymosod."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Wedi cynnal gormod o niwed y byddant yn rhannu mewn dau a ymosodiad eu anifeiliaid sy'n bla"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Os bydd un o'r ddifrod yn cynnal gormod bydd yn rhannu unwaith eto ac yn parhau i ymosod ar"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Gall Yn olaf, bydd yn rhannu un olaf cynhyrchu fersiynau bach iawn sydd yn gwbl ddiniwed ac yn y cyflwr yn cael ei risiog yn syml ar"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Os bydd yr holl ei rhan yn cael eu dal yn fyw, bydd diwygio'r hollti ei hun ar ôl ychydig a gwella ei clwyfau"
+
+msgid "Grub, Red"
+msgstr "GRUB, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Lindys coch yn fwy ymosodol na'u cymheiriaid gwyrdd, a bydd yn ymosod ar unrhyw beth maent yn weld fel bygythiad"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Wedi cyrraedd aeddfedrwydd byddant yn ffurfio cocwn a morph i WASP"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Fodd bynnag, bydd rhai morph i WASP frenhines. Gall y rhain Breninesau cynhyrchu mwcws-fel sylwedd sy'n gallu cynnal ei ysglyfaeth yn eu lle"
+
+msgid "Tortoise, Master"
+msgstr "Tortoise, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Tortoises Meistr bwystfilod yn frawychus. Tiroedd dod o hyd yn bell i ffwrdd maent yn meddu ar y gallu i newid eu pennau"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Maent yn cyfuno holl gallu eu cefndryd i anadlu tân, creu rhew a electrify eu hunain"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Ac wrth gwrs maen nhw hefyd yn impervious i ymosodiadau o elfennau cyfatebol, amsugno egni i iacháu'r eu hunain"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Ond ogystal, os ydynt yn cael gormod o ynni o iachau, maent yn esblygu ac yn mynd ar y rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Yn y byddant yn datgan drwy dorri unrhyw amddiffyn a chynhyrchu Dark Matter sy'n dinistrio unrhyw beth mae'n cyffwrdd"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Fodd bynnag, y gragen o rampaging Meistr Tortoise yn hynod hudolus ac mae'n elfen hanfodol wrth greu magics pwerus ac eitemau"
+
+msgid "Venus Flytrap"
+msgstr "Gwener Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore yn creadur o'r dimensiwn arall. Gellir ei galw gan ddefnyddio hud pwerus tywyll"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Y rheswm mwyaf cyffredin i alw am anifail yw hwn i weithredu fel bodyguard"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Nid oes ffordd hysbys i ladd Grimlore ers ar gynnal anafiadau beirniadol ond bydd yn dychwelyd i'r dimensiwn ei hun"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Ond hyd yn oed ei anafu yn dasg aruthrol. Encountering unrhyw un creadur hwn yn eich cynghori i ddianc cyn gynted â phosibl"
+
+msgid "Or they will die very quickly"
+msgstr "Neu byddant yn marw yn gyflym iawn"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, yma yn compendiwm o anghenfilod"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 cyfrolau! Sut y gall fod cymaint o anghenfilod yn y byd?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Yn edrych fel eu bod yn nhrefn yr wyddor er"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slime, Green ... Slime, Piws ... Llaid, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Llaid, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Yn wahanol i ei gyfnither gwyrdd, y Sludge Goch yn aros yn ddwfn dan ddaear ac anaml iawn, os o gwbl, arwynebau"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "A'i gynefin yn cael eu dewis sych a meysydd mwynol cyfoethog ac o ganlyniad wedi bod yn dod o hyd yn llechu mewn ardaloedd o hen fwyngloddiau gan bobl"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Maent yn amheus iawn o bobl a bydd yn ymosodiad ar eu golwg, fel arfer yn chwydu creu asid sy'n cymryd amser i anweddu"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, lleiaf ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Mawr, dyna i gyd yn ei ddweud. Fi dont 'hyd yn oed yn gwybod sut i ddweud y gwahaniaeth rhwng dynion a menywod. Byddaf yn unig i gymryd siawns ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Yn ogystal, beth yw'r gwaethaf a allai fod yn digwydd?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "I symud Edgar chwith a dde, defnyddiwch y bysellau saeth."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "I wneud Edgar naid, gofod i'r wasg. Gallwch symud yn yr awyr wrth neidio."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Er Jacob yn unig yn gofyn i chi ddal 3 ei ieir, pam na fod yn neis iddo a dal mwy? Mae 10 yn crwydro ar y map yn yr holl"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Noder y gall nad oedd yr holl waliau wan yn cael ei dinistrio gan ddefnyddio'r pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Rwyf wedi gwirio eisoes, nid i lawr yno ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Rydw i wedi clywed pobl yn cwympo i mewn i'r dda o'r blaen, efallai Dad's yno ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! YDYCH CHI I LAWR NA ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Dim. Amcana Bydd rhaid i fi gadw ar chwilio"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Gwthio fyny neu i lawr i godi neu ostwng y llwyfan"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Mae llyfr yma am offer swynol"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Mae'n llyfr am offer swynol"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Nid oes gennyf unrhyw reswm i ddarllen hwn, ond 'n annhymerus' gadw mewn cof rhag ofn i ddim yn"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Tybed beth anghenfilod eraill mae ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Yn union fel Summoners rheolaidd, Summoners Dark alw heibio bwystfilod eraill i wneud eu cynnig"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Yn ogystal, er y gallant teleport pellteroedd byr i ddianc o'u gwrthwynebwyr"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Eu staff yn hynod hudolus ac er na ellir ei ddefnyddio gan bobl yn uniongyrchol, ei eiddo hudolus yn cael eu defnyddio mewn creu sillafu"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers Pinc yn quadrupeds bach gyda snout hir"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Mae'r puropse sylfaenol y snout yw chwilota am fwyd, ond mae hefyd yn gwasanaethu fel mecanwaith amddiffyn"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "ac maent yn fwy na gallu cadw anifeiliaid sy'n bla mewn bae gan syml eu chwythu i ffwrdd"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Gwener Flytrap, ffôn symudol"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Symudol Flytraps Gwener wedi esblygu gwreiddiau ac yn gallu symud i eu bwyd yn hytrach nag aros ar ei gyfer i ddod â hwy"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Eu gwddf yn hynod o elastig ac yn gallu snap yn eu ysglyfaethus o gryn bellter i ffwrdd"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Dylai'r yn ei wneud. Y gobaith yw y dylai lifft eraill gan y Carthffosydd yn awr yn gweithio"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Nid yw'r lifft yn gweithio. Na fyddaf yn gallu ei ddefnyddio hyd nes i mi adfer y pwer"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Y gwydr yn edrych yn rhy drwchus i mi agenna, bydd rhaid i mi ddod o hyd rhyw ffordd arall o shattering mae'n ..."
+
+msgid "Up"
+msgstr "Up"
+
+msgid "Down"
+msgstr "I lawr"
+
+msgid "Left"
+msgstr "Chwith"
+
+msgid "Right"
+msgstr "Hawl"
+
+msgid "Jump"
+msgstr "Neidio"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Bloc"
+
+msgid "Action"
+msgstr "Gweithredu"
+
+msgid "Use Item"
+msgstr "Defnyddio Item"
+
+msgid "Previous Item"
+msgstr "Eitem Blaenorol"
+
+msgid "Next Item"
+msgstr "Eitem nesaf"
+
+msgid "Inventory"
+msgstr "Rhestr"
+
+msgid "Pause"
+msgstr "Saib"
+
+msgid "Dead Zone"
+msgstr "Dead Parth"
+
+msgid "Sound"
+msgstr "Sain"
+
+msgid "SFX Volume"
+msgstr "Cyfrol SFX"
+
+msgid "Music Volume"
+msgstr "Cerddoriaeth Volume"
+
+msgid "Ice Spray"
+msgstr "Ice chwistrellu"
+
+msgid "Library"
+msgstr "Llyfrgell"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lifft Allweddol"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Allwedd Mynediad Drws"
+
+msgid "Village"
+msgstr "Pentref"
+
+msgid "Cave"
+msgstr "Ogof"
+
+msgid "Fortress Outskirts"
+msgstr "Gyrion Fortress"
+
+msgid "Forbidden Swamp"
+msgstr "Wahardd siglen"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Carthion Parth dan gyfyngiadau Allweddol"
+
+msgid "Basement"
+msgstr "Islawr"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Llawr Gwaelod"
+
+msgid "Sewer"
+msgstr "Garthffos"
+
+msgid "Fortress Main Key"
+msgstr "Fortress Prif Allweddol"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Mynediad Allweddol 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access key 3"
+
+msgid "Laboratory"
+msgstr "Labordy"
+
+msgid "Empty Bottle"
+msgstr "Potel Wag"
+
+msgid "First Floor Key"
+msgstr "Llawr Cyntaf Allweddol"
+
+msgid "Press Action to retrieve %s"
+msgstr "Datganiadau Gweithredu i adfer %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, mae hyn yn newydd."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Nid yw'n edrych fel y gall ei brifo fy serch hynny, ond dim ond un ffordd i ddarganfod ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Mae hyn yn codi ei reoli gan y plât bwysau, ond fedra i ddim sefyll arno, a defnyddio'r lifft ar yr un pryd"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Bydd yn rhaid i mi ddod o hyd i rywbeth arall i sefyll ar y plât pwysau i mi ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Y cerdyn hwn yn wag, bydd rhaid i mi roi rhai cyfarwyddiadau arno i wneud ei defnyddiadwy."
+
+msgid "There's a plaque here"
+msgstr "Mae plac yma"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Rhowch y 4 cerfluniau yn y drefn gywir"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Ni fyddwch yn gallu dod o hyd pob un o 4 cerfluniau yn y fersiwn hwn, felly dewch yn ôl yn ddiweddarach!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Rhaid i chi gael y cerflun ydych yn dymuno defnyddio a amlygwyd yn eich blwch rhestr"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Does dim byd wedi digwydd. Dydw i ddim yn meddwl bod yn y drefn iawn"
+
+msgid "Tuning Fork"
+msgstr "Tiwnio Fforch"
+
+msgid "Second Floor Keycard"
+msgstr "Ail Llawr Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Cyfarwyddyd Cerdyn # 1"
+
+msgid "Instruction Card #2"
+msgstr "Cyfarwyddyd Cerdyn # 2"
+
+msgid "Instruction Card #3"
+msgstr "Cyfarwyddyd Cerdyn # 3"
+
+msgid "Instruction Card #4"
+msgstr "Cyfarwyddyd Cerdyn # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Cerflun"
+
+msgid "Spider Statue"
+msgstr "Spider Cerflun"
+
+msgid "Tortoise Statue"
+msgstr "Tortoise Cerflun"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Cerflun"
+
+msgid "A Blue Gem"
+msgstr "A Gem Glas"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Mae cerflun o Centurion. Mae ganddo goesau 2."
+
+msgid "A Green Gem"
+msgstr "A Gem Gwyrdd"
+
+msgid "A Purple Gem"
+msgstr "A Purple Gem"
+
+msgid "A Red Gem"
+msgstr "A Gem Coch"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Mae cerflun o Scorpion. Mae ganddo goesau 6."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Mae cerflun o Spider. Mae ganddo goesau 8."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Mae Spike Armadillo Ball. Bydd gwasgariad spikes pan taflu."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Mae cerflun o Tortoise. Mae ganddo goesau 4."
+
+msgid "A Tuning Fork"
+msgstr "A Fforch Tiwnio"
+
+msgid "A chopped log"
+msgstr "A log wedi'i dorri"
+
+msgid "Narrator"
+msgstr "Adroddwr"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Mae'n crochan. Maggie un yn union fel y"
+
+msgid "Right, here goes!"
+msgstr "Hawl, yma yn mynd!"
+
+msgid "I need all the main ingredients"
+msgstr "Fi angen yr holl gynhwysion prif"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Goch Sludge Tentacle a tharian sbâr"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Rwyf hefyd angen i gyd-fynd â'r eyeballs a tentacle i hylif"
+
+msgid "This entire section is about monsters"
+msgstr "Mae'r adran hon yn ymwneud â holl anghenfilod"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Nid oes gennyf unrhyw reswm i ddarllen y rhain, ond 'n annhymerus' gadw mewn cof rhag ofn i ddim yn"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, beth mae peiriant bach cute!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Mae'n got a slot ychydig ar ei gefn. Amcana I roi rhywbeth yno i wneud yn gwneud pethau"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Mae'r robot yn defnyddio cardiau cyfarwyddiadau i symud o gwmpas"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Defnyddiwch y cyfarwyddiadau i arwain y robot i agor ardaloedd nad gallwch gael gafael ar"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Fodd bynnag, gan nad ydych yn gallu darllen y cyfarwyddiadau ar y cerdyn, bydd yn rhaid i chi roi cynnig ar bob un ohonynt hyd nes bod un yn gweithio"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Os nad yw'r robot yn cyrraedd ei darged, yna bydd yn dychwelyd i'r swydd ddechrau caniatáu i chi geisio eto"
+
+msgid "Enter the directions"
+msgstr "Rhowch y cyfarwyddiadau"
+
+msgid "Out of space for instructions"
+msgstr "Allan o le ar gyfer cyfarwyddiadau"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Fi angen cerdyn gwag i roi y cyfarwyddiadau ar"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Efallai nid oedd hyn yn y fath syniad da ar ôl yr holl ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Cael 3 Llygaid Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Cael 1 Coch Sludge Tentacle"
+
+msgid "Find another shield"
+msgstr "Dod o hyd i un arall darian"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Eyeballs Cyfuno a tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "Gael Shield Tân"
+
+msgid "More water?!"
+msgstr "Dŵr mwy?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Dwi ddim yn meddwl yn gallu troi yn Slime yn mynd i fy helpu 'ma, er efallai na fyddaf yn gallu mynd yn ôl wedyn"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Bydd yn rhaid i mi ddod o hyd i ffordd arall o gael ar draws"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Bydd rhaid i mi ddod o hyd i rywbeth i fy helpu i gael ar draws"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Doeddwn i ddim yn gweld unrhyw Sludges yn y mwynglawdd pan es i gael Borgan ar glo a hyd yn oed os oedd unrhyw Nid wyf yn gallu mynd yn ôl yno ers fy rafft suddodd"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Bydd yn rhaid i mi ddod o hyd i un arall o gwmpas pwll yma ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Creu ciwbiau iâ sy'n ehangu ar gysylltiad â dwr"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Potel gallu gafael heneidiau"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Ceisiwch ddefnyddio cyllyll Mataeus yn ei erbyn ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Ni all godi'r %s. Rhestr llawn"
+
+msgid "Filling mine cart..."
+msgstr "Llenwi mwynglawdd cart ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Realiti Hawlfraint Parallel 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Allan o saethau!"
+
+msgid "There's something moving around down there..."
+msgstr "Mae rhywbeth wrth symud o gwmpas i lawr ..."
+
+msgid "Good riddance..."
+msgstr "Da riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Os bydd y lifft yn allan o drefn yna rhaid iddo fod yn reset"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Mae 4 switsys reset ar hyd y siafft lifft mae'n rhaid ei ail-osod"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Byddwch yn siwr i ailosod y lifft i osgoi hir cerdded yn ôl i'r wyneb ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Mae hyn yn peiriant slot yr un maint y cardiau. Amcana gallaf ei ddefnyddio i greu cyfarwyddiadau newydd."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "I greu set newydd o gyfarwyddiadau angen i chi osod cerdyn wag"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Byddwch wedyn yn cael eu hannog i mewnbwn y cyfarwyddiadau ar gyfer y robot i ddilyn. Mae hyn yn cael ei wneud yn yr un ffordd ag y drysau dilyniant"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Pan fyddwch wedi gorffen mewnbynnu'r cyfarwyddiadau, wasg Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Bydd y robot yna dilynwch y cyfarwyddiadau ar y cerdyn"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Os nad yw'r cyfarwyddiadau yn gywir y gallwch chi geisio eto"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Y lle hwn yn gwallgof, Id 'well frys i fyny ac i ddod o hyd i Dad cyn i mi y diwedd yn cael eu lladd!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Felly, i greu bod Tân Shield yn rhaid i mi gael tentacle Sludge Coch"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Sludges Goch yn byw mewn pyllau glo, felly bydd rhaid i mi ddod o hyd i un o gwmpas yma"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Rwyf hefyd angen darian sbâr, ond rwy'n reckon dylai fod yn Armoury o gwmpas"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Mae'r eyeballs Gazer yn ddigon hawdd, ond alla i ddychwelyd i'r islawr"
+
+msgid "OK, off I go..."
+msgstr "OK, dwi'n mynd i ffwrdd ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Ni fyddwch yn gallu cael y tentacle neu tarian yn y fersiwn hwn, felly gofynnwch yn ôl yn ddiweddarach!"
+
+msgid "It's a portrait"
+msgstr "Mae'n portread"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Nid yw ysbryd yn mynd i gadewch i mi yn y gorffennol, bydd yn rhaid i mi ddod o hyd i ffordd i gael gwared ohono"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Ailosod switsys yn caniatáu i chi ailosod sefyllfa wrthrych ar y map"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Os yw gwrthrych yn dod unreachable yna gallwch ddefnyddio y newid i ei roi yn ôl yn ei le gwreiddiol"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Mae poteli gyda enaid yn gaeth tu mewn"
+

@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Брзо пак лево и од десно да се истресете го slimes!"
+
+msgid "Bow"
+msgstr "Лак"
+
+msgid "Not working in this version!"
+msgstr "Не работи во оваа верзија!"
+
+msgid "Press Action to interact"
+msgstr "Прес акција за да комуницирате"
+
+msgid "%s is required"
+msgstr "%s е потребен"
+
+msgid "Bomb"
+msgstr "Бомба"
+
+msgid "Small Rock"
+msgstr "Мали Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Прес акција да се повратат Пурпур Gem"
+
+msgid "Chicken"
+msgstr "Кокошка"
+
+msgid "Tesla Pack"
+msgstr "Тесла Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Прес акција да се повратат Тесла Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Прес акција на местото на Тесла Pack"
+
+msgid "Obtained %s"
+msgstr "Добиени %s"
+
+msgid "Complete"
+msgstr "Целосно"
+
+msgid "%d more to go..."
+msgstr "%d повеќе да одам ..."
+
+msgid "Used %s"
+msgstr "Користи %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Не може да се опреми ставки додека transmogrified"
+
+msgid "Equipped %s"
+msgstr "Опремен %s"
+
+msgid "Maximum health has increased!"
+msgstr "Максимална здравје се зголеми!"
+
+msgid "Bow will now fire %s"
+msgstr "Поклонување сега ќе огнот %s"
+
+msgid "A bow is required to use this item"
+msgstr "А лак се потребни за користење на ова точка"
+
+msgid "Cannot transmogrify here..."
+msgstr "Не може да transmogrify тука ..."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Не"
+
+msgid "Start a new game?"
+msgstr "Започнете нова игра?"
+
+msgid "Play the tutorial?"
+msgstr "Играат туториал?"
+
+msgid "Exit the game?"
+msgstr "Излез играта?"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Game Loaded"
+msgstr "Игра Две"
+
+msgid "Game Saved"
+msgstr "Игра Зачувани"
+
+msgid "OK"
+msgstr "Добро"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Секое незачувани напредок ќе се изгуби"
+
+msgid "Joy Button #%d"
+msgstr "Радоста Копче # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Прес акција да се зборува на %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Нови Цел: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Цел Завршено: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Ѕидот на правото изгледа слаб ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Ова оружје не е да има ефект ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Прес акција да ја прикачам Тесла Pack"
+
+msgid "The Legend of Edgar"
+msgstr "Легендата на Едгар"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s е потребно за да ја активирате оваа прекинувач"
+
+msgid "Press Action to use this switch"
+msgstr "Прес акција да го користите овој прекинувач"
+
+msgid "Press Action to save your game"
+msgstr "Прес акција за да ја зачувате вашата игра"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s е потребно да го користите овој притисок Чинија"
+
+msgid "%s is needed to open this door"
+msgstr "%s Потребно е да се отвори оваа врата"
+
+msgid "This door is locked"
+msgstr "Оваа врата е заклучен"
+
+msgid "This teleporter is not active"
+msgstr "Оваа teleporter не е активно"
+
+msgid "Press Action to go to the %s"
+msgstr "Прес акција да отидете до %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Притисни Нагоре или Надолу за да го користите овој лифт"
+
+msgid "This lift is not active"
+msgstr "Овој лифт не е активен"
+
+msgid "Cannot carry any more %s"
+msgstr "Не може да носи повеќе %s"
+
+msgid "Picked up %s x %d"
+msgstr "Собрал %s x %d"
+
+msgid "Picked up %s"
+msgstr "Собрал %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s е потребно да се носат оваа ставка"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Клучни складирање"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Јаглен торба за чување Switch Главни"
+
+msgid "Large Room Key"
+msgstr "Голем Клучни соба"
+
+msgid "Coal Bag"
+msgstr "Јаглен Bag"
+
+msgid "Forest Cell Key"
+msgstr "Шума Cell Главни"
+
+msgid "Wood Axe"
+msgstr "Дрво Axe"
+
+msgid "Health Potion"
+msgstr "Компјутери и напивка"
+
+msgid "Outflow Key"
+msgstr "Клучни одлив"
+
+msgid "Flow Control Key"
+msgstr "Контрола на протокот на Ки"
+
+msgid "Waste Processing Key"
+msgstr "Клучни обработка на отпад"
+
+msgid "Access Key 1"
+msgstr "Пристап Клучни 1"
+
+msgid "Access Key 2"
+msgstr "Пристап Клучни 2"
+
+msgid "Access Key 3"
+msgstr "Пристап Клучни 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Стапицата врата Switch Главни"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Овој лифт нема моќ. Јас нема да можат да го користат додека не се врати на власт"
+
+msgid "Keep practising!"
+msgstr "Чувајте вежбање!"
+
+msgid "Hi"
+msgstr "Здраво"
+
+msgid "Hello Edgar"
+msgstr "Здраво Едгар"
+
+msgid "Can I borrow your shield?"
+msgstr "Дали може да ми позајми вашиот штит?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Ново во пракса вашата борба вештини?"
+
+msgid "Something like that"
+msgstr "Нешто како што"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Ако подигнувате ме збор можеш да имаш штит"
+
+msgid "What do I have to do?"
+msgstr "Што треба да направите?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Одете на рудникот и ги собираме мене некои јаглен"
+
+msgid "But we have plenty of coal!"
+msgstr "Но ние имаме изобилство на јаглен!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Да, но тоа не е секој стар јаглен, овој јаглен е посебен, гори потопла и трае подолго"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Ми треба само 10 парчиња од нешто, па затоа не треба да ве однесе многу долго"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Бидете сигурни дека ќе ја стави во кесата, допирајќи го за премногу долго ќе биде лошо за вашето здравје"
+
+msgid "Do you have a bag?"
+msgstr "Имате ли слушнато?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Не, веројатно може да се најде во еден рудник иако"
+
+msgid "OK, I'll get the coal"
+msgstr "Добро, јас ќе добијам јаглен"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Еве, ја искористам оваа pickaxe. Можете да го користите на рудникот за јаглен и hack преку било послаба ѕидови ќе се судрите"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Вие исто така ќе треба ова копче за да добиеш во рудникот"
+
+msgid "Thanks!"
+msgstr "Благодарам!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Thank you, Едгар, овој јаглен е совршен! Се надеваат дека лилјаците не те плашеле."
+
+msgid "The bats were the least of my worries..."
+msgstr "Прилепите се грижи барем на моите ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Кажи, слушнав дека нешто се случи во рудникот дека пред неколку години"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, yeah, имаше што сакате повикајте  инцидент , но тој дел од рудникот беше запечатано одамна"
+
+msgid "Right..."
+msgstr "Право ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Еве, ми штит и се забавуваат!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Едноставно држат настрана од Забранетиот Блато"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Ќе направам, може да се одржи на вашиот pickaxe за некое време?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Сигурно нешто, само да ја доведе назад во едно парче"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Дали сте успеале да најдете на јаглен уште?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Може да повлече некои елементи, околу со притискање против нив додека држите копче акција."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Потоа можете да ја повлече околу додека не нека оди на акција копче"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Овој рок изгледа премногу силен за мојата Трансферот Axe. Ќе морам да користам нешто друго да се добие преку ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, што се случи?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Изгледа ова не беше како добра идеја по сите"
+
+msgid "There must be way out of here..."
+msgstr "Мора да има излез од тука ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Ова мора да се на јаглен ме сака да ми за него"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Мислам дека не ми штит ќе ме заштити од оние fireballs. Ќе морам да најдам еден посилни ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Вие нема да можете да го направите ова малку во оваа верзија, навратете подоцна!"
+
+msgid "Strange creature..."
+msgstr "Чудно суштество ..."
+
+msgid "Wait, what was that?"
+msgstr "Чекај, што беше тоа?"
+
+msgid "You again?!"
+msgstr "Ти повторно?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "На волшебникот мора да се преземат Тато на својот замок. Ќе морам да го спаси од таму."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Единствениот начин да се дојде до замокот е низ Забранетиот Блато на исток."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Има едно езеро меѓу селото и Блато така ќе треба да добијат сплав низ."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Јас исто така ќе треба еден меч и штит да се брани сам. Не можам да зборувам и да се макар овие."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Нешто треба да се случи тука, но тоа не е во оваа верзија, па навратете подоцна!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Ви благодариме за resucing моите кокошки, имаат ли ме 2 логови од шумски уште?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Благодарение Едгар! Мој пилиња се назад и овие логови ќе ме направите парична казна"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Земете овој меч, тоа може да ти служи добро!"
+
+msgid "Thank you!"
+msgstr "Благодарам!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Ви благодариме за дрва, си имал среќа со сите кокошки?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Јас ќе ви даде нож, ако ме 2 сецкани логови од шумата и спасување барем 3 од моите кокошки"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Здраво Едгар, она што можам да направам за тебе денес?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Имате ли нож можам да позајмам?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Имам еден нож и можете да го имаат, ако направи нешто за мене прв"
+
+msgid "OK... what do I have to do?"
+msgstr "ОК ... што можам да направам?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Некои од моите кокошки избегале од своите пенкало и јас ќе бидам многу благодарен ако не можете да ги врати за мене"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Имам некои стапици поставени во близина на нивните пенкало, можете да го намами ги на стапици користењето на оваа храна пилешко. Не ми треба сите нив, но барем 3 ќе биде многу корисна. Јас може да добие остатокот себе."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Не сосема. Дали можете да добиете исто така од мене некои дрво во шумата? 2 логови треба да се доволно"
+
+msgid "Do you have an axe?"
+msgstr "Имате ли секира?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "ERM ... Јас заминав ми секира некаде во шумата. Тоа треба уште да се има"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Не е дека шумски опасни?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Не баш, ако ништо добива на вашиот начин, само кликнете на него со оружје"
+
+msgid "Such as an axe?"
+msgstr "Како што е секира?"
+
+msgid "Yes, that would do the trick"
+msgstr "Да, тоа ќе го стори на трик"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Но, сериозно, нема ништо таму дека навистина може да ви напакости. Тој проблем е се занимаваа со одамна ..."
+
+msgid "Good luck!"
+msgstr "Со среќа!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "О, благодарение Едгар, јас само се потребни 3, но благодарение на дополнителна помош!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Овде, Меги ме направи ова здравје напивка, но не ми треба тоа така зошто не сте тоа?"
+
+msgid "Thanks Jacob"
+msgstr "Благодариме Јаков"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Ауу, вие ги фатив сите, thanks a lot!"
+
+msgid "Here, I have these for you"
+msgstr "Еве, јас ги имаат овие за вас"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Меги ме направи ова здравје напивка, но можеш да имаш се"
+
+msgid "And this is something very special"
+msgstr "И ова е нешто многу посебен"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Може ова да ви помогне да на вашиот пат да стане силна воин"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Ти ме спаси многу време. Меги ме натера нешто друго, но бидејќи сте биле толку од корист, може да го имаат."
+
+msgid "Hi Maggie"
+msgstr "Здраво, Меги"
+
+msgid "Thanks Maggie!"
+msgstr "Благодарение Меги!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan рече дека дел од рудникот беше запечатано по  инцидент "
+
+msgid "There must be something around here..."
+msgstr "Мора да има нешто околу тука ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, на drawbridge is up. Мора да има уште еден влез ..."
+
+msgid "Wait, what's that?"
+msgstr "Чекај, што е тоа?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Можеби би можел да ми начин тунел внатре .."
+
+msgid "These machines aren't working."
+msgstr "Овие машини се не функционира."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Изгледа како богатство треба да се вклопуваат во оваа дупка, можеби можам да најдам некоја замена."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Изгледа дека е цврсто вклини во таму. Јас веројатно може да се олабави со pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "За да стигнете до Забранетиот Блато ќе треба да се изгради сплав."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Јас може да се изгради на сплав, ако котлет долу доволно дрва од шумата"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Ми треба 6 Chopped Дневници за изградба на сплав"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Не одам на мочуриште без меч и штит"
+
+msgid "OK, here goes!"
+msgstr "Добро, тука се!"
+
+msgid "Aw, not again!"
+msgstr "Aw, а не повторно!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Ова беше подобро да биде последен пат сум да го направите тоа ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Тоа беше лесно! И јас секогаш може да се вратат подоцна!"
+
+msgid "Oh...."
+msgstr "Леле ...."
+
+msgid "Guess I have no choice now."
+msgstr "Претпоставувам дека сега немаат друг избор."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Чекај Тато, јас сум иде ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Нешто треба да се случи сега, но тоа не е во оваа верзија. Проверете подоцна!"
+
+msgid "There's a note here"
+msgstr "Има тука белешка"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Сум бил заробен Надолу тука за она што изгледа како цела вечност"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Да излезе од ова место ми треба 3 копчињата за пристап на работа на лифтови"
+
+msgid "So far I have only found 1"
+msgstr "Досега имам само резултат 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "За работите да бидат уште полоши, можам само да постигне некои клучеви со внимателно поставена arrow"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Но, не се штеди и јас заеднички го снема"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Ако не се најде излез од тука наскоро, се плашам јас да умирам од студ"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Ако не излезе од тука јас ќе страдаат истата судбина ..."
+
+msgid "Oh, what's this?"
+msgstr "О, какво е ова?"
+
+msgid "There's a note here too"
+msgstr "Има забелешка тука"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "На напивка е совршен! Quaffing тоа ќе го претворат во човечко суштество за мала сума на времето"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Засега, можам само да transmogrify себеси во една суштина, но со малку повеќе време за ништо треба да се е можно"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Има еден мал малку лево, таа треба да биде безбедно да се пие"
+
+msgid "OK, here goes nothing..."
+msgstr "Добро, тука ништо не оди ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Тоа е ужасно!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan ми кажа дека Slimes можат да пливаат во вода иако, па можеби тоа ќе биде од корист ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Кога се трансформира во лигите, можете да се движите како нормална. Можете исто така да пливаат во водата и за употреба горе и долу да се движи"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Туркање нагоре или скок ќе ве натера да скокаат од вода, ако сте во близина на површината"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Пратете ја на тајмерот на дното од екранот. Кога ќе се достигне 0 Вие автоматски ќе стане човек повторно"
+
+msgid "This place doesn't look so bad..."
+msgstr "Ова место не изгледа толку лошо ..."
+
+msgid "What was that?"
+msgstr "Што беше тоа?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, чест ми е да се од таму"
+
+msgid "Now to get through this swamp"
+msgstr "Сега, за да преку овој мочуриште"
+
+msgid "Hey, what's this?"
+msgstr "Еј, што е ова?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Изгледа доста безопасни, ќе се обидам зајакнување на неа"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Тоа беше ладно! Ова мора да биде механички teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "Се прашувам дали таа работи и начини ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Не само што е ова ќе ме спаси многу одење, тоа е, исто така, Товарот на забава!"
+
+msgid "Now try out your shield"
+msgstr "Сега пробајте твојот штит"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Блокирање на пелети плукнал од страна на растенијата и скокни до следниот полицата"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Некои елементи во играта може да се турка и влечат"
+
+msgid "To push an item, simply walk into it"
+msgstr "Да им помогнам на една точка, едноставно одат во неа"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Да се извлече нешто, одење додека го држите во акција"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Потоа можете да се повлече од точка околу додека не нека оди на акција"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Повлечете го прозорецот во текот на другата страна и го користат за да стигнат до полицата"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Ова е последниот дел од туториал и ќе ги учат да блокирате и напад на непријатели"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Прво, треба да им овозможат на нож бидејќи таа има повеќе различни и не повеќе штета отколку pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Прес Z за да ја видите вашата инвентар, нагласи нож и притиснете Атак (лево ctrl) или користете точка (а)"
+
+msgid "Press z again to close your inventory"
+msgstr "Прес z повторно да ја затворите вашата инвентар"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Повремено, убиени непријатели ќе се намали здравје кој ќе ги снемува по неколку секунди, за да соберат брзо!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Ако лилјак е блиску до доаѓање до вас, држете го блокира и ќе harmlessly отскокнување Off вас"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Сега ги убиваат сите на лилјаците во областа!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Постојат два вида на врата во играта. Прирачник врати и Автоматско врати."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Прирачник врати бара копчињата да ги отворите, автоматски врати бараат клучеви."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Да се отвори вратата заклучена дека имаш клуч за, едноставно одат во неа. Нема потреба да имаат клучна избрани во вашиот инвентар."
+
+msgid "Open the door and continue to the right"
+msgstr "Отвори вратата и да продолжат да право"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Честитки! Сега знаеш основите на игра треба да се обидете на главната игра"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Ако сакате да реприза овој прирачник, притиснете Бегството и одберете од менито Упатство"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Да ја одигра главната играта, притиснете Бегството и одберете Нова Игра од менито"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Прес простор, кога ќе завршите со читање оди на следниот дијалог прозорецот"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Можете исто така да се движи кон следниот дијалог прозорецот со притискање Атак (лево ctrl), Блок (лево алт), Скокни (простор), акција (в) или користете точка (а)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Ова е туториал за Легендата на Едгар. Овој туторијал ќе објасниме како да ја играат играта."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "За излез од овој прирачник, притиснете Бегството и употреба на горе и долу стрелките на тастатурата за да изберете опција. Прес Врати се на одберете го."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Да се движат лево и десно, користете ги копчињата со стрелки."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Да се направи скок, притиснете простор. Може да се движат во воздухот кога скокање."
+
+msgid "To interact with an item, press c"
+msgstr "За да комуницирате со ставка, притиснете в"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Прошетка во текот на акција Точка и притиснете в"
+
+msgid "To collect an item from your"
+msgstr "Да се соберат на елемент од вашиот"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Да земам нешто, едноставно одат во неа. Било кој плаќа елементи ќе бидат додадени кон вашиот инвентар."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Можете да ја видите содржината на вашиот инвентар со притискање z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Додека се во пописот, употребата на стрелките на тастатурата за да ја видите на комп."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Можете да користете еден елемент веднаш со притискање Атак (лево ctrl) или користете точка (а)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Можете да ставка подготвен за употреба со притискање на блокирања (лево алт) или акција (в)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Прошетка низ клучот да соберат"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Можете да промените сите контролира во играта со притискање Бегството и изборот на опции во менито"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Изберете Конфигурирај контролс користење на стрелки и притиснете Назад"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Користете ги стрелките на тастатурата за да изберете контрола сакате да го смените и притиснете занемарам."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Потоа, притиснете го копчето што сакаш да се користи наместо."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Без оглед на тоа што копчињата и да изберат, секогаш можете да отидете на менија користење на стрелки и Враќање"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Забележете дека во оваа tutorial, вообичаените копчиња, ќе се претпостави"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Кога ќе завршите конфигурирање на копчиња, одам право во следната акција Точка"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "На pickaxe е еден од многу оружје, кој ќе видите во играта"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Можете да го користите и како оружје и инструмент"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Pick up на pickaxe и продолжи до следната акција Точка"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Честитки, да најде една тајна!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Постојат многу тајни во играта на главната, па да погледне надвор за нив"
+
+msgid "Here's a hint to get you started"
+msgstr "Еве навестување за да ви започна"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Иако само бара од тебе да се фати 3 од неговата пилиња, зошто не било убаво да го фати и повеќе? Постојат 10 лута на картата во сите"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Штитот ќе ве заштити од најмал непријател напади"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Некои непријателот напади не може да биде блокиран"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Еколошки ризици, како што паѓа карпите, не може да биде блокиран"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "За да блокирате напад, притиснете и држете го блокира (лево ALT)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Вие мора да се соочува со напад успешно го блокира"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Забележете дека можете да се движи додека не блокираат, но може да се соочи со други начин. Можете, исто така, не може да ги блокира во воздухот"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Pick up штит и ќе продолжиме да право"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Ова е слаб ѕид, може да се разбиени одредување на користење на pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "За да го користите pickaxe, притиснете Атак (лево ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "дека не сите слабите ѕидови може да се уништи со помош на pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Уништување на ѕид со помош на pickaxe и да се продолжи"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Нешто би требало да бидам тука, но тоа не е во оваа верзија, навратете подоцна!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "10 собираме парчиња на јаглен"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Собираме 2 Chopped Дневници"
+
+msgid "Rescue 3 Chickens"
+msgstr "Спасување 3 Chickens"
+
+msgid "Find 4 Gems"
+msgstr "Најди 4 Камења"
+
+msgid "Repair Generators"
+msgstr "Поправка Генератори"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Собираме 6 Chopped Дневници"
+
+msgid "Collect 3 Access Keys"
+msgstr "3 собира клучеви за пристап"
+
+msgid "This is a blank objective"
+msgstr "Ова е празно цел"
+
+msgid "Kill all Bats!"
+msgstr "Бац убие сите!"
+
+msgid "Coal"
+msgstr "Јаглен"
+
+msgid "Chopped Log"
+msgstr "Сецкани Пријави"
+
+msgid "Green Gem"
+msgstr "Зелени Gem"
+
+msgid "Red Gem"
+msgstr "Црвен Gem"
+
+msgid "Blue Gem"
+msgstr "Сина Gem"
+
+msgid "Purple Gem"
+msgstr "Пурпур Gem"
+
+msgid "Teleporter Key"
+msgstr "Клучни Teleporter"
+
+msgid "New Game"
+msgstr "Нови игри"
+
+msgid "Tutorial"
+msgstr "Упатство"
+
+msgid "Load Game"
+msgstr "Вчитајигра"
+
+msgid "Options"
+msgstr "Опции"
+
+msgid "About"
+msgstr "За"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "Configure Controls"
+msgstr "Конфигурирај контролс"
+
+msgid "Configure Sound"
+msgstr "Конфигурирај Звук"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Прикажи Финти"
+
+msgid "A potion which will transform you..."
+msgstr "А напивка која ќе ти ги трансформираат ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Создава високо absorbant минијатурни коцки мраз"
+
+msgid "A potion which will restore all of your health"
+msgstr "А напивка која ќе вратам сите на вашето здравје"
+
+msgid "A powerful bomb"
+msgstr "А моќна бомба"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "А напивка која ви прави невидливи непријатели на одредени"
+
+msgid "The eyeball from a Gazer"
+msgstr "На Eyeball од Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "А Тесла пакет. Тоа е бесплатно."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "А Summoner's АРМ. Таа не може да се користи од страна на луѓето."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "А Тесла пакет. Тој е целосно наплаќа."
+
+msgid "An empty potion bottle"
+msgstr "Празно шише напивка"
+
+msgid "A bag of chicken feed"
+msgstr "Една кеса на пилешки храна"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Една кеса соодветни за извршување на јаглен"
+
+msgid "Basic Sword"
+msgstr "Основен Шпага"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Сабја да ти од Јаков"
+
+msgid "A bow"
+msgstr "А лак"
+
+msgid "Small Wooden Shield"
+msgstr "Мали дрвени штит"
+
+msgid "A small shield that provides basic protection"
+msgstr "Еден мал штит, кој обезбедува заштита на основните"
+
+msgid "Normal Arrow"
+msgstr "Нормално Arrow"
+
+msgid "Normal Arrows"
+msgstr "Нормално Стрелки"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Секира дрвјата погодна за секое"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "А pickaxe позајми за вас од Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Клучни оган снимач"
+
+msgid "Potion Room Key"
+msgstr "Клучни напивка соба"
+
+msgid "Surge Passage Key"
+msgstr "Клучни surge Библија"
+
+msgid "Demolition Storage Key"
+msgstr "Рушење на чување Главни"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Без оглед на тоа дека беше е црпи од моќта што генератор и користење на тоа против мене."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Тоа може да објасни зошто таа беше лифт не работи. Победувајќи на други drainers треба да врати на власт."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Пораз сите енергетски Drainers"
+
+msgid "No Objectives"
+msgstr "Не Цели"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Прес акција за менување мозаик блокови"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Изгледа како миксер. Не можев да го користиш овој liquidise нешто"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Ми треба Црвен Шламови Tentacle и 3 Gazer Eyeballs да се направи напивка"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Сè уште треба Празна Шише да го стави во напивка"
+
+msgid "So this is the Fortress."
+msgstr "Значи ова е тврдина."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Изгледа многу врати отвеждам на други области, јас треба да имаат соодветна погледнете наоколу, пред да одам на некое друго место ..."
+
+msgid "Try hitting the skull..."
+msgstr "Обидете се удри во глава ..."
+
+msgid "This machine is not active"
+msgstr "Оваа машина не е активно"
+
+msgid "Repeat the sequence"
+msgstr "Повторете ја низата"
+
+msgid "Correct Sequence"
+msgstr "Точно серијата"
+
+msgid "Incorrect Sequence"
+msgstr "Неправилна серијата"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Легендата на Едгар ги сретнал на следната грешка"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Ве молиме пријавете ја оваа грешка да се паралелни реалности"
+
+msgid "The game will now exit"
+msgstr "Играта сега ќе излез"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Изгледа како миксер. Не можев да го користиш овој liqudise нешто"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Ова мора да се на јаглен Borgan ме сака да ми за него"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Тоа може да објасни зошто таа беше лифт не работи. Победувајќи на други drainers треба да врати на власт овде."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Ми треба да се најдат 3 Gazer очи, 1 Црвениот Шламови Tentacle и екстра штит да се создаде Шилд Отпорност на пожар"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Еднаш сум ги најде сите овие елементи ќе мора да најде место да ја создаде штит"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Има една книга тука за волшебно оружје"
+
+msgid "Maybe I can create a shield..."
+msgstr "Можеби можам да креирате штит ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Ножеви ... Оклоп ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Глупава книга. Не е во ред и нема индекс"
+
+msgid "Here we go: Shields"
+msgstr "Еве одиме: Шилдс"
+
+msgid "Shield of Fire Resistance"
+msgstr "Штитот на Fire Отпорност"
+
+msgid "Ingredients"
+msgstr "Состојки"
+
+msgid "One must gather the following"
+msgstr "Еден мора да се соберат на следниве"
+
+msgid "The root of a Mandrake"
+msgstr "Коренот на Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "На масти на Darsh (лево, за да се кандидира за 3 месеци)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Кондор коските"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 очите на Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "На свежо сече пипало од женски Црвен Шламови"
+
+msgid "The shield to apply the enchantment"
+msgstr "Штитот да се примени на воспевање"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Мешавина на Gazer очи и Шламови пипало во мазни течност"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Додади во корен, масти и коски во казан и се мешаат заедно со помеша Gazer очи и Шламови пипало"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Кога смесата се врти светло сино, да додадете на штит"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Сум видел повеќето од овие елементи во лабораторија, па јас не треба да се грижиш за оние"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "И Gazers се врткаат околу, во визбата, па тоа не е проблем"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Она што не треба да се најде е Црвениот Шламови, но јас немам идеја каде да се најде еден"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Не можам да го користам мојот штит во тековната за експериментот во случај backfires така ќе мора да најдете друг"
+
+msgid "Hmmm..."
+msgstr "Хммм ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Може да има просторија или напивки лабораторија каде може да најдам корените, масти и коски, па затоа не треба да се грижиш за оние"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Мора да имаат настава картичка сакате да го користите на вашиот Нагласени инвентар кутија"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, лабораторија!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Сакам гледајќи Меги прават магии и напивки, можеби можам да направам некои од моите сопствени тука!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Леле, никогаш не сум видел толку многу книги на едно место!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Мора да има информации за секоја тема овде, ова би можело да биде од корист ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Хммм, воздухот се чувствува обвинет, тоа ме потсетува на Меги куќата кога таа беше правење магии. Јас треба да бидат внимателни."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Едгар oh, you're боли! Дозволете ми да ви лекува раните"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Се прашувам што постојат други чудовишта. Ќе изберете страница по случаен избор ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers се вее cycloptic суштества се најде во различни места"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Нивната единствено око обично е затворено и за кое тие се потпираат на хидролокатор за движење"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Тие ги користат нивните силно чувство за мирис да гледам за предатор и плен слично"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers напад (и брани), преку отворање на окото, кои ќе бараат нешто добро светло во него"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Овој напад е ефикасна меѓутоа само ако жртвата се соочува со Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "А Gazer's Eyeball содржи магични својства и е честа состојка во магија подготовка"
+
+msgid "Centurion, Grey"
+msgstr "Стотник, Греј"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Стотниците магично се создадени суштества, обично се испратени како стражари или чуварите"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Иако бавно се движат, нивната големина масовно им овозможува да едноставно марш низ секоја одбрана"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Наместо на оружје, многу имаат огромен куп драјвери, кои тие ги користат за да се тресат земјата и дезориентирам закани"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Додека Греј стотниците ќе се користи за да се заштити надворешниот периметри, Црвена стотниците се знае дека постојат и се користат за заштита на области од големо значење"
+
+msgid "Splitter"
+msgstr "Сплитер"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters се безопасни чудовишта, освен ако не нападнат."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "По одржувањето на премногу штета ќе се подели на два дела и нивните напад предатор"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Ако еден од овие одржува премногу штета ќе подели уште еднаш и продолжите да ја нападне"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Конечно, еден краен сплит ќе произведе многу мали верзии, кои се потполно безопасни и во оваа држава може да биде едноставно зачекори на"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Ако сите негови делови се уште се живи, а реформите ќе сплитер себе по некое време и лекува своите рани"
+
+msgid "Grub, Red"
+msgstr "Grub, Црвен"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Црвен Grubs се поагресивни од своите колеги и зелени ќе нападне нешто тие ја видите како закана"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "По достигне зрелоста тие ќе формираат Cocoon и Morph во оса"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Некои сепак ќе Morph кралица во оса. Овие кралиците можат да произведе слуз-како супстанца може да држи својот плен во место"
+
+msgid "Tortoise, Master"
+msgstr "Желка, Магистер"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Магистер Tortoises се застрашувачки зверове. Наоѓаат во далеку земји тие имаат способност да се променат нивните глави"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Тие комбинираат сите способности на нивните роднини да го дишат оган, мраз и електрифицирам креираш себе си"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "И секако, тие се исто така отпорна на напади од појавување на елементи, апсорбирање на енергија за да се излечи"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Но, дополнително, ако тие добиваат премногу енергија од лекување, тие се развива и оди по вилнеене"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Во оваа држава тие ќе несреќа преку секоја одбрана и Темна Материја која произведува ништо тоа допира уништува"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Сепак, школка на rampaging Мајстор Костенурка е многу магичен и е основен елемент при создавање моќна и magics прилози"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Хувер, Пинк"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Темно"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore е суштество од друга димензија. Тоа може да се повика преку моќни темната магија"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Најчеста причина да се повика овој ѕвер е да се дејствува како телохранител"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Не е познат начин да се убие Grimlore бидејќи по одржувањето на критичната повреди тоа едноставно ќе се вратат во својата димензија"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Но, дури и повредувајќи тоа е монументалната задача. Секој наиде на ова суштество е советувано да избегаат што е можно побрзо"
+
+msgid "Or they will die very quickly"
+msgstr "Или ќе умре многу брзо"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ах, тука е след на чудовишта"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 тома! Како може да има толку многу чудовишта во светот?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Изгледа тие се по азбучен ред иако"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Слуз, зелено ... Слуз, Пурпур ... Тиња, зелено ..."
+
+msgid "Sludge, Red"
+msgstr "Тиња, Црвен"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "За разлика од нејзините зелени братучед, Црвениот Шламови останува длабоки подземни и ретко, ако некогаш, површини"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Нејзината склопот на живеалиште се суви минерални и богатите области, а како резултат се пронајдени демнат во области на напуштените рудници од луѓето"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Тие се многу претпазливи на луѓето и ќе напад врз видот, повраќање обично создава киселина која е потребно време, за да испари"
+
+msgid "Smacker, Lesser..."
+msgstr "Еден долар, Мала ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Велика, тоа е се што го кажува. Јас дури и не знаат како да ја кажам разликата меѓу машки и женски. Ќе само една шанса да се земе ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Освен тоа, она што е најлошото што може да се случи?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Едгар да се движат лево и десно, користете ги копчињата со стрелки."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "За да направите Едгар скок, притиснете простор. Може да се движат во воздухот кога скокање."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Иако Јаков само ти бара да се фати 3 од неговата пилиња, зошто не било убаво да го фати и повеќе? Постојат 10 лута на картата во сите"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Имај на ум дека не сите слабите ѕидови може да се уништи со помош на pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Веќе проверени, тој не е таму ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Слушнав на луѓето вклучени во и пред тоа, можеби тато има таму ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ДАЛИ СТЕ таму долу ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Ништо. Претпоставувам дека ќе мора да продолжи да ја бара"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Притисни Нагоре или Надолу за да се зголеми или намали на платформа"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Има тука една книга за волшебниот опрема"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Тоа е книга за волшебниот опрема"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Јас немам ниедна причина да се прочита ова, но јас ќе го чувам во предвид, во случај да направам"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Се прашувам што другите чудовишта постојат ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Исто како редовни Summoners, Темно Summoners повик и во другите животни да им предлози"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Исто така иако тие можат да Телепорт кратки растојанија за да избегаат од своите противници"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Нивниот тим е многу магичен и иако таа не може да се користат директно од страна на човекот, неговите магични својства се користат во создавањето магија"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Пинк Hoovers се мали quadrupeds со долга муцка"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Основните puropse на муцка е да сточна храна за храна, но, исто така, служи како одбранбен механизам"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "и повеќе од способни за водење на предатор во заливот со едноставно дува нив подалеку"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, мобилни"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Мобилен Венера Flytraps еволуирале корени и се способни да се преселат во нивната храна, наместо да чекаат таа да се дојде до нив"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Вратот се неверојатно еластични и се способни да се распарчи на пленот од значително растојание надвор"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Тоа треба да го направи тоа. Се надеваме дека другите ги укине од страна на канализација, сега треба да се работи"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Овој лифт не работи. Јас нема да можат да го користат додека не се врати на власт"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Стакло изгледа дека е премногу дебел за да ме скршат, јас треба да најдам некој друг начин на кршејќи го ..."
+
+msgid "Up"
+msgstr "Нагоре"
+
+msgid "Down"
+msgstr "Долу"
+
+msgid "Left"
+msgstr "Лево"
+
+msgid "Right"
+msgstr "Десно"
+
+msgid "Jump"
+msgstr "Скокни"
+
+msgid "Attack"
+msgstr "Напад"
+
+msgid "Block"
+msgstr "Блок"
+
+msgid "Action"
+msgstr "Акција"
+
+msgid "Use Item"
+msgstr "Користете точка"
+
+msgid "Previous Item"
+msgstr "Назад точка"
+
+msgid "Next Item"
+msgstr "Напред точка"
+
+msgid "Inventory"
+msgstr "Инвентар"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Dead Zone"
+msgstr "Мртва зона"
+
+msgid "Sound"
+msgstr "Звук"
+
+msgid "SFX Volume"
+msgstr "SFX Година"
+
+msgid "Music Volume"
+msgstr "Музика Том"
+
+msgid "Ice Spray"
+msgstr "Хокеј на прскање"
+
+msgid "Library"
+msgstr "Библиотека"
+
+msgid "Right Wing Lift Key"
+msgstr "Десно крило Клучни лифт"
+
+msgid "Mine Entrance Door Key"
+msgstr "Моја влезната врата Главни"
+
+msgid "Village"
+msgstr "С"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Тврдина периферијата"
+
+msgid "Forbidden Swamp"
+msgstr "Забранетиот Блато"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Канализација Ограничена Зона Главни"
+
+msgid "Basement"
+msgstr "Сутерен"
+
+msgid "Fortress Ground Floor"
+msgstr "Тврдина Ground Floor"
+
+msgid "Sewer"
+msgstr "Канализациона"
+
+msgid "Fortress Main Key"
+msgstr "Главно Клучни тврдина"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter пристап Клучни 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter пристап Клучни 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter пристап Клучни 3"
+
+msgid "Laboratory"
+msgstr "Лабораторија"
+
+msgid "Empty Bottle"
+msgstr "Празна Шише"
+
+msgid "First Floor Key"
+msgstr "Прв кат Главни"
+
+msgid "Press Action to retrieve %s"
+msgstr "Прес акција да се повратат %s"
+
+msgid "Hmm, this is new."
+msgstr "Хм, ова е ново."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Тоа не личи на него може да ме боли но, но постои само еден начин да дознаете ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Овој лифт е контролиран од притисокот плочата, но не можам да застане на неа, и користење на лифт во исто време"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Ќе морам да најдам нешто друго да го издржи притисокот на чинија за мене ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Оваа картичка е празно, ќе мора да стави некои инструкции за тоа да се направи тоа useable."
+
+msgid "There's a plaque here"
+msgstr "Има плакета тука"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Соба со 4 статуетки во правилен ред"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Вие нема да можете да ги најдете сите 4 статуетки во оваа верзија, па се вратат подоцна!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Мора да има статуа сакате да го користите на вашиот Нагласени инвентар кутија"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Ништо не се случи. Јас не мислам дека тоа е правото да"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Втор кат Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Упатство за картичка # 1"
+
+msgid "Instruction Card #2"
+msgstr "Упатство за картичка # 2"
+
+msgid "Instruction Card #3"
+msgstr "Упатство за картичка # 3"
+
+msgid "Instruction Card #4"
+msgstr "Упатство за картичка # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Статуа"
+
+msgid "Spider Statue"
+msgstr "Статуа пајакот"
+
+msgid "Tortoise Statue"
+msgstr "Костенурка Статуа"
+
+msgid "Scorpion Statue"
+msgstr "Статуа Шкорпија"
+
+msgid "A Blue Gem"
+msgstr "А Син Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "А статуа на Centurion. Таа има 2 нозе."
+
+msgid "A Green Gem"
+msgstr "Зелената Gem"
+
+msgid "A Purple Gem"
+msgstr "A Gem Пурпур"
+
+msgid "A Red Gem"
+msgstr "A Gem Red"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "А статуа на Шкорпија. Таа има 6 нозе."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "А статуа на Spider. Таа има 8 нозе."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Armadillo Бол на Спајк. Кога ќе ги растера шила фрлена."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "А статуа на Костенурка. Таа има 4 нозе."
+
+msgid "A Tuning Fork"
+msgstr "А Tuning Fork"
+
+msgid "A chopped log"
+msgstr "А сецкани логирате"
+
+msgid "Narrator"
+msgstr "Раскажувачот"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Тоа е казан. Меги има еден како овој"
+
+msgid "Right, here goes!"
+msgstr "Добро, тука се!"
+
+msgid "I need all the main ingredients"
+msgstr "Ми треба сите главни компоненти"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Црвениот Шламови Tentacle и резервни штит"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Јас, исто така, треба да се мешавина на eyeballs и пипало во течност"
+
+msgid "This entire section is about monsters"
+msgstr "Целата оваа секција е околу чудовишта"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Јас немам причина да ги прочитате овие, но јас ќе го чувам во предвид, во случај да направам"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Еј Wow, каков Слатката мала машина!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Тоа доби малку слот на задната страна од тоа. Претпоставувам дека го има нешто во тоа да се направи да работи"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Роботот користи настава картони да се движи"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Користете ги инструкциите за насочување на робот да отвори области кои не можете да пристап"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Меѓутоа, бидејќи не можете да го прочитате упатствата на картичката, ќе мора да ги пробаш сите до еден се работи"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Ако робот не достигне својата цел, тогаш ќе се вратат во својата појдовна позиција која овозможува да обидете се повторно"
+
+msgid "Enter the directions"
+msgstr "Внесете правци"
+
+msgid "Out of space for instructions"
+msgstr "Од простор за упатства"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Ми треба да се стави празно картичка инструкциите на"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Можеби ова не беше како добра идеја по сите ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "3 добијат Gazer очи"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Добијат 1 Црвениот Шламови Tentacle"
+
+msgid "Find another shield"
+msgstr "Најди уште еден штит"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Слеј се eyeballs и пипало"
+
+msgid "Obtain a Fire Shield"
+msgstr "Добие Fire штит"
+
+msgid "More water?!"
+msgstr "Повеќе вода?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Мислам дека не е способен да се претвори во лигите се случува да ми помогне тука, бидејќи јас можеби нема да биде во можност да се вратам подоцна"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Ќе морам да најде друг начин да се цела"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Ќе морам да се најде нешто за да ми помогне да се цела"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Јас не гледам никаква Sludges во рудникот кога отидов да се Borgan на јаглен и дури и ако имаше било која не можам да се вратам таму од мојот сплав потона"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Ќе морам да најдам друга мојот околу тука ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Создава коцки мраз што се прошири во контакт со вода"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Шише способни за фаќањето души"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Обидете се да користите Mataeus на ножеви против него ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Не може да земам %s. Целосен попис"
+
+msgid "Filling mine cart..."
+msgstr "Полнење ... мое количка"
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Права паралелни реалности 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Од стрелите!"
+
+msgid "There's something moving around down there..."
+msgstr "Има нешто што се движат таму ..."
+
+msgid "Good riddance..."
+msgstr "Прав ти пат ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Уф, Дежа ву ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Ако лифт е надвор од цел тогаш тоа мора да се ресетира"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Постојат 4 ресетирање прекинувачи долж оската која ги укине мора да се ресетира"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Бидете сигурни дека ресетирање на лифт да се избегне долго одење назад на површина ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Оваа машина има слот со иста големина како на картички. Претпоставувам дека може да го користи за креирање на нови инструкции."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "За да креирате нов сет на инструкции што треба да вметнете празно картичка"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Потоа ќе биде предочено да внесете насоки за робот да ги следат. Ова се прави на ист начин како и низа врати"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Кога ќе завршите inputting насоките, притиснете Атак"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Роботот ќе тогаш следете ги инструкциите за картичка"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Ако не се точни насоки може да се обидете се повторно"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Ова место се луди, јас Подобро побрзај и тато најде пред крајот јас до добивање уби!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Значи, да се создаде дека Fire Шилд морам да добие Црвен Шламови пипало"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Црвен Sludges живеат во рудниците така ќе треба да најдете еден околу тука"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Јас, исто така, треба резервни штит, но сметам дека треба да биде оружје околу"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "На Gazer eyeballs доволно се лесни, само можам да се врати во подрумот"
+
+msgid "OK, off I go..."
+msgstr "ОК, исклучи си одам ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Вие нема да бидете во можност да го добиете пипало или штит во оваа верзија, па навратете подоцна!"
+
+msgid "It's a portrait"
+msgstr "Тоа е портрет"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Тоа е духот нема да ми дозволи да минато, ќе мора да најде начин да се ослободите од него"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Ресетирање на прекинувачи ви овозможи да ресетирање на објект на позиција на сајтот"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Ако објект станува недостижно потоа можете да ги користите за да преминете го врати во неговата оригинална место"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Шише со душа заробени во внатрешноста"
+

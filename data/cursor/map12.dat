@@ -33,3 +33,5 @@ common/reset_switch
 enemy/sludge
 item/lava_geyzer
 item/iron_key
+item/crusher
+item/rock_pile

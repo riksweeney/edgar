@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Хутка павярнуць налева і направа, скінуць з сябе Тино!"
+
+msgid "Bow"
+msgstr "Лук"
+
+msgid "Not working in this version!"
+msgstr "Не працуе ў гэтай версіі!"
+
+msgid "Press Action to interact"
+msgstr "Прэса дзеянняў па ўзаемадзеянні"
+
+msgid "%s is required"
+msgstr "Патрабуецца %s"
+
+msgid "Bomb"
+msgstr "Бомба"
+
+msgid "Small Rock"
+msgstr "Камешек"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Прэса дзеянняў па артыкуле Purple Gem"
+
+msgid "Chicken"
+msgstr "Цыпленок"
+
+msgid "Tesla Pack"
+msgstr "Тэсла Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Прэса дзеянняў па артыкуле Тэсла Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Прэса дзеянняў па замене Тэсла Pack"
+
+msgid "Obtained %s"
+msgstr "Атрыманыя %s"
+
+msgid "Complete"
+msgstr "Поўная"
+
+msgid "%d more to go..."
+msgstr "%d больш ісці ..."
+
+msgid "Used %s"
+msgstr "Б %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Не можа абсталяваць пункты Хоць transmogrified"
+
+msgid "Equipped %s"
+msgstr "Абсталяваны %s"
+
+msgid "Maximum health has increased!"
+msgstr "Максімальны аховы здароўя павялічылася!"
+
+msgid "Bow will now fire %s"
+msgstr "Лук цяпер агонь %s"
+
+msgid "A bow is required to use this item"
+msgstr "Лук павінен скарыстацца гэтым пунктам"
+
+msgid "Cannot transmogrify here..."
+msgstr "Не ўдаецца ператвараць тут ..."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Няма"
+
+msgid "Start a new game?"
+msgstr "Пачаць новую гульню?"
+
+msgid "Play the tutorial?"
+msgstr "Слухаць падручнік?"
+
+msgid "Exit the game?"
+msgstr "Выйсці з гульні?"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Game Loaded"
+msgstr "Game загружана"
+
+msgid "Game Saved"
+msgstr "Захаваных гульняў"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Усе несохраненные прагрэс будзе страчана"
+
+msgid "Joy Button #%d"
+msgstr "Радасць кнопкі # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Прэса Меры, якія гавораць на %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Новая мэта: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Мэты Выкананы: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Сцены справа выглядае слабой ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Гэта зброю якія не маюць ніякага эфекту ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Прэса Меры, якія надаюць Тэсла Pack"
+
+msgid "The Legend of Edgar"
+msgstr "Легенда аб Эдгар"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s неабходны для актывацыі гэтага пераключальніка"
+
+msgid "Press Action to use this switch"
+msgstr "Прэса Дзеянне Для выкарыстання гэтага ключа"
+
+msgid "Press Action to save your game"
+msgstr "Прэса меры, каб выратаваць гульню"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s патрабуе, каб выкарыстаць гэтую нажимной"
+
+msgid "%s is needed to open this door"
+msgstr "%s неабходная, каб адкрыць гэтую дзверы"
+
+msgid "This door is locked"
+msgstr "Гэтая дзьверы зачыненыя"
+
+msgid "This teleporter is not active"
+msgstr "Гэта телепорт не актыўны"
+
+msgid "Press Action to go to the %s"
+msgstr "Прэса дзеяння для пераходу да %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up ці ўніз, каб выкарыстаць гэты ліфт"
+
+msgid "This lift is not active"
+msgstr "Гэты пад'ём не актыўны"
+
+msgid "Cannot carry any more %s"
+msgstr "Не можа несці больш за %s"
+
+msgid "Picked up %s x %d"
+msgstr "Ўзяў %s х %d"
+
+msgid "Picked up %s"
+msgstr "Ўзяў %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s патрабуецца для выканання гэтага пункта"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Ключавыя захоўвання"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Вугаль для захоўвання сумак Пераключальнік"
+
+msgid "Large Room Key"
+msgstr "Вялікі ключ ад нумара"
+
+msgid "Coal Bag"
+msgstr "Вугаль сумка"
+
+msgid "Forest Cell Key"
+msgstr "Лясныя Cell Key"
+
+msgid "Wood Axe"
+msgstr "Дрэва сякеру"
+
+msgid "Health Potion"
+msgstr "Ахову здароўя зелье"
+
+msgid "Outflow Key"
+msgstr "Отток Ключавыя"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Ключавыя"
+
+msgid "Waste Processing Key"
+msgstr "Перапрацоўка адходаў Ключавыя"
+
+msgid "Access Key 1"
+msgstr "Ключ доступу 1"
+
+msgid "Access Key 2"
+msgstr "Ключ доступу 2"
+
+msgid "Access Key 3"
+msgstr "Ключ доступу 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Пераключальнік"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Гэты пад'ём не мае ўлады. Я не змогуць яго выкарыстоўваць, пакуль я не аднавіць ўлада"
+
+msgid "Keep practising!"
+msgstr "Трымайце практыкуе!"
+
+msgid "Hi"
+msgstr "Прывітаньне"
+
+msgid "Hello Edgar"
+msgstr "Прывітаньне Эдгар"
+
+msgid "Can I borrow your shield?"
+msgstr "Ці магу я пазычыць твой шчыт?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Off на практыцы вашыя баявыя навыкі?"
+
+msgid "Something like that"
+msgstr "Нешта падобнае"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Калі вы запусціце мне даручэнне, то вы можаце мець шчыт"
+
+msgid "What do I have to do?"
+msgstr "Што я павінен рабіць?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Перайсці на шахце і збіраць мне вуглём"
+
+msgid "But we have plenty of coal!"
+msgstr "Але ў нас шмат вугалю!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Так, але гэта не якая-небудзь куце, гэты вугаль спецыяльная, яна гарыць гарачэй і даўжэй"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Мне трэба толькі 10 кавалкаў матэрыялу, таму яна не павінна вам вельмі доўга"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Пераканайцеся, што вы паклалі яго ў мяшок, прикасаясь да яго занадта доўга будзе дрэнна для вашага здароўя"
+
+msgid "Do you have a bag?"
+msgstr "У цябе ёсць сумка?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Няма, вы, верагодна, можа знайсці адзін у шахце, хоць"
+
+msgid "OK, I'll get the coal"
+msgstr "Добра, што я атрымаю вуглём"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Вось, вазьмі кірка. Вы можаце выкарыстоўваць яго для маёй вугалю і секчы праз любыя слабыя сцен вы сутыкаецеся"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Вам таксама спатрэбіцца гэты ключ, каб атрымаць у шахту"
+
+msgid "Thanks!"
+msgstr "Дзякуй!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Дзякуй, Эдгар, гэты вугаль Perfect! Надзеі кажаноў не палохаюць вас."
+
+msgid "The bats were the least of my worries..."
+msgstr "Кажаноў меры мае боязь ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Скажам, я чуў што-то здарылася, што ў маіх некалькі гадоў таму"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Ір, так, было тое, што называецца  інцыдэнт , але гэта частка маёй была запячатаў даўно"
+
+msgid "Right..."
+msgstr "Права ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Тут, у мяне шчыт і атрымлівайце задавальненне!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Проста трымацца далей ад Забароненае Swamp"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Будзе рабіць, я магу ўтрымацца, каб ваша кірка на час?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Ну зразумела, толькі прынесці яго назад з аднаго кавалка"
+
+msgid "Thanks, Borgan!"
+msgstr "Дзякуй, Борган!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Вы здолелі знайсці куце яшчэ?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Можаце дастаць некаторыя пункты ў наваколлі націсканні на іх у той час, утрымліваючы кнопку дзеянняў."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Вы можаце затым выньте яе вакол, пакуль Вы не адпусціце кнопку дзеянні"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Гэтая парода выглядае занадта моцным для маёй кірка. Мне давядзецца выкарыстоўваць что-то другое, каб прайсці ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, што здарылася?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Здаецца, гэта быў не такі ужо добрай ідэяй у рэшце рэшт"
+
+msgid "There must be way out of here..."
+msgstr "Там павінна быць выхад тут ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Гэта павінна быць вуглём хоча, каб я для яго маё"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Я не думаю, што мой шчыт абароніць мяне ад тых вогненных шароў. Мне давядзецца знайсці больш магутную ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Вы не зможаце зрабіць гэтага біта ў гэтую версію, зайдзіце попозже!"
+
+msgid "Strange creature..."
+msgstr "Дзіўныя істоты ..."
+
+msgid "Wait, what was that?"
+msgstr "Пачакай, што гэта было?"
+
+msgid "You again?!"
+msgstr "Вы зноў!?"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Калдуна, павінна быць, папа свой замак. Мне давядзецца вызваліць яго адтуль."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Адзіны спосаб дабрацца да замка ляжыць праз балота запретный на Усход."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Там's Lake паміж вёскай і балотах я спатрэбіцца плоту данесці."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Я таксама неабходна шчыт і меч, каб абараняць сябе. Я магу гаварыць, і каб атрымаць гэтыя думкі ."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Что-то павінна адбыцца і тут, але гэта не так у гэтай версіі такога зайдзіце попозже!"
+
+msgid "Have fun!"
+msgstr "Удачы!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Дзякуй за resucing мае куры, у вас ёсць мне 2 бярвёны з лесу яшчэ?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Дзякуй Эдгар! Мае куры вярнуліся, і гэтыя часопісы будуць рабіць мне штраф"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Вазьмі гэты меч, ён можа служыць вам добра!"
+
+msgid "Thank you!"
+msgstr "Дзякуй!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Дзякуй за часопісы, ці ёсць у вас вязе з курамі?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Я дам табе меч, калі вы мяне 2 нарэзанымі бярвёны з лесу і выратаванні по крайней мере 3 з маіх куры"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Прывітаньне Эдгар, што я магу зрабіць для цябе сёння?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "У вас ёсць меч, я магу пазычыць?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "У мяне ёсць меч, і вы можаце мець яго, калі што-то зрабіць для мяне першым"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... Што я павінен рабіць?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Некаторыя мае куры беглі ад іх пяра, і я быў бы вельмі ўдзячны, калі Вы можаце атрымаць іх назад для мяне"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Я паставіў пасткі паблізу іх пяра, можна заманіць іх у пастку Выкарыстоўваючы гэты курыны корм. Мне не патрэбныя іх усіх, но по крайней мере 3 былі б вельмі карысныя. Я магу атрымаць астатняе сам."
+
+msgid "That's it?"
+msgstr "І гэта ўсё?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Не зусім так. Можаце Ці Вы таксама атрымліваеце мне драўніны з лесу? 2 бярвёны павінны быць дастатковымі"
+
+msgid "Do you have an axe?"
+msgstr "У вас ёсць сякера?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Эрм ... Я пакінуў сякерай у лесе, где-то. Яна павінна па-ранейшаму там"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Хіба гэта не небяспечна лесе?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Не зусім, калі што-то трапляе ў вашым шляху, проста націсніце яе з зброяй"
+
+msgid "Such as an axe?"
+msgstr "Такія, як сякеру?"
+
+msgid "Yes, that would do the trick"
+msgstr "Так, гэта было б зрабіць трук"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Ну а калі сур'ёзна, няма нічога, што там сапраўды можа нанесці вам шкоду. Гэтая праблема разглядалася вельмі даўно ..."
+
+msgid "Good luck!"
+msgstr "Удачы!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Ой, дзякуй Эдгар, мне патрэбны толькі 3, але дзякуй за дадатковую дапамогу!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Тут, Мэгі зрабіў мне гэта здароўе зелье, але мне не трэба гэта так, чаму б вам не гэта?"
+
+msgid "Thanks Jacob"
+msgstr "Дзякуючы Якава"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Вау, вы злавілі іх усё, дзякуй вялікі!"
+
+msgid "Here, I have these for you"
+msgstr "Тут, я іх для вас"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Мэгі зрабіў мне гэты напой здароўя, але вы можаце мець яго"
+
+msgid "And this is something very special"
+msgstr "І гэта тое асаблівае"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Маі гэтага дапаможа вам на вашым шляху да станаўленню моцнага воіна"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Вы выратавалі мяне шмат часу. Мэгі зрабіў мне что-то другое, але так як Вы былі настолькі карысным, вы можаце мець."
+
+msgid "Hi Maggie"
+msgstr "Прывітаньне Мэгі"
+
+msgid "Thanks Maggie!"
+msgstr "Дзякуючы Мэгі!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Борган сказаў, што адна частка шахты была вырашана пасля  інцыдэнт "
+
+msgid "There must be something around here..."
+msgstr "Там павінна быць что-то каля тут ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, пад'ёмны мост скончыўся. Там павінна быць іншы ўваход ..."
+
+msgid "Wait, what's that?"
+msgstr "Пастой, ты што?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Можа быць, я магла туннель шляху цалі .."
+
+msgid "These machines aren't working."
+msgstr "Гэтыя машыны не працуюць."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Гэта выглядае як жамчужына павінна ўпісвацца ў гэтую дыру, можа быць, я магу знайсці некаторыя замены."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Падобна на тое, ён моцна заклініла там. Я, верагодна, можа аслабіць яе з кірка ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Каб трапіць у запретный Swamp мне трэба пабудаваць плот."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Я магу пабудаваць плот, калі я секчы дрэвы Дастаткова зь лесу"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Мне трэба 6 рубленых Логи пабудаваць плот"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Я не збіраюся на балота без меча і шчыта"
+
+msgid "OK, here goes!"
+msgstr "Добра, вось ідзе!"
+
+msgid "Aw, not again!"
+msgstr "Aw, толькі не гэта!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Гэта было лепшым у апошні раз я павінен зрабіць гэта ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Гэта лёгка! І я заўсёды можна вярнуцца пазней!"
+
+msgid "Oh...."
+msgstr "Ох ...."
+
+msgid "Guess I have no choice now."
+msgstr "Угадайте у мяне няма выбару зараз."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Пайсці на пап, я пайду ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Что-то павінна адбыцца зараз, але гэта не так у гэтай версіі. Калі ласка, праверце пазней!"
+
+msgid "There's a note here"
+msgstr "Там's Адзначым тут,"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Я ў пастцы сюды за тое, што здаецца вечнасцю"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Каб выйсці з гэтага месца, мне трэба 3 Клявіятурныя клавішы для працы ліфтаў"
+
+msgid "So far I have only found 1"
+msgstr "Да гэтага часу я знайшоў толькі 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Горш таго, я магу дасягнуць толькі некаторыя ключы з асцярожна паклаў стрэлку"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Але запасныя часткі не з'яўляюцца агульнымі, і я вычарпаў"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Калі не знайсці выхад адсюль ў бліжэйшы час, я баюся, я магу галадаць"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Калі я не выбрацца адсюль я спадобіць тая ж лёс ..."
+
+msgid "Oh, what's this?"
+msgstr "Ох, што гэта такое?"
+
+msgid "There's a note here too"
+msgstr "Там's ведама тут"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Зелья Perfect! Quaffing ён ператворыцца ў чалавека істота за невялікае колькасць часу"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Пакуль я магу толькі ператвараць сябе ў адно істота, але з крыху больш часу, усё павінна быць магчымым"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Там's крыху злева, яна павінна быць бяспечнай для піцця"
+
+msgid "OK, here goes nothing..."
+msgstr "ОК, тут нічога не выходзіць ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Гэта жахліва!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Борган сказаў мне, што шламов можа плаваць у вадзе, хоць, так што, можа быць, гэта будзе карысна ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Калі ператвараецца ў слізі, вы можаце рухацца, як звычайна. Вы таксама можаце плаваць у вадзе і выкарыстаць уверх і ўніз для перамяшчэння"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Pushing Up або скакаць зробіць вас выскачыць з вады, калі вы паблізу паверхні"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Сачыце за таймер ў ніжняй частцы экрана. Калі яно дасягае 0, Вы аўтаматычна становіцеся зноў чалавек"
+
+msgid "This place doesn't look so bad..."
+msgstr "Гэта месца выглядае не так ужо дрэнна ..."
+
+msgid "What was that?"
+msgstr "Што гэта было?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Уф, я рада, што адтуль"
+
+msgid "Now to get through this swamp"
+msgstr "Цяпер, каб прайсці праз гэта балота"
+
+msgid "Hey, what's this?"
+msgstr "Эй, што гэта такое?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Выглядае даволі бясшкодныя, я пастараюся наступіць на гэта"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Гэта было круто! Гэта павінна быць механічным тэлепартацыі."
+
+msgid "I wonder if it works both ways..."
+msgstr "Цікава, калі яна працуе ў абодва бакі ..."
+
+msgid "Horray!"
+msgstr "Ура!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Не толькі гэта выратуе мяне шмат хадзіць пешшу, гэта таксама нагрузак весела!"
+
+msgid "Now try out your shield"
+msgstr "Цяпер паспрабуйце ваш шчыт"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Блок гранулы выплюнуў заводам і скакаць да наступнага саступаючы"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Некаторыя прадметы ў гульні могуць быць запісаны і выцягнуў"
+
+msgid "To push an item, simply walk into it"
+msgstr "Каб падштурхнуць пункта, проста хадзіць у яе"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Каб выцягнуць пункта, хадзіць у утрымліваючы Дзеянне"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Затым Вы можаце выцягнуць пункта вакол, пакуль Вы не адпусціце дзеянняў"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Вытянем акна на іншы бок і выкарыстоўваць яго для дасягнення уступ"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Гэта апошняя частка падручніка і буду вучыць вас, каб заблакаваць і атакаваць ворагаў"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Па-першае, вы павінны узброіць мечам, паколькі яно мае больш за дыяпазону і прыносіць больш шкоды, чым кірка"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Націсніце кнопку Z, каб праглядзець інвентар, вылучыце меча і націсніце Attack (левы Ctrl), або выкарыстоўвайце пункт (а)"
+
+msgid "Press z again to close your inventory"
+msgstr "Націсніце кнопку Z раз, каб закрыць ваш інвентар"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Часам, забітых ворагаў ўпадзе здароўя, які знікне праз некалькі секунд, каб падняць яе хутка!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Калі Ніт дабрацца да бліжэйшых да вас, утрымліваюць блок і ён будзе безобидно отскакивает вы"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Цяпер убейте ўсіх кажаноў у гэтым раёне!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Ёсць два тыпу дзвярэй у гульні. Кіраўніцтва дзверы і аўтаматычныя дзверы."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Кіраўніцтва дзвярэй патрабуе ключы да іх, Аўтаматычныя дзверы патрабуюць пераключацелямі."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Каб адкрыць зачыненыя дзверы, што ў вас ёсць ключ, проста хадзіць у яе. Існуе няма неабходнасці, каб ключавыя абраны ў інвентары."
+
+msgid "Open the door and continue to the right"
+msgstr "Адкрыйце дзверы і па-ранейшаму правы"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Віншаванні! Цяпер вы знаёмыя з асновамі гульні вы павінны паспрабаваць асноўная гульня"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Калі вы хочаце прайграць гэтага падручніка, націсніце Escape Падручнік і абярыце з меню"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Каб адыграць галоўную гульню, націсніце Escape і абярыце Новая гульня ад мяне"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Прэса прасторы, калі вы закончылі чытанне, каб перайсці да наступнага акна"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Вы таксама можаце перайсці да наступнага акна, націснуўшы Attack (левы Ctrl), блок (Левый Alt), Jump (прастора), дзеянне (C), або выкарыстоўвайце пункт (а)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Гэта падручнік для Легенда Эдгар. Гэты падручнік дапаможа растлумачыць, як гуляць у гульню."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Для выхаду з гэтага падручніка, націсніце Escape і выкарыстоўвайце стрэлкі уверх і ўніз для выбару варыянту. Націсніце Назад, каб вылучыць яго."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Каб рухацца налева і направа, выкарыстоўваючы клавішы са стрэлкамі."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Каб зрабіць скачок, прэс-прасторы. Вы можаце перамяшчацца ў паветры пры скачках."
+
+msgid "To interact with an item, press c"
+msgstr "Для ўзаемадзеяння з пунктам, прэс-C"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Падыходжу да дзеянняў Point і націсніце C"
+
+msgid "To collect an item from your"
+msgstr "Для збору элемент са сваёй"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Каб забраць пункта, проста хадзіць у яе. Любое калекцыяніраванне элементы будуць дададзеныя ў ваш інвентар."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Вы можаце праглядаць змесціва вашага інвентара, націснуўшы Z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Хаця ў пераліку, скарыстайцеся клавішамі са стрэлкамі для прагляду пунктаў."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Вы можаце выкарыстоўваць пункт адразу, націснуўшы Attack (левы Ctrl), або выкарыстоўвайце пункт (а)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Вы можаце гатова пункт для выкарыстання націснуўшы блока (левы Alt) або дзеянне (C)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Прагулка над ключавымі яго падняць"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Вы можаце змяняць усе элементы кіравання ў гульні, націснуўшы Escape і выбраць опцыі ў меню"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Выберыце наладкі кантролю, выкарыстоўваючы клавішы кіравання курсорам і націсніце Зварот"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Выкарыстоўвайце клавішы са стрэлкамі для выбару кіравання вы хочаце змяніць і націсніце ўвод."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Далей, націсніце клавішу, якую вы хочаце выкарыстоўваць замест яго."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Незалежна ад таго, якія ключы вы ні выбралі, вы заўсёды можаце перамяшчацца па меню з дапамогай клявішаў са стрэлкамі і Зварот"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Адзначым, што ў гэтым падручніку, клявішы па змоўчванні будзе меркаваць"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Калі вы скончыце наладку ключы, перайдзіце да наступнай пункце дзеяння"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Кірка з'яўляецца адным з многіх зброі вы сустрэнеце ў гульні"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Вы можаце выкарыстоўваць яго як зброю, а сродак"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Вазьмеце кірка і пераходзьце да выканання наступнага дзеянні Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Віншуем, вы знайшлі сакрэт!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Ёсць шмат сакрэтаў у асноўны гульні, сочаць за імі"
+
+msgid "Here's a hint to get you started"
+msgstr "Вось падказка для пачатку"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Хаця толькі патрабуе, каб вы зразумееце 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Ёсць 10 вандроўныя карту ва ўсіх"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Шчыт абароніць вас ад большасці атак праціўніка"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Некаторыя атакі праціўніка не можа быць заблакаваная"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Экалагічныя пагрозы, такія, як камняпад, не можа быць заблакаваная"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Каб заблакаваць атаку, націсніце і трымаюць блок (Левый Alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Вы павінны быць перад нападам паспяховага заблакаваць яго"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Заўважце, што вы не можаце рухацца у той час як блякаваньне, але вы можаце сутыкнуцца з іншым спосабам. Вы таксама не можаце блакаваць ў паветры"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Вазьмеце шчыт і працягваюць правы"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Гэта слабое сцены, яна можа быць разбіта ўніз з дапамогай кірка"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Для выкарыстання кірка, прэс-атака (левы Ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr ", Што не ўсе слабы сцены могуць быць знішчаныя дапамогай кірка"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Уничтожьте сцяне з дапамогай кірка і працягваць"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Что-то павінна быць тут, але гэта не ў гэтай версіі, зайдзіце попозже!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Зьбярэце 10 кавалкаў вугалю"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Збор 2 рубленых Логи"
+
+msgid "Rescue 3 Chickens"
+msgstr "Выратавальная 3 курэй"
+
+msgid "Find 4 Gems"
+msgstr "Знайсці 4 самацветаў"
+
+msgid "Repair Generators"
+msgstr "Рамонт генератараў"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Збор 6 рубленых Логи"
+
+msgid "Collect 3 Access Keys"
+msgstr "Збор 3 Клявіятурныя клавішы"
+
+msgid "This is a blank objective"
+msgstr "Гэта пустая мэта"
+
+msgid "Kill all Bats!"
+msgstr "Забіць усіх кажаноў!"
+
+msgid "Coal"
+msgstr "Вугаль"
+
+msgid "Chopped Log"
+msgstr "Рубленое Уваход"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Чырвоны каштоўны камень"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Ключавыя телепорт"
+
+msgid "New Game"
+msgstr "Новая гульня"
+
+msgid "Tutorial"
+msgstr "Падручнік"
+
+msgid "Load Game"
+msgstr "Загрузіць гульню"
+
+msgid "Options"
+msgstr "Функцыі"
+
+msgid "About"
+msgstr "Аб"
+
+msgid "Quit"
+msgstr "Выйсці"
+
+msgid "Configure Controls"
+msgstr "Наладжваць элементы кіравання"
+
+msgid "Configure Sound"
+msgstr "Настройка гуку"
+
+msgid "Fullscreen"
+msgstr "Полноэкранный"
+
+msgid "Show Hints"
+msgstr "Паказаць саветы"
+
+msgid "A potion which will transform you..."
+msgstr "Зелье якое ператворыць вас ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Стварае вельмі absorbant мініяцюрных кубиков лёду"
+
+msgid "A potion which will restore all of your health"
+msgstr "Зелье будзе аднавіць усе аб вашым здароўе"
+
+msgid "A powerful bomb"
+msgstr "Магутная бомба"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Зелье якое робіць Вас нябачнымі для пэўных ворагі"
+
+msgid "The eyeball from a Gazer"
+msgstr "Вочнага яблыка ад Газэра"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Тэсла Pack. Ён не мае зараду."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Персанал Summoner's. Яна не можа быць выкарыстана людзьмі."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Тэсла Pack. Гэта цалкам зараджаны."
+
+msgid "An empty potion bottle"
+msgstr "Пустыя бутэлькі зелье"
+
+msgid "A bag of chicken feed"
+msgstr "Мяшок грошы"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Сумка падыходзіць для перавозяць вугаль"
+
+msgid "Basic Sword"
+msgstr "Асноўны меч"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Sword прадастаўлены Якава"
+
+msgid "A bow"
+msgstr "Лук"
+
+msgid "Small Wooden Shield"
+msgstr "Невялікі драўляны шчыт"
+
+msgid "A small shield that provides basic protection"
+msgstr "Small Shield, якая забяспечвае базавую абарону"
+
+msgid "Normal Arrow"
+msgstr "Нармальныя Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Сякеру прыдатныя для апрацоўкі дрэва"
+
+msgid "Pickaxe"
+msgstr "Кірка"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Кірка Посту вам Борган"
+
+msgid "Fire Burner Key"
+msgstr "Ключавыя Fire Burner"
+
+msgid "Potion Room Key"
+msgstr "Зелье ключ ад нумара"
+
+msgid "Surge Passage Key"
+msgstr "Асноўныя воплескі Праходжанне"
+
+msgid "Demolition Storage Key"
+msgstr "Знос захоўвання Ключавыя"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Што б гэта ні было тое было крылом ўлады ад генератара і выкарыстоўваць яго супраць мяне."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Гэта магло б патлумачыць, чаму ліфт не працуе. Перамога над іншымі сушкі варта аднавіць сілы."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Паражэнне ўсіх энергетычных Drainers"
+
+msgid "No Objectives"
+msgstr "Няма мэты"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Прэса дзеяння для скіду галаваломкі блокі"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Гэта выглядае як Blender. Я магу выкарыстоўваць гэта, каб што-то liquidise"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Мне патрэбны Чырвоны асадак Tentacle і 3 Газэра Eyeballs зрабіць зелье"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Мне яшчэ трэба пустую бутэльку, каб пакласці ў зелье"
+
+msgid "So this is the Fortress."
+msgstr "Так гэта і ёсць крэпасць."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Падобна на тое, што многія дзверы адводзяць на іншыя вобласці, я павінна мець належны паглядзець, перш чым я нікуды ..."
+
+msgid "Try hitting the skull..."
+msgstr "Паспрабуйце націснуць чэрап ..."
+
+msgid "This machine is not active"
+msgstr "Гэтая машына не з'яўляецца актыўным"
+
+msgid "Repeat the sequence"
+msgstr "Паўтарыце паслядоўнасць"
+
+msgid "Correct Sequence"
+msgstr "Правільнай паслядоўнасці"
+
+msgid "Incorrect Sequence"
+msgstr "Няправільная паслядоўнасць"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Легенда аб Эдгар знайшоў наступную памылку"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Паведаміце аб гэтай памылцы ў паралельных реальностям"
+
+msgid "The game will now exit"
+msgstr "Гульня цяпер выхад"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Гэта выглядае як Blender. Я магу выкарыстоўваць гэта, каб што-то liqudise"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Гэта павінна быць вуглём Борган хоча, каб я для яго маё"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Гэта магло б патлумачыць, чаму ліфт не працуе. Перамога над іншымі сушкі павінен аднавіць тут ўладу."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Мне неабходна знайсці 3 Газэра вачэй, 1 чырвоная Sludge Tentacle і дадатковага шчыта для стварэння шчыта вогнеўстойлівыя"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Як толькі я знайшоў усе гэтыя прадметы мне давядзецца знайсці месца для стварэння шчыта"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Там гэта кніга тут пра чароўныя зброі"
+
+msgid "Maybe I can create a shield..."
+msgstr "Можа быць, я магу стварыць шчыт ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Мячы ... Даспех ... Жазло ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Дурная кніга. Гэта не ў парадку і няма індэкса"
+
+msgid "Here we go: Shields"
+msgstr "Тут мы ідзем: Шчыты"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield вогнеўстойлівыя"
+
+msgid "Ingredients"
+msgstr "Інгрэдыенты"
+
+msgid "One must gather the following"
+msgstr "Трэба сабраць наступныя"
+
+msgid "The root of a Mandrake"
+msgstr "Корань Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Тлушчу Darsh (злева стаяць на 3 месяцы)"
+
+msgid "Powered Condor bones"
+msgstr "Powered касцях Кондор"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 вачыма Газэра"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Свежесрезанных шчупальцы з жаночага Чырвоны асадак"
+
+msgid "The shield to apply the enchantment"
+msgstr "Шчыт прымяняць чары"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Сумесь Газэра вачыма і шламов шчупальцы ў гладкую вадкасць"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Дадаць корень, тлушч і косці ў кацёл і змяшаць разам са змешанай вачыма Газэра і шламов шчупальцы"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Калі сумесь становіцца ярка сінім, дадаць шчыт"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Я бачыў большасць з гэтых пунктаў у лабараторыі, таму я не трэба турбавацца аб тых,"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "І Gazers торчать ў падвале так што гэта не праблема"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Што мне неабходна зрабіць, каб знайсці гэта чырвоны шлам, але я паняцця не маю, дзе знаходзіцца адна"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Я не магу выкарыстоўваць маю бягучую шчыта ў эксперыменце, у выпадку, калі такія непрыемныя мне давядзецца знайсці іншую"
+
+msgid "Hmmm..."
+msgstr "Ммм ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Там можа быць зелья пакоі або ў лабараторыю, дзе я магу знайсці карані, тлушчу і касцей, таму я не трэба турбавацца аб тых,"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Вы павінны мець інструкцыю картай вы хочаце выкарыстоўваць падкрэслілі ў Вашым інвентары акне"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, лабараторыі!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Я люблю глядзець Мэгі зрабіць загавораў і снадобий, можа быць, я магу зрабіць некаторыя з маіх уласных тут!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Вау, я ніколі не бачыў столькі кніг у адным месцы!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Там павінна быць інфармацыя аб кожным прадмеце тут, гэта можа быць карысна ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Ммм, паветра адчувае бярэцца, то яна нагадвае мне аб доме Мэгі, калі яна рабіла загаворы. Я павінен быць асцярожны."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Эдгар Ах, ты балюча! Дазвольце мне залечить свае раны"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Цікава, што іншыя монстры ёсць. Я заедем за старонку наўздагад ..."
+
+msgid "Gazer"
+msgstr "Газэра"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers ляцяць cycloptic істоты знойдзены ў розных месцах"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Іх адзіным вокам, як правіла, зачыненыя, і яны належаць на сонар для руху"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Яны выкарыстоўваюць свае моцныя пачуцці абаняння, якія трэба паглядзець драпежнікаў і іх ахвяр, так"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers атака (і абараніць сябе), адкрыўшы свае вочы, якія будуць ослеплять нічога гледзячы на яго"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Гэта напад з'яўляецца адзіным эфектыўным Аднак, калі ахвяра сутыкаецца Газэра"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Вочнага яблыка Газэра ня магічныя ўласцівасці і распаўсюджаны кампанент у падрыхтоўцы заклён"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, шэры"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Центурионы з'яўляюцца волшебных істот створаны, як правіла, накіраваны ў якасці часовых і ахоўнікаў"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Нягледзячы на тое, павольнае рух, іх масавы памер дазваляе ім проста маршам праз любую абарону"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Замест гэтага зброі, многія з іх вялізныя кучы драйвераў якія яны выкарыстоўваюць, каб поколебать зямлю і дезориентировать пагрозы"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Хоць шэры центурионы будуць выкарыстоўвацца для аховы пэрымэтрам знешні, вядомыя Чырвонай центурионы існаваць і выкарыстоўвацца для абароны раёна вялікае значэнне"
+
+msgid "Splitter"
+msgstr "Разьмеркавальнік"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Сплиттеры бяскрыўдныя монстры, калі напад."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Па падтрыманне занадта шмат шкоды, які яны падзеляцца на дзве і напад на іх драпежніка"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Калі адзін з іх падтрымлівае занадта шмат шкоды яна будзе падзяліць яшчэ раз, і працягваюць нападать"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Нарэшце, адна з канчатковага разрыву будзе вырабляць вельмі маленькія версіі, якія з'яўляюцца цалкам бясшкоднымі і ў такім стане можна проста наступіць на"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Калі ўсе яго дэталі ўсё яшчэ жывыя, сплиттер будзе рэфармаваць сябе праз некаторы час, і залечить свае раны"
+
+msgid "Grub, Red"
+msgstr "Grub, чырвоны"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Чырвоныя лічынкі з'яўляюцца больш агрэсіўнымі, чым іх калегі зялёных і будзе атакаваць усё, што яны разглядаюць як пагрозу"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Па дасягненні сталасці яны ўтвараюць кокон і ператворыцца ў WASP"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Аднак некаторыя ператворыцца ў каралеву Аса. Гэтыя Queens можа вырабляць слізі-падобныя рэчывы здольныя правядзення сваёй здабычай на месцы"
+
+msgid "Tortoise, Master"
+msgstr "Чарапаха, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Майстар чарапах пугающие звяроў. Знойдзена ў далёкай зямлі, якімі яны валодаюць здольнасцю да змянення галавы"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Яны спалучаюць у сабе ўсе здольнасці сваіх стрыечных братоў, каб дыхаць паветрам, ствараюць лёду і электрыфікаваныя сабе"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "І, вядома, яны таксама з'яўляюцца непранікальнымі для нападаў з боку адпаведных элементаў, поглощающих энергію каб вылечыць сябе"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Але акрамя таго, калі яны атрымліваюць занадта шмат энергіі ацаленьня, яны развівацца і ісці на ражон"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "У гэтым стане яны разаб'юць праз любую абарону і вырабляюць Цёмная матэрыя, якая разбурае ўсё, што тычыцца"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Тым не менш, абалонка апантанасцю Майстар Чарапаха вельмі чароўны і з'яўляецца важным кампанентам пры стварэнні магутнай магіяй і прадметаў"
+
+msgid "Venus Flytrap"
+msgstr "Мухоловка"
+
+msgid "Hoover, Pink"
+msgstr "Гувер, ружовы"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore гэта істота з іншага вымярэння. Яна можа быць выклікана з дапамогай магутных цёмная магія"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Найбольш распаўсюджаная прычына, каб выклікаць гэты звер будзе дзейнічаць у якасці целаахоўнікі"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Існуе не вядомы спосаб забіць Grimlore, так як пры захаванні крытычнага траўмы ён проста вярнуцца да сваёй ўласнай памернасьць"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Але нават паранілі гэта манументальны задача. Любое сутыкаецца гэтая тварь раіў бегчы як мага хутчэй"
+
+msgid "Or they will die very quickly"
+msgstr "Ці ж яны будуць паміраць вельмі хутка"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ах, вось зборнік монстраў"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 тамоў! Як можа быць так шмат монстраў ў свеце?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Падобна на тое, яны ў алфавітным парадку, хаця"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Слізі, зялёны ... Шлам, фіялетавы ... Шлам, зялёны ..."
+
+msgid "Sludge, Red"
+msgstr "Шлам, чырвоны"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "У адрозненне ад свайго стрыечнага брата зялёны, чырвоны асадак застаецца глыбока пад зямлёй і рэдка, калі наогул паверхняў"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Пераважна месцы пражывання з'яўляюцца сухія і мінеральныя багатых раёнаў, і ў выніку былі знойдзеныя хаваецца ў раёне міні кінутыя людзьмі"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Яны вельмі асцярожны чалавек і будзе атакаваць з першага погляду, як правіла, да рвоты кіслата, якая займае шмат часу, каб выпарыліся"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, Малы ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Цудоўна, што ўсё гэта кажа. Я нават не ведаю, як сказаць розніцу паміж мужчынам і жанчынай. Я проста рызыкнуць ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Акрамя таго, што самае горшае, што магло здарыцца?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Эдгар Для перамяшчэння влево і ўправа, выкарыстоўваючы клавішы са стрэлкамі."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Каб зрабіць скачок Эдгар, прэс-прасторы. Вы можаце перамяшчацца ў паветры пры скачках."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Хоць Якаў толькі патрабуе ад вас зразумеюць 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Ёсць 10 вандроўныя карту ва ўсіх"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Майце на ўвазе, што не ўсе слабыя сцены могуць быць знішчаныя дапамогай кірка"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Я ўжо праверыў, што ён не туды ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Я чуў, людзі падаюць у колодец раней, можа быць, папа там ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! Are You Down ТАМ ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Нічога. Я думаю, мне давядзецца працягваю шукаць"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Націсніце уверх ці ўніз для павелічэння або змяншэння платформы"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Там гэта кніга тут пра чароўныя абсталяванне"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Гэта кніга пра чароўныя абсталяванне"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "У мяне няма ніякіх падстаў для чытання, але я буду трымаць гэта на ўвазе пры выпадку я"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Цікава, што іншыя монстры ёсць ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Так жа, як рэгулярныя Summoner, Dark Суммонеры тэлефанаваць у іншыя звяры, каб зрабіць свае таргі"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Акрамя таго, хоць яны могуць телепортироваться кароткія дыстанцыі бегчы са сваіх апанентаў"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Іх персанал вельмі чароўны і хоць яна не можа быць выкарыстана людзьмі наўпрост, свае магічныя ўласцівасці выкарыстоўваюцца ў стварэнні загавораў"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink пыласосы малы чатырохногія з доўгай мордай"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Першасная puropse рыла з'яўляецца корм для пражытку, але яна таксама служыць у якасці ахоўнага механізму"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "і больш чым у стане падтрымліваць драпежніка на адлегласці ад іх проста дзьме прэч"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Мухоловка, мабільны"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Мабільныя Венера Flytraps развіваліся каранёў і здольныя рухацца да іх харчаваннем, а не чакаць, каб ён прыходзіў да іх"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Іх шыі неверагодна Пругкія і здольныя огрызаться на іх здабычу з значнай адлегласці"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Гэта павінна зрабіць гэта. Будзем спадзявацца, што іншыя пад'ёмнай каналізацыйныя павінны цяпер працаваць"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Гэта ліфт не працуе. Я не змогуць яго выкарыстоўваць, пакуль я не аднавіць ўлада"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Гэта шкло выглядае занадта тоўстым для мяне трэшчыны, мне давядзецца знайсці іншы спосаб драбнення яго ..."
+
+msgid "Up"
+msgstr "Уверх"
+
+msgid "Down"
+msgstr "Ўніз"
+
+msgid "Left"
+msgstr "Левы"
+
+msgid "Right"
+msgstr "Правы"
+
+msgid "Jump"
+msgstr "Перайсці"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Блок"
+
+msgid "Action"
+msgstr "Дзеянне"
+
+msgid "Use Item"
+msgstr "Пункт выкарыстання"
+
+msgid "Previous Item"
+msgstr "Папярэдні пункт"
+
+msgid "Next Item"
+msgstr "Наступны пункт"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Pause"
+msgstr "Паўза"
+
+msgid "Dead Zone"
+msgstr "Мёртвая зона"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "SFX тым"
+
+msgid "Music Volume"
+msgstr "Music Volume"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Бібліятэкі"
+
+msgid "Right Wing Lift Key"
+msgstr "Правае крыло падняць ключавыя"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Уваход ключ ад дзверы"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Пячоры"
+
+msgid "Fortress Outskirts"
+msgstr "Крэпасць Ускраіна"
+
+msgid "Forbidden Swamp"
+msgstr "Запретный Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Сцёкавыя воды зоны абмежаванні Ключавыя"
+
+msgid "Basement"
+msgstr "Подвал"
+
+msgid "Fortress Ground Floor"
+msgstr "Крэпасць Ground Floor"
+
+msgid "Sewer"
+msgstr "Каналізацыйныя"
+
+msgid "Fortress Main Key"
+msgstr "Крэпасць галоўным ключом"
+
+msgid "Teleporter Access Key 1"
+msgstr "Телепорт Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Телепорт Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Телепорт Access Key 3"
+
+msgid "Laboratory"
+msgstr "Лабараторыі"
+
+msgid "Empty Bottle"
+msgstr "Пустыя бутэлькі"
+
+msgid "First Floor Key"
+msgstr "Першы паверх Ключавыя"
+
+msgid "Press Action to retrieve %s"
+msgstr "Прэса дзеянняў па артыкуле %s"
+
+msgid "Hmm, this is new."
+msgstr "Хм, вось гэта новае."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Ён не выглядае як яна можа мне балюча, хоць, але ёсць толькі адзін спосаб даведацца ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Гэта буксір знаходзіцца пад кантролем, што ціск талерку, але я не магу ўстаць на яго і выкарыстанне ліфта ў той жа час"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Мне давядзецца знайсці яшчэ што-то стаю на нажимной для мяне ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Гэтая карта з'яўляецца пустым, мне давядзецца паставіць некаторыя інструкцыі па яго, каб зрабіць прыдатнай да выкарыстання."
+
+msgid "There's a plaque here"
+msgstr "Там's дошка тут"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Пакладзеце 4 статуй у правільным парадку"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Вы не зможаце знайсці ўсе 4 статуямі ў гэтай версіі, таму заходзьце пазней!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Вы павінны мець статуі вы хочаце выкарыстоўваць падкрэслілі ў Вашым інвентары акне"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Нічога не адбылося. Я не думаю, што ў правільным парадку"
+
+msgid "Tuning Fork"
+msgstr "Камертон"
+
+msgid "Second Floor Keycard"
+msgstr "Другі паверх Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Інструкцыі Картка # 1"
+
+msgid "Instruction Card #2"
+msgstr "Інструкцыі Картка # 2"
+
+msgid "Instruction Card #3"
+msgstr "Інструкцыі карты # 3"
+
+msgid "Instruction Card #4"
+msgstr "Інструкцыі Картка # 4"
+
+msgid "Centurion Statue"
+msgstr "Статуя Центурион"
+
+msgid "Spider Statue"
+msgstr "Spider Статуя"
+
+msgid "Tortoise Statue"
+msgstr "Статуя чарапахі"
+
+msgid "Scorpion Statue"
+msgstr "Статуя Scorpion"
+
+msgid "A Blue Gem"
+msgstr "Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Статуя Centurion. Ён мае 2 ногі."
+
+msgid "A Green Gem"
+msgstr "Green Gem"
+
+msgid "A Purple Gem"
+msgstr "Purple Gem"
+
+msgid "A Red Gem"
+msgstr "Чырвоны каштоўны камень"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Статуя Скарпіёна. Яна мае 6 ног."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Статуя Spider. Ён мае 8 ног."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Armadillo Spike Ball. Разьвею шыпамі, калі кінуты."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Статуя чарапахі. Ён мае 4 ногі."
+
+msgid "A Tuning Fork"
+msgstr "Камертон"
+
+msgid "A chopped log"
+msgstr "Нарэзанымі часопіса"
+
+msgid "Narrator"
+msgstr "Апавядальнік"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Гэта кацёл. Мэгі мае аднаго, як гэта"
+
+msgid "Right, here goes!"
+msgstr "Да, тут ідзе!"
+
+msgid "I need all the main ingredients"
+msgstr "Мне патрэбныя ўсе асноўныя інгрэдыенты"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Газэра вочных яблыкаў, 1 чырвоны асадак шчупальцы і запасныя шчыты"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Мне таксама трэба, каб змяшаць вачыма і шчупальцы ў вадкасць"
+
+msgid "This entire section is about monsters"
+msgstr "Увесь гэты раздзел прысвечаны монстраў"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "У мяне няма ніякіх падстаў для гэтых чытаць, але я буду трымаць гэта на ўвазе пры выпадку я"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Эй Вау, што мілыя маленькія машыны!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "It's Got мала гняздо на задняй яго. Думаю, я паклаў что-то там зрабіць яго рабіць рэчы"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Робат выкарыстоўвае інструкцыю карт перамяшчацца"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Выкарыстайце інструкцыі для кіраўніцтва робата да адкрытым прасторы, што вы не можаце атрымаць доступ да"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Аднак, паколькі вы не можаце прачытаць інструкцыю на карту, вам давядзецца паспрабаваць іх усе да адной работы"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Калі робат не дасягне сваёй мэты, то ён вернецца да сваёй зыходнай пазіцыі, якая дазваляе, каб паўтарыць спробу"
+
+msgid "Enter the directions"
+msgstr "Калі ласка, увядзіце напрамках"
+
+msgid "Out of space for instructions"
+msgstr "З месца для інструкцый"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Мне трэба пустую картку пакласці інструкцый па"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Можа быць, гэта была не такой ужо добрай ідэяй у рэшце рэшт ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Атрымаць 3 Газэра Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Атрымаць 1 Чырвоны асадак Tentacle"
+
+msgid "Find another shield"
+msgstr "Знайсці іншую шчыта"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Сумесь вачыма і шчупальцы"
+
+msgid "Obtain a Fire Shield"
+msgstr "Атрымаць Огненный шчыт"
+
+msgid "More water?!"
+msgstr "Больш вады!?"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Я не думаю, што можа ператварыць у шлам збіраецца дапамагчы мне тут, паколькі я не мог бы вярнуцца пасля"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Мне давядзецца шукаць іншы спосаб атрымання ўсёй"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Мне давядзецца знайсці што-небудзь, каб дапамагчы мне атрымаць праз"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Я не бачу Шлам ў шахце, калі я пайшоў за углем Борган, і нават калі ёсць якія-небудзь я не магу туды пасля майго плот затонул"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Мне давядзецца знайсці іншую мае вакол тут ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Стварае кубики лёду, якія пашыраюцца пры кантакце з вадой"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Бутэлька здольныя захапіць душ"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Паспрабуйце выкарыстоўваць нож Mataeus супраць яго ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Не можа забраць %s. Поўнай інвентарызацыі"
+
+msgid "Filling mine cart..."
+msgstr "Запаўненне маёй кошыку ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright 2009-2010 паралельных реальностям"
+
+msgid "Out of arrows!"
+msgstr "З стрэл!"
+
+msgid "There's something moving around down there..."
+msgstr "Там-то перамяшчацца там ..."
+
+msgid "Good riddance..."
+msgstr "Скатертью дорога ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, дэжа вю ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Калі ліфт выйшаў са строю то ён павінен быць сброшен"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Ёсць 4 скінуць выключальнікі разам ліфтавага шахты, які павінен быць сброшен"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Будзьце ўпэўненыя, каб скінуць ліфце, каб пазбегнуць доўгай прагулкі на паверхню ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Гэтая машына мае слот таго ж памеру, як карты. Думаю, я магу выкарыстаць яго для стварэння новых інструкцый."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Каб стварыць новы набор інструкцый, Вам неабходна ўставіць пустую картку"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Вам будзе прапанавана ўвесці накіравання для робата для пераймання. Гэта робіцца дакладна так жа, як паслядоўнасць дзвярэй"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Калі вы скончыце ўвод кірунках, прэс-атака"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Робат будзе прытрымлівацца інструкцыям на карце"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Калі напрамкі не з'яўляюцца правільным можна паўтарыць спробу"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Гэта месца з розуму, я лепш паспяшацца і знайсці пап, перш чым я да канца не забілі!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Такім чынам, каб стварыць што агонь шчыт я павінен атрымаць шчупальцы Чырвоны асадак"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Чырвоны Шлам жыць у шахтах, так што я павінна знайсці адзін вакол тут"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Мне таксама патрэбны запасной шчыт, але я думаю, не павінна быць зброі ў наваколлі"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Газэра вочнага яблыка дастаткова лёгка, я магу проста вярнуцца ў падвал"
+
+msgid "OK, off I go..."
+msgstr "Добра, я іду ад ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Вы не зможаце атрымаць шчупальцы або шчыт у гэтай версіі, таму зайдзіце попозже!"
+
+msgid "It's a portrait"
+msgstr "Гэта партрэт"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Гэты дух не збіраецца Дазвольце мне мінулага, мне давядзецца знайсці спосаб пазбавіцца ад яго"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Скінуць выключальнікі дазваляюць вам скінуць палажэнне аб'екта на карце"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Калі аб'ект становіцца недаступным, то вы можаце выкарыстоўваць перамыкач, каб вярнуць яго ў сваім першапачатковым месцы"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Бутэлька з душой пастцы"
+

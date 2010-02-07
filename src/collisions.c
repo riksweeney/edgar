@@ -232,11 +232,6 @@ void doCollisions()
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
-								if (e1->type == PLAYER)
-								{
-									printf("%s hit %s\n", e1->name, e2->name);
-								}
-
 								temp = self;
 
 								self = e2;

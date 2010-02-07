@@ -109,7 +109,7 @@ static void init()
 
 static void spawn()
 {
-	int distance, spawnDistance;
+	int distance;
 	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
 	int spawnIndex = 0, spawnCount = 0;
@@ -129,9 +129,7 @@ static void spawn()
 
 				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
 
-				spawnDistance = SCREEN_WIDTH * 3 / 4;
-
-				if (self->health == -1 || (self->health == -2 && distance > spawnDistance && distance < spawnDistance + TILE_SIZE))
+				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH + TILE_SIZE))
 				{
 					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
 					{
@@ -220,9 +218,9 @@ static void spawn()
 
 						if (self->health == -2)
 						{
-							e->flags |= SPAWNED_IN_TIME;
+							e->flags |= SPAWNED_IN;
 
-							e->spawnTime = 18000;
+							e->spawnTime = SPAWNED_IN_TIME;
 						}
 					}
 

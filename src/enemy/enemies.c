@@ -66,6 +66,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "exploding_spike_sphere.h"
 #include "thunder_cloud.h"
 #include "spirit.h"
+#include "large_spider.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -156,7 +157,8 @@ static Constructor enemies[] = {
 {"boss/mataeus", &addMataeus},
 {"enemy/spirit", &addSpirit},
 {"boss/mataeus_wall", &addMataeusWall},
-{"boss/boulder_boss_2", &addBoulderBoss2}
+{"boss/boulder_boss_2", &addBoulderBoss2},
+{"enemy/large_spider", &addLargeSpider}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

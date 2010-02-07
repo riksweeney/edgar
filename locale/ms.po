@@ -1,0 +1,1743 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Cepat belok kiri dan kanan untuk mengibaskan slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Tidak bekerja di versi ini!"
+
+msgid "Press Action to interact"
+msgstr "Tekan Aksi untuk berinteraksi"
+
+msgid "%s is required"
+msgstr "%s diperlukan"
+
+msgid "Bomb"
+msgstr "Bom"
+
+msgid "Small Rock"
+msgstr "Kecil Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tekan Aksi untuk memuat Purple Gem"
+
+msgid "Chicken"
+msgstr "Ayam"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Tekan Aksi untuk memuat Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Tekan Aksi untuk menggantikan Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Diambil %s"
+
+msgid "Complete"
+msgstr "Lengkap"
+
+msgid "%d more to go..."
+msgstr "%d lebih untuk pergi ..."
+
+msgid "Used %s"
+msgstr "Digunakan %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Tidak bisa melengkapi item sementara transmogrified"
+
+msgid "Equipped %s"
+msgstr "Dilengkapi %s"
+
+msgid "Maximum health has increased!"
+msgstr "Kesihatan maksimum telah meningkat!"
+
+msgid "Bow will now fire %s"
+msgstr "Busar sekarang akan api %s"
+
+msgid "A bow is required to use this item"
+msgstr "Sebuah busur diperlukan untuk menggunakan item ini"
+
+msgid "Cannot transmogrify here..."
+msgstr "Tidak boleh transmogrify di sini ..."
+
+msgid "Yes"
+msgstr "Ya"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "Start a new game?"
+msgstr "Memulai permainan baru?"
+
+msgid "Play the tutorial?"
+msgstr "Play the tutorial?"
+
+msgid "Exit the game?"
+msgstr "Keluar dari permainan?"
+
+msgid "Back"
+msgstr "Belakang"
+
+msgid "Game Loaded"
+msgstr "Game Loaded"
+
+msgid "Game Saved"
+msgstr "Game Tersimpan"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Kemajuan yang belum disimpan akan hilang"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Tekan Aksi untuk bercakap %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Teratas Objektif: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Objektif Lengkap: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Dinding di sebelah kanan tampak lemah ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Senjata ini tidak memiliki efek apapun ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Tekan Aksi untuk melampirkan Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s diperlukan untuk mengaktifkan switch ini"
+
+msgid "Press Action to use this switch"
+msgstr "Tekan Aksi untuk menggunakan switch ini"
+
+msgid "Press Action to save your game"
+msgstr "Tekan Aksi untuk menyimpan permainan"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s diperlukan untuk menggunakan Plate Tekanan ini"
+
+msgid "%s is needed to open this door"
+msgstr "%s yang diperlukan untuk membuka pintu ini"
+
+msgid "This door is locked"
+msgstr "Pintu ini dikunci"
+
+msgid "This teleporter is not active"
+msgstr "Teleporter ini tidak aktif"
+
+msgid "Press Action to go to the %s"
+msgstr "Tekan Aksi untuk pergi ke %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up atau Down untuk menggunakan lif"
+
+msgid "This lift is not active"
+msgstr "Ini angkat tidak aktif"
+
+msgid "Cannot carry any more %s"
+msgstr "Bisa tidak membawa lagi %s"
+
+msgid "Picked up %s x %d"
+msgstr "Mengambil %s x %d"
+
+msgid "Picked up %s"
+msgstr "Memungut %s"
+
+msgid "Readied %s"
+msgstr "Disiapkan %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s diperlukan untuk membawa item ini"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Simpanan kunci"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Batubara Bag Storage Switch Kunci"
+
+msgid "Large Room Key"
+msgstr "Large Room Key"
+
+msgid "Coal Bag"
+msgstr "Coal Bag"
+
+msgid "Forest Cell Key"
+msgstr "Hutan Cell Key"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "Ramuan kesihatan"
+
+msgid "Outflow Key"
+msgstr "Outflow Kunci"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Kunci Pengolahan Sampah"
+
+msgid "Access Key 1"
+msgstr "Akses Kekunci 1"
+
+msgid "Access Key 2"
+msgstr "Kunci akses 2"
+
+msgid "Access Key 3"
+msgstr "Kunci akses 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Kunci"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Angkat ini tidak mempunyai kekuatan. Aku tidak akan bisa menggunakannya sampai aku mengembalikan kuasa"
+
+msgid "Keep practising!"
+msgstr "Teruslah berlatih!"
+
+msgid "Hi"
+msgstr "Wahai"
+
+msgid "Hello Edgar"
+msgstr "Hello Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Bolehkah saya meminjam perisai anda?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Off untuk melatih ketrampilan berkelahi anda?"
+
+msgid "Something like that"
+msgstr "Sesuatu seperti itu"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Jika anda menjalankan saya sebuah tugas maka anda boleh memiliki perisai"
+
+msgid "What do I have to do?"
+msgstr "Apa yang harus saya lakukan?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Pergi ke lombong dan mengumpul saya beberapa batubara"
+
+msgid "But we have plenty of coal!"
+msgstr "Tapi kita punya banyak batu bara!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Ya, tapi ini tidak ada batubara yang tua, batubara ini adalah khusus, itu terbakar lebih panas dan berlangsung lebih lama"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Aku hanya perlu 10 keping barang-barang, jadi seharusnya tidak membawa anda sangat lama"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Pastikan anda masukkan dia ke dalam tas, disentuh terlalu lama akan menjadi buruk bagi kesihatan anda"
+
+msgid "Do you have a bag?"
+msgstr "Adakah anda punya tas?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Tidak, anda mungkin boleh menemui satu di lombong meskipun"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, saya akan mendapatkan batubara"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Sini, turun beliung ini. Anda boleh menggunakannya untuk Menambang batubara dan hack melalui dinding lemah yang anda temui"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Anda juga memerlukan kunci ini untuk masuk ke dalam lombong"
+
+msgid "Thanks!"
+msgstr "Terima kasih!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Terima kasih, Edgar, batubara ini sempurna! Berharap kelawar tidak takut anda."
+
+msgid "The bats were the least of my worries..."
+msgstr "Kelawar adalah paling tidak kekhuatiran saya ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Katakanlah, aku mendengar bahawa sesuatu yang berlaku di lombong beberapa tahun yang lalu"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Eh, yeah, ada apa kau sebut  kejadian , tapi itu bahagian daripada lombong itu ditutup lama"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Di sini, punya perisai dan bersenang-senang!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Hanya tinggal jauh dari Rawa Terlarang"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Akan dilakukan, boleh saya berpegang pada beliung anda untuk sementara waktu?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Tentu saja, hanya membawanya kembali utuh"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Adakah anda berjaya menemukan batu bara belum?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Anda boleh menarik beberapa item di sekitar dengan menggalakkan terhadap mereka sementara menekan butang Action."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Anda kemudian boleh menariknya sampai anda melepaskan butang Action"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Batu ini tampak terlalu kuat untuk Pick Axe. Aku harus menggunakan sesuatu yang lain untuk mendapatkan melalui ..."
+
+msgid "Urgh, what happened?"
+msgstr "Ugh, apa yang terjadi?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Tampak seperti ini bukan ide yang bagus selepas semua"
+
+msgid "There must be way out of here..."
+msgstr "Pasti ada jalan keluar dari sini ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Ini harus menjadi batu bara lombong ingin aku baginya"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Saya tidak berfikir Perisaiku akan melindungiku dari orang-orang bola api. Aku harus mencari yang lebih kuat satu ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Anda tidak akan mampu melakukannya sedikit pada versi ini, semak lagi nanti!"
+
+msgid "Strange creature..."
+msgstr "Makhluk aneh ..."
+
+msgid "Wait, what was that?"
+msgstr "Tunggu, apa itu?"
+
+msgid "You again?!"
+msgstr "Anda lagi?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Penenung pasti telah Ayah ke bentengnya. Aku harus menyelamatkan dia dari sana."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Satu-satunya cara untuk sampai ke benteng adalah melalui Rawa Terlarang ke Timur."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Ada sebuah tasik antara Desa dan Rawa jadi saya akan memerlukan rakit untuk menyeberang."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "Saya juga akan memerlukan pedang dan perisai untuk membela diri. Saya boleh bercakap kepada dan untuk mendapatkan meskipun ini."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Sesuatu yang seharusnya berlaku di sini, tapi tidak dalam versi ini begitu semak lagi nanti!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Thanks for resucing ayam saya, apa kau punya me 2 kayu dari hutan belum?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Thanks Edgar! Ayam saya kembali dan log ini akan membuat saya baik-baik saja"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Muat pedang ini, mungkin ini melayani anda dengan baik!"
+
+msgid "Thank you!"
+msgstr "Terima kasih!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Thanks for the log, adakah anda sudah berjaya dengan ayam-ayam?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Aku akan memberikan pedang jika anda mendapatkan me 2 cincang kayu dari hutan dan penyelamatan sekurang-kurangnya 3 daripada ayam"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Halo Edgar, apa yang boleh saya lakukan untuk anda hari ini?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Adakah anda mempunyai pedang aku boleh pinjam?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Saya punya pedang dan anda boleh memilikinya jika anda melakukan sesuatu untukku pertama"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... apa yang harus saya lakukan?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Beberapa ayam saya telah melarikan diri dari pena mereka dan saya akan sangat berterima kasih jika anda bisa mendapatkan mereka kembali untukku"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Aku telah menyiapkan beberapa perangkap di dekat pena mereka, anda boleh memancing mereka ke perangkap menggunakan pakan ayam ini. Aku tidak memerlukan mereka semua, tapi setidaknya 3 akan sangat membantu. Aku bisa mendapatkan sisanya sendiri."
+
+msgid "That's it?"
+msgstr "Hanya itu?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Belum. Bolehkah anda juga akan saya beberapa kayu dari hutan? 2 log harus mencukupi"
+
+msgid "Do you have an axe?"
+msgstr "Adakah anda mempunyai sebuah kapak?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Aku meninggalkan kapak di hutan di suatu tempat. Seharusnya masih ada di sana"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Bukankah hutan itu berbahaya?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Tidak juga, jika ada akan di jalan, tekan sahaja dengan senjata"
+
+msgid "Such as an axe?"
+msgstr "Seperti kapak?"
+
+msgid "Yes, that would do the trick"
+msgstr "Ya, itu akan melakukan trik"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Tapi serius, tidak ada di sana yang benar-benar boleh membahayakan anda. Masalah itu ditangani dengan lama waktu yang lalu ..."
+
+msgid "Good luck!"
+msgstr "Semoga beruntung!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, terima kasih Edgar, aku hanya perlu 3, tapi terima kasih atas bantuan tambahan!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Di sini, Maggie membuat saya ramuan kesihatan ini tetapi saya tidak perlu begitu mengapa anda tidak memilikinya?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Yaakub"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, anda menangkap mereka semua, thanks a lot!"
+
+msgid "Here, I have these for you"
+msgstr "Di sini, aku punya ini untuk anda"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie membuat saya ramuan kesihatan ini tetapi anda boleh memilikinya"
+
+msgid "And this is something very special"
+msgstr "Dan ini adalah sesuatu yang sangat istimewa"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Mungkin ini membantu anda di jalan untuk menjadi askar yang kuat"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Anda menyelamatkan saya banyak masa. Maggie membuat saya sesuatu yang lain tetapi kerana anda telah banyak membantu, anda boleh memilikinya."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Thanks Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan mengatakan bahawa satu bahagian daripada lombong itu ditutup selepas sebuah  kejadian "
+
+msgid "There must be something around here..."
+msgstr "Pasti ada sesuatu di sekitar sini ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Sialan, jambatan tarik habis. Pasti ada pintu masuk lain ..."
+
+msgid "Wait, what's that?"
+msgstr "Tunggu, apa itu?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Mungkin aku bisa terowong jalan masuk .."
+
+msgid "These machines aren't working."
+msgstr "Mesin-mesin ini tidak bekerja."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Kelihatannya seperti permata harus sesuai dalam lubang ini, mungkin aku bisa menemukan pengganti."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Sepertinya itu terjepit erat di sana. Aku mungkin bisa melepaskan dengan beliung ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Untuk mencapai Rawa Terlarang aku perlu untuk membina sebuah rakit."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Saya boleh membina rakit jika saya cukup menebang pohon dari hutan"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Aku butuh 6 chopped Log untuk membina sebuah rakit"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Aku tidak akan pergi ke rawa-rawa tanpa pedang dan perisai"
+
+msgid "OK, here goes!"
+msgstr "OK, here goes!"
+
+msgid "Aw, not again!"
+msgstr "Ah, jangan lagi!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Ini sebaiknya menjadi yang terakhir kalinya saya harus melakukan ini ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Itu mudah! Dan aku selalu bisa kembali nanti!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Kurasa aku tidak punya pilihan sekarang."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Tunggu Dad, I'm coming ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Sesuatu yang seharusnya terjadi sekarang, tapi tidak dalam versi ini. Semak semula nanti!"
+
+msgid "There's a note here"
+msgstr "Ada nota di sini"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Aku sudah terperangkap di sini untuk apa yang tampaknya seperti selamanya"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Keluar dari tempat ini Aku memerlukan 3 Kunci akses untuk bekerja lif"
+
+msgid "So far I have only found 1"
+msgstr "Setakat ini saya hanya ditemui 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Untuk membuat keadaan menjadi lebih buruk, saya hanya boleh mencapai beberapa switch dengan hati-hati arrow"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Tapi suku cadang yang tidak lazim dan saya sudah kehabisan"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Jika aku tidak menemukan jalan keluar dari sini akan, aku takut aku mungkin kebuluran"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Kalau aku tidak keluar dari sini aku akan mengalami nasib yang sama ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, apa ini?"
+
+msgid "There's a note here too"
+msgstr "Ada nota di sini juga"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Ramuan sempurna! Quaffing itu akan mengubah manusia menjadi makhluk untuk sejumlah kecil waktu"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Setakat ini saya hanya bisa transmogrify diriku menjadi satu makhluk tetapi dengan sedikit lebih banyak waktu apa pun seharusnya boleh"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Ada sedikit kiri, itu harus selamat untuk diminum"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, here goes apa-apa ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Ugh!! Ini mengerikan!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan mengatakan kepada saya bahawa Slimes boleh berenang di air, jadi mungkin ini bermanfaat kepada ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Ketika berubah menjadi slime, anda boleh bergerak seperti biasa. Anda juga boleh berenang di dalam air dan menggunakan atas dan bawah untuk bergerak"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Mendorong ke atas atau melompat akan membuat anda melompat keluar dari air jika anda dekat permukaan"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Mengawasi timer di bahagian bawah skrin. Ketika mencapai nilai 0 anda akan secara automatik menjadi manusia lagi"
+
+msgid "This place doesn't look so bad..."
+msgstr "Tempat ini tidak tampak terlalu buruk ..."
+
+msgid "What was that?"
+msgstr "Apa itu?"
+
+msgid "Uh Oh..."
+msgstr "Eh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Fiuh, aku senang bisa keluar dari sana"
+
+msgid "Now to get through this swamp"
+msgstr "Sekarang untuk melewati rawa ini"
+
+msgid "Hey, what's this?"
+msgstr "Hei, apa ini?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Tampak sangat berbahaya, saya akan cuba melangkah di atasnya"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wah Yang sejuk! Ini harus Teleporter mekanikal."
+
+msgid "I wonder if it works both ways..."
+msgstr "Aku bertanya-tanya apakah kedua cara kerjanya ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Tidak hanya akan menyelamatkan ini saya banyak berjalan, itu juga banyak menyenangkan!"
+
+msgid "Now try out your shield"
+msgstr "Sekarang coba perisai anda"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Sekat pelet meludahkan oleh tanaman dan melompat ke langkan seterusnya"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Beberapa item dalam permainan boleh mendorong dan menarik"
+
+msgid "To push an item, simply walk into it"
+msgstr "Mendorong item, cukup berjalan ke dalamnya"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Menarik item, berjalan ke dalam sambil menahan Aksi"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Anda boleh menarik item di sekitar sampai anda melepaskan Aksi"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Tarik kotak di sisi lain dan menggunakannya untuk mencapai Birai"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Ini adalah bahagian terakhir dari tutorial dan akan mengajarkan anda untuk menyekat dan menyerang musuh"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Pertama, anda perlu melengkapkan pedang kerana mempunyai jangkauan lebih dan tidak lebih merosakkan daripada beliung"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Tekan z untuk melihat inventaris anda, serlahkan pedang dan tekan Serang (kiri ctrl) atau Guna Item (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Tekan z lagi untuk menutup bekalan"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Kadang-kadang, dibunuh musuh akan drop kesihatan yang akan menghilang selepas beberapa detik, jadi mengambilnya cepat!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Jika kelawar semakin anda dekat dengan anda, tahan blok dan akan terpental tanpa membahayakan anda"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Sekarang membunuh semua kelawar di daerah!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Ada dua jenis pintu dalam permainan. Manual pintu dan pintu-pintu automatik."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Pintu manual memerlukan kunci untuk membukanya, pintu-pintu automatik memerlukan switch."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Untuk membuka pintu yang terkunci bahawa anda memiliki kunci, cukup berjalan ke dalamnya. Tidak perlu untuk memiliki kunci dipilih dalam inventaris anda."
+
+msgid "Open the door and continue to the right"
+msgstr "Buka pintu dan terus ke kanan"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Selamat! Sekarang anda tahu asas-asas bermain anda harus mencuba permainan utama"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Jika anda ingin memutar ulang tutorial ini, tekan Escape dan pilih daripada menu Tutorial"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Untuk bermain permainan utama, tekan Escape dan pilih New Game dari menu"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Tekan Space bila anda telah selesai membaca untuk pergi ke kotak dialog berikutnya"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Anda juga boleh berpindah ke kotak dialog berikutnya dengan menekan Attack (kiri ctrl), Blok (kiri alt), Lompat (spasi), Action (c) atau Guna Item (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Ini adalah tutorial untuk The Legend of Edgar. Tutorial ini akan menjelaskan bagaimana bermain permainan."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Untuk keluar dari tutorial ini, tekan Escape dan menggunakan butang Atas dan Bawah butang panah untuk memilih opsyen. Tekan Kembali untuk memilihnya."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Bergerak ke kiri dan kanan, gunakan butang panah."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Untuk membuat melompat, tekan spasi. Anda boleh bergerak di udara saat melompat."
+
+msgid "To interact with an item, press c"
+msgstr "Untuk berinteraksi dengan suatu item, tekan c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Berjalan ke Aksi Point dan tekan c"
+
+msgid "To collect an item from your"
+msgstr "Mengumpulkan item daripada anda"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Untuk memuat item, cukup berjalan ke dalamnya. Setiap ditagih item akan ditambah kepada bekalan."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Anda boleh melihat isi dari inventaris anda dengan menekan z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Sementara dalam inventaris, gunakan butang panah untuk melihat item."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Anda boleh menggunakan item langsung dengan menekan Attack (kiri ctrl) atau Guna Item (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Anda boleh item sedia untuk digunakan dengan menekan Blok (kiri alt) atau Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Berjalan di atas kunci untuk mengambilnya"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Anda boleh menukar semua kawalan dalam permainan dengan menekan Escape dan memilih Pilihan dalam menu"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Pilih Tatarajah Kawalan menggunakan butang panah dan tekan Kembali"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Gunakan butang panah untuk memilih kawalan yang bermanfaat buat kali terakhir, kemudian tekan Kembali."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Seterusnya, tekan butang yang ingin anda gunakan sebagai gantinya."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Terlepas dari apa kunci yang anda pilih, anda sentiasa boleh menavigasi menu dengan menggunakan butang panah dan Kembali"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Perhatikan bahawa dalam tutorial ini, kunci lalai akan anggapkan"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Bila anda telah selesai mengkonfigurasikan kunci, langsung ke Aksi seterusnya Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "The beliung adalah salah satu daripada banyak senjata anda akan menemukan dalam permainan"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Anda boleh menggunakannya baik sebagai senjata dan alat"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Mengambil beliung dan terus Aksi seterusnya Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Selamat, anda menemukan sebuah rahsia!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Ada banyak rahsia di dalam permainan utama jadi jangan lihat keluar bagi mereka"
+
+msgid "Here's a hint to get you started"
+msgstr "Berikut adalah manual untuk anda mula"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Meskipun hanya mengharuskan anda untuk menangkap 3 daripada ayam-ayamnya, mengapa tidak bersikap baik padanya dan menangkap lebih banyak? Ada 10 mengembara peta di semua"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Perisai akan melindungi anda daripada serangan musuh kebanyakan"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Beberapa serangan musuh tidak dapat disekat"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Bahaya persekitaran, seperti batu jatuh, tidak dapat disekat"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Sekat serangan, tekan terus blok (kiri alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Anda harus menghadapi serangan itu berjaya blok"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Perlu diketahui bahawa anda tidak boleh bergerak sementara menyekat, tapi anda boleh menghadapi dengan cara lain. Anda juga tidak dapat memblok di udara"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Mengambil perisai dan terus ke kanan"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Ini adalah dinding lemah, dapat dihancurkan turun menggunakan beliung"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Untuk menggunakan beliung, tekan Attack (kiri ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "bahawa tidak semua dinding lemah boleh dihancurkan dengan menggunakan beliung"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Menghancurkan dinding menggunakan beliung dan terus"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Sesuatu yang seharusnya ada di sini tapi tidak dalam versi ini, semak lagi nanti!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Kumpulkan 10 potongan Batubara"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Kumpulkan 2 chopped Logs"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rescue 3 Ayam"
+
+msgid "Find 4 Gems"
+msgstr "Mencari 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Repair Generator"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Kumpulkan 6 chopped Logs"
+
+msgid "Collect 3 Access Keys"
+msgstr "Kumpulkan 3 Akses Kunci"
+
+msgid "This is a blank objective"
+msgstr "Ini adalah tujuan kosong"
+
+msgid "Kill all Bats!"
+msgstr "Membunuh semua Kelawar!"
+
+msgid "Coal"
+msgstr "Coal"
+
+msgid "Chopped Log"
+msgstr "Log cincang"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Kunci"
+
+msgid "New Game"
+msgstr "New Game"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Pilihan"
+
+msgid "About"
+msgstr "Tentang"
+
+msgid "Quit"
+msgstr "Keluar"
+
+msgid "Configure Controls"
+msgstr "Tatarajah Kawalan"
+
+msgid "Configure Sound"
+msgstr "Tatarajah Sound"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Show Hints"
+
+msgid "A potion which will transform you..."
+msgstr "Sebuah ramuan yang akan mengubah anda ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Menciptakan miniatur sangat absorbant es batu"
+
+msgid "A potion which will restore all of your health"
+msgstr "Sebuah ramuan yang akan memulihkan semua kesihatan anda"
+
+msgid "A powerful bomb"
+msgstr "Bom kuat"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Sebuah ramuan yang menjadikan anda tidak terlihat musuh tertentu"
+
+msgid "The eyeball from a Gazer"
+msgstr "Bola mata daripada Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Sebuah Tesla Pack. Tidak mempunyai kos."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Sebuah Summoner's Staff. Tidak boleh digunakan oleh manusia."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Sebuah Tesla Pack. Itu penuh."
+
+msgid "An empty potion bottle"
+msgstr "Ramuan kosong botol"
+
+msgid "A bag of chicken feed"
+msgstr "Sebuah beg pakan ayam"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Sebuah beg berpadanan untuk membawa batu bara"
+
+msgid "Basic Sword"
+msgstr "Dasar Pedang"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Sebuah Pedang yang diberikan kepada anda oleh Jacob"
+
+msgid "A bow"
+msgstr "Busar"
+
+msgid "Small Wooden Shield"
+msgstr "Kecil Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Perisai kecil yang memberikan perlindungan asas"
+
+msgid "Normal Arrow"
+msgstr "Normal Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Kapak berpadanan untuk memotong pokok"
+
+msgid "Pickaxe"
+msgstr "Beliung"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Sebuah beliung dipinjamkan kepada anda oleh borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Kunci"
+
+msgid "Potion Room Key"
+msgstr "Ramuan Room Key"
+
+msgid "Surge Passage Key"
+msgstr "Surge Passage Kunci"
+
+msgid "Demolition Storage Key"
+msgstr "Pembongkaran Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Apa pun hal itu adalah kekuatan mengalir daripada generator dan menggunakannya melawan saya."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Yang mungkin menjelaskan mengapa yang angkat tidak bekerja. Galanya drainers lain harus mengembalikan kuasa."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Mengalahkan semua Drainers Tenaga"
+
+msgid "No Objectives"
+msgstr "Tidak Objektif"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Tekan Aksi untuk me-reset blok puzzle"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Kelihatannya seperti blender. Aku bisa menggunakan ini untuk liquidise sesuatu"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Aku butuh Sludge Merah tentakel dan 3 Gazer bola mata untuk membuat ramuan"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Aku masih memerlukan suatu Empty Bottle untuk menempatkan ramuan dalam"
+
+msgid "So this is the Fortress."
+msgstr "Jadi ini adalah kubu."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Kelihatannya seperti banyak pintu mengarah ke daerah lain, seharusnya aku melihat-lihat yang layak sebelum aku pergi ke tempat lain ..."
+
+msgid "Try hitting the skull..."
+msgstr "Cuba memukul tengkorak ..."
+
+msgid "This machine is not active"
+msgstr "Mesin ini tidak aktif"
+
+msgid "Repeat the sequence"
+msgstr "Ulangi urutan"
+
+msgid "Correct Sequence"
+msgstr "Benar Sequence"
+
+msgid "Incorrect Sequence"
+msgstr "Salah Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "The Legend of Edgar telah menemui error seterusnya"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Sila laporkan kesalahan ini ke Parallel Realities"
+
+msgid "The game will now exit"
+msgstr "Permainan sekarang akan keluar"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Kelihatannya seperti blender. Aku bisa menggunakan ini untuk liqudise sesuatu"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Ini harus menjadi batu bara ingin aku borgan lombong untuknya"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Yang mungkin menjelaskan mengapa yang angkat tidak bekerja. Galanya drainers lain harus mengembalikan kuasa di sini."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Aku perlu mencari 3 Gazer Mata, 1 Merah Sludge tentakel dan perisai tambahan untuk mencipta Perisai Fire Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Begitu aku sudah menemukan semua barang-barang ini aku harus mencari tempat untuk mencipta perisai"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Ada sebuah buku di sini tentang senjata menawan"
+
+msgid "Maybe I can create a shield..."
+msgstr "Mungkin aku bisa membuat perisai ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Pedang ... Armour ... Tongkat ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Buku bodoh. Ini bukan dalam rangka dan tidak ada indeks"
+
+msgid "Here we go: Shields"
+msgstr "Sini kita pergi: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Bahan"
+
+msgid "One must gather the following"
+msgstr "Orang harus mengumpul seterusnya"
+
+msgid "The root of a Mandrake"
+msgstr "Akar dari Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Lemak dari Darsh (kiri untuk berdiri selama 3 bulan)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor tulang"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 mata Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Sungut yang baru dipotong daripada perempuan Sludge Merah"
+
+msgid "The shield to apply the enchantment"
+msgstr "Perisai untuk menerapkan pesona"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Haluskan Gazer Sludge mata dan sungut ke dalam cecair yang halus"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Tambah akar, lemak dan tulang ke dalam panci dan aduk bersama dengan Gazer dicampur mata dan Sludge sungut"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Ketika campuran berubah menjadi biru terang, tambah perisai"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Aku pernah melihat kebanyakan daripada barang-barang di makmal jadi saya tidak perlu bimbang tentang orang-orang"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Dan Gazers berkeliaran di ruangan bawah tanah sehingga tidak masalah"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Apa yang saya lakukan perlu mencari adalah Sludge Merah, tapi aku tak tahu di mana bisa menemukan satu"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Saya tidak boleh menggunakan perisai saya saat ini dalam percubaan dalam kes itu menjadi bumerang jadi saya harus mencari yang lain"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Mungkin ada ramuan bilik atau makmal di mana saya dapat menemukan akar, lemak dan tulang sehingga saya tidak perlu bimbang tentang orang --"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Anda harus mempunyai kad Arahan yang ingin anda gunakan inventaris anda disorot dalam peti"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, sebuah makmal!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Saya suka menonton Maggie membuat mantra dan ramuan, mungkin aku bisa membuat saya sendiri di sini!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, aku belum pernah melihat begitu banyak buku dalam satu tempat!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Harus ada maklumat mengenai setiap topik di sini, ini bisa kepada ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, udara terasa dikenakan, mengingatkan saya Maggie rumah ketika dia membuat mantra. Aku harus berhati-hati."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, kau terluka! Biarkan aku menyembuhkan luka-lukamu"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Aku ingin tahu apa ada monster lain. Aku akan memilih laman secara rawak ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Cycloptic terbang Gazers makhluk yang ditemui di pelbagai tempat"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Satu mata mereka biasanya tertutup dan mereka bergantung pada gerakan sonar"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Mereka menggunakan indra penciuman yang kuat untuk mengawasi pemangsa dan mangsa sama"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers menyerang (dan membela diri) dengan membuka mata mereka yang akan mempesonakan melihat apa itu"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Serangan ini namun hanya berkesan jika korban menghadap ke Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Sebuah bola mata Gazer mengandungi sifat magis dan merupakan bahan yang umum dalam persiapan mantra"
+
+msgid "Centurion, Grey"
+msgstr "Pasukan, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurion adalah makhluk diciptakan secara ajaib, biasanya dihantar sebagai penjaga atau penjaga"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Walaupun lambat, saiz besar mereka membolehkan mereka untuk sekadar berbaris melalui pertahanan"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Alih-alih senjata, banyak memiliki pemacu tumpukan yang mereka gunakan untuk mengguncang tanah dan mengelirukan ancaman"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Sementara Grey Centurions akan digunakan untuk menjaga batas-batas luar, Centurions Merah diketahui ada dan digunakan untuk melindungi kawasan-kawasan yang sangat penting"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitter monster tidak merbahaya kecuali jika diserang."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Setelah mempertahankan terlalu banyak kerosakan mereka akan terbelah dua dan serangan pemangsa mereka"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Jika salah satu tulang ini terlalu banyak kerosakan itu akan terbelah sekali lagi dan terus menyerang"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Akhirnya, salah satu split terkini sangat kecil akan menghasilkan versi yang sama sekali tidak berbahaya dan dalam keadaan ini boleh dengan mudah terinjak"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Jika semua bahagiannya masih hidup, sebuah splitter akan reformasi itu sendiri selepas beberapa saat dan menyembuhkan yang luka"
+
+msgid "Grub, Red"
+msgstr "Grub Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Belatung merah lebih agresif daripada rakan-rakan hijau mereka dan akan menyerang apa sahaja yang mereka pandang sebagai ancaman"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Setelah mencapai kematangan mereka akan membentuk kepompong dan berubah menjadi sebuah tawon"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Namun sebahagian akan berubah menjadi ratu lebah. Ratu ini boleh menghasilkan lendir seperti substansi mampu memegang mangsanya di tempat"
+
+msgid "Tortoise, Master"
+msgstr "Kura-kura, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Tortoises yang menakutkan binatang. Ditemukan di tanah jauh mereka mempunyai keupayaan untuk menukar kepala mereka"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Mereka menggabungkan semua kemampuan sepupu mereka untuk bernafas api, membuat es dan menggemparkan sendiri"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Dan tentu saja mereka juga kebal terhadap serangan daripada unsur-unsur yang berpadanan, menyerap tenaga untuk menyembuhkan diri sendiri"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Tapi tambahan, jika mereka menerima terlalu banyak tenaga daripada penyembuhan, mereka berkembang dan pergi pada mengamuk"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Dalam keadaan ini mereka akan menghancurkan melalui pertahanan dan menghasilkan Dark Matter yang menghancurkan apa yang disentuhnya"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Namun, kulit kura-kura yang mengamuk Master sangat magis dan merupakan unsur penting saat membuat Magics kuat dan item"
+
+msgid "Venus Flytrap"
+msgstr "Zuhrah penangkap lalat"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore adalah makhluk dari dimensi lain. Hal ini dapat dipanggil dengan menggunakan sihir gelap kuat"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Alasan paling umum untuk memanggil binatang ini adalah untuk bertindak sebagai pengawal"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Diketahui tidak ada cara untuk membunuh Grimlore sejak berterusan atas luka-luka kritis itu hanya akan kembali ke dimensi sendiri"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Tetapi bahkan melukai itu adalah tugas yang monumental. Siapa pun bertemu makhluk ini disarankan untuk melarikan diri secepat mungkin"
+
+msgid "Or they will die very quickly"
+msgstr "Atau mereka akan mati dengan sangat cepat"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, di sini adalah sebuah ringkasan tentang monster"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 volume! Bagaimana bisa ada begitu banyak monster di dunia?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Tampaknya mereka dalam urutan abjad meskipun"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Lendir, Green ... Lendir, Ungu ... Lumpur, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Lumpur Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Tidak seperti sepupu hijau, Sludge Merah tetap di bawah tanah dan jarang, jika pernah, permukaan"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Disukainya habitat yang kering dan daerah yang kaya mineral dan sebagai hasilnya telah dijumpai bersembunyi di bidang tambang ditinggalkan oleh manusia"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Mereka sangat hati-hati manusia dan akan menyerang pada penglihatan, biasanya muntah sampai asid yang memerlukan masa untuk menguap"
+
+msgid "Smacker, Lesser..."
+msgstr "Kecupan, Lesser ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Besar, hanya itu berkata. Aku bahkan tidak tahu bagaimana cara membezakan antara laki-laki dan perempuan. Aku akan hanya untuk mengambil kesempatan ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Lagi pula, apa hal terburuk yang bisa terjadi?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Untuk menggerakkan Edgar kiri dan kanan, gunakan butang panah."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Untuk membuat Edgar melompat, tekan spasi. Anda boleh bergerak di udara saat melompat."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Meskipun hanya Yaakub mengharuskan anda untuk menangkap 3 daripada ayam-ayamnya, mengapa tidak bersikap baik padanya dan menangkap lebih banyak? Ada 10 mengembara peta di semua"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Perhatikan bahawa tidak semua dinding lemah boleh dihancurkan dengan menggunakan beliung"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Aku sudah memeriksa, dia tidak di sana ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Aku pernah mendengar orang jatuh ke dalam perigi dahulu, mungkin Dad di sana ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "AYAH !!!!! ANDA DOWN THERE ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Tidak ada. Kurasa aku harus terus mencari"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up atau Down untuk menaikkan atau menurunkan platform"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Ada sebuah buku di sini tentang peralatan menawan"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Ini buku tentang peralatan menawan"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Aku tidak punya alasan untuk membaca ini tapi saya akan menyimpannya dalam fikiran dalam kes saya"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Aku ingin tahu apa monster lain ada ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Seperti biasa Summoners, Dark Summoners memanggil binatang lain untuk melakukan penawaran"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Selain itu walaupun mereka boleh teleport jarak pendek untuk melarikan diri daripada lawan mereka"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Staf mereka sangat magis dan meskipun tidak boleh digunakan oleh manusia secara langsung, dengan sifat magis mantra digunakan dalam penciptaan"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoover pink kecil berkaki empat dengan muncung panjang"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Puropse utama daripada muncung adalah untuk mencari makanan tetapi juga berfungsi sebagai mekanisme pertahanan"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "dan lebih dari mampu menjaga pemangsa di teluk hanya dengan meniup mereka pergi"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Zuhrah penangkap lalat, mobile"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Bergerak Zuhrah Flytraps telah berevolusi akar dan mampu pindah ke makanan mereka daripada menunggu itu datang kepada mereka"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Leher mereka adalah sangat elastis dan mampu membentak mangsanya dari jarak yang cukup jauh"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Bahwa harus melakukannya. Mudah-mudahan yang lain angkat oleh Sewer sekarang harus bekerja"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Ini angkat tidak bekerja. Aku tidak akan bisa menggunakannya sampai aku mengembalikan kuasa"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Kaca yang tampak terlalu tebal untuk saya retak, aku harus mencari cara lain untuk menghancurkan itu ..."
+
+msgid "Up"
+msgstr "Naik"
+
+msgid "Down"
+msgstr "Turun"
+
+msgid "Left"
+msgstr "Kiri"
+
+msgid "Right"
+msgstr "Kanan"
+
+msgid "Jump"
+msgstr "Lompat"
+
+msgid "Attack"
+msgstr "Serangan"
+
+msgid "Block"
+msgstr "Blok"
+
+msgid "Action"
+msgstr "Tindakan"
+
+msgid "Use Item"
+msgstr "Guna Item"
+
+msgid "Previous Item"
+msgstr "Previous Item"
+
+msgid "Next Item"
+msgstr "Next Item"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Pause"
+msgstr "Jeda"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Muzik Volume"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Perpustakaan"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lift Kunci"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Kunci Pintu Masuk"
+
+msgid "Village"
+msgstr "Desa"
+
+msgid "Cave"
+msgstr "Gua"
+
+msgid "Fortress Outskirts"
+msgstr "Benteng pinggiran"
+
+msgid "Forbidden Swamp"
+msgstr "Swamp Terlarang"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Kotoran Terhad Zon Key"
+
+msgid "Basement"
+msgstr "Basement"
+
+msgid "Fortress Ground Floor"
+msgstr "Benteng Ground Floor"
+
+msgid "Sewer"
+msgstr "Selokan"
+
+msgid "Fortress Main Key"
+msgstr "Benteng Kunci Utama"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Akses Kekunci 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Akses Teleporter Kunci 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "3 Kunci akses Teleporter"
+
+msgid "Laboratory"
+msgstr "Laboratorium"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "First Floor Kunci"
+
+msgid "Press Action to retrieve %s"
+msgstr "Tekan Aksi untuk memuat %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, ini baru."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Tidak terlihat seperti itu boleh menyakitiku sekalipun, tetapi hanya ada satu cara untuk mengetahuinya ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Angkat ini dikendalikan oleh tekanan yang pinggan, tapi aku tidak bisa berdiri di atasnya dan menggunakan lif pada saat yang sama"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Aku harus menemukan sesuatu yang lain untuk berdiri di pinggan tekanan bagi saya ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Kad ini kosong, aku harus menaruh beberapa Arahan di atasnya untuk membuatnya bisa digunakan."
+
+msgid "There's a plaque here"
+msgstr "Ada sebuah plakat di sini"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Tempatkan 4 patung dengan urutan yang benar"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Anda tidak akan dapat menemukan semua 4 patung di versi ini, jadi kembali lagi nanti!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Anda harus memiliki patung yang ingin anda gunakan inventaris anda disorot dalam peti"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Ada yang berlaku. Saya tidak berpikir itu urutan yang benar"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Lantai Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Arahan Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Arahan Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Arahan Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Arahan Kad # 4"
+
+msgid "Centurion Statue"
+msgstr "Patung perwira"
+
+msgid "Spider Statue"
+msgstr "Spider Patung"
+
+msgid "Tortoise Statue"
+msgstr "Patung kura-kura"
+
+msgid "Scorpion Statue"
+msgstr "Kalajengking Patung"
+
+msgid "A Blue Gem"
+msgstr "A Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Sebuah patung Centurion. Ini memiliki 2 kaki."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "A Purple Gem"
+
+msgid "A Red Gem"
+msgstr "Gem Merah"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Sebuah patung Scorpion. Ini mempunyai 6 kaki."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Sebuah patung Spider. Ini mempunyai 8 kaki."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Sebuah Spike Armadillo Ball. Akan menyerakkan lonjakan ketika dilempar."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Sebuah patung kura-kura. Itu mempunyai 4 kaki."
+
+msgid "A Tuning Fork"
+msgstr "A Tuning Fork"
+
+msgid "A chopped log"
+msgstr "A cincang log"
+
+msgid "Narrator"
+msgstr "Pencerita"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "It's a kuali. Maggie mempunyai satu saja seperti ini"
+
+msgid "Right, here goes!"
+msgstr "Benar, here goes!"
+
+msgid "I need all the main ingredients"
+msgstr "Saya perlu semua bahan utama"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer bola mata, 1 Merah Sludge tentakel dan perisai sandaran"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Saya juga perlu campuran bola mata dan sungut ke dalam cecair"
+
+msgid "This entire section is about monsters"
+msgstr "Kandungan bahagian ini adalah tentang monster"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Saya tidak punya alasan untuk membaca ini tapi aku akan menyimpannya dalam fikiran dalam kes saya"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hei wow, apa sebuah mesin kecil yang lucu!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "It's got sedikit slot di belakang itu. Kurasa aku memasukkan sesuatu di sana untuk membuatnya melakukan hal-hal"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Robot menggunakan kad Arahan untuk bergerak"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Guna Arahan untuk memandu robot untuk membuka daerah-daerah yang tidak dapat mengakses"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Namun, kerana anda tidak boleh membaca manual pada kad, anda perlu cuba mereka semua keluar sampai satu karya"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Jika robot tidak mencapai target, maka akan kembali ke posisi awal yang memungkinkan anda untuk mencuba lagi"
+
+msgid "Enter the directions"
+msgstr "Masukkan arah"
+
+msgid "Out of space for instructions"
+msgstr "Kehabisan Bilik untuk Arahan"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Saya perlu kad kosong untuk meletakkan penggunaan pada"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Mungkin ini bukan ide yang bagus selepas semua ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Memperoleh 3 Gazer Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Mendapatkan 1 Red Sludge tentakel"
+
+msgid "Find another shield"
+msgstr "Cari lain perisai"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blender bola mata dan sungut"
+
+msgid "Obtain a Fire Shield"
+msgstr "Memperoleh Fire Shield"
+
+msgid "More water?!"
+msgstr "Lebih air?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Saya tidak berpikir bisa berubah menjadi slime akan membantu saya di sini, kerana aku mungkin tidak bisa mendapatkan kembali selepas itu"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Aku harus mencari cara lain untuk mendapatkan turun"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Aku harus menemukan sesuatu untuk membantu saya mendapatkan di"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Aku tidak melihat ada lumpur di tambang ketika saya pergi untuk mendapatkan batubara borgan dan kalaupun ada saya tidak bisa kembali ke sana sejak saya rakit tenggelam"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Aku harus mencari lombong lain di sekitar sini ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Membuat es batu yang memperluaskan kenalan dengan air"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Sebuah botol mampu menangkap jiwa"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Cuba gunakan Mataeus's pisau terhadap dia ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Tidak dapat memuat %s. Inventaris penuh"
+
+msgid "Filling mine cart..."
+msgstr "Saya mengisi gerobak ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright 2009-2010 Parallel Realities"
+
+msgid "Out of arrows!"
+msgstr "Out of panah!"
+
+msgid "There's something moving around down there..."
+msgstr "Ada sesuatu yang bergerak di bawah sana ..."
+
+msgid "Good riddance..."
+msgstr "Baguslah ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, Déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Jika angkat rosak maka itu harus diatur ulang"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Ada 4 reset switch di sepanjang terowong lif yang harus diatur ulang"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Pastikan anda me-reset lif untuk mengelakkan perjalanan panjang kembali ke permukaan ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Mesin ini mempunyai slot yang berukuran sama dengan kad. Kurasa aku boleh menggunakannya untuk membuat Arahan baru."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Untuk membuat satu set Arahan yang anda harus memasukkan kad kosong"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Anda kemudian akan diminta untuk memasukkan penggunaan bagi robot untuk mengikuti. Hal ini dilakukan dengan cara yang sama seperti pintu urutan"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Bila anda telah selesai memasukkan manual, tekan Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Robot akan kemudian ikuti penggunaan pada kad"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Jika arah tidak benar anda boleh cuba lagi"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Tempat ini gila, sebaiknya aku buru-buru dan mendapati Dad sebelum aku akhirnya mendapatkan terbunuh!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Jadi, untuk mencipta Fire Shield aku harus mendapatkan Sludge Merah sungut"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Endapan merah tinggal di lombong jadi saya perlu mencari satu di sini"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Saya juga perlu sandaran perisai, tetapi aku rasa mesti ada kilang senjata di sekitar"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Gazer bola mata yang cukup mudah, aku bisa kembali ke ruangan bawah tanah"
+
+msgid "OK, off I go..."
+msgstr "OK, off aku pergi ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Anda tidak akan bisa mendapatkan alat peraba atau perisai dalam versi ini, jadi semak lagi nanti!"
+
+msgid "It's a portrait"
+msgstr "Ini potret"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Semangat itu tidak akan membiarkan aku masa lalu, aku harus mencari cara untuk menyingkir"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset switch membolehkan anda untuk menetapkan semula kedudukan benda pada peta"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Jika suatu benda menjadi tidak terjangkau maka anda boleh menggunakan switch untuk meletakkan kembali di tempat asalnya"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Sebuah botol dengan jiwa yang terperangkap di dalam"
+

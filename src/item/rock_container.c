@@ -50,7 +50,6 @@ Entity *addRockContainer(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &rotateAroundTarget;
 	e->action = &init;
 	e->touch = &touch;
 
@@ -177,8 +176,6 @@ static void rotateAroundTarget()
 
 	if (fabs(self->weight) >= 180)
 	{
-		printf("Rotation finished. Mental is %d. End is %f\n", self->mental, self->endX);
-		
 		self->endX = self->endX >= 170 && self->endX <= 190 ? 180 : 0;
 
 		self->weight = 0;

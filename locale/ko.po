@@ -1,0 +1,1744 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "신속하고 왼쪽으로 우회전 slimes 떨쳐 버려야!"
+
+msgid "Bow"
+msgstr "보우"
+
+msgid "Not working in this version!"
+msgstr "아니이 버전에서 일하고!"
+
+msgid "Press Action to interact"
+msgstr "보도 액션 상호 작용"
+
+msgid "%s is required"
+msgstr "%s이 필요합니다"
+
+msgid "Bomb"
+msgstr "폭탄"
+
+msgid "Small Rock"
+msgstr "작은 바위"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "보도 액션 보라색 보석 검색"
+
+msgid "Chicken"
+msgstr "닭"
+
+msgid "Tesla Pack"
+msgstr "테슬라 팩"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "보도 액션 테슬라 팩 검색"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "보도 액션 테슬라 팩 교체"
+
+msgid "Obtained %s"
+msgstr "%s 획득"
+
+msgid "Complete"
+msgstr "완료"
+
+msgid "%d more to go..."
+msgstr "%d 더 ..."
+
+msgid "Used %s"
+msgstr "%s 사용"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "상품 장착할 수없습니다 transmogrified 하다니"
+
+msgid "Equipped %s"
+msgstr "%s 탑재"
+
+msgid "Maximum health has increased!"
+msgstr "최대 건강을 증가하고있다!"
+
+msgid "Bow will now fire %s"
+msgstr "활 지금은 %s 불"
+
+msgid "A bow is required to use this item"
+msgstr "리본이 항목을 사용하는 데 필요합니다"
+
+msgid "Cannot transmogrify here..."
+msgstr "여기를 변하게 할 수 없잖아 .."
+
+msgid "Yes"
+msgstr "예"
+
+msgid "No"
+msgstr "아니오"
+
+msgid "Start a new game?"
+msgstr "새 게임을 시작?"
+
+msgid "Play the tutorial?"
+msgstr "플레이 튜토리얼?"
+
+msgid "Exit the game?"
+msgstr "종료 게임?"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "Game Loaded"
+msgstr "게임 로드됨"
+
+msgid "Game Saved"
+msgstr "저장된 게임"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "Any unsaved progress will be lost"
+msgstr "저장하지 않은 모든 진전이 손실됩니다"
+
+msgid "Joy Button #%d"
+msgstr "조이 버튼 # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "보도 액션 %s 이야기"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "새로운 목표 : %s"
+
+msgid "Objective Completed: %s"
+msgstr "목표 수료 : %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "오른쪽에 벽이 보이는데 ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "이 무기는 어떤 효과를 가지고 있지는 ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "보도 액션 테슬라 팩 첨부"
+
+msgid "The Legend of Edgar"
+msgstr "전설 에드거"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s이 스위치를 활성화가 필요합니다"
+
+msgid "Press Action to use this switch"
+msgstr "보도 액션이 스위치를 사용하려면"
+
+msgid "Press Action to save your game"
+msgstr "보도 액션 게임을하기 위해"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s 플레이트이 압력을 사용하는 데 필요합니다"
+
+msgid "%s is needed to open this door"
+msgstr "%s이 문을 열 필요하다"
+
+msgid "This door is locked"
+msgstr "이 문은 잠겨있습니다"
+
+msgid "This teleporter is not active"
+msgstr "이 teleporter 활성화되지 않습니다"
+
+msgid "Press Action to go to the %s"
+msgstr "보도 액션 %s로 이동"
+
+msgid "Push Up or Down to use this lift"
+msgstr "위로 또는 아래로 밀어이 리프트를 사용"
+
+msgid "This lift is not active"
+msgstr "이것은 허용이 활성화되지 않았습니다"
+
+msgid "Cannot carry any more %s"
+msgstr "모든 %s 이상 운반할 순"
+
+msgid "Picked up %s x %d"
+msgstr "%s x %d까지 왔는데"
+
+msgid "Picked up %s"
+msgstr "%s 가져 왔는데"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s이 항목을 수행하는 데 필요합니다"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "저장소 키"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "석탄 가방 스토리지 스위치 키"
+
+msgid "Large Room Key"
+msgstr "대형 객실 키"
+
+msgid "Coal Bag"
+msgstr "석탄 가방"
+
+msgid "Forest Cell Key"
+msgstr "산림 셀 키"
+
+msgid "Wood Axe"
+msgstr "우드 액스"
+
+msgid "Health Potion"
+msgstr "건강 물약"
+
+msgid "Outflow Key"
+msgstr "유출 키"
+
+msgid "Flow Control Key"
+msgstr "흐름 제어 키"
+
+msgid "Waste Processing Key"
+msgstr "폐기물 처리 키"
+
+msgid "Access Key 1"
+msgstr "액세스 키 1"
+
+msgid "Access Key 2"
+msgstr "액세스 키 2"
+
+msgid "Access Key 3"
+msgstr "액세스 키 3"
+
+msgid "Trap Door Switch Key"
+msgstr "트랩도어 스위치 키"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "동력이 들어있다. 내가 나올 때까지 전원을 복원 내가 그것을 사용할 수 없을 것입니다"
+
+msgid "Keep practising!"
+msgstr "계속 연습!"
+
+msgid "Hi"
+msgstr "안녕"
+
+msgid "Hello Edgar"
+msgstr "안녕하세요 에드거"
+
+msgid "Can I borrow your shield?"
+msgstr "당신의 방패를 빌릴 수 있을까요?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "끄기 귀하의 싸움 실력을 연습하는 겁니까?"
+
+msgid "Something like that"
+msgstr "그런 일이"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "만약 당신이 나한테 당신이 방어막을 가질 수있습니다 심부름"
+
+msgid "What do I have to do?"
+msgstr "내가 뭘 어떻게해야합니까?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "광산에 가서 좀 석탄 수집"
+
+msgid "But we have plenty of coal!"
+msgstr "하지만 우리는 많은 석탄을 가지고!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "네,하지만이 오래된 석탄이 아닌 특별한 석탄, 그것을 더 뜨거워 화상을 더 길게 ..."
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "난 단지, 그래서 아주 오래 걸리지 않을 물건의 10 가지 요소가 필요"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "반드시 가방에 너무 오랫동안 여러분의 건강에 나쁜 될 것이다 만질 넣어 확인"
+
+msgid "Do you have a bag?"
+msgstr "당신 가방을 가지고 있나요?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "아니, 당신은 아마 한 광산에서 찾을 수 있지만"
+
+msgid "OK, I'll get the coal"
+msgstr "좋아, 석탄을받을거야"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "자, 이걸 곡괭이 가져가라. 넌 내로 석탄을 사용하여 해킹 발생하는 모든 약한 벽을 뚫고"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "또한 광산에 들어가서이 열쇠가 필요합니다"
+
+msgid "Thanks!"
+msgstr "감사합니다!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr ", 에드거,이 석탄을 완벽 주셔서 감사합니다! 희망 박쥐 놀라게하지 않았다."
+
+msgid "The bats were the least of my worries..."
+msgstr "박쥐 내 걱정은 말고,가 ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "말해봐, 내가 뭔가가 내 안에 몇 년 전 일이 있었는지 들었어"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "어, 그래, 거기  사건을 뭐라고 부르는지됐다 ,하지만 내의 일부를 전 긴 시간이 봉인된 상태 였어요"
+
+msgid "Right..."
+msgstr "그래 ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "여기, 내 방패를 가지고 재미있게!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "그냥 물러서 자금성 늪지에서"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "그럴 게요, 제가 당신의 곡괭이로 동안 버텨낼 수 있을까요?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "물론이지, 그냥 한 조각에 그것을 가지고"
+
+msgid "Thanks, Borgan!"
+msgstr "고마워, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "당신은 석탄을 찾을 아직 안됐습니까?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "당신이 액션 버튼을 아래로 잡고 그들에게 대항 하다니 밀어 일부 항목 주위에 해낼 수있어."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "때까지 액션 버튼 가자 그러면 주위를 뽑을 수"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "이 바위가 너무 액스를 선택 제에 대한 강한 보인다. 난 이겨낼 뭔가를 사용해야하는거야 ..."
+
+msgid "Urgh, what happened?"
+msgstr "우어, 무슨 일이야?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "이처럼 보이는 그런 좋은 생각이 아니 었어 모든 후에"
+
+msgid "There must be way out of here..."
+msgstr "여기의 방법이 있어야합니다 .."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "이것은 석탄이 있어야합니다 그 사람에 대한 내 나를 원하는"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "내 방패 그 fireballs에서 날 보호해 줄거라고 생각하지 않습니다. 난 강해 하나를 찾아 야죠 ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "당신은이 버전에서는이 비트를해야만 나중에 다시 확인해 드릴 수없습니다!"
+
+msgid "Strange creature..."
+msgstr "짠지"
+
+msgid "Wait, what was that?"
+msgstr "잠깐, 무슨 소리죠?"
+
+msgid "You again?!"
+msgstr "또 너냐?!"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "주술사는 자신의 성으로 아버지가 촬영해야합니다. 내가 거기에서 그를 구출해야합니다."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "성의를 얻을 수있는 유일한 방법은 늪지를 통해 자금성 동쪽에있습니다."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "저기 마을과 늪 사이의 호수 그래서 이리로 건너 가야 뗏목을 필요가있을 것이다."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
+msgstr "나는 내 자신을 방어하는 검술과 방패가 필요합니다. 난 아무말도 할 수 이러한 생각을."
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "여기 뭔가 일이 생각이지만,이 버전에서 수행되므로 나중에 수표가 아니에요!"
+
+msgid "Have fun!"
+msgstr "재밌게 보내!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "내 병아리 resucing 주셔서 감사합니다, 당신은 내게 아직 숲에서 2 로그있어?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "에드거 감사합니다! 내 닭 뒤로 이러한 로그를 잘 내게 할 것입니다"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "이 검을 가지고 그것을 당신을 잘 섬길 수있습니다!"
+
+msgid "Thank you!"
+msgstr "감사합니다!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "로그 주셔서 감사합니다, 당신은 닭 운이 있었나요?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "만약 당신이 숲의 구조에서 로그 다진 날 2 좀 내가 칼을주지 3 내 닭 적어도"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "안녕하세요 에드거, 어떻게 내가 당신을 위해 오늘은 할 수 있습니까?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "내가 빌릴 수 칼을 가지고 있습니까?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "내가 칼을 가지고 할 경우에는 먼저 날 위해 뭔가를 당신이 그것을 가질 수있습니다"
+
+msgid "OK... what do I have to do?"
+msgstr "좋아요 .. 내가 뭘해야 하나요?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "일부 내 병아리들의 펜에서 탈출하고 난 아주 만약 제게 다시 그들을 얻을 수있을 것이라고 감사"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "난 그들의 펜을 근처에 몇 가지 함정을 설정, 당신은 함정이 닭 사료를 사용하여 그들을 꾀어 수있습니다. 내가 그들 모두를 필요하지 않지만 적어도 3 매우 도움이 될 것이다. 난 나머지 자신을 얻을 수있습니다."
+
+msgid "That's it?"
+msgstr "그게 다야?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "그렇진 않아. 당신은 날 숲에서 나무를 좀 가져다 드릴까요? 2 기록되어야 충분한"
+
+msgid "Do you have an axe?"
+msgstr "당신이 도끼를 가지고 있나요?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "음 .. 나는 숲 어딘가에 내 도끼를 왼쪽으로. 그것은 아직 거기에 있어야"
+
+msgid "Isn't that forest dangerous?"
+msgstr "숲에 위험하지 않나요?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "아니 정말, 만약 아무것도 방해가되면 그냥 무기를 함께했다"
+
+msgid "Such as an axe?"
+msgstr "도끼로 어떻 게요?"
+
+msgid "Yes, that would do the trick"
+msgstr "그래, 그 트릭을 할 것이라고"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "하지만 심각하게, 아무것도 거기에 정말 당신 한테 해를 끼칠 수있는. 그 문제는 오랜 시간 전에 처리되었습니다 ..."
+
+msgid "Good luck!"
+msgstr "행운을 빕니다!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "오, 감사합니다 에드거, 나는 단지 3이 필요하지만, 추가적인 도움을 주셔서 감사합니다!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "자, 매기 이거 건강에 약을 만들었지만, 나는 그래서 당신은 그것을해야 할 필요도 없어?"
+
+msgid "Thanks Jacob"
+msgstr "감사 야곱"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "와우, 당신 덕분에 많은 그들 모두를 잡았어요!"
+
+msgid "Here, I have these for you"
+msgstr "자, 당신이 가지고"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "매기는 날이 건강에 약을 만들었지만 그것을 가질 수있습니다"
+
+msgid "And this is something very special"
+msgstr "그리고 이건 아주 특별한입니다"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "5 월이 강한 전사가되기 위해 당신의 방법에 당신을 도울"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "당신은 내게 많은 시간을 구했어요. 매기는 좀 다른지만, 당신이 너무 도움이 필요했고, 당신은 그것을 할 수있습니다."
+
+msgid "Hi Maggie"
+msgstr "안녕, 매기"
+
+msgid "Thanks Maggie!"
+msgstr "감사합니다 매기!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan 그 광산의 섹션 후 밀봉했다  사건 "
+
+msgid "There must be something around here..."
+msgstr "여기 주위에 뭔가를해야합니다 .."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "분하다, 도개 교에서 최대이다. 다른 입구가 있어야합니다 ..."
+
+msgid "Wait, what's that?"
+msgstr "잠깐, 그게 뭔데?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "어쩌면 그럴 수 터널로 들어 오면서 ..."
+
+msgid "These machines aren't working."
+msgstr "이 기계는 작동하지 않습니다."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "이 구멍에 맞도록해야한다 보석처럼 보이는, 어쩌면 내가 좀 교체를 찾을 수있습니다."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "마치 단단히 거기에 끼여있는 것 같아요. 아마 곡괭이와 그것을 느슨하게 할 수 ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "자금성 늪지에 나는 뗏목을 빌드해야합니다 얻으려면."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "만약 숲에서 나무를 자르게 충분히 난 뗏목을 만들 수"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "나는 뗏목을 빌드 6 다진 로그 필요해"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "나는 검술과 방패없이 늪으로 않을거야"
+
+msgid "OK, here goes!"
+msgstr "좋아, 간다!"
+
+msgid "Aw, not again!"
+msgstr "아, 다시는 안돼!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "이것은 더 나은 내가해야 할 마지막 시간했다 .."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "그건 간단! 그리고 난 항상 나중에 다시 받으실 수있습니다!"
+
+msgid "Oh...."
+msgstr "아 ...."
+
+msgid "Guess I have no choice now."
+msgstr "난 지금 선택의 여지가 보군."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "잠깐 아빠, 나도 간다 ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "지금 뭔가해야 일이지만,이 버전에서 아니에요. 나중에 다시 확인해!"
+
+msgid "There's a note here"
+msgstr "저기 쪽지는 여기에 있어요"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "내가 여기서 뭐하고있는 영원처럼 보이에 대한 아래 갇혀 있었어"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "난 리프트 작업 3 액세스 키가 필요 여길 얻으려면"
+
+msgid "So far I have only found 1"
+msgstr "지금까지 제가 찾은 유일한 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "설상가상으로, 전 단지 신중하게 배치 화살표와 함께 몇 가지 스위치에 도달할 수"
+
+msgid "But spares aren't common and I have run out"
+msgstr "하지만 일반적인 여분없습니다 나는 밖으로 실행"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "만약 내가 곧 여기를 빠져나갈 길을 찾을 수가 없어, 난 굶어 죽을 수도 공포"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "만약 내가 여기의 나는 같은 운명을 고생 하겠지 나가지 않으면 ..."
+
+msgid "Oh, what's this?"
+msgstr "아,이게 뭐지?"
+
+msgid "There's a note here too"
+msgstr "저기 쪽지는 여기에도"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "약이 완벽해! Quaffing 그것이 켜집니다 괴물로 시간을 작은 금액에 대한 인간의"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "지금까지 난 내 자신을 변하게 할 수 있지만 하나의 생명체로 좀 더 많은 시간을 아무것도 가능해야합니다"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "저기 조금은, 그것을 마시는 안전해야하는데 좌회전"
+
+msgid "OK, here goes nothing..."
+msgstr "좋아, 여기에 아무것도 아니 구만 ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "우어! 이 끔찍한입니다!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan, 그래서이게 도움이 될 것입니다 날 Slimes 물 속에서 수영을 할 수 있지만 그렇게 말했 ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "때 점액로 변환하면 정상적으로 주위를 이동할 수있습니다. 당신은 또한 물 속에서 수영을 할 수 아래로 이동하려면 위쪽 및 사용"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "밀어 올려주는 경우 또는 표면 근처에있다면 당신은 물 밖으로 점프하게됩니다 점프"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "타이머 화면의 하단에 잘 감시해. 때 0에 도달하면 자동으로 다시 인간이 될 것입니다"
+
+msgid "This place doesn't look so bad..."
+msgstr "그렇게 나쁜 보이지 않는 이곳 ..."
+
+msgid "What was that?"
+msgstr "무슨 소리지?"
+
+msgid "Uh Oh..."
+msgstr "어 오 ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "휴, 거기서 나가셔서 기뻐요"
+
+msgid "Now to get through this swamp"
+msgstr "이제 이것을 통해서 습지를"
+
+msgid "Hey, what's this?"
+msgstr "이봐, 이건 뭐지?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "예쁜 것 같은데, 내가 노력 할게요에 무해한 스테핑"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "와우! 그거 멋진데! 이 기계 teleporter되어야합니다."
+
+msgid "I wonder if it works both ways..."
+msgstr "만약 두 가지 작품을 모르 겠네 ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "뿐만 아니라이 날 많이 걷는 저장하려고, 그것도 재미 부하입니다!"
+
+msgid "Now try out your shield"
+msgstr "이제 당신의 방패를 밖으로보십시오"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "블록 알약 공장에 의해 말다툼하고 다음 난간으로 뛰어 올라"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "게임에서 일부 항목을 강요 당할 수있습니다 당겼어"
+
+msgid "To push an item, simply walk into it"
+msgstr "단순히 그것으로 걸어 항목을 밀어"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "반면, 액션 내려 잡고 걸어 들어가 항목을 뽑아"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "액션 때까지 가자 그러면 주위 항목을 잘 해낼 수있어"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "저쪽에 다른 상자를 세워 및 난간에 도달하는 데 사용할"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "이 튜토리얼의 마지막 부분이며, 블록을 알려줄 것입니다 적을 공격"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "이후 그것은 곡괭이보다가 더 큰 피해를 더 많은 범위 첫째, 검을 장비해야한다"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "보도 z는, 귀하의 목록을 보려면 누르십시오 검을 강조 어택 () 또는 Ctrl 키를 사용하여 항목 (왼쪽)"
+
+msgid "Press z again to close your inventory"
+msgstr "보도 자료 목록을 다시 닫습니다 z는"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "때때로, 살해 원수, 그래서는 몇 초 후에 사라지고 건강을 드롭 다운됩니다 빨리 데리러!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "만약 당신에게 방망이를 닫습니다, 블록을 잡아지고 그것을 반사 냈을 것입니다 당신이"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "이제 모든 영역에서 박쥐를 죽여 버릴거야!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "그 경기에서 문의 두 종류가있습니다. 문을 수동 및 자동 도어."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "수동 문 열쇠를 열 필요, 자동 도어 스위치가 필요합니다."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "당신이 단순히 그것에 산책 열쇠가 잠긴 문을 엽니다. 필요가없습니다 열쇠 목록에서 선택한 것입니다."
+
+msgid "Open the door and continue to the right"
+msgstr "문을 열고 오른쪽으로 계속"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "축하! 이제 당신은 메인 게임을 시도해야 재생의 기초를 알고"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "만약 당신이 튜토리얼, 언론 탈출 메뉴에서 자습서를 선택 재생하려면"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "탈출의 주요 게임 언론 플레이하려면 메뉴에서 새 게임을 선택"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "보도 우주하면 다음 대화 상자로 이동 읽기 완료"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "또한 공격을 누르면 다음 대화 상자를 이동할 수있습니다 (), 블럭 (고도 왼쪽), 이동 (공백), 액션 Ctrl 키를 왼쪽 (C) 또는 사용하여 상품 ()"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "이 전설 에드거에 대한 튜토리얼입니다. 이 튜토리얼은 게임을 플레이하는 방법을 설명합니다."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "이 튜토리얼을 누르십시오 탈출 및 아래쪽 화살표 키를 옵션을 선택하면 최대를 사용하여 종료하십시오. 보도 자료로 돌아가기를 선택합니다."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "오른쪽, 왼쪽 화살표 키를 사용하여 이동할 수있습니다."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr ", 언론 공간을 도약합니다. 당신은 공기에서 점프하면 이동할 수있습니다."
+
+msgid "To interact with an item, press c"
+msgstr "항목과 상호 작용하려면 C 키를 눌러"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "액션 포인트를 누르십시오 C를 걸어"
+
+msgid "To collect an item from your"
+msgstr "에서 항목을 수집하려면"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "단순히 그것에 도보로 항목을 선택하십시오. 모든 수집 항목 목록에 추가됩니다."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "당신이 z는 누르면하여 목록의 내용을 볼 수있습니다"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "하다니 목록에서 항목을 보려면 화살표 키를 사용합니다."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "즉시 공격을 눌러 항목을 사용할 수있습니다 () 또는 Ctrl 키를 사용하여 항목 (왼쪽)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "블록을 눌러 사용하실 수있습니다 준비 물품 () 고도의 왼쪽이나 액션 (C)"
+
+msgid "Walk over the key to pick it up"
+msgstr "열쇠 걸어 그것을 데리러"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "당신은 탈출 눌러 메뉴에서 옵션을 선택하여 모든 게임에서 컨트롤의 변경하실 수있습니다"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "구성을 선택 컨트롤 화살표 키를 누르십시오를 사용로 돌아가기"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "화살표 키를 사용하여 변경하고 Enter 키를 누릅니다 원하는 컨트롤을 선택합니다."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "다음 키를 대신 사용하고자하는 키를 누릅니다."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "에 상관없이 어떤 열쇠를 선택하면, 항상 메뉴 화살표 키를 사용하여 이동할 수있습니다 돌아가기"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "이 튜토리얼은, 기본적으로 열쇠를 생각해야됩니다"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "당신이 열쇠를 구성, 내년 액션 오른쪽 점수 이동 완료"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "곡괭이 하나 게임에서 발생하는 많은 무기 중 하나입니다"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "둘 다 무기와 도구로 사용할 수있습니다"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "곡괭이 들고 옆에있는 액션 포인트를 계속"
+
+msgid "Congratulations, you found a secret!"
+msgstr "축하합니다, 당신은 비밀을 발견!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "저기 주요 경기에서 정말 그들을 위해 밖으로 보이는 많은 비밀 유지"
+
+msgid "Here's a hint to get you started"
+msgstr "여기에 당신이 얻을 수있는 힌트를 시작"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "비록 당신이 3만이 자신의 닭, 왜 그 사람에게 친절하게 공을 더 잡을 필요? 저기 10지도를 모두 헤매고있습니다"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "방어막이 가장 적을 공격으로부터 당신을 보호한다"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "어떤 적의 공격은 차단되지 않을 수있습니다"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "떨어지는 바위 등과 같은 환경 재해, 차단되지 않을 수있습니다"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "공격을 길게 누르면 블록을 차단하려면 () 고도 왼쪽."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "당신이 성공적으로 차단하는 공격에 직면해야합니다"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "당신이 차단 하다니 이동할 수없습니다, 그러나 당신은 다른 방법으로 얼굴을 수있습니다. 또한 공기를 차단할 수없습니다"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "방패를 들고 오른쪽으로 계속"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "이것은 약한 벽에 곡괭이를 사용하여 그것을 아래로 얻어맞는 될 수있습니다"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "곡괭이, 언론 공격을 사용하려면 () 왼쪽 Ctrl 키를"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "그 모든 약한 벽에 곡괭이를 사용하여 파괴되고있습니다"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "파괴 벽에 곡괭이 및 계속 사용"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "여기 뭔가가 있어야하지만이 버전에서, 나중에 다시 수표가 아니에요!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "석탄의 10 조각을 모아서"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "모아서 2 다진 로그"
+
+msgid "Rescue 3 Chickens"
+msgstr "구조 3 닭"
+
+msgid "Find 4 Gems"
+msgstr "4 보석 찾기"
+
+msgid "Repair Generators"
+msgstr "복구 생성기"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "모아서 6 다진 로그"
+
+msgid "Collect 3 Access Keys"
+msgstr "모아서 3 액세스 키"
+
+msgid "This is a blank objective"
+msgstr "이것은 빈 목적"
+
+msgid "Kill all Bats!"
+msgstr "모든 박쥐 죽여라!"
+
+msgid "Coal"
+msgstr "석탄"
+
+msgid "Chopped Log"
+msgstr "다진 로그인"
+
+msgid "Green Gem"
+msgstr "녹색 보석"
+
+msgid "Red Gem"
+msgstr "붉은 보석"
+
+msgid "Blue Gem"
+msgstr "블루 보석"
+
+msgid "Purple Gem"
+msgstr "보라색 보석"
+
+msgid "Teleporter Key"
+msgstr "Teleporter 키"
+
+msgid "New Game"
+msgstr "새로운 게임"
+
+msgid "Tutorial"
+msgstr "자습서"
+
+msgid "Load Game"
+msgstr "로드 게임"
+
+msgid "Options"
+msgstr "옵션"
+
+msgid "About"
+msgstr "정보"
+
+msgid "Quit"
+msgstr "종료"
+
+msgid "Configure Controls"
+msgstr "구성 제어"
+
+msgid "Configure Sound"
+msgstr "사운드 구성"
+
+msgid "Fullscreen"
+msgstr "전체 화면"
+
+msgid "Show Hints"
+msgstr "힌트보기"
+
+msgid "A potion which will transform you..."
+msgstr "어느 물약 변환됩니다 ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "매우 absorbant 미니어처 얼음 조각을 만듭니다"
+
+msgid "A potion which will restore all of your health"
+msgstr "모든 건강의 묘약을 복원하는 것입니다"
+
+msgid "A powerful bomb"
+msgstr "강력한 폭탄"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "물약 특정 적들이 어떤 렌더링"
+
+msgid "The eyeball from a Gazer"
+msgstr "Gazer의 눈알"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "테슬라 팩. 그것은 무료이다."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "소환의 지팡이. 그것은 인간에 의해 사용할 수없습니다."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "테슬라 팩. 그것은 완전히 충전됩니다."
+
+msgid "An empty potion bottle"
+msgstr "빈 물약 병"
+
+msgid "A bag of chicken feed"
+msgstr "닭고기 가방 피드"
+
+msgid "A bag suitable for carrying coal"
+msgstr "가방 석탄 운반에 적합"
+
+msgid "Basic Sword"
+msgstr "기본 검"
+
+msgid "A Sword given to you by Jacob"
+msgstr "소드 당신이 야곱에 의해 주어진"
+
+msgid "A bow"
+msgstr "나비"
+
+msgid "Small Wooden Shield"
+msgstr "작은 나무 방패"
+
+msgid "A small shield that provides basic protection"
+msgstr "기본 보호 기능을 제공 작은 방패"
+
+msgid "Normal Arrow"
+msgstr "일반 화살표"
+
+msgid "Normal Arrows"
+msgstr "일반 화살표"
+
+msgid "An axe suitable for chopping trees"
+msgstr "도끼로 나무를 베고에 적합"
+
+msgid "Pickaxe"
+msgstr "곡괭이"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "곡괭이 Borgan에 의해 당신에게 빌려줬"
+
+msgid "Fire Burner Key"
+msgstr "소방 버너 키"
+
+msgid "Potion Room Key"
+msgstr "물약 객실 키"
+
+msgid "Surge Passage Key"
+msgstr "서지 항로 키"
+
+msgid "Demolition Storage Key"
+msgstr "혁명 스토리지 키"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "어쨌든 그런 건 그것 발전기로부터 전력을 배출했고 나에 대한 사용했다."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "그래서 그 리프트가 작동하지 설명해 수도있습니다. 다른 drainers 치고 전력을 복원해야합니다."
+
+msgid "Defeat all Energy Drainers"
+msgstr "패배의 모든 에너지 Drainers"
+
+msgid "No Objectives"
+msgstr "아니 목표"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "보도 액션 퍼즐 블록으로 재설정"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "그것은 믹서기 것 같습니다. 뭔가 liquidise이 사용할 수"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "내가 약을 만들 레드 슬러지 촉수 3 Gazer Eyeballs 필요"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "난 아직도 약을 넣으려면 빈 병 필요해"
+
+msgid "So this is the Fortress."
+msgstr "그래서이 요새입니다."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "그것은 문을 많은처럼 보이는 다른 지역에서 납, 난 난 아무데도 갈데가되기 전에 적절한 주위를 둘러어야하는데 ..."
+
+msgid "Try hitting the skull..."
+msgstr "두개골에 타격 시도 ..."
+
+msgid "This machine is not active"
+msgstr "이 기계는 활성화되지 않습니다"
+
+msgid "Repeat the sequence"
+msgstr "반복 시퀀스"
+
+msgid "Correct Sequence"
+msgstr "정확한 시퀀스"
+
+msgid "Incorrect Sequence"
+msgstr "잘못된 시퀀스"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "전설 에드거 다음과 같은 오류가 발생했습니다"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "병렬 제발 현실이 오류 보고서"
+
+msgid "The game will now exit"
+msgstr "게임이 종료됩니다"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "그것은 믹서기 것 같습니다. 뭔가 liqudise이 사용할 수"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "이 Borgan 그를 위해 내하길 바라 석탄을해야합니다"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "그래서 그 리프트가 작동하지 설명해 수도있습니다. 다른 drainers 치고 여기에 전원을 복원해야합니다."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "내가 3 Gazer 눈, 1 레드 슬러지 촉수와 여분의 방패를 찾을 수 쉴드 화재 저항을 만들어야합니다"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "일단 내가 방패를 만드는 장소를 찾아야 할 겁니다 이러한 모든 항목을 발견했습니다"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "거기에 매혹적인 무기에 대해 책을 여기"
+
+msgid "Maybe I can create a shield..."
+msgstr "어쩌면 내가 방패를 만들 수있습니다 ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "검 ... 갑옷 .. Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "바보 같은 책을. 그것을 위해 거기 안 지수도 아니에요"
+
+msgid "Here we go: Shields"
+msgstr "간다 : 보호막"
+
+msgid "Shield of Fire Resistance"
+msgstr "쉴드 화재 저항"
+
+msgid "Ingredients"
+msgstr "성분"
+
+msgid "One must gather the following"
+msgstr "다음 중 하나를 수집합니다"
+
+msgid "The root of a Mandrake"
+msgstr "맨드 레이크의 루트"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Darsh의 지방 (3 개월 동안 서서 왼쪽)"
+
+msgid "Powered Condor bones"
+msgstr "전원 콘도르 뼈"
+
+msgid "3 eyes of the Gazer"
+msgstr "Gazer 3 눈"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "여성의 레드 슬러지에서 자른 촉수"
+
+msgid "The shield to apply the enchantment"
+msgstr "마법 방어막을 적용"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "부드러운 액체로 블렌드 Gazer 눈 및 슬러지 촉수"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "가마솥과 혼합 Gazer 눈 및 슬러지 촉수와 함께 혼합에 루트, 지방과 뼈는 추가"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "혼합되면 밝은 파란색, 방패를 추가 해제"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "제가 실험실에서 이러한 항목 그래서 그런 걱정은하지 않아도 많이 봤어요"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "그리고 Gazers 주위에 너무 문제가 아니라 지하에 달아"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "를 찾을 필요가 내가 무엇을 할 레드 슬러지이지만, 내가 어딨는지 모르겠어요"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "난 실험의 경우에 그래서 다른 사람을 찾아 야해 backfires 내 현재의 방패를 사용할 수없습니다"
+
+msgid "Hmmm..."
+msgstr "흠 ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "저기 묘약 방 또는 실험실 어디로 지방과 뼈는 그래서 그런 걱정은하지 않아도 뿌리를 찾을 수있을"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "귀하의 목록 상자에 강조를 사용하여 원하는 명령어 카드가 있어야합니다"
+
+msgid "Wow, a laboratory!"
+msgstr "와우, 실험실!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "내가 매기는 주문과 사랑의 묘약을보고, 어쩌면 내가 여기 내 자신의 만들 수있습니다!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "와우, 내가 너무 많은 책들이 한 장소에서 본 적이 없어!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "거기에 모든 주제에 대한 정보는 여기에,이 도움이 될 수 있어야합니다 ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "음, 공기, 나야 매기의 집을 보니 그녀가 주문을했습니다 청구 느낀다. 난 조심해야한다."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "오, 에드거, 당신을 다치게이야! 나에게 상처를 치유하자"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "난 다른 괴물이 무엇인지 궁금해. 나는 무작위 페이지를 데리러 갈게 ..."
+
+msgid "Gazer"
+msgstr "천문학자가"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers cycloptic 생물의 다양한 장소에서 발견 날고있습니다"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "그들의 하나의 눈을 이내 폐쇄되어 그들의 움직임에 대한 수중 음파 탐지기에 의존"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "그들은 육식 동물에 대한 피려하고 모두 먹이 냄새를 사용하여 자신의 유머 감각"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers 공격 (과)는 그것을보고도 그들의 눈을 부시게한다 열고 스스로를 방어하기"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "그러나이 공격하는 경우에만 피해자 Gazer 직면하고 효과적입니다"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Gazer의 눈알은 마법의 속성을 포함하고 마법의 일반적인 재료 준비입니다"
+
+msgid "Centurion, Grey"
+msgstr "센츄리, 그레이"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions 신비로운 생물, 일반적으로 sentries 또는 경비원으로 파견이 만들어집니다"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "비록 움직이고, 그들의 거대한 크기는 천천히하기만하면 어떤 방어를 통해들을 수있게 행진"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "무기 대신, 많은 사람들이 위협을 지상과 disorientate 악수하기 위해 사용하는 거대한 더미 드라이버"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "그러나 그레이 Centurions 레드 Centurions 알려져있다 바깥 경계, 경비 및 존재하는 아주 중요한 영역을 보호하기 위해 사용하는 데 사용됩니다"
+
+msgid "Splitter"
+msgstr "분배기"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "스플리터 해롭지 않는 괴물이 공격을합니다."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "그들은 2 년 분할되며 그들의 육식 동물의 공격은 크지만 너무 많이 손상되면"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "만약 하나 다시 한번 분리되며 이러한 공격을 지속적으로 격려하고 너무 많은 피해를"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "마지막으로, 마지막 분할에는 전혀 문제가 없을것입니다 그리고이 상태에서 아주 작은 버전을 생산할 예정이다 단순히 밟은 수있습니다"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "모든 부품이 아직 살아있어, 분배기 잠시 후 자체를 개혁하고 자사의 상처를 치유"
+
+msgid "Grub, Red"
+msgstr "삼류, 레드"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "레드 Grubs들의 녹색보다 적극적인 대응 그들은 위협적인 존재로보기도 공격"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "그들이 말벌에 누에고치와 Morph 형성 성숙에 도달시"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "그러나 일부 여왕 말벌에 Morph 것입니다. 이러한 왕비 점액 물질을 생산할 수있는 장소에서 먹이를 개최 할 수처럼"
+
+msgid "Tortoise, Master"
+msgstr "거북이, 마스터"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "마스터 거북됩니다 무서운 짐승. 그들은 자신의 능력을 가지고 머리를 변경하려면 발견에서 멀리 떨어진 땅"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "그들은 화재, 숨을 쉬기 위해 얼음을 만들고 자신을 깜짝 놀라게하다 자신의 사촌의 모든 능력을 결합하여"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "그리고 그들은 또한 일치하는 요소로부터 공격 먹힌다 물론, 에너지를 흡수하고 스스로 치유"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "만약 그들이 치유에서 너무 많은 에너지를 수신하지만, 또한, 그들은 진화와 총기 난사로 이동"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "이런 상태에서 그들은 어떤 방어를 통해 부술 것이다 암흑 물질이 그것을 만지는 아무것도 파괴 생산"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "그러나, rampaging 마스터 Tortoise의 껍질 매우 마법이고 필수적인 요소가 강한 Magics 항목 만들기"
+
+msgid "Venus Flytrap"
+msgstr "금성 파리통"
+
+msgid "Hoover, Pink"
+msgstr "후버, 핑크"
+
+msgid "Summoner, Dark"
+msgstr "소환, 암흑"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore 다른 차원의 생물입니다. 그것은 강력한 어둠의 마법을 사용하여 소환 수있습니다"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "이 짐승을 소환하는 가장 일반적인 이유는 보디가드 역할을하는 것입니다"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "거기에 있기 때문에 단순히 자신의 차원으로 돌아갑니다 중요한 부상을 입은시 Grimlore 죽일 알려진 방법입니다"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "그러나 그것은 기념비적인 작업이 부상을 당했다. 사람이 생명체가 발생 최대한 빨리 탈출 조언"
+
+msgid "Or they will die very quickly"
+msgstr "아니면 그들은 아주 빨리 죽을 것이다"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "아, 여기 괴물의 제요입니다"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 권! 어떻게 세상에는 너무 많은 괴물이 될 수 있습니까?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "그런듯 그들은 알파벳 순서에있어 비록"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "점액, 그린 ... 점액, 보라색 ... 슬러지, 그린 ..."
+
+msgid "Sludge, Red"
+msgstr "슬러지, 레드"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "사촌과 달리 자사의 녹색, 붉은 슬러지 깊은 거의 경우, 지하, 체류 표면"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "선호 서식지와 미네랄이 풍부한 지역과 건조의 결과로 인간에 의해 버려진 광산의 영역에서 숨어있는가 발견되었습니다"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "그들은 매우 인간을 경계하는 광경에, 대개는 증발 시간이 걸립니다 염산 최대 구토를 공격"
+
+msgid "Smacker, Lesser..."
+msgstr "입맛, 레서 ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "좋아요, 그게 전부라고 적혀있다. 내가 어떻게 구별해야할지 모르겠 남성과 여성. 난 단지 기회를 드릴께요 .."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "게다가, 왜 그런 일이 실제로 일어날 최악이야?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "에드거 오른쪽, 왼쪽 화살표 키를 사용하여 이동할 수있습니다."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "에드거 점프, 언론 공간을 확인하십시오. 당신은 공기에서 점프하면 이동할 수있습니다."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "비록 야곱 3만이 자신의 닭, 왜 그 사람에게 친절하게 공을 더 잡을 필요? 저기 10지도를 모두 헤매고있습니다"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "그 모든 약한 벽에 곡괭이를 사용하여 파괴 될 수있습니다"
+
+msgid "I've already checked, he's not down there..."
+msgstr "나는 이미 그가 거기 아니에요 ... 확인했습니다"
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "사람을 잘 떨어지는 전에, 아마 아빠가 거기에 들었어요 ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "아빠 !!!!! 당신은 거기 ?!!!!! 다운"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "없음. 내가 찾고 계속해야 겠군요"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "위로 또는 아래로 밀어 늘리거나 줄일 플랫폼"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "거기에 매혹적인 장비에 대한 책을 여기"
+
+msgid "It's a book about enchanting equipment"
+msgstr "그것은 매혹적인 장비에 대한 책이"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "하지만 난이 사건을 염두에두고 내가 어떻게 지킬 게요 읽고 어떤 이유가 없으니까요"
+
+msgid "I wonder what other monsters there are..."
+msgstr "난 다른 괴물이 무엇인지 궁금 .."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "일반 Summoners처럼, 어둠의 Summoners 다른 짐승들이 입찰을 할을 위해 전화주세요"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "또한 비록 그들이 상대로부터 탈출하는 짧은 거리를 텔레 포트 할 수"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "그들의 직원이 매우 마법 비록 인간에 의해 직접적으로 사용할 수 없으며, 그 마법의 속성 마법을 생성하는 데 사용됩니다"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "핑크 상당히 긴 주둥이와 작은 quadrupeds 수있습니다"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "주둥이의 기본 puropse 음식에 대한 침략하는 것입니다 그러나 그것은 또한 방어 메커니즘의 역할"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "베이에서 단순히 다른 곳으로 그들을 폭파하여 포식자를 유지 수있는 것보다 더있습니다"
+
+msgid "Venus Flytrap, mobile"
+msgstr "금성 파리통, 모바일"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "모바일 금성 Flytraps 그들의 음식보다는 이동을 위해 그것을 그들에게 오기를 기다리기를하실 수있습니다 뿌리를 발전시켜 왔습니다"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "목까지 올라오는 엄청난 탄성 및 위치 스냅인 수있는 그들의 먹이감에서 상당한 거리에 떨어져"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "그게 그렇게해야합니다. 다행히 그 하수구 기타 리프트 지금은 작동되어야합니다"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "이 리프트 작동하지 않습니다. 내가 나올 때까지 전원을 복원 내가 그것을 사용할 수 없을 것입니다"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "그건 내게 너무 유리 균열로 두꺼운 것, 내가 그것을 깜짝 놀라게 할 몇 가지 다른 방법을 찾아야 할거야 ..."
+
+msgid "Up"
+msgstr "위로"
+
+msgid "Down"
+msgstr "아래로"
+
+msgid "Left"
+msgstr "왼쪽"
+
+msgid "Right"
+msgstr "오른쪽"
+
+msgid "Jump"
+msgstr "점프"
+
+msgid "Attack"
+msgstr "공격"
+
+msgid "Block"
+msgstr "블록"
+
+msgid "Action"
+msgstr "액션"
+
+msgid "Use Item"
+msgstr "사용 항목"
+
+msgid "Previous Item"
+msgstr "이전 상품"
+
+msgid "Next Item"
+msgstr "다음 상품"
+
+msgid "Inventory"
+msgstr "재고"
+
+msgid "Pause"
+msgstr "일시 중지"
+
+msgid "Dead Zone"
+msgstr "데드존"
+
+msgid "Sound"
+msgstr "사운드"
+
+msgid "SFX Volume"
+msgstr "SFX 거래량"
+
+msgid "Music Volume"
+msgstr "음악 볼륨"
+
+msgid "Ice Spray"
+msgstr "아이스 스프레이"
+
+msgid "Library"
+msgstr "도서관"
+
+msgid "Right Wing Lift Key"
+msgstr "오른쪽 날개 키 허용"
+
+msgid "Mine Entrance Door Key"
+msgstr "광산 입구 키"
+
+msgid "Village"
+msgstr "마을"
+
+msgid "Cave"
+msgstr "동굴"
+
+msgid "Fortress Outskirts"
+msgstr "요새 외곽"
+
+msgid "Forbidden Swamp"
+msgstr "금단의 늪"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "하수 제한 구역 키"
+
+msgid "Basement"
+msgstr "지하"
+
+msgid "Fortress Ground Floor"
+msgstr "요새 지상 층"
+
+msgid "Sewer"
+msgstr "하수도"
+
+msgid "Fortress Main Key"
+msgstr "요새 기본 키"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter 액세스 키 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter 액세스 키 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter 액세스 키 3"
+
+msgid "Laboratory"
+msgstr "연구소"
+
+msgid "Empty Bottle"
+msgstr "비어있는 병"
+
+msgid "First Floor Key"
+msgstr "1 층 키"
+
+msgid "Press Action to retrieve %s"
+msgstr "보도 액션 %s 검색"
+
+msgid "Hmm, this is new."
+msgstr "흠,이 새로운있습니다."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "마치 그래도 날 해칠 수있는,하지만 보이지 않는 알아낼 유일한 방법은 ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "이 리프트는 압력 판에 의해 제어됩니다,하지만 난 그걸 참을 수가 없어 같은 시간에 리프트를 사용할 수"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "내가 나를 위해 압력을 접시에 서서 뭔가를 찾을거야 ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "이 카드는 비어있습니다, 내가 그것을 유용한 만드는 몇 가지 지침을 넣어야만합니다."
+
+msgid "There's a plaque here"
+msgstr "저기 여기 상패"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "올바른 순서로 4 동상 장소"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "이 버전에서 모두 4 동상을 찾을 수 있으므로 나중에 다시 올 수 없을 것입니다!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "귀하의 목록 상자에 강조를 사용하여 원하는 동상이 설치되어 있어야합니다"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "아무 일 없었어. 그 올바른 순서는 생각하지 마"
+
+msgid "Tuning Fork"
+msgstr "튜닝 포크"
+
+msgid "Second Floor Keycard"
+msgstr "2 층 카드"
+
+msgid "Instruction Card #1"
+msgstr "인스트럭션 카드 # 1"
+
+msgid "Instruction Card #2"
+msgstr "인스트럭션 카드 # 2"
+
+msgid "Instruction Card #3"
+msgstr "인스트럭션 카드 # 3"
+
+msgid "Instruction Card #4"
+msgstr "인스트럭션 카드 # 4"
+
+msgid "Centurion Statue"
+msgstr "센츄리 동상"
+
+msgid "Spider Statue"
+msgstr "거미 동상"
+
+msgid "Tortoise Statue"
+msgstr "거북이 동상"
+
+msgid "Scorpion Statue"
+msgstr "전갈 동상"
+
+msgid "A Blue Gem"
+msgstr "블루 보석"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "센츄리 온의 동상. 그것은 2 다리가있다."
+
+msgid "A Green Gem"
+msgstr "녹색 보석"
+
+msgid "A Purple Gem"
+msgstr "보라색 보석"
+
+msgid "A Red Gem"
+msgstr "붉은 보석"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "전갈의 동상. 그것은 6 다리가있다."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "스파이더맨의 동상. 그것은 8 개 다리가있다."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "아르마 딜로 스파이크 공. 스파이크를 할 때 던져 흩어 윌."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "거북이의 동상. 그건 다리 4 개가있다."
+
+msgid "A Tuning Fork"
+msgstr "튜닝 포크"
+
+msgid "A chopped log"
+msgstr "다진 로그"
+
+msgid "Narrator"
+msgstr "내레이터"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "그것은 가마솥의. 매기가 이렇게 하나있다"
+
+msgid "Right, here goes!"
+msgstr "좋아, 간다!"
+
+msgid "I need all the main ingredients"
+msgstr "모든 주요 재료가 필요"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer 대마초 1 레드 슬러지 촉수와 여분의 방패"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "나는 또한 촉수 액체로 시선을 조화 필요"
+
+msgid "This entire section is about monsters"
+msgstr "이것은 전체 섹션 괴물에 관한"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "내가 이걸 읽어하지만 난 마음에 사건에 내가 어떻게 지킬 게요 아무 이유 없어"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "안녕하세요 와우, 뭘 귀여운 기계!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "그것은 그것의 뒷면에 작은 슬롯이있어. 내가 거기에 그것을 다 할 수 있도록 뭔가를 집어 같아요"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "로봇은 주위를 이동하는 명령어 카드를 사용하여"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "로봇이 안내 지침을 사용하여 영역에 액세스할 수없습니다를 엽니다"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "그러나, 당신이 카드에 대한 지침을 읽을 수없습니다, 당신은 모두 하나의 작품을 때까지 시도해야한다"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "만약 로봇, 그때가 시작 위치로 다시 돌아올 수 있도록 노력 자사의 목표에 도달하지 않습니다"
+
+msgid "Enter the directions"
+msgstr "방향 입력"
+
+msgid "Out of space for instructions"
+msgstr "없음 지침을위한 공간"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "내가 지시를 넣으려면 빈 카드가 필요 한데요"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "어쩌면이 같은 좋은 생각이 아니 었어 모든 후에 ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "구하는 방법 3 Gazer 눈"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "구하는 방법 1 레드 슬러지 촉수"
+
+msgid "Find another shield"
+msgstr "또 방패를 찾기"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "혼합 눈알과 촉수"
+
+msgid "Obtain a Fire Shield"
+msgstr "구하는 화재 쉴드"
+
+msgid "More water?!"
+msgstr "더 많은 물도?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "이후 나중에 돌아갈 수 없을 수도있습니다 나는 점액으로 만들 수있게되는 날 도와 것, 생각하지 마"
+
+msgid "I'll have to find another way of getting across"
+msgstr "내가 전해야 다른 방법을 찾아야 할 겁니다"
+
+msgid "I'll have to find something to help me get across"
+msgstr "내가 건널 수 있도록 뭔가를 찾을거야"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "내가 Borgan의 석탄을하고 가서 광산에서 슬러지 보지 못했다하더라도 내 뗏목을 침몰 이후 언제 다시 갈 수 없어했다"
+
+msgid "I'll have to find another mine around here..."
+msgstr "여기 근처에 다른 내를 찾아 야죠 ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "물과 접촉을 확장하고 얼음 조각을 만듭니다"
+
+msgid "A bottle capable of capturing souls"
+msgstr "병 영혼을 포착 능력"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "그를 상대로 Mataeus의 나이프를 사용해보십시오 ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "최대 %s 선택할 수없습니다. 전체 재고"
+
+msgid "Filling mine cart..."
+msgstr "내 장바구니에 필링 ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "저작권 병렬 실제로 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "없음 화살!"
+
+msgid "There's something moving around down there..."
+msgstr "밑에 뭔가가 주위를 움직이고,이 ..."
+
+msgid "Good riddance..."
+msgstr "좋아 졌 ..."
+
+msgid "Huh, déjà vu..."
+msgstr "허, '데자부'..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "리프트 경우 순서는 다음 재설정해야합니다"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "저기 리프트 축을 따라 4 리셋 스위치가 재설정되어야합니다"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "리프트를 재설정 오랫동안 표면에 돌아올을 피하기 위해 반드시 ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "이 기계는 슬롯에 카드를 같은 크기로하고있다. 나는 새 지침을 작성하는 데 사용할 수있는 것 같아요."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "당신은 빈 카드를 삽입해야 할 지침을 새 세트를 만들려면"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "그런 다음 입력에 따라 로봇을위한 방향을하라는 메시지가 표시됩니다. 이 같은 방식으로 이루어집니다 같은 순서 문"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "때는 방향 키를 입력 완료 공격"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "로봇 후 카드에 지침을 따르십시오 것입니다"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "만약 당신이 방향을 다시 시도할 수있습니다 정확하지 않습니다"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "이 곳은, 내가 서두 르 는게 좋을거 미쳤어 찾아 아빠가 끝나기 전에 살해당하는!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "그래서, 그 화재 쉴드 난 레드 슬러지 촉수를 가지고 만들 수"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "레드 슬러지 광산 그래서 난이 근처에 하나를 찾아 없을것"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "또한 여분의 방어막이 필요하지만, 난 거기 무기고 주변에 있어야 이해할수"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Gazer 난거 쉬운 정도, 난 그냥 지하로 돌아갈 수있습니다"
+
+msgid "OK, off I go..."
+msgstr "좋아, 떨어져 가고 ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "이 버전의 촉수 또는 방패를 얻을, 그래서 나중에 다시 확인해 드릴 수없습니다!"
+
+msgid "It's a portrait"
+msgstr "그 초상화의"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "그 정신은 과거를 망치게 할 수는 없어, 난 없애하는 방법을 찾아야 할 겁니다"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "재설정하면지도상에 물체의 위치를 재설 정할 수 있도록 스위치"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "만약 개체를 누른 다음 다시 원래의 장소에 넣을 수있는 스위치를 사용하여 연결할 수없습니다됩니다"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "영혼 안에 갇혀와 병"
+
