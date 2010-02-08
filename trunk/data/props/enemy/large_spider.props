@@ -1,6 +1,6 @@
-HEALTH 50
+HEALTH 100
 DAMAGE 1
-GFX_FILE data/gfx/enemy/snail.dat
-ANIM_FILE data/anim/enemy/snail.dat
+GFX_FILE data/gfx/enemy/large_spider.dat
+ANIM_FILE data/anim/enemy/large_spider.dat
 TYPE ENEMY
-SPEED 1.5
+SPEED 2

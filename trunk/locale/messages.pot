@@ -1741,3 +1741,18 @@ msgstr ""
 
 msgid "A bottle with a soul trapped inside"
 msgstr ""
+
+msgid "Full Mine Cart"
+msgstr ""
+
+msgid "Processing Lift Key"
+msgstr ""
+
+msgid "Right Grabber Key"
+msgstr ""
+
+msgid "Left Grabber Key"
+msgstr ""
+
+msgid "Master Key"
+msgstr ""
