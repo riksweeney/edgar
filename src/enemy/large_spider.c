@@ -92,9 +92,11 @@ static void lookForPlayer()
 		{
 			self->thinkTime = 30;
 
-			self->dirX = 0;
+			/*self->dirX = 0;*/
 
 			self->action = &attack;
+			
+			self->action = &lookForPlayer;
 
 			facePlayer();
 		}
@@ -124,8 +126,6 @@ static void moveAndJump()
 	{
 		if (isGapJumpable() == TRUE)
 		{
-			self->thinkTime = 60;
-
 			self->action = &jumpOverGap;
 
 			setEntityAnimation(self, STAND);
@@ -133,8 +133,6 @@ static void moveAndJump()
 
 		else if (canDropDown() == FALSE)
 		{
-			printf("Cannot drop down\n");
-			
 			self->dirX = 0;
 		}
 	}
@@ -181,31 +179,21 @@ static void jumpUp()
 static void jumpOverGap()
 {
 	long onGround;
-
-	if (self->thinkTime > 0)
-	{
-		self->dirX = 0;
-
-		self->thinkTime--;
-	}
 	
-	else
+	self->dirX = (self->face == RIGHT ? 4 : -4);
+	
+	if (self->flags & ON_GROUND)
 	{
-		self->dirX = (self->face == RIGHT ? self->speed * 3 : -self->speed * 3);
-		
-		if (self->flags & ON_GROUND)
-		{
-			self->dirY = -JUMP_HEIGHT;
-		}
+		self->dirY = -JUMP_HEIGHT;
+	}
 
-		onGround = (self->flags & ON_GROUND);
+	onGround = (self->flags & ON_GROUND);
 
-		checkToMap(self);
+	checkToMap(self);
 
-		if (onGround == 0 && (self->flags & ON_GROUND))
-		{
-			self->action = &lookForPlayer;
-		}
+	if (onGround == 0 && (self->flags & ON_GROUND))
+	{
+		self->action = &lookForPlayer;
 	}
 }
 
@@ -262,25 +250,28 @@ static void webTouch(Entity *other)
 
 static int canJumpUp()
 {
-	int tile;
+	int tile, tile2, i;
 	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
 	int y = self->y + self->h - 1;
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-
-	y -= 4;
-
+	
 	x += self->face == LEFT ? -1 : 0;
-
-	tile = mapTileAt(x, y);
-
-	if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
+	
+	for (i=0;i<4;i++)
 	{
-		return FALSE;
+		tile = mapTileAt(x, y - (i + 1));
+		
+		tile2 = mapTileAt(x, y - i);
+
+		if (!(tile != BLANK_TILE && tile < BACKGROUND_TILE_START) && (tile2 != BLANK_TILE && tile2 < BACKGROUND_TILE_START))
+		{
+			return TRUE;
+		}
 	}
 
-	return TRUE;
+	return FALSE;
 }
 
 static int canDropDown()
@@ -315,7 +306,7 @@ int isGapJumpable()
 
 	y++;
 
-	x += self->face == LEFT ? -4 : 4;
+	x += self->face == LEFT ? -3 : 3;
 
 	tile = mapTileAt(x, y);
 
@@ -323,6 +314,6 @@ int isGapJumpable()
 	{
 		return TRUE;
 	}
-
+	
 	return FALSE;
 }
