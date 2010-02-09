@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../graphics/animation.h"
 #include "../enemy/enemies.h"
+#include "../item/item.h"
 #include "../entity.h"
 #include "../system/properties.h"
 #include "../player.h"
@@ -129,7 +130,7 @@ static void spawn()
 
 				distance = self->health == -2 ? getDistanceFromPlayer(self) : 0;
 
-				if (self->health == -1 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH + TILE_SIZE))
+				if (self->health == -1 || self->health == -3 || (self->health == -2 && distance > SCREEN_WIDTH && distance < SCREEN_WIDTH + TILE_SIZE))
 				{
 					if (strcmpignorecase(self->name, "common/decoration_spawner") == 0)
 					{
@@ -153,6 +154,15 @@ static void spawn()
 
 							e->y += (self->h - e->h) / 2;
 						}
+					}
+					
+					else if (strcmpignorecase(self->name, "common/item_spawner") == 0)
+					{
+						e = addPermanentItem(self->objectiveName, self->x, self->y);
+
+						e->x += (self->w - e->w) / 2;
+
+						e->face = self->face;
 					}
 
 					else
@@ -230,6 +240,11 @@ static void spawn()
 					}
 
 					self->thinkTime = self->maxThinkTime;
+					
+					if (self->health == -3)
+					{
+						self->active = FALSE;
+					}
 				}
 			}
 

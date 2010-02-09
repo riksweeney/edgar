@@ -248,10 +248,10 @@ void doCollisions()
 	}
 }
 
-Entity *checkEntityToEntity(Entity *e)
+void checkEntityToEntity(Entity *e)
 {
 	int i, j, x1, y1, x2, y2, w1, h1, w2, h2;
-	Entity *e1, *e2;
+	Entity *e1, *e2, *temp;
 	EntityList *list1, *list2;
 
 	for (i=0;i<GRID_MAX_Y;i++)
@@ -334,7 +334,13 @@ Entity *checkEntityToEntity(Entity *e)
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{
-								return e2;
+								temp = self;
+
+								self = e2;
+
+								self->touch(e1);
+
+								self = temp;
 							}
 						}
 					}
@@ -342,8 +348,6 @@ Entity *checkEntityToEntity(Entity *e)
 			}
 		}
 	}
-
-	return NULL;
 }
 
 Entity *isSpaceEmpty(Entity *e)

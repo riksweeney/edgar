@@ -114,7 +114,15 @@ static void call(int val)
 
 		if (strlen(self->objectiveName) != 0)
 		{
-			activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+			if (self->mental == -1)
+			{
+				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+			}
+			
+			else
+			{
+				activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+			}
 		}
 		
 		else

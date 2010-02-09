@@ -35,3 +35,5 @@ item/lava_geyzer
 item/iron_key
 item/crusher
 item/rock_pile
+enemy/small_boulder
+common/trap_door

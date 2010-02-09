@@ -1281,6 +1281,8 @@ static void playerDie()
 
 	player.health = 0;
 
+	player.flags &= ~NO_DRAW;
+
 	player.flags |= HELPLESS;
 
 	playerWeapon.flags &= ~(ATTACKING|FLY);
