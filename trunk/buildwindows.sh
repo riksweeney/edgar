@@ -70,6 +70,13 @@ cp icons/edgar.ico .
 
 mv windows.pak edgar.pak
 
+for f in `ls $APPDIR/locale/*.mo`; do \
+	FILE=`echo $f | cut -d'/' -f2 | cut -d'.' -f1`
+	echo "Moving $FILE.mo to locale/$FILE/edgar.mo"
+	mkdir -p locale/$FILE
+	mv locale/$FILE.mo locale/$FILE/edgar.mo
+done
+
 makensis install.nsi
 
 mv *.installer.exe ../edgar-$1-1.installer.exe

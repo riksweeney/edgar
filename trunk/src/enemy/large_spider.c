@@ -239,7 +239,7 @@ static void pounceAttack()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		checkToMap(self);
 	}
 
@@ -248,7 +248,7 @@ static void pounceAttack()
 		if (self->flags & ON_GROUND)
 		{
 			self->dirX = (self->face == RIGHT ? 6 : -6);
-			
+
 			self->dirY = -6;
 		}
 
@@ -286,17 +286,17 @@ static void takeDamage(Entity *other, int damage)
 	if (!(self->flags & INVULNERABLE))
 	{
 		entityTakeDamageNoFlinch(other, damage);
-		
+
 		/* Jump away in panic */
-		
-		if ((prand() % 3 == 0) && self->face == other->face)
+
+		if ((prand() % 3 == 0) && self->face == other->face && self->health > 0)
 		{
 			self->dirX = self->x < player.x ? -3 : 3;
 
 			self->dirY = -5;
-			
+
 			self->face = self->face == RIGHT ? LEFT : RIGHT;
-			
+
 			self->action = &panic;
 		}
 	}
@@ -305,11 +305,11 @@ static void takeDamage(Entity *other, int damage)
 static void panic()
 {
 	long onGround;
-	
+
 	onGround = self->flags & ON_GROUND;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->action = strcmpignorecase(self->name, "enemy/large_red_spider") == 0 ? &redLookForPlayer : &lookForPlayer;
@@ -448,6 +448,6 @@ static void pounceReactToBlock()
 	self->dirX = self->x < player.x ? -3 : 3;
 
 	self->dirY = -5;
-	
+
 	self->face = self->face == RIGHT ? LEFT : RIGHT;
 }

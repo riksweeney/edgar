@@ -106,6 +106,8 @@ static void wait()
 
 static void dropRock()
 {
+	Entity *temp;
+	
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~(HELPLESS|FLY);
@@ -121,6 +123,17 @@ static void dropRock()
 			self->target->damage = 100;
 
 			self->target->parent = self;
+		}
+		
+		else if (self->target->resumeNormalFunction != NULL)
+		{
+			temp = self;
+			
+			self = self->target;
+			
+			self->resumeNormalFunction();
+			
+			self = temp;
 		}
 
 		else
