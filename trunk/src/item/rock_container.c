@@ -67,12 +67,15 @@ static void init()
 	height = (self->endY - self->startY) * 2;
 
 	circ = PI * 2.0f * self->health;
-	/*
-	printf("Length is %f\n", circ + height);
-	printf("Speed is %f\n", self->speed);
+	
+	if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
+	{
+		printf("Length is %f\n", circ + height);
+		printf("Speed is %f\n", self->speed);
 
-	printf("Time to move is %f\n", (circ + height) / self->speed);
-	*/
+		printf("Time to move is %f\n", (height / self->speed) + (circ / (self->speed * 0.5)));
+	}
+	
 	if (self->thinkTime > 0)
 	{
 		self->weight = 0;

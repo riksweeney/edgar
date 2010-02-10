@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../graphics/animation.h"
 #include "../entity.h"
+#include "../custom_actions.h"
 #include "../collisions.h"
 #include "../player.h"
 #include "../projectile.h"
@@ -30,8 +31,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
+#include "../audio/audio.h"
 
-extern Entity *self, player;
+extern Entity *self, player, playerShield;
 
 static void jumpOverGap(void);
 static void lookForPlayer(void);
@@ -64,6 +66,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 	e->y = y;
 
 	e->action = strcmpignorecase(name, "enemy/large_red_spider") == 0 ? &redLookForPlayer : &lookForPlayer;
+	e->resumeNormalFunction = strcmpignorecase(name, "enemy/large_red_spider") == 0 ? &redLookForPlayer : &lookForPlayer;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
@@ -95,9 +98,13 @@ static void redLookForPlayer()
 	{
 		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
+			setEntityAnimation(self, STAND);
+			
 			self->thinkTime = 30;
 
 			self->dirX = 0;
+			
+			self->mental = 3;
 
 			self->action = &webAttack;
 
@@ -207,7 +214,7 @@ static void jumpUp()
 
 	if (onGround == 0 && (self->flags & ON_GROUND))
 	{
-		self->action = &lookForPlayer;
+		self->action = self->resumeNormalFunction;
 	}
 }
 
@@ -228,7 +235,7 @@ static void jumpOverGap()
 
 	if (onGround == 0 && (self->flags & ON_GROUND))
 	{
-		self->action = &lookForPlayer;
+		self->action = self->resumeNormalFunction;
 	}
 }
 
@@ -271,7 +278,7 @@ static void pounceAttack()
 
 			else
 			{
-				self->action = &lookForPlayer;
+				self->action = self->resumeNormalFunction;
 
 				self->reactToBlock = &changeDirection;
 
@@ -312,7 +319,7 @@ static void panic()
 
 	if (self->flags & ON_GROUND)
 	{
-		self->action = strcmpignorecase(self->name, "enemy/large_red_spider") == 0 ? &redLookForPlayer : &lookForPlayer;
+		self->action = self->resumeNormalFunction;
 	}
 }
 
@@ -326,9 +333,26 @@ static void webAttack()
 	{
 		self->thinkTime = 60;
 
-		e = addProjectile("large_spider/web", self, self->x, self->y + self->h / 2, 0, (self->face == LEFT ? -3 : 3));
+		e = addProjectile("misc/web", self, self->x, self->y + self->h / 2, (self->face == LEFT ? -8 : 8), 0);
+		
+		switch (self->mental)
+		{
+			case 3:
+				e->dirY = -0.1;
+			break;
+			
+			case 2:
+				e->dirY = 0.1;
+			break;
+			
+			default:
+				e->dirY = 0;
+			break;
+		}
 
 		e->x += self->face == LEFT ? -e->w : self->w;
+		
+		e->y -= e->h / 2;
 
 		e->flags |= FLY;
 
@@ -338,8 +362,12 @@ static void webAttack()
 		e->face = self->face;
 
 		setEntityAnimation(e, STAND);
+		
+		self->mental--;
+		
+		self->thinkTime = 15;
 
-		self->action = &webAttackFinished;
+		self->action = self->mental == 0 ? &webAttackFinished : &webAttack;
 	}
 }
 
@@ -351,7 +379,7 @@ static void webAttackFinished()
 	{
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
-		self->action = &lookForPlayer;
+		self->action = self->resumeNormalFunction;
 
 		self->thinkTime = 180;
 	}
@@ -361,7 +389,26 @@ static void webTouch(Entity *other)
 {
 	if (other->type == PLAYER && !(other->flags & WRAPPED) && !(other->flags & INVULNERABLE) && other->health > 0)
 	{
-		setPlayerWrapped(120);
+		if ((other->flags & BLOCKING) && ((self->dirX > 0 && player.face == LEFT) || (self->dirX < 0 && player.face == RIGHT)))
+		{
+			player.dirX = self->dirX < 0 ? -2 : 2;
+
+			checkToMap(&player);
+
+			setCustomAction(&player, &helpless, 2, 0, 0);
+
+			if (playerShield.thinkTime <= 0)
+			{
+				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+
+				playerShield.thinkTime = 5;
+			}
+		}
+		
+		else
+		{
+			setPlayerWrapped(120);
+		}
 
 		self->inUse = FALSE;
 	}

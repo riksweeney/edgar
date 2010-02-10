@@ -1891,7 +1891,6 @@ static void applyWebbing()
 	player.dirX = 0;
 
 	player.x = self->x + self->w / 2 - player.w / 2;
-	player.y = self->y + self->h / 2 - player.h / 2;
 
 	if (self->thinkTime <= 0 || player.health <= 0)
 	{
