@@ -362,18 +362,6 @@ msgstr ""
 msgid "You again?!"
 msgstr ""
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr ""
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr ""
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr ""
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr ""
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr ""
 
@@ -1755,4 +1743,22 @@ msgid "Left Grabber Key"
 msgstr ""
 
 msgid "Master Key"
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an "incident", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr ""
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr ""
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr ""
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an "incident""
 msgstr ""

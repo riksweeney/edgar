@@ -32,6 +32,7 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void init(void);
+static void resumeNormalFunction(void);
 
 Entity *addMineCart(int x, int y, char *name)
 {
@@ -54,6 +55,7 @@ Entity *addMineCart(int x, int y, char *name)
 	e->action = &init;
 	e->touch = &touch;
 	e->fallout = &itemFallout;
+	e->resumeNormalFunction = &resumeNormalFunction;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -67,6 +69,11 @@ static void init()
 	setEntityAnimation(self, self->health >= 6 ? WALK : STAND);
 	
 	self->action = &doNothing;
+}
+
+static void resumeNormalFunction()
+{
+	self->touch = &touch;
 }
 
 static void touch(Entity *other)

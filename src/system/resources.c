@@ -79,7 +79,7 @@ void loadRequiredResources()
 
 	/* Load the font */
 
-	game.font = loadFont("font/vera.ttf", 14);
+	game.font = loadFont("font/DejaVuSans.ttf", 14);
 }
 
 void freeLevelResources()
@@ -288,11 +288,11 @@ char *loadResources(char *buffer)
 		{
 			resourceType = PLAYER_INVENTORY;
 		}
-		
+
 		else if (strstr(line, "INVENTORY_INDEX") != NULL)
 		{
 			sscanf(line, "%*s %d", &startX);
-			
+
 			setInventoryIndex(startX);
 		}
 
@@ -668,15 +668,15 @@ void patchEntities(double versionFile, char *mapName)
 					{
 						STRNCPY(value, "", sizeof(value));
 					}
-					
+
 					setProperty(e, key, value);
 				}
 			}
-			
+
 			else if (strcmpignorecase(itemName, "UPDATE_ENTITY_BY_START") == 0 && skipping == FALSE)
 			{
 				read = sscanf(line, "%*s %d %d %s %s\n", &x, &y, key, value);
-				
+
 				if (strcmpignorecase(itemName, "PLAYER") == 0)
 				{
 					e = &player;
@@ -686,7 +686,7 @@ void patchEntities(double versionFile, char *mapName)
 				{
 					e = getEntityByStartXY(x, y);
 				}
-				
+
 				if (e != NULL)
 				{
 					setProperty(e, key, value);
