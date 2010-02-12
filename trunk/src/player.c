@@ -1842,8 +1842,6 @@ void setPlayerWrapped(int thinkTime)
 		becomeEdgar();
 	}
 
-	player.flags |= WRAPPED;
-
 	loadProperties("edgar/edgar_wrapped", e);
 
 	e->x = player.x + player.w / 2;
@@ -1868,6 +1866,8 @@ void setPlayerWrapped(int thinkTime)
 	player.dirX = 0;
 
 	setCustomAction(&player, &helpless, thinkTime, 0, 0);
+	
+	player.flags |= WRAPPED;
 
 	player.flags &= ~BLOCKING;
 
@@ -1884,6 +1884,9 @@ void setPlayerWrapped(int thinkTime)
 
 static void applyWebbing()
 {
+	int i;
+	Entity *e;
+	
 	self->thinkTime--;
 
 	self->face = player.face;
@@ -1894,9 +1897,24 @@ static void applyWebbing()
 
 	if (self->thinkTime <= 0 || player.health <= 0)
 	{
-		self->inUse = FALSE;
+		for (i=0;i<4;i++)
+		{
+			e = addTemporaryItem("common/web_piece", self->x, self->y, RIGHT, 0, 0);
 
-		player.element = NO_ELEMENT;
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
+
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimation(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+		}
+		
+		self->inUse = FALSE;
+		
+		player.flags &= ~WRAPPED;
 	}
 
 	checkToMap(self);
