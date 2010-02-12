@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../medal.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
@@ -29,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void fly(void);
 static void die(void);
@@ -37,6 +39,7 @@ static void dartDownInit(void);
 static void dartDown(void);
 static void dartDownFinish(void);
 static void dartReactToBlock(void);
+static void redBatFallout(void);
 
 Entity *addBat(int x, int y, char *name)
 {
@@ -60,6 +63,7 @@ Entity *addBat(int x, int y, char *name)
 	if (strcmpignorecase(name, "enemy/red_bat") == 0)
 	{
 		e->takeDamage = &entityTakeDamageNoFlinch;
+		e->fallout = &redBatFallout;
 	}
 
 	else
@@ -254,4 +258,17 @@ static void dartReactToBlock()
 	self->thinkTime = 60;
 
 	self->action = &dartDownFinish;
+}
+
+static void redBatFallout()
+{
+	if (self->environment != AIR)
+	{
+		game.batsDrowned++;
+
+		if (game.batsDrowned == 20)
+		{
+			addMedal("drown_bat");
+		}
+	}
 }

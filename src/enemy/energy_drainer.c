@@ -200,6 +200,11 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->damage = 0;
 
+			if (other->type == WEAPON || (other->type == PROJECTILE && other->parent->type == WEAPON))
+			{
+				increaseKillCount();
+			}
+
 			self->die();
 		}
 	}
@@ -280,7 +285,7 @@ static void die()
 	/* Drop between 1 and 3 arrows */
 
 	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-	
+
 	arrow->health = 1 + (prand() % 3);
 
 	entityDie();
@@ -428,11 +433,11 @@ static int beamDraw()
 				e->dirY /= 10;
 
 				e->thinkTime = 20 + (prand() % 30);
-				
+
 				e->health = 255;
-				
+
 				e->maxHealth = 0;
-				
+
 				e->mental = 255;
 			}
 		}
@@ -462,11 +467,11 @@ static int beamDraw()
 				e->dirY /= 10;
 
 				e->thinkTime = 20 + (prand() % 30);
-				
+
 				e->health = 255;
-				
+
 				e->maxHealth = 0;
-				
+
 				e->mental = 255;
 			}
 		}

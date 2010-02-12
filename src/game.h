@@ -41,3 +41,4 @@ void showSaveDialog(void);
 void pauseGameInventory(void);
 char *getPlayTimeAsString(void);
 void fadeFromWhite(void);
+void increaseKillCount(void);

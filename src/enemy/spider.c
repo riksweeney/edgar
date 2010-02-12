@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../game.h"
 
 extern Entity *self;
 
@@ -90,8 +91,10 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			increaseKillCount();
+
 			self->health -= damage;
-			
+
 			self->flags &= ~FLY;
 
 			self->dirY = -ITEM_JUMP_HEIGHT;
@@ -107,8 +110,10 @@ static void redTakeDamage(Entity *other, int damage)
 	{
 		if (damage >= self->health)
 		{
+			increaseKillCount();
+
 			self->health -= damage;
-			
+
 			self->flags &= ~FLY;
 
 			self->dirY = -ITEM_JUMP_HEIGHT;

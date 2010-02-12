@@ -213,6 +213,8 @@ static void redDie()
 	{
 		if (self->maxThinkTime == 4)
 		{
+			increaseKillCount();
+
 			entityDie();
 		}
 
@@ -456,7 +458,7 @@ static void fireDrop()
 
 				self->action = &fireBounce;
 			break;
-			
+
 			default:
 				self->inUse = FALSE;
 			break;
@@ -574,6 +576,8 @@ static void blueDie()
 	{
 		if (self->maxThinkTime == 4)
 		{
+			increaseKillCount();
+
 			entityDie();
 		}
 
@@ -1228,6 +1232,8 @@ static void yellowDie()
 	{
 		if (self->maxThinkTime == 4)
 		{
+			increaseKillCount();
+
 			entityDie();
 		}
 
@@ -1843,6 +1849,8 @@ static void greenDie()
 	{
 		if (self->maxThinkTime == 4)
 		{
+			increaseKillCount();
+
 			entityDie();
 		}
 

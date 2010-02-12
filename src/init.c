@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/random.h"
 #include "system/resources.h"
 #include "game.h"
+#include "medal.h"
 #include "system/record.h"
 #include "system/load_save.h"
 #include "audio/audio.h"
@@ -61,6 +62,16 @@ void init(char *title)
 	/* Load the settings */
 
 	loadConfig();
+
+	if (SDLNet_Init() < 0)
+	{
+		printf("Couldn't initialize SDL Net: %s\n", SDLNet_GetError());
+	}
+
+	else
+	{
+		initMedals();
+	}
 
 	if (game.fullscreen == TRUE)
 	{
@@ -150,6 +161,10 @@ void cleanup()
 	{
 		saveConfig();
 	}
+
+	/* Free the medal queue */
+
+	freeMedalQueue();
 
 	/* Free the Resources */
 

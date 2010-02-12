@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../hud.h"
 #include "../player.h"
+#include "../game.h"
 
 extern Entity *self, player;
 
@@ -190,7 +191,7 @@ static void throwBooks()
 		else
 		{
 			facePlayer();
-			
+
 			self->dirX = 0;
 		}
 	}
@@ -547,11 +548,11 @@ static void retreatToSkull()
 		self->thinkTime = 300;
 
 		self->target->maxThinkTime++;
-		
+
 		if (self->target->mental >= 1)
 		{
 			self->target->mental = 1;
-			
+
 			self->target->maxThinkTime = 0;
 		}
 
@@ -651,6 +652,8 @@ static void die()
 
 	STRNCPY(e->objectiveName, self->objectiveName, sizeof(e->objectiveName));
 
+	increaseKillCount();
+
 	entityDie();
 }
 
@@ -672,7 +675,7 @@ static void init()
 	{
 		self->action = &createBooks;
 	}
-	
+
 	else
 	{
 		self->action = &retreatToSkull;

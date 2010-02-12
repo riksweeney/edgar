@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "game.h"
+#include "medal.h"
 #include "weather.h"
 #include "graphics/font.h"
 #include "system/random.h"
@@ -67,6 +68,14 @@ void initGame()
 	game.drawMenu = &drawMainMenu;
 
 	game.shakeThinkTime = 0;
+
+	game.kills = 0;
+
+	game.batsDrowned = 0;
+
+	game.timesEaten = 0;
+
+	game.playTime = 0;
 
 	game.action = NULL;
 
@@ -771,5 +780,30 @@ static void fadeToNormal()
 		game.alphaSurface = NULL;
 
 		game.action = NULL;
+	}
+}
+
+void increaseKillCount()
+{
+	game.kills++;
+
+	if (game.kills == 100)
+	{
+		addMedal("kill_100");
+	}
+
+	else if (game.kills == 200)
+	{
+		addMedal("kill_200");
+	}
+
+	else if (game.kills == 500)
+	{
+		addMedal("kill_500");
+	}
+
+	else if (game.kills == 1000)
+	{
+		addMedal("kill_1000");
 	}
 }

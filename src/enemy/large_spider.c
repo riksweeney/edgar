@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../system/error.h"
 #include "../audio/audio.h"
+#include "../game.h"
 
 extern Entity *self, player, playerShield;
 
@@ -99,11 +100,11 @@ static void redLookForPlayer()
 		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			setEntityAnimation(self, STAND);
-			
+
 			self->thinkTime = 30;
 
 			self->dirX = 0;
-			
+
 			self->mental = 3;
 
 			self->action = &webAttack;
@@ -334,24 +335,24 @@ static void webAttack()
 		self->thinkTime = 60;
 
 		e = addProjectile("misc/web", self, self->x, self->y + self->h / 2, (self->face == LEFT ? -8 : 8), 0);
-		
+
 		switch (self->mental)
 		{
 			case 3:
 				e->dirY = -0.1;
 			break;
-			
+
 			case 2:
 				e->dirY = 0.1;
 			break;
-			
+
 			default:
 				e->dirY = 0;
 			break;
 		}
 
 		e->x += self->face == LEFT ? -e->w : self->w;
-		
+
 		e->y -= e->h / 2;
 
 		e->flags |= FLY;
@@ -362,9 +363,9 @@ static void webAttack()
 		e->face = self->face;
 
 		setEntityAnimation(e, STAND);
-		
+
 		self->mental--;
-		
+
 		self->thinkTime = 15;
 
 		self->action = self->mental == 0 ? &webAttackFinished : &webAttack;
@@ -404,7 +405,7 @@ static void webTouch(Entity *other)
 				playerShield.thinkTime = 5;
 			}
 		}
-		
+
 		else
 		{
 			setPlayerWrapped(120);
@@ -448,7 +449,7 @@ static int canDropDown()
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	for(j=0;j<3;j++)
 	{
 		for (i=0;i<8;i++)

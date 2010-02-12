@@ -28,9 +28,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../projectile.h"
 #include "../game.h"
+#include "../medal.h"
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void wait(void);
 static void init(void);
@@ -182,5 +184,12 @@ static void trapEntity(Entity *other)
 		self->action = &biteFinish;
 
 		self->touch = &touch;
+
+		game.timesEaten++;
+
+		if (game.timesEaten == 5)
+		{
+			addMedal("eaten_5");
+		}
 	}
 }

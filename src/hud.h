@@ -26,3 +26,4 @@ void freeMessageQueue(void);
 void initBossHealthBar(void);
 void freeBossHealthBar(void);
 void drawSpotlight(int, int);
+int showMedal(int, char *);

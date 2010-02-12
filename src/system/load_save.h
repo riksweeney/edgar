@@ -29,3 +29,4 @@ void newGame(void);
 char *getGameSavePath(void);
 char **getSaveFileIndex(void);
 void tutorial(void);
+int getPrivateKey(char *);

@@ -85,6 +85,7 @@ TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 8
 END
 IF Jacob HEALTH 13
@@ -95,6 +96,7 @@ TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 14
@@ -105,6 +107,7 @@ TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 3
 END
 IF Jacob HEALTH 15
@@ -112,6 +115,7 @@ TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 8
 END
 IF Jacob HEALTH 16
@@ -119,6 +123,7 @@ TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 17
@@ -126,5 +131,6 @@ TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
 ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
 TALK Jacob May this help you on your way to becoming a strong warrior
+ADD_MEDAL all_chickens
 SET Jacob HEALTH 3
 END

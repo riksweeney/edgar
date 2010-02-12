@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/animation.h"
 #include "system/properties.h"
 #include "map.h"
+#include "medal.h"
 #include "geometry.h"
 #include "inventory.h"
 #include "collisions.h"
@@ -1253,6 +1254,11 @@ void increasePlayerMaxHealth()
 	player.health = player.maxHealth;
 
 	setInfoBoxMessage(60, _("Maximum health has increased!"));
+
+	if (player.health == 10)
+	{
+		addMedal("10_hp");
+	}
 }
 
 void syncWeaponShieldToPlayer()
@@ -1866,7 +1872,7 @@ void setPlayerWrapped(int thinkTime)
 	player.dirX = 0;
 
 	setCustomAction(&player, &helpless, thinkTime, 0, 0);
-	
+
 	player.flags |= WRAPPED;
 
 	player.flags &= ~BLOCKING;
@@ -1886,7 +1892,7 @@ static void applyWebbing()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	self->face = player.face;
@@ -1911,9 +1917,9 @@ static void applyWebbing()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		self->inUse = FALSE;
-		
+
 		player.flags &= ~WRAPPED;
 	}
 

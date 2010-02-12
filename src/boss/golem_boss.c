@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../medal.h"
 #include "../enemy/enemies.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
@@ -69,7 +70,6 @@ static void stompShake(void);
 static void stompAttackFinish(void);
 static void attackFinished(void);
 static void stunnedTouch(Entity *);
-static void takeDamage(Entity *, int);
 static void die(void);
 static void dieFinish(void);
 static void throwRockStart(void);
@@ -478,6 +478,8 @@ static void takeDamage(Entity *other, int damage)
 				self->thinkTime = 300;
 			}
 		}
+
+		self->mental = 1;
 	}
 
 	else if (other->type == PROJECTILE && strcmpignorecase(other->name, "enemy/small_boulder") == 0)
@@ -767,6 +769,13 @@ static void dieFinish()
 
 		if (self->thinkTime <= 0)
 		{
+			if (self->mental == 0)
+			{
+				addMedal("golem_kill_grabbers");
+			}
+
+			increaseKillCount();
+
 			freeBossHealthBar();
 
 			e = addKeyItem("item/heart_container", self->x, self->y);

@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../game.h"
 
 extern Entity *self;
 
@@ -272,6 +273,13 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->damage = 0;
+
+			if (other->type == WEAPON || (other->type == PROJECTILE && other->parent->type == WEAPON))
+			{
+				increaseKillCount();
+			}
+
 			self->die();
 		}
 	}

@@ -1,3 +1,4 @@
+ADD_MEDAL enter_swamp
 TALK Edgar This place doesn't look so bad...
 WALK_TO Edgar 464 0 WAIT
 MUSIC FADE_DOWN 2000

@@ -17,37 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#include <ctype.h>
-#include <locale.h>
-#include <zlib.h>
-#include <dirent.h>
-#include <sys/types.h>
-#include <stdarg.h>
-#include <errno.h>
-
-#ifndef NO_GETTEXT
-	#include <libintl.h>
-#endif
-
-#ifndef WIN32
-	#include <sys/stat.h>
-	#include <pwd.h>
-	#include <unistd.h>
-	#include <errno.h>
-#else
-	#include "strtok_r.h"
-#endif
-
-#include "SDL/SDL.h"
-#include "SDL/SDL_endian.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_mixer.h"
-#include "SDL/SDL_ttf.h"
-#include "SDL/SDL_net.h"
-
-#include "structs.h"
+void initMedals(void);
+void addMedal(char *);
+void processMedals(void);
+void freeMedalQueue(void);
+void medalProcessingFinished(void);
