@@ -4,6 +4,8 @@ DEV = 0
 PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
+MEDAL_SERVER_HOST=www.parallelrealities.co.uk
+MEDAL_SERVER_PORT=80
 
 ifeq ($(OS),Windows_NT)
 PROG      = edgar.exe
@@ -34,16 +36,16 @@ DATA_DIR = $(PREFIX)/share/games/edgar/
 endif
 
 ifeq ($(DEV),1)
-CFLAGS = -Wall -g -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -Wall -g -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=\"$(MEDAL_SERVER_PORT)\"
 #CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 else
-CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=\"$(MEDAL_SERVER_PORT)\"
 endif
 
 ifeq ($(OS),Windows_NT)
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -llibintl -lm
+LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_net -lz -llibintl -lm
 else
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz
+LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_net -lz
 endif
 
 PAK_OBJS   = pak_creator.o
@@ -71,7 +73,7 @@ CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machin
 CORE_OBJS += error.o code_door.o code_display.o skull.o poltergiest.o book.o moveable_lift.o glass_wall.o spike_wall.o
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
 CORE_OBJS += thunder_cloud.o instruction_machine.o spirit.o black_book.o mataeus.o mataeus_wall.o mine_cart.o boulder_boss_2.o
-CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o
+CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o medal.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

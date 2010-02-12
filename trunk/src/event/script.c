@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../system/random.h"
 #include "../system/error.h"
+#include "../medal.h"
 
 extern Entity player, *self;
 extern Game game;
@@ -328,7 +329,7 @@ void readNextScriptLine()
 				script.requiredDepth++;
 			}
 		}
-		
+
 		else if (strcmpignorecase("WHILE", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
@@ -336,15 +337,15 @@ void readNextScriptLine()
 			if (strcmpignorecase(token, "EXISTS") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				e = getEntityByObjectiveName(token);
-				
+
 				if (e != NULL)
 				{
 					freeDialogBox();
 
 					script.thinkTime = 15;
-					
+
 					script.line--;
 				}
 			}
@@ -596,6 +597,13 @@ void readNextScriptLine()
 
 				loadMusic(token);
 			}
+		}
+
+		else if (strcmpignorecase("ADD_MEDAL", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			addMedal(token);
 		}
 
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)

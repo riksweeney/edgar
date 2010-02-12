@@ -970,6 +970,8 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
+		increaseKillCount();
+
 		freeBossHealthBar();
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);

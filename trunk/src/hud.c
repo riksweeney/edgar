@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "inventory.h"
 #include "graphics/font.h"
 #include "hud.h"
+#include "medal.h"
 #include "system/error.h"
 
 extern Game game;
@@ -45,9 +46,17 @@ void initHud()
 
 	hud.spotlight = loadImage("gfx/hud/spotlight.png");
 
+	hud.medalSurface[0] = loadImage("gfx/hud/bronze_medal.png");
+
+	hud.medalSurface[1] = loadImage("gfx/hud/silver_medal.png");
+
+	hud.medalSurface[2] = loadImage("gfx/hud/gold_medal.png");
+
 	messageHead.next = NULL;
 
 	hud.bossHealth = NULL;
+
+	hud.medalTextSurface = NULL;
 }
 
 void doHud()
@@ -57,6 +66,22 @@ void doHud()
 	if (hud.thinkTime <= 0)
 	{
 		hud.thinkTime = 60;
+	}
+
+	hud.medalThinkTime--;
+
+	if (hud.medalThinkTime <= 0)
+	{
+		if (hud.medalTextSurface != NULL)
+		{
+			SDL_FreeSurface(hud.medalTextSurface);
+
+			hud.medalTextSurface = NULL;
+
+			medalProcessingFinished();
+		}
+
+		hud.medalThinkTime = 0;
 	}
 
 	hud.infoMessage.thinkTime--;
@@ -173,6 +198,13 @@ void drawHud()
 
 		w += hud.heart->w + 5;
 	}
+
+	if (hud.medalTextSurface != NULL)
+	{
+		x = SCREEN_WIDTH - hud.medalTextSurface->w - 5;
+
+		drawImage(hud.medalTextSurface, x, 5, FALSE, 255);
+	}
 }
 
 void freeHud()
@@ -210,6 +242,13 @@ void freeHud()
 		SDL_FreeSurface(hud.infoMessage.surface);
 
 		hud.infoMessage.surface = NULL;
+	}
+
+	if (hud.medalTextSurface != NULL)
+	{
+		SDL_FreeSurface(hud.medalTextSurface);
+
+		hud.medalTextSurface = NULL;
 	}
 
 	freeMessageQueue();
@@ -335,4 +374,43 @@ void freeBossHealthBar()
 void drawSpotlight(int x, int y)
 {
 	drawImage(hud.spotlight, x, y, FALSE, 255);
+}
+
+int showMedal(int medalType, char *message)
+{
+	SDL_Surface *textSurface, *medalSurface;
+	SDL_Rect dest;
+
+	if (hud.medalTextSurface != NULL)
+	{
+		return FALSE;
+	}
+
+	medalType--;
+
+	textSurface = generateTextSurface(message, game.font, 0, 220, 0, 0, 0, 0);
+
+	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 8, MAX(textSurface->h, hud.medalSurface[medalType]->h));
+
+	dest.x = 0;
+	dest.y = 0;
+	dest.w = hud.medalSurface[medalType]->w;
+	dest.h = hud.medalSurface[medalType]->h;
+
+	SDL_BlitSurface(hud.medalSurface[medalType], NULL, medalSurface, &dest);
+
+	dest.x = hud.medalSurface[medalType]->w + 8;
+	dest.y = 0;
+	dest.w = textSurface->w;
+	dest.h = textSurface->h;
+
+	SDL_BlitSurface(textSurface, NULL, medalSurface, &dest);
+
+	hud.medalTextSurface = addBorder(medalSurface, 255, 255, 255, 0, 0, 0);
+
+	hud.medalThinkTime = 120;
+
+	SDL_FreeSurface(textSurface);
+
+	return TRUE;
 }

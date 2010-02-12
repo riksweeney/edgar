@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "geometry.h"
 #include "hud.h"
 #include "system/error.h"
+#include "game.h"
 
 static int entityIndex = 0;
 extern Entity *self, entity[MAX_ENTITIES];
@@ -611,6 +612,11 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 		{
 			self->damage = 0;
 
+			if (other->type == WEAPON || (other->type == PROJECTILE && other->parent->type == WEAPON))
+			{
+				increaseKillCount();
+			}
+
 			self->die();
 		}
 	}
@@ -652,6 +658,11 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 		else
 		{
 			self->damage = 0;
+
+			if (other->type == WEAPON || (other->type == PROJECTILE && other->parent->type == WEAPON))
+			{
+				increaseKillCount();
+			}
 
 			self->die();
 		}

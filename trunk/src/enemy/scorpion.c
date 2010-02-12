@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../geometry.h"
 #include "../system/error.h"
+#include "../game.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -88,15 +89,15 @@ static void addClaw()
 	e->draw = &drawLoopingAnimationToMap;
 	e->pain = NULL;
 	e->touch = NULL;
-	
+
 	e->head = self;
 
 	e->type = ENEMY;
-	
+
 	e->flags |= ATTACKING;
 
 	setEntityAnimation(e, STAND);
-	
+
 	self->action = &lookForPlayer;
 }
 
@@ -107,7 +108,7 @@ static void takeDamage(Entity *other, int damage)
 	if (other->type == WEAPON && self->action != &attack && self->health > 0)
 	{
 		self->action = &attack;
-		
+
 		facePlayer();
 	}
 }
@@ -151,7 +152,7 @@ static void attack()
 		setEntityAnimation(self, STAND);
 
 		move = prand() % 3;
-		
+
 		self->mental = 1;
 
 		switch (move)
@@ -171,7 +172,7 @@ static void attack()
 	facePlayer();
 
 	checkToMap(self);
-	
+
 	if (isAtEdge(self) == TRUE)
 	{
 		self->action = &lookForPlayer;
@@ -181,15 +182,15 @@ static void attack()
 static void clawAttack()
 {
 	self->dirX = 0;
-	
+
 	setEntityAnimation(self, ATTACK_1);
 
 	self->flags |= ATTACKING;
-	
+
 	self->thinkTime = 60;
-	
+
 	checkToMap(self);
-	
+
 	if (self->mental == 2)
 	{
 		self->action = &attackFinished;
@@ -208,68 +209,68 @@ static void stingAttack()
 static void attackFinished()
 {
 	self->mental = 0;
-	
+
 	self->thinkTime--;
-	
+
 	self->dirX = 0;
 
 	setEntityAnimation(self, STAND);
 
 	self->flags &= ~(UNBLOCKABLE|ATTACKING);
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &attack;
 		}
-	
+
 		else
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
-			
+
 			self->action = &lookForPlayer;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static void clawWait()
 {
 	self->face = self->head->face;
-	
+
 	if (self->head->health <= 0)
 	{
 		entityDieNoDrop();
 	}
-	
+
 	else
 	{
 		if (self->head->mental == 1)
 		{
 			self->touch = &entityTouch;
-			
+
 			self->animationCallback = &clawAttackFinished;
-			
+
 			self->dirX = self->face == LEFT ? -4 : 4;
 		}
 	}
-	
+
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	if (self->face == LEFT)
 	{
 		self->x = self->head->x + self->head->w - self->w - self->offsetX;
 	}
-	
+
 	else
 	{
 		self->x = self->head->x + self->offsetX;
 	}
-	
+
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->flags & FLASH)
 	{
 		self->flags |= FLASH;
@@ -284,6 +285,6 @@ static void clawWait()
 static void clawAttackFinished()
 {
 	self->touch = NULL;
-	
+
 	self->head->mental = 2;
 }

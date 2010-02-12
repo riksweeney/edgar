@@ -218,7 +218,7 @@ static void doIntro()
 static void reform()
 {
 	checkToMap(self);
-	
+
 	if (outOfBounds(self) == TRUE)
 	{
 		self->x = self->targetX;
@@ -767,7 +767,7 @@ static void eatExplode()
 		e->type = ENEMY;
 
 		e->targetX = t->x;
-		
+
 		e->targetY = t->y;
 
 		self->startX++;
@@ -1059,7 +1059,7 @@ static void takeDamage(Entity *other, int damage)
 			self->health -= damage;
 
 			self->thinkTime = 120;
-			
+
 			setCustomAction(self, &invulnerableNoFlash, 120, 0, 0);
 
 			self->startX = self->x;
@@ -1223,7 +1223,7 @@ static void splitAttackInit()
 		e->thinkTime = 60;
 
 		e->targetX = t->x;
-		
+
 		e->targetY = t->y;
 	}
 
@@ -1256,7 +1256,7 @@ static void partDie()
 static void partAttack()
 {
 	long onGround = (self->flags & ON_GROUND);
-	
+
 	if (outOfBounds(self) == TRUE)
 	{
 		self->x = self->targetX;
@@ -1431,7 +1431,7 @@ static void partWait()
 	{
 		self->dirX = 0;
 	}
-	
+
 	if (outOfBounds(self) == TRUE)
 	{
 		self->x = self->targetX;
@@ -1767,6 +1767,8 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
+		increaseKillCount();
+
 		freeBossHealthBar();
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);

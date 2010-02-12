@@ -27,8 +27,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../medal.h"
 
 extern Entity *self;
+extern Game game;
 
 static void floatUpAndDown(void);
 static void snapShut(void);
@@ -157,6 +159,13 @@ static void trap(Entity *other)
 		if (other->health == 1)
 		{
 			self->health = 5;
+		}
+
+		game.timesEaten++;
+
+		if (game.timesEaten == 5)
+		{
+			addMedal("eaten_5");
 		}
 	}
 }

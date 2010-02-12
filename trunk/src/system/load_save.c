@@ -125,8 +125,6 @@ void newGame()
 	initGame();
 
 	cameraSnapToTargetEntity();
-
-	game.playTime = 0;
 }
 
 void tutorial()
@@ -200,6 +198,21 @@ int loadGame(int slot)
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %ld\n", &game.playTime);
+		}
+
+		else if (strcmpignorecase("PLAYER_KILLS", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.kills);
+		}
+
+		else if (strcmpignorecase("BATS_DROWNED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.batsDrowned);
+		}
+
+		else if (strcmpignorecase("TIMES_EATEN", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.timesEaten);
 		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
@@ -389,6 +402,12 @@ static void patchSaveGame(char *saveFile, double version)
 
 					fprintf(newSave, "PLAY_TIME %ld\n", game.playTime);
 
+					fprintf(newSave, "PLAYER_KILLS %d\n", game.kills);
+
+					fprintf(newSave, "BATS_DROWNED %d\n", game.batsDrowned);
+
+					fprintf(newSave, "TIMES_EATEN %d\n", game.timesEaten);
+
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
 					savedLocation = TRUE;
@@ -475,6 +494,12 @@ void saveGame(int slot)
 	fprintf(write, "VERSION %0.2f\n", VERSION);
 
 	fprintf(write, "PLAY_TIME %ld\n", game.playTime);
+
+	fprintf(write, "PLAYER_KILLS %d\n", game.kills);
+
+	fprintf(write, "BATS_DROWNED %d\n", game.batsDrowned);
+
+	fprintf(write, "TIMES_EATEN %d\n", game.timesEaten);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
@@ -567,7 +592,7 @@ void saveGame(int slot)
 	writePlayerToFile(write);
 
 	printf("Writing player inventory\n");
-	
+
 	fprintf(write, "INVENTORY_INDEX %d\n", getInventoryIndex());
 
 	fprintf(write, "PLAYER_INVENTORY\n");
@@ -1082,4 +1107,29 @@ char **getSaveFileIndex()
 	fclose(fp);
 
 	return entries;
+}
+
+int getPrivateKey(char *privateKey)
+{
+	char keyPath[MAX_PATH_LENGTH];
+	FILE *fp;
+
+	snprintf(keyPath, MAX_PATH_LENGTH, "%smedalKey", gameSavePath);
+
+	printf("Loading private key from %s\n", keyPath);
+
+	fp = fopen(keyPath, "rb");
+
+	if (fp == NULL)
+	{
+		printf("No private key found for medal server\n");
+
+		return FALSE;
+	}
+
+	fscanf(fp, "%s", privateKey);
+
+	fclose(fp);
+
+	return TRUE;
 }

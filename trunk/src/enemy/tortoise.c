@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../game.h"
 
 extern Entity *self;
 
@@ -374,6 +375,8 @@ static void takeDamage(Entity *other, int damage)
 			{
 				self->damage = 0;
 
+				increaseKillCount();
+
 				self->die();
 			}
 		}
@@ -386,7 +389,7 @@ static void doElectricity()
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	self->x = self->target->x + self->target->w / 2 - self->w / 2;
 	self->y = self->target->y + self->target->h - self->h;
 }

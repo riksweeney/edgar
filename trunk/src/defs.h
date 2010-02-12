@@ -163,11 +163,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 		#undef PAK_FILE
 	#endif
 
+	#ifdef MEDAL_SERVER_HOST
+		#undef MEDAL_SERVER_HOST
+	#endif
+
+	#ifdef MEDAL_SERVER_PORT
+		#undef MEDAL_SERVER_PORT
+	#endif
+
 	#define INSTALL_PATH ""
 
 	#define LOCALE_DIR "locale/"
 
 	#define PAK_FILE "data.pak"
+
+	#define MEDAL_SERVER_HOST "reddwarf"
+
+	#define MEDAL_SERVER_PORT 80
 #endif
 
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
