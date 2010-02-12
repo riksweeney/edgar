@@ -31,6 +31,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void crush(void);
+static void touch(Entity *);
+static void armWait(void);
+static int drawArm(void);
+static void createArm(void);
+static void init(void);
 
 Entity *addCrusher(int x, int y, char *name)
 {
@@ -50,14 +55,47 @@ Entity *addCrusher(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &crush;
-	e->touch = &entityTouch;
+	e->action = &init;
+	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void touch(Entity *other)
+{
+	Entity *temp;
+	
+	/* Injure enemies as well as player */
+
+	if (other->type == ENEMY)
+	{
+		if (other->takeDamage != NULL && !(other->flags & INVULNERABLE))
+		{
+			temp = self;
+
+			self = other;
+
+			self->takeDamage(temp, 10);
+
+			self = temp;
+		}
+	}
+
+	else
+	{
+		entityTouch(other);
+	}
+}
+
+static void init()
+{
+	createArm();
+	
+	self->action = &crush;
 }
 
 static void crush()
@@ -97,4 +135,54 @@ static void crush()
 			self->thinkTime = self->maxThinkTime;
 		}
 	}
+}
+
+static void createArm()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Crusher Arm");
+	}
+
+	loadProperties("item/crusher_arm", e);
+
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &armWait;
+
+	e->draw = &drawArm;
+
+	e->head = self;
+
+	setEntityAnimation(e, STAND);
+}
+
+static void armWait()
+{
+	checkToMap(self);
+
+	self->x = self->head->x;
+	self->y = self->head->y - self->h;
+}
+
+static int drawArm()
+{
+	int y;
+	
+	y = self->head->startY - self->h * 2;
+	
+	drawLoopingAnimationToMap();
+
+	while (self->y >= y)
+	{
+		drawSpriteToMap();
+
+		self->y -= self->h;
+	}
+
+	return TRUE;
 }

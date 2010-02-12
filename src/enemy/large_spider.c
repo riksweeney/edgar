@@ -442,25 +442,28 @@ static int canJumpUp()
 
 static int canDropDown()
 {
-	int tile, i;
+	int tile, i, j;
 	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
 	int y = self->y + self->h - 1;
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-
-	for (i=0;i<8;i++)
+	
+	for(j=0;j<3;j++)
 	{
-		tile = mapTileAt(x, y + i);
-
-		if (tile >= WATER_TILE_START)
+		for (i=0;i<8;i++)
 		{
-			return FALSE;
-		}
+			tile = mapTileAt(x + (self->face == LEFT ? -j : j), y + i);
 
-		if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
-		{
-			return TRUE;
+			if (tile >= WATER_TILE_START)
+			{
+				break;
+			}
+
+			if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
+			{
+				return TRUE;
+			}
 		}
 	}
 

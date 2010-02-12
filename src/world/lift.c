@@ -215,8 +215,6 @@ static void findTarget(int val)
 
 		else
 		{
-			printf("Failed to find target\n");
-
 			self->health -= val;
 		}
 	}
