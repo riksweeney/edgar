@@ -37,3 +37,6 @@ item/crusher
 item/rock_pile
 enemy/small_boulder
 common/trap_door
+item/scale
+weapon/bow
+item/health_potion

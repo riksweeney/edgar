@@ -390,13 +390,13 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
-	int y1, y2;
+	int y1, y2, xr;
 	int color = SDL_MapRGB(game.screen->format, r, g, b);
 	SDL_Rect rect;
 
 	for (y1=-radius,y2=radius;y1;++y1,--y2)
 	{
-		int xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
+		xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
 
 		rect.x = x - xr;
 		rect.y = y + y1;
@@ -421,7 +421,7 @@ void drawCircle(int x, int y, int radius, int r, int g, int b)
 
 void drawCircleFromSurface(int x, int y, int radius)
 {
-	int y1, y2;
+	int y1, y2, xr;
 	SDL_Rect src, dest;
 
 	game.tempSurface = createSurface(game.screen->w, game.screen->h);
@@ -432,7 +432,7 @@ void drawCircleFromSurface(int x, int y, int radius)
 
 	for (y1=-radius,y2=radius;y1;++y1,--y2)
 	{
-		int xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
+		xr = (int)(sqrt(radius * radius - y1 * y1) + 0.5);
 
 		src.x = x - xr;
 		src.y = y + y1;

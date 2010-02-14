@@ -259,8 +259,8 @@ static void loadGameInSlot()
 		freeMessageQueue();
 
 		setInfoBoxMessage(60, _("Game Loaded"));
-
-		initGame();
+		
+		game.paused = FALSE;
 	}
 }
 

@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
+#include "audio/audio.h"
 #include "graphics/animation.h"
 #include "graphics/graphics.h"
 #include "inventory.h"
@@ -390,16 +391,16 @@ int showMedal(int medalType, char *message)
 
 	textSurface = generateTextSurface(message, game.font, 0, 220, 0, 0, 0, 0);
 
-	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 8, MAX(textSurface->h, hud.medalSurface[medalType]->h));
+	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h));
 
-	dest.x = 0;
+	dest.x = 5;
 	dest.y = 0;
 	dest.w = hud.medalSurface[medalType]->w;
 	dest.h = hud.medalSurface[medalType]->h;
 
 	SDL_BlitSurface(hud.medalSurface[medalType], NULL, medalSurface, &dest);
 
-	dest.x = hud.medalSurface[medalType]->w + 8;
+	dest.x = hud.medalSurface[medalType]->w + 13;
 	dest.y = 0;
 	dest.w = textSurface->w;
 	dest.h = textSurface->h;
@@ -408,9 +409,11 @@ int showMedal(int medalType, char *message)
 
 	hud.medalTextSurface = addBorder(medalSurface, 255, 255, 255, 0, 0, 0);
 
-	hud.medalThinkTime = 120;
+	hud.medalThinkTime = 240;
 
 	SDL_FreeSurface(textSurface);
+	
+	playSound("sound/common/trophy.ogg");
 
 	return TRUE;
 }

@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/script.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void wait(void);
 static void init(void);
@@ -39,8 +39,9 @@ static void moveToStart(void);
 static void moveToEnd(void);
 static void touch(Entity *);
 static void activate(int);
-static void addChain(Entity *);
+static void addChain(void);
 static void chainWait(void);
+static int drawChain(void);
 
 Entity *addGrabber(int x, int y, char *name)
 {
@@ -329,12 +330,9 @@ static void activate(int val)
 	self->active = TRUE;
 }
 
-static void addChain(Entity *parent)
+static void addChain()
 {
-	int chainHeight, i, chainCount, y;
-	Entity *e, *previous;
-
-	e = getFreeEntity();
+	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
@@ -343,60 +341,48 @@ static void addChain(Entity *parent)
 
 	loadProperties("item/grabber_chain", e);
 
-	chainHeight = e->h;
+	e->type = KEY_ITEM;
 
-	chainCount = (int)parent->weight;
+	e->face = RIGHT;
 
-	e->inUse = FALSE;
+	e->action = &chainWait;
 
-	y = parent->y;
+	e->draw = &drawChain;
 
-	previous = parent;
+	e->head = self;
 
-	for (i=0;i<chainCount;i++)
-	{
-		e = getFreeEntity();
-
-		if (e == NULL)
-		{
-			showErrorAndExit("No free slots to add a Grabber Chain");
-		}
-
-		loadProperties("item/grabber_chain", e);
-
-		e->x = parent->x + parent->w / 2;
-
-		e->x -= e->w / 2;
-
-		e->y = y - e->h;
-
-		e->action = &chainWait;
-		e->touch = NULL;
-
-		e->head = previous;
-
-		e->draw = &drawLoopingAnimationToMap;
-
-		setEntityAnimation(e, STAND);
-
-		y -= chainHeight;
-
-		previous = e;
-	}
+	setEntityAnimation(e, STAND);
 }
 
 static void chainWait()
 {
-	self->x = self->head->x + self->head->w / 2;
-	self->x -= self->w / 2;
+	checkToMap(self);
 
-	self->y = self->head->y;
-	self->y -= self->h;
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+	self->y = self->head->y - self->h;
 }
 
 static void init()
 {
-	addChain(self);
+	addChain();
 
 	self->action = &wait;
+}
+
+static int drawChain()
+{
+	int y;
+	
+	y = self->head->startY - self->h * 2;
+	
+	drawLoopingAnimationToMap();
+
+	while (self->y >= y)
+	{
+		drawSpriteToMap();
+
+		self->y -= self->h;
+	}
+
+	return TRUE;
 }

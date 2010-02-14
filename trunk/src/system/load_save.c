@@ -163,6 +163,8 @@ int loadGame(int slot)
 	fclose(fp);
 
 	freeGameResources();
+	
+	initGame();
 
 	printf("Loading save data from %s\n", saveFile);
 

@@ -359,6 +359,7 @@ static void webAttack()
 
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &webTouch;
+		e->reactToBlock = &bounceOffShield;
 
 		e->face = self->face;
 

@@ -87,6 +87,13 @@ void initGame()
 
 		game.alphaSurface = NULL;
 	}
+	
+	if (game.pauseSurface != NULL)
+	{
+		SDL_FreeSurface(game.pauseSurface);
+
+		game.pauseSurface = NULL;
+	}
 }
 
 void doGame()

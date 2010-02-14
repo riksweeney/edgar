@@ -271,4 +271,6 @@ static void redBatFallout()
 			addMedal("drown_bat");
 		}
 	}
+	
+	self->die();
 }
