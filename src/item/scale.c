@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../collisions.h"
 #include "../system/error.h"
 #include "../hud.h"
 
@@ -64,10 +65,17 @@ Entity *addScale(int x, int y, char *name)
 
 static void init()
 {
-	EntityList *list = getEntitiesByObjectiveName(self->objectiveName);
+	EntityList *list;
 	EntityList *l;
 	Entity *e;
 	int i;
+	
+	if (strlen(self->objectiveName) == 0)
+	{
+		showErrorAndExit("Scale at %d %d has no name", (int)self->x, (int)self->y);
+	}
+	
+	list = getEntitiesByObjectiveName(self->objectiveName);
 
 	i = 0;
 
@@ -84,8 +92,15 @@ static void init()
 	}
 
 	freeEntityList(list);
+	
+	if (self->target == NULL)
+	{
+		showErrorAndExit("Scale could not find partner %s", self->objectiveName);
+	}
 
-	self->targetY = self->endY - self->startY;
+	self->targetY = self->startY + (self->endY - self->startY) / 2;
+	
+	printf("Mid point is %d\n", self->targetY);
 
 	self->action = &wait;
 }
@@ -96,37 +111,75 @@ static void wait()
 	{
 		self->thinkTime--;
 
-		self->y += self->speed;
-
-		self->target->y -= self->speed;
+		self->dirY = self->speed;
+		
+		checkToMap(self);
 
 		if (self->y >= self->endY)
 		{
 			self->y = self->endY;
-
-			self->target->y = self->startY;
+			
+			self->dirY = 0;
 		}
 	}
 
+	else if (self->target->thinkTime > 0)
+	{
+		self->dirY = -self->speed;
+		
+		checkToMap(self);
+
+		if (self->y <= self->startY)
+		{
+			self->y = self->startY;
+			
+			self->dirY = 0;
+		}
+	}
+	
 	else
 	{
-		self->y -= 2;
+		self->dirY = (self->y < self->targetY ? 0.5 : -0.5);
+		
+		checkToMap(self);
 
-		if (self->y <= self->targetY)
+		if ((self->dirY < 0 && self->y <= self->targetY) || (self->dirY > 0 && self->y >= self->targetY))
 		{
+			self->dirY = 0;
+			
 			self->y = self->targetY;
-
-			self->target->y = self->targetY;
 		}
 	}
 }
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
+	int bottomBefore;
 
-	if (other->standingOn != NULL && other->standingOn->type == PLAYER)
+	if (other->dirY > 0)
 	{
-		self->thinkTime = 3;
+		/* Trying to move down */
+
+		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
+		{
+			bottomBefore = other->y + other->h - other->dirY - 1;
+
+			if (abs(bottomBefore - self->y) < self->h - 1)
+			{
+				/* Place the player as close to the solid tile as possible */
+
+				other->y = self->y;
+				other->y -= other->h;
+
+				other->standingOn = self;
+				other->dirY = 0;
+				other->flags |= ON_GROUND;
+				
+				if (self->target->thinkTime <= 0)
+				{
+					self->thinkTime = 30;
+				}
+			}
+		}
 	}
 }

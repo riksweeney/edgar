@@ -67,7 +67,7 @@ static void wait()
 			
 			else
 			{
-				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
+				self->dirX = 0;
 				
 				self->frameSpeed = 0;
 			}
