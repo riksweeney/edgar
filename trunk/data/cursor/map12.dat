@@ -40,3 +40,6 @@ common/trap_door
 item/scale
 weapon/bow
 item/health_potion
+item/oil_can
+item/repellent
+item/cloud_geyzer

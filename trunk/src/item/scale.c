@@ -32,6 +32,9 @@ extern Entity *self;
 static void init(void);
 static void wait(void);
 static void touch(Entity *);
+static void addChain(void);
+static void chainWait(void);
+static int drawChain(void);
 
 Entity *addScale(int x, int y, char *name)
 {
@@ -100,7 +103,9 @@ static void init()
 
 	self->targetY = self->startY + (self->endY - self->startY) / 2;
 	
-	printf("Mid point is %d\n", self->targetY);
+	addChain();
+	
+	self->mental = getMapCeiling(self->x, self->y);
 
 	self->action = &wait;
 }
@@ -182,4 +187,59 @@ static void touch(Entity *other)
 			}
 		}
 	}
+}
+
+static void addChain()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Scale Chain");
+	}
+
+	loadProperties("item/grabber_chain", e);
+
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &chainWait;
+
+	e->draw = &drawChain;
+
+	e->head = self;
+
+	setEntityAnimation(e, STAND);
+}
+
+static void chainWait()
+{
+	checkToMap(self);
+}
+
+static int drawChain()
+{
+	int y;
+	
+	self->y = self->head->y - self->h;
+	
+	y = self->head->mental - self->h * 2;
+	
+	drawLoopingAnimationToMap();
+
+	while (self->y >= y)
+	{
+		self->x = self->head->x;
+		
+		drawSpriteToMap();
+		
+		self->x = self->head->x + self->head->w - self->w;
+		
+		drawSpriteToMap();
+
+		self->y -= self->h;
+	}
+
+	return TRUE;
 }

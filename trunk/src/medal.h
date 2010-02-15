@@ -22,3 +22,4 @@ void addMedal(char *);
 void processMedals(void);
 void freeMedalQueue(void);
 void medalProcessingFinished(void);
+void showMedalScreen(void);

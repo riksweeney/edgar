@@ -634,6 +634,7 @@ void resetGameSettings()
 	game.musicDefaultVolume = 10;
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
+	game.medalError = TRUE;
 }
 
 void writeGameSettingsToFile(FILE *fp)
@@ -644,6 +645,7 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
+	fprintf(fp, "MEDAL_ERROR %d\n", game.medalError);
 }
 
 void readGameSettingsFromFile(char *buffer)
@@ -691,6 +693,13 @@ void readGameSettingsFromFile(char *buffer)
 			token = strtok(NULL, "\0");
 
 			game.fullscreen = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "MEDAL_ERROR") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.medalError = atoi(token);
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr);

@@ -89,7 +89,7 @@ static void activate(int val)
 
 		replaceInventoryItem(self->requires, e);
 
-		playSound("sound/item/fill_potion.ogg");
+		playSoundToMap("sound/item/fill_potion.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setInfoBoxMessage(60, _("Obtained %s"), _(e->objectiveName));
 	}

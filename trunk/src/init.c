@@ -63,16 +63,6 @@ void init(char *title)
 
 	loadConfig();
 
-	if (SDLNet_Init() < 0)
-	{
-		printf("Couldn't initialize SDL Net: %s\n", SDLNet_GetError());
-	}
-
-	else
-	{
-		initMedals();
-	}
-
 	if (game.fullscreen == TRUE)
 	{
 		flags |= SDL_FULLSCREEN;
@@ -126,6 +116,16 @@ void init(char *title)
 	/* Init the PAK file */
 
 	initPakFile();
+	
+	if (SDLNet_Init() < 0)
+	{
+		printf("Couldn't initialize SDL Net: %s\n", SDLNet_GetError());
+	}
+
+	else
+	{
+		initMedals();
+	}
 }
 
 void toggleFullScreen()
