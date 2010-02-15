@@ -195,7 +195,7 @@ void playSound(char *name)
 		soundIndex++;
 	}
 
-	Mix_VolumeChunk(chunk, game.sfxDefaultVolume);
+	Mix_VolumeChunk(chunk, game.sfxDefaultVolume * VOLUME_STEPS);
 
 	playSoundChunk(chunk, -1, 0);
 }

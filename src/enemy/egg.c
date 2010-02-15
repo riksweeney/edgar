@@ -92,7 +92,7 @@ static void hatch()
 {
 	Entity *e;
 
-	playSoundToMap("sound/jumping_slime/hatch.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/enemy/jumping_slime/hatch.ogg", -1, self->x, self->y, 0);
 
 	e = addTemporaryItem(self->name, self->x, self->y, self->face, 0, 0);
 

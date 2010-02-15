@@ -72,6 +72,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "scale.h"
 #include "lava_geyzer.h"
 #include "crusher.h"
+#include "repellent.h"
+#include "cloud_geyzer.h"
 
 extern Entity *self, player;
 
@@ -123,7 +125,9 @@ static Constructor items[] = {
 {"item/rock_container", &addRockContainer},
 {"item/scale", &addScale},
 {"item/lava_geyzer", &addLavaGeyzer},
-{"item/crusher", &addCrusher}
+{"item/crusher", &addCrusher},
+{"item/repellent", &addRepellent},
+{"item/cloud_geyzer", &addCloudGeyzer}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

@@ -22,6 +22,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/load_save.h"
 #include "system/error.h"
 #include "hud.h"
+#include "graphics/font.h"
+#include "graphics/graphics.h"
+
+extern Game game;
 
 static Medal medal;
 static Message messageHead;
@@ -221,8 +225,12 @@ static void connectToServer()
 
 	if (getPrivateKey(medal.privateKey) == FALSE)
 	{
+		medal.privateKeyFound = FALSE;
+		
 		return;
 	}
+	
+	medal.privateKeyFound = TRUE;
 
 	printf("Trying to connect to %s:%d\n", MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
 
@@ -241,4 +249,117 @@ static void connectToServer()
 void medalProcessingFinished()
 {
 	medal.processing = FALSE;
+}
+
+void showMedalScreen()
+{
+	int i, h, y;
+	SDL_Rect src, dest;
+	SDL_Surface *title, *message, *message2;
+	char text[MAX_MESSAGE_LENGTH];
+	
+	if (medal.privateKeyFound == TRUE)
+	{
+		if (medal.connected == TRUE)
+		{
+			return;
+		}
+		
+		else
+		{
+			snprintf(text, MAX_MESSAGE_LENGTH, _("Could not connect to Medal Server at %s:%d"), MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
+			
+			message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
+		}
+	}
+	
+	else
+	{
+		snprintf(text, MAX_MESSAGE_LENGTH, _("Could not find Medal Key"));
+		
+		message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
+	}
+	
+	title = generateTextSurface(_("The Legend of Edgar"), game.font, 0, 220, 0, 0, 0, 0);
+	
+	message2 = generateTextSurface(_("You will not be able to earn Medals for this game"), game.font, 220, 0, 0, 0, 0, 0);
+
+	if (title == NULL || message == NULL || message2 == NULL)
+	{
+		return;
+	}
+
+	if (game.tempSurface != NULL)
+	{
+		SDL_FreeSurface(game.tempSurface);
+
+		game.tempSurface = NULL;
+	}
+
+	game.tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	drawBox(game.tempSurface, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
+
+	h = title->h + message->h + message2->h + 90;
+
+	y = (SCREEN_HEIGHT - h) / 2;
+
+	src.x = 0;
+	src.y = 0;
+	src.w = title->w;
+	src.h = title->h;
+
+	dest.x = (SCREEN_WIDTH - title->w) / 2;
+	dest.y = y;
+	dest.w = title->w;
+	dest.h = title->h;
+
+	SDL_BlitSurface(title, &src, game.tempSurface, &dest);
+	
+	y += message->h + 45;
+	
+	src.x = 0;
+	src.y = 0;
+	src.w = message->w;
+	src.h = message->h;
+
+	dest.x = (SCREEN_WIDTH - message->w) / 2;
+	dest.y = y;
+	dest.w = message->w;
+	dest.h = message->h;
+
+	SDL_BlitSurface(message, &src, game.tempSurface, &dest);
+	
+	y += message2->h + 45;
+	
+	src.x = 0;
+	src.y = 0;
+	src.w = message2->w;
+	src.h = message2->h;
+
+	dest.x = (SCREEN_WIDTH - message2->w) / 2;
+	dest.y = y;
+	dest.w = message2->w;
+	dest.h = message2->h;
+
+	SDL_BlitSurface(message2, &src, game.tempSurface, &dest);
+
+	SDL_FreeSurface(title);
+	SDL_FreeSurface(message);
+	SDL_FreeSurface(message2);
+	
+	for (i=0;i<150;i++)
+	{
+		clearScreen(0, 0, 0);
+
+		SDL_BlitSurface(game.tempSurface, NULL, game.screen, NULL);
+
+		/* Swap the buffers */
+
+		SDL_Flip(game.screen);
+
+		/* Sleep briefly */
+
+		SDL_Delay(16);
+	}
 }

@@ -147,7 +147,7 @@ typedef struct Game
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
-	int kills, batsDrowned, timesEaten;
+	int kills, batsDrowned, timesEaten, medalError;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
@@ -246,7 +246,7 @@ typedef struct Hud
 typedef struct Medal
 {
 	char privateKey[MAX_VALUE_LENGTH];
-	int processing, connected;
+	int processing, connected, privateKeyFound;
 	Message medalMessage;
 	IPaddress ip;
 	SDL_Thread *thread;

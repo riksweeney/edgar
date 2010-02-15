@@ -43,6 +43,7 @@ static void showSoundMenu(void);
 static void showMainMenu(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
+static void toggleMedal(void);
 
 void drawOptionsMenu()
 {
@@ -232,6 +233,13 @@ static void loadMenuLayout()
 
 					menu.widgets[i]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
+				
+				else if (strcmpignorecase(menuID, "MENU_MEDAL") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleMedal, &toggleMedal, &toggleMedal, x, y, TRUE);
+
+					menu.widgets[i]->label = createLabel(game.medalError == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
@@ -311,6 +319,15 @@ static void toggleHints()
 	game.showHints = game.showHints == TRUE ? FALSE : TRUE;
 
 	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
+}
+
+static void toggleMedal()
+{
+	Widget *w = menu.widgets[menu.index];
+
+	game.medalError = game.medalError == TRUE ? FALSE : TRUE;
+
+	updateLabelText(w->label, game.medalError == TRUE ? _("Yes") : _("No"));
 }
 
 static void toggleFullscreen()
