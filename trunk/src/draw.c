@@ -41,6 +41,9 @@ void draw()
 	int clipX, clipY;
 	SDL_Rect rect;
 
+	clipX = -1;
+	clipY = -1;
+
 	/* Clear the screen */
 
 	if (game.paused == FALSE)

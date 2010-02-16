@@ -371,6 +371,8 @@ static void webAttack()
 
 		self->action = self->mental == 0 ? &webAttackFinished : &webAttack;
 	}
+	
+	checkToMap(self);
 }
 
 static void webAttackFinished()
@@ -385,6 +387,8 @@ static void webAttackFinished()
 
 		self->thinkTime = 180;
 	}
+	
+	checkToMap(self);
 }
 
 static void webTouch(Entity *other)

@@ -866,6 +866,8 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
+				self->y -= self->dirY;
+
 				depth++;
 
 				checkEntityToEntity(self);

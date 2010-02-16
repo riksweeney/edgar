@@ -660,7 +660,7 @@ static void updateSaveFileIndex(int slot)
 
 	strftime(buffer, MAX_VALUE_LENGTH, "%H:%M %d %b %Y", timeinfo);
 
-	snprintf(saveName, MAX_VALUE_LENGTH, "%s - %s", getMapName(), buffer);
+	snprintf(saveName, MAX_VALUE_LENGTH, "%s - %s", _(getMapName()), buffer);
 
 	STRNCPY(data[slot], saveName, MAX_VALUE_LENGTH);
 
