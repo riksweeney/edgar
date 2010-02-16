@@ -168,7 +168,7 @@ int addToInventory(Entity *e)
 
 		fireGlobalTrigger(inventory.item[i].objectiveName);
 	}
-	
+
 	else
 	{
 		setInfoBoxMessage(0, _("Cannot pick up %s. Inventory full"), _(inventory.item[i].objectiveName));
@@ -236,6 +236,8 @@ void nextInventoryItem(int index)
 			inventory.selectedIndex = MAX_INVENTORY_ITEMS - 1;
 		}
 	}
+
+	inventory.cursorIndex = inventory.selectedIndex;
 
 	if (inventory.description != NULL)
 	{
@@ -526,7 +528,7 @@ void getInventoryItemFromScript(char *line)
 			if (item->health <= 0 || quantityToRemove == -1)
 			{
 				item->health = 0;
-				
+
 				removeInventoryItem(itemName);
 			}
 		}
@@ -729,7 +731,7 @@ void setInventoryDialogMessage(char *fmt, ...)
 void setInventoryIndex(int val)
 {
 	inventory.selectedIndex = val;
-	
+
 	moveInventoryCursor(val);
 }
 

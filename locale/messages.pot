@@ -1745,9 +1745,6 @@ msgstr ""
 msgid "Master Key"
 msgstr ""
 
-msgid "Er, yeah, there was what you'd call an "incident", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
 msgstr ""
 
@@ -1760,5 +1757,44 @@ msgstr ""
 msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
 msgstr ""
 
-msgid "Borgan said that a section of the mine was sealed up after an "incident""
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr ""
+
+msgid "Could not find Medal Key"
+msgstr ""
+
+msgid "You will not be able to earn Medals for this game"
+msgstr ""
+
+msgid "There's another sign here"
+msgstr ""
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr ""
+
+msgid "Warning : Exit route may be hazardous"
+msgstr ""
+
+msgid "Maybe I should use the lift to get out"
+msgstr ""
+
+msgid "There's a sign here"
+msgstr ""
+
+msgid "An Oil Can"
+msgstr ""
+
+msgid "Oil Can"
+msgstr ""
+
+msgid "A powerful repellent"
+msgstr ""
+
+msgid "Repellent"
+msgstr ""
+
+msgid "Medal Support"
+msgstr ""
+
+msgid "Fortress Mine"
 msgstr ""

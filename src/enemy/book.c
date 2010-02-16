@@ -522,6 +522,8 @@ static void lightningBolt()
 
 	self->thinkTime--;
 
+	middle = -1;
+
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
