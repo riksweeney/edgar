@@ -163,7 +163,7 @@ int loadGame(int slot)
 	fclose(fp);
 
 	freeGameResources();
-	
+
 	initGame();
 
 	printf("Loading save data from %s\n", saveFile);
@@ -933,6 +933,8 @@ void loadConfig()
 	long length;
 	int read;
 
+	resetGameSettings();
+
 	game.hasConfig = FALSE;
 
 	snprintf(settingsFile, sizeof(settingsFile), "%sconfig", gameSavePath);
@@ -943,8 +945,6 @@ void loadConfig()
 
 	if (fp == NULL)
 	{
-		resetGameSettings();
-
 		game.firstRun = TRUE;
 
 		return;

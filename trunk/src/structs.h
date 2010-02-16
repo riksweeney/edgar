@@ -147,7 +147,7 @@ typedef struct Game
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
-	int kills, batsDrowned, timesEaten, medalError;
+	int kills, batsDrowned, timesEaten, medalSupport;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
@@ -239,7 +239,7 @@ typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime;
 	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface;
-	SDL_Surface *medalSurface[3];
+	SDL_Surface *medalSurface[4];
 	Message infoMessage;
 } Hud;
 

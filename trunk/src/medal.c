@@ -134,9 +134,9 @@ void freeMedalQueue()
 
 static int postMedal(void *data)
 {
-	char medalName[MAX_MESSAGE_LENGTH], in[MAX_LINE_LENGTH], out[MAX_LINE_LENGTH];
+	char medalName[MAX_MESSAGE_LENGTH], in[MAX_LINE_LENGTH], out[2][MAX_LINE_LENGTH];
 	char *token, *store;
-	int i, len, response;
+	int i, len, response[2];
 	TCPsocket socket;
 
 	STRNCPY(medalName, medal.medalMessage.text, MAX_MESSAGE_LENGTH);
@@ -164,11 +164,11 @@ static int postMedal(void *data)
 		return 0;
 	}
 
-	snprintf(out, MAX_LINE_LENGTH, "GET /addMedal/%s/LOE_%s HTTP/1.1\nHost: %s\nUser-Agent:LOE%.2f-%d\n\n", medal.privateKey, medalName, MEDAL_SERVER_HOST, VERSION, RELEASE);
+	snprintf(out[0], MAX_LINE_LENGTH, "GET /addMedal/%s/LOE_%s HTTP/1.1\nHost: %s\nUser-Agent:LOE%.2f-%d\n\n", medal.privateKey, medalName, MEDAL_SERVER_HOST, VERSION, RELEASE);
 
-	len = strlen(out) + 1;
+	len = strlen(out[0]) + 1;
 
-	if (SDLNet_TCP_Send(socket, (void*)out, len) < len)
+	if (SDLNet_TCP_Send(socket, (void*)out[0], len) < len)
 	{
 		printf("Medal sending failed: %s\n", SDLNet_GetError());
 
@@ -183,31 +183,50 @@ static int postMedal(void *data)
 
 	SDLNet_TCP_Recv(socket, in, MAX_LINE_LENGTH - 1);
 
-	response = 0;
+	response[0] = response[1] = 0;
 
 	token = strtok_r(in, "\n", &store);
+
+	i = 0;
 
 	while (token != NULL)
 	{
 		if (strstr(token, "MEDAL_RESPONSE"))
 		{
-			sscanf(token, "%*s %d %[^\n\r]", &response, out);
+			sscanf(token, "%*s %d %[^\n\r]", &response[i], out[i]);
 
-			break;
+			i++;
+
+			if (i == 2)
+			{
+				break;
+			}
 		}
 
 		token = strtok_r(NULL, "\n", &store);
 	}
 
-	printf("MedalServer Response: %d '%s'\n", response, out);
-
 	SDLNet_TCP_Close(socket);
 
-	SDL_Delay(3000);
-	
-	if (response > 0 && response < 4)
+	printf("MedalServer Response: %d '%s'\n", response[1], out[1]);
+
+	if (response[1] > 0 && response[1] <= 4)
 	{
-		while (showMedal(response, out) == FALSE)
+		SDL_Delay(3000);
+
+		while (showMedal(response[1], out[1]) == FALSE)
+		{
+			SDL_Delay(1000);
+		}
+	}
+
+	printf("MedalServer Response: %d '%s'\n", response[0], out[0]);
+
+	if (response[0] > 0 && response[0] <= 4)
+	{
+		SDL_Delay(3000);
+
+		while (showMedal(response[0], out[0]) == FALSE)
 		{
 			SDL_Delay(1000);
 		}
@@ -226,10 +245,10 @@ static void connectToServer()
 	if (getPrivateKey(medal.privateKey) == FALSE)
 	{
 		medal.privateKeyFound = FALSE;
-		
+
 		return;
 	}
-	
+
 	medal.privateKeyFound = TRUE;
 
 	printf("Trying to connect to %s:%d\n", MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
@@ -257,31 +276,31 @@ void showMedalScreen()
 	SDL_Rect src, dest;
 	SDL_Surface *title, *message, *message2;
 	char text[MAX_MESSAGE_LENGTH];
-	
+
 	if (medal.privateKeyFound == TRUE)
 	{
 		if (medal.connected == TRUE)
 		{
 			return;
 		}
-		
+
 		else
 		{
 			snprintf(text, MAX_MESSAGE_LENGTH, _("Could not connect to Medal Server at %s:%d"), MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
-			
+
 			message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
 		}
 	}
-	
+
 	else
 	{
 		snprintf(text, MAX_MESSAGE_LENGTH, _("Could not find Medal Key"));
-		
+
 		message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
 	}
-	
+
 	title = generateTextSurface(_("The Legend of Edgar"), game.font, 0, 220, 0, 0, 0, 0);
-	
+
 	message2 = generateTextSurface(_("You will not be able to earn Medals for this game"), game.font, 220, 0, 0, 0, 0, 0);
 
 	if (title == NULL || message == NULL || message2 == NULL)
@@ -315,9 +334,9 @@ void showMedalScreen()
 	dest.h = title->h;
 
 	SDL_BlitSurface(title, &src, game.tempSurface, &dest);
-	
+
 	y += message->h + 45;
-	
+
 	src.x = 0;
 	src.y = 0;
 	src.w = message->w;
@@ -329,9 +348,9 @@ void showMedalScreen()
 	dest.h = message->h;
 
 	SDL_BlitSurface(message, &src, game.tempSurface, &dest);
-	
+
 	y += message2->h + 45;
-	
+
 	src.x = 0;
 	src.y = 0;
 	src.w = message2->w;
@@ -347,8 +366,8 @@ void showMedalScreen()
 	SDL_FreeSurface(title);
 	SDL_FreeSurface(message);
 	SDL_FreeSurface(message2);
-	
-	for (i=0;i<150;i++)
+
+	for (i=0;i<120;i++)
 	{
 		clearScreen(0, 0, 0);
 

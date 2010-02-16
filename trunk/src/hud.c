@@ -52,6 +52,8 @@ void initHud()
 	hud.medalSurface[1] = loadImage("gfx/hud/silver_medal.png");
 
 	hud.medalSurface[2] = loadImage("gfx/hud/gold_medal.png");
+	
+	hud.medalSurface[3] = loadImage("gfx/hud/ruby_medal.png");
 
 	messageHead.next = NULL;
 
@@ -210,6 +212,8 @@ void drawHud()
 
 void freeHud()
 {
+	int i;
+	
 	if (hud.itemBox != NULL)
 	{
 		SDL_FreeSurface(hud.itemBox);
@@ -250,6 +254,16 @@ void freeHud()
 		SDL_FreeSurface(hud.medalTextSurface);
 
 		hud.medalTextSurface = NULL;
+	}
+	
+	for (i=0;i<4;i++)
+	{
+		if (hud.medalSurface[i] != NULL)
+		{
+			SDL_FreeSurface(hud.medalSurface[i]);
+
+			hud.medalSurface[i] = NULL;
+		}
 	}
 
 	freeMessageQueue();
