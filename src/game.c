@@ -87,7 +87,7 @@ void initGame()
 
 		game.alphaSurface = NULL;
 	}
-	
+
 	if (game.pauseSurface != NULL)
 	{
 		SDL_FreeSurface(game.pauseSurface);
@@ -634,7 +634,7 @@ void resetGameSettings()
 	game.musicDefaultVolume = 10;
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
-	game.medalError = TRUE;
+	game.medalSupport = TRUE;
 }
 
 void writeGameSettingsToFile(FILE *fp)
@@ -645,7 +645,7 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
-	fprintf(fp, "MEDAL_ERROR %d\n", game.medalError);
+	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport);
 }
 
 void readGameSettingsFromFile(char *buffer)
@@ -694,12 +694,12 @@ void readGameSettingsFromFile(char *buffer)
 
 			game.fullscreen = atoi(token);
 		}
-		
-		else if (strcmpignorecase(token, "MEDAL_ERROR") == 0)
+
+		else if (strcmpignorecase(token, "MEDAL_SUPPORT") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.medalError = atoi(token);
+			game.medalSupport = atoi(token);
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr);

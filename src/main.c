@@ -133,8 +133,8 @@ int main(int argc, char *argv[])
 	}
 
 	loadRequiredResources();
-	
-	if (game.medalError == TRUE)
+
+	if (game.medalSupport == TRUE)
 	{
 		showMedalScreen();
 	}

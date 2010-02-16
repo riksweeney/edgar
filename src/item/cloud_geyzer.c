@@ -73,8 +73,6 @@ static void init()
 
 	if (e == NULL)
 	{
-		printf("Creating cloud %s\n", name);
-		
 		e = getFreeEntity();
 		
 		if (e == NULL)
