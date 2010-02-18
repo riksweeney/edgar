@@ -140,7 +140,7 @@ static void attack()
 
 	checkToMap(self);
 
-	if (onGround == 0 && self->flags & ON_GROUND)
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 	{
 		self->thinkTime = 30 + prand () % 60;
 	}
@@ -176,7 +176,7 @@ static void purpleAttack()
 
 	checkToMap(self);
 
-	if (onGround == 0 && self->flags & ON_GROUND)
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 	{
 		self->thinkTime = 30 + prand () % 60;
 	}

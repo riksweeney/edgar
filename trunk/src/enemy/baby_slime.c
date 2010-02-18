@@ -84,7 +84,7 @@ static void attack()
 
 	checkToMap(self);
 
-	if (onGround == 0 && (self->flags & ON_GROUND))
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 	{
 		self->dirX = 0;
 	}

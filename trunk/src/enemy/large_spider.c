@@ -213,7 +213,7 @@ static void jumpUp()
 
 	checkToMap(self);
 
-	if (onGround == 0 && (self->flags & ON_GROUND))
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 	{
 		self->action = self->resumeNormalFunction;
 	}
@@ -234,7 +234,7 @@ static void jumpOverGap()
 
 	checkToMap(self);
 
-	if (onGround == 0 && (self->flags & ON_GROUND))
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 	{
 		self->action = self->resumeNormalFunction;
 	}
@@ -264,7 +264,7 @@ static void pounceAttack()
 
 		checkToMap(self);
 
-		if (onGround == 0 && (self->flags & ON_GROUND))
+		if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
 		{
 			if (player.health > 0 && collision(self->x + (self->face == LEFT ? -16 : self->w), self->y, 16, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
@@ -312,10 +312,6 @@ static void takeDamage(Entity *other, int damage)
 
 static void panic()
 {
-	long onGround;
-
-	onGround = self->flags & ON_GROUND;
-
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -371,7 +367,7 @@ static void webAttack()
 
 		self->action = self->mental == 0 ? &webAttackFinished : &webAttack;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -387,7 +383,7 @@ static void webAttackFinished()
 
 		self->thinkTime = 180;
 	}
-	
+
 	checkToMap(self);
 }
 

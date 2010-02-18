@@ -23,3 +23,4 @@ void processMedals(void);
 void freeMedalQueue(void);
 void medalProcessingFinished(void);
 void showMedalScreen(void);
+int connectToServer(void);
