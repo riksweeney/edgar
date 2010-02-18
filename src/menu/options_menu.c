@@ -26,8 +26,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "main_menu.h"
 #include "control_menu.h"
 #include "sound_menu.h"
+#include "ok_menu.h"
 #include "../system/pak.h"
 #include "../init.h"
+#include "../medal.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
 
@@ -44,6 +46,7 @@ static void showMainMenu(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
 static void toggleMedal(void);
+static void showOptionsMenu(void);
 
 void drawOptionsMenu()
 {
@@ -238,7 +241,7 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleMedal, &toggleMedal, &toggleMedal, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE || game.medalSupportDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -323,9 +326,34 @@ static void toggleHints()
 
 static void toggleMedal()
 {
+	int result;
 	Widget *w = menu.widgets[menu.index];
 
 	game.medalSupport = game.medalSupport == TRUE ? FALSE : TRUE;
+
+	if (game.medalSupport == TRUE)
+	{
+		result = connectToServer();
+		
+		if (result != 0)
+		{
+			game.medalSupportDisabled = TRUE;
+
+			game.medalSupport = FALSE;
+
+			if (result == 1)
+			{
+				game.menu = initOKMenu(_("Private key is missing"), &showOptionsMenu);
+			}
+
+			else
+			{
+				game.menu = initOKMenu(_("Could not connect to server"), &showOptionsMenu);
+			}
+
+			game.drawMenu = &drawOKMenu;
+		}
+	}
 
 	updateLabelText(w->label, game.medalSupport == TRUE ? _("Yes") : _("No"));
 }
@@ -360,4 +388,11 @@ static void showMainMenu()
 	game.menu = initMainMenu();
 
 	game.drawMenu = &drawMainMenu;
+}
+
+static void showOptionsMenu()
+{
+	game.menu = initOptionsMenu();
+
+	game.drawMenu = &drawOptionsMenu;
 }

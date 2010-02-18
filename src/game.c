@@ -645,7 +645,7 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
-	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport);
+	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport == TRUE ? TRUE : game.medalSupportDisabled);
 }
 
 void readGameSettingsFromFile(char *buffer)

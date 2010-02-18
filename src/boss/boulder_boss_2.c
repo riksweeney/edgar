@@ -160,7 +160,7 @@ static void chasePlayer()
 			{
 				playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
 
-				shakeScreen(STRONG, self->thinkTime / 2);
+				shakeScreen(STRONG, 30);
 
 				addDust();
 				

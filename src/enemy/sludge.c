@@ -39,6 +39,19 @@ static void teleportAttackFinishPause(void);
 static void teleportAttackFinish(void);
 static void touch(Entity *);
 static void turnToFacePlayer(void);
+static void lookForPlayer(void);
+static void takeDamage(Entity *, int);
+static void die(void);
+static void redTeleportAttackStart(void);
+static void redTeleportAttack(void);
+static void redTeleportAttackFinishPause(void);
+static void redTeleportAttackFinish(void);
+static void redTurnToFacePlayer(void);
+static void vomitAttackStart(void);
+static void vomit(void);
+static void vomitAttackFinish(void);
+static void vomitWait(void);
+static void vomitFall(void);
 
 Entity *addSludge(int x, int y, char *name)
 {
@@ -46,7 +59,15 @@ Entity *addSludge(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Sludge");
+		if (strcmpignorecase(name, "red_sludge") == 0)
+		{
+			showErrorAndExit("No free slots to add a Red Sludge");
+		}
+		
+		else
+		{
+			showErrorAndExit("No free slots to add a Sludge");
+		}
 	}
 
 	loadProperties(name, e);
@@ -54,13 +75,23 @@ Entity *addSludge(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
-
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->reactToBlock = &changeDirection;
-	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->die = &entityDie;
+	
+	if (strcmpignorecase(name, "enemy/red_sludge") == 0)
+	{
+		e->action = &lookForPlayer;
+		e->takeDamage = &takeDamage;
+		e->die = &die;
+	}
+	
+	else
+	{
+		e->action = &init;
+		e->takeDamage = &entityTakeDamageNoFlinch;
+		e->die = &entityDie;
+	}
 
 	e->type = ENEMY;
 
@@ -177,6 +208,19 @@ static void turnToFacePlayer()
 	self->thinkTime = 120 + prand() % 180;
 }
 
+static void redTurnToFacePlayer()
+{
+	self->thinkTime = 120 + prand() % 180;
+	
+	self->frameSpeed = 1;
+
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+	self->action = &lookForPlayer;
+	
+	setEntityAnimation(self, STAND);
+}
+
 static void touch(Entity *other)
 {
 
@@ -187,4 +231,215 @@ static void init()
 	self->thinkTime = 120 + prand() % 180;
 
 	self->action = &wander;
+}
+
+static void lookForPlayer()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &vomitAttackStart;
+		
+		self->dirX = 0;
+		
+		self->thinkTime = 0;
+	}
+
+	moveLeftToRight();
+
+	if (player.health > 0 && (prand() % 10 == 0) && self->thinkTime <= 0)
+	{
+		if (collision(self->x + (self->face == LEFT ? -128 : self->w), self->y, 128, self->h, player.x, player.y, player.w, player.h) == 1)
+		{
+			self->thinkTime = 240;
+			
+			self->dirX = 0;
+			
+			self->action = &redTeleportAttackStart;
+		}
+	}
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	entityTakeDamageNoFlinch(other, damage);
+	
+	if ((prand() % 3 == 0) && self->face == other->face && self->health > 0)
+	{
+		self->dirX = 0;
+		
+		self->action = &redTeleportAttackStart;
+	}
+}
+
+static void die()
+{
+	if (prand() % 3 == 0)
+	{
+		e = addKeyItem("item/sludge_tentacle", self->x + self->w / 2, self->y);
+
+		e->x -= e->w / 2;
+
+		e->action = &generalItemAction;
+	}
+	
+	entityDie();
+}
+
+static void redTeleportAttackStart()
+{
+	setEntityAnimation(self, ATTACK_1);
+
+	self->animationCallback = &redTeleportAttack;
+
+	checkToMap(self);
+}
+
+static void redTeleportAttack()
+{
+	float target = player.x - self->w / 2 + player.w / 2;
+	
+	self->action = &redTeleportAttack;
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->dirX = 0;
+		
+		facePlayer();
+		
+		self->thinkTime = 0;
+	}
+	
+	else
+	{
+		self->dirX = target < self->x ? -self->speed * 3 : self->speed * 3;
+	}
+
+	self->touch = &touch;
+
+	self->flags |= INVULNERABLE;
+
+	setEntityAnimation(self, ATTACK_2);
+
+	if (isAtEdge(self) == 1)
+	{
+		self->dirX = 0;
+	}
+
+	checkToMap(self);
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &redTeleportAttackFinishPause;
+
+		self->dirX = 0;
+
+		self->thinkTime = 30;
+	}
+}
+
+static void redTeleportAttackFinishPause()
+{
+	checkToMap(self);
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~INVULNERABLE;
+
+		self->action = &redTeleportAttackFinish;
+	}
+}
+
+static void redTeleportAttackFinish()
+{
+	self->touch = &entityTouch;
+
+	self->frameSpeed = -1;
+
+	setEntityAnimation(self, ATTACK_1);
+
+	self->animationCallback = &redTurnToFacePlayer;
+
+	checkToMap(self);
+}
+
+static void vomitAttackStart()
+{
+	setEntityAnimation(self, ATTACK_3);
+	
+	self->animationCallback = &vomit;
+
+	checkToMap(self);
+}
+
+static void vomit()
+{
+	int x;
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Sludge Vomit");
+	}
+	
+	x = self->face == RIGHT ? self->x + self->w + 18 : self->x - 9;
+
+	loadProperties("enemy/sludge_vomit", e);
+
+	e->x = x;
+	e->y = self->y + 13;
+	
+	e->dirX = self->face == LEFT ? -5 : 5;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &entityTouch;
+	e->action = &vomitFall;
+	
+	setEntityAnimation(e, STAND);
+	
+	self->action = &vomitAttackFinish;
+	
+	checkToMap(self);
+}
+
+static void vomitAttackFinish()
+{
+	self->frameSpeed = -1;
+	
+	setEntityAnimation(self, ATTACK_3);
+	
+	self->animationCallback = &redTurnToFacePlayer;
+
+	checkToMap(self);
+}
+
+static void vomitFall()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+		
+		setEntityAnimation(self, ATTACK_1);
+		
+		self->action = &vomitWait;
+	}
+}
+
+static void vomitWait()
+{
+	checkToMap(self);
+	
+	self->thinkTime--;
+		
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }

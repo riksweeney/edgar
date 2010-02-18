@@ -1798,3 +1798,9 @@ msgstr ""
 
 msgid "Fortress Mine"
 msgstr ""
+
+msgid "Private key is missing"
+msgstr ""
+
+msgid "Could not connect to server"
+msgstr ""

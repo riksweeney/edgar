@@ -870,7 +870,10 @@ void pushEntity(Entity *other)
 
 				depth++;
 
-				checkEntityToEntity(self);
+				if (checkEntityToEntity(self) != NULL)
+				{
+					self->dirX = 0;
+				}
 
 				depth--;
 
@@ -946,9 +949,14 @@ void pushEntity(Entity *other)
 					self->flags |= ON_GROUND;
 				}
 
+				self->y -= self->dirY;
+
 				depth++;
 
-				checkEntityToEntity(self);
+				if (checkEntityToEntity(self) != NULL)
+				{
+					self->dirX = 0;
+				}
 
 				depth--;
 
@@ -1000,12 +1008,12 @@ void pushEntity(Entity *other)
 			collided = TRUE;
 		}
 	}
-
+	/*
 	else if (collided == FALSE)
 	{
 		if (self->x > other->x && depth == 1)
 		{
-			/* Place the entity as close as possible */
+			Place the entity as close as possible
 
 			self->x = getRightEdge(other);
 
@@ -1014,7 +1022,7 @@ void pushEntity(Entity *other)
 
 		else if (depth == 1)
 		{
-			/* Place the entity as close as possible */
+			Place the entity as close as possible
 
 			self->x = getLeftEdge(other);
 
@@ -1023,7 +1031,7 @@ void pushEntity(Entity *other)
 			self->dirX = 0;
 		}
 	}
-
+	*/
 	other->x += other->dirX;
 	other->y += other->dirY;
 }

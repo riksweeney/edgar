@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/load_save.h"
 #include "system/error.h"
 #include "hud.h"
+#include "medal.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
 
@@ -31,7 +32,6 @@ static Medal medal;
 static Message messageHead;
 
 static void addMedalToQueue(char *);
-static void connectToServer(void);
 static int postMedal(void *);
 static void getNextMedalFromQueue(void);
 
@@ -212,8 +212,6 @@ static int postMedal(void *data)
 
 	if (response[1] > 0 && response[1] <= 4)
 	{
-		SDL_Delay(3000);
-
 		while (showMedal(response[1], out[1]) == FALSE)
 		{
 			SDL_Delay(1000);
@@ -224,8 +222,6 @@ static int postMedal(void *data)
 
 	if (response[0] > 0 && response[0] <= 4)
 	{
-		SDL_Delay(3000);
-
 		while (showMedal(response[0], out[0]) == FALSE)
 		{
 			SDL_Delay(1000);
@@ -235,18 +231,22 @@ static int postMedal(void *data)
 	return 1;
 }
 
-static void connectToServer()
+int connectToServer()
 {
 	if (medal.connected == TRUE)
 	{
-		return;
+		return 0;
 	}
 
 	if (getPrivateKey(medal.privateKey) == FALSE)
 	{
+		game.medalSupportDisabled = TRUE;
+
+		game.medalSupport = FALSE;
+
 		medal.privateKeyFound = FALSE;
 
-		return;
+		return 1;
 	}
 
 	medal.privateKeyFound = TRUE;
@@ -255,14 +255,20 @@ static void connectToServer()
 
 	if (SDLNet_ResolveHost(&medal.ip, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT) == -1)
 	{
+		game.medalSupportDisabled = TRUE;
+
+		game.medalSupport = FALSE;
+
 		printf("Could not connect to medal server: %s\n", SDLNet_GetError());
 
-		return;
+		return 2;
 	}
 
 	printf("Connected %s to %s:%d\n", medal.privateKey, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
 
 	medal.connected = TRUE;
+
+	return 0;
 }
 
 void medalProcessingFinished()

@@ -218,7 +218,7 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.audio == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.audio == TRUE || game.audioDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "SFX_VOLUME") == 0)
@@ -348,6 +348,8 @@ static void toggleSound()
 
 	if (game.audio == FALSE)
 	{
+		game.audioDisabled = FALSE;
+
 		stopMusic();
 	}
 
