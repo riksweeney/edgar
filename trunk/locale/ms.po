@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Tunggu, apa itu?"
 
 msgid "You again?!"
 msgstr "Anda lagi?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Penenung pasti telah Ayah ke bentengnya. Aku harus menyelamatkan dia dari sana."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Satu-satunya cara untuk sampai ke benteng adalah melalui Rawa Terlarang ke Timur."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Ada sebuah tasik antara Desa dan Rawa jadi saya akan memerlukan rakit untuk menyeberang."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Saya juga akan memerlukan pedang dan perisai untuk membela diri. Saya boleh bercakap kepada dan untuk mendapatkan meskipun ini."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Sesuatu yang seharusnya berlaku di sini, tapi tidak dalam versi ini begitu semak lagi nanti!"
@@ -1049,7 +1037,7 @@ msgid "Maybe I can create a shield..."
 msgstr "Mungkin aku bisa membuat perisai ..."
 
 msgid "Swords... Armour... Wands..."
-msgstr "Pedang ... Armour ... Tongkat ..."
+msgstr "Pedang ... Armour ... Tongkat sihir ..."
 
 msgid "Stupid book. It's not in order and there's no index"
 msgstr "Buku bodoh. Ini bukan dalam rangka dan tidak ada indeks"
@@ -1202,7 +1190,7 @@ msgid "Some however will morph into a queen wasp. These queens can produce a muc
 msgstr "Namun sebahagian akan berubah menjadi ratu lebah. Ratu ini boleh menghasilkan lendir seperti substansi mampu memegang mangsanya di tempat"
 
 msgid "Tortoise, Master"
-msgstr "Kura-kura, Master"
+msgstr "-Kura kura, Master"
 
 msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
 msgstr "Master Tortoises yang menakutkan binatang. Ditemukan di tanah jauh mereka mempunyai keupayaan untuk menukar kepala mereka"
@@ -1595,10 +1583,10 @@ msgid "The robot uses instruction cards to move around"
 msgstr "Robot menggunakan kad Arahan untuk bergerak"
 
 msgid "Use the instructions to guide the robot to open areas that you cannot access"
-msgstr "Guna Arahan untuk memandu robot untuk membuka daerah-daerah yang tidak dapat mengakses"
+msgstr "Guna Arahan untuk memandu robot untuk daerah terbuka bahawa anda tidak boleh mengakses"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
-msgstr "Namun, kerana anda tidak boleh membaca manual pada kad, anda perlu cuba mereka semua keluar sampai satu karya"
+msgstr "Namun, karena anda tidak bisa membaca manual pada kad, anda perlu cuba mereka semua keluar sampai satu karya"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
 msgstr "Jika robot tidak mencapai target, maka akan kembali ke posisi awal yang memungkinkan anda untuk mencuba lagi"
@@ -1675,8 +1663,8 @@ msgstr "Ada sesuatu yang bergerak di bawah sana ..."
 msgid "Good riddance..."
 msgstr "Baguslah ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, Déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Jika angkat rosak maka itu harus diatur ulang"
@@ -1740,4 +1728,100 @@ msgstr "Jika suatu benda menjadi tidak terjangkau maka anda boleh menggunakan sw
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Sebuah botol dengan jiwa yang terperangkap di dalam"
+
+msgid "Full Mine Cart"
+msgstr "Kendali Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Pengolahan Lift Kunci"
+
+msgid "Right Grabber Key"
+msgstr "Key Grabber kanan"
+
+msgid "Left Grabber Key"
+msgstr "Waktu Grabber Kunci"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Penenung pasti telah Ayah ke bentengnya. Aku harus menyelamatkan dia dari sana."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Satu-satunya cara untuk sampai ke benteng adalah melalui Rawa Terlarang ke Timur."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Ada sebuah tasik antara Desa dan Rawa jadi saya akan memerlukan rakit untuk menyeberang."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Saya juga akan memerlukan pedang dan perisai untuk membela diri. Saya boleh bercakap kepada borgan dan Yakub untuk mendapatkan meskipun ini."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Tidak dapat disambungkan ke Server at %s:%d Pingat"
+
+msgid "Could not find Medal Key"
+msgstr "Tidak dapat menemukan kunci Pingat"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Anda tidak akan mampu menghasilkan Pingat untuk permainan ini"
+
+msgid "There's another sign here"
+msgstr "Ada tanda lain di sini"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Jika keluar angkat rosak kemudian lanjutkan ke kiri"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Amaran: Keluar laluan bisa berbahaya"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Mungkin aku harus menggunakan lif untuk keluar"
+
+msgid "There's a sign here"
+msgstr "Ada tanda tangan di sini"
+
+msgid "An Oil Can"
+msgstr "An Oil Bolehkah"
+
+msgid "Oil Can"
+msgstr "Minyak Bolehkah"
+
+msgid "A powerful repellent"
+msgstr "Pembasmi yang kuat"
+
+msgid "Repellent"
+msgstr "Pembasmi"
+
+msgid "Medal Support"
+msgstr "Pingat Sokongan"
+
+msgid "Fortress Mine"
+msgstr "Benteng Mine"
+
+msgid "Private key is missing"
+msgstr "Kunci peribadi yang hilang"
+
+msgid "Could not connect to server"
+msgstr "Tidak dapat disambungkan ke pelayan"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge tentakel"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Sludge Merah tentakel"
+
+msgid "Eyeball Smoothie"
+msgstr "Bola mata Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Online, itu berjaya!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Saya tidak yakin tentang Warna meskipun, saya pikir ini akan menjadi warna merah?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Mungkin seharusnya kuning ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Sebuah cecair yang diperbuat daripada bola mata dan tentakel"
 

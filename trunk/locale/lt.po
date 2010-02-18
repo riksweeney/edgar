@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
 "100<10 || n%100>=20) ? 1 : 2);\n"
@@ -363,18 +363,6 @@ msgstr "Palauk, kas tai buvo?"
 msgid "You again?!"
 msgstr "Jūs vėl?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Burtininkas turi turėti Tėti jo pilis. I'll have gelbėti jį iš ten."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Vienintelis būdas patekti į pilies per forbidden Pelkės į Rytus."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Yra tarp kaimo ir Pelkių ežeras todėl reikės plaustas gauti visoje."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Aš taip pat reikia kardas ir skydas ginti save. Aš galiu kalbėti ir gauti šių nors."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Kažkas turėjo atsitikti čia, tačiau ne šioje versijoje to check back later!"
 
@@ -493,7 +481,7 @@ msgid "Drat, the drawbridge is up. There must be another entrance..."
 msgstr "Drat, kėlimo tiltu yra pasibaigęs. Turi būti kitas įėjimas ..."
 
 msgid "Wait, what's that?"
-msgstr "Palauk, kas tai?"
+msgstr "Palaukit, kas tai?"
 
 msgid "Maybe I could tunnel my way in..."
 msgstr "Gal galėčiau tunelio mano būdas a. .."
@@ -535,7 +523,7 @@ msgid "Oh...."
 msgstr "Oh ...."
 
 msgid "Guess I have no choice now."
-msgstr "Atspėk Aš neturiu pasirinkimo dabar."
+msgstr "Atspėkite, man nebuvo pasirinkimo dabar."
 
 msgid "Hang on Dad, I'm coming..."
 msgstr "Atkakliam Tėti, aš dar ..."
@@ -844,7 +832,7 @@ msgid "This is a blank objective"
 msgstr "Tai yra tuščias tikslas"
 
 msgid "Kill all Bats!"
-msgstr "Nužudyk visus bats!"
+msgstr "Nužudyk visus Šikšnosparniai!"
 
 msgid "Coal"
 msgstr "Anglių"
@@ -1677,8 +1665,8 @@ msgstr "There's something keliaus ten ..."
 msgid "Good riddance..."
 msgstr "Geras nusikratyti ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Jeigu liftas yra netvarkingos tada jis turi būti iš naujo"
@@ -1742,4 +1730,100 @@ msgstr "Jei daiktas tampa nepasiekiamas, galite naudoti pereiti į padėkite jį
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Su siela trapped inside butelis"
+
+msgid "Full Mine Cart"
+msgstr "Visas Mine krepšelį"
+
+msgid "Processing Lift Key"
+msgstr "Apdorojimo Lift Raktažodžiai"
+
+msgid "Right Grabber Key"
+msgstr "Teisė grabber Raktažodžiai"
+
+msgid "Left Grabber Key"
+msgstr "Liko grabber Raktažodžiai"
+
+msgid "Master Key"
+msgstr "Key Master"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Burtininkas turi turėti Tėti jo pilis. I'll have gelbėti jį iš ten."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Vienintelis būdas patekti į pilies per forbidden Pelkės į Rytus."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Yra tarp kaimo ir Pelkių ežeras todėl reikės plaustas gauti visoje."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Aš taip pat reikia kardas ir skydas ginti save. Galiu kalbėti Borgan ir Jokūbo gauti šias nors."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nepavyko prisijungti prie serverio ne medalis %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nepavyko rasti medalis Raktažodžiai"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Jūs negalėsite uždirbti medaliai už šį žaidimą"
+
+msgid "There's another sign here"
+msgstr "Yra dar vienas ženklas čia"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Jeigu išėjimas liftas neveikia tada eikite į kairę"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Įspėjimas: Exit maršrutas gali būti pavojingas"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Gal turėčiau naudoti liftas išeiti"
+
+msgid "There's a sign here"
+msgstr "Yra Registruotis čia"
+
+msgid "An Oil Can"
+msgstr "Aliejų"
+
+msgid "Oil Can"
+msgstr "Aliejų"
+
+msgid "A powerful repellent"
+msgstr "Galingas atstumiantis"
+
+msgid "Repellent"
+msgstr "Atstumiantis"
+
+msgid "Medal Support"
+msgstr "Medalis Pagalba"
+
+msgid "Fortress Mine"
+msgstr "Tvirtovė Mine"
+
+msgid "Private key is missing"
+msgstr "Privatus raktas nėra"
+
+msgid "Could not connect to server"
+msgstr "Nepavyko prisijungti prie serverio"
+
+msgid "Sludge Tentacle"
+msgstr "Dumblo Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Red Dumblo Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Pochlebca"
+
+msgid "Cool, it worked!"
+msgstr "Cool, jis dirbo!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "I'm not sure about spalva nors, aš maniau, kad būtų raudoni?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Gal tai turėjo būti geltonos ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Skystis iš akių obuolius ir čiuptuvai"
 

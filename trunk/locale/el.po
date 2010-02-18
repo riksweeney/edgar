@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -362,18 +362,6 @@ msgstr "Περιμένετε, τι ήταν αυτό;"
 msgid "You again?!"
 msgstr "Μπορείτε πάλι;!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Ο μάγος πρέπει να έχει τον μπαμπά να κάστρο του. Θα πρέπει να τον σώσει από εκεί."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Ο μόνος τρόπος για να φτάσετε στο κάστρο είναι μέσω Απαγορευμένη Βάλτο με την Ανατολή."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Υπάρχει μια λίμνη από το χωριό και το Βάλτο γι 'αυτό θα χρειαστεί μια σειρά για να μεταδώσουμε."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Θα πρέπει, επίσης, ένα σπαθί και ασπίδα για να υπερασπιστεί τον εαυτό μου. Μπορώ να μιλήσω και να πάρει αυτά όμως."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Κάτι έπρεπε να γίνει εδώ, αλλά δεν είναι σε αυτή την έκδοση, ώστε δοκιμάστε ξανά αργότερα!"
 
@@ -657,7 +645,7 @@ msgid "This is the last part of the tutorial and will teach you to block and att
 msgstr "Αυτό είναι το τελευταίο μέρος του διδακτικού και θα σας διδάξει σε μπλοκ και επίθεση εχθρούς"
 
 msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
-msgstr "Πρώτον, θα πρέπει να εξοπλίσει το σπαθί, δεδομένου ότι έχει μεγαλύτερη ποικιλία και να κάνει μεγαλύτερη ζημιά από την αξίνα"
+msgstr "Πρώτον, θα πρέπει να εξοπλίσει το σπαθί, δεδομένου ότι έχει περισσότερο το φάσμα και να κάνει μεγαλύτερη ζημιά από την αξίνα"
 
 msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
 msgstr "Πιέστε για να δείτε απογραφή σας, επισημάνετε το σπαθί και πατήστε Attack (αριστερά ctrl) ή Χρήση σημείο (α)"
@@ -1005,7 +993,7 @@ msgid "It looks like a lot of doors lead off to other areas, I should have a pro
 msgstr "Μοιάζει πολύ πόρτες οδηγούν μακριά σε άλλους τομείς, θα πρέπει να έχει μια καλή ματιά πριν πάω πουθενά αλλού ..."
 
 msgid "Try hitting the skull..."
-msgstr "Δοκιμάστε να χτυπήσει το κρανίο ..."
+msgstr "Προσπαθήστε να χτυπήσει το κρανίο ..."
 
 msgid "This machine is not active"
 msgstr "Το μηχάνημα αυτό δεν είναι ενεργό"
@@ -1266,7 +1254,7 @@ msgid "Sludge, Red"
 msgstr "Ιλύος, Κόκκινο"
 
 msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
-msgstr "Σε αντίθεση με πράσινο ξάδελφό του, ο Ερυθρός ιλύος παραμένει βαθιά υπόγεια και σπάνια, αν όχι ποτέ, οι επιφάνειες"
+msgstr "Σε αντίθεση με πράσινο ξάδελφό του, ο Ερυθρός ιλύος παραμένει βαθιά υπόγεια και σπάνια, αν ποτέ, επιφάνειες"
 
 msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
 msgstr "Προτίμησε οικότοπος του είναι ξηρό και μεταλλικά πλούσιες περιοχές και ως εκ τούτου έχουν βρεθεί παραμονεύουν σε περιοχές των ορυχείων εγκαταλειφθεί από τον άνθρωπο"
@@ -1314,7 +1302,7 @@ msgid "There's a book here about enchanting equipment"
 msgstr "Υπάρχει εδώ ένα βιβλίο σχετικά με μαγευτική εξοπλισμού"
 
 msgid "It's a book about enchanting equipment"
-msgstr "Είναι ένα βιβλίο για μαγευτική εξοπλισμού"
+msgstr "Είναι ένα γοητευτικό βιβλίο για εξοπλισμό"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
 msgstr "Δεν έχω κανένα λόγο να διαβάσετε αυτό, αλλά εγώ θα το έχετε υπόψη σας σε περίπτωση που κάνω"
@@ -1676,8 +1664,8 @@ msgstr "Υπάρχει κάτι κινείται γύρω από εκεί κάτ
 msgid "Good riddance..."
 msgstr "Καλό riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Εάν ο ανελκυστήρας έχει τεθεί εκτός λειτουργίας, τότε πρέπει να μηδενιστεί"
@@ -1741,4 +1729,100 @@ msgstr "Εάν ένα αντικείμενο γίνεται unreachable τότε
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Ένα μπουκάλι με μια ψυχή παγιδευμένος μέσα"
+
+msgid "Full Mine Cart"
+msgstr "Πλήρης Mine καλάθι"
+
+msgid "Processing Lift Key"
+msgstr "Μεταποίηση Ασανσέρ Key"
+
+msgid "Right Grabber Key"
+msgstr "Δικαίωμα Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Αριστερά Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Ο μάγος πρέπει να έχει τον μπαμπά να κάστρο του. Θα πρέπει να τον σώσει από εκεί."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ο μόνος τρόπος για να φτάσετε στο κάστρο είναι μέσω της Απαγορευμένη Βάλτο στην Ανατολή."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Υπάρχει μια λίμνη από το χωριό και το Βάλτο γι 'αυτό θα χρειαστεί μια σειρά για να μεταδώσουμε."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Θα πρέπει, επίσης, ένα σπαθί και ασπίδα για να υπερασπιστεί τον εαυτό μου. Μπορώ να μιλήσω για Borgan και Ιακώβ να πάρει αυτά όμως."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Δεν είναι δυνατή η σύνδεση με το μετάλλιο Server σε %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Δεν βρήκατε Μετάλλιο Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Δεν θα είναι σε θέση να κερδίζουν μετάλλια για αυτό το παιχνίδι"
+
+msgid "There's another sign here"
+msgstr "Υπάρχει άλλο ένα δείγμα εδώ"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Εάν ο ανελκυστήρας έξοδος είναι εκτός λειτουργίας, στη συνέχεια προχωρεί προς τα αριστερά"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Προειδοποίηση: Διέξοδος μπορεί να είναι επικίνδυνα"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Ισως θα πρέπει να χρησιμοποιούν το ασανσέρ για να βγούμε"
+
+msgid "There's a sign here"
+msgstr "Υπάρχει ένα σημείο εδώ"
+
+msgid "An Oil Can"
+msgstr "Μια πετρελαίου μπορεί να"
+
+msgid "Oil Can"
+msgstr "Μπορεί πετρέλαιο"
+
+msgid "A powerful repellent"
+msgstr "Ένα ισχυρό απωθητικό"
+
+msgid "Repellent"
+msgstr "Απωθητικό"
+
+msgid "Medal Support"
+msgstr "Μετάλλιο Υποστήριξη"
+
+msgid "Fortress Mine"
+msgstr "Φρούριο Mine"
+
+msgid "Private key is missing"
+msgstr "Ιδιωτικό κλειδί λείπει"
+
+msgid "Could not connect to server"
+msgstr "Δεν είναι δυνατή η σύνδεση με τον διακομιστή"
+
+msgid "Sludge Tentacle"
+msgstr "Ιλύος Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Ένα κόκκινο λάσπης Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, αυτό έλυσα!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Δεν είμαι σίγουρος για το χρώμα όμως, σκέφτηκα ότι θα ήταν κόκκινο;"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Ίσως είναι υποτίθεται ότι είναι κίτρινο ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Ένα υγρό γίνει από μάτια και πλοκάμια"
 

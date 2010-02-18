@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-9\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -362,18 +362,6 @@ msgstr "Beklemek, ne o?"
 msgid "You again?!"
 msgstr "Yeniden?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Büyücü onun kaleye Baba almış olmalı. Orada onu kurtarmak gerekir."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Kale almak için tek yol Yasak Swamp üzerinden Doğu etmektir."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Orada Köyü ve Swamp arasında bir göl ben kızdırmak için bir sal gerekir's."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Ben de kendimi savunmak için bir kılıç ve kalkan gerekir. Ben ve konuşabilir bu olsa almak."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Şey burada ne gerekiyordu, ama bu sürüm, böylece daha sonra tekrar kontrol değil!"
 
@@ -675,7 +663,7 @@ msgid "Now kill all of the bats in the area!"
 msgstr "Şimdi tüm bölgede yarasa öldürmek!"
 
 msgid "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr "Oyunda kapının iki türü vardır. Manuel ve Otomatik kapı kapı."
+msgstr "Oyunda kapının iki türü vardır. Manuel kapılar ve Otomatik kapılar."
 
 msgid "Manual doors require keys to open them, Automatic doors require switches."
 msgstr "Manuel kapı anahtarlarını açın gerekiyorsa, Otomatik kapılar anahtarları gerektirir."
@@ -1676,8 +1664,8 @@ msgstr "Bir şey orada dolaşırım's ..."
 msgid "Good riddance..."
 msgstr "Riddance Good ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Eğer asansör out of order, daha sonra sıfırlamak gerekir"
@@ -1741,4 +1729,100 @@ msgstr "Eğer bir nesne daha sonra tekrar orijinal yerine koymak için anahtarı
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Bir ruh içinde hapsolmuş olan bir şişe"
+
+msgid "Full Mine Cart"
+msgstr "Tam Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Işleme Anahtar Lift"
+
+msgid "Right Grabber Key"
+msgstr "Doğru kapmak Anahtar"
+
+msgid "Left Grabber Key"
+msgstr "Kapmak Sol Anahtarı"
+
+msgid "Master Key"
+msgstr "Master"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Büyücü onun kaleye Baba almış olmalı. Orada onu kurtarmak gerekir."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Kale almak için tek yol Yasak Swamp üzerinden Doğu etmektir."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Orada Köyü ve Swamp arasında bir göl ben kızdırmak için bir sal gerekir's."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ben de kendimi savunmak için bir kılıç ve kalkan gerekir. Ben Borgan ve Jacob bu olsa almak için konuşabilir."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Madalya Server %s:%d bağlanma Couldn't"
+
+msgid "Could not find Medal Key"
+msgstr "Madalya Anahtar bulunamadı"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Bu oyun için madalya kazanmak mümkün olmayacaktır"
+
+msgid "There's another sign here"
+msgstr "Başka bir oturum burada"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Sırasına ardından sola devam Eğer çıkış asansör çıktı"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Uyarı: Çıkış rota tehlikeli olabilir"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Belki çıkmak için asansör kullanmalısınız"
+
+msgid "There's a sign here"
+msgstr "Orada bir işaret burada"
+
+msgid "An Oil Can"
+msgstr "Bir petrol miyim"
+
+msgid "Oil Can"
+msgstr "Petrol miyim"
+
+msgid "A powerful repellent"
+msgstr "Güçlü bir itici"
+
+msgid "Repellent"
+msgstr "Itici"
+
+msgid "Medal Support"
+msgstr "Madalya Destek"
+
+msgid "Fortress Mine"
+msgstr "Kale Mine"
+
+msgid "Private key is missing"
+msgstr "Özel anahtar eksik"
+
+msgid "Could not connect to server"
+msgstr "Sunucu bağlantısı kurulamadı"
+
+msgid "Sludge Tentacle"
+msgstr "Çamur Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Bir Kızıl Çamur Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, bu çalıştı!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ben renk konusunda rağmen, diye düşündüm kırmızı olurdu emin değilim?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Belki sarı gerekiyordu's ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Bir sıvı gözleri ve Tentacles yapılmış"
 

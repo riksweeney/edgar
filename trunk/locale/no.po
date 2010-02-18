@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -267,7 +267,7 @@ msgid "But we have plenty of coal!"
 msgstr "Men vi har nok av kull!"
 
 msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
-msgstr "Ja, men dette er ikke noe gammelt kull, dette er kull spesiell, brenner det varmere og varer lengre"
+msgstr "Ja, men dette er ikke noe gammelt kull, dette er kull spesiell, brenner det varmere og varer lenger"
 
 msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
 msgstr "Jeg trenger bare 10 stykker av ting, så det burde ikke ta deg veldig lang"
@@ -315,7 +315,7 @@ msgid "Just stay away from the Forbidden Swamp"
 msgstr "Bare hold deg unna forbudte Swamp"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr "Vil gjøre, kan jeg holde på hakken din for en stund?"
+msgstr "Vil gjøre, kan jeg holde på hakken din på en stund?"
 
 msgid "Sure thing, just bring it back in one piece"
 msgstr "Sure ting, bare ta den tilbake i ett stykke"
@@ -361,18 +361,6 @@ msgstr "Vent, hva var det?"
 
 msgid "You again?!"
 msgstr "Du igjen?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Trollmannen må ha tatt far til slottet hans. Jeg må redde ham fra det."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Den eneste måten å komme til slottet er gjennom Den forbudte Swamp til Østen."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Det er en innsjø mellom Village og Swamp så jeg trenger en flåte for å komme over."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Jeg trenger også et sverd og skjold for å forsvare meg. Jeg kan snakke til og for å få disse selv."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Noe skal skje her, men det er ikke i denne versjonen så prøv igjen senere!"
@@ -1676,8 +1664,8 @@ msgstr "Det er noe bevege seg rundt der nede ..."
 msgid "Good riddance..."
 msgstr "Godt å være kvitt ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Hvis heisen er i orden så må tilbakestilles"
@@ -1741,4 +1729,100 @@ msgstr "Hvis et objekt blir ikke kan nås, kan du bruke bryteren for å sette de
 
 msgid "A bottle with a soul trapped inside"
 msgstr "En flaske med sjel fanget inne"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Høyre Fanget Key"
+
+msgid "Left Grabber Key"
+msgstr "Venstre Fanget Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Trollmannen må ha tatt far til slottet hans. Jeg må redde ham fra det."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Den eneste måten å komme til slottet er gjennom Den forbudte Swamp til Østen."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Det er en innsjø mellom Village og Swamp så jeg trenger en flåte for å komme over."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Jeg trenger også et sverd og skjold for å forsvare meg. Jeg kan snakke til Borgan og Jakob for å få disse selv."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Kunne ikke koble til Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Finner ikke Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Du vil ikke kunne tjene medalje for dette spillet"
+
+msgid "There's another sign here"
+msgstr "Det er et annet tegn her"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Hvis avkjørselen heisen er ute av drift så gå til venstre"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Advarsel: Exit ruten kan være farlig"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Kanskje jeg bør bruke heisen for å komme ut"
+
+msgid "There's a sign here"
+msgstr "Det er et tegn her"
+
+msgid "An Oil Can"
+msgstr "An Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "En kraftig frastøtende"
+
+msgid "Repellent"
+msgstr "Frastøtende"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Privat nøkkel mangler"
+
+msgid "Could not connect to server"
+msgstr "Kunne ikke koble til serveren"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Sludge Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Øyeeple Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, virket det!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Jeg er ikke sikker på om fargen selv, tenkte jeg det ville være rød?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Kanskje det er ment å være gul ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "En væske laget av øyeepler og tentakler"
 

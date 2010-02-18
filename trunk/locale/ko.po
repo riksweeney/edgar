@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -99,7 +99,7 @@ msgid "Back"
 msgstr "뒤로"
 
 msgid "Game Loaded"
-msgstr "게임 로드됨"
+msgstr "경기 로드됨"
 
 msgid "Game Saved"
 msgstr "저장된 게임"
@@ -361,18 +361,6 @@ msgstr "잠깐, 무슨 소리죠?"
 
 msgid "You again?!"
 msgstr "또 너냐?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "주술사는 자신의 성으로 아버지가 촬영해야합니다. 내가 거기에서 그를 구출해야합니다."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "성의를 얻을 수있는 유일한 방법은 늪지를 통해 자금성 동쪽에있습니다."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "저기 마을과 늪 사이의 호수 그래서 이리로 건너 가야 뗏목을 필요가있을 것이다."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "나는 내 자신을 방어하는 검술과 방패가 필요합니다. 난 아무말도 할 수 이러한 생각을."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "여기 뭔가 일이 생각이지만,이 버전에서 수행되므로 나중에 수표가 아니에요!"
@@ -1578,7 +1566,7 @@ msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr "3 Gazer 대마초 1 레드 슬러지 촉수와 여분의 방패"
 
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr "나는 또한 촉수 액체로 시선을 조화 필요"
+msgstr "저는 또한 촉수 액체로 시선을 조화 필요"
 
 msgid "This entire section is about monsters"
 msgstr "이것은 전체 섹션 괴물에 관한"
@@ -1644,7 +1632,7 @@ msgid "I'll have to find something to help me get across"
 msgstr "내가 건널 수 있도록 뭔가를 찾을거야"
 
 msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
-msgstr "내가 Borgan의 석탄을하고 가서 광산에서 슬러지 보지 못했다하더라도 내 뗏목을 침몰 이후 언제 다시 갈 수 없어했다"
+msgstr "내가 Borgan의 석탄을하고 가서 광산에서 슬러지 보지 못했다하더라도 내 뗏목은 침몰 이후 언제 다시 갈 수 없어했다"
 
 msgid "I'll have to find another mine around here..."
 msgstr "여기 근처에 다른 내를 찾아 야죠 ..."
@@ -1676,8 +1664,8 @@ msgstr "밑에 뭔가가 주위를 움직이고,이 ..."
 msgid "Good riddance..."
 msgstr "좋아 졌 ..."
 
-msgid "Huh, déjà vu..."
-msgstr "허, '데자부'..."
+msgid "Huh, d�j� vu..."
+msgstr "허, DJ를 봤다 ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "리프트 경우 순서는 다음 재설정해야합니다"
@@ -1741,4 +1729,100 @@ msgstr "만약 개체를 누른 다음 다시 원래의 장소에 넣을 수있�
 
 msgid "A bottle with a soul trapped inside"
 msgstr "영혼 안에 갇혀와 병"
+
+msgid "Full Mine Cart"
+msgstr "완전 내 장바구니"
+
+msgid "Processing Lift Key"
+msgstr "처리 키 허용"
+
+msgid "Right Grabber Key"
+msgstr "Grabber를 마우스 오른쪽 키"
+
+msgid "Left Grabber Key"
+msgstr "왼쪽 Grabber 키"
+
+msgid "Master Key"
+msgstr "마스터 키"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "주술사는 자신의 성으로 아버지가 촬영해야합니다. 내가 거기에서 그를 구출해야합니다."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "성의를 얻을 수있는 유일한 방법은 늪지를 통해 자금성 동쪽에있습니다."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "저기 마을과 늪 사이의 호수 그래서 이리로 건너 가야 뗏목을 필요가있을 것이다."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "나는 내 자신을 방어하는 검술과 방패가 필요합니다. 내가 Borgan과 야곱에게 이러한 생각을 말할 수있습니다."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "%s:%d 메달 서버에 연결하지 못했습니다"
+
+msgid "Could not find Medal Key"
+msgstr "메달 열쇠를 찾을 수없습니다"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "당신이 게임 메달을 적립하실 수없습니다"
+
+msgid "There's another sign here"
+msgstr "또 여기에 서명"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "그 다음 순서로 진행하면 왼쪽 출구로 나가있다 리프트"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "경고 : 출구 경로를 위험한 수있습니다"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "어쩌면 내가 나가 리프트를 사용해야합니다"
+
+msgid "There's a sign here"
+msgstr "저기 여기 가입"
+
+msgid "An Oil Can"
+msgstr "오일 수"
+
+msgid "Oil Can"
+msgstr "오일 수"
+
+msgid "A powerful repellent"
+msgstr "강력한 구충제"
+
+msgid "Repellent"
+msgstr "구충제"
+
+msgid "Medal Support"
+msgstr "메달 지원"
+
+msgid "Fortress Mine"
+msgstr "요새 내"
+
+msgid "Private key is missing"
+msgstr "개인 열쇠 실종"
+
+msgid "Could not connect to server"
+msgstr "서버에 연결할 수없습니다"
+
+msgid "Sludge Tentacle"
+msgstr "슬러지 촉수"
+
+msgid "A Red Sludge Tentacle"
+msgstr "레드 슬러지 촉수"
+
+msgid "Eyeball Smoothie"
+msgstr "눈알 스무디"
+
+msgid "Cool, it worked!"
+msgstr "좋았어, 좋았어!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "나는 색깔에 대한 생각, 내가 생각했던 붉은 것이 확실하지 않아서?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "아마 노란색이어야하는데 ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "액체 시선과 촉수로 만든"
 

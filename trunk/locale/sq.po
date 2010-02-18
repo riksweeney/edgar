@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Prisni, se çfarë ishte kjo?"
 
 msgid "You again?!"
 msgstr "Ju përsëri?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Magjistari duhet të ketë marrë Dad në kështjellën e tij. Do të duhet për të shpëtuar atë nga atje."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Mënyra e vetme për të shkuar në kështjellë është nëpërmjet swamp ndaluar të Lindjes."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Ka një liqen midis fshatit dhe mbush me ujë kështu që unë do të duhet një traget për të marrë të gjithë."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Unë do të duhet edhe një shpatë dhe mburojë për të mbrojtur veten. Unë mund të flas për të dhe për të marrë këto pse."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Diçka është supozuar të ndodhë këtu, por kjo nuk është në këtë version deri kontrolloni sërish më vonë!"
@@ -1675,8 +1663,8 @@ msgstr "Ka diçka që shkon poshtë aty rreth ..."
 msgid "Good riddance..."
 msgstr "Mirë riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, vu dj ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Nëse heqin është jashtë rendit atëherë ajo duhet të rishkruhet"
@@ -1740,4 +1728,100 @@ msgstr "Nëse një objekt të bëhet i pakapshëm atëherë ju mund të përdorn
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Një shishe me një shpirt të bllokuar brenda"
+
+msgid "Full Mine Cart"
+msgstr "Plotë Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing heqin Key"
+
+msgid "Right Grabber Key"
+msgstr "Drejta Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Left Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Magjistari duhet të ketë marrë Dad në kështjellën e tij. Do të duhet për të shpëtuar atë nga atje."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Mënyra e vetme për të shkuar në kështjellë është nëpërmjet swamp ndaluar të Lindjes."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Ka një liqen midis fshatit dhe mbush me ujë kështu që unë do të duhet një traget për të marrë të gjithë."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Unë do të duhet edhe një shpatë dhe mburojë për të mbrojtur veten. Unë mund të flas për të Borgan Jakobit dhe për të marrë këto pse."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nuk mund të lidheni me Medaljen Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nuk mund të gjeni Medaljen Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ju nuk do të jetë në gjendje për të fituar medalje për këtë lojë"
+
+msgid "There's another sign here"
+msgstr "Ka një shenjë tjetër këtu"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Nëse ashensor dalje është jashtë rendit pastaj do të vazhdojë të majtë"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: Exit rrugë mund të jetë e rrezikshme"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Ndoshta unë duhet të përdorë ashensor për të marrë nga"
+
+msgid "There's a sign here"
+msgstr "Ka një shenjë këtu"
+
+msgid "An Oil Can"
+msgstr "Një e naftës mund"
+
+msgid "Oil Can"
+msgstr "Mund të naftës"
+
+msgid "A powerful repellent"
+msgstr "Një gjë që shkakton neveritje fuqishme"
+
+msgid "Repellent"
+msgstr "Ilaç kundër insekteve"
+
+msgid "Medal Support"
+msgstr "Support Medaljen"
+
+msgid "Fortress Mine"
+msgstr "Kalaja minave"
+
+msgid "Private key is missing"
+msgstr "Kyç privat mungon"
+
+msgid "Could not connect to server"
+msgstr "Nuk mund të lidheni me serverin"
+
+msgid "Sludge Tentacle"
+msgstr "Llum brith"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Një llum Kuq brith"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball gojëmjaltë"
+
+msgid "Cool, it worked!"
+msgstr "Cool, it worked!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Unë nuk jam i sigurt për ngjyra pse, kam menduar se do të ishte e kuqe?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Ndoshta është menduar të jetë e verdhë ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Një lëng bërë nga shikimet dhe tentacles"
 

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Aros, beth oedd yn bod?"
 
 msgid "You again?!"
 msgstr "Chi eto?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Rhaid i'r sorcerer wedi cymryd at ei Dad castell. Bydd yn rhaid i mi ei achub oddi yno."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Yr unig ffordd i gyrraedd y castell yw drwy siglen Forbidden i'r Dwyrain."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Mae llyn rhwng y pentref a'r siglen felly bydd angen i mi gael rafft i gael ar draws."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "'N annhymerus' hefyd angen cleddyf a tharian i amddiffyn fy hun. Rwy'n gallu siarad ac i gael y rhain er."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Rhywbeth i fod i ddigwydd yma, ond nid yn y fersiwn hwn felly gofynnwch yn ôl yn ddiweddarach!"
@@ -1675,8 +1663,8 @@ msgstr "Mae rhywbeth wrth symud o gwmpas i lawr ..."
 msgid "Good riddance..."
 msgstr "Da riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, vu dj ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Os bydd y lifft yn allan o drefn yna rhaid iddo fod yn reset"
@@ -1740,4 +1728,100 @@ msgstr "Os yw gwrthrych yn dod unreachable yna gallwch ddefnyddio y newid i ei r
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Mae poteli gyda enaid yn gaeth tu mewn"
+
+msgid "Full Mine Cart"
+msgstr "Llawn Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Prosesu Lifft Allweddol"
+
+msgid "Right Grabber Key"
+msgstr "Hawl Grabber Allweddol"
+
+msgid "Left Grabber Key"
+msgstr "Chwith Grabber Allweddol"
+
+msgid "Master Key"
+msgstr "Meistr Allweddol"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Rhaid i'r sorcerer wedi cymryd at ei Dad castell. Bydd yn rhaid i mi ei achub oddi yno."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Yr unig ffordd i gyrraedd y castell yw drwy siglen Forbidden i'r Dwyrain."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Mae llyn rhwng y pentref a'r siglen felly bydd angen i mi gael rafft i gael ar draws."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "'N annhymerus' hefyd angen cleddyf a tharian i amddiffyn fy hun. Gallaf siarad Borgan a Jacob i gael y rhain er."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Methu cysylltu â Medal Gweinydd yn %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Methu dod o hyd Medal Allweddol"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ni fyddwch yn gallu ennill Medalau ar gyfer y gêm"
+
+msgid "There's another sign here"
+msgstr "Mae arwydd arall yma"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Os yw'r lifft allanfa allan o Er yna symud ymlaen ar y chwith"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Gall Warning: Gadewch llwybr fod yn beryglus"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Efallai y dylwn i ddefnyddio'r lifft i fynd allan"
+
+msgid "There's a sign here"
+msgstr "Mae arwydd yma"
+
+msgid "An Oil Can"
+msgstr "Mae Olew All"
+
+msgid "Oil Can"
+msgstr "Olew All"
+
+msgid "A powerful repellent"
+msgstr "A repellent pwerus"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Cymorth"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Allweddol Preifat ar goll"
+
+msgid "Could not connect to server"
+msgstr "Methu cysylltu â'r gweinydd"
+
+msgid "Sludge Tentacle"
+msgstr "Llaid Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Sludge Coch Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball smwddi"
+
+msgid "Cool, it worked!"
+msgstr "Oeri, mae'n gweithio!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nid wyf yn sicr am y lliw, serch hynny, roeddwn i'n meddwl y byddai'n coch?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Efallai ei fod yn dybiedig i fod yn melyn ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Mae hylif a wnaed o eyeballs a tentacles"
 

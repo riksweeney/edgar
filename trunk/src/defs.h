@@ -180,6 +180,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 	#define MEDAL_SERVER_HOST "reddwarf"
 
 	#define MEDAL_SERVER_PORT 80
+#elif DEV != 0
+	#error "DEV must be 0 or 1"
 #endif
 
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -361,18 +361,6 @@ msgstr "待って、何でしたか？"
 
 msgid "You again?!"
 msgstr "もう一度！？"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "魔術師自分の城にお父さん撮影する必要があります。私はそこから彼を救出する必要があります。"
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "城を得るための唯一の方法は、故宮の沼を介して東することです。"
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "ある村と沼の間に湖のように私を分かってもらうための筏が必要だ。"
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "私も自分自身を守るために剣と盾が必要です。私と話すことができるのも取得する。"
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "何かここで発生するはずですが、このバージョンではまた後で確認していないよ！"
@@ -1676,8 +1664,8 @@ msgstr "何かが下の方を動き回るの..."
 msgid "Good riddance..."
 msgstr "いい厄介払いだが...。"
 
-msgid "Huh, déjà vu..."
-msgstr "許氏は、既視感..."
+msgid "Huh, d�j� vu..."
+msgstr "許、DJの視..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "場合は、リフトで注文外の場合、それをリセットする必要があります"
@@ -1741,4 +1729,100 @@ msgstr "もしオブジェクトの場合を元の場所に配置するために
 
 msgid "A bottle with a soul trapped inside"
 msgstr "魂に閉じ込められたと瓶"
+
+msgid "Full Mine Cart"
+msgstr "完全な私のショッピングカート"
+
+msgid "Processing Lift Key"
+msgstr "情報処理買うリフト"
+
+msgid "Right Grabber Key"
+msgstr "右グラバを買う"
+
+msgid "Left Grabber Key"
+msgstr "左グラバを買う"
+
+msgid "Master Key"
+msgstr "マスタキー"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "魔術師自分の城にお父さん撮影する必要があります。私はそこから彼を救出する必要があります。"
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "城を得るための唯一の方法は、故宮の沼を介して東することです。"
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "ある村と沼の間に湖のように私を分かってもらうための筏が必要だ。"
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "私も自分自身を守るために剣と盾が必要です。私Borganとジェイコブ、これらも取得するに話すことができます。"
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "金メダルServerに%s:%dに接続できませんでした。"
+
+msgid "Could not find Medal Key"
+msgstr "金メダルを買うが見つかりませんでした。"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "このゲームのメダルを獲得することができなくなります"
+
+msgid "There's another sign here"
+msgstr "もう一つ今ここでの"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "の注文をするために左に進む場合は、終了リフトアウトされ"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "警告：出口ルート有害な可能性があります"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "たぶん私を取得するにはリフトを使用する必要があります"
+
+msgid "There's a sign here"
+msgstr "が今ここでの"
+
+msgid "An Oil Can"
+msgstr "オイルできます"
+
+msgid "Oil Can"
+msgstr "オイルできます"
+
+msgid "A powerful repellent"
+msgstr "強力な撥"
+
+msgid "Repellent"
+msgstr "撥"
+
+msgid "Medal Support"
+msgstr "金メダルサポート"
+
+msgid "Fortress Mine"
+msgstr "要塞の私"
+
+msgid "Private key is missing"
+msgstr "プライベートキーが存在しない"
+
+msgid "Could not connect to server"
+msgstr "サーバーに接続できませんでした。"
+
+msgid "Sludge Tentacle"
+msgstr "汚泥触手"
+
+msgid "A Red Sludge Tentacle"
+msgstr "レッド汚泥触手"
+
+msgid "Eyeball Smoothie"
+msgstr "眼球スムージー"
+
+msgid "Cool, it worked!"
+msgstr "クール、うまくいった！"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "私は、色についても、私は考えて赤になるか分からない？"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "たぶん黄色のことになってね..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "液体の目玉と触手から作られた"
 

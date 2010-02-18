@@ -4,11 +4,1824 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Fljótt snúa vinstri og hægri til að hrista af slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Ekki vinna í þessari útgáfu!"
+
+msgid "Press Action to interact"
+msgstr "Stutt aðgerð til að hafa samskipti"
+
+msgid "%s is required"
+msgstr "%s er krafist"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Small Rock"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Stutt Aðgerðir til að sækja Purple Gem"
+
+msgid "Chicken"
+msgstr "Kjúklingur"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Stutt Aðgerðir til að sækja Tesla Pakki"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Stutt aðgerð til að skipta Tesla Pakki"
+
+msgid "Obtained %s"
+msgstr "Fengin %s"
+
+msgid "Complete"
+msgstr "Complete"
+
+msgid "%d more to go..."
+msgstr "%d fleiri til að fara ..."
+
+msgid "Used %s"
+msgstr "Notað %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Ekki er hægt að búa atriði meðan transmogrified"
+
+msgid "Equipped %s"
+msgstr "Útbúa %s"
+
+msgid "Maximum health has increased!"
+msgstr "Hámarks heilsu hefur aukist!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow mun nú Fire %s"
+
+msgid "A bow is required to use this item"
+msgstr "A Bow þarf að nota þetta atriði"
+
+msgid "Cannot transmogrify here..."
+msgstr "Get ekki transmogrify hér ..."
+
+msgid "Yes"
+msgstr "Já"
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Start a new game?"
+msgstr "Hefja nýjan leik?"
+
+msgid "Play the tutorial?"
+msgstr "Spila einkatími?"
+
+msgid "Exit the game?"
+msgstr "Hætta leiknum?"
+
+msgid "Back"
+msgstr "Aftur"
+
+msgid "Game Loaded"
+msgstr "Leikur Loaded"
+
+msgid "Game Saved"
+msgstr "Leikur Vistað"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Allir ólystugur framfarir munu tapast"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Stutt Aðgerðir til að tala við %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Nýtt Objective: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Markmið Lokið: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "The Wall á hægri útlit veikt ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Þessi vopn eru ekki hafa nein áhrif ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Stutt aðgerð til að festa Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s er þörf til að virkja þetta skipta"
+
+msgid "Press Action to use this switch"
+msgstr "Stutt Aðgerðir til að nota þennan skipta"
+
+msgid "Press Action to save your game"
+msgstr "Stutt Aðgerðir til að vista leikinn þinn"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s þarf til að nota þennan Pressure Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s er þörf til að opna þessa hurð"
+
+msgid "This door is locked"
+msgstr "Þessi hurð er læst"
+
+msgid "This teleporter is not active"
+msgstr "Þetta teleporter er ekki virkt"
+
+msgid "Press Action to go to the %s"
+msgstr "Ýttu Aðgerðir til að fara til %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Ýta upp eða niður til að nota þessa lyftu"
+
+msgid "This lift is not active"
+msgstr "Þessi lyfta er ekki virkt"
+
+msgid "Cannot carry any more %s"
+msgstr "Get ekki bera lengur %s"
+
+msgid "Picked up %s x %d"
+msgstr "Valinn upp %s x %d"
+
+msgid "Picked up %s"
+msgstr "Valinn upp %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s þarf til að bera þetta atriði"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Geymsla Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Coal Poki Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Stórt Room Key"
+
+msgid "Coal Bag"
+msgstr "Coal Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell Key"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "Heilsa Potion"
+
+msgid "Outflow Key"
+msgstr "Outflow Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Úrgangur Vinnsla Lykill"
+
+msgid "Access Key 1"
+msgstr "Aðgangur Lykill 1"
+
+msgid "Access Key 2"
+msgstr "Aðgangur Lykill 2"
+
+msgid "Access Key 3"
+msgstr "Aðgangur Lykill 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Þessi lyfta hefur ekkert vald. Ég mun ekki geta notað hana fyrr en ég endurheimta styrk"
+
+msgid "Keep practising!"
+msgstr "Halda að æfa!"
+
+msgid "Hi"
+msgstr "Hæ"
+
+msgid "Hello Edgar"
+msgstr "Halló Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Get ég láni skjöld þinn?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Burt að æfa sig að berjast kunnátta þín?"
+
+msgid "Something like that"
+msgstr "Eitthvað svona"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Ef þú keyrir mér erindi þá er hægt að hafa skjöld"
+
+msgid "What do I have to do?"
+msgstr "Hvað þarf ég að gera?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Fara til mín og safna mér kol"
+
+msgid "But we have plenty of coal!"
+msgstr "En við höfum fullt af kolum!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Já, en þetta er ekki einhver gömul kol, þessum kolum er sérstakur, brenna það heitara og varir lengur"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Ég þarf aðeins 10 stykki af því efni, svo það ætti ekki að taka þig mjög lengi"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Gakktu úr skugga um að setja það í poka, snerta það of lengi verður slæmt fyrir heilsu þína"
+
+msgid "Do you have a bag?"
+msgstr "Ertu poka?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Nei, þú geta sennilega finna einn í minn þó"
+
+msgid "OK, I'll get the coal"
+msgstr "Allt í lagi, ég vil fá kol"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Hér taka þetta pickaxe. Þú getur notað það til að minn á kol og reiðhestur í gegnum veikari veggir þú fundur"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Þú þarft einnig þennan takka til að komast inn í mitt"
+
+msgid "Thanks!"
+msgstr "Takk!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Þakka þér, Edgar, þetta kol er fullkominn! Von er geggjaður ekki hræða þig."
+
+msgid "The bats were the least of my worries..."
+msgstr "The geggjaður voru síst af áhyggjum mínum ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Segja, heyrði ég að eitthvað gerðist í að minn nokkrum árum"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, já, það var það sem þú vilt kalla á  atvik , en að hluta minn var lokað upp fyrir löngu"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Hér hafa skjöldur minn og hafa gaman!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Just dvöl burt frá Forbidden Swamp"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Vilja gera, get ég halda til pickaxe fyrir a á meðan?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Viss hlutur, bara færa það aftur í eitt stykki"
+
+msgid "Thanks, Borgan!"
+msgstr "Takk, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Hefur þú tókst að finna kol enn?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Hægt er að draga nokkur atriði í kring með því að ýta á móti þeim á meðan að halda niðri Action hnappinn."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Þú getur þá draga það í kring þangað til þú lætur fara í aðgerð hnappur"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Þessi klettur horfir of mikil fyrir minn Pick Axe. Ég ætla að nota eitthvað annað til að komast í gegnum ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, hvað gerðist?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Útlit eins og þetta var ekki svo góð hugmynd eftir allt"
+
+msgid "There must be way out of here..."
+msgstr "Það verður að vera leið út af hér ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Þetta verður að vera kol langar mig til mín fyrir hann"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Ég held ekki skjöldur minn mun vernda mig frá þeim fireballs. Ég mun verða að finna sterkari einn ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Þú munt ekki geta gert þessa hluti í þessari útgáfu, athugaðu aftur seinna!"
+
+msgid "Strange creature..."
+msgstr "Strange skepna ..."
+
+msgid "Wait, what was that?"
+msgstr "Bíddu, hvað var það?"
+
+msgid "You again?!"
+msgstr "Þú aftur?"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Eitthvað er ætlast til að gerast hér, en það er ekki í þessari útgáfu svo athugaðu aftur seinna!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Takk fyrir resucing kjúklingur minn, hefur þú got mig 2 logs úr skóginum enn?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Takk Edgar! Kjúklingur mín eru aftur og þessi logs að gera mig vel"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Taktu þetta sverð, það mega þjóna þér vel!"
+
+msgid "Thank you!"
+msgstr "Þakka þér fyrir!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Takk fyrir logs, hefur þú haft allir vel við hænsni?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Ég skal gefa þér sverð ef þú færð mig 2 hakkað logs úr skóginum og bjarga að minnsta kosti 3 af kjúklingur minn"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Halló Edgar, hvað get ég gert fyrir þig í dag?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Ertu sverð ég get láni?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Ég hef sverð og hægt að hafa það ef þú gerir eitthvað fyrir mig fyrst"
+
+msgid "OK... what do I have to do?"
+msgstr "Allt í lagi ... Hvað þarf ég að gera?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Sumir kjúklingur minn hefur sloppið frá penni og ég yrði mjög þakklát ef þú geta fá þá aftur fyrir mig"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Ég hef sett upp nokkrar gildrur nálægt víti þeirra, getur þú tálbeita þeirra til gildra nota þennan kjúklingur straumi. Ég þarf ekki þeim öllum, en að minnsta kosti 3 myndi vera mjög hjálpsamur. Ég get fengið að hvíla mig."
+
+msgid "That's it?"
+msgstr "Þetta er það?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Ekki alveg. Getur þú einnig fá mér viður úr skóginum? 2 logs ætti að vera nægilegt"
+
+msgid "Do you have an axe?"
+msgstr "Gera þú hafa óákveðinn greinir í ensku öxi?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Ég fór öxi mína í skógi einhvers staðar. Það ætti samt að vera þar"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Er ekki að skógur hættulegt?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Ekki raunverulega, ef eitthvað gerist á vegi þínum, bara högg það með vopn"
+
+msgid "Such as an axe?"
+msgstr "Eins öxi?"
+
+msgid "Yes, that would do the trick"
+msgstr "Já, það vildi gera the bragð"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "En alvarlega, það er ekkert þar sem getur raunverulega skaða þig. Þetta vandamál var brugðist við fyrir löngu ..."
+
+msgid "Good luck!"
+msgstr "Gangi þér vel!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, takk Edgar, þarf ég einungis 3, en takk fyrir frekari hjálp!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Hér, Maggie gerði mér þetta heilsa Potion en ég þarf ekki svo hvers vegna þú ekki hafa það?"
+
+msgid "Thanks Jacob"
+msgstr "Takk Jakob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Vá, caught þú þá alla, takk a einhver fjöldi!"
+
+msgid "Here, I have these for you"
+msgstr "Hér hef ég þetta fyrir þig"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie gerði mér þetta heilsa Potion en hægt er að hafa það"
+
+msgid "And this is something very special"
+msgstr "Og þetta er eitthvað mjög sérstakt"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "May þetta hjálpað þér á leið þinni til að verða mikil stríðsmaður"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Þú spara mig a einhver fjöldi af tími. Maggie mig eitthvað annað en síðan sem þú hefur verið svo hjálpsamur, getur þú það."
+
+msgid "Hi Maggie"
+msgstr "Hæ Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Thanks Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan sagði að hluta minn var lokað upp eftir að  atvik "
+
+msgid "There must be something around here..."
+msgstr "Það verður að vera eitthvað um hér ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat er drawbridge er upp. Það verður að vera annar inngangur ..."
+
+msgid "Wait, what's that?"
+msgstr "Bíddu, hvað er það?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Kannski ég gæti göng leið mína inn .."
+
+msgid "These machines aren't working."
+msgstr "Þessi vél er ekki að virka."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Það lítur út eins og gimsteinn að passa í þessari holu, ef til vill get ég fundið nokkrar stað."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Það útlit eins og það er vel wedged í það. Ég get sennilega losa það með pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Til að fá að Forbidden Swamp ég þarf að byggja raft."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Ég get byggt upp raft ef ég Chop niður nóg tré úr skóginum"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Ég þarf 6 Chopped Logs að byggja á raft"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Ég er ekki að fara að Swamp án þess sverð og skjöld"
+
+msgid "OK, here goes!"
+msgstr "Allt í lagi, hér fer!"
+
+msgid "Aw, not again!"
+msgstr "Aw, ekki aftur!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Þetta var betra að vera í síðasta skipti sem ég hef að gera þetta ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Það var auðvelt! Og ég er alltaf að fá aftur seinna!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Giska ég hef ekkert val nú."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Bíddu pabbi, ég koma ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Eitthvað er ætlast til að gerast nú, en það er ekki í þessari útgáfu. Athugaðu aftur seinna!"
+
+msgid "There's a note here"
+msgstr "Það minnismiða hér"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Ég hef verið fastur niður fyrir það virðast eins og eilífð"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Til að fá út úr þessum stað þarf ég 3 Aðgangslyklar að vinna í lyftur"
+
+msgid "So far I have only found 1"
+msgstr "Hingað til hef ég bara fundið 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Til að gera illt verra, get ég bara náð einhverjum rofa með vandlega sett ör"
+
+msgid "But spares aren't common and I have run out"
+msgstr "En spares eru ekki algeng og ég hef keyrt út"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Ef ég finn ekki leið út úr hér bráðum, óttast ég kann að svelta"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Ef ég fæ ekki út hér I'll þola sömu örlög ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, hvað er þetta?"
+
+msgid "There's a note here too"
+msgstr "Það minnismiða hér of"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "The Potion er fullkominn! Quaffing það mun snúa að mönnum í skepna fyrir lítið magn af tími"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Svo langt ég get bara transmogrify sjálfur inn í einn skepna en með aðeins meiri tíma eitthvað ætti að vera mögulegt"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "There er a pínulítill hluti vinstri, ætti að vera öruggt að drekka"
+
+msgid "OK, here goes nothing..."
+msgstr "Allt í lagi, hér fer ekkert ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Þetta er hryllilegur!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan sagði mér að Slimes geta synda í vatninu þó, svo ef til vill mun þetta vera gagnlegt ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Þegar umbreytt í Slime hægt að fara í kring eins og venjulega. Einnig er hægt að synda í vatninu og nota upp og niður til að fara í kring"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Að ýta upp eða stökk gerir þér stökk út af the vatn ef þú ert nálægt yfirborði"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Hafðu auga á klukkuna neðst á skjánum. Þegar nær 0 sem þú sjálfkrafa verða aftur manna"
+
+msgid "This place doesn't look so bad..."
+msgstr "Þessi staður er ekki litið svo slæmt ..."
+
+msgid "What was that?"
+msgstr "What was that?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, er ég fegin að vera út af there"
+
+msgid "Now to get through this swamp"
+msgstr "Nú til að komast í gegnum þetta Swamp"
+
+msgid "Hey, what's this?"
+msgstr "Hey, hvað er þetta?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Lítur skaðlaus, ég mun reyna stepping á það"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Vá! Það var kaldur! Þetta verður að vera vélrænn teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "ÉG furða ef það virkar á báða vegu ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Ekki einungis er þetta að fara að spara mig a einhver fjöldi af gangandi, það er líka ofgnótt af skemmtun!"
+
+msgid "Now try out your shield"
+msgstr "Nú reyna út skjöld þinn"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Lokað á hagl spat út af álverinu og stökk upp í næsta Ledge"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Sum atriði í leiknum er ýtt og dregið"
+
+msgid "To push an item, simply walk into it"
+msgstr "Til að ýta hlut skaltu ganga inn í það"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Til að draga hlut, ganga inn á meðan niðri Action"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Þú getur síðan draga hlutinn í kring þangað til þú lætur fara í aðgerð"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Boxið yfir hinum megin og nota það til að ná Ledge"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Þetta er síðasta hluta einkatími og mun kenna þér að loka og ráðast á óvinum"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Fyrst ættir þú að búa sverð því að það hefur fleiri svið og ekki meira skemmt en pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Stutt Z til að skoða skrá þína, hápunktur sverði og ýttu Attack (vinstri Ctrl) eða Nota Liður (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Stutt Z aftur til að loka skrá þína"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Stundum drepið óvini mun falla heilsu sem hverfa eftir nokkrar sekúndur, þannig að velja það upp fljótlega!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Ef kylfa er að komast nálægt þér, haltu loka og það verður harmlessly hopp af þér"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Nú drepa alla geggjaður á svæðinu!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Það eru tvær tegundir af dyr í leiknum. Handbók hurðum og Sjálfvirkur dyr."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Handbók dyr þarf lykla til að opna þau þurfa Sjálfvirk dyr rofi."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Til að opna læstar dyr sem þú hefur lykillinn að því, einfaldlega ganga inn í það. Það er engin þörf á að hafa lykilinn valið á lager þinn."
+
+msgid "Open the door and continue to the right"
+msgstr "Opnaðu dyrnar og halda áfram til hægri"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Til hamingju! Nú þú veist grunnatriði leika þér að reyna að aðal leik"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Ef þú vilt aukaleikur þessari einkatími ýta Escape og velja Tutorial úr valmyndinni"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Til að spila aðal leikur, ýta Escape og velur nýjan leik úr valmyndinni"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Ýttu Space þegar þú hefur lokið við lestur að fara í næstu valmynd"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Þú getur einnig fært til næsta valmynd með því að ýta Attack (vinstri Ctrl), kassa (vinstri alt), Jump (bil), Action (c) eða Nota Liður (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Þetta er handbók fyrir The Legend of Edgar. Þessi handbók mun útskýra hvernig á að spila leikinn."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Til að loka þessari handbók, stutt Escape og nota upp og niður arrow takkana til að velja valkost. Ýttu aftur til að velja það."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Til að færa vinstri og hægri, nota arrow takkana."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Til að hoppa, ýta rúm. Þú getur fært í loftinu þegar stökk."
+
+msgid "To interact with an item, press c"
+msgstr "Til að samskipti við hlut skaltu c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Walk yfir að Aðgerð Point og ýta c"
+
+msgid "To collect an item from your"
+msgstr "Til að safna hlut frá þinn"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Til að ná sér í hlut skaltu ganga inn í það. Allir collectable atriði verður bætt við skrá þína."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Hægt er að skoða innihald skrá með því að styðja, z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Þó í skrá, nota arrow takkana til að skoða atriði."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Hægt er að nota hlut strax með því að ýta Attack (vinstri Ctrl) eða Nota Liður (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Hægt er tilbúinn hlut til að nota með því að ýta kassa (vinstri alt) eða Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Gengið á takkann til að velja það upp"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Þú getur breytt öllum stjórna í leiknum með því að ýta Escape og velja Valkostir í valmynd"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Veldu Stilla Controls með örvatakkana og ýttu aftur"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Notaðu örvatakkana til að velja stjórn sem þú vilt breyta og ýttu á Return."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Næst skaltu ýta á takka sem þú vilt nota í staðinn."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Óháð því hvaða takka þú vilt, getur þú alltaf sigla í gegnum valmyndir með örvatakkana og aftur"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Athugið að í þessari handbók, sjálfgefna takka verður ráð fyrir"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Þegar þú hefur lokið við stillingar á takkana, fara réttur til the næstur Action Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "The pickaxe er einn af mörgum vopnum þú verður fundur í leiknum"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Þú getur notað það eins og bæði vopn og tól"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Pick upp pickaxe og halda áfram á næsta Action Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Til hamingju, finnst þér leyndarmál!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Það eru mörg leyndarmál í aðal leiknum svo halda líta út fyrir þá"
+
+msgid "Here's a hint to get you started"
+msgstr "Hér er vísbending til þess að fá að byrja"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Þó einungis þurfa þú til veiða 3 af kjúklingur hans, hvers vegna ekki gott að hann og ná meira? Það eru 10 Wandering kortið í öllum"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Skjöldinn mun vernda þig frá flestum óvinur árás"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Sumir óvininn árásir geta ekki verið lokað"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Environmental áhættu, svo sem falli steinum, er ekki lokað"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Til að loka fyrir árás, að halda inni blokk (vinstri alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Þú verður að vera frammi að ráðast gengið loka það"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Athugaðu að þú getur ekki fært meðan sljór, en þú getur frammi fyrir öðrum hætti. Þú getur líka ekki loka á lofti"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Pick upp skjöldinn og halda áfram til hægri"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Þetta er veikt vegg, það geta vera gersemi niður með pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Til að nota pickaxe ýta Attack (vinstri Ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "að ekki öll veik veggi geta verið eytt með pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Destroy The Wall með pickaxe og halda áfram"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Eitthvað er ímyndaður til vera hér en það er ekki í þessari útgáfu, athugaðu aftur seinna!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Safna 10 stykki af kolum"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Safna 2 Chopped Aðgerðaskrár"
+
+msgid "Rescue 3 Chickens"
+msgstr "Bjarga 3 Chickens"
+
+msgid "Find 4 Gems"
+msgstr "Find 4 gimsteinar"
+
+msgid "Repair Generators"
+msgstr "Repair Rafalar"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Safna 6 Chopped Aðgerðaskrár"
+
+msgid "Collect 3 Access Keys"
+msgstr "Safna 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Þetta er tómt markmið"
+
+msgid "Kill all Bats!"
+msgstr "Drepa alla Bats!"
+
+msgid "Coal"
+msgstr "Coal"
+
+msgid "Chopped Log"
+msgstr "Hakkað Innskrá"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "Nýr leikur"
+
+msgid "Tutorial"
+msgstr "Kennsla"
+
+msgid "Load Game"
+msgstr "Hlaða Game"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "About"
+msgstr "Um"
+
+msgid "Quit"
+msgstr "Hætta"
+
+msgid "Configure Controls"
+msgstr "Stilla Controls"
+
+msgid "Configure Sound"
+msgstr "Stilla Hljóð"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Sýna ábendingar"
+
+msgid "A potion which will transform you..."
+msgstr "A Potion sem vilja umbreyta þú ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Býr mjög absorbant litlu cubes ís"
+
+msgid "A potion which will restore all of your health"
+msgstr "A Potion sem vilja aftur alla heilsu þína"
+
+msgid "A powerful bomb"
+msgstr "Öflug sprengja"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "A Potion sem renders þú ósýnilegt ákveðnum óvini"
+
+msgid "The eyeball from a Gazer"
+msgstr "The eyeball frá Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Tesla Pakki. Það hefur engin ákæra."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Summoner's Staff. Það er ekki hægt að nota fyrir menn."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Tesla Pakki. Það er fullhlaðin."
+
+msgid "An empty potion bottle"
+msgstr "Óákveðinn greinir í ensku tómur Potion flaska"
+
+msgid "A bag of chicken feed"
+msgstr "A poki af kjúklingur efnisveita"
+
+msgid "A bag suitable for carrying coal"
+msgstr "A poki hentar bera kol"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Sverð gefið þér Jakob"
+
+msgid "A bow"
+msgstr "A Bow"
+
+msgid "Small Wooden Shield"
+msgstr "Small Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Lítill skjöld sem gefur undirstöðu vernd"
+
+msgid "Normal Arrow"
+msgstr "Venjuleg Arrow"
+
+msgid "Normal Arrows"
+msgstr "Venjuleg Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Öxi hentugur fyrir chopping tré"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A pickaxe lánaði þér Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Brennari Key"
+
+msgid "Potion Room Key"
+msgstr "Potion Herbergi Key"
+
+msgid "Surge Passage Key"
+msgstr "Bylgja Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Niðurrif Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Hvað sem þessi hlutur var það var tæmingu mátt frá því rafall og nota það gegn mér."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Það gæti útskýrt hvers vegna þessi lyfta var ekki að virka. Sigra aðra drainers að endurheimta völd."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Sigrast allt Energy Drainers"
+
+msgid "No Objectives"
+msgstr "Nei Markmið"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Stutt Aðgerðir til að endurstilla þraut blocks"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Það útlit eins og a blender. Ég gæti notað þetta til liquidise eitthvað"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "ÉG þörf a Red Sludge Tentacle og 3 Gazer Eyeballs að gera Potion"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Ég þarf enn að Empty Bottle að setja Potion í"
+
+msgid "So this is the Fortress."
+msgstr "Svo þetta er virki."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Það útlit eins og a einhver fjöldi af dyr leiða burt á öðrum sviðum, ætti ég að hafa rétta útlit í kring áður en ég fer einhvers staðar annars ..."
+
+msgid "Try hitting the skull..."
+msgstr "Prófaðu hitting the höfuðkúpa ..."
+
+msgid "This machine is not active"
+msgstr "Þessi vél er ekki virkt"
+
+msgid "Repeat the sequence"
+msgstr "Endurtaktu röð"
+
+msgid "Correct Sequence"
+msgstr "Rétt Sequence"
+
+msgid "Incorrect Sequence"
+msgstr "Röng Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "The Legend of Edgar hefur fundur the hópur stuðningsmanna villa"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Vinsamlegast tilkynntu þessa villu til Samhliða Realities"
+
+msgid "The game will now exit"
+msgstr "Leikurinn mun nú hætta"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Það útlit eins og a blender. Ég gæti notað þetta til liqudise eitthvað"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Þetta verður að vera kol Borgan langar mig til mín fyrir hann"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Það gæti útskýrt hvers vegna þessi lyfta var ekki að virka. Sigra aðra drainers að endurheimta völd hér."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Ég þarf að finna 3 Gazer Eyes, 1 Red Sludge Tentacle og auka skjöld til að búa til Skjöldur of Fire Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Þegar ég hef fundið öll þessi atriði Ég ætla að finna stað til að búa til skjöld"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Það er bók hér um enchanting vopn"
+
+msgid "Maybe I can create a shield..."
+msgstr "Kannski get ég búið til skjöld ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Swords ... Armour ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid bók. Það er ekki í röð og það er engin vísitölu"
+
+msgid "Here we go: Shields"
+msgstr "Here We Go: Skjöldur"
+
+msgid "Shield of Fire Resistance"
+msgstr "Skjöldur of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Innihaldslýsing"
+
+msgid "One must gather the following"
+msgstr "Einn að safna eftirfarandi"
+
+msgid "The root of a Mandrake"
+msgstr "The rót af Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "The fitu af Darsh (vinstri til að standa í 3 mánuði)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor bein"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 augum Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "The ferskur skera Tentacle frá konu Red Sludge"
+
+msgid "The shield to apply the enchantment"
+msgstr "The skjöld að beita Enchantment"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Blend the Gazer augum og Sludge Tentacle inn slétt vökva"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Bæta við rót, fitu og bein í cauldron og blanda saman við blandað Gazer augum og Sludge Tentacle"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Þegar blanda snýst skær blár, bæta skjöldur"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Ég hef séð flest af þessum hlutum í Lab svo ég þarf ekki að hafa áhyggjur af þeim"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Og stara hanga í kring í kjallara svo sem ekki vandamál"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Hvað ég þarf að finna er Red Sludge, en ég hef ekki hugmynd hvar að finna einn"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Ég get ekki notað núverandi skjöldur minn í tilrauninni ef það backfires svo ég mun þurfa að finna annað"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Það gæti verið drykkur herbergi eða Lab hvar ég get fundið rætur, fitu og bein þannig að ég þarf ekki að hafa áhyggjur af þeim"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Þú verður að hafa kennsluna kortið sem þú vilt nota hápunktur í reitinn skrá þína"
+
+msgid "Wow, a laboratory!"
+msgstr "Vá, rannsóknarstofu!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Ég elska að horfa Maggie að stafa og drykkur, kannski ég geti gert sumir af eigin minn hér!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Vá, ég hef aldrei séð svo margar bækur á einum stað!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Það verður að vera upplýsingar um hvert efni hér, þetta gæti verið gagnlegt ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, líður lofti ákæra, það minnir mig á húsi Maggie þegar hún var gerð stafa. Ég ætti að vera varkár."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, you're meiða! Leyf mér að lækna sár þín"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "ÉG furða hvaða önnur skrímsli þar eru. Ég mun velja síðu af handahófi ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Stara ert fljúga cycloptic vera finna á ýmsum stöðum"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Eitt auga þeirra er yfirleitt lokað og þeir treysta á Sonar í för"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Þeir nota sterka afstöðu sína til lykta að líta út fyrir rándýr og bráð eins"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Stara árás (og verja sig) með því að opna augu þeirra sem vilja Dazzle ekkert að skoða það"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Þessi árás er einungis gildi hins vegar ef fórnarlambið er snýr að Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Eyeball A Gazer's inniheldur Galdrastafir eignir og er algeng efni í stafa undirbúningi"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions eru magically skapa vera, oftast send sem sentries eða lífvörður"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Þó hægur áhrifamikill, gegnheill stærð þeirra leyfa þeim að einfaldlega mars gegnum hvaða vörn"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Í stað þess að vopn, hafa margir mikið ökumenn stafli sem þeir nota til að hrista jörðina og disorientate ógnir"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Þó Grey Centurions verður notuð til að gæta ytri perimeters, Red Centurions er vitað til þess að vera til og eru notuð til að vernda svæði miklu máli"
+
+msgid "Splitter"
+msgstr "Skerandi"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters eru skaðlaus skrímsli nema ráðist."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Þegar haldið of mikið tjón sem þeir verða skipt í tvö og árás rándýr þeirra"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Ef eitt af þessum viðheldur of mikill skaði það mun skipta aftur og halda áfram að ráðast"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Að lokum, eitt endanleg skipting mun framleiða mjög lítil útgáfa sem er algerlega skaðlaus og í þetta ástand má einfaldlega steig á"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Ef allir hlutar þess eru enn á lífi, er skerandi mun umbótum sig eftir smá stund og lækna sár hennar"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Red Grubs eru fleiri árásargjarn en grænt starfsbræðrum þeirra og munu ráðast á allt sem þeir sjá sem ógn"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Þegar nær þroska að þeir munu mynda cocoon og Morph í Wasp"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Sumir þó mun Morph í drottningu Wasp. Þessi drottning er framleitt með slím-eins og efni fær um að halda bráð þess í stað"
+
+msgid "Tortoise, Master"
+msgstr "Skjaldbakan, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Tortoises ert ógnvekjandi beasts. Stofna í langt landslag þeir búa yfir getu til að breyta þeirra heyrnartól"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Þeir sameina alla getu frænkur þeirra til anda eldi, búa til ís og electrify sig"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Og auðvitað þeir eru einnig impervious að árásir frá samsvarandi þætti, hrífandi orku til að lækna sig"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "En að auki, ef þeir fá of mikla orku frá lækna, þróast þau og fara á Rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Í þessu ástandi þeir vilja Snilldar gegnum hvaða vörn og framleiða Dark Matter sem eyðileggur allt það snertir"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Hins vegar skel af rampaging meistara skjaldböku er mjög töfrandi og er ómissandi innihaldsefni þegar öflugur magics og greinar"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore er skepna frá öðru vídd. Það getur verið kallaður með öflugt Dark Magic"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Algengasta ástæða til þess að boðað þessa skepnu er að vera bodyguard"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Það er engin þekkt leið til að drepa Grimlore síðan á að viðhalda mikilvægum meiðsli það verður bara aftur til eigin vídd þess"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "En jafnvel skaðlegur það er Monumental verkefni. Einhver fundur þessi skepna er ráðlagt að flýja eins fljótt og auðið er"
+
+msgid "Or they will die very quickly"
+msgstr "Eða þeir vilja deyja mjög fljótt"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, hér er a ágrip af skrímsli"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 bindi! Hvernig má það vera svo margir skrímsli í heimi!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Útlit eins og þeir eru í stafrófsröð en"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slime, Green ... Slime, Purple ... Sludge, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Sludge, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Ólíkt grænn frændi hennar, Rauði Sludge dvöl djúpt neðanjarðar og sjaldan ef nokkurn tíma, yfirborð"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Ákjósanlegt búsvæði hennar er þurr og steinefni ríkur svæði og sem leitt hefur fundist lurking á sviði Mines yfirgefin af mönnum"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Þeir eru mjög varkár af mönnum og vilja árás á sjón, venjulega uppköst upp sýru sem tekur tíma að gufa upp"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, Lesser ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Great, það er allt það. ÉG dont 'jafnvel vita hvernig á að segja munurinn á karl og konu. Ég ætla bara að taka tækifæri ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Að auki, hvað er það versta sem gæti gerst?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Til að færa Edgar vinstri og hægri, nota arrow takkana."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Til að Edgar hoppa, stutt bil. Þú getur fært í loftinu þegar stökk."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Þó Jacob þurfa aðeins hægt að ná 3 af kjúklingur hans, hvers vegna ekki gott að hann og ná meira? Það eru 10 Wandering kortið í öllum"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Athugið að ekki öll veik veggi geta verið eytt með pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Ég hef þegar köflóttur, hann er ekki þarna niðri ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Ég hef heyrt um fólk sem fellur inn í vel áður, kannski pabbi í það ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ARE YOU þarna niðri ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Ekkert. Ég held ég verður að halda áfram að leita"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Ýta upp eða niður til að hækka eða lækka pallur"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Það er bók hér um enchanting búnaði"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Það er bók um enchanting búnaði"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Ég hef ekki minnstu ástæðu til að lesa þetta, en ég mun hafa það í huga ef ég"
+
+msgid "I wonder what other monsters there are..."
+msgstr "ÉG furða hvaða önnur skrímsli eru ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Rétt eins og venjulegur Summoners, kalla Dark Summoners í öðrum beasts til að gera tilboð þeirra"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Auk þess þó að þeir geti teleport stutta vegalengdir til að flýja frá andstæðingum sínum"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Starfsfólk þeirra er mjög töfrandi og þó það er ekki hægt að nota með mönnum beint, töfrum eiginleikar þess eru notuð í sköpun stafa"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers eru lítil quadrupeds með langa snout"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Helsta puropse á snout er að forage til matar, en það þjónar einnig sem vörn vélbúnaður"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "og eru meira en fær um að halda á rándýr í skefjum með því einfaldlega að sprengja þær í burtu"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, farsími"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Venus Flytraps hafa þróast rætur og eru fær um að flytja til fæða þeirra fremur en að bíða eftir því að koma þeim"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Necks þeirra eru ótrúlega teygjanlegur og séu fær um að smella á bráð sína frá töluverð fjarlægð í burtu"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Það ætti að gera það. Vonandi að önnur lyfta sem Sewer ætti nú að vera að vinna"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Þessi lyfta er ekki vinna. Ég mun ekki geta notað hana fyrr en ég endurheimta styrk"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Þessi gler virðist of þykk fyrir mig að sprunga, þá verð ég að finna einhverja aðra leið til shattering það ..."
+
+msgid "Up"
+msgstr "Upp"
+
+msgid "Down"
+msgstr "Niður"
+
+msgid "Left"
+msgstr "Fór"
+
+msgid "Right"
+msgstr "Réttur"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Loka"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Use Item"
+msgstr "Nota Item"
+
+msgid "Previous Item"
+msgstr "Fyrri Item"
+
+msgid "Next Item"
+msgstr "Næsta atriði"
+
+msgid "Inventory"
+msgstr "Skrá"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Music Volume"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Bókasafn"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lyfting Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Entrance Door Key"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Fortress útjaðri"
+
+msgid "Forbidden Swamp"
+msgstr "Forbidden Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Skólp Bönnuð Zone Key"
+
+msgid "Basement"
+msgstr "Basement"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Ground Floor"
+
+msgid "Sewer"
+msgstr "Sewer"
+
+msgid "Fortress Main Key"
+msgstr "Fortress Main Key"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Aðgangur Lykill 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Aðgangur Lykill 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Aðgangur Lykill 3"
+
+msgid "Laboratory"
+msgstr "Laboratory"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "First Floor Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Stutt Aðgerðir til að sækja %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, þetta er nýtt."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Það hjartarskinn 'útlit eins og það getur meiða mig þó, en það er aðeins ein leið til að finna út ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Þessi lyfta er stjórnað með því að þrýsta disk, en ég get ekki standa á því og nota lyftu á sama tíma"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Ég mun verða að finna eitthvað annað til að standa á þrýstingurinn diskur fyrir mig ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Þetta kort er tómt, þá verð ég að setja nokkrar leiðbeiningar um það til að gera það useable."
+
+msgid "There's a plaque here"
+msgstr "Það er veggskjöldur hér"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Settu 4 styttur í rétta röð"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Þú munt ekki hægt að finna allar 4 styttum í þessari útgáfu, svo að koma aftur seinna!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Þú verður að hafa styttu sem þú vilt nota hápunktur í reitinn skrá þína"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Ekkert gerðist. Ég held ekki að það er rétt röð"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Second Floor Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Kennsla Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Kennsla Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Kennsla Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Kennsla Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Statue"
+
+msgid "Spider Statue"
+msgstr "Spider Statue"
+
+msgid "Tortoise Statue"
+msgstr "Skjaldbaka Statue"
+
+msgid "Scorpion Statue"
+msgstr "Sporðdreki Statue"
+
+msgid "A Blue Gem"
+msgstr "A Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Stytta af Centurion. Það hefur 2 fætur."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "A Purple Gem"
+
+msgid "A Red Gem"
+msgstr "A Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Stytta af Scorpion. Það hefur 6 fætur."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Stytta af Spider. Það hefur 8 fótum."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "An Armadillo Spike Ball. Vilja dreifa Gaddur er kastað."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Stytta af skjaldbaka. Það hefur 4 fætur."
+
+msgid "A Tuning Fork"
+msgstr "A Tuning Fork"
+
+msgid "A chopped log"
+msgstr "A hakkað þig inn"
+
+msgid "Narrator"
+msgstr "Sögumaður"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "It's a cauldron. Maggie er einn alveg eins og þessa"
+
+msgid "Right, here goes!"
+msgstr "Right, hér fer!"
+
+msgid "I need all the main ingredients"
+msgstr "Ég þarf alla helstu innihaldsefni"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Red Sludge Tentacle og vara skjöld"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Ég þarf einnig að blanda þeim eyeballs og Tentacle í vökva"
+
+msgid "This entire section is about monsters"
+msgstr "Þetta allt kafla er um skrímsli"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Ég hef ekki minnstu ástæðu til að lesa þetta, en ég mun hafa það í huga ef ég"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, hvað er sætur lítill vél!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "It's got a lítill rifa á bak við það. Ég held ég að setja eitthvað í það að gera það ekki efni"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "The vélmenni notar kennsla spil til að fara í kring"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Notaðu leiðbeiningunum til að fylgja í vélmenni til að opna svæði sem þú getur ekki aðgang"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Hins vegar, þar sem þú getur ekki lesið leiðbeiningar á kortinu, verður þú að reyna þá alla út þar til ein verksmiðja"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Ef vélmenni er ekki að ná sínu, þá mun það koma aftur til upphafsstöðu hennar leyfa þér að reyna aftur"
+
+msgid "Enter the directions"
+msgstr "Sláðu leiðbeiningar"
+
+msgid "Out of space for instructions"
+msgstr "Út af pláss fyrir leiðbeiningar"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Ég þarf að eyða kort til að setja leiðbeiningar um"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Kannski var þetta ekki svo góð hugmynd eftir allt ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Fá 3 Gazer Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Fá 1 Red Sludge Tentacle"
+
+msgid "Find another shield"
+msgstr "Finndu annan skjöld"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend eyeballs og Tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "Fá a Fire Skjöldur"
+
+msgid "More water?!"
+msgstr "Meira vatn?"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Ég held ekki að vera hægt að gera í Slime er að fara til að hjálpa mér hér, því ég gæti ekki hægt að fá til baka eftir"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Ég mun verða að finna aðra leið til að komast yfir"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Ég mun verða að finna eitthvað til að hjálpa mér að fá yfir"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "ÉG did ekki allir Sludges í minn þegar ég fór að fá kol Borgan og jafnvel ef það væru einhverjar sem ég get ekki fengið til baka þar síðan raft minn sökk"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Ég mun verða að finna annan minn um hér ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Býr ís cubes að auka snertingu við vatn"
+
+msgid "A bottle capable of capturing souls"
+msgstr "A flaska fær að handtaka sálir"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Prófaðu að nota hnífa Mataeus gegn honum ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Ekki er hægt að ná sér í %s. Skrá fullur"
+
+msgid "Filling mine cart..."
+msgstr "Bensín minn körfu ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Parallel Realities 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Út af örvum!"
+
+msgid "There's something moving around down there..."
+msgstr "Það er eitthvað áhrifamikill í kring um það ..."
+
+msgid "Good riddance..."
+msgstr "Good riddance ..."
+
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Ef lyfta er út af röð þá verður það að vera endurstilla"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Það eru 4 endurstilla rofi meðfram lyftu skaftið sem þarf að núllstilla"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Vertu viss um að núllstilla lyfta til að koma í veg fyrir löng ganga aftur upp á yfirborðið ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Þessi vél er rifa sömu stærð og spil. Ég held ég get notað það til að búa til nýjar leiðbeiningar."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Til að búa til nýtt sett af leiðbeiningar sem þú þarft til að setja eyða kort"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Þú verður þá að vera beðinn um að inntak leiðbeiningar fyrir vélmenni að fylgja. Þetta er gert á sama hátt og röð dyr"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Þegar þú hefur lokið inputting leiðbeiningar skaltu Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "The vélmenni mun síðan fylgja leiðbeiningunum á kortinu"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Ef leiðbeiningar eru rétt ekki hægt að reyna aftur"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "This staður er brjálaður, ég vil betri drífa sig og finna pabbi áður en ég á endanum getting drepinn!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Svo, til að skapa þessi Fire Skjöldur ég að fá Red Sludge Tentacle"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Red Sludges búa í námum svo ég þarft að finna einn í kring hér"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Ég þarf einnig að vara skjöld, en ég reckon það ætti að vera armoury kring"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "The Gazer eyeballs er þægilegur nóg, get ég bara aftur í kjallara"
+
+msgid "OK, off I go..."
+msgstr "Allt í lagi, burt ég fara ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Þú munt ekki vera fær til fá the Tentacle eða skjöld í þessari útgáfu, svo athugaðu aftur seinna!"
+
+msgid "It's a portrait"
+msgstr "Það er portrett"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Þessi anda er ekki að fara að láta mig áður, ég þarf að finna leið til að losna við það"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset rofi leyfa þér að endurstilla stöðu hlut á kortinu"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Ef hlut verður þá unreachable þú geta nota the rofi til að setja hana aftur í upprunalegum stað þess"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "A flaska með sál föst inni"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Vinnsla Lyfting Key"
+
+msgid "Right Grabber Key"
+msgstr "Hægri Grípa Key"
+
+msgid "Left Grabber Key"
+msgstr "Vinstri Grípa Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "The Sorcerer verður að hafa tekið pabbi að kastalanum hans. Ég ætla að bjarga honum þaðan."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Eina leiðin til að fá að Kastalinn er í gegnum Forbidden Swamp til austurs."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Það er vatninu milli Þorp og Swamp svo ég þarf að raft að komast yfir."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ég einnig þörf sverð og skjöld til að verja mig. Ég tala við Borgan og Jakob til að fá þetta þó."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Gat ekki tengst Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Gat ekki fundið Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Þú munt ekki vera fær til vinna sér Minnispeningur fyrir þennan leik"
+
+msgid "There's another sign here"
+msgstr "Það er annað merki hér"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Ef hætta að lyfta er úr röð síðan haldið áfram til vinstri"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Viðvörun: Hætta á leiðinni geta verið hættuleg"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Kannski ég ætti að nota lyftu til að komast"
+
+msgid "There's a sign here"
+msgstr "Það er merki hér"
+
+msgid "An Oil Can"
+msgstr "An Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Öflug repellent"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Stuðningur"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Einkalykill vantar"
+
+msgid "Could not connect to server"
+msgstr "Gat ekki tengst miðlara"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Sludge Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, vann það!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ég er ekki viss um lit þó, ég hélt að það væri rautt?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Ef til vill þess 'ímyndaður til vera gulur ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Vökvi úr eyeballs og tentacles"
+

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -174,7 +174,7 @@ msgid "Cannot carry any more %s"
 msgstr "Kan niet meer dragen %s"
 
 msgid "Picked up %s x %d"
-msgstr "Picked %s x %d up"
+msgstr "Opgepikt %s x %d"
 
 msgid "Picked up %s"
 msgstr "Opgepikt %s"
@@ -362,18 +362,6 @@ msgstr "Wacht, wat was dat?"
 msgid "You again?!"
 msgstr "Jij weer?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "De tovenaar moet hebben genomen papa op zijn kasteel. Ik moet hem redden van daar."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "De enige manier om naar het kasteel is door de Verboden Swamp naar het Oosten."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Er is een meer tussen het dorp en de Swamp dus ik moet een vlot te krijgen over te brengen."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Ik moet ook een zwaard en schild te verdedigen mezelf. Ik kan spreken en deze wel krijgen."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Iets is verondersteld om hier te gebeuren, maar het is niet in deze versie dus check back later!"
 
@@ -546,7 +534,7 @@ msgid "There's a note here"
 msgstr "Er is een notitie hier"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "Ik heb gevangen hier beneden voor wat lijkt een eeuwigheid"
+msgstr "Ik heb hier beneden zitten voor wat lijkt een eeuwigheid"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr "Om uit deze plaats ik 3 Toegang Sleutels tot de liften werken"
@@ -1095,7 +1083,7 @@ msgid "When the mixture turns bright blue, add the shield"
 msgstr "Wanneer het mengsel draait helder blauw, voeg het schild"
 
 msgid "I've seen most of these items in the lab so I don't need to worry about those"
-msgstr "Ik heb de meeste van deze items in het lab zodat ik niet hoef te maken over deze"
+msgstr "Ik heb gezien de meeste van deze items in het lab, dus ik geen zorgen te maken over deze"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
 msgstr "En de Gazers hangen rond in de kelder dus dat is geen probleem"
@@ -1164,7 +1152,7 @@ msgid "Centurions are magically created creatures, usually dispatched as sentrie
 msgstr "Centurions zijn magische wezens geschapen, meestal verzonden als schildwachten of beschermplaten"
 
 msgid "Though slow moving, their massive size allows them to simply march through any defense"
-msgstr "Hoewel langzaam bewegende, hun enorme omvang kunnen ze eenvoudig maart via een verdediging"
+msgstr "Hoewel langzaam bewegende, hun enorme omvang kunnen ze simpelweg maart via een verdediging"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
 msgstr "In plaats van wapens, veel hebben enorme hei-installaties die ze gebruiken om de grond en desoriënteren bedreigingen schudden"
@@ -1344,7 +1332,7 @@ msgid "Venus Flytrap, mobile"
 msgstr "Venus Flytrap, mobiele"
 
 msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
-msgstr "Mobiele Venus Flytraps geëvolueerd zijn wortels en zijn in staat om te verhuizen naar hun voedsel in plaats van te wachten tot dit gekomen om ze"
+msgstr "Mobiele Venus Flytraps geëvolueerd zijn wortels en zijn in staat om te verhuizen naar hun voedsel in plaats van wachten tot het komen ze"
 
 msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
 msgstr "Hun halzen zijn ongelooflijk elastisch en kunnen breken op hun prooi uit een aanzienlijke afstand"
@@ -1676,8 +1664,8 @@ msgstr "Er is iets bewegen daar beneden ..."
 msgid "Good riddance..."
 msgstr "Opgeruimd ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, dejà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Indien de lift is buiten werking dan moet worden gereset"
@@ -1741,4 +1729,100 @@ msgstr "Als een object wordt onbereikbaar dan kunt u de schakelaar gebruiken om 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Een fles met een ziel gevangen in"
+
+msgid "Full Mine Cart"
+msgstr "Volledige Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Verwerking Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Links Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "De tovenaar moet hebben genomen papa op zijn kasteel. Ik moet hem redden van daar."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "De enige manier om naar het kasteel is door de Verboden Swamp naar het Oosten."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Er is een meer tussen het dorp en de Swamp dus ik moet een vlot te krijgen over te brengen."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ik moet ook een zwaard en schild te verdedigen mezelf. Ik kan spreken Borgan en Jacob om deze wel krijgen."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Kon niet verbinden met Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Kan niet vinden Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "U zult niet in staat zijn om medailles te verdienen voor dit spel"
+
+msgid "There's another sign here"
+msgstr "Er is een ander teken hier"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Als de afrit lift is buiten om vervolgens verder naar links"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Waarschuwing: Exit-route kunnen gevaarlijk zijn"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Misschien moet ik gebruik de lift om eruit te komen"
+
+msgid "There's a sign here"
+msgstr "Er is een teken hier"
+
+msgid "An Oil Can"
+msgstr "Een olie Kan"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Een krachtig afweermiddel"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Private sleutel ontbreekt"
+
+msgid "Could not connect to server"
+msgstr "Kan geen verbinding maken met server"
+
+msgid "Sludge Tentacle"
+msgstr "Slib Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Slib Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, het werkte!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ik ben niet zeker over de kleur al, ik dacht dat het zou rood zijn?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Misschien is het zou moeten zijn geel ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Een vloeistof gemaakt van oogballen en tentakels"
 

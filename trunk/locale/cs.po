@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
@@ -361,18 +361,6 @@ msgstr "Počkej, co to bylo?"
 
 msgid "You again?!"
 msgstr "Zase?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Kouzelník musel vzít táta na svůj zámek. Budu muset zachránit ho odtamtud."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Jediným způsobem, jak se dostat do hradu je přes Forbidden Swamp na východ."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Je tam jezero mezi vesnice a bažiny, takže budu potřebovat dostat přes vor."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Budu také potřebovat meč a štít se bránit. Můžu mluvit a získat tyto ačkoli."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Něco, co se má stát i tady, ale to není v této verzi, takže to prosím později!"
@@ -1676,8 +1664,8 @@ msgstr "Tam něco pohybuje tam dole ..."
 msgid "Good riddance..."
 msgstr "Good Riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Hm, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Hm, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Jestliže je výtah mimo provoz, pak to musí být nastaveno"
@@ -1741,4 +1729,100 @@ msgstr "Pokud se objekt stane nedostupnou pak můžete použít přepínač, aby
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Láhev s duší uvězněni uvnitř"
+
+msgid "Full Mine Cart"
+msgstr "Úplné Mine košíku"
+
+msgid "Processing Lift Key"
+msgstr "Zpracování Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Key Grabber"
+
+msgid "Left Grabber Key"
+msgstr "Left Key Grabber"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Kouzelník musel vzít táta na svůj zámek. Budu muset zachránit ho odtamtud."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Jediným způsobem, jak se dostat do hradu je přes Forbidden Swamp na východ."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Je tam jezero mezi vesnice a bažiny, takže budu potřebovat dostat přes vor."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Budu také potřebovat meč a štít se bránit. Můžu mluvit Borgan a Jákobovi, aby si tyto ačkoli."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nepodařilo se připojit k medaili Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nelze najít Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Nebudete moci získat medaile pro tuto hru"
+
+msgid "There's another sign here"
+msgstr "Je tu další znamení zde"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Je-li výstup je výtah mimo provoz, pak pokračujte doleva"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Upozornění: Konec trasy mohou být nebezpečné"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Možná bych měl použít výtah se dostat ven"
+
+msgid "There's a sign here"
+msgstr "Je tam podepsat zde"
+
+msgid "An Oil Can"
+msgstr "Olej může"
+
+msgid "Oil Can"
+msgstr "Může olej"
+
+msgid "A powerful repellent"
+msgstr "Silný repelent"
+
+msgid "Repellent"
+msgstr "Repelent"
+
+msgid "Medal Support"
+msgstr "Medaile Podpora"
+
+msgid "Fortress Mine"
+msgstr "Tvrz Mine"
+
+msgid "Private key is missing"
+msgstr "Soukromý klíč chybí"
+
+msgid "Could not connect to server"
+msgstr "Nepodařilo se připojit k serveru"
+
+msgid "Sludge Tentacle"
+msgstr "Kal Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Červený kal Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, it worked!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nejsem si jistý, ale o barvu, myslela jsem si, že by bylo červená?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Možná to má být žlutá ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Tekutina z oční bulvy a chapadla"
 

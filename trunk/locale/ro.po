@@ -4,16 +4,14 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr "Repede rândul său, la stânga şi la dreapta să-şi scuture slimes!"
@@ -363,18 +361,6 @@ msgstr "Stai, ceea ce a fost asta?"
 msgid "You again?!"
 msgstr "Tu din nou?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Vrăjitor trebuie să fi luat pe tata la castelul lui. Eu va trebui să îl salveze de acolo."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Singura modalitate de a ajunge la castel este prin intermediul Swamp Interzis la Est."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Exista un lac între sat şi Swamp, aşa că am avea nevoie de o plută pentru a obţine vizavi."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Am avea nevoie, de asemenea, o sabie şi scut să mă apăr. Eu pot vorbi cu şi pentru a obţine aceste though."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Ceva ar trebui să se întâmple aici, dar nu este în această versiune deci verificaţi mai târziu!"
 
@@ -412,7 +398,7 @@ msgid "OK... what do I have to do?"
 msgstr "OK ... Ce trebuie sa fac?"
 
 msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
-msgstr "Unele dintre puii mei au scăpat din stilou lor, şi aş fi foarte recunoscător dacă aţi putea a lua pe ei spate pentru mine"
+msgstr "Unele dintre puii mei au scăpat din stilou lor şi aş fi foarte recunoscător dacă aţi putea a lua pe ei spate pentru mine"
 
 msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
 msgstr "Am instituit unele capcane lângă stilou lor, aveţi posibilitatea de a le atrage capcane folosind acest flux de pui. Nu am nevoie de-le pe toate, dar cel puţin 3 ar fi foarte util. Nu pot sa ma restul eu."
@@ -523,7 +509,7 @@ msgid "OK, here goes!"
 msgstr "OK, aici merge!"
 
 msgid "Aw, not again!"
-msgstr "Ah, nu din nou!"
+msgstr "Aw, nu din nou!"
 
 msgid "This had better be the last time I have to do this..."
 msgstr "Acest lucru ar fi mai bine ultima dată când am să fac asta ..."
@@ -625,19 +611,19 @@ msgid "Wow! That was cool! This must be a mechanical teleporter."
 msgstr "Wow! Asta a fost cool! Acest lucru trebuie să fie un teleportor mecanică."
 
 msgid "I wonder if it works both ways..."
-msgstr "Mă întreb dacă merge în ambele sensuri ..."
+msgstr "Mă întreb dacă acesta funcţionează în ambele sensuri ..."
 
 msgid "Horray!"
 msgstr "Horray!"
 
 msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr "Nu numai că aceasta va pentru a salva eu o mulţime de mers pe jos, este, de asemenea, sarcini de distracţie!"
+msgstr "Nu numai că aceasta va pentru a salva eu o mulţime de mers pe jos, este, de asemenea, loads de distractie!"
 
 msgid "Now try out your shield"
 msgstr "Acum, încercaţi scutul tău"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr "Bloc pelete scuipat de către plante şi sări până la următoarea prichici"
+msgstr "Bloc pelete scuipat de către plante şi sări până la strat următor"
 
 msgid "Some items in the game can be pushed and pulled"
 msgstr "Unele elemente din joc poate fi împins şi tras"
@@ -661,10 +647,10 @@ msgid "First, you should equip the sword since it has more range and does more d
 msgstr "În primul rând, ar trebui să echipeze sabie deoarece are gamă mai mult şi nu mai multe daune decât târnăcopul"
 
 msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
-msgstr "Comunicat de presă z pentru a vizualiza inventarul dvs., evidenţiaţi sabia şi apăsaţi Attack (Ctrl stânga) sau de utilizare punctul (a)"
+msgstr "Apăsaţi z pentru a vizualiza inventarul dvs., evidenţiaţi sabia şi apăsaţi Attack (Ctrl stânga) sau de utilizare punctul (a)"
 
 msgid "Press z again to close your inventory"
-msgstr "Comunicat de presă z pentru a închide din nou inventarul dvs."
+msgstr "Comunicat de presă de la Z la din nou aproape inventarul dvs."
 
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
 msgstr "Ocazional, duşmani ucis va scadea de sănătate, care va dispărea după câteva secunde, asa ca ridica repede!"
@@ -700,7 +686,7 @@ msgid "Press Space when you have finished reading to go to the next dialog box"
 msgstr "Comunicat de presă spaţiu când aţi terminat de citit pentru a merge la caseta de lângă, de dialog"
 
 msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr "Puteţi muta, de asemenea, la caseta de lângă, de dialog prin apăsarea Attack (stânga CTRL), Block (stânga ALT), Jump (spaţiu), Acţiune (c) sau utilizare punctul (a)"
+msgstr "Puteţi muta, de asemenea, la caseta de lângă, de dialog apăsând Attack (stânga CTRL), Block (stânga ALT), Salt (spaţiu), Acţiune (c) sau utilizare punctul (a)"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
 msgstr "Acest lucru este tutorial pentru Legenda lui Edgar. Acest ghid va explica cum să intre în joc."
@@ -733,7 +719,7 @@ msgid "Whilst in the inventory, use the arrow keys to view the items."
 msgstr "În timp ce în inventar, utilizaţi tastele săgeată pentru a vizualiza elementele."
 
 msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
-msgstr "Aveţi posibilitatea să utilizaţi un element imediat apăsând Attack (Ctrl stânga) sau de utilizare punctul (a)"
+msgstr "Aveţi posibilitatea să utilizaţi un element imediat prin apăsarea Attack (Ctrl stânga) sau de utilizare punctul (a)"
 
 msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
 msgstr "Puteţi un element gata pentru utilizare prin apăsarea Block (stânga ALT) sau de acţiune (c)"
@@ -781,7 +767,7 @@ msgid "Here's a hint to get you started"
 msgstr "Iată un indiciu ca să porniţi"
 
 msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Cu toate că doar a cere tu la spre catch 3 de pui lui, de ce să nu fi frumos să şi-l prinde mai mult? Există 10 rătăcind harta, în toate"
+msgstr "Cu toate că doar a cere tu la spre catch 3 din pui lui, de ce să nu fi frumos să-l prinde şi mai mult? Există 10 rătăcind harta, în toate"
 
 msgid "The shield will protect you from most enemy attacks"
 msgstr "Scutul vă vor proteja de cele mai multe atacuri inamice"
@@ -1507,16 +1493,16 @@ msgid "Second Floor Keycard"
 msgstr "În al doilea rând Etaj Keycard"
 
 msgid "Instruction Card #1"
-msgstr "Instrucţiuni de card # 1"
+msgstr "Instruction Card # 1"
 
 msgid "Instruction Card #2"
 msgstr "Instrucţiunea Card # 2"
 
 msgid "Instruction Card #3"
-msgstr "Card de instrucţiuni # 3"
+msgstr "Instrucţiunea Card # 3"
 
 msgid "Instruction Card #4"
-msgstr "Card de instrucţiuni # 4"
+msgstr "Instrucţiunea Card # 4"
 
 msgid "Centurion Statue"
 msgstr "Centurion Statuia"
@@ -1677,8 +1663,8 @@ msgstr "Nu e ceva care se deplasează în jurul acolo jos ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, vu DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "În cazul în care ascensorul este de-a valma, atunci aceasta trebuie să fie a nu putea suporta"
@@ -1742,4 +1728,100 @@ msgstr "Dacă un obiect devine imposibil de găsit apoi puteţi folosi comutator
 
 msgid "A bottle with a soul trapped inside"
 msgstr "O sticlă cu un suflet prins în interiorul"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine cos"
+
+msgid "Processing Lift Key"
+msgstr "Prelucrarea Ridicaţi-cheie"
+
+msgid "Right Grabber Key"
+msgstr "Dreptul Grabber cheie"
+
+msgid "Left Grabber Key"
+msgstr "Stânga Grabber cheie"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Vrăjitor trebuie să fi luat pe tata la castelul lui. Eu va trebui să îl salveze de acolo."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Singura modalitate de a ajunge la castel este prin intermediul Swamp Interzis la Est."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Exista un lac între sat şi Swamp, aşa că am avea nevoie de o plută pentru a obţine în întreaga."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Am avea nevoie, de asemenea, o sabie şi scut să mă apăr. Eu pot vorbi cu Borgan şi Iacov pentru a obţine aceste though."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nu sa putut conecta la Medalia de Server la %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nu sa putut găsi Medalia Cheie"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Tu nu va fi capabil să câştige medalii pentru acest joc"
+
+msgid "There's another sign here"
+msgstr "Nu e un alt semn aici"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "În cazul în care ascensorul ieşire este de-a valma, apoi trece la stânga"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Atenţie: ruta de ieşire pot fi periculoase"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Poate ar trebui să folosească ascensorul pentru a iesi"
+
+msgid "There's a sign here"
+msgstr "Nu e un semn aici"
+
+msgid "An Oil Can"
+msgstr "Un ulei poate"
+
+msgid "Oil Can"
+msgstr "Ulei poate"
+
+msgid "A powerful repellent"
+msgstr "O repellent puternic"
+
+msgid "Repellent"
+msgstr "Impermeabil"
+
+msgid "Medal Support"
+msgstr "Suport Medalia de"
+
+msgid "Fortress Mine"
+msgstr "Cetatea Mine"
+
+msgid "Private key is missing"
+msgstr "Cheie privată lipseşte"
+
+msgid "Could not connect to server"
+msgstr "Nu sa putut conecta la serverul de"
+
+msgid "Sludge Tentacle"
+msgstr "Nămolurilor Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Un Red nămolurilor Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Globului ocular Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, it worked!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nu sunt sigur despre culoarea totuşi, m-am gândit că ar fi de culoare roşie?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Poate ca ar trebui sa fie galben ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Un lichid obţinut din glob ocular şi tentacule"
 

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Espere, o que foi aquilo?"
 
 msgid "You again?!"
 msgstr "Vostede de novo?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "O feiticeiro debeu ser o pai do seu castelo. Vou ter que rescate-lo de alí."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "A única forma de chegar ao castelo é a través do encoro Prohibida a leste."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Hai un lago, entre a aldea ea Swamp entón eu vou ter que un barco a atravesar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Eu tamén teño unha espada e escudo para me defender. Eu podo falar e para obter estes aínda."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Algo está a ocorrer aquí, pero non é nesta versión iso volva máis tarde!"
@@ -1205,7 +1193,7 @@ msgid "Tortoise, Master"
 msgstr "Tortoise, Master"
 
 msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
-msgstr "Master tartarugas son feras asustado. Atopar en terras afastadas, que posúen a capacidade de cambiar as súas cabezas"
+msgstr "Master tartarugas son feras asustado. Atopados en terras afastadas, que teñen a posibilidade de cambiar a cabeza"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
 msgstr "Eles combinan todas as habilidades dos seus primos para cuspir lume, xeo e criarse eletrificar"
@@ -1675,8 +1663,8 @@ msgstr "Hai algo que circulan por aí ..."
 msgid "Good riddance..."
 msgstr "Good Riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh vu, DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Se o ascensor está fóra de orde, entón debe ser reposta"
@@ -1740,4 +1728,100 @@ msgstr "Se un obxecto se fai inaccesíbel, daquela pode empregar a opción para 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Unha botella cunha alma presa no interior"
+
+msgid "Full Mine Cart"
+msgstr "Completamente Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Procesamento Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Dereito da Grabber"
+
+msgid "Left Grabber Key"
+msgstr "Collendo da esquerda"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "O feiticeiro debeu ser o pai do seu castelo. Vou ter que rescate-lo de alí."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "A única forma de chegar ao castelo é a través do encoro Prohibida a leste."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hai un lago, entre a aldea ea Swamp entón eu vou ter que un barco a atravesar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Eu tamén teño unha espada e escudo para me defender. Eu podo falar con Borgan e Xacob para obter estes aínda."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Non se puido conectar-se a Medalla Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Non se puido atopar Medalla da"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Non será capaz de gañar medallas para este xogo"
+
+msgid "There's another sign here"
+msgstr "Hai outro sinal aquí"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Se saia do ascensor está fóra de orde, entón vai a esquerda"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Atención: ruta de saída poden ser perigosos"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Poida que eu debese utilizar o ascensor para sair"
+
+msgid "There's a sign here"
+msgstr "Hai aquí un sinal"
+
+msgid "An Oil Can"
+msgstr "Unha lata de aceite"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Un poderoso repelente"
+
+msgid "Repellent"
+msgstr "Repelente"
+
+msgid "Medal Support"
+msgstr "Medalla de apoio"
+
+msgid "Fortress Mine"
+msgstr "Fortaleza de Minas"
+
+msgid "Private key is missing"
+msgstr "A clave privada está ausente"
+
+msgid "Could not connect to server"
+msgstr "Non se puido conectar co servidor"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A lama vermella Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Legal, funciona!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Non estou seguro sobre a cor, pero eu penso que sería vermello?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Se cadra é suposta ser amarelo ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Un líquido feito de ollos e tentáculos"
 

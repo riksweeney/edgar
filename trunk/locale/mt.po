@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -361,18 +361,6 @@ msgstr "Stenna, liema kienet dik?"
 msgid "You again?!"
 msgstr "You darb'oħra?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Il-sorcerer għandu jkun ħa Dad għall-kastell tiegħu. I'll jkollhom salvataġġ lilu minn hemm."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "L-uniku triq biex jinġiebu għall-kastell huwa permezz tal-Swamp Projbit fil-Lvant."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Hemm lag bejn il-Villaġġ u l-Swamp so I bzonn ċattra li tikseb madwar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "I'll bżonn ukoll ta 'xabla u tarka li tiddefendi myself. I jistgħu jitkellmu u li tikseb dawn għalkemm."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Xi ħaġa suppost li jiġri hawn, iżda mhux fil din il-verżjoni sabiex jiċċekkjaw lura tard!"
 
@@ -413,7 +401,7 @@ msgid "Some of my chickens have escaped from their pen and I would be very grate
 msgstr "Uħud minn tiġieġ tiegħi maħruba mill-pinna tagħhom u Inkun grat ħafna jekk inti tista 'tikseb lura g ˙ alija"
 
 msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
-msgstr "I waqqfu xi nases ħdejn pinna tagħhom, inti tista LURE lill-nases li jużaw din l-għalf tat-tiġieġ. I don't need lilhom kollha, imma mill-inqas 3 jkun ferm utli. Nista 'nikseb il-bqija myself."
+msgstr "I waqqfu xi nases ħdejn pinna tagħhom, inti tista LURE lill-nases li jużaw dan għalf tat-tiġieġ. I don't need lilhom kollha, imma mill-inqas 3 jkun ferm utli. Nista 'nikseb il-bqija myself."
 
 msgid "That's it?"
 msgstr "That's it?"
@@ -548,7 +536,7 @@ msgid "I've been trapped down here for what seems like an eternity"
 msgstr "Stajt ġiet maqbuda stabbiliti hawn għal dak li jidher qisni eternity"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "Biex toħroġ ta 'dan il-post I ħtieġa Keys 3 L-aċċess għall-ħidma tal-lifts"
+msgstr "Biex toħroġ ta 'dan il-post I ħtieġa Keys 3 L-aċċess għax-xogħol il-lifts"
 
 msgid "So far I have only found 1"
 msgstr "S'issa I għandhom biss misjuba 1"
@@ -596,7 +584,7 @@ msgid "Pushing up or jump will make you jump out of the water if you're near the
 msgstr "Timbotta up jew jaqbżu se tagħmel inti tiżdied barra mill-ilma jekk int viċin il-wiċċ"
 
 msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
-msgstr "Żżomm għajnejk fuq il-arloġġ fil-qiegħ ta 'l-iskrin. Meta tasal 0 inti awtomatikament terġa 'ssir mill-bniedem"
+msgstr "Żżomm għajnejk fuq il-arloġġ fil-qiegħ ta 'l-iskrin. Meta tasal 0 inti awtomatikament se ssir tal-bniedem mill-ġdid"
 
 msgid "This place doesn't look so bad..."
 msgstr "Dan il-post ma jidhrux daqshekk ħżiena ..."
@@ -614,7 +602,7 @@ msgid "Now to get through this swamp"
 msgstr "Issa li tinkiseb permezz ta 'dan swamp"
 
 msgid "Hey, what's this?"
-msgstr "Ħej, x'hemm dan?"
+msgstr "Ħej, liema's this?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
 msgstr "Jistenna pretty jagħmlux ħsara, I'll jippruvaw titjib fuqha"
@@ -995,7 +983,7 @@ msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr "I bżonn Tentacle Ħama aħmar u 3 Gazer għajnejn li jagħmlu l-potion"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "I still bżonn Flixkun Battal li tqiegħed il-potion fl -"
+msgstr "I still bżonn Flixkun Battal li tqiegħed il-potion in"
 
 msgid "So this is the Fortress."
 msgstr "Allura dan huwa l-Fortress."
@@ -1316,7 +1304,7 @@ msgid "It's a book about enchanting equipment"
 msgstr "Huwa ktieb dwar tagħmir enchanting"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
-msgstr "Jien m'għandi l-ebda raġuni biex jaqraw dan iżda I'll jżomm f'moħħha fil-każ I do"
+msgstr "Jien m'għandi l-ebda raġuni biex jaqraw dan iżda I'll jżomm f'moħħha fil-każ do I"
 
 msgid "I wonder what other monsters there are..."
 msgstr "I wonder dak monsters oħra hemm ..."
@@ -1334,7 +1322,7 @@ msgid "Pink Hoovers are small quadrupeds with a long snout"
 msgstr "Hoovers Pink huma quadrupeds żgħar bil-imnieħer twil"
 
 msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
-msgstr "Il-puropse primarja ta 'l-imnieħer huwa għall-għalf għall-ikel iżda wkoll jservi bħala mekkaniżmu ta' difiża"
+msgstr "Il-puropse primarja ta 'l-imnieħer huwa li għalf għall-ikel iżda wkoll jservi bħala mekkaniżmu ta' difiża"
 
 msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
 msgstr "u huma aktar kapaċi li jżommu predaturi fil-bajja billi sempliċiment blowing minnhom bogħod"
@@ -1412,7 +1400,7 @@ msgid "Ice Spray"
 msgstr "Silġ Spray"
 
 msgid "Library"
-msgstr "Librerija"
+msgstr "Library"
 
 msgid "Right Wing Lift Key"
 msgstr "Right Wing Lift Ewlenin"
@@ -1469,13 +1457,13 @@ msgid "Press Action to retrieve %s"
 msgstr "Press Azzjoni sabiex tkun irkuprata %s"
 
 msgid "Hmm, this is new."
-msgstr "Hmm, dan huwa ġdid."
+msgstr "Hmm, dan huwa l-ġdida."
 
 msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
-msgstr "Hija ma look like li jistgħu iweġġgħu me għalkemm, imma hemm biss mod wieħed biex issir taf ..."
+msgstr "Ma look like li jistgħu iweġġgħu me għalkemm, imma hemm biss mod wieħed biex issir taf ..."
 
 msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
-msgstr "Dan lift hija kkontrollata minn dik il-pjanċa ta 'pressjoni, imma ma tistax toqgħod fuqha u l-użu tal-lift fl-istess ħin"
+msgstr "Dan lift hija kkontrollata minn dik il-pjanċa ta 'pressjoni, imma ma nistax stand fuqha u jużaw il-lift fl-istess ħin"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
 msgstr "I'll jkollhom isibu xi ħaġa oħra li toqgħod fuq il-pjanċa tal-pressjoni għall-me ..."
@@ -1675,8 +1663,8 @@ msgstr "Hemm xi ħaġa li jiċċaqalqu madwar l hemm ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Jekk il-lift ikun out of order allura għandu jiġi reset"
@@ -1740,4 +1728,100 @@ msgstr "Jekk oġġett isir unreachable allura inti tista 'tuża l-iswiċċ li ti
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Flixkun bil-ruħ maqbud ġewwa"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Ipproċessar Lift ewlenin"
+
+msgid "Right Grabber Key"
+msgstr "Dritt grabber ewlenin"
+
+msgid "Left Grabber Key"
+msgstr "Left grabber ewlenin"
+
+msgid "Master Key"
+msgstr "Master ewlenin"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Il-sorcerer għandu jkun ħa Dad għall-kastell tiegħu. I'll jkollhom salvataġġ lilu minn hemm."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "L-uniku triq biex jinġiebu għall-kastell huwa permezz tal-Swamp Projbit fil-Lvant."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hemm lag bejn il-Villaġġ u l-Swamp so I bzonn ċattra li tikseb madwar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "I'll bżonn ukoll ta 'xabla u tarka li tiddefendi myself. I jistgħu jitkellmu sabiex Borgan u Jacob tikseb għalkemm dawn."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ma kellekx konnessjoni ma Midalja Server fil %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ma kellekx issib Midalja Ewlenin"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Inti mhux ser ikunu jistgħu jaqilgħu Midalji għal din il-logħba"
+
+msgid "There's another sign here"
+msgstr "Hemm xi sinjal ieħor hawn"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Jekk il-lift huwa l-ħruġ ta 'ordni mbagħad jipproċedi lejn ix-xellug"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Twissija: rotta Ħruġ jista 'jkun perikoluż"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Maybe I għandhom jużaw il-lift li toħroġ"
+
+msgid "There's a sign here"
+msgstr "Hemm sinjal hawn"
+
+msgid "An Oil Can"
+msgstr "An Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "A repellent qawwija"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Appoġġ Midalja"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Ewlenin privat huwa nieqes"
+
+msgid "Could not connect to server"
+msgstr "Ma kellekx konnessjoni ma 'server"
+
+msgid "Sludge Tentacle"
+msgstr "Ħama Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Tentacle Ħama Red"
+
+msgid "Eyeball Smoothie"
+msgstr "Boċċa Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Kessaħ, hija ħadmet!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "M'inix ċert dwar il-kulur għalkemm, ħsibt li jkun aħmar?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Forsi huwa suppost li tkun safra ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "A likwidu magħmul mill-għajnejn u tentacles"
 

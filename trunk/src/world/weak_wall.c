@@ -74,7 +74,10 @@ static void touch(Entity *other)
 {
 	if (self->active == TRUE && (other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
 	{
-		takeDamage(other, other->damage);
+		if (!(self->flags & NO_DRAW))
+		{
+			takeDamage(other, other->damage);
+		}
 	}
 	
 	if (self->inUse == TRUE)
@@ -103,7 +106,7 @@ static void takeDamage(Entity *other, int damage)
 		}
 	}
 
-	else if (!(self->flags & NO_DRAW))
+	else
 	{
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 

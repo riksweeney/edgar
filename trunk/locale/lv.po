@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
@@ -363,18 +363,6 @@ msgstr "Gaidīt, ko tas bija?"
 msgid "You again?!"
 msgstr "Jūs atkal?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Burvis ir jāņem Dad viņa pili. Es ņemšu to glābt viņu no turienes."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Vienīgais veids, kā nokļūt līdz pils ir ar Aizliegts purva uz Austrumiem."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Tur starp ciema un purva ezeru tāpēc es nāksies plosts nokļūt pāri."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Man būs nepieciešama arī zobenu un vairogu, lai aizstāvētu sevi. Es varu runāt un panākt, lai šos though."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Kaut kas ir paredzēts notikt šeit, bet tas nav šajā versijā tā Pārbaudiet vēlreiz vēlāk!"
 
@@ -547,7 +535,7 @@ msgid "There's a note here"
 msgstr "Tur piebilst,"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "Esmu bijis notverto noteikti šeit par to, kas šķiet kā mūžība"
+msgstr "Esmu bijis notverto noteikti šeit par to, kas šķiet mūžība"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr "Izkļūt no šīs vietas man vajag 3 Access Keys darba liftu"
@@ -1345,7 +1333,7 @@ msgid "Venus Flytrap, mobile"
 msgstr "Venus Flytrap, mobile"
 
 msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
-msgstr "Mobilo Venus Flytraps ir attīstījušies saknes un spēj pārvietoties ar to pārtiku, nevis gaida, kad nāks pie viņiem"
+msgstr "Mobilo Venus Flytraps ir attīstījušies saknes un spēj pārvietoties ar to pārtiku, nevis gaida, kad tie nāk viņiem"
 
 msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
 msgstr "Viņu kakliem ir neticami elastīgs un spēj snap to upuris no ļoti tālu prom"
@@ -1677,8 +1665,8 @@ msgstr "Pastāv kaut kas pārvietojas tur lejā ..."
 msgid "Good riddance..."
 msgstr "Good atbrīvošana ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Ja lifts ir bojātas, tad tas ir reset"
@@ -1742,4 +1730,100 @@ msgstr "Ja objekts kļūst sasniedzams, tad var izmantot switch to atlikt atpaka
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Pudele ar dvēseli noķerto iekšā"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Tiesības Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Left Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Burvis ir jāņem Dad viņa pili. Es ņemšu to glābt viņu no turienes."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Vienīgais veids, kā nokļūt līdz pils ir ar Aizliegts purva uz Austrumiem."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Tur starp ciema un purva ezeru tāpēc es nāksies plosts nokļūt pāri."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Man būs nepieciešama arī zobenu un vairogu, lai aizstāvētu sevi. Es varu runāt ar Borgan un Jēkabam, lai saņemtu šos though."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Neizdevās izveidot savienojumu ar Medal serveri %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Neizdevās atrast Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Jūs nevarēsiet gūt medaļas par šo spēli"
+
+msgid "There's another sign here"
+msgstr "Tur ir cita apzīmējuma, šeit"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Ja izejas lifts ir bojātas, tad doties uz kreiso"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: Exit maršruts var būt bīstami"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Varbūt man vajadzētu izmantot lifta izkļūt"
+
+msgid "There's a sign here"
+msgstr "Tur, parakstieties šeit"
+
+msgid "An Oil Can"
+msgstr "Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Spēcīgs atbaidošs"
+
+msgid "Repellent"
+msgstr "Atbaidošs"
+
+msgid "Medal Support"
+msgstr "Medaļu Support"
+
+msgid "Fortress Mine"
+msgstr "Cietoksnis Mine"
+
+msgid "Private key is missing"
+msgstr "Privātā atslēga ir pazudis"
+
+msgid "Could not connect to server"
+msgstr "Neizdevās izveidot savienojumu ar serveri"
+
+msgid "Sludge Tentacle"
+msgstr "Dūņas tausteklis"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Red Dūņu tausteklis"
+
+msgid "Eyeball Smoothie"
+msgstr "Acs ābols Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Atdzesē, tā strādāja!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Es neesmu pārliecināts par krāsu gan, es domāju, ka tas varētu būt sarkans?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Varbūt tā vajadzēja būt dzeltena ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Šķidrums izgatavots no acs āboli un taustekļi"
 

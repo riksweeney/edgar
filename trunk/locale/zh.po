@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -360,18 +360,6 @@ msgstr "等待，那是什么？"
 
 msgid "You again?!"
 msgstr "你呢？！"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "在巫师必须是爸爸他的城堡。我不得不从那里救他。"
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "唯一的办法去城堡，是东方的故宫沼泽。"
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "有一个村之间的湖泊和沼泽，所以我需要一个木筏子，再跨越。"
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "我还需要一个剑与盾辩白。我可以发言，并得到这些，但。"
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "事情是应该在这里发生，但它在这个版本中没有因此请稍后再回来！"
@@ -791,7 +779,7 @@ msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr "环境危害，如落石，不可阻挡"
 
 msgid "To block an attack, press and hold block (left alt)."
-msgstr "若要阻止攻击，按住块（左备选案文）。"
+msgstr "若要阻止攻击，可按住块（左备选案文）。"
 
 msgid "You must be facing the attack to succesfully block it"
 msgstr "你必须要面对攻击成功阻止它"
@@ -1082,7 +1070,7 @@ msgid "The freshly cut tentacle from a female Red Sludge"
 msgstr "从污泥女红刚剪触手"
 
 msgid "The shield to apply the enchantment"
-msgstr "盾适用魅力"
+msgstr "盾申请的魅力"
 
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr "混合的凝视的眼睛和污泥触手成液体顺利"
@@ -1331,7 +1319,7 @@ msgid "Their staff is highly magical and although it cannot be used by humans di
 msgstr "他们的工作人员是非常神奇，尽管它不能被人类直接使用，它的神奇属性用于创建在拼写"
 
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr "粉红Hoovers公司是一个有悠久嘴小四足"
+msgstr "粉红Hoovers公司与长嘴小四足"
 
 msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
 msgstr "鼻子的主要puropse是觅食，但它也可以作为一种防卫机制服务"
@@ -1675,8 +1663,8 @@ msgstr "有些事那里走动..."
 msgid "Good riddance..."
 msgstr "终于解放了..."
 
-msgid "Huh, déjà vu..."
-msgstr "咦，似曾相识..."
+msgid "Huh, d�j� vu..."
+msgstr "嗯，Đ似曾相识..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "如果电梯坏的顺序则必须重置"
@@ -1740,4 +1728,100 @@ msgstr "如果一个对象变为不可达，那么你可以使用切换到放回
 
 msgid "A bottle with a soul trapped inside"
 msgstr "带有灵魂被困在1瓶"
+
+msgid "Full Mine Cart"
+msgstr "全矿车"
+
+msgid "Processing Lift Key"
+msgstr "处理电梯的关键"
+
+msgid "Right Grabber Key"
+msgstr "右夹持的关键"
+
+msgid "Left Grabber Key"
+msgstr "左夹持的关键"
+
+msgid "Master Key"
+msgstr "万能钥匙"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "在巫师必须是爸爸他的城堡。我不得不从那里救他。"
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "唯一的办法去城堡，是东方的故宫沼泽。"
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "有一个村之间的湖泊和沼泽，所以我需要一个木筏子，再跨越。"
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "我还需要一个剑与盾辩白。我可以说话Borgan和雅各虽然得到这些。"
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "无法连接到服务器在%s:%d奖章"
+
+msgid "Could not find Medal Key"
+msgstr "找不到奖章关键"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "您将无法获得这一比赛奖牌"
+
+msgid "There's another sign here"
+msgstr "还有这里的另一个迹象"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "如果出口电梯坏规程然后进入左边"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "警告：退出路线可能会危害"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "也许我应该使用升降机出去"
+
+msgid "There's a sign here"
+msgstr "有一个在这里签字"
+
+msgid "An Oil Can"
+msgstr "一个油罐"
+
+msgid "Oil Can"
+msgstr "石油可以"
+
+msgid "A powerful repellent"
+msgstr "强大剂"
+
+msgid "Repellent"
+msgstr "驱避剂"
+
+msgid "Medal Support"
+msgstr "奖章支持"
+
+msgid "Fortress Mine"
+msgstr "山城矿"
+
+msgid "Private key is missing"
+msgstr "私钥丢失"
+
+msgid "Could not connect to server"
+msgstr "无法连接到服务器"
+
+msgid "Sludge Tentacle"
+msgstr "污泥触手"
+
+msgid "A Red Sludge Tentacle"
+msgstr "阿红污泥触手"
+
+msgid "Eyeball Smoothie"
+msgstr "眼球冰沙"
+
+msgid "Cool, it worked!"
+msgstr "酷，它的工作！"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "我不敢肯定，但对颜色，我以为会是红色？"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "也许这应该是黄..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "从眼球和触角制成的液体"
 

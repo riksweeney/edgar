@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -360,18 +360,6 @@ msgstr "مهلا ، ما هذا؟"
 
 msgid "You again?!"
 msgstr "كنت مرة أخرى؟!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "الساحر يجب أن تتخذ داد إلى قصره. سآخذ لانقاذه من هناك."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "السبيل الوحيد للوصول الى القلعة من خلال مستنقع المحرمة إلى الشرق."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "هناك بحيرة بين القرية ومستنقع لذا أنا بحاجة للحصول على مجموعة كبيرة عبر."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "أنا أيضا في حاجة إلى السيف والدرع للدفاع عن نفسي. أستطيع أن أتحدث إلى والحصول على الرغم من هذه."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "شيء من المفترض أن يحدث ذلك هنا ، ولكنها ليست في هذا الإصدار وذلك من مراجعة في وقت لاحق!"
@@ -1675,8 +1663,8 @@ msgstr "هناك شيء يتحرك الى هناك..."
 msgid "Good riddance..."
 msgstr "حسن بئس المصير..."
 
-msgid "Huh, déjà vu..."
-msgstr "هاه ، déjà فو..."
+msgid "Huh, d�j� vu..."
+msgstr "هاه ، فو دي جي..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "اذا رفع هو خارج عن النظام فلا بد من أن إعادة تعيين"
@@ -1740,4 +1728,100 @@ msgstr "إذا كائن تصبح غير قابلة للوصول بعد ذلك ي
 
 msgid "A bottle with a soul trapped inside"
 msgstr "زجاجة مع محاصرين داخل الروح"
+
+msgid "Full Mine Cart"
+msgstr "كامل الألغام السلة"
+
+msgid "Processing Lift Key"
+msgstr "تجهيز ارفع مفتاح"
+
+msgid "Right Grabber Key"
+msgstr "الحق المنتزع مفتاح"
+
+msgid "Left Grabber Key"
+msgstr "ترك مفتاح المنتزع"
+
+msgid "Master Key"
+msgstr "المفتاح الرئيسي"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "الساحر يجب أن تتخذ داد إلى قصره. سآخذ لانقاذه من هناك."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "السبيل الوحيد للوصول الى القلعة من خلال مستنقع المحرمة إلى الشرق."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "هناك بحيرة بين القرية ومستنقع لذا أنا بحاجة للحصول على مجموعة كبيرة عبر."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "أنا أيضا في حاجة إلى السيف والدرع للدفاع عن نفسي. أستطيع أن أتحدث إلى بورجان ويعقوب للحصول على الرغم من هذه."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "تعذر الاتصال خادم ميدالية في %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "تعذر العثور على مفتاح وسام"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "أنت لن تكون قادرة على كسب ميداليات لهذه اللعبة"
+
+msgid "There's another sign here"
+msgstr "هناك علامة أخرى هنا"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "إذا رفع الخروج خارج الترتيب ثم الانتقال إلى اليسار"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "تحذير : قد يكون الخروج من الطريق الخطرة"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "ربما ينبغي لي أن استخدام المصعد للخروج"
+
+msgid "There's a sign here"
+msgstr "وهناك لافتة هنا"
+
+msgid "An Oil Can"
+msgstr "ويمكن للنفط"
+
+msgid "Oil Can"
+msgstr "هل يمكن للنفط"
+
+msgid "A powerful repellent"
+msgstr "وطارد قوي"
+
+msgid "Repellent"
+msgstr "طارد"
+
+msgid "Medal Support"
+msgstr "ميدالية الدعم"
+
+msgid "Fortress Mine"
+msgstr "قلعة الألغام"
+
+msgid "Private key is missing"
+msgstr "المفتاح الخاص هو في عداد المفقودين"
+
+msgid "Could not connect to server"
+msgstr "تعذر الاتصال بالخادم"
+
+msgid "Sludge Tentacle"
+msgstr "الحمأة اللامسة"
+
+msgid "A Red Sludge Tentacle"
+msgstr "وقال الأحمر الحمأة اللامسة"
+
+msgid "Eyeball Smoothie"
+msgstr "عصير المقلة."
+
+msgid "Cool, it worked!"
+msgstr "باردة ، وانها عملت!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "أنا غير متأكدة من لون الرغم من ذلك ، اعتقد انه سيكون من الحمراء؟"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "ربما كان من المفترض أن يكون أصفر..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "وسائلة مصنوعة من مقل العيون ومخالب"
 

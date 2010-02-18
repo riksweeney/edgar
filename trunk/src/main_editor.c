@@ -50,6 +50,12 @@ int main(int argc, char *argv[])
 	int go;
 	Entity startPos;
 
+	#if DEV == 0
+		printf("Editor doesn't work if DEV is set to 0\n");
+
+		exit(1);
+	#endif
+
 	/* Start up SDL */
 
 	init("Map Editor");
@@ -121,9 +127,9 @@ int main(int argc, char *argv[])
 	resetControls(TRUE);
 
 	game.status = IN_EDITOR;
-	
+
 	game.fps = 1000 / 60;
-	
+
 	frameLimit = SDL_GetTicks() + game.fps;
 
 	while (go == TRUE)

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
@@ -352,7 +352,7 @@ msgid "I don't think my shield will protect me from those fireballs. I'll have t
 msgstr "Ne verjamem, da moj ščit bo varoval me od tistih, ki fireballs. Bom moral najti eno močnejše ..."
 
 msgid "You won't be able to do this bit in this version, check back later!"
-msgstr "Ne boste mogli storiti to bit v tej verziji, check back later!"
+msgstr "Ne boste mogli to bit v tej verziji, check back later!"
 
 msgid "Strange creature..."
 msgstr "Čudno bitje ..."
@@ -362,18 +362,6 @@ msgstr "Čakaj, kaj je to?"
 
 msgid "You again?!"
 msgstr "Ti spet?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Bajalica mora upoštevati očka na svoj grad. Jaz bom moral spustiti na prostost ga od tam."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Edini način, da pridete do gradu je skozi Forbidden Swamp na vzhodu."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "There's jezero med vasi in močvirske zato sem se boste morali splav priti čez."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Bom potrebujejo tudi meč in ščit, da branim. Ne morem govoriti in da se ti četudi."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Nekaj naj bi se zgodilo, vendar to ni v tej različici, zato preverite znova pozneje!"
@@ -637,7 +625,7 @@ msgid "Now try out your shield"
 msgstr "Sedaj testirati svoj ščit"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr "Blokirajte peleti pljunil ki jih opravlja obrat in skok navzgor na naslednjo polico"
+msgstr "Block peleti pljunil, ki jih naprave in skočite do naslednjega polico"
 
 msgid "Some items in the game can be pushed and pulled"
 msgstr "Nekatere postavke v igri lahko ga vlečejo in vlečejo"
@@ -1186,7 +1174,7 @@ msgid "If one of these sustains too much damage it will split once again and con
 msgstr "Če eno od teh preveč utrpi škode, ki jo bo po delih še enkrat in še naprej napada"
 
 msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
-msgstr "Končno bo ena končna delitev povzroči zelo majhne različice, ki so popolnoma neškodljive in v tem stanju se lahko preprosto stopil na"
+msgstr "Končno bo en končni delih povzroči zelo majhne različice, ki so popolnoma neškodljive, in v tem stanju se lahko preprosto stopil na"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
 msgstr "Če so vsi njegovi deli še vedno živ, bo reforma sama po sloju, medtem ko zacelijo svoje rane in"
@@ -1510,7 +1498,7 @@ msgid "Instruction Card #1"
 msgstr "Pouk Card # 1"
 
 msgid "Instruction Card #2"
-msgstr "Pouk Card # 2"
+msgstr "Pouk # 2 Card"
 
 msgid "Instruction Card #3"
 msgstr "Pouk Card # 3"
@@ -1677,8 +1665,8 @@ msgstr "Nekaj se gibljejo tam spodaj ..."
 msgid "Good riddance..."
 msgstr "Dobro Osvoboditev ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Če je dvigalo v okvari potem je treba ponastaviti"
@@ -1742,4 +1730,100 @@ msgstr "Če je predmet postane nedosegljiv potem lahko uporabite stikalo, da ga 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Steklenička z dušo ujet znotraj"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Predelava Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right grabežljivac Key"
+
+msgid "Left Grabber Key"
+msgstr "Left grabežljivac Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Bajalica mora upoštevati očka na svoj grad. Jaz bom moral spustiti na prostost ga od tam."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Edini način, da pridete do gradu je skozi Forbidden Swamp na vzhodu."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "There's jezero med vasi in močvirske zato sem se boste morali splav priti čez."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Bom potrebujejo tudi meč in ščit, da branim. Ne morem govoriti, da Borgan in Jakobu, da dobite te četudi."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ne morem se povezati z medaljo Server na %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ne najdem Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ne boste mogli zaslužiti Medalje za to igro"
+
+msgid "There's another sign here"
+msgstr "Tu je še en znak tukaj"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Če izstopu iz dvigala je, da nato nadaljuje z levo"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Opozorilo: Izhod progi se lahko nevarne"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Mogoče bi moral uporabljati dvigala ven"
+
+msgid "There's a sign here"
+msgstr "Tam je znak tukaj"
+
+msgid "An Oil Can"
+msgstr "Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Močna repelenti"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Zasebni ključ manjka"
+
+msgid "Could not connect to server"
+msgstr "Ne morem se povezati s strežnikom"
+
+msgid "Sludge Tentacle"
+msgstr "Blata Popek"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Red blata Popek"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, to obdelan!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nisem prepričan glede barve, čeprav sem mislil, da bo rdeča?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Mogoče je, da naj bi se rumena ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Tekočina iz zrkel in lovke"
 
