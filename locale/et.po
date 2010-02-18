@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -362,18 +362,6 @@ msgstr "Oot, Mis see oli?"
 msgid "You again?!"
 msgstr "Sa jälle?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Nõid peab olema võetud isa oma lossi. Võtan päästa teda sealt."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Ainus võimalus pääseda loss on läbi Forbidden Swamp itta."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Seal järve vahel külla ja Soo nii et ma pead parv saada kõikjal."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Ma ka vajadust mõõk ja kilp, et end kaitsta. Ma võin rääkida ja saada neid küll."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Midagi ei peaks juhtuma siin, kuid see ei ole selles versioonis seda vaadata hiljem tagasi!"
 
@@ -699,7 +687,7 @@ msgid "Press Space when you have finished reading to go to the next dialog box"
 msgstr "Press Space Kui olete lõpetanud lugemise minna järgmine dialoogiboks"
 
 msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr "Võite ka liikuda järgmisele dialoogiboksis vajutades Attack (vasak CTRL), Block (vasak alt), Jump (kosmos) Action (c) või nende kasutamise Punkt ()"
+msgstr "Võite ka liikuda järgmisele dialoogiboksis vajutades Attack (vasak CTRL), plokk (vasak alt), Jump (kosmos) Action (c) või nende kasutamise Punkt ()"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
 msgstr "See on juhendaja jaoks Legend of Edgar. See õpetus on selgitatud, kuidas mängida."
@@ -1299,22 +1287,22 @@ msgid "I've already checked, he's not down there..."
 msgstr "Ma olen juba kontrollinud, ta ei ole seal ..."
 
 msgid "I've heard of people falling into the well before, maybe Dad's in there..."
-msgstr "Olen kuulnud inimeste sattumist juba enne, võibolla isa on seal ..."
+msgstr "Ma olen kuulnud inimeste sattumist juba enne, võibolla isa on seal ..."
 
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr "DAD !!!!! OLED seal ?!!!!!"
+msgstr "DAD !!!!! ARE YOU DOWN EKSISTEERI ?!!!!!"
 
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr "Mitte midagi. Ma arvan, Võtan hoida otsin"
+msgstr "Mitte midagi. Vist Võtan pidama otsin"
 
 msgid "Push Up or Down to raise or lower the platform"
-msgstr "Vajutage üles või alla tõsta või langetada platvorm"
+msgstr "Push Up või Down tõsta või alandada platvormi"
 
 msgid "There's a book here about enchanting equipment"
-msgstr "Seal on raamat siin umbes lummav seadmed"
+msgstr "There's broneerida siin umbes lummav seadmete"
 
 msgid "It's a book about enchanting equipment"
-msgstr "See raamat lummav seadmed"
+msgstr "It's broneerida umbes lummav seadmete"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
 msgstr "Mul ei ole mingit põhjust lugeda seda, vaid ma hoiab seda meeles kui ma"
@@ -1509,7 +1497,7 @@ msgid "Instruction Card #1"
 msgstr "Korraldus Card # 1"
 
 msgid "Instruction Card #2"
-msgstr "Korraldus Card # 2"
+msgstr "Korraldus kaardiga # 2."
 
 msgid "Instruction Card #3"
 msgstr "Korraldus Card # 3"
@@ -1676,8 +1664,8 @@ msgstr "Midagi liiguvad seal ..."
 msgid "Good riddance..."
 msgstr "Head teed tal minna ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Kui lift on rikkis siis tuleb reset"
@@ -1741,4 +1729,100 @@ msgstr "Kui muutub objekt ei õnnestu, siis saate minna pannakse see tagasi oma 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Pudel hinge lõksu sees"
+
+msgid "Full Mine Cart"
+msgstr "Terve Minu ostukorv"
+
+msgid "Processing Lift Key"
+msgstr "Töötlemine Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Õigus kahmitseja Key"
+
+msgid "Left Grabber Key"
+msgstr "Vasak kahmitseja Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Nõid peab olema võetud isa oma lossi. Võtan päästa teda sealt."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ainus võimalus pääseda loss on läbi Forbidden Swamp itta."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Seal järve vahel külla ja Soo nii et ma pead parv saada kõikjal."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ma ka vajadust mõõk ja kilp, et end kaitsta. Võin rääkida Borgan ja Jacob saada neid küll."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ei saanud ühendust medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ei leia medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Sa ei saa teenida medalite seda mängu"
+
+msgid "There's another sign here"
+msgstr "Seal on üks märk siin"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Kui väljumise lift on rikkis, siis minna vasakule"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Hoiatus: Välja marsruut võib olla ohtlik"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Võibolla ma peaks kasutama lifti välja tulla"
+
+msgid "There's a sign here"
+msgstr "Seal kirjutage siia"
+
+msgid "An Oil Can"
+msgstr "Nafta Kas"
+
+msgid "Oil Can"
+msgstr "Nafta Kas"
+
+msgid "A powerful repellent"
+msgstr "Võimas tõrjuv"
+
+msgid "Repellent"
+msgstr "Tõrjuv"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Kindlusmale Mine"
+
+msgid "Private key is missing"
+msgstr "Isiklik võti on kadunud"
+
+msgid "Could not connect to server"
+msgstr "Ei saa serveriga"
+
+msgid "Sludge Tentacle"
+msgstr "Muda Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Punane Muda Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Supliikkimies"
+
+msgid "Cool, it worked!"
+msgstr "Jahe, see töötas!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ma ei ole kindel värv, kuigi ma arvasin, et see oleks punane?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Võibolla see peaks olema kollane ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Vedelik valmistatud silm ja kombitsad"
 

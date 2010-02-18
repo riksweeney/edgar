@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -362,18 +362,6 @@ msgstr "Espere, o que foi aquilo?"
 msgid "You again?!"
 msgstr "Você de novo?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "O feiticeiro deve ter sido o pai de seu castelo. Vou ter que resgatá-lo de lá."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "A única maneira de chegar ao castelo é através do pântano Proibida a Leste."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Há um lago, entre a aldeia ea Swamp então eu vou precisar de um barco para atravessar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Eu também preciso uma espada e escudo para me defender. Eu posso falar e para obter estes embora."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Alguma coisa está para acontecer aqui, mas não é nesta versão isso volte mais tarde!"
 
@@ -702,7 +690,7 @@ msgid "You can also move to the next dialog box by pressing Attack (left ctrl), 
 msgstr "Você também pode passar para a próxima caixa de diálogo pressionando Ataque (esquerda Ctrl), Bloco de esquerda (ALT), Salto (espaço), Action (c) ou o uso do (a)"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
-msgstr "Este é o tutorial para The Legend of Edgar. Este tutorial irá explicar como jogar o The Game."
+msgstr "Este é o tutorial para A Lenda de Edgar. Este tutorial irá explicar como jogar o The Game."
 
 msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
 msgstr "Para sair deste tutorial, pressione Escape e utilizar as teclas Cima e Seta para baixo para escolher uma opção. Pressione Enter para selecioná-lo."
@@ -729,7 +717,7 @@ msgid "You can view the contents of your inventory by pressing z"
 msgstr "Você pode visualizar o conteúdo de seu inventário pressionando z"
 
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr "Embora no inventário, use as setas para ver os itens."
+msgstr "Embora no inventário, use as setas do teclado para visualizar os itens."
 
 msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
 msgstr "Você pode usar um item imediatamente pressionando Ataque (esquerda Ctrl) ou Usar Item (a)"
@@ -756,7 +744,7 @@ msgid "Regardless of what keys you choose, you can always navigate the menus usi
 msgstr "Independentemente do que as chaves que você escolher, você sempre pode navegar pelos menus utilizando as teclas de setas e Retorno"
 
 msgid "Note that in this tutorial, the default keys will be assumed"
-msgstr "Note que neste tutorial, as teclas padrão será assumido"
+msgstr "Note que neste tutorial, as teclas padrão será assumida"
 
 msgid "When you have finished configuring the keys, go right to the next Action Point"
 msgstr "Quando você terminar de configurar as chaves, vá para a direita para a próxima ação Point"
@@ -933,7 +921,7 @@ msgid "A bag suitable for carrying coal"
 msgstr "Um saco para o transporte de carvão"
 
 msgid "Basic Sword"
-msgstr "Basic Sword"
+msgstr "Espada Básica"
 
 msgid "A Sword given to you by Jacob"
 msgstr "Uma espada lhe foi dado pelo Jacob"
@@ -1098,7 +1086,7 @@ msgid "I've seen most of these items in the lab so I don't need to worry about t
 msgstr "Eu vi a maioria desses itens no laboratório para que eu não precisa se preocupar com aqueles"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr "E o Gazers deambular no porão de modo que não é um problema"
+msgstr "E Gazers a deambular no porão de modo que não é um problema"
 
 msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
 msgstr "O que eu preciso de encontrar é uma lama vermelha, mas não tenho idéia de onde encontrar um"
@@ -1434,7 +1422,7 @@ msgid "Forbidden Swamp"
 msgstr "Proibida Swamp"
 
 msgid "Sewage Restricted Zone Key"
-msgstr "Esgotos da Zona Restrita"
+msgstr "Esgoto zona restrita da"
 
 msgid "Basement"
 msgstr "Basement"
@@ -1676,8 +1664,8 @@ msgstr "Há algo que circulam por lá ..."
 msgid "Good riddance..."
 msgstr "Good Riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh vu, DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Se o elevador está fora de ordem, então ele deve ser reposto"
@@ -1741,4 +1729,100 @@ msgstr "Se um objeto se torna inacessível, então você pode usar a opção par
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Uma garrafa com uma alma presa no interior"
+
+msgid "Full Mine Cart"
+msgstr "Completamente Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processamento Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Direito da Grabber"
+
+msgid "Left Grabber Key"
+msgstr "Apanhando da esquerda"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "O feiticeiro deve ter sido o pai de seu castelo. Vou ter que resgatá-lo de lá."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "A única maneira de chegar ao castelo é através do pântano Proibida a Leste."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Há um lago, entre a aldeia ea Swamp então eu vou precisar de um barco para atravessar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Eu também preciso uma espada e escudo para me defender. Eu posso falar com Borgan e Jacó para obter estes embora."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Não foi possível conectar-se a Medalha Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Não foi possível encontrar Medalha da"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Você não será capaz de ganhar medalhas para este jogo"
+
+msgid "There's another sign here"
+msgstr "Há outro sinal aqui"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Se sair do elevador está fora de ordem, então vá para a esquerda"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Atenção: rota de saída podem ser perigosos"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Talvez eu devesse usar o elevador para sair"
+
+msgid "There's a sign here"
+msgstr "Há aqui um sinal"
+
+msgid "An Oil Can"
+msgstr "Uma lata de óleo"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Um poderoso repelente"
+
+msgid "Repellent"
+msgstr "Repelente"
+
+msgid "Medal Support"
+msgstr "Medalha de apoio"
+
+msgid "Fortress Mine"
+msgstr "Fortaleza de Minas"
+
+msgid "Private key is missing"
+msgstr "A chave privada está ausente"
+
+msgid "Could not connect to server"
+msgstr "Não foi possível conectar ao servidor"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A lama vermelha Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Legal, funcionou!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Não tenho certeza sobre a cor, porém, eu pensei que seria vermelho?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Se calhar é suposto ser amarelo ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Um líquido feito de olhos e tentáculos"
 

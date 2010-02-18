@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../collisions.h"
 #include "../hud.h"
+#include "../item/item.h"
 #include "../event/script.h"
 #include "../system/error.h"
 
@@ -100,7 +101,11 @@ static void wait()
 	{
 		self->thinkTime = 600;
 
+		self->mental = playSoundToMap("sound/item/blender.ogg", -1, self->x, self->y, -1);
+
 		self->action = &blend;
+
+		self->health = -1;
 	}
 
 	checkToMap(self);
@@ -135,11 +140,23 @@ static void blend()
 
 static void blendFinish()
 {
+	Entity *e;
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->health = 0;
+
+		stopSound(self->mental);
+
+		playSoundToMap("sound/item/ping.ogg", -1, self->x, self->y, 0);
+
+		e = addPermanentItem(self->requires, self->x + self->w / 2, self->y + self->h / 2);
+
+		e->x -= e->w / 2;
+
+		e->dirY = ITEM_JUMP_HEIGHT;
 
 		self->action = &wait;
 
@@ -159,7 +176,7 @@ static void activate(int val)
 {
 	if (self->active == TRUE)
 	{
-		runScript(self->requires);
+		runScript("blender");
 	}
 
 	else
@@ -199,7 +216,7 @@ static void handleWait()
 {
 	if (self->parent->health != 0)
 	{
-		if (self->parent->health == 420)
+		if (self->parent->thinkTime == 420)
 		{
 			setEntityAnimation(self, WALK);
 		}
@@ -215,20 +232,24 @@ static void switchWait()
 {
 	if (self->parent->health != 0)
 	{
-		switch (self->parent->health)
+		switch (self->parent->thinkTime)
 		{
 			case 300:
 			case 240:
 				self->currentFrame++;
 
 				setFrameData(self);
+
+				playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 			break;
 
+			case 150:
 			case 120:
-			case 90:
 				self->currentFrame--;
 
 				setFrameData(self);
+
+				playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 			break;
 		}
 	}

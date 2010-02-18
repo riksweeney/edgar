@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "صبر کنید ، چه بود که؟"
 
 msgid "You again?!"
 msgstr "شما دوباره؟!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "ساحر باید داد به قلعه او گرفته شده است. او می خواهم که او را از آنجا نجات است."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "تنها راه برای رسیدن به قلعه از طریق آبی ممنوع شرق."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "'sدریاچه بین روستای و آبی وجود دارد ، بنابراین من به یک قایق برای دریافت در سراسر نیاز دارید."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "من هم به یک شمشیر و سپر برای دفاع از خودم نیاز دارید. من نمی توانم به صحبت می کنند و دریافت این اگرچه."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "قرار است چیزی رخ دهد ، ولی در این نسخه نیست پس باز هم تشریف بیاورید!"
@@ -839,7 +827,7 @@ msgid "Collect 3 Access Keys"
 msgstr "3 جمع آوری کلیدهای دسترسی"
 
 msgid "This is a blank objective"
-msgstr "این هدف خالی است"
+msgstr "این هدف خالی شده است"
 
 msgid "Kill all Bats!"
 msgstr "کشتن همه Bats!"
@@ -1675,8 +1663,8 @@ msgstr "چیزی حرکت کردن به اطراف وجود دارد..."
 msgid "Good riddance..."
 msgstr "خوب رهایی..."
 
-msgid "Huh, déjà vu..."
-msgstr "متعجب ، déjà vu..."
+msgid "Huh, d�j� vu..."
+msgstr "متعجب ، vu دی جی..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "اگر بلند است خارج از دستور را داده از آن باید تنظیم مجدد"
@@ -1740,4 +1728,100 @@ msgstr "اگر جسم unreachable می شود و سپس شما می توانید
 
 msgid "A bottle with a soul trapped inside"
 msgstr "یک بطری را با روح به دام افتاده در درون"
+
+msgid "Full Mine Cart"
+msgstr "سبد کامل معدن"
+
+msgid "Processing Lift Key"
+msgstr "پردازش آسانسور کلیدی"
+
+msgid "Right Grabber Key"
+msgstr "حق Grabber کلیدی"
+
+msgid "Left Grabber Key"
+msgstr "کلید سمت چپ Grabber"
+
+msgid "Master Key"
+msgstr "استاد : کلید"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "ساحر باید داد به قلعه او گرفته شده است. او می خواهم که او را از آنجا نجات است."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "تنها راه برای رسیدن به قلعه از طریق آبی ممنوع شرق."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "'sدریاچه بین روستای و آبی وجود دارد ، بنابراین من به یک قایق برای دریافت در سراسر نیاز دارید."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "من هم به یک شمشیر و سپر برای دفاع از خودم نیاز دارید. من می توانم به Borgan و یعقوب صحبت کنید هر چند این."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "نه قادر به اتصال به سرور در %s:%d مدال"
+
+msgid "Could not find Medal Key"
+msgstr "می تواند مدال کلید را پیدا کنم"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "شما قادر به کسب مدال برای این بازی"
+
+msgid "There's another sign here"
+msgstr "'sدیگری ثبت نام در اینجا وجود دارد."
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "اگر بلند است خروج از دستور و سپس به سمت چپ ادامه"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "اخطار : ممکن است خروج از مسیر خطرناک"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "شاید من هم باید بلند به خارج استفاده"
+
+msgid "There's a sign here"
+msgstr "'sامضاء اینجا وجود دارد."
+
+msgid "An Oil Can"
+msgstr "نفت آیا می توانم"
+
+msgid "Oil Can"
+msgstr "نفت آیا می توانم"
+
+msgid "A powerful repellent"
+msgstr "دافع قوی"
+
+msgid "Repellent"
+msgstr "دافع"
+
+msgid "Medal Support"
+msgstr "پشتیبانی مدال"
+
+msgid "Fortress Mine"
+msgstr "قلعه معدن"
+
+msgid "Private key is missing"
+msgstr "کلید خصوصی است گم شده"
+
+msgid "Could not connect to server"
+msgstr "نه قادر به اتصال به سرور"
+
+msgid "Sludge Tentacle"
+msgstr "لجن شاخک حساس"
+
+msgid "A Red Sludge Tentacle"
+msgstr "قرمز لجن شاخک حساس"
+
+msgid "Eyeball Smoothie"
+msgstr "تخم چشم چرب"
+
+msgid "Cool, it worked!"
+msgstr "داغ ، از آن کار می کرد!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "من در مورد رنگ هر چند مطمئن نیستم ، با خودم فکر کردم این امر می تواند قرمز؟"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "شاید آن اتفاق زرد می شود..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "مایع ساخته شده از eyeballs و این ریشه حساس"
 

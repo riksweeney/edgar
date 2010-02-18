@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Wait, nini ilikuwa hivyo?"
 
 msgid "You again?!"
 msgstr "Wewe tena?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "The mchawi lazima wamechukua Dad castle wake. I'll have amwokoe kutoka huko."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Njia pekee ya kupata na castle ni kupitia Forbidden Swamp ya Mashariki."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Kuna ziwa kati ya Kijiji na hivyo Swamp I'll raft wanahitaji kupata hela."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "I'll pia wanahitaji upanga na ngao kutetea mwenyewe. Mimi siwezi kuzungumza na kupata ingawa hizi."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Kitu kinapaswa kutokea hapa, lakini siyo katika toleo hili ili kuangalia nyuma baadaye!"
@@ -1675,8 +1663,8 @@ msgstr "Kuna kitu kusonga kote chini kuna ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Kama ni nje ya kuinua ili basi ni lazima reset"
@@ -1740,4 +1728,100 @@ msgstr "Kama object inakuwa unreachable basi unaweza kutumia kubadili kuiweka ny
 
 msgid "A bottle with a soul trapped inside"
 msgstr "A chupa pamoja na nafsi trapped ndani"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Nyanyua Key"
+
+msgid "Right Grabber Key"
+msgstr "Haki Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Grabber kushoto Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "The mchawi lazima wamechukua Dad castle wake. I'll have amwokoe kutoka huko."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Njia pekee ya kupata na castle ni kupitia Forbidden Swamp ya Mashariki."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Kuna ziwa kati ya Kijiji na hivyo Swamp I'll raft wanahitaji kupata hela."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "I'll pia wanahitaji upanga na ngao kutetea mwenyewe. Mimi siwezi kusema Borgan na Yakobo kupata ingawa hizi."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Hawakuweza kuwaunganisha na Medali Server saa %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Hakuweza kupata Medali Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Wewe hawataweza kupata Medaljer kwa mchezo huu"
+
+msgid "There's another sign here"
+msgstr "Kuna ishara nyingine hapa"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Kama exit kuinua ni nje ili kisha kuendelea na kushoto"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: Exit route inaweza kuwa na madhara"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Labda mimi lazima kutumia kuinua kupata nje"
+
+msgid "There's a sign here"
+msgstr "Kuna ishara hapa"
+
+msgid "An Oil Can"
+msgstr "An Oil Can"
+
+msgid "Oil Can"
+msgstr "Mafuta Can"
+
+msgid "A powerful repellent"
+msgstr "A nguvu repellent"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medali Support"
+
+msgid "Fortress Mine"
+msgstr "Ngome Mine"
+
+msgid "Private key is missing"
+msgstr "Binafsi ni muhimu missing"
+
+msgid "Could not connect to server"
+msgstr "Hawakuweza kuwaunganisha na server"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Sludge Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, ni kazi!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Siju kuhusu rangi ingawa, nilifikiri ingekuwa nyekundu?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Walidhani labda ni kuwa njano ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "A kioevu alifanya kutoka eyeballs na tentacles"
 

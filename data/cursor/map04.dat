@@ -33,3 +33,4 @@ boss/snake_boss
 lift/lift_target
 common/level_exit
 enemy/grub
+item/bomb

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
@@ -361,18 +361,6 @@ msgstr "חכה, מה זה היה?"
 msgid "You again?!"
 msgstr "שוב אתה?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "הקוסם ודאי לקח אבא לטירה שלו. אני צריך לחלץ אותו משם."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "הדרך היחידה להגיע לטירה היא דרך הביצה האסורה למזרח."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "יש אגם בין הכפר לבין הביצה כך אני צריך הרפסודה לחצות."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "אני גם צריך חרב מגן כדי להגן על עצמי. אני יכול לדבר ולהשיג כי אלה."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "משהו אמור לקרות כאן, אבל זה לא כך בגירסה זו נסה שוב במועד מאוחר!"
 
@@ -503,7 +491,7 @@ msgid "It looks like a gem should fit in this hole, maybe I can find some replac
 msgstr "זה נראה כמו פנינה צריכים להתאים לחור הזה, אולי אני יכול למצוא כמה תחליפים."
 
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
-msgstr "זה נראה כאילו זה תקוע חזק שם. אני יכול כנראה לשחרר אותו עם מעדר ..."
+msgstr "זה נראה כאילו זה תקוע שם חזק. אני יכול כנראה לשחרר אותו עם מעדר ..."
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
 msgstr "כדי להגיע הביצה האסורה אני צריך לבנות רפסודה."
@@ -1675,8 +1663,8 @@ msgstr "יש משהו מסתובב שם למטה ..."
 msgid "Good riddance..."
 msgstr "ברוך שפטרנו ..."
 
-msgid "Huh, déjà vu..."
-msgstr "אה, דז 'ה וו ..."
+msgid "Huh, d�j� vu..."
+msgstr "אה, דז 'ה DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "אם להרים הוא מקולקל אז זה חייב להיות לאפס"
@@ -1740,4 +1728,100 @@ msgstr "אם אובייקט הופך בלתי מושג אז אתה יכול לה
 
 msgid "A bottle with a soul trapped inside"
 msgstr "בקבוק עם נשמה לכוד בתוך"
+
+msgid "Full Mine Cart"
+msgstr "מלאה שלי לסל"
+
+msgid "Processing Lift Key"
+msgstr "עיבוד הרם קי"
+
+msgid "Right Grabber Key"
+msgstr "זכות Grabber קי"
+
+msgid "Left Grabber Key"
+msgstr "נותר Grabber קי"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "הקוסם ודאי לקח אבא לטירה שלו. אני צריך לחלץ אותו משם."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "הדרך היחידה להגיע לטירה היא דרך הביצה האסורה למזרח."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "יש אגם בין הכפר לבין הביצה כך אני צריך הרפסודה לחצות."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "אני גם צריך חרב מגן כדי להגן על עצמי. אני יכול לדבר Borgan ויעקב להגיע אף אלה."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "אין אפשרות להתחבר מדליית שרת בבית %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "אין אפשרות למצוא את מדליית קי"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "אתה לא תוכל להרוויח מדליות עבור המשחק הזה"
+
+msgid "There's another sign here"
+msgstr "יש עוד סימן כאן"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "אם היציאה היא להרים את הסדר ולאחר מכן התקדם משמאל"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "אזהרה: מסלול יציאה עשויים להיות מסוכנים"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "אולי אני צריך להשתמש במעלית כדי לצאת"
+
+msgid "There's a sign here"
+msgstr "יש שלט כאן"
+
+msgid "An Oil Can"
+msgstr "האם נפט"
+
+msgid "Oil Can"
+msgstr "האם שמן"
+
+msgid "A powerful repellent"
+msgstr "דוחה עוצמה"
+
+msgid "Repellent"
+msgstr "דוחה"
+
+msgid "Medal Support"
+msgstr "מדליית תמיכה"
+
+msgid "Fortress Mine"
+msgstr "מבצר שלי"
+
+msgid "Private key is missing"
+msgstr "המפתח הפרטי הוא חסר"
+
+msgid "Could not connect to server"
+msgstr "אין אפשרות להתחבר לשרת"
+
+msgid "Sludge Tentacle"
+msgstr "בוצה Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "האדום בוצה Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball שייק"
+
+msgid "Cool, it worked!"
+msgstr "מגניב, זה עבד!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "אני לא בטוח על פי צבע, חשבתי שזה יהיה אדום?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "אולי זה אמור להיות צהוב ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "נוזל עשוי העיניים ועל זרועות"
 

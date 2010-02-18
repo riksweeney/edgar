@@ -137,7 +137,7 @@ void runScript(char *name)
 
 void readNextScriptLine()
 {
-	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH], *savePtr;
+	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH], *savePtr, *token2;
 	int readAgain = TRUE;
 	Entity *e, *e2;
 
@@ -406,6 +406,17 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 
 				unsetFlags(e, token);
+			}
+
+			else if (strcmpignorecase("PROPERTY", token) == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				token2 = strtok_r(NULL, "\0", &savePtr);
+
+				printf("%s : Setting property %s to %s\n", e->name, token, token2);
+
+				setProperty(e, token, token2);
 			}
 
 			else if (strcmpignorecase("FACE", token) == 0)

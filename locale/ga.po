@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 1 : 2;\n"
 
@@ -361,18 +361,6 @@ msgstr "Fan, cad é sin?"
 
 msgid "You again?!"
 msgstr "Tú arís?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Caithfidh an sorcerer tar éis daid chun a chaisleán. Beidh mé chun tarrthála dó ó ann."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Tá an bealach amháin chun dul go dtí an caisleán trí Swamp Toirmiscthe chun an Oirthir."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Tá an loch idir an Bhaile agus an Swamp sin beidh mé ag teastáil ó raft a fháil thar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Feicfidh mé gá freisin le sword sciath agus do chosaint féin. Is féidir liom a labhairt agus a fháil ar na cé."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Rud atá ceaptha le tarlú anseo, ach nach bhfuil sé sa leagan sin a sheiceáil ar ais ina dhiaidh sin!"
@@ -1134,7 +1122,7 @@ msgid "Oh Edgar, you're hurt! Let me heal your wounds"
 msgstr "Ó Edgar, tú Gortaítear! Lig dom cneasaigh do wounds"
 
 msgid "I wonder what other monsters there are. I'll pick a page at random..."
-msgstr "Wonder agam cad iad monsters eile ann. Feicfidh mé Pioc leathanach ar randamach ..."
+msgstr "Wonder liom cad iad monsters eile ann. Feicfidh mé Pioc leathanach ar randamach ..."
 
 msgid "Gazer"
 msgstr "Gazer"
@@ -1170,7 +1158,7 @@ msgid "Instead of arms, many have huge pile drivers which they use to shake the 
 msgstr "In ionad na hairm, tá go leor tiománaithe carn mór a úsáideann siad a shake an talamh agus disorientate bagairtí"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Cé go mbeidh Centurions Liath a úsáid chun garda perimeters seachtrach, Centurions Rua is eol a bheith ann agus úsáidtear iad a chosaint réimsí a bhfuil tábhacht mhór"
+msgstr "Cé go mbeidh Centurions Liath a úsáid chun garda perimeters seachtrach, Red Centurions is eol a bheith ann agus úsáidtear iad a chosaint réimsí a bhfuil tábhacht mhór"
 
 msgid "Splitter"
 msgstr "Scoilteoir"
@@ -1676,8 +1664,8 @@ msgstr "Níl rud éigin ag bogadh thart síos ann ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, VU déjà ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, VU DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Má tá an ardaitheoir as ordú sin ní mór go mbeadh sé a athshocrú"
@@ -1741,4 +1729,100 @@ msgstr "Má éiríonn réad unreachable ansin is féidir leat é a úsáid leis 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Buidéal le Soul gafa taobh istigh"
+
+msgid "Full Mine Cart"
+msgstr "Iomlán Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Próiseáil ardaitheoir Eochair"
+
+msgid "Right Grabber Key"
+msgstr "Ceart Grabber Eochair"
+
+msgid "Left Grabber Key"
+msgstr "Chlé Grabber Eochair"
+
+msgid "Master Key"
+msgstr "Máistir Eochair"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Caithfidh an sorcerer tar éis daid chun a chaisleán. Beidh mé chun tarrthála dó ó ann."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Tá an bealach amháin chun dul go dtí an caisleán trí Swamp Toirmiscthe chun an Oirthir."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Tá an loch idir an Bhaile agus an Swamp sin beidh mé ag teastáil ó raft a fháil thar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Feicfidh mé gá freisin le sword sciath agus do chosaint féin. Is féidir liom labhairt le Borgan agus Jacob a fháil ar na cé."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Níorbh fhéidir nasc a Bonn Freastalaí ag %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Níorbh fhéidir a aimsiú Bonn Eochair"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ní bheidh tú in ann Boinn thuilleamh le haghaidh an chluiche"
+
+msgid "There's another sign here"
+msgstr "Níl eile a shíniú anseo"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Má tá an ardaitheoir slí amach as d'fhonn leanúint ar aghaidh ansin ar chlé"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "D'fhéadfadh a bheith Rabhadh: bealach Scoir ghuaiseach"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "B'fhéidir gur chóir dom a bhaint as an ardaitheoir a fháil amach"
+
+msgid "There's a sign here"
+msgstr "Níl comhartha anseo"
+
+msgid "An Oil Can"
+msgstr "An féidir ola"
+
+msgid "Oil Can"
+msgstr "Is féidir ola"
+
+msgid "A powerful repellent"
+msgstr "A repellent cumhachtacha"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Bonn Tacaíocht"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mianach"
+
+msgid "Private key is missing"
+msgstr "Tá eochair Príobháideach ar iarraidh"
+
+msgid "Could not connect to server"
+msgstr "Níorbh fhéidir nasc a dhéanamh leis an bhfreastalaí"
+
+msgid "Sludge Tentacle"
+msgstr "Sloda Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A sloda Dearg Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, d'oibrigh sé!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Níl mé cinnte faoi na dath cé, shíl mé go mbeadh sé dearg?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "B'fhéidir sé ceaptha a bheith buí ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Tá leacht déanta as eyeballs agus tentacles"
 

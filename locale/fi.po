@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -361,18 +361,6 @@ msgstr "Odota, mikä se oli?"
 
 msgid "You again?!"
 msgstr "You again?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Velho on otettu isä hänen linnansa. I'll on pelastaa hänet sieltä."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Ainoa tapa päästä linnan kautta Kielletty Swamp itään."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "There's järven välillä Village ja Swamp joten täytyy lautta päästä yli."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Minä myös miekka ja kilpi puolustaa itseäni. En voi puhua ja saada nämä tosin."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Jotain pitäisi tapahtua täällä, mutta se ei ole tässä versiossa joten tarkista tilanne myöhemmin!"
@@ -1676,8 +1664,8 @@ msgstr "On jotain liikkuvat siellä ..."
 msgid "Good riddance..."
 msgstr "Terve menoa ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Jos hissi on epäkunnossa, se pitää nollata"
@@ -1741,4 +1729,100 @@ msgstr "Jos objekti muuttuu saavuttamaton jälkeen voit siirtyä laita se takais
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Pullon Soul loukkuun sisään"
+
+msgid "Full Mine Cart"
+msgstr "Koko Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Oikeus Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Vasen Grabber Key"
+
+msgid "Master Key"
+msgstr "Yleisavain"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Velho on otettu isä hänen linnansa. I'll on pelastaa hänet sieltä."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ainoa tapa päästä linnan kautta Kielletty Swamp itään."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "There's järven välillä Village ja Swamp joten täytyy lautta päästä yli."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Minä myös miekka ja kilpi puolustaa itseäni. En voi puhua Borgan ja Jacob saada nämä kuitenkin."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ei voitu yhdistää mitali Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ei löytynyt mitali Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Et voi ansaita mitaleja tätä peliä"
+
+msgid "There's another sign here"
+msgstr "Olemassa toinen merkki tästä"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Jos exit hissi on epäkunnossa jatka sitten vasemmalle"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Varoitus: Exit reitti voi olla vaarallista"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Ehkä minun pitäisi käyttää hissiä ulos"
+
+msgid "There's a sign here"
+msgstr "There's merkki tästä"
+
+msgid "An Oil Can"
+msgstr "Öljy voi"
+
+msgid "Oil Can"
+msgstr "Öljy voi"
+
+msgid "A powerful repellent"
+msgstr "Voimakas hylkivä"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Mitali Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Yksityinen avain on kadonnut"
+
+msgid "Could not connect to server"
+msgstr "Ei pysty muodostamaan yhteyttä palvelimeen"
+
+msgid "Sludge Tentacle"
+msgstr "Lietteen Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Punaisenmeren Lietteen Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Silmänvalkuaisten Smoothien"
+
+msgid "Cool, it worked!"
+msgstr "Cool, se toimi!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "En ole varma siitä, väri kuitenkin, ajattelin, että se on punainen?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Ehkä se pitäisi olla keltainen ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Neste tehty Silmän ja lonkerot"
 

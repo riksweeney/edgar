@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -332,7 +332,7 @@ msgid "You can then pull it around until you let go of the Action button"
 msgstr "Вы можаце затым выньте яе вакол, пакуль Вы не адпусціце кнопку дзеянні"
 
 msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
-msgstr "Гэтая парода выглядае занадта моцным для маёй кірка. Мне давядзецца выкарыстоўваць что-то другое, каб прайсці ..."
+msgstr "Гэтая парода выглядае занадта моцным для маёй кірка. Мне прыйдзецца выкарыстоўваць что-то другое, каб прайсці ..."
 
 msgid "Urgh, what happened?"
 msgstr "Urgh, што здарылася?"
@@ -360,18 +360,6 @@ msgstr "Пачакай, што гэта было?"
 
 msgid "You again?!"
 msgstr "Вы зноў!?"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Калдуна, павінна быць, папа свой замак. Мне давядзецца вызваліць яго адтуль."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Адзіны спосаб дабрацца да замка ляжыць праз балота запретный на Усход."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Там's Lake паміж вёскай і балотах я спатрэбіцца плоту данесці."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Я таксама неабходна шчыт і меч, каб абараняць сябе. Я магу гаварыць, і каб атрымаць гэтыя думкі ."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Что-то павінна адбыцца і тут, але гэта не так у гэтай версіі такога зайдзіце попозже!"
@@ -563,7 +551,7 @@ msgid "If I don't find a way out of here soon, I fear I may starve"
 msgstr "Калі не знайсці выхад адсюль ў бліжэйшы час, я баюся, я магу галадаць"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr "Калі я не выбрацца адсюль я спадобіць тая ж лёс ..."
+msgstr "Калі я не выбрацца адсюль Я спадобіць тая ж лёс ..."
 
 msgid "Oh, what's this?"
 msgstr "Ох, што гэта такое?"
@@ -779,7 +767,7 @@ msgid "Here's a hint to get you started"
 msgstr "Вось падказка для пачатку"
 
 msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Хаця толькі патрабуе, каб вы зразумееце 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Ёсць 10 вандроўныя карту ва ўсіх"
+msgstr "Хаця толькі патрабуе, каб вы зразумееце 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Існуюць 10 вандроўныя карту ва ўсіх"
 
 msgid "The shield will protect you from most enemy attacks"
 msgstr "Шчыт абароніць вас ад большасці атак праціўніка"
@@ -1088,7 +1076,7 @@ msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr "Сумесь Газэра вачыма і шламов шчупальцы ў гладкую вадкасць"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Дадаць корень, тлушч і косці ў кацёл і змяшаць разам са змешанай вачыма Газэра і шламов шчупальцы"
+msgstr "Дадаць корань, тлушч і косці ў кацёл і змяшаць разам са змешанай вачыма Газэра і шламов шчупальцы"
 
 msgid "When the mixture turns bright blue, add the shield"
 msgstr "Калі сумесь становіцца ярка сінім, дадаць шчыт"
@@ -1289,7 +1277,7 @@ msgid "To make Edgar jump, press space. You can move in the air when jumping."
 msgstr "Каб зрабіць скачок Эдгар, прэс-прасторы. Вы можаце перамяшчацца ў паветры пры скачках."
 
 msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Хоць Якаў толькі патрабуе ад вас зразумеюць 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Ёсць 10 вандроўныя карту ва ўсіх"
+msgstr "Хоць Якаў толькі патрабуе ад вас зразумеюць 3 сваіх курэй, чаму б не быць прыемна з ім і злавіць больш? Існуюць 10 вандроўныя карту ва ўсіх"
 
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
 msgstr "Майце на ўвазе, што не ўсе слабыя сцены могуць быць знішчаныя дапамогай кірка"
@@ -1337,7 +1325,7 @@ msgid "The primary puropse of the snout is to forage for food but it also serves
 msgstr "Першасная puropse рыла з'яўляецца корм для пражытку, але яна таксама служыць у якасці ахоўнага механізму"
 
 msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
-msgstr "і больш чым у стане падтрымліваць драпежніка на адлегласці ад іх проста дзьме прэч"
+msgstr "і больш, здольных падтрымліваць драпежніка на адлегласці ад іх проста дзьме прэч"
 
 msgid "Venus Flytrap, mobile"
 msgstr "Мухоловка, мабільны"
@@ -1547,7 +1535,7 @@ msgid "A statue of a Scorpion. It has 6 legs."
 msgstr "Статуя Скарпіёна. Яна мае 6 ног."
 
 msgid "A statue of a Spider. It has 8 legs."
-msgstr "Статуя Spider. Ён мае 8 ног."
+msgstr "Статуя павук. Ён мае 8 ног."
 
 msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
 msgstr "Armadillo Spike Ball. Разьвею шыпамі, калі кінуты."
@@ -1675,8 +1663,8 @@ msgstr "Там-то перамяшчацца там ..."
 msgid "Good riddance..."
 msgstr "Скатертью дорога ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, дэжа вю ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ-вю ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Калі ліфт выйшаў са строю то ён павінен быць сброшен"
@@ -1740,4 +1728,100 @@ msgstr "Калі аб'ект становіцца недаступным, то �
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Бутэлька з душой пастцы"
+
+msgid "Full Mine Cart"
+msgstr "Поўнае Mine Кошык"
+
+msgid "Processing Lift Key"
+msgstr "Апрацоўка падняць ключавыя"
+
+msgid "Right Grabber Key"
+msgstr "Права Grabber Ключавыя"
+
+msgid "Left Grabber Key"
+msgstr "Левая Grabber Ключавыя"
+
+msgid "Master Key"
+msgstr "Майстар-ключ"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Калдуна, павінна быць, папа свой замак. Мне давядзецца вызваліць яго адтуль."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Адзіны спосаб дабрацца да замка ляжыць праз балота запретный на Усход."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Там's Lake паміж вёскай і балотах я спатрэбіцца плоту данесці."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Я таксама неабходна шчыт і меч, каб абараняць сябе. Я магу пагаварыць з Борган і Якава каб атрымаць гэтыя думкі ."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Не ўдаецца падключыцца да сервера медаль %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Не знайшоў медаль Ключавыя"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Вы не зможаце атрымаць медаль на гэтую гульню"
+
+msgid "There's another sign here"
+msgstr "Там другая падпісаць тут"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Калі выхад буксір выйшаў з ладу затым налева"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Папярэджаньне: Выйсці маршрут можа быць небяспечнай"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Можа быць, я павінен выкарыстаць ліфт выйсці"
+
+msgid "There's a sign here"
+msgstr "Там прыкмета тут"
+
+msgid "An Oil Can"
+msgstr "Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Магутныя рэпеленты"
+
+msgid "Repellent"
+msgstr "Рэпеленты"
+
+msgid "Medal Support"
+msgstr "Медаль падтрымкі"
+
+msgid "Fortress Mine"
+msgstr "Крэпасць Mine"
+
+msgid "Private key is missing"
+msgstr "Прыватны ключ адсутнічае"
+
+msgid "Could not connect to server"
+msgstr "Не ўдаецца падключыцца да сервера"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Чырвоны асадак Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Вочнага яблыка льстецов"
+
+msgid "Cool, it worked!"
+msgstr "Cool, гэта спрацавала!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Я не ўпэўнены наконт колеру, хоць, я падумаў, што будзе чырвоным?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Можа быць, гэта павінна быць жоўтага ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Вадкасць з вочнага яблыка і шчупальцы"
 

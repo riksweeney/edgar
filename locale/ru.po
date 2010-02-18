@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -362,18 +362,6 @@ msgstr "Подожди, что это было?"
 
 msgid "You again?!"
 msgstr "Вы снова!?"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Колдуна, должно быть, папа свой замок. Мне придется вызволить его оттуда."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Единственный способ добраться до замка лежит через болото Запретный на Восток."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Там's Lake между деревней и болотам я понадобится плоту донести."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Я также необходимо щит и меч, чтобы защищать себя. Я могу говорить, и чтобы получить эти мысли ."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Что-то должно произойти и здесь, но это не так в этой версии такого зайдите попозже!"
@@ -1677,8 +1665,8 @@ msgstr "Там-то передвигаться там ..."
 msgid "Good riddance..."
 msgstr "Скатертью дорога ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, дежа вю ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ-вю ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Если лифт вышел из строя то он должен быть сброшен"
@@ -1742,4 +1730,100 @@ msgstr "Если объект становится недоступным, то 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Бутылка с душой ловушке"
+
+msgid "Full Mine Cart"
+msgstr "Полное Mine Корзина"
+
+msgid "Processing Lift Key"
+msgstr "Обработка поднять ключевые"
+
+msgid "Right Grabber Key"
+msgstr "Право Grabber Ключевые"
+
+msgid "Left Grabber Key"
+msgstr "Левая Grabber Ключевые"
+
+msgid "Master Key"
+msgstr "Мастер-ключ"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Колдуна, должно быть, папа свой замок. Мне придется вызволить его оттуда."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Единственный способ добраться до замка лежит через болото Запретный на Восток."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Там's Lake между деревней и болотам я понадобится плоту донести."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Я также необходимо щит и меч, чтобы защищать себя. Я могу поговорить с Борган и Иакова чтобы получить эти мысли ."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Не удается подключиться к серверу медаль %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Не нашел медаль Ключевые"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Вы не сможете получить медаль на эту игру"
+
+msgid "There's another sign here"
+msgstr "Там другая подписать здесь"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Если выход буксир вышел из строя затем налево"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Предупреждение: Выйти маршрут может быть опасной"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Может быть, я должен использовать лифт выйти"
+
+msgid "There's a sign here"
+msgstr "Там признак здесь"
+
+msgid "An Oil Can"
+msgstr "Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Мощные репелленты"
+
+msgid "Repellent"
+msgstr "Репеллент"
+
+msgid "Medal Support"
+msgstr "Медаль поддержки"
+
+msgid "Fortress Mine"
+msgstr "Крепость Mine"
+
+msgid "Private key is missing"
+msgstr "Частный ключ отсутствует"
+
+msgid "Could not connect to server"
+msgstr "Не удается подключиться к серверу"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Красный осадок Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Глазное яблоко льстец"
+
+msgid "Cool, it worked!"
+msgstr "Cool, это сработало!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Я не уверен по поводу цвета, хотя, я подумал, что будет красным?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Может быть, это должно быть желтого ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Жидкость из глазного яблока и щупальца"
 

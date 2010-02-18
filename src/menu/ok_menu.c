@@ -144,7 +144,7 @@ static void loadMenuLayout(char *text)
 			{
 				if (i == 0)
 				{
-					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE);
+					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 10, FALSE);
 				}
 
 				token = strtok_r(NULL, "\0", &savePtr2);

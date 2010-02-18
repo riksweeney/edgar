@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -234,7 +234,7 @@ msgid "Trap Door Switch Key"
 msgstr "Trap Door Switch Key"
 
 msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr "Dieser Aufzug hat keinen Strom. Ich werde nicht möglich sein, bis ich nutzen, wieder die Macht"
+msgstr "Dieser Aufzug hat keinen Strom. Ich will nicht in der Lage sein, bis ich nutzen, wieder die Macht"
 
 msgid "Keep practising!"
 msgstr "Halten Sie üben!"
@@ -361,18 +361,6 @@ msgstr "Warten Sie, was war das?"
 
 msgid "You again?!"
 msgstr "Du schon wieder?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Der Zauberer muss Dad auf sein Schloß genommen. Ich muß ihn von dort zu retten."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Der einzige Weg, um auf der Burg wird durch die Verbotene Swamp in den Osten."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Es gibt einen See, der zwischen dem Dorf und den Sümpfen, damit ich eine Reihe Need to get across."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Außerdem brauche ich ein Schwert und Schild, um mich zu verteidigen. Ich kann sprechen und zu erhalten, diese aber."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Etwas soll hier geschehen, aber es ist in dieser Version nicht so check back later!"
@@ -1188,7 +1176,7 @@ msgid "Finally, one final split will produce very small versions which are compl
 msgstr "Schließlich wird ein endgültigen Trennung sehr kleinen Versionen, die völlig harmlos sind und in diesem Zustand herstellen kann einfach verstärkt werden auf"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
-msgstr "Wenn alle Teile noch am Leben sind, wird ein Splitter sich nach einer Weile die Reform und ihre Wunden zu heilen"
+msgstr "Bei allen seinen Teilen noch am Leben sind, wird ein Splitter sich nach einer Weile die Reform und ihre Wunden zu heilen"
 
 msgid "Grub, Red"
 msgstr "Grub, Red"
@@ -1353,7 +1341,7 @@ msgid "That should do it. Hopefully that other lift by the Sewer should now be w
 msgstr "Das sollte es tun. Ich hoffe, dass andere Lift von der Kanalisation sollte jetzt wieder funktionieren"
 
 msgid "This lift is not working. I won't be able to use it until I restore the power"
-msgstr "Dieser Aufzug funktioniert nicht. Ich werde nicht möglich sein, bis ich nutzen, wieder die Macht"
+msgstr "Dieser Aufzug funktioniert nicht. Ich will nicht in der Lage sein, bis ich nutzen, wieder die Macht"
 
 msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
 msgstr "Das Glas sieht mir zu dick zu knacken, da muss ich einen anderen Weg finden ... erschütternd"
@@ -1676,8 +1664,8 @@ msgstr "Es ist etwas da unten bewegen ..."
 msgid "Good riddance..."
 msgstr "Good Riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Wenn der Aufzug nicht in Ordnung ist, dann muss es zurücksetzen"
@@ -1741,4 +1729,100 @@ msgstr "Wenn ein Objekt nicht mehr erreichbar ist, dann können Sie den Schalter
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Eine Flasche mit einer Seele gefangen in"
+
+msgid "Full Mine Cart"
+msgstr "Voll Mine Warenkorb"
+
+msgid "Processing Lift Key"
+msgstr "Lift Processing Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Key Grabber"
+
+msgid "Left Grabber Key"
+msgstr "Linke Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Der Zauberer muss Dad auf sein Schloß genommen. Ich muß ihn von dort zu retten."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Der einzige Weg, um auf der Burg wird durch die Verbotene Swamp in den Osten."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Es gibt einen See, der zwischen dem Dorf und den Sümpfen, damit ich eine Reihe Need to get across."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Außerdem brauche ich ein Schwert und Schild, um mich zu verteidigen. Ich spreche zu Borgan und Jakob, diese aber erhalten."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Konnte keine Verbindung zum Server-Medaille bei %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Konnte nicht gefunden werden Medaille Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Sie werden nicht in der Lage, Medaillen für dieses Spiel zu verdienen"
+
+msgid "There's another sign here"
+msgstr "Es gibt hier ein weiteres Zeichen"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Bei der Ausfahrt aus der Lift ist, um dann nach links gehen"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: Ausweg kann gefährlich sein"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Vielleicht sollte ich mit dem Aufzug raus"
+
+msgid "There's a sign here"
+msgstr "Es gibt hier ein Zeichen"
+
+msgid "An Oil Can"
+msgstr "Eine Ölkanne"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Ein leistungsfähiges abweisend"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Support-Medaille"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Privater Schlüssel fehlt"
+
+msgid "Could not connect to server"
+msgstr "Konnte keine Verbindung zum Server"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Ein Red Sludge Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, es hat geklappt!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ich bin mir nicht sicher über die Farbe aber ich dachte, es wäre rot?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Vielleicht ist es sein soll gelb ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Ein flüssiges aus Augäpfel und Tentakeln"
 

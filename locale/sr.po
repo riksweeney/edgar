@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -362,18 +362,6 @@ msgstr "Чекај, шта је то?"
 
 msgid "You again?!"
 msgstr "Ыоу агаин?"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Вјештак мора узети тата да му дворац. Ја ћу да га спасавање од тамо."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Једини начин да дођете до замка је кроз Забрањени Мочвара на Исток."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Постоји језеро између села и Мочвара, тако да ћу морати да пређу преко сплава."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Такође, потребно је мач и штит у себи брани. Ја могу да говорим и да се тим ипак."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Нешто је требало да се деси овде, али не у овој верзији па проверите касније!"
@@ -1677,14 +1665,14 @@ msgstr "Постоји нешто што се креће око тамо дол�
 msgid "Good riddance..."
 msgstr "Гоод Ридданце ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Хух, Деја Ву ..."
+msgid "Huh, d�j� vu..."
+msgstr "Хух, ДЈ ВУ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Ако се подигне из реда онда мора бити поништени"
 
 msgid "There are 4 reset switches along the lift shaft which must be reset"
-msgstr "Постоје 4 прекидача заједно вратите дизање вратило које морају бити поништени"
+msgstr "Постоје 4 Ресет прекидачи уз дизање вратило које морају бити поништени"
 
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
 msgstr "Будите сигурни да ресетујете подигне да избегне дугу шетњу назад на површину ..."
@@ -1742,4 +1730,100 @@ msgstr "Ако се објекат Неухватљива онда можете 
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Бочица са душом заробљени унутар"
+
+msgid "Full Mine Cart"
+msgstr "Корпа пуна мина"
+
+msgid "Processing Lift Key"
+msgstr "Учитавање лифт Кључ"
+
+msgid "Right Grabber Key"
+msgstr "Кључне право Граббер"
+
+msgid "Left Grabber Key"
+msgstr "Лефт Граббер Кључ"
+
+msgid "Master Key"
+msgstr "Калауз"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Вјештак мора узети тата да му дворац. Ја ћу да га спасавање од тамо."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Једини начин да дођете до замка је кроз Забрањени Мочвара на Исток."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Постоји језеро између села и Мочвара, тако да ћу морати да пређу преко сплава."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Такође, потребно је мач и штит у себи брани. Могу да разговарам са Борган и Јакову да се овим ипак."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Није могуће повезивање на сервер у медаљом %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Није могуће пронаћи медаља Кључ"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Нећете бити у могућности да зарадите Медаље за ову игру"
+
+msgid "There's another sign here"
+msgstr "Постоји још један знак овде"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Ако изађете из лифта је у квару а затим наставите са леве стране"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Упозорење: Изађи пут могу бити опасне"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Можда би требало да користи лифт да изађу"
+
+msgid "There's a sign here"
+msgstr "Постоји, потпишите овде"
+
+msgid "An Oil Can"
+msgstr "Уље"
+
+msgid "Oil Can"
+msgstr "Мазалица"
+
+msgid "A powerful repellent"
+msgstr "Моћни одвратан"
+
+msgid "Repellent"
+msgstr "Одвратан"
+
+msgid "Medal Support"
+msgstr "Медаља Подршка"
+
+msgid "Fortress Mine"
+msgstr "Тврђава Рудник"
+
+msgid "Private key is missing"
+msgstr "Приватни кључ је нестало"
+
+msgid "Could not connect to server"
+msgstr "Није могуће повезивање на сервер"
+
+msgid "Sludge Tentacle"
+msgstr "Муљ Пупак"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Црвена муља Пупак"
+
+msgid "Eyeball Smoothie"
+msgstr "Очна јабучица Смоотхие"
+
+msgid "Cool, it worked!"
+msgstr "Цоол, то је радила!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Нисам сигуран у вези боја ипак, мислио сам да ће то бити црвена?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Можда је требало да буде жута ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Течност направљен од еыебаллс и тентацлес"
 

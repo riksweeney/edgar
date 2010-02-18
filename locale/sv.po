@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -361,18 +361,6 @@ msgstr "Vänta, vad var det?"
 
 msgid "You again?!"
 msgstr "Dig igen?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Den trollkarl måste ha tagit pappa till sitt slott. Jag måste rädda honom därifrån."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Det enda sättet att komma till slottet är genom Förbjudna Swamp österut."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Det finns en sjö mellan byn och Swamp så jag behöver en flotte för att komma över."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Jag behöver även ett svärd och sköld för att försvara mig. Jag kan tala med och att få dessa ändå."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Någonting ska hända här, men det är inte i den här versionen så kontrollera igen senare!"
@@ -1167,10 +1155,10 @@ msgid "Though slow moving, their massive size allows them to simply march throug
 msgstr "Även långsamma, deras massiva storlek gör att de helt enkelt marsch genom något försvar"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
-msgstr "I stället för vapen, många har stora pålkranar som de använder för att skaka marken och vilseleda hot"
+msgstr "I stället för vapen, många har stora pålkranar som de använder för att skaka jorden och vilseleda hot"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Även Grey Centurions kommer att användas för att skydda yttre gränser, Röda Centurions vet att det finns och används för att skydda områden av stor betydelse"
+msgstr "Även Grey Centurions kommer att användas för att skydda yttre gränser, Röda Centurions vet att det finns och används för att skydda områden av stor vikt"
 
 msgid "Splitter"
 msgstr "Splitter"
@@ -1221,7 +1209,7 @@ msgid "In this state they will smash through any defense and produce Dark Matter
 msgstr "I denna stat de kommer slå igenom något försvar och producera Dark Matter som förstör allt den berör"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
-msgstr "Däremot är tanken på framfart Master Tortoise mycket magiskt och är en viktig faktor när man skapar mäktiga underverk och objekt"
+msgstr "Däremot är tanken på framfart Master Tortoise starkt magisk och är en viktig faktor när man skapar mäktiga underverk och objekt"
 
 msgid "Venus Flytrap"
 msgstr "Venus Flytrap"
@@ -1356,7 +1344,7 @@ msgid "This lift is not working. I won't be able to use it until I restore the p
 msgstr "Denna hiss fungerar inte. Jag kommer inte att kunna använda den tills jag återställa makt"
 
 msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
-msgstr "Att glaset ser för tjock för mig att spricka, jag måste hitta något annat sätt att splittra det ..."
+msgstr "Att glaset ser för tjock för mig att spricka, kommer jag måste hitta något annat sätt att splittra det ..."
 
 msgid "Up"
 msgstr "Upp"
@@ -1551,7 +1539,7 @@ msgid "A statue of a Spider. It has 8 legs."
 msgstr "En staty av en spindel. Den har 8 ben."
 
 msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
-msgstr "En Armadillo Spike Ball. Kommer scatter spikar när den kastas."
+msgstr "Armadillo ett Spike Ball. Kommer scatter spikar när den kastas."
 
 msgid "A statue of a Tortoise. It has 4 legs."
 msgstr "En staty av en sköldpadda. Den har 4 ben."
@@ -1676,8 +1664,8 @@ msgstr "Det är något som rör sig där nere ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Om hissen är ur funktion så måste återställas"
@@ -1741,4 +1729,100 @@ msgstr "Om ett föremål blir otillgänglig kan du använda switchen för att l�
 
 msgid "A bottle with a soul trapped inside"
 msgstr "En flaska med en själ fångad inuti"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Vänster Grabber Key"
+
+msgid "Master Key"
+msgstr "Huvudnyckel"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Den trollkarl måste ha tagit pappa till sitt slott. Jag måste rädda honom därifrån."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Det enda sättet att komma till slottet är genom Förbjudna Swamp österut."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Det finns en sjö mellan byn och Swamp så jag behöver en flotte för att komma över."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Jag behöver även ett svärd och sköld för att försvara mig. Jag kan tala med Borgan och Jakob för att få dessa ändå."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Kunde inte ansluta till Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Kunde inte hitta Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Du kommer inte att kunna vinna medaljer för detta spel"
+
+msgid "There's another sign here"
+msgstr "Det finns ett annat tecken här"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Om exit hissen är ur funktion sedan gå vidare till vänster"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Varning: Realiseringsalternativ kan vara farlig"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Jag kanske borde använda hissen för att komma ut"
+
+msgid "There's a sign here"
+msgstr "There's a sign here"
+
+msgid "An Oil Can"
+msgstr "En Oil Can"
+
+msgid "Oil Can"
+msgstr "Oljekanna"
+
+msgid "A powerful repellent"
+msgstr "En kraftfull repellent"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Privat nyckel saknas"
+
+msgid "Could not connect to server"
+msgstr "Kunde inte ansluta till servern"
+
+msgid "Sludge Tentacle"
+msgstr "Slam Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Slam Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, det fungerade!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Jag är inte säker på färgen om, jag trodde det skulle vara rött?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Kanske är det tänkt att vara gul ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "En vätska gjorda av ögonglober och tentakler"
 

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -361,18 +361,6 @@ msgstr "Espera, què va ser això?"
 msgid "You again?!"
 msgstr "Tu altra vegada?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "El bruixot ha d'haver tingut el pare al seu castell. Vaig a haver de treure'l d'allà."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "L'única manera d'arribar al castell és a través de la Ciénaga de Prohibida cap a l'Est."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Hi ha un llac entre el poble i el Pantà, així que necessitarà una bassa per creuar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "També necessitaràs una espasa i escut per defensar-me. Puc parlar i perquè aquests però."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Alguna cosa ha de succeir aquí, però no en aquesta versió, per a comprovar més tard!"
 
@@ -395,7 +383,7 @@ msgid "Thanks for the logs, have you had any luck with the chickens?"
 msgstr "Gràcies pels registres, ha tingut sort amb els pollastres?"
 
 msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
-msgstr "Et donaré una espasa si em aconsegueixes 2 troncs tallats dels boscos i el rescat d'almenys 3 dels pollastres"
+msgstr "Et donaré una espasa si em aconsegueixes 2 troncs tallats dels boscos i el rescat d'almenys 3 de les meves gallines"
 
 msgid "Hello Edgar, what can I do for you today?"
 msgstr "Hola Edgar, què puc fer per vostè avui?"
@@ -1088,7 +1076,7 @@ msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr "Barreja dels ulls i Gazer tentacle de fangs en un líquid suau"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Afegir l'arrel, el greix i ossos en el calder i es barregen amb els ulls i la barreja Gazer tentacle de fangs"
+msgstr "Afegir l'arrel, els greixos i els ossos en el calder i es barregen amb els ulls i tentacles Gazer barreja de fangs"
 
 msgid "When the mixture turns bright blue, add the shield"
 msgstr "Quan la barreja es torna de color blau brillant, afegir l'escut de"
@@ -1673,10 +1661,10 @@ msgid "There's something moving around down there..."
 msgstr "Hi ha alguna cosa movent-se allà baix ..."
 
 msgid "Good riddance..."
-msgstr "Que es vagin ..."
+msgstr "Good Riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Eh, un déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Si l'ascensor està fora d'ordre, llavors s'ha de restablir"
@@ -1740,4 +1728,100 @@ msgstr "Si un objecte es torna inabastable llavors vostè pot utilitzar l'interr
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Una ampolla amb un ànima atrapada dins"
+
+msgid "Full Mine Cart"
+msgstr "Ple de Mines de compra"
+
+msgid "Processing Lift Key"
+msgstr "Processament de Llevant nombre"
+
+msgid "Right Grabber Key"
+msgstr "Dret Grabber nombre"
+
+msgid "Left Grabber Key"
+msgstr "Esquerra Grabber nombre"
+
+msgid "Master Key"
+msgstr "Màster Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "El bruixot ha d'haver tingut el pare al seu castell. Vaig a haver de treure'l d'allà."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "L'única manera d'arribar al castell és a través de la Ciénaga de Prohibida cap a l'Est."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hi ha un llac entre el poble i el Pantà, així que necessitarà una bassa per creuar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "També necessitaràs una espasa i escut per defensar-me. Puc parlar amb Borges i Jacob per obtenir aquestes però."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "No puc connectar al servidor de la Medalla al %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "No s'ha trobat Medalla nombre"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Vostè no serà capaç de guanyar medalles per a aquest joc"
+
+msgid "There's another sign here"
+msgstr "Hi ha una altra senyal aquí"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Si l'ascensor està fora de la sortida per després procedir a l'esquerra"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Avís: El camí de sortida pot ser perillós"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Potser hauria de fer servir l'ascensor per sortir"
+
+msgid "There's a sign here"
+msgstr "Hi ha una ferma aquí"
+
+msgid "An Oil Can"
+msgstr "Una llauna d'oli"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Un repelent poderós"
+
+msgid "Repellent"
+msgstr "Repelent"
+
+msgid "Medal Support"
+msgstr "Medalla de suport"
+
+msgid "Fortress Mine"
+msgstr "Fortalesa de Mines"
+
+msgid "Private key is missing"
+msgstr "La clau privada no es troba"
+
+msgid "Could not connect to server"
+msgstr "No puc connectar al servidor"
+
+msgid "Sludge Tentacle"
+msgstr "Llots de Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Un tentacle de fangs vermells"
+
+msgid "Eyeball Smoothie"
+msgstr "Batut de globus ocular"
+
+msgid "Cool, it worked!"
+msgstr "Cool, va funcionar!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "No estic segur sobre si el color, vaig pensar que seria el vermell?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Potser se suposa que ha de ser de color groc ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Un líquid a partir d'ulls i tentacles"
 

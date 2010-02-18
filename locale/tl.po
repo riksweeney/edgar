@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -209,7 +209,7 @@ msgid "Wood Axe"
 msgstr "Wood palakol"
 
 msgid "Health Potion"
-msgstr "Health gayuma"
+msgstr "Kalusugan gayuma"
 
 msgid "Outflow Key"
 msgstr "Pag-agos Key"
@@ -360,18 +360,6 @@ msgstr "Maghintay, kung ano ang na?"
 
 msgid "You again?!"
 msgstr "Ka ulit?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Manggagaway ay dapat kinuha tatay sa kanyang mangarap ng gising. Kukunin ko sa pagsagip sa kanya mula doon."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Ang tanging paraan upang makakuha ng kastilyo ay sa pamamagitan ng Bawal na lumubog sa Silangan."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "May isang lake sa pagitan ng Village at ang bana kaya kailangan ko na kailangan ang isang balsa upang makakuha ng kabuuan."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Kukunin ko rin kailangan ng isang tabak at kalasag upang ipagtanggol ang aking sarili. Maaari bang makausap at upang makakuha ang mga ito kahit na."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Something ay dapat na mangyari dito, ngunit ito ay hindi ang bersyon na ito kaya bumalik ulit mamaya!"
@@ -1675,8 +1663,8 @@ msgstr "May isang bagay na gumagalaw sa paligid down na may ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Kung ang pag-angat ay out of order pagkatapos ito ay kailangang i-reset"
@@ -1740,4 +1728,100 @@ msgstr "Kung ang isang bagay ay nagiging unreachable pagkatapos ay maaari mong g
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Isang bote na may isang kaluluwa trapped sa loob ng"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Kanan manununggab Key"
+
+msgid "Left Grabber Key"
+msgstr "Kaliwa manununggab Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Manggagaway ay dapat kinuha tatay sa kanyang mangarap ng gising. Kukunin ko sa pagsagip sa kanya mula doon."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ang tanging paraan upang makakuha ng kastilyo ay sa pamamagitan ng Bawal na lumubog sa Silangan."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "May isang lake sa pagitan ng Village at ang bana kaya kailangan ko na kailangan ang isang balsa upang makakuha ng kabuuan."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Kukunin ko rin kailangan ng isang tabak at kalasag upang ipagtanggol ang aking sarili. Maaari kong makipag-usap sa Borgan Jacob at upang makakuha ang mga ito kahit na."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Hindi maka-konekta sa Medal Server sa %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Hindi makahanap ng Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ikaw ay hindi maaaring makakuha ng Medals para sa laro"
+
+msgid "There's another sign here"
+msgstr "May isa pang mag-sign dito"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Kung ang lumabas sa pag-angat ay out of order pagkatapos ay magpatuloy sa kaliwa"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Babala: Lumabas sa ruta ay maaaring mapanganib"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Siguro ang dapat kong gamitin ang pag-angat sa labas"
+
+msgid "There's a sign here"
+msgstr "May isang mag-sign dito"
+
+msgid "An Oil Can"
+msgstr "Isang Oil Puwede"
+
+msgid "Oil Can"
+msgstr "Oil Puwede"
+
+msgid "A powerful repellent"
+msgstr "Isang malakas na hindi kanais-nais"
+
+msgid "Repellent"
+msgstr "Hindi kanais-nais"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Kuta Mine"
+
+msgid "Private key is missing"
+msgstr "Pribadong susi ay nawawala"
+
+msgid "Could not connect to server"
+msgstr "Hindi maka-konekta sa server"
+
+msgid "Sludge Tentacle"
+msgstr "Putik galamay"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red putik galamay"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball-ilas na manliligaw"
+
+msgid "Cool, it worked!"
+msgstr "Cool, ang nagtrabaho!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Hindi ako sigurado tungkol sa kulay bagaman, Akala ko magiging red?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Siguro ito ay dapat na maging dilaw ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Isang likido na ginawa mula sa eyeballs at tentacles"
 

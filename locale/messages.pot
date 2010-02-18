@@ -1664,7 +1664,7 @@ msgstr ""
 msgid "Good riddance..."
 msgstr ""
 
-msgid "Huh, d√©j√† vu..."
+msgid "Huh, dÈj‡ vu..."
 msgstr ""
 
 msgid "If the lift is out of order then it must be reset"
@@ -1803,4 +1803,25 @@ msgid "Private key is missing"
 msgstr ""
 
 msgid "Could not connect to server"
+msgstr ""
+
+msgid "Sludge Tentacle"
+msgstr ""
+
+msgid "A Red Sludge Tentacle"
+msgstr ""
+
+msgid "Eyeball Smoothie"
+msgstr ""
+
+msgid "Cool, it worked!"
+msgstr ""
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr ""
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr ""
+
+msgid "A liquid made from eyeballs and tentacles"
 msgstr ""

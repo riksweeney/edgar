@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -285,7 +285,7 @@ msgid "OK, I'll get the coal"
 msgstr "OK, je vais avoir du charbon"
 
 msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
-msgstr "Tiens, prends cette pioche. Vous pouvez l'utiliser pour exploiter le charbon et le hack par tout des murs plus faibles que vous rencontrez"
+msgstr "Tiens, prends cette pioche. Vous pouvez l'utiliser pour la mine de charbon et hack par tout des murs plus faibles que vous rencontrez"
 
 msgid "You'll also need this key to get into the mine"
 msgstr "Vous aurez aussi besoin de cette clé pour entrer dans la mine"
@@ -361,18 +361,6 @@ msgstr "Attends, qu'est-ce que c'était?"
 
 msgid "You again?!"
 msgstr "Encore vous?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Le sorcier doit avoir pris papa dans son château. Je vais devoir le tirer de là."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "La seule façon d'arriver au château est interdite dans les marais à l'Est."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Il ya un lac, entre le village et le marais je vais donc besoin d'un radeau pour traverser le fleuve."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Je vais aussi besoin d'une épée et bouclier pour me défendre. Je peux parler et d'obtenir ces though."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Quelque chose est censé se produire ici, mais ce n'est pas dans cette version alors revenez plus tard!"
@@ -1676,8 +1664,8 @@ msgstr "Il ya quelque chose qui bouge autour de là-bas ..."
 msgid "Good riddance..."
 msgstr "Bon débarras ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, vu dj ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Si l'ascenseur est en panne alors il doit être remis à zéro"
@@ -1741,4 +1729,100 @@ msgstr "Si un objet devient inaccessible, vous pouvez utiliser le commutateur de
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Une bouteille avec une âme emprisonné à l'intérieur"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine panier"
+
+msgid "Processing Lift Key"
+msgstr "Processing Key Lift"
+
+msgid "Right Grabber Key"
+msgstr "Droit Grabber pièce"
+
+msgid "Left Grabber Key"
+msgstr "Gauche Grabber pièce"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Le sorcier doit avoir pris papa dans son château. Je vais devoir le tirer de là."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "La seule façon d'arriver au château est interdite dans les marais à l'Est."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Il ya un lac, entre le village et le marais si j'aurai besoin d'un radeau pour traverser le fleuve."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Je vais aussi besoin d'une épée et bouclier pour me défendre. Je peux parler à Borgan et Jacob pour obtenir ces though."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Impossible de se connecter à la médaille Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Impossible de trouver la pièce médaille"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Vous ne serez pas en mesure de gagner des médailles pour ce jeu"
+
+msgid "There's another sign here"
+msgstr "Il ya un autre signe ici"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Si la sortie de l'ascenseur est en panne alors passer à la gauche"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Attention: route de sortie mai être dangereux"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Peut-être que je devrais utiliser les ascenseurs pour sortir"
+
+msgid "There's a sign here"
+msgstr "Il ya un signe ici"
+
+msgid "An Oil Can"
+msgstr "Un bidon d'huile"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Un répulsif puissant"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Médaille d'appui"
+
+msgid "Fortress Mine"
+msgstr "Forteresse de la mine"
+
+msgid "Private key is missing"
+msgstr "La clé privée est manquant"
+
+msgid "Could not connect to server"
+msgstr "Impossible de se connecter au serveur"
+
+msgid "Sludge Tentacle"
+msgstr "Boues Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red boues Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, ça a marché!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Je ne suis pas sûr de la couleur, toutefois, je pense qu'il serait rouge?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Peut-être que c'est censé être de couleur jaune ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Un liquide à base de prunelles et les tentacules"
 

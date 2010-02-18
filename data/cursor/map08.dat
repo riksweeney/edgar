@@ -40,3 +40,6 @@ enemy/energy_drainer
 weapon/basic_sword
 weapon/small_wooden_shield
 item/blender
+item/empty_potion
+item/gazer_eye
+item/sludge_tentacle

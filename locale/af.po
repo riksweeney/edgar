@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "Wag, what was that?"
 
 msgid "You again?!"
 msgstr "Jy weer?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Die towenaar moet Dad geneem het na sy kasteel. Ek sal moet red hom van daar."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Die enigste manier om by die kasteel is deur middel van die Verbode Swamp na die Ooste."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Daar's 'n dam tussen die dorp en in die Swamp so ek sal' n reeks nodig het om oor te bring."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Ek sal ook 'n swaard en skild nodig het om myself te verdedig. Ek kan nie praat en om hierdie al is."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Iets is veronderstel om te gebeur hier, maar dit is nie in hierdie weergawe so check back later!"
@@ -1675,8 +1663,8 @@ msgstr "Daar is iets te skuif af is daar ..."
 msgid "Good riddance..."
 msgstr "Good riddance ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "As die hysbak buite werking is dan moet herstel word"
@@ -1740,4 +1728,100 @@ msgstr "As 'n voorwerp onbereikbaar word dan kan jy die skakelaar kan gebruik om
 
 msgid "A bottle with a soul trapped inside"
 msgstr "'N bottel met' n siel vasgevang binne"
+
+msgid "Full Mine Cart"
+msgstr "Volledige myn Cart"
+
+msgid "Processing Lift Key"
+msgstr "Verwerking Hysbak Kern"
+
+msgid "Right Grabber Key"
+msgstr "Right Grabber Kern"
+
+msgid "Left Grabber Key"
+msgstr "Links Grabber Kern"
+
+msgid "Master Key"
+msgstr "Master Kern"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Die towenaar moet Dad geneem het na sy kasteel. Ek sal moet red hom van daar."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Die enigste manier om by die kasteel is deur middel van die Verbode Swamp na die Ooste."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Daar's 'n dam tussen die dorp en in die Swamp so ek sal' n reeks nodig het om oor te bring."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ek sal ook 'n swaard en skild nodig het om myself te verdedig. Ek kan tot Borgan en Jacob praat om hierdie though."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Kan geen verbinding met Penning Server nie op %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Kon vind Penning Kern nie"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Jy sal nie in staat wees om te verdien Medaljes vir hierdie wedstryd"
+
+msgid "There's another sign here"
+msgstr "Daar's 'n ander teken hier"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "As die afrit hysbak buite werking is dan voortgaan na die linkerkant"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Waarskuwing: Afrit roete dalk gevaarlike wees"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Miskien het ek die berg moet gebruik om jou uit"
+
+msgid "There's a sign here"
+msgstr "Daar is 'n teken hier"
+
+msgid "An Oil Can"
+msgstr "'N Olie Kan"
+
+msgid "Oil Can"
+msgstr "Olie Kan"
+
+msgid "A powerful repellent"
+msgstr "'N kragtige afstotend"
+
+msgid "Repellent"
+msgstr "Afstotend"
+
+msgid "Medal Support"
+msgstr "Medalje-ondersteuning"
+
+msgid "Fortress Mine"
+msgstr "Fort myn"
+
+msgid "Private key is missing"
+msgstr "Privaat-sleutel is weg"
+
+msgid "Could not connect to server"
+msgstr "Kan geen verbinding met bediener"
+
+msgid "Sludge Tentacle"
+msgstr "Slib Tentakel"
+
+msgid "A Red Sludge Tentacle"
+msgstr "'N Rooi Slib Tentakel"
+
+msgid "Eyeball Smoothie"
+msgstr "Oogbal Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, dit het gewerk!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ek is nie seker oor die kleur al is, het ek gedink dit sal rooi word?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Miskien is dit veronderstel is om te word geel ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "'N vloeibare gemaak van eyeballs en tentakels"
 

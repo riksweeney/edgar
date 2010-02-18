@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -355,25 +355,13 @@ msgid "You won't be able to do this bit in this version, check back later!"
 msgstr "Ви не зможете зробити цього біта в цю версію, зайдіть пізніше!"
 
 msgid "Strange creature..."
-msgstr "Дивні істоти ..."
+msgstr "Дивна істота ..."
 
 msgid "Wait, what was that?"
 msgstr "Почекай, що це було?"
 
 msgid "You again?!"
 msgstr "Ви знову!?"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Колдуна, має бути, тато свій замок. Мені доведеться визволити його звідти."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Єдиний спосіб дістатися до замку лежить через болото Заборонене на Схід."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Там's Lake між селом і болотах я знадобиться плоту донести."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "Я також необхідно щит і меч, щоб захищати себе. Я можу говорити, і щоб отримати ці думки ."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Что-то повинне відбутися і тут, але це не так у цій версії такого зайдіть пізніше!"
@@ -643,7 +631,7 @@ msgid "Some items in the game can be pushed and pulled"
 msgstr "Деякі предмети в грі можуть бути записані і витяг"
 
 msgid "To push an item, simply walk into it"
-msgstr "Щоб підштовхнути пункту, просто в неї ходити"
+msgstr "Щоб підштовхнути пункту, просто ходити до неї"
 
 msgid "To pull an item, walk into while holding down Action"
 msgstr "Щоб витягнути пункту, ходити в утримуючи Дія"
@@ -682,16 +670,16 @@ msgid "Manual doors require keys to open them, Automatic doors require switches.
 msgstr "Інструкції дверей вимагає ключі до них, Автоматичні двері вимагають перемикачі."
 
 msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
-msgstr "Щоб відкрити замкнені двері, у вас що є ключ, просто ходити до неї. Існує немає необхідності, щоб ключові вибраний в інвентарі."
+msgstr "Щоб відкрити замкнені двері, що у вас є ключ, просто ходити до неї. Існує немає необхідності, щоб ключові вибраний в інвентарі."
 
 msgid "Open the door and continue to the right"
 msgstr "Відкрийте двері і, як і раніше права"
 
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
-msgstr "Вітання! Тепер ви знайомі з основами ігри ви повинні спробувати основна гра"
+msgstr "Вітання! Тепер ви знайомі з основами гри ви повинні спробувати основна гра"
 
 msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
-msgstr "Якщо ви хочете відтворити цього підручника, натисніть Escape Підручник і виберіть з меню"
+msgstr "Якщо ви хочете відтворити цього підручника, натисніть Escape Інструкція, виберіть з меню"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr "Щоб зіграти головну гру, натисніть Escape і виберіть Нова гра від мене"
@@ -997,7 +985,7 @@ msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr "Мені потрібен Червоний осад Tentacle і 3 Гезеру Eyeballs зробити зілля"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "Мені ще треба порожню пляшку, щоб покласти в зілля"
+msgstr "Мені ще треба порожню пляшку, щоб покласти в напій"
 
 msgid "So this is the Fortress."
 msgstr "Так це і є фортеця."
@@ -1216,7 +1204,7 @@ msgid "And of course they are also impervious to attacks from matching elements,
 msgstr "І, звичайно, вони також є непроникними для нападів з боку відповідних елементів, що поглинають енергію щоб зцілити себе"
 
 msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
-msgstr "Але крім того, якщо вони одержують занадто багато енергії зцілення, вони розвиватися і йти на рожен"
+msgstr "Та крім того, якщо вони одержують занадто багато енергії зцілення, вони розвиватися і йти на рожен"
 
 msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
 msgstr "У цьому стані вони розіб'ють через будь-яку оборону і виробляють Темна матерія, яка руйнує все, що стосується"
@@ -1330,7 +1318,7 @@ msgid "Additionally though they can teleport short distances to escape from thei
 msgstr "Крім того, хоча вони можуть переміщуватися короткі дистанції бігти зі своїх опонентів"
 
 msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
-msgstr "Їх персонал дуже чарівний і хоча вона не може бути використана людьми безпосередньо за свої магічні властивості використовуються у створенні заклинань"
+msgstr "Їх персонал дуже чарівний і хоч вона не може бути використана людьми безпосередньо за свої магічні властивості використовуються у створенні заклинань"
 
 msgid "Pink Hoovers are small quadrupeds with a long snout"
 msgstr "Pink Пилососи малі чотириногі з довгою мордою"
@@ -1677,8 +1665,8 @@ msgstr "Там-то пересуватися там ..."
 msgid "Good riddance..."
 msgstr "Скатерть дорога ..."
 
-msgid "Huh, déjà vu..."
-msgstr "Huh, дежа вю ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, DJ-вю ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Якщо ліфт вийшов з ладу то він повинен бути скинутий"
@@ -1742,4 +1730,100 @@ msgstr "Якщо об'єкт стає недоступним, то ви може
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Пляшка з душею пастці"
+
+msgid "Full Mine Cart"
+msgstr "Повний Mine Кошик"
+
+msgid "Processing Lift Key"
+msgstr "Обробка підняти ключові"
+
+msgid "Right Grabber Key"
+msgstr "Право Grabber Ключові"
+
+msgid "Left Grabber Key"
+msgstr "Ліва Grabber Ключові"
+
+msgid "Master Key"
+msgstr "Майстер-ключ"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Колдуна, має бути, тато свій замок. Мені доведеться визволити його звідти."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Єдиний спосіб дістатися до замку лежить через болото Заборонене на Схід."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Там's Lake між селом і болотах я знадобиться плоту донести."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Я також необхідно щит і меч, щоб захищати себе. Я можу поговорити з Боргай та Якова, щоб отримати ці думки ."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Не вдається підключитися до сервера медаль %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Не знайшов медаль Ключові"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ви не зможете отримати медаль на цю гру"
+
+msgid "There's another sign here"
+msgstr "Там інша підписати тут"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Якщо вихід буксир вийшов з ладу далі ліворуч"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Попередження: Вийти маршрут може бути небезпечною"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Може бути, я повинен використовувати ліфт вийти"
+
+msgid "There's a sign here"
+msgstr "Там ознака тут"
+
+msgid "An Oil Can"
+msgstr "Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Потужні репеленти"
+
+msgid "Repellent"
+msgstr "Репелент"
+
+msgid "Medal Support"
+msgstr "Медаль підтримки"
+
+msgid "Fortress Mine"
+msgstr "Фортеця Mine"
+
+msgid "Private key is missing"
+msgstr "Приватний ключ відсутній"
+
+msgid "Could not connect to server"
+msgstr "Не вдається підключитися до сервера"
+
+msgid "Sludge Tentacle"
+msgstr "Sludge Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Красний осад Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Очне яблуко льстец"
+
+msgid "Cool, it worked!"
+msgstr "Cool, це спрацювало!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Я не впевнений з приводу кольору, хоча, я подумав, що буде корисним?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Може бути, це має бути жовтого ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Рідина з очного яблука і щупальця"
 

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=CP1252\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -361,18 +361,6 @@ msgstr "Espera, ¿qué fue eso?"
 
 msgid "You again?!"
 msgstr "Tú otra vez?!"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "El hechicero debe haber tenido papá a su castillo. Voy a tener que sacarlo de allí."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "La única manera de llegar al castillo es a través de la Ciénaga de Prohibida hacia el Este."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Hay un lago entre el pueblo y el Pantano, así que necesitará una balsa para cruzar."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "También necesitarás una espada y escudo para defenderme. Puedo hablar y para que estos sin embargo."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "Algo debe suceder aquí, pero no en esta versión, para comprobar más tarde!"
@@ -1676,8 +1664,8 @@ msgstr "Hay algo moviéndose ahí abajo ..."
 msgid "Good riddance..."
 msgstr "¡Que se vayan ..."
 
-msgid "Huh, déjà vu..."
-msgstr "¿Eh, un déjà vu ..."
+msgid "Huh, d�j� vu..."
+msgstr "Huh, dj vu ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "Si el ascensor está fuera de orden, entonces se debe restablecer"
@@ -1741,4 +1729,100 @@ msgstr "Si un objeto se vuelve inalcanzable entonces usted puede utilizar el int
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Una botella con un alma atrapada dentro"
+
+msgid "Full Mine Cart"
+msgstr "Lleno de Minas de compra"
+
+msgid "Processing Lift Key"
+msgstr "Procesamiento de Levante número"
+
+msgid "Right Grabber Key"
+msgstr "Derecho Grabber número"
+
+msgid "Left Grabber Key"
+msgstr "Izquierda Grabber número"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "El hechicero debe haber tenido papá a su castillo. Voy a tener que sacarlo de allí."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "La única manera de llegar al castillo es a través de la Ciénaga de Prohibida hacia el Este."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hay un lago entre el pueblo y el Pantano, así que necesitará una balsa para cruzar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "También necesitarás una espada y escudo para defenderme. Puedo hablar con Borgan y Jacob para obtener estas sin embargo."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "No puedo conectar al servidor de la Medalla al %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "No se pudo encontrar Medalla número"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Usted no será capaz de ganar medallas para este juego"
+
+msgid "There's another sign here"
+msgstr "Hay otra señal aquí"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Si el ascensor está fuera de la salida para luego proceder a la izquierda"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Advertencia: El camino de salida puede ser peligroso"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Tal vez debería usar el ascensor para salir"
+
+msgid "There's a sign here"
+msgstr "Hay una firme aquí"
+
+msgid "An Oil Can"
+msgstr "Una lata de aceite"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "Un repelente poderoso"
+
+msgid "Repellent"
+msgstr "Repelente"
+
+msgid "Medal Support"
+msgstr "Medalla de apoyo"
+
+msgid "Fortress Mine"
+msgstr "Fortaleza de Minas"
+
+msgid "Private key is missing"
+msgstr "La clave privada no se encuentra"
+
+msgid "Could not connect to server"
+msgstr "No puedo conectar al servidor"
+
+msgid "Sludge Tentacle"
+msgstr "Lodos de Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Un tentáculo de lodos rojos"
+
+msgid "Eyeball Smoothie"
+msgstr "Batido de globo ocular"
+
+msgid "Cool, it worked!"
+msgstr "Cool, funcionó!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "No estoy seguro acerca de si el color, pensé que sería el rojo?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Tal vez se supone que debe ser de color amarillo ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Un líquido a partir de ojos y tentáculos"
 

@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -361,18 +361,6 @@ msgstr "รออะไรบ้างนั้น"
 msgid "You again?!"
 msgstr "คุณอีกครั้ง?!"
 
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "หมอผีต้องเอาพ่อไปปราสาทเขา. ฉันจะต้องช่วยเหลือเขาจากมี."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "วิธีเดียวที่จะไปปราสาทจะผ่านบึงต้องห้ามทิศตะวันออก."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "มีทะเลสาบระหว่างหมู่บ้านและท่วมเลยฉันจะต้องแพเพื่อข้าม."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "ฉันยังจะต้องดาบและโล่เพื่อป้องกันตัวเอง. ฉันสามารถพูดและรับเหล่านี้แม้ว่า."
-
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "สิ่งที่ควรจะเกิดขึ้นที่นี่แต่ไม่ใช่ในเวอร์ชันนี้เพื่อตรวจสอบอีกครั้งในภายหลัง!"
 
@@ -503,7 +491,7 @@ msgid "It looks like a gem should fit in this hole, maybe I can find some replac
 msgstr "ดูเหมือนว่าอัญมณีควรพอดีกับหลุมนี้แล้วอาจจะหาเปลี่ยนบาง."
 
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
-msgstr "ดูเหมือนว่าจะติดอยู่ในนั้น. ฉันอาจจะคลายกับ pickaxe ..."
+msgstr "ดูเหมือนว่าจะติดในมี. ฉันอาจจะคลายกับ pickaxe ..."
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
 msgstr "รับไปห้ามท่วมฉันจะต้องสร้างแพ."
@@ -692,7 +680,7 @@ msgid "If you want to replay this tutorial, press Escape and select Tutorial fro
 msgstr "หากคุณต้องการเล่นใหม่นี้กวดวิชากดหนีและเลือก Tutorial จากเมนู"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr "เล่นเกมหลักกดหนี New Game และเลือกจากเมนู"
+msgstr "เล่นเกมหลักกดหนีและเลือก New Game จากเมนู"
 
 msgid "Press Space when you have finished reading to go to the next dialog box"
 msgstr "กด Space เมื่อคุณเสร็จสิ้นการอ่านเพื่อไปที่กล่องโต้ตอบถัดไป"
@@ -1675,8 +1663,8 @@ msgstr "มีบางอย่างเคลื่อนไหวรอบล
 msgid "Good riddance..."
 msgstr "ดีการกำจัด ..."
 
-msgid "Huh, déjà vu..."
-msgstr "ฮะ, Vu déjà ..."
+msgid "Huh, d�j� vu..."
+msgstr "ฮะ, Vu DJ ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "ถ้ายกจะตายแล้วมันต้องตั้ง"
@@ -1740,4 +1728,100 @@ msgstr "ถ้าวัตถุเป็น unreachable แล้วคุณ�
 
 msgid "A bottle with a soul trapped inside"
 msgstr "ขวดกับดักชีวิตภายใน"
+
+msgid "Full Mine Cart"
+msgstr "รถเข็น Full เหมือง"
+
+msgid "Processing Lift Key"
+msgstr "การประมวลผลลิฟท์คีย์"
+
+msgid "Right Grabber Key"
+msgstr "คีย์ขวา Grabber"
+
+msgid "Left Grabber Key"
+msgstr "คีย์เหลือ Grabber"
+
+msgid "Master Key"
+msgstr "Key Master"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "หมอผีต้องเอาพ่อไปปราสาทเขา. ฉันจะต้องช่วยเหลือเขาจากมี."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "วิธีเดียวที่จะไปปราสาทจะผ่านบึงต้องห้ามทิศตะวันออก."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "มีทะเลสาบระหว่างหมู่บ้านและท่วมเลยฉันจะต้องแพเพื่อข้าม."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "ฉันยังจะต้องดาบและโล่เพื่อป้องกันตัวเอง. ฉันจะพูดกับ Borgan และ Jacob ได้รับเหล่านี้แม้ว่า."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "ไม่สามารถเชื่อมต่อเหรียญ Server ที่ %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "ไม่พบเหรียญ Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "คุณจะไม่สามารถรับ Medals สำหรับเกมนี้"
+
+msgid "There's another sign here"
+msgstr "มีสัญญาณที่อื่น"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "ถ้ายกออกจะตายแล้วไปทางซ้าย"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: เส้นทางออกอาจจะอันตราย"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "บางทีฉันควรใช้ลิฟท์เพื่อออก"
+
+msgid "There's a sign here"
+msgstr "มีสัญญาณที่นี่ของ"
+
+msgid "An Oil Can"
+msgstr "น้ำมันได้"
+
+msgid "Oil Can"
+msgstr "น้ำมันได้"
+
+msgid "A powerful repellent"
+msgstr "พลังขับไล่"
+
+msgid "Repellent"
+msgstr "ขับไล่"
+
+msgid "Medal Support"
+msgstr "สนับสนุนเหรียญ"
+
+msgid "Fortress Mine"
+msgstr "ระเบิดป้อม"
+
+msgid "Private key is missing"
+msgstr "คีย์ส่วนตัวหายไป"
+
+msgid "Could not connect to server"
+msgstr "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์"
+
+msgid "Sludge Tentacle"
+msgstr "กิ่งก้านสาขาโคลน"
+
+msgid "A Red Sludge Tentacle"
+msgstr "กิ่งก้านสาขา Red โคลน"
+
+msgid "Eyeball Smoothie"
+msgstr "Smoothie ดวงตา"
+
+msgid "Cool, it worked!"
+msgstr "เย็นก็ทำงาน!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "ฉันไม่แน่ใจเกี่ยวกับสีแต่ฉันคิดว่ามันจะเป็นสีแดง?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "บางทีก็ควรจะเป็นสีเหลือง ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "ของเหลวที่ทำจากส่ายและ tentacles"
 

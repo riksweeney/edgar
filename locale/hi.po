@@ -4,13 +4,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2009-10-01 13:33+0100\n"
 "PO-Revision-Date: 2009-10-01 13:33+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
@@ -360,18 +360,6 @@ msgstr "रुको, क्या था?"
 
 msgid "You again?!"
 msgstr "तुम फिर से?"
-
-msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "जादूगर अपने महल में ले लिया है पिताजी चाहिए. मैं उसे वहाँ से बचाव होगा."
-
-msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "एकमात्र तरीका महल करने के लिए निषिद्ध दलदल के माध्यम से पूर्व की ओर है."
-
-msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "वहाँ गांव और दलदल के बीच एक झील है तो मैं एक बेड़ा जरूरत भर लाता हूँ."
-
-msgid "I'll also need a sword and shield to defend myself. I can speak to and to get these though."
-msgstr "मैं भी एक तलवार और ढाल की जरूरत है अपने आप का बचाव करेंगे. मैं बात करना और इन हालांकि मिल सकती है."
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
 msgstr "कुछ यहाँ होने वाला है, लेकिन यह इस संस्करण में नहीं है, तो बाद में जांच!"
@@ -1675,8 +1663,8 @@ msgstr "वहाँ चारों ओर नीचे जा वहाँ क
 msgid "Good riddance..."
 msgstr "अच्छा छुटकारा ..."
 
-msgid "Huh, déjà vu..."
-msgstr "हं, déjà नजरों से देख ..."
+msgid "Huh, d�j� vu..."
+msgstr "हं, डीजे नजरों से देख ..."
 
 msgid "If the lift is out of order then it must be reset"
 msgstr "यदि लिफ़्ट ठीक नहीं है तो इसे पुनर्स्थापित किया जाना चाहिए"
@@ -1740,4 +1728,100 @@ msgstr "यदि कोई आपत्ति तो नहीं मिल आ
 
 msgid "A bottle with a soul trapped inside"
 msgstr "एक अंदर फँस आत्मा के साथ एक बोतल"
+
+msgid "Full Mine Cart"
+msgstr "पूर्ण मेरी गाड़ी"
+
+msgid "Processing Lift Key"
+msgstr "प्रसंस्करण कुंजी लिफ्ट"
+
+msgid "Right Grabber Key"
+msgstr "सही धरनेवाला कुंजी"
+
+msgid "Left Grabber Key"
+msgstr "वाम धरनेवाला कुंजी"
+
+msgid "Master Key"
+msgstr "मास्टर कुंजी"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "जादूगर अपने महल में ले लिया है पिताजी चाहिए. मैं उसे वहाँ से बचाव होगा."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "एकमात्र तरीका महल करने के लिए निषिद्ध दलदल के माध्यम से पूर्व की ओर है."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "वहाँ गांव और दलदल के बीच एक झील है तो मैं एक बेड़ा जरूरत भर लाता हूँ."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "मैं भी एक तलवार और ढाल की जरूरत है अपने आप का बचाव करेंगे. मैं Borgan और याकूब से बात ये कि हो सकता है."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "%s:%d में पदक सर्वर से कनेक्ट नहीं कर सका"
+
+msgid "Could not find Medal Key"
+msgstr "खोज पदक कुंजी नहीं कर सका"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "आप इस खेल के लिए पदक अर्जित नहीं कर सकेंगे"
+
+msgid "There's another sign here"
+msgstr "यहाँ एक और संकेत है"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "यदि बाहर निकलें लिफ्ट से बाहर का आदेश है तो आगे बढ़ने के लिए छोड़ दिया"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "चेतावनी: बाहर निकलें मार्ग खतरनाक हो सकता है"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "शायद मैं लिफ्ट का उपयोग करने से बाहर हो जाना चाहिए"
+
+msgid "There's a sign here"
+msgstr "यहाँ एक संकेत है"
+
+msgid "An Oil Can"
+msgstr "एक तेल सकते हैं"
+
+msgid "Oil Can"
+msgstr "तेल सकते हैं"
+
+msgid "A powerful repellent"
+msgstr "एक शक्तिशाली विकर्षक"
+
+msgid "Repellent"
+msgstr "विकर्षक"
+
+msgid "Medal Support"
+msgstr "पदक सहायता"
+
+msgid "Fortress Mine"
+msgstr "किले मेरा"
+
+msgid "Private key is missing"
+msgstr "निजी कुंजी याद आ रही है"
+
+msgid "Could not connect to server"
+msgstr "सर्वर से कनेक्ट नहीं कर सका"
+
+msgid "Sludge Tentacle"
+msgstr "कीचड़ मूंछ"
+
+msgid "A Red Sludge Tentacle"
+msgstr "एक लाल कीचड़ मूंछ"
+
+msgid "Eyeball Smoothie"
+msgstr "नेत्र गोलक ठग"
+
+msgid "Cool, it worked!"
+msgstr "ठंडा, यह काम किया!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "हालांकि मैं यकीन नहीं कर रहा हूँ रंग के बारे में, मैंने सोचा था कि यह लाल हो जाएगा?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "शायद यह पीले रंग का होना चाहिए ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "एक आंखों और जाल से बनी तरल"
 
