@@ -238,6 +238,8 @@ static void lookForPlayer()
 {
 	self->thinkTime--;
 
+	moveLeftToRight();
+	
 	if (self->thinkTime <= 0)
 	{
 		self->action = &vomitAttackStart;
@@ -246,8 +248,6 @@ static void lookForPlayer()
 
 		self->thinkTime = 0;
 	}
-
-	moveLeftToRight();
 
 	if (player.health > 0 && (prand() % 10 == 0) && self->thinkTime <= 0)
 	{
@@ -266,7 +266,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	entityTakeDamageNoFlinch(other, damage);
 
-	if ((prand() % 3 == 0) && self->face == other->face && self->health > 0)
+	if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->dirX != 0)
 	{
 		self->dirX = 0;
 
@@ -306,8 +306,6 @@ static void redTeleportAttack()
 	if (fabs(target - self->x) <= fabs(self->dirX))
 	{
 		self->dirX = 0;
-
-		facePlayer();
 
 		self->thinkTime = 0;
 	}
@@ -350,6 +348,8 @@ static void redTeleportAttackFinishPause()
 
 	if (self->thinkTime <= 0)
 	{
+		facePlayer();
+		
 		self->flags &= ~INVULNERABLE;
 
 		self->action = &redTeleportAttackFinish;
@@ -438,6 +438,14 @@ static void vomitWait()
 	checkToMap(self);
 
 	self->thinkTime--;
+	
+	if (self->thinkTime < 90)
+	{
+		if (self->thinkTime % 3 == 0)
+		{
+			self->flags ^= NO_DRAW;
+		}
+	}
 
 	if (self->thinkTime <= 0)
 	{
