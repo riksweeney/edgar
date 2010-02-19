@@ -118,13 +118,13 @@ static void call(int val)
 			{
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 			}
-			
+
 			else
 			{
 				activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
 			}
 		}
-		
+
 		else
 		{
 			printf("Switch at %d %d has no Target\n", (int)self->x, (int)self->y);
@@ -166,7 +166,7 @@ static void activate(int val)
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-			
+
 			if (total > 0)
 			{
 				setInfoBoxMessage(30, _("Complete"), remaining);
@@ -269,7 +269,7 @@ static void reset(int val)
 static void initialise()
 {
 	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
-	
+
 	#if DEV == 1
 	if (strlen(self->objectiveName) == 0)
 	{

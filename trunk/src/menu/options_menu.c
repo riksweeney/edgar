@@ -46,7 +46,6 @@ static void showMainMenu(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
 static void toggleMedal(void);
-static void showOptionsMenu(void);
 
 void drawOptionsMenu()
 {
@@ -241,7 +240,7 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleMedal, &toggleMedal, &toggleMedal, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE || game.medalSupportDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -326,19 +325,16 @@ static void toggleHints()
 
 static void toggleMedal()
 {
-	int result;
 	Widget *w = menu.widgets[menu.index];
 
 	game.medalSupport = game.medalSupport == TRUE ? FALSE : TRUE;
-
+	/*
 	if (game.medalSupport == TRUE)
 	{
 		result = connectToServer();
-		
+
 		if (result != 0)
 		{
-			game.medalSupportDisabled = TRUE;
-
 			game.medalSupport = FALSE;
 
 			if (result == 1)
@@ -354,7 +350,7 @@ static void toggleMedal()
 			game.drawMenu = &drawOKMenu;
 		}
 	}
-
+	*/
 	updateLabelText(w->label, game.medalSupport == TRUE ? _("Yes") : _("No"));
 }
 
@@ -389,10 +385,11 @@ static void showMainMenu()
 
 	game.drawMenu = &drawMainMenu;
 }
-
+/*
 static void showOptionsMenu()
 {
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
 }
+*/

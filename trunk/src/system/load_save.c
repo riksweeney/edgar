@@ -30,6 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "compress.h"
 #include "resources.h"
+#include "../graphics/graphics.h"
+#include "../graphics/font.h"
 #include "../game.h"
 #include "load_save.h"
 #include "../hud.h"
@@ -43,6 +45,7 @@ static void removeTemporaryData(void);
 static void copyFile(char *, char *);
 static void updateSaveFileIndex(int);
 static void patchSaveGame(char *, double);
+static void showPatchMessage(char *);
 
 extern Game game;
 
@@ -143,8 +146,9 @@ void tutorial()
 int loadGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH], backup[MAX_PATH_LENGTH];
-	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
+	char saveFile[MAX_PATH_LENGTH], *line, *savePtr, completion[5];
 	double version = 0;
+	float percentage, steps;
 	unsigned char *buffer;
 	int patchGame = FALSE;
 	FILE *fp;
@@ -251,6 +255,12 @@ int loadGame(int slot)
 	{
 		free(buffer);
 
+		steps = (VERSION * 100) - (version * 100);
+
+		steps = 100 / steps;
+
+		percentage = 0;
+
 		version += 0.01;
 
 		/* Back up the original save file */
@@ -261,13 +271,23 @@ int loadGame(int slot)
 
 		printf("Backed up original save to %s\n", backup);
 
+		showPatchMessage("0%");
+
 		while (TRUE)
 		{
+			getInput(IN_TITLE);
+
 			patchSaveGame(saveFile, version);
 
 			version += 0.01;
 
-			if (version > VERSION)
+			percentage += steps;
+
+			snprintf(completion, 5, "%d%%", (int)percentage);
+
+			showPatchMessage(completion);
+
+			if ((int)(version * 100) > (int)(VERSION * 100))
 			{
 				break;
 			}
@@ -1134,4 +1154,48 @@ int getPrivateKey(char *privateKey)
 	fclose(fp);
 
 	return TRUE;
+}
+
+static void showPatchMessage(char *message)
+{
+	int y;
+	SDL_Rect dest;
+	SDL_Surface *title, *completion;
+
+	title = generateTextSurface(_("Patching your save game. Please wait..."), game.font, 220, 220, 220, 0, 0, 0);
+
+	completion = generateTextSurface(message, game.font, 220, 220, 220, 0, 0, 0);
+
+	if (title == NULL || completion == NULL)
+	{
+		return;
+	}
+
+	clearScreen(0, 0, 0);
+
+	y = (SCREEN_HEIGHT - title->h) / 2;
+
+	dest.x = (SCREEN_WIDTH - title->w) / 2;
+	dest.y = y;
+	dest.w = title->w;
+	dest.h = title->h;
+
+	SDL_BlitSurface(title, NULL, game.screen, &dest);
+
+	y += title->h + 15;
+
+	dest.x = (SCREEN_WIDTH - completion->w) / 2;
+	dest.y = y;
+	dest.w = completion->w;
+	dest.h = completion->h;
+
+	SDL_BlitSurface(completion, NULL, game.screen, &dest);
+
+	SDL_FreeSurface(title);
+
+	SDL_FreeSurface(completion);
+
+	/* Swap the buffers */
+
+	SDL_Flip(game.screen);
 }

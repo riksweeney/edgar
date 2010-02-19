@@ -147,7 +147,7 @@ typedef struct Game
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
-	int kills, batsDrowned, timesEaten, medalSupport, medalSupportDisabled;
+	int kills, batsDrowned, timesEaten, medalSupport;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];

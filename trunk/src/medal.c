@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "medal.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
+#include "input.h"
 
 extern Game game;
 
@@ -46,7 +47,7 @@ void initMedals()
 
 void addMedal(char *medalName)
 {
-	if (medal.connected == TRUE)
+	if (medal.connected == TRUE && medal.privateKeyFound == TRUE)
 	{
 		addMedalToQueue(medalName);
 	}
@@ -240,10 +241,6 @@ int connectToServer()
 
 	if (getPrivateKey(medal.privateKey) == FALSE)
 	{
-		game.medalSupportDisabled = TRUE;
-
-		game.medalSupport = FALSE;
-
 		medal.privateKeyFound = FALSE;
 
 		return 1;
@@ -255,10 +252,6 @@ int connectToServer()
 
 	if (SDLNet_ResolveHost(&medal.ip, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT) == -1)
 	{
-		game.medalSupportDisabled = TRUE;
-
-		game.medalSupport = FALSE;
-
 		printf("Could not connect to medal server: %s\n", SDLNet_GetError());
 
 		return 2;
@@ -375,6 +368,8 @@ void showMedalScreen()
 
 	for (i=0;i<120;i++)
 	{
+		getInput(IN_TITLE);
+
 		clearScreen(0, 0, 0);
 
 		SDL_BlitSurface(game.tempSurface, NULL, game.screen, NULL);
