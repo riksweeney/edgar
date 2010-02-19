@@ -1664,7 +1664,7 @@ msgstr ""
 msgid "Good riddance..."
 msgstr ""
 
-msgid "Huh, dÈj‡ vu..."
+msgid "Huh, d√©j√† vu..."
 msgstr ""
 
 msgid "If the lift is out of order then it must be reset"
@@ -1824,4 +1824,7 @@ msgid "Maybe it's supposed to be yellow..."
 msgstr ""
 
 msgid "A liquid made from eyeballs and tentacles"
+msgstr ""
+
+msgid "Patching your save game. Please wait..."
 msgstr ""

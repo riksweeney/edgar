@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 
 	loadRequiredResources();
 
-	if (game.medalSupport == TRUE || game.medalSupportDisabled == TRUE)
+	if (game.medalSupport == TRUE)
 	{
 		showMedalScreen();
 	}
