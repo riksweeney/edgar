@@ -139,6 +139,10 @@ int main(int argc, char *argv[])
 		showMedalScreen();
 	}
 
+	/* Initialise the game variables */
+
+	initGame();
+	
 	if (loadSlot == -1)
 	{
 		firstMap = game.firstRun == TRUE ? "tutorial" : "map01";
@@ -194,10 +198,6 @@ int main(int argc, char *argv[])
 			setReplayData(argv[replayingID], TRUE);
 		}
 	}
-
-	/* Initialise the game variables */
-
-	initGame();
 
 	/* Loop indefinitely for messages */
 
