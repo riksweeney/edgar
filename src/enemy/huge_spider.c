@@ -125,15 +125,19 @@ static void moveToTarget()
 {
 	checkToMap(self);
 
-	if (self->targetX < self->startX || self->targetX > self->endX)
+	if (self->x < self->startX || self->x > self->endX)
 	{
+		self->x = self->x < self->startX ? self->startX : self->endX;
+		
 		self->dirX = 0;
 
 		self->dirY = 0;
 	}
 
-	if (self->targetY < self->startY || self->targetY > self->endY)
+	if (self->y < self->startY || self->y > self->endY)
 	{
+		self->y = self->y < self->startY ? self->startY : self->endY;
+		
 		self->dirX = 0;
 
 		self->dirY = 0;

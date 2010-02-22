@@ -15,106 +15,106 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr "Snel naar links en rechts af te schudden van de modder!"
+msgstr "Snabbt vänster och höger för att skaka av slimes!"
 
 msgid "Bow"
 msgstr "Bow"
 
 msgid "Not working in this version!"
-msgstr "Niet werken in deze versie!"
+msgstr "Fungerar inte i denna version!"
 
 msgid "Press Action to interact"
-msgstr "Druk op actie om samen te werken"
+msgstr "Tryck Åtgärder för att interagera"
 
 msgid "%s is required"
-msgstr "%s is vereist"
+msgstr "%s krävs"
 
 msgid "Bomb"
 msgstr "Bomb"
 
 msgid "Small Rock"
-msgstr "Kleine Rock"
+msgstr "Liten Rock"
 
 msgid "Press Action to retrieve Purple Gem"
-msgstr "Druk Actie ophalen Purple Gem"
+msgstr "Tryck Åtgärder för att hämta Purple Gem"
 
 msgid "Chicken"
-msgstr "Kip"
+msgstr "Kyckling"
 
 msgid "Tesla Pack"
 msgstr "Tesla Pack"
 
 msgid "Press Action to retrieve Tesla Pack"
-msgstr "Druk op Action op te halen Tesla Pack"
+msgstr "Tryck Åtgärder för att hämta Tesla Pack"
 
 msgid "Press Action to replace Tesla Pack"
-msgstr "Druk actie te vervangen Tesla Pack"
+msgstr "Tryck Åtgärder för att ersätta Tesla Pack"
 
 msgid "Obtained %s"
-msgstr "Verkregen %s"
+msgstr "Erhållits %s"
 
 msgid "Complete"
-msgstr "Complete"
+msgstr "Komplett"
 
 msgid "%d more to go..."
-msgstr "%d meer te gaan ..."
+msgstr "%d more to go ..."
 
 msgid "Used %s"
-msgstr "Gebruikt %s"
+msgstr "Används %s"
 
 msgid "Cannot equip items whilst transmogrified"
-msgstr "Kan geen items uit te rusten terwijl transmogrified"
+msgstr "Kan inte utrusta ex medan transmogrified"
 
 msgid "Equipped %s"
-msgstr "Uitgerust %s"
+msgstr "Utrustad %s"
 
 msgid "Maximum health has increased!"
-msgstr "Maximum gezondheid is toegenomen!"
+msgstr "Högsta hälsa har ökat!"
 
 msgid "Bow will now fire %s"
-msgstr "Bow zal nu brand %s"
+msgstr "Bow kommer nu eld %s"
 
 msgid "A bow is required to use this item"
-msgstr "Een boog is verplicht gebruik te maken dit item"
+msgstr "En båge är skyldig att använda denna post"
 
 msgid "Cannot transmogrify here..."
-msgstr "Kan niet transmogrify hier ..."
+msgstr "Kan inte transmogrify här ..."
 
 msgid "Yes"
 msgstr "Ja"
 
 msgid "No"
-msgstr "Nee"
+msgstr "Nej"
 
 msgid "Start a new game?"
-msgstr "Start een nieuw spel?"
+msgstr "Starta ett nytt spel?"
 
 msgid "Play the tutorial?"
-msgstr "Speel de tutorial?"
+msgstr "Spela handledningen?"
 
 msgid "Exit the game?"
-msgstr "Verlaat het spel?"
+msgstr "Avslutar spelet?"
 
 msgid "Back"
-msgstr "Terug"
+msgstr "Tillbaka"
 
 msgid "Game Loaded"
 msgstr "Game Loaded"
 
 msgid "Game Saved"
-msgstr "Game Opgeslagen"
+msgstr "Sparade spel"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Any unsaved progress will be lost"
-msgstr "Elke opgeslagen vooruitgang zal worden verloren"
+msgstr "Osparade framsteg kommer att gå förlorade"
 
 msgid "Joy Button #%d"
 msgstr "Joy Button # %d"
 
 msgid "Press Action to talk to %s"
-msgstr "Druk op actie om te praten tot %s"
+msgstr "Tryck Åtgärder för att tala till %s"
 
 msgid "%d"
 msgstr "%d"
@@ -123,67 +123,67 @@ msgid "%s (%d / %d)"
 msgstr "%s (%d / %d)"
 
 msgid "New Objective: %s"
-msgstr "Nieuwe doelstelling: %s"
+msgstr "Det nya mål: %s"
 
 msgid "Objective Completed: %s"
-msgstr "Doelstelling Afgesloten: %s"
+msgstr "Mål Completed: %s"
 
 msgid "The wall on the right looks weak..."
-msgstr "De muur aan de rechterkant ziet er zwak ..."
+msgstr "Väggen till höger ser svag ..."
 
 msgid "This weapon is not having any effect..."
-msgstr "Dit wapen is geen invloed heeft ..."
+msgstr "Detta vapen är inte att ha någon effekt ..."
 
 msgid "Press Action to attach the Tesla Pack"
-msgstr "Druk op actie te hechten de Tesla Pack"
+msgstr "Tryck Åtgärder för att fästa Tesla Pack"
 
 msgid "The Legend of Edgar"
-msgstr "De legende van Edgar"
+msgstr "The Legend of Edgar"
 
 msgid "%s is needed to activate this switch"
-msgstr "%s euro is nodig om deze schakelaar te activeren"
+msgstr "%s behövs för att aktivera denna växel"
 
 msgid "Press Action to use this switch"
-msgstr "Druk op actie om deze schakelaar"
+msgstr "Tryck Åtgärder för att använda denna växel"
 
 msgid "Press Action to save your game"
-msgstr "Druk op actie om je spel opslaan"
+msgstr "Tryck Åtgärder för att spara dina spel"
 
 msgid "%s is required to use this Pressure Plate"
-msgstr "%s euro is nodig om deze druk te gebruiken Plate"
+msgstr "%s krävs för att använda denna tryckplatta"
 
 msgid "%s is needed to open this door"
-msgstr "%s euro is nodig om deze open deur"
+msgstr "%s krävs för att öppna dörren"
 
 msgid "This door is locked"
-msgstr "Deze deur is vergrendeld"
+msgstr "Dörren är låst"
 
 msgid "This teleporter is not active"
-msgstr "Dit teleporter is niet actief"
+msgstr "Detta teleporter är inte aktiv"
 
 msgid "Press Action to go to the %s"
-msgstr "Druk op actie om naar de %s"
+msgstr "Tryck Åtgärder för att gå till %s"
 
 msgid "Push Up or Down to use this lift"
-msgstr "Push Up of Down om deze lift"
+msgstr "Tryck uppåt eller nedåt för använda denna hiss"
 
 msgid "This lift is not active"
-msgstr "Deze lift is niet actief"
+msgstr "Denna hiss är inte aktiv"
 
 msgid "Cannot carry any more %s"
-msgstr "Kan niet meer dragen %s"
+msgstr "Får inte bära någon mer %s"
 
 msgid "Picked up %s x %d"
-msgstr "Opgepikt %s x %d"
+msgstr "Plockade upp %s x %d"
 
 msgid "Picked up %s"
-msgstr "Opgepikt %s"
+msgstr "Plockat upp %s"
 
 msgid "Readied %s"
 msgstr "Readied %s"
 
 msgid "%s is required to carry this item"
-msgstr "%s euro is nodig om dit item"
+msgstr "%s krävs för att genomföra denna punkt"
 
 msgid "%s (%d)"
 msgstr "%s (%d)"
@@ -192,652 +192,652 @@ msgid "%s"
 msgstr "%s"
 
 msgid "Storage Key"
-msgstr "Storage"
+msgstr "Kontrollerkort"
 
 msgid "Coal Bag Storage Switch Key"
-msgstr "Kolen Bag Storage Switch Key"
+msgstr "Kol Bag Storage Switch Key"
 
 msgid "Large Room Key"
-msgstr "Grote Zaal Key"
+msgstr "Large rumsnyckel"
 
 msgid "Coal Bag"
-msgstr "Kolen Bag"
+msgstr "Kol Bag"
 
 msgid "Forest Cell Key"
 msgstr "Forest Cell Key"
 
 msgid "Wood Axe"
-msgstr "Hout Axe"
+msgstr "Wood Axe"
 
 msgid "Health Potion"
 msgstr "Health Potion"
 
 msgid "Outflow Key"
-msgstr "Uitstroom Key"
+msgstr "Utflöden Key"
 
 msgid "Flow Control Key"
 msgstr "Flow Control Key"
 
 msgid "Waste Processing Key"
-msgstr "Afvalverwerking Key"
+msgstr "Avfallshantering Key"
 
 msgid "Access Key 1"
-msgstr "Toegangssleutel 1"
+msgstr "Access Key 1"
 
 msgid "Access Key 2"
 msgstr "Access Key 2"
 
 msgid "Access Key 3"
-msgstr "Sneltoets 3"
+msgstr "Snabbtangent 3"
 
 msgid "Trap Door Switch Key"
 msgstr "Trap Door Switch Key"
 
 msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr "Deze lift heeft geen macht. Ik zal niet in staat zijn om het te gebruiken totdat ik weer de macht"
+msgstr "Denna hiss har ingen makt. Jag kommer inte att kunna använda den tills jag återställa makt"
 
 msgid "Keep practising!"
-msgstr "Blijf oefenen!"
+msgstr "Keep praktiserande!"
 
 msgid "Hi"
-msgstr "Hoi"
+msgstr "Hej"
 
 msgid "Hello Edgar"
-msgstr "Hallo Edgar"
+msgstr "Hello Edgar"
 
 msgid "Can I borrow your shield?"
-msgstr "Kan ik lenen je schild?"
+msgstr "Får jag låna din sköld?"
 
 msgid "Off to practice your fighting skills?"
-msgstr "Uit de praktijk uw vechten vaardigheden?"
+msgstr "Off för att öva dina färdigheter slåss?"
 
 msgid "Something like that"
-msgstr "Zoiets"
+msgstr "Something like that"
 
 msgid "If you run me an errand then you can have the shield"
-msgstr "Mocht u mij een boodschap dan kun je het schild hebben"
+msgstr "Om du kör mig ett ärende kan du ha skölden"
 
 msgid "What do I have to do?"
-msgstr "Wat moet ik doen?"
+msgstr "Vad ska jag göra?"
 
 msgid "Go to the mine and collect me some coal"
-msgstr "Ga naar de mijn en het verzamelen van mij wat kolen"
+msgstr "Gå till gruvan och samla mig lite kol"
 
 msgid "But we have plenty of coal!"
-msgstr "Maar we hebben genoeg van kolen!"
+msgstr "Men vi har gott om kol!"
 
 msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
-msgstr "Ja, maar dit is geen oude kolen, steenkool deze special is, brandt het warmer en langer"
+msgstr "Ja, men detta är inte något gammalt kol, är kol speciell, brinner det varmare och varar längre"
 
 msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr "Ik hoef maar 10 stuks van het spul, zodat het niet moet u erg lang"
+msgstr "Jag behöver bara 10 stycken av prylarna, så bör det inte ta så lång"
 
 msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
-msgstr "Zorg ervoor dat u hem in een zak, aan te raken te lang zal zijn slecht voor je gezondheid"
+msgstr "Se till att du lägger den i en påse, rörande det för länge kommer att vara dåligt för hälsan"
 
 msgid "Do you have a bag?"
-msgstr "Heeft u een tas?"
+msgstr "Har du en väska?"
 
 msgid "No, you can probably find one in the mine though"
-msgstr "Nee, dat kan je waarschijnlijk een vinden in de mijn al"
+msgstr "Nej, kan du förmodligen hitta en i gruvan men"
 
 msgid "OK, I'll get the coal"
-msgstr "OK, ik krijg de kolen"
+msgstr "OK, jag får kol"
 
 msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
-msgstr "Hier, neem dit pikhouweel. U kunt het gebruiken om mij de kolen-en hacken via alle zwakkere muren die je tegenkomt"
+msgstr "Här, ta hackan. Du kan använda den för att bryta kol och hacka genom något svagare väggar du påträffar"
 
 msgid "You'll also need this key to get into the mine"
-msgstr "U moet ook deze toets om in de mijn"
+msgstr "Du måste även denna nyckel för att komma in i gruvan"
 
 msgid "Thanks!"
-msgstr "Bedankt!"
+msgstr "Tack!"
 
 msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
-msgstr "Dank u, Edgar, deze steenkool is perfect! Hoop dat de vleermuizen niet schrikken."
+msgstr "Tack, Edgar, detta kol är perfekt! Hoppas att fladdermössen inte skrämma dig."
 
 msgid "The bats were the least of my worries..."
-msgstr "De vleermuizen waren de minste van mijn zorgen ..."
+msgstr "Det fladdermöss var det minsta av mina bekymmer ..."
 
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr "Zeg, ik hoorde dat er iets gebeurd in dat de mijne een paar jaar geleden"
+msgstr "Säg, hörde jag att något hände i min några år sedan"
 
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr "Eh, ja, er was wat je zou een  incident noemen , maar dat een deel van de mijn is verzegeld een lange tijd geleden"
+msgstr "Er, ja, det var vad du skulle kalla en  incident , men den del av gruvan var förseglade upp för länge sedan"
 
 msgid "Right..."
 msgstr "Right ..."
 
 msgid "Here, have my shield and have fun!"
-msgstr "Hier hebben mijn schild en veel plezier!"
+msgstr "Här har min sköld och ha kul!"
 
 msgid "Just stay away from the Forbidden Swamp"
-msgstr "Blijf uit de buurt van de Verboden Swamp"
+msgstr "Håll dig borta från den Förbjudna Swamp"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr "Zullen doen, kan ik vasthouden aan je pikhouweel voor een tijdje?"
+msgstr "Kommer att göra, kan jag hålla på din hackan ett tag?"
 
 msgid "Sure thing, just bring it back in one piece"
-msgstr "Tuurlijk, maar breng het terug in een stuk"
+msgstr "Sure thing, bara sätta tillbaka den i ett stycke"
 
 msgid "Thanks, Borgan!"
-msgstr "Thanks, Borgan!"
+msgstr "Tack, Borgan!"
 
 msgid "Have you managed to find the coal yet?"
-msgstr "Heeft u geslaagd om de kolen te vinden toch?"
+msgstr "Har ni lyckats hitta kol än?"
 
 msgid "You can pull some items around by pushing against them whilst holding down the Action button."
-msgstr "U kunt een aantal items rond trekken door te duwen tegen hen ingedrukt te houden terwijl de actie knop."
+msgstr "Du kan dra några poster runt genom att skjuta mot dem och samtidigt hålla nere funktionsknapp."
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr "U kunt dan trek het rond totdat je laten gaan van de actietoets"
+msgstr "Du kan sedan dra den runt tills du släpper funktionsknapp"
 
 msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
-msgstr "Deze rots lijkt te sterk voor mijn Pick Axe. Ik moet iets anders gebruiken om door ..."
+msgstr "Denna sten ser för stark för min Pick Axe. Jag måste använda något annat att komma igenom ..."
 
 msgid "Urgh, what happened?"
-msgstr "Zucht, wat is er gebeurd?"
+msgstr "Blä, vad hände?"
 
 msgid "Looks like this wasn't such a good idea after all"
-msgstr "Het lijkt erop dat dit niet zo'n goed idee na alle"
+msgstr "Ser ut som om detta inte var så bra idé trots allt"
 
 msgid "There must be way out of here..."
-msgstr "Er moet een uitweg hier ..."
+msgstr "Det måste vara vägen ut härifrån ..."
 
 msgid "This must be the coal wants me to mine for him"
-msgstr "Dit moet de kolen wil dat ik mij voor hem"
+msgstr "Detta måste vara kol vill jag att mina för honom"
 
 msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
-msgstr "Ik denk niet dat mijn schild zal mij beschermen tegen die vuurballen. Ik moet op zoek naar een sterkere ..."
+msgstr "Jag tror inte min sköld kommer att skydda mig från dessa eldklot. Jag måste hitta en starkare en ..."
 
 msgid "You won't be able to do this bit in this version, check back later!"
-msgstr "U zult niet in staat zijn om dit stukje te doen in deze versie, check back later!"
+msgstr "Du kommer inte att kunna göra det lite i den här versionen, check back later!"
 
 msgid "Strange creature..."
-msgstr "Strange schepsel ..."
+msgstr "Strange varelse ..."
 
 msgid "Wait, what was that?"
-msgstr "Wacht, wat was dat?"
+msgstr "Vänta, vad var det?"
 
 msgid "You again?!"
-msgstr "Jij weer?!"
+msgstr "Dig igen?!"
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
-msgstr "Iets is verondersteld om hier te gebeuren, maar het is niet in deze versie dus check back later!"
+msgstr "Någonting ska hända här, men det är inte i den här versionen så kontrollera igen senare!"
 
 msgid "Have fun!"
 msgstr "Have fun!"
 
 msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
-msgstr "Bedankt voor resucing mijn kippen, heb je me 2 stammen uit het bos nog?"
+msgstr "Tack för resucing mina kycklingar, har du fått mig 2 stockar från skogen ännu?"
 
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr "Bedankt Edgar! Mijn kippen zijn terug en deze logs zullen doen me prima"
+msgstr "Tack Edgar! Mina kycklingar är tillbaka och dessa loggar kommer att göra mig fin"
 
 msgid "Take this sword, may it serve you well!"
-msgstr "Neem dit zwaard, kan het ook u van dienst zijn!"
+msgstr "Tag detta svärd, kan det hjälpa dig också!"
 
 msgid "Thank you!"
-msgstr "Bedankt!"
+msgstr "Tack!"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr "Bedankt voor de logs, heb je geluk gehad met de kippen?"
+msgstr "Tack för loggar, har ni haft någon lycka med kycklingarna?"
 
 msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
-msgstr "Ik geef je een zwaard als je me 2 get gehakte stammen uit het bos-en reddingsacties ten minste 3 van mijn kippen"
+msgstr "Jag ska ge dig ett svärd om du får mig 2 hackade stockar från skogen och rädda minst 3 av mina kycklingar"
 
 msgid "Hello Edgar, what can I do for you today?"
-msgstr "Hallo Edgar, wat kan ik voor je doen vandaag?"
+msgstr "Hello Edgar, vad kan jag göra för dig idag?"
 
 msgid "Do you have a sword I can borrow?"
-msgstr "Heeft u een zwaard kan ik lenen?"
+msgstr "Har du ett svärd jag kan låna?"
 
 msgid "I do have a sword and you can have it if you do something for me first"
-msgstr "Ik heb een zwaard en je kunt hebben als je iets voor mij eerst"
+msgstr "Jag har ett svärd och du kan få det om du gör något för mig först"
 
 msgid "OK... what do I have to do?"
-msgstr "OK ... wat moet ik doen?"
+msgstr "OK ... vad ska jag göra?"
 
 msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
-msgstr "Sommige van mijn kippen zijn ontsnapt uit hun pen en ik zou zeer dankbaar zijn als je terug kunt krijgen ze voor mij"
+msgstr "Några av mina kycklingar har rymt från sin penna och jag skulle vara mycket tacksam om du kan få dem tillbaka till mig"
 
 msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
-msgstr "Ik heb ingesteld voor enkele valstrikken in de buurt van hun pen, kun je ze lokken naar de vallen met behulp van deze kippenvoer. Ik hoef ze niet allemaal, maar ten minste 3 zou zeer nuttig zijn. Kan ik de rest zelf."
+msgstr "Jag har satt upp några fällor i närheten av deras boxar, kan du lura dem till fällorna med denna struntsumma. Jag behöver inte dem alla, men åtminstone 3 skulle vara till stor hjälp. Jag kan få tag på resten själv."
 
 msgid "That's it?"
 msgstr "That's it?"
 
 msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
-msgstr "Niet helemaal. Kunt u krijgt ook mij wat hout uit het bos? 2 logs moet voldoende"
+msgstr "Inte riktigt. Kan du få mig också en del virke från skogen? 2 Stockarna bör vara tillräckligt"
 
 msgid "Do you have an axe?"
-msgstr "Heeft u een bijl?"
+msgstr "Har du en yxa?"
 
 msgid "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr "Erm ... Ik liet mijn bijl ergens in het bos. Het moet nog steeds worden er"
+msgstr "Erm ... Jag lämnade min yxa i skogen någonstans. Det bör fortfarande vara där"
 
 msgid "Isn't that forest dangerous?"
-msgstr "Is dat niet het bos gevaarlijk?"
+msgstr "Är det inte skogen farlig?"
 
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr "Niet echt, als er iets in de weg staat, klik je met een wapen"
+msgstr "Inte riktigt, om något i vägen för dig, du bara på den med ett vapen"
 
 msgid "Such as an axe?"
-msgstr "Zoals een bijl?"
+msgstr "Såsom en yxa?"
 
 msgid "Yes, that would do the trick"
-msgstr "Ja, dat zou de truc"
+msgstr "Ja, det skulle göra susen"
 
 msgid "..."
 msgstr "..."
 
 msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
-msgstr "Maar serieus, er is niets in dat er echt kan u schaden. Dat probleem werd behandeld met een lange tijd geleden ..."
+msgstr "Men allvarligt, det finns inget i det som verkligen kan skada dig. Detta problem har behandlats för länge sedan ..."
 
 msgid "Good luck!"
-msgstr "Succes!"
+msgstr "Lycka till!"
 
 msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr "Oh, dank Edgar, ik alleen nodig 3, maar bedankt voor de extra hulp!"
+msgstr "Åh, tack Edgar, behövde jag bara 3, men tack för den extra hjälp!"
 
 msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
-msgstr "Hier, Maggie maakte me dit drankje de gezondheid, maar ik niet zo nodig hebt waarom je niet hebt?"
+msgstr "Här gjorde Maggie mig denna hälsa dryck men jag behöver inte det så varför inte du det?"
 
 msgid "Thanks Jacob"
-msgstr "Bedankt Jacob"
+msgstr "Tack Jacob"
 
 msgid "Wow, you caught them all, thanks alot!"
-msgstr "Wow, je ze allemaal gevangen, thanks a lot!"
+msgstr "Wow, fångad du dem alla, tack så mycket!"
 
 msgid "Here, I have these for you"
-msgstr "Hier heb ik deze voor u"
+msgstr "Här har jag här för dig"
 
 msgid "Maggie made me this health potion but you can have it"
-msgstr "Maggie heeft me dit drankje de gezondheid, maar je kunt het hebben"
+msgstr "Maggie fick mig att detta hälsa dryck men du kan få det"
 
 msgid "And this is something very special"
-msgstr "En dit is iets heel bijzonders"
+msgstr "Och detta är något väldigt speciellt"
 
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "Moge deze helpen je op weg om een sterke krijger"
+msgstr "Detta kan hjälpa dig på din väg att bli en stark krigare"
 
 msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
-msgstr "Je hebt me een hoop tijd. Maggie heeft me iets anders, maar omdat je zo nuttig geweest, kun je het hebben."
+msgstr "Du räddade mig en massa tid. Maggie fick mig något annat men eftersom ni har varit så hjälpsamma, kan du få det."
 
 msgid "Hi Maggie"
-msgstr "Hoi Maggie"
+msgstr "Hej Maggie"
 
 msgid "Thanks Maggie!"
-msgstr "Thanks Maggie!"
+msgstr "Tack Maggie!"
 
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr "Borgan gezegd dat een deel van de mijn is verzegeld na een  incident "
+msgstr "Borgan sa att en del av gruvan var förseglad upp efter ett  incident "
 
 msgid "There must be something around here..."
-msgstr "Er moet iets hier ..."
+msgstr "Det måste finnas något här ..."
 
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr "Drat, de ophaalbrug is up. Er moet een andere ingang ..."
+msgstr "DrAT är vindbryggan upp. Det måste finnas en annan ingång ..."
 
 msgid "Wait, what's that?"
-msgstr "Wacht, wat is dat?"
+msgstr "Vänta, vad är det?"
 
 msgid "Maybe I could tunnel my way in..."
-msgstr "Misschien kan ik mijn weg tunnel inch .."
+msgstr "Kanske jag kunde tunnel min väg in .."
 
 msgid "These machines aren't working."
-msgstr "Deze machines werken niet."
+msgstr "Dessa maskiner är inte arbetar."
 
 msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
-msgstr "Het ziet eruit als een juweel moeten passen in dit gat, misschien kan ik u enkele vervangingen."
+msgstr "Det ser ut som en pärla ska passa i hålet, kanske jag kan hitta några ersättare."
 
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
-msgstr "Het lijkt erop dat deze stevig is ingeklemd in. Ik kan waarschijnlijk los met de houweel ..."
+msgstr "Det ser ut som det är tätt inklämd där. Jag kan nog lossa den med hackan ..."
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr "Om naar de Verboden Swamp ik nodig hebt om een vlot te bouwen."
+msgstr "För att komma till Förbjudna Swamp jag behöver för att bygga en flotte."
 
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr "Ik kan het vlot bouwen als ik hakken genoeg bomen uit het bos"
+msgstr "Jag kan bygga flotten, om jag hugga ner tillräckligt träd från skogen"
 
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr "Ik heb 6 Chopped Logs het bouwen van een vlot"
+msgstr "Jag behöver 6 hackade Loggar att bygga en flotte"
 
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr "Ik ga niet naar het moeras zonder een zwaard en schild"
+msgstr "Jag tänker inte träsket utan ett svärd och sköld"
 
 msgid "OK, here goes!"
-msgstr "OK, hier gaat!"
+msgstr "OK, here goes!"
 
 msgid "Aw, not again!"
-msgstr "Aw, niet weer!"
+msgstr "Aw, inte igen!"
 
 msgid "This had better be the last time I have to do this..."
-msgstr "Dit had beter de laatste tijd heb ik om dit te doen ..."
+msgstr "Detta hade bättre vara sista gången jag behöver göra detta ..."
 
 msgid "That was easy! And I can always get back later!"
-msgstr "Dat was makkelijk! En ik altijd terug kan krijgen later!"
+msgstr "Det var lätt! Och jag kan alltid komma tillbaka senare!"
 
 msgid "Oh...."
 msgstr "Oh ...."
 
 msgid "Guess I have no choice now."
-msgstr "Guess Ik heb geen keus nu."
+msgstr "Antar att jag har inget val nu."
 
 msgid "Hang on Dad, I'm coming..."
-msgstr "Wacht Pap, ik kom ..."
+msgstr "Hang on Pappa, jag kommer ..."
 
 msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
-msgstr "Iets is verondersteld nu gebeuren, maar het is niet in deze versie. Check back later!"
+msgstr "Det är något som ska hända nu, men det är inte i denna version. Check back later!"
 
 msgid "There's a note here"
-msgstr "Er is een notitie hier"
+msgstr "Det finns en anteckning här"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "Ik heb gevangen hier beneden voor wat lijkt een eeuwigheid"
+msgstr "Jag har varit instängd här nere för vad som känns som en evighet"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "Om uit deze plaats ik 3 Toegang Sleutels tot de liften werken"
+msgstr "Att komma ur denna plats jag behöver 3 Access Keys arbeta hissarna"
 
 msgid "So far I have only found 1"
-msgstr "Tot nu toe heb ik alleen gevonden 1"
+msgstr "Hittills har jag bara hittat 1"
 
 msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
-msgstr "Tot overmaat van ramp, kan ik alleen maar bereiken sommige switches met een zorgvuldig geplaatste pijl"
+msgstr "För att göra saken värre, kan jag bara når vissa växlar med en väl placerad pil"
 
 msgid "But spares aren't common and I have run out"
-msgstr "Maar onderdelen zijn niet gebruikelijk en ik heb uitgeput"
+msgstr "Men reservdelar är inte vanliga och jag har tagit slut"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr "Als ik niet een uitweg te vinden hier binnenkort, vrees ik dat ik kan verhongeren"
+msgstr "Om jag inte hittar en väg ut härifrån snart, fruktar jag att jag får svälta"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr "Als ik niet hier weg ik zal hetzelfde lot ..."
+msgstr "Om jag inte får ut härifrån ska jag samma öde till mötes ..."
 
 msgid "Oh, what's this?"
-msgstr "O, wat is dit?"
+msgstr "Åh, vad?"
 
 msgid "There's a note here too"
-msgstr "Er is een notitie ook hier"
+msgstr "Det finns en anteckning här också"
 
 msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
-msgstr "Het drankje is perfect! Quaffing het zal weer een mens in een schepsel voor een kleine hoeveelheid tijd"
+msgstr "Drycken är perfekt! Quaffing det kommer att förvandla en människa till en varelse för en liten tid"
 
 msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
-msgstr "Tot nu toe kan ik alleen maar transmogrify mezelf in een schepsel, maar met een beetje meer tijd alles moet mogelijk"
+msgstr "Hittills kan jag bara transmogrify mig till en varelse, men med lite mer tid något skulle vara möjligt"
 
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr "Er is een klein beetje naar links, moet het veilig om te drinken"
+msgstr "Det finns en liten bit kvar, bör det vara säkert att dricka"
 
 msgid "OK, here goes nothing..."
-msgstr "OK, hier gaat niets ..."
+msgstr "OK, here goes nothing ..."
 
 msgid "Urgh!! This is horrible!"
-msgstr "Urgh! Dit is verschrikkelijk!"
+msgstr "Blä! Detta är förfärligt!"
 
 msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
-msgstr "Borgan vertelde me dat Slimes kunnen zwemmen in het water al, dus misschien is dit nuttig zal zijn ..."
+msgstr "Borgan berättade att slimes kan simma i vatten om, så kanske detta kommer att vara nyttig ..."
 
 msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
-msgstr "Wanneer omgevormd tot een Slijm, kunt u bewegen als normaal. U kunt ook zwemmen in het water en het gebruik op en neer te bewegen"
+msgstr "När förvandlas till ett Slime, kan du flytta runt som vanligt. Du kan också bada i vatten och använda upp och ner för att flytta runt"
 
 msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
-msgstr "Pushing up of springen zal je uit het water springen als je in de buurt van het oppervlak"
+msgstr "Skjuta upp eller hoppa får dig att hoppa upp ur vattnet om du är nära ytan"
 
 msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
-msgstr "Houd een oogje op de timer op de onderkant van het scherm. Als het 0 bereikt u automatisch wordt weer mens"
+msgstr "Håll ett öga på timern längst ner på skärmen. När det når 0 kommer du automatiskt att bli människa igen"
 
 msgid "This place doesn't look so bad..."
-msgstr "Deze plek ziet er niet zo slecht ..."
+msgstr "Det här stället ser inte så illa ..."
 
 msgid "What was that?"
-msgstr "Wat was dat?"
+msgstr "Vad var det?"
 
 msgid "Uh Oh..."
 msgstr "Uh Oh ..."
 
 msgid "Phew, I'm glad to be out of there"
-msgstr "Oef, ik ben blij dat zijn er"
+msgstr "Phew, jag är glad att vara därifrån"
 
 msgid "Now to get through this swamp"
-msgstr "Nu te krijgen door dit moeras"
+msgstr "Nu för att få igenom detta träsk"
 
 msgid "Hey, what's this?"
-msgstr "He, wat is dit?"
+msgstr "Hey, what's this?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr "Ziet er vrij onschuldig, ik zal proberen stap op het"
+msgstr "Ser ganska harmlösa, jag ska försöka att trampa på den"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr "Wow Dat was cool! Dit moet een mechanische teleporter."
+msgstr "Wow! Det var cool! Detta måste vara en mekanisk teleporter."
 
 msgid "I wonder if it works both ways..."
-msgstr "Ik vraag me af of het in beide richtingen werken ..."
+msgstr "Jag undrar om det fungerar åt båda hållen ..."
 
 msgid "Horray!"
 msgstr "Horray!"
 
 msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr "Niet alleen gaat dit op te slaan me veel wandelen, het is ook heel veel plezier!"
+msgstr "Detta är inte bara kommer att spara mig en hel del promenader, är det också massor med kul!"
 
 msgid "Now try out your shield"
-msgstr "Nu probeer je schild"
+msgstr "Nu testa din sköld"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr "Blokkeer de pellets spuwde door de plant en spring tot de volgende richel"
+msgstr "Blockera pellets spottas ut från anläggningen och hoppa upp till nästa avsats"
 
 msgid "Some items in the game can be pushed and pulled"
-msgstr "Sommige objecten in het spel kan worden geduwd en getrokken"
+msgstr "Vissa objekt i spelet kan skjuts eller dras"
 
 msgid "To push an item, simply walk into it"
-msgstr "Duwen een item, gewoon lopen in het"
+msgstr "För att driva ett objekt, helt enkelt gå in i den"
 
 msgid "To pull an item, walk into while holding down Action"
-msgstr "Te trekken een item, wandeling in terwijl u Actie"
+msgstr "Att dra ett objekt, gå in nedtryckt Action"
 
 msgid "You can then pull the item around until you let go of Action"
-msgstr "U kunt dan trek het item rond totdat je loslaten van actie"
+msgstr "Du kan sedan dra objektet runt tills du släpper Action"
 
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr "Trek de doos over de andere kant en gebruik deze om de richel te bereiken"
+msgstr "Dra rutan framför den andra sidan och använd den för att nå kanten"
 
 msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
-msgstr "Dit is het laatste deel van de tutorial en leert je te blokkeren en vijanden aanvallen"
+msgstr "Detta är den sista delen av tutorial och lär dig att blockera och attackera fiender"
 
 msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
-msgstr "Ten eerste moet je het zwaard te rusten, aangezien het meer bereik heeft en doet meer schade dan de pikhouweel"
+msgstr "Först måste du skaffa ett svärd eftersom den har större omfång och gör mer skada än Hackyxan"
 
 msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
-msgstr "Druk op z om uw inventaris, markeert het zwaard en druk op Attack (linker ctrl) of gebruik punt (a)"
+msgstr "Tryck på z för att visa ditt lager, markera svärd och tryck Attack (vänster ctrl) eller Använd punkt (a)"
 
 msgid "Press z again to close your inventory"
-msgstr "Druk nogmaals op Z te sluiten je inventory"
+msgstr "Tryck på Z igen för att stänga din inventering"
 
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
-msgstr "Af en toe zal verslagen vijanden druppel gezondheid, die zal verdwijnen na een paar seconden, dus pak het snel!"
+msgstr "Ibland kommer dräpta fiender släppa hälsa som kommer att försvinna efter ett par sekunder, så plocka upp det snabbt!"
 
 msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
-msgstr "Als een vleermuis wordt steeds dicht bij u, houd blok en het zal onschuldig stuiteren u"
+msgstr "Om en fladdermus är att lära dig nära, hålla blocket och det kommer ofarligt studsa dig"
 
 msgid "Now kill all of the bats in the area!"
-msgstr "Nu alle doden van de vleermuizen in het gebied!"
+msgstr "Nu dödar alla fladdermöss i området!"
 
 msgid "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr "Er zijn twee soorten van de deur in het spel. Handleiding deuren en automatische deuren."
+msgstr "Det finns två typer av dörrar i spelet. Manuell dörrar och dörrautomatik."
 
 msgid "Manual doors require keys to open them, Automatic doors require switches."
-msgstr "Handleiding deuren een sleutel kunnen worden geopend, Automatische deuren vereisen schakelaars."
+msgstr "Manuella dörrar kräver nycklar att öppna dem, Automatiska dörrar kräver växlar."
 
 msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
-msgstr "U opent een gesloten deur die u hebt de sleutel voor, u loopt gewoon in. Er is geen noodzaak om de sleutel geselecteerd in je inventaris hebben."
+msgstr "Att öppna en låst dörr som du har nyckeln till, helt enkelt gå in i den. Det finns ingen anledning att ha nyckeln valt i ditt lager."
 
 msgid "Open the door and continue to the right"
-msgstr "Open de deur en verder naar rechts"
+msgstr "Öppna dörren och fortsätt till höger"
 
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
-msgstr "Felicitaties! Nu weet je de basisbeginselen van het spelen moet je proberen de belangrijkste wedstrijd"
+msgstr "Gratulationer! Nu känner du till grunderna i att spela ska du prova huvudspelet"
 
 msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
-msgstr "Als u wilt replay deze tutorial, drukt u op Escape en Tutorial kies uit het menu"
+msgstr "Om du vill spela den här läraren, tryck Escape och välj sedan Handledning från menyn"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr "Om te spelen de belangrijkste wedstrijd, drukt u op Escape en selecteer Nieuw spel in het menu"
+msgstr "Att spela den viktigaste spelet, tryck Escape och välj Nytt spel från menyn"
 
 msgid "Press Space when you have finished reading to go to the next dialog box"
-msgstr "Druk op Ruimte als u klaar bent met lezen om naar het volgende dialoogvenster"
+msgstr "Tryck utrymme när du läst klart att gå till nästa dialogruta"
 
 msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr "U kunt ook naar het volgende dialoogvenster door te drukken Attack (links Ctrl), Blok (links alt), Jump (ruimte), Action (c) of Gebruik punt (a)"
+msgstr "Du kan också gå till nästa dialogruta genom att trycka Attack (vänster ctrl), Block (vänster alt), Jump (rymd), Action (c) eller Använd punkt (a)"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
-msgstr "Dit is de tutorial voor de legende van Edgar. Deze tutorial zal uitleggen hoe het spel spelen."
+msgstr "Detta är handledningen för The Legend of Edgar. Denna handledning kommer att förklara hur man spelar spelet."
 
 msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
-msgstr "Om af te sluiten deze tutorial, drukt u op Escape en gebruik de Up and Down pijltoetsen om een optie te kiezen. Druk op Return om het te selecteren."
+msgstr "För att avsluta denna tutorial, tryck Escape och använda upp / ner piltangenter för att välja ett alternativ. Tryck på Retur för att välja det."
 
 msgid "To move left and right, use the arrow keys."
-msgstr "Om naar links en rechts, gebruik de pijltjestoetsen."
+msgstr "Att gå till vänster och höger, använd piltangenterna."
 
 msgid "To make jump, press space. You can move in the air when jumping."
-msgstr "Om te springen, drukt u op de ruimte. U kunt verplaatsen in de lucht bij het springen."
+msgstr "Göra hoppa trycker mellanslag. Du kan flytta i luften när hoppning."
 
 msgid "To interact with an item, press c"
-msgstr "Om te communiceren met een item, druk c"
+msgstr "Att interagera med ett objekt, tryck på c"
 
 msgid "Walk over to the Action Point and press c"
-msgstr "Loop naar de Action Point en druk op c"
+msgstr "Gå över till Åtgärd och tryck på c"
 
 msgid "To collect an item from your"
-msgstr "Het verzamelen van een item uit uw"
+msgstr "Att samla in ett objekt från din"
 
 msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
-msgstr "Te halen een item, u loopt gewoon in. Elke collectable items worden toegevoegd aan je inventaris."
+msgstr "Att plocka upp ett objekt, helt enkelt gå in i den. Varje samlarobjekt kommer att läggas till ditt lager."
 
 msgid "You can view the contents of your inventory by pressing z"
-msgstr "U kunt de inhoud van uw voorraad door op z"
+msgstr "Du kan visa innehållet i ditt lager genom att trycka på z"
 
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr "Terwijl in de inventaris, gebruik de pijltjestoetsen om de items."
+msgstr "Även i inventeringen, använd piltangenterna för att visa objekten."
 
 msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
-msgstr "U kunt een item onmiddellijk gebruiken door te drukken Attack (linker ctrl) of gebruik punt (a)"
+msgstr "Du kan använda ett objekt omedelbart genom att trycka på Attack (vänster ctrl) eller Använd punkt (a)"
 
 msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
-msgstr "U kunt een item klaar voor gebruik door te drukken Blok (links alt) of Action (c)"
+msgstr "Du kan klara ett objekt för användning genom att trycka Block (vänster alt) eller Action (c)"
 
 msgid "Walk over the key to pick it up"
-msgstr "Loop over de sleutel op te rapen"
+msgstr "Gå över nyckeln för att plocka upp"
 
 msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
-msgstr "U kunt alle controles in het spel door op Escape en Opties in het menu"
+msgstr "Du kan ändra alla kontroller i spelet genom att trycka Escape och välja alternativ på menyn"
 
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr "Selecteer Configure Controls met behulp van de pijltjestoetsen en druk op Return"
+msgstr "Välj Konfigurera Styr med hjälp av piltangenterna och tryck på Retur"
 
 msgid "Use the arrow keys to select the control you want to change and press Return."
-msgstr "Gebruik de pijltjestoetsen om de controle te selecteren die u wilt wijzigen en druk op Return."
+msgstr "Använd piltangenterna för att välja den kontroll du vill ändra och tryck på Retur."
 
 msgid "Next, press the key that you want to use instead."
-msgstr "Druk vervolgens op de toets die u wilt te gebruiken."
+msgstr "Därefter trycker du på knappen som du vill använda istället."
 
 msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
-msgstr "Ongeacht welke toetsen u ook kiest, kunt u altijd de menu's navigeren met behulp van de pijltjestoetsen en Return"
+msgstr "Oavsett vilka tangenter du väljer kan du alltid navigera i menyerna med piltangenterna och Retur"
 
 msgid "Note that in this tutorial, the default keys will be assumed"
-msgstr "Merk op dat in deze tutorial, wordt de standaard toetsen worden aangenomen"
+msgstr "Observera att i denna handledning kommer standard nycklarna antas"
 
 msgid "When you have finished configuring the keys, go right to the next Action Point"
-msgstr "Wanneer u klaar bent met het configureren van de toetsen, ga rechts naar de volgende Actiepunt"
+msgstr "När du har konfigurerat knapparna, gå till höger till nästa Action Point"
 
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr "De houweel is een van de vele wapens die je zal tegenkomen in het spel"
+msgstr "Hackyxan är ett av många vapen du kommer att möta i spelet"
 
 msgid "You can use it as both a weapon and a tool"
-msgstr "Je kunt het als een wapen en een instrument"
+msgstr "Du kan använda det både som ett vapen och ett verktyg"
 
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr "Pak de houweel en verder met de volgende Actiepunt"
+msgstr "Plocka upp hacka och fortsätta till nästa Action Point"
 
 msgid "Congratulations, you found a secret!"
-msgstr "Gefeliciteerd, u bent een geheim!"
+msgstr "Grattis, du hittade en hemlighet!"
 
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr "Er zijn veel geheimen in de belangrijkste wedstrijd dus blijf kijken voor hen"
+msgstr "Det finns många hemligheter i huvudspelet så håll utkik efter dem"
 
 msgid "Here's a hint to get you started"
-msgstr "Hier is een hint om je slag"
+msgstr "Här är en ledtråd för att komma igång"
 
 msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Hoewel slechts vereist dat u tot en met 3 van zijn kippen, waarom niet aardig zijn om hem te vangen en vangen meer? Er zijn 10 dwalen de kaart in alle"
+msgstr "Även om endast kräver att du fånga 3 av hans kycklingar, varför inte vara snäll mot honom och fånga mer? Det finns 10 vandrande kartan i alla"
 
 msgid "The shield will protect you from most enemy attacks"
-msgstr "Het schild beschermt u tegen de meeste vijandelijke aanvallen"
+msgstr "Skölden skyddar dig mot de mest fientliga attacker"
 
 msgid "Some enemy attacks cannot be blocked"
-msgstr "Sommige vijandelijke aanvallen kunnen niet worden geblokkeerd"
+msgstr "Vissa fientliga attacker kan inte blockeras"
 
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr "Gevaren voor het milieu, zoals vallend gesteente, kan niet worden geblokkeerd"
+msgstr "Miljörisker, såsom fallande stenar, kan inte blockeras"
 
 msgid "To block an attack, press and hold block (left alt)."
-msgstr "Een aanval te blokkeren, houd blok (links alt)."
+msgstr "Att blockera en attack genom att hålla block (vänster alt)."
 
 msgid "You must be facing the attack to succesfully block it"
-msgstr "U moet tegenover de aanval met succes te blokkeren"
+msgstr "Du måste vara vänd mot angrepp att framgångsrikt blockera den"
 
 msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
-msgstr "Merk op dat je niet kan bewegen, terwijl het blokkeren, maar je kunt het gezicht van de andere kant op. U kunt ook geen blok in de lucht"
+msgstr "Observera att du inte kan flytta medan blockering, men du kan möta andra sätt. Du kan heller inte blockera i luften"
 
 msgid "Pick up the shield and continue to the right"
-msgstr "Pak het schild en verder naar rechts"
+msgstr "Plocka upp skärmen och fortsätt till höger"
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr "Dit is een zwakke muur, kan worden geslagen naar beneden met de pikhouweel"
+msgstr "Detta är en svag vägg, kan man krossas ner med hackan"
 
 msgid "To use the pickaxe, press Attack (left ctrl)"
-msgstr "Het gebruik van de houweel, drukt Attack (links Ctrl)"
+msgstr "Att använda hackan, tryck Attack (vänster ctrl)"
 
 msgid "that not all weak walls can be destroyed using the pickaxe"
-msgstr "dat niet alle zwakke wanden kunnen worden vernietigd met behulp van de pikhouweel"
+msgstr "att inte alla svaga väggar kan förstöras med hackan"
 
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr "Vernietig de muur met behulp van de houweel en blijven"
+msgstr "Förstöra väggen med hjälp av hacka och fortsätta"
 
 msgid "Something's supposed to be here but it's not in this version, check back later!"
-msgstr "Something's verondersteld om hier te zijn, maar het is niet in deze versie, check back later!"
+msgstr "Something's skulle vara här men det är inte i denna version, check back later!"
 
 msgid "Collect 10 pieces of Coal"
-msgstr "Verzamel 10 stuks van kolen"
+msgstr "Samla 10 bitar av kol"
 
 msgid "Collect 2 Chopped Logs"
-msgstr "Verzamel 2 gehakte Logs"
+msgstr "Samla 2 Chopped Loggar"
 
 msgid "Rescue 3 Chickens"
-msgstr "Rescue 3 kippen"
+msgstr "Rädda 3 Kycklingar"
 
 msgid "Find 4 Gems"
-msgstr "Vind 4 Gems"
+msgstr "Find 4 Gems"
 
 msgid "Repair Generators"
-msgstr "Reparatie Generators"
+msgstr "Reparation Generatorer"
 
 msgid "Collect 6 Chopped Logs"
-msgstr "Verzamel 6 Chopped Logs"
+msgstr "Samla 6 Chopped Loggar"
 
 msgid "Collect 3 Access Keys"
-msgstr "Verzamel 3 Access Keys"
+msgstr "Samla 3 Access Keys"
 
 msgid "This is a blank objective"
-msgstr "Dit is een leeg doel"
+msgstr "Detta är ett tomt mål"
 
 msgid "Kill all Bats!"
-msgstr "Dood alle Bats!"
+msgstr "Döda alla Bats!"
 
 msgid "Coal"
-msgstr "Kolen"
+msgstr "Kol"
 
 msgid "Chopped Log"
-msgstr "Chopped Inloggen"
+msgstr "Hackad Log"
 
 msgid "Green Gem"
 msgstr "Green Gem"
@@ -855,7 +855,7 @@ msgid "Teleporter Key"
 msgstr "Teleporter Key"
 
 msgid "New Game"
-msgstr "Nieuw spel"
+msgstr "Nytt spel"
 
 msgid "Tutorial"
 msgstr "Tutorial"
@@ -864,352 +864,352 @@ msgid "Load Game"
 msgstr "Load Game"
 
 msgid "Options"
-msgstr "Opties"
+msgstr "Options"
 
 msgid "About"
-msgstr "Over"
+msgstr "Om"
 
 msgid "Quit"
-msgstr "Quit"
+msgstr "Avsluta"
 
 msgid "Configure Controls"
-msgstr "Configure Controls"
+msgstr "Konfigurera Controls"
 
 msgid "Configure Sound"
-msgstr "Configure Sound"
+msgstr "Konfigurera ljud"
 
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
 msgid "Show Hints"
-msgstr "Toon hints"
+msgstr "Visa tips"
 
 msgid "A potion which will transform you..."
-msgstr "Een drankje dat je zal veranderen ..."
+msgstr "En dryck som kommer att förändra dig ..."
 
 msgid "Creates highly absorbant miniature ice cubes"
-msgstr "Maakt zeer absorberend miniatuur ijsblokjes"
+msgstr "Skapar mycket absorberande material miniatyr isbitar"
 
 msgid "A potion which will restore all of your health"
-msgstr "Een drankje dat zal herstellen van al uw gezondheid"
+msgstr "En dryck som återställer alla dina hälsa"
 
 msgid "A powerful bomb"
-msgstr "Een krachtige bom"
+msgstr "En kraftfull bomb"
 
 msgid "A potion which renders you invisible to certain enemies"
-msgstr "Een drankje dat maakt je onzichtbaar bepaalde vijanden"
+msgstr "En dryck som gör dig osynlig för vissa fiender"
 
 msgid "The eyeball from a Gazer"
-msgstr "De oogbol van een Gazer"
+msgstr "Ögongloben från en Gazer"
 
 msgid "A Tesla Pack. It has no charge."
-msgstr "Een Tesla Pack. Het heeft geen kosten."
+msgstr "En Tesla Pack. Det har ingen avgift."
 
 msgid "A Summoner's Staff. It cannot be used by humans."
-msgstr "Een Summoner's Personeel. Het kan niet worden gebruikt door mensen."
+msgstr "En Summoner's Staff. Det kan inte användas av människor."
 
 msgid "A Tesla Pack. It is fully charged."
-msgstr "Een Tesla Pack. Het is volledig opgeladen."
+msgstr "En Tesla Pack. Det är fulladdat."
 
 msgid "An empty potion bottle"
-msgstr "Een lege fles drank"
+msgstr "En tom flaska dryck"
 
 msgid "A bag of chicken feed"
-msgstr "Een zak van kippenvoer"
+msgstr "En påse hönsfoder"
 
 msgid "A bag suitable for carrying coal"
-msgstr "Een tas geschikt voor het vervoer van kolen"
+msgstr "En påse lämpliga för transport av kol"
 
 msgid "Basic Sword"
-msgstr "Basic Sword"
+msgstr "Grundläggande Sword"
 
 msgid "A Sword given to you by Jacob"
-msgstr "Een zwaard gegeven aan u door Jacob"
+msgstr "Ett svärd som du fått av Jacob"
 
 msgid "A bow"
-msgstr "Een boog"
+msgstr "A Bow"
 
 msgid "Small Wooden Shield"
-msgstr "Kleine Houten Shield"
+msgstr "Små Wooden Shield"
 
 msgid "A small shield that provides basic protection"
-msgstr "Een kleine schild dat de fundamentele bescherming biedt"
+msgstr "En liten sköld som ger grundläggande skydd"
 
 msgid "Normal Arrow"
-msgstr "Normaal Arrow"
+msgstr "Normal Arrow"
 
 msgid "Normal Arrows"
-msgstr "Normaal Arrows"
+msgstr "Normal Arrows"
 
 msgid "An axe suitable for chopping trees"
-msgstr "Een bijl geschikt voor het hakken van bomen"
+msgstr "En yxa som lämpar sig för att hugga träd"
 
 msgid "Pickaxe"
-msgstr "Houweel"
+msgstr "Hacka"
 
 msgid "A pickaxe lent to you by Borgan"
-msgstr "Een houweel uitgeleend aan u door Borgan"
+msgstr "En hackan lånas ut till dig av Borgan"
 
 msgid "Fire Burner Key"
 msgstr "Fire Burner Key"
 
 msgid "Potion Room Key"
-msgstr "Potion Room Key"
+msgstr "Potion rumsnyckel"
 
 msgid "Surge Passage Key"
 msgstr "Surge Passage Key"
 
 msgid "Demolition Storage Key"
-msgstr "Sloop Storage Key"
+msgstr "Rivning Storage Key"
 
 msgid "Whatever that thing was it was draining the power from that generator and using it against me."
-msgstr "Wat dat ding was het de macht van die generator drainage en gebruiken het tegen mij."
+msgstr "Oavsett vad det där var det var att dränera ström från generatorn och använder det mot mig."
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
-msgstr "Dat zou kunnen verklaren waarom dat de lift niet werkte. Overwin de andere drainers moet het herstel van de macht."
+msgstr "Det kan förklara varför denna hiss var inte fungerar. Besegra den andra drainers bör återställa den makten."
 
 msgid "Defeat all Energy Drainers"
-msgstr "Versla alle energie Drainers"
+msgstr "Besegra alla Energy Drainers"
 
 msgid "No Objectives"
-msgstr "Geen Doelstellingen"
+msgstr "Inga mål"
 
 msgid "Press Action to reset puzzle blocks"
-msgstr "Druk op actie te resetten puzzel blokken"
+msgstr "Tryck Åtgärder för att återställa pussel block"
 
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr "Het ziet eruit als een blender. Ik kan dit gebruiken om iets versap"
+msgstr "Det ser ut som en mixer. Jag skulle kunna använda detta för att liquidise något"
 
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
-msgstr "Ik heb een rode Slib Tentacle en 3 Gazer oogballen om het drankje"
+msgstr "Jag behöver en röd Slam Tentacle och 3 Gazer ögonglober att göra drycken"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "Ik moet nog een lege fles op het drankje zetten"
+msgstr "Jag behöver fortfarande en tom flaska att sätta drycken i"
 
 msgid "So this is the Fortress."
-msgstr "Dus dit is de burcht."
+msgstr "Så detta är Fästning."
 
 msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
-msgstr "Het lijkt een hoop deuren leiden uit naar andere gebieden, moet ik een behoorlijke rond te kijken voordat ik ga ergens anders ..."
+msgstr "Det ser ut som en massa dörrar som leder ut till andra områden, skulle jag ha en ordentlig titt omkring innan jag går någon annanstans ..."
 
 msgid "Try hitting the skull..."
-msgstr "Probeer het raken van de schedel ..."
+msgstr "Prova att slå i skallen ..."
 
 msgid "This machine is not active"
-msgstr "Deze machine is niet actief"
+msgstr "Denna maskin är inte aktiv"
 
 msgid "Repeat the sequence"
-msgstr "Herhaal de sequentie"
+msgstr "Upprepa sekvensen"
 
 msgid "Correct Sequence"
-msgstr "Juiste volgorde"
+msgstr "Rätt ordningsföljd"
 
 msgid "Incorrect Sequence"
-msgstr "Onjuiste Sequence"
+msgstr "Felaktig Sequence"
 
 msgid "The Legend of Edgar has encountered the following error"
-msgstr "De legende van Edgar heeft ondervonden de volgende foutmelding"
+msgstr "The Legend of Edgar har stött på följande fel"
 
 msgid "Please report this error to Parallel Realities"
-msgstr "Meld deze fout aan Parallel Realities"
+msgstr "Vänligen rapportera detta fel till Parallel Realities"
 
 msgid "The game will now exit"
-msgstr "Het spel wordt nu afgesloten"
+msgstr "Spelet kommer nu att avsluta"
 
 msgid "It looks like a blender. I could use this to liqudise something"
-msgstr "Het ziet eruit als een blender. Ik kan dit gebruiken om iets liqudise"
+msgstr "Det ser ut som en mixer. Jag skulle kunna använda detta för att liqudise något"
 
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr "Dit moet de kolen Borgan wil dat ik mij voor hem"
+msgstr "Detta måste vara kol Borgan vill jag att mina för honom"
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
-msgstr "Dat zou kunnen verklaren waarom dat de lift niet werkte. Overwin de andere drainers moet het herstel van de macht hier."
+msgstr "Det kan förklara varför denna hiss var inte fungerar. Besegra den andra drainers bör återställa den makt här."
 
 msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
-msgstr "Ik moet vinden 3 Gazer Eyes, 1 Rode Slib Tentacle en een extra schild om een schild of Fire Resistance"
+msgstr "Jag måste hitta 3 Gazer Eyes, 1 röd slam Tentacle och en extra sköld för att skapa en sköld av brandmotstånd"
 
 msgid "Once I've found all these items I'll have to find a place to create the shield"
-msgstr "Zodra ik heb gevonden al deze items Ik moet een plaats om het schild te creëren vinden"
+msgstr "När jag har hittat alla dessa punkter jag måste hitta ett ställe att skapa skölden"
 
 msgid "There's a book here about enchanting weapons"
-msgstr "Er is een boek hier over betoverende wapens"
+msgstr "Det finns en bok här om förtrollande vapen"
 
 msgid "Maybe I can create a shield..."
-msgstr "Misschien kan ik maken een schild ..."
+msgstr "Jag kanske kan skapa en sköld ..."
 
 msgid "Swords... Armour... Wands..."
-msgstr "Swords ... Armour ... Wands ..."
+msgstr "Swords ... Rustning ... Stavar ..."
 
 msgid "Stupid book. It's not in order and there's no index"
-msgstr "Stupid boek. Het is niet in orde en er is geen index"
+msgstr "Stupid bok. Det är inte i ordning och det finns inget index"
 
 msgid "Here we go: Shields"
-msgstr "Daar gaan we: Shields"
+msgstr "Here we go: Shields"
 
 msgid "Shield of Fire Resistance"
-msgstr "Shield of Fire Resistance"
+msgstr "Sköld av brandmotstånd"
 
 msgid "Ingredients"
-msgstr "Ingrediënten"
+msgstr "Ingredienser"
 
 msgid "One must gather the following"
-msgstr "Men moet verzamelen de volgende"
+msgstr "Man måste samla följande"
 
 msgid "The root of a Mandrake"
-msgstr "De wortel van een Mandrake"
+msgstr "Roten till en Mandrake"
 
 msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Het vet van een Darsh (links op te staan voor 3 maanden)"
+msgstr "Fettet i en Darsh (stå i 3 månader)"
 
 msgid "Powered Condor bones"
-msgstr "Powered Condor botten"
+msgstr "Powered Condor ben"
 
 msgid "3 eyes of the Gazer"
-msgstr "3 ogen van de Gazer"
+msgstr "3 ögon Gazer"
 
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr "De vers gesneden tentakel van een vrouwelijke Rode Slib"
+msgstr "Den nyklippt tentakel från en kvinnlig Red Slam"
 
 msgid "The shield to apply the enchantment"
-msgstr "Het schild de toepassing van de betovering"
+msgstr "Skölden att tillämpa förtrollning"
 
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr "Meng de Gazer ogen en slib tentakel in een gladde vloeistof"
+msgstr "Blandar Gazer ögon och slam tentakler till en jämn vätska"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Voeg de wortel, vet en botten in de ketel en meng samen met de gemengde Gazer ogen en slib tentakel"
+msgstr "Lägg till roten, fett och ben i grytan och blanda tillsammans med blandade Gazer ögonen och slam tentakel"
 
 msgid "When the mixture turns bright blue, add the shield"
-msgstr "Wanneer het mengsel draait helder blauw, voeg het schild"
+msgstr "När blandningen blir ljusblå, lägg skölden"
 
 msgid "I've seen most of these items in the lab so I don't need to worry about those"
-msgstr "Ik heb de meeste van deze items in het lab zodat ik niet hoef te maken over deze"
+msgstr "Jag har sett de flesta av dessa poster i labbet så jag inte behöver oroa sig för dem"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr "En de Gazers hangen rond in de kelder dus dat is geen probleem"
+msgstr "Och Gazers hänga runt i källaren så det är inte ett problem"
 
 msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
-msgstr "Wat ik wel moeten vinden is een Red slib, maar ik heb geen idee waar er een te vinden"
+msgstr "Vad jag behöver hitta är en Red Slam, men jag har ingen aning om var man kan hitta en"
 
 msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
-msgstr "Ik kan geen gebruik maken van mijn huidige schild in het experiment voor het geval het backfires dus ik zal moeten naar een ander vinden"
+msgstr "Jag kan inte använda min nuvarande sköld i försöket i fallet slår bakut så jag måste hitta ett annat"
 
 msgid "Hmmm..."
 msgstr "Hmmm ..."
 
 msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
-msgstr "Er kunnen drankjes kamer of lab waar ik kan vinden de wortels, vet en botten, zodat ik niet hoef te maken over deze"
+msgstr "Det kan finnas potions rum eller lab där jag kan hitta rötterna, fett och ben så jag inte behöver oroa sig för dem"
 
 msgid "You must have the instruction card you wish to use highlighted in your inventory box"
-msgstr "U moet de instructie kaart die u wilt gebruiken duidelijk in je inventaris doos"
+msgstr "Du måste ha instruktioner kort du vill använda belyses i ditt inventory låda"
 
 msgid "Wow, a laboratory!"
-msgstr "Wow, een laboratorium!"
+msgstr "Wow, ett laboratorium!"
 
 msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
-msgstr "I love watching Maggie maken spreuken en drankjes, misschien kan ik enkele van mijn eigen hier!"
+msgstr "Jag älskar att titta Maggie göra konster och drycker, kanske jag kan göra några av mina egna här!"
 
 msgid "Wow, I've never seen so many books in one place!"
-msgstr "Wow, ik heb nog nooit zoveel boeken op een plek!"
+msgstr "Wow, jag har aldrig sett så många böcker på ett ställe!"
 
 msgid "There must be information about every subject here, this could be useful..."
-msgstr "Er moet informatie over elk onderwerp hier, kan dit nuttig zijn ..."
+msgstr "Det måste finnas information om varje ämne här, kan det vara bra ..."
 
 msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
-msgstr "Hmmm, voelt de lucht gebracht, het doet me denken aan het huis van Maggie's toen ze het maken van spreuken. Ik zou voorzichtig zijn."
+msgstr "Hmmm, känns luften ut, påminner mig om Maggie's hus när hon gjorde besvärjelser. Jag skulle vara försiktig."
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr "Edgar Oh, you're hurt! Laat me je wonden helen"
+msgstr "Oh Edgar, är du skadad! Låt mig läka dina sår"
 
 msgid "I wonder what other monsters there are. I'll pick a page at random..."
-msgstr "Ik vraag me af wat andere monsters er zijn. Ik kies een willekeurige pagina op ..."
+msgstr "Jag undrar vilka andra monster som finns. Jag hämtar en sida på måfå ..."
 
 msgid "Gazer"
 msgstr "Gazer"
 
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr "Gazers vliegen cycloptic wezens gevonden in verschillende plaatsen"
+msgstr "Gazers flyger cycloptic varelser hittats på olika platser"
 
 msgid "Their single eye is usually closed and they rely on sonar for movement"
-msgstr "Hun single oog is meestal gesloten en zij vertrouwen op sonar voor verkeer"
+msgstr "Deras enda öga är vanligtvis stängd och de förlitar sig på sonar för rörelse"
 
 msgid "They use their strong sense of smell to look out for predator and prey alike"
-msgstr "Zij gebruiken hun sterke gevoel van geur uit te kijken naar zowel roofdier en prooi"
+msgstr "De använder sina starka luktsinne att hålla utkik efter rovdjur och bytesdjur både"
 
 msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
-msgstr "Gazers aanval (en verdedigen zelf) door de opening van hun oog die verblinding iets naar te kijken"
+msgstr "Gazers attack (och försvara sig) genom att öppna deras ögon som kommer att blända något att titta på det"
 
 msgid "This attack is only effective however if the victim is facing the Gazer"
-msgstr "Deze aanval is echter alleen effectief als het slachtoffer wordt geconfronteerd met de Gazer"
+msgstr "Attacken är endast effektivt men om offret är vänd mot Gazer"
 
 msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
-msgstr "Oogbol Een Gazer bevat magische eigenschappen en is een gemeenschappelijk ingrediënt in ban voorbereiding"
+msgstr "En Gazer's ögonglob innehåller magiska egenskaper och är en vanlig ingrediens i spell förberedelse"
 
 msgid "Centurion, Grey"
 msgstr "Centurion, Grey"
 
 msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
-msgstr "Centurions zijn magische wezens geschapen, meestal verzonden als schildwachten of beschermplaten"
+msgstr "Centurioner är magiskt skapade varelser, vanligtvis avsänds som vakter eller vakter"
 
 msgid "Though slow moving, their massive size allows them to simply march through any defense"
-msgstr "Hoewel langzaam bewegende, hun enorme omvang kunnen ze eenvoudig maart via een verdediging"
+msgstr "Även långsamma, deras massiva storlek gör att de helt enkelt marsch genom något försvar"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
-msgstr "In plaats van wapens, veel hebben enorme hei-installaties die ze gebruiken om de grond en desoriënteren bedreigingen schudden"
+msgstr "I stället för vapen, många har stora pålkranar som de använder för att skaka marken och vilseleda hot"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Terwijl Grey Centurions zal worden gebruikt om te waken buitenste grenzen, Rode Centurions bekend te bestaan en worden gebruikt om gebieden van groot belang te beschermen"
+msgstr "Även Grey Centurions kommer att användas för att skydda yttre gränser, Röda Centurions vet att det finns och används för att skydda områden av stor betydelse"
 
 msgid "Splitter"
 msgstr "Splitter"
 
 msgid "Splitters are harmless monsters unless attacked."
-msgstr "Splitters zijn onschuldig tenzij monsters aangevallen."
+msgstr "Splitters är ofarliga monster inte attackeras."
 
 msgid "Upon sustaining too much damage they will split in two and attack their predator"
-msgstr "Bij al te veel schade zullen ze in tweeën te splitsen en hun roofdieren aanval"
+msgstr "Efter upprätthålla alltför mycket skada de kommer att delas i två delar och anfalla deras rovdjur"
 
 msgid "If one of these sustains too much damage it will split once again and continue to attack"
-msgstr "Als een van deze in stand te veel schade zal het weer gesplitst en verder aan te vallen"
+msgstr "Om någon av dessa råkar ut för mycket skada den kan splittra en gång och fortsätter att attackera"
 
 msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
-msgstr "Tenslotte zal een definitief gesplitst zeer kleine versies die volledig onschadelijk zijn en in deze toestand te produceren kan eenvoudig worden betreden"
+msgstr "Slutligen kommer en slutlig delad producera mycket små versioner som är helt ofarliga och i detta tillstånd kan enkelt utökas på"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
-msgstr "Als alle onderdelen zijn nog in leven zijn, zal een splitter hervorming zelf na een tijdje en zijn wonden te helen"
+msgstr "Om alla dess delar är fortfarande vid liv, kommer en splitter reformera sig själv efter ett tag och läka sina sår"
 
 msgid "Grub, Red"
 msgstr "Grub, Red"
 
 msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
-msgstr "Rode larven zijn agressiever dan hun groene collega's en zullen aanvallen alles wat ze zien als een bedreiging"
+msgstr "Red larver är mer aggressiva än sina gröna motparter och kommer att attackera allt de ser som ett hot"
 
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
-msgstr "Bij het bereiken van volwassenheid zullen zij een cocon en morph vorm in een wesp"
+msgstr "Efter moget de kommer att bilda en kokong och förvandlas till en geting"
 
 msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
-msgstr "Sommige zullen echter morph in een koningin wesp. Deze koninginnen kunnen een slijm-achtige substantie kunnen houden zijn prooi in plaats"
+msgstr "Vissa kommer emellertid att förvandlas till en drottning geting. Dessa drottningar kan producera slem-liknande substans som kan hålla sitt offer på plats"
 
 msgid "Tortoise, Master"
-msgstr "Schildpad, Master"
+msgstr "Sköldpadda, Master"
 
 msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
-msgstr "Master Schildpadden zijn angstaanjagende beesten. Gevonden in verre landen die ze bezitten het vermogen om hun hoofd te veranderen"
+msgstr "Master Landsköldpaddor är skrämmande odjur. Hittade i fjärran länder de besitter förmågan att förändra sina huvuden"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
-msgstr "Ze combineren alle mogelijkheden van hun neven te ademen vuur, ijs en creëren zelf elektrificeren"
+msgstr "De kombinerar alla de förmågor av deras kusiner att andas eld, skapa isen och elektrifieringen sig"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
-msgstr "En natuurlijk zijn ze ook ongevoelig is voor aanvallen van overeenkomende elementen, het absorberen van de energie om te helen zichzelf"
+msgstr "Och naturligtvis de också är immuna mot attacker från motsvarande element, absorbera energi att läka sig"
 
 msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
-msgstr "Maar bovendien, als ze te veel energie van genezing te ontvangen, evolueren ze en ga op de rampage"
+msgstr "Men dessutom, om de får för mycket energi från healing, utvecklas de och går på härjningståg"
 
 msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
-msgstr "In deze toestand zullen ze breken via een verdediging en produceren Dark Matter waarin alles vernietigt het raakt"
+msgstr "I denna stat de kommer slå igenom något försvar och producera Dark Matter som förstör allt den berör"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
-msgstr "Toch is de tank van een razende Master Schildpad zeer magisch en is een essentieel ingrediënt bij het maken van krachtige magie en items"
+msgstr "Däremot är tanken på framfart Master Tortoise mycket magiskt och är en viktig faktor när man skapar mäktiga underverk och objekt"
 
 msgid "Venus Flytrap"
 msgstr "Venus Flytrap"
@@ -1224,190 +1224,190 @@ msgid "Grimlore"
 msgstr "Grimlore"
 
 msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
-msgstr "Grimlore is een schepsel uit een andere dimensie. Het kan worden opgeroepen met behulp van krachtige zwarte magie"
+msgstr "Grimlore är en varelse från en annan dimension. Det kan kallas hjälp av kraftfulla mörk magi"
 
 msgid "The most common reason to summon this beast is to act as a bodyguard"
-msgstr "De meest voorkomende reden om dit beest te roepen is om op te treden als een bodyguard"
+msgstr "Den vanligaste orsaken till att kalla detta djur är att fungera som livvakt"
 
 msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
-msgstr "Er is geen bekende manier om te doden omdat Grimlore op behoud van kritische verwondingen zal gewoon terug naar haar eigen dimensie"
+msgstr "Det finns inget känt sätt att döda Grimlore sedan på att upprätthålla kritiska skador det kommer bara tillbaka till sin egen dimension"
 
 msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
-msgstr "Maar zelfs schade is het een monumentale taak. Iedereen ondervindt dit schepsel wordt aangeraden om zo snel mogelijk ontsnappen"
+msgstr "Men även att skada det är en monumental uppgift. Alla som stöter på detta varelse rekommenderas att fly så snabbt som möjligt"
 
 msgid "Or they will die very quickly"
-msgstr "Of ze zeer snel zullen sterven"
+msgstr "Eller kommer de att dö mycket snabbt"
 
 msgid "Ah, here is a compendium of monsters"
-msgstr "Ah, hier is een compendium van monsters"
+msgstr "Ah, här är en sammanställning av monster"
 
 msgid "34 volumes! How can there be so many monsters in the world?!"
-msgstr "34 volumes! Hoe kan er zo veel monsters in de wereld?!"
+msgstr "34 volymer! Hur kan det finnas så många monster i världen?!"
 
 msgid "Looks like they're in alphabetical order though"
-msgstr "Het lijkt erop dat ze in alfabetische volgorde al"
+msgstr "Ser ut som de är i alfabetisk ordning om"
 
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr "Slijm, Green ... Slijm, Purple ... Slib, Green ..."
+msgstr "Slem, Green ... Slem, Purple ... Slam, Grön ..."
 
 msgid "Sludge, Red"
-msgstr "Slib Red"
+msgstr "Slam, Red"
 
 msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
-msgstr "In tegenstelling tot de groene neef, de Rode Slib blijft diep onder de grond en zelden of nooit, oppervlakken"
+msgstr "Till skillnad från sina gröna kusin, stannar Röda Slam djupt under marken och sällan, om någonsin, ytor"
 
 msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
-msgstr "Haar voorkeur habitat zijn droog en mineraal rijke gebieden en als gevolg daarvan zijn gevonden op de loer in gebieden van mijnen verlaten door de mens"
+msgstr "Preferred livsmiljö är torra och mineralrika områden och som ett resultat har hittats lurar i områden med minor övergiven av människor"
 
 msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
-msgstr "Ze zijn zeer op hun hoede van de mens en zal aanval op zicht, meestal braken een zuur dat tijd neemt om verdampen"
+msgstr "De är mycket försiktig med människor och kommer att anfalla på synen, vanligen kräkningar upp en syra som tar tid att dunsta"
 
 msgid "Smacker, Lesser..."
-msgstr "Smacker, Kleine ..."
+msgstr "Smacker, Lesser ..."
 
 msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
-msgstr "Geweldig, dat is alles wat hij zegt. Ik weet niet eens hoe het verschil tussen vertellen een man en vrouw. Ik zal alleen maar om een kans ..."
+msgstr "Great, that's all it says. Jag vet inte ens hur jag ska säga skillnaden mellan en manlig och kvinnlig. Jag ska bara ta en chans ..."
 
 msgid "Besides, what's the worst that could happen?"
-msgstr "Trouwens, wat is het ergste dat er kan gebeuren?"
+msgstr "Dessutom, vad är det värsta som kan hända?"
 
 msgid "To move Edgar left and right, use the arrow keys."
-msgstr "Verplaatsen Edgar links en rechts, gebruik de pijltjestoetsen."
+msgstr "Att flytta Edgar vänster eller höger med piltangenterna."
 
 msgid "To make Edgar jump, press space. You can move in the air when jumping."
-msgstr "Om Edgar springen, drukt u op de ruimte. U kunt verplaatsen in de lucht bij het springen."
+msgstr "Göra Edgar hoppa trycker mellanslag. Du kan flytta i luften när hoppning."
 
 msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Hoewel Jacob vereist alleen u tot en met 3 van zijn kippen, waarom niet aardig zijn om hem te vangen en vangen meer? Er zijn 10 dwalen de kaart in alle"
+msgstr "Även Jacob kräver bara att du fånga 3 av hans kycklingar, varför inte vara snäll mot honom och fånga mer? Det finns 10 vandrande kartan i alla"
 
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr "Merk op dat niet alle zwakke wanden kunnen worden vernietigd met behulp van de pikhouweel"
+msgstr "Observera att inte alla svaga väggar kan förstöras med hackan"
 
 msgid "I've already checked, he's not down there..."
-msgstr "Ik heb al gecontroleerd, hij is niet daar beneden ..."
+msgstr "Jag har redan kontrollerat, han är inte där nere ..."
 
 msgid "I've heard of people falling into the well before, maybe Dad's in there..."
-msgstr "Ik heb gehoord van mensen die in de put voor, misschien pappa's daar ..."
+msgstr "Jag har hört människor faller i god tid innan, det kanske pappa där inne ..."
 
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr "DAD !!!!! ARE YOU DOWN ER ?!!!!!"
+msgstr "DAD !!!!! DU DÄRNERE ?!!!!!"
 
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr "Niets. Ik denk dat ik zal moeten blijven kijken"
+msgstr "Ingenting. Jag antar att jag får väl hålla på att leta"
 
 msgid "Push Up or Down to raise or lower the platform"
-msgstr "Push Up of Down te verhogen of verlagen van het platform"
+msgstr "Tryck uppåt eller nedåt för att höja eller sänka plattformen"
 
 msgid "There's a book here about enchanting equipment"
-msgstr "Er is een boek hier over betoverende apparatuur"
+msgstr "Det finns en bok här om förtrollande utrustning"
 
 msgid "It's a book about enchanting equipment"
-msgstr "Het is een boek over betoverende apparatuur"
+msgstr "Det är en bok om förtrollande utrustning"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
-msgstr "Ik heb geen enkele reden om dit lezen, maar ik zal het in gedachten houden voor het geval ik"
+msgstr "Jag har ingen anledning att läsa detta, men jag ska ha det i åtanke i fall jag"
 
 msgid "I wonder what other monsters there are..."
-msgstr "Ik vraag me af wat andere monsters zijn er ..."
+msgstr "Jag undrar vilka andra monster finns ..."
 
 msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
-msgstr "Net als reguliere Summoners, Dark Summoners oproep in andere beesten te doen hun biedingen"
+msgstr "Precis som vanliga Summoners, Dark Summoners ring i andra djuren att göra sitt bud"
 
 msgid "Additionally though they can teleport short distances to escape from their opponents"
-msgstr "Ook al kunnen ze teleporteren korte afstanden te ontsnappen uit hun tegenstanders"
+msgstr "Dessutom om de kan teleportera korta sträckor för att fly från sina motståndare"
 
 msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
-msgstr "Hun personeel is zeer magisch en hoewel het niet kan worden gebruikt door personen die direct, haar magische eigenschappen worden gebruikt in ban schepping"
+msgstr "Deras personal är mycket magiskt och även om det inte kan användas av människor direkt, dess magiska egenskaper används i spell skapande"
 
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr "Pink Hoovers zijn kleine viervoeters met een lange snuit"
+msgstr "Rosa Hoovers är små fyrbenta djur med lång nos"
 
 msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
-msgstr "De primaire puropse van de snuit is voederareaal voor voedsel, maar het dient ook als een afweermechanisme"
+msgstr "Den primära puropse av Nosen är att foder för mat men fungerar också som en försvarsmekanism"
 
 msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
-msgstr "en zijn meer dan geschikt voor het houden van een roofdier op afstand door simpelweg te blazen ze weg"
+msgstr "och är mer än kunna hålla ett rovdjur på avstånd genom att helt enkelt blåsa bort dem"
 
 msgid "Venus Flytrap, mobile"
-msgstr "Venus Flytrap, mobiele"
+msgstr "Venus Flytrap, mobil"
 
 msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
-msgstr "Mobiele Venus Flytraps geëvolueerd zijn wortels en zijn in staat om te verhuizen naar hun voedsel in plaats van te wachten tot dit gekomen om ze"
+msgstr "Mobile Venus Flytraps har utvecklats rötter och kan flytta till sin föda snarare än att vänta på att komma till dem"
 
 msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
-msgstr "Hun halzen zijn ongelooflijk elastisch en kunnen breken op hun prooi uit een aanzienlijke afstand"
+msgstr "Halsarna är otroligt elastiskt och kan knäppa på sitt byte från ett stort avstånd"
 
 msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
-msgstr "Dat moet het doen. Hopelijk dat andere lift door het riool nu moeten werken"
+msgstr "Det borde göra susen. Förhoppningsvis att andra lyft av Sewer bör nu arbeta"
 
 msgid "This lift is not working. I won't be able to use it until I restore the power"
-msgstr "Deze lift werkt niet. Ik zal niet in staat zijn om het te gebruiken totdat ik weer de macht"
+msgstr "Denna hiss fungerar inte. Jag kommer inte att kunna använda den tills jag återställa makt"
 
 msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
-msgstr "Dat glas ziet er te dik voor mij om te kraken, zal ik moeten vinden op een andere manier van verbrijzelen het ..."
+msgstr "Att glaset ser för tjock för mig att spricka, jag måste hitta något annat sätt att splittra det ..."
 
 msgid "Up"
-msgstr "Omhoog"
+msgstr "Upp"
 
 msgid "Down"
-msgstr "Omlaag"
+msgstr "Nere"
 
 msgid "Left"
-msgstr "Links"
+msgstr "Vänster"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Höger"
 
 msgid "Jump"
-msgstr "Ga"
+msgstr "Jump"
 
 msgid "Attack"
 msgstr "Attack"
 
 msgid "Block"
-msgstr "Blok"
+msgstr "Block"
 
 msgid "Action"
-msgstr "Actie"
+msgstr "Action"
 
 msgid "Use Item"
-msgstr "Gebruik Post"
+msgstr "Användningsområden"
 
 msgid "Previous Item"
-msgstr "Previous Item"
+msgstr "Föregående artikel"
 
 msgid "Next Item"
-msgstr "Next Item"
+msgstr "Nästa artikel"
 
 msgid "Inventory"
-msgstr "Inventaris"
+msgstr "Inventory"
 
 msgid "Pause"
-msgstr "Pauze"
+msgstr "Paus"
 
 msgid "Dead Zone"
-msgstr "Dead Zone"
+msgstr "Dödzon"
 
 msgid "Sound"
-msgstr "Geluid"
+msgstr "Sound"
 
 msgid "SFX Volume"
-msgstr "SFX Deel"
+msgstr "SFX Volume"
 
 msgid "Music Volume"
-msgstr "Music Volume"
+msgstr "Musikvolym"
 
 msgid "Ice Spray"
 msgstr "Ice Spray"
 
 msgid "Library"
-msgstr "Bibliotheek"
+msgstr "Bibliotek"
 
 msgid "Right Wing Lift Key"
 msgstr "Right Wing Lift Key"
 
 msgid "Mine Entrance Door Key"
-msgstr "Mine toegangsdeur Key"
+msgstr "Mine entrédörren Key"
 
 msgid "Village"
 msgstr "Village"
@@ -1419,13 +1419,13 @@ msgid "Fortress Outskirts"
 msgstr "Fortress Outskirts"
 
 msgid "Forbidden Swamp"
-msgstr "Verboden Swamp"
+msgstr "Forbidden Swamp"
 
 msgid "Sewage Restricted Zone Key"
-msgstr "Rioolwater Restricted Zone Key"
+msgstr "Avloppsvatten restriktionszon Key"
 
 msgid "Basement"
-msgstr "Kelder"
+msgstr "Basement"
 
 msgid "Fortress Ground Floor"
 msgstr "Fortress Ground Floor"
@@ -1434,7 +1434,7 @@ msgid "Sewer"
 msgstr "Sewer"
 
 msgid "Fortress Main Key"
-msgstr "Fortress Main Key"
+msgstr "Fortress huvudnyckel"
 
 msgid "Teleporter Access Key 1"
 msgstr "Teleporter Access Key 1"
@@ -1446,64 +1446,64 @@ msgid "Teleporter Access Key 3"
 msgstr "Teleporter Access Key 3"
 
 msgid "Laboratory"
-msgstr "Laboratorium"
+msgstr "Laboratory"
 
 msgid "Empty Bottle"
-msgstr "Empty Bottle"
+msgstr "Tomflaska"
 
 msgid "First Floor Key"
 msgstr "First Floor Key"
 
 msgid "Press Action to retrieve %s"
-msgstr "Druk Actie ophalen %s"
+msgstr "Tryck Åtgärder för att hämta %s"
 
 msgid "Hmm, this is new."
-msgstr "Hmm, is dit nieuw."
+msgstr "Hmm, är denna nya."
 
 msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
-msgstr "Het maakt niet uit als het maar kan me pijn doen, maar er is maar een manier om erachter te komen ..."
+msgstr "Det ser inte ut som det kan skada mig om, men det finns bara ett sätt att ta reda på ..."
 
 msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
-msgstr "Deze lift wordt gecontroleerd door de druk plaat, maar ik kan er niet tegen op en gebruik de lift op hetzelfde moment"
+msgstr "Denna hiss kontrolleras av den tryckplatta, men jag kan inte stå på den och använda hissen vid samma tidpunkt"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
-msgstr "Ik moet iets anders vinden om op te staan de drukplaat voor mij ..."
+msgstr "Jag måste hitta något annat att stå på tryckplatta för mig ..."
 
 msgid "This card is blank, I'll have to put some instructions on it to make it useable."
-msgstr "Deze kaart leeg is, zal ik nog enkele instructies op te zetten om het bruikbaar te maken."
+msgstr "Detta kort är tomt, jag måste lägga några instruktioner om att göra den användbar."
 
 msgid "There's a plaque here"
-msgstr "Er is een plaquette hier"
+msgstr "Det finns en plakett här"
 
 msgid "Place the 4 statues in the correct order"
-msgstr "Plaats de 4 beelden in de juiste volgorde"
+msgstr "Placera 4 statyer i rätt ordning"
 
 msgid "You will not be able to find all 4 statues in this version, so come back later!"
-msgstr "U zult niet in staat zijn om alle 4 de beelden in deze versie te vinden, dus kom later terug!"
+msgstr "Du kommer inte att kunna hitta alla 4 statyer i denna version, så kom tillbaka senare!"
 
 msgid "You must have the statue you wish to use highlighted in your inventory box"
-msgstr "U moet het beeld dat u wilt gebruiken duidelijk in je inventaris doos"
+msgstr "Du måste ha statyn du vill använda belyses i ditt inventory låda"
 
 msgid "Nothing happened. I don't think that's the right order"
-msgstr "Er gebeurde niets. Ik denk niet dat dat de juiste volgorde"
+msgstr "Ingenting hände. Jag tror inte det är rätt ordning"
 
 msgid "Tuning Fork"
-msgstr "Stemvork"
+msgstr "Stämgaffel"
 
 msgid "Second Floor Keycard"
-msgstr "Tweede verdieping Keycard"
+msgstr "Våningen Keycard"
 
 msgid "Instruction Card #1"
-msgstr "Instructie Card # 1"
+msgstr "Undervisning Card # 1"
 
 msgid "Instruction Card #2"
-msgstr "Instructie Card # 2"
+msgstr "Undervisning Card # 2"
 
 msgid "Instruction Card #3"
-msgstr "Instructie Card # 3"
+msgstr "Undervisning Card # 3"
 
 msgid "Instruction Card #4"
-msgstr "Instructie Card # 4"
+msgstr "Undervisning Card # 4"
 
 msgid "Centurion Statue"
 msgstr "Centurion Statue"
@@ -1512,7 +1512,7 @@ msgid "Spider Statue"
 msgstr "Spider Statue"
 
 msgid "Tortoise Statue"
-msgstr "Tortoise Statue"
+msgstr "Sköldpadda Statue"
 
 msgid "Scorpion Statue"
 msgstr "Scorpion Statue"
@@ -1521,274 +1521,274 @@ msgid "A Blue Gem"
 msgstr "A Blue Gem"
 
 msgid "A statue of a Centurion. It has 2 legs."
-msgstr "Een standbeeld van een Centurion. Het heeft 2 benen."
+msgstr "En staty av en Centurion. Den har 2 ben."
 
 msgid "A Green Gem"
 msgstr "A Green Gem"
 
 msgid "A Purple Gem"
-msgstr "A Purple Gem"
+msgstr "En Purple Gem"
 
 msgid "A Red Gem"
 msgstr "A Red Gem"
 
 msgid "A statue of a Scorpion. It has 6 legs."
-msgstr "Een standbeeld van een schorpioen. Het heeft 6 poten."
+msgstr "En staty av en skorpion. Den har 6 ben."
 
 msgid "A statue of a Spider. It has 8 legs."
-msgstr "Een standbeeld van een Spider. Het heeft 8 poten."
+msgstr "En staty av en spindel. Den har 8 ben."
 
 msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
-msgstr "Een Armadillo Spike Ball. Zal scatter spikes wanneer gegooid."
+msgstr "En Armadillo Spike Ball. Kommer scatter spikar när den kastas."
 
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr "Een standbeeld van een schildpad. Het heeft 4 poten."
+msgstr "En staty av en sköldpadda. Den har 4 ben."
 
 msgid "A Tuning Fork"
-msgstr "Een stemvork"
+msgstr "En stämgaffel"
 
 msgid "A chopped log"
-msgstr "Een gehakte log"
+msgstr "En hackad log"
 
 msgid "Narrator"
-msgstr "Verteller"
+msgstr "Berättare"
 
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr "Het is een ketel. Maggie heeft een net als dit"
+msgstr "Det är en kittel. Maggie har en precis som"
 
 msgid "Right, here goes!"
-msgstr "Rechts, hier gaat!"
+msgstr "Okej, here goes!"
 
 msgid "I need all the main ingredients"
-msgstr "Ik heb al de belangrijkste ingrediënten"
+msgstr "Jag behöver alla de viktigaste ingredienserna"
 
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
-msgstr "3 Gazer oogbollen, 1 Rode Slib Tentacle en een reserve schild"
+msgstr "3 Gazer ögonglober, 1 röd slam Tentacle och en extra sköld"
 
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr "Ik moet ook de oogbollen mix en de tentakel in een vloeistof"
+msgstr "Jag måste också blanda ögonglober och tentakler in i en vätska"
 
 msgid "This entire section is about monsters"
-msgstr "Deze hele sectie is over monsters"
+msgstr "Hela det här avsnittet handlar om monster"
 
 msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
-msgstr "Ik heb geen reden om deze te lezen, maar ik zal het in gedachten houden voor het geval ik"
+msgstr "Jag har ingen anledning att läsa dessa, men jag ska ha det i åtanke i fall jag"
 
 msgid "Hey wow, what a cute little machine!"
-msgstr "Hey wow, wat een schattige kleine machine!"
+msgstr "Hej Oj, vilken söt liten maskin!"
 
 msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
-msgstr "Het heeft een kleine sleuf aan de achterkant van het. Ik denk dat ik daar iets in te laten doen dingen"
+msgstr "Den har en liten plats på baksidan av den. Jag antar att jag skriver något i det att göra det göra saker"
 
 msgid "The robot uses instruction cards to move around"
-msgstr "De robot maakt gebruik van instructie kaarten te bewegen"
+msgstr "Roboten använder instruktion kort att flytta runt"
 
 msgid "Use the instructions to guide the robot to open areas that you cannot access"
-msgstr "Gebruik de instructies om de robot gids voor open ruimtes die u niet kunt toegang"
+msgstr "Använd instruktionerna för att styra roboten att öppna områden som du inte kan komma"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
-msgstr "Echter, omdat je niet kunt de instructies op de kaart te lezen, moet u ze allemaal uit te proberen tot een fabriek"
+msgstr "Eftersom du inte kan läsa instruktionerna på kortet, måste du prova dem alla till ett verk"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
-msgstr "Als de robot niet bereikt zijn doel, dan zal terugkeren naar zijn uitgangspositie zodat u opnieuw proberen"
+msgstr "Om roboten inte når sitt mål, kommer den tillbaka till utgångsläget så att du kan försöka igen"
 
 msgid "Enter the directions"
-msgstr "Voer de richtingen"
+msgstr "Ange riktningar"
 
 msgid "Out of space for instructions"
-msgstr "Uit de ruimte voor instructies"
+msgstr "Slut för instruktioner"
 
 msgid "I need a blank card to put the instructions on"
-msgstr "Ik heb een blanco kaart naar de instructies die op"
+msgstr "Jag behöver ett tomt kort för att sätta instruktionerna på"
 
 msgid "Maybe this wasn't such a good idea after all..."
-msgstr "Misschien was dit niet zo'n goed idee na alle ..."
+msgstr "Det var kanske inte en så bra idé trots allt ..."
 
 msgid "Obtain 3 Gazer Eyes"
-msgstr "Verkrijgen 3 Gazer Eyes"
+msgstr "Skaffa 3 Gazer Eyes"
 
 msgid "Obtain 1 Red Sludge Tentacle"
-msgstr "Verkrijgen 1 Rood Slib Tentacle"
+msgstr "Skaffa 1 Röd Slam Tentacle"
 
 msgid "Find another shield"
-msgstr "Zoek een andere schild"
+msgstr "Hitta en annan sköld"
 
 msgid "Blend eyeballs and tentacle"
-msgstr "Blend oogbollen en tentakel"
+msgstr "Blend ögonglober och tentakel"
 
 msgid "Obtain a Fire Shield"
-msgstr "Zorg voor een Fire Shield"
+msgstr "Skaffa en Fire Shield"
 
 msgid "More water?!"
-msgstr "Meer water?!"
+msgstr "Mer vatten?!"
 
 msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
-msgstr "Ik denk niet kunnen veranderen in een Slijm gaat mij hier helpen, aangezien ik niet in staat zouden kunnen zijn om daarna terug te krijgen"
+msgstr "Jag tror inte att kunna förvandlas till en Slime kommer att hjälpa mig här, eftersom jag inte skulle kunna komma tillbaka efteråt"
 
 msgid "I'll have to find another way of getting across"
-msgstr "Ik zal moeten vinden een andere manier om in"
+msgstr "Jag måste hitta ett annat sätt att ta sig över"
 
 msgid "I'll have to find something to help me get across"
-msgstr "Ik moet iets vinden om mij te helpen te krijgen over"
+msgstr "Jag måste hitta något att hjälpa mig att komma över"
 
 msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
-msgstr "Ik zag geen slib in de mijn toen ging ik naar kolen Borgan's te krijgen en zelfs als er geen ik niet terug kan krijgen er sinds mijn vlot zonk"
+msgstr "Jag såg inte något Slam i gruvan när jag gick för att hämta Borgan s kol och även om det fanns något jag inte kan få tillbaka det sedan min flotte sjönk"
 
 msgid "I'll have to find another mine around here..."
-msgstr "Ik heb de mijne een andere te vinden hier ..."
+msgstr "Jag måste hitta en annan gruva här ..."
 
 msgid "Creates ice cubes that expand on contact with water"
-msgstr "Maakt ijsblokjes uit te breiden dat bij contact met water"
+msgstr "Skapar isbitar som expanderar vid kontakt med vatten"
 
 msgid "A bottle capable of capturing souls"
-msgstr "Een fles kan vastleggen zielen"
+msgstr "En flaska kan fånga själar"
 
 msgid "Try using Mataeus's knives against him..."
-msgstr "Probeer Mataeus's messen tegen hem ..."
+msgstr "Prova att använda Mataeus's knivar mot honom ..."
 
 msgid "Cannot pick up %s. Inventory full"
-msgstr "Kan niet ophalen %s. Inventaris volledige"
+msgstr "Kan inte plocka upp %s. Inventering full"
 
 msgid "Filling mine cart..."
-msgstr "Vulling mijn winkelwagentje ..."
+msgstr "Fyllning mine cart ..."
 
 msgid "Copyright Parallel Realities 2009-2010"
 msgstr "Copyright Parallel Realities 2009-2010"
 
 msgid "Out of arrows!"
-msgstr "Out pijlen!"
+msgstr "Out of pilar!"
 
 msgid "There's something moving around down there..."
-msgstr "Er is iets bewegen daar beneden ..."
+msgstr "Det är något som rör sig där nere ..."
 
 msgid "Good riddance..."
-msgstr "Opgeruimd ..."
+msgstr "Good riddance ..."
 
 msgid "Huh, déjà vu..."
-msgstr "Huh, dejà vu ..."
+msgstr "Huh, déjà vu ..."
 
 msgid "If the lift is out of order then it must be reset"
-msgstr "Indien de lift is buiten werking dan moet worden gereset"
+msgstr "Om hissen är ur funktion så måste återställas"
 
 msgid "There are 4 reset switches along the lift shaft which must be reset"
-msgstr "Er zijn 4 reset schakelaars langs de liftschacht die moet worden gereset"
+msgstr "Det finns 4 återställa växlar längs hisschaktet som måste återställas"
 
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
-msgstr "Zorg ervoor dat de lift opnieuw om te voorkomen dat een lange wandeling terug naar de oppervlakte ..."
+msgstr "Var noga med att återställa hissen för att undvika en lång promenad upp till ytan ..."
 
 msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
-msgstr "Deze machine heeft een sleuf van hetzelfde formaat als de kaarten. Ik denk dat ik kan gebruiken om nieuwe instructies te maken."
+msgstr "Denna maskin har en kortplats samma storlek som korten. Jag antar att jag kan använda det för att skapa nya instruktioner."
 
 msgid "To create a new set of instructions you need to insert a blank card"
-msgstr "Als u een nieuwe set instructies moet je een blanco kaart plaatsen"
+msgstr "Att skapa en ny uppsättning instruktioner måste du sätta ett tomt kort"
 
 msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
-msgstr "U wordt vervolgens gevraagd om input van de aanwijzingen voor de robot te volgen. Dit gebeurt op dezelfde manier als de sequentie deuren"
+msgstr "Du blir då ombedd att mata anvisningar för roboten att följa. Detta görs på samma sätt som den sekvensen dörrar"
 
 msgid "When you have finished inputting the directions, press Attack"
-msgstr "Wanneer u klaar bent met het invoeren van de richtingen, drukt Attack"
+msgstr "När du är klar med att mata in riktningarna, tryck Attack"
 
 msgid "The robot will then follow the instructions on the card"
-msgstr "De robot zal dan volg de instructies op de kaart"
+msgstr "Roboten kommer sedan att följa instruktionerna på kortet"
 
 msgid "If the directions aren't correct you can try again"
-msgstr "Als de aanwijzingen niet correct zijn kunt u opnieuw proberen"
+msgstr "Om riktningar stämmer inte du kan försöka igen"
 
 msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-msgstr "Deze plek is gek, zou ik beter opschieten en vind pap voordat ik uiteindelijk krijgt gedood!"
+msgstr "Här stället är galen, jag bättre skynda dig och hitta pappa innan jag i slutändan får avlivas!"
 
 msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-msgstr "Dus, het creëren van dat Fire Shield ik een rode Slib tentakel krijgen"
+msgstr "Så, för att skapa denna Fire Shield jag måste få en röd Slam tentakel"
 
 msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr "Rode slib leven in de mijnen, dus ik zal moeten vinden hier een rond"
+msgstr "Red Slam bor i gruvor så jag måste hitta ett häromkring"
 
 msgid "I also need a spare shield, but I reckon there should be an armoury around"
-msgstr "Ik moet ook een reserve schild, maar ik denk er moet een arsenaal rond"
+msgstr "Jag behöver också en extra sköld, men jag antar att det borde finnas en arsenal runt"
 
 msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
-msgstr "De Gazer oogbollen zijn eenvoudig genoeg is, kan ik gewoon terug naar de kelder"
+msgstr "Det Gazer ögonglober är lätt nog, kan jag bara tillbaka till källaren"
 
 msgid "OK, off I go..."
-msgstr "OK, ik ga weg ..."
+msgstr "OK, off I go ..."
 
 msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
-msgstr "U zult niet in staat zijn om de tentakel of schild krijgen in deze versie, dus check back later!"
+msgstr "Du kommer inte att kunna få tentakel eller sköld i den här versionen, så kontrollera igen senare!"
 
 msgid "It's a portrait"
-msgstr "Het is een portret"
+msgstr "Det är ett porträtt"
 
 msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
-msgstr "Die geest zal niet aan mij voorbij laten, ik moet een manier vinden om zich te ontdoen van het"
+msgstr "Denna anda kommer inte att låta mig förbi, jag måste hitta ett sätt att bli av med det"
 
 msgid "Reset switches allow you to reset an object's position on the map"
-msgstr "Reset switches kunt u de positie van een object opnieuw op de kaart"
+msgstr "Återställ växlar att du kan återställa ett objekts position på kartan"
 
 msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
-msgstr "Als een object wordt onbereikbaar dan kunt u de schakelaar gebruiken om het weer in zijn oorspronkelijke plaats"
+msgstr "Om ett föremål blir otillgänglig kan du använda switchen för att lägga tillbaka på sin ursprungliga plats"
 
 msgid "A bottle with a soul trapped inside"
-msgstr "Een fles met een ziel gevangen in"
+msgstr "En flaska med en själ fångad inuti"
 
 msgid "Full Mine Cart"
-msgstr "Volledige Mine Cart"
+msgstr "Full Mine Cart"
 
 msgid "Processing Lift Key"
-msgstr "Verwerking Lift Key"
+msgstr "Processing Lift Key"
 
 msgid "Right Grabber Key"
 msgstr "Right Grabber Key"
 
 msgid "Left Grabber Key"
-msgstr "Links Grabber Key"
+msgstr "Vänster Grabber Key"
 
 msgid "Master Key"
-msgstr "Master Key"
+msgstr "Huvudnyckel"
 
 msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "De tovenaar moet hebben genomen papa op zijn kasteel. Ik moet hem redden van daar."
+msgstr "Den trollkarl måste ha tagit pappa till sitt slott. Jag måste rädda honom därifrån."
 
 msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "De enige manier om naar het kasteel is door de Verboden Swamp naar het Oosten."
+msgstr "Det enda sättet att komma till slottet är genom Förbjudna Swamp österut."
 
 msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Er is een meer tussen het dorp en de Swamp dus ik moet een vlot te krijgen over te brengen."
+msgstr "Det finns en sjö mellan byn och Swamp så jag behöver en flotte för att komma över."
 
 msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
-msgstr "Ik moet ook een zwaard en schild te verdedigen mezelf. Ik kan spreken Borgan en Jacob om deze wel krijgen."
+msgstr "Jag behöver även ett svärd och sköld för att försvara mig. Jag kan tala med Borgan och Jakob för att få dessa ändå."
 
 msgid "Could not connect to Medal Server at %s:%d"
-msgstr "Kon niet verbinden met Medal Server at %s:%d"
+msgstr "Kunde inte ansluta till Medal Server at %s:%d"
 
 msgid "Could not find Medal Key"
-msgstr "Kan niet vinden Medal Key"
+msgstr "Kunde inte hitta Medal Key"
 
 msgid "You will not be able to earn Medals for this game"
-msgstr "U zult niet in staat zijn om medailles te verdienen voor dit spel"
+msgstr "Du kommer inte att kunna vinna medaljer för detta spel"
 
 msgid "There's another sign here"
-msgstr "Er is een ander teken hier"
+msgstr "Det finns ett annat tecken här"
 
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr "Als de afrit lift is buiten om vervolgens verder naar links"
+msgstr "Om exit hissen är ur funktion sedan gå vidare till vänster"
 
 msgid "Warning : Exit route may be hazardous"
-msgstr "Waarschuwing: Exit-route kunnen gevaarlijk zijn"
+msgstr "Varning: Realiseringsalternativ kan vara farlig"
 
 msgid "Maybe I should use the lift to get out"
-msgstr "Misschien moet ik gebruik de lift om eruit te komen"
+msgstr "Jag kanske borde använda hissen för att komma ut"
 
 msgid "There's a sign here"
-msgstr "Er is een teken hier"
+msgstr "There's a sign here"
 
 msgid "An Oil Can"
-msgstr "Een olie Kan"
+msgstr "En Oil Can"
 
 msgid "Oil Can"
-msgstr "Oil Can"
+msgstr "Oljekanna"
 
 msgid "A powerful repellent"
-msgstr "Een krachtig afweermiddel"
+msgstr "En kraftfull repellent"
 
 msgid "Repellent"
 msgstr "Repellent"
@@ -1800,53 +1800,53 @@ msgid "Fortress Mine"
 msgstr "Fortress Mine"
 
 msgid "Private key is missing"
-msgstr "Private sleutel ontbreekt"
+msgstr "Privat nyckel saknas"
 
 msgid "Could not connect to server"
-msgstr "Kan geen verbinding maken met server"
+msgstr "Kunde inte ansluta till servern"
 
 msgid "Sludge Tentacle"
-msgstr "Slib Tentacle"
+msgstr "Slam Tentacle"
 
 msgid "A Red Sludge Tentacle"
-msgstr "A Red Slib Tentacle"
+msgstr "A Red Slam Tentacle"
 
 msgid "Eyeball Smoothie"
 msgstr "Eyeball Smoothie"
 
 msgid "Cool, it worked!"
-msgstr "Cool, het werkte!"
+msgstr "Cool, det fungerade!"
 
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr "Ik ben niet zeker over de kleur al, ik dacht dat het zou rood zijn?"
+msgstr "Jag är inte säker på färgen om, jag trodde det skulle vara rött?"
 
 msgid "Maybe it's supposed to be yellow..."
-msgstr "Misschien is het zou moeten zijn geel ..."
+msgstr "Kanske är det tänkt att vara gul ..."
 
 msgid "A liquid made from eyeballs and tentacles"
-msgstr "Een vloeistof gemaakt van oogballen en tentakels"
+msgstr "En vätska gjorda av ögonglober och tentakler"
 
 msgid "Patching your save game. Please wait..."
-msgstr "Patchen van je spel opslaan. Please wait ..."
+msgstr "Patchning du spara spelet. Please wait ..."
 
 msgid "Now! Run while it's stunned!"
-msgstr "Nu! Run terwijl het verdoofd!"
+msgstr "Nu! Kör medan den stunned!"
 
 msgid "Wow, that thing is huge!"
-msgstr "Wow, dat ding is enorm!"
+msgstr "Wow, är det där enorma!"
 
 msgid "I doubt my sword will even make a scratch, but I need to get past it..."
-msgstr "Ik betwijfel of mijn zwaard zal zelfs een kras, maar ik moet om voorbij het ..."
+msgstr "Jag tvivlar på mitt svärd kommer även göra en skråma, men jag måste komma förbi den ..."
 
 msgid "I have everything I need now"
-msgstr "Ik heb alles wat ik nu nodig hebben"
+msgstr "Jag har allt jag behöver nu"
 
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr "Er is een ketel in het laboratorium, moet ik daar hoofd achterover"
+msgstr "Det finns en kittel i laboratoriet, skulle jag huvudet tillbaka dit"
 
 msgid "I just need to find another shield to enchant"
-msgstr "Ik moet alleen een andere vinden schild te betoveren"
+msgstr "Jag måste bara hitta en sköld att förtrolla"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
-msgstr "U zult niet in staat zijn om het schild in deze versie te krijgen, dus check back later!"
+msgstr "Du kommer inte att kunna få skärmen i denna version, så kontrollera igen senare!"
 

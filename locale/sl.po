@@ -10,111 +10,112 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr "Snel naar links en rechts af te schudden van de modder!"
+msgstr "Hitro zavijemo levo in desno, da otresti mulja!"
 
 msgid "Bow"
 msgstr "Bow"
 
 msgid "Not working in this version!"
-msgstr "Niet werken in deze versie!"
+msgstr "Ne delajo v tej verziji!"
 
 msgid "Press Action to interact"
-msgstr "Druk op actie om samen te werken"
+msgstr "Pritisnite Ukrep za interakcijo"
 
 msgid "%s is required"
-msgstr "%s is vereist"
+msgstr "%s je potrebno"
 
 msgid "Bomb"
 msgstr "Bomb"
 
 msgid "Small Rock"
-msgstr "Kleine Rock"
+msgstr "Mala Rock"
 
 msgid "Press Action to retrieve Purple Gem"
-msgstr "Druk Actie ophalen Purple Gem"
+msgstr "Pritisnite Ukrep za pridobitev Purple Gem"
 
 msgid "Chicken"
-msgstr "Kip"
+msgstr "Priščanec"
 
 msgid "Tesla Pack"
 msgstr "Tesla Pack"
 
 msgid "Press Action to retrieve Tesla Pack"
-msgstr "Druk op Action op te halen Tesla Pack"
+msgstr "Pritisnite Ukrep za pridobitev Tesla Pack"
 
 msgid "Press Action to replace Tesla Pack"
-msgstr "Druk actie te vervangen Tesla Pack"
+msgstr "Pritisnite Ukrep namesto Tesla Pack"
 
 msgid "Obtained %s"
-msgstr "Verkregen %s"
+msgstr "Dobljeni %s"
 
 msgid "Complete"
 msgstr "Complete"
 
 msgid "%d more to go..."
-msgstr "%d meer te gaan ..."
+msgstr "%d več iti ..."
 
 msgid "Used %s"
-msgstr "Gebruikt %s"
+msgstr "Rabljena %s"
 
 msgid "Cannot equip items whilst transmogrified"
-msgstr "Kan geen items uit te rusten terwijl transmogrified"
+msgstr "Ni mogoče opremiti postavk, medtem ko transmogrified"
 
 msgid "Equipped %s"
-msgstr "Uitgerust %s"
+msgstr "Opremljena %s"
 
 msgid "Maximum health has increased!"
-msgstr "Maximum gezondheid is toegenomen!"
+msgstr "Največja zdravje se je povečal!"
 
 msgid "Bow will now fire %s"
-msgstr "Bow zal nu brand %s"
+msgstr "Bow bo zdaj ogenj %s"
 
 msgid "A bow is required to use this item"
-msgstr "Een boog is verplicht gebruik te maken dit item"
+msgstr "Premec, potrebne za uporabo te postavke"
 
 msgid "Cannot transmogrify here..."
-msgstr "Kan niet transmogrify hier ..."
+msgstr "Ne morem Zamenjati tukaj ..."
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "Da"
 
 msgid "No"
-msgstr "Nee"
+msgstr "Ne"
 
 msgid "Start a new game?"
-msgstr "Start een nieuw spel?"
+msgstr "Začni novo igro?"
 
 msgid "Play the tutorial?"
-msgstr "Speel de tutorial?"
+msgstr "Play Tutorial?"
 
 msgid "Exit the game?"
-msgstr "Verlaat het spel?"
+msgstr "Izhod igro?"
 
 msgid "Back"
-msgstr "Terug"
+msgstr "Nazaj"
 
 msgid "Game Loaded"
 msgstr "Game Loaded"
 
 msgid "Game Saved"
-msgstr "Game Opgeslagen"
+msgstr "Game Saved"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Any unsaved progress will be lost"
-msgstr "Elke opgeslagen vooruitgang zal worden verloren"
+msgstr "Vsak napredek nerešen bodo izgubljene"
 
 msgid "Joy Button #%d"
 msgstr "Joy Button # %d"
 
 msgid "Press Action to talk to %s"
-msgstr "Druk op actie om te praten tot %s"
+msgstr "Pritisnite Ukrep se pogovoriti s %s"
 
 msgid "%d"
 msgstr "%d"
@@ -123,67 +124,67 @@ msgid "%s (%d / %d)"
 msgstr "%s (%d / %d)"
 
 msgid "New Objective: %s"
-msgstr "Nieuwe doelstelling: %s"
+msgstr "Novi Cilj: %s"
 
 msgid "Objective Completed: %s"
-msgstr "Doelstelling Afgesloten: %s"
+msgstr "Cilj Completed: %s"
 
 msgid "The wall on the right looks weak..."
-msgstr "De muur aan de rechterkant ziet er zwak ..."
+msgstr "Zid na desni izgleda slabo ..."
 
 msgid "This weapon is not having any effect..."
-msgstr "Dit wapen is geen invloed heeft ..."
+msgstr "To orožje je nima nobenega učinka ..."
 
 msgid "Press Action to attach the Tesla Pack"
-msgstr "Druk op actie te hechten de Tesla Pack"
+msgstr "Pritisnite Ukrep priložiti Tesla Pack"
 
 msgid "The Legend of Edgar"
-msgstr "De legende van Edgar"
+msgstr "Legend of Edgar"
 
 msgid "%s is needed to activate this switch"
-msgstr "%s euro is nodig om deze schakelaar te activeren"
+msgstr "%s je potrebno, da vključite to stikalo"
 
 msgid "Press Action to use this switch"
-msgstr "Druk op actie om deze schakelaar"
+msgstr "Pritisnite Ukrep za uporabo tega stikala"
 
 msgid "Press Action to save your game"
-msgstr "Druk op actie om je spel opslaan"
+msgstr "Pritisnite, da shranite Ukrep igre"
 
 msgid "%s is required to use this Pressure Plate"
-msgstr "%s euro is nodig om deze druk te gebruiken Plate"
+msgstr "%s je potrebno uporabiti to Pressure Plate"
 
 msgid "%s is needed to open this door"
-msgstr "%s euro is nodig om deze open deur"
+msgstr "%s je potrebno odpreti vrata"
 
 msgid "This door is locked"
-msgstr "Deze deur is vergrendeld"
+msgstr "Ta vrata so zaklenjena"
 
 msgid "This teleporter is not active"
-msgstr "Dit teleporter is niet actief"
+msgstr "To teleporter ni aktiven"
 
 msgid "Press Action to go to the %s"
-msgstr "Druk op actie om naar de %s"
+msgstr "Pritisnite, da odprete Ukrep %s"
 
 msgid "Push Up or Down to use this lift"
-msgstr "Push Up of Down om deze lift"
+msgstr "Potisnite navzgor ali navzdol za uporabo te dvigala"
 
 msgid "This lift is not active"
-msgstr "Deze lift is niet actief"
+msgstr "To dvigalo ni aktiven"
 
 msgid "Cannot carry any more %s"
-msgstr "Kan niet meer dragen %s"
+msgstr "Ne morem več opravljati %s"
 
 msgid "Picked up %s x %d"
-msgstr "Opgepikt %s x %d"
+msgstr "Pobral %s x %d"
 
 msgid "Picked up %s"
-msgstr "Opgepikt %s"
+msgstr "Pobral %s"
 
 msgid "Readied %s"
 msgstr "Readied %s"
 
 msgid "%s is required to carry this item"
-msgstr "%s euro is nodig om dit item"
+msgstr "%s je potreben za izvedbo te postavke"
 
 msgid "%s (%d)"
 msgstr "%s (%d)"
@@ -192,652 +193,652 @@ msgid "%s"
 msgstr "%s"
 
 msgid "Storage Key"
-msgstr "Storage"
+msgstr "Storage Key"
 
 msgid "Coal Bag Storage Switch Key"
-msgstr "Kolen Bag Storage Switch Key"
+msgstr "Premog Bag Storage Switch Key"
 
 msgid "Large Room Key"
-msgstr "Grote Zaal Key"
+msgstr "Large Room Key"
 
 msgid "Coal Bag"
-msgstr "Kolen Bag"
+msgstr "Premog Bag"
 
 msgid "Forest Cell Key"
 msgstr "Forest Cell Key"
 
 msgid "Wood Axe"
-msgstr "Hout Axe"
+msgstr "Wood Axe"
 
 msgid "Health Potion"
 msgstr "Health Potion"
 
 msgid "Outflow Key"
-msgstr "Uitstroom Key"
+msgstr "Odliv Key"
 
 msgid "Flow Control Key"
 msgstr "Flow Control Key"
 
 msgid "Waste Processing Key"
-msgstr "Afvalverwerking Key"
+msgstr "Waste Processing Key"
 
 msgid "Access Key 1"
-msgstr "Toegangssleutel 1"
+msgstr "Access Key 1"
 
 msgid "Access Key 2"
 msgstr "Access Key 2"
 
 msgid "Access Key 3"
-msgstr "Sneltoets 3"
+msgstr "Access Key 3"
 
 msgid "Trap Door Switch Key"
 msgstr "Trap Door Switch Key"
 
 msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr "Deze lift heeft geen macht. Ik zal niet in staat zijn om het te gebruiken totdat ik weer de macht"
+msgstr "Ta žičnica ni moč. I ne bodo mogli uporabljati, dokler sem obnoviti moči"
 
 msgid "Keep practising!"
-msgstr "Blijf oefenen!"
+msgstr "Keep poklic!"
 
 msgid "Hi"
-msgstr "Hoi"
+msgstr "Živjo"
 
 msgid "Hello Edgar"
-msgstr "Hallo Edgar"
+msgstr "Hello Edgar"
 
 msgid "Can I borrow your shield?"
-msgstr "Kan ik lenen je schild?"
+msgstr "Si lahko sposodim vašo ščit?"
 
 msgid "Off to practice your fighting skills?"
-msgstr "Uit de praktijk uw vechten vaardigheden?"
+msgstr "Off, da svoje sposobnosti boja proti?"
 
 msgid "Something like that"
-msgstr "Zoiets"
+msgstr "Nekaj takega"
 
 msgid "If you run me an errand then you can have the shield"
-msgstr "Mocht u mij een boodschap dan kun je het schild hebben"
+msgstr "Če zaženete me opravek potem lahko ščit"
 
 msgid "What do I have to do?"
-msgstr "Wat moet ik doen?"
+msgstr "Kaj moram storiti?"
 
 msgid "Go to the mine and collect me some coal"
-msgstr "Ga naar de mijn en het verzamelen van mij wat kolen"
+msgstr "Pojdite v rudnik in zbiranje me nekaj premoga"
 
 msgid "But we have plenty of coal!"
-msgstr "Maar we hebben genoeg van kolen!"
+msgstr "Ampak imamo veliko premoga!"
 
 msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
-msgstr "Ja, maar dit is geen oude kolen, steenkool deze special is, brandt het warmer en langer"
+msgstr "Da, vendar to ni vse staro premog, ta premog je poseben, da gori bolj vroča in traja dlje"
 
 msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr "Ik hoef maar 10 stuks van het spul, zodat het niet moet u erg lang"
+msgstr "Jaz šele potreba po 10 kosov stvari, tako da ne bi vas zelo dolgo"
 
 msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
-msgstr "Zorg ervoor dat u hem in een zak, aan te raken te lang zal zijn slecht voor je gezondheid"
+msgstr "Prepričajte se, da ste jo dali v vrečko, dotika predolgo bo slabo za vaše zdravje"
 
 msgid "Do you have a bag?"
-msgstr "Heeft u een tas?"
+msgstr "Ali imate vrečko?"
 
 msgid "No, you can probably find one in the mine though"
-msgstr "Nee, dat kan je waarschijnlijk een vinden in de mijn al"
+msgstr "No, boste verjetno našli enega v rudniku, čeprav"
 
 msgid "OK, I'll get the coal"
-msgstr "OK, ik krijg de kolen"
+msgstr "OK, bom dobil premoga"
 
 msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
-msgstr "Hier, neem dit pikhouweel. U kunt het gebruiken om mij de kolen-en hacken via alle zwakkere muren die je tegenkomt"
+msgstr "Tukaj, vzemi to Trnokop. Lahko jo uporabite za rudnik premoga in kramp skozi vse šibkejše stene naletite"
 
 msgid "You'll also need this key to get into the mine"
-msgstr "U moet ook deze toets om in de mijn"
+msgstr "Prav tako boste morali to ključ za priti v rudnik"
 
 msgid "Thanks!"
-msgstr "Bedankt!"
+msgstr "Hvala!"
 
 msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
-msgstr "Dank u, Edgar, deze steenkool is perfect! Hoop dat de vleermuizen niet schrikken."
+msgstr "Hvala, Edgar, ta premog je odlična! Upam, da netopirji niso prestrašiti."
 
 msgid "The bats were the least of my worries..."
-msgstr "De vleermuizen waren de minste van mijn zorgen ..."
+msgstr "Netopirji so bile vsaj moje skrbi ..."
 
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr "Zeg, ik hoorde dat er iets gebeurd in dat de mijne een paar jaar geleden"
+msgstr "Reci, sem slišal, da nekaj, kar se je zgodilo v tem rudniku pred nekaj leti"
 
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr "Eh, ja, er was wat je zou een  incident noemen , maar dat een deel van de mijn is verzegeld een lange tijd geleden"
+msgstr "Er, ja, ni bilo kaj bi pokličete  incident , ampak tisti del rudnika je bila zapečatena gor dolgo časa nazaj"
 
 msgid "Right..."
 msgstr "Right ..."
 
 msgid "Here, have my shield and have fun!"
-msgstr "Hier hebben mijn schild en veel plezier!"
+msgstr "Tu so moje ščit in se zabavajte!"
 
 msgid "Just stay away from the Forbidden Swamp"
-msgstr "Blijf uit de buurt van de Verboden Swamp"
+msgstr "Ostani proč od Forbidden Swamp"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr "Zullen doen, kan ik vasthouden aan je pikhouweel voor een tijdje?"
+msgstr "Ali bodo to storili, lahko imajo na vaše Trnokop za nekaj časa?"
 
 msgid "Sure thing, just bring it back in one piece"
-msgstr "Tuurlijk, maar breng het terug in een stuk"
+msgstr "Seveda stvar, le prinese nazaj v enem kosu"
 
 msgid "Thanks, Borgan!"
-msgstr "Thanks, Borgan!"
+msgstr "Hvala, Borgan!"
 
 msgid "Have you managed to find the coal yet?"
-msgstr "Heeft u geslaagd om de kolen te vinden toch?"
+msgstr "Ali vam je uspelo najti premoga še?"
 
 msgid "You can pull some items around by pushing against them whilst holding down the Action button."
-msgstr "U kunt een aantal items rond trekken door te duwen tegen hen ingedrukt te houden terwijl de actie knop."
+msgstr "Lahko potegnite nekaj elementov okoli, da ga potisnete proti njim, medtem ko držite gumb akciji."
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr "U kunt dan trek het rond totdat je laten gaan van de actietoets"
+msgstr "Nato lahko potegnil okrog, dokler ne spustite gumb akcijskega"
 
 msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
-msgstr "Deze rots lijkt te sterk voor mijn Pick Axe. Ik moet iets anders gebruiken om door ..."
+msgstr "Ta rock izgleda preveč močan za moj Pick Axe. Jaz bom moral uporabiti nekaj drugega, da priti skozi ..."
 
 msgid "Urgh, what happened?"
-msgstr "Zucht, wat is er gebeurd?"
+msgstr "Urgh, kaj se je zgodilo?"
 
 msgid "Looks like this wasn't such a good idea after all"
-msgstr "Het lijkt erop dat dit niet zo'n goed idee na alle"
+msgstr "Zgleda, da to ni tako dobra ideja, navsezadnje"
 
 msgid "There must be way out of here..."
-msgstr "Er moet een uitweg hier ..."
+msgstr "Obstajati mora pot ven ..."
 
 msgid "This must be the coal wants me to mine for him"
-msgstr "Dit moet de kolen wil dat ik mij voor hem"
+msgstr "To mora biti premoga hoče, da mu mine"
 
 msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
-msgstr "Ik denk niet dat mijn schild zal mij beschermen tegen die vuurballen. Ik moet op zoek naar een sterkere ..."
+msgstr "Ne verjamem, da moj ščit bo varoval me od tistih, ki fireballs. Bom moral najti eno močnejše ..."
 
 msgid "You won't be able to do this bit in this version, check back later!"
-msgstr "U zult niet in staat zijn om dit stukje te doen in deze versie, check back later!"
+msgstr "Ne boste mogli to bit v tej verziji, check back later!"
 
 msgid "Strange creature..."
-msgstr "Strange schepsel ..."
+msgstr "Čudno bitje ..."
 
 msgid "Wait, what was that?"
-msgstr "Wacht, wat was dat?"
+msgstr "Čakaj, kaj je to?"
 
 msgid "You again?!"
-msgstr "Jij weer?!"
+msgstr "Ti spet?!"
 
 msgid "Something is supposed to happen here, but it's not in this version so check back later!"
-msgstr "Iets is verondersteld om hier te gebeuren, maar het is niet in deze versie dus check back later!"
+msgstr "Nekaj naj bi se zgodilo, vendar to ni v tej različici, zato preverite znova pozneje!"
 
 msgid "Have fun!"
 msgstr "Have fun!"
 
 msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
-msgstr "Bedankt voor resucing mijn kippen, heb je me 2 stammen uit het bos nog?"
+msgstr "Hvala za resucing moj piščance, imaš me 2 hlode iz gozda še?"
 
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr "Bedankt Edgar! Mijn kippen zijn terug en deze logs zullen doen me prima"
+msgstr "Edgar hvala! Moji piščanci se nazaj in te bo naredil dnevnike me fine"
 
 msgid "Take this sword, may it serve you well!"
-msgstr "Neem dit zwaard, kan het ook u van dienst zijn!"
+msgstr "Vzemi to meč, lahko služi tudi vi!"
 
 msgid "Thank you!"
-msgstr "Bedankt!"
+msgstr "Hvala!"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr "Bedankt voor de logs, heb je geluk gehad met de kippen?"
+msgstr "Hvala za hlode, ste imeli malo sreče s piščanci?"
 
 msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
-msgstr "Ik geef je een zwaard als je me 2 get gehakte stammen uit het bos-en reddingsacties ten minste 3 van mijn kippen"
+msgstr "Dal ti bom meč, če me 2, se seseklja hlode iz gozda in reševanje vsaj 3 mojih piščancev"
 
 msgid "Hello Edgar, what can I do for you today?"
-msgstr "Hallo Edgar, wat kan ik voor je doen vandaag?"
+msgstr "Pozdravljeni Edgar, kaj lahko storim za vas danes?"
 
 msgid "Do you have a sword I can borrow?"
-msgstr "Heeft u een zwaard kan ik lenen?"
+msgstr "Ali imaš meč sem lahko sposodim?"
 
 msgid "I do have a sword and you can have it if you do something for me first"
-msgstr "Ik heb een zwaard en je kunt hebben als je iets voor mij eerst"
+msgstr "Imam meč in ga lahko, če vam kaj zame prvi"
 
 msgid "OK... what do I have to do?"
-msgstr "OK ... wat moet ik doen?"
+msgstr "OK ... Kaj moram storiti?"
 
 msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
-msgstr "Sommige van mijn kippen zijn ontsnapt uit hun pen en ik zou zeer dankbaar zijn als je terug kunt krijgen ze voor mij"
+msgstr "Nekaj mojih piščancev so pobegnili iz svoje pero in jaz bi bil zelo hvaležen, če lahko dobiš nazaj za mene"
 
 msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
-msgstr "Ik heb ingesteld voor enkele valstrikken in de buurt van hun pen, kun je ze lokken naar de vallen met behulp van deze kippenvoer. Ik hoef ze niet allemaal, maar ten minste 3 zou zeer nuttig zijn. Kan ik de rest zelf."
+msgstr "I so vzpostavile nekatere pasti, v bližini njihovega boksa, lahko Skušnjava jih pasti uporabo te piščančje krme. Ne potrebujem jih vsi, pa vsaj 3, bi bilo zelo koristno. Lahko dobim počitek sebi."
 
 msgid "That's it?"
-msgstr "That's it?"
+msgstr "To je to?"
 
 msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
-msgstr "Niet helemaal. Kunt u krijgt ook mij wat hout uit het bos? 2 logs moet voldoende"
+msgstr "Ne čisto. Lahko dobite tudi mi nekaj lesa iz gozda? 2 zapor bi moralo zadostovati"
 
 msgid "Do you have an axe?"
-msgstr "Heeft u een bijl?"
+msgstr "Imate sekiro?"
 
 msgid "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr "Erm ... Ik liet mijn bijl ergens in het bos. Het moet nog steeds worden er"
+msgstr "Erm ... Pustil sem sekiro v gozdu nekje. Treba je še vedno tam"
 
 msgid "Isn't that forest dangerous?"
-msgstr "Is dat niet het bos gevaarlijk?"
+msgstr "Ali ni to nevarno gozd?"
 
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr "Niet echt, als er iets in de weg staat, klik je met een wapen"
+msgstr "Niti ne, če sploh kaj pride v svojo pot, samo zadeti z orožjem"
 
 msgid "Such as an axe?"
-msgstr "Zoals een bijl?"
+msgstr "Kot sekira?"
 
 msgid "Yes, that would do the trick"
-msgstr "Ja, dat zou de truc"
+msgstr "Ja, to bi delati ukana"
 
 msgid "..."
 msgstr "..."
 
 msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
-msgstr "Maar serieus, er is niets in dat er echt kan u schaden. Dat probleem werd behandeld met een lange tijd geleden ..."
+msgstr "Ampak resno, to še ni nič v tam, da lahko resnično vam škodoval. Ta težava je bila obravnavana že zdavnaj ..."
 
 msgid "Good luck!"
-msgstr "Succes!"
+msgstr "Srečno!"
 
 msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr "Oh, dank Edgar, ik alleen nodig 3, maar bedankt voor de extra hulp!"
+msgstr "Oh, hvala Edgar, sem le 3 so potrebni, ampak hvala za dodatno pomoč!"
 
 msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
-msgstr "Hier, Maggie maakte me dit drankje de gezondheid, maar ik niet zo nodig hebt waarom je niet hebt?"
+msgstr "Tukaj, Maggie me je ta napitek, vendar zdravje mi ni treba to tako, zakaj ne imate?"
 
 msgid "Thanks Jacob"
-msgstr "Bedankt Jacob"
+msgstr "Hvala Jacob"
 
 msgid "Wow, you caught them all, thanks alot!"
-msgstr "Wow, je ze allemaal gevangen, thanks a lot!"
+msgstr "Vau, si jih vse ujete, hvala veliko!"
 
 msgid "Here, I have these for you"
-msgstr "Hier heb ik deze voor u"
+msgstr "Tukaj sem te za vas"
 
 msgid "Maggie made me this health potion but you can have it"
-msgstr "Maggie heeft me dit drankje de gezondheid, maar je kunt het hebben"
+msgstr "Maggie me je to zdravje napitek lahko pa so to"
 
 msgid "And this is something very special"
-msgstr "En dit is iets heel bijzonders"
+msgstr "In to je nekaj zelo posebnega"
 
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "Moge deze helpen je op weg om een sterke krijger"
+msgstr "May to vam pomaga na poti, da postane močan bojevnik"
 
 msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
-msgstr "Je hebt me een hoop tijd. Maggie heeft me iets anders, maar omdat je zo nuttig geweest, kun je het hebben."
+msgstr "Rešil si mi veliko časa. Maggie me je nekaj drugega, ampak, ker ste bili tako uslužen, lahko ga imate."
 
 msgid "Hi Maggie"
-msgstr "Hoi Maggie"
+msgstr "Hi Maggie"
 
 msgid "Thanks Maggie!"
 msgstr "Thanks Maggie!"
 
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr "Borgan gezegd dat een deel van de mijn is verzegeld na een  incident "
+msgstr "Borgan je dejal, da je bil del rudnika zaprti do po  incident "
 
 msgid "There must be something around here..."
-msgstr "Er moet iets hier ..."
+msgstr "Mora biti nekaj tukaj ..."
 
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr "Drat, de ophaalbrug is up. Er moet een andere ingang ..."
+msgstr "Drat, Premični most je gor. Obstajati mora še en vhod ..."
 
 msgid "Wait, what's that?"
-msgstr "Wacht, wat is dat?"
+msgstr "Čakaj, kaj je to?"
 
 msgid "Maybe I could tunnel my way in..."
-msgstr "Misschien kan ik mijn weg tunnel inch .."
+msgstr "Mogoče bi lahko predor moj način v. .."
 
 msgid "These machines aren't working."
-msgstr "Deze machines werken niet."
+msgstr "Ti stroji ne delujejo."
 
 msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
-msgstr "Het ziet eruit als een juweel moeten passen in dit gat, misschien kan ik u enkele vervangingen."
+msgstr "Izgleda kot biser bi bilo primerno v tej luknji, morda najdem nekaj zamenjav."
 
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
-msgstr "Het lijkt erop dat deze stevig is ingeklemd in. Ik kan waarschijnlijk los met de houweel ..."
+msgstr "Izgleda, da je trdno v klinču tam. Lahko verjetno zrahljamo z Trnokop ..."
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr "Om naar de Verboden Swamp ik nodig hebt om een vlot te bouwen."
+msgstr "Da bi prišli do Forbidden Swamp bom treba zgraditi splav."
 
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr "Ik kan het vlot bouwen als ik hakken genoeg bomen uit het bos"
+msgstr "Ne morem zgraditi splav, če sem sesekljajte določitvi dovolj dreves iz gozda"
 
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr "Ik heb 6 Chopped Logs het bouwen van een vlot"
+msgstr "Rabim 6 sesekljani Dnevniki zgraditi splav"
 
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr "Ik ga niet naar het moeras zonder een zwaard en schild"
+msgstr "Im 'ne tekoč v močvirje brez meč in ščit"
 
 msgid "OK, here goes!"
-msgstr "OK, hier gaat!"
+msgstr "OK, tukaj gre!"
 
 msgid "Aw, not again!"
-msgstr "Aw, niet weer!"
+msgstr "Oh, ne že spet!"
 
 msgid "This had better be the last time I have to do this..."
-msgstr "Dit had beter de laatste tijd heb ik om dit te doen ..."
+msgstr "To je bolje biti zadnji čas, sem za to ..."
 
 msgid "That was easy! And I can always get back later!"
-msgstr "Dat was makkelijk! En ik altijd terug kan krijgen later!"
+msgstr "To je bilo preprosto! In jaz vedno vrnem kasneje!"
 
 msgid "Oh...."
 msgstr "Oh ...."
 
 msgid "Guess I have no choice now."
-msgstr "Guess Ik heb geen keus nu."
+msgstr "Verjetno sem zdaj nimajo druge izbire."
 
 msgid "Hang on Dad, I'm coming..."
-msgstr "Wacht Pap, ik kom ..."
+msgstr "Počakaj Oče, jaz prihajam ..."
 
 msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
-msgstr "Iets is verondersteld nu gebeuren, maar het is niet in deze versie. Check back later!"
+msgstr "Nekaj naj bi zdaj zgodilo, vendar ne v tej različici. Check back later!"
 
 msgid "There's a note here"
-msgstr "Er is een notitie hier"
+msgstr "There's note here"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "Ik heb gevangen hier beneden voor wat lijkt een eeuwigheid"
+msgstr "Sem bil ujet tukaj za to, kar se zdi kot večnost"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "Om uit deze plaats ik 3 Toegang Sleutels tot de liften werken"
+msgstr "Da bi dobili iz tega kraja rabim 3 tipke za dostop do dela dvigala"
 
 msgid "So far I have only found 1"
-msgstr "Tot nu toe heb ik alleen gevonden 1"
+msgstr "Do sedaj sem našel samo 1"
 
 msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
-msgstr "Tot overmaat van ramp, kan ik alleen maar bereiken sommige switches met een zorgvuldig geplaatste pijl"
+msgstr "Poslabšati stvari, lahko doseže samo nekaj stikala s skrbno dano puščico"
 
 msgid "But spares aren't common and I have run out"
-msgstr "Maar onderdelen zijn niet gebruikelijk en ik heb uitgeput"
+msgstr "Toda prizanaša niso pogosti in imam zmanjkalo"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr "Als ik niet een uitweg te vinden hier binnenkort, vrees ik dat ik kan verhongeren"
+msgstr "Če ne najdem pot ven kmalu, se bojim smem stradati"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr "Als ik niet hier weg ik zal hetzelfde lot ..."
+msgstr "Če ne pridem ven bom trpi isto usodo ..."
 
 msgid "Oh, what's this?"
-msgstr "O, wat is dit?"
+msgstr "Oh, kaj je to?"
 
 msgid "There's a note here too"
-msgstr "Er is een notitie ook hier"
+msgstr "There's note tudi tukaj"
 
 msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
-msgstr "Het drankje is perfect! Quaffing het zal weer een mens in een schepsel voor een kleine hoeveelheid tijd"
+msgstr "Napitek je popoln! Quaffing bo pa v človeško bitje za majhno količino časa"
 
 msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
-msgstr "Tot nu toe kan ik alleen maar transmogrify mezelf in een schepsel, maar met een beetje meer tijd alles moet mogelijk"
+msgstr "Do sedaj sem lahko le Zamenjati sam v eno bitje, ampak z malo več časa, kaj je treba omogočiti"
 
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr "Er is een klein beetje naar links, moet het veilig om te drinken"
+msgstr "Tam je majhen košček levo, mora biti varna za pitje"
 
 msgid "OK, here goes nothing..."
-msgstr "OK, hier gaat niets ..."
+msgstr "OK, tukaj gre nič ..."
 
 msgid "Urgh!! This is horrible!"
-msgstr "Urgh! Dit is verschrikkelijk!"
+msgstr "Urgh! To je grozno!"
 
 msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
-msgstr "Borgan vertelde me dat Slimes kunnen zwemmen in het water al, dus misschien is dit nuttig zal zijn ..."
+msgstr "Borgan mi je povedal, mulja, da se lahko kopate v vodi, čeprav, tako da morda bo to koristilo ..."
 
 msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
-msgstr "Wanneer omgevormd tot een Slijm, kunt u bewegen als normaal. U kunt ook zwemmen in het water en het gebruik op en neer te bewegen"
+msgstr "Ko se preoblikuje v Slime, se lahko gibljejo kot običajno. Lahko tudi kopanje v vodi in uporabo gor in dol za premikanje"
 
 msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
-msgstr "Pushing up of springen zal je uit het water springen als je in de buurt van het oppervlak"
+msgstr "Potiskanje gor ali skočiti bo vam skoči iz vode, če ste blizu površine"
 
 msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
-msgstr "Houd een oogje op de timer op de onderkant van het scherm. Als het 0 bereikt u automatisch wordt weer mens"
+msgstr "Bodite pozorni na števec na dnu zaslona. Ko se doseže 0 boste samodejno postali spet ljudi"
 
 msgid "This place doesn't look so bad..."
-msgstr "Deze plek ziet er niet zo slecht ..."
+msgstr "To mesto ne zgleda tako slabo ..."
 
 msgid "What was that?"
-msgstr "Wat was dat?"
+msgstr "Kaj je to?"
 
 msgid "Uh Oh..."
 msgstr "Uh Oh ..."
 
 msgid "Phew, I'm glad to be out of there"
-msgstr "Oef, ik ben blij dat zijn er"
+msgstr "Fuj, sem vesel, da se od tam"
 
 msgid "Now to get through this swamp"
-msgstr "Nu te krijgen door dit moeras"
+msgstr "Zdaj priti skozi to močvirje"
 
 msgid "Hey, what's this?"
-msgstr "He, wat is dit?"
+msgstr "Hej, kaj je to?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr "Ziet er vrij onschuldig, ik zal proberen stap op het"
+msgstr "Izgleda precej neškodljivo, bom poskusil okrepitev na njej"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr "Wow Dat was cool! Dit moet een mechanische teleporter."
+msgstr "Wow! To je bilo cool! To mora biti mehansko teleporter."
 
 msgid "I wonder if it works both ways..."
-msgstr "Ik vraag me af of het in beide richtingen werken ..."
+msgstr "Zanima me, če deluje v obe smeri ..."
 
 msgid "Horray!"
 msgstr "Horray!"
 
 msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr "Niet alleen gaat dit op te slaan me veel wandelen, het is ook heel veel plezier!"
+msgstr "Ne samo, da se to dogaja, da shranite mi veliko hoje, je tudi zanimiva!"
 
 msgid "Now try out your shield"
-msgstr "Nu probeer je schild"
+msgstr "Sedaj testirati svoj ščit"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr "Blokkeer de pellets spuwde door de plant en spring tot de volgende richel"
+msgstr "Block peleti pljunil, ki jih naprave in skočite do naslednjega polico"
 
 msgid "Some items in the game can be pushed and pulled"
-msgstr "Sommige objecten in het spel kan worden geduwd en getrokken"
+msgstr "Nekatere postavke v igri lahko ga vlečejo in vlečejo"
 
 msgid "To push an item, simply walk into it"
-msgstr "Duwen een item, gewoon lopen in het"
+msgstr "Če želite push element, preprosto hoditi vanjo"
 
 msgid "To pull an item, walk into while holding down Action"
-msgstr "Te trekken een item, wandeling in terwijl u Actie"
+msgstr "Če želite pull točke, medtem ko hodi v držite Ukrep"
 
 msgid "You can then pull the item around until you let go of Action"
-msgstr "U kunt dan trek het item rond totdat je loslaten van actie"
+msgstr "Nato lahko potegnite element okrog, dokler ne spustite akcijskega"
 
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr "Trek de doos over de andere kant en gebruik deze om de richel te bereiken"
+msgstr "Ustavi polje v drugo stran in ga uporabi za dosego polico"
 
 msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
-msgstr "Dit is het laatste deel van de tutorial en leert je te blokkeren en vijanden aanvallen"
+msgstr "To je zadnji del tutorski in vas bodo naučili, da blok in napad sovražnikov"
 
 msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
-msgstr "Ten eerste moet je het zwaard te rusten, aangezien het meer bereik heeft en doet meer schade dan de pikhouweel"
+msgstr "Najprej morate opremiti meč, saj ima več območje in ne več škode kot Trnokop"
 
 msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
-msgstr "Druk op z om uw inventaris, markeert het zwaard en druk op Attack (linker ctrl) of gebruik punt (a)"
+msgstr "Pritisnite z če si želite ogledati seznam, označite meč in pritisnite Attack (levo ctrl) ali uporabite točka (a)"
 
 msgid "Press z again to close your inventory"
-msgstr "Druk nogmaals op Z te sluiten je inventory"
+msgstr "Pritisnite z ponovno zapreti svoj inventar"
 
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
-msgstr "Af en toe zal verslagen vijanden druppel gezondheid, die zal verdwijnen na een paar seconden, dus pak het snel!"
+msgstr "Občasno bo ubil padec sovražniki zdravja, ki bodo izginili po nekaj sekundah, tako hitro poberi!"
 
 msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
-msgstr "Als een vleermuis wordt steeds dicht bij u, houd blok en het zal onschuldig stuiteren u"
+msgstr "Če se bat, da je pridobivanje blizu vas, držite blok in se bo na neškodljiv način bounce off vas"
 
 msgid "Now kill all of the bats in the area!"
-msgstr "Nu alle doden van de vleermuizen in het gebied!"
+msgstr "Zdaj ubiti vse netopirjev v območju!"
 
 msgid "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr "Er zijn twee soorten van de deur in het spel. Handleiding deuren en automatische deuren."
+msgstr "Obstajata dve vrsti vrat v igri. Ročna vrata in avtomatska vrata."
 
 msgid "Manual doors require keys to open them, Automatic doors require switches."
-msgstr "Handleiding deuren een sleutel kunnen worden geopend, Automatische deuren vereisen schakelaars."
+msgstr "Ročno vrata zahtevajo, ključi pa jih je odpreti, Automatic vrata zahtevajo stikala."
 
 msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
-msgstr "U opent een gesloten deur die u hebt de sleutel voor, u loopt gewoon in. Er is geen noodzaak om de sleutel geselecteerd in je inventaris hebben."
+msgstr "Če želite odpreti zaklenjena vrata, ki ste tipko za, preprosto sprehod v to. Nobene potrebe ni, da je ključ izbrane v vašem inventarju."
 
 msgid "Open the door and continue to the right"
-msgstr "Open de deur en verder naar rechts"
+msgstr "Odprite vrata in še naprej pravico"
 
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
-msgstr "Felicitaties! Nu weet je de basisbeginselen van het spelen moet je proberen de belangrijkste wedstrijd"
+msgstr "Čestitke! Zdaj poznate osnove igranja, morate poskusiti glavne igre"
 
 msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
-msgstr "Als u wilt replay deze tutorial, drukt u op Escape en Tutorial kies uit het menu"
+msgstr "Če želite Replay to tutorski, pritisnite Escape in izberite Vadnica iz menija"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr "Om te spelen de belangrijkste wedstrijd, drukt u op Escape en selecteer Nieuw spel in het menu"
+msgstr "Če želite igrati glavno igro, pritisnite Escape in izberite Nova igra iz menija"
 
 msgid "Press Space when you have finished reading to go to the next dialog box"
-msgstr "Druk op Ruimte als u klaar bent met lezen om naar het volgende dialoogvenster"
+msgstr "Press Space, ko ste končali obravnavo, da se premaknete na naslednjo pogovorno okno"
 
 msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr "U kunt ook naar het volgende dialoogvenster door te drukken Attack (links Ctrl), Blok (links alt), Jump (ruimte), Action (c) of Gebruik punt (a)"
+msgstr "Prav tako lahko premaknete na naslednjo pogovorno okno s pritiskom na napad (levo ctrl), Block (levi alt), Skok (space), Ukrep (c) ali uporabite točka (a)"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
-msgstr "Dit is de tutorial voor de legende van Edgar. Deze tutorial zal uitleggen hoe het spel spelen."
+msgstr "To je Tutorial za Legend of Edgar. To bo tutorski razložiti, kako igrati igro."
 
 msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
-msgstr "Om af te sluiten deze tutorial, drukt u op Escape en gebruik de Up and Down pijltoetsen om een optie te kiezen. Druk op Return om het te selecteren."
+msgstr "Če želite zapreti to tutorski, pritisnite Escape in uporabo gor in dol puščične tipke, da izberete možnost. Pritisnite Nazaj, da jo izberete."
 
 msgid "To move left and right, use the arrow keys."
-msgstr "Om naar links en rechts, gebruik de pijltjestoetsen."
+msgstr "Če želite premakniti levo in desno, uporabite puščične tipke."
 
 msgid "To make jump, press space. You can move in the air when jumping."
-msgstr "Om te springen, drukt u op de ruimte. U kunt verplaatsen in de lucht bij het springen."
+msgstr "Če želite skočiti, pritisnite prostor. Lahko premaknete v zraku, ko skokih."
 
 msgid "To interact with an item, press c"
-msgstr "Om te communiceren met een item, druk c"
+msgstr "Za interakcijo s točko, pritisnite c"
 
 msgid "Walk over to the Action Point and press c"
-msgstr "Loop naar de Action Point en druk op c"
+msgstr "Sprehodite se prenesejo v akcijski točko in pritisnite c"
 
 msgid "To collect an item from your"
-msgstr "Het verzamelen van een item uit uw"
+msgstr "Če želite zbirati eno od vaših"
 
 msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
-msgstr "Te halen een item, u loopt gewoon in. Elke collectable items worden toegevoegd aan je inventaris."
+msgstr "Če želite pick up element, preprosto hoditi vanjo. Vsi dosegljivi predmeti bodo dodani na vaš seznam."
 
 msgid "You can view the contents of your inventory by pressing z"
-msgstr "U kunt de inhoud van uw voorraad door op z"
+msgstr "Ogledate si lahko vsebino vašega seznama s pritiskom na tipko z"
 
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr "Terwijl in de inventaris, gebruik de pijltjestoetsen om de items."
+msgstr "Medtem ko v popis, uporabite puščične tipke, da si ogledate elemente."
 
 msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
-msgstr "U kunt een item onmiddellijk gebruiken door te drukken Attack (linker ctrl) of gebruik punt (a)"
+msgstr "Lahko uporabite element takoj s pritiskom Attack (levo ctrl) ali uporabite točka (a)"
 
 msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
-msgstr "U kunt een item klaar voor gebruik door te drukken Blok (links alt) of Action (c)"
+msgstr "Lahko pripravljen element za uporabo s pritiskom na tipko Block (levo alt) ali ukrep (c)"
 
 msgid "Walk over the key to pick it up"
-msgstr "Loop over de sleutel op te rapen"
+msgstr "Walk nad tipko kramp to ki gre gor"
 
 msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
-msgstr "U kunt alle controles in het spel door op Escape en Opties in het menu"
+msgstr "Spremenite lahko vse kontrole v igri s pritiskom Escape in izberete Možnosti v meniju"
 
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr "Selecteer Configure Controls met behulp van de pijltjestoetsen en druk op Return"
+msgstr "Izberite Konfiguracija Kontrole z puščicami in pritisnite Return"
 
 msgid "Use the arrow keys to select the control you want to change and press Return."
-msgstr "Gebruik de pijltjestoetsen om de controle te selecteren die u wilt wijzigen en druk op Return."
+msgstr "S puščičnimi tipkami izberite kontrolnik, ki ga želite spremeniti, in pritisnite Return."
 
 msgid "Next, press the key that you want to use instead."
-msgstr "Druk vervolgens op de toets die u wilt te gebruiken."
+msgstr "Nato pritisnite tipko, ki jo želite uporabiti namesto tega."
 
 msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
-msgstr "Ongeacht welke toetsen u ook kiest, kunt u altijd de menu's navigeren met behulp van de pijltjestoetsen en Return"
+msgstr "Ne glede na to, kaj ključev izberete, lahko vedno pluti menije z puščicami in Return"
 
 msgid "Note that in this tutorial, the default keys will be assumed"
-msgstr "Merk op dat in deze tutorial, wordt de standaard toetsen worden aangenomen"
+msgstr "Upoštevajte, da v tem Tutorial, bo privzeta ključev se domneva"
 
 msgid "When you have finished configuring the keys, go right to the next Action Point"
-msgstr "Wanneer u klaar bent met het configureren van de toetsen, ga rechts naar de volgende Actiepunt"
+msgstr "Ko končate konfiguracijo tipk, pojdite desno do naslednjega akcijskega Point"
 
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr "De houweel is een van de vele wapens die je zal tegenkomen in het spel"
+msgstr "Trnokop je eden od mnogih orožja, ki jih bodo imeli v igri"
 
 msgid "You can use it as both a weapon and a tool"
-msgstr "Je kunt het als een wapen en een instrument"
+msgstr "Uporabite ga lahko kot tako orožje in orodje"
 
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr "Pak de houweel en verder met de volgende Actiepunt"
+msgstr "Pick up Trnokop in še naslednji ukrep Point"
 
 msgid "Congratulations, you found a secret!"
-msgstr "Gefeliciteerd, u bent een geheim!"
+msgstr "Čestitam, si našel skrivnost!"
 
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr "Er zijn veel geheimen in de belangrijkste wedstrijd dus blijf kijken voor hen"
+msgstr "Veliko je skrivnosti v glavni igro tako vodi bodite pozorni na njihovo"
 
 msgid "Here's a hint to get you started"
-msgstr "Hier is een hint om je slag"
+msgstr "Tukaj je namig, da začnete"
 
 msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Hoewel slechts vereist dat u tot en met 3 van zijn kippen, waarom niet aardig zijn om hem te vangen en vangen meer? Er zijn 10 dwalen de kaart in alle"
+msgstr "Čeprav je le zahteva, da svojega ulova 3 piščancev, zakaj ne bo lepo k njemu in ulov več? Obstajajo 10 tava zemljevid v vseh"
 
 msgid "The shield will protect you from most enemy attacks"
-msgstr "Het schild beschermt u tegen de meeste vijandelijke aanvallen"
+msgstr "Ščit vas bo ščitil pred večino napadov sovražnik"
 
 msgid "Some enemy attacks cannot be blocked"
-msgstr "Sommige vijandelijke aanvallen kunnen niet worden geblokkeerd"
+msgstr "Nekateri napade sovražnik ni mogoče ustaviti"
 
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr "Gevaren voor het milieu, zoals vallend gesteente, kan niet worden geblokkeerd"
+msgstr "Nevarnosti za okolje, na primer spadajo kamenje, ni mogoče ustaviti"
 
 msgid "To block an attack, press and hold block (left alt)."
-msgstr "Een aanval te blokkeren, houd blok (links alt)."
+msgstr "Za blok napada, pritisnite in pridržite blok (levi alt)."
 
 msgid "You must be facing the attack to succesfully block it"
-msgstr "U moet tegenover de aanval met succes te blokkeren"
+msgstr "Morate biti obrnjeni napad za uspešno preprečijo,"
 
 msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
-msgstr "Merk op dat je niet kan bewegen, terwijl het blokkeren, maar je kunt het gezicht van de andere kant op. U kunt ook geen blok in de lucht"
+msgstr "Upoštevajte, da ne morete premakniti medtem ko blokira, vendar lahko obraz drug način. Prav tako ni mogoče blokirati v zraku"
 
 msgid "Pick up the shield and continue to the right"
-msgstr "Pak het schild en verder naar rechts"
+msgstr "Dvigni ščit, in še naprej pravico"
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr "Dit is een zwakke muur, kan worden geslagen naar beneden met de pikhouweel"
+msgstr "To je šibko steno, je mogoče razbil določi z uporabo Trnokop"
 
 msgid "To use the pickaxe, press Attack (left ctrl)"
-msgstr "Het gebruik van de houweel, drukt Attack (links Ctrl)"
+msgstr "Če želite uporabiti Trnokop, da pritisnete Attack (levo ctrl)"
 
 msgid "that not all weak walls can be destroyed using the pickaxe"
-msgstr "dat niet alle zwakke wanden kunnen worden vernietigd met behulp van de pikhouweel"
+msgstr "da ne morejo vsi šibke stene je treba uničiti z Trnokop"
 
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr "Vernietig de muur met behulp van de houweel en blijven"
+msgstr "Uniči steno z uporabo Trnokop in še naprej"
 
 msgid "Something's supposed to be here but it's not in this version, check back later!"
-msgstr "Something's verondersteld om hier te zijn, maar het is niet in deze versie, check back later!"
+msgstr "Something's naj bi se tukaj, ampak to ni v tej različici, check back later!"
 
 msgid "Collect 10 pieces of Coal"
-msgstr "Verzamel 10 stuks van kolen"
+msgstr "Zberemo 10 kosov premoga"
 
 msgid "Collect 2 Chopped Logs"
-msgstr "Verzamel 2 gehakte Logs"
+msgstr "Zberemo 2 sesekljani Dnevniki"
 
 msgid "Rescue 3 Chickens"
-msgstr "Rescue 3 kippen"
+msgstr "Rescue 3 Piščanci"
 
 msgid "Find 4 Gems"
-msgstr "Vind 4 Gems"
+msgstr "Poišči 4 Gems"
 
 msgid "Repair Generators"
-msgstr "Reparatie Generators"
+msgstr "Popravila Generators"
 
 msgid "Collect 6 Chopped Logs"
-msgstr "Verzamel 6 Chopped Logs"
+msgstr "Zberite 6 sesekljani Dnevniki"
 
 msgid "Collect 3 Access Keys"
-msgstr "Verzamel 3 Access Keys"
+msgstr "Zberite 3 Access Keys"
 
 msgid "This is a blank objective"
-msgstr "Dit is een leeg doel"
+msgstr "To je prazno cilj"
 
 msgid "Kill all Bats!"
-msgstr "Dood alle Bats!"
+msgstr "Ubij vse Netopirji!"
 
 msgid "Coal"
-msgstr "Kolen"
+msgstr "Premog"
 
 msgid "Chopped Log"
-msgstr "Chopped Inloggen"
+msgstr "Sesekljani Log"
 
 msgid "Green Gem"
 msgstr "Green Gem"
@@ -855,7 +856,7 @@ msgid "Teleporter Key"
 msgstr "Teleporter Key"
 
 msgid "New Game"
-msgstr "Nieuw spel"
+msgstr "New Game"
 
 msgid "Tutorial"
 msgstr "Tutorial"
@@ -864,16 +865,16 @@ msgid "Load Game"
 msgstr "Load Game"
 
 msgid "Options"
-msgstr "Opties"
+msgstr "Možnosti"
 
 msgid "About"
-msgstr "Over"
+msgstr "O"
 
 msgid "Quit"
-msgstr "Quit"
+msgstr "Zaprite"
 
 msgid "Configure Controls"
-msgstr "Configure Controls"
+msgstr "Konfiguriraj Controls"
 
 msgid "Configure Sound"
 msgstr "Configure Sound"
@@ -882,517 +883,517 @@ msgid "Fullscreen"
 msgstr "Fullscreen"
 
 msgid "Show Hints"
-msgstr "Toon hints"
+msgstr "Pokaži Namigi"
 
 msgid "A potion which will transform you..."
-msgstr "Een drankje dat je zal veranderen ..."
+msgstr "Napitek, ki bo transformacija vas ..."
 
 msgid "Creates highly absorbant miniature ice cubes"
-msgstr "Maakt zeer absorberend miniatuur ijsblokjes"
+msgstr "Ustvari visoko absorbira mini ledene kocke"
 
 msgid "A potion which will restore all of your health"
-msgstr "Een drankje dat zal herstellen van al uw gezondheid"
+msgstr "Napitek, ki bo obnoviti vse za vaše zdravje"
 
 msgid "A powerful bomb"
-msgstr "Een krachtige bom"
+msgstr "Močna bomba"
 
 msgid "A potion which renders you invisible to certain enemies"
-msgstr "Een drankje dat maakt je onzichtbaar bepaalde vijanden"
+msgstr "Napoj, zaradi katere ste nevidni za nekatere nasprotnike"
 
 msgid "The eyeball from a Gazer"
-msgstr "De oogbol van een Gazer"
+msgstr "Zrkla iz Gazer"
 
 msgid "A Tesla Pack. It has no charge."
-msgstr "Een Tesla Pack. Het heeft geen kosten."
+msgstr "Tesla Pack. To ni dajatev."
 
 msgid "A Summoner's Staff. It cannot be used by humans."
-msgstr "Een Summoner's Personeel. Het kan niet worden gebruikt door mensen."
+msgstr "Osebje pozvati's. To ni mogoče uporabiti pri ljudeh."
 
 msgid "A Tesla Pack. It is fully charged."
-msgstr "Een Tesla Pack. Het is volledig opgeladen."
+msgstr "Tesla Pack. To je polna."
 
 msgid "An empty potion bottle"
-msgstr "Een lege fles drank"
+msgstr "Prazna steklenička napitek"
 
 msgid "A bag of chicken feed"
-msgstr "Een zak van kippenvoer"
+msgstr "Vrečko piščančje krme"
 
 msgid "A bag suitable for carrying coal"
-msgstr "Een tas geschikt voor het vervoer van kolen"
+msgstr "Vreča primerna za prevoz premoga"
 
 msgid "Basic Sword"
-msgstr "Basic Sword"
+msgstr "Osnovni Sword"
 
 msgid "A Sword given to you by Jacob"
-msgstr "Een zwaard gegeven aan u door Jacob"
+msgstr "Sword ki ste ga Jacob"
 
 msgid "A bow"
-msgstr "Een boog"
+msgstr "Premcu"
 
 msgid "Small Wooden Shield"
-msgstr "Kleine Houten Shield"
+msgstr "Mala Leseni Shield"
 
 msgid "A small shield that provides basic protection"
-msgstr "Een kleine schild dat de fundamentele bescherming biedt"
+msgstr "Majhen ščit, ki zagotavlja osnovno zaščito"
 
 msgid "Normal Arrow"
-msgstr "Normaal Arrow"
+msgstr "Normal Arrow"
 
 msgid "Normal Arrows"
-msgstr "Normaal Arrows"
+msgstr "Normal Arrows"
 
 msgid "An axe suitable for chopping trees"
-msgstr "Een bijl geschikt voor het hakken van bomen"
+msgstr "Sekira primerna za sekanje dreves"
 
 msgid "Pickaxe"
-msgstr "Houweel"
+msgstr "Trnokop"
 
 msgid "A pickaxe lent to you by Borgan"
-msgstr "Een houweel uitgeleend aan u door Borgan"
+msgstr "Trnokop posodil ki ste ga Borgan"
 
 msgid "Fire Burner Key"
 msgstr "Fire Burner Key"
 
 msgid "Potion Room Key"
-msgstr "Potion Room Key"
+msgstr "Napoj Room Key"
 
 msgid "Surge Passage Key"
 msgstr "Surge Passage Key"
 
 msgid "Demolition Storage Key"
-msgstr "Sloop Storage Key"
+msgstr "Rušenje Storage Key"
 
 msgid "Whatever that thing was it was draining the power from that generator and using it against me."
-msgstr "Wat dat ding was het de macht van die generator drainage en gebruiken het tegen mij."
+msgstr "Karkoli, da stvar je bila, da je odvajanje od moči, da je generator in z njim proti meni."
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
-msgstr "Dat zou kunnen verklaren waarom dat de lift niet werkte. Overwin de andere drainers moet het herstel van de macht."
+msgstr "To lahko pojasni, zakaj se je, da dvigalo ne deluje. Zaustavimo drugi drainers mora obnoviti moči."
 
 msgid "Defeat all Energy Drainers"
-msgstr "Versla alle energie Drainers"
+msgstr "Poraz vse Energy Drainers"
 
 msgid "No Objectives"
-msgstr "Geen Doelstellingen"
+msgstr "No Cilji"
 
 msgid "Press Action to reset puzzle blocks"
-msgstr "Druk op actie te resetten puzzel blokken"
+msgstr "Pritisnite Ukrep za ponastavitev puzzle bloki"
 
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr "Het ziet eruit als een blender. Ik kan dit gebruiken om iets versap"
+msgstr "Izgleda kot mešalnik. Jaz pa bi v tem, da nekaj liquidise"
 
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
-msgstr "Ik heb een rode Slib Tentacle en 3 Gazer oogballen om het drankje"
+msgstr "Rabim Red Blato Popek in 3 Gazer zrkel, da napoj"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "Ik moet nog een lege fles op het drankje zetten"
+msgstr "Jaz še vedno potrebujejo Empty Bottle, naj v napoj"
 
 msgid "So this is the Fortress."
-msgstr "Dus dit is de burcht."
+msgstr "Torej je to trdnjavo."
 
 msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
-msgstr "Het lijkt een hoop deuren leiden uit naar andere gebieden, moet ik een behoorlijke rond te kijken voordat ik ga ergens anders ..."
+msgstr "Izgleda veliko vrat Začeli tudi na druga področja, bi moral imeti ustrezno pogledam okoli, preden grem nikamor drugam ..."
 
 msgid "Try hitting the skull..."
-msgstr "Probeer het raken van de schedel ..."
+msgstr "Try hitting lobanjo ..."
 
 msgid "This machine is not active"
-msgstr "Deze machine is niet actief"
+msgstr "Ta stroj ni aktiven"
 
 msgid "Repeat the sequence"
-msgstr "Herhaal de sequentie"
+msgstr "Ponovi zaporedje"
 
 msgid "Correct Sequence"
-msgstr "Juiste volgorde"
+msgstr "Pravilnem zaporedju"
 
 msgid "Incorrect Sequence"
-msgstr "Onjuiste Sequence"
+msgstr "Nepravilno Sequence"
 
 msgid "The Legend of Edgar has encountered the following error"
-msgstr "De legende van Edgar heeft ondervonden de volgende foutmelding"
+msgstr "Legend of Edgar je naletel naslednje napake"
 
 msgid "Please report this error to Parallel Realities"
-msgstr "Meld deze fout aan Parallel Realities"
+msgstr "Prosimo, da o tej napaki na Parallel Realnosti"
 
 msgid "The game will now exit"
-msgstr "Het spel wordt nu afgesloten"
+msgstr "Igra bo sedaj izhod"
 
 msgid "It looks like a blender. I could use this to liqudise something"
-msgstr "Het ziet eruit als een blender. Ik kan dit gebruiken om iets liqudise"
+msgstr "Izgleda kot mešalnik. Jaz pa bi v tem, da nekaj liqudise"
 
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr "Dit moet de kolen Borgan wil dat ik mij voor hem"
+msgstr "To mora biti premoga Borgan hoče, da mu mine"
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
-msgstr "Dat zou kunnen verklaren waarom dat de lift niet werkte. Overwin de andere drainers moet het herstel van de macht hier."
+msgstr "To lahko pojasni, zakaj se je, da dvigalo ne deluje. Zaustavimo drugi drainers mora obnoviti moči tukaj."
 
 msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
-msgstr "Ik moet vinden 3 Gazer Eyes, 1 Rode Slib Tentacle en een extra schild om een schild of Fire Resistance"
+msgstr "Moram najti 3 Gazer Eyes, 1 Red Blato Popek in dodatni ščit za ustvarjanje Shield of Fire Resistance"
 
 msgid "Once I've found all these items I'll have to find a place to create the shield"
-msgstr "Zodra ik heb gevonden al deze items Ik moet een plaats om het schild te creëren vinden"
+msgstr "Ko sem našel vse te postavke, bom moral najti mesto za ustvarjanje ščit"
 
 msgid "There's a book here about enchanting weapons"
-msgstr "Er is een boek hier over betoverende wapens"
+msgstr "There's book tukaj o očarljivo orožja"
 
 msgid "Maybe I can create a shield..."
-msgstr "Misschien kan ik maken een schild ..."
+msgstr "Mogoče lahko ustvarim ščit ..."
 
 msgid "Swords... Armour... Wands..."
 msgstr "Swords ... Armour ... Wands ..."
 
 msgid "Stupid book. It's not in order and there's no index"
-msgstr "Stupid boek. Het is niet in orde en er is geen index"
+msgstr "Stupid knjigo. To ne z namenom in ni kazalo"
 
 msgid "Here we go: Shields"
-msgstr "Daar gaan we: Shields"
+msgstr "Pa gremo: Shields"
 
 msgid "Shield of Fire Resistance"
 msgstr "Shield of Fire Resistance"
 
 msgid "Ingredients"
-msgstr "Ingrediënten"
+msgstr "Sestavine"
 
 msgid "One must gather the following"
-msgstr "Men moet verzamelen de volgende"
+msgstr "Eden mora zbrati naslednje"
 
 msgid "The root of a Mandrake"
-msgstr "De wortel van een Mandrake"
+msgstr "Koren Mandrake"
 
 msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Het vet van een Darsh (links op te staan voor 3 maanden)"
+msgstr "Maščoba Darsh (mirovati za 3 mesece)"
 
 msgid "Powered Condor bones"
-msgstr "Powered Condor botten"
+msgstr "Powered Condor kosti"
 
 msgid "3 eyes of the Gazer"
-msgstr "3 ogen van de Gazer"
+msgstr "3 oči Gazer"
 
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr "De vers gesneden tentakel van een vrouwelijke Rode Slib"
+msgstr "Sveže rezano Popek iz ženskih Red blata"
 
 msgid "The shield to apply the enchantment"
-msgstr "Het schild de toepassing van de betovering"
+msgstr "Ščit za uporabo začarana"
 
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr "Meng de Gazer ogen en slib tentakel in een gladde vloeistof"
+msgstr "Blend Gazer oči in blata Popek v gladko tekoče"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Voeg de wortel, vet en botten in de ketel en meng samen met de gemengde Gazer ogen en slib tentakel"
+msgstr "Dodajte koren, maščob in kosti v kotel in zmešamo skupaj z mešano očmi Gazer in blata Popek"
 
 msgid "When the mixture turns bright blue, add the shield"
-msgstr "Wanneer het mengsel draait helder blauw, voeg het schild"
+msgstr "Ko zmes postane svetlo modro, dodajte ščit"
 
 msgid "I've seen most of these items in the lab so I don't need to worry about those"
-msgstr "Ik heb de meeste van deze items in het lab zodat ik niet hoef te maken over deze"
+msgstr "Videl sem večino teh postavk v laboratoriju, da mi ni treba skrbeti o teh"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr "En de Gazers hangen rond in de kelder dus dat is geen probleem"
+msgstr "In Gazers visijo okrog v kleti, tako da to ni problem"
 
 msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
-msgstr "Wat ik wel moeten vinden is een Red slib, maar ik heb geen idee waar er een te vinden"
+msgstr "Kaj mi je treba najti rdeče blato, ampak jaz nimam pojma, kje ena"
 
 msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
-msgstr "Ik kan geen gebruik maken van mijn huidige schild in het experiment voor het geval het backfires dus ik zal moeten naar een ander vinden"
+msgstr "Ne morem uporabljati moje trenutne ščita v poskusu v primeru, da backfires tako da bom moral najti drugo"
 
 msgid "Hmmm..."
 msgstr "Hmmm ..."
 
 msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
-msgstr "Er kunnen drankjes kamer of lab waar ik kan vinden de wortels, vet en botten, zodat ik niet hoef te maken over deze"
+msgstr "Tam lahko napitkov sobo ali laboratorij, kjer lahko najdem korenine, maščob in kosti, tako da mi ni treba skrbeti o teh"
 
 msgid "You must have the instruction card you wish to use highlighted in your inventory box"
-msgstr "U moet de instructie kaart die u wilt gebruiken duidelijk in je inventaris doos"
+msgstr "Imeti morate navodila kartico, ki jo želite uporabljati, je poudarjeno v vašem inventar polju"
 
 msgid "Wow, a laboratory!"
-msgstr "Wow, een laboratorium!"
+msgstr "Wow, laboratorij!"
 
 msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
-msgstr "I love watching Maggie maken spreuken en drankjes, misschien kan ik enkele van mijn eigen hier!"
+msgstr "Rad bi gledal Maggie uroke in napitkov, morda lahko naredim nekaj moje tukaj!"
 
 msgid "Wow, I've never seen so many books in one place!"
-msgstr "Wow, ik heb nog nooit zoveel boeken op een plek!"
+msgstr "Vau, še nikoli nisem videl toliko knjig na enem mestu!"
 
 msgid "There must be information about every subject here, this could be useful..."
-msgstr "Er moet informatie over elk onderwerp hier, kan dit nuttig zijn ..."
+msgstr "Obstajati mora podatke o vsaki velja tukaj, bi to lahko bilo koristno ..."
 
 msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
-msgstr "Hmmm, voelt de lucht gebracht, het doet me denken aan het huis van Maggie's toen ze het maken van spreuken. Ik zou voorzichtig zijn."
+msgstr "Hmmm, zrak meni polna, to me spominja na Maggie hiše, ko je bila odločitev uroke. Moral bi biti previdni."
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr "Edgar Oh, you're hurt! Laat me je wonden helen"
+msgstr "Edgar Oh, ti si poškodoval! Dovolite mi, da ozdravi vaše rane"
 
 msgid "I wonder what other monsters there are. I'll pick a page at random..."
-msgstr "Ik vraag me af wat andere monsters er zijn. Ik kies een willekeurige pagina op ..."
+msgstr "Zanima me, kaj so druge pošasti. Jaz bom izbral naključno stran ..."
 
 msgid "Gazer"
 msgstr "Gazer"
 
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr "Gazers vliegen cycloptic wezens gevonden in verschillende plaatsen"
+msgstr "Gazers plujejo cycloptic bitja najdemo v različnih krajih"
 
 msgid "Their single eye is usually closed and they rely on sonar for movement"
-msgstr "Hun single oog is meestal gesloten en zij vertrouwen op sonar voor verkeer"
+msgstr "Njihova eno oko je običajno zaprta in se zanašajo na sonar za gibanje"
 
 msgid "They use their strong sense of smell to look out for predator and prey alike"
-msgstr "Zij gebruiken hun sterke gevoel van geur uit te kijken naar zowel roofdier en prooi"
+msgstr "Uporabljajo svojo močan občutek za vonj pogledati jasno zakaj plenilec in plen podoben"
 
 msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
-msgstr "Gazers aanval (en verdedigen zelf) door de opening van hun oog die verblinding iets naar te kijken"
+msgstr "Gazers napad (in obrambo), tako, da odprete svoje oči, ki bodo slepi videti nič pri tem"
 
 msgid "This attack is only effective however if the victim is facing the Gazer"
-msgstr "Deze aanval is echter alleen effectief als het slachtoffer wordt geconfronteerd met de Gazer"
+msgstr "Ta napad je učinkovit le, če žrtev pa se sooča Gazer"
 
 msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
-msgstr "Oogbol Een Gazer bevat magische eigenschappen en is een gemeenschappelijk ingrediënt in ban voorbereiding"
+msgstr "Zrkla Gazer's vsebuje magične lastnosti in je skupna sestavina pri pripravi urok"
 
 msgid "Centurion, Grey"
 msgstr "Centurion, Grey"
 
 msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
-msgstr "Centurions zijn magische wezens geschapen, meestal verzonden als schildwachten of beschermplaten"
+msgstr "Satnika so čudežno ustvarjena bitja, kot je običajno pošiljajo sentries ali varovala"
 
 msgid "Though slow moving, their massive size allows them to simply march through any defense"
-msgstr "Hoewel langzaam bewegende, hun enorme omvang kunnen ze eenvoudig maart via een verdediging"
+msgstr "Čeprav se počasi premikajo, njihovo množično velikost jim omogoča, da preprosto pohod s kakršnimi koli obramba"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
-msgstr "In plaats van wapens, veel hebben enorme hei-installaties die ze gebruiken om de grond en desoriënteren bedreigingen schudden"
+msgstr "Namesto orožja, mnogi so ogromne kup voznikov, ki jih uporabljajo za stresanje tal in grožnje Dezorijentirati"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Terwijl Grey Centurions zal worden gebruikt om te waken buitenste grenzen, Rode Centurions bekend te bestaan en worden gebruikt om gebieden van groot belang te beschermen"
+msgstr "Medtem ko se bodo Grey satnika uporabljajo za zaščito zunanjih zunanje meje, Red satnika znano, da obstajajo in se uporabljajo za zaščito zelo pomembna področja"
 
 msgid "Splitter"
 msgstr "Splitter"
 
 msgid "Splitters are harmless monsters unless attacked."
-msgstr "Splitters zijn onschuldig tenzij monsters aangevallen."
+msgstr "Izdajalci so neškodljive pošasti, razen če je napadena."
 
 msgid "Upon sustaining too much damage they will split in two and attack their predator"
-msgstr "Bij al te veel schade zullen ze in tweeën te splitsen en hun roofdieren aanval"
+msgstr "Po preveč je utrpela škodo, ki jo bo razdeljen na dva dela in njihove napad plenilcev"
 
 msgid "If one of these sustains too much damage it will split once again and continue to attack"
-msgstr "Als een van deze in stand te veel schade zal het weer gesplitst en verder aan te vallen"
+msgstr "Če eno od teh preveč utrpi škode, ki jo bo po delih še enkrat in še naprej napada"
 
 msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
-msgstr "Tenslotte zal een definitief gesplitst zeer kleine versies die volledig onschadelijk zijn en in deze toestand te produceren kan eenvoudig worden betreden"
+msgstr "Končno bo ena končna delitev povzroči zelo majhne različice, ki so popolnoma neškodljive in v tem stanju se lahko preprosto stopil na"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
-msgstr "Als alle onderdelen zijn nog in leven zijn, zal een splitter hervorming zelf na een tijdje en zijn wonden te helen"
+msgstr "Če so vsi njegovi deli še vedno živ, bo reforma sama po sloju, medtem ko zacelijo svoje rane in"
 
 msgid "Grub, Red"
 msgstr "Grub, Red"
 
 msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
-msgstr "Rode larven zijn agressiever dan hun groene collega's en zullen aanvallen alles wat ze zien als een bedreiging"
+msgstr "Red Grubs so bolj agresivno kot njihovi kolegi in zeleno bo napadel vse gledajo kot grožnjo"
 
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
-msgstr "Bij het bereiken van volwassenheid zullen zij een cocon en morph vorm in een wesp"
+msgstr "Ko doseže zrelost, da bodo oblike kokonu in morf v wasp"
 
 msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
-msgstr "Sommige zullen echter morph in een koningin wesp. Deze koninginnen kunnen een slijm-achtige substantie kunnen houden zijn prooi in plaats"
+msgstr "Nekateri bodo vseeno morf v kraljico osa. Te lahko proizvedejo matic sluz podobno snov, ki lahko imajo svoj plen v mestu"
 
 msgid "Tortoise, Master"
-msgstr "Schildpad, Master"
+msgstr "Tortoise, Master"
 
 msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
-msgstr "Master Schildpadden zijn angstaanjagende beesten. Gevonden in verre landen die ze bezitten het vermogen om hun hoofd te veranderen"
+msgstr "Master želve so grozljivo zveri. Najdeno v deželah daleč imajo možnost, da spremenijo svoje glave"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
-msgstr "Ze combineren alle mogelijkheden van hun neven te ademen vuur, ijs en creëren zelf elektrificeren"
+msgstr "Združujejo vse svoje sposobnosti bratrancev in sestričen, da diha ogenj, led in Naelektrizirati ustvarite sami"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
-msgstr "En natuurlijk zijn ze ook ongevoelig is voor aanvallen van overeenkomende elementen, het absorberen van de energie om te helen zichzelf"
+msgstr "In seveda so tudi odporni na napade od ujemanja elementov, ki absorbira energijo, da zaceli sami"
 
 msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
-msgstr "Maar bovendien, als ze te veel energie van genezing te ontvangen, evolueren ze en ga op de rampage"
+msgstr "Toda poleg tega, če so prejeli preveč energije iz ran, ki jih razvijajo in pojdi na Divljanje"
 
 msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
-msgstr "In deze toestand zullen ze breken via een verdediging en produceren Dark Matter waarin alles vernietigt het raakt"
+msgstr "V tem stanju bodo smash s katerim koli obramba in izdelavo Dark Matter, ki uniči vse, kar se dotakne"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
-msgstr "Toch is de tank van een razende Master Schildpad zeer magisch en is een essentieel ingrediënt bij het maken van krachtige magie en items"
+msgstr "Vendar, lupino pobesnelo Master Tortoise je zelo čarobno, in je bistvena sestavina pri ustvarjanju močne magics in predmetov"
 
 msgid "Venus Flytrap"
-msgstr "Venus Flytrap"
+msgstr "Venus Muvolovka"
 
 msgid "Hoover, Pink"
 msgstr "Hoover, Pink"
 
 msgid "Summoner, Dark"
-msgstr "Summoner, Dark"
+msgstr "Pozvati, Dark"
 
 msgid "Grimlore"
 msgstr "Grimlore"
 
 msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
-msgstr "Grimlore is een schepsel uit een andere dimensie. Het kan worden opgeroepen met behulp van krachtige zwarte magie"
+msgstr "Grimlore je bitje iz druge dimenzije. Lahko se pozove uporabo močnih črne magije"
 
 msgid "The most common reason to summon this beast is to act as a bodyguard"
-msgstr "De meest voorkomende reden om dit beest te roepen is om op te treden als een bodyguard"
+msgstr "Najpogostejši razlog za poklicati to zver je delovati kot bodyguard"
 
 msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
-msgstr "Er is geen bekende manier om te doden omdat Grimlore op behoud van kritische verwondingen zal gewoon terug naar haar eigen dimensie"
+msgstr "Ni znano, tako, da bi ubil Grimlore, saj na ohranjanje kritične poškodbe, ki jih bo preprosto vrniti na svoje razsežnosti"
 
 msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
-msgstr "Maar zelfs schade is het een monumentale taak. Iedereen ondervindt dit schepsel wordt aangeraden om zo snel mogelijk ontsnappen"
+msgstr "Toda tudi škodo je monumentalni naloga. Kdor se srečujejo to bitje se svetuje, da pobeg v najkrajšem možnem času"
 
 msgid "Or they will die very quickly"
-msgstr "Of ze zeer snel zullen sterven"
+msgstr "Ali bodo umrli zelo hitro"
 
 msgid "Ah, here is a compendium of monsters"
-msgstr "Ah, hier is een compendium van monsters"
+msgstr "Ah, tu je zbirko pošasti"
 
 msgid "34 volumes! How can there be so many monsters in the world?!"
-msgstr "34 volumes! Hoe kan er zo veel monsters in de wereld?!"
+msgstr "34 Obseg! Kako lahko obstajajo tako veliko pošasti na svetu?!"
 
 msgid "Looks like they're in alphabetical order though"
-msgstr "Het lijkt erop dat ze in alfabetische volgorde al"
+msgstr "Zgleda, da so si po abecednem vrstnem redu, čeprav"
 
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr "Slijm, Green ... Slijm, Purple ... Slib, Green ..."
+msgstr "Slime, Green ... Slime, Purple ... Blata, Green ..."
 
 msgid "Sludge, Red"
-msgstr "Slib Red"
+msgstr "Blata, Red"
 
 msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
-msgstr "In tegenstelling tot de groene neef, de Rode Slib blijft diep onder de grond en zelden of nooit, oppervlakken"
+msgstr "Za razliko od svojega bratranca zeleni, rdeči Blato ostane globoko pod zemljo in redko, če sploh, površine"
 
 msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
-msgstr "Haar voorkeur habitat zijn droog en mineraal rijke gebieden en als gevolg daarvan zijn gevonden op de loer in gebieden van mijnen verlaten door de mens"
+msgstr "Njegova prednost habitat so suhe in mineralno bogata področja in kot rezultat je bilo ugotovljeno, skrivajo na območjih zapuščenih rudnikov, ki jih ljudje"
 
 msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
-msgstr "Ze zijn zeer op hun hoede van de mens en zal aanval op zicht, meestal braken een zuur dat tijd neemt om verdampen"
+msgstr "So zelo previdni pri ljudeh in se bo napad na pogled, običajno bruhanje do kisline, ki zahteva čas za izhlapevanje"
 
 msgid "Smacker, Lesser..."
-msgstr "Smacker, Kleine ..."
+msgstr "Smacker, Mali ..."
 
 msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
-msgstr "Geweldig, dat is alles wat hij zegt. Ik weet niet eens hoe het verschil tussen vertellen een man en vrouw. Ik zal alleen maar om een kans ..."
+msgstr "Super, da je vse to res. Sploh ne vem, kako povedati razlike med moško in žensko. Jaz bom samo, da bo priložnost ..."
 
 msgid "Besides, what's the worst that could happen?"
-msgstr "Trouwens, wat is het ergste dat er kan gebeuren?"
+msgstr "Poleg tega, kaj je najhujše kar se lahko zgodi?"
 
 msgid "To move Edgar left and right, use the arrow keys."
-msgstr "Verplaatsen Edgar links en rechts, gebruik de pijltjestoetsen."
+msgstr "Če želite premakniti Edgar levo in desno, uporabite puščične tipke."
 
 msgid "To make Edgar jump, press space. You can move in the air when jumping."
-msgstr "Om Edgar springen, drukt u op de ruimte. U kunt verplaatsen in de lucht bij het springen."
+msgstr "Da bi Edgar skočiti, pritisnite prostor. Lahko premaknete v zraku, ko skokih."
 
 msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr "Hoewel Jacob vereist alleen u tot en met 3 van zijn kippen, waarom niet aardig zijn om hem te vangen en vangen meer? Er zijn 10 dwalen de kaart in alle"
+msgstr "Čeprav Jacob le zahteva, da svojega ulova 3 piščancev, zakaj ne bo lepo k njemu in ulov več? Obstajajo 10 tava zemljevid v vseh"
 
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr "Merk op dat niet alle zwakke wanden kunnen worden vernietigd met behulp van de pikhouweel"
+msgstr "Ne pozabite, da ne morejo vsi šibke stene je treba uničiti z Trnokop"
 
 msgid "I've already checked, he's not down there..."
-msgstr "Ik heb al gecontroleerd, hij is niet daar beneden ..."
+msgstr "Sem že preverja, on ne tam spodaj ..."
 
 msgid "I've heard of people falling into the well before, maybe Dad's in there..."
-msgstr "Ik heb gehoord van mensen die in de put voor, misschien pappa's daar ..."
+msgstr "Slišal sem ljudi, ki spadajo v veliko prej, morda oče je tam notri ..."
 
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr "DAD !!!!! ARE YOU DOWN ER ?!!!!!"
+msgstr "DAD !!!!! STE doli ?!!!!!"
 
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr "Niets. Ik denk dat ik zal moeten blijven kijken"
+msgstr "Nič. Mislim, da bom moral imeti na prihodnost"
 
 msgid "Push Up or Down to raise or lower the platform"
-msgstr "Push Up of Down te verhogen of verlagen van het platform"
+msgstr "Potisnite navzgor ali navzdol na zvišate ali znižate platformo"
 
 msgid "There's a book here about enchanting equipment"
-msgstr "Er is een boek hier over betoverende apparatuur"
+msgstr "There's book tukaj o očarljivo oprema"
 
 msgid "It's a book about enchanting equipment"
-msgstr "Het is een boek over betoverende apparatuur"
+msgstr "To je knjiga o očarljivo oprema"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
-msgstr "Ik heb geen enkele reden om dit lezen, maar ik zal het in gedachten houden voor het geval ik"
+msgstr "Nimam nobenega razloga, da se glasi, vendar to bom ga hranite v mislih v primeru naredim"
 
 msgid "I wonder what other monsters there are..."
-msgstr "Ik vraag me af wat andere monsters zijn er ..."
+msgstr "Zanima me, kaj druge pošasti so ..."
 
 msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
-msgstr "Net als reguliere Summoners, Dark Summoners oproep in andere beesten te doen hun biedingen"
+msgstr "Tako kot redni Summoners, Dark Summoners klic v drugih zveri, da opravljajo svoje ponudbe"
 
 msgid "Additionally though they can teleport short distances to escape from their opponents"
-msgstr "Ook al kunnen ze teleporteren korte afstanden te ontsnappen uit hun tegenstanders"
+msgstr "Poleg tega, čeprav lahko teleport kratkih razdaljah za pobeg od svojih nasprotnikov"
 
 msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
-msgstr "Hun personeel is zeer magisch en hoewel het niet kan worden gebruikt door personen die direct, haar magische eigenschappen worden gebruikt in ban schepping"
+msgstr "Njihovo osebje je zelo čarobno, in čeprav ni mogoče uporabiti pri ljudeh, ki jih neposredno, so njene magične lastnosti, ki se uporabljajo v ustvarjanju urok"
 
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr "Pink Hoovers zijn kleine viervoeters met een lange snuit"
+msgstr "Pink Hoovers so majhna quadrupeds z dolgo gobca"
 
 msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
-msgstr "De primaire puropse van de snuit is voederareaal voor voedsel, maar het dient ook als een afweermechanisme"
+msgstr "Primarne puropse gobca je krma za hrano, ampak tudi služi kot obrambni mehanizem"
 
 msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
-msgstr "en zijn meer dan geschikt voor het houden van een roofdier op afstand door simpelweg te blazen ze weg"
+msgstr "in so bolj kot bi bil sposoben vzdrževati plenilca v zalivu, ki ga preprosto piha proč"
 
 msgid "Venus Flytrap, mobile"
-msgstr "Venus Flytrap, mobiele"
+msgstr "Venus Muvolovka, mobilni"
 
 msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
-msgstr "Mobiele Venus Flytraps geëvolueerd zijn wortels en zijn in staat om te verhuizen naar hun voedsel in plaats van te wachten tot dit gekomen om ze"
+msgstr "Mobilni Venus Flytraps so se razvile korenine in lahko se preselijo v svojo hrano, namesto čakanja za to, da pride do njih"
 
 msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
-msgstr "Hun halzen zijn ongelooflijk elastisch en kunnen breken op hun prooi uit een aanzienlijke afstand"
+msgstr "Njihovi vratovi so izjemno elastični in so sposobni snap na njihovo plen iz precej oddaljen"
 
 msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
-msgstr "Dat moet het doen. Hopelijk dat andere lift door het riool nu moeten werken"
+msgstr "To bi moralo storiti. Upajmo, da morajo drugi dvigala, Sewer zdaj dela"
 
 msgid "This lift is not working. I won't be able to use it until I restore the power"
-msgstr "Deze lift werkt niet. Ik zal niet in staat zijn om het te gebruiken totdat ik weer de macht"
+msgstr "To dvigalo ne deluje. I ne bodo mogli uporabljati, dokler sem obnoviti moči"
 
 msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
-msgstr "Dat glas ziet er te dik voor mij om te kraken, zal ik moeten vinden op een andere manier van verbrijzelen het ..."
+msgstr "To steklo izgleda preveč debel mi je, da tresk, bom moral najti drug način Lomljava je ..."
 
 msgid "Up"
-msgstr "Omhoog"
+msgstr "Gor"
 
 msgid "Down"
-msgstr "Omlaag"
+msgstr "Spodaj"
 
 msgid "Left"
-msgstr "Links"
+msgstr "Lev"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Desni"
 
 msgid "Jump"
-msgstr "Ga"
+msgstr "Jump"
 
 msgid "Attack"
 msgstr "Attack"
 
 msgid "Block"
-msgstr "Blok"
+msgstr "Block"
 
 msgid "Action"
-msgstr "Actie"
+msgstr "Ukrep"
 
 msgid "Use Item"
-msgstr "Gebruik Post"
+msgstr "Uporaba Postavka"
 
 msgid "Previous Item"
 msgstr "Previous Item"
 
 msgid "Next Item"
-msgstr "Next Item"
+msgstr "Naslednja točka"
 
 msgid "Inventory"
-msgstr "Inventaris"
+msgstr "Popis"
 
 msgid "Pause"
-msgstr "Pauze"
+msgstr "Pause"
 
 msgid "Dead Zone"
 msgstr "Dead Zone"
 
 msgid "Sound"
-msgstr "Geluid"
+msgstr "Sound"
 
 msgid "SFX Volume"
-msgstr "SFX Deel"
+msgstr "SFX Volume"
 
 msgid "Music Volume"
 msgstr "Music Volume"
@@ -1401,13 +1402,13 @@ msgid "Ice Spray"
 msgstr "Ice Spray"
 
 msgid "Library"
-msgstr "Bibliotheek"
+msgstr "Knjižnica"
 
 msgid "Right Wing Lift Key"
 msgstr "Right Wing Lift Key"
 
 msgid "Mine Entrance Door Key"
-msgstr "Mine toegangsdeur Key"
+msgstr "Mine Entrance Door Key"
 
 msgid "Village"
 msgstr "Village"
@@ -1416,16 +1417,16 @@ msgid "Cave"
 msgstr "Cave"
 
 msgid "Fortress Outskirts"
-msgstr "Fortress Outskirts"
+msgstr "Fortress Obrobje"
 
 msgid "Forbidden Swamp"
-msgstr "Verboden Swamp"
+msgstr "Forbidden Swamp"
 
 msgid "Sewage Restricted Zone Key"
-msgstr "Rioolwater Restricted Zone Key"
+msgstr "Kanalizacija Omejeno Zone Key"
 
 msgid "Basement"
-msgstr "Kelder"
+msgstr "Klet"
 
 msgid "Fortress Ground Floor"
 msgstr "Fortress Ground Floor"
@@ -1446,7 +1447,7 @@ msgid "Teleporter Access Key 3"
 msgstr "Teleporter Access Key 3"
 
 msgid "Laboratory"
-msgstr "Laboratorium"
+msgstr "Laboratorij"
 
 msgid "Empty Bottle"
 msgstr "Empty Bottle"
@@ -1455,55 +1456,55 @@ msgid "First Floor Key"
 msgstr "First Floor Key"
 
 msgid "Press Action to retrieve %s"
-msgstr "Druk Actie ophalen %s"
+msgstr "Pritisnite Ukrep za pridobitev %s"
 
 msgid "Hmm, this is new."
-msgstr "Hmm, is dit nieuw."
+msgstr "Hmm, to je nova."
 
 msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
-msgstr "Het maakt niet uit als het maar kan me pijn doen, maar er is maar een manier om erachter te komen ..."
+msgstr "Ne morejo videti, čeprav me boli, vendar obstaja samo en način, da bi ugotovili, ..."
 
 msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
-msgstr "Deze lift wordt gecontroleerd door de druk plaat, maar ik kan er niet tegen op en gebruik de lift op hetzelfde moment"
+msgstr "To dvigalo je pod nadzorom, da je pritisk ploščo, vendar ne morem stati na njem in uporabo dvigala v istem času"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
-msgstr "Ik moet iets anders vinden om op te staan de drukplaat voor mij ..."
+msgstr "Jaz bom moral najti nekaj drugega, da stojijo na pritisk ploščo za mene ..."
 
 msgid "This card is blank, I'll have to put some instructions on it to make it useable."
-msgstr "Deze kaart leeg is, zal ik nog enkele instructies op te zetten om het bruikbaar te maken."
+msgstr "Ta kartica je prazna, bom moral dati nekaj napotkov za to, da bo uporaben."
 
 msgid "There's a plaque here"
-msgstr "Er is een plaquette hier"
+msgstr "There's plaque tukaj"
 
 msgid "Place the 4 statues in the correct order"
-msgstr "Plaats de 4 beelden in de juiste volgorde"
+msgstr "Place 4 kipi v pravilnem vrstnem redu"
 
 msgid "You will not be able to find all 4 statues in this version, so come back later!"
-msgstr "U zult niet in staat zijn om alle 4 de beelden in deze versie te vinden, dus kom later terug!"
+msgstr "Ne boste mogli najti vse 4 kipce v tej verziji, tako da come back later!"
 
 msgid "You must have the statue you wish to use highlighted in your inventory box"
-msgstr "U moet het beeld dat u wilt gebruiken duidelijk in je inventaris doos"
+msgstr "Imeti morate kip želite uporabiti poudarjeno v vašem inventar polju"
 
 msgid "Nothing happened. I don't think that's the right order"
-msgstr "Er gebeurde niets. Ik denk niet dat dat de juiste volgorde"
+msgstr "Nič se ni zgodilo. Ne verjamem, da je pravica, da"
 
 msgid "Tuning Fork"
-msgstr "Stemvork"
+msgstr "Tuning Fork"
 
 msgid "Second Floor Keycard"
-msgstr "Tweede verdieping Keycard"
+msgstr "Second Floor Keycard"
 
 msgid "Instruction Card #1"
-msgstr "Instructie Card # 1"
+msgstr "Pouk Card # 1"
 
 msgid "Instruction Card #2"
-msgstr "Instructie Card # 2"
+msgstr "Pouk Card # 2"
 
 msgid "Instruction Card #3"
-msgstr "Instructie Card # 3"
+msgstr "Pouk Card # 3"
 
 msgid "Instruction Card #4"
-msgstr "Instructie Card # 4"
+msgstr "Pouk Card # 4"
 
 msgid "Centurion Statue"
 msgstr "Centurion Statue"
@@ -1518,277 +1519,277 @@ msgid "Scorpion Statue"
 msgstr "Scorpion Statue"
 
 msgid "A Blue Gem"
-msgstr "A Blue Gem"
+msgstr "Blue Gem"
 
 msgid "A statue of a Centurion. It has 2 legs."
-msgstr "Een standbeeld van een Centurion. Het heeft 2 benen."
+msgstr "Kip Centurion. Ima 2 noge."
 
 msgid "A Green Gem"
-msgstr "A Green Gem"
+msgstr "Green Gem"
 
 msgid "A Purple Gem"
-msgstr "A Purple Gem"
+msgstr "Purple Gem"
 
 msgid "A Red Gem"
-msgstr "A Red Gem"
+msgstr "Red Gem"
 
 msgid "A statue of a Scorpion. It has 6 legs."
-msgstr "Een standbeeld van een schorpioen. Het heeft 6 poten."
+msgstr "Kip Scorpion. Ima 6 nog."
 
 msgid "A statue of a Spider. It has 8 legs."
-msgstr "Een standbeeld van een Spider. Het heeft 8 poten."
+msgstr "Kip Spider. Ima 8 noge."
 
 msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
-msgstr "Een Armadillo Spike Ball. Zal scatter spikes wanneer gegooid."
+msgstr "Armadillo Spike Ball. Will razpršujte spikes, ko vrgli."
 
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr "Een standbeeld van een schildpad. Het heeft 4 poten."
+msgstr "Kip Tortoise. Ima 4 noge."
 
 msgid "A Tuning Fork"
-msgstr "Een stemvork"
+msgstr "Tuning Fork"
 
 msgid "A chopped log"
-msgstr "Een gehakte log"
+msgstr "Sesekljan log"
 
 msgid "Narrator"
-msgstr "Verteller"
+msgstr "Pripovedovalca"
 
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr "Het is een ketel. Maggie heeft een net als dit"
+msgstr "To je kotel. Maggie ima eno tako kot to"
 
 msgid "Right, here goes!"
-msgstr "Rechts, hier gaat!"
+msgstr "Ja, tukaj gre!"
 
 msgid "I need all the main ingredients"
-msgstr "Ik heb al de belangrijkste ingrediënten"
+msgstr "Rabim vse glavne sestavine"
 
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
-msgstr "3 Gazer oogbollen, 1 Rode Slib Tentacle en een reserve schild"
+msgstr "3 Gazer zrkel, 1 Red Blato Popek in rezervni ščit"
 
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr "Ik moet ook de oogbollen mix en de tentakel in een vloeistof"
+msgstr "Prav tako je treba zmešati zrkel in Popek v tekočino"
 
 msgid "This entire section is about monsters"
-msgstr "Deze hele sectie is over monsters"
+msgstr "Ves ta del je približno pošasti"
 
 msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
-msgstr "Ik heb geen reden om deze te lezen, maar ik zal het in gedachten houden voor het geval ik"
+msgstr "Nimam nobenega razloga, da se glasi, vendar ti bom ga hranite v mislih v primeru naredim"
 
 msgid "Hey wow, what a cute little machine!"
-msgstr "Hey wow, wat een schattige kleine machine!"
+msgstr "Hej wow, kako srčkano stroj!"
 
 msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
-msgstr "Het heeft een kleine sleuf aan de achterkant van het. Ik denk dat ik daar iets in te laten doen dingen"
+msgstr "It's got a malo režo na zadnji strani tega. Mislim, da sem dal nekaj tam, da bi bilo to tvar"
 
 msgid "The robot uses instruction cards to move around"
-msgstr "De robot maakt gebruik van instructie kaarten te bewegen"
+msgstr "Robot uporablja navodilo kartice za premikanje"
 
 msgid "Use the instructions to guide the robot to open areas that you cannot access"
-msgstr "Gebruik de instructies om de robot gids voor open ruimtes die u niet kunt toegang"
+msgstr "Uporabite navodila za usmerjanje robot na odprtih površinah, ki jih ne morejo dostopati do"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
-msgstr "Echter, omdat je niet kunt de instructies op de kaart te lezen, moet u ze allemaal uit te proberen tot een fabriek"
+msgstr "Ker pa ne morete prebrati navodila na kartici, boste morali, da preizkusite vse, dokler ena tovarna"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
-msgstr "Als de robot niet bereikt zijn doel, dan zal terugkeren naar zijn uitgangspositie zodat u opnieuw proberen"
+msgstr "Če robot ne doseže svojega cilja, potem bo vrnila na izhodiščni položaj vam omogoča, da poskusite znova"
 
 msgid "Enter the directions"
-msgstr "Voer de richtingen"
+msgstr "Vpišite smeri"
 
 msgid "Out of space for instructions"
-msgstr "Uit de ruimte voor instructies"
+msgstr "Iz prostora za navodila"
 
 msgid "I need a blank card to put the instructions on"
-msgstr "Ik heb een blanco kaart naar de instructies die op"
+msgstr "Rabim prazno kartico dati navodila za"
 
 msgid "Maybe this wasn't such a good idea after all..."
-msgstr "Misschien was dit niet zo'n goed idee na alle ..."
+msgstr "Mogoče to ni tako dobra ideja po vsem ..."
 
 msgid "Obtain 3 Gazer Eyes"
-msgstr "Verkrijgen 3 Gazer Eyes"
+msgstr "Pridobite 3 Gazer Eyes"
 
 msgid "Obtain 1 Red Sludge Tentacle"
-msgstr "Verkrijgen 1 Rood Slib Tentacle"
+msgstr "Pridobiti 1 Red blata Popek"
 
 msgid "Find another shield"
-msgstr "Zoek een andere schild"
+msgstr "Poišči drugo ščit"
 
 msgid "Blend eyeballs and tentacle"
-msgstr "Blend oogbollen en tentakel"
+msgstr "Blend zrkel in Popek"
 
 msgid "Obtain a Fire Shield"
-msgstr "Zorg voor een Fire Shield"
+msgstr "Pridobite Fire Shield"
 
 msgid "More water?!"
-msgstr "Meer water?!"
+msgstr "Več vodo?!"
 
 msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
-msgstr "Ik denk niet kunnen veranderen in een Slijm gaat mij hier helpen, aangezien ik niet in staat zouden kunnen zijn om daarna terug te krijgen"
+msgstr "Ne verjamem, da bi mogli spremeniti v Slime je tekoč v pomoč mi tukaj, ker sem morda ne bo uspelo priti kasneje"
 
 msgid "I'll have to find another way of getting across"
-msgstr "Ik zal moeten vinden een andere manier om in"
+msgstr "Jaz bom moral najti drug način za pridobivanje v"
 
 msgid "I'll have to find something to help me get across"
-msgstr "Ik moet iets vinden om mij te helpen te krijgen over"
+msgstr "Jaz bom moral najti nekaj, da mi pomaga priti čez"
 
 msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
-msgstr "Ik zag geen slib in de mijn toen ging ik naar kolen Borgan's te krijgen en zelfs als er geen ik niet terug kan krijgen er sinds mijn vlot zonk"
+msgstr "Nisem videl vseh Mulj v rudniku, ko sem šel Borgan premoga in čeprav so bila kakšna ne morem dobiti nazaj od mojega splava potonila"
 
 msgid "I'll have to find another mine around here..."
-msgstr "Ik heb de mijne een andere te vinden hier ..."
+msgstr "Bom moral najti drugo mine tukaj ..."
 
 msgid "Creates ice cubes that expand on contact with water"
-msgstr "Maakt ijsblokjes uit te breiden dat bij contact met water"
+msgstr "Ustvari ledene kocke, da se razširi ob stiku z vodo"
 
 msgid "A bottle capable of capturing souls"
-msgstr "Een fles kan vastleggen zielen"
+msgstr "Steklenica zmožne zajemati duš"
 
 msgid "Try using Mataeus's knives against him..."
-msgstr "Probeer Mataeus's messen tegen hem ..."
+msgstr "Poskusite z noži Mataeus proti njemu ..."
 
 msgid "Cannot pick up %s. Inventory full"
-msgstr "Kan niet ophalen %s. Inventaris volledige"
+msgstr "Ne morem pick up %s. Popis polno"
 
 msgid "Filling mine cart..."
-msgstr "Vulling mijn winkelwagentje ..."
+msgstr "Polnjenje moj voziček ..."
 
 msgid "Copyright Parallel Realities 2009-2010"
-msgstr "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Parallel stvarnosti 2009-2010"
 
 msgid "Out of arrows!"
-msgstr "Out pijlen!"
+msgstr "Out of puščic!"
 
 msgid "There's something moving around down there..."
-msgstr "Er is iets bewegen daar beneden ..."
+msgstr "Nekaj se gibljejo tam spodaj ..."
 
 msgid "Good riddance..."
-msgstr "Opgeruimd ..."
+msgstr "Dobro Osvoboditev ..."
 
 msgid "Huh, déjà vu..."
-msgstr "Huh, dejà vu ..."
+msgstr "Huh, déjà vu ..."
 
 msgid "If the lift is out of order then it must be reset"
-msgstr "Indien de lift is buiten werking dan moet worden gereset"
+msgstr "Če je dvigalo v okvari potem je treba ponastaviti"
 
 msgid "There are 4 reset switches along the lift shaft which must be reset"
-msgstr "Er zijn 4 reset schakelaars langs de liftschacht die moet worden gereset"
+msgstr "Obstajajo 4 prikrivati stikala vzdolž dvigalo gred, ki mora biti reset"
 
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
-msgstr "Zorg ervoor dat de lift opnieuw om te voorkomen dat een lange wandeling terug naar de oppervlakte ..."
+msgstr "Bodite prepričani, da ponastavite dvigalo, da se prepreči dolg sprehod nazaj na površje ..."
 
 msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
-msgstr "Deze machine heeft een sleuf van hetzelfde formaat als de kaarten. Ik denk dat ik kan gebruiken om nieuwe instructies te maken."
+msgstr "Ta stroj ima režo za enake velikosti kot kartice. Mislim, da sem lahko uporabite za ustvarjanje novih navodil."
 
 msgid "To create a new set of instructions you need to insert a blank card"
-msgstr "Als u een nieuwe set instructies moet je een blanco kaart plaatsen"
+msgstr "Če želite ustvariti nov sklop navodil morate vstaviti prazno kartico"
 
 msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
-msgstr "U wordt vervolgens gevraagd om input van de aanwijzingen voor de robot te volgen. Dit gebeurt op dezelfde manier als de sequentie deuren"
+msgstr "Nato boste morali vložek navodila za robota slediti. To je narejeno na enak način kot zaporedje vrata"
 
 msgid "When you have finished inputting the directions, press Attack"
-msgstr "Wanneer u klaar bent met het invoeren van de richtingen, drukt Attack"
+msgstr "Ko končate z vnašanjem smeri, pritisnite Attack"
 
 msgid "The robot will then follow the instructions on the card"
-msgstr "De robot zal dan volg de instructies op de kaart"
+msgstr "Robot bo nato sledite navodilom na kartici"
 
 msgid "If the directions aren't correct you can try again"
-msgstr "Als de aanwijzingen niet correct zijn kunt u opnieuw proberen"
+msgstr "Če smeri ni pravilno, lahko poskusite znova"
 
 msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-msgstr "Deze plek is gek, zou ik beter opschieten en vind pap voordat ik uiteindelijk krijgt gedood!"
+msgstr "Ta kraj je noro, jaz bi bolje pohiti in najde oče, preden sem na koncu dobili ubil!"
 
 msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-msgstr "Dus, het creëren van dat Fire Shield ik een rode Slib tentakel krijgen"
+msgstr "Torej, za ustvarjanje Fire Shield, da moram priti Popek Red blata"
 
 msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr "Rode slib leven in de mijnen, dus ik zal moeten vinden hier een rond"
+msgstr "Red Mulj živijo v rudnikih, tako da bom moral najti eno tukaj"
 
 msgid "I also need a spare shield, but I reckon there should be an armoury around"
-msgstr "Ik moet ook een reserve schild, maar ik denk er moet een arsenaal rond"
+msgstr "Jaz tudi potreba rezervno ščit, vendar sem Domnevam, da bi morala biti običajna okrog"
 
 msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
-msgstr "De Gazer oogbollen zijn eenvoudig genoeg is, kan ik gewoon terug naar de kelder"
+msgstr "Gazer zrkel dovolj preprosta, lahko sem vrniti v kleti"
 
 msgid "OK, off I go..."
-msgstr "OK, ik ga weg ..."
+msgstr "OK, off I go ..."
 
 msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
-msgstr "U zult niet in staat zijn om de tentakel of schild krijgen in deze versie, dus check back later!"
+msgstr "Ne boste mogli dobiti Popek ali ščit v tej verziji, zato preverite znova pozneje!"
 
 msgid "It's a portrait"
-msgstr "Het is een portret"
+msgstr "To je portret"
 
 msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
-msgstr "Die geest zal niet aan mij voorbij laten, ik moet een manier vinden om zich te ontdoen van het"
+msgstr "Ta duh ne bo me mimo, bom moral najti način, znebiti se je"
 
 msgid "Reset switches allow you to reset an object's position on the map"
-msgstr "Reset switches kunt u de positie van een object opnieuw op de kaart"
+msgstr "Reset stikala vam omogočajo, da ponastavite predmeta položaj na zemljevidu"
 
 msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
-msgstr "Als een object wordt onbereikbaar dan kunt u de schakelaar gebruiken om het weer in zijn oorspronkelijke plaats"
+msgstr "Če je predmet postane nedosegljiv potem lahko uporabite stikalo, da ga nazaj v svoje prvotno mesto"
 
 msgid "A bottle with a soul trapped inside"
-msgstr "Een fles met een ziel gevangen in"
+msgstr "Steklenička z dušo ujet znotraj"
 
 msgid "Full Mine Cart"
-msgstr "Volledige Mine Cart"
+msgstr "Full Mine Cart"
 
 msgid "Processing Lift Key"
-msgstr "Verwerking Lift Key"
+msgstr "Predelava Lift Key"
 
 msgid "Right Grabber Key"
-msgstr "Right Grabber Key"
+msgstr "Right grabežljivac Key"
 
 msgid "Left Grabber Key"
-msgstr "Links Grabber Key"
+msgstr "Left grabežljivac Key"
 
 msgid "Master Key"
 msgstr "Master Key"
 
 msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "De tovenaar moet hebben genomen papa op zijn kasteel. Ik moet hem redden van daar."
+msgstr "Bajalica mora upoštevati očka na svoj grad. Jaz bom moral spustiti na prostost ga od tam."
 
 msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "De enige manier om naar het kasteel is door de Verboden Swamp naar het Oosten."
+msgstr "Edini način, da pridete do gradu je skozi Forbidden Swamp na vzhodu."
 
 msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
-msgstr "Er is een meer tussen het dorp en de Swamp dus ik moet een vlot te krijgen over te brengen."
+msgstr "There's jezero med vasi in močvirske zato sem se boste morali splav priti čez."
 
 msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
-msgstr "Ik moet ook een zwaard en schild te verdedigen mezelf. Ik kan spreken Borgan en Jacob om deze wel krijgen."
+msgstr "Bom potrebujejo tudi meč in ščit, da branim. Ne morem govoriti, da Borgan in Jakobu, da dobite te četudi."
 
 msgid "Could not connect to Medal Server at %s:%d"
-msgstr "Kon niet verbinden met Medal Server at %s:%d"
+msgstr "Ne morem se povezati z medaljo Server na %s:%d"
 
 msgid "Could not find Medal Key"
-msgstr "Kan niet vinden Medal Key"
+msgstr "Ne najdem Medal Key"
 
 msgid "You will not be able to earn Medals for this game"
-msgstr "U zult niet in staat zijn om medailles te verdienen voor dit spel"
+msgstr "Ne boste mogli zaslužiti Medalje za to igro"
 
 msgid "There's another sign here"
-msgstr "Er is een ander teken hier"
+msgstr "Tu je še en znak tukaj"
 
 msgid "If the exit lift is out of order then proceed to the left"
-msgstr "Als de afrit lift is buiten om vervolgens verder naar links"
+msgstr "Če izstopu iz dvigala je, da nato nadaljuje z levo"
 
 msgid "Warning : Exit route may be hazardous"
-msgstr "Waarschuwing: Exit-route kunnen gevaarlijk zijn"
+msgstr "Opozorilo: Izhod progi se lahko nevarne"
 
 msgid "Maybe I should use the lift to get out"
-msgstr "Misschien moet ik gebruik de lift om eruit te komen"
+msgstr "Mogoče bi moral uporabljati dvigala ven"
 
 msgid "There's a sign here"
-msgstr "Er is een teken hier"
+msgstr "Tam je znak tukaj"
 
 msgid "An Oil Can"
-msgstr "Een olie Kan"
+msgstr "Oil Can"
 
 msgid "Oil Can"
 msgstr "Oil Can"
 
 msgid "A powerful repellent"
-msgstr "Een krachtig afweermiddel"
+msgstr "Močna repelenti"
 
 msgid "Repellent"
 msgstr "Repellent"
@@ -1800,53 +1801,53 @@ msgid "Fortress Mine"
 msgstr "Fortress Mine"
 
 msgid "Private key is missing"
-msgstr "Private sleutel ontbreekt"
+msgstr "Zasebni ključ manjka"
 
 msgid "Could not connect to server"
-msgstr "Kan geen verbinding maken met server"
+msgstr "Ne morem se povezati s strežnikom"
 
 msgid "Sludge Tentacle"
-msgstr "Slib Tentacle"
+msgstr "Blata Popek"
 
 msgid "A Red Sludge Tentacle"
-msgstr "A Red Slib Tentacle"
+msgstr "Red blata Popek"
 
 msgid "Eyeball Smoothie"
 msgstr "Eyeball Smoothie"
 
 msgid "Cool, it worked!"
-msgstr "Cool, het werkte!"
+msgstr "Cool, to obdelan!"
 
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr "Ik ben niet zeker over de kleur al, ik dacht dat het zou rood zijn?"
+msgstr "Nisem prepričan glede barve, čeprav sem mislil, da bo rdeča?"
 
 msgid "Maybe it's supposed to be yellow..."
-msgstr "Misschien is het zou moeten zijn geel ..."
+msgstr "Mogoče je, da naj bi se rumena ..."
 
 msgid "A liquid made from eyeballs and tentacles"
-msgstr "Een vloeistof gemaakt van oogballen en tentakels"
+msgstr "Tekočina iz zrkel in lovke"
 
 msgid "Patching your save game. Please wait..."
-msgstr "Patchen van je spel opslaan. Please wait ..."
+msgstr "Popravljanje vaš shranite igro. Prosimo počakajte ..."
 
 msgid "Now! Run while it's stunned!"
-msgstr "Nu! Run terwijl het verdoofd!"
+msgstr "Zdaj! Run, medtem ko je to omamen!"
 
 msgid "Wow, that thing is huge!"
-msgstr "Wow, dat ding is enorm!"
+msgstr "Wow, da stvar je ogromen!"
 
 msgid "I doubt my sword will even make a scratch, but I need to get past it..."
-msgstr "Ik betwijfel of mijn zwaard zal zelfs een kras, maar ik moet om voorbij het ..."
+msgstr "Dvomim, moj meč bo celo nič, pač pa moram priti mimo to ..."
 
 msgid "I have everything I need now"
-msgstr "Ik heb alles wat ik nu nodig hebben"
+msgstr "Imam vse, kar rabim zdaj"
 
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr "Er is een ketel in het laboratorium, moet ik daar hoofd achterover"
+msgstr "Tam je kotel v laboratoriju, bi moral glavo zadaj"
 
 msgid "I just need to find another shield to enchant"
-msgstr "Ik moet alleen een andere vinden schild te betoveren"
+msgstr "Samo je treba najti drugo ščit za očaralo"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
-msgstr "U zult niet in staat zijn om het schild in deze versie te krijgen, dus check back later!"
+msgstr "Ne boste mogli dobiti ščita v tej verziji, zato preverite znova pozneje!"
 
