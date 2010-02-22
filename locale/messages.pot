@@ -1828,3 +1828,12 @@ msgstr ""
 
 msgid "Patching your save game. Please wait..."
 msgstr ""
+
+msgid "Now! Run while it's stunned!"
+msgstr ""
+
+msgid "Wow, that thing is huge!"
+msgstr ""
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr ""

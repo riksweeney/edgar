@@ -43,3 +43,5 @@ item/health_potion
 item/oil_can
 item/repellent
 item/cloud_geyzer
+enemy/huge_spider
+misc/huge_spider_web

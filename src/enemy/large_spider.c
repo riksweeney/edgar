@@ -51,6 +51,7 @@ static int isGapJumpable(void);
 static void pounceReactToBlock(void);
 static void takeDamage(Entity *, int);
 static void panic(void);
+static void touch(Entity *);
 
 Entity *addLargeSpider(int x, int y, char *name)
 {
@@ -71,7 +72,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
-	e->touch = &entityTouch;
+	e->touch = &touch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 
@@ -111,6 +112,21 @@ static void redLookForPlayer()
 
 			facePlayer();
 		}
+	}
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == ITEM && strcmpignorecase(other->name, "item/repellent_spray") == 0)
+	{
+		self->face = self->x < other->x ? LEFT : RIGHT;
+		
+		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
+	}
+	
+	else
+	{
+		entityTouch(other);
 	}
 }
 

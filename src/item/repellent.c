@@ -83,6 +83,12 @@ static void sprayRepellent(int val)
 
 		e->x = player.x + (player.face == RIGHT ? player.w : 0);
 		e->y = player.y + player.h / 2;
+		
+		setEntityAnimation(e, STAND);
+		
+		e->x -= player.face == RIGHT ? e->box.x : e->box.x + e->box.w;
+		
+		e->y -= e->h / 2;
 
 		e->type = ITEM;
 
@@ -95,11 +101,13 @@ static void sprayRepellent(int val)
 
 		e->active = FALSE;
 
-		setEntityAnimation(e, STAND);
-
 		self->thinkTime = self->maxThinkTime;
 
-		e->dirX = player.face == RIGHT ? e->speed : -e->speed;
+		e->dirX = player.face == RIGHT ? 2 + player.speed : -2 - player.speed;
+		
+		e->thinkTime = 30;
+		
+		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
 	}
 }
 
@@ -124,6 +132,20 @@ static void sprayMove()
 	float dirY;
 
 	self->dirX *= 0.95;
+	
+	if (self->mental < 2)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->mental++;
+			
+			setEntityAnimation(self, self->mental == 1 ? WALK : JUMP);
+			
+			self->thinkTime = self->mental == 2 ? 1800 : 30;
+		}
+	}
 
 	if (fabs(self->dirX) <= 0.05)
 	{
@@ -133,21 +155,24 @@ static void sprayMove()
 	}
 
 	dirY = self->dirY;
-
+	
 	checkToMap(self);
-
-	self->thinkTime--;
-
-	if (self->thinkTime < 90)
+	
+	if (self->mental == 2)
 	{
-		if (self->thinkTime % 3 == 0)
+		self->thinkTime--;
+
+		if (self->thinkTime < 90)
 		{
-			self->flags ^= NO_DRAW;
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= NO_DRAW;
+			}
 		}
-	}
 
-	if (self->thinkTime <= 0)
-	{
-		self->inUse = FALSE;
+		if (self->thinkTime <= 0)
+		{
+			self->inUse = FALSE;
+		}
 	}
 }
