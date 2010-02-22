@@ -1837,3 +1837,15 @@ msgstr ""
 
 msgid "I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
+
+msgid "I have everything I need now"
+msgstr ""
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr ""
+
+msgid "I just need to find another shield to enchant"
+msgstr ""
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr ""

@@ -799,25 +799,25 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 	{
 		x = prand() % image->w;
 		y = prand() % image->h;
-		
+
 		pixels = (int *)image->pixels;
 
 		pixel = pixels[(y * image->w) + x];
 
 		SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-		
+
 		if (r != TRANS_R && g != TRANS_G && b != TRANS_B)
 		{
 			d = addPixelDecoration(self->x + x, self->y + y);
-			
+
 			if (d != NULL)
 			{
 				d->health = r;
-				
+
 				d->maxHealth = g;
-				
+
 				d->mental = b;
-				
+
 				addEntityToList(list, d);
 			}
 		}
@@ -827,7 +827,7 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 	{
 		SDL_UnlockSurface(image);
 	}
-	
+
 	return list;
 }
 
@@ -859,7 +859,7 @@ SDL_Surface *createSurface(int width, int height)
 {
 	SDL_Surface *temp, *newSurface;
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
+	temp = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, game.screen->format->BitsPerPixel, game.screen->format->Rmask, game.screen->format->Gmask, game.screen->format->Bmask, 0);
 
 	newSurface = SDL_DisplayFormat(temp);
 

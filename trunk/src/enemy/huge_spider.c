@@ -20,23 +20,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../geometry.h"
 #include "../hud.h"
 #include "../collisions.h"
+#include "../player.h"
 #include "../custom_actions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void moveToTarget(void);
 static void wait(void);
 static void takeDamage(Entity *, int);
 static void shudder(void);
 static void touch(Entity *);
+static void lookForPlayer(void);
+static void attack(void);
+static void attackFinish(void);
 
 Entity *addHugeSpider(int x, int y, char *name)
 {
@@ -68,66 +73,137 @@ Entity *addHugeSpider(int x, int y, char *name)
 static void wait()
 {
 	int x, y;
-	
+	int midX, midY;
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
 	}
-	
+
 	else if (self->thinkTime <= 0)
 	{
-		x = (32 + (prand() % 128)) * (prand() % 2 == 0 ? 1 : -1);
-		y = (32 + (prand() % 128)) * (prand() % 2 == 0 ? 1 : -1);
+		midX = self->startX + (self->endX - self->startX) / 2;
+		midY = self->startY + (self->endY - self->startY) / 2;
 		
+		x = (prand() % 128);
+		y = (prand() % 128);
+		
+		if (self->x > midX)
+		{
+			x *= -1;
+		}
+		
+		if (self->y > midY)
+		{
+			y *= -1;
+		}
+
 		self->targetX = self->x + x;
 		self->targetY = self->y + y;
-		
-		if (self->targetX < self->startX)
-		{
-			self->targetX = self->startX;
-		}
-		
-		else if (self->targetX > self->endX)
-		{
-			self->targetX = self->endX;
-		}
-		
-		if (self->targetY < self->startY)
-		{
-			self->targetY = self->startY;
-		}
-		
-		else if (self->targetY > self->endY)
-		{
-			self->targetY = self->endY;
-		}
-		
+
 		self->action = &moveToTarget;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
-		
+
 		self->thinkTime = 120;
+
+		self->mental--;
+
+		if (self->mental < 0)
+		{
+			self->mental = 0;
+		}
 	}
+
+	lookForPlayer();
 }
 
 static void moveToTarget()
 {
 	checkToMap(self);
-	
-	self->thinkTime--;
-	
-	if (atTarget() || self->thinkTime <= 0)
+
+	if (self->targetX < self->startX || self->targetX > self->endX)
 	{
 		self->dirX = 0;
-		
+
 		self->dirY = 0;
-		
+	}
+
+	if (self->targetY < self->startY || self->targetY > self->endY)
+	{
+		self->dirX = 0;
+
+		self->dirY = 0;
+	}
+
+	if (atTarget() || (self->dirX == 0 && self->dirY == 0))
+	{
+		self->dirX = 0;
+
+		self->dirY = 0;
+
 		self->thinkTime = 60 + prand() % 180;
-		
+
 		self->action = &wait;
+	}
+
+	lookForPlayer();
+}
+
+static void lookForPlayer()
+{
+	int mid = self->x + self->w / 2;
+
+	if (player.health > 0 && collision(mid - 23, self->y, 46, 640, player.x, player.y, player.w, player.h) == 1)
+	{
+		self->dirX = 0;
+
+		self->dirY = 0;
+
+		self->action = &attack;
+	}
+}
+
+static void attack()
+{
+	int i;
+
+	self->dirY = 12;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		for (i=0;i<20;i++)
+		{
+			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+		}
+
+		self->thinkTime = 60;
+
+		self->action = &attackFinish;
+	}
+}
+
+static void attackFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetY = self->startY + (self->endY - self->startY) / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed;
+		self->dirY *= self->speed;
+
+		self->action = &moveToTarget;
 	}
 }
 
@@ -136,7 +212,7 @@ static void takeDamage(Entity *other, int damage)
 	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
-	
+
 	if (prand() % 10 == 0)
 	{
 		setInfoBoxMessage(60, _("This weapon is not having any effect..."));
@@ -145,29 +221,48 @@ static void takeDamage(Entity *other, int damage)
 
 static void touch(Entity *other)
 {
+	Entity *temp;
+
 	if (!(self->flags & INVULNERABLE) && other->type == ITEM && strcmpignorecase(other->name, "item/repellent_spray") == 0)
 	{
 		self->mental++;
-		
-		printf("%d\n", self->mental);
-		
+
 		if (self->mental == 50)
 		{
 			self->action = &shudder;
-			
+
 			self->targetX = self->x;
-			
+
 			self->thinkTime = 300;
-			
-			setInfoBoxMessage(60, _("Now! Run while it's stunned!"));
-			
+
+			if (player.health > 0)
+			{
+				setInfoBoxMessage(180, _("Now! Run while it's stunned!"));
+			}
+
 			self->health = 0;
 		}
-		
+
+		else if (self->mental > 50)
+		{
+			self->thinkTime = 300;
+		}
+
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 	}
-	
+
+	else if (other->type == PLAYER && self->action == &attack)
+	{
+		temp = self;
+
+		self = other;
+
+		playerGib();
+
+		self = temp;
+	}
+
 	else
 	{
 		entityTouch(other);
@@ -176,25 +271,27 @@ static void touch(Entity *other)
 
 static void shudder()
 {
-	self->health += 90;
+	self->health += 60;
 
 	if (self->health >= 360)
 	{
 		self->health %= 360;
 	}
-	
-	self->x = self->targetX + sin(DEG_TO_RAD(self->health)) * 8;
-	
+
+	self->x = self->targetX + sin(DEG_TO_RAD(self->health)) * 4;
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->health = 0;
-		
-		self->x = self->startX;
-		
+
+		self->mental = 0;
+
+		self->x = self->targetX;
+
 		self->action = &wait;
 	}
-	
+
 	checkToMap(self);
 }
