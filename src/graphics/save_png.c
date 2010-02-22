@@ -100,7 +100,7 @@ void savePNG(SDL_Surface *surface, char *name)
 		pixel_bits = 24;
 	}
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE|SDL_SRCALPHA, ss_w, ss_h, pixel_bits,
+	temp = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCALPHA, ss_w, ss_h, pixel_bits,
 		#if SDL_BYTEORDER == SDL_BIG_ENDIAN
 			0xff0000, 0xff00, 0xff, 0x000000ff
 		#else

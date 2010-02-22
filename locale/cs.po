@@ -1,0 +1,1852 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Rychle odbočit vlevo a vpravo setřást slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Nepracuje v této verzi!"
+
+msgid "Press Action to interact"
+msgstr "Tisková Akce komunikovat"
+
+msgid "%s is required"
+msgstr "%s je nutné"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Rock malý"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tisková Akce pro načtení Purple Gem"
+
+msgid "Chicken"
+msgstr "Kuře"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Tisková Akce pro načtení Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Tisková Akce nahradit Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Získaných %s"
+
+msgid "Complete"
+msgstr "Kompletní"
+
+msgid "%d more to go..."
+msgstr "%d více jít ..."
+
+msgid "Used %s"
+msgstr "Používané %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Nemůže vybavit položky, zatímco transmogrified"
+
+msgid "Equipped %s"
+msgstr "Vybavená %s"
+
+msgid "Maximum health has increased!"
+msgstr "Maximální zdraví zvýšil!"
+
+msgid "Bow will now fire %s"
+msgstr "Luk bude nyní požáru %s"
+
+msgid "A bow is required to use this item"
+msgstr "Luk je povinen používat tuto položku"
+
+msgid "Cannot transmogrify here..."
+msgstr "Nelze začarovat zde ..."
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Start a new game?"
+msgstr "Začněte novou hru?"
+
+msgid "Play the tutorial?"
+msgstr "Play tutorial?"
+
+msgid "Exit the game?"
+msgstr "Ukončete hru?"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Game Loaded"
+msgstr "Hru Loaded"
+
+msgid "Game Saved"
+msgstr "Uložené hry"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Neuložená pokroku budou ztraceny"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Tisková Akce mluvit až %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Nový cíl: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Cíl Dokončeno: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Stěně vpravo vypadá slabý ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Tato zbraň je nemají žádný vliv ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Tisková Akce připojit Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s je třeba k aktivaci tohoto přepínače"
+
+msgid "Press Action to use this switch"
+msgstr "Tisková Akce na používání tohoto přepínače"
+
+msgid "Press Action to save your game"
+msgstr "Tisková Akce uložte hru"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s je nutné používat tento tlak Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s je třeba tyto dveře otevřít"
+
+msgid "This door is locked"
+msgstr "Tyto dveře jsou zamčené"
+
+msgid "This teleporter is not active"
+msgstr "Tento teleport není aktivní"
+
+msgid "Press Action to go to the %s"
+msgstr "Tisková Akce jít do %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up nebo Down použití tohoto výtahu"
+
+msgid "This lift is not active"
+msgstr "Tento výtah není aktivní"
+
+msgid "Cannot carry any more %s"
+msgstr "Nemůže mít žádné další %s"
+
+msgid "Picked up %s x %d"
+msgstr "Zvedl %s x %d"
+
+msgid "Picked up %s"
+msgstr "Zvedl %s"
+
+msgid "Readied %s"
+msgstr "Připravil %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s, je povinna provést tuto položku"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Storage Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Uhlí Bag Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Velký klíč od pokoje"
+
+msgid "Coal Bag"
+msgstr "Uhlí Bag"
+
+msgid "Forest Cell Key"
+msgstr "Lesní Mobilní klíč"
+
+msgid "Wood Axe"
+msgstr "Dřevo Axe"
+
+msgid "Health Potion"
+msgstr "Zdraví Potion"
+
+msgid "Outflow Key"
+msgstr "Odtok Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Zpracování odpadu Key"
+
+msgid "Access Key 1"
+msgstr "Přístup Key 1"
+
+msgid "Access Key 2"
+msgstr "Přístupový klíč 2"
+
+msgid "Access Key 3"
+msgstr "Přístupový klíč 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Tento výtah nemá moc. Nebudu moci používat, dokud jsem obnovit moc"
+
+msgid "Keep practising!"
+msgstr "Udržujte procvičování!"
+
+msgid "Hi"
+msgstr "Nazdar"
+
+msgid "Hello Edgar"
+msgstr "Dobrý den, Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Můžu si půjčit tvůj štít?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Vzhůru do praxe své bojové schopnosti?"
+
+msgid "Something like that"
+msgstr "Něco takového"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Pokud spustíte mi pochůzku pak můžete mít štít"
+
+msgid "What do I have to do?"
+msgstr "Co mám dělat?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Jděte do dolu a sbírat mi nějaké uhlí"
+
+msgid "But we have plenty of coal!"
+msgstr "Ale my máme spoustu uhlí!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Ano, ale to není nějaký starý uhlí, toto uhlí je zvláštní, že hoří žhavější a trvá déle"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Potřebuji jen 10 kusů věci, takže by to trvat velmi dlouho vás"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Ujistěte se, že dát do pytle, dotýkat se ho příliš dlouho, bude špatné pro vaše zdraví"
+
+msgid "Do you have a bag?"
+msgstr "Máš tašku?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Ne, budete pravděpodobně najít v dole i když"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, dostanu uhlí"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Tady, vem si to krumpáč. Můžete ji použít k dolu uhlí a hack přes některou slabší stěny narazíte"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Budete také potřebovat tento klíč se dostat do dolu"
+
+msgid "Thanks!"
+msgstr "Díky!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Děkuji vám, Edgar, toto uhlí je perfektní! Doufám, že netopýři ani zastrašit."
+
+msgid "The bats were the least of my worries..."
+msgstr "Netopýři byli alespoň z mých starostí ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Řekni, slyšel jsem, že se něco stalo v dole, který před několika lety"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Ehm, jo, bylo to, co byste zavolat  incident , ale tato část dolu byl zavřený už dávno"
+
+msgid "Right..."
+msgstr "Jo ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Zde mám štít a bavte se!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Jen drž se dál od Forbidden Swamp"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Bude dělat, mohu držet se svého krumpáč na chvíli?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Jasně, jen aby byl zpátky v jednom kuse"
+
+msgid "Thanks, Borgan!"
+msgstr "Díky, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Už jste se podařilo nalézt uhlí ještě?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Si můžete stáhnout některé položky v okolí zatlačením proti nim a současně podržíte tlačítko akce."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Poté můžete stáhnout kolem, dokud se pusťte tlačítko akce"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Tato skála vypadá příliš silný pro mou Vyberte Axe. Budu muset použít něco jiného projít ..."
+
+msgid "Urgh, what happened?"
+msgstr "Blé, co se stalo?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Vypadá to, že to nebyl tak dobrý nápad"
+
+msgid "There must be way out of here..."
+msgstr "Musí existovat cesta ven ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "To musí být uhlí chce, abych za něj dolu"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Nemyslím si, že můj štít bude chránit mě od těch ohnivé koule. Budu muset najít silnější ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Nebudete schopni udělat něco v této verzi, zkuste později!"
+
+msgid "Strange creature..."
+msgstr "Podivné stvoření ..."
+
+msgid "Wait, what was that?"
+msgstr "Počkej, co to bylo?"
+
+msgid "You again?!"
+msgstr "Zase?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Něco, co se má stát i tady, ale to není v této verzi, takže to prosím později!"
+
+msgid "Have fun!"
+msgstr "Bavte se!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Díky za resucing mé kuřata, máte mi 2 dříví z lesa ještě?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Díky Edgar! Moje kuřata jsou zpět a tyto záznamy budou dělat mi pokutu"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Vem si to meč, může sloužit i vám!"
+
+msgid "Thank you!"
+msgstr "Děkujeme vám!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Díky za klády, které jste měli s trochou štěstí slepice?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Dám vám meč když mi 2 nasekané dříví z lesa a záchranu alespoň 3 z mých kuřat"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Dobrý den, Edgar, co mohu udělat pro vás dnes?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Máte meč mohu půjčit?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Já mám meč a můžete mít, pokud děláte něco pro mě první"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... Co mám dělat?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Někteří z mých kuřat, které uprchly ze svých pera a byl bych velmi vděčný, kdyby se můžete dostat zpět pro mě"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Mám nastavit nějaké pasti blízko jejich pera, můžete nalákat do pasti pomocí této slepice. Nepotřebuju je všechny, ale nejméně 3 by bylo velmi užitečné. Můžu si zbytek sám."
+
+msgid "That's it?"
+msgstr "To je všechno?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Ne tak docela. Můžete také mi nějaké dříví z lesa? 2 záznamy by měly být dostatečné"
+
+msgid "Do you have an axe?"
+msgstr "Máte sekeru?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Ehm ... Nechala jsem sekeru v lese někde. Mělo by tam být ještě"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Není to nebezpečné lesa?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Ani ne, pokud se něco dostane do cesty, stačí kliknout na to se zbraní"
+
+msgid "Such as an axe?"
+msgstr "Jako sekera?"
+
+msgid "Yes, that would do the trick"
+msgstr "Ano, to by to trik"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Ale vážně, nic tam není, že tam může opravdu ublížit. Tento problém byl projednáván už dávno ..."
+
+msgid "Good luck!"
+msgstr "Hodně štěstí!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, díky Edgar, jsem potřebovala pouze 3, ale díky za další pomoc!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Tady, Maggie se mi to zdraví lektvar, ale nemusí to tak proč jste to?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, ty chytil všechny, díky moc!"
+
+msgid "Here, I have these for you"
+msgstr "Zde jsem pro tebe"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie se mi to zdravotní nápoj, ale můžete jej mít"
+
+msgid "And this is something very special"
+msgstr "A to je něco zvláštního"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Může to pomůže na vaší cestě stát silný bojovník"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Tebe zachráněný mne množství of čas. Maggie se mi něco jiného, ale protože jste byli tak užitečná, můžete ji mít."
+
+msgid "Hi Maggie"
+msgstr "Ahoj Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Díky Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan řekl, že část dolu byla uzavřena až po  incident "
+
+msgid "There must be something around here..."
+msgstr "Tam musí být něco, co tady ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, padací most je nahoru. Musí existovat jiný vchod ..."
+
+msgid "Wait, what's that?"
+msgstr "Počkej, co to je?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Možná bych mohl tunelu my way v. .."
+
+msgid "These machines aren't working."
+msgstr "Tyto stroje jsou nefungují."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Vypadá to jako drahokam by měly zapadat do té díry, možná se mi podaří najít nějaké náhrady."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Vypadá to, že je to pevně vklíněn tam. Mohu snad uvolnit jej s krumpáčem ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Chcete-li dostat do Zakázaného Swamp budu muset postavit vor."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Mohu postavit vor, kdybych dost pokácet stromy v lese"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Musím 6 Sekané Záznamy postavit vor"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Nebudu do bažiny, aniž by meč a štít"
+
+msgid "OK, here goes!"
+msgstr "OK, tady je!"
+
+msgid "Aw, not again!"
+msgstr "Ach, ne!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "To bylo lepší být naposledy, co jsem musel udělat ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "To bylo jednoduché! A já si vždy vrátit později!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Nejspíš jsem na vybranou hned."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Vydrž Tati, už jdu ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Něco, co se má dít teď, ale to není v této verzi. Prosím později!"
+
+msgid "There's a note here"
+msgstr "Je tu poznámka zde"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Byl jsem v pasti se zde, co se zdá jako věčnost"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Chcete-li dostat z tohoto místa potřebuji 3 Access Keys práce výtahy"
+
+msgid "So far I have only found 1"
+msgstr "Zatím jsem jen nalezl 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Aby toho nebylo málo, mohu jen oslovit některé spínače s pečlivě umístěna šipka"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Šetří, ale nejsou běžné a já jsem vyběhnout"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Pokud se mi nenajdou cestu ven hned, obávám se mohou hladovět"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Pokud nemám odsud budu trpět stejný osud ..."
+
+msgid "Oh, what's this?"
+msgstr "Ach, co je tohle?"
+
+msgid "There's a note here too"
+msgstr "Existuje vědomí i zde"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Lektvar je perfektní! Quaffing se promění v lidskou bytost za malé množství času"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Zatím mohu jen začarovat jsem do jednoho tvora, ale s trochu více času, něco by mělo být možné"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Je tu trošičku doleva, mělo by být bezpečné pít"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, tady jde nic ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Blé! To je hrozné!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan mi řekl, že Slimes může plavat ve vodě, i když, možná to bude užitečné, ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Když přeměněn Slime, můžete pohybovat jako obvykle. Můžete také plavat ve vodě a použít nahoru a dolů pohybovat"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Tlačit nahoru nebo skok z vás udělá vyskočit z vody, pokud jste blízko povrchu"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Dávat pozor na časový spínač v dolní části obrazovky. Když se dosáhne 0 budete automaticky stanou lidské znovu"
+
+msgid "This place doesn't look so bad..."
+msgstr "Toto místo nevypadá tak zle ..."
+
+msgid "What was that?"
+msgstr "Co to bylo?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Uf, jsem rád, že se odtamtud"
+
+msgid "Now to get through this swamp"
+msgstr "Nyní se dostat přes tuto bažinu"
+
+msgid "Hey, what's this?"
+msgstr "Hej, co to je?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Vypadá docela neškodný, zkusím šlapat na to"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! To bylo super! To musí být mechanické teleport."
+
+msgid "I wonder if it works both ways..."
+msgstr "Zajímalo by mě, jestli to funguje i naopak ..."
+
+msgid "Horray!"
+msgstr "HOrray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Nejen že je to bude, aby mě zachránil mnoho chůze, je to také spousta zábavy!"
+
+msgid "Now try out your shield"
+msgstr "Vyzkoušet si štít"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blok pelety vyplivl do závodu a vyskočit na další římsu"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Některé položky ve hře může být tlačena a vytáhl"
+
+msgid "To push an item, simply walk into it"
+msgstr "Tlačit položku, prostě jít do toho"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Chcete-li stáhnout poloľku, chodit do zatímco přidržíte akci"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Pak můžete stáhnout položku kolem, dokud se pustil akce"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Vytáhněte krabici na druhou stranu a používat jej dosáhnout římsu"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Toto je poslední část tutoriálu a naučí vás blokovat a útoku nepřátel"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Za prvé, měli byste se vybavit meč, protože má větší rozsah a dělá víc škody než krumpáč"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Stiskněte pro zobrazení z vašeho inventáře, zvýrazněte meč a stiskněte Attack (ctrl vlevo), nebo použijte bod (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Stiskněte z zavřete vašeho inventáře"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Občas se zabil nepřátele pokles zdraví, které zmizí po několika sekundách, takže si to rychle!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Pokud se bat, je dostat se blízko k vám, držte bloku a bude neškodně se odrazí od vás"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Nyní zabít všechny netopýrů v oblasti!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Existují dva typy dveří ve hře. Manuální a automatické dveře dveře."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Ruční dveře vyžadují klíče otevřít, Automatické dveře potřebují přepínače."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Chcete-li otevřít zamčené dveře, které máte klíč, prostě jít do toho. Není třeba mít klíč vybraný v inventáři."
+
+msgid "Open the door and continue to the right"
+msgstr "Otevřete dveře a pokračujte doprava"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Blahopřejeme! Nyní víte, základy hry, měli byste zkusit hlavní hry"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Pokud chcete přehrát tento tutoriál, stiskněte Escape a vyberte z menu Výuka"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Hrát hlavní hru, stiskněte Escape a vyberte možnost Nová hra z nabídky"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Prostor pro novináře, když jste dočetli jít k dalším dialogovém okně"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Můžete také přejít na další dialogové okno stiskem Attack (vlevo ctrl), Block (vlevo alt), Jump (mezera), akce (c) nebo použijte bod (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "To je výukový program pro Legend of Edgar. Tento návod Vám vysvětlí, jak hru hrát."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Chcete-li ukončit tento tutoriál, stiskněte Escape a používat nahoru a dolů šipkami zvolit volbu. Stiskněte tlačítko Zpět a vyberte jej."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Pro pohyb doleva a doprava, použijte klávesy se šipkami."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Chcete-li skok, stiskněte mezerník. Se můžete pohybovat ve vzduchu při skoku."
+
+msgid "To interact with an item, press c"
+msgstr "Chcete-li pracovat s položkou, stiskněte c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Dojděte k akci bod a stiskněte c"
+
+msgid "To collect an item from your"
+msgstr "Chcete-li vybírat položky ze svého"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Vyzvednout položku, prostě jít do toho. Jakékoli Sběratelské předměty budou přidány do vašeho inventáře."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Můžete si prohlédnout obsah Vašeho seznamu stisknutím z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Zatímco v inventáři, použijte klávesy se šipkami pro zobrazení položek."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Můžete použít položku okamžitě po stisknutí Attack (ctrl vlevo) nebo použijte bod (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Můžete připraven k použití položku stiskem Block (alt vlevo) nebo akce (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Dojděte klíčem si ji vyzvednout"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Můžete měnit všechny ovládací prvky ve hře stisknutím klávesy Escape a zvolením Volby v menu"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Zvolte Konfigurace Ovládání pomocí šipek a stiskněte tlačítko Zpět"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Pomocí kláves se šipkami vyberte prvek, který chcete změnit, a stiskněte Enter."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Další, stiskněte tlačítko, které chcete použít místo."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Bez ohledu na to, co klíčů si vyberete, vždy můžete procházet menu pomocí šipek a návrat"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Všimněte si, že v tomto tutoriálu, bude výchozí klíče lze předpokládat"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Až dokončíte konfiguraci kláves, jít přímo na další akci bod"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Krumpáč je jedním z mnoha zbraní, se kterými se setkáte ve hře"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Můžete jej použít i jako zbraň a nástroj"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Seberte krumpáč a pokračujte na další akci bod"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Gratulujeme, jste si našli tajné!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Existuje mnoho tajemství, v hlavní hře takže mějte pozor na ně"
+
+msgid "Here's a hint to get you started"
+msgstr "Zde je náznak, jak začít"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "I když pouze vyžaduje, můžete chytit 3 jeho slepice, proč by hezké ho a chytit víc? K dispozici je 10 bloudění ve všech map"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Štít chrání před většinou nepřátelských útoků"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Některé nepřátelské útoky nelze zablokovat"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Environmentální rizika, jako je pokles skály, nelze zablokovat"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Chcete-li blokovat útok, stiskněte a podržte bloku (vlevo alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Musíte čelit útoku úspěšně zablokovat"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Všimněte si, že se nemůže pohybovat při blokování, ale můžete čelit jiným způsobem. Můžete také nemůže blokovat ve vzduchu"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Seberte štít a pokračujte doprava"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "To je slabé stěně, může to být rozbité dolů pomocí krumpáče"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Chcete-li použít krumpáč, stiskněte Attack (vlevo ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "že ne všechny slabé zdi mohou být zničeny použitím krumpáče"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Zničit zeď pomocí krumpáče a pokračovat"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Něco, co to má být tady, ale to není v této verzi, zkuste později!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Collect 10 kusů uhlí"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Collect 2 Sekané Záznamy"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rescue 3 Kuřata"
+
+msgid "Find 4 Gems"
+msgstr "Najít 4 drahokamy"
+
+msgid "Repair Generators"
+msgstr "Oprava Generátory"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Collect 6 Sekané Záznamy"
+
+msgid "Collect 3 Access Keys"
+msgstr "Collect 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "To je prázdný cíl"
+
+msgid "Kill all Bats!"
+msgstr "Netopýři zabít všechny!"
+
+msgid "Coal"
+msgstr "Černé uhlí"
+
+msgid "Chopped Log"
+msgstr "Nakrájenou Log"
+
+msgid "Green Gem"
+msgstr "Zelený drahokam"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleport Key"
+
+msgid "New Game"
+msgstr "Nová hra"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Nahrát hru"
+
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "About"
+msgstr "O"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "Configure Controls"
+msgstr "Konfigurace Kontroly"
+
+msgid "Configure Sound"
+msgstr "Konfigurace zvuku"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Zobrazit Tipy"
+
+msgid "A potion which will transform you..."
+msgstr "Lektvar, který změní tebe ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Vytváří vysoce absorpčních miniaturních kostek ledu"
+
+msgid "A potion which will restore all of your health"
+msgstr "Lektvar, který obnoví všechny vaše zdraví"
+
+msgid "A powerful bomb"
+msgstr "Mocný bomba"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Lektvar, který vám poskytuje na některé neviditelné nepřátele"
+
+msgid "The eyeball from a Gazer"
+msgstr "Oka z Gezeru"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Tesla Pack. Nemá žádný poplatek."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Summoner služební. To není možné použít u lidí."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Tesla Pack. Je plně nabitá."
+
+msgid "An empty potion bottle"
+msgstr "Prázdnou láhev lektvar"
+
+msgid "A bag of chicken feed"
+msgstr "Pytel pro slepice"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Pytel vhodný pro přepravu uhlí"
+
+msgid "Basic Sword"
+msgstr "Základní Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Meč, který získáte od Jacob"
+
+msgid "A bow"
+msgstr "Luk"
+
+msgid "Small Wooden Shield"
+msgstr "Malý dřevěný štít"
+
+msgid "A small shield that provides basic protection"
+msgstr "Malý štít, který poskytuje základní ochranu"
+
+msgid "Normal Arrow"
+msgstr "Normal Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normální Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Sekera vhodný pro sekání stromů"
+
+msgid "Pickaxe"
+msgstr "Krumpáč"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Krumpáč zapůjčil na Váš Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Potion Pokoj Key"
+
+msgid "Surge Passage Key"
+msgstr "Přepěťová Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Demolice Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Co to bylo, to bylo vyčerpávající, že energie z generátoru a používat ho proti mně."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "To by mohlo vysvětlovat, proč že výtah nefungovalo. Porážet ostatní Odpad by měl obnovit síly."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Porazit všechny energetické Odpad"
+
+msgid "No Objectives"
+msgstr "Č. Cíle"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Stiskněte tlačítko pro reset Akce puzzle bloky"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Vypadá to jako mixér. Mohl bych použít na něco rozmixovat"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Potřebuji Red kalová Tentacle a 3 Gezeru Oční bulvy, aby se lektvar"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "I nadále potřebovat Empty Bottle dát lektvar na"
+
+msgid "So this is the Fortress."
+msgstr "Takže to je pevnost."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Vypadá to jako hodně dveře vedou do jiných oblastí, měl jsem řádně rozhlédnout, než jsem se jít někam jinam ..."
+
+msgid "Try hitting the skull..."
+msgstr "Zkuste bít lebka ..."
+
+msgid "This machine is not active"
+msgstr "Tento stroj není aktivní"
+
+msgid "Repeat the sequence"
+msgstr "Opakujte sekvenci"
+
+msgid "Correct Sequence"
+msgstr "Správném pořadí"
+
+msgid "Incorrect Sequence"
+msgstr "Nesprávné sekvence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Legenda Edgar došlo k následující chybě"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Prosím nahlaste tuto chybu Parallel Realities"
+
+msgid "The game will now exit"
+msgstr "Hra bude nyní ukončena"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Vypadá to jako mixér. Mohl bych použít na něco liqudise"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "To musí být uhlí Borgan chce, abych za něj dolu"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "To by mohlo vysvětlovat, proč že výtah nefungovalo. Porážet ostatní Odpad by měl obnovit sílu zde."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Musím najít 3 Gezeru Oči, 1 červená kalová Tentacle a navíc vytvořit štít Shield of Fire Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Poté, co jsem našel všechny tyto položky, budu muset najít místo k vytvoření štítu"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Je tu knihu tu o kouzelné zbraně"
+
+msgid "Maybe I can create a shield..."
+msgstr "Možná bych mohl vytvořit štít ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Swords ... Zbroj ... Hůlky ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid knihu. To není v pořádku a není žádný index"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Ingredience"
+
+msgid "One must gather the following"
+msgstr "Je třeba shromáždit následující"
+
+msgid "The root of a Mandrake"
+msgstr "Kořen Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Tuk Darsh (vlevo kandidovat na 3 měsíce)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor kosti"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 oči Gezeru"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Čerstvě řezané chapadlo od samice Red kalů"
+
+msgid "The shield to apply the enchantment"
+msgstr "Štít použít okouzlení"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Blend Gezeru oči a bahenní tykadlo do hladké tekuté"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Přidejte kořen, tuku a kostí v kotlíku a mixu společně s příměsí očima Gezeru a kalů tykadlo"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Když se směs změní světle modré přidat štít"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Viděl jsem většinu z těchto položek v laboratoři, tak jsem se nemusíte starat o ty,"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "A Gazers postávat ve sklepě, takže to není problém"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Co mám dělat, je potřeba najít Red kalová, ale nemám tušení, kde najít"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Nemohu používat svůj stávající štít v experimentu v případě, že vzepře, takže budu muset najít jiný"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Tam by mohl být lektvary místnosti nebo laboratoři, kde bych mohl najít kořeny, tuk a kosti, tak jsem se nemusíte starat o ty,"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Musíte mít instrukce kartu, kterou chcete použít zdůraznil ve vašem inventáři box"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, laboratoř!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Mám rád sledoval Maggie dělat kouzla a lektvary, možná bych si, aby některé své si zde!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, nikdy jsem neviděl tolik knih, na jednom místě!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Tam musí být informace o každém předmětu tady by to mohlo být užitečné ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, cítí vzduch nabitý, to mi připomíná dům Maggie, když jí bylo dělat kouzla. Měl bych být opatrný."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Edgar Ach, to ublížit! Dovolte mi, abych si léčit rány"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Zajímalo by mě, jaké tam jsou další monstra. Stavím se na stránce náhodně ..."
+
+msgid "Gazer"
+msgstr "Gezeru"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers letí cycloptic tvorové vyskytují v různých místech"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Jejich jediné oko je obvykle uzavřen, a oni se spoléhají na sonar pro pohyb"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Oni používají jejich silné čich na pozor na dravce a kořist tak"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers útoku (a obranu), otevřou své oko, které se oslnit něco na to dívat"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Tento útok je však účinná pouze v případě, že oběť je čelí Gezeru"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Gezeru na oko obsahuje magické vlastnosti a jsou běžnou součástí přípravy kouzlo"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, šedá"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Setníků jsou magicky vytvořené bytosti, obvykle odeslán jako hlídky a stráže"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "I když pomalu se pohybující, jejich masivní velikosti jim umožňuje jednoduše pochod jakékoliv obrany"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Místo toho, zbraní, mnoho z nich obrovskou hromadu ovladače, které používají třást zem a zmást ohrožení"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Zatímco Grey Centurions budou použity k ochraně vnějšího obvodu, Red Centurions je známo, že existují a jsou využívány k ochraně oblasti velký význam"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Rozbočovače jsou neškodné monstra, pokud zaútočil."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Na udržení příliš mnoho škody, které budou rozděleny na dvě části a jejich útoku dravce"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Pokud jeden z nich utrpí příliš mnoho škody, bude rozdělena znovu a pokračovat v útoku"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "A konečně, jeden bude konečné rozdělení vyrábět velmi malé verze, které jsou zcela neškodné, a v tomto stavu může být jednoduše šlápl"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Pokud jsou všechny jeho části jsou ještě naživu, bude splitter reformovat po chvíli a léčit své zranění"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Červené housenky jsou agresivnější než jejich protějšky a zelených zaútočí na všechno vnímají jako hrozbu"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Po dosažení dospělosti, které budou tvořit promění v kuklu a vosa"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Někteří však budou promění v královnu vosa. Tyto královny mohou produkovat hlen-jako substance, kde lze umístit svou kořist na místě"
+
+msgid "Tortoise, Master"
+msgstr "Želva, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Želvy jsou děsivá zvířata. Nalezeno v daleko zemích, které mají schopnost měnit své hlavy"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Spojují v sobě všechny schopnosti svých bratranců dýchat oheň, vytvoří se led a elektrifikovat"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "A samozřejmě jsou také odolné vůči útokům z odpovídajících prvků, absorbující energii k uzdravování sebe"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Ale kromě toho, pokud se jim dostane příliš mnoho energie z léčení, se vyvíjet a jít na rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "V tomto stavu budou rozbít přes jakékoliv obrany a produkují Dark Matter, která ničí vše, čeho se dotkne"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Nicméně, skořápky řádění Master Želva je velmi kouzelné a je základním prvkem při vytváření silné magie a předměty"
+
+msgid "Venus Flytrap"
+msgstr "Venus mucholapka"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore je tvor z jiné dimenze. To může být předvolán pomocí silných temnou magii"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Nejčastějším důvodem pro svolání tato šelma je působit jako osobní strážce"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Neexistuje žádný známý způsob, jak zabít Grimlore, protože při zachování kritického zranění bude jednoduše vrátit do své vlastní dimenze"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Ale i poškodit je monumentální úkol. Každý, kdo setkání s tímto tvorem se doporučuje vyhnout se co nejrychleji"
+
+msgid "Or they will die very quickly"
+msgstr "Nebo zemřou velmi rychle"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Aha, tady je výtah monster"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 svazků! Jak může být tolik monster ve světě?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Vypadá to, že jste v abecedním pořadí ačkoli"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Sliz, zelená ... Sliz, Fialová ... Kalu, zelená ..."
+
+msgid "Sludge, Red"
+msgstr "Kalu, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Na rozdíl od svého bratrance zelená, červená kalů zůstává hluboko pod zemí, a zřídka, pokud vůbec, povrchy"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Dává přednost stanoviště jsou suché a minerální bohaté oblasti a v důsledku toho nebyly nalezeny číhající v oblastech opuštěných dolech lidmi"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Jsou velmi na pozoru před lidmi, a zaútočí na první pohled, obvykle až zvracení kyselina, která trvá dlouho vypařovat"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, Malá ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Skvělé, to je vše, co říká. Já ani nevím, jak poznat rozdíl mezi muži a ženy. Já si jen vzít šanci ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Kromě toho, co je nejhorší, co by se mohlo stát?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Chcete-li přesunout Edgar vlevo a vpravo, použijte klávesy se šipkami."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Chcete-li Edgar skok, stiskněte mezerník. Se můžete pohybovat ve vzduchu při skoku."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Ačkoli Jacob pouze vyžaduje, abyste úlovek 3 jeho slepice, proč by hezké ho a chytit víc? K dispozici je 10 bloudění ve všech map"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Všimněte si, že ne všechny slabé zdi mohou být zničeny použitím krumpáče"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Už jsem zkontrolovat, není to tam dole ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Slyšel jsem, že lidí, které spadají do i předtím, možná táta je tam ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! JSTE tam ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Nic. Myslím, že budu muset hledat dál"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up nebo Down zvýšit nebo snížit platforma"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Je tu knihu tu o okouzlující zařízení"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Je to kniha o okouzlující zařízení"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Nemám žádný důvod, aby se s tímto, ale budu mít na paměti případ, že bych to"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Zajímalo by mě, jaké další monstra jsou ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Stejně jako pravidelné Summoners, Dark Summoners volání v jiných zvířat ke své nabídky"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Navíc když se mohou teleportovat na krátké vzdálenosti k úniku z jejich odpůrců"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Jejich personál je velmi magické a ačkoli to nemůže být používán lidmi přímo, jsou jeho magické vlastnosti, použité při vytváření kouzlo"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers jsou malé čtvernožců s dlouhým čenichem"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Primární puropse ze hlavni je shánět potravu, ale také slouží jako obranný mechanismus"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "a více než schopné udržet na uzdě predátora tím, že prostě fouká pryč"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus mucholapka, mobilní"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobilní Venus Flytraps vyvinuly kořeny a jsou schopni se pohybovat na jejich jídlo spíše než čekat na to přijít k nim"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Jejich krky jsou neuvěřitelně elastické a jsou schopni lapat na svou kořist ze značné vzdálenosti"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "To by mělo stačit. Doufejme, že další vlek u kanalizace by měla být nyní pracuje"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Toto je výtah nefunguje. Nebudu moci používat, dokud jsem obnovit moc"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Vypadá, že skla příliš silný pro mě bezva, budu muset najít jinou cestu tříštění to ..."
+
+msgid "Up"
+msgstr "Nahoru"
+
+msgid "Down"
+msgstr "Dolů"
+
+msgid "Left"
+msgstr "Levý"
+
+msgid "Right"
+msgstr "Vpravo"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Blok"
+
+msgid "Action"
+msgstr "Akce"
+
+msgid "Use Item"
+msgstr "Použijte bod"
+
+msgid "Previous Item"
+msgstr "Předchozí položka"
+
+msgid "Next Item"
+msgstr "Další bod"
+
+msgid "Inventory"
+msgstr "Inventář"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Zvuk"
+
+msgid "SFX Volume"
+msgstr "SFX Objem"
+
+msgid "Music Volume"
+msgstr "Hlasitosti hudby"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Knihovna"
+
+msgid "Right Wing Lift Key"
+msgstr "Pravé křídlo Lift Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Důl vstupní dveře Key"
+
+msgid "Village"
+msgstr "Vesnice"
+
+msgid "Cave"
+msgstr "Jeskyně"
+
+msgid "Fortress Outskirts"
+msgstr "Tvrz Okolí"
+
+msgid "Forbidden Swamp"
+msgstr "Zakázané Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Čistíren odpadních vod uzavřeného pásma Key"
+
+msgid "Basement"
+msgstr "Suterén"
+
+msgid "Fortress Ground Floor"
+msgstr "Tvrz Přízemí"
+
+msgid "Sewer"
+msgstr "Kanalizační"
+
+msgid "Fortress Main Key"
+msgstr "Tvrz Hlavní Key"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleport Přístup Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleport Přístupový klíč 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleport Přístupový klíč 3"
+
+msgid "Laboratory"
+msgstr "Laboratoř"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "První patro Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Tisková Akce pro načtení %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, to je cosi nového."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "To nevypadá to může ublížit mi ale, ale to je jen jeden způsob, jak zjistit ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Tento výtah je řízen, že tlak talíř, ale já to nevydržím na něm a používat výtah ve stejnou dobu"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Budu muset najít něco jiného stát na přítlačnou desku pro mě ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Tato karta je prázdný, budu muset dát nějaký návod na to, aby bylo použitelné."
+
+msgid "There's a plaque here"
+msgstr "Tam je plaketa zde"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Místo 4 sochy ve správném pořadí"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Nebudete moci najít všechny 4 sochy v této verzi, takže se vrátím!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Musíte mít sochu, kterou chcete použít zdůraznil ve vašem inventáři box"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Nic se nestalo. Nemyslím si, že je správné, aby"
+
+msgid "Tuning Fork"
+msgstr "Ladička"
+
+msgid "Second Floor Keycard"
+msgstr "Druhé patro Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Výuka Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Výuka Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Výuka Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Výuka Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Socha"
+
+msgid "Spider Statue"
+msgstr "Spider Socha"
+
+msgid "Tortoise Statue"
+msgstr "Želva Socha"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Socha"
+
+msgid "A Blue Gem"
+msgstr "Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Socha Centurion. Má 2 nohy."
+
+msgid "A Green Gem"
+msgstr "Zelený drahokam"
+
+msgid "A Purple Gem"
+msgstr "Purple Gem"
+
+msgid "A Red Gem"
+msgstr "Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Socha Scorpion. To má 6 nohou."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Socha Spider. To má 8 nohou."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Armadillo Spike Ball. Rozptýlím hroty, když hodil."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Socha želva. To má 4 nohy."
+
+msgid "A Tuning Fork"
+msgstr "Ladička"
+
+msgid "A chopped log"
+msgstr "Nakrájenou log"
+
+msgid "Narrator"
+msgstr "Vypravěč"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Je to kotel. Maggie má jedno stejně jako to"
+
+msgid "Right, here goes!"
+msgstr "Dobře, tady jde!"
+
+msgid "I need all the main ingredients"
+msgstr "Potřebuji všechny hlavní složky"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gezeru Oční bulvy, 1 červená kalová Tentacle a náhradní štít"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Také jsem třeba míchat bulvy a chapadlo do kapaliny"
+
+msgid "This entire section is about monsters"
+msgstr "Celá tato část je o monstra"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Nemám žádný důvod, aby si tyto, ale budu mít na paměti případ, že bych si"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hej wow, to je roztomilý malý stroj!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Je to tu trochu slotu na zadní straně to. Myslím, že jsem tam něco dal, aby se to dělat věci"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Robot využívá Výuka karty pohybovat"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Použijte návod k obsluze robota na otevřeném prostranství, které můžete získat přístup"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Nicméně, protože nemůžete přečíst návod na kartě, budete muset vyzkoušet je všechny do jednoho díla"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Pokud se robot nedosáhne svého cíle, pak se vrátí do své výchozí pozici a umožní vám zkuste to znovu"
+
+msgid "Enter the directions"
+msgstr "Zadejte směry"
+
+msgid "Out of space for instructions"
+msgstr "Není prostor pro návody"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Potřebuji prázdnou kartu dát návod"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Možná to nebyl tak dobrý nápad ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Získat 3 Gezeru Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Získat 1 Red kalů Tentacle"
+
+msgid "Find another shield"
+msgstr "Najít další štít"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend bulvy a tykadlo"
+
+msgid "Obtain a Fire Shield"
+msgstr "Získat Fire Shield"
+
+msgid "More water?!"
+msgstr "Více vody?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Nemyslím si, že může proměnit v Slime je mi pomoct tady, protože jsem pravděpodobně nebudou moci vrátit poté"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Budu muset najít jinou cestu, jak se v celé"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Budu muset najít něco, aby mi pomohl dostat přes"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Neviděl jsem žádné Kaly v dole, když jsem šel pro Borgan uhlí, a to i když tam byly nějaké nemůžu dostat tam, protože jsem se potopil člun"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Budu muset najít jinou dolu tady ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Vytvoří kostky ledu, které rozšíří při styku s vodou"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Láhev dokáže zachytit duše"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Zkuste použít Mataeus nožů proti němu ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Nelze vyzvednout %s. Inventář plný"
+
+msgid "Filling mine cart..."
+msgstr "Náplň mé košíku ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Parallel Realities 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Out of šípy!"
+
+msgid "There's something moving around down there..."
+msgstr "Tam něco pohybuje tam dole ..."
+
+msgid "Good riddance..."
+msgstr "Good Riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Hm, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Jestliže je výtah mimo provoz, pak to musí být nastaveno"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "K dispozici jsou 4 reset přepínače podél výtahu, hřídel, který musí být nastaveno"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Ujistěte se, že reset výtahu, aby se zabránilo dlouhou cestu zpět na povrch ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Tento stroj má slot stejné velikosti jako karty. Myslím, že jsem ji použít k vytvoření nových instrukcí."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Chcete-li vytvořit nový soubor instrukcí musíte vložit kartu prázdný"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Pak budete vyzváni k zadávání pokynů pro robota k následování. To se dělá stejným způsobem jako sled dveře"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Když jste dokončili zadávání pokynů, stiskněte Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Robot pak postupujte podle pokynů na kartě"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Pokud se pokyny nejsou správné, můžete zkusit znovu"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Toto místo je blázen, radši pospíšit a najít tátu, než jsem se nakonec dostat zabil!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Tak, že k vytvoření Fire Shield musím Red kalů chapadlo"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Red Kaly žít v dolech, takže budu muset najít tady"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Já také potřebovat náhradní štít, ale hádám, že by měla být kolem zbrojnice"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Gezeru bulvy jsou snadné, mohu se jen vrátit do sklepa"
+
+msgid "OK, off I go..."
+msgstr "OK, já jdu pryč ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Nebudete moci dostat chapadlo nebo štít v této verzi, takže podívat později!"
+
+msgid "It's a portrait"
+msgstr "Je to portrét"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Ten duch se nebude dejte mi v minulosti, budu muset najít způsob, jak se zbavit"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset přepínače umožňují nastavení polohy objektu na mapě"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Pokud se objekt stane nedostupnou pak můžete použít přepínač, aby ji zpět na své původní místo"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Láhev s duší zavřený"
+
+msgid "Full Mine Cart"
+msgstr "Úplné Mine košíku"
+
+msgid "Processing Lift Key"
+msgstr "Zpracování Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Key Grabber"
+
+msgid "Left Grabber Key"
+msgstr "Left Key Grabber"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Kouzelník musel vzít táta na svůj zámek. Budu muset zachránit ho odtamtud."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Jediným způsobem, jak se dostat do hradu je přes Forbidden Swamp na východ."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Je tam jezero mezi vesnice a bažiny, takže budu potřebovat dostat přes vor."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Budu také potřebovat meč a štít se bránit. Můžu mluvit Borgan a Jákobovi, aby si tyto ačkoli."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nepodařilo se připojit k serveru na medaili %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nepodařilo se najít Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Nebudete moci získat medaile pro tuto hru"
+
+msgid "There's another sign here"
+msgstr "Je tu další znamení zde"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Je-li výstup je výtah mimo provoz, pak pokračujte doleva"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Upozornění: Konec trasy mohou být nebezpečné"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Možná bych měl použít výtah se dostat ven"
+
+msgid "There's a sign here"
+msgstr "Je tam podepsat zde"
+
+msgid "An Oil Can"
+msgstr "Olej může"
+
+msgid "Oil Can"
+msgstr "Může olej"
+
+msgid "A powerful repellent"
+msgstr "Silný repelent"
+
+msgid "Repellent"
+msgstr "Repelent"
+
+msgid "Medal Support"
+msgstr "Medaile Podpora"
+
+msgid "Fortress Mine"
+msgstr "Tvrz Mine"
+
+msgid "Private key is missing"
+msgstr "Soukromý klíč chybí"
+
+msgid "Could not connect to server"
+msgstr "Nepodařilo se připojit k serveru"
+
+msgid "Sludge Tentacle"
+msgstr "Kal Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Červený kal Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, it worked!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nejsem si jistý, ale o barvu, myslela jsem si, že by bylo červená?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Možná to má být žlutá ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Tekutina z oční bulvy a chapadla"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patching si uložte hru. Čekejte prosím ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Nyní! Běžet zatímco je ohromen!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow, to je obrovská věc!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Pochybuji, můj meč se dokonce zelené louce, ale musím se přes to ..."
+
+msgid "I have everything I need now"
+msgstr "Mám všechno, co potřebuju teď"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Je tu kotel v laboratoři, měl bych hlavu vzadu"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Jen potřebuji najít jiný štít okouzlí"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Nebudete schopni získat štít v této verzi, tak to prosím později!"
+

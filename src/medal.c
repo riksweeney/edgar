@@ -152,8 +152,6 @@ static int postMedal(void *data)
 
 	medal.medalMessage.text[0] = '\0';
 
-	printf("Attempting to post medal 'LOE_%s'\n", medalName);
-
 	socket = SDLNet_TCP_Open(&medal.ip);
 
 	if (socket == NULL)
