@@ -74,7 +74,7 @@ CORE_OBJS += error.o code_door.o code_display.o skull.o poltergiest.o book.o mov
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
 CORE_OBJS += thunder_cloud.o instruction_machine.o spirit.o black_book.o mataeus.o mataeus_wall.o mine_cart.o boulder_boss_2.o
 CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o medal.o repellent.o cloud_geyzer.o
-CORE_OBJS += ok_menu.o
+CORE_OBJS += ok_menu.o huge_spider.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

@@ -67,6 +67,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "thunder_cloud.h"
 #include "spirit.h"
 #include "large_spider.h"
+#include "huge_spider.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -160,7 +161,8 @@ static Constructor enemies[] = {
 {"boss/boulder_boss_2", &addBoulderBoss2},
 {"enemy/large_spider", &addLargeSpider},
 {"enemy/large_red_spider", &addLargeSpider},
-{"enemy/red_sludge", &addSludge}
+{"enemy/red_sludge", &addSludge},
+{"enemy/huge_spider", &addHugeSpider}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

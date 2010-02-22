@@ -54,21 +54,13 @@ done
 
 cd $APPDIR
 
-make VERSION=$1 -j3
-
-make buildpak
-
-cp edgar.pak windows.pak
-
-make clean
-
 make -f makefile.windows VERSION=$1 -j3
+
+make -f makefile.windows -j3 buildpak
 
 cp /opt/Windows/lib/*.dll .
 
 cp icons/edgar.ico .
-
-mv windows.pak edgar.pak
 
 for f in `ls $APPDIR/locale/*.mo`; do \
 	FILE=`echo $f | cut -d'/' -f2 | cut -d'.' -f1`
