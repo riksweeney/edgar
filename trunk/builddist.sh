@@ -113,12 +113,8 @@ echo "Renaming..."
 
 mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
 
-chown $SUDO_USER:$SUDO_USER *.deb *.rpm *.tar.gz
-
 cd ..
 
-chmod +x buildwindows.sh
-
-./buildwindows.sh $1
+chown -R $SUDO_USER:$SUDO_USER dist
 
 echo "All Done..."
