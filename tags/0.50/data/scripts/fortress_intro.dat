@@ -1,0 +1,4 @@
+WAIT 120
+TALK Edgar So this is the Fortress.
+TALK Edgar It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else...
+ADD_MEDAL fortress_start

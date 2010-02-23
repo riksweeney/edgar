@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/item/repellent_spray.dat
+ANIM_FILE data/anim/item/repellent_spray.dat
+TYPE ITEM
+THINKTIME 600
+SPEED 0.5
+FLAGS FLY
+ALPHA 200

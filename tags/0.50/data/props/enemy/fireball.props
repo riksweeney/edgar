@@ -1,0 +1,8 @@
+GFX_FILE data/gfx/enemy/fireball.dat
+ANIM_FILE data/anim/enemy/fireball.dat
+TYPE PROJECTILE
+DAMAGE 2
+SPEED 3
+FLAGS FLY|PLAYER_TOUCH_ONLY
+THINKTIME 600
+ELEMENT FIRE
