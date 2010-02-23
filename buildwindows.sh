@@ -62,11 +62,12 @@ cp /opt/Windows/lib/*.dll .
 
 cp icons/edgar.ico .
 
-for f in `ls $APPDIR/locale/*.mo`; do \
+for f in `ls locale/*.mo`; do \
 	FILE=`echo $f | cut -d'/' -f2 | cut -d'.' -f1`
-	echo "Moving $FILE.mo to locale/$FILE/edgar.mo"
+	echo "Moving $FILE.mo to locale/$FILE/LC_MESSAGES/edgar.mo"
 	mkdir -p locale/$FILE
-	mv locale/$FILE.mo locale/$FILE/edgar.mo
+	mkdir -p locale/$FILE/LC_MESSAGES
+	mv locale/$FILE.mo locale/$FILE/LC_MESSAGES/edgar.mo
 done
 
 makensis install.nsi

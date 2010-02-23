@@ -160,10 +160,7 @@ static void stickToPlayer()
 {
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
-	if (game.showHints == TRUE)
-	{
-		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
-	}
+	setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;
 	self->y = player.y + self->startY;
@@ -202,10 +199,7 @@ static void stickToPlayerAndDrain()
 
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
-	if (game.showHints == TRUE)
-	{
-		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
-	}
+	setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;
 	self->y = player.y + self->startY;
