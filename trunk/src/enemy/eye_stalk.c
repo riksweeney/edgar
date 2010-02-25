@@ -32,8 +32,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static int bodyParts = 8;
-
 static void wait(void);
 static void bodyWait(void);
 static void createBody(void);
@@ -181,11 +179,16 @@ static void createBody()
 	self->x = self->endX;
 	self->y = self->endY;
 
-	body = (Entity **)malloc(bodyParts * sizeof(Entity *));
+	if (self->mental == 0)
+	{
+		self->mental = 8;
+	}
+
+	body = (Entity **)malloc(self->mental * sizeof(Entity *));
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Eye Stalk body...\n", bodyParts * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Eye Stalk body...\n", self->mental * (int)sizeof(Entity *));
 	}
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
@@ -194,7 +197,7 @@ static void createBody()
 
 	resetEntityIndex();
 
-	for (i=bodyParts-1;i>=0;i--)
+	for (i=self->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();
 
@@ -237,7 +240,7 @@ static void createBody()
 
 	/* Link the sections */
 
-	for (i=bodyParts-1;i>=0;i--)
+	for (i=self->mental-1;i>=0;i--)
 	{
 		if (i == 0)
 		{
@@ -335,8 +338,8 @@ static void alignBodyToHead()
 	partDistanceX = self->endX - self->x;
 	partDistanceY = fabs(self->endY - self->y);
 
-	partDistanceX /= bodyParts;
-	partDistanceY /= bodyParts;
+	partDistanceX /= self->mental;
+	partDistanceY /= self->mental;
 
 	e = self->target;
 

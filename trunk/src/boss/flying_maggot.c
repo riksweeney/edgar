@@ -67,7 +67,7 @@ Entity *addFlyingMaggot(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Flying Maggot");
+		showErrorAndExit("No free slots to add the Flying Maggot");
 	}
 
 	loadProperties(name, e);

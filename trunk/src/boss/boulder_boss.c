@@ -46,7 +46,7 @@ Entity *addBoulderBoss(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add the Boulder");
+		showErrorAndExit("No free slots to add the Boulder Boss");
 	}
 
 	loadProperties("boss/boulder_boss", e);
