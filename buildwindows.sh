@@ -58,6 +58,8 @@ make -f makefile.windows VERSION=$1 -j3
 
 make -f makefile.windows -j3 buildpak
 
+rm *.po
+
 cp /opt/Windows/lib/*.dll .
 
 cp icons/edgar.ico .

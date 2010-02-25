@@ -41,8 +41,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static int bodyParts = 10;
-
 static void bodyWait(void);
 static void initialise(void);
 static void headWait(void);
@@ -86,7 +84,7 @@ Entity *addSnakeBoss(int x, int y, char *name)
 
 	if (head == NULL)
 	{
-		showErrorAndExit("No free slots to add a Snake Boss");
+		showErrorAndExit("No free slots to add the Snake Boss");
 	}
 
 	loadProperties(name, head);
@@ -265,11 +263,11 @@ static void createBody()
 	int i;
 	Entity **body, *head;
 
-	body = (Entity **)malloc(bodyParts * sizeof(Entity *));
+	body = (Entity **)malloc(self->mental * sizeof(Entity *));
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Snake Boss body...", bodyParts * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Snake Boss body...", self->mental * (int)sizeof(Entity *));
 	}
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
@@ -278,7 +276,7 @@ static void createBody()
 
 	resetEntityIndex();
 
-	for (i=bodyParts-1;i>=0;i--)
+	for (i=self->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();
 
@@ -325,7 +323,7 @@ static void createBody()
 
 	/* Link the sections */
 
-	for (i=bodyParts-1;i>=0;i--)
+	for (i=self->mental-1;i>=0;i--)
 	{
 		if (i == 0)
 		{
@@ -763,8 +761,8 @@ static void alignBodyToHead()
 	partDistanceX = self->endX - self->x;
 	partDistanceY = fabs(self->endY - self->y);
 
-	partDistanceX /= bodyParts;
-	partDistanceY /= bodyParts;
+	partDistanceX /= self->mental;
+	partDistanceY /= self->mental;
 
 	e = self->target;
 

@@ -34,11 +34,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Game game;
 
-static void stickToPlayer(void);
+static void stickToTarget(void);
 static void attack(void);
 static void grab(Entity *other);
 static void fallOff(void);
-static void stickToPlayerAndDrain(void);
+static void findPrey(void);
+static void stickToTargetAndDrain(void);
+static void fallOffWait(void);
 
 Entity *addBabySlime(int x, int y, char *name)
 {
@@ -73,7 +75,12 @@ static void attack()
 {
 	long onGround = (self->flags & ON_GROUND);
 
-	facePlayer();
+	if (self->target == NULL)
+	{
+		findPrey();
+	}
+
+	faceTarget();
 
 	if ((self->flags & ON_GROUND) && (prand() % 30 == 0))
 	{
@@ -89,7 +96,10 @@ static void attack()
 		self->dirX = 0;
 	}
 
-	self->thinkTime--;
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+	}
 
 	if (self->thinkTime <= 0)
 	{
@@ -124,7 +134,7 @@ static void grab(Entity *other)
 		other->inUse = FALSE;
 	}
 
-	else if (other->type == PLAYER && !(self->flags & GRABBING))
+	else if (self->target == other && !(self->flags & GRABBING))
 	{
 		self->startX = (prand() % (other->w / 2)) * (prand() % 2 == 0 ? 1 : -1);
 
@@ -134,12 +144,12 @@ static void grab(Entity *other)
 
 		if (strcmpignorecase(self->name, "enemy/red_baby_slime") == 0)
 		{
-			self->action = &stickToPlayerAndDrain;
+			self->action = &stickToTargetAndDrain;
 		}
 
 		else
 		{
-			self->action = &stickToPlayer;
+			self->action = &stickToTarget;
 		}
 
 		self->touch = NULL;
@@ -156,20 +166,23 @@ static void grab(Entity *other)
 	}
 }
 
-static void stickToPlayer()
+static void stickToTarget()
 {
-	setCustomAction(&player, &slowDown, 3, 0, 0);
+	setCustomAction(self->target, &slowDown, 3, 0, 0);
 
-	setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
+	if (self->target->type == PLAYER && self->target->health > 0)
+	{
+		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
+	}
 
-	self->x = player.x + (player.w - self->w) / 2 + self->startX;
-	self->y = player.y + self->startY;
+	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
+	self->y = self->target->y + self->startY;
 
 	self->thinkTime++;
 
-	if (self->face != player.face)
+	if (self->face != self->target->face)
 	{
-		self->face = player.face;
+		self->face = self->target->face;
 
 		if (self->thinkTime <= 15)
 		{
@@ -185,50 +198,70 @@ static void stickToPlayer()
 
 		self->dirY = -6;
 
-		setCustomAction(&player, &slowDown, 3, -1, 0);
+		setCustomAction(self->target, &slowDown, 3, -1, 0);
 
 		self->action = &fallOff;
 
-		player.flags &= ~GRABBED;
+		self->target->flags &= ~GRABBED;
 	}
 }
 
-static void stickToPlayerAndDrain()
+static void stickToTargetAndDrain()
 {
 	Entity *temp;
 
-	setCustomAction(&player, &slowDown, 3, 0, 0);
+	setCustomAction(self->target, &slowDown, 3, 0, 0);
 
-	setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
-
-	self->x = player.x + (player.w - self->w) / 2 + self->startX;
-	self->y = player.y + self->startY;
-
-	self->thinkTime++;
-
-	if (self->face != player.face)
+	if (self->target->type == PLAYER && self->target->health > 0)
 	{
-		self->face = player.face;
-
-		if (self->thinkTime <= 15)
-		{
-			self->mental--;
-		}
-
-		self->thinkTime = 0;
+		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
 	}
 
-	if (self->thinkTime >= 60)
+	/* Fall off immediately if boss has armour */
+
+	else if (self->target->mental != 0)
 	{
-		temp = self;
+		self->mental = 0;
+	}
 
-		self = &player;
+	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
+	self->y = self->target->y + self->startY;
 
-		self->takeDamage(temp, 1);
+	if (self->target->health > 0)
+	{
+		self->thinkTime++;
 
-		self = temp;
+		if (self->face != self->target->face)
+		{
+			self->face = self->target->face;
 
-		self->thinkTime = 0;
+			if (self->thinkTime <= 15)
+			{
+				self->mental--;
+			}
+
+			self->thinkTime = 0;
+		}
+
+		if (self->thinkTime >= 60)
+		{
+			temp = self;
+
+			self = self->target;
+
+			self->takeDamage(temp, 1);
+
+			self = temp;
+
+			self->thinkTime = 0;
+		}
+	}
+
+	else
+	{
+		self->mental = 180 + (prand() % 420);
+		
+		self->action = &fallOffWait;
 	}
 
 	if (self->mental <= 0)
@@ -237,11 +270,34 @@ static void stickToPlayerAndDrain()
 
 		self->dirY = -6;
 
-		setCustomAction(&player, &slowDown, 3, -1, 0);
+		setCustomAction(self->target, &slowDown, 3, -1, 0);
 
 		self->action = &fallOff;
 
-		player.flags &= ~GRABBED;
+		self->target->flags &= ~GRABBED;
+	}
+}
+
+static void fallOffWait()
+{
+	setCustomAction(self->target, &slowDown, 3, 0, 0);
+	
+	self->mental--;
+	
+	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
+	self->y = self->target->y + self->startY;
+	
+	if (self->mental <= 0)
+	{
+		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
+
+		self->dirY = -6;
+
+		setCustomAction(self->target, &slowDown, 3, -1, 0);
+
+		self->action = &fallOff;
+
+		self->target->flags &= ~GRABBED;
 	}
 }
 
@@ -253,4 +309,11 @@ static void fallOff()
 	{
 		self->die();
 	}
+}
+
+static void findPrey()
+{
+	Entity *e = getEntityByObjectiveName("Armour Boss");
+
+	self->target = (e == NULL ? &player : e);
 }

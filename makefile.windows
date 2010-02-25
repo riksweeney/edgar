@@ -14,6 +14,7 @@ PAK_PROG  = pak.exe
 CXX       = i586-mingw32msvc-gcc
 SDLC      = /opt/Windows/bin/sdl-config
 
+LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 CFLAGS = `$(SDLC) --cflags` -O2 -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
@@ -46,7 +47,7 @@ CORE_OBJS += error.o code_door.o code_display.o skull.o poltergiest.o book.o mov
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
 CORE_OBJS += thunder_cloud.o instruction_machine.o spirit.o black_book.o mataeus.o mataeus_wall.o mine_cart.o boulder_boss_2.o
 CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o medal.o repellent.o cloud_geyzer.o
-CORE_OBJS += ok_menu.o huge_spider.o
+CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power_generator.o
 
 CORE_OBJS += strtok_r.o
 

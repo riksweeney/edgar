@@ -48,7 +48,7 @@ Entity *addBoulderBoss2(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add the Boulder Boss");
+		showErrorAndExit("No free slots to add the Boulder Boss 2");
 	}
 
 	loadProperties(name, e);
@@ -118,7 +118,7 @@ static void wait()
 		setEntityAnimation(self, WALK);
 
 		self->action = &chasePlayer;
-		
+
 		self->thinkTime = 1;
 	}
 }
@@ -126,34 +126,34 @@ static void wait()
 static void chasePlayer()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime > 0)
 	{
 		checkToMap(self);
 	}
-	
+
 	else if (self->thinkTime == 0)
 	{
 		facePlayer();
-		
+
 		self->frameSpeed = 12;
-		
+
 		checkToMap(self);
 	}
-	
+
 	else
 	{
 		self->dirX = self->face == LEFT ? -2.0f : 2.0f;
-		
+
 		checkToMap(self);
-		
+
 		if (!(self->flags & ON_GROUND))
 		{
 			self->mental++;
 		}
-		
+
 		if (onGround == 0 && (self->flags & ON_GROUND))
 		{
 			if (self->mental > 15)
@@ -163,14 +163,14 @@ static void chasePlayer()
 				shakeScreen(STRONG, 30);
 
 				addDust();
-				
+
 				self->thinkTime = 30;
-				
+
 				self->dirX = 0;
-				
+
 				self->frameSpeed = 0;
 			}
-			
+
 			self->mental = 0;
 		}
 	}
@@ -203,28 +203,28 @@ static void addDust()
 static void fallout()
 {
 	self->element = FIRE;
-	
+
 	self->dirX = 0;
-	
+
 	self->dirY = 0;
-	
+
 	self->frameSpeed = 0;
-	
+
 	self->flags |= DO_NOT_PERSIST;
-	
+
 	self->action = &die;
-	
+
 	fadeBossMusic();
-	
+
 	stopSound(BOSS_CHANNEL);
 }
-	
+
 static void die()
 {
 	self->dirY = 0.5;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->inUse = FALSE;

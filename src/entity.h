@@ -66,3 +66,4 @@ void addEntityToList(EntityList *, Entity *);
 EntityList *getEntitiesByObjectiveName(char *);
 EntityList *getEntitiesByRequiredName(char *);
 int atTarget(void);
+void faceTarget(void);

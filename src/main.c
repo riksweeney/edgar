@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
 	/* Initialise the game variables */
 
 	initGame();
-	
+
 	if (loadSlot == -1)
 	{
 		firstMap = game.firstRun == TRUE ? "tutorial" : "map01";

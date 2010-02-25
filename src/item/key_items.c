@@ -74,6 +74,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "crusher.h"
 #include "repellent.h"
 #include "cloud_geyzer.h"
+#include "slime_container.h"
+#include "final_power_generator.h"
 
 extern Entity *self, player;
 
@@ -127,7 +129,9 @@ static Constructor items[] = {
 {"item/lava_geyzer", &addLavaGeyzer},
 {"item/crusher", &addCrusher},
 {"item/repellent", &addRepellent},
-{"item/cloud_geyzer", &addCloudGeyzer}
+{"item/cloud_geyzer", &addCloudGeyzer},
+{"item/slime_container", &addSlimeContainer},
+{"item/final_power_generator", &addFinalPowerGenerator}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -192,7 +196,7 @@ void keyItemRespawn()
 		self->action = &doNothing;
 
 		self->touch = &keyItemTouch;
-		
+
 		self->environment = AIR;
 	}
 }

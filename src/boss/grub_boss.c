@@ -73,6 +73,7 @@ Entity *addGrubBoss(int x, int y, char *name)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
+
 	e->takeDamage = NULL;
 
 	e->type = ENEMY;

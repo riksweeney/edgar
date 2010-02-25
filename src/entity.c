@@ -764,6 +764,16 @@ void pushEntity(Entity *other)
 	other->x -= other->dirX;
 	other->y -= other->dirY;
 
+	if (other->type == PLAYER && other->dirX > 0)
+	{
+		other->x = ceil(other->x);
+	}
+
+	else if (other->type == PLAYER && other->dirX < 0)
+	{
+		other->x = floor(other->x);
+	}
+
 	x1 = getLeftEdge(self);
 
 	y1 = self->y + self->box.y;
@@ -833,7 +843,7 @@ void pushEntity(Entity *other)
 			/* Place the entity as close as possible */
 
 			other->y = self->y + self->box.y;
-			other->y += self->h;
+			other->y += self->box.h;
 
 			other->dirY = 0;
 
@@ -1723,4 +1733,9 @@ void killEntity(char *name)
 int atTarget()
 {
 	return (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY));
+}
+
+void faceTarget()
+{
+	self->face = self->target->x < self->x ? LEFT : RIGHT;
 }
