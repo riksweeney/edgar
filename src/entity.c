@@ -42,8 +42,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 #include "game.h"
 
-static int entityIndex = 0;
 extern Entity *self, entity[MAX_ENTITIES];
+
+static int entityIndex = 0, drawLayerIndex[MAX_LAYERS];
+static Entity *drawLayer[MAX_LAYERS][MAX_ENTITIES];
 
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
@@ -235,6 +237,8 @@ void doEntities()
 			{
 				doTeleport();
 			}
+
+			addToDrawLayer(self, self->layer);
 		}
 	}
 }
@@ -267,7 +271,12 @@ void drawEntities(int depth)
 	{
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			self = &entity[i];
+			self = drawLayer[depth][i];
+
+			if (self == NULL)
+			{
+				break;
+			}
 
 			if (self->inUse == TRUE && !(self->flags & NO_DRAW) && self->layer == depth)
 			{
@@ -1738,4 +1747,23 @@ int atTarget()
 void faceTarget()
 {
 	self->face = self->target->x < self->x ? LEFT : RIGHT;
+}
+
+void addToDrawLayer(Entity *e, int layer)
+{
+	drawLayer[layer][drawLayerIndex[layer]] = e;
+
+	drawLayerIndex[layer]++;
+}
+
+void clearDrawLayers()
+{
+	int i;
+
+	for (i=0;i<MAX_LAYERS;i++)
+	{
+		drawLayerIndex[i] = 0;
+
+		memset(drawLayer[i], 0, sizeof(Entity *) * MAX_ENTITIES);
+	}
 }

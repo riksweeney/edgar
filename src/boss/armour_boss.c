@@ -49,6 +49,7 @@ static void armourTakeDamage(Entity *, int);
 static void armourDie(void);
 static void armourWait(void);
 static void regenerateArmour(void);
+static void lookForPlayer(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -98,14 +99,14 @@ static void initialise()
 			self->touch = &entityTouch;
 
 			self->takeDamage = &takeDamage;
+
+			self->endX = 0;
 		}
 	}
 
 	else
 	{
 		/* Add Zs */
-
-
 	}
 
 	checkToMap(self);
@@ -143,6 +144,51 @@ static void wait()
 	regenerateHealth();
 
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 180 + (prand() % 240);
+
+			self->action = &lookForPlayer;
+		}
+	}
+}
+
+static void lookForPlayer()
+{
+	setEntityAnimation(self, WALK);
+
+	self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+
+		self->face = (self->face == RIGHT ? LEFT : RIGHT);
+	}
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->dirX = 0;
+
+		setEntityAnimation(self, STAND);
+
+		self->thinkTime = 30;
+
+		self->action = &wait;
+	}
+
+	regenerateHealth();
 }
 
 static void attackFinished()
@@ -171,6 +217,13 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->health -= damage;
 
+			self->endX--;
+
+			if (self->endX <= 0)
+			{
+				self->endX = 0;
+			}
+
 			if (other->type != ENEMY && self->mental == 0 && (prand() % 10 == 0))
 			{
 				setInfoBoxMessage(60, _("Its wounds are already healing..."));
@@ -188,11 +241,22 @@ static void takeDamage(Entity *other, int damage)
 				setCustomAction(self, &flashWhite, 6, 0, 0);
 
 				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+
+				enemyPain();
 			}
 
 			else
 			{
 				self->startX++;
+
+				if (self->endX == 0)
+				{
+					self->endX = 20;
+
+					setCustomAction(self, &flashWhite, 6, 0, 0);
+
+					enemyPain();
+				}
 			}
 
 			if (self->health <= 0)
@@ -206,11 +270,6 @@ static void takeDamage(Entity *other, int damage)
 				self->thinkTime = 180;
 
 				self->action = &die;
-			}
-
-			else
-			{
-				enemyPain();
 			}
 		}
 	}
@@ -337,7 +396,7 @@ static void regenerateArmour()
 		prev = e;
 
 		setEntityAnimation(e, i);
-		
+
 		if (self->face == LEFT)
 		{
 			e->x = self->x + self->w - e->w - e->offsetX;
@@ -410,6 +469,11 @@ static void armourTakeDamage(Entity *other, int damage)
 				e->action = e->die;
 
 				self->mental--;
+
+				if (self->mental == 0)
+				{
+					self->startX = 1200;
+				}
 			}
 
 			else
@@ -417,6 +481,8 @@ static void armourTakeDamage(Entity *other, int damage)
 				setCustomAction(e, &flashWhite, 6, 0, 0);
 
 				setCustomAction(e, &invulnerableNoFlash, 20, 0, 0);
+
+				enemyPain();
 			}
 		}
 
