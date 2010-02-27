@@ -220,6 +220,8 @@ int main(int argc, char *argv[])
 			case IN_GAME:
 				freeCollisionGrid();
 
+				clearDrawLayers();
+
 				doGame();
 
 				doPlayer();

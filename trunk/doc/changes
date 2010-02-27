@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.51
+* Added the missing Basement boss
+* Fixed the broken translations in the Windows build
+
 Version 0.50
 * Added the 2nd Mine map, you can get to it via the Basement
 * Added a large number of translations from Google

@@ -239,10 +239,12 @@ static void lookForPlayer()
 	self->thinkTime--;
 
 	moveLeftToRight();
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &vomitAttackStart;
+
+		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = 0;
 
@@ -349,7 +351,7 @@ static void redTeleportAttackFinishPause()
 	if (self->thinkTime <= 0)
 	{
 		facePlayer();
-		
+
 		self->flags &= ~INVULNERABLE;
 
 		self->action = &redTeleportAttackFinish;
@@ -425,6 +427,8 @@ static void vomitFall()
 
 	if (self->flags & ON_GROUND)
 	{
+		playSoundToMap("sound/enemy/red_sludge/acid.ogg", -1, self->x, self->y, 0);
+
 		self->dirX = 0;
 
 		setEntityAnimation(self, ATTACK_1);
@@ -438,7 +442,7 @@ static void vomitWait()
 	checkToMap(self);
 
 	self->thinkTime--;
-	
+
 	if (self->thinkTime < 90)
 	{
 		if (self->thinkTime % 3 == 0)
