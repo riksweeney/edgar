@@ -23,14 +23,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
-#include "key_items.h"
 #include "item.h"
+#include "light_beam.h"
 #include "../system/error.h"
 #include "../hud.h"
 
 extern Entity *self;
 
 static void touch(Entity *);
+static void wait(void);
 
 Entity *addMirror(int x, int y, char *name)
 {
@@ -48,7 +49,7 @@ Entity *addMirror(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->action = &doNothing;
+	e->action = &wait;
 	e->touch = &touch;
 	e->fallout = &itemFallout;
 
@@ -61,37 +62,80 @@ Entity *addMirror(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
-	if (strcmpignorecase(other->name, "item/light_beam") == 0)
+	if (strstr(other->name, "item/light_beam") != NULL)
 	{
-		other->dirX = 0;
-		other->dirY = 0;
-
-		/* Light moving vertically */
-
-		if (other->dirY > 0 && self->mental == 0)
+		if (other != self->target)
 		{
-			other->x = self->x + (self->face == LEFT ? 0 : self->w);
-			other->y = self->y + self->h / 2 - other->h / 2;
-		}
+			/* Light moving vertically */
 
-		else if (other->dirY < 0 && self->mental == 1)
-		{
-			other->x = self->x + (self->face == LEFT ? 0 : self->w);
-			other->y = self->y + self->h / 2 - other->h / 2;
-		}
+			if (other->dirY > 0 && self->mental == 0)
+			{
+				other->endX = other->startX;
+				other->endY = self->y + self->h / 2;
+				
+				other->x = other->startX;
+				other->y = other->startY;
+				
+				self->thinkTime = 5;
+				
+				if (self->target == NULL)
+				{
+					self->target = addLightBeam(0, 0, "item/light_beam_horizontal");
+					
+					self->target->x = self->x + self->w / 2 - self->target->w / 2;
+					self->target->y = self->y + self->h / 2 - self->target->h / 2;
+					
+					self->target->dirX = -self->target->speed;
+					
+					self->target->startX = self->target->x;
+					self->target->startY = self->target->y;
+				}
+			}
 
-		/* Lift moving horizontally */
+			else if (other->dirY < 0 && self->mental == 1)
+			{
+				other->x = self->x + (self->face == LEFT ? 0 : self->w);
+				other->y = self->y + self->h / 2 - other->h / 2;
+			}
 
-		else if (other->dirX > 0 && self->face == LEFT)
-		{
-			other->x = self->x + self->w / 2 - other->w / 2;
-			other->y = self->y + (self->mental == 0 ? 0 : self->h);
-		}
+			/* Lift moving horizontally */
 
-		else if (other->dirX < 0 && self->face == RIGHT)
-		{
-			other->x = self->x + (self->face == LEFT ? 0 : self->w);
-			other->y = self->y + (self->mental == 0 ? 0 : self->h);
+			else if (other->dirX > 0 && self->face == LEFT)
+			{
+				other->x = self->x + self->w / 2 - other->w / 2;
+				other->y = self->y + (self->mental == 0 ? 0 : self->h);
+			}
+
+			else if (other->dirX < 0 && self->face == RIGHT)
+			{
+				other->endX = self->x + self->w / 2;
+				other->endY = other->startY;
+				
+				other->x = other->startX;
+				other->y = other->startY;
+				
+				self->thinkTime = 5;
+				
+				if (self->target == NULL)
+				{
+					self->target = addLightBeam(0, 0, "item/light_beam");
+					
+					self->target->x = self->x + self->w / 2 - self->target->w / 2;
+					self->target->y = self->y + self->h / 2 - self->target->h / 2;
+					
+					self->target->dirY = -self->target->speed;
+					
+					self->target->startX = self->target->x;
+					self->target->startY = self->target->y;
+				}
+				
+				else
+				{
+					self->target->x = self->x + self->w / 2 - self->target->w / 2;
+					
+					self->target->startX = self->target->x;
+				}
+			}
 		}
 	}
 
@@ -110,5 +154,19 @@ static void touch(Entity *other)
 		pushEntity(other);
 
 		self->flags &= ~OBSTACLE;
+	}
+}
+
+static void wait()
+{
+	doNothing();
+	
+	if (self->thinkTime == 0 && self->target != NULL)
+	{
+		printf("Removing target\n");
+		
+		self->target->inUse = FALSE;
+		
+		self->target = NULL;
 	}
 }

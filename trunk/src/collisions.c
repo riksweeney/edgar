@@ -1331,6 +1331,59 @@ int getMapCeiling(int x, int y)
 	return y;
 }
 
+int getMapLeft(int x, int y)
+{
+	int tileID;
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	tileID = mapTileAt(x, y);
+
+	while (tileID == BLANK_TILE || (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END))
+	{
+		x--;
+
+		if (x <= -TILE_SIZE)
+		{
+			break;
+		}
+
+		tileID = mapTileAt(x, y);
+	}
+
+	y = y * TILE_SIZE + TILE_SIZE;
+
+	return x;
+}
+
+int getMapRight(int x, int y)
+{
+	int maxX = getMaxMapX();
+	int tileID;
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	tileID = mapTileAt(x, y);
+
+	while (tileID == BLANK_TILE || (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END))
+	{
+		x++;
+
+		if (x * TILE_SIZE >= maxX)
+		{
+			break;
+		}
+
+		tileID = mapTileAt(x, y);
+	}
+
+	x *= TILE_SIZE;
+
+	return x;
+}
+
 /* Very standard 2D collision detection routine */
 
 int collision(int x0, int y0, int w0, int h0, int x2, int y2, int w1, int h1)

@@ -82,6 +82,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/mataeus.h"
 #include "../boss/mataeus_wall.h"
 #include "../boss/boulder_boss_2.h"
+#include "../boss/armour_boss.h"
 
 #include "../system/error.h"
 
@@ -162,7 +163,8 @@ static Constructor enemies[] = {
 {"enemy/large_spider", &addLargeSpider},
 {"enemy/large_red_spider", &addLargeSpider},
 {"enemy/red_sludge", &addSludge},
-{"enemy/huge_spider", &addHugeSpider}
+{"enemy/huge_spider", &addHugeSpider},
+{"boss/armour_boss", &addArmourBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

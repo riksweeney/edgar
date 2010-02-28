@@ -1849,3 +1849,33 @@ msgstr ""
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr ""
+
+msgid "Its wounds are already healing..."
+msgstr ""
+
+msgid "If you compiled the game from source, you need to do a make install\n"
+msgstr ""
+
+msgid "It's sleeping"
+msgstr ""
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr ""
+
+msgid "Where's the switch?"
+msgstr ""
+
+msgid "Ah, here it is!"
+msgstr ""
+
+msgid "This generator looks OK, it just isn't on"
+msgstr ""
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr ""
+
+msgid "A Yellow Gem"
+msgstr ""
+
+msgid "Failed to open PAK file %s\n"
+msgstr ""

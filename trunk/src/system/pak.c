@@ -42,7 +42,10 @@ void initPakFile()
 
 		if (fp == NULL)
 		{
-			showErrorAndExit("Failed to open PAK file %s", pakFile);
+			printf(_("Failed to open PAK file %s\n"), pakFile);
+			printf(_("If you compiled the game from source, you need to do a make install\n"));
+			
+			exit(0);
 		}
 
 		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);

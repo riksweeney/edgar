@@ -76,6 +76,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "cloud_geyzer.h"
 #include "slime_container.h"
 #include "final_power_generator.h"
+#include "mirror.h"
+#include "light_source.h"
 
 extern Entity *self, player;
 
@@ -131,7 +133,9 @@ static Constructor items[] = {
 {"item/repellent", &addRepellent},
 {"item/cloud_geyzer", &addCloudGeyzer},
 {"item/slime_container", &addSlimeContainer},
-{"item/final_power_generator", &addFinalPowerGenerator}
+{"item/final_power_generator", &addFinalPowerGenerator},
+{"item/mirror", &addMirror},
+{"item/light_source", &addLightSource}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
