@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../collisions.h"
 #include "key_items.h"
 #include "../system/error.h"
 #include "../hud.h"
@@ -30,6 +31,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void touch(Entity *);
+static void wait(void);
+static int draw(void);
 
 Entity *addLightBeam(int x, int y, char *name)
 {
@@ -48,8 +51,8 @@ Entity *addLightBeam(int x, int y, char *name)
 	e->type = KEY_ITEM;
 
 	e->action = &wait;
-
-	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &touch;
+	e->draw = &draw;
 
 	setEntityAnimation(e, STAND);
 
@@ -58,19 +61,36 @@ Entity *addLightBeam(int x, int y, char *name)
 
 static void wait()
 {
-	checkToMap(self);
-
-	if (self->dirX == 0 && self->dirY == 0)
+	if (self->dirX > 0)
 	{
-		self->endX = self->x;
-		self->endY = self->y;
-
-		self->x = self->startX;
-		self->y = self->startY;
+		self->endX = getMapRight(self->x, self->y);
+		
+		self->box.w = self->endX + self->x;
+	}
+	
+	else if (self->dirX < 0)
+	{
+		self->endX = getMapLeft(self->x, self->y);
+		
+		self->box.x = self->endX;
+	}
+	
+	if (self->dirY > 0)
+	{
+		self->endY = getMapFloor(self->x, self->y);
+		
+		self->box.h = self->endY + self->y;
+	}
+	
+	else if (self->dirY < 0)
+	{
+		self->endY = getMapCeiling(self->x, self->y);
+		
+		self->box.y = self->endY;
 	}
 }
 
-static void draw()
+static int draw()
 {
 	float x, y;
 
@@ -82,7 +102,7 @@ static void draw()
 
 	drawLoopingAnimationToMap();
 
-	if (self->startX == self->endX)
+	if (self->dirY > 0)
 	{
 		self->y += self->h;
 
@@ -93,8 +113,20 @@ static void draw()
 			self->y += self->h;
 		}
 	}
+	
+	else if (self->dirY < 0)
+	{
+		self->y -= self->h;
 
-	else
+		while (self->y > self->endY)
+		{
+			drawSpriteToMap();
+
+			self->y -= self->h;
+		}
+	}
+
+	else if (self->dirX > 0)
 	{
 		self->x += self->w;
 
@@ -105,6 +137,18 @@ static void draw()
 			self->x += self->w;
 		}
 	}
+	
+	else if (self->dirX < 0)
+	{
+		self->x -= self->w;
+
+		while (self->x > self->endX)
+		{
+			drawSpriteToMap();
+
+			self->x -= self->w;
+		}
+	}
 
 	self->x = x;
 	self->y = y;
@@ -112,7 +156,7 @@ static void draw()
 	return TRUE;
 }
 
-static void touch(Entity *)
+static void touch(Entity *other)
 {
 
 }

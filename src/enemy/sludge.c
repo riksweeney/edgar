@@ -240,18 +240,7 @@ static void lookForPlayer()
 
 	moveLeftToRight();
 
-	if (self->thinkTime <= 0)
-	{
-		self->action = &vomitAttackStart;
-
-		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
-
-		self->dirX = 0;
-
-		self->thinkTime = 0;
-	}
-
-	if (player.health > 0 && (prand() % 10 == 0) && self->thinkTime <= 0)
+	if (player.health > 0 && (prand() % 60 == 0))
 	{
 		if (collision(self->x + (self->face == LEFT ? -128 : self->w), self->y, 128, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
@@ -261,6 +250,17 @@ static void lookForPlayer()
 
 			self->action = &redTeleportAttackStart;
 		}
+	}
+	
+	else if (self->thinkTime <= 0)
+	{
+		self->action = &vomitAttackStart;
+
+		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
+
+		self->dirX = 0;
+
+		self->thinkTime = 0;
 	}
 }
 

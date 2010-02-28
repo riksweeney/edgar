@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../collisions.h"
 #include "../item/key_items.h"
+#include "../item/item.h"
 #include "../graphics/decoration.h"
 #include "../hud.h"
 #include "../system/error.h"
@@ -50,6 +51,10 @@ static void armourDie(void);
 static void armourWait(void);
 static void regenerateArmour(void);
 static void lookForPlayer(void);
+static void addYellowGem(void);
+static void gemWait(void);
+static void zMove(void);
+static void zVanish(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -86,6 +91,8 @@ Entity *addArmourBoss(int x, int y, char *name)
 
 static void initialise()
 {
+	Entity *e;
+	
 	if (self->active == TRUE)
 	{
 		self->thinkTime--;
@@ -104,9 +111,24 @@ static void initialise()
 		}
 	}
 
-	else
+	else if (prand() % 120 == 0)
 	{
-		/* Add Zs */
+		e = addBasicDecoration(self->x + self->w - 30, self->y + 30, "decoration/z");
+		
+		if (e != NULL)
+		{
+			e->face = RIGHT;
+			
+			e->startX = e->x;
+			
+			e->action = &zMove;
+			e->animationCallback = &zVanish;
+		}
+	}
+	
+	if (self->endY == 0)
+	{
+		addYellowGem();
 	}
 
 	checkToMap(self);
@@ -510,4 +532,52 @@ static void armourDie()
 	self->flags &= ~FLY;
 
 	checkToMap(self);
+}
+
+static void addYellowGem()
+{
+	Entity *e;
+	
+	e = addPermanentItem("item/yellow_gem", 0, 0);
+	
+	e->action = &gemWait;
+	
+	e->head = self;
+	
+	e->touch = NULL;
+	
+	self->endY = 1;
+}
+
+static void gemWait()
+{
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+}
+
+static void zMove()
+{
+	self->health++;
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->health)) * 8;
+	
+	self->y -= 0.5;
+}
+
+static void zVanish()
+{
+	self->inUse = FALSE;
 }

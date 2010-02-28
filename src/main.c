@@ -65,14 +65,14 @@ int main(int argc, char *argv[])
 		textdomain("edgar");
 		bindtextdomain("edgar", LOCALE_DIR);
 	#endif
+	
+	/* Call the cleanup function when the program exits */
+
+	atexit(cleanup);
 
 	/* Start up SDL */
 
 	init(_("The Legend of Edgar"));
-
-	/* Call the cleanup function when the program exits */
-
-	atexit(cleanup);
 
 	go = TRUE;
 
