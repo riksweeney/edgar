@@ -287,7 +287,7 @@ void drawEntities(int depth)
 
 				drawn = self->draw();
 
-				/* Live for 5 minutes whilst on the screen */
+				/* Live for 2 minutes whilst on the screen */
 
 				if (drawn == TRUE && (self->flags & SPAWNED_IN))
 				{
@@ -772,7 +772,7 @@ void pushEntity(Entity *other)
 
 	other->x -= other->dirX;
 	other->y -= other->dirY;
-
+	/*
 	if (other->type == PLAYER && other->dirX > 0)
 	{
 		other->x = ceil(other->x);
@@ -782,7 +782,7 @@ void pushEntity(Entity *other)
 	{
 		other->x = floor(other->x);
 	}
-
+	*/
 	x1 = getLeftEdge(self);
 
 	y1 = self->y + self->box.y;

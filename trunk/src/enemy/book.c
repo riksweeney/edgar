@@ -222,7 +222,7 @@ static void dartDownFinish()
 	{
 		if ((self->flags & ON_GROUND) || (self->standingOn != NULL))
 		{
-			self->dirX = 0;
+			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 		}
 	}
 

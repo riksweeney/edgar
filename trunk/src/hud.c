@@ -185,7 +185,7 @@ void drawHud()
 
 	for (i=0;i<player.maxHealth;i++)
 	{
-		if (i != 0 && (i % 15) == 0)
+		if (i != 0 && (i % 10) == 0)
 		{
 			h += hud.heart->h;
 

@@ -259,7 +259,7 @@ void doPlayer()
 				if (self->standingOn != NULL)
 				{
 					self->dirX = self->standingOn->dirX;
-
+					
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY + 1;
@@ -531,8 +531,6 @@ void doPlayer()
 
 				if (self->standingOn != NULL)
 				{
-					self->dirX = self->standingOn->dirX;
-
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY + 1;

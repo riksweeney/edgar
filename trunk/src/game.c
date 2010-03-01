@@ -826,4 +826,9 @@ void increaseKillCount()
 	{
 		addMedal("kill_1000");
 	}
+	
+	else if (game.kills == 2000)
+	{
+		addMedal("kill_2000");
+	}
 }

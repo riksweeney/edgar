@@ -130,7 +130,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define TELEPORT_SPEED 10
 
-#define SPAWNED_IN_TIME 18000
+#define SPAWNED_IN_TIME 7200
 
 #ifdef WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
