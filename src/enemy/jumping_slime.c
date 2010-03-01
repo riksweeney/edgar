@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
@@ -127,6 +128,16 @@ static void attack()
 
 		if (self->thinkTime == 0)
 		{
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+			
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+			
 			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
@@ -158,6 +169,16 @@ static void purpleAttack()
 
 		if (self->thinkTime == 0)
 		{
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+			
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+			
 			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
