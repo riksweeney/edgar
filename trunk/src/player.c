@@ -259,7 +259,7 @@ void doPlayer()
 				if (self->standingOn != NULL)
 				{
 					self->dirX = self->standingOn->dirX;
-					
+
 					if (self->standingOn->dirY > 0)
 					{
 						self->dirY = self->standingOn->dirY + 1;
@@ -288,7 +288,7 @@ void doPlayer()
 
 							/* Only pull the target */
 
-							if ((self->flags & GRABBING) && self->target != NULL)
+							if ((self->flags & GRABBING) && self->target != NULL && self->target->x > self->x)
 							{
 								self->target->dirX = -self->speed;
 
@@ -327,7 +327,7 @@ void doPlayer()
 
 							/* Only pull the target */
 
-							if ((self->flags & GRABBING) && self->target != NULL)
+							if ((self->flags & GRABBING) && self->target != NULL && self->target->x < self->x)
 							{
 								self->target->dirX = self->speed;
 

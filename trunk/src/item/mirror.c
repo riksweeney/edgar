@@ -62,7 +62,9 @@ Entity *addMirror(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
-	if (strstr(other->name, "item/light_beam") != NULL)
+	int mirrorLeft, mirrorRight, beamMid;
+
+	if (strcmpignorecase(other->name, "item/light_beam") == 0)
 	{
 		if (other != self->target)
 		{
@@ -72,30 +74,79 @@ static void touch(Entity *other)
 			{
 				other->endX = other->startX;
 				other->endY = self->y + self->h / 2;
-				
+
 				other->x = other->startX;
 				other->y = other->startY;
-				
-				self->thinkTime = 5;
-				
-				if (self->target == NULL)
+
+				other->box.h = other->endY - other->y;
+
+				mirrorLeft = self->x + self->w / 2 - 4;
+
+				mirrorRight = self->x + self->w / 2 + 4;
+
+				beamMid = other->x + other->w / 2;
+
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
-					self->target = addLightBeam(0, 0, "item/light_beam_horizontal");
-					
-					self->target->x = self->x + self->w / 2 - self->target->w / 2;
-					self->target->y = self->y + self->h / 2 - self->target->h / 2;
-					
-					self->target->dirX = -self->target->speed;
-					
-					self->target->startX = self->target->x;
-					self->target->startY = self->target->y;
+					if (self->target == NULL)
+					{
+						self->target = addLightBeam(0, 0, "item/light_beam");
+
+						self->target->x = self->x + self->w / 2;
+						self->target->y = self->y + self->h / 2 - 6;
+
+						self->target->dirX = -self->target->speed;
+
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
+					}
+
+					else
+					{
+						self->target->startX = self->x + self->w / 2;
+
+						self->target->box.w = self->target->startX - self->target->x;
+					}
+
+					self->thinkTime = 2;
 				}
 			}
 
 			else if (other->dirY < 0 && self->mental == 1)
 			{
-				other->x = self->x + (self->face == LEFT ? 0 : self->w);
-				other->y = self->y + self->h / 2 - other->h / 2;
+				other->x = self->x + self->w / 2;
+
+				other->box.w = other->startX - other->x;
+
+				mirrorLeft = self->y + self->h / 2 - 4;
+
+				mirrorRight = self->y + self->h / 2 + 4;
+
+				beamMid = other->y + other->h / 2;
+
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
+				{
+					if (self->target == NULL)
+					{
+						self->target = addLightBeam(0, 0, "item/light_beam");
+
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->y = self->y + self->h / 2;
+
+						self->target->dirY = -self->target->speed;
+
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
+					}
+
+					else
+					{
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->startX = self->x + self->w / 2;
+					}
+
+					self->thinkTime = 2;
+				}
 			}
 
 			/* Lift moving horizontally */
@@ -108,32 +159,38 @@ static void touch(Entity *other)
 
 			else if (other->dirX < 0 && self->face == RIGHT)
 			{
-				other->endX = self->x + self->w / 2;
-				other->endY = other->startY;
-				
-				other->x = other->startX;
-				other->y = other->startY;
-				
-				self->thinkTime = 5;
-				
-				if (self->target == NULL)
+				other->x = self->x + self->w / 2;
+
+				other->box.w = other->startX - other->x;
+
+				mirrorLeft = self->y + self->h / 2 - 4;
+
+				mirrorRight = self->y + self->h / 2 + 4;
+
+				beamMid = other->y + other->h / 2;
+
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
-					self->target = addLightBeam(0, 0, "item/light_beam");
-					
-					self->target->x = self->x + self->w / 2 - self->target->w / 2;
-					self->target->y = self->y + self->h / 2 - self->target->h / 2;
-					
-					self->target->dirY = -self->target->speed;
-					
-					self->target->startX = self->target->x;
-					self->target->startY = self->target->y;
-				}
-				
-				else
-				{
-					self->target->x = self->x + self->w / 2 - self->target->w / 2;
-					
-					self->target->startX = self->target->x;
+					if (self->target == NULL)
+					{
+						self->target = addLightBeam(0, 0, "item/light_beam");
+
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->y = self->y + self->h / 2;
+
+						self->target->dirY = -self->target->speed;
+
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
+					}
+
+					else
+					{
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->startX = self->x + self->w / 2;
+					}
+
+					self->thinkTime = 2;
 				}
 			}
 		}
@@ -160,13 +217,26 @@ static void touch(Entity *other)
 static void wait()
 {
 	doNothing();
-	
-	if (self->thinkTime == 0 && self->target != NULL)
+
+	if (self->target != NULL)
 	{
-		printf("Removing target\n");
-		
-		self->target->inUse = FALSE;
-		
-		self->target = NULL;
+		if (self->thinkTime == 0)
+		{
+			printf("Removing target\n");
+
+			self->target->inUse = FALSE;
+
+			self->target = NULL;
+		}
+
+		else
+		{
+			if (self->target->dirX < 0)
+			{
+				self->target->x = self->x + self->w / 2;
+
+				self->target->startX = self->target->x;
+			}
+		}
 	}
 }

@@ -273,7 +273,7 @@ Entity *checkEntityToEntity(Entity *e)
 					{
 						e2 = list2->entity;
 
-						if (e1 != e2 && e2->inUse == TRUE && e2->touch != NULL)
+						if (e1 != e2 && e2->inUse == TRUE && e2->touch != NULL && e2->weight > 0)
 						{
 							if (e1->type == ENEMY && e2->type == ENEMY)
 							{
@@ -1280,7 +1280,7 @@ int isValidOnMap(Entity *e)
 
 int getMapFloor(int x, int y)
 {
-	int maxY = getMaxMapY();
+	int maxY = getMaxMapY() / TILE_SIZE;
 	int tileID;
 
 	x /= TILE_SIZE;
@@ -1292,7 +1292,7 @@ int getMapFloor(int x, int y)
 	{
 		y++;
 
-		if (y * TILE_SIZE >= maxY)
+		if (y >= maxY)
 		{
 			break;
 		}
@@ -1318,7 +1318,7 @@ int getMapCeiling(int x, int y)
 	{
 		y--;
 
-		if (y <= -TILE_SIZE)
+		if (y < 0)
 		{
 			break;
 		}
@@ -1344,7 +1344,7 @@ int getMapLeft(int x, int y)
 	{
 		x--;
 
-		if (x <= -TILE_SIZE)
+		if (x <= 0)
 		{
 			break;
 		}
@@ -1359,7 +1359,7 @@ int getMapLeft(int x, int y)
 
 int getMapRight(int x, int y)
 {
-	int maxX = getMaxMapX();
+	int maxX = getMaxMapX() / TILE_SIZE;
 	int tileID;
 
 	x /= TILE_SIZE;
@@ -1371,7 +1371,7 @@ int getMapRight(int x, int y)
 	{
 		x++;
 
-		if (x * TILE_SIZE >= maxX)
+		if (x >= maxX)
 		{
 			break;
 		}
