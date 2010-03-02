@@ -110,8 +110,6 @@ static void initialise()
 			self->touch = &entityTouch;
 
 			self->takeDamage = &takeDamage;
-
-			self->endX = 0;
 		}
 	}
 
@@ -160,6 +158,14 @@ static void doIntro()
 		playBossMusic();
 
 		self->action = &introWait;
+		
+		self->startX = 360;
+		
+		self->endX = 0;
+		
+		self->endY = 1;
+		
+		self->mental = 0;
 		
 		runScript("armour_boss_start");
 	}
@@ -394,55 +400,101 @@ static void regenerateArmour()
 	int i;
 	Entity *e, *prev;
 
-	prev = self;
-
-	for (i=0;i<8;i++)
+	if (self->target == NULL)
 	{
-		e = getFreeEntity();
-
-		if (e == NULL)
+		prev = self;
+		
+		for (i=0;i<7;i++)
 		{
-			showErrorAndExit("No free slots to add the Armour Boss's Armour");
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Armour Boss's Armour");
+			}
+
+			loadProperties("boss/armour_boss_armour", e);
+
+			e->x = self->x;
+			e->y = self->y;
+
+			e->action = &armourWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->takeDamage = NULL;
+
+			e->type = ENEMY;
+
+			e->die = &armourDie;
+
+			e->thinkTime = 60 + prand() % 120;
+
+			e->head = self;
+
+			prev->target = e;
+
+			prev = e;
+
+			setEntityAnimation(e, i);
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+
+			self->mental++;
 		}
-
-		loadProperties("boss/armour_boss_armour", e);
-
-		e->x = self->x;
-		e->y = self->y;
-
-		e->action = &armourWait;
-
-		e->draw = &drawLoopingAnimationToMap;
-
-		e->takeDamage = NULL;
-
-		e->type = ENEMY;
-
-		e->die = &armourDie;
-
-		e->mental = 60;
-
-		e->head = self;
-
-		prev->target = e;
-
-		prev = e;
-
-		setEntityAnimation(e, i);
-
-		if (self->face == LEFT)
+	}
+	
+	else
+	{
+		i = 0;
+		
+		for (e=self->target;e!=NULL;e=e->target)
 		{
-			e->x = self->x + self->w - e->w - e->offsetX;
+			loadProperties("boss/armour_boss_armour", e);
+			
+			e->x = self->x;
+			e->y = self->y;
+
+			e->action = &armourWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->takeDamage = NULL;
+
+			e->type = ENEMY;
+
+			e->die = &armourDie;
+
+			e->thinkTime = 60 + prand() % 120;
+
+			setEntityAnimation(e, i);
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+
+			self->mental++;
+			
+			i++;
 		}
-
-		else
-		{
-			e->x = self->x + e->offsetX;
-		}
-
-		e->y = self->y + e->offsetY;
-
-		self->mental++;
 	}
 }
 
@@ -498,6 +550,10 @@ static void armourTakeDamage(Entity *other, int damage)
 			if (e->health <= 0)
 			{
 				e->thinkTime = 120;
+				
+				e->flags &= ~FLY;
+				
+				e->dirY = ITEM_JUMP_HEIGHT;
 
 				e->action = e->die;
 
@@ -525,22 +581,23 @@ static void armourTakeDamage(Entity *other, int damage)
 
 static void armourDie()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime < 90)
+	if (self->thinkTime > 0)
 	{
-		if (self->thinkTime % 3 == 0)
+		self->thinkTime--;
+		
+		if (self->thinkTime < 90)
 		{
-			self->flags ^= NO_DRAW;
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= NO_DRAW;
+			}
 		}
 	}
 
-	if (self->thinkTime <= 0)
+	else
 	{
-		self->inUse = FALSE;
+		self->flags |= NO_DRAW;
 	}
-
-	self->flags &= ~FLY;
 
 	checkToMap(self);
 }

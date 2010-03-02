@@ -73,6 +73,7 @@ Entity *addBabySlime(int x, int y, char *name)
 
 static void attack()
 {
+	int channel;
 	long onGround = (self->flags & ON_GROUND);
 
 	if (self->target == NULL)
@@ -84,6 +85,18 @@ static void attack()
 
 	if ((self->flags & ON_GROUND) && (prand() % 30 == 0))
 	{
+		channel = 3 + (prand() % 3);
+		
+		if (prand() % 3 == 0)
+		{
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", channel, self->x, self->y, 0);
+		}
+		
+		else
+		{
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", channel, self->x, self->y, 0);
+		}
+		
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->dirY = -(8 + prand() % 4);

@@ -153,6 +153,11 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 	{
 		return -1;
 	}
+	
+	if (channel > 1 && Mix_Playing(channel) == 1)
+	{
+		return -1;
+	}
 
 	Mix_VolumeChunk(chunk, volume);
 
