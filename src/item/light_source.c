@@ -60,12 +60,12 @@ static void wait()
 	if (self->target == NULL)
 	{
 		self->target = addLightBeam(0, 0, "item/light_beam");
-		
-		self->target->x = self->x + self->w / 2 - self->target->w / 2;
-		self->target->y = self->y + self->h / 2 - self->target->h / 2;
-		
+
+		self->target->x = self->x + self->w / 2 - 2;
+		self->target->y = self->y + self->h / 2;
+
 		self->target->dirY = self->target->speed;
-		
+
 		self->target->startX = self->target->x;
 		self->target->startY = self->target->y;
 	}

@@ -298,6 +298,8 @@ void drawEntities(int depth)
 				{
 					if (self->health != 0)
 					{
+						self->y = MAX_MAP_Y * TILE_SIZE + 1;
+
 						self->action = &entityDieNoDrop;
 					}
 				}
@@ -891,6 +893,8 @@ void pushEntity(Entity *other)
 
 				if (checkEntityToEntity(self) != NULL)
 				{
+					self->x -= other->dirX;
+
 					self->dirX = 0;
 				}
 
@@ -974,6 +978,8 @@ void pushEntity(Entity *other)
 
 				if (checkEntityToEntity(self) != NULL)
 				{
+					self->x -= other->dirX;
+
 					self->dirX = 0;
 				}
 

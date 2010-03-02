@@ -135,6 +135,7 @@ static Constructor items[] = {
 {"item/slime_container", &addSlimeContainer},
 {"item/final_power_generator", &addFinalPowerGenerator},
 {"item/mirror", &addMirror},
+{"item/upside_down_mirror", &addMirror},
 {"item/light_source", &addLightSource}
 };
 

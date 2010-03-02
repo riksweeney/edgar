@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/graphics.h"
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
@@ -54,6 +55,8 @@ Entity *addLightBeam(int x, int y, char *name)
 	e->touch = &touch;
 	e->draw = &draw;
 
+	e->face = RIGHT;
+
 	setEntityAnimation(e, STAND);
 
 	return e;
@@ -63,95 +66,54 @@ static void wait()
 {
 	if (self->dirX > 0)
 	{
-		self->endX = getMapRight(self->x, self->y);
-		
+		self->endX = getMapRight(self->startX, self->startY);
+
 		self->box.w = self->endX + self->x;
 	}
-	
+
 	else if (self->dirX < 0)
 	{
-		self->endX = getMapLeft(self->x, self->y);
-		
-		self->box.x = self->endX;
+		self->x = getMapLeft(self->startX, self->startY);
+
+		self->box.w = self->startX - self->x;
 	}
-	
+
 	if (self->dirY > 0)
 	{
-		self->endY = getMapFloor(self->x, self->y);
-		
+		self->endY = getMapFloor(self->startX, self->startY);
+
 		self->box.h = self->endY + self->y;
 	}
-	
+
 	else if (self->dirY < 0)
 	{
-		self->endY = getMapCeiling(self->x, self->y);
-		
-		self->box.y = self->endY;
+		self->y = getMapCeiling(self->startX, self->startY);
+
+		self->box.h = self->startY - self->y;
 	}
 }
 
 static int draw()
 {
-	float x, y;
-
-	x = self->x;
-	y = self->y;
-
-	self->x = self->startX;
-	self->y = self->startY;
-
-	drawLoopingAnimationToMap();
-
-	if (self->dirY > 0)
+	if (self->dirX > 0)
 	{
-		self->y += self->h;
-
-		while (self->y < self->endY)
-		{
-			drawSpriteToMap();
-
-			self->y += self->h;
-		}
-	}
-	
-	else if (self->dirY < 0)
-	{
-		self->y -= self->h;
-
-		while (self->y > self->endY)
-		{
-			drawSpriteToMap();
-
-			self->y -= self->h;
-		}
+		drawBoxToMap(self->x, self->y, self->box.w, 4, 220, 220, 220);
 	}
 
-	else if (self->dirX > 0)
-	{
-		self->x += self->w;
-
-		while (self->x < self->endX)
-		{
-			drawSpriteToMap();
-
-			self->x += self->w;
-		}
-	}
-	
 	else if (self->dirX < 0)
 	{
-		self->x -= self->w;
-
-		while (self->x > self->endX)
-		{
-			drawSpriteToMap();
-
-			self->x -= self->w;
-		}
+		drawBoxToMap(self->x, self->y, self->box.w, 4, 220, 220, 220);
 	}
 
-	self->x = x;
-	self->y = y;
+	else if (self->dirY > 0)
+	{
+		drawBoxToMap(self->x, self->y, 4, self->box.h, 220, 220, 220);
+	}
+
+	else if (self->dirY < 0)
+	{
+		drawBoxToMap(self->x, self->y, 4, self->box.h, 220, 220, 220);
+	}
 
 	return TRUE;
 }

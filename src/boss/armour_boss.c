@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../hud.h"
 #include "../system/error.h"
+#include "../event/script.h"
 
 extern Entity *self, player;
 
@@ -42,6 +43,7 @@ static void dieFinish(void);
 static void initialise(void);
 static void wakeUp(void);
 static void doIntro(void);
+static void introWait(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
 static void regenerateHealth(void);
@@ -83,6 +85,8 @@ Entity *addArmourBoss(int x, int y, char *name)
 	e->active = FALSE;
 
 	e->die = &die;
+	
+	e->resumeNormalFunction = &attackFinished;
 
 	setEntityAnimation(e, CUSTOM_1);
 
@@ -155,9 +159,16 @@ static void doIntro()
 
 		playBossMusic();
 
-		self->action = &attackFinished;
+		self->action = &introWait;
+		
+		runScript("armour_boss_start");
 	}
 
+	checkToMap(self);
+}
+
+static void introWait()
+{
 	checkToMap(self);
 }
 
@@ -186,7 +197,7 @@ static void lookForPlayer()
 {
 	setEntityAnimation(self, WALK);
 
-	self->dirX += (self->face == RIGHT ? self->speed : -self->speed);
+	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 	checkToMap(self);
 
