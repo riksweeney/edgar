@@ -44,7 +44,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *, float *), int thinkTi
 				e->customAction[i].thinkTime = thinkTime;
 
 				e->customAction[i].counter += accumulates;
-				
+
 				e->customAction[i].value = customValue;
 			}
 
@@ -61,7 +61,7 @@ void setCustomAction(Entity *e, void (*func)(int *, int *, float *), int thinkTi
 			e->customAction[i].thinkTime = thinkTime + 1;
 
 			e->customAction[i].counter = accumulates;
-			
+
 			e->customAction[i].value = customValue;
 
 			/* Execute the custom action once */
@@ -264,7 +264,7 @@ void attract(int *thinkTime, int *counter, float *value)
 	if (*thinkTime != 0)
 	{
 		self->flags |= ATTRACTED;
-		
+
 		self->dirX = *value;
 	}
 }

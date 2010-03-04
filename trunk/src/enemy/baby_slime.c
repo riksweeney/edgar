@@ -86,17 +86,17 @@ static void attack()
 	if ((self->flags & ON_GROUND) && (prand() % 30 == 0))
 	{
 		channel = 3 + (prand() % 3);
-		
+
 		if (prand() % 3 == 0)
 		{
 			playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", channel, self->x, self->y, 0);
 		}
-		
+
 		else
 		{
 			playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", channel, self->x, self->y, 0);
 		}
-		
+
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 
 		self->dirY = -(8 + prand() % 4);
@@ -171,7 +171,10 @@ static void grab(Entity *other)
 
 		self->layer = FOREGROUND_LAYER;
 
-		other->flags |= GRABBED;
+		if (other->target->type == PLAYER)
+		{
+			other->flags |= GRABBED;
+		}
 
 		self->thinkTime = 0;
 
@@ -223,11 +226,11 @@ static void stickToTargetAndDrain()
 {
 	Entity *temp;
 
-	setCustomAction(self->target, &slowDown, 3, 0, 0);
-
 	if (self->target->type == PLAYER && self->target->health > 0)
 	{
 		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
+
+		setCustomAction(self->target, &slowDown, 3, 0, 0);
 	}
 
 	/* Fall off immediately if boss has armour */
@@ -266,14 +269,14 @@ static void stickToTargetAndDrain()
 
 			self = temp;
 
-			self->thinkTime = 0;
+			self->thinkTime = self->target == PLAYER ? 0 : 45;
 		}
 	}
 
 	else
 	{
 		self->mental = 180 + (prand() % 420);
-		
+
 		self->action = &fallOffWait;
 	}
 
@@ -283,7 +286,10 @@ static void stickToTargetAndDrain()
 
 		self->dirY = -6;
 
-		setCustomAction(self->target, &slowDown, 3, -1, 0);
+		if (self->target->type == PLAYER)
+		{
+			setCustomAction(self->target, &slowDown, 3, -1, 0);
+		}
 
 		self->action = &fallOff;
 
@@ -294,12 +300,12 @@ static void stickToTargetAndDrain()
 static void fallOffWait()
 {
 	setCustomAction(self->target, &slowDown, 3, 0, 0);
-	
+
 	self->mental--;
-	
+
 	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
 	self->y = self->target->y + self->startY;
-	
+
 	if (self->mental <= 0)
 	{
 		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
@@ -326,7 +332,7 @@ static void fallOff()
 
 static void findPrey()
 {
-	Entity *e = getEntityByObjectiveName("Armour Boss");
+	Entity *e = getEntityByObjectiveName("ARMOUR_BOSS");
 
 	self->target = (e == NULL ? &player : e);
 }

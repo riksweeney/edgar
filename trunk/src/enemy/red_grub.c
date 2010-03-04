@@ -114,6 +114,8 @@ static void spinAttackStart()
 
 	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
 	{
+		playSoundToMap("sound/enemy/red_grub/spin.ogg", -1, self->x, self->y, 0);
+
 		self->speed = self->originalSpeed * 4;
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);

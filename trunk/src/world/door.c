@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../system/properties.h"
@@ -162,6 +163,11 @@ static void moveToTarget(void)
 		if (self->type == MANUAL_DOOR)
 		{
 			self->action = &wait;
+		}
+
+		if (self->dirX != 0 || self->dirY != 0)
+		{
+			playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = 0;

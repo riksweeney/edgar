@@ -64,25 +64,37 @@ static void wait()
 {
 	Entity *e;
 
-	if (self->active == FALSE && self->health == 1)
+	if (self->health == 1)
 	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->active == FALSE)
 		{
-			if (self->mental < 15)
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
 			{
-				e = addEnemy("enemy/red_baby_slime", 0, 0);
+				if (self->mental < 15 && self->maxThinkTime < 150)
+				{
+					e = addEnemy("enemy/red_baby_slime", 0, 0);
 
-				e->x = self->startX;
-				e->y = self->startY;
+					e->x = self->startX;
+					e->y = self->startY;
 
-				e->mental = 1;
+					e->mental = 1;
 
-				self->mental++;
+					self->mental++;
+
+					self->maxThinkTime++;
+				}
+
+				self->thinkTime = 60;
 			}
+		}
 
+		else
+		{
 			self->thinkTime = 60;
+
+			self->mental = 0;
 		}
 	}
 
