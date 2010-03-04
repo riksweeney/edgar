@@ -52,7 +52,7 @@ void initHud()
 	hud.medalSurface[1] = loadImage("gfx/hud/silver_medal.png");
 
 	hud.medalSurface[2] = loadImage("gfx/hud/gold_medal.png");
-	
+
 	hud.medalSurface[3] = loadImage("gfx/hud/ruby_medal.png");
 
 	messageHead.next = NULL;
@@ -117,7 +117,7 @@ void doHud()
 
 		else if (*hud.bossHealth < hud.bossHealthIndex)
 		{
-			hud.bossHealthIndex--;
+			hud.bossHealthIndex -= 3;
 
 			if (hud.bossHealthIndex < *hud.bossHealth)
 			{
@@ -213,7 +213,7 @@ void drawHud()
 void freeHud()
 {
 	int i;
-	
+
 	if (hud.itemBox != NULL)
 	{
 		SDL_FreeSurface(hud.itemBox);
@@ -255,7 +255,7 @@ void freeHud()
 
 		hud.medalTextSurface = NULL;
 	}
-	
+
 	for (i=0;i<4;i++)
 	{
 		if (hud.medalSurface[i] != NULL)
@@ -426,7 +426,7 @@ int showMedal(int medalType, char *message)
 	hud.medalThinkTime = 240;
 
 	SDL_FreeSurface(textSurface);
-	
+
 	playSound("sound/common/trophy.ogg");
 
 	return TRUE;

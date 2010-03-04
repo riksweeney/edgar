@@ -57,6 +57,14 @@ static void addYellowGem(void);
 static void gemWait(void);
 static void zMove(void);
 static void zVanish(void);
+static void tongueAttackStart(void);
+static void tongueAttack(void);
+static void tongueAttackFinish(void);
+static void tongueMove(void);
+static void tongueReturn(void);
+static void tongueTouch(Entity *);
+static void tongueReturn(void);
+static int drawTongue(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -85,7 +93,7 @@ Entity *addArmourBoss(int x, int y, char *name)
 	e->active = FALSE;
 
 	e->die = &die;
-	
+
 	e->resumeNormalFunction = &attackFinished;
 
 	setEntityAnimation(e, CUSTOM_1);
@@ -96,10 +104,12 @@ Entity *addArmourBoss(int x, int y, char *name)
 static void initialise()
 {
 	Entity *e;
-	
+
 	if (self->active == TRUE)
 	{
 		self->thinkTime--;
+
+		setCustomAction(&player, &helpless, 2, 0, 0);
 
 		if (self->thinkTime <= 0)
 		{
@@ -116,18 +126,18 @@ static void initialise()
 	else if (prand() % 120 == 0)
 	{
 		e = addBasicDecoration(self->x + self->w - 30, self->y + 30, "decoration/z");
-		
+
 		if (e != NULL)
 		{
 			e->face = RIGHT;
-			
+
 			e->startX = e->x;
-			
+
 			e->action = &zMove;
 			e->animationCallback = &zVanish;
 		}
 	}
-	
+
 	if (self->endY == 0)
 	{
 		addYellowGem();
@@ -138,6 +148,8 @@ static void initialise()
 
 static void wakeUp()
 {
+	setCustomAction(&player, &helpless, 2, 0, 0);
+
 	setEntityAnimation(self, CUSTOM_3);
 
 	self->thinkTime = 60;
@@ -158,16 +170,21 @@ static void doIntro()
 		playBossMusic();
 
 		self->action = &introWait;
-		
+
 		self->startX = 360;
-		
+
 		self->endX = 0;
-		
+
 		self->endY = 1;
-		
+
 		self->mental = 0;
-		
+
 		runScript("armour_boss_start");
+	}
+
+	else
+	{
+		setCustomAction(&player, &helpless, 2, 0, 0);
 	}
 
 	checkToMap(self);
@@ -224,14 +241,177 @@ static void lookForPlayer()
 
 		self->thinkTime = 30;
 
-		self->action = &wait;
+		self->action = &tongueAttackStart;
 	}
 
 	regenerateHealth();
 }
 
+static void tongueAttackStart()
+{
+	self->dirX = 0;
+	
+	self->maxThinkTime = 0;
+	
+	setEntityAnimation(self, ATTACK_1);
+	
+	self->animationCallback = &tongueAttack;
+	
+	checkToMap(self);
+}
+
+static void tongueAttack()
+{
+	Entity *e;
+	
+	self->action = &tongueAttack;
+	
+	setEntityAnimation(self, ATTACK_2);
+	
+	if (self->maxThinkTime == 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Armour Boss Tongue");
+		}
+
+		loadProperties("boss/armour_boss_tongue", e);
+		
+		setEntityAnimation(e, STAND);
+		
+		e->face = self->face;
+		
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+		
+		e->startX = e->x;
+		e->startY = e->y;
+		
+		e->action = &tongueMove;
+		
+		e->touch = &tongueTouch;
+		
+		e->draw = &drawTongue;
+
+		e->type = ENEMY;
+
+		e->head = self;
+		
+		self->maxThinkTime = 1;
+	}
+	
+	checkToMap(self);
+}
+
+static void tongueAttackFinish()
+{
+	self->frameSpeed = -1;
+	
+	setEntityAnimation(self, ATTACK_1);
+	
+	self->animationCallback = &attackFinished;
+	
+	checkToMap(self);
+}
+
+static void tongueMove()
+{
+	self->x += self->face == LEFT ? -self->speed : self->speed;
+	
+	self->mental += self->speed;
+	
+	if (abs(self->mental) > 640)
+	{
+		self->action = &tongueReturn;
+	}
+}
+
+static void tongueReturn()
+{
+	if (self->face == LEFT)
+	{
+		self->x += self->speed;
+		
+		if (self->x > self->startX)
+		{
+			self->head->action = &tongueAttackFinish;
+			
+			self->inUse = FALSE;
+		}
+	}
+	
+	else
+	{
+		self->x += -self->speed;
+		
+		if (self->x < self->startX)
+		{
+			self->head->action = &tongueAttackFinish;
+			
+			self->inUse = FALSE;
+		}
+	}
+}
+
+static void tongueTouch(Entity *other)
+{
+	
+}
+
+static int drawTongue()
+{
+	int x, startX;
+	
+	drawLoopingAnimationToMap();
+	
+	startX = self->startX;
+	
+	x = self->x + (self->face == RIGHT ? 0 : self->w);
+	
+	setEntityAnimation(self, WALK);
+	
+	drawLoopingAnimationToMap();
+	
+	if (self->face == RIGHT)
+	{
+		while (self->x >= self->startX)
+		{
+			drawSpriteToMap();
+
+			self->x -= self->w;
+		}
+	}
+	
+	else
+	{
+		while (self->x <= self->startX)
+		{
+			drawSpriteToMap();
+
+			self->x += self->w;
+		}
+	}
+	
+	self->x = startX;
+
+	return TRUE;
+}
+
 static void attackFinished()
 {
+	self->frameSpeed = 1;
+	
+	setEntityAnimation(self, STAND);
+	
 	self->thinkTime = 30;
 
 	self->action = &wait;
@@ -256,13 +436,6 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->health -= damage;
 
-			self->endX--;
-
-			if (self->endX <= 0)
-			{
-				self->endX = 0;
-			}
-
 			if (other->type != ENEMY && self->mental == 0 && (prand() % 10 == 0))
 			{
 				setInfoBoxMessage(60, _("Its wounds are already healing..."));
@@ -284,9 +457,9 @@ static void takeDamage(Entity *other, int damage)
 				enemyPain();
 			}
 
-			else
+			else if (self->health > 0)
 			{
-				self->startX++;
+				self->startX = 1200;
 
 				if (self->endX == 0)
 				{
@@ -294,13 +467,22 @@ static void takeDamage(Entity *other, int damage)
 
 					setCustomAction(self, &flashWhite, 6, 0, 0);
 
+					if (prand() % 5 == 0)
+					{
+						setCustomAction(self, &helpless, 10, 0, 0);
+
+						self->dirX = other->face == RIGHT ? 6 : -6;
+					}
+
 					enemyPain();
 				}
 			}
 
-			if (self->health <= 0)
+			else
 			{
 				self->damage = 0;
+
+				self->dirX = 0;
 
 				self->startX = self->x;
 
@@ -331,6 +513,13 @@ static void regenerateHealth()
 		{
 			regenerateArmour();
 		}
+	}
+
+	self->endX--;
+
+	if (self->endX <= 0)
+	{
+		self->endX = 0;
 	}
 }
 
@@ -403,7 +592,7 @@ static void regenerateArmour()
 	if (self->target == NULL)
 	{
 		prev = self;
-		
+
 		for (i=0;i<7;i++)
 		{
 			e = getFreeEntity();
@@ -453,15 +642,15 @@ static void regenerateArmour()
 			self->mental++;
 		}
 	}
-	
+
 	else
 	{
 		i = 0;
-		
+
 		for (e=self->target;e!=NULL;e=e->target)
 		{
 			loadProperties("boss/armour_boss_armour", e);
-			
+
 			e->x = self->x;
 			e->y = self->y;
 
@@ -492,7 +681,7 @@ static void regenerateArmour()
 			e->y = self->y + e->offsetY;
 
 			self->mental++;
-			
+
 			i++;
 		}
 	}
@@ -549,10 +738,10 @@ static void armourTakeDamage(Entity *other, int damage)
 
 			if (e->health <= 0)
 			{
-				e->thinkTime = 120;
-				
+				e->thinkTime = 180;
+
 				e->flags &= ~FLY;
-				
+
 				e->dirY = ITEM_JUMP_HEIGHT;
 
 				e->action = e->die;
@@ -573,18 +762,20 @@ static void armourTakeDamage(Entity *other, int damage)
 
 				enemyPain();
 			}
-		}
 
-		break;
+			break;
+		}
 	}
 }
 
 static void armourDie()
 {
+	long onGround = self->flags & ON_GROUND;
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime < 90)
 		{
 			if (self->thinkTime % 3 == 0)
@@ -600,29 +791,34 @@ static void armourDie()
 	}
 
 	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && onGround == 0)
+	{
+		playSoundToMap("sound/boss/armour_boss/clang.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	}
 }
 
 static void addYellowGem()
 {
 	Entity *e;
-	
+
 	e = addPermanentItem("item/yellow_gem", 0, 0);
-	
+
 	e->action = &gemWait;
-	
+
 	e->head = self;
-	
+
 	e->touch = NULL;
-	
+
 	self->endY = 1;
 }
 
 static void gemWait()
 {
 	self->face = self->head->face;
-	
+
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	if (self->face == LEFT)
 	{
 		self->x = self->head->x + self->head->w - self->w - self->offsetX;
@@ -639,9 +835,9 @@ static void gemWait()
 static void zMove()
 {
 	self->health++;
-	
+
 	self->x = self->startX + sin(DEG_TO_RAD(self->health)) * 8;
-	
+
 	self->y -= 0.5;
 }
 

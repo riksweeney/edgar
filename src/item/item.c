@@ -147,12 +147,16 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	{
 		case HEALTH:
 			e->touch = &healthTouch;
+
+			e->flags |= DO_NOT_PERSIST;
 		break;
 
 		case WEAPON:
 			e->touch = &keyItemTouch;
 
 			e->activate = &setBowAmmo;
+
+			e->flags |= DO_NOT_PERSIST;
 		break;
 
 		default:
@@ -177,14 +181,14 @@ Entity *dropCollectableItem(char *name, int x, int y, int face)
 void dropRandomItem(int x, int y)
 {
 	Entity *e;
-	
+
 	if (getInventoryItem(_("Bow")) != NULL)
 	{
 		if (prand() % 3 == 0)
 		{
 			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 		}
-		
+
 		if (prand() % 5 == 0)
 		{
 			e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
@@ -244,11 +248,11 @@ void healthTouch(Entity *other)
 void throwItem(int val)
 {
 	Entity *e;
-	
+
 	if (game.status == IN_GAME && self->thinkTime <= 0 && !(player.flags & BLOCKING))
 	{
 		e = addProjectile(self->name, &player, player.x + (player.face == RIGHT ? player.w : 0), player.y, player.face == LEFT ? -self->speed : self->speed, 0);
-		
+
 		e->y = player.y + (player.h - e->h) / 2;
 
 		e->type = PROJECTILE;
@@ -262,16 +266,16 @@ void throwItem(int val)
 		e->parent = &player;
 
 		e->thinkTime = 600;
-		
+
 		self->health--;
-		
+
 		self->thinkTime = 15;
 
 		if (self->health <= 0)
 		{
 			self->inUse = FALSE;
 		}
-		
+
 		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 	}
 }
