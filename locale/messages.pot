@@ -35,7 +35,7 @@ msgstr ""
 msgid "Small Rock"
 msgstr ""
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr ""
 
 msgid "Chicken"

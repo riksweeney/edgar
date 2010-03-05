@@ -133,6 +133,6 @@ static void activate(int val)
 
 		setTransition(TRANSITION_OUT, &goToNextMap);
 
-		fadeOutMusic(2000);
+		fadeOutMusic(1000);
 	}
 }

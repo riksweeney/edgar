@@ -500,6 +500,19 @@ void doPlayer()
 
 					else if (self->flags & ON_GROUND)
 					{
+						if (self->element == WATER)
+						{
+							if (prand() % 3 == 0)
+							{
+								playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+							}
+
+							else
+							{
+								playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+							}
+						}
+
 						self->dirY = -JUMP_HEIGHT;
 					}
 
@@ -640,7 +653,7 @@ static void dialogWait()
 		input.block = 0;
 	}
 
-	else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)
+	/*else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)*/
 	{
 		readNextScriptLine();
 
