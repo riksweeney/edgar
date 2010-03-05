@@ -86,6 +86,21 @@ static void die()
 
 static void fly()
 {
+	if (self->currentFrame == 3 || self->currentFrame == 7)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
+
+			self->mental = 1;
+		}
+	}
+
+	else
+	{
+		self->mental = 0;
+	}
+
 	checkToMap(self);
 
 	if (self->dirX == 0)

@@ -174,6 +174,10 @@ void cleanup()
 
 	TTF_Quit();
 
+	/* Quit SDL_Net */
+
+	SDLNet_Quit();
+
 	/* Close the mixer */
 
 	Mix_CloseAudio();

@@ -27,6 +27,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../enemy/rock.h"
 #include "../system/error.h"
+#include "../system/random.h"
+#include "../graphics/decoration.h"
 
 extern Entity *self;
 
@@ -80,7 +82,23 @@ static void touch(Entity *other)
 
 static void wait()
 {
+	int i;
+	long onGround = self->flags & ON_GROUND;
+
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		}
+	}
 }
 
 static void takeDamage(Entity *other, int damage)
