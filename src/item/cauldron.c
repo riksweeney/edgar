@@ -73,7 +73,10 @@ static void wait()
 
 static void touch(Entity *other)
 {
-	setInfoBoxMessage(0, _("Press Action to interact"));
+	if (other->type == PLAYER)
+	{
+		setInfoBoxMessage(0, _("Press Action to interact"));
+	}
 }
 
 static void activate(int val)

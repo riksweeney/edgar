@@ -653,7 +653,7 @@ static void dialogWait()
 		input.block = 0;
 	}
 
-	/*else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)*/
+	else if (input.interact == 1 || input.jump == 1 || input.attack == 1 || input.activate == 1 || input.block == 1)*/
 	{
 		readNextScriptLine();
 

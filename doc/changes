@@ -6,6 +6,7 @@ Version 0.51
 * Fixed the broken translations in the Windows build
 * The repellent clouds can no longer be picked up when you reload a game
 * Fixed the crash in the Library when reading the book
+* The game no longer segfaults if it is installed incorrectly
 
 Version 0.50
 * Added the 2nd Mine map, you can get to it via the Basement
