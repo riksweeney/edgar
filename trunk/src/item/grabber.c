@@ -270,7 +270,7 @@ static void touch(Entity *other)
 			}
 		}
 
-		else if (((other->flags & PUSHABLE) && (other->flags & ON_GROUND)) || (self->health == -1 && self->target == NULL))
+		else if ((other->flags & PUSHABLE) && ((other->flags & ON_GROUND) || (self->health == -1 && self->target == NULL)))
 		{
 			setEntityAnimation(self, STAND);
 

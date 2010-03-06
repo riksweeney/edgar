@@ -59,6 +59,7 @@ static void lookForPlayer(void);
 static void growl(void);
 static void addYellowGem(void);
 static void gemWait(void);
+static void gemTouch(Entity *);
 static void zMove(void);
 static void zVanish(void);
 static void tongueAttackStart(void);
@@ -79,11 +80,11 @@ static void sawAttackFinish(void);
 static void chargeAttack(void);
 static void stunned(void);
 static void stunWake(void);
-static void stunTouch(Entity *);
 static void activate(int);
 static void chargeAttackStart(void);
 static void chargeAttack(void);
 static void chargeAttackTouch(Entity *);
+static void starWait(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -260,6 +261,10 @@ static void lookForPlayer()
 				self->thinkTime = 60;
 	
 				self->maxThinkTime = 3;
+				
+				self->dirX = 0;
+				
+				playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	
 				self->action = &chargeAttackStart;
 			}
@@ -596,6 +601,8 @@ static void attackFinished()
 	self->thinkTime = 0;
 
 	self->maxThinkTime = 0;
+	
+	self->damage = 1;
 
 	self->action = &wait;
 
@@ -654,11 +661,11 @@ static void takeDamage(Entity *other, int damage)
 
 					setCustomAction(self, &flashWhite, 6, 0, 0);
 
-					if (prand() % 5 == 0)
+					if (prand() % 60 == 0 && self->maxThinkTime == 0)
 					{
 						setCustomAction(self, &helpless, 10, 0, 0);
 
-						self->dirX = other->face == RIGHT ? 6 : -6;
+						self->dirX = other->face == RIGHT ? -6 : 6;
 					}
 
 					enemyPain();
@@ -667,7 +674,11 @@ static void takeDamage(Entity *other, int damage)
 
 			else
 			{
+				playSoundToMap("sound/boss/armour_boss/die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				
 				self->damage = 0;
+				
+				self->takeDamage = NULL;
 
 				self->dirX = 0;
 
@@ -749,7 +760,7 @@ static void die()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 60;
+		self->thinkTime = 180;
 
 		self->action = &dieFinish;
 
@@ -805,6 +816,12 @@ static void regenerateArmour()
 {
 	int i;
 	Entity *e, *prev;
+	
+	e = NULL;
+	
+	prev = NULL;
+	
+	return;
 
 	if (self->target == NULL)
 	{
@@ -1278,10 +1295,12 @@ static void addYellowGem()
 	e = addPermanentItem("item/yellow_gem", 0, 0);
 
 	e->action = &gemWait;
+	
+	e->touch = &gemTouch;
+	
+	e->activate = &activate;
 
 	e->head = self;
-
-	e->touch = NULL;
 
 	e->thinkTime = 3600;
 
@@ -1317,31 +1336,23 @@ static void gemWait()
 			self->thinkTime = 3600;
 		}
 	}
+}
 
+static void gemTouch(Entity *other)
+{
+	if (other->type == PLAYER && self->head->maxThinkTime == 99)
+	{
+		setInfoBoxMessage(0, _("Press Action to retrieve the Yellow Gem"));
+	}
+}
+
+static void activate(int val)
+{
 	if (self->head->maxThinkTime == 99)
 	{
 		addPermanentItem(self->name, self->x, self->y);
 
 		self->inUse = FALSE;
-	}
-}
-
-static void chargeAttackTouch(Entity *other)
-{
-	entityTouch(other);
-
-	if (other->type == PLAYER)
-	{
-		self->dirX = 0;
-
-		setEntityAnimation(self, STAND);
-
-		setPlayerStunned(30);
-
-		other->dirX = (6 + prand() % 3) * (self->face == LEFT ? -1 : 1);
-		other->dirY = -8;
-
-		self->action = &attackFinished;
 	}
 }
 
@@ -1363,6 +1374,8 @@ static void chargeAttackStart()
 	}
 
 	checkToMap(self);
+	
+	regenerateHealth();
 }
 
 static void chargeAttack()
@@ -1372,24 +1385,69 @@ static void chargeAttack()
 
 	if (self->dirX == 0)
 	{
-		self->dirX = self->face == LEFT ? 3 : 3;
+		self->dirX = self->face == LEFT ? 8 : -8;
 
-		self->dirY = -6;
+		self->dirY = -8;
+		
+		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
+		shakeScreen(MEDIUM, 60);
 
 		setEntityAnimation(self, CUSTOM_1);
 
 		self->action = &stunned;
 
-		self->touch = &stunTouch;
+		self->touch = &entityTouch;
+		
+		self->maxThinkTime = 99;
+		
+		self->damage = 0;
 
-		self->activate = &activate;
+		self->thinkTime = 180;
+		
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
 
-		self->thinkTime = 360;
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Armour Boss's Star");
+			}
+
+			loadProperties("boss/armour_boss_star", e);
+
+			e->x = self->x;
+			e->y = self->y;
+
+			e->action = &starWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->thinkTime = self->thinkTime;
+
+			e->head = self;
+
+			setEntityAnimation(e, STAND);
+			
+			e->currentFrame = (i == 0 ? 0 : 6);
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+		}
 	}
 
 	checkToMap(self);
 
-	for (i=0;i<10;i++)
+	if (prand() % 5 == 0)
 	{
 		e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
 
@@ -1397,6 +1455,33 @@ static void chargeAttack()
 		{
 			e->y -= prand() % e->h;
 		}
+	}
+	
+	regenerateHealth();
+}
+
+static void chargeAttackTouch(Entity *other)
+{
+	entityTouch(other);
+
+	if (other->type == PLAYER)
+	{
+		self->dirX = 0;
+
+		setEntityAnimation(self, STAND);
+		
+		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+		setPlayerStunned(120);
+		
+		setCustomAction(&player, &invulnerable, 180, 0, 0);
+
+		other->dirX = (9 + prand() % 3) * (self->face == LEFT ? -1 : 1);
+		other->dirY = -15;
+
+		self->action = &attackFinished;
+		
+		regenerateArmour();
 	}
 }
 
@@ -1416,24 +1501,18 @@ static void stunned()
 	}
 
 	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+	
+	regenerateHealth();
 }
 
 static void stunWake()
 {
 	self->action = &attackFinished;
-}
-
-static void stunTouch(Entity *other)
-{
-	if (other->type == PLAYER)
-	{
-		setInfoBoxMessage(0, _("Press Action to retrieve the Yellow Gem"));
-	}
-}
-
-static void activate(int val)
-{
-	self->maxThinkTime = 99;
 }
 
 static void zMove()
@@ -1448,4 +1527,28 @@ static void zMove()
 static void zVanish()
 {
 	self->inUse = FALSE;
+}
+
+static void starWait()
+{
+	self->face = self->head->face;
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }

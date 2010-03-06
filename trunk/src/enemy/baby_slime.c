@@ -171,7 +171,7 @@ static void grab(Entity *other)
 
 		self->layer = FOREGROUND_LAYER;
 
-		if (other->target->type == PLAYER)
+		if (other->type == PLAYER)
 		{
 			other->flags |= GRABBED;
 		}
