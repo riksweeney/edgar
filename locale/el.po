@@ -35,8 +35,8 @@ msgstr "Βόμβα"
 msgid "Small Rock"
 msgstr "Μικρές Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Πατήστε δράση για να ανακτήσετε Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε το μοβ Gem"
 
 msgid "Chicken"
 msgstr "Κοτόπουλο"
@@ -249,7 +249,7 @@ msgid "Can I borrow your shield?"
 msgstr "Μπορώ να δανειστώ ασπίδα σας;"
 
 msgid "Off to practice your fighting skills?"
-msgstr "Όχι για να πρακτική μαχητικές ικανότητες σου;"
+msgstr "Όχι για να πρακτική μαχητικές ικανότητες σας;"
 
 msgid "Something like that"
 msgstr "Κάτι τέτοιο"
@@ -294,7 +294,7 @@ msgid "Thanks!"
 msgstr "Ευχαριστώ!"
 
 msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
-msgstr "Σας ευχαριστώ, Edgar, αυτή του άνθρακα είναι τέλειο! Ελπίδα του νυχτερίδες δεν σας τρομάξει."
+msgstr "Σας ευχαριστώ, Edgar, αυτή του άνθρακα είναι τέλειο! Ελπίδα η νυχτερίδες δεν σας τρομάξει."
 
 msgid "The bats were the least of my worries..."
 msgstr "Οι νυχτερίδες ήταν το λιγότερο του ανησυχίες μου ..."
@@ -390,10 +390,10 @@ msgid "Hello Edgar, what can I do for you today?"
 msgstr "Γεια Edgar, τι μπορώ να κάνω για σένα σήμερα;"
 
 msgid "Do you have a sword I can borrow?"
-msgstr "Έχετε ένα ξίφος που μπορώ να δανειστώ;"
+msgstr "Έχετε ένα σπαθί που μπορώ να δανειστώ;"
 
 msgid "I do have a sword and you can have it if you do something for me first"
-msgstr "Έχω ένα ξίφος και μπορείτε να το έχετε, αν κάνετε κάτι για μένα πρώτα"
+msgstr "Έχω ένα σπαθί και μπορείτε να το έχετε, αν κάνετε κάτι για μένα πρώτα"
 
 msgid "OK... what do I have to do?"
 msgstr "Εντάξει ... Τι πρέπει να κάνω;"
@@ -486,7 +486,7 @@ msgid "Maybe I could tunnel my way in..."
 msgstr "Ίσως θα μπορούσα να σήραγγα δρόμο μου in. .."
 
 msgid "These machines aren't working."
-msgstr "Τα μηχανήματα αυτά δεν είναι εργάσιμη."
+msgstr "Αυτά τα μηχανήματα δεν λειτουργούν."
 
 msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
 msgstr "Μοιάζει με ένα κόσμημα πρέπει να εντάσσονται σε αυτήν την τρύπα, ίσως μπορώ να βρω κάποια αντικαταστάσεις."
@@ -780,7 +780,7 @@ msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr "Περιβαλλοντικούς κινδύνους, όπως οι βράχοι που, δεν μπορεί να αποκλειστεί"
 
 msgid "To block an attack, press and hold block (left alt)."
-msgstr "Για να αποκλείσετε μια επίθεση, πατήστε και κρατήστε πατημένο μπλοκ (αριστερό alt)."
+msgstr "Για να αποκλείσετε μια επίθεση, πατήστε και κρατήστε πατημένο το μπλοκ (αριστερό alt)."
 
 msgid "You must be facing the attack to succesfully block it"
 msgstr "Πρέπει να αντιμετωπίζει την επίθεση στο μπλοκ με επιτυχία"
@@ -1020,7 +1020,7 @@ msgid "It looks like a blender. I could use this to liqudise something"
 msgstr "Μοιάζει με ένα μπλέντερ. Θα μπορούσα να χρησιμοποιήσω αυτή την liqudise κάτι"
 
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr "Αυτό πρέπει να είναι ο άνθρακας Borgan μου θέλει να μου γι 'αυτόν"
+msgstr "Αυτό πρέπει να το άνθρακα Borgan μου θέλει να μου γι 'αυτόν"
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
 msgstr "Αυτό μπορεί να εξηγήσει γιατί η ανελκυστήρας δεν λειτουργούσε. Νικώντας την άλλη Συλλέκτες θα πρέπει να αποκαταστήσει την εξουσία εδώ."
@@ -1035,7 +1035,7 @@ msgid "There's a book here about enchanting weapons"
 msgstr "Υπάρχει εδώ ένα βιβλίο σχετικά με μαγευτική όπλα"
 
 msgid "Maybe I can create a shield..."
-msgstr "Ίσως μπορεί να δημιουργήσει μια ασπίδα ..."
+msgstr "Ίσως μπορώ να δημιουργήσει μια ασπίδα ..."
 
 msgid "Swords... Armour... Wands..."
 msgstr "Σπαθιά ... Πανοπλία ... Wands ..."
@@ -1053,7 +1053,7 @@ msgid "Ingredients"
 msgstr "Συστατικά"
 
 msgid "One must gather the following"
-msgstr "Κάποιος πρέπει να συγκεντρώνουν τα εξής"
+msgstr "Κάποιος πρέπει να συγκεντρώσει τις ακόλουθες"
 
 msgid "The root of a Mandrake"
 msgstr "Η ρίζα του Mandrake"
@@ -1077,7 +1077,7 @@ msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr "Ανακατέψτε τα μάτια βλέπων και λάσπης πλοκάμι σε μια ομαλή υγρό"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Προσθέστε τη ρίζα, το λίπος και οστά στο καζάνι και ανακατέψτε μαζί με το μείγμα βλέπων μάτια και λάσπης πλοκάμι"
+msgstr "Προσθέστε τη ρίζα, το λίπος και οστά στο καζάνι και ανακατέψτε μαζί με το μείγμα μάτια βλέπων και λάσπης πλοκάμι"
 
 msgid "When the mixture turns bright blue, add the shield"
 msgstr "Όταν το μίγμα στροφών φωτεινό μπλε, προσθέστε την ασπίδα"
@@ -1092,7 +1092,7 @@ msgid "What I do need to find is a Red Sludge, but I have no idea where to find 
 msgstr "Αυτό που χρειάζεται είναι να βρούμε ένα κόκκινο λάσπης, αλλά δεν έχω ιδέα πού να βρει έναν"
 
 msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
-msgstr "Δεν μπορώ να χρησιμοποιήσει τρέχουσα ασπίδα μου στο πείραμα, σε περίπτωση που αποτυγχάνει γι 'αυτό θα πρέπει να βρούμε έναν άλλο"
+msgstr "Δεν μπορώ να χρησιμοποιήσω τρέχουσα ασπίδα μου στο πείραμα, σε περίπτωση που αποτυγχάνει γι 'αυτό θα πρέπει να βρούμε έναν άλλο"
 
 msgid "Hmmm..."
 msgstr "Χμμμ ..."
@@ -1116,7 +1116,7 @@ msgid "There must be information about every subject here, this could be useful.
 msgstr "Πρέπει να υπάρχουν πληροφορίες σχετικά με κάθε θέμα εδώ, αυτό θα μπορούσε να είναι χρήσιμος ..."
 
 msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
-msgstr "Χμμμ, ο αέρας αισθάνεται χρεώνονται, αυτό μου θυμίζει το σπίτι Μάγκι του όταν ήταν λήψης ξόρκια. Θα πρέπει να είστε προσεκτικοί."
+msgstr "Χμμμ, ο αέρας αισθάνεται χρεώνονται, αυτό μου θυμίζει το σπίτι Μάγκι του όταν ήταν λήψης ξόρκια. Θα πρέπει να προσέξουμε."
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
 msgstr "Ω Edgar, είστε κακό! Επιτρέψτε μου να επουλώσει τις πληγές σου"
@@ -1176,13 +1176,13 @@ msgid "Finally, one final split will produce very small versions which are compl
 msgstr "Τέλος, μια τελευταία τμήματα θα παράγει πολύ μικρές εκδόσεις που είναι εντελώς ακίνδυνα και σε αυτό το κράτος μπορεί να ενισχυθεί μόνο στις"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
-msgstr "Εάν όλα τα μέρη του είναι ακόμα ζωντανοί, ένα διαχωριστή θα μεταρρυθμιστεί μετά από λίγο και να επουλώσει τις πληγές της"
+msgstr "Εάν όλα τα μέρη του είναι ακόμη ζωντανός, ένα διαχωριστή θα μεταρρυθμιστεί μετά από λίγο και να επουλώσει τις πληγές της"
 
 msgid "Grub, Red"
 msgstr "Grub, Κόκκινο"
 
 msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
-msgstr "Κόκκινο προνύμφες είναι πιο επιθετική από ό, τι πράσινο ομολόγους τους και θα επιτεθούν οτιδήποτε βλέπουν ως απειλή"
+msgstr "Κόκκινο νύμφες είναι πιο επιθετική από ό, τι πράσινο ομολόγους τους και θα επιτεθούν οτιδήποτε βλέπουν ως απειλή"
 
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
 msgstr "Μετά την ωρίμανσή τους και θα αποτελούν ένα κουκούλι και morph σε μια σφήκα"
@@ -1257,19 +1257,19 @@ msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely
 msgstr "Σε αντίθεση με πράσινο ξάδελφό του, ο Ερυθρός ιλύος παραμένει βαθιά υπόγεια και σπάνια, αν όχι ποτέ, οι επιφάνειες"
 
 msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
-msgstr "Προτίμησε οικότοπος του είναι ξηρό και μεταλλικά πλούσιες περιοχές και ως εκ τούτου έχουν βρεθεί παραμονεύουν σε περιοχές ορυχείων εγκαταλειφθεί από τον άνθρωπο"
+msgstr "Προτίμησε οικότοπος του είναι ξηρό και μεταλλικά πλούσιες περιοχές και ως εκ τούτου έχουν βρεθεί παραμονεύουν σε περιοχές των ορυχείων εγκαταλειφθεί από τον άνθρωπο"
 
 msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
 msgstr "Είναι πολύ επιφυλακτικοί των ανθρώπων και θα επιτεθεί στην όραση, έμετο συνήθως μέχρι ένα οξύ, το οποίο χρειάζεται χρόνο για να εξατμιστεί"
 
 msgid "Smacker, Lesser..."
-msgstr "Smacker, Lesser ..."
+msgstr "Smacker, λιγότερο ..."
 
 msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
-msgstr "Μεγάλη, αυτό είναι όλο λέει. Δεν ξέρω καν πώς να πει τη διαφορά ανάμεσα σε άνδρες και γυναίκες. Θα απλώς να λάβει μια ευκαιρία ..."
+msgstr "Μεγάλη, αυτό είναι όλο λέει. Δεν ξέρω καν πώς να πει τη διαφορά μεταξύ ανδρών και γυναικών. Θα απλώς να λάβει μια ευκαιρία ..."
 
 msgid "Besides, what's the worst that could happen?"
-msgstr "Εκτός αυτού, ποιο είναι το χειρότερο που θα μπορούσε να συμβεί;"
+msgstr "Εκτός αυτού, τι είναι το χειρότερο που θα μπορούσε να συμβεί;"
 
 msgid "To move Edgar left and right, use the arrow keys."
 msgstr "Για να μετακινήσετε Edgar αριστερά και δεξιά, χρησιμοποιήστε τα πλήκτρα βέλους."
@@ -1578,7 +1578,7 @@ msgid "Hey wow, what a cute little machine!"
 msgstr "Hey wow, τι ένα χαριτωμένο μικρό μηχάνημα!"
 
 msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
-msgstr "Έχει μια μικρή σχισμή στο πίσω μέρος του. Μάλλον έβαλα κάτι για να κάνει εκεί το κάνει πράγματα"
+msgstr "Έχει μια μικρή σχισμή στο πίσω μέρος του. Μάλλον έβαλα κάτι για να κάνει εκεί το κάνουμε πράγματα"
 
 msgid "The robot uses instruction cards to move around"
 msgstr "Το ρομπότ χρησιμοποιεί κάρτες εντολή να μετακινούνται"
@@ -1632,7 +1632,7 @@ msgid "I'll have to find something to help me get across"
 msgstr "Θα πρέπει να βρούμε κάτι για να με βοηθήσει να μεταδώσουμε"
 
 msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
-msgstr "Δεν είδα καμία λάσπες στο ορυχείο όταν πήγα να πάρει άνθρακα Borgan και ακόμη και αν υπήρχαν, δεν μπορώ να γυρίσω εκεί από σχεδία μου βυθίστηκε"
+msgstr "Εγώ δεν βλέπω καμία λάσπες στο ορυχείο όταν πήγα να πάρει άνθρακα Borgan και ακόμη και αν υπήρχαν, δεν μπορώ να γυρίσω εκεί από σχεδία μου βυθίστηκε"
 
 msgid "I'll have to find another mine around here..."
 msgstr "Θα πρέπει να βρούμε ένα άλλο ορυχείο γύρω από εδώ ..."
@@ -1695,7 +1695,7 @@ msgid "If the directions aren't correct you can try again"
 msgstr "Αν οι οδηγίες δεν είναι σωστές, μπορείτε να δοκιμάσετε ξανά"
 
 msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-msgstr "Αυτό το μέρος είναι τρελό, είχα την καλύτερη σπεύσουμε και να βρει τον μπαμπά μου πριν καταλήξετε getting σκότωσε!"
+msgstr "Αυτό το μέρος είναι τρελό, είχα καλύτερη σπεύσουμε και να βρει τον μπαμπά μου πριν καταλήξετε getting σκότωσε!"
 
 msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
 msgstr "Έτσι, για να δημιουργήσετε ότι Fire ασπίδα πρέπει να πάρω ένα κόκκινο λάσπης πλοκάμι"
@@ -1725,7 +1725,7 @@ msgid "Reset switches allow you to reset an object's position on the map"
 msgstr "Επαναφέρετε διακόπτες σας επιτρέπουν να επαναφέρετε τη θέση ενός αντικειμένου στον χάρτη"
 
 msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
-msgstr "Εάν ένα αντικείμενο γίνεται unreachable τότε μπορείτε να χρησιμοποιήσετε το διακόπτη για να το θέσω εκ νέου στην αρχική του θέση"
+msgstr "Εάν ένα αντικείμενο γίνεται άπιαστος τότε μπορείτε να χρησιμοποιήσετε το διακόπτη για να το θέσω ξανά στην αρχική του θέση"
 
 msgid "A bottle with a soul trapped inside"
 msgstr "Ένα μπουκάλι με μια ψυχή παγιδευμένος μέσα"
@@ -1842,11 +1842,74 @@ msgid "I have everything I need now"
 msgstr "Έχω όλα όσα χρειάζομαι τώρα"
 
 msgid "There's a cauldron in the Laboratory, I should head back there"
-msgstr "Εκεί ένα καζάνι στο Εργαστήριο, θα ήθελα να το κεφάλι πίσω"
+msgstr "Υπάρχει ένα καζάνι στο Εργαστήριο, θα ήθελα να το κεφάλι πίσω"
 
 msgid "I just need to find another shield to enchant"
-msgstr "Απλά πρέπει να βρούμε άλλο ασπίδα να μαγέψει"
+msgstr "Απλά πρέπει να βρούμε άλλο ασπίδα για να μαγέψει"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Δεν θα είναι σε θέση να πάρει την ασπίδα σε αυτή την έκδοση, έτσι δοκιμάστε ξανά αργότερα!"
+
+msgid "Its wounds are already healing..."
+msgstr "Πληγές του είναι ήδη θεραπεία ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Αν το παιχνίδι που καταρτίζονται από την πηγή, πρέπει να κάνετε ένα make install"
+
+msgid "It's sleeping"
+msgstr "Είναι ύπνου"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Είμαι ασφαλής οπωσδήποτε δεδομένου ότι είναι σε αυτό το κλουβί ..."
+
+msgid "Where's the switch?"
+msgstr "Πού είναι ο διακόπτης;"
+
+msgid "Ah, here it is!"
+msgstr "Ah, εδώ είναι!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Αυτή η γεννήτρια φαίνεται Εντάξει, απλώς δεν είναι σε"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Υποθέτω ότι οι εξουσίες που πόρτα, γι 'αυτό θα πρέπει να το ενεργοποιήσετε"
+
+msgid "A Yellow Gem"
+msgstr "Ένα κίτρινο Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Απέτυχε να ανοίξει το αρχείο PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Βρούμε έναν τρόπο για την εξάλειψη της Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε το κίτρινο Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Το αφεντικό που φύλαγε το ορυχείο δεν ήταν στην προηγούμενη έκδοση"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Επειδή είναι σε αυτή την έκδοση δεν θα είστε σε θέση να εγκαταλείψουν"
+
+msgid "You will now be transported outside"
+msgstr "Τώρα θα μεταφέρεται εκτός"
+
+msgid "We apologize for the inconvenience"
+msgstr "Ζητούμε συγγνώμη για την ταλαιπωρία"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Θα πρέπει να είναι ασφαλείς μέχρι εδώ, αλλά θα πρέπει να απαλλαγούμε από αυτό"
+
+msgid "Book"
+msgstr "Βιβλίο"
+
+msgid "Sign"
+msgstr "Είσοδος"
+
+msgid "Note"
+msgstr "Σημείωση"
 

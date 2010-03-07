@@ -34,8 +34,8 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Small Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Press Azzjoni sabiex tkun irkuprata Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata l Gem Purple"
 
 msgid "Chicken"
 msgstr "Tiġieġa"
@@ -152,7 +152,7 @@ msgid "%s is required to use this Pressure Plate"
 msgstr "%s huma meħtieġa li jużaw dan il-Pressjoni Plate"
 
 msgid "%s is needed to open this door"
-msgstr "%s huwa meħtieġ biex jinfetħu dan il-bieb"
+msgstr "%s hija meħtieġa biex tinfetaħ dan il-bieb"
 
 msgid "This door is locked"
 msgstr "Dan il-bieb huwa maqful"
@@ -950,7 +950,7 @@ msgid "A pickaxe lent to you by Borgan"
 msgstr "A pickaxe mislufa lilek mill Borgan"
 
 msgid "Fire Burner Key"
-msgstr "Fire Burner Ewlenin"
+msgstr "Fire Burner ewlenin"
 
 msgid "Potion Room Key"
 msgstr "Potion Room ewlenin"
@@ -983,7 +983,7 @@ msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr "I bżonn Tentacle Ħama aħmar u 3 Gazer għajnejn li jagħmlu l-potion"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "I still bżonn Flixkun Battal li tqiegħed il-potion fi"
+msgstr "I still bżonn Flixkun Battal li tqiegħed il-potion fl -"
 
 msgid "So this is the Fortress."
 msgstr "Allura dan huwa l-Fortress."
@@ -1175,7 +1175,7 @@ msgid "Finally, one final split will produce very small versions which are compl
 msgstr "Fl-aħħarnett, wieħed maqsum finali se tipproduċi ħafna verżjonijiet żgħar li huma kompletament ma jagħmlux ħsara u f'dan l-istat jistgħu sempliċement jiżdiedu fuq"
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
-msgstr "Jekk partijiet kollha tagħha jkunu għadhom ħajjin, ta 'splitter ser tirriforma ruħha wara filwaqt li l-fejqan u feriti tagħha"
+msgstr "Jekk il-partijiet kollha tagħha jkunu għadhom ħajjin, ta 'splitter se tirriforma ruħha wara filwaqt li l-fejqan u feriti tagħha"
 
 msgid "Grub, Red"
 msgstr "Toqob, Red"
@@ -1187,7 +1187,7 @@ msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
 msgstr "Malli jilħaq il-maturità li se jifformaw Cocoon u morph fi wasp"
 
 msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
-msgstr "Xi madanakollu se morph fi wasp reġina. Dawn l-irġejjen tista 'tipproduċi mukus-like sustanza li kapaċi jżomm priża tiegħu fis-seħħ"
+msgstr "Xi madankollu se morph fi wasp reġina. Dawn l-irġejjen tista 'tipproduċi mukus-like sustanza li kapaċi jżomm priża tiegħu fis-seħħ"
 
 msgid "Tortoise, Master"
 msgstr "Fekruna, Master"
@@ -1196,7 +1196,7 @@ msgid "Master Tortoises are frightening beasts. Found in far away lands they pos
 msgstr "Fkieren Master beasts huma biża. Jinsabu fil-bogħod artijiet għandhom il-kapaċità li jiġi mibdul kapijiet tagħhom"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
-msgstr "Jikkombinaw kollha l-abilitajiet ta 'l-kuġini tagħhom li jieħdu nifs nar, toħloq is-silġ u electrify infushom"
+msgstr "Jikkombinaw kollha kuġini ta 'l-abilitajiet tagħhom li jieħdu nifs nar, toħloq is-silġ u electrify infushom"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
 msgstr "U ovvjament huma wkoll impervja għal attakki minn tqabbil elementi, jassorbu l-enerġija għall-fejqan infushom"
@@ -1208,7 +1208,7 @@ msgid "In this state they will smash through any defense and produce Dark Matter
 msgstr "F'dan l-istat huma se smash permezz ta 'kwalunkwe difiża u jipproduċu Dark Matter li jeqred xi ħaġa li tmiss"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
-msgstr "Madankollu, il-qoxra ta 'Tortoise Master rampaging huwa ferm maġika u huwa ingredjent essenzjali meta jinħoloq magics qawwi u oġġetti"
+msgstr "Madankollu, il-qoxra ta 'Tortoise Master rampaging huwa ferm maġika u huwa ingredjent essenzjali meta jinħoloq magics qawwija u oġġetti"
 
 msgid "Venus Flytrap"
 msgstr "Venus Flytrap"
@@ -1229,7 +1229,7 @@ msgid "The most common reason to summon this beast is to act as a bodyguard"
 msgstr "Ir-raġuni l-aktar komuni li jsejħu din kruha huwa biex jaġixxi bħala gwardja tas-sigurtà"
 
 msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
-msgstr "M'hemm l-ebda mod magħruf li joqtlu Grimlore peress fuq ssofri ġrieħi kritiku se sempliċement lura għall-dimensjoni tagħha stess"
+msgstr "M'hemm l-ebda mod magħruf li joqtlu Grimlore peress fuq ssofri ġrieħi kritiku se sempliċement lura għall-akbar dimensjoni tagħha stess"
 
 msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
 msgstr "Iżda anke dannu huwa kompitu monumentali. Kull min jiltaqgħu ma 'dan il-kreatura hi rakkomandata għal-ħrib kif jista' jkun malajr"
@@ -1343,7 +1343,7 @@ msgid "This lift is not working. I won't be able to use it until I restore the p
 msgstr "Dan il-lift huwa mhux qed jaħdem. I mhux ser ikunu jistgħu jużaw dan sal I jirrestawra l-enerġija"
 
 msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
-msgstr "Dik il-ħġieġ jistenna wisq ħoxna biex nagħmel xquq, I'll jkollhom isibu xi mod ieħor ta 'jitfarrku li ..."
+msgstr "Jistenna li l-ħġieġ oħxon wisq għalija li xquq, I'll jkollhom isibu xi mod ieħor ta 'jitfarrku li ..."
 
 msgid "Up"
 msgstr "Fuq"
@@ -1586,7 +1586,7 @@ msgid "Use the instructions to guide the robot to open areas that you cannot acc
 msgstr "Uża l-istruzzjonijiet sabiex tiggwida l-robot biex tiftaħ l-oqsma li inti ma tistax aċċess"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
-msgstr "Madankollu, peress li inti ma tista 'taqra l-istruzzjonijiet fuq il-karta, ser ikollok li jippruvawhom kollha barra waħda sa xogħlijiet"
+msgstr "Madankollu, peress li inti ma tista 'taqra l-istruzzjonijiet fuq il-karta, ser ikollok li jippruvawhom kollha barra sakemm wieħed jaħdem"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
 msgstr "Jekk il-robot ma jilħaq il-mira tiegħu, allura huwa ser jerġa 'pożizzjoni tal-bidu tagħha jippermetti li inti erġa' pprova"
@@ -1848,4 +1848,67 @@ msgstr "I biss bżonn issib ieħor jipproteġu lill enchant"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Inti mhux se jkunu kapaċi jiksbu l-ilqugħ fil din il-verżjoni, għalhekk iċċekkja iktar tard back!"
+
+msgid "Its wounds are already healing..."
+msgstr "Ġrieħi tiegħu huma diġà fejqan ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Jekk inti ikkumpilata l-logħba mis-sors, inti għandek bżonn tagħmel għamla jinstallaw"
+
+msgid "It's sleeping"
+msgstr "Huwa l-irqad"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "I'm sikur xorta waħda peress li f'dan ir-gaġġa ..."
+
+msgid "Where's the switch?"
+msgstr "Meta l-bidla?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, hawn hu!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Dan ġeneratur jistenna OK, hija biss mhux fuq"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "I raden setgħat dak il-bieb, so I'll għandhom dawwar fuq"
+
+msgid "A Yellow Gem"
+msgstr "A Gem Isfar"
+
+msgid "Failed to open PAK file %s"
+msgstr "Naqset milli tiftaħ PAK fajl %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Sib mod sabiex jitneħħew l-Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata l Gem Isfar"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Il-boxxla li kienet mgħassa l-Minjiera ma kienx fil-verżjoni preċedenti"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Għaliex huwa f'dan il-verżjoni inti mhux se jkun jista jħalli"
+
+msgid "You will now be transported outside"
+msgstr "Inti issa se jiġu trasportati barra mill -"
+
+msgid "We apologize for the inconvenience"
+msgstr "Aħna ruhna ghall-inkonvenjenza"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "I għandhom ikunu bla periklu sa hawn, imma għandi bżonn biex jeħles minnu"
+
+msgid "Book"
+msgstr "Ktieb"
+
+msgid "Sign"
+msgstr "Sign"
+
+msgid "Note"
+msgstr "Nota"
 

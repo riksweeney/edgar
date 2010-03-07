@@ -36,7 +36,7 @@ msgstr "Bumba"
 msgid "Small Rock"
 msgstr "Small Rock"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Preses rīcība, lai iegūtu Purple Gem"
 
 msgid "Chicken"
@@ -160,7 +160,7 @@ msgid "This door is locked"
 msgstr "Šīs durvis ir aizslēgtas"
 
 msgid "This teleporter is not active"
-msgstr "Šī Teleporter nav aktīvi"
+msgstr "Šī Teleporter nav aktīvs"
 
 msgid "Press Action to go to the %s"
 msgstr "Preses darbība iet uz %s"
@@ -310,7 +310,7 @@ msgid "Right..."
 msgstr "Right ..."
 
 msgid "Here, have my shield and have fun!"
-msgstr "Te ir mans vairogs un ir jautri!"
+msgstr "Šeit ir mans vairogs un ir jautri!"
 
 msgid "Just stay away from the Forbidden Swamp"
 msgstr "Tikai apturēt prom no Forbidden Swamp"
@@ -1546,7 +1546,7 @@ msgid "A statue of a Tortoise. It has 4 legs."
 msgstr "Statuja Tortoise. Tas ir 4 kājas."
 
 msgid "A Tuning Fork"
-msgstr "Tuning Fork"
+msgstr "Kamertonis"
 
 msgid "A chopped log"
 msgstr "Sasmalcinātas log"
@@ -1747,7 +1747,7 @@ msgid "Master Key"
 msgstr "Master Key"
 
 msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
-msgstr "Burvis ir jāņem Dad viņa pili. Es ņemšu lai glābtu viņu no turienes."
+msgstr "Burvis ir jāņem Dad viņa pili. Es ņemšu to glābt viņu no turienes."
 
 msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr "Vienīgais veids, kā nokļūt līdz pils ir ar Aizliegts purva uz Austrumiem."
@@ -1828,7 +1828,7 @@ msgid "A liquid made from eyeballs and tentacles"
 msgstr "Šķidrums izgatavots no acs āboli un taustekļi"
 
 msgid "Patching your save game. Please wait..."
-msgstr "Lāpīšanu Jūsu glābt spēli. Lūdzu, uzgaidiet ..."
+msgstr "Lāpīšanu jūsu glābt spēli. Lūdzu, uzgaidiet ..."
 
 msgid "Now! Run while it's stunned!"
 msgstr "Tagad! Run, kamēr tas ir sastindzis!"
@@ -1850,4 +1850,67 @@ msgstr "Man tikai vajag atrast citu vairogu, kas apburt"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Jūs nevarēsiet saņemt vairogu šo versiju, tāpēc pārbaudiet vēlreiz vēlāk!"
+
+msgid "Its wounds are already healing..."
+msgstr "Tās brūces jau sadzīšana ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Ja jūs apkopoti spēli no avota, kas jums jādara, make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Es esmu drošs vienalga, jo tas šajā būrī ..."
+
+msgid "Where's the switch?"
+msgstr "Kur ir slēdzis?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, šeit tā ir!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Šis ģenerators izskatās OK, tas vienkārši nav par"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Es domāju, ka pilnvaras, kas durvīm, tāpēc es ņemšu, lai to ieslēgtu"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Neizdevās atvērt PAK failu %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Preses rīcība, lai iegūtu Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Jāatrod veids, lai novērstu Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Preses rīcība, lai iegūtu Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Priekšnieks, kas bija apsardze mīnu nav bijusi iepriekšējā versijā"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Jo tas ir šajā versijā jūs nevarēsiet atstāt"
+
+msgid "You will now be transported outside"
+msgstr "Jums tagad būs transportēta uz vietu ārpus"
+
+msgid "We apologize for the inconvenience"
+msgstr "Mēs atvainojamies par neērtībām"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Es būtu droši šeit, bet man ir nepieciešams, lai atbrīvotos no tā"
+
+msgid "Book"
+msgstr "Grāmata"
+
+msgid "Sign"
+msgstr "Sign"
+
+msgid "Note"
+msgstr "Atzīmēt"
 

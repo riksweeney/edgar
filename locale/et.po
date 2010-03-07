@@ -35,7 +35,7 @@ msgstr "Pomm"
 msgid "Small Rock"
 msgstr "Väike Rock"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Press Action laadida Purple Gem"
 
 msgid "Chicken"
@@ -234,7 +234,7 @@ msgid "Trap Door Switch Key"
 msgstr "Trap Door Switch Key"
 
 msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr "See lift ei ole õigust. Ma ei saa seda kasutada enne, kui ma taastada võimsus"
+msgstr "See lift puudub pädevus. Ma ei saa seda kasutada enne, kui ma taastada võimsus"
 
 msgid "Keep practising!"
 msgstr "Hoidke praktiseerivad!"
@@ -654,7 +654,7 @@ msgid "Press z again to close your inventory"
 msgstr "Press z uuesti sulgeda oma nimekirja"
 
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
-msgstr "Vahel surmannut vaenlaste langeb tervisele, mis kaob mõne sekundi pärast, et selle kätte kiiresti!"
+msgstr "Vahel tapetud vaenlaste langeb tervisele, mis kaob mõne sekundi pärast, et selle kätte kiiresti!"
 
 msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
 msgstr "Kui nahkhiir on saada ligi teie hoidke plokk ja see ohutult põrge eemal"
@@ -672,7 +672,7 @@ msgid "To open a locked door that you have the key for, simply walk into it. The
 msgstr "Avada lukustatud uks, et teil on võti, lihtsalt kõndida ta. Ei ole vaja olla oluline valitud oma nimistusse."
 
 msgid "Open the door and continue to the right"
-msgstr "Ava uks ja on jätkuvalt õigus"
+msgstr "Ava uks ja jätkuvalt õigus"
 
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
 msgstr "Õnnitlused! Nüüd sa tead põhitõdesid mängivad võiksid proovida peamine mäng"
@@ -687,7 +687,7 @@ msgid "Press Space when you have finished reading to go to the next dialog box"
 msgstr "Press Space Kui olete lõpetanud lugemise minna järgmine dialoogiboks"
 
 msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr "Võite ka liikuda järgmisele dialoogiboksis vajutades Attack (vasakul CTRL), plokk (vasak alt), Jump (kosmos) Action (c) või nende kasutamise Punkt ()"
+msgstr "Võite ka liikuda järgmisele dialoogiboksis vajutades Attack (vasak CTRL), Block (vasak alt), Jump (kosmos) Action (c) või nende kasutamise Punkt ()"
 
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
 msgstr "See on juhendaja jaoks Legend of Edgar. See õpetus on selgitatud, kuidas mängida."
@@ -786,10 +786,10 @@ msgid "You must be facing the attack to succesfully block it"
 msgstr "Sa pead olema ees rünnaku edukalt blokeerida,"
 
 msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
-msgstr "Pange tähele, et te ei saa liikuda, samal ajal sulgeda, kuid te võite tulla muul viisil. Sa ei saa ka ploki õhku"
+msgstr "Pange tähele, et te ei saa liikuda, samal ajal sulgeda, kuid te võite tulla muul viisil. Samuti ei saa blokeerida õhus"
 
 msgid "Pick up the shield and continue to the right"
-msgstr "Pick up kilp ning jätkuvalt õigus"
+msgstr "Pick up kilp ja jätkuvalt õigus"
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
 msgstr "See on nõrk seina, saab seda puruks ette kasutades kirgas"
@@ -1077,7 +1077,7 @@ msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr "Blend Gazer silmad ja Muda kombits arvesse sujuv vedeliku"
 
 msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
-msgstr "Lisa liitsõnas rasvkude ja kondid võetakse pada ja segada koos segatud Gazer silmad ja Muda kombits"
+msgstr "Lisa juur,-rasv ja kondid võetakse pada ja segada koos segatud Gazer silmad ja Muda kombits"
 
 msgid "When the mixture turns bright blue, add the shield"
 msgstr "Kui segu muutub ere sinine, lisada kilp"
@@ -1836,7 +1836,7 @@ msgid "Wow, that thing is huge!"
 msgstr "Vau, et asi on SUUR!"
 
 msgid "I doubt my sword will even make a scratch, but I need to get past it..."
-msgstr "Kahtlen, minu mõõk isegi teha nullist, aga mul on vaja saada mineviku see ..."
+msgstr "Ma kahtlen, mu mõõk ka teha tühjalt kohalt, aga mul on vaja saada mineviku see ..."
 
 msgid "I have everything I need now"
 msgstr "Mul on kõik, ma pean nüüd"
@@ -1849,4 +1849,67 @@ msgstr "Ma pean lihtsalt leidma teise kilbiga, et võluma"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Sa ei saa saada kilp seda versiooni, et vaadata hiljem tagasi!"
+
+msgid "Its wounds are already healing..."
+msgstr "Tema haavad on juba ravi ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Kui olete koostanud mängu allikast, sa pead tegema, make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Ma olen ohutu niikuinii, sest see on selle puuri ..."
+
+msgid "Where's the switch?"
+msgstr "Kus vahetada?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, see siin on!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "See generaator välja OK, see lihtsalt ei ole kohta"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Ma arvan, et volitused, et ukse, nii et ma pean pöörduma selle"
+
+msgid "A Yellow Gem"
+msgstr "Kollane Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open PAK fail %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Press Action laadida Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Leia viis eemaldada Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Press Action laadida Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Boss, et oli valve Kaevandus ei olnud eelmise versiooni"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Sest see on see versioon ei saa jätta"
+
+msgid "You will now be transported outside"
+msgstr "Nüüd tuleb transportida väljaspool"
+
+msgid "We apologize for the inconvenience"
+msgstr "Me vabandame ebamugavuste pärast"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ma peaks olema ohutu siin, aga mul on vaja lahti saada sellest"
+
+msgid "Book"
+msgstr "Raamat"
+
+msgid "Sign"
+msgstr "Logi sisse"
+
+msgid "Note"
+msgstr "NB!"
 

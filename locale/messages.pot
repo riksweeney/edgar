@@ -1853,7 +1853,7 @@ msgstr ""
 msgid "Its wounds are already healing..."
 msgstr ""
 
-msgid "If you compiled the game from source, you need to do a make install\n"
+msgid "If you compiled the game from source, you need to do a make install"
 msgstr ""
 
 msgid "It's sleeping"
@@ -1877,5 +1877,38 @@ msgstr ""
 msgid "A Yellow Gem"
 msgstr ""
 
-msgid "Failed to open PAK file %s\n"
+msgid "Failed to open PAK file %s"
+msgstr ""
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr ""
+
+msgid "Find a way to remove the Gem..."
+msgstr ""
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr ""
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr ""
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr ""
+
+msgid "You will now be transported outside"
+msgstr ""
+
+msgid "We apologize for the inconvenience"
+msgstr ""
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr ""
+
+msgid "Book"
+msgstr ""
+
+msgid "Sign"
+msgstr ""
+
+msgid "Note"
 msgstr ""

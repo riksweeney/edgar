@@ -76,7 +76,7 @@ static void attack()
 	int channel;
 	long onGround = (self->flags & ON_GROUND);
 
-	if (self->target == NULL)
+	if (self->target == NULL || (self->target->type != PLAYER && self->target->health <= 0))
 	{
 		findPrey();
 	}

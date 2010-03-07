@@ -24,7 +24,7 @@ msgid "Not working in this version!"
 msgstr "No funciona en esta versión!"
 
 msgid "Press Action to interact"
-msgstr "Prensa de acción para interactuar"
+msgstr "Prensa de Acción para interactuar"
 
 msgid "%s is required"
 msgstr "%s se requiere"
@@ -35,8 +35,8 @@ msgstr "Bomba"
 msgid "Small Rock"
 msgstr "Pequeño Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Prensa acción para recuperar Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Prensa acción para recuperar la gema púrpura"
 
 msgid "Chicken"
 msgstr "Pollo"
@@ -219,7 +219,7 @@ msgid "Flow Control Key"
 msgstr "Número de control de flujo"
 
 msgid "Waste Processing Key"
-msgstr "Procesamiento de Residuos número"
+msgstr "Clave de procesamiento de residuos"
 
 msgid "Access Key 1"
 msgstr "Tecla de acceso 1"
@@ -480,7 +480,7 @@ msgid "Drat, the drawbridge is up. There must be another entrance..."
 msgstr "¡Caramba, el puente levadizo está para arriba. Tiene que haber otra entrada ..."
 
 msgid "Wait, what's that?"
-msgstr "Espera, qué es eso?"
+msgstr "Espera, ¿qué es eso?"
 
 msgid "Maybe I could tunnel my way in..."
 msgstr "Tal vez podría túnel in my way .."
@@ -930,7 +930,7 @@ msgid "A bow"
 msgstr "Un arco"
 
 msgid "Small Wooden Shield"
-msgstr "Small Escudo de madera"
+msgstr "Pequeñas de madera Shield"
 
 msgid "A small shield that provides basic protection"
 msgstr "Un pequeño escudo que proporciona una protección básica"
@@ -1719,7 +1719,7 @@ msgid "It's a portrait"
 msgstr "Es un retrato"
 
 msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
-msgstr "Ese espíritu no va a dejar que me pasado, voy a tener que encontrar una manera de deshacerse de él"
+msgstr "Ese espíritu no se me va a dejar el pasado, voy a tener que encontrar una manera de deshacerse de él"
 
 msgid "Reset switches allow you to reset an object's position on the map"
 msgstr "Perdí mi interruptores le permitirá reajustar la posición de un objeto en el mapa"
@@ -1849,4 +1849,67 @@ msgstr "Solo tengo que encontrar otro escudo para encantar"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Usted no será capaz de obtener el escudo en esta versión, así que de nuevo más tarde!"
+
+msgid "Its wounds are already healing..."
+msgstr "Sus heridas ya la curación ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Si se ha compilado el juego de la fuente, que tiene que hacer un make install"
+
+msgid "It's sleeping"
+msgstr "Está durmiendo"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Estoy seguro de todos modos, ya que es en esa jaula ..."
+
+msgid "Where's the switch?"
+msgstr "¿Dónde está el interruptor?"
+
+msgid "Ah, here it is!"
+msgstr "¡Ah, aquí está!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Este generador se ve bien, sólo que no está en"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Supongo que los poderes de esa puerta, así que voy a tener que encender"
+
+msgid "A Yellow Gem"
+msgstr "Una gema amarilla"
+
+msgid "Failed to open PAK file %s"
+msgstr "No se pudo abrir el archivo PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Prensa acción para recuperar Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Encontrar una manera de eliminar la gema ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Prensa acción para recuperar la gema amarilla"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "El jefe que estaba custodiando la mina no estaba en la versión anterior"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Debido a que es en esta versión no será capaz de dejar"
+
+msgid "You will now be transported outside"
+msgstr "Ahora será transportado fuera de"
+
+msgid "We apologize for the inconvenience"
+msgstr "Pedimos disculpas por las molestias"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Debo estar seguro aquí, pero tengo que deshacerme de él"
+
+msgid "Book"
+msgstr "Libro"
+
+msgid "Sign"
+msgstr "Regístrate"
+
+msgid "Note"
+msgstr "Nota"
 

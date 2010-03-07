@@ -78,6 +78,7 @@ static void sawAttackStart(void);
 static void sawAttack(void);
 static void sawAttackFinish(void);
 static void chargeAttack(void);
+static void chargeFinish(void);
 static void stunned(void);
 static void stunWake(void);
 static void activate(int);
@@ -233,7 +234,7 @@ static void wait()
 
 		if (self->thinkTime <= 0)
 		{
-			self->thinkTime = 120 + (prand() % 120);
+			self->thinkTime = (prand() % 120);
 
 			self->dirX = self->face == RIGHT ? self->speed : -self->speed;
 
@@ -260,7 +261,7 @@ static void lookForPlayer()
 			{
 				self->thinkTime = 60;
 	
-				self->maxThinkTime = 3;
+				self->maxThinkTime = 4;
 				
 				self->dirX = 0;
 				
@@ -327,7 +328,7 @@ static void tongueAttackStart()
 	self->dirX = 0;
 
 	self->maxThinkTime = 0;
-
+	
 	setEntityAnimation(self, ATTACK_1);
 
 	self->animationCallback = &tongueAttack;
@@ -408,7 +409,7 @@ static void tongueAttackFinish()
 	self->frameSpeed = -1;
 
 	setEntityAnimation(self, ATTACK_1);
-
+	
 	self->animationCallback = &attackFinished;
 
 	checkToMap(self);
@@ -418,7 +419,7 @@ static void tongueAttackFinish()
 
 static void tongueMove()
 {
-	if (abs(self->mental) < 320)
+	if (abs(self->mental) < 350)
 	{
 		self->x += self->face == LEFT ? -self->speed : self->speed;
 
@@ -597,6 +598,11 @@ static void attackFinished()
 	self->frameSpeed = 1;
 
 	setEntityAnimation(self, STAND);
+	
+	if (self->maxThinkTime == 10)
+	{
+		regenerateArmour();
+	}
 
 	self->thinkTime = 0;
 
@@ -674,6 +680,8 @@ static void takeDamage(Entity *other, int damage)
 
 			else
 			{
+				setEntityAnimation(self, PAIN);
+				
 				playSoundToMap("sound/boss/armour_boss/die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 				
 				self->damage = 0;
@@ -703,6 +711,8 @@ static void takeDamage(Entity *other, int damage)
 			self->face = self->face == RIGHT ? LEFT : RIGHT;
 
 			self->action = &panic;
+			
+			self->thinkTime = 0;
 		}
 	}
 }
@@ -719,12 +729,14 @@ static void panic()
 
 static void regenerateHealth()
 {
+	#if DEV == 1
 	if (strcmpignorecase(self->name, "boss/armour_boss") != 0)
 	{
 		printf("%s shouldn't regenerate!\n", self->name);
 
 		abort();
 	}
+	#endif
 
 	self->health += 3;
 
@@ -816,12 +828,6 @@ static void regenerateArmour()
 {
 	int i;
 	Entity *e, *prev;
-	
-	e = NULL;
-	
-	prev = NULL;
-	
-	return;
 
 	if (self->target == NULL)
 	{
@@ -1038,8 +1044,6 @@ static void sawWait()
 	{
 		playSoundToMap("sound/boss/armour_boss/saw_start.ogg", -1, self->x, self->y, 0);
 		
-		printf("Assigned sound to channel %d\n", self->health);
-		
 		self->thinkTime = 60 + (self->maxThinkTime * 30);
 
 		setEntityAnimation(self, WALK);
@@ -1089,8 +1093,6 @@ static void sawAttackStart()
 
 		self->endX = self->dirX;
 		self->endY = self->dirY;
-
-		printf("Moving to player with %f %f (%f %f)\n", self->dirX, self->dirY, self->endX, self->endY);
 	}
 }
 
@@ -1111,6 +1113,8 @@ static void sawAttack()
 
 			self->dirX *= 6;
 			self->dirY *= 6;
+			
+			self->thinkTime = 360;
 
 			self->action = &sawAttackFinish;
 		}
@@ -1149,11 +1153,11 @@ static void sawAttack()
 
 			e->thinkTime = 20 + (prand() % 30);
 
-			e->health = 255;
+			e->health = 220;
 
-			e->maxHealth = 0;
+			e->maxHealth = 220;
 
-			e->mental = 255;
+			e->mental = 0;
 		}
 	}
 
@@ -1183,9 +1187,10 @@ static void sawAttack()
 
 static void sawAttackFinish()
 {
-	if (atTarget())
+	if (atTarget() || self->thinkTime <= 0)
 	{
-		printf("Stopping sound channel %d\n", self->health);
+		self->x = self->startX;
+		self->y = self->startY;
 		
 		stopSound(self->health);
 		
@@ -1209,6 +1214,8 @@ static void sawAttackFinish()
 		self->x += self->dirX;
 		self->y += self->dirY;
 	}
+	
+	self->thinkTime--;
 }
 
 static void armourTakeDamage(Entity *other, int damage)
@@ -1325,7 +1332,7 @@ static void gemWait()
 
 	self->y = self->head->y + self->offsetY;
 
-	if (self->head->active == TRUE && self->mental > 0)
+	if (self->head->active == TRUE && self->head->mental == 0)
 	{
 		self->thinkTime--;
 
@@ -1333,7 +1340,7 @@ static void gemWait()
 		{
 			setInfoBoxMessage(120, _("Find a way to remove the Gem..."));
 
-			self->thinkTime = 3600;
+			self->thinkTime = 7200;
 		}
 	}
 }
@@ -1472,17 +1479,32 @@ static void chargeAttackTouch(Entity *other)
 		
 		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
-		setPlayerStunned(120);
-		
-		setCustomAction(&player, &invulnerable, 180, 0, 0);
+		setCustomAction(other, &invulnerable, 30, 0, 0);
+		setCustomAction(other, &helpless, 30, 0, 0);
 
-		other->dirX = (9 + prand() % 3) * (self->face == LEFT ? -1 : 1);
-		other->dirY = -15;
+		setPlayerStunned(60);
 
-		self->action = &attackFinished;
+		other->dirX = (8) * (self->face == LEFT ? -1 : 1);
+		other->dirY = -8;
 		
-		regenerateArmour();
+		self->thinkTime = 120;
+
+		self->action = &chargeFinish;
 	}
+}
+
+static void chargeFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		regenerateArmour();
+		
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
 }
 
 static void stunned()
@@ -1512,6 +1534,8 @@ static void stunned()
 
 static void stunWake()
 {
+	self->maxThinkTime = 10;
+	
 	self->action = &attackFinished;
 }
 

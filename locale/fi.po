@@ -35,7 +35,7 @@ msgstr "Pommi"
 msgid "Small Rock"
 msgstr "Pieni Rock"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Paina toiminta hakea Purple Gem"
 
 msgid "Chicken"
@@ -249,7 +249,7 @@ msgid "Can I borrow your shield?"
 msgstr "Voinko lainata shield?"
 
 msgid "Off to practice your fighting skills?"
-msgstr "Off harjoitella palontorjuntataitojen?"
+msgstr "Off harjoitella taistelut taitoja?"
 
 msgid "Something like that"
 msgstr "Tuollaista"
@@ -609,7 +609,7 @@ msgid "Looks pretty harmless, I'll try stepping on it"
 msgstr "Näyttää melko harmiton, I'll kokeilla lisäämällä siihen"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr "Ohhoh Se oli siistiä! Tämä on mekaaninen teleporttia."
+msgstr "Vau Se oli siistiä! Tämä on mekaaninen teleporttia."
 
 msgid "I wonder if it works both ways..."
 msgstr "Ihmettelen, jos se toimii molempiin suuntiin ..."
@@ -1200,7 +1200,7 @@ msgid "They combine all the abilities of their cousins to breathe fire, create i
 msgstr "Niissä yhdistyvät kaikki kyvyt ja niiden serkut hengittää tulen, luoda jään ja sähköistää itse"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
-msgstr "Ja tietysti ne ovat myös läpäisemätön hyökkäyksiä vastaavia osia, absorboivat energiaa parantua itse"
+msgstr "Ja tietysti ne myös läpäisemätön hyökkäyksiä vastaavia osia, absorboivat energiaa parantua itse"
 
 msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
 msgstr "Mutta Lisäksi, jos he saavat liikaa energiaa paranemista, ne kehittyvät ja riehua"
@@ -1365,7 +1365,7 @@ msgid "Attack"
 msgstr "Hyökkäystä"
 
 msgid "Block"
-msgstr "Blokki"
+msgstr "Block"
 
 msgid "Action"
 msgstr "Toimen"
@@ -1464,7 +1464,7 @@ msgid "It doesn't look like it can hurt me though, but there's only one way to f
 msgstr "Se ei näytä se voi satuttaa minua kuitenkin, mutta vain yksi tapa saada selville ..."
 
 msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
-msgstr "Tämä hissi on valvottava että paine levyä, mutta en voi sietää sitä ja käyttää hissin samaan aikaan"
+msgstr "Tämä hissi on valvottava, että paine levyä, mutta en voi sietää sitä ja käyttää hissin samaan aikaan"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
 msgstr "I'll on löydettävä jotain muuta kantaa paineen levy minulle ..."
@@ -1509,7 +1509,7 @@ msgid "Centurion Statue"
 msgstr "Centurion Statue"
 
 msgid "Spider Statue"
-msgstr "Spider Patsas"
+msgstr "Spider patsaan"
 
 msgid "Tortoise Statue"
 msgstr "Kilpikonna patsaasta"
@@ -1849,4 +1849,67 @@ msgstr "Minun täytyy löytää toinen kilpeä hurmata"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Et voi saada kilven tässä versiossa, joten tarkista tilanne myöhemmin!"
+
+msgid "Its wounds are already healing..."
+msgstr "Sen haavat ovat jo parantunut ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Jos olet laatinut pelin lähteestä, sinun täytyy tehdä make install"
+
+msgid "It's sleeping"
+msgstr "Se nukkuu"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Olen turvallista tapauksessa, koska se on siinä häkissä ..."
+
+msgid "Where's the switch?"
+msgstr "Missä kytkin?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, tässä se on!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Tämä generaattori näyttää OK, se vain ei ole"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Oletan, että valtuuksia että ovi, joten minun täytyy ottaa se"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open PAK tiedosto %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Paina toiminta hakea Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Löydettävä tapa poistaa Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Paina toiminta hakea Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Pomo, joka vartioi Minun ei ollut edellisessä versiossa"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Koska se on tässä versiossa et voi lähteä"
+
+msgid "You will now be transported outside"
+msgstr "Olet nyt kuljetetaan ulkopuolella"
+
+msgid "We apologize for the inconvenience"
+msgstr "Pahoittelemme häiriötä"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "En olisi turvallista täällä, mutta minun täytyy päästä eroon siitä"
+
+msgid "Book"
+msgstr "Kirja"
+
+msgid "Sign"
+msgstr "Merkin"
+
+msgid "Note"
+msgstr "Merkille"
 

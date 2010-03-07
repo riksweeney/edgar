@@ -22,7 +22,7 @@ msgid "Bow"
 msgstr "Bow"
 
 msgid "Not working in this version!"
-msgstr "Ne darbo šioje versija!"
+msgstr "Neveikia šiuo versija!"
 
 msgid "Press Action to interact"
 msgstr "Spauda veiksmų sąveika"
@@ -36,7 +36,7 @@ msgstr "Bomba"
 msgid "Small Rock"
 msgstr "Skalda"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Spauda veiksmų susigrąžinti Purple Gem"
 
 msgid "Chicken"
@@ -304,7 +304,7 @@ msgid "Say, I heard that something happened in that mine a few years ago"
 msgstr "Pasakyk, aš girdėjau, kad kažkas atsitiko, kad mano prieš kelerius metus"
 
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr "Er, yeah, buvo ką norite skambinti  incidentas , bet kad mano dalis buvo uždarytos iki seniai"
+msgstr "Er, yeah, buvo ką norite skambinti  incidentas , bet, kad kasyklos buvo uždaromos dalis iki seniai"
 
 msgid "Right..."
 msgstr "Right ..."
@@ -478,7 +478,7 @@ msgid "There must be something around here..."
 msgstr "Turi būti kažkas maždaug čia ..."
 
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr "Drat, kėlimo tiltu yra pasibaigęs. Turi būti dar vienas įėjimas ..."
+msgstr "Drat, kėlimo tiltu yra pasibaigęs. Turi būti kitas įėjimas ..."
 
 msgid "Wait, what's that?"
 msgstr "Palauk, kas tai?"
@@ -601,7 +601,7 @@ msgid "Phew, I'm glad to be out of there"
 msgstr "Phew, aš džiaugiuosi, kad iš ten"
 
 msgid "Now to get through this swamp"
-msgstr "Dabar gauti per šią pelkę"
+msgstr "Dabar, kad gautumėte per šią pelkę"
 
 msgid "Hey, what's this?"
 msgstr "Ei, kas tai?"
@@ -700,7 +700,7 @@ msgid "To move left and right, use the arrow keys."
 msgstr "Norėdami judėti į kairę ir į dešinę, naudokite rodyklių klavišus."
 
 msgid "To make jump, press space. You can move in the air when jumping."
-msgstr "Padaryti šuolis, paspauskite erdvėje. Jūs galite pereiti į orą, kai šokinėja."
+msgstr "Padaryti šuolis, paspauskite erdvėje. Galite pereiti į orą, kai šokinėja."
 
 msgid "To interact with an item, press c"
 msgstr "Bendrauti su elementą, paspauskite C"
@@ -736,7 +736,7 @@ msgid "Select Configure Controls using the arrow keys and press Return"
 msgstr "Pasirinkite Parametrai Kontrolė naudojant rodyklių klavišus, ir paspauskite Atgal"
 
 msgid "Use the arrow keys to select the control you want to change and press Return."
-msgstr "Naudokite rodyklių klavišus pasirinkite kontrolės norite pakeisti ir spauskite Atgal."
+msgstr "Naudokite rodyklių klavišus pasirinkite kontrolės norite keisti ir paspauskite Atgal."
 
 msgid "Next, press the key that you want to use instead."
 msgstr "Pirmyn, paspauskite klavišą, kurį norite naudoti vietoje."
@@ -1156,7 +1156,7 @@ msgid "Though slow moving, their massive size allows them to simply march throug
 msgstr "Nors ir lėtai juda, jų masinis dydis leidžia jiems tiesiog per kovo any defense"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
-msgstr "Vietoj ginklų, daugelis turi didžiules poliakalės jų naudojimą suplakti žemės ir Dezorientēt grėsmėmis"
+msgstr "Vietoj ginklų, daugelis turi didžiulį poliakalės jų naudojimą suplakti žemės ir Dezorientēt grėsmėmis"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
 msgstr "Nors Pilka Centurionas bus naudojami saugoti išorinį perimetrą, Raudona Centurionas yra žinoma, kad egzistuoja ir yra naudojami siekiant apsaugoti srityse labai svarbu"
@@ -1276,7 +1276,7 @@ msgid "To move Edgar left and right, use the arrow keys."
 msgstr "Pereiti Edgar kairę ir į dešinę, naudokite rodyklių klavišus."
 
 msgid "To make Edgar jump, press space. You can move in the air when jumping."
-msgstr "Norėdami Edgar šuolis, paspauskite erdvėje. Jūs galite pereiti į orą, kai šokinėja."
+msgstr "Norėdami Edgar šuolis, paspauskite erdvėje. Galite pereiti į orą, kai šokinėja."
 
 msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
 msgstr "Nors Jokūbas reikalauja tik jums sugauti 3 savo viščiukų, kodėl negali būti gražus su juo ir sužvejotų kiekių daugiau? Yra 10 klajojo žemėlapis visus"
@@ -1339,7 +1339,7 @@ msgid "Their necks are incredibly elastic and are able to snap at their prey fro
 msgstr "Jų kaklai yra neįtikėtinai lanksti ir gali Snap savo grobį iš labai toli"
 
 msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
-msgstr "Tai turėtų daryti. Tikimės, kad kiti liftas iki Kanalizacijos dabar turėtų būti darbo"
+msgstr "Tai turėtų daryti. Tikimės, kad kiti liftas pagal Kanalizacijos dabar turėtų būti darbo"
 
 msgid "This lift is not working. I won't be able to use it until I restore the power"
 msgstr "Šis keltuvas neveikia. Aš negalėsite naudoti, kol aš vėl galia"
@@ -1606,13 +1606,13 @@ msgid "Maybe this wasn't such a good idea after all..."
 msgstr "Gal tai buvo ne tokia gera idėja, juk ..."
 
 msgid "Obtain 3 Gazer Eyes"
-msgstr "Gauti 3 Stebėtojai Eyes"
+msgstr "Gauti 3 Stebėtojai Akys"
 
 msgid "Obtain 1 Red Sludge Tentacle"
 msgstr "Gauti 1 Red Dumblo Tentacle"
 
 msgid "Find another shield"
-msgstr "Rasti kitas skydo"
+msgstr "Rasti kitas skydas"
 
 msgid "Blend eyeballs and tentacle"
 msgstr "Blend akių obuolius ir Czułek"
@@ -1675,13 +1675,13 @@ msgid "There are 4 reset switches along the lift shaft which must be reset"
 msgstr "Yra 4 reset jungikliai išilgai lifto šachtoje, kurios turi būti iš naujo"
 
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
-msgstr "Būtinai Reset liftas išvengti ilgai eiti atgal į paviršių ..."
+msgstr "Būtinai Reset liftas, siekiant išvengti ilgo Kelionė atgal į paviršių ..."
 
 msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
 msgstr "Ši mašina turi lizdą paties dydžio kaip korteles. Manau, galite naudoti jį kurti naujas instrukcijas."
 
 msgid "To create a new set of instructions you need to insert a blank card"
-msgstr "Norėdami sukurti naują rinkinį instrukcijų jums reikia įterpti tuščią kortelę"
+msgstr "Norėdami sukurti naują nurodymų jums reikia įterpti tuščią kortelę"
 
 msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
 msgstr "Tada jūs būsite paraginti įvesti dėl roboto nurodymų laikytis. Tai daroma taip pat, kaip seka durys"
@@ -1850,4 +1850,67 @@ msgstr "Aš tiesiog reikia rasti kitą skydas pakerėti"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Jūs negalėsite gauti šioje versijoje skydas, todėl patikrinkite, vėliau!"
+
+msgid "Its wounds are already healing..."
+msgstr "Jo žaizdos gijimas jau ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Jei rengiami žaidimą iš šaltinio, ką jums reikia padaryti, kad įdiegti"
+
+msgid "It's sleeping"
+msgstr "Jis miega"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Aš saugus, nes šiaip jis yra, kad narve ..."
+
+msgid "Where's the switch?"
+msgstr "Kur pakeisti?"
+
+msgid "Ah, here it is!"
+msgstr "Ak, štai jis!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Generatorius atrodo gerai, jis tiesiog yra ne"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Manau, kad įgaliojimus, kad durys, taip I'll have to turn it on"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Nepavyko atidaryti failo PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Spauda veiksmų susigrąžinti Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Rasti būdas pašalinti Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Spauda veiksmų susigrąžinti Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Bosas, kuris buvo apsisaugoti šachtoje nebuvo ankstesnėje versijoje"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Kadangi tai yra šioje versijoje jūs negalėsite palikti"
+
+msgid "You will now be transported outside"
+msgstr "Dabar bus gabenami ne"
+
+msgid "We apologize for the inconvenience"
+msgstr "Atsiprašome už nepatogumus"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Norėčiau būti saugus čia, bet man reikia atsikratyti jo"
+
+msgid "Book"
+msgstr "Knyga"
+
+msgid "Sign"
+msgstr "Registruotis"
+
+msgid "Note"
+msgstr "Pastaba"
 

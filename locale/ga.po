@@ -35,8 +35,8 @@ msgstr "Buama"
 msgid "Small Rock"
 msgstr "Bheaga Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Preas Gníomhaíochta a fháil GEM Purple"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Preas Gníomhaíochta a fháil ar an GEM Purple"
 
 msgid "Chicken"
 msgstr "Sicín"
@@ -153,7 +153,7 @@ msgid "%s is required to use this Pressure Plate"
 msgstr "%s Is gá seo a úsáid Bhrú pláta"
 
 msgid "%s is needed to open this door"
-msgstr "%s bhfuil gá le hoscailt an doras"
+msgstr "%s Is gá a oscailt an doras"
 
 msgid "This door is locked"
 msgstr "Tá an doras faoi ghlas"
@@ -219,10 +219,10 @@ msgid "Flow Control Key"
 msgstr "Sreabhadh Rialú Eochrach"
 
 msgid "Waste Processing Key"
-msgstr "Dramhaíola Próiseáil Eochair"
+msgstr "Próiseála Dramhaíola Eochair"
 
 msgid "Access Key 1"
-msgstr "Rochtain 1 Eochair"
+msgstr "Eochair Rochtana 1"
 
 msgid "Access Key 2"
 msgstr "Eochair Rochtana 2"
@@ -522,13 +522,13 @@ msgid "Oh...."
 msgstr "Oh ...."
 
 msgid "Guess I have no choice now."
-msgstr "Tá buille faoi thuairim mé aon rogha anois."
+msgstr "Buille faoi thuairim agam aon rogha anois."
 
 msgid "Hang on Dad, I'm coming..."
 msgstr "Hang ar daid, I'm teacht ..."
 
 msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
-msgstr "Rud atá ceaptha le tarlú anois, ach nach bhfuil sé sa leagan seo. Féach ar ais ina dhiaidh sin!"
+msgstr "Rud atá ceaptha le tarlú anois, ach nach bhfuil sé sa leagan seo. Seiceáil ar ais ina dhiaidh sin!"
 
 msgid "There's a note here"
 msgstr "Tá an nóta anseo"
@@ -597,7 +597,7 @@ msgid "Uh Oh..."
 msgstr "Ó Uh ..."
 
 msgid "Phew, I'm glad to be out of there"
-msgstr "Phew, Tá mé sásta a bheith as ann"
+msgstr "Phew, Tá áthas orm a bheith as ann"
 
 msgid "Now to get through this swamp"
 msgstr "Anois a fháil tríd an swamp"
@@ -660,7 +660,7 @@ msgid "If a bat is getting to close to you, hold block and it will harmlessly bo
 msgstr "Má tá bat ag fáil a dhúnadh leat, a shealbhú bloc agus beidh sé Preab harmlessly as tú"
 
 msgid "Now kill all of the bats in the area!"
-msgstr "Anois a mharú go léir de na bats i réimse!"
+msgstr "Anois a mharú go léir de na bats sa cheantar!"
 
 msgid "There are two types of door in the game. Manual doors and Automatic doors."
 msgstr "Tá dhá chineál de doras sa chluiche. Lámhleabhar doirse agus doirse uathoibríocha."
@@ -1587,7 +1587,7 @@ msgid "Use the instructions to guide the robot to open areas that you cannot acc
 msgstr "Úsáid na treoracha a threorú an robot a oscailt limistéir nach féidir leat rochtain a fháil"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
-msgstr "Mar sin féin, ós rud é nach féidir leat léamh na treoracha ar an gcárta, beidh ort iarracht iad uile amach go dtí aon oibreacha"
+msgstr "Mar sin féin, ós rud é nach féidir leat léamh na treoracha ar an gcárta, beidh ort iarracht iad uile amach go dtí an ceann oibreacha"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
 msgstr "Más rud é nach bhfuil an robot bhaint amach a sprioc, ansin beidh sé ar ais chun a seasamh ag tosú ligean ort iarracht arís"
@@ -1849,4 +1849,67 @@ msgstr "Gá mé díreach tar éis teacht ar sciath eile chun enchant"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Ní bheidh tú in ann a fháil ar an sciath sa leagan seo, agus mar sin a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "Its wounds are already healing..."
+msgstr "A wounds Tá leighis cheana féin ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Má tiomsú tú an cluiche ó fhoinse, is gá duit a dhéanamh ar a shuiteáil"
+
+msgid "It's sleeping"
+msgstr "Baineann sé le codlata"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "I'm sábháilte mar sin féin ó tá sé i go Cage ..."
+
+msgid "Where's the switch?"
+msgstr "I gcás ina's an athrú?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, anseo é!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Breathnaíonn an gineadóir OK, tá sé ní hamháin ar"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Buille faoi thuairim mé sé cumhachtaí go doras, mar sin beidh mé ag dul dó ar"
+
+msgid "A Yellow Gem"
+msgstr "A GEM Buí"
+
+msgid "Failed to open PAK file %s"
+msgstr "Theip ar oscailt Pak comhad %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Preas Gníomhaíochta a fháil Purple GEM"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Aimsigh ar bhealach a bhaint GEM ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Preas Gníomhaíochta a fháil ar an GEM Buí"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "An Boss go raibh an guarding raibh Mine ní sa leagan a bhí roimhe seo"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Toisc go bhfuil sé sa leagan seo ní bheidh tú in ann a fhágáil"
+
+msgid "You will now be transported outside"
+msgstr "Beidh tú ag iompar anois lasmuigh"
+
+msgid "We apologize for the inconvenience"
+msgstr "Gabh ár leithscéal as an míchaoithiúlacht"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ba chóir go mbeadh mé slán suas anseo, ach is gá dom a fháil haitheantas coibhneasta de"
+
+msgid "Book"
+msgstr "Leabhar"
+
+msgid "Sign"
+msgstr "Sínigh"
+
+msgid "Note"
+msgstr "Nóta"
 

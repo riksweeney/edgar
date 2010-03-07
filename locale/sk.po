@@ -24,7 +24,7 @@ msgid "Not working in this version!"
 msgstr "Nepracuje v tejto verzii!"
 
 msgid "Press Action to interact"
-msgstr "Tlačová Akcie na interakciu"
+msgstr "Tlačová Akcia komunikovať"
 
 msgid "%s is required"
 msgstr "%s je potrebné"
@@ -35,7 +35,7 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Rock malý"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Tlačová Akcia pre načítanie Purple Gem"
 
 msgid "Chicken"
@@ -348,7 +348,7 @@ msgid "This must be the coal wants me to mine for him"
 msgstr "To musí byť uhlia chce, aby som za neho dolu"
 
 msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
-msgstr "Nemyslím si, že môj štít bude chrániť ma z tých, ohnivé gule. Budem musieť nájsť silnejší ..."
+msgstr "Nemyslím si, že môj štít bude chrániť ma od tých ohnivej gule. Budem musieť nájsť silnejší ..."
 
 msgid "You won't be able to do this bit in this version, check back later!"
 msgstr "Nebudete schopní urobiť niečo v tejto verzii, skúste neskôr!"
@@ -387,7 +387,7 @@ msgid "I'll give you a sword if you get me 2 chopped logs from the forest and re
 msgstr "Dám vám meč keď mi 2 nasekané drevo z lesa a záchranu aspoň 3 z mojich kurčiat"
 
 msgid "Hello Edgar, what can I do for you today?"
-msgstr "Dobrý deň, Edgar, čo môžem urobiť pre vás dnes?"
+msgstr "Dobrý deň, Edgar, čo môžem urobiť pre teba dnes?"
 
 msgid "Do you have a sword I can borrow?"
 msgstr "Máte meč môžem požičať?"
@@ -441,7 +441,7 @@ msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
 msgstr "Oh, vďaka Edgar, som potrebovala iba 3, ale vďaka za ďalšiu pomoc!"
 
 msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
-msgstr "Tu, Maggie sa mi to zdravie lektvar, ale nemusí to tak prečo ste to?"
+msgstr "Tu, Maggie je mi to zdravie lektvar, ale nemusí to tak prečo ste to?"
 
 msgid "Thanks Jacob"
 msgstr "Thanks Jacob"
@@ -456,7 +456,7 @@ msgid "Maggie made me this health potion but you can have it"
 msgstr "Maggie sa mi to zdravotný nápoj, ale môžete ho mať"
 
 msgid "And this is something very special"
-msgstr "A to je niečo zvláštneho"
+msgstr "A to je niečo zvláštne"
 
 msgid "May this help you on your way to becoming a strong warrior"
 msgstr "Môže to pomôže na vašej ceste stať silný bojovník"
@@ -528,7 +528,7 @@ msgid "Hang on Dad, I'm coming..."
 msgstr "Vydrž Oci, už idem ..."
 
 msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
-msgstr "Niečo, čo sa má diať teraz, ale to nie v tejto verzii. Prosím neskôr!"
+msgstr "Niečo, čo sa má diať teraz, ale to nie je v tejto verzii. Prosím neskôr!"
 
 msgid "There's a note here"
 msgstr "Je tu poznámku tu"
@@ -537,7 +537,7 @@ msgid "I've been trapped down here for what seems like an eternity"
 msgstr "Bol som v pasci sa tu, čo sa zdá ako večnosť"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "Ak chcete dostať z tohto miesta som potrebné 3 Prístup Kľúče k práci výťahy"
+msgstr "Ak chcete dostať z tohto miesta potrebujem 3 Prístup Kľúče k práci výťahy"
 
 msgid "So far I have only found 1"
 msgstr "Zatiaľ som našiel len 1"
@@ -549,7 +549,7 @@ msgid "But spares aren't common and I have run out"
 msgstr "Náhradných dielov, ale nie sú bežné a ja som vybehnúť"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr "Ak sa mi nenájdu cestu von hneď, obávam sa môžu hladovať"
+msgstr "If Nechcem nájsť cestu von hneď, obávam sa môžu hladovať"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
 msgstr "Ak nemám odtiaľto budem trpieť rovnaký osud ..."
@@ -675,7 +675,7 @@ msgid "Open the door and continue to the right"
 msgstr "Otvorte dvere a pokračujte doprava"
 
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
-msgstr "Blahoželáme! Teraz viete, základ hry, mali by ste skúsiť hlavný hry"
+msgstr "Blahoželáme! Teraz viete, základy hry, mali by ste skúsiť hlavný hry"
 
 msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
 msgstr "Ak chcete prehrať tento tutoriál, stlačte Escape a vyberte z menu Výučba"
@@ -771,7 +771,7 @@ msgid "Although only requires you to catch 3 of his chickens, why not be nice to
 msgstr "Aj keď iba vyžaduje, môžete chytiť 3 jeho sliepky, prečo by pekné ho a chytiť viac? K dispozícii je 10 blúdenia vo všetkých máp"
 
 msgid "The shield will protect you from most enemy attacks"
-msgstr "Štít vás ochráni pred väčšinou nepriateľských útokov"
+msgstr "Štít chráni pred väčšinou nepriateľských útokov"
 
 msgid "Some enemy attacks cannot be blocked"
 msgstr "Niektoré nepriateľské útoky nemožno zablokovať"
@@ -1023,7 +1023,7 @@ msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "To musí byť uhlia Borgan chce, aby som za neho dolu"
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
-msgstr "To by mohlo vysvetľovať, prečo že výťah nefungovalo. Poraziť ostatné Odpad by mal obnoviť silu tu."
+msgstr "To by mohlo vysvetľovať, prečo že výťah nefungovalo. Porážať ostatné Odpad by mal obnoviť silu tu."
 
 msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
 msgstr "Musím nájsť 3 Gezeru Oči, 1 červená kalové Tentacle a navyše vytvoriť štít Shield of Fire Resistance"
@@ -1158,7 +1158,7 @@ msgid "Instead of arms, many have huge pile drivers which they use to shake the 
 msgstr "Miesto toho, zbraní, mnohé z nich obrovskú hromadu ovládače, ktoré používajú triasť zem a zmiasť ohrozenia"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Zatiaľ čo Grey Centurions budú použité na ochranu vonkajšieho obvodu, Red Centurions je známe, že existujú a sú využívané k ochrane oblasti veľký význam"
+msgstr "Kým Grey Centurions budú použité na ochranu vonkajšieho obvodu, Red Centurions je známe, že existujú a sú využívané k ochrane oblasti veľký význam"
 
 msgid "Splitter"
 msgstr "Splitter"
@@ -1206,7 +1206,7 @@ msgid "But additionally, if they receive too much energy from healing, they evol
 msgstr "Ale okrem toho, ak sa im dostane príliš veľa energie z liečenia, sa vyvíjať a ísť na rampage"
 
 msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
-msgstr "V tomto stave budú rozbiť napriek akejkoľvek obrany a produkujú Dark Matter, ktorá ničí všetko, čoho sa dotkne"
+msgstr "V tomto stave budú rozbiť cez akejkoľvek obrany a produkujú Dark Matter, ktorá ničí všetko, čoho sa dotkne"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
 msgstr "Avšak, škrupiny vyčíňanie Master Želva je veľmi čarovné a je základným prvkom pri vytváraní silnej mágie a predmety"
@@ -1443,7 +1443,7 @@ msgid "Teleporter Access Key 2"
 msgstr "Teleport Prístupový kľúč 2"
 
 msgid "Teleporter Access Key 3"
-msgstr "Prístupový kľúč teleport 3"
+msgstr "Teleport Prístupový kľúč 3"
 
 msgid "Laboratory"
 msgstr "Laboratórium"
@@ -1695,7 +1695,7 @@ msgid "If the directions aren't correct you can try again"
 msgstr "Ak sa pokyny nie sú správne, môžete skúsiť znova"
 
 msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-msgstr "Toto miesto je blázon, radšej poponáhľať a nájsť otca, ako som sa nakoniec dostat zabil!"
+msgstr "Toto miesto je blázon, radšej poponáhľať a nájsť otca, ako som sa nakoniec dostať zabil!"
 
 msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
 msgstr "Tak, že na vytvorenie Fire Shield musím Red kalov chapadla"
@@ -1764,7 +1764,7 @@ msgid "Could not find Medal Key"
 msgstr "Nemožno nájsť Medal Key"
 
 msgid "You will not be able to earn Medals for this game"
-msgstr "Nebudete môcť získať medaily pre túto hru"
+msgstr "Nebudete môcť získať medaily na túto hru"
 
 msgid "There's another sign here"
 msgstr "Je tu ďalší znamenie tu"
@@ -1773,7 +1773,7 @@ msgid "If the exit lift is out of order then proceed to the left"
 msgstr "Je-li výstup je výťah mimo prevádzku, potom pokračujte doľava"
 
 msgid "Warning : Exit route may be hazardous"
-msgstr "Upozornenie: Koniec trasy môžu byť nebezpečné"
+msgstr "Upozornenie: Koniec trasy môže byť nebezpečný"
 
 msgid "Maybe I should use the lift to get out"
 msgstr "Možno by som mal použiť výťah sa dostať von"
@@ -1849,4 +1849,67 @@ msgstr "Len potrebujem nájsť iný štít očarí"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Nebudete schopní získať štít v tejto verzii, tak to prosím neskôr!"
+
+msgid "Its wounds are already healing..."
+msgstr "Jej hojenie rany sú už ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Ak máte zostavený hra od zdroja, čo potrebujete urobiť, make install"
+
+msgid "It's sleeping"
+msgstr "Je to spiaci"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Ja som rovnako bezpečné, pretože je v klietke, že ..."
+
+msgid "Where's the switch?"
+msgstr "Kde je vypínač?"
+
+msgid "Ah, here it is!"
+msgstr "Aha, tu to je!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Tento generátor vyzerá OK, to sa jednoducho nedá"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Myslím, že právomoci, ktoré dvere, takže budem musieť zapnúť"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Nepodarilo sa otvoriť súbor PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tlačová Akcia pre načítanie Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Nájsť spôsob, ako odstrániť Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Tlačová Akcia pre načítanie Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Šéf, ktorý strážil dole nebola v predchádzajúcej verzii"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Vzhľadom k tomu, že je v tejto verzii nebudete môcť odísť"
+
+msgid "You will now be transported outside"
+msgstr "Teraz budete prepraví mimo"
+
+msgid "We apologize for the inconvenience"
+msgstr "Ospravedlňujeme sa za spôsobené nepríjemnosti"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Mal by som byť bezpečné tu, ale musím sa toho zbaviť"
+
+msgid "Book"
+msgstr "Kniha"
+
+msgid "Sign"
+msgstr "Prihlásiť"
+
+msgid "Note"
+msgstr "Poznámka:"
 

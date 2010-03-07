@@ -35,8 +35,8 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Små Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Tryk aktion for at hente Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Tryk aktion for at hente den lilla Gem"
 
 msgid "Chicken"
 msgstr "Kylling"
@@ -660,7 +660,7 @@ msgid "If a bat is getting to close to you, hold block and it will harmlessly bo
 msgstr "Hvis en flagermus er at komme til tæt på dig, skal du holde blok, og den vil uskadelig bounce off you"
 
 msgid "Now kill all of the bats in the area!"
-msgstr "Nu dræbe alle de flagermus i området!"
+msgstr "Nu dræbe alle flagermus i området!"
 
 msgid "There are two types of door in the game. Manual doors and Automatic doors."
 msgstr "Der er to typer af døren i spillet. Manual døre og Automatiske døre."
@@ -981,7 +981,7 @@ msgid "It looks like a blender. I could use this to liquidise something"
 msgstr "Det ligner en blender. Jeg kunne bruge dette til at liquidise noget"
 
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
-msgstr "Jeg har brug for en Røde Slam Tentacle og 3 Gazer øjne at gøre potion"
+msgstr "Jeg har brug for en rød Slam Tentacle og 3 Gazer øjne at gøre potion"
 
 msgid "I still need an Empty Bottle to put the potion in"
 msgstr "Jeg har stadig brug for en tom flaske til at sætte potion i"
@@ -1038,7 +1038,7 @@ msgid "Maybe I can create a shield..."
 msgstr "Måske kan jeg oprette et skjold ..."
 
 msgid "Swords... Armour... Wands..."
-msgstr "Sværd ... Panser ... Wands ..."
+msgstr "Sværd ... Armour ... Wands ..."
 
 msgid "Stupid book. It's not in order and there's no index"
 msgstr "Stupid bog. Det er ikke i orden, og der er ingen indeks"
@@ -1059,7 +1059,7 @@ msgid "The root of a Mandrake"
 msgstr "Roden af et Mandrake"
 
 msgid "The fat of a Darsh (left to stand for 3 months)"
-msgstr "Fedtet af en Darsh (fra venstre til at stå for 3 måneder)"
+msgstr "Fedtet af en Darsh (venstre til at stå for 3 måneder)"
 
 msgid "Powered Condor bones"
 msgstr "Powered Condor knogler"
@@ -1332,7 +1332,7 @@ msgid "Venus Flytrap, mobile"
 msgstr "Kødædende Mazda, mobil"
 
 msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
-msgstr "Mobile Venus Flytraps har udviklet rødder, og er i stand til at flytte til deres mad i stedet for at vente på at komme til dem"
+msgstr "Mobile Venus Flytraps har udviklet rødder og er i stand til at flytte til deres mad i stedet for at vente på at komme til dem"
 
 msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
 msgstr "Halsen er utroligt elastisk og er i stand til at snappe efter deres bytte fra en betydelig afstand"
@@ -1560,7 +1560,7 @@ msgid "Right, here goes!"
 msgstr "Ret, her går!"
 
 msgid "I need all the main ingredients"
-msgstr "Jeg har brug alle de vigtigste ingredienser"
+msgstr "Jeg har brug for alle de vigtigste ingredienser"
 
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr "3 Gazer øjne, 1 Rød Slam Tentacle og et ekstra skjold"
@@ -1590,13 +1590,13 @@ msgid "However, since you can't read the instructions on the card, you will have
 msgstr "Men da du ikke kan læse vejledningen på kortet, bliver du nødt til at prøve dem alle ud, indtil en bygge -"
 
 msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
-msgstr "Hvis robotten ikke når sine mål, så det vil vende tilbage til startpositionen giver dig mulighed for at prøve igen"
+msgstr "Hvis robotten ikke når sit mål, så det vil vende tilbage til startpositionen giver dig mulighed for at prøve igen"
 
 msgid "Enter the directions"
 msgstr "Indtast retninger"
 
 msgid "Out of space for instructions"
-msgstr "Tør for plads til instrukser"
+msgstr "Ud af rummet for at få vejledning"
 
 msgid "I need a blank card to put the instructions on"
 msgstr "Jeg har brug for et tomt kort til at lægge vejledningen på"
@@ -1680,7 +1680,7 @@ msgid "This machine has a slot the same size as the cards. I guess I can use it 
 msgstr "Denne maskine har et slot i samme størrelse som kortene. Jeg tror, jeg kan bruge det til at skabe nye instrukser."
 
 msgid "To create a new set of instructions you need to insert a blank card"
-msgstr "Hvis du vil oprette et nyt sæt af instruktioner, du har brug for at indsætte et tomt kort"
+msgstr "Hvis du vil oprette et nyt sæt instruktioner, du har brug for at indsætte et tomt kort"
 
 msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
 msgstr "Du vil derefter blive bedt om at indtaste retninger for robotten til at følge. Dette sker på samme måde som den sekvens døre"
@@ -1849,4 +1849,67 @@ msgstr "Jeg skal bare finde et andet skjold til at fortrylle"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Du vil ikke være i stand til at få skjoldet i denne version, så kig tilbage senere!"
+
+msgid "Its wounds are already healing..."
+msgstr "Sine sår er allerede healing ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Hvis du har kompileret spillet fra kilden, skal du gøre en make install"
+
+msgid "It's sleeping"
+msgstr "Det sover"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Jeg er sikker alligevel, da det er i dette bur ..."
+
+msgid "Where's the switch?"
+msgstr "Where's the switch?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, her er det!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Denne generator ser OK, det er bare ikke på"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Jeg tror det beføjelser, der dør, så jeg er nødt til at tænde den"
+
+msgid "A Yellow Gem"
+msgstr "Et gult Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Kunne ikke åbne PAK fil %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tryk aktion for at hente Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Finde en måde at fjerne Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Tryk aktion for at hente den gule Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Chefen, der blev bevogtede Minen blev ikke i den tidligere version"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Fordi det er i denne version vil du ikke være i stand til at forlade"
+
+msgid "You will now be transported outside"
+msgstr "Du vil nu blive transporteret uden for"
+
+msgid "We apologize for the inconvenience"
+msgstr "Vi undskylder for ulejligheden"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Jeg ville være sikker op her, men jeg har brug for at komme af med det"
+
+msgid "Book"
+msgstr "Bog"
+
+msgid "Sign"
+msgstr "Tilmeld"
+
+msgid "Note"
+msgstr "Bemærk!"
 

@@ -15,13 +15,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr "Snabbt vänster och höger för att skaka av slimes!"
+msgstr "Snabbt sväng vänster och höger för att skaka av slimes!"
 
 msgid "Bow"
 msgstr "Bow"
 
 msgid "Not working in this version!"
-msgstr "Fungerar inte i denna version!"
+msgstr "Not working in this version!"
 
 msgid "Press Action to interact"
 msgstr "Tryck Åtgärder för att interagera"
@@ -35,7 +35,7 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Liten Rock"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Tryck Åtgärder för att hämta Purple Gem"
 
 msgid "Chicken"
@@ -489,7 +489,7 @@ msgid "These machines aren't working."
 msgstr "Dessa maskiner är inte arbetar."
 
 msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
-msgstr "Det ser ut som en pärla ska passa i hålet, kanske jag kan hitta några ersättare."
+msgstr "Det ser ut som en pärla bör passa i hålet, kanske jag kan hitta några ersättare."
 
 msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
 msgstr "Det ser ut som det är tätt inklämd där. Jag kan nog lossa den med hackan ..."
@@ -498,7 +498,7 @@ msgid "To get to the Forbidden Swamp I'll need to build a raft."
 msgstr "För att komma till Förbjudna Swamp jag behöver för att bygga en flotte."
 
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr "Jag kan bygga flotten, om jag hugga ner tillräckligt träd från skogen"
+msgstr "Jag kan bygga flotten om jag hugga ner tillräckligt träd från skogen"
 
 msgid "I need 6 Chopped Logs to build a raft"
 msgstr "Jag behöver 6 hackade Loggar att bygga en flotte"
@@ -543,7 +543,7 @@ msgid "So far I have only found 1"
 msgstr "Hittills har jag bara hittat 1"
 
 msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
-msgstr "För att göra saken värre, kan jag bara når vissa växlar med en väl placerad pil"
+msgstr "För att göra saken ännu värre, kan jag bara når vissa växlar med en väl placerad pil"
 
 msgid "But spares aren't common and I have run out"
 msgstr "Men reservdelar är inte vanliga och jag har tagit slut"
@@ -1188,7 +1188,7 @@ msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
 msgstr "Efter moget de kommer att bilda en kokong och förvandlas till en geting"
 
 msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
-msgstr "Vissa kommer emellertid att förvandlas till en drottning geting. Dessa drottningar kan producera slem-liknande substans som kan hålla sitt offer på plats"
+msgstr "Vissa kommer emellertid att förvandlas till en drottning geting. Dessa drottningar kan producera slem-liknande substans som kan hålla sitt byte på plats"
 
 msgid "Tortoise, Master"
 msgstr "Sköldpadda, Master"
@@ -1197,7 +1197,7 @@ msgid "Master Tortoises are frightening beasts. Found in far away lands they pos
 msgstr "Master Landsköldpaddor är skrämmande odjur. Hittade i fjärran länder de besitter förmågan att förändra sina huvuden"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
-msgstr "De kombinerar alla de förmågor av deras kusiner att andas eld, skapa isen och elektrifieringen sig"
+msgstr "De förenar alla förmågor av deras kusiner att andas eld, skapa isen och elektrifieringen sig"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
 msgstr "Och naturligtvis de också är immuna mot attacker från motsvarande element, absorbera energi att läka sig"
@@ -1272,7 +1272,7 @@ msgid "Besides, what's the worst that could happen?"
 msgstr "Dessutom, vad är det värsta som kan hända?"
 
 msgid "To move Edgar left and right, use the arrow keys."
-msgstr "Att flytta Edgar vänster eller höger med piltangenterna."
+msgstr "Att flytta Edgar vänster och höger, använd piltangenterna."
 
 msgid "To make Edgar jump, press space. You can move in the air when jumping."
 msgstr "Göra Edgar hoppa trycker mellanslag. Du kan flytta i luften när hoppning."
@@ -1641,7 +1641,7 @@ msgid "Creates ice cubes that expand on contact with water"
 msgstr "Skapar isbitar som expanderar vid kontakt med vatten"
 
 msgid "A bottle capable of capturing souls"
-msgstr "En flaska kan fånga själar"
+msgstr "En flaska som kan fånga själar"
 
 msgid "Try using Mataeus's knives against him..."
 msgstr "Prova att använda Mataeus's knivar mot honom ..."
@@ -1849,4 +1849,67 @@ msgstr "Jag måste bara hitta en sköld att förtrolla"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Du kommer inte att kunna få skärmen i denna version, så kontrollera igen senare!"
+
+msgid "Its wounds are already healing..."
+msgstr "Sina sår redan healing ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Om du kompilerat spelet från källan, måste du göra en make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Jag är säker ändå eftersom det är i buren ..."
+
+msgid "Where's the switch?"
+msgstr "Where's the switch?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, här är det!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Generatorn ser OK, det är bara inte"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Jag antar att det befogenhet att dörren, så jag måste vända den på"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Misslyckades med att öppna PAK-fil %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tryck Åtgärder för att hämta Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Hitta ett sätt att ta bort Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Tryck Åtgärder för att hämta Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Den chef som vaktade Min var inte i den tidigare versionen"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Eftersom det är i denna version kommer du inte att kunna lämna"
+
+msgid "You will now be transported outside"
+msgstr "Du kommer nu att transporteras utanför"
+
+msgid "We apologize for the inconvenience"
+msgstr "Vi ber om ursäkt för"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Jag måste vara säkra upp här, men jag måste bli av med den"
+
+msgid "Book"
+msgstr "Bok"
+
+msgid "Sign"
+msgstr "Sign"
+
+msgid "Note"
+msgstr "Obs"
 

@@ -2,5 +2,5 @@ TYPE ENEMY
 GFX_FILE data/gfx/boss/armour_boss_armour.dat
 ANIM_FILE data/anim/boss/armour_boss_armour.dat
 SPEED 2
-HEALTH 70
+HEALTH 50
 FLAGS DO_NOT_PERSIST|FLY

@@ -36,8 +36,8 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Mala Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Pritisnite Ukrep za pridobitev Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Pritisnite Ukrepi za pridobitev Purple Gem"
 
 msgid "Chicken"
 msgstr "Priščanec"
@@ -781,7 +781,7 @@ msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr "Nevarnosti za okolje, na primer spadajo kamenje, ni mogoče ustaviti"
 
 msgid "To block an attack, press and hold block (left alt)."
-msgstr "Za blok napada, pritisnite in pridržite blok (levi alt)."
+msgstr "Če želite blokirati napad, pritisnite in pridržite blok (levi alt)."
 
 msgid "You must be facing the attack to succesfully block it"
 msgstr "Morate biti obrnjeni napad za uspešno preprečijo,"
@@ -793,7 +793,7 @@ msgid "Pick up the shield and continue to the right"
 msgstr "Dvigni ščit, in še naprej pravico"
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr "To je šibko steno, je mogoče razbil določi z uporabo Trnokop"
+msgstr "To je šibko steno, se lahko določi z uporabo razbil Trnokop"
 
 msgid "To use the pickaxe, press Attack (left ctrl)"
 msgstr "Če želite uporabiti Trnokop, da pritisnete Attack (levo ctrl)"
@@ -985,7 +985,7 @@ msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr "Rabim Red Blato Popek in 3 Gazer zrkel, da napoj"
 
 msgid "I still need an Empty Bottle to put the potion in"
-msgstr "Jaz še vedno potrebujejo Empty Bottle, naj v napoj"
+msgstr "Jaz še vedno potreba Empty Bottle, naj v napoj"
 
 msgid "So this is the Fortress."
 msgstr "Torej je to trdnjavo."
@@ -1129,10 +1129,10 @@ msgid "Gazer"
 msgstr "Gazer"
 
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr "Gazers plujejo cycloptic bitja najdemo v različnih krajih"
+msgstr "Gazers ki plujejo cycloptic bitja se nahajajo v različnih krajih"
 
 msgid "Their single eye is usually closed and they rely on sonar for movement"
-msgstr "Njihova eno oko je običajno zaprta in se zanašajo na sonar za gibanje"
+msgstr "Njihova eno oko je običajno zaprta in se zanašajo na sonarja za gibanje"
 
 msgid "They use their strong sense of smell to look out for predator and prey alike"
 msgstr "Uporabljajo svojo močan občutek za vonj pogledati jasno zakaj plenilec in plen podoben"
@@ -1159,7 +1159,7 @@ msgid "Instead of arms, many have huge pile drivers which they use to shake the 
 msgstr "Namesto orožja, mnogi so ogromne kup voznikov, ki jih uporabljajo za stresanje tal in grožnje Dezorijentirati"
 
 msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
-msgstr "Medtem ko se bodo Grey satnika uporabljajo za zaščito zunanjih zunanje meje, Red satnika znano, da obstajajo in se uporabljajo za zaščito zelo pomembna področja"
+msgstr "Medtem ko se bodo Grey satnika uporabljajo za zaščito zunanjih zunanje meje, Red satnika znano, da obstajajo in se uporabljajo za zaščito območja velikega pomena"
 
 msgid "Splitter"
 msgstr "Splitter"
@@ -1168,7 +1168,7 @@ msgid "Splitters are harmless monsters unless attacked."
 msgstr "Izdajalci so neškodljive pošasti, razen če je napadena."
 
 msgid "Upon sustaining too much damage they will split in two and attack their predator"
-msgstr "Po preveč je utrpela škodo, ki jo bo razdeljen na dva dela in njihove napad plenilcev"
+msgstr "Ob preveč je utrpela škodo, ki jo bo razdeljen na dva dela in njihove napad plenilcev"
 
 msgid "If one of these sustains too much damage it will split once again and continue to attack"
 msgstr "Če eno od teh preveč utrpi škode, ki jo bo po delih še enkrat in še naprej napada"
@@ -1183,10 +1183,10 @@ msgid "Grub, Red"
 msgstr "Grub, Red"
 
 msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
-msgstr "Red Grubs so bolj agresivno kot njihovi kolegi in zeleno bo napadel vse gledajo kot grožnjo"
+msgstr "Red Grubs bolj agresivno kot njihovi kolegi in zeleno bo napadel vse gledajo kot grožnjo"
 
 msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
-msgstr "Ko doseže zrelost, da bodo oblike kokonu in morf v wasp"
+msgstr "Na doseže zrelost, da bodo oblike kokonu in morf v wasp"
 
 msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
 msgstr "Nekateri bodo vseeno morf v kraljico osa. Te lahko proizvedejo matic sluz podobno snov, ki lahko imajo svoj plen v mestu"
@@ -1231,7 +1231,7 @@ msgid "The most common reason to summon this beast is to act as a bodyguard"
 msgstr "Najpogostejši razlog za poklicati to zver je delovati kot bodyguard"
 
 msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
-msgstr "Ni znano, tako, da bi ubil Grimlore, saj na ohranjanje kritične poškodbe, ki jih bo preprosto vrniti na svoje razsežnosti"
+msgstr "Ni znano, kako ubiti Grimlore, saj na ohranjanje kritične poškodbe, ki jih bo preprosto vrniti na svoje razsežnosti"
 
 msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
 msgstr "Toda tudi škodo je monumentalni naloga. Kdor se srečujejo to bitje se svetuje, da pobeg v najkrajšem možnem času"
@@ -1850,4 +1850,67 @@ msgstr "Samo je treba najti drugo ščit za očaralo"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Ne boste mogli dobiti ščita v tej verziji, zato preverite znova pozneje!"
+
+msgid "Its wounds are already healing..."
+msgstr "Njegove rane so že celjenje ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Če ste zbrati igra iz vira, kar morate storiti, make install"
+
+msgid "It's sleeping"
+msgstr "It's spanje"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Jaz sem nekako varen, ker je v kletki ..."
+
+msgid "Where's the switch?"
+msgstr "Kje je stikalo?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, tu je!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Ta generator izgleda OK, samo da ni na"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Mislim, da pooblastila, da vrata, tako da bom moral obrniti na"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Napaka pri odpiranju datoteke PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Pritisnite Ukrep za pridobitev Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Najdi način, da odstranite Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Pritisnite Ukrepi za pridobitev Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Šef, da je varovanje Mine ni bilo v prejšnji različici"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Ker je v tej različici ne boste mogli zapustiti"
+
+msgid "You will now be transported outside"
+msgstr "Sedaj boste lahko odpelje"
+
+msgid "We apologize for the inconvenience"
+msgstr "Opravičujemo se vam za neprijetnosti"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Moral bi biti varni tukaj, ampak moram znebiti se to"
+
+msgid "Book"
+msgstr "Knjiga"
+
+msgid "Sign"
+msgstr "Prijava"
+
+msgid "Note"
+msgstr "Opomba"
 

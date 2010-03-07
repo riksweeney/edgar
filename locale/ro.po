@@ -36,7 +36,7 @@ msgstr "Bomba"
 msgid "Small Rock"
 msgstr "Small Rock"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Comunicat de presă de acţiune pentru a prelua Gem Purple"
 
 msgid "Chicken"
@@ -166,7 +166,7 @@ msgid "Press Action to go to the %s"
 msgstr "Comunicat de presă de acţiune pentru a merge la %s"
 
 msgid "Push Up or Down to use this lift"
-msgstr "Push sus sau jos pentru folosi acest lift"
+msgstr "Apăsaţi sus sau jos pentru folosi acest lift"
 
 msgid "This lift is not active"
 msgstr "Acest lift nu este activ"
@@ -211,7 +211,7 @@ msgid "Wood Axe"
 msgstr "Lemn Axe"
 
 msgid "Health Potion"
-msgstr "Sănătate Potion"
+msgstr "De sănătate Poţiunea"
 
 msgid "Outflow Key"
 msgstr "Exodul Cheie"
@@ -646,7 +646,7 @@ msgid "This is the last part of the tutorial and will teach you to block and att
 msgstr "Aceasta este ultima parte a tutorial şi va învăţa să blocheze si ataca inamicii"
 
 msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
-msgstr "În primul rând, ar trebui să echipeze sabia deoarece are gamă mai mult şi nu mai multe daune decât târnăcopul"
+msgstr "În primul rând, ar trebui să echipeze sabie deoarece are gamă mai mult şi nu mai multe daune decât târnăcopul"
 
 msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
 msgstr "Comunicat de presă z pentru a vizualiza inventarul dvs., evidenţiaţi sabia şi apăsaţi Attack (Ctrl stânga) sau de utilizare punctul (a)"
@@ -1249,7 +1249,7 @@ msgid "Looks like they're in alphabetical order though"
 msgstr "Se pare ca acestea sunt, în ordine alfabetică deşi"
 
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr "Noroi, verde ... Noroi, Purple ... Nămolului, verde ..."
+msgstr "Mâzgă, Green ... Noroi, Purple ... Nămolului, verde ..."
 
 msgid "Sludge, Red"
 msgstr "Nămolului, Red"
@@ -1267,7 +1267,7 @@ msgid "Smacker, Lesser..."
 msgstr "Smacker, Lesser ..."
 
 msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
-msgstr "Mare, că e tot ce spune. Eu nici măcar nu ştiu cum să-i spuneţi diferenţa dintre un sex masculin şi feminin. Voi doar să ia o sansa ..."
+msgstr "Mare, asta e tot ce spune. Eu nici măcar nu ştiu cum să-i spuneţi diferenţa dintre un sex masculin şi feminin. Voi doar să ia o sansa ..."
 
 msgid "Besides, what's the worst that could happen?"
 msgstr "În plus, ce-i cel mai rău care se poate intampla?"
@@ -1282,7 +1282,7 @@ msgid "Although Jacob only requires you to catch 3 of his chickens, why not be n
 msgstr "Cu toate că Jacob numai a cere tu la spre catch 3 din pui lui, de ce să nu fi frumos să şi-l prinde mai mult? Există 10 rătăcind harta, în toate"
 
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
-msgstr "Reţineţi că nu toate zidurile slab poate fi distruse cu ajutorul târnăcopul"
+msgstr "Reţineţi că nu toate zidurile slab poate fi distrus cu ajutorul târnăcopul"
 
 msgid "I've already checked, he's not down there..."
 msgstr "Am verificat deja, el nu e acolo jos ..."
@@ -1303,7 +1303,7 @@ msgid "There's a book here about enchanting equipment"
 msgstr "Exista o carte aici despre echipamente de fermecător"
 
 msgid "It's a book about enchanting equipment"
-msgstr "Este o carte despre echipamente de fermecător"
+msgstr "Este o carte despre echipamente de feeric"
 
 msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
 msgstr "Eu nu am nici un motiv pentru a citi acest lucru, dar voi păstraţi-l în minte în cazul în care I a face"
@@ -1453,7 +1453,7 @@ msgid "Empty Bottle"
 msgstr "Flacon gol"
 
 msgid "First Floor Key"
-msgstr "First Floor Cheie"
+msgstr "First Floor Key"
 
 msgid "Press Action to retrieve %s"
 msgstr "Comunicat de presă de acţiune pentru a prelua %s"
@@ -1708,7 +1708,7 @@ msgid "I also need a spare shield, but I reckon there should be an armoury aroun
 msgstr "De asemenea, am nevoie de un scut de schimb, dar Cred că ar trebui să existe un depozit de arme în jurul"
 
 msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
-msgstr "Globilor oculari Gazer sunt destul de uşor, mă pot întoarce doar pentru a subsol"
+msgstr "Glob ocular Gazer sunt destul de uşor, mă pot întoarce doar pentru a subsol"
 
 msgid "OK, off I go..."
 msgstr "OK, off mă duc ..."
@@ -1850,4 +1850,67 @@ msgstr "Am nevoie de a găsi un alt scut pentru a incanta"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Nu veţi fi în stare să mă scutului în această versiune, aşa că verificaţi mai târziu!"
+
+msgid "Its wounds are already healing..."
+msgstr "Vindecarea rănilor sale sunt deja ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Dacă aţi compilat jocul de la sursă, ce trebuie să faci un make install"
+
+msgid "It's sleeping"
+msgstr "Este de dormit"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Sunt sigur oricum, deoarece în această cuşcă ..."
+
+msgid "Where's the switch?"
+msgstr "În cazul în care este comutatorul?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, aici este!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Acest generator pare OK, este pur si simplu nu este pe"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Cred ca puteri că uşa, aşa că va trebui să porniţi-l pe"
+
+msgid "A Yellow Gem"
+msgstr "O Gem galben"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open PAK fişier %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Comunicat de presă de acţiune pentru a prelua Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Gaseste o modalitate de a elimina Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Comunicat de presă de acţiune pentru a prelua Gem galben"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Patron, care a fost paza mina nu a fost în versiunea anterioară"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Pentru că este în această versiune nu va fi capabil să părăsească"
+
+msgid "You will now be transported outside"
+msgstr "Veţi fi acum transportate în afara"
+
+msgid "We apologize for the inconvenience"
+msgstr "Ne cerem scuze pentru neplăcerile create"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Eu ar trebui să fie în siguranţă până aici, dar am nevoie să scap de ea"
+
+msgid "Book"
+msgstr "Carte"
+
+msgid "Sign"
+msgstr "Înregistraţi-vă"
+
+msgid "Note"
+msgstr "Nota"
 
