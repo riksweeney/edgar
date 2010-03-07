@@ -35,8 +35,8 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Kleine Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Druk Actie ophalen Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Druk op Action op te halen de Purple Gem"
 
 msgid "Chicken"
 msgstr "Kip"
@@ -702,7 +702,7 @@ msgid "To make jump, press space. You can move in the air when jumping."
 msgstr "Om te springen, drukt u op de ruimte. U kunt verplaatsen in de lucht bij het springen."
 
 msgid "To interact with an item, press c"
-msgstr "Om te communiceren met een item, druk c"
+msgstr "Om te communiceren met een item, druk op c"
 
 msgid "Walk over to the Action Point and press c"
 msgstr "Loop naar de Action Point en druk op c"
@@ -897,7 +897,7 @@ msgid "A powerful bomb"
 msgstr "Een krachtige bom"
 
 msgid "A potion which renders you invisible to certain enemies"
-msgstr "Een drankje dat maakt je onzichtbaar bepaalde vijanden"
+msgstr "Een drankje dat maakt je onzichtbaar voor bepaalde vijanden"
 
 msgid "The eyeball from a Gazer"
 msgstr "De oogbol van een Gazer"
@@ -1485,7 +1485,7 @@ msgid "You must have the statue you wish to use highlighted in your inventory bo
 msgstr "U moet het beeld dat u wilt gebruiken duidelijk in je inventaris doos"
 
 msgid "Nothing happened. I don't think that's the right order"
-msgstr "Er gebeurde niets. Ik denk niet dat dat de juiste volgorde"
+msgstr "Er gebeurde niets. Ik vind niet dat dat de juiste volgorde"
 
 msgid "Tuning Fork"
 msgstr "Stemvork"
@@ -1849,4 +1849,67 @@ msgstr "Ik moet alleen een andere vinden schild te betoveren"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "U zult niet in staat zijn om het schild in deze versie te krijgen, dus check back later!"
+
+msgid "Its wounds are already healing..."
+msgstr "De wonden zijn al genezen ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Als je het spel vanuit de broncode gecompileerd, moet je doen een make install"
+
+msgid "It's sleeping"
+msgstr "Het slapen"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Ik ben toch zeker omdat het in die kooi ..."
+
+msgid "Where's the switch?"
+msgstr "Waar is de switch?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, hier is het!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Deze generator ziet er OK, het is gewoon niet op"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Ik denk dat de bevoegdheden die deur, dus ik zal het moeten inschakelen"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open file PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Druk Actie ophalen Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Vind een manier om de Gem verwijderen ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Druk actie op te halen de Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "De baas, dat was het bewaken van de mijne niet was in de vorige versie"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Want het is in deze versie je niet in staat zal zijn om te vertrekken"
+
+msgid "You will now be transported outside"
+msgstr "U wordt nu buiten vervoerd"
+
+msgid "We apologize for the inconvenience"
+msgstr "Onze excuses voor het ongemak"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ik moet veilig hier, maar ik nodig om zich te ontdoen van het"
+
+msgid "Book"
+msgstr "Boek"
+
+msgid "Sign"
+msgstr "Aanmelden"
+
+msgid "Note"
+msgstr "Opmerking"
 

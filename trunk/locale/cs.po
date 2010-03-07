@@ -35,7 +35,7 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Rock malý"
 
-msgid "Press Action to retrieve Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
 msgstr "Tisková Akce pro načtení Purple Gem"
 
 msgid "Chicken"
@@ -408,7 +408,7 @@ msgid "That's it?"
 msgstr "To je všechno?"
 
 msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
-msgstr "Ne tak docela. Můžete také mi nějaké dříví z lesa? 2 záznamy by měly být dostatečné"
+msgstr "Ne tak docela. Můžete mi nějaké dříví z lesa? 2 záznamy by měly být dostatečné"
 
 msgid "Do you have an axe?"
 msgstr "Máte sekeru?"
@@ -531,25 +531,25 @@ msgid "Something is supposed to happen now, but it's not in this version. Check 
 msgstr "Něco, co se má dít teď, ale to není v této verzi. Prosím později!"
 
 msgid "There's a note here"
-msgstr "Je tu poznámka zde"
+msgstr "Je tu poznámku zde"
 
 msgid "I've been trapped down here for what seems like an eternity"
 msgstr "Byl jsem v pasti se zde, co se zdá jako věčnost"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr "Chcete-li dostat z tohoto místa potřebuji 3 Access Keys práce výtahy"
+msgstr "Chcete-li dostat z tohoto místa potřebuji 3 Přístup Klíče k práci výtahy"
 
 msgid "So far I have only found 1"
-msgstr "Zatím jsem jen nalezl 1"
+msgstr "Zatím jsem našel jen 1"
 
 msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
 msgstr "Aby toho nebylo málo, mohu jen oslovit některé spínače s pečlivě umístěna šipka"
 
 msgid "But spares aren't common and I have run out"
-msgstr "Šetří, ale nejsou běžné a já jsem vyběhnout"
+msgstr "Náhradních dílů, ale nejsou běžné a já jsem vyběhnout"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr "Pokud se mi nenajdou cestu ven hned, obávám se mohou hladovět"
+msgstr "If I don't najít cestu ven hned, obávám se mohou hladovět"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
 msgstr "Pokud nemám odsud budu trpět stejný osud ..."
@@ -582,7 +582,7 @@ msgid "When transformed into a Slime, you can move around as normal. You can als
 msgstr "Když přeměněn Slime, můžete pohybovat jako obvykle. Můžete také plavat ve vodě a použít nahoru a dolů pohybovat"
 
 msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
-msgstr "Tlačit nahoru nebo skok z vás udělá vyskočit z vody, pokud jste blízko povrchu"
+msgstr "Tlačit nahoru a skočit z vás udělá vyskočit z vody, pokud jste v blízkosti povrchu"
 
 msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
 msgstr "Dávat pozor na časový spínač v dolní části obrazovky. Když se dosáhne 0 budete automaticky stanou lidské znovu"
@@ -963,7 +963,7 @@ msgid "Demolition Storage Key"
 msgstr "Demolice Storage Key"
 
 msgid "Whatever that thing was it was draining the power from that generator and using it against me."
-msgstr "Co to bylo, to bylo vyčerpávající, že energie z generátoru a používat ho proti mně."
+msgstr "Co to bylo, to bylo odvádění energie od generátoru a používat ho proti mně."
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
 msgstr "To by mohlo vysvětlovat, proč že výtah nefungovalo. Porážet ostatní Odpad by měl obnovit síly."
@@ -1140,7 +1140,7 @@ msgid "Gazers attack (and defend themselves) by opening their eye which will daz
 msgstr "Gazers útoku (a obranu), otevřou své oko, které se oslnit něco na to dívat"
 
 msgid "This attack is only effective however if the victim is facing the Gazer"
-msgstr "Tento útok je však účinná pouze v případě, že oběť je čelí Gezeru"
+msgstr "Tento útok je však účinná pouze v případě, že oběť stojí Gezeru"
 
 msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
 msgstr "Gezeru na oko obsahuje magické vlastnosti a jsou běžnou součástí přípravy kouzlo"
@@ -1149,7 +1149,7 @@ msgid "Centurion, Grey"
 msgstr "Centurion, šedá"
 
 msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
-msgstr "Setníků jsou magicky vytvořené bytosti, obvykle odeslán jako hlídky a stráže"
+msgstr "Důstojníky jsou magicky vytvořené bytosti, obvykle odeslán jako hlídky a stráže"
 
 msgid "Though slow moving, their massive size allows them to simply march through any defense"
 msgstr "I když pomalu se pohybující, jejich masivní velikosti jim umožňuje jednoduše pochod jakékoliv obrany"
@@ -1467,7 +1467,7 @@ msgid "This lift is controlled by that pressure plate, but I can't stand on it a
 msgstr "Tento výtah je řízen, že tlak talíř, ale já to nevydržím na něm a používat výtah ve stejnou dobu"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
-msgstr "Budu muset najít něco jiného stát na přítlačnou desku pro mě ..."
+msgstr "Budu muset najít něco stát na přítlačnou desku pro mě ..."
 
 msgid "This card is blank, I'll have to put some instructions on it to make it useable."
 msgstr "Tato karta je prázdný, budu muset dát nějaký návod na to, aby bylo použitelné."
@@ -1713,13 +1713,13 @@ msgid "OK, off I go..."
 msgstr "OK, já jdu pryč ..."
 
 msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
-msgstr "Nebudete moci dostat chapadlo nebo štít v této verzi, takže podívat později!"
+msgstr "Nebudete moci dostat chapadlo nebo štít v této verzi, tak to prosím později!"
 
 msgid "It's a portrait"
 msgstr "Je to portrét"
 
 msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
-msgstr "Ten duch se nebude dejte mi v minulosti, budu muset najít způsob, jak se zbavit"
+msgstr ", Že duch je nenechá mě v minulosti, budu muset najít způsob, jak se zbavit"
 
 msgid "Reset switches allow you to reset an object's position on the map"
 msgstr "Reset přepínače umožňují nastavení polohy objektu na mapě"
@@ -1728,7 +1728,7 @@ msgid "If an object becomes unreachable then you can use the switch to put it ba
 msgstr "Pokud se objekt stane nedostupnou pak můžete použít přepínač, aby ji zpět na své původní místo"
 
 msgid "A bottle with a soul trapped inside"
-msgstr "Láhev s duší zavřený"
+msgstr "Láhev s duší uvězněni uvnitř"
 
 msgid "Full Mine Cart"
 msgstr "Úplné Mine košíku"
@@ -1758,10 +1758,10 @@ msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan
 msgstr "Budu také potřebovat meč a štít se bránit. Můžu mluvit Borgan a Jákobovi, aby si tyto ačkoli."
 
 msgid "Could not connect to Medal Server at %s:%d"
-msgstr "Nepodařilo se připojit k serveru na medaili %s:%d"
+msgstr "Nepodařilo se připojit k medaili Server at %s:%d"
 
 msgid "Could not find Medal Key"
-msgstr "Nepodařilo se najít Medal Key"
+msgstr "Nelze najít Medal Key"
 
 msgid "You will not be able to earn Medals for this game"
 msgstr "Nebudete moci získat medaile pro tuto hru"
@@ -1849,4 +1849,67 @@ msgstr "Jen potřebuji najít jiný štít okouzlí"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Nebudete schopni získat štít v této verzi, tak to prosím později!"
+
+msgid "Its wounds are already healing..."
+msgstr "Její hojení rány jsou již ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Máte-li sestaven hra od zdroje, co potřebujete udělat, make install"
+
+msgid "It's sleeping"
+msgstr "Je to spící"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Já jsem stejně bezpečné, protože je v kleci, že ..."
+
+msgid "Where's the switch?"
+msgstr "Kde je vypínač?"
+
+msgid "Ah, here it is!"
+msgstr "Aha, tady to je!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Tento generátor vypadá OK, to se prostě nedá"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Myslím, že pravomoci, které dveře, takže budu muset zapnout"
+
+msgid "A Yellow Gem"
+msgstr "Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Nepodařilo se otevřít soubor PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tisková Akce pro načtení Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Najít způsob, jak odstranit Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Tisková Akce pro načtení Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Šéf, který hlídal dole nebyla v předchozí verzi"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Vzhledem k tomu, že je v této verzi nebudete moci odejít"
+
+msgid "You will now be transported outside"
+msgstr "Nyní budete přepraveno mimo"
+
+msgid "We apologize for the inconvenience"
+msgstr "Omlouváme se za způsobené nepříjemnosti"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Měl bych být bezpečné tady, ale musím se toho zbavit"
+
+msgid "Book"
+msgstr "Kniha"
+
+msgid "Sign"
+msgstr "Přihlásit"
+
+msgid "Note"
+msgstr "Poznámka:"
 

@@ -35,8 +35,8 @@ msgstr "Bombák"
 msgid "Small Rock"
 msgstr "Kis Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Nyomja meg a cselekvési letölteni Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Nyomja meg a fellépés letölteni a Purple Gem"
 
 msgid "Chicken"
 msgstr "Csirke"
@@ -534,7 +534,7 @@ msgid "There's a note here"
 msgstr "Van itt egy megjegyzés"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "Már csapdába itt lent, amit úgy tűnik, örökkévalóság"
+msgstr "Már csapdába idelent, amit úgy tűnik, örökkévalóság"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr "Ahhoz, hogy ki ennek a helynek van szükségem 3 Access Keys dolgozni a felvonók"
@@ -636,7 +636,7 @@ msgid "To pull an item, walk into while holding down Action"
 msgstr "Húzni egy elemet, besétálni miközben nyomva tartása Action"
 
 msgid "You can then pull the item around until you let go of Action"
-msgstr "Ezután húzza ki a tételt körül, amíg elengedte a cselekvési"
+msgstr "Ezután húzza ki a tételt körül, amíg meg nem elengedjük Action"
 
 msgid "Pull the box over the other side and use it to reach the ledge"
 msgstr "Húzza ki a dobozt át a másik oldalra, és használni, hogy az elérje a párkányon"
@@ -729,7 +729,7 @@ msgid "Walk over the key to pick it up"
 msgstr "Sétáljon át a kulcsot vedd fel"
 
 msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
-msgstr "Megváltoztathatja mind az ellenőrzések a játék megnyomásával Escape, és válassza a Beállítások menü"
+msgstr "Meg lehet változtatni az összes ellenőrzések a játék megnyomásával Escape, és válassza a Beállítások menü"
 
 msgid "Select Configure Controls using the arrow keys and press Return"
 msgstr "Válasszuk a Configure Controls a nyilakkal, és nyomjuk meg a Vissza"
@@ -738,7 +738,7 @@ msgid "Use the arrow keys to select the control you want to change and press Ret
 msgstr "Használja a nyíl gombok segítségével válassza ki a kontroll módosítani kívánt, és nyomja meg az Entert."
 
 msgid "Next, press the key that you want to use instead."
-msgstr "Következő, nyomjuk meg a gombot, hogy a használni kívánt helyette."
+msgstr "Következő, nyomja meg a gombot, hogy a használni kívánt helyette."
 
 msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
 msgstr "Függetlenül attól, hogy milyen kulcsok is választja, mindig lehet navigálni a menükben a nyilakkal és a Return"
@@ -1152,7 +1152,7 @@ msgid "Centurions are magically created creatures, usually dispatched as sentrie
 msgstr "Századost a mágikusan létrehozott lények, általában adják, vagy őrök őrök"
 
 msgid "Though slow moving, their massive size allows them to simply march through any defense"
-msgstr "Bár lassan mozgó, a hatalmas mérete lehetővé teszi számukra, hogy egyszerűen csak március bármilyen védelem"
+msgstr "Bár lassan mozgó, a hatalmas mérete lehetővé teszi számukra, hogy egyszerűen március bármilyen védelem"
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
 msgstr "Ahelyett, fegyverek, sok hatalmas halom járművezetők az általuk igénybe, hogy megrázza a földre, és zavarba ejt veszélyek"
@@ -1197,7 +1197,7 @@ msgid "Master Tortoises are frightening beasts. Found in far away lands they pos
 msgstr "Master Teknősök az ijesztő jelenettel. Talált messze földeken rendelkeznek képes megváltoztatni a fejüket"
 
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
-msgstr "Ők foglalják össze a képességeit, hogy unokatestvérek lélegezni a tűz, a jég és hozzon létre villamosít magukat"
+msgstr "Ők foglalják össze a képességeit, hogy unokatestvérek lélegezni a tűz, a jég és hozzon létre villamosít maguk"
 
 msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
 msgstr "És természetesen ők is át nem eresztő, hogy támadások illő elemek, elnyeli az energiát, hogy meggyógyítsa magát"
@@ -1254,7 +1254,7 @@ msgid "Sludge, Red"
 msgstr "Iszap, Red"
 
 msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
-msgstr "Ellentétben a zöld unokatestvére, a Vörös-iszap marad, mélyen a föld alatt, és csak ritkán, ha egyáltalán, felületek"
+msgstr "Ellentétben a zöld unokatestvére, a Vörös iszap mélyen a föld alatt marad, és csak ritkán, ha egyáltalán, felületek"
 
 msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
 msgstr "A kedvelt élőhelye száraz és ásványokban gazdag területeket, és ennek eredményeként találták meghúzódó elhagyott bányák területén az emberek által"
@@ -1467,7 +1467,7 @@ msgid "This lift is controlled by that pressure plate, but I can't stand on it a
 msgstr "Ez a lift vezérli, hogy nyomást lemez, de nem tudok állni, és használja a felvonó egy időben"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
-msgstr "Beteg 'kell találni valami mást állni a nyomástartó lemez értem ..."
+msgstr "Majd meg kell találni valami mást állni a nyomástartó lemez értem ..."
 
 msgid "This card is blank, I'll have to put some instructions on it to make it useable."
 msgstr "Ez a kártya üres, én meg egy kis útmutatást, hogy tenni használhatatlanok."
@@ -1542,13 +1542,13 @@ msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
 msgstr "Az Armadillo Spike Ball. Majd szét tüskék, amikor dobott."
 
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr "A szobrot egy teknős. Meg 4 lábát."
+msgstr "A szobrot egy teknős. Meg 4 lába."
 
 msgid "A Tuning Fork"
 msgstr "A hangvilla"
 
 msgid "A chopped log"
-msgstr "Az apróra vágott napló"
+msgstr "A vágott napló"
 
 msgid "Narrator"
 msgstr "Elbeszélője"
@@ -1849,4 +1849,67 @@ msgstr "Csak meg kell találni egy másik pajzs elvarázsol"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Ön nem lesz képes-hoz kap a pajzsot ez a verzió, tehát látogasson vissza később!"
+
+msgid "Its wounds are already healing..."
+msgstr "A sebek már gyógyító ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Ha elkészítette a játék forrásból, annyit kell tennie, a make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Biztonságban vagyok egyébként, mert van abban a kalitkában ..."
+
+msgid "Where's the switch?"
+msgstr "Hol a kapcsoló?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, itt van!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Ez a generátor úgy néz ki OK, csak nem a"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Azt hiszem ez hatáskörét az ajtót, úgyhogy kell majd kapcsolja be"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open file PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Nyomja meg a cselekvési letölteni Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Megtalálja a módját, hogy távolítsa el a Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Nyomja meg a fellépés letölteni a Sárga Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "A főnök, hogy az enyém volt, őrző-védő nem volt az előző verzió"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr ", Mert ez a verzió nem lesz képes elhagyni"
+
+msgid "You will now be transported outside"
+msgstr "Lesz most kell szállítani kívül"
+
+msgid "We apologize for the inconvenience"
+msgstr "Elnézést kérünk a kellemetlenségekért"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Én biztonságosnak kell lennie itt, de kell, hogy megszabadulni ez"
+
+msgid "Book"
+msgstr "Könyv"
+
+msgid "Sign"
+msgstr "Aláírja"
+
+msgid "Note"
+msgstr "Tudomásul"
 

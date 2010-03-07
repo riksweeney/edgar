@@ -72,7 +72,7 @@ static void wait()
 
 			if (self->thinkTime <= 0)
 			{
-				if (self->mental < 15 && self->maxThinkTime < 150)
+				if (self->mental < 15)
 				{
 					e = addEnemy("enemy/red_baby_slime", 0, 0);
 

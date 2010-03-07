@@ -35,8 +35,8 @@ msgstr "Bomba"
 msgid "Small Rock"
 msgstr "Small Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Premere azione per recuperare Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Premere azione per recuperare i Gem Purple"
 
 msgid "Chicken"
 msgstr "Pollo"
@@ -63,7 +63,7 @@ msgid "Used %s"
 msgstr "Utilizzati %s"
 
 msgid "Cannot equip items whilst transmogrified"
-msgstr "Non possono equipaggiare oggetti, mentre trasformò"
+msgstr "Non può equipaggiare oggetti, mentre trasformò"
 
 msgid "Equipped %s"
 msgstr "Attrezzate %s"
@@ -414,7 +414,7 @@ msgid "Do you have an axe?"
 msgstr "Avete un'accetta?"
 
 msgid "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr "Erm ... Ho lasciato il mio axe nella foresta da qualche parte. Dovrebbe essere ancora lì"
+msgstr "Erm ... Ho lasciato la mia ascia nella foresta da qualche parte. Dovrebbe essere ancora lì"
 
 msgid "Isn't that forest dangerous?"
 msgstr "Non è che la foresta di pericoloso?"
@@ -966,7 +966,7 @@ msgid "Whatever that thing was it was draining the power from that generator and
 msgstr "Qualunque cosa fosse era drenaggio del potere da quel generatore e usarlo contro di me."
 
 msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
-msgstr "Ciò potrebbe spiegare perché tale ascensore non funzionava. Sconfiggere il Scarico altri dovrebbe ripristinare il potere."
+msgstr "Ciò potrebbe spiegare perché tale ascensore non funzionava. Scarico sconfiggere l'altro dovrebbe ripristinare il potere."
 
 msgid "Defeat all Energy Drainers"
 msgstr "Sconfiggete tutti Scarico Energia"
@@ -1206,7 +1206,7 @@ msgid "But additionally, if they receive too much energy from healing, they evol
 msgstr "Ma in più, se ricevono troppa energia dalla guarigione, si evolvono e andare su tutte le furie"
 
 msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
-msgstr "In questo stato essi sfondare qualsiasi difesa e produrre Dark Matter che distrugge qualsiasi cosa tocca"
+msgstr "In questo stato essi sfondare qualsiasi difesa e produrre Materia Oscura che distrugge qualsiasi cosa tocca"
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
 msgstr "Tuttavia, il guscio di una tartaruga furia Master è altamente magico ed è un ingrediente essenziale la creazione di potenti magie e oggetti"
@@ -1849,4 +1849,67 @@ msgstr "Ho solo bisogno di trovare un altro scudo di incantare"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Non sarà in grado di ottenere lo scudo in questa versione, in modo da verificare nel tempo!"
+
+msgid "Its wounds are already healing..."
+msgstr "Le sue ferite sono già guarigione ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Se si è compilato il gioco dai sorgenti, è necessario fare un make install"
+
+msgid "It's sleeping"
+msgstr "It's dormire"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Sono sicuro comunque dal momento che in quella gabbia ..."
+
+msgid "Where's the switch?"
+msgstr "Dov'è l'interruttore?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, ecco!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Questo generatore sembra OK, semplicemente non è in"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Immagino che i poteri che la porta, quindi dovrò accenderlo"
+
+msgid "A Yellow Gem"
+msgstr "Una gemma giallo"
+
+msgid "Failed to open PAK file %s"
+msgstr "Impossibile aprire il file PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Premere azione per recuperare Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Trovare un modo per rimuovere il Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Premere azione per recuperare i Gem Giallo"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Il boss, che era di guardia il mio non era nella precedente versione"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Perché è in questa versione non sarà in grado di lasciare"
+
+msgid "You will now be transported outside"
+msgstr "Verrà ora essere trasportati al di fuori"
+
+msgid "We apologize for the inconvenience"
+msgstr "Ci scusiamo per l'inconveniente"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Vorrei essere sicuro qui, ma ho bisogno di liberarsi di esso"
+
+msgid "Book"
+msgstr "Libro"
+
+msgid "Sign"
+msgstr "Entra"
+
+msgid "Note"
+msgstr "Nota"
 

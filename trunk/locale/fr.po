@@ -35,8 +35,8 @@ msgstr "Bomb"
 msgid "Small Rock"
 msgstr "Small Rock"
 
-msgid "Press Action to retrieve Purple Gem"
-msgstr "Presse d'action pour récupérer Purple Gem"
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Presse d'action pour récupérer la gemme pourpre"
 
 msgid "Chicken"
 msgstr "Poulet"
@@ -99,7 +99,7 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Game Loaded"
-msgstr "Game Loaded"
+msgstr "Jeu chargé"
 
 msgid "Game Saved"
 msgstr "Partie sauvegardée"
@@ -195,13 +195,13 @@ msgid "Storage Key"
 msgstr "Stockage des clés"
 
 msgid "Coal Bag Storage Switch Key"
-msgstr "Charbon sac de rangement Switch Key"
+msgstr "Coal sac de rangement Switch Key"
 
 msgid "Large Room Key"
 msgstr "Grande salle de la pièce"
 
 msgid "Coal Bag"
-msgstr "Sac à charbon"
+msgstr "Sac de charbon"
 
 msgid "Forest Cell Key"
 msgstr "Forest cellulaire clé"
@@ -324,7 +324,7 @@ msgid "Thanks, Borgan!"
 msgstr "Merci, Borgan!"
 
 msgid "Have you managed to find the coal yet?"
-msgstr "Avez-vous réussi à trouver du charbon encore inscrit?"
+msgstr "Avez vous réussi à trouver le charbon encore inscrit?"
 
 msgid "You can pull some items around by pushing against them whilst holding down the Action button."
 msgstr "Vous pouvez extraire certains éléments autour en poussant contre eux tout en maintenant enfoncé le bouton Action."
@@ -345,13 +345,13 @@ msgid "There must be way out of here..."
 msgstr "Il doit y avoir moyen de sortir de là ..."
 
 msgid "This must be the coal wants me to mine for him"
-msgstr "Ce doit être le charbon me veut à la mienne pour lui"
+msgstr "Ce doit être le charbon a besoin de moi à la mienne pour lui"
 
 msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
 msgstr "Je ne pense pas que mon bouclier me protéger de ces boules de feu. Je vais devoir trouver une plus forte ..."
 
 msgid "You won't be able to do this bit in this version, check back later!"
-msgstr "Vous ne serez pas capable de faire ce morceau dans cette version, check back later!"
+msgstr "Vous ne serez pas capable de faire ce morceau dans cette version, revenez plus tard!"
 
 msgid "Strange creature..."
 msgstr "Étrange créature ..."
@@ -381,10 +381,10 @@ msgid "Thank you!"
 msgstr "Merci!"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr "Merci pour les journaux, avez-vous eu de chance avec les poulets?"
+msgstr "Merci pour les journaux, avez-vous eu un peu de chance avec les poulets?"
 
 msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
-msgstr "Je vais vous donner un sabre si vous me haché 2 logs de la forêt et de sauvetage au moins 3 de mes poules"
+msgstr "Je vais vous donner une épée si vous me haché 2 logs de la forêt et de sauvetage au moins 3 de mes poules"
 
 msgid "Hello Edgar, what can I do for you today?"
 msgstr "Bonjour Edgar, que puis-je faire pour vous aujourd'hui?"
@@ -459,7 +459,7 @@ msgid "And this is something very special"
 msgstr "Et c'est quelque chose de très spécial"
 
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "Mai cela vous aider sur votre chemin de devenir un guerrier fort"
+msgstr "Mai de cette vous aider sur votre chemin de devenir un guerrier fort"
 
 msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
 msgstr "Vous m'a sauvé beaucoup de temps. Maggie m'a fait quelque chose d'autre, mais puisque vous avez été si utiles, vous pouvez l'avoir."
@@ -990,7 +990,7 @@ msgid "So this is the Fortress."
 msgstr "C'est donc la Forteresse."
 
 msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
-msgstr "Il ressemble beaucoup de portes de plomb hors d'autres domaines, je devrais avoir un bon regarder autour avant d'aller nulle part ailleurs ..."
+msgstr "Il ressemble à beaucoup de portes de plomb hors d'autres domaines, je devrais avoir un bon regarder autour avant d'aller nulle part ailleurs ..."
 
 msgid "Try hitting the skull..."
 msgstr "Essayez de frapper le crâne ..."
@@ -1119,7 +1119,7 @@ msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was
 msgstr "Hmmm, l'air sent chargée, elle me rappelle de la maison de Maggie's quand elle faisait des sorts. Je dois être prudent."
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr "Edgar Oh, tu es blessé! Permettez-moi de soigner vos blessures"
+msgstr "Edgar Oh, tu es blessé! Permettez-moi de panser vos plaies"
 
 msgid "I wonder what other monsters there are. I'll pick a page at random..."
 msgstr "Je me demande ce que d'autres monstres sont là. Je vais chercher une page au hasard ..."
@@ -1407,7 +1407,7 @@ msgid "Right Wing Lift Key"
 msgstr "Right Wing Ascenseur pièce"
 
 msgid "Mine Entrance Door Key"
-msgstr "Porte D'entrée de la mine Key"
+msgstr "Clé de la porte d'entrée de la mine"
 
 msgid "Village"
 msgstr "Village"
@@ -1422,7 +1422,7 @@ msgid "Forbidden Swamp"
 msgstr "Forbidden Swamp"
 
 msgid "Sewage Restricted Zone Key"
-msgstr "Zone de restriction des eaux usées pièce"
+msgstr "Eaux usées Restreint zone-clé"
 
 msgid "Basement"
 msgstr "Sous-sol"
@@ -1464,7 +1464,7 @@ msgid "It doesn't look like it can hurt me though, but there's only one way to f
 msgstr "Elle ne ressemble pas qu'il peut me faire du mal, cependant, mais il n'y a qu'une seule façon de le savoir ..."
 
 msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
-msgstr "Ce système de levage est contrôlée par cette plaque de pression, mais je ne peux pas rester là-dessus et utilisez l'ascenseur en même temps"
+msgstr "Cette levée est contrôlée par cette plaque de pression, mais je ne peux pas rester là-dessus et utilisez l'ascenseur en même temps"
 
 msgid "I'll have to find something else to stand on the pressure plate for me..."
 msgstr "Je vais devoir trouver autre chose à se tenir sur le plateau de pression pour moi ..."
@@ -1584,7 +1584,7 @@ msgid "The robot uses instruction cards to move around"
 msgstr "Le robot utilise les cartes d'instruction pour se déplacer"
 
 msgid "Use the instructions to guide the robot to open areas that you cannot access"
-msgstr "Utilisez les instructions pour guider le robot pour ouvrir domaines que vous ne pouvez pas accéder"
+msgstr "Utilisez les instructions pour guider le robot pour ouvrir les zones que vous ne pouvez pas accéder"
 
 msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
 msgstr "Cependant, puisque vous ne pouvez pas lire les instructions sur la carte, vous devrez les essayer toutes jusqu'à ce que l'on travaille sur"
@@ -1635,7 +1635,7 @@ msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and
 msgstr "Je ne vois pas de boues dans la mine lorsque je suis allé chercher du charbon Borgan et même s'il y avait un je ne peux pas retourner là-bas depuis mon radeau a coulé"
 
 msgid "I'll have to find another mine around here..."
-msgstr "Je vais devoir trouver autre mine par ici ..."
+msgstr "Je vais devoir trouver une autre mine par ici ..."
 
 msgid "Creates ice cubes that expand on contact with water"
 msgstr "Crée des cubes de glace qui s'étendent sur des contact de l'eau"
@@ -1797,7 +1797,7 @@ msgid "Medal Support"
 msgstr "Médaille d'appui"
 
 msgid "Fortress Mine"
-msgstr "Forteresse Mine"
+msgstr "Forteresse de la mine"
 
 msgid "Private key is missing"
 msgstr "La clé privée est manquant"
@@ -1849,4 +1849,67 @@ msgstr "J'ai juste besoin de trouver un autre bouclier pour enchanter"
 
 msgid "You won't be able to get the shield in this version, so check back later!"
 msgstr "Vous ne serez pas en mesure d'obtenir le bouclier dans cette version, alors revenez plus tard!"
+
+msgid "Its wounds are already healing..."
+msgstr "Ses blessures ne guérissent déjà ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Si vous avez compilé le jeu à partir des sources, vous devez faire un make install"
+
+msgid "It's sleeping"
+msgstr "Elle dort"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Je suis en sécurité quand même, puisque c'est dans cette cage ..."
+
+msgid "Where's the switch?"
+msgstr "Where's the switch?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, le voilà!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Ce générateur semble OK, il n'est tout simplement pas sur"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Je suppose que les pouvoirs de cette porte, donc je vais devoir l'activer"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Echec de l'ouverture de fichiers PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Presse d'action pour récupérer Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Trouver une façon d'enlever le Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Presse d'action pour récupérer la gemme jaune"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Le patron qui gardait la mine n'était pas dans la version précédente"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Parce que c'est dans cette version vous ne serez pas en mesure de quitter"
+
+msgid "You will now be transported outside"
+msgstr "Vous allez maintenant être transporté à l'extérieur"
+
+msgid "We apologize for the inconvenience"
+msgstr "Nous nous excusons pour le désagrément"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Je devrais être en sécurité ici, mais j'ai besoin de s'en débarrasser"
+
+msgid "Book"
+msgstr "Livre"
+
+msgid "Sign"
+msgstr "S'inscrire"
+
+msgid "Note"
+msgstr "Note"
 
