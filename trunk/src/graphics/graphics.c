@@ -253,7 +253,7 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		color = SDL_MapRGB(game.screen->format, r, g, b);
-
+		
 		SDL_FillRect(game.screen, &rect, color);
 	}
 }

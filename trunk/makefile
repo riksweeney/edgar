@@ -75,6 +75,7 @@ CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o ca
 CORE_OBJS += thunder_cloud.o instruction_machine.o spirit.o black_book.o mataeus.o mataeus_wall.o mine_cart.o boulder_boss_2.o
 CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o medal.o repellent.o cloud_geyzer.o
 CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power_generator.o mirror.o light_source.o light_beam.o
+CORE_OBJS += light_target.o balloon.o scanner.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

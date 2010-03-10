@@ -1,2 +1,6 @@
 edgar/edgar
-enemy/gazer
+item/light_source
+item/mirror
+item/upside_down_mirror
+enemy/red_grub
+item/mine_cart
