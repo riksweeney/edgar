@@ -4,3 +4,4 @@ ANIM_FILE data/anim/boss/armour_boss_tongue.dat
 SPEED 12
 LAYER BACKGROUND_LAYER
 HEALTH 8
+FLAGS FLY
