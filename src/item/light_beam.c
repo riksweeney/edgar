@@ -68,7 +68,7 @@ static void wait()
 	{
 		self->endX = getMapRight(self->startX, self->startY);
 
-		self->box.w = self->endX - self->x;
+		self->box.w = self->endX + self->x;
 	}
 
 	else if (self->dirX < 0)
@@ -82,7 +82,7 @@ static void wait()
 	{
 		self->endY = getMapFloor(self->startX, self->startY);
 
-		self->box.h = self->endY - self->y;
+		self->box.h = self->endY + self->y;
 	}
 
 	else if (self->dirY < 0)

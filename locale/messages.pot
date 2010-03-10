@@ -1889,6 +1889,18 @@ msgstr ""
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr ""
 
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr ""
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr ""
+
+msgid "You will now be transported outside"
+msgstr ""
+
+msgid "We apologize for the inconvenience"
+msgstr ""
+
 msgid "I should be safe up here, but I need to get rid of it"
 msgstr ""
 

@@ -70,8 +70,9 @@ static void touch(Entity *other)
 		{
 			/* Light moving vertically */
 
-			if (other->dirY > 0 && self->mental == 0) /* Upright mirror */
+			if (other->dirY > 0 && self->mental == 0)
 			{
+				other->endX = other->startX;
 				other->endY = self->y + self->h / 2;
 
 				other->x = other->startX;
@@ -85,104 +86,63 @@ static void touch(Entity *other)
 
 				beamMid = other->x + other->w / 2;
 
-				/*if (beamMid >= mirrorLeft && beamMid <= mirrorRight)*/
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
-					if (self->face == LEFT)
+					if (self->target == NULL)
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
+						self->target = addLightBeam(0, 0, "item/light_beam");
 
-							self->target->x = self->x + self->w / 2;
-							self->target->y = self->y + self->h / 2 - 6;
+						self->target->x = self->x + self->w / 2;
+						self->target->y = self->y + self->h / 2 - 6;
 
-							self->target->dirX = -self->target->speed;
+						self->target->dirX = -self->target->speed;
 
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
-
-						else
-						{
-							self->target->startX = self->x + self->w / 2;
-
-							self->target->box.w = self->target->startX - self->target->x;
-						}
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
 					}
 
 					else
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
+						self->target->startX = self->x + self->w / 2;
 
-							self->target->x = self->x + self->w / 2;
-							self->target->y = self->y + self->h / 2 - 6;
-
-							self->target->dirX = self->target->speed;
-
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
-
-						else
-						{
-							self->target->x = self->x + self->w / 2;
-
-							self->target->startX = self->target->x;
-
-							self->target->box.w = self->target->endX - self->target->x;
-						}
+						self->target->box.w = self->target->startX - self->target->x;
 					}
 
 					self->thinkTime = 2;
 				}
 			}
 
-			else if (other->dirY < 0 && self->mental == 1) /* Upside down mirror */
+			else if (other->dirY < 0 && self->mental == 1)
 			{
-				other->y = self->y + self->h / 2;
+				other->x = self->x + self->w / 2;
 
-				other->box.h = other->startY - other->y;
+				other->box.w = other->startX - other->x;
 
-				mirrorLeft = self->x + self->w / 2 - 4;
+				mirrorLeft = self->y + self->h / 2 - 4;
 
-				mirrorRight = self->x + self->w / 2 + 4;
+				mirrorRight = self->y + self->h / 2 + 4;
 
-				beamMid = other->x + other->w / 2;
+				beamMid = other->y + other->h / 2;
 
-				/*if (beamMid >= mirrorLeft && beamMid <= mirrorRight)*/
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
-					if (self->face == LEFT)
+					if (self->target == NULL)
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
+						self->target = addLightBeam(0, 0, "item/light_beam");
 
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->y = self->y + self->h / 2;
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->y = self->y + self->h / 2;
 
-							self->target->dirX = -self->target->speed;
+						self->target->dirY = -self->target->speed;
 
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
 					}
 
 					else
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
-
-							self->target->x = self->x + self->w / 2;
-							self->target->y = self->y + self->h / 2 + 6;
-
-							self->target->dirX = self->target->speed;
-
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->startX = self->x + self->w / 2;
 					}
 
 					self->thinkTime = 2;
@@ -193,60 +153,8 @@ static void touch(Entity *other)
 
 			else if (other->dirX > 0 && self->face == LEFT)
 			{
-				other->endX = self->x + self->w / 2;
-
-				other->box.w = other->endX - other->x;
-
-				mirrorLeft = self->y + self->h / 2 - 4;
-
-				mirrorRight = self->y + self->h / 2 + 4;
-
-				beamMid = other->y + other->h / 2;
-
-				/*if (beamMid >= mirrorLeft && beamMid <= mirrorRight)*/
-				{
-					if (self->mental == 0) /* Upright mirror */
-					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
-
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->y = self->y + self->h / 2;
-
-							self->target->dirY = -self->target->speed;
-
-							self->box.w = self->endX - self->x;
-
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
-
-						else
-						{
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->startX = self->x + self->w / 2;
-						}
-					}
-
-					else /* Upside down mirror */
-					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
-
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->y = self->y + self->h / 2;
-
-							self->target->dirY = self->target->speed;
-
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
-					}
-
-					self->thinkTime = 2;
-				}
+				other->x = self->x + self->w / 2 - other->w / 2;
+				other->y = self->y + (self->mental == 0 ? 0 : self->h);
 			}
 
 			else if (other->dirX < 0 && self->face == RIGHT)
@@ -261,44 +169,25 @@ static void touch(Entity *other)
 
 				beamMid = other->y + other->h / 2;
 
-				/*if (beamMid >= mirrorLeft && beamMid <= mirrorRight)*/
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
-					if (self->mental == 0) /* Upright mirror */
+					if (self->target == NULL)
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
+						self->target = addLightBeam(0, 0, "item/light_beam");
 
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->y = self->y + self->h / 2;
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->y = self->y + self->h / 2;
 
-							self->target->dirY = -self->target->speed;
+						self->target->dirY = -self->target->speed;
 
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
-
-						else
-						{
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->startX = self->x + self->w / 2;
-						}
+						self->target->startX = self->target->x;
+						self->target->startY = self->target->y;
 					}
 
-					else /* Upside down mirror */
+					else
 					{
-						if (self->target == NULL)
-						{
-							self->target = addLightBeam(0, 0, "item/light_beam");
-
-							self->target->x = self->x + self->w / 2 - 2;
-							self->target->y = self->y + self->h / 2;
-
-							self->target->dirY = self->target->speed;
-
-							self->target->startX = self->target->x;
-							self->target->startY = self->target->y;
-						}
+						self->target->x = self->x + self->w / 2 - 2;
+						self->target->startX = self->x + self->w / 2;
 					}
 
 					self->thinkTime = 2;
@@ -333,6 +222,8 @@ static void wait()
 	{
 		if (self->thinkTime == 0)
 		{
+			printf("Removing target\n");
+
 			self->target->inUse = FALSE;
 
 			self->target = NULL;

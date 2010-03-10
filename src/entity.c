@@ -102,9 +102,14 @@ Entity *getFreeEntity()
 
 		count++;
 
-		if (count >= MAX_ENTITIES - 20)
+		if (count >= MAX_ENTITIES)
 		{
-			printf("WARNING, compacting Entities!\n");
+			if (count >= MAX_ENTITIES - 20)
+			{
+				printf("WARNING, compacting Entities!\n");
+			}
+
+			break;
 		}
 	}
 
@@ -803,7 +808,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move down */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + ceil(other->dirY), other->box.w, other->box.h) == TRUE)
+		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
 			if (self->dirY < 0)
 			{
@@ -844,7 +849,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move up */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + floor(other->dirY), other->box.w, other->box.h) == TRUE)
+		if (collision(x1, y1, self->box.w, self->box.h, x2, y2 + other->dirY, other->box.w, other->box.h) == TRUE)
 		{
 			/* Place the entity as close as possible */
 
@@ -863,7 +868,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move right */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2 + ceil(other->dirX), y2, other->box.w, other->box.h) == TRUE)
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{
@@ -948,7 +953,7 @@ void pushEntity(Entity *other)
 	{
 		/* Trying to move left */
 
-		if (collision(x1, y1, self->box.w, self->box.h, x2 + floor(other->dirX), y2, other->box.w, other->box.h) == TRUE)
+		if (collision(x1, y1, self->box.w, self->box.h, x2 + other->dirX, y2, other->box.w, other->box.h) == TRUE)
 		{
 			if (pushable != 0)
 			{

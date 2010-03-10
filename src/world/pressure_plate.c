@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../system/error.h"
 
-extern Entity *self;
+extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void init(void);
@@ -65,14 +65,14 @@ Entity *addPressurePlate(char *name, int x, int y)
 static void init()
 {
 	setEntityAnimation(self, self->thinkTime <= 0 ? STAND : WALK);
-
+	
 	self->action = &wait;
 }
 
 static void wait()
 {
 	self->thinkTime--;
-
+	
 	if (self->thinkTime == 0)
 	{
 		setEntityAnimation(self, STAND);
@@ -81,19 +81,19 @@ static void wait()
 
 		self->active = FALSE;
 	}
-
+	
 	else if (self->thinkTime < 0)
 	{
 		self->thinkTime = -1;
 	}
-
+	
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
 	pushEntity(other);
-
+	
 	if (other->standingOn == self)
 	{
 		if (strlen(self->requires) == 0 || strcmpignorecase(self->requires, other->objectiveName) == 0)
@@ -111,7 +111,7 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	int remaining, total;
-
+	
 	if (self->thinkTime == -1)
 	{
 		setEntityAnimation(self, WALK);
@@ -123,7 +123,7 @@ static void activate(int val)
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-
+			
 			if (total > 0)
 			{
 				setInfoBoxMessage(30, _("Complete"), remaining);
@@ -139,6 +139,6 @@ static void activate(int val)
 
 		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 	}
-
+	
 	self->thinkTime = 5;
 }
