@@ -1,0 +1,1915 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Kiiresti keerata vasakule ja paremale lahti slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Ei tööta selle versiooni!"
+
+msgid "Press Action to interact"
+msgstr "Press Action suhelda"
+
+msgid "%s is required"
+msgstr "%s on kohustatud"
+
+msgid "Bomb"
+msgstr "Pomm"
+
+msgid "Small Rock"
+msgstr "Väike Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Press Action laadida Purple Gem"
+
+msgid "Chicken"
+msgstr "Kana"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Press Action laadida Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Press Action asendada Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Saadud %s"
+
+msgid "Complete"
+msgstr "Täielik"
+
+msgid "%d more to go..."
+msgstr "%d veel minna ..."
+
+msgid "Used %s"
+msgstr "Kasutatud %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Kas ei võiks kirjed samas transmogrified"
+
+msgid "Equipped %s"
+msgstr "Varustatud %s"
+
+msgid "Maximum health has increased!"
+msgstr "Suurim tervis on kasvanud!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow nüüd tuli %s"
+
+msgid "A bow is required to use this item"
+msgstr "Bow kasutamiseks on vaja see kirje"
+
+msgid "Cannot transmogrify here..."
+msgstr "Ei saa moonutama siin ..."
+
+msgid "Yes"
+msgstr "Jah"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Start a new game?"
+msgstr "Start a new game?"
+
+msgid "Play the tutorial?"
+msgstr "Play tutorial?"
+
+msgid "Exit the game?"
+msgstr "Välja mängu?"
+
+msgid "Back"
+msgstr "Tagasi"
+
+msgid "Game Loaded"
+msgstr "Mäng Loaded"
+
+msgid "Game Saved"
+msgstr "Mäng Salvestatud"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Iga salvestamata edu kaob"
+
+msgid "Joy Button #%d"
+msgstr "Joy Nupu # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Press Action rääkida %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Uus Eesmärk: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Eesmärk Valminud: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Seina menüüd välja nõrk ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "See relv on, millel ei ole mingit mõju ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Press Action lisada Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s on vaja aktiveerida seda lülitit"
+
+msgid "Press Action to use this switch"
+msgstr "Press tegevuskava kasutada seda lülitit"
+
+msgid "Press Action to save your game"
+msgstr "Press Action salvestada mängu"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s on vaja kasutada seda Pressure Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s on vaja avada see uks"
+
+msgid "This door is locked"
+msgstr "See uks on lukus"
+
+msgid "This teleporter is not active"
+msgstr "See teleporter ei ole aktiivne"
+
+msgid "Press Action to go to the %s"
+msgstr "Press Action minna %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Vajutage üles või alla, et kasutada seda lifti"
+
+msgid "This lift is not active"
+msgstr "See lift ei tööta"
+
+msgid "Cannot carry any more %s"
+msgstr "Ei saa töötada enam %s"
+
+msgid "Picked up %s x %d"
+msgstr "Kiirenenud %s x %d"
+
+msgid "Picked up %s"
+msgstr "Kiirenenud %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s on vaja teha see kirje"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Storage Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Söe Bag Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Suur ruum Key"
+
+msgid "Coal Bag"
+msgstr "Söe kott"
+
+msgid "Forest Cell Key"
+msgstr "Metsa Cell Key"
+
+msgid "Wood Axe"
+msgstr "Puit Ax"
+
+msgid "Health Potion"
+msgstr "Health Potion"
+
+msgid "Outflow Key"
+msgstr "Väljavool Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Jäätmete töötlemine Key"
+
+msgid "Access Key 1"
+msgstr "Klahv 1"
+
+msgid "Access Key 2"
+msgstr "Klahv 2"
+
+msgid "Access Key 3"
+msgstr "Klahv 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "See lift puudub pädevus. Ma ei saa seda kasutada enne, kui ma taastada võimsus"
+
+msgid "Keep practising!"
+msgstr "Hoidke praktiseerivad!"
+
+msgid "Hi"
+msgstr "Tere"
+
+msgid "Hello Edgar"
+msgstr "Tere Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Kas ma saan laenata kilp?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Väljas praktiseerida oma tuletõrjeoskuste?"
+
+msgid "Something like that"
+msgstr "Midagi sellist"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Kui kasutate mind hetkeks siis saate on kilp"
+
+msgid "What do I have to do?"
+msgstr "Mida ma pean tegema?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Mine kaevanduse ja koguda mulle kivisüsi"
+
+msgid "But we have plenty of coal!"
+msgstr "Aga meil on palju sütt!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Jah, kuid see ei ole kõik vana kivisüsi, see kivisüsi on eriline, see põletab kuumemaks ja kestab kauem"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Mul on vaja ainult 10 tükki kraami, nii et see ei peaks teid väga pikk"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Veenduge, et pane see kotti, puudutades see liiga kaua on tervisele kahjulik"
+
+msgid "Do you have a bag?"
+msgstr "Kas teil on kotis?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Ei, saad ilmselt teada üks kaevanduses kuigi"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, ma saan kivisüsi"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Siin, võta see kirgas. Võite seda kasutada kaevandada kivisüsi ja häkkida siis mõne nõrgema seinad kohtate"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Peate ka seda võtit sattuda kaevanduse"
+
+msgid "Thanks!"
+msgstr "Aitäh!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Aitäh, Edgar, see kivisüsi on täiuslik! Hope nahkhiired ei hirmuta sind."
+
+msgid "The bats were the least of my worries..."
+msgstr "Kurikad olid vähemalt minu mured ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Ütle, ma kuulsin, et midagi juhtus, et minu paar aastat tagasi"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, jah, seal oli, mida soovite kõne  intsident , kuid et osa minu oli suletud kuni kaua aega tagasi"
+
+msgid "Right..."
+msgstr "Õigus ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Siin on minu kilp ja nautige!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Lihtsalt eemale Forbidden Soo"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Kas ei saa ma kinni hoida oma kirgas mõneks ajaks?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Kindel asi, vaid viia see tagasi ühes tükis"
+
+msgid "Thanks, Borgan!"
+msgstr "Täname, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Kas olete suutnud leida kivisöe veel?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Võite tõmbe mõned punktid ümber, surudes nende vastu samas hoides Action nuppu."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Seejärel saate tõmmata umbes kuni lasete lahti Action nuppu"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "See kivi tundub liiga tugev minu Pick Axe. Võtan kasutada ka midagi muud saada kaudu ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, mis juhtus?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Paistab, et see ei olnud nii hea idee pärast kõik"
+
+msgid "There must be way out of here..."
+msgstr "Ei tohi olla väljapääs siin ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Seda tuleb kivisöe tahab mind kaevanduse teda"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Ma ei usu, minu kilp kaitseb mind nende fireballs. Võtan leida tugevamat üks ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Sa ei saa teha seda veidi selle versiooni, kontrollida hiljem tagasi!"
+
+msgid "Strange creature..."
+msgstr "Kummaline olend ..."
+
+msgid "Wait, what was that?"
+msgstr "Oot, Mis see oli?"
+
+msgid "You again?!"
+msgstr "Sa jälle?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Midagi ei peaks juhtuma siin, kuid see ei ole selles versioonis seda vaadata hiljem tagasi!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Täname resucing minu kana, sul mulle 2 palgid metsast veel?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Aitäh Edgar! Minu kanade tagasi ja need kajakad teevad mulle trahvi"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Võta see mõõk, võib see olla hästi!"
+
+msgid "Thank you!"
+msgstr "Tänan!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Täname palke, olete olnud õnne kanad?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Ma annan sulle mõõga kui sa mulle 2 tükeldatud palke metsast ja päästetööde vähemalt 3 minu tibud"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Tere Edgar, mida ma saan teile täna?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Kas teil on mõõga saan laenata?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Mul on mõõk ja sul võib olla see, kui sul midagi minu jaoks esimene"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... Mida ma pean tegema?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Mõned minu kanad on põgenenud oma pliiatsi ja oleksin väga tänulik, kui saad neid tagasi minu jaoks"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Mul on loodud mõned püüniste lähedal pliiatsi saab meelitatakse neid püüniste kasutamist kana sööta. Ma ei pea neid kõiki, kuid vähemalt 3 oleks väga kasulik. Ma saan ülejäänud mina."
+
+msgid "That's it?"
+msgstr "Ongi kõik?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Mitte päris. Kas sa ka mulle mõned puitu metsas? 2 palgid peaks olema piisav"
+
+msgid "Do you have an axe?"
+msgstr "Kas teil on kirves?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Ma jätsin oma kirvega metsas kuskil. See peaks siiski olema olemas"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Kas see ei ole metsa ohtlik?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Ei tõesti, kui midagi saab oma teel, nii tabas teda relva"
+
+msgid "Such as an axe?"
+msgstr "Nagu kirves?"
+
+msgid "Yes, that would do the trick"
+msgstr "Jah, see oleks Tepsiä"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Aga tõsiselt, seal on midagi olemas, mida saab tõesti teile kahjulik. Seda probleemi arutati kaua aega tagasi ..."
+
+msgid "Good luck!"
+msgstr "Õnn kaasa!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, aitäh Edgar, mul vaja ainult 3, kuid tänu täiendava abi!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Siin, Maggie mind see tervisele Jook kuid ma ei pea seda nii, miks sa ei ole seda?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Vau, sa püütud neid kõiki, suur tänu!"
+
+msgid "Here, I have these for you"
+msgstr "Siin ma olen neid teile"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie mind see tervisele Jook kuid võite on see"
+
+msgid "And this is something very special"
+msgstr "Ja see on midagi väga erilist"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Võib see aidata teil oma muutumas tugev sõdalane"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Salvestatud mul palju aega. Maggie tegi mulle midagi, kuid kuna teil on nii kasulik, siis võib olla see."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Tänu Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan ütles, et osa minu oli suletud kuni pärast  intsident "
+
+msgid "There must be something around here..."
+msgstr "Seal peab olema midagi ümber siin ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Kurat soikoon, tõstesild kasvab. Ei tohi olla teise sissepääsu ..."
+
+msgid "Wait, what's that?"
+msgstr "Oot, Mis see on?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Äkki ma võiks tunneli minu tee sisse .."
+
+msgid "These machines aren't working."
+msgstr "Need masinad ei tööta."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Tundub pärl peaks sobima selle augu, et äkki ma ei leia mõned asendused."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Tundub, et see on tihedalt kiilukujuline sinna. Võin ilmselt lõdvendada seda kirgas ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Et pääseda Forbidden Swamp ma vajadust ehitada parv."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Ma võin ehitada parv kui ma langetama piisavalt puid metsas"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Vajan 6 Tükeldatud Logs ehitada parv"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Ma ei kavatse mülgas ilma mõõga ja kilbiga"
+
+msgid "OK, here goes!"
+msgstr "OK, läheb lahti!"
+
+msgid "Aw, not again!"
+msgstr "Ah, ei ole enam!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "See oli parem olla viimane kord, kui ma pean seda tegema ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "See oli lihtne! Ja ma alati hiljem tagasi!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Arvan, et ma ei jäägi nüüd."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Oota Isa, Ma tulen ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Midagi ei peaks juhtuma nüüd, kuid see pole selle versiooni. Palun proovige hiljem uuesti!"
+
+msgid "There's a note here"
+msgstr "Seal teadmiseks siin"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Ma olen lõksus siin all, mida tundub igavik"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Et saada läbi selle koha ma pean 3 Liikumisklahvid tööd liftid"
+
+msgid "So far I have only found 1"
+msgstr "Siiani olen ainult leiti 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Asja teeb halvemaks, võin jõuda üksnes mõned lülitid on hoolikalt asetatud arrow"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Aga varuosi ei ole üldine ja olen otsa"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Kui ma ei leia nii siit varsti, kardan ma nälga"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Kui ma ei saa siit välja ma kannatavad sama saatus ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, mis see on?"
+
+msgid "There's a note here too"
+msgstr "Seal on meeles ka siin"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Jook on täiuslik! Quaffing see omakorda inimeste arvesse elajas väike aeg"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Siiani võin ainult moonutama ise ühte olendit, kuid pisut rohkem aega midagi peaks olema võimalik"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "There's tiny bit vasakule, tuleb ohutu juua"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, siin läheb midagi ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Hyi! See on jube!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan ütles mulle, et Slimes võib ujuda vees, aga seda võib-olla see on kasulik ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Kui mõneks lima, saate liikuda nagu tavaliselt. Te saate ka ujuda vee ja kasutada üles-alla liikuda"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Surudes kuni või hüpata teeb teile hüppavad veest välja kui sa maapinna lähedal"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Hoidke silma peal taimer alumises servas. Kui see jõuab 0 Teid automaatselt muutunud inimese uuesti"
+
+msgid "This place doesn't look so bad..."
+msgstr "See koht ei tundu nii halb ..."
+
+msgid "What was that?"
+msgstr "Mis see oli?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, ma olen rõõmus, et sealt"
+
+msgid "Now to get through this swamp"
+msgstr "Nüüd saada selle kaudu sohu"
+
+msgid "Hey, what's this?"
+msgstr "Kuule, mis see on?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Paistab, et päris kahjutud, I'll try tõhustamise kohta ta"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Vau! See oli lahe! See peab olema mehhaaniline teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "Ei tea, kas see toimib mõlemas suunas ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Mitte ainult see läheb mu päästa palju jalgsi, see on ka koormusel fun!"
+
+msgid "Now try out your shield"
+msgstr "Nüüd proovige teie kilp"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blokeeri graanulid sülitada poolt tehase ja hüpata kuni järgmise riff"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Mõned elemendid mängus saab lükatakse või tõmmatakse"
+
+msgid "To push an item, simply walk into it"
+msgstr "Survet objekt, lihtsalt kõndida ta"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Vedama objekti kõndida hoides Action"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Seejärel saate tõmmata punkti ümber enne, kui Lase Action"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Pull kast üle teisele poole ja seda kasutada jõuda riff"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "See on viimane osa juhendaja ja õpetab teid blokeerida ja rünnata vaenlasi"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Esmalt peaks looma mõõk kuna seal on rohkem valikut ja ei rohkem kahju kui kirgas"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Press z vaadata oma varude esile mõõk ja vajutage Attack (vasak CTRL) või kasutage Punkt ()"
+
+msgid "Press z again to close your inventory"
+msgstr "Press z uuesti sulgeda oma nimekirja"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Vahel tapetud vaenlaste langeb tervisele, mis kaob mõne sekundi pärast, et selle kätte kiiresti!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Kui nahkhiir on saada ligi teie hoidke plokk ja see ohutult põrge eemal"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Nüüd tappa kõik nahkhiired piirkonnas!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "On kahte tüüpi uks mäng. Manuaal uste automaatne uste."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manuaal uksi vaja võtit nende avamiseks, automaatne uste nõuda lülitid."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Avada lukustatud uks, et teil on võti, lihtsalt kõndida ta. Ei ole vaja olla oluline valitud oma nimistusse."
+
+msgid "Open the door and continue to the right"
+msgstr "Ava uks ja jätkuvalt õigus"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Õnnitlused! Nüüd sa tead põhitõdesid mängivad võiksid proovida peamine mäng"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Kui soovite kordus see õppekava vajutage Escape ning valige juhendaja menüüst"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Et mängida peamine mäng, vajutage Escape ja valige Uus mäng menüüst"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Press Space Kui olete lõpetanud lugemise minna järgmine dialoogiboks"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Võite ka liikuda järgmisele dialoogiboksis vajutades Attack (vasak CTRL), Block (vasak alt), Jump (kosmos) Action (c) või nende kasutamise Punkt ()"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "See on juhendaja jaoks Legend of Edgar. See õpetus on selgitatud, kuidas mängida."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Väljumiseks juhendaja vajutage Escape ja kasutamist üles ja alla nooleklahve, et valida funktsioon. Vajutage klahvi selle valimiseks."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Selleks, et liikuda vasakule ja paremale nooleklahvide abil."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Et hüpata, vajuta tühikut. Võite liikuda õhus kui hüpped."
+
+msgid "To interact with an item, press c"
+msgstr "Suhelda kirje, vajutage c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Kõnni üle action point ja vajutage c"
+
+msgid "To collect an item from your"
+msgstr "Koguda objekti oma"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Tulles tagasi punkti, lihtsalt kõndida ta. Kõik sissenõutavaks kirjed lisatakse teie nimistusse."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Saate vaadata selle sisu oma nimekirja, vajutades z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Kuigi varude, kasutage nooleklahve, et vaadata objekte."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Te saate kasutada objekti kohe vajutades Attack (vasak CTRL) või kasutage Punkt ()"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Võite valmis objekti kasutamise vajutades Väli (vasakult alt) või tegevusprogrammi (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Kõnni üle võti buffee"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Teil on võimalik muuta kõik kontrolli mängu, vajutades Escape ja valides Valikud menüüs"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Vali Configure Controls nooleklahvide abil ja vajutage klahvi"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Nooleklahvidega valida kontrolli, mida soovite muuta ja vajutage klahvi."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Seejärel vajutage klahvi, et soovite kasutada selle asemel."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Sõltumata sellest, millised võtmed valite, saate alati navigate menüüd nooleklahvidega ja tagastamine"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Pange tähele, et see õppekava, vaikimisi võtmed eeldatakse"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Kui olete seadistamise võtmed, mine õige järgmisele action point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Kirgas on üks palju relvi sa puutuvad mängu"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Saate kasutada seda nii relv ja tööriist"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Pick up kirgas ja jätka järgmise action point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Palju õnne, olete leidnud saladus!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "On palju saladusi on peamist mängu nii hoida tähelepanu pöörama neile"
+
+msgid "Here's a hint to get you started"
+msgstr "Siin on vihje, et võite alustada"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Kuigi ainult peate saagi 3 tema kanad, miks ei ole kena talle ja saagi enam? On 10 ekslemine kaart kõik"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Kilp kaitseb sind kõige vaenlase rünnakud"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Mõned vaenlase rünnakuid ei saa blokeeritud"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Keskkonnariske, nagu kuuluvad kivid, mida ei saa blokeeritud"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Blokeerida rünnak, hoidke blokeerida (vasak alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Sa pead olema ees rünnaku edukalt blokeerida,"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Pange tähele, et te ei saa liikuda, samal ajal sulgeda, kuid te võite tulla muul viisil. Samuti ei saa blokeerida õhus"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Pick up kilp ja jätkuvalt õigus"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "See on nõrk seina, saab seda puruks ette kasutades kirgas"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Kui soovid kasutada kirgas vajutage Attack (vasak ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "et mitte kõik nõrgad seinad võib hävitada kasutades kirgas"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Destroy seina kasutades kirgas ning jätkata"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Something's peaks siin olema, kuid see pole selle versiooni, kontrollida hiljem tagasi!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Koguda 10 tükki söe"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Koguda 2 tükeldatud Logs"
+
+msgid "Rescue 3 Chickens"
+msgstr "Päästeteenistus 3 Kana"
+
+msgid "Find 4 Gems"
+msgstr "Leia 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Remont Generaatorid"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Koguda 6 Tükeldatud Logs"
+
+msgid "Collect 3 Access Keys"
+msgstr "Koguda 3 Liikumisklahvid"
+
+msgid "This is a blank objective"
+msgstr "See on tühi eesmärk"
+
+msgid "Kill all Bats!"
+msgstr "Tapa kõik kurikad!"
+
+msgid "Coal"
+msgstr "Söe"
+
+msgid "Chopped Log"
+msgstr "Tükeldatud Logi"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "Uus mäng"
+
+msgid "Tutorial"
+msgstr "Treening"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Valikud"
+
+msgid "About"
+msgstr "Kohta"
+
+msgid "Quit"
+msgstr "Välju"
+
+msgid "Configure Controls"
+msgstr "Configure Controls"
+
+msgid "Configure Sound"
+msgstr "Seadista Sound"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Näita Hints"
+
+msgid "A potion which will transform you..."
+msgstr "Jook, mis muudab teid ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Loob väga absorbant miniatuursed jääkuubikuid"
+
+msgid "A potion which will restore all of your health"
+msgstr "Jook, mis taastab kõik teie tervisele"
+
+msgid "A powerful bomb"
+msgstr "Võimas pomm"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Jook, mis muudab teid nähtamatuks teatud vaenlased"
+
+msgid "The eyeball from a Gazer"
+msgstr "Silmamuna alates Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Tesla Pack. See on tasuta."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Summoner's personal. Seda ei saa kasutada inimestel."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Tesla Pack. See on täielikult laetud."
+
+msgid "An empty potion bottle"
+msgstr "Tühi Jook pudelis"
+
+msgid "A bag of chicken feed"
+msgstr "Kott kana feed"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Kott sobivad vedama süsi"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Sword manustab teile Jacob"
+
+msgid "A bow"
+msgstr "Vibu"
+
+msgid "Small Wooden Shield"
+msgstr "Small Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Väike kilp, mis tagab esmase kaitse"
+
+msgid "Normal Arrow"
+msgstr "Tavaline Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Kirves sobib tükeldamise puud"
+
+msgid "Pickaxe"
+msgstr "Kirgas"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Kirgas andis teile Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Tulekahju Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Potion Room Key"
+
+msgid "Surge Passage Key"
+msgstr "Pikendusjuhtmed Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Lammutustööd Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Ükskõik, et asi oli see äravoolu võimu, et generaator ja kasutab seda minu vastu."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "See võib seletada, miks, et lift ei töötanud. Nurjamiseks muud drainers tuleks taastada jõudu."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Lüüa kõik Energia Drainers"
+
+msgid "No Objectives"
+msgstr "Nr Eesmärgid"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Press Action nullida puzzle klotsid"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Tundub, segisti. Ma kasutan seda liquidise midagi"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Vajan Red Muda Tentacle ja 3 Gazer silmamunad teha Jook"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Mul on vaja veel tühi pudel panna Jook in"
+
+msgid "So this is the Fortress."
+msgstr "Nii et see on kindlus."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Tundub palju uksi viia välja teistesse piirkondadesse, oleksin õige ringi vaadata enne kui ma lähen kusagil mujal ..."
+
+msgid "Try hitting the skull..."
+msgstr "Proovige pihta kolju ..."
+
+msgid "This machine is not active"
+msgstr "See masin ei ole aktiivne"
+
+msgid "Repeat the sequence"
+msgstr "Korda jada"
+
+msgid "Correct Sequence"
+msgstr "Õige järjestus"
+
+msgid "Incorrect Sequence"
+msgstr "Vale järjestus"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Legend of Edgar on tekkinud järgmine viga"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Palun teatage sellest veast Paralleelne reaalsus"
+
+msgid "The game will now exit"
+msgstr "Mängu lõpetab nüüd"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Tundub, segisti. Ma kasutan seda liqudise midagi"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Seda tuleb kivisöe Borgan tahab mind kaevanduse teda"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "See võib seletada, miks, et lift ei töötanud. Nurjamiseks muud drainers tuleks taastada võimu siin."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Mul on vaja leida 3 Gazer Eyes, 1 punane Muda Tentacle ja ekstra kilp luua Shield tulepüsivuse"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Kui ma olen leidnud kõik need esemed Võtan leida koht luua kilp"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Seal on raamat siin umbes lummav relvad"
+
+msgid "Maybe I can create a shield..."
+msgstr "Võibolla saan luua kilp ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Mõõgad ... Veste ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Loll raamat. See ei ole nõuetekohane ja pole mingit indeks"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield tulepüsivuse"
+
+msgid "Ingredients"
+msgstr "Koostisained"
+
+msgid "One must gather the following"
+msgstr "Tuleb koguda järgmised"
+
+msgid "The root of a Mandrake"
+msgstr "Juur Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Rasva Darsh (vasakul seista 3 kuud)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor kondid"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 silmis Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Värskelt lõigatud kombits alates naiste Red Muda"
+
+msgid "The shield to apply the enchantment"
+msgstr "Kilp kohaldada Enchantment"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Blend Gazer silmad ja Muda kombits arvesse sujuv vedeliku"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Lisa juur,-rasv ja kondid võetakse pada ja segada koos segatud Gazer silmad ja Muda kombits"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Kui segu muutub ere sinine, lisada kilp"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Olen näinud kõige rohkem nende punktide Lab nii et ma ei pea muretsema nende"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Ja Gazers maleksivat keldris, nii et pole probleemi"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Ma ei vaja leida on Punase Muda, kuid ma ei tea, kust leida üks"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Ma ei saa kasutada minu praegune kilp katse puhul see backfires nii et ma pean otsima"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Võib olla Potions ruum või labor, kus ma võin leida juured, rasva ja kondid nii et ma ei pea muretsema nende"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Sul peab olema juhend kaart soovid kasutada rõhutas oma nimekirja lahtrisse"
+
+msgid "Wow, a laboratory!"
+msgstr "Vau, labori!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "I love watching Maggie teeb ilm ja Potions, ehk võin teha mõned minu enda siin!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, ma pole kunagi näinud nii palju raamatuid ühes kohas!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Seal peab olema teavet iga teema siin, võib see olla kasulik ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, õhu leiab laetud, siis see meenutab mulle Maggie maja, kui ta oli tegemise ilm. Mul tuleb olla ettevaatlik."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, sa oled haiget! Lubage mul ravib oma haavad"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Ma ei tea, mida teised koletised on olemas. Ma tulen lehele juhuslikult ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers sõidavad cycloptic olendid leiti erinevates kohtades"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Nende üks silm on tavaliselt suletud ja nad toetuvad kajaloodi liikumise"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Nad kasutavad oma tugevat lõhna vaadata läbi kiskja ja saak nii"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers rünnak (ja ennast kaitsta), avades oma silmaga, mis pimestada midagi vaadata seda"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "See rünnak on ainus tõhus aga kui kannatanu on silmitsi Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Gazer's silmamuna sisaldab maagiline omadused ja on üldine koostisosa õigekirja ettevalmistamine"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, hall"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions on maagiliselt loodud olendid, tavaliselt lähetatakse sentries või piirded"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Kuigi aeglaselt liigub, nende tohutu suurus lubab neid lihtsalt märtsi läbi ükskõik Defense"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Selle asemel, et relvad on paljud suured vaiarammid mida nad kasutavad raputada maapinna ja disorientate ohud"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Kuigi Grey Centurions kasutatakse valve välimine ümbruses, Red Centurions on teada, et on olemas ja kaitsmiseks kasutatakse väga olulisi valdkondi"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters on ohutud koletisi kui ründasid."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Kui säilitada liiga palju kahju nad jagada kaheks ja ründavad oma kiskja"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Kui üks nendest säilitab liiga palju kahju see osa uuesti ja jätkata rünnakut"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Lõpetuseks veel viimane osa mis toodavad väga väikese versioonid mis on täiesti ohutud ja see riik saab lihtsalt astus"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Kui kõik oma osad on veel elus, splitter on reformi enda pärast samal ajal ja ravib oma haavad"
+
+msgid "Grub, Red"
+msgstr "Grub, Punane"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Punane Grubs rohkem agressiivsed kui nende roheliste kolleegidega ning rünnak midagi nad peavad ohuks"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Jõudes tähtajaga nad moodustavad kookon ja morph arvesse herilane"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Mõned siiski on morph arvesse kuninganna herilane. Need Queens suudab lima-taolist ainet, mis võimaldavad hoida oma saagiks olemas"
+
+msgid "Tortoise, Master"
+msgstr "Kilpkonn, Kapteni"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master kilpkonnad on halvad metsloomad. Leitud kaugel maadel neil on võime muuta oma pead"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Nad ühendavad kõik võimed nende nõod hingata tulekahju tekitada jää ja elektriseerima ise"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Ja muidugi need on ka veekindlat rünnakute vastavad elemendid, neelavad energiat ravib ennast"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Kuid lisaks sellele, kui nad saavad liiga palju energiat paranemine, nad arenevad ja märatsema"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Selles olekus nad Valud mis tahes kaitse-ja toota Dark Matter mis hävitab midagi see puudutab"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Kuid korpusega rampaging Master Kilpkonn on väga maagiline ja on oluline komponent loomisel võimsa MAAGIA ja esemed"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore on olend teise mõõtme. Seda võib kutsuda kasutades võimsaid tumeda maagia"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Kõige tavalisem põhjus kutsuda see metsaline on tegutseda ihukaitsja"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Ei ole teada, kuidas tappa Grimlore sest pärast säilitada kriitilise vigastusi see lihtsalt tagasi oma mõõtme"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Aga isegi kahjustada on monumentaalse ülesande. Igaüks esineb see olend on soovitatav põgeneda nii kiiresti kui võimalik"
+
+msgid "Or they will die very quickly"
+msgstr "Või kui nad surevad väga kiiresti"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, siin on kokkuvõttes koletised"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 mahud! Kuidas saab seal olla nii palju koletisi maailmas?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Paistab, et need on tähestikulises järjekorras, kuigi"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Lima, roheline ... Lima, lilla ... Muda, roheline ..."
+
+msgid "Sludge, Red"
+msgstr "Muda, Punane"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Erinevalt oma rohelise nõbu, Punane Muda jääb sügavale maa alla ja harva, kui üldse, pinnad"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Tema eelistatud elupaik on kuivad ja mineraalide rikkad valdkondades ning selle tulemusena on leitud peituvad valdkondades kaevanduste mahajäetud inimese"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Nad on väga ettevaatlikud inimestele ning rünnak vaateväljas, tavaliselt oksendamine kuni hape mis võtab aega aurustuda"
+
+msgid "Smacker, Lesser..."
+msgstr "Nael, väike ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Suur, see on kõik ta ütleb. Ma ei tea isegi, kuidas eristada meeste ja naiste. Ma lihtsalt võtta võimalus ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Pealegi, milline on halvim, mis võib juhtuda?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Liikuda Edgar vasakule ja paremale nooleklahvide abil."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Et Edgar hüpata, vajuta tühikut. Võite liikuda õhus kui hüpped."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Kuigi Jacob nõuab ainult teile jõuda 3 tema kanad, miks ei ole kena talle ja saagi enam? On 10 ekslemine kaart kõik"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Pange tähele, et mitte kõik nõrgad seinad võib hävitada kasutades kirgas"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Ma olen juba kontrollinud, ta ei ole seal ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Olen kuulnud inimeste sattumist juba enne, võibolla isa on seal ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! OLED seal ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Mitte midagi. Ma arvan, Võtan hoida otsin"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Vajutage üles või alla tõsta või langetada platvorm"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Seal on raamat siin umbes lummav seadmed"
+
+msgid "It's a book about enchanting equipment"
+msgstr "See raamat lummav seadmed"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Mul ei ole mingit põhjust lugeda seda, vaid ma hoiab seda meeles kui ma"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Ma ei tea, mida teised koletised on olemas ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Nagu tavalisi Summoners, Dark Summoners kõne teised metsloomad teha oma pakkumise"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Lisaks sellele saavad nad teleport lühikeste vahemaade põgeneda nende vastased"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Nende töötajad on väga maagiline ja kuigi seda ei saa kasutada inimestele otse, selle maagilise omadused on kasutatud loitsu loomisest"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers on väikesed Quadrupeds pika nina"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Esmane puropse et kärss on söödamaa toidu kuid see teenib ka Kaitsemehhanism"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "ja on rohkem kui suutma hoida kiskja on lahe lihtsalt puhub neid eemal"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, mobiil"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobiilne Venus Flytraps on arenenud juured ja siirdumist oma toidu asemel ootab teda ees neile"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Nende kael on väga elastne ja suudavad Snap nende saagiks saadud märkimisväärseid kaugusel"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "See peaks seda tegema. Loodan, et teised lifti Kanalisatsioonitööd tuleks nüüd töötab"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "See lift ei tööta. Ma ei saa seda kasutada enne, kui ma taastada võimsus"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "See klaas tundub liiga paks minu jaoks karmid, ma leidma mõnel muul viisil purunemisel see ..."
+
+msgid "Up"
+msgstr "Üles"
+
+msgid "Down"
+msgstr "Alla"
+
+msgid "Left"
+msgstr "Vasak"
+
+msgid "Right"
+msgstr "Parem"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Blokeeri"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Use Item"
+msgstr "Kasutage Punkt"
+
+msgid "Previous Item"
+msgstr "Eelmine toode"
+
+msgid "Next Item"
+msgstr "Järgmine toode"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Pause"
+msgstr "Paus"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Heli"
+
+msgid "SFX Volume"
+msgstr "SFX Köide"
+
+msgid "Music Volume"
+msgstr "Muusika Köide"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Raamatukogu"
+
+msgid "Right Wing Lift Key"
+msgstr "Parem Lift Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Kaevandus Entrance Door Key"
+
+msgid "Village"
+msgstr "Küla"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Kindlusmale äärelinnas"
+
+msgid "Forbidden Swamp"
+msgstr "Keelatud Soo"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Reovee Restricted Zone Key"
+
+msgid "Basement"
+msgstr "Kelder"
+
+msgid "Fortress Ground Floor"
+msgstr "Kindlusmale Ground Floor"
+
+msgid "Sewer"
+msgstr "Kanalisatsioonitööd"
+
+msgid "Fortress Main Key"
+msgstr "Kindlusmale Peamised Peamised"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Juurdepääsu võti 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Juurdepääsu võti 3"
+
+msgid "Laboratory"
+msgstr "Laboratoorsed"
+
+msgid "Empty Bottle"
+msgstr "Tühi pudel"
+
+msgid "First Floor Key"
+msgstr "Esimesel korrusel Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Press Action laadida %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, see on uus."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "See ei tundu nagu ta saab haiget mulle küll, aga on ainult üks viis teada saada ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "See lift on kontrolli all, et surve plaadile, kuid ma ei saa seista ja kasutab lifti samal ajal"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Ma pean leidma midagi muud seista surve plaat minu jaoks ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "See kaart on tühi, Võtan kasutusele mõned juhised selle kohta, et oleks kasutatav."
+
+msgid "There's a plaque here"
+msgstr "Seal tahvel siin"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Koht 4 kujud õiges järjekorras"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Te ei suuda leida kõik 4 kujud selle versiooni, et tulla tagasi hiljem!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Sul peab olema kuju, mida soovite kasutada rõhutas oma nimekirja lahtrisse"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Midagi ei toimunud. Ma ei usu, et on õiges järjekorras"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Teisel korrusel Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Korraldus Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Korraldus Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Korraldus Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Korraldus Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Statue"
+
+msgid "Spider Statue"
+msgstr "Spider Statue"
+
+msgid "Tortoise Statue"
+msgstr "Kilpkonn Statue"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Statue"
+
+msgid "A Blue Gem"
+msgstr "Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Skulptuuri Centurion. See on 2 jalgu."
+
+msgid "A Green Gem"
+msgstr "Green Gem"
+
+msgid "A Purple Gem"
+msgstr "Purple Gem"
+
+msgid "A Red Gem"
+msgstr "Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Skulptuuri Scorpion. Tal on 6 jalgu."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Skulptuuri Spider. See on 8 jalad."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Vöölane Spike Ball. Kas hajumine naelu, kui visatakse."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Skulptuuri Tortoise. See on 4 jalad."
+
+msgid "A Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "A chopped log"
+msgstr "Hakitud samamoodi"
+
+msgid "Narrator"
+msgstr "Jutustaja"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "See pada. Maggie on üks lihtsalt meeldib see"
+
+msgid "Right, here goes!"
+msgstr "Õigus, siin läheb!"
+
+msgid "I need all the main ingredients"
+msgstr "Ma pean kõik peamised koostisosad"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer silmamunad, 1 punane Muda Tentacle ja varuosad kilp"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Olen ka vaja segu silm ja kombits arvesse vedelik"
+
+msgid "This entire section is about monsters"
+msgstr "Kogu see lõik on umbes koletised"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Mul ei ole mingit põhjust lugeda neid, kuid ma hoida meeles juhul ma"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hei wow, milline armas väike masin!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "See sai vähe pesa tagaküljel ta. Ma arvan, et ma panen midagi sinna teha ei kraam"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Robot kasutab juhiste kaardid liikuda"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Kasuta juhised, et suunata roboti avada valdkondi, mida ei saa kasutada"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Kuna aga te ei saa lugeda juhiseid kaart, siis peame püüdma neid kõiki, kuni kõik toimib"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Kui robot ei saavuta oma eesmärki, siis tagasi algasendisse võimaldab teil proovige uuesti"
+
+msgid "Enter the directions"
+msgstr "Sisestage suunas"
+
+msgid "Out of space for instructions"
+msgstr "Pole ruumi juhiseid"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Ma vajan tühjaks kaardi panna juhised"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Võibolla see ei olnud nii hea idee peale kõik ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Pöörduda 3 Gazer Silmad"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Pöörduda 1 punane Muda Tentacle"
+
+msgid "Find another shield"
+msgstr "Leia teine kilp"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend silm ja kombits"
+
+msgid "Obtain a Fire Shield"
+msgstr "Saada Fire Shield"
+
+msgid "More water?!"
+msgstr "Rohkem vett?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Ma ei usu võime muutuda lima ei kavatse mind aidata siin, sest ma ei pruugi saada tagasi pärast"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Võtan leida teine viis saada üle"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Võtan leida midagi, mis aitab mul saada üle"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Ma ei näe setted kaevanduses kui läksin saada Borgan's süsi ja isegi kui see toimus ma ei saa sinna tagasi, sest minu parv vajus"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Ma pean leidma teise kaevanduse ümber siin ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Loob jääkuubikuid, mis laiendavad kokkupuutel veega"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Pudelit võimalik lüües hinged"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Proovige Mataeus's noad tema vastu ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Ei saa valida kuni %s eurot. Inventory täis"
+
+msgid "Filling mine cart..."
+msgstr "Tankide kaevanduse CART ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Paralleelne reaalsus 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Pole nooled!"
+
+msgid "There's something moving around down there..."
+msgstr "Midagi liiguvad seal ..."
+
+msgid "Good riddance..."
+msgstr "Head teed tal minna ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Kui lift on rikkis siis tuleb reset"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Seal on 4 reset lülitid mööda lifti võlli, mis tuleb nullida"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Kindlasti nullitud lifti, et vältida pika jalutuskäigu tagasi pinnale ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "See masin on ava sama suur kui kaarte. Ma arvan, et seda kasutada uusi juhiseid."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Uue juhistega teil on vaja sisestada tühi kaart"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Seejärel palutakse sisestada suundumusi robotite järgima. Seda tehakse sama moodi nagu jada uksi"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Kui olete sisestanud suunas, vajutage Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Robot seejärel järgige kaart"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Kui suunad ei ole õiged saate proovige uuesti"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "See koht on mõttetu, ma parem kiirusta ja leida isa enne kui ma lõpuks saada surma!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Nii, et luua, et Fire Shield Mul on saada Punase Muda kombits"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Punased setted elada kaevanduste nii et ma pean leidma ühe umbes siin"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Olen ka vajadust varuosad kilp, kuid minu arvates, ei tohiks olla Armoury ümber"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Gazer silm on piisavalt lihtne, ma ei saa lihtsalt tagasi kelder"
+
+msgid "OK, off I go..."
+msgstr "OK, off I go ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Sa ei saa saada kombits või kilp seda versiooni, et vaadata hiljem tagasi!"
+
+msgid "It's a portrait"
+msgstr "See on portree"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Et vaim ei kavatse lubage mul varem, ma pean leidma tee, kuidas saada lahti sellest"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Nulli lülitid võimaldavad teil taastada objekti asukoht kaardil"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Kui muutub objekt ei õnnestu, siis saate minna pannakse see tagasi oma algse koha"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Pudel hinge lõksu sees"
+
+msgid "Full Mine Cart"
+msgstr "Terve Minu ostukorv"
+
+msgid "Processing Lift Key"
+msgstr "Töötlemine Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Õigus kahmitseja Key"
+
+msgid "Left Grabber Key"
+msgstr "Vasak kahmitseja Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Nõid peab olema võetud isa oma lossi. Võtan päästa teda sealt."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ainus võimalus pääseda loss on läbi Forbidden Swamp itta."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Seal järve vahel külla ja Soo nii et ma pead parv saada kõikjal."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ma ka vajadust mõõk ja kilp, et end kaitsta. Võin rääkida Borgan ja Jacob saada neid küll."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ei saanud ühendust medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ei leia medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Sa ei saa teenida medalite seda mängu"
+
+msgid "There's another sign here"
+msgstr "Seal on üks märk siin"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Kui väljumise lift on rikkis, siis minna vasakule"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Hoiatus: Välja marsruut võib olla ohtlik"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Võibolla ma peaks kasutama lifti välja tulla"
+
+msgid "There's a sign here"
+msgstr "Seal kirjutage siia"
+
+msgid "An Oil Can"
+msgstr "Nafta Kas"
+
+msgid "Oil Can"
+msgstr "Nafta Kas"
+
+msgid "A powerful repellent"
+msgstr "Võimas tõrjuv"
+
+msgid "Repellent"
+msgstr "Tõrjuv"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Kindlusmale Mine"
+
+msgid "Private key is missing"
+msgstr "Isiklik võti on kadunud"
+
+msgid "Could not connect to server"
+msgstr "Ei saa serveriga"
+
+msgid "Sludge Tentacle"
+msgstr "Muda Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Punane Muda Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Supliikkimies"
+
+msgid "Cool, it worked!"
+msgstr "Jahe, see töötas!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ma ei ole kindel värv, kuigi ma arvasin, et see oleks punane?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Võibolla see peaks olema kollane ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Vedelik valmistatud silm ja kombitsad"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Paikamine oma salvestada mängu. Palun oota ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Nüüd! Käivita kuigi see on uimastatud!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Vau, et asi on SUUR!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Ma kahtlen, mu mõõk ka teha tühjalt kohalt, aga mul on vaja saada mineviku see ..."
+
+msgid "I have everything I need now"
+msgstr "Mul on kõik, ma pean nüüd"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Seal pada laboris, ma pea seal taga"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Ma pean lihtsalt leidma teise kilbiga, et võluma"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Sa ei saa saada kilp seda versiooni, et vaadata hiljem tagasi!"
+
+msgid "Its wounds are already healing..."
+msgstr "Tema haavad on juba ravi ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Kui olete koostanud mängu allikast, sa pead tegema, make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Ma olen ohutu niikuinii, sest see on selle puuri ..."
+
+msgid "Where's the switch?"
+msgstr "Kus vahetada?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, see siin on!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "See generaator välja OK, see lihtsalt ei ole kohta"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Ma arvan, et volitused, et ukse, nii et ma pean pöörduma selle"
+
+msgid "A Yellow Gem"
+msgstr "Kollane Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open PAK fail %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Press Action laadida Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Leia viis eemaldada Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Press Action laadida Yellow Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Boss, et oli valve Kaevandus ei olnud eelmise versiooni"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Sest see on see versioon ei saa jätta"
+
+msgid "You will now be transported outside"
+msgstr "Nüüd tuleb transportida väljaspool"
+
+msgid "We apologize for the inconvenience"
+msgstr "Me vabandame ebamugavuste pärast"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ma peaks olema ohutu siin, aga mul on vaja lahti saada sellest"
+
+msgid "Book"
+msgstr "Raamat"
+
+msgid "Sign"
+msgstr "Logi sisse"
+
+msgid "Note"
+msgstr "NB!"
+
