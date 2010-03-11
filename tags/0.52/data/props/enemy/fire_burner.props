@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/fire_burner.dat
+ANIM_FILE data/anim/enemy/fire_burner.dat
+TYPE ENEMY
+DAMAGE 2
+FLAGS PLAYER_TOUCH_ONLY
+THINKTIME 60

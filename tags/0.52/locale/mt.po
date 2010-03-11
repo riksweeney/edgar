@@ -1,0 +1,1914 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Malajr min-naħa tax-xellug u d-dritt li ħawwad barra mill-tajn!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Mhux jaħdmu f'dan il-verżjoni!"
+
+msgid "Press Action to interact"
+msgstr "Press Azzjoni biex jinteraġixxu"
+
+msgid "%s is required"
+msgstr "%s huwa meħtieġ"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Small Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata l Gem Purple"
+
+msgid "Chicken"
+msgstr "Tiġieġa"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Press Azzjoni sabiex tkun irkuprata Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Press Azzjoni biex jissostitwixxu Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Miskub %s"
+
+msgid "Complete"
+msgstr "Tlesti"
+
+msgid "%d more to go..."
+msgstr "%d aktar biex imorru ..."
+
+msgid "Used %s"
+msgstr "Użati %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Ma jistgħux jgħammru waqt li oġġetti ta transmogrified"
+
+msgid "Equipped %s"
+msgstr "Mgħammra %s"
+
+msgid "Maximum health has increased!"
+msgstr "Is-saħħa massima żdiedet!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow issa se nar %s"
+
+msgid "A bow is required to use this item"
+msgstr "A pruwa hija meħtieġa li jużaw dan il-punt"
+
+msgid "Cannot transmogrify here..."
+msgstr "Ma jistgħux transmogrify hawn ..."
+
+msgid "Yes"
+msgstr "Iva"
+
+msgid "No"
+msgstr "Le"
+
+msgid "Start a new game?"
+msgstr "Ibda logħba ġdid?"
+
+msgid "Play the tutorial?"
+msgstr "Ilgħab il-tutorja?"
+
+msgid "Exit the game?"
+msgstr "Ħruġ-logħba?"
+
+msgid "Back"
+msgstr "Lura"
+
+msgid "Game Loaded"
+msgstr "Game loaded"
+
+msgid "Game Saved"
+msgstr "Game Ssejvjata"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Kwalunkwe progress unsaved se tintilef"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Press Azzjoni li tkellem lit-%s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "New Għan: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Għan Completed: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Il-ħajt fuq il-lemin tidher dgħajfa ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Din mhijiex arma li jkollhom kwalunkwe effett ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Press Azzjoni biex iwaħħlu l-Pack Tesla"
+
+msgid "The Legend of Edgar"
+msgstr "Il-Leġġenda ta 'Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s huwa meħtieġ biex jattivaw dan is-swiċċ"
+
+msgid "Press Action to use this switch"
+msgstr "Press Azzjoni biex jużaw dan is-swiċċ"
+
+msgid "Press Action to save your game"
+msgstr "Press Azzjoni biex jiffrankaw logħba tiegħek"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s huma meħtieġa li jużaw dan il-Pressjoni Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s hija meħtieġa biex tinfetaħ dan il-bieb"
+
+msgid "This door is locked"
+msgstr "Dan il-bieb huwa maqful"
+
+msgid "This teleporter is not active"
+msgstr "Dan teleporter m'hijiex attiva"
+
+msgid "Press Action to go to the %s"
+msgstr "Press Azzjoni biex tmur l-%s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up Down jew jużaw din il-lift"
+
+msgid "This lift is not active"
+msgstr "Dan lift m'hijiex attiva"
+
+msgid "Cannot carry any more %s"
+msgstr "Ma jistgħux iħallu aktar %s"
+
+msgid "Picked up %s x %d"
+msgstr "Qabdet %s x %d"
+
+msgid "Picked up %s"
+msgstr "Qabad %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s huwa meħtieġ li jwettaq din il-partita"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Ħażna ewlenin"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Faħam Bag Ħażna Switch Ewlenin"
+
+msgid "Large Room Key"
+msgstr "Large Room ewlenin"
+
+msgid "Coal Bag"
+msgstr "Faħam Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell ewlenin"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "Health potion"
+
+msgid "Outflow Key"
+msgstr "Ħruġ ewlenin"
+
+msgid "Flow Control Key"
+msgstr "Flow Kontroll ewlenin"
+
+msgid "Waste Processing Key"
+msgstr "Skart Ipproċessar ewlenin"
+
+msgid "Access Key 1"
+msgstr "Aċċess ewlenija 1"
+
+msgid "Access Key 2"
+msgstr "Aċċess Key 2"
+
+msgid "Access Key 3"
+msgstr "Aċċess Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Nassa Bieb Switch Ewlenin"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Dan lift m'għandha l-ebda poter. I mhux ser ikunu jistgħu jużaw dan sal I jirrestawra l-enerġija"
+
+msgid "Keep practising!"
+msgstr "Żomm prattikanti!"
+
+msgid "Hi"
+msgstr "Hi"
+
+msgid "Hello Edgar"
+msgstr "Bonjour Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Nista 'jissellef shield tiegħek?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Off għall-ġlieda kontra l-prattika l-ħiliet tiegħek?"
+
+msgid "Something like that"
+msgstr "Xi ħaġa bħal dik"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Jekk inti tmexxi me errand imbagħad inti jista 'jkollhom l-ilqugħ"
+
+msgid "What do I have to do?"
+msgstr "X'għandi nagħmel?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Mur fil-minjiera u tiġbor me xi faħam"
+
+msgid "But we have plenty of coal!"
+msgstr "Imma aħna għandna ħafna tal-faħam!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Iva, imma din mhix xi faħam qodma, dan il-faħam huwa speċjali, dan jinħaraq hotter u ddum aktar"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Jien ghandi bzonn 10 biċċiet ta 'l-għalf, u għalhekk ma għandha tieħu int twil ħafna"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Kun żgur li tqiegħed lilha fil-borża, li jmissu li għal ħin twil wisq se jkunu ħżiena għas-saħħa tiegħek"
+
+msgid "Do you have a bag?"
+msgstr "Għandek borża?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Le, inti tista 'probabbilment isibu waħda fil-minjiera għalkemm"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, I'll nikseb il-faħam"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Hawnhekk, jieħdu dan pickaxe. Tista 'tużah għal minjiera tal-faħam u Hack permezz ta' kwalunkwe ħitan dgħajfa tiltaqa 'ma'"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Int ser ikollok bżonn ukoll f'din l-iskema li tikseb fis-minjiera"
+
+msgid "Thanks!"
+msgstr "Grazzi!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Thank you, Edgar, dan il-faħam huwa perfett! Hope l-friefet il-lejl ma biża inti."
+
+msgid "The bats were the least of my worries..."
+msgstr "Il-friefet il-lejl kienu l-inqas ta 'inkwiet tiegħi ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Say, smajt xi ħaġa li ġara fl-minjiera li ftit snin ilu"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, yeah, kien hemm dak li inti'd sejħa ta ' inċident , iżda dik il-parti ta' l-minjiera kienet issiġillata sa żmien twil ilu"
+
+msgid "Right..."
+msgstr "Dritt ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Hawnhekk, għandhom tarka tiegħi u tieħdu gost!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Just tissospendi l bogħod mill-Swamp Projbit"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Se jagħmel, nista iżomm il-pickaxe tiegħek għal waqt?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Ħaġa Sure, just iġġibu lura f'biċċa waħda"
+
+msgid "Thanks, Borgan!"
+msgstr "Grazzi, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Have you rnexxielu jsib l-faħam għadhom?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Tista 'pull xi oġġetti madwar billi timbotta kontra tagħhom filwaqt li fl-azjenda l-buttuna ta' Azzjoni."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Tista 'imbagħad iġbed madwar il sakemm inti itlaq il-buttuna ta' Azzjoni"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Dan il-blat jistenna qawwi wisq għall tiegħi Pick Axe. I'll jkollha tuża xi ħaġa oħra li tinkiseb permezz ta '..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, x'ġara?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Jistenna bħal dan ma kienx tali idea tajba wara kollox"
+
+msgid "There must be way out of here..."
+msgstr "Ma għandu jkun hemm mod kif toħrog hawn ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Dan għandu jkun il-faħam trid lili biex mini għall lilu"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "I don't think tarka tiegħi se tipproteġi lili minn dawk fireballs. I'll għandhom isibu waħda b'saħħitha ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Inti mhux ser ikunu kapaċi li jagħmlu dan fil-ftit din il-verżjoni, check back tard!"
+
+msgid "Strange creature..."
+msgstr "Kreatura stramba ..."
+
+msgid "Wait, what was that?"
+msgstr "Stenna, liema kienet dik?"
+
+msgid "You again?!"
+msgstr "You darb'oħra?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Xi ħaġa suppost li jiġri hawn, iżda mhux fil din il-verżjoni sabiex jiċċekkjaw lura tard!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Grazzi għall-resucing tiġieġ tiegħi, qatt ltqajna me 2 zkuk mill-foresta yet?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Grazzi Edgar! Tiġieġ Tiegħi huma lura u dawn iz-zkuk se do me multa"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Ħu din il-xabla, ma tista 'inti sservi ukoll!"
+
+msgid "Thank you!"
+msgstr "Grazzi!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Grazzi għall-zkuk, kellek xi xortih ma 'l-tiġieġ?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "I'll nagħtuk xabla jekk ikollok me 2 zkuk mqattgħin mill-foresta u ta 'salvataġġ mill-inqas 3 tat-tiġieġ tiegħi"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, x'nista 'nagħmel għalik illum?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Għandek xabla I jistgħu jissellfu?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "I do jkollhom xabla u inti jista 'jkollha jekk għandek tagħmel xi ħaġa għalija l-ewwel"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... dak li għandi nagħmel?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Uħud minn tiġieġ tiegħi maħruba mill-pinna tagħhom u Inkun grat ħafna jekk inti tista 'tikseb lura g ˙ alija"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "I waqqfu xi nases ħdejn pinna tagħhom, inti tista LURE lill-nases li jużaw din l-għalf tat-tiġieġ. I don't need lilhom kollha, imma mill-inqas 3 jkun ferm utli. Nista 'nikseb il-bqija myself."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Mhux pjuttost. Tista 'wkoll tikseb xi me injam mill-foresti? 2 iz-zkuk għandhom ikunu biżżejjed"
+
+msgid "Do you have an axe?"
+msgstr "Għandek xi mannara?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "ERM ... I xellug mannara tiegħi fil-foresta x'imkien. Għandu jibqa 'hemm"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Ma jkunx perikoluż foresta li?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Mhux tassew, jekk xejn gets fi triqtek, just hit ma 'arma"
+
+msgid "Such as an axe?"
+msgstr "Bħal mannara?"
+
+msgid "Yes, that would do the trick"
+msgstr "Iva, li ser jagħmel l-trick"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Imma serjament, m'hemm xejn fil hemm li jistgħu verament ħsara inti. Dik il-problema ġiet ittrattata żmien twil ilu ..."
+
+msgid "Good luck!"
+msgstr "Nawguralek!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, grazzi Edgar, I meħtieġa biss 3, iżda grazzi għall-għajnuna addizzjonali!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Hawnhekk, Maggie għamel miegħi din potion saħħa imma jien ma bżonn huwa hekk għaliex ma ikollok?"
+
+msgid "Thanks Jacob"
+msgstr "Grazzi Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Ara naqra, inti maqbuda lilhom kollha, grazzi ħafna!"
+
+msgid "Here, I have these for you"
+msgstr "Hawn, I jkollhom dawn għalik"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie magħmula me dan potion saħħa imma int tista tara li jkun"
+
+msgid "And this is something very special"
+msgstr "U din hija xi ħaġa speċjali ħafna"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Dan jista 'jgħinek dwar tiegħek mod li ssir gwerrier qawwi"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "You me ffrankat ħafna ħin. Maggie magħmula me xi ħaġa oħra imma peress li ġejt utli hekk, inti jista 'jkollhom dan."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Grazzi Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan qal li sezzjoni tal-minjiera kienet siġillati wara  inċident "
+
+msgid "There must be something around here..."
+msgstr "Irid ikun hemm xi ħaġa madwar hawn ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, il-drawbridge qed tiżdied. Ma għandu jkun hemm dħul ieħor ..."
+
+msgid "Wait, what's that?"
+msgstr "Stenna, dak li?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Forsi stajt mina tiegħi mod pulzieri .."
+
+msgid "These machines aren't working."
+msgstr "Dawn il-magni ma jkunux qed jaħdmu."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Jidher qisu a gem għandha tiffittja dan toqba, forsi nista 'nsib xi sostituzzjonijiet."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Jidher qisu huwa sewwa wedged fil hemmhekk. I tista 'probabbilment ma jinħallux mal-pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Biex tikseb l-Swamp Projbit I'll ħtieġa li tinbena tas-salvataġġ."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "I tista 'tibni l-salvataġġ jekk I CHOP fl siġar biżżejjed mill-foresta"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "I ħtieġa 6 Logs imqattgħin biex jibnu ċattra"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Jien ma jmur għall-swamp mingħajr xabla u tarka"
+
+msgid "OK, here goes!"
+msgstr "OK, hawnhekk tmur!"
+
+msgid "Aw, not again!"
+msgstr "Aw, mhux darb'oħra!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Dan kellu jkun l-aħjar aħħar darba nagħmel dan ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Dan kien faċli! U nista 'nikseb lura dejjem aktar!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Aqta I m'għandhom l-ebda għażla issa."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Tistrieħ fuq Dad, I'm li ġejjin ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Xi ħaġa suppost li jiġri issa, imma hija ma din il-verżjoni. Iċċekkja lura tard!"
+
+msgid "There's a note here"
+msgstr "Hemm nota hawn"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Stajt ġiet maqbuda stabbiliti hawn għal dak li jidher qisni eternity"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Biex toħroġ ta 'dan il-post I ħtieġa Keys 3 L-aċċess għall-ħidma tal-lifts"
+
+msgid "So far I have only found 1"
+msgstr "S'issa I għandhom biss misjuba 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Biex tgħaxxaq, I jista 'biss jilħaq xi swiċċijiet bi vleġġa b'attenzjoni jitqiegħed"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Iżda spares mhumiex komuni u I għandhom jispiċċaw"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Jekk ma nsibx mod minn hawn hekk, il-biża I I jistgħu starve"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Jekk jien ma toħroġ hawn I'll jsofru l-istess destin ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, x'hemm dan?"
+
+msgid "There's a note here too"
+msgstr "Hemm nota hawn wisq"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Il-potion hi perfetta! Quaffing ser idur-bniedem fis-kreatura għal ammont żgħir ta 'żmien"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "S'issa nista 'biss transmogrify myself f'waħda kreatura iżda bi ftit xejn aktar ħin għandu jkun possibbli"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Hemm daqsxejn żgħira tax-xellug, għandu jkun bla periklu li tixrob"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, hawnhekk tmur xejn ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Dan huwa horrible!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan told me tajn li jista 'jgħum fl-ilma għalkemm, hekk forsi dan se jkun utli ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Meta trasformata fi ħama, inti tista 'tiċċaqlaq madwar bħala normali. Tista 'wkoll jgħum fl-ilma u l-użu u' l isfel li jiċċaqalqu madwar"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Timbotta up jew jaqbżu se tagħmel inti tiżdied barra mill-ilma jekk int viċin il-wiċċ"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Żżomm għajnejk fuq il-arloġġ fil-qiegħ ta 'l-iskrin. Meta tasal 0 inti awtomatikament terġa 'ssir mill-bniedem"
+
+msgid "This place doesn't look so bad..."
+msgstr "Dan il-post ma jidhrux daqshekk ħżiena ..."
+
+msgid "What was that?"
+msgstr "Liema kienet li?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, Ninsab kuntenta li tkun 'il barra li jkun hemm"
+
+msgid "Now to get through this swamp"
+msgstr "Issa li tinkiseb permezz ta 'dan swamp"
+
+msgid "Hey, what's this?"
+msgstr "Ħej, x'hemm dan?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Jistenna pretty jagħmlux ħsara, I'll jippruvaw titjib fuqha"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Ara naqra! Dan kien jibred! Dan għandu jkun teleporter mekkaniku."
+
+msgid "I wonder if it works both ways..."
+msgstr "I wonder jekk xogħlijiet kemm modi ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Mhux biss dan huwa se jiffranka lili ħafna mixi, huwa wkoll tagħbijiet ta 'gost!"
+
+msgid "Now try out your shield"
+msgstr "Issa jippruvaw shield tiegħek"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blokk-pritkuni spat mill-impjant u jaqbżu sal-ledge jmiss"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Xi punti fil-logħba tista 'tiġi mbuttata u miġbuda"
+
+msgid "To push an item, simply walk into it"
+msgstr "Biex timbotta 'oġġett, sempliċiment walk fis hija"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Għal pull oġġett, filwaqt li jimxu fis-azjenda fl-Azzjoni"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Tista 'imbagħad iġbed l-oġġett madwar sakemm inti let go ta' Azzjoni"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Iġbed il-kaxxa fuq in-naħa l-oħra u jużaha biex jilħqu l-ledge"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Din hija l-aħħar parti tal-tutorja u se jgħallmu l-blokka u l-attakk għedewwa"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "L-ewwel, inti għandu jattrezza lill-xabla peress li għandha firxa aktar u ma ħsara aktar mill-pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Press z inventarju għall-fehma tiegħek, jenfasizzaw il-xabla u l-istampa Attakk (xellug Ctrl) jew Uża punt (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Press z darb'oħra li l-inventarju mill-qrib tiegħek"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Kultant, għedewwa slain se qatra tas-saħħa li ser jgħibu wara ftit sekondi, sabiex pick it up malajr!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Jekk BAT qed jitwal għal qrib tiegħek, żomm blokk u se jħalli joħroġ mingħajr ħsara bounce off int"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Issa joqtlu kollha ta 'l-friefet il-lejl fil-qasam!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Hemm żewġ tipi ta 'bibien fil-logħba. Manwal bibien u l-bibien awtomatiċi."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Bibien Manwal bżonn iċ-ċwievet biex jinfetħu minnhom, il-bibien awtomatiċi jeħtieġu switches."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Biex tiftaħ bieb imsakkar li inti għandek l-muftieħ għall-, sempliċiment walk inkorporat fih. M'hemmx bżonn li jkollha l-ċavetta magħżula fl-inventarju tiegħek."
+
+msgid "Open the door and continue to the right"
+msgstr "Iftaħ il-bieb u tkompli d-dritt"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Awguri! Issa inti taf l-affarijiet bażiċi tal-playing inti għandek tipprova il-logħba prinċipali"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Jekk inti tixtieq li replay dan tutorja, l-istampa ta 'evakwazzjoni u agħżel mill-menu Tutorial"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Biex jilagħbu l-logħba prinċipali, l-istampa ta 'evakwazzjoni u New Game agħżel mill-menu"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Spazju għall-istampa meta jkollok lest qari imorru għall-kaxxa dialog jmiss"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Tista 'wkoll jgħaddi għall-kaxxa dialog li jmiss billi tagħfas Attakk (xellug Ctrl), Blokk (xellug alt), Aqbeż (spazju), Azzjoni (ċ) jew Uża punt (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Dan huwa l-tutorja għall Il-Leġġenda ta 'Edgar. Dan tutorja se jispjegaw kif jilagħbu l-logħba."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Għal dan il-ħruġ tutorja, l-istampa tas-salvataġġ u l-użu tal-Up u ċwievet vleġġa Down li jagħżlu l-għażla. Ritorn għall-istampa li tagħżel dan."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Sabiex ikun hemm mixja tax-xellug u tal-lemin, uża l-keys vleġġa."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Biex tagħmel jaqbżu l-ispazju għall-istampa,. Tista 'timxi fl-arja meta jaqbeż."
+
+msgid "To interact with an item, press c"
+msgstr "Li jinteraġixxu ma 'oġġett, l-istampa c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Walk fuq għall-Punt ta 'Azzjoni u l-istampa c"
+
+msgid "To collect an item from your"
+msgstr "Biex jiġbru l-oġġett mill tiegħek"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Li jittellgħu 'oġġett, sempliċiment walk inkorporat fih. Kull oġġetti collectable se jkun miżjud mal-inventarju tiegħek."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Tista 'tara l-kontenut ta' l-inventarju tiegħek billi tagħfas z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Filwaqt li fl-inventarju, l-użu l-imfietaħ vleġġa biex tara l-oġġetti."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Tista 'tuża l-oġġett immedjatament bl-ippressar Attakk (xellug Ctrl) jew Uża punt (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Tista 'l-oġġett lest għall-użu mill-ippressar Blokk (xellug alt) jew l-Azzjoni (ċ)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Walk matul il-muftieħ għall pick it up"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Int tista 'tibdel l-kontrolli kollha fil-logħba bl-ippressar ta' evakwazzjoni u għażla Għażliet fir-menu"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Select Kkonfigurat Kontrolli uża t-tasti u l-vleġġa Ritorn għall-istampa"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Uża l-ċwievet vleġġa li jagħżlu l-kontroll trid tibdel u istampa Ritorn."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Sussegwentement, agħfas il-ewlenin li inti tixtieq li tuża minflok."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Irrispettivament ta 'dak ċwievet li inti tagħżel, inti tista' dejjem tinnaviga l-menus uża t-tasti u l-vleġġa Ritorn"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Innota li f'dan il-tutorja, il-keys default se tiġi assumata"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Meta tkun spiċċajt il-konfigurazzjoni l-ċwievet, imorru id-dritt għall-Azzjoni li jmiss Punt"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Il-pickaxe hija waħda ta 'armi ħafna li inti ser jiltaqgħu fil-logħba"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Tista 'tużah kemm bħala arma u għodda"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Aqbad il-pickaxe u jkomplu l-Azzjoni li jmiss Punt"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Congratulations, inti sabet sigriet!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Hemm sigrieti ħafna fil-logħba prinċipali sabiex iżommu oqgħod attent għalihom"
+
+msgid "Here's a hint to get you started"
+msgstr "Here's a ħjiel li nikseb bdejt"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Għalkemm jeħtieġ biss li inti qabda 3 ta 'tiġieġ tiegħu, għaliex ma tkun sbieħ lilu u jaqbdu aktar? Hemm 10 wandering il-mappa fl -"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "It-tarka se tipproteġik minn attakki ghadu l-aktar"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Xi attakki ghadu ma jistax jiġi mblukkat"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Perikli ambjentali, bħall-blat li jaqa ', ma jistax jiġi mblukkat"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Biex blokka ta 'attakk, l-istampa u l-blokk istiva (xellug alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Inti trid tkun qed tiffaċċja l-attakk li b'suċċess blokk huwa"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Innota li inti ma jkunux jistgħu jiċċaqalqu waqt l-imblukkar, imma int tista 'tiffaċċja l-mod ieħor. Inti wkoll ma tistax blokk fl-arja"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Aqbad l-ilqugħ u tkompli d-dritt"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Dan huwa ħajt dgħajfa, jista 'jkun madwar tmien snin u fl-użu tal-pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Biex tuża l-pickaxe, istampa Attakk (xellug Ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "li mhux l-ħitan dgħajfa jistgħu jiġu distrutti bl-użu pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Eqred il-ħajt bl-użu pickaxe u tkompli"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Xi ħaġa li suppost li jkun hawn iżda mhux fil din il-verżjoni, check back tard!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Iġbor 10 biċċiet tal-Faħam"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Iġbor Logs 2 imqattgħin"
+
+msgid "Rescue 3 Chickens"
+msgstr "3 Tiġieġ Salvataġġ"
+
+msgid "Find 4 Gems"
+msgstr "Find 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Tiswija Ġeneraturi"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Iġbor Logs 6 imqattgħin"
+
+msgid "Collect 3 Access Keys"
+msgstr "Iġbor 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Dan huwa għan fl-imbjank"
+
+msgid "Kill all Bats!"
+msgstr "Joqtlu kollha Bats!"
+
+msgid "Coal"
+msgstr "Faħam"
+
+msgid "Chopped Log"
+msgstr "Mqatta Log"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter ewlenin"
+
+msgid "New Game"
+msgstr "New Game"
+
+msgid "Tutorial"
+msgstr "Tutorja"
+
+msgid "Load Game"
+msgstr "Game Load"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "About"
+msgstr "Dwar"
+
+msgid "Quit"
+msgstr "Nieqaf"
+
+msgid "Configure Controls"
+msgstr "Kkonfigurat Kontrolli"
+
+msgid "Configure Sound"
+msgstr "Kkonfigurat Sound"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Ħjiel Show"
+
+msgid "A potion which will transform you..."
+msgstr "A potion li se jittrasforma int ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Joħloq ħafna assorbenti kubi tas-silġ ta 'daqs żgħir"
+
+msgid "A potion which will restore all of your health"
+msgstr "A potion li se terġa 'ddaħħal kollha tas-saħħa tiegħek"
+
+msgid "A powerful bomb"
+msgstr "A bomba qawwija"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "A potion li jirrendi inti inviżibbli għall għedewwa ċerti"
+
+msgid "The eyeball from a Gazer"
+msgstr "Il-boċċa minn Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Pack Tesla. Hija għandha l-ebda ħlas."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Staff Summoner's. Dan ma jistax jintuża mill-bniedem."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Pack Tesla. Huwa għal kollox iċċarġjata."
+
+msgid "An empty potion bottle"
+msgstr "Flixkun vojt potion"
+
+msgid "A bag of chicken feed"
+msgstr "Il-borża ta 'l-għalf tat-tiġieġ"
+
+msgid "A bag suitable for carrying coal"
+msgstr "A borża addattati għat-twettiq tal-faħam"
+
+msgid "Basic Sword"
+msgstr "Basic Xabla"
+
+msgid "A Sword given to you by Jacob"
+msgstr "A Sword mogħti lilek minn Jacob"
+
+msgid "A bow"
+msgstr "A pruwa"
+
+msgid "Small Wooden Shield"
+msgstr "Small Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "A shield żgħar li tipprovdi protezzjoni bażika"
+
+msgid "Normal Arrow"
+msgstr "Normali Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normali Vleġeġ"
+
+msgid "An axe suitable for chopping trees"
+msgstr "L-mannara xierqa għall-tqattiegħ siġar"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A pickaxe mislufa lilek mill Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner ewlenin"
+
+msgid "Potion Room Key"
+msgstr "Potion Room ewlenin"
+
+msgid "Surge Passage Key"
+msgstr "Surge Passage ewlenin"
+
+msgid "Demolition Storage Key"
+msgstr "Twaqqigħ Ħażna ewlenin"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Tkun xi ħaġa li ma kien ġie draining l-poter minn dak il-ġeneratur u nużawha kontra tiegħi."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Dan jista 'jispjega għaliex l-lift ma kienx qed jaħdem. Kien jisfratta l-drainers oħra għandu jirrestawra l-enerġija."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Telfa kollha Drainers Enerġija"
+
+msgid "No Objectives"
+msgstr "Nru Għanijiet"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Press Azzjoni għal reset blokki puzzle"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Jidher qisu blender. I jistgħu jużaw dan liquidise xi ħaġa"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "I bżonn Tentacle Ħama aħmar u 3 Gazer għajnejn li jagħmlu l-potion"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "I still bżonn Flixkun Battal li tqiegħed il-potion fl -"
+
+msgid "So this is the Fortress."
+msgstr "Allura dan huwa l-Fortress."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Jidher qisu ħafna bibien off jwasslu għal oqsma oħra, I għandu jkollhom ħarsa madwar xieraq qabel ma mmur imkien ieħor ..."
+
+msgid "Try hitting the skull..."
+msgstr "Ipprova laqtu l-kranju ..."
+
+msgid "This machine is not active"
+msgstr "Dan il-magna ma tkunx attiva"
+
+msgid "Repeat the sequence"
+msgstr "Irrepeti l-sekwenza"
+
+msgid "Correct Sequence"
+msgstr "Correct Sequence"
+
+msgid "Incorrect Sequence"
+msgstr "Żbaljata Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Il-Leġġenda ta 'Edgar ltaqgħet ma' żball li ġej"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Jekk jogħġbok irrapporta dan l-iżball li Realtajiet Parallel"
+
+msgid "The game will now exit"
+msgstr "Il-logħba se issa ħruġ"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Jidher qisu blender. I jistgħu jużaw dan liqudise xi ħaġa"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Dan għandu jkun il-faħam Borgan trid lili biex mini għall lilu"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Dan jista 'jispjega għaliex l-lift ma kienx qed jaħdem. Kien jisfratta l-drainers oħra għandu jirrestawra l-enerġija hawnhekk."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "I bżonn issib 3 Għajnejn Gazer, 1 Red Ħama Tentacle u tarka extra biex joħolqu Shield of Fire Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Ladarba stajt misjuba kollha dawn l-oġġetti I'll jkollhom isibu post biex joħolqu l-ilqugħ"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Hemm ktieb hawn dwar l-armi enchanting"
+
+msgid "Maybe I can create a shield..."
+msgstr "Maybe I jistgħu joħolqu tarka ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Xwabel ... Armour ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid ktieb. Mhuwiex fl-ordni u hemm l-ebda indiċi"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: tarki"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Ingredjenti"
+
+msgid "One must gather the following"
+msgstr "Wieħed irid jinġabar li ġejjin"
+
+msgid "The root of a Mandrake"
+msgstr "L-għerq ta 'Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Ix-xaħam ta 'Darsh (jitħalla joqgħod għal 3 xhur)"
+
+msgid "Powered Condor bones"
+msgstr "Għadam Powered Condor"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 ta 'l-għajnejn Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Il-Tentacle friski maqtugħa minn femminili Red Ħama"
+
+msgid "The shield to apply the enchantment"
+msgstr "L-ilqugħ li japplikaw il-enchantment"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Taħlita-għajnejn Gazer u Tentacle Ħama fi likwidu bla xkiel"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Żid l-għerq, xaħam u l-għadam fil-cauldron u ħallat flimkien ma 'l-għajnejn Gazer imħallta u Tentacle Ħama"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Meta t-taħlita idur ikħal bright, żid l-ilqugħ"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Stajt tidher l-aktar ta 'dawn l-oġġetti fil-lab so I m'għandhomx bżonn ninkwetaw dwar dawk"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "U l-Gazers hang madwar fil-kantina b'tali mod li mhux problema"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "What I do ħtieġa li jinstab huwa Ħama aħmar, iżda għandi l-ebda idea fejn isibu waħda"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "I ma jistax juża tarka kurrenti tiegħi fl-esperiment każ backfires so I'll jkollhom isibu ieħor"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Jista 'jkun hemm potions kamra jew laboratorju fejn nista' nsib l-għeruq, xaħam u l-għadam so I m'għandhomx bżonn ninkwetaw dwar dawk"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Inti għandu jkollok il-karta ta 'l-istruzzjoni tixtieq tuża enfasizzati fil-kaxxa inventarju tiegħek"
+
+msgid "Wow, a laboratory!"
+msgstr "Ara naqra, laboratorju!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "I love jaraw Maggie jagħmlu jispeċifika u potions, forsi I tista 'tagħmel xi tiegħi stess here!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Ara naqra, stajt qatt hekk bosta kotba f'post wieħed!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Ma għandu jkun hemm informazzjoni dwar kull suġġett hawn, dan jista 'jkun utli ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, l-arja iħoss imposti, tfakkarni me tad-dar Maggie's meta hi kienet qed tagħmel jispeċifika. I għandhom ikunu attenti."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, int iweġġgħu! Let me fejqan feriti tiegħek"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "I wonder dak monsters oħra hemm. I'll pick-paġna bl-addoċċ ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers jtajru l-kreaturi cycloptic jinstabu f'diversi postijiet"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Għajn uniku tagħhom huwa normalment magħluq u li jiddependu fuq sonar għall-moviment"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Dawn jużaw sens ta 'riħa qawwija tagħhom biex joqogħdu attenti għall-predaturi u priża kemm"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Attakk Gazers (u jiddefendu lilhom infushom) bil-ftuħ ta 'l-għajnejn tagħhom li se jgħammex xejn tħares lejn din"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Dan l-attakk hu effettiv biss madankollu jekk il-vittma qed tiffaċċja l-Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Boċċa A Gazer tal-KAMA fih proprjetajiet maġika u huwa ingredjent komuni fil jespliċitaw preparazzjoni"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions huma magically maħluqa kreaturi, normalment jintbagħtu bħala sentries jew gwardji"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Għalkemm bil-mod li jiċċaqalqu, id-daqs enormi tagħhom jippermettulhom li sempliċement permezz ta 'Marzu kull difiża"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Minflok l-armi, li ħafna sewwieqa enormi pile li huma jużaw biex ħawwad l-art u disorientate theddid"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Filwaqt li Centurions Grey se jintużaw biex gwardji tal-perimetri ta 'barra, Centurions Red huma magħrufa li jeżistu u huma użati għall-ħarsien taż-żoni ta' importanza kbira"
+
+msgid "Splitter"
+msgstr "Isplitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters huma monsters ma jagħmlux ħsara sakemm attakkati."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Malli ssofri d-dannu wisq huma maqsuma f'żewġ u l-attakk tal-predaturi tagħhom"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Jekk wieħed minn dawn il-ħsara ġġarrab wisq se maqsuma mill-ġdid u jkomplu attakk"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Fl-aħħarnett, wieħed maqsum finali se tipproduċi ħafna verżjonijiet żgħar li huma kompletament ma jagħmlux ħsara u f'dan l-istat jistgħu sempliċement jiżdiedu fuq"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Jekk il-partijiet kollha tagħha jkunu għadhom ħajjin, ta 'splitter se tirriforma ruħha wara filwaqt li l-fejqan u feriti tagħha"
+
+msgid "Grub, Red"
+msgstr "Toqob, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Grubs Red huma aktar aggressiva mill-kontropartijiet tagħhom ħadra u se attakk xejn huma jikkunsidraw bħala theddida"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Malli jilħaq il-maturità li se jifformaw Cocoon u morph fi wasp"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Xi madankollu se morph fi wasp reġina. Dawn l-irġejjen tista 'tipproduċi mukus-like sustanza li kapaċi jżomm priża tiegħu fis-seħħ"
+
+msgid "Tortoise, Master"
+msgstr "Fekruna, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Fkieren Master beasts huma biża. Jinsabu fil-bogħod artijiet għandhom il-kapaċità li jiġi mibdul kapijiet tagħhom"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Jikkombinaw kollha kuġini ta 'l-abilitajiet tagħhom li jieħdu nifs nar, toħloq is-silġ u electrify infushom"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "U ovvjament huma wkoll impervja għal attakki minn tqabbil elementi, jassorbu l-enerġija għall-fejqan infushom"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Iżda barra minn hekk, jekk jirċievu l-enerġija wisq mill-fejqan, jevolvu u jmorru fuq il għamlu rewwixta vjolenti"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "F'dan l-istat huma se smash permezz ta 'kwalunkwe difiża u jipproduċu Dark Matter li jeqred xi ħaġa li tmiss"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Madankollu, il-qoxra ta 'Tortoise Master rampaging huwa ferm maġika u huwa ingredjent essenzjali meta jinħoloq magics qawwija u oġġetti"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore huwa kreatura mill-dimensjoni oħra. Jista 'jiġi mħarrek bl-użu ta magic dlam qawwija"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Ir-raġuni l-aktar komuni li jsejħu din kruha huwa biex jaġixxi bħala gwardja tas-sigurtà"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "M'hemm l-ebda mod magħruf li joqtlu Grimlore peress fuq ssofri ġrieħi kritiku se sempliċement lura għall-akbar dimensjoni tagħha stess"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Iżda anke dannu huwa kompitu monumentali. Kull min jiltaqgħu ma 'dan il-kreatura hi rakkomandata għal-ħrib kif jista' jkun malajr"
+
+msgid "Or they will die very quickly"
+msgstr "Jew huma se jmutu malajr ħafna"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, hawnhekk hija kompendju ta 'monsters"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 volumi! Kif jista 'jkun hemm monsters tant fid-dinja?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Id-dehra li qed fl-ordni alfabetiku għalkemm"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Ħama, Green ... Ħama, Purple ... Ħama, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Ħama, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "B'differenza ku aħdar tagħha, il-Ħama Red jibqa 'fil-fond u taħt l-art rari, jekk qatt, uċuħ"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Ħabitat preferut tiegħu huma xotti u żoni minerali sinjuri u bħala riżultat instabu lurking fl-oqsma tal-mini abbandunati mill-bnedmin"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Huma ħafna attenta tal-bnedmin u attakk fuq il-vista, normalment rimettar ta 'aċidu li jieħu ż-żmien li jevapora"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, Lesser ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Kbir, li kollox huwa jgħid. I lanqas biss jafu kif tgħid id-differenza bejn rġiel u nisa. I'll biss biex tieħu l-opportunità ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Barra minn hekk, dak li l-agħar li jista 'jiġri?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Sabiex ikun hemm mixja Edgar xellug u tal-lemin, uża l-keys vleġġa."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Biex jagħmlu jaqbżu Edgar, l-ispazju għall-istampa. Tista 'timxi fl-arja meta jaqbeż."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Għalkemm Jacob jeħtieġ biss li inti qabda 3 ta 'tiġieġ tiegħu, għaliex ma tkun sbieħ lilu u jaqbdu aktar? Hemm 10 wandering il-mappa fl -"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Innota li mhux il-ħitan dgħajfa jistgħu jiġu distrutti bl-użu pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Stajt diġà vverifikati, hu Ma stabbiliti hemmhekk ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Stajt jinstemgħu ta 'persuni li jaqgħu fil-ħafna qabel, forsi Dad's fil hemmhekk ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ARE YOU DOWN hemmhekk ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Xejn. I raden I'll għandhom iżommu dwar ħarsa"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up jew Down biex jgħollu jew ibaxxu l-pjattaforma"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Hemm ktieb hawnhekk dwar tagħmir enchanting"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Huwa ktieb dwar tagħmir enchanting"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Jien m'għandi l-ebda raġuni biex jaqraw dan iżda I'll jżomm f'moħħha fil-każ I do"
+
+msgid "I wonder what other monsters there are..."
+msgstr "I wonder dak monsters oħra hemm ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Eżatt bħal Summoners regolari, Summoners Dark sejħa fil beasts oħra biex jagħmlu offerti tagħhom"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Barra minn hekk għalkemm dawn jistgħu teleport distanzi qosra jkunu jistgħu jaħarbu mill-avversarji tagħhom"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Persunal tagħhom huwa ħafna maġika u għalkemm ma jistax jintuża direttament mill-bniedem, il-proprjetajiet maġika tagħha huma użati fil-ħolqien jespliċitaw"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers Pink huma quadrupeds żgħar bil-imnieħer twil"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Il-puropse primarja ta 'l-imnieħer huwa għall-għalf għall-ikel iżda wkoll jservi bħala mekkaniżmu ta' difiża"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "u huma aktar kapaċi li jżommu predaturi fil-bajja billi sempliċiment blowing minnhom bogħod"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, mobbli"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Flytraps Venus evolvew għeruq u jkunu jistgħu jiċċaqalqu 'l-ikel tagħhom pjuttost milli wieħed joqgħod jistenna li ġejjin lilhom"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Għenuq tagħhom huma oerhört elastiċi u huma kapaċi li snap fil-priża tagħhom mill-bogħod konsiderevoli 'l bogħod"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Li għandha tagħmel dan. Nisperaw li l-lift oħra mill-Sewer għandha issa tkun qed taħdem"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Dan il-lift huwa mhux qed jaħdem. I mhux ser ikunu jistgħu jużaw dan sal I jirrestawra l-enerġija"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Jistenna li l-ħġieġ oħxon wisq għalija li xquq, I'll jkollhom isibu xi mod ieħor ta 'jitfarrku li ..."
+
+msgid "Up"
+msgstr "Fuq"
+
+msgid "Down"
+msgstr "Isfel"
+
+msgid "Left"
+msgstr "Xellug"
+
+msgid "Right"
+msgstr "Lemin"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Attakk"
+
+msgid "Block"
+msgstr "Blokk"
+
+msgid "Action"
+msgstr "Azzjoni"
+
+msgid "Use Item"
+msgstr "Użu Punt"
+
+msgid "Previous Item"
+msgstr "Punt Preċedenti"
+
+msgid "Next Item"
+msgstr "Next Punt"
+
+msgid "Inventory"
+msgstr "Inventarju"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "Volume SFX"
+
+msgid "Music Volume"
+msgstr "Volume Music"
+
+msgid "Ice Spray"
+msgstr "Silġ Spray"
+
+msgid "Library"
+msgstr "Librerija"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lift Ewlenin"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Entratura Bieb Ewlenin"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Periferija Fortress"
+
+msgid "Forbidden Swamp"
+msgstr "Projbit Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Drenaġġ Żona Ristretta Ewlenin"
+
+msgid "Basement"
+msgstr "Kantina"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Ground Floor"
+
+msgid "Sewer"
+msgstr "Laredo"
+
+msgid "Fortress Main Key"
+msgstr "Fortress Main ewlenin"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access Key 3"
+
+msgid "Laboratory"
+msgstr "Laboratorju"
+
+msgid "Empty Bottle"
+msgstr "Flixkun Empty"
+
+msgid "First Floor Key"
+msgstr "First Floor ewlenin"
+
+msgid "Press Action to retrieve %s"
+msgstr "Press Azzjoni sabiex tkun irkuprata %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, dan huwa ġdid."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Hija ma look like li jistgħu iweġġgħu me għalkemm, imma hemm biss mod wieħed biex issir taf ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Dan lift hija kkontrollata minn dik il-pjanċa ta 'pressjoni, imma ma tistax toqgħod fuqha u l-użu tal-lift fl-istess ħin"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "I'll jkollhom isibu xi ħaġa oħra li toqgħod fuq il-pjanċa tal-pressjoni għall-me ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Dan il-biljett huwa vojt, I'll jkollu jpoġġi xi istruzzjonijiet dwar dan li jagħmluha użabbli."
+
+msgid "There's a plaque here"
+msgstr "Hemm plakka hawn"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Poġġi l-istatwi 4 fl-ordni korretta"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Inti mhux ser ikunu jistgħu jsibu l-istatwi 4 f'dan ir-verżjoni, sabiex terga 'lura aktar tard!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Inti għandu jkollok l-istatwa tixtieq tuża enfasizzati fil-kaxxa inventarju tiegħek"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Xejn ġara. Ma naħsibx li l-ordni ta 'dritt"
+
+msgid "Tuning Fork"
+msgstr "Tuning Fork"
+
+msgid "Second Floor Keycard"
+msgstr "Second Floor Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Instruction Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Instruction Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Instruction Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Instruction Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Statwa"
+
+msgid "Spider Statue"
+msgstr "Spider Statwa"
+
+msgid "Tortoise Statue"
+msgstr "Fekruna Statwa"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Statwa"
+
+msgid "A Blue Gem"
+msgstr "A Gem Blue"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "A istatwa ta 'Centurion. Hija 2 saqajn."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "A Gem Purple"
+
+msgid "A Red Gem"
+msgstr "A Gem Red"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "A istatwa ta 'Scorpion. Hija għandha 6 saqajn."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "A istatwa ta 'Spider. Hija 8 saqajn."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "An Ball Spike Armadillo. Se scatter spikes meta jintefgħu."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "A istatwa ta 'Tortoise. Hija 4 saqajn."
+
+msgid "A Tuning Fork"
+msgstr "A Furketta Tuning"
+
+msgid "A chopped log"
+msgstr "A mqatta log"
+
+msgid "Narrator"
+msgstr "Narrator"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "It's a cauldron. Maggie kienet waħda biss bħal dan"
+
+msgid "Right, here goes!"
+msgstr "Dritt, hawnhekk tmur!"
+
+msgid "I need all the main ingredients"
+msgstr "I-ħtieġa kollha ta 'l-ingredjenti prinċipali"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer għajnejn, 1 Red Ħama Tentacle u tarka żejda"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "I jeħtieġu wkoll li taħlita l-għajnejn u l-Tentacle fi likwidu"
+
+msgid "This entire section is about monsters"
+msgstr "Din it-taqsima kollu huwa dwar monsters"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Jien m'għandi l-ebda raġuni biex jaqra dawn imma I'll jżomm f'moħħha fil-każ I do"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Ara naqra ħej, liema magna ftit ħelu!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Huwa ltqajna slot ftit fuq wara ta 'dan. I raden nressaq fil hemm xi ħaġa li jagħmluha do Jittieħed"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Il-robot tuża kards istruzzjoni li jiċċaqalqu madwar"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Uża l-istruzzjonijiet sabiex tiggwida l-robot biex tiftaħ l-oqsma li inti ma tistax aċċess"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Madankollu, peress li inti ma tista 'taqra l-istruzzjonijiet fuq il-karta, ser ikollok li jippruvawhom kollha barra sakemm wieħed jaħdem"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Jekk il-robot ma jilħaq il-mira tiegħu, allura huwa ser jerġa 'pożizzjoni tal-bidu tagħha jippermetti li inti erġa' pprova"
+
+msgid "Enter the directions"
+msgstr "Ikteb il-direzzjonijiet"
+
+msgid "Out of space for instructions"
+msgstr "Minn ta 'l-ispazju għall-istruzzjonijiet"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "I ħtieġa karta vojta biex tpoġġi l-istruzzjonijiet fuq"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Forsi dan ma kienx tali idea tajba wara kollox ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Akkwista 3 Eyes Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Akkwista 1 Red Ħama Tentacle"
+
+msgid "Find another shield"
+msgstr "Find ieħor shield"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend għajnejn u Tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "Akkwista Shield Nar"
+
+msgid "More water?!"
+msgstr "Aktar 'l-ilma?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Ma naħsibx li tista 'ddur fi ħama va għinni hawnhekk, peress li jien ma jista' jirnexxilha terġa 'lura wara"
+
+msgid "I'll have to find another way of getting across"
+msgstr "I'll iridu jsibu mod ieħor kif jkollna madwar"
+
+msgid "I'll have to find something to help me get across"
+msgstr "I'll jkollhom isibu xi ħaġa biex jgħin lili nwasslu l"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "I ma tara xi Sludges fil-mina meta I marru għall-faħam nikseb Borgan u anki jekk kien hemm xi Ma nistax nikseb lura hemmhekk mill-ċattra tiegħi għereq"
+
+msgid "I'll have to find another mine around here..."
+msgstr "I'll iridu jsibu ieħor mini madwar hawn ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Joħloq kwadretti tas-silġ li jespandu mal-kuntatt ma 'l-ilma"
+
+msgid "A bottle capable of capturing souls"
+msgstr "A kapaċi li jinqabad erwieħ flixkun"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Ipprova uża skieken Mataeus's kontrih ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Ma jistgħux pick up %s. Inventarju sħiħ"
+
+msgid "Filling mine cart..."
+msgstr "Mili cart mini ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Realtajiet Parallel 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Minn arrows!"
+
+msgid "There's something moving around down there..."
+msgstr "Hemm xi ħaġa li jiċċaqalqu madwar l hemm ..."
+
+msgid "Good riddance..."
+msgstr "Good riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Jekk il-lift ikun out of order allura għandu jiġi reset"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Hemm 4 swiċċijiet reset tul il-xaft ta 'lift li għandha tkun reset"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Kun żgur li reset-lift biex jevitaw mixja twila lura għall-wiċċ ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Din il-magna għandu slott l-istess daqs il-karti. I raden I tistax tużah biex joħolqu l-istruzzjonijiet ġodda."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Biex joħolqu sett ġdid ta 'struzzjonijiet li għandek bżonn biex jiddaħħal karta vojta"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Inti imbagħad tkun wasslet għall-input id-direzzjonijiet għall-robot li jsegwu. Dan isir bl-istess mod bħall-bibien sekwenza"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Meta tkun spiċċajt tiddaħħal id-direzzjonijiet, istampa Attakk"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Il-robot mbagħad issegwi l-istruzzjonijiet fuq il-biljett"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Jekk l-istruzzjonijiet mhumiex korretti inti tista 'tipprova terġa"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Dan il-post huwa crazy, I'd aħjar hurry up u jsibu Dad qabel I jispiċċaw jkollna maqtula!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Allura, biex jinħolqu li Fire Shield I ikollu jikseb Tentacle Ħama aħmar"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Tajn aħmar jgħixu fil-minjieri so I'll jkollhom isibu waħda madwar hawn"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "I bżonn ukoll ta 'tarka żejda, iżda I Ikkalkola għandu jkun hemm l-Armerija tal-madwar"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "L-għajnejn Gazer huma faċli biżżejjed, nista 'biss jirritorna lejn il-kantina"
+
+msgid "OK, off I go..."
+msgstr "OK, off I go ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Inti mhux se jkunu kapaċi jiksbu l-Tentacle jew tarka f'dan il-verżjoni, għalhekk iċċekkja iktar tard back!"
+
+msgid "It's a portrait"
+msgstr "It's a portrait"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "L-ispirtu mhux se let me passat, I'll għandhom isibu mezz biex jeħles minnu"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset swiċċijiet jippermettu inti għal reset pożizzjoni ta 'oġġett ta' fuq il-mappa"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Jekk oġġett isir unreachable allura inti tista 'tuża l-iswiċċ li titqiegħed lura fil-post oriġinali tiegħu"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Flixkun bil-ruħ maqbud ġewwa"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Ipproċessar Lift ewlenin"
+
+msgid "Right Grabber Key"
+msgstr "Dritt grabber ewlenin"
+
+msgid "Left Grabber Key"
+msgstr "Left grabber ewlenin"
+
+msgid "Master Key"
+msgstr "Master ewlenin"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Il-sorcerer għandu jkun ħa Dad għall-kastell tiegħu. I'll jkollhom salvataġġ lilu minn hemm."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "L-uniku triq biex jinġiebu għall-kastell huwa permezz tal-Swamp Projbit fil-Lvant."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Hemm lag bejn il-Villaġġ u l-Swamp so I bzonn ċattra li tikseb madwar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "I'll bżonn ukoll ta 'xabla u tarka li tiddefendi myself. I jistgħu jitkellmu sabiex Borgan u Jacob tikseb għalkemm dawn."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Ma kellekx konnessjoni ma Midalja Server fil %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Ma kellekx issib Midalja Ewlenin"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Inti mhux ser ikunu jistgħu jaqilgħu Midalji għal din il-logħba"
+
+msgid "There's another sign here"
+msgstr "Hemm xi sinjal ieħor hawn"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Jekk il-lift huwa l-ħruġ ta 'ordni mbagħad jipproċedi lejn ix-xellug"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Twissija: rotta Ħruġ jista 'jkun perikoluż"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Maybe I għandhom jużaw il-lift li toħroġ"
+
+msgid "There's a sign here"
+msgstr "Hemm sinjal hawn"
+
+msgid "An Oil Can"
+msgstr "An Oil Can"
+
+msgid "Oil Can"
+msgstr "Oil Can"
+
+msgid "A powerful repellent"
+msgstr "A repellent qawwija"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Appoġġ Midalja"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Ewlenin privat huwa nieqes"
+
+msgid "Could not connect to server"
+msgstr "Ma kellekx konnessjoni ma 'server"
+
+msgid "Sludge Tentacle"
+msgstr "Ħama Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Tentacle Ħama Red"
+
+msgid "Eyeball Smoothie"
+msgstr "Boċċa Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Kessaħ, hija ħadmet!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "M'inix ċert dwar il-kulur għalkemm, ħsibt li jkun aħmar?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Forsi huwa suppost li tkun safra ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "A likwidu magħmul mill-għajnejn u tentacles"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patching tiegħek ħlief logħba. Jekk jogħġbok stenna ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Issa! Mexxi filwaqt li huwa storduti!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Ara naqra, ħaġa li huwa enormi!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "I dubju xabla tiegħi se anke jagħmlu scratch, iżda għandi bżonn biex nikseb passat ..."
+
+msgid "I have everything I need now"
+msgstr "I ikollha kollox I bżonn issa"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Hemm's a cauldron fil-Laboratorju, I għandu ras lura hemm"
+
+msgid "I just need to find another shield to enchant"
+msgstr "I biss bżonn issib ieħor jipproteġu lill enchant"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Inti mhux se jkunu kapaċi jiksbu l-ilqugħ fil din il-verżjoni, għalhekk iċċekkja iktar tard back!"
+
+msgid "Its wounds are already healing..."
+msgstr "Ġrieħi tiegħu huma diġà fejqan ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Jekk inti ikkumpilata l-logħba mis-sors, inti għandek bżonn tagħmel għamla jinstallaw"
+
+msgid "It's sleeping"
+msgstr "Huwa l-irqad"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "I'm sikur xorta waħda peress li f'dan ir-gaġġa ..."
+
+msgid "Where's the switch?"
+msgstr "Meta l-bidla?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, hawn hu!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Dan ġeneratur jistenna OK, hija biss mhux fuq"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "I raden setgħat dak il-bieb, so I'll għandhom dawwar fuq"
+
+msgid "A Yellow Gem"
+msgstr "A Gem Isfar"
+
+msgid "Failed to open PAK file %s"
+msgstr "Naqset milli tiftaħ PAK fajl %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Sib mod sabiex jitneħħew l-Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Press Azzjoni sabiex tkun irkuprata l Gem Isfar"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Il-boxxla li kienet mgħassa l-Minjiera ma kienx fil-verżjoni preċedenti"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Għaliex huwa f'dan il-verżjoni inti mhux se jkun jista jħalli"
+
+msgid "You will now be transported outside"
+msgstr "Inti issa se jiġu trasportati barra mill -"
+
+msgid "We apologize for the inconvenience"
+msgstr "Aħna ruhna ghall-inkonvenjenza"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "I għandhom ikunu bla periklu sa hawn, imma għandi bżonn biex jeħles minnu"
+
+msgid "Book"
+msgstr "Ktieb"
+
+msgid "Sign"
+msgstr "Sign"
+
+msgid "Note"
+msgstr "Nota"
+
