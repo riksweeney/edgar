@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/beetle.dat
+ANIM_FILE data/anim/enemy/beetle.dat
+TYPE ENEMY
+DAMAGE 1
+HEALTH 3
+SPEED 1.5

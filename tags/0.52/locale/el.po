@@ -1,0 +1,1915 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Γρήγορα στρίψτε αριστερά και δεξιά για να αποφύγω την slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Δεν εργάζονται σε αυτή την έκδοση!"
+
+msgid "Press Action to interact"
+msgstr "Πατήστε δράσης για την αλληλεπίδραση"
+
+msgid "%s is required"
+msgstr "%s απαιτείται"
+
+msgid "Bomb"
+msgstr "Βόμβα"
+
+msgid "Small Rock"
+msgstr "Μικρές Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε το μοβ Gem"
+
+msgid "Chicken"
+msgstr "Κοτόπουλο"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Πατήστε δράση για να ανακτήσετε Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Πατήστε δράσης για την αντικατάσταση του Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Παράγονται %s"
+
+msgid "Complete"
+msgstr "Ολοκλήρωση"
+
+msgid "%d more to go..."
+msgstr "%d περισσότερο για να πάει ..."
+
+msgid "Used %s"
+msgstr "Χρησιμοποιούνται %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Δεν μπορείτε να εξοπλίζουν αντικείμενα ενώ transmogrified"
+
+msgid "Equipped %s"
+msgstr "Εξοπλισμένο %s"
+
+msgid "Maximum health has increased!"
+msgstr "Μέγιστη υγεία έχει αυξηθεί!"
+
+msgid "Bow will now fire %s"
+msgstr "Πλώρη θα φωτιά τώρα %s"
+
+msgid "A bow is required to use this item"
+msgstr "Ένα πλώρη είναι υποχρεωμένοι να χρησιμοποιούν αυτό το είδος"
+
+msgid "Cannot transmogrify here..."
+msgstr "Δεν είναι δυνατή η transmogrify εδώ ..."
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "No"
+msgstr "Δεν"
+
+msgid "Start a new game?"
+msgstr "Ξεκινήστε ένα νέο παιχνίδι;"
+
+msgid "Play the tutorial?"
+msgstr "Παίξε το φροντιστήριο;"
+
+msgid "Exit the game?"
+msgstr "Έξοδος από το παιχνίδι;"
+
+msgid "Back"
+msgstr "Πίσω"
+
+msgid "Game Loaded"
+msgstr "Παιχνίδι Loaded"
+
+msgid "Game Saved"
+msgstr "Παιχνίδι Saved"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Κάθε unsaved πρόοδος θα χαθούν"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Πατήστε δράσης για να μιλήσει σε %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Νέος στόχος: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Στόχος Ολοκληρώθηκε: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Το τείχος στα δεξιά φαίνεται αδύναμη ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Αυτό το όπλο δεν έχει κανένα αποτέλεσμα ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Πατήστε δράση για τη συγκράτηση των Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "Ο Θρύλος του Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s είναι απαραίτητη για να ενεργοποιήσεις αυτό το διακόπτη"
+
+msgid "Press Action to use this switch"
+msgstr "Πατήστε δράση για να χρησιμοποιήσετε αυτόν τον διακόπτη"
+
+msgid "Press Action to save your game"
+msgstr "Πατήστε δράση για να σώσει το παιχνίδι σας"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s καλείται να χρησιμοποιήσει αυτή Πίεση Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s είναι απαραίτητη για να ανοίξει την πόρτα"
+
+msgid "This door is locked"
+msgstr "Αυτή η πόρτα είναι κλειδωμένη"
+
+msgid "This teleporter is not active"
+msgstr "Αυτό teleporter δεν είναι ενεργό"
+
+msgid "Press Action to go to the %s"
+msgstr "Πατήστε δράσης για να πάω στο %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Σπρώξτε τα κάτω ή προς χρήση αυτό ανελκυστήρα"
+
+msgid "This lift is not active"
+msgstr "Αυτή ανελκυστήρας δεν είναι ενεργό"
+
+msgid "Cannot carry any more %s"
+msgstr "Δεν μπορούν να φέρουν πιο %s"
+
+msgid "Picked up %s x %d"
+msgstr "Πήρε %s x %d"
+
+msgid "Picked up %s"
+msgstr "Πήρε %s"
+
+msgid "Readied %s"
+msgstr "Ανεφοδιασμό %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s απαιτείται για την εκτέλεση αυτής της θέσης"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Αποθήκευση Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Τσάντα αποθήκευσης άνθρακα Switch Key"
+
+msgid "Large Room Key"
+msgstr "Large Room Key"
+
+msgid "Coal Bag"
+msgstr "Άνθρακας τσάντα"
+
+msgid "Forest Cell Key"
+msgstr "Δάσος Cell Key"
+
+msgid "Wood Axe"
+msgstr "Ξύλο Axe"
+
+msgid "Health Potion"
+msgstr "Υγεία Potion"
+
+msgid "Outflow Key"
+msgstr "Εκροή Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Επεξεργασία των αποβλήτων Key"
+
+msgid "Access Key 1"
+msgstr "Πρόσβαση Key 1"
+
+msgid "Access Key 2"
+msgstr "Πρόσβαση Key 2"
+
+msgid "Access Key 3"
+msgstr "Πρόσβαση Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Αυτή η άρση δεν έχει καμία εξουσία. Δεν θα είναι σε θέση να το χρησιμοποιήσουν μέχρι να αποκατασταθεί η εξουσία"
+
+msgid "Keep practising!"
+msgstr "Κρατήστε την άσκηση!"
+
+msgid "Hi"
+msgstr "Γεια"
+
+msgid "Hello Edgar"
+msgstr "Γεια Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Μπορώ να δανειστώ ασπίδα σας;"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Όχι για να πρακτική μαχητικές ικανότητες σας;"
+
+msgid "Something like that"
+msgstr "Κάτι τέτοιο"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Εάν εκτελείτε μου ένα θέλημα τότε μπορείτε να έχετε την ασπίδα"
+
+msgid "What do I have to do?"
+msgstr "Τι πρέπει να κάνω;"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Πηγαίνετε στο ορυχείο και τη συλλογή μου μερικά άνθρακα"
+
+msgid "But we have plenty of coal!"
+msgstr "Αλλά έχουμε άφθονο άνθρακα!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Ναι, αλλά αυτό δεν είναι κανένα παλιό του άνθρακα, αυτή του άνθρακα είναι ειδική, καίγεται πιο ζεστά και διαρκεί περισσότερο"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Χρειάζομαι μόνο 10 κομμάτια από τα πράγματα, έτσι δεν θα πρέπει να πάρετε πολύ καιρό"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Βεβαιωθείτε ότι το βάλετε σε μια τσάντα, το αγγίξει για πάρα πολύ καιρό θα είναι κακό για την υγεία σας"
+
+msgid "Do you have a bag?"
+msgstr "Έχετε σακούλα;"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Δεν μπορείτε να βρείτε πιθανώς ένα στο ορυχείο αν"
+
+msgid "OK, I'll get the coal"
+msgstr "Εντάξει, Θα πάρω άνθρακα"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Εδώ, λαμβάνουν αυτό αξίνα. Μπορείτε να το χρησιμοποιήσετε για να το ορυχείο άνθρακα και αμυχή μέσω κάθε ασθενέστερων τοίχους που αντιμετωπίζετε"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Θα πρέπει, επίσης, το κλειδί για να μπει στο ορυχείο"
+
+msgid "Thanks!"
+msgstr "Ευχαριστώ!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Σας ευχαριστώ, Edgar, αυτή του άνθρακα είναι τέλειο! Ελπίδα η νυχτερίδες δεν σας τρομάξει."
+
+msgid "The bats were the least of my worries..."
+msgstr "Οι νυχτερίδες ήταν το λιγότερο του ανησυχίες μου ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Πες, άκουσα ότι κάτι συνέβη στη δική μου πριν από μερικά χρόνια"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, ναι, ήταν αυτό που θα αποκαλούσα  ατύχημα , αλλά το τμήμα του ορυχείου ήταν σφραγισμένα μέχρι πριν από πολύ καιρό"
+
+msgid "Right..."
+msgstr "Δεξιά ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Εδώ, έχουν ασπίδα μου και καλή διασκέδαση!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Μείνε μακριά από την Απαγορευμένη Βάλτο"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Θα κάνω, μπορώ να κρατήσουμε την αξίνα σας για λίγο;"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Σίγουρο, να είναι ακριβώς πίσω από ένα μόνο τεμάχιο"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Έχετε καταφέρει να βρει τον άνθρακα ακόμα;"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Μπορείτε να τραβήξετε κάποια στοιχεία γύρω από ωθώντας σε βάρος τους, ενώ κρατώντας πατημένο το κουμπί δράσης."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Μπορείτε να τραβήξετε το τότε περίπου, μέχρι να αφήσεις το κουμπί της δράσης"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Αυτός ο βράχος μοιάζει υπερβολικά ισχυρή για Pick τσεκούρι μου. Θα πρέπει να χρησιμοποιήσετε κάτι άλλο για να περάσω ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, τι έγινε;"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Μοιάζει με αυτό δεν ήταν τόσο καλή ιδέα αφού όλα"
+
+msgid "There must be way out of here..."
+msgstr "Πρέπει να υπάρχει διέξοδος από εδώ ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Αυτό πρέπει να είναι ο άνθρακας μου θέλει να μου γι 'αυτόν"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Δεν νομίζω ασπίδα μου θα με προστατεύσει από τα fireballs. Θα πρέπει να βρούμε μια άλλη αυστηρότερη ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Δεν θα είναι σε θέση να κάνουμε αυτό το κομμάτι σε αυτή την έκδοση, δοκιμάστε ξανά αργότερα!"
+
+msgid "Strange creature..."
+msgstr "Περίεργο πλάσμα ..."
+
+msgid "Wait, what was that?"
+msgstr "Περιμένετε, τι ήταν αυτό;"
+
+msgid "You again?!"
+msgstr "Μπορείτε πάλι;!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Κάτι έπρεπε να γίνει εδώ, αλλά δεν είναι σε αυτή την έκδοση, ώστε δοκιμάστε ξανά αργότερα!"
+
+msgid "Have fun!"
+msgstr "Καλή διασκέδαση!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Ευχαριστώ για resucing κοτόπουλα μου, έχεις εμένα 2 καταγραφής από το δάσος ακόμα;"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Thanks Edgar! Κοτόπουλα μου είναι πίσω και αυτά τα αρχεία καταγραφής θα κάνω πρόστιμο"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Πάρτε αυτό το σπαθί, μπορεί να σας εξυπηρετήσει καλά!"
+
+msgid "Thank you!"
+msgstr "Σε ευχαριστώ!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Ευχαριστώ για τα αρχεία καταγραφής, είχατε καμία τύχη με τα κοτόπουλα;"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Θα σας δώσω ένα σπαθί αν το βρείτε με 2 ψιλοκομμένο καταγραφής από το δάσος και διάσωσης τουλάχιστον 3 των κοτόπουλων μου"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Γεια Edgar, τι μπορώ να κάνω για σένα σήμερα;"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Έχετε ένα σπαθί που μπορώ να δανειστώ;"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Έχω ένα σπαθί και μπορείτε να το έχετε, αν κάνετε κάτι για μένα πρώτα"
+
+msgid "OK... what do I have to do?"
+msgstr "Εντάξει ... Τι πρέπει να κάνω;"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Ορισμένα από τα κοτόπουλα μου έχουν διαφύγει από την πένα τους και θα ήμουν πολύ ευγνώμων εάν μπορείτε να τα πάρετε πίσω για μένα"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Έχω δημιουργήσει κάποιες παγίδες κοντά πένα τους, μπορείτε να τους δελεάσουν να τις παγίδες των ζωοτροφών που χρησιμοποιούν αυτό το κοτόπουλο. Δεν χρειάζεται όλα αυτά, αλλά τουλάχιστον 3 θα είναι πολύ χρήσιμη. Μπορώ να πάρω το υπόλοιπο εαυτό μου."
+
+msgid "That's it?"
+msgstr "Αυτό είναι αυτό;"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Δεν είναι αρκετά. Μπορώ επίσης να σας πάρει με κάποια ξύλα από το δάσος; 2 κορμοί θα πρέπει να είναι επαρκής"
+
+msgid "Do you have an axe?"
+msgstr "Έχετε ένα τσεκούρι;"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Άφησα τσεκούρι μου στο δάσος κάπου. Θα πρέπει ακόμη να υπάρχει"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Δεν είναι ότι δάσος επικίνδυνο;"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Δεν είναι αλήθεια, αν κάτι παίρνει το δρόμο σας, χτύπησε το μόνο με ένα όπλο"
+
+msgid "Such as an axe?"
+msgstr "Όπως ένα τσεκούρι;"
+
+msgid "Yes, that would do the trick"
+msgstr "Ναι, αυτό θα κάνει το κόλπο"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Αλλά σοβαρά, δεν υπάρχει τίποτα εκεί μέσα που μπορούν να βλάψουν πραγματικά. Το πρόβλημα αυτό αντιμετωπίζεται με πολύ καιρό ..."
+
+msgid "Good luck!"
+msgstr "Καλή τύχη!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Ω, ευχαριστώ Edgar, χρειάστηκα μόνο το 3, αλλά ευχαριστώ για την πρόσθετη βοήθεια!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Εδώ, Μάγκι μου έκανε αυτό το ελιξίριο της υγείας, αλλά εγώ δεν το χρειάζονται έτσι γιατί δεν το έχετε;"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Πω πω, εσείς που αλιεύονται τα όλα, ευχαριστώ πολύ!"
+
+msgid "Here, I have these for you"
+msgstr "Εδώ, έχω αυτά για εσάς"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie μου έκανε αυτό το ελιξίριο της υγείας, αλλά μπορείτε να το έχετε"
+
+msgid "And this is something very special"
+msgstr "Και αυτό είναι κάτι πολύ ιδιαίτερο"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Αυτό μπορεί να σας βοηθήσει στο δρόμο σας για να γίνει ένα ισχυρό πολεμιστή"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Μπορείτε σώζω εμένα πολύ χρόνο. Maggie μου έκανε κάτι άλλο, αλλά από τότε που ήταν τόσο χρήσιμο, μπορείτε να το αποκτήσετε."
+
+msgid "Hi Maggie"
+msgstr "Γεια Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Ευχαριστώ Μάγκι!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan είπε ότι ένα τμήμα του ορυχείου ήταν κλειστές μετά από ένα  ατύχημα "
+
+msgid "There must be something around here..."
+msgstr "Πρέπει να υπάρχει κάτι εδώ γύρω ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, η κινητή γέφυρα είναι επάνω. Πρέπει να υπάρχει άλλη είσοδος ..."
+
+msgid "Wait, what's that?"
+msgstr "Περιμένετε, τι είναι αυτό;"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Ίσως θα μπορούσα να σήραγγα δρόμο μου in. .."
+
+msgid "These machines aren't working."
+msgstr "Αυτά τα μηχανήματα δεν λειτουργούν."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Μοιάζει με ένα κόσμημα πρέπει να εντάσσονται σε αυτήν την τρύπα, ίσως μπορώ να βρω κάποια αντικαταστάσεις."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Μοιάζει είναι σφηνωμένο καλά εκεί μέσα. Μπορώ να χαλαρώσει κατά πάσα πιθανότητα με την αξίνα ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Για να φτάσετε στην Απαγορευμένη Βάλτο Θα πρέπει να οικοδομήσουμε μια σχεδία."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Μπορώ να οικοδομήσουμε τη σχεδία αν μπριζόλα αρκετά κάτω από τα δέντρα του δάσους"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Χρειάζομαι 6 Τεμαχισμένα Logs να οικοδομήσουμε μια σχεδία"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Δεν πρόκειται να το βάλτο δεν σπαθί και ασπίδα"
+
+msgid "OK, here goes!"
+msgstr "ΟΚ, εδώ πηγαίνει!"
+
+msgid "Aw, not again!"
+msgstr "Aw, δεν πάλι!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Αυτό ήταν καλύτερα να είναι η τελευταία φορά που έχω να κάνω αυτό ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Αυτό ήταν εύκολο! Και μπορώ πάντα να γυρίσω αργότερα!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Υποθέτω ότι δεν έχουν άλλη επιλογή τώρα."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Κρατήσου Μπαμπά, έρχομαι ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Κάτι έπρεπε να συμβεί τώρα, αλλά δεν είναι σε αυτήν την έκδοση. Ελέγξτε αργότερα!"
+
+msgid "There's a note here"
+msgstr "Υπάρχει ένα σημείωμα εδώ"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Έχω ήδη παγιδευτεί κάτω εδώ για αυτό που φαίνεται σαν μια αιωνιότητα"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Για να βγούμε από αυτό το μέρος Χρειάζομαι 3 πλήκτρα πρόσβασης στην εργασία των ανελκυστήρων"
+
+msgid "So far I have only found 1"
+msgstr "Μέχρι στιγμής έχω μόνο βρέθηκαν 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Για να κάνετε τα πράγματα χειρότερα, μπορώ να φτάσω μόνο μερικά διακόπτες με ένα προσεκτικά τοποθετηθεί βέλος"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Αλλά ανταλλακτικά δεν είναι κοινά και έχω εξαντληθεί"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Αν δεν βρούμε έναν τρόπο να φύγουμε σύντομα, φοβάμαι μπορώ να λιμοκτονήσουν"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Αν δεν βγούμε από εδώ θα έχουν την ίδια τύχη ..."
+
+msgid "Oh, what's this?"
+msgstr "Ω, τι είναι αυτό;"
+
+msgid "There's a note here too"
+msgstr "Υπάρχει ένα σημείωμα εδώ"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Το φίλτρο είναι τέλειο! Quaffing θα μετατρέψουν ένα ανθρώπινο σε ένα πλάσμα για ένα μικρό χρονικό διάστημα"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Μέχρι τώρα μπορώ να transmogrify τον εαυτό μου μόνο σε ένα πλάσμα, αλλά με λίγο περισσότερο χρόνο οτιδήποτε πρέπει να είναι δυνατή"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Υπάρχει ένα πολύ μικρό κομμάτι αριστερά, θα πρέπει να είναι ασφαλές να πιείτε"
+
+msgid "OK, here goes nothing..."
+msgstr "Εντάξει, τίποτα δεν πηγαίνει εδώ ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Αυτό είναι φοβερό!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan μου είπε ότι Slimes μπορεί να κολυμπήσει στο νερό και αν, οπότε ίσως αυτό θα είναι χρήσιμο ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Όταν μετατρέπεται σε Slime, θα μπορούν να κινούνται ως συνήθως. Μπορείτε επίσης να κολυμπήσετε στην κατανάλωση νερού και πάνω και κάτω για να μετακινούνται"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Ωθούν προς τα πάνω ή άλμα θα σας κάνει να πηδούν έξω από το νερό, αν είστε κοντά στην επιφάνεια"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Κοιτάτε για το χρονόμετρο στο κάτω μέρος της οθόνης. Όταν φτάσει 0, αυτόματα θα γίνει εκ νέου ανθρώπου"
+
+msgid "This place doesn't look so bad..."
+msgstr "Αυτή η θέση δεν είναι και τόσο άσχημα ..."
+
+msgid "What was that?"
+msgstr "Τι ήταν αυτό;"
+
+msgid "Uh Oh..."
+msgstr "Uh oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Φτου, είμαι χαρούμενος που βρίσκομαι έξω από εκεί"
+
+msgid "Now to get through this swamp"
+msgstr "Τώρα για να ξεπεράσουμε αυτό το τέλμα"
+
+msgid "Hey, what's this?"
+msgstr "Γεια σου, τι είναι αυτό;"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Φαίνεται αρκετά αβλαβή, θα προσπαθήσω ενίσχυση για την"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Πώπω That was cool! Αυτό πρέπει να είναι μια μηχανική teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "Αναρωτιέμαι αν θα λειτουργεί αμφίδρομα ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Δεν είναι μόνο αυτό θα σώσει εμένα πολύ από το περπάτημα, είναι επίσης και τα φορτία της διασκέδασης!"
+
+msgid "Now try out your shield"
+msgstr "Τώρα δοκιμάστε ασπίδα σας"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Αποκλεισμός των σφαιριδίων έφτυσε έξω από το εργοστάσιο και άλμα στο επόμενο περβάζι"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Ορισμένα στοιχεία στο παιχνίδι μπορεί να προωθηθεί και να έλκονται"
+
+msgid "To push an item, simply walk into it"
+msgstr "Να προωθήσουμε ένα στοιχείο, απλά με τα πόδια σε αυτό"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Για να τραβήξετε ένα στοιχείο, ενώ τα πόδια σε πατημένο δράσης"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Μπορείτε να τραβάτε στη συνέχεια το στοιχείο γύρω μέχρι να αφήσεις της δράσης"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Τραβήξτε το κουτί πάνω από την άλλη πλευρά και η χρήση αυτή να φτάσει στο περβάζι"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Αυτό είναι το τελευταίο μέρος του διδακτικού και θα σας διδάξει σε μπλοκ και επίθεση εχθρούς"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Πρώτον, θα πρέπει να εξοπλίσει το σπαθί, δεδομένου ότι έχει μεγαλύτερη ποικιλία και να κάνει μεγαλύτερη ζημιά από την αξίνα"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Πιέστε για να δείτε απογραφή σας, επισημάνετε το σπαθί και πατήστε Attack (αριστερά ctrl) ή Χρήση σημείο (α)"
+
+msgid "Press z again to close your inventory"
+msgstr "Πιέστε ξανά για να κλείσετε απογραφή σας"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Περιστασιακά, σκοτώνεται εχθροί θα μειωθεί υγείας, οι οποίες θα εξαφανιστούν μετά από λίγα δευτερόλεπτα, ώστε να πάρει γρήγορα!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Εάν μια νυχτερίδα είναι να πάρει κοντά σας, κρατήστε πατημένο το μπλοκ και θα ακίνδυνα αναπήδηση μακριά σας"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Τώρα σκοτώσει όλα του τα νυχτερίδες στην περιοχή!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Υπάρχουν δύο τύποι της θύρας στο παιχνίδι. Εγχειρίδιο Αυτόματες πόρτες και πόρτες."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Εγχειρίδιο πόρτες απαιτούν κλειδιά για να τα ανοίξετε, Αυτόματες πόρτες απαιτούν διακόπτες."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Για να ανοίξετε μια κλειδωμένη πόρτα που έχετε για το κλειδί, απλά με τα πόδια σε αυτό. Δεν είναι ανάγκη να έχουν το κλειδί στην απογραφή του εγγράφου σας."
+
+msgid "Open the door and continue to the right"
+msgstr "Ανοίξτε την πόρτα και να συνεχίσει προς τα δεξιά"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Συγχαρητήρια! Τώρα ξέρετε τα βασικά της παιχνίδι θα πρέπει να δοκιμάσετε το κύριο παιχνίδι"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Αν θέλετε να αναπαραγάγετε αυτό το σεμινάριο, πατήστε το πλήκτρο Escape Εκμάθηση και επιλέξτε από το μενού"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Για να παίξετε το κύριο παιχνίδι, πατήστε το πλήκτρο Escape και επιλέξτε Νέο παιχνίδι από το μενού"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Πατήστε Διάστημα όταν έχετε τελειώσει την ανάγνωση για να μεταβείτε στο επόμενο παράθυρο διαλόγου"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Μπορείτε επίσης να μεταβείτε στο επόμενο παράθυρο διαλόγου πατώντας Attack (αριστερά ctrl), Block (αριστερά alt), Jump (διάστημα), Action (γ) ή Χρήση σημείο (α)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Αυτό είναι το φροντιστήριο για το The Legend of Edgar. Αυτό το σεμινάριο θα εξηγήσει πώς να παίξετε το παιχνίδι."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Για να βγείτε από αυτό το σεμινάριο, πατήστε το πλήκτρο Escape και χρησιμοποιούν το άνω και κάτω βέλη για να επιλέξετε μια επιλογή. Επιστροφή Πατήστε για να το επιλέξετε."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Για να μετακινηθείτε αριστερά και δεξιά, χρησιμοποιήστε τα πλήκτρα βέλους."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Να κάνει άλμα, πατήστε το πλήκτρο διαστήματος. Μπορείτε να μετακινήσετε στον αέρα όταν πηδά."
+
+msgid "To interact with an item, press c"
+msgstr "Να αλληλεπιδράσει με ένα στοιχείο, πατήστε το πλήκτρο c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Πόδια πάνω στο σημείο της δράσης και πατήστε γ"
+
+msgid "To collect an item from your"
+msgstr "Για να συλλέξει ένα στοιχείο από σας"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Να πάρει ένα αντικείμενο, απλά με τα πόδια σε αυτό. Κάθε συλλεκτικά αντικείμενα θα προστεθεί στο inventory σας."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Μπορείτε να δείτε τα περιεχόμενα του καταλόγου σας πατώντας z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Ενώ στην απογραφή, χρησιμοποιήστε τα πλήκτρα βέλους για να δείτε τα αντικείμενα."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Μπορείτε να χρησιμοποιήσετε ένα στοιχείο αμέσως πιέζοντας Attack (αριστερά ctrl) ή Χρήση σημείο (α)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Μπορείτε να έτοιμο ένα αντικείμενο για χρήση με το πάτημα Block (αριστερά alt) ή δράσης (γ)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Περπατήστε πάνω από το κλειδί για να το παραλάβετε"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Μπορείτε να αλλάξετε το σύνολο των ελέγχων στο παιχνίδι πιέζοντας διαφυγής και Επιλογές στο μενού"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Επιλέξτε Ρύθμιση Έλεγχοι με τα βελάκια και πιέστε Επιστροφή"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Χρησιμοποιήστε τα πλήκτρα βέλους για να επιλέξετε τον έλεγχο που θέλετε να αλλάξετε και πατήστε Return."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Στη συνέχεια, πατήστε το πλήκτρο που θέλετε να χρησιμοποιήσετε αντί."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Ανεξάρτητα από το τι κλειδιά που επιλέγετε, μπορείτε να περιηγηθείτε πάντα το μενού με τα βελάκια και επιστροφή"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Σημειώστε ότι σε αυτό το σεμινάριο, τα πλήκτρα προεπιλογής θα πρέπει να θεωρηθεί"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Όταν έχετε ολοκληρώσει τη ρύθμιση παραμέτρων των κλειδιών, πηγαίνετε δεξιά στην επόμενη δράση Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Η σκαπάνη είναι ένα από τα πολλά όπλα που θα συναντήσετε στο παιχνίδι"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Μπορείτε να το χρησιμοποιήσετε και ως όπλο και εργαλείο"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Σήκωσε την αξίνα και συνεχίστε με το επόμενο σημείο δράσης"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Συγχαρητήρια, έχετε βρεθεί σε ένα μυστικό!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Υπάρχουν πολλά μυστικά της κύριας παιχνίδι έτσι κρατήσει μια ματιά έξω για τους"
+
+msgid "Here's a hint to get you started"
+msgstr "Εδώ είναι ένας υπαινιγμός για να ξεκινήσετε"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Αν και μόνο απαιτεί από εσάς να πιάσει 3 των κοτόπουλων του, γιατί δεν είναι ωραίο να τον αλιευμάτων και περισσότερο; Υπάρχουν 10 περιπλάνηση του χάρτη σε όλες"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Η ασπίδα θα σας προστατεύσει από τις περισσότερες επιθέσεις του εχθρού"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Ορισμένοι επιθέσεις εχθρός δεν μπορεί να αποκλειστεί"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Περιβαλλοντικούς κινδύνους, όπως οι βράχοι που, δεν μπορεί να αποκλειστεί"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Για να αποκλείσετε μια επίθεση, πατήστε και κρατήστε πατημένο το μπλοκ (αριστερό alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Πρέπει να αντιμετωπίζει την επίθεση στο μπλοκ με επιτυχία"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Σημειώστε ότι δεν μπορείτε να μετακινήσετε, ενώ το κλείδωμα, αλλά μπορείτε να αντιμετωπίσει τον άλλο τρόπο. Μπορείτε, επίσης, δεν μπορεί μπλοκ στον αέρα"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Σήκωσε την ασπίδα και να συνεχίσει προς τα δεξιά"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Αυτή είναι μια αδύναμη τοίχο, μπορεί να θρυμματιστούν κάτω με την αξίνα"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Για να χρησιμοποιήσετε την αξίνα, πατήστε Επίθεση (αριστερά ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "ότι δεν είναι όλα αδύναμη τοίχους μπορούν να καταστραφούν με την αξίνα"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Καταστρέψει το τείχος χρησιμοποιώντας την αξίνα και να συνεχίσει"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Κάτι έπρεπε να είναι εδώ, αλλά δεν είναι σε αυτή την έκδοση, δοκιμάστε ξανά αργότερα!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Συλλέξτε 10 κομμάτια του άνθρακα"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Συλλέξτε 2 Τεμαχισμένα Logs"
+
+msgid "Rescue 3 Chickens"
+msgstr "Διάσωση 3 Κοτόπουλα"
+
+msgid "Find 4 Gems"
+msgstr "Βρείτε 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Επισκευή Γεννήτριες"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Συλλέξτε 6 Τεμαχισμένα Logs"
+
+msgid "Collect 3 Access Keys"
+msgstr "Συλλέξτε 3 Πρόσβαση Κλειδιά"
+
+msgid "This is a blank objective"
+msgstr "Αυτή είναι μια κενή στόχος"
+
+msgid "Kill all Bats!"
+msgstr "Σκοτώστε όλα Νυχτερίδες!"
+
+msgid "Coal"
+msgstr "Άνθρακα"
+
+msgid "Chopped Log"
+msgstr "Ψιλοκομμένο Είσοδος"
+
+msgid "Green Gem"
+msgstr "Πράσινη Gem"
+
+msgid "Red Gem"
+msgstr "Κόκκινο Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "Νέο παιχνίδι"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Φόρτωσηπαιχνιδιού"
+
+msgid "Options"
+msgstr "Επιλογές"
+
+msgid "About"
+msgstr "Σχετικά"
+
+msgid "Quit"
+msgstr "Κλείστε"
+
+msgid "Configure Controls"
+msgstr "Configure Έλεγχοι"
+
+msgid "Configure Sound"
+msgstr "Ρύθμιση παραμέτρων ήχου"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Δείτε Συμβουλές"
+
+msgid "A potion which will transform you..."
+msgstr "Ένα φίλτρο που θα σας μετατρέψει ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Δημιουργεί εξαιρετικά απορροφητικά μικρογραφία παγάκια"
+
+msgid "A potion which will restore all of your health"
+msgstr "Ένα φίλτρο που θα αποκαταστήσει όλες της υγείας σας"
+
+msgid "A powerful bomb"
+msgstr "Μια ισχυρή βόμβα"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Ένα φίλτρο που καθιστά αόρατο που σε ορισμένους εχθρούς"
+
+msgid "The eyeball from a Gazer"
+msgstr "Η βολβό από βλέπων"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Μια Tesla Pack. Δεν έχει καμία χρέωση."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Ένα Προσωπικό Summoner του. Δεν μπορεί να χρησιμοποιηθεί από τον άνθρωπο."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Μια Tesla Pack. Είναι πλήρως φορτισμένη."
+
+msgid "An empty potion bottle"
+msgstr "Ένα άδειο μπουκάλι φίλτρο"
+
+msgid "A bag of chicken feed"
+msgstr "Μια τσάντα του κοτόπουλου ζωοτροφών"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Μια τσάντα κατάλληλα για τη μεταφορά άνθρακα"
+
+msgid "Basic Sword"
+msgstr "Βασικές Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Μια Ξίφος που σας έδωσε ο Jacob"
+
+msgid "A bow"
+msgstr "Ένα τόξο"
+
+msgid "Small Wooden Shield"
+msgstr "Μικρές Ξύλινα Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Μια μικρή ασπίδα που παρέχει βασική προστασία"
+
+msgid "Normal Arrow"
+msgstr "Κανονική Arrow"
+
+msgid "Normal Arrows"
+msgstr "Κανονική Βέλη"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Πέλεκυ κατάλληλο για κοπή δέντρων"
+
+msgid "Pickaxe"
+msgstr "Αξίνα"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Μια αξίνα δανείσει σε σας από Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Φίλτρο Room Key"
+
+msgid "Surge Passage Key"
+msgstr "Surge Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Κατεδάφιση αποθήκευσης Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Όποια και αν είναι αυτό το πράγμα ήταν αποστράγγιση της ενέργειας από τη γεννήτρια και το χρησιμοποιεί εναντίον μου."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Αυτό μπορεί να εξηγήσει γιατί η ανελκυστήρας δεν λειτουργούσε. Νικώντας την άλλη Συλλέκτες θα πρέπει να αποκαταστήσει την εξουσία."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Ήττα όλα Ενέργειας Συλλέκτες"
+
+msgid "No Objectives"
+msgstr "Δεν Στόχοι"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Πατήστε δράση για την επαναφορά τεμάχια παζλ"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Μοιάζει με ένα μπλέντερ. Θα μπορούσα να χρησιμοποιήσω αυτή την liquidise κάτι"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Χρειάζομαι ένα κόκκινο λάσπης Tentacle και 3 βλέπων μάτια για να κάνει το φίλτρο"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Χρειάζομαι ακόμα ένα άδειο μπουκάλι να θέσει το φίλτρο στο"
+
+msgid "So this is the Fortress."
+msgstr "Έτσι, αυτό είναι το Φρούριο."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Μοιάζει πολύ πόρτες οδηγούν μακριά σε άλλους τομείς, θα πρέπει να έχει μια καλή ματιά πριν πάω πουθενά αλλού ..."
+
+msgid "Try hitting the skull..."
+msgstr "Δοκιμάστε να χτυπήσει το κρανίο ..."
+
+msgid "This machine is not active"
+msgstr "Το μηχάνημα αυτό δεν είναι ενεργό"
+
+msgid "Repeat the sequence"
+msgstr "Επαναλάβετε την ακολουθία"
+
+msgid "Correct Sequence"
+msgstr "Σωστή σειρά"
+
+msgid "Incorrect Sequence"
+msgstr "Εσφαλμένη Ακολουθία"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Ο μύθος του Edgar συνάντησε το ακόλουθο σφάλμα"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Παρακαλώ αναφέρετε αυτό το σφάλμα να Παράλληλες πραγματικότητες"
+
+msgid "The game will now exit"
+msgstr "Το παιχνίδι στη συνέχεια την έξοδο"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Μοιάζει με ένα μπλέντερ. Θα μπορούσα να χρησιμοποιήσω αυτή την liqudise κάτι"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Αυτό πρέπει να το άνθρακα Borgan μου θέλει να μου γι 'αυτόν"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Αυτό μπορεί να εξηγήσει γιατί η ανελκυστήρας δεν λειτουργούσε. Νικώντας την άλλη Συλλέκτες θα πρέπει να αποκαταστήσει την εξουσία εδώ."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Πρέπει να βρω 3 βλέπων μάτια, 1 Κόκκινο λάσπης Tentacle και ένα επιπλέον ασπίδα για να δημιουργήσει μια ασπίδα της Φωτιάς Αντίστασης"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Μόλις έχω βρεθεί όλα αυτά τα στοιχεία Θα πρέπει να βρουν μια θέση για να δημιουργήσουν την ασπίδα"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Υπάρχει εδώ ένα βιβλίο σχετικά με μαγευτική όπλα"
+
+msgid "Maybe I can create a shield..."
+msgstr "Ίσως μπορώ να δημιουργήσει μια ασπίδα ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Σπαθιά ... Πανοπλία ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Ανόητο βιβλίο. Δεν είναι κανονική και δεν υπάρχει δείκτης"
+
+msgid "Here we go: Shields"
+msgstr "Πάμε λοιπόν: Θυρεοί"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Συστατικά"
+
+msgid "One must gather the following"
+msgstr "Κάποιος πρέπει να συγκεντρώσει τις ακόλουθες"
+
+msgid "The root of a Mandrake"
+msgstr "Η ρίζα του Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Το λίπος του Darsh (αφήνεται σε ηρεμία για 3 μήνες)"
+
+msgid "Powered Condor bones"
+msgstr "Powered οστά Condor"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 μάτια των βλέπων"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Η φρεσκοκομμένα πλοκάμι από ένα θηλυκό κόκκινο λάσπης"
+
+msgid "The shield to apply the enchantment"
+msgstr "Η ασπίδα να εφαρμόσει τη γοητεία"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Ανακατέψτε τα μάτια βλέπων και λάσπης πλοκάμι σε μια ομαλή υγρό"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Προσθέστε τη ρίζα, το λίπος και οστά στο καζάνι και ανακατέψτε μαζί με το μείγμα μάτια βλέπων και λάσπης πλοκάμι"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Όταν το μίγμα στροφών φωτεινό μπλε, προσθέστε την ασπίδα"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Έχω δει τα περισσότερα από αυτά τα στοιχεία στο εργαστήριο έτσι δεν χρειάζεται να ανησυχείτε για τις"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Και η Gazers τριγυρίζουν στο υπόγειο, ώστε να μην είναι ένα πρόβλημα"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Αυτό που χρειάζεται είναι να βρούμε ένα κόκκινο λάσπης, αλλά δεν έχω ιδέα πού να βρει έναν"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Δεν μπορώ να χρησιμοποιήσω τρέχουσα ασπίδα μου στο πείραμα, σε περίπτωση που αποτυγχάνει γι 'αυτό θα πρέπει να βρούμε έναν άλλο"
+
+msgid "Hmmm..."
+msgstr "Χμμμ ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Μπορεί να υπάρχουν φίλτρα αίθουσα ή εργαστήριο όπου μπορώ να βρω τις ρίζες, το λίπος και τα οστά, οπότε δεν χρειάζεται να ανησυχείτε για τις"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Πρέπει να έχετε την κάρτα εντολή που θέλετε να χρησιμοποιήσετε τονίζεται στη θέση απογραφή σας"
+
+msgid "Wow, a laboratory!"
+msgstr "Ουάου, ένα εργαστήριο!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Λατρεύω παρακολουθώ Μάγκι κάνει ξόρκια και φίλτρα, ίσως μπορώ να κάνω κάποιες από τις δικές μου εδώ!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Πω πω, ποτέ δεν έχω δει τόσα πολλά βιβλία σε ένα σημείο!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Πρέπει να υπάρχουν πληροφορίες σχετικά με κάθε θέμα εδώ, αυτό θα μπορούσε να είναι χρήσιμος ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Χμμμ, ο αέρας αισθάνεται χρεώνονται, αυτό μου θυμίζει το σπίτι Μάγκι του όταν ήταν λήψης ξόρκια. Θα πρέπει να προσέξουμε."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Ω Edgar, είστε κακό! Επιτρέψτε μου να επουλώσει τις πληγές σου"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Αναρωτιέμαι τι άλλα τέρατα υπάρχουν. Θα επιλέξετε μια σελίδα στην τύχη ..."
+
+msgid "Gazer"
+msgstr "Βλέπων"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers φέρουν cycloptic πλάσματα που βρέθηκαν σε διάφορα σημεία"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Μόνο τα μάτια τους είναι κλειστά και συνήθως βασίζονται σε βυθομέτρου για κυκλοφορία"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Χρησιμοποιούν ισχυρή αίσθηση της όσφρησης να κοιτάξει έξω για αρπακτικά και λεία όσο"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers επίθεση (και να υπερασπιστούν τους εαυτούς τους), ανοίγοντας τα μάτια τους, τα οποία θα τυφλώνουν τίποτα εξετάζουμε το"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Η επίθεση αυτή είναι αποτελεσματική μόνο όμως αν το θύμα αντιμετωπίζει το βλέπων"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Ένα eyeball βλέπων περιέχει μαγικές ιδιότητες και είναι ένα κοινό συστατικό ξόρκι προετοιμασία"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Γκρι"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions δημιουργούνται μαγικά πλάσματα, συνήθως αποστέλλονται ως σκοπιές ή προφυλακτήρες"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Αν και αργή κίνηση, μαζική μέγεθός τους τους επιτρέπει να απλά πορεία μέσα από κάθε άμυνα"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Αντί των όπλων, πολλές από αυτές έχουν τεράστια κριοί τα οποία χρησιμοποιούν για να ταρακουνήσει το έδαφος και αποπροσανατολίζουν απειλές"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Ενώ Γκρι Centurions θα χρησιμοποιηθεί για τη φύλαξη εξωτερικής περιμέτρου, Κόκκινο Centurions είναι γνωστό ότι υπάρχουν και χρησιμοποιούνται για την προστασία των περιοχών μεγάλης σημασίας"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters είναι αβλαβή τέρατα Αν δεν επιτέθηκε."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Εξαρτάται από τη διατήρηση υπερβολικά μεγάλη ζημιά που θα χωριστεί στα δύο και η επίθεση των θηρευτών τους"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Αν ένα από αυτά υποστεί μεγάλη ζημιά που θα χωρίσει για άλλη μια φορά και να συνεχίσει να επιτεθεί"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Τέλος, μια τελευταία τμήματα θα παράγει πολύ μικρές εκδόσεις που είναι εντελώς ακίνδυνα και σε αυτό το κράτος μπορεί να ενισχυθεί μόνο στις"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Εάν όλα τα μέρη του είναι ακόμη ζωντανός, ένα διαχωριστή θα μεταρρυθμιστεί μετά από λίγο και να επουλώσει τις πληγές της"
+
+msgid "Grub, Red"
+msgstr "Grub, Κόκκινο"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Κόκκινο νύμφες είναι πιο επιθετική από ό, τι πράσινο ομολόγους τους και θα επιτεθούν οτιδήποτε βλέπουν ως απειλή"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Μετά την ωρίμανσή τους και θα αποτελούν ένα κουκούλι και morph σε μια σφήκα"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Ορισμένοι όμως θα morph σε μια σφήκα βασίλισσα. Αυτές οι βασίλισσες μπορεί να παράγει βλέννα-όπως ουσία μπορεί να χωρέσει τη λεία της, σε αντικατάσταση"
+
+msgid "Tortoise, Master"
+msgstr "Χελώνα, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master χελώνες είναι τρομακτικά κτήνη. Βρέθηκαν σε πολύ μακριά εδάφη που διαθέτουν την ικανότητα να αλλάξει τα κεφάλια τους"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Συνδυάζουν όλες τις ικανότητες του ξαδέλφια τους για να αναπνεύσουν φωτιά, τη δημιουργία πάγου και της ηλεκτροκίνησης τους"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Και βέβαια είναι επίσης αδιαπέραστη σε επιθέσεις από την αντιστοίχιση στοιχεία, που απορροφά την ενέργεια για να επουλωθούν"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Αλλά επιπλέον, εφόσον λαμβάνει πάρα πολύ ενέργεια από την επούλωση, εξελίσσονται και πηγαίνετε στο Rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Σε αυτή την κατάσταση που θα συνθλίψει μέσα από κάθε άμυνα και παράγουν Dark Matter που καταστρέφει οτιδήποτε αγγίζει"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Ωστόσο, το κύτος του λεηλατεί Master Tortoise είναι άκρως μαγευτική και αποτελεί βασικό συστατικό κατά τη δημιουργία ισχυρών magics και αντικείμενα"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Ροζ"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore είναι ένα πλάσμα από μια άλλη διάσταση. Μπορεί να κληθεί με τη χρήση ισχυρών σκοτεινή μαγεία"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Ο πιο συνηθισμένος λόγος για να καλέσει αυτό το τέρας είναι να λειτουργεί ως σωματοφύλακας"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Δεν υπάρχει γνωστός τρόπος για να σκοτώσουν Grimlore δεδομένου ότι εξαρτάται από τη διατήρηση κρίσιμων τραυματισμούς που απλώς θα επιστρέψουν στη δική της διάσταση"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Αλλά ακόμη και τον τραυματισμό είναι ένα μνημειώδες έργο. Καθένας που αντιμετωπίζουν αυτό το πλάσμα συνιστάται να αποφύγει όσο το δυνατόν συντομότερα"
+
+msgid "Or they will die very quickly"
+msgstr "Ή θα πεθάνει πολύ γρήγορα"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Αχ, εδώ είναι μια επιτομή των τεράτων"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 όγκους! Πώς μπορεί να υπάρχουν τόσα πολλά τέρατα στον κόσμο;!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Μοιάζει να είμαστε σε αλφαβητική σειρά και αν"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Βλέννες, πράσινο ... Βλέννες, Μωβ ... Ιλύος, πράσινο ..."
+
+msgid "Sludge, Red"
+msgstr "Ιλύος, Κόκκινο"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Σε αντίθεση με πράσινο ξάδελφό του, ο Ερυθρός ιλύος παραμένει βαθιά υπόγεια και σπάνια, αν όχι ποτέ, οι επιφάνειες"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Προτίμησε οικότοπος του είναι ξηρό και μεταλλικά πλούσιες περιοχές και ως εκ τούτου έχουν βρεθεί παραμονεύουν σε περιοχές των ορυχείων εγκαταλειφθεί από τον άνθρωπο"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Είναι πολύ επιφυλακτικοί των ανθρώπων και θα επιτεθεί στην όραση, έμετο συνήθως μέχρι ένα οξύ, το οποίο χρειάζεται χρόνο για να εξατμιστεί"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, λιγότερο ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Μεγάλη, αυτό είναι όλο λέει. Δεν ξέρω καν πώς να πει τη διαφορά μεταξύ ανδρών και γυναικών. Θα απλώς να λάβει μια ευκαιρία ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Εκτός αυτού, τι είναι το χειρότερο που θα μπορούσε να συμβεί;"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Για να μετακινήσετε Edgar αριστερά και δεξιά, χρησιμοποιήστε τα πλήκτρα βέλους."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Να κάνει Edgar άλμα, πατήστε το πλήκτρο διαστήματος. Μπορείτε να μετακινήσετε στον αέρα όταν πηδά."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Παρόλο Jacob απαιτεί μόνο εσείς να πιάσει 3 των κοτόπουλων του, γιατί δεν είναι ωραίο να τον αλιευμάτων και περισσότερο; Υπάρχουν 10 περιπλάνηση του χάρτη σε όλες"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Σημειώστε ότι δεν είναι όλα αδύναμη τοίχους μπορούν να καταστραφούν με την αξίνα"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Έχω ήδη ελεγχθεί, δεν είναι εκεί κάτω ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Έχω ακούσει για τα άτομα που υπάγονται στην πολύ πριν, ίσως ο μπαμπάς είναι εκεί ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ARE YOU εκεί κάτω ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Τίποτα δεν. Υποθέτω ότι θα πρέπει να συνεχίσει να ψάχνει"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up ή κάτω για να αυξήσετε ή να μειώσετε την πλατφόρμα"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Υπάρχει εδώ ένα βιβλίο σχετικά με μαγευτική εξοπλισμού"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Είναι ένα βιβλίο για μαγευτική εξοπλισμού"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Δεν έχω κανένα λόγο να διαβάσετε αυτό, αλλά εγώ θα το έχετε υπόψη σας σε περίπτωση που κάνω"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Αναρωτιέμαι τι άλλα τέρατα υπάρχουν ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Ακριβώς όπως τακτική Summoners, Dark Summoners κλήση σε άλλα θηρία να κάνουν προσφορά τους"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Επιπλέον, το γεγονός ότι μπορούν teleport μικρές αποστάσεις για να ξεφύγουν από τους αντιπάλους τους"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Προσωπικό τους είναι άκρως μαγευτική και παρόλο που δεν μπορεί να χρησιμοποιηθεί άμεσα από τον άνθρωπο, είναι μαγικές ιδιότητες που χρησιμοποιούνται για τη δημιουργία spell"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Ροζ Hoovers είναι μικρά τετράποδα με μακρύ ρύγχος"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Η πρωταρχική puropse του ρύγχους είναι η χορτονομή για τα τρόφιμα, αλλά χρησιμεύει επίσης ως ένας μηχανισμός άμυνας"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "και είναι περισσότερο από ικανή να διατηρήσει ένα αρπακτικό στον κόλπο με απλά να ανατίναξη μακριά"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Αφροδίτη Flytrap, κινητά"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Κινητό Αφροδίτη Flytraps έχουν εξελιχθεί ρίζες και είναι σε θέση να προχωρήσουμε στην τροφή τους, αντί να περιμένουμε για να έρθει να τους"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Λαιμό τους είναι εξαιρετικά ελαστική και είναι σε θέση να snap σε λεία τους από μια σημαντική απόσταση"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Αυτό πρέπει να το κάνουμε. Ας ελπίσουμε ότι και άλλες ανελκυστήρα με το Αποχέτευσης θα πρέπει τώρα να εργάζεται"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Αυτό ανελκυστήρας δεν λειτουργεί. Δεν θα είναι σε θέση να το χρησιμοποιήσουν μέχρι να αποκατασταθεί η εξουσία"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Ότι γυαλί φαίνεται πάρα πολύ χοντρό για μένα να σπάσει, θα πρέπει να βρούμε κάποιον άλλο τρόπο από shattering αυτό ..."
+
+msgid "Up"
+msgstr "Πάνω"
+
+msgid "Down"
+msgstr "Κάτω"
+
+msgid "Left"
+msgstr "Αριστερά"
+
+msgid "Right"
+msgstr "Δεξιά"
+
+msgid "Jump"
+msgstr "Μετάβαση"
+
+msgid "Attack"
+msgstr "Επίθεση"
+
+msgid "Block"
+msgstr "Block"
+
+msgid "Action"
+msgstr "Δράση"
+
+msgid "Use Item"
+msgstr "Χρήση Θέση"
+
+msgid "Previous Item"
+msgstr "Προηγούμενη θέση"
+
+msgid "Next Item"
+msgstr "Ημερήσια διάταξη"
+
+msgid "Inventory"
+msgstr "Απογραφή"
+
+msgid "Pause"
+msgstr "Παύση"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Ήχος"
+
+msgid "SFX Volume"
+msgstr "SFX Όγκος"
+
+msgid "Music Volume"
+msgstr "Μουσική Όγκος"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Βιβλιοθήκη"
+
+msgid "Right Wing Lift Key"
+msgstr "Δεξιάς Ασανσέρ Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Είσοδος Door Key"
+
+msgid "Village"
+msgstr "Χωριό"
+
+msgid "Cave"
+msgstr "Σπήλαιο"
+
+msgid "Fortress Outskirts"
+msgstr "Φρούριο Outskirts"
+
+msgid "Forbidden Swamp"
+msgstr "Forbidden Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Αποχέτευση απαγορευμένη ζώνη Key"
+
+msgid "Basement"
+msgstr "Υπόγειο"
+
+msgid "Fortress Ground Floor"
+msgstr "Φρούριο Ισόγειο"
+
+msgid "Sewer"
+msgstr "Υπονόμων"
+
+msgid "Fortress Main Key"
+msgstr "Φρούριο Κύρια Key"
+
+msgid "Teleporter Access Key 1"
+msgstr "Access Teleporter Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Access Teleporter Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Access Teleporter Key 3"
+
+msgid "Laboratory"
+msgstr "Εργαστήριο"
+
+msgid "Empty Bottle"
+msgstr "Άδειο μπουκάλι"
+
+msgid "First Floor Key"
+msgstr "Πρώτος όροφος Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Πατήστε δράση για να ανακτήσετε %s"
+
+msgid "Hmm, this is new."
+msgstr "Χμμ, αυτό είναι νέο."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Δεν μοιάζει να μπορεί να με βλάψουν όμως, αλλά υπάρχει μόνο ένας τρόπος υπάρχει να μάθετε ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Αυτό ανελκυστήρας ελέγχεται από αυτό το πιάτο πίεση, αλλά δεν μπορώ να σταθώ σε αυτό και τη χρήση του ανελκυστήρα ταυτόχρονα"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Θα πρέπει να βρούμε κάτι άλλο να σταθεί στην πλάκα πίεσης για μένα ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Αυτή η κάρτα είναι κενό, θα πρέπει να τεθούν κάποιες οδηγίες για να καταστεί ωφέλιμο."
+
+msgid "There's a plaque here"
+msgstr "Υπάρχει μια πλάκα εδώ"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Τοποθετήστε τα 4 αγάλματα με τη σωστή σειρά"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Δεν θα είναι σε θέση να βρείτε όλα τα 4 αγάλματα σε αυτή την έκδοση, έτσι επανέλθω αργότερα!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Πρέπει να έχετε το άγαλμα που θέλετε να χρησιμοποιήσετε τονίστηκε στη θέση απογραφή σας"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Τίποτα δεν συνέβη. Δεν νομίζω ότι είναι η σωστή σειρά"
+
+msgid "Tuning Fork"
+msgstr "Διαπασών"
+
+msgid "Second Floor Keycard"
+msgstr "Δεύτερος όροφος keycard"
+
+msgid "Instruction Card #1"
+msgstr "Διδασκαλία Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Διδασκαλία Κάρτα # 2"
+
+msgid "Instruction Card #3"
+msgstr "Instruction Κάρτα # 3"
+
+msgid "Instruction Card #4"
+msgstr "Διδασκαλία Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Άγαλμα"
+
+msgid "Spider Statue"
+msgstr "Spider Άγαλμα"
+
+msgid "Tortoise Statue"
+msgstr "Χελώνα Άγαλμα"
+
+msgid "Scorpion Statue"
+msgstr "Σκορπιός Άγαλμα"
+
+msgid "A Blue Gem"
+msgstr "Ένα Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Άγαλμα ενός Centurion. Διαθέτει 2 πόδια."
+
+msgid "A Green Gem"
+msgstr "Μια Πράσινη Gem"
+
+msgid "A Purple Gem"
+msgstr "Μια μοβ Gem"
+
+msgid "A Red Gem"
+msgstr "Ένα κόκκινο Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Άγαλμα ενός Σκορπιός. Έχει 6 πόδια."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Ένα άγαλμα Spider. Έχει 8 πόδια."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Μια Armadillo Spike μπάλα. Θα σκέδασης αιχμές όταν ρίχνονται."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Ένα άγαλμα Tortoise. Διαθέτει 4 πόδια."
+
+msgid "A Tuning Fork"
+msgstr "Ένα διαπασών"
+
+msgid "A chopped log"
+msgstr "Ένα ψιλοκομμένο log"
+
+msgid "Narrator"
+msgstr "Αφηγητής"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Είναι ένα καζάνι. Μάγκι έχει ένα ακριβώς όπως αυτό"
+
+msgid "Right, here goes!"
+msgstr "Δεξιά, εδώ πηγαίνει!"
+
+msgid "I need all the main ingredients"
+msgstr "Χρειάζομαι όλα τα κύρια συστατικά"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 βλέπων μάτια, 1 Κόκκινο λάσπης Tentacle και μια εφεδρική ασπίδα"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Θα πρέπει επίσης να μείγμα του μάτια και το πλοκάμι σε ένα υγρό"
+
+msgid "This entire section is about monsters"
+msgstr "Όλη αυτή η ενότητα είναι για τέρατα"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Δεν έχω κανένα λόγο να διαβάσει αυτά, αλλά εγώ θα το έχετε υπόψη σας σε περίπτωση που κάνω"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, τι ένα χαριτωμένο μικρό μηχάνημα!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Έχει μια μικρή σχισμή στο πίσω μέρος του. Μάλλον έβαλα κάτι για να κάνει εκεί το κάνουμε πράγματα"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Το ρομπότ χρησιμοποιεί κάρτες εντολή να μετακινούνται"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Χρησιμοποιήστε τις οδηγίες για την καθοδήγηση του ρομπότ σε υπαίθριους χώρους που δεν μπορούν να έχουν πρόσβαση"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Ωστόσο, δεδομένου ότι δεν μπορείτε να διαβάσετε τις οδηγίες για την κάρτα, θα πρέπει να τα δοκιμάσετε όλα τα έξω μέχρι ενός εργοστασίου"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Αν το ρομπότ δεν έχει επιτύχει το στόχο της, τότε θα επιστρέψετε στην αρχική θέση της, επιτρέποντάς σας να δοκιμάσετε ξανά"
+
+msgid "Enter the directions"
+msgstr "Εισάγετε οδηγίες"
+
+msgid "Out of space for instructions"
+msgstr "Από χώρος για οδηγίες"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Χρειάζομαι μια κενή κάρτα για να θέσει τις οδηγίες"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Ίσως αυτό δεν ήταν τόσο καλή ιδέα τελικά ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Αποκτήστε 3 Eyes βλέπων"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Αποκτήστε 1 Red λάσπης Tentacle"
+
+msgid "Find another shield"
+msgstr "Βρείτε άλλο ασπίδα"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend μάτια και πλοκάμι"
+
+msgid "Obtain a Fire Shield"
+msgstr "Αποκτήστε έναν Fire Shield"
+
+msgid "More water?!"
+msgstr "Περισσότερο νερό;!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Δεν νομίζω ότι είναι σε θέση να μετατραπεί σε Slime πρόκειται να με βοηθήσει εδώ, δεδομένου ότι δεν μπορεί να είναι σε θέση να επιστρέψει στη συνέχεια"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Θα πρέπει να βρούμε άλλο τρόπο για να περάσουμε"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Θα πρέπει να βρούμε κάτι για να με βοηθήσει να μεταδώσουμε"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Εγώ δεν βλέπω καμία λάσπες στο ορυχείο όταν πήγα να πάρει άνθρακα Borgan και ακόμη και αν υπήρχαν, δεν μπορώ να γυρίσω εκεί από σχεδία μου βυθίστηκε"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Θα πρέπει να βρούμε ένα άλλο ορυχείο γύρω από εδώ ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Δημιουργεί παγάκια που διευρύνουν την επαφή με το νερό"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Ένα μπουκάλι ικανό να συλλάβει τις ψυχές"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Δοκιμάστε να χρησιμοποιήσετε μαχαίρια Mataeus εναντίον του ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Δεν είναι δυνατή η ανάκαμψη %s. Πλήρης απογραφή"
+
+msgid "Filling mine cart..."
+msgstr "Πλήρωση καλάθι μου ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Παράλληλες πραγματικότητες Copyright 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Από τα βέλη!"
+
+msgid "There's something moving around down there..."
+msgstr "Υπάρχει κάτι κινείται γύρω από εκεί κάτω ..."
+
+msgid "Good riddance..."
+msgstr "Καλό riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Εάν ο ανελκυστήρας έχει τεθεί εκτός λειτουργίας, τότε πρέπει να μηδενιστεί"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Υπάρχουν 4 διακόπτες επαναφέρετε κατά μήκος του άξονα ανελκυστήρα που πρέπει να μηδενιστεί"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Να είστε βέβαιος να επαναφέρετε το ασανσέρ για να αποφευχθεί μια μακρά πόδια πίσω στην επιφάνεια ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Αυτή η μηχανή έχει μια υποδοχή το ίδιο μέγεθος με τις κάρτες. Υποθέτω ότι μπορώ να το χρησιμοποιήσετε για να δημιουργήσουν νέες οδηγίες."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Για να δημιουργήσετε ένα νέο σύνολο οδηγιών που πρέπει να εισαγάγετε μια κενή κάρτα"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Στη συνέχεια θα σας ζητηθεί να εισάγετε τις κατευθύνσεις για το ρομπότ να ακολουθήσει. Αυτό γίνεται με τον ίδιο τρόπο όπως οι πόρτες ακολουθία"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Όταν ολοκληρώσετε την καταχώρηση της κατευθύνσεις, πατήστε Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Το ρομπότ θα συνέχεια ακολουθήστε τις οδηγίες σχετικά με την κάρτα"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Αν οι οδηγίες δεν είναι σωστές, μπορείτε να δοκιμάσετε ξανά"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Αυτό το μέρος είναι τρελό, είχα καλύτερη σπεύσουμε και να βρει τον μπαμπά μου πριν καταλήξετε getting σκότωσε!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Έτσι, για να δημιουργήσετε ότι Fire ασπίδα πρέπει να πάρω ένα κόκκινο λάσπης πλοκάμι"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Κόκκινο λάσπες ζουν σε ορυχεία γι 'αυτό θα πρέπει να βρούμε έναν εδώ κοντά;"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Θέλω επίσης μια εφεδρική ασπίδα, αλλά Μάλλον θα πρέπει να υπάρχει ένα οπλοστάσιο γύρω"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Τα μάτια βλέπων είναι αρκετά εύκολο, μπορώ απλώς να επιστρέψει στο υπόγειο"
+
+msgid "OK, off I go..."
+msgstr "Εντάξει, πάω μακριά ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Δεν θα είναι σε θέση να πάρετε το πλοκάμι ή ασπίδα σε αυτή την έκδοση, έτσι δοκιμάστε ξανά αργότερα!"
+
+msgid "It's a portrait"
+msgstr "Είναι ένα πορτρέτο"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Αυτό το πνεύμα δεν πρόκειται να επιτρέψτε μου παρελθόν, θα πρέπει να βρούμε έναν τρόπο για να απαλλαγούμε από αυτό"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Επαναφέρετε διακόπτες σας επιτρέπουν να επαναφέρετε τη θέση ενός αντικειμένου στον χάρτη"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Εάν ένα αντικείμενο γίνεται άπιαστος τότε μπορείτε να χρησιμοποιήσετε το διακόπτη για να το θέσω ξανά στην αρχική του θέση"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Ένα μπουκάλι με μια ψυχή παγιδευμένος μέσα"
+
+msgid "Full Mine Cart"
+msgstr "Πλήρης Mine καλάθι"
+
+msgid "Processing Lift Key"
+msgstr "Μεταποίηση Ασανσέρ Key"
+
+msgid "Right Grabber Key"
+msgstr "Δικαίωμα Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Αριστερά Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Ο μάγος πρέπει να έχει τον μπαμπά να κάστρο του. Θα πρέπει να τον σώσει από εκεί."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Ο μόνος τρόπος για να φτάσετε στο κάστρο είναι μέσω Απαγορευμένη Βάλτο με την Ανατολή."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Υπάρχει μια λίμνη από το χωριό και το Βάλτο γι 'αυτό θα χρειαστεί μια σειρά για να μεταδώσουμε."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Θα πρέπει, επίσης, ένα σπαθί και ασπίδα για να υπερασπιστεί τον εαυτό μου. Μπορώ να μιλήσω για Borgan και Ιακώβ να πάρει αυτά όμως."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Δεν είναι δυνατή η σύνδεση με το μετάλλιο Server σε %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Δεν βρήκατε Μετάλλιο Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Δεν θα είναι σε θέση να κερδίζουν μετάλλια για αυτό το παιχνίδι"
+
+msgid "There's another sign here"
+msgstr "Υπάρχει άλλο ένα δείγμα εδώ"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Εάν ο ανελκυστήρας έξοδος είναι εκτός λειτουργίας, στη συνέχεια προχωρεί προς τα αριστερά"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Προειδοποίηση: Διέξοδος μπορεί να είναι επικίνδυνα"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Ισως θα πρέπει να χρησιμοποιούν το ασανσέρ για να βγούμε"
+
+msgid "There's a sign here"
+msgstr "Υπάρχει ένα σημείο εδώ"
+
+msgid "An Oil Can"
+msgstr "Μια πετρελαίου μπορεί να"
+
+msgid "Oil Can"
+msgstr "Μπορεί πετρέλαιο"
+
+msgid "A powerful repellent"
+msgstr "Ένα ισχυρό απωθητικό"
+
+msgid "Repellent"
+msgstr "Απωθητικό"
+
+msgid "Medal Support"
+msgstr "Μετάλλιο Υποστήριξη"
+
+msgid "Fortress Mine"
+msgstr "Φρούριο Mine"
+
+msgid "Private key is missing"
+msgstr "Ιδιωτικό κλειδί λείπει"
+
+msgid "Could not connect to server"
+msgstr "Δεν είναι δυνατή η σύνδεση με τον διακομιστή"
+
+msgid "Sludge Tentacle"
+msgstr "Ιλύος Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Ένα κόκκινο λάσπης Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, αυτό έλυσα!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Δεν είμαι σίγουρος για το χρώμα όμως, σκέφτηκα ότι θα ήταν κόκκινο;"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Ίσως είναι υποτίθεται ότι είναι κίτρινο ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Ένα υγρό γίνει από μάτια και πλοκάμια"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patching σας σώσει το παιχνίδι. Παρακαλώ περιμένετε ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Τώρα! Εκτελέστε ενώ είναι ζαλισμένος!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Πω πω, αυτό το πράγμα είναι τεράστια!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Αμφιβάλλω σπαθί μου θα κάνει ακόμη και ένα μηδέν, αλλά θα πρέπει να πάρετε το παρελθόν ..."
+
+msgid "I have everything I need now"
+msgstr "Έχω όλα όσα χρειάζομαι τώρα"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Υπάρχει ένα καζάνι στο Εργαστήριο, θα ήθελα να το κεφάλι πίσω"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Απλά πρέπει να βρούμε άλλο ασπίδα για να μαγέψει"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Δεν θα είναι σε θέση να πάρει την ασπίδα σε αυτή την έκδοση, έτσι δοκιμάστε ξανά αργότερα!"
+
+msgid "Its wounds are already healing..."
+msgstr "Πληγές του είναι ήδη θεραπεία ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Αν το παιχνίδι που καταρτίζονται από την πηγή, πρέπει να κάνετε ένα make install"
+
+msgid "It's sleeping"
+msgstr "Είναι ύπνου"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Είμαι ασφαλής οπωσδήποτε δεδομένου ότι είναι σε αυτό το κλουβί ..."
+
+msgid "Where's the switch?"
+msgstr "Πού είναι ο διακόπτης;"
+
+msgid "Ah, here it is!"
+msgstr "Ah, εδώ είναι!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Αυτή η γεννήτρια φαίνεται Εντάξει, απλώς δεν είναι σε"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Υποθέτω ότι οι εξουσίες που πόρτα, γι 'αυτό θα πρέπει να το ενεργοποιήσετε"
+
+msgid "A Yellow Gem"
+msgstr "Ένα κίτρινο Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Απέτυχε να ανοίξει το αρχείο PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Βρούμε έναν τρόπο για την εξάλειψη της Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Πατήστε δράση για να ανακτήσετε το κίτρινο Gem"
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Το αφεντικό που φύλαγε το ορυχείο δεν ήταν στην προηγούμενη έκδοση"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Επειδή είναι σε αυτή την έκδοση δεν θα είστε σε θέση να εγκαταλείψουν"
+
+msgid "You will now be transported outside"
+msgstr "Τώρα θα μεταφέρεται εκτός"
+
+msgid "We apologize for the inconvenience"
+msgstr "Ζητούμε συγγνώμη για την ταλαιπωρία"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Θα πρέπει να είναι ασφαλείς μέχρι εδώ, αλλά θα πρέπει να απαλλαγούμε από αυτό"
+
+msgid "Book"
+msgstr "Βιβλίο"
+
+msgid "Sign"
+msgstr "Είσοδος"
+
+msgid "Note"
+msgstr "Σημείωση"
+
