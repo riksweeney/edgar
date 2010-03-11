@@ -1,9 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/blob_boss_2.dat
-ANIM_FILE data/anim/boss/blob_boss_2.dat
-SPEED 3
-HEALTH 5000
-FLAGS FLY|NO_DRAW|UNBLOCKABLE
-DAMAGE 1
-ALPHA 180
-ACTIVE FALSE
