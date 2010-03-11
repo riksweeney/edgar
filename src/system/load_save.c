@@ -293,15 +293,7 @@ int loadGame(int slot)
 			}
 		}
 
-		printf("Patch completed. Replacing save game.\n");
-
-		#if DEV == 1
-			copyFile(tempFile, "tmpdata");
-		#endif
-
-		copyFile(tempFile, saveFile);
-
-		compressFile(saveFile);
+		printf("Patch completed.\n");
 
 		printf("Loading new save\n");
 
@@ -491,6 +483,14 @@ static void patchSaveGame(char *saveFile, double version)
 	free(originalBuffer);
 
 	fclose(newSave);
+	
+	#if DEV == 1
+		copyFile(tempFile, "tmpdata");
+	#endif
+
+	copyFile(tempFile, saveFile);
+
+	compressFile(saveFile);
 }
 
 void saveGame(int slot)
