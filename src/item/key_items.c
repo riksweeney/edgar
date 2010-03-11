@@ -78,8 +78,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "final_power_generator.h"
 #include "mirror.h"
 #include "light_source.h"
-#include "light_target.h"
-#include "balloon.h"
 
 extern Entity *self, player;
 
@@ -138,9 +136,7 @@ static Constructor items[] = {
 {"item/final_power_generator", &addFinalPowerGenerator},
 {"item/mirror", &addMirror},
 {"item/upside_down_mirror", &addMirror},
-{"item/light_source", &addLightSource},
-{"item/light_target", &addLightTarget},
-{"item/balloon", &addBalloon}
+{"item/light_source", &addLightSource}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
