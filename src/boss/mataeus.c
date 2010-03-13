@@ -749,7 +749,41 @@ static void takeDamage(Entity *other, int damage)
 
 	if (self->health <= 1500 || (self->flags & HELPLESS))
 	{
-		entityTakeDamageNoFlinch(other, damage);
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+
+		if (damage != 0)
+		{
+			/* Don't die from regular hits */
+
+			self->health -= damage;
+
+			if (self->health <= 0)
+			{
+				self->health = 1;
+			}
+
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
+
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
 	}
 
 	else

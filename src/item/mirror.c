@@ -85,7 +85,7 @@ static void touch(Entity *other)
 
 				beamMid = other->x + other->w / 2;
 
-				/*if (beamMid >= mirrorLeft && beamMid <= mirrorRight)*/
+				if (beamMid >= mirrorLeft && beamMid <= mirrorRight)
 				{
 					if (self->face == LEFT)
 					{

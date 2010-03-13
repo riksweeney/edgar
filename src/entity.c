@@ -291,9 +291,11 @@ void drawEntities(int depth)
 
 				else if (drawn == FALSE && (self->flags & SPAWNED_IN) && self->spawnTime <= 0 && (self->spawnTime % 60 == 0))
 				{
+					/* Teleport expired enemies beneath the map */
+
 					if (self->health != 0)
 					{
-						self->y = MAX_MAP_Y * TILE_SIZE + 1;
+						self->y = (MAX_MAP_Y + 1) * TILE_SIZE;
 
 						self->action = &entityDieNoDrop;
 					}
@@ -1079,6 +1081,21 @@ Entity *addEntity(Entity e, int x, int y)
 	}
 
 	showErrorAndExit("Could not add Entity %s", e.name);
+
+	return NULL;
+}
+
+Entity *getEntityByName(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, name) == 0)
+		{
+			return &entity[i];
+		}
+	}
 
 	return NULL;
 }
