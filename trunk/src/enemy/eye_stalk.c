@@ -203,7 +203,7 @@ static void createBody()
 
 		if (body[i] == NULL)
 		{
-			showErrorAndExit("No free slots to add a Eye Stalk body part");
+			showErrorAndExit("No free slots to add an Eye Stalk body part");
 		}
 
 		loadProperties(bodyName, body[i]);
