@@ -119,7 +119,7 @@ typedef struct Map
 	char musicName[MAX_VALUE_LENGTH], mapName[MAX_VALUE_LENGTH];
 	int startX, startY;
 	int maxX, maxY, thinkTime;
-	int minX, minY;
+	int minX, minY, blendTime;
 	int forceMinY, darkMap;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int tile[MAX_MAP_Y][MAX_MAP_X];

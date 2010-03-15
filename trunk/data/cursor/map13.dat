@@ -3,6 +3,7 @@ common/action_point
 common/level_exit
 common/save_point
 item/mirror
+item/upside_down_mirror
 item/light_source
 lift/mine_lift
 lift/lift_target
@@ -10,8 +11,9 @@ common/switch
 item/light_target
 door/metal_door
 enemy/spike_sphere
-misc/small_log
 item/balloon
 item/arrow_target
 weapon/normal_arrow
-weapon/bow
+item/water_purifier
+item/extend_o_grab
+common/spawner

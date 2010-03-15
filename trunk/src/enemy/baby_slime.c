@@ -237,6 +237,11 @@ static void stickToTargetAndDrain()
 
 	else if (self->target->mental != 0)
 	{
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(120, _("The armour is too tough for them to penetrate..."));
+		}
+		
 		self->mental = 0;
 	}
 
