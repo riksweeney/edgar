@@ -451,7 +451,7 @@ static void tongueReturn()
 {
 	self->x += self->face == LEFT ? self->speed : -self->speed;
 
-	if (fabs(self->x - self->startX) <= self->speed)
+	if ((self->face == RIGHT && self->x <= self->startX) || (self->face == LEFT && self->x >= self->startX))
 	{
 		self->head->action = &tongueAttackFinish;
 

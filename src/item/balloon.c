@@ -77,7 +77,7 @@ static void init()
 
 	self->action = &hover;
 
-	setEntityAnimation(e, self->mental);
+	setEntityAnimation(self, self->mental);
 }
 
 static void hover()

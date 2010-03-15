@@ -201,6 +201,11 @@ static void headWait()
 			break;
 		}
 	}
+	
+	if (prand() % 180 == 0)
+	{
+		playSoundToMap("sound/boss/snake_boss/hiss.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	}
 }
 
 static void riseUp()
