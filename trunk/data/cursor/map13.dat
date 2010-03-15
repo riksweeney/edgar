@@ -17,3 +17,9 @@ weapon/normal_arrow
 item/water_purifier
 item/extend_o_grab
 common/spawner
+lift/large_mine_lift
+weapon/basic_sword
+weapon/small_wooden_shield
+falling_platform/armoury_falling_platform
+item/slime_potion
+enemy/mouth_stalk

@@ -73,7 +73,7 @@ static void grab(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND))
 	{
 		setCustomAction(&player, &helpless, 2, 0, 0);
 		
@@ -94,7 +94,7 @@ static void grab(int val)
 		
 		e->flags |= FLY;
 		
-		e->x = player.x + (player.face == RIGHT ? player.w : 0);
+		e->x = player.x + player.w / 2;
 		e->y = player.y + player.h / 2 - e->h / 2;
 
 		e->dirX = player.face == LEFT ? -self->speed : self->speed;
@@ -132,9 +132,9 @@ static void extend()
 	{
 		checkToMap(self);
 		
-		self->mental += self->dirX;
+		self->mental += fabs(self->dirX);
 		
-		if (self->mental >= 192)
+		if (self->mental >= 256)
 		{
 			self->dirX = 0;
 		}
@@ -158,7 +158,7 @@ static void retract()
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
 	}
 
-	if (fabs(self->x - self->startX) <= self->speed)
+	if ((self->face == RIGHT && self->x <= self->startX) || (self->face == LEFT && self->x >= self->startX))
 	{
 		if (self->target != NULL)
 		{
@@ -198,8 +198,6 @@ static int draw()
 	startX = self->x;
 
 	/* Draw the segments first */
-
-	self->x = self->x + (self->face == RIGHT ? 0 : self->w);
 
 	setEntityAnimation(self, BLOCK);
 	
