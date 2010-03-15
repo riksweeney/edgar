@@ -81,6 +81,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "light_target.h"
 #include "balloon.h"
 #include "water_purifier.h"
+#include "extend_o_grab.h"
 
 extern Entity *self, player;
 
@@ -143,6 +144,7 @@ static Constructor items[] = {
 {"item/light_target", &addLightTarget},
 {"item/balloon", &addBalloon},
 {"item/water_purifier", &addWaterPurifier},
+{"item/extend_o_grab", &addExtendOGrab}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

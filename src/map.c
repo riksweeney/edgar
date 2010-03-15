@@ -443,6 +443,13 @@ void doMap()
 
 		map.thinkTime = 3;
 	}
+	
+	map.blendTime -= 3;
+	
+	if (map.blendTime < 0)
+	{
+		map.blendTime = 0;
+	}
 }
 
 static void loadMapTiles(char *dir)
@@ -654,7 +661,18 @@ void drawMap(int depth)
 				break;
 
 				case 2:
-					if (tileID >= FOREGROUND_TILE_START)
+					if (tileID == SLIME_TILE_BLEND)
+					{
+						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
+						drawImage(mapImages[slimeTile], x, y, FALSE, map.blendTime);
+						
+						if (map.blendTime == 0)
+						{
+							map.tile[mapY][mapX] = WATER_TILE_START;
+						}
+					}
+					
+					else if (tileID >= FOREGROUND_TILE_START)
 					{
 						drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
 					}
@@ -1172,4 +1190,9 @@ int outOfBounds(Entity *e)
 int mapIsDark()
 {
 	return map.darkMap;
+}
+
+void resetBlendTime()
+{
+	map.blendTime = 255;
 }

@@ -69,7 +69,6 @@ static void tongueMove(void);
 static void tongueReturn(void);
 static void tongueTouch(Entity *);
 static void tongueTakeDamage(Entity *, int);
-static void tongueReturn(void);
 static int drawTongue(void);
 static void tongueEat(void);
 static void panic(void);
@@ -450,28 +449,13 @@ static void tongueMove()
 
 static void tongueReturn()
 {
-	if (self->face == LEFT)
+	self->x += self->face == LEFT ? self->speed : -self->speed;
+
+	if (fabs(self->x - self->startX) <= self->speed)
 	{
-		self->x += self->speed;
+		self->head->action = &tongueAttackFinish;
 
-		if (self->x > self->startX)
-		{
-			self->head->action = &tongueAttackFinish;
-
-			self->inUse = FALSE;
-		}
-	}
-
-	else
-	{
-		self->x += -self->speed;
-
-		if (self->x < self->startX)
-		{
-			self->head->action = &tongueAttackFinish;
-
-			self->inUse = FALSE;
-		}
+		self->inUse = FALSE;
 	}
 }
 
@@ -1348,7 +1332,7 @@ static void gemWait()
 
 	self->y = self->head->y + self->offsetY;
 
-	if (self->head->active == TRUE && self->head->mental == 0)
+	if (self->head->active == TRUE)
 	{
 		self->thinkTime--;
 

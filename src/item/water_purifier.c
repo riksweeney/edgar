@@ -35,8 +35,7 @@ extern Game game;
 static void dropPurifierCapsule(int);
 static void capsuleFallout(void);
 static void purifyWater(void);
-static void fillRight(int, int);
-static void fillLeft(int, int);
+static void fill(int, int);
 
 Entity *addWaterPurifier(int x, int y, char *name)
 {
@@ -98,45 +97,22 @@ static void capsuleFallout()
 
 static void purifyWater()
 {
-	fillRight(self->x / TILE_SIZE, self->y / TILE_SIZE);
+	fill(self->x / TILE_SIZE, self->y / TILE_SIZE);
 	
-	fillLeft((self->x / TILE_SIZE) - 1, self->y / TILE_SIZE);
+	resetBlendTime();
 	
 	self->inUse = FALSE;
 }
 
-static void fillRight(int x, int y)
+static void fill(int x, int y)
 {
 	if (mapTileAt(x, y) == SLIME_TILE_START)
 	{
-		setTileAt(x, y, WATER_TILE_START);
+		setTileAt(x, y, SLIME_TILE_BLEND);
 		
-		x++;
-		
-		fillRight(x, y);
-		
-		x--;
-		
-		fillRight(x, y - 1);
-		
-		fillRight(x, y + 1);
-	}
-}
-
-static void fillLeft(int x, int y)
-{
-	if (mapTileAt(x, y) == SLIME_TILE_START)
-	{
-		setTileAt(x, y, WATER_TILE_START);
-		
-		x--;
-		
-		fillRight(x, y);
-		
-		x++;
-		
-		fillLeft(x, y - 1);
-		
-		fillLeft(x, y + 1);
+		fill(x - 1, y);
+		fill(x + 1, y);
+		fill(x, y - 1);
+		fill(x, y + 1);
 	}
 }

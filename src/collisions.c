@@ -47,7 +47,7 @@ void initCollisionGrid()
 
 void addToGrid(Entity *e)
 {
-	int left, right, top, bottom;
+	int left, right, top, bottom, x, y;
 
 	if (e == &playerWeapon)
 	{
@@ -75,22 +75,13 @@ void addToGrid(Entity *e)
 		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
 		bottom = (e->y + e->box.y + e->box.h) / TILE_SIZE / GRID_SIZE;
 	}
-
-	addToList(top, left, e);
-
-	if (left != right)
+	
+	for (x=left;x<=right;x++)
 	{
-		addToList(top, right, e);
-	}
-
-	if (top != bottom)
-	{
-		addToList(bottom, left, e);
-	}
-
-	if (left != right && top != bottom)
-	{
-		addToList(bottom, right, e);
+		for (y=top;y<=bottom;y++)
+		{
+			addToList(y, x, e);
+		}
 	}
 }
 
@@ -964,10 +955,10 @@ void checkToMap(Entity *e)
 		}
 	}
 
-	else if ((topLeft >= SLIME_TILE_START && topLeft <= SLIME_TILE_END) ||
-		(bottomLeft >= SLIME_TILE_START && bottomLeft <= SLIME_TILE_END) ||
-		(topRight >= SLIME_TILE_START && topRight <= SLIME_TILE_END) ||
-		(bottomRight >= SLIME_TILE_START && bottomRight <= SLIME_TILE_END))
+	else if ((topLeft >= SLIME_TILE_START && topLeft <= SLIME_TILE_BLEND) ||
+		(bottomLeft >= SLIME_TILE_START && bottomLeft <= SLIME_TILE_BLEND) ||
+		(topRight >= SLIME_TILE_START && topRight <= SLIME_TILE_BLEND) ||
+		(bottomRight >= SLIME_TILE_START && bottomRight <= SLIME_TILE_BLEND))
 	{
 		e->environment = SLIME;
 
@@ -1352,7 +1343,7 @@ int getMapLeft(int x, int y)
 		tileID = mapTileAt(x, y);
 	}
 
-	y = y * TILE_SIZE + TILE_SIZE;
+	x *= TILE_SIZE;
 
 	return x;
 }

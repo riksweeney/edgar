@@ -216,8 +216,6 @@ static void touch(Entity *other)
 
 							self->target->dirY = -self->target->speed;
 
-							self->box.w = self->endX - self->x;
-
 							self->target->startX = self->target->x;
 							self->target->startY = self->target->y;
 						}

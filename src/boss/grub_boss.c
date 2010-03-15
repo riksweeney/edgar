@@ -55,6 +55,7 @@ static void bounceAttack(void);
 static void bounceAttackEnd(void);
 static void doIntro(void);
 static void introPause(void);
+static void shudder(void);
 
 Entity *addGrubBoss(int x, int y, char *name)
 {
@@ -117,6 +118,8 @@ static void takeDamage(Entity *other, int damage)
 			self->touch = NULL;
 
 			self->action = &die;
+			
+			self->startX = self->x;
 
 			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
@@ -488,6 +491,20 @@ static void die()
 
 		fadeBossMusic();
 	}
-
+	
 	checkToMap(self);
+	
+	shudder();
+}
+
+static void shudder()
+{
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 }

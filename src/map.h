@@ -59,3 +59,4 @@ char *getMapName(void);
 int getDistanceFromCamera(int, int);
 int outOfBounds(Entity *);
 int mapIsDark(void);
+void resetBlendTime(void);
