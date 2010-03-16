@@ -436,7 +436,7 @@ static void biteInit()
 		
 		self->touch = &biteTouch;
 		
-		calculatePath(self->x, self->y, player.x, player.y, &self->dirX, &self->dirY);
+		calculatePath(self->x, self->y, player.x, player.y > self->endY ? self->y : player.y, &self->dirX, &self->dirY);
 		
 		self->dirX *= 12;
 		self->dirY *= 12;

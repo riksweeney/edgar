@@ -26,3 +26,7 @@ enemy/mouth_stalk
 item/ice_spray
 weapon/bow
 item/health_potion
+item/number_block
+common/trap_door
+item/iron_key
+enemy/ground_spear

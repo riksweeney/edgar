@@ -90,7 +90,7 @@ static void fly()
 	{
 		if (self->maxThinkTime == 0)
 		{
-			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
+			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
 
 			self->mental = 1;
 		}
