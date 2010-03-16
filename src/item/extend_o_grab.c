@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "key_items.h"
 #include "item.h"
+#include "../player.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
@@ -73,11 +74,11 @@ static void grab(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND))
+	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND) && isAttacking() == FALSE)
 	{
 		setCustomAction(&player, &helpless, 2, 0, 0);
 		
-		setEntityAnimation(&player, STAND);
+		playerStand();
 		
 		player.dirX = 0;
 		

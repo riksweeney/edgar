@@ -49,3 +49,5 @@ Entity *removePlayerWeapon(void);
 Entity *removePlayerShield(void);
 void setPlayerFrozen(int);
 void setPlayerWrapped(int);
+int isAttacking(void);
+void playerStand(void);
