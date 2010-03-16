@@ -1940,3 +1940,21 @@ static void applyWebbing()
 
 	checkToMap(self);
 }
+
+int isAttacking()
+{
+	return (playerWeapon.flags & ATTACKING) ? TRUE : FALSE;
+}
+
+void playerStand()
+{
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+}

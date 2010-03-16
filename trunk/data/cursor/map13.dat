@@ -23,3 +23,6 @@ weapon/small_wooden_shield
 falling_platform/armoury_falling_platform
 item/slime_potion
 enemy/mouth_stalk
+item/ice_spray
+weapon/bow
+item/health_potion
