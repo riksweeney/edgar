@@ -198,6 +198,14 @@ static void bodyWait()
 	}
 	
 	self->dirX = self->head->dirX;
+	
+	if (self->head->action == &entityDieNoDrop)
+	{
+		self->x = self->head->x;
+		self->y = self->head->y;
+		
+		self->action = &entityDieNoDrop;
+	}
 }
 
 static void createBody()

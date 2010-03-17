@@ -57,33 +57,46 @@ Entity *addLightSource(int x, int y, char *name)
 
 static void wait()
 {
-	if (self->target == NULL)
+	if (self->active == TRUE)
 	{
-		self->target = addLightBeam(0, 0, "item/light_beam");
-
-		self->target->x = self->x + self->w / 2 - 2;
-		self->target->y = self->y + self->h / 2 - 2;
-
-		self->target->startX = self->target->x;
-		self->target->startY = self->target->y;
-
-		switch (self->mental)
+		if (self->target == NULL)
 		{
-			case 0:
-				self->target->dirY = -self->target->speed;
-			break;
+			self->target = addLightBeam(0, 0, "item/light_beam");
 
-			case 1:
-				self->target->dirY = self->target->speed;
-			break;
+			self->target->x = self->x + self->w / 2 - 2;
+			self->target->y = self->y + self->h / 2 - 2;
 
-			case 2:
-				self->target->dirX = -self->target->speed;
-			break;
+			self->target->startX = self->target->x;
+			self->target->startY = self->target->y;
 
-			default:
-				self->target->dirX = self->target->speed;
-			break;
+			switch (self->mental)
+			{
+				case 0:
+					self->target->dirY = -self->target->speed;
+				break;
+
+				case 1:
+					self->target->dirY = self->target->speed;
+				break;
+
+				case 2:
+					self->target->dirX = -self->target->speed;
+				break;
+
+				default:
+					self->target->dirX = self->target->speed;
+				break;
+			}
+		}
+	}
+	
+	else
+	{
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 	}
 }
