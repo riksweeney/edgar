@@ -120,5 +120,34 @@ static int draw()
 
 static void touch(Entity *other)
 {
+	if (other->type != KEY_ITEM)
+	{
+		if (self->dirX > 0)
+		{
+			self->endX = other->x;
 
+			self->box.w = self->endX - self->x;
+		}
+
+		else if (self->dirX < 0)
+		{
+			self->x = other->x + other->w;
+
+			self->box.w = self->startX - self->x;
+		}
+
+		if (self->dirY > 0)
+		{
+			self->endY = other->y;
+
+			self->box.h = self->endY - self->y;
+		}
+
+		else if (self->dirY < 0)
+		{
+			self->y = other->y + other->h;
+
+			self->box.h = self->startY - self->y;
+		}
+	}
 }
