@@ -19,6 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include <png.h>
+
 /*
 SDL PNG saving routine taken from pygame - Python Game Library
 */

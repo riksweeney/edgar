@@ -79,9 +79,21 @@ static void init()
 
 static void wait()
 {
-	self->health++;
-	
 	self->thinkTime--;
+	
+	if (self->health > 0)
+	{
+		self->y = self->targetY + cos(DEG_TO_RAD(self->endX)) * 2;
+		
+		self->health--;
+		
+		if (self->health <= 0)
+		{
+			self->y = self->startY;
+		}
+		
+		self->endX += 90;
+	}
 	
 	if (self->thinkTime <= 0)
 	{
@@ -99,6 +111,12 @@ static void wait()
 				playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
 			}
 			
+			self->health = 15;
+			
+			self->endX = 0;
+			
+			self->targetY = self->startY + 2;
+			
 			self->action = &rise;
 			
 			self->mental = 2;
@@ -108,8 +126,6 @@ static void wait()
 
 static void sink()
 {
-	self->health++;
-	
 	if (self->y < self->endY)
 	{
 		self->y += self->speed;
@@ -129,8 +145,6 @@ static void sink()
 
 static void rise()
 {
-	self->health++;
-	
 	if (self->y > self->startY)
 	{
 		self->y -= self->speed;

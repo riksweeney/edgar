@@ -12,11 +12,13 @@ PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
 PO_PROG   = po_creator.exe
+TILE_PROG = tile_creator.exe
 else
 PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
 PO_PROG   = po_creator
+TILE_PROG = tile_creator
 endif
 
 CXX       = gcc
@@ -48,6 +50,7 @@ else
 LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_net -lz
 endif
 
+TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
 PO_OBJS    = po_creator.o
 MAIN_OBJS  = draw.o main.o
@@ -111,9 +114,13 @@ $(PAK_PROG): $(PAK_OBJS)
 $(PO_PROG): $(PO_OBJS)
 	$(CXX) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
 
+# linking the program.
+$(TILE_PROG): $(TILE_OBJS)
+	$(CXX) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS)
+
 # cleaning everything that can be automatically recreated with "make".
 clean:
-	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(PAK_FILE) $(LOCALE_MO) *.o makefile.dep
+	$(RM) $(PROG) $(ED_PROG) $(PAK_PROG) $(PO_PROG) $(TILE_PROG) $(PAK_FILE) $(LOCALE_MO) $(TILE_PROG) *.o makefile.dep
 	
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
