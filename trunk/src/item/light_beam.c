@@ -120,7 +120,7 @@ static int draw()
 
 static void touch(Entity *other)
 {
-	if (other->type != KEY_ITEM)
+	if (other->type != KEY_ITEM && other->type != PLAYER && other->type != ENEMY)
 	{
 		if (self->dirX > 0)
 		{

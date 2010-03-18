@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void cleanup(void);
 static SDL_Surface *loadImage(char *);
 
-static SDL_Surface *temp, *newSurface, *image;
+static SDL_Surface *temp, *newSurface, *image, *screen;
 
 int main(int argc, char *argv[])
 {
@@ -36,6 +36,13 @@ int main(int argc, char *argv[])
 	int color;
 
 	i = 0;
+	
+	if (argc != 3)
+	{
+		printf("Usage: %s <PNG File> <Start_Index>\n", argv[0]);
+		
+		exit(0);
+	}
 
 	atexit(cleanup);
 
@@ -45,8 +52,12 @@ int main(int argc, char *argv[])
 
 		exit(1);
 	}
+	
+	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 
 	image = loadImage(argv[1]);
+	
+	i = atoi(argv[2]);
 
 	temp = SDL_CreateRGBSurface(SDL_HWSURFACE, TILE_SIZE, TILE_SIZE, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
 

@@ -120,7 +120,14 @@ void playBossMusic()
 	loadBossMusic("music/terrortech_inc_.xm");
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
-
+	
+	#if DEV == 1
+	if (game.gameType == REPLAYING)
+	{
+		printf("%f music/terrortech_inc_.xm\n", (float)game.frames / 60);
+	}
+	#endif
+	
 	Mix_PlayMusic(game.music, -1);
 }
 

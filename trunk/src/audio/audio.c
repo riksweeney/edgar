@@ -160,6 +160,13 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 	}
 
 	Mix_VolumeChunk(chunk, volume);
+	
+	#if DEV == 1
+	if (game.gameType == REPLAYING)
+	{
+		printf("%f %s\n", (float)game.frames / 60, name);
+	}
+	#endif
 
 	return playSoundChunk(chunk, channel, loops);
 }
@@ -201,6 +208,13 @@ void playSound(char *name)
 	}
 
 	Mix_VolumeChunk(chunk, game.sfxDefaultVolume * VOLUME_STEPS);
+	
+	#if DEV == 1
+	if (game.gameType == REPLAYING)
+	{
+		printf("%f %s\n", (float)game.frames / 60, name);
+	}
+	#endif
 
 	playSoundChunk(chunk, -1, 0);
 }
