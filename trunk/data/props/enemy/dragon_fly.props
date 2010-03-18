@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/enemy/dragon_fly.dat
+ANIM_FILE data/anim/enemy/dragon_fly.dat
+TYPE ENEMY
+FLAGS FLY
+DAMAGE 1
+HEALTH 60
+SPEED 2

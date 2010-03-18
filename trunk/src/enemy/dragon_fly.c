@@ -30,13 +30,13 @@ extern Entity *self;
 
 static void init(void);
 
-Entity *addWasp(int x, int y, char *name)
+Entity *addDragonFly(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Wasp");
+		showErrorAndExit("No free slots to add a Dragon Fly");
 	}
 
 	loadProperties(name, e);
@@ -49,7 +49,7 @@ Entity *addWasp(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &entityDie;
-	e->takeDamage = &entityTakeDamageFlinch;
+	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeTarget;
 
 	e->type = ENEMY;

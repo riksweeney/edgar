@@ -79,6 +79,7 @@ CORE_OBJS += thunder_cloud.o instruction_machine.o spirit.o black_book.o mataeus
 CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o medal.o repellent.o cloud_geyzer.o
 CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power_generator.o mirror.o light_source.o light_beam.o
 CORE_OBJS += light_target.o balloon.o scanner.o fly_trap.o water_purifier.o extend_o_grab.o mouth_stalk.o ground_spear.o
+CORE_OBJS += dragon_fly.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
