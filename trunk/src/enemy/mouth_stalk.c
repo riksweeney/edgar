@@ -495,7 +495,7 @@ static void biteFinish()
 		
 		self->thinkTime = prand() % 120;
 		
-		self->action = &wait;
+		self->action = &riseUp;
 	}
 	
 	alignBodyToHead();
