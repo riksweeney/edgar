@@ -296,7 +296,7 @@ static void doSymbolMatch()
 	{
 		if (self->health >= 0)
 		{
-			setInfoBoxMessage(30, _("Complete"));
+			setInfoBoxMessage(60, _("Complete"));
 		}
 
 		for (i=0;i<count;i++)

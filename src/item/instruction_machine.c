@@ -203,8 +203,6 @@ static void readInputCode()
 		self->target->requires[self->mental + 1] = '\0';
 
 		self->mental++;
-		
-		printf("%s\n", self->target->requires);
 
 		self->thinkTime = self->maxThinkTime;
 	}
