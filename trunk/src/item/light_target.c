@@ -126,7 +126,7 @@ static void activate(int val)
 
 			if (total > 0)
 			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
+				setInfoBoxMessage(60, _("Complete"));
 			}
 		}
 

@@ -458,6 +458,8 @@ static void biteInit()
 		
 		self->action = &bite;
 	}
+	
+	alignBodyToHead();
 }
 
 static void bite()

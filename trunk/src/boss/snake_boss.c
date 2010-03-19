@@ -110,6 +110,16 @@ Entity *addSnakeBoss(int x, int y, char *name)
 
 static void bodyWait()
 {
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+	
 	checkToMap(self);
 }
 
@@ -791,16 +801,6 @@ static void alignBodyToHead()
 		else
 		{
 			e->flags &= ~NO_DRAW;
-		}
-
-		if (self->flags & FLASH)
-		{
-			e->flags |= FLASH;
-		}
-
-		else
-		{
-			e->flags &= ~FLASH;
 		}
 
 		e = e->target;
