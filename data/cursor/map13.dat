@@ -34,3 +34,8 @@ door/large_metal_door
 wall/armoury_weak_wall
 item/rope
 weapon/pickaxe
+item/sliding_puzzle
+item/sliding_puzzle_display
+item/potion_dispenser
+wall/large_weak_armoury_wall
+item/bomb

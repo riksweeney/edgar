@@ -163,6 +163,8 @@ static void readInputCode()
 		
 		if (self->target->mental == 1)
 		{
+			setPlayerLocked(FALSE);
+			
 			setInfoBoxMessage(60, _("Complete"));
 			
 			self->touch = NULL;

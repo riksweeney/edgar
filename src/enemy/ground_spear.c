@@ -79,92 +79,101 @@ static void init()
 
 static void wait()
 {
-	self->thinkTime--;
-	
-	if (self->health > 0)
+	if (self->active == TRUE)
 	{
-		self->y = self->targetY + cos(DEG_TO_RAD(self->endX)) * 2;
+		self->thinkTime--;
 		
-		self->health--;
-		
-		if (self->health <= 0)
+		if (self->health > 0)
 		{
-			self->y = self->startY;
-		}
-		
-		self->endX += 90;
-	}
-	
-	if (self->thinkTime <= 0)
-	{
-		if (self->y == self->startY)
-		{
-			self->action = &sink;
+			self->y = self->targetY + cos(DEG_TO_RAD(self->endX)) * 2;
 			
-			self->mental = 1;
-		}
-		
-		else
-		{
-			if (self->startX == -1)
+			self->health--;
+			
+			if (self->health <= 0)
 			{
-				playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+				self->y = self->startY;
 			}
 			
-			self->health = 15;
+			self->endX += 90;
+		}
+		
+		if (self->thinkTime <= 0)
+		{
+			if (self->y == self->startY)
+			{
+				self->action = &sink;
+				
+				self->mental = 1;
+			}
 			
-			self->endX = 0;
-			
-			self->targetY = self->startY + 2;
-			
-			self->action = &rise;
-			
-			self->mental = 2;
+			else
+			{
+				if (self->startX == -1)
+				{
+					playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+				}
+				
+				self->health = 15;
+				
+				self->endX = 0;
+				
+				self->targetY = self->startY + 2;
+				
+				self->action = &rise;
+				
+				self->mental = 2;
+			}
 		}
 	}
 }
 
 static void sink()
 {
-	if (self->y < self->endY)
+	if (self->active == TRUE)
 	{
-		self->y += self->speed;
-	}
+		if (self->y < self->endY)
+		{
+			self->y += self->speed;
+		}
 
-	else
-	{
-		self->y = self->endY;
-		
-		self->thinkTime = self->maxThinkTime;
-		
-		self->mental = 0;
-		
-		self->action = &wait;
+		else
+		{
+			self->y = self->endY;
+			
+			self->thinkTime = self->maxThinkTime;
+			
+			self->mental = 0;
+			
+			self->action = &wait;
+		}
 	}
 }
 
 static void rise()
 {
-	if (self->y > self->startY)
+	if (self->active == TRUE)
 	{
-		self->y -= self->speed;
-	}
-
-	else
-	{
-		self->y = self->startY;
-		
-		self->thinkTime = self->maxThinkTime;
-		
-		self->mental = 0;
-		
-		self->action = &wait;
-		
-		if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
+		if (self->y > self->startY)
 		{
-			printf("Loop time %d\n", self->health);
+			self->y -= self->speed;
+		}
+
+		else
+		{
+			self->y = self->startY;
 			
-			exit(0);
+			self->thinkTime = self->maxThinkTime;
+			
+			self->mental = 0;
+			
+			self->action = &wait;
+			
+			if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
+			{
+				printf("Loop time %d\n", self->health);
+				
+				exit(0);
+			}
 		}
 	}
 }
