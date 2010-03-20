@@ -113,6 +113,8 @@ static void sink()
 	else
 	{
 		self->y = self->endY;
+		
+		self->dirY = 0;
 
 		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
 

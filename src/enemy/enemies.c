@@ -71,6 +71,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "mouth_stalk.h"
 #include "ground_spear.h"
 #include "dragon_fly.h"
+#include "auto_spike_ball.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -170,7 +171,8 @@ static Constructor enemies[] = {
 {"boss/armour_boss", &addArmourBoss},
 {"enemy/mouth_stalk", &addMouthStalk},
 {"enemy/ground_spear", &addGroundSpear},
-{"enemy/dragon_fly", &addDragonFly}
+{"enemy/dragon_fly", &addDragonFly},
+{"enemy/auto_spike_ball", &addAutoSpikeBall}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
