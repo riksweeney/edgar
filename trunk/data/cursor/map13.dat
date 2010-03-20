@@ -39,3 +39,5 @@ item/sliding_puzzle_display
 item/potion_dispenser
 wall/large_weak_armoury_wall
 item/bomb
+enemy/red_grub
+enemy/auto_spike_ball
