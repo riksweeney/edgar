@@ -220,6 +220,22 @@ void doCollisions()
 
 								y1 = e1->y + e1->offsetY;
 							}
+							
+							else if (e2 == &playerWeapon)
+							{
+								if (e2->face == LEFT)
+								{
+									x2 = e2->parent->x - e2->w + e2->offsetX - 1;
+								}
+
+								else
+								{
+									x2 = e2->x + e2->offsetX;
+								}
+
+
+								y2 = e2->y + e2->offsetY;
+							}
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)
 							{

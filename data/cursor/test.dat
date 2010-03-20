@@ -1,4 +1,5 @@
 edgar/edgar
-item/sliding_puzzle
-item/sliding_puzzle_display
-door/metal_door
+weapon/lightning_sword
+weapon/basic_sword
+enemy/bat
+common/spawner

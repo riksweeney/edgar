@@ -68,6 +68,9 @@ static int usingBow(void);
 static void playerWait(void);
 static void applyIce(void);
 static void applyWebbing(void);
+static void lightningSwordTouch(Entity *);
+static void lightningSwordChangeToBasic(void);
+static void weaponTouch(Entity *); 
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -615,6 +618,11 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+	
+	if (playerWeapon.mental == -1)
+	{
+		lightningSwordChangeToBasic();
+	}
 
 	if (player.target != NULL)
 	{
@@ -686,6 +694,11 @@ static void attackFinish()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+	
+	if (playerWeapon.mental == -1)
+	{
+		lightningSwordChangeToBasic();
+	}
 
 	playerWeapon.x = playerShield.x = player.x;
 	playerWeapon.y = playerShield.y = player.y;
@@ -794,6 +807,10 @@ void setPlayerWeapon(int val)
 	}
 
 	playerWeapon = *self;
+	
+	playerWeapon.head = self;
+	
+	playerWeapon.touch = &weaponTouch;
 
 	alignAnimations(&playerWeapon);
 
@@ -804,6 +821,16 @@ void setPlayerWeapon(int val)
 		playerWeapon.action = &drawBow;
 
 		playerShield.inUse = FALSE;
+	}
+	
+	else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
+	{
+		playerWeapon.action = &swingSword;
+		
+		if (playerWeapon.mental > 0)
+		{
+			playerWeapon.touch = &lightningSwordTouch;
+		}
 	}
 
 	else
@@ -839,8 +866,30 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		}
 
 		playerWeapon = *newWeapon;
+		
+		playerWeapon.head = newWeapon;
+		
+		if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
+		{
+			playerWeapon.action = &drawBow;
 
-		playerWeapon.action = (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0 ? &drawBow : &swingSword);
+			playerShield.inUse = FALSE;
+		}
+		
+		else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
+		{
+			playerWeapon.action = &swingSword;
+			
+			if (playerWeapon.mental > 0)
+			{
+				playerWeapon.touch = &lightningSwordTouch;
+			}
+		}
+
+		else
+		{
+			playerWeapon.action = &swingSword;
+		}
 
 		alignAnimations(&playerWeapon);
 	}
@@ -992,6 +1041,11 @@ static void takeDamage(Entity *other, int damage)
 			setEntityAnimation(&player, STAND);
 			setEntityAnimation(&playerShield, STAND);
 			setEntityAnimation(&playerWeapon, STAND);
+		}
+		
+		if (playerWeapon.mental == -1)
+		{
+			lightningSwordChangeToBasic();
 		}
 
 		if (other->type == PROJECTILE)
@@ -1238,8 +1292,6 @@ static void resetPlayer()
 	centerMapOnEntity(&player);
 
 	cameraSnapToTargetEntity();
-
-	printf("Respawned at %f %f\n", player.x, player.y);
 
 	player.action = NULL;
 
@@ -1957,4 +2009,133 @@ void playerStand()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
+}
+
+static void weaponTouch(Entity *other)
+{
+	
+}
+
+static void lightningSwordTouch(Entity *other)
+{
+	if (other->takeDamage != NULL && !(other->flags & INVULNERABLE) && !(self->flags & ATTACK_SUCCESS))
+	{
+		self->mental--;
+		
+		self->head->mental = self->mental;
+		
+		if (self->mental == 10)
+		{
+			freeMessageQueue();
+			
+			setInfoBoxMessage(60, "10 charges remaining...");
+		}
+		
+		else if (self->mental == 0)
+		{
+			freeMessageQueue();
+			
+			setInfoBoxMessage(120, "Lightning Sword is out of power");
+			
+			self->touch = NULL;
+			
+			self->mental = -1;
+		}
+		
+		self->flags |= ATTACK_SUCCESS;
+	}
+}
+
+static void lightningSwordChangeToBasic()
+{
+	loadProperties("weapon/lightning_sword_empty", &playerWeapon);
+	
+	playerWeapon.touch = &weaponTouch;
+
+	alignAnimations(&playerWeapon);
+	
+	playerWeapon.action = &swingSword;
+	
+	playerWeapon.mental = -2;
+	
+	replaceInventoryItemWithName("weapon/lightning_sword", &playerWeapon);
+}
+
+void addChargesToWeapon()
+{
+	int mental = 0;
+	Entity *e;
+	
+	if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0 ||
+		strcmpignorecase(playerWeapon.name, "weapon/lightning_sword_empty") == 0)
+	{
+		mental = playerWeapon.mental;
+		
+		playerWeapon.mental += self->health;
+		
+		if (playerWeapon.mental > 100)
+		{
+			playerWeapon.mental = 100;
+		}
+		
+		playerWeapon.head->mental = playerWeapon.mental;
+		
+		/* Transform back into Lightning Sword */
+		
+		if (mental == -2)
+		{
+			mental = playerWeapon.mental;
+			
+			loadProperties("weapon/lightning_sword", &playerWeapon);
+			
+			playerWeapon.mental = mental;
+			
+			playerWeapon.touch = &lightningSwordTouch;
+
+			alignAnimations(&playerWeapon);
+			
+			playerWeapon.action = &swingSword;
+			
+			replaceInventoryItemWithName("weapon/lightning_sword_empty", &playerWeapon);
+			
+			setInfoBoxMessage(60, _("%s has regained power"), _(playerWeapon.objectiveName));
+		}
+		
+		else
+		{
+			setInfoBoxMessage(60, _("Picked up %s x %d"), _(self->objectiveName), self->health);
+		}
+	}
+	
+	else
+	{
+		e = getInventoryItem(self->requires);
+		
+		if (e != NULL)
+		{
+			mental = e->mental;
+			
+			e->mental += self->health;
+			
+			/* Transform back into Lightning Sword */
+			
+			if (mental == -2)
+			{
+				mental = e->mental;
+				
+				loadProperties("weapon/lightning_sword", e);
+				
+				e->mental = mental;
+				
+				e->touch = &lightningSwordTouch;
+				
+				setInfoBoxMessage(60, _("%s has regained power"), _(e->objectiveName));
+			}
+			
+			else
+			{
+				setInfoBoxMessage(60, _("Picked up %s x %d"), _(self->objectiveName), self->health);
+			}
+		}
+	}
 }

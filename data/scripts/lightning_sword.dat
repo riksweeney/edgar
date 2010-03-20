@@ -1,0 +1,9 @@
+WAIT 30
+TALK Edgar Hey, a lightning sword!
+TALK Edgar It looks a lot more powerful than my current sword too
+TALK Edgar With this I should be almost unstoppable
+TALK Edgar Almost
+TALK Narrator The Lightning Sword has a limited number of charges and will lose its power when these charges are used up
+TALK Narrator Enemies will randomly drop more charges when they are killed
+TALK Narrator Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges
+ADD_MEDAL lightning_sword

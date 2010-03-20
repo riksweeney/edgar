@@ -182,6 +182,7 @@ typedef struct Message
 typedef struct Inventory
 {
 	int selectedIndex, x, y, cursorIndex;
+	int hasBow, hasLightningSword;
 	Entity item[MAX_INVENTORY_ITEMS];
 	SDL_Surface *background, *cursor, *description, *objectives;
 } Inventory;

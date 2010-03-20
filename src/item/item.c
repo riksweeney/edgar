@@ -160,7 +160,17 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 		break;
 
 		default:
-			e->type = TEMP_ITEM;
+			if (e->element == LIGHTNING)
+			{
+				e->touch = &lightningChargeTouch;
+	
+				e->flags |= DO_NOT_PERSIST;
+			}
+			
+			else
+			{
+				e->type = TEMP_ITEM;
+			}
 		break;
 	}
 
@@ -181,25 +191,24 @@ Entity *dropCollectableItem(char *name, int x, int y, int face)
 void dropRandomItem(int x, int y)
 {
 	Entity *e;
-
-	if (getInventoryItem(_("Bow")) != NULL)
-	{
-		if (prand() % 3 == 0)
-		{
-			addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-		}
-
-		if (prand() % 5 == 0)
-		{
-			e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-			e->health = 1 + (prand() % 3);
-		}
-	}
-
-	else if (prand() % 3 == 0)
+	
+	if (prand() % 3 == 0)
 	{
 		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+	}
+
+	if (hasBow() == TRUE && prand() % 5 == 0)
+	{
+		e = addTemporaryItem("weapon/normal_arrow", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+		e->health = 1 + (prand() % 3);
+	}
+	
+	if (hasLightningSword() == TRUE && prand() % 5 == 0)
+	{
+		e = addTemporaryItem("item/lightning_charge", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+		e->health = 1 + (prand() % 10);
 	}
 }
 
@@ -240,6 +249,16 @@ void healthTouch(Entity *other)
 		{
 			other->health = other->maxHealth;
 		}
+
+		self->inUse = FALSE;
+	}
+}
+
+void lightningChargeTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		addChargesToWeapon();
 
 		self->inUse = FALSE;
 	}

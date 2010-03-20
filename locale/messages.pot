@@ -1900,3 +1900,126 @@ msgstr ""
 
 msgid "Note"
 msgstr ""
+
+msgid "Solve the sliding puzzle"
+msgstr ""
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr ""
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr ""
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr ""
+
+msgid "You will now be transported outside"
+msgstr ""
+
+msgid "We apologize for the inconvenience"
+msgstr ""
+
+msgid "That's a lot of slime"
+msgstr ""
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr ""
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr ""
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr ""
+
+msgid "I'll have to find something to help me get across..."
+msgstr ""
+
+msgid "There, the rope's firmly attached"
+msgstr ""
+
+msgid "I need to find some rope before I can fire it"
+msgstr ""
+
+msgid "It's a Grappling Hook"
+msgstr ""
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr ""
+
+msgid "I still need a Fire Shield"
+msgstr ""
+
+msgid "Wow, this place is empty!"
+msgstr ""
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr ""
+
+msgid "Still, there must be something of use in here"
+msgstr ""
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr ""
+
+msgid "Well, not a giant one, obviously..."
+msgstr ""
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr ""
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr ""
+
+msgid "Press Attack to quit the puzzle"
+msgstr ""
+
+msgid "A length of rope"
+msgstr ""
+
+msgid "A device for grabbing far away objects"
+msgstr ""
+
+msgid "A bottle of pills that convert slime into water"
+msgstr ""
+
+msgid "Tutorial Key"
+msgstr ""
+
+msgid "Light Key"
+msgstr ""
+
+msgid "Rope"
+msgstr ""
+
+msgid "Extend-O-Grab"
+msgstr ""
+
+msgid "Rope"
+msgstr ""
+
+msgid "Water Purifiers"
+msgstr ""
+
+msgid "Right Wing Key"
+msgstr ""
+
+msgid "Catapult Lift Key"
+msgstr ""
+
+msgid "Armoury"
+msgstr ""
+
+msgid "Maggie"
+msgstr ""
+
+msgid "Jacob"
+msgstr ""
+
+msgid "Borgan"
+msgstr ""
+
+msgid "Edgar"
+msgstr ""
+
+msgid "Mine Cart"
+msgstr ""
