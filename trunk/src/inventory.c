@@ -48,6 +48,10 @@ void freeInventory()
 	inventory.selectedIndex = 0;
 
 	inventory.cursorIndex = 0;
+	
+	inventory.hasLightningSword = FALSE;
+	
+	inventory.hasBow = FALSE;
 
 	if (inventory.background != NULL)
 	{
@@ -130,6 +134,16 @@ int addToInventory(Entity *e)
 
 				if (inventory.item[i].type == WEAPON)
 				{
+					if (strcmpignorecase(inventory.item[i].name, "weapon/bow") == 0)
+					{
+						inventory.hasBow = TRUE;
+					}
+					
+					else if (strcmpignorecase(inventory.item[i].name, "weapon/lightning_sword") == 0)
+					{
+						inventory.hasLightningSword = TRUE;
+					}
+					
 					autoSetPlayerWeapon(&inventory.item[i]);
 				}
 
@@ -284,6 +298,29 @@ void replaceInventoryItem(char *name, Entity *e)
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		{
+			inventory.item[i] = *e;
+
+			inventory.item[i].face = RIGHT;
+
+			inventory.item[i].thinkTime = 0;
+
+			setEntityAnimation(&inventory.item[i], STAND);
+
+			return;
+		}
+	}
+
+	showErrorAndExit("Could not find inventory item %s to replace", name);
+}
+
+void replaceInventoryItemWithName(char *name, Entity *e)
+{
+	int i;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].name, name) == 0)
 		{
 			inventory.item[i] = *e;
 
@@ -668,6 +705,11 @@ void drawInventory()
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->description), e->health);
 			}
+			
+			else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
+			{
+				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->objectiveName), e->mental);
+			}
 
 			else if (strlen(e->description) == 0 && strlen(e->objectiveName) != 0)
 			{
@@ -738,4 +780,14 @@ void setInventoryIndex(int val)
 int getInventoryIndex()
 {
 	return inventory.selectedIndex;
+}
+
+int hasBow()
+{
+	return inventory.hasBow;
+}
+
+int hasLightningSword()
+{
+	return inventory.hasLightningSword;
 }

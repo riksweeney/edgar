@@ -65,7 +65,7 @@ Entity *addSlidingPuzzle(int x, int y, char *name)
 }
 
 static void wait()
-{
+{	
 	checkToMap(self);
 }
 
@@ -98,6 +98,22 @@ static void readInputCode()
 {
 	int val;
 	Entity *temp;
+	
+	if (self->target->mental == 1)
+	{
+		setPlayerLocked(FALSE);
+		
+		setInfoBoxMessage(60, _("Complete"));
+		
+		self->action = &wait;
+		
+		self->touch = NULL;
+		self->activate = NULL;
+		
+		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		
+		return;
+	}
 
 	if (input.up == 1)
 	{
@@ -147,11 +163,9 @@ static void readInputCode()
 		
 		self->touch = &touch;
 		self->activate = &activate;
-
-		self->action = &wait;
 	}
 
-	else if (val != -1)
+	else if (val != -1 && self->target->activate != NULL)
 	{
 		temp = self;
 		
@@ -160,18 +174,6 @@ static void readInputCode()
 		self->activate(val);
 		
 		self = temp;
-		
-		if (self->target->mental == 1)
-		{
-			setPlayerLocked(FALSE);
-			
-			setInfoBoxMessage(60, _("Complete"));
-			
-			self->touch = NULL;
-			self->activate = NULL;
-			
-			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-		}
 	}
 }
 

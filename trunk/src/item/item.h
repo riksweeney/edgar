@@ -22,6 +22,7 @@ Entity *addTemporaryItem(char *, int, int, int, float, float);
 void dropRandomItem(int, int);
 void generalItemAction(void);
 void healthTouch(Entity *);
+void lightningChargeTouch(Entity *);
 void throwItem(int);
 Entity *dropCollectableItem(char *, int, int, int);
 void itemFallout(void);

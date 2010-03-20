@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
+#include "../geometry.h"
 #include "../system/error.h"
 #include "../system/random.h"
 #include "../player.h"
@@ -36,6 +37,8 @@ static void activate(int);
 static void wait(void);
 static void init(void);
 static void randomize(void);
+static void validate(void);
+static void slideToTarget(void);
 
 Entity *addSlidingPuzzleDisplay(int x, int y, char *name)
 {
@@ -65,12 +68,61 @@ Entity *addSlidingPuzzleDisplay(int x, int y, char *name)
 
 static void wait()
 {
+	if (self->mental == -3)
+	{
+		validate();
+	}
+	
 	checkToMap(self);
+}
+
+static void validate()
+{
+	int x, y, i, found;
+	Entity *e;
+	
+	x = self->x;
+	y = self->y;
+	
+	i = 0;
+	
+	found = TRUE;
+	
+	for (e=self->target;e!=NULL;e=e->target)
+	{
+		if (i != 0 && (i % 3 == 0))
+		{
+			x = self->x;
+			
+			y += e->h;
+		}
+		
+		if (!(e->targetX == x && e->targetY == y))
+		{
+			found = FALSE;
+			
+			break;
+		}
+		
+		i++;
+		
+		x += e->w;
+	}
+	
+	if (found == TRUE)
+	{
+		self->mental = 1;
+	}
+	
+	else
+	{
+		self->mental = 0;
+	}
 }
 
 static void activate(int val)
 {
-	int i, x, y, dirX, dirY, found;
+	int x, y, dirX, dirY, found;
 	Entity *e;
 	
 	x = self->targetX;
@@ -104,55 +156,34 @@ static void activate(int val)
 	{
 		if (e->targetX + dirX == self->targetX && e->targetY + dirY == self->targetY)
 		{
-			e->x += dirX;
 			e->targetX += dirX;
-			
-			e->y += dirY;
 			e->targetY += dirY;
 			
 			self->targetX -= dirX;
 			self->targetY -= dirY;
 			
-			playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+			if (self->mental == 0)
+			{
+				calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+				
+				e->dirX *= 6;
+				e->dirY *= 6;
+				
+				e->action = &slideToTarget;
+				
+				self->activate = NULL;
+				
+				playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+			}
 			
-			found = TRUE;
+			else
+			{
+				e->x += dirX;
+				e->y += dirY;
+			}
 			
 			break;
 		}
-	}
-	
-	if (found == TRUE)
-	{
-		x = self->x;
-		y = self->y;
-		
-		i = 0;
-		
-		for (e=self->target;e!=NULL;e=e->target)
-		{
-			if (i != 0 && (i % 3 == 0))
-			{
-				x = self->x;
-				
-				y += e->h;
-			}
-			
-			if (!(e->targetX == x && e->targetY == y))
-			{
-				found = FALSE;
-				
-				break;
-			}
-			
-			i++;
-			
-			x += e->w;
-		}
-	}
-	
-	if (found == TRUE)
-	{
-		self->mental = 1;
 	}
 }
 
@@ -184,6 +215,8 @@ static void init()
 		
 		e->face = RIGHT;
 		
+		e->head = self;
+		
 		prev->target = e;
 		
 		prev = e;
@@ -199,7 +232,7 @@ static void init()
 
 static void randomize()
 {
-	int i, j, tiles[9], temp, boardWidth, tileWidth;
+	int i, tiles[9], boardWidth, tileWidth;
 	Entity *e;
 	
 	tileWidth = self->target->w;
@@ -208,23 +241,6 @@ static void randomize()
 	for (i=0;i<9;i++)
 	{
 		tiles[i] = i * tileWidth;
-	}
-	
-	for (i=0;i<9;i++)
-	{
-		j = prand() % 9;
-		
-		temp = tiles[i];
-		
-		tiles[i] = tiles[j];
-		
-		tiles[j] = temp;
-		
-		if (i == 8)
-		{
-			self->targetX = self->x + (tiles[i] % boardWidth);
-			self->targetY = self->y + (tiles[i] / boardWidth) * tileWidth;
-		}
 	}
 	
 	i = 0;
@@ -238,5 +254,40 @@ static void randomize()
 		e->y = e->targetY;
 		
 		i++;
+	}
+	
+	self->targetX = self->x + (tiles[i] % boardWidth);
+	self->targetY = self->y + (tiles[i] / boardWidth) * tileWidth;
+	
+	/* Don't just randomly stuff the tiles anywhere, it could make it unsolvable */
+	
+	self->mental = -1;
+	
+	for (i=0;i<1000;i++)
+	{
+		self->activate(1 + (prand() % 4));
+	}
+	
+	self->mental = 0;
+}
+
+static void slideToTarget()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+	
+	if (atTarget())
+	{
+		self->x = self->targetX;
+		self->y = self->targetY;
+		
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->head->activate = &activate;
+		
+		self->head->mental = -3;
+		
+		self->action = &wait;
 	}
 }

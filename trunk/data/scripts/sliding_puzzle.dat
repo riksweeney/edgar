@@ -1,5 +1,8 @@
+IF SLIDING_PUZZLE_POINT HEALTH 0
 TALK Edgar Cool, a giant sliding puzzle! I have one of these back home!
 TALK Edgar Well, not a giant one, obviously...
+SET SLIDING_PUZZLE_POINT HEALTH 1
+END
 TALK Narrator Push left, right, up or down to move the blocks
 TALK Narrator Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner
 TALK Narrator Press Attack to quit the puzzle
