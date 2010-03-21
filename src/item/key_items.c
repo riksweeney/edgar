@@ -84,6 +84,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "extend_o_grab.h"
 #include "sliding_puzzle.h"
 #include "sliding_puzzle_display.h"
+#include "tread_mill.h"
+#include "power_meter.h"
 
 extern Entity *self, player;
 
@@ -148,7 +150,9 @@ static Constructor items[] = {
 {"item/water_purifier", &addWaterPurifier},
 {"item/extend_o_grab", &addExtendOGrab},
 {"item/sliding_puzzle", &addSlidingPuzzle},
-{"item/sliding_puzzle_display", &addSlidingPuzzleDisplay}
+{"item/sliding_puzzle_display", &addSlidingPuzzleDisplay},
+{"item/tread_mill", &addTreadMill},
+{"item/power_meter", &addPowerMeter}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

@@ -17,16 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void loadAnimationData(char *, int *, int *);
-void freeAnimations(void);
-void drawLoopingAnimation(Entity *, int, int, int, int, int);
-int drawLoopingAnimationToMap(void);
-void setEntityAnimation(Entity *, int);
-int drawLineDefToMap(void);
-int getAnimationTypeByName(char *);
-int getAnimationTypeAtIndex(Entity *);
-int hasEntityAnimation(Entity *, int);
-void setFrameData(Entity *);
-int drawSpriteToMap(void);
-Sprite *getCurrentSprite(Entity *);
-int getFrameCount(Entity *);
+Entity *addTreadMill(int, int, char *);
