@@ -7,3 +7,5 @@ common/spawner
 item/tread_mill
 lift/mine_lift
 item/power_meter
+enemy/gold_centurion
+wall/armoury_weak_wall
