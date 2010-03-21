@@ -140,7 +140,7 @@ static void die()
 
 	fireGlobalTrigger(self->objectiveName);
 
-	playSoundToMap("sound/common/crumble.ogg", 2, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
 }
 
 static void fallout()

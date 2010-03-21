@@ -42,3 +42,6 @@ item/bomb
 enemy/red_grub
 enemy/auto_spike_ball
 weapon/lightning_sword
+item/tread_mill
+item/power_meter
+enemy/gold_centurion
