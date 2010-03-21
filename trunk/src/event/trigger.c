@@ -134,8 +134,6 @@ void fireTrigger(char *name)
 
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
-		printf("%s == %s\n", name, trigger[i].triggerName);
-		
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count++;

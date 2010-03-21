@@ -642,3 +642,8 @@ Sprite *getCurrentSprite(Entity *e)
 
 	return getSprite(animation[self->currentAnim].frameID[self->currentFrame]);
 }
+
+int getFrameCount(Entity *e)
+{
+	return animation[e->currentAnim].frameCount;
+}

@@ -1,5 +1,9 @@
 edgar/edgar
 weapon/lightning_sword
 weapon/basic_sword
-enemy/bat
+weapon/small_wooden_shield
+enemy/red_grub
 common/spawner
+item/tread_mill
+lift/mine_lift
+item/power_meter
