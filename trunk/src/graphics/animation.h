@@ -30,3 +30,4 @@ void setFrameData(Entity *);
 int drawSpriteToMap(void);
 Sprite *getCurrentSprite(Entity *);
 int getFrameCount(Entity *);
+void drawSprite(Entity *, int, int, int, int, int);

@@ -487,6 +487,23 @@ int drawSpriteToMap()
 	return drawn;
 }
 
+void drawSprite(Entity *e, int x, int y, int w, int h, int center)
+{
+	Sprite *sprite;
+
+	sprite = getSprite(animation[e->currentAnim].frameID[e->currentFrame]);
+
+	if (center == 1)
+	{
+		drawImage(sprite->image, x + (w - sprite->image->w) / 2, y + (h - sprite->image->h) / 2, FALSE, e->alpha);
+	}
+
+	else
+	{
+		drawImage(sprite->image, x, y, FALSE, e->alpha);
+	}
+}
+
 int drawLineDefToMap()
 {
 	drawBoxToMap(self->x, self->y, self->w, self->h, 255, 0, 0);

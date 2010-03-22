@@ -627,6 +627,7 @@ void writeInventoryToFile(FILE *fp)
 			fprintf(fp, "END_X %d\n", (int)self->endX);
 			fprintf(fp, "END_Y %d\n", (int)self->endY);
 			fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+			fprintf(fp, "MENTAL %d\n", self->mental);
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
 			fprintf(fp, "SPEED %0.2f\n", self->speed);
@@ -681,8 +682,16 @@ void drawInventory()
 		if (inventory.item[i].inUse == TRUE)
 		{
 			e = &inventory.item[i];
-
-			drawLoopingAnimation(e, x, y, INVENTORY_BOX_SIZE, INVENTORY_BOX_SIZE, 1);
+			
+			if (inventory.selectedIndex == i)
+			{
+				drawSprite(e, x, y, INVENTORY_BOX_SIZE, INVENTORY_BOX_SIZE, 1);
+			}
+			
+			else
+			{
+				drawLoopingAnimation(e, x, y, INVENTORY_BOX_SIZE, INVENTORY_BOX_SIZE, 1);
+			}
 		}
 
 		x += INVENTORY_BOX_SIZE;
