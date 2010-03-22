@@ -128,6 +128,8 @@ static void fallout()
 
 static void die()
 {
+	self->dirX = 0;
+	
 	self->dirY = 0.5;
 
 	checkToMap(self);

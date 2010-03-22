@@ -1121,6 +1121,7 @@ void writePlayerToFile(FILE *fp)
 	fprintf(fp, "END_Y %d\n", (int)self->endY);
 	fprintf(fp, "THINKTIME %d\n", self->thinkTime);
 	fprintf(fp, "HEALTH %d\n", self->health);
+	fprintf(fp, "MENTAL %d\n", self->mental);
 	fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 	fprintf(fp, "DAMAGE %d\n", self->damage);
 	/*fprintf(fp, "SPEED %0.2f\n", self->speed); Don't write the speed */
@@ -1143,6 +1144,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "END_X %d\n", (int)self->endX);
 		fprintf(fp, "END_Y %d\n", (int)self->endY);
 		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+		fprintf(fp, "MENTAL %d\n", self->mental);
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
@@ -1167,6 +1169,7 @@ void writePlayerToFile(FILE *fp)
 		fprintf(fp, "END_X %d\n", (int)self->endX);
 		fprintf(fp, "END_Y %d\n", (int)self->endY);
 		fprintf(fp, "THINKTIME %d\n", self->thinkTime);
+		fprintf(fp, "MENTAL %d\n", self->mental);
 		fprintf(fp, "MAX_HEALTH %d\n", self->maxHealth);
 		fprintf(fp, "HEALTH %d\n", self->health);
 		fprintf(fp, "DAMAGE %d\n", self->damage);
@@ -2018,7 +2021,7 @@ static void weaponTouch(Entity *other)
 
 static void lightningSwordTouch(Entity *other)
 {
-	if (other->takeDamage != NULL && !(other->flags & INVULNERABLE) && !(self->flags & ATTACK_SUCCESS))
+	if (other->takeDamage != NULL && !(self->flags & ATTACK_SUCCESS))
 	{
 		self->mental--;
 		
