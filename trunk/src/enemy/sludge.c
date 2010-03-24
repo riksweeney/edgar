@@ -168,6 +168,8 @@ static void teleportAttack()
 		self->dirX = 0;
 
 		self->thinkTime = 30;
+		
+		self->face = (prand() % 2 == 0) ? LEFT : RIGHT;
 	}
 }
 
@@ -202,9 +204,7 @@ static void turnToFacePlayer()
 {
 	self->frameSpeed = 1;
 
-	self->dirX = (prand() % 2 == 0) ? -self->speed : self->speed;
-	
-	self->face = self->dirX < 0 ? LEFT : RIGHT;
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->action = &wander;
 
