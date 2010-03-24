@@ -105,6 +105,11 @@ Entity *getFreeEntity()
 		if (count >= MAX_ENTITIES - 20)
 		{
 			printf("WARNING, compacting Entities!\n");
+			
+			if (count == MAX_ENTITIES)
+			{
+				break;
+			}
 		}
 	}
 

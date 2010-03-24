@@ -68,8 +68,6 @@ static void init()
 		self->startY = self->y;
 
 		self->endY = getMapFloor(self->x, self->y);
-
-		printf("Floor is %f\n", self->endY);
 	}
 
 	self->action = &followPlayer;

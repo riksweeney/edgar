@@ -60,8 +60,6 @@ void compressFile(char *sourceName)
 
 	compress2(dest, &compressedSize, source, fileSize, 9);
 
-	printf("Compressed from %ld to %ld\n", fileSize, compressedSize);
-
 	fp = fopen(sourceName, "wb");
 
 	fwrite(&fileSize, sizeof(unsigned long), 1, fp);
@@ -114,8 +112,6 @@ unsigned char *decompressFile(char *sourceName)
 	}
 
 	read = fread(source, compressedSize, 1, fp);
-
-	printf("Decompressing from %ld to %ld\n", compressedSize, fileSize);
 
 	uncompress(dest, &fileSize, source, compressedSize);
 

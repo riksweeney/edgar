@@ -56,8 +56,6 @@ void addGlobalTriggerFromScript(char *line)
 
 	if (e != NULL)
 	{
-		printf("Found an item in the inventory with name %s\n", triggerName);
-
 		currentValue = (e->flags & STACKABLE) ? e->health : 1;
 	}
 
@@ -130,12 +128,8 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
-			printf("Added Global Trigger \"%s\" with count %d\n", trigger[i].triggerName, trigger[i].total);
-
 			if (count >= total)
 			{
-				printf("Already got all the items needed for this trigger!\n");
-
 				for (j=0;j<total;j++)
 				{
 					fireGlobalTrigger(triggerName);
@@ -174,12 +168,8 @@ void fireGlobalTrigger(char *name)
 				setInfoBoxMessage(60, message);
 			}
 
-			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
-
 			if (trigger[i].count >= trigger[i].total)
 			{
-				printf("Firing global trigger %s\n", trigger[i].triggerName);
-
 				switch (trigger[i].targetType)
 				{
 					case UPDATE_OBJECTIVE:
@@ -187,7 +177,6 @@ void fireGlobalTrigger(char *name)
 					break;
 
 					case UPDATE_TRIGGER:
-						printf("Updating trigger %s\n", trigger[i].targetName);
 						fireGlobalTrigger(trigger[i].targetName);
 					break;
 
@@ -231,8 +220,6 @@ void updateGlobalTrigger(char *name, int value)
 	{
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
-			printf("Modifying global trigger value from %d to %d\n", trigger[i].count, (trigger[i].count - value));
-
 			trigger[i].count -= value;
 		}
 	}

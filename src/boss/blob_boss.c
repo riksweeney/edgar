@@ -239,8 +239,6 @@ static void reform()
 	{
 		if (fabs(self->targetX - self->x) <= fabs(self->dirX))
 		{
-			printf("Current %f\n", self->head->startX);
-
 			self->head->startX--;
 
 			self->head->flags &= ~NO_DRAW;
@@ -1129,12 +1127,8 @@ static void activate(int val)
 	{
 		e = getInventoryItem(_("Tesla Pack"));
 
-		printf("Getting pack\n");
-
 		if (e != NULL && e->health != 0)
 		{
-			printf("Using pack\n");
-
 			temp = self;
 
 			self = e;
@@ -1144,11 +1138,6 @@ static void activate(int val)
 			self->activate(val);
 
 			self = temp;
-		}
-
-		else
-		{
-			printf("Could not find pack\n");
 		}
 	}
 }
@@ -1472,8 +1461,6 @@ static void headWait()
 
 	if (self->maxThinkTime <= 0)
 	{
-		printf("Head wait complete\n");
-
 		t = getCenterTarget();
 
 		self->x = t->x - self->w / 2;
@@ -1500,11 +1487,6 @@ static void headReform()
 		else if (self->health > 1000)
 		{
 			self->mental = 20;
-		}
-
-		else
-		{
-			printf("Will now do final set of attacks\n");
 		}
 
 		self->action = &attackFinished;
@@ -1584,11 +1566,6 @@ static void shudder()
 		else if (self->health > 1000)
 		{
 			self->mental = 30;
-		}
-
-		else if (self->health > 0)
-		{
-			printf("Will now do final set of attacks\n");
 		}
 
 		self->action = self->action = self->health <= 0 ? &die : &attackFinished;

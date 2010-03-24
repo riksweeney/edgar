@@ -272,15 +272,11 @@ char *loadResources(char *buffer)
 
 		if (strcmpignorecase(itemName, "MAP_NAME") == 0)
 		{
-			printf("Encountered Map Data for %s. Returning\n", line);
-
 			break;
 		}
 
 		else if (strcmpignorecase(itemName, "UPDATE_ENTITY") == 0 || strcmpignorecase(itemName, "REMOVE_ENTITY") == 0)
 		{
-			printf("Encountered Patch Instruction %s. Returning\n", line);
-
 			break;
 		}
 
@@ -481,8 +477,6 @@ char *loadResources(char *buffer)
 
 				if (resourceType == PLAYER_INVENTORY)
 				{
-					printf("Adding %s to inventory\n", e->name);
-
 					addToInventory(e);
 				}
 			}
@@ -559,12 +553,8 @@ void patchEntities(double versionFile, char *mapName)
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
 
-	printf("Looking for %s\n", patchFile);
-
 	if (existsInPak(patchFile) == TRUE)
 	{
-		printf("Found %s in pakFile\n", patchFile);
-
 		buffer = loadFileFromPak(patchFile);
 
 		line = strtok_r((char *)buffer, "\n", &savePtr);
@@ -594,15 +584,11 @@ void patchEntities(double versionFile, char *mapName)
 			{
 				sscanf(line, "%*s \"%[^\"]\" \"%[^\"]\"", key, value);
 
-				printf("Updating Objective %s\n", key);
-
 				modifyObjective(key, value);
 			}
 
 			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
 			{
-				printf("Adding new Entities to %s\n", mapName);
-
 				loadResources(savePtr);
 			}
 
@@ -611,8 +597,6 @@ void patchEntities(double versionFile, char *mapName)
 				read = sscanf(line, "%*s %s %d %d\n", itemName, &x, &y);
 
 				found = FALSE;
-
-				printf("Removing %s\n", itemName);
 
 				e = getEntityByObjectiveName(itemName);
 

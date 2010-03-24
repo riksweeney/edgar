@@ -169,8 +169,6 @@ static void readInputCode()
 		self->activate = &activate;
 
 		self->action = &wait;
-		
-		printf("%s\n", e->requires);
 	}
 
 	else if (val != -1)

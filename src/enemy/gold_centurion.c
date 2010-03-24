@@ -136,6 +136,6 @@ static void die()
 
 	if (self->flags & ON_GROUND)
 	{
-		self->inUse = FALSE;
+		entityDieNoDrop();
 	}
 }

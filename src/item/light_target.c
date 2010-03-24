@@ -64,7 +64,7 @@ Entity *addLightTarget(int x, int y, char *name)
 
 static void init()
 {
-	setEntityAnimation(self, self->thinkTime <= 0 ? STAND : WALK);
+	self->thinkTime = -1;
 
 	self->action = &wait;
 }
@@ -80,6 +80,8 @@ static void wait()
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 
 		self->active = FALSE;
+		
+		self->thinkTime = -1;
 	}
 
 	else if (self->thinkTime < 0)
@@ -89,17 +91,10 @@ static void wait()
 }
 
 static void touch(Entity *other)
-{
+{	
 	if (strcmpignorecase(other->name, "item/light_beam") == 0)
 	{
 		activate(1);
-
-		if (other->dirY < 0)
-		{
-			other->y = self->y + self->h / 2;
-
-			other->box.h = other->startY - other->y;
-		}
 	}
 
 	else

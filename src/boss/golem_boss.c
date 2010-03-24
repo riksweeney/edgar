@@ -824,8 +824,6 @@ static void reform()
 
 			self->head->maxThinkTime--;
 
-			printf("Reforming1 : %d to go\n", self->head->maxThinkTime);
-
 			self->action = &partWait;
 		}
 
@@ -887,8 +885,6 @@ static void reform2()
 		self->y = self->targetY;
 
 		self->head->maxThinkTime--;
-
-		printf("Reforming2 : %d to go\n", self->head->maxThinkTime);
 
 		self->action = &partWait;
 	}

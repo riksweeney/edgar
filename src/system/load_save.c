@@ -170,11 +170,7 @@ int loadGame(int slot)
 
 	initGame();
 
-	printf("Loading save data from %s\n", saveFile);
-
 	buffer = decompressFile(saveFile);
-
-	printf("Reading save data\n");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
@@ -197,8 +193,6 @@ int loadGame(int slot)
 			sscanf(line, "%*s %s\n", itemName);
 
 			version = atof(itemName);
-
-			printf("VERSION IS %0.2f\n", version);
 		}
 
 		else if (strcmpignorecase("PLAY_TIME", itemName) == 0)
@@ -225,16 +219,12 @@ int loadGame(int slot)
 		{
 			if (version < VERSION)
 			{
-				printf("Need to patch save file\n");
-
 				patchGame = TRUE;
 
 				break;
 			}
 
 			sscanf(line, "%*s %s\n", itemName);
-
-			printf("Loading save location %s\n", itemName);
 
 			loadMap(itemName, FALSE);
 
@@ -243,8 +233,6 @@ int loadGame(int slot)
 
 		else if (strcmpignorecase(line, mapName) == 0)
 		{
-			printf("Loading entities for map %s\n", mapName);
-
 			loadResources(savePtr);
 		}
 
@@ -269,8 +257,6 @@ int loadGame(int slot)
 
 		copyFile(saveFile, backup);
 
-		printf("Backed up original save to %s\n", backup);
-
 		showPatchMessage("0%");
 
 		while (TRUE)
@@ -293,10 +279,6 @@ int loadGame(int slot)
 			}
 		}
 
-		printf("Patch completed.\n");
-
-		printf("Loading new save\n");
-
 		return loadGame(slot);
 	}
 
@@ -311,8 +293,6 @@ int loadGame(int slot)
 	cameraSnapToTargetEntity();
 
 	freeMessageQueue();
-
-	printf("Load completed\n");
 
 	return TRUE;
 }
@@ -330,8 +310,6 @@ static void patchSaveGame(char *saveFile, double version)
 
 	newSave = fopen(tempFile, "wb");
 
-	printf("PATCHING save data from %s\n", saveFile);
-
 	buffer = decompressFile(saveFile);
 
 	originalBuffer = (unsigned char *)malloc((strlen((char *)buffer) + 1) * sizeof(unsigned char));
@@ -342,8 +320,6 @@ static void patchSaveGame(char *saveFile, double version)
 	}
 
 	strcpy((char *)originalBuffer, (char *)buffer);
-
-	printf("Reading save data\n");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
@@ -376,18 +352,12 @@ static void patchSaveGame(char *saveFile, double version)
 			{
 				sscanf(line, "%*s %s\n", itemName);
 
-				printf("Will patch %s\n", itemName);
-
-				printf("Loading resources for %s\n", itemName);
-
 				returnedName = loadResources(savePtr);
 
 				if (returnedName != NULL)
 				{
 					STRNCPY(mapName, returnedName, sizeof(mapName));
 				}
-
-				printf("Resources loaded for %s\n", itemName);
 
 				/* Rewind to start */
 
@@ -403,8 +373,6 @@ static void patchSaveGame(char *saveFile, double version)
 				strcpy((char *)buffer, (char *)originalBuffer);
 
 				line = strtok_r((char *)buffer, "\n", &savePtr);
-
-				printf("Applying patch to %s\n", itemName);
 
 				/* Load up the patch file */
 
@@ -505,8 +473,6 @@ void saveGame(int slot)
 
 	savePtr = NULL;
 
-	printf("Saving game\n");
-
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
 	read = fopen(tempFile, "rb");
@@ -527,8 +493,6 @@ void saveGame(int slot)
 
 	if (read != NULL)
 	{
-		printf("Copying persisting data\n");
-
 		fclose(read);
 
 		buffer = decompressFile(tempFile);
@@ -603,17 +567,11 @@ void saveGame(int slot)
 
 	/* Save the player's position */
 
-	printf("Writing player location\n");
-
 	fprintf(write, "MAP_NAME %s\n", mapName);
-
-	printf("Writing player data\n");
 
 	fprintf(write, "PLAYER_DATA\n");
 
 	writePlayerToFile(write);
-
-	printf("Writing player inventory\n");
 
 	fprintf(write, "INVENTORY_INDEX %d\n", getInventoryIndex());
 
@@ -844,8 +802,6 @@ int hasPersistance(char *mapName)
 
 	if (read == NULL)
 	{
-		printf("No persistance data found\n");
-
 		return val;
 	}
 
@@ -909,8 +865,6 @@ void loadPersitanceData(char *mapName)
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			found = TRUE;
-
-			printf("Loading peristance data for: %s\n", itemName);
 
 			loadResources(savePtr);
 		}
@@ -1138,14 +1092,10 @@ int getPrivateKey(char *privateKey)
 
 	snprintf(keyPath, MAX_PATH_LENGTH, "%smedalKey", gameSavePath);
 
-	printf("Loading private key from %s\n", keyPath);
-
 	fp = fopen(keyPath, "rb");
 
 	if (fp == NULL)
 	{
-		printf("No private key found for medal server\n");
-
 		return FALSE;
 	}
 

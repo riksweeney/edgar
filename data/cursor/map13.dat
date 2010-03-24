@@ -46,3 +46,8 @@ item/tread_mill
 item/power_meter
 enemy/gold_centurion
 common/reset_switch
+item/old_shield
+item/shield_pillar
+enemy/green_scanner
+enemy/blue_scanner
+item/invisibility_potion

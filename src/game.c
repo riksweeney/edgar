@@ -455,11 +455,7 @@ void goToNextMap()
 
 	saveTemporaryData();
 
-	printf("Freeing Resources\n");
-
 	freeLevelResources();
-
-	printf("Loading Map\n");
 
 	if (hasPersistance(game.nextMap) == FALSE)
 	{
@@ -468,16 +464,12 @@ void goToNextMap()
 
 	else
 	{
-		printf("Loading persistance data instead...\n");
-
 		loadMap(game.nextMap, FALSE);
 
 		loadPersitanceData(game.nextMap);
 	}
 
 	fireMapTrigger(game.nextMap);
-
-	printf("Done\n");
 
 	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
 	{

@@ -105,8 +105,6 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
-		printf("Summoning\n");
-		
 		e = addEnemy("boss/mataeus", self->x, self->y);
 		
 		t = getTargetByName("MATAEUS_RIGHT_TARGET");

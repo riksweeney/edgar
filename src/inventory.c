@@ -531,8 +531,6 @@ void loadInventoryItems()
 			}
 		}
 	}
-
-	printf("Done reloading inventory\n");
 }
 
 void getInventoryItemFromScript(char *line)
@@ -575,16 +573,6 @@ void getInventoryItemFromScript(char *line)
 
 	else
 	{
-		if (item == NULL)
-		{
-			printf("Could not find item %s\n", _(itemName));
-		}
-
-		else
-		{
-			printf("Only found %d of %d required\n", item->health, quantity);
-		}
-
 		e->health = failure;
 	}
 }

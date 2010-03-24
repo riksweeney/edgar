@@ -113,8 +113,6 @@ static void addTrigger(char *triggerName, int count, int total, int targetType, 
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
-			printf("Added Trigger \"%s\" with total %d\n", trigger[i].triggerName, trigger[i].total);
-
 			return;
 		}
 	}
@@ -147,12 +145,8 @@ void fireTrigger(char *name)
 				setInfoBoxMessage(60, message);
 			}
 
-			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
-
 			if (trigger[i].count == trigger[i].total)
 			{
-				printf("Firing Trigger \"%s\"\n", trigger[i].triggerName);
-
 				switch (trigger[i].targetType)
 				{
 					case UPDATE_OBJECTIVE:
