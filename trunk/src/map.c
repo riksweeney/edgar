@@ -102,8 +102,6 @@ void loadMap(char *name, int loadEntityResources)
 			sscanf(line, "%*s %[^$]s\n", itemName);
 
 			STRNCPY(map.mapName, itemName, sizeof(map.mapName));
-
-			printf("Setting mapName to %s\n", map.mapName);
 		}
 
 		else if (strcmpignorecase(itemName, "TILESET") == 0)
@@ -111,8 +109,6 @@ void loadMap(char *name, int loadEntityResources)
 			/* Load the map tiles */
 
 			sscanf(line, "%*s %s\n", itemName);
-
-			printf("Loading tiles from %s\n", itemName);
 
 			loadMapTiles(itemName);
 
@@ -124,8 +120,6 @@ void loadMap(char *name, int loadEntityResources)
 			/* Set the background speed */
 
 			sscanf(line, "%*s %s\n", itemName);
-
-			printf("Setting background speed to %s\n", itemName);
 
 			map.backgroundSpeed[0] = atof(itemName);
 		}
@@ -153,8 +147,6 @@ void loadMap(char *name, int loadEntityResources)
 			/* Set the background speed */
 
 			sscanf(line, "%*s %s\n", itemName);
-
-			printf("Setting background speed 2 to %s\n", itemName);
 
 			map.backgroundSpeed[1] = atof(itemName);
 		}
@@ -192,8 +184,6 @@ void loadMap(char *name, int loadEntityResources)
 
 			sscanf(line, "%*s %s\n", itemName);
 
-			printf("Loading ambience from %s\n", itemName);
-
 			loadAmbience(itemName);
 
 			STRNCPY(map.ambienceName, itemName, sizeof(map.ambienceName));
@@ -207,8 +197,6 @@ void loadMap(char *name, int loadEntityResources)
 
 			if (x > 0)
 			{
-				printf("Loading music from %s\n", itemName);
-
 				STRNCPY(map.musicName, itemName, sizeof(map.musicName));
 
 				loadMusic(map.musicName);

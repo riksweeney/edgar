@@ -1,3 +1,4 @@
+SET Edgar FACE LEFT
 IF WELL_POINT HEALTH 1
 TALK Edgar I've already checked, he's not down there...
 END

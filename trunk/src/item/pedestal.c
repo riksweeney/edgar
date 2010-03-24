@@ -200,8 +200,6 @@ static void init()
 
 	if (strlen(self->objectiveName) != 0)
 	{
-		printf("Pedestal is getting %s\n", self->objectiveName);
-
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
 			if (entity[i].inUse == TRUE && entity[i].type == ITEM
@@ -217,8 +215,6 @@ static void init()
 		{
 			showErrorAndExit("Pedestal could not get statue %s", self->objectiveName);
 		}
-
-		printf("Pedestal is got %s\n", e->objectiveName);
 
 		self->target = e;
 

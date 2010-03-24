@@ -1,11 +1,6 @@
 edgar/edgar
-weapon/lightning_sword
-weapon/basic_sword
-weapon/small_wooden_shield
-enemy/red_grub
-common/spawner
-item/tread_mill
-lift/mine_lift
-item/power_meter
-enemy/gold_centurion
-wall/armoury_weak_wall
+item/mirror
+item/light_source
+item/upside_down_mirror
+item/light_target
+common/save_point

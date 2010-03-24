@@ -59,8 +59,6 @@ void runScript(char *name)
 
 	snprintf(filename, sizeof(filename), "data/scripts/%s.dat", name);
 
-	printf("Loading script file %s\n", filename);
-
 	buffer = loadFileFromPak(filename);
 
 	text = (char *)malloc((strlen((char *)buffer) + 1) * sizeof(char));
@@ -414,8 +412,6 @@ void readNextScriptLine()
 
 				token2 = strtok_r(NULL, "\0", &savePtr);
 
-				printf("%s : Setting property %s to %s\n", e->name, token, token2);
-
 				setProperty(e, token, token2);
 			}
 
@@ -511,8 +507,6 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			printf("Script is activating %s\n", token);
-
 			activateEntitiesWithRequiredName(token, TRUE);
 		}
 
@@ -526,8 +520,6 @@ void readNextScriptLine()
 		else if (strcmpignorecase("ACTIVATE_OBJECTIVE", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-
-			printf("Script is activating %s\n", token);
 
 			activateEntitiesWithObjectiveName(token, TRUE);
 		}
@@ -549,6 +541,11 @@ void readNextScriptLine()
 		else if (strcmpignorecase("REMOVE", command) == 0 || strcmpignorecase("HAS_ITEM", command) == 0)
 		{
 			getInventoryItemFromScript(script.text[script.line]);
+		}
+		
+		else if (strcmpignorecase("HAS_OBJECTIVE", command) == 0)
+		{
+			getObjectiveFromScript(script.text[script.line]);
 		}
 
 		else if (strcmpignorecase("USE_ITEM", command) == 0)
@@ -736,8 +733,6 @@ void readNextScriptLine()
 
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			printf("%s %s %s\n", command, e->objectiveName, token);
-
 			if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO", command) == 0)
 			{
 				entityWalkTo(e, token);
@@ -861,7 +856,9 @@ void readNextScriptLine()
 
 		else if (command[0] != '#')
 		{
+			#if DEV == 1
 			printf("Skipping unknown script command %s\n", command);
+			#endif
 		}
 
 		script.line++;

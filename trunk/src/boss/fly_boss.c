@@ -322,8 +322,6 @@ static void flyToTopTarget()
 	self->dirX *= self->speed;
 	self->dirY *= self->speed;
 
-	printf("Will move from %0.0f %0.0f to %d %d with speed %0.2f %0.2f\n", self->x, self->y, self->targetX, self->targetY, self->dirX, self->dirY);
-
 	self->action = &moveToTarget;
 }
 

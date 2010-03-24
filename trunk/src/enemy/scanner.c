@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../enemy/enemies.h"
+#include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../collisions.h"
@@ -31,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void init(void);
 static void lookForPlayer(void);
 static void followPlayer(void);
+static void closedEyeMove(void);
 static void summonEnemies(void);
 
 extern Entity *self, player;
@@ -62,26 +64,106 @@ Entity *addScanner(int x, int y, char *name)
 static void init()
 {
 	self->endY = getMapFloor(self->x, self->y) - self->y;
-
-	self->action = &lookForPlayer;
+	
+	self->action = strcmpignorecase("enemy/blue_scanner", self->name) == 0 ? &closedEyeMove : &lookForPlayer;
 }
 
 static void lookForPlayer()
 {
-	moveLeftToRight();
-
-	if (player.alpha == 255 && collision(self->x, self->y, self->h, self->endY, player.x, player.y, player.w, player.h) == 1)
+	if (self->active == TRUE)
 	{
+		self->flags &= ~NO_DRAW;
+		
+		moveLeftToRight();
+		
+		if (self->currentFrame == 3)
+		{
+			if (self->health == 0)
+			{
+				/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+				
+				self->health = 1;
+			}
+		}
+		
+		else
+		{
+			self->health = 0;
+		}
+
+		if (player.health > 0 && player.alpha == 255 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
+		{
+			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+			
+			self->thinkTime = 300;
+
+			activateEntitiesWithRequiredName(self->objectiveName, FALSE);
+			
+			if (self->mental == 1)
+			{
+				summonEnemies();
+			}
+
+			setEntityAnimation(self, ATTACK_1);
+			
+			self->target = &player;
+
+			self->action = &followPlayer;
+		}
+	}
+	
+	else
+	{
+		self->flags |= NO_DRAW;
+	}
+}
+
+static void closedEyeMove()
+{
+	moveLeftToRight();
+	
+	if (self->currentFrame == 3)
+	{
+		if (self->health == 0)
+		{	
+			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+			
+			self->health = 1;
+		}
+	}
+	
+	else
+	{
+		self->health = 0;
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 1 - self->mental;
+		
+		setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
+		
+		self->thinkTime = self->maxThinkTime;
+	}
+
+	if (player.health > 0 && self->mental == 0 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
+	{
+		playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+		
 		self->thinkTime = 300;
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
-
-		if (self->mental == 1)
+		
+		if (self->damage == 1)
 		{
 			summonEnemies();
 		}
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, ATTACK_1);
+		
+		self->target = &player;
 
 		self->action = &followPlayer;
 	}
@@ -105,7 +187,7 @@ static void followPlayer()
 
 	checkToMap(self);
 
-	if (collision(self->x, self->y, self->h, self->endY, player.x, player.y, player.w, player.h) == 0)
+	if (player.health <= 0 || collision(self->x, self->y, self->h, self->endY, player.x, player.y, player.w, player.h) == 0)
 	{
 		self->thinkTime--;
 
@@ -114,8 +196,8 @@ static void followPlayer()
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
 			setEntityAnimation(self, STAND);
-
-			self->action = &lookForPlayer;
+			
+			self->action = strcmpignorecase("enemy/blue_scanner", self->name) == 0 ? &closedEyeMove : &lookForPlayer;
 		}
 	}
 }
@@ -129,6 +211,10 @@ static void summonEnemies()
 
 	for (i=0;i<2;i++)
 	{
+		summonCount = 0;
+		
+		summonIndex = 0;
+		
 		STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);
 
 		token = strtok(summonList, "|");
@@ -144,7 +230,7 @@ static void summonEnemies()
 		{
 			showErrorAndExit("Scanner at %f %f has no summon list", self->x, self->y);
 		}
-
+		
 		summonIndex = prand() % summonCount;
 
 		STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);

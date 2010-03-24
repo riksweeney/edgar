@@ -220,7 +220,7 @@ static void attackFinished()
 
 	if (self->thinkTime <= 0)
 	{
-		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (player.health > 0 && collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->action = &attack;
 		}

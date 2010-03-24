@@ -113,8 +113,6 @@ static void addMapTrigger(char *triggerName, int count, int total, int targetTyp
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
-			printf("Added Map Trigger \"%s\" with total %d\n", trigger[i].triggerName, trigger[i].total);
-
 			return;
 		}
 	}
@@ -147,12 +145,8 @@ void fireMapTrigger(char *name)
 				setInfoBoxMessage(60, message);
 			}
 
-			printf("Updating Trigger \"%s\", %d / %d\n", trigger[i].triggerName, trigger[i].count, trigger[i].total);
-
 			if (trigger[i].count == trigger[i].total)
 			{
-				printf("Firing Trigger \"%s\"\n", trigger[i].triggerName);
-
 				switch (trigger[i].targetType)
 				{
 					case UPDATE_OBJECTIVE:
@@ -199,8 +193,6 @@ void updateMapTrigger(char *name, int value)
 	{
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
-			printf("Modifying trigger value from %d to %d\n", trigger[i].count, (trigger[i].count - value));
-
 			trigger[i].count -= value;
 		}
 	}

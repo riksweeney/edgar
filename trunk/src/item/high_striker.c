@@ -144,8 +144,6 @@ static void touch(Entity *other)
 		{
 			self->maxHealth = dirY > 14 ? 14 : dirY;
 			
-			printf("Setting max health to %d\n", self->maxHealth);
-			
 			self->maxThinkTime = 1;
 		}
 	}

@@ -163,5 +163,5 @@ Entity *addInvisibilityPotion(int x, int y, char *name)
 
 static void useInvisibilityPotion(int val)
 {
-	setCustomAction(&player, &invisible, 60 * 10, 0, 0);
+	setCustomAction(&player, &invisible, 60 * 5, 0, 0);
 }

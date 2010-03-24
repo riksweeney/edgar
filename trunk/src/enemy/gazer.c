@@ -88,7 +88,7 @@ static void fly()
 {
 	if (self->currentFrame == 3 || self->currentFrame == 7)
 	{
-		if (self->maxThinkTime == 0)
+		if (self->mental == 0)
 		{
 			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
 

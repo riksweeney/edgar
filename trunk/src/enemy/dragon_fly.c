@@ -41,6 +41,7 @@ static int safeToDrop(void);
 static void podWait(void);
 static void dropPod(void);
 static void podTakeDamage(Entity *, int);
+static void podExplode(void);
 
 Entity *addDragonFly(int x, int y, char *name)
 {
@@ -148,7 +149,7 @@ static void dropWait()
 	
 	checkToMap(self);
 	
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->flags &= ~FLY;
 		
@@ -273,9 +274,6 @@ static void dropPod()
 
 static void podWait()
 {
-	Entity *e;
-	int x, y;
-	
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime--;
@@ -290,48 +288,89 @@ static void podWait()
 		
 		if (self->thinkTime <= 0)
 		{
-			e = addProjectile("common/green_blob", self->head, 0, 0, -6, 0);
+			self->flags &= ~FLASH;
 			
-			x = self->x + self->w / 2 - e->w / 2;
-			y = self->y;
-			
-			e->x = x;
-			e->y = y;
+			self->action = &podExplode;
 
-			e->flags |= FLY;
+			self->flags |= FLY;
 
-			e->reactToBlock = &bounceOffShield;
+			self->dirY = -4;
 
-			e = addProjectile("common/green_blob", self->head, x, y, -6, -6);
-
-			e->flags |= FLY;
-
-			e->reactToBlock = &bounceOffShield;
-
-			e = addProjectile("common/green_blob", self->head, x, y, 0, -6);
-
-			e->flags |= FLY;
-
-			e->reactToBlock = &bounceOffShield;
-
-			e = addProjectile("common/green_blob", self->head, x, y, 6, -6);
-
-			e->flags |= FLY;
-
-			e->reactToBlock = &bounceOffShield;
-
-			e = addProjectile("common/green_blob", self->head, x, y, 6, 0);
-
-			e->flags |= FLY;
-
-			e->reactToBlock = &bounceOffShield;
-
-			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
-
-			self->inUse = FALSE;
+			self->thinkTime = 5;
 		}
 	}
 	
+	checkToMap(self);
+}
+
+static void podExplode()
+{
+	int x, y;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addProjectile("common/green_blob", self->head, 0, 0, -6, 0);
+		
+		x = self->x + self->w / 2 - e->w / 2;
+		y = self->y;
+		
+		e->x = x;
+		e->y = y;
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, -6, -6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, 0, -6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, 6, -6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+		
+		e = addProjectile("common/green_blob", self->head, x, y, -6, 6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, 0, 6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, 6, 6);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		e = addProjectile("common/green_blob", self->head, x, y, 6, 0);
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &bounceOffShield;
+
+		playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
+
+		self->inUse = FALSE;
+	}
+
 	checkToMap(self);
 }
 

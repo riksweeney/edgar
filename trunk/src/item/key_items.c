@@ -86,6 +86,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "sliding_puzzle_display.h"
 #include "tread_mill.h"
 #include "power_meter.h"
+#include "shield_pillar.h"
 
 extern Entity *self, player;
 
@@ -152,7 +153,8 @@ static Constructor items[] = {
 {"item/sliding_puzzle", &addSlidingPuzzle},
 {"item/sliding_puzzle_display", &addSlidingPuzzleDisplay},
 {"item/tread_mill", &addTreadMill},
-{"item/power_meter", &addPowerMeter}
+{"item/power_meter", &addPowerMeter},
+{"item/shield_pillar", &addShieldPillar}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

@@ -73,6 +73,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dragon_fly.h"
 #include "auto_spike_ball.h"
 #include "gold_centurion.h"
+#include "scanner.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -174,7 +175,9 @@ static Constructor enemies[] = {
 {"enemy/ground_spear", &addGroundSpear},
 {"enemy/dragon_fly", &addDragonFly},
 {"enemy/auto_spike_ball", &addAutoSpikeBall},
-{"enemy/gold_centurion", &addGoldCenturion}
+{"enemy/gold_centurion", &addGoldCenturion},
+{"enemy/green_scanner", &addScanner},
+{"enemy/blue_scanner", &addScanner}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -215,7 +215,7 @@ static void createBody()
 
 		body[i]->draw = &drawLoopingAnimationToMap;
 		body[i]->touch = &entityTouch;
-		body[i]->die = &entityDie;
+		body[i]->die = &entityDieNoDrop;
 		body[i]->takeDamage = &bodyTakeDamage;
 
 		body[i]->type = ENEMY;

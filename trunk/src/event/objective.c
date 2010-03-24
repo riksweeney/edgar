@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "trigger.h"
 #include "global_trigger.h"
 #include "objective.h"
+#include "../entity.h"
 #include "../system/error.h"
 
 static Objective objective[MAX_OBJECTIVES];
@@ -96,8 +97,6 @@ void addObjective(char *objectiveName, char *completionTrigger)
 
 			setInfoBoxMessage(60, _("New Objective: %s"), _(objective[i].name));
 
-			printf("Added new Objective: \"%s\" with trigger \"%s\"\n", objective[i].name, objective[i].completionTrigger);
-
 			return;
 		}
 	}
@@ -115,13 +114,9 @@ void updateObjective(char *objectiveName)
 		{
 			if (strcmpignorecase(objective[i].name, objectiveName) == 0)
 			{
-				printf("Completing objective \"%s\"\n", objective[i].name);
-
 				freeMessageQueue();
 
 				setInfoBoxMessage(60, _("Objective Completed: %s"), _(objective[i].name));
-
-				printf("Firing triggers with name %s\n", objective[i].completionTrigger);
 
 				fireTrigger(objective[i].completionTrigger);
 
@@ -149,6 +144,36 @@ void modifyObjective(char *objectiveName, char *completionTrigger)
 			}
 		}
 	}
+}
+
+void getObjectiveFromScript(char *line)
+{
+	char command[15], objectiveName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
+	int i, success, failure, found;
+	Entity *e;
+
+	sscanf(line, "%s \"%[^\"]\" %s %d %d", command, objectiveName, entityName, &success, &failure);
+
+	e = getEntityByObjectiveName(entityName);
+
+	if (e == NULL)
+	{
+		showErrorAndExit("Could not find Entity %s to check Objective %s against", entityName, objectiveName);
+	}
+	
+	found = FALSE;
+
+	for (i=0;i<MAX_OBJECTIVES;i++)
+	{
+		if (objective[i].inUse == TRUE && strcmpignorecase(objective[i].name, objectiveName) == 0)
+		{
+			found = TRUE;
+			
+			break;
+		}
+	}
+	
+	e->health = found == TRUE ? success : failure;
 }
 
 void writeObjectivesToFile(FILE *fp)
