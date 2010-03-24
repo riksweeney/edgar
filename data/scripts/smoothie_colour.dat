@@ -7,7 +7,6 @@ TALK Edgar I have everything I need now
 TALK Edgar There's a cauldron in the Laboratory, I should head back there
 END
 IF BLENDER HEALTH 3
-TALK Edgar I just need to find another shield to enchant
-TALK Narrator You won't be able to get the shield in this version, so check back later!
+TALK Edgar I just need to find another shield to enchant...
 END
 SET BLENDER HEALTH 0

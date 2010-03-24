@@ -208,7 +208,7 @@ void dropRandomItem(int x, int y)
 	{
 		e = addTemporaryItem("item/lightning_charge", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
 
-		e->health = 1 + (prand() % 10);
+		e->health = 1 + (prand() % 3);
 	}
 }
 

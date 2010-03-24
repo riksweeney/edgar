@@ -1994,9 +1994,6 @@ msgstr ""
 msgid "Extend-O-Grab"
 msgstr ""
 
-msgid "Rope"
-msgstr ""
-
 msgid "Water Purifiers"
 msgstr ""
 
@@ -2022,4 +2019,76 @@ msgid "Edgar"
 msgstr ""
 
 msgid "Mine Cart"
+msgstr ""
+
+msgid "%s has regained power"
+msgstr ""
+
+msgid "Wow, a catapult!"
+msgstr ""
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr ""
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr ""
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr ""
+
+msgid "Great, a spare shield!"
+msgstr ""
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr ""
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr ""
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr ""
+
+msgid "That's not a good sign..."
+msgstr ""
+
+msgid "I just need to find another shield to enchant..."
+msgstr ""
+
+msgid "Hey, a lightning sword!"
+msgstr ""
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr ""
+
+msgid "With this I should be almost unstoppable"
+msgstr ""
+
+msgid "Almost"
+msgstr ""
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr ""
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr ""
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr ""
+
+msgid "This centurion has no power"
+msgstr ""
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr ""
+
+msgid "An old shield found in the Armoury"
+msgstr ""
+
+msgid "A Sword that can be charged with lightning"
+msgstr ""
+
+msgid "A Sword imbued with the power of lightning"
+msgstr ""
+
+msgid "Lightning Sword"
 msgstr ""
