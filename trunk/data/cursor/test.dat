@@ -1,6 +1,3 @@
 edgar/edgar
-item/mirror
-item/light_source
-item/upside_down_mirror
-item/light_target
-common/save_point
+enemy/whirlwind
+item/catapult
