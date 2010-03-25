@@ -80,7 +80,7 @@ CORE_OBJS += rock_container.o scale.o lava_geyzer.o large_spider.o crusher.o med
 CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power_generator.o mirror.o light_source.o light_beam.o
 CORE_OBJS += light_target.o balloon.o scanner.o fly_trap.o water_purifier.o extend_o_grab.o mouth_stalk.o ground_spear.o
 CORE_OBJS += dragon_fly.o sliding_puzzle.o sliding_puzzle_display.o auto_spike_ball.o tread_mill.o power_meter.o gold_centurion.o
-CORE_OBJS += shield_pillar.o
+CORE_OBJS += shield_pillar.o crossbow.o crossbow_bolt.o catapult.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
@@ -129,7 +129,9 @@ buildpak: $(PAK_PROG)
 
 # install
 install: all
-
+ifeq ($(DEV),1)
+	echo Cannot install if DEV is set to 1!
+else
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
 
 	mkdir -p $(BIN_DIR)
@@ -154,6 +156,7 @@ install: all
 		echo "cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo"; \
 		cp $$f $(LOCALE_DIR)$$lang/LC_MESSAGES/$(PROG).mo; \
 	done
+endif
 
 uninstall:
 	$(RM) $(BIN_DIR)$(PROG)

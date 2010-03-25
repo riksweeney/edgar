@@ -363,6 +363,11 @@ void doNothing()
 			self->flags |= ON_GROUND;
 		}
 	}
+	
+	else
+	{
+		self->frameSpeed = self->dirX < 0 ? -1 : 1;
+	}
 
 	checkToMap(self);
 
@@ -1287,7 +1292,7 @@ void interactWithEntity(int x, int y, int w, int h)
 	{
 		if (entity[i].inUse == TRUE && entity[i].activate != NULL)
 		{
-			if (collision(x, y, w, h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			if (collision(x, y, w, h, entity[i].x + entity[i].box.x, entity[i].y + entity[i].box.y, entity[i].box.w, entity[i].box.h) == 1)
 			{
 				e = self;
 

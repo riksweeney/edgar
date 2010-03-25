@@ -636,6 +636,10 @@ void setProperty(Entity *e, char *name, char *value)
 		if (found == FALSE)
 		{
 			printf("%s has unknown property value %s\n", e->name, name);
+			
+			#if DEV == 1
+				exit(0);
+			#endif
 		}
 	}
 }
