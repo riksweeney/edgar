@@ -2092,3 +2092,36 @@ msgstr ""
 
 msgid "Lightning Sword"
 msgstr ""
+
+msgid "INTRUDER!"
+msgstr ""
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr ""
+
+msgid "OK, let's see if this works..."
+msgstr ""
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr ""
+
+msgid "And Dad said it'd never come in handy!"
+msgstr ""
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr ""
+
+msgid "It's a giant crossbow"
+msgstr ""
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr ""
+
+msgid "I'll need some rope first though"
+msgstr ""
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr ""
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr ""
