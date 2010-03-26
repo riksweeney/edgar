@@ -36,6 +36,7 @@ static void bucketTouch(Entity *);
 static void bucketWait(void);
 static void init(void);
 static void activate(int);
+static void fire(void);
 
 Entity *addCatapult(int x, int y, char *name)
 {
@@ -113,6 +114,8 @@ static void init()
 
 static void bucketWait()
 {
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
 	self->x = self->head->x + self->offsetX;
 	self->y = self->head->y + self->offsetY;
 }
@@ -134,11 +137,31 @@ static void activate(int val)
 	
 	else
 	{
+		self->head->action = &fire;
+		
+		setEntityAnimation(self->head, WALK);
+		
+		self->head->frameSpeed = 1;
+		
 		setCustomAction(&player, &invulnerableNoFlash, 60, 0, 0);
 
 		setPlayerStunned(60);
 
 		player.dirX = 12;
 		player.dirY = -22;
+		
+		self->head->thinkTime = 120;
+	}
+}
+
+static void fire()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, STAND);
+		
+		self->action = &doNothing;
 	}
 }
