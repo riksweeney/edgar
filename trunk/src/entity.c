@@ -364,7 +364,7 @@ void doNothing()
 		}
 	}
 	
-	else
+	else if (self->dirX != 0)
 	{
 		self->frameSpeed = self->dirX < 0 ? -1 : 1;
 	}

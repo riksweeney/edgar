@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../collisions.h"
 #include "../geometry.h"
+#include "../hud.h"
 #include "../system/error.h"
 
 static void init(void);
@@ -95,6 +96,8 @@ static void lookForPlayer()
 		{
 			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
 			
+			setInfoBoxMessage(120, _("INTRUDER!"));
+			
 			self->thinkTime = 300;
 
 			activateEntitiesWithRequiredName(self->objectiveName, FALSE);
@@ -152,6 +155,8 @@ static void closedEyeMove()
 	{
 		playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
 		
+		setInfoBoxMessage(120, _("INTRUDER!"));
+		
 		self->thinkTime = 300;
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
@@ -175,7 +180,7 @@ static void followPlayer()
 
 	/* Position under the player */
 
-	if (abs(self->x - self->targetX) <= self->speed)
+	if (abs(self->x - self->targetX) <= self->speed * 3)
 	{
 		self->dirX = 0;
 	}
@@ -187,7 +192,7 @@ static void followPlayer()
 
 	checkToMap(self);
 
-	if (player.health <= 0 || collision(self->x, self->y, self->h, self->endY, player.x, player.y, player.w, player.h) == 0)
+	if (player.health <= 0 || collision(self->x, self->y, self->w, self->endY, player.x, player.y, player.w, player.h) == 0)
 	{
 		self->thinkTime--;
 
