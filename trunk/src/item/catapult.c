@@ -116,6 +116,16 @@ static void bucketWait()
 {
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
 	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
 	self->x = self->head->x + self->offsetX;
 	self->y = self->head->y + self->offsetY;
 }

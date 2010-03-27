@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "io_menu.h"
 #include "yes_no_menu.h"
 #include "about_menu.h"
+#include "stats_menu.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../game.h"
@@ -46,6 +47,7 @@ static void doTutorial(void);
 static void doQuit(void);
 static void showMainMenu(void);
 static void showAboutMenu(void);
+static void showStatsMenu(void);
 
 void drawMainMenu()
 {
@@ -231,6 +233,11 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
+				
+				else if (strcmpignorecase(menuID, "MENU_STATS") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE);
+				}
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
 				{
@@ -320,6 +327,13 @@ static void showAboutMenu()
 	game.menu = initAboutMenu();
 
 	game.drawMenu = &drawAboutMenu;
+}
+
+static void showStatsMenu()
+{
+	game.menu = initStatsMenu();
+
+	game.drawMenu = &drawStatsMenu;
 }
 
 static void showLoadDialog()

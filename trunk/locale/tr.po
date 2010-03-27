@@ -1,0 +1,2164 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Hızlı ve sola doğru slimes sıyrılmaya!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Değil bu sürümünde çalışma!"
+
+msgid "Press Action to interact"
+msgstr "Eylem basın etkileşimine"
+
+msgid "%s is required"
+msgstr "%s gereklidir"
+
+msgid "Bomb"
+msgstr "Bomba"
+
+msgid "Small Rock"
+msgstr "Küçük Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Eylem basın Mor Gem almak"
+
+msgid "Chicken"
+msgstr "Tavuk"
+
+msgid "Tesla Pack"
+msgstr "Tesla Paketi"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Eylem basın Tesla Paketi almak için"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Eylem basın Tesla Paketi yerine"
+
+msgid "Obtained %s"
+msgstr "Elde edilen %s"
+
+msgid "Complete"
+msgstr "Tamamlamak"
+
+msgid "%d more to go..."
+msgstr "%d daha gitmek ..."
+
+msgid "Used %s"
+msgstr "%s kullanılmış"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Öğeleri donatmak Can't transmogrified iken"
+
+msgid "Equipped %s"
+msgstr "%s Equipped"
+
+msgid "Maximum health has increased!"
+msgstr "Maksimum sağlık arttı!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow şimdi %s yangın olacak"
+
+msgid "A bow is required to use this item"
+msgstr "Bir yay bu öğeyi kullanmak için gereklidir"
+
+msgid "Cannot transmogrify here..."
+msgstr "Burada şeklini Can't ..."
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Start a new game?"
+msgstr "Yeni bir oyun başlatın?"
+
+msgid "Play the tutorial?"
+msgstr "Çal tutorial?"
+
+msgid "Exit the game?"
+msgstr "Exit oyun?"
+
+msgid "Back"
+msgstr "Arka"
+
+msgid "Game Loaded"
+msgstr "Oyun Yüklendi"
+
+msgid "Game Saved"
+msgstr "Oyun Kayıtlı"
+
+msgid "OK"
+msgstr "Tamam"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Herhangi bir ilerleme kaydedilmemiş kaybolur"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Basın Action %s konuşmak"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Yeni Amaç: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Amaç Tamamlanan: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Sağdaki duvar zayıf görünüyor ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Bu silah herhangi bir etkisi olması değil ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Eylem basın Tesla Paketi eklemek"
+
+msgid "The Legend of Edgar"
+msgstr "Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s için bu anahtarı etkinleştirmek tabi"
+
+msgid "Press Action to use this switch"
+msgstr "Eylem basın bu anahtarı kullanmak için"
+
+msgid "Press Action to save your game"
+msgstr "Eylem basın oyununuzu kaydetmek için"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s Plaka Bu basınç kullanmak için gereklidir"
+
+msgid "%s is needed to open this door"
+msgstr "%s bu kapıyı açmak için gerekli"
+
+msgid "This door is locked"
+msgstr "Bu kapı kilitli"
+
+msgid "This teleporter is not active"
+msgstr "Bu teleporter etkin değil"
+
+msgid "Press Action to go to the %s"
+msgstr "Basın Eylem %s gitmek"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up veya Aşağı bu asansör kullanmak"
+
+msgid "This lift is not active"
+msgstr "Bu asansör etkin değil"
+
+msgid "Cannot carry any more %s"
+msgstr "Herhangi bir %s daha fazla taşımak Can't"
+
+msgid "Picked up %s x %d"
+msgstr "%s x %d aldım"
+
+msgid "Picked up %s"
+msgstr "%s aldım"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s bu öğeyi taşımak için gereklidir"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Anahtar Odasi"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Kömür Çanta Depolama Switch Anahtar"
+
+msgid "Large Room Key"
+msgstr "Büyük Oda Anahtar"
+
+msgid "Coal Bag"
+msgstr "Kömür Çanta"
+
+msgid "Forest Cell Key"
+msgstr "Orman Hücre Anahtar"
+
+msgid "Wood Axe"
+msgstr "Ahşap Axe"
+
+msgid "Health Potion"
+msgstr "Sağlık Potion"
+
+msgid "Outflow Key"
+msgstr "Sızma Anahtar"
+
+msgid "Flow Control Key"
+msgstr "Akış Kontrol Tuşu"
+
+msgid "Waste Processing Key"
+msgstr "Atık İşleme Anahtar"
+
+msgid "Access Key 1"
+msgstr "Erişim Anahtarı 1"
+
+msgid "Access Key 2"
+msgstr "Erişim Anahtarı 2"
+
+msgid "Access Key 3"
+msgstr "Erişim Anahtarı 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Tuzak Kapı Geçiş tuşu"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Bu asansör güç vardır. Ben gelinceye kadar güç geri kullanmak mümkün olmayacaktır"
+
+msgid "Keep practising!"
+msgstr "Pratik tutun!"
+
+msgid "Hi"
+msgstr "Merhaba"
+
+msgid "Hello Edgar"
+msgstr "Hello Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Ben senin kalkan ödünç alabilir miyim?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Çek mücadele becerilerini uygulamaya?"
+
+msgid "Something like that"
+msgstr "Onun gibi bir şey"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Eğer bana sonra kalkan olabilir bir çırak çalıştırmak"
+
+msgid "What do I have to do?"
+msgstr "Ne yapmam gerekiyor?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Mayın git ve beni biraz kömür toplamak"
+
+msgid "But we have plenty of coal!"
+msgstr "Ama biz bol kömür var!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Evet, ama bu, herhangi bir eski kömür değil, kömür özel, o sıcak yanık ve daha uzun sürer"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Ben sadece, bu nedenle çok uzun sen almamalıdır malzeme 10 adet gerekiyor"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Marka bir çanta içinde, çok uzun sağlık için kötü olur için dokunmaktan koydu emin"
+
+msgid "Do you have a bag?"
+msgstr "Bir çanta var mı?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Hayır, muhtemelen bir mayın bulabilirsiniz ama"
+
+msgid "OK, I'll get the coal"
+msgstr "Tamam, kömür alırsınız"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Burada, bu kazma al. Benimkini için kömür kullanabilirsiniz kesmek ve karşılaşabileceğiniz herhangi bir zayıf duvarların üzerinden"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Ayrıca mayın girmek için bu anahtar gerekir"
+
+msgid "Thanks!"
+msgstr "Teşekkürler!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Edgar, bu kömür mükemmel Thank you! Umut yarasalar sizi korkutmak değildi."
+
+msgid "The bats were the least of my worries..."
+msgstr "Yarasalar benim endişeleri en az gitmiş ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "De ki, ben bir şey benim birkaç yıl önce olanları duydum"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, evet, var bir  olay dediğimiz gibiydi , ama benim bir kısmının önce uzun bir süre kadar imzalandı"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "İşte, benim kalkan ve eğlenin!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Sadece uzak durun Yasak Swamp dan"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Will do, ben sizin kazma bir süre için tutabilir?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Tabii, sadece tek parça halinde geri getirmek"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Sen kömür bulmak için henüz başardınız?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Sen Eylem düğmesi basılı iken onlara karşı iterek bazı öğeleri etrafında indirebiliriz."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Kadar Eylem düğmesini serbest bırakın Daha sonra etrafında indirebiliriz"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Bu kaya çok Axe Pick benim için güçlü görünüyor. Ben geçmek için başka bir şey kullanmak gerekir ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, ne oldu?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Bu gibi görünüyor iyi bir fikir olsa değildi"
+
+msgid "There must be way out of here..."
+msgstr "Burada bir yolu olmalı ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Bu kömür olmalı onun için mayın beni istiyor"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Ben kalkan bu Fireballs Bana koruyacak sanmıyorum. Ben güçlü bir bulmanız gerekecektir ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Bu sürümde bu bit yapmak, daha sonra yeniden kontrol edemezsiniz!"
+
+msgid "Strange creature..."
+msgstr "Garip yaratık ..."
+
+msgid "Wait, what was that?"
+msgstr "Beklemek, ne o?"
+
+msgid "You again?!"
+msgstr "Yeniden?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Şey burada ne gerekiyordu, ama bu sürüm, böylece daha sonra tekrar kontrol değil!"
+
+msgid "Have fun!"
+msgstr "İyi eğlenceler!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Benim tavuk resucing için teşekkürler, bana henüz orman dan 2 günlükleri var?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Thanks Edgar! Benim tavuk sırt ve ince olan bu günlükler bana yapacak"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Bu kılıcı alın iyi hizmet edebilir!"
+
+msgid "Thank you!"
+msgstr "Teşekkürler!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Günlükleri sayesinde, tavuk ile herhangi bir şans oldu?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Eğer orman ve kurtarma dan doğranmış günlükleri Beni 2 olsun Sana bir kılıç vereceğim 3 benim tavuk en az"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, ne sizin için bugün ne yapabilirim?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Sana ödünç bir kılıç var mı?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Ben bir kılıç var ve eğer benim için öncelikle bir şeyler yapmak onu olabilir"
+
+msgid "OK... what do I have to do?"
+msgstr "Tamam ... ne yapmam gerekiyor?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Bazı tavuk kendi kaleminden kaçtığını ve ben çok eğer bana onları alabilirsiniz minnettar olacaktır"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Ben onların kalem yanında bazı tuzakları kurmak varsa, bu tuzakları tavuk yemi kullanarak onları yem olabilir. Ben hepsini gerekmez ama en azından 3 çok yararlı olacaktır. Ben geri kalan kendimi alabilirsiniz."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Pek değil. Sen de beni ormandan bazı ahşap alabilir miyim? 2 günlükleri olmalıdır yeterli"
+
+msgid "Do you have an axe?"
+msgstr "Bir balta var mı?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Ben ormanda bir yerlerde benim balta bıraktı. Hala orada olmalı"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Orman tehlikeli değil mi?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Gerçekten de eğer bir şey yoluna alır, sadece silah ile vurmak"
+
+msgid "Such as an axe?"
+msgstr "Balta gibi?"
+
+msgid "Yes, that would do the trick"
+msgstr "Evet, hile yapmak istiyorsunuz"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Ama cidden, hiçbir şey orada gerçekten size zarar bu. Bu sorun uzun zaman önce ile dealt ..."
+
+msgid "Good luck!"
+msgstr "Iyi şanslar!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Oh, teşekkür Edgar, ben sadece 3 gerekli ek yardım için teşekkürler!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "İşte, Maggie bana sağlık iksiri yapılmadı ama, neden sen var buna ihtiyacı yoktur?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, sen, sağol hepsini yakaladı!"
+
+msgid "Here, I have these for you"
+msgstr "İşte, sizin için şu var"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie bana sağlık iksiri yapılmadı ancak olabilir"
+
+msgid "And this is something very special"
+msgstr "Ve bu çok özel bir şey olduğunu"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Olabilir, bu güçlü bir savaşçı olma yolunuzda size yardımcı"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Bana çok zaman kaydedilir. Maggie bana başka bir yana ama bu kadar yararlı olması yapılmış, bunu sağlayabilirsiniz."
+
+msgid "Hi Maggie"
+msgstr "Hi Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Thanks Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan bu mayını bir bölümünü bir sonra yukarı imzalandı dedi  olay "
+
+msgid "There must be something around here..."
+msgstr "Burada yaklaşık bir şey olmalı ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Allah'ın cezası, asma köprü doldu. Orada başka bir giriş olmalı ..."
+
+msgid "Wait, what's that?"
+msgstr "Bekle, ne o?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Belki olabilir tünel my way in .."
+
+msgid "These machines aren't working."
+msgstr "Bu makineler çalışmıyor."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Bu delik fit gereken bir mücevher gibi görünüyor, belki bazı yedek bulabilirsiniz."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Gibi sıkıca orada sıkışmış's gibi görünüyor. Herhalde kazma ile gevşetin edebilirsin ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Yasak Swamp için bir sal inşa gerekir almak için."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Eğer yeterli orman ağaçları kesmek ben sal inşa edebilirsiniz"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Ben bir sal inşa etmek için 6 Kıyılmış Kayıtlar gerek"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Ben bir kılıç ve kalkan olmadan bataklığa için gitmiyorum"
+
+msgid "OK, here goes!"
+msgstr "Tamam, buraya!"
+
+msgid "Aw, not again!"
+msgstr "Aw, yine!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Bu daha iyi bunu gereken son kez olmak vardı ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Çok kolay oldu! Ve ben her zaman daha sonra tekrar elde edebilirsiniz!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Şimdi çarem yok Guess."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hang Baba tarihinde, geliyorum ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Şimdi birşeyler oldu gerekiyordu, ama bu sürüm için değil. Daha sonra tekrar kontrol edin!"
+
+msgid "There's a note here"
+msgstr "Bir notu burada"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Burada ne bir sonsuzluk gibi görünmek için aşağı tuzağa been"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Ben asansörler çalışmaya 3 Access Keys gerek burası çıkmak için"
+
+msgid "So far I have only found 1"
+msgstr "Şimdiye kadar sadece 1 bulduk"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Özdek daha yapmak için, sadece bir özenle yerleştirilmiş okla bazı anahtarları ulaşabilirsiniz"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Ama yedek yaygın değildir ve ben doldu"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Eğer burada yakında bir çıkış yolu bulamazsanız, ben açlıktan korkuyorum"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Eğer burada I aynı kaderi zarar edeceğiz dışarı alamadım ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, bu nedir?"
+
+msgid "There's a note here too"
+msgstr "Bir notu burada da's"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Iksir perfect! Quaffing açın bir bir yaratık bir kez az miktarda insan"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Şimdiye kadar sadece kendimi şeklini değiştirmek için bir yaratığa ama biraz daha zaman şey mümkün olmalıdır"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Orada küçük bir bit's, içiniz güvenli olmalıdır sol"
+
+msgid "OK, here goes nothing..."
+msgstr "Tamam, burada hiçbir şey gider ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Bu çok korkunç!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan, belki bu yararlı olacağını bana Slimes su olsa da yüzebilirsiniz söyledim ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Bir Slime dönüştürülmüştür, sen normal hareket edebilirsiniz. Ayrıca suda yüzmek ve aşağı hareket etmek için ve kullanım"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Yukarıya itmek ya da yüzeye yakın konum sen sudan dışarı sıçrama yapacak atlamak"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Saatli ekranın alt kısmında bir göz atın. 0 ulaştığı zaman otomatik olarak tekrar insan haline gelecek"
+
+msgid "This place doesn't look so bad..."
+msgstr "Fena görünmüyor Burası ..."
+
+msgid "What was that?"
+msgstr "Neydi bu?"
+
+msgid "Uh Oh..."
+msgstr "Uh oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, orada dışarı çıkmak için sevindim"
+
+msgid "Now to get through this swamp"
+msgstr "Şimdi bu bataklık üzerinden almak için"
+
+msgid "Hey, what's this?"
+msgstr "Hey, bu nedir?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Güzel görünüyor, I'll try it on stepping zararsız"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! That was cool! Bu mekanik bir teleporter olmalıdır."
+
+msgid "I wonder if it works both ways..."
+msgstr "Eğer her iki yönde çalışıyor acaba ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Sadece bu benim yürüyen bir tasarrufu olacak, aynı zamanda eğlenceli yük olmasıdır!"
+
+msgid "Now try out your shield"
+msgstr "Artık kalkan denemek"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blok granül bitki tarafından tükürdü ve sonraki çıkıntıya kadar atlama"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Oyunda bazı öğeler itilerek ve çekti"
+
+msgid "To push an item, simply walk into it"
+msgstr ", Sade bir şekilde içine yürüyerek bir öğe itmek"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Iken Eylem basılı tutarak yürümek içine bir öğe çekmek için"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Kadar Eylem gidelim Daha sonra etrafında öğeyi indirebiliriz"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Diğer taraf üzerinde kutusunu çekin ve çıkıntıya ulaşmak için kullanabilirsiniz"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Bu yazının son bölümünü ve engellemek için size öğretecek ve düşman saldırı"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Çünkü kazma ve daha fazla zarar yok daha yelpazesine sahiptir İlk olarak, kılıç donatmak gerekir"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Basın z, sizin envanter görüntülemek için kılıç ve basın vurgulamak Attack () veya Kullanım Öğe ctrl sol (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Tuşuna yeniden envanter kapatmak için z"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Bazen, öldürülen düşman, bu nedenle bir kaç saniye sonra kaybolur olacak sağlık düşecek çabucak pick up!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Eğer bir yarasa size yakın, blok tutun elde ettiğini ve zararsız kapalı çıkma olur mu"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Şimdi tüm bölgede yarasa öldürmek!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Oyunda kapının iki türü vardır. Manuel ve Otomatik kapı kapı."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manuel kapı anahtarlarını açın gerekiyorsa, Otomatik kapılar anahtarları gerektirir."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Sizin, sadece içine yürümek için anahtar kilitli bir kapıyı açmak için. Gerek yok anahtar envanter seçili olmasıdır."
+
+msgid "Open the door and continue to the right"
+msgstr "Kapıyı açın ve sağa doğru devam"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Tebrikler! Şimdi size ana oyun denemelisiniz iskambil temellerini biliyorsunuz"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Bu eğitim, Escape tuşuna basın ve menüden Öğretici seçeneğini tekrar istiyorum"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Kaçış ana oyun oynamak için tuşuna basın ve menüden New Game seçeneğini"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Space zaman sonraki iletişim kutusuna gidin, okumaya bitirdikten"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Ayrıca Attack basarak sonraki iletişim kutusuna taşıyabilirsiniz (), Blok (alt sol), Jump (boşluk), Eylem ctrl sol (c) veya Kullanım Item (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Bu Legend Edgar için kılavuz DEĞİLDİR. Bu eğitimde nasıl oyunu açıklayacaktır."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Bu eğitimde, Escape tuşuna basın ve Aşağı ok tuşları ve bir seçeneği kullanın çıkmak için. Return tuşuna basın seçin."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Ve sağ, sol ok tuşlarını kullanarak taşımak için."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr ", Basın alanı sıçrama yapmak için. Sen havada zaman atlama taşıyabilirsiniz."
+
+msgid "To interact with an item, press c"
+msgstr "Bir öğe ile, c tuşuna basın etkileşim için"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Eylem Point ve basın c üzerinde Walk"
+
+msgid "To collect an item from your"
+msgstr "Bir öğeyi toplamak için,"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr ", Sade bir şekilde içine yürüyerek bir öğeyi almak için. Herhangi collectable öğeler envanterine eklenecektir."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Sen z basarak envanter içeriğini görüntüleyebilirsiniz"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Iken envanterindeki, öğeleri görüntülemek için ok tuşlarını kullanın."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Hemen Attack basarak bir öğeyi kullanabilirsiniz () veya Kullanım Öğe ctrl sol (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Blok basarak kullanıma yapabilirsiniz hazır bir öğe () alt sol veya Eylem (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Anahtar üzerinde Walk onu almak için"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Sen Escape basarak ve menüsündeki seçenekler seçerek tüm oyununda kontrolleri değiştirebilirsiniz"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Seçeneğini yapılandırın Kontroller ok tuşları ve Return tuşuna basın kullanarak"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Ok tuşlarını kullanarak değiştirmek ve Return tuşuna istediğiniz kontrolü seçin."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Sonra, anahtarı yerine kullanmak istediğiniz basın."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Ne olursa olsun, hangi tuşları seçerseniz, her zaman menüleri ok tuşları ve İade kullanarak gezinebilirsiniz"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Bu eğitim bu, varsayılan tuşları kabul unutmayın"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Ne zaman tuşları yapılandırırken, sonraki Eylem sağa Turistik gitmek tamamladığınızda"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Kazma bir sen oyunda karşılaşacağımız pek çok silah biridir"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Hem bir silah ve bir araç olarak kullanabilirsiniz"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Kazma Pick up ve sonraki Eylem Turistik devam"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Tebrikler, gizli bulunamadı!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Orada ana oyunu bu kadar onlar için dışarı bir göz tutmak çok sırları vardır"
+
+msgid "Here's a hint to get you started"
+msgstr "Burada almak için bir ipucu başladı's"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Her ne kadar sadece 3 onun tavuk, neden ona hoş olmaz yakalamak ve daha fazla tutmak gerekir? Orada 10 map hepsini içinde gezinen vardır"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Kalkan en düşman saldırılarına karşı sizi koruyacaktır"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Bazı düşman saldırıları bloke edilemez"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Düşen kayaların gibi çevresel tehlikeler, bloke edilemez"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Bir saldırı tuşunu basılı tutun blok blok için () alt bıraktı."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Başarıyla bunu engellemek için saldırı dönük olmalıdır"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Sizin iken engelleme hareket unutmayın, ancak başka bir şekilde karşı koyabilirler. Ayrıca hava durduramazsınız"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Kalkan Pick up ve sağa devam"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Bu zayıf bir duvar, bu kazma kullanarak aşağı çökerttiğini olabilir"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Kazma, basın Attack kullanmak için () ctrl sol"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "hepsi bu kadar değil zayıf duvarları kazma kullanarak imha edilebilir"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Yok duvarı kazma ve devam kullanarak"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Burada bir şey olması gerekiyordu ama bu sürümde, daha sonra yeniden kontrol değil!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Kömür Toplama 10 adet"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Toplamak 2 Kıyılmış Kayıtlar"
+
+msgid "Rescue 3 Chickens"
+msgstr "Kurtarma 3 Chickens"
+
+msgid "Find 4 Gems"
+msgstr "4 Taşlar bul"
+
+msgid "Repair Generators"
+msgstr "Onarım Jeneratörler"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Toplamak 6 Kıyılmış Kayıtlar"
+
+msgid "Collect 3 Access Keys"
+msgstr "Toplamak 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Bu boş bir hedefidir"
+
+msgid "Kill all Bats!"
+msgstr "Tüm Bats öldürün!"
+
+msgid "Coal"
+msgstr "Kömür"
+
+msgid "Chopped Log"
+msgstr "Kıyılmış değiştir"
+
+msgid "Green Gem"
+msgstr "Yeşil Gem"
+
+msgid "Red Gem"
+msgstr "Kırmızı Gem"
+
+msgid "Blue Gem"
+msgstr "Mavi Gem"
+
+msgid "Purple Gem"
+msgstr "Mor Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Anahtar"
+
+msgid "New Game"
+msgstr "Yeni Oyun"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Yük Oyunu"
+
+msgid "Options"
+msgstr "Seçenekleri"
+
+msgid "About"
+msgstr "Ile ilgili"
+
+msgid "Quit"
+msgstr "Quit"
+
+msgid "Configure Controls"
+msgstr "Yapılandırmak Kontrolleri"
+
+msgid "Configure Sound"
+msgstr "Yapılandırmak Ses"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Show İpuçları"
+
+msgid "A potion which will transform you..."
+msgstr "Hangi bir iksir dönüşümü olacak ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Yüksek absorbant minyatür buz yaratır"
+
+msgid "A potion which will restore all of your health"
+msgstr "Tüm sağlık bir iksir geri yüklenir"
+
+msgid "A powerful bomb"
+msgstr "Güçlü bir bomba"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Bir iksir belirli düşmanlarına görünmez olan vermektedir"
+
+msgid "The eyeball from a Gazer"
+msgstr "Bir Gazer gelen göz küresi"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Bir Tesla Paketi. Hiçbir ücret vardır."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "Bir Summoner's Staff. O insanlar tarafından kullanılamaz."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Bir Tesla Paketi. Tamamen tahsil edilir."
+
+msgid "An empty potion bottle"
+msgstr "Boş bir iksir şişesi"
+
+msgid "A bag of chicken feed"
+msgstr "Tavuk bir torba yem"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Bir torba kömür taşımak için uygun"
+
+msgid "Basic Sword"
+msgstr "Temel Kılıç"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Bir kılıç size Jacob tarafından verilen"
+
+msgid "A bow"
+msgstr "Bir yay"
+
+msgid "Small Wooden Shield"
+msgstr "Küçük Ahşap Kalkanı"
+
+msgid "A small shield that provides basic protection"
+msgstr "Temel koruma sağlayan bir küçük kalkan"
+
+msgid "Normal Arrow"
+msgstr "Normal Ok"
+
+msgid "Normal Arrows"
+msgstr "Normal Ok"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Balta ağaç kesme için uygun"
+
+msgid "Pickaxe"
+msgstr "Kazma"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Bir kazma size Borgan tarafından ödünç"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Anahtar"
+
+msgid "Potion Room Key"
+msgstr "Iksir Oda Anahtar"
+
+msgid "Surge Passage Key"
+msgstr "Dalgalanma Passage Anahtar"
+
+msgid "Demolition Storage Key"
+msgstr "Yıkım Depolama Anahtar"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Her neyse o şey o üreteci güç drenaj ve bana karşı kullanıyordu."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Bu nedenle bu asansör çalışma olmadığını açıklamak olabilir. Diğer drainers yenmesi güç geri gerekir."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Yenilgi tüm Enerji Drainers"
+
+msgid "No Objectives"
+msgstr "No Amacı"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Eylem basın bulmaca blokları sıfırlamak"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Bir blender gibi görünüyor. Bir şey liquidise bu kullanabilirsiniz"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Ben iksir yapmak için Kırmızı Çamur Tentacle ve 3 Gazer Eyeballs gerek"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Ben hala iksir koymak için Empty Bottle gerek"
+
+msgid "So this is the Fortress."
+msgstr "Yani bu kalen."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Bu kapılar bir çok benziyor diğer alanlara yol göstermek, bir başka hiçbir yerde gidip önce etrafına bakmak uygun olmalıdır ..."
+
+msgid "Try hitting the skull..."
+msgstr "Kafatası isabet deneyin ..."
+
+msgid "This machine is not active"
+msgstr "Bu makine etkin değil"
+
+msgid "Repeat the sequence"
+msgstr "Repeat dizisi"
+
+msgid "Correct Sequence"
+msgstr "Doğru Sequence"
+
+msgid "Incorrect Sequence"
+msgstr "Yanlış Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "Legend Edgar aşağıdaki hatayla karşılaştı"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Lütfen Paralel Gerçekler bu hata raporu"
+
+msgid "The game will now exit"
+msgstr "Oyun şimdi sonlandırılacak"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Bir blender gibi görünüyor. Bir şey liqudise bu kullanabilirsiniz"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Bu Borgan onun için benim için beni istiyor kömür olmalıdır"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Bu nedenle bu asansör çalışma olmadığını açıklamak olabilir. Diğer drainers yenmesi burada güç geri gerekir."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Ben 3 Gazer Eyes, 1 Kırmızı Çamur Tentacle ve ekstra bir kalkan bulmak için bir kalkan Fire of Resistance oluşturmanız gerekir"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Bir kez I kalkan oluşturmak için bir yer bulmanız gerekecektir bütün bu öğeler buldum"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Orada büyüleyici silahlar hakkında bir kitap burada"
+
+msgid "Maybe I can create a shield..."
+msgstr "Belki bir kalkan oluşturabilirsiniz ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Kılıç ... Zırh ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Aptal kitap. It amacıyla ve hiçbir kütüğü's değil"
+
+msgid "Here we go: Shields"
+msgstr "İşte başlıyoruz: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Kalkan Fire of Resistance"
+
+msgid "Ingredients"
+msgstr "Malzemeler"
+
+msgid "One must gather the following"
+msgstr "Bir aşağıdaki toplamak gerekir"
+
+msgid "The root of a Mandrake"
+msgstr "Bir Mandrake ve kök"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Bir Darsh ve yağ (3 ay boyunca ayakta durmak sol)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor kemikleri"
+
+msgid "3 eyes of the Gazer"
+msgstr "Gazer 3 gözde"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Bir kadın Kırmızı Çamur gelen taze kesilmiş dokunaç"
+
+msgid "The shield to apply the enchantment"
+msgstr "Kalkan büyü uygulamak için"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Pürüzsüz bir sıvı haline Blend Gazer gözleri ve Çamur dokunaç"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Kazanı ve karışımlı Gazer gözleri ve Çamur tentacle karışımı ile birlikte içine kök, yağ ve kemik ekle"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Zaman karışım parlak mavi, kalkan eklemek dönüyor"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Ben laboratuarda bu öğelerin bu yüzden bu dert etmenize gerek yok en gördüm"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Ve Gazers etrafında bu kadar bir sorun değil bodrum katında askıda"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Bulmalıyız ne bir Kırmızı Çamur, ama nerede bulmak için hiçbir fikrim yok"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Ben denemeye durumunda bunu başka bir bulmanız gerekecektir backfires benim şimdiki kalkan kullanamazsınız"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Orada iksirleri odası ya da laboratuar nerede yağ ve kemik yüzden bu endişe gerekmez kökleri, bulabilirsiniz olabilir"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Size envanter kutusunda vurgulanmış kullanmak istediğiniz talimat kartı olmalıdır"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, bir laboratuvar!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Ben Maggie büyü ve iksirler yapmak izlerken sevgi, belki burada bazı kendi yapabilirsiniz!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, birçok kitap bu yüzden bir yerde hiç görmedim!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Orada bilgiler hakkında her konu burada, bu yararlı olabilir, olmalı ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, hava, benim Maggie evinin hatırlatıyor zaman o büyü alıyordu ücret hissediyor. Ben dikkatli olmalıdır."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, size zarar konum! Bana yaralarını sarmak Let"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Diğer canavarlar orada ne olduğunu merak ediyorum. Ben rastgele bir sayfa alırım ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers cycloptic yaratıkları çeşitli yerlerde bulunan uçuyor"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Onların tek göz genellikle kapalı ve hareket için sonar itimat"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Onlar avcı dikkat ve benzeri av koku güçlü duygusu kullanmak"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers saldırı (ve) bu da bakarak bir şey kamufle edecek onların göz açarak kendilerini savunmak"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Bu saldırının sadece Ancak eğer kurban Gazer baktığından etkili"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Bir Gazer's gözün sihirli özellikleri içerir ve yazım ortak bir madde hazırlıktır"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Gri"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurionlar sihirli yaratıklar, genellikle sentries veya gardiyan olarak sevk oluşturulur"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Though taşıma, onların büyük boyutu yavaş basitçe herhangi bir savunma ile yürüyüş onları sağlar"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Silah yerine, pek çok onlar tehdit zemin ve şaşırtmak sallamak için kullanabileceğiniz büyük kazık sürücüler var"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Süre Gri Centurionlar Kırmızı Centurionlar bilinen dış perimeters, korumak ve mevcut büyük önem alanları korumak için kullanılmaktadır olacak"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Bölücülerin zararsız canavarlar sürece saldırıya vardır."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Onlar iki bölünmüş olacak ve yırtıcı saldırı sürdürülmesi çok fazla hasar üzerine"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Eğer biri bir kez daha bölünmüş ve saldırı devam sürerken bu çok fazla zarar"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Son olarak, bir final split tamamen zararsızdır ve bu durumda çok küçük sürümlerini üretecek sadece ayak olabilir"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Eğer tüm parçaları hala hayatta, bir ayırıcı bir süre sonra kendini reformu ve onun yaralarını sarmak"
+
+msgid "Grub, Red"
+msgstr "Grub, Kırmızı"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Kırmızı Grubları daha da yeşil göre daha agresif ve bunlar bir tehdit olarak görmek bir şey ecek saldırmak"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Bir yaban arısı içine bir koza ve morph oluşturacak olgunluğa ulaşan üzerine"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Bazı Ancak bir kraliçe arı içine morph olacaktır. Bu vezir bir mukus üretebilir madde yerde avını tutma yeteneği gibi"
+
+msgid "Tortoise, Master"
+msgstr "Kaplumbağa, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Kaplumbağaları vardır korkutucu hayvanlar. Onlar yeteneği başlarını değiştirmek için sahip Found uzak topraklarda"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Ateş nefes almak, buz yaratmak ve kendilerini heyecanlandırmak kuzenlerinden tüm yeteneklerini birleştirme"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Ve onlar da elemanları eşleşen saldırılara karşı vurdumduymaz tabii, enerji emici kendilerini heal"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Eğer iyileşme çok fazla enerji almak Ama ayrıca, bu gelişmeye ve cinleri tepesine çıkmak"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Bu durumda herhangi bir savunma ile şut ve Dark Matter hangi dokunana şey yok üretmek"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Ancak, azgın Master kaplumbaða kabuk çok sihirli ve bir vazgeçilmez zaman güçlü büyü ve öğeleri oluşturma"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Ulak, Karanlık"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore başka bir boyuttan bir yaratık. Güçlü karanlık büyü kullanarak topladı olabilir"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Bu canavar çağırmak için en yaygın nedeni bir muhafız gibi hareket etmek"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Orada çünkü sadece kendi boyuta dönecektir kritik yaralanmalar sürdürülmesi üzerine Grimlore öldürmek için bilinen bir yol"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Ama bile anıtsal bir görevdir yaralanmasına yol açtı. Herkes bu yaratık karşılaşmak mümkün olduğunca çabuk kurtulmak için tavsiye edilir"
+
+msgid "Or they will die very quickly"
+msgstr "Yoksa çok çabuk ölecek"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, işte canavar bir özet olduğunu"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 miktarlar! Ulaşım dünyanın pek çok canavarlar olabilir?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Görünüşe onların alfabetik sıraya göre konum olsa"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slime, Yeşil ... Slime, Mor ... Çamur, Yeşil ..."
+
+msgid "Sludge, Red"
+msgstr "Çamur, Kırmızı"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Yeşil kuzeni aksine, Kırmızı Çamur derin ve nadiren eğer herhangi bir zamanda yeraltı, kalır yüzeyler"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Tercih edilen habitat ve mineral zengin alanları ve kuru bir sonucu olarak mayın insanlar tarafından terk edilmiş alanlarda gizlenen saptanmıştır"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Çok insan ve ihtiyatlı olan görme, genellikle hangi buharlaşması için zaman alan bir asit kadar kusma ecek saldırmak"
+
+msgid "Smacker, Lesser..."
+msgstr "Şaplak, Lesser ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Büyük, hepsi bunu söylüyor. Hatta nasıl arasındaki farkı anlatmak için bilmiyorum bir erkek ve kadın. Ben sadece bir şans almak gerekir ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Yanında, ne o ne kötü olabilir mi?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Edgar ve sağ, sol ok tuşlarını kullanarak taşımak için."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Edgar atlama, basın yer açmak için. Sen havada zaman atlama taşıyabilirsiniz."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Jacob rağmen sadece 3 onun tavuk, neden ona hoş olmaz yakalamak ve daha fazla tutmak gerekir? Orada 10 map hepsini içinde gezinen vardır"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Hepsi bu kadar değil zayıf duvarları kazma kullanarak yok unutmayın"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Zaten, o orada değil ... kontrol ettim"
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "İnsanların içine çok önce düşme, belki Dad's orada duydum ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! ?!!!!! DOWN THERE YOU ARE"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Hiçbir şey. Ben seyir devam gerekecek sanırım"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Push Up veya Aşağı artırmak veya azaltmak platformu"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Orada büyüleyici donanımları hakkında bir kitap burada"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Bu büyüleyici donanımları hakkında bir kitap"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Bu ama akılda durumda yapmam muhafaza edeceğiz okumak için herhangi bir nedeniniz yoksa"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Diğer canavarlar orada ne olduğunu merak ediyorum ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Düzenli Summoners gibi, Karanlık Summoners diğer hayvanlar onların teklifi yapmak için çağrı"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Ayrıca rağmen rakiplerini kaçmak için kısa mesafelerde teleport olabilir"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Kendi çalışanlarına yüksek ve magical olsa da insanlar tarafından doğrudan kullanılamaz, sihirli özellikleri yazım oluşturulmasında kullanılan"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pembe Hoovers uzun burun küçük quadrupeds vardır"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Snout birincil puropse gıda için yem olduğunu ama aynı zamanda bir savunma mekanizması olarak hizmet vermektedir"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "ve defne de sadece onları esen bir avcı tutma yeteneği fazla olan"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, mobil"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobil Venüs Flytraps ve gıda yerine taşımak için kendilerine gelmesini bekleyen edebiliyoruz kökleri geliştiğini"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Boyunlarına inanılmaz derecede esnek ve ek bileşenini mümkün avlarını de hatırı sayılır bir mesafe uzaklıkta"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Bu şekilde olması gerek. Umarım bu Kanalizasyon diğer asansör şimdi çalışma olmalıdır"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Bu asansör çalışmıyor. Ben gelinceye kadar güç geri kullanmak mümkün olmayacaktır"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Cam benim için çok doğru çatlamak kalın görünüyor, ben kırıp bazı başka bir yol bulmak gerekir ..."
+
+msgid "Up"
+msgstr "Yukarı"
+
+msgid "Down"
+msgstr "Aşağı"
+
+msgid "Left"
+msgstr "Sol"
+
+msgid "Right"
+msgstr "Sağ"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Saldırı"
+
+msgid "Block"
+msgstr "Blok"
+
+msgid "Action"
+msgstr "Eylem"
+
+msgid "Use Item"
+msgstr "Ürün kullanım"
+
+msgid "Previous Item"
+msgstr "Önceki Ürün"
+
+msgid "Next Item"
+msgstr "Sonraki Ürün"
+
+msgid "Inventory"
+msgstr "Envanter"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Ses"
+
+msgid "SFX Volume"
+msgstr "SFX Cilt"
+
+msgid "Music Volume"
+msgstr "Müzik Cilt"
+
+msgid "Ice Spray"
+msgstr "Buz Sprey"
+
+msgid "Library"
+msgstr "Kütüphane"
+
+msgid "Right Wing Lift Key"
+msgstr "Sağ Kanat Anahtar Lift"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Giriş Kapısı Anahtar"
+
+msgid "Village"
+msgstr "Köy"
+
+msgid "Cave"
+msgstr "Mağara"
+
+msgid "Fortress Outskirts"
+msgstr "Kale Outskirts"
+
+msgid "Forbidden Swamp"
+msgstr "Yasak Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Kanalizasyon Yasak Bölge Anahtar"
+
+msgid "Basement"
+msgstr "Bodrum"
+
+msgid "Fortress Ground Floor"
+msgstr "Kale Zemin Kat"
+
+msgid "Sewer"
+msgstr "Kanalizasyon"
+
+msgid "Fortress Main Key"
+msgstr "Kale Ana Anahtar"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Erişim Anahtarı 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Erişim Anahtarı 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Erişim Anahtar 3"
+
+msgid "Laboratory"
+msgstr "Laboratuvar"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "Birinci Kat Anahtar"
+
+msgid "Press Action to retrieve %s"
+msgstr "Basın Eylem %s almak için"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, bu yeni."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Gibi ama bana zarar veremez, ama görünmüyor orada bulmak için tek bir yol ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Bu asansör bu baskı plakası tarafından denetlenir, ama üzerinde can't stand ve aynı zamanda asansör kullanmak"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Benim için baskı plakası durmak için başka bir şey bulmanız gerekecektir ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Bu kartı boşsa, bunu üzerine kullanışlı yapmak için bazı talimatlar koymak gerekir."
+
+msgid "There's a plaque here"
+msgstr "Bir plak burada"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Doğru sırayla 4 heykelleri Yeri"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Bu sürüm tüm 4 heykelleri bulmak için, böylece daha sonra tekrar gelmek mümkün olmayacaktır!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Size envanter kutusunda vurgulanmış kullanmak istediğiniz heykeli olmalıdır"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Hiçbir şey olmadı. Ben doğru sırada olduğunu sanmıyorum"
+
+msgid "Tuning Fork"
+msgstr "Tuning Çatal"
+
+msgid "Second Floor Keycard"
+msgstr "İkinci Kat Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Öğretim Kart # 1"
+
+msgid "Instruction Card #2"
+msgstr "Öğretim Kart # 2"
+
+msgid "Instruction Card #3"
+msgstr "Öğretim Kart # 3"
+
+msgid "Instruction Card #4"
+msgstr "Öğretim Kart # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Heykeli"
+
+msgid "Spider Statue"
+msgstr "Spider Heykeli"
+
+msgid "Tortoise Statue"
+msgstr "Kaplumbağa Heykeli"
+
+msgid "Scorpion Statue"
+msgstr "Akrep Heykeli"
+
+msgid "A Blue Gem"
+msgstr "A Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Bir Centurion bir heykeli. It 2 ayağı vardır."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "Mor Gem"
+
+msgid "A Red Gem"
+msgstr "A Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Bir Scorpion bir heykeli. It 6 ayağı vardır."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Bir Spider heykeli. It 8 ayağı vardır."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Bir Armadillo Spike Ball. Ani ne zaman atılmış scatter Will."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Kaplumbaða heykeli. Bu 4 ayağı vardır."
+
+msgid "A Tuning Fork"
+msgstr "Bir Tuning Çatal"
+
+msgid "A chopped log"
+msgstr "A kıyılmış günlüğü"
+
+msgid "Narrator"
+msgstr "Anlatıcı"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Bir kazanı's. Maggie Bu gibi biri var"
+
+msgid "Right, here goes!"
+msgstr "Tamam, buraya!"
+
+msgid "I need all the main ingredients"
+msgstr "Tüm ana malzemeler gerekir"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Kırmızı Çamur Tentacle ve yedek bir kalkan"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Ayrıca ve tentacle sıvı içine gözleri harman gerekir"
+
+msgid "This entire section is about monsters"
+msgstr "Tüm bu bölümde canavarlar hakkındadır"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Bunları okumak için ama aklımda durumda yapmam muhafaza edeceğiz herhangi bir nedeniniz yoksa"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow, ne şirin bir makine!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Onun bir arka küçük bir yuvası var. Ben orada şeyler yapmak yapmak üzere bir şey koymak tahmin"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Robotun hareket için talimat kartları kullanır"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Robot kılavuzuna yönergeleri kullanın alanları sizin erişemezsiniz açmak için"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Ancak, sizin karttaki yönergeleri okuyamaz, tüm dışarı bir eser kadar onları denemek gerekecek"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Eğer robot, sonra onun başlangıç konumuna yeniden denemek için izin verecektir hedefine ulaşamıyor"
+
+msgid "Enter the directions"
+msgstr "Yön girin"
+
+msgid "Out of space for instructions"
+msgstr "Out of Space talimatlar için"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "I talimatları koymak için boş bir kart gerekir"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Belki de bu iyi bir fikir olsa değildi ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Elde 3 Gazer Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Elde 1 Kırmızı Çamur Tentacle"
+
+msgid "Find another shield"
+msgstr "Başka bir kalkan bul"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend gözleri ve tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "Elde a Fire Shield"
+
+msgid "More water?!"
+msgstr "Daha fazla su?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Beri sonra geri almak mümkün olmayabilir Bir Slime dönüşmesi mümkün olan burada bana yardım edecek, sanmıyorum"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Ben üzerinde almanın başka bir yol bulmanız gerekecektir"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Bana genelinde yardımcı olacak bir şey bulmanız gerekecektir"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Ben Borgan kömür almak için gitti ve benim herhangi bir çamur görmedim bile varsa beri benim sal battı herhangi Ben orada can't get edildi"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Ben burada başka bir maden bulmak gerekecek ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Su ile temas Doğum genişletmek buz yaratır"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Bir şişe ruhları yakalama kabiliyetine sahip"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Ona karşı Mataeus's bıçak kullanmayı deneyin ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "%s pick up Can't. Envanter tam"
+
+msgid "Filling mine cart..."
+msgstr "Maden arabası Dolum ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Paralel Realities 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Out ok!"
+
+msgid "There's something moving around down there..."
+msgstr "Bir şey orada dolaşırım's ..."
+
+msgid "Good riddance..."
+msgstr "Riddance Good ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Eğer asansör out of order, daha sonra sıfırlamak gerekir"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Orada asansör mili boyunca 4 sıfırlamak anahtarları hangi sıfırlama olması gerekir"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Asansör sıfırlamak için uzun bir yüzeye geri yürümek önlemek için emin olun ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Bu makine bir yuva kartları olarak aynı boyutlara sahip. Ben yeni talimatlar oluşturmak için kullanabilirsiniz sanırım."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Boş bir kart eklemek gerekir talimatları yeni bir takım oluşturmak için"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Daha sonra giriş için izlenecek robot için yön istenir. Bu aynı şekilde yapılır gibi dizisi kapılar"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Ne zaman yön tuşuna basın Attack giren tamamladığınızda"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Robot karttaki yönergeleri takip edecek"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Eğer yön tekrar deneyebilirsiniz doğru değil"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Bu yer, daha iyi acele ediyorum delilik ve bulmak Baba Ben sonuna kadar elde öldürdü!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Yani, yangın kalkan bir Kırmızı Çamur tentacle almak zorunda oluşturmak için"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Kırmızı çamur madenlerinde yüzden buralarda bulmak gerekecek canlı"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Ayrıca yedek bir kalkan ihtiyacım var, ama orada bir cephanelik civarında olmalıdır saymak"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Gazer gözleri kolay yeterli, sadece bodrum dönebilirsiniz"
+
+msgid "OK, off I go..."
+msgstr "Tamam, off I go ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Bu sürümde tentacle veya kalkan olsun, bu yüzden daha sonra yeniden kontrol edemezsiniz!"
+
+msgid "It's a portrait"
+msgstr "Bir portre's"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "O ruhu bana geçmiş izin vermeyeceğim değil, ben ondan kurtulmak için bir yol bulmak gerekecek"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset size harita üzerinde bir nesnenin konumunu sıfırlamak için izin anahtarları"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Eğer bir nesne daha sonra tekrar orijinal yerine koymak için anahtarını kullanabilirsiniz ulaşılamaz hale"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Bir ruh içinde hapsolmuş olan bir şişe"
+
+msgid "Full Mine Cart"
+msgstr "Tam Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Işleme Anahtar Lift"
+
+msgid "Right Grabber Key"
+msgstr "Doğru kapmak Anahtar"
+
+msgid "Left Grabber Key"
+msgstr "Kapmak Sol Anahtarı"
+
+msgid "Master Key"
+msgstr "Master"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Büyücü onun kaleye Baba almış olmalı. Orada onu kurtarmak gerekir."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Kale almak için tek yol Yasak Swamp üzerinden Doğu etmektir."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Orada Köyü ve Swamp arasında bir göl ben kızdırmak için bir sal gerekir's."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Ben de kendimi savunmak için bir kılıç ve kalkan gerekir. Ben Borgan ve Jacob bu olsa almak için konuşabilir."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Madalya Server %s:%d bağlanma Couldn't"
+
+msgid "Could not find Medal Key"
+msgstr "Madalya Anahtar bulunamadı"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Bu oyun için madalya kazanmak mümkün olmayacaktır"
+
+msgid "There's another sign here"
+msgstr "Başka bir oturum burada"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Sırasına ardından sola devam Eğer çıkış asansör çıktı"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Uyarı: Çıkış rota tehlikeli olabilir"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Belki çıkmak için asansör kullanmalısınız"
+
+msgid "There's a sign here"
+msgstr "Orada bir işaret burada"
+
+msgid "An Oil Can"
+msgstr "Bir petrol miyim"
+
+msgid "Oil Can"
+msgstr "Petrol miyim"
+
+msgid "A powerful repellent"
+msgstr "Güçlü bir itici"
+
+msgid "Repellent"
+msgstr "Itici"
+
+msgid "Medal Support"
+msgstr "Madalya Destek"
+
+msgid "Fortress Mine"
+msgstr "Kale Mine"
+
+msgid "Private key is missing"
+msgstr "Özel anahtar eksik"
+
+msgid "Could not connect to server"
+msgstr "Sunucu bağlantısı kurulamadı"
+
+msgid "Sludge Tentacle"
+msgstr "Çamur Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Bir Kızıl Çamur Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, bu çalıştı!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Ben renk konusunda rağmen, diye düşündüm kırmızı olurdu emin değilim?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Belki sarı gerekiyordu's ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Bir sıvı gözleri ve Tentacles yapılmış"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Oyun kaydedin Patching. Lütfen bekleyin ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Şimdi! Run iken hayrete's!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow, that şey huge!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Hatta bir çizik yapar benim kılıç kuşkusuz, ama geçmiş olsun gerek ..."
+
+msgid "I have everything I need now"
+msgstr "Her şeyi şimdi ihtiyacım var"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Orada Laboratuvarı bir kazanı, geri kafa gerekenler var"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Sadece enchant başka bir kalkan bulmalıyız"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Bu sürümde kalkan olsun, böylece daha sonra tekrar kontrol edemezsiniz!"
+
+msgid "Its wounds are already healing..."
+msgstr "Onun yaralarını zaten şifa vardır ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Eğer kaynaktan derlenen oyun, bir make install yapmanıza gerek"
+
+msgid "It's sleeping"
+msgstr "It uyuyor"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Yine bu yana bu kafeste sağlıklı kulüpler ..."
+
+msgid "Where's the switch?"
+msgstr "Nereye geçiş nedir?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, işte bu!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Bu jeneratör Tamam, o adil olmayan görünüyor"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Ben kapıyı, ben açmak için çok sahip olacak güçler tahmin"
+
+msgid "A Yellow Gem"
+msgstr "A Sarı Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "%s dosya PAK açılamadı"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Eylem basın Mor Gem almak"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Gem kaldırmak için bir yol bul ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Eylem basın Sarı Gem almak"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ben burada güvenli olmalı, ama gerek ondan kurtulmak için"
+
+msgid "Book"
+msgstr "Kitap"
+
+msgid "Sign"
+msgstr "Üye"
+
+msgid "Note"
+msgstr "Not"
+
+msgid "Solve the sliding puzzle"
+msgstr "Sürgülü bulmaca çözmek"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "Zırh çok onlara nüfuz zor olduğunu ..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Bir önceki sürümü Maden değildim koruma vardı patron"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Çünkü bu sürümünde size bırakmak mümkün olmayacaktır"
+
+msgid "You will now be transported outside"
+msgstr "Şimdi dışında ulaştırılacak"
+
+msgid "We apologize for the inconvenience"
+msgstr "Verdiğimiz rahatsızlıktan dolayı özür dileriz"
+
+msgid "That's a lot of slime"
+msgstr "Bu sümük bir çok şey"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "Ben çünkü sadece su çalışır Buz Sprey Bu kızdırmak sanmıyorum"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimes sadece bu kadar da yardım edecek değil suda yüzebilirsiniz"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "Ben Borgan nasıl yani ironik bana hatırlıyorum"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "Bana genelinde yardımcı olacak bir şey bulmak gerekecek ..."
+
+msgid "There, the rope's firmly attached"
+msgstr "Orada, ipi sıkıca bağlı's"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "Etmeden önce atabileceği bazı ip bulmak gerekiyor"
+
+msgid "It's a Grappling Hook"
+msgstr "Bir çengel's"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "Herhalde diğer tarafına bir köprü kurma, ama kullanabilirsiniz hiçbir ip's"
+
+msgid "I still need a Fire Shield"
+msgstr "Hala a Fire Shield gerek"
+
+msgid "Wow, this place is empty!"
+msgstr "Wow, burası boş!"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "Ben büyücü tahmin beri vardır sihirli silah gerek var"
+
+msgid "Still, there must be something of use in here"
+msgstr "Yine de, kullanım şey burada olmalı"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr ", Dev bir bulmaca sürgülü Cool! Bir keresinde, bu eve sahip!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "Iyi değil, dev bir, belli ki ..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "Itin, sağa, yukarı veya aşağı blokları gitmek için sol"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "Düzenle bloklar sayılar 1-8 görünen sağ ve sol boş blok sağ alt köşede itibaren sırayla"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "Basın Attack puzzle çıkın"
+
+msgid "A length of rope"
+msgstr "İpin uzunluğu"
+
+msgid "A device for grabbing far away objects"
+msgstr "Uzak nesneler kapma için bir cihaz"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "Hap bir şişe suyun içine balçık dönüştürmek"
+
+msgid "Tutorial Key"
+msgstr "Tutorial Anahtar"
+
+msgid "Light Key"
+msgstr "Anahtar ışık"
+
+msgid "Rope"
+msgstr "Halat"
+
+msgid "Extend-O-Grab"
+msgstr "Extend-O-Grab"
+
+msgid "Water Purifiers"
+msgstr "Su Temizleyicileri"
+
+msgid "Right Wing Key"
+msgstr "Sağ kanat Anahtar"
+
+msgid "Catapult Lift Key"
+msgstr "Mancınık Anahtar Lift"
+
+msgid "Armoury"
+msgstr "Armoury"
+
+msgid "Maggie"
+msgstr "Maggie"
+
+msgid "Jacob"
+msgstr "Jacob"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "Edgar"
+
+msgid "Mine Cart"
+msgstr "Mine Sepeti"
+
+msgid "%s has regained power"
+msgstr "%s güç kazanmış bulunmaktadır"
+
+msgid "Wow, a catapult!"
+msgstr "Wow, bir mancınık!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "Menteşe rağmen, ben gelinceye kadar olsun bu iş olacak şüphesiz paslı bak bu sabit"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "That's it? Sadece bu eski kalkan? Herhangi bir geçerli benim daha iyi görünmüyor."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "Yine de, üstüne şimdilik beklemede olacak, bu kullanışlı gelebilir"
+
+msgid "Great, a spare shield!"
+msgstr "Great, yedek bir kalkan!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "Bu Yangın kalkan gibi bana görünmüyor. Gerçekten bulmak için burada da umuyordum"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "Bu kalkan dahi benim geçerli daha iyi görünmüyor."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "Ben sadece gözleri Çamur tentacle ve Gazer gelen sıvı oluşturmanız gerekir"
+
+msgid "That's not a good sign..."
+msgstr "Bu iyi bir işaret değil ..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "Sadece enchant başka bir kalkan bulmak gerek ..."
+
+msgid "Hey, a lightning sword!"
+msgstr "Hey, yıldırım kılıcı!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "Bu çok daha güçlü benim şimdiki Kılıçtan de görünür"
+
+msgid "With this I should be almost unstoppable"
+msgstr "Bu neredeyse durdurulamaz olmalıdır"
+
+msgid "Almost"
+msgstr "Hemen hemen"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "Yıldırım Kılıcı ve ücrete sınırlı sayıda var bu masrafları ne kadar kullanılan gücünü kaybedecek"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "Düşmanları rasgele fazla masraf zaman öldürülüyor düşecek"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "Unutmayın ki eğer kılıcı tamamen kadar fazla masraf bulabilirsiniz bir düzenli kılıç çok az güç ile döner gücünü kaybeder"
+
+msgid "This centurion has no power"
+msgstr "Bu Centurion yok gücü var"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "Bu yüzden koşu bandı için muhtemelen yeterli hızı ile şarj olabilir bağlantılı"
+
+msgid "An old shield found in the Armoury"
+msgstr "Eski bir kalkan Armoury bulundu"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "Bir kılıç da yıldırım ile şarj edilebilir"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "Bir kılıç şimşek gücü ile duyguyla doldurulmuştu"
+
+msgid "Lightning Sword"
+msgstr "Yıldırım Kılıcı"
+
+msgid "INTRUDER!"
+msgstr "Davetsiz misafir!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "Menteşe rağmen, ben kadar onları sabit olsun bu iş olacak şüphesiz paslı görünüm"
+
+msgid "OK, let's see if this works..."
+msgstr "Peki, bakalım bu işleri ..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "Ben de, benim ip sayesinde beceri yürüyüş sorun bu ip üzerinde yürüme olacak"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "Baba ve faydalı olmak asla dedim!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "Ben cıvata için takmak için ip uzunluğu gerek"
+
+msgid "It's a giant crossbow"
+msgstr "Dev bir tatar yayı's"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "Herhalde o çiviler üzerinde bir köprü oluşturmak için bunu kullanabilirsiniz"
+
+msgid "I'll need some rope first though"
+msgstr "Önce rağmen bazıları ip gerekir"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "Orada, bu menteşe's yağlı. Bu yeni artık iyi olmalı!"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "Önce bunu kullanabilirsiniz menteşeleri paslanmış, ben bazı petrol bulmak gerekir"
+
+msgid "I can't run in this armour, though"
+msgstr "Bu zırh içinde, çalıştıramazsınız rağmen"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "Ayrıca, tüm bu yürüyüş gelen, atlama, yorgunum mücadele, yüzme ..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "düşünme, madencilik, kesme, itme, çekme, taşıma ..."
+
+msgid "and catching chickens"
+msgstr "ve bulaşıcı tavuk"
+
+msgid "I'll get something else to do it instead"
+msgstr "Bunun yerine bunu yapmak için başka bir şey alırsınız"
+
+msgid "Statistics"
+msgstr "İstatistikler"
+
+msgid "Play Time: %s"
+msgstr "Play Time: %s"
+
+msgid "Kills: %d"
+msgstr "Kills: %d"
+
+msgid "Bats Drowned: %d"
+msgstr "Yarasalar Drowned: %d"
+
+msgid "Times Eaten: %d"
+msgstr "Kere Eaten: %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "Engellenen saldırı: %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "Time Spent A Slime olarak: %s"
+

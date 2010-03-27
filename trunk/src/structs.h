@@ -148,6 +148,8 @@ typedef struct Game
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten, medalSupport;
+	int attacksBlocked, timeSpentAsSlime;
+	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
