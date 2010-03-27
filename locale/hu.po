@@ -1,0 +1,2163 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Gyorsan balra és jobbra lerázni a slimes!"
+
+msgid "Bow"
+msgstr "Íjat"
+
+msgid "Not working in this version!"
+msgstr "Nem működik ez a verzió!"
+
+msgid "Press Action to interact"
+msgstr "Nyomja meg a cselekvés, hogy kölcsönhatásba lépnek"
+
+msgid "%s is required"
+msgstr "%s van szükség"
+
+msgid "Bomb"
+msgstr "Bombák"
+
+msgid "Small Rock"
+msgstr "Kis Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Nyomja meg a fellépés letölteni a Purple Gem"
+
+msgid "Chicken"
+msgstr "Csirke"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Nyomja meg a fellépés letölteni a Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Nyomja meg a fellépés helyére Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Nyert %s"
+
+msgid "Complete"
+msgstr "Komplett"
+
+msgid "%d more to go..."
+msgstr "%d van hátra ..."
+
+msgid "Used %s"
+msgstr "Használt %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Nem lehet felszerelni tételek míg transmogrified"
+
+msgid "Equipped %s"
+msgstr "Felszerelt %s"
+
+msgid "Maximum health has increased!"
+msgstr "Maximális egészségügyi nőtt!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow most tüzet %s"
+
+msgid "A bow is required to use this item"
+msgstr "Egy íj van szükség, hogy ezt a tételt"
+
+msgid "Cannot transmogrify here..."
+msgstr "Can't átalakít itt ..."
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Start a new game?"
+msgstr "Start a new game?"
+
+msgid "Play the tutorial?"
+msgstr "Játék a tutorial?"
+
+msgid "Exit the game?"
+msgstr "Lépj ki a játék?"
+
+msgid "Back"
+msgstr "Vissza"
+
+msgid "Game Loaded"
+msgstr "Game Loaded"
+
+msgid "Game Saved"
+msgstr "Vad Saved"
+
+msgid "OK"
+msgstr "Rendben"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Előrelépés nem mentett el fog veszni"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Nyomja meg a cselekvés beszélni %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Új cél: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Célkitűzés Befejezve: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "A fal jobb oldalán látszik gyenge ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Ez a fegyver nem rendelkezik semmilyen hatással ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Nyomja meg a fellépés csatolni a Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s van szükség, hogy elkezdje alkalmazni kapcsol"
+
+msgid "Press Action to use this switch"
+msgstr "Nyomja meg a fellépés használni ezt a kapcsolót"
+
+msgid "Press Action to save your game"
+msgstr "Nyomja meg a fellépés menteni a játékot"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s van szükség, hogy ezt a Pressure Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s van szükség ahhoz, nyisd ki az ajtót"
+
+msgid "This door is locked"
+msgstr "Ez az ajtó zárva van"
+
+msgid "This teleporter is not active"
+msgstr "Ez a teleportáló nem aktív"
+
+msgid "Press Action to go to the %s"
+msgstr "Nyomja meg a cselekvési menni a %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Push Up vagy Down-hoz használ ez felvonó"
+
+msgid "This lift is not active"
+msgstr "Ez a lift nem aktív"
+
+msgid "Cannot carry any more %s"
+msgstr "Miatt nem tudja többé %s"
+
+msgid "Picked up %s x %d"
+msgstr "Felemelte %s x %d"
+
+msgid "Picked up %s"
+msgstr "Felemelte %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "A %s szükséges ahhoz, hogy ez a tétel"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Storage Key"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Szén-Bag Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Large Room Key"
+
+msgid "Coal Bag"
+msgstr "Szén-Bag"
+
+msgid "Forest Cell Key"
+msgstr "Cella Forest Key"
+
+msgid "Wood Axe"
+msgstr "Balta fából"
+
+msgid "Health Potion"
+msgstr "Health Potion"
+
+msgid "Outflow Key"
+msgstr "Kiáramlás Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Írjuk hulladék feldolgozása"
+
+msgid "Access Key 1"
+msgstr "Access Key 1"
+
+msgid "Access Key 2"
+msgstr "Access Key 2"
+
+msgid "Access Key 3"
+msgstr "Access Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Ez a felvonó nincs hatalma. Nem leszek képes használni, míg el nem visszaállítja a hatalom"
+
+msgid "Keep practising!"
+msgstr "Keep gyakorló!"
+
+msgid "Hi"
+msgstr "Szia"
+
+msgid "Hello Edgar"
+msgstr "Hello Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Kölcsönkérhetem a pajzs?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Irány a gyakorlatban a harci képességek?"
+
+msgid "Something like that"
+msgstr "Valami ilyesmi"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Ha ön fuss nekem egy küldetés akkor lehet a pajzson"
+
+msgid "What do I have to do?"
+msgstr "Mit kell tennem?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Megy a bánya, és gyűjtsük össze egy kis szén"
+
+msgid "But we have plenty of coal!"
+msgstr "De van rengeteg szén!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Igen, de ez nem a régi szén, a szenet is különleges, ég melegebb és hosszabb ideig tart"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Én csak 10 darab kell a dolgokat, így nem fog ön nagyon hosszú"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Győződjön meg róla, hogy tegye egy zsákba, megható, hogy túl hosszú lesz káros az egészségre"
+
+msgid "Do you have a bag?"
+msgstr "Van egy zacskót?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "No, akkor talán meg egy az enyém, ha"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, I'll get a szén -"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Tessék, itt a csákány. Használhatja a bányában a szén-és hack bármilyen gyengébb fal találkozik"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Azt is el kell ezt a gombot, hogy bekerüljön a bánya"
+
+msgid "Thanks!"
+msgstr "Köszönöm!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Köszönöm, Edgar, ez a szén is perfect! Remélem, a denevérek nem megijeszteni."
+
+msgid "The bats were the least of my worries..."
+msgstr "A denevérek volt a legkisebb gond az én ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Mondjuk, hallottam, hogy valami történt, hogy az enyém egy pár évvel ezelőtt"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Ööö, igen, nem volt mit gondolja, hívjon  baleset , de ez része az enyém volt pecsételve egy hosszú idővel ezelőtt"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Itt megvan a pajzs, és jó szórakozást!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Maradj távol a Tiltott Mocsár"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Fog tenni, lehet, hogy tartsd be csákány egy kicsit?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Hát persze, csak hozza vissza egy darabban"
+
+msgid "Thanks, Borgan!"
+msgstr "Thanks, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Sikerült megtalálni a szén még?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Tudod húzni egyes tételek körül nyomva, velük szemben, miközben lenyomva tartja az Action gombot."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Ezután húzza maga körül, amíg nem hagyja el a cselekvési gomb"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Erre a sziklára néz ki túl erős az én Pick Axe. Én is használni valami mást átvészelni ..."
+
+msgid "Urgh, what happened?"
+msgstr "Fúj, mi történt?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Úgy tûnik, ez nem volt olyan jó ötlet mégiscsak"
+
+msgid "There must be way out of here..."
+msgstr "Ott kell utat innen ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Ez kell a szén akarja, hogy én neki"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Nem hiszem, hogy a pajzsom fog engem megvédeni ezektől a Fireballs. Majd meg kell találni egy erősebb egy ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Ön nem fogja tudni, hogy ezt kicsit ez a verzió, látogasson vissza később!"
+
+msgid "Strange creature..."
+msgstr "Furcsa lény ..."
+
+msgid "Wait, what was that?"
+msgstr "Várj, mi volt ez?"
+
+msgid "You again?!"
+msgstr "Már megint?"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Valami kéne itt történni, de nem ez a verzió úgy nézzen vissza később!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Thanks for my resucing csirke, Van nekem 2 naplókat, az erdőben még?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Hála Edgar! Saját csirkék vissza, és ezek a naplók nem jó nekem"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Fogd ezt a kardot, azt csak kiszolgálja Önt is!"
+
+msgid "Thank you!"
+msgstr "Köszönöm!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Köszönjük, hogy a naplókat, volt már szerencsém a csirkék?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Adok neked egy kardot, ha adna nekem 2 vágott rönkök az erdő és a mentés legalább 3 of my csirke"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Kedves Edgar, mit tehetek ma?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Van egy kardot tudok kölcsön?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Van egy kardot, és a tiéd lehet, ha csinálsz valamit nekem az első"
+
+msgid "OK... what do I have to do?"
+msgstr "... Rendben Mit kell tennem?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Az én csirkéket szökött meg tollal, és én nagyon hálás lenne, ha nem kap vissza nekem"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Én meg egy kis csapdák közelében a tollat, akkor csábítása azokat a csapdákat ezzel a csirke feed. Nem kell mindegyiket, de legalább 3 igen hasznos lenne. Tudom szerezni a többit magam."
+
+msgid "That's it?"
+msgstr "Ennyi?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Nem egészen. Tud is kap egy kis fát az erdőből? 2 naplók elegendőnek kell lennie"
+
+msgid "Do you have an axe?"
+msgstr "Van egy fejszével?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Hagytam a fejszét az erdőben valahol. Meg kell még mindig ott"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Hát nem az erdei veszélyes?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Nem igazán, ha más nem megy bele az utat, csak hit, hogy a fegyver"
+
+msgid "Such as an axe?"
+msgstr "Mint például egy fejszét?"
+
+msgid "Yes, that would do the trick"
+msgstr "Igen, ez csinál a fogás"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "De komolyan, nincs benne, hogy tényleg bántani. Ezt a problémát kezelték régen volt ..."
+
+msgid "Good luck!"
+msgstr "Sok szerencsét!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Ó, köszönöm Edgar, én csak 3 van szükség, de köszönöm a további segítséget!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Itt, Maggie tett engem ez az egészségügyi bájital de nem kell úgy, miért nem a tiéd?"
+
+msgid "Thanks Jacob"
+msgstr "Thanks Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, akkor fogott meg mindet, thanks a lot!"
+
+msgid "Here, I have these for you"
+msgstr "Íme, én ezeket az Ön számára"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie velem ezt a bájitalt, de az egészségügyi tiéd lehet"
+
+msgid "And this is something very special"
+msgstr "És ez valami nagyon különleges"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Legyen ez segít utadon, hogy játsszon egy erős harcos"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Ön megtakarított én rengeteg időt. Maggie velem valami mást, de mivel már volt olyan segítőkész, a tiéd lehet."
+
+msgid "Hi Maggie"
+msgstr "Szia Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Köszönet Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan azt mondta, hogy egy része az enyém volt zárva után egy  baleset "
+
+msgid "There must be something around here..."
+msgstr "Ott kell lennie valaminek a környéken ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Francba, a felvonóhíd múlik. Van Kell lennie egy másik bejárata ..."
+
+msgid "Wait, what's that?"
+msgstr "Várj, mi az?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Talán tudtam alagút in my way .."
+
+msgid "These machines aren't working."
+msgstr "Ezek a gépek nem működnek."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Úgy néz ki, mint egy gyöngyszem, illeszkednie kell ezt a lyukat, talán talál néhány csere."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Úgy néz ki, mintha szorosan ott van ékelve. Tudom talán lazítsuk meg a csákány ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Ahhoz, hogy a Tiltott Mocsár fogom fel kell építeni egy tutajt."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Tudom építeni a tutajt, ha elég fákat vágja le az erdőből"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Szükségem 6 aprított Naplók felépíteni egy tutaj"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Én nem megyek a mocsár nélkül, kard és pajzs"
+
+msgid "OK, here goes!"
+msgstr "OK, itt megy!"
+
+msgid "Aw, not again!"
+msgstr "Jaj, már megint!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Ez már jobb lesz az utolsó alkalom, hogy ezt tenni ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Ez volt egyszerű! És én is mindig vissza később!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Hiszem, nincs más választásom most."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Kapaszkodj Apa, jövök ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Valami kéne most történni, de nem ez a verzió. Látogasson vissza később!"
+
+msgid "There's a note here"
+msgstr "Van itt egy megjegyzés"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Már csapdába itt lent, amit úgy tűnik, örökkévalóság"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Ahhoz, hogy ki ennek a helynek van szükségem 3 Access Keys dolgozni a felvonók"
+
+msgid "So far I have only found 1"
+msgstr "Eddig csak találtam 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Tovább ront a helyzeten, én csak akkor érte el a kapcsolókat egy gondosan elhelyezett nyíl"
+
+msgid "But spares aren't common and I have run out"
+msgstr ", De nem kíméli meghatározatlan és már elfogyott"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Ha valaki nem találja a kiutat itt lesz, attól félek, talán éhezik"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Ha valaki nem innen fogok hasonló sorsra ..."
+
+msgid "Oh, what's this?"
+msgstr "Oh, mi ez?"
+
+msgid "There's a note here too"
+msgstr "Van egy megjegyzés itt is"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "A főzet is perfect! Quaffing ez viszont egy emberi lény, egy kis ideig"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Eddig csak átalakít magam egy lény, de egy kicsit több időt kell tenni valamit"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Van egy kicsit balra, meg kell inni biztos"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, itt semmi nem megy ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Fúj!? Ez borzalmas!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan elmondta, hogy Slimes tud úszni a vízben azonban, hogy talán ez lesz hasznos ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Amikor át Slime, lehet mozogni a megszokott módon. Is úszni a vízben, és használja fel és le mozoghat"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Pushing fel vagy ugrik fog neked ugrik ki a víz ha a felszín közelében"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Tartsd szemmel az időmérő alján a képernyőn. Amikor eléri a 0 akkor automatikusan lesz újra az emberi"
+
+msgid "This place doesn't look so bad..."
+msgstr "Ez a hely nem néz ki olyan rossz ..."
+
+msgid "What was that?"
+msgstr "Mi volt ez?"
+
+msgid "Uh Oh..."
+msgstr "Oh ... uh"
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Hû, örülök, hogy ki onnan"
+
+msgid "Now to get through this swamp"
+msgstr "Most átvészelni ezt a mocsárból"
+
+msgid "Hey, what's this?"
+msgstr "Hé, mi ez?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Úgy néz ki szép ártalmatlan, megpróbálom stepping rá"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Ez volt az cool! Ez kell egy mechanikus teleportáló."
+
+msgid "I wonder if it works both ways..."
+msgstr "Kíváncsi vagyok, ha ez mindkét irányban működik ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Nem csak ez fog engem megmenteni sok séta, az is rengeteg szórakozást!"
+
+msgid "Now try out your shield"
+msgstr "Most próbáld ki a pajzson"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blokkolja a pellet köpött ki a növény-és ugorj fel a következő párkányra"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Egyes elemek a játék lehet nyomni és húzzák"
+
+msgid "To push an item, simply walk into it"
+msgstr "Benyomni egy elemet, egyszerűen csak sétáljon bele"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Húzni egy elemet, besétálni miközben nyomva tartása Action"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Ezután húzza ki a tételt körül, amíg elengedte a cselekvési"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Húzza ki a dobozt át a másik oldalra, és használni, hogy az elérje a párkányon"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Ez az utolsó része a konzultáció és megtanuljuk, hogy blokkolja és támadó ellenségek"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Először le kell kiépítenie a kardot, mert több sor, és nem több kárt, mint a csákány"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Z megtekintéséhez nyomjuk meg a leltár, jelölje ki a kardot, és nyomjuk meg a támadás (bal ctrl) vagy használati jogcím (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Z nyomja meg ismét csukja be a leltár"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Alkalmanként megölt ellenségek csökkenni fog az egészségügyi, amely eltűnik néhány másodperc múlva, úgyhogy vedd fel gyorsan!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Ha egy denevér van szerzés-hoz közel van, tartsa blokkot, és akkor ártalmatlanul lepattan you"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Most ölni a denevérek a környéken!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Két típusú ajtó a játékban. Kézi és automata ajtók ajtók."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manuális kulcsot használni ajtók nyithatók, automata ajtók szükséges kapcsolók."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "-Hoz nyit egy zárt ajtó, hogy megvan a kulcs, egyszerűen csak sétáljon bele. Nincs szükség arra, hogy a kiválasztott kulcsfontosságú a leltárban."
+
+msgid "Open the door and continue to the right"
+msgstr "Nyisd ki az ajtót, és továbbra is a jobb"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Gratulálunk! Most már tudod, hogy a játék alapjait, próbáld a fő játék"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Ha szeretne visszajátszani a bemutató, nyomjuk meg az Escape, és válasszuk a menüből a bemutató"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Játszani a fő játékot, nyomjuk meg az Escape, és válasszuk az Új játék a menüből"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Nyomja meg a Space Miután befejezte az olvasást, hogy menjen a következő párbeszédpanel"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Ön is térjen át a következő párbeszédpanelen megnyomásával Attack (bal ctrl), Block (bal oldali alt), Jump (szóköz), Action (c) vagy használati jogcím (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Ez a bemutató a The Legend of Edgar. Ez a leírás elmagyarázza, hogyan kell játszani a játékot."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "A kilépéshez a bemutató, nyomjuk meg az Escape, és használja a Fel és Le nyíl gombokkal válasszon egy lehetőséget. Nyomja meg a Visszatérés a kiválasztáshoz."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Mozogni jobbra-balra a nyilakkal."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Ahhoz, hogy ugrani, nyomjuk meg a helyet. Tudod mozgatni a levegőben, amikor ugrálás."
+
+msgid "To interact with an item, press c"
+msgstr "Hogy kölcsönhatásba lépnek a tételt, nyomjuk meg a C"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Menj el a cselekvési pontot és nyomjuk meg a C"
+
+msgid "To collect an item from your"
+msgstr "Gyűjteni egy elemet el"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Hogy vegye fel a tételt, egyszerűen csak sétáljon bele. Bármely összegyűjthető elemek kerülnek bele a leltárt."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Megtekinthetjük az Ön készlet gomb megnyomásával z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Míg a leltár, a nyilakkal megtekintheti a tételek."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Használhatja a tételt azonnal megnyomásával Attack (bal ctrl) vagy használati jogcím (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Ön készen áll egy elemet használt megnyomásával Block (bal oldali alt), vagy intézkedés (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Sétáljon át a kulcsot vedd fel"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Megváltoztathatja mind az ellenőrzések a játék megnyomásával Escape, és válassza a Beállítások menü"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Válasszuk a Configure Controls a nyilakkal, és nyomjuk meg a Vissza"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Használja a nyíl gombok segítségével válassza ki a kontroll módosítani kívánt, és nyomja meg az Entert."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Következő, nyomjuk meg a gombot, hogy a használni kívánt helyette."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Függetlenül attól, hogy milyen kulcsok is választja, mindig lehet navigálni a menükben a nyilakkal és a Return"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Ne feledjük, hogy ez a bemutató, az alapértelmezett kulcs feltételezhető,"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Ha végeztél konfigurálása a kulcsokat, menj jobbra a következő Action Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "A csákány egy a sok fegyver lesz találkozás a játékban"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Használhatja a két fegyver és a szerszám"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Vedd fel a csákány, és továbbra is a következő Action Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Gratulálok, megtaláltad a titok!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Sok titok a fő játék ezt ne nézd meg őket"
+
+msgid "Here's a hint to get you started"
+msgstr "Itt egy tipp a kezdéshez"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Bár csak azt írja elő, hogy 3 fogás az ő csirkék, miért nem jó lenne neki és a fogási több? Jelenleg 10 kóborolt a térképen az összes"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "A pajzs megvéd a legtöbb ellenséges támadás"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Néhány ellenséges támadás nem blokkolható"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Környezeti veszélyek, mint a szikla alá, nem blokkolható"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Blokkolja a támadást, nyomjuk meg és tartsuk lenyomva blokk (bal oldali alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Be kell szembe a támadás sikeres blokkoló"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Ne feledje, hogy nem tud lépni, miközben blokkolja, de akkor arca a másik irányba. Ön még nem akadályozhatja a levegőben"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Vedd fel a pajzsot, és továbbra is a jobb"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Ez egy gyenge fal, meg lehet törték le használatával csákány"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Használni a csákány, nyomjuk meg a támadás (bal ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr ", hogy nem minden a gyenge falakkal meg lehet semmisíteni segítségével csákány"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Elpusztítani a fal segítségével csákány és továbbra"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Valami kellene itt lennie, de nem ez a verzió, látogasson vissza később!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Gyűjtse össze 10 darab szén"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Gyűjtse 2 vágott Naplók"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rescue 3 Csirke"
+
+msgid "Find 4 Gems"
+msgstr "Find 4 Drágakövek"
+
+msgid "Repair Generators"
+msgstr "Generátorok javítás"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Gyűjtse 6 darabolt Naplók"
+
+msgid "Collect 3 Access Keys"
+msgstr "Gyűjtse 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Ez egy üres cél"
+
+msgid "Kill all Bats!"
+msgstr "Ölni denevérek!"
+
+msgid "Coal"
+msgstr "Szenet"
+
+msgid "Chopped Log"
+msgstr "Vágott Napló"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Drágakő Vörös"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleportáló Key"
+
+msgid "New Game"
+msgstr "Új játék"
+
+msgid "Tutorial"
+msgstr "Oktatóanyag"
+
+msgid "Load Game"
+msgstr "Játék betöltése"
+
+msgid "Options"
+msgstr "Opciókat"
+
+msgid "About"
+msgstr "Körülbelül"
+
+msgid "Quit"
+msgstr "Kilépéshez"
+
+msgid "Configure Controls"
+msgstr "Configure Controls"
+
+msgid "Configure Sound"
+msgstr "Hangjelzés beállítása"
+
+msgid "Fullscreen"
+msgstr "Teljesképernyős"
+
+msgid "Show Hints"
+msgstr "Tanácsok Show"
+
+msgid "A potion which will transform you..."
+msgstr "A főzet, amely átalakítja neked ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Teremt nagy nedvszívó miniatűr jégkockák"
+
+msgid "A potion which will restore all of your health"
+msgstr "A főzet, amely visszaállítja az összes egészségügyi"
+
+msgid "A powerful bomb"
+msgstr "A hatalmas bomba"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "A főzet, amely láthatatlanná teszi meg egyes ellenségek"
+
+msgid "The eyeball from a Gazer"
+msgstr "A szemgolyó egy Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Tesla Pack. Meg ingyen."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Summoner's Staff. Azt nem lehet használni az emberek."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Tesla Pack. Ez teljesen fel van töltve."
+
+msgid "An empty potion bottle"
+msgstr "Egy üres üveg bájitalt"
+
+msgid "A bag of chicken feed"
+msgstr "Egy zacskó csirke takarmány"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Egy zsák szén szállítására alkalmas,"
+
+msgid "Basic Sword"
+msgstr "Basic Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "A kard fogja kapni, Jacob"
+
+msgid "A bow"
+msgstr "Az íj"
+
+msgid "Small Wooden Shield"
+msgstr "Kis-Fa Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "Egy kis pajzs, amely alapvető védelmet"
+
+msgid "Normal Arrow"
+msgstr "Normál Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normál Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "Fejszével alkalmas aprító fák"
+
+msgid "Pickaxe"
+msgstr "Csákány"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A csákány kölcsönadott Önnek Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Főzet Room Key"
+
+msgid "Surge Passage Key"
+msgstr "Surge Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Bontási Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Bármi is ez a dolog volt, ez volt elvezetését a hatalmat, hogy a generátort és használja ellenem."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr ", Amely megmagyarázná, hogy a lift nem működött. Legyőzte a többi drainers kell visszaállítani az áramot."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Győzd le az összes energia Drainers"
+
+msgid "No Objectives"
+msgstr "Célok no"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Nyomja meg a Action to reset puzzle blokkok"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Úgy néz ki, mint egy turmixgép. Jó lenne ezt liquidise valamit"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Szükségem van egy vörös iszapot Tentacle és 3 Gazer szemgolyója, hogy a főzet"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Még mindig szükség van egy üres üveget, hogy orvosolják a bájital-ban"
+
+msgid "So this is the Fortress."
+msgstr "Szóval ez a vár."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Úgy néz ki, mint egy nagy ajtó vezet ki, hogy más területekre, el kellett volna egy megfelelő nézz körül, mielőtt elmegyek bárhol máshol ..."
+
+msgid "Try hitting the skull..."
+msgstr "Próbálja ki üti a koponya ..."
+
+msgid "This machine is not active"
+msgstr "Ez a gép nem aktív"
+
+msgid "Repeat the sequence"
+msgstr "Ismételje meg a sorozatot"
+
+msgid "Correct Sequence"
+msgstr "Helyes sorrend"
+
+msgid "Incorrect Sequence"
+msgstr "Helytelen Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "The Legend of Edgar ütközött a következő hibát"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Kérjük, jelentse ezt a hibát a Parallel valóságok"
+
+msgid "The game will now exit"
+msgstr "A játék most kilép"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Úgy néz ki, mint egy turmixgép. Jó lenne ezt liqudise valamit"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Ez kell a szén-Borgan azt akarja, hogy én neki"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr ", Amely megmagyarázná, hogy a lift nem működött. Legyőzte a többi drainers kell visszaállítani a hatalom itt."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Meg kell találnom 3 Gazer Eyes, 1 vörös iszapot Tentacle és egy extra pajzs létrehozásához Shield of Fire Resistance"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Egyszer találtam ezeket a tételeket fogom kell találnom egy helyet, ahol létre a pajzson"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Van egy könyv itt körülbelül varázslatos fegyverek"
+
+msgid "Maybe I can create a shield..."
+msgstr "Talán tudok létrehozni egy pajzs ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Kard ... ... Armour Pálca ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Hülye könyv. Ez nem azért, és nincs index"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Shield of Fire Resistance"
+
+msgid "Ingredients"
+msgstr "Összetevőkről"
+
+msgid "One must gather the following"
+msgstr "Látni kell gyűjteni a következő"
+
+msgid "The root of a Mandrake"
+msgstr "A gyökér a Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "A kövér egy Darsh (pihentetik 3 hónap)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor csontok"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 szemében Gazer A"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "A frissen vágott csáp egy nőstény vörös iszap"
+
+msgid "The shield to apply the enchantment"
+msgstr "A pajzs, hogy alkalmazza a varázs"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Keverő Gazer szemét és iszap csáp egy sima folyékony"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Add hozzá a gyökér, a zsír és a csontok a bogrács, és keverjük össze a kevert Gazer szemét és iszap csáp"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Amikor az elegy színe világoskék, adjuk hozzá a pajzson"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Láttam a legtöbb ilyen tételek a laborban így nem kell aggódnia az"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "És a nézés kószál az alagsorban, így nem probléma"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Amit teszek, azt kell találnom egy vörös iszapot, de fogalmam sincs, hogy hol talál egy"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Nem tudom használni a mostani pajzs a kísérlet abban az esetben, backfires úgyhogy meg kell találni egy másikat"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Lehetnek bájital szobában, vagy labor hol találom a gyökerek, a zsír és a csontok így nem kell aggódnia az"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Meg kell adnunk a tanítás kártyát használni kívánt kiemelve a készlet dobozban"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, a laboratórium!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Imádom nézni, hogy Maggie varázslatok és főzetek, talán tudok tenni néhány magam itt!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, én még sohasem láttam ennyi könyvet egy helyen!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Ott kell információt minden tárgyat itt, ez hasznos lehet ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, a levegő úgy érzi töltve, eszembe Maggie háza, amikor ő volt téve varázslatoknak. Kéne legyen óvatos."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Edgar Ó, te fáj! Engedjék meg, meggyógyítja a sebeket"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Kíváncsi vagyok, milyen más szörnyek vannak. Majd oldalt válasszon ki véletlenszerűen ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Nézés a repülő lények cycloptic található különböző helyszíneken"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Az ő egyetlen szem általában zárt, és támaszkodnak a szonár mozgási"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Az általuk használt erős szaglás, hogy néz ki a ragadozó és zsákmány egyaránt"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Nézés támadás (és megvédeni magukat) megnyitja a szemet kápráztató, ami bármit néztem"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Ez a támadás azonban csak akkor hatásos, ha az áldozat szembenéznie Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "A Gazer a szemgolyó tartalmaz varázslatos tulajdonságokkal bír és egy közös összetevő helyesírás előkészítés"
+
+msgid "Centurion, Grey"
+msgstr "Százados, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Századost a mágikusan létrehozott lények, általában adják, vagy őrök őrök"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Bár lassan mozgó, a hatalmas mérete lehetővé teszi számukra, hogy egyszerűen csak március bármilyen védelem"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "Ahelyett, fegyverek, sok hatalmas halom járművezetők az általuk igénybe, hogy megrázza a földre, és zavarba ejt veszélyek"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Bár a Szürke Centurions fogják használni őr külső határain, a Red Centurions ismert, hogy léteznek, és használják területek védelmére nagy jelentőséggel bír"
+
+msgid "Splitter"
+msgstr "Lehasító"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Osztók ártalmatlan szörnyek, kivéve, ha megtámadják."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Amikor túl sok kárt elszenvedő fognak kettévált, és a ragadozó támadása"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Ha ezek közül a fenntartó túl sok kárt fog split ismét és továbbra is támadni"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Végül egy utolsó split fog nagyon kis változatok, amelyek teljesen veszélytelenek, és ebben az állapotban egyszerűen leszállt"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Ha minden részén még élnek, az osztó lesz megreformálni önmagát, és egy idő után gyógyulnak a sebek"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Piros Grubs sokkal agresszívabb, mint a zöld társaik, és támadás céljából, mint amit ők fenyegetésnek"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Érve futamidő ők fogják képezni a báb-és morph egy darázs"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Néhányan azonban lesz morph egy királynő darázs. Ezek a királynő képes a nyálka-szerű anyag, amely képes a gazdaság áldozatát a helyén"
+
+msgid "Tortoise, Master"
+msgstr "Teknősbéka, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Teknősök az ijesztő jelenettel. Talált messze földeken rendelkeznek képes megváltoztatni a fejüket"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Ők foglalják össze a képességeit, hogy unokatestvérek lélegezni a tűz, a jég és hozzon létre villamosít magukat"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "És természetesen ők is át nem eresztő, hogy támadások illő elemek, elnyeli az energiát, hogy meggyógyítsa magát"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "De ezen kívül, ha kap túl sok energiát a gyógyító, akkor fejlődnek és megy a tombolás"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Ebben az állapotban fogják szétzúzni bármilyen védelmi és előállítása sötét anyagot, amely elpusztítja bármit is ér"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Azonban a héj egy tomboló Master teknős nagyon varázslatos és nélkülözhetetlen eleme létrehozása során erős mágiát és elemeket"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore egy lény egy másik dimenzió. Meg lehet hívni segítségével hatalmas, sötét mágia"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "A leggyakoribb ok megidézni ez a vadállat tölti be a testőr"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Nincs ismert módja annak, hogy megölik, mivel Grimlore upon fenntartása kritikus sérülések akkor egyszerűen visszatér a saját dimenziója"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "De még kárt is monumentális feladat. Akárki találkozás ez lény tanácsos menekülni a lehető leggyorsabban"
+
+msgid "Or they will die very quickly"
+msgstr "Vagy nagyon gyorsan meg fog halni"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, itt van egy rövid összefoglalás a szörnyek"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 kötetek! Hogyan lehet ennyi szörnyeket a világon?"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Úgy tûnik, mintha betűrendben"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Iszap, zöld ... Iszap, Purple ... Iszap, zöld ..."
+
+msgid "Sludge, Red"
+msgstr "Iszap, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Ellentétben a zöld unokatestvére, a Vörös-iszap marad, mélyen a föld alatt, és csak ritkán, ha egyáltalán, felületek"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "A kedvelt élőhelye száraz és ásványokban gazdag területeket, és ennek eredményeként találták meghúzódó elhagyott bányák területén az emberek által"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Ezek nagyon óvatos az ember, és a támadás elől, általában hányás ki a sav, amit időbe kerül párolog"
+
+msgid "Smacker, Lesser..."
+msgstr "Cuppanós csók, Kis ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Nagy, ennyit mond. Én nem is tudom, hogyan mondjam el a különbség a férfi és a nő. Akkor csak, hogy egy véletlen ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Különben is, mi a legrosszabb, ami történhet?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Edgar mozgatni jobbra-balra a nyilakkal."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Ahhoz, hogy Edgar ugrani, nyomjuk meg a helyet. Tudod mozgatni a levegőben, amikor ugrálás."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Annak ellenére, Jacob csak azt írja elő, hogy 3 fogás az ő csirkék, miért nem jó lenne neki és a fogási több? Jelenleg 10 kóborolt a térképen az összes"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Ne feledjük, hogy nem minden a gyenge falakkal meg lehet semmisíteni segítségével csákány"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Már be van jelölve, s nem ott lent ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Hallottam az emberek alá a még jóval azelőtt, talán apa ott van ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! YOU ARE DOWN THERE ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Semmi. Azt hiszem lesz, hogy továbbra is keres"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Nyomja felfelé vagy lefelé nyomásával növelheti vagy csökkentheti a platform"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Van egy könyv itt körülbelül varázslatos berendezések"
+
+msgid "It's a book about enchanting equipment"
+msgstr "It's a könyv elbűvölő berendezések"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Nem tudom, hogy el kellene olvasni, de ezt fogom szem előtt tartani, ha tudom"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Kíváncsi vagyok, milyen más szörnyek vannak ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Csakúgy, mint a rendszeres Summoners, Dark Summoners hívást más vadak meg a meghívás"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Ezen kívül, ha azok rövid távolságú teleport, hogy elkerülje az ellenfeleik"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "A személyzet nagyon varázslatos, és bár nem lehet használni az emberek által közvetlenül, a mágikus tulajdonságait használja fel a varázslat létrehozása"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Pink Hoovers kis négylábúak hosszú ormány"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Az elsődleges puropse a pofa, hogy az élelmiszer-takarmány, hanem azért is, mert egy védelmi mechanizmus"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr ", és több mint képesek tartani a ragadozó kordában egyszerűen fújja őket"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, mobil"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobil Venus Flytraps fejlődtek gyökerei és képesek mozogni ezek az élelmiszer-és nem várta, hogy jöjjön el hozzájuk"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Nyakukat hihetetlenül rugalmas, és képesek legyenek snap at zsákmányukat egy jelentős távolságról"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Ez elég is lesz. Reménykedve, hogy más emelje a Sewer kell most dolgozik"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Ez a lift nem működik. Nem leszek képes használni, míg el nem visszaállítja a hatalom"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Üveg úgy néz ki, hogy túl vastag a számomra, hogy kiváló, azt kell majd találni valamilyen más módon megrázó ez ..."
+
+msgid "Up"
+msgstr "Fel"
+
+msgid "Down"
+msgstr "Le"
+
+msgid "Left"
+msgstr "Bal"
+
+msgid "Right"
+msgstr "Jobb"
+
+msgid "Jump"
+msgstr "Ugorhat"
+
+msgid "Attack"
+msgstr "Támadással"
+
+msgid "Block"
+msgstr "Blokkolni"
+
+msgid "Action"
+msgstr "Cselekvési"
+
+msgid "Use Item"
+msgstr "Felhasználása Cikk"
+
+msgid "Previous Item"
+msgstr "Previous Item"
+
+msgid "Next Item"
+msgstr "Next Item"
+
+msgid "Inventory"
+msgstr "Nyilvántartási"
+
+msgid "Pause"
+msgstr "Szüneteltetheti"
+
+msgid "Dead Zone"
+msgstr "Dead Zone"
+
+msgid "Sound"
+msgstr "Rendezett"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Zenei könyv"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Könyvtárából"
+
+msgid "Right Wing Lift Key"
+msgstr "Jobboldal Lift Kulcs"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Entrance Door Key"
+
+msgid "Village"
+msgstr "Faluba"
+
+msgid "Cave"
+msgstr "Barlangba"
+
+msgid "Fortress Outskirts"
+msgstr "Fortress külterület"
+
+msgid "Forbidden Swamp"
+msgstr "Mocsár Forbidden"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Szennyvíz Tiltott zóna Kulcs"
+
+msgid "Basement"
+msgstr "Alagsorában"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Földszint"
+
+msgid "Sewer"
+msgstr "Szennycsatorna"
+
+msgid "Fortress Main Key"
+msgstr "Fortress Main Key"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleportáló Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleportáló Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleportáló Hívóbillentyû 3"
+
+msgid "Laboratory"
+msgstr "Laboratóriumba"
+
+msgid "Empty Bottle"
+msgstr "Empty Bottle"
+
+msgid "First Floor Key"
+msgstr "Emelet Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Nyomja meg a cselekvés letölteni %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, ez új."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Nem úgy néz ki mint tud bántani bár, de csak egyetlen módja, hogy kiderítse ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Ez a lift vezérli, hogy nyomást lemez, de nem tudok állni, és használja a felvonó egy időben"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Majd meg kell találni valami mást állni a nyomástartó lemez értem ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Ez a kártya üres, én meg egy kis útmutatást, hogy tenni használhatatlanok."
+
+msgid "There's a plaque here"
+msgstr "Van egy emléktábla van"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Helyezzük a 4 szobrok a helyes sorrendben"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Ön nem lesz képes megtalálni mind a 4 szobor ez a verzió, úgyhogy jöjjön vissza később!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Meg kell adnunk a szobrot használni kívánt kiemelve a készlet dobozban"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Nem történt semmi. Nem hiszem, hogy ez a helyes sorrendben"
+
+msgid "Tuning Fork"
+msgstr "Hangvillát"
+
+msgid "Second Floor Keycard"
+msgstr "Second Floor Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Utasítás Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Utasítás Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Utasítása kártya # 3"
+
+msgid "Instruction Card #4"
+msgstr "Utasítása kártya # 4"
+
+msgid "Centurion Statue"
+msgstr "Szobra százados"
+
+msgid "Spider Statue"
+msgstr "Spider-szobor"
+
+msgid "Tortoise Statue"
+msgstr "Teknős szobor"
+
+msgid "Scorpion Statue"
+msgstr "Szobra Scorpion"
+
+msgid "A Blue Gem"
+msgstr "A Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "A szobrot egy százados. Meg 2 lábát."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "A Purple Gem"
+
+msgid "A Red Gem"
+msgstr "A Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "A szobrot a Scorpion. Szintén 6 lába."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "A szobrot egy pók. Meg 8 lába."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Az Armadillo Spike Ball. Majd szét tüskék, amikor dobott."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "A szobrot egy teknős. Meg 4 lába."
+
+msgid "A Tuning Fork"
+msgstr "A hangvilla"
+
+msgid "A chopped log"
+msgstr "A vágott napló"
+
+msgid "Narrator"
+msgstr "Elbeszélője"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "It's a bogrács. Maggie az egyik, mint ez"
+
+msgid "Right, here goes!"
+msgstr "Van, itt megy!"
+
+msgid "I need all the main ingredients"
+msgstr "Szükségem van az összes főbb összetevői"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer szemgolyók, 1 vörös iszapot Tentacle és tartalék pajzs"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Azt is meg kell keverék a szemgolyó és a csáp a folyékony"
+
+msgid "This entire section is about monsters"
+msgstr "Ez az egész rész arról szól, szörnyek"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Nem tudom, hogy el kellene olvasni ezeket de akkor tartsa szem előtt, ha tudom"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hé wow, milyen aranyos kis gép!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Van rajta egy kis nyílás a hátsó róla. Azt hiszem, tettem valamit oda tenni, csinálni dolgokat"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "A robot felhasználási utasítás kártyákat mozogni"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Használja az utasításokat útmutató a robot, hogy nyílt területen, hogy nem tud hozzáférni"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Azonban, mivel nem tudja elolvasni az utasításokat a kártyán, akkor próbálja ki mindet, amíg az egyik dolgozik"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Ha a robot nem éri el a célértéket, majd visszatér a kiindulási pozícióba, lehetővé téve, hogy próbálja meg újra"
+
+msgid "Enter the directions"
+msgstr "Írja be az utasításokat"
+
+msgid "Out of space for instructions"
+msgstr "Elfogyott a hely az utasításokat"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Szükségem van egy üres kártyára tenni az utasításokat a"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Lehet, hogy ez nem volt olyan jó ötlet, mindezek után ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Szerezze 3 Gazer Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Szerezze 1 Red Sludge Tentacle"
+
+msgid "Find another shield"
+msgstr "Keress egy másik pajzs"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend szemgolyó és csáp"
+
+msgid "Obtain a Fire Shield"
+msgstr "Szerezze egy Fire Shield"
+
+msgid "More water?!"
+msgstr "Több vizet?"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Nem hiszem, hogy képes kezdene Slime fog segíteni nekem itt, mert talán nem lesz képes visszatérni később"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Majd meg kell találni egy másik út-ból szerzés-szerte"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Majd meg kell találni valamit, hogy segítsen nekem kap-szerte"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Én nem látok semmilyen iszap a bányában, amikor mentem Borgan a szén és még ha vannak is olyan nem tudok oda, mivel én elsüllyedt tutaj"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Majd meg kell találni egy másik bánya körül itt ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Létrehoz jégkockákat, hogy fejlődjön a vízzel érintkezve"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Egy üveg rögzítésére képes lelkek"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Próbálkozzon Mataeus a kések ellene ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Nem pick up %s. Leltár teljes"
+
+msgid "Filling mine cart..."
+msgstr "Tömés enyém cart ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright 2009-2010 Parallel valóságok"
+
+msgid "Out of arrows!"
+msgstr "Elfogyott a nyilakat!"
+
+msgid "There's something moving around down there..."
+msgstr "Van valami mozgást odalent ..."
+
+msgid "Good riddance..."
+msgstr "Good Riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, deja vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Ha a felvonó is out of order, akkor meg kell állítani"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Jelenleg 4 reset kapcsolók tengely mentén, a felvonó, amelyeket meg kell állítani"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Ügyeljen arra, hogy állítsa vissza a felvonó, hogy elkerülje a hosszú séta vissza a felszínre ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Ez a készülék egy nyílás mérete megegyezik a kártyákat. Azt hiszem, tudom használni, hogy, hogy új utasításokat."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Hozzon létre egy új szóló utasításokat meg kell beszúrni egy üres kártyára"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Ezután megkérdezi, hogy a bemeneti utasítás a robotot, hogy kövesse. Ezt ugyanúgy, mint a sorozat ajtók"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Amikor befejezte bevitelére az utasításokat, és nyomjuk meg a támadás"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "A robot ezután kövesse az utasításokat a kártyán"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Ha a nem megfelelő irányba próbálja meg újra"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Ez a hely bolond, Jobb, siess és keresd apa, mielőtt a végén egyre meghalt!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Így kell alkotni, hogy a Fire Shield kell mennem a Vörös iszap csáp"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Vörös iszap él bányákban így lesz megtalálni egy errefelé"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Én is szükségem van egy tartalék pajzs, de azt hiszem, ott kell lennie egy fegyvergyár körül"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "A szemgolyó Gazer könnyen elég, én is csak vissza az alagsorba"
+
+msgid "OK, off I go..."
+msgstr "OK, én megyek le ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Ön nem lesz képes-hoz kap a kar vagy a pajzs ez a verzió, ezért látogasson vissza később!"
+
+msgid "It's a portrait"
+msgstr "Ez egy portré"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Ez a szellem nem fog hadd múlt, én meg kell találni a módját, hogy megszabadulni ez"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Reset kapcsoló segítségével alaphelyzetbe állítása egy objektum pozícióját a térképen"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Ha egy objektum nem elérhető lesz, akkor használhatja a kapcsolót helyezze vissza eredeti helyére"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Egy palack lélek bezárva"
+
+msgid "Full Mine Cart"
+msgstr "Teljes Mine Kosár"
+
+msgid "Processing Lift Key"
+msgstr "Feldolgozás Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Jobb Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Bal Grabber Key"
+
+msgid "Master Key"
+msgstr "Master Key"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "A varázsló kell tartania az ő apa vár. Azt kérem, hogy megmentse őt onnan."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Az egyetlen módja, hogy a vár keresztül a Tiltott Mocsár keletre."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Van egy tó között, a falu és a mocsári úgyhogy szüksége lesz egy tutajt átjutni."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Én is szükség egy kardot és pajzsot megvédeni magam. Tudok beszélni Borgan és Jacob-hoz kap ezek mégis."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Nem sikerült csatlakozni a Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Nem található a Medal Kulcs"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Nem fog tudni keresni Érmek ehhez a játékhoz"
+
+msgid "There's another sign here"
+msgstr "Van egy másik jel van"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Ha a kilépési lift out of order, majd folytassa a bal oldali"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Figyelmeztetés: Exit útvonal veszélyes lehet"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Talán ki kellene használni a felvonót kijutni"
+
+msgid "There's a sign here"
+msgstr "Van egy jel van"
+
+msgid "An Oil Can"
+msgstr "Az olaj"
+
+msgid "Oil Can"
+msgstr "Olaj"
+
+msgid "A powerful repellent"
+msgstr "Egy erős víztaszító"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Érem Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Privát kulcs hiányzik"
+
+msgid "Could not connect to server"
+msgstr "Nem sikerült kapcsolódni a szerverhez"
+
+msgid "Sludge Tentacle"
+msgstr "Iszap Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "Red Sludge Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Smoothie szemgolyóra"
+
+msgid "Cool, it worked!"
+msgstr "Cool, mûködött!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Nem vagyok biztos abban, hogy bár a szín, azt gondoltam, hogy piros?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Lehet, hogy kéne a sárga ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "A folyékony készült szemgolyó és csápjai"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Foltozás menteni a játékot. Kérem, várjon ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Most! Futtatni, miközben ez megdöbbent!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow, ez hatalmas dolog!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Kétlem, kardom fog tenni még egy karcolás, de szükségem van-hoz kap múlt el ..."
+
+msgid "I have everything I need now"
+msgstr "Mindent megkapok, amire szükségünk van"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Van egy üst a laboratóriumban, én meg ott hátul a fejét"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Csak meg kell találni egy másik pajzs elvarázsol"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Ön nem lesz képes-hoz kap a pajzsot ez a verzió, tehát látogasson vissza később!"
+
+msgid "Its wounds are already healing..."
+msgstr "A sebek már gyógyító ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Ha elkészítette a játék forrásból, annyit kell tennie, a make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Biztonságban vagyok egyébként, mert van abban a kalitkában ..."
+
+msgid "Where's the switch?"
+msgstr "Hol a kapcsoló?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, itt van!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Ez a generátor úgy néz ki OK, csak nem a"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Azt hiszem ez hatáskörét az ajtót, úgyhogy kell majd kapcsolja be"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Failed to open file PAK %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Nyomja meg a cselekvési letölteni Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Megtalálja a módját, hogy távolítsa el a Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Nyomja meg a fellépés letölteni a Sárga Gem"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Én biztonságosnak kell lennie itt, de kell, hogy megszabadulni ez"
+
+msgid "Book"
+msgstr "Könyv"
+
+msgid "Sign"
+msgstr "Aláírja"
+
+msgid "Note"
+msgstr "Tudomásul"
+
+msgid "Solve the sliding puzzle"
+msgstr "Oldja meg a csúszó puzzle"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "A páncélzat túl kemény a számukra behatolni ..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "A főnök, hogy az enyém volt, őrző-védő nem volt az előző verzió"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr ", Mert ez a verzió nem lesz képes elhagyni"
+
+msgid "You will now be transported outside"
+msgstr "Lesz most kell szállítani kívül"
+
+msgid "We apologize for the inconvenience"
+msgstr "Elnézést kérünk a kellemetlenségekért"
+
+msgid "That's a lot of slime"
+msgstr "Ez egy sok iszap"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "Nem hiszem, hogy az Ice Spray lesz, mivel ez az egész csak akkor működik, a víz"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimes csak úszni, a vízben, hogy nem fog segíteni sem"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "Emlékszem Borgan mondta, milyen ironikus, hogy a"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "Majd meg kell találni valamit, hogy segítsen nekem kap az egész ..."
+
+msgid "There, the rope's firmly attached"
+msgstr "Ott a kötél szilárdan rögzítve"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "Meg kell találnom néhány kötelet, mire képes, hogy tűz"
+
+msgid "It's a Grappling Hook"
+msgstr "It's a Grappling Hook"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "Én talán képes vagyok felhasználni arra, hogy hidat képeznek a másik oldalon, de nincs kötél"
+
+msgid "I still need a Fire Shield"
+msgstr "Még mindig szükség van a Fire Shield"
+
+msgid "Wow, this place is empty!"
+msgstr "Wow, ez a hely üres!"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "Azt hiszem, a varázsló nincs szüksége fegyverekre, hiszen így mágia"
+
+msgid "Still, there must be something of use in here"
+msgstr "Mégis, kell lennie valami használati itt"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "Cool, egy óriási csúszás puzzle! Nekem van egy ilyen otthon!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "Hát, nem egy óriás, egy, nyilván ..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "Push balra, jobbra, felfelé vagy lefelé mozog a blokkok"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "Rendezzük el a blokkokat, hogy a számok 1-8 jelenik meg, hogy balról jobbra, és az üres négyzet van a jobb alsó sarokban"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "Nyomjuk meg a támadás, hogy lépjen ki a puzzle"
+
+msgid "A length of rope"
+msgstr "A kötél hossza"
+
+msgid "A device for grabbing far away objects"
+msgstr "A készülék a távoli tárgyakat rángatás"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "Egy üveg pirula alakításának iszapos vízbe"
+
+msgid "Tutorial Key"
+msgstr "Key bemutató"
+
+msgid "Light Key"
+msgstr "Light Kulcs"
+
+msgid "Rope"
+msgstr "Kötélen"
+
+msgid "Extend-O-Grab"
+msgstr "Extend-O-Grab"
+
+msgid "Water Purifiers"
+msgstr "Víz Purifiers"
+
+msgid "Right Wing Key"
+msgstr "Jobboldal Key"
+
+msgid "Catapult Lift Key"
+msgstr "Katapult Lift Key"
+
+msgid "Armoury"
+msgstr "Fegyvertárának"
+
+msgid "Maggie"
+msgstr "Maggie -"
+
+msgid "Jacob"
+msgstr "Jacob"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "Edgar"
+
+msgid "Mine Cart"
+msgstr "Cart Mine"
+
+msgid "%s has regained power"
+msgstr "Már %s visszanyerte hatalma"
+
+msgid "Wow, a catapult!"
+msgstr "Wow, a katapult!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "A zsanérok néz rozsdás bár kétlem, hogy jó lesz, amíg nem kap azok fix"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "Ennyi? Csak ezt a régi pajzs? Nem úgy néz ki jobban, mint az én jelenlegi."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "Mégis, I'll kapaszkodnia, hogy az adott időpontban, akkor jól jöhet"
+
+msgid "Great, a spare shield!"
+msgstr "Nagy, egy tartalék pajzs!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "Ez nem úgy néz ki, mint egy Fire Shield nekem. I was really remélve, hogy talál egy itt is"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "Ez a pajzs nem úgy néz ki jobban, mint az én jelenlegi."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "Csak létre kell hoznia a folyadék az iszapot és a csáp Gazer szemgolyó"
+
+msgid "That's not a good sign..."
+msgstr "Ez nem jó jel ..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "Csak meg kell találni egy másik pajzs elvarázsol ..."
+
+msgid "Hey, a lightning sword!"
+msgstr "Hé, egy villám kard!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "Úgy néz ki, sokkal erősebb, mint a mostani kard is"
+
+msgid "With this I should be almost unstoppable"
+msgstr "Ezzel kell szinte megállíthatatlan"
+
+msgid "Almost"
+msgstr "Szinte"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "A Villám kard korlátozott számú díjak és elveszíti erejét, amikor ezek a díjak nem használták,"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "Ellenségek véletlenszerűen csepp több díjat leölésükkor"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "Megjegyzendő, hogy ha a kard teljesen elveszíti a hatalom visszaszáll a rendszeres kard nagyon kevés hatalma, amíg nem talál további díjakat"
+
+msgid "This centurion has no power"
+msgstr "Ez a százados nem rendelkezik hatáskörrel"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "Ez kapcsolódik ez a futópad, így valószínûleg díjat fel elegendő sebességgel"
+
+msgid "An old shield found in the Armoury"
+msgstr "Egy régi pajzs található a Fegyvertár"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "A Kard lehet bízni villám"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "A Sword hatja át a hatalmat a villám"
+
+msgid "Lightning Sword"
+msgstr "Kard villám"
+
+msgid "INTRUDER!"
+msgstr "Betolakodó!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "A zsanérok néz rozsdás bár kétlem, hogy jó lesz amíg meg őket fix"
+
+msgid "OK, let's see if this works..."
+msgstr "Rendben, lássuk, ha ez szerkezet ..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "Én már nem probléma gyalogos át ezt a kötél sem, hála az én kötélen járás készségek"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "És apa azt mondta, hogy soha nem jöhet!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "Szükségem van egy hosszú kötelet, hogy csatolja a reteszt"
+
+msgid "It's a giant crossbow"
+msgstr "Ez egy hatalmas számszeríj"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "Én talán képes vagyok felhasználni arra, hogy hozzon létre egy híd fölött, akik tüskék"
+
+msgid "I'll need some rope first though"
+msgstr "Szükségem lesz egy kötél az első, ha"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "Ott, ez a zsanérok olajozott. Ezt figyelembe kell, mint új korában most!"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "A pántok rozsdás, azt kell majd találni egy kis olajat, mire tudja használni"
+
+msgid "I can't run in this armour, though"
+msgstr "Nem tudok futni a páncél, de"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "Plusz, nem vagyok fáradt mindezt gyaloglás, ugrálás, verekedés, úszás ..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "gondolkodás, a bányászat, darabolás, tolása, húzása, könyv ..."
+
+msgid "and catching chickens"
+msgstr "elfogást és a csirkék"
+
+msgid "I'll get something else to do it instead"
+msgstr "Hozok valami mást csinálni helyette"
+
+msgid "Statistics"
+msgstr "Statisztikákat"
+
+msgid "Play Time: %s"
+msgstr "Play Time: %s"
+
+msgid "Kills: %d"
+msgstr "Kills: %d"
+
+msgid "Bats Drowned: %d"
+msgstr "Denevérek fulladt: %d"
+
+msgid "Times Eaten: %d"
+msgstr "Times Evett: %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "Blokkolt támadások: %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "Módon töltött időt, egy Slime: %s"
+

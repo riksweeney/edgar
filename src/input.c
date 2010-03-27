@@ -637,20 +637,24 @@ void resetControls(int editor)
 		control.button[CONTROL_ADD] = SDLK_LEFT;
 		control.button[CONTROL_NEXT] = SDLK_PERIOD;
 		control.button[CONTROL_PREVIOUS] = SDLK_COMMA;
-		control.button[CONTROL_SAVE] = SDLK_s;
-		control.button[CONTROL_LOAD] = SDLK_l;
-		control.button[CONTROL_TOGGLE] = SDLK_e;
-		control.button[CONTROL_ACTIVATE] = SDLK_a;
-		control.button[CONTROL_CUT] = SDLK_x;
 		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
 		control.button[CONTROL_INVENTORY] = SDLK_z;
 		#if DEV == 1
 			control.button[CONTROL_FLY] = SDLK_f;
 		#endif
-		control.button[CONTROL_SNAP] = SDLK_g;
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;
 		control.button[CONTROL_BLOCK] = SDLK_LALT;
+		
+		if (editor == TRUE)
+		{
+			control.button[CONTROL_SAVE] = SDLK_s;
+			control.button[CONTROL_LOAD] = SDLK_l;
+			control.button[CONTROL_TOGGLE] = SDLK_e;
+			control.button[CONTROL_ACTIVATE] = SDLK_a;
+			control.button[CONTROL_CUT] = SDLK_x;
+			control.button[CONTROL_SNAP] = SDLK_g;
+		}
 	}
 
 	control.deadZone = 6000;

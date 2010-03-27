@@ -76,6 +76,12 @@ void initGame()
 	game.timesEaten = 0;
 
 	game.playTime = 0;
+	
+	game.distanceTravelled = 0;
+	
+	game.timeSpentAsSlime = 0;
+	
+	game.attacksBlocked = 0;
 
 	game.action = NULL;
 
@@ -745,6 +751,34 @@ char *getPlayTimeAsString()
 	}
 
 	tempTime = game.playTime;
+
+	hours = tempTime / (60 * 60 * 60);
+
+	tempTime -= hours * 60 * 60 * 60;
+
+	minutes = tempTime / (60 * 60);
+
+	snprintf(timeString, 15, "%dH %dM", hours, minutes);
+
+	return timeString;
+}
+
+char *getSlimeTimeAsString()
+{
+	/* 1 second is 60 frames */
+
+	int hours, minutes;
+	long tempTime;
+	char *timeString;
+
+	timeString = (char *)malloc(15 * sizeof(char));
+
+	if (timeString == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Slime Time string...", 15 * (int)sizeof(char));
+	}
+
+	tempTime = game.timeSpentAsSlime;
 
 	hours = tempTime / (60 * 60 * 60);
 

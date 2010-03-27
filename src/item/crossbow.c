@@ -77,7 +77,7 @@ static void addBolt()
 	
 	if (self->mental <= 1)
 	{
-		e = getEntityByObjectiveName("Crossbow Bolt");
+		e = getEntityByObjectiveName("CROSSBOW_BOLT");
 
 		if (e == NULL)
 		{

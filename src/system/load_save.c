@@ -214,6 +214,21 @@ int loadGame(int slot)
 		{
 			sscanf(line, "%*s %d\n", &game.timesEaten);
 		}
+		
+		else if (strcmpignorecase("DISTANCE_TRAVELLED", itemName) == 0)
+		{
+			sscanf(line, "%*s %u\n", &game.distanceTravelled);
+		}
+		
+		else if (strcmpignorecase("ATTACKS_BLOCKED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.attacksBlocked);
+		}
+		
+		else if (strcmpignorecase("SLIME_TIME", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.timeSpentAsSlime);
+		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
@@ -389,6 +404,12 @@ static void patchSaveGame(char *saveFile, double version)
 					fprintf(newSave, "BATS_DROWNED %d\n", game.batsDrowned);
 
 					fprintf(newSave, "TIMES_EATEN %d\n", game.timesEaten);
+					
+					fprintf(newSave, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
+					
+					fprintf(newSave, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
+					
+					fprintf(newSave, "SLIME_TIME %d\n", game.timeSpentAsSlime);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
@@ -488,6 +509,12 @@ void saveGame(int slot)
 	fprintf(write, "BATS_DROWNED %d\n", game.batsDrowned);
 
 	fprintf(write, "TIMES_EATEN %d\n", game.timesEaten);
+	
+	fprintf(write, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
+	
+	fprintf(write, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
+	
+	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 

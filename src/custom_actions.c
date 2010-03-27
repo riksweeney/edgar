@@ -23,10 +23,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 #include "map.h"
 #include "hud.h"
+#include "medal.h"
 #include "custom_actions.h"
 #include "system/error.h"
 
 extern Entity *self;
+extern Game game;
 
 void setCustomAction(Entity *e, void (*func)(int *, int *, float *), int thinkTime, int accumulates, float customValue)
 {
@@ -238,6 +240,13 @@ void regenerate(int *thinkTime, int *counter, float *value)
 
 void slimeTimeout(int *thinkTime, int *counter, float *value)
 {
+	game.timeSpentAsSlime++;
+	
+	if (game.timeSpentAsSlime == 36000)
+	{
+		addMedal("slime");
+	}
+	
 	(*thinkTime)--;
 
 	freeMessageQueue();

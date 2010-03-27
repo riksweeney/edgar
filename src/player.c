@@ -599,6 +599,8 @@ void doPlayer()
 		{
 			playerShield.thinkTime = 0;
 		}
+		
+		game.distanceTravelled += fabs(self->dirX);
 	}
 
 	else
@@ -952,6 +954,13 @@ static void takeDamage(Entity *other, int damage)
 
 					playerShield.thinkTime = 5;
 				}
+				
+				game.attacksBlocked++;
+				
+				if (game.attacksBlocked == 10000)
+				{
+					addMedal("blocked");
+				}
 
 				if (other->reactToBlock != NULL)
 				{
@@ -1000,6 +1009,13 @@ static void takeDamage(Entity *other, int damage)
 				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 				playerShield.thinkTime = 5;
+			}
+			
+			game.attacksBlocked++;
+			
+			if (game.attacksBlocked == 10000)
+			{
+				addMedal("blocked");
 			}
 
 			other->x = other->x < player.x ? player.x - other->w - 4 : player.x + player.w + 4;

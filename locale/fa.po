@@ -1,0 +1,2163 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "به سرعت چپ و راست به نوبت خاموش تکان slimes!"
+
+msgid "Bow"
+msgstr "تعظیم"
+
+msgid "Not working in this version!"
+msgstr "هنوز مشغول به کار در این نسخه!"
+
+msgid "Press Action to interact"
+msgstr "مطبوعات اقدام به تعامل"
+
+msgid "%s is required"
+msgstr "%s مورد نیاز است"
+
+msgid "Bomb"
+msgstr "بمب"
+
+msgid "Small Rock"
+msgstr "داد و ستد اندک راک"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "مطبوعات اقدام به بازیابی جم بنفش"
+
+msgid "Chicken"
+msgstr "مرغ"
+
+msgid "Tesla Pack"
+msgstr "تسلا بسته"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "مطبوعات اقدام به بازیابی تسلا بسته"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "مطبوعات اقدام به تعویض بسته تسلا"
+
+msgid "Obtained %s"
+msgstr "به دست آمده %s"
+
+msgid "Complete"
+msgstr "کامل"
+
+msgid "%d more to go..."
+msgstr "%d ادامه بروید..."
+
+msgid "Used %s"
+msgstr "مورد استفاده قرار %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "می توانید آیتم های مجهز نیست در حالیکه transmogrified"
+
+msgid "Equipped %s"
+msgstr "مجهز %s"
+
+msgid "Maximum health has increased!"
+msgstr "بهداشت و درمان حداکثر افزایش یافته است!"
+
+msgid "Bow will now fire %s"
+msgstr "تعظیم در حال حاضر %s آتش خواهد شد"
+
+msgid "A bow is required to use this item"
+msgstr "تعظیم موظف است نسبت به استفاده از این قلم دوم از اقلام"
+
+msgid "Cannot transmogrify here..."
+msgstr "نمی تواند تغییر شکل دادن در اینجا..."
+
+msgid "Yes"
+msgstr "بله"
+
+msgid "No"
+msgstr "بدون"
+
+msgid "Start a new game?"
+msgstr "شروع یک بازی جدید؟"
+
+msgid "Play the tutorial?"
+msgstr "بازی آموزش؟"
+
+msgid "Exit the game?"
+msgstr "خروج از بازی؟"
+
+msgid "Back"
+msgstr "بازگشت"
+
+msgid "Game Loaded"
+msgstr "بازی بارگذاری شده"
+
+msgid "Game Saved"
+msgstr "بازی ها ذخیره شده"
+
+msgid "OK"
+msgstr "خوب"
+
+msgid "Any unsaved progress will be lost"
+msgstr "هر گونه پیشرفت نجات نیافته از دست خواهند رفت"
+
+msgid "Joy Button #%d"
+msgstr "شادی دکمه # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "مطبوعات اقدام به بحث %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "جدید هدف : %s"
+
+msgid "Objective Completed: %s"
+msgstr "هدف پایان یافته : %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "دیوار در سمت راست می رسد ضعیف..."
+
+msgid "This weapon is not having any effect..."
+msgstr "این سلاح است هیچ تاثیری نداشتن..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "مطبوعات اقدام به پیوست بسته تسلا"
+
+msgid "The Legend of Edgar"
+msgstr "افسانه ادگار"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s مورد نیاز است به فعال کردن این گزینه"
+
+msgid "Press Action to use this switch"
+msgstr "مطبوعات اقدام به استفاده از این گزینه"
+
+msgid "Press Action to save your game"
+msgstr "مطبوعات اقدام به ذخیره بازی کنید"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s مورد نیاز است به استفاده از این فشار پلیت"
+
+msgid "%s is needed to open this door"
+msgstr "%s مورد نیاز است برای باز کردن این درب"
+
+msgid "This door is locked"
+msgstr "این درب قفل شده است و"
+
+msgid "This teleporter is not active"
+msgstr "این teleporter فعال نیست"
+
+msgid "Press Action to go to the %s"
+msgstr "مطبوعات اقدام به %s بروید"
+
+msgid "Push Up or Down to use this lift"
+msgstr "با فشار بالا و پایین رفتن به استفاده از این بالابر"
+
+msgid "This lift is not active"
+msgstr "این بالابر غیر فعال است"
+
+msgid "Cannot carry any more %s"
+msgstr "آیا می توانم هر %s بیشتر قبول نمی"
+
+msgid "Picked up %s x %d"
+msgstr "برداشت تا %s x %d"
+
+msgid "Picked up %s"
+msgstr "برداشت تا %s"
+
+msgid "Readied %s"
+msgstr "آماده %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s موظف است نسبت به انجام این مورد"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "کلید شبکه"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "ذغال سنگ کیسه ای ذخیره سازی تغییر کلیدی"
+
+msgid "Large Room Key"
+msgstr "کلید اتاق بزرگ"
+
+msgid "Coal Bag"
+msgstr "ذغال سنگ کیسه ای"
+
+msgid "Forest Cell Key"
+msgstr "جنگل سلول کلیدی"
+
+msgid "Wood Axe"
+msgstr "چوب تبر"
+
+msgid "Health Potion"
+msgstr "بهداشت و درمان شربت عشق"
+
+msgid "Outflow Key"
+msgstr "به بیرون جاری شدن کلید"
+
+msgid "Flow Control Key"
+msgstr "روند کنترل کلید"
+
+msgid "Waste Processing Key"
+msgstr "ضایعات پردازش کلیدی"
+
+msgid "Access Key 1"
+msgstr "دسترسی به کلید 1"
+
+msgid "Access Key 2"
+msgstr "دسترسی به کلید 2"
+
+msgid "Access Key 3"
+msgstr "دسترسی به کلید 3"
+
+msgid "Trap Door Switch Key"
+msgstr "دام درب تعویض کلید"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "این بالابر دارای هیچ قدرتی ندارد. من قادر نخواهد بود استفاده از آن را تا زمانی که قدرت بازگرداندن من"
+
+msgid "Keep practising!"
+msgstr "تمرین نگه دارید!"
+
+msgid "Hi"
+msgstr "سلام"
+
+msgid "Hello Edgar"
+msgstr "سلام ادگار"
+
+msgid "Can I borrow your shield?"
+msgstr "سپر می تواند شما را قرض بگیرم؟"
+
+msgid "Off to practice your fighting skills?"
+msgstr "عمل کردن به مهارت های خود را مبارزه با؟"
+
+msgid "Something like that"
+msgstr "چیزی شبیه به آن"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "اگر از من فرمان و سپس شما می توانید از سپر"
+
+msgid "What do I have to do?"
+msgstr "چه باید بکنم؟"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "رفتن به معدن و من بعضی از زغال سنگ ، جمع آوری"
+
+msgid "But we have plenty of coal!"
+msgstr "ولی ما که مقدار زیادی ذغال سنگ!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "بله ، ولی این امر هر ساله نه زغال سنگ ، زغال سنگ این است خاص ، آن را داغتر می سوزد و دیگر طول می کشد"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "من فقط نیاز به 10 قطعه stuff ، بنابراین باید به شما را نه چندان طولانی"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "اطمینان حاصل کنید که شما آن را در یک کیسه قرار دهید ، لمس کردن آن را برای بیش از حد طولانی خواهد شد برای سلامتی شما بد باشد"
+
+msgid "Do you have a bag?"
+msgstr "آیا کیسه؟"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "بله ، احتمالا شما می توانید در یکی از معدن پیدا هر چند"
+
+msgid "OK, I'll get the coal"
+msgstr "خوب ، من ذغال سنگ گرفتن"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "در اینجا ، این را با کلنگ زدن. شما می توانید آن را به استفاده از معدن ذغال سنگ و هک از طریق دیواره های ضعیف تر به شما برخورد"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "شما همچنین باید این کلید را در معدن نیاز به دریافت"
+
+msgid "Thanks!"
+msgstr "با تشکر!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "تشکر از شما ، ادگار ، این زغال سنگ کامل است! امیدواریم که bats آیا ترساندن نیست."
+
+msgid "The bats were the least of my worries..."
+msgstr "bats بودند دست کم از نگرانی های من..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "بگو ، من شنیده ام که چیزی که اتفاق افتاده در معدن چند سال پیش"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er ، بله ، چیزی بود که می خواهم به شما تماس  حادثه وجود دارد  ، اما آن بخشی از معدن مهر و موم شده بود تا مدت طولانی پیش"
+
+msgid "Right..."
+msgstr "حق..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "در اینجا ، که سپر من و آن لذت ببرید!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "فقط دور شو از آبی ممنوع"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "انجام خواهد داد ، می توانم به کلنگ زدن برای خود نگه دارید در حالی که؟"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "چیز مطمئنا ، فقط آن را پشت را در یک قطعه"
+
+msgid "Thanks, Borgan!"
+msgstr "با تشکر از شما Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "آیا شما موفق به پیدا کردن زغال سنگ رتبهدهی نشده است؟"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "شما می توانید برخی از موارد در اطراف توسط فشار علیه آنها در حالیکه پایین نگه داشتن دکمه عمل کشیدن."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "بعد از آن شما می توانید از آن به اطراف بکشید تا به شما اجازه رفتن از دکمه اکشن"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "این سنگ می رسد بیش از حد قوی من برای انتخاب تبر. می خواهم که با چیز دیگری استفاده کنید برای دریافت از طریق..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh ، چه اتفاقی افتاد؟"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "شبیه این بود و این ایده خوب نیست پس از همه"
+
+msgid "There must be way out of here..."
+msgstr "وجود داشته باشد باید راه خروج از اینجا..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "این کار باید ذغال سنگ معدن را به من می خواهد برای او"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "من فکر نمی کنم سپر مرا از آن fireballs محافظت می کند. می خواهم که با یکی از قوی برای یافتن..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "شما قادر به انجام این کار کمی در این نسخه ، باز هم تشریف بیاورید!"
+
+msgid "Strange creature..."
+msgstr "موجودی بم پس از زلزله..."
+
+msgid "Wait, what was that?"
+msgstr "صبر کنید ، چه بود که؟"
+
+msgid "You again?!"
+msgstr "شما دوباره؟!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "قرار است چیزی رخ دهد ، ولی در این نسخه نیست پس باز هم تشریف بیاورید!"
+
+msgid "Have fun!"
+msgstr "جالب بود!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "با تشکر برای resucing جوجه من ، که با شما کردم 2 سیاهههای مربوط به من از جنگل رتبهدهی نشده است؟"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "تشکر از ادگار! جوجه پشت من هستند و این سیاهههای مربوط به من جریمه انجام خواهد شد"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "نگاهی این شمشیر ، ممکن است شما آن را در خدمت به خوبی!"
+
+msgid "Thank you!"
+msgstr "با تشکر!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "با تشکر برای ثبت رخداد ، که با شما به حال شانس با هر قطعه جوجه؟"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "من به شما شمشیر بدهند اگر که کسب می کنید من 2 سیاههها قطعه قطعه شده از جنگل و نجات حداقل 3 تا از جوجه من"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "سلام ادگار ، چه می توانم برای شما انجام دهد ، امروز؟"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "آیا شمشیر می توانم قرض بگیرم؟"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "من که شمشیر و شما می توانید آن را اگر شما انجام کاری که برای من اولین"
+
+msgid "OK... what do I have to do?"
+msgstr "تأیید... چه چیزی به من بدهید کاری انجام دهید؟"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "برخی از جوجه ها من را از قلم خود فرار کرد و من بسیار سپاسگزار خواهد بود اگر شما می توانید آنها را دوباره برای من گرفتن"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "من راه اندازی برخی از تله در نزدیکی قلم خود ، شما می توانید آنها را به دام مرغ با استفاده از این اشتراک بوسیله تطمیع بدام انداختن. من همه آنها را لازم نیست ، اما حداقل 3 خواهد بود بسیار موثر است. من نمی توانم خودم را استراحت کنید."
+
+msgid "That's it?"
+msgstr "همین؟"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "نه کاملا. می تواند به شما نیز مرا از گرفتن چوب از جنگل؟ 2 لاگ باید کافی"
+
+msgid "Do you have an axe?"
+msgstr "آیا تبر؟"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm... من تبر من در جنگل سمت چپ جایی. که هنوز باید وجود داشته باشد"
+
+msgid "Isn't that forest dangerous?"
+msgstr "این است که در جنگل خطرناک نیست؟"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "نه واقعا ، اگر هر چیزی میشود در راه خود ، آن را فقط با سلاح آمار"
+
+msgid "Such as an axe?"
+msgstr "مانند تبر؟"
+
+msgid "Yes, that would do the trick"
+msgstr "بله ، که لم کار"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "اما جدی تلقی می کنید ، هیچ چیز وجود دارد در وجود دارد که واقعا می تواند به شما آسیب برساند. که با یک مشکل خیلی وقت پیش بود سر و کار داشتن..."
+
+msgid "Good luck!"
+msgstr "موفق باشید!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "آه ، با تشکر ادگار ، من فقط 3 مورد نیاز است ، اما برای تشکر از کمک های اضافی!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "در اینجا ، مگی ساخته شده من این جرعه بهداشت و درمان ، اما من آن را لازم نیست پس چرا انجام نمی کنید آن را داشته باشد؟"
+
+msgid "Thanks Jacob"
+msgstr "با تشکر یعقوب"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow ، شما لحظه همه آنها را به لطف زیادی!"
+
+msgid "Here, I have these for you"
+msgstr "در اینجا ، من این را برای شما"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "مگی ساخته شده من این جرعه سلامت اما شما می توانید از آن داشته"
+
+msgid "And this is something very special"
+msgstr "و این چیزی بسیار ویژه است"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "ممکن است این به شما کمک کنند در راه خود را به تبدیل شدن به یک جنگجو قوی"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "شما مرا نجات داد زمان زیادی. مگی ساخته شده به من چیز دیگری اما از شما بوده اند تا کمک کننده ، می توانید آن را داشته باشد."
+
+msgid "Hi Maggie"
+msgstr "سلام مگی"
+
+msgid "Thanks Maggie!"
+msgstr "مگی با تشکر!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan گفت که یک بخش از معدن پس از مهر و موم شده بود  حادثه"
+
+msgid "There must be something around here..."
+msgstr "باید چیزی وجود داشته باشد در این حوالی هست..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat ، پل متحرک است تا. باید یک ورودی وجود دارد...."
+
+msgid "Wait, what's that?"
+msgstr "صبر کنید ، چه چیزی که؟"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "شاید بتوانم وارد تونل راه من.."
+
+msgid "These machines aren't working."
+msgstr "این ماشین ها هستند کار نمی کند."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "بیشتر شبیه به یک جواهر در این جا باید به سوراخ می رسد ، شاید من بعضی از تعویض می توانید پیدا کنید."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "به نظر میرسد آن شدیدا در wedged وجود دارد. من احتمالا می توانید آن را با کلنگ زدن شل..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "برای این که به آبی ممنوع من باید قایق را بسازند."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "من می توانم قایق اگر من به اندازه کافی ریز ریز کردن کردن درختان از جنگل ساخت"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "من نیاز به 6 سیاههها قطعه قطعه شده برای ساخت قایق مسطح الواری"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "من به باتلاق فرو بردن بدون شمشیر و سپر نمی"
+
+msgid "OK, here goes!"
+msgstr "خوب ، در اینجا می رود!"
+
+msgid "Aw, not again!"
+msgstr "Aw ، و نه دوباره!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "بهتر بود این آخرین دفعه من برای این کار می شود..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "که آسان بود! و من همیشه می توانند بعد از گرفتن!"
+
+msgid "Oh...."
+msgstr "آه...."
+
+msgid "Guess I have no choice now."
+msgstr "حدس من در حال حاضر انتخاب دیگری ندارند."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "ثابت قدم بودن پدر ، I'm آینده..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "قرار است چیزی رخ دهد در حال حاضر ، اما در این نسخه نیست. باز هم تشریف بیاورید!"
+
+msgid "There's a note here"
+msgstr "'sتوجه داشته باشید در اینجا وجود دارد."
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "من به دام افتاده پایین شده است اینجا را برای آنچه به نظر می رسد مانند ابدیت"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "برای خارج شدن از این محل من باید 3 کلید دسترسی به کار آسانسور"
+
+msgid "So far I have only found 1"
+msgstr "تا کنون من تنها نشد 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "به مسائل بدتر ، من فقط می تواند با برخی از سوئیچ ها به دقت قرار داده برسد arrow"
+
+msgid "But spares aren't common and I have run out"
+msgstr "مناسبتها اما عادی هستند و نه اجرا را به من بدهید؟"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "اگر من می توانم در یک راه را پیدا کنم از اینجا به زودی ، من ممکن است ترس من از گرسنگی مردن"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "اگر من بگیرید نه از سر در اینجا من همان سرنوشت رنج می برند..."
+
+msgid "Oh, what's this?"
+msgstr "آه ، این چیست؟"
+
+msgid "There's a note here too"
+msgstr "'sتوجه داشته باشید در اینجا نیز وجود دارد."
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "شربت عشق کامل شده است! Quaffing آن خواهد چرخید انسان به موجودی برای مقدار کمی از زمان"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "تا کنون من تنها می توانم به خودم تغییر شکل دادن به یک موجود ، اما با کمی وقت بیشتری باید هر چیزی امکانپذیر باشد"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "یک بیت کوچک سمت چپ وجود دارد ، باید امن برای نوشیدنی"
+
+msgid "OK, here goes nothing..."
+msgstr "خوب ، در اینجا چیزی می رود..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! این ناگوار است!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan گفت : من که Slimes می توانند در آب شنا اگرچه ، بنابراین شاید این صفحه مفید خواهد بود..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "هنگامی که به لجن مال کردن ، تبدیل ، شما می توانید به صورت عادی حرکت. شما همچنین می توانید در آب شنا کردن و استفاده از بالا و پایین به حرکت در اطراف"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "با کنار زدن بالا و پرش شما را انتخاب خواهد کرد از آب اگر شما در نزدیکی سطح هستیم"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "نگه داشتن چشم در شمارنده در پایین صفحه نمایش. هنگامی که آن را به شما می رسد 0 به طور خودکار تبدیل به انسان دوباره"
+
+msgid "This place doesn't look so bad..."
+msgstr "این محل نشانی از بد به نظر نمی آید..."
+
+msgid "What was that?"
+msgstr "چه شد که؟"
+
+msgid "Uh Oh..."
+msgstr "Uh آه..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew ، من خوشحالم که در خارج شدن از آنجا"
+
+msgid "Now to get through this swamp"
+msgstr "در حال حاضر برای بدست آوردن از طریق این باتلاق فرو بردن"
+
+msgid "Hey, what's this?"
+msgstr "Hey ، این چیست؟"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "کاملا بی ضرر می رسد ، I'll سعی کنید آن را در زیر پا"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! که خنک شد! این کار باید teleporter مکانیکی."
+
+msgid "I wonder if it works both ways..."
+msgstr "می خواستم بدانم اگر با این نسخهها کار هر دو طریق را..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "نه تنها این به من راه رفتن زیادی ذخیره کنید ، همچنین بارهای سرگرم کننده!"
+
+msgid "Now try out your shield"
+msgstr "در حال حاضر از سپر خود را امتحان کنید"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "بلوک حلزون خوراکی خیلی کوچک گلوله های انجام شده توسط بوته و پرش به لبه بعدی"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "برخی از اقلام را در بازی می تواند تحت فشار قرار دادند و کشیده"
+
+msgid "To push an item, simply walk into it"
+msgstr "به فشار قلم دوم از اقلام ، فقط راه رفتن را در آن"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "برای کشیدن یک آیتم ، در حالی که به پایین نگه داشتن عمل پیاده روی"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "بعد از آن شما می توانید قلم دوم از اقلام در اطراف بکشید تا به شما اجازه رفتن اقدام"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "نگه دار ، جعبه بیش از طرف دیگر و استفاده از آن برای رسیدن به لبه"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "این آخرین قسمت از آموزش است و شما را به بلوک تدریس و حمله دشمنان"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "اول ، شما باید شمشیر از آن محدوده بیشتر و نشانی از تخریب بیش از کلنگ زدن تجهیز"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "مطبوعات ž برای مشاهده موجودی خود را برجسته شمشیر و مطبوعات حمله (چپ مهار) و یا استفاده از مورد (الف)"
+
+msgid "Press z again to close your inventory"
+msgstr "مطبوعات Ž دوباره به موجودی خود را ببند"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "گاه به گاه ، مقتول دشمنان سلامت که چند ثانیه پس از ناپدید شدن ، رها تا به سرعت آن را انتخاب کنید!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "اگر بال بال زدن است به گرفتن نزدیک به شما ، با نگهداشتن بلوک harmlessly خواهد شد و آن را گزاف گویی کردن شما"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "در حال حاضر تمام bats در منطقه کشتن!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "دو نوع درب در بازی وجود دارد. درب های دستی و درب های اتوماتیک."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "راهنمای نیاز به کلیدهای درها به آنها باز است ، درب های اتوماتیک نیاز به سوئیچ."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "برای باز کردن درب قفل شده است که شما کلید را برای ، به سادگی آن را به راه رفتن. و بدون نیاز به کلید انتخاب در موجودی شما وجود دارد."
+
+msgid "Open the door and continue to the right"
+msgstr "باز کردن درب و همچنان به سمت راست"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "خوش آمدید! در حال حاضر می دانید اصول بازی شما باید بازی اصلی سعی کنید"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "اگر می خواهید به پخش این آموزش ، مطبوعات و گریز را انتخاب کنید از منوی خودآموز"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "بازی بازی اصلی ، مطبوعات و گریز را انتخاب کنید جدید بازی ها را از منوی"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "مطبوعات فاصله زمانی که شما به پایان رسید خواندن برای رفتن به جعبه محاوره بعدی"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "شما همچنین می توانید به جعبه محاوره بعدی حمله حرکت با فشار دادن (چپ کنترل) ، بلوک (چپ دگرساز) ، پرش (فضا) ، عمل (ج) و یا استفاده از مورد (الف)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "این آموزش برای افسانه ادگار است. در این خودآموز خواهد شد که چگونه یک بازی را بازی کند."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "برای خروج از این آموزش ، مطبوعات فرار و بالا و پایین کلید های arrow به انتخاب یک گزینه استفاده کنید. بازگشت به مطبوعات آن را انتخاب کنید."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "حرکت به چپ و راست ، استفاده از کلید های arrow."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "برای ایجاد جهش ، فضا را فشار دهید. شما می توانید در هوا هنگام حرکت پریدن."
+
+msgid "To interact with an item, press c"
+msgstr "ارتباط برقرار کردن با قلم اول از اقلام ، مطبوعات ج"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "پیاده روی بیش از نقطه ای به عمل و مطبوعات ج"
+
+msgid "To collect an item from your"
+msgstr "برای جمع آوری قلم دوم از اقلام از شما"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "برای بلند کردن قلم دوم از اقلام ، فقط راه رفتن را در آن. هر گونه اقلام collectable به موجودی شما اضافه خواهد شد."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "شما می توانید مطالب از موجودی خود را با فشار دادن Ž نمایش"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "هرچند که در فهرست موجودی ، استفاده از کلید های arrow به نمایش اقلام است."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "شما می توانید یک آیتم را بلافاصله با فشار دادن استفاده از حمله (چپ مهار) و یا استفاده از مورد (الف)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "شما می توانید یک آیتم آماده برای استفاده با فشار دادن بلوک (چپ دگرساز) و یا عمل (ج)"
+
+msgid "Walk over the key to pick it up"
+msgstr "پیاده روی بیش از کلید به آن وانت"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "شما می توانید تمام کنترل را در بازی با فشار دادن فرار و انتخاب گزینه ها در منو تغییر"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "را انتخاب کنید کنترل پیکربندی با استفاده از کلید های arrow و بازگشت مطبوعات"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "با استفاده از کلید های arrow را انتخاب کنید کنترل شما می خواهید به تغییر و مطبوعات بازگشت."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "بعد ، مطبوعات کلیدی را که می خواهید استفاده کنید به جای آن."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "صرف نظر از آنچه به شما کلید را انتخاب کنید ، شما همیشه میتوانید به منوها با استفاده از کلید های arrow و بازگشت به حرکت"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "توجه داشته باشید که در این آموزش ، کلیدهای پیش فرض خواهد شد به عهده گرفت"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "هنگامی که شما به پایان رسید کلیدهای پیکربندی ، به حق عمل بعدی نقطه"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "کلنگ دو سر یکی از سلاح های بسیاری از شما را در بازی با آنها مواجه است."
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "شما می توانید آن را به عنوان یک سلاح و ابزار استفاده از"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "وانت با کلنگ زدن ادامه دهد و اقدام بعدی به نقطه ای"
+
+msgid "Congratulations, you found a secret!"
+msgstr "تبریک ، شما یافت نشد مخفی!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "هستند بسیاری از اسرار را در بازی اصلی را نگه دارید مراقب آنها وجود دارد."
+
+msgid "Here's a hint to get you started"
+msgstr "در اینجا اشاره به شما برای شروع"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "اگر چه تنها نیاز دارد شما را به گرفتن 3 از جوجهها را ، چرا نمی شود به او زیبا و گرفتن بیشتر؟ سرگردان هستند 10 نقشه در همه وجود دارد."
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "سپر شما را از دشمن ترین حملات محافظت"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "بعضی از حملات دشمن را نمی توان مسدود شده"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "خطرات زیست محیطی مانند افتادن سنگ ، را نمی توان مسدود شده"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "برای جلوگیری از حمله ، بلوک را فشار داده و نگه (چپ دگرساز)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "شما باید در مواجهه با حمله به آن را با موفقیت بلوک"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "توجه داشته باشید که شما نمی توانید به حرکت در حالیکه مسدود شده است ، اما شما می توانید راه های دیگر صورت می شود. همچنین شما نمی توانید بلوک در هوا"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "وانت سپر و ادامه به سمت راست"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "این دیوار ضعیف ، می تواند با استفاده از پایین با کلنگ زدن smashed شود"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "برای استفاده از کلنگ دو سر ، مطبوعات حمله (چپ کنترل)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "که همه دیوارهای ضعیف می تواند با استفاده از آنها نابود شوند و با کلنگ زدن"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "تخریب دیوار با استفاده از کلنگ زدن و ادامه"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "چیزی را تصور می شود در اینجا ولی در این نسخه نیست ، باز هم تشریف بیاورید!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "جمع آوری 10 قطعه از ذغال سنگ"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "2 قطعه قطعه شده را جمع آوری سیاههها"
+
+msgid "Rescue 3 Chickens"
+msgstr "نجات 3 جوجه"
+
+msgid "Find 4 Gems"
+msgstr "4 پیدا کردن جواهر"
+
+msgid "Repair Generators"
+msgstr "تعمیر ژنراتور"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "6 قطعه قطعه شده را جمع آوری سیاههها"
+
+msgid "Collect 3 Access Keys"
+msgstr "3 جمع آوری کلیدهای دسترسی"
+
+msgid "This is a blank objective"
+msgstr "این هدف خالی شده است"
+
+msgid "Kill all Bats!"
+msgstr "کشتن همه Bats!"
+
+msgid "Coal"
+msgstr "ذغال سنگ"
+
+msgid "Chopped Log"
+msgstr "قطعه قطعه شده ورود به سیستم"
+
+msgid "Green Gem"
+msgstr "سبز سنگ"
+
+msgid "Red Gem"
+msgstr "سنگ قرمز"
+
+msgid "Blue Gem"
+msgstr "آبی سنگ"
+
+msgid "Purple Gem"
+msgstr "بنفش رنگ سنگ"
+
+msgid "Teleporter Key"
+msgstr "Teleporter کلیدی"
+
+msgid "New Game"
+msgstr "بازی جدید"
+
+msgid "Tutorial"
+msgstr "خودآموز"
+
+msgid "Load Game"
+msgstr "بازی بار"
+
+msgid "Options"
+msgstr "گزینه ها"
+
+msgid "About"
+msgstr "درباره"
+
+msgid "Quit"
+msgstr "خروج"
+
+msgid "Configure Controls"
+msgstr "پیکربندی کنترل"
+
+msgid "Configure Sound"
+msgstr "پیکربندی صدا"
+
+msgid "Fullscreen"
+msgstr "تمام صفحه"
+
+msgid "Show Hints"
+msgstr "تذکرات به نمایش"
+
+msgid "A potion which will transform you..."
+msgstr "شربت عشق است که شما را دگرگون..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "ایجاد حبه بسیار جاذب یخ مینیاتور"
+
+msgid "A potion which will restore all of your health"
+msgstr "شربت عشق که همه از سلامت خود را باز گرداندن"
+
+msgid "A powerful bomb"
+msgstr "بمب قدرتمند"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "شربت عشق که ارائه می شما را به برخی از دشمنان نامرئی"
+
+msgid "The eyeball from a Gazer"
+msgstr "تخم چشم از Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "بسته تسلا. این را بدون پرداخت هزینه."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "تبادل کارکنان است. این می تواند توسط انسان ها مورد استفاده قرار گیرد."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "بسته تسلا. کاملا متهم شده است."
+
+msgid "An empty potion bottle"
+msgstr "بطری شربت عشق خالی"
+
+msgid "A bag of chicken feed"
+msgstr "کیسه ای از گوشت مرغ اشتراک"
+
+msgid "A bag suitable for carrying coal"
+msgstr "کیف مناسب برای حمل زغال سنگ"
+
+msgid "Basic Sword"
+msgstr "اساسی شمشیر"
+
+msgid "A Sword given to you by Jacob"
+msgstr "شمشیر توسط ژاکوب را به شما داده است"
+
+msgid "A bow"
+msgstr "تعظیم"
+
+msgid "Small Wooden Shield"
+msgstr "کوچک چوبی سپر"
+
+msgid "A small shield that provides basic protection"
+msgstr "سپر کوچک فراهم می کند که حفاظت از پایه"
+
+msgid "Normal Arrow"
+msgstr "عادی Arrow"
+
+msgid "Normal Arrows"
+msgstr "فلش های معمولی"
+
+msgid "An axe suitable for chopping trees"
+msgstr "تبر مناسب برای سفت درختان"
+
+msgid "Pickaxe"
+msgstr "کلنگ"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "با کلنگ زدن به شما توسط Borgan لنت"
+
+msgid "Fire Burner Key"
+msgstr "آتش سوز کلیدی"
+
+msgid "Potion Room Key"
+msgstr "شربت عشق اتاق کلید"
+
+msgid "Surge Passage Key"
+msgstr "خروش پاساژ کلیدی"
+
+msgid "Demolition Storage Key"
+msgstr "تخریب شبکه کلید"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "هر چه که بود آن چیزی بود draining که قدرت را از مولد و استفاده از آن در برابر من."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "را که ممکن است توضیح بدهید که چرا بلند بود که کار نمی کند. شکست دادن drainers دیگر باید به قدرت بازگرداند."
+
+msgid "Defeat all Energy Drainers"
+msgstr "شکست تمام Drainers انرژی"
+
+msgid "No Objectives"
+msgstr "بدون هدف"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "مطبوعات اقدام به تنظیم مجدد بلوک های پازل"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "مثل مخلوط کن می رسد. من می توانم این را به liquidise چیزی استفاده کنید"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "من باید شاخک حساس قرمز لجن و 3 Gazer Eyeballs به شربت عشق"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "من هنوز نیاز به بطری خالی برای قرار دادن در شربت عشق"
+
+msgid "So this is the Fortress."
+msgstr "بنابراین این قلعه است."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "مثل بسیاری از درها می رسد رهبری کردن به مناطق دیگر ، من باید مناسب اطراف را نگاه کنم من قبل از رفتن به هر جای دیگر..."
+
+msgid "Try hitting the skull..."
+msgstr "سعی کنید ضربه جمجمه..."
+
+msgid "This machine is not active"
+msgstr "این دستگاه فعال نیست"
+
+msgid "Repeat the sequence"
+msgstr "تکرار دنباله"
+
+msgid "Correct Sequence"
+msgstr "دنباله صحیح"
+
+msgid "Incorrect Sequence"
+msgstr "دنباله نادرست"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "افسانه ادگار تا به خطا مواجه می شوند به شرح زیر است"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "لطفا موضوع را به واقعیت موازی گزارش"
+
+msgid "The game will now exit"
+msgstr "بازی در حال حاضر برای خروج"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "مثل مخلوط کن می رسد. من می توانم این را به liqudise چیزی استفاده کنید"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "این کار باید ذغال سنگ Borgan من می خواهد برای او به معدن"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "را که ممکن است توضیح بدهید که چرا بلند بود که کار نمی کند. شکست دادن drainers دیگر باید اینجا را بازگرداندن قدرت."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "من باید با پیدا کردن 3 چشمان Gazer ، 1 قرمز لجن شاخک حساس و سپر اضافی برای ایجاد یک سپر آتش مقاومت در برابر"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "هنگامی که من در بر داشت همه این موارد او می خواهم که به جای ایجاد سپر برای یافتن"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "یک کتاب در اینجا در مورد سلاح های دلربا وجود دارد."
+
+msgid "Maybe I can create a shield..."
+msgstr "شاید من نمی توانم یک سپر ایجاد..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "شمشیربازی... آرمور... Wands..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "کتاب احمق نیستم. آن را در نظم و هیچ شاخص وجود ندارد"
+
+msgid "Here we go: Shields"
+msgstr "در اینجا ما بروید : Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "سپر آتش مقاومت در برابر"
+
+msgid "Ingredients"
+msgstr "مواد اولیه ی آشپزی"
+
+msgid "One must gather the following"
+msgstr "یکی باید جمع آوری زیر"
+
+msgid "The root of a Mandrake"
+msgstr "ریشه مهرگیاه"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "چربی Darsh (از چپ به مدت 3 ماه ایستاده)"
+
+msgid "Powered Condor bones"
+msgstr "استخوان کرکس امریکایی شده"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 چشم از Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "قطع شاخک حساس تازه از زن قرمز لجن"
+
+msgid "The shield to apply the enchantment"
+msgstr "سپر به درخواست سحر"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "ترکیب چشم و شاخک حساس Gazer لجن را به مایع صاف"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "اضافه کردن ریشه ، چربی ها و استخوان ها را در دیگ مخلوط و همراه با تخصص در امر Gazer چشم و شاخک حساس لجن"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "هنگامی که مخلوط نوبت آبی روشن و اضافه کردن سپر"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "من دیده ام بیشتر از این آیتم ها در آزمایشگاه ، بنابراین من نیازی به نگرانی در مورد آن"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "و Gazers پلکیدن در زیرزمین به طوری که یک مشکل نیست"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "من چه نیازی به پیدا کردن یک لجن قرمز است ، اما من هیچ تصوری که در آن برای یافتن یک"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "من می توانم سپر فعلی من در آزمایش استفاده کنید در صورت نتیجه معکوس را می خواهم که با پیدا کردن یکی دیگر را به"
+
+msgid "Hmmm..."
+msgstr "Hmmm..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "ممکن است برای اتاق وجود دارد و یا لابراتوار potions جایی که من می تواند ریشه ، چربی و استخوان ، بنابراین من نیازی به نگرانی در مورد آن پیدا کنید"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "شما باید کارت آموزش می خواهید که در جعبه موجودی خود را برجسته استفاده کرده"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow ، آزمایشگاه!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "دوست دارم در حال مشاهده مگی را جادوها و potions ، شاید من نمی توانم برخی از خود من را در اینجا!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow ، I've ورود : هرگز تا کتاب های بسیاری را در یک محل!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "باید وجود داشته باشد اطلاعات مربوط به هر موضوع در اینجا ، این می تواند مفید..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm ، هوا احساس متهم شود ، آن را به یاد من خانه مگی در زمانی که وی به ساخت جادوها بود. من باید مراقب باشید."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "آه ادگار ، you're صدمه دیده است! اجازه بدهید شما را التیام زخم های من"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "می خواستم بدانم چه هیولا های دیگر وجود دارد. من در صفحه تصادفی انتخاب کنید..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers هستند پرواز موجودات cycloptic یافت شده در مکانهای مختلف"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "چشم تک آنها معمولا بسته است و آنها در سونار برای جنبش تکیه"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "آنها استفاده از حس بویایی قوی خود را به مراقب درنده و توزیع های مبتنی بر شکار"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "حمله Gazers (و دفاع از خودشان) با باز کردن چشم خود را که هر چیزی در نظر گرفتن آن خیره"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "این حمله تنها موثر است اما اگر مقتول مواجه است Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "تخم چشم Gazer 'sحاوی خواص جادویی است و یک عنصر رایج در طلسم آماده سازی"
+
+msgid "Centurion, Grey"
+msgstr "یوزباشی ، خاکستری"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions هستند magically ایجاد موجودات ، که معمولا به عنوان sentries و یا نگهبانان اعزام"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "گرچه حرکت کند ، اندازه بزرگ آنها به آنها اجازه می دهد تا به سادگی از طریق هر گونه دفاع در تاریخ"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "به جای سلاح ، به بسیاری از رانندگان شمع بزرگی که از آن استفاده میکنند به تکان خوردن زمین و disorientate تهدید"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "در حالی که Centurions خاکستری استفاده می شود به پاسدار perimeters بیرونی ، Centurions قرمز ، شناخته شده وجود دارند و استفاده می شوند برای محافظت از مناطق از اهمیت زیادی"
+
+msgid "Splitter"
+msgstr "شکاف"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters بی ضرر هستند مگر آن که هیولا حمله کرد."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "پس از تداوم خسارت بیش از حد آنها را در دو تقسیم درنده و حمله خود را"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "اگر یکی از این آسیب sustains بیش از حد آن را تقسیم خواهد شد و ادامه بار دیگر برای حمله به"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "در نهایت ، یک تقسیم نهایی نسخه های بسیار کوچک که کاملا بی ضرر و در این حالت تولید می تواند به سادگی در پا"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "اگر همه اجزاء آن هنوز زنده هستند ، تقسیم خواهد شد خود را در حالی که پس از اصلاح و التیام زخم های خود را"
+
+msgid "Grub, Red"
+msgstr "از کتاب استخراج کردن ، سرخ"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Grubs قرمز ، بیشتر پرخاشگری ، بیش از همتایان آنها سبز خواهد شد و هر آنچه را که به عنوان یک تهدید حمله به مشاهده"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "به محض رسیدن به بلوغ که می خواهند یک پیله کرم ابریشم و زنبور را مورف فرم"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "با این حال برخی از شما را به زنبور ملکه مورف. این ملکه می تواند موکوس - تولید مثل ماده قادر به نگه داشتن طعمه خود را در محل"
+
+msgid "Tortoise, Master"
+msgstr "لاک پشت ها ، استاد"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "استاد Tortoises جانوران هستند وحشتناکی است. موجود در دور زمین های آنها دارای توانایی تغییر سرشان"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "همه آنها ترکیب توانایی های پسرعموهای خود را به نفس کشیدن آتش ، ایجاد یخ و خود را به هیجان اوردن"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "و البته آنها نیز به حملات از تطبیق عناصر غیر قابل نفوذ ، جذب انرژی را به خود التیام"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "اما علاوه بر این ، اگر آنها را دریافت انرژی بیش از حد از شفا ، آنها در اوردن و رفتن در داد و بیداد"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "در این حالت آنها از طریق دفاع سر و صدا و تولید تاریک اهمیتی دارد که چه چیزی آن را از بین میبرد لمس"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "با این حال ، پوسته rampaging استاد لاک پشت ها جادویی هستند ، بسیار ضروری است و مواد تشکیل دهنده که هنگام ایجاد magics قدرتمند و عنوانها"
+
+msgid "Venus Flytrap"
+msgstr "ونوس Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "هوور ، صورتی"
+
+msgid "Summoner, Dark"
+msgstr "تبادل تیره"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore موجود از ابعاد دیگر است. می توان آن را احضار با استفاده از جادو قوی سیاه"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "شایع ترین دلیل به احضار این جانور این است که به عنوان یک محافظ عمل"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "هیچ روش شناخته شده برای کشتن Grimlore از صدمات بحرانی بر تداوم آن را به سادگی برای ابعاد خاص خود را بازگشت وجود دارد."
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "اما حتی از مجروح شدن آن است یک کار نا گذرا. هر کس این موجودات مواجه است توصیه به فرار را در اسرع وقت"
+
+msgid "Or they will die very quickly"
+msgstr "یا اینکه خیلی به سرعت خواهد مرد"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "ق ، در اینجا از اختصار هیولا است"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 جلد! چگونه می توان وجود دارد بسیاری از هیولاها در جهان خواهد شد؟!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "به نظر میرسد در آنها به ترتیب الفبا هستید هر چند"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "لجن و گل ، سبز... لجن مال کردن ، بنفش... لجن ، سبز..."
+
+msgid "Sludge, Red"
+msgstr "لجن ، قرمز"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "بر خلاف پسر عموی خود را سبز ، لجن قرمز باقی می ماند در اعماق زمین و به ندرت ، اگر هرگز ، سطوح"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "زیستگاه ترجیح آن عبارتند از مناطق خشک و غنی از مواد معدنی و در نتیجه در بر داشت شده اند lurking در زمینه معادن رها شده توسط انسان"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "آنها بسیار محتاط و از انسان ها خواهد شد ، حمله به بینایی ، معمولا استفراغ کردن اسید است که زمان را به بخار"
+
+msgid "Smacker, Lesser..."
+msgstr "صدای ملچ ملوچ ، کاهشیافته..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "بزرگ ، که همه آن را می گوید. من حتی نمی دانند چگونه می توانید تشخیص تفاوت بین زن و مرد. من فقط به گرفتن شانس..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "علاوه بر این ، بدترین است که می تواند رخ می دهد چیست؟"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "ادگار حرکت به چپ و راست ، استفاده از کلید های arrow."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "پرش به ادگار ، فضا را فشار دهید. شما می توانید در هوا هنگام حرکت پریدن."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "اگرچه یعقوب تنها نیاز شما را به گرفتن 3 از جوجهها را ، چرا نمی شود به او زیبا و گرفتن بیشتر؟ سرگردان هستند 10 نقشه در همه وجود دارد."
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "توجه داشته باشید که نه همه ی دیوار های ضعیف می تواند با استفاده از آنها نابود شوند و با کلنگ زدن"
+
+msgid "I've already checked, he's not down there..."
+msgstr "من قبلا هم چک ، او در کردن نیست... وجود داشت."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "من از مردم افتادن به خوبی قبل ، شاید پدر در آنجا شنیده..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "بابا!!!!! آیا شما خراب وجود دارد؟!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "هیچ چیز. من عقیده دارم که او می خواهم که به دنبال حفظ"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "با فشار بالا و پایین رفتن به منظور بالا بردن یا پایین آوردن بستر"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "در اینجا یک کتاب در مورد تجهیزات دلربا وجود دارد."
+
+msgid "It's a book about enchanting equipment"
+msgstr "این کتاب در مورد تجهیزات 'sدلربا"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "من هیچ دلیلی برای خواندن این اما من آن را در ذهن نگه دارید در مورد من ندارند"
+
+msgid "I wonder what other monsters there are..."
+msgstr "می خواستم بدانم چه هیولا های دیگر وجود دارد..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "درست مثل Summoners به طور منظم ، Summoners تیره در جانوران دیگر تماس خود را به انجام مناقصه"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "علاوه بر این اگر چه آنها می توانند مسافت های کوتاه را از مخالفان خود فرار teleport"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "کارکنان شان بسیار جادویی و با وجود آن که می تواند توسط انسان ها مورد استفاده قرار گیرد به طور مستقیم ، خواص جادویی خود را در خلق اثر طلسم مورد استفاده قرار می"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers پینک هستند quadrupeds کوچک با پوزه دراز"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "puropse اولیه پوزه زدن به این است که برای مواد غذایی علوفه و هم به عنوان یک مکانیزم دفاعی عمل می کند"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "و بیش از توانایی نگه داشتن درنده در دفاع کردن در مقابل آنها را به سادگی دمیدن دور"
+
+msgid "Venus Flytrap, mobile"
+msgstr "ونوس Flytrap ، موبایل"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "موبایل ونوس Flytraps را تکامل ریشه هستند و قادر به انتقال به مواد غذایی خود را به جای انتظار برای آن را به به آنها آمده"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "گردن آنها به طوری باور نکردنی الاستیک هستند و قادر به ضربه محکم و ناگهانی در شکار خود را از فاصله دور قابل توجه"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "که باید آن را انجام دهد. امیدوارم که دیگر فرستاده شده توسط بالابر فاضلاب اکنون باید کار شود"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "این آسانسور کار نمی کند. من قادر نخواهد بود استفاده از آن را تا زمانی که قدرت بازگرداندن من"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "شیشه ای می رسد که بیش از حد ضخیم برای من به crack ، می خواهم که با بعضی از راه دیگری برای shattering آن را به یافتن..."
+
+msgid "Up"
+msgstr "نام"
+
+msgid "Down"
+msgstr "پایین"
+
+msgid "Left"
+msgstr "چپ"
+
+msgid "Right"
+msgstr "حق"
+
+msgid "Jump"
+msgstr "پرش"
+
+msgid "Attack"
+msgstr "حمله"
+
+msgid "Block"
+msgstr "بلوک"
+
+msgid "Action"
+msgstr "اکشن"
+
+msgid "Use Item"
+msgstr "مورد استفاده"
+
+msgid "Previous Item"
+msgstr "قبل مورد"
+
+msgid "Next Item"
+msgstr "مورد بعدی"
+
+msgid "Inventory"
+msgstr "موجودی"
+
+msgid "Pause"
+msgstr "مکث"
+
+msgid "Dead Zone"
+msgstr "منطقه مرده"
+
+msgid "Sound"
+msgstr "صدا"
+
+msgid "SFX Volume"
+msgstr "دوره SFX"
+
+msgid "Music Volume"
+msgstr "جلد موسیقی"
+
+msgid "Ice Spray"
+msgstr "یخ اسپری"
+
+msgid "Library"
+msgstr "کتابخانه"
+
+msgid "Right Wing Lift Key"
+msgstr "آسانسور بال راست کلید"
+
+msgid "Mine Entrance Door Key"
+msgstr "کلید درب ورودی معدن"
+
+msgid "Village"
+msgstr "روستای"
+
+msgid "Cave"
+msgstr "غار"
+
+msgid "Fortress Outskirts"
+msgstr "حومه قلعه"
+
+msgid "Forbidden Swamp"
+msgstr "ممنوع آبی"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "فاضلاب منطقه محدود کلیدی"
+
+msgid "Basement"
+msgstr "زیرزمین"
+
+msgid "Fortress Ground Floor"
+msgstr "قلعه طبقه همکف"
+
+msgid "Sewer"
+msgstr "فاضلاب"
+
+msgid "Fortress Main Key"
+msgstr "قلعه کلید اصلی صفحه اصلی"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter دسترسی به کلید 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter دسترسی به کلید 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "دسترسی به Teleporter کلیدی 3"
+
+msgid "Laboratory"
+msgstr "آزمایشگاه"
+
+msgid "Empty Bottle"
+msgstr "بطری خالی"
+
+msgid "First Floor Key"
+msgstr "طبقه اول : کلید"
+
+msgid "Press Action to retrieve %s"
+msgstr "مطبوعات اقدام به بازیابی %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm ، این جدید است."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "این کار به نظر نمی آید مثل آن می تواند به من صدمه دیده است هر چند ، اما تنها یک راه وجود دارد برای پیدا کردن..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "این بالابر که توسط اتصالات فشار کنترل شده است ، اما من نمی توانم بر روی آن ایستاده و با استفاده از بالابر در همان زمان"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "او می خواهم که چیز دیگری برای ایستادن روی صفحه فشار برای من پیدا کنید..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "این کارت خالی است ، می خواهم که با قرار دادن برخی از دستورالعمل های روی آن ، آن را قابل استفاده."
+
+msgid "There's a plaque here"
+msgstr "'sپلاک در اینجا وجود دارد."
+
+msgid "Place the 4 statues in the correct order"
+msgstr "محل 4 مجسمه در جهت درست"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "شما قادر به مشاهده تمام 4 مجسمه در این نسخه ، پس بعدا برگشته!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "شما باید مجسمه شما میخواهید در جعبه موجودی خود را برجسته استفاده کرده"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "هیچ چیز رخ داده است. من فکر نمی کنم که راست"
+
+msgid "Tuning Fork"
+msgstr "دیاپازون"
+
+msgid "Second Floor Keycard"
+msgstr "طبقه دوم Keycard"
+
+msgid "Instruction Card #1"
+msgstr "مقاله کارت # 1"
+
+msgid "Instruction Card #2"
+msgstr "مقاله کارت # 2"
+
+msgid "Instruction Card #3"
+msgstr "مقاله کارت # 3"
+
+msgid "Instruction Card #4"
+msgstr "مقاله کارت # 4"
+
+msgid "Centurion Statue"
+msgstr "یوزباشی مجسمه"
+
+msgid "Spider Statue"
+msgstr "مجسمه عنکبوت"
+
+msgid "Tortoise Statue"
+msgstr "لاک پشت مجسمه"
+
+msgid "Scorpion Statue"
+msgstr "عقرب مجسمه"
+
+msgid "A Blue Gem"
+msgstr "سنگ آبی"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "مجسمه یوزباشی. این 2 تا به پاها."
+
+msgid "A Green Gem"
+msgstr "سنگ سبز"
+
+msgid "A Purple Gem"
+msgstr "پارس گوهر بنفش"
+
+msgid "A Red Gem"
+msgstr "سنگ قرمز"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "مجسمه عقرب. این پاها 6."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "مجسمه عنکبوتی. دارای 8 پا."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "Armadillo اسپایک توپ. آیا وقتی که خوشه به پایین پرتاب پراکنده."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "مجسمه لاک پشت ها. این 4 تا به پاها."
+
+msgid "A Tuning Fork"
+msgstr "چنگک تنظیم"
+
+msgid "A chopped log"
+msgstr "ورود به سیستم قطعه قطعه شده"
+
+msgid "Narrator"
+msgstr "مجری"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "این یک کتری بزرگ است. مگی یکی درست مثل این"
+
+msgid "Right, here goes!"
+msgstr "راست ، در اینجا می رود!"
+
+msgid "I need all the main ingredients"
+msgstr "من باید همه مواد اولیه ی آشپزی"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs ، 1 قرمز لجن شاخک حساس و سپر یدکی"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "من هم نیاز به ترکیب eyeballs و شاخک حساس به مایع"
+
+msgid "This entire section is about monsters"
+msgstr "در این بخش ، تمام شده است در مورد هیولا"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "من هیچ دلیلی برای خواندن این اما من آن را در ذهن نگه دارید در مورد من ندارند"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey wow ، چه دستگاه cute کمی!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "به اون شیار کوچک در پشت آن است. من عقیده دارم که من چیزی را در وجود دارد انجام آن قرار داده stuff"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "کدوم دستور العمل استفاده از کارت های به حرکت در اطراف"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "با استفاده از دستورالعمل ها را به کاربر برای باز کردن ربات مناطق است که شما نمی تواند دسترسی"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "با این حال ، شما می توانید از دستورالعمل های روی کارت بخواند ، شما باید به آنها سعی کنید همه را تا یکی با این نسخهها کار"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "اگر ربات نشانی مقصد خود برسند ، سپس آن را برای خود و موقعیت به شما اجازه می دهد با شروع بازگشت و مجددا امتحان کنید"
+
+msgid "Enter the directions"
+msgstr "دستورالعمل ها را وارد کنید"
+
+msgid "Out of space for instructions"
+msgstr "خارج از فضا برای دستورالعمل"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "من یک کارت خالی برای قرار دادن دستورالعمل ها"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "شاید این بود و این ایده خوب نیست پس از همه..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "اخذ 3 چشمان Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "اخذ قرمز 1 لجن شاخک حساس"
+
+msgid "Find another shield"
+msgstr "یافتن دیگر سپر"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "eyeballs مخلوط و شاخک حساس"
+
+msgid "Obtain a Fire Shield"
+msgstr "اخذ سپر آتش"
+
+msgid "More water?!"
+msgstr "بیش تر آب؟!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "من فکر نمی کنم که شما قادر به تبدیل به لجن و گل به من کمک کنید ، از آنجایی که من ممکن است قادر به گرفتن پس از آن بازگشت"
+
+msgid "I'll have to find another way of getting across"
+msgstr "او می خواهم که دیگر در سراسر راه به دست آوردن را پیدا"
+
+msgid "I'll have to find something to help me get across"
+msgstr "او می خواهم که چیزی به به من کمک کنید در سراسر برای یافتن"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "من با هیچ یک از Sludges در معدن را نمیبینید وقتی که من رفتم برای دریافت Borgan زغال سنگ و حتی اگر شد هیچ نمی توانم گرفتن به قایق وجود دارد از من sank وجود دارد"
+
+msgid "I'll have to find another mine around here..."
+msgstr "او می خواهم که دیگر معدن در این حوالی هست برای یافتن..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "ایجاد حبه یخ است که گسترش در تماس با آب"
+
+msgid "A bottle capable of capturing souls"
+msgstr "بطری قادر به تسخیر روح"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "سعی کنید با استفاده از چاقو Mataeus در برابر او را..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "نمی تواند بلند کردن %s. موجودی کامل"
+
+msgid "Filling mine cart..."
+msgstr "پرکن سبد خرید معدن..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "واقعیت حق طبع و نشر موازی 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "خارج از فلش!"
+
+msgid "There's something moving around down there..."
+msgstr "چیزی حرکت کردن به اطراف وجود دارد..."
+
+msgid "Good riddance..."
+msgstr "خوب رهایی..."
+
+msgid "Huh, déjà vu..."
+msgstr "متعجب ، déjà vu..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "اگر بلند است خارج از دستور را داده از آن باید تنظیم مجدد"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "هستند 4 سوئیچ تنظیم مجدد در امتداد محور بلند وجود دارد که می بایست تنظیم مجدد"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "مطمئن باشید که تنظیم مجدد بالابر برای اجتناب از طولانی پیاده روی به سطح..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "این دستگاه دارای اسلات همان اندازه به عنوان کارت. من عقیده دارم که من می توانید از آن برای ایجاد دستورات جدید استفاده کنید."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "برای ایجاد یک مجموعه جدیدی از دستورات شما نیاز به وارد کردن یک کارت خالی"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "پس از آن شما را به ورودی وادار می شود جهت برای ربات را به دنبال کنید. این به همان روشی انجام می شود تا درهای دنباله"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "هنگامی که شما به پایان رسید inputting جهات ، حمله مطبوعات"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "ربات سپس از دستورالعمل های روی کارت را دنبال"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "اگر جهت درست نیست شما دوباره می توانید امتحان کنید"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "این مکان دیوانه ، من بهتر است عجله کردن و پیدا کردن پدر قبل از من در نهایت کشته شدن!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "بنابراین ، برای ایجاد سپر آتش است که من برای دریافت قرمز شاخک حساس لجن"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Sludges قرمز در معادن زندگی می کنند ، بنابراین من باید برای یافتن یکی از این حوالی هست؟"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "من هم نیاز به سپر یدکی ، اما من گمان باید وجود داشته باشد زره سازی در اطراف"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "eyeballs Gazer بسیار آسان است به اندازه کافی ، من فقط می تواند به زیرزمین بازگشت"
+
+msgid "OK, off I go..."
+msgstr "خوب ، خاموش من رفت..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "شما قادر به دریافت و یا سپر شاخک حساس در این نسخه ، پس باز هم تشریف بیاورید!"
+
+msgid "It's a portrait"
+msgstr "این پرتره 's"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "که روح است قصد ندارم به من اجازه بدهید گذشته ، می خواهم که با راه یافتن به خلاص شدن از شر آن"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "سوئیچ تنظیم مجدد شما اجازه می دهد و موقعیت جسم را بر روی نقشه به تنظیم مجدد"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "اگر جسم unreachable می شود و سپس شما می توانید آن را تبدیل به پشت در محل قرار اولیه خود استفاده کنید"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "یک بطری را با روح به دام افتاده در درون"
+
+msgid "Full Mine Cart"
+msgstr "سبد کامل معدن"
+
+msgid "Processing Lift Key"
+msgstr "پردازش آسانسور کلیدی"
+
+msgid "Right Grabber Key"
+msgstr "حق Grabber کلیدی"
+
+msgid "Left Grabber Key"
+msgstr "کلید سمت چپ Grabber"
+
+msgid "Master Key"
+msgstr "استاد : کلید"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "ساحر باید داد به قلعه او گرفته شده است. او می خواهم که او را از آنجا نجات است."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "تنها راه برای رسیدن به قلعه از طریق آبی ممنوع شرق."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "'sدریاچه بین روستای و آبی وجود دارد ، بنابراین من به یک قایق برای دریافت در سراسر نیاز دارید."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "من هم به یک شمشیر و سپر برای دفاع از خودم نیاز دارید. من می توانم به Borgan و یعقوب صحبت کنید هر چند این."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "نه قادر به اتصال به سرور در %s:%d مدال"
+
+msgid "Could not find Medal Key"
+msgstr "می تواند مدال کلید را پیدا کنم"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "شما قادر به کسب مدال برای این بازی"
+
+msgid "There's another sign here"
+msgstr "'sدیگری ثبت نام در اینجا وجود دارد."
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "اگر بلند است خروج از دستور و سپس به سمت چپ ادامه"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "اخطار : ممکن است خروج از مسیر خطرناک"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "شاید من هم باید بلند به خارج استفاده"
+
+msgid "There's a sign here"
+msgstr "'sامضاء اینجا وجود دارد."
+
+msgid "An Oil Can"
+msgstr "نفت آیا می توانم"
+
+msgid "Oil Can"
+msgstr "نفت آیا می توانم"
+
+msgid "A powerful repellent"
+msgstr "دافع قوی"
+
+msgid "Repellent"
+msgstr "دافع"
+
+msgid "Medal Support"
+msgstr "پشتیبانی مدال"
+
+msgid "Fortress Mine"
+msgstr "قلعه معدن"
+
+msgid "Private key is missing"
+msgstr "کلید خصوصی است گم شده"
+
+msgid "Could not connect to server"
+msgstr "نه قادر به اتصال به سرور"
+
+msgid "Sludge Tentacle"
+msgstr "لجن شاخک حساس"
+
+msgid "A Red Sludge Tentacle"
+msgstr "قرمز لجن شاخک حساس"
+
+msgid "Eyeball Smoothie"
+msgstr "تخم چشم چرب"
+
+msgid "Cool, it worked!"
+msgstr "داغ ، از آن کار می کرد!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "من در مورد رنگ هر چند مطمئن نیستم ، با خودم فکر کردم این امر می تواند قرمز؟"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "شاید آن اتفاق زرد می شود..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "مایع ساخته شده از eyeballs و این ریشه حساس"
+
+msgid "Patching your save game. Please wait..."
+msgstr "سرهم بندی بازی را ذخیره کنید. لطفا صبر کنید..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "در حال حاضر! در حالی که اجرای آن مبهوت!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow ، که چیزی است به درشت!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "من تردید دارم شمشیر من خواهد کرد حتی ایجاد خراش ، اما من می خواهم به گذشته آن را دریافت..."
+
+msgid "I have everything I need now"
+msgstr "همه چیز را به من بدهید من می خواهم در حال حاضر"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "یک کتری بزرگ در آزمایشگاه وجود دارد ، من باید پشت سر وجود دارد."
+
+msgid "I just need to find another shield to enchant"
+msgstr "من تنها کاری که باید برای یافتن دیگر سپر به بدام عشق انداختن"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "شما قادر به گرفتن سپر در این نسخه ، پس باز هم تشریف بیاورید!"
+
+msgid "Its wounds are already healing..."
+msgstr "زخم های آن عبارتند از شفا در حال حاضر..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "اگر شما بازی را از منبع وارد شده ، شما نیاز دارید را نصب کنید"
+
+msgid "It's sleeping"
+msgstr "آن خواب"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "من مطمئن هستم به هر حال از آن است که در قفس است..."
+
+msgid "Where's the switch?"
+msgstr "از کجا 'sسوئیچ؟"
+
+msgid "Ah, here it is!"
+msgstr "ق ، در اینجا آن است!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "این ژنراتور می رسد خوب ، درست است آن را در نمی"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "من عقیده دارم که آن قدرت که درب ، بنابراین او می خواهم که آن را روشن"
+
+msgid "A Yellow Gem"
+msgstr "سنگ زرد"
+
+msgid "Failed to open PAK file %s"
+msgstr "عدم پاک برای باز کردن فایل %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "مطبوعات اقدام به بازیابی بنفش پارس گوهر"
+
+msgid "Find a way to remove the Gem..."
+msgstr "پیدا کردن راهی برای برداشتن سنگ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "مطبوعات اقدام به بازیابی سنگ زرد"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "من باید تا اینجا امن است ، اما من باید با خلاص شدن از شر آن"
+
+msgid "Book"
+msgstr "کتاب"
+
+msgid "Sign"
+msgstr "ثبت نام"
+
+msgid "Note"
+msgstr "توجه داشته باشید"
+
+msgid "Solve the sliding puzzle"
+msgstr "حل معمای لغزش"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "آرمور بیش از حد دشوار است آنها را برای نفوذ به..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "رئیس که مراقب معدن بود نه در نسخه های قبلی بود"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "از آنجا که آن را در این نسخه شما شده است و نمی تواند به ترک"
+
+msgid "You will now be transported outside"
+msgstr "شما در حال حاضر برای حمل و نقل خارج شود"
+
+msgid "We apologize for the inconvenience"
+msgstr "ما برای مزاحمت معذرت خواهی"
+
+msgid "That's a lot of slime"
+msgstr "که بسیاری از لجن و گل است"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "من فکر نمی کنم اسپری یخ را در سراسر این دریافت از آن را فقط در آب با این نسخهها کار"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimes فقط می تواند در آب به طوری که اتفاق افتاده یا نه برای کمک به شنا"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "به یاد دارم Borgan به من گفتن چه مضحک است که"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "او می خواهم که چیزی به به من کمک کنید در سراسر پیدا..."
+
+msgid "There, the rope's firmly attached"
+msgstr "، طناب را محکم متصل شده وجود دارد."
+
+msgid "I need to find some rope before I can fire it"
+msgstr "من باید برای یافتن برخی از طناب قبل از من می تواند آن را به آتش"
+
+msgid "It's a Grappling Hook"
+msgstr "آن را هوک قایق را"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "من احتمالا می تواند از آن پل به فرم را به طرف دیگر استفاده کند ، ولی هیچ طناب وجود دارد."
+
+msgid "I still need a Fire Shield"
+msgstr "من هنوز نیاز به یک سپر آتش"
+
+msgid "Wow, this place is empty!"
+msgstr "Wow ، این محل خالی است!"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "من حدس ساحر است نیازی به استفاده از سلاح های او را سحر و جادو"
+
+msgid "Still, there must be something of use in here"
+msgstr "با این حال ، باید چیزی وجود داشته باشد از استفاده در اینجا"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "داغ ، غول کشویی پازل! من یکی از این خانه بازگشت!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "خوب است ، نه یک غول ، بدیهی است..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "به جلو سمت چپ ، راست ، بالا و پایین به حرکت بلوک"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "ترتیب بلوک به طوری که اعداد 1 تا 8 ظاهر در جهت از چپ به راست و بلوک خالی است در گوشه سمت راست پایین"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "مطبوعات حمله به ترک پازل"
+
+msgid "A length of rope"
+msgstr "طول طناب"
+
+msgid "A device for grabbing far away objects"
+msgstr "دستگاه را برای فاصله گرفتن اشیاء"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "بطری قرص که تبدیل به لجن مال کردن آب"
+
+msgid "Tutorial Key"
+msgstr "خودآموز کلیدی"
+
+msgid "Light Key"
+msgstr "نور : کلید"
+
+msgid "Rope"
+msgstr "طناب"
+
+msgid "Extend-O-Grab"
+msgstr "تمدید - Ö - قاپیدن"
+
+msgid "Water Purifiers"
+msgstr "تصفیه کننده آب"
+
+msgid "Right Wing Key"
+msgstr "بال راست کلید"
+
+msgid "Catapult Lift Key"
+msgstr "منجنیق کشیدن کلید"
+
+msgid "Armoury"
+msgstr "زره"
+
+msgid "Maggie"
+msgstr "مگی"
+
+msgid "Jacob"
+msgstr "یعقوب"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "ادگار"
+
+msgid "Mine Cart"
+msgstr "سبد خرید معدن"
+
+msgid "%s has regained power"
+msgstr "%s تا به قدرت به دست آورد"
+
+msgid "Wow, a catapult!"
+msgstr "Wow ، سنگ انداز!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "لولا نگاه اگرچه زنگ زده هستند ، من تردید دارم تا آن را خواهید کار کنم که ثابت"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "همین؟ فقط این سپر های قدیمی؟ این کار به نظر نمی آید هیچ بهتر از یک جریان من."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "با این حال ، من بر روی آن را برای زمان در حال کند ، ممکن است آن را در دستی آمد"
+
+msgid "Great, a spare shield!"
+msgstr "بزرگ ، سپر یدکی!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "این کار مانند یک سپر آتش نشانی به نظر نمی آید به من. من واقعا امیدوار بود که تا آنها را پیدا کنید بیش از حد"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "این سپر نگاه نمی کند حتی بهتر از هر فعلی یکی من."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "من تنها کاری که باید برای ایجاد مایع از شاخک حساس و لجن Gazer eyeballs"
+
+msgid "That's not a good sign..."
+msgstr "که نشانه خوبی نیست..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "من تنها کاری که باید برای یافتن دیگر سپر به طلسم..."
+
+msgid "Hey, a lightning sword!"
+msgstr "Hey ، شمشیر رعد و برق!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "به نظر میرسد خیلی قوی تر از شمشیر من درحال حاضر ، بیش از حد"
+
+msgid "With this I should be almost unstoppable"
+msgstr "با استفاده از این من باید تقریبا غیر قابل توقف"
+
+msgid "Almost"
+msgstr "تقریبا"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "شمشیر آذرخش تا به تعداد محدودی از اتهامات عنوان شده علیه و خواهد بود قدرت خود را هنگامی که این اتهامات عنوان شده علیه استفاده می شوند تا از دست دادن"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "اتهامات عنوان شده علیه دشمنان به طور تصادفی بیشتر خواهد شد زمانی که آنها کشته قطره"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "توجه داشته باشید که اگر شمشیر قدرت خود را به طور کامل از دست می دهد به زودی به شمشیر و منظم و با قدرت بسیار کمی برگشت تا اتهامات عنوان شده علیه شما می توانید در ادامه مشاهده"
+
+msgid "This centurion has no power"
+msgstr "این یوزباشی قدرت ندارد"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "آن را به این کار پر زحمت وصل شده برای همین من احتمالا می تواند از آن اتهام با سرعت به اندازه کافی"
+
+msgid "An old shield found in the Armoury"
+msgstr "سپر قدیمی یافت شده در زره"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "شمشیر که می تواند با رعد و برق محاسبه شود"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "شمشیر imbued با قدرت رعد و برق"
+
+msgid "Lightning Sword"
+msgstr "رعد و برق شمشیر"
+
+msgid "INTRUDER!"
+msgstr "مزاحم!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "لولا نگاه اگرچه زنگ زده هستند ، من تردید دارم آن را خواهیم کار می کنم تا به آنها ثابت کنید"
+
+msgid "OK, let's see if this works..."
+msgstr "خوب ، بیایید این را ببینید اگر با این نسخهها کار..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "من بدون مشکل راه رفتن بر سر این طناب یا داشته باشد ، به لطف tightrope من راه رفتن مهارت"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "و پدر گفت : هرگز آن را در دستی می آمد!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "من یک طول طناب به پیوست به پیچ"
+
+msgid "It's a giant crossbow"
+msgstr "این غول 'sکمان پولادی"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "من احتمالا می تواند از آن پل را بیش از آن برای ایجاد استفاده از خوشه"
+
+msgid "I'll need some rope first though"
+msgstr "من از طناب اولین نیاز هر چند"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "، وجود دارد که 'sلولا oiled. این باید تا جایی که هم اکنون جدید خوب!"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "لولا هستند زنگ زده هستند ، من باید مقداری روغن برای یافتن من می توانم قبل از استفاده از آن"
+
+msgid "I can't run in this armour, though"
+msgstr "من نمی توانم اجرا در این آرمور ، هر چند"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "به علاوه ، من از همه این ها راه رفتن خسته هستم ، پریدن ، مبارزه ، شنا..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "فکر کردن ، استخراج از معادن ، سفت ، هل دادن ، کشیدن ، حمل..."
+
+msgid "and catching chickens"
+msgstr "و ابتلا به جوجه"
+
+msgid "I'll get something else to do it instead"
+msgstr "من چیز دیگری برای این کار به جای گرفتن"
+
+msgid "Statistics"
+msgstr "آمار"
+
+msgid "Play Time: %s"
+msgstr "بازی ساعت : %s"
+
+msgid "Kills: %d"
+msgstr "افغانستان : %d"
+
+msgid "Bats Drowned: %d"
+msgstr "غرق Bats : %d"
+
+msgid "Times Eaten: %d"
+msgstr "بار خورده شده : %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "حمله مسدود شده : %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "زمان صرف شده به عنوان یک چیز چسبناک : %s"
+
