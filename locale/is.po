@@ -2161,3 +2161,6 @@ msgstr "Árásir Blocked: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Time eytt As A Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanced ferðast: %0.1fKM"
+

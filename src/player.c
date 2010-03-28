@@ -1669,7 +1669,7 @@ void becomeJumpingSlime(int seconds)
 
 	/* If there wasn't enough space to transform then don't do anything */
 
-	if (isValidOnMap(&player) == FALSE)
+	if (isValidOnMap(&player) == FALSE || isNearObstacle(&player) == TRUE)
 	{
 		loadProperties("edgar/edgar", &player);
 

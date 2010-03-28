@@ -2161,3 +2161,6 @@ msgstr "हमले अवरुद्ध: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "समय एक कीचड़ के रूप में व्यय की गई राशि: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "दूर की यात्रा: %0.1fKM"
+

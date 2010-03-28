@@ -2162,3 +2162,6 @@ msgstr "Bị chặn các cuộc tấn công: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Thời gian đã qua sử Như Một Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Đi xa: %0.1fKM"
+

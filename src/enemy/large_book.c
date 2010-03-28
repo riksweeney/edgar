@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "thunder_cloud.h"
 #include "../item/item.h"
 #include "../graphics/decoration.h"
+#include "../hud.h"
 
 extern Entity *self, player;
 
@@ -102,6 +103,7 @@ static void followPlayer(void);
 static void dropOnPlayer(void);
 static void dropWait(void);
 static void takeDamage(Entity *, int);
+static void yellowTakeDamage(Entity *, int);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -137,6 +139,7 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &yellowWait;
 		e->die = &yellowDieInit;
+		e->takeDamage = &yellowTakeDamage;
 	}
 
 	else
@@ -2233,7 +2236,7 @@ static void physicalAttackFinish()
 	hover();
 }
 
-void takeDamage(Entity *other, int damage)
+static void takeDamage(Entity *other, int damage)
 {
 	if (self->flags & INVULNERABLE)
 	{
@@ -2270,5 +2273,50 @@ void takeDamage(Entity *other, int damage)
 		{
 			self->die();
 		}
+	}
+}
+
+static void yellowTakeDamage(Entity *other, int damage)
+{
+	if (other->element == LIGHTNING)
+	{
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+
+		if (damage != 0)
+		{
+			self->health += damage;
+
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
+			
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+			
+			if (prand() % 5 == 0)
+			{
+				setInfoBoxMessage(90, "The damage from this weapon is being absorbed...");
+			}
+		}
+	}
+	
+	else
+	{
+		takeDamage(other, damage);
 	}
 }

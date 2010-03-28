@@ -2161,3 +2161,6 @@ msgstr "Serangan Disekat: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Sisa Menghabiskan Sebagai Sebuah slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Menjauhkan musafir: %0.1fKM"
+

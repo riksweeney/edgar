@@ -2161,3 +2161,6 @@ msgstr "حمله مسدود شده : %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "زمان صرف شده به عنوان یک چیز چسبناک : %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "فاصله سفر : %0.1fKM"
+

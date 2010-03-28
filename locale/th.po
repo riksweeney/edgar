@@ -2161,3 +2161,6 @@ msgstr "สกัด กั้น การ โจมตี: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "เวลา ที่ ใช้ เป็น โคลน ต ม A: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanced ท่องเที่ยว: %0.1fKM"
+

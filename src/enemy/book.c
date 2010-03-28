@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
 #include "../entity.h"
+#include "../custom_actions.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../item/item.h"
@@ -34,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/ice_cube.h"
 #include "thunder_cloud.h"
 #include "rock.h"
+#include "../hud.h"
 
 extern Entity *self, player;
 
@@ -54,6 +56,7 @@ static void iceTouch(Entity *);
 static void iceFallout(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
+static void takeDamage(Entity *, int);
 
 Entity *addBook(int x, int y, char *name)
 {
@@ -73,7 +76,7 @@ Entity *addBook(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->touch = &entityTouch;
-	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 
 	e->type = ENEMY;
@@ -141,7 +144,7 @@ static void lookForPlayer()
 					self->thinkTime = 60;
 				break;
 
-				case 2: /* Cast fire */
+				case 2: /* Cast lightning */
 					self->action = &castLightningBolt;
 
 					self->thinkTime = 60;
@@ -580,5 +583,50 @@ static void lightningBolt()
 		e->dirY = -8;
 
 		self->inUse = FALSE;
+	}
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	if (self->mental == 2 && other->element == LIGHTNING)
+	{
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+
+		if (damage != 0)
+		{
+			self->health += damage;
+
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
+			
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+			
+			if (prand() % 5 == 0)
+			{
+				setInfoBoxMessage(90, "The damage from this weapon is being absorbed...");
+			}
+		}
+	}
+	
+	else
+	{
+		entityTakeDamageNoFlinch(other, damage);
 	}
 }

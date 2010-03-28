@@ -2163,3 +2163,6 @@ msgstr "Нападения Заблокировано: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Время, проведенное в качестве Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Путешествовал дистанцировался: %0.1fKM"
+

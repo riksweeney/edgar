@@ -32,3 +32,4 @@ int getMapFloor(int, int);
 int getMapCeiling(int, int);
 int getMapLeft(int, int);
 int getMapRight(int, int);
+int isNearObstacle(Entity *);

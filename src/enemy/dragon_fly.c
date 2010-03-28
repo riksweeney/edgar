@@ -167,8 +167,6 @@ static void dropWait()
 
 static void walkAround()
 {
-	moveLeftToRight();
-	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
@@ -188,6 +186,11 @@ static void walkAround()
 		self->mental = 3;
 		
 		playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
+	}
+	
+	else
+	{
+		moveLeftToRight();
 	}
 }
 

@@ -2161,3 +2161,6 @@ msgstr "Serangan Diblokir: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Sisa Menghabiskan Sebagai Sebuah Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Menjauhkan bepergian: %0.1fKM"
+

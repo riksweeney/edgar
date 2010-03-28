@@ -2161,3 +2161,6 @@ msgstr "Els atacs bloquejats: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Temps emprat com lama: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distància recorreguda: %0.1fKM"
+
