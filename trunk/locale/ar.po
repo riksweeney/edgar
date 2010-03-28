@@ -2161,3 +2161,6 @@ msgstr "هجمات المحظورين : %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "الوقت الذي أمضاه لالوحل : %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "نأى مألوف : %0.1fKM"
+

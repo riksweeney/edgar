@@ -374,6 +374,22 @@ Entity *isSpaceEmpty(Entity *e)
 	return NULL;
 }
 
+int isNearObstacle(Entity *e)
+{
+	int i;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && (entity[i].flags & (OBSTACLE|PUSHABLE))
+			&& collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		{
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
 void checkToMap(Entity *e)
 {
 	int i, x1, x2, y1, y2, previousEnvironment;

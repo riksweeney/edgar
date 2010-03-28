@@ -2162,3 +2162,6 @@ msgstr "Útoky Blokované: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Čas strávený Jak Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distancoval cestovalo: %0.1fKM"
+

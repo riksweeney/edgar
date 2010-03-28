@@ -2162,3 +2162,6 @@ msgstr "Engellenen saldırı: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Time Spent A Slime olarak: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Uzaklaşan Travelled: %0.1fKM"
+

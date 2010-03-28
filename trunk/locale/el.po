@@ -2162,3 +2162,6 @@ msgstr "Επιθέσεις Αποκλεισμένοι: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Χρόνο που Slime Α: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Αποστασιοποιήθηκε Travelled: %0.1fKM"
+

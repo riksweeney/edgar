@@ -2162,3 +2162,6 @@ msgstr "공격이 차단된 : %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "시간을 할애 점액으로서 : %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "거리 여행 : %0.1fKM"
+

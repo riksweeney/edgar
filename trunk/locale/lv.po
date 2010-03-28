@@ -2163,3 +2163,6 @@ msgstr "Uzbrukumi Bloķētie: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Laika pavadīts, kā gļotas: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Norobežoja ceļojis: %0.1fKM"
+

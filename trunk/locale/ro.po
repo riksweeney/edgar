@@ -2163,3 +2163,6 @@ msgstr "Atacuri blocate: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Timpul petrecut As A Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanţat parcursă: %0.1fKM"
+

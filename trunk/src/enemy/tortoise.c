@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../system/error.h"
 #include "../game.h"
+#include "../hud.h"
 
 extern Entity *self;
 
@@ -333,7 +334,47 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (self->element == NO_ELEMENT)
 		{
-			entityTakeDamageNoFlinch(other, damage);
+			if (other->element == LIGHTNING)
+			{
+				if (self->flags & INVULNERABLE)
+				{
+					return;
+				}
+
+				if (damage != 0)
+				{
+					self->health += damage;
+
+					if (other->type == PROJECTILE)
+					{
+						other->target = self;
+					}
+					
+					setCustomAction(self, &flashWhite, 6, 0, 0);
+
+					/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+					if (other->type != PROJECTILE)
+					{
+						setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+					}
+
+					if (self->pain != NULL)
+					{
+						self->pain();
+					}
+					
+					if (prand() % 5 == 0)
+					{
+						setInfoBoxMessage(90, "The damage from this weapon is being absorbed...");
+					}
+				}
+			}
+			
+			else
+			{
+				entityTakeDamageNoFlinch(other, damage);
+			}
 		}
 
 		else

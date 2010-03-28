@@ -2163,3 +2163,6 @@ msgstr "Napadi Blocked: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Čas prebit, kakor Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Daljavo razdalja: %0.1fKM"
+

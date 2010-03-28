@@ -2161,3 +2161,6 @@ msgstr "Blokkolt támadások: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Módon töltött időt, egy Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Elhatárolta Travelled: %0.1fKM"
+

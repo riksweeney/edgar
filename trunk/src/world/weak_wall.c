@@ -57,6 +57,8 @@ Entity *addWeakWall(char *name, int x, int y)
 	e->takeDamage = &takeDamage;
 	e->die = &die;
 	e->fallout = &fallout;
+	
+	e->flags |= OBSTACLE;
 
 	setEntityAnimation(e, STAND);
 
@@ -140,7 +142,7 @@ static void die()
 
 	fireGlobalTrigger(self->objectiveName);
 
-	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/crumble.ogg", 4, self->x, self->y, 0);
 }
 
 static void fallout()

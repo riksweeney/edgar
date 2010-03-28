@@ -2162,3 +2162,6 @@ msgstr "Angriffe abgewehrt: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Zeit lang als Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanziert Mitreisende: %0.1fKM"
+

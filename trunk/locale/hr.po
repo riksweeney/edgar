@@ -2163,3 +2163,6 @@ msgstr "Blokirani Napadi: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Kao vrijeme provedeno Slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Udaljeni proputovao: %0.1fKM"
+

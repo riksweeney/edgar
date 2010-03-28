@@ -2163,3 +2163,6 @@ msgstr "Atakos Užblokuoti: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Laikas, praleistas Kaip slime: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Nuotolinio keliavo: %0.1fKM"
+

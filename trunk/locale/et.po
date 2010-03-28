@@ -2162,3 +2162,6 @@ msgstr "Reageerib Blokeeritud: %d"
 msgid "Time Spent As A Slime: %s"
 msgstr "Time Spent Nagu lima: %s"
 
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distants läbitud: %0.1fKM"
+
