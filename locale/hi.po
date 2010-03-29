@@ -2164,3 +2164,6 @@ msgstr "समय एक कीचड़ के रूप में व्यय
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "दूर की यात्रा: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "तीर निकाल दिया: %d"
+

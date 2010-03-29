@@ -2165,3 +2165,6 @@ msgstr "Tid, der er A Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distanceret distance: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Pile Fyret: %d"
+

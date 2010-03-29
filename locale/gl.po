@@ -2164,3 +2164,6 @@ msgstr "Tempo gasto como un Slim: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distancia percorrida: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Flechas disparadas: %d"
+

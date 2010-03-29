@@ -2164,3 +2164,6 @@ msgstr "Време поминато Како лигите: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Дистанцираше патувал: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Стрели термо: %d"
+

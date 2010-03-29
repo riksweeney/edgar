@@ -2164,3 +2164,6 @@ msgstr "Temps emprat com lama: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distància recorreguda: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Fletxes disparades: %d"
+

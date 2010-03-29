@@ -2166,3 +2166,6 @@ msgstr "Laikas, praleistas Kaip slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Nuotolinio keliavo: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Arrows kuras: %d"
+

@@ -2164,3 +2164,6 @@ msgstr "الوقت الذي أمضاه لالوحل : %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "نأى مألوف : %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "السهام اطلقت : %d"
+

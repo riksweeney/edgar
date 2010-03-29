@@ -2165,3 +2165,6 @@ msgstr "Käytetty aika Kuten Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Irtisanoutunut matka: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Nuolet Erotettu: %d"
+

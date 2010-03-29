@@ -1592,6 +1592,13 @@ static void fireArrow()
 		{
 			removeInventoryItem(playerWeapon.requires);
 		}
+		
+		game.arrowsFired++;
+		
+		if (game.arrowsFired == 1000)
+		{
+			addMedal("arrow_1000");
+		}
 	}
 
 	else

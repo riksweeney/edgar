@@ -2166,3 +2166,6 @@ msgstr "Laika pavadīts, kā gļotas: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Norobežoja ceļojis: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Bultas Fired: %d"
+

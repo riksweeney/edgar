@@ -2165,3 +2165,6 @@ msgstr "Le temps passé à Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distances parcourus: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Arrows Fired: %d"
+

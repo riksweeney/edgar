@@ -2165,3 +2165,6 @@ msgstr "Tid enligt A Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distanserad sträcka: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Pilar Fired: %d"
+
