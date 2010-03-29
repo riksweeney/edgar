@@ -170,7 +170,7 @@ static void doIntro()
 			e->y += (self->h - e->h) / 2;
 
 			e->dirX = (prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
-			e->dirY = ITEM_JUMP_HEIGHT - (prand() % ITEM_JUMP_HEIGHT);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
 			setEntityAnimation(e, i);
 

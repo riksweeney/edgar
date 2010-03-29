@@ -97,7 +97,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->flags &= ~FLY;
 
-			self->dirY = -ITEM_JUMP_HEIGHT;
+			self->dirY = ITEM_JUMP_HEIGHT;
 
 			self->action = self->die;
 		}
@@ -116,7 +116,7 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self->flags &= ~FLY;
 
-			self->dirY = -ITEM_JUMP_HEIGHT;
+			self->dirY = ITEM_JUMP_HEIGHT;
 
 			self->action = self->die;
 		}
