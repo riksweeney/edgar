@@ -130,6 +130,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_STACKABLES 20
 
+#define MAX_STATISTICS 9
+
 #define TELEPORT_SPEED 10
 
 #define SPAWNED_IN_TIME 18000

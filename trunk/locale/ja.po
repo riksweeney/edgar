@@ -2165,3 +2165,6 @@ msgstr "に費やす時間をスライムとして：%s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "距離を旅：%0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "矢印解雇：%d"
+

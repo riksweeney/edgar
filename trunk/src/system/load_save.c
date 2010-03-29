@@ -229,6 +229,11 @@ int loadGame(int slot)
 		{
 			sscanf(line, "%*s %d\n", &game.timeSpentAsSlime);
 		}
+		
+		else if (strcmpignorecase("ARROWS_FIRED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.arrowsFired);
+		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
@@ -410,6 +415,8 @@ static void patchSaveGame(char *saveFile, double version)
 					fprintf(newSave, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
 					
 					fprintf(newSave, "SLIME_TIME %d\n", game.timeSpentAsSlime);
+					
+					fprintf(newSave, "ARROWS_FIRED %d\n", game.arrowsFired);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
@@ -515,6 +522,8 @@ void saveGame(int slot)
 	fprintf(write, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
 	
 	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
+	
+	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 

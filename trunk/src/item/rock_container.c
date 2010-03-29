@@ -67,6 +67,7 @@ static void init()
 	height = (self->endY - self->startY) * 2 / self->speed;
 	circ = 360 * (self->speed * 0.5);
 	
+	#if DEV == 1
 	if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
 	{
 		printf("Length is %f\n", circ + height);
@@ -74,6 +75,7 @@ static void init()
 
 		printf("Time to move is %f\n", height + circ);
 	}
+	#endif
 	
 	if (self->thinkTime > 0)
 	{

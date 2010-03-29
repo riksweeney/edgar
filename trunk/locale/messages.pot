@@ -2164,3 +2164,7 @@ msgstr ""
 
 msgid "Time Spent As A Slime: %s"
 msgstr ""
+
+msgid "Arrows Fired: %d"
+msgstr ""
+

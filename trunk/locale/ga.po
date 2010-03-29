@@ -2165,3 +2165,6 @@ msgstr "Am a chaitear Mar A Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distanced Thaistil: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Saigheada fired: %d"
+

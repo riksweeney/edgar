@@ -124,7 +124,7 @@ static void loadMenuLayout()
 		{
 			token = strtok_r(NULL, " ", &savePtr2);
 
-			menu.widgetCount = atoi(token) + 8;
+			menu.widgetCount = atoi(token) + MAX_STATISTICS;
 
 			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
 
@@ -138,7 +138,7 @@ static void loadMenuLayout()
 		{
 			i = 0;
 			
-			menu.widgets[i] = createWidget(_("Statistics"), NULL, NULL, NULL, NULL, -1, 20 + i * 45, TRUE);
+			menu.widgets[i] = createWidget(_("Statistics"), NULL, NULL, NULL, NULL, -1, 20 + i * 40, TRUE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -149,7 +149,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), getPlayTimeAsString());
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -160,7 +160,18 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
+			
+			if (menu.widgets[i]->selectedState->w > width)
+			{
+				width = menu.widgets[i]->selectedState->w;
+			}
+			
+			i++;
+			
+			snprintf(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
+			
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -171,7 +182,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -182,7 +193,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -197,7 +208,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -208,7 +219,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -219,7 +230,7 @@ static void loadMenuLayout()
 			
 			snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), getSlimeTimeAsString());
 			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 45, FALSE);
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
 			if (menu.widgets[i]->selectedState->w > width)
 			{
@@ -274,7 +285,7 @@ Menu *initStatsMenu()
 
 	loadMenuLayout();
 
-	menu.index = 8;
+	menu.index = MAX_STATISTICS;
 
 	menu.returnAction = &showMainMenu;
 

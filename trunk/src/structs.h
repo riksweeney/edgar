@@ -148,7 +148,7 @@ typedef struct Game
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten, medalSupport;
-	int attacksBlocked, timeSpentAsSlime;
+	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;

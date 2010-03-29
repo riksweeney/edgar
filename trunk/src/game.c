@@ -74,6 +74,8 @@ void initGame()
 	game.batsDrowned = 0;
 
 	game.timesEaten = 0;
+	
+	game.arrowsFired = 0;
 
 	game.playTime = 0;
 	

@@ -4,7 +4,7 @@ CHANGE LOG
 Version 0.55
 * Added the Armoury map, you can get to it via the Fortress Ground Floor
 * Fixed a problem with some key mappings
-
+* Added some statistics, such as play time and enemies killed
 
 Version 0.52
 * Minor update to the Basement boss

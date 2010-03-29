@@ -2166,3 +2166,6 @@ msgstr "Čas prebit, kakor Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Daljavo razdalja: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Puščice Fired: %d"
+

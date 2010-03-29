@@ -2166,3 +2166,6 @@ msgstr "Час, проведений в якості Slime: %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Подорожував дистанціювався: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "Arrows Fired: %d"
+

@@ -2164,3 +2164,6 @@ msgstr "เวลา ที่ ใช้ เป็น โคลน ต ม A: %s
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "Distanced ท่องเที่ยว: %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "ลูก ศร เชื้อเพลิง: %d"
+

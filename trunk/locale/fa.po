@@ -2164,3 +2164,6 @@ msgstr "زمان صرف شده به عنوان یک چیز چسبناک : %s"
 msgid "Distanced Travelled: %0.1fKM"
 msgstr "فاصله سفر : %0.1fKM"
 
+msgid "Arrows Fired: %d"
+msgstr "فلش اخراج : %d"
+
