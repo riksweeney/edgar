@@ -769,7 +769,7 @@ char *getSlimeTimeAsString()
 {
 	/* 1 second is 60 frames */
 
-	int hours, minutes;
+	int minutes;
 	long tempTime;
 	char *timeString;
 
@@ -782,13 +782,11 @@ char *getSlimeTimeAsString()
 
 	tempTime = game.timeSpentAsSlime;
 
-	hours = tempTime / (60 * 60 * 60);
-
-	tempTime -= hours * 60 * 60 * 60;
-
 	minutes = tempTime / (60 * 60);
+	
+	tempTime -= minutes * 60 * 60;
 
-	snprintf(timeString, 15, "%dH %dM", hours, minutes);
+	snprintf(timeString, 15, "%dM %ldS", minutes, tempTime);
 
 	return timeString;
 }
