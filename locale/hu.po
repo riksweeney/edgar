@@ -2167,3 +2167,18 @@ msgstr "Elhatárolta Travelled: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Megtaláltad a titok!"
+
+msgid "10 charges remaining..."
+msgstr "10 díj van hátra ..."
+
+msgid "%s is out of power"
+msgstr "%s van ki a hatalom"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "A kár ezt a fegyvert a felszívódás ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Found: %d / %d"
+

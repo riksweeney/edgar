@@ -95,7 +95,7 @@ void addObjective(char *objectiveName, char *completionTrigger)
 			STRNCPY(objective[i].name, objectiveName, sizeof(objective[i].name));
 			STRNCPY(objective[i].completionTrigger, completionTrigger, sizeof(objective[i].completionTrigger));
 
-			setInfoBoxMessage(60, _("New Objective: %s"), _(objective[i].name));
+			setInfoBoxMessage(60, 255, 255, 255, _("New Objective: %s"), _(objective[i].name));
 
 			return;
 		}
@@ -116,7 +116,7 @@ void updateObjective(char *objectiveName)
 			{
 				freeMessageQueue();
 
-				setInfoBoxMessage(60, _("Objective Completed: %s"), _(objective[i].name));
+				setInfoBoxMessage(180, 0, 255, 0, _("Objective Completed: %s"), _(objective[i].name));
 
 				fireTrigger(objective[i].completionTrigger);
 

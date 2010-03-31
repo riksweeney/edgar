@@ -558,7 +558,7 @@ static void retreatToSkull()
 
 		if (self->target->maxThinkTime > 1)
 		{
-			setInfoBoxMessage(60, _("Try hitting the skull..."));
+			setInfoBoxMessage(60, 255, 255, 255, _("Try hitting the skull..."));
 		}
 
 		self->action = strcmpignorecase(self->name, "enemy/poltergiest_3") == 0 ? &recharge : &skullWait;

@@ -2167,3 +2167,18 @@ msgstr "Дистанционно разстояние: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Стрелки Уволнен: %d"
 
+msgid "You found a secret!"
+msgstr "Разбрал тайна!"
+
+msgid "10 charges remaining..."
+msgstr "10 такси за останалите ..."
+
+msgid "%s is out of power"
+msgstr "%s е извън властта"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Щетите от това оръжие е неутрализирано ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Тайни Намерени: %d / %d"
+

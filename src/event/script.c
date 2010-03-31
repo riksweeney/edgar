@@ -613,6 +613,11 @@ void readNextScriptLine()
 
 			addMedal(token);
 		}
+		
+		else if (strcmpignorecase("ADD_SECRET", command) == 0)
+		{
+			increaseSecretsFound();
+		}
 
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)
 		{

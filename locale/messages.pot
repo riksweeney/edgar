@@ -2168,3 +2168,18 @@ msgstr ""
 msgid "Arrows Fired: %d"
 msgstr ""
 
+msgid "You found a secret!"
+msgstr ""
+
+msgid "10 charges remaining..."
+msgstr ""
+
+msgid "%s is out of power"
+msgstr ""
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr ""
+
+msgid "Secrets Found: %d / %d"
+msgstr ""
+

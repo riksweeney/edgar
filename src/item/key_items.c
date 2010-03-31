@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../inventory.h"
 #include "../entity.h"
+#include "../game.h"
 #include "item.h"
 #include "key_items.h"
 #include "../collisions.h"
@@ -194,6 +195,11 @@ void keyItemTouch(Entity *other)
 {
 	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
+		if (strcmpignorecase(self->name, "item/health_potion") == 0)
+		{
+			increaseSecretsFound();
+		}
+		
 		addToInventory(self);
 	}
 }

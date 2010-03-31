@@ -43,3 +43,4 @@ char *getPlayTimeAsString(void);
 void fadeFromWhite(void);
 void increaseKillCount(void);
 char *getSlimeTimeAsString(void);
+void increaseSecretsFound(void);

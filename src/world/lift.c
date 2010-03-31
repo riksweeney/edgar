@@ -155,7 +155,7 @@ static void touch(Entity *other)
 
 				if (self->type == MANUAL_LIFT && game.showHints == TRUE && other->type == PLAYER && self->dirY == 0)
 				{
-					setInfoBoxMessage(0, _("Push Up or Down to use this lift"));
+					setInfoBoxMessage(0, 255, 255, 255, _("Push Up or Down to use this lift"));
 				}
 			}
 		}
@@ -221,7 +221,7 @@ static void findTarget(int val)
 
 	else
 	{
-		setInfoBoxMessage(60, _("This lift is not active"));
+		setInfoBoxMessage(60, 255, 255, 255, _("This lift is not active"));
 	}
 }
 

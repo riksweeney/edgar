@@ -97,7 +97,7 @@ static void touch(Entity *other)
 
 	if (other->type == PLAYER && self->health > 0)
 	{
-		setInfoBoxMessage(0, _("Press Action to retrieve Purple Gem"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve Purple Gem"));
 	}
 
 	else if (other->type == WEAPON && (other->flags & ATTACKING))

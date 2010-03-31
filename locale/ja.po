@@ -2168,3 +2168,18 @@ msgstr "距離を旅：%0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "矢印解雇：%d"
 
+msgid "You found a secret!"
+msgstr "秘密を発見！"
+
+msgid "10 charges remaining..."
+msgstr "10手数料の残り..."
+
+msgid "%s is out of power"
+msgstr "%s停電です"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "この武器からのダメージを吸収されている..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "秘密が見つかりました：%d分の%d"
+

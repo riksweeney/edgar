@@ -2168,3 +2168,18 @@ msgstr "Irtisanoutunut matka: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Nuolet Erotettu: %d"
 
+msgid "You found a secret!"
+msgstr "Olet löytänyt salaisuus!"
+
+msgid "10 charges remaining..."
+msgstr "10 maksuja jäljellä ..."
+
+msgid "%s is out of power"
+msgstr "%s virta"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Vahingon tämä ase on joutua ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Found: %d / %d"
+

@@ -166,7 +166,7 @@ static void touch(Entity *other)
 	{
 		if (self->health == 3)
 		{
-			setInfoBoxMessage(0, _("Press Action to retrieve Tesla Pack"));
+			setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve Tesla Pack"));
 		}
 
 		else if (self->health == -1)
@@ -175,7 +175,7 @@ static void touch(Entity *other)
 
 			if (e != NULL && e->health == 0)
 			{
-				setInfoBoxMessage(0, _("Press Action to replace Tesla Pack"));
+				setInfoBoxMessage(0, 255, 255, 255, _("Press Action to replace Tesla Pack"));
 			}
 		}
 	}

@@ -2169,3 +2169,18 @@ msgstr "Norobežoja ceļojis: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Bultas Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Jūs atradāt noslēpums!"
+
+msgid "10 charges remaining..."
+msgstr "10 maksa paliek ..."
+
+msgid "%s is out of power"
+msgstr "%s ir no enerģijas"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Kaitējumu no šīs ierocis tiek absorbēts ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Found: %d / %d"
+

@@ -2167,3 +2167,18 @@ msgstr "Distanced ท่องเที่ยว: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "ลูก ศร เชื้อเพลิง: %d"
 
+msgid "You found a secret!"
+msgstr "คุณ พบ ความ ลับ!"
+
+msgid "10 charges remaining..."
+msgstr "10 ค่า ใช้ จ่าย ที่ เหลือ ..."
+
+msgid "%s is out of power"
+msgstr "%s คือ ออก จาก อำนาจ"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "ความ เสียหาย จาก อาวุธ นี้ มี การ ดูด ซึม ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "ลับ พบ: %d / %d"
+

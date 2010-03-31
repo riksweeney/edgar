@@ -110,7 +110,7 @@ static void touch(Entity *other)
 
 			if (removeInventoryItem(self->requires) == 1)
 			{
-				setInfoBoxMessage(60, _("Used %s"), _(self->requires));
+				setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 
 				self->action = &moveToTarget;
 
@@ -119,14 +119,14 @@ static void touch(Entity *other)
 
 			else
 			{
-				setInfoBoxMessage(60, _("%s is needed to open this door"), _(self->requires));
+				setInfoBoxMessage(60, 255, 255, 255, _("%s is needed to open this door"), _(self->requires));
 			}
 		}
 	}
 
 	else if (other->type == PLAYER && self->active == FALSE)
 	{
-		setInfoBoxMessage(60, _("This door is locked"));
+		setInfoBoxMessage(60, 255, 255, 255, _("This door is locked"));
 	}
 }
 

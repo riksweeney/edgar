@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "system/resources.h"
 #include "map.h"
+#include "hud.h"
 #include "system/load_save.h"
 #include "entity.h"
 #include "player.h"
@@ -859,4 +860,13 @@ void increaseKillCount()
 	{
 		addMedal("kill_2000");
 	}
+}
+
+void increaseSecretsFound()
+{
+	game.secretsFound++;
+	
+	setInfoBoxMessage(90, 0, 255, 0, _("You found a secret!"));
+	
+	playSound("sound/common/secret.ogg");
 }

@@ -220,7 +220,7 @@ static void wait()
 
 			if ((self->mental % 50) == 0)
 			{
-				setInfoBoxMessage(120, _("Try using Mataeus's knives against him..."));
+				setInfoBoxMessage(120, 255, 255, 255, _("Try using Mataeus's knives against him..."));
 			}
 		}
 
@@ -794,7 +794,7 @@ static void takeDamage(Entity *other, int damage)
 
 			if (prand() % 10 == 0)
 			{
-				setInfoBoxMessage(60, _("This weapon is not having any effect..."));
+				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
@@ -1048,7 +1048,7 @@ static void anchorTakeDamage(Entity *other, int damage)
 
 			if (prand() % 10 == 0)
 			{
-				setInfoBoxMessage(60, _("This weapon is not having any effect..."));
+				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);

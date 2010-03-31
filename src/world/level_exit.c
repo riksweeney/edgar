@@ -110,7 +110,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		setInfoBoxMessage(0, _("Press Action to go to the %s"), _(self->requires));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to go to the %s"), _(self->requires));
 	}
 }
 

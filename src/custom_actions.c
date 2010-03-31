@@ -251,7 +251,7 @@ void slimeTimeout(int *thinkTime, int *counter, float *value)
 
 	freeMessageQueue();
 
-	setInfoBoxMessage(5, "%d", *thinkTime / 60);
+	setInfoBoxMessage(5, 255, 255, 255, "%d", *thinkTime / 60);
 
 	if (*thinkTime == 0)
 	{

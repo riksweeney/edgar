@@ -21,7 +21,7 @@ void initHud(void);
 void drawHud(void);
 void freeHud(void);
 void doHud(void);
-void setInfoBoxMessage(int, char *, ...);
+void setInfoBoxMessage(int, int, int, int, char *, ...);
 void freeMessageQueue(void);
 void initBossHealthBar(void);
 void freeBossHealthBar(void);

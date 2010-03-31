@@ -248,13 +248,24 @@ static void loadMenuLayout()
 			
 			i++;
 			
+			snprintf(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
+			
+			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
+			
+			if (menu.widgets[i]->selectedState->w > width)
+			{
+				width = menu.widgets[i]->selectedState->w;
+			}
+			
+			i++;
+			
 			token = strtok_r(NULL, "\0", &savePtr2);
 
 			sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
 
 			if (strcmpignorecase(menuID, "MENU_OK") == 0)
 			{
-				menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, x, y, TRUE);
+				menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, x, 20 + i * 40, TRUE);
 			}
 
 			else
@@ -279,6 +290,8 @@ static void loadMenuLayout()
 	/* Resize */
 
 	menu.w = width + 20;
+	
+	menu.h = 20 + i * 40 + menu.widgets[i]->selectedState->h;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 

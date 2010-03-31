@@ -73,7 +73,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -83,14 +83,14 @@ static void activate(int val)
 
 	if (e == NULL)
 	{
-		setInfoBoxMessage(60, _("%s is required"), _(self->requires));
+		setInfoBoxMessage(60, 255, 255, 255, _("%s is required"), _(self->requires));
 	}
 
 	else
 	{
 		self->mental = 0;
 
-		setInfoBoxMessage(300, _("Enter the directions"));
+		setInfoBoxMessage(300, 255, 255, 255, _("Enter the directions"));
 
 		self->target->requires[0] = '\0';
 
@@ -162,7 +162,7 @@ static void readInputCode()
 
 		if (self->mental > 30)
 		{
-			setInfoBoxMessage(300, _("Out of space for instructions"));
+			setInfoBoxMessage(300, 255, 255, 255, _("Out of space for instructions"));
 		}
 		
 		self->touch = &touch;

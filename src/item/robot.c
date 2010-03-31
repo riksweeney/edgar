@@ -98,7 +98,7 @@ static void touch(Entity *other)
 
 	if (self->active == FALSE && other->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 
 	else if (self->health == 1 && fabs(self->x - other->x) <= fabs(self->dirX) && fabs(self->y - other->y) <= fabs(self->dirY))

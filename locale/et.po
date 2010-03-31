@@ -2168,3 +2168,18 @@ msgstr "Distants läbitud: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Nooled Köetakse: %d"
 
+msgid "You found a secret!"
+msgstr "Leidsid saladus!"
+
+msgid "10 charges remaining..."
+msgstr "10 tasud veel ..."
+
+msgid "%s is out of power"
+msgstr "%s on sätestatud võimu"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Kahju see relv on imendunud ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Riigisaladuse Leiti: %d / %d"
+

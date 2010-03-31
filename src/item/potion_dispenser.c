@@ -75,7 +75,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -91,11 +91,11 @@ static void activate(int val)
 
 		playSoundToMap("sound/item/fill_potion.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
-		setInfoBoxMessage(60, _("Obtained %s"), _(e->objectiveName));
+		setInfoBoxMessage(60, 255, 255, 255, _("Obtained %s"), _(e->objectiveName));
 	}
 
 	else
 	{
-		setInfoBoxMessage(60, _("%s is required"), _(self->requires));
+		setInfoBoxMessage(60, 255, 255, 255, _("%s is required"), _(self->requires));
 	}
 }

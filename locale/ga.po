@@ -2168,3 +2168,18 @@ msgstr "Distanced Thaistil: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Saigheada fired: %d"
 
+msgid "You found a secret!"
+msgstr "Fuair tú rúnda a!"
+
+msgid "10 charges remaining..."
+msgstr "10 muirir eile ..."
+
+msgid "%s is out of power"
+msgstr "%s Is as cumhacht"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Is é an damáiste as an arm a bheith absorbed ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Rúin Found: %d / %d"
+

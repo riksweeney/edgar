@@ -620,7 +620,7 @@ static void takeDamage(Entity *other, int damage)
 			
 			if (prand() % 5 == 0)
 			{
-				setInfoBoxMessage(90, "The damage from this weapon is being absorbed...");
+				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
 		}
 	}

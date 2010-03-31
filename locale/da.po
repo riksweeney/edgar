@@ -2168,3 +2168,18 @@ msgstr "Distanceret distance: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Pile Fyret: %d"
 
+msgid "You found a secret!"
+msgstr "Du har fundet en hemmelighed!"
+
+msgid "10 charges remaining..."
+msgstr "10 gebyrer resterende ..."
+
+msgid "%s is out of power"
+msgstr "%s er tør for strøm"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Skaderne fra dette våben er ved at blive absorberet ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Fundet: %d / %d"
+

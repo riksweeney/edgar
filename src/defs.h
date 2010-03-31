@@ -130,7 +130,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_STACKABLES 20
 
-#define MAX_STATISTICS 9
+#define MAX_STATISTICS 10
 
 #define TELEPORT_SPEED 10
 
@@ -151,6 +151,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_INVENTORY_ITEMS 30
 
 #define DEG_TO_RAD(x) ((x) * PI / 180)
+
+#define TOTAL_SECRETS 13
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 

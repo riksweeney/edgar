@@ -2168,3 +2168,18 @@ msgstr "Αποστασιοποιήθηκε Travelled: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Βέλη Απολύομαι: %d"
 
+msgid "You found a secret!"
+msgstr "Βρήκατε ένα μυστικό!"
+
+msgid "10 charges remaining..."
+msgstr "10 επιβαρύνσεις υπόλοιπα ..."
+
+msgid "%s is out of power"
+msgstr "%s ευρώ από την εξουσία"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Η ζημία από αυτό το όπλο έχει απορροφηθεί ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Μυστικά Found: %d / %d"
+

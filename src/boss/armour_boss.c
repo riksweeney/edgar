@@ -633,7 +633,7 @@ static void takeDamage(Entity *other, int damage)
 
 			if (other->type != ENEMY && self->mental == 0 && (prand() % 10 == 0))
 			{
-				setInfoBoxMessage(60, _("Its wounds are already healing..."));
+				setInfoBoxMessage(60, 255, 255, 255, _("Its wounds are already healing..."));
 
 				/* Don't get killed by anything except the slimes */
 
@@ -1338,7 +1338,7 @@ static void gemWait()
 
 		if (self->thinkTime <= 0)
 		{
-			setInfoBoxMessage(120, _("Find a way to remove the Gem..."));
+			setInfoBoxMessage(120, 255, 255, 255, _("Find a way to remove the Gem..."));
 
 			self->thinkTime = 7200;
 		}
@@ -1349,7 +1349,7 @@ static void gemTouch(Entity *other)
 {
 	if (other->type == PLAYER && self->head->maxThinkTime == 99)
 	{
-		setInfoBoxMessage(0, _("Press Action to retrieve the Yellow Gem"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve the Yellow Gem"));
 	}
 }
 

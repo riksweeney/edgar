@@ -136,7 +136,7 @@ static void touch(Entity *other)
 
 		else if (other->type == PLAYER)
 		{
-			setInfoBoxMessage(0, _("This teleporter is not active"));
+			setInfoBoxMessage(0, 255, 255, 255, _("This teleporter is not active"));
 		}
 	}
 }

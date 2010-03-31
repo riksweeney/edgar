@@ -2169,3 +2169,18 @@ msgstr "Udaljeni proputovao: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Strelice ispalio: %d"
 
+msgid "You found a secret!"
+msgstr "Vi pronašao tajnu!"
+
+msgid "10 charges remaining..."
+msgstr "10 preostale troškove ..."
+
+msgid "%s is out of power"
+msgstr "%s je izvan snage"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Štete iz ovog oružja je apsorbirana ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Found: %d / %d"
+

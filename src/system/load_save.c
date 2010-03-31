@@ -234,6 +234,11 @@ int loadGame(int slot)
 		{
 			sscanf(line, "%*s %d\n", &game.arrowsFired);
 		}
+		
+		else if (strcmpignorecase("SECRETS_FOUND", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.secretsFound);
+		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
@@ -417,6 +422,8 @@ static void patchSaveGame(char *saveFile, double version)
 					fprintf(newSave, "SLIME_TIME %d\n", game.timeSpentAsSlime);
 					
 					fprintf(newSave, "ARROWS_FIRED %d\n", game.arrowsFired);
+					
+					fprintf(newSave, "SECRETS %d\n", game.secretsFound);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
@@ -524,6 +531,8 @@ void saveGame(int slot)
 	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
 	
 	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
+	
+	fprintf(write, "SECRETS %d\n", game.secretsFound);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 

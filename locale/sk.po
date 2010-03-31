@@ -2168,3 +2168,18 @@ msgstr "Dištancoval cestovalo: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Našiel si tajný!"
+
+msgid "10 charges remaining..."
+msgstr "10 poplatky zostávajú ..."
+
+msgid "%s is out of power"
+msgstr "%s je z moci"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Škôd z tejto zbrane je absorbovaná ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Nájdené: %d / %d"
+

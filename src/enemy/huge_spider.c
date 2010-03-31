@@ -219,7 +219,7 @@ static void takeDamage(Entity *other, int damage)
 
 	if (prand() % 10 == 0)
 	{
-		setInfoBoxMessage(60, _("This weapon is not having any effect..."));
+		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
 }
 
@@ -241,7 +241,7 @@ static void touch(Entity *other)
 
 			if (player.health > 0)
 			{
-				setInfoBoxMessage(180, _("Now! Run while it's stunned!"));
+				setInfoBoxMessage(180, 255, 255, 255, _("Now! Run while it's stunned!"));
 			}
 
 			self->health = 0;

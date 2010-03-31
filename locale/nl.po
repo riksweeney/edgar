@@ -2168,3 +2168,18 @@ msgstr "Gedistantieerd Gereisd: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Pijlen Fired: %d"
 
+msgid "You found a secret!"
+msgstr "U vond een geheim!"
+
+msgid "10 charges remaining..."
+msgstr "10 overige kosten ..."
+
+msgid "%s is out of power"
+msgstr "%s is van de macht"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "De schade van dit wapen wordt geabsorbeerd ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Gevonden: %d / %d"
+

@@ -2168,3 +2168,18 @@ msgstr "Uzaklaşan Travelled: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Okları Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Sır bulunamadı!"
+
+msgid "10 charges remaining..."
+msgstr "10 ücrete kalan ..."
+
+msgid "%s is out of power"
+msgstr "%s çıkış gücü biridir"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Bu silahı kimden zarar absorbe ediliyor ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Bulunan: %d / %d"
+

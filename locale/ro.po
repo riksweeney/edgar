@@ -2169,3 +2169,18 @@ msgstr "Distanţat parcursă: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Săgeţi Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Ai gasit un secret!"
+
+msgid "10 charges remaining..."
+msgstr "10 taxe rămase ..."
+
+msgid "%s is out of power"
+msgstr "%s este în afara de putere"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Daune de la această armă este absorbit ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secretele Found: %d / %d"
+

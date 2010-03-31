@@ -1270,7 +1270,7 @@ void activateEntitiesValueWithObjectiveName(char *name, int value)
 
 			if (self->type == MANUAL_LIFT && self->active == FALSE)
 			{
-				setInfoBoxMessage(90, _("This lift is not active"));
+				setInfoBoxMessage(90, 255, 255, 255, _("This lift is not active"));
 			}
 
 			else
