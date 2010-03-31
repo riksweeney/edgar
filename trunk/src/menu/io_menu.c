@@ -198,7 +198,14 @@ static void loadMenuLayout(int saving)
 		}
 
 		y += menu.widgets[i]->normalState->h + 5;
+		
+		if (saveFile[i] != NULL)
+		{
+			free(saveFile[i]);
+		}
 	}
+	
+	free(saveFile);
 
 	y += 15;
 
