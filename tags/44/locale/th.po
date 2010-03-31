@@ -1,0 +1,2169 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "รวดเร็ว เลี้ยว ซ้าย และ ขวา เพื่อ สลัด slimes!"
+
+msgid "Bow"
+msgstr "น้อม"
+
+msgid "Not working in this version!"
+msgstr "ไม่ ทำงาน ใน รุ่น นี้"
+
+msgid "Press Action to interact"
+msgstr "กด ดำเนิน การ ติดต่อ สื่อสาร"
+
+msgid "%s is required"
+msgstr "%s ต้อง"
+
+msgid "Bomb"
+msgstr "ลูก ระเบิด"
+
+msgid "Small Rock"
+msgstr "หิน ขนาด เล็ก"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "กด การ กระทำ เพื่อ เรียก อัญมณี สี ม่วง"
+
+msgid "Chicken"
+msgstr "ไก่"
+
+msgid "Tesla Pack"
+msgstr "Pack Tesla"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "กด การ กระทำ เพื่อ เรียก Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "กด ดำเนิน การ แทน Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "ได้ %s"
+
+msgid "Complete"
+msgstr "เสร็จ สมบูรณ์"
+
+msgid "%d more to go..."
+msgstr "%d ขึ้น ไป ..."
+
+msgid "Used %s"
+msgstr "ใช้ %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "ไม่ สามารถ จัด รายการ ขณะ transmogrified"
+
+msgid "Equipped %s"
+msgstr "ห้อง %s"
+
+msgid "Maximum health has increased!"
+msgstr "สุขภาพ สูงสุด เพิ่ม ขึ้น!"
+
+msgid "Bow will now fire %s"
+msgstr "น้อม จะ ดับ เพลิง %s"
+
+msgid "A bow is required to use this item"
+msgstr "น้อม ต้อง ใช้ รายการ นี้"
+
+msgid "Cannot transmogrify here..."
+msgstr "ไม่ สามารถ transmogrify ที่ นี่ ..."
+
+msgid "Yes"
+msgstr "ใช่"
+
+msgid "No"
+msgstr "ไม่ใช่"
+
+msgid "Start a new game?"
+msgstr "เริ่ม เกม ใหม่"
+
+msgid "Play the tutorial?"
+msgstr "เล่น กวด วิชา หรือ ไม่"
+
+msgid "Exit the game?"
+msgstr "ออก จาก เกม?"
+
+msgid "Back"
+msgstr "หลัง"
+
+msgid "Game Loaded"
+msgstr "โหลด เกมส์"
+
+msgid "Game Saved"
+msgstr "บันทึก Game"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "ความ คืบ หน้า ใด ๆ ที่ ไม่ ได้ บันทึก จะ สูญหาย"
+
+msgid "Joy Button #%d"
+msgstr "ปิติ ปุ่ม # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "กด การ กระทำ การ พูด กับ %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "ใหม่ วัตถุประสงค์: %s"
+
+msgid "Objective Completed: %s"
+msgstr "วัตถุประสงค์ เสร็จ สมบูรณ์: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "ผนัง ด้าน ขวา ดู อ่อนแอ ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "อาวุธ นี้ ไม่ ได้ มี ผล ใด ๆ ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "กด กระทำ การ แนบ Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "ตำนาน Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s เป็น สิ่ง จำเป็น เพื่อ เปิด สวิตช์ นี้"
+
+msgid "Press Action to use this switch"
+msgstr "กด การ ทำงาน เพื่อ ใช้ สวิตช์ นี้"
+
+msgid "Press Action to save your game"
+msgstr "กด การ ทำงาน เพื่อ บันทึก เกม ของ คุณ"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s จะ ต้อง ใช้ แรง ดัน นี้ Plate"
+
+msgid "%s is needed to open this door"
+msgstr "%s คือ ต้อง เปิด ประตู นี้"
+
+msgid "This door is locked"
+msgstr "ประตู นี้ ถูก ล็อก"
+
+msgid "This teleporter is not active"
+msgstr "Teleporter นี้ ไม่ ได้ ใช้ งาน"
+
+msgid "Press Action to go to the %s"
+msgstr "กด การ กระทำ เพื่อ ไป ที่ %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "กด ขึ้น หรือ ลง เพื่อ ใช้ ลิ ฟ ท์ นี้"
+
+msgid "This lift is not active"
+msgstr "ยก นี้ ไม่ ได้ ใช้ งาน"
+
+msgid "Cannot carry any more %s"
+msgstr "ไม่ สามารถ ดำเนิน การ ใด ๆ เพิ่มเติม %s"
+
+msgid "Picked up %s x %d"
+msgstr "เลือก up %s x %d"
+
+msgid "Picked up %s"
+msgstr "เลือก ได้ %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s จะ ต้อง ดำเนิน รายการ นี้"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "คีย์ Storage"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "คีย์ ถ่านหิน กระเป๋า Storage Switch"
+
+msgid "Large Room Key"
+msgstr "กุญแจ ห้อง พัก ขนาด ใหญ่"
+
+msgid "Coal Bag"
+msgstr "ถุง ถ่านหิน"
+
+msgid "Forest Cell Key"
+msgstr "คีย์ Forest เซลล์"
+
+msgid "Wood Axe"
+msgstr "ขวาน ไม้"
+
+msgid "Health Potion"
+msgstr "มื้อ สุขภาพ"
+
+msgid "Outflow Key"
+msgstr "คีย์ รั่ว ไหล"
+
+msgid "Flow Control Key"
+msgstr "คีย์ Flow Control"
+
+msgid "Waste Processing Key"
+msgstr "คีย์ เสีย Processing"
+
+msgid "Access Key 1"
+msgstr "Access Key 1"
+
+msgid "Access Key 2"
+msgstr "Access Key 2"
+
+msgid "Access Key 3"
+msgstr "Access Key 3"
+
+msgid "Trap Door Switch Key"
+msgstr "กุญแจ ประตู ดัก Switch"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "ยก นี้ มี อำนาจ no. ฉัน จะ ไม่ สามารถ ใช้ งาน จนกว่า จะ คืน อำนาจ"
+
+msgid "Keep practising!"
+msgstr "ให้ ฝึกฝน!"
+
+msgid "Hi"
+msgstr "สวัสดี"
+
+msgid "Hello Edgar"
+msgstr "Edgar Hello"
+
+msgid "Can I borrow your shield?"
+msgstr "ฉัน ขอยืม โล่ ของ คุณ"
+
+msgid "Off to practice your fighting skills?"
+msgstr "ปิด การ ฝึก รบ ของ คุณ"
+
+msgid "Something like that"
+msgstr "อย่าง เช่น"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "ถ้า คุณ เรียก ฉัน ชา แล้ว คุณ สามารถ ป้องกัน"
+
+msgid "What do I have to do?"
+msgstr "อะไร บ้าง ต้อง ทำ อย่างไร"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "ไป ที่ เหมือง และ เก็บ ฉัน ถ่านหิน บาง"
+
+msgid "But we have plenty of coal!"
+msgstr "แต่ เรา มี มากมาย ถ่านหิน!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "ใช่ แต่ ไม่ ใด ถ่านหิน เก่า ถ่านหิน นี้ เป็น พิเศษ ก็ จะ เผา ไหม้ hotter และ เวลา นาน"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "ฉัน เพียง ต้องการ 10 ชิ้น สิ่ง ดังนั้น จึง ไม่ ควร นำ คุณ ไป นาน โข"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "ให้ แน่ใจ ว่า คุณ นำ มา ใส่ ถุง ให้ สัมผัส มัน นาน เกินไป จะ ไม่ ดี ต่อ สุขภาพ ของ คุณ"
+
+msgid "Do you have a bag?"
+msgstr "คุณ มี กระเป๋า หรือ ไม่"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "ไม่ คุณ อาจ จะ พบ หนึ่ง ใน เหมือง ว่า"
+
+msgid "OK, I'll get the coal"
+msgstr "ตกลง ฉัน จะ ซื้อ ถ่านหิน"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "นี่ เอา pickaxe นี้. คุณ สามารถ ใช้ การ เหมือง ถ่านหิน และ ตัด ผ่าน ผนัง อ่อนแอ ที่ คุณ พบ"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "คุณ ยัง จะ ต้อง คีย์ นี้ เพื่อ ให้ เป็น ระเบิด"
+
+msgid "Thanks!"
+msgstr "ขอบคุณ!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "ขอ ขอบคุณ Edgar, ถ่านหิน นี้ เหมาะ! Bats หวัง ไม่ ได้ หลอน คุณ."
+
+msgid "The bats were the least of my worries..."
+msgstr "Bats ได้ อย่าง น้อย ของ กังวล ของ ฉัน ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "กล่าว ว่า ฉัน ได้ยิน สิ่ง ที่ เกิด ขึ้น ใน เหมือง ที่ ไม่ กี่ ปี ที่ ผ่าน มา ว่า"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "เอ้อ, อือ, มี สิ่ง ที่ คุณ ต้องการ เรียก  อุบัติ การณ์  แต่ ส่วน หนึ่ง ของ ฉัน ที่ อุด นาน มา แล้ว"
+
+msgid "Right..."
+msgstr "ขวา ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "ที่ นี่ มี โล่ ของ ฉัน และ สนุก!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "เพียง อยู่ ห่าง จาก บึง ต้อง ห้าม"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "จะ ทำ จะ สามารถ ถือ เพื่อ pickaxe ของ คุณ ใน ขณะ ที่ หรือ ไม่"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "สิ่ง แน่ใจ เพียง นำ กลับ ได้ ใน หนึ่ง ชิ้น"
+
+msgid "Thanks, Borgan!"
+msgstr "ขอบคุณ Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "มี คุณ จัดการ หา ถ่านหิน ยัง?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "คุณ สามารถ ดึง บาง รายการ รอบ โดย ผลัก ดัน พวก เขา ขณะ ที่ ถือ ลง มา ที่ ปุ่ม Action."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "แล้ว คุณ สามารถ ถอน รอบ จนกว่า คุณ จะ ปล่อย ให้ ไป ของ ปุ่ม การ กระทำ"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "หิน นี้ ดู ดี เกินไป สำหรับ การ เลือก ขวาน ของ ฉัน. ฉัน จะ ต้อง ใช้ อะไร เพื่อ ให้ ผ่าน ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, สิ่ง ที่ เกิด ขึ้น?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "ลักษณะ เช่น นี้ ไม่ ได้ เช่น ความ คิด ที่ ดี หลังจาก"
+
+msgid "There must be way out of here..."
+msgstr "ต้อง มี วิธี ออก จาก ที่ นี่ ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "นี้ ต้อง มี ถ่านหิน ต้องการ ฉัน ฉัน สำหรับ เขา"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "ฉัน ไม่ คิด ว่า โล่ ของ ฉัน จะ ปกป้อง ฉัน จาก บรรดา fireballs. ฉัน จะ ต้อง ไป หา คน ดี ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "คุณ จะ ไม่ สามารถ ทำ bit นี้ ใน เวอร์ชัน นี้ ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "Strange creature..."
+msgstr "สัตว์ แปลก ..."
+
+msgid "Wait, what was that?"
+msgstr "รอ อะไร บ้าง นั้น"
+
+msgid "You again?!"
+msgstr "คุณ อีก ครั้ง?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "สิ่ง ที่ ควร จะ เกิด ขึ้น ที่ นี่ แต่ ไม่ใช่ ใน เวอร์ชัน นี้ เพื่อ ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "Have fun!"
+msgstr "สนุก!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "ขอบคุณ สำหรับ resucing ไก่ ของ ฉัน มี คุณ มี ฉัน 2 บันทึก จาก ป่า หรือ ยัง"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Edgar ขอบคุณ! ไก่ ของ ฉัน กลับ และ บันทึก เหล่า นี้ จะ ขอ ปรับ"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "ใช้ ดาบ นี้ อาจ ให้ บริการ คุณ ได้ ดี!"
+
+msgid "Thank you!"
+msgstr "ขอบคุณ!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "ขอบคุณ สำหรับ บันทึก ที่ มี คุณ มี โชค กับ ไก่ อะไร บ้าง"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "ฉัน จะ ให้ ดาบ ถ้า คุณ ได้ รับ ฉัน 2 บันทึก การ สับ จาก ป่า และ การ ช่วยเหลือ อย่าง น้อย 3 ของ ไก่ ของ ฉัน"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, ฉัน จะ ทำ อะไร ให้ คุณ ใน วัน นี้?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "คุณ มี ดาบ ฉัน สามารถ กู้ ได้ หรือ ไม่"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "ฉัน จะ มี ดาบ และ คุณ สามารถ มี ได้ หาก คุณ ทำ อะไร ให้ ฉัน ก่อน"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... สิ่ง ที่ ฉัน ต้อง ทำ อย่างไร"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "บาง ไก่ ของ ฉัน ได้ หนี พ้น จาก ปากกา และ ฉัน จะ ขอบคุณ มาก ถ้า คุณ จะ ได้ รับ มัน กลับ มา ให้ ฉัน"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "ฉัน ได้ ตั้ง ดัก บาง ใกล้ ปากกา ของ คุณ สามารถ เย้า ยวน ใจ ให้ ดัก โดย ใช้ อาหาร ไก่ นี้. ฉัน ไม่ ต้องการ พวก เขา แต่ อย่าง น้อย 3 จะ มี ประโยชน์ มาก. ฉัน จะ หยุด ตัว เอง."
+
+msgid "That's it?"
+msgstr "ที่ หรือ ไม่"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "ไม่ เชิง. คุณ ยัง สามารถ ได้ รับ ฉัน ไม้ จาก ป่า บาง? 2 ล็อก ควร จะ เพียงพอ"
+
+msgid "Do you have an axe?"
+msgstr "คุณ มี ขวาน หรือ ไม่"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... ฉัน ซ้าย ขวาน ของ ฉัน ใน ป่า แห่ง หนึ่ง. ก็ ยัง ควร จะ มี"
+
+msgid "Isn't that forest dangerous?"
+msgstr "ไม่ ว่า ป่า อันตราย?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "ไม่ จริง ถ้า สิ่ง ที่ ได้ รับ ใน ทาง ของ คุณ เพียง แค่ กด ปุ่ม กับ อาวุธ"
+
+msgid "Such as an axe?"
+msgstr "เช่น ขวาน หรือ ไม่"
+
+msgid "Yes, that would do the trick"
+msgstr "ใช่ ว่า จะ ทำ หลอกลวง"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "แต่ จริงจัง มี อะไร ใน นั้น ที่ จริง อาจ เป็น อันตราย ต่อ คุณ. ปัญหา ที่ ได้ กระทำ นาน แล้ว ..."
+
+msgid "Good luck!"
+msgstr "โชค ดี!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "โอ้ ขอบคุณ Edgar ฉัน เพียง ต้องการ 3 แต่ ขอบคุณ สำหรับ ความ ช่วยเหลือ เพิ่มเติม!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "นี่ Maggie ทำให้ ฉัน มื้อ สุขภาพ นี้ แต่ ฉัน ไม่ จำเป็น ต้อง ให้ เหตุผล ที่ ไม่ ได้ มี หรือ ไม่"
+
+msgid "Thanks Jacob"
+msgstr "Jacob ขอบคุณ"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "ว้า ว คุณ ติด พวก เขา ขอบคุณ มาก!"
+
+msgid "Here, I have these for you"
+msgstr "นี่ ฉัน มี นี้ ให้ คุณ"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie ทำให้ ฉัน มื้อ สุขภาพ นี้ แต่ คุณ สามารถ มี ได้"
+
+msgid "And this is something very special"
+msgstr "และ นี่ คือ สิ่ง ที่ พิเศษ มาก"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "นี้ อาจ ช่วย ให้ คุณ ทาง ของ คุณ ให้ กลาย เป็น นักรบ strong"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "คุณ ช่วย ฉัน มาก เวลา. Maggie ทำ อะไร ฉัน อีก แต่ เนื่องจาก คุณ ได้ รับ ประโยชน์ เพื่อ ให้ คุณ สามารถ มี ได้."
+
+msgid "Hi Maggie"
+msgstr "Maggie Hi"
+
+msgid "Thanks Maggie!"
+msgstr "Maggie ขอบคุณ!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan กล่าว ว่า ส่วน ของ ฉัน คือ อุด หลัง  เกิด ขึ้น "
+
+msgid "There must be something around here..."
+msgstr "ต้อง มี อะไร แถว นี้ ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, สะพานชัก นั้น ขึ้น อยู่. ต้อง มี ทาง เข้า อื่น ..."
+
+msgid "Wait, what's that?"
+msgstr "รอ อะไร หรือ ไม่"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "บางที ฉัน อาจ อุโมงค์ ทาง ของ ระบบ .."
+
+msgid "These machines aren't working."
+msgstr "เครื่อง เหล่า นี้ ไม่ ทำงาน."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "ดูเหมือน ว่า อัญมณี ควร พอดี กับ หลุม นี้ แล้ว อาจ จะ หา เปลี่ยน บาง."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "ดูเหมือน ว่า จะ ติด ใน มี. ฉัน อาจ จะ คลาย กับ pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "รับ ไป ห้าม ท่วม ฉัน จะ ต้อง สร้าง แพ."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "ฉัน สามารถ สร้าง แพ ถ้า ตัด ต้นไม้ พอ ลง จาก ป่า"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "ฉัน ต้องการ 6 ล็อก สับ สร้าง แพ"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "ฉัน ไม่ ไป ที่ บึง โดย ดาบ และ โล่"
+
+msgid "OK, here goes!"
+msgstr "ตกลง นี่ ไป!"
+
+msgid "Aw, not again!"
+msgstr "AW ไม่ อีก ครั้ง"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "นี้ ได้ ดี ขึ้น เป็น ครั้ง สุดท้าย ฉัน ต้อง ทำ เช่น นี้ ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "ที่ ง่าย! และ ฉัน สามารถ กลับ ช้า!"
+
+msgid "Oh...."
+msgstr "แหม ...."
+
+msgid "Guess I have no choice now."
+msgstr "เดา ฉัน มี ทาง เลือก ไม่ ตอน นี้."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "แขวน กับ พ่อ ผม มา ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "สิ่ง ที่ ควร จะ เกิด ขึ้น ใน ขณะ นี้ แต่ จะ ไม่ ได้ ใน เวอร์ชัน นี้. ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "There's a note here"
+msgstr "มี บันทึก ที่ นี่ ของ"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "ฉัน ถูก ดัก ลง มา ที่ นี่ สิ่ง ที่ ดูเหมือน เหมือน กัลป์"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "เพื่อ ให้ ออก จาก สถาน ที่ ฉัน ต้องการ คีย์ 3 เข้า ทำงาน ลิ ฟ ท์ นี้"
+
+msgid "So far I have only found 1"
+msgstr "จนถึง ขณะ นี้ ฉัน ได้ พบ เพียง 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "เพื่อ ให้ เรื่อง เลว ฉัน สามารถ เข้าถึง สวิตช์ บาง อย่าง กับ ลูก ศร อยู่"
+
+msgid "But spares aren't common and I have run out"
+msgstr "แต่ อะไหล่ ไม่ เหมือน กัน และ ฉัน ได้ หมด"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "หาก ฉัน ไม่ พบ วิธี ออก จาก ที่ นี่ เร็ว ๆ นี้ ฉัน กลัว ฉัน จะ อดอยาก"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "ถ้า ฉัน ไม่ ได้ ออก จาก ที่ นี่ ฉัน จะ ประสบ เคราะห์ กรรม เดียวกัน ..."
+
+msgid "Oh, what's this?"
+msgstr "โธ่ นี่ คือ อะไร"
+
+msgid "There's a note here too"
+msgstr "มี บันทึก ของ ที่ นี่ เกินไป"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "มื้อ เหมาะ! Quaffing จะ หัน มนุษย์ เป็น สัตว์ ขนาด เล็ก จำนวน เวลา"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "จนถึง ขณะ นี้ ฉัน สามารถ transmogrify ตัว เอง เป็น หนึ่ง แต่ มี สัตว์ อะไร ที่ เวลา น้อย มาก ควร จะ เป็น ไป ได้"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "มี บิต ซ้าย เล็ก ก็ ควร จะ ปลอดภัย จะ ดื่ม"
+
+msgid "OK, here goes nothing..."
+msgstr "ตกลง นี่ ไป ไม่มี ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh!! นี้ น่า กลัว!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan บอก ฉัน ว่า Slimes สามารถ ว่า ย น้ำ แม้ว่า ดังนั้น อาจ จะ เป็น ประโยชน์ ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "เปลี่ยน เมื่อ เข้า เลน คุณ สามารถ ย้าย รอบ ตาม ปกติ. คุณ ยัง สามารถ ว่า ย น้ำ ใน น้ำ และ ใช้ ขึ้น และ ลง เพื่อ ย้าย รอบ"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "ผลัก ดัน หรือ กระโดด จะ ทำให้ คุณ กระโดด ออก จาก น้ำ ถ้า คุณ ใกล้ พื้น ผิว"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "เฝ้า ดูแล จับเวลา ที่ ด้าน ล่าง ของ หน้า จอ. เมื่อ ถึง 0 คุณ จะ ได้ เป็น มนุษย์ อีก ครั้ง"
+
+msgid "This place doesn't look so bad..."
+msgstr "ที่ ไม่ ได้ ดู แย่ เพื่อ นี้ ..."
+
+msgid "What was that?"
+msgstr "สิ่ง ที่ นั้น"
+
+msgid "Uh Oh..."
+msgstr "Uh โอ้ ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "วุ้ย, ฉัน ดีใจ ที่ จะ ออก จาก มี"
+
+msgid "Now to get through this swamp"
+msgstr "ขณะ นี้ ได้ รับ ผ่าน ทาง นี้ ท่วม"
+
+msgid "Hey, what's this?"
+msgstr "เดี๋ยวก่อน นี่ คือ อะไร"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "สวยงาม ไม่ เป็น อันตราย ฉัน จะ พยายาม ที่ จะ ก้าว"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "ว้า ว! ที่ เด็ด! นี้ จะ ต้อง เป็น teleporter เครื่องกล."
+
+msgid "I wonder if it works both ways..."
+msgstr "ฉัน สงสัย ว่า วิธี การ ทำงาน ทั้ง สอง ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "ไม่ เพียง แต่ เป็น นี้ จะ ช่วย ให้ ฉัน มาก เดิน มัน ยัง โหลด สนุก!"
+
+msgid "Now try out your shield"
+msgstr "ตอน นี้ ลอง โล่ ของ คุณ"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "เกล็ด Block ทะเลาะ วิวาท กัน ออก จาก โรงงาน และ กระโดด ขึ้น ไป หิ้ง ไป"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "บาง รายการ ใน เกม สามารถ ผลัก และ ทำลาย"
+
+msgid "To push an item, simply walk into it"
+msgstr "เพื่อ ผลัก ดัน รายการ เพียง แค่ เดิน ไป ได้"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "เพื่อ ดึง รายการ เดิน ใน ขณะ ที่ ถือ ลง มา ดำเนิน การ"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "แล้ว คุณ สามารถ ดึง รายการ รอบ จนกว่า คุณ จะ ปล่อย ให้ ไป ของ การ กระทำ"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "ดึง ช่อง มากกว่า ด้าน อื่น ๆ และ ใช้ ใน การ เข้าถึง หิ้ง"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "นี้ เป็น ส่วน สุดท้าย ของ กวด วิชา และ จะ สอน คุณ เพื่อ ป้องกัน และ โจมตี ศัตรู"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "ครั้ง แรก คุณ ควร จัด ให้ ดาบ ตั้งแต่ มี ช่วง ขึ้น และ จะ เสียหาย มากกว่า pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "กด z เพื่อ ดู สินค้า ของ คุณ เน้น ดาบ และ กด โจมตี (ซ้าย Ctrl) หรือ ใช้ รายการ (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "กด z อีก ครั้ง เพื่อ ปิด สินค้า คงคลัง ของ คุณ"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "บาง ครั้ง ศัตรู ฆ่า จะ วาง สุขภาพ ซึ่ง จะ หาย ไป หลังจาก ที่ ไม่ กี่ วินาที เพื่อ รับ มัน ได้ อย่าง รวดเร็ว!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "ถ้า ค้างคาว มี การ ปิด ให้ คุณ ถือ ป้องกัน และ อย่าง ไม่ เป็น อันตราย จะ กระเด็น คุณ"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "ตอน นี้ ฆ่า ทั้งหมด bats ใน บริเวณ!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "มี สอง ประเภท ประตู ใน เกม จะ. คู่มือ การ ใช้ งาน ประตู และ ประตู อัตโนมัติ."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "คู่มือ การ ใช้ กุญแจ ประตู ต้อง เปิด พวก เขา ต้องการ ประตู อัตโนมัติ สวิตช์."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "เพื่อ เปิด ประตู ล็อค ว่า คุณ มี คีย์ สำหรับ เพียง เดิน เข้า มัน. มี ต้อง มี คีย์ ที่ เลือก ไว้ ใน สินค้า คงคลัง ของ คุณ ไม่ เป็น."
+
+msgid "Open the door and continue to the right"
+msgstr "เปิด ประตู และ ดำเนิน การ ต่อ ไป ทาง ขวา"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "ขอ แสดง ความ ยินดี! ตอน นี้ คุณ รู้ พื้นฐาน ของ การ เล่น คุณ ควร ลอง เกม หลัก"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "หาก คุณ ต้องการ เล่น ใหม่ นี้ กวด วิชา กด หนี และ เลือก Tutorial จาก เมนู"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "เล่น เกม หลัก กด หนี และ เลือก New Game จาก เมนู"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "กด Space เมื่อ คุณ เสร็จ สิ้น การ อ่าน เพื่อ ไป ที่ กล่อง โต้ตอบ ถัด ไป"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "คุณ ยัง สามารถ ย้าย ไป ยัง กล่อง โต้ตอบ ถัด ไป โดย กด โจมตี (ซ้าย Ctrl) Block (ซ้าย ALT), Jump (พื้นที่) Action (c) หรือ ใช้ รายการ (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "นี้ คือ การ กวด วิชา สำหรับ ตำนาน Edgar. กวด วิชา นี้ จะ อธิบาย วิธี การ เล่น เกม."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "เพื่อ ออก จาก นี้ กวด วิชา กด หนี และ ใช้ ขึ้น และ ลง ปุ่ม ลูก ศร เพื่อ เลือก ตัว เลือก. กลับ กด เพื่อ เลือก."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "เพื่อ ไป ทาง ซ้าย และ ขวา ใช้ ปุ่ม ลูก ศร."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "เพื่อ ให้ ข้าม พื้นที่ กด. คุณ สามารถ ย้าย ใน อากาศ เมื่อ กระโดด."
+
+msgid "To interact with an item, press c"
+msgstr "เพื่อ โต้ตอบ กับ รายการ กด c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "เดิน ไป ยัง Action Point และ กด c"
+
+msgid "To collect an item from your"
+msgstr "เก็บ รายการ จาก"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "รับ รายการ เพียง แค่ เดิน เข้า มัน. รายการ ที่ collectable จะ เพิ่ม สินค้า คงคลัง ของ คุณ."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "คุณ สามารถ ดู เนื้อหา ของ สินค้า คงคลัง ของ คุณ โดย กด z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "ขณะ ที่ ใน สินค้า คงคลัง ให้ ใช้ ปุ่ม ลูก ศร เพื่อ ดู รายการ."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "คุณ สามารถ ใช้ รายการ ทันที โดย กด โจมตี (ซ้าย Ctrl) หรือ ใช้ รายการ (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "คุณ สามารถ พร้อม สำหรับ การ ใช้ สินค้า โดย กด Block (ซ้าย ALT) หรือ Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "เดิน ผ่าน ที่ สำคัญ ที่ จะ รับ มัน ได้"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "คุณ สามารถ เปลี่ยน ทุก การ ควบคุม ใน เกม โดย กด หนี และ เลือก ตัว เลือก ใน เมนู"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "เลือก ตั้ง ค่า การ ควบคุม ใช้ ปุ่ม ลูก ศร และ กด กลับ"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "ใช้ ปุ่ม ลูก ศร เพื่อ เลือก การ ควบคุม ที่ คุณ ต้องการ แก้ไข และ กด กลับ."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "ถัด ไป กด ปุ่ม ที่ คุณ ต้องการ ใช้ แทน."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "ไม่ ว่า สิ่ง ที่ คีย์ ที่ คุณ เลือก คุณ สามารถ นำทาง เมนู ใช้ ปุ่ม ลูก ศร และ กลับ"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "ทราบ ว่า ใน การ กวด วิชา, คีย์ เริ่ม ต้น จะ ถือว่า"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "เมื่อ คุณ เสร็จ สิ้น การ กำหนด ค่า คีย์ ไป ขวา ไป หน้า Action Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Pickaxe เป็น หนึ่ง ใน อาวุธ หลาย คุณ จะ พบ ใน เกม"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "คุณ สามารถ ใช้ เป็น ทั้ง อาวุธ และ เครื่องมือ"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "รับ pickaxe และ ต่อ ไป ข้าง หน้า Action Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "ขอ แสดง ความ ยินดี คุณ พบ ความ ลับ!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "มี ความ ลับ มากมาย ใน เกม หลัก เพื่อ ให้ ดู ว่า สำหรับ พวก เขา"
+
+msgid "Here's a hint to get you started"
+msgstr "นี่ ใบ้ เพื่อ ให้ ได้ ของ เริ่ม ต้น"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "แต่ เพียง ต้องการ ให้ คุณ จับ 3 จาก ไก่ ของ เขา ทำไม ไม่ ดี กับ เขา และ จับ ได้ มากกว่า นี้ มี 10 เตร็ดเตร่ ใน แผนที่ ทั้งหมด"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "โล่ จะ ป้องกัน คุณ จาก การ โจมตี ศัตรู มาก"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "บาง การ โจมตี ศัตรู ไม่ สามารถ ป้องกัน"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "อันตราย สิ่งแวดล้อม เช่น หิน ถล่ม, ไม่ สามารถ ป้องกัน"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "เพื่อ ป้องกัน การ โจมตี กด และ ป้องกัน การ ยึด (ซ้าย ALT)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "คุณ ต้อง หัน โจมตี เพื่อ ป้องกัน สำเร็จ นั้น"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "ทราบ ว่า คุณ จะ ไม่ สามารถ ย้าย ขณะ ที่ บล็อก แต่ คุณ สามารถ หน้า วิธี อื่น ๆ. คุณ ยัง ไม่ สามารถ ป้องกัน ใน อากาศ"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "รับ โล่ และ ต่อ ไป ทาง ขวา"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "นี้ เป็น ผนัง อ่อนแอ ก็ สามารถ ซึ่ง ได้ ถูก ทุบ ลง มา ใช้ pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "ใช้ pickaxe กด โจมตี (ซ้าย Ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "ที่ ไม่ ทั้งหมด ผนัง อ่อน สามารถ ทำลาย ใช้ pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "ทำลาย กำแพง ที่ ใช้ pickaxe และ ดำเนิน การ ต่อ"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "สิ่ง ที่ ควร จะ เป็น ที่ นี่ แต่ ไม่ ได้ ใน เวอร์ชัน นี้ ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "รวบรวม 10 ชิ้น ถ่านหิน"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "เก็บ ล็อก 2 สับ"
+
+msgid "Rescue 3 Chickens"
+msgstr "ช่วยเหลือ 3 ไก่"
+
+msgid "Find 4 Gems"
+msgstr "พบ 4 พลอย"
+
+msgid "Repair Generators"
+msgstr "อุปกรณ์ ซ่อม"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "เก็บ ล็อก 6 สับ"
+
+msgid "Collect 3 Access Keys"
+msgstr "เก็บ คีย์ 3 Access"
+
+msgid "This is a blank objective"
+msgstr "นี้ เป็น วัตถุประสงค์ ว่าง"
+
+msgid "Kill all Bats!"
+msgstr "ฆ่า bats ทั้งหมด!"
+
+msgid "Coal"
+msgstr "ถ่านหิน"
+
+msgid "Chopped Log"
+msgstr "Log สับ"
+
+msgid "Green Gem"
+msgstr "อัญมณี สี เขียว"
+
+msgid "Red Gem"
+msgstr "อัญมณี สี แดง"
+
+msgid "Blue Gem"
+msgstr "อัญมณี Blue"
+
+msgid "Purple Gem"
+msgstr "อัญมณี สี ม่วง"
+
+msgid "Teleporter Key"
+msgstr "คีย์ Teleporter"
+
+msgid "New Game"
+msgstr "เกม ใหม่"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "เกม Load"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "About"
+msgstr "เกี่ยว กับ"
+
+msgid "Quit"
+msgstr "ออก จาก"
+
+msgid "Configure Controls"
+msgstr "ควบคุม การ ตั้ง ค่า"
+
+msgid "Configure Sound"
+msgstr "เสียง ตั้ง ค่า"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "คำ แนะนำ การ แสดง"
+
+msgid "A potion which will transform you..."
+msgstr "ยา น้ำ ซึ่ง จะ เปลี่ยน คุณ ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "สร้าง ก้อน น้ำแข็ง absorbant สูง ขนาด เล็ก"
+
+msgid "A potion which will restore all of your health"
+msgstr "ยา น้ำ ซึ่ง จะ คืน ค่า ทั้งหมด ของ สุขภาพ ของ คุณ"
+
+msgid "A powerful bomb"
+msgstr "ระเบิด ที่ มี ประสิทธิภาพ"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "ยา พิษ การ แสดง ผล ที่ คุณ มอง ไม่ เห็น ถึง ศัตรู บาง"
+
+msgid "The eyeball from a Gazer"
+msgstr "ดวงตา จาก Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "Pack Tesla. มี ค่า no."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "เรียก ร้อง ของ เจ้าหน้าที่. มัน ไม่ สามารถ ใช้ งาน โดย คน."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "Pack Tesla. มัน จะ มี ประจุ."
+
+msgid "An empty potion bottle"
+msgstr "ขวด ยา น้ำ เปล่า"
+
+msgid "A bag of chicken feed"
+msgstr "ถุง อาหาร ไก่"
+
+msgid "A bag suitable for carrying coal"
+msgstr "กระเป๋า เหมาะ สำหรับ การ ขนส่ง ถ่านหิน"
+
+msgid "Basic Sword"
+msgstr "ดาบ พื้นฐาน"
+
+msgid "A Sword given to you by Jacob"
+msgstr "ดาบ ให้ กับ คุณ โดย Jacob"
+
+msgid "A bow"
+msgstr "น้อม"
+
+msgid "Small Wooden Shield"
+msgstr "โล่ ไม้ ขนาด เล็ก"
+
+msgid "A small shield that provides basic protection"
+msgstr "โล่ ขนาด เล็ก ที่ มี การ ป้องกัน ขั้น พื้นฐาน"
+
+msgid "Normal Arrow"
+msgstr "ลูก ศร Normal"
+
+msgid "Normal Arrows"
+msgstr "ลูก ศร Normal"
+
+msgid "An axe suitable for chopping trees"
+msgstr "ขวาน เหมาะ สำหรับ การ ตัด ไม้"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "Pickaxe lent ถึง คุณ โดย Borgan"
+
+msgid "Fire Burner Key"
+msgstr "คีย์ Fire เครื่อง เขียน"
+
+msgid "Potion Room Key"
+msgstr "คีย์ มื้อ ห้อง พัก"
+
+msgid "Surge Passage Key"
+msgstr "คีย์ หลั่งไหล ผ่าน"
+
+msgid "Demolition Storage Key"
+msgstr "คีย์ รื้อ Storage"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "สิ่ง ใด ที่ ถูก มัน ดูด พลังงาน จาก เครื่อง กำเนิด ไฟฟ้า ที่ และ ใช้ มัน ต่อ ฉัน."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "ที่ อาจ อธิบาย ยก เหตุผล ที่ ไม่ ได้ ทำงาน. ชนะ drainers อื่น ๆ ควร จะ คืน อำนาจ."
+
+msgid "Defeat all Energy Drainers"
+msgstr "ปราชัย Drainers พลังงาน ทั้งหมด"
+
+msgid "No Objectives"
+msgstr "วัตถุประสงค์ No"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "กด ดำเนิน การ ตั้ง ค่า บล็อก ปริศนา"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "ดูเหมือน ว่า ปั่น. ฉัน สามารถ ใช้ นี้ liquidise อะไร"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "ฉัน ต้องการ Red โคลน กิ่ง ก้าน สาขา และ 3 Gazer ส่าย ทำ ยา พิษ"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "ฉัน ยัง ต้อง มี ที่ ว่าง วาง ขวด ยา พิษ ใน"
+
+msgid "So this is the Fortress."
+msgstr "ดังนั้น นี้ เป็น ป้อม."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "ดูเหมือน มาก ประตู นำ ไป ยัง พื้นที่ อื่น ๆ ควร มี ลักษณะ ที่ เหมาะสม รอบ ๆ ก่อน ที่ จะ ไป ที่ ใด ก็ได้ อื่น ..."
+
+msgid "Try hitting the skull..."
+msgstr "ลอง กด ปุ่ม เกล้า ..."
+
+msgid "This machine is not active"
+msgstr "เครื่อง นี้ ไม่ ได้ ใช้ งาน"
+
+msgid "Repeat the sequence"
+msgstr "ทำ ซ้ำ ตาม ลำดับ"
+
+msgid "Correct Sequence"
+msgstr "ลำดับ ที่ ถูก ต้อง"
+
+msgid "Incorrect Sequence"
+msgstr "ลำดับ ไม่ ถูก ต้อง"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "ตำนาน Edgar พบ ข้อ ผิด พลาด ดัง ต่อ ไป นี้"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "กรุณา รายงาน ข้อ ผิด พลาด ที่ จริง ขนาน นี้"
+
+msgid "The game will now exit"
+msgstr "เกม จะ ออก"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "ดูเหมือน ว่า ปั่น. ฉัน สามารถ ใช้ นี้ liqudise อะไร"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "นี้ ต้อง มี ถ่านหิน Borgan ต้องการ ฉัน ฉัน สำหรับ เขา"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "ที่ อาจ อธิบาย ยก เหตุผล ที่ ไม่ ได้ ทำงาน. ชนะ drainers อื่น ๆ ควร จะ คืน อำนาจ ที่ นี่."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "ฉัน ต้อง พบ 3 ตา Gazer, 1 Red โคลน กิ่ง ก้าน สาขา และ โล่ เสริม สร้าง โล่ แห่ง ไฟ ทน"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "เมื่อ ฉัน ได้ พบ รายการ เหล่า นี้ ทั้งหมด ที่ ฉัน จะ ได้ หา สถาน ที่ เพื่อ สร้าง โล่"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "มี หนังสือ ที่ เกี่ยว กับ อาวุธ ของ เจ้า เสน่ห์"
+
+msgid "Maybe I can create a shield..."
+msgstr "อาจ จะ สามารถ สร้าง โล่ ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "ดาบ ... เกราะ ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "หนังสือ โง่. ไม่ใช่ เพื่อ และ มี ดัชนี ไม่"
+
+msgid "Here we go: Shields"
+msgstr "ไป เลย: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "โล่ ของ ไฟ ทน"
+
+msgid "Ingredients"
+msgstr "ส่วนผสม"
+
+msgid "One must gather the following"
+msgstr "หนึ่ง ต้อง ชุมนุม ต่อ ไป นี้"
+
+msgid "The root of a Mandrake"
+msgstr "ราก ของ Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "ไขมัน ของ Darsh (ซ้าย ไป ยืน 3 เดือน)"
+
+msgid "Powered Condor bones"
+msgstr "กระดูก Powered นก จำพวก แร้ง"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 ตา ของ Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "กิ่ง ก้าน สาขา ตัด สดๆ จาก หญิง Red โคลน"
+
+msgid "The shield to apply the enchantment"
+msgstr "โล่ เพื่อ ใช้ เสน่ห์"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "ผสมผสาน ตา Gazer และ กิ่ง ก้าน สาขา โคลน เป็น ของเหลว ลื่น"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "เพิ่ม ราก ไขมัน และ กระดูก ใน หม้อน้ำ และ ผสม ร่วม กับ ตา Gazer ผสม โคลน และ กิ่ง ก้าน สาขา"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "เมื่อ ผสม เปลี่ยน สี ฟ้า สดใส เพิ่ม ป้องกัน"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "ผม เคย เห็น ส่วน มาก ของ รายการ เหล่า นี้ ใน ห้อง ปฏิบัติการ เพื่อ ให้ ฉัน ไม่ ต้อง กังวล เกี่ยว กับ บรรดา"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "และ Gazers ป้วนเปี้ยน ใน ห้อง ใต้ดิน เพื่อ ไม่ เกิด ปัญหา"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "สิ่ง ที่ ฉัน จะ ต้อง พบ เป็น โคลน แดง แต่ ฉัน คิด ไม่ ออก ว่า จะ หา หนึ่ง"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "ฉัน ไม่ สามารถ ใช้ ป้องกัน ปัจจุบัน ของ ฉัน ใน การ ทดสอบ ใน กรณี ที่ backfires ดังนั้น ฉัน จะ ต้อง พบ อีก"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "อาจ จะ มี ห้อง potions หรือ ห้อง ปฏิบัติการ ที่ ฉัน สามารถ หา ราก ที่ ไขมัน และ กระดูก ดังนั้น ผม จึง ไม่ จำเป็น ต้อง กังวล เกี่ยว กับ บรรดา"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "คุณ ต้อง มี บัตร คำ สั่ง ที่ คุณ ต้องการ ใช้ เน้น ใน กล่อง สินค้า ของ คุณ"
+
+msgid "Wow, a laboratory!"
+msgstr "ว้า ว ห้อง ปฏิบัติการ!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "ฉัน ชอบ ดู Maggie ทำให้ spells และ potions, อาจ จะ ทำให้ บาง ส่วน ของ ตัว เอง นี่"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "ว้า ว ฉัน ไม่ เคย เห็น หนังสือ หลาย เล่ม ดังนั้น ใน ที่ เดียว!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "ต้อง มี ข้อมูล เกี่ยว กับ เรื่อง นี้ ทุก นี้ อาจ เป็น ประโยชน์ ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, อากาศ รู้สึก คิด จะ แจ้ง เตือน ฉัน บ้าน Maggie เมื่อ เธอ ทำให้ spells. ฉัน ควร ระมัดระวัง."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "โอ้ Edgar ท่าน เจ็บ! ให้ ฉัน รักษา wounds ของ คุณ"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "ฉัน สงสัย ว่า monsters อื่น มี. ฉัน จะ มา รับ หน้าที่ ใน การ สุ่ม ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers จะ บิน สัตว์ cycloptic พบ ใน สถาน ที่ ต่างๆ"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "ตา ปิด เดียว ของ พวก เขา และ พวก เขา มัก จะ พึ่งพา sonar สำหรับ การ เคลื่อนไหว"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "พวก เขา ใช้ ความ แข็งแกร่ง ของ พวก เขา กลิ่น เพื่อ ระวัง สำหรับ predator และ เหยื่อ เหมือน กัน"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "โจมตี Gazers (และ ป้องกัน ตัว เอง) โดย เปิด ตา ของ พวก เขา ซึ่ง จะ ทำให้ ตาพร่า มอง อะไร ที่ มัน"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "การ โจมตี นี้ มี ผล แต่ ถ้า เหยื่อ จะ หัน Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "ดวงตา ของ Gazer มี คุณสมบัติ ขลัง และ เป็น ส่วนผสม ร่วม ใน การ เตรียม การ สะกด คำ"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, เทา"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions ถูก สร้าง ขึ้น อย่าง น่า อัศจรรย์ สัตว์, dispatched มัก จะ เป็น sentries หรือ guards"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "แต่ ช้า เคลื่อนไหว ขนาด ใหญ่ ของ พวก เขา ช่วย ให้ พวก เขา เพียง มีนาคม ผ่าน การ ป้องกัน ใด ๆ"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "แทน อาวุธ หลาย มี โปรแกรม ควบคุม กอง ใหญ่ ที่ พวก เขา ใช้ ใน การ เขย่า ดิน และ disorientate ภัย คุกคาม"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "ขณะ เทา Centurions จะ นำ ไป ใช้ ป้องกัน ปริมณฑล นอก, Red Centurions จะ รู้ อยู่ และ ใช้ การ ป้องกัน พื้นที่ ของ สำคัญ"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters monsters อันตราย นอกจาก จะ ทำร้าย."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "เมื่อ มี ความ เสียหาย มาก เกินไป ที่ สนับสนุน พวก เขา จะ แบ่ง เป็น สอง และ โจมตี predator ของ พวก เขา"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "หาก หนึ่ง เหล่า นี้ เสียหาย มาก เกินไป sustains จะ แตก อีก ครั้ง และ ยัง คง โจมตี"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "สุดท้าย หนึ่ง แยก สุดท้าย จะ ผลิต รุ่น ขนาด เล็ก มาก ซึ่ง ทั้งหมด ไม่ เป็น อันตราย และ ใน รัฐ นี้ สามารถ ขั้น บันได เพียง"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "ถ้า ทุก ส่วน ของ มัน มี ชีวิต ยัง คง Splitter จะ ปฏิรูป ตัว เอง หลังจาก ที่ ใน ขณะ ที่ และ รักษา wounds ของ"
+
+msgid "Grub, Red"
+msgstr "ด้วง, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "สี แดง Grubs มี ความ เข้มงวด มาก ขึ้น กว่า สี เขียว และ จะ โจมตี สิ่ง ที่ พวก เขา ดู เป็น ภัย คุกคาม"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "เมื่อ ถึง กำหนด ถึง จะ ฟอร์ม รัง ไหม ดิบ และ morph เป็น ต่อ"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "บาง แต่ จะ morph ลง ต่อ พระ ราชินี. Queens เหล่า นี้ สามารถ ผลิต เสมหะ และ น้ำมูก เหมือน สาร สามารถ ถือ เหยื่อ ใน สถาน ที่"
+
+msgid "Tortoise, Master"
+msgstr "เต่า, มาสเตอร์"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Tortoises สัตว์ น่า กลัว เป็น. ที่ดิน อยู่ ใน ห่าง ไกล พวก เขา มี ความ สามารถ ใน การ เปลี่ยน หัว ของ พวก เขา"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "พวก เขา จะ รวม ความ สามารถ ทั้งหมด ของ เรียงพี่เรียงน้อง เพื่อ หายใจ ไฟ สร้าง น้ำแข็ง และ ไฟฟ้า เอง"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "และ แน่นอน พวก เขา ยัง เข้า ไม่ ได้ กับ การ โจมตี จาก การ จับ คู่ องค์ประกอบ ดูด ซับ พลังงาน เพื่อ รักษา ตนเอง"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "แต่ นอกจาก นี้ หาก ได้ รับ พลังงาน มาก เกินไป จาก การ บำบัด จะ เปลี่ยนแปลง และ ไป กับ ความ วุ่นวาย"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "ใน รัฐ นี้ พวก เขา จะ ผ่าน การ ป้องกัน ใด ล้มละลาย และ ผลิต เข้ม เรื่อง ที่ ทำลาย สิ่ง touches มัน"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "แต่ เปลือก ของ rampaging Master เต่า เป็น อย่าง น่า อัศจรรย์ และ เป็น ส่วนประกอบ ที่ สำคัญ เมื่อ สร้าง magics มี ประสิทธิภาพ และ รายการ"
+
+msgid "Venus Flytrap"
+msgstr "Flytrap ดาว ศุกร์"
+
+msgid "Hoover, Pink"
+msgstr "เครื่อง ดูด ฝุ่ น, Pink"
+
+msgid "Summoner, Dark"
+msgstr "เรียก ร้อง, เข้ม"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore เป็น สัตว์ จาก มิติ อื่น. สามารถ เรียก ใช้ มายากล เข้ม ที่ มี ประสิทธิภาพ"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "สาเหตุ ที่ พบ บ่อย เพื่อ เรียก สัตว์ นี้ จะ ทำ หน้าที่ เป็น ผู้ คุ้มกัน"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "ไม่มี ทาง รู้ ฆ่า Grimlore ตั้งแต่ เมื่อ สนับสนุน บาดเจ็บ ที่ สำคัญ มัน ก็ จะ กลับ ไป มิติ ของ ตนเอง เป็น"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "แต่ ยัง ทำร้าย มัน เป็น งาน อนุสาวรีย์. ใคร พบ สัตว์ นี้ ควร หนี ให้ เร็ว ที่สุด"
+
+msgid "Or they will die very quickly"
+msgstr "หรือ จะ ตาย อย่าง รวดเร็ว"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "โอ้ นี่ เป็น หัวข้อ ของ monsters"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 วอลุ่ม! ว่า จะ มี จำนวน มาก ดังนั้น monsters ใน โลก หรือ ไม่!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "ดูเหมือน ว่า เขา จะ เรียง ตาม ตัว อักษร ว่า"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "โคลน เขียว ... น้ำลาย, ม่วง ... โคลน เขียว ..."
+
+msgid "Sludge, Red"
+msgstr "โคลน, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "ไม่ เหมือน ลูกพี่ลูกน้อง สี เขียว มัน แดง โคลน stays ลึก ใต้ดิน และ ไม่ค่อย หาก เคย พื้น ผิว"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "ที่ ต้องการ ที่ อยู่ อาศัย ของ มัน แห้ง และ พื้นที่ อุดม แร่ และ เป็น ผล ให้ มี การ พบ ที่ ซุ่ ม ซ่อน ใน บริเวณ เหมือง ร้าง โดย คน"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "พวก เขา มี ความ ระวัง ของ มนุษย์ และ จะ โจมตี ใน สายตา โดย ปกติ จะ อาเจียน ขึ้น กรด ที่ ต้อง ใช้ เวลา ใน ระเหย"
+
+msgid "Smacker, Lesser..."
+msgstr "ธนบัตร, น้อย ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "ดี ที่ มัน กล่าว ว่า ทั้งหมด. ฉัน ไม่ ได้ ทราบ วิธี การ บอก ความ แตก ต่าง ระหว่าง ชาย และ หญิง. ฉัน จะ เพียง ใช้ โอกาส ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "นอกจาก ของ ที่ แย่ ที่สุด ที่ อาจ เกิด ขึ้น คือ อะไร"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "ย้าย Edgar ซ้าย และ ขวา ใช้ ปุ่ม ลูก ศร."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "เพื่อ ให้ กระโดด Edgar พื้นที่ กด. คุณ สามารถ ย้าย ใน อากาศ เมื่อ กระโดด."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "แม้ว่า Jacob เพียง ต้องการ ให้ คุณ จับ 3 จาก ไก่ ของ เขา ทำไม ไม่ ดี กับ เขา และ จับ ได้ มากกว่า นี้ มี 10 เตร็ดเตร่ ใน แผนที่ ทั้งหมด"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "ทราบ ว่า ไม่ ทุก ผนัง อ่อน สามารถ ทำลาย ใช้ pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "ผม ได้ ตรวจ สอบ แล้ว เขา ไม่ ลง มี ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "ผม เคย ได้ยิน คน ล้ม ลง ก่อน ดี หรือ คน ของ พ่อ ใน มี ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "!!!!! พ่อ คุณ ลง มี ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "ไม่มี อะไร. ฉัน เดา ฉัน จะ ต้อง หมั่น หา"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "กด ขึ้น หรือ ลง เพื่อ เพิ่ม หรือ ลด แพลตฟอร์ม"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "มี หนังสือ ที่ เกี่ยว กับ อุปกรณ์ ของ เจ้า เสน่ห์"
+
+msgid "It's a book about enchanting equipment"
+msgstr "เป็น หนังสือ เกี่ยว กับ อุปกรณ์ คมสัน"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "ฉัน ไม่มี เหตุผล ที่ จะ อ่าน นี้ แต่ ฉัน จะ เก็บ ไว้ ใน ใจ ใน กรณี ที่ ฉัน จะ ใด"
+
+msgid "I wonder what other monsters there are..."
+msgstr "ฉัน สงสัย ว่า monsters อื่น ๆ ที่ มี ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "เช่น เดียว กับ Summoners ปกติ Summoners เข้ม โทร ใน สัตว์ อื่น ๆ จะ เสนอ ของ พวก เขา"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "นอกจาก นี้ แม้ว่า จะ สามารถ ส่ง ผ่าน ทาง ไกล ระยะ สั้น เพื่อ หนี opponents ของ พวก เขา"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "พนักงาน ของ ตน เป็น อย่าง ขลัง และ แม้ว่า จะ ไม่ สามารถ ใช้ โดย มนุษย์ โดยตรง สมบัติ วิเศษ ของ ใช้ ใน การ สร้าง การ สะกด คำ"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers Pink quadrupeds ขนาด เล็ก ที่ มี พวย ยาว เป็น"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Puropse หลัก ของ พวย เพื่อ ไป เที่ยว หา อาหาร แต่ ยัง เป็น กลไก การ ป้องกัน"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "และ มี มากกว่า สามารถ ทำให้ predator แต้ม โดย เพียง แค่ เป่า พวก เขา อยู่"
+
+msgid "Venus Flytrap, mobile"
+msgstr "ดาว ศุกร์ Flytrap โทรศัพท์ มือ ถือ"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Flytraps ดาว ศุกร์ ได้ พัฒนา ราก และ สามารถ ย้าย ไป ยัง อาหาร ของ พวก เขา แทนที่จะ รอ มายัง พวก เขา"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "คอ ของ พวก เขา ถูก เหลือเชื่อ ยืดหยุ่น และ สามารถ ที่ จะ ตะครุบ เหยื่อ ของ พวก เขา จาก ที่ ไกล มาก ไป"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "ที่ ควร ทำ ก็. หวัง ว่า ยก อื่น ๆ ตาม ท่อ ระบาย น้ำ ควร จะ ทำงาน"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "ยก นี้ ไม่ ทำงาน. ฉัน จะ ไม่ สามารถ ใช้ งาน จนกว่า จะ คืน อำนาจ"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "แก้ว ที่ มี ลักษณะ หนา เกินไป สำหรับ ฉัน แตก ฉัน จะ ต้อง พบ วิธี อื่น ๆ ซึ่ง ทำให้ ป่นปี้ มัน ..."
+
+msgid "Up"
+msgstr "ขึ้น"
+
+msgid "Down"
+msgstr "ลง"
+
+msgid "Left"
+msgstr "ออก จาก"
+
+msgid "Right"
+msgstr "ถูก"
+
+msgid "Jump"
+msgstr "ข้าม"
+
+msgid "Attack"
+msgstr "โจมตี"
+
+msgid "Block"
+msgstr "Block"
+
+msgid "Action"
+msgstr "ดำเนิน การ"
+
+msgid "Use Item"
+msgstr "รายการ ใช้"
+
+msgid "Previous Item"
+msgstr "ก่อน หน้า ของ รายการ"
+
+msgid "Next Item"
+msgstr "รายการ ถัด ไป"
+
+msgid "Inventory"
+msgstr "สินค้า คงคลัง"
+
+msgid "Pause"
+msgstr "หยุด"
+
+msgid "Dead Zone"
+msgstr "Zone Dead"
+
+msgid "Sound"
+msgstr "เสียง"
+
+msgid "SFX Volume"
+msgstr "ปริมาณ SFX"
+
+msgid "Music Volume"
+msgstr "ปริมาณ Music"
+
+msgid "Ice Spray"
+msgstr "พ่น น้ำแข็ง"
+
+msgid "Library"
+msgstr "ห้องสมุด"
+
+msgid "Right Wing Lift Key"
+msgstr "สิทธิ วิง ลิ ฟ ท์ คีย์"
+
+msgid "Mine Entrance Door Key"
+msgstr "คีย์ เหมือง เข้า ประตู"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "ถ้ำ"
+
+msgid "Fortress Outskirts"
+msgstr "นอก เมือง ป้อม"
+
+msgid "Forbidden Swamp"
+msgstr "บึง ต้อง ห้าม"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "คีย์ โสโครก Restricted Zone"
+
+msgid "Basement"
+msgstr "ชั้น ใต้ดิน"
+
+msgid "Fortress Ground Floor"
+msgstr "ป้อม ชั้น Ground"
+
+msgid "Sewer"
+msgstr "ท่อ ระบาย น้ำ"
+
+msgid "Fortress Main Key"
+msgstr "คีย์ ป้อม หลัก"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access Key 3"
+
+msgid "Laboratory"
+msgstr "ห้อง ปฏิบัติการ"
+
+msgid "Empty Bottle"
+msgstr "ขวด ว่าง เปล่า"
+
+msgid "First Floor Key"
+msgstr "คีย์ First ชั้น"
+
+msgid "Press Action to retrieve %s"
+msgstr "กด การ ทำงาน เพื่อ ดึง %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm นี้ เป็น ใหม่."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "ก็ ไม่ พบ ว่า มัน จะ เจ็บ แต่ ฉัน แต่ มี เพียง หนึ่ง วิธี การ หา ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "ยก นี้ มี การ ควบคุม โดย ความ ดัน ที่ แผ่น แต่ ฉัน ไม่ สามารถ ยืน อยู่ และ ใช้ การ ยก ใน เวลา เดียวกัน"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "ฉัน จะ ได้ หา อย่าง อื่น ไป ยืน บน แผ่น ดัน สำหรับ ฉัน ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "บัตร ใบ นี้ ว่าง ผม จะ ต้อง นำ คำ แนะนำ บาง อย่าง กับ มัน เพื่อ ให้ useable."
+
+msgid "There's a plaque here"
+msgstr "มี แผ่น โลหะ ที่ นี่ ของ"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "สถาน ที่ 4 รูป ปั้น ใน ลำดับ ที่ ถูก ต้อง"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "คุณ จะ ไม่ สามารถ ค้นหา ทั้งหมด 4 รูป ปั้น ใน เวอร์ชัน นี้ จึง กลับ มา ใหม่!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "คุณ ต้อง มี รูป ปั้น คุณ ต้องการ ที่ จะ ใช้ เน้น ใน กล่อง สินค้า ของ คุณ"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "ไม่มี อะไร เกิด ขึ้น. ฉัน ไม่ คิด ว่า ฯ สั่ง ขวา"
+
+msgid "Tuning Fork"
+msgstr "ซ่อม ปรับ แต่ง"
+
+msgid "Second Floor Keycard"
+msgstr "Keycard สอง ชั้น"
+
+msgid "Instruction Card #1"
+msgstr "สอน Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "สอน Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "สอน Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "สอน Card # 4"
+
+msgid "Centurion Statue"
+msgstr "รูป ปั้น Centurion"
+
+msgid "Spider Statue"
+msgstr "รูป แมงมุม"
+
+msgid "Tortoise Statue"
+msgstr "รูป ปั้น เต่า"
+
+msgid "Scorpion Statue"
+msgstr "รูป ปั้น ราศี พิจิก"
+
+msgid "A Blue Gem"
+msgstr "อัญมณี Blue"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "รูป ปั้น ของ Centurion. มี 2 ขา."
+
+msgid "A Green Gem"
+msgstr "อัญมณี สี เขียว"
+
+msgid "A Purple Gem"
+msgstr "อัญมณี สี ม่วง"
+
+msgid "A Red Gem"
+msgstr "อัญมณี สี แดง"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "รูป ปั้น ของ ราศี พิจิก. มี 6 ขา."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "รูป ปั้น ของ แมงมุม. มี 8 ขา."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "ลูกชิ้น แทง ตัว นิ่ม. จะ ทำให้ โยน เมื่อ spikes."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "รูป ของ เต่า. มี 4 ขา."
+
+msgid "A Tuning Fork"
+msgstr "ส้อม ปรับ แต่ง"
+
+msgid "A chopped log"
+msgstr "Log สับ"
+
+msgid "Narrator"
+msgstr "เล่า เรื่อง"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "เป็น หม้อน้ำ. Maggie มี หนึ่ง เดียว เช่น นี้"
+
+msgid "Right, here goes!"
+msgstr "ขวา ไป ที่ นี่!"
+
+msgid "I need all the main ingredients"
+msgstr "ฉัน ต้องการ ทั้งหมด ส่วนผสม หลัก"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer ส่าย, 1 Red โคลน กิ่ง ก้าน สาขา และ โล่ อะไหล่"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "ฉัน ยัง ต้อง ผสมผสาน ส่าย และ กิ่ง ก้าน สาขา ลง ใน ของเหลว"
+
+msgid "This entire section is about monsters"
+msgstr "ส่วน ทั้งหมด นี้ เป็น เรื่อง เกี่ยว กับ monsters"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "ฉัน ไม่มี เหตุผล อ่าน เหล่า นี้ แต่ ฉัน จะ เก็บ ไว้ ใน ใจ ใน กรณี ที่ ฉัน จะ ใด"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "ฮ้า วุ้ย, สิ่ง ที่ เครื่อง เล็ก น่า รัก!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "ก็ มี น้อย ใน ช่วง หลัง ของ มัน. ฉัน เดา ฉัน ใส่ บาง อย่าง ที่ มี เพื่อ ให้ ทำ สิ่ง ต่างๆ"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "หุ่น ยนต์ จะ ใช้ บัตร คำ สั่ง ย้าย รอบ"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "การ ใช้ คำ แนะนำ เพื่อ แนะนำ หุ่น ยนต์ เพื่อ เปิด พื้นที่ ที่ ไม่ สามารถ เข้าถึง"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "แต่ เนื่องจาก คุณ ไม่ สามารถ อ่าน คำ แนะนำ ใน บัตร ที่ คุณ จะ ต้อง ลอง พวก เขา ออก ไป จนกว่า งาน"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "ถ้า หุ่น ยนต์ ไม่ ถึง เป้าหมาย ของ มัน แล้ว มัน จะ กลับ สู่ ตำแหน่ง เริ่ม ต้น ของ อนุญาต ให้ คุณ ลอง ใหม่ อีก ครั้ง"
+
+msgid "Enter the directions"
+msgstr "ใส่ คำ แนะนำ"
+
+msgid "Out of space for instructions"
+msgstr "พื้นที่ สำหรับ คำ แนะนำ"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "ฉัน ต้องการ การ์ด เปล่า ที่ จะ นำ คำ แนะนำ ใน"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "อาจ นี้ ไม่ ได้ เช่น ความ คิด ที่ ดี หลังจาก ทั้งหมด ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "รับ 3 ตา Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "ขอรับ 1 กิ่ง ก้าน สาขา Red โคลน"
+
+msgid "Find another shield"
+msgstr "หา โล่ อีก"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "ส่าย ผสาน และ กิ่ง ก้าน สาขา"
+
+msgid "Obtain a Fire Shield"
+msgstr "ได้ รับ โล่ ไฟ"
+
+msgid "More water?!"
+msgstr "น้ำ เพิ่ม หรือ ไม่!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "ฉัน ไม่ คิด ความ สามารถ ใน การ กลาย เป็น น้ำ เมือก จะ ช่วย ฉัน นี่ ตั้งแต่ ฉัน อาจ ไม่ สามารถ กลับ หลัง"
+
+msgid "I'll have to find another way of getting across"
+msgstr "ฉัน จะ หา ทาง ของ การ เดินทาง ข้าม อีก"
+
+msgid "I'll have to find something to help me get across"
+msgstr "ฉัน จะ ได้ พบ สิ่ง ที่ จะ ช่วย ให้ ฉัน ได้ รับ ผ่าน"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "ฉัน ไม่ เห็น Sludges ใน เหมือง เมื่อ ฉัน ไป รับ ถ่านหิน Borgan และ แม้ มี ใด ฉัน ไม่ สามารถ กลับ มา มี แพ ของ ฉัน sank"
+
+msgid "I'll have to find another mine around here..."
+msgstr "ฉัน จะ ต้อง พบ กับ ระเบิด ใน บริเวณ นี้ ได้ อีก ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "สร้าง ก้อน น้ำแข็ง ที่ ขยาย ใน การ ติดต่อ กับ น้ำ"
+
+msgid "A bottle capable of capturing souls"
+msgstr "ขวด สามารถ จับ ตัว"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "ลอง ใช้ knives Mataeus ของ พวก เขา ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "ไม่ สามารถ รับ %s. สินค้า ทั้งหมด"
+
+msgid "Filling mine cart..."
+msgstr "กรอก cart เหมือง ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright 2009-2010 จริง ขนาน"
+
+msgid "Out of arrows!"
+msgstr "ออก จาก ลูก ศร!"
+
+msgid "There's something moving around down there..."
+msgstr "มี บาง อย่าง เคลื่อนไหว รอบ ลง มา มี ..."
+
+msgid "Good riddance..."
+msgstr "ดี การ กำจัด ..."
+
+msgid "Huh, déjà vu..."
+msgstr "ฮะ, Vu déjà ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "ถ้า ยก จะ ตาย แล้ว มัน ต้อง ตั้ง"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "มี 4 ส วิ ท ช์ ตั้ง พร้อม ก้าน ยก กำลัง จะ ต้อง ตั้ง ค่า"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "โปรด ตั้ง ยก เพื่อ ไม่ ให้ ยาว เดิน กลับ ไป ที่ พื้น ผิว ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "เครื่อง นี้ มี ช่อง ขนาด เดียว กับ บัตร. ฉัน เดา ฉัน สามารถ ใช้ เพื่อ สร้าง คำ แนะนำ ใหม่."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "เพื่อ สร้าง ชุด ใหม่ ของ คำ แนะนำ ที่ คุณ ต้อง ใส่ การ์ด เปล่า"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "แล้ว คุณ จะ ได้ รับ แจ้ง ให้ เข้า แนะนำ สำหรับ หุ่น ยนต์ ให้ ทำ ตาม. นี้ จะ กระทำ ใน ลักษณะ เดียว กับ ประตู ลำดับ"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "เมื่อ เสร็จ ป้อน ทิศทาง กด โจมตี"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "หุ่น ยนต์ จะ ปฏิบัติ ตาม คำ แนะนำ บน บัตร"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "ถ้า แนะนำ ไม่ ถูก ต้อง คุณ สามารถ ลอง ใหม่ อีก ครั้ง"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "สถาน ที่ นี้ บ้า ฉัน ควร รีบ ร้อน และ พบ พ่อ ก่อน ที่ จะ สิ้นสุด ถึง การ ฆ่า!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "ดังนั้น เพื่อ สร้าง ที่ ไฟ บัง ฉัน ต้อง ได้ รับ กิ่ง ก้าน สาขา Red โคลน"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "สี แดง Sludges อยู่ ใน เหมือง เพื่อ ฉัน จะ ได้ พบ หนึ่ง ใน บริเวณ นี้"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "ฉัน ยัง ต้อง ป้องกัน ไว้ ชีวิต แต่ ฉัน นับ ควร จะ มี คลัง อาวุธ รอบ"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "ส่าย Gazer ง่าย พอ ฉัน จะ กลับ ไป ที่ ชั้น ใต้ดิน"
+
+msgid "OK, off I go..."
+msgstr "ตกลง ปิด ฉัน ไป ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "คุณ จะ ไม่ สามารถ รับ กิ่ง ก้าน สาขา หรือ โล่ ใน เวอร์ชัน นี้ เพื่อ ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "It's a portrait"
+msgstr "เป็น รูป"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "วิญญาณ นั่น คือ จะ ไม่ ให้ ฉัน ผ่าน มา ผม จะ ต้อง ไป หา ทาง ที่ จะ กำจัด มัน"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "รีเซ็ต ส วิ ท ช์ ให้ คุณ สามารถ ตั้ง ค่า ตำแหน่ง ของ วัตถุ บน แผนที่"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "ถ้า วัตถุ เป็น unreachable แล้ว คุณ สามารถ ใช้ เปลี่ยน ไป ใส่ กลับ ใน ตำแหน่ง เดิม"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "ขวด กับ ดัก ชีวิต ภายใน"
+
+msgid "Full Mine Cart"
+msgstr "รถ เข็น Full เหมือง"
+
+msgid "Processing Lift Key"
+msgstr "การ ประมวล ผล ลิ ฟ ท์ คีย์"
+
+msgid "Right Grabber Key"
+msgstr "คีย์ ขวา Grabber"
+
+msgid "Left Grabber Key"
+msgstr "คีย์ เหลือ Grabber"
+
+msgid "Master Key"
+msgstr "Key Master"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "หมอผี ต้อง เอา พ่อ ไป ปราสาท เขา. ฉัน จะ ต้อง ช่วยเหลือ เขา จาก มี."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "วิธี เดียว ที่ จะ ไป ปราสาท จะ ผ่าน บึง ต้อง ห้าม ทิศ ตะวันออก."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "มี ทะเลสาบ ระหว่าง หมู่บ้าน และ ท่วม เลย ฉัน จะ ต้อง แพ เพื่อ ข้าม."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "ฉัน ยัง จะ ต้อง ดาบ และ โล่ เพื่อ ป้องกัน ตัว เอง. ฉัน จะ พูด กับ Borgan และ Jacob ได้ รับ เหล่า นี้ แม้ว่า."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "ไม่ สามารถ เชื่อม ต่อ เหรียญ Server ที่ %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "ไม่ พบ เหรียญ Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "คุณ จะ ไม่ สามารถ รับ Medals สำหรับ เกม นี้"
+
+msgid "There's another sign here"
+msgstr "มี สัญญาณ ที่ อื่น"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "ถ้า ยก ออก จะ ตาย แล้ว ไป ทาง ซ้าย"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Warning: เส้นทาง ออก อาจ จะ อันตราย"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "บางที ฉัน ควร ใช้ ลิ ฟ ท์ เพื่อ ออก"
+
+msgid "There's a sign here"
+msgstr "มี สัญญาณ ที่ นี่ ของ"
+
+msgid "An Oil Can"
+msgstr "น้ำมัน ได้"
+
+msgid "Oil Can"
+msgstr "น้ำมัน ได้"
+
+msgid "A powerful repellent"
+msgstr "พลัง ขับ ไล่"
+
+msgid "Repellent"
+msgstr "ขับ ไล่"
+
+msgid "Medal Support"
+msgstr "สนับสนุน เหรียญ"
+
+msgid "Fortress Mine"
+msgstr "ระเบิด ป้อม"
+
+msgid "Private key is missing"
+msgstr "คีย์ ส่วนตัว หาย ไป"
+
+msgid "Could not connect to server"
+msgstr "ไม่ สามารถ เชื่อม ต่อ กับ เซิร์ฟเวอร์"
+
+msgid "Sludge Tentacle"
+msgstr "กิ่ง ก้าน สาขา โคลน"
+
+msgid "A Red Sludge Tentacle"
+msgstr "กิ่ง ก้าน สาขา Red โคลน"
+
+msgid "Eyeball Smoothie"
+msgstr "Smoothie ดวงตา"
+
+msgid "Cool, it worked!"
+msgstr "เย็น ก็ ทำงาน!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "ฉัน ไม่ แน่ใจ เกี่ยว กับ สี แต่ ฉัน คิด ว่า มัน จะ เป็น สี แดง?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "บางที ก็ ควร จะ เป็น สี เหลือง ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "ของเหลว ที่ ทำ จาก ส่าย และ tentacles"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patching บันทึก เกม ของ คุณ. โปรด รอ ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "ตอน นี้! ทำงาน ใน ขณะ ที่ มัน งงงวย!"
+
+msgid "Wow, that thing is huge!"
+msgstr "วุ้ย, สิ่ง ที่ ใหญ่!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "ฉัน สงสัย ดาบ ของ ฉัน แม้ จะ ทำให้ รอย ขีด ข่วน แต่ ฉัน ต้อง ผ่าน มัน ..."
+
+msgid "I have everything I need now"
+msgstr "ฉัน มี ทุก สิ่ง ที่ ฉัน ต้องการ ตอน นี้"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "มี หม้อน้ำ ใน ห้อง ปฏิบัติการ ของ ฉัน ควร มุ่ง หน้า กลับ มี"
+
+msgid "I just need to find another shield to enchant"
+msgstr "ฉัน ต้อง พบ โล่ ให้ เคลิบเคลิ้ม อื่น"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "คุณ จะ ไม่ สามารถ รับ โล่ ใน รุ่น นี้ จึง ตรวจ สอบ อีก ครั้ง ใน ภายหลัง!"
+
+msgid "Its wounds are already healing..."
+msgstr "Wounds มี การ บำบัด แล้ว ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "ถ้า คุณ รวบรวม เกม จาก แหล่ง ที่ คุณ จำเป็น ต้อง ดำเนิน การ ให้ ติด ตั้ง"
+
+msgid "It's sleeping"
+msgstr "ก็ นอน"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "ฉัน ปลอดภัย ต่อ ไป เนื่องจาก ใน กรง ที่ ..."
+
+msgid "Where's the switch?"
+msgstr "เปลี่ยน เป็น ที่ไหน"
+
+msgid "Ah, here it is!"
+msgstr "โอ้ นี่ มัน!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "ไฟ นี้ ดู OK มัน ก็ ไม่ อยู่ ใน"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "ฉัน เดา ว่า อำนาจ ที่ ประตู ดังนั้น ฉัน จะ ต้อง เปิด ใน"
+
+msgid "A Yellow Gem"
+msgstr "อัญมณี สี เหลือง"
+
+msgid "Failed to open PAK file %s"
+msgstr "ไม่ สามารถ เปิด ปาก แฟ้ม %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "กด การ กระทำ เพื่อ เรียก อัญมณี สี ม่วง"
+
+msgid "Find a way to remove the Gem..."
+msgstr "หา ทาง ลบ อัญมณี ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "กด การ กระทำ เพื่อ เรียก เหลือง อัญมณี"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "ฉัน ควร จะ ปลอดภัย ที่ นี่ แต่ ฉัน ต้อง กำจัด มัน"
+
+msgid "Book"
+msgstr "หนังสือ"
+
+msgid "Sign"
+msgstr "เข้า สู่ ระบบ"
+
+msgid "Note"
+msgstr "หมายเหตุ"
+
+msgid "Solve the sliding puzzle"
+msgstr "แก้ ปริศนา เลื่อน"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "เกราะ จะ ยาก เกินไป สำหรับ พวก เขา จะ บุก ..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "พี่ ที่ ดูแล ข้า ไม่ ได้ ใน รุ่น ก่อน"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "เพราะ ใน เวอร์ชัน นี้ คุณ จะ ไม่ สามารถ ออก"
+
+msgid "You will now be transported outside"
+msgstr "คุณ จะ มี ขนส่ง นอก"
+
+msgid "We apologize for the inconvenience"
+msgstr "เรา ต้อง ขออภัย ใน ความ ไม่ สะดวก"
+
+msgid "That's a lot of slime"
+msgstr "ที่ มาก เลน"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "ฉัน ไม่ คิด Ice Spray จะ ได้ รับ ทั้ง นี้ เพราะ ใช้ได้ ใน น้ำ"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimes สามารถ ว่า ย น้ำ เพื่อ ที่ จะ ไม่ ช่วยเหลือ ใด"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "ฉัน จำ Borgan บอก ฉัน ว่า แดกดัน ที่"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "ฉัน จะ ได้ พบ สิ่ง ที่ จะ ช่วย ให้ ฉัน ได้ รับ ทั่ว ..."
+
+msgid "There, the rope's firmly attached"
+msgstr "นั่น เชือก ของ แนบ มั่น"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "ฉัน ต้องการ ค้นหา บาง เชือก ก่อน ที่ จะ สามารถ ดับ เพลิง ได้"
+
+msgid "It's a Grappling Hook"
+msgstr "จะ ฟาด ฟัน ตะขอ"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "ฉัน อาจ จะ ใช้ แบบ ฟอร์ม สะพาน ไป ยัง ด้าน อื่น ๆ แต่ มี เชือก ไม่"
+
+msgid "I still need a Fire Shield"
+msgstr "ฉัน ยัง ต้อง ป้องกัน ไฟ"
+
+msgid "Wow, this place is empty!"
+msgstr "ว้า ว สถาน ที่ นี้ ยัง ไม่มี"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "ฉัน เดา หมอผี มี ความ ต้องการ อาวุธ ใด เนื่องจาก เขา ได้ มายากล"
+
+msgid "Still, there must be something of use in here"
+msgstr "ยัง คง มี บาง อย่าง ต้อง ใช้ ที่ นี่"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "เจ๋ง ยักษ์ เลื่อน ปริศนา! ฉัน มี หนึ่ง ใน บ้าน หลัง นี้!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "ดี ไม่ ยักษ์ หนึ่ง ชัด ..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "กด ซ้าย ขวา ขึ้น หรือ ลง เพื่อ ย้าย บล็อก"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "บล็อก การ จัด เรียง เพื่อ ให้ ตัวเลข 1-8 ปรากฏ ใน ลำดับ จาก ซ้าย ไป ขวา และ ป้องกัน ว่าง อยู่ ใน มุม ขวา ล่าง"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "กด โจมตี เพื่อ ออก จาก ตัว"
+
+msgid "A length of rope"
+msgstr "ความ ยาว ของ เชือก"
+
+msgid "A device for grabbing far away objects"
+msgstr "อุปกรณ์ สำหรับ มือ ยาว อยู่ ไกล วัตถุ"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "ขวด ของ ยา ที่ เปลี่ยน เลน ใน น้ำ"
+
+msgid "Tutorial Key"
+msgstr "Key Tutorial"
+
+msgid "Light Key"
+msgstr "Key Light"
+
+msgid "Rope"
+msgstr "เชือก"
+
+msgid "Extend-O-Grab"
+msgstr "ขยาย-O-คว้า"
+
+msgid "Water Purifiers"
+msgstr "Water Purifiers"
+
+msgid "Right Wing Key"
+msgstr "คีย์ ขวา วิง"
+
+msgid "Catapult Lift Key"
+msgstr "หนังสติ๊ก ลิ ฟ ท์ คีย์"
+
+msgid "Armoury"
+msgstr "คลัง อาวุธ"
+
+msgid "Maggie"
+msgstr "Maggie"
+
+msgid "Jacob"
+msgstr "Jacob"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "Edgar"
+
+msgid "Mine Cart"
+msgstr "รถ เข็น เหมือง"
+
+msgid "%s has regained power"
+msgstr "%s มี regained พลังงาน"
+
+msgid "Wow, a catapult!"
+msgstr "ว้า ว เป็น หนังสติ๊ก!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "Hinges ดู rusted แต่ ฉัน สงสัย มัน จะ ทำงาน จนกว่า ฉัน จะ ได้ รับ นั้น คง ที่"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "ที่ หรือ ไม่ แค่ นี้ บัง เก่า หรือ ไม่ ไม่ มอง ที่ ดี กว่า คน ปัจจุบัน ของ ฉัน."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "ยัง ฉัน จะ ถือ เข้า สำหรับ ขณะ นี้ อาจ จะ มี ประโยชน์"
+
+msgid "Great, a spare shield!"
+msgstr "ดี โล่ อะไหล่!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "นี้ ไม่ ได้ มี ลักษณะ เหมือน ไฟ ที่ บัง ให้ ฉัน. ฉัน ถูก จริงๆ หวัง เพื่อ หา หนึ่ง ที่ นี่ เกินไป"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "โล่ นี้ ไม่ ได้ มอง ที่ ดี กว่า คน ปัจจุบัน ของ ฉัน."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "ฉัน ต้อง สร้าง ของเหลว จาก กิ่ง ก้าน สาขา โคลน และ Gazer ส่าย"
+
+msgid "That's not a good sign..."
+msgstr "ที่ ไม่ ลง ดี ..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "ฉัน ต้อง พบ โล่ ให้ เคลิบเคลิ้ม อื่น ..."
+
+msgid "Hey, a lightning sword!"
+msgstr "เดี๋ยวก่อน ดาบ ฟ้าผ่า!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "ลักษณะ ที่ มี ประสิทธิภาพ มาก ขึ้น กว่า ดาบ ปัจจุบัน ของ ฉัน เกินไป"
+
+msgid "With this I should be almost unstoppable"
+msgstr "กับ ฉัน ควร จะ ผ่าน พ้น ไม่ ได้ เกือบ"
+
+msgid "Almost"
+msgstr "เกือบ จะ"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "ฟ้าผ่า ดาบ มี จำนวน จำกัด ค่า ใช้ จ่าย และ จะ สูญ เสีย พลังงาน เมื่อ ค่า เหล่า นี้ จะ ใช้ ค่า"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "ศัตรู แบบ สุ่ม จะ วาง ค่า ใช้ จ่าย มาก ขึ้น เมื่อ พวก เขา ถูก ฆ่า"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "โปรด ทราบ ว่า ถ้า ดาบ สมบูรณ์ สูญ เสีย พลังงาน จะ กลับ ไป ใช้ ดาบ ปกติ กับ พลังงาน น้อย มาก จน คุณ สามารถ หา ค่า ใช้ จ่าย เพิ่มเติม"
+
+msgid "This centurion has no power"
+msgstr "Centurion นี้ ไม่มี อำนาจ"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "จะ เชื่อม ต่อ กับ treadmill นี้ เพื่อ ฉัน อาจ จะ คิด ขึ้น ด้วย ความเร็ว พอ"
+
+msgid "An old shield found in the Armoury"
+msgstr "โล่ เก่า ที่ พบ ใน คลัง อาวุธ"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "ดาบ ที่ สามารถ เรียก เก็บ กับ สาย ฟ้าแลบ"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "ดาบ แช่ ด้วย พลัง ของ ฟ้าผ่า"
+
+msgid "Lightning Sword"
+msgstr "ดาบ ฟ้าผ่า"
+
+msgid "INTRUDER!"
+msgstr "ผู้ บุกรุก!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "Hinges ดู rusted แต่ ฉัน สงสัย มัน จะ ทำงาน จนกว่า ฉัน จะ ได้ รับ พวก เขา คง"
+
+msgid "OK, let's see if this works..."
+msgstr "ตกลง ขอ ดู ว่า งาน นี้ ..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "ฉัน จะ มี ปัญหา เดิน ผ่าน เชือก นี้ ทั้ง สอง ขอบคุณ tightrope ฉัน เดิน ทักษะ"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "และ พ่อ กล่าว ว่า มัน ไม่ ต้องการ มา ประโยชน์!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "ฉัน ต้องการ ความ ยาว ของ เชือก ที่ แนบ ไป อัสนี"
+
+msgid "It's a giant crossbow"
+msgstr "ก็ crossbow ยักษ์"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "ฉัน อาจ จะ ใช้ เพื่อ สร้าง สะพาน ผ่าน spikes เหล่า"
+
+msgid "I'll need some rope first though"
+msgstr "ฉัน จะ ต้อง บาง เชือก แรก ว่า"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "ที่ นั่น ที่ hinges oiled. นี้ ควร จะ เป็น ดี ใหม่ วัน นี้"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "Hinges จะ rusted ฉัน จะ ต้อง พบ น้ำมัน บาง ก่อน ที่ จะ สามารถ ใช้"
+
+msgid "I can't run in this armour, though"
+msgstr "ฉัน ไม่ สามารถ ทำงาน ใน เกราะ นี้ ว่า"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "บวก ผม เหนื่อย จาก การ เดิน นี้ กระโดด, ต่อสู้, ว่า ย น้ำ ..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "คิด, เหมือง, การ สับ, ผลัก ดัน, ดึง, แบก ..."
+
+msgid "and catching chickens"
+msgstr "และ ไก่ ระบาด"
+
+msgid "I'll get something else to do it instead"
+msgstr "ฉัน จะ ได้ รับ อะไร ที่ จะ แทน"
+
+msgid "Statistics"
+msgstr "สถิติ"
+
+msgid "Play Time: %s"
+msgstr "เล่น Time: %s"
+
+msgid "Kills: %d"
+msgstr "Kills: %d"
+
+msgid "Bats Drowned: %d"
+msgstr "Bats จม น้ำ: %d"
+
+msgid "Times Eaten: %d"
+msgstr "เวลา รับประทาน: %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "สกัด กั้น การ โจมตี: %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "เวลา ที่ ใช้ เป็น โคลน ต ม A: %s"
+
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanced ท่องเที่ยว: %0.1fKM"
+
+msgid "Arrows Fired: %d"
+msgstr "ลูก ศร เชื้อเพลิง: %d"
+

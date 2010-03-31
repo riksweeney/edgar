@@ -1,0 +1,19 @@
+IF CAULDRON HEALTH 0
+TALK Edgar It's a cauldron. Maggie has one just like this
+END
+IF CAULDRON HEALTH 1
+HAS_ITEM "Eyeball Smoothie" 1 1 CAULDRON 2 3
+IF CAULDRON HEALTH 2
+HAS_ITEM "Old Shield" 1 1 CAULDRON 2 3
+END
+END
+IF CAULDRON HEALTH 2
+TALK Narrator Something is supposed to happen here, but it's not in this version so check back later!
+#REMOVE "Eyeball Smoothie" 1 1 CAULDRON 2 2
+#REMOVE "Old Shield" 1 1 CAULDRON 2 2
+END
+IF CAULDRON HEALTH 3
+TALK Edgar I need all the main ingredients
+TALK Edgar 3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield
+TALK Edgar I also need to blend the eyeballs and the tentacle into a liquid
+END

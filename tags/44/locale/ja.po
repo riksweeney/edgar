@@ -1,0 +1,2170 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "すぐに左に曲がって右slimesを吹き飛ばす！"
+
+msgid "Bow"
+msgstr "弓"
+
+msgid "Not working in this version!"
+msgstr "このバージョンでは作業！"
+
+msgid "Press Action to interact"
+msgstr "プレスアクション対話する"
+
+msgid "%s is required"
+msgstr "%sが必要です"
+
+msgid "Bomb"
+msgstr "爆弾"
+
+msgid "Small Rock"
+msgstr "小岩"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "プレスアクション紫の宝石を取得する"
+
+msgid "Chicken"
+msgstr "チキン"
+
+msgid "Tesla Pack"
+msgstr "テスラパック"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "プレスアクションテスラパックを取得する"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "プレスアクションテスラパックを交換する"
+
+msgid "Obtained %s"
+msgstr "得られた%s"
+
+msgid "Complete"
+msgstr "完了"
+
+msgid "%d more to go..."
+msgstr "%d以上行く..."
+
+msgid "Used %s"
+msgstr "%s使用"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "アイテムを装備することはできませんtransmogrifiedながら、"
+
+msgid "Equipped %s"
+msgstr "%s装備"
+
+msgid "Maximum health has increased!"
+msgstr "最大の健康を増加している！"
+
+msgid "Bow will now fire %s"
+msgstr "弓を今すぐ%sを発生させます"
+
+msgid "A bow is required to use this item"
+msgstr "弓この項目を使用する必要があります"
+
+msgid "Cannot transmogrify here..."
+msgstr "ここtransmogrifyすることはできません..."
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Start a new game?"
+msgstr "新しいゲームを開始？"
+
+msgid "Play the tutorial?"
+msgstr "再生チュートリアル？"
+
+msgid "Exit the game?"
+msgstr "ゲームを終了？"
+
+msgid "Back"
+msgstr "後ろの"
+
+msgid "Game Loaded"
+msgstr "ゲームロード"
+
+msgid "Game Saved"
+msgstr "ゲームのセーブ"
+
+msgid "OK"
+msgstr "[OK]を"
+
+msgid "Any unsaved progress will be lost"
+msgstr "任意の未保存の進捗状況が失われる"
+
+msgid "Joy Button #%d"
+msgstr "喜びのボタン＃%d"
+
+msgid "Press Action to talk to %s"
+msgstr "プレスアクション%sに話をする"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s（%d分の%d）"
+
+msgid "New Objective: %s"
+msgstr "新目標：%s"
+
+msgid "Objective Completed: %s"
+msgstr "客観完了：%s"
+
+msgid "The wall on the right looks weak..."
+msgstr "右側の壁に弱いだな..."
+
+msgid "This weapon is not having any effect..."
+msgstr "この武器は効果がないことだ... ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "プレスアクションテスラパックを添付する"
+
+msgid "The Legend of Edgar"
+msgstr "伝説エドガーの"
+
+msgid "%s is needed to activate this switch"
+msgstr "%sには、このスイッチを有効に必要です"
+
+msgid "Press Action to use this switch"
+msgstr "プレスアクションは、このスイッチを使用する"
+
+msgid "Press Action to save your game"
+msgstr "プレスアクションゲームを保存する"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%sプレートは、この圧力を使用する必要があります"
+
+msgid "%s is needed to open this door"
+msgstr "%sこのドアを開くために必要です"
+
+msgid "This door is locked"
+msgstr "このドアはロックされ"
+
+msgid "This teleporter is not active"
+msgstr "この転送装置がアクティブでない"
+
+msgid "Press Action to go to the %s"
+msgstr "プレスアクション%sに移動する"
+
+msgid "Push Up or Down to use this lift"
+msgstr "開くプッシュまたはDown、このリフトを使用する"
+
+msgid "This lift is not active"
+msgstr "このリフトがアクティブでない"
+
+msgid "Cannot carry any more %s"
+msgstr "すべての%sの詳細を実行することはできません"
+
+msgid "Picked up %s x %d"
+msgstr "%s Xの%dを摘み"
+
+msgid "Picked up %s"
+msgstr "%sを摘み"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%sこの品物を運ぶために必要です"
+
+msgid "%s (%d)"
+msgstr "%s（%d）"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "ストレージを買う"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "石炭袋ストレージスイッチを買う"
+
+msgid "Large Room Key"
+msgstr "大規模なルームキー"
+
+msgid "Coal Bag"
+msgstr "石炭袋"
+
+msgid "Forest Cell Key"
+msgstr "森林セルを買う"
+
+msgid "Wood Axe"
+msgstr "ウッドアックス"
+
+msgid "Health Potion"
+msgstr "健康ポーション"
+
+msgid "Outflow Key"
+msgstr "流出を買う"
+
+msgid "Flow Control Key"
+msgstr "フローコントロールキー"
+
+msgid "Waste Processing Key"
+msgstr "廃棄物の処理を買う"
+
+msgid "Access Key 1"
+msgstr "アクセスキー1"
+
+msgid "Access Key 2"
+msgstr "アクセスキー2"
+
+msgid "Access Key 3"
+msgstr "アクセスキー3"
+
+msgid "Trap Door Switch Key"
+msgstr "トラップドアスイッチを買う"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "このリフトの力がある。まで、自分の力を復元に使用することができなくなります"
+
+msgid "Keep practising!"
+msgstr "練習てください！"
+
+msgid "Hi"
+msgstr "やあ"
+
+msgid "Hello Edgar"
+msgstr "こんにちはエドガー"
+
+msgid "Can I borrow your shield?"
+msgstr "私はあなたの盾を借りできますか？"
+
+msgid "Off to practice your fighting skills?"
+msgstr "離れてあなたの戦闘のスキルを練習する？"
+
+msgid "Something like that"
+msgstr "そのような何か"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "もし私の場合は、シールドすることができます用事を実行する"
+
+msgid "What do I have to do?"
+msgstr "どうすればいいのですか？"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "は、鉱山に移動し、私にいくつかの石炭を収集する"
+
+msgid "But we have plenty of coal!"
+msgstr "しかし、多くの石炭を持っている！"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "はい、これは任意の古い石炭ありませんが、この石炭の特別な場合は、熱く燃えて長持ち"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "私だけなので、非常に長いをしてはならないものの10個が必要"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "必ず袋に入れて、長すぎるあなたの健康に悪いことするために触れて入れてください"
+
+msgid "Do you have a bag?"
+msgstr "あなたの鞄を持っていますか？"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "いいえ、あなたはおそらく1つの鉱山で見つけることができるも"
+
+msgid "OK, I'll get the coal"
+msgstr "[OK]を、私は、石炭を取得します"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "ここでは、このつるはしを取る。あなたは私のために石炭を使うことができますし、ハッキング中に発生する任意の弱い壁を通して"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "また、鉱山に入るためには、このキーが必要です"
+
+msgid "Thanks!"
+msgstr "ありがとう！"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "エドガーは、この石炭最適ですありがとうございます！希望は、バットを脅していない。"
+
+msgid "The bats were the least of my worries..."
+msgstr "コウモリは、私の心配は少なくともいた..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "言おうと、私が何かは、鉱山では、数年前に起こった聞いた"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Erを、ええ、そこに事件と呼ぶものでしたですが、私のその部分を前に長い時間が密閉された"
+
+msgid "Right..."
+msgstr "右..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "ここでは、自分のシールドがあり、楽しく！"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "ちょうど近づかない故宮沼から"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "しないだろう、私にあなたのつるはしをしばらくの間保持できますか？"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "確実なものだけに戻る1つの作品に持ってきて"
+
+msgid "Thanks, Borgan!"
+msgstr "おかげで、Borgan！"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "場合は、石炭を見つけることはまだ管理がありますか？"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "場合は、アクションボタンを押しながら、それらに対して押すことでいくつかの項目を中心にプルすることができます。"
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "するまでは、アクションボタンを放す次に、その周りを引くこと"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "この岩もアックスピック私は強そうだね。私を介して取得する何かを使用する必要があります..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh、何が起こったか？"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "このように思えるような良いアイデアすべての後ではなかった"
+
+msgid "There must be way out of here..."
+msgstr "ここにはのようにする必要があります..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "これは、石炭をする必要があります彼のために私を私に望んで"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "私は自分のシールドこれらの火の玉から私を守ってくれるとは思わない。私は、強力な1つを見つける必要があるでしょう..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "このバージョンでは、このビットを行うには、後で確認することはできません！"
+
+msgid "Strange creature..."
+msgstr "奇妙な生き物..."
+
+msgid "Wait, what was that?"
+msgstr "待って、何でしたか？"
+
+msgid "You again?!"
+msgstr "もう一度！？"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "何かここで発生するはずですが、このバージョンではまた後で確認していないよ！"
+
+msgid "Have fun!"
+msgstr "お楽しみに！"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "私の鶏resucingのおかげで、あなたは私の森林からまだ2のログを持っている？"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "おかげでエドガー！私の鶏に戻ると、これらのログの罰金を行います"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "は、この剣をとるにもお役に立てる可能性があります！"
+
+msgid "Thank you!"
+msgstr "ありがとうございました！"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "ログのおかげで、鶏とは幸運だったがありますか？"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "場合には、森林やレスキューからのみじん切りログを私に2を取得私はあなたに剣をあげる3私の鶏は、少なくとも"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "こんにちはエドガー、何をするのは今日、何ができますか？"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "私が借りることができるの剣がありますか？"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "私は剣を持っており、もしあなたが私の最初の何かをあなたがすることができます"
+
+msgid "OK... what do I have to do?"
+msgstr "[OK]を...どうすればよいのですか？"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "いくつかの私のニワトリたちのペンから逃れていると私は非常に戻す場合、私は彼らを取得することができます感謝される"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "私はペンの近くにいくつかのトラップを設定している場合は、トラップはこの鶏の餌を使用して誘い出すことができます。私は、それらのすべての必要はありませんが、少なくとも3つの非常に役立つだろう。私は、残りの自分を得ることができます。"
+
+msgid "That's it?"
+msgstr "それは？"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "まだ。また私が森の中からいくつかの木材を取得できますか？ 2ログオンする必要があります十分な"
+
+msgid "Do you have an axe?"
+msgstr "場合斧がありますか？"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "ERMは...私は、フォレスト内のどこかに自分の斧を残しました。それはまだそこにする必要があります"
+
+msgid "Isn't that forest dangerous?"
+msgstr "その森の危険性はありませんか？"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "は実際に、もし何かあなたの邪魔になるだけで武器ではヒット"
+
+msgid "Such as an axe?"
+msgstr "斧というと？"
+
+msgid "Yes, that would do the trick"
+msgstr "はい、そのトリックを行うと"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "しかし、真剣に、何もないでは実際に害を与えることだ。その問題は長い時間前に配られた..."
+
+msgid "Good luck!"
+msgstr "頑張って！"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "ああ、おかげでエドガー、私だけでなく、3必要に応じて追加支援に感謝します！"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "ここでは、マギー私にこのような健康のポーションを作ったが私はなぜそれを持っている必要ないのですか？"
+
+msgid "Thanks Jacob"
+msgstr "おかげでジェイコブ"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "うわー、あなた、おかげで多くのそれらをすべてキャッチ！"
+
+msgid "Here, I have these for you"
+msgstr "ここで、私はあなたにこれらを持って"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "マギー私にこのような健康のポーションを作ったがそれをすることができます"
+
+msgid "And this is something very special"
+msgstr "そして、この何かとても特別なもの"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "5月は、この強力な戦士になるためのお帰りの際に役立つ"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "あなたが私に多くの時間を保存します。マギー私に何かが、以降にされたので、参考にしてて、それをすることができます。"
+
+msgid "Hi Maggie"
+msgstr "こんにちはマギー"
+
+msgid "Thanks Maggie!"
+msgstr "おかげでマギー！"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borganは、私のセクションの後に密封されている事件"
+
+msgid "There must be something around here..."
+msgstr "この辺りは何かをする必要があります..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "のろう、跳ね橋までです。もう一つの入り口があります..."
+
+msgid "Wait, what's that?"
+msgstr "待って、何のこと？"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "たぶん私がトンネルの私の方法インチ.."
+
+msgid "These machines aren't working."
+msgstr "これらのマシンで動作していない。"
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "この穴に収まる必要が宝石のように見えるが、多分私はいくつかの代替品を見つけることができます。"
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "のようにしっかりとそこにくさび形のようだ。私は多分つるはしとそれを緩めることができます..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "故宮の沼に私は、いかだをビルドする必要がありますを取得してください。"
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "もし私が森の中から十分に木を切り倒す私は、いかだをビルドすることができます"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "私は、いかだをビルドする6みじん切りのログが必要"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "私は、剣と盾なしで湿地するつもりはない"
+
+msgid "OK, here goes!"
+msgstr "[OK]を、ここで行く！"
+
+msgid "Aw, not again!"
+msgstr "Awのではなく、再び！"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "これは良い私はこれを行うにして最後になるが... ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "これは簡単でした！私はいつも後でを得ることができます！"
+
+msgid "Oh...."
+msgstr "オ...."
+
+msgid "Guess I have no choice now."
+msgstr "私は今しかないゲス。"
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "ハングアップするお父さんに、私は来るんだけど..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "何かをすぐに実現することになっていますが、このバージョンではない。チェック後で！"
+
+msgid "There's a note here"
+msgstr "そこここにメモの"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "私はここで永遠のように思えるのをトラップしてきた"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "私は、リフト動作するように3アクセスキーが必要、この場所から抜け出すために"
+
+msgid "So far I have only found 1"
+msgstr "これまでのところ私は1を発見した"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "問題を悪化させるために、私は慎重に配置矢印でいくつかのスイッチに到達することができます"
+
+msgid "But spares aren't common and I have run out"
+msgstr "しかし、スペアが一般的ではないと私は実行して"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "もし私がすぐにここから抜け出す方法を見つけることは、私を飢えさせることを恐れる"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "もし私がここに私は同じ運命をたどるだろうから出られないよ..."
+
+msgid "Oh, what's this?"
+msgstr "ああ、これはなに？"
+
+msgid "There's a note here too"
+msgstr "そこここにメモもの"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "ポーション完璧です！飲む。それになるのクリーチャーには時間の少量の人間"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "これまで私は自分だけだtransmogrifyできる1つの生き物にはもう少し時間が何を可能にする必要があります"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "が、ほんの少しの、それを飲んでも安全なはず左"
+
+msgid "OK, here goes nothing..."
+msgstr "[OK]を、ここには何も行く..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh！これは恐ろしいです！"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borganので、おそらくこれが役に立つだろうと僕Slimes水にかかわらず、その泳ぐことができると語った..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "時スライムに変換する場合、通常どおりに動かすことができます。また、水の中で泳ぐことができます上下に移動するために使用"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "を押すか、または場合は、表面付近にしている場合は、水の飛び出しになるジャンプ"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "タイマーには、画面の下部に目が離せない。ときに達すると0を自動的に再び人間になる"
+
+msgid "This place doesn't look so bad..."
+msgstr "ので、悪くはないこの場所は..."
+
+msgid "What was that?"
+msgstr "何でしたっけ？"
+
+msgid "Uh Oh..."
+msgstr "おお..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "あー、私はそこから出てくれてうれしい"
+
+msgid "Now to get through this swamp"
+msgstr "今これを通じて湿地を取得する"
+
+msgid "Hey, what's this?"
+msgstr "やあ、これはなに？"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "はかなり、やってみますそれを踏んで無害な"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "うわー！これはクールだった！これは、機械的な転送装置が必要です。"
+
+msgid "I wonder if it works both ways..."
+msgstr "場合は、両方の方法で動作するのだろうか..."
+
+msgid "Horray!"
+msgstr "Horray！"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "だけでなく、これは私の歩行動作の節約になる、それも楽しみの負荷のです！"
+
+msgid "Now try out your shield"
+msgstr "今すぐあなたの盾を試してみる"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "ブロックには、ペレットは工場によってけんかし、次の棚にジャンプ"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "ゲームのいくつかの項目をプッシュすることができますし、プル"
+
+msgid "To push an item, simply walk into it"
+msgstr "は、単にそれに歩いてアイテムをプッシュするには"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "一方、アクションを押したままに歩いてアイテムをプルするには"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "するまで、アクションを放す次に、周りのアイテムを引き出すことができる"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "反対側の上にボックスをプルダウンして棚に到達するために使用"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "このチュートリアルの最後の部分であり、ブロックをあなたに教えるし、敵を攻撃"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "以来、それをつるはしよりはより多くの損傷の範囲は、まず、剣を装備する必要があります"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "はZ、あなたの在庫を表示するには、剣と押します攻撃（）または使用してアイテムキー（左）"
+
+msgid "Press z again to close your inventory"
+msgstr "もう一度押すと、あなたのインベントリを閉じるzに"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "場合によっては、殺された敵なので、これには数秒後に消えるの健康ドロップを迅速にピックアップ！"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "場合は、バットの場合に近くには、ブロックを保持なっているし、無害に跳ね返るれる場合"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "現在、すべての領域ではコウモリを殺す！"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "そこは、ゲームでのドアの2種類があります。手動ドアと自動ドア。"
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "マニュアルのドアキーをオープンする必要がありますと、自動ドアのスイッチが必要です。"
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "その場合は、単にそれに歩くためのキーがロックされてドアを開けてください。必要がないキーをインベントリで選択することです。"
+
+msgid "Open the door and continue to the right"
+msgstr "ドアを開き、右に進みます"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "お祝いの言葉！今あなたがゲームのメインてみてください演奏の基本を知っている"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "場合は、このチュートリアルでは、Escキーを押すと、メニューからチュートリアルを選択し再生する"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "脱出ゲームのメインキーを押します再生するには、メニューから新しいゲームを選択する"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "スペースキーを押ししたときに、次のダイアログボックスに進みます読み終えている"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "また、攻撃を押すことによって、次のダイアログボックスに移動することができます（）、ブロック（左Altキー）、ジャンプ（スペース）、アクションCtrlキーを左（c）または使用してアイテム（1）"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "これは、伝説エドガーのためのチュートリアルです。このチュートリアルでは、ゲームをプレイする方法について説明します。"
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "このチュートリアルでは、Escキーを押すと上下の矢印キーでオプションを選択するまで使用を終了する。 Returnキーを押して選択します。"
+
+msgid "To move left and right, use the arrow keys."
+msgstr "左右の矢印キーを使って左に移動してください。"
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "キーを押しますスペースジャンプをしてください。場合は、空気中のときにジャンプ移動することができます。"
+
+msgid "To interact with an item, press c"
+msgstr "の項目で、Cキーを押し対話するには"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "アクションポイントを押してからcを歩く"
+
+msgid "To collect an item from your"
+msgstr "から項目を収集するには、"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "は、単にそれに歩いてアイテムをピックアップしてください。任意の回収アイテムがインベントリに追加されます。"
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "またZキーを押すことにより、棚卸資産の内容を表示することができます"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "がなくなり、インベントリでは、アイテムを表示するには、矢印キーを使用します。"
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "すぐに攻撃を押して項目を使用することができます（）、または使用してアイテムキー（左）"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "ブロックを押して使用することができます準備項目（）左Altキー、またはアクション（℃）"
+
+msgid "Walk over the key to pick it up"
+msgstr "キーの上を歩くそれを拾う"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Escキーを押すと、メニューのオプションを選択して、すべてのゲーム内のコントロールを変更することができます"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "選択して構成するコントロールの矢印キー、Returnキーを使用して"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "矢印キーを使用して変更し、Returnキーを押しますしたいコントロールを選択する。"
+
+msgid "Next, press the key that you want to use instead."
+msgstr "次に、キーを代わりに使用するキーを押します。"
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "関係なく、どのようなキーを選択した場合は、常にメニューの矢印キーと戻り値を使って移動することができます"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "このチュートリアルでは、デフォルトのキーと仮定されることに注意し"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "ときに、キーの設定は、次のアクションを右にポイント移動が完了して"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "つるはし1つの場合は、ゲームで遭遇する多くの武器の一つです"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "両方の武器や道具として使うことができます"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "つるはしを選択し、次のアクションポイントを続ける"
+
+msgid "Congratulations, you found a secret!"
+msgstr "おめでとう、あなたの秘密発見！"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "がメインのゲームではそれらのために見て維持、多くの秘密です"
+
+msgid "Here's a hint to get you started"
+msgstr "ここを得るためのヒントを始めたの"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "これだけを3彼の鶏が、なぜ彼にいいことはキャッチし、以上のcatchが必要？は、10のマップのすべての徘徊している"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "シールドほとんどの敵の攻撃からあなたを守ります"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "一部の敵の攻撃をブロックすることはできません"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "落石などの環境災害、ブロックすることはできません"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "攻撃は、キーを押したままブロックをブロックするには（）Altキーを残しました。"
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "あなたが正常にブロックするために攻撃に直面している必要があります"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "をしながらブロックを移動することはできませんが、あなたは他の方法に直面することができます。また、空気中でブロックすることはできません"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "シールドを選択し、右に進みます"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "これは、弱い壁は、つるはしを使用してダウンを破壊することができます"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "つるはしを押し攻撃を使用するには（）Ctrlキーを左に"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "は、すべての弱い壁につるはしを使用して破壊することができます"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "破壊の壁がつるはしを継続使用して"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "何かここにいるはずだが、それは、このバージョンでは、後でチェックだよ！"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "石炭の収集10個"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "収集2みじん切りログ"
+
+msgid "Rescue 3 Chickens"
+msgstr "レスキュー3鶏"
+
+msgid "Find 4 Gems"
+msgstr "4宝石を探す"
+
+msgid "Repair Generators"
+msgstr "修復ジェネレータ"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "収集6みじん切りログ"
+
+msgid "Collect 3 Access Keys"
+msgstr "収集3アクセスキー"
+
+msgid "This is a blank objective"
+msgstr "これは、空白の目標である"
+
+msgid "Kill all Bats!"
+msgstr "すべてのコウモリを殺しなさい！"
+
+msgid "Coal"
+msgstr "石炭"
+
+msgid "Chopped Log"
+msgstr "みじん切りにログイン"
+
+msgid "Green Gem"
+msgstr "緑色の宝石"
+
+msgid "Red Gem"
+msgstr "赤い宝石"
+
+msgid "Blue Gem"
+msgstr "青い宝石"
+
+msgid "Purple Gem"
+msgstr "紫色の宝石"
+
+msgid "Teleporter Key"
+msgstr "転送装置を買う"
+
+msgid "New Game"
+msgstr "新しいゲーム"
+
+msgid "Tutorial"
+msgstr "チュートリアル"
+
+msgid "Load Game"
+msgstr "ロードゲーム"
+
+msgid "Options"
+msgstr "オプション"
+
+msgid "About"
+msgstr "〜について"
+
+msgid "Quit"
+msgstr "終了する"
+
+msgid "Configure Controls"
+msgstr "構成コントロール"
+
+msgid "Configure Sound"
+msgstr "構成音"
+
+msgid "Fullscreen"
+msgstr "フルスクリーン"
+
+msgid "Show Hints"
+msgstr "表示ヒント"
+
+msgid "A potion which will transform you..."
+msgstr "これを薬に変換されます..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "高吸収剤のミニチュアアイスキューブを作成する"
+
+msgid "A potion which will restore all of your health"
+msgstr "すべてのあなたの健康の水薬を復元する"
+
+msgid "A powerful bomb"
+msgstr "強力な爆弾"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "水薬を、特定の敵には見えないがレンダリングされます"
+
+msgid "The eyeball from a Gazer"
+msgstr "占い師からの眼球"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "テスラパック。これは無料です。"
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "召喚のスタッフ。それは、人間が使用することはできません。"
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "テスラパック。これは完全に充電されます。"
+
+msgid "An empty potion bottle"
+msgstr "空のポーション瓶"
+
+msgid "A bag of chicken feed"
+msgstr "鶏肉の袋フィード"
+
+msgid "A bag suitable for carrying coal"
+msgstr "袋の石炭を運ぶために適した"
+
+msgid "Basic Sword"
+msgstr "基本的な剣"
+
+msgid "A Sword given to you by Jacob"
+msgstr "ソードあなたにジェイコブによって与えられる"
+
+msgid "A bow"
+msgstr "弓"
+
+msgid "Small Wooden Shield"
+msgstr "小さな木製の盾"
+
+msgid "A small shield that provides basic protection"
+msgstr "基本的な保護を提供する小さな盾"
+
+msgid "Normal Arrow"
+msgstr "通常の矢印"
+
+msgid "Normal Arrows"
+msgstr "通常のアロウズ"
+
+msgid "An axe suitable for chopping trees"
+msgstr "斧木のまな板に適して"
+
+msgid "Pickaxe"
+msgstr "つるはし"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "つるはしあなたにBorganを貸す"
+
+msgid "Fire Burner Key"
+msgstr "火災バーナーを買う"
+
+msgid "Potion Room Key"
+msgstr "ポーションルームキー"
+
+msgid "Surge Passage Key"
+msgstr "サージ通過を買う"
+
+msgid "Demolition Storage Key"
+msgstr "解体ストレージを買う"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "どういうことそれはジェネレータからの電力排出され、私に対してそれを使用していた。"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "その理由は、リフト動作していないと説明があります。他のdrainersを倒す力を復元する必要があります。"
+
+msgid "Defeat all Energy Drainers"
+msgstr "敗北のすべてのエネルギーDrainers"
+
+msgid "No Objectives"
+msgstr "いいえ目標"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "プレスアクションパズルブロックをリセットする"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "これは、ミキサーのように見えます。私は何かliquidiseにこれを使用することが"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "私は薬を作るためのレッド汚泥触手と3を観察する眼球必要があります"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "私はまだ薬入れに空のボトルが必要"
+
+msgid "So this is the Fortress."
+msgstr "したがって、この要塞です。"
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "これはドアの多くのような他の地域への口火を切る、私は私はどこ行く前に見て回る、適切なものが..."
+
+msgid "Try hitting the skull..."
+msgstr "頭蓋骨を押すてみてください..."
+
+msgid "This machine is not active"
+msgstr "このマシンはアクティブではありません"
+
+msgid "Repeat the sequence"
+msgstr "繰り返し配列"
+
+msgid "Correct Sequence"
+msgstr "正しい順番"
+
+msgid "Incorrect Sequence"
+msgstr "不適切なシーケンス"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "伝説エドガーは、次のエラーが発生しました"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "してください。パラレル現実には、このエラーを報告する"
+
+msgid "The game will now exit"
+msgstr "ゲームを今すぐ終了します"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "これは、ミキサーのように見えます。私は何かliqudiseにこれを使用することが"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "このBorgan彼のために私に私が望むの石炭する必要があります"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "その理由は、リフト動作していないと説明があります。他のdrainersを倒すここでは電源を復元する必要があります。"
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "私は3を観察する目、1レッド汚泥触手と余分なシールドを見つけるためにシールドの耐火性能を作成する必要があります"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "かつて私は、シールドを作成する場所を見つける必要があるでしょう、これらすべての項目を見つけた"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "ある魅力的な兵器についての本はここの"
+
+msgid "Maybe I can create a shield..."
+msgstr "たぶん私は、シールドを作成することができます..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "ソード...アーマー...ワンド..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "愚かな本。それに注文し、索引がないのではない"
+
+msgid "Here we go: Shields"
+msgstr "ここに私達は行く：シールズ"
+
+msgid "Shield of Fire Resistance"
+msgstr "シールド耐火性の"
+
+msgid "Ingredients"
+msgstr "成分"
+
+msgid "One must gather the following"
+msgstr "次のいずれかを収集する必要があります"
+
+msgid "The root of a Mandrake"
+msgstr "はMandrakeのルート"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Darshの脂肪（3ヶ月立って左）"
+
+msgid "Powered Condor bones"
+msgstr "電源コンドルの骨"
+
+msgid "3 eyes of the Gazer"
+msgstr "麻薬取締官の3目"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "女性の赤汚泥からきりたて触手"
+
+msgid "The shield to apply the enchantment"
+msgstr "シールドの魅力を適用する"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "滑らかな液体にブレンドを観察する目と汚泥触手"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "大釜のブレンドを観察する目と汚泥の触手に混ぜて一緒にルート、脂肪と骨を追加する"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "ときに、混合物を明るい青には、シールドを追加ターン"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "私は、実験室でこれらのアイテムのように私はそれらについて心配する必要はありません、ほとんど見たことが"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "とGazersの周りには問題ではないの地下室でハングアップする"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "を見つける必要がどうすれば赤汚泥のですが、どこを見つけるためには考えている"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "私は、実験の場合にはそれがもう1人を見つけなければなりませんbackfires私の現在のシールドを使用することはできません"
+
+msgid "Hmmm..."
+msgstr "うーん..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "ようこそ水薬ルームや研究室どこに脂肪や骨のように私はそれらについて心配する必要はありませんルーツを見つけることができるかもしれない"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "あなたのインベントリボックスで強調表示を使用するに応じて、命令のカードが必要です"
+
+msgid "Wow, a laboratory!"
+msgstr "うわー、実験室！"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "私はマギー呪文やポーションを見て愛、多分私はここにいくつか自分自身を作ることができます！"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "うわー、私は多くの書籍が1つの場所で見たことがない！"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "そこについての情報をすべての教科で、ここは、この便利なことができる必要があります..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "うーん、空気、それは私マギーの家を連想させる彼女が呪文を行っていた料金を感じる。私は注意する必要があります。"
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "ああ、エドガー、あなたを傷つけるしている！私にあなたの傷を癒してみよう"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "私は他のモンスターが何であるのだろうか。私はランダムでページを選択するよ..."
+
+msgid "Gazer"
+msgstr "麻薬取締官"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers cycloptic生き物のさまざまな場所で発見飛んでいる"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "その1つ目は通常閉鎖され、彼らの動きのソナーに頼る"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "彼らは捕食者のための外を眺めると同様獲物のにおいの強い感覚を使用する"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers攻撃（と）それを見て何かを魅了する彼らの目を開いて身を守る"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "この攻撃はしかし、もし、被害者は、麻薬取締官に直面して効果がある"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "占い師の眼球を魔法のプロパティが含まれて呪文で、共通の材料の準備です"
+
+msgid "Centurion, Grey"
+msgstr "センチュリオン、グレー"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "センチュリオン魔法の生き物、通常は歩哨や警備員として派遣さ作成されます。"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "しかし、移動、自社の巨大なサイズのが遅いだけですべての防衛を行進するようことができます"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "腕の代わりに、多くの人が脅威と地面disorientate握手するために使用巨大なパイルドライバーが"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "一方グレーセンチュリオンズレッドセンチュリオンズ知られている外側の周囲、ガードして存在する非常に重要なの領域を保護するために使用されて使用される"
+
+msgid "Splitter"
+msgstr "スプリッタ"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "スプリッタ無害なモンスターをしない限り攻撃している。"
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "これら2つに分割され、その捕食者の攻撃を維持大したダメージ時"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "もし1つは、再び分割し、攻撃を続け、これらを支えるすぎる損傷"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "最後に、1つの最終的な分割は、完全に無害であり、この状態では非常に小さいバージョンを生成するだけで、辞任することができます"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "場合は、そのすべての部分がまだ生きているでは、スプリッターしばらくして自分自身を改革するとその傷を癒す"
+
+msgid "Grub, Red"
+msgstr "Grubは、赤"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "レッドGrubsの詳細は、緑色の対応よりも積極的に脅威と見なすものを攻撃する"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "彼らはハチに繭とモーフを形成するに達する満期時に"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "一部は女王バチに変形されます。これらの王妃粘液を作ることができる物質の代わりに、その獲物を保持できるように"
+
+msgid "Tortoise, Master"
+msgstr "亀、マスター"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "マスター亀が恐ろしい野獣。彼らは能力が頭を変更する権利を専有見つかりません遠く離れた土地"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "彼らは火を噴くには、氷を作成し、自分自身電化自分のいとこのすべての能力を組み合わせる"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "とも一致する要素からの攻撃を通さないているコースは、エネルギーを吸収し、自分たちを癒すため"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "場合は、治癒からあまりにも多くのエネルギーを受け取るしかし、さらに、それらが進化し、たけり狂う"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "この状態では、任意の守備を粉砕し、ダークマター設計事務所は、それに触れるものを破壊する生産"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "しかし、大暴れマスター亀の甲羅の高い魔法であるとされている重要な成分が、強力な魔法やアイテムを作成する"
+
+msgid "Venus Flytrap"
+msgstr "ハエジゴク"
+
+msgid "Hoover, Pink"
+msgstr "フーバー、ピンク"
+
+msgid "Summoner, Dark"
+msgstr "召喚、ダーク"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore別の次元からの生き物である。これは強力な黒魔術を使って召喚することができます"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "この獣を召喚するための最も一般的な理由のボディーガードとして行動することです"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "があるので、単純に、独自のディメンションに戻りますので、重大な傷害を維持にGrimloreを殺すためには既知の方法です"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "しかし、それは記念碑的な作業ですが負傷した。誰でもこのクリーチャーに遭遇できるだけ早く脱出をお勧めします"
+
+msgid "Or they will die very quickly"
+msgstr "または非常にすぐに死んでしまう"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "ああ、ここのモンスターの大要です"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34巻！どのようにある世界には多くのモンスターをすることができます！？"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "見えるように、アルファベット順にしているものの"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "粘菌、緑...スライム、紫...汚泥、グリーン..."
+
+msgid "Sludge, Red"
+msgstr "汚泥、赤"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "その緑のいとことは異なり、レッド汚泥の深さは、めったに地下鉄、滞在表面"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "その優先の生息地やミネラル豊富な地域と乾燥している結果として、鉱山、人間に捨てられたの領域に潜んで発見されている"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "彼らは非常に人間と警戒している光景は、通常、蒸発に時間がかかる酸を嘔吐を攻撃する"
+
+msgid "Smacker, Lesser..."
+msgstr "ピシャリとたたく、レッサー..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "グレートは、すべてのそれだ。私も方法の違いを教えていいのか分からないの男性と女性。私にはチャンスになることやら..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "加えて、どのようなことが起こる可能性が最悪ですか？"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "エドガーと右の矢印キーを使って左に移動してください。"
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "エドガージャンプ、ボタンを押しますスペースを確保してください。場合は、空気中のときにジャンプ移動することができます。"
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "ただし、ヤコブだけが3彼の鶏が、なぜ彼にいいことはキャッチし、以上のcatchが必要？は、10のマップのすべての徘徊している"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "は、すべての弱い壁につるはしを使用して破壊されることに注意し"
+
+msgid "I've already checked, he's not down there..."
+msgstr "私はすでに、彼はそこではない... ...確認しました"
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "私は人々に前によく落ちるのは、おそらくお父さんのそこに聞いたことがある..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DADの!!!!!そこ?!!!!!ダウンしている"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "何もない。私は探し続ける必要があるでしょうね"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "開くプッシュまたはDownを高めるため、または下位のプラットフォーム"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "ある魅力的な機器についての本はここの"
+
+msgid "It's a book about enchanting equipment"
+msgstr "それは魅力的な機器についての本の"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "これが私の心の場合にすればそれを続けるつもりを読むことが何らかの理由がない"
+
+msgid "I wonder what other monsters there are..."
+msgstr "私は他のモンスターが何かなあ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "正規Summonersと同じように、ダークSummoners他の猛獣での入札を行うための呼び出し"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "また、たとえ相手から逃れるために、短い距離テレポートすることができます"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "そのスタッフは、非常に不思議ですが、それが人間によって直接使用することはできませんが、その魔法のプロパティのスペルの作成に使用される"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "ピンクHoovers長い鼻と小さなquadrupedsている"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "鼻の主なpuropse食べ物をあさることですが、それも防衛メカニズムとして機能する"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "とベイでは、単に距離が吹いて捕食おくことができるよりも多くて"
+
+msgid "Venus Flytrap, mobile"
+msgstr "ハエジゴク、モバイル"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "モバイルヴィーナスFlytrapsとその食べ物にではなく、移動するために、それらに来るのを待つことができるのルーツ進化している"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "首信じられないほど伸縮されているスナップすることができる獲物はかなりの距離を離れて"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "それを行う必要があります。うまくいけば、その下水道の他のリフトすぐに作業する必要があります"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "このリフトの作業ではありません。まで、自分の力を復元に使用することができなくなります"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "そのガラスは非常に私の割れ目に厚い見えるが、私はそれを粉砕のいくつかの他の方法を見つけなければなりません..."
+
+msgid "Up"
+msgstr "上へ"
+
+msgid "Down"
+msgstr "下に"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Jump"
+msgstr "ジャンプ"
+
+msgid "Attack"
+msgstr "攻撃"
+
+msgid "Block"
+msgstr "ブロック"
+
+msgid "Action"
+msgstr "アクション"
+
+msgid "Use Item"
+msgstr "使用するアイテム"
+
+msgid "Previous Item"
+msgstr "前のアイテム"
+
+msgid "Next Item"
+msgstr "次のアイテム"
+
+msgid "Inventory"
+msgstr "インベントリ"
+
+msgid "Pause"
+msgstr "一時停止"
+
+msgid "Dead Zone"
+msgstr "デッドゾーン"
+
+msgid "Sound"
+msgstr "サウンド"
+
+msgid "SFX Volume"
+msgstr "特撮巻"
+
+msgid "Music Volume"
+msgstr "音楽のボリューム"
+
+msgid "Ice Spray"
+msgstr "氷スプレー"
+
+msgid "Library"
+msgstr "ライブラリ"
+
+msgid "Right Wing Lift Key"
+msgstr "右ウイングを買うリフト"
+
+msgid "Mine Entrance Door Key"
+msgstr "私の入口ドアの鍵"
+
+msgid "Village"
+msgstr "村"
+
+msgid "Cave"
+msgstr "洞窟"
+
+msgid "Fortress Outskirts"
+msgstr "山城郊外"
+
+msgid "Forbidden Swamp"
+msgstr "故宮の沼"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "下水制限付きサイトゾーンを買う"
+
+msgid "Basement"
+msgstr "地下室"
+
+msgid "Fortress Ground Floor"
+msgstr "城1階"
+
+msgid "Sewer"
+msgstr "下水道"
+
+msgid "Fortress Main Key"
+msgstr "要塞のメインを買う"
+
+msgid "Teleporter Access Key 1"
+msgstr "転送装置アクセスキー1"
+
+msgid "Teleporter Access Key 2"
+msgstr "転送装置のアクセスキー2"
+
+msgid "Teleporter Access Key 3"
+msgstr "転送装置、アクセスキーの3"
+
+msgid "Laboratory"
+msgstr "研究室"
+
+msgid "Empty Bottle"
+msgstr "空のボトル"
+
+msgid "First Floor Key"
+msgstr "1階を買う"
+
+msgid "Press Action to retrieve %s"
+msgstr "プレスアクション%sを取得する"
+
+msgid "Hmm, this is new."
+msgstr "うーん、これは新しいです。"
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "のようにも私を傷つけることができますそれが、見えない存在を確認する唯一の方法は..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "このリフトが圧力プレートによって制御されますが、私はそれの上に立つことはできませんし、同じ時間では、リフトを使用する"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "私への圧力を皿の上に立って何かを見つける必要があるでしょう..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "このカードは空白のままですが、私が上で使用可能にするいくつかの指示をする必要があります。"
+
+msgid "There's a plaque here"
+msgstr "ようこそプラークここでの"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "正しい順序では、4の像を配置"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "このバージョンのすべての4の像を見つけるため、後で来ることができなくなります！"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "あなたのインベントリボックスで強調表示を使用して希望の像が必要"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "何も起こらなかった。私は、正しい順序ではないと思う"
+
+msgid "Tuning Fork"
+msgstr "音叉"
+
+msgid "Second Floor Keycard"
+msgstr "2階キーカード"
+
+msgid "Instruction Card #1"
+msgstr "命令カード＃1"
+
+msgid "Instruction Card #2"
+msgstr "命令カード＃2"
+
+msgid "Instruction Card #3"
+msgstr "命令カード＃3"
+
+msgid "Instruction Card #4"
+msgstr "命令カード＃4"
+
+msgid "Centurion Statue"
+msgstr "センチュリオンの女神"
+
+msgid "Spider Statue"
+msgstr "蜘蛛の女神"
+
+msgid "Tortoise Statue"
+msgstr "亀の像"
+
+msgid "Scorpion Statue"
+msgstr "サソリの女神"
+
+msgid "A Blue Gem"
+msgstr "青い宝石"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "センチュリオンの像です。これは2足をしています。"
+
+msgid "A Green Gem"
+msgstr "緑の宝石"
+
+msgid "A Purple Gem"
+msgstr "紫の宝石"
+
+msgid "A Red Gem"
+msgstr "赤い宝石"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "スコーピオンの像です。これは6脚をしています。"
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "『スパイダーマン』の像です。これは8脚をしています。"
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "アルマジロスパイクボール。スパイク時にスローされる散布だろう。"
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "亀の像です。これは4本脚しています。"
+
+msgid "A Tuning Fork"
+msgstr "音叉"
+
+msgid "A chopped log"
+msgstr "みじん切りログ"
+
+msgid "Narrator"
+msgstr "ナレーター"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "これは、釜だ。マギーは、このよう1ている"
+
+msgid "Right, here goes!"
+msgstr "右、ここで行く！"
+
+msgid "I need all the main ingredients"
+msgstr "私はすべての主要成分が必要"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3麻薬取締官眼球、1レッド汚泥触手とスペアシールド"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "私も触手の液体に眼球をブレンドする必要があります"
+
+msgid "This entire section is about monsters"
+msgstr "このセクション全体の怪物について記述して"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "私はこれらを読むことが私の心の場合にすればそれを続けるつもり何らかの理由がない"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "ちょっとうわー、何がかわいいのマシン！"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "それの後ろに小さなスロットを持っている。私はそこに何かを行いますせるために、何かを推測する"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "ロボットの周囲に移動するように指示カードを使用して"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "ロボットを操作するための手順を使用領域をアクセスすることはできませんを開く"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "しかし、場合は、カード上の指示を読み、できない場合は、すべてを1つの作品まで、それらをしようとする必要があります"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "場合は、ロボット、それはその開始位置を再度実行することができますが返されますが目標に到達しない"
+
+msgid "Enter the directions"
+msgstr "方向を入力します"
+
+msgid "Out of space for instructions"
+msgstr "アウトスペースの手順については、"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "私の指示に入れるには空白のカードが必要です"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "たぶんこのような良いアイデアすべての後ではなかった..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "を取得する3を観察する眼"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "を取得する1レッド汚泥触手"
+
+msgid "Find another shield"
+msgstr "別のシールドを検索"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "ブレンド目玉と触手"
+
+msgid "Obtain a Fire Shield"
+msgstr "を取得する火災シールド"
+
+msgid "More water?!"
+msgstr "より多くの水！？"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "以来、私はその後、バックアップを取得することができない可能性があります私は、スライムに変えることができるがここに助けになりそうだとは思わない"
+
+msgid "I'll have to find another way of getting across"
+msgstr "私は全体を取得する別の方法を見つけなければなりません"
+
+msgid "I'll have to find something to help me get across"
+msgstr "私は私を分かってもらうために何かを見つける必要があります"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "私は、Borganの石炭を取得していた鉱山内の任意の汚泥を参照していない場合でも、そこから私のいかだ沈没は私が取得することはできませんが"
+
+msgid "I'll have to find another mine around here..."
+msgstr "私はここの周り、別の地雷を見つける必要があるでしょう..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "は、水との接触を拡大するアイスキューブを作成する"
+
+msgid "A bottle capable of capturing souls"
+msgstr "ボトルの魂を取り込むことができる"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "彼に対してMataeusのナイフを使ってみてください..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "最大%sを選ぶことはできません。インベントリの完全な"
+
+msgid "Filling mine cart..."
+msgstr "私のショッピングカート充填..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "著作権パラレル実態2009-2010"
+
+msgid "Out of arrows!"
+msgstr "アウトの矢印を！"
+
+msgid "There's something moving around down there..."
+msgstr "何かが下の方を動き回るの..."
+
+msgid "Good riddance..."
+msgstr "いい厄介払いだが...。"
+
+msgid "Huh, déjà vu..."
+msgstr "許氏は、既視感..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "場合は、リフトで注文外の場合、それをリセットする必要があります"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "そこは、リフト軸に沿って4リセットスイッチでリセットする必要が"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "リフトをリセットするのに長いの表面に戻って歩くようにしてください..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "このマシンは、スロットにカードと同じサイズにしています。私は、新しい命令を作成するために使用することができますね。"
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "場合は空白のカードを挿入する必要がある命令の新しいセットを作成するには"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "次に、入力に従って、ロボットのための指示メッセージが表示されます。これは、同じ方法で行われますようにシーケンスの扉"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "ときに、方向キーを攻撃入力が終了して"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "ロボットはその後、カードの指示に従う"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "場合は、方向性を再度試みることができますが正しくありません"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "この場所は、よりよい急いしたい夢中だとfindお父さん私が終わる前に死亡を取得！"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "そのため、この火災シールド私はレッド汚泥触手を取得する必要があります作成する"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "レッド汚泥鉱山のように私の周りはここを見つけるために必要があるでしょうライブ"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "私もスペアシールド必要がありますが、私はそこの武器庫を回避する必要があります数える"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "占い師の眼球のも簡単だが、私は、地下に戻すことができます"
+
+msgid "OK, off I go..."
+msgstr "[OK]を、オフに私は行く..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "このバージョンでは触手やシールドを取得するので、後で確認することはできません！"
+
+msgid "It's a portrait"
+msgstr "これは、肖像画の"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "このような精神私の過去を聞かせするつもりはないが、私はそれを取り除く方法を見つける必要があるでしょう"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "リセットすると、地図上のオブジェクトの位置をリセットすることができますスイッチ"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "もしオブジェクトの場合を元の場所に配置するためにスイッチを使用することがアクセス不能になる"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "魂に閉じ込められたと瓶"
+
+msgid "Full Mine Cart"
+msgstr "完全な私のショッピングカート"
+
+msgid "Processing Lift Key"
+msgstr "情報処理買うリフト"
+
+msgid "Right Grabber Key"
+msgstr "右グラバを買う"
+
+msgid "Left Grabber Key"
+msgstr "左グラバを買う"
+
+msgid "Master Key"
+msgstr "マスタキー"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "魔術師自分の城にお父さん撮影する必要があります。私はそこから彼を救出する必要があります。"
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "城を得るための唯一の方法は、故宮の沼を介して東することです。"
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "ある村と沼の間に湖のように私を分かってもらうための筏が必要だ。"
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "私も自分自身を守るために剣と盾が必要です。私Borganとジェイコブ、これらも取得するに話すことができます。"
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "金メダルServerに%s:%dに接続できませんでした。"
+
+msgid "Could not find Medal Key"
+msgstr "金メダルを買うが見つかりませんでした。"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "このゲームのメダルを獲得することができなくなります"
+
+msgid "There's another sign here"
+msgstr "もう一つ今ここでの"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "の注文をするために左に進む場合は、終了リフトアウトされ"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "警告：出口ルート有害な可能性があります"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "たぶん私を取得するにはリフトを使用する必要があります"
+
+msgid "There's a sign here"
+msgstr "が今ここでの"
+
+msgid "An Oil Can"
+msgstr "オイルできます"
+
+msgid "Oil Can"
+msgstr "オイルできます"
+
+msgid "A powerful repellent"
+msgstr "強力な撥"
+
+msgid "Repellent"
+msgstr "撥"
+
+msgid "Medal Support"
+msgstr "金メダルサポート"
+
+msgid "Fortress Mine"
+msgstr "要塞の私"
+
+msgid "Private key is missing"
+msgstr "プライベートキーが存在しない"
+
+msgid "Could not connect to server"
+msgstr "サーバーに接続できませんでした。"
+
+msgid "Sludge Tentacle"
+msgstr "汚泥触手"
+
+msgid "A Red Sludge Tentacle"
+msgstr "レッド汚泥触手"
+
+msgid "Eyeball Smoothie"
+msgstr "眼球スムージー"
+
+msgid "Cool, it worked!"
+msgstr "クール、うまくいった！"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "私は、色についても、私は考えて赤になるか分からない？"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "たぶん黄色のことになってね..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "液体の目玉と触手から作られた"
+
+msgid "Patching your save game. Please wait..."
+msgstr "ゲームを保存あなたのパッチを適用する。しばらくお待ちください..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "今は！実行中には驚いて！"
+
+msgid "Wow, that thing is huge!"
+msgstr "うわー、その事なんです！"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "私もゼロになる私の剣の疑問が、私はそれを乗り越える必要がある..."
+
+msgid "I have everything I need now"
+msgstr "私はすべてを私は今必要とする"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "そこの研究室で大釜、私は後頭部必要のある"
+
+msgid "I just need to find another shield to enchant"
+msgstr "私を魅了する別のシールドを見つける必要がある"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "このバージョンでは、シールドを取得するので、後で確認することはできません！"
+
+msgid "Its wounds are already healing..."
+msgstr "その傷は既に治癒されます..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "場合は、ソースからのゲームをコンパイルした場合、make installを実行する必要が"
+
+msgid "It's sleeping"
+msgstr "これは睡眠の"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "とにかくので、それはケージ内の安全なんだけど..."
+
+msgid "Where's the switch?"
+msgstr "ここでは、スイッチの？"
+
+msgid "Ah, here it is!"
+msgstr "ああ、ここにある！"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "このジェネレータは[OK]を、それだけではないに見える"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "私はそれをドアなので、電源をオンにする必要があります力を推測する"
+
+msgid "A Yellow Gem"
+msgstr "黄色い宝石"
+
+msgid "Failed to open PAK file %s"
+msgstr "%sファイルのPAKをオープンに失敗しました。"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "プレスアクション紫の宝石を取得する"
+
+msgid "Find a way to remove the Gem..."
+msgstr "宝石を削除する方法を検索する..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "プレスアクションイエロー宝石を取得する"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "私はここで安全なはずだが、私がそれを取り除くため"
+
+msgid "Book"
+msgstr "本"
+
+msgid "Sign"
+msgstr "5532-7042"
+
+msgid "Note"
+msgstr "注意してください"
+
+msgid "Solve the sliding puzzle"
+msgstr "を解決するためのスライドパズル"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "装甲すぎるために浸透するのは難しい..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "は、以前のバージョンの寄せ集めではなかった守っていたの上司"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "これは、このバージョンではお帰りにすることはできません"
+
+msgid "You will now be transported outside"
+msgstr "今すぐ外に転送される"
+
+msgid "We apologize for the inconvenience"
+msgstr "我々は、ご不便をおかけ"
+
+msgid "That's a lot of slime"
+msgstr "そのスライムの多くの"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "私からは水のみで動作する氷スプレーは、この全体を取得するとは思わない"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimesだけため、どちらの役にも立たないの水で泳ぐことができます"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "私Borganどのようにいるのは皮肉私に言ったことを覚え"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "私は私を分かってもらうために何かを見つける必要があります..."
+
+msgid "There, the rope's firmly attached"
+msgstr "そこで、ロープをしっかりと取り付けて"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "前に、私はそれを発射できる私はいくつかのロープを見つける必要がある"
+
+msgid "It's a Grappling Hook"
+msgstr "これは、グラップリングフック"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "私は多分、他の側にブリッジを形成するが、それを使用することがないロープの"
+
+msgid "I still need a Fire Shield"
+msgstr "私はまだ消防シールドが必要"
+
+msgid "Wow, this place is empty!"
+msgstr "うわー、この場所が空です！"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "私は魔術師を推測以来、彼が魔法の武器を必要としません"
+
+msgid "Still, there must be something of use in here"
+msgstr "とはいえ、使用のようなものはここでする必要があります"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "は、巨大なパズルスライディングクール！私はこれらの帰国を持っている！"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "まあ、それは巨大な1つは、明らかに..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "を押し、右、上または下のブロックに移動する左"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "アレンジブロックように番号を1から8まで表示されます右に左に空のブロックの右下隅にあるから順番に"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "プレス攻撃は、パズルを終了する"
+
+msgid "A length of rope"
+msgstr "ロープの長さ"
+
+msgid "A device for grabbing far away objects"
+msgstr "遠く離れたオブジェクトを取得するためのデバイス"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "錠剤のボトルは、水の中にスライムに変換"
+
+msgid "Tutorial Key"
+msgstr "チュートリアルを買う"
+
+msgid "Light Key"
+msgstr "ライトを買う"
+
+msgid "Rope"
+msgstr "ロープ"
+
+msgid "Extend-O-Grab"
+msgstr "拡張王-グラブ"
+
+msgid "Water Purifiers"
+msgstr "水清浄器"
+
+msgid "Right Wing Key"
+msgstr "右ウイングを買う"
+
+msgid "Catapult Lift Key"
+msgstr "カタパルトを買うリフト"
+
+msgid "Armoury"
+msgstr "兵器庫"
+
+msgid "Maggie"
+msgstr "マギー"
+
+msgid "Jacob"
+msgstr "ジェイコブ"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "エドガー"
+
+msgid "Mine Cart"
+msgstr "私のショッピングカート"
+
+msgid "%s has regained power"
+msgstr "%sの電源を取り戻している"
+
+msgid "Wow, a catapult!"
+msgstr "うわー、カタパルト！"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "かかっても、私まで、私を得る仕組みだ疑い錆を探す人の固定"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "それは？ただ、この古いシールド？これはすべて私の現在の1よりも見ていません。"
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "それでも、私はそれに当分の間、保持されますと、便利になるかもしれない"
+
+msgid "Great, a spare shield!"
+msgstr "グレートは、予備のシールド！"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "これは、火災Shieldのような私には見ていません。私は本当にを見つけるためにここにも期待していた"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "このシールドも、すべて私の現在の1よりも見ていません。"
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "私はちょうど眼球汚泥触手と占い師から液体を作成する必要があります"
+
+msgid "That's not a good sign..."
+msgstr "それは良い兆候ではない..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "私を魅了する別のシールドを見つける必要が..."
+
+msgid "Hey, a lightning sword!"
+msgstr "ねえ、雷剣！"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "これは、多くの強力な私の現在の剣よりも見える"
+
+msgid "With this I should be almost unstoppable"
+msgstr "この私はほとんど止めする必要があります"
+
+msgid "Almost"
+msgstr "ほとんど"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "雷の剣と電荷の数は限られ時にこれらの費用を使用されて力を失うことになる"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "敵をランダムにもっと料金ときに殺されてドロップされます"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "注意している場合は剣を完全にするまでの料金を見つけることができますが、通常の剣は非常に少ない電力で復帰する力を失う"
+
+msgid "This centurion has no power"
+msgstr "この百人隊長の電力がない"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "このトレッドミルには私はおそらく十分なスピードでそれを充電が可能接続して"
+
+msgid "An old shield found in the Armoury"
+msgstr "古いシールドは、兵器庫で発見"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "剣は、落雷で起訴することができます"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "ソード稲妻のパワーを吹き込んで"
+
+msgid "Lightning Sword"
+msgstr "雷の剣"
+
+msgid "INTRUDER!"
+msgstr "イントルーダー！"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "かかっても、私まで、私はそれらを修正される仕組みだ疑い錆見る"
+
+msgid "OK, let's see if this works..."
+msgstr "さあ、見てみましょうこの作品..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "私はどちらか、私の綱渡りのおかげでスキルを歩いても問題は、このロープの上を歩いているよ"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "とお父さんが便利になることだと言った！"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "私は、ボルトに接続するロープの長さが必要"
+
+msgid "It's a giant crossbow"
+msgstr "これは、巨大な石弓の"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "私はおそらく、これらのスパイクでブリッジを作成するために使用できる"
+
+msgid "I'll need some rope first though"
+msgstr "私は最初にかかわらず、いくつかのロープが必要です"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "そこには、蝶番の油を塗った。これは、新しい現在で良いはず！"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "前に、私はそれを使用することができますヒンジ錆が、私はいくつかの石油を見つけることが必要です"
+
+msgid "I can't run in this armour, though"
+msgstr "私はこの装甲で実行することはできませんかかわらず、"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "さらに、私はこのすべてから歩いて、ジャンプ、うんざりしている戦闘、水泳、..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "考えて、鉱業、まな板、押す、引く、運ぶ..."
+
+msgid "and catching chickens"
+msgstr "とキャッチ鶏"
+
+msgid "I'll get something else to do it instead"
+msgstr "私の代わりにそれをする何かを得るだろう"
+
+msgid "Statistics"
+msgstr "統計"
+
+msgid "Play Time: %s"
+msgstr "再生時間：%s"
+
+msgid "Kills: %d"
+msgstr "殺す：%d"
+
+msgid "Bats Drowned: %d"
+msgstr "コウモリ沈んだ：%d"
+
+msgid "Times Eaten: %d"
+msgstr "タイムズ悪魔の：%d"
+
+msgid "Attacks Blocked: %d"
+msgstr "攻撃のブロック：%d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "に費やす時間をスライムとして：%s"
+
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "距離を旅：%0.1fKM"
+
+msgid "Arrows Fired: %d"
+msgstr "矢印解雇：%d"
+

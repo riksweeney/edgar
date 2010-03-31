@@ -1,0 +1,2170 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Snabbt sväng vänster och höger för att skaka av slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Not working in this version!"
+
+msgid "Press Action to interact"
+msgstr "Tryck Åtgärder för att interagera"
+
+msgid "%s is required"
+msgstr "%s krävs"
+
+msgid "Bomb"
+msgstr "Bomb"
+
+msgid "Small Rock"
+msgstr "Liten Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Tryck Åtgärder för att hämta Purple Gem"
+
+msgid "Chicken"
+msgstr "Kyckling"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Tryck Åtgärder för att hämta Tesla Pack"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Tryck Åtgärder för att ersätta Tesla Pack"
+
+msgid "Obtained %s"
+msgstr "Erhållits %s"
+
+msgid "Complete"
+msgstr "Komplett"
+
+msgid "%d more to go..."
+msgstr "%d more to go ..."
+
+msgid "Used %s"
+msgstr "Används %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Kan inte utrusta ex medan transmogrified"
+
+msgid "Equipped %s"
+msgstr "Utrustad %s"
+
+msgid "Maximum health has increased!"
+msgstr "Högsta hälsa har ökat!"
+
+msgid "Bow will now fire %s"
+msgstr "Bow kommer nu eld %s"
+
+msgid "A bow is required to use this item"
+msgstr "En båge är skyldig att använda denna post"
+
+msgid "Cannot transmogrify here..."
+msgstr "Kan inte transmogrify här ..."
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Start a new game?"
+msgstr "Starta ett nytt spel?"
+
+msgid "Play the tutorial?"
+msgstr "Spela handledningen?"
+
+msgid "Exit the game?"
+msgstr "Avslutar spelet?"
+
+msgid "Back"
+msgstr "Tillbaka"
+
+msgid "Game Loaded"
+msgstr "Game Loaded"
+
+msgid "Game Saved"
+msgstr "Sparade spel"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Osparade framsteg kommer att gå förlorade"
+
+msgid "Joy Button #%d"
+msgstr "Joy Button # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Tryck Åtgärder för att tala till %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Det nya mål: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Mål Completed: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Väggen till höger ser svag ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Detta vapen är inte att ha någon effekt ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Tryck Åtgärder för att fästa Tesla Pack"
+
+msgid "The Legend of Edgar"
+msgstr "The Legend of Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s behövs för att aktivera denna växel"
+
+msgid "Press Action to use this switch"
+msgstr "Tryck Åtgärder för att använda denna växel"
+
+msgid "Press Action to save your game"
+msgstr "Tryck Åtgärder för att spara dina spel"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s krävs för att använda denna tryckplatta"
+
+msgid "%s is needed to open this door"
+msgstr "%s krävs för att öppna dörren"
+
+msgid "This door is locked"
+msgstr "Dörren är låst"
+
+msgid "This teleporter is not active"
+msgstr "Detta teleporter är inte aktiv"
+
+msgid "Press Action to go to the %s"
+msgstr "Tryck Åtgärder för att gå till %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Tryck uppåt eller nedåt för använda denna hiss"
+
+msgid "This lift is not active"
+msgstr "Denna hiss är inte aktiv"
+
+msgid "Cannot carry any more %s"
+msgstr "Får inte bära någon mer %s"
+
+msgid "Picked up %s x %d"
+msgstr "Plockade upp %s x %d"
+
+msgid "Picked up %s"
+msgstr "Plockat upp %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s krävs för att genomföra denna punkt"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Kontrollerkort"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Kol Bag Storage Switch Key"
+
+msgid "Large Room Key"
+msgstr "Large rumsnyckel"
+
+msgid "Coal Bag"
+msgstr "Kol Bag"
+
+msgid "Forest Cell Key"
+msgstr "Forest Cell Key"
+
+msgid "Wood Axe"
+msgstr "Wood Axe"
+
+msgid "Health Potion"
+msgstr "Health Potion"
+
+msgid "Outflow Key"
+msgstr "Utflöden Key"
+
+msgid "Flow Control Key"
+msgstr "Flow Control Key"
+
+msgid "Waste Processing Key"
+msgstr "Avfallshantering Key"
+
+msgid "Access Key 1"
+msgstr "Access Key 1"
+
+msgid "Access Key 2"
+msgstr "Access Key 2"
+
+msgid "Access Key 3"
+msgstr "Snabbtangent 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Trap Door Switch Key"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Denna hiss har ingen makt. Jag kommer inte att kunna använda den tills jag återställa makt"
+
+msgid "Keep practising!"
+msgstr "Keep praktiserande!"
+
+msgid "Hi"
+msgstr "Hej"
+
+msgid "Hello Edgar"
+msgstr "Hello Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "Får jag låna din sköld?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "Off för att öva dina färdigheter slåss?"
+
+msgid "Something like that"
+msgstr "Something like that"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Om du kör mig ett ärende kan du ha skölden"
+
+msgid "What do I have to do?"
+msgstr "Vad ska jag göra?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Gå till gruvan och samla mig lite kol"
+
+msgid "But we have plenty of coal!"
+msgstr "Men vi har gott om kol!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Ja, men detta är inte något gammalt kol, är kol speciell, brinner det varmare och varar längre"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "Jag behöver bara 10 stycken av prylarna, så bör det inte ta så lång"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Se till att du lägger den i en påse, rörande det för länge kommer att vara dåligt för hälsan"
+
+msgid "Do you have a bag?"
+msgstr "Har du en väska?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Nej, kan du förmodligen hitta en i gruvan men"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, jag får kol"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Här, ta hackan. Du kan använda den för att bryta kol och hacka genom något svagare väggar du påträffar"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Du måste även denna nyckel för att komma in i gruvan"
+
+msgid "Thanks!"
+msgstr "Tack!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Tack, Edgar, detta kol är perfekt! Hoppas att fladdermössen inte skrämma dig."
+
+msgid "The bats were the least of my worries..."
+msgstr "Det fladdermöss var det minsta av mina bekymmer ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Säg, hörde jag att något hände i min några år sedan"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "Er, ja, det var vad du skulle kalla en  incident , men den del av gruvan var förseglade upp för länge sedan"
+
+msgid "Right..."
+msgstr "Right ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Här har min sköld och ha kul!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Håll dig borta från den Förbjudna Swamp"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "Kommer att göra, kan jag hålla på din hackan ett tag?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Sure thing, bara sätta tillbaka den i ett stycke"
+
+msgid "Thanks, Borgan!"
+msgstr "Tack, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "Har ni lyckats hitta kol än?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Du kan dra några poster runt genom att skjuta mot dem och samtidigt hålla nere funktionsknapp."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Du kan sedan dra den runt tills du släpper funktionsknapp"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Denna sten ser för stark för min Pick Axe. Jag måste använda något annat att komma igenom ..."
+
+msgid "Urgh, what happened?"
+msgstr "Blä, vad hände?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Ser ut som om detta inte var så bra idé trots allt"
+
+msgid "There must be way out of here..."
+msgstr "Det måste vara vägen ut härifrån ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Detta måste vara kol vill jag att mina för honom"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Jag tror inte min sköld kommer att skydda mig från dessa eldklot. Jag måste hitta en starkare en ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Du kommer inte att kunna göra det lite i den här versionen, check back later!"
+
+msgid "Strange creature..."
+msgstr "Strange varelse ..."
+
+msgid "Wait, what was that?"
+msgstr "Vänta, vad var det?"
+
+msgid "You again?!"
+msgstr "Dig igen?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Någonting ska hända här, men det är inte i den här versionen så kontrollera igen senare!"
+
+msgid "Have fun!"
+msgstr "Have fun!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Tack för resucing mina kycklingar, har du fått mig 2 stockar från skogen ännu?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Tack Edgar! Mina kycklingar är tillbaka och dessa loggar kommer att göra mig fin"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Tag detta svärd, kan det hjälpa dig också!"
+
+msgid "Thank you!"
+msgstr "Tack!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Tack för loggar, har ni haft någon lycka med kycklingarna?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Jag ska ge dig ett svärd om du får mig 2 hackade stockar från skogen och rädda minst 3 av mina kycklingar"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Hello Edgar, vad kan jag göra för dig idag?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "Har du ett svärd jag kan låna?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Jag har ett svärd och du kan få det om du gör något för mig först"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... vad ska jag göra?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Några av mina kycklingar har rymt från sin penna och jag skulle vara mycket tacksam om du kan få dem tillbaka till mig"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Jag har satt upp några fällor i närheten av deras boxar, kan du lura dem till fällorna med denna struntsumma. Jag behöver inte dem alla, men åtminstone 3 skulle vara till stor hjälp. Jag kan få tag på resten själv."
+
+msgid "That's it?"
+msgstr "That's it?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Inte riktigt. Kan du få mig också en del virke från skogen? 2 Stockarna bör vara tillräckligt"
+
+msgid "Do you have an axe?"
+msgstr "Har du en yxa?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... Jag lämnade min yxa i skogen någonstans. Det bör fortfarande vara där"
+
+msgid "Isn't that forest dangerous?"
+msgstr "Är det inte skogen farlig?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Inte riktigt, om något i vägen för dig, du bara på den med ett vapen"
+
+msgid "Such as an axe?"
+msgstr "Såsom en yxa?"
+
+msgid "Yes, that would do the trick"
+msgstr "Ja, det skulle göra susen"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Men allvarligt, det finns inget i det som verkligen kan skada dig. Detta problem har behandlats för länge sedan ..."
+
+msgid "Good luck!"
+msgstr "Lycka till!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Åh, tack Edgar, behövde jag bara 3, men tack för den extra hjälp!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Här gjorde Maggie mig denna hälsa dryck men jag behöver inte det så varför inte du det?"
+
+msgid "Thanks Jacob"
+msgstr "Tack Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, fångad du dem alla, tack så mycket!"
+
+msgid "Here, I have these for you"
+msgstr "Här har jag här för dig"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie fick mig att detta hälsa dryck men du kan få det"
+
+msgid "And this is something very special"
+msgstr "Och detta är något väldigt speciellt"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Detta kan hjälpa dig på din väg att bli en stark krigare"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Du räddade mig en massa tid. Maggie fick mig något annat men eftersom ni har varit så hjälpsamma, kan du få det."
+
+msgid "Hi Maggie"
+msgstr "Hej Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Tack Maggie!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan sa att en del av gruvan var förseglad upp efter ett  incident "
+
+msgid "There must be something around here..."
+msgstr "Det måste finnas något här ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "DrAT är vindbryggan upp. Det måste finnas en annan ingång ..."
+
+msgid "Wait, what's that?"
+msgstr "Vänta, vad är det?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "Kanske jag kunde tunnel min väg in .."
+
+msgid "These machines aren't working."
+msgstr "Dessa maskiner är inte arbetar."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Det ser ut som en pärla ska passa i hålet, kanske jag kan hitta några ersättare."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Det ser ut som det är tätt inklämd där. Jag kan nog lossa den med hackan ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "För att komma till Förbjudna Swamp jag behöver för att bygga en flotte."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Jag kan bygga flotten om jag hugga ner tillräckligt träd från skogen"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "Jag behöver 6 hackade Loggar att bygga en flotte"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Jag tänker inte träsket utan ett svärd och sköld"
+
+msgid "OK, here goes!"
+msgstr "OK, here goes!"
+
+msgid "Aw, not again!"
+msgstr "Aw, inte igen!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Detta hade bättre vara sista gången jag behöver göra detta ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Det var lätt! Och jag kan alltid komma tillbaka senare!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Antar att jag har inget val nu."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hang on Pappa, jag kommer ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Det är något som ska hända nu, men det är inte i denna version. Check back later!"
+
+msgid "There's a note here"
+msgstr "Det finns en anteckning här"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Jag har varit instängd här nere för vad som känns som en evighet"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Att komma ur denna plats jag behöver 3 Access Keys arbeta hissarna"
+
+msgid "So far I have only found 1"
+msgstr "Hittills har jag bara hittat 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "För att göra saken värre, kan jag bara når vissa växlar med en väl placerad pil"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Men reservdelar är inte vanliga och jag har tagit slut"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Om jag inte hittar en väg ut härifrån snart, fruktar jag att jag får svälta"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Om jag inte får ut härifrån ska jag samma öde till mötes ..."
+
+msgid "Oh, what's this?"
+msgstr "Åh, vad?"
+
+msgid "There's a note here too"
+msgstr "Det finns en anteckning här också"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Drycken är perfekt! Quaffing det kommer att förvandla en människa till en varelse för en liten tid"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Hittills kan jag bara transmogrify mig till en varelse, men med lite mer tid något skulle vara möjligt"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Det finns en liten bit kvar, bör det vara säkert att dricka"
+
+msgid "OK, here goes nothing..."
+msgstr "OK, here goes nothing ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Blä! Detta är förfärligt!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan berättade att slimes kan simma i vatten om, så kanske detta kommer att vara nyttig ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "När förvandlas till ett Slime, kan du flytta runt som vanligt. Du kan också bada i vatten och använda upp och ner för att flytta runt"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Skjuta upp eller hoppa får dig att hoppa upp ur vattnet om du är nära ytan"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Håll ett öga på timern längst ner på skärmen. När det når 0 kommer du automatiskt att bli människa igen"
+
+msgid "This place doesn't look so bad..."
+msgstr "Det här stället ser inte så illa ..."
+
+msgid "What was that?"
+msgstr "Vad var det?"
+
+msgid "Uh Oh..."
+msgstr "Uh Oh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, jag är glad att vara därifrån"
+
+msgid "Now to get through this swamp"
+msgstr "Nu för att få igenom detta träsk"
+
+msgid "Hey, what's this?"
+msgstr "Hey, what's this?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Ser ganska harmlösa, jag ska försöka att trampa på den"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Det var cool! Detta måste vara en mekanisk teleporter."
+
+msgid "I wonder if it works both ways..."
+msgstr "Jag undrar om det fungerar åt båda hållen ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Detta är inte bara kommer att spara mig en hel del promenader, är det också massor med kul!"
+
+msgid "Now try out your shield"
+msgstr "Nu testa din sköld"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Blockera pellets spottas ut från anläggningen och hoppa upp till nästa avsats"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Vissa objekt i spelet kan skjuts eller dras"
+
+msgid "To push an item, simply walk into it"
+msgstr "För att driva ett objekt, helt enkelt gå in i den"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "Att dra ett objekt, gå in nedtryckt Action"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Du kan sedan dra objektet runt tills du släpper Action"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Dra rutan framför den andra sidan och använd den för att nå kanten"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Detta är den sista delen av tutorial och lär dig att blockera och attackera fiender"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Först måste du skaffa ett svärd eftersom den har större omfång och gör mer skada än Hackyxan"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Tryck på z för att visa ditt lager, markera svärd och tryck Attack (vänster ctrl) eller Använd punkt (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Tryck på Z igen för att stänga din inventering"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Ibland kommer dräpta fiender släppa hälsa som kommer att försvinna efter ett par sekunder, så plocka upp det snabbt!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Om en fladdermus är att lära dig nära, hålla blocket och det kommer ofarligt studsa dig"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Nu dödar alla fladdermöss i området!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Det finns två typer av dörrar i spelet. Manuell dörrar och dörrautomatik."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Manuella dörrar kräver nycklar att öppna dem, Automatiska dörrar kräver växlar."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Att öppna en låst dörr som du har nyckeln till, helt enkelt gå in i den. Det finns ingen anledning att ha nyckeln valt i ditt lager."
+
+msgid "Open the door and continue to the right"
+msgstr "Öppna dörren och fortsätt till höger"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Gratulationer! Nu känner du till grunderna i att spela ska du prova huvudspelet"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Om du vill spela den här läraren, tryck Escape och välj sedan Handledning från menyn"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Att spela den viktigaste spelet, tryck Escape och välj Nytt spel från menyn"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Tryck utrymme när du läst klart att gå till nästa dialogruta"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Du kan också gå till nästa dialogruta genom att trycka Attack (vänster ctrl), Block (vänster alt), Jump (rymd), Action (c) eller Använd punkt (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Detta är handledningen för The Legend of Edgar. Denna handledning kommer att förklara hur man spelar spelet."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "För att avsluta denna tutorial, tryck Escape och använda upp / ner piltangenter för att välja ett alternativ. Tryck på Retur för att välja det."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Att gå till vänster och höger, använd piltangenterna."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Göra hoppa trycker mellanslag. Du kan flytta i luften när hoppning."
+
+msgid "To interact with an item, press c"
+msgstr "Att interagera med ett objekt, tryck på c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Gå över till Åtgärd och tryck på c"
+
+msgid "To collect an item from your"
+msgstr "Att samla in ett objekt från din"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "Att plocka upp ett objekt, helt enkelt gå in i den. Varje samlarobjekt kommer att läggas till ditt lager."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Du kan visa innehållet i ditt lager genom att trycka på z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Även i inventeringen, använd piltangenterna för att visa objekten."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Du kan använda ett objekt omedelbart genom att trycka på Attack (vänster ctrl) eller Använd punkt (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Du kan klara ett objekt för användning genom att trycka Block (vänster alt) eller Action (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Gå över nyckeln för att plocka upp"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Du kan ändra alla kontroller i spelet genom att trycka Escape och välja alternativ på menyn"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Välj Konfigurera Styr med hjälp av piltangenterna och tryck på Retur"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Använd piltangenterna för att välja den kontroll du vill ändra och tryck på Retur."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Därefter trycker du på knappen som du vill använda istället."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Oavsett vilka tangenter du väljer kan du alltid navigera i menyerna med piltangenterna och Retur"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Observera att i denna handledning kommer standard nycklarna antas"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "När du har konfigurerat knapparna, gå till höger till nästa Action Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Hackyxan är ett av många vapen du kommer att möta i spelet"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Du kan använda det både som ett vapen och ett verktyg"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Plocka upp hacka och fortsätta till nästa Action Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Grattis, du hittade en hemlighet!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Det finns många hemligheter i huvudspelet så håll utkik efter dem"
+
+msgid "Here's a hint to get you started"
+msgstr "Här är en ledtråd för att komma igång"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Även om endast kräver att du fånga 3 av hans kycklingar, varför inte vara snäll mot honom och fånga mer? Det finns 10 vandrande kartan i alla"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Skölden skyddar dig mot de mest fientliga attacker"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Vissa fientliga attacker kan inte blockeras"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Miljörisker, såsom fallande stenar, kan inte blockeras"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Att blockera en attack genom att hålla block (vänster alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Du måste vara vänd mot angrepp att framgångsrikt blockera den"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Observera att du inte kan flytta medan blockering, men du kan möta andra sätt. Du kan heller inte blockera i luften"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Plocka upp skärmen och fortsätt till höger"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Detta är en svag vägg, kan man krossas ner med hackan"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Att använda hackan, tryck Attack (vänster ctrl)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "att inte alla svaga väggar kan förstöras med hackan"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Förstöra väggen med hjälp av hacka och fortsätta"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Something's skulle vara här men det är inte i denna version, check back later!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Samla 10 bitar av kol"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Samla 2 Chopped Loggar"
+
+msgid "Rescue 3 Chickens"
+msgstr "Rädda 3 Kycklingar"
+
+msgid "Find 4 Gems"
+msgstr "Find 4 Gems"
+
+msgid "Repair Generators"
+msgstr "Reparation Generatorer"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Samla 6 Chopped Loggar"
+
+msgid "Collect 3 Access Keys"
+msgstr "Samla 3 Access Keys"
+
+msgid "This is a blank objective"
+msgstr "Detta är ett tomt mål"
+
+msgid "Kill all Bats!"
+msgstr "Döda alla Bats!"
+
+msgid "Coal"
+msgstr "Kol"
+
+msgid "Chopped Log"
+msgstr "Hackad Log"
+
+msgid "Green Gem"
+msgstr "Green Gem"
+
+msgid "Red Gem"
+msgstr "Red Gem"
+
+msgid "Blue Gem"
+msgstr "Blue Gem"
+
+msgid "Purple Gem"
+msgstr "Purple Gem"
+
+msgid "Teleporter Key"
+msgstr "Teleporter Key"
+
+msgid "New Game"
+msgstr "Nytt spel"
+
+msgid "Tutorial"
+msgstr "Tutorial"
+
+msgid "Load Game"
+msgstr "Load Game"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "About"
+msgstr "Om"
+
+msgid "Quit"
+msgstr "Avsluta"
+
+msgid "Configure Controls"
+msgstr "Konfigurera Controls"
+
+msgid "Configure Sound"
+msgstr "Konfigurera ljud"
+
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+msgid "Show Hints"
+msgstr "Visa tips"
+
+msgid "A potion which will transform you..."
+msgstr "En dryck som kommer att förändra dig ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Skapar mycket absorberande material miniatyr isbitar"
+
+msgid "A potion which will restore all of your health"
+msgstr "En dryck som återställer alla dina hälsa"
+
+msgid "A powerful bomb"
+msgstr "En kraftfull bomb"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "En dryck som gör dig osynlig för vissa fiender"
+
+msgid "The eyeball from a Gazer"
+msgstr "Ögongloben från en Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "En Tesla Pack. Det har ingen avgift."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "En Summoner's Staff. Det kan inte användas av människor."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "En Tesla Pack. Det är fulladdat."
+
+msgid "An empty potion bottle"
+msgstr "En tom flaska dryck"
+
+msgid "A bag of chicken feed"
+msgstr "En påse hönsfoder"
+
+msgid "A bag suitable for carrying coal"
+msgstr "En påse lämpliga för transport av kol"
+
+msgid "Basic Sword"
+msgstr "Grundläggande Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "Ett svärd som du fått av Jacob"
+
+msgid "A bow"
+msgstr "A Bow"
+
+msgid "Small Wooden Shield"
+msgstr "Små Wooden Shield"
+
+msgid "A small shield that provides basic protection"
+msgstr "En liten sköld som ger grundläggande skydd"
+
+msgid "Normal Arrow"
+msgstr "Normal Arrow"
+
+msgid "Normal Arrows"
+msgstr "Normal Arrows"
+
+msgid "An axe suitable for chopping trees"
+msgstr "En yxa som lämpar sig för att hugga träd"
+
+msgid "Pickaxe"
+msgstr "Hacka"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "En hackan lånas ut till dig av Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Fire Burner Key"
+
+msgid "Potion Room Key"
+msgstr "Potion rumsnyckel"
+
+msgid "Surge Passage Key"
+msgstr "Surge Passage Key"
+
+msgid "Demolition Storage Key"
+msgstr "Rivning Storage Key"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Oavsett vad det där var det var att dränera ström från generatorn och använder det mot mig."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "Det kan förklara varför denna hiss var inte fungerar. Besegra den andra drainers bör återställa den makten."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Besegra alla Energy Drainers"
+
+msgid "No Objectives"
+msgstr "Inga mål"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Tryck Åtgärder för att återställa pussel block"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Det ser ut som en mixer. Jag skulle kunna använda detta för att liquidise något"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Jag behöver en röd Slam Tentacle och 3 Gazer ögonglober att göra drycken"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "Jag behöver fortfarande en tom flaska att sätta drycken i"
+
+msgid "So this is the Fortress."
+msgstr "Så detta är Fästning."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Det ser ut som en massa dörrar som leder ut till andra områden, skulle jag ha en ordentlig titt omkring innan jag går någon annanstans ..."
+
+msgid "Try hitting the skull..."
+msgstr "Prova att slå i skallen ..."
+
+msgid "This machine is not active"
+msgstr "Denna maskin är inte aktiv"
+
+msgid "Repeat the sequence"
+msgstr "Upprepa sekvensen"
+
+msgid "Correct Sequence"
+msgstr "Rätt ordningsföljd"
+
+msgid "Incorrect Sequence"
+msgstr "Felaktig Sequence"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "The Legend of Edgar har stött på följande fel"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Vänligen rapportera detta fel till Parallel Realities"
+
+msgid "The game will now exit"
+msgstr "Spelet kommer nu att avsluta"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Det ser ut som en mixer. Jag skulle kunna använda detta för att liqudise något"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Detta måste vara kol Borgan vill jag att mina för honom"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "Det kan förklara varför denna hiss var inte fungerar. Besegra den andra drainers bör återställa den makt här."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Jag måste hitta 3 Gazer Eyes, 1 röd slam Tentacle och en extra sköld för att skapa en sköld av brandmotstånd"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "När jag har hittat alla dessa punkter jag måste hitta ett ställe att skapa skölden"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Det finns en bok här om förtrollande vapen"
+
+msgid "Maybe I can create a shield..."
+msgstr "Jag kanske kan skapa en sköld ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Swords ... Rustning ... Stavar ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Stupid bok. Det är inte i ordning och det finns inget index"
+
+msgid "Here we go: Shields"
+msgstr "Here we go: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Sköld av brandmotstånd"
+
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+msgid "One must gather the following"
+msgstr "Man måste samla följande"
+
+msgid "The root of a Mandrake"
+msgstr "Roten till en Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "Fettet i en Darsh (stå i 3 månader)"
+
+msgid "Powered Condor bones"
+msgstr "Powered Condor ben"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 ögon Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "Den nyklippt tentakel från en kvinnlig Red Slam"
+
+msgid "The shield to apply the enchantment"
+msgstr "Skölden att tillämpa förtrollning"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Blandar Gazer ögon och slam tentakler till en jämn vätska"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Lägg till roten, fett och ben i grytan och blanda tillsammans med blandade Gazer ögonen och slam tentakel"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "När blandningen blir ljusblå, lägg skölden"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Jag har sett de flesta av dessa poster i labbet så jag inte behöver oroa sig för dem"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Och Gazers hänga runt i källaren så det är inte ett problem"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Vad jag behöver hitta är en Red Slam, men jag har ingen aning om var man kan hitta en"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Jag kan inte använda min nuvarande sköld i försöket i fallet slår bakut så jag måste hitta ett annat"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "Det kan finnas potions rum eller lab där jag kan hitta rötterna, fett och ben så jag inte behöver oroa sig för dem"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Du måste ha instruktioner kort du vill använda belyses i ditt inventory låda"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, ett laboratorium!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Jag älskar att titta Maggie göra konster och drycker, kanske jag kan göra några av mina egna här!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, jag har aldrig sett så många böcker på ett ställe!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Det måste finnas information om varje ämne här, kan det vara bra ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm, känns luften ut, påminner mig om Maggie's hus när hon gjorde besvärjelser. Jag skulle vara försiktig."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Oh Edgar, är du skadad! Låt mig läka dina sår"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Jag undrar vilka andra monster som finns. Jag hämtar en sida på måfå ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers flyger cycloptic varelser hittats på olika platser"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Deras enda öga är vanligtvis stängd och de förlitar sig på sonar för rörelse"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "De använder sina starka luktsinne att hålla utkik efter rovdjur och bytesdjur både"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers attack (och försvara sig) genom att öppna deras ögon som kommer att blända något att titta på det"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Attacken är endast effektivt men om offret är vänd mot Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "En Gazer's ögonglob innehåller magiska egenskaper och är en vanlig ingrediens i spell förberedelse"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Grey"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurioner är magiskt skapade varelser, vanligtvis avsänds som vakter eller vakter"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Även långsamma, deras massiva storlek gör att de helt enkelt marsch genom något försvar"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "I stället för vapen, många har stora pålkranar som de använder för att skaka marken och vilseleda hot"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Även Grey Centurions kommer att användas för att skydda yttre gränser, Röda Centurions vet att det finns och används för att skydda områden av stor betydelse"
+
+msgid "Splitter"
+msgstr "Splitter"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters är ofarliga monster inte attackeras."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Efter upprätthålla alltför mycket skada de kommer att delas i två delar och anfalla deras rovdjur"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Om någon av dessa råkar ut för mycket skada den kan splittra en gång och fortsätter att attackera"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Slutligen kommer en slutlig delad producera mycket små versioner som är helt ofarliga och i detta tillstånd kan enkelt utökas på"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Om alla dess delar är fortfarande vid liv, kommer en splitter reformera sig själv efter ett tag och läka sina sår"
+
+msgid "Grub, Red"
+msgstr "Grub, Red"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Red larver är mer aggressiva än sina gröna motparter och kommer att attackera allt de ser som ett hot"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Efter moget de kommer att bilda en kokong och förvandlas till en geting"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Vissa kommer emellertid att förvandlas till en drottning geting. Dessa drottningar kan producera slem-liknande substans som kan hålla sitt byte på plats"
+
+msgid "Tortoise, Master"
+msgstr "Sköldpadda, Master"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Landsköldpaddor är skrämmande odjur. Hittade i fjärran länder de besitter förmågan att förändra sina huvuden"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "De förenar alla förmågor av deras kusiner att andas eld, skapa isen och elektrifieringen sig"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Och naturligtvis de också är immuna mot attacker från motsvarande element, absorbera energi att läka sig"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Men dessutom, om de får för mycket energi från healing, utvecklas de och går på härjningståg"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "I denna stat de kommer slå igenom något försvar och producera Dark Matter som förstör allt den berör"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Däremot är tanken på framfart Master Tortoise mycket magiskt och är en viktig faktor när man skapar mäktiga underverk och objekt"
+
+msgid "Venus Flytrap"
+msgstr "Venus Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, Dark"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Grimlore är en varelse från en annan dimension. Det kan kallas hjälp av kraftfulla mörk magi"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Den vanligaste orsaken till att kalla detta djur är att fungera som livvakt"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Det finns inget känt sätt att döda Grimlore sedan på att upprätthålla kritiska skador det kommer bara tillbaka till sin egen dimension"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Men även att skada det är en monumental uppgift. Alla som stöter på detta varelse rekommenderas att fly så snabbt som möjligt"
+
+msgid "Or they will die very quickly"
+msgstr "Eller kommer de att dö mycket snabbt"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, här är en sammanställning av monster"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 volymer! Hur kan det finnas så många monster i världen?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Ser ut som de är i alfabetisk ordning om"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slem, Green ... Slem, Purple ... Slam, Grön ..."
+
+msgid "Sludge, Red"
+msgstr "Slam, Red"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Till skillnad från sina gröna kusin, stannar Röda Slam djupt under marken och sällan, om någonsin, ytor"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Preferred livsmiljö är torra och mineralrika områden och som ett resultat har hittats lurar i områden med minor övergiven av människor"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "De är mycket försiktig med människor och kommer att anfalla på synen, vanligen kräkningar upp en syra som tar tid att dunsta"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, Lesser ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Great, that's all it says. Jag vet inte ens hur jag ska säga skillnaden mellan en manlig och kvinnlig. Jag ska bara ta en chans ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Dessutom, vad är det värsta som kan hända?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Att flytta Edgar vänster och höger, använd piltangenterna."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Göra Edgar hoppa trycker mellanslag. Du kan flytta i luften när hoppning."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Även Jacob kräver bara att du fånga 3 av hans kycklingar, varför inte vara snäll mot honom och fånga mer? Det finns 10 vandrande kartan i alla"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Observera att inte alla svaga väggar kan förstöras med hackan"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Jag har redan kontrollerat, han är inte där nere ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Jag har hört människor faller i god tid innan, det kanske pappa där inne ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "DAD !!!!! DU DÄRNERE ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Ingenting. Jag antar att jag får väl hålla på att leta"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Tryck uppåt eller nedåt för att höja eller sänka plattformen"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Det finns en bok här om förtrollande utrustning"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Det är en bok om förtrollande utrustning"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Jag har ingen anledning att läsa detta, men jag ska ha det i åtanke i fall jag"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Jag undrar vilka andra monster finns ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Precis som vanliga Summoners, Dark Summoners ring i andra djuren att göra sitt bud"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Dessutom om de kan teleportera korta sträckor för att fly från sina motståndare"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Deras personal är mycket magiskt och även om det inte kan användas av människor direkt, dess magiska egenskaper används i spell skapande"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Rosa Hoovers är små fyrbenta djur med lång nos"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Den primära puropse av Nosen är att foder för mat men fungerar också som en försvarsmekanism"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "och är mer än kunna hålla ett rovdjur på avstånd genom att helt enkelt blåsa bort dem"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, mobil"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Venus Flytraps har utvecklats rötter och kan flytta till sin föda snarare än att vänta på att komma till dem"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Halsarna är otroligt elastiskt och kan knäppa på sitt byte från ett stort avstånd"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Det borde göra susen. Förhoppningsvis att andra lyft av Sewer bör nu arbeta"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Denna hiss fungerar inte. Jag kommer inte att kunna använda den tills jag återställa makt"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Att glaset ser för tjock för mig att spricka, jag måste hitta något annat sätt att splittra det ..."
+
+msgid "Up"
+msgstr "Upp"
+
+msgid "Down"
+msgstr "Nere"
+
+msgid "Left"
+msgstr "Vänster"
+
+msgid "Right"
+msgstr "Höger"
+
+msgid "Jump"
+msgstr "Jump"
+
+msgid "Attack"
+msgstr "Attack"
+
+msgid "Block"
+msgstr "Block"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Use Item"
+msgstr "Användningsområden"
+
+msgid "Previous Item"
+msgstr "Föregående artikel"
+
+msgid "Next Item"
+msgstr "Nästa artikel"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Pause"
+msgstr "Paus"
+
+msgid "Dead Zone"
+msgstr "Dödzon"
+
+msgid "Sound"
+msgstr "Sound"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Musikvolym"
+
+msgid "Ice Spray"
+msgstr "Ice Spray"
+
+msgid "Library"
+msgstr "Bibliotek"
+
+msgid "Right Wing Lift Key"
+msgstr "Right Wing Lift Key"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine entrédörren Key"
+
+msgid "Village"
+msgstr "Village"
+
+msgid "Cave"
+msgstr "Cave"
+
+msgid "Fortress Outskirts"
+msgstr "Fortress Outskirts"
+
+msgid "Forbidden Swamp"
+msgstr "Forbidden Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Avloppsvatten restriktionszon Key"
+
+msgid "Basement"
+msgstr "Basement"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Ground Floor"
+
+msgid "Sewer"
+msgstr "Sewer"
+
+msgid "Fortress Main Key"
+msgstr "Fortress huvudnyckel"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Access Key 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Access Key 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Access Key 3"
+
+msgid "Laboratory"
+msgstr "Laboratory"
+
+msgid "Empty Bottle"
+msgstr "Tomflaska"
+
+msgid "First Floor Key"
+msgstr "First Floor Key"
+
+msgid "Press Action to retrieve %s"
+msgstr "Tryck Åtgärder för att hämta %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, är denna nya."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Det ser inte ut som det kan skada mig om, men det finns bara ett sätt att ta reda på ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Denna hiss kontrolleras av den tryckplatta, men jag kan inte stå på den och använda hissen vid samma tidpunkt"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Jag måste hitta något annat att stå på tryckplatta för mig ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Detta kort är tomt, jag måste lägga några instruktioner om att göra den användbar."
+
+msgid "There's a plaque here"
+msgstr "Det finns en plakett här"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Placera 4 statyer i rätt ordning"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Du kommer inte att kunna hitta alla 4 statyer i denna version, så kom tillbaka senare!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Du måste ha statyn du vill använda belyses i ditt inventory låda"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Ingenting hände. Jag tror inte det är rätt ordning"
+
+msgid "Tuning Fork"
+msgstr "Stämgaffel"
+
+msgid "Second Floor Keycard"
+msgstr "Våningen Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Undervisning Card # 1"
+
+msgid "Instruction Card #2"
+msgstr "Undervisning Card # 2"
+
+msgid "Instruction Card #3"
+msgstr "Undervisning Card # 3"
+
+msgid "Instruction Card #4"
+msgstr "Undervisning Card # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion Statue"
+
+msgid "Spider Statue"
+msgstr "Spider Statue"
+
+msgid "Tortoise Statue"
+msgstr "Sköldpadda Statue"
+
+msgid "Scorpion Statue"
+msgstr "Scorpion Statue"
+
+msgid "A Blue Gem"
+msgstr "A Blue Gem"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "En staty av en Centurion. Den har 2 ben."
+
+msgid "A Green Gem"
+msgstr "A Green Gem"
+
+msgid "A Purple Gem"
+msgstr "En Purple Gem"
+
+msgid "A Red Gem"
+msgstr "A Red Gem"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "En staty av en skorpion. Den har 6 ben."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "En staty av en spindel. Den har 8 ben."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "En Armadillo Spike Ball. Kommer scatter spikar när den kastas."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "En staty av en sköldpadda. Den har 4 ben."
+
+msgid "A Tuning Fork"
+msgstr "En stämgaffel"
+
+msgid "A chopped log"
+msgstr "En hackad log"
+
+msgid "Narrator"
+msgstr "Berättare"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "Det är en kittel. Maggie har en precis som"
+
+msgid "Right, here goes!"
+msgstr "Okej, here goes!"
+
+msgid "I need all the main ingredients"
+msgstr "Jag behöver alla de viktigaste ingredienserna"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer ögonglober, 1 röd slam Tentacle och en extra sköld"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "Jag måste också blanda ögonglober och tentakler in i en vätska"
+
+msgid "This entire section is about monsters"
+msgstr "Hela det här avsnittet handlar om monster"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Jag har ingen anledning att läsa dessa, men jag ska ha det i åtanke i fall jag"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hej Oj, vilken söt liten maskin!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Den har en liten plats på baksidan av den. Jag antar att jag skriver något i det att göra det göra saker"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Roboten uses instruktion kort att flytta runt"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Använd instruktionerna för att styra roboten att öppna områden som du inte kan komma"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Eftersom du inte kan läsa instruktionerna på kortet, måste du prova dem alla till ett verk"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Om roboten inte når sitt mål, kommer den tillbaka till utgångsläget så att du kan försöka igen"
+
+msgid "Enter the directions"
+msgstr "Ange riktningar"
+
+msgid "Out of space for instructions"
+msgstr "Slut för instruktioner"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "Jag behöver ett tomt kort för att sätta instruktionerna på"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "Det var kanske inte en så bra idé trots allt ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "Skaffa 3 Gazer Eyes"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "Skaffa 1 Röd Slam Tentacle"
+
+msgid "Find another shield"
+msgstr "Hitta en annan sköld"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Blend ögonglober och tentakel"
+
+msgid "Obtain a Fire Shield"
+msgstr "Skaffa en Fire Shield"
+
+msgid "More water?!"
+msgstr "Mer vatten?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Jag tror inte att kunna förvandlas till en Slime kommer att hjälpa mig här, eftersom jag inte skulle kunna komma tillbaka efteråt"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Jag måste hitta ett annat sätt att ta sig över"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Jag måste hitta något att hjälpa mig att komma över"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Jag såg inte något Slam i gruvan när jag gick för att hämta Borgan s kol och även om det fanns något jag inte kan få tillbaka det sedan min flotte sjönk"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Jag måste hitta en annan gruva här ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Skapar isbitar som expanderar vid kontakt med vatten"
+
+msgid "A bottle capable of capturing souls"
+msgstr "En flaska som kan fånga själar"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Prova att använda Mataeus's knivar mot honom ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Kan inte plocka upp %s. Inventering full"
+
+msgid "Filling mine cart..."
+msgstr "Fyllning mine cart ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Copyright Parallel Realities 2009-2010"
+
+msgid "Out of arrows!"
+msgstr "Out of pilar!"
+
+msgid "There's something moving around down there..."
+msgstr "Det är något som rör sig där nere ..."
+
+msgid "Good riddance..."
+msgstr "Good riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, déjà vu ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Om hissen är ur funktion så måste återställas"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Det finns 4 återställa växlar längs hisschaktet som måste återställas"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Var noga med att återställa hissen för att undvika en lång promenad upp till ytan ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Denna maskin har en kortplats samma storlek som korten. Jag antar att jag kan använda det för att skapa nya instruktioner."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "Att skapa en ny uppsättning instruktioner måste du sätta ett tomt kort"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Du blir då ombedd att mata anvisningar för roboten att följa. Detta görs på samma sätt som den sekvensen dörrar"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "När du är klar med att mata in riktningarna, tryck Attack"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Roboten kommer sedan att följa instruktionerna på kortet"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Om riktningar stämmer inte du kan försöka igen"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Här stället är galen, jag bättre skynda dig och hitta pappa innan jag i slutändan får avlivas!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Så, för att skapa denna Fire Shield jag måste få en röd Slam tentakel"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Red Slam bor i gruvor så jag måste hitta ett häromkring"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "Jag behöver också en extra sköld, men jag antar att det borde finnas en arsenal runt"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "Det Gazer ögonglober är lätt nog, kan jag bara tillbaka till källaren"
+
+msgid "OK, off I go..."
+msgstr "OK, off I go ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Du kommer inte att kunna få tentakel eller sköld i den här versionen, så kontrollera igen senare!"
+
+msgid "It's a portrait"
+msgstr "Det är ett porträtt"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Denna anda kommer inte att låta mig förbi, jag måste hitta ett sätt att bli av med det"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Återställ växlar att du kan återställa ett objekts position på kartan"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Om ett föremål blir otillgänglig kan du använda switchen för att lägga tillbaka på sin ursprungliga plats"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "En flaska med en själ fångad inuti"
+
+msgid "Full Mine Cart"
+msgstr "Full Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Processing Lift Key"
+
+msgid "Right Grabber Key"
+msgstr "Right Grabber Key"
+
+msgid "Left Grabber Key"
+msgstr "Vänster Grabber Key"
+
+msgid "Master Key"
+msgstr "Huvudnyckel"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Den trollkarl måste ha tagit pappa till sitt slott. Jag måste rädda honom därifrån."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Det enda sättet att komma till slottet är genom Förbjudna Swamp österut."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Det finns en sjö mellan byn och Swamp så jag behöver en flotte för att komma över."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Jag behöver även ett svärd och sköld för att försvara mig. Jag kan tala med Borgan och Jakob för att få dessa ändå."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Kunde inte ansluta till Medal Server at %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Kunde inte hitta Medal Key"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Du kommer inte att kunna vinna medaljer för detta spel"
+
+msgid "There's another sign here"
+msgstr "Det finns ett annat tecken här"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Om exit hissen är ur funktion sedan gå vidare till vänster"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "Varning: Realiseringsalternativ kan vara farlig"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "Jag kanske borde använda hissen för att komma ut"
+
+msgid "There's a sign here"
+msgstr "There's a sign here"
+
+msgid "An Oil Can"
+msgstr "En Oil Can"
+
+msgid "Oil Can"
+msgstr "Oljekanna"
+
+msgid "A powerful repellent"
+msgstr "En kraftfull repellent"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Medal Support"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mine"
+
+msgid "Private key is missing"
+msgstr "Privat nyckel saknas"
+
+msgid "Could not connect to server"
+msgstr "Kunde inte ansluta till servern"
+
+msgid "Sludge Tentacle"
+msgstr "Slam Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A Red Slam Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, det fungerade!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Jag är inte säker på färgen om, jag trodde det skulle vara rött?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "Kanske är det tänkt att vara gul ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "En vätska gjorda av ögonglober och tentakler"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patchning du spara spelet. Please wait ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Nu! Kör medan den stunned!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow, är det där enorma!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Jag tvivlar på mitt svärd kommer även göra en skråma, men jag måste komma förbi den ..."
+
+msgid "I have everything I need now"
+msgstr "Jag har allt jag behöver nu"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Det finns en kittel i laboratoriet, skulle jag huvudet tillbaka dit"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Jag måste bara hitta en sköld att förtrolla"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Du kommer inte att kunna få skärmen i denna version, så kontrollera igen senare!"
+
+msgid "Its wounds are already healing..."
+msgstr "Sina sår redan healing ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Om du kompilerat spelet från källan, måste du göra en make install"
+
+msgid "It's sleeping"
+msgstr "It's sleeping"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "Jag är säker ändå eftersom det är i buren ..."
+
+msgid "Where's the switch?"
+msgstr "Where's the switch?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, här är det!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Generatorn ser OK, det är bara inte"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Jag antar att det befogenhet att dörren, så jag måste vända den på"
+
+msgid "A Yellow Gem"
+msgstr "A Yellow Gem"
+
+msgid "Failed to open PAK file %s"
+msgstr "Misslyckades med att öppna PAK-fil %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Tryck Åtgärder för att hämta Purple Gem"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Hitta ett sätt att ta bort Gem ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Tryck Åtgärder för att hämta Yellow Gem"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Jag måste vara säkra upp här, men jag måste bli av med det"
+
+msgid "Book"
+msgstr "Bok"
+
+msgid "Sign"
+msgstr "Sign"
+
+msgid "Note"
+msgstr "Obs"
+
+msgid "Solve the sliding puzzle"
+msgstr "Lös pusslet skjutbara"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "Rustningen är för tufft för dem att komma in ..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "Den chef som vaktade Min var inte i den tidigare versionen"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Eftersom det är i denna version kommer du inte att kunna lämna"
+
+msgid "You will now be transported outside"
+msgstr "Du kommer nu att transporteras utanför"
+
+msgid "We apologize for the inconvenience"
+msgstr "Vi ber om ursäkt för"
+
+msgid "That's a lot of slime"
+msgstr "Det är en massa slem"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "Jag tror inte att Ice Spray kommer att komma över detta, eftersom det bara fungerar på vatten"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Slimes kan bara simma i vatten så det är inte kommer att hjälpa någon"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "Jag minns Borgan berättade för mig hur ironiskt det är"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "Jag måste hitta något att hjälpa mig komma över ..."
+
+msgid "There, the rope's firmly attached"
+msgstr "Där är repet ordentligt fastsatt"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "Jag måste hitta några rep innan jag kan branden"
+
+msgid "It's a Grappling Hook"
+msgstr "Det är en Grappling Hook"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "Jag skulle nog använda det för att bilda en bro till andra sidan, men det finns inget rep"
+
+msgid "I still need a Fire Shield"
+msgstr "Jag behöver fortfarande en Fire Shield"
+
+msgid "Wow, this place is empty!"
+msgstr "Wow, det här stället är tom!"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "Jag antar att trollkarl har inget behov av vapen eftersom han har magi"
+
+msgid "Still, there must be something of use in here"
+msgstr "Ändå måste det finnas något användningsområde här"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "Cool, en jätte glidande pussel! Jag har en av dessa hem!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "Tja, inte en gigantisk ett, uppenbarligen ..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "Push vänster, höger, uppåt eller nedåt för att flytta blocken"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "Ordna blocken så att siffrorna 1 till 8 visas i ordning från vänster till höger och det tomma blocket i det nedre högra hörnet"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "Tryck Attack för att stänga pussel"
+
+msgid "A length of rope"
+msgstr "En tågända"
+
+msgid "A device for grabbing far away objects"
+msgstr "En anordning för att greppa långt bort objekt"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "En flaska av piller som omvandlar slem i vattnet"
+
+msgid "Tutorial Key"
+msgstr "Tutorial Key"
+
+msgid "Light Key"
+msgstr "Light Key"
+
+msgid "Rope"
+msgstr "Rope"
+
+msgid "Extend-O-Grab"
+msgstr "Förläng-O-Grab"
+
+msgid "Water Purifiers"
+msgstr "Vatten Purifiers"
+
+msgid "Right Wing Key"
+msgstr "Right Wing Key"
+
+msgid "Catapult Lift Key"
+msgstr "Katapult Lift Key"
+
+msgid "Armoury"
+msgstr "Armoury"
+
+msgid "Maggie"
+msgstr "Maggie"
+
+msgid "Jacob"
+msgstr "Jacob"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "Edgar"
+
+msgid "Mine Cart"
+msgstr "Mine Cart"
+
+msgid "%s has regained power"
+msgstr "%s har återfått makten"
+
+msgid "Wow, a catapult!"
+msgstr "Wow, en katapult!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "Gångjärnen ser fastrostade dock tvivlar jag kommer att arbeta tills jag får de fast"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "That's it? Just denna gamla sköld? Det verkar inte bättre än min nuvarande."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "Ändå kommer jag hålla fast vid det för närvarande, kan det vara bra att ha"
+
+msgid "Great, a spare shield!"
+msgstr "Great, en extra sköld!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "Det här ser inte ut som en Fire Shield för mig. Jag var verkligen hopp om att hitta en här också"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "Detta sköld inte ens ser något bättre än min nuvarande."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "Jag behöver bara skapa vätskan från slammet tentakler och Gazer ögonglober"
+
+msgid "That's not a good sign..."
+msgstr "Det är inte ett bra tecken ..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "Jag måste bara hitta en sköld för att förtrolla ..."
+
+msgid "Hey, a lightning sword!"
+msgstr "Hej, en blixt svärd!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "Det ser mycket mer kraftfull än min nuvarande svärd alltför"
+
+msgid "With this I should be almost unstoppable"
+msgstr "Med detta skulle jag vara nästan ostoppbar"
+
+msgid "Almost"
+msgstr "Nästan"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "The Lightning Sword har ett begränsat antal laddningar och kommer att förlora sin makt när dessa avgifter är uttömda"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "Fiender kommer slumpmässigt släppa flera avgifter när de avlivas"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "Observera att om svärdet förlorar helt sin makt det kommer att återgå till en vanlig svärd med väldigt lite ström tills du hittar fler avgifter"
+
+msgid "This centurion has no power"
+msgstr "Detta officeren har ingen makt"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "Det är ansluten till denna löpband så jag kanske kan ladda upp tillräckligt med fart"
+
+msgid "An old shield found in the Armoury"
+msgstr "En gammal sköld finns i Rustkammaren"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "Ett svärd som kan laddas med blixt"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "Svärd genomsyras av kraften i blixtens"
+
+msgid "Lightning Sword"
+msgstr "Lightning Sword"
+
+msgid "INTRUDER!"
+msgstr "INTRÄNGLINGE!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "Gångjärnen ser fastrostade dock tvivlar jag kommer att arbeta tills jag får dem fast"
+
+msgid "OK, let's see if this works..."
+msgstr "OK, låt oss se om detta fungerar ..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "Jag har inga problem att gå över denna repet heller, tack vare min balansgång gå färdigheter"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "Och pappa sa att det aldrig skulle komma till hands!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "Jag behöver en tågända att fästa på bulten"
+
+msgid "It's a giant crossbow"
+msgstr "Det är en jätte armborst"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "Jag skulle nog använda det för att skapa en bro över de spikar"
+
+msgid "I'll need some rope first though"
+msgstr "Jag behöver några rep först om"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "Där är det gångjärnen oljad. Detta bör vara så gott som ny nu!"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "Gångjärnen är rostig, jag måste hitta lite olja innan jag kan använda det"
+
+msgid "I can't run in this armour, though"
+msgstr "Jag kan inte köras i detta pansar, men"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "Plus, jag är trött av allt detta gå, hoppa, slåss, simning ..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "tänkande, gruvdrift, hackning, skjutande, drar, bär ..."
+
+msgid "and catching chickens"
+msgstr "och fånga kycklingar"
+
+msgid "I'll get something else to do it instead"
+msgstr "Jag ska få något annat att göra det istället"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Play Time: %s"
+msgstr "Speltid: %s"
+
+msgid "Kills: %d"
+msgstr "Kills: %d"
+
+msgid "Bats Drowned: %d"
+msgstr "Bats Drowned: %d"
+
+msgid "Times Eaten: %d"
+msgstr "Times Eaten: %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "Attacker Blockerade: %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "Tid enligt A Slime: %s"
+
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanserad sträcka: %0.1fKM"
+
+msgid "Arrows Fired: %d"
+msgstr "Pilar Fired: %d"
+
