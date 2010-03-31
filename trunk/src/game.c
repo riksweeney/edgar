@@ -785,6 +785,8 @@ char *getSlimeTimeAsString()
 	minutes = tempTime / (60 * 60);
 	
 	tempTime -= minutes * 60 * 60;
+	
+	tempTime /= 60;
 
 	snprintf(timeString, 15, "%dM %ldS", minutes, tempTime);
 

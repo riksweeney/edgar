@@ -491,7 +491,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 void saveGame(int slot)
 {
-	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr, *playTimeString;
+	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
 	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapFilename();
 	unsigned char *buffer;
@@ -652,12 +652,6 @@ void saveGame(int slot)
 	compressFile(saveFile);
 
 	updateSaveFileIndex(slot);
-
-	playTimeString = getPlayTimeAsString();
-
-	printf("Play Time : %s\n", playTimeString);
-
-	free(playTimeString);
 }
 
 static void updateSaveFileIndex(int slot)

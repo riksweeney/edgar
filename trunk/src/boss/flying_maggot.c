@@ -357,6 +357,8 @@ static void firstEncounterLeave()
 
 static void secondEncounterDie()
 {
+	self->takeDamage = NULL;
+	
 	self->thinkTime = 120;
 
 	self->action = &secondEncounterLeave;
