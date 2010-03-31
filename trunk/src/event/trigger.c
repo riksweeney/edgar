@@ -142,7 +142,7 @@ void fireTrigger(char *name)
 
 				freeMessageQueue();
 
-				setInfoBoxMessage(60, message);
+				setInfoBoxMessage(60, 255, 255, 255, message);
 			}
 
 			if (trigger[i].count == trigger[i].total)

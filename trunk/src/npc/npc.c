@@ -77,8 +77,6 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && game.showHints == TRUE)
 	{
-		/* Do not translate the NPC's name */
-		
-		setInfoBoxMessage(0, _("Press Action to talk to %s"), self->objectiveName);
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to talk to %s"), _(self->objectiveName));
 	}
 }

@@ -2168,3 +2168,18 @@ msgstr "Distanziert Mitreisende: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Sie fanden ein Geheimnis!"
+
+msgid "10 charges remaining..."
+msgstr "10 der immer noch ..."
+
+msgid "%s is out of power"
+msgstr "%s ist von der Macht"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Der Schaden dieser Waffe wird absorbiert ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Gefunden: %d / %d"
+

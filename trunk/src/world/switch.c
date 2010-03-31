@@ -91,14 +91,14 @@ static void call(int val)
 		{
 			if (removeInventoryItem(self->requires) == 1)
 			{
-				setInfoBoxMessage(60, _("Used %s"), _(self->requires));
+				setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 
 				self->requires[0] = '\0';
 			}
 
 			else
 			{
-				setInfoBoxMessage(60, _("%s is needed to activate this switch"), _(self->requires));
+				setInfoBoxMessage(60, 255, 255, 255, _("%s is needed to activate this switch"), _(self->requires));
 
 				return;
 			}
@@ -140,14 +140,14 @@ static void activate(int val)
 	{
 		if (removeInventoryItem(self->requires) == 1)
 		{
-			setInfoBoxMessage(60, _("Used %s"), _(self->requires));
+			setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 
 			self->requires[0] = '\0';
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, _("%s is needed to activate this switch"), _(self->requires));
+			setInfoBoxMessage(60, 255, 255, 255, _("%s is needed to activate this switch"), _(self->requires));
 
 			return;
 		}
@@ -169,13 +169,13 @@ static void activate(int val)
 
 			if (total > 0 && self->maxThinkTime == 0)
 			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
+				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
 			}
 		}
 
 		else
 		{
-			setInfoBoxMessage(30, _("%d more to go..."), remaining);
+			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 	}
 
@@ -284,7 +284,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && game.showHints == TRUE)
 	{
-		setInfoBoxMessage(0, _("Press Action to use this switch"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to use this switch"));
 	}
 }
 
@@ -292,6 +292,6 @@ static void resetTouch(Entity *other)
 {
 	if (other->type == PLAYER && game.showHints == TRUE)
 	{
-		setInfoBoxMessage(0, _("Press Action to reset puzzle blocks"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to reset puzzle blocks"));
 	}
 }

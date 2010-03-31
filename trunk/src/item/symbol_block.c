@@ -296,7 +296,7 @@ static void doSymbolMatch()
 	{
 		if (self->health >= 0)
 		{
-			setInfoBoxMessage(60, _("Complete"));
+			setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
 		}
 
 		for (i=0;i<count;i++)
@@ -322,7 +322,7 @@ static void doSymbolMatch()
 
 	else if (self->thinkTime == required)
 	{
-		setInfoBoxMessage(30, _("%d more to go..."), remaining);
+		setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 	}
 
 	free(list);

@@ -135,12 +135,12 @@ static void touch(Entity *other)
 {
 	if (self->target != NULL)
 	{
-		setInfoBoxMessage(0, _("Press Action to retrieve %s"), self->target->objectiveName);
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve %s"), self->target->objectiveName);
 	}
 
 	else
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 

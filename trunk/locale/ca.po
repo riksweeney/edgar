@@ -2167,3 +2167,18 @@ msgstr "Distància recorreguda: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Fletxes disparades: %d"
 
+msgid "You found a secret!"
+msgstr "Vostè va trobar un secret!"
+
+msgid "10 charges remaining..."
+msgstr "10 càrrecs restants ..."
+
+msgid "%s is out of power"
+msgstr "%s està fora del poder"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "El dany d'aquesta arma està sent absorbida ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets trobats: %d / %d"
+

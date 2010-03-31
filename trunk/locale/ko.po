@@ -2168,3 +2168,18 @@ msgstr "거리 여행 : %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "화살표 해고 : %d"
 
+msgid "You found a secret!"
+msgstr "당신은 비밀을 발견!"
+
+msgid "10 charges remaining..."
+msgstr "10 요금이 남아 ..."
+
+msgid "%s is out of power"
+msgstr "%s 밖으로 전원 중 하나입니다"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "이 무기의 피해를 흡수되고있다 ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "비밀을 찾을 수 : %d / %d"
+

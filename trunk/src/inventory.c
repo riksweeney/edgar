@@ -110,7 +110,7 @@ int addToInventory(Entity *e)
 
 				else
 				{
-					setInfoBoxMessage(0, _("Cannot carry any more %s"), _(inventory.item[i].objectiveName));
+					setInfoBoxMessage(0, 255, 255, 255, _("Cannot carry any more %s"), _(inventory.item[i].objectiveName));
 
 					return FALSE;
 				}
@@ -168,12 +168,12 @@ int addToInventory(Entity *e)
 	{
 		if ((inventory.item[i].flags & STACKABLE) && e->health > 1)
 		{
-			setInfoBoxMessage(60, _("Picked up %s x %d"), _(inventory.item[i].objectiveName), e->health);
+			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s x %d"), _(inventory.item[i].objectiveName), e->health);
 		}
 
 		else
 		{
-			setInfoBoxMessage(60, _("Picked up %s"), _(inventory.item[i].objectiveName));
+			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(inventory.item[i].objectiveName));
 		}
 
 		e->inUse = FALSE;
@@ -185,7 +185,7 @@ int addToInventory(Entity *e)
 
 	else
 	{
-		setInfoBoxMessage(0, _("Cannot pick up %s. Inventory full"), _(inventory.item[i].objectiveName));
+		setInfoBoxMessage(0, 255, 255, 255, _("Cannot pick up %s. Inventory full"), _(inventory.item[i].objectiveName));
 
 		return FALSE;
 	}
@@ -482,7 +482,7 @@ void addRequiredToInventory(Entity *other)
 
 			self->inUse = FALSE;
 
-			setInfoBoxMessage(60, _("Picked up %s"), _(self->objectiveName));
+			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(self->objectiveName));
 
 			fireTrigger(self->objectiveName);
 
@@ -491,7 +491,7 @@ void addRequiredToInventory(Entity *other)
 
 		else
 		{
-			setInfoBoxMessage(60, _("%s is required to carry this item"), _(self->requires));
+			setInfoBoxMessage(60, 255, 255, 255, _("%s is required to carry this item"), _(self->requires));
 		}
 	}
 }
@@ -565,6 +565,8 @@ void getInventoryItemFromScript(char *line)
 				item->health = 0;
 
 				removeInventoryItem(itemName);
+				
+				setInfoBoxMessage(0, 255, 255, 255, _("Removed %s"), _(itemName));
 			}
 		}
 

@@ -188,7 +188,7 @@ static void stickToTarget()
 
 	if (self->target->type == PLAYER && self->target->health > 0)
 	{
-		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the slimes!"));
 	}
 
 	self->x = self->target->x + (self->target->w - self->w) / 2 + self->startX;
@@ -228,7 +228,7 @@ static void stickToTargetAndDrain()
 
 	if (self->target->type == PLAYER && self->target->health > 0)
 	{
-		setInfoBoxMessage(0, _("Quickly turn left and right to shake off the slimes!"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the slimes!"));
 
 		setCustomAction(self->target, &slowDown, 3, 0, 0);
 	}
@@ -239,7 +239,7 @@ static void stickToTargetAndDrain()
 	{
 		if (prand() % 10 == 0)
 		{
-			setInfoBoxMessage(120, _("The armour is too tough for them to penetrate..."));
+			setInfoBoxMessage(120, 255, 255, 255, _("The armour is too tough for them to penetrate..."));
 		}
 		
 		self->mental = 0;

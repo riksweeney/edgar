@@ -2169,3 +2169,18 @@ msgstr "Zdystansowała drogi: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Znaleziono tajne!"
+
+msgid "10 charges remaining..."
+msgstr "10 pozostałych opłat ..."
+
+msgid "%s is out of power"
+msgstr "%s z mocy"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Szkody z tej broni jest wchłaniany ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Sekrety Znaleziono: %d / %d"
+

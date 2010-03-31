@@ -2169,3 +2169,18 @@ msgstr "Удаљен је путовао: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Стрелице Фиред: %d"
 
+msgid "You found a secret!"
+msgstr "Сте нашли тајну!"
+
+msgid "10 charges remaining..."
+msgstr "10 трошкове преостаје ..."
+
+msgid "%s is out of power"
+msgstr "%s је ван снаге"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Штете из овог оружја се упија ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Тајне Пронађено: %d / %d"
+

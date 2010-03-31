@@ -2168,3 +2168,18 @@ msgstr "Đi xa: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Mũi tên đốt: %d"
 
+msgid "You found a secret!"
+msgstr "Bạn tìm thấy một bí mật!"
+
+msgid "10 charges remaining..."
+msgstr "10 phí còn lại ..."
+
+msgid "%s is out of power"
+msgstr "%s là ra khỏi quyền lực"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Thiệt hại từ các loại vũ khí này đang được hấp thu ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Bí mật tìm thấy: %d / %d"
+

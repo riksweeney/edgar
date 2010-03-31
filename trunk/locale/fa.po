@@ -2167,3 +2167,18 @@ msgstr "فاصله سفر : %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "فلش اخراج : %d"
 
+msgid "You found a secret!"
+msgstr "مخفی شما یافت نشد!"
+
+msgid "10 charges remaining..."
+msgstr "10 اتهامات عنوان شده علیه باقی مانده..."
+
+msgid "%s is out of power"
+msgstr "%s خارج از قدرت"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "آسیب از این سلاح است که جذب می شود..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "اسرار پیدا شد : %d / %d"
+

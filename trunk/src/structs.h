@@ -149,6 +149,7 @@ typedef struct Game
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten, medalSupport;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
+	int secretsFound;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
@@ -176,7 +177,7 @@ typedef struct Cursor
 typedef struct Message
 {
 	char text[MAX_MESSAGE_LENGTH];
-	int thinkTime;
+	int thinkTime, r, g, b;
 	SDL_Surface *surface;
 	struct Message *next;
 } Message;

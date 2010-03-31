@@ -1343,7 +1343,7 @@ void increasePlayerMaxHealth()
 
 	player.health = player.maxHealth;
 
-	setInfoBoxMessage(60, _("Maximum health has increased!"));
+	setInfoBoxMessage(60, 255, 255, 255, _("Maximum health has increased!"));
 
 	if (player.health == 10)
 	{
@@ -1611,7 +1611,7 @@ static void fireArrow()
 
 	else
 	{
-		setInfoBoxMessage(30, _("Out of arrows!"));
+		setInfoBoxMessage(30, 255, 255, 255, _("Out of arrows!"));
 	}
 
 	playerWeapon.animationCallback = &attackFinish;
@@ -1630,7 +1630,7 @@ void setBowAmmo(int val)
 
 		else
 		{
-			setInfoBoxMessage(60, _("Bow will now fire %s"), _(self->objectiveName));
+			setInfoBoxMessage(60, 255, 255, 255, _("Bow will now fire %s"), _(self->objectiveName));
 		}
 
 		STRNCPY(bow->requires, self->objectiveName, sizeof(bow->requires));
@@ -1649,7 +1649,7 @@ void setBowAmmo(int val)
 
 		else
 		{
-			setInfoBoxMessage(60, _("A bow is required to use this item"));
+			setInfoBoxMessage(60, 255, 255, 255, _("A bow is required to use this item"));
 		}
 	}
 }
@@ -1691,7 +1691,7 @@ void becomeJumpingSlime(int seconds)
 		player.x = originalX;
 		player.y = originalY;
 
-		setInfoBoxMessage(60, _("Cannot transmogrify here..."));
+		setInfoBoxMessage(60, 255, 255, 255, _("Cannot transmogrify here..."));
 	}
 
 	else
@@ -2062,14 +2062,14 @@ static void lightningSwordTouch(Entity *other)
 		{
 			freeMessageQueue();
 			
-			setInfoBoxMessage(60, "10 charges remaining...");
+			setInfoBoxMessage(60, 255, 255, 255, _("10 charges remaining..."));
 		}
 		
 		else if (self->mental == 0)
 		{
 			freeMessageQueue();
 			
-			setInfoBoxMessage(120, "Lightning Sword is out of power");
+			setInfoBoxMessage(120, 255, 255, 255, _("%s is out of power"), self->objectiveName);
 			
 			self->touch = NULL;
 			
@@ -2132,12 +2132,12 @@ void addChargesToWeapon()
 			
 			replaceInventoryItemWithName("weapon/lightning_sword_empty", &playerWeapon);
 			
-			setInfoBoxMessage(60, _("%s has regained power"), _(playerWeapon.objectiveName));
+			setInfoBoxMessage(60, 255, 255, 255, _("%s has regained power"), _(playerWeapon.objectiveName));
 		}
 		
 		else
 		{
-			setInfoBoxMessage(60, _("Picked up %s x %d"), _(self->objectiveName), self->health);
+			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s x %d"), _(self->objectiveName), self->health);
 		}
 	}
 	
@@ -2163,12 +2163,12 @@ void addChargesToWeapon()
 				
 				e->touch = &lightningSwordTouch;
 				
-				setInfoBoxMessage(60, _("%s has regained power"), _(e->objectiveName));
+				setInfoBoxMessage(60, 255, 255, 255, _("%s has regained power"), _(e->objectiveName));
 			}
 			
 			else
 			{
-				setInfoBoxMessage(60, _("Picked up %s x %d"), _(self->objectiveName), self->health);
+				setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s x %d"), _(self->objectiveName), self->health);
 			}
 		}
 	}

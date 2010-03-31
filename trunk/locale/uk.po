@@ -2169,3 +2169,18 @@ msgstr "Подорожував дистанціювався: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Ви знайшли секрет!"
+
+msgid "10 charges remaining..."
+msgstr "10 зарядів, що залишилися ..."
+
+msgid "%s is out of power"
+msgstr "%s знаходиться поза владою"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Збиток від цієї зброї, поглинається ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Секрети Знайдено: %d / %d"
+

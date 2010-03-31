@@ -71,7 +71,7 @@ static void touch(Entity *other)
 
 	if (other->standingOn == self)
 	{
-		setInfoBoxMessage(0, _("Push Up or Down to raise or lower the platform"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Push Up or Down to raise or lower the platform"));
 
 		self->thinkTime = 120;
 	}

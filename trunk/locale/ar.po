@@ -2167,3 +2167,18 @@ msgstr "نأى مألوف : %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "السهام اطلقت : %d"
 
+msgid "You found a secret!"
+msgstr "هل وجدت سرا!"
+
+msgid "10 charges remaining..."
+msgstr "10 التهم المتبقية..."
+
+msgid "%s is out of power"
+msgstr "%s خارج السلطة"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "الضرر من هذا السلاح الذي يتم امتصاصه..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "العثور على الأسرار : %d / %d"
+

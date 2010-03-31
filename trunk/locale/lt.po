@@ -2169,3 +2169,18 @@ msgstr "Nuotolinio keliavo: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Arrows kuras: %d"
 
+msgid "You found a secret!"
+msgstr "Radote paslaptis!"
+
+msgid "10 charges remaining..."
+msgstr "10 mokesčiai liko ..."
+
+msgid "%s is out of power"
+msgstr "%s out of galia"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Šio ginklo žala yra rezorbuojamas ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Paslapčių Rasta: %d / %d"
+

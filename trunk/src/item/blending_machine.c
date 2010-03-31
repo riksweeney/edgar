@@ -168,7 +168,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -181,7 +181,7 @@ static void activate(int val)
 
 	else
 	{
-		setInfoBoxMessage(60, _("This machine is not active"));
+		setInfoBoxMessage(60, 255, 255, 255, _("This machine is not active"));
 	}
 }
 

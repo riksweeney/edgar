@@ -84,7 +84,7 @@ static void touch(Entity *other)
 		
 		if (self->health == 1)
 		{
-			setInfoBoxMessage(60, _("Filling mine cart..."));
+			setInfoBoxMessage(60, 255, 255, 255, _("Filling mine cart..."));
 		}
 		
 		if (self->health >= 6)

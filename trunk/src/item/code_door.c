@@ -88,7 +88,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == FALSE)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -105,7 +105,7 @@ static void activate(int val)
 
 		else
 		{
-			setInfoBoxMessage(90, _("%s is required"), _(self->requires));
+			setInfoBoxMessage(90, 255, 255, 255, _("%s is required"), _(self->requires));
 
 			return;
 		}
@@ -117,7 +117,7 @@ static void activate(int val)
 
 	self->thinkTime = 120;
 
-	setInfoBoxMessage(300, _("Repeat the sequence"));
+	setInfoBoxMessage(300, 255, 255, 255, _("Repeat the sequence"));
 
 	self->action = &displayInputCode;
 
@@ -261,7 +261,7 @@ static void readInputCode()
 
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
-				setInfoBoxMessage(60, _("Correct Sequence"));
+				setInfoBoxMessage(60, 255, 255, 255, _("Correct Sequence"));
 
 				self->active = TRUE;
 
@@ -285,7 +285,7 @@ static void readInputCode()
 
 			self->touch = &touch;
 
-			setInfoBoxMessage(60, _("Incorrect Sequence"));
+			setInfoBoxMessage(60, 255, 255, 255, _("Incorrect Sequence"));
 
 			setPlayerLocked(FALSE);
 		}

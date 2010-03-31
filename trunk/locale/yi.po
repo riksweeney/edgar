@@ -2167,3 +2167,18 @@ msgstr "דיסטאַנסעד טראַוועללעד: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "אַרראָווס פירעד: %d"
 
+msgid "You found a secret!"
+msgstr "איר געפינען אַ סאָד!"
+
+msgid "10 charges remaining..."
+msgstr "10 טשאַרדזשאַז רימיינינג ..."
+
+msgid "%s is out of power"
+msgstr "%s איז אַרויס פון קראַפט"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "די שעדיקן פֿון די וואָפן איז בעינג אַבזאָרבד ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "סעקרעץ פאָונד: %d / %d"
+

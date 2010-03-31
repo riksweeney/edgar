@@ -101,7 +101,7 @@ static void touch(Entity *other)
 
 			else
 			{
-                setInfoBoxMessage(60, _("Complete"));
+                setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
 
 				activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 

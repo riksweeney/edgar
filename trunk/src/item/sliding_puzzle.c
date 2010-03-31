@@ -73,7 +73,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -81,7 +81,7 @@ static void activate(int val)
 {
 	self->mental = 0;
 
-	setInfoBoxMessage(300, _("Solve the sliding puzzle"));
+	setInfoBoxMessage(300, 255, 255, 255, _("Solve the sliding puzzle"));
 
 	self->target->requires[0] = '\0';
 
@@ -103,7 +103,7 @@ static void readInputCode()
 	{
 		setPlayerLocked(FALSE);
 		
-		setInfoBoxMessage(60, _("Complete"));
+		setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
 		
 		self->action = &wait;
 		

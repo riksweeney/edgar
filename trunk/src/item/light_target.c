@@ -121,13 +121,13 @@ static void activate(int val)
 
 			if (total > 0)
 			{
-				setInfoBoxMessage(60, _("Complete"));
+				setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
 			}
 		}
 
 		else
 		{
-			setInfoBoxMessage(30, _("%d more to go..."), remaining);
+			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 
 		self->maxHealth = self->health;

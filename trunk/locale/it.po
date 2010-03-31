@@ -2168,3 +2168,18 @@ msgstr "Le distanze percorsa: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Frecce Fired: %d"
 
+msgid "You found a secret!"
+msgstr "Hai trovato un segreto!"
+
+msgid "10 charges remaining..."
+msgstr "10 oneri rimanenti ..."
+
+msgid "%s is out of power"
+msgstr "%s è fuori del potere"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Il danno da questa arma sia stato assorbito ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Segreti Found: %d / %d"
+

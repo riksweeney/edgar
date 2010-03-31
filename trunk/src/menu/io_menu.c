@@ -265,7 +265,7 @@ static void loadGameInSlot()
 
 		freeMessageQueue();
 
-		setInfoBoxMessage(60, _("Game Loaded"));
+		setInfoBoxMessage(60, 255, 255, 255, _("Game Loaded"));
 		
 		game.paused = FALSE;
 	}
@@ -277,7 +277,7 @@ static void saveGameInSlot()
 
 	freeMessageQueue();
 
-	setInfoBoxMessage(60, _("Game Saved"));
+	setInfoBoxMessage(60, 255, 255, 255, _("Game Saved"));
 
 	pauseGame();
 }

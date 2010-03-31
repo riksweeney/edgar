@@ -34,7 +34,7 @@ extern Entity player, *self;
 static Hud hud;
 static Message messageHead;
 
-static void addMessageToQueue(char *, int);
+static void addMessageToQueue(char *, int, int, int, int);
 static void getNextMessageFromQueue(void);
 
 void initHud()
@@ -269,7 +269,7 @@ void freeHud()
 	freeMessageQueue();
 }
 
-void setInfoBoxMessage(int thinkTime, char *fmt, ...)
+void setInfoBoxMessage(int thinkTime, int r, int g, int b, char *fmt, ...)
 {
 	char text[MAX_MESSAGE_LENGTH];
 	va_list ap;
@@ -286,10 +286,10 @@ void setInfoBoxMessage(int thinkTime, char *fmt, ...)
 		}
 	}
 
-	addMessageToQueue(text, thinkTime);
+	addMessageToQueue(text, thinkTime, r, g, b);
 }
 
-static void addMessageToQueue(char *text, int thinkTime)
+static void addMessageToQueue(char *text, int thinkTime, int r, int g, int b)
 {
 	Message *head, *msg;
 
@@ -315,6 +315,11 @@ static void addMessageToQueue(char *text, int thinkTime)
 	STRNCPY(msg->text, text, sizeof(messageHead.text));
 
 	msg->thinkTime = thinkTime;
+	
+	msg->r = r;
+	msg->g = g;
+	msg->b = b;
+	
 	msg->next = NULL;
 
 	head->next = msg;
@@ -327,6 +332,10 @@ static void getNextMessageFromQueue()
 	if (head != NULL)
 	{
 		STRNCPY(hud.infoMessage.text, head->text, sizeof(hud.infoMessage.text));
+		
+		hud.infoMessage.r = head->r;
+		hud.infoMessage.g = head->g;
+		hud.infoMessage.b = head->b;
 
 		if (hud.infoMessage.surface != NULL)
 		{
@@ -335,7 +344,7 @@ static void getNextMessageFromQueue()
 			hud.infoMessage.surface = NULL;
 		}
 
-		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, 255, 255, 255, 0, 0, 0);
+		hud.infoMessage.surface = generateTextSurface(hud.infoMessage.text, game.font, hud.infoMessage.r, hud.infoMessage.g, hud.infoMessage.b, 0, 0, 0);
 
 		hud.infoMessage.surface = addBorder(hud.infoMessage.surface, 255, 255, 255, 0, 0, 0);
 

@@ -2167,3 +2167,18 @@ msgstr "Distanced ferðast: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Örvar gastegund: %d"
 
+msgid "You found a secret!"
+msgstr "Þú fannst leyndarmálið!"
+
+msgid "10 charges remaining..."
+msgstr "10 greiðslur eftir ..."
+
+msgid "%s is out of power"
+msgstr "%s er út af máttur"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "The skaða af þessu vopni er niðursokkinn ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Secrets Found: %d / %d"
+

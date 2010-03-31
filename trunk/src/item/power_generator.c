@@ -97,7 +97,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == FALSE && self->health > 0)
 	{
-		setInfoBoxMessage(0, _("Press Action to interact"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
@@ -120,7 +120,7 @@ static void activate(int val)
 
 		else
 		{
-			setInfoBoxMessage(60, _("%s is required"), _(self->requires));
+			setInfoBoxMessage(60, 255, 255, 255, _("%s is required"), _(self->requires));
 		}
 	}
 }

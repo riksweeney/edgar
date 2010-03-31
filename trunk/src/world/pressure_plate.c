@@ -103,7 +103,7 @@ static void touch(Entity *other)
 
 		else if (other->type == PLAYER)
 		{
-			setInfoBoxMessage(0, _("%s is required to use this Pressure Plate"), _(self->requires));
+			setInfoBoxMessage(0, 255, 255, 255, _("%s is required to use this Pressure Plate"), _(self->requires));
 		}
 	}
 }
@@ -126,13 +126,13 @@ static void activate(int val)
 
 			if (total > 0)
 			{
-				setInfoBoxMessage(30, _("Complete"), remaining);
+				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
 			}
 		}
 
 		else
 		{
-			setInfoBoxMessage(30, _("%d more to go..."), remaining);
+			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 
 		self->maxHealth = self->health;

@@ -96,7 +96,7 @@ static void lookForPlayer()
 		{
 			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
 			
-			setInfoBoxMessage(120, _("INTRUDER!"));
+			setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
 			
 			self->thinkTime = 300;
 
@@ -155,7 +155,7 @@ static void closedEyeMove()
 	{
 		playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
 		
-		setInfoBoxMessage(120, _("INTRUDER!"));
+		setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
 		
 		self->thinkTime = 300;
 

@@ -2167,3 +2167,18 @@ msgstr "Menjauhkan musafir: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "Panah Dipecat: %d"
 
+msgid "You found a secret!"
+msgstr "Anda menemukan sebuah rahsia!"
+
+msgid "10 charges remaining..."
+msgstr "10 pungutan yang tersisa ..."
+
+msgid "%s is out of power"
+msgstr "%s di luar kuasa"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Kerosakan daripada senjata ini sedang asyik ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Rahasia Found: %d / %d"
+

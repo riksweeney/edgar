@@ -2167,3 +2167,18 @@ msgstr "दूर की यात्रा: %0.1fKM"
 msgid "Arrows Fired: %d"
 msgstr "तीर निकाल दिया: %d"
 
+msgid "You found a secret!"
+msgstr "तुम एक रहस्य मिल गया!"
+
+msgid "10 charges remaining..."
+msgstr "10 शेष आरोप ..."
+
+msgid "%s is out of power"
+msgstr "%s सत्ता से बाहर है"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "इस हथियार से क्षति अवशोषित किया जा रहा है ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "रहस्य मिला: %d / %d"
+
