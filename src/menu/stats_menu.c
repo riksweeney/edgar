@@ -147,7 +147,11 @@ static void loadMenuLayout()
 			
 			i++;
 			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), getPlayTimeAsString());
+			token = getPlayTimeAsString();
+			
+			snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
+			
+			free(token);
 			
 			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			
@@ -202,7 +206,7 @@ static void loadMenuLayout()
 			
 			distance = game.distanceTravelled;
 			
-			distance /= 45 * 1000;
+			distance /= 45000; /* 45 pixels is 1 metre */
 			
 			i++;
 			
@@ -228,7 +232,11 @@ static void loadMenuLayout()
 			
 			i++;
 			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), getSlimeTimeAsString());
+			token = getSlimeTimeAsString();
+			
+			snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
+			
+			free(token);
 			
 			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
 			

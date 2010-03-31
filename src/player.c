@@ -175,6 +175,9 @@ void setPlayerShieldName(char *name)
 void doPlayer()
 {
 	int i, j;
+	long travelled;
+	
+	travelled = game.distanceTravelled;
 
 	self = &player;
 
@@ -601,6 +604,11 @@ void doPlayer()
 		}
 		
 		game.distanceTravelled += fabs(self->dirX);
+		
+		if (travelled < 2250000 && game.distanceTravelled >= 2250000)
+		{
+			addMedal("50km");
+		}
 	}
 
 	else
@@ -957,7 +965,7 @@ static void takeDamage(Entity *other, int damage)
 				
 				game.attacksBlocked++;
 				
-				if (game.attacksBlocked == 10000)
+				if (game.attacksBlocked == 2000)
 				{
 					addMedal("blocked");
 				}
@@ -1013,7 +1021,7 @@ static void takeDamage(Entity *other, int damage)
 			
 			game.attacksBlocked++;
 			
-			if (game.attacksBlocked == 10000)
+			if (game.attacksBlocked == 2000)
 			{
 				addMedal("blocked");
 			}
@@ -1595,9 +1603,9 @@ static void fireArrow()
 		
 		game.arrowsFired++;
 		
-		if (game.arrowsFired == 1000)
+		if (game.arrowsFired == 500)
 		{
-			addMedal("arrow_1000");
+			addMedal("arrow_500");
 		}
 	}
 

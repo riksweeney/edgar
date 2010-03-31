@@ -164,6 +164,8 @@ void freeGameResources()
 
 void freeAllResources()
 {
+	int i;
+	
 	freeLevelResources();
 
 	/* Free the hud */
@@ -201,6 +203,26 @@ void freeAllResources()
 	/* Free the status panel */
 
 	freeStatusPanel();
+	
+	if (key != NULL)
+	{
+		for (i=0;i<MAX_PROPS_FILES;i++)
+		{
+			free(key[i]);
+		}
+		
+		key = NULL;
+	}
+	
+	if (value != NULL)
+	{
+		for (i=0;i<MAX_PROPS_FILES;i++)
+		{
+			free(value[i]);
+		}
+		
+		value = NULL;
+	}
 }
 
 char *loadResources(char *buffer)

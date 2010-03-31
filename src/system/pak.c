@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "error.h"
 
 static unsigned char *uncompressFile(char *, int);
-static SDL_RWops *uncompressFileRW(char *);
+static unsigned char *uncompressFileRW(char *, unsigned long *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
@@ -78,26 +78,56 @@ void initPakFile()
 
 SDL_Surface *loadImageFromPak(char *name)
 {
+	unsigned long size;
+	unsigned char *buffer;
 	SDL_RWops *rw;
 	SDL_Surface *surface;
 
-	rw = uncompressFileRW(name);
+	buffer = uncompressFileRW(name, &size);
+	
+	rw = SDL_RWFromMem(buffer, size);
 
 	surface = IMG_Load_RW(rw, TRUE);
+	
+	free(buffer);
 
 	return surface;
 }
 
 Mix_Chunk *loadSoundFromPak(char *name)
 {
+	unsigned long size;
+	unsigned char *buffer;
 	SDL_RWops *rw;
 	Mix_Chunk *chunk;
 
-	rw = uncompressFileRW(name);
+	buffer = uncompressFileRW(name, &size);
+	
+	rw = SDL_RWFromMem(buffer, size);
 
 	chunk = Mix_LoadWAV_RW(rw, TRUE);
+	
+	free(buffer);
 
 	return chunk;
+}
+
+TTF_Font *loadFontFromPak(char *name, int fontSize)
+{
+	unsigned long size;
+	unsigned char *buffer;
+	SDL_RWops *rw;
+	TTF_Font *font;
+
+	buffer = uncompressFileRW(name, &size);
+	
+	rw = SDL_RWFromMem(buffer, size);
+
+	font = TTF_OpenFontRW(rw, TRUE, fontSize);
+	
+	/*free(buffer);*/
+
+	return font;
 }
 
 unsigned char *loadFileFromPak(char *name)
@@ -151,25 +181,11 @@ Mix_Music *loadMusicFromPak(char *name)
 	#endif
 }
 
-TTF_Font *loadFontFromPak(char *name, int size)
-{
-	SDL_RWops *rw;
-	TTF_Font *font;
-
-	rw = uncompressFileRW(name);
-
-	font = TTF_OpenFontRW(rw, TRUE, size);
-
-	return font;
-}
-
-static SDL_RWops *uncompressFileRW(char *name)
+static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 {
 	int i, index;
-	unsigned long size;
 	unsigned char *source, *dest;
 	FILE *fp;
-	SDL_RWops *rw;
 	int read;
 
 	index = i = -1;
@@ -184,18 +200,18 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		fseek(fp, 0L, SEEK_END);
 
-		size = ftell(fp);
+		(*size) = ftell(fp);
 
 		fseek(fp, 0L, SEEK_SET);
 
-		dest = (unsigned char *)malloc(size * sizeof(unsigned char));
+		dest = (unsigned char *)malloc((*size) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
-			showErrorAndExit("Failed to allocate %ld bytes to load %s", size * (int)sizeof(unsigned char), name);
+			showErrorAndExit("Failed to allocate %ld bytes to load %s", (*size) * (int)sizeof(unsigned char), name);
 		}
 
-		read = fread(dest, size, 1, fp);
+		read = fread(dest, (*size), 1, fp);
 
 		source = NULL;
 	#else
@@ -241,13 +257,13 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 		read = fread(source, fileData[i].compressedSize, 1, fp);
 
-		size = fileData[index].fileSize;
+		(*size) = fileData[index].fileSize;
 
-		uncompress(dest, &size, source, fileData[index].compressedSize);
+		uncompress(dest, size, source, fileData[index].compressedSize);
 
-		if (size != fileData[index].fileSize)
+		if ((*size) != fileData[index].fileSize)
 		{
-			showErrorAndExit("Failed to decompress %s. Expected %ld, got %ld", fileData[index].filename, fileData[index].fileSize, size);
+			showErrorAndExit("Failed to decompress %s. Expected %ld, got %ld", fileData[index].filename, fileData[index].fileSize, (*size));
 		}
 	#endif
 
@@ -258,9 +274,7 @@ static SDL_RWops *uncompressFileRW(char *name)
 
 	fclose(fp);
 
-	rw = SDL_RWFromMem(dest, size);
-
-	return rw;
+	return dest;
 }
 
 static unsigned char *uncompressFile(char *name, int writeToFile)

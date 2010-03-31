@@ -42,6 +42,7 @@ static void activate(int);
 static void addChain(void);
 static void chainWait(void);
 static int drawChain(void);
+static void fallout(void);
 
 Entity *addGrabber(int x, int y, char *name)
 {
@@ -62,8 +63,9 @@ Entity *addGrabber(int x, int y, char *name)
 	e->face = LEFT;
 
 	e->action = &init;
-	e->touch = &touch;
 	e->activate = &activate;
+	e->touch = &touch;
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -365,6 +367,10 @@ static void chainWait()
 static void init()
 {
 	addChain();
+	
+	self->dirX = 0;
+	
+	self->dirY = 0;
 
 	self->action = &wait;
 }
@@ -385,4 +391,9 @@ static int drawChain()
 	}
 
 	return TRUE;
+}
+
+static void fallout()
+{
+	/* Do nothing */
 }
