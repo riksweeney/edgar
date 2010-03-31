@@ -1,1 +1,0 @@
-svn diff http://reddwarf/svn/Edgar/tags/$1/data/maps http://reddwarf/svn/Edgar/trunk/data/maps >diff.txt

@@ -1,8 +1,0 @@
-HEALTH 70
-DAMAGE 1
-GFX_FILE data/gfx/enemy/summoner.dat
-ANIM_FILE data/anim/enemy/summoner.dat
-TYPE ENEMY
-SPEED 2
-REQUIRES purple_jumping_slime|red_grub|scorpion|purple_snail
-THINKTIME 0
