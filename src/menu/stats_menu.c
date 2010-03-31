@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../input.h"
 #include "../audio/audio.h"
 #include "main_menu.h"
+#include "stats_menu.h"
 #include "../system/error.h"
 
 extern Input input, menuInput;
@@ -290,6 +291,8 @@ static void loadMenuLayout()
 Menu *initStatsMenu()
 {
 	menu.action = &doMenu;
+	
+	freeStatsMenu();
 
 	loadMenuLayout();
 
