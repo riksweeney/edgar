@@ -156,6 +156,7 @@ static Constructor items[] = {
 {"item/extend_o_grab", &addExtendOGrab},
 {"item/sliding_puzzle", &addSlidingPuzzle},
 {"item/sliding_puzzle_display", &addSlidingPuzzleDisplay},
+{"item/large_sliding_puzzle_display", &addSlidingPuzzleDisplay},
 {"item/tread_mill", &addTreadMill},
 {"item/power_meter", &addPowerMeter},
 {"item/shield_pillar", &addShieldPillar},

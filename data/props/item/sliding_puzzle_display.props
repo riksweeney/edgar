@@ -1,4 +1,4 @@
-HEALTH 0
+HEALTH 9
 GFX_FILE data/gfx/item/sliding_puzzle_display.dat
 ANIM_FILE data/anim/common/no_anim.dat
 TYPE KEY_ITEM

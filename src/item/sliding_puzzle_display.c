@@ -78,8 +78,10 @@ static void wait()
 
 static void validate()
 {
-	int x, y, i, found;
+	int x, y, i, found, cols;
 	Entity *e;
+	
+	cols = sqrt(self->health);
 	
 	x = self->x;
 	y = self->y;
@@ -90,7 +92,7 @@ static void validate()
 	
 	for (e=self->target;e!=NULL;e=e->target)
 	{
-		if (i != 0 && (i % 3 == 0))
+		if (i != 0 && (i % cols == 0))
 		{
 			x = self->x;
 			
@@ -194,7 +196,7 @@ static void init()
 	
 	prev = self;
 	
-	for (i=0;i<8;i++)
+	for (i=0;i<self->health-1;i++)
 	{
 		e = getFreeEntity();
 		
@@ -232,13 +234,20 @@ static void init()
 
 static void randomize()
 {
-	int i, tiles[9], boardWidth, tileWidth;
+	int i, *tiles, boardWidth, tileWidth;
 	Entity *e;
 	
 	tileWidth = self->target->w;
 	boardWidth = self->w;
 	
-	for (i=0;i<9;i++)
+	tiles = (int *)malloc(self->health * sizeof(int));
+	
+	if (tiles == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Sliding Puzzle display", (int)sizeof(int) * self->health);
+	}
+	
+	for (i=0;i<self->health;i++)
 	{
 		tiles[i] = i * tileWidth;
 	}
@@ -269,6 +278,8 @@ static void randomize()
 	}
 	
 	self->mental = 0;
+	
+	free(tiles);
 }
 
 static void slideToTarget()
