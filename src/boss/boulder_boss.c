@@ -114,7 +114,7 @@ static void drop()
 {
 	if (self->flags & ON_GROUND)
 	{
-		self->thinkTime = 120;
+		self->thinkTime = 30;
 
 		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
 
@@ -142,7 +142,7 @@ static void wait()
 
 		self->endX = -2.0f;
 
-		self->thinkTime = 120;
+		self->thinkTime = 65;
 
 		self->action = &chasePlayer;
 	}
@@ -158,7 +158,7 @@ static void chasePlayer()
 
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 95;
+		self->thinkTime = 65;
 
 		self->endX -= 0.08f;
 
