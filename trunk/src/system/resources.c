@@ -19,9 +19,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-extern Game game;
-extern Entity player;
-
 #include "../graphics/animation.h"
 #include "../audio/audio.h"
 #include "../map.h"
@@ -68,6 +65,9 @@ extern Entity player;
 #include "../world/anti_gravity_field.h"
 #include "error.h"
 #include "pak.h"
+
+extern Game game;
+extern Entity player;
 
 static char **key, **value;
 

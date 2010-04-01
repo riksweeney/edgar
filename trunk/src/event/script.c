@@ -460,6 +460,11 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
+				
+				if (e == &player)
+				{
+					syncWeaponShieldToPlayer();
+				}
 			}
 
 			else if (strcmpignorecase(token, "SPEED") == 0)

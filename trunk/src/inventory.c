@@ -566,7 +566,7 @@ void getInventoryItemFromScript(char *line)
 
 				removeInventoryItem(itemName);
 				
-				setInfoBoxMessage(0, 255, 255, 255, _("Removed %s"), _(itemName));
+				setInfoBoxMessage(90, 255, 255, 255, _("Removed %s"), _(itemName));
 			}
 		}
 
