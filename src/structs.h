@@ -149,7 +149,7 @@ typedef struct Game
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten, medalSupport;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
-	int secretsFound;
+	int secretsFound, alphaTime;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;

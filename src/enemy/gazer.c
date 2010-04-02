@@ -156,7 +156,7 @@ static void gaze()
 {
 	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
 
-	fadeFromWhite();
+	fadeFromWhite(60);
 
 	if ((player.x < self->x && player.face == RIGHT) || (player.x > self->x && player.face == LEFT))
 	{

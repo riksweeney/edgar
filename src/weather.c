@@ -178,7 +178,7 @@ static void storm()
 
 	if (game.weatherThinkTime <= 0)
 	{
-		fadeFromWhite();
+		fadeFromWhite(30);
 
 		game.weatherThinkTime = 600 + prand() % 1200;
 	}

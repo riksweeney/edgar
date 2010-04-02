@@ -790,3 +790,31 @@ int hasLightningSword()
 {
 	return inventory.hasLightningSword;
 }
+
+void scriptAddToInventory(char *name)
+{
+	int i;
+	Entity *e;
+	
+	e = addPermanentItem(name, 0, 0);
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == FALSE)
+		{
+			inventory.item[i] = *e;
+
+			inventory.item[i].face = RIGHT;
+
+			inventory.item[i].thinkTime = 0;
+
+			setEntityAnimation(&inventory.item[i], STAND);
+			
+			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(inventory.item[i].objectiveName));
+
+			break;
+		}
+	}
+	
+	e->inUse = FALSE;
+}
