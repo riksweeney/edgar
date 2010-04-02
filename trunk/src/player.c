@@ -1603,7 +1603,12 @@ static void fireArrow()
 		
 		game.arrowsFired++;
 		
-		if (game.arrowsFired == 500)
+		if (game.arrowsFired == 250)
+		{
+			addMedal("arrow_250");
+		}
+		
+		else if (game.arrowsFired == 500)
 		{
 			addMedal("arrow_500");
 		}
