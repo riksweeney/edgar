@@ -904,6 +904,8 @@ void freeScript()
 		free(script.text);
 
 		script.text = NULL;
+		
+		script.counter = 0;
 	}
 
 	freeDialogBox();

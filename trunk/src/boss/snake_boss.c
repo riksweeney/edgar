@@ -75,6 +75,7 @@ static void addSmokeAlongBody(void);
 static void stunned(void);
 static void crushAttackHit(Entity *);
 static void bodyTakeDamage(Entity *, int);
+static void starWait(void);
 
 Entity *addSnakeBoss(int x, int y, char *name)
 {
@@ -1000,7 +1001,9 @@ static void dieWait()
 
 static void specialShotBlock()
 {
-	self->dirX *= -1;
+	self->dirX = (self->dirX < 0 ? 5 : -5);
+	
+	self->dirY = -5;
 
 	self->type = ENEMY;
 
@@ -1087,7 +1090,9 @@ static void biteReactToBlock()
 
 static void stunned()
 {
+	int i;
 	long onGround = self->flags & ON_GROUND;
+	Entity *e;
 
 	setEntityAnimation(self, PAIN);
 
@@ -1105,6 +1110,37 @@ static void stunned()
 		}
 
 		self->action = &attackFinished;
+		
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Armour Boss's Star");
+			}
+
+			loadProperties("boss/armour_boss_star", e);
+
+			e->x = self->x;
+			e->y = self->y;
+
+			e->action = &starWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->thinkTime = 300;
+
+			e->head = self;
+
+			setEntityAnimation(e, STAND);
+
+			e->currentFrame = (i == 0 ? 0 : 6);
+
+			e->x = self->x + self->w / 2- e->w / 2;
+
+			e->y = self->y - e->h;
+		}
 	}
 
 	alignBodyToHead();
@@ -1143,5 +1179,15 @@ static void bodyTakeDamage(Entity *other, int damage)
 		self->takeDamage(other, damage);
 
 		self = temp;
+	}
+}
+
+static void starWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 || self->head->health <= 0)
+	{
+		self->inUse = FALSE;
 	}
 }

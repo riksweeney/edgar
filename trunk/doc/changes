@@ -7,6 +7,7 @@ Version 0.55
 * Added some statistics, such as play time and enemies killed
 * Fixed a bunch of memory leaks
 * Added more Medals to earn, check Parallel Realities for details
+* Scripts no longer freeze when they are interrupted when loading a game
 
 Version 0.52
 * Minor update to the Basement boss
