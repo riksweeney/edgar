@@ -2,3 +2,5 @@ edgar/edgar
 wall/fortress_weak_wall
 common/save_point
 common/level_exit
+enemy/dragon_fly
+item/health_potion

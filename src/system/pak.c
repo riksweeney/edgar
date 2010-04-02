@@ -280,15 +280,16 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index, read;
+	char *filename;
 	unsigned long size;
-	unsigned char *source, *dest, *filename;
+	unsigned char *source, *dest;
 	FILE *fp;
 
 	index = i = -1;
 	
 	filename = NULL;
 
-	filename = (unsigned char *)malloc(MAX_PATH_LENGTH);
+	filename = (char *)malloc(MAX_PATH_LENGTH);
 
 	if (filename == NULL)
 	{
@@ -380,11 +381,11 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		{
 			fclose(fp);
 
-			snprintf((unsigned char *)filename, MAX_PATH_LENGTH, "%spakdata", getGameSavePath());
+			snprintf(filename, MAX_PATH_LENGTH, "%spakdata", getGameSavePath());
 
 			printf("Writing to %s\n", filename);
 
-			fp = fopen((char *)filename, "wb");
+			fp = fopen(filename, "wb");
 
 			if (fp == NULL)
 			{
@@ -413,7 +414,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 	if (writeToFile == TRUE)
 	{
-		return filename;
+		return (unsigned char *)filename;
 	}
 
 	else

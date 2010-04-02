@@ -124,6 +124,8 @@ static void flyAround()
 			self->action = &dropWait;
 			
 			self->mental = 2;
+			
+			self->endX = 0;
 		}
 		
 		else
@@ -167,6 +169,8 @@ static void dropWait()
 
 static void walkAround()
 {
+	int face = self->face;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
@@ -191,6 +195,16 @@ static void walkAround()
 	else
 	{
 		moveLeftToRight();
+		
+		if (self->face != face)
+		{
+			self->endX++;
+			
+			if (self->endX >= 15)
+			{
+				self->thinkTime = 0;
+			}
+		}
 	}
 }
 

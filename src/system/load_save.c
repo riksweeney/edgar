@@ -423,7 +423,7 @@ static void patchSaveGame(char *saveFile, double version)
 					
 					fprintf(newSave, "ARROWS_FIRED %d\n", game.arrowsFired);
 					
-					fprintf(newSave, "SECRETS %d\n", game.secretsFound);
+					fprintf(newSave, "SECRETS_FOUND %d\n", game.secretsFound);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
@@ -532,7 +532,7 @@ void saveGame(int slot)
 	
 	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
 	
-	fprintf(write, "SECRETS %d\n", game.secretsFound);
+	fprintf(write, "SECRETS_FOUND %d\n", game.secretsFound);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
@@ -1126,6 +1126,7 @@ char **getSaveFileIndex()
 
 int getPrivateKey(char *privateKey)
 {
+	int result;
 	char keyPath[MAX_PATH_LENGTH];
 	FILE *fp;
 
@@ -1138,7 +1139,7 @@ int getPrivateKey(char *privateKey)
 		return FALSE;
 	}
 
-	fscanf(fp, "%s", privateKey);
+	result = fscanf(fp, "%s", privateKey);
 
 	fclose(fp);
 
