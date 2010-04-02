@@ -43,3 +43,4 @@ void setInventoryIndex(int);
 int getInventoryIndex(void);
 int hasBow(void);
 int hasLightningSword(void);
+void scriptAddToInventory(char *);

@@ -548,6 +548,13 @@ void readNextScriptLine()
 			getInventoryItemFromScript(script.text[script.line]);
 		}
 		
+		else if (strcmpignorecase("ADD_TO_INVENTORY", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			scriptAddToInventory(token);
+		}
+		
 		else if (strcmpignorecase("HAS_OBJECTIVE", command) == 0)
 		{
 			getObjectiveFromScript(script.text[script.line]);
@@ -622,6 +629,13 @@ void readNextScriptLine()
 		else if (strcmpignorecase("ADD_SECRET", command) == 0)
 		{
 			increaseSecretsFound();
+		}
+		
+		else if (strcmpignorecase("FLASH_SCREEN", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			fadeFromWhite(atoi(token));
 		}
 
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)
@@ -906,6 +920,8 @@ void freeScript()
 		script.text = NULL;
 		
 		script.counter = 0;
+		
+		script.thinkTime = 0;
 	}
 
 	freeDialogBox();

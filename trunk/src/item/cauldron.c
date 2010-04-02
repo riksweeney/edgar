@@ -24,14 +24,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../event/script.h"
 #include "../hud.h"
+#include "../graphics/decoration.h"
 #include "../collisions.h"
 #include "../system/error.h"
+#include "../system/random.h"
 
 extern Entity *self;
 
 static void wait(void);
 static void touch(Entity *);
 static void activate(int);
+static void shudder(void);
 
 Entity *addCauldron(int x, int y, char *name)
 {
@@ -68,12 +71,19 @@ Entity *addCauldron(int x, int y, char *name)
 
 static void wait()
 {
+	self->x = self->startX;
+	
+	if (self->mental == 1)
+	{
+		self->action = &shudder;
+	}
+	
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && other->action == NULL)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
@@ -82,4 +92,33 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	runScript("cauldron");
+}
+
+static void shudder()
+{
+	Entity *smoke;
+	
+	self->endX += 90;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 4;
+	
+	checkToMap(self);
+	
+	if (self->mental == 2)
+	{
+		smoke = addSmoke(0, 0, "decoration/dust");
+
+		if (smoke != NULL)
+		{
+			smoke->x = self->x + prand() % self->w;
+			smoke->y = self->y + prand() % self->h;
+			
+			smoke->dirY = 0;
+		}
+	}
 }

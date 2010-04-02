@@ -1,0 +1,6 @@
+SET CAULDRON PROPERTY MENTAL 0
+SET CAULDRON PROPERTY HEALTH 4
+SET Edgar ANIMATION DIE
+SET Edgar FACE LEFT
+WAIT 180
+TALK Edgar Maybe that wasn't such a good idea after all...

@@ -794,9 +794,9 @@ char *getSlimeTimeAsString()
 	return timeString;
 }
 
-void fadeFromWhite()
+void fadeFromWhite(int fadeTime)
 {
-	game.thinkTime = 60;
+	game.alphaTime = game.thinkTime = fadeTime;
 
 	if (game.alphaSurface != NULL)
 	{
@@ -814,7 +814,7 @@ void fadeFromWhite()
 
 static void fadeToNormal()
 {
-	float alpha = 200 / 60;
+	float alpha = 255.0f / game.alphaTime;
 
 	alpha *= game.thinkTime;
 
