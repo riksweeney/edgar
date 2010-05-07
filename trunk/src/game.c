@@ -478,8 +478,6 @@ void goToNextMap()
 		loadPersitanceData(game.nextMap);
 	}
 
-	fireMapTrigger(game.nextMap);
-
 	if (strcmpignorecase(game.playerStart, "PLAYER_START") != 0)
 	{
 		start = getEntityByObjectiveName(game.playerStart);
@@ -491,6 +489,8 @@ void goToNextMap()
 
 		loadPlayer(start->x, start->y, NULL);
 	}
+	
+	fireMapTrigger(game.nextMap);
 
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
