@@ -1,0 +1,2185 @@
+# Auto Generated for The Legend of Edgar
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# Parallel Realities, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: The Legend of Edgar\n"
+"POT-Creation-Date: 2009-10-01 13:33+0100\n"
+"PO-Revision-Date: 2009-10-01 13:33+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 1 : 2;\n"
+
+msgid "Quickly turn left and right to shake off the slimes!"
+msgstr "Cas ar chlé go tapa agus an ceart chun shake amach an slimes!"
+
+msgid "Bow"
+msgstr "Bow"
+
+msgid "Not working in this version!"
+msgstr "Níl sé ag obair sa leagan seo!"
+
+msgid "Press Action to interact"
+msgstr "Preas Gníomhaíochta chun idirghníomhú"
+
+msgid "%s is required"
+msgstr "%s Is gá"
+
+msgid "Bomb"
+msgstr "Buama"
+
+msgid "Small Rock"
+msgstr "Bheaga Rock"
+
+msgid "Press Action to retrieve the Purple Gem"
+msgstr "Preas Gníomhaíochta a fháil ar an GEM Purple"
+
+msgid "Chicken"
+msgstr "Sicín"
+
+msgid "Tesla Pack"
+msgstr "Tesla Pack"
+
+msgid "Press Action to retrieve Tesla Pack"
+msgstr "Preas Gníomhaíochta a fháil Tesla Pacáiste"
+
+msgid "Press Action to replace Tesla Pack"
+msgstr "Preas Gníomhaíochta a chur in ionad Tesla Pacáiste"
+
+msgid "Obtained %s"
+msgstr "Faighte %s"
+
+msgid "Complete"
+msgstr "Críochnaithe"
+
+msgid "%d more to go..."
+msgstr "%d mó a théann ..."
+
+msgid "Used %s"
+msgstr "Úsáidte %s"
+
+msgid "Cannot equip items whilst transmogrified"
+msgstr "Ní féidir rudaí a chur i bhfearas ag an am céanna transmogrified"
+
+msgid "Equipped %s"
+msgstr "Feistithe %s"
+
+msgid "Maximum health has increased!"
+msgstr "Tá uasta sláinte méadú!"
+
+msgid "Bow will now fire %s"
+msgstr "Beidh Bow dóiteáin anois %s"
+
+msgid "A bow is required to use this item"
+msgstr "Tá gá Bow seo a úsáid mír"
+
+msgid "Cannot transmogrify here..."
+msgstr "Ní féidir transmogrify anseo ..."
+
+msgid "Yes"
+msgstr "Is ea"
+
+msgid "No"
+msgstr "Ní hea"
+
+msgid "Start a new game?"
+msgstr "Tosaigh le cluiche nua?"
+
+msgid "Play the tutorial?"
+msgstr "Seinn an teagaisc?"
+
+msgid "Exit the game?"
+msgstr "Scoir an cluiche?"
+
+msgid "Back"
+msgstr "Ar ais"
+
+msgid "Game Loaded"
+msgstr "Cluiche Luchtaithe"
+
+msgid "Game Saved"
+msgstr "Cluiche Sábháilte"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Any unsaved progress will be lost"
+msgstr "Déanfar aon dul chun cinn gan sábháil a chailliúint"
+
+msgid "Joy Button #%d"
+msgstr "Aoibhneas Cnaipe # %d"
+
+msgid "Press Action to talk to %s"
+msgstr "Preas Gníomhaíochta chun labhairt le %s"
+
+msgid "%d"
+msgstr "%d"
+
+msgid "%s (%d / %d)"
+msgstr "%s (%d / %d)"
+
+msgid "New Objective: %s"
+msgstr "Nua Cuspóir: %s"
+
+msgid "Objective Completed: %s"
+msgstr "Cuspóir Críochnaithe: %s"
+
+msgid "The wall on the right looks weak..."
+msgstr "Breathnaíonn an balla ar an ceart lag ..."
+
+msgid "This weapon is not having any effect..."
+msgstr "Níl an arm a bhfuil aon éifeacht ..."
+
+msgid "Press Action to attach the Tesla Pack"
+msgstr "Preas Gníomhaíochta a chur ag gabháil leis an Pacáiste Tesla"
+
+msgid "The Legend of Edgar"
+msgstr "An Finscéal de Edgar"
+
+msgid "%s is needed to activate this switch"
+msgstr "%s Is gá chun a ghníomhachtú seo a aistriú"
+
+msgid "Press Action to use this switch"
+msgstr "Preas Gníomhaíochta seo a úsáid athrú"
+
+msgid "Press Action to save your game"
+msgstr "Preas Gníomhaíochta do chluiche a shábháil"
+
+msgid "%s is required to use this Pressure Plate"
+msgstr "%s Is gá seo a úsáid Bhrú pláta"
+
+msgid "%s is needed to open this door"
+msgstr "%s Is gá a oscailt an doras"
+
+msgid "This door is locked"
+msgstr "Tá an doras faoi ghlas"
+
+msgid "This teleporter is not active"
+msgstr "Níl an teleporter gníomhach"
+
+msgid "Press Action to go to the %s"
+msgstr "Preas Gníomhaíochta chun dul go dtí an %s"
+
+msgid "Push Up or Down to use this lift"
+msgstr "Brúigh Suas nó an Dúin seo a úsáid ardaitheoir"
+
+msgid "This lift is not active"
+msgstr "Níl an ardaitheoir gníomhach"
+
+msgid "Cannot carry any more %s"
+msgstr "Ní féidir a sheoladh ar bith níos mó ná %s"
+
+msgid "Picked up %s x %d"
+msgstr "Roghnaíodh suas %s x %d"
+
+msgid "Picked up %s"
+msgstr "Roghnaíodh suas %s"
+
+msgid "Readied %s"
+msgstr "Readied %s"
+
+msgid "%s is required to carry this item"
+msgstr "%s Is gá a chur i mír seo"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s"
+msgstr "%s"
+
+msgid "Storage Key"
+msgstr "Stóráil Eochair"
+
+msgid "Coal Bag Storage Switch Key"
+msgstr "Gual mála Stóráil Athraigh an Príomh -"
+
+msgid "Large Room Key"
+msgstr "Large Seomra Eochair"
+
+msgid "Coal Bag"
+msgstr "Gual mála"
+
+msgid "Forest Cell Key"
+msgstr "Foraoise Cill Eochair"
+
+msgid "Wood Axe"
+msgstr "Adhmad tua"
+
+msgid "Health Potion"
+msgstr "Sláinte Potion"
+
+msgid "Outflow Key"
+msgstr "Eis-sreabhadh Eochair"
+
+msgid "Flow Control Key"
+msgstr "Sreabhadh Rialú Eochrach"
+
+msgid "Waste Processing Key"
+msgstr "Próiseála Dramhaíola Eochair"
+
+msgid "Access Key 1"
+msgstr "Eochair Rochtana 1"
+
+msgid "Access Key 2"
+msgstr "Eochair Rochtana 2"
+
+msgid "Access Key 3"
+msgstr "Eochair Rochtana 3"
+
+msgid "Trap Door Switch Key"
+msgstr "Gaiste Doras Athraigh an Príomh -"
+
+msgid "This lift has no power. I won't be able to use it until I restore the power"
+msgstr "Tá an ardaitheoir aon chumhacht. Ní bheidh mé in ann é a úsáid go dtí go mbeidh mé ar ais ar an chumhacht"
+
+msgid "Keep practising!"
+msgstr "Coinnigh cleachtadh!"
+
+msgid "Hi"
+msgstr "Haigh"
+
+msgid "Hello Edgar"
+msgstr "Dia duit Edgar"
+
+msgid "Can I borrow your shield?"
+msgstr "An féidir liom a fháil ar iasacht do sciath?"
+
+msgid "Off to practice your fighting skills?"
+msgstr "As a chleachtadh do scileanna troda?"
+
+msgid "Something like that"
+msgstr "Rud éigin cosúil go"
+
+msgid "If you run me an errand then you can have the shield"
+msgstr "Má ritheann tú dom an errand ansin is féidir leat a bheith ar an sciath"
+
+msgid "What do I have to do?"
+msgstr "Cad atá agam a dhéanamh?"
+
+msgid "Go to the mine and collect me some coal"
+msgstr "Téigh go dtí an mianach a bhailiú agus a roinnt guail dom"
+
+msgid "But we have plenty of coal!"
+msgstr "Ach ní mór dúinn leor guail!"
+
+msgid "Yes, but this is not any old coal, this coal is special, it burns hotter and lasts longer"
+msgstr "Tá, ach níl sé seo ar aon gual d'aois, tá an gual speisialta, dó é hotter agus mhaireann níos faide"
+
+msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr "De dhíth orm ach 10 píosaí den stuif, agus mar sin níor chóir é a chur duit an-fhada"
+
+msgid "Make sure you put it in a bag, touching it for too long will be bad for your health"
+msgstr "Bí cinnte a chur tú é i mála, touching sé Beidh ró-fhada go dona do do shláinte"
+
+msgid "Do you have a bag?"
+msgstr "An bhfuil tú mála?"
+
+msgid "No, you can probably find one in the mine though"
+msgstr "Níl, is féidir leat teacht ar dócha gur ceann amháin i mianach cé go"
+
+msgid "OK, I'll get the coal"
+msgstr "OK, beidh mé a fháil ar an ghual"
+
+msgid "Here, take this pickaxe. You can use it to mine the coal and hack through any weaker walls you encounter"
+msgstr "Anseo, a ghlacadh pickaxe seo. Is féidir leat é a úsáid chun an mianach guail agus hack trí aon ballaí níos laige leat teacht ar"
+
+msgid "You'll also need this key to get into the mine"
+msgstr "Beidh ort freisin seo tábhachtach chun dul isteach ar an mianach"
+
+msgid "Thanks!"
+msgstr "Go raibh maith agat!"
+
+msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgstr "Go raibh míle maith agat, Edgar, tá an gual foirfe! Ní raibh an Dóchais bats scare tú."
+
+msgid "The bats were the least of my worries..."
+msgstr "An bats bhí a laghad de mo imní ..."
+
+msgid "Say, I heard that something happened in that mine a few years ago"
+msgstr "Abair, Chuala mé go bhfuil rud éigin a tharla i mianach sin cúpla bliain ó shin"
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr "ER, yeah, bhí an méid gur mhaith leat glaoch a  tarlú , ach bhí séalaithe gur chuid de na mianach suas le fada ó shin"
+
+msgid "Right..."
+msgstr "Ceart ..."
+
+msgid "Here, have my shield and have fun!"
+msgstr "Anseo, tá mo sciath agus ag spraoi!"
+
+msgid "Just stay away from the Forbidden Swamp"
+msgstr "Just fanacht amach as an Swamp Toirmiscthe"
+
+msgid "Will do, can I hold on to your pickaxe for a while?"
+msgstr "An bhfuil, an féidir liom a shealbhú ar a do pickaxe ar fad?"
+
+msgid "Sure thing, just bring it back in one piece"
+msgstr "Rud cinnte, ach a thabhairt ar ais i gceann píosa"
+
+msgid "Thanks, Borgan!"
+msgstr "Go raibh maith agat, Borgan!"
+
+msgid "Have you managed to find the coal yet?"
+msgstr "An bhfuil bhainistiú leat teacht ar an gual go fóill?"
+
+msgid "You can pull some items around by pushing against them whilst holding down the Action button."
+msgstr "Is féidir leat tharraingt le roinnt míreanna timpeall ag brú ar aghaidh iad ach a bhfuil síos an cnaipe Gníomhaíochta."
+
+msgid "You can then pull it around until you let go of the Action button"
+msgstr "Is féidir leat ansin tarraingt sé thart go dtí go iúl duit dul ar an gcnaipe Gníomhaíochta"
+
+msgid "This rock looks too strong for my Pick Axe. I'll have to use something else to get through..."
+msgstr "Breathnaíonn an carraig ró-láidir do mo Pioc tua. Beidh mé ag úsáid a bhaint as rud éigin eile a fháil tríd an ..."
+
+msgid "Urgh, what happened?"
+msgstr "Urgh, cad a tharla?"
+
+msgid "Looks like this wasn't such a good idea after all"
+msgstr "Ní raibh Breathnaíonn mar seo den sórt sin a smaoineamh maith tar éis gach"
+
+msgid "There must be way out of here..."
+msgstr "Ní mór go mbeadh bealach amach anseo ..."
+
+msgid "This must be the coal wants me to mine for him"
+msgstr "Ní mór é seo a an gual mian liom chun mianach dó"
+
+msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
+msgstr "Ní dóigh liom go mbeidh mo sciath dom a chosaint ó na fireballs. Beidh mé ag teacht ar amháin níos láidre ..."
+
+msgid "You won't be able to do this bit in this version, check back later!"
+msgstr "Ní bheidh tú in ann é sin a dhéanamh giotán sa leagan seo, a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "Strange creature..."
+msgstr "Creature ait ..."
+
+msgid "Wait, what was that?"
+msgstr "Fan, cad é sin?"
+
+msgid "You again?!"
+msgstr "Tú arís?!"
+
+msgid "Something is supposed to happen here, but it's not in this version so check back later!"
+msgstr "Rud atá ceaptha le tarlú anseo, ach nach bhfuil sé sa leagan sin a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "Have fun!"
+msgstr "Bain sult as!"
+
+msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
+msgstr "Go raibh maith agat as mo resucing sicíní, fuair tú dom 2 logs ó na foraoise fóill?"
+
+msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
+msgstr "Edgar Go raibh maith agat! Mo sicíní atá ar ais agus beidh na logaí a dhéanamh dom fíneáil"
+
+msgid "Take this sword, may it serve you well!"
+msgstr "Féadfaidh Tóg an sword, sé freastal maith agat!"
+
+msgid "Thank you!"
+msgstr "Go raibh maith agat!"
+
+msgid "Thanks for the logs, have you had any luck with the chickens?"
+msgstr "Go raibh maith agat as an logs, bhí tú aon luck leis na sicíní?"
+
+msgid "I'll give you a sword if you get me 2 chopped logs from the forest and rescue at least 3 of my chickens"
+msgstr "Beidh mé a thabhairt duit sword má fhaigheann tú dom 2 logs chopped ó na foraoise agus tarrthála ar a laghad 3 de mo sicíní"
+
+msgid "Hello Edgar, what can I do for you today?"
+msgstr "Dia duit Edgar, cad is féidir liom a dhéanamh le haghaidh tú inniu?"
+
+msgid "Do you have a sword I can borrow?"
+msgstr "An bhfuil sword is féidir liom a fháil ar iasacht?"
+
+msgid "I do have a sword and you can have it if you do something for me first"
+msgstr "Liom a dhéanamh ag sword agus is féidir tá sé leat má dhéanann tú rud éigin do chéad uair dom"
+
+msgid "OK... what do I have to do?"
+msgstr "OK ... cad a dhéanann agam a dhéanamh?"
+
+msgid "Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me"
+msgstr "Tá cuid de mo sicíní ag éalú óna peann agus go mbeadh sé mé an-bhuíoch más féidir leat iad a fháil ar ais dom"
+
+msgid "I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself."
+msgstr "Tá mé ar bun roinnt gaistí in aice a peann, is féidir leat iad a lure chun an úsáid a bhaint as gaistí seo beatha cearc. Ní féidir liom gá iad go léir, ach ar a laghad 3 go mbeadh an-cabhrach. Is féidir liom teacht ar an gcuid féin."
+
+msgid "That's it?"
+msgstr "Sin é?"
+
+msgid "Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient"
+msgstr "Níl go leor. An féidir leat a fháil chomh maith dom roinnt adhmaid ó na foraoise? Ba chóir 2 logs go leor"
+
+msgid "Do you have an axe?"
+msgstr "An bhfuil tú tua?"
+
+msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr "Erm ... D'fhág mé mo tua san fhoraois áit éigin. Ba chóir é a fós"
+
+msgid "Isn't that forest dangerous?"
+msgstr "An nach foraoise contúirteacha?"
+
+msgid "Not really, if anything gets in your way, just hit it with a weapon"
+msgstr "Gan ndáiríre, má thagann aon ní i do bhealach a dhéanamh, ach bhuail sé le arm"
+
+msgid "Such as an axe?"
+msgstr "Den sórt sin mar tua?"
+
+msgid "Yes, that would do the trick"
+msgstr "Tá, go mbeadh a dhéanamh ar an trick"
+
+msgid "..."
+msgstr "..."
+
+msgid "But seriously, there's nothing in there that can really harm you. That problem was dealt with a long time ago..."
+msgstr "Ach go dáiríre, níl aon ní sa ann gur féidir dochar a dhéanamh leat i ndáiríre. Pléadh an fhadhb le fada ó shin ..."
+
+msgid "Good luck!"
+msgstr "Go n-éirí leat!"
+
+msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr "Ó, a bhuíochas Edgar, is gá mé ach 3, ach a bhuíochas ar an cuidiú breise!"
+
+msgid "Here, Maggie made me this health potion but I don't need it so why don't you have it?"
+msgstr "Anseo, rinne mé Maggie seo a potion sláinte ach ní féidir liom gá é sin an fáth nach bhfuil tú é?"
+
+msgid "Thanks Jacob"
+msgstr "Buíochas Jacob"
+
+msgid "Wow, you caught them all, thanks alot!"
+msgstr "Wow, ghabh tú iad go léir, a bhuíochas go leor!"
+
+msgid "Here, I have these for you"
+msgstr "Anseo, tá mé seo leat"
+
+msgid "Maggie made me this health potion but you can have it"
+msgstr "Maggie dhéanamh dom an potion sláinte ach is féidir leat é a"
+
+msgid "And this is something very special"
+msgstr "Agus is é an rud an-speisialta"
+
+msgid "May this help you on your way to becoming a strong warrior"
+msgstr "Bealtaine seo cabhrú leat ar do bhealach a dhéanamh chun bheith ina laochra láidir"
+
+msgid "You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it."
+msgstr "Sábháladh dom tú go leor ama. Maggie dhéanamh dom rud éigin eile, ach ó bhí tú cabhrach sin, is féidir leat a bheith air."
+
+msgid "Hi Maggie"
+msgstr "Dia duit Maggie"
+
+msgid "Thanks Maggie!"
+msgstr "Maggie Go raibh maith agat!"
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr "Borgan dúirt go raibh séalaithe alt ar an mianach suas tar éis  teagmhas "
+
+msgid "There must be something around here..."
+msgstr "Ní mór go mbeadh rud éigin anseo timpeall ..."
+
+msgid "Drat, the drawbridge is up. There must be another entrance..."
+msgstr "Drat, tá an drawbridge suas. Ní mór go mbeadh bealach eile ..."
+
+msgid "Wait, what's that?"
+msgstr "Fan, ar cad go?"
+
+msgid "Maybe I could tunnel my way in..."
+msgstr "B'fhéidir go bhféadfaí tollán mé mo bhealach isteach .."
+
+msgid "These machines aren't working."
+msgstr "Nach bhfuil na meaisíní oibre."
+
+msgid "It looks like a gem should fit in this hole, maybe I can find some replacements."
+msgstr "Breathnaíonn sé cosúil le GEM Ba chóir go cuí i bpoll seo, b'fhéidir is féidir liom a fháil roinnt replacements."
+
+msgid "It looks like it's tightly wedged in there. I can probably loosen it with the pickaxe..."
+msgstr "Tá sí mar tá sé wedged docht in ann. Is féidir liom a scaoileadh dócha sé leis an pickaxe ..."
+
+msgid "To get to the Forbidden Swamp I'll need to build a raft."
+msgstr "Chun a fháil chun an Swamp Toirmiscthe beidh mé gá a thógáil raft."
+
+msgid "I can build the raft if I chop down enough trees from the forest"
+msgstr "Is féidir liom a thógáil ar an raft má mé síos chop crainn go leor ó na foraoise"
+
+msgid "I need 6 Chopped Logs to build a raft"
+msgstr "De dhíth orm 6 Logchomhaid Chopped a thógáil raft"
+
+msgid "I'm not going to the swamp without a sword and shield"
+msgstr "Níl mé ag dul go dtí an swamp gan sword agus sciath"
+
+msgid "OK, here goes!"
+msgstr "Téann OK, anseo!"
+
+msgid "Aw, not again!"
+msgstr "AW, ní arís!"
+
+msgid "This had better be the last time I have to do this..."
+msgstr "Bhí sé seo a bheith níos fearr an t-am caite agam seo a dhéanamh ..."
+
+msgid "That was easy! And I can always get back later!"
+msgstr "Bhí an éasca! Agus is féidir liom a fháil i gcónaí ar ais ina dhiaidh sin!"
+
+msgid "Oh...."
+msgstr "Oh ...."
+
+msgid "Guess I have no choice now."
+msgstr "Buille faoi thuairim agam aon rogha anois."
+
+msgid "Hang on Dad, I'm coming..."
+msgstr "Hang ar daid, I'm teacht ..."
+
+msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
+msgstr "Rud atá ceaptha le tarlú anois, ach nach bhfuil sé sa leagan seo. Seiceáil ar ais ina dhiaidh sin!"
+
+msgid "There's a note here"
+msgstr "Tá an nóta anseo"
+
+msgid "I've been trapped down here for what seems like an eternity"
+msgstr "Bainim gafa síos anseo ar cad is cosúil cosúil le eternity"
+
+msgid "To get out of this place I need 3 Access Keys to work the lifts"
+msgstr "Chun a fháil amach an áit seo de dhíth orm Eochracha 3 Rochtain ar obair an ardaitheoirí"
+
+msgid "So far I have only found 1"
+msgstr "Go dtí seo tá aimsithe agam ach 1"
+
+msgid "To make matters worse, I can only reach some switches with a carefully placed arrow"
+msgstr "Chun a dhéanamh cúrsaí níos measa, an féidir liom teacht ach roinnt lasca le arrow cúramach a chuirtear"
+
+msgid "But spares aren't common and I have run out"
+msgstr "Ach ní spares coitianta agus mé ag siúl amach"
+
+msgid "If I don't find a way out of here soon, I fear I may starve"
+msgstr "Más rud é nach féidir liom a fháil ar bhealach amach anseo go luath, eagla orm féidir liom starve"
+
+msgid "If I don't get out of here I'll suffer the same fate..."
+msgstr "Más rud é nach féidir liom a fháil amach anseo beidh mé ag fulaingt an cinniúint céanna ..."
+
+msgid "Oh, what's this?"
+msgstr "Ó, ar cad seo?"
+
+msgid "There's a note here too"
+msgstr "Tá an nóta anseo freisin"
+
+msgid "The potion is perfect! Quaffing it will turn a human into a creature for a small amount of time"
+msgstr "Is é an potion foirfe! Quaffing beidh sé seal ar an duine i creature do mhéid beag ama"
+
+msgid "So far I can only transmogrify myself into one creature but with a bit more time anything should be possible"
+msgstr "Ba chóir Go dtí seo is féidir liom a transmogrify féin ach amháin i creature ach le beagán aon ní níos mó ama agus is féidir a"
+
+msgid "There's a tiny bit left, it should be safe to drink"
+msgstr "Chlé Níl le beagán beag bídeach, ba cheart é a bheith sábháilte le deoch"
+
+msgid "OK, here goes nothing..."
+msgstr "Téann OK, anseo faic ..."
+
+msgid "Urgh!! This is horrible!"
+msgstr "Urgh! Tá an Uafásach!"
+
+msgid "Borgan told me that Slimes can swim in water though, so maybe this will be useful..."
+msgstr "Borgan dúradh liom gur féidir Slimes snámh in uisce ach, mar sin b'fhéidir go mbeidh seo úsáideach ..."
+
+msgid "When transformed into a Slime, you can move around as normal. You can also swim in the water and use up and down to move around"
+msgstr "Nuair a chlaochlú i Slime, is féidir leat bogadh thart mar is gnáth. Is féidir leat snámh freisin ar an uisce agus úsáid suas agus síos chun bogadh thart"
+
+msgid "Pushing up or jump will make you jump out of the water if you're near the surface"
+msgstr "Ag brú suas nó léim bheidh ort a dhéanamh léim amach as an uisce má tá tú in aice an dromchla"
+
+msgid "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you will automatically become human again"
+msgstr "Coinnigh súil ar an lasc ama ag bun an scáileáin. Nuair a sroicheann sé 0 beidh tú go huathoibríoch bheith ag an duine arís"
+
+msgid "This place doesn't look so bad..."
+msgstr "An áit nach cuma sin dona ..."
+
+msgid "What was that?"
+msgstr "Cad é sin?"
+
+msgid "Uh Oh..."
+msgstr "Ó Uh ..."
+
+msgid "Phew, I'm glad to be out of there"
+msgstr "Phew, Tá áthas orm a bheith as ann"
+
+msgid "Now to get through this swamp"
+msgstr "Anois a fháil tríd an swamp"
+
+msgid "Hey, what's this?"
+msgstr "Hey, ar cad seo?"
+
+msgid "Looks pretty harmless, I'll try stepping on it"
+msgstr "Breathnaíonn harmless deas, Beidh mé iarracht ar stepping sé"
+
+msgid "Wow! That was cool! This must be a mechanical teleporter."
+msgstr "Wow! Bhí an cool! Ní mór go mbeadh seo ina teleporter mheicniúil."
+
+msgid "I wonder if it works both ways..."
+msgstr "Wonder mé má oibríonn sé dá bealaí ..."
+
+msgid "Horray!"
+msgstr "Horray!"
+
+msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
+msgstr "Ní amháin go bhfuil seo ag dul chun shábháil dom a lán siúil, tá sé freisin hualaí spraoi!"
+
+msgid "Now try out your shield"
+msgstr "Anois bain triail as do sciath"
+
+msgid "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr "Spat Bloc an millíní amach ag na plandaí agus léim suas go dtí an ledge eile"
+
+msgid "Some items in the game can be pushed and pulled"
+msgstr "Is féidir roinnt míreanna i an cluiche a bhrú agus ceirteacha tarraingthe"
+
+msgid "To push an item, simply walk into it"
+msgstr "Chun a bhrú mír, ach siúl i sé"
+
+msgid "To pull an item, walk into while holding down Action"
+msgstr "A tharraingt le mír, siúl san am céanna a shealbhú síos Gníomhaíochta"
+
+msgid "You can then pull the item around until you let go of Action"
+msgstr "Is féidir leat ansin tarraingt na míre timpeall go dtí go iúl duit dul Gníomhaíochta"
+
+msgid "Pull the box over the other side and use it to reach the ledge"
+msgstr "Tarraingt an bosca ar an taobh eile, agus í a úsáid chun teacht ar an ledge"
+
+msgid "This is the last part of the tutorial and will teach you to block and attack enemies"
+msgstr "Is é seo an chuid dheireanach an teagaisc agus beidh tú a mhúineadh do bloc agus enemies ionsaí"
+
+msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
+msgstr "Ar dtús, ba cheart duit a chur i bhfearas an sword ó tá sé réimse níos mó agus a dhéanann damáiste níos mó ná an pickaxe"
+
+msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
+msgstr "Preas z chun féachaint d'fhardal, an sword agus brúigh béim a ionsaí (ar chlé Ctrl) nó Úsáid Mír (a)"
+
+msgid "Press z again to close your inventory"
+msgstr "Preas z arís go gar do fhardal"
+
+msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
+msgstr "Ó am go chéile, beidh enemies slain titim sláinte a vanish tar éis cúpla soicind, sé sin piocadh suas go tapa!"
+
+msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgstr "Má tá bat ag fáil a dhúnadh leat, a shealbhú bloc agus beidh sé Preab harmlessly as tú"
+
+msgid "Now kill all of the bats in the area!"
+msgstr "Anois a mharú go léir de na bats sa cheantar!"
+
+msgid "There are two types of door in the game. Manual doors and Automatic doors."
+msgstr "Tá dhá chineál de doras sa chluiche. Lámhleabhar doirse agus doirse uathoibríocha."
+
+msgid "Manual doors require keys to open them, Automatic doors require switches."
+msgstr "Lámhleabhar na doirse a cheangal eochracha a oscailt dóibh, doirse uathoibríocha lasca gá."
+
+msgid "To open a locked door that you have the key for, simply walk into it. There is no need to have the key selected in your inventory."
+msgstr "Chun a oscailt doras faoi ghlas go bhfuil tú ar an scála le haghaidh, ach siúl isteach é. Ní gá go mbeadh an príomh roghnaithe i do fhardal."
+
+msgid "Open the door and continue to the right"
+msgstr "Oscail an doras agus leanúint ar aghaidh leis an gceart"
+
+msgid "Congratulations! Now you know the basics of playing you should try the main game"
+msgstr "Comhghairdeas! Anois a fhios agat an Basics of imeartha ba chóir duit iarracht an cluiche is mó"
+
+msgid "If you want to replay this tutorial, press Escape and select Tutorial from the menu"
+msgstr "Más mian leat a replay teagaisc seo, brúigh Escape agus roghnaigh TeagaiscComment ón roghchlár"
+
+msgid "To play the main game, press Escape and select New Game from the menu"
+msgstr "Chun spraoi an cluiche is mó, brúigh Escape agus Cluiche Nua a roghnú as an roghchlár"
+
+msgid "Press Space when you have finished reading to go to the next dialog box"
+msgstr "Preas Spás nuair tú críochnaithe léamh chun dul go dtí an chéad bhosca dialóige"
+
+msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
+msgstr "Is féidir leat dul freisin chun an bosca dialóige eile ag brú ionsaí (Ctrl ar chlé), Bloc (ar chlé alt), Léim (spás), Gníomhaíochta (c) nó Úsáid Mír (a)"
+
+msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
+msgstr "Is é seo an teagaisc do na Finscéal de Edgar. Beidh an teagaisc a mhíniú conas a imirt an chluiche."
+
+msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
+msgstr "Chun seo a scor teagaisc, brúigh Escape agus úsáid na Up agus eochracha arrow an Dúin a roghnú rogha. Brúigh ar ais chun é a roghnú."
+
+msgid "To move left and right, use the arrow keys."
+msgstr "Chun bogadh ar chlé agus ar dheis, bain úsáid as na heochracha arrow."
+
+msgid "To make jump, press space. You can move in the air when jumping."
+msgstr "Léim go spás a dhéanamh preas,. Is féidir leat dul san aer nuair a stopadh."
+
+msgid "To interact with an item, press c"
+msgstr "Chun idirghníomhú le mír, brúigh c"
+
+msgid "Walk over to the Action Point and press c"
+msgstr "Siúil a chur chuig an Pointe Gníomhaíochta agus brúigh c"
+
+msgid "To collect an item from your"
+msgstr "Chun a bhailiú mír ó do"
+
+msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
+msgstr "A piocadh suas mír, ach siúl isteach é. Déanfar aon míreanna inbhailithe a leanas le do fhardal."
+
+msgid "You can view the contents of your inventory by pressing z"
+msgstr "Is féidir leat féachaint ar an ábhar ar do bhfardal an cnaipe z"
+
+msgid "Whilst in the inventory, use the arrow keys to view the items."
+msgstr "Cé san fhardal, úsáid na heochracha arrow chun féachaint ar an míreanna."
+
+msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
+msgstr "Is féidir leat úsáid a bhaint mír díreach ag ionsaí an cnaipe (ar chlé Ctrl) nó Úsáid Mír (a)"
+
+msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
+msgstr "Is féidir leat réidh mír lena n-úsáid ag an cnaipe Bloc (ar chlé alt) nó Gníomhaíochta (c)"
+
+msgid "Walk over the key to pick it up"
+msgstr "Siúlóid ar an eochair do Pioc suas"
+
+msgid "You can change all of the controls in the game by pressing Escape and selecting Options in the menu"
+msgstr "Is féidir leat athrú gach ceann de na rialuithe i an cluiche ag brú Escape agus Roghanna i roghnú an roghchlár"
+
+msgid "Select Configure Controls using the arrow keys and press Return"
+msgstr "Roghnaigh Cumraigh Rialuithe ag baint úsáide as na heochracha arrow agus brúigh ar ais"
+
+msgid "Use the arrow keys to select the control you want to change and press Return."
+msgstr "Úsáid na heochracha arrow a roghnú an rialú mian leat a athrú agus brúigh ar ais."
+
+msgid "Next, press the key that you want to use instead."
+msgstr "Next, brúigh an eochair gur mian leat a úsáid ina áit."
+
+msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
+msgstr "Ainneoin a eochracha a roghnaíonn tú, is féidir leat i gcónaí nascleanúint na biachláir ag baint úsáide as na heochracha arrow agus ar ais"
+
+msgid "Note that in this tutorial, the default keys will be assumed"
+msgstr "Tabhair faoi deara gur i gcúrsa teagaisc seo, beidh na heochracha réamhshocraithe a glacadh"
+
+msgid "When you have finished configuring the keys, go right to the next Action Point"
+msgstr "Nuair atá tú críochnaithe chumrú na heochracha, téigh ar dheis chun an Gníomh eile Point"
+
+msgid "The pickaxe is one of many weapons you will encounter in the game"
+msgstr "Tá an pickaxe cheann de arm go leor beidh tú i dteagmháil leis an chluiche"
+
+msgid "You can use it as both a weapon and a tool"
+msgstr "Is féidir leat é a úsáid mar arm araon agus uirlis"
+
+msgid "Pick up the pickaxe and continue to the next Action Point"
+msgstr "Pioc suas an pickaxe agus leanúint ar aghaidh leis an Gníomh eile Point"
+
+msgid "Congratulations, you found a secret!"
+msgstr "Comhghairdeas, fuair tú rúnda!"
+
+msgid "There are many secrets in the main game so keep a look out for them"
+msgstr "Tá go leor rúin i an cluiche sin is mó a choinneáil breathnú amach dóibh"
+
+msgid "Here's a hint to get you started"
+msgstr "Seo thosaigh leid a gheobhaidh tú"
+
+msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Cé go n-éilíonn ach tú a ghabháil 3 de chuid sicíní, cén fáth nach deas a dó agus a ghabháil níos mó? Tá 10 wandering an léarscáil i ngach"
+
+msgid "The shield will protect you from most enemy attacks"
+msgstr "Beidh an sciath tú a chosaint ó ionsaithe namhaid is mó"
+
+msgid "Some enemy attacks cannot be blocked"
+msgstr "Ní féidir le roinnt ionsaithe namhaid a bac"
+
+msgid "Environmental hazards, such as falling rocks, cannot be blocked"
+msgstr "Ní féidir guaiseacha comhshaoil, mar a thagann carraigeacha, bac a chur"
+
+msgid "To block an attack, press and hold block (left alt)."
+msgstr "Chun bloc ionsaí, preas agus bloc a shealbhú (ar chlé alt)."
+
+msgid "You must be facing the attack to succesfully block it"
+msgstr "Ní mór duit a bheith os comhair an ionsaí a bloc rathúil é"
+
+msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
+msgstr "Tabhair faoi deara nach féidir leat bogadh blocála an am céanna, ach is féidir aghaidh an bhealach eile agat. Tú nach féidir bloc freisin ar an aer"
+
+msgid "Pick up the shield and continue to the right"
+msgstr "Pioc suas an sciath agus leanúint ar aghaidh leis an gceart"
+
+msgid "This is a weak wall, it can be smashed down using the pickaxe"
+msgstr "Tá an balla lag, is féidir é a smashed síos ag baint úsáide as an pickaxe"
+
+msgid "To use the pickaxe, press Attack (left ctrl)"
+msgstr "Chun úsáid na pickaxe, brúigh ionsaí (Ctrl ar chlé)"
+
+msgid "that not all weak walls can be destroyed using the pickaxe"
+msgstr "gur féidir le gach ní ballaí lag a scriosta ag baint úsáide as an pickaxe"
+
+msgid "Destroy the wall using the pickaxe and continue"
+msgstr "Scriosann an balla ag baint úsáide as an pickaxe agus leanúint ar aghaidh"
+
+msgid "Something's supposed to be here but it's not in this version, check back later!"
+msgstr "Rud atá ceaptha a bheith anseo ach nach bhfuil sé sa leagan seo, a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "Collect 10 pieces of Coal"
+msgstr "Bailigh 10 píosaí Gual"
+
+msgid "Collect 2 Chopped Logs"
+msgstr "Logchomhaid Bailigh 2 Chopped"
+
+msgid "Rescue 3 Chickens"
+msgstr "Tarrthála 3 sicíní"
+
+msgid "Find 4 Gems"
+msgstr "Aimsigh 4 GEMS"
+
+msgid "Repair Generators"
+msgstr "Deisiúchán gineadóirí"
+
+msgid "Collect 6 Chopped Logs"
+msgstr "Logchomhaid Bailigh 6 Chopped"
+
+msgid "Collect 3 Access Keys"
+msgstr "Bailigh 3 Eochracha Rochtana"
+
+msgid "This is a blank objective"
+msgstr "Is é an cuspóir folamh"
+
+msgid "Kill all Bats!"
+msgstr "Maraigh gach Bats!"
+
+msgid "Coal"
+msgstr "Gual"
+
+msgid "Chopped Log"
+msgstr "Logáil Chopped"
+
+msgid "Green Gem"
+msgstr "Green GEM"
+
+msgid "Red Gem"
+msgstr "Dearg GEM"
+
+msgid "Blue Gem"
+msgstr "Gorm GEM"
+
+msgid "Purple Gem"
+msgstr "Purple GEM"
+
+msgid "Teleporter Key"
+msgstr "Eochair Teleporter"
+
+msgid "New Game"
+msgstr "Cluiche nua"
+
+msgid "Tutorial"
+msgstr "Cúrsa Teagaisc"
+
+msgid "Load Game"
+msgstr "Luchtaigh Cluiche"
+
+msgid "Options"
+msgstr "Roghanna"
+
+msgid "About"
+msgstr "I dtaobh"
+
+msgid "Quit"
+msgstr "Scoir"
+
+msgid "Configure Controls"
+msgstr "Cumraigh Rialúcháin"
+
+msgid "Configure Sound"
+msgstr "Cumraigh Fuaim"
+
+msgid "Fullscreen"
+msgstr "Lánscáileán"
+
+msgid "Show Hints"
+msgstr "Taispeáin Leideanna"
+
+msgid "A potion which will transform you..."
+msgstr "A potion a athrú leat ..."
+
+msgid "Creates highly absorbant miniature ice cubes"
+msgstr "Cruthaíonn an-absorbant ciúbanna oighir miniature"
+
+msgid "A potion which will restore all of your health"
+msgstr "A potion a chur ar ais go léir do shláinte"
+
+msgid "A powerful bomb"
+msgstr "A buama cumhachtacha"
+
+msgid "A potion which renders you invisible to certain enemies"
+msgstr "Tá a potion Rindreáil dofheicthe leat chun enemies áirithe"
+
+msgid "The eyeball from a Gazer"
+msgstr "An eyeball ó Gazer"
+
+msgid "A Tesla Pack. It has no charge."
+msgstr "A Pacáiste Tesla. Tá sé aon chúiseamh."
+
+msgid "A Summoner's Staff. It cannot be used by humans."
+msgstr "A Foirne Summoner's. Ní féidir é a úsáid ag daoine."
+
+msgid "A Tesla Pack. It is fully charged."
+msgstr "A Pacáiste Tesla. Tá sé de mhuirear iomlán."
+
+msgid "An empty potion bottle"
+msgstr "An potion buidéal folamh"
+
+msgid "A bag of chicken feed"
+msgstr "Tá mála ar cearc beatha"
+
+msgid "A bag suitable for carrying coal"
+msgstr "Tá mála oiriúnach é chun gual"
+
+msgid "Basic Sword"
+msgstr "Bunúsach Sword"
+
+msgid "A Sword given to you by Jacob"
+msgstr "A Sword a thug tú ag Jacob"
+
+msgid "A bow"
+msgstr "A Bow"
+
+msgid "Small Wooden Shield"
+msgstr "Bheaga adhmaid Sciath"
+
+msgid "A small shield that provides basic protection"
+msgstr "A sciath bheag go soláthraíonn cosaint bhunúsach"
+
+msgid "Normal Arrow"
+msgstr "Gnáth Name"
+
+msgid "Normal Arrows"
+msgstr "Gnáth Saigheada"
+
+msgid "An axe suitable for chopping trees"
+msgstr "An tua oiriúnach do na crainn chopping"
+
+msgid "Pickaxe"
+msgstr "Pickaxe"
+
+msgid "A pickaxe lent to you by Borgan"
+msgstr "A pickaxe a fuarthas ar iasacht a thabhairt duit ag Borgan"
+
+msgid "Fire Burner Key"
+msgstr "Dóiteáin Burner Eochair"
+
+msgid "Potion Room Key"
+msgstr "Potion Seomra Eochair"
+
+msgid "Surge Passage Key"
+msgstr "Tonn Passage Eochair"
+
+msgid "Demolition Storage Key"
+msgstr "Scartála Stóráil Eochair"
+
+msgid "Whatever that thing was it was draining the power from that generator and using it against me."
+msgstr "Cibé rud go raibh rud a bhí sé draining an chumhacht sin gineadóir agus é a úsáid in aghaidh dom."
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
+msgstr "D'fhéadfadh an mhíniú cén fáth go raibh ardaitheora nach oibre. Ba chóir Defeating an drainers eile ar ais an chumhacht."
+
+msgid "Defeat all Energy Drainers"
+msgstr "Defeat gach Drainers Fuinnimh"
+
+msgid "No Objectives"
+msgstr "Uimh Cuspóirí"
+
+msgid "Press Action to reset puzzle blocks"
+msgstr "Preas Gníomhaíochta a athshocrú bloic bhfreagra"
+
+msgid "It looks like a blender. I could use this to liquidise something"
+msgstr "Tá sí mar cumascóir. D'fhéadfaí a úsáid mé an rud a liquidise"
+
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+msgstr "Gá mé sloda Dearg Tentacle agus 3 Gazer Eyeballs a dhéanamh ar an potion"
+
+msgid "I still need an Empty Bottle to put the potion in"
+msgstr "De dhíth orm fós ar Buidéal Folamh a chur ar an potion i"
+
+msgid "So this is the Fortress."
+msgstr "Mar sin, is é seo an Fortress."
+
+msgid "It looks like a lot of doors lead off to other areas, I should have a proper look around before I go anywhere else..."
+msgstr "Breathnaíonn sé ar nós go leor doirse thoradh uaire go réimsí eile, ba chóir dom a bheith ceart breathnú thart sula dtéann mé aon áit eile ..."
+
+msgid "Try hitting the skull..."
+msgstr "Bain triail as ag bualadh an skull ..."
+
+msgid "This machine is not active"
+msgstr "Níl an meaisín gníomhach"
+
+msgid "Repeat the sequence"
+msgstr "Déan an t-ord"
+
+msgid "Correct Sequence"
+msgstr "Seicheamh ceart"
+
+msgid "Incorrect Sequence"
+msgstr "Seicheamh mícheart"
+
+msgid "The Legend of Edgar has encountered the following error"
+msgstr "An Finscéal de Edgar bhfuil earráid a dtagtar ar an méid seo a leanas"
+
+msgid "Please report this error to Parallel Realities"
+msgstr "Cuir tuarascáil seo chun earráidí a réaltachtaí Comhuaineach"
+
+msgid "The game will now exit"
+msgstr "Beidh an cluiche scoir anois"
+
+msgid "It looks like a blender. I could use this to liqudise something"
+msgstr "Tá sí mar cumascóir. D'fhéadfaí a úsáid mé an rud a liqudise"
+
+msgid "This must be the coal Borgan wants me to mine for him"
+msgstr "Ní mór go mbeadh sé seo an ghual Borgan mian liom chun mianach dó"
+
+msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power here."
+msgstr "D'fhéadfadh an mhíniú cén fáth go raibh ardaitheora nach oibre. Ba chóir Defeating an drainers eile ar ais an chumhacht anseo."
+
+msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance"
+msgstr "Gá dom a aimsiú 3 Súile Gazer, 1 Red sloda Tentacle agus sciath breise a chruthú Sciath na Tine Friotaíocht"
+
+msgid "Once I've found all these items I'll have to find a place to create the shield"
+msgstr "Nuair mé fáil go léir na míreanna seo beidh mé a fháil áit a chruthú ar an sciath"
+
+msgid "There's a book here about enchanting weapons"
+msgstr "Tá an leabhar anseo faoi airm enchanting"
+
+msgid "Maybe I can create a shield..."
+msgstr "B'fhéidir gur féidir liom a chruthú sciath ..."
+
+msgid "Swords... Armour... Wands..."
+msgstr "Sord ... Armour ... Wands ..."
+
+msgid "Stupid book. It's not in order and there's no index"
+msgstr "Leabhar dúr. Níl sé i ord agus níl aon innéacs"
+
+msgid "Here we go: Shields"
+msgstr "Anseo théann muid: Shields"
+
+msgid "Shield of Fire Resistance"
+msgstr "Sciath na Dóiteáin Friotaíocht"
+
+msgid "Ingredients"
+msgstr "Comhábhair"
+
+msgid "One must gather the following"
+msgstr "Ní mór amháin a bhailiú an méid seo a leanas"
+
+msgid "The root of a Mandrake"
+msgstr "Na fréimhe ar Mandrake"
+
+msgid "The fat of a Darsh (left to stand for 3 months)"
+msgstr "An saill de Darsh (ar chlé chun seasamh ar feadh 3 mhí)"
+
+msgid "Powered Condor bones"
+msgstr "Cnámha Condor Permanent link"
+
+msgid "3 eyes of the Gazer"
+msgstr "3 súile an Gazer"
+
+msgid "The freshly cut tentacle from a female Red Sludge"
+msgstr "An tentacle freshly ghearradh ó ban dearg sloda"
+
+msgid "The shield to apply the enchantment"
+msgstr "An sciath a chur i bhfeidhm an enchantment"
+
+msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
+msgstr "Cumaisc na súile Gazer agus sloda tentacle i leacht rianúil"
+
+msgid "Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle"
+msgstr "Cuir an fhréamh, saill agus cnámha isteach an cauldron agus meascán mar aon leis na súile Gazer chumasc agus sloda tentacle"
+
+msgid "When the mixture turns bright blue, add the shield"
+msgstr "Nuair a casadh an meascán gorm geal, cuir an sciath"
+
+msgid "I've seen most of these items in the lab so I don't need to worry about those"
+msgstr "Mé le feiceáil an chuid is mó de na míreanna seo sa tsaotharlann mar sin ní féidir liom gá imní faoi na"
+
+msgid "And the Gazers hang around in the basement so that's not a problem"
+msgstr "Agus hang an Gazers timpeall ar an íoslach Ní ionas gur fadhb"
+
+msgid "What I do need to find is a Red Sludge, but I have no idea where to find one"
+msgstr "Cad a dhéanfaidh mé gá a fháil sloda Rua, ach tá mé aon smaoineamh nuair a fháil amháin"
+
+msgid "I can't use my current shield in the experiment in case it backfires so I'll have to find another one"
+msgstr "Ní féidir liom úsáid as mo sciath reatha sa triail i gcás backfires sé sin beidh mé ag teacht ar ceann eile"
+
+msgid "Hmmm..."
+msgstr "Hmmm ..."
+
+msgid "There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those"
+msgstr "D'fhéadfadh a bheith ann potions seomra nó saotharlainne i gcás inar féidir liom teacht ar na fréamhacha, saill agus cnámha mar sin ní féidir liom gá imní faoi na"
+
+msgid "You must have the instruction card you wish to use highlighted in your inventory box"
+msgstr "Ní mór duit tá an cárta teagaisc mian leat chun béim a úsáid i do bhosca fhardal"
+
+msgid "Wow, a laboratory!"
+msgstr "Wow, saotharlann!"
+
+msgid "I love watching Maggie make spells and potions, maybe I can make some of my own here!"
+msgstr "Is breá liom féachaint ar Maggie dhéanamh spells agus potions, b'fhéidir is féidir liom a dhéanamh ar roinnt de mo chuid féin anseo!"
+
+msgid "Wow, I've never seen so many books in one place!"
+msgstr "Wow, riamh mé sin le feiceáil go leor leabhar in aon áit!"
+
+msgid "There must be information about every subject here, this could be useful..."
+msgstr "Ní mór go mbeadh eolas faoi gach ábhar anseo, a d'fhéadfadh a bheith úsáideach seo ..."
+
+msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful."
+msgstr "Hmmm mhothaíonn, an aeir a ghearrtar, reminds dom an teach Maggie nuair a bhí sí spells a dhéanamh. Ba chóir go mbeadh mé cúramach."
+
+msgid "Oh Edgar, you're hurt! Let me heal your wounds"
+msgstr "Ó Edgar, tú Gortaítear! Lig dom cneasaigh do wounds"
+
+msgid "I wonder what other monsters there are. I'll pick a page at random..."
+msgstr "Wonder agam cad iad monsters eile ann. Feicfidh mé Pioc leathanach ar randamach ..."
+
+msgid "Gazer"
+msgstr "Gazer"
+
+msgid "Gazers are flying cycloptic creatures found in various places"
+msgstr "Gazers iad ag eitilt créatúir cycloptic le fáil in áiteanna éagsúla"
+
+msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgstr "Tá a súile dúnta amháin de ghnáth, agus iad ag brath ar sonar do ghluaiseacht"
+
+msgid "They use their strong sense of smell to look out for predator and prey alike"
+msgstr "Úsáideann siad a mothú láidir smell chun breathnú amach ar dtiocfadh creachadóir agus chreiche araon"
+
+msgid "Gazers attack (and defend themselves) by opening their eye which will dazzle anything looking at it"
+msgstr "Gazers ionsaí (agus a chosaint féin) ag oscailt a súl a dazzle aon ní ag féachaint air"
+
+msgid "This attack is only effective however if the victim is facing the Gazer"
+msgstr "Tá an ionsaí éifeachtach, áfach, ach amháin má tá an t-íospartach os comhair an Gazer"
+
+msgid "A Gazer's eyeball contains magical properties and is a common ingredient in spell preparation"
+msgstr "Tá eyeball A Gazer ar airíonna draíochta agus is coitianta comhábhair i litrithe a ullmhú"
+
+msgid "Centurion, Grey"
+msgstr "Centurion, Liath"
+
+msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
+msgstr "Centurions Tá cruthaithe magically créatúir, de ghnáth mar seoladh sentries nó gardaí"
+
+msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgstr "Cé go mall ag gluaiseacht, a mhéid ollmhór a ligeann dóibh a Márta ach trí aon defense"
+
+msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
+msgstr "In ionad na hairm, tá go leor tiománaithe carn mór a úsáideann siad a shake an talamh agus disorientate bagairtí"
+
+msgid "While Grey Centurions will be used to guard outer perimeters, Red Centurions are known to exist and are used to protect areas of great importance"
+msgstr "Cé go mbeidh Centurions Liath a úsáid chun garda perimeters seachtrach, Centurions Rua is eol a bheith ann agus úsáidtear iad a chosaint réimsí a bhfuil tábhacht mhór"
+
+msgid "Splitter"
+msgstr "Scoilteoir"
+
+msgid "Splitters are harmless monsters unless attacked."
+msgstr "Splitters Tá monsters harmless mura ionsaí."
+
+msgid "Upon sustaining too much damage they will split in two and attack their predator"
+msgstr "Ar a bhuanú damáiste iomarca beidh siad roinnte i dhá agus a dtiocfadh creachadóir ionsaí"
+
+msgid "If one of these sustains too much damage it will split once again and continue to attack"
+msgstr "Más rud é ceann de na sustains damáiste iomarca beidh sé scoilte arís agus leanúint ar aghaidh ag ionsaí"
+
+msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
+msgstr "Is féidir deireadh, beidh duine scoilt deiridh a tháirgeadh leaganacha an-bheaga atá harmless iomlán agus sa stát seo a neartófaí cur ach ar"
+
+msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
+msgstr "Má tá gach a cuid beo fós, déanfar athchóiriú scoilteoir féin tar éis am céanna agus a wounds cneasaigh"
+
+msgid "Grub, Red"
+msgstr "Grub, Dearg"
+
+msgid "Red Grubs are more aggressive than their green counterparts and will attack anything they view as a threat"
+msgstr "Tá Grubs Dearg ionsaitheach níos mó ná a macasamhla glas agus beidh aon ionsaí amharc siad mar bhagairt"
+
+msgid "Upon reaching maturity they will form a cocoon and morph into a wasp"
+msgstr "Ar n-aibíocht a bhaint amach beidh siad ina cocún agus morph i foiche"
+
+msgid "Some however will morph into a queen wasp. These queens can produce a mucus-like substance capable of holding its prey in place"
+msgstr "Beidh roinnt morph, áfach, i foiche banríon. Is féidir leis na Ríona tháirgeadh a mucus cosúil le substaint atá in ann a bhfuil a chreiche i bhfeidhm"
+
+msgid "Tortoise, Master"
+msgstr "Turtar, Máistir"
+
+msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Tortoises Máistir beasts a frightening. Aimsíodh tailte i bhfad ar shiúl go mbeadh siad ar an gcumas chun athrú a cinnirí"
+
+msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
+msgstr "Siad le chéile gach cumas na n-Cousins tine a breathe, oighear a chruthú agus iad féin electrify"
+
+msgid "And of course they are also impervious to attacks from matching elements, absorbing the energy to heal themselves"
+msgstr "Agus ar ndóigh tá siad impervious freisin go n-ionsaithe ó na heilimintí meaitseáil, ionsú an fhuinnimh chun iad féin a cneasaigh"
+
+msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
+msgstr "Ach chomh maith, má fhaigheann siad fuinnimh iomarca ó leighis, a fhorbraíonn siad agus dul ar an rampage"
+
+msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgstr "Sa staid seo, beidh siad smash trí aon defense agus Damhna dorcha a milleann sé ionchais aon baint ag a tháirgeadh"
+
+msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "Mar sin féin, tá an bhlaosc de rampaging Máistir turtar draíochta mór agus is comhábhar riachtanach nuair a chruthú magics cumhachtacha agus míreanna"
+
+msgid "Venus Flytrap"
+msgstr "Véineas Flytrap"
+
+msgid "Hoover, Pink"
+msgstr "Hoover, Pink"
+
+msgid "Summoner, Dark"
+msgstr "Summoner, dorcha"
+
+msgid "Grimlore"
+msgstr "Grimlore"
+
+msgid "Grimlore is a creature from another dimension. It can be summoned using powerful dark magic"
+msgstr "Is Grimlore a creature ó ghné eile. Is féidir é a thoghairm draíocht ag baint úsáide as dorcha cumhachtacha"
+
+msgid "The most common reason to summon this beast is to act as a bodyguard"
+msgstr "Is é an chúis is coitianta a thoghairm Beast seo chun gníomhú mar bodyguard"
+
+msgid "There is no known way to kill Grimlore since upon sustaining critical injuries it will simply return to its own dimension"
+msgstr "Níl aon bhealach ar eolas a mharú Grimlore ó ar a bhuanú le díobhálacha chriticiúil beidh sé ar ais go simplí chun a ghné féin"
+
+msgid "But even injuring it is a monumental task. Anyone encountering this creature is advised to escape as quickly as possible"
+msgstr "Ach injuring fiú é tasc a monumental. Tá duine ar bith encountering seo creature comhairle chun éalú chomh tapa agus is féidir"
+
+msgid "Or they will die very quickly"
+msgstr "Nó beidh siad bás go han-tapa"
+
+msgid "Ah, here is a compendium of monsters"
+msgstr "Ah, is anseo a compendium of monsters"
+
+msgid "34 volumes! How can there be so many monsters in the world?!"
+msgstr "34 imleabhar! Conas is féidir a bheith ann monsters an oiread sin ar fud an domhain?!"
+
+msgid "Looks like they're in alphabetical order though"
+msgstr "Breathnaíonn an mhaith atá siad in ord aibítre cé go"
+
+msgid "Slime, Green... Slime, Purple... Sludge, Green..."
+msgstr "Slime, Green ... Slime, Purple ... Sloda, Green ..."
+
+msgid "Sludge, Red"
+msgstr "Sloda, Dearg"
+
+msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
+msgstr "Murab ionann agus a col ceathrar glas, tréimhsí an sloda Dearg domhain faoi thalamh agus is annamh, más rud é riamh, dromchlaí"
+
+msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgstr "Tá a gnáthóg fearr tirim agus réimsí mianraí saibhir agus mar thoradh air a shuífear lurking i réimsí na mianaigh tréigthe ag daoine"
+
+msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
+msgstr "Tá siad an-fainiciúil daoine agus ionsaí ar amharc, de ghnáth vomiting suas aigéad a ghlacann am go evaporate"
+
+msgid "Smacker, Lesser..."
+msgstr "Smacker, níos lú ..."
+
+msgid "Great, that's all it says. I don't even know how to tell the difference between a male and female. I'll just to take a chance..."
+msgstr "Great, sin uile, a deir sé. Níl a fhios agam fiú conas a insint an difríocht idir fir agus mná. Beidh mé díreach tar éis a ghlacadh seans ..."
+
+msgid "Besides, what's the worst that could happen?"
+msgstr "Chomh maith le, ar an méid is measa a d'fhéadfadh a tharlaíonn?"
+
+msgid "To move Edgar left and right, use the arrow keys."
+msgstr "Chun Edgar bogadh ar chlé agus ar dheis, bain úsáid as na heochracha arrow."
+
+msgid "To make Edgar jump, press space. You can move in the air when jumping."
+msgstr "Chun a dhéanamh Edgar léim, spás preasa. Is féidir leat dul san aer nuair a stopadh."
+
+msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
+msgstr "Cé go n-éilíonn Jacob ach tú a ghabháil 3 de chuid sicíní, cén fáth nach deas a dó agus a ghabháil níos mó? Tá 10 wandering an léarscáil i ngach"
+
+msgid "Note that not all weak walls can be destroyed using the pickaxe"
+msgstr "Tabhair faoi deara gur féidir le gach ní ballaí lag a scriosta ag baint úsáide as an pickaxe"
+
+msgid "I've already checked, he's not down there..."
+msgstr "Mé a sheiceáil cheana féin, ní sé síos ann ..."
+
+msgid "I've heard of people falling into the well before, maybe Dad's in there..."
+msgstr "Mé chuala daoine a thagann isteach sa roimh maith, b'fhéidir's daid in ann ..."
+
+msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
+msgstr "Daidí !!!!! TÁ TÚ síos ann ?!!!!!"
+
+msgid "Nothing. I guess I'll have to keep on looking"
+msgstr "Faic. Buille faoi thuairim mé beidh mé a choinneáil ar an lorg"
+
+msgid "Push Up or Down to raise or lower the platform"
+msgstr "Brúigh Suas nó an Dúin a ardú nó níos ísle ar an ardán"
+
+msgid "There's a book here about enchanting equipment"
+msgstr "Tá an leabhar anseo maidir le trealamh enchanting"
+
+msgid "It's a book about enchanting equipment"
+msgstr "Tá sé ina leabhar faoi trealamh enchanting"
+
+msgid "I don't have any reason to read this but I'll keep it in mind in case I do"
+msgstr "Ní dóigh liom go mbeadh aon chúis seo a léamh, ach beidh mé é a choimeád i gcuimhne i gcás féidir liom"
+
+msgid "I wonder what other monsters there are..."
+msgstr "Wonder agam cad iad monsters eile ann ..."
+
+msgid "Just like regular Summoners, Dark Summoners call in other beasts to do their bidding"
+msgstr "Díreach mar Summoners rialta, glaoch Summoners dorcha i beasts eile a dhéanamh a bidding"
+
+msgid "Additionally though they can teleport short distances to escape from their opponents"
+msgstr "Ina theannta sin cé gur féidir leo teleport achar gearr chun éalú óna opponents"
+
+msgid "Their staff is highly magical and although it cannot be used by humans directly, its magical properties are used in spell creation"
+msgstr "Tá a fhoireann an-draíochta agus cé nach féidir é a úsáid ag daoine go díreach, a n-airíonna draíochta á n-úsáid i gcruthú litrithe"
+
+msgid "Pink Hoovers are small quadrupeds with a long snout"
+msgstr "Hoovers Pink Tá quadrupeds beag le fada snout"
+
+msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgstr "Is é an príomhchuspóir puropse an snout a forage le haghaidh bia ach feidhmíonn sé freisin mar mheicníocht defense"
+
+msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
+msgstr "agus tá níos mó ná in ann a choimeád ina dtiocfadh creachadóir ag bá ag simplí iad blowing away"
+
+msgid "Venus Flytrap, mobile"
+msgstr "Venus Flytrap, soghluaiste"
+
+msgid "Mobile Venus Flytraps have evolved roots and are able to move to their food rather than waiting for it to come to them"
+msgstr "Mobile Flytraps Venus bhfuil fréamhacha athraigh agus iad in ann a aistriú chuig a gcuid bia seachas fanacht sé le teacht chun iad a"
+
+msgid "Their necks are incredibly elastic and are able to snap at their prey from a considerable distance away"
+msgstr "Tá a n-necks elastic incredibly agus iad in ann a Léim ag a chreiche ó achar mór uaidh"
+
+msgid "That should do it. Hopefully that other lift by the Sewer should now be working"
+msgstr "Ba chóir sin a dhéanamh dó. Súil go dtosnódh gur chóir ardaithe eile ag an Séarach Idirlínithe anois a bheith ag obair"
+
+msgid "This lift is not working. I won't be able to use it until I restore the power"
+msgstr "Ní thógann sé seo ag obair. Ní bheidh mé in ann é a úsáid go dtí go mbeidh mé ar ais ar an chumhacht"
+
+msgid "That glass looks too thick for me to crack, I'll have to find some other way of shattering it..."
+msgstr "Breathnaíonn an gloine ró tiubha dom a crack, beidh mé ag teacht ar bhealach éigin eile de shattering sé ..."
+
+msgid "Up"
+msgstr "Suas"
+
+msgid "Down"
+msgstr "Thíos"
+
+msgid "Left"
+msgstr "Clé"
+
+msgid "Right"
+msgstr "Ceart"
+
+msgid "Jump"
+msgstr "Léim"
+
+msgid "Attack"
+msgstr "Ionsaí"
+
+msgid "Block"
+msgstr "Bloc"
+
+msgid "Action"
+msgstr "Gníomh"
+
+msgid "Use Item"
+msgstr "Úsáid Mír"
+
+msgid "Previous Item"
+msgstr "Mír Roimhe Seo"
+
+msgid "Next Item"
+msgstr "An Chéad Mhír"
+
+msgid "Inventory"
+msgstr "Fardail"
+
+msgid "Pause"
+msgstr "Sos"
+
+msgid "Dead Zone"
+msgstr "Marbh Zone"
+
+msgid "Sound"
+msgstr "Fuaim"
+
+msgid "SFX Volume"
+msgstr "SFX Volume"
+
+msgid "Music Volume"
+msgstr "Ceol Volume"
+
+msgid "Ice Spray"
+msgstr "Oighear Sprae"
+
+msgid "Library"
+msgstr "Leabharlann"
+
+msgid "Right Wing Lift Key"
+msgstr "Eite Dheis ardaitheoir Eochair"
+
+msgid "Mine Entrance Door Key"
+msgstr "Mine Iontrála Doras Eochair"
+
+msgid "Village"
+msgstr "Sráidbhaile"
+
+msgid "Cave"
+msgstr "Uaimh"
+
+msgid "Fortress Outskirts"
+msgstr "Imeall Fortress"
+
+msgid "Forbidden Swamp"
+msgstr "Toirmiscthe Swamp"
+
+msgid "Sewage Restricted Zone Key"
+msgstr "Séarachais Srianta Zone Eochair"
+
+msgid "Basement"
+msgstr "Íoslach"
+
+msgid "Fortress Ground Floor"
+msgstr "Fortress Ground Floor"
+
+msgid "Sewer"
+msgstr "Séarachais"
+
+msgid "Fortress Main Key"
+msgstr "Fortress Main Eochair"
+
+msgid "Teleporter Access Key 1"
+msgstr "Teleporter Eochair Rochtana 1"
+
+msgid "Teleporter Access Key 2"
+msgstr "Teleporter Eochair Rochtana 2"
+
+msgid "Teleporter Access Key 3"
+msgstr "Teleporter Eochair Rochtana 3"
+
+msgid "Laboratory"
+msgstr "Saotharlainne"
+
+msgid "Empty Bottle"
+msgstr "Buidéal Folamh"
+
+msgid "First Floor Key"
+msgstr "An Chéad Urlár Eochair"
+
+msgid "Press Action to retrieve %s"
+msgstr "Preas Gníomhaíochta a fháil %s"
+
+msgid "Hmm, this is new."
+msgstr "Hmm, tá an nua."
+
+msgid "It doesn't look like it can hurt me though, but there's only one way to find out..."
+msgstr "Ní chuireann sé cuma mhaith ar féidir é Gortaítear dom ach, ach níl ach bealach amháin chun a fháil amach ..."
+
+msgid "This lift is controlled by that pressure plate, but I can't stand on it and use the lift at the same time"
+msgstr "Is é seo a chealú faoi rialú ag an pláta bhrú, ach ní féidir liom seasamh air agus úsáid an ardaithe ag an am céanna"
+
+msgid "I'll have to find something else to stand on the pressure plate for me..."
+msgstr "Beidh mé ag teacht ar rud éigin eile a seasamh ar an pláta brú dom ..."
+
+msgid "This card is blank, I'll have to put some instructions on it to make it useable."
+msgstr "Tá an cárta bán, beidh mé a chur roinnt treoracha ar é a dhéanamh useable é."
+
+msgid "There's a plaque here"
+msgstr "Níl plaic anseo"
+
+msgid "Place the 4 statues in the correct order"
+msgstr "Plás an 4 dealbha san ord ceart"
+
+msgid "You will not be able to find all 4 statues in this version, so come back later!"
+msgstr "Ní bheidh tú in ann teacht go léir 4 dealbha sa leagan seo, agus mar sin teacht ar ais ina dhiaidh sin!"
+
+msgid "You must have the statue you wish to use highlighted in your inventory box"
+msgstr "Ní mór duit bheith ar an dealbh mian leat chun béim a úsáid i do bhosca fhardal"
+
+msgid "Nothing happened. I don't think that's the right order"
+msgstr "Ní dhéanfaidh aon ní a tharla. Ní dóigh liom gur ar an ord ceart"
+
+msgid "Tuning Fork"
+msgstr "Tiúnadh Forc"
+
+msgid "Second Floor Keycard"
+msgstr "An Dara hUrlár Keycard"
+
+msgid "Instruction Card #1"
+msgstr "Teagasc Cárta # 1"
+
+msgid "Instruction Card #2"
+msgstr "Cárta Teagasc # 2"
+
+msgid "Instruction Card #3"
+msgstr "Cárta Teagasc # 3"
+
+msgid "Instruction Card #4"
+msgstr "Teagasc Cárta # 4"
+
+msgid "Centurion Statue"
+msgstr "Centurion dealbh"
+
+msgid "Spider Statue"
+msgstr "Spider dealbh"
+
+msgid "Tortoise Statue"
+msgstr "Turtar dealbh"
+
+msgid "Scorpion Statue"
+msgstr "Scairp dealbh"
+
+msgid "A Blue Gem"
+msgstr "A GEM Gorm"
+
+msgid "A statue of a Centurion. It has 2 legs."
+msgstr "Tá dealbh de Centurion. Tá sé cosa 2."
+
+msgid "A Green Gem"
+msgstr "A GEM Glas"
+
+msgid "A Purple Gem"
+msgstr "A GEM Purple"
+
+msgid "A Red Gem"
+msgstr "A GEM Dearg"
+
+msgid "A statue of a Scorpion. It has 6 legs."
+msgstr "Tá dealbh de scairp. Tá sé cosa 6."
+
+msgid "A statue of a Spider. It has 8 legs."
+msgstr "Tá dealbh de Spider. Tá sé cosa 8."
+
+msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
+msgstr "An Spike Armadillo Ball. An Scaip spikes nuair thrown."
+
+msgid "A statue of a Tortoise. It has 4 legs."
+msgstr "Tá dealbh de turtar. Tá sé cosa 4."
+
+msgid "A Tuning Fork"
+msgstr "A Forc Tiúnadh"
+
+msgid "A chopped log"
+msgstr "A log chopped"
+
+msgid "Narrator"
+msgstr "Narrator"
+
+msgid "It's a cauldron. Maggie has one just like this"
+msgstr "It's a cauldron. Maggie Tá ceann amháin mar seo"
+
+msgid "Right, here goes!"
+msgstr "Téann Ceart, anseo!"
+
+msgid "I need all the main ingredients"
+msgstr "De dhíth orm gach comhábhair an príomh -"
+
+msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
+msgstr "3 Gazer Eyeballs, 1 Red sloda Tentacle agus sciath spártha"
+
+msgid "I also need to blend the eyeballs and the tentacle into a liquid"
+msgstr "De dhíth orm freisin a chumasc an eyeballs agus an tentacle i leacht"
+
+msgid "This entire section is about monsters"
+msgstr "Tá an rannóg seo ar fad faoi monsters"
+
+msgid "I don't have any reason to read these but I'll keep it in mind in case I do"
+msgstr "Ní dóigh liom go mbeadh aon chúis a léamh ach na choimeád beidh sé mé i gcuimhne i gcás féidir liom"
+
+msgid "Hey wow, what a cute little machine!"
+msgstr "Hey WOW, cad a meaisín beag gleoite!"
+
+msgid "It's got a little slot on the back of it. I guess I put something in there to make it do stuff"
+msgstr "Tá sé ar a fuair Sliotán beag ar chúl na sé. Buille faoi thuairim mé mé i rud éigin ann a dhéanamh chun é a dhéanamh stuif"
+
+msgid "The robot uses instruction cards to move around"
+msgstr "Úsáideann an robot cártaí teagaisc chun bogadh thart"
+
+msgid "Use the instructions to guide the robot to open areas that you cannot access"
+msgstr "Úsáid na treoracha a threorú an robot a oscailt limistéir nach féidir leat rochtain a fháil"
+
+msgid "However, since you can't read the instructions on the card, you will have to try them all out until one works"
+msgstr "Mar sin féin, ós rud é nach féidir leat léamh na treoracha ar an gcárta, beidh ort iarracht iad uile amach go dtí an ceann oibreacha"
+
+msgid "If the robot doesn't reach its target, then it will return to its starting position allowing you to try again"
+msgstr "Más rud é nach bhfuil an robot bhaint amach a sprioc, ansin beidh sé ar ais chun a seasamh ag tosú ligean ort iarracht arís"
+
+msgid "Enter the directions"
+msgstr "Iontráil na treoracha"
+
+msgid "Out of space for instructions"
+msgstr "Lasmuigh den spás le haghaidh treoracha"
+
+msgid "I need a blank card to put the instructions on"
+msgstr "De dhíth orm cárta bán a chur le treoracha maidir le"
+
+msgid "Maybe this wasn't such a good idea after all..."
+msgstr "B'fhéidir nach raibh seo den sórt sin a smaoineamh maith i ndiaidh gach ..."
+
+msgid "Obtain 3 Gazer Eyes"
+msgstr "A fháil 3 Súile Gazer"
+
+msgid "Obtain 1 Red Sludge Tentacle"
+msgstr "A fháil 1 Dearg sloda Tentacle"
+
+msgid "Find another shield"
+msgstr "Aimsigh eile sciath"
+
+msgid "Blend eyeballs and tentacle"
+msgstr "Eyeballs Cumaisc agus tentacle"
+
+msgid "Obtain a Fire Shield"
+msgstr "A fháil Sciath Dóiteáin"
+
+msgid "More water?!"
+msgstr "Tuilleadh uisce?!"
+
+msgid "I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards"
+msgstr "Ní dóigh liom a bheith in ann dul isteach i Slime Tá dul chun cabhrú liom anseo, ós rud é nach mbeadh mé in ann a fháil ar ais ina dhiaidh sin,"
+
+msgid "I'll have to find another way of getting across"
+msgstr "Beidh mé a fháil ar bhealach eile de ag dul thar"
+
+msgid "I'll have to find something to help me get across"
+msgstr "Beidh mé ag teacht ar rud éigin chun cabhrú liom a fháil ar fud na"
+
+msgid "I didn't see any Sludges in the mine when I went to get Borgan's coal and even if there were any I can't get back there since my raft sank"
+msgstr "Ní raibh mé ar bith a fheiceáil i Sludges an mianach nuair a chuaigh mé a fháil Borgan gual agus fiú má bhí aon ní féidir liom dul ar ais ann ó sank mo raft"
+
+msgid "I'll have to find another mine around here..."
+msgstr "Beidh mé ag teacht chun mianach eile timpeall anseo ..."
+
+msgid "Creates ice cubes that expand on contact with water"
+msgstr "Cruthaigh ciúbanna oighir a leathnú ar dteagmháil le huisce"
+
+msgid "A bottle capable of capturing souls"
+msgstr "Buidéal in ann anamacha gabháil"
+
+msgid "Try using Mataeus's knives against him..."
+msgstr "Bain triail as sceana Mataeus ar ina choinne ..."
+
+msgid "Cannot pick up %s. Inventory full"
+msgstr "Ní féidir piocadh suas %s. Fardail iomlán"
+
+msgid "Filling mine cart..."
+msgstr "Líonadh cart mianach ..."
+
+msgid "Copyright Parallel Realities 2009-2010"
+msgstr "Réaltachtaí Cóipcheart 2009-2010 Comhuaineach"
+
+msgid "Out of arrows!"
+msgstr "As na saighde!"
+
+msgid "There's something moving around down there..."
+msgstr "Níl rud éigin ag bogadh thart síos ann ..."
+
+msgid "Good riddance..."
+msgstr "Good riddance ..."
+
+msgid "Huh, déjà vu..."
+msgstr "Huh, VU déjà ..."
+
+msgid "If the lift is out of order then it must be reset"
+msgstr "Má tá an ardaitheoir as ordú sin ní mór go mbeadh sé a athshocrú"
+
+msgid "There are 4 reset switches along the lift shaft which must be reset"
+msgstr "Tá 4 lasca a athshocrú feadh an seafta ardaitheoir a chaithfidh a bheith athshocrú"
+
+msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr "Bí cinnte go athshocrú an ardaitheoir a sheachaint fada siúlóid ar ais go dtí an dromchla ..."
+
+msgid "This machine has a slot the same size as the cards. I guess I can use it to create new instructions."
+msgstr "Tá an meaisín a Sliotán an méid céanna le cártaí. Buille faoi thuairim mé féidir liom é a úsáid chun a chruthú treoracha nua."
+
+msgid "To create a new set of instructions you need to insert a blank card"
+msgstr "A chruthú sraith nua de threoracha gá duit a chur isteach ar chárta folamh"
+
+msgid "You will then be prompted to input the directions for the robot to follow. This is done in the same way as the sequence doors"
+msgstr "Beidh tú a tharraing ansin chun ionchur na treoracha le haghaidh an robot a leanúint. Déantar é seo ar an dóigh chéanna leis an ord doirse"
+
+msgid "When you have finished inputting the directions, press Attack"
+msgstr "Nuair atá tú críochnaithe ionchur na treoracha, brúigh ionsaí"
+
+msgid "The robot will then follow the instructions on the card"
+msgstr "Beidh an robot ansin lean na treoracha ar an gcárta"
+
+msgid "If the directions aren't correct you can try again"
+msgstr "Más rud é nach bhfuil an ceart treoracha is féidir leat triail arís"
+
+msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
+msgstr "Is é seo áit dÚsachtach, mhaith liom Hurry níos fearr a bhunú agus a aimsiú daid roimh dheireadh mé ag dul a mharaítear!"
+
+msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+msgstr "Mar sin, a chruthú go bhfuil Dóiteáin Sciath liom a fháil sloda Dearg tentacle"
+
+msgid "Red Sludges live in mines so I'll have to find one around here"
+msgstr "Sludges Dearg beo i mianaigh sin beidh mé ag teacht ar amháin timpeall anseo"
+
+msgid "I also need a spare shield, but I reckon there should be an armoury around"
+msgstr "De dhíth orm freisin sciath spártha, ach Measann I Ba chóir go mbeadh an armoury timpeall"
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
+msgstr "An eyeballs Gazer atá éasca go leor, is féidir liom ar ais díreach chuig an íoslach"
+
+msgid "OK, off I go..."
+msgstr "OK, téigh amach mé ..."
+
+msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
+msgstr "Ní bheidh tú in ann a fháil ar an tentacle nó sciath sa leagan seo, agus mar sin a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "It's a portrait"
+msgstr "It's portráid"
+
+msgid "That spirit isn't going to let me past, I'll have to find a way to get rid of it"
+msgstr "Nach bhfuil spiorad an dul chun ligean orm anuas, beidh mé ag teacht ar bhealach a fháil haitheantas coibhneasta de"
+
+msgid "Reset switches allow you to reset an object's position on the map"
+msgstr "Athshocraigh lasca cheadaíonn duit a athshocrú réad seasamh ar an léarscáil"
+
+msgid "If an object becomes unreachable then you can use the switch to put it back in its original place"
+msgstr "Má éiríonn réad unreachable ansin is féidir leat é a úsáid leis an athrú a chur ar ais ina áit bunaidh"
+
+msgid "A bottle with a soul trapped inside"
+msgstr "Buidéal le Soul gafa taobh istigh"
+
+msgid "Full Mine Cart"
+msgstr "Iomlán Mine Cart"
+
+msgid "Processing Lift Key"
+msgstr "Próiseáil ardaitheoir Eochair"
+
+msgid "Right Grabber Key"
+msgstr "Ceart Grabber Eochair"
+
+msgid "Left Grabber Key"
+msgstr "Chlé Grabber Eochair"
+
+msgid "Master Key"
+msgstr "Máistir Eochair"
+
+msgid "The sorcerer must have taken Dad to his castle. I'll have to rescue him from there."
+msgstr "Caithfidh an sorcerer tar éis daid chun a chaisleán. Beidh mé chun tarrthála dó ó ann."
+
+msgid "The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr "Tá an bealach amháin chun dul go dtí an caisleán trí Swamp Toirmiscthe chun an Oirthir."
+
+msgid "There's a lake between the Village and the Swamp so I'll need a raft to get across."
+msgstr "Tá an loch idir an Bhaile agus an Swamp sin beidh mé ag teastáil ó raft a fháil thar."
+
+msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
+msgstr "Feicfidh mé gá freisin le sword sciath agus do chosaint féin. Is féidir liom labhairt le Borgan agus Jacob a fháil ar na cé."
+
+msgid "Could not connect to Medal Server at %s:%d"
+msgstr "Níorbh fhéidir nasc a Bonn Freastalaí ag %s:%d"
+
+msgid "Could not find Medal Key"
+msgstr "Níorbh fhéidir a aimsiú Bonn Eochair"
+
+msgid "You will not be able to earn Medals for this game"
+msgstr "Ní bheidh tú in ann Boinn thuilleamh le haghaidh an chluiche"
+
+msgid "There's another sign here"
+msgstr "Níl eile a shíniú anseo"
+
+msgid "If the exit lift is out of order then proceed to the left"
+msgstr "Má tá an ardaitheoir slí amach as d'fhonn leanúint ar aghaidh ansin ar chlé"
+
+msgid "Warning : Exit route may be hazardous"
+msgstr "D'fhéadfadh a bheith Rabhadh: bealach Scoir ghuaiseach"
+
+msgid "Maybe I should use the lift to get out"
+msgstr "B'fhéidir gur chóir dom a bhaint as an ardaitheoir a fháil amach"
+
+msgid "There's a sign here"
+msgstr "Níl comhartha anseo"
+
+msgid "An Oil Can"
+msgstr "An féidir ola"
+
+msgid "Oil Can"
+msgstr "Is féidir ola"
+
+msgid "A powerful repellent"
+msgstr "A repellent cumhachtacha"
+
+msgid "Repellent"
+msgstr "Repellent"
+
+msgid "Medal Support"
+msgstr "Bonn Tacaíocht"
+
+msgid "Fortress Mine"
+msgstr "Fortress Mianach"
+
+msgid "Private key is missing"
+msgstr "Tá eochair Príobháideach ar iarraidh"
+
+msgid "Could not connect to server"
+msgstr "Níorbh fhéidir nasc a dhéanamh leis an bhfreastalaí"
+
+msgid "Sludge Tentacle"
+msgstr "Sloda Tentacle"
+
+msgid "A Red Sludge Tentacle"
+msgstr "A sloda Dearg Tentacle"
+
+msgid "Eyeball Smoothie"
+msgstr "Eyeball Smoothie"
+
+msgid "Cool, it worked!"
+msgstr "Cool, d'oibrigh sé!"
+
+msgid "I'm not sure about the colour though, I thought it would be red?"
+msgstr "Níl mé cinnte faoi na dath cé, shíl mé go mbeadh sé dearg?"
+
+msgid "Maybe it's supposed to be yellow..."
+msgstr "B'fhéidir sé ceaptha a bheith buí ..."
+
+msgid "A liquid made from eyeballs and tentacles"
+msgstr "Tá leacht déanta as eyeballs agus tentacles"
+
+msgid "Patching your save game. Please wait..."
+msgstr "Patching a shábháil ar do chluiche. Fan go fóill ..."
+
+msgid "Now! Run while it's stunned!"
+msgstr "Anois! Rith agus is stunned!"
+
+msgid "Wow, that thing is huge!"
+msgstr "Wow é, gur rud mór!"
+
+msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgstr "Amhras mo sword mbeidh a dhéanamh fiú scratch, ach is gá dom a bheith caite sé ..."
+
+msgid "I have everything I need now"
+msgstr "Tá mé gach rud gá dom anois"
+
+msgid "There's a cauldron in the Laboratory, I should head back there"
+msgstr "Níl a cauldron sa tsaotharlann, ba chóir dom ceann ar ais ann"
+
+msgid "I just need to find another shield to enchant"
+msgstr "Gá mé díreach tar éis teacht ar sciath eile chun enchant"
+
+msgid "You won't be able to get the shield in this version, so check back later!"
+msgstr "Ní bheidh tú in ann a fháil ar an sciath sa leagan seo, agus mar sin a sheiceáil ar ais ina dhiaidh sin!"
+
+msgid "Its wounds are already healing..."
+msgstr "A wounds Tá leighis cheana féin ..."
+
+msgid "If you compiled the game from source, you need to do a make install"
+msgstr "Má tiomsú tú an cluiche ó fhoinse, is gá duit a dhéanamh ar a shuiteáil"
+
+msgid "It's sleeping"
+msgstr "Baineann sé le codlata"
+
+msgid "I'm safe anyway since it's in that cage..."
+msgstr "I'm sábháilte mar sin féin ó tá sé i go Cage ..."
+
+msgid "Where's the switch?"
+msgstr "I gcás ina's an athrú?"
+
+msgid "Ah, here it is!"
+msgstr "Ah, anseo é!"
+
+msgid "This generator looks OK, it just isn't on"
+msgstr "Breathnaíonn an gineadóir OK, tá sé ní hamháin ar"
+
+msgid "I guess it powers that door, so I'll have to turn it on"
+msgstr "Buille faoi thuairim mé sé cumhachtaí go doras, mar sin beidh mé ag dul dó ar"
+
+msgid "A Yellow Gem"
+msgstr "A GEM Buí"
+
+msgid "Failed to open PAK file %s"
+msgstr "Theip ar oscailt Pak comhad %s"
+
+msgid "Press Action to retrieve Purple Gem"
+msgstr "Preas Gníomhaíochta a fháil Purple GEM"
+
+msgid "Find a way to remove the Gem..."
+msgstr "Aimsigh ar bhealach a bhaint GEM ..."
+
+msgid "Press Action to retrieve the Yellow Gem"
+msgstr "Preas Gníomhaíochta a fháil ar an GEM Buí"
+
+msgid "I should be safe up here, but I need to get rid of it"
+msgstr "Ba chóir go mbeadh mé slán suas anseo, ach is gá dom a fháil haitheantas coibhneasta de"
+
+msgid "Book"
+msgstr "Leabhar"
+
+msgid "Sign"
+msgstr "Sínigh"
+
+msgid "Note"
+msgstr "Nóta"
+
+msgid "Solve the sliding puzzle"
+msgstr "Réitigh an bhfreagra sleamhnáin"
+
+msgid "The armour is too tough for them to penetrate..."
+msgstr "Is é an armour diana ró dóibh chun penetrate ..."
+
+msgid "The boss that was guarding the Mine wasn't in the previous version"
+msgstr "An Boss go raibh an guarding raibh Mine ní sa leagan a bhí roimhe seo"
+
+msgid "Because it is in this version you won't be able to leave"
+msgstr "Toisc go bhfuil sé sa leagan seo ní bheidh tú in ann a fhágáil"
+
+msgid "You will now be transported outside"
+msgstr "Beidh tú ag iompar anois lasmuigh"
+
+msgid "We apologize for the inconvenience"
+msgstr "Gabh ár leithscéal as an míchaoithiúlacht"
+
+msgid "That's a lot of slime"
+msgstr "Sin a lán de slime"
+
+msgid "I don't think the Ice Spray will get across this since it only works on water"
+msgstr "Ní dóigh liom go mbeidh an Sprae Oighear a fháil ar fud seo ós rud a oibríonn sé ach ar uisce"
+
+msgid "Slimes can only swim in water so that's not going to help either"
+msgstr "Is féidir le snámh Slimes ach amháin i uisce Ní ionas go mbeidh dul chun cabhrú le ceachtar"
+
+msgid "I remember Borgan telling me how ironic that is"
+msgstr "Cuimhnigh orm Borgan ag insint dom conas ironic go bhfuil"
+
+msgid "I'll have to find something to help me get across..."
+msgstr "Beidh mé ag teacht ar rud éigin chun cabhrú liom a fháil ar fud na ..."
+
+msgid "There, the rope's firmly attached"
+msgstr "Tá, ar an téad gceangal daingean"
+
+msgid "I need to find some rope before I can fire it"
+msgstr "Gá dom a aimsiú roinnt téad sular féidir liom é dóiteáin"
+
+msgid "It's a Grappling Hook"
+msgstr "It's a Hook Grappling"
+
+msgid "I could probably use it to form a bridge to the other side, but there's no rope"
+msgstr "D'fhéadfaí a úsáid mé dócha sé le droichead bhfoirm ar an taobh eile, ach níl aon téad"
+
+msgid "I still need a Fire Shield"
+msgstr "De dhíth orm fós Sciath Dóiteáin"
+
+msgid "Wow, this place is empty!"
+msgstr "Wow, tá an áit folamh!"
+
+msgid "I guess the sorceror has no need for weapons since he has magic"
+msgstr "Buille faoi thuairim mé an sorcerer bhfuil aon ghá le airm ó tá sé draíochta"
+
+msgid "Still, there must be something of use in here"
+msgstr "Fós, ní mór a bheith ann rud éigin ar úsáid anseo i"
+
+msgid "Cool, a giant sliding puzzle! I have one of these back home!"
+msgstr "Cool, i ollmhór sleamhnáin bhfreagra! Tá mé ar cheann de na baile ar ais!"
+
+msgid "Well, not a giant one, obviously..."
+msgstr "Bhuel, ní amháin ollmhór, ar ndóigh ..."
+
+msgid "Push left, right, up or down to move the blocks"
+msgstr "Brúigh ar chlé, ar dheis, suas nó síos chun gluaiseacht na bloic"
+
+msgid "Arrange the blocks so that the numbers 1 to 8 appear in order from left to right and the empty block is in the bottom right corner"
+msgstr "Socraigh na bloic ionas go mbeidh fáil ar an líon 1-8 d'fhonn ó chlé go deas agus tá an bloc folamh ar an choirnéal ceart bun"
+
+msgid "Press Attack to quit the puzzle"
+msgstr "Preas ionsaí a scor an bhfreagra"
+
+msgid "A length of rope"
+msgstr "A fhad de rópa"
+
+msgid "A device for grabbing far away objects"
+msgstr "Tá gléas grabbing fada amach cuspóirí"
+
+msgid "A bottle of pills that convert slime into water"
+msgstr "Buidéal den pills thiontú go slime isteach in uisce"
+
+msgid "Tutorial Key"
+msgstr "Eochair TeagaiscComment"
+
+msgid "Light Key"
+msgstr "Solas Eochair"
+
+msgid "Rope"
+msgstr "Rope"
+
+msgid "Extend-O-Grab"
+msgstr "Leathnú-O-Grab"
+
+msgid "Water Purifiers"
+msgstr "Uisce Purifiers"
+
+msgid "Right Wing Key"
+msgstr "Eite Dheis Eochair"
+
+msgid "Catapult Lift Key"
+msgstr "Catapult ardaitheoir Eochair"
+
+msgid "Armoury"
+msgstr "Armoury"
+
+msgid "Maggie"
+msgstr "Maggie"
+
+msgid "Jacob"
+msgstr "Jacob"
+
+msgid "Borgan"
+msgstr "Borgan"
+
+msgid "Edgar"
+msgstr "Edgar"
+
+msgid "Mine Cart"
+msgstr "Mine Cart"
+
+msgid "%s has regained power"
+msgstr "%s Tá regained chumhacht"
+
+msgid "Wow, a catapult!"
+msgstr "Wow, a catapult!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
+msgstr "An hinges cuma cé rusted, amhras orm beidh sé ag obair go dtí go rachaidh mé na seasta"
+
+msgid "That's it? Just this old shield? It doesn't look any better than my current one."
+msgstr "Sin é? Just an sciath d'aois? Ní chuireann sé aon cuma níos fearr ná mo cheann atá ann faoi láthair."
+
+msgid "Still, I'll hold onto it for the time being, it might come in handy"
+msgstr "Fós, beidh mé isteach i seilbh sé de thuras na huaire, d'fhéadfadh sé teacht i handy"
+
+msgid "Great, a spare shield!"
+msgstr "Great, sciath spártha!"
+
+msgid "This doesn't look like a Fire Shield to me. I was really hoping to find one here too"
+msgstr "Ní dhéanann an cuma mhaith ar Sciath Dóiteáin dom. Raibh mé ag súil gur chun ceann a fháil anseo freisin"
+
+msgid "This shield doesn't even look any better than my current one."
+msgstr "Ní dhéanann an sciath fiú breathnú ar bith níos fearr ná mo cheann atá ann faoi láthair."
+
+msgid "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
+msgstr "Gá mé díreach tar éis a chruthú ar an leacht as an tentacle agus sloda Gazer eyeballs"
+
+msgid "That's not a good sign..."
+msgstr "Ní sin comhartha maith ..."
+
+msgid "I just need to find another shield to enchant..."
+msgstr "Gá mé díreach tar éis teacht ar sciath eile chun enchant ..."
+
+msgid "Hey, a lightning sword!"
+msgstr "Hey, a sword lightning!"
+
+msgid "It looks a lot more powerful than my current sword too"
+msgstr "Breathnaíonn sé a lán níos mó ná cumhachtach mo sword reatha ró -"
+
+msgid "With this I should be almost unstoppable"
+msgstr "Leis seo, ba chóir go mbeadh mé beagnach unstoppable"
+
+msgid "Almost"
+msgstr "Beagnach"
+
+msgid "The Lightning Sword has a limited number of charges and will lose its power when these charges are used up"
+msgstr "An Sword Lightning Tá líon teoranta de na muirir agus Caillfidh a chumhacht nuair na muirear sin a úsáid le"
+
+msgid "Enemies will randomly drop more charges when they are killed"
+msgstr "Beidh Enemies titim go randamach táillí níos mó nuair a maraíodh"
+
+msgid "Note that if the sword completely loses its power it will revert to a regular sword with very little power until you can find more charges"
+msgstr "Tabhair faoi deara go má chailleann an sword go hiomlán a chumhacht beidh sé ar ais go sword rialta le cumhacht beag go dtí an féidir leat teacht ar na muirir níos mó"
+
+msgid "This centurion has no power"
+msgstr "Tá an centurion aon chumhacht"
+
+msgid "It's connected to this treadmill so I could probably charge it up with enough speed"
+msgstr "Tá sé seo ag baint leis seo treadmill go bhféadfaí mé in aisce is dócha sé suas leis an luas leor"
+
+msgid "An old shield found in the Armoury"
+msgstr "An sean-sciath fáil sa Armoury"
+
+msgid "A Sword that can be charged with lightning"
+msgstr "A Sword féidir a ghearrtar le lightning"
+
+msgid "A Sword imbued with the power of lightning"
+msgstr "A Sword imbued leis an gcumhacht lightning"
+
+msgid "Lightning Sword"
+msgstr "Lightning Sword"
+
+msgid "INTRUDER!"
+msgstr "INTRUDER!"
+
+msgid "The hinges look rusted though, I doubt it'll work until I get them fixed"
+msgstr "An hinges cuma cé rusted, amhras orm beidh sé ag obair go dtí go rachaidh mé seasta iad"
+
+msgid "OK, let's see if this works..."
+msgstr "OK, a ligean ar a fheiceáil má hoibreacha seo ..."
+
+msgid "I'll have no problem walking over this rope either, thanks to my tightrope walking skills"
+msgstr "Feicfidh mé aon fhadhb siúl thar an rópa ceachtar, buíochas le mo scileanna tightrope siúil"
+
+msgid "And Dad said it'd never come in handy!"
+msgstr "Agus dúirt daid riamh gur mhaith leis teacht i handy!"
+
+msgid "I need a length of rope to attach to the bolt"
+msgstr "Ag teastáil uaim ar fad de rópa chun gabháil leis an bolt"
+
+msgid "It's a giant crossbow"
+msgstr "It's a crossbow ollmhór"
+
+msgid "I could probably use it to create a bridge over those spikes"
+msgstr "D'fhéadfaí a úsáid mé é is dócha a chruthú droichead thar na spikes"
+
+msgid "I'll need some rope first though"
+msgstr "Feicfidh mé gá roinnt téad chéad cé go"
+
+msgid "There, that's the hinges oiled. This should be as good as new now!"
+msgstr "Tá, le go mbeidh an hinges oiled. Ba chóir go mbeadh sé seo chomh maith le nua anois!"
+
+msgid "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr "An hinges Tá rusted, beidh mé gá chun teacht ar roinnt ola sular féidir liom é a úsáid"
+
+msgid "I can't run in this armour, though"
+msgstr "Ní féidir liom a reáchtáil i armour seo, cé go"
+
+msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr "Plus, Tá mé tuirseach ó siúil seo go léir, léim, ag troid, snámh ..."
+
+msgid "thinking, mining, chopping, pushing, pulling, carrying..."
+msgstr "smaoineamh, mianadóireacht, chopping, brú, tarraingt, iompar ..."
+
+msgid "and catching chickens"
+msgstr "agus sicíní teacht"
+
+msgid "I'll get something else to do it instead"
+msgstr "Beidh liom rud éigin eile a dhéanamh in ionad"
+
+msgid "Statistics"
+msgstr "Staitisticí"
+
+msgid "Play Time: %s"
+msgstr "Seinn Am: %s"
+
+msgid "Kills: %d"
+msgstr "Mharaíonn: %d"
+
+msgid "Bats Drowned: %d"
+msgstr "Bats Drowned: %d"
+
+msgid "Times Eaten: %d"
+msgstr "Amanna ithe: %d"
+
+msgid "Attacks Blocked: %d"
+msgstr "Ionsaithe Blocked: %d"
+
+msgid "Time Spent As A Slime: %s"
+msgstr "Am a chaitear Mar A Slime: %s"
+
+msgid "Distanced Travelled: %0.1fKM"
+msgstr "Distanced Thaistil: %0.1fKM"
+
+msgid "Arrows Fired: %d"
+msgstr "Saigheada fired: %d"
+
+msgid "You found a secret!"
+msgstr "Fuair tú rúnda a!"
+
+msgid "10 charges remaining..."
+msgstr "10 muirir eile ..."
+
+msgid "%s is out of power"
+msgstr "%s Is as cumhacht"
+
+msgid "The damage from this weapon is being absorbed..."
+msgstr "Is é an damáiste as an arm a bheith absorbed ..."
+
+msgid "Secrets Found: %d / %d"
+msgstr "Rúin Found: %d / %d"
+

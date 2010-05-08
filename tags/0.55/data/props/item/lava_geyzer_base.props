@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/lava_geyzer_base.dat
+ANIM_FILE data/anim/item/lava_geyzer.dat
+TYPE KEY_ITEM
+FLAGS FLY|DO_NOT_PERSIST

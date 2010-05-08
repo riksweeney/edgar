@@ -1,0 +1,12 @@
+TALK Edgar More water?!
+HAS_ITEM "Empty Bottle" 1 1 ICE_SPRAY_POINT 1 2
+IF ICE_SPRAY_POINT HEALTH 2
+HAS_ITEM "Potion of Transmogrification" 1 1 ICE_SPRAY_POINT 1 2
+END
+IF ICE_SPRAY_POINT HEALTH 1
+TALK Edgar I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards
+TALK Edgar I'll have to find another way of getting across
+END
+IF ICE_SPRAY_POINT HEALTH 2
+TALK Edgar I'll have to find something to help me get across
+END

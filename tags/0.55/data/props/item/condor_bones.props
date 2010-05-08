@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/ingredient.dat
+ANIM_FILE data/anim/common/no_anim.dat
+TYPE ITEM
+OBJECTIVE_NAME Condor Bones
