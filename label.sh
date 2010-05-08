@@ -1,10 +1,15 @@
-if [ $# -ne 2 ]
+if [ $# -ne 1 ]
 	then
 	echo ""
-	echo "Usage $0 <version> <\"tag comment\">"
+	echo "Usage $0 <version>"
 	echo ""
 	exit 1
 fi
+
+declare CURRENT_TOTAL=0
+declare SCRIPT_TOTAL=0
+declare MAP_TOTAL=0
+declare TOTAL=0
 
 CURRENT_TOTAL=`grep TOTAL_SECRETS src/defs.h | cut -d' ' -f3`
 
@@ -16,7 +21,9 @@ TOTAL=$(($SCRIPT_TOTAL+$MAP_TOTAL))
 
 if [ "$TOTAL" != "$CURRENT_TOTAL" ]
 then
-	echo "Secret tally does not match. Found: $TOTAL"
+	echo "Secret tally does not match"
+	echo "Expected '$CURRENT_TOTAL'"
+	echo "Found '$TOTAL'"
 	#sed -i 's/TOTAL_SECRETS [0-9]*/TOTAL_SECRETS $TOTAL/' src/defs.h
 	exit 1
 fi
