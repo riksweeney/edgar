@@ -157,6 +157,8 @@ static void initialise()
 			setEntityAnimation(self, WALK);
 
 			self->frameSpeed = 0;
+			
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
 }
@@ -1744,6 +1746,8 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
+		clearContinuePoint();
+		
 		increaseKillCount();
 
 		freeBossHealthBar();

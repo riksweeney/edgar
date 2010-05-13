@@ -2,6 +2,23 @@ IF MONSTER_BOOK HEALTH -1
 TALK Edgar This entire section is about monsters
 TALK Edgar I don't have any reason to read these but I'll keep it in mind in case I do
 END
+IF MONSTER_BOOK HEALTH 10
+TALK Edgar I wonder what other monsters there are...
+TALK Edgar Chaos
+TALK Book Chaos is an ancient, evil dragon
+SET EDGAR FACE RIGHT
+WAIT 30
+SET EDGAR FACE LEFT
+WAIT 30
+TALK Edgar A dragon?! Dad told me they were all extinct!
+TALK Book For years he wreaked havoc across this land and took thousands of innocent lives, his firey breath incinerated everything in its path
+TALK Book Finally a brave warrior and a group of magicians managed to overwhelm and bind him
+TALK Book They sealed the dragon away beneath an old fortress
+TALK Book It is believed he is still there
+SET EDGAR FACE RIGHT
+TALK Edgar Beneath an old fortress? Maybe they mean this one...
+SET MONSTER_BOOK HEALTH 11
+END
 IF MONSTER_BOOK HEALTH 9
 TALK Edgar I wonder what other monsters there are...
 TALK Edgar Grimlore
@@ -102,8 +119,11 @@ ACTIVATE_REQUIRED MONSTER_BOOK_TRIGGER
 SET BLACK_BOOK_1 REMOVE_FLAG NO_DRAW
 SET MONSTER_BOOK HEALTH 1
 END
-IF MONSTER_BOOK HEALTH 10
+IF MONSTER_BOOK HEALTH 11
 ADD_MEDAL read_monster_book
+IF MONSTER_BOOK MENTAL 0
 ADD_SECRET
+SET MONSTER_BOOK PROPERTY MENTAL 1
+END
 SET MONSTER_BOOK HEALTH 1
 END

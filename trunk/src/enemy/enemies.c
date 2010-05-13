@@ -89,6 +89,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/mataeus_wall.h"
 #include "../boss/boulder_boss_2.h"
 #include "../boss/armour_boss.h"
+#include "../boss/awesome_boss.h"
+#include "../boss/awesome_boss_meter.h"
 
 #include "../system/error.h"
 
@@ -177,7 +179,12 @@ static Constructor enemies[] = {
 {"enemy/auto_spike_ball", &addAutoSpikeBall},
 {"enemy/gold_centurion", &addGoldCenturion},
 {"enemy/green_scanner", &addScanner},
-{"enemy/blue_scanner", &addScanner}
+{"enemy/blue_scanner", &addScanner},
+{"boss/awesome_boss_1", &addAwesomeBoss},
+{"boss/awesome_boss_2", &addAwesomeBoss},
+{"boss/awesome_boss_3", &addAwesomeBoss},
+{"boss/awesome_boss_4", &addAwesomeBoss},
+{"boss/awesome_boss_meter", &addAwesomeBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

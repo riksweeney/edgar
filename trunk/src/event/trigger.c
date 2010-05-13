@@ -168,6 +168,10 @@ void fireTrigger(char *name)
 					case REMOVE_INVENTORY_ITEM:
 						removeInventoryItem(trigger[i].targetName);
 					break;
+					
+					case UPDATE_TRIGGER:
+						fireTrigger(trigger[i].targetName);
+					break;
 
 					default:
 

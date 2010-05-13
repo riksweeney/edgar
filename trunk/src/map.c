@@ -1128,6 +1128,26 @@ void resetCameraLimits()
 	map.cameraMaxY = map.maxY;
 }
 
+int getCameraMinX()
+{
+	return map.cameraMinX;
+}
+
+int getCameraMinY()
+{
+	return map.cameraMinY;
+}
+
+int getCameraMaxX()
+{
+	return map.cameraMaxX;
+}
+
+int getCameraMaxY()
+{
+	return map.cameraMaxY;
+}
+
 int cameraAtMinimum()
 {
 	return (map.cameraMinX == map.startX && map.cameraMinY == map.startY);

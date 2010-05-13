@@ -85,6 +85,8 @@ static void chargeAttackStart(void);
 static void chargeAttack(void);
 static void chargeAttackTouch(Entity *);
 static void starWait(void);
+static void introComplete(void);
+static void continuePoint(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -116,7 +118,7 @@ Entity *addArmourBoss(int x, int y, char *name)
 
 	e->reactToBlock = &changeDirection;
 
-	e->resumeNormalFunction = &attackFinished;
+	e->resumeNormalFunction = &introComplete;
 
 	setEntityAnimation(e, CUSTOM_1);
 
@@ -1575,4 +1577,24 @@ static void starWait()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void introComplete()
+{
+	self->action = &attackFinished;
+	
+	setContinuePoint(TRUE, self->name, &continuePoint);
+}
+
+static void continuePoint()
+{
+	addYellowGem();
+	
+	initBossHealthBar();
+
+	playBossMusic();
+	
+	self->action = &attackFinished;
+	
+	setContinuePoint(TRUE, self->name, &continuePoint);
 }

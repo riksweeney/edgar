@@ -60,3 +60,7 @@ int getDistanceFromCamera(int, int);
 int outOfBounds(Entity *);
 int mapIsDark(void);
 void resetBlendTime(void);
+int getCameraMinX(void);
+int getCameraMinY(void);
+int getCameraMaxX(void);
+int getCameraMaxY(void);

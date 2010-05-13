@@ -1385,7 +1385,7 @@ static void playerDie()
 
 	player.dirX = 0;
 
-	player.thinkTime = 180;
+	player.thinkTime = 120;
 
 	player.action = &gameOverTimeOut;
 
@@ -1404,8 +1404,13 @@ static void playerDie()
 static void gameOverTimeOut()
 {
 	player.thinkTime--;
-
+	
 	checkToMap(&player);
+	
+	if (player.thinkTime <= 0 && game.canContinue == TRUE)
+	{
+		getContinuePoint();
+	}
 }
 
 void freePlayer()
@@ -2112,9 +2117,9 @@ void addChargesToWeapon()
 		
 		playerWeapon.mental += self->health;
 		
-		if (playerWeapon.mental > 100)
+		if (playerWeapon.mental > 50)
 		{
-			playerWeapon.mental = 100;
+			playerWeapon.mental = 50;
 		}
 		
 		playerWeapon.head->mental = playerWeapon.mental;

@@ -314,6 +314,16 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			else if (strcmpignorecase(token, "MENTAL") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				if (e->mental != atoi(token))
+				{
+					script.skipping = TRUE;
+				}
+			}
 
 			else
 			{

@@ -72,7 +72,7 @@ static void init()
 
 static void wait()
 {
-	if (self->maxThinkTime != 0)
+	if (self->mental != -1)
 	{
 		self->thinkTime--;
 

@@ -141,6 +141,8 @@ static void initialise()
 			self->action = &doIntro;
 
 			self->thinkTime = 180;
+			
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
 
@@ -818,6 +820,8 @@ static void dieFinish()
 
 	if (self->thinkTime <= 0)
 	{
+		clearContinuePoint();
+		
 		increaseKillCount();
 
 		freeBossHealthBar();

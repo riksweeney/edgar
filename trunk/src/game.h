@@ -44,3 +44,6 @@ void fadeFromWhite(int);
 void increaseKillCount(void);
 char *getSlimeTimeAsString(void);
 void increaseSecretsFound(void);
+void setContinuePoint(int, char *, void (*)(void));
+void getContinuePoint(void);
+void clearContinuePoint(void);

@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../geometry.h"
 #include "../hud.h"
+#include "../game.h"
 #include "../projectile.h"
 #include "../system/error.h"
 
@@ -162,6 +163,8 @@ static void initialise()
 			playBossMusic();
 
 			initBossHealthBar();
+			
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
 }
@@ -974,6 +977,8 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
+		clearContinuePoint();
+		
 		increaseKillCount();
 
 		freeBossHealthBar();
@@ -1137,7 +1142,7 @@ static void stunned()
 
 			e->currentFrame = (i == 0 ? 0 : 6);
 
-			e->x = self->x + self->w / 2- e->w / 2;
+			e->x = self->x + self->w / 2 - e->w / 2;
 
 			e->y = self->y - e->h;
 		}
