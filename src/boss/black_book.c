@@ -83,6 +83,8 @@ static void initialise()
 
 	if (self->active == TRUE)
 	{
+		self->flags &= ~NO_DRAW;
+		
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
@@ -105,6 +107,8 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
+		self->flags |= DO_NOT_PERSIST;
+		
 		e = addEnemy("boss/mataeus", self->x, self->y);
 		
 		t = getTargetByName("MATAEUS_RIGHT_TARGET");

@@ -39,8 +39,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "inventory.h"
 #include "event/map_trigger.h"
 #include "system/error.h"
+#include "system/load_save.h"
 
 extern Game game;
+
+static ContinueData continueData;
 
 static void shake(void);
 static void wipeOutRightToLeft(void);
@@ -89,6 +92,8 @@ void initGame()
 	game.action = NULL;
 
 	game.thinkTime = 0;
+	
+	game.canContinue = FALSE;
 
 	if (game.alphaSurface != NULL)
 	{
@@ -869,4 +874,67 @@ void increaseSecretsFound()
 	setInfoBoxMessage(90, 0, 255, 0, _("You found a secret!"));
 	
 	playSound("sound/common/secret.ogg");
+}
+
+void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
+{
+	game.canContinue = TRUE;
+	
+	continueData.cameraMinX = getCameraMinX();
+	continueData.cameraMinY = getCameraMinY();
+	continueData.cameraMaxX = getCameraMaxX();
+	continueData.cameraMaxY = getCameraMaxY();
+	
+	continueData.cameraFollow = cameraFollow;
+	
+	continueData.resumeAction = resumeAction;
+	
+	STRNCPY(continueData.boss, boss, sizeof(continueData.boss));
+	
+	saveContinueData();
+}
+
+void getContinuePoint()
+{
+	Entity *e;
+	
+	loadContinueData();
+	
+	stopMusic();
+	
+	limitCamera(continueData.cameraMinX, continueData.cameraMinY, continueData.cameraMaxX, continueData.cameraMaxY);
+	
+	setMapStartX(continueData.cameraMinX);
+	setMapStartY(continueData.cameraMinY);
+	
+	if (continueData.cameraFollow == FALSE)
+	{
+		centerMapOnEntity(NULL);
+	}
+	
+	else
+	{
+		cameraSnapToTargetEntity();
+	}
+	
+	if (continueData.resumeAction != NULL)
+	{
+		e = getEntityByName(continueData.boss);
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("Continue data could not find %s", continueData.boss);
+		}
+		
+		e->action = continueData.resumeAction;
+	}
+}
+
+void clearContinuePoint()
+{
+	game.canContinue = FALSE;
+	
+	continueData.resumeAction = NULL;
+	
+	continueData.boss[0] = '\0';
 }

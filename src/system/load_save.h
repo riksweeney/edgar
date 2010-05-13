@@ -30,3 +30,5 @@ char *getGameSavePath(void);
 char **getSaveFileIndex(void);
 void tutorial(void);
 int getPrivateKey(char *);
+int loadContinueData(void);
+void saveContinueData(void);

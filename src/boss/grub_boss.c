@@ -152,11 +152,13 @@ static void initialise()
 
 			self->endX = self->damage;
 
-			self->damage = 0;
-
 			initBossHealthBar();
 
 			playBossMusic();
+			
+			setContinuePoint(FALSE, self->name, NULL);
+			
+			self->damage = 0;
 		}
 	}
 }
@@ -477,6 +479,8 @@ static void die()
 
 	if (self->thinkTime <= 0)
 	{
+		clearContinuePoint();
+		
 		increaseKillCount();
 
 		freeBossHealthBar();

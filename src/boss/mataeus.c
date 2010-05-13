@@ -126,7 +126,7 @@ Entity *addMataeus(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, CUSTOM_1);
 
 	return e;
 }
@@ -144,6 +144,8 @@ static void initialise()
 
 	self->endX = self->x;
 	self->endY = self->y;
+	
+	setContinuePoint(FALSE, self->name, NULL);
 }
 
 static void doIntro()
@@ -1696,6 +1698,8 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
+		clearContinuePoint();
+		
 		increaseKillCount();
 
 		freeBossHealthBar();

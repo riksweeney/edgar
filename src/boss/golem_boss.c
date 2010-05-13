@@ -304,6 +304,8 @@ static void initialise()
 			self->thinkTime = 0;
 
 			self->action = &headWait;
+			
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
 
@@ -773,6 +775,8 @@ static void dieFinish()
 			{
 				addMedal("golem_kill_grabbers");
 			}
+			
+			clearContinuePoint();
 
 			increaseKillCount();
 

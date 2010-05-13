@@ -54,3 +54,6 @@ item/invisibility_potion
 item/crossbow
 item/catapult
 item/oil_can
+boss/awesome_boss_1
+wall/invisible_wall
+boss/awesome_boss_meter

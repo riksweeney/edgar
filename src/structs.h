@@ -149,7 +149,7 @@ typedef struct Game
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten, medalSupport;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
-	int secretsFound, alphaTime;
+	int secretsFound, alphaTime, canContinue;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
@@ -280,3 +280,11 @@ typedef struct FileData
 	char filename[MAX_FILE_LENGTH];
 	long fileSize, compressedSize, offset;
 } FileData;
+
+typedef struct ContinueData
+{
+	char boss[MAX_VALUE_LENGTH];
+	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
+	int cameraFollow;
+	void (*resumeAction)(void);
+} ContinueData;

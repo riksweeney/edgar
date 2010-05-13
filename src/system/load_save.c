@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../input.h"
 #include "error.h"
 
-static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH];
+static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH], continueFile[MAX_PATH_LENGTH];
 
 static void removeTemporaryData(void);
 static void copyFile(char *, char *);
@@ -80,7 +80,11 @@ extern Game game;
 
 		userHome = pass->pw_dir;
 
-		snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
+		#ifdef __AMIGA__
+			snprintf(dir, sizeof(dir), "parallelrealities");
+		#else
+			snprintf(dir, sizeof(dir), "%s/.parallelrealities", userHome);
+		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -89,7 +93,11 @@ extern Game game;
 			exit(1);
 		}
 
-		snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
+		#ifdef __AMIGA__
+			snprintf(dir, sizeof(dir), "parallelrealities/edgar");
+		#else
+			snprintf(dir, sizeof(dir), "%s/.parallelrealities/edgar", userHome);
+		#endif
 
 		if ((mkdir(dir, S_IRWXU|S_IRWXG|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
 		{
@@ -98,11 +106,17 @@ extern Game game;
 			exit(1);
 		}
 
-		snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
+		#ifdef __AMIGA__
+			snprintf(gameSavePath, sizeof(gameSavePath), "parallelrealities/edgar/");
+		#else
+			snprintf(gameSavePath, sizeof(gameSavePath), "%s/.parallelrealities/edgar/", userHome);
+		#endif
 
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
+		
+		snprintf(continueFile, sizeof(tempFile), "%scontinuesave", gameSavePath);
 
 		removeTemporaryData();
 	}
@@ -112,6 +126,7 @@ extern Game game;
 		STRNCPY(gameSavePath, "", sizeof(gameSavePath));
 		STRNCPY(tempFile, "tmpsave", sizeof(tempFile));
 		STRNCPY(saveFileIndex, "saveheader", sizeof(saveFileIndex));
+		STRNCPY(continueFile, "continuesave", sizeof(continueFile));
 
 		removeTemporaryData();
 	}
@@ -826,6 +841,290 @@ void saveTemporaryData()
 	compressFile(tempFile);
 }
 
+void saveContinueData()
+{
+	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
+	char saveFile[MAX_PATH_LENGTH];
+	char *mapName = getMapFilename();
+	unsigned char *buffer;
+	int skipping = FALSE;
+	FILE *read;
+	FILE *write;
+
+	savePtr = NULL;
+
+	snprintf(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
+
+	read = fopen(tempFile, "rb");
+
+	write = fopen(saveFile, "wb");
+
+	fprintf(write, "VERSION %0.2f\n", VERSION);
+
+	fprintf(write, "PLAY_TIME %ld\n", game.playTime);
+
+	fprintf(write, "PLAYER_KILLS %d\n", game.kills);
+
+	fprintf(write, "BATS_DROWNED %d\n", game.batsDrowned);
+
+	fprintf(write, "TIMES_EATEN %d\n", game.timesEaten);
+	
+	fprintf(write, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
+	
+	fprintf(write, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
+	
+	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
+	
+	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
+	
+	fprintf(write, "SECRETS_FOUND %d\n", game.secretsFound);
+
+	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
+
+	if (read != NULL)
+	{
+		fclose(read);
+
+		buffer = decompressFile(tempFile);
+
+		line = strtok_r((char *)buffer, "\n", &savePtr);
+
+		while (line != NULL)
+		{
+			if (line[strlen(line) - 1] == '\n')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
+
+			if (line[strlen(line) - 1] == '\r')
+			{
+				line[strlen(line) - 1] = '\0';
+			}
+
+			if (skipping == FALSE)
+			{
+				sscanf(line, "%s", itemName);
+
+				if (strcmpignorecase("PLAYER_DATA", itemName) == 0 || strcmpignorecase("PLAYER_INVENTORY", itemName) == 0 ||
+					strcmpignorecase("PLAYER_LOCATION", itemName) == 0 || strcmpignorecase("VERSION", itemName) == 0)
+				{
+					skipping = TRUE;
+				}
+
+				else if (strcmpignorecase("MAP_NAME", itemName) == 0)
+				{
+					sscanf(line, "%*s %s\n", itemName);
+
+					if (strcmpignorecase(itemName, mapName) == 0)
+					{
+						skipping = TRUE;
+					}
+
+					else
+					{
+						fprintf(write, "%s\n", line);
+					}
+				}
+
+				else
+				{
+					fprintf(write, "%s\n", line);
+				}
+			}
+
+			else
+			{
+				sscanf(line, "%s", itemName);
+
+				if (strcmpignorecase("MAP_NAME", itemName) == 0)
+				{
+					sscanf(line, "%*s %s\n", itemName);
+
+					if (strcmpignorecase(itemName, mapName) != 0)
+					{
+						skipping = FALSE;
+
+						fprintf(write, "%s\n", line);
+					}
+				}
+			}
+
+			line = strtok_r(NULL, "\n", &savePtr);
+		}
+
+		free(buffer);
+	}
+
+	/* Save the player's position */
+
+	fprintf(write, "MAP_NAME %s\n", mapName);
+
+	fprintf(write, "PLAYER_DATA\n");
+
+	writePlayerToFile(write);
+
+	fprintf(write, "INVENTORY_INDEX %d\n", getInventoryIndex());
+
+	fprintf(write, "PLAYER_INVENTORY\n");
+
+	writeInventoryToFile(write);
+
+	fprintf(write, "ENTITY_DATA\n");
+
+	/* Now write out all of the Entities */
+
+	writeEntitiesToFile(write);
+
+	/* Now the targets */
+
+	writeTargetsToFile(write);
+
+	/* And the triggers */
+
+	writeTriggersToFile(write);
+
+	/* Add the global triggers */
+
+	writeGlobalTriggersToFile(write);
+
+	/* Add the map triggers */
+
+	writeMapTriggersToFile(write);
+
+	/* Add the objectives */
+
+	writeObjectivesToFile(write);
+
+	/* Save the player data */
+
+	fclose(write);
+
+	#if DEV == 1
+		copyFile(saveFile, "continuedata");
+	#endif
+
+	compressFile(saveFile);
+}
+
+int loadContinueData()
+{
+	char itemName[MAX_MESSAGE_LENGTH], mapName[MAX_MESSAGE_LENGTH];
+	char saveFile[MAX_PATH_LENGTH], *line, *savePtr;
+	unsigned char *buffer;
+	FILE *fp;
+
+	savePtr = NULL;
+
+	snprintf(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
+
+	fp = fopen(saveFile, "rb");
+
+	if (fp == NULL)
+	{
+		return FALSE;
+	}
+
+	fclose(fp);
+
+	freeGameResources();
+
+	initGame();
+
+	buffer = decompressFile(saveFile);
+
+	line = strtok_r((char *)buffer, "\n", &savePtr);
+
+	while (line != NULL)
+	{
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		sscanf(line, "%s", itemName);
+
+		if (strcmpignorecase("PLAY_TIME", itemName) == 0)
+		{
+			sscanf(line, "%*s %ld\n", &game.playTime);
+		}
+
+		else if (strcmpignorecase("PLAYER_KILLS", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.kills);
+		}
+
+		else if (strcmpignorecase("BATS_DROWNED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.batsDrowned);
+		}
+
+		else if (strcmpignorecase("TIMES_EATEN", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.timesEaten);
+		}
+		
+		else if (strcmpignorecase("DISTANCE_TRAVELLED", itemName) == 0)
+		{
+			sscanf(line, "%*s %u\n", &game.distanceTravelled);
+		}
+		
+		else if (strcmpignorecase("ATTACKS_BLOCKED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.attacksBlocked);
+		}
+		
+		else if (strcmpignorecase("SLIME_TIME", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.timeSpentAsSlime);
+		}
+		
+		else if (strcmpignorecase("ARROWS_FIRED", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.arrowsFired);
+		}
+		
+		else if (strcmpignorecase("SECRETS_FOUND", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.secretsFound);
+		}
+
+		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
+		{
+			sscanf(line, "%*s %s\n", itemName);
+
+			loadMap(itemName, FALSE);
+
+			snprintf(mapName, sizeof(mapName), "MAP_NAME %s", itemName);
+		}
+
+		else if (strcmpignorecase(line, mapName) == 0)
+		{
+			loadResources(savePtr);
+		}
+
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
+
+	free(buffer);
+
+	copyFile(saveFile, tempFile);
+
+	buffer = decompressFile(tempFile);
+
+	free(buffer);
+
+	cameraSnapToTargetEntity();
+
+	freeMessageQueue();
+
+	return TRUE;
+}
+
 int hasPersistance(char *mapName)
 {
 	int val = FALSE;
@@ -932,6 +1231,20 @@ static void removeTemporaryData()
 		if (remove(tempFile) != 0)
 		{
 			perror("Could not remove temporary file");
+
+			exit(1);
+		}
+	}
+	
+	fp = fopen(continueFile, "rb");
+
+	if (fp != NULL)
+	{
+		fclose(fp);
+
+		if (remove(continueFile) != 0)
+		{
+			perror("Could not remove continue file");
 
 			exit(1);
 		}
