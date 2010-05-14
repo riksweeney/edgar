@@ -93,6 +93,8 @@ void initGame()
 
 	game.thinkTime = 0;
 	
+	game.continues = 0;
+	
 	game.canContinue = FALSE;
 
 	if (game.alphaSurface != NULL)
@@ -928,6 +930,8 @@ void getContinuePoint()
 		
 		e->action = continueData.resumeAction;
 	}
+	
+	game.continues++;
 }
 
 void clearContinuePoint()

@@ -140,7 +140,7 @@ static void touch(Entity *other)
 		}
 	}
 
-	else if (other->type == PROJECTILE && other->parent != self && other->parent->type != ENEMY)
+	else if (other->type == PROJECTILE && other->parent != NULL && other->parent != self && other->parent->type != ENEMY)
 	{
 		/* Reflect the projectile */
 

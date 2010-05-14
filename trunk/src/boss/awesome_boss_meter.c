@@ -80,13 +80,13 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		self->health = 0;
-		
 		initBossHealthBar();
 		
 		self->action = &wait;
 		
 		self->thinkTime = 180;
+		
+		self->health = 0;
 	}
 }
 

@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 0.56
+* Explosions that kill enemies no longer crash the game
+
 Version 0.55
 * Added the Armoury map, you can get to it via the Fortress Ground Floor
 * Fixed a problem with some key mappings
