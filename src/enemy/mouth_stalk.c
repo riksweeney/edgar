@@ -318,7 +318,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->damage = 0;
 
-			if (other->type == WEAPON || (other->type == PROJECTILE && other->parent->type == WEAPON))
+			if (other->type == WEAPON || other->type == PROJECTILE)
 			{
 				increaseKillCount();
 			}

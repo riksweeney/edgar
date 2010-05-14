@@ -159,6 +159,8 @@ static void trap(Entity *other)
 		if (other->health == 1)
 		{
 			self->health = 5;
+			
+			other->flags |= FLY;
 		}
 
 		game.timesEaten++;

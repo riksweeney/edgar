@@ -48,9 +48,9 @@ static void doIntro(void);
 static void attackFinished(void);
 static void wait(void);
 static void introWait(void);
-static void teleportAway(void);
-static void teleportWait(void);
 static void teleportIn(void);
+static void teleportOut(void);
+static void teleportWait(void);
 static int energyBarDraw(void);
 static void energyBarWait(void);
 static void initEnergyBar(void);
@@ -59,6 +59,14 @@ static void die(void);
 static void healPartner(void);
 static void addStunStar(void);
 static void starWait(void);
+static void fireballAttackInit(void);
+static void fireballAttack(void);
+static void fireBallAttackFinished(void);
+static void dropAttack(void);
+static void dropAttackInit(void);
+static void superAttack(void);
+static void superAttackInit(void);
+static void superAttackFinished(void);
 
 Entity *addAwesomeBoss(int x, int y, char *name)
 {
@@ -120,6 +128,8 @@ static void initEnergyBar()
 	{
 		showErrorAndExit("Awesome Boss could not find meter");
 	}
+	
+	self->head->damage++;
 }
 
 static void initialise()
@@ -154,6 +164,8 @@ static void doIntro()
 	
 	self->thinkTime--;
 	
+	self->endX = 1;
+	
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= DO_NOT_PERSIST;
@@ -168,6 +180,11 @@ static void doIntro()
 
 		e->targetX = e->x;
 		e->targetY = e->y;
+		
+		e->startX = e->x;
+		e->startY = e->y;
+		
+		e->endX = self->mental;
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
@@ -201,14 +218,42 @@ static void doIntro()
 
 static void attackFinished()
 {
-	checkToMap(self);
+	Entity *temp;
 	
-	self->thinkTime = 30 + prand() % 30;
+	self->thinkTime--;
 	
-	self->action = &teleportAway;
+	if (self->thinkTime <= 0)
+	{
+		checkToMap(self);
+		
+		temp = self;
+		
+		self = self->head;
+		
+		self->takeDamage(self, 5);
+		
+		self = temp;
+		
+		self->action = &teleportOut;
+	}
 }
 
-static void teleportAway()
+static void teleportIn()
+{
+	if (player.health > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void teleportOut()
 {
 	self->thinkTime--;
 	
@@ -223,6 +268,10 @@ static void teleportAway()
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		
 		self->action = &teleportWait;
+		
+		self->head->mental++;
+		
+		printf("%d / %d : %d / %d\n", self->head->mental, self->head->damage, self->head->health, self->head->maxHealth);
 		
 		self->thinkTime = 60 + prand() % 120;
 		
@@ -253,16 +302,49 @@ static void teleportAway()
 
 static void teleportWait()
 {
+	int i;
 	Target *t;
 	
-	if (self->target->health <= 0)
+	if (player.health <= 0)
 	{
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
 		{
-			printf("Teleporting in to save partner\n");
+			self->x = self->startX;
+			self->y = self->startY;
 			
+			self->flags &= ~NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			self->action = &teleportIn;
+			
+			facePlayer();
+		}
+	}
+	
+	else if (self->head->health == self->head->maxHealth)
+	{
+		if (self->head->mental == self->head->damage)
+		{
+			self->thinkTime = 30 * self->endX;
+			
+			self->mental = 5;
+			
+			self->action = &superAttackInit;
+			
+			self->flags |= FLY;
+			
+			self->dirY = 0;
+		}
+	}
+	
+	else if (self->target->health <= 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
 			self->x = self->target->x;
 			
 			t = getTargetByName((prand() % 2 == 0) ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
@@ -292,55 +374,101 @@ static void teleportWait()
 		}
 	}
 	
-	if (self->active == TRUE)
+	else if (self->active == TRUE)
 	{
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
-		{
-			t = getTargetByName((prand() % 2 == 0) ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+		{			
+			i = prand() % 2;
 			
-			if (t == NULL)
+			switch (i)
 			{
-				showErrorAndExit("Awesome Boss cannot find target");
+				case 0:
+					self->action = &fireballAttackInit;
+				break;
+				
+				default:
+					self->action = &dropAttackInit;
+				break;
 			}
-			
-			self->x = t->x + (prand() % 16) * (prand() % 2 == 0 ? 1 : -1);
-			self->y = t->y;
-			
-			facePlayer();
-			
-			self->thinkTime = 180;
-			
-			self->flags &= ~NO_DRAW;
-			
-			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-			
-			playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-			
-			self->action = &teleportIn;
-			
-			self->touch = &entityTouch;
 			
 			setEntityAnimation(self, STAND);
 			
 			self->dirY = 0;
+			
+			self->head->mental--;
 		}
 	}
 	
 	checkToMap(self);
 }
 
-static void teleportIn()
+static void fireballAttackInit()
+{
+	Target *t = getTargetByName((prand() % 2 == 0) ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Awesome Boss cannot find target");
+	}
+	
+	self->x = t->x + (prand() % 16) * (prand() % 2 == 0 ? 1 : -1);
+	self->y = t->y;
+	
+	facePlayer();
+	
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	self->flags &= ~NO_DRAW;
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	self->action = &fireballAttack;
+	
+	self->touch = &entityTouch;
+	
+	self->thinkTime = 60;
+}
+
+static void fireballAttack()
+{
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		setEntityAnimation(self, ATTACK_1);
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, ATTACK_2);
+			
+			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
+			
+			e->x += (self->face == RIGHT ? self->w : e->w);
+			e->y += self->offsetY;
+			
+			self->thinkTime = 30;
+			
+			self->action = &fireBallAttackFinished;
+		}
+	}
+}
+
+static void fireBallAttackFinished()
 {
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, STAND);
+		
+		self->thinkTime = 60;
+		
 		self->action = &attackFinished;
 	}
-	
-	checkToMap(self);
 }
 
 static void introWait()
@@ -354,7 +482,7 @@ static void introWait()
 			showErrorAndExit("Awesome Boss %s cannot find %s", self->objectiveName, self->requires);
 		}
 		
-		self->action = &teleportAway;
+		self->action = &teleportOut;
 		
 		self->touch = &entityTouch;
 		
@@ -376,7 +504,9 @@ static void wait()
 			
 			initEnergyBar();
 			
-			self->action = &teleportAway;
+			self->head->active = TRUE;
+			
+			self->action = &teleportOut;
 			
 			self->touch = &entityTouch;
 		}
@@ -464,6 +594,8 @@ static void takeDamage(Entity *other, int damage)
 		self = self->head;
 		
 		self->takeDamage(other, damage);
+		
+		self = temp;
 
 		if (self->health <= 0)
 		{
@@ -517,10 +649,125 @@ static void healPartner()
 		{
 			self->target->health = self->target->maxHealth;
 			
-			self->target->action = &teleportAway;
+			self->target->action = &teleportOut;
 			
-			self->action = &teleportAway;
+			self->action = &teleportOut;
 		}
+	}
+	
+	checkToMap(self);
+}
+
+static void dropAttackInit()
+{
+	self->flags &= ~NO_DRAW;
+	
+	self->x = player.x + player.w / 2 - self->w / 2;
+	
+	self->y = self->head->y;
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->action = &dropAttack;
+	
+	self->thinkTime = 60;
+	
+	self->dirY = 0;
+	
+	self->touch = &entityTouch;
+	
+	checkToMap(self);
+}
+
+static void dropAttack()
+{
+	long onGround = self->flags & ON_GROUND;
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			
+		}
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
+	}
+}
+
+static void superAttackInit()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{		
+		self->flags &= ~(NO_DRAW|FLY);
+		
+		self->x = player.x + player.w / 2 - self->w / 2;
+		
+		self->y = self->head->y;
+		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->touch = &entityTouch;
+		
+		self->action = &superAttack;
+		
+		checkToMap(self);
+	}
+}
+
+static void superAttack()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->thinkTime = 60;
+			
+			self->action = &superAttackFinished;
+		}
+		
+		else
+		{
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			self->flags |= (FLY|NO_DRAW);
+			
+			self->thinkTime = 120;
+			
+			self->x = player.x + player.w / 2 - self->w / 2;
+			
+			self->y = self->head->y;
+			
+			self->dirY = 0;
+			
+			self->action = &superAttackInit;
+		}
+	}
+}
+
+static void superAttackFinished()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->head->health = 0;
+		
+		self->head->mental = 0;
+		
+		self->action = &attackFinished;
 	}
 	
 	checkToMap(self);

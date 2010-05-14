@@ -184,7 +184,7 @@ static Constructor enemies[] = {
 {"boss/awesome_boss_2", &addAwesomeBoss},
 {"boss/awesome_boss_3", &addAwesomeBoss},
 {"boss/awesome_boss_4", &addAwesomeBoss},
-{"boss/awesome_boss_meter", &addAwesomeBoss}
+{"boss/awesome_boss_meter", &addAwesomeBossMeter}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

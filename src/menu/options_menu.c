@@ -41,6 +41,7 @@ static Menu menu;
 static void loadMenuLayout(void);
 static void toggleHints(void);
 static void showControlMenu(void);
+static void showOptionsMenu(void);
 static void showSoundMenu(void);
 static void showMainMenu(void);
 static void doMenu(void);
@@ -325,32 +326,31 @@ static void toggleHints()
 
 static void toggleMedal()
 {
+	int result;
 	Widget *w = menu.widgets[menu.index];
 
 	game.medalSupport = game.medalSupport == TRUE ? FALSE : TRUE;
-	/*
+	
 	if (game.medalSupport == TRUE)
 	{
 		result = connectToServer();
 
 		if (result != 0)
 		{
-			game.medalSupport = FALSE;
-
 			if (result == 1)
 			{
-				game.menu = initOKMenu(_("Private key is missing"), &showOptionsMenu);
+				game.menu = initOKMenu(_("Private key is missing. You will not be able to earn Medals for this game."), &showOptionsMenu);
 			}
 
 			else
 			{
-				game.menu = initOKMenu(_("Could not connect to server"), &showOptionsMenu);
+				game.menu = initOKMenu(_("Could not connect to the server. You will not be able to earn Medals for this game."), &showOptionsMenu);
 			}
 
 			game.drawMenu = &drawOKMenu;
 		}
 	}
-	*/
+	
 	updateLabelText(w->label, game.medalSupport == TRUE ? _("Yes") : _("No"));
 }
 
@@ -385,11 +385,10 @@ static void showMainMenu()
 
 	game.drawMenu = &drawMainMenu;
 }
-/*
+
 static void showOptionsMenu()
 {
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
 }
-*/

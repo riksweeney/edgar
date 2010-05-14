@@ -1409,7 +1409,7 @@ static void gameOverTimeOut()
 	
 	if (player.thinkTime <= 0 && game.canContinue == TRUE)
 	{
-		getContinuePoint();
+		/*getContinuePoint();*/
 	}
 }
 

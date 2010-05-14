@@ -108,7 +108,7 @@ static void explode()
 {
 	int x, y;
 
-	self->flags |= NO_DRAW|FLY;
+	self->flags |= NO_DRAW|FLY|DO_NOT_PERSIST;
 
 	self->thinkTime--;
 
