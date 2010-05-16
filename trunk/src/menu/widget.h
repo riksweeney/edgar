@@ -20,3 +20,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 Widget *createWidget(char *, int *, void (*)(void), void (*)(void), void (*)(void), int, int, int);
 void drawWidget(Widget *, Menu *, int);
 void freeWidget(Widget *);
+void setWidgetDisabled(Widget *, int, int);

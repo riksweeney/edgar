@@ -27,13 +27,13 @@ typedef struct Label
 
 typedef struct Widget
 {
-	int x, y;
+	int x, y, disabled;
 	int *value, maxValue, minValue;
 	void (*clickAction)(void);
 	void (*rightAction)(void);
 	void (*leftAction)(void);
 	Label *label;
-	SDL_Surface *normalState, *selectedState;
+	SDL_Surface *normalState, *selectedState, *disabledState;
 } Widget;
 
 typedef struct Menu

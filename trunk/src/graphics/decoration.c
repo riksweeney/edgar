@@ -233,6 +233,32 @@ void addParticleExplosion(int x, int y)
 	}
 }
 
+Entity *addParticle(int x, int y)
+{
+	Entity *e;
+	
+	e = getFreeDecoration();
+
+	if (e == NULL)
+	{
+		return NULL;
+	}
+
+	loadProperties("decoration/particle", e);
+
+	e->thinkTime = 20 + (prand() % 30);
+
+	e->x = x;
+	e->y = y;
+
+	e->action = &move;
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, prand() % 5);
+	
+	return e;
+}
+
 Entity *addMultipleSparkles(int x, int y, char *name)
 {
 	int i, xx, yy;

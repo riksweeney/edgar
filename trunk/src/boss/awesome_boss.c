@@ -61,12 +61,24 @@ static void addStunStar(void);
 static void starWait(void);
 static void fireballAttackInit(void);
 static void fireballAttack(void);
-static void fireBallAttackFinished(void);
+static void fireballAttackFinished(void);
+static void superFireballAttackInit(void);
+static void superFireballAttack(void);
+static void superFireballAttackFinished(void);
+static void fireballTouch(Entity *);
 static void dropAttack(void);
 static void dropAttackInit(void);
-static void superAttack(void);
-static void superAttackInit(void);
-static void superAttackFinished(void);
+static void superDropAttack(void);
+static void superDropAttackInit(void);
+static void superDropAttackFinished(void);
+static void fireballChargeWait(void);
+static void superSpearAttackInit(void);
+static void superSpearAttack(void);
+static void superSpearAttackFinished(void);
+static void addSmokeAlongBody(void);
+static void spearWait(void);
+static void spearRise(void);
+static void spearSink(void);
 
 Entity *addAwesomeBoss(int x, int y, char *name)
 {
@@ -184,6 +196,8 @@ static void doIntro()
 		e->startX = e->x;
 		e->startY = e->y;
 		
+		e->maxHealth = e->health = self->maxHealth;
+		
 		e->endX = self->mental;
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
@@ -194,7 +208,7 @@ static void doIntro()
 		
 		e->head = self;
 
-		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 		
@@ -305,6 +319,8 @@ static void teleportWait()
 	int i;
 	Target *t;
 	
+	setEntityAnimation(self, STAND);
+	
 	if (player.health <= 0)
 	{
 		self->thinkTime--;
@@ -320,22 +336,8 @@ static void teleportWait()
 			self->action = &teleportIn;
 			
 			facePlayer();
-		}
-	}
-	
-	else if (self->head->health == self->head->maxHealth)
-	{
-		if (self->head->mental == self->head->damage)
-		{
-			self->thinkTime = 30 * self->endX;
 			
-			self->mental = 5;
-			
-			self->action = &superAttackInit;
-			
-			self->flags |= FLY;
-			
-			self->dirY = 0;
+			self->head->mental--;
 		}
 	}
 	
@@ -364,13 +366,69 @@ static void teleportWait()
 			
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 			
-			playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 			
 			self->action = &healPartner;
 			
 			self->touch = &entityTouch;
 			
 			self->dirY = 0;
+			
+			self->head->mental--;
+		}
+	}
+	
+	else if (self->head->health == self->head->maxHealth)
+	{
+		if (self->head->mental == self->head->damage)
+		{
+			if (self->head->damage == 2)
+			{
+				t = getTargetByName((int)self->endX % 2 == 0 ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+				
+				self->x = t->x;
+				self->y = t->y;
+				
+				self->action = superSpearAttackInit;
+			}
+			
+			else
+			{
+				switch (self->head->targetX)
+				{
+					case 0:
+						self->thinkTime = 30 * self->endX;
+						
+						self->mental = 5;
+						
+						self->action = &superDropAttackInit;
+						
+						self->flags |= FLY;
+						
+						self->dirY = 0;
+					break;
+					
+					default:
+						t = getTargetByName(self->endX <= 2 ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+						
+						self->x = t->x;
+						self->y = t->y;
+						
+						self->endY = 1;
+						
+						/* The other one will stand behind their partner */
+						
+						if (self->endX == 2 || self->endX == 4)
+						{
+							self->x += self->endX == 2 ? -24 : 24;
+							
+							self->endY = 0;
+						}
+						
+						self->action = superFireballAttackInit;
+					break;
+				}
+			}
 		}
 	}
 	
@@ -418,7 +476,7 @@ static void fireballAttackInit()
 	
 	facePlayer();
 	
-	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 	
 	self->flags &= ~NO_DRAW;
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -426,11 +484,12 @@ static void fireballAttackInit()
 	
 	self->touch = &entityTouch;
 	
-	self->thinkTime = 60;
+	self->thinkTime = -1;
 }
 
 static void fireballAttack()
 {
+	int i;
 	Entity *e;
 	
 	checkToMap(self);
@@ -439,25 +498,75 @@ static void fireballAttack()
 	{
 		setEntityAnimation(self, ATTACK_1);
 		
-		self->thinkTime--;
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+				
+				loadProperties("boss/awesome_fireball_particle", e);
+				
+				setEntityAnimation(e, STAND);
+				
+				e->head = self;
+				
+				if (self->face == LEFT)
+				{
+					e->x = self->x + self->w - e->w - e->offsetX;
+				}
+
+				else
+				{
+					e->x = self->x + e->offsetX;
+				}
+
+				e->y = self->y + self->offsetY;
+
+				e->startX = e->x;
+				e->startY = e->y;
+				
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 180;
+
+				e->health = i * 60;
+
+				e->action = &fireballChargeWait;
+			}
+			
+			self->mental = 6;
+			
+			self->thinkTime = 0;
+		}
 		
-		if (self->thinkTime <= 0)
+		else if (self->mental <= 0)
 		{
 			setEntityAnimation(self, ATTACK_2);
 			
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
+			
+			e->touch = &fireballTouch;
+			
+			e->type = ENEMY;
 			
 			e->x += (self->face == RIGHT ? self->w : e->w);
 			e->y += self->offsetY;
 			
 			self->thinkTime = 30;
 			
-			self->action = &fireBallAttackFinished;
+			self->action = &fireballAttackFinished;
+			
+			playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", -1, self->x, self->y, 0);
 		}
 	}
 }
 
-static void fireBallAttackFinished()
+static void fireballAttackFinished()
 {
 	self->thinkTime--;
 	
@@ -469,6 +578,322 @@ static void fireBallAttackFinished()
 		
 		self->action = &attackFinished;
 	}
+}
+
+static void superFireballAttackInit()
+{
+	facePlayer();
+	
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	self->flags &= ~NO_DRAW;
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	self->action = &superFireballAttack;
+	
+	self->touch = &entityTouch;
+	
+	self->thinkTime = -1;
+	
+	self->head->mental = 0;
+}
+
+static void superFireballAttack()
+{
+	int i;
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->endY == 1 && (self->flags & ON_GROUND))
+	{
+		setEntityAnimation(self, ATTACK_1);
+		
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+				
+				loadProperties("boss/awesome_fireball_particle", e);
+				
+				setEntityAnimation(e, STAND);
+				
+				e->head = self;
+				
+				if (self->face == LEFT)
+				{
+					e->x = self->x + self->w - e->w - e->offsetX;
+				}
+
+				else
+				{
+					e->x = self->x + e->offsetX;
+				}
+
+				e->y = self->y + self->offsetY;
+
+				e->startX = e->x;
+				e->startY = e->y;
+				
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 360;
+
+				e->health = i * 60;
+
+				e->action = &fireballChargeWait;
+			}
+			
+			self->mental = 6;
+			
+			self->thinkTime = 0;
+		}
+		
+		else if (self->mental <= 0)
+		{
+			self->thinkTime--;
+			
+			if (self->thinkTime <= 0)
+			{
+				setEntityAnimation(self, ATTACK_2);
+				
+				for (i=0;i<5;i++)
+				{
+					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
+					
+					e->touch = &fireballTouch;
+					
+					e->type = ENEMY;
+					
+					e->x += (self->face == RIGHT ? self->w : e->w);
+					e->y += self->offsetY;
+					
+					e->x += self->face == RIGHT ? -2 : 2;
+				}
+				
+				playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				
+				self->thinkTime = 120;
+				
+				self->target->thinkTime = 120;
+				
+				self->action = &superFireballAttackFinished;
+				
+				self->target->action = &superFireballAttackFinished;
+			}
+		}
+	}
+	
+	else if (self->endY == 0 && self->target->health <= 0)
+	{
+		self->thinkTime = 120;
+		
+		self->action = &teleportOut;
+	}
+}
+
+static void superFireballAttackFinished()
+{
+	self->thinkTime--;
+	
+	self->head->health = 0;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
+}
+
+static void superSpearAttackInit()
+{
+	facePlayer();
+	
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	self->flags &= ~NO_DRAW;
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	self->action = &superSpearAttack;
+	
+	self->touch = &entityTouch;
+	
+	self->head->mental = 0;
+	
+	self->thinkTime = -1;
+	
+	if ((int)self->endX % 2 == 1)
+	{
+		self->endY = 1;
+	}
+}
+
+static void superSpearAttack()
+{
+	int i, j;
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		setEntityAnimation(self, ATTACK_4);
+		
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+				
+				loadProperties("boss/awesome_fireball_particle", e);
+				
+				setEntityAnimation(e, STAND);
+				
+				e->head = self;
+				
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + self->h / 2 - e->h / 2;
+
+				e->startX = e->x;
+				e->startY = e->y;
+				
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 180;
+
+				e->health = i * 60;
+
+				e->action = &fireballChargeWait;
+			}
+			
+			self->mental = 6;
+			
+			self->thinkTime = 0;
+		}
+		
+		else if (self->mental <= 0)
+		{
+			self->mental = 0;
+			
+			setEntityAnimation(self, ATTACK_3);
+			
+			self->thinkTime = 60;
+			
+			if (self->face == RIGHT)
+			{
+				j = 1;
+				
+				for (i=self->x + self->w;i<self->target->x;)
+				{
+					e = getFreeEntity();
+					
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Ground Spear");
+					}
+
+					loadProperties("enemy/ground_spear", e);
+					
+					setEntityAnimation(e, STAND);
+
+					e->x = i;
+					e->y = self->y + self->h;
+					
+					e->startY = e->y - e->h;
+					
+					e->endY = e->y;
+					
+					e->thinkTime = 15 * j;
+					
+					e->damage = 1;
+					
+					e->touch = &entityTouch;
+
+					e->action = &spearWait;
+
+					e->draw = &drawLoopingAnimationToMap;
+					
+					e->head = self;
+					
+					i += e->w * 2;
+					
+					self->mental++;
+					
+					j++;
+				}
+				
+				self->action = &superSpearAttackFinished;
+			}
+			
+			else if (self->endY == 0)
+			{
+				j = 1;
+				
+				for (i=self->x;i>self->target->x + self->target->w;)
+				{
+					e = getFreeEntity();
+					
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Ground Spear");
+					}
+
+					loadProperties("enemy/ground_spear", e);
+					
+					setEntityAnimation(e, STAND);
+
+					e->x = i;
+					e->y = self->y + self->h;
+					
+					e->startY = e->y - e->h;
+					
+					e->endY = e->y;
+					
+					e->thinkTime = 15 * j;
+					
+					e->damage = 1;
+					
+					e->touch = &entityTouch;
+
+					e->action = &spearWait;
+
+					e->draw = &drawLoopingAnimationToMap;
+					
+					e->head = self;
+					
+					i -= e->w * 2;
+					
+					self->mental++;
+					
+					j++;
+				}
+				
+				self->action = &superSpearAttackFinished;
+			}
+		}
+	}
+}
+
+static void superSpearAttackFinished()
+{
+	if (self->mental <= 0)
+	{
+		self->action = &attackFinished;
+		
+		self->target->endY = 0;
+	}
+	
+	checkToMap(self);
 }
 
 static void introWait()
@@ -567,7 +992,7 @@ static int energyBarDraw()
 			drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 220, 220, 0);
 		}
 		
-		else
+		else if (percentage > 0)
 		{
 			drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 220, 0, 0);
 		}
@@ -633,6 +1058,8 @@ static void die()
 {
 	if (self->target->health <= 0)
 	{
+		self->head->damage--;
+		
 		self->action = &entityDie;
 	}
 	
@@ -641,8 +1068,26 @@ static void die()
 
 static void healPartner()
 {
+	Entity *e;
+	
 	if (self->flags & ON_GROUND)
 	{
+		if (prand() % 3 == 0)
+		{
+			e = addParticle(self->target->x, self->target->y);
+			
+			if (e != NULL)
+			{
+				e += prand() % self->target->w;
+				
+				e += prand() % self->target->h;
+				
+				e->dirY = -(1 + prand() % 3);
+				
+				e->thinkTime = 60;
+			}
+		}
+		
 		self->target->health++;
 		
 		if (self->target->health >= self->target->maxHealth)
@@ -652,6 +1097,8 @@ static void healPartner()
 			self->target->action = &teleportOut;
 			
 			self->action = &teleportOut;
+			
+			setInfoBoxMessage(60, 255, 255, 255, _("Their partner will heal them when they fall..."));
 		}
 	}
 	
@@ -660,6 +1107,8 @@ static void healPartner()
 
 static void dropAttackInit()
 {
+	setEntityAnimation(self, ATTACK_3);
+	
 	self->flags &= ~NO_DRAW;
 	
 	self->x = player.x + player.w / 2 - self->w / 2;
@@ -667,6 +1116,8 @@ static void dropAttackInit()
 	self->y = self->head->y;
 	
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 	
 	self->action = &dropAttack;
 	
@@ -689,7 +1140,9 @@ static void dropAttack()
 	{
 		if (onGround == 0)
 		{
+			addSmokeAlongBody();
 			
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 		}
 		
 		self->thinkTime--;
@@ -701,12 +1154,14 @@ static void dropAttack()
 	}
 }
 
-static void superAttackInit()
+static void superDropAttackInit()
 {
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
-	{		
+	{
+		setEntityAnimation(self, ATTACK_3);
+		
 		self->flags &= ~(NO_DRAW|FLY);
 		
 		self->x = player.x + player.w / 2 - self->w / 2;
@@ -715,15 +1170,17 @@ static void superAttackInit()
 		
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		self->touch = &entityTouch;
 		
-		self->action = &superAttack;
+		self->action = &superDropAttack;
 		
 		checkToMap(self);
 	}
 }
 
-static void superAttack()
+static void superDropAttack()
 {
 	checkToMap(self);
 	
@@ -733,9 +1190,11 @@ static void superAttack()
 		
 		if (self->mental <= 0)
 		{
-			self->thinkTime = 60;
+			addSmokeAlongBody();
 			
-			self->action = &superAttackFinished;
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			
+			self->action = &superDropAttackFinished;
 		}
 		
 		else
@@ -744,7 +1203,7 @@ static void superAttack()
 			
 			self->flags |= (FLY|NO_DRAW);
 			
-			self->thinkTime = 120;
+			self->thinkTime = 90;
 			
 			self->x = player.x + player.w / 2 - self->w / 2;
 			
@@ -752,23 +1211,20 @@ static void superAttack()
 			
 			self->dirY = 0;
 			
-			self->action = &superAttackInit;
+			self->action = &superDropAttackInit;
+			
+			self->head->mental = 0;
 		}
 	}
 }
 
-static void superAttackFinished()
+static void superDropAttackFinished()
 {
-	self->thinkTime--;
+	self->thinkTime = 60;
 	
-	if (self->thinkTime <= 0)
-	{
-		self->head->health = 0;
-		
-		self->head->mental = 0;
-		
-		self->action = &attackFinished;
-	}
+	self->head->health = 0;
+	
+	self->action = &attackFinished;
 	
 	checkToMap(self);
 }
@@ -820,4 +1276,124 @@ static void starWait()
 	self->x = self->head->x + self->head->w / 2- self->w / 2;
 
 	self->y = self->head->y - self->h;
+}
+
+static void fireballTouch(Entity *other)
+{
+	Entity *temp;
+	
+	/* Projectiles will cancel each other out */
+	
+	if (other->dirX != self->dirX && strcmpignorecase(self->name, other->name) == 0)
+	{
+		if (self->inUse == FALSE || other->inUse == FALSE)
+		{
+			return;
+		}
+		
+		self->inUse = FALSE;
+		
+		other->inUse = FALSE;
+	}
+	
+	else if (self->parent != other && other->takeDamage != NULL)
+	{
+		temp = self;
+		
+		self = other;
+		
+		self->takeDamage(temp, self->type == ENEMY ? 50 : temp->damage);
+		
+		self = temp;
+		
+		self->inUse = FALSE;
+	}
+}
+
+static void fireballChargeWait()
+{
+	float radians;
+
+	self->mental -= 2;
+
+	if (self->mental <= 0)
+	{
+		self->head->mental--;
+
+		self->inUse = FALSE;
+	}
+
+	self->health += 8;
+
+	radians = DEG_TO_RAD(self->health);
+
+	self->x = (0 * cos(radians) - self->mental * sin(radians));
+	self->y = (0 * sin(radians) + self->mental * cos(radians));
+
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void addSmokeAlongBody()
+{
+	int i;
+	
+	for (i=0;i<20;i++)
+	{
+		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+	}	
+}
+
+static void spearWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->y == self->startY)
+		{
+			self->action = &spearSink;
+		}
+		
+		else
+		{
+			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+			
+			self->targetY = self->startY;
+			
+			self->action = &spearRise;
+		}
+	}
+}
+
+static void spearSink()
+{
+	if (self->y < self->endY)
+	{
+		self->y += self->speed * 2;
+	}
+
+	else
+	{
+		self->inUse = FALSE;
+		
+		self->head->mental--;
+	}
+}
+
+static void spearRise()
+{
+	if (self->y > self->startY)
+	{
+		self->y -= self->speed * 2;
+	}
+
+	else
+	{
+		self->y = self->startY;
+		
+		self->thinkTime = 5;
+		
+		self->action = &spearWait;
+	}
 }

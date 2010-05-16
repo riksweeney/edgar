@@ -525,6 +525,8 @@ void pauseGame()
 			game.paused = TRUE;
 
 			game.status = IN_MENU;
+			
+			game.menu = initMainMenu();
 
 			if (game.pauseSurface == NULL)
 			{
@@ -908,6 +910,8 @@ void getContinuePoint()
 	
 	setMapStartX(continueData.cameraMinX);
 	setMapStartY(continueData.cameraMinY);
+	
+	setCameraPosition(continueData.cameraMinX, continueData.cameraMinY);
 	
 	if (continueData.cameraFollow == FALSE)
 	{
