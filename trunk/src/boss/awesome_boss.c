@@ -285,7 +285,9 @@ static void teleportOut()
 		
 		self->head->mental++;
 		
+		#if DEV == 1
 		printf("%d / %d : %d / %d\n", self->head->mental, self->head->damage, self->head->health, self->head->maxHealth);
+		#endif
 		
 		self->thinkTime = 60 + prand() % 120;
 		
@@ -333,6 +335,9 @@ static void teleportWait()
 			self->flags &= ~NO_DRAW;
 			
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			
 			self->action = &teleportIn;
 			
 			facePlayer();
@@ -741,7 +746,7 @@ static void superSpearAttack()
 	checkToMap(self);
 	
 	if (self->flags & ON_GROUND)
-	{
+	{		
 		setEntityAnimation(self, ATTACK_4);
 		
 		if (self->thinkTime == -1)
@@ -886,6 +891,8 @@ static void superSpearAttack()
 
 static void superSpearAttackFinished()
 {
+	self->head->health = 0;
+	
 	if (self->mental <= 0)
 	{
 		self->action = &attackFinished;
@@ -1072,17 +1079,19 @@ static void healPartner()
 	
 	if (self->flags & ON_GROUND)
 	{
-		if (prand() % 3 == 0)
+		if (prand() % 2 == 0)
 		{
 			e = addParticle(self->target->x, self->target->y);
 			
 			if (e != NULL)
 			{
-				e += prand() % self->target->w;
+				e->x += prand() % self->target->w;
 				
-				e += prand() % self->target->h;
+				e->y += prand() % self->target->h;
 				
-				e->dirY = -(1 + prand() % 3);
+				e->dirY = -(10 + prand() % 11);
+				
+				e->dirY /= 10;
 				
 				e->thinkTime = 60;
 			}
