@@ -107,6 +107,11 @@ static void takeDamage(Entity *other, int damage)
 			self->die();
 		}
 	}
+	
+	else if (self->flags & NO_DRAW)
+	{
+		return;
+	}
 
 	else
 	{

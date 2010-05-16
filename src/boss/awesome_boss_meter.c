@@ -92,15 +92,33 @@ static void init()
 
 static void wait()
 {
-	if (self->mental == 4)
+	Entity *e;
+	
+	if (self->damage == 0)
 	{
 		self->thinkTime--;
 		
+		self->flags &= ~FLY;
+		
 		if (self->thinkTime <= 0)
 		{
+			clearContinuePoint();
+			
+			freeBossHealthBar();
+
+			e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+			
+			e->y -= e->h;
+
+			e->dirY = ITEM_JUMP_HEIGHT;
+
+			fadeBossMusic();
+			
 			entityDieVanish();
 		}
 	}
+	
+	checkToMap(self);
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -114,6 +132,8 @@ static void takeDamage(Entity *other, int damage)
 			self->health = self->maxHealth;
 			
 			setInfoBoxMessage(120, 255, 255, 255, _("Super is ready..."));
+			
+			self->targetX = prand() % 2;
 		}
 	}
 }

@@ -67,12 +67,17 @@ static void doMenu()
 
 	if (input.down == TRUE || menuInput.down == TRUE)
 	{
-		menu.index++;
-
-		if (menu.index == menu.widgetCount)
+		do
 		{
-			menu.index = 0;
+			menu.index++;
+			
+			if (menu.index >= menu.widgetCount)
+			{
+				menu.index = 0;
+			}
 		}
+		
+		while (menu.widgets[menu.index]->disabled == TRUE);
 
 		menuInput.down = FALSE;
 		input.down = FALSE;
@@ -82,12 +87,17 @@ static void doMenu()
 
 	else if (input.up == TRUE || menuInput.up == TRUE)
 	{
-		menu.index--;
-
-		if (menu.index < 0)
+		do
 		{
-			menu.index = menu.widgetCount - 1;
+			menu.index--;
+			
+			if (menu.index < 0)
+			{
+				menu.index = menu.widgetCount - 1;
+			}
 		}
+		
+		while (menu.widgets[menu.index]->disabled == TRUE);
 
 		menuInput.up = FALSE;
 		input.up = FALSE;
@@ -218,6 +228,13 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE);
 				}
+				
+				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &getContinuePoint, x, y, TRUE);
+					
+					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+				}
 
 				else if (strcmpignorecase(menuID, "MENU_TUTORIAL") == 0)
 				{
@@ -303,11 +320,26 @@ void freeMainMenu()
 
 Menu *initMainMenu()
 {
+	int i;
+	
 	menu.action = &doMenu;
 
 	if (menu.widgets == NULL)
 	{
 		loadMenuLayout();
+	}
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->clickAction == &getContinuePoint)
+		{
+			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+			
+			if (menu.widgets[i]->disabled == TRUE && menu.index == i)
+			{
+				menu.index = 0;
+			}
+		}
 	}
 
 	menu.returnAction = NULL;

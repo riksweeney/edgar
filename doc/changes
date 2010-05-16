@@ -3,6 +3,8 @@ CHANGE LOG
 
 Version 0.56
 * Explosions that kill enemies no longer crash the game
+* Added the Armoury Boss
+* Added the ability to continue against most bosses
 
 Version 0.55
 * Added the Armoury map, you can get to it via the Fortress Ground Floor
