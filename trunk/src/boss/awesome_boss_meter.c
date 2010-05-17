@@ -118,6 +118,16 @@ static void wait()
 		}
 	}
 	
+	else if (self->damage == self->mental && self->health == self->maxHealth)
+	{
+		self->targetY--;
+		
+		if (self->targetY <= 0)
+		{
+			self->targetY = 0;
+		}
+	}
+	
 	checkToMap(self);
 }
 
@@ -134,6 +144,8 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(120, 255, 255, 255, _("Super is ready..."));
 			
 			self->targetX = prand() % 2;
+			
+			self->targetY = 120;
 		}
 	}
 }

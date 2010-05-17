@@ -107,7 +107,7 @@ void doHud()
 	{
 		if (hud.bossHealthIndex < *hud.bossHealth)
 		{
-			hud.bossHealthIndex += (*hud.bossHealth / 100);
+			hud.bossHealthIndex += (hud.bossMaxHealth / 100);
 
 			if (hud.bossHealthIndex > *hud.bossHealth)
 			{

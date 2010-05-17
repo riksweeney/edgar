@@ -318,8 +318,11 @@ void loadMap(char *name, int loadEntityResources)
 	free(buffer);
 
 	setTransition(TRANSITION_IN, NULL);
-
-	playMapMusic();
+	
+	if (game.canContinue == FALSE)
+	{
+		playMapMusic();
+	}
 
 	resetCameraLimits();
 
