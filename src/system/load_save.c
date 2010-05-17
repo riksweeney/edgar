@@ -1040,6 +1040,8 @@ int loadContinueData()
 	freeGameResources();
 
 	initGame();
+	
+	game.canContinue = TRUE;
 
 	buffer = decompressFile(saveFile);
 

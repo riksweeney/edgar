@@ -385,7 +385,7 @@ static void teleportWait()
 	
 	else if (self->head->health == self->head->maxHealth)
 	{
-		if (self->head->mental == self->head->damage)
+		if (self->head->mental == self->head->damage && self->head->targetY <= 0)
 		{
 			if (self->head->damage == 2)
 			{

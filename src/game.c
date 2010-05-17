@@ -904,8 +904,6 @@ void getContinuePoint()
 	
 	loadContinueData();
 	
-	stopMusic();
-	
 	limitCamera(continueData.cameraMinX, continueData.cameraMinY, continueData.cameraMaxX, continueData.cameraMaxY);
 	
 	setMapStartX(continueData.cameraMinX);
