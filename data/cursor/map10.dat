@@ -46,3 +46,6 @@ enemy/tortoise
 item/ice_spray
 item/cauldron
 common/reset_switch
+item/eyeball_smoothie
+item/old_shield
+boss/evil_edgar

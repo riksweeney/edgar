@@ -309,6 +309,8 @@ static void autoMove()
 	else
 	{
 		self->dirY = self->dirX = 0;
+		
+		self->thinkTime = 0;
 	}
 }
 
@@ -325,16 +327,20 @@ static void setToStart()
 
 		self->action = &autoMove;
 
-		if (self->health == 1)
+		if (self->health == 1 || (self->x == self->startX && self->y == self->startY))
 		{
 			self->targetX = self->endX;
 			self->targetY = self->endY;
+			
+			self->health = 2;
 		}
 
 		else
 		{
 			self->targetX = self->startX;
 			self->targetY = self->startY;
+			
+			self->health = 1;
 		}
 
 		if (self->active == FALSE)
