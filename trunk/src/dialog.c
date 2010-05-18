@@ -76,6 +76,18 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	if (title != NULL)
 	{
+		token = title;
+		
+		while (*token != '\0')
+		{
+			if (*token == '_')
+			{
+				*token = ' ';
+			}
+			
+			token++;
+		}
+		
 		lines++;
 	}
 

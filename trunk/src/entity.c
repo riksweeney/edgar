@@ -1570,6 +1570,18 @@ static void scriptEntityMoveToTarget()
 
 static void scriptDoNothing()
 {
+	if (self->standingOn != NULL)
+	{
+		self->dirX = self->standingOn->dirX;
+
+		if (self->standingOn->dirY > 0)
+		{
+			self->dirY = self->standingOn->dirY + 1;
+		}
+
+		self->flags |= ON_GROUND;
+	}
+	
 	checkToMap(self);
 }
 

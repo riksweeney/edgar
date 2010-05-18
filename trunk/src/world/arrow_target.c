@@ -64,7 +64,7 @@ static void wait()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-
+		
 		if (self->thinkTime <= 0)
 		{
 			self->thinkTime = 0;
@@ -115,8 +115,10 @@ static void touch(Entity *other)
 
 			return;
 		}
+		
+		total = 0;
 
-		remaining = countSiblings(self, &total);
+		remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
 
 		if (remaining == 0)
 		{
@@ -133,7 +135,7 @@ static void touch(Entity *other)
 				self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 			}
 			
-			if (total > 0)
+			else if (total > 0)
 			{
 				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
 			}

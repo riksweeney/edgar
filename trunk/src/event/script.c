@@ -136,7 +136,7 @@ void runScript(char *name)
 void readNextScriptLine()
 {
 	char *token, line[MAX_LINE_LENGTH], command[MAX_VALUE_LENGTH], *savePtr, *token2;
-	int readAgain = TRUE;
+	int readAgain = TRUE, val;
 	Entity *e, *e2;
 
 	while (readAgain == TRUE)
@@ -357,6 +357,50 @@ void readNextScriptLine()
 					script.line--;
 				}
 			}
+			
+			else
+			{
+				e = getEntityByObjectiveName(token);
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("WHILE command could not find Entity %s", token);
+				}
+				
+				token = strtok_r(NULL, " ", &savePtr);
+				
+				if (strcmpignorecase(token, "HEALTH") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+					
+					val = atoi(token);
+					
+					if (e->health == val)
+					{
+						freeDialogBox();
+
+						script.thinkTime = 15;
+
+						script.line--;
+					}
+				}
+				
+				else if (strcmpignorecase(token, "MENTAL") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+					
+					val = atoi(token);
+					
+					if (e->mental == val)
+					{
+						freeDialogBox();
+
+						script.thinkTime = 15;
+
+						script.line--;
+					}
+				}
+			}
 		}
 
 		else if (strcmpignorecase("SET", command) == 0)
@@ -544,6 +588,17 @@ void readNextScriptLine()
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			activateEntitiesWithObjectiveName(token, FALSE);
+		}
+		
+		else if (strcmpignorecase("ACTIVATE_OBJECTIVE_WITH_VALUE", command) == 0)
+		{
+			token = strtok_r(NULL, " ", &savePtr);
+			
+			token2 = strtok_r(NULL, " ", &savePtr);
+			
+			val = atoi(token2);
+
+			activateEntitiesValueWithObjectiveName(token, val);
 		}
 
 		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
@@ -886,6 +941,15 @@ void readNextScriptLine()
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			setCameraSpeed(atof(token));
+		}
+		
+		else if (strcmpignorecase("RUN_SCRIPT", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			printf("Running script %s\n", token);
+			
+			runScript(token);
 		}
 
 		else if (command[0] != '#')

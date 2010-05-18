@@ -74,6 +74,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "auto_spike_ball.h"
 #include "gold_centurion.h"
 #include "scanner.h"
+#include "fish.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -91,6 +92,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/armour_boss.h"
 #include "../boss/awesome_boss.h"
 #include "../boss/awesome_boss_meter.h"
+#include "../boss/evil_edgar.h"
 
 #include "../system/error.h"
 
@@ -184,7 +186,9 @@ static Constructor enemies[] = {
 {"boss/awesome_boss_2", &addAwesomeBoss},
 {"boss/awesome_boss_3", &addAwesomeBoss},
 {"boss/awesome_boss_4", &addAwesomeBoss},
-{"boss/awesome_boss_meter", &addAwesomeBossMeter}
+{"boss/awesome_boss_meter", &addAwesomeBossMeter},
+{"boss/evil_edgar", &addEvilEdgar},
+{"enemy/fish", &addFish}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
