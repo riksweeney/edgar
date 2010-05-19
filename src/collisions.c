@@ -1407,6 +1407,32 @@ int getMapRight(int x, int y)
 	return x;
 }
 
+int getWaterTop(int x, int y)
+{
+	int tileID;
+
+	x /= TILE_SIZE;
+	y /= TILE_SIZE;
+
+	tileID = mapTileAt(x, y);
+
+	while (tileID == WATER_TILE_START)
+	{
+		y--;
+
+		if (y < 0)
+		{
+			break;
+		}
+
+		tileID = mapTileAt(x, y);
+	}
+
+	y *= TILE_SIZE;
+
+	return y;
+}
+
 /* Very standard 2D collision detection routine */
 
 int collision(int x0, int y0, int w0, int h0, int x2, int y2, int w1, int h1)

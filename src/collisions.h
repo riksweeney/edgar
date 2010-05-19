@@ -33,3 +33,4 @@ int getMapCeiling(int, int);
 int getMapLeft(int, int);
 int getMapRight(int, int);
 int isNearObstacle(Entity *);
+int getWaterTop(int, int);
