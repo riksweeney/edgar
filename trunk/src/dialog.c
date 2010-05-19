@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "graphics/font.h"
 #include "dialog.h"
+#include "game.h"
 #include "system/error.h"
 
 extern Game game;
@@ -129,8 +130,18 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		lineBreak = FALSE;
 
 		snprintf(word, sizeof(word), "%s ", token);
+		
+		if (strcmpignorecase(word, "[GAME_KILLS] ") == 0)
+		{
+			snprintf(word, sizeof(word), "%d ", game.kills);
+		}
+		
+		if (strcmpignorecase(word, "[PLAY_TIME] ") == 0)
+		{
+			snprintf(word, sizeof(word), "%s ", getPlayTimeAsString());
+		}
 
-		if (word[strlen(word) - 2] == '\n')
+		else if (word[strlen(word) - 2] == '\n')
 		{
 			lineBreak = TRUE;
 

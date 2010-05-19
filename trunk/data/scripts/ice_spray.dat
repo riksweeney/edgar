@@ -5,6 +5,7 @@ HAS_ITEM "Potion of Transmogrification" 1 1 ICE_SPRAY_POINT 1 2
 END
 IF ICE_SPRAY_POINT HEALTH 1
 TALK Edgar I don't think being able to turn into a Slime is going to help me here, since I might not be able to get back afterwards
+TALK Edgar Those fish look quite dangerous too
 TALK Edgar I'll have to find another way of getting across
 END
 IF ICE_SPRAY_POINT HEALTH 2

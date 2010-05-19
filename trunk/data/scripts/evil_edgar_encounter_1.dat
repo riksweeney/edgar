@@ -10,6 +10,14 @@ TALK ??? Me? I'm you!
 TALK Edgar No you're not, where did you come from?
 TALK ??? When your stupid experiment failed, part of your conscious separated and created me
 TALK ??? I'm like you in every way, just more evil
+TALK Edgar I'm not evil!
+TALK Evil_Edgar Yes you are, you know that little part of you that enjoyed pulling the legs off insects?
+TALK Edgar Hey, I don't do that anymore!
+TALK Evil_Edgar Oh sure, what about the [GAME_KILLS] creatures that you killed?
+TALK Edgar That was self defense!
+TALK Evil_Edgar Did you try talking to them?
+TALK Edgar You're crazy!
+TALK Edgar No, I'm evil!
 TALK Edgar That's my shield! I need to it rescue my Dad!
 TALK Evil_Edgar Well it's mine now
 TALK Edgar Give it back!
@@ -18,7 +26,7 @@ TALK Edgar Fine, I will!
 WALK_TO EVIL_EDGAR_2 10273 11882
 WALK_TO Edgar 10065 12170 WAIT
 ACTIVATE_OBJECTIVE_WITH_VALUE EVIL_EDGAR_SWITCH 1
-WAIT 30
+WAIT 60
 ACTIVATE_OBJECTIVE_WITH_VALUE EVIL_EDGAR_SWITCH 1
 WAIT 30
 WALK_TO EVIL_EDGAR_2 10123 12170 WAIT
@@ -26,4 +34,5 @@ WAIT 15
 TALK Evil_Edgar Loser
 TALK Evil_Edgar I'll collect his corpse later. The equipment in the lab should be enough for me to carry out my plan...
 WALK_TO EVIL_EDGAR_2 9550 12170 WAIT
+KILL EVIL_EDGAR_2
 LOAD_LEVEL map09 Fortress-Lab
