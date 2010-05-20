@@ -710,38 +710,32 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("SHAKE_SCREEN", command) == 0)
 		{
-			token = strtok_r(NULL, "\0", &savePtr);
+			token = strtok_r(NULL, " ", &savePtr);
 
 			if (strcmpignorecase("LIGHT", token) == 0)
 			{
-				game.shakeStrength = LIGHT;
-
 				token = strtok_r(NULL, "\0", &savePtr);
 
-				game.shakeThinkTime = atoi(token);
+				shakeScreen(LIGHT, atoi(token));
 			}
 
 			else if (strcmpignorecase("MEDIUM", token) == 0)
 			{
-				game.shakeStrength = MEDIUM;
-
 				token = strtok_r(NULL, "\0", &savePtr);
 
-				game.shakeThinkTime = atoi(token);
+				shakeScreen(MEDIUM, atoi(token));
 			}
 
 			else if (strcmpignorecase("STRONG", token) == 0)
 			{
-				game.shakeStrength = STRONG;
-
 				token = strtok_r(NULL, "\0", &savePtr);
 
-				game.shakeThinkTime = atoi(token);
+				shakeScreen(STRONG, atoi(token));
 			}
 
 			else if (strcmpignorecase("STOP", token) == 0)
 			{
-				game.shakeThinkTime = 1;
+				shakeScreen(LIGHT, 0);
 			}
 		}
 

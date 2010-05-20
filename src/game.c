@@ -95,6 +95,8 @@ void initGame()
 	
 	game.continues = 0;
 	
+	game.secretsFound = 0;
+	
 	game.canContinue = FALSE;
 
 	if (game.alphaSurface != NULL)

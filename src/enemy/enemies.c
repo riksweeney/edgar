@@ -93,6 +93,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/awesome_boss.h"
 #include "../boss/awesome_boss_meter.h"
 #include "../boss/evil_edgar.h"
+#include "../boss/borer_boss.h"
 
 #include "../system/error.h"
 
@@ -189,7 +190,8 @@ static Constructor enemies[] = {
 {"boss/awesome_boss_meter", &addAwesomeBossMeter},
 {"boss/evil_edgar", &addEvilEdgar},
 {"enemy/fish", &addFish},
-{"enemy/green_fish", &addFish}
+{"enemy/green_fish", &addFish},
+{"boss/borer_boss", &addBorerBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
