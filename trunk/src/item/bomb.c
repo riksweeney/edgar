@@ -72,9 +72,14 @@ Entity *addBomb(int x, int y, char *name)
 
 static void startFuse()
 {
-	self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
-
-	self->action = &wait;
+	if (self->mental == 1)
+	{
+		self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+	
+		self->action = &wait;
+	}
+	
+	checkToMap(self);
 }
 
 static void wait()
@@ -97,6 +102,8 @@ static void dropBomb(int val)
 		self->active = TRUE;
 
 		self->health = 30;
+		
+		self->mental = 1;
 
 		addEntity(*self, player.x, player.y);
 
