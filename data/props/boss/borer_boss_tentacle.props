@@ -1,5 +1,5 @@
 DAMAGE 1
-HEALTH 200
+HEALTH 150
 GFX_FILE data/gfx/boss/borer_boss_tentacle.dat
 ANIM_FILE data/anim/boss/borer_boss_tentacle.dat
 TYPE ENEMY

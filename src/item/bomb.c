@@ -38,6 +38,7 @@ static void wait(void);
 static void explode(void);
 static void startFuse(void);
 static void touch(Entity *);
+static void resumeNormalFunction(void);
 
 Entity *addBomb(int x, int y, char *name)
 {
@@ -60,6 +61,7 @@ Entity *addBomb(int x, int y, char *name)
 	e->action = &startFuse;
 	e->touch = &keyItemTouch;
 	e->activate = &dropBomb;
+	e->resumeNormalFunction = &resumeNormalFunction;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -72,12 +74,16 @@ Entity *addBomb(int x, int y, char *name)
 
 static void startFuse()
 {
+	printf("Fuse is %d\n", self->mental);
+	
 	if (self->mental == 1)
 	{
 		self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
-	
-		self->action = &wait;
+		
+		printf("Playing sound to %d\n", self->targetX);
 	}
+	
+	self->action = &wait;
 	
 	checkToMap(self);
 }
@@ -104,6 +110,8 @@ static void dropBomb(int val)
 		self->health = 30;
 		
 		self->mental = 1;
+		
+		self->action = &startFuse;
 
 		addEntity(*self, player.x, player.y);
 
@@ -147,4 +155,27 @@ static void explode()
 static void touch(Entity *other)
 {
 
+}
+
+static void resumeNormalFunction()
+{
+	self->thinkTime = 0;
+
+	self->touch = &touch;
+
+	setEntityAnimation(self, WALK);
+
+	self->animationCallback = &explode;
+
+	self->active = TRUE;
+
+	self->health = 30;
+	
+	self->mental = 1;
+	
+	self->dirX = 0;
+	
+	self->dirY = 0;
+	
+	self->action = &startFuse;
 }

@@ -35,6 +35,11 @@ void loadMusic(char *name)
 	}
 
 	freeMusic();
+	
+	if (strcmpignorecase(name, "NO_MUSIC") == 0)
+	{
+		return;
+	}
 
 	game.music = loadMusicFromPak(name);
 

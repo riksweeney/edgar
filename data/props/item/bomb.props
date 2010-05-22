@@ -1,4 +1,3 @@
-HEALTH 100
 GFX_FILE data/gfx/item/bomb.dat
 ANIM_FILE data/anim/common/bomb.dat
 TYPE KEY_ITEM

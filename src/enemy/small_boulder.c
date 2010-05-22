@@ -111,7 +111,6 @@ static void roll()
 static void die()
 {
 	int i;
-
 	Entity *e;
 
 	for (i=0;i<4;i++)
