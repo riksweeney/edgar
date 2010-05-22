@@ -67,7 +67,10 @@ Entity *addExplosion(int x, int y)
 
 static void explode()
 {
-	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	if (self->mental == 0)
+	{
+		playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	}
 
 	self->action = &doNothing;
 }

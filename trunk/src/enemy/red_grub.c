@@ -57,6 +57,7 @@ Entity *addRedGrub(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
+	e->resumeNormalFunction = &spinAttack;
 
 	e->type = ENEMY;
 

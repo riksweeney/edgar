@@ -1532,18 +1532,23 @@ void setPlayerSlimed(int thinkTime)
 
 static void applySlime()
 {
-	self->thinkTime--;
-
-	self->face = player.face;
-
-	player.dirX = 0;
-
-	self->x = player.x;
-	self->y = player.y;
-
-	if (self->thinkTime <= 0 || player.health <= 0)
+	if (player.action != NULL)
 	{
-		self->inUse = FALSE;
+		printf("%d\n", self->thinkTime);
+		
+		self->thinkTime--;
+
+		self->face = player.face;
+
+		player.dirX = 0;
+
+		self->x = player.x;
+		self->y = player.y;
+
+		if (self->thinkTime <= 0 || player.health <= 0)
+		{
+			self->inUse = FALSE;
+		}
 	}
 }
 

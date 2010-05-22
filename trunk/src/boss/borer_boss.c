@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../audio/audio.h"
 #include "../graphics/gib.h"
+#include "../graphics/decoration.h"
 #include "../item/key_items.h"
 #include "../event/trigger.h"
 #include "../hud.h"
@@ -40,6 +41,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../player.h"
 #include "../system/error.h"
+#include "../enemy/enemies.h"
+#include "../item/item.h"
+#include "../item/bomb.h"
+#include "../geometry.h"
+#include "../world/explosion.h"
 
 extern Entity *self, player;
 
@@ -56,10 +62,34 @@ static void tentacleAttackInit(void);
 static void tentacleAttack(void);
 static void tentacleAttackFinish(void);
 static void wait(void);
-static void tentacleAttackWait(void);
 static int drawTentacle(void);
 static void tentacleTakeDamage(Entity *, int);
 static void tentacleAttackRetract(void);
+static void fireRocks(void);
+static void rockMove(void);
+static void rockBlock(void);
+static void boulderMove(void);
+static void bombMove(void);
+static void fireRocksInit(void);
+static void shudder(void);
+static void addRedTentacles(void);
+static void redTentacleTouch(Entity *);
+static void redTentacleTakeDamage(Entity *, int);
+static void redTentacleAppear(void);
+static void redTentacleWait(void);
+static void redTentacleDisappear(void);
+static void redTentacleAttackWait(void);
+static void redTentacleAttackInit(void);
+static void redTentacleAttack(void);
+static void redTentacleAttackFinish(void);
+static void redTentacleExplode(void);
+static void redTentacleExplodeFinish(void);
+static void die(void);
+static void die2(void);
+static void slimePlayer(Entity *);
+static void slimeDie(void);
+static void dieFinish(void);
+static void leave(void);
 
 Entity *addBorerBoss(int x, int y, char *name)
 {
@@ -99,8 +129,6 @@ static void initialise()
 		
 		self->mental = -1;
 		
-		self->targetY = -1;
-		
 		self->action = &doIntro;
 		
 		setContinuePoint(FALSE, self->name, NULL);
@@ -124,7 +152,7 @@ static void addTentacles()
 		
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add the Borer Boss Tentacle Head");
+			showErrorAndExit("No free slots to add the Borer Boss Tentacle");
 		}
 
 		loadProperties("boss/borer_boss_tentacle", e);
@@ -153,6 +181,8 @@ static void addTentacles()
 		e->type = ENEMY;
 		
 		e->head = self;
+		
+		e->thinkTime = 60 + prand() % 180;
 		
 		h += TILE_SIZE * 2;
 	}
@@ -215,9 +245,9 @@ static void introPause()
 
 	self->mental = 0;
 	
-	self->targetY = 0;
+	self->endX = getMapLeft(self->x, self->y);
 
-	self->endY = self->y;
+	self->endY = getMapFloor(self->x, self->y);
 }
 
 static void attackFinished()
@@ -229,48 +259,299 @@ static void attackFinished()
 
 static void wait()
 {
-	if (self->targetX > 0)
+	if (self->health <= 0)
 	{
-		if (self->mental > 0)
+		self->mental = 150;
+		
+		self->action = &die;
+	}
+	
+	else if (player.health <= 0)
+	{
+		self->targetX = self->x + self->w;
+		
+		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		
+		shakeScreen(LIGHT, -1);	
+		
+		self->action = &leave;
+	}
+	
+	else if (self->targetX <= 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
 		{
-			if (prand() % 1 == 0)
+			if (self->mental == 0)
 			{
-				self->targetY = 1 + prand() % self->targetX;
-				
-				if (self->targetY == self->mental)
-				{
-					self->targetY = -1;
-				}
-				
-				printf("Sending out %d too in addition to %d\n", self->targetY, self->mental);
+				self->action = &addRedTentacles;
 			}
 			
 			else
 			{
-				self->targetY = -1;
+				self->thinkTime = 300;
+				
+				self->mental = 10;
+				
+				playSoundToMap("sound/boss/borer_boss/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+				
+				self->action = &fireRocksInit;
 			}
-			
-			printf("Waiting for %d attack to finish\n", self->mental);
-			
-			self->action = &tentacleAttackWait;
 		}
+	}
+}
+
+static void fireRocksInit()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 30;
+		
+		self->action = &fireRocks;
+		
+		self->x = self->startX;
 	}
 	
 	else
 	{
-		printf("Will do next set of attacks\n");
+		shudder();
+	}
+	
+	e = addSmoke(self->endX + (prand() % (SCREEN_WIDTH / 2)), self->y, "decoration/dust");
+
+	if (e != NULL)
+	{
+		e->y += prand() % self->h;
+		
+		calculatePath(e->x, e->y, self->x + self->w / 2, self->y + self->h / 2, &e->dirX, &e->dirY);
+		
+		e->dirX *= 6;
+		e->dirY *= 6;
+	}
+	
+	setCustomAction(&player, &attract, 2, 0, (player.x < (self->x + self->w / 2) ? (player.speed - 0.5) : -(player.speed - 0.5)));
+}
+
+static void fireRocks()
+{
+	int rand;
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{		
+		rand = prand() % 12;
+		
+		switch (rand)
+		{
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add a Borer projectile");
+				}
+				
+				loadProperties("common/large_rock", e);
+				
+				setEntityAnimation(e, STAND);
+
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+				
+				e->dirX = -12;
+				
+				e->flags |= FLY;
+
+				e->action = &rockMove;
+				e->touch = &entityTouch;
+				e->reactToBlock = &rockBlock;
+			break;
+			
+			case 7:
+			case 8:
+			case 9:
+			case 10:
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add a Borer projectile");
+				}
+				
+				loadProperties("enemy/small_boulder", e);
+				
+				setEntityAnimation(e, STAND);
+
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+				
+				e->dirX = -12;
+				
+				e->flags |= FLY|UNBLOCKABLE;
+
+				e->action = &boulderMove;
+				e->touch = &entityTouch;
+			break;
+			
+			default:
+				e = addBomb(0, 0, "item/bomb");
+				
+				e->health = 1;
+
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+				
+				e->dirX = -12;
+				
+				e->flags |= FLY;
+				
+				e->thinkTime = 180;
+
+				e->action = &bombMove;
+				e->touch = NULL;
+			break;
+		}
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->type = ENEMY;
+		
+		self->mental--;
+		
+		self->thinkTime = 30;
+		
+		if (self->mental <= 0)
+		{
+			self->mental = 0;
+			
+			self->action = &attackFinished;
+		}
 	}
 }
 
-static void tentacleAttackWait()
+static void rockMove()
 {
-	if ((self->mental == -1 && self->targetY == -1) || self->targetX <= 0)
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
 	{
-		self->mental = 0;
-		self->targetY = 0;
-		
-		self->action = &attackFinished;
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
+
+		e->dirX = 3;
+		e->dirY = -4;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->h - e->h) / 2;
+
+		e->dirX = 3;
+		e->dirY = -8;
+
+		self->inUse = FALSE;
 	}
+}
+
+static void boulderMove()
+{
+	int i;
+	Entity *e;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		for (i=0;i<4;i++)
+		{
+			e = addTemporaryItem("misc/small_boulder_piece", self->x, self->y, self->face, 0, 0);
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimation(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+
+			stopSound(self->targetX);
+		}
+
+		self->inUse = FALSE;
+	}
+}
+
+static void bombMove()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		if (self->thinkTime > 0)
+		{
+			self->thinkTime--;
+			
+			if (self->thinkTime == 0)
+			{
+				self->resumeNormalFunction();
+			}
+		}
+		
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->touch = &keyItemTouch;
+	}
+	
+	else if (self->dirX == 0)
+	{
+		self->flags &= ~FLY;
+		
+		self->dirX = 4;
+		self->dirY = -6;
+	}
+}
+
+static void rockBlock()
+{
+	Entity *e;
+	
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = 3;
+	e->dirY = -4;
+
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = 3;
+	e->dirY = -8;
+
+	self->inUse = FALSE;	
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -279,31 +560,24 @@ static void takeDamage(Entity *other, int damage)
 	{
 		return;
 	}
-
-	if (damage != 0)
+	
+	if (strcmpignorecase(other->name, "common/explosion") == 0)
 	{
-		/* Minimum damage */
-		
-		self->health--;		
-
-		if (other->type == PROJECTILE)
-		{
-			other->target = self;
-		}
-
 		setCustomAction(self, &flashWhite, 6, 0, 0);
+		
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+	}
+	
+	else
+	{
+		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
-		/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-		if (other->type != PROJECTILE)
+		if (prand() % 10 == 0)
 		{
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
-
-		if (self->pain != NULL)
-		{
-			self->pain();
-		}
+		
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 	}
 }
 
@@ -325,13 +599,25 @@ static void mouthWait()
 	
 	if (self->head->flags & FLASH)
 	{
-		self->head->flags |= FLASH;
+		self->flags |= FLASH;
 	}
 	
 	else
 	{
-		self->head->flags &= ~FLASH;
+		self->flags &= ~FLASH;
 	}
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void tentacleWait()
@@ -340,40 +626,23 @@ static void tentacleWait()
 	
 	self->endX = self->head->x + self->head->w / 2;
 	
-	if (self->head->mental <= -100)
+	if (self->head->mental == 0)
 	{
-		self->mental = self->head->mental / -100;
-		
-		printf("Resetting number to %d\n", self->mental);
-		
-		if (self->mental == self->head->targetX)
+		if (self->thinkTime > 0)
 		{
-			printf("All done\n");
-			
-			self->head->mental = 0;
+			self->thinkTime--;
 		}
 		
 		else
 		{
-			self->head->mental -= 100;
+			self->thinkTime = 60;
+			
+			self->startX = self->x;
+			
+			self->dirY = 3.0f * (prand() % 2 == 0 ? -1 : 1);
+			
+			self->action = &tentacleAttackInit;
 		}
-	}
-	
-	else if ((self->head->mental == 0 && collision(self->x - SCREEN_WIDTH, self->y, SCREEN_WIDTH, self->h, player.x, player.y, player.w, player.h) == 1)
-		|| self->head->targetY == self->mental)
-	{
-		if (self->head->mental == 0)
-		{
-			self->head->mental = self->mental;
-		}
-		
-		self->thinkTime = self->mental == self->head->targetY ?  90 : 60;
-		
-		self->startX = self->x;
-		
-		self->dirY = 3.0f * (prand() % 2 == 0 ? -1 : 1);
-		
-		self->action = &tentacleAttackInit;
 	}
 }
 
@@ -421,6 +690,8 @@ static void tentacleAttack()
 	{
 		if (dirX != 0)
 		{
+			playSoundToMap("sound/boss/common/crunch.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
 			shakeScreen(MEDIUM, 15);
 		}
 		
@@ -447,7 +718,7 @@ static void tentacleAttackRetract()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 60;
+		self->thinkTime = 30;
 		
 		self->dirX = 16;
 		
@@ -469,23 +740,7 @@ static void tentacleAttackFinish()
 		{
 			self->action = &tentacleWait;
 			
-			printf("%d is back. %d %d\n", self->mental, self->head->mental, self->head->targetY);
-			
-			if (self->mental == self->head->mental)
-			{
-				printf("%d is back. Setting mental to -1\n", self->mental);
-				
-				self->head->mental = -1;
-			}
-			
-			else if (self->mental == self->head->targetY)
-			{
-				printf("%d is back. Setting targetY to -1\n", self->mental);
-				
-				self->head->targetY = -1;
-			}
-			
-			self->box.w = self->w;
+			self->thinkTime = 60 + prand() % 180;
 		}
 	}
 	
@@ -549,23 +804,7 @@ static void tentacleTakeDamage(Entity *other, int damage)
 
 		else
 		{
-			if (self->head->mental == self->mental)
-			{
-				printf("%d died. Setting mental to -1\n", self->mental);
-				
-				self->head->mental = -1;
-			}
-			
-			else if (self->head->targetY == self->mental)
-			{
-				printf("%d died. Setting targetY to -1\n", self->mental);
-				
-				self->head->targetY = -1;
-			}
-			
 			self->dirX = 0;
-			
-			self->head->mental = -100;
 			
 			self->head->targetX--;
 			
@@ -573,5 +812,546 @@ static void tentacleTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+	}
+}
+
+static void shudder()
+{
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 2;
+
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+}
+
+static void addRedTentacles()
+{
+	int i, h;
+	Entity *e;
+	
+	h = TILE_SIZE + TILE_SIZE / 2;
+	
+	for (i=0;i<3;i++)
+	{
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Borer Boss Tentacle");
+		}
+
+		loadProperties("boss/borer_boss_tentacle_red", e);
+		
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + 128;
+		e->y = self->y + h - e->h / 2;
+		
+		e->startX = self->x - 12;
+		
+		e->endX = e->x;
+		
+		e->mental = i + 1;
+		
+		e->startY = e->y - 3;
+		e->endY = e->y + 3;
+		
+		e->face = RIGHT;
+		
+		e->touch = &redTentacleTouch;
+		
+		e->takeDamage = &redTentacleTakeDamage;
+
+		e->action = &redTentacleAppear;
+
+		e->draw = &drawTentacle;
+
+		e->type = ENEMY;
+		
+		e->head = self;
+		
+		e->thinkTime = 60 + prand() % 180;
+		
+		h += TILE_SIZE * 2;
+	}
+	
+	self->targetX = 3;
+	
+	self->thinkTime = 600;
+	
+	self->action = &redTentacleAttackWait;
+}
+
+static void redTentacleAttackWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental = -1;
+	}
+	
+	if (self->targetX <= 0)
+	{
+		self->mental = 1;
+		
+		self->action = &attackFinished;
+	}
+}
+
+static void redTentacleTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		self->target = other;
+		
+		self->maxThinkTime = self->target->y;
+		
+		other->flags |= FLY;
+		
+		self->dirX = 2;
+		
+		self->action = &redTentacleAttackFinish;
+	}
+	
+	else if (strcmpignorecase(other->name, "item/bomb") == 0)
+	{
+		self->target = other;
+		
+		self->maxThinkTime = self->target->y;
+		
+		other->flags |= FLY;
+		
+		other->frameSpeed = 0;
+		
+		self->dirX = 6;
+		
+		self->action = &redTentacleAttackFinish;
+	}
+	
+	else
+	{
+		entityTouch(other);
+	}
+}
+
+static void redTentacleTakeDamage(Entity *other, int damage)
+{
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			}
+
+			enemyPain();
+		}
+
+		else if (self->target != NULL)
+		{
+			self->target->flags &= ~FLY;
+			
+			self->target = NULL;
+			
+			self->touch = NULL;
+			
+			self->dirX = 12;
+			
+			self->action = &redTentacleAttackFinish;
+		}
+	}
+}
+
+static void redTentacleAppear()
+{
+	self->x -= 8;
+	
+	if (self->x <= self->startX)
+	{
+		self->x = self->startX;
+		
+		self->thinkTime = 30 + prand() % 180;
+		
+		self->action = &redTentacleWait;
+	}
+}
+
+static void redTentacleWait()
+{
+	if (self->head->mental == -1)
+	{
+		self->action = &redTentacleDisappear;
+	}
+	
+	else
+	{
+		if (self->thinkTime > 0)
+		{
+			self->thinkTime--;
+		}
+		
+		else
+		{
+			self->thinkTime = 60;
+			
+			self->startX = self->x;
+			
+			self->dirY = 3.0f * (prand() % 2 == 0 ? -1 : 1);
+			
+			self->action = &redTentacleAttackInit;
+			
+			self->health = self->maxHealth;
+		}	
+	}
+}
+
+static void redTentacleAttackInit()
+{
+	self->y += self->dirY;
+	
+	if (self->y >= self->endY)
+	{
+		self->y = self->endY;
+		
+		self->dirY *= -1;
+	}
+	
+	else if (self->y <= self->startY)
+	{
+		self->y = self->startY;
+		
+		self->dirY *= -1;
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->y = self->startY + 8;
+		
+		self->dirX = -20;
+		
+		self->dirY = 0;
+		
+		self->action = &redTentacleAttack;
+		
+		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	}
+}
+
+static void redTentacleAttack()
+{
+	float dirX;
+	
+	dirX = self->dirX;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->dirX = 20;
+		
+		self->action = &redTentacleAttackFinish;
+	}
+}
+
+static void redTentacleAttackFinish()
+{
+	Entity *temp;
+	
+	self->x += self->dirX;
+	
+	if (self->target != NULL)
+	{
+		self->target->x = self->x + self->w / 2 - self->target->w / 2;
+		
+		self->target->y = self->maxThinkTime;
+		
+		self->box.w = self->startX - self->x;
+		
+		if (self->x >= self->endX && strcmpignorecase(self->target->name, "item/bomb") == 0)
+		{
+			self->head->thinkTime = 0;
+			
+			self->x = self->endX;
+			
+			self->health = 30;
+			
+			stopSound(self->target->targetX);
+			
+			self->thinkTime = 30;
+			
+			self->action = &redTentacleExplode;
+			
+			self->target->inUse = FALSE;
+			
+			printf("Bomb will explode\n");
+		}
+		
+		else if (self->x >= self->endX && self->target->type == PLAYER)
+		{
+			self->head->thinkTime = 0;
+			
+			self->x = self->endX;
+			
+			self->action = &redTentacleWait;
+			
+			temp = self;
+			
+			self = self->target;
+			
+			self->die();
+			
+			self->flags |= NO_DRAW;
+			
+			self = temp;
+			
+			self->target = NULL;
+			
+			self->touch = NULL;
+		}
+	}
+	
+	else if (self->x >= self->startX)
+	{
+		self->x = self->startX;
+		
+		self->thinkTime = 30 + prand() % 180;
+		
+		self->action = self->health <= 0 ? &redTentacleDisappear : &redTentacleWait;
+	}
+}
+
+static void redTentacleDisappear()
+{
+	self->x += 8;
+	
+	if (self->x >= self->endX)
+	{
+		self->inUse = FALSE;
+		
+		self->head->targetX--;
+	}
+}
+
+static void redTentacleExplode()
+{
+	int x, y;
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		x = self->head->x + self->head->w / 2;
+		y = self->head->y + self->head->h / 2;
+
+		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
+		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
+
+		e = addExplosion(x, y);
+		
+		e->layer = FOREGROUND_LAYER;
+
+		self->health--;
+
+		self->thinkTime = 5;
+
+		if (self->health == 0)
+		{
+			self->head->health -= 5000;
+			
+			self->thinkTime = 60;
+			
+			self->action = &redTentacleExplodeFinish;
+		}
+	}
+}
+
+static void redTentacleExplodeFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->head->targetX--;
+		
+		self->inUse = FALSE;
+	}
+}
+
+static void die()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = addExplosion(0, 0);
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->targetX = self->x - (prand() % (SCREEN_WIDTH / 2));
+		e->targetY = self->y + self->h / 2 + (prand() % (self->h / 8));
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 4;
+		e->dirY *= prand() % 2 == 0 ? -4 : 4;
+		
+		e->damage = 0;
+		
+		e->mental = 1;
+		
+		e->touch = NULL;
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->mental = 150;
+			
+			self->action = &die2;
+		}
+		
+		else
+		{
+			self->thinkTime = 2;
+		}
+	}
+	
+	shudder();
+}
+
+static void die2()
+{
+	Entity *e;
+	EntityList *list;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = addProjectile("boss/borer_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
+		
+		e->flags |= FLY;
+
+		e->touch = &slimePlayer;
+		
+		e->die = &slimeDie;
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->targetX = self->x - (prand() % (SCREEN_WIDTH / 2));
+		e->targetY = self->y + self->h / 2 + (prand() % (self->h / 8));
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 12;
+		e->dirY *= prand() % 2 == 0 ? -12 : 12;
+		
+		e->damage = 0;
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			list = throwGibs("boss/borer_boss_gibs", 15);
+			
+			freeEntityList(list);
+			
+			self->inUse = TRUE;
+
+			self->flags |= NO_DRAW;
+
+			self->touch = NULL;
+			
+			self->action = &dieFinish;
+			
+			self->thinkTime = 120;
+		}
+		
+		else
+		{
+			self->thinkTime = 2;
+		}
+	}
+	
+	shudder();
+}
+
+static void slimePlayer(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		other->dirX = 0;
+
+		setPlayerSlimed(30);
+
+		self->die();
+	}
+}
+
+static void slimeDie()
+{
+	playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+	
+	self->inUse = FALSE;
+}
+
+static void dieFinish()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		clearContinuePoint();
+		
+		increaseKillCount();
+
+		freeBossHealthBar();
+
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y + self->h / 2);
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		fadeBossMusic();
+
+		entityDieVanish();
+	}
+}
+
+static void leave()
+{
+	self->x +=0.25;
+	
+	if (self->x > self->targetX)
+	{
+		self->inUse = FALSE;
+		
+		shakeScreen(LIGHT, 0);
+		
+		stopSound(BOSS_CHANNEL);
 	}
 }

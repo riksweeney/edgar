@@ -5,3 +5,5 @@ weapon/bow
 weapon/normal_arrow
 weapon/basic_sword
 weapon/small_wooden_shield
+item/bomb
+wall/weak_cave_wall
