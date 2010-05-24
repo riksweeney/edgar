@@ -1,4 +1,4 @@
-VERSION = 0.56
+VERSION = 0.57
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -81,7 +81,7 @@ CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power
 CORE_OBJS += light_target.o balloon.o scanner.o fly_trap.o water_purifier.o extend_o_grab.o mouth_stalk.o ground_spear.o
 CORE_OBJS += dragon_fly.o sliding_puzzle.o sliding_puzzle_display.o auto_spike_ball.o tread_mill.o power_meter.o gold_centurion.o
 CORE_OBJS += shield_pillar.o crossbow.o crossbow_bolt.o catapult.o stats_menu.o awesome_boss.o awesome_boss_meter.o evil_edgar.o
-CORE_OBJS += fish.o borer_boss.o
+CORE_OBJS += fish.o borer_boss.o light_pillar.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

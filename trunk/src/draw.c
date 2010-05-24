@@ -69,7 +69,7 @@ void draw()
 
 					centerEntityOnMap();
 
-					if (mapIsDark() == TRUE)
+					if (isDarkMap() == TRUE)
 					{
 						/* Set the clipping bounds */
 
@@ -121,7 +121,7 @@ void draw()
 
 					drawEntities(FOREGROUND_LAYER);
 
-					if (mapIsDark() == TRUE)
+					if (isDarkMap() == TRUE)
 					{
 						/* Draw the spotlight */
 

@@ -296,9 +296,19 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
 	int *pixels;
+	int clipX, clipY, clipW, clipH;
+	SDL_Rect clipRect;
 
 	startX = getMapStartX();
 	startY = getMapStartY();
+	
+	SDL_GetClipRect(game.screen, &clipRect);
+	
+	clipX = clipRect.x;
+	clipY = clipRect.y;
+	
+	clipW = clipRect.x + clipRect.w;
+	clipH = clipRect.y + clipRect.h;
 
 	x1 -= startX;
 	y1 -= startY;
@@ -333,7 +343,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 		while (x1 != x2)
 		{
-			if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 			{
 				pixels[(y1 * game.screen->w) + x1] = color;
 			}
@@ -350,7 +360,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 			x1 += lStep;
 		}
 
-		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
 			pixels[(y1 * game.screen->w) + x1] = color;
 		}
@@ -360,7 +370,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	while (y1 != y2)
 	{
-		if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
 			pixels[(y1 * game.screen->w) + x1] = color;
 		}
@@ -377,7 +387,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 		y1 += sStep;
 	}
 
-	if (x1 >=0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)
+	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 	{
 		pixels[(y1 * game.screen->w) + x1] = color;
 	}

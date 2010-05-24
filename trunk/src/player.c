@@ -92,7 +92,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 7;
+			player.maxHealth = player.health = 9;
 		#endif
 
 		setEntityAnimation(&player, STAND);
@@ -1534,8 +1534,6 @@ static void applySlime()
 {
 	if (player.action != NULL)
 	{
-		printf("%d\n", self->thinkTime);
-		
 		self->thinkTime--;
 
 		self->face = player.face;

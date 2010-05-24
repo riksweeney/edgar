@@ -71,6 +71,7 @@ static void rockBlock(void);
 static void boulderMove(void);
 static void bombMove(void);
 static void fireRocksInit(void);
+static void fireRocksFinish(void);
 static void shudder(void);
 static void addRedTentacles(void);
 static void redTentacleTouch(Entity *);
@@ -344,6 +345,13 @@ static void fireRocks()
 	
 	self->thinkTime--;
 	
+	self->x--;
+	
+	if (self->x <= self->startX)
+	{
+		self->x = self->startX;
+	}
+	
 	if (self->thinkTime <= 0)
 	{		
 		rand = prand() % 12;
@@ -424,6 +432,8 @@ static void fireRocks()
 				e->touch = NULL;
 			break;
 		}
+		
+		self->x += 8;
 
 		e->draw = &drawLoopingAnimationToMap;
 
@@ -437,8 +447,20 @@ static void fireRocks()
 		{
 			self->mental = 0;
 			
-			self->action = &attackFinished;
+			self->action = &fireRocksFinish;
 		}
+	}
+}
+
+static void fireRocksFinish()
+{
+	self->x--;
+	
+	if (self->x <= self->startX)
+	{
+		self->x = self->startX;
+		
+		self->action = &attackFinished;
 	}
 }
 
@@ -506,6 +528,7 @@ static void bombMove()
 	
 	if (self->flags & ON_GROUND)
 	{
+		/*
 		if (self->thinkTime > 0)
 		{
 			self->thinkTime--;
@@ -515,7 +538,7 @@ static void bombMove()
 				self->resumeNormalFunction();
 			}
 		}
-		
+		*/
 		self->dirX = 0;
 		self->dirY = 0;
 		
@@ -690,7 +713,7 @@ static void tentacleAttack()
 	{
 		if (dirX != 0)
 		{
-			playSoundToMap("sound/boss/common/crunch.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/crunch.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 			
 			shakeScreen(MEDIUM, 15);
 		}
@@ -808,6 +831,11 @@ static void tentacleTakeDamage(Entity *other, int damage)
 			
 			self->head->targetX--;
 			
+			if (self->head->targetX <= 0)
+			{
+				self->head->mental = 1;
+			}
+			
 			self->damage = 0;
 
 			self->die();
@@ -915,6 +943,8 @@ static void redTentacleTouch(Entity *other)
 		self->dirX = 2;
 		
 		self->action = &redTentacleAttackFinish;
+		
+		self->head->thinkTime = 0;
 	}
 	
 	else if (strcmpignorecase(other->name, "item/bomb") == 0)
@@ -930,6 +960,8 @@ static void redTentacleTouch(Entity *other)
 		self->dirX = 6;
 		
 		self->action = &redTentacleAttackFinish;
+		
+		self->head->thinkTime = 0;
 	}
 	
 	else
@@ -1100,8 +1132,6 @@ static void redTentacleAttackFinish()
 			self->action = &redTentacleExplode;
 			
 			self->target->inUse = FALSE;
-			
-			printf("Bomb will explode\n");
 		}
 		
 		else if (self->x >= self->endX && self->target->type == PLAYER)
@@ -1175,13 +1205,21 @@ static void redTentacleExplode()
 
 		if (self->health == 0)
 		{
-			self->head->health -= 5000;
+			self->head->health -= 500;
 			
 			self->thinkTime = 60;
 			
 			self->action = &redTentacleExplodeFinish;
 		}
 	}
+	
+	e = self;
+	
+	self = self->head;
+	
+	shudder();
+	
+	self = e;
 }
 
 static void redTentacleExplodeFinish()
@@ -1191,6 +1229,8 @@ static void redTentacleExplodeFinish()
 	if (self->thinkTime <= 0)
 	{
 		self->head->targetX--;
+		
+		self->head->x = self->head->startX;
 		
 		self->inUse = FALSE;
 	}

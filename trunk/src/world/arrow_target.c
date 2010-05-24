@@ -77,7 +77,7 @@ static void wait()
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
-			stopSound(self->startX);
+			stopSound(self->endX);
 		}
 	}
 }
@@ -132,7 +132,7 @@ static void touch(Entity *other)
 
 			if (self->maxThinkTime != 0)
 			{
-				self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+				self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 			}
 			
 			else if (total > 0)

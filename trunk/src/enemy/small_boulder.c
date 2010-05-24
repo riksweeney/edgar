@@ -71,6 +71,7 @@ Entity *addSmallBoulder(int x, int y, char *name)
 static void roll()
 {
 	float dirX = self->dirX;
+	long onGround;
 
 	self->thinkTime--;
 
@@ -94,11 +95,18 @@ static void roll()
 			self->health = 1;
 		}
 	}
+	
+	onGround = (self->flags & ON_GROUND);
 
 	checkToMap(self);
 	
 	if (self->flags & ON_GROUND)
 	{
+		if (onGround == 0)
+		{
+			playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+		}
+		
 		self->mental = 1;
 	}
 
