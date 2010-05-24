@@ -74,13 +74,9 @@ Entity *addBomb(int x, int y, char *name)
 
 static void startFuse()
 {
-	printf("Fuse is %d\n", self->mental);
-	
 	if (self->mental == 1)
 	{
 		self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
-		
-		printf("Playing sound to %d\n", self->targetX);
 	}
 	
 	self->action = &wait;

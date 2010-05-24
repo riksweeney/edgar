@@ -286,6 +286,11 @@ Entity *checkEntityToEntity(Entity *e)
 							{
 								continue;
 							}
+							
+							if (e1->type == ANTI_GRAVITY || e2->type == ANTI_GRAVITY)
+							{
+								continue;
+							}
 
 							if ((e1->type != PLAYER && (e2->flags & PLAYER_TOUCH_ONLY)) ||
 								((e1->flags & PLAYER_TOUCH_ONLY) && e2->type != PLAYER))

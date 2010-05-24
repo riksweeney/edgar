@@ -194,14 +194,14 @@ static void activate(int val)
 		{
 			self->thinkTime = 0;
 
-			stopSound(self->startX);
+			stopSound(self->endX);
 		}
 
 		else
 		{
 			self->thinkTime = self->maxThinkTime;
 
-			self->startX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
+			self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 		}
 	}
 }
@@ -229,7 +229,7 @@ static void wait()
 
 			if (self->maxThinkTime != 0)
 			{
-				stopSound(self->startX);
+				stopSound(self->endX);
 			}
 		}
 	}

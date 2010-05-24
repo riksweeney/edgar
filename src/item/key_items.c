@@ -91,6 +91,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "crossbow.h"
 #include "crossbow_bolt.h"
 #include "catapult.h"
+#include "light_pillar.h"
 
 extern Entity *self, player;
 
@@ -163,6 +164,7 @@ static Constructor items[] = {
 {"item/crossbow", &addCrossbow},
 {"item/crossbow_bolt", &addCrossbowBolt},
 {"item/catapult", &addCatapult},
+{"item/light_pillar", &addLightPillar}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

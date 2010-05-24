@@ -1198,7 +1198,12 @@ int outOfBounds(Entity *e)
 	return FALSE;
 }
 
-int mapIsDark()
+void setDarkMap(int dark)
+{
+	map.darkMap = dark;
+}
+
+int isDarkMap()
 {
 	return map.darkMap;
 }
