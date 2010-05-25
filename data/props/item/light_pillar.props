@@ -2,3 +2,4 @@ GFX_FILE data/gfx/item/light_pillar.dat
 ANIM_FILE data/anim/item/light_pillar.dat
 TYPE KEY_ITEM
 THINKTIME 600
+FLAGS PLAYER_TOUCH_ONLY

@@ -152,7 +152,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define DEG_TO_RAD(x) ((x) * PI / 180)
 
-#define TOTAL_SECRETS 13
+#define TOTAL_SECRETS 14
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 

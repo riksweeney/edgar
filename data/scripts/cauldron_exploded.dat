@@ -9,4 +9,3 @@ SET Edgar ANIMATION STAND
 TALK Edgar Looks like I'll have to another way to get past those fireballs
 ADD MAP_TRIGGER "map09" RUN_SCRIPT "evil_edgar_sighted"
 MUSIC START
-LOAD_LEVEL map09 Fortress-Lab
