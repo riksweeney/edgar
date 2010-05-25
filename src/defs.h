@@ -183,7 +183,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 	#define PAK_FILE "data.pak"
 
-	#define MEDAL_SERVER_HOST "reddwarf"
+	#define MEDAL_SERVER_HOST "reddwarf.local"
 
 	#define MEDAL_SERVER_PORT 80
 #elif DEV != 0

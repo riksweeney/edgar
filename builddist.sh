@@ -42,7 +42,7 @@ cd dist
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-svn export http://reddwarf/svn/Edgar/tags/$APPVERSION $APPDIR
+svn export http://reddwarf.local/svn/Edgar/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 

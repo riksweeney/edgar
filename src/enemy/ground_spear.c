@@ -168,12 +168,14 @@ static void rise()
 			
 			self->action = &wait;
 			
+			#if DEV == 1
 			if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
 			{
 				printf("Loop time %d\n", self->health);
 				
 				exit(0);
 			}
+			#endif
 		}
 	}
 }

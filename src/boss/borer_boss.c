@@ -404,7 +404,21 @@ static void fireRocks()
 				setEntityAnimation(e, STAND);
 
 				e->x = self->x + self->w / 2 - e->w / 2;
-				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+				
+				switch (prand() % 3)
+				{
+					case 0:
+						e->y = self->y;
+					break;
+					
+					case 1:
+						e->y = self->y + self->h / 2 - e->h / 2;
+					break;
+					
+					default:
+						e->y = self->y + self->h - e->h;
+					break;
+				}
 				
 				e->dirX = -12;
 				

@@ -2183,3 +2183,150 @@ msgstr ""
 msgid "Secrets Found: %d / %d"
 msgstr ""
 
+msgid "Press Action to activate the Light Pillar"
+msgstr ""
+
+msgid "Removed %s"
+msgstr ""
+
+msgid "Their partner will heal them when they fall..."
+msgstr ""
+
+msgid "Super is ready..."
+msgstr ""
+
+msgid "Gross..."
+msgstr ""
+
+msgid "Where am I?"
+msgstr ""
+
+msgid "Chaos"
+msgstr ""
+
+msgid "Chaos is an ancient, evil dragon"
+msgstr ""
+
+msgid "A dragon?! Dad told me they were all extinct!"
+msgstr ""
+
+msgid "For years he wreaked havoc across this land and took thousands of innocent lives, his firey breath incinerated everything in its path"
+msgstr ""
+
+msgid "Finally a brave warrior and a group of magicians managed to overwhelm and bind him"
+msgstr ""
+
+msgid "They sealed the dragon away beneath an old fortress"
+msgstr ""
+
+msgid "It is believed he is still there"
+msgstr ""
+
+msgid "Beneath an old fortress? Maybe they mean this one..."
+msgstr ""
+
+msgid "Oh great, I can barely see anything"
+msgstr ""
+
+msgid "I'll have to be careful where I tread..."
+msgstr ""
+
+msgid "Maybe that wasn't such a good idea after all..."
+msgstr ""
+
+msgid "Looks like I'll have to another way to get past those fireballs"
+msgstr ""
+
+msgid "Those fish look quite dangerous too"
+msgstr ""
+
+msgid "What the?!"
+msgstr ""
+
+msgid "He looks just like me"
+msgstr ""
+
+msgid "AND HE HAS MY FIRE SHIELD!!"
+msgstr ""
+
+msgid "Who are you?"
+msgstr ""
+
+msgid "Me? I'm you!"
+msgstr ""
+
+msgid "No you're not, where did you come from?"
+msgstr ""
+
+msgid "When your stupid experiment failed, part of your conscious separated and created me"
+msgstr ""
+
+msgid "I'm like you in every way, just more evil"
+msgstr ""
+
+msgid "I'm not evil!"
+msgstr ""
+
+msgid "Yes you are, you know that little part of you that enjoyed pulling the legs off insects?"
+msgstr ""
+
+msgid "Hey, I don't do that anymore!"
+msgstr ""
+
+msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
+msgstr ""
+
+msgid "That was self defense!"
+msgstr ""
+
+msgid "Did you try talking to them?"
+msgstr ""
+
+msgid "You're crazy!"
+msgstr ""
+
+msgid "No, I'm evil!"
+msgstr ""
+
+msgid "That's my shield! I need to it rescue my Dad!"
+msgstr ""
+
+msgid "Well it's mine now"
+msgstr ""
+
+msgid "Give it back!"
+msgstr ""
+
+msgid "Make me!"
+msgstr ""
+
+msgid "Fine, I will!"
+msgstr ""
+
+msgid "Loser"
+msgstr ""
+
+msgid "I'll collect his corpse later. The equipment in the lab should be enough for me to carry out my plan..."
+msgstr ""
+
+msgid "Stupid thing. Maggie makes it all look so easy..."
+msgstr ""
+
+msgid "OK, that's the Gazer Eyeball and Tentacle added"
+msgstr ""
+
+msgid "And the rest of the ingredients too"
+msgstr ""
+
+msgid "Aha! It's gone blue, just like the book said it would"
+msgstr ""
+
+msgid "Now to add the shield"
+msgstr ""
+
+msgid "Uh-Oh..."
+msgstr ""
+
+msgid "A shield that can block fire"
+msgstr ""
+
