@@ -72,6 +72,8 @@ static void lightningSwordTouch(Entity *);
 static void lightningSwordChangeToBasic(void);
 static void weaponTouch(Entity *);
 static void resurrectionTimeOut(void);
+static void resurrectionParticleWait(void);
+static void resurrectionWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -1413,12 +1415,55 @@ static void playerDie()
 
 static void resurrectionTimeOut()
 {
+	int i;
+	Entity *e;
+	
 	player.thinkTime--;
 	
 	if (player.thinkTime == 0)
 	{
-		player.health = player.maxHealth;
+		for (i=0;i<6;i++)
+		{
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Resurrection particle");
+			}
+			
+			loadProperties("boss/awesome_fireball_particle", e);
+			
+			setEntityAnimation(e, STAND);
+			
+			e->head = &player;
+			
+			e->x = player.x + player.w / 2 - e->w / 2;
+			e->y = player.y + player.h / 2 - e->h / 2;
+
+			e->startX = e->x;
+			e->startY = e->y;
+			
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->mental = 180;
+
+			e->health = i * 60;
+
+			e->action = &resurrectionParticleWait;
+		}
 		
+		player.action = &resurrectionWait;
+		
+		player.mental = 6;
+		
+		player.health = player.maxHealth;
+	}
+}
+
+static void resurrectionWait()
+{
+	if (player.mental == 0)
+	{
 		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
 		
 		removeInventoryItem("Amulet of Resurrection");
@@ -1429,7 +1474,7 @@ static void resurrectionTimeOut()
 		
 		player.action = NULL;
 		
-		setCustomAction(&player, &invulnerable, 180, 0, 0);
+		setCustomAction(&player, &invulnerable, 180, 0, 0);	
 	}
 }
 
@@ -2212,4 +2257,28 @@ void addChargesToWeapon()
 			}
 		}
 	}
+}
+
+static void resurrectionParticleWait()
+{
+	float radians;
+
+	self->mental -= 2;
+
+	if (self->mental <= 0)
+	{
+		self->head->mental--;
+
+		self->inUse = FALSE;
+	}
+
+	self->health += 8;
+
+	radians = DEG_TO_RAD(self->health);
+
+	self->x = (0 * cos(radians) - self->mental * sin(radians));
+	self->y = (0 * sin(radians) + self->mental * cos(radians));
+
+	self->x += self->startX;
+	self->y += self->startY;
 }

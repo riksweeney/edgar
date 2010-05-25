@@ -38,6 +38,7 @@ extern Entity *self;
 static void wait(void);
 static void addLight(int);
 static void touch(Entity *);
+static void init(void);
 
 Entity *addLightPillar(int x, int y, char *name)
 {
@@ -57,7 +58,7 @@ Entity *addLightPillar(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &init;
 	e->touch = &touch;
 	e->activate = &addLight;
 
@@ -68,6 +69,13 @@ Entity *addLightPillar(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void init()
+{
+	setEntityAnimation(self, self->thinkTime > 0 ? WALK : STAND);
+	
+	self->action = &wait;
 }
 
 static void wait()
@@ -83,6 +91,8 @@ static void wait()
 			self->active = FALSE;
 			
 			stopSound(self->endX);
+			
+			setEntityAnimation(self, STAND);
 		}
 		
 		else
@@ -122,6 +132,8 @@ static void addLight(int val)
 		stopSound(self->endX);
 		
 		setDarkMap(TRUE);
+		
+		setEntityAnimation(self, STAND);
 	}
 	
 	else
@@ -133,6 +145,8 @@ static void addLight(int val)
 		self->active = TRUE;
 		
 		setDarkMap(FALSE);
+		
+		setEntityAnimation(self, WALK);
 	}
 }
 

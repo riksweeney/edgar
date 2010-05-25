@@ -269,7 +269,7 @@ static void wait()
 	
 	else if (player.health <= 0)
 	{
-		self->targetX = self->x + self->w;
+		self->targetX = self->x + self->w + 16;
 		
 		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 		
@@ -663,7 +663,7 @@ static void tentacleWait()
 	
 	self->endX = self->head->x + self->head->w / 2;
 	
-	if (self->head->mental == 0)
+	if (self->head->mental == 0 && self->head->x == self->head->startX)
 	{
 		if (self->thinkTime > 0)
 		{
