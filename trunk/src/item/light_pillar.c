@@ -84,6 +84,11 @@ static void wait()
 			
 			stopSound(self->endX);
 		}
+		
+		else
+		{
+			setDarkMap(FALSE);
+		}
 	}
 	
 	checkToMap(self);
@@ -91,10 +96,25 @@ static void wait()
 
 static void addLight(int val)
 {
+	if (strlen(self->requires) != 0)
+	{
+		if (removeInventoryItem(self->requires) == 1)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
+
+			self->requires[0] = '\0';
+		}
+
+		else
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("%s is needed to activate this Light Pillar"), _(self->requires));
+
+			return;
+		}
+	}
+	
 	if (self->active == TRUE)
 	{
-		printf("Deactivating\n");
-		
 		self->thinkTime = 0;
 		
 		self->active = FALSE;
@@ -106,8 +126,6 @@ static void addLight(int val)
 	
 	else
 	{
-		printf("Activating\n");
-		
 		self->thinkTime = self->maxThinkTime;
 		
 		self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);

@@ -70,7 +70,8 @@ static void applyIce(void);
 static void applyWebbing(void);
 static void lightningSwordTouch(Entity *);
 static void lightningSwordChangeToBasic(void);
-static void weaponTouch(Entity *); 
+static void weaponTouch(Entity *);
+static void resurrectionTimeOut(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -1278,7 +1279,7 @@ static void resetPause()
 		break;
 	}
 
-	if (player.health <= minHealth)
+	if ((player.health <= minHealth && getInventoryItem("Amulet of Resurrection") == NULL) || player.environment == LAVA)
 	{
 		player.health = 0;
 
@@ -1290,7 +1291,7 @@ static void resetPause()
 		player.die();
 	}
 
-	else if (player.health > 0)
+	else
 	{
 		player.thinkTime--;
 
@@ -1327,6 +1328,15 @@ static void resetPlayer()
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	player.health -= (player.environment == SLIME ? 2 : 1);
+	
+	if (player.health <= 0)
+	{
+		removeInventoryItem("Amulet of Resurrection");
+		
+		player.health = player.maxHealth;
+		
+		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
+	}
 
 	player.flags &= ~(HELPLESS|NO_DRAW);
 
@@ -1387,7 +1397,7 @@ static void playerDie()
 
 	player.thinkTime = 120;
 
-	player.action = &gameOverTimeOut;
+	player.action = getInventoryItem("Amulet of Resurrection") == NULL ? &gameOverTimeOut : &resurrectionTimeOut;
 
 	if (player.element == ICE || player.environment == LAVA || player.environment == SLIME)
 	{
@@ -1401,16 +1411,33 @@ static void playerDie()
 	loadGameOverMusic();
 }
 
+static void resurrectionTimeOut()
+{
+	player.thinkTime--;
+	
+	if (player.thinkTime == 0)
+	{
+		player.health = player.maxHealth;
+		
+		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
+		
+		removeInventoryItem("Amulet of Resurrection");
+		
+		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&playerWeapon, STAND);
+		
+		player.action = NULL;
+		
+		setCustomAction(&player, &invulnerable, 180, 0, 0);
+	}
+}
+
 static void gameOverTimeOut()
 {
 	player.thinkTime--;
 	
 	checkToMap(&player);
-	
-	if (player.thinkTime <= 0 && game.canContinue == TRUE)
-	{
-		/*getContinuePoint();*/
-	}
 }
 
 void freePlayer()

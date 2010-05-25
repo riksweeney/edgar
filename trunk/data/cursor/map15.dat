@@ -25,3 +25,5 @@ enemy/blue_scanner
 common/action_point
 wall/weak_catacombs_wall_secret
 item/bomb
+common/reset_switch
+item/resurrection_amulet
