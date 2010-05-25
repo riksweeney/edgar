@@ -13,12 +13,12 @@ END
 IF CAULDRON HEALTH 2
 REMOVE "Eyeball Smoothie" 1 1 CAULDRON 2 2
 TALK Edgar OK, that's the Gazer Eyeball and Tentacle added
-WALK_TO Edgar 21115 13322 WAIT
+WALK_TO Edgar 21155 13322 WAIT
 ADD_TO_INVENTORY item/mandrake_root
 ADD_TO_INVENTORY item/darsh_fat
 ADD_TO_INVENTORY item/condor_bones
 WAIT 90
-WALK_TO Edgar 21180 13322 WAIT
+WALK_TO Edgar 21280 13322 WAIT
 WAIT 60
 REMOVE "Mandrake Root" 1 1 CAULDRON 2 2
 REMOVE "Darsh Fat" 1 1 CAULDRON 2 2
