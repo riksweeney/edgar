@@ -108,7 +108,7 @@ static void touch(Entity *other)
 		{
 			/* Look through the player's inventory */
 
-			if (removeInventoryItem(self->requires) == 1)
+			if (removeInventoryItem(self->requires) == TRUE)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 
