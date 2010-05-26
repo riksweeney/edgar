@@ -1,7 +1,0 @@
-CAMERA_SPEED 4
-FOLLOW HUGE_SPIDER
-WAIT 180
-FOLLOW EDGAR
-WAIT 180
-TALK Edgar Wow, that thing is huge!
-TALK Edgar I doubt my sword will even make a scratch, but I need to get past it...
