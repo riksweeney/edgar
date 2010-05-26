@@ -1,7 +1,0 @@
-HEALTH 1
-GFX_FILE data/gfx/weapon/fire_shield.dat
-ANIM_FILE data/anim/weapon/fire_shield.dat
-TYPE SHIELD
-OBJECTIVE_NAME Fire Shield
-DESCRIPTION A shield that can block fire
-ELEMENT FIRE

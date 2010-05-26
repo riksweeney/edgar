@@ -1,4 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/awesome_boss_energy_bar.dat
-ANIM_FILE data/anim/common/no_anim.dat
-FLAGS DO_NOT_PERSIST

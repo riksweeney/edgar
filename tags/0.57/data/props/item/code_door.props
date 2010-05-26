@@ -1,7 +1,0 @@
-GFX_FILE data/gfx/item/code_door.dat
-ANIM_FILE data/anim/item/code_door.dat
-TYPE KEY_ITEM
-FLAGS PLAYER_TOUCH_ONLY
-HEALTH 5
-ACTIVE FALSE
-THINKTIME 20
