@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/containment_unit_controls.dat
+ANIM_FILE data/anim/item/containment_unit_controls.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME Containment Unit Controls
+FLAGS FLY
+FACE RIGHT
