@@ -28,4 +28,4 @@ then
 	exit 1
 fi
 
-svn copy http://reddwarf.local/svn/Edgar/trunk http://reddwarf/svn/Edgar/tags/$1 -m "Tagging $1"
+svn copy http://reddwarf.local/svn/Edgar/trunk http://reddwarf.local/svn/Edgar/tags/$1 -m "Tagging $1"
