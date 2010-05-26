@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/common/explosion.dat
+ANIM_FILE data/anim/common/explosion.dat
+TYPE PROJECTILE
+DAMAGE 100
+SFX_FILE data/sfx/common/explosion.dat
+FLAGS DO_NOT_PERSIST
