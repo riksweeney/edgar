@@ -1,7 +1,0 @@
-GFX_FILE data/gfx/boss/grub_boss.dat
-ANIM_FILE data/anim/boss/grub_boss.dat
-TYPE ENEMY
-DAMAGE 1
-HEALTH 60
-SPEED 2
-SFX_FILE data/sfx/enemy/red_grub.dat

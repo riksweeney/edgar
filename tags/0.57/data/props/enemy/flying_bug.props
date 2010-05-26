@@ -1,8 +1,0 @@
-HEALTH 30
-DAMAGE 1
-GFX_FILE data/gfx/enemy/flying_bug.dat
-ANIM_FILE data/anim/enemy/flying_bug.dat
-TYPE ENEMY
-SPEED 1.5
-THINKTIME 90
-FLAGS FLY

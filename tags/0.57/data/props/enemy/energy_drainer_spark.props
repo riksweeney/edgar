@@ -1,7 +1,0 @@
-DAMAGE 2
-GFX_FILE data/gfx/enemy/energy_drainer_spark.dat
-ANIM_FILE data/anim/enemy/energy_drainer_spark.dat
-TYPE ENEMY
-SPEED 2
-FLAGS PLAYER_TOUCH_ONLY|FLY|UNBLOCKABLE|DO_NOT_PERSIST
-LAYER BACKGROUND_LAYER
