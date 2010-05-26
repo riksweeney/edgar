@@ -19,7 +19,7 @@ out one stormy night, Edgar sets off on a quest to rescue him.
 make VERSION=%{version} RELEASE=%{release}
 
 %install
-make install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 
@@ -30,7 +30,6 @@ make install
 %dir /usr/games
 %dir /usr/share/games/edgar
 %dir /usr/share/doc/%{name}
-%dir /usr/share/applnk
 /usr/games/%{name}
 /usr/share/games/edgar/%{name}.pak
 /usr/share/doc/%{name}/*

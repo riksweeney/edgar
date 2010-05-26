@@ -143,9 +143,9 @@ else
 	mkdir -p $(ICON_DIR)64x64/apps
 	mkdir -p $(DESKTOP_DIR)
 
-	install -o root -g games -m 755 $(PROG) $(BIN_DIR)$(PROG)
-	install -o root -g games -m 644 $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
-	install -o root -g games -m 644 $(DOCS) $(DOC_DIR)
+	cp $(PROG) $(BIN_DIR)$(PROG)
+	cp $(PAK_FILE) $(DATA_DIR)$(PAK_FILE)
+	cp $(DOCS) $(DOC_DIR)
 	cp $(ICONS)$(PROG).png $(ICON_DIR)16x16/apps/
 	cp $(ICONS)$(PROG).png $(ICON_DIR)32x32/apps/
 	cp $(ICONS)$(PROG).png $(ICON_DIR)64x64/apps/
