@@ -5,6 +5,7 @@ OutFile "edgar-0.1-1.installer.exe"
 InstallDir "$PROGRAMFILES\Parallel Realities\Edgar"
 Page Directory
 Page InstFiles
+SetCompressor bzip2
 
 Section "Main"
   SetOutPath $INSTDIR
