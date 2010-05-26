@@ -1298,7 +1298,6 @@ static void die()
 static void die2()
 {
 	Entity *e;
-	EntityList *list;
 	
 	self->thinkTime--;
 	
@@ -1329,9 +1328,7 @@ static void die2()
 		
 		if (self->mental <= 0)
 		{
-			list = throwGibs("boss/borer_boss_gibs", 15);
-			
-			freeEntityList(list);
+			freeEntityList(throwGibs("boss/borer_boss_gibs", 15));
 			
 			self->inUse = TRUE;
 

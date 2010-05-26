@@ -234,12 +234,12 @@ static void attack()
 
 		if (self->type == PLAYER)
 		{
-			playerGib();
+			freeEntityList(playerGib());
 		}
 
 		else
 		{
-			throwGibs("enemy/grub_gibs", 7);
+			freeEntityList(throwGibs("enemy/grub_gibs", 7));
 		}
 
 		self = temp;

@@ -1399,14 +1399,19 @@ static void playerDie()
 
 	player.thinkTime = 120;
 
-	player.action = getInventoryItem("Amulet of Resurrection") == NULL ? &gameOverTimeOut : &resurrectionTimeOut;
-
 	if (player.element == ICE || player.environment == LAVA || player.environment == SLIME)
 	{
 		player.flags |= NO_DRAW;
 		playerShield.flags |= NO_DRAW;
 		playerWeapon.flags |= NO_DRAW;
+		
+		if (player.environment != SLIME)
+		{
+			removeInventoryItem("Amulet of Resurrection");
+		}
 	}
+	
+	player.action = getInventoryItem("Amulet of Resurrection") == NULL ? &gameOverTimeOut : &resurrectionTimeOut;
 
 	doGameOver();
 
@@ -1511,6 +1516,10 @@ EntityList *playerGib()
 
 	if (player.health > 0)
 	{
+		/* Don't allow resurrecting */
+		
+		removeInventoryItem("Amulet of Resurrection");
+		
 		list = throwGibs("edgar/edgar_gibs", 6);
 
 		player.inUse = TRUE;
