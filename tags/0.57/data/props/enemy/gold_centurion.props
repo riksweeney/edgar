@@ -1,0 +1,7 @@
+HEALTH 150
+GFX_FILE data/gfx/enemy/gold_centurion.dat
+ANIM_FILE data/anim/enemy/gold_centurion.dat
+TYPE ENEMY
+SPEED 1
+FLAGS UNBLOCKABLE
+DAMAGE 1

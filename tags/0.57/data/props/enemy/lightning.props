@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/enemy/lightning.dat
+ANIM_FILE data/anim/enemy/laser.dat
+DAMAGE 1
+TYPE ENEMY
+FLAGS DO_NOT_PERSIST
