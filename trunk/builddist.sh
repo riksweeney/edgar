@@ -24,7 +24,7 @@ APPDIR="$APPNAME-$APPVERSION/"
 DISTNAME="$APPNAME-$APPVERSION-$APPRELEASE.tar.gz"
 DATADIRS="data music sound gfx font"
 
-RPMROOT="/usr/src/rpm"
+RPMROOT="/home/$SUDO_USER/rpmbuild"
 
 SPECNAME="$APPNAME.spec"
 
@@ -95,6 +95,9 @@ rm -rf $APPDIR
 
 echo "Preparing to Build..."
 
+mkdir -p $RPMROOT
+mkdir -p $RPMROOT/BUILD $RPMROOT/BUILDROOT $RPMROOT/RPMS $RPMROOT/SOURCES $RPMROOT/SPECS $RPMROOT/SRPMS
+
 cp $DISTNAME $RPMROOT/SOURCES
 
 echo "Building RPMs..."
@@ -104,6 +107,8 @@ rpmbuild -bb $SPECNAME --target $ARCH --define "name $APPNAME" --define "version
 echo "Retrieving RPMs"
 
 mv $RPMROOT/RPMS/$ARCH/*.* .
+
+rm -rf $RPMROOT
 
 echo "Running Alien..."
 
