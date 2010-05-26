@@ -507,7 +507,7 @@ static void tongueEat()
 
 			self = self->target;
 
-			playerGib();
+			freeEntityList(playerGib());
 
 			self = temp;
 

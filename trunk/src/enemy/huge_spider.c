@@ -262,7 +262,7 @@ static void touch(Entity *other)
 
 		self = other;
 
-		playerGib();
+		freeEntityList(playerGib());
 
 		self = temp;
 	}

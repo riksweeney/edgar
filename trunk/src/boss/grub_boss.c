@@ -487,7 +487,7 @@ static void die()
 
 		fireTrigger(self->objectiveName);
 
-		throwGibs("boss/grub_boss_gib", 7);
+		freeEntityList(throwGibs("boss/grub_boss_gib", 7));
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
 

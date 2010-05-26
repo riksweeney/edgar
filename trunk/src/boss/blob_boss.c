@@ -704,7 +704,7 @@ static void eat()
 
 		self = self->target;
 
-		playerGib();
+		freeEntityList(playerGib());
 
 		self = temp;
 
