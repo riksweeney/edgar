@@ -76,6 +76,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "scanner.h"
 #include "fish.h"
 
+#include "../item/bomb.h"
+
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
 #include "../boss/grub_boss.h"
@@ -191,7 +193,8 @@ static Constructor enemies[] = {
 {"boss/evil_edgar", &addEvilEdgar},
 {"enemy/fish", &addFish},
 {"enemy/green_fish", &addFish},
-{"boss/borer_boss", &addBorerBoss}
+{"boss/borer_boss", &addBorerBoss},
+{"item/bomb", &addBomb}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

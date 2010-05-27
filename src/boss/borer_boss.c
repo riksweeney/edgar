@@ -386,6 +386,8 @@ static void fireRocks()
 				e->action = &rockMove;
 				e->touch = &entityTouch;
 				e->reactToBlock = &rockBlock;
+				
+				e->type = ENEMY;
 			break;
 			
 			case 7:
@@ -426,6 +428,8 @@ static void fireRocks()
 
 				e->action = &boulderMove;
 				e->touch = &entityTouch;
+				
+				e->type = ENEMY;
 			break;
 			
 			default:
@@ -450,8 +454,6 @@ static void fireRocks()
 		self->x += 8;
 
 		e->draw = &drawLoopingAnimationToMap;
-
-		e->type = ENEMY;
 		
 		self->mental--;
 		
@@ -946,7 +948,7 @@ static void redTentacleAttackWait()
 
 static void redTentacleTouch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->target == NULL)
 	{
 		self->target = other;
 		
@@ -961,7 +963,7 @@ static void redTentacleTouch(Entity *other)
 		self->head->thinkTime = 0;
 	}
 	
-	else if (strcmpignorecase(other->name, "item/bomb") == 0)
+	else if (strcmpignorecase(other->name, "item/bomb") == 0 && self->target == NULL)
 	{
 		self->target = other;
 		
