@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 0.58
+* Fixed a problem with bombs dropped by the Borer
+* The borer can no longer grab more than 1 item at a time
+* The potion bottle is no longer lost when creating the spell
+
 Version 0.57
 * Water purifiers should no longer crash various maps
 * Added the next part of the story
