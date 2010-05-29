@@ -1,0 +1,169 @@
+CHANGE LOG
+----------
+
+Version 0.58
+* Fixed a problem with bombs dropped by the Borer
+* The borer can no longer grab more than 1 item at a time
+* The potion bottle is no longer lost when creating the spell
+
+Version 0.57
+* Water purifiers should no longer crash various maps
+* Added the next part of the story
+* Secret tally is now reset when a new game is started
+
+Version 0.56
+* Explosions that kill enemies no longer crash the game
+* Added the Armoury Boss
+* Added the ability to continue against most bosses
+
+Version 0.55
+* Added the Armoury map, you can get to it via the Fortress Ground Floor
+* Fixed a problem with some key mappings
+* Added some statistics, such as play time and enemies killed
+* Fixed a bunch of memory leaks
+* Added more Medals to earn, check Parallel Realities for details
+* Scripts no longer freeze when they are interrupted when loading a game
+
+Version 0.52
+* Minor update to the Basement boss
+
+Version 0.51
+* Added the missing Basement boss
+* Fixed the broken translations in the Windows build
+* The repellent clouds can no longer be picked up when you reload a game
+* Fixed the crash in the Library when reading the book
+* The game no longer segfaults if it is installed incorrectly
+
+Version 0.50
+* Added the 2nd Mine map, you can get to it via the Basement
+* Added a large number of translations from Google
+* Added support for Medals, you will need to register with Parallel Realities to use this feature
+* Changed the Ant Lion puzzle
+
+Version 0.46
+* Fixed / removed broken lift switches in the Village and Mines
+* Fixed a crash in the Mines
+* Fixed the robot on the 3rd floor of the Library
+* Fixed a potential crash when the whirlwinds steal your weapons
+* The Fire Shield objective cannot be accepted multiple times
+* Weapons can no longer be permanently lost in the water
+* Fixed the Fly Boss's death sequence
+* Saved games now store the currently selected inventory item
+
+Version 0.45
+* Added the rest of the Library Map
+* Health dropping now works correctly when the bow is equipped
+* Music and sound effects are halted when the game is paused
+* Items in a grabber should now stay put better
+* Energy drainers now drop between 1 and 3 arrows when they die
+* The Blob Boss should no longer get stuck when reforming
+* Added switches that reset puzzle blocks, play the tutorial to see how they work
+* Boss music actually plays now
+* Increased the inventory size
+
+Version 0.41
+* Fixed the Golem Boss (again)
+* Fixed a broken Action Point in the Fortress
+* Sequence blocks can no longer be grabbed and moved around
+
+Version 0.40
+* Updated the Basement Map
+* Sprite flipping is cached rather than being done on the fly
+* Added missing lift call switches
+* Fixed the arrows falling through the lift after the first Maggot encounter
+* The game now reports any catchable errors (segfaults still need to be caught with gdb)
+* Added the Library Map
+* The Golem Boss should no longer get stuck when reforming
+* Removed redundant translation strings
+* Items such as Bombs can no longer be thrown while in the inventory screen
+* The wooden doors now look slightly more like wooden doors
+
+Version 0.33
+* The game now works correctly for locales using comma as their decimal separator
+* Fixed behaviour of lifts when loading games
+* Polish characters should now be displayed correctly in the translation
+
+Version 0.32
+* Corrected errors in the translation handling
+* Edgar's weapon and shield are re-equipped after transforming back
+* The inventory screen now shows the current Objectives and their completion status
+* Fixed behaviour of flying creatures hitting slopes
+* Countdown timer no longer flickers when trying to display other messages
+* Fixed a potentially nasty bug on the Golem Boss
+* Weapons no longer fall through lifts, pressure plates and other objects
+* Fixed weapon collision detection
+* Added Polish translation
+* Fixed a problem with Map Triggers accumulating which would eventually lead to a crash when changing maps
+* Starting a new game during a Gazer's flash no longer leaves the screen white
+* Blob Boss's punch can no longer get stuck in the scenery
+
+Version 0.31
+* Gravity now affects Edgar again when updating from an older version
+* Added most translation strings
+
+Version 0.30
+
+* Fixed the scorpion's movement after its attack is blocked
+* Lifts no longer change direction when using your weapon in a tight passage
+* Added the Fortress Map
+* Added the Laboratory Map
+* Added proper joypad support
+* Fixed scrolling speed when standing on a lift
+
+Version 0.26
+
+* The Forbidden Swamp boss can no longer be frozen by standing behind her
+* Game no longer crashes when the fading music is interrupted
+
+Version 0.25
+
+* Fixed the chickens (again)
+* Reduced the number of chickens to catch to 3 (and there was much rejoicing)
+* Fixed the sprite priorities (again)
+* Added the Basement map
+* Fixed health drop chance when using the bow
+* Fixed corruption of items when swapping items in the inventory
+* Selecting an inventory item using the block or interact button will only select it for use rather than using it immediately. Useful for bombs.
+* Slight performance improvements
+* Added a tutorial level
+* Added confirmations to menu options
+* Used sound frequency 44100 to prevent crackles (thanks Fish Fillets)
+* More arrows are now dropped by enemies
+* Minor update to the Mine
+
+Version 0.22
+
+* Fixed a problem with sprite priorities, so now you know what killed you in the Forbidden Swamp
+
+Version 0.20
+
+* The game should now work on 64 bit CPUs
+* Added the Forbidden Swamp boss
+* Added basic inventory system so the player can see items and their quantities
+* The Forest map now has proper scroll limits
+* Water animates
+* Raft interaction point only takes away the logs when the objective has been completed
+* Added the Sewer and Fortress Outskirts maps
+* Made Edgar move 25% faster
+* Persistance file is now deleted when starting a new game
+* Fixed a problem with some Entities moving into a non existant collision grid
+* The game attempts to patch your saved game but YMMV
+
+Version 0.11
+
+* Fixed a problem with music loading
+* Edgar can now attack in the air whilst moving
+* Added save slots
+* Added Objective item counter
+* Improved slope code
+
+Version 0.10
+
+* Initial release
+
+
+Richard Sweeney
+richard.sweeney@parallelrealities.co.uk
+http://www.parallelrealities.co.uk
+
+(NB: This email address does not accept HTML formatted messages. Plain text only)
