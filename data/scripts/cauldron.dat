@@ -12,6 +12,7 @@ END
 END
 IF CAULDRON HEALTH 2
 REMOVE "Eyeball Smoothie" 1 1 CAULDRON 2 2
+ADD_TO_INVENTORY item/empty_potion
 TALK Edgar OK, that's the Gazer Eyeball and Tentacle added
 WALK_TO Edgar 21155 13322 WAIT
 ADD_TO_INVENTORY item/mandrake_root

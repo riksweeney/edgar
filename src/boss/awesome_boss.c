@@ -932,7 +932,7 @@ static void wait()
 		
 		if (self->thinkTime == 0)
 		{
-			playBossMusic();
+			playDefaultBossMusic();
 			
 			initEnergyBar();
 			

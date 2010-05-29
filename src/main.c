@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 #include "hud.h"
 #include "medal.h"
+#include "dialog.h"
 #include "system/record.h"
 #include "event/objective.h"
 #include "event/global_trigger.h"
@@ -237,6 +238,8 @@ int main(int argc, char *argv[])
 				doCollisions();
 
 				doHud();
+				
+				doDialogBox();
 
 				processMedals();
 			break;

@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-static SDL_Surface *dialogSurface;
+static DialogBox dialogBox;
 
 void createDialogBoxFromScript(char *msg)
 {
@@ -39,7 +39,13 @@ void createDialogBoxFromScript(char *msg)
 
 	text = strtok_r(NULL, "\0", &savePtr);
 
-	dialogSurface = createDialogBox(_(title), _(text));
+	dialogBox.dialogSurface = createDialogBox(_(title), _(text));
+}
+
+void createAutoDialogBox(char *title, char *text, int thinkTime)
+{
+	dialogBox.dialogSurface = createDialogBox(title, text);
+	dialogBox.thinkTime = thinkTime;
 }
 
 SDL_Surface *createDialogBox(char *title, char *msg)
@@ -228,20 +234,35 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	return tempSurface;
 }
 
+void doDialogBox()
+{
+	if (dialogBox.thinkTime > 0)
+	{
+		dialogBox.thinkTime--;
+		
+		if (dialogBox.thinkTime == 0)
+		{
+			freeDialogBox();
+		}
+	}
+}
+
 void drawDialogBox()
 {
-	if (dialogSurface != NULL)
+	if (dialogBox.dialogSurface != NULL)
 	{
-		drawImage(dialogSurface, (SCREEN_WIDTH - dialogSurface->w) / 2, 50, FALSE, 255);
+		drawImage(dialogBox.dialogSurface, (SCREEN_WIDTH - dialogBox.dialogSurface->w) / 2, 50, FALSE, 255);
 	}
 }
 
 void freeDialogBox()
 {
-	if (dialogSurface != NULL)
+	if (dialogBox.dialogSurface != NULL)
 	{
-		SDL_FreeSurface(dialogSurface);
+		SDL_FreeSurface(dialogBox.dialogSurface);
 
-		dialogSurface = NULL;
+		dialogBox.dialogSurface = NULL;
+		
+		dialogBox.thinkTime = 0;
 	}
 }
