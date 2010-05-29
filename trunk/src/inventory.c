@@ -87,6 +87,13 @@ int addToInventory(Entity *e)
 	int i, found;
 
 	found = FALSE;
+	
+	/* Quick fudge to remove the problematic bombs */
+	
+	if (e->type == ENEMY)
+	{
+		e->type = KEY_ITEM;
+	}
 
 	if (e->flags & STACKABLE)
 	{

@@ -111,7 +111,7 @@ static void wait()
 
 	if (self->thinkTime <= 0)
 	{
-		playBossMusic();
+		playDefaultBossMusic();
 
 		playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 

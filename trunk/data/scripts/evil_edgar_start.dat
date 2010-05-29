@@ -1,0 +1,31 @@
+MUSIC FADE_DOWN 3000
+CAMERA_SPEED 1
+LIMIT_CAMERA 19680 12768 20320 13216
+WALK_TO EDGAR 20100 13162 WAIT
+DEACTIVATE_REQUIRED EVIL_EDGAR_BOSS
+#WAIT 240
+#TALK Edgar Found you!
+#SET EVIL_EDGAR_2 FACE RIGHT
+#TALK Evil_Edgar You survived?!
+#TALK Edgar You sound surprised, I thought you'd have known considering we're the same.
+#TALK Edgar Except you're evil
+#TALK Evil_Edgar More evil
+#TALK Edgar Whatever, now I...
+#WALK_TO EDGAR 19960 13162 WAIT
+#WAIT 30
+#WALK_TO EDGAR 20100 13162 WAIT
+#WAIT 30
+#SET EDGAR FACE LEFT
+#TALK Edgar What is all this stuff?
+#TALK Evil_Edgar Your experiment separated part of your conscious
+#TALK Edgar Yes I know that, you already told me
+#TALK Evil_Edgar I'm still talking!
+#TALK Edgar ...
+#TALK Evil_Edgar There should only be one of us in this world: one body, one conscious
+#TALK Evil_Edgar This machine will join us back together, leaving just me
+#TALK Edgar Over my dead body!
+#TALK Evil_Edgar That was the plan. Since you're alive though, you've saved me the bother of dragging your carcas all the way over here
+#TALK Evil_Edgar Now get in the machine!
+#TALK Edgar Make me!
+#TALK Evil_Edgar Fine, I will!
+ACTIVATE_OBJECTIVE EVIL_EDGAR_2

@@ -160,7 +160,7 @@ static void initialise()
 
 			self->action = &riseUp;
 
-			playBossMusic();
+			playDefaultBossMusic();
 
 			initBossHealthBar();
 			

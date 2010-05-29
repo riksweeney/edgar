@@ -314,7 +314,7 @@ static void initialise()
 
 static void commence()
 {
-	playBossMusic();
+	playDefaultBossMusic();
 
 	initBossHealthBar();
 
