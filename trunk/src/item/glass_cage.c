@@ -82,7 +82,7 @@ static void wait()
 	{
 		self->layer = BACKGROUND_LAYER;
 		
-		self->y -= 0.5;
+		self->y -= 2;
 		
 		if (self->y <= self->startY)
 		{
