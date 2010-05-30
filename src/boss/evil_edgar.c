@@ -39,6 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../item/exploding_gayzer_eye.h"
 #include "../item/glass_cage.h"
+#include "../projectile.h"
 
 extern Entity *self, player;
 
@@ -63,6 +64,14 @@ static void addSwordSwing(void);
 static void swordSwingWait(void);
 static void swordSwingAttack(void);
 static void swordSwingAttackFinish(void);
+static void swordReactToBlock(void);
+static int bombOnScreen(void);
+static void crusherWait(void);
+static void bowAttackInit(void);
+static void bowAttack(void);
+static void fireArrowWait(void);
+static void fireArrowFinish(void);
+static void fireArrow(void);
 
 Entity *addEvilEdgar(int x, int y, char *name)
 {
@@ -127,11 +136,22 @@ static void introWait()
 		
 		self->touch = &entityTouch;
 		
+		self->takeDamage = &entityTakeDamageNoFlinch;
+		
+		self->target = getEntityByObjectiveName("LAB_CRUSHER");
+		
+		if (self->target == NULL)
+		{
+			showErrorAndExit("Evil Edgar cannot LAB_CRUSHER");
+		}
+		
 		addSwordSwing();
 		
 		playBossMusic("music/battle_for_life.xm");
 
 		initBossHealthBar();
+		
+		self->damage = 1;
 		
 		self->action = &attackFinished;
 	}
@@ -156,27 +176,168 @@ static void wait()
 		
 		if (self->thinkTime <= 0)
 		{
-			self->thinkTime = 180 + (prand() % 180);
+			if (bombOnScreen() == TRUE)
+			{
+				self->thinkTime = 30;
+			}
 			
-			self->action = &attackPlayerInit;
-			
-			self->dirX = self->face == LEFT ? -self->speed : self->speed;
-			
-			setEntityAnimation(self, WALK);
+			else
+			{
+				/*
+				if (prand() % 2 == 0 && self->endX == 1)
+				{
+					activateEntitiesValueWithObjectiveName("FAKE_SWITCH", 1);
+					
+					self->action = &crusherWait;
+					
+					self->target->active = TRUE;
+					
+					self->target->mental = 3 + prand() % 3;
+				}
+				
+				else
+				{
+					self->thinkTime = 60;
+					
+					self->action = &attackPlayerInit;
+					
+					self->dirX = self->face == LEFT ? -self->speed : self->speed;
+					
+					setEntityAnimation(self, WALK);
+				}
+				*/
+				
+				self->thinkTime = 60;
+				
+				self->dirX = self->face == LEFT ? -self->speed : self->speed;
+				
+				setEntityAnimation(self, CUSTOM_1);
+				
+				self->action = &crusherWait;
+				
+				self->action = &attackPlayerInit;
+				
+				self->action = &bowAttackInit;
+			}
 		}
 	}
 	
 	checkToMap(self);
 }
 
-static void attackPlayerInit()
+static void bowAttackInit()
 {
-	checkToMap(self);
+	self->thinkTime--;
 	
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 3 + prand() % 4;
+		
+		self->action = &bowAttack;
+	}
+	
+	checkToMap(self);
+}
+
+static void bowAttack()
+{
 	if (!(self->flags & ON_GROUND))
 	{
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+	
+	else
+	{
+		self->dirX = 0;
+		
+		facePlayer();
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, ATTACK_2);
+			
+			self->animationCallback = &fireArrow;
+			
+			self->thinkTime = 15;
+			
+			self->action = &fireArrowWait;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void fireArrowWait()
+{
+	checkToMap(self);
+}
+
+static void fireArrow()
+{
+	Entity *e;
+	
+	e = addProjectile("weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
+	
+	if (e->face == LEFT)
+	{
+		e->x -= e->w;
+	}
+	
+	playSoundToMap("sound/edgar/arrow.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	e->reactToBlock = &bounceOffShield;
+
+	e->face = self->face;
+
+	e->flags |= FLY;
+	
+	setEntityAnimation(self, ATTACK_3);
+	
+	self->animationCallback = &fireArrowFinish;
+}
+
+static void fireArrowFinish()
+{
+	self->action = &fireArrowFinish;
+	
+	setEntityAnimation(self, CUSTOM_2);
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental--;
+		
+		self->action = self->mental <= 0 ? &attackPlayer : &bowAttack;
+	}
+}
+
+static void attackPlayerInit()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 180 + (prand() % 180);
+		
 		self->action = &attackPlayer;
 	}
+	
+	checkToMap(self);
+}
+
+static void crusherWait()
+{
+	if (self->target->active == FALSE)
+	{
+		self->endX = 0;
+		
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
 }
 
 static void attackPlayer()
@@ -190,6 +351,13 @@ static void attackPlayer()
 	
 	else
 	{
+		if (prand() % 5 == 0 && bombOnScreen() == TRUE)
+		{
+			createAutoDialogBox(_("Evil Edgar"), _("I'm not falling for that!"), 60);
+			
+			self->thinkTime = 0;
+		}
+		
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
@@ -200,6 +368,8 @@ static void attackPlayer()
 			{
 				showErrorAndExit("Evil Edgar cannot find target");
 			}
+			
+			self->endX = self->x >= player.x ? 1 : 0;
 			
 			self->targetX = t->x;
 			
@@ -245,13 +415,15 @@ static void slashInit()
 	
 	if (self->thinkTime == 0)
 	{
-		self->thinkTime = 120;
+		self->thinkTime = 60;
 		
 		self->action = &slash;
 		
 		setEntityAnimation(self, ATTACK_1);
 		
 		self->flags |= ATTACKING;
+		
+		playSoundToMap("sound/edgar/swing.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 	
 	checkToMap(self);
@@ -267,7 +439,7 @@ static void slash()
 		
 		if (self->thinkTime <= 0)
 		{
-			self->thinkTime = 0;
+			self->thinkTime = prand() % 2 == 0 ? 0 : 90;
 			
 			self->action = &attackPlayer;
 		}
@@ -286,7 +458,7 @@ static void goToTarget()
 		
 		setEntityAnimation(self, STAND);
 		
-		if (prand() % 4 == 0)
+		if (prand() % 2 == 0)
 		{
 			self->dirY = -20;
 			
@@ -363,6 +535,8 @@ static void swordSwingWait()
 	{
 		self->action = &swordSwingAttack;
 		
+		self->reactToBlock = &swordReactToBlock;
+		
 		setEntityAnimation(self, ATTACK_1);
 		
 		self->animationCallback = &swordSwingAttackFinish;
@@ -422,7 +596,7 @@ static void throwGayzerEye()
 
 	playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
-	self->thinkTime = 30;
+	self->thinkTime = 60;
 	
 	self->action = &throwWait;
 	
@@ -541,10 +715,23 @@ static void cageWait()
 {
 	checkToMap(self);
 	
-	self->thinkTime--;
-	
 	if (self->mental == 0)
 	{
 		self->action = &attackFinished;
 	}
+}
+
+static void swordReactToBlock()
+{
+	self->damage = 0;
+}
+
+static int bombOnScreen()
+{
+	if (getEntityByName("item/bomb") == NULL)
+	{
+		return getEntityByName("common/explosion") != NULL ? TRUE : FALSE;
+	}
+	
+	return TRUE;
 }
