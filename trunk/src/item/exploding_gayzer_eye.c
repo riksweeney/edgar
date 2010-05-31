@@ -53,7 +53,7 @@ Entity *addExplodingGayzerEye(int x, int y, char *name)
 	e->action = &wait;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->die = &entityDie;
+	e->die = &entityDieNoDrop;
 
 	e->draw = &drawLoopingAnimationToMap;
 

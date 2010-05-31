@@ -1,6 +1,14 @@
 CHANGE LOG
 ----------
 
+Version 0.60
+* Edgar now animates when firing the bow
+
+Version 0.59
+* Fixed a problem with the lasers in the Basement and the Laboratory
+* Fixed a potential crash when fighting Mataeus
+* Added 64 bit binaries :)
+
 Version 0.58
 * Fixed a problem with bombs dropped by the Borer
 * The borer can no longer grab more than 1 item at a time
