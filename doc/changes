@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 0.59
+* Fixed a problem with the lasers in the Basement and the Laboratory
+
 Version 0.58
 * Fixed a problem with bombs dropped by the Borer
 * The borer can no longer grab more than 1 item at a time
