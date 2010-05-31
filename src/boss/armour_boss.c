@@ -188,7 +188,7 @@ static void doIntro()
 	{
 		initBossHealthBar();
 
-		playDefaultBossMusic();
+		playBossMusic();
 
 		self->action = &introWait;
 
@@ -1592,7 +1592,7 @@ static void continuePoint()
 	
 	initBossHealthBar();
 
-	playDefaultBossMusic();
+	playBossMusic();
 	
 	self->action = &attackFinished;
 	

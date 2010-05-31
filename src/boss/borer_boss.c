@@ -236,7 +236,7 @@ static void introPause()
 {
 	self->action = &attackFinished;
 
-	playDefaultBossMusic();
+	playBossMusic();
 
 	initBossHealthBar();
 	

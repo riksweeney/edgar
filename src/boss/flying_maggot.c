@@ -162,7 +162,7 @@ static void firstEncounterMoveToPosition()
 
 		self->action = &firstEncounterWait;
 
-		playDefaultBossMusic();
+		playBossMusic();
 
 		initBossHealthBar();
 

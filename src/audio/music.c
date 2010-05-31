@@ -113,7 +113,7 @@ void pauseMusic(int pause)
 	}
 }
 
-void playDefaultBossMusic()
+void playBossMusic()
 {
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
@@ -130,29 +130,6 @@ void playDefaultBossMusic()
 	if (game.gameType == REPLAYING)
 	{
 		printf("%f music/terrortech_inc_.xm\n", (float)game.frames / 60);
-	}
-	#endif
-	
-	Mix_PlayMusic(game.music, -1);
-}
-
-void playBossMusic(char *name)
-{
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-
-	freeMusic();
-
-	loadBossMusic(name);
-
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
-	#if DEV == 1
-	if (game.gameType == REPLAYING)
-	{
-		printf("%f %s\n", (float)game.frames / 60, name);
 	}
 	#endif
 	
