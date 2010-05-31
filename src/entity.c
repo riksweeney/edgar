@@ -1193,6 +1193,11 @@ EntityList *getEntitiesByRequiredName(char *name)
 void freeEntityList(EntityList *list)
 {
 	EntityList *p, *q;
+	
+	if (list == NULL)
+	{
+		return;
+	}
 
 	for (p=list->next;p!=NULL;p=q)
 	{

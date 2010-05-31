@@ -37,6 +37,7 @@ static void wait(void);
 static void die(void);
 static void closeFinish(void);
 static void takeDamage(Entity *, int);
+static void touch(Entity *);
 
 Entity *addGlassCage(int x, int y, char *name)
 {
@@ -57,7 +58,7 @@ Entity *addGlassCage(int x, int y, char *name)
 	e->face = LEFT;
 
 	e->action = &wait;
-	e->touch = &entityTouch;
+	e->touch = &touch;
 	e->activate = &activate;
 	e->takeDamage = &takeDamage;
 
@@ -113,6 +114,14 @@ static void wait()
 
 			self->action = &die;
 		}
+	}
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == KEY_ITEM && strcmpignorecase(other->objectiveName, "LAB_CRUSHER") == 0)
+	{
+		self->action = &die;
 	}
 }
 

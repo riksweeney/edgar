@@ -15,7 +15,7 @@ fi
 APPVERSION="$1"
 APPRELEASE="1"
 
-ARCH="i586"
+ARCH=`uname -m`
 
 APPNAME="edgar"
 
@@ -30,7 +30,7 @@ SPECNAME="$APPNAME.spec"
 
 ###### Main Operation ########
 
-echo "Creating Distribution for $APPNAME (Version $APPVERSION, Release $APPRELEASE)"
+echo "Creating Distribution for $APPNAME (Version $APPVERSION, Release $APPRELEASE) ($ARCH)"
 
 echo "Cleaning..."
 
@@ -116,7 +116,7 @@ alien -k *.rpm
 
 echo "Renaming..."
 
-mv *.deb edgar-$APPVERSION-$APPRELEASE.i386.deb
+mv *.deb edgar-$APPVERSION-$APPRELEASE.$ARCH.deb
 
 cd ..
 

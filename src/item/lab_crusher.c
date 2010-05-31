@@ -29,11 +29,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../system/error.h"
 #include "../system/random.h"
+#include "../player.h"
 
 extern Entity *self, player;
 
 static void wait(void);
-static void followPlayer(void);
+static void followTarget(void);
 static void drop(void);
 static void rise(void);
 static void init(void);
@@ -63,9 +64,7 @@ Entity *addLabCrusher(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
-	e->die = &entityDieNoDrop;
 	e->pain = NULL;
-	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
 
 	e->type = ENEMY;
@@ -86,17 +85,19 @@ static void wait()
 {
 	if (self->active == TRUE)
 	{
-		self->action = &followPlayer;
+		self->target = self->health == -1 ? getEntityByObjectiveName(self->requires) : &player;
+		
+		self->action = &followTarget;
 	}
 	
 	checkToMap(self);
 }
 
-static void followPlayer()
+static void followTarget()
 {
 	if (self->active == TRUE)
 	{
-		self->targetX = player.x - self->w / 2 + player.w / 2;
+		self->targetX = self->target->x - self->w / 2 + self->target->w / 2;
 
 		/* Position above the player */
 
@@ -113,7 +114,7 @@ static void followPlayer()
 
 		else
 		{
-			self->dirX = self->targetX < self->x ? -player.speed * 3 : player.speed * 3;
+			self->dirX = self->targetX < self->x ? -self->target->speed * 3 : self->target->speed * 3;
 		}
 	}
 
@@ -156,7 +157,7 @@ static void drop()
 		
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 		
-		self->thinkTime = 120;
+		self->thinkTime = 30;
 		
 		self->action = &rise;
 	}
@@ -183,7 +184,7 @@ static void rise()
 			
 			self->dirY = 0;
 			
-			self->action = &followPlayer;
+			self->action = &followTarget;
 		}
 	}
 	
@@ -244,8 +245,9 @@ static void touch(Entity *other)
 {
 	int bottomBefore;
 	float dirX;
+	Entity *temp;
 
-	if (other->dirY > 0)
+	if (other->type == PLAYER && other->dirY > 0)
 	{
 		/* Trying to move down */
 
@@ -268,6 +270,19 @@ static void touch(Entity *other)
 					checkToMap(other);
 
 					other->dirX = dirX;
+					
+					if (other->dirY == 0)
+					{
+						/* Gib the player */
+
+						temp = self;
+
+						self = other;
+
+						freeEntityList(playerGib());
+
+						self = temp;
+					}
 				}
 
 				/* Place the player as close to the solid tile as possible */
@@ -285,6 +300,19 @@ static void touch(Entity *other)
 				entityTouch(other);
 			}
 		}
+	}
+	
+	else if (strcmpignorecase(self->name, "boss/evil_edgar") == 0)
+	{
+		temp = self;
+		
+		self = other;
+		
+		self->takeDamage(other, 100);
+		
+		self->action = &rise;
+		
+		self->mental = 0;
 	}
 	
 	else
