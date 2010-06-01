@@ -34,13 +34,13 @@ static void wait(void);
 static void explodeInit(void);
 static void explode(void);
 
-Entity *addExplodingGayzerEye(int x, int y, char *name)
+Entity *addExplodingGazerEye(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add an Exploding Gayzer Eye");
+		showErrorAndExit("No free slots to add an Exploding Gazer Eye");
 	}
 
 	loadProperties(name, e);
