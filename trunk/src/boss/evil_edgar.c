@@ -38,7 +38,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../world/target.h"
 #include "../item/item.h"
-#include "../item/exploding_gayzer_eye.h"
+#include "../item/exploding_gazer_eye.h"
+#include "../item/exploding_gazer_eye_dud.h"
 #include "../item/glass_cage.h"
 #include "../projectile.h"
 #include "../inventory.h"
@@ -54,7 +55,7 @@ static void attackPlayer(void);
 static void goToTarget(void);
 static void jumpUp(void);
 static void wait(void);
-static void throwGayzerEye(void);
+static void throwGazerEye(void);
 static void throwWait(void);
 static void activateGlassCage(void);
 static void cageWait(void);
@@ -576,7 +577,7 @@ static void goToTarget()
 		{
 			self->mental = 1;
 			
-			self->action = &throwGayzerEye;
+			self->action = &throwGazerEye;
 		}
 	}
 	
@@ -692,13 +693,13 @@ static void swordSwingAttackFinish()
 	}
 }
 
-static void throwGayzerEye()
+static void throwGazerEye()
 {
 	Entity *e;
 	
-	if (getInventoryItem("Exploding Gayzer Eye") == NULL && prand() % 3 == 0)
+	if (getInventoryItem("Exploding Gazer Eye") == NULL && prand() % 3 == 0)
 	{
-		e = addExplodingGayzerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gayzer_eye_dud");
+		e = addExplodingGazerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye_dud");
 		
 		e->head = self;
 		
@@ -707,7 +708,7 @@ static void throwGayzerEye()
 	
 	else
 	{
-		e = addExplodingGayzerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gayzer_eye");
+		e = addExplodingGazerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye");
 	}
 	
 	e->dirX = self->face == LEFT ? -(5 + prand() % 10) : 5 + prand() % 10;
