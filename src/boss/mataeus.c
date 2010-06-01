@@ -166,7 +166,7 @@ static void introPause()
 
 	checkToMap(self);
 
-	playDefaultBossMusic();
+	playBossMusic();
 
 	initBossHealthBar();
 

@@ -1,9 +1,6 @@
 CHANGE LOG
 ----------
 
-Version 0.60
-* Edgar now animates when firing the bow
-
 Version 0.59
 * Fixed a problem with the lasers in the Basement and the Laboratory
 * Fixed a potential crash when fighting Mataeus

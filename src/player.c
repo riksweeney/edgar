@@ -1545,12 +1545,6 @@ void setPlayerStunned(int thinkTime)
 	{
 		becomeEdgar();
 	}
-	
-	player.animationCallback = NULL;
-	playerShield.animationCallback = NULL;
-	playerWeapon.animationCallback = NULL;
-
-	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
 	player.flags &= ~BLOCKING;
 
@@ -1657,7 +1651,7 @@ static void drawBow()
 
 	else
 	{
-		setEntityAnimation(&player, ATTACK_2);
+		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, ATTACK_1);
 		setEntityAnimation(&playerWeapon, ATTACK_1);
 
@@ -1669,7 +1663,7 @@ static void fireArrow()
 {
 	Entity *arrow, *e;
 
-	setEntityAnimation(&player, ATTACK_2);
+	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, ATTACK_1);
 	setEntityAnimation(&playerWeapon, ATTACK_2);
 
@@ -1678,11 +1672,6 @@ static void fireArrow()
 	if (arrow != NULL)
 	{
 		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
-		
-		if (e->face == LEFT)
-		{
-			e->x -= e->w;
-		}
 
 		playSoundToMap("sound/edgar/arrow.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 

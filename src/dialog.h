@@ -21,5 +21,3 @@ SDL_Surface *createDialogBox(char *, char *);
 void drawDialogBox(void);
 void freeDialogBox(void);
 void createDialogBoxFromScript(char *);
-void doDialogBox(void);
-void createAutoDialogBox(char *, char *, int);

@@ -288,9 +288,3 @@ typedef struct ContinueData
 	int cameraFollow;
 	void (*resumeAction)(void);
 } ContinueData;
-
-typedef struct DialogBox
-{
-	int thinkTime;
-	SDL_Surface *dialogSurface;
-} DialogBox;

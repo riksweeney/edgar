@@ -705,7 +705,7 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)
 		{
-			playDefaultBossMusic();
+			playBossMusic();
 		}
 
 		else if (strcmpignorecase("SHAKE_SCREEN", command) == 0)

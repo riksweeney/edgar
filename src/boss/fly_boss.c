@@ -221,7 +221,7 @@ static void introPause()
 
 	if (self->thinkTime <= 0)
 	{
-		playDefaultBossMusic();
+		playBossMusic();
 
 		initBossHealthBar();
 

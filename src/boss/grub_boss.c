@@ -154,7 +154,7 @@ static void initialise()
 
 			initBossHealthBar();
 
-			playDefaultBossMusic();
+			playBossMusic();
 			
 			setContinuePoint(FALSE, self->name, NULL);
 			
