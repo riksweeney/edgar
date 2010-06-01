@@ -4,6 +4,7 @@ CHANGE LOG
 Version 0.59
 * Fixed a problem with the lasers in the Basement and the Laboratory
 * Fixed a potential crash when fighting Mataeus
+* Added 64 bit binaries :)
 
 Version 0.58
 * Fixed a problem with bombs dropped by the Borer
