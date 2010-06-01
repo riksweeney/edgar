@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/wall/mataeus_wall.dat
+ANIM_FILE data/anim/wall/mataeus_wall.dat
+TYPE WEAK_WALL
+FLAGS FLY
+REQUIRES none
+HEALTH 10
