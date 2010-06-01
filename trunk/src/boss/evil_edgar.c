@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/gib.h"
 #include "../system/error.h"
 #include "../world/target.h"
+#include "../item/item.h"
 #include "../item/exploding_gayzer_eye.h"
 #include "../item/glass_cage.h"
 #include "../projectile.h"
@@ -74,6 +75,11 @@ static void fireArrowWait(void);
 static void fireArrowFinish(void);
 static void fireArrow(void);
 static void attackOnPlatformInit(void);
+static void takeDamage(Entity *, int);
+static void healSelf(void);
+static void activate(int);
+static void stunned(void);
+static void getClosestTarget(void);
 
 Entity *addEvilEdgar(int x, int y, char *name)
 {
@@ -114,6 +120,7 @@ static void init()
 		
 		case 3:
 			self->action = &introWait;
+			self->activate = &activate;
 		break;
 		
 		default:
@@ -138,7 +145,7 @@ static void introWait()
 		
 		self->touch = &entityTouch;
 		
-		self->takeDamage = &entityTakeDamageNoFlinch;
+		self->takeDamage = &takeDamage;
 		
 		self->target = getEntityByObjectiveName("LAB_CRUSHER");
 		
@@ -163,9 +170,36 @@ static void attackFinished()
 {
 	self->mental = 0;
 	
-	self->thinkTime = 120;
+	self->thinkTime = 60;
 	
-	self->action = &wait;
+	self->action = &healSelf;
+	
+	checkToMap(self);
+}
+
+static void healSelf()
+{
+	if (self->health != self->maxHealth)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			if (prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, 255, 255, 255, _("He is using that machine to heal himself..."));
+			}
+			
+			self->health = self->maxHealth;
+		}
+	}
+	
+	else
+	{
+		self->thinkTime = 30;
+		
+		self->action = &wait;
+	}
 	
 	checkToMap(self);
 }
@@ -173,7 +207,6 @@ static void attackFinished()
 static void wait()
 {
 	int r;
-	Target *t;
 	
 	if (player.health > 0)
 	{
@@ -181,19 +214,14 @@ static void wait()
 		
 		if (self->thinkTime <= 0)
 		{
-			t = getTargetByName("EVIL_EDGAR_TARGET_LEFT");
-			
-			if (t == NULL)
-			{
-				showErrorAndExit("Evil Edgar cannot find target");
-			}
+			getClosestTarget();
 			
 			if (bombOnScreen() == TRUE)
 			{
 				self->thinkTime = 30;
 			}
 			
-			else if (player.y < t->y)
+			else if (player.y < self->targetY)
 			{
 				self->action = &attackOnPlatformInit;
 			}
@@ -215,6 +243,14 @@ static void wait()
 					break;
 					
 					case 1:
+						self->action = &crusherWait;
+						
+						self->target->active = TRUE;
+						
+						self->target->mental = 3 + prand() % 3;
+					break;
+					
+					default:
 						self->thinkTime = 60;
 						
 						self->action = &attackPlayerInit;
@@ -222,14 +258,6 @@ static void wait()
 						self->dirX = self->face == LEFT ? -self->speed : self->speed;
 						
 						setEntityAnimation(self, WALK);
-					break;
-					
-					default:
-						self->action = &crusherWait;
-						
-						self->target->active = TRUE;
-						
-						self->target->mental = 3 + prand() % 3;
 					break;
 				}
 			}
@@ -242,12 +270,12 @@ static void wait()
 		{
 			if (player.flags |= NO_DRAW)
 			{
-				createAutoDialogBox(_("Evil Edgar"), _("What a mess..."), 60);
+				createAutoDialogBox(_("Evil_Edgar"), _("What a mess..."), 60);
 			}
 			
 			else
 			{
-				createAutoDialogBox(_("Evil Edgar"), _("I'm better than you in every single way..."), 60);
+				createAutoDialogBox(_("Evil_Edgar"), _("I'm better than you in every single way..."), 60);
 			}
 			
 			self->mental = -1;
@@ -261,7 +289,7 @@ static void attackOnPlatformInit()
 {
 	self->endX = 2;
 	
-	createAutoDialogBox(_("Evil Edgar"), _("Get down from there!"), 60);
+	createAutoDialogBox(_("Evil_Edgar"), _("Get down from there!"), 60);
 	
 	self->mental = 5;
 	
@@ -323,7 +351,7 @@ static void fireArrow()
 {
 	Entity *e;
 	
-	e = addProjectile("weapon/flaming_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
+	e = addProjectile(self->health < 750 ? "weapon/flaming_arrow" : "weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
 	
 	e->damage = 1;
 	
@@ -332,7 +360,7 @@ static void fireArrow()
 		e->x -= e->w;
 	}
 	
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap(self->health < 750 ? "sound/enemy/fireball/fireball.ogg" : "sound/edgar/arrow.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -361,8 +389,6 @@ static void fireArrowFinish()
 		
 		if (bombOnScreen() == TRUE)
 		{
-			createAutoDialogBox(_("Evil Edgar"), _("I'm not falling for that!"), 60);
-			
 			self->action = &attackPlayer;
 			
 			self->thinkTime = 0;
@@ -395,8 +421,12 @@ static void attackPlayerInit()
 
 static void crusherWait()
 {
-	if (self->target->active == FALSE)
+	if (self->target->active == FALSE || player.health <= 0)
 	{
+		self->target->mental = 0;
+		
+		self->target->active = FALSE;
+		
 		self->endX = 0;
 		
 		self->action = &attackFinished;
@@ -407,8 +437,6 @@ static void crusherWait()
 
 static void attackPlayer()
 {
-	Target *t;
-	
 	if (!(self->flags & ON_GROUND))
 	{
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -418,8 +446,6 @@ static void attackPlayer()
 	{
 		if (prand() % 5 == 0 && bombOnScreen() == TRUE)
 		{
-			createAutoDialogBox(_("Evil Edgar"), _("I'm not falling for that!"), 60);
-			
 			self->thinkTime = 0;
 		}
 		
@@ -436,14 +462,7 @@ static void attackPlayer()
 			
 			else
 			{
-				t = getTargetByName(self->x < player.x ? "EVIL_EDGAR_TARGET_LEFT" : "EVIL_EDGAR_TARGET_RIGHT");
-				
-				if (t == NULL)
-				{
-					showErrorAndExit("Evil Edgar cannot find target");
-				}
-				
-				self->targetX = t->x;
+				getClosestTarget();
 				
 				setEntityAnimation(self, WALK);
 				
@@ -539,7 +558,12 @@ static void goToTarget()
 		
 		setEntityAnimation(self, STAND);
 		
-		if (prand() % 2 == 0)
+		if (self->y < self->targetY)
+		{
+			self->action = &attackFinished
+		}
+		
+		else if (prand() % 2 == 0)
 		{
 			self->dirY = -20;
 			
@@ -672,12 +696,24 @@ static void throwGayzerEye()
 {
 	Entity *e;
 	
-	e = addExplodingGayzerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gayzer_eye");
+	if (getInventoryItem("Exploding Gayzer Eye") == NULL && prand() % 3 == 0)
+	{
+		e = addExplodingGayzerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gayzer_eye_dud");
+		
+		e->head = self;
+		
+		self->mental = 2;
+	}
+	
+	else
+	{
+		e = addExplodingGayzerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gayzer_eye");
+	}
 	
 	e->dirX = self->face == LEFT ? -(5 + prand() % 10) : 5 + prand() % 10;
 	e->dirY = -12;
 	
-	e->thinkTime = 180;
+	e->thinkTime = 60;
 
 	playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
@@ -718,7 +754,7 @@ static void jumpUp()
 			{
 				if (player.flags & HELPLESS)
 				{
-					createAutoDialogBox(_("Evil Edgar"), _("Gotcha!"), 60);
+					createAutoDialogBox(_("Evil_Edgar"), _("Gotcha!"), 60);
 					
 					self->action = &activateGlassCage;
 				}
@@ -731,6 +767,11 @@ static void jumpUp()
 			
 			else
 			{
+				if (self->mental == 2)
+				{
+					createAutoDialogBox(_("Evil_Edgar"), _("Stupid duds..."), 60);
+				}
+				
 				self->action = &attackFinished;
 			}
 		}
@@ -806,7 +847,7 @@ static void cageWait()
 	
 	if (self->thinkTime <= 0)
 	{
-		createAutoDialogBox(_("Evil Edgar"), _("Die!"), 60);
+		createAutoDialogBox(_("Evil_Edgar"), _("Die!"), 60);
 		
 		self->action = &crusherWait;
 		
@@ -828,10 +869,109 @@ static void swordReactToBlock()
 
 static int bombOnScreen()
 {
-	if (getEntityByName("item/bomb") == NULL)
+	int onScreen = FALSE;
+	
+	onScreen = getEntityByName("item/bomb") == NULL ? FALSE : TRUE;
+	
+	if (onScreen == FALSE)
 	{
-		return getEntityByName("common/explosion") != NULL ? TRUE : FALSE;
+		onScreen = getEntityByName("common/explosion") == NULL ? FALSE : TRUE;
 	}
 	
-	return TRUE;
+	if (onScreen == TRUE)
+	{
+		createAutoDialogBox(_("Evil_Edgar"), _("I'm not falling for that!"), 60);
+	}
+	
+	return onScreen;
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	int health;
+	Entity *e;
+	
+	if (!(self->flags & INVULNERABLE))
+	{
+		health = self->health;
+		
+		self->health -= damage;
+		
+		if (health >= 1250 && self->health < 1250)
+		{
+			e = addPermanentItem("item/darsh_fat", self->x, self->y);
+			
+			e->dirX = self->face == LEFT ? 8 : 8;
+			e->dirY = -8;
+		}
+		
+		else if (health >= 1000 && self->health < 1000)
+		{
+			e = addPermanentItem("item/condor_bones", self->x, self->y);
+			
+			e->dirX = self->face == LEFT ? 8 : 8;
+			e->dirY = -8;
+		}
+		
+		else if (health >= 750 && self->health < 750)
+		{
+			e = addPermanentItem("item/condor_bones", self->x, self->y);
+			
+			e->dirX = self->face == LEFT ? 8 : 8;
+			e->dirY = -8;
+		}
+		
+		else if (self->health <= 0)
+		{
+			self->health = 0;
+		}
+		
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		
+		enemyPain();
+	}
+}
+
+static void activate(int val)
+{
+	if (val == 100)
+	{
+		createAutoDialogBox(_("Evil_Edgar"), _("Arghh! My eyes!"), 60);
+		
+		setEntityAnimation(self, DIE);
+		
+		self->thinkTime = 600;
+		
+		self->action = &stunned;
+	}
+}
+
+static void stunned()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		getClosestTarget();
+		
+		self->action = &goToTarget;
+	}
+	
+	checkToMap(self);
+}
+
+static void getClosestTarget()
+{
+	Target *t;
+	
+	t = getTargetByName(self->x < player.x ? "EVIL_EDGAR_TARGET_LEFT" : "EVIL_EDGAR_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Evil Edgar cannot find target");
+	}
+	
+	self->targetX = t->x;
+	self->targetY = t->y;
 }

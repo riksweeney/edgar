@@ -50,7 +50,7 @@ void createAutoDialogBox(char *title, char *text, int thinkTime)
 
 SDL_Surface *createDialogBox(char *title, char *msg)
 {
-	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr;
+	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr, *titleText;
 	int i, lines, w, h, maxWidth, lineBreak, *lineBreaks;
 	SDL_Surface **surface, *tempSurface;
 	SDL_Rect dest;
@@ -67,6 +67,15 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	}
 
 	STRNCPY(text, msg, strlen(msg) + 1);
+	
+	titleText = (char *)malloc(strlen(title) + 1);
+
+	if (titleText == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(title) + 1);
+	}
+
+	STRNCPY(titleText, title, strlen(title) + 1);
 
 	token = strtok_r(text, " ", &savePtr);
 
@@ -81,9 +90,9 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	lines = i;
 
-	if (title != NULL)
+	if (titleText != NULL)
 	{
-		token = title;
+		token = titleText;
 		
 		while (*token != '\0')
 		{
@@ -120,9 +129,9 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	maxWidth = w = h = 0;
 
-	if (title != NULL)
+	if (titleText != NULL)
 	{
-		surface[i] = generateTextSurface(title, game.font, 255, 255, 0, 0, 0, 0);
+		surface[i] = generateTextSurface(titleText, game.font, 255, 255, 0, 0, 0, 0);
 
 		h = surface[i]->h + 5;
 
@@ -158,7 +167,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 		lineBreaks[i] = lineBreak;
 
-		if (h == 0 || (i == 1 && title != NULL))
+		if (h == 0 || (i == 1 && titleText != NULL))
 		{
 			h += surface[i]->h + 5;
 		}
@@ -197,7 +206,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	for (i=0;i<lines;i++)
 	{
-		if (w + surface[i]->w > MAX_DIALOG_WIDTH || (title != NULL && i == 1))
+		if (w + surface[i]->w > MAX_DIALOG_WIDTH || (titleText != NULL && i == 1))
 		{
 			w = 0;
 
@@ -228,6 +237,8 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	free(surface);
 
 	free(text);
+	
+	free(titleText);
 
 	free(lineBreaks);
 
