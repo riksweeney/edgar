@@ -125,6 +125,10 @@ static void followTarget()
 		self->dirX = 0;
 		
 		self->x = self->startX;
+		
+		self->action = &drop;
+		
+		self->thinkTime = 15;
 	}
 	
 	else if (self->x > self->endX)
@@ -132,6 +136,10 @@ static void followTarget()
 		self->dirX = 0;
 		
 		self->x = self->endX;
+		
+		self->action = &drop;
+		
+		self->thinkTime = 15;
 	}
 }
 
@@ -169,7 +177,7 @@ static void rise()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->dirY = -8;
+		self->dirY = -4;
 		
 		if (self->y <= self->startY)
 		{
@@ -247,7 +255,7 @@ static void touch(Entity *other)
 	float dirX;
 	Entity *temp;
 
-	if (other->type == PLAYER && other->dirY > 0)
+	if (other->type == PLAYER && other->dirY > 0 && other->health > 0)
 	{
 		/* Trying to move down */
 

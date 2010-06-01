@@ -123,6 +123,11 @@ static void touch(Entity *other)
 	{
 		self->action = &die;
 	}
+	
+	else
+	{
+		entityTouch(other);
+	}
 }
 
 static void die()
@@ -154,7 +159,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
-	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
+	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 }
 
 static void closeFinish()
