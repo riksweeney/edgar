@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 
 Entity *addPowerMeter(int x, int y, char *name)
 {
@@ -49,7 +49,7 @@ Entity *addPowerMeter(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -58,7 +58,7 @@ Entity *addPowerMeter(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	int frameCount;
 	

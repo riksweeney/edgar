@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void activate(int);
 static void touch(Entity *);
 
@@ -61,7 +61,7 @@ Entity *addGrapplingHook(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -100,7 +100,7 @@ static void fireHook()
 
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static int draw()

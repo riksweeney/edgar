@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
 
@@ -51,7 +51,7 @@ Entity *addSavePoint(int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 	e->activate = &activate;
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->type = SAVE_POINT;
 
@@ -60,7 +60,7 @@ Entity *addSavePoint(int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	int frame = self->currentFrame;
 

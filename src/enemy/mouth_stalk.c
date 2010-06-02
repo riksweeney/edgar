@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void wait(void);
+static void entityWait(void);
 static void bodyWait(void);
 static void createBody(void);
 static void takeDamage(Entity *, int);
@@ -97,7 +97,7 @@ static void riseUp()
 	{
 		self->y = self->startY;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	alignBodyToHead();
@@ -153,7 +153,7 @@ static void swimAround()
 	alignBodyToHead();
 }
 
-static void wait()
+static void entityWait()
 {
 	self->startX++;
 

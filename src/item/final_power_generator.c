@@ -35,7 +35,7 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 
 Entity *addFinalPowerGenerator(int x, int y, char *name)
@@ -69,7 +69,7 @@ Entity *addFinalPowerGenerator(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->mental < 0)
 	{
@@ -118,5 +118,5 @@ static void init()
 		self->frameSpeed = 0;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void walk(void);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void changeWalkDirectionStart(void);
 static void changeWalkDirection(void);
@@ -111,7 +111,7 @@ static void changeWalkDirectionStart()
 {
 	setEntityAnimation(self, CUSTOM_1);
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->animationCallback = &changeWalkDirection;
 
@@ -136,7 +136,7 @@ static void changeWalkDirection()
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 
@@ -153,7 +153,7 @@ static void changeWalkDirectionFinish()
 	self->thinkTime = 120 + prand() % 120;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -162,7 +162,7 @@ static void changeHeadStart()
 {
 	setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->animationCallback = &changeHead;
 
@@ -187,7 +187,7 @@ static void changeHead()
 
 		self->animationCallback = &changeHeadFinish;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 
@@ -301,7 +301,7 @@ static void electrify()
 
 		self->animationCallback = &electrifyFinish;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->element = NO_ELEMENT;
 

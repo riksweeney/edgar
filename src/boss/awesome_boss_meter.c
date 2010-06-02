@@ -44,7 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void takeDamage(Entity *, int);
 
 Entity *addAwesomeBossMeter(int x, int y, char *name)
@@ -82,7 +82,7 @@ static void init()
 	{
 		initBossHealthBar();
 		
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		self->thinkTime = 180;
 		
@@ -90,7 +90,7 @@ static void init()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	Entity *e;
 	

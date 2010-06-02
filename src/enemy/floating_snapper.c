@@ -39,7 +39,7 @@ static void reopen(void);
 static void reopenFinish(void);
 static void touch(Entity *);
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void trap(Entity *);
 
 Entity *addFloatingSnapper(int x, int y, char *name)
@@ -82,7 +82,7 @@ static void floatUpAndDown()
 	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 5;
 }
 
-static void wait()
+static void entityWait()
 {
 	floatUpAndDown();
 
@@ -218,14 +218,14 @@ static void reopenFinish()
 
 	self->health = 0;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->touch = &touch;
 }
 
 static void init()
 {
-	self->action = self->health == 2 ? &snapShutFinish : &wait;
+	self->action = self->health == 2 ? &snapShutFinish : &entityWait;
 
 	self->action();
 }

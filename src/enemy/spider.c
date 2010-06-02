@@ -154,7 +154,7 @@ static void retreat()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->targetY > 0)
 	{
@@ -203,7 +203,7 @@ static void move()
 			{
 				self->targetY = 0;
 
-				self->action = &wait;
+				self->action = &entityWait;
 			}
 
 			else

@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 
 Entity *addConveyorBelt(char *name, int x, int y)
@@ -52,7 +52,7 @@ Entity *addConveyorBelt(char *name, int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active != self->dirY)
 	{
@@ -132,5 +132,5 @@ static void init()
 	
 	self->dirY = self->active;
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }

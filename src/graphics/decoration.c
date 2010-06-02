@@ -32,7 +32,7 @@ static int decorationIndex = 0;
 extern Entity *self, player;
 
 static void move(void);
-static void wait(void);
+static void entityWait(void);
 static void finish(void);
 static void timeout(void);
 static int drawPixel(void);
@@ -290,7 +290,7 @@ void addSparkle(int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->draw = &drawLoopingAnimationToMap;
 	e->animationCallback = &finish;
 }
@@ -361,7 +361,7 @@ static void timeout()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	self->x += self->dirX;
 	self->y += self->dirY;

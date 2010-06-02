@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 
 Entity *addTrapDoor(char *name, int x, int y)
@@ -44,7 +44,7 @@ Entity *addTrapDoor(char *name, int x, int y)
 
 	e->touch = &touch;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -60,13 +60,13 @@ Entity *addTrapDoor(char *name, int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->face = RIGHT;
 
 	self->touch = self->active == FALSE ? &touch : NULL;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
 }

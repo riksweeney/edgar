@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
 
@@ -59,7 +59,7 @@ Entity *addArrowTarget(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->thinkTime > 0)
 	{
@@ -86,7 +86,7 @@ static void init()
 {
 	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static void touch(Entity *other)

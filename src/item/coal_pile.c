@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static Entity *addCoal(int, int);
 
@@ -58,7 +58,7 @@ Entity *addCoalPile(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -97,7 +97,7 @@ static Entity *addCoal(int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (prand() % 90 == 0)
 	{

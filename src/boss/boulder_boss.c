@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void drop(void);
 static void touch(Entity *);
 static void initialise(void);
@@ -122,13 +122,13 @@ static void drop()
 
 		addDust();
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	doNothing();
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 

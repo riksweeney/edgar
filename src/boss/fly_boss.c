@@ -50,7 +50,7 @@ static void takeDamage(Entity *, int);
 static void initialise(void);
 static void doIntro(void);
 static void introPause(void);
-static void wait(void);
+static void entityWait(void);
 static void hover(void);
 static void moveToTarget(void);
 static void flyToTopTarget(void);
@@ -225,13 +225,13 @@ static void introPause()
 
 		initBossHealthBar();
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	facePlayer();
 }
 
-static void wait()
+static void entityWait()
 {
 	int i;
 
@@ -353,7 +353,7 @@ static void moveToTarget()
 		self->startX = 0;
 		self->startY = self->y;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 

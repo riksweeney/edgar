@@ -34,7 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void bite(void);
 static void biteFinish(void);
@@ -76,10 +76,10 @@ static void init()
 
 	self->endY -= self->startY;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	int x, y;
 	Entity *e;
@@ -144,7 +144,7 @@ static void biteFinish()
 		{
 			self->y = self->startY;
 
-			self->action = &wait;
+			self->action = &entityWait;
 		}
 	}
 

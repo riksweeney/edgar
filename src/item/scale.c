@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void addChain(void);
 static void chainWait(void);
@@ -107,10 +107,10 @@ static void init()
 	
 	self->mental = getMapCeiling(self->x, self->y);
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->thinkTime > 0)
 	{

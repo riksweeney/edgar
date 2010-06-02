@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/glass_cage.h"
 #include "../projectile.h"
 #include "../inventory.h"
+#include "../event/script.h"
 
 extern Entity *self, player;
 
@@ -54,7 +55,7 @@ static void attackFinished(void);
 static void attackPlayer(void);
 static void goToTarget(void);
 static void jumpUp(void);
-static void wait(void);
+static void entityWait(void);
 static void throwGazerEye(void);
 static void throwWait(void);
 static void activateGlassCage(void);
@@ -77,10 +78,12 @@ static void fireArrowFinish(void);
 static void fireArrow(void);
 static void attackOnPlatformInit(void);
 static void takeDamage(Entity *, int);
-static void healSelf(void);
 static void activate(int);
 static void stunned(void);
 static void getClosestTarget(void);
+static void gotoTargetMachineInit(void);
+static void gotoTargetMachine(void);
+static int edgarInSourceMachine(void);
 
 Entity *addEvilEdgar(int x, int y, char *name)
 {
@@ -148,13 +151,6 @@ static void introWait()
 		
 		self->takeDamage = &takeDamage;
 		
-		self->target = getEntityByObjectiveName("LAB_CRUSHER");
-		
-		if (self->target == NULL)
-		{
-			showErrorAndExit("Evil Edgar cannot find LAB_CRUSHER");
-		}
-		
 		addSwordSwing();
 		
 		playBossMusic("music/battle_for_life.xm");
@@ -162,6 +158,8 @@ static void introWait()
 		initBossHealthBar();
 		
 		self->damage = 1;
+		
+		self->startX = 0;
 		
 		self->action = &attackFinished;
 	}
@@ -171,44 +169,15 @@ static void attackFinished()
 {
 	self->mental = 0;
 	
-	self->thinkTime = 60;
+	self->thinkTime = 30;
 	
-	self->action = &healSelf;
-	
-	checkToMap(self);
-}
-
-static void healSelf()
-{
-	if (self->health != self->maxHealth)
-	{
-		self->thinkTime--;
-		
-		if (self->thinkTime <= 0)
-		{
-			if (prand() % 10 == 0)
-			{
-				setInfoBoxMessage(60, 255, 255, 255, _("He is using that machine to heal himself..."));
-			}
-			
-			self->health = self->maxHealth;
-		}
-	}
-	
-	else
-	{
-		self->thinkTime = 30;
-		
-		self->action = &wait;
-	}
+	self->action = &entityWait;
 	
 	checkToMap(self);
 }
 
-static void wait()
-{
-	int r;
-	
+static void entityWait()
+{	
 	if (player.health > 0)
 	{
 		self->thinkTime--;
@@ -222,44 +191,60 @@ static void wait()
 				self->thinkTime = 30;
 			}
 			
+			if (edgarInSourceMachine() == TRUE)
+			{
+				createAutoDialogBox(_("Evil_Edgar"), _("Thanks..."), 120);
+				
+				setEntityAnimation(self, WALK);
+				
+				self->action = &gotoTargetMachineInit;
+			}
+			
 			else if (player.y < self->targetY)
 			{
 				self->action = &attackOnPlatformInit;
 			}
 			
+			else if (self->startX >= 100)
+			{
+				self->action = &crusherWait;
+				
+				self->target = getEntityByObjectiveName("LAB_CRUSHER");
+				
+				if (self->target == NULL)
+				{
+					showErrorAndExit("Evil Edgar cannot find LAB_CRUSHER");
+				}
+				
+				self->target->active = TRUE;
+				
+				self->target->mental = 3 + prand() % 3;	
+				
+				self->startX = 0;
+			}
+			
 			else
 			{
-				r = prand() % 3;
-				
-				switch (r)
+				if (prand() % 2 == 0)
 				{
-					case 0:
-						self->thinkTime = 60;
-						
-						self->dirX = self->face == LEFT ? -self->speed : self->speed;
-						
-						setEntityAnimation(self, CUSTOM_1);
-						
-						self->action = &bowAttackInit;
-					break;
+					self->thinkTime = 60;
 					
-					case 1:
-						self->action = &crusherWait;
-						
-						self->target->active = TRUE;
-						
-						self->target->mental = 3 + prand() % 3;
-					break;
+					self->dirX = self->face == LEFT ? -self->speed : self->speed;
 					
-					default:
-						self->thinkTime = 60;
-						
-						self->action = &attackPlayerInit;
-						
-						self->dirX = self->face == LEFT ? -self->speed : self->speed;
-						
-						setEntityAnimation(self, WALK);
-					break;
+					setEntityAnimation(self, CUSTOM_1);
+					
+					self->action = &bowAttackInit;
+				}
+				
+				else
+				{
+					self->thinkTime = 60;
+					
+					self->action = &attackPlayerInit;
+					
+					self->dirX = self->face == LEFT ? -self->speed : self->speed;
+					
+					setEntityAnimation(self, WALK);
 				}
 			}
 		}
@@ -292,7 +277,7 @@ static void attackOnPlatformInit()
 	
 	createAutoDialogBox(_("Evil_Edgar"), _("Get down from there!"), 60);
 	
-	self->mental = 5;
+	self->mental = 10;
 	
 	self->action = &bowAttack;
 	
@@ -561,23 +546,31 @@ static void goToTarget()
 		
 		if (self->y < self->targetY)
 		{
-			self->action = &attackFinished
-		}
-		
-		else if (prand() % 2 == 0)
-		{
-			self->dirY = -20;
-			
-			self->thinkTime = 60;
-			
-			self->action = &jumpUp;
+			self->action = &attackFinished;
 		}
 		
 		else
 		{
-			self->mental = 1;
+			if (self->startX >= 100)
+			{
+				createAutoDialogBox(_("Evil_Edgar"), _("Fine, I will crush you instead!"), 60);
+			}
 			
-			self->action = &throwGazerEye;
+			if (prand() % 2 == 0)
+			{
+				self->dirY = -20;
+				
+				self->thinkTime = 60;
+				
+				self->action = &jumpUp;
+			}
+			
+			else
+			{
+				self->mental = 1;
+				
+				self->action = &throwGazerEye;
+			}
 		}
 	}
 	
@@ -697,11 +690,13 @@ static void throwGazerEye()
 {
 	Entity *e;
 	
-	if (getInventoryItem("Exploding Gazer Eye") == NULL && prand() % 3 == 0)
+	if (getInventoryItem("Exploding Gazer Eye") == NULL && getEntityByName("item/exploding_gazer_eye_dud") == NULL)
 	{
-		e = addExplodingGazerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye_dud");
+		e = addExplodingGazerEyeDud(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye_dud");
 		
 		e->head = self;
+		
+		e->active = FALSE;
 		
 		self->mental = 2;
 	}
@@ -848,6 +843,13 @@ static void cageWait()
 	
 	if (self->thinkTime <= 0)
 	{
+		self->target = getEntityByObjectiveName("LAB_CRUSHER");
+		
+		if (self->target == NULL)
+		{
+			showErrorAndExit("Evil Edgar cannot find LAB_CRUSHER");
+		}
+		
 		createAutoDialogBox(_("Evil_Edgar"), _("Die!"), 60);
 		
 		self->action = &crusherWait;
@@ -890,7 +892,6 @@ static int bombOnScreen()
 static void takeDamage(Entity *other, int damage)
 {
 	int health;
-	Entity *e;
 	
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -898,31 +899,9 @@ static void takeDamage(Entity *other, int damage)
 		
 		self->health -= damage;
 		
-		if (health >= 1250 && self->health < 1250)
-		{
-			e = addPermanentItem("item/darsh_fat", self->x, self->y);
-			
-			e->dirX = self->face == LEFT ? 8 : 8;
-			e->dirY = -8;
-		}
+		self->startX += damage;
 		
-		else if (health >= 1000 && self->health < 1000)
-		{
-			e = addPermanentItem("item/condor_bones", self->x, self->y);
-			
-			e->dirX = self->face == LEFT ? 8 : 8;
-			e->dirY = -8;
-		}
-		
-		else if (health >= 750 && self->health < 750)
-		{
-			e = addPermanentItem("item/condor_bones", self->x, self->y);
-			
-			e->dirX = self->face == LEFT ? 8 : 8;
-			e->dirY = -8;
-		}
-		
-		else if (self->health <= 0)
+		if (self->health <= 0)
 		{
 			self->health = 0;
 		}
@@ -939,6 +918,8 @@ static void activate(int val)
 	if (val == 100)
 	{
 		createAutoDialogBox(_("Evil_Edgar"), _("Arghh! My eyes!"), 60);
+		
+		self->animationCallback = NULL;
 		
 		setEntityAnimation(self, DIE);
 		
@@ -975,4 +956,62 @@ static void getClosestTarget()
 	
 	self->targetX = t->x;
 	self->targetY = t->y;
+}
+
+static int edgarInSourceMachine()
+{
+	Entity *machine = getEntityByObjectiveName("SOURCE_MACHINE");
+	
+	if (machine == NULL)
+	{
+		showErrorAndExit("Evil Edgar cannot find SOURCE_MACHINE");
+	}
+	
+	return machine->health == 2 ? TRUE : FALSE;
+}
+
+static void gotoTargetMachineInit()
+{
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	
+	self->thinkTime = 60;
+	
+	self->target = getEntityByObjectiveName("TARGET_MACHINE");
+	
+	self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
+	
+	self->action = &gotoTargetMachine;
+	
+	checkToMap(self);
+}
+
+static void gotoTargetMachine()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->flags & ON_GROUND)
+		{
+			if (fabs(self->x - self->targetX) <= self->speed)
+			{
+				setEntityAnimation(self, STAND);
+				
+				self->dirX = 0;
+				
+				self->action = &doNothing;
+				
+				runScript("soul_merger");
+			}
+			
+			else
+			{
+				self->dirX = self->targetX < self->x ? -self->speed : self->speed;
+				
+				self->face = self->dirX < 0 ? LEFT : RIGHT;
+			}
+		}
+	}
+	
+	checkToMap(self);
 }

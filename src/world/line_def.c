@@ -30,7 +30,7 @@ extern Entity *self;
 
 static void standardTouch(Entity *);
 static void scriptTouch(Entity *);
-static void wait(void);
+static void entityWait(void);
 static void initialise(void);
 
 Entity *addLineDef(char *type, char *name, int x, int y)
@@ -92,7 +92,7 @@ static void scriptTouch(Entity *other)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 
 }
@@ -110,5 +110,5 @@ static void initialise()
 	self->box.w = self->w;
 	self->box.h = self->h;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

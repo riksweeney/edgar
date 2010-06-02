@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void init(void);
 
@@ -59,7 +59,7 @@ Entity *addBubbleMachine(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 
@@ -136,5 +136,5 @@ static void init()
 {
 	setEntityAnimation(self, self->health);
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

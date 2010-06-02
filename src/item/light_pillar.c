@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void addLight(int);
 static void touch(Entity *);
 static void init(void);
@@ -75,10 +75,10 @@ static void init()
 {
 	setEntityAnimation(self, self->thinkTime > 0 ? WALK : STAND);
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->thinkTime > 0)
 	{

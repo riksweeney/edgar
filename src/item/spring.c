@@ -37,7 +37,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 
 static void touch(Entity *);
 static void spring(void);
-static void wait(void);
+static void entityWait(void);
 
 Entity *addSpring(int x, int y, char *name)
 {
@@ -57,7 +57,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 	e->fallout = &itemFallout;
 
@@ -70,7 +70,7 @@ Entity *addSpring(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (!(self->flags & GRABBED))
 	{
@@ -119,7 +119,7 @@ static void spring()
 	{
 		setEntityAnimation(self, STAND);
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	checkToMap(self);

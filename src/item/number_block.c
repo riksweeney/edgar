@@ -37,7 +37,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 static void touch(Entity *);
 static Entity *getNextBlock(char *, int);
 static void setAllBlockValues(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void die(void);
 static void killAllBlocks(void);
@@ -73,7 +73,7 @@ Entity *addNumberBlock(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -157,7 +157,7 @@ static void init()
 		setEntityAnimation(self, self->health == 2 ? 2 : 0);
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static Entity *getFirstBlock(char *name)

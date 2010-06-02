@@ -27,12 +27,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../player.h"
 #include "../game.h"
+#include "../item/key_items.h"
 
-extern Entity *self;
+extern Entity *self, player;
+extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void explodeInit(void);
 static void explode(void);
+static void touch(Entity *);
+static void throwGazerEye(int);
+static void explodeWait(void);
 
 Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 {
@@ -50,7 +55,7 @@ Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->activate = &throwGazerEye;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -60,7 +65,7 @@ Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 	
@@ -88,7 +93,7 @@ static void throwGazerEye(int val)
 	
 	if (game.status == IN_GAME)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, STAND);
 
 		self->active = TRUE;
 
@@ -96,7 +101,7 @@ static void throwGazerEye(int val)
 
 		e->touch = &touch;
 
-		e->action = &wait;
+		e->action = &explodeWait;
 
 		e->dirX = player.face == LEFT ? -8 : 8;
 
@@ -106,6 +111,27 @@ static void throwGazerEye(int val)
 
 		self->inUse = FALSE;
 	}	
+}
+
+static void explodeWait()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, WALK);
+			
+			self->thinkTime = 15;
+			
+			self->action = &explodeInit;
+		}
+	}
 }
 
 static void explodeInit()
@@ -146,7 +172,7 @@ static void explode()
 	}
 }
 
-static void touch()
+static void touch(Entity *other)
 {
 	
 }

@@ -34,7 +34,7 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void shatter(void);
-static void wait(void);
+static void entityWait(void);
 static void explode(void);
 
 Entity *addSnailShell(int x, int y, char *name)
@@ -51,7 +51,7 @@ Entity *addSnailShell(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->die = &shatter;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
@@ -63,7 +63,7 @@ Entity *addSnailShell(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 

@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void moveToTarget(void);
 static void changeRandomTarget(void);
@@ -76,12 +76,12 @@ static void init()
 		self->mental = 1;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->action();
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 
@@ -122,7 +122,7 @@ static void moveToTarget()
 	{
 		self->thinkTime = 120 + (prand() % self->maxThinkTime);
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	else if (self->dirX != x || self->dirY != y)

@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../system/error.h"
 
-static void wait(void);
+static void entityWait(void);
 static void initialize(void);
 static void touch(Entity *);
 
@@ -45,7 +45,7 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 
 	e->type = VANISHING_PLATFORM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->touch = &touch;
 
@@ -63,7 +63,7 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->face = RIGHT;
 
@@ -100,7 +100,7 @@ static void initialize()
 		self->flags |= NO_DRAW;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static void touch(Entity *other)

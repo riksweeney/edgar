@@ -34,7 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void randomize(void);
 static void validate(void);
@@ -66,7 +66,7 @@ Entity *addSlidingPuzzleDisplay(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->mental == -3)
 	{
@@ -211,7 +211,7 @@ static void init()
 		
 		e->health = i + 1;
 		
-		e->action = &wait;
+		e->action = &entityWait;
 		
 		e->draw = &drawLoopingAnimationToMap;
 		
@@ -229,7 +229,7 @@ static void init()
 		randomize();
 	}
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static void randomize()
@@ -299,6 +299,6 @@ static void slideToTarget()
 		
 		self->head->mental = -3;
 		
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }

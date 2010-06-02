@@ -61,7 +61,7 @@ static void addTentacles(void);
 static void tentacleAttackInit(void);
 static void tentacleAttack(void);
 static void tentacleAttackFinish(void);
-static void wait(void);
+static void entityWait(void);
 static int drawTentacle(void);
 static void tentacleTakeDamage(Entity *, int);
 static void tentacleAttackRetract(void);
@@ -255,10 +255,10 @@ static void attackFinished()
 {
 	self->thinkTime = 60;
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->health <= 0)
 	{
@@ -340,7 +340,7 @@ static void fireRocksInit()
 
 static void fireRocks()
 {
-	int rand;
+	int rand, fired;
 	Entity *e;
 	
 	self->thinkTime--;
@@ -353,107 +353,121 @@ static void fireRocks()
 	}
 	
 	if (self->thinkTime <= 0)
-	{		
-		rand = prand() % 12;
+	{
+		fired = FALSE;
 		
-		switch (rand)
+		while (fired == FALSE)
 		{
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-				e = getFreeEntity();
-				
-				if (e == NULL)
-				{
-					showErrorAndExit("No free slots to add a Borer projectile");
-				}
-				
-				loadProperties("common/large_rock", e);
-				
-				setEntityAnimation(e, STAND);
-
-				e->x = self->x + self->w / 2 - e->w / 2;
-				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
-				
-				e->dirX = -12;
-				
-				e->flags |= FLY;
-
-				e->action = &rockMove;
-				e->touch = &entityTouch;
-				e->reactToBlock = &rockBlock;
-				
-				e->type = ENEMY;
-			break;
+			rand = prand() % 12;
 			
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-				e = getFreeEntity();
-				
-				if (e == NULL)
-				{
-					showErrorAndExit("No free slots to add a Borer projectile");
-				}
-				
-				loadProperties("enemy/small_boulder", e);
-				
-				setEntityAnimation(e, STAND);
-
-				e->x = self->x + self->w / 2 - e->w / 2;
-				
-				switch (prand() % 3)
-				{
-					case 0:
-						e->y = self->y;
-					break;
+			switch (rand)
+			{
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+					e = getFreeEntity();
 					
-					case 1:
-						e->y = self->y + self->h / 2 - e->h / 2;
-					break;
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Borer projectile");
+					}
 					
-					default:
-						e->y = self->y + self->h - e->h;
-					break;
-				}
-				
-				e->dirX = -12;
-				
-				e->flags |= FLY|UNBLOCKABLE;
+					loadProperties("common/large_rock", e);
+					
+					setEntityAnimation(e, STAND);
 
-				e->action = &boulderMove;
-				e->touch = &entityTouch;
-				
-				e->type = ENEMY;
-			break;
-			
-			default:
-				e = addBomb(0, 0, "item/bomb");
-				
-				e->health = 1;
+					e->x = self->x + self->w / 2 - e->w / 2;
+					e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+					
+					e->dirX = -12;
+					
+					e->flags |= FLY;
 
-				e->x = self->x + self->w / 2 - e->w / 2;
-				e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+					e->action = &rockMove;
+					e->touch = &entityTouch;
+					e->reactToBlock = &rockBlock;
+					e->draw = &drawLoopingAnimationToMap;
+					
+					e->type = ENEMY;
+					
+					fired = TRUE;
+				break;
 				
-				e->dirX = -12;
-				
-				e->flags |= FLY;
-				
-				e->thinkTime = 180;
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+					e = getFreeEntity();
+					
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Borer projectile");
+					}
+					
+					loadProperties("enemy/small_boulder", e);
+					
+					setEntityAnimation(e, STAND);
 
-				e->action = &bombMove;
-				e->touch = NULL;
-			break;
+					e->x = self->x + self->w / 2 - e->w / 2;
+					
+					switch (prand() % 3)
+					{
+						case 0:
+							e->y = self->y;
+						break;
+						
+						case 1:
+							e->y = self->y + self->h / 2 - e->h / 2;
+						break;
+						
+						default:
+							e->y = self->y + self->h - e->h;
+						break;
+					}
+					
+					e->dirX = -12;
+					
+					e->flags |= FLY|UNBLOCKABLE;
+
+					e->action = &boulderMove;
+					e->touch = &entityTouch;
+					e->draw = &drawLoopingAnimationToMap;
+					
+					e->type = ENEMY;
+					
+					fired = TRUE;
+				break;
+				
+				/* Don't fire a bomb if there's one in the inventory or one on the screen */
+				
+				default:
+					if (getInventoryItem("Bomb") == NULL && getEntityByName("item/bomb") == NULL)
+					{
+						e = addBomb(0, 0, "item/bomb");
+						
+						e->health = 1;
+
+						e->x = self->x + self->w / 2 - e->w / 2;
+						e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
+						
+						e->dirX = -12;
+						
+						e->flags |= FLY;
+						
+						e->thinkTime = 180;
+
+						e->action = &bombMove;
+						e->touch = NULL;
+						
+						fired = TRUE;
+					}
+				break;
+			}
 		}
 		
 		self->x += 8;
-
-		e->draw = &drawLoopingAnimationToMap;
 		
 		self->mental--;
 		

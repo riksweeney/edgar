@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void touch(Entity *);
-static void wait(void);
+static void entityWait(void);
 
 Entity *addMirror(int x, int y, char *name)
 {
@@ -49,7 +49,7 @@ Entity *addMirror(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 	e->fallout = &itemFallout;
 
@@ -323,7 +323,7 @@ static void touch(Entity *other)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	doNothing();
 

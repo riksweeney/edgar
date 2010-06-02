@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void recharge(void);
 static void setChargeState(void);
 static void activate(int);
@@ -92,7 +92,7 @@ static void recharge()
 	checkToMap(self);
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -118,12 +118,12 @@ static void setChargeState()
 
 		case 3:
 			setEntityAnimation(self, PAIN);
-			self->action = &wait;
+			self->action = &entityWait;
 		break;
 
 		default:
 			setEntityAnimation(self, DIE);
-			self->action = &wait;
+			self->action = &entityWait;
 		break;
 	}
 }

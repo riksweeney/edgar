@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void dropRock(void);
 static void grabRock(void);
@@ -74,7 +74,7 @@ Entity *addGrabber(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->health != 1 && self->active == TRUE)
 	{
@@ -241,7 +241,7 @@ static void moveToTarget()
 
 		self->active = FALSE;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 
@@ -372,7 +372,7 @@ static void init()
 	
 	self->dirY = 0;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static int drawChain()

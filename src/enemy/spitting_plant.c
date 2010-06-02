@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void spit(void);
 static void spitFinish(void);
 
@@ -49,7 +49,7 @@ Entity *addSpittingPlant(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -64,7 +64,7 @@ Entity *addSpittingPlant(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 
@@ -132,5 +132,5 @@ static void spitFinish()
 
 	self->thinkTime = self->maxThinkTime;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

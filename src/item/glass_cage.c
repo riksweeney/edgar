@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void die(void);
 static void closeFinish(void);
 static void takeDamage(Entity *, int);
@@ -57,7 +57,7 @@ Entity *addGlassCage(int x, int y, char *name)
 
 	e->face = LEFT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 	e->activate = &activate;
 	e->takeDamage = &takeDamage;
@@ -77,7 +77,7 @@ static void activate(int val)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->y > self->startY)
 	{

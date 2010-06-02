@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../audio/audio.h"
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void initFall(void);
 static void resetWait(void);
@@ -51,7 +51,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 
 	e->type = FALLING_PLATFORM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->touch = &touch;
 
@@ -69,7 +69,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->face = RIGHT;
 
@@ -211,7 +211,7 @@ static void resetPlatform()
 
 		self->touch = &touch;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 
@@ -224,7 +224,7 @@ static void initialize()
 
 	else
 	{
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	self->health = 0;

@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void touch(Entity *);
-static void wait(void);
+static void entityWait(void);
 static void setStart(void);
 static void moveToTarget(void);
 
@@ -84,7 +84,7 @@ static void setStart()
 		self->targetX = self->endX;
 		self->targetY = self->endY;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	else
@@ -93,7 +93,7 @@ static void setStart()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	self->dirX = self->dirY = 0;
 }
@@ -162,7 +162,7 @@ static void moveToTarget(void)
 	{
 		if (self->type == MANUAL_DOOR)
 		{
-			self->action = &wait;
+			self->action = &entityWait;
 		}
 
 		if (self->dirX != 0 || self->dirY != 0)

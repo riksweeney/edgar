@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
 static void init(void);
@@ -72,12 +72,12 @@ Entity *addLevelExit(char *name, int x, int y)
 
 static void init()
 {
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->action();
 }
 
-static void wait()
+static void entityWait()
 {
 	self->dirX = (self->face == RIGHT ? 10 : -10);
 

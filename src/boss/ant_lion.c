@@ -42,7 +42,7 @@ static void hunt(void);
 static void trapTarget(Entity *);
 static void leave(void);
 static void addDust(void);
-static void wait(void);
+static void entityWait(void);
 static void noTouch(Entity *);
 static void attack(void);
 
@@ -246,7 +246,7 @@ static void attack()
 
 		self->target = NULL;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->touch = NULL;
 
@@ -269,7 +269,7 @@ static void leave()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 

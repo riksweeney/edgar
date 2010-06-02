@@ -36,7 +36,7 @@ static void touch(Entity *);
 static void takeDamage(Entity *, int);
 static void die(void);
 static void respawn(void);
-static void wait(void);
+static void entityWait(void);
 
 Entity *addStalactite(int x, int y, char *name)
 {
@@ -56,7 +56,7 @@ Entity *addStalactite(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 	e->die = &die;
 
@@ -80,7 +80,7 @@ static void touch(Entity *other)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	int i;
 	long onGround = self->flags & ON_GROUND;
@@ -175,7 +175,7 @@ static void respawn()
 
 		self->flags |= FLY;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->health = self->maxHealth;
 

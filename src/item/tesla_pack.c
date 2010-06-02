@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void shockTarget(void);
 static void shockEnd(void);
 static void activate(int);
@@ -60,7 +60,7 @@ Entity *addTeslaPack(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->touch = NULL;
 
@@ -75,7 +75,7 @@ Entity *addTeslaPack(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->target != NULL)
 	{
@@ -178,7 +178,7 @@ static void shockEnd()
 
 			self->touch = &keyItemTouch;
 
-			self->action = &wait;
+			self->action = &entityWait;
 		}
 
 		loadProperties("item/tesla_pack_empty", self);

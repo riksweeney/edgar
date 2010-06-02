@@ -35,7 +35,7 @@ extern Entity *self, player;
 static void growFinish(void);
 static void shrinkFinish(void);
 static void iceFloat(void);
-static void wait(void);
+static void entityWait(void);
 static void fallout(void);
 
 Entity *addIceCube(int x, int y, char *name)
@@ -56,7 +56,7 @@ Entity *addIceCube(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &entityTouch;
 	e->fallout = &fallout;
 
@@ -69,7 +69,7 @@ Entity *addIceCube(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->flags & ON_GROUND)
 	{

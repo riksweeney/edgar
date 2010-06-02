@@ -34,7 +34,7 @@ extern Entity *self, player;
 extern Input input;
 
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
 static void readInputCode(void);
@@ -64,7 +64,7 @@ Entity *addInstructionMachine(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -158,7 +158,7 @@ static void readInputCode()
 
 		STRNCPY(e->requires, self->target->requires, sizeof(self->target->requires));
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		if (self->mental > 30)
 		{
@@ -168,7 +168,7 @@ static void readInputCode()
 		self->touch = &touch;
 		self->activate = &activate;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	else if (val != -1)
@@ -236,5 +236,5 @@ static void init()
 	self->touch = &touch;
 	self->activate = &activate;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

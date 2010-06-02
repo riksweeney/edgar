@@ -742,8 +742,16 @@ void readNextScriptLine()
 		else if (strcmpignorecase("KILL", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-
-			e = getEntityByObjectiveName(token);
+			
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+			
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
 
 			if (e == NULL)
 			{

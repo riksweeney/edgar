@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void cloudTouch(Entity *);
 static void cloudWait(void);
@@ -102,10 +102,10 @@ static void init()
 	
 	self->target = e;
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 	

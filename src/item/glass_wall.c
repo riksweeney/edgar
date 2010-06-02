@@ -36,7 +36,7 @@ extern Entity *self;
 
 static void activate(int);
 static void takeDamage(Entity *, int);
-static void wait(void);
+static void entityWait(void);
 static void die(void);
 
 Entity *addGlassWall(int x, int y, char *name)
@@ -57,7 +57,7 @@ Entity *addGlassWall(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &pushEntity;
 	e->activate = &activate;
 	e->takeDamage = &takeDamage;
@@ -79,7 +79,7 @@ static void activate(int val)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active == TRUE)
 	{

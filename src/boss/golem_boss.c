@@ -60,7 +60,7 @@ static void headReform(void);
 static void reform2(void);
 static void headReform2(void);
 static void commence(void);
-static void wait(void);
+static void entityWait(void);
 static void headWait(void);
 static void partWait(void);
 static void attackFinished(void);
@@ -318,10 +318,10 @@ static void commence()
 
 	initBossHealthBar();
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	int attack;
 
@@ -414,7 +414,7 @@ static void attackFinished()
 
 	self->thinkTime = 60;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	checkToMap(self);
 }
@@ -917,7 +917,7 @@ static void headReform2()
 
 			else
 			{
-				self->action = &wait;
+				self->action = &entityWait;
 			}
 
 			setEntityAnimation(self, STAND);

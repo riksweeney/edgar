@@ -1,3 +1,4 @@
+#SET EVIL_EDGAR_2 FACE LEFT
 MUSIC FADE_DOWN 3000
 CAMERA_SPEED 1
 LIMIT_CAMERA 19680 12768 20320 13216
@@ -22,10 +23,18 @@ DEACTIVATE_REQUIRED EVIL_EDGAR_BOSS
 #TALK Evil_Edgar I'm still talking!
 #TALK Edgar ...
 #TALK Evil_Edgar There should only be one of us in this world: one body, one conscious
-#TALK Evil_Edgar This machine will join us back together, leaving just me
-#TALK Edgar Over my dead body!
+#TALK Evil_Edgar These machines will join us together
+#TALK Evil_Edgar The one on the left is for the original body, you
+#TALK Evil_Edgar And the one on the right is for the new body, me
+#TALK Evil_Edgar You will go in the one on the left and I'll go in the one on the right
+#TALK Evil_Edgar It will then merge your body into mine, leaving just me
+#TALK Edgar Merge us together? Over my dead body!
 #TALK Evil_Edgar That was the plan. Since you're alive though, you've saved me the bother of having to drag your carcass all the way back here
 #TALK Evil_Edgar Now get in the machine!
 #TALK Edgar Make me!
 #TALK Evil_Edgar Fine, I will!
+ACTIVATE_OBJECTIVE SOURCE_MACHINE
+ACTIVATE_OBJECTIVE SOURCE_CONTROL
+ACTIVATE_OBJECTIVE TARGET_MACHINE
+ACTIVATE_OBJECTIVE TARGET_CONTROL
 ACTIVATE_OBJECTIVE EVIL_EDGAR_2

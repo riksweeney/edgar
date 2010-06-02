@@ -36,7 +36,7 @@ extern Entity *self;
 
 static void sink(void);
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
 
@@ -71,7 +71,7 @@ Entity *addGazerEyeSlot(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -142,6 +142,6 @@ static void init()
 	{
 		setEntityAnimation(self, STAND);
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }

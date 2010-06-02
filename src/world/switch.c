@@ -34,8 +34,8 @@ extern Game game;
 static void activate(int);
 static void call(int);
 static void reset(int);
-static void wait(void);
-static void wait(void);
+static void entityWait(void);
+static void entityWait(void);
 static void initialise(void);
 static void touch(Entity *);
 static void resetTouch(Entity *);
@@ -206,7 +206,7 @@ static void activate(int val)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->thinkTime > 0 && strlen(self->requires) == 0)
 	{
@@ -279,7 +279,7 @@ static void initialise()
 	}
 	#endif
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static void touch(Entity *other)
