@@ -32,9 +32,9 @@ extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
 static void autoMove(void);
-static void wait(void);
+static void entityWait(void);
 static void findTarget(int);
-static void wait(void);
+static void entityWait(void);
 static void setToStart(void);
 static void moveToTarget(void);
 static void touch(Entity *);
@@ -199,7 +199,7 @@ static void findTarget(int val)
 		{
 			if (t->x == (int)self->x && t->y == (int)self->y)
 			{
-				self->action = &wait;
+				self->action = &entityWait;
 			}
 
 			else
@@ -269,7 +269,7 @@ static void moveToTarget()
 
 			else
 			{
-				self->action = &wait;
+				self->action = &entityWait;
 			}
 		}
 
@@ -286,7 +286,7 @@ static void moveToTarget()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 
 }
@@ -370,6 +370,6 @@ static void setToStart()
 			addTarget(self->x, self->y, targetName);
 		}
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }

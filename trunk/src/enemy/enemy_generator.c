@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 
 Entity *addEnemyGenerator(int x, int y, char *name)
@@ -71,12 +71,12 @@ static void init()
 		showErrorAndExit("Enemy Generator at %f %f is not set correctly", self->x, self->y);
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->action();
 }
 
-static void wait()
+static void entityWait()
 {
 	Entity *e;
 

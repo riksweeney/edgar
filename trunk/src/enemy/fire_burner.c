@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void burn(void);
 static void burnStart(void);
@@ -70,7 +70,7 @@ static void init()
 	
 	else
 	{
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 
@@ -115,7 +115,7 @@ static void burn()
 		
 		self->thinkTime = self->maxThinkTime;
 		
-		self->animationCallback = &wait;
+		self->animationCallback = &entityWait;
 		
 		self->action = &burnWait;
 	}
@@ -126,11 +126,11 @@ static void burnWait()
 
 }
 
-static void wait()
+static void entityWait()
 {
 	self->frameSpeed = 1;
 	
-	self->action = &wait;
+	self->action = &entityWait;
 	
 	setEntityAnimation(self, STAND);
 	

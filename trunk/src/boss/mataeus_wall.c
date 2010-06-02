@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void initFall(void);
 static void resetWait(void);
@@ -60,7 +60,7 @@ Entity *addMataeusWall(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -70,7 +70,7 @@ Entity *addMataeusWall(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 
@@ -98,7 +98,7 @@ static void initFall()
 	{
 		self->x = self->startX;
 		
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	else if (self->thinkTime > 0)
@@ -207,7 +207,7 @@ static void resetPlatform()
 
 		self->thinkTime = self->maxThinkTime;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->mental = 0;
 	}
@@ -278,7 +278,7 @@ static void lavaResetWait()
 
 				self->thinkTime = self->maxThinkTime;
 
-				self->action = &wait;
+				self->action = &entityWait;
 
 				self->mental = 0;
 			}

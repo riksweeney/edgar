@@ -65,17 +65,22 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	{
 		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(msg) + 1);
 	}
-
+	
 	STRNCPY(text, msg, strlen(msg) + 1);
 	
-	titleText = (char *)malloc(strlen(title) + 1);
-
-	if (titleText == NULL)
+	titleText = NULL;
+	
+	if (title != NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(title) + 1);
-	}
+		titleText = (char *)malloc(strlen(title) + 1);
 
-	STRNCPY(titleText, title, strlen(title) + 1);
+		if (titleText == NULL)
+		{
+			showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(title) + 1);
+		}
+
+		STRNCPY(titleText, title, strlen(title) + 1);
+	}
 
 	token = strtok_r(text, " ", &savePtr);
 
@@ -238,7 +243,10 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	free(text);
 	
-	free(titleText);
+	if (titleText != NULL)
+	{
+		free(titleText);
+	}
 
 	free(lineBreaks);
 

@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void blend(void);
 static void blendFinish(void);
 static void touch(Entity *);
@@ -95,7 +95,7 @@ Entity *addBlendingMachine(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->health == 6)
 	{
@@ -158,7 +158,7 @@ static void blendFinish()
 
 		e->dirY = ITEM_JUMP_HEIGHT;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		setEntityAnimation(self, ATTACK_1);
 	}
@@ -189,7 +189,7 @@ static void init()
 {
 	setEntityAnimation(self, self->active == FALSE ? STAND : ATTACK_1);
 
-	self->action = self->thinkTime > 0 ? &blend : &wait;
+	self->action = self->thinkTime > 0 ? &blend : &entityWait;
 }
 
 static Entity *addComponent(char *name)

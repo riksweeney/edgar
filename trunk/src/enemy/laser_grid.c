@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void addLaser(void);
 static void laserWait(void);
 
@@ -65,12 +65,12 @@ static void init()
 {
 	addLaser();
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->health = self->active;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->mental != -1)
 	{

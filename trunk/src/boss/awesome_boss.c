@@ -46,7 +46,7 @@ extern Entity *self, player;
 static void initialise(void);
 static void doIntro(void);
 static void attackFinished(void);
-static void wait(void);
+static void entityWait(void);
 static void introWait(void);
 static void teleportIn(void);
 static void teleportOut(void);
@@ -225,7 +225,7 @@ static void doIntro()
 			
 			self->thinkTime = 60;
 			
-			self->action = &wait;
+			self->action = &entityWait;
 		}
 	}
 }
@@ -924,7 +924,7 @@ static void introWait()
 	checkToMap(self);
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->thinkTime > 0)
 	{

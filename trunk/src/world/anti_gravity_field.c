@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 
 Entity *addAntiGravityField(int x, int y, char *name)
@@ -49,7 +49,7 @@ Entity *addAntiGravityField(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -59,7 +59,7 @@ Entity *addAntiGravityField(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active == TRUE)
 	{

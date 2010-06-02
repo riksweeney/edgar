@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, entity[MAX_ENTITIES];
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static int draw(void);
 static void activate(int);
 static void touch(Entity *);
@@ -56,7 +56,7 @@ Entity *addTeleporter(char *name, int x, int y)
 
 	e->touch = &touch;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &draw;
 
@@ -72,7 +72,7 @@ Entity *addTeleporter(char *name, int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->face = RIGHT;
 
@@ -192,7 +192,7 @@ static void nextLevelPause()
 
 		setNextLevelFromScript(mapName);
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	checkToMap(self);

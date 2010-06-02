@@ -49,7 +49,7 @@ static int bodyParts = 20;
 static void initialise(void);
 static void doIntro(void);
 static void introPause(void);
-static void wait(void);
+static void entityWait(void);
 static void hover(void);
 static void attackFinished(void);
 static void knifeThrowInit(void);
@@ -191,7 +191,7 @@ static void attackFinished()
 
 	self->mental = 0;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->touch = &entityTouch;
 
@@ -202,7 +202,7 @@ static void attackFinished()
 	hover();
 }
 
-static void wait()
+static void entityWait()
 {
 	int i;
 

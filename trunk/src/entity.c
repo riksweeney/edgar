@@ -1288,10 +1288,12 @@ void activateEntitiesValueWithObjectiveName(char *name, int value)
 	}
 }
 
-void interactWithEntity(int x, int y, int w, int h)
+int interactWithEntity(int x, int y, int w, int h)
 {
-	int i;
+	int i, holdRequired;
 	Entity *e;
+	
+	holdRequired = FALSE;
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
@@ -1306,9 +1308,20 @@ void interactWithEntity(int x, int y, int w, int h)
 				self->activate(0);
 
 				self = e;
+				
+				if (entity[i].flags & ACTIVATE_HOLD)
+				{
+					holdRequired = TRUE;
+				}
+				
+				self->target = &entity[i];
+				
+				return holdRequired;
 			}
 		}
 	}
+	
+	return holdRequired;
 }
 
 void initLineDefs()

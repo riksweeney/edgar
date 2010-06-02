@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void rise(void);
 static void sink(void);
 static void init(void);
@@ -72,12 +72,12 @@ static void init()
 		break;
 		
 		default:
-			self->action = &wait;
+			self->action = &entityWait;
 		break;
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active == TRUE)
 	{
@@ -144,7 +144,7 @@ static void sink()
 			
 			self->mental = 0;
 			
-			self->action = &wait;
+			self->action = &entityWait;
 		}
 	}
 }
@@ -166,7 +166,7 @@ static void rise()
 			
 			self->mental = 0;
 			
-			self->action = &wait;
+			self->action = &entityWait;
 			
 			#if DEV == 1
 			if (strcmpignorecase(self->objectiveName, "TESTER") == 0)

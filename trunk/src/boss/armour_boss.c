@@ -49,7 +49,7 @@ static void introWait(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
 static void regenerateHealth(void);
-static void wait(void);
+static void entityWait(void);
 static void armourTakeDamage(Entity *, int);
 static void armourDie(void);
 static void armourWait(void);
@@ -216,7 +216,7 @@ static void introWait()
 	checkToMap(self);
 }
 
-static void wait()
+static void entityWait()
 {
 	regenerateHealth();
 
@@ -607,7 +607,7 @@ static void attackFinished()
 
 	self->damage = 1;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->touch = &entityTouch;
 

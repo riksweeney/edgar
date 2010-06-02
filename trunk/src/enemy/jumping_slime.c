@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void die(void);
-static void wait(void);
+static void entityWait(void);
 static void purpleWait(void);
 static void attack(void);
 static void purpleAttack(void);
@@ -65,7 +65,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 
 	else
 	{
-		e->action = &wait;
+		e->action = &entityWait;
 	}
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -86,7 +86,7 @@ static void die()
 	entityDie();
 }
 
-static void wait()
+static void entityWait()
 {
 	if (prand() % 8 == 0)
 	{

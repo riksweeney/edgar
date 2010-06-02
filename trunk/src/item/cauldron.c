@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
 static void shudder(void);
@@ -54,7 +54,7 @@ Entity *addCauldron(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->activate = &activate;
 
@@ -69,7 +69,7 @@ Entity *addCauldron(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->x = self->startX;
 	

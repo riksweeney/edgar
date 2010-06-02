@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void wait(void);
+static void entityWait(void);
 static void followTarget(void);
 static void drop(void);
 static void rise(void);
@@ -78,10 +78,10 @@ static void init()
 {
 	createArm();
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active == TRUE)
 	{

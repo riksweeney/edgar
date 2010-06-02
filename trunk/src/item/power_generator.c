@@ -36,7 +36,7 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 
 Entity *addPowerGenerator(int x, int y, char *name)
@@ -70,7 +70,7 @@ Entity *addPowerGenerator(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 
@@ -139,5 +139,5 @@ static void init()
 		self->frameSpeed = 0;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

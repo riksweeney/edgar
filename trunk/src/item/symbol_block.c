@@ -35,7 +35,7 @@ extern Entity *self, entity[MAX_ENTITIES];
 
 static void autoTouch(Entity *);
 static void touch(Entity *);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void autoSymbolChange(void);
 static void changeSymbol(int);
@@ -76,7 +76,7 @@ Entity *addSymbolBlock(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->touch == NULL && self->active == TRUE)
 	{
@@ -167,7 +167,7 @@ static void bounce()
 
 		self->dirY = 0;
 
-		self->action = self->health < 0 ? &autoSymbolChange : &wait;
+		self->action = self->health < 0 ? &autoSymbolChange : &entityWait;
 	}
 }
 
@@ -177,7 +177,7 @@ static void init()
 
 	if (self->active == TRUE)
 	{
-		self->action = self->health < 0 ? &autoSymbolChange : &wait;
+		self->action = self->health < 0 ? &autoSymbolChange : &entityWait;
 
 		self->touch = self->health < 0 ? &autoTouch : &touch;
 	}
@@ -186,7 +186,7 @@ static void init()
 	{
 		self->alpha = 0;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->touch = NULL;
 	}
@@ -301,7 +301,7 @@ static void doSymbolMatch()
 
 		for (i=0;i<count;i++)
 		{
-			list[i]->action = &wait;
+			list[i]->action = &entityWait;
 			list[i]->touch = NULL;
 
 			list[i]->thinkTime = 60;
@@ -348,7 +348,7 @@ static void appear()
 	{
 		self->alpha = 255;
 
-		self->action = self->health < 0 ? &autoSymbolChange : &wait;
+		self->action = self->health < 0 ? &autoSymbolChange : &entityWait;
 
 		self->touch = self->health < 0 ? &autoTouch : &touch;
 	}

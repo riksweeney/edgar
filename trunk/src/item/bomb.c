@@ -34,7 +34,7 @@ extern Entity *self, player;
 extern Game game;
 
 static void dropBomb(int);
-static void wait(void);
+static void entityWait(void);
 static void explode(void);
 static void startFuse(void);
 static void touch(Entity *);
@@ -79,12 +79,12 @@ static void startFuse()
 		self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
 	}
 	
-	self->action = &wait;
+	self->action = &entityWait;
 	
 	checkToMap(self);
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }

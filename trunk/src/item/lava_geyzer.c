@@ -31,7 +31,7 @@ extern Entity *self;
 static void init(void);
 static void riseUp(void);
 static void fallDown(void);
-static void wait(void);
+static void entityWait(void);
 static void createBase(void);
 static void baseWait(void);
 static int drawBase(void);
@@ -95,7 +95,7 @@ static void init()
 	switch (self->mental)
 	{
 		case 0:
-			self->action = &wait;
+			self->action = &entityWait;
 		break;
 
 		case 1:
@@ -108,7 +108,7 @@ static void init()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	/* Bob up and down */
 
@@ -184,7 +184,7 @@ static void fallDown()
 
 		self->mental = 0;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 }
 

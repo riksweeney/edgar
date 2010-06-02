@@ -31,7 +31,7 @@ extern Entity *self;
 extern Game game;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void activate(int);
 static void touch(Entity *);
 
@@ -66,10 +66,10 @@ static void init()
 {
 	self->thinkTime = -1;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 

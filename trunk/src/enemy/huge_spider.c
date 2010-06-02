@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void moveToTarget(void);
-static void wait(void);
+static void entityWait(void);
 static void takeDamage(Entity *, int);
 static void shudder(void);
 static void touch(Entity *);
@@ -57,7 +57,7 @@ Entity *addHugeSpider(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
@@ -70,7 +70,7 @@ Entity *addHugeSpider(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	int x, y;
 	int midX, midY;
@@ -151,7 +151,7 @@ static void moveToTarget()
 
 		self->thinkTime = 60 + prand() % 180;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	lookForPlayer();
@@ -294,7 +294,7 @@ static void shudder()
 
 		self->x = self->targetX;
 
-		self->action = &wait;
+		self->action = &entityWait;
 	}
 
 	checkToMap(self);

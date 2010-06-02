@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void init(void);
-static void wait(void);
+static void entityWait(void);
 static void fadeOut(void);
 static void fadeIn(void);
 
@@ -65,7 +65,7 @@ Entity *addForceField(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active != self->health)
 	{
@@ -97,7 +97,7 @@ static void fadeOut()
 		
 		self->touch = NULL;
 		
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		self->active = FALSE;
 	}
@@ -113,7 +113,7 @@ static void fadeIn()
 		
 		self->touch = &pushEntity;
 		
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		self->active = TRUE;
 	}
@@ -135,5 +135,5 @@ static void init()
 		self->touch = NULL;
 	}
 	
-	self->action = &wait;
+	self->action = &entityWait;
 }

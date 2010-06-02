@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
-static void wait(void);
+static void entityWait(void);
 static void spitStart(void);
 static void spit(void);
 static void spitEnd(void);
@@ -213,7 +213,7 @@ static void introPause()
 	checkToMap(self);
 }
 
-static void wait()
+static void entityWait()
 {
 	int attack;
 
@@ -466,7 +466,7 @@ static void attackFinished()
 
 	self->thinkTime = 90;
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
 static void die()

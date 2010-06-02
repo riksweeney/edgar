@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void explode(void);
 static void throwBall(int);
 static void touch(Entity *);
@@ -82,7 +82,7 @@ static void throwBall(int val)
 
 		e->touch = &touch;
 
-		e->action = &wait;
+		e->action = &entityWait;
 
 		e->dirX = player.face == LEFT ? -8 : 8;
 
@@ -104,7 +104,7 @@ static void throwBall(int val)
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 

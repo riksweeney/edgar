@@ -54,7 +54,6 @@ static void fallout(void);
 static void slimeFallout(void);
 static void falloutPause(void);
 static void resetPause(void);
-static void resetPlayer(void);
 static void dialogWait(void);
 static void playerDie(void);
 static void alignAnimations(Entity *);
@@ -74,6 +73,8 @@ static void weaponTouch(Entity *);
 static void resurrectionTimeOut(void);
 static void resurrectionParticleWait(void);
 static void resurrectionWait(void);
+static void activateWaitInit(void);
+static void activateWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -441,7 +442,18 @@ void doPlayer()
 				if (input.interact == 1)
 				{
 					interactWithEntity(self->x, self->y, self->w, self->h);
-
+					
+					if (self->target != NULL && (self->target->flags & ACTIVATE_HOLD))
+					{
+						self->dirX = 0;
+						
+						setEntityAnimation(&playerWeapon, STAND);
+						setEntityAnimation(self, STAND);
+						setEntityAnimation(&playerShield, STAND);
+						
+						self->action = &activateWaitInit;
+					}
+					
 					input.interact = 0;
 				}
 
@@ -654,11 +666,14 @@ void playerWaitForDialog()
 
 void playerResumeNormal()
 {
-	player.target = NULL;
-
-	player.action = NULL;
-
-	player.flags &= ~INVULNERABLE;
+	if (player.health != 0)
+	{
+		player.target = NULL;
+	
+		player.action = NULL;
+	
+		player.flags &= ~INVULNERABLE;
+	}
 }
 
 static void dialogWait()
@@ -1088,6 +1103,16 @@ static void takeDamage(Entity *other, int damage)
 
 		if (player.health > 0)
 		{
+			if (self->action != NULL)
+			{
+				self->action = NULL;
+				
+				if (self->target != NULL)
+				{
+					self->target = NULL;
+				}
+			}
+			
 			setCustomAction(&player, &helpless, 10, 0, 0);
 
 			setCustomAction(&player, &invulnerable, 60, 0, 0);
@@ -1374,6 +1399,8 @@ void syncWeaponShieldToPlayer()
 
 static void playerDie()
 {
+	printf("Edgar dying\n");
+	
 	/* Change back to Edgar */
 
 	if (player.element == WATER)
@@ -1546,6 +1573,16 @@ void setPlayerStunned(int thinkTime)
 		becomeEdgar();
 	}
 	
+	if (player.action != NULL)
+	{
+		player.action = NULL;
+		
+		if (player.target == NULL)
+		{
+			player.target = NULL;
+		}
+	}
+	
 	player.animationCallback = NULL;
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
@@ -1615,6 +1652,12 @@ void setPlayerSlimed(int thinkTime)
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
+	
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 }
 
 static void applySlime()
@@ -2301,4 +2344,50 @@ static void resurrectionParticleWait()
 
 	self->x += self->startX;
 	self->y += self->startY;
+}
+
+static void activateWaitInit()
+{
+	player.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+	playerWeapon.animationCallback = NULL;
+
+	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
+
+	setEntityAnimation(&player, STAND);
+	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&playerWeapon, STAND);
+
+	player.dirX = 0;
+
+	player.action = &activateWait;
+}
+
+static void activateWait()
+{
+	Entity *temp;
+	
+	if (input.interact == 1 || self->target->activate == NULL)
+	{
+		self->action = NULL;
+		
+		self->target = NULL;
+		
+		input.interact = 0;
+	}
+	
+	else
+	{
+		temp = self;
+		
+		self = self->target;
+		
+		self->activate(0);
+		
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to cancel"));
+		
+		self = temp;
+	}
+	
+	checkToMap(self);
 }

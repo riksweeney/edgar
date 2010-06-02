@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 extern Game game;
 
-static void wait(void);
+static void entityWait(void);
 static void talk(int);
 static void touch(Entity *);
 
@@ -50,7 +50,7 @@ Entity *addNPC(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->action = &wait;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &talk;
@@ -63,7 +63,7 @@ Entity *addNPC(char *name, int x, int y)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }

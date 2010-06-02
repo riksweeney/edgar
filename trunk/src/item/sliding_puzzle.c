@@ -34,7 +34,7 @@ extern Entity *self;
 extern Input input;
 
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
 static void readInputCode(void);
@@ -64,7 +64,7 @@ Entity *addSlidingPuzzle(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {	
 	checkToMap(self);
 }
@@ -105,7 +105,7 @@ static void readInputCode()
 		
 		setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
 		
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		self->touch = NULL;
 		self->activate = NULL;
@@ -159,7 +159,7 @@ static void readInputCode()
 	{
 		setPlayerLocked(FALSE);
 
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		self->touch = &touch;
 		self->activate = &activate;
@@ -201,5 +201,5 @@ static void init()
 		self->activate = &activate;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }

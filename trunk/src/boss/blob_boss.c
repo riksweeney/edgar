@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void wait(void);
+static void entityWait(void);
 static void initialise(void);
 static void takeDamage(Entity *, int);
 static void attackFinished(void);
@@ -286,7 +286,7 @@ static void introPause()
 	}
 }
 
-static void wait()
+static void entityWait()
 {
 	int i;
 
@@ -708,7 +708,7 @@ static void eat()
 
 		self = temp;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->maxThinkTime = 0;
 	}
@@ -1043,7 +1043,7 @@ static void attackFinished()
 
 	self->damage = 1;
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->touch = &entityTouch;
 

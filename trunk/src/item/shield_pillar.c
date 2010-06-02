@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void sink(void);
 
 Entity *addShieldPillar(int x, int y, char *name)
@@ -51,7 +51,7 @@ Entity *addShieldPillar(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &pushEntity;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -63,7 +63,7 @@ Entity *addShieldPillar(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	if (self->active == TRUE)
 	{

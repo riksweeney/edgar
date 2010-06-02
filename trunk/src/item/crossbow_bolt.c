@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void stickInWall(void);
 static void init(void);
 
@@ -66,12 +66,12 @@ Entity *addCrossbowBolt(int x, int y, char *name)
 
 static void init()
 {
-	self->action = self->mental == 1 ? &stickInWall : &wait;
+	self->action = self->mental == 1 ? &stickInWall : &entityWait;
 
 	self->touch = self->mental == 1 ? &pushEntity : NULL;
 }
 
-static void wait()
+static void entityWait()
 {
 	int i;
 	float dirX;

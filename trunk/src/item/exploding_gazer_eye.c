@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
-static void wait(void);
+static void entityWait(void);
 static void explodeInit(void);
 static void explode(void);
 
@@ -50,7 +50,7 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	e->action = &wait;
+	e->action = &entityWait;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->die = &entityDieNoDrop;
@@ -63,7 +63,7 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 	

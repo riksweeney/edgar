@@ -41,7 +41,7 @@ static void processNextInstruction(void);
 static void instructionMove(void);
 static void finish(void);
 static void returnMove(void);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 
 Entity *addRobot(int x, int y, char *name)
@@ -84,10 +84,10 @@ static void init()
 		self->activate = NULL;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -261,7 +261,7 @@ static void instructionMove()
 		self->dirX = 0;
 		self->dirY = 0;
 
-		self->action = &wait;
+		self->action = &entityWait;
 		
 		setEntityAnimation(self, STAND);
 
@@ -307,7 +307,7 @@ static void returnMove()
 		
 		centerMapOnEntity(&player);
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->dirX = 0;
 		self->dirY = 0;
@@ -318,7 +318,7 @@ static void returnMove()
 
 		self->health = 0;
 
-		self->action = &wait;
+		self->action = &entityWait;
 
 		self->target->flags &= ~NO_DRAW;
 

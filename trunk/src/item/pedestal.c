@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, entity[MAX_ENTITIES];
 
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void statueWait(void);
 static void addStatue(int);
@@ -73,7 +73,7 @@ Entity *addPedestal(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	checkToMap(self);
 }
@@ -231,7 +231,7 @@ static void init()
 		self->target->action = &statueWait;
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 
 	self->touch = self->active == TRUE ? &touch : NULL;
 }

@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void swing(void);
-static void wait(void);
+static void entityWait(void);
 static int draw(void);
 static void activate(int);
 static void chainWait(void);
@@ -83,7 +83,7 @@ static void init()
 {
 	Entity *chain;
 
-	self->action = self->mental == 0 ? &swing : &wait;
+	self->action = self->mental == 0 ? &swing : &entityWait;
 
 	if (self->mental == 0)
 	{
@@ -161,7 +161,7 @@ static void swing()
 	self->x = self->endX + sin(DEG_TO_RAD(self->thinkTime)) * 8;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime += 2;
 

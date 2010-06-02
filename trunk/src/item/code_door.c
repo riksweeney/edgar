@@ -34,7 +34,7 @@ extern Entity *self, player;
 extern Input input;
 
 static void activate(int);
-static void wait(void);
+static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
 static void displayInputCode(void);
@@ -67,7 +67,7 @@ Entity *addCodeDoor(int x, int y, char *name)
 	return e;
 }
 
-static void wait()
+static void entityWait()
 {
 	self->thinkTime--;
 
@@ -267,7 +267,7 @@ static void readInputCode()
 
 				self->touch = NULL;
 
-				self->action = &wait;
+				self->action = &entityWait;
 			}
 		}
 
@@ -277,7 +277,7 @@ static void readInputCode()
 
 			self->mental = 0;
 
-			self->action = &wait;
+			self->action = &entityWait;
 
 			self->thinkTime = self->maxThinkTime;
 
@@ -332,5 +332,5 @@ static void init()
 		setEntityAnimation(self, WALK);
 	}
 
-	self->action = &wait;
+	self->action = &entityWait;
 }
