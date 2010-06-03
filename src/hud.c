@@ -278,14 +278,6 @@ void setInfoBoxMessage(int thinkTime, int r, int g, int b, char *fmt, ...)
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
 
-	if (hud.infoMessage.surface != NULL && thinkTime == 0)
-	{
-		if (strcmpignorecase(hud.infoMessage.text, text) != 0)
-		{
-			return;
-		}
-	}
-
 	addMessageToQueue(text, thinkTime, r, g, b);
 }
 

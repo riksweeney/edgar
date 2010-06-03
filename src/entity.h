@@ -35,7 +35,7 @@ Entity *getEntityByObjectiveName(char *);
 Entity *getEntityByRequiredName(char *);
 void activateEntitiesWithRequiredName(char *, int);
 void activateEntitiesWithObjectiveName(char *, int);
-int interactWithEntity(int, int, int, int);
+void interactWithEntity(int, int, int, int);
 void initLineDefs(void);
 void writeEntitiesToFile(FILE *);
 void floatLeftToRight(void);

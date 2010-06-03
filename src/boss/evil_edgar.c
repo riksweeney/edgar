@@ -84,6 +84,7 @@ static void getClosestTarget(void);
 static void gotoTargetMachineInit(void);
 static void gotoTargetMachine(void);
 static int edgarInSourceMachine(void);
+static void die(void);
 
 Entity *addEvilEdgar(int x, int y, char *name)
 {
@@ -125,6 +126,7 @@ static void init()
 		case 3:
 			self->action = &introWait;
 			self->activate = &activate;
+			self->die = &die;
 		break;
 		
 		default:
@@ -177,7 +179,9 @@ static void attackFinished()
 }
 
 static void entityWait()
-{	
+{
+	int random;
+	
 	if (player.health > 0)
 	{
 		self->thinkTime--;
@@ -191,11 +195,16 @@ static void entityWait()
 				self->thinkTime = 30;
 			}
 			
+			if (self->startX == -1 && self->health < self->maxHealth / 2)
+			{
+				self->health = self->maxHealth;
+			}
+			
 			if (edgarInSourceMachine() == TRUE)
 			{
-				createAutoDialogBox(_("Evil_Edgar"), _("Thanks..."), 120);
+				createAutoDialogBox(_("Evil_Edgar"), _("Thanks for saving me the trouble..."), 120);
 				
-				setEntityAnimation(self, WALK);
+				self->thinkTime = 120;
 				
 				self->action = &gotoTargetMachineInit;
 			}
@@ -205,46 +214,46 @@ static void entityWait()
 				self->action = &attackOnPlatformInit;
 			}
 			
-			else if (self->startX >= 100)
-			{
-				self->action = &crusherWait;
-				
-				self->target = getEntityByObjectiveName("LAB_CRUSHER");
-				
-				if (self->target == NULL)
-				{
-					showErrorAndExit("Evil Edgar cannot find LAB_CRUSHER");
-				}
-				
-				self->target->active = TRUE;
-				
-				self->target->mental = 3 + prand() % 3;	
-				
-				self->startX = 0;
-			}
-			
 			else
 			{
-				if (prand() % 2 == 0)
-				{
-					self->thinkTime = 60;
-					
-					self->dirX = self->face == LEFT ? -self->speed : self->speed;
-					
-					setEntityAnimation(self, CUSTOM_1);
-					
-					self->action = &bowAttackInit;
-				}
+				random = prand() % 3;
 				
-				else
+				switch (random)
 				{
-					self->thinkTime = 60;
+					case 0:
+						self->thinkTime = 60;
+						
+						self->dirX = self->face == LEFT ? -self->speed : self->speed;
+						
+						setEntityAnimation(self, CUSTOM_1);
+						
+						self->action = &bowAttackInit;
+					break;
 					
-					self->action = &attackPlayerInit;
+					case 1:
+						self->thinkTime = 60;
+						
+						self->action = &attackPlayerInit;
+						
+						self->dirX = self->face == LEFT ? -self->speed : self->speed;
+						
+						setEntityAnimation(self, WALK);
+					break;
 					
-					self->dirX = self->face == LEFT ? -self->speed : self->speed;
-					
-					setEntityAnimation(self, WALK);
+					default:
+						self->action = &crusherWait;
+						
+						self->target = getEntityByObjectiveName("LAB_CRUSHER");
+						
+						if (self->target == NULL)
+						{
+							showErrorAndExit("Evil Edgar cannot find LAB_CRUSHER");
+						}
+						
+						self->target->active = TRUE;
+						
+						self->target->mental = 3 + prand() % 3;	
+					break;
 				}
 			}
 		}
@@ -254,15 +263,7 @@ static void entityWait()
 	{
 		if (getInventoryItem("Amulet of Resurrection") == NULL)
 		{
-			if (player.flags |= NO_DRAW)
-			{
-				createAutoDialogBox(_("Evil_Edgar"), _("What a mess..."), 60);
-			}
-			
-			else
-			{
-				createAutoDialogBox(_("Evil_Edgar"), _("I'm better than you in every single way..."), 60);
-			}
+			createAutoDialogBox(_("Evil_Edgar"), _("I'm better than you in every single way..."), 60);
 			
 			self->mental = -1;
 		}
@@ -337,7 +338,7 @@ static void fireArrow()
 {
 	Entity *e;
 	
-	e = addProjectile(self->health < 750 ? "weapon/flaming_arrow" : "weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
+	e = addProjectile(self->startX == 1 ? "weapon/flaming_arrow" : "weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
 	
 	e->damage = 1;
 	
@@ -346,7 +347,7 @@ static void fireArrow()
 		e->x -= e->w;
 	}
 	
-	playSoundToMap(self->health < 750 ? "sound/enemy/fireball/fireball.ogg" : "sound/edgar/arrow.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	playSoundToMap(self->startX == 1 ? "sound/enemy/fireball/fireball.ogg" : "sound/edgar/arrow.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	e->reactToBlock = &bounceOffShield;
 
@@ -551,11 +552,6 @@ static void goToTarget()
 		
 		else
 		{
-			if (self->startX >= 100)
-			{
-				createAutoDialogBox(_("Evil_Edgar"), _("Fine, I will crush you instead!"), 60);
-			}
-			
 			if (prand() % 2 == 0)
 			{
 				self->dirY = -20;
@@ -647,6 +643,11 @@ static void swordSwingWait()
 	{
 		self->flags |= NO_DRAW;
 	}
+	
+	if (self->head->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void swordSwingAttack()
@@ -690,15 +691,23 @@ static void throwGazerEye()
 {
 	Entity *e;
 	
-	if (getInventoryItem("Exploding Gazer Eye") == NULL && getEntityByName("item/exploding_gazer_eye_dud") == NULL)
+	if (getInventoryItem("Dud Exploding Gazer Eyeball") == NULL && getEntityByName("item/exploding_gazer_eye_dud") == NULL)
 	{
-		e = addExplodingGazerEyeDud(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye_dud");
+		if (prand() % 3 == 0)
+		{
+			e = addExplodingGazerEyeDud(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye_dud");
+			
+			e->head = self;
+			
+			e->active = FALSE;
+			
+			self->mental = 2;
+		}
 		
-		e->head = self;
-		
-		e->active = FALSE;
-		
-		self->mental = 2;
+		else
+		{
+			e = addExplodingGazerEye(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/exploding_gazer_eye");
+		}
 	}
 	
 	else
@@ -891,15 +900,31 @@ static int bombOnScreen()
 
 static void takeDamage(Entity *other, int damage)
 {
-	int health;
+	int health, halfHealth;
+	Entity *e;
 	
 	if (!(self->flags & INVULNERABLE))
 	{
 		health = self->health;
 		
+		halfHealth = self->maxHealth / 2;
+		
 		self->health -= damage;
 		
-		self->startX += damage;
+		if (self->startX == 0)
+		{
+			if (health >= halfHealth && self->health < halfHealth)
+			{
+				e = addPermanentItem("item/spanner", self->x, self->y);
+				
+				e->dirX = self->face == LEFT ? -(5 + prand() % 10) : 5 + prand() % 10;
+				e->dirY = -12;
+				
+				setCustomAction(e, &invulnerable, 90, 0, 0);
+				
+				self->startX = 1;
+			}
+		}
 		
 		if (self->health <= 0)
 		{
@@ -926,6 +951,12 @@ static void activate(int val)
 		self->thinkTime = 600;
 		
 		self->action = &stunned;
+		
+		self->dirX = 0;
+		
+		self->mental = 0;
+		
+		self->flags &= ~ATTACKING;
 	}
 }
 
@@ -936,6 +967,8 @@ static void stunned()
 	if (self->thinkTime <= 0)
 	{
 		getClosestTarget();
+		
+		setEntityAnimation(self, WALK);
 		
 		self->action = &goToTarget;
 	}
@@ -972,15 +1005,22 @@ static int edgarInSourceMachine()
 
 static void gotoTargetMachineInit()
 {
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	self->thinkTime--;
 	
-	self->thinkTime = 60;
-	
-	self->target = getEntityByObjectiveName("TARGET_MACHINE");
-	
-	self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
-	
-	self->action = &gotoTargetMachine;
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, WALK);
+		
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		
+		self->thinkTime = 60;
+		
+		self->target = getEntityByObjectiveName("TARGET_MACHINE");
+		
+		self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
+		
+		self->action = &gotoTargetMachine;
+	}
 	
 	checkToMap(self);
 }
@@ -1014,4 +1054,15 @@ static void gotoTargetMachine()
 	}
 	
 	checkToMap(self);
+}
+
+static void die()
+{
+	clearContinuePoint();
+	
+	increaseKillCount();
+
+	freeBossHealthBar();
+	
+	self->inUse = FALSE;
 }

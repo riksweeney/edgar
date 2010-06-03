@@ -165,6 +165,8 @@ void readNextScriptLine()
 			{
 				return;
 			}
+			
+			freeDialogBox();
 		}
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
@@ -198,9 +200,30 @@ void readNextScriptLine()
 
 		else if (strcmpignorecase("TALK", command) == 0)
 		{
-			createDialogBoxFromScript(script.text[script.line]);
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			printf("Message is %s\n", token);
+			
+			createDialogBoxFromScript(token);
 
 			readAgain = FALSE;
+		}
+		
+		else if (strcmpignorecase("AUTO_TALK", command) == 0)
+		{
+			token = strtok_r(NULL, " ", &savePtr);
+			
+			token2 = strtok_r(NULL, "\0", &savePtr);
+			
+			printf("Message is %s\n", token2);
+			
+			printf("Thinktime is %s\n", token);
+			
+			createDialogBoxFromScript(token2);
+
+			val = atoi(token);
+			
+			script.thinkTime = val;
 		}
 
 		else if (strcmpignorecase("ADD", command) == 0)

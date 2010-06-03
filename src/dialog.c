@@ -35,8 +35,6 @@ void createDialogBoxFromScript(char *msg)
 
 	title = strtok_r(msg, " ", &savePtr);
 
-	title = strtok_r(NULL, " ", &savePtr);
-
 	text = strtok_r(NULL, "\0", &savePtr);
 
 	dialogBox.dialogSurface = createDialogBox(_(title), _(text));

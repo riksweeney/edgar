@@ -1,5 +1,5 @@
 GFX_FILE data/gfx/item/soul_merger.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/soul_merger.dat
 TYPE KEY_ITEM
 LAYER BACKGROUND_LAYER
 FLAGS PLAYER_TOUCH_ONLY
