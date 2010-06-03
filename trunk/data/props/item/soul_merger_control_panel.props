@@ -1,5 +1,5 @@
 HEALTH 600
 GFX_FILE data/gfx/item/soul_merger_control_panel.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/soul_merger_control_panel.dat
 TYPE KEY_ITEM
-FLAGS ACTIVATE_HOLD|PLAYER_TOUCH_ONLY
+FLAGS PLAYER_TOUCH_ONLY

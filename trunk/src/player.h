@@ -52,3 +52,4 @@ void setPlayerWrapped(int);
 int isAttacking(void);
 void playerStand(void);
 void addChargesToWeapon(void);
+int isPlayerLocked(void);

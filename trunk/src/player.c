@@ -73,8 +73,6 @@ static void weaponTouch(Entity *);
 static void resurrectionTimeOut(void);
 static void resurrectionParticleWait(void);
 static void resurrectionWait(void);
-static void activateWaitInit(void);
-static void activateWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -442,17 +440,6 @@ void doPlayer()
 				if (input.interact == 1)
 				{
 					interactWithEntity(self->x, self->y, self->w, self->h);
-					
-					if (self->target != NULL && (self->target->flags & ACTIVATE_HOLD))
-					{
-						self->dirX = 0;
-						
-						setEntityAnimation(&playerWeapon, STAND);
-						setEntityAnimation(self, STAND);
-						setEntityAnimation(&playerShield, STAND);
-						
-						self->action = &activateWaitInit;
-					}
 					
 					input.interact = 0;
 				}
@@ -1931,6 +1918,11 @@ void setPlayerLocked(int lock)
 	}
 }
 
+int isPlayerLocked()
+{
+	return player.action == NULL ? FALSE : TRUE;
+}
+
 static void playerWait()
 {
 	checkToMap(self);
@@ -2344,50 +2336,4 @@ static void resurrectionParticleWait()
 
 	self->x += self->startX;
 	self->y += self->startY;
-}
-
-static void activateWaitInit()
-{
-	player.animationCallback = NULL;
-	playerShield.animationCallback = NULL;
-	playerWeapon.animationCallback = NULL;
-
-	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
-
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
-
-	player.dirX = 0;
-
-	player.action = &activateWait;
-}
-
-static void activateWait()
-{
-	Entity *temp;
-	
-	if (input.interact == 1 || self->target->activate == NULL)
-	{
-		self->action = NULL;
-		
-		self->target = NULL;
-		
-		input.interact = 0;
-	}
-	
-	else
-	{
-		temp = self;
-		
-		self = self->target;
-		
-		self->activate(0);
-		
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to cancel"));
-		
-		self = temp;
-	}
-	
-	checkToMap(self);
 }

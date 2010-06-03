@@ -70,6 +70,8 @@ static void init()
 {
 	addDoor();
 	
+	setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
+	
 	self->action = &entityWait;
 }
 
@@ -103,13 +105,33 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
+	Entity *other;
+	
 	if (self->health == 0 && self->active == TRUE)
 	{
-		self->health = 1;
-		
 		if (val == 0)
 		{
-			self->target = &player;
+			other = getEntityByObjectiveName(self->requires);
+			
+			if (other == NULL)
+			{
+				showErrorAndExit("Soul Merger could not find target chamber %s", self->requires);
+			}
+			
+			if (other->mental == self->mental)
+			{
+				setInfoBoxMessage(120, 255, 255, 255, _("An IN Chamber and an OUT Chamber are required"));
+			}
+			
+			else
+			{
+				self->target = &player;
+			}
+		}
+		
+		else if (val == -1)
+		{
+			setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
 		}
 		
 		else
@@ -117,7 +139,12 @@ static void activate(int val)
 			self->target = getEntityByObjectiveName("EVIL_EDGAR_2");
 		}
 		
-		self->target->x = self->x + self->w / 2 - self->target->w / 2;
+		if (self->target != NULL)
+		{
+			self->target->x = self->x + self->w / 2 - self->target->w / 2;
+			
+			self->health = 1;
+		}
 	}
 }
 
@@ -166,6 +193,8 @@ static void doorWait()
 	
 	else if (self->head->health == 3)
 	{
+		self->layer = FOREGROUND_LAYER;
+		
 		self->action = &doorOpen;
 	}
 	
@@ -217,6 +246,8 @@ static void doorOpen()
 		self->head->target = NULL;
 		
 		self->action = &doorWait;
+		
+		self->layer = BACKGROUND_LAYER;
 	}
 	
 	else

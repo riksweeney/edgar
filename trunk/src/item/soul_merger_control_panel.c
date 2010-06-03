@@ -25,10 +25,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../hud.h"
+#include "../player.h"
+#include "../inventory.h"
 #include "../collisions.h"
 #include "../system/error.h"
 
 extern Entity *self;
+extern Input input;
 
 static void entityWait(void);
 static void touch(Entity *);
@@ -36,6 +39,7 @@ static void activate(int);
 static int energyBarDraw(void);
 static void energyBarWait(void);
 static void init(void);
+static void reprogram(void);
 
 Entity *addSoulMergerControlPanel(int x, int y, char *name)
 {
@@ -78,15 +82,49 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	if (self->target->active == TRUE && self->mental == 0 && self->thinkTime == 0)
+	if (self->damage == 1 && self->mental == 0 && self->thinkTime == 0)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to modify the Soul Merger"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to reprogram the Soul Merger"));
 	}
 }
 
 static void activate(int val)
 {
-	if (self->target->active == TRUE && self->mental == 0)
+	if (getInventoryItem("Spanner") == NULL)
+	{
+		setInfoBoxMessage(120, 255, 255, 255, _("Spanner is required"));
+	}
+	
+	else
+	{
+		self->action = &reprogram;
+
+		self->touch = NULL;
+
+		self->activate = NULL;
+
+		setPlayerLocked(TRUE);
+	}
+}
+
+static void reprogram()
+{
+	Entity *temp;
+	
+	if (input.interact == 1 || isPlayerLocked() == FALSE || self->health <= 0)
+	{
+		self->action = &entityWait;
+
+		self->activate = &activate;
+
+		self->touch = &touch;
+
+		setPlayerLocked(FALSE);
+		
+		input.interact = 0;
+	}
+	
+	else
 	{
 		self->health--;
 		
@@ -97,9 +135,21 @@ static void activate(int val)
 			self->health = 0;
 			
 			self->mental = 1;
+			
+			self->target->mental = 1 - self->target->mental;
+			
+			temp = self;
+			
+			self = self->target;
+			
+			self->activate(-1);
+			
+			self = temp;
 		}
 		
 		self->thinkTime = 5;
+		
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to Cancel"));
 	}
 }
 

@@ -336,11 +336,6 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= ATTACKING;
 		}
-		
-		else if (strcmpignorecase(token, "ACTIVATE_HOLD") == 0)
-		{
-			e->flags |= ACTIVATE_HOLD;
-		}
 
 		else
 		{
