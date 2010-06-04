@@ -77,13 +77,15 @@ static void init()
 
 static void entityWait()
 {
-	if (self->health == 2)
+	if (self->health == 3)
 	{
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
 		{
-			self->health = 3;
+			setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
+			
+			self->health = 4;
 		}
 	}
 	
@@ -107,25 +109,28 @@ static void activate(int val)
 {
 	Entity *other;
 	
-	if (self->health == 0 && self->active == TRUE)
+	if (self->health == 0)
 	{
 		if (val == 0)
 		{
-			other = getEntityByObjectiveName(self->requires);
-			
-			if (other == NULL)
+			if (self->active == TRUE)
 			{
-				showErrorAndExit("Soul Merger could not find target chamber %s", self->requires);
-			}
-			
-			if (other->mental == self->mental)
-			{
-				setInfoBoxMessage(120, 255, 255, 255, _("An IN Chamber and an OUT Chamber are required"));
-			}
-			
-			else
-			{
-				self->target = &player;
+				other = getEntityByObjectiveName(self->requires);
+				
+				if (other == NULL)
+				{
+					showErrorAndExit("Soul Merger could not find target chamber %s", self->requires);
+				}
+				
+				if (other->mental == self->mental)
+				{
+					setInfoBoxMessage(120, 255, 255, 255, _("An IN Chamber and an OUT Chamber are required"));
+				}
+				
+				else
+				{
+					self->target = &player;
+				}
 			}
 		}
 		
@@ -191,7 +196,7 @@ static void doorWait()
 		self->action = &doorClose;
 	}
 	
-	else if (self->head->health == 3)
+	else if (self->head->health == 4)
 	{
 		self->layer = FOREGROUND_LAYER;
 		
@@ -234,20 +239,20 @@ static void doorOpen()
 		
 		self->dirX = 0;
 		
-		self->head->health = 4;
+		self->head->health = 5;
 		
 		if (self->target == &player)
 		{
 			setPlayerLocked(FALSE);
 		}
 		
-		self->head->target->flags &= ~INVULNERABLE;
-		
 		self->head->target = NULL;
 		
 		self->action = &doorWait;
 		
 		self->layer = BACKGROUND_LAYER;
+		
+		printf("Door open done\n");
 	}
 	
 	else

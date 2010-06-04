@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/exploding_gazer_eye.h"
 #include "../item/exploding_gazer_eye_dud.h"
 #include "../item/glass_cage.h"
+#include "../item/bomb.h"
 #include "../projectile.h"
 #include "../inventory.h"
 #include "../event/script.h"
@@ -85,6 +86,10 @@ static void gotoTargetMachineInit(void);
 static void gotoTargetMachine(void);
 static int edgarInSourceMachine(void);
 static void die(void);
+static void throwMiniBomb(void);
+static void healSelfInit(void);
+static void healSelf(void);
+static void potionWait(void);
 
 Entity *addEvilEdgar(int x, int y, char *name)
 {
@@ -195,16 +200,16 @@ static void entityWait()
 				self->thinkTime = 30;
 			}
 			
-			if (self->startX == -1 && self->health < self->maxHealth / 2)
+			else if (self->startX == 1 && self->health < self->maxHealth / 2)
 			{
-				self->health = self->maxHealth;
+				self->action = &healSelfInit;
 			}
 			
-			if (edgarInSourceMachine() == TRUE)
+			else if (edgarInSourceMachine() == TRUE)
 			{
-				createAutoDialogBox(_("Evil_Edgar"), _("Thanks for saving me the trouble..."), 120);
+				createAutoDialogBox(_("Evil_Edgar"), _("You got into the machine by yourself?! You're even stupider than I thought you were!"), 180);
 				
-				self->thinkTime = 120;
+				self->thinkTime = 60;
 				
 				self->action = &gotoTargetMachineInit;
 			}
@@ -216,7 +221,7 @@ static void entityWait()
 			
 			else
 			{
-				random = prand() % 3;
+				random = self->startX == 1 ? prand() % 4 : prand() % 3;
 				
 				switch (random)
 				{
@@ -240,7 +245,7 @@ static void entityWait()
 						setEntityAnimation(self, WALK);
 					break;
 					
-					default:
+					case 2:
 						self->action = &crusherWait;
 						
 						self->target = getEntityByObjectiveName("LAB_CRUSHER");
@@ -253,6 +258,14 @@ static void entityWait()
 						self->target->active = TRUE;
 						
 						self->target->mental = 3 + prand() % 3;	
+					break;
+					
+					default:
+						self->mental = 5 + prand() % 6;
+						
+						self->action = &throwMiniBomb;
+						
+						setEntityAnimation(self, STAND);
 					break;
 				}
 			}
@@ -641,6 +654,8 @@ static void swordSwingWait()
 	
 	else
 	{
+		self->damage = 0;
+		
 		self->flags |= NO_DRAW;
 	}
 	
@@ -757,7 +772,7 @@ static void jumpUp()
 		{
 			if (self->mental == 1)
 			{
-				if (player.flags & HELPLESS)
+				if ((player.flags & HELPLESS) && edgarInSourceMachine() == FALSE)
 				{
 					createAutoDialogBox(_("Evil_Edgar"), _("Gotcha!"), 60);
 					
@@ -888,11 +903,6 @@ static int bombOnScreen()
 	if (onScreen == FALSE)
 	{
 		onScreen = getEntityByName("common/explosion") == NULL ? FALSE : TRUE;
-	}
-	
-	if (onScreen == TRUE)
-	{
-		createAutoDialogBox(_("Evil_Edgar"), _("I'm not falling for that!"), 60);
 	}
 	
 	return onScreen;
@@ -1065,4 +1075,80 @@ static void die()
 	freeBossHealthBar();
 	
 	self->inUse = FALSE;
+}
+
+static void throwMiniBomb()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = addMiniBomb(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/bomb");
+		
+		e->dirX = self->face == LEFT ? -(2 + prand() % 10) : 2 + prand() % 10;
+		e->dirY = -12;
+
+		playSoundToMap("sound/common/throw.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->thinkTime = 30;
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->action = &attackFinished;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void healSelfInit()
+{
+	Entity *e;
+	
+	e = addPermanentItem("item/health_potion", self->x + self->w / 2, self->y + self->h / 2);
+	
+	playSoundToMap("sound/common/throw.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
+	
+	e->touch = NULL;
+	
+	e->action = &potionWait;
+	
+	e->head = self;
+	
+	e->dirY = ITEM_JUMP_HEIGHT;
+	
+	setCustomAction(e, &invulnerable, 90, 0, 0);
+	
+	self->action = &healSelf;
+	
+	checkToMap(self);
+}
+
+static void potionWait()
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->head->health = self->head->maxHealth;
+		
+		self->inUse = FALSE;
+	}
+	
+	checkToMap(self);
+}
+
+static void healSelf()
+{
+	if (self->health == self->maxHealth)
+	{
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
 }

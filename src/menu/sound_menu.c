@@ -357,7 +357,7 @@ static void toggleSound()
 	{
 		if (initAudio() == TRUE)
 		{
-			playMapMusic();
+			playLoadedMusic();
 		}
 
 		else

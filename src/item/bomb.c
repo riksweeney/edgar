@@ -39,6 +39,8 @@ static void explode(void);
 static void startFuse(void);
 static void touch(Entity *);
 static void resumeNormalFunction(void);
+static void miniExplode(void);
+static void startMiniFuse(void);
 
 Entity *addBomb(int x, int y, char *name)
 {
@@ -72,6 +74,35 @@ Entity *addBomb(int x, int y, char *name)
 	return e;
 }
 
+Entity *addMiniBomb(int x, int y, char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Bomb");
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &startMiniFuse;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->active = FALSE;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
 static void startFuse()
 {
 	if (self->mental == 1)
@@ -84,9 +115,35 @@ static void startFuse()
 	checkToMap(self);
 }
 
+static void startMiniFuse()
+{
+	self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+	
+	self->thinkTime = 0;
+
+	self->touch = &touch;
+
+	setEntityAnimation(self, WALK);
+
+	self->animationCallback = &miniExplode;
+
+	self->active = TRUE;
+
+	self->health = 30;
+	
+	self->mental = 1;
+	
+	self->action = &entityWait;
+}
+
 static void entityWait()
 {
 	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
 }
 
 static void dropBomb(int val)
@@ -146,6 +203,30 @@ static void explode()
 	}
 
 	self->action = &explode;
+}
+
+static void miniExplode()
+{
+	int x, y;
+	Entity *e;
+
+	self->flags |= NO_DRAW|FLY|DO_NOT_PERSIST;
+
+	self->thinkTime--;
+
+	x = self->x + self->w / 2;
+	y = self->y + self->h / 2;
+
+	stopSound(self->targetX);
+
+	e = addExplosion(x, y);
+	
+	e->x -= e->w / 2;
+	e->y -= e->h / 2;
+	
+	e->damage = 1;
+
+	self->inUse = FALSE;
 }
 
 static void touch(Entity *other)

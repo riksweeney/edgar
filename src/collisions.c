@@ -1432,6 +1432,8 @@ int getWaterTop(int x, int y)
 
 		tileID = mapTileAt(x, y);
 	}
+	
+	y++;
 
 	y *= TILE_SIZE;
 
