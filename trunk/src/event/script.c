@@ -202,8 +202,6 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 			
-			printf("Message is %s\n", token);
-			
 			createDialogBoxFromScript(token);
 
 			readAgain = FALSE;
@@ -214,10 +212,6 @@ void readNextScriptLine()
 			token = strtok_r(NULL, " ", &savePtr);
 			
 			token2 = strtok_r(NULL, "\0", &savePtr);
-			
-			printf("Message is %s\n", token2);
-			
-			printf("Thinktime is %s\n", token);
 			
 			createDialogBoxFromScript(token2);
 

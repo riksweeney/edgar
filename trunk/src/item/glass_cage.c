@@ -121,6 +121,8 @@ static void touch(Entity *other)
 {
 	if (other->type == KEY_ITEM && strcmpignorecase(other->objectiveName, "LAB_CRUSHER") == 0)
 	{
+		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+		
 		self->action = &die;
 	}
 	

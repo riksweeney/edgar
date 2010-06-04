@@ -27,8 +27,13 @@ extern Game game;
 
 static void playGameOverMusic(void);
 
+static Mix_Music *music;
+static char musicName[MAX_VALUE_LENGTH];
+
 void loadMusic(char *name)
 {
+	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
@@ -41,9 +46,9 @@ void loadMusic(char *name)
 		return;
 	}
 
-	game.music = loadMusicFromPak(name);
+	music = loadMusicFromPak(name);
 
-	if (game.music == NULL)
+	if (music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}
@@ -53,12 +58,26 @@ void freeMusic()
 {
 	stopMusic();
 	
-	if (game.music != NULL)
+	if (music != NULL)
 	{
-		Mix_FreeMusic(game.music);
+		Mix_FreeMusic(music);
 
-		game.music = NULL;
+		music = NULL;
 	}
+}
+
+void playLoadedMusic()
+{
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+	
+	loadMusic(musicName);
+	
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(music, -1);	
 }
 
 void playMapMusic()
@@ -72,7 +91,7 @@ void playMapMusic()
 	
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
-	Mix_PlayMusic(game.music, -1);
+	Mix_PlayMusic(music, -1);
 }
 
 void stopMusic()
@@ -89,7 +108,7 @@ void fadeOutMusic(int time)
 
 void fadeInMusic(int time)
 {
-	Mix_FadeInMusic(game.music, -1, time);
+	Mix_FadeInMusic(music, -1, time);
 }
 
 void setMusicVolume()
@@ -99,7 +118,7 @@ void setMusicVolume()
 
 void pauseMusic(int pause)
 {
-	if (game.music != NULL)
+	if (music != NULL)
 	{
 		if (pause == FALSE)
 		{
@@ -133,7 +152,7 @@ void playDefaultBossMusic()
 	}
 	#endif
 	
-	Mix_PlayMusic(game.music, -1);
+	Mix_PlayMusic(music, -1);
 }
 
 void playBossMusic(char *name)
@@ -156,11 +175,13 @@ void playBossMusic(char *name)
 	}
 	#endif
 	
-	Mix_PlayMusic(game.music, -1);
+	Mix_PlayMusic(music, -1);
 }
 
 void loadBossMusic(char *name)
 {
+	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
@@ -168,9 +189,9 @@ void loadBossMusic(char *name)
 
 	freeMusic();
 
-	game.music = loadMusicFromPak(name);
+	music = loadMusicFromPak(name);
 
-	if (game.music == NULL)
+	if (music == NULL)
 	{
 		printf("Could not load music file %s: %s\n", name, Mix_GetError());
 	}
@@ -199,6 +220,8 @@ void loadGameOverMusic()
 
 static void playGameOverMusic()
 {
+	STRNCPY(musicName, "music/oxide_-_sadness.xm", MAX_VALUE_LENGTH);
+	
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
@@ -210,5 +233,5 @@ static void playGameOverMusic()
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
-	Mix_PlayMusic(game.music, -1);
+	Mix_PlayMusic(music, -1);
 }

@@ -542,11 +542,11 @@ void loadInventoryItems()
 
 void getInventoryItemFromScript(char *line)
 {
-	char command[15], itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];
-	int quantity, success, failure, quantityToRemove;
+	char command[15], itemName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH], quiet[MAX_VALUE_LENGTH];
+	int quantity, success, failure, quantityToRemove, read;
 	Entity *e, *item;
 
-	sscanf(line, "%s \"%[^\"]\" %d %d %s %d %d", command, itemName, &quantity, &quantityToRemove, entityName, &success, &failure);
+	read = sscanf(line, "%s \"%[^\"]\" %d %d %s %d %d %s", command, itemName, &quantity, &quantityToRemove, entityName, &success, &failure, quiet);
 
 	e = getEntityByObjectiveName(entityName);
 
@@ -573,7 +573,10 @@ void getInventoryItemFromScript(char *line)
 
 				removeInventoryItem(itemName);
 				
-				setInfoBoxMessage(90, 255, 255, 255, _("Removed %s"), _(itemName));
+				if (read == 7)
+				{
+					setInfoBoxMessage(90, 255, 255, 255, _("Removed %s"), _(itemName));
+				}
 			}
 		}
 

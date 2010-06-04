@@ -143,6 +143,24 @@ int main(int argc, char *argv[])
 						printf("%s\nmsgstr \"\"\n\n", line);
 					}
 				}
+				
+				else if (strstr(line, "AUTO_TALK") != NULL)
+				{
+					token = strtok(line, " ");
+
+					token = strtok(NULL, " ");
+					
+					token = strtok(NULL, " ");
+
+					token = strtok(NULL, "\0");
+
+					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+
+					if (textAlreadyAdded(line) == FALSE)
+					{
+						printf("%s\nmsgstr \"\"\n\n", line);
+					}
+				}
 
 				else if (strstr(line, "ADD OBJECTIVE") != NULL)
 				{

@@ -160,13 +160,16 @@ static void explode()
 
 		fadeFromWhite(60);
 		
-		temp = self;
-		
-		self = self->head;
-		
-		self->activate(100);
-		
-		self = temp;
+		if (self->head != NULL)
+		{
+			temp = self;
+			
+			self = self->head;
+			
+			self->activate(100);
+			
+			self = temp;
+		}
 		
 		self->inUse = FALSE;
 	}

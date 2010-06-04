@@ -1386,8 +1386,6 @@ void syncWeaponShieldToPlayer()
 
 static void playerDie()
 {
-	printf("Edgar dying\n");
-	
 	/* Change back to Edgar */
 
 	if (player.element == WATER)
@@ -1425,11 +1423,19 @@ static void playerDie()
 		}
 	}
 	
-	player.action = getInventoryItem("Amulet of Resurrection") == NULL ? &gameOverTimeOut : &resurrectionTimeOut;
+	if (getInventoryItem("Amulet of Resurrection") == NULL)
+	{
+		player.action = &gameOverTimeOut;
+		
+		doGameOver();
 
-	doGameOver();
-
-	loadGameOverMusic();
+		loadGameOverMusic();
+	}
+	
+	else
+	{
+		player.action = &resurrectionTimeOut;
+	}
 }
 
 static void resurrectionTimeOut()
@@ -1438,6 +1444,8 @@ static void resurrectionTimeOut()
 	Entity *e;
 	
 	player.thinkTime--;
+	
+	player.flags |= INVULNERABLE;
 	
 	if (player.thinkTime == 0)
 	{
