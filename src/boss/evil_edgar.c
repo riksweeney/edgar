@@ -952,7 +952,7 @@ static void activate(int val)
 {
 	if (val == 100)
 	{
-		createAutoDialogBox(_("Evil_Edgar"), _("Arghh! My eyes!"), 60);
+		createAutoDialogBox(_("Evil_Edgar"), _("Arghh! My eyes!"), 120);
 		
 		self->animationCallback = NULL;
 		
@@ -1087,14 +1087,18 @@ static void throwMiniBomb()
 	{
 		e = addMiniBomb(self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, "item/bomb");
 		
-		e->dirX = self->face == LEFT ? -(2 + prand() % 10) : 2 + prand() % 10;
+		e->dirX = self->face == LEFT ? -(3 + prand() % 10) : 3 + prand() % 10;
 		e->dirY = -12;
+		
+		e->flags |= BOUNCES;
 
 		playSoundToMap("sound/common/throw.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 30;
 		
 		self->mental--;
+		
+		e->targetX = playSoundToMap("sound/item/fuse.ogg", 3, self->x, self->y, -1);
 		
 		if (self->mental <= 0)
 		{

@@ -170,6 +170,13 @@ void readNextScriptLine()
 		}
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
+		
+		if (strlen(line) == 0)
+		{
+			script.line++;
+			
+			continue;
+		}
 
 		token = strtok_r(line, " ", &savePtr);
 

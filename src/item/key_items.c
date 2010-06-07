@@ -93,9 +93,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "catapult.h"
 #include "light_pillar.h"
 #include "exploding_gazer_eye.h"
+#include "exploding_gazer_eye_dud.h"
 #include "lab_crusher.h"
 #include "soul_merger_control_panel.h"
 #include "soul_merger.h"
+#include "lava_door.h"
 
 extern Entity *self, player;
 
@@ -170,9 +172,11 @@ static Constructor items[] = {
 {"item/catapult", &addCatapult},
 {"item/light_pillar", &addLightPillar},
 {"item/exploding_gazer_eye", &addExplodingGazerEye},
+{"item/exploding_gazer_eye_dud", &addExplodingGazerEyeDud},
 {"item/lab_crusher", &addLabCrusher},
 {"item/soul_merger_control_panel", &addSoulMergerControlPanel},
-{"item/soul_merger", &addSoulMerger}
+{"item/soul_merger", &addSoulMerger},
+{"item/lava_door", &addLavaDoor}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

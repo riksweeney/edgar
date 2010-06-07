@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../game.h"
 #include "../player.h"
+#include "../geometry.h"
 #include "../item/item.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
@@ -41,6 +42,13 @@ static void stompAttack(void);
 static void stompAttackFinish(void);
 static void attacking(void);
 static void die(void);
+static void redDie(void);
+static void reform(void);
+static void dieWait(void);
+static void pieceWait(void);
+static void pieceReform(void);
+static void pieceFallout(void);
+static void reformFinish(void);
 
 Entity *addCenturion(int x, int y, char *name)
 {
@@ -57,7 +65,7 @@ Entity *addCenturion(int x, int y, char *name)
 	e->y = y;
 
 	e->action = &lookForPlayer;
-	e->die = &die;
+	e->die = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redDie : &die;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
@@ -224,4 +232,178 @@ static void die()
 
 		self->damage = 0;
 	}
+}
+
+static void redDie()
+{
+	int i;
+	Entity *e;
+	char name[MAX_VALUE_LENGTH];
+
+	snprintf(name, sizeof(name), "%s_piece", self->name);
+
+	for (i=0;i<9;i++)
+	{
+		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
+		
+		e->action = &pieceWait;
+		
+		e->fallout = &pieceFallout;
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->w - e->w) / 2;
+
+		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimation(e, i);
+		
+		e->head = self;
+	}
+
+	self->damage = 0;
+	
+	self->health = 0;
+	
+	self->dirX = 0;
+
+	self->mental = 1;
+	
+	self->flags &= ~FLY;
+
+	self->flags |= NO_DRAW;
+	
+	self->takeDamage = NULL;
+
+	self->action = &dieWait;
+	
+	self->thinkTime = 120;
+}
+
+static void dieWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 0;
+		
+		self->thinkTime = 9;
+		
+		self->action = &reform;
+	}
+}
+
+static void reform()
+{
+	if (self->health == -1)
+	{
+		dropRandomItem(self->x + self->w / 2, self->y);
+		
+		self->action = &entityDieVanish;
+	}
+	
+	if (self->thinkTime == 0)
+	{
+		self->thinkTime = 30;
+		
+		self->action = &reformFinish;
+	}
+}
+
+static void reformFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->health = self->maxHealth;
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->action = &lookForPlayer;
+		
+		facePlayer();
+		
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		
+		self->takeDamage = &entityTakeDamageNoFlinch;
+		
+		setEntityAnimation(self, STAND);
+	}
+}
+
+static void pieceWait()
+{
+	if (self->head->health == -1)
+	{
+		self->action = &entityDieNoDrop;
+	}
+	
+	else if (self->head->mental == 0)
+	{
+		self->action = &pieceReform;
+		
+		if (self->face == LEFT)
+		{
+			self->targetX = self->head->x + self->head->w - self->w - self->offsetX;
+		}
+		
+		else
+		{
+			self->targetX = self->head->x + self->offsetX;
+		}
+		
+		self->targetY = self->head->y + self->offsetY;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= 4;
+		self->dirY *= 4;
+		
+		self->flags |= FLY;
+		
+		self->touch = NULL;
+	}
+	
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+}
+
+static void pieceReform()
+{
+	if (atTarget())
+	{
+		if (self->mental == 0)
+		{
+			self->mental = 1;
+			
+			self->head->thinkTime--;
+		}
+		
+		else
+		{
+			if (self->head->health == self->head->maxHealth)
+			{
+				self->inUse = FALSE;
+			}
+		}
+	}
+	
+	else
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+	}
+}
+
+static void pieceFallout()
+{
+	self->head->health = -1;
+	
+	self->inUse = FALSE;
 }

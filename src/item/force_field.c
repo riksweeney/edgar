@@ -78,6 +78,11 @@ static void entityWait()
 		{
 			self->flags |= DO_NOT_PERSIST;
 			
+			if (self->mental == -1)
+			{
+				playSoundToMap("sound/item/force_field_shutdown.ogg", -1, self->x, self->y, 0);
+			}
+			
 			self->action = &fadeOut;
 		}
 		
@@ -99,7 +104,7 @@ static void fadeOut()
 		
 		self->action = &entityWait;
 		
-		self->active = FALSE;
+		self->inUse = FALSE;
 	}
 }
 

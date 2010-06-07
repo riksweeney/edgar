@@ -61,6 +61,30 @@ Entity *addArrowTarget(int x, int y, char *name)
 
 static void entityWait()
 {
+	if (self->mental == -1)
+	{
+		if (self->dirY == 0)
+		{
+			self->dirY = self->speed;
+		}
+		
+		self->y += self->dirY;
+		
+		if (self->y >= self->endY)
+		{
+			self->y = self->endY;
+			
+			self->dirY = -self->dirY;
+		}
+		
+		else if (self->y <= self->startY)
+		{
+			self->y = self->startY;
+			
+			self->dirY = -self->dirY;
+		}
+	}
+	
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;

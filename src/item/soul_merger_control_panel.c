@@ -59,7 +59,6 @@ Entity *addSoulMergerControlPanel(int x, int y, char *name)
 
 	e->action = &init;
 	e->touch = &touch;
-	e->activate = &activate;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -155,32 +154,39 @@ static void reprogram()
 
 static void init()
 {
-	Entity *e = getFreeEntity();
+	Entity *e;
 	
-	if (e == NULL)
+	if (self->mental == 0)
 	{
-		showErrorAndExit("No free slots to add the Soul Merger Control Panel Energy Bar");
-	}
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Soul Merger Control Panel Energy Bar");
+		}
 
-	loadProperties("boss/awesome_boss_energy_bar", e);
+		loadProperties("boss/awesome_boss_energy_bar", e);
 
-	e->action = &energyBarWait;
+		e->action = &energyBarWait;
 
-	e->draw = &energyBarDraw;
+		e->draw = &energyBarDraw;
 
-	e->type = ENEMY;
-	
-	e->head = self;
+		e->type = ENEMY;
+		
+		e->head = self;
 
-	setEntityAnimation(e, STAND);
-	
-	self->action = &entityWait;
-	
-	self->target = getEntityByObjectiveName(self->requires);
-	
-	if (self->target == NULL)
-	{
-		showErrorAndExit("Control Panel cannot find Soul Merger %s", self->requires);
+		setEntityAnimation(e, STAND);
+		
+		self->action = &entityWait;
+		
+		self->target = getEntityByObjectiveName(self->requires);
+		
+		if (self->target == NULL)
+		{
+			showErrorAndExit("Control Panel cannot find Soul Merger %s", self->requires);
+		}
+		
+		self->activate = &activate;
 	}
 }
 

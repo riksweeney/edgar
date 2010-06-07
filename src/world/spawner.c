@@ -65,11 +65,13 @@ static void init()
 	Entity *e;
 	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
-
+	
+	#if DEV == 1
 	if (strlen(self->objectiveName) == 0)
 	{
 		showErrorAndExit("Spawner at %f %f is not set correctly", self->x, self->y);
 	}
+	#endif
 
 	/* Precache the Entities to spawn */
 

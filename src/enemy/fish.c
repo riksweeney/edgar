@@ -70,8 +70,6 @@ static void init()
 {
 	self->endY = getWaterTop(self->x, self->y);
 	
-	printf("Water top is %f\n", self->endY);
-	
 	self->action = &swim;
 }
 

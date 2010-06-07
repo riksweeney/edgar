@@ -83,9 +83,21 @@ static void entityWait()
 		
 		if (self->thinkTime <= 0)
 		{
+			self->thinkTime = 120;
+			
 			setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
 			
 			self->health = 4;
+		}
+	}
+	
+	else if (self->health == 4)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->health = 5;
 		}
 	}
 	
@@ -130,6 +142,8 @@ static void activate(int val)
 				else
 				{
 					self->target = &player;
+					
+					setPlayerLocked(TRUE);
 				}
 			}
 		}
@@ -167,7 +181,7 @@ static void addDoor()
 	setEntityAnimation(e, STAND);
 
 	e->x = self->x + self->w / 2 - e->w / 2 - e->w;
-	e->y = self->y;
+	e->y = self->y + self->h - e->h;
 	
 	e->startX = e->x;
 	
@@ -188,15 +202,10 @@ static void doorWait()
 	{
 		self->layer = FOREGROUND_LAYER;
 		
-		if (self->target == &player)
-		{
-			setPlayerLocked(TRUE);
-		}
-		
 		self->action = &doorClose;
 	}
 	
-	else if (self->head->health == 4)
+	else if (self->head->health == 5)
 	{
 		self->layer = FOREGROUND_LAYER;
 		
@@ -221,6 +230,8 @@ static void doorClose()
 		self->action = &doorWait;
 		
 		self->head->target->flags |= NO_DRAW;
+		
+		playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
 	}
 	
 	else
@@ -239,7 +250,7 @@ static void doorOpen()
 		
 		self->dirX = 0;
 		
-		self->head->health = 5;
+		self->head->health = 6;
 		
 		if (self->target == &player)
 		{
@@ -252,7 +263,7 @@ static void doorOpen()
 		
 		self->layer = BACKGROUND_LAYER;
 		
-		printf("Door open done\n");
+		playSoundToMap("sound/common/door.ogg", -1, self->x, self->y, 0);
 	}
 	
 	else

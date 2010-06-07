@@ -54,7 +54,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "centurion.h"
 #include "armadillo.h"
 #include "ceiling_crawler.h"
-#include "tortoise.h"
+#include "lightning_tortoise.h"
 #include "fire_burner.h"
 #include "energy_drainer.h"
 #include "book.h"
@@ -75,6 +75,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gold_centurion.h"
 #include "scanner.h"
 #include "fish.h"
+#include "fire_tortoise.h"
+#include "dark_summoner.h"
 
 #include "../item/bomb.h"
 
@@ -146,7 +148,7 @@ static Constructor enemies[] = {
 {"enemy/centurion", &addCenturion},
 {"enemy/armadillo", &addArmadillo},
 {"enemy/ceiling_crawler", &addCeilingCrawler},
-{"enemy/tortoise", &addTortoise},
+{"enemy/tortoise", &addLightningTortoise},
 {"enemy/fire_burner", &addFireBurner},
 {"boss/blob_boss_1", &addBlobBoss},
 {"boss/blob_boss_2", &addBlobBoss},
@@ -194,7 +196,10 @@ static Constructor enemies[] = {
 {"enemy/fish", &addFish},
 {"enemy/green_fish", &addFish},
 {"boss/borer_boss", &addBorerBoss},
-{"item/bomb", &addBomb}
+{"item/bomb", &addBomb},
+{"enemy/fire_tortoise", &addFireTortoise},
+{"enemy/dark_summoner", &addDarkSummoner},
+{"enemy/red_centurion", &addCenturion}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

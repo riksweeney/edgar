@@ -34,13 +34,9 @@ extern Entity *self;
 
 static void walk(void);
 static void entityWait(void);
-static void init(void);
 static void changeWalkDirectionStart(void);
 static void changeWalkDirection(void);
 static void changeWalkDirectionFinish(void);
-static void changeHeadStart(void);
-static void changeHead(void);
-static void changeHeadFinish(void);
 static void electrifyStart(void);
 static void electrify(void);
 static void electrifyFinish(void);
@@ -48,7 +44,7 @@ static void createElectricity(void);
 static void takeDamage(Entity *, int);
 static void doElectricity(void);
 
-Entity *addTortoise(int x, int y, char *name)
+Entity *addLightningTortoise(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -62,7 +58,7 @@ Entity *addTortoise(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
+	e->action = &walk;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -87,22 +83,16 @@ static void walk()
 	{
 		self->dirX = 0;
 
-		/* Good Head */
-
-		if (self->startX == 0)
+		if (prand() % 5 == 0)
 		{
-			if (prand() % 5 == 0)
-			{
-				self->action = &changeHeadStart;
-				self->action = &changeWalkDirectionStart;
-			}
+			self->action = &changeWalkDirectionStart;
+		}
 
-			else
-			{
-				self->thinkTime = 60;
+		else
+		{
+			self->thinkTime = 60;
 
-				self->action = &electrifyStart;
-			}
+			self->action = &electrifyStart;
 		}
 	}
 }
@@ -116,6 +106,8 @@ static void changeWalkDirectionStart()
 	self->animationCallback = &changeWalkDirection;
 
 	self->thinkTime = 60;
+	
+	checkToMap(self);
 }
 
 static void changeWalkDirection()
@@ -138,6 +130,8 @@ static void changeWalkDirection()
 
 		self->action = &entityWait;
 	}
+	
+	checkToMap(self);
 }
 
 static void changeWalkDirectionFinish()
@@ -151,78 +145,13 @@ static void changeWalkDirectionFinish()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->thinkTime = 120 + prand() % 120;
+	
+	checkToMap(self);
 }
 
 static void entityWait()
 {
 	checkToMap(self);
-}
-
-static void changeHeadStart()
-{
-	setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
-
-	self->action = &entityWait;
-
-	self->animationCallback = &changeHead;
-
-	self->thinkTime = 60;
-}
-
-static void changeHead()
-{
-	self->thinkTime--;
-
-	self->action = &changeHead;
-
-	setEntityAnimation(self, CUSTOM_3);
-
-	if (self->thinkTime <= 0)
-	{
-		self->startX = self->startX == 0 ? 1 : 0;
-
-		self->frameSpeed = -1;
-
-		setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
-
-		self->animationCallback = &changeHeadFinish;
-
-		self->action = &entityWait;
-	}
-}
-
-static void changeHeadFinish()
-{
-	self->frameSpeed = 1;
-
-	setEntityAnimation(self, self->startX == 0 ? STAND : WALK);
-
-	self->action = &walk;
-
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-	self->thinkTime = 120 + prand() % 120;
-}
-
-static void init()
-{
-	if (strcmpignorecase("enemy/tortoise", self->name) == 0)
-	{
-		setEntityAnimation(self, STAND);
-
-		self->startX = 0;
-	}
-
-	else
-	{
-		setEntityAnimation(self, WALK);
-
-		self->startX = 1;
-	}
-
-	self->action = &walk;
-
-	self->thinkTime = 120 + prand() % 120;
 }
 
 static void electrifyStart()
@@ -297,7 +226,7 @@ static void electrify()
 	{
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, self->startX == 0 ? CUSTOM_1 : CUSTOM_2);
+		setEntityAnimation(self, CUSTOM_1);
 
 		self->animationCallback = &electrifyFinish;
 
@@ -313,7 +242,7 @@ static void electrify()
 
 static void electrifyFinish()
 {
-	setEntityAnimation(self, self->startX == 0 ? STAND : WALK);
+	setEntityAnimation(self, STAND);
 
 	self->frameSpeed = 1;
 

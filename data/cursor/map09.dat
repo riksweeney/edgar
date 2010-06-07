@@ -18,7 +18,7 @@ item/wooden_crate
 common/pressure_plate
 enemy/summoner
 weapon/basic_sword
-weapon/small_wooden_shield
+weapon/fire_shield
 common/spawner
 common/save_point
 common/action_point
@@ -39,3 +39,11 @@ weapon/lightning_sword
 boss/evil_edgar
 common/trap_door
 item/water_purifier
+enemy/spike_wall
+door/large_metal_door
+item/balloon
+enemy/spike_sphere
+vanishing_platform/castle_vanishing_platform
+item/lava_door
+enemy/dark_summoner
+enemy/red_centurion
