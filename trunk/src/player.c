@@ -1485,6 +1485,8 @@ static void resurrectionTimeOut()
 		
 		player.health = player.maxHealth;
 	}
+	
+	checkToMap(self);
 }
 
 static void resurrectionWait()
@@ -1503,6 +1505,8 @@ static void resurrectionWait()
 		
 		setCustomAction(&player, &invulnerable, 180, 0, 0);	
 	}
+	
+	checkToMap(self);
 }
 
 static void gameOverTimeOut()

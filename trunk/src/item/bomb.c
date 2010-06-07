@@ -117,8 +117,6 @@ static void startFuse()
 
 static void startMiniFuse()
 {
-	self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
-	
 	self->thinkTime = 0;
 
 	self->touch = &touch;

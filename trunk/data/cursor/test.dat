@@ -1,11 +1,3 @@
 edgar/edgar
-weapon/bow
-weapon/normal_arrow
-item/soul_merger_control_panel
-item/wooden_crate
-common/action_point
-item/soul_merger
+enemy/red_centurion
 weapon/basic_sword
-weapon/small_wooden_shield
-item/spanner
-enemy/fish

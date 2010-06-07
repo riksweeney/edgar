@@ -936,7 +936,7 @@ void pushEntity(Entity *other)
 					other->x += other->w - other->box.w;
 				}
 
-				other->dirX = 0;
+				other->dirX = (other->flags & BOUNCES) ? -other->dirX : 0;
 
 				if ((other->flags & GRABBING) && other->target != NULL)
 				{
@@ -1021,7 +1021,7 @@ void pushEntity(Entity *other)
 					other->x -= other->w - (other->box.w + other->box.x);
 				}
 
-				other->dirX = 0;
+				other->dirX = (other->flags & BOUNCES) ? -other->dirX : 0;
 
 				if ((other->flags & GRABBING) && other->target != NULL)
 				{

@@ -44,6 +44,8 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	}
 
 	loadProperties(name, e);
+	
+	e->flags &= ~PLAYER_TOUCH_ONLY;
 
 	e->x = x;
 	e->y = y;

@@ -65,34 +65,42 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 
 static void entityWait()
 {
-	self->face = RIGHT;
-
-	self->thinkTime--;
-
-	if (self->thinkTime == 0)
+	if (self->active == TRUE)
 	{
-		self->health = self->health == 1 ? 0 : 1;
+		self->thinkTime--;
 
-		if (self->health == 0)
+		if (self->thinkTime == 0)
 		{
-			self->flags |= NO_DRAW;
+			self->health = self->health == 1 ? 0 : 1;
 
-			self->touch = NULL;
+			if (self->health == 0)
+			{
+				self->flags |= NO_DRAW;
+
+				self->touch = NULL;
+			}
+
+			else
+			{
+				self->flags &= ~NO_DRAW;
+
+				self->touch = &touch;
+			}
+
+			self->thinkTime = self->maxThinkTime;
 		}
-
-		else
-		{
-			self->flags &= ~NO_DRAW;
-
-			self->touch = &touch;
-		}
-
-		self->thinkTime = self->maxThinkTime;
 	}
 }
 
 static void initialize()
 {
+	#if DEV == 1
+	if (self->active == FALSE && strlen(self->requires) == 0)
+	{
+		showErrorAndExit("Vanishing Platform at %d %d is inactive and has no requires", (int)self->x, (int)self->y);
+	}
+	#endif
+	
 	self->touch = self->health == 0 ? NULL : &pushEntity;
 
 	if (self->health == 0)

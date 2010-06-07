@@ -42,7 +42,7 @@ CORE_OBJS += flying_maggot.o conveyor_belt.o power_generator.o laser_grid.o ceil
 CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o about_menu.o summoner.o energy_drainer.o
 CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o spring.o invulnerable_flyer.o centurion.o
 CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
-CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o tortoise.o fire_burner.o high_striker.o containment_unit.o
+CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o lightning_tortoise.o fire_burner.o high_striker.o containment_unit.o
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
 CORE_OBJS += error.o code_door.o code_display.o skull.o poltergiest.o book.o moveable_lift.o glass_wall.o spike_wall.o
 CORE_OBJS += whirlwind.o large_book.o tuning_fork.o pedestal.o spike_sphere.o cauldron.o soul_bottle.o exploding_spike_sphere.o
@@ -52,7 +52,8 @@ CORE_OBJS += ok_menu.o huge_spider.o armour_boss.o slime_container.o final_power
 CORE_OBJS += light_target.o balloon.o scanner.o fly_trap.o water_purifier.o extend_o_grab.o mouth_stalk.o ground_spear.o
 CORE_OBJS += dragon_fly.o sliding_puzzle.o sliding_puzzle_display.o auto_spike_ball.o tread_mill.o power_meter.o gold_centurion.o
 CORE_OBJS += shield_pillar.o crossbow.o crossbow_bolt.o catapult.o stats_menu.o awesome_boss.o awesome_boss_meter.o evil_edgar.o
-CORE_OBJS += fish.o borer_boss.o light_pillar.o exploding_gazer_eye.o glass_cage.o lab_crusher.o exploding_gazer_eye_dud.o
+CORE_OBJS += fish.o borer_boss.o light_pillar.o exploding_gazer_eye.o glass_cage.o lab_crusher.o exploding_gazer_eye_dud.o soul_merger.o
+CORE_OBJS += soul_merger_control_panel.o fire_tortoise.o lava_door.o dark_summoner.o
 
 CORE_OBJS += strtok_r.o
 
