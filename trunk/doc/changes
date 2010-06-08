@@ -5,6 +5,7 @@ Version 0.60
 * Edgar now animates when firing the bow
 * Added the next part of the story
 * Fixed the fish swimming out of the water
+* The game should now compile OK on Macs
 
 Version 0.59
 * Fixed a problem with the lasers in the Basement and the Laboratory

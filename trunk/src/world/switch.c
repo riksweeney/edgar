@@ -35,7 +35,6 @@ static void activate(int);
 static void call(int);
 static void reset(int);
 static void entityWait(void);
-static void entityWait(void);
 static void initialise(void);
 static void touch(Entity *);
 static void resetTouch(Entity *);
