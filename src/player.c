@@ -797,6 +797,10 @@ void setPlayerShield(int val)
 
 	if (usingBow() == TRUE)
 	{
+		playerWeapon.animationCallback = NULL;
+		
+		setEntityAnimation(&player, STAND);
+		
 		/* Unequip the bow */
 
 		playerWeapon.inUse = FALSE;
@@ -820,6 +824,10 @@ void setPlayerWeapon(int val)
 
 		return;
 	}
+	
+	playerWeapon.animationCallback = NULL;
+	
+	setEntityAnimation(&player, STAND);
 
 	playerWeapon = *self;
 	

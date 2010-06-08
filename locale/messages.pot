@@ -2330,3 +2330,171 @@ msgstr ""
 msgid "A shield that can block fire"
 msgstr ""
 
+msgid "Used Amulet of Resurrection"
+msgstr ""
+
+msgid "Press Action to enter the Soul Merger"
+msgstr ""
+
+msgid "An IN Chamber and an OUT Chamber are required"
+msgstr ""
+
+msgid "One blow from the pickaxe should shatter it"
+msgstr ""
+
+msgid "Press Action to reprogram the Soul Merger"
+msgstr ""
+
+msgid "Spanner is required"
+msgstr ""
+
+msgid "Press Action to Cancel"
+msgstr ""
+
+msgid "%s is needed to activate this Light Pillar"
+msgstr ""
+
+msgid "Private key is missing. You will not be able to earn Medals for this game."
+msgstr ""
+
+msgid "Could not connect to the server. You will not be able to earn Medals for this game."
+msgstr ""
+
+msgid "Evil_Edgar"
+msgstr ""
+
+msgid "You got into the machine by yourself?! You're even stupider than I thought you were!"
+msgstr ""
+
+msgid "I'm better than you in every single way..."
+msgstr ""
+
+msgid "Get down from there!"
+msgstr ""
+
+msgid "Gotcha!"
+msgstr ""
+
+msgid "Stupid duds..."
+msgstr ""
+
+msgid "Die!"
+msgstr ""
+
+msgid "Arghh! My eyes!"
+msgstr ""
+
+msgid "Ha ha ha!!!!"
+msgstr ""
+
+msgid "Soon we will be one again..."
+msgstr ""
+
+msgid "Wait, something's wrong..."
+msgstr ""
+
+msgid "OH NO! THIS IS THE WRONG MACHINE!!"
+msgstr ""
+
+msgid "ARGHHHHHH!!!!"
+msgstr ""
+
+msgid "Phew, I feel whole again"
+msgstr ""
+
+msgid "And there's my Fire Shield!"
+msgstr ""
+
+msgid "Hopefully this will get me past all those fireballs..."
+msgstr ""
+
+msgid "Here goes..."
+msgstr ""
+
+msgid "Glad to be out of there"
+msgstr ""
+
+msgid "Now to get that shield back from my double..."
+msgstr ""
+
+msgid "I've seen this type of metal before, it heats up really easily"
+msgstr ""
+
+msgid "Maybe I can find a way to melt it..."
+msgstr ""
+
+msgid "Found you!"
+msgstr ""
+
+msgid "You survived?!"
+msgstr ""
+
+msgid "You sound surprised, I thought you'd have known considering we're the same."
+msgstr ""
+
+msgid "Except you're evil"
+msgstr ""
+
+msgid "More evil"
+msgstr ""
+
+msgid "Whatever, now I..."
+msgstr ""
+
+msgid "What is all this stuff?"
+msgstr ""
+
+msgid "Your experiment separated part of your conscious"
+msgstr ""
+
+msgid "Yes I know that, you already told me"
+msgstr ""
+
+msgid "I'm still talking!"
+msgstr ""
+
+msgid "There should only be one of us in this world: one body, one conscious"
+msgstr ""
+
+msgid "These machines will join us together"
+msgstr ""
+
+msgid "The one on the left is for the original body, you"
+msgstr ""
+
+msgid "And the one on the right is for the new body, me"
+msgstr ""
+
+msgid "You will go in the one on the left and I'll go in the one on the right"
+msgstr ""
+
+msgid "It will then merge your body into mine, leaving just me"
+msgstr ""
+
+msgid "Merge us together? Over my dead body!"
+msgstr ""
+
+msgid "That was the plan. Since you're alive though, you've saved me the bother of having to drag your carcass all the way back here"
+msgstr ""
+
+msgid "Now get in the machine!"
+msgstr ""
+
+msgid "A spanner"
+msgstr ""
+
+msgid "An exploding Gazer Eyeball. A dud?"
+msgstr ""
+
+msgid "Automatically brings you back to life once if you die"
+msgstr ""
+
+msgid "A spare fuse"
+msgstr ""
+
+msgid "Flaming Arrows"
+msgstr ""
+
+msgid "A shield that can resist fire"
+msgstr ""
+

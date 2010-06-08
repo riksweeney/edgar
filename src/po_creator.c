@@ -127,24 +127,8 @@ int main(int argc, char *argv[])
 				{
 					line[strlen(line) - 1] = '\0';
 				}
-
-				if (strstr(line, "TALK") != NULL)
-				{
-					token = strtok(line, " ");
-
-					token = strtok(NULL, " ");
-
-					token = strtok(NULL, "\0");
-
-					snprintf(line, sizeof(line), "msgid \"%s\"", token);
-
-					if (textAlreadyAdded(line) == FALSE)
-					{
-						printf("%s\nmsgstr \"\"\n\n", line);
-					}
-				}
 				
-				else if (strstr(line, "AUTO_TALK") != NULL)
+				if (strstr(line, "AUTO_TALK") != NULL)
 				{
 					token = strtok(line, " ");
 
@@ -162,6 +146,22 @@ int main(int argc, char *argv[])
 					}
 				}
 
+				else if (strstr(line, "TALK") != NULL)
+				{
+					token = strtok(line, " ");
+
+					token = strtok(NULL, " ");
+
+					token = strtok(NULL, "\0");
+
+					snprintf(line, sizeof(line), "msgid \"%s\"", token);
+
+					if (textAlreadyAdded(line) == FALSE)
+					{
+						printf("%s\nmsgstr \"\"\n\n", line);
+					}
+				}
+				
 				else if (strstr(line, "ADD OBJECTIVE") != NULL)
 				{
 					sscanf(line, "%*s %*s \"%[^\"]\"", filename);

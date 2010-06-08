@@ -1,3 +1,3 @@
 FILES=`find . -name *.c`
 
-xgettext --keyword='_' $FILES
+xgettext --no-wrap --keyword='_' $FILES

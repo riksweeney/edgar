@@ -316,12 +316,12 @@ int loadGame(int slot)
 
 			snprintf(completion, 5, "%d%%", (int)percentage);
 
-			showPatchMessage(completion);
-
 			if ((int)(version * 100) > (int)(VERSION * 100))
 			{
 				break;
 			}
+			
+			showPatchMessage(completion);
 		}
 
 		return loadGame(slot);

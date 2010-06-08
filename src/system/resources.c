@@ -289,6 +289,19 @@ char *loadResources(char *buffer)
 
 			continue;
 		}
+		
+		else if (line[0] == ' ')
+		{
+			printf("WARNING: Line starts with a space\n");
+			
+			#if DEV == 1
+				exit(0);
+			#endif
+			
+			line = strtok_r(NULL, "\n", &savePtr);
+
+			continue;
+		}
 
 		sscanf(line, "%s", itemName);
 
