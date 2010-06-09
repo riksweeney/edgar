@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/switch.dat
+ANIM_FILE data/anim/common/switch.dat
+TYPE SWITCH
+SFX_FILE data/sfx/common/switch.dat
+FLAGS PLAYER_TOUCH_ONLY
