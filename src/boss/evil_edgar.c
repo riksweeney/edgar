@@ -848,6 +848,8 @@ static void activateGlassCage()
 	
 	e->active = FALSE;
 	
+	e->health = 480;
+	
 	e->startY = e->y - e->h;
 	
 	e->head = self;

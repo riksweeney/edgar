@@ -98,6 +98,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "soul_merger_control_panel.h"
 #include "soul_merger.h"
 #include "lava_door.h"
+#include "flame_pillar.h"
 
 extern Entity *self, player;
 
@@ -176,7 +177,8 @@ static Constructor items[] = {
 {"item/lab_crusher", &addLabCrusher},
 {"item/soul_merger_control_panel", &addSoulMergerControlPanel},
 {"item/soul_merger", &addSoulMerger},
-{"item/lava_door", &addLavaDoor}
+{"item/lava_door", &addLavaDoor},
+{"item/flame_pillar", &addFlamePillar}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

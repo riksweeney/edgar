@@ -36,6 +36,8 @@ static void takeDamage(Entity *, int);
 static void die(void);
 static void fallout(void);
 static void init(void);
+static void dieWait(void);
+static void respawn(void);
 
 Entity *addWeakWall(char *name, int x, int y)
 {
@@ -140,12 +142,26 @@ static void die()
 
 	e->dirX = 3;
 	e->dirY = -8;
+	
+	if (self->mental == -1)
+	{
+		self->flags |= NO_DRAW;
+		
+		self->touch = NULL;
+		
+		self->action = &dieWait;
+		
+		self->thinkTime = self->maxThinkTime;
+	}
+	
+	else
+	{
+		self->inUse = FALSE;
 
-	self->inUse = FALSE;
+		fireTrigger(self->objectiveName);
 
-	fireTrigger(self->objectiveName);
-
-	fireGlobalTrigger(self->objectiveName);
+		fireGlobalTrigger(self->objectiveName);
+	}
 
 	playSoundToMap("sound/common/crumble.ogg", 4, self->x, self->y, 0);
 }
@@ -153,4 +169,37 @@ static void die()
 static void fallout()
 {
 
+}
+
+static void dieWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 60;
+		
+		self->action = &respawn;
+	}
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime % 3 == 0)
+	{
+		self->flags ^= NO_DRAW;
+	}
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+		
+		self->touch = &touch;
+		
+		self->health = self->maxHealth;
+		
+		self->action = &doNothing;
+	}
 }
