@@ -45,3 +45,7 @@ item/repellent
 item/cloud_geyzer
 enemy/huge_spider
 item/water_purifier
+wall/weak_mine_wall_secret
+wall/invisible_wall
+item/flame_pillar
+item/ice_spray

@@ -99,12 +99,14 @@ static void entityWait()
 	
 	if (self->target != NULL)
 	{
+		self->health--;
+		
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 		
 		self->target->flags &= ~ON_GROUND;
 	}
 	
-	if (self->active == TRUE)
+	if (self->active == TRUE || self->health <= 0)
 	{
 		self->thinkTime--;
 		

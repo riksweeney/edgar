@@ -118,6 +118,8 @@ echo "Renaming..."
 
 mv *.deb edgar-$APPVERSION-$APPRELEASE.$ARCH.deb
 
+rm *.spec
+
 cd ..
 
 chown -R $SUDO_USER:$SUDO_USER dist

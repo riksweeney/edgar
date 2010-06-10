@@ -74,7 +74,15 @@ static void standardTouch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		activateEntitiesWithRequiredName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
+		if (self->mental == -1)
+		{
+			activateEntitiesWithObjectiveName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
+		}
+		
+		else
+		{
+			activateEntitiesWithRequiredName(self->objectiveName, (self->health >= 0 ? TRUE : FALSE));
+		}
 		
 		fireTrigger(self->objectiveName);
 
