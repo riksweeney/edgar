@@ -48,6 +48,8 @@ static void lowerSFXVolume(void);
 static void raiseSFXVolume(void);
 static void lowerMusicVolume(void);
 static void raiseMusicVolume(void);
+static void toggleBuffer(void);
+static char *getBuffer(void);
 
 void drawSoundMenu()
 {
@@ -242,6 +244,17 @@ static void loadMenuLayout()
 
 					free(text);
 				}
+				
+				else if (strcmpignorecase(menuID, "BUFFER") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), &game.audioBuffer, &toggleBuffer, &toggleBuffer, &toggleBuffer, x, y, TRUE);
+					
+					text = getBuffer();
+
+					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+
+					free(text);
+				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
@@ -350,7 +363,7 @@ static void toggleSound()
 	{
 		game.audioDisabled = FALSE;
 
-		stopMusic();
+		Mix_CloseAudio();
 	}
 
 	else
@@ -388,6 +401,22 @@ static void lowerMusicVolume()
 	Widget *w = menu.widgets[menu.index];
 
 	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, -1);
+}
+
+static void toggleBuffer()
+{
+	char *text;
+	Widget *w = menu.widgets[menu.index];
+	
+	game.audioBuffer = game.audioBuffer == 1024 ? 512 : 1024;
+
+	changeSoundBuffer();
+	
+	text = getBuffer();
+
+	updateLabelText(w->label, text);
+
+	free(text);
 }
 
 static void raiseMusicVolume()
@@ -449,4 +478,18 @@ static void showOptionsMenu()
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
+}
+
+static char *getBuffer()
+{
+	char *text = (char *)malloc(10);
+	
+	if (text == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole 10 bytes for a Buffer label");
+	}
+	
+	snprintf(text, 10, "%d", game.audioBuffer);
+	
+	return text;
 }
