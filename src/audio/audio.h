@@ -26,3 +26,4 @@ void freeSounds(void);
 int initAudio(void);
 void stopSound(int);
 void pauseSound(int);
+void changeSoundBuffer(void);

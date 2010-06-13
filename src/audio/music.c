@@ -73,6 +73,11 @@ void playLoadedMusic()
 		return;
 	}
 	
+	if (strcmpignorecase(musicName, "NO_MUSIC") == 0)
+	{
+		return;
+	}
+	
 	loadMusic(musicName);
 	
 	Mix_VolumeMusic(MIX_MAX_VOLUME);

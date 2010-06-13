@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "audio.h"
+#include "music.h"
 #include "../geometry.h"
 #include "../system/pak.h"
 #include "../map.h"
@@ -275,7 +276,7 @@ int initAudio()
 
 	game.audioDisabled = FALSE;
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, game.audioBuffer) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
 
@@ -324,4 +325,13 @@ void pauseSound(int pause)
 	{
 		Mix_Resume(-1);
 	}
+}
+
+void changeSoundBuffer()
+{
+	Mix_CloseAudio();
+	
+	initAudio();
+	
+	playLoadedMusic();
 }

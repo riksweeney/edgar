@@ -143,7 +143,7 @@ typedef struct Game
 	int thinkTime, weatherType, weatherThinkTime;
 	int audio, hasConfig, fullscreen;
 	int sfxDefaultVolume, sfxVolume, musicDefaultVolume, musicVolume;
-	int showHints, status, fps;
+	int showHints, status, fps, audioBuffer;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
