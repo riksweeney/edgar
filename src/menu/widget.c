@@ -118,7 +118,7 @@ void freeWidget(Widget *w)
 			w->selectedState = NULL;
 		}
 		
-		if (w->selectedState != NULL)
+		if (w->disabledState != NULL)
 		{
 			SDL_FreeSurface(w->disabledState);
 

@@ -977,7 +977,9 @@ static void redTentacleTouch(Entity *other)
 		self->head->thinkTime = 0;
 	}
 	
-	else if (strcmpignorecase(other->name, "item/bomb") == 0 && self->target == NULL)
+	/* Don't pick up unlit bombs */
+	
+	else if (strcmpignorecase(other->name, "item/bomb") == 0 && self->target == NULL && other->mental == 1)
 	{
 		self->target = other;
 		

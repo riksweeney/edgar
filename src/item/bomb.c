@@ -173,6 +173,7 @@ static void dropBomb(int val)
 static void explode()
 {
 	int x, y;
+	Entity *e;
 
 	self->flags |= NO_DRAW|FLY|DO_NOT_PERSIST;
 
@@ -188,7 +189,12 @@ static void explode()
 		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
-		addExplosion(x, y);
+		e = addExplosion(x, y);
+		
+		if (self->damage == -1)
+		{
+			e->damage = 1;
+		}
 
 		self->health--;
 

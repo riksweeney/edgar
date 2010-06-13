@@ -1597,4 +1597,8 @@ static void continuePoint()
 	self->action = &attackFinished;
 	
 	setContinuePoint(TRUE, self->name, &continuePoint);
+	
+	self->touch = &entityTouch;
+
+	self->takeDamage = &takeDamage;
 }

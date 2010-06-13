@@ -84,7 +84,7 @@ static void touch(Entity *other)
 		}
 	}
 	
-	if (self->inUse == TRUE)
+	if (self->inUse == TRUE && self->touch != NULL)
 	{
 		pushEntity(other);
 	}

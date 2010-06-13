@@ -1,4 +1,6 @@
 edgar/edgar
-enemy/red_centurion
-weapon/pickaxe
-wall/weak_mine_wall
+enemy/bat
+weapon/lightning_sword
+item/lightning_charge
+common/spawner
+common/save_point

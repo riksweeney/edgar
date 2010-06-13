@@ -1,6 +1,14 @@
 CHANGE LOG
 ----------
 
+Version 0.61
+* Fixed the Lightning Sword going into negative charges
+* Fixed a bug when failing to Transmogrify
+* The Armoury Boss no longer gets stuck when dropping from the ceiling
+* Updated the tutorial to include general item use
+* The Basement Boss can now be hurt when continuing
+* Fixed a menu leak in the menu
+
 Version 0.60
 * Edgar now animates when firing the bow
 * Added the next part of the story

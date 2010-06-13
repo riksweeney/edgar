@@ -11,3 +11,4 @@ weapon/basic_sword
 enemy/bat
 common/switch
 common/reset_switch
+item/bomb
