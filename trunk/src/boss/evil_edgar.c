@@ -142,17 +142,11 @@ static void init()
 
 static void introWait()
 {
-	Entity *temp;
-	
 	self->flags &= ~NO_DRAW;
 	
 	if (self->active == TRUE)
 	{
-		temp = self;
-		
 		setContinuePoint(FALSE, self->name, NULL);
-		
-		self = temp;
 		
 		self->touch = &entityTouch;
 		
@@ -841,10 +835,24 @@ static void cutsceneWait()
 
 static void activateGlassCage()
 {
+	int min, max;
 	Entity *e = addGlassCage(0, 0, "item/glass_cage");
+	
+	min = getCameraMinX();
+	max = getCameraMaxX();
 	
 	e->x = player.x + player.w / 2 - e->w / 2;
 	e->y = getCameraMaxY();
+	
+	if (e->x < min)
+	{
+		e->x = min;
+	}
+	
+	else if (e->x + e->w >= max)
+	{
+		e->x = max - e->w - 1;
+	}
 	
 	e->active = FALSE;
 	

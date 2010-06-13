@@ -98,6 +98,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/awesome_boss_meter.h"
 #include "../boss/evil_edgar.h"
 #include "../boss/borer_boss.h"
+#include "../boss/phoenix.h"
 
 #include "../system/error.h"
 
@@ -199,7 +200,8 @@ static Constructor enemies[] = {
 {"item/bomb", &addBomb},
 {"enemy/fire_tortoise", &addFireTortoise},
 {"enemy/dark_summoner", &addDarkSummoner},
-{"enemy/red_centurion", &addCenturion}
+{"enemy/red_centurion", &addCenturion},
+{"boss/phoenix", &addPhoenix}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

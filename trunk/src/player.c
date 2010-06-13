@@ -176,7 +176,7 @@ void setPlayerShieldName(char *name)
 
 void doPlayer()
 {
-	int i, j;
+	int i, j, minX, maxX;
 	long travelled;
 	
 	travelled = game.distanceTravelled;
@@ -616,6 +616,23 @@ void doPlayer()
 	else
 	{
 		doTeleport();
+	}
+	
+	minX = getCameraMinX();
+	maxX = getCameraMaxX();
+	
+	if (player.x < minX)
+	{
+		player.x = minX;
+		
+		player.dirX = 0;
+	}
+	
+	else if (player.x + player.w >= maxX)
+	{
+		player.x = maxX - player.w - 1;
+		
+		player.dirX = 0;
 	}
 }
 
@@ -1847,6 +1864,8 @@ void becomeJumpingSlime(int seconds)
 		player.y = originalY;
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Cannot transmogrify here..."));
+		
+		player.type = PLAYER;
 	}
 
 	else
@@ -1886,6 +1905,8 @@ void becomeEdgar()
 	player.x = midX;
 
 	player.x -= player.w / 2;
+	
+	player.type = PLAYER;
 
 	player.element = NO_ELEMENT;
 
@@ -2225,7 +2246,7 @@ static void lightningSwordTouch(Entity *other)
 			setInfoBoxMessage(60, 255, 255, 255, _("10 charges remaining..."));
 		}
 		
-		else if (self->mental == 0)
+		else if (self->mental <= 0)
 		{
 			freeMessageQueue();
 			
@@ -2264,6 +2285,11 @@ void addChargesToWeapon()
 		strcmpignorecase(playerWeapon.name, "weapon/lightning_sword_empty") == 0)
 	{
 		mental = playerWeapon.mental;
+		
+		if (playerWeapon.mental < 0)
+		{
+			playerWeapon.mental = 0;
+		}
 		
 		playerWeapon.mental += self->health;
 		

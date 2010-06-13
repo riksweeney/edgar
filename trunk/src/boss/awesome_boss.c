@@ -971,6 +971,13 @@ static void energyBarWait()
 			self->health = self->head->health;
 		}
 	}
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->flags |= NO_DRAW;
+		
+		self->inUse = FALSE;
+	}
 }
 
 static int energyBarDraw()
@@ -1116,11 +1123,26 @@ static void healPartner()
 
 static void dropAttackInit()
 {
+	int minX, maxX;
+	
+	minX = getCameraMinX();
+	maxX = getCameraMaxX();
+	
 	setEntityAnimation(self, ATTACK_3);
 	
 	self->flags &= ~NO_DRAW;
 	
 	self->x = player.x + player.w / 2 - self->w / 2;
+	
+	if (self->x < minX)
+	{
+		self->x = minX;
+	}
+	
+	else if (self->x + self->w >= maxX)
+	{
+		self->x = maxX - self->w - 1;
+	}
 	
 	self->y = self->head->y;
 	
@@ -1165,15 +1187,30 @@ static void dropAttack()
 
 static void superDropAttackInit()
 {
+	int minX, maxX;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
+		minX = getCameraMinX();
+		maxX = getCameraMaxX();
+		
 		setEntityAnimation(self, ATTACK_3);
 		
 		self->flags &= ~(NO_DRAW|FLY);
 		
 		self->x = player.x + player.w / 2 - self->w / 2;
+		
+		if (self->x < minX)
+		{
+			self->x = minX;
+		}
+		
+		else if (self->x + self->w >= maxX)
+		{
+			self->x = maxX - self->w - 1;
+		}
 		
 		self->y = self->head->y;
 		

@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/load_save.h"
 
 extern Game game;
+extern Entity *self;
 
 static ContinueData continueData;
 
@@ -884,6 +885,10 @@ void increaseSecretsFound()
 
 void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
 {
+	Entity *temp;
+	
+	temp = self;
+	
 	game.canContinue = TRUE;
 	
 	continueData.cameraMinX = getCameraMinX();
@@ -898,6 +903,8 @@ void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
 	STRNCPY(continueData.boss, boss, sizeof(continueData.boss));
 	
 	saveContinueData();
+	
+	self = temp;
 }
 
 void getContinuePoint()
