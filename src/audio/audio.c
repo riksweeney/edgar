@@ -329,6 +329,8 @@ void pauseSound(int pause)
 
 void changeSoundBuffer()
 {
+	freeMusic();
+	
 	Mix_CloseAudio();
 	
 	initAudio();

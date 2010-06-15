@@ -122,6 +122,7 @@ typedef struct Map
 	int minX, minY, blendTime;
 	int forceMinY, darkMap;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
+	int playerMinX, playerMaxX;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
 	int wrapX[2], wrapY[2];

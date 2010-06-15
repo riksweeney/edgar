@@ -458,10 +458,7 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			enemyPain();
 		}
 
 		else

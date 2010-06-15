@@ -151,6 +151,11 @@ int addToInventory(Entity *e)
 						inventory.hasLightningSword = TRUE;
 					}
 					
+					else if (strcmpignorecase(inventory.item[i].name, "weapon/lightning_sword_empty") == 0)
+					{
+						inventory.hasLightningSword = TRUE;
+					}
+					
 					autoSetPlayerWeapon(&inventory.item[i]);
 				}
 

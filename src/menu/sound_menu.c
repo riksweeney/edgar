@@ -362,6 +362,8 @@ static void toggleSound()
 	if (game.audio == FALSE)
 	{
 		game.audioDisabled = FALSE;
+		
+		freeMusic();
 
 		Mix_CloseAudio();
 	}

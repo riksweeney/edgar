@@ -842,7 +842,7 @@ void pushEntity(Entity *other)
 			/* Place the entity as close as possible */
 
 			other->y = self->y + self->box.y;
-			other->y -= other->h;
+			other->y -= other->box.h + other->box.y;
 
 			other->standingOn = self;
 			other->dirY = 0;
@@ -1786,7 +1786,18 @@ void killEntity(char *name)
 
 int atTarget()
 {
-	return (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY));
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	{
+		self->x = self->targetX;
+		self->y = self->targetY;
+		
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		return TRUE;
+	}
+	
+	return FALSE;
 }
 
 void faceTarget()

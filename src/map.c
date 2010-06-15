@@ -1119,7 +1119,22 @@ void limitCamera(int minX, int minY, int maxX, int maxY)
 
 void limitCameraFromScript(char *line)
 {
-	sscanf(line, "%d %d %d %d", &map.cameraMinX, &map.cameraMinY, &map.cameraMaxX, &map.cameraMaxY);
+	char limitPlayer[10];
+	int read;
+	
+	read = sscanf(line, "%d %d %d %d %s", &map.cameraMinX, &map.cameraMinY, &map.cameraMaxX, &map.cameraMaxY, limitPlayer);
+	
+	if (read == 5 && strcmpignorecase(limitPlayer, "TRUE") == 0)
+	{
+		map.playerMinX = map.cameraMinX;
+		map.playerMaxX = map.cameraMaxX;
+	}
+	
+	else
+	{
+		map.playerMinX = map.minX;
+		map.playerMaxX = map.maxX;
+	}
 }
 
 void resetCameraLimits()
@@ -1129,6 +1144,9 @@ void resetCameraLimits()
 
 	map.cameraMaxX = map.maxX;
 	map.cameraMaxY = map.maxY;
+	
+	map.playerMinX = map.minX;
+	map.playerMaxX = map.maxX;
 }
 
 int getCameraMinX()
@@ -1154,6 +1172,16 @@ int getCameraMaxY()
 int cameraAtMinimum()
 {
 	return (map.cameraMinX == map.startX && map.cameraMinY == map.startY);
+}
+
+int getPlayerMinX()
+{
+	return map.playerMinX;
+}
+
+int getPlayerMaxX()
+{
+	return map.playerMaxX;
 }
 
 void setCameraSpeed(float speed)
