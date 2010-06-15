@@ -65,3 +65,5 @@ int getCameraMinX(void);
 int getCameraMinY(void);
 int getCameraMaxX(void);
 int getCameraMaxY(void);
+int getPlayerMinX(void);
+int getPlayerMaxX(void);

@@ -514,6 +514,7 @@ int drawLineDefToMap()
 void setEntityAnimation(Entity *e, int animationID)
 {
 	int previousRightEdge, previousAnim, newRightEdge;
+	int previousBottom, newBottom;
 	Sprite *sprite;
 
 	if (e->inUse == FALSE)
@@ -526,11 +527,15 @@ void setEntityAnimation(Entity *e, int animationID)
 	if (previousAnim == -1)
 	{
 		previousRightEdge = -1;
+		
+		previousBottom = -1;
 	}
 
 	else
 	{
 		previousRightEdge = e->x + e->w;
+		
+		previousBottom = e->y + e->h;
 	}
 
 	if (e->currentAnim != e->animation[animationID])
@@ -560,7 +565,7 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		e->box = sprite->box;
 
-		/* Align the right edge to stop it looking bad */
+		/* Align the right and bottom edges to stop it looking bad */
 
 		if (previousAnim != -1)
 		{
@@ -570,6 +575,10 @@ void setEntityAnimation(Entity *e, int animationID)
 
 				e->x += (previousRightEdge - newRightEdge);
 			}
+			
+			newBottom = e->y + e->h;
+			
+			e->y += (previousBottom - newBottom);
 		}
 	}
 }

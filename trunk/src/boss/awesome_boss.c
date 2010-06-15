@@ -1319,7 +1319,7 @@ static void starWait()
 		self->inUse = FALSE;
 	}
 	
-	self->x = self->head->x + self->head->w / 2- self->w / 2;
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 
 	self->y = self->head->y - self->h;
 }

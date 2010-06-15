@@ -7,7 +7,9 @@ Version 0.61
 * The Armoury Boss no longer gets stuck when dropping from the ceiling
 * Updated the tutorial to include general item use
 * The Basement Boss can now be hurt when continuing
-* Fixed a menu leak in the menu
+* Fixed a memory leak in the menu
+* Added the ability to set the audio buffer size. Use this if you receive "(snd_pcm_recover) underrun occured" messages
+* Enemies now drop charges if you load a game with an uncharged Lightning Sword
 
 Version 0.60
 * Edgar now animates when firing the bow

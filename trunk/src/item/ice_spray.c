@@ -80,6 +80,6 @@ static void sprayIce(int val)
 
 		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
 
-		self->thinkTime = self->maxThinkTime;
+		self->thinkTime = 30;
 	}
 }
