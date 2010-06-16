@@ -1144,7 +1144,7 @@ static void stunned()
 
 			e->x = self->x + self->w / 2 - e->w / 2;
 
-			e->y = self->y - e->h;
+			e->y = self->y - e->h - 8;
 		}
 	}
 

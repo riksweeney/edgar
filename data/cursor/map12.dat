@@ -50,3 +50,5 @@ wall/invisible_wall
 item/flame_pillar
 item/ice_spray
 boss/phoenix
+item/bomb
+weapon/lightning_sword

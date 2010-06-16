@@ -1321,7 +1321,7 @@ static void starWait()
 	
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 
-	self->y = self->head->y - self->h;
+	self->y = self->head->y - self->h - 8;
 }
 
 static void fireballTouch(Entity *other)

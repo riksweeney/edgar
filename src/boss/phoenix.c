@@ -73,6 +73,12 @@ static void flameAttack(void);
 static void addFlame(void);
 static void flameWait(void);
 static int flameDraw(void);
+static void flameAttackFinish(void);
+static void die(void);
+static void dieWait(void);
+static void dieFinish(void);
+static void revive(void);
+static void fireWait(void);
 
 Entity *addPhoenix(int x, int y, char *name)
 {
@@ -133,7 +139,11 @@ static void initialise()
 			
 			self->touch = &entityTouch;
 			
-			self->mental = 5;
+			self->mental = 1;
+			
+			self->endX = 10;
+			
+			self->health = 1;
 		}
 	}
 }
@@ -266,6 +276,15 @@ static void attackFinished()
 	self->maxThinkTime = 0;
 	
 	self->action = &entityWait;
+	
+	self->endX--;
+	
+	if (self->endX <= 0 && self->health == self->maxHealth)
+	{
+		setInfoBoxMessage(180, 255, 255, 255, _("There must be a way to extingiush the flames..."));
+		
+		self->endX = 5;
+	}
 }
 
 static void dropAttackInit()
@@ -405,7 +424,7 @@ static void riseAttack()
 			self->maxThinkTime = 0;
 		}
 		
-		self->thinkTime = 120;
+		self->thinkTime = 60;
 		
 		self->action = self->maxThinkTime > 0 ? &dropAttackInit : &riseAttackFinish;
 	}
@@ -448,8 +467,6 @@ static void fireballAttack()
 	if (self->thinkTime <= 0)
 	{
 		e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -12 : 12), 0);
-		
-		e->damage = 0;
 
 		if (self->face == LEFT)
 		{
@@ -461,7 +478,7 @@ static void fireballAttack()
 			e->x = self->x + self->w + e->w;
 		}
 
-		e->y = self->y + self->h - 20;
+		e->y = self->y + self->h - 40;
 
 		e->flags |= FLY;
 
@@ -517,6 +534,8 @@ static void flameAttackInit()
 			
 			addFlame();
 			
+			playSoundToMap("sound/enemy/fire_burner/flame.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
 			self->thinkTime = 30;
 			
 			self->dirX = self->face == LEFT ? -4 : 4;
@@ -538,21 +557,45 @@ static void flameAttack()
 		
 		if (self->thinkTime <= 0)
 		{
-			self->action = &attackFinished;
+			setEntityAnimation(self, STAND);
+			
+			self->maxThinkTime = 0;
+			
+			self->targetX = getCameraMinX() + SCREEN_WIDTH / 2 - self->w / 2;
+			
+			self->targetY = self->y;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 4;
+			self->dirY *= 4;
+			
+			self->action = &flameAttackFinish;
 		}
+	}
+}
+
+static void flameAttackFinish()
+{
+	checkToMap(self);
+	
+	if (atTarget())
+	{
+		self->action = &attackFinished;
 	}
 }
 
 static void addFlame()
 {
 	Entity *e = getFreeEntity();
+	Target *t;
 
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add the Phoenix Flame");
 	}
 
-	loadProperties("boss/phoenix_fireball", e);
+	loadProperties("boss/phoenix_flame", e);
 
 	e->x = self->x;
 	e->y = self->y;
@@ -568,7 +611,14 @@ static void addFlame()
 	
 	e->startY = e->y;
 	
-	e->endY = 1152;
+	t = getTargetByName("PHOENIX_FLAME_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Phoenix cannot find target");
+	}
+	
+	e->endY = t->y;
 	
 	self->maxThinkTime = 1;
 
@@ -579,6 +629,8 @@ static void flameWait()
 {
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 	self->y = self->head->y + self->offsetY;
+	
+	self->box.h = self->endY - self->startY;
 	
 	if (self->head->maxThinkTime != 1)
 	{
@@ -618,13 +670,58 @@ static void takeDamage(Entity *other, int damage)
 	
 	else
 	{
-		entityTakeDamageNoFlinch(other, damage);
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+
+		if (damage != 0)
+		{
+			self->health -= damage;
+
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				}
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->takeDamage = NULL;
+				
+				self->thinkTime = 120;
+				
+				self->startX = self->x;
+				
+				self->damage = 0;
+				
+				self->startY = 0;
+				
+				self->action = &die;
+			}
+		}
 	}
 }
 
 static void touch(Entity *other)
 {
-	if (other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
+	if (self->health > 0 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->mental--;
 		
@@ -642,6 +739,10 @@ static void touch(Entity *other)
 			self->startX = 0;
 			
 			self->action = &stunned;
+			
+			setEntityAnimation(self, CUSTOM_1);
+			
+			self->y -= 32;
 		}
 	}
 	
@@ -663,7 +764,7 @@ static void stunned()
 			
 			addStunStar();
 			
-			self->thinkTime = 300;
+			self->thinkTime = 600;
 			
 			for (i=0;i<20;i++)
 			{
@@ -681,10 +782,6 @@ static void stunned()
 			{
 				self->mental = 99;
 				
-				self->flags |= (FLY|ATTACKING);
-				
-				self->dirY = -6;
-				
 				self->action = &stunFinish;
 			}
 		}
@@ -694,9 +791,9 @@ static void stunned()
 	
 	if (self->environment == LAVA)
 	{
-		self->thinkTime = 90;
+		self->thinkTime = 180;
 		
-		self->mental = 5;
+		self->mental = 10;
 		
 		self->action = &lavaWait;
 	}
@@ -710,15 +807,34 @@ static void lavaWait()
 	{
 		self->flags |= (FLY|ATTACKING);
 		
+		setEntityAnimation(self, ATTACK_1);
+		
 		self->action = &riseAttack;
 	}
+	
+	checkToMap(self);
 }
 
 static void stunFinish()
 {
+	setEntityAnimation(self, CUSTOM_2);
+	
+	self->animationCallback = &revive;
+}
+
+static void revive()
+{
+	self->action = &revive;
+	
+	self->dirY = -6;
+	
+	setEntityAnimation(self, STAND);
+	
+	self->flags |= (FLY|ATTACKING);
+	
 	if (self->y <= self->endY)
 	{
-		self->mental = 5;
+		self->mental = 10;
 		
 		self->y = self->endY;
 		
@@ -727,7 +843,7 @@ static void stunFinish()
 		self->action = &attackFinished;
 	}
 	
-	checkToMap(self);
+	checkToMap(self);	
 }
 
 static void addStunStar()
@@ -753,7 +869,7 @@ static void addStunStar()
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->thinkTime = 300;
+		e->thinkTime = self->thinkTime;
 
 		e->head = self;
 
@@ -769,12 +885,136 @@ static void addStunStar()
 
 static void starWait()
 {
-	if (self->head->mental != 0)
+	if (self->head->mental > 0 || self->head->health <= 0)
 	{
 		self->inUse = FALSE;
 	}
 	
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 
-	self->y = self->head->y - self->h;
+	self->y = self->head->y - self->h - 8;
+}
+
+static void die()
+{
+	self->thinkTime--;
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+	
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX;
+		
+		self->thinkTime = 10;
+		
+		self->mental = 25;
+		
+		self->action = &dieWait;
+	}
+	
+	checkToMap(self);
+}
+
+static void dieWait()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Fire");
+		}
+		
+		loadProperties("boss/phoenix_die_fire", e);
+		
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + prand() % self->w;
+		e->y = self->y + self->h - e->h;
+
+		e->action = &fireWait;
+		e->touch = &entityTouch;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->type = ENEMY;
+		
+		e->thinkTime = 30;
+		
+		e->health = 0;
+		
+		e->mental = 1;
+		
+		self->thinkTime = 5;
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->thinkTime = 90;
+			
+			self->action = &dieFinish;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void dieFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	checkToMap(self);
+}
+
+static void fireWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->health += self->mental;
+		
+		if (self->health == 5)
+		{
+			self->health = 5;
+			
+			self->thinkTime = 360;
+			
+			self->mental *= -1;
+		}
+		
+		else if (self->health < 0)
+		{
+			self->inUse = FALSE;
+			
+			self->health = 0;
+		}
+		
+		else
+		{
+			self->thinkTime = 20;
+		}
+		
+		setEntityAnimation(self, self->health);
+	}
+	
+	checkToMap(self);
 }
