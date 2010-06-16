@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../system/random.h"
@@ -33,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
 #include "../system/error.h"
+#include "../world/explosion.h"
 
 extern Entity *self, player;
 
@@ -49,6 +51,12 @@ static void pieceWait(void);
 static void pieceReform(void);
 static void pieceFallout(void);
 static void reformFinish(void);
+static void explosionAttackInit(void);
+static void explosionAttack(void);
+static void explosionAttackFinish(void);
+static void explosionMove(void);
+static void explode(void);
+static void explosionTouch(Entity *);
 
 Entity *addCenturion(int x, int y, char *name)
 {
@@ -117,14 +125,30 @@ static void lookForPlayer()
 	{
 		self->thinkTime = 0;
 	}
-
-	if (self->thinkTime == 0 && player.health > 0 && prand() % 15 == 0)
+	
+	if (strcmpignorecase(self->name, "enemy/red_centurion") == 0)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0)
 		{
-			self->action = &stompAttackInit;
+			if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
+			{
+				self->action = &explosionAttackInit;
 
-			self->dirX = 0;
+				self->dirX = 0;
+			}
+		}
+	}
+	
+	else
+	{
+		if (self->thinkTime == 0 && player.health > 0 && prand() % 15 == 0)
+		{
+			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+			{
+				self->action = &stompAttackInit;
+
+				self->dirX = 0;
+			}
 		}
 	}
 }
@@ -171,6 +195,149 @@ static void stompAttackFinish()
 		self->thinkTime = 60;
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+}
+
+static void explosionAttackInit()
+{
+	setEntityAnimation(self, ATTACK_1);
+
+	self->animationCallback = &explosionAttack;
+
+	self->action = &attacking;
+
+	checkToMap(self);
+}
+
+static void explosionAttack()
+{
+	Entity *e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a moving explosion");
+	}
+
+	loadProperties("common/explosion", e);
+	
+	setEntityAnimation(e, STAND);
+
+	e->x = self->x + self->w / 2 - e->w / 2;
+	e->y = self->y + self->h - e->h;
+	
+	e->face = self->face;
+	
+	e->dirX = e->face == LEFT ? -6 : 6;
+	
+	e->damage = 1;
+
+	e->action = &explosionMove;
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &explosionTouch;
+
+	e->type = ENEMY;
+	
+	e->flags |= NO_DRAW|DO_NOT_PERSIST;
+	
+	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
+	
+	setEntityAnimation(self, ATTACK_2);
+
+	self->thinkTime = 60;
+
+	self->action = &explosionAttackFinish;
+}
+
+static void explosionAttackFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, STAND);
+
+		self->action = &lookForPlayer;
+
+		self->thinkTime = 60;
+
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+}
+
+static void explosionMove()
+{
+	Entity *e;
+	
+	e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+	if (e != NULL)
+	{
+		e->y -= prand() % e->h;
+	}
+	
+	checkToMap(self);
+	
+	if (isAtEdge(self) == TRUE || self->dirX == 0)
+	{
+		self->touch = NULL;
+		
+		self->dirX = 0;
+		
+		self->mental = 5;
+		
+		self->action = &explode;
+	}
+}
+
+static void explosionTouch(Entity *other)
+{
+	entityTouch(other);
+	
+	if (other->type == PLAYER)
+	{
+		self->touch = NULL;
+		
+		self->dirX = 0;
+		
+		self->mental = 5;
+		
+		self->action = &explode;
+	}
+}
+
+static void explode()
+{
+	int x, y;
+	Entity *e;
+
+	self->thinkTime--;
+	
+	stopSound(self->startX);
+	
+	self->startX = -1;
+
+	if (self->thinkTime <= 0)
+	{
+		x = self->x + self->w / 2;
+		y = self->y + self->h / 2;
+
+		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
+		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
+
+		e = addExplosion(x, y);
+		
+		e->type = ENEMY;
+		
+		e->damage = 1;
+
+		self->mental--;
+
+		self->thinkTime = 10;
+
+		if (self->mental == 0)
+		{
+			self->inUse = FALSE;
+		}
 	}
 }
 
@@ -260,7 +427,9 @@ static void redDie()
 		
 		e->head = self;
 	}
-
+	
+	self->endX = self->damage;
+	
 	self->damage = 0;
 	
 	self->health = 0;
@@ -326,6 +495,8 @@ static void reformFinish()
 		facePlayer();
 		
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		
+		self->damage = 1;
 		
 		self->takeDamage = &entityTakeDamageNoFlinch;
 		

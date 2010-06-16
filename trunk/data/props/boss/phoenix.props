@@ -2,6 +2,6 @@ TYPE ENEMY
 GFX_FILE data/gfx/boss/phoenix.dat
 ANIM_FILE data/anim/boss/phoenix.dat
 SPEED 2
-HEALTH 3000
+HEALTH 1500
 FLAGS UNBLOCKABLE|FLY
 ELEMENT FIRE
