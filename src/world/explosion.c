@@ -45,8 +45,6 @@ Entity *addExplosion(int x, int y)
 	e->x = x;
 	e->y = y;
 
-	e->type = PROJECTILE;
-
 	e->flags |= FLY|ATTACKING;
 
 	e->face = RIGHT;

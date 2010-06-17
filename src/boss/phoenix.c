@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../item/bomb.h"
 #include "../geometry.h"
+#include "../event/script.h"
 #include "../world/explosion.h"
 
 extern Entity *self, player;
@@ -79,6 +80,12 @@ static void dieWait(void);
 static void dieFinish(void);
 static void revive(void);
 static void fireWait(void);
+static void becomeAsh(void);
+static void resurrectInit(void);
+static void becomePhoenix(void);
+static void resurrect(void);
+static void resurrectFlyUp(void);
+static void flyToLava(void);
 
 Entity *addPhoenix(int x, int y, char *name)
 {
@@ -139,11 +146,9 @@ static void initialise()
 			
 			self->touch = &entityTouch;
 			
-			self->mental = 1;
+			self->mental = 10;
 			
 			self->endX = 10;
-			
-			self->health = 1;
 		}
 	}
 }
@@ -711,7 +716,7 @@ static void takeDamage(Entity *other, int damage)
 				
 				self->damage = 0;
 				
-				self->startY = 0;
+				self->endX = 0;
 				
 				self->action = &die;
 			}
@@ -899,13 +904,13 @@ static void die()
 {
 	self->thinkTime--;
 	
-	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+	self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 4;
 
-	self->startY += 90;
+	self->endX += 90;
 
-	if (self->startY >= 360)
+	if (self->endX >= 360)
 	{
-		self->startY = 0;
+		self->endX = 0;
 	}
 	
 	if (self->thinkTime <= 0)
@@ -914,7 +919,9 @@ static void die()
 		
 		self->thinkTime = 10;
 		
-		self->mental = 25;
+		self->mental = 40;
+		
+		self->maxThinkTime = self->mental;
 		
 		self->action = &dieWait;
 	}
@@ -955,7 +962,11 @@ static void dieWait()
 		
 		e->health = 0;
 		
+		e->maxHealth = 3 + prand() % 3;
+		
 		e->mental = 1;
+		
+		e->head = self;
 		
 		self->thinkTime = 5;
 		
@@ -965,8 +976,22 @@ static void dieWait()
 		{
 			self->thinkTime = 90;
 			
-			self->action = &dieFinish;
+			self->action = &becomeAsh;
 		}
+	}
+	
+	checkToMap(self);
+}
+
+static void becomeAsh()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, DIE);
+		
+		self->action = &dieFinish;
 	}
 	
 	checkToMap(self);
@@ -974,14 +999,201 @@ static void dieWait()
 
 static void dieFinish()
 {
+	Entity *e;
+	
+	if (self->maxThinkTime == 0)
+	{
+		self->maxThinkTime = -1;
+		
+		if (self->mental <= 0)
+		{
+			increaseKillCount();
+
+			freeBossHealthBar();
+
+			e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+			
+			e->y -= e->h;
+
+			e->dirY = ITEM_JUMP_HEIGHT;
+			
+			runScript("lava_boss_die");
+		}
+	}
+	
+	else if (self->maxThinkTime == -1)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			e = addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			
+			if (e != NULL)
+			{
+				e->dirY = -(5 + prand() % 20);
+				
+				e->dirY /= 10;
+			}
+			
+			self->thinkTime = 5 + prand() % 10;
+		}
+	}
+	
+	if (self->mental == -1)
+	{
+		self->flags |= FLY;
+		
+		self->thinkTime = 60;
+		
+		self->mental = 40;
+		
+		self->maxThinkTime = self->mental;
+		
+		self->action = &resurrectInit;
+	}
+	
+	checkToMap(self);
+}
+
+static void resurrectInit()
+{
+	Entity *e;
+	
+	if (cameraAtMinimum())
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Fire");
+			}
+			
+			loadProperties("boss/phoenix_die_fire", e);
+			
+			setEntityAnimation(e, STAND);
+
+			e->x = self->x + prand() % self->w;
+			e->y = self->y + self->h - e->h;
+
+			e->action = &fireWait;
+			e->touch = &entityTouch;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+			
+			e->thinkTime = 30;
+			
+			e->health = 0;
+			
+			e->maxHealth = 3 + prand() % 3;
+			
+			e->mental = 1;
+			
+			e->head = self;
+			
+			self->thinkTime = 5;
+			
+			self->mental--;
+			
+			if (self->mental <= 0)
+			{
+				self->thinkTime = 90;
+				
+				self->action = &becomePhoenix;
+			}
+		}
+	}
+}
+
+static void becomePhoenix()
+{
+	int x, w;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
-		self->flags |= NO_DRAW;
+		x = self->x;
+		w = self->w;
+		
+		setEntityAnimation(self, CUSTOM_2);
+		
+		self->frameSpeed = 0;
+		
+		self->x = x + w / 2 - self->w / 2;
+		
+		self->action = &resurrect;
 	}
 	
 	checkToMap(self);
+}
+
+static void resurrect()
+{
+	if (self->maxThinkTime == 0)
+	{
+		self->maxThinkTime = -1;
+		
+		self->frameSpeed = 1;
+		
+		self->animationCallback = &resurrectFlyUp;
+	}
+}
+
+static void resurrectFlyUp()
+{
+	self->action = &resurrectFlyUp;
+	
+	setEntityAnimation(self, STAND);
+	
+	if (self->y > self->endY)
+	{
+		self->y -= 4;
+	}
+	
+	else
+	{
+		self->y = self->endY;
+		
+		self->thinkTime = 60;
+		
+		self->action = &flyToLava;
+		
+		self->damage = 100;
+		
+		self->flags |= ATTACKING;
+	}
+}
+
+static void flyToLava()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, ATTACK_2);
+		
+		self->dirY = 12;
+	}
+	
+	checkToMap(self);
+	
+	if (self->y > self->startY)
+	{
+		self->y = self->startY;
+		
+		self->dirY = 0;
+		
+		fadeBossMusic();
+		
+		entityDieNoDrop();
+	}
 }
 
 static void fireWait()
@@ -992,9 +1204,9 @@ static void fireWait()
 	{
 		self->health += self->mental;
 		
-		if (self->health == 5)
+		if (self->health == self->maxHealth)
 		{
-			self->health = 5;
+			self->maxHealth = 5;
 			
 			self->thinkTime = 360;
 			
@@ -1003,6 +1215,8 @@ static void fireWait()
 		
 		else if (self->health < 0)
 		{
+			self->head->maxThinkTime--;
+			
 			self->inUse = FALSE;
 			
 			self->health = 0;
