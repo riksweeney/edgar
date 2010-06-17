@@ -11,7 +11,7 @@ Version 0.61
 * Added the ability to set the audio buffer size. Use this if the sound stutters
 * Enemies now drop charges if you load a game with an uncharged Lightning Sword
 * The Red Centurions can now hurt you again after reforming
-* Made the Red Centurions more dangerous
+* Added support for sorting inventory items using the previous and next inventory item buttons
 
 Version 0.60
 * Edgar now animates when firing the bow

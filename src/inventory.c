@@ -273,6 +273,46 @@ void nextInventoryItem(int index)
 	}
 }
 
+void moveInventoryItem(int index)
+{
+	Entity temp;
+	
+	if (inventory.item[inventory.cursorIndex].inUse == TRUE)
+	{
+		if (index == 1 && inventory.item[inventory.cursorIndex + index].inUse == TRUE && inventory.cursorIndex + index < MAX_INVENTORY_ITEMS)
+		{
+			temp = inventory.item[inventory.cursorIndex + index];
+			
+			inventory.item[inventory.cursorIndex + index] = inventory.item[inventory.cursorIndex];
+			
+			inventory.item[inventory.cursorIndex] = temp;
+			
+			moveInventoryCursor(index);
+			
+			if (inventory.cursorIndex % INVENTORY_COLUMN_COUNT == 0)
+			{
+				moveInventoryCursor(INVENTORY_COLUMN_COUNT);
+			}
+		}
+		
+		else if (index == -1 && inventory.cursorIndex + index >= 0)
+		{
+			temp = inventory.item[inventory.cursorIndex + index];
+			
+			inventory.item[inventory.cursorIndex + index] = inventory.item[inventory.cursorIndex];
+			
+			inventory.item[inventory.cursorIndex] = temp;
+			
+			moveInventoryCursor(index);
+			
+			if (inventory.cursorIndex != 0 && (inventory.cursorIndex % INVENTORY_COLUMN_COUNT) == INVENTORY_COLUMN_COUNT - 1)
+			{
+				moveInventoryCursor(-INVENTORY_COLUMN_COUNT);
+			}
+		}
+	}
+}
+
 void selectInventoryItem(void)
 {
 	if (inventory.item[inventory.cursorIndex].inUse == TRUE)
