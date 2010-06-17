@@ -94,7 +94,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 5;
+			player.maxHealth = player.health = 9;
 		#endif
 
 		setEntityAnimation(&player, STAND);
@@ -2334,6 +2334,11 @@ void addChargesToWeapon()
 		if (e != NULL)
 		{
 			mental = e->mental;
+			
+			if (e->mental < 0)
+			{
+				e->mental = 0;
+			}
 			
 			e->mental += self->health;
 			
