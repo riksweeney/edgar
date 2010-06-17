@@ -1,4 +1,4 @@
-VERSION = 0.60
+VERSION = 0.61
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -17,7 +17,7 @@ SDLC      = /opt/Windows/bin/sdl-config
 LOCALE_DIR = locale/
 LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
-CFLAGS = `$(SDLC) --cflags` -O2 -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
+CFLAGS = `$(SDLC) --cflags` -Os -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
 
 LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDL_net -lSDLmain
 

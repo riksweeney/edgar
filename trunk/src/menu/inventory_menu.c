@@ -87,6 +87,24 @@ void doInventoryMenu()
 
 		playSound("sound/common/click.ogg");
 	}
+	
+	else if (input.next == TRUE)
+	{
+		input.next = FALSE;
+		
+		moveInventoryItem(1);
+		
+		playSound("sound/common/click.ogg");
+	}
+	
+	else if (input.previous == TRUE)
+	{
+		input.previous = FALSE;
+		
+		moveInventoryItem(-1);
+		
+		playSound("sound/common/click.ogg");
+	}
 }
 
 void freeInventoryMenu()

@@ -180,7 +180,7 @@ void doCollisions()
 						{
 							if (e1->type == PROJECTILE)
 							{
-								if (e2->type == PROJECTILE || (e1->parent != NULL && e1->parent->type == ENEMY && e2->type == ENEMY))
+								if (e2->type == PROJECTILE || (e1->parent != NULL && (e1->parent->type == ENEMY || e1->parent->type == SPAWNER) && e2->type == ENEMY))
 								{
 									continue;
 								}
