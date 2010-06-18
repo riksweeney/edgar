@@ -203,6 +203,8 @@ static void entityWait()
 	
 	self->thinkTime--;
 	
+	facePlayer();
+	
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		r = prand() % 3;
@@ -210,7 +212,7 @@ static void entityWait()
 		switch (r)
 		{
 			case 0:
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, WALK);
 				
 				self->maxThinkTime = 3;
 				
@@ -227,7 +229,7 @@ static void entityWait()
 					showErrorAndExit("Phoenix cannot find target");
 				}
 				
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, WALK);
 				
 				self->action = &flameAttackInit;
 				
@@ -250,8 +252,6 @@ static void entityWait()
 					showErrorAndExit("Phoenix cannot find target");
 				}
 				
-				setEntityAnimation(self, STAND);
-				
 				self->maxThinkTime = 5 + prand() % 3;
 				
 				self->targetX = t->x;
@@ -272,6 +272,8 @@ static void entityWait()
 
 static void attackFinished()
 {
+	facePlayer();
+	
 	setEntityAnimation(self, STAND);
 	
 	self->thinkTime = 60;
@@ -422,7 +424,7 @@ static void riseAttack()
 		
 		self->maxThinkTime--;
 		
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, WALK);
 		
 		if (player.health <= 0)
 		{
@@ -562,7 +564,7 @@ static void flameAttack()
 		
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, WALK);
 			
 			self->maxThinkTime = 0;
 			
@@ -833,7 +835,7 @@ static void revive()
 	
 	self->dirY = -6;
 	
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, WALK);
 	
 	self->flags |= (FLY|ATTACKING);
 	
@@ -1150,7 +1152,7 @@ static void resurrectFlyUp()
 {
 	self->action = &resurrectFlyUp;
 	
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, WALK);
 	
 	if (self->y > self->endY)
 	{

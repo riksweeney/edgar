@@ -198,8 +198,6 @@ void loadMap(char *name, int loadEntityResources)
 			if (x > 0)
 			{
 				STRNCPY(map.musicName, itemName, sizeof(map.musicName));
-
-				loadMusic(map.musicName);
 			}
 		}
 
