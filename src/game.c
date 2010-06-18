@@ -957,6 +957,11 @@ void getContinuePoint()
 	}
 	
 	game.continues++;
+	
+	if (game.continues == 20)
+	{
+		addMedal("continue_20");
+	}
 }
 
 void clearContinuePoint()
