@@ -1,0 +1,242 @@
+/*
+Copyright (C) 2009-2010 Parallel Realities
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
+#include "../headers.h"
+
+#include "music.h"
+#include "../map.h"
+#include "../system/pak.h"
+
+extern Game game;
+
+static void playGameOverMusic(void);
+
+static Mix_Music *music;
+static char musicName[MAX_VALUE_LENGTH];
+
+void loadMusic(char *name)
+{
+	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+
+	freeMusic();
+	
+	if (strcmpignorecase(name, "NO_MUSIC") == 0)
+	{
+		return;
+	}
+
+	music = loadMusicFromPak(name);
+
+	if (music == NULL)
+	{
+		printf("Could not load music file %s: %s\n", name, Mix_GetError());
+	}
+}
+
+void freeMusic()
+{
+	stopMusic();
+	
+	if (music != NULL)
+	{
+		Mix_FreeMusic(music);
+
+		music = NULL;
+	}
+}
+
+void playLoadedMusic()
+{
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+	
+	if (strcmpignorecase(musicName, "NO_MUSIC") == 0)
+	{
+		return;
+	}
+	
+	loadMusic(musicName);
+	
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(music, -1);	
+}
+
+void playMapMusic()
+{
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+	
+	loadMusic(getMapMusic());
+	
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(music, -1);
+}
+
+void stopMusic()
+{
+	Mix_HaltMusic();
+}
+
+void fadeOutMusic(int time)
+{
+	Mix_HookMusicFinished(NULL);
+
+	Mix_FadeOutMusic(time);
+}
+
+void fadeInMusic(int time)
+{
+	Mix_FadeInMusic(music, -1, time);
+}
+
+void setMusicVolume()
+{
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+}
+
+void pauseMusic(int pause)
+{
+	if (music != NULL)
+	{
+		if (pause == FALSE)
+		{
+			Mix_ResumeMusic();
+		}
+
+		else
+		{
+			Mix_PauseMusic();
+		}
+	}
+}
+
+void playDefaultBossMusic()
+{
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+
+	freeMusic();
+
+	loadBossMusic("music/terrortech_inc_.xm");
+
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+	
+	#if DEV == 1
+	if (game.gameType == REPLAYING)
+	{
+		printf("%f music/terrortech_inc_.xm\n", (float)game.frames / 60);
+	}
+	#endif
+	
+	Mix_PlayMusic(music, -1);
+}
+
+void playBossMusic(char *name)
+{
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+
+	freeMusic();
+
+	loadBossMusic(name);
+
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+	
+	#if DEV == 1
+	if (game.gameType == REPLAYING)
+	{
+		printf("%f %s\n", (float)game.frames / 60, name);
+	}
+	#endif
+	
+	Mix_PlayMusic(music, -1);
+}
+
+void loadBossMusic(char *name)
+{
+	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+
+	freeMusic();
+
+	music = loadMusicFromPak(name);
+
+	if (music == NULL)
+	{
+		printf("Could not load music file %s: %s\n", name, Mix_GetError());
+	}
+}
+
+void resumeMusic()
+{
+	Mix_HookMusicFinished(NULL);
+
+	playMapMusic();
+}
+
+void fadeBossMusic()
+{
+	fadeOutMusic(4000);
+
+	Mix_HookMusicFinished(resumeMusic);
+}
+
+void loadGameOverMusic()
+{
+	fadeOutMusic(2000);
+
+	Mix_HookMusicFinished(playGameOverMusic);
+}
+
+static void playGameOverMusic()
+{
+	STRNCPY(musicName, "music/oxide_-_sadness.xm", MAX_VALUE_LENGTH);
+	
+	if (game.audio == FALSE || game.musicDefaultVolume == 0)
+	{
+		return;
+	}
+
+	Mix_HookMusicFinished(NULL);
+
+	loadMusic("music/oxide_-_sadness.xm");
+
+	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(music, -1);
+}

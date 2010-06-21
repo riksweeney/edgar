@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/item/power_meter.dat
+ANIM_FILE data/anim/item/power_meter.dat
+TYPE KEY_ITEM

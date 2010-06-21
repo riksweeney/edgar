@@ -1,0 +1,14 @@
+TALK Edgar That's a lot of slime
+HAS_ITEM "Ice Spray" 1 1 PURIFIER_POINT 1 2
+IF PURIFIER_POINT HEALTH 1
+TALK Edgar I don't think the Ice Spray will get across this since it only works on water
+END
+HAS_ITEM "Potion of Transmogrification" 1 1 PURIFIER_POINT 3 2
+IF PURIFIER_POINT HEALTH 2
+HAS_ITEM "Empty Bottle" 1 1 PURIFIER_POINT 3 2
+END
+IF PURIFIER_POINT HEALTH 3
+TALK Edgar Slimes can only swim in water so that's not going to help either
+TALK Edgar I remember Borgan telling me how ironic that is
+END
+TALK Edgar I'll have to find something to help me get across...
