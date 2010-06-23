@@ -2008,8 +2008,15 @@ static void followPlayer()
 	self->targetX = player.x - self->w / 2 + player.w / 2;
 
 	/* Position above the player */
+	
+	if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
+	{
+		self->dirX = 0;
+		
+		hover();
+	}
 
-	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	else if (abs(self->x - self->targetX) <= abs(self->dirX))
 	{
 		self->x = self->targetX;
 

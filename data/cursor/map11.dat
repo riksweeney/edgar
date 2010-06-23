@@ -49,3 +49,6 @@ boss/mataeus_wall
 common/reset_switch
 enemy/fish
 item/slime_potion
+item/force_field
+item/horizontal_force_field
+weapon/fire_shield

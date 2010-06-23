@@ -88,6 +88,11 @@ Entity *addCenturion(int x, int y, char *name)
 
 static void lookForPlayer()
 {
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+	
 	if (self->currentFrame == 2 || self->currentFrame == 5)
 	{
 		if (self->maxThinkTime == 0)
@@ -105,19 +110,14 @@ static void lookForPlayer()
 		self->maxThinkTime = 0;
 	}
 
-	checkToMap(self);
-
-	if (self->currentFrame == 2 || self->currentFrame == 5)
-	{
-		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
-	}
-
-	if (self->dirX == 0 || isAtEdge(self) == TRUE)
+	if (self->maxThinkTime == 0 && (self->dirX == 0 || isAtEdge(self) == TRUE))
 	{
 		self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
+	
+	checkToMap(self);
 
 	self->thinkTime--;
 

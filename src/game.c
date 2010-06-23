@@ -792,6 +792,30 @@ char *getPlayTimeAsString()
 	return timeString;
 }
 
+char *getPlayTimeHours()
+{
+	/* 1 second is 60 frames */
+
+	int hours;
+	long tempTime;
+	char *timeString;
+
+	timeString = (char *)malloc(5 * sizeof(char));
+
+	if (timeString == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Play Time Hours string...", 5 * (int)sizeof(char));
+	}
+
+	tempTime = game.playTime;
+
+	hours = tempTime / (60 * 60 * 60);
+
+	snprintf(timeString, 5, "%d", hours);
+
+	return timeString;	
+}
+
 char *getSlimeTimeAsString()
 {
 	/* 1 second is 60 frames */

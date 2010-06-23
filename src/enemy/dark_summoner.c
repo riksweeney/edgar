@@ -230,13 +230,21 @@ static void summonEnd()
 	
 	else
 	{
-		self->action = prand() % 3 == 0 ? &teleportAway : &lookForPlayer;
+		if (prand() % 3 == 0)
+		{
+			self->action = &teleportAway;
+		}
+		
+		else
+		{
+			self->action = &lookForPlayer;
+			
+			self->mental = 0;
+		}
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		self->thinkTime = 600;
-		
-		self->mental = 0;
 	}
 	
 	hover();
@@ -262,7 +270,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	entityTakeDamageNoFlinch(other, damage);
 	
-	if (self->health > 0 && (prand() % 3 == 0))
+	if (self->mental == 0 && self->health > 0 && (prand() % 3 == 0))
 	{
 		self->action = &teleportAway;
 	}
@@ -300,7 +308,12 @@ static void teleportAway()
 		
 		self->action = &lookForPlayer;
 		
-		self->thinkTime = 0;
+		/* Don't reset thinkTime if teleporting after summon */
+		
+		if (self->mental == 0)
+		{
+			self->thinkTime = 0;
+		}
 	}
 	
 	else
@@ -312,6 +325,8 @@ static void teleportAway()
 			self->action = &lookForPlayer;
 		}
 	}
+	
+	self->mental = 0;
 }
 
 static void castLightningBolt()
