@@ -191,6 +191,8 @@ static void doIntro()
 		e->head = self;
 
 		e->action = &reform;
+		
+		e->health = 600;
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 
@@ -758,7 +760,7 @@ static void eatExplode()
 
 		e->damage = 0;
 		
-		e->health = 360;
+		e->health = 600;
 
 		e->action = &partWait;
 
