@@ -120,6 +120,7 @@ static Constructor items[] = {
 {"item/grabber", &addGrabber},
 {"item/symbol_block", &addSymbolBlock},
 {"item/force_field", &addForceField},
+{"item/horizontal_force_field", &addForceField},
 {"item/gazer_eye_slot", &addGazerEyeSlot},
 {"item/spring", &addSpring},
 {"item/number_block", &addNumberBlock},

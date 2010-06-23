@@ -239,7 +239,9 @@ static void reform()
 
 	else
 	{
-		if (fabs(self->targetX - self->x) <= fabs(self->dirX))
+		self->health--;
+		
+		if (fabs(self->targetX - self->x) <= fabs(self->dirX) || self->health <= 0)
 		{
 			self->head->startX--;
 
@@ -755,6 +757,8 @@ static void eatExplode()
 		e->touch = &entityTouch;
 
 		e->damage = 0;
+		
+		e->health = 360;
 
 		e->action = &partWait;
 
@@ -1421,12 +1425,6 @@ static void partWait()
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
-	}
-
-	if (outOfBounds(self) == TRUE)
-	{
-		self->x = self->targetX;
-		self->y = self->targetY;
 	}
 
 	if (self->head->maxThinkTime == 0 && self->head->startX != 0)
