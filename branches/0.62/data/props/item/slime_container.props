@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/slime_container.dat
+ANIM_FILE data/anim/item/slime_container.dat
+TYPE KEY_ITEM
+FLAGS OBSTACLE|FLY
