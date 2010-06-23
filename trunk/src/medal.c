@@ -226,6 +226,8 @@ static int postMedal(void *data)
 			SDL_Delay(1000);
 		}
 	}
+	
+	medal.processing = FALSE;
 
 	return 1;
 }

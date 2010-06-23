@@ -154,9 +154,9 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 			snprintf(word, sizeof(word), "%d ", game.kills);
 		}
 		
-		if (strcmpignorecase(word, "[PLAY_TIME] ") == 0)
+		if (strcmpignorecase(word, "[HOURS] ") == 0)
 		{
-			snprintf(word, sizeof(word), "%s ", getPlayTimeAsString());
+			snprintf(word, sizeof(word), "%s ", getPlayTimeHours());
 		}
 
 		else if (word[strlen(word) - 2] == '\n')

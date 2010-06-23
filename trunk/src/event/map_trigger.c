@@ -156,6 +156,10 @@ void fireMapTrigger(char *name)
 					case ACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, TRUE);
 					break;
+					
+					case DEACTIVATE_ENTITY:
+						activateEntitiesWithRequiredName(trigger[i].targetName, FALSE);
+					break;
 
 					case RUN_SCRIPT:
 						runScript(trigger[i].targetName);

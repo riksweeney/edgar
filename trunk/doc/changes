@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 0.62
+* Fixed a bug with the Golem
+* Fixed a bug with the Medals meaning that you could only earn 1 per session
+* The Large Green Book no longer attacks you if you move off screen
+
 Version 0.61
 * Fixed the Lightning Sword going into negative charges
 * Fixed a bug when failing to Transmogrify
