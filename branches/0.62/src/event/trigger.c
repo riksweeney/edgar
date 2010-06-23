@@ -31,6 +31,7 @@ static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
 					{UPDATE_OBJECTIVE, "UPDATE_OBJECTIVE"},
 					{ACTIVATE_ENTITY, "ACTIVATE_ENTITY"},
+					{DEACTIVATE_ENTITY, "DEACTIVATE_ENTITY"},
 					{RUN_SCRIPT, "RUN_SCRIPT"},
 					{UPDATE_TRIGGER, "UPDATE_TRIGGER"},
 					{KILL_ENTITY, "KILL_ENTITY"},
@@ -155,6 +156,10 @@ void fireTrigger(char *name)
 
 					case ACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, TRUE);
+					break;
+					
+					case DEACTIVATE_ENTITY:
+						activateEntitiesWithRequiredName(trigger[i].targetName, FALSE);
 					break;
 
 					case RUN_SCRIPT:

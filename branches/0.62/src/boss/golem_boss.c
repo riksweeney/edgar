@@ -125,6 +125,7 @@ static void initialShatter()
 static void shatter()
 {
 	int i;
+	float y;
 	Entity *e, *previous;
 
 	self->dirX = 0;
@@ -134,8 +135,12 @@ static void shatter()
 	self->targetY = self->startY;
 
 	self->animationCallback = NULL;
+	
+	y = self->y;
 
 	setEntityAnimation(self, CUSTOM_1);
+	
+	self->y = y;
 
 	self->maxThinkTime = 14;
 
@@ -259,6 +264,8 @@ static void shatter()
 		e->face = self->face;
 
 		e->thinkTime = prand() % 60;
+		
+		e->health = 360;
 
 		e->touch = &entityTouch;
 
@@ -812,16 +819,14 @@ static void reform()
 	if (self->thinkTime <= 0)
 	{
 		/* Move towards the head */
+		
+		self->health--;
 
-		if (outOfBounds(self) == TRUE)
-		{
-			self->x = self->head->x;
-			self->y = self->head->y;
-		}
-
-		if (fabs(self->x - self->targetX) <= fabs(self->dirX))
+		if (fabs(self->x - self->targetX) <= fabs(self->dirX) || self->health <= 0)
 		{
 			self->dirX = 0;
+			
+			self->x = self->targetX;
 
 			self->head->maxThinkTime--;
 
@@ -918,6 +923,8 @@ static void headReform2()
 			}
 
 			setEntityAnimation(self, STAND);
+			
+			self->y = self->startY;
 
 			self->flags &= ~FLY;
 
