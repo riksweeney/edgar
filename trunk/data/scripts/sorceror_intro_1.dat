@@ -8,3 +8,4 @@ TALK Sorceror Fascinating. What do you want?
 TALK Edgar I've come to rescue my father, tell me where he is!
 TALK Sorceror Your father? My dear child, I do not have the foggiest idea what you are talking about
 TALK Sorceror But if he's anywhere, he'll be in my dungeon. Why don't you look there?
+ACTIVATE_OBJECTIVE SORCEROR

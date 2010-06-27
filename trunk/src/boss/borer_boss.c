@@ -1374,7 +1374,7 @@ static void slimePlayer(Entity *other)
 	{
 		other->dirX = 0;
 
-		setPlayerSlimed(30);
+		setPlayerSlimed(120);
 
 		self->die();
 	}

@@ -86,6 +86,8 @@ static void lookForPlayer()
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
+			self->dirX = 0;
+			
 			self->action = &spinAttackStart;
 
 			self->thinkTime = 60;
@@ -139,7 +141,15 @@ static void spinAttack()
 
 	if (self->dirX == 0 || isAtEdge(self))
 	{
-		self->dirX = self->face == LEFT ? 3 : -3;
+		if (self->dirX == 0)
+		{
+			self->dirX = self->face == LEFT ? 3 : -3;
+		}
+		
+		else
+		{
+			self->dirX = self->dirX < 0 ? 3 : -3;
+		}
 
 		self->dirY = -6;
 

@@ -1686,21 +1686,21 @@ void setPlayerSlimed(int thinkTime)
 
 static void applySlime()
 {
-	if (player.action != NULL)
+	if (player.action == NULL)
 	{
 		self->thinkTime--;
+	}
+	
+	self->face = player.face;
 
-		self->face = player.face;
+	player.dirX = 0;
 
-		player.dirX = 0;
+	self->x = player.x;
+	self->y = player.y;
 
-		self->x = player.x;
-		self->y = player.y;
-
-		if (self->thinkTime <= 0 || player.health <= 0)
-		{
-			self->inUse = FALSE;
-		}
+	if (self->thinkTime <= 0 || player.health <= 0)
+	{
+		self->inUse = FALSE;
 	}
 }
 
