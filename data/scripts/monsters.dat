@@ -104,12 +104,6 @@ END
 IF MONSTER_BOOK HEALTH 0
 TALK Edgar Ah, here is a compendium of monsters
 TALK Edgar 34 volumes! How can there be so many monsters in the world?!
-HAS_ITEM "Fire Shield" 1 1 MONSTER_BOOK 101 100
-IF MONSTER_BOOK HEALTH 101
-TALK Edgar This might have come in handy when I was hunting for the Red Sludges
-TALK Edgar Still, there might be something else in these books worth reading...
-END
-IF MONSTER_BOOK HEALTH 100
 TALK Edgar Looks like they're in alphabetical order though
 TALK Edgar Slime, Green... Slime, Purple... Sludge, Green...
 TALK Edgar Sludge, Red
@@ -123,7 +117,6 @@ TALK Edgar I didn't see any Sludges in the mine when I went to get Borgan's coal
 TALK Edgar I'll have to find another mine around here...
 ACTIVATE_REQUIRED MONSTER_BOOK_TRIGGER
 SET BLACK_BOOK_1 REMOVE_FLAG NO_DRAW
-END
 SET MONSTER_BOOK HEALTH 1
 END
 IF MONSTER_BOOK HEALTH 11

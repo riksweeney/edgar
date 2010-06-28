@@ -99,8 +99,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "soul_merger.h"
 #include "lava_door.h"
 #include "flame_pillar.h"
-#include "extend_o_grab_button.h"
-#include "puzzle_piece.h"
 
 extern Entity *self, player;
 
@@ -181,9 +179,7 @@ static Constructor items[] = {
 {"item/soul_merger_control_panel", &addSoulMergerControlPanel},
 {"item/soul_merger", &addSoulMerger},
 {"item/lava_door", &addLavaDoor},
-{"item/flame_pillar", &addFlamePillar},
-{"item/extend_o_grab_button", &addExtendOGrabButton},
-{"item/puzzle_piece", &addPuzzlePiece}
+{"item/flame_pillar", &addFlamePillar}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

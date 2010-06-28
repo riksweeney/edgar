@@ -77,7 +77,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "fish.h"
 #include "fire_tortoise.h"
 #include "dark_summoner.h"
-#include "pendulum.h"
+
+#include "../item/bomb.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -196,11 +197,11 @@ static Constructor enemies[] = {
 {"enemy/fish", &addFish},
 {"enemy/green_fish", &addFish},
 {"boss/borer_boss", &addBorerBoss},
+{"item/bomb", &addBomb},
 {"enemy/fire_tortoise", &addFireTortoise},
 {"enemy/dark_summoner", &addDarkSummoner},
 {"enemy/red_centurion", &addCenturion},
-{"boss/phoenix", &addPhoenix},
-{"enemy/pendulum", &addPendulum}
+{"boss/phoenix", &addPhoenix}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
