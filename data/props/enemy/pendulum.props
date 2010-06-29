@@ -5,3 +5,4 @@ ANIM_FILE data/anim/enemy/spike_sphere.dat
 TYPE ENEMY
 SPEED 2
 MENTAL 12
+FLAGS FLY|PLAYER_TOUCH_ONLY
