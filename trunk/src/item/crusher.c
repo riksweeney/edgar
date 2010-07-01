@@ -95,6 +95,8 @@ static void init()
 {
 	createArm();
 	
+	self->flags |= ATTACKING;
+	
 	self->action = &crush;
 }
 
