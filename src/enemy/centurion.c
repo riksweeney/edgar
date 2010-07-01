@@ -102,7 +102,7 @@ static void lookForPlayer()
 			self->maxThinkTime = 1;
 		}
 
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
 
 	else
@@ -246,6 +246,8 @@ static void explosionAttack()
 	self->thinkTime = 60;
 
 	self->action = &explosionAttackFinish;
+	
+	checkToMap(self);
 }
 
 static void explosionAttackFinish()
@@ -262,6 +264,8 @@ static void explosionAttackFinish()
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 	}
+	
+	checkToMap(self);
 }
 
 static void explosionMove()

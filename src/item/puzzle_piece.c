@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../entity.h"
 #include "key_items.h"
+#include "item.h"
 
 extern Entity *self;
 
@@ -49,7 +50,7 @@ Entity *addPuzzlePiece(int x, int y, char *name)
 
 	e->action = &init;
 	e->touch = &keyItemTouch;
-	e->fallout = &keyItemFallout;
+	e->fallout = &itemFallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -60,7 +61,7 @@ Entity *addPuzzlePiece(int x, int y, char *name)
 
 static void init()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimation(self, self->mental);
 
 	self->action = &doNothing;
 }

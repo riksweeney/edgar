@@ -143,11 +143,11 @@ static void touch(Entity *other)
 		total = 0;
 
 		remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
+		
+		self->active = self->active == TRUE ? FALSE : TRUE;
 
 		if (remaining == 0)
 		{
-			self->active = self->active == TRUE ? FALSE : TRUE;
-
 			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
 
 			activateEntitiesWithRequiredName(self->objectiveName, self->active);
@@ -167,6 +167,8 @@ static void touch(Entity *other)
 
 		else
 		{
+			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+			
 			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 
