@@ -1,0 +1,6 @@
+IF JIGSAW_PUZZLE HEALTH 0
+REMOVE "Puzzle Piece" 9 9 JIGSAW_PUZZLE 1 0
+END
+IF JIGSAW_PUZZLE HEALTH 0
+TALK Narrator You need all 9 puzzle pieces
+END
