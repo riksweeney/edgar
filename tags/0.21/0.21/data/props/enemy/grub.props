@@ -1,6 +1,0 @@
-GFX_FILE data/gfx/enemy/grub.dat
-ANIM_FILE data/anim/enemy/grub.dat
-TYPE ENEMY
-DAMAGE 1
-HEALTH 10
-SPEED 0.75
