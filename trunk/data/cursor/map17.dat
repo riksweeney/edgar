@@ -35,3 +35,6 @@ weapon/pickaxe
 common/pressure_plate
 item/wooden_crate
 common/reset_switch
+common/anti_gravity
+item/jigsaw_puzzle
+item/jigsaw_puzzle_display
