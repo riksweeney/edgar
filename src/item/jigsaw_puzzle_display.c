@@ -72,14 +72,9 @@ static void entityWait()
 {
 	if (self->mental == -2)
 	{
-		init();
-		
 		self->mental = 1;
-	}
-	
-	else if (self->mental == -3)
-	{
 		
+		init();
 	}
 	
 	checkToMap(self);
@@ -87,56 +82,59 @@ static void entityWait()
 
 static void activate(int val)
 {
-	if (val == 5)
+	if (self->mental != -3)
 	{
-		self->health = 1 - self->health;
-	}
-	
-	else if (self->health == 0)
-	{
-		switch (val)
+		if (val == 5)
 		{
-			case 1:
-				self->endY -= TILE_SIZE;
-			break;
+			self->health = 1 - self->health;
+		}
+		
+		else if (self->health == 0)
+		{
+			switch (val)
+			{
+				case 1:
+					self->endY -= TILE_SIZE;
+				break;
+				
+				case 2:
+					self->endY += TILE_SIZE;
+				break;
+				
+				case 3:
+					self->endX -= TILE_SIZE;
+				break;
+				
+				default:
+					self->endX += TILE_SIZE;
+				break;
+			}
 			
-			case 2:
-				self->endY += TILE_SIZE;
-			break;
+			if (self->endX < self->startX)
+			{
+				self->endX = self->startX;
+			}
 			
-			case 3:
-				self->endX -= TILE_SIZE;
-			break;
+			else if (self->endX >= self->startX + self->w)
+			{
+				self->endX = self->startX + self->w - TILE_SIZE;
+			}
 			
-			default:
-				self->endX += TILE_SIZE;
-			break;
+			else if (self->endY < self->startY)
+			{
+				self->endY = self->startY;
+			}
+			
+			else if (self->endY >= self->startY + self->h)
+			{
+				self->endY = self->startY + self->h - TILE_SIZE;
+			}
 		}
 		
-		if (self->endX < self->startX)
+		else if (self->health == 1)
 		{
-			self->endX = self->startX;
+			swapTiles(self->endX, self->endY, val);
 		}
-		
-		else if (self->endX >= self->startX + self->w)
-		{
-			self->endX = self->startX + self->w - TILE_SIZE;
-		}
-		
-		else if (self->endY < self->startY)
-		{
-			self->endY = self->startY;
-		}
-		
-		else if (self->endY >= self->startY + self->h)
-		{
-			self->endY = self->startY + self->h - TILE_SIZE;
-		}
-	}
-	
-	else if (self->health == 1)
-	{
-		swapTiles(self->endX, self->endY, val);
 	}
 }
 
@@ -145,7 +143,7 @@ static void init()
 	int i;
 	Entity *e, *prev;
 	
-	if (self->mental == 1)
+	if (self->mental == 1 || self->mental == -3)
 	{
 		prev = self;
 		
@@ -160,7 +158,7 @@ static void init()
 			
 			loadProperties("item/puzzle_piece", e);
 			
-			e->action = &entityWait;
+			e->action = &doNothing;
 			
 			e->draw = &drawLoopingAnimationToMap;
 			
@@ -176,11 +174,14 @@ static void init()
 		}
 		
 		randomize();
-		
-		self->action = &entityWait;
 	}
 	
-	addCursor();
+	if (self->mental != -3)
+	{
+		addCursor();
+	}
+	
+	self->action = &entityWait;
 }
 
 static void randomize()
@@ -213,8 +214,6 @@ static void randomize()
 		e->x = e->targetX;
 		e->y = e->targetY;
 		
-		printf("Added tile to %d %d\n", e->targetX, e->targetY);
-		
 		setEntityAnimation(e, i);
 		
 		e->health = i;
@@ -222,33 +221,36 @@ static void randomize()
 		i++;
 	}
 	
-	for (i=0;i<9;i++)
+	if (self->mental != -3)
 	{
-		tiles[i] = i;
-	}
-	
-	for (i=0;i<9;i++)
-	{
-		swap(&tiles[i], &tiles[prand() % 9]);
-	}
-	
-	i = 0;
-	
-	self->mental = -10;
-	
-	for (i=0;i<10000;i++)
-	{
-		x = self->x + (TILE_SIZE * (prand() % 3));
-		y = self->y + (TILE_SIZE * (prand() % 3));
-		dir = 1 + (prand() % 4);
+		for (i=0;i<9;i++)
+		{
+			tiles[i] = i;
+		}
 		
-		swapTiles(x, y, dir);
+		for (i=0;i<9;i++)
+		{
+			swap(&tiles[i], &tiles[prand() % 9]);
+		}
+		
+		i = 0;
+		
+		self->mental = -10;
+		
+		for (i=0;i<10000;i++)
+		{
+			x = self->x + (TILE_SIZE * (prand() % 3));
+			y = self->y + (TILE_SIZE * (prand() % 3));
+			dir = 1 + (prand() % 4);
+			
+			swapTiles(x, y, dir);
+		}
+		
+		self->endX = self->x;
+		self->endY = self->y;
+		
+		self->mental = 1;
 	}
-	
-	self->endX = self->x;
-	self->endY = self->y;
-	
-	self->mental = -2;
 }
 
 static void swap(int *a, int *b)
@@ -289,6 +291,11 @@ static void cursorWait()
 {
 	self->x = self->head->endX;
 	self->y = self->head->endY;
+	
+	if (self->head->mental == -3)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void swapTiles(int x, int y, int dir)

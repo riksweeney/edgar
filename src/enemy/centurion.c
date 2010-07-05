@@ -97,7 +97,10 @@ static void lookForPlayer()
 	{
 		if (self->maxThinkTime == 0)
 		{
-			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			if (self->flags & ON_GROUND)
+			{
+				playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+			}
 
 			self->maxThinkTime = 1;
 		}

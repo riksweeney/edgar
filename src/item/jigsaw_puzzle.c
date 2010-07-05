@@ -82,21 +82,22 @@ static void activate(int val)
 {
 	if (self->health == 0)
 	{
-		self->health = 1;
-		
-		self->target->mental = -2;
-		/*
 		runScript("puzzle_pieces");
-		
-		if (self->health == 1)
-		{
-			self->target->mental = -2;
-		}
-		*/
 	}
 	
 	if (self->health == 1)
 	{
+		printf("Target is %d\n", self->target->mental);
+		
+		if (self->target->mental == 0)
+		{
+			printf("Setting to -2\n");
+			
+			self->target->mental = -2;
+			
+			printf("Target is %d\n", self->target->mental);
+		}
+		
 		self->mental = 0;
 
 		setInfoBoxMessage(300, 255, 255, 255, _("Solve the jigsaw puzzle"));
@@ -221,7 +222,7 @@ static void init()
 
 	self->target = e;
 	
-	if (self->mental == 0)
+	if (self->mental != -3)
 	{
 		self->touch = &touch;
 		self->activate = &activate;
