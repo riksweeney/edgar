@@ -251,6 +251,8 @@ static void reset(int val)
 		self->thinkTime = 120;
 
 		e = self->health < 0 ? getEntityByRequiredName(self->objectiveName) : getEntityByObjectiveName(self->objectiveName);
+		
+		printf("Health is %d\n", self->health);
 
 		if (e != NULL && e->fallout != NULL)
 		{
@@ -263,6 +265,21 @@ static void reset(int val)
 			self->thinkTime = 0;
 
 			self = temp;
+		}
+		
+		else
+		{
+			printf("Couldn't reset %s\n", self->objectiveName);
+			
+			if (e == NULL)
+			{
+				printf("No item found\n");
+			}
+			
+			else if (e->fallout == NULL)
+			{
+				printf("No fallout found\n");
+			}
 		}
 	}
 }

@@ -103,6 +103,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "puzzle_piece.h"
 #include "jigsaw_puzzle.h"
 #include "jigsaw_puzzle_display.h"
+#include "magnet.h"
 
 extern Entity *self, player;
 
@@ -187,7 +188,8 @@ static Constructor items[] = {
 {"item/extend_o_grab_button", &addExtendOGrabButton},
 {"item/puzzle_piece", &addPuzzlePiece},
 {"item/jigsaw_puzzle", &addJigsawPuzzle},
-{"item/jigsaw_puzzle_display", &addJigsawPuzzleDisplay}
+{"item/jigsaw_puzzle_display", &addJigsawPuzzleDisplay},
+{"item/magnet", &addMagnet}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
