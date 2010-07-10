@@ -39,3 +39,5 @@ common/anti_gravity
 item/jigsaw_puzzle
 item/jigsaw_puzzle_display
 item/magnet
+common/spawner
+weapon/fire_shield

@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 0.65
+* Dying and then being stunned by a Centurion no longer leaves you immortal
+
 Version 0.62
 * Fixed a bug with the Golem
 * Fixed a bug with the Medals meaning that you could only earn 1 per session
