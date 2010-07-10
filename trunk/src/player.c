@@ -1590,6 +1590,11 @@ void facePlayer()
 
 void setPlayerStunned(int thinkTime)
 {
+	if (player.health <= 0)
+	{
+		return;
+	}
+	
 	/* Change back to Edgar */
 
 	if (player.element == WATER)
@@ -1635,7 +1640,14 @@ void doStunned()
 
 void setPlayerSlimed(int thinkTime)
 {
-	Entity *e = getFreeEntity();
+	Entity *e = NULL;
+	
+	if (player.health <= 0)
+	{
+		return;
+	}
+	
+	e = getFreeEntity();
 
 	if (e == NULL)
 	{

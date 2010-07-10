@@ -99,6 +99,8 @@ static void entityWait()
 					self->target->y = self->y + self->h;
 					
 					self->mental = 1;
+					
+					playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 				}
 			}
 		}
