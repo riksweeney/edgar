@@ -72,7 +72,7 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->active == TRUE)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
@@ -80,37 +80,34 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	if (self->health == 0)
+	if (self->active == TRUE)
 	{
-		runScript("puzzle_pieces");
-	}
-	
-	if (self->health == 1)
-	{
-		printf("Target is %d\n", self->target->mental);
-		
-		if (self->target->mental == 0)
+		if (self->health == 0)
 		{
-			printf("Setting to -2\n");
-			
-			self->target->mental = -2;
-			
-			printf("Target is %d\n", self->target->mental);
+			runScript("puzzle_pieces");
 		}
 		
-		self->mental = 0;
+		if (self->health == 1)
+		{
+			if (self->target->mental == 0)
+			{
+				self->target->mental = -2;
+			}
+			
+			self->mental = 0;
 
-		setInfoBoxMessage(300, 255, 255, 255, _("Solve the jigsaw puzzle"));
+			setInfoBoxMessage(300, 255, 255, 255, _("Solve the jigsaw puzzle"));
 
-		self->target->requires[0] = '\0';
+			self->target->requires[0] = '\0';
 
-		self->action = &readInputCode;
+			self->action = &readInputCode;
 
-		self->touch = NULL;
+			self->touch = NULL;
 
-		self->activate = NULL;
+			self->activate = NULL;
 
-		setPlayerLocked(TRUE);
+			setPlayerLocked(TRUE);
+		}
 	}
 }
 

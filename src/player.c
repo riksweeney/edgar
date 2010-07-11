@@ -811,6 +811,13 @@ void setPlayerShield(int val)
 
 		return;
 	}
+	
+	/* Don't allow the player to change shields whilst attacking */
+	
+	if (playerWeapon.flags & ATTACKING)
+	{
+		return;
+	}
 
 	if (usingBow() == TRUE)
 	{
@@ -842,9 +849,14 @@ void setPlayerWeapon(int val)
 		return;
 	}
 	
-	playerWeapon.animationCallback = NULL;
+	/* Don't allow the player to change weapons whilst attacking */
 	
-	setEntityAnimation(&player, STAND);
+	if (playerWeapon.flags & ATTACKING)
+	{
+		return;
+	}
+	
+	playerWeapon.animationCallback = NULL;
 
 	playerWeapon = *self;
 	

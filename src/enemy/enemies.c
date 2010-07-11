@@ -79,6 +79,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dark_summoner.h"
 #include "pendulum.h"
 #include "ice_tortoise.h"
+#include "splitter.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -202,7 +203,10 @@ static Constructor enemies[] = {
 {"enemy/red_centurion", &addCenturion},
 {"boss/phoenix", &addPhoenix},
 {"enemy/pendulum", &addPendulum},
-{"enemy/ice_tortoise", &addIceTortoise}
+{"enemy/ice_tortoise", &addIceTortoise},
+{"enemy/splitter", &addSplitter},
+{"enemy/splitter_medium", &addSplitterMedium},
+{"enemy/splitter_small", &addSplitterSmall}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

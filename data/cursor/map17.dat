@@ -41,3 +41,5 @@ item/jigsaw_puzzle_display
 item/magnet
 common/spawner
 weapon/fire_shield
+enemy/dark_summoner
+common/action_point
