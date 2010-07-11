@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.65
 * Dying and then being stunned by a Centurion no longer leaves you immortal
+* Fixed a crash when creating the Fire Shield
 
 Version 0.62
 * Fixed a bug with the Golem

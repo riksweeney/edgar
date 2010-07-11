@@ -76,8 +76,8 @@ TALK Edgar I wonder what other monsters there are...
 TALK Edgar Splitter
 TALK Book Splitters are harmless monsters unless attacked.
 TALK Book Upon sustaining too much damage they will split in two and attack their predator
-TALK Book If one of these sustains too much damage it will split once again and continue to attack
-TALK Book Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on
+TALK Book If one of these sustains too much damage it will split once again
+TALK Book These versions are completely harmless and in this state can be simply stepped on
 TALK Book If all its parts are still alive, a splitter will reform itself after a while and heal its wounds
 SET MONSTER_BOOK HEALTH 4
 END

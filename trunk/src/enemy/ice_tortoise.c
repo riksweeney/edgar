@@ -344,9 +344,12 @@ static void iceSpikeMove()
 		{
 			self->y = self->startY;
 			
-			self->head->inUse = FALSE;
+			if (self->head != NULL)
+			{
+				self->head->inUse = FALSE;
 			
-			self->head = NULL;
+				self->head = NULL;
+			}
 		}
 	}
 	
