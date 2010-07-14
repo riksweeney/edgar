@@ -118,13 +118,11 @@ static void purpleWait()
 
 static void attack()
 {
-	long onGround = (self->flags & ON_GROUND);
-
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
 
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
 		if (self->thinkTime == 0)
 		{
@@ -141,6 +139,8 @@ static void attack()
 			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
+			
+			self->thinkTime = 30 + prand () % 60;
 		}
 
 		else
@@ -150,22 +150,15 @@ static void attack()
 	}
 
 	checkToMap(self);
-
-	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
-	{
-		self->thinkTime = 30 + prand () % 60;
-	}
 }
 
 static void purpleAttack()
 {
-	int onGround = (self->flags & ON_GROUND);
-
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
 
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
 		if (self->thinkTime == 0)
 		{
@@ -182,6 +175,8 @@ static void purpleAttack()
 			self->dirY = -(6 + prand() % 2);
 
 			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
+			
+			self->thinkTime = 30 + prand () % 60;
 
 			if (player.health > 0 && (prand() % 8 == 0))
 			{
@@ -196,11 +191,6 @@ static void purpleAttack()
 	}
 
 	checkToMap(self);
-
-	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
-	{
-		self->thinkTime = 30 + prand () % 60;
-	}
 }
 
 static void swim()

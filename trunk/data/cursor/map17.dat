@@ -43,3 +43,5 @@ common/spawner
 weapon/fire_shield
 enemy/dark_summoner
 common/action_point
+door/skull_door
+item/attractor

@@ -90,7 +90,10 @@ static void lookForPlayer()
 {
 	if (self->maxThinkTime == 1)
 	{
-		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		if (!(self->flags & ATTRACTED))
+		{
+			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		}
 	}
 	
 	if (self->currentFrame == 2 || self->currentFrame == 5)
@@ -104,8 +107,11 @@ static void lookForPlayer()
 
 			self->maxThinkTime = 1;
 		}
-
-		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+		
+		if (!(self->flags & ATTRACTED))
+		{
+			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+		}
 	}
 
 	else
@@ -136,8 +142,11 @@ static void lookForPlayer()
 			if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
 				self->action = &explosionAttackInit;
-
-				self->dirX = 0;
+				
+				if (!(self->flags & ATTRACTED))
+				{
+					self->dirX = 0;
+				}
 			}
 		}
 	}
@@ -149,8 +158,11 @@ static void lookForPlayer()
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
 				self->action = &stompAttackInit;
-
-				self->dirX = 0;
+				
+				if (!(self->flags & ATTRACTED))
+				{
+					self->dirX = 0;
+				}
 			}
 		}
 	}

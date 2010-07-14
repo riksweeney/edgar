@@ -124,7 +124,7 @@ static void touch(Entity *other)
 		}
 	}
 
-	else if (other->type == PLAYER && self->active == FALSE)
+	else if (other->type == PLAYER && self->active == FALSE && self->mental == 0)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This door is locked"));
 	}
