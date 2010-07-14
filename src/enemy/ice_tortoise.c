@@ -287,6 +287,24 @@ static void iceBallMove()
 		self->thinkTime = 30;
 	}
 	
+	else if (self->standingOn != NULL)
+	{
+		if (self->health > 30)
+		{
+			self->health = 30;
+		}
+		
+		self->health--;
+		
+		if (self->thinkTime < 30)
+		{
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= FLASH;
+			}
+		}
+	}
+	
 	else
 	{
 		self->health--;
@@ -335,6 +353,8 @@ static void iceSpikeMove()
 {
 	int i;
 	Entity *e;
+	
+	self->dirX = 0;
 	
 	if (self->y > self->startY)
 	{

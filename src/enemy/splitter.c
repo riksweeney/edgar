@@ -133,11 +133,9 @@ Entity *addSplitterSmall(int x, int y, char *name)
 
 static void bounceAround()
 {
-	long onGround = (self->flags & ON_GROUND);
-
 	if (self->flags & ON_GROUND)
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
 		if (self->thinkTime == 0)
 		{
@@ -150,6 +148,8 @@ static void bounceAround()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
+			
+			self->thinkTime = 30 + prand () % 60;
 			
 			self->dirY = -(6 + prand() % 2);
 			
@@ -183,21 +183,15 @@ static void bounceAround()
 	}
 
 	checkToMap(self);
-
-	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
-	{
-		self->thinkTime = 30 + prand () % 60;
-	}
 }
 
 static void mediumBounceAround()
 {
 	int y;
-	long onGround = (self->flags & ON_GROUND);
-
+	
 	if (self->flags & ON_GROUND)
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 		
 		if (self->mental <= 0)
 		{
@@ -227,6 +221,8 @@ static void mediumBounceAround()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
+			
+			self->thinkTime = 30 + prand () % 60;
 			
 			self->dirY = -(6 + prand() % 2);
 			
@@ -262,23 +258,15 @@ static void mediumBounceAround()
 	}
 
 	checkToMap(self);
-
-	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
-	{
-		self->thinkTime = 30 + prand () % 60;
-	}
-	
-	self->mental--;
 }
 
 static void smallBounceAround()
 {
 	int y;
-	long onGround = (self->flags & ON_GROUND);
 
 	if (self->flags & ON_GROUND)
 	{
-		self->dirX = 0;
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 		
 		if (self->mental <= 0)
 		{
@@ -311,6 +299,8 @@ static void smallBounceAround()
 			
 			self->dirY = -(6 + prand() % 2);
 			
+			self->thinkTime = 30 + prand () % 60;
+			
 			if (prand() % 2 == 0)
 			{
 				self->face = LEFT;
@@ -343,11 +333,6 @@ static void smallBounceAround()
 	}
 
 	checkToMap(self);
-
-	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
-	{
-		self->thinkTime = 30 + prand () % 60;
-	}
 }
 
 static void takeDamage(Entity *other, int damage)
