@@ -289,20 +289,7 @@ static void iceBallMove()
 	
 	else if (self->standingOn != NULL)
 	{
-		if (self->health > 30)
-		{
-			self->health = 30;
-		}
-		
-		self->health--;
-		
-		if (self->thinkTime < 30)
-		{
-			if (self->thinkTime % 3 == 0)
-			{
-				self->flags ^= FLASH;
-			}
-		}
+		self->inUse = FALSE;
 	}
 	
 	else

@@ -35,6 +35,8 @@ static void touch(Entity *);
 static void addChain(void);
 static void chainWait(void);
 static int drawChain(void);
+static void addRay(void);
+static void rayWait(void);
 
 Entity *addMagnet(int x, int y, char *name)
 {
@@ -65,6 +67,8 @@ Entity *addMagnet(int x, int y, char *name)
 static void init()
 {
 	addChain();
+	
+	addRay();
 	
 	self->endY = getMapFloor(self->startX, self->startY);
 	
@@ -156,8 +160,6 @@ static void touch(Entity *other)
 
 static void chainWait()
 {
-	checkToMap(self);
-
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 	self->y = self->head->y - self->h;
 }
@@ -202,4 +204,44 @@ static int drawChain()
 	}
 
 	return TRUE;
+}
+
+static void addRay()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Magnet Ray");
+	}
+
+	loadProperties("item/magnet_ray", e);
+
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &rayWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->head = self;
+
+	setEntityAnimation(e, STAND);
+}
+
+static void rayWait()
+{
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+	self->y = self->head->y + self->head->h;
+	
+	if (self->head->active == TRUE)
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags |= NO_DRAW;
+	}
 }
