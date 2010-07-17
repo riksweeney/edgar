@@ -45,3 +45,8 @@ enemy/dark_summoner
 common/action_point
 door/skull_door
 item/attractor
+enemy/buzz_saw
+item/potion_dispenser
+item/slime_potion
+item/scale
+item/health_potion

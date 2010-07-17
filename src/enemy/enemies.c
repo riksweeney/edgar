@@ -80,6 +80,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "pendulum.h"
 #include "ice_tortoise.h"
 #include "splitter.h"
+#include "buzz_saw.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -206,7 +207,8 @@ static Constructor enemies[] = {
 {"enemy/ice_tortoise", &addIceTortoise},
 {"enemy/splitter", &addSplitter},
 {"enemy/splitter_medium", &addSplitterMedium},
-{"enemy/splitter_small", &addSplitterSmall}
+{"enemy/splitter_small", &addSplitterSmall},
+{"enemy/buzz_saw", &addBuzzSaw}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
