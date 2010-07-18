@@ -191,7 +191,8 @@ static Constructor items[] = {
 {"item/jigsaw_puzzle", &addJigsawPuzzle},
 {"item/jigsaw_puzzle_display", &addJigsawPuzzleDisplay},
 {"item/magnet", &addMagnet},
-{"item/attractor", &addAttractor}
+{"item/attractor", &addAttractor},
+{"item/horizontal_glass_wall", &addGlassWall}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
