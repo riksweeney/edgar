@@ -30,6 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../event/script.h"
 #include "../inventory.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 extern Input input;
@@ -127,7 +129,9 @@ static void readInputCode()
 		self->touch = NULL;
 		self->activate = NULL;
 		
-		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
+		fireTrigger(self->objectiveName);
+		
+		fireGlobalTrigger(self->objectiveName);
 		
 		return;
 	}

@@ -113,20 +113,41 @@ static void die()
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);
-
-	for (i=0;i<7;i++)
+	
+	if (strcmpignorecase(self->name, "item/horizontal_glass_wall") == 0)
 	{
-		e = addTemporaryItem("item/glass_wall_piece", self->x, self->y, RIGHT, 0, 0);
+		for (i=0;i<7;i++)
+		{
+			e = addTemporaryItem("item/horizontal_glass_wall_piece", self->x, self->y, RIGHT, 0, 0);
 
-		e->x += self->w / 2 - e->w / 2;
-		e->y += self->h / 2 - e->h / 2;
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
 
-		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
-		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+			setEntityAnimation(e, i);
 
-		e->thinkTime = 60 + (prand() % 60);
+			e->thinkTime = 60 + (prand() % 60);
+		}
+	}
+
+	else
+	{
+		for (i=0;i<7;i++)
+		{
+			e = addTemporaryItem("item/glass_wall_piece", self->x, self->y, RIGHT, 0, 0);
+
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
+
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimation(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+		}
 	}
 
 	self->inUse = FALSE;
