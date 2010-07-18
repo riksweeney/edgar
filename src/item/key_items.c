@@ -105,6 +105,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "jigsaw_puzzle_display.h"
 #include "magnet.h"
 #include "attractor.h"
+#include "cell_bars.h"
 
 extern Entity *self, player;
 
@@ -192,7 +193,8 @@ static Constructor items[] = {
 {"item/jigsaw_puzzle_display", &addJigsawPuzzleDisplay},
 {"item/magnet", &addMagnet},
 {"item/attractor", &addAttractor},
-{"item/horizontal_glass_wall", &addGlassWall}
+{"item/horizontal_glass_wall", &addGlassWall},
+{"item/cell_bars", &addCellBars}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

@@ -239,13 +239,13 @@ void loadMap(char *name, int loadEntityResources)
 				for (x=0;x<MAX_MAP_X;x++)
 				{
 					map.tile[y][x] = atoi(token);
-					
+					/*
 					if (map.tile[y][x] != 0 && map.tile[y][x] <= 3)
 					{
 						map.tile[y][x] = 1 + (prand() % 3);
 					}
-					/*
-					if (map.tile[y][x] >= 120 && map.tile[y][x] <= 122)
+					
+					if (map.tile[y][x] == 132)
 					{
 						if (prand() % 50 == 0)
 						{

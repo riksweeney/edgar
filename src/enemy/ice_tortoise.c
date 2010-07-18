@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../item/item.h"
 #include "../hud.h"
+#include "../map.h"
 #include "../projectile.h"
 
 extern Entity *self, player;
@@ -272,19 +273,29 @@ static void iceBallMove()
 	
 	if (self->flags & ON_GROUND)
 	{
-		self->layer = MID_GROUND_LAYER;
+		x = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
 		
-		x = self->x + self->w / 2;
+		if (x >= SOLID_TILE_START && x <= SOLID_TILE_END)
+		{
+			self->layer = MID_GROUND_LAYER;
+			
+			x = self->x + self->w / 2;
+			
+			setEntityAnimation(self, WALK);
+			
+			self->x = x - self->w / 2;
+			
+			self->action = &iceFloorWait;
+			
+			self->y++;
+			
+			self->thinkTime = 30;
+		}
 		
-		setEntityAnimation(self, WALK);
-		
-		self->x = x - self->w / 2; 
-		
-		self->action = &iceFloorWait;
-		
-		self->y++;
-		
-		self->thinkTime = 30;
+		else
+		{
+			self->inUse = FALSE;
+		}
 	}
 	
 	else if (self->standingOn != NULL)

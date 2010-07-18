@@ -113,13 +113,13 @@ void draw()
 
 					drawDecorations();
 
-					/* Draw the foreground map tiles */
-
-					drawMap(2);
-
 					/* Draw the Entities that appear in the foreground */
 
 					drawEntities(FOREGROUND_LAYER);
+					
+					/* Draw the foreground map tiles */
+
+					drawMap(2);
 
 					if (isDarkMap() == TRUE)
 					{
