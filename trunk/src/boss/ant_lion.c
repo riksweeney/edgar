@@ -235,6 +235,11 @@ static void attack()
 		if (self->type == PLAYER)
 		{
 			freeEntityList(playerGib());
+			
+			if (prand() % 3 == 0)
+			{
+				setInfoBoxMessage(300, 255, 255, 255, _("Try luring something else into the Ant Lion's pit..."));
+			}
 		}
 
 		else
