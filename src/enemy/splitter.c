@@ -509,26 +509,26 @@ static void smallDie()
 
 static void mediumInit()
 {
-	checkToMap(self);
-	
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
 		
 		self->action = &mediumBounceAround;
 	}
+	
+	checkToMap(self);
 }
 
 static void smallInit()
 {
-	checkToMap(self);
-	
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
 		
 		self->action = &smallBounceAround;
 	}
+	
+	checkToMap(self);
 }
 
 static void mediumBecomeLarge()
