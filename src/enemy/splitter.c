@@ -210,7 +210,7 @@ static void mediumBounceAround()
 			setCustomAction(self, &invulnerableNoFlash, 120, 0, 0);
 		}
 		
-		else if (self->thinkTime == 0)
+		else if (self->thinkTime <= 0)
 		{
 			if (prand() % 3 == 0)
 			{
@@ -285,7 +285,7 @@ static void smallBounceAround()
 			setCustomAction(self, &invulnerableNoFlash, 120, 0, 0);
 		}
 		
-		else if (self->thinkTime == 0)
+		else if (self->thinkTime <= 0)
 		{
 			if (prand() % 3 == 0)
 			{
