@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../graphics/decoration.h"
 #include "../game.h"
+#include "../hud.h"
 #include "../player.h"
 #include "../graphics/gib.h"
 #include "../system/error.h"
@@ -234,12 +235,7 @@ static void attack()
 
 		if (self->type == PLAYER)
 		{
-			freeEntityList(playerGib());
-			
-			if (prand() % 3 == 0)
-			{
-				setInfoBoxMessage(300, 255, 255, 255, _("Try luring something else into the Ant Lion's pit..."));
-			}
+			freeEntityList(playerGib());		
 		}
 
 		else
@@ -248,8 +244,6 @@ static void attack()
 		}
 
 		self = temp;
-
-		self->target = NULL;
 
 		self->action = &entityWait;
 
@@ -280,6 +274,11 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
+		if (self->target != NULL && self->target->type == PLAYER && (prand() % 2 == 0))
+		{
+			setInfoBoxMessage(300, 255, 255, 255, _("Try luring something else into the Ant Lion's pit..."));
+		}
+		
 		self->action = &leave;
 	}
 }
