@@ -2498,3 +2498,195 @@ msgstr ""
 msgid "A shield that can resist fire"
 msgstr ""
 
+msgid "Solve the jigsaw puzzle"
+msgstr ""
+
+msgid "Try luring something else into the Ant Lion's pit..."
+msgstr ""
+
+msgid "There must be a way to extingiush the flames..."
+msgstr ""
+
+msgid "Those flames are incredibly hot. I'll be burnt to cinders if I try and walk through them"
+msgstr ""
+
+msgid "There must be a way to cool them down..."
+msgstr ""
+
+msgid "I've found a way to kill the Centurions"
+msgstr ""
+
+msgid "They will reform unless one of their parts falls into the slime or lava"
+msgstr ""
+
+msgid "I managed to retrieve two of the puzzle pieces before I was caught and locked in here again"
+msgstr ""
+
+msgid "If I can break out of here again I'll be sure to escape"
+msgstr ""
+
+msgid "Otherwise I hope another unfortunate victim will find this information useful"
+msgstr ""
+
+msgid "There's a skull here"
+msgstr ""
+
+msgid "Looks like he didn't manage to get out..."
+msgstr ""
+
+msgid "If one of these sustains too much damage it will split once again"
+msgstr ""
+
+msgid "These versions are completely harmless and in this state can be simply stepped on"
+msgstr ""
+
+msgid "This might have come in handy when I was hunting for the Red Sludges"
+msgstr ""
+
+msgid "Still, there might be something else in these books worth reading..."
+msgstr ""
+
+msgid "Finally, we meet at last!"
+msgstr ""
+
+msgid "My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
+msgstr ""
+
+msgid "Fascinating. What do you want?"
+msgstr ""
+
+msgid "I've come to rescue my father, tell me where he is!"
+msgstr ""
+
+msgid "Your father? My dear child, I do not have the foggiest idea what you are talking about"
+msgstr ""
+
+msgid "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
+msgstr ""
+
+msgid "I've managed to escape from my cell and am trying to find a way out"
+msgstr ""
+
+msgid "I found a door blocked by a frame which you need to put 9 jigsaw puzzle pieces in"
+msgstr ""
+
+msgid "The pieces are locked behind doors which seem to be linked to the Red Centurions"
+msgstr ""
+
+msgid "The Centurions appear to be indestructable however"
+msgstr ""
+
+msgid "Unless I can find a way to destroy them I will die down here"
+msgstr ""
+
+msgid "I'll find a way to destroy them"
+msgstr ""
+
+msgid "I'm so close to rescuing Dad now..."
+msgstr ""
+
+msgid "Find 9 Puzzle Pieces"
+msgstr ""
+
+msgid "A jigsaw puzzle?!"
+msgstr ""
+
+msgid "I'm not really a fan of these"
+msgstr ""
+
+msgid "I prefer the sliding puzzles, like the one I had to solve to get the Lightning Sword"
+msgstr ""
+
+msgid "Still, it looks like this is the only way out"
+msgstr ""
+
+msgid "Looks like I need 9 pieces to slot into the frame"
+msgstr ""
+
+msgid "The frame is empty"
+msgstr ""
+
+msgid "Hopefully the pieces I need are around somewhere, otherwise I'm going to die down here"
+msgstr ""
+
+msgid "I've got all the pieces, I just need to place them in the frame and solve the puzzle"
+msgstr ""
+
+msgid "Push left, right, up or down to move the cursor"
+msgstr ""
+
+msgid "Press Attack to select the current piece and move it around"
+msgstr ""
+
+msgid "Press Attack again to stop moving the current piece"
+msgstr ""
+
+msgid "Press Action to quit the puzzle"
+msgstr ""
+
+msgid "Ugh, I'm getting really fed up of waking up in strange places with my eyes spinning around"
+msgstr ""
+
+msgid "Oh no, I'm trapped!"
+msgstr ""
+
+msgid "There must be a way to get this door open"
+msgstr ""
+
+msgid "Wait, perhaps that button unlocks it"
+msgstr ""
+
+msgid "If only I could reach it..."
+msgstr ""
+
+msgid "I thought I felt something. There's a draft here..."
+msgstr ""
+
+msgid "Is this what I think it is?"
+msgstr ""
+
+msgid "It is! It's an Amulet of Ressurection!"
+msgstr ""
+
+msgid "Borgan has one of these, but it's been used up. He must have had a lucky escape from something."
+msgstr ""
+
+msgid "This should make my quest a lot easier"
+msgstr ""
+
+msgid "The Amulet of Ressurection will restore all your health once when it drops to 0"
+msgstr ""
+
+msgid "However, it will not save you from anything that causes instant death, such as lava or certain boss attacks"
+msgstr ""
+
+msgid "I need all 9 puzzle pieces"
+msgstr ""
+
+msgid "Using an item you have picked up is simple"
+msgstr ""
+
+msgid "Open your inventory (z) and use the arrow keys to highlight the bomb"
+msgstr ""
+
+msgid "Now press Attack (left ctrl) or Use Item (a) to select it"
+msgstr ""
+
+msgid "Now close the inventory (z)"
+msgstr ""
+
+msgid "You can now use the item by pressing Use Item (a)"
+msgstr ""
+
+msgid "Try it with the bomb, but make sure you stand well back!"
+msgstr ""
+
+msgid "While you are in the inventory screen, the action is paused so you can take your time"
+msgstr ""
+
+msgid "Some items, such as health potions and weapons can be used in the inventory screen, so there is no need to exit the inventory"
+msgstr ""
+
+msgid "A piece of a puzzle"
+msgstr ""
+

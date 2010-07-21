@@ -154,7 +154,7 @@ static void activate(int val)
 
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
-		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : 1), self->target->x, self->target->y, 0);
+		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
 	}
 
 	else if (self->target->type == PLAYER)
@@ -172,7 +172,7 @@ static void activate(int val)
 
 		addParticleExplosion(self->target->x + self->target->w / 2, self->target->y + self->target->h / 2);
 
-		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : 1), self->target->x, self->target->y, 0);
+		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
 	}
 
 	self->target->standingOn = NULL;

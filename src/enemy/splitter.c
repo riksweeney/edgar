@@ -382,6 +382,8 @@ static void takeDamage(Entity *other, int damage)
 			e->dirX /= 10;
 			e->dirY /= 10;
 			
+			e->flags |= DO_NOT_PERSIST;
+			
 			e = addSplitterMedium(self->x, self->y, "enemy/splitter_medium");
 			
 			e->action = &mediumInit;
@@ -396,6 +398,8 @@ static void takeDamage(Entity *other, int damage)
 			
 			e->dirX /= 10;
 			e->dirY /= 10;
+			
+			e->flags |= DO_NOT_PERSIST;
 			
 			self->inUse = FALSE;
 		}
@@ -451,7 +455,7 @@ static void mediumTakeDamage(Entity *other, int damage)
 			e->dirX /= 10;
 			e->dirY /= 10;
 			
-			self->inUse = FALSE;
+			e->flags |= DO_NOT_PERSIST;
 			
 			e = addSplitterSmall(self->x, self->y, "enemy/splitter_small");
 			
@@ -467,6 +471,8 @@ static void mediumTakeDamage(Entity *other, int damage)
 			
 			e->dirX /= 10;
 			e->dirY /= 10;
+			
+			e->flags |= DO_NOT_PERSIST;
 			
 			self->inUse = FALSE;
 		}
