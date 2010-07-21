@@ -226,7 +226,7 @@ static void teleportPlayer()
 
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 		
-		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : 1), self->target->x, self->target->y, 0);
+		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
 		
 		self->target = NULL;
 	}

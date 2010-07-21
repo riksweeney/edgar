@@ -251,8 +251,6 @@ static void reset(int val)
 		self->thinkTime = 120;
 
 		e = self->health < 0 ? getEntityByRequiredName(self->objectiveName) : getEntityByObjectiveName(self->objectiveName);
-		
-		printf("Health is %d\n", self->health);
 
 		if (e != NULL && e->fallout != NULL)
 		{
