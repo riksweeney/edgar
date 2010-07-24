@@ -652,7 +652,7 @@ void resetGameSettings()
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
 	game.medalSupport = TRUE;
-	game.audioBuffer = 1024;
+	game.audioBuffer = 512;
 }
 
 void writeGameSettingsToFile(FILE *fp)
@@ -729,7 +729,7 @@ void readGameSettingsFromFile(char *buffer)
 			
 			if (game.audioBuffer == 0)
 			{
-				game.audioBuffer = 1024;
+				game.audioBuffer = 512;
 			}
 		}
 
