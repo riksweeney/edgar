@@ -36,3 +36,4 @@ TALK Evil_Edgar I'll collect his corpse later. The equipment in the lab should b
 WALK_TO EVIL_EDGAR_2 9550 12170 WAIT
 KILL EVIL_EDGAR_2
 LOAD_LEVEL map14 borer_entrance
+WAIT 300

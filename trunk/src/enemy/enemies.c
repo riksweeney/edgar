@@ -101,6 +101,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/evil_edgar.h"
 #include "../boss/borer_boss.h"
 #include "../boss/phoenix.h"
+#include "../boss/sorceror.h"
 
 #include "../system/error.h"
 
@@ -208,7 +209,8 @@ static Constructor enemies[] = {
 {"enemy/splitter", &addSplitter},
 {"enemy/splitter_medium", &addSplitterMedium},
 {"enemy/splitter_small", &addSplitterSmall},
-{"enemy/buzz_saw", &addBuzzSaw}
+{"enemy/buzz_saw", &addBuzzSaw},
+{"boss/sorceror", &addSorceror}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
