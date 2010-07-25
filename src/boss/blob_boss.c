@@ -1598,7 +1598,7 @@ static void die()
 
 	self->action = &dieSink;
 
-	/*self->layer = BACKGROUND_LAYER;*/
+	self->layer = BACKGROUND_LAYER;
 }
 
 static void dieSink()
