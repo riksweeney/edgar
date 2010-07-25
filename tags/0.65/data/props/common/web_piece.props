@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/web_piece.dat
+ANIM_FILE data/anim/misc/web_piece.dat
+TYPE ITEM
+DAMAGE 0
+THINKTIME 300

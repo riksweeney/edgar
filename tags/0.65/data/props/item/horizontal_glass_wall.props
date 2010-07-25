@@ -1,0 +1,8 @@
+GFX_FILE data/gfx/item/horizontal_glass_wall.dat
+ANIM_FILE data/anim/item/glass_wall.dat
+TYPE KEY_ITEM
+ALPHA 160
+ACTIVE FALSE
+MAX_THINKTIME 300
+THINKTIME 300
+FLAGS OBSTACLE|FLY
