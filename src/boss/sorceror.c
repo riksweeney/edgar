@@ -45,8 +45,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
-static void init();
-static void sit();
+static void init(void);
+static void sit(void);
+static void sit2(void);
 static void dungeonTeleportInit(void);
 static void dungeonTeleportWait(void);
 static void teleportPlayerToDungeon(Entity *);
@@ -87,6 +88,10 @@ static void init()
 			self->action = &sit;
 		break;
 		
+		case -4:
+			self->action = &sit2;
+		break;
+		
 		default:
 			self->action = &sit;
 		break;
@@ -103,6 +108,11 @@ static void sit()
 		
 		self->action = &dungeonTeleportInit;
 	}
+}
+
+static void sit2()
+{
+	
 }
 
 static void dungeonTeleportInit()

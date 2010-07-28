@@ -1367,10 +1367,13 @@ static void resetPlayer()
 	player.draw = &drawLoopingAnimationToMap;
 
 	getCheckpoint(&player.x, &player.y);
-
-	centerMapOnEntity(&player);
-
-	cameraSnapToTargetEntity();
+	
+	if (game.canContinue == TRUE)
+	{
+		centerMapOnEntity(&player);
+		
+		cameraSnapToTargetEntity();
+	}
 
 	player.action = NULL;
 

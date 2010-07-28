@@ -201,6 +201,7 @@ static void createIce()
 	e->action = &iceBallMove;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->fallout = &entityDieNoDrop;
 	
 	e = getFreeEntity();
 	
@@ -222,6 +223,7 @@ static void createIce()
 	e->action = &iceBallMove;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->fallout = &entityDieNoDrop;
 	
 	self->frameSpeed = 1;
 

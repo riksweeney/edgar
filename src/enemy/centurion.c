@@ -57,6 +57,7 @@ static void explosionAttackFinish(void);
 static void explosionMove(void);
 static void explode(void);
 static void explosionTouch(Entity *);
+static void redTakeDamage(Entity *, int);
 
 Entity *addCenturion(int x, int y, char *name)
 {
@@ -76,7 +77,7 @@ Entity *addCenturion(int x, int y, char *name)
 	e->die = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redDie : &die;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->takeDamage = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redTakeDamage : &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 
 	e->type = ENEMY;
@@ -486,6 +487,8 @@ static void reform()
 {
 	if (self->health == -1)
 	{
+		increaseKillCount();
+		
 		dropRandomItem(self->x + self->w / 2, self->y);
 		
 		self->action = &entityDieVanish;
@@ -596,4 +599,46 @@ static void pieceFallout()
 	self->head->health = -1;
 	
 	self->inUse = FALSE;
+}
+
+static void redTakeDamage(Entity *other, int damage)
+{
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (other->type == PROJECTILE)
+		{
+			other->target = self;
+		}
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->damage = 0;
+
+			self->die();
+		}
+	}
 }

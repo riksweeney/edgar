@@ -280,6 +280,8 @@ static void smallBounceAround()
 			
 			self->action = &smallBecomeMedium;
 			
+			self->touch = &entityTouch;
+			
 			self->thinkTime = 120;
 			
 			setCustomAction(self, &invulnerableNoFlash, 120, 0, 0);
