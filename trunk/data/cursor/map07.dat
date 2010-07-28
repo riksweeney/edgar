@@ -29,3 +29,8 @@ item/health_potion
 weapon/pickaxe
 enemy/scorpion
 common/reset_switch
+item/extend_o_grab
+wall/sewer_boss_weak_wall
+item/tortoise_statue
+item/water_purifier
+item/slime_potion

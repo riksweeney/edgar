@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "hud.h"
 #include "system/error.h"
 #include "game.h"
+#include "world/action_point.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1415,6 +1416,16 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "ENEMY") == 0)
 	{
 		addEnemy(entityName, x, y);
+	}
+	
+	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)
+	{
+		e = addActionPoint("common/action_point", x, y);
+		
+		if (strcmpignorecase(objectiveName, " ") != 0)
+		{
+			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+		}
 	}
 
 	else

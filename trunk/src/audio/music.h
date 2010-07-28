@@ -24,7 +24,6 @@ void playBossMusic(char *);
 void playDefaultBossMusic(void);
 void stopMusic(void);
 void pauseMusic(int);
-void loadBossMusic(char *);
 void fadeOutMusic(int);
 void fadeInMusic(int);
 void setMusicVolume(void);

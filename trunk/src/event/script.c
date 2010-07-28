@@ -382,6 +382,18 @@ void readNextScriptLine()
 				}
 			}
 			
+			else if (strcmpignorecase(token, "CAMERA_NOT_AT_MINIMUM") == 0)
+			{
+				if (cameraAtMinimum() == FALSE)
+				{
+					freeDialogBox();
+
+					script.thinkTime = 15;
+
+					script.line--;
+				}
+			}
+			
 			else
 			{
 				e = getEntityByObjectiveName(token);

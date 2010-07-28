@@ -1,0 +1,11 @@
+TALK Edgar Oh, what's this?
+WALK_TO EDGAR 22486 4394 WAIT
+TALK Edgar Wow, what a nice ring
+WAIT 30
+TALK Edgar Hang on a second, Maggie told me to always ask if someone had lost something before taking it...
+SET EDGAR FACE LEFT
+WAIT 30
+TALK Edgar ANYONE LOST A RING?!
+WAIT 60
+TALK Edgar No one? Guess it's mine then!
+ADD MAP_TRIGGER "map09" RUN_SCRIPT "dungeon_escape"

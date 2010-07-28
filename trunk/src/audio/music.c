@@ -68,11 +68,6 @@ void freeMusic()
 
 void playLoadedMusic()
 {
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-	
 	if (strcmpignorecase(musicName, "NO_MUSIC") == 0)
 	{
 		return;
@@ -87,11 +82,6 @@ void playLoadedMusic()
 
 void playMapMusic()
 {
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-	
 	loadMusic(getMapMusic());
 	
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
@@ -139,14 +129,7 @@ void pauseMusic(int pause)
 
 void playDefaultBossMusic()
 {
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-
-	freeMusic();
-
-	loadBossMusic("music/terrortech_inc_.xm");
+	loadMusic("music/terrortech_inc_.xm");
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 	
@@ -162,14 +145,7 @@ void playDefaultBossMusic()
 
 void playBossMusic(char *name)
 {
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-
-	freeMusic();
-
-	loadBossMusic(name);
+	loadMusic(name);
 
 	Mix_VolumeMusic(MIX_MAX_VOLUME);
 	
@@ -181,25 +157,6 @@ void playBossMusic(char *name)
 	#endif
 	
 	Mix_PlayMusic(music, -1);
-}
-
-void loadBossMusic(char *name)
-{
-	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
-	
-	if (game.audio == FALSE || game.musicDefaultVolume == 0)
-	{
-		return;
-	}
-
-	freeMusic();
-
-	music = loadMusicFromPak(name);
-
-	if (music == NULL)
-	{
-		printf("Could not load music file %s: %s\n", name, Mix_GetError());
-	}
 }
 
 void resumeMusic()
