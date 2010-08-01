@@ -520,7 +520,7 @@ static void reformFinish()
 		
 		self->damage = 1;
 		
-		self->takeDamage = &entityTakeDamageNoFlinch;
+		self->takeDamage = &redTakeDamage;
 		
 		setEntityAnimation(self, STAND);
 	}
@@ -559,12 +559,12 @@ static void pieceWait()
 		self->touch = NULL;
 	}
 	
-	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) && !(self->flags & FLY))
 	{
 		self->dirX = 0;
 	}
+	
+	checkToMap(self);
 }
 
 static void pieceReform()

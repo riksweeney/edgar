@@ -176,7 +176,7 @@ void setPlayerShieldName(char *name)
 
 void doPlayer()
 {
-	int i, j, minX, maxX;
+	int i, j;
 	long travelled;
 	
 	travelled = game.distanceTravelled;
@@ -616,23 +616,6 @@ void doPlayer()
 	else
 	{
 		doTeleport();
-	}
-	
-	minX = getPlayerMinX();
-	maxX = getPlayerMaxX();
-	
-	if (player.x < minX)
-	{
-		player.x = minX;
-		
-		player.dirX = 0;
-	}
-	
-	else if (player.x + player.w >= maxX)
-	{
-		player.x = maxX - player.w - 1;
-		
-		player.dirX = 0;
 	}
 }
 

@@ -30,10 +30,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../game.h"
 #include "../map.h"
+#include "../hud.h"
 #include "../world/target.h"
 #include "../world/explosion.h"
 #include "../player.h"
+#include "../world/explosion.h"
 #include "../geometry.h"
+#include "../inventory.h"
 #include "../item/item.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
@@ -63,6 +66,18 @@ static void explosionMove(void);
 static void explode(void);
 static void explosionTouch(Entity *);
 static void takeDamage(Entity *, int);
+static void addHead(void);
+static void headWait(void);
+static void headFallOff(void);
+static void retrieveHead(void);
+static void headTakeDamage(Entity *, int);
+static void headReturnToBody(void);
+static void bodyWait(void);
+static void miniCenturionAttackInit(void);
+static Entity *addMiniCenturion(void);
+static void explodeWalk(void);
+static void miniCenturionAttack(void);
+static void miniCenturionAttackFinish(void);
 
 Entity *addGoldCenturionBoss(int x, int y, char *name)
 {
@@ -70,7 +85,7 @@ Entity *addGoldCenturionBoss(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add the Gold Centurion Boss");
+		showErrorAndExit("No free slots to add the Centurion Boss");
 	}
 
 	loadProperties(name, e);
@@ -97,6 +112,8 @@ static void initialise()
 	{
 		self->flags &= ~NO_DRAW;
 		
+		addHead();
+		
 		self->thinkTime = 60;
 		
 		self->action = &doIntro;
@@ -105,7 +122,7 @@ static void initialise()
 		
 		if (t == NULL)
 		{
-			showErrorAndExit("Gold Centurion Boss cannot find target");
+			showErrorAndExit("Centurion Boss cannot find target");
 		}
 		
 		self->targetX = t->x;
@@ -153,6 +170,10 @@ static void doIntro()
 		self->mental = 1;
 		
 		self->action = &entityWait;
+		
+		self->startX = 60 * 60;
+		
+		self->startY = 0;
 	}
 }
 
@@ -162,6 +183,8 @@ static void entityWait()
 	
 	if (self->mental == 2)
 	{
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		
 		playDefaultBossMusic();
 		
 		self->action = &lookForPlayer;
@@ -176,7 +199,7 @@ static void entityWait()
 
 static void lookForPlayer()
 {
-	int minX, maxX;
+	int r, minX, maxX;
 	
 	minX = getCameraMinX();
 	
@@ -237,32 +260,36 @@ static void lookForPlayer()
 		self->thinkTime = 0;
 	}
 	
-	if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0)
+	if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0
+		&& collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
-		if (prand() % 2 == 0)
+		r = prand() % 2;
+		
+		switch (r)
 		{
-			if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
-			{
+			case 0:
 				self->action = &explosionAttackInit;
 				
-				if (!(self->flags & ATTRACTED))
-				{
-					self->dirX = 0;
-				}
-			}
-		}
-		
-		else
-		{
-			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
-			{
+				self->dirX = 0;
+			break;
+			
+			default:
 				self->action = &stompAttackInit;
 				
-				if (!(self->flags & ATTRACTED))
-				{
-					self->dirX = 0;
-				}
-			}
+				self->dirX = 0;
+			break;
+		}
+	}
+	
+	if (self->startY == 0)
+	{
+		self->startX--;
+		
+		if (self->startX <= 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("An arrow to the head might work..."));
+			
+			self->startX = 60 * 60;
 		}
 	}
 }
@@ -302,7 +329,7 @@ static void stompAttackFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, WALK);
 
 		self->action = &lookForPlayer;
 
@@ -370,7 +397,7 @@ static void explosionAttackFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, WALK);
 
 		self->action = &lookForPlayer;
 
@@ -470,7 +497,7 @@ static void die()
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
 
-	snprintf(name, sizeof(name), "%s_piece", self->name);
+	snprintf(name, sizeof(name), "boss/gold_centurion_boss_piece");
 
 	for (i=0;i<9;i++)
 	{
@@ -553,7 +580,7 @@ static void reformFinish()
 		
 		self->flags &= ~NO_DRAW;
 		
-		self->action = &lookForPlayer;
+		self->action = &miniCenturionAttackInit;
 		
 		facePlayer();
 		
@@ -561,7 +588,7 @@ static void reformFinish()
 		
 		self->damage = 1;
 		
-		self->takeDamage = &entityTakeDamageNoFlinch;
+		self->takeDamage = &takeDamage;
 		
 		setEntityAnimation(self, STAND);
 	}
@@ -600,12 +627,12 @@ static void pieceWait()
 		self->touch = NULL;
 	}
 	
-	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) && !(self->flags & FLY))
 	{
 		self->dirX = 0;
 	}
+	
+	checkToMap(self);
 }
 
 static void pieceReform()
@@ -680,6 +707,469 @@ static void takeDamage(Entity *other, int damage)
 			self->damage = 0;
 
 			self->die();
+		}
+	}
+}
+
+static void addHead()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Centurion Boss Head");
+	}
+
+	loadProperties("boss/centurion_boss_head", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &headWait;
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &entityTouch;
+	e->takeDamage = &headTakeDamage;
+
+	e->type = ENEMY;
+	
+	e->head = self;
+
+	setEntityAnimation(e, STAND);
+}
+
+static void headWait()
+{	
+	self->frameTimer = self->head->frameTimer;
+	self->currentFrame = self->head->currentFrame;
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	self->face = self->head->face;
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+	
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+	
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	self->y = self->head->y + self->offsetY;
+}
+
+static void headTakeDamage(Entity *other, int damage)
+{
+	Entity *e;
+	
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (strcmpignorecase(other->name, "weapon/normal_arrow") == 0)
+	{
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+
+			enemyPain();
+		}
+
+		else
+		{
+			self->dirX = prand() % 2 == 0 ? -5 : 5;
+			
+			self->dirY = ITEM_JUMP_HEIGHT;
+			
+			self->action = &headFallOff;
+			
+			self->takeDamage = NULL;
+			
+			self->flags &= ~FLY;
+			
+			self->head->action = &retrieveHead;
+			
+			self->head->dirX = 0;
+			
+			self->head->damage = 0;
+			
+			self->target = self->head;
+			
+			self->head->target = self;
+			
+			self->head->takeDamage = NULL;
+			
+			self->head->thinkTime = 120;
+			
+			setEntityAnimation(self->head, STAND);
+			
+			self->head->animationCallback = NULL;
+			
+			self->mental = 0;
+			
+			/* Drop the cell */
+			
+			if (getInventoryItem("Power Cell") == NULL && getEntityByName("item/power_cell") == NULL)
+			{
+				e = addPermanentItem("item/power_cell", self->x, self->y);
+				
+				e->x += self->w / 2 - e->w / 2;
+				
+				e->dirX = self->dirX < 0 ? 5 : -5;
+				
+				e->dirY = ITEM_JUMP_HEIGHT;
+			}
+			
+			self->head->startY = 1;
+		}
+	}
+}
+
+static void headFallOff()
+{
+	int i, minX, maxX;
+	
+	minX = getCameraMinX();
+	
+	maxX = getCameraMaxX();
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+		
+		if (collision(self->x, self->y, self->w, self->h, self->head->x, self->head->y, self->head->w, self->head->h) == 1)
+		{
+			self->thinkTime = 60;
+			
+			self->action = &headReturnToBody;
+			
+			self->head->action = &bodyWait;
+			
+			setEntityAnimation(self->head, STAND);
+			
+			self->face = self->head->face;
+			
+			if (self->face == LEFT)
+			{
+				self->targetX = self->head->x + self->head->w - self->w - self->offsetX;
+			}
+
+			else
+			{
+				self->targetX = self->head->x + self->offsetX;
+			}
+			
+			self->targetY = self->head->y + self->offsetY;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 3;
+			self->dirY *= 3;
+			
+			self->head->dirX = 0;
+			
+			self->head->mental = 0;
+			
+			self->flags |= FLY;
+		}
+		
+		if (self->mental == 0)
+		{
+			self->mental = 1;
+			
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			
+			for (i=0;i<5;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+		}
+	}
+	
+	checkToMap(self);
+	
+	if (self->x < minX)
+	{
+		self->dirX = 0;
+		
+		self->x = minX;
+	}
+	
+	else if (self->x + self->w > maxX)
+	{
+		self->dirX = 0;
+		
+		self->x = maxX - self->w;
+	}
+}
+
+
+static void retrieveHead()
+{
+	int minX, maxX;
+	
+	minX = getCameraMinX();
+	
+	maxX = getCameraMaxX();
+	
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		checkToMap(self);
+		
+		if (self->thinkTime <= 0)
+		{
+			self->face = self->target->x < self->x ? LEFT : RIGHT;
+			
+			setEntityAnimation(self, WALK);
+			
+			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		}
+	}
+	
+	else
+	{	
+		if (self->maxThinkTime == 1)
+		{
+			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		}
+		
+		if (self->currentFrame == 2 || self->currentFrame == 5)
+		{
+			if (self->maxThinkTime == 0)
+			{
+				if (self->flags & ON_GROUND)
+				{
+					playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+				}
+
+				self->maxThinkTime = 1;
+			}
+			
+			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+		}
+
+		else
+		{
+			self->maxThinkTime = 0;
+		}
+
+		if (self->maxThinkTime == 0 && (self->dirX == 0 || isAtEdge(self) == TRUE))
+		{
+			self->dirX = (self->face == RIGHT ? -self->speed : self->speed);
+
+			self->face = (self->face == RIGHT ? LEFT : RIGHT);
+		}
+		
+		checkToMap(self);
+		
+		if (self->x < minX)
+		{
+			self->dirX = 0;
+			
+			self->x = minX;
+		}
+		
+		else if (self->x + self->w > maxX)
+		{
+			self->dirX = 0;
+			
+			self->x = maxX - self->w;
+		}
+	}
+}
+
+static void bodyWait()
+{
+	checkToMap(self);
+	
+	if (self->mental == 1)
+	{
+		self->damage = 1;
+		
+		self->takeDamage = &takeDamage;
+		
+		setEntityAnimation(self, WALK);
+		
+		self->action = &lookForPlayer;
+	}
+}
+
+static void headReturnToBody()
+{
+	self->thinkTime--;
+	
+	checkToMap(self);
+	
+	if (atTarget() || self->thinkTime <= 0)
+	{
+		self->head->mental = 1;
+		
+		self->action = &headWait;
+		self->takeDamage = &headTakeDamage;
+		
+		self->health = self->maxHealth;
+	}
+}
+
+static void miniCenturionAttackInit()
+{
+	setEntityAnimation(self, STAND);
+	
+	self->thinkTime = 20;
+	
+	self->mental = 3 + prand() % 3;
+	
+	self->action = &miniCenturionAttack;
+	
+	self->dirX = 0;
+}
+
+static void miniCenturionAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = addMiniCenturion();
+		
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->face = self->face == LEFT ? RIGHT : LEFT;
+		
+		e->dirX = (e->face == LEFT ? -4 : 4);
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->action = &miniCenturionAttackFinish;
+			
+			self->thinkTime = 60;
+		}
+		
+		else
+		{
+			self->thinkTime = 20;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void miniCenturionAttackFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, WALK);
+
+		self->action = &lookForPlayer;
+
+		self->thinkTime = 60;
+
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+}
+
+static Entity *addMiniCenturion()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Mini Centurion");
+	}
+	
+	if (prand() % 4 == 0)
+	{
+		loadProperties("enemy/mini_red_centurion", e);
+		
+		e->action = &explodeWalk;
+	}
+	
+	else
+	{
+		loadProperties("enemy/mini_centurion", e);
+		
+		e->action = &moveLeftToRight;
+	}
+	
+	e->x = self->x;
+	e->y = self->y;
+
+	e->type = ENEMY;
+	
+	e->flags |= LIMIT_TO_SCREEN;
+
+	setEntityAnimation(e, STAND);
+	
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &entityTouch;
+	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->die = &entityDie;
+	e->fallout = &entityDie;
+	e->reactToBlock = &changeDirection;
+	e->pain = &enemyPain;
+	
+	return e;
+}
+
+static void explodeWalk()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	moveLeftToRight();
+	
+	if (self->thinkTime <= 60)
+	{
+		if (self->thinkTime % 3 == 0)
+		{
+			self->flags ^= FLASH;
+		}
+		
+		if (self->thinkTime <= 0)
+		{
+			e = addExplosion(self->x, self->y);
+			
+			e->x = self->x - self->w / 2 + e->w / 2;
+			e->y = self->y - self->h / 2 + e->h / 2;
+			
+			e->damage = 1;
+			
+			self->inUse = FALSE;
 		}
 	}
 }
