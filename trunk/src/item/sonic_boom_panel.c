@@ -100,8 +100,12 @@ static void activate(int val)
 				
 				setEntityAnimation(self, self->mental);
 				
-				if (self->mental == self->head->mental)
+				if (self->mental == 3 && self->mental == self->head->mental)
 				{
+					self->active = FALSE;
+					
+					self->head->active = FALSE;
+					
 					self->action = &beginCountdown;
 					
 					self->thinkTime = 60;
@@ -140,12 +144,14 @@ static void beginCountdown()
 		{
 			self->action = &sonicBoom;
 		}
+		
+		self->thinkTime = 60;
 	}
 }
 
 static void sonicBoom()
 {
-	activateEntitiesWithRequiredName("SONIC BOOM", TRUE);
+	activateEntitiesWithRequiredName("SONIC_BOOM", TRUE);
 	
 	self->action = &entityWait;
 }

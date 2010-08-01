@@ -636,6 +636,8 @@ static void redTakeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->animationCallback = NULL;
+			
 			self->damage = 0;
 
 			self->die();

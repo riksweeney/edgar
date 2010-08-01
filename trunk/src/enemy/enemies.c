@@ -102,7 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/borer_boss.h"
 #include "../boss/phoenix.h"
 #include "../boss/sorceror.h"
-#include "../boss/gold_centurion_boss.h"
+#include "../boss/centurion_boss.h"
 
 #include "../system/error.h"
 
@@ -212,7 +212,7 @@ static Constructor enemies[] = {
 {"enemy/splitter_small", &addSplitterSmall},
 {"enemy/buzz_saw", &addBuzzSaw},
 {"boss/sorceror", &addSorceror},
-{"boss/centurion_boss", &addGoldCenturionBoss}
+{"boss/centurion_boss", &addCenturionBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
