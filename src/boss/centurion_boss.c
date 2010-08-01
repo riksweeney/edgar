@@ -75,11 +75,14 @@ static void headReturnToBody(void);
 static void bodyWait(void);
 static void miniCenturionAttackInit(void);
 static Entity *addMiniCenturion(void);
-static void explodeWalk(void);
+static void miniWalk(void);
 static void miniCenturionAttack(void);
-static void miniCenturionAttackFinish(void);
+static void miniAttackWait(void);
+static void miniAttackFinish(void);
+static void fallout(void);
+static void lavaDie(void);
 
-Entity *addGoldCenturionBoss(int x, int y, char *name)
+Entity *addCenturionBoss(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -96,6 +99,7 @@ Entity *addGoldCenturionBoss(int x, int y, char *name)
 	e->action = &initialise;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -118,7 +122,7 @@ static void initialise()
 		
 		self->action = &doIntro;
 		
-		t = getTargetByName("GOLD_CENTURION_TARGET");
+		t = getTargetByName("CENTURION_INTRO_TARGET");
 		
 		if (t == NULL)
 		{
@@ -518,8 +522,6 @@ static void die()
 		e->head = self;
 	}
 	
-	self->endX = self->damage;
-	
 	self->damage = 0;
 	
 	self->health = 0;
@@ -541,10 +543,22 @@ static void die()
 
 static void dieWait()
 {
+	Target *t;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
+		t = getTargetByName(prand() % 2 == 0 ? "CENTURION_TARGET_LEFT" : "CENTURION_TARGET_RIGHT");
+		
+		if (t == NULL)
+		{
+			showErrorAndExit("Centurion Boss cannot find target");
+		}
+		
+		self->x = t->x;
+		self->y = t->y;
+		
 		self->mental = 0;
 		
 		self->thinkTime = 9;
@@ -584,9 +598,9 @@ static void reformFinish()
 		
 		facePlayer();
 		
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
 		self->damage = 1;
+		
+		self->thinkTime = 20 * 60;
 		
 		self->takeDamage = &takeDamage;
 		
@@ -619,8 +633,8 @@ static void pieceWait()
 		
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-		self->dirX *= 4;
-		self->dirY *= 4;
+		self->dirX *= 12;
+		self->dirY *= 12;
 		
 		self->flags |= FLY;
 		
@@ -704,6 +718,8 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->animationCallback = NULL;
+			
 			self->damage = 0;
 
 			self->die();
@@ -1064,42 +1080,32 @@ static void miniCenturionAttack()
 		
 		e->y = self->y + self->h / 2 - e->h / 2;
 		
-		e->face = self->face == LEFT ? RIGHT : LEFT;
+		e->face = self->face;
 		
-		e->dirX = (e->face == LEFT ? -4 : 4);
+		e->dirX = (e->face == LEFT ? -e->speed : e->speed);
+		
+		e->dirY = -8;
+		
+		e->head = self;
 		
 		self->mental--;
 		
 		if (self->mental <= 0)
 		{
-			self->action = &miniCenturionAttackFinish;
+			self->action = &miniAttackWait;
 			
-			self->thinkTime = 60;
+			self->thinkTime = 60 * 20;
+			
+			self->endX = 600;
 		}
 		
 		else
 		{
-			self->thinkTime = 20;
+			self->thinkTime = 60;
 		}
 	}
 	
 	checkToMap(self);
-}
-
-static void miniCenturionAttackFinish()
-{
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
-	{
-		setEntityAnimation(self, WALK);
-
-		self->action = &lookForPlayer;
-
-		self->thinkTime = 60;
-
-		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
-	}
 }
 
 static Entity *addMiniCenturion()
@@ -1115,14 +1121,12 @@ static Entity *addMiniCenturion()
 	{
 		loadProperties("enemy/mini_red_centurion", e);
 		
-		e->action = &explodeWalk;
+		e->mental = -1;
 	}
 	
 	else
 	{
 		loadProperties("enemy/mini_centurion", e);
-		
-		e->action = &moveLeftToRight;
 	}
 	
 	e->x = self->x;
@@ -1134,6 +1138,7 @@ static Entity *addMiniCenturion()
 
 	setEntityAnimation(e, STAND);
 	
+	e->action = &miniWalk;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
@@ -1145,31 +1150,148 @@ static Entity *addMiniCenturion()
 	return e;
 }
 
-static void explodeWalk()
+static void miniWalk()
 {
 	Entity *e;
 	
+	if (self->flags & ON_GROUND)
+	{
+		moveLeftToRight();
+		
+		/* Prevent the Boss from attack while there are minis on the screen */
+		
+		self->head->endX = 30;
+		
+		if (self->mental == -1)
+		{
+			self->thinkTime--;
+			
+			if (self->thinkTime <= 60)
+			{
+				if (self->thinkTime % 3 == 0)
+				{
+					self->flags ^= FLASH;
+				}
+				
+				if (self->thinkTime <= 0)
+				{
+					e = addExplosion(self->x, self->y);
+					
+					e->x = self->x - self->w / 2 + e->w / 2;
+					e->y = self->y - self->h / 2 + e->h / 2;
+					
+					e->damage = 1;
+					
+					self->inUse = FALSE;
+				}
+			}
+		}
+	}
+	
+	else
+	{
+		checkToMap(self);
+	}
+}
+
+static void miniAttackWait()
+{
 	self->thinkTime--;
 	
-	moveLeftToRight();
+	self->endX--;
 	
-	if (self->thinkTime <= 60)
+	if (self->endX <= 0 || self->thinkTime <= 0)
 	{
-		if (self->thinkTime % 3 == 0)
+		setEntityAnimation(self, WALK);
+		
+		if (self->currentFrame == 2 || self->currentFrame == 5)
 		{
-			self->flags ^= FLASH;
+			if (self->maxThinkTime == 0)
+			{
+				playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+
+				self->maxThinkTime = 1;
+			}
+
+			self->dirX = 0;
 		}
+
+		else
+		{
+			self->maxThinkTime = 0;
+		}
+		
+		checkToMap(self);
+
+		if (self->currentFrame == 2 || self->currentFrame == 5)
+		{
+			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+		}
+	}
+	
+	else
+	{
+		checkToMap(self);
+	}
+	
+	if (!(self->flags & ON_GROUND))
+	{
+		self->thinkTime = 30;
+		
+		self->dirX = 0;
+		
+		setEntityAnimation(self, STAND);
+		
+		self->action = &miniAttackFinish;
+	}
+}
+
+static void miniAttackFinish()
+{
+	if (self->flags & ON_GROUND)
+	{
+		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
 		{
-			e = addExplosion(self->x, self->y);
+			setEntityAnimation(self, WALK);
 			
-			e->x = self->x - self->w / 2 + e->w / 2;
-			e->y = self->y - self->h / 2 + e->h / 2;
+			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 			
-			e->damage = 1;
-			
-			self->inUse = FALSE;
+			self->action = &lookForPlayer;
 		}
+	}
+	
+	checkToMap(self);
+}
+
+static void fallout()
+{
+	setEntityAnimation(self, STAND);
+	
+	self->element = FIRE;
+
+	self->dirX = 0;
+
+	self->dirY = 0;
+
+	self->flags |= DO_NOT_PERSIST;
+
+	self->action = &lavaDie;
+}
+
+static void lavaDie()
+{
+	self->dirY = 0.5;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->inUse = FALSE;
+		
+		fireTrigger(self->objectiveName);
+		
+		fireGlobalTrigger(self->objectiveName);
 	}
 }

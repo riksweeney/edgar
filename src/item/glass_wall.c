@@ -202,6 +202,8 @@ static void respawn()
 		self->action = &entityWait;
 		
 		self->thinkTime = self->maxThinkTime;
+		
+		self->active = FALSE;
 	}
 }
 
