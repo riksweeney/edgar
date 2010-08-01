@@ -907,7 +907,9 @@ void checkToMap(Entity *e)
 	e->x += e->dirX;
 	e->y += e->dirY;
 
-	x1 = getMinMapX();
+	x1 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMinX() : getMinMapX();
+	x2 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMaxX() : getMaxMapX();
+	
 	y1 = getMinMapY();
 
 	if (e->x < x1)
@@ -928,9 +930,9 @@ void checkToMap(Entity *e)
 
 	}
 
-	else if (e->x + e->w >= getMaxMapX())
+	else if (e->x + e->w >= x2)
 	{
-		e->x = getMaxMapX() - e->w - 1;
+		e->x = x2 - e->w - 1;
 
 		e->dirX = 0;
 

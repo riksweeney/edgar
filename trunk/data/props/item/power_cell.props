@@ -1,4 +1,5 @@
 GFX_FILE data/gfx/item/power_cell.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/power_cell.dat
 TYPE ITEM
 DESCRIPTION A power cell from a Gold Centurion
+OBJECTIVE_NAME Power Cell

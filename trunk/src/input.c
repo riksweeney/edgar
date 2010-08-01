@@ -60,7 +60,7 @@ void getInput(int gameType)
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
 				
-				if (game.status == IN_ERROR)
+				if (game.status == IN_ERROR && key == SDLK_ESCAPE)
 				{
 					exit(0);
 				}

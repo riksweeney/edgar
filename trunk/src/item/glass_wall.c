@@ -38,6 +38,8 @@ static void activate(int);
 static void takeDamage(Entity *, int);
 static void entityWait(void);
 static void die(void);
+static void respawnWait(void);
+static void respawn(void);
 
 Entity *addGlassWall(int x, int y, char *name)
 {
@@ -101,6 +103,11 @@ static void entityWait()
 			self->action = &die;
 		}
 	}
+	
+	else
+	{
+		self->mental = 0;
+	}
 
 	checkToMap(self);
 }
@@ -130,6 +137,8 @@ static void die()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
+		
+		self->inUse = FALSE;
 	}
 
 	else
@@ -148,9 +157,52 @@ static void die()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
+		
+		self->flags |= NO_DRAW;
+		
+		self->touch = NULL;
+		
+		self->action = &respawnWait;
+		
+		self->thinkTime = 180;
+	}
+}
+
+static void respawnWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 60;
+		
+		self->action = &respawn;
+	}
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime % 3 == 0)
+	{
+		self->flags ^= NO_DRAW;
 	}
 
-	self->inUse = FALSE;
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+		
+		self->touch = &pushEntity;
+		
+		self->mental = 0;
+		
+		setEntityAnimation(self, STAND);
+		
+		self->action = &entityWait;
+		
+		self->thinkTime = self->maxThinkTime;
+	}
 }
 
 static void takeDamage(Entity *other, int damage)

@@ -54,5 +54,6 @@ item/horizontal_glass_wall
 wall/dungeon_weak_wall_secret
 item/cell_bars
 common/level_exit
-boss/gold_centurion_boss
+boss/centurion_boss
 item/protection_ring
+item/sonic_boom_panel

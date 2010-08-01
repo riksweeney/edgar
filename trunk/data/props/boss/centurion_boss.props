@@ -1,5 +1,5 @@
 HEALTH 150
-GFX_FILE data/gfx/enemy/gold_centurion.dat
+GFX_FILE data/gfx/boss/centurion_boss.dat
 ANIM_FILE data/anim/enemy/gold_centurion.dat
 TYPE ENEMY
 SPEED 1

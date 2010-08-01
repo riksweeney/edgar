@@ -46,7 +46,7 @@ void showErrorAndExit(char *fmt, ...)
 
 	error2 = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
 
-	error3 = generateTextSurface(_("The game will now exit"), game.font, 0, 220, 0, 0, 0, 0);
+	error3 = generateTextSurface(_("Press Escape to exit"), game.font, 0, 220, 0, 0, 0, 0);
 
 	printf("%s\n", text);
 
