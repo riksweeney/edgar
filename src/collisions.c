@@ -950,8 +950,20 @@ void checkToMap(Entity *e)
 	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
-
-		e->fallout();
+		
+		if (e->fallout == NULL)
+		{
+			printf("%s has no fallout defined. Removing\n", self->name);
+			
+			e->inUse = FALSE;
+			
+			return;
+		}
+		
+		else
+		{
+			e->fallout();
+		}
 	}
 
 	else if (e->y < -300)
@@ -1138,7 +1150,8 @@ int isAtEdge(Entity *e)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (e != &entity[i] && entity[i].inUse == TRUE && entity[i].touch != NULL
-			&& ((entity[i].flags & (PUSHABLE|OBSTACLE)) || (entity[i].type == WEAK_WALL) || (entity[i].type == PRESSURE_PLATE)))
+			&& ((entity[i].flags & (PUSHABLE|OBSTACLE)) || (entity[i].type == WEAK_WALL)
+			|| (entity[i].type == PRESSURE_PLATE) || (entity[i].type == ANTI_GRAVITY)))
 		{
 			if (collision(x, e->y, 1, e->h + 10, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
 			{

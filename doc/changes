@@ -6,6 +6,7 @@ Version 0.66
 * The ice balls thrown by the Ice Tortoises no longer crash the game if they fall out of the map
 * Attempting to squash a little splitter when it's growing bigger no longer causes an error
 * Made the Dungeon easier
+* Fixed a problem with the antigravity fields
 
 Version 0.65
 * Added the next part of the story

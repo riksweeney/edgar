@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void setCustomAction(Entity *, void (*)(int *, int *, float *), int, int, float);
 void doCustomAction(CustomAction *);
+int hasCustomAction(Entity *, void (*func)(int *, int *, float *));
 void helpless(int *, int *, float *);
 void invulnerable(int *, int *, float *);
 void invulnerableNoFlash(int *, int *, float *);

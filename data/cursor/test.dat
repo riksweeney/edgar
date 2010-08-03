@@ -1,8 +1,7 @@
 edgar/edgar
 enemy/ice_tortoise
-enemy/splitter_small
-enemy/red_centurion
-enemy/centurion
-weapon/basic_sword
-item/sonic_boom_panel
-item/power_cell
+common/save_point
+common/anti_gravity
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right
