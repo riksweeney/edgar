@@ -104,6 +104,8 @@ static void walk()
 
 static void changeWalkDirectionStart()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	setEntityAnimation(self, CUSTOM_1);
 
 	self->action = &entityWait;
@@ -117,6 +119,8 @@ static void changeWalkDirectionStart()
 
 static void changeWalkDirection()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	self->thinkTime--;
 
 	self->action = &changeWalkDirection;
@@ -141,11 +145,15 @@ static void changeWalkDirection()
 
 static void entityWait()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	checkToMap(self);
 }
 
 static void changeWalkDirectionFinish()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	self->frameSpeed = 1;
 
 	setEntityAnimation(self, STAND);
@@ -161,7 +169,7 @@ static void changeWalkDirectionFinish()
 
 static void iceAttackStart()
 {
-	self->dirX = 0;
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
 	self->frameSpeed = 0;
 
@@ -236,6 +244,8 @@ static void createIce()
 
 static void iceAttack()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -254,6 +264,8 @@ static void iceAttack()
 
 static void iceAttackFinish()
 {
+	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	
 	setEntityAnimation(self, STAND);
 
 	self->frameSpeed = 1;

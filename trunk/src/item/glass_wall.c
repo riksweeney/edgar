@@ -36,10 +36,11 @@ extern Entity *self;
 
 static void activate(int);
 static void takeDamage(Entity *, int);
-static void entityWait(void);
+static void glassWait(void);
 static void die(void);
 static void respawnWait(void);
 static void respawn(void);
+static void horizontalGlassWait(void);
 
 Entity *addGlassWall(int x, int y, char *name)
 {
@@ -59,7 +60,7 @@ Entity *addGlassWall(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &entityWait;
+	e->action = strcmpignorecase(name, "item/horizontal_glass_wall") == 0 ? &horizontalGlassWait : &glassWait;
 	e->touch = &pushEntity;
 	e->activate = &activate;
 	e->takeDamage = &takeDamage;
@@ -81,7 +82,7 @@ static void activate(int val)
 	}
 }
 
-static void entityWait()
+static void glassWait()
 {
 	if (self->active == TRUE)
 	{
@@ -96,19 +97,54 @@ static void entityWait()
 
 		self->thinkTime--;
 
-		if (self->thinkTime <= 0)
+		if (self->mental == 5)
 		{
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
 
 			self->action = &die;
 		}
 	}
-	
-	else
-	{
-		self->mental = 0;
-	}
 
+	checkToMap(self);
+}
+
+static void horizontalGlassWait()
+{
+	if (self->active == TRUE)
+	{
+		if (self->mental < 2)
+		{
+			self->mental++;
+
+			setEntityAnimation(self, self->mental);
+			
+			self->active = FALSE;
+			
+			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+		}
+		
+		else
+		{
+			self->thinkTime++;
+			
+			if ((self->thinkTime % 60) == 0)
+			{
+				self->mental++;
+
+				setEntityAnimation(self, self->mental);
+
+				playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+			}
+
+			if (self->mental == 4)
+			{
+				playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+
+				self->action = &die;
+			}
+		}
+	}
+	
 	checkToMap(self);
 }
 
@@ -138,7 +174,13 @@ static void die()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 		
-		self->inUse = FALSE;
+		self->flags |= NO_DRAW;
+		
+		self->touch = NULL;
+		
+		self->action = &respawnWait;
+		
+		self->thinkTime = 300;
 	}
 
 	else
@@ -158,13 +200,7 @@ static void die()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 		
-		self->flags |= NO_DRAW;
-		
-		self->touch = NULL;
-		
-		self->action = &respawnWait;
-		
-		self->thinkTime = 180;
+		self->inUse = FALSE;
 	}
 }
 
@@ -174,6 +210,8 @@ static void respawnWait()
 	
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, STAND);
+		
 		self->thinkTime = 60;
 		
 		self->action = &respawn;
@@ -197,9 +235,7 @@ static void respawn()
 		
 		self->mental = 0;
 		
-		setEntityAnimation(self, STAND);
-		
-		self->action = &entityWait;
+		self->action = &horizontalGlassWait;
 		
 		self->thinkTime = self->maxThinkTime;
 		

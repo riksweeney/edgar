@@ -1374,8 +1374,8 @@ void writeEntitiesToFile(FILE *fp)
 			fprintf(fp, "HEALTH %d\n", self->health);
 			fprintf(fp, "DAMAGE %d\n", self->damage);
 			fprintf(fp, "SPAWNTIME %d\n", self->spawnTime);
-			fprintf(fp, "SPEED %0.2f\n", self->speed);
-			fprintf(fp, "WEIGHT %0.2f\n", self->weight);
+			fprintf(fp, "SPEED %0.2f\n", self->speed); /* Save the original speed, not the current speed */
+			fprintf(fp, "WEIGHT %0.2f\n", self->originalWeight); /* Save the original weight, not the current weight */
 			fprintf(fp, "OBJECTIVE_NAME %s\n", self->objectiveName);
 			fprintf(fp, "REQUIRES %s\n", self->requires);
 			fprintf(fp, "ACTIVE %s\n", self->active == TRUE ? "TRUE" : "FALSE");

@@ -82,6 +82,8 @@ Entity *addSmallRock(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->action = &smallRockFall;
+	
+	e->fallout = &entityDieNoDrop;
 
 	e->type = ENEMY;
 

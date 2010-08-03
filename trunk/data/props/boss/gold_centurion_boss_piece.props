@@ -1,7 +1,7 @@
 HEALTH 150
 DAMAGE 1
-GFX_FILE data/gfx/enemy/gold_centurion_piece.dat
-ANIM_FILE data/anim/enemy/red_centurion_piece.dat
+GFX_FILE data/gfx/boss/centurion_boss_piece.dat
+ANIM_FILE data/anim/boss/centurion_boss_piece.dat
 TYPE TEMP_ITEM
 SPEED 1
 THINKTIME 90

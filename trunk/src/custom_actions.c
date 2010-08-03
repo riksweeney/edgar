@@ -100,6 +100,23 @@ void clearCustomAction(Entity *e, void (*func)(int *, int *, float *))
 	}
 }
 
+int hasCustomAction(Entity *e, void (*func)(int *, int *, float *))
+{
+	int i;
+
+	for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
+	{
+		/* Search for an already existing action */
+
+		if (e->customAction[i].thinkTime != 0 && e->customAction[i].action == func)
+		{
+			return TRUE;
+		}
+	}
+	
+	return FALSE;
+}
+
 void clearCustomActions(Entity *e)
 {
 	int i;

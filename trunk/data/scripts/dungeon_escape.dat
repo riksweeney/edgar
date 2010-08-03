@@ -1,6 +1,7 @@
 WAIT 120
 TALK Edgar I'm back in the Fortress, thank goodness for that
-TALK Edgar Now to deal with that sorceror...
+TALK Edgar But Dad wasn't in there, I looked everywhere and there was no sign of him
+TALK Edgar I'll 
 TALK Narrator You won't be able to deal with the sorceror in this version!
 ADD_MEDAL sorceror_start
 ADD_MEDAL dungeon_escape

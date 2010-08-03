@@ -153,5 +153,13 @@ static void sonicBoom()
 {
 	activateEntitiesWithRequiredName("SONIC_BOOM", TRUE);
 	
+	self->mental = 0;
+	
+	self->head->mental = 0;
+	
+	setEntityAnimation(self, self->mental);
+	
+	setEntityAnimation(self->head, self->head->mental);
+	
 	self->action = &entityWait;
 }

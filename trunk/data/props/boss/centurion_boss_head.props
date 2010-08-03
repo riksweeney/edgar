@@ -3,5 +3,5 @@ GFX_FILE data/gfx/boss/centurion_boss_head.dat
 ANIM_FILE data/anim/boss/centurion_boss_head.dat
 TYPE ENEMY
 SPEED 1
-FLAGS UNBLOCKABLE|FLY
+FLAGS UNBLOCKABLE|FLY|DO_NOT_PERSIST
 LAYER BACKGROUND_LAYER
