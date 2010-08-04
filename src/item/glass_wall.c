@@ -76,7 +76,7 @@ Entity *addGlassWall(int x, int y, char *name)
 
 static void activate(int val)
 {
-	if (val == 100)
+	if (val == 100 && self->touch != NULL)
 	{
 		self->active = TRUE;
 	}
@@ -112,7 +112,7 @@ static void horizontalGlassWait()
 {
 	if (self->active == TRUE)
 	{
-		if (self->mental < 2)
+		if (self->mental < 3)
 		{
 			self->mental++;
 
@@ -121,13 +121,20 @@ static void horizontalGlassWait()
 			self->active = FALSE;
 			
 			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+			
+			if (self->mental == 3)
+			{
+				STRNCPY(self->objectiveName, self->requires, sizeof(self->objectiveName));
+				
+				STRNCPY(self->requires, "BOSS_TUNING_FORK", sizeof(self->requires));
+			}
 		}
 		
 		else
 		{
 			self->thinkTime++;
 			
-			if ((self->thinkTime % 60) == 0)
+			if ((self->thinkTime % 180) == 0)
 			{
 				self->mental++;
 
@@ -152,10 +159,6 @@ static void die()
 {
 	int i;
 	Entity *e;
-
-	fireTrigger(self->objectiveName);
-
-	fireGlobalTrigger(self->objectiveName);
 	
 	if (strcmpignorecase(self->name, "item/horizontal_glass_wall") == 0)
 	{
@@ -201,6 +204,10 @@ static void die()
 		}
 		
 		self->inUse = FALSE;
+		
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
 	}
 }
 
@@ -240,6 +247,8 @@ static void respawn()
 		self->thinkTime = self->maxThinkTime;
 		
 		self->active = FALSE;
+		
+		STRNCPY(self->requires, self->objectiveName, sizeof(self->requires));
 	}
 }
 

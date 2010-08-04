@@ -75,7 +75,6 @@ static void miniWalk(void);
 static void miniCenturionAttack(void);
 static void fallout(void);
 static void lavaDie(void);
-static void miniRedDie(void);
 static void moveToBody(void);
 static void followPlayer(void);
 static void dropOnPlayer(void);
@@ -179,6 +178,8 @@ static void doIntro()
 		self->startY = 0;
 		
 		self->endY = 0;
+		
+		self->endX = 0;
 	}
 }
 
@@ -265,7 +266,14 @@ static void lookForPlayer()
 		self->thinkTime = 0;
 	}
 	
-	if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0
+	self->endX--;
+	
+	if (self->endX <= 0)
+	{
+		self->endX = 0;
+	}
+	
+	if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0 && self->endX == 0
 		&& collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
 		self->action = &explosionAttackInit;
@@ -304,9 +312,9 @@ static void stompAttack()
 	
 	activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 	
-	if (self->endY == 2)
+	if (self->endY == 3)
 	{
-		setInfoBoxMessage(180, 255, 255, 255, _("Another hit will probably shatter the glass..."));
+		setInfoBoxMessage(180, 255, 255, 255, _("The glass looks very weak now..."));
 	}
 
 	self->action = &stompAttackFinish;
@@ -359,7 +367,7 @@ static void explosionAttack()
 	
 	e->damage = 1;
 	
-	e->mental = 1 + (prand() % 2);
+	e->mental = prand() % 2;
 
 	e->action = &explosionMove;
 	e->draw = &drawLoopingAnimationToMap;
@@ -367,7 +375,14 @@ static void explosionAttack()
 
 	e->type = ENEMY;
 	
-	e->flags |= NO_DRAW|DO_NOT_PERSIST|LIMIT_TO_SCREEN;
+	e->flags |= NO_DRAW|DO_NOT_PERSIST;
+	
+	if (e->mental != 0)
+	{
+		e->flags |= LIMIT_TO_SCREEN;
+	}
+	
+	e->thinkTime = 300;
 	
 	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
 	
@@ -413,8 +428,6 @@ static void explosionMove()
 	
 	if (isAtEdge(self) == TRUE || self->dirX == 0)
 	{
-		self->mental--;
-		
 		if (self->mental <= 0)
 		{
 			self->touch = NULL;
@@ -428,6 +441,13 @@ static void explosionMove()
 		
 		else
 		{
+			self->mental--;
+			
+			if (self->mental == 0)
+			{
+				self->flags &= ~LIMIT_TO_SCREEN;
+			}
+			
 			self->face = self->face == LEFT ? RIGHT : LEFT;
 			
 			self->dirX = (self->face == LEFT ? -6 : 6);
@@ -448,6 +468,8 @@ static void explosionTouch(Entity *other)
 		self->mental = 5;
 		
 		self->action = &explode;
+		
+		self->thinkTime = 0;
 	}
 }
 
@@ -635,8 +657,6 @@ static void reformFinish()
 	self->health = self->maxHealth;
 	
 	self->flags &= ~NO_DRAW;
-	
-	self->action = &miniCenturionAttackInit;
 	
 	if (self->endY < 3)
 	{
@@ -906,7 +926,7 @@ static void miniCenturionAttackInit()
 	
 	self->thinkTime = 20;
 	
-	self->mental = 3 + prand() % 3;
+	self->mental = 1 + prand() % 3;
 	
 	self->action = &miniCenturionAttack;
 	
@@ -965,17 +985,11 @@ static Entity *addMiniCenturion()
 	if (prand() % 4 == 0)
 	{
 		loadProperties("enemy/mini_red_centurion", e);
-		
-		e->mental = -1;
-		
-		e->die = &miniRedDie;
 	}
 	
 	else
 	{
 		loadProperties("enemy/mini_centurion", e);
-		
-		e->die = &entityDie;
 	}
 	
 	e->x = self->x;
@@ -994,6 +1008,7 @@ static Entity *addMiniCenturion()
 	e->fallout = &entityDie;
 	e->reactToBlock = &changeDirection;
 	e->pain = &enemyPain;
+	e->die = &entityDie;
 	
 	return e;
 }
@@ -1073,19 +1088,6 @@ static void lavaDie()
 		
 		fadeBossMusic();
 	}
-}
-
-static void miniRedDie()
-{
-	Entity *arrow;
-	
-	/* Drop between 1 and 3 arrows */
-
-	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
-
-	arrow->health = 1 + (prand() % 3);
-
-	entityDie();	
 }
 
 static void followPlayer()

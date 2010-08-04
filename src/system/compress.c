@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 void compressFile(char *sourceName)
 {
-	int read;
+	int read, result;
 	unsigned char *source, *dest;
 	unsigned long fileSize, compressedSize, ensuredSize;
 	FILE *fp;
@@ -58,7 +58,12 @@ void compressFile(char *sourceName)
 
 	fclose(fp);
 
-	compress2(dest, &compressedSize, source, fileSize, 9);
+	result = compress2(dest, &compressedSize, source, fileSize, 9);
+	
+	if (result != Z_OK)
+	{
+		showErrorAndExit("Compression of file %s failed", sourceName);
+	}
 
 	fp = fopen(sourceName, "wb");
 
@@ -78,7 +83,7 @@ unsigned char *decompressFile(char *sourceName)
 	unsigned char *source, *dest;
 	unsigned long compressedSize, fileSize;
 	FILE *fp;
-	int read;
+	int read, result;
 
 	fp = fopen(sourceName, "rb");
 
@@ -113,13 +118,18 @@ unsigned char *decompressFile(char *sourceName)
 
 	read = fread(source, compressedSize, 1, fp);
 
-	uncompress(dest, &fileSize, source, compressedSize);
+	result = uncompress(dest, &fileSize, source, compressedSize);
 
 	dest[fileSize] = '\0';
 
 	fclose(fp);
 
 	free(source);
+	
+	if (result != Z_OK)
+	{
+		showErrorAndExit("Compression of file %s failed", sourceName);
+	}
 
 	return dest;
 }

@@ -1,7 +1,2 @@
 edgar/edgar
-enemy/ice_tortoise
-common/save_point
-common/anti_gravity
-conveyor_belt/conveyor_belt_left
-conveyor_belt/conveyor_belt_middle
-conveyor_belt/conveyor_belt_right
+weapon/basic_sword
