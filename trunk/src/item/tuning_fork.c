@@ -73,9 +73,10 @@ static void activate(int val)
 
 		for (i=0;i<MAX_ENTITIES;i++)
 		{
-			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, "TUNING_FORK") == 0)
+			if (entity[i].inUse == TRUE)
 			{
-				if (getDistanceFromPlayer(&entity[i]) < 128)
+				if ((strcmpignorecase(entity[i].requires, "TUNING_FORK") == 0 && getDistanceFromPlayer(&entity[i]) < 128)
+					|| (strcmpignorecase(entity[i].requires, "BOSS_TUNING_FORK") == 0))
 				{
 					temp = self;
 					

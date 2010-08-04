@@ -116,7 +116,7 @@ extern Game game;
 
 		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
 		
-		snprintf(continueFile, sizeof(tempFile), "%scontinuesave", gameSavePath);
+		snprintf(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
 
 		removeTemporaryData();
 	}
@@ -521,14 +521,49 @@ static void patchSaveGame(char *saveFile, double version)
 void saveGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
-	char saveFile[MAX_PATH_LENGTH];
+	char backupFile[MAX_PATH_LENGTH], saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapFilename();
+	int i;
 	unsigned char *buffer;
 	int skipping = FALSE;
 	FILE *read;
 	FILE *write;
 
 	savePtr = NULL;
+	
+	/* Backup older save */
+	
+	for (i=1;;i++)
+	{
+		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+		
+		read = fopen(saveFile, "rb");
+		
+		if (read == NULL)
+		{
+			break;
+		}
+		
+		else
+		{
+			fclose(read);
+		}
+		
+		snprintf(backupFile, sizeof(backupFile), "%ssave%d.%03d", gameSavePath, slot, i);
+		
+		read = fopen(backupFile, "rb");
+		
+		if (read != NULL)
+		{
+			continue;
+		}
+		
+		printf("Copying %s to %s\n", saveFile, backupFile);
+		
+		copyFile(saveFile, backupFile);
+		
+		break;
+	}
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
@@ -696,7 +731,7 @@ static void updateSaveFileIndex(int slot)
 	FILE *fp;
 	int i;
 
-	time (&rawtime);
+	time(&rawtime);
 	timeinfo = localtime(&rawtime);
 
 	strftime(buffer, MAX_VALUE_LENGTH, "%H:%M %d %b %Y", timeinfo);
@@ -1370,6 +1405,20 @@ static void copyFile(char *src, char *dest)
 	sourceFile = fopen(src, "rb");
 
 	destFile = fopen(dest, "wb");
+	
+	if (sourceFile == NULL)
+	{
+		perror("CopyFile (src) failed");
+		
+		showErrorAndExit("Could not open %s for reading", src);
+	}
+	
+	if (destFile == NULL)
+	{
+		perror("CopyFile (dest) failed");
+		
+		showErrorAndExit("Could not open %s for writing", dest);
+	}
 
 	while (!feof(sourceFile))
 	{

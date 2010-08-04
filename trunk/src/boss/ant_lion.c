@@ -167,16 +167,25 @@ static void hunt()
 	if (self->x < self->startX)
 	{
 		self->x = self->startX;
+		
+		self->thinkTime--;
 	}
 
 	else if (self->x > (self->endX - self->w - 1))
 	{
 		self->x = self->endX - self->w - 1;
+		
+		self->thinkTime--;
+	}
+	
+	else
+	{
+		self->thinkTime = 60;
 	}
 
 	shakeScreen(LIGHT, 5);
 
-	if (abs(self->x - self->targetX) > 640)
+	if (self->thinkTime <= 0)
 	{
 		/* Give up hunting */
 

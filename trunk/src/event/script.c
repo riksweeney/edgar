@@ -50,6 +50,13 @@ void runScript(char *name)
 	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
 	unsigned char *buffer;
 	int i;
+	
+	/* Don't fire if the player's health is 0 */
+	
+	if (player.health <= 0)
+	{
+		return;
+	}
 
 	savePtr = NULL;
 

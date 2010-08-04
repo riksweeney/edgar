@@ -87,6 +87,8 @@ Entity *getFreeEntity()
 			entity[i].frameSpeed = 1;
 
 			entity[i].weight = 1;
+			
+			entity[i].originalWeight = 1;
 
 			entity[i].fallout = NULL;
 
@@ -501,7 +503,7 @@ void entityDie()
 	{
 		self->flags &= ~FLY;
 
-		self->weight = fabs(self->weight);
+		self->weight = fabs(self->originalWeight);
 
 		self->flags |= DO_NOT_PERSIST;
 
@@ -550,7 +552,7 @@ void entityDieNoDrop()
 	{
 		self->flags &= ~FLY;
 
-		self->weight = fabs(self->weight);
+		self->weight = fabs(self->originalWeight);
 
 		self->flags |= DO_NOT_PERSIST;
 

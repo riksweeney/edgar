@@ -49,6 +49,7 @@ void initCursor(char *name)
 	cursor.tileID = 0;
 	cursor.entityType = 0;
 	cursor.entity.weight = 0;
+	cursor.entity.originalWeight = 0;
 
 	cursor.entity.inUse = TRUE;
 
@@ -61,6 +62,8 @@ void initCursor(char *name)
 	if (cursor.entity.weight == 0)
 	{
 		cursor.entity.weight = 1;
+		
+		cursor.entity.originalWeight = 1;
 	}
 
 	cursor.entity.draw = &drawLoopingAnimationToMap;
@@ -278,6 +281,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
+			
+			cursor.entity.originalWeight = 0;
 
 			cursor.entity.inUse = TRUE;
 
@@ -290,6 +295,8 @@ void doCursor()
 			if (cursor.entity.weight == 0)
 			{
 				cursor.entity.weight = 1;
+				
+				cursor.entity.originalWeight = 1;
 			}
 		}
 
@@ -317,6 +324,8 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
+			
+			cursor.entity.originalWeight = 1;
 
 			cursor.entity.inUse = TRUE;
 
@@ -329,6 +338,8 @@ void doCursor()
 			if (cursor.entity.weight == 0)
 			{
 				cursor.entity.weight = 1;
+				
+				cursor.entity.originalWeight = 1;
 			}
 		}
 

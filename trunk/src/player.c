@@ -1351,7 +1351,7 @@ static void resetPlayer()
 
 	getCheckpoint(&player.x, &player.y);
 	
-	if (game.canContinue == TRUE)
+	if (game.canContinue == FALSE)
 	{
 		centerMapOnEntity(&player);
 		
