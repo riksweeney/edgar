@@ -358,11 +358,6 @@ void getInput(int gameType)
 				key = event.jbutton.button;
 
 				key = -(key + 1000);
-				
-				if (game.status == IN_ERROR)
-				{
-					exit(0);
-				}
 
 				if (key == control.button[CONTROL_PAUSE])
 				{
