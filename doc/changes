@@ -7,6 +7,7 @@ Version 0.66
 * Attempting to squash a little splitter when it's growing bigger no longer causes an error
 * Made the Dungeon easier
 * Fixed a problem with the antigravity fields
+* Added incremental backups of save files to protect against corruption
 
 Version 0.65
 * Added the next part of the story
