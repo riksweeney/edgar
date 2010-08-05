@@ -62,7 +62,20 @@ void compressFile(char *sourceName)
 	
 	if (result != Z_OK)
 	{
-		showErrorAndExit("Compression of file %s failed", sourceName);
+		switch (result)
+		{
+			case Z_BUF_ERROR:
+				showErrorAndExit("Compression of file %s failed. Buffer too small", sourceName);
+			break;
+			
+			case Z_MEM_ERROR:
+				showErrorAndExit("Compression of file %s failed. Insufficient memory", sourceName);
+			break;
+			
+			default:
+				showErrorAndExit("Compression of file %s failed. Stream size incorrectly defined", sourceName);
+			break;
+		}
 	}
 
 	fp = fopen(sourceName, "wb");
@@ -128,7 +141,20 @@ unsigned char *decompressFile(char *sourceName)
 	
 	if (result != Z_OK)
 	{
-		showErrorAndExit("Compression of file %s failed", sourceName);
+		switch (result)
+		{
+			case Z_BUF_ERROR:
+				showErrorAndExit("Decompression of file %s failed. Buffer too small", sourceName);
+			break;
+			
+			case Z_MEM_ERROR:
+				showErrorAndExit("Decompression of file %s failed. Insufficient memory", sourceName);
+			break;
+			
+			default:
+				showErrorAndExit("Decompression of file %s failed. Data is corrupt", sourceName);
+			break;
+		}
 	}
 
 	return dest;
