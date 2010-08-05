@@ -982,6 +982,8 @@ static Entity *addMiniCenturion()
 	if (prand() % 4 == 0)
 	{
 		loadProperties("enemy/mini_red_centurion", e);
+		
+		self->mental = -1;
 	}
 	
 	else

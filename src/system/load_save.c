@@ -549,7 +549,7 @@ void saveGame(int slot)
 			fclose(read);
 		}
 		
-		snprintf(backupFile, sizeof(backupFile), "%ssave%d.%03d", gameSavePath, slot, i);
+		snprintf(backupFile, sizeof(backupFile), "%ssave%d.%04d", gameSavePath, slot, i);
 		
 		read = fopen(backupFile, "rb");
 		
@@ -557,8 +557,6 @@ void saveGame(int slot)
 		{
 			continue;
 		}
-		
-		printf("Copying %s to %s\n", saveFile, backupFile);
 		
 		copyFile(saveFile, backupFile);
 		
