@@ -899,10 +899,7 @@ static void headTakeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 			}
 
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			enemyPain();
 		}
 
 		else
