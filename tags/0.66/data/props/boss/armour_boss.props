@@ -1,0 +1,8 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/armour_boss.dat
+ANIM_FILE data/anim/boss/armour_boss.dat
+SPEED 2
+HEALTH 5000
+DAMAGE 1
+ACTIVE FALSE
+FLAGS UNBLOCKABLE
