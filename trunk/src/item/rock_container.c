@@ -80,6 +80,8 @@ static void init()
 	if (self->thinkTime > 0)
 	{
 		self->weight = 0;
+		
+		self->originalWeight = self->weight;
 	}
 
 	self->action = self->weight == 0 ? &move : &rotateAroundTarget;
@@ -144,6 +146,8 @@ static void move()
 			self->dirY *= -1;
 
 			self->weight = 0;
+			
+			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
 		}
@@ -159,6 +163,8 @@ static void move()
 			self->dirY *= -1;
 
 			self->weight = 0;
+			
+			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
 		}
@@ -172,6 +178,8 @@ static void rotateAroundTarget()
 	self->endX += self->speed * 0.5;
 
 	self->weight += self->speed * 0.5;
+	
+	self->originalWeight = self->weight;
 
 	if (self->endX >= 360)
 	{
@@ -183,6 +191,8 @@ static void rotateAroundTarget()
 		self->endX = self->endX >= 170 && self->endX <= 190 ? 180 : 0;
 
 		self->weight = 0;
+		
+		self->originalWeight = self->weight;
 
 		self->action = &move;
 	}

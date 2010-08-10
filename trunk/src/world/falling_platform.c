@@ -232,5 +232,8 @@ static void initialize()
 
 static void fallout()
 {
-
+	if (self->environment == AIR)
+	{
+		self->inUse = FALSE;
+	}
 }

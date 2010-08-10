@@ -151,6 +151,7 @@ typedef struct Game
 	int kills, batsDrowned, timesEaten, medalSupport;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
+	int disableJoystick;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;

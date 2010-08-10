@@ -84,7 +84,7 @@ void init(char *title)
 		initAudio();
 	}
 
-	joysticks = SDL_NumJoysticks();
+	joysticks = game.disableJoystick == TRUE ? 0 : SDL_NumJoysticks();
 
 	buttons = 0;
 

@@ -102,6 +102,10 @@ static void throwGazerEye(int val)
 		e->touch = &touch;
 
 		e->action = &explodeWait;
+		
+		e->fallout = &entityDieNoDrop;
+		
+		e->flags |= DO_NOT_PERSIST;
 
 		e->dirX = player.face == LEFT ? -8 : 8;
 

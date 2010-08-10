@@ -120,6 +120,14 @@ int main(int argc, char *argv[])
 
 			i++;
 		}
+		
+		else if (strcmpignorecase("-nojoystick", argv[i]) == 0)
+		{
+			game.disableJoystick = TRUE;
+
+			i++;
+		}
+		
 		#if DEV == 1
 			else
 			{
