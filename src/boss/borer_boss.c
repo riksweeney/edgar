@@ -171,8 +171,6 @@ static void addTentacles()
 		
 		e->touch = &entityTouch;
 		
-		e->takeDamage = &tentacleTakeDamage;
-		
 		e->die = &entityDieNoDrop;
 
 		e->action = &tentacleWait;
@@ -681,6 +679,8 @@ static void tentacleWait()
 	
 	if (self->head->mental == 0 && self->head->x == self->head->startX)
 	{
+		self->takeDamage = &tentacleTakeDamage;
+		
 		if (self->thinkTime > 0)
 		{
 			self->thinkTime--;

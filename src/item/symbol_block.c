@@ -146,6 +146,8 @@ static void touch(Entity *other)
 		self->dirY = -5;
 
 		self->weight = 2;
+		
+		self->originalWeight = self->weight;
 
 		self->action = &bounce;
 
@@ -373,6 +375,8 @@ static int getRequired()
 					entity[i].thinkTime = prand() % entity[i].maxThinkTime;
 					
 					entity[i].weight = 2;
+					
+					entity[i].originalWeight = entity[i].weight;
 				}
 				
 				return entity[i].thinkTime;

@@ -34,3 +34,6 @@ wall/sewer_boss_weak_wall
 item/tortoise_statue
 item/water_purifier
 item/slime_potion
+boss/sewer_boss
+item/water_purifier
+item/ice_spray

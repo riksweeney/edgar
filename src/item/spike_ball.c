@@ -79,6 +79,8 @@ static void throwBall(int val)
 		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
 
 		e->thinkTime = 120;
+		
+		e->flags |= DO_NOT_PERSIST;
 
 		e->touch = &touch;
 
@@ -87,6 +89,8 @@ static void throwBall(int val)
 		e->dirX = player.face == LEFT ? -8 : 8;
 
 		e->dirY = ITEM_JUMP_HEIGHT;
+		
+		e->fallout = &entityDieNoDrop;
 
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
 

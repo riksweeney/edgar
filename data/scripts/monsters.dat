@@ -104,7 +104,7 @@ END
 IF MONSTER_BOOK HEALTH 0
 TALK Edgar Ah, here is a compendium of monsters
 TALK Edgar 34 volumes! How can there be so many monsters in the world?!
-HAS_ITEM "Fire Shield" 1 1 MONSTER_BOOK 101 100
+HAS_OBJECTIVE "Obtain 1 Red Sludge Tentacle" MONSTER_BOOK 100 101
 IF MONSTER_BOOK HEALTH 101
 TALK Edgar This might have come in handy when I was hunting for the Red Sludges
 TALK Edgar Still, there might be something else in these books worth reading...

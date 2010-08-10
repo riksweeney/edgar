@@ -343,6 +343,7 @@ static void throwFire()
 			e->dirY = -9;
 			e->dirX = self->face == LEFT ? -(i * dir) : (i * dir);
 			e->weight = 0.4;
+			e->originalWeight = e->weight;
 
 			e->thinkTime = 20;
 

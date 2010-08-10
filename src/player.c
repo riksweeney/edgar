@@ -1077,6 +1077,8 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(player.flags & INVULNERABLE))
 	{
+		printf("Took damage from %s\n", other->name);
+		
 		player.health -= damage;
 
 		player.animationCallback = NULL;
@@ -1335,11 +1337,8 @@ static void resetPause()
 		{
 			player.action = &resetPlayer;
 		}
-
-		if (player.environment != AIR)
-		{
-			checkToMap(&player);
-		}
+		
+		player.dirY = 0;
 	}
 }
 

@@ -243,7 +243,7 @@ static void createBody()
 
 		if (body[i] == NULL)
 		{
-			showErrorAndExit("No free slots to add an Mouth Stalk body part");
+			showErrorAndExit("No free slots to add a Mouth Stalk body part");
 		}
 
 		loadProperties(bodyName, body[i]);
@@ -269,7 +269,7 @@ static void createBody()
 
 	if (head == NULL)
 	{
-		showErrorAndExit("No free slots to add an Mouth Stalk head");
+		showErrorAndExit("No free slots to add a Mouth Stalk head");
 	}
 
 	*head = *self;

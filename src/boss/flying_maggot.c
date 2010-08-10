@@ -60,6 +60,7 @@ static void secondEncounterWait(void);
 static void secondEncounterDie(void);
 static void secondEncounterLeave(void);
 static void bounceAway(void);
+static void finalEncounter(void);
 
 Entity *addFlyingMaggot(int x, int y, char *name)
 {
@@ -101,6 +102,11 @@ static void init()
 			case 1:
 				self->action = &secondEncounter;
 				self->die = &secondEncounterDie;
+			break;
+			
+			case 2:
+				self->flags &= ~NO_DRAW;
+				self->action = &finalEncounter;
 			break;
 		}
 	}
@@ -498,4 +504,17 @@ static void removeMaggot()
 	freeBossHealthBar();
 
 	fadeBossMusic();
+}
+
+static void finalEncounter()
+{
+	if (self->target != NULL)
+	{
+		self->face = self->target->x < self->x ? LEFT : RIGHT;
+	}
+	
+	if (self->mental == 1)
+	{
+		hover();
+	}
 }
