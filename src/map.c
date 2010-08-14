@@ -669,6 +669,17 @@ void drawMap(int depth)
 						}
 					}
 					
+					else if (tileID == SLIME_TILE_BLEND_REVERSE)
+					{
+						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
+						drawImage(mapImages[slimeTile], x, y, FALSE, 255 - map.blendTime);
+						
+						if (map.blendTime == 0)
+						{
+							map.tile[mapY][mapX] = SLIME_TILE_START;
+						}
+					}
+					
 					else if (tileID >= FOREGROUND_TILE_START)
 					{
 						drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);

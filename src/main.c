@@ -71,10 +71,6 @@ int main(int argc, char *argv[])
 
 	atexit(cleanup);
 
-	/* Start up SDL */
-
-	init(_("The Legend of Edgar"));
-
 	go = TRUE;
 
 	loadSlot = -1;
@@ -124,8 +120,6 @@ int main(int argc, char *argv[])
 		else if (strcmpignorecase("-nojoystick", argv[i]) == 0)
 		{
 			game.disableJoystick = TRUE;
-
-			i++;
 		}
 		
 		#if DEV == 1
@@ -135,6 +129,10 @@ int main(int argc, char *argv[])
 			}
 		#endif
 	}
+	
+	/* Start up SDL */
+
+	init(_("The Legend of Edgar"));
 
 	if (replayingID != -1 && recordingID != -1)
 	{

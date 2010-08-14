@@ -88,7 +88,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define SLIME_TILE_BLEND 520
 
-#define MAX_TILES 521
+#define SLIME_TILE_BLEND_REVERSE 521
+
+#define MAX_TILES 522
 
 #define MAX_LINE_LENGTH 1024
 

@@ -108,6 +108,8 @@ Target *getTargetByName(char *name)
 			return &target[i];
 		}
 	}
+	
+	printf("Could not find target %s\n", name);
 
 	return NULL;
 }

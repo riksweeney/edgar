@@ -1077,8 +1077,6 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(player.flags & INVULNERABLE))
 	{
-		printf("Took damage from %s\n", other->name);
-		
 		player.health -= damage;
 
 		player.animationCallback = NULL;
@@ -1272,10 +1270,7 @@ static void fallout()
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
 
-		if (player.environment != AIR)
-		{
-			checkToMap(&player);
-		}
+		checkToMap(&player);
 	}
 }
 
@@ -1290,10 +1285,7 @@ static void falloutPause()
 		player.action = &resetPause;
 	}
 
-	if (player.environment != AIR)
-	{
-		checkToMap(&player);
-	}
+	checkToMap(&player);
 }
 
 static void resetPause()
