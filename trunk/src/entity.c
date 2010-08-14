@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 #include "game.h"
 #include "world/action_point.h"
+#include "world/falling_platform.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1428,6 +1429,11 @@ void addEntityFromScript(char *line)
 		{
 			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
 		}
+	}
+	
+	else if (strcmpignorecase(entityType, "FALLING_PLATFORM") == 0)
+	{
+		addFallingPlatform(x, y, entityName);
 	}
 
 	else

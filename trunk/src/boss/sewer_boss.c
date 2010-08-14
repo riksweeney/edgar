@@ -51,7 +51,6 @@ extern Entity *self, player;
 
 static void initialise(void);
 static void doIntro(void);
-static void introPause(void);
 static void attackFinished(void);
 static void fallout(void);
 static void entityWait(void);
@@ -74,7 +73,6 @@ static void slimeAttackInit(void);
 static void slimeAttackMoveToTarget(void);
 static void slimeAttack(void);
 static void slimeAttackMouthClose(void);
-static void slimeAttack(void);
 static void slimeAttackFinish(void);
 static void touch(Entity *);
 static void punchReactToBlock(void);
@@ -84,6 +82,36 @@ static void grabAttack(void);
 static void grabWait(void);
 static void clawTakeDamage(Entity *, int);
 static void dropPlayer(void);
+static void clawDie(void);
+static void slimeDie(void);
+static void slimeAttackBreatheIn(void);
+static void addMouthOrb(void);
+static void orbWait(void);
+static void orbTakeDamage(Entity *, int);
+static void slimePlayer(Entity *);
+static void slimePillFallout(void);
+static void createSlime(void);
+static void fill(int, int);
+static void sinkAttackInit(void);
+static void sinkAttackWait(void);
+static void clawSideAttackFinish(void);
+static void clawSideAttackRise(void);
+static void clawSideAttackWait(void);
+static void sideAttackReactToBlock(void);
+static void clawSideAttack(void);
+static void changeToWater(void);
+static int draw(void);
+static void armChangeToWater(void);
+static int armDraw(void);
+static void finalAttackRise(void);
+static void die(void);
+static void dieSink(void);
+static void finalAttack(void);
+static void finalGrabPlayer(void);
+static void dragDownInit(void);
+static void dragDown(void);
+static void finalGrabWait(void);
+static void finalClawDie(void);
 
 Entity *addSewerBoss(int x, int y, char *name)
 {
@@ -118,11 +146,17 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
+		playDefaultBossMusic();
+
+		initBossHealthBar();
+		
 		self->flags |= ATTACKING;
 		
 		setContinuePoint(FALSE, self->name, NULL);
 		
 		self->endX = 0;
+		
+		addMouthOrb();
 		
 		addClaws();
 		
@@ -146,22 +180,13 @@ static void doIntro()
 		
 		self->dirY = 0;
 		
-		self->action = &introPause;
+		self->action = &attackFinished;
 	}
-}
-
-static void introPause()
-{
-	playDefaultBossMusic();
-
-	initBossHealthBar();
-	
-	self->action = &attackFinished;
 }
 
 static void attackFinished()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, self->element == SLIME ? STAND : CUSTOM_1);
 	
 	self->thinkTime = 180;
 	
@@ -170,42 +195,134 @@ static void attackFinished()
 
 static void entityWait()
 {
-	int action;
+	int action, tile;
 	
 	self->thinkTime--;
 	
+	tile = mapTileAt((self->x + self->w / 2) / TILE_SIZE, (self->y + self->h - TILE_SIZE) / TILE_SIZE);
+	
+	if (tile >= SLIME_TILE_START && tile <= SLIME_TILE_END && self->element == WATER)
+	{
+		self->element = SLIME;
+	}
+	
+	else if (tile >= WATER_TILE_START && tile <= WATER_TILE_END && self->element == SLIME)
+	{
+		self->element = WATER;
+		
+		self->draw = &draw;
+		
+		self->action = &changeToWater;
+		
+		self->mental = -30;
+		
+		return;
+	}
+	
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->element != WATER)
+		if (self->endX != 0)
 		{
-			action = prand() % 5;
-			
-			switch (action)
+			if (self->health >= 300)
 			{
-				case 0:
-				case 1:
-					setEntityAnimation(self, ATTACK_4);
-					
-					self->mental = -5;
-					
-					self->action = &punchWait;
-				break;
+				action = prand() % 3;
 				
-				case 2:
-				case 3:
-					setEntityAnimation(self, ATTACK_4);
+				switch (action)
+				{
+					case 0:
+					case 1:
+						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						
+						self->mental = -10;
+						
+						self->action = &punchWait;
+					break;
 					
-					self->mental = -10;
-					
-					self->action = &punchWait;
-				break;
-				
-				default:
-					self->dirY = self->speed;
-					
-					self->action = &changeSidesSink;
-				break;
+					default:
+						self->dirY = self->speed;
+						
+						self->action = &changeSidesSink;
+					break;
+				}
 			}
+			
+			else if (self->health >= 200)
+			{
+				action = prand() % 5;
+				
+				switch (action)
+				{
+					case 0:
+					case 1:
+						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						
+						self->mental = -10;
+						
+						self->action = &punchWait;
+					break;
+					
+					case 2:
+					case 3:
+						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						
+						self->mental = -5;
+						
+						self->action = &punchWait;
+					break;
+					
+					default:
+						self->dirY = self->speed;
+						
+						self->action = &changeSidesSink;
+					break;
+				}
+			}
+			
+			else
+			{
+				action = prand() % 6;
+				
+				switch (action)
+				{
+					case 0:
+					case 1:
+						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						
+						self->mental = -10;
+						
+						self->action = &punchWait;
+					break;
+					
+					case 2:
+					case 3:
+						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						
+						self->mental = -5;
+						
+						self->action = &punchWait;
+					break;
+					
+					case 4:
+					case 5:
+						self->dirY = self->speed;
+						
+						self->action = &sinkAttackInit;
+					break;
+					
+					default:
+						self->dirY = self->speed;
+						
+						self->action = &changeSidesSink;
+					break;
+				}
+			}
+		}
+		
+		else if (self->mental == 30)
+		{
+			self->dirY = self->speed;
+			
+			self->action = &changeSidesSink;
 		}
 		
 		else
@@ -249,11 +366,55 @@ static void changeSidesWait()
 {
 	int rand;
 	Target *t;
+	Entity *e;
 	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
+		if (self->mental == 30)
+		{
+			self->element = SLIME;
+			
+			setEntityAnimation(self, STAND);
+			
+			addClaws();
+			
+			e = addTemporaryItem("item/purifier_capsule", 0, 0, LEFT, 0, 0);
+			
+			e->fallout = &slimePillFallout;
+			
+			e->flags |= NO_DRAW;
+			
+			t = getTargetByName("PILL_TARGET_LEFT");
+			
+			if (t == NULL)
+			{
+				showErrorAndExit("Sewer Boss cannot find target");
+			}
+			
+			e->x = t->x;
+			e->y = t->y;
+			
+			e = addTemporaryItem("item/purifier_capsule", 0, 0, LEFT, 0, 0);
+			
+			e->fallout = &slimePillFallout;
+			
+			e->flags |= NO_DRAW;
+			
+			t = getTargetByName("PILL_TARGET_RIGHT");
+			
+			if (t == NULL)
+			{
+				showErrorAndExit("Sewer Boss cannot find target");
+			}
+			
+			e->x = t->x;
+			e->y = t->y;
+			
+			self->mental = 0;
+		}
+		
 		rand = prand() % 2;
 		
 		t = getTargetByName(rand == 0 ? "SEWER_BOSS_TARGET_RIGHT" : "SEWER_BOSS_TARGET_LEFT");
@@ -324,7 +485,7 @@ static void addClaws()
 		
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &entityTouch;
-		e->die = &entityDieNoDrop;
+		e->die = &clawDie;
 		e->action = &clawWait;
 		e->takeDamage = &clawTakeDamage;
 		
@@ -335,6 +496,8 @@ static void addClaws()
 		e->startX = e->x;
 		
 		e->layer = (i == 0 ? BACKGROUND_LAYER : FOREGROUND_LAYER);
+		
+		e->thinkTime = (i == 0 ? 0 : 180);
 		
 		createArm(e);
 	}
@@ -383,6 +546,8 @@ static void createArm(Entity *top)
 
 		body[i]->type = ENEMY;
 		
+		body[i]->element = SLIME;
+		
 		body[i]->layer = top->layer;
 
 		setEntityAnimation(body[i], STAND);
@@ -425,6 +590,8 @@ static void createArm(Entity *top)
 
 static void clawWait()
 {
+	Target *t;
+	
 	self->face = self->head->face;
 	
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
@@ -433,11 +600,11 @@ static void clawWait()
 	
 	self->thinkTime++;
 	
-	self->x = self->startX + sin(DEG_TO_RAD(self->thinkTime)) * 16;
+	self->x = self->startX + sin(DEG_TO_RAD(self->thinkTime)) * 96;
 	
 	self->y = self->head->y + self->offsetY + 128;
 	
-	self->startY = self->head->y + self->offsetY;
+	self->startY = self->head->y + self->offsetY + (self->layer == BACKGROUND_LAYER ? -16 : 0);
 	
 	checkToMap(self);
 	
@@ -457,7 +624,7 @@ static void clawWait()
 		
 		self->thinkTime = self->layer == FOREGROUND_LAYER ? 30 : 60;
 		
-		self->maxThinkTime = 5;
+		self->endX = 5;
 	}
 	
 	else if (self->head->mental == -10)
@@ -479,6 +646,222 @@ static void clawWait()
 			self->thinkTime = 30;
 		}
 	}
+	
+	else if (self->head->mental == -20)
+	{
+		if (self->layer == FOREGROUND_LAYER)
+		{
+			t = getTargetByName("PILL_TARGET_LEFT");
+			
+			self->face = RIGHT;
+		}
+		
+		else
+		{
+			t = getTargetByName("PILL_TARGET_RIGHT");
+			
+			self->face = LEFT;
+		}
+		
+		if (t == NULL)
+		{
+			showErrorAndExit("Sewer Boss cannot find target");
+		}
+		
+		self->x = t->x;
+		self->y = self->head->y;
+		
+		self->startY = self->y;
+		self->startX = self->x;
+		
+		self->targetY = self->head->startY + self->offsetY;
+		self->targetX = self->x;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 4;
+		self->dirY *= 4;
+		
+		self->action = &clawSideAttackRise;
+		
+		self->thinkTime = 60;
+	}
+	
+	else if (self->head->mental == -50)
+	{
+		if (self->layer == FOREGROUND_LAYER)
+		{
+			t = getTargetByName("PILL_TARGET_RIGHT");
+			
+			self->face = LEFT;
+		
+			if (t == NULL)
+			{
+				showErrorAndExit("Sewer Boss cannot find target");
+			}
+			
+			self->x = t->x;
+			self->y = self->head->y;
+			
+			self->startY = self->y;
+			self->startX = self->x;
+			
+			self->targetY = self->head->startY + self->offsetY;
+			self->targetX = self->x;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 8;
+			self->dirY *= 8;
+			
+			self->action = &finalAttackRise;
+			
+			self->die = &finalClawDie;
+			
+			self->fallout = &fallout;
+			
+			self->thinkTime = 0;
+			
+			self->damage = 0;
+		}
+		
+		else
+		{
+			self->health = 0;
+			
+			self->inUse = FALSE;
+		}
+	}
+}
+
+static void clawSideAttackRise()
+{
+	if (atTarget())
+	{
+		self->thinkTime = self->layer == BACKGROUND_LAYER ? 60 : 90;
+		
+		self->endX = self->head->health % 2 == 0 ? 5 : 10;
+		
+		self->action = &clawSideAttackWait;
+		
+		self->layer = BACKGROUND_LAYER;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void clawSideAttackWait()
+{
+	if (atTarget())
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			if (self->endX <= 0)
+			{
+				self->targetX = self->x;
+				self->targetY = self->head->y;
+				
+				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+				
+				self->dirX *= 4;
+				self->dirY *= 4;
+				
+				self->action = &clawSideAttackFinish;
+				
+				self->reactToBlock = NULL;
+			}
+			
+			else
+			{
+				self->targetX = self->face == LEFT ? self->startX - 256 : self->startX + 256;
+				self->targetY = self->y;
+				
+				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+				
+				self->dirX *= 12;
+				self->dirY *= 12;
+				
+				self->action = &clawSideAttack;
+				
+				self->reactToBlock = &sideAttackReactToBlock;
+				
+				self->flags &= ~UNBLOCKABLE;
+			}
+		}
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void clawSideAttack()
+{
+	if (atTarget())
+	{
+		self->targetX = self->startX;
+		self->targetY = self->y;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 12;
+		self->dirY *= 12;
+		
+		self->action = &clawSideAttackWait;
+		
+		self->flags |= UNBLOCKABLE;
+		
+		self->reactToBlock = NULL;
+		
+		self->thinkTime = 60;
+		
+		self->endX--;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void sideAttackReactToBlock()
+{
+	self->endX--;
+	
+	self->targetX = self->startX;
+	self->targetY = self->y;
+	
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+	
+	self->dirX *= 6;
+	self->dirY *= 6;
+	
+	self->action = &clawSideAttackWait;
+	
+	self->thinkTime = 60;
+}
+
+static void clawSideAttackFinish()
+{
+	if (atTarget())
+	{
+		self->layer = self->face == RIGHT ? FOREGROUND_LAYER : BACKGROUND_LAYER;
+		
+		self->head->mental--;
+		
+		printf("Head mental is %d. EndX is %d\n", self->head->mental, (int)self->head->endX);
+		
+		self->action = &clawWait;
+		
+		self->thinkTime = self->layer == BACKGROUND_LAYER ? 180 : 0;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
 }
 
 static void punchAttackInit()
@@ -510,9 +893,9 @@ static void punchAttackInit()
 
 static void punchReactToBlock()
 {
-	self->maxThinkTime--;
+	self->endX--;
 	
-	if (self->maxThinkTime <= 0)
+	if (self->endX <= 0)
 	{
 		self->targetX = self->startX;
 		self->targetY = self->y;
@@ -524,7 +907,7 @@ static void punchReactToBlock()
 		
 		self->action = &punchAttackFinish;
 		
-		self->thinkTime = 30;
+		self->thinkTime = 60;
 	}
 	
 	else
@@ -549,9 +932,9 @@ static void punchAttack()
 		
 		if (self->thinkTime <= 0)
 		{
-			self->maxThinkTime--;
+			self->endX--;
 			
-			if (self->maxThinkTime <= 0)
+			if (self->endX <= 0)
 			{
 				self->targetX = self->startX;
 				self->targetY = self->y;
@@ -563,7 +946,7 @@ static void punchAttack()
 				
 				self->action = &punchAttackFinish;
 				
-				self->thinkTime = 30;
+				self->thinkTime = 60;
 			}
 			
 			else
@@ -588,21 +971,26 @@ static void punchAttack()
 
 static void punchAttackFinish()
 {
-	if (atTarget())
-	{
-		self->targetX = self->startX;
-		
-		self->targetY = self->head->y + self->offsetY + 128;
-		
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
-		self->dirX *= 4;
-		self->dirY *= 4;
-		
-		self->action = &punchReturnToNormal;
-	}
+	self->thinkTime--;
 	
-	checkToMap(self);
+	if (self->thinkTime <= 0)
+	{
+		if (atTarget())
+		{
+			self->targetX = self->startX;
+			
+			self->targetY = self->head->y + self->offsetY + 128;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 4;
+			self->dirY *= 4;
+			
+			self->action = &punchReturnToNormal;
+		}
+		
+		checkToMap(self);
+	}
 	
 	alignArmToClaw();
 }
@@ -703,6 +1091,8 @@ static void grabTouch(Entity *other)
 		self->flags |= GRABBING;
 		
 		self->touch = &entityTouch;
+		
+		self->maxThinkTime = 5;
 	}
 }
 
@@ -717,7 +1107,7 @@ static void grabWait()
 	
 	alignArmToClaw();
 	
-	if (self->thinkTime >= 420)
+	if (self->thinkTime >= 240)
 	{
 		self->targetX = self->x + (self->face == LEFT ? -128 : 128);
 		self->targetY = self->startY - 64;
@@ -731,12 +1121,22 @@ static void grabWait()
 		
 		self->thinkTime = 30;
 	}
+	
+	else if (self->maxThinkTime <= 0)
+	{
+		self->action = &dropPlayer;
+		
+		self->thinkTime = 0;
+	}
 }
 
 static void dropPlayer()
 {
-	if (atTarget())
+	if (atTarget() || self->maxThinkTime <= 0)
 	{
+		self->dirX = 0;
+		self->dirY = 0;
+		
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
@@ -774,15 +1174,15 @@ static void armPartWait()
 	Entity *e;
 	
 	self->face = self->head->face;
-	
-	self->damage = self->head->damage;
 
-	if (prand() % 120 == 0)
+	if (self->element != WATER && prand() % 240 == 0)
 	{
 		x = self->x + self->w / 2 + ((prand() % 6) * (prand() % 2 == 0 ? -1 : 1));
 		y = self->y + self->h - prand() % 10;
 
 		e = addProjectile("enemy/slime_drip", self, x, y, 0, 0);
+		
+		e->element = SLIME;
 
 		e->x -= e->w / 2;
 
@@ -795,6 +1195,14 @@ static void armPartWait()
 		self->dirY = 0;
 		
 		self->action = &entityDieNoDrop;
+		self->fallout = &entityDieNoDrop;
+	}
+	
+	if (self->head->head->mental == -30)
+	{
+		self->draw = &armDraw;
+		
+		self->action = &armChangeToWater;
 	}
 }
 
@@ -821,8 +1229,6 @@ static void alignArmToClaw()
 
 		e->x = (e->target == NULL ? self->startX : x) + (self->w - e->w) / 2;
 		e->y = (e->target == NULL ? self->startY : y);
-
-		e->damage = self->damage;
 
 		e->face = self->face;
 
@@ -878,69 +1284,211 @@ static void slimeAttackMoveToTarget()
 {
 	if (atTarget())
 	{
-		setEntityAnimation(self, ATTACK_1);
+		self->touch = NULL;
 		
-		self->animationCallback = &slimeAttack;
+		setEntityAnimation(self, self->element == SLIME ? ATTACK_1 : CUSTOM_2);
 		
-		self->mental = 5;
+		self->animationCallback = &slimeAttackBreatheIn;
 		
-		self->thinkTime = 0;
+		self->thinkTime = 180;
+		
+		self->mental = -15;
 	}
 	
 	checkToMap(self);
 }
 
-static void slimeAttack()
+static void slimeAttackBreatheIn()
 {
-	self->action = &slimeAttack;
+	setEntityAnimation(self, self->element == SLIME ? ATTACK_2 : CUSTOM_3);
 	
-	setEntityAnimation(self, ATTACK_2);
+	self->action = &slimeAttackBreatheIn;
 	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
-		self->mental--;
+		self->mental = 20;
 		
-		if (self->mental <= 0)
+		self->thinkTime = 30;
+		
+		self->action = &slimeAttack;
+	}
+}
+
+static void slimeAttack()
+{
+	Entity *e;
+	
+	self->action = &slimeAttack;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->element == SLIME)
 		{
-			self->action = &slimeAttackMouthClose;
+			e = addProjectile("boss/borer_boss_slime", self, 0, 0, (self->face == RIGHT ? 7 : -7), 0);
+			
+			e->touch = &slimePlayer;
+			
+			e->damage = 3;
 		}
 		
 		else
 		{
-			self->thinkTime = 30;
+			e = addProjectile("boss/sewer_boss_water", self, 0, 0, (self->face == RIGHT ? 7 : -7), 0);
+			
+			e->touch = &entityTouch;
+			
+			e->damage = 1;
+		}
+		
+		if (self->face == LEFT)
+		{
+			e->x = self->target->x + self->target->w;
+		}
+
+		else
+		{
+			e->x = self->target->x;
+		}
+		
+		e->y = self->target->y + self->target->h / 2 - e->h / 2;
+		
+		e->flags |= FLY;
+		
+		e->die = &slimeDie;
+		
+		e->targetX = self->x + (self->face == LEFT ? -SCREEN_WIDTH : SCREEN_WIDTH);
+		e->targetY = self->y + (prand() % 2 == 0 ? -8 : 8);
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 12;
+		e->dirY *= (prand() % 3 == 0 ? 0 : 12);
+		
+		printf("%d -> %d : %f\n", (int)e->y, e->targetY, e->dirY);
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			/* Keep attacking while the player still has arrows */
+			
+			if (self->health < 200 && getInventoryItem("weapon/normal_arrow") != NULL)
+			{
+				self->touch = NULL;
+				
+				setEntityAnimation(self, self->element == SLIME ? ATTACK_1 : CUSTOM_2);
+				
+				self->animationCallback = &slimeAttackBreatheIn;
+				
+				self->thinkTime = 60;
+				
+				self->mental = -15;
+			}
+			
+			else
+			{
+				self->thinkTime = 60;
+				
+				self->action = &slimeAttackMouthClose;
+			}
+		}
+		
+		else
+		{
+			self->thinkTime = 10;
 		}
 	}
 }
 
 static void slimeAttackMouthClose()
 {
-	setEntityAnimation(self, ATTACK_3);
+	self->thinkTime--;
 	
-	self->animationCallback = &slimeAttackFinish;
-	
-	self->targetX = self->startX;
-	self->targetY = self->startY;
-	
-	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-	
-	self->dirX *= 2;
-	self->dirY *= 2;
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, self->element == SLIME ? ATTACK_3 : CUSTOM_4);
+		
+		self->animationCallback = &slimeAttackFinish;
+		
+		self->targetX = self->x;
+		self->targetY = self->startY;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 2;
+		self->dirY *= 2;
+	}
 }
 
 static void slimeAttackFinish()
 {
 	self->action = &slimeAttackFinish;
 	
+	self->touch = &entityTouch;
+	
 	if (atTarget())
 	{
+		self->mental = 30;
+		
 		self->action = &attackFinished;
 	}
 	
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, self->element == SLIME ? STAND : CUSTOM_1);
 	
 	checkToMap(self);
+}
+
+static void sinkAttackInit()
+{
+	checkToMap(self);
+	
+	if (self->y > self->endY)
+	{
+		self->y = self->endY;
+		
+		self->dirY = 0;
+		
+		self->thinkTime = 30;
+		
+		self->action = &sinkAttackWait;
+		
+		self->mental = -20;
+	}
+}
+
+static void sinkAttackWait()
+{
+	int rand;
+	Target *t;
+	
+	if ((self->mental == -21 && self->endX == 1) || (self->mental == -22 && self->endX == 2) || self->endX <= 0 || self->mental == -1)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			rand = prand() % 2;
+			
+			t = getTargetByName(rand == 0 ? "SEWER_BOSS_TARGET_RIGHT" : "SEWER_BOSS_TARGET_LEFT");
+			
+			if (t == NULL)
+			{
+				showErrorAndExit("Sewer Boss cannot find target");
+			}
+			
+			self->x = t->x;
+			
+			self->face = rand == 0 ? LEFT : RIGHT;
+			
+			self->action = &changeSidesRise;
+			
+			self->dirY = -self->speed;
+		}
+	}
 }
 
 static void touch(Entity *other)
@@ -963,6 +1511,8 @@ static void clawTakeDamage(Entity *other, int damage)
 		if (damage != 0)
 		{
 			self->health -= damage;
+			
+			self->maxThinkTime--;
 
 			if (other->type == PROJECTILE)
 			{
@@ -990,14 +1540,530 @@ static void clawTakeDamage(Entity *other, int damage)
 				self->head->mental = 0;
 				
 				self->damage = 0;
-
-				if (other->type == WEAPON || other->type == PROJECTILE)
-				{
-					increaseKillCount();
-				}
+				
+				self->thinkTime = 180;
 
 				self->die();
 			}
 		}
 	}
+}
+
+static void clawDie()
+{
+	Entity *arrow;
+	
+	/* Drop between 1 and 3 arrows */
+
+	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+	arrow->health = 1 + (prand() % 3);
+
+	entityDieNoDrop();	
+}
+
+static void slimeDie()
+{
+	playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
+	
+	self->inUse = FALSE;
+}
+
+static void addMouthOrb()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Sewer Boss Mouth Orb");
+	}
+
+	loadProperties("boss/sewer_boss_mouth_orb", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &orbWait;
+	e->touch = entityTouch;
+	e->fallout = &fallout;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->type = ENEMY;
+
+	e->active = FALSE;
+
+	setEntityAnimation(e, STAND);
+
+	e->head = self;
+	
+	self->target = e;
+}
+
+static void orbWait()
+{
+	Entity *e;
+	
+	self->face = self->head->face;
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->health > 0)
+	{
+		self->takeDamage = self->head->endX != 0 ? NULL : &orbTakeDamage;
+	}
+	
+	else
+	{
+		self->takeDamage = NULL;
+	}
+	
+	if (self->head->mental == -15)
+	{
+		e = addSmoke(0, 0, "decoration/dust");
+		
+		e->x = self->face == LEFT ? self->x - (128 + prand() % 64) : self->x + self->w + (128 + prand() % 64);
+		e->y = self->y - 64;
+
+		if (e != NULL)
+		{
+			e->y += prand() % (self->h + 128);
+			
+			calculatePath(e->x, e->y, self->x + self->w / 2, self->y + self->h / 2, &e->dirX, &e->dirY);
+			
+			e->dirX *= 6;
+			e->dirY *= 6;
+			
+			e->thinkTime = 20;
+		}
+	}
+}
+
+static void orbTakeDamage(Entity *other, int damage)
+{
+	if (!(self->flags & INVULNERABLE))
+	{
+		if (damage != 0)
+		{
+			self->head->health -= damage;
+
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
+
+			if (self->head->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				
+				setCustomAction(self->head, &flashWhite, 6, 0, 0);
+
+				setCustomAction(self->head, &invulnerableNoFlash, 20, 0, 0);
+
+				enemyPain();
+			}
+
+			else
+			{
+				self->head->mental = 0;
+				
+				setEntityAnimation(self->head, self->head->element == WATER ? DIE : PAIN);
+				
+				self->head->startX = self->head->x;
+
+				self->head->targetX = 0;
+
+				self->thinkTime = 180;
+				
+				self->head->action = &die;
+				
+				self->inUse = FALSE;
+			}
+		}
+	}
+}
+
+static void slimePlayer(Entity *other)
+{
+	Entity *temp;
+	
+	if (other->type == PLAYER)
+	{
+		temp = self;
+
+		self = other;
+
+		self->takeDamage(temp, temp->damage);
+
+		self = temp;
+		
+		other->dirX = 0;
+
+		setPlayerSlimed(120);
+
+		self->die();
+	}
+}
+
+static void slimePillFallout()
+{
+	if (self->environment == WATER)
+	{
+		self->action = &createSlime;
+		
+		self->thinkTime = 0;
+		
+		self->flags |= NO_DRAW;
+	}
+}
+
+static void createSlime()
+{
+	fill(self->x / TILE_SIZE, self->y / TILE_SIZE); 
+	
+	resetBlendTime();
+	
+	self->inUse = FALSE;
+}
+
+static void fill(int x, int y)
+{
+	if (mapTileAt(x, y) == WATER_TILE_START)
+	{
+		setTileAt(x, y, SLIME_TILE_BLEND_REVERSE);
+		
+		fill(x - 1, y);
+		fill(x + 1, y);
+		fill(x, y - 1);
+		fill(x, y + 1);
+	}
+}
+
+static void changeToWater()
+{
+	self->alpha--;
+	
+	if (self->alpha <= 0)
+	{
+		setEntityAnimation(self, CUSTOM_1);
+		
+		self->alpha = 255;
+		
+		self->action = &entityWait;
+		
+		self->draw = &drawLoopingAnimationToMap;
+		
+		self->mental = 0;
+	}
+	
+	checkToMap(self);
+}
+
+static int draw()
+{
+	int frame, alpha;
+	float timer;
+	
+	/* Draw the boss with its lowering alpha */
+	
+	drawLoopingAnimationToMap();
+	
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+	
+	alpha = self->alpha;
+	
+	/* Draw the other part with its rising alpha */
+	
+	setEntityAnimation(self, CUSTOM_1);
+	
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+	
+	self->alpha = 255 - alpha;
+	
+	drawSpriteToMap();
+	
+	/* Reset back to original */
+	
+	setEntityAnimation(self, STAND);
+	
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+	
+	self->alpha = alpha;
+	
+	return 1;
+}
+
+static int armDraw()
+{
+	int frame, alpha;
+	float timer;
+	
+	/* Draw the boss with its lowering alpha */
+	
+	drawLoopingAnimationToMap();
+	
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+	
+	alpha = self->alpha;
+	
+	/* Draw the other part with its rising alpha */
+	
+	setEntityAnimation(self, WALK);
+	
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+	
+	self->alpha = 255 - alpha;
+	
+	drawSpriteToMap();
+	
+	/* Reset back to original */
+	
+	setEntityAnimation(self, STAND);
+	
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+	
+	self->alpha = alpha;
+	
+	return 1;
+}
+
+static void armChangeToWater()
+{
+	self->alpha--;
+	
+	if (self->alpha <= 0)
+	{
+		self->element = WATER;
+		
+		setEntityAnimation(self, WALK);
+		
+		self->alpha = 255;
+		
+		self->action = &armPartWait;
+		
+		self->draw = &drawLoopingAnimationToMap;
+	}
+	
+	checkToMap(self);
+}
+
+static void die()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->dirY = 4;
+		
+		self->action = &dieSink;
+	}
+	
+	else
+	{
+		self->x = self->startX + sin(DEG_TO_RAD(self->targetX)) * 4;
+
+		self->targetX += 90;
+
+		if (self->targetX >= 360)
+		{
+			self->targetX = 0;
+		}
+	}
+}
+
+static void dieSink()
+{
+	if (self->y >= self->endY)
+	{
+		self->y = self->endY;
+		
+		self->dirY = 0;
+		
+		self->thinkTime = 120;
+		
+		self->action = &finalAttack;
+		
+		addClaws();
+		
+		self->mental = -50;
+	}
+	
+	checkToMap(self);
+}
+
+
+static void finalAttack()
+{
+	if (self->mental == -1)
+	{
+		entityDieVanish();
+	}
+}
+
+static void finalAttackRise()
+{
+	if (atTarget())
+	{
+		self->action = &finalGrabPlayer;
+		
+		self->touch = &grabTouch;
+		
+		self->layer = BACKGROUND_LAYER;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void finalGrabPlayer()
+{
+	if (self->flags & GRABBING)
+	{
+		self->touch = &entityTouch;
+		
+		self->action = &finalGrabWait;
+		
+		self->endY = self->y - 16;
+	}
+	
+	else
+	{
+		self->dirX = player.x < self->x ? -6 : 6;
+		self->dirY = player.y < self->y ? -6 : 6;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void finalGrabWait()
+{
+	self->thinkTime++;
+	
+	self->y = self->endY + sin(DEG_TO_RAD(self->thinkTime)) * 8;
+	
+	player.x = self->x + self->w / 2 - player.w / 2;
+	player.y = self->y + self->h / 2 - player.h / 2;
+	
+	alignArmToClaw();
+	
+	if (self->thinkTime >= 360)
+	{
+		self->takeDamage = NULL;
+		
+		player.fallout = &fallout;
+		
+		self->targetX = self->startX;
+		self->targetY = self->y;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 4;
+		self->dirY *= 4;
+		
+		self->action = &dragDownInit;
+		
+		self->thinkTime = 60;
+	}
+}
+
+static void dragDownInit()
+{
+	if (atTarget())
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->targetX = self->startX;
+			self->targetY = self->startY + 64;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 8;
+			self->dirY *= 8;
+			
+			self->action = &dragDown;
+			
+			self->thinkTime = 60;
+		}
+	}
+	
+	player.x = self->x + self->w / 2 - player.w / 2;
+	player.y = self->y + self->h / 2 - player.h / 2;
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void dragDown()
+{
+	if (atTarget())
+	{
+		removeInventoryItem("Amulet of Resurrection");
+		
+		player.die();
+		
+		self->health = 0;
+		
+		self->inUse = FALSE;
+	}
+	
+	player.x = self->x + self->w / 2 - player.w / 2;
+	player.y = self->y + self->h / 2 - player.h / 2;
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void finalClawDie()
+{
+	Entity *e;
+	
+	self->action = &finalClawDie;
+
+	self->thinkTime--;
+	
+	self->dirX = 0;
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->mental = -1;
+		
+		freeBossHealthBar();
+
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		fadeBossMusic();
+
+		entityDieNoDrop();
+	}
+	
+	self->flags &= ~FLY;
+	
+	checkToMap(self);
 }
