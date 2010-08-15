@@ -3,7 +3,7 @@ CHANGE LOG
 
 Version 0.67
 * Fixed the Armadillo Spike Ball duplication bug
-* Fixed a problem with the Dice blocks in the lab
+* Fixed a problem with the Dice blocks in the laboratory
 * Finally added the Sewer Restricted Zone Key
 * Added the ability to disable the joystick via the commandline, see the manual for details
 
