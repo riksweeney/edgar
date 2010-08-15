@@ -4,6 +4,7 @@ CHANGE LOG
 Version 0.67
 * Fixed the Armadillo Spike Ball duplication bug
 * Fixed a problem with the Dice blocks in the lab
+* Finally added the Sewer Restricted Zone Key
 
 Version 0.66
 * Starting the game with no sound and then enabling it no longer causes an error
