@@ -2690,3 +2690,63 @@ msgstr ""
 msgid "A piece of a puzzle"
 msgstr ""
 
+msgid "Power Cell is required"
+msgstr ""
+
+msgid "Press Action to use the Sonic Boom"
+msgstr ""
+
+msgid "Firing Sonic Boom in %d"
+msgstr ""
+
+msgid "The glass looks very weak now..."
+msgstr ""
+
+msgid "Press Escape to exit"
+msgstr ""
+
+msgid "Huh, what's that?"
+msgstr ""
+
+msgid "ESCAPEE LOCATED"
+msgstr ""
+
+msgid "TARGET IS ARMED AND DANGEROUS"
+msgstr ""
+
+msgid "COMMENCING DESTRUCTION OF TARGET"
+msgstr ""
+
+msgid "So you're back? Well this time, only one of us is getting out of here alive!"
+msgstr ""
+
+msgid "Wow, what a nice ring"
+msgstr ""
+
+msgid "Hang on a second, Maggie told me to always ask if someone had lost something before taking it..."
+msgstr ""
+
+msgid "ANYONE LOST A RING?!"
+msgstr ""
+
+msgid "No one? Guess it's mine then!"
+msgstr ""
+
+msgid "I'm back in the Fortress, thank goodness for that"
+msgstr ""
+
+msgid "But Dad wasn't in there, I looked everywhere and there was no sign of him"
+msgstr ""
+
+msgid "The sorceror must have done something else with him, I'll have to go back and find out"
+msgstr ""
+
+msgid "You won't be able to deal with the sorceror in this version!"
+msgstr ""
+
+msgid "A beautiful ring"
+msgstr ""
+
+msgid "A power cell from a Gold Centurion"
+msgstr ""
+
