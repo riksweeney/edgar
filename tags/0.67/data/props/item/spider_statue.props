@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/spider_statue.dat
+ANIM_FILE data/anim/common/no_anim.dat
+TYPE ITEM
+DESCRIPTION A statue of a Spider. It has 8 legs.
+OBJECTIVE_NAME Spider Statue

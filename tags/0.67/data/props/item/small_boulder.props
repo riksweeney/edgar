@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/enemy/small_boulder.dat
+ANIM_FILE data/anim/enemy/small_boulder.dat
+TYPE ITEM
+FLAGS PUSHABLE
