@@ -555,6 +555,8 @@ void saveGame(int slot)
 		
 		if (read != NULL)
 		{
+			fclose(read);
+			
 			continue;
 		}
 		
