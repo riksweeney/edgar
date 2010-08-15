@@ -1,0 +1,12 @@
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5216 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5248 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5280 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5312 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5344 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5376 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5408 18912
+ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5440 18912
+FOLLOW EDGAR
+RESET_CAMERA
+ADD_MEDAL kill_sewer
+ADD ENTITY KEY_ITEM item/heart_container " " 4844 18845
