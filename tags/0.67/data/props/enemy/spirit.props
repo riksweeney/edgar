@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/enemy/spirit.dat
+ANIM_FILE data/anim/enemy/spirit.dat
+TYPE ENEMY
+DAMAGE 1
+HEALTH 150
+SPEED 1.5
+ALPHA 200
