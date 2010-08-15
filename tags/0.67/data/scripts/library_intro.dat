@@ -1,6 +1,0 @@
-SET Edgar FACE LEFT
-WAIT 120
-TALK Edgar Wow, I've never seen so many books in one place!
-TALK Edgar There must be information about every subject here, this could be useful...
-SET Edgar FACE RIGHT
-TALK Edgar Hmmm, the air feels charged, it reminds me of Maggie's house when she was making spells. I should be careful.

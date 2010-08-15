@@ -1,7 +1,0 @@
-DAMAGE 1
-GFX_FILE data/gfx/enemy/sludge_vomit.dat
-ANIM_FILE data/anim/enemy/sludge_vomit.dat
-TYPE ENEMY
-SPEED 1
-THINKTIME 600
-FLAGS PLAYER_TOUCH_ONLY|UNBLOCKABLE|DO_NOT_PERSIST
