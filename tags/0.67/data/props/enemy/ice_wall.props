@@ -1,7 +1,0 @@
-DAMAGE 1
-GFX_FILE data/gfx/enemy/ice_wall.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE ENEMY
-SPEED 10
-LAYER BACKGROUND_LAYER
-FLAGS UNBLOCKABLE

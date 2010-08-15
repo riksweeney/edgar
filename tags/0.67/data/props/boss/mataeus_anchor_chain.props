@@ -1,6 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/mataeus_anchor_chain.dat
-ANIM_FILE data/anim/common/no_anim.dat
-HEALTH 1
-DAMAGE 1
-LAYER BACKGROUND_LAYER

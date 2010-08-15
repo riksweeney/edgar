@@ -1,4 +1,0 @@
-TALK Edgar I've seen this type of metal before, it heats up really easily
-TALK Edgar Maybe I can find a way to melt it...
-ACTIVATE_REQUIRED LAVA_DOOR_TRIGGER
-KILL LAVA_DOOR_POINT
