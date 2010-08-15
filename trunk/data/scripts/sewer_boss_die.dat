@@ -9,4 +9,5 @@ ADD ENTITY FALLING_PLATFORM falling_platform/sewer_falling_platform " " 5440 189
 FOLLOW EDGAR
 RESET_CAMERA
 ADD_MEDAL kill_sewer
+ADD_SECRET
 ADD ENTITY KEY_ITEM item/heart_container " " 4844 18845
