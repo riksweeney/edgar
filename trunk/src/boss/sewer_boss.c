@@ -112,6 +112,12 @@ static void dragDownInit(void);
 static void dragDown(void);
 static void finalGrabWait(void);
 static void finalClawDie(void);
+static void initialAttackRise(void);
+static void maggotTouch(Entity *);
+static void grabMaggot(void);
+static void maggotGrabWait(void);
+static void struggle(void);
+static void maggotGrabSink(void);
 
 Entity *addSewerBoss(int x, int y, char *name)
 {
@@ -154,6 +160,8 @@ static void initialise()
 		
 		setContinuePoint(FALSE, self->name, NULL);
 		
+		self->mental = 0;
+		
 		self->endX = 0;
 		
 		addMouthOrb();
@@ -167,6 +175,13 @@ static void initialise()
 		self->takeDamage = &takeDamage;
 		
 		self->dirY = -self->speed;
+	}
+	
+	else if (self->mental == -60)
+	{
+		addClaws();
+		
+		self->mental = -65;
 	}
 }
 
@@ -280,7 +295,7 @@ static void entityWait()
 			
 			else
 			{
-				action = prand() % 6;
+				action = prand() % 7;
 				
 				switch (action)
 				{
@@ -590,6 +605,7 @@ static void createArm(Entity *top)
 
 static void clawWait()
 {
+	Entity *e;
 	Target *t;
 	
 	self->face = self->head->face;
@@ -612,6 +628,8 @@ static void clawWait()
 	
 	if (self->head->mental == -5)
 	{
+		setEntityAnimation(self, WALK);
+		
 		self->targetX = self->face == LEFT ? self->startX - 64 : self->startX + 64;
 		self->targetY = self->startY;
 		
@@ -633,6 +651,8 @@ static void clawWait()
 		
 		if ((self->head->endX == 2 && self->layer == FOREGROUND_LAYER) || self->head->endX == 1)
 		{
+			setEntityAnimation(self, WALK);
+			
 			self->targetX = self->startX;
 			self->targetY = self->startY;
 			
@@ -649,6 +669,8 @@ static void clawWait()
 	
 	else if (self->head->mental == -20)
 	{
+		setEntityAnimation(self, WALK);
+		
 		if (self->layer == FOREGROUND_LAYER)
 		{
 			t = getTargetByName("PILL_TARGET_LEFT");
@@ -685,10 +707,16 @@ static void clawWait()
 		self->action = &clawSideAttackRise;
 		
 		self->thinkTime = 60;
+		
+		self->layer = FOREGROUND_LAYER;
 	}
 	
 	else if (self->head->mental == -50)
 	{
+		setEntityAnimation(self, WALK);
+		
+		self->face = LEFT;
+		
 		if (self->layer == FOREGROUND_LAYER)
 		{
 			t = getTargetByName("PILL_TARGET_RIGHT");
@@ -732,13 +760,49 @@ static void clawWait()
 			self->inUse = FALSE;
 		}
 	}
+	
+	else if (self->head->mental == -65)
+	{
+		setEntityAnimation(self, JUMP);
+		
+		if (self->layer == FOREGROUND_LAYER)
+		{
+			e = getEntityByObjectiveName("FLYING_MAGGOT_3");
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("Sewer Boss cannot find Maggot");
+			}
+			
+			e->touch = &entityTouch;
+				
+			self->x = e->x + e->w / 2 - self->w / 2;
+			
+			self->targetX = self->x;
+			self->targetY = e->y + e->h / 2 - self->h / 2;
+			
+			self->action = &initialAttackRise;
+			
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+			
+			self->dirX *= 12;
+			self->dirY *= 12;
+		}
+		
+		else
+		{
+			self->health = 0;
+			
+			self->inUse = FALSE;
+		}
+	}
 }
 
 static void clawSideAttackRise()
 {
 	if (atTarget())
 	{
-		self->thinkTime = self->layer == BACKGROUND_LAYER ? 60 : 90;
+		self->thinkTime = self->face == LEFT ? 60 : 90;
 		
 		self->endX = self->head->health % 2 == 0 ? 5 : 10;
 		
@@ -848,11 +912,11 @@ static void clawSideAttackFinish()
 {
 	if (atTarget())
 	{
+		setEntityAnimation(self, STAND);
+		
 		self->layer = self->face == RIGHT ? FOREGROUND_LAYER : BACKGROUND_LAYER;
 		
 		self->head->mental--;
-		
-		printf("Head mental is %d. EndX is %d\n", self->head->mental, (int)self->head->endX);
 		
 		self->action = &clawWait;
 		
@@ -977,6 +1041,8 @@ static void punchAttackFinish()
 	{
 		if (atTarget())
 		{
+			setEntityAnimation(self, STAND);
+			
 			self->targetX = self->startX;
 			
 			self->targetY = self->head->y + self->offsetY + 128;
@@ -1054,6 +1120,8 @@ static void grabAttack()
 	{
 		if (self->flags & GRABBING)
 		{
+			self->layer = FOREGROUND_LAYER;
+			
 			self->touch = &entityTouch;
 			
 			self->action = &grabWait;
@@ -1150,6 +1218,8 @@ static void dropPlayer()
 			
 			self->dirX *= 12;
 			self->dirY *= 12;
+			
+			self->layer = self->head->endX == 1 ? BACKGROUND_LAYER : FOREGROUND_LAYER;
 			
 			self->action = &punchAttackFinish;
 			
@@ -1360,15 +1430,13 @@ static void slimeAttack()
 		
 		e->die = &slimeDie;
 		
-		e->targetX = self->x + (self->face == LEFT ? -SCREEN_WIDTH : SCREEN_WIDTH);
-		e->targetY = self->y + (prand() % 2 == 0 ? -8 : 8);
+		e->targetX = e->x + (self->face == LEFT ? -SCREEN_WIDTH : SCREEN_WIDTH);
+		e->targetY = e->y + (prand() % 2 == 0 ? -64 : 64);
 		
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 		
 		e->dirX *= 12;
 		e->dirY *= (prand() % 3 == 0 ? 0 : 12);
-		
-		printf("%d -> %d : %f\n", (int)e->y, e->targetY, e->dirY);
 		
 		self->mental--;
 		
@@ -2040,8 +2108,6 @@ static void dragDown()
 
 static void finalClawDie()
 {
-	Entity *e;
-	
 	self->action = &finalClawDie;
 
 	self->thinkTime--;
@@ -2054,10 +2120,6 @@ static void finalClawDie()
 		
 		freeBossHealthBar();
 
-		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-
-		e->dirY = ITEM_JUMP_HEIGHT;
-
 		fadeBossMusic();
 
 		entityDieNoDrop();
@@ -2066,4 +2128,114 @@ static void finalClawDie()
 	self->flags &= ~FLY;
 	
 	checkToMap(self);
+}
+
+static void initialAttackRise()
+{
+	if (atTarget())
+	{
+		self->action = &grabMaggot;
+		
+		self->touch = &maggotTouch;
+		
+		self->layer = FOREGROUND_LAYER;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void maggotTouch(Entity *other)
+{
+	if (strcmpignorecase(other->objectiveName, "FLYING_MAGGOT_3") == 0)
+	{
+		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
+		other->action = &struggle;
+		
+		self->head = other;
+		
+		self->thinkTime = 120;
+		
+		self->flags |= GRABBING;
+		
+		self->touch = &entityTouch;
+	}
+}
+
+static void grabMaggot()
+{
+	if (self->flags & GRABBING)
+	{
+		self->touch = &entityTouch;
+		
+		self->action = &maggotGrabWait;
+		
+		self->thinkTime = 90;
+	}
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void maggotGrabWait()
+{
+	self->head->x = self->x + self->w / 2 - self->head->w / 2;
+	self->head->y = self->y + self->h / 2 - self->head->h / 2;
+	
+	alignArmToClaw();
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = self->startX;
+		self->targetY = self->startY + 64;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= 12;
+		self->dirY *= 12;
+		
+		self->action = &dragDown;
+		
+		self->action = &maggotGrabSink;
+		
+		self->fallout = &fallout;
+		
+		self->head->fallout = &fallout;
+	}
+}
+
+static void maggotGrabSink()
+{
+	if (atTarget())
+	{
+		self->head->inUse = FALSE;
+		
+		self->health = 0;
+		
+		self->inUse = FALSE;
+	}
+	
+	self->head->x = self->x + self->w / 2 - self->head->w / 2;
+	self->head->y = self->y + self->h / 2 - self->head->h / 2;
+	
+	checkToMap(self);
+	
+	alignArmToClaw();
+}
+
+static void struggle()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
+		
+		self->thinkTime = 5;
+	}
 }

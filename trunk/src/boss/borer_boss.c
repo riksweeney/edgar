@@ -1382,8 +1382,6 @@ static void slimePlayer(Entity *other)
 
 static void slimeDie()
 {
-	playSoundToMap("sound/common/splat3.ogg", -1, self->x, self->y, 0);
-	
 	self->inUse = FALSE;
 }
 
