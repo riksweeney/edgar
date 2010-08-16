@@ -1,0 +1,13 @@
+TALK Edgar There's a note here
+TALK Note I've managed to escape from my cell and am trying to find a way out
+TALK Note I found a door blocked by a frame which you need to put 9 jigsaw puzzle pieces in
+TALK Note The pieces are locked behind doors which seem to be linked to the Red Centurions
+TALK Note The Centurions appear to be indestructable however
+TALK Note Unless I can find a way to destroy them I will die down here
+TALK Edgar I'll find a way to destroy them
+TALK Edgar I'm so close to rescuing Dad now...
+IF PUZZLE_NOTE_1 HEALTH 0
+ADD OBJECTIVE "Find 9 Puzzle Pieces" " "
+ADD TRIGGER "Puzzle Piece" 9 UPDATE_OBJECTIVE "Find 9 Puzzle Pieces"
+SET PUZZLE_NOTE_1 HEALTH 1
+END
