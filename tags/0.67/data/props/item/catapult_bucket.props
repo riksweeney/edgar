@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/item/catapult_bucket.dat
-ANIM_FILE data/anim/item/catapult_bucket.dat
-TYPE KEY_ITEM
-FLAGS DO_NOT_PERSIST
-LAYER FOREGROUND_LAYER
