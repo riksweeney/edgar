@@ -105,6 +105,9 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		playerShield.parent = &player;
 		playerWeapon.parent = &player;
+		
+		playerShield.name[0] = '\0';
+		playerWeapon.name[0] = '\0';
 
 		playerWeapon.face = playerShield.face = LEFT;
 	}

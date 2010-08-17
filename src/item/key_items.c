@@ -107,6 +107,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "attractor.h"
 #include "cell_bars.h"
 #include "sonic_boom_panel.h"
+#include "item_remover.h"
 
 extern Entity *self, player;
 
@@ -121,6 +122,7 @@ static Constructor items[] = {
 {"item/bomb", &addBomb},
 {"item/bomb_pile", &addBombPile},
 {"item/health_potion", &addHealthPotion},
+{"item/health_potion_removed", &addHealthPotion},
 {"item/slime_potion", &addSlimePotion},
 {"item/invisibility_potion", &addInvisibilityPotion},
 {"item/arrow_target", &addArrowTarget},
@@ -196,7 +198,8 @@ static Constructor items[] = {
 {"item/attractor", &addAttractor},
 {"item/horizontal_glass_wall", &addGlassWall},
 {"item/cell_bars", &addCellBars},
-{"item/sonic_boom_panel", &addSonicBoomPanel}
+{"item/sonic_boom_panel", &addSonicBoomPanel},
+{"item/item_remover", &addItemRemover}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

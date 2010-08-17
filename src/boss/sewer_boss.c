@@ -2118,6 +2118,8 @@ static void finalClawDie()
 	{
 		self->head->mental = -1;
 		
+		clearContinuePoint();
+		
 		freeBossHealthBar();
 
 		fadeBossMusic();
