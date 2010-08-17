@@ -45,3 +45,5 @@ int hasBow(void);
 int hasLightningSword(void);
 void scriptAddToInventory(char *);
 void moveInventoryItem(int);
+Entity *removeInventoryItemAtCursor(void);
+void resetInventoryIndex(void);

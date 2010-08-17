@@ -88,13 +88,6 @@ int addToInventory(Entity *e)
 
 	found = FALSE;
 	
-	/* Quick fudge to remove the problematic bombs */
-	
-	if (e->type == ENEMY)
-	{
-		e->type = KEY_ITEM;
-	}
-
 	if (e->flags & STACKABLE)
 	{
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
@@ -872,4 +865,18 @@ void scriptAddToInventory(char *name)
 	}
 	
 	e->inUse = FALSE;
+}
+
+Entity *removeInventoryItemAtCursor()
+{
+	sortInventory();
+	
+	return (inventory.item[inventory.selectedIndex].inUse == TRUE ? &inventory.item[inventory.selectedIndex] : NULL);
+}
+
+void resetInventoryIndex()
+{
+	inventory.selectedIndex = 0;
+
+	inventory.cursorIndex = 0;
 }
