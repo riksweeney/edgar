@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.70
+* Fixed a scrolling error after defeating the Sewer boss
+* Loading a game correctly sets the Bow
+
 Version 0.67
 * Fixed the Armadillo Spike Ball duplication bug
 * Fixed a problem with the Dice blocks in the laboratory
