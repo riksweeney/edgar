@@ -21,7 +21,12 @@ TALK Book Blend the Gazer eyes and Sludge tentacle into a smooth liquid
 TALK Book Add the root, fat and bones into the cauldron and mix together with the blended Gazer eyes and Sludge tentacle
 TALK Book When the mixture turns bright blue, add the shield
 TALK Edgar Hmmm...
+IF HAS_NOT_VISITED map10
 TALK Edgar There might be potions room or lab where I can find the roots, fat and bones so I don't need to worry about those
+END
+IF HAS_VISITED map10
+TALK Edgar The lab probably has the roots, fat and bones so I don't need to worry about those
+END
 TALK Edgar And the Gazers hang around in the basement so that's not a problem
 TALK Edgar What I do need to find is a Red Sludge, but I have no idea where to find one
 TALK Edgar I can't use my current shield in the experiment in case it backfires so I'll have to find another one

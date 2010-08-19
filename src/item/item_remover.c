@@ -26,6 +26,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../inventory.h"
 #include "../world/target.h"
+#include "../event/global_trigger.h"
+#include "../event/objective.h"
 #include "../system/error.h"
 #include "../system/random.h"
 
@@ -73,10 +75,10 @@ static void entityWait()
 
 static void removeItems()
 {
-	int i, j, size;
+	int i, j, size, count;
 	Entity *e;
 	Target *t;
-	char targetName[MAX_VALUE_LENGTH];
+	char targetName[MAX_LINE_LENGTH];
 	char *items[] = {
 		"item/tuning_fork",
 		"item/invisibility_potion",
@@ -92,6 +94,8 @@ static void removeItems()
 	
 	resetInventoryIndex();
 	
+	count = 0;
+	
 	/* Remove all the inventory items */
 	
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
@@ -102,12 +106,8 @@ static void removeItems()
 		{
 			for (j=0;j<size;j++)
 			{
-				printf("%s == %s\n", e->name, items[j]);
-				
 				if (strcmpignorecase(e->name, items[j]) == 0)
 				{
-					printf("Removing %s\n", e->name);
-					
 					e->inUse = FALSE;
 					
 					break;
@@ -138,8 +138,20 @@ static void removeItems()
 			addEntity(*e, t->x, t->y);
 			
 			e->inUse = FALSE;
+			
+			snprintf(targetName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_TRIGGER \"ITEMS\"", e->objectiveName);
+			
+			count++;
+			
+			addGlobalTriggerFromScript(targetName);
 		}
 	}
+	
+	snprintf(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
+	
+	addGlobalTriggerFromScript(targetName);
+	
+	addObjectiveFromScript("\"Retrieve items\" \" \"");
 	
 	e = removePlayerWeapon();
 	

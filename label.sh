@@ -9,6 +9,7 @@ fi
 declare CURRENT_TOTAL=0
 declare SCRIPT_TOTAL=0
 declare MAP_TOTAL=0
+declare POTION_TOTAL=0
 declare TOTAL=0
 
 CURRENT_TOTAL=`grep TOTAL_SECRETS src/defs.h | cut -d' ' -f3`
@@ -17,7 +18,9 @@ SCRIPT_TOTAL=`grep -m 1 ADD_SECRET data/scripts/*.dat | wc -l`
 
 MAP_TOTAL=`grep item/health_potion data/maps/*.dat | wc -l`
 
-TOTAL=$(($SCRIPT_TOTAL+$MAP_TOTAL))
+POTION_TOTAL=`grep -m 1 item/health_potion data/scripts/*.dat | wc -l`
+
+TOTAL=$(($SCRIPT_TOTAL+$MAP_TOTAL+$POTION_TOTAL))
 
 if [ "$TOTAL" != "$CURRENT_TOTAL" ]
 then

@@ -122,9 +122,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_VALUE_LENGTH 60
 
-#define MAX_TRIGGERS 20
-
-#define MAX_OBJECTIVES 10
+#define MAX_OBJECTIVES 25
 
 #define MAX_INPUTS 256
 
@@ -151,6 +149,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define INVENTORY_COLUMN_COUNT 6
 
 #define MAX_INVENTORY_ITEMS 30
+
+#define MAX_TRIGGERS MAX_INVENTORY_ITEMS
 
 #define DEG_TO_RAD(x) ((x) * PI / 180)
 

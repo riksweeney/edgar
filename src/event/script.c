@@ -38,6 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../system/random.h"
 #include "../system/error.h"
+#include "../system/load_save.h"
 #include "../medal.h"
 
 extern Entity player, *self;
@@ -283,82 +284,105 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, " ", &savePtr);
 
-			if (strcmpignorecase(token, "EDGAR") == 0)
-			{
-				e = &player;
-			}
-
-			else
-			{
-				e = getEntityByObjectiveName(token);
-			}
-
-			if (e == NULL)
-			{
-				showErrorAndExit("IF command could not find Entity %s", token);
-			}
-
-			token = strtok_r(NULL, " ", &savePtr);
-
-			if (strcmpignorecase(token, "HEALTH") == 0)
+			if (strcmpignorecase(token, "HAS_VISITED") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-
-				if (strcmpignorecase(token, "NOT_MAX") == 0)
-				{
-					if (e->health == e->maxHealth)
-					{
-						script.skipping = TRUE;
-					}
-				}
-
-				else if (strcmpignorecase(token, "MAX") == 0)
-				{
-					if (e->health != e->maxHealth)
-					{
-						script.skipping = TRUE;
-					}
-				}
-
-				else if (strcmpignorecase(token, "NOT") == 0)
-				{
-					token = strtok_r(NULL, " ", &savePtr);
-
-					if (e->health == atoi(token))
-					{
-						script.skipping = TRUE;
-					}
-				}
-
-				else if (e->health != atoi(token))
-				{
-					script.skipping = TRUE;
-				}
-			}
-
-			else if (strcmpignorecase(token, "MAX_HEALTH") == 0)
-			{
-				token = strtok_r(NULL, " ", &savePtr);
-
-				if (e->maxHealth != atoi(token))
+				
+				if (hasPersistance(token) == FALSE)
 				{
 					script.skipping = TRUE;
 				}
 			}
 			
-			else if (strcmpignorecase(token, "MENTAL") == 0)
+			else if (strcmpignorecase(token, "HAS_NOT_VISITED") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-
-				if (e->mental != atoi(token))
+				
+				if (hasPersistance(token) == TRUE)
 				{
 					script.skipping = TRUE;
 				}
 			}
-
+			
 			else
 			{
-				showErrorAndExit("Unknown IF command %s",token);
+				if (strcmpignorecase(token, "EDGAR") == 0)
+				{
+					e = &player;
+				}
+				
+				else
+				{
+					e = getEntityByObjectiveName(token);
+				}
+
+				if (e == NULL)
+				{
+					showErrorAndExit("IF command could not find Entity %s", token);
+				}
+
+				token = strtok_r(NULL, " ", &savePtr);
+
+				if (strcmpignorecase(token, "HEALTH") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (strcmpignorecase(token, "NOT_MAX") == 0)
+					{
+						if (e->health == e->maxHealth)
+						{
+							script.skipping = TRUE;
+						}
+					}
+
+					else if (strcmpignorecase(token, "MAX") == 0)
+					{
+						if (e->health != e->maxHealth)
+						{
+							script.skipping = TRUE;
+						}
+					}
+
+					else if (strcmpignorecase(token, "NOT") == 0)
+					{
+						token = strtok_r(NULL, " ", &savePtr);
+
+						if (e->health == atoi(token))
+						{
+							script.skipping = TRUE;
+						}
+					}
+
+					else if (e->health != atoi(token))
+					{
+						script.skipping = TRUE;
+					}
+				}
+
+				else if (strcmpignorecase(token, "MAX_HEALTH") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (e->maxHealth != atoi(token))
+					{
+						script.skipping = TRUE;
+					}
+				}
+				
+				else if (strcmpignorecase(token, "MENTAL") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (e->mental != atoi(token))
+					{
+						script.skipping = TRUE;
+					}
+				}
+
+				else
+				{
+					showErrorAndExit("Unknown IF command %s",token);
+				}
 			}
 
 			script.currentDepth++;
