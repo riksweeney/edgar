@@ -90,7 +90,7 @@ void init(char *title)
 
 	if (joysticks > 0)
 	{
-		printf("Found %d joysticks Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
+		printf("Found %d joysticks. Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
 
 		game.joystick = SDL_JoystickOpen(0);
 

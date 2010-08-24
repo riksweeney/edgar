@@ -123,7 +123,6 @@ static Constructor items[] = {
 {"item/bomb", &addBomb},
 {"item/bomb_pile", &addBombPile},
 {"item/health_potion", &addHealthPotion},
-{"item/health_potion_removed", &addHealthPotion},
 {"item/slime_potion", &addSlimePotion},
 {"item/invisibility_potion", &addInvisibilityPotion},
 {"item/arrow_target", &addArrowTarget},
@@ -235,7 +234,7 @@ void keyItemTouch(Entity *other)
 {
 	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
-		if (strcmpignorecase(self->name, "item/health_potion") == 0)
+		if (self->mental != -1 && strcmpignorecase(self->name, "item/health_potion") == 0)
 		{
 			increaseSecretsFound();
 		}

@@ -70,6 +70,8 @@ static void die()
 		e->x -= e->w / 2;
 
 		e->action = &generalItemAction;
+		
+		e->flags |= DO_NOT_PERSIST;
 	}
 
 	entityDie();

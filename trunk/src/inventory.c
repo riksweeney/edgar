@@ -574,6 +574,13 @@ void loadInventoryItems()
 
 				setPlayerShield(1);
 			}
+			
+			if (strcmpignorecase(inventory.item[i].name, "item/safe_combination") == 0)
+			{
+				self = &inventory.item[i];
+				
+				self->activate(1);
+			}
 		}
 	}
 }

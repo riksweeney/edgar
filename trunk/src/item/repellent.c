@@ -106,6 +106,8 @@ static void sprayRepellent(int val)
 		e->dirX = player.face == RIGHT ? 2 + player.speed : -2 - player.speed;
 
 		e->thinkTime = 30;
+		
+		e->flags |= DO_NOT_PERSIST;
 
 		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
 	}

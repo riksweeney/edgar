@@ -102,7 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_MESSAGE_LENGTH 256
 
-#define MAX_DROPS 240
+#define MAX_DROPS 1000
 
 #define MAX_SPRITES 4096
 
@@ -154,7 +154,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define DEG_TO_RAD(x) ((x) * PI / 180)
 
-#define TOTAL_SECRETS 17
+#define TOTAL_SECRETS 18
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 

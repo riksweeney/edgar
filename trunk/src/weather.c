@@ -90,7 +90,7 @@ static void initLightRain()
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
-	for (i=0;i<MAX_DROPS/2;i++)
+	for (i=0;i<MAX_DROPS/4;i++)
 	{
 		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
@@ -110,7 +110,7 @@ static void initHeavyRain()
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
-	for (i=0;i<MAX_DROPS;i++)
+	for (i=0;i<MAX_DROPS/2;i++)
 	{
 		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
@@ -140,12 +140,16 @@ static void rain()
 
 			if (droplet[i].y >= maxY || mapTileAt((startX + droplet[i].x) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
 			{
-				droplet[i].x = prand() % SCREEN_WIDTH;
 				droplet[i].y = -8 - prand() % 20;
 
 				droplet[i].dirX = 0;
 				droplet[i].dirY = 8 + prand() % 8;
 			}
+		}
+		
+		else
+		{
+			break;
 		}
 	}
 }
@@ -156,7 +160,7 @@ static void initStorm()
 
 	memset(droplet, 0, sizeof(Droplet) * MAX_DROPS);
 
-	for (i=0;i<MAX_DROPS;i++)
+	for (i=0;i<MAX_DROPS/2;i++)
 	{
 		droplet[i].x = prand() % SCREEN_WIDTH;
 		droplet[i].y = prand() % SCREEN_HEIGHT;
@@ -196,7 +200,7 @@ static void initSnow()
 		droplet[i].y = prand() % SCREEN_HEIGHT;
 
 		droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
-		droplet[i].dirY = 0.1f + 0.1f * (prand() % 10);
+		droplet[i].dirY = 0.1f + 0.1f * (prand() % 30);
 
 		droplet[i].active = TRUE;
 	}
