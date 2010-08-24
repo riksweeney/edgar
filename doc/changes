@@ -9,7 +9,7 @@ Version 0.67
 * Fixed the Armadillo Spike Ball duplication bug
 * Fixed a problem with the Dice blocks in the laboratory
 * Finally added the Sewer Restricted Zone Key
-* Added the ability to disable the joystick via the commandline, see the manual for details
+* Added the ability to disable the joystick via the command line, see the manual for details
 
 Version 0.66
 * Starting the game with no sound and then enabling it no longer causes an error

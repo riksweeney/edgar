@@ -75,7 +75,7 @@ static void entityWait()
 
 static void removeItems()
 {
-	int i, j, size, count;
+	int i, j, size, count, x, allTargets;
 	Entity *e;
 	Target *t;
 	char targetName[MAX_LINE_LENGTH];
@@ -95,6 +95,8 @@ static void removeItems()
 	resetInventoryIndex();
 	
 	count = 0;
+	
+	allTargets = 0;
 	
 	/* Remove all the inventory items */
 	
@@ -121,10 +123,14 @@ static void removeItems()
 			
 			if (strcmpignorecase(e->name, "item/health_potion") == 0)
 			{
-				STRNCPY(e->name, "item/health_potion_removed", sizeof(e->name));
+				e->mental = -1;
 			}
 			
-			j = prand() % self->mental;
+			/* Ensure that at least 1 item appears at each target */
+			
+			j = allTargets < self->mental ? allTargets : prand() % self->mental;
+			
+			allTargets++;
 			
 			snprintf(targetName, MAX_VALUE_LENGTH, "REMOVER_TARGET_%d", j);
 			
@@ -135,7 +141,11 @@ static void removeItems()
 				showErrorAndExit("Item Remover cannot find target");
 			}
 			
-			addEntity(*e, t->x, t->y);
+			x = t->x;
+			
+			x += (prand() % 32) * (prand() % 2 == 0 ? -1 : 1);
+			
+			addEntity(*e, x, t->y);
 			
 			e->inUse = FALSE;
 			
@@ -150,8 +160,6 @@ static void removeItems()
 	snprintf(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
 	
 	addGlobalTriggerFromScript(targetName);
-	
-	addObjectiveFromScript("\"Retrieve items\" \" \"");
 	
 	e = removePlayerWeapon();
 	

@@ -39,8 +39,8 @@ extern Input input;
 static void touch(Entity *);
 static void entityWait(void);
 static void activate(int);
-static void generateInputCode(void);
 static void readInputCode(void);
+static void addDisplay(void);
 
 Entity *addSafe(int x, int y, char *name)
 {
@@ -87,21 +87,6 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	generateInputCode();
-	
-	self->action = &readInputCode;
-	
-	self->objectiveName[0] = '\0';
-
-	self->touch = NULL;
-
-	self->activate = NULL;
-
-	setPlayerLocked(TRUE);
-}
-
-static void generateInputCode()
-{
 	Entity *e;
 	
 	self->mental = 0;
@@ -115,18 +100,29 @@ static void generateInputCode()
 		if (e == NULL)
 		{
 			runScript("no_combination");
+			
+			return;
 		}
 		
-		else
-		{
-			STRNCPY(self->requires, e->requires, sizeof(self->requires));
-		}
+		STRNCPY(self->requires, e->requires, sizeof(self->requires));
 	}
+	
+	addDisplay();
+	
+	self->action = &readInputCode;
+	
+	self->objectiveName[0] = '\0';
+
+	self->touch = NULL;
+
+	self->activate = NULL;
+
+	setPlayerLocked(TRUE);
 }
 
 static void readInputCode()
 {
-	int val;
+	int val, frameCount;
 	char code[MAX_VALUE_LENGTH];
 
 	if (input.left == 1)
@@ -169,11 +165,23 @@ static void readInputCode()
 					STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
 					
 					self->mental = 0;
-					
-					printf("%s\n", self->objectiveName);
 				}
 				
 				self->health = val;
+			}
+			
+			self->target->currentFrame += val;
+			
+			frameCount = getFrameCount(self->target);
+			
+			if (self->target->currentFrame >= frameCount)
+			{
+				self->target->currentFrame = 0;
+			}
+			
+			else if (self->target->currentFrame < 0)
+			{
+				self->target->currentFrame = frameCount - 1;
 			}
 			
 			self->mental += val;
@@ -192,6 +200,8 @@ static void readInputCode()
 				printf("Complete\n");
 			}
 			
+			self->target->inUse = FALSE;
+			
 			self->action = &entityWait;
 
 			self->activate = &activate;
@@ -201,4 +211,30 @@ static void readInputCode()
 			setPlayerLocked(FALSE);
 		}
 	}
+}
+
+static void addDisplay()
+{
+	Entity *e;
+	
+	e = getFreeEntity();
+	
+	loadProperties("item/safe_display", e);
+
+	e->type = KEY_ITEM;
+
+	e->face = LEFT;
+
+	e->action = &doNothing;
+
+	e->draw = &drawLoopingAnimationToMap;
+	
+	e->frameSpeed = 0;
+
+	setEntityAnimation(e, STAND);
+	
+	e->x = self->x + self->w / 2 - e->w / 2;
+	e->y = self->y - 32;
+
+	self->target = e;
 }
