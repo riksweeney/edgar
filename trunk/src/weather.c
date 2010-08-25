@@ -126,7 +126,7 @@ static void initHeavyRain()
 
 static void rain()
 {
-	int i, maxY, startX;
+	int i, maxY, startX, tile;
 
 	maxY = getMaxMapY();
 
@@ -138,7 +138,9 @@ static void rain()
 		{
 			droplet[i].y += droplet[i].dirY;
 
-			if (droplet[i].y >= maxY || mapTileAt((startX + droplet[i].x) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+			tile = mapTileAt((droplet[i].x + startX) / TILE_SIZE, droplet[i].y / TILE_SIZE);
+
+			if (droplet[i].y >= maxY || (tile != BLANK_TILE && tile < BACKGROUND_TILE_START))
 			{
 				droplet[i].y = -8 - prand() % 20;
 
@@ -210,7 +212,7 @@ static void initSnow()
 
 static void snow()
 {
-	int i, startX, maxY;
+	int i, startX, maxY, tile;
 
 	maxY = getMaxMapY();
 
@@ -220,15 +222,25 @@ static void snow()
 	{
 		droplet[i].x += droplet[i].dirX;
 		droplet[i].y += droplet[i].dirY;
-
-		droplet[i].x = (int)droplet[i].x % SCREEN_WIDTH;
-
+		
+		if (droplet[i].x < 0)
+		{
+			droplet[i].x = SCREEN_WIDTH - droplet[i].x;
+		}
+		/*
+		else
+		{
+			droplet[i].x = (int)droplet[i].x % SCREEN_WIDTH;
+		}
+		*/
 		if (prand() % 30 == 0)
 		{
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
 		}
+		
+		tile = mapTileAt((droplet[i].x + startX) / TILE_SIZE, droplet[i].y / TILE_SIZE);
 
-		if (droplet[i].y >= maxY || mapTileAt((droplet[i].x + startX) / TILE_SIZE, droplet[i].y / TILE_SIZE) != BLANK_TILE)
+		if (droplet[i].y >= maxY || (tile != BLANK_TILE && tile < BACKGROUND_TILE_START))
 		{
 			droplet[i].x = prand() % SCREEN_WIDTH;
 			droplet[i].y = -8 - prand() % 20;
