@@ -854,11 +854,6 @@ void saveTemporaryData()
 			showErrorAndExit("Could not remove temporary file");
 		}
 	}
-	
-	else
-	{
-		showErrorAndExit("Temporary file is missing");
-	}
 
 	fprintf(write, "MAP_NAME %s\n", mapName);
 
