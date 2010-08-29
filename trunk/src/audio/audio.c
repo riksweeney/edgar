@@ -276,7 +276,7 @@ int initAudio()
 
 	game.audioDisabled = FALSE;
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, game.audioBuffer) != 0)
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) != 0)
 	{
 		printf("Could not open audio: %s\n", Mix_GetError());
 

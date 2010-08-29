@@ -81,6 +81,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "ice_tortoise.h"
 #include "splitter.h"
 #include "buzz_saw.h"
+#include "ground_snapper.h"
+#include "sasquatch.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -214,7 +216,9 @@ static Constructor enemies[] = {
 {"enemy/buzz_saw", &addBuzzSaw},
 {"boss/sorceror", &addSorceror},
 {"boss/centurion_boss", &addCenturionBoss},
-{"boss/sewer_boss", &addSewerBoss}
+{"boss/sewer_boss", &addSewerBoss},
+{"enemy/ground_snapper", &addGroundSnapper},
+{"enemy/sasquatch", &addSasquatch}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

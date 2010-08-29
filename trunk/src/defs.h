@@ -102,7 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_MESSAGE_LENGTH 256
 
-#define MAX_DROPS 1000
+#define MAX_DROPS 256
 
 #define MAX_SPRITES 4096
 

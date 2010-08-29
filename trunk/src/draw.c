@@ -88,8 +88,16 @@ void draw()
 					{
 						SDL_SetClipRect(game.screen, NULL);
 					}
+					
+					/* Draw the background */
+					
+					drawMapBackground();
+					
+					/* Draw the weather */
+					
+					drawWeather();
 
-					/* Draw the map background */
+					/* Draw the background map tiles */
 
 					drawMap(0);
 

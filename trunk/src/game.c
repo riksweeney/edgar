@@ -181,13 +181,16 @@ void freeGame()
 	}
 }
 
-void drawGame()
+void drawWeather()
 {
 	if (game.weatherType != NO_WEATHER)
 	{
 		game.weatherDraw();
 	}
+}
 
+void drawGame()
+{
 	if (game.alphaSurface != NULL)
 	{
 		drawImage(game.alphaSurface, 0, 0, FALSE, -1);

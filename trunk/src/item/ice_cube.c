@@ -37,6 +37,7 @@ static void shrinkFinish(void);
 static void iceFloat(void);
 static void entityWait(void);
 static void fallout(void);
+static void platformTouch(Entity *);
 
 Entity *addIceCube(int x, int y, char *name)
 {
@@ -114,7 +115,7 @@ static void fallout()
 
 		self->thinkTime = 600;
 
-		self->touch = &pushEntity;
+		self->touch = &platformTouch;
 
 		self->action = &iceFloat;
 
@@ -125,6 +126,19 @@ static void fallout()
 		self->startY = self->y;
 
 		self->flags |= FLY;
+	}
+}
+
+static void platformTouch(Entity *other)
+{
+	if (other->flags & ATTACKING)
+	{
+		self->inUse = FALSE;
+	}
+	
+	else
+	{
+		pushEntity(other);
 	}
 }
 

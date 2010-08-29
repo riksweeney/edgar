@@ -7,7 +7,7 @@ SET Edgar ANIMATION STAND
 WAIT 30
 TALK Edgar Where am I?
 WAIT 60
-TALK Edgar Oh no, I've lost all my stuff!
+TALK Edgar Oh no, I've lost all my equipment!
 SET Edgar FACE RIGHT
 WAIT 30
 TALK Edgar Wait, what's that?
@@ -20,5 +20,6 @@ RESET_CAMERA
 CAMERA_SPEED 5
 WAIT 180
 CAMERA_SPEED -1
-TALK Edgar If those items are here then perhaps everything else is too, I'll have to try and retrieve them all
+TALK Edgar If those items are in this wasteland then perhaps everything else is too
+TALK Edgar I'll have to try and retrieve as much as I can...
 ADD OBJECTIVE "Retrieve items" "ALL_ITEMS_TRIGGER"

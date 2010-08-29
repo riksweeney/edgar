@@ -36,6 +36,10 @@ extern Cursor cursor;
 void draw()
 {
 	char text[MAX_VALUE_LENGTH];
+	
+	/* Draw the background */
+	
+	drawMapBackground();
 
 	/* Draw the map whole map */
 

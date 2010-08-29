@@ -48,3 +48,4 @@ void setContinuePoint(int, char *, void (*)(void));
 void getContinuePoint(void);
 void clearContinuePoint(void);
 char *getPlayTimeHours(void);
+void drawWeather(void);
