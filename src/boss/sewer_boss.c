@@ -74,7 +74,6 @@ static void slimeAttackMoveToTarget(void);
 static void slimeAttack(void);
 static void slimeAttackMouthClose(void);
 static void slimeAttackFinish(void);
-static void touch(Entity *);
 static void punchReactToBlock(void);
 static void grabTouch(Entity *);
 static void grabAttackInit(void);
@@ -170,7 +169,7 @@ static void initialise()
 		
 		self->action = &doIntro;
 		
-		self->touch = &touch;
+		self->touch = &entityTouch;
 		
 		self->takeDamage = &takeDamage;
 		
@@ -1556,19 +1555,6 @@ static void sinkAttackWait()
 			
 			self->dirY = -self->speed;
 		}
-	}
-}
-
-static void touch(Entity *other)
-{
-	if (strcmpignorecase(other->name, "item/ice_cube") == 0 || strcmpignorecase(other->name, "item/ice_platform") == 0)
-	{
-		other->inUse = FALSE;
-	}
-	
-	else
-	{
-		entityTouch(other);
 	}
 }
 

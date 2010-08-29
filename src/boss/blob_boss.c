@@ -1389,7 +1389,7 @@ static void stickToPlayerAndDrain()
 
 		self->action = &fallOff;
 
-		self->thinkTime = 300;
+		self->thinkTime = 600;
 
 		self->damage = 0;
 

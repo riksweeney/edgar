@@ -284,8 +284,20 @@ void loadMap(char *name, int loadEntityResources)
 					line = strtok_r(NULL, "\n", &savePtr1);
 				}
 			}
-
-			/*fgets(line, MAX_LINE_LENGTH, fp);*/
+			/*
+			for (y=0;y<MAX_MAP_Y;y++)
+			{
+				for (x=0;x<MAX_MAP_X;x++)
+				{
+					if (map.tile[y][x] == 4 && map.tile[y + 1][x] == 0)
+					{
+						map.tile[y][x] = 7 + (prand() % 3);
+						
+						map.tile[y + 1][x] = map.tile[y][x] + 3;
+					}
+				}
+			}
+			*/
 		}
 
 		else if (loadEntityResources == TRUE && strcmpignorecase(itemName, "{") == 0)
@@ -479,117 +491,117 @@ static void loadMapTiles(char *dir)
 	loadMapBackground(filename, 1);
 }
 
-void drawMap(int depth)
+void drawMapBackground()
 {
-	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
+	int x, y;
+	
+	map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
+	map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
 
-	/* Draw the background */
-
-	if (depth <= 0)
+	if (map.backgroundStartX[0] + SCREEN_WIDTH > map.background[0]->w && map.wrapX[0] == FALSE)
 	{
-		map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
-		map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
+		map.backgroundStartX[0] = map.background[0]->w - SCREEN_WIDTH;
+	}
 
-		if (map.backgroundStartX[0] + SCREEN_WIDTH > map.background[0]->w && map.wrapX[0] == FALSE)
+	if (map.backgroundStartY[0] + SCREEN_HEIGHT > map.background[0]->h && map.wrapY[0] == FALSE)
+	{
+		map.backgroundStartY[0] = map.background[0]->h - SCREEN_HEIGHT;
+	}
+
+	if (map.wrapX == FALSE && map.wrapY == FALSE)
+	{
+		drawClippedImage(map.background[0], map.backgroundStartX[0], map.backgroundStartY[0], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+	}
+
+	else if (map.wrapX[0] == TRUE && map.wrapY[0] == FALSE)
+	{
+		x = map.backgroundStartX[0] % map.background[0]->w;
+
+		drawClippedImage(map.background[0], x, map.backgroundStartY[0], 0, 0, map.background[0]->w - x, SCREEN_HEIGHT);
+
+		drawClippedImage(map.background[0], 0, map.backgroundStartY[0], map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
+	}
+
+	else if (map.wrapX[0] == FALSE && map.wrapY[0] == TRUE)
+	{
+		y = map.backgroundStartY[0] % map.background[0]->h;
+
+		drawClippedImage(map.background[0], map.backgroundStartX[0], y, 0, 0, SCREEN_WIDTH, map.background[0]->h - y);
+
+		drawClippedImage(map.background[0], map.backgroundStartX[0], 0, 0, map.background[0]->h - y, SCREEN_WIDTH, y);
+	}
+
+	else
+	{
+		x = map.backgroundStartX[0] % map.background[0]->w;
+		y = map.backgroundStartY[0] % map.background[0]->h;
+
+		drawClippedImage(map.background[0], x, y, 0, 0, map.background[0]->w - x, map.background[0]->h - y);
+
+		drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, map.background[0]->h - y);
+
+		drawClippedImage(map.background[0], x, 0, 0, map.background[0]->h - y, map.background[0]->w - x, y);
+
+		drawClippedImage(map.background[0], 0, 0, map.background[0]->w - x, map.background[0]->h - y, x, y);
+	}
+
+	if (map.background[1] != NULL)
+	{
+		map.backgroundStartX[1] = map.startX * map.backgroundSpeed[1];
+		map.backgroundStartY[1] = map.startY * map.backgroundSpeed[1];
+
+		if (map.backgroundStartX[1] + SCREEN_WIDTH > map.background[1]->w && map.wrapX[1] == FALSE)
 		{
-			map.backgroundStartX[0] = map.background[0]->w - SCREEN_WIDTH;
+			map.backgroundStartX[1] = map.background[1]->w - SCREEN_WIDTH;
 		}
 
-		if (map.backgroundStartY[0] + SCREEN_HEIGHT > map.background[0]->h && map.wrapY[0] == FALSE)
+		if (map.backgroundStartY[1] + SCREEN_HEIGHT > map.background[1]->h && map.wrapY[1] == FALSE)
 		{
-			map.backgroundStartY[0] = map.background[0]->h - SCREEN_HEIGHT;
+			map.backgroundStartY[1] = map.background[1]->h - SCREEN_HEIGHT;
 		}
 
-		if (map.wrapX == FALSE && map.wrapY == FALSE)
+		if (map.wrapX[1] == FALSE && map.wrapY[1] == FALSE)
 		{
-			drawClippedImage(map.background[0], map.backgroundStartX[0], map.backgroundStartY[0], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+			drawClippedImage(map.background[1], map.backgroundStartX[1], map.backgroundStartY[1], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		}
 
-		else if (map.wrapX[0] == TRUE && map.wrapY[0] == FALSE)
+		else if (map.wrapX[1] == TRUE && map.wrapY[1] == FALSE)
 		{
-			x = map.backgroundStartX[0] % map.background[0]->w;
+			x = map.backgroundStartX[1] % map.background[1]->w;
 
-			drawClippedImage(map.background[0], x, map.backgroundStartY[0], 0, 0, map.background[0]->w - x, SCREEN_HEIGHT);
+			drawClippedImage(map.background[1], x, map.backgroundStartY[1], 0, 0, map.background[1]->w - x, SCREEN_HEIGHT);
 
-			drawClippedImage(map.background[0], 0, map.backgroundStartY[0], map.background[0]->w - x, 0, x, SCREEN_HEIGHT);
+			drawClippedImage(map.background[1], 0, map.backgroundStartY[1], map.background[1]->w - x, 0, x, SCREEN_HEIGHT);
 		}
 
-		else if (map.wrapX[0] == FALSE && map.wrapY[0] == TRUE)
+		else if (map.wrapX[1] == FALSE && map.wrapY[1] == TRUE)
 		{
-			y = map.backgroundStartY[0] % map.background[0]->h;
+			y = map.backgroundStartY[1] % map.background[1]->h;
 
-			drawClippedImage(map.background[0], map.backgroundStartX[0], y, 0, 0, SCREEN_WIDTH, map.background[0]->h - y);
+			drawClippedImage(map.background[1], map.backgroundStartX[1], y, 0, 0, SCREEN_WIDTH, map.background[1]->h - y);
 
-			drawClippedImage(map.background[0], map.backgroundStartX[0], 0, 0, map.background[0]->h - y, SCREEN_WIDTH, y);
+			drawClippedImage(map.background[1], map.backgroundStartX[1], 0, 0, map.background[1]->h - y, SCREEN_WIDTH, y);
 		}
 
 		else
 		{
-			x = map.backgroundStartX[0] % map.background[0]->w;
-			y = map.backgroundStartY[0] % map.background[0]->h;
+			x = map.backgroundStartX[1] % map.background[1]->w;
+			y = map.backgroundStartY[1] % map.background[1]->h;
 
-			drawClippedImage(map.background[0], x, y, 0, 0, map.background[0]->w - x, map.background[0]->h - y);
+			drawClippedImage(map.background[1], x, y, 0, 0, map.background[1]->w - x, map.background[1]->h - y);
 
-			drawClippedImage(map.background[0], 0, y, map.background[0]->w - x, 0, x, map.background[0]->h - y);
+			drawClippedImage(map.background[1], 0, y, map.background[1]->w - x, 0, x, map.background[1]->h - y);
 
-			drawClippedImage(map.background[0], x, 0, 0, map.background[0]->h - y, map.background[0]->w - x, y);
+			drawClippedImage(map.background[1], x, 0, 0, map.background[1]->h - y, map.background[1]->w - x, y);
 
-			drawClippedImage(map.background[0], 0, 0, map.background[0]->w - x, map.background[0]->h - y, x, y);
-		}
-
-		if (map.background[1] != NULL)
-		{
-			map.backgroundStartX[1] = map.startX * map.backgroundSpeed[1];
-			map.backgroundStartY[1] = map.startY * map.backgroundSpeed[1];
-
-			if (map.backgroundStartX[1] + SCREEN_WIDTH > map.background[1]->w && map.wrapX[1] == FALSE)
-			{
-				map.backgroundStartX[1] = map.background[1]->w - SCREEN_WIDTH;
-			}
-
-			if (map.backgroundStartY[1] + SCREEN_HEIGHT > map.background[1]->h && map.wrapY[1] == FALSE)
-			{
-				map.backgroundStartY[1] = map.background[1]->h - SCREEN_HEIGHT;
-			}
-
-			if (map.wrapX[1] == FALSE && map.wrapY[1] == FALSE)
-			{
-				drawClippedImage(map.background[1], map.backgroundStartX[1], map.backgroundStartY[1], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-			}
-
-			else if (map.wrapX[1] == TRUE && map.wrapY[1] == FALSE)
-			{
-				x = map.backgroundStartX[1] % map.background[1]->w;
-
-				drawClippedImage(map.background[1], x, map.backgroundStartY[1], 0, 0, map.background[1]->w - x, SCREEN_HEIGHT);
-
-				drawClippedImage(map.background[1], 0, map.backgroundStartY[1], map.background[1]->w - x, 0, x, SCREEN_HEIGHT);
-			}
-
-			else if (map.wrapX[1] == FALSE && map.wrapY[1] == TRUE)
-			{
-				y = map.backgroundStartY[1] % map.background[1]->h;
-
-				drawClippedImage(map.background[1], map.backgroundStartX[1], y, 0, 0, SCREEN_WIDTH, map.background[1]->h - y);
-
-				drawClippedImage(map.background[1], map.backgroundStartX[1], 0, 0, map.background[1]->h - y, SCREEN_WIDTH, y);
-			}
-
-			else
-			{
-				x = map.backgroundStartX[1] % map.background[1]->w;
-				y = map.backgroundStartY[1] % map.background[1]->h;
-
-				drawClippedImage(map.background[1], x, y, 0, 0, map.background[1]->w - x, map.background[1]->h - y);
-
-				drawClippedImage(map.background[1], 0, y, map.background[1]->w - x, 0, x, map.background[1]->h - y);
-
-				drawClippedImage(map.background[1], x, 0, 0, map.background[1]->h - y, map.background[1]->w - x, y);
-
-				drawClippedImage(map.background[1], 0, 0, map.background[1]->w - x, map.background[1]->h - y, x, y);
-			}
+			drawClippedImage(map.background[1], 0, 0, map.background[1]->w - x, map.background[1]->h - y, x, y);
 		}
 	}
+}
+
+void drawMap(int depth)
+{
+	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
 
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
