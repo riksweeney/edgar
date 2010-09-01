@@ -83,6 +83,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "buzz_saw.h"
 #include "ground_snapper.h"
 #include "sasquatch.h"
+#include "icicle.h"
+#include "giant_snowball.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -218,7 +220,9 @@ static Constructor enemies[] = {
 {"boss/centurion_boss", &addCenturionBoss},
 {"boss/sewer_boss", &addSewerBoss},
 {"enemy/ground_snapper", &addGroundSnapper},
-{"enemy/sasquatch", &addSasquatch}
+{"enemy/sasquatch", &addSasquatch},
+{"enemy/icicle", &addIcicle},
+{"enemy/giant_snowball", &addGiantSnowball}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

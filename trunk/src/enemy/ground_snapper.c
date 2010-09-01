@@ -84,14 +84,9 @@ static void entityWait()
 
 	if (self->health == 1)
 	{
-		self->thinkTime--;
+		self->action = &snapShut;
 
-		if (self->thinkTime <= 0)
-		{
-			self->action = &snapShut;
-
-			playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
-		}
+		playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
 	}
 
 	else
