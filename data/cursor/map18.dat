@@ -9,3 +9,4 @@ common/level_exit
 falling_platform/wasteland_falling_platform
 enemy/ground_snapper
 common/spawner
+enemy/icicle

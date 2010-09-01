@@ -87,7 +87,8 @@ static void removeItems()
 		"item/extend_o_grab",
 		"item/bomb",
 		"item/sludge_tentacle",
-		"item/gazer_eye"
+		"item/gazer_eye",
+		"weapon/normal_arrow"
 	};
 	
 	size = sizeof(items) / sizeof(char *);
@@ -156,6 +157,8 @@ static void removeItems()
 			addGlobalTriggerFromScript(targetName);
 		}
 	}
+	
+	freeInventory();
 	
 	snprintf(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
 	

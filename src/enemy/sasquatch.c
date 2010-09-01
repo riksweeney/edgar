@@ -69,10 +69,19 @@ static void lookForPlayer()
 	setEntityAnimation(self, WALK);
 
 	moveLeftToRight();
-
-	if (player.health > 0 && prand() % 30 == 0)
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		self->thinkTime = 0;
+	}
+
+	if (player.health > 0 && self->thinkTime <= 0)
+	{
+		/* Must be within a certain range */
+		
+		if (collision(self->x + (self->face == LEFT ? -300 : self->w + 64), self->y, 232, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
 			
@@ -136,6 +145,8 @@ static void throwSnowball()
 		else
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			
+			self->thinkTime = 120;
 			
 			self->action = &lookForPlayer;
 		}

@@ -26,3 +26,6 @@ item/slime_potion
 item/protection_ring
 common/level_exit
 enemy/sasquatch
+enemy/icicle
+common/save_point
+common/spawner
