@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../geometry.h"
 #include "../enemy/enemies.h"
+#include "../event/script.h"
 
 extern Entity *self;
 
@@ -45,6 +46,10 @@ static void doIntro(void);
 static void summonLeave(void);
 static void summonLeaveRemove(void);
 static void hover(void);
+static void init(void);
+static void activate(int);
+static void waitOnShelf(void);
+static void shelfTouch(Entity *);
 
 Entity *addBlackBook(int x, int y, char *name)
 {
@@ -60,7 +65,7 @@ Entity *addBlackBook(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &initialise;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
@@ -74,15 +79,48 @@ Entity *addBlackBook(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	switch (self->mental)
+	{
+		case 0:
+			self->action = &initialise;
+		break;
+		
+		default:
+			self->touch = &shelfTouch;
+			
+			self->activate = &activate;
+			
+			self->action = &waitOnShelf;
+		break;
+	}
+}
+
+static void waitOnShelf()
+{
+	checkToMap(self);
+}
+
+static void shelfTouch(Entity *other)
+{
+	setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
+}
+
+static void activate(int val)
+{
+	runScript("black_book");
+}
+
 static void initialise()
 {
 	int minX, minY;
 
-	minX = getMapStartX();
-	minY = getMapStartY();
-
 	if (self->active == TRUE)
 	{
+		minX = getMapStartX();
+		minY = getMapStartY();
+		
 		self->flags &= ~NO_DRAW;
 		
 		if (cameraAtMinimum())

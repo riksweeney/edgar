@@ -73,6 +73,7 @@ static void weaponTouch(Entity *);
 static void resurrectionTimeOut(void);
 static void resurrectionParticleWait(void);
 static void resurrectionWait(void);
+static void confirmWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -671,7 +672,7 @@ static void dialogWait()
 	if (scriptWaiting() == TRUE)
 	{
 		readNextScriptLine();
-
+		
 		input.interact = 0;
 		input.jump = 0;
 		input.attack = 0;
@@ -692,6 +693,26 @@ static void dialogWait()
 
 	checkToMap(&player);
 
+	if (player.target != NULL)
+	{
+		player.face = player.x < player.target->x ? RIGHT : LEFT;
+
+		playerShield.face = player.face;
+		playerWeapon.face = player.face;
+	}
+}
+
+void playerWaitForConfirm()
+{
+	player.action = &confirmWait;
+}
+
+static void confirmWait()
+{
+	doScriptMenu();
+	
+	checkToMap(&player);
+	
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;

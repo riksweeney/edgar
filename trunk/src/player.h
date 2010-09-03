@@ -53,3 +53,4 @@ int isAttacking(void);
 void playerStand(void);
 void addChargesToWeapon(void);
 int isPlayerLocked(void);
+void playerWaitForConfirm(void);

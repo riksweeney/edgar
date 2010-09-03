@@ -17,10 +17,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void runScript(char *name);
-void readNextScriptLine(void);
-void freeScript(void);
-int scriptWaiting(void);
-void setScriptCounter(int);
-void scriptDrawMenu(void);
-void doScriptMenu(void);
+void drawScriptMenu(void);
+Menu *initScriptMenu(char *, void (*)(void), void (*)(void));
+void freeScriptMenu(void);

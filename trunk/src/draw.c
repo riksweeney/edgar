@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/graphics.h"
 #include "dialog.h"
 #include "inventory.h"
+#include "event/script.h"
 
 extern Game game;
 extern Entity player;
@@ -145,6 +146,10 @@ void draw()
 					/* Draw the dialog box */
 
 					drawDialogBox();
+					
+					/* Draw the script dialog box */
+					
+					scriptDrawMenu();
 
 					/* Draw the game statuses */
 

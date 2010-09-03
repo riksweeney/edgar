@@ -236,8 +236,10 @@ typedef struct Objective
 typedef struct Script
 {
 	int line, lineCount, skipping, thinkTime, counter;
-	int requiredDepth, currentDepth;
+	int requiredDepth, currentDepth, yesNoResult;
 	char **text;
+	Menu *menu;
+	void (*draw)(void);
 } Script;
 
 typedef struct Hud
