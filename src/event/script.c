@@ -40,11 +40,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../system/load_save.h"
 #include "../medal.h"
+#include "../menu/script_menu.h"
 
 extern Entity player, *self;
 extern Game game;
 
 static Script script;
+
+static void setYes(void);
+static void setNo(void);
 
 void runScript(char *name)
 {
@@ -189,7 +193,7 @@ void readNextScriptLine()
 		token = strtok_r(line, " ", &savePtr);
 
 		STRNCPY(command, token, sizeof(command));
-
+		
 		if (script.skipping == TRUE)
 		{
 			if (strcmpignorecase("IF", command) == 0)
@@ -299,6 +303,42 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 				
 				if (hasPersistance(token) == TRUE)
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "CONFIRM_YES") == 0)
+			{
+				if (script.yesNoResult == FALSE)
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "CONFIRM_NO") == 0)
+			{
+				if (script.yesNoResult == TRUE)
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "EXISTS") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+				
+				if (strcmpignorecase(token, "EDGAR") == 0)
+				{
+					e = &player;
+				}
+				
+				else
+				{
+					e = getEntityByObjectiveName(token);
+				}
+				
+				if (e == NULL)
 				{
 					script.skipping = TRUE;
 				}
@@ -666,6 +706,21 @@ void readNextScriptLine()
 			val = atoi(token2);
 
 			activateEntitiesValueWithObjectiveName(token, val);
+		}
+		
+		else if (strcmpignorecase(token, "SHOW_CONFIRM") == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			freeDialogBox();
+			
+			setScriptCounter(1);
+			
+			script.menu = initScriptMenu(token, &setYes, &setNo);
+
+			script.draw = &drawScriptMenu;
+			
+			playerWaitForConfirm();
 		}
 
 		else if (strcmpignorecase("LOAD_LEVEL", command) == 0)
@@ -1065,7 +1120,56 @@ void freeScript()
 		script.counter = 0;
 		
 		script.thinkTime = 0;
+		
+		script.yesNoResult = 0;
 	}
+	
+	freeScriptMenu();
+	
+	script.draw = NULL;
 
 	freeDialogBox();
+}
+
+void scriptDrawMenu()
+{
+	if (script.draw != NULL)
+	{
+		script.draw();
+	}
+}
+
+static void setYes()
+{
+	script.yesNoResult = TRUE;
+	
+	setScriptCounter(-1);
+	
+	playerWaitForDialog();
+	
+	script.draw = NULL;
+	
+	freeScriptMenu();
+	
+	readNextScriptLine();
+}
+
+static void setNo()
+{
+	script.yesNoResult = FALSE;
+	
+	setScriptCounter(-1);
+	
+	playerWaitForDialog();
+	
+	script.draw = NULL;
+	
+	freeScriptMenu();
+	
+	readNextScriptLine();
+}
+
+void doScriptMenu()
+{
+	script.menu->action();
 }

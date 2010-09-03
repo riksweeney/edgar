@@ -1,4 +1,9 @@
-IF FINAL_GENERATOR HEALTH 1
+TALK Edgar This generator looks OK, it just isn't on
+SET Edgar FACE RIGHT
+TALK Edgar I guess it powers that door, so I'll have to turn it on
+SHOW_CONFIRM Turn on the generator?
+IF CONFIRM_YES
+WAIT 15
 TALK Edgar Where's the switch?
 WAIT 60
 TALK Edgar Ah, here it is!
@@ -27,10 +32,4 @@ FOLLOW ARMOUR_BOSS
 WAIT 240
 ACTIVATE_REQUIRED ARMOUR_BOSS_DOOR
 ACTIVATE_OBJECTIVE ARMOUR_BOSS
-END
-IF FINAL_GENERATOR HEALTH 0
-TALK Edgar This generator looks OK, it just isn't on
-SET Edgar FACE RIGHT
-TALK Edgar I guess it powers that door, so I'll have to turn it on
-SET FINAL_GENERATOR HEALTH 1
 END
