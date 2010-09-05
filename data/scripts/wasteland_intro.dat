@@ -3,8 +3,10 @@ SET Edgar ANIMATION DIE
 SET Edgar FACE LEFT
 WAIT 180
 TALK Edgar Ouch, my head...
+WAIT 60
+KILL SNOW_PILE
 SET Edgar ANIMATION STAND
-WAIT 30
+WAIT 60
 TALK Edgar Where am I?
 WAIT 60
 TALK Edgar Oh no, I've lost all my equipment!

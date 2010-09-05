@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../medal.h"
 #include "../game.h"
+#include "../inventory.h"
 
 extern Entity *self;
 extern Game game;
@@ -131,7 +132,7 @@ static void trap(Entity *other)
 
 		other->fallout();
 
-		if (other->health == 1)
+		if (other->health == 1 && getInventoryItem("Amulet of Resurrection") == NULL)
 		{
 			self->health = 5;
 			

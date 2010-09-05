@@ -655,7 +655,7 @@ void resetGameSettings()
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
 	game.medalSupport = TRUE;
-	game.audioBuffer = 512;
+	game.audioQuality = 22050;
 }
 
 void writeGameSettingsToFile(FILE *fp)
@@ -667,7 +667,7 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
 	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport);
-	fprintf(fp, "AUDIO_RATE %d\n", game.audioBuffer);
+	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
 }
 
 void readGameSettingsFromFile(char *buffer)
@@ -724,15 +724,15 @@ void readGameSettingsFromFile(char *buffer)
 			game.medalSupport = atoi(token);
 		}
 		
-		else if (strcmpignorecase(token, "AUDIO_BUFFER") == 0)
+		else if (strcmpignorecase(token, "AUDIO_QUALITY") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.audioBuffer = atoi(token);
+			game.audioQuality = atoi(token);
 			
-			if (game.audioBuffer == 0)
+			if (game.audioQuality == 0)
 			{
-				game.audioBuffer = 512;
+				game.audioQuality = 22050;
 			}
 		}
 

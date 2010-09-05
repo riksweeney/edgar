@@ -109,6 +109,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "sonic_boom_panel.h"
 #include "item_remover.h"
 #include "safe.h"
+#include "snow_pile.h"
 
 extern Entity *self, player;
 
@@ -200,7 +201,8 @@ static Constructor items[] = {
 {"item/cell_bars", &addCellBars},
 {"item/sonic_boom_panel", &addSonicBoomPanel},
 {"item/item_remover", &addItemRemover},
-{"item/safe", &addSafe}
+{"item/safe", &addSafe},
+{"item/snow_pile", &addSnowPile}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
