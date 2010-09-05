@@ -128,6 +128,8 @@ static void fall()
 			e->thinkTime = 60 + (prand() % 60);
 		}
 		
+		playSoundToMap("sound/enemy/icicle/smash.ogg", -1, self->x, self->y, 0);
+		
 		self->touch = NULL;
 		
 		self->action = &dieWait;

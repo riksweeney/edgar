@@ -327,7 +327,7 @@ void pauseSound(int pause)
 	}
 }
 
-void changeSoundBuffer()
+void changeSoundQuality()
 {
 	freeMusic();
 	

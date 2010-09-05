@@ -48,8 +48,8 @@ static void lowerSFXVolume(void);
 static void raiseSFXVolume(void);
 static void lowerMusicVolume(void);
 static void raiseMusicVolume(void);
-static void toggleBuffer(void);
-static char *getBuffer(void);
+static void toggleQuality(void);
+static char *getQuality(void);
 
 void drawSoundMenu()
 {
@@ -247,9 +247,9 @@ static void loadMenuLayout()
 				
 				else if (strcmpignorecase(menuID, "BUFFER") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &game.audioBuffer, &toggleBuffer, &toggleBuffer, &toggleBuffer, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE);
 					
-					text = getBuffer();
+					text = getQuality();
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 
@@ -405,16 +405,16 @@ static void lowerMusicVolume()
 	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, -1);
 }
 
-static void toggleBuffer()
+static void toggleQuality()
 {
 	char *text;
 	Widget *w = menu.widgets[menu.index];
 	
-	game.audioBuffer = game.audioBuffer == 1024 ? 512 : 1024;
+	game.audioQuality = game.audioQuality == 22050 ? 44100 : 22050;
 
-	changeSoundBuffer();
+	changeSoundQuality();
 	
-	text = getBuffer();
+	text = getQuality();
 
 	updateLabelText(w->label, text);
 
@@ -482,16 +482,16 @@ static void showOptionsMenu()
 	game.drawMenu = &drawOptionsMenu;
 }
 
-static char *getBuffer()
+static char *getQuality()
 {
 	char *text = (char *)malloc(10);
 	
 	if (text == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole 10 bytes for a Buffer label");
+		showErrorAndExit("Failed to allocate a whole 10 bytes for a Quality label");
 	}
 	
-	snprintf(text, 10, "%d", game.audioBuffer);
+	snprintf(text, 10, "%d", game.audioQuality);
 	
 	return text;
 }

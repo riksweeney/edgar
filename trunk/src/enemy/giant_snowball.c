@@ -99,6 +99,8 @@ static void fall()
 		self->frameSpeed = 1;
 		
 		self->action = &roll;
+		
+		self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", -1, self->x, self->y, -1);
 	}
 	
 	moveTarget();
@@ -194,6 +196,10 @@ static void die()
 	int i;
 	Entity *e;
 	
+	stopSound(self->targetX);
+	
+	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble.ogg", -1, self->x, self->y, 0);
+	
 	for (i=0;i<32;i++)
 	{
 		e = addTemporaryItem("misc/giant_snowball_piece", self->x, self->y, RIGHT, 0, 0);
@@ -211,6 +217,13 @@ static void die()
 	
 	if (self->target != NULL)
 	{
+		if (self->health <= 0)
+		{
+			self->target->dirY = ITEM_JUMP_HEIGHT;
+			
+			setCustomAction(self->target, &invulnerable, 15, 0, 0);
+		}
+		
 		self->target->environment = AIR;
 		
 		self->target->flags &= ~NO_DRAW;

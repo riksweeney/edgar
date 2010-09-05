@@ -2,8 +2,10 @@ CHANGE LOG
 ----------
 
 Version 0.70
+* Added the next part of the story
 * Fixed a scrolling error after defeating the Sewer boss
 * Loading a game correctly sets the Bow
+* Made Mataeus completely optional
 
 Version 0.67
 * Fixed the Armadillo Spike Ball duplication bug
