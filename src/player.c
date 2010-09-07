@@ -1331,7 +1331,7 @@ static void resetPause()
 		break;
 	}
 
-	if ((player.health <= minHealth && getInventoryItem("Amulet of Resurrection") == NULL) || player.environment == LAVA)
+	if ((player.health <= minHealth && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL) || player.environment == LAVA)
 	{
 		player.health = 0;
 
@@ -1383,7 +1383,7 @@ static void resetPlayer()
 	
 	if (player.health <= 0)
 	{
-		removeInventoryItem("Amulet of Resurrection");
+		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		
 		player.health = player.maxHealth;
 		
@@ -1457,11 +1457,11 @@ static void playerDie()
 		
 		if (player.environment != SLIME)
 		{
-			removeInventoryItem("Amulet of Resurrection");
+			removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		}
 	}
 	
-	if (getInventoryItem("Amulet of Resurrection") == NULL)
+	if (getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
 	{
 		player.action = &gameOverTimeOut;
 		
@@ -1533,7 +1533,7 @@ static void resurrectionWait()
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
 		
-		removeInventoryItem("Amulet of Resurrection");
+		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);
@@ -1582,7 +1582,7 @@ EntityList *playerGib()
 	{
 		/* Don't allow resurrecting */
 		
-		removeInventoryItem("Amulet of Resurrection");
+		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		
 		list = throwGibs("edgar/edgar_gibs", 6);
 
@@ -1765,7 +1765,7 @@ static void fireArrow()
 	setEntityAnimation(&playerShield, ATTACK_1);
 	setEntityAnimation(&playerWeapon, ATTACK_2);
 
-	arrow = getInventoryItem(playerWeapon.requires);
+	arrow = getInventoryItemByObjectiveName(playerWeapon.requires);
 
 	if (arrow != NULL)
 	{
@@ -1790,7 +1790,7 @@ static void fireArrow()
 
 		if (arrow->health <= 0)
 		{
-			removeInventoryItem(playerWeapon.requires);
+			removeInventoryItemByObjectiveName(playerWeapon.requires);
 		}
 		
 		game.arrowsFired++;
@@ -1816,7 +1816,7 @@ static void fireArrow()
 
 void setBowAmmo(int val)
 {
-	Entity *bow = getInventoryItem("Bow");
+	Entity *bow = getInventoryItemByObjectiveName("Bow");
 
 	if (bow != NULL)
 	{
@@ -2003,7 +2003,7 @@ Entity *removePlayerWeapon()
 
 	if (playerWeapon.inUse == TRUE)
 	{
-		removeInventoryItem(playerWeapon.objectiveName);
+		removeInventoryItemByObjectiveName(playerWeapon.objectiveName);
 
 		e = addPermanentItem(playerWeapon.name, self->x, self->y);
 
@@ -2024,7 +2024,7 @@ Entity *removePlayerShield()
 
 	if (playerShield.inUse == TRUE)
 	{
-		removeInventoryItem(playerShield.objectiveName);
+		removeInventoryItemByObjectiveName(playerShield.objectiveName);
 
 		e = addPermanentItem(playerShield.name, self->x, self->y);
 
@@ -2357,7 +2357,7 @@ void addChargesToWeapon()
 	
 	else
 	{
-		e = getInventoryItem(self->requires);
+		e = getInventoryItemByObjectiveName(self->requires);
 		
 		if (e != NULL)
 		{

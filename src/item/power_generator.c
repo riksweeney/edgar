@@ -105,7 +105,7 @@ static void activate(int val)
 {
 	if (self->active == FALSE && self->health > 0)
 	{
-		if (removeInventoryItem(self->requires) == TRUE)
+		if (removeInventoryItemByObjectiveName(self->requires) == TRUE)
 		{
 			self->active = TRUE;
 

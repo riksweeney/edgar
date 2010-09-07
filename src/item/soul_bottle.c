@@ -94,7 +94,7 @@ static void useBottle(int val)
 
 		setEntityAnimation(e, WALK);
 
-		removeInventoryItem(self->objectiveName);
+		removeInventoryItemByObjectiveName(self->objectiveName);
 	}
 }
 

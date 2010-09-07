@@ -83,7 +83,7 @@ static void activate(int val)
 {
 	Entity *e;
 
-	if (getInventoryItem(self->requires) != NULL)
+	if (getInventoryItemByObjectiveName(self->requires) != NULL)
 	{
 		e = addKeyItem(self->objectiveName, 0, 0);
 

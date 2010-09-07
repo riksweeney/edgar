@@ -441,7 +441,7 @@ static void fireRocks()
 				/* Don't fire a bomb if there's one in the inventory or one on the screen */
 				
 				default:
-					if (getInventoryItem("Bomb") == NULL && getEntityByName("item/bomb") == NULL)
+					if (getInventoryItemByObjectiveName("Bomb") == NULL && getEntityByName("item/bomb") == NULL)
 					{
 						e = addBomb(0, 0, "item/bomb");
 						

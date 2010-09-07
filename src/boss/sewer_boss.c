@@ -1443,7 +1443,7 @@ static void slimeAttack()
 		{
 			/* Keep attacking while the player still has arrows */
 			
-			if (self->health < 200 && getInventoryItem("weapon/normal_arrow") != NULL)
+			if (self->health < 200 && getInventoryItemByObjectiveName("weapon/normal_arrow") != NULL)
 			{
 				self->touch = NULL;
 				
@@ -2075,7 +2075,7 @@ static void dragDown()
 {
 	if (atTarget())
 	{
-		removeInventoryItem("Amulet of Resurrection");
+		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		
 		player.die();
 		

@@ -79,7 +79,7 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	Entity *e = getInventoryItem(self->requires);
+	Entity *e = getInventoryItemByObjectiveName(self->requires);
 
 	if (e == NULL)
 	{
@@ -152,7 +152,7 @@ static void readInputCode()
 
 	if (val == 5 || self->mental > 30)
 	{
-		e = getInventoryItem(self->requires);
+		e = getInventoryItemByObjectiveName(self->requires);
 
 		setPlayerLocked(FALSE);
 

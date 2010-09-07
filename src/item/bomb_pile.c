@@ -69,7 +69,7 @@ static void collectBomb(Entity *other)
 
 	if (other->type == PLAYER)
 	{
-		if (self->thinkTime <= 0 && getInventoryItem(_("Bomb")) == NULL)
+		if (self->thinkTime <= 0 && getInventoryItemByObjectiveName(_("Bomb")) == NULL)
 		{
 			bomb = addBomb(other->x, other->y, "item/bomb");
 

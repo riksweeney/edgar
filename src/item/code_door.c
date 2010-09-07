@@ -96,7 +96,7 @@ static void activate(int val)
 {
 	if (strlen(self->requires) != 0)
 	{
-		if (removeInventoryItem(self->requires) == TRUE)
+		if (removeInventoryItemByObjectiveName(self->requires) == TRUE)
 		{
 			self->requires[0] = '\0';
 

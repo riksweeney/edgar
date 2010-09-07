@@ -202,7 +202,8 @@ static Constructor items[] = {
 {"item/sonic_boom_panel", &addSonicBoomPanel},
 {"item/item_remover", &addItemRemover},
 {"item/safe", &addSafe},
-{"item/snow_pile", &addSnowPile}
+{"item/snow_pile", &addSnowPile},
+{"item/flaming_arrow_potion", &addFlamingArrowPotion}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

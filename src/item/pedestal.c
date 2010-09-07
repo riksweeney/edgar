@@ -111,7 +111,7 @@ static void addStatue(int val)
 
 			self->target->action = &statueWait;
 
-			removeInventoryItem(e->objectiveName);
+			removeInventoryItemByObjectiveName(e->objectiveName);
 
 			validate();
 		}

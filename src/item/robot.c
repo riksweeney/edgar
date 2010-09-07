@@ -174,7 +174,7 @@ static void activate(int val)
 
 		e->flags |= NO_DRAW;
 
-		removeInventoryItem(e->objectiveName);
+		removeInventoryItemByObjectiveName(e->objectiveName);
 
 		self->target = e;
 

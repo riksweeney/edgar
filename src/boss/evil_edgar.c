@@ -268,7 +268,7 @@ static void entityWait()
 	
 	else if (self->mental != -1)
 	{
-		if (getInventoryItem("Amulet of Resurrection") == NULL)
+		if (getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
 		{
 			createAutoDialogBox(_("Evil_Edgar"), _("I'm better than you in every single way..."), 60);
 			
@@ -700,7 +700,7 @@ static void throwGazerEye()
 {
 	Entity *e;
 	
-	if (getInventoryItem("Dud Exploding Gazer Eyeball") == NULL && getEntityByName("item/exploding_gazer_eye_dud") == NULL)
+	if (getInventoryItemByObjectiveName("Dud Exploding Gazer Eyeball") == NULL && getEntityByName("item/exploding_gazer_eye_dud") == NULL)
 	{
 		if (prand() % 3 == 0)
 		{

@@ -69,7 +69,7 @@ static void collectRock(Entity *other)
 
 	if (other->type == PLAYER)
 	{
-		if (self->thinkTime <= 0 && getInventoryItem(_("Small Rock")) == NULL)
+		if (self->thinkTime <= 0 && getInventoryItemByObjectiveName(_("Small Rock")) == NULL)
 		{
 			rock = addSmallRock(other->x, other->y, "common/small_rock");
 

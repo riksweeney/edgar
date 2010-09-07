@@ -132,7 +132,7 @@ static void trap(Entity *other)
 
 		other->fallout();
 
-		if (other->health == 1 && getInventoryItem("Amulet of Resurrection") == NULL)
+		if (other->health == 1 && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
 		{
 			self->health = 5;
 			

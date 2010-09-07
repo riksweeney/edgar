@@ -94,7 +94,7 @@ static void activate(int val)
 	{
 		if (self->mental < 3)
 		{
-			if (removeInventoryItem("Power Cell") == TRUE)
+			if (removeInventoryItemByObjectiveName("Power Cell") == TRUE)
 			{
 				self->mental++;
 				

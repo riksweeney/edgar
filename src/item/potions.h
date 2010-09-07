@@ -20,3 +20,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 Entity *addHealthPotion(int, int, char *);
 Entity *addSlimePotion(int, int, char *);
 Entity *addInvisibilityPotion(int, int, char *);
+Entity *addFlamingArrowPotion(int, int, char *);
