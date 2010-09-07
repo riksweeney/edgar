@@ -52,7 +52,7 @@ void addGlobalTriggerFromScript(char *line)
 
 	sscanf(line, "\"%[^\"]\" %s %s \"%[^\"]\"", triggerName, count, targetType, targetName);
 
-	e = getInventoryItem(triggerName);
+	e = getInventoryItemByObjectiveName(triggerName);
 
 	if (e != NULL)
 	{
@@ -197,7 +197,7 @@ void fireGlobalTrigger(char *name)
 					break;
 
 					case REMOVE_INVENTORY_ITEM:
-						removeInventoryItem(trigger[i].targetName);
+						removeInventoryItemByObjectiveName(trigger[i].targetName);
 					break;
 
 					default:

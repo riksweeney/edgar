@@ -89,7 +89,7 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
-	if (getInventoryItem("Spanner") == NULL)
+	if (getInventoryItemByObjectiveName("Spanner") == NULL)
 	{
 		setInfoBoxMessage(120, 255, 255, 255, _("Spanner is required"));
 	}

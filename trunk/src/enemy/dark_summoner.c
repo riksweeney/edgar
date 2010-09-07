@@ -254,7 +254,7 @@ static void die()
 {
 	Entity *e;
 
-	if (getInventoryItem("Summoner's Staff") == NULL && prand() % 3 == 0)
+	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 3 == 0)
 	{
 		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
 

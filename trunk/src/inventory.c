@@ -316,13 +316,28 @@ void selectInventoryItem(void)
 	}
 }
 
-Entity *getInventoryItem(char *name)
+Entity *getInventoryItemByObjectiveName(char *name)
 {
 	int i;
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		{
+			return &inventory.item[i];
+		}
+	}
+
+	return NULL;
+}
+
+Entity *getInventoryItemByName(char *name)
+{
+	int i;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].name, name) == 0)
 		{
 			return &inventory.item[i];
 		}
@@ -382,7 +397,7 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 	showErrorAndExit("Could not find inventory item %s to replace", name);
 }
 
-int removeInventoryItem(char *name)
+int removeInventoryItemByObjectiveName(char *name)
 {
 	int i, found;
 
@@ -391,6 +406,45 @@ int removeInventoryItem(char *name)
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].objectiveName, name) == 0)
+		{
+			if (inventory.item[i].flags & STACKABLE)
+			{
+				inventory.item[i].health--;
+
+				if (inventory.item[i].health <= 0)
+				{
+					inventory.item[i].inUse = FALSE;
+				}
+			}
+
+			else
+			{
+				inventory.item[i].inUse = FALSE;
+			}
+
+			found = TRUE;
+
+			break;
+		}
+	}
+
+	if (found == TRUE)
+	{
+		sortInventory();
+	}
+
+	return found;
+}
+
+int removeInventoryItemByName(char *name)
+{
+	int i, found;
+
+	found = FALSE;
+
+	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
+	{
+		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].name, name) == 0)
 		{
 			if (inventory.item[i].flags & STACKABLE)
 			{
@@ -519,7 +573,7 @@ void addRequiredToInventory(Entity *other)
 
 	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
-		item = getInventoryItem(self->requires);
+		item = getInventoryItemByObjectiveName(self->requires);
 
 		if (item != NULL)
 		{
@@ -600,7 +654,7 @@ void getInventoryItemFromScript(char *line)
 		showErrorAndExit("Could not find Entity %s to give item %s to", entityName, itemName);
 	}
 
-	item = getInventoryItem(itemName);
+	item = getInventoryItemByObjectiveName(itemName);
 
 	if (item != NULL && (item->health >= quantity || quantity == 1))
 	{
@@ -616,7 +670,7 @@ void getInventoryItemFromScript(char *line)
 			{
 				item->health = 0;
 
-				removeInventoryItem(itemName);
+				removeInventoryItemByObjectiveName(itemName);
 				
 				if (read == 7)
 				{
@@ -638,7 +692,7 @@ void useInventoryItemFromScript(char *itemName)
 {
 	Entity *item, *temp;
 
-	item = getInventoryItem(itemName);
+	item = getInventoryItemByObjectiveName(itemName);
 
 	if (item == NULL)
 	{
@@ -887,3 +941,4 @@ void resetInventoryIndex()
 
 	inventory.cursorIndex = 0;
 }
+

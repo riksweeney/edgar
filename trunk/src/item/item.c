@@ -77,6 +77,11 @@ Entity *addPermanentItem(char *name, int x, int y)
 			{
 				e->activate = &setBowAmmo;
 			}
+			
+			else if (strcmpignorecase("weapon/flaming_arrow", e->name) == 0)
+			{
+				e->activate = &setBowAmmo;
+			}
 
 			else
 			{

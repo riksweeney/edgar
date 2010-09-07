@@ -88,7 +88,7 @@ static void call(int val)
 	{
 		if (strlen(self->requires) != 0)
 		{
-			if (removeInventoryItem(self->requires) == TRUE)
+			if (removeInventoryItemByObjectiveName(self->requires) == TRUE)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 
@@ -137,7 +137,7 @@ static void activate(int val)
 
 	if (strlen(self->requires) != 0)
 	{
-		if (removeInventoryItem(self->requires) == TRUE)
+		if (removeInventoryItemByObjectiveName(self->requires) == TRUE)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 

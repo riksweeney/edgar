@@ -29,3 +29,6 @@ enemy/sasquatch
 enemy/icicle
 common/save_point
 common/spawner
+item/flaming_arrow_potion
+weapon/flaming_arrow
+enemy/grub

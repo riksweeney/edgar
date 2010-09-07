@@ -95,7 +95,7 @@ static void activate(int val)
 	
 	if (strlen(self->requires) == 0)
 	{
-		e = getInventoryItem("Safe Combination");
+		e = getInventoryItemByObjectiveName("Safe Combination");
 		
 		if (e == NULL)
 		{

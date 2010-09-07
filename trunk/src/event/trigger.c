@@ -171,7 +171,7 @@ void fireTrigger(char *name)
 					break;
 
 					case REMOVE_INVENTORY_ITEM:
-						removeInventoryItem(trigger[i].targetName);
+						removeInventoryItemByObjectiveName(trigger[i].targetName);
 					break;
 					
 					case UPDATE_TRIGGER:

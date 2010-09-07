@@ -27,8 +27,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../inventory.h"
 #include "../custom_actions.h"
 #include "../item/item.h"
+#include "../inventory.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
+#include "../hud.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -36,6 +38,7 @@ extern Game game;
 static void useHealthPotion(int);
 static void useSlimePotion(int);
 static void useInvisibilityPotion(int);
+static void useFlamingArrowPotion(int);
 
 Entity *addHealthPotion(int x, int y, char *name)
 {
@@ -166,5 +169,105 @@ static void useInvisibilityPotion(int val)
 	if (game.status == IN_GAME)
 	{
 		setCustomAction(&player, &invisible, 60 * 5, 0, 0);
+	}
+}
+
+Entity *addFlamingArrowPotion(int x, int y, char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Flaming Arrow Potion");
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->thinkTime = 0;
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &doNothing;
+	e->touch = &keyItemTouch;
+	e->draw = &drawLoopingAnimationToMap;
+	e->activate = &useFlamingArrowPotion;
+
+	setEntityAnimation(e, STAND);
+
+	return e;
+}
+
+static void useFlamingArrowPotion(int val)
+{
+	int addNew, maxArrows;
+	Entity *arrow, *fireArrow;
+	
+	arrow = getInventoryItemByName("weapon/normal_arrow");
+	
+	if (arrow == NULL)
+	{
+		if (game.status == IN_INVENTORY)
+		{
+			setInventoryDialogMessage(_("Normal Arrow is required"));
+		}
+		
+		else
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("Normal Arrow is required"));
+		}
+		
+		return;
+	}
+	
+	addNew = FALSE;
+	
+	fireArrow = getInventoryItemByName("weapon/flaming_arrow");
+	
+	if (fireArrow == NULL)
+	{
+		addNew = TRUE;
+		
+		fireArrow = addPermanentItem("weapon/flaming_arrow", 0, 0);
+		
+		fireArrow->health = 0;
+	}
+	
+	printf("There are %d regular arrows\n", arrow->health);
+	printf("There are %d flaming arrows\n", fireArrow->health);
+	
+	maxArrows = MAX_STACKABLES - fireArrow->health;
+	
+	printf("Will create %d flaming arrows\n", arrow->health > maxArrows ? maxArrows : arrow->health);
+	
+	maxArrows = arrow->health > maxArrows ? maxArrows : arrow->health;
+	
+	fireArrow->health += maxArrows;
+	
+	printf("There are now %d flaming arrows\n", fireArrow->health);
+	
+	arrow->health -= maxArrows;
+	
+	if (game.status == IN_INVENTORY)
+	{
+		setInventoryDialogMessage(_("Created %d Flaming Arrows"), maxArrows);
+	}
+	
+	else
+	{
+		setInfoBoxMessage(60, 255, 255, 255, _("Created %d Flaming Arrows"), maxArrows);
+	}
+	
+	if (arrow->health <= 0)
+	{
+		removeInventoryItemByName("weapon/normal_arrow");
+	}
+	
+	if (addNew == TRUE)
+	{
+		addToInventory(fireArrow);
 	}
 }
