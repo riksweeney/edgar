@@ -321,7 +321,7 @@ static void disintegrationInit()
 
 	e->action = &disintegration;
 	
-	e->thinkTime = 240;
+	e->thinkTime = 120;
 	
 	e->startX = e->x;
 	e->startY = e->y;

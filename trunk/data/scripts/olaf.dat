@@ -60,7 +60,7 @@ TALK Olaf I just need one more thing, but it's in a cave to the west and I have 
 TALK Olaf But now you're here you can help me retrieve it
 HAS_OBJECTIVE "Retrieve Items" OLAF 3 7
 IF OLAF HEALTH 3
-TALK Edgar I haven't gotten all my stuff back yet. I think they're all here though
+TALK Edgar I haven't gotten all my stuff back yet. I think everything's here though
 TALK Edgar When I've found everything I'll come back
 TALK Olaf OK, good luck!
 FOLLOW EDGAR
