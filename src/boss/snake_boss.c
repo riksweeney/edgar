@@ -817,6 +817,8 @@ static void alignBodyToHead()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		/* Only takes proper damage against its own shot */
@@ -870,6 +872,17 @@ static void takeDamage(Entity *other, int damage)
 			self->dirX = self->face == RIGHT ? 2 : -2;
 
 			self->flags &= ~(HELPLESS|FLY);
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }

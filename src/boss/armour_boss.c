@@ -520,6 +520,8 @@ static void tongueEat()
 
 static void tongueTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= 1;
@@ -543,6 +545,17 @@ static void tongueTakeDamage(Entity *other, int damage)
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 			enemyPain();
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }
@@ -618,6 +631,8 @@ static void attackFinished()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (self->mental > 0)
@@ -642,6 +657,17 @@ static void takeDamage(Entity *other, int damage)
 				if (self->health <= 0)
 				{
 					self->health = 1;
+				}
+				
+				if (other->type == PROJECTILE)
+				{
+					temp = self;
+
+					self = other;
+
+					self->die();
+
+					self = temp;
 				}
 			}
 
@@ -1217,7 +1243,7 @@ static void sawAttackFinish()
 
 static void armourTakeDamage(Entity *other, int damage)
 {
-	Entity *e;
+	Entity *e, *temp;
 
 	for (e=self->target;e!=NULL;e=e->target)
 	{
@@ -1255,6 +1281,17 @@ static void armourTakeDamage(Entity *other, int damage)
 				setCustomAction(e, &invulnerableNoFlash, 20, 0, 0);
 
 				enemyPain();
+			}
+			
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
 			}
 		}
 

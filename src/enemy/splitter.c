@@ -339,7 +339,7 @@ static void smallBounceAround()
 
 static void takeDamage(Entity *other, int damage)
 {
-	Entity *e;
+	Entity *e, *temp;
 	
 	if (self->flags & INVULNERABLE)
 	{
@@ -352,7 +352,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)
@@ -412,7 +418,7 @@ static void takeDamage(Entity *other, int damage)
 
 static void mediumTakeDamage(Entity *other, int damage)
 {
-	Entity *e;
+	Entity *e, *temp;
 	
 	if (self->flags & INVULNERABLE)
 	{
@@ -425,7 +431,13 @@ static void mediumTakeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)

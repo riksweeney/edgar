@@ -1058,6 +1058,8 @@ static void attackFinished()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (other->element == LIGHTNING)
@@ -1106,11 +1108,24 @@ static void takeDamage(Entity *other, int damage)
 				self->action = &shudder;
 			}
 		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
 	}
 }
 
 static void eatTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		setCustomAction(self, &flashWhite, 6, 0, 0);
@@ -1123,6 +1138,17 @@ static void eatTakeDamage(Entity *other, int damage)
 		if (self->mental <= 0)
 		{
 			self->action = &eatExplode;
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }

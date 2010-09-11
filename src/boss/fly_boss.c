@@ -894,6 +894,7 @@ static void reactToHeadButtBlock()
 static void takeDamage(Entity *other, int damage)
 {
 	int i, minHealth;
+	Entity *temp;
 
 	minHealth = self->maxHealth / 10;
 
@@ -922,6 +923,17 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 		enemyPain();
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
 	}
 }
 

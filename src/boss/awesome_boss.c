@@ -1049,7 +1049,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);

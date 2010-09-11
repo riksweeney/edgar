@@ -90,6 +90,8 @@ Entity *addGrubBoss(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -122,6 +124,17 @@ static void takeDamage(Entity *other, int damage)
 			self->startX = self->x;
 
 			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }
