@@ -748,6 +748,7 @@ static void lavaCeilingDropEnd()
 static void takeDamage(Entity *other, int damage)
 {
 	int health;
+	Entity *temp;
 
 	if (self->health <= 1500 || (self->flags & HELPLESS))
 	{
@@ -793,6 +794,17 @@ static void takeDamage(Entity *other, int damage)
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
 			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+			
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock();
+
+				self = temp;
+			}
 
 			if (prand() % 10 == 0)
 			{
@@ -1042,11 +1054,24 @@ static void alignChainToAnchor()
 
 static void anchorTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
 			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+			
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock();
+
+				self = temp;
+			}
 
 			if (prand() % 10 == 0)
 			{

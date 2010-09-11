@@ -93,7 +93,7 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PROJECTILE)
+	if (other->type == PROJECTILE && other->element == FIRE)
 	{
 		self->health++;
 		
@@ -114,7 +114,7 @@ static void touch(Entity *other)
 		other->inUse = FALSE;
 	}
 	
-	else if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
+	else if (((other->flags & ATTACKING) || other->type == PROJECTILE) && !(self->flags & INVULNERABLE))
 	{
 		takeDamage(other, other->damage);
 	}
@@ -127,11 +127,24 @@ static void touch(Entity *other)
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->health < 7)
 	{
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 	
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);	
+		
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock();
+
+			self = temp;
+		}
 	}
 	
 	else if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)

@@ -398,6 +398,129 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	}
 }
 
+void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
+{
+	int lDelta, sDelta, cycle, lStep, sStep;
+	int startX, startY;
+	int *pixels;
+	int clipX, clipY, clipW, clipH;
+	SDL_Rect clipRect;
+
+	startX = getMapStartX();
+	startY = getMapStartY();
+	
+	SDL_GetClipRect(game.screen, &clipRect);
+	
+	clipX = clipRect.x;
+	clipY = clipRect.y;
+	
+	clipW = clipRect.x + clipRect.w;
+	clipH = clipRect.y + clipRect.h;
+
+	x1 -= startX;
+	y1 -= startY;
+
+	x2 -= startX;
+	y2 -= startY;
+
+	if (collision(x1, y1, x2 - x1, y2 - y1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == FALSE)
+	{
+		return;
+	}
+
+	lDelta = x2 - x1;
+	sDelta = y2 - y1;
+
+	lStep = SIGN(lDelta);
+	lDelta = abs(lDelta);
+
+	sStep = SIGN(sDelta);
+	sDelta = abs(sDelta);
+
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_LockSurface(game.screen);
+	}
+
+	pixels = (int *)game.screen->pixels;
+
+	if (sDelta < lDelta)
+	{
+		cycle = lDelta >> 1;
+
+		while (x1 != x2)
+		{
+			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+			{
+				pixels[((y1 - 2) * game.screen->w) + x1] = color3;
+				pixels[((y1 - 1) * game.screen->w) + x1] = color2;
+				pixels[(y1 * game.screen->w) + x1] = color1;
+				pixels[((y1 + 1) * game.screen->w) + x1] = color2;
+				pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+			}
+
+			cycle += sDelta;
+
+			if (cycle > lDelta)
+			{
+				cycle -= lDelta;
+
+				y1 += sStep;
+			}
+
+			x1 += lStep;
+		}
+
+		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+		{
+			pixels[((y1 - 2) * game.screen->w) + x1] = color3;
+			pixels[((y1 - 1) * game.screen->w) + x1] = color2;
+			pixels[(y1 * game.screen->w) + x1] = color1;
+			pixels[((y1 + 1) * game.screen->w) + x1] = color2;
+			pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+		}
+	}
+
+	cycle = sDelta >> 1;
+
+	while (y1 != y2)
+	{
+		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+		{
+			pixels[((y1 - 2) * game.screen->w) + x1] = color3;
+			pixels[((y1 - 1) * game.screen->w) + x1] = color2;
+			pixels[(y1 * game.screen->w) + x1] = color1;
+			pixels[((y1 + 1) * game.screen->w) + x1] = color2;
+			pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+		}
+
+		cycle += lDelta;
+
+		if (cycle > sDelta)
+		{
+			cycle -= sDelta;
+
+			x1 += lStep;
+		}
+
+		y1 += sStep;
+	}
+
+	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+	{
+		pixels[((y1 - 2) * game.screen->w) + x1] = color3;
+		pixels[((y1 - 1) * game.screen->w) + x1] = color2;
+		pixels[(y1 * game.screen->w) + x1] = color1;
+		pixels[((y1 + 1) * game.screen->w) + x1] = color2;
+		pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+	}
+
+	if (SDL_MUSTLOCK(game.screen))
+	{
+		SDL_UnlockSurface(game.screen);
+	}
+}
+
 void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
 	int y1, y2, xr;
@@ -876,4 +999,9 @@ SDL_Surface *createSurface(int width, int height)
 	SDL_FreeSurface(temp);
 
 	return newSurface;
+}
+
+int getColour(int r, int g, int b)
+{
+	return SDL_MapRGB(game.screen->format, r, g, b);
 }

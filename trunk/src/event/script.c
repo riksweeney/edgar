@@ -675,6 +675,11 @@ void readNextScriptLine()
 
 			activateEntitiesWithRequiredName(token, TRUE);
 		}
+		
+		else if (strcmpignorecase(token, "ATTACK") == 0)
+		{
+			scriptAttack();
+		}
 
 		else if (strcmpignorecase("DEACTIVATE_REQUIRED", command) == 0)
 		{
@@ -708,6 +713,13 @@ void readNextScriptLine()
 			activateEntitiesValueWithObjectiveName(token, val);
 		}
 		
+		else if (strcmpignorecase("EQUIP_WEAPON", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			setWeaponFromScript(token);
+		}
+		
 		else if (strcmpignorecase(token, "SHOW_CONFIRM") == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
@@ -737,9 +749,11 @@ void readNextScriptLine()
 		
 		else if (strcmpignorecase("ADD_TO_INVENTORY", command) == 0)
 		{
-			token = strtok_r(NULL, "\0", &savePtr);
+			token = strtok_r(NULL, " ", &savePtr);
 			
-			scriptAddToInventory(token);
+			token2 = strtok_r(NULL, "\0", &savePtr);
+			
+			scriptAddToInventory(token, token2 == NULL ? FALSE : TRUE);
 		}
 		
 		else if (strcmpignorecase("HAS_OBJECTIVE", command) == 0)

@@ -61,12 +61,10 @@ Entity *addSnowPile(int x, int y, char *name)
 
 static void entityWait()
 {
-	#if DEV == 0
 	self->face = player.face;
 	
 	self->x = player.x + player.w / 2 - self->w / 2;
 	self->y = player.y;
-	#endif
 }
 
 static void die()

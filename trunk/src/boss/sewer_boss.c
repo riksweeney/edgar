@@ -471,7 +471,20 @@ static void fallout()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+	
+	if (other->reactToBlock != NULL)
+	{
+		temp = self;
+
+		self = other;
+
+		self->reactToBlock();
+
+		self = temp;
+	}
 
 	if (prand() % 10 == 0)
 	{

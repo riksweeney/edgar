@@ -2416,3 +2416,22 @@ static void resurrectionParticleWait()
 	self->x += self->startX;
 	self->y += self->startY;
 }
+
+void setWeaponFromScript(char *name)
+{
+	self = getInventoryItemByName(name);
+	
+	if (self == NULL)
+	{
+		showErrorAndExit("Could not find inventory item %s\n", name);
+	}
+	
+	setPlayerWeapon(1);
+}
+
+void scriptAttack()
+{
+	playerWeapon.flags |= ATTACKING;
+
+	playerWeapon.action();	
+}

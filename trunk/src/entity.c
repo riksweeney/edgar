@@ -603,6 +603,8 @@ void noItemDie()
 
 void entityTakeDamageFlinch(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -611,11 +613,6 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 	if (damage != 0)
 	{
 		self->health -= damage;
-
-		if (other->type == PROJECTILE)
-		{
-			other->target = self;
-		}
 
 		if (self->health > 0)
 		{
@@ -641,11 +638,24 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 			self->die();
 		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
 	}
 }
 
 void entityTakeDamageNoFlinch(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -654,11 +664,6 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 	if (damage != 0)
 	{
 		self->health -= damage;
-
-		if (other->type == PROJECTILE)
-		{
-			other->target = self;
-		}
 
 		if (self->health > 0)
 		{
@@ -687,6 +692,17 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 			}
 
 			self->die();
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }
@@ -740,14 +756,6 @@ void entityTouch(Entity *other)
 		{
 			self->takeDamage(other, other->damage);
 		}
-
-		temp = self;
-
-		self = other;
-
-		self->die();
-
-		self = temp;
 	}
 }
 

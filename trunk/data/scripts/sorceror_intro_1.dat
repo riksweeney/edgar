@@ -1,9 +1,10 @@
-IF SORCEROR MENTAL -5
+SET SORCEROR FACE RIGHT
 ADD_MEDAL sorceror_start
 LIMIT_CAMERA 640 32 1280 480
 WALK_TO EDGAR 778 426 WAIT
 WAIT 30
 TALK Edgar Finally, we meet at last!
+SET SORCEROR FACE LEFT
 TALK Sorceror Who are you?
 TALK Edgar My name is Edgar and I have spent the last [HOURS] hours trying to find you!
 TALK Sorceror Fascinating. What do you want?
@@ -16,4 +17,3 @@ WHILE EXISTS SORCEROR_SPELL
 WAIT 120
 LOAD_LEVEL map17 dungeon_entrance
 WAIT 300
-END

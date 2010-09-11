@@ -135,7 +135,7 @@ static void activate(int val)
 
 static void takeDamage(Entity *other, int damage)
 {
-	Entity *e;
+	Entity *e, *temp;
 
 	if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
 	{
@@ -172,5 +172,16 @@ static void takeDamage(Entity *other, int damage)
 		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock();
+
+			self = temp;
+		}
 	}
 }
