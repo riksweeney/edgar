@@ -663,9 +663,22 @@ static int flameDraw()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->mental > 0)
 	{		
 		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock();
+
+			self = temp;
+		}
 
 		if (prand() % 10 == 0)
 		{

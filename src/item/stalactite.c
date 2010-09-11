@@ -103,6 +103,8 @@ static void entityWait()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (strcmpignorecase(self->requires, other->name) == 0 || other->type == PROJECTILE)
 	{
 		self->health -= damage;
@@ -135,6 +137,17 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock();
+
+			self = temp;
+		}
 	}
 }
 

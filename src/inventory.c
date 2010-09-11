@@ -900,7 +900,7 @@ int hasLightningSword()
 	return inventory.hasLightningSword;
 }
 
-void scriptAddToInventory(char *name)
+void scriptAddToInventory(char *name, int quiet)
 {
 	int i;
 	Entity *e;
@@ -919,7 +919,10 @@ void scriptAddToInventory(char *name)
 
 			setEntityAnimation(&inventory.item[i], STAND);
 			
-			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(inventory.item[i].objectiveName));
+			if (quiet == FALSE)
+			{
+				setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(inventory.item[i].objectiveName));
+			}
 
 			break;
 		}

@@ -79,7 +79,7 @@ TALK Edgar Don't even think about it, I'm fed up of chopping down trees and coll
 TALK Olaf OK, it was just a suggestion
 TALK Olaf Oh, you'll need this too
 ADD_TO_INVENTORY item/flaming_arrow_potion
-TALK Olaf Dip your arrows into it to turn them into fire arrows, it will help you burn down the wood blocking the entrance
+TALK Olaf Dip your arrows into it to turn them into fire arrows, it will help you burn down the vines blocking the entrance
 TALK Edgar Thanks!
 MUSIC FADE_DOWN 2000
 WALK_TO_RELATIVE EDGAR -196 0 WAIT
@@ -95,11 +95,8 @@ TALK Edgar Sorry, did you say something?
 TALK Olaf Huh?! Oh no, I was just practising the teleportation incantation...
 WAIT 30
 TALK Edgar OK
-WALK_TO_RELATIVE EDGAR -480 0 WAIT
-ADD OBJECTIVE "Retrieve horn" " "
-ADD TRIGGER "Monster Horn" 1 UPDATE_OBJECTIVE "Retrieve horn"
-FOLLOW EDGAR
-MUSIC FADE_UP 2000
-WAIT 240
-TALK Narrator To turn your normal arrows into flaming arrows, just use the flaming arrow potion in the inventory screen
+WALK_TO_RELATIVE EDGAR -196 0 WAIT
+ADD MAP_TRIGGER "map18" RUN_SCRIPT "wasteland_intro2"
+LOAD_LEVEL map18 olaf_cave
+WAIT 300
 END

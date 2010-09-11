@@ -149,6 +149,8 @@ static void explode()
 
 			e->dirX = (0 * cos(DEG_TO_RAD(i)) - 12 * sin(DEG_TO_RAD(i)));
 			e->dirY = (0 * sin(DEG_TO_RAD(i)) + 12 * cos(DEG_TO_RAD(i)));
+			
+			e->face = e->dirX < 0 ? LEFT : RIGHT;
 
 			e->flags |= FLY;
 		}

@@ -54,3 +54,5 @@ void playerStand(void);
 void addChargesToWeapon(void);
 int isPlayerLocked(void);
 void playerWaitForConfirm(void);
+void setWeaponFromScript(char *);
+void scriptAttack(void);
