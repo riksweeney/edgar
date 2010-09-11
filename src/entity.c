@@ -742,7 +742,7 @@ void entityTouch(Entity *other)
 		self = temp;
 	}
 
-	else if (other->type == EXPLOSION || (other->type == WEAPON && (other->flags & ATTACKING)))
+	else if ((other->type == EXPLOSION || (other->type == WEAPON && (other->flags & ATTACKING))) && other->damage != 0)
 	{
 		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
 		{
