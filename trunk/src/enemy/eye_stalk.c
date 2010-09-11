@@ -262,6 +262,8 @@ static void createBody()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -284,6 +286,17 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			self->die();
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }

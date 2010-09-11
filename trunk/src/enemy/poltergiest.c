@@ -481,6 +481,8 @@ static void bookDie()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -492,7 +494,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)

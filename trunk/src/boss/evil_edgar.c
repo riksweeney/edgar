@@ -921,7 +921,7 @@ static int bombOnScreen()
 static void takeDamage(Entity *other, int damage)
 {
 	int health, halfHealth;
-	Entity *e;
+	Entity *e, *temp;
 	
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -949,6 +949,17 @@ static void takeDamage(Entity *other, int damage)
 		if (self->health <= 0)
 		{
 			self->health = 0;
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 		
 		setCustomAction(self, &flashWhite, 6, 0, 0);

@@ -350,6 +350,17 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
 	}
 }
 

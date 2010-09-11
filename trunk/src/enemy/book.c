@@ -588,6 +588,8 @@ static void lightningBolt()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->mental == 2 && other->element == LIGHTNING)
 	{
 		if (self->flags & INVULNERABLE)
@@ -601,7 +603,13 @@ static void takeDamage(Entity *other, int damage)
 
 			if (other->type == PROJECTILE)
 			{
-				other->target = self;
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
 			}
 			
 			setCustomAction(self, &flashWhite, 6, 0, 0);

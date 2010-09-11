@@ -845,13 +845,21 @@ static int drawTentacle()
 
 static void tentacleTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (damage != 0)
 	{
 		self->health -= damage;
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)
@@ -1017,13 +1025,21 @@ static void redTentacleTouch(Entity *other)
 
 static void redTentacleTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (damage != 0)
 	{
 		self->health -= damage;
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)

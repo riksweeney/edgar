@@ -77,6 +77,8 @@ Entity *addSpider(int x, int y, char *name)
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (damage < self->health)
@@ -101,11 +103,24 @@ static void takeDamage(Entity *other, int damage)
 
 			self->action = self->die;
 		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
 	}
 }
 
 static void redTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (damage >= self->health)
@@ -126,6 +141,17 @@ static void redTakeDamage(Entity *other, int damage)
 			self->targetY = 1800;
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 }

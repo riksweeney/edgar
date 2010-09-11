@@ -1101,6 +1101,8 @@ static void iceBlockTouch(Entity *other)
 
 void iceBlockTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -1116,10 +1118,16 @@ void iceBlockTakeDamage(Entity *other, int damage)
 	else if (damage != 0)
 	{
 		self->health -= damage;
-
+		
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)
@@ -2246,6 +2254,8 @@ static void physicalAttackFinish()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -2257,7 +2267,13 @@ static void takeDamage(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 
 		if (self->health > 0)
@@ -2286,6 +2302,8 @@ static void takeDamage(Entity *other, int damage)
 
 static void yellowTakeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (other->element == LIGHTNING)
 	{
 		if (self->flags & INVULNERABLE)
@@ -2296,11 +2314,6 @@ static void yellowTakeDamage(Entity *other, int damage)
 		if (damage != 0)
 		{
 			self->health += damage;
-
-			if (other->type == PROJECTILE)
-			{
-				other->target = self;
-			}
 			
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
@@ -2320,6 +2333,17 @@ static void yellowTakeDamage(Entity *other, int damage)
 			{
 				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
+		}
+		
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
 		}
 	}
 	

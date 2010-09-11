@@ -1726,7 +1726,7 @@ static void orbTakeDamage(Entity *other, int damage)
 
 			if (other->type == PROJECTILE)
 			{
-				other->target = self;
+				other->inUse = FALSE;
 			}
 
 			if (self->head->health > 0)
