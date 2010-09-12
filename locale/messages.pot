@@ -2750,3 +2750,297 @@ msgstr ""
 msgid "A power cell from a Gold Centurion"
 msgstr ""
 
+msgid "Normal Arrow is required"
+msgstr ""
+
+msgid "Created %d Flaming Arrows"
+msgstr ""
+
+msgid "Press buttons to escape the snowball!"
+msgstr ""
+
+msgid "Have you managed to find the horn yet?"
+msgstr ""
+
+msgid "You won't be able to find the horn in this version!"
+msgstr ""
+
+msgid "Have you found everything yet?"
+msgstr ""
+
+msgid "Not yet, I'm still looking"
+msgstr ""
+
+msgid "OK, I've found everything now"
+msgstr ""
+
+msgid "ARGHHHHH!!"
+msgstr ""
+
+msgid "Another human, out here? How did you get out here?"
+msgstr ""
+
+msgid "I'm not sure, I think the sorceror sent me here, but he said he was going to kill me"
+msgstr ""
+
+msgid "Hmmm, what's that on your hand?"
+msgstr ""
+
+msgid "This? This is just a ring I found in his fortress"
+msgstr ""
+
+msgid "It looks like a ring of protection, it must have saved you. Why were you in his fortress?"
+msgstr ""
+
+msgid "He's kidnapped my Dad and I was there trying to save him"
+msgstr ""
+
+msgid "Well, it looks like the ring's power is almost completely gone"
+msgstr ""
+
+msgid "If he hits you with that spell again it will almost certainly kill you"
+msgstr ""
+
+msgid "Something must have protected you from the spell. Were you wearing a pendant or a ring?"
+msgstr ""
+
+msgid "I did find a ring in the fortress but it didn't seem to have any powers"
+msgstr ""
+
+msgid "It might have been a ring of protection. I imagine that the protection would have been limited to a single use"
+msgstr ""
+
+msgid "What you could do though is combine the ring and your shield together to create a shield that will protect you from the spell"
+msgstr ""
+
+msgid "Do you have any experience mixing spells?"
+msgstr ""
+
+msgid "Kind of, but the last time I tried creating a shield the spell backfired and..."
+msgstr ""
+
+msgid "It created an evil version of yourself?"
+msgstr ""
+
+msgid "Yeah, how did you know?"
+msgstr ""
+
+msgid "Where I'm from it used to happen at least once a month"
+msgstr ""
+
+msgid "Why are you here?"
+msgstr ""
+
+msgid "The sorceror caught me looting his fortress and he banished me here"
+msgstr ""
+
+msgid "What did you steal?"
+msgstr ""
+
+msgid "It was a small golden statue, probably worth a lot of money"
+msgstr ""
+
+msgid "I've been here for months now, but I've almost got all the ingredients I need to teleport back home"
+msgstr ""
+
+msgid "I just need one more thing, but it's in a cave to the west and I have no weapons to protect myself"
+msgstr ""
+
+msgid "But now you're here you can help me retrieve it"
+msgstr ""
+
+msgid "I haven't gotten all my stuff back yet. I think everything's here though"
+msgstr ""
+
+msgid "When I've found everything I'll come back"
+msgstr ""
+
+msgid "OK, good luck!"
+msgstr ""
+
+msgid "What do you need?"
+msgstr ""
+
+msgid "It's the horn from a particular type of monster"
+msgstr ""
+
+msgid "There should be plenty of bones littered around so you shouldn't have to find one and kill it. Just get the horn and get out"
+msgstr ""
+
+msgid "Hmmm"
+msgstr ""
+
+msgid "Well, my stock of logs is looking quite low, maybe you could get me some more while you're out?"
+msgstr ""
+
+msgid "Don't even think about it, I'm fed up of chopping down trees and collecting logs!"
+msgstr ""
+
+msgid "OK, it was just a suggestion"
+msgstr ""
+
+msgid "Oh, you'll need this too"
+msgstr ""
+
+msgid "Dip your arrows into it to turn them into fire arrows, it will help you burn down the vines blocking the entrance"
+msgstr ""
+
+msgid "Oh, one last thing."
+msgstr ""
+
+msgid "Don't hang around in that cave, the monsters that live in there are nothing like you'll have ever encountered before"
+msgstr ""
+
+msgid "Seriously, just get the horn"
+msgstr ""
+
+msgid "Have I just sent a young boy to his death?"
+msgstr ""
+
+msgid "Sorry, did you say something?"
+msgstr ""
+
+msgid "Huh?! Oh no, I was just practising the teleportation incantation..."
+msgstr ""
+
+msgid "So, you escaped"
+msgstr ""
+
+msgid "Yes I did, and my father wasn't there"
+msgstr ""
+
+msgid "Maybe you just didn't look hard enough"
+msgstr ""
+
+msgid "Have another look"
+msgstr ""
+
+msgid "Maybe you should work on your spells"
+msgstr ""
+
+msgid "NOW TELL ME WHERE MY FATHER IS!"
+msgstr ""
+
+msgid "You annoying little brat"
+msgstr ""
+
+msgid "I wouldn't be surprised if your father has abandoned you"
+msgstr ""
+
+msgid "What?!"
+msgstr ""
+
+msgid "I'll show you!"
+msgstr ""
+
+msgid "That, was a mistake"
+msgstr ""
+
+msgid "Die"
+msgstr ""
+
+msgid "That was odd, he was supposed to explode"
+msgstr ""
+
+msgid "Where did he go?"
+msgstr ""
+
+msgid "Use left and right to move the dial 1 unit at a time"
+msgstr ""
+
+msgid "Make sure you keep count of how many times you move the dial since no on-screen notification is given"
+msgstr ""
+
+msgid "When you think you've entered the combination correctly, press Attack to try and open the door"
+msgstr ""
+
+msgid "There's no way I'll be able to figure out the combination, I'll have to find out what it is"
+msgstr ""
+
+msgid "A safe in a library? Bit of a cliché..."
+msgstr ""
+
+msgid "It looks too thick to break open, I'll have to open it using the combination"
+msgstr ""
+
+msgid "The lab probably has the roots, fat and bones so I don't need to worry about those"
+msgstr ""
+
+msgid "Hmm, I've looked everywhere and this appears to be everything"
+msgstr ""
+
+msgid "I guess the other things must have been destroyed when the sorceror used that spell"
+msgstr ""
+
+msgid "Now to find out where I am and how I can get back"
+msgstr ""
+
+msgid "If I can..."
+msgstr ""
+
+msgid "This book is different to the rest"
+msgstr ""
+
+msgid "I can feel a powerful magic emanating from it"
+msgstr ""
+
+msgid "A powerful evil magic"
+msgstr ""
+
+msgid "Maybe I should leave it alone"
+msgstr ""
+
+msgid "Still, I could be wrong, maybe it's not evil magic..."
+msgstr ""
+
+msgid "What just happened?"
+msgstr ""
+
+msgid "Maybe I shouldn't go around touching books that give off an evil aura"
+msgstr ""
+
+msgid "And spend more time looking for my Dad"
+msgstr ""
+
+msgid "I'll leave it alone, I'm not getting a good feeling from it"
+msgstr ""
+
+msgid "This will now summon all the monsters"
+msgstr ""
+
+msgid "To turn your normal arrows into flaming arrows, just use the flaming arrow potion in the inventory screen"
+msgstr ""
+
+msgid "To swap between firing normal arrows and flaming arrows, select the arrows in the inventory"
+msgstr ""
+
+msgid "Retrieve horn"
+msgstr ""
+
+msgid "Ouch, my head..."
+msgstr ""
+
+msgid "Oh no, I've lost all my equipment!"
+msgstr ""
+
+msgid "Some of my stuff is over there..."
+msgstr ""
+
+msgid "If those items are in this wasteland then perhaps everything else is too"
+msgstr ""
+
+msgid "I'll have to try and retrieve as much as I can..."
+msgstr ""
+
+msgid "Retrieve items"
+msgstr ""
+
+msgid "This level is fairly incomplete and inescapable so you might want to save in another slot in case you want to go secret hunting"
+msgstr ""
+
+msgid "A potion to create flaming arrows"
+msgstr ""
+
+msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
+msgstr ""
+
