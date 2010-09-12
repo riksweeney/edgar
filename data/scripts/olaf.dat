@@ -1,4 +1,5 @@
 IF OLAF HEALTH 9
+SET OLAF FACE EDGAR
 TALK Olaf Have you managed to find the horn yet?
 TALK Narrator You won't be able to find the horn in this version!
 END
@@ -82,7 +83,7 @@ TALK Olaf Well, my stock of logs is looking quite low, maybe you could get me so
 TALK Edgar Don't even think about it, I'm fed up of chopping down trees and collecting logs!
 TALK Olaf OK, it was just a suggestion
 TALK Olaf Oh, you'll need this too
-ADD_TO_INVENTORY item/flaming_arrow_potion
+ADD ENTITY KEY_ITEM item/flaming_arrow_potion " " 23610 2154
 TALK Olaf Dip your arrows into it to turn them into fire arrows, it will help you burn down the vines blocking the entrance
 TALK Edgar Thanks!
 MUSIC FADE_DOWN 2000

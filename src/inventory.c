@@ -149,7 +149,11 @@ int addToInventory(Entity *e)
 						inventory.hasLightningSword = TRUE;
 					}
 					
-					autoSetPlayerWeapon(&inventory.item[i]);
+					if (strcmpignorecase(inventory.item[i].name, "weapon/normal_arrow") != 0 &&
+						strcmpignorecase(inventory.item[i].name, "weapon/flaming_arrow") != 0)
+					{
+						autoSetPlayerWeapon(&inventory.item[i]);
+					}
 				}
 
 				else if (inventory.item[i].type == SHIELD)
