@@ -143,7 +143,7 @@ static void activate(int val)
 
 	else
 	{
-		e = getInventoryItemByObjectiveName(_("Tesla Pack"));
+		e = getInventoryItemByObjectiveName("Tesla Pack");
 
 		if (e != NULL && e->health == 0)
 		{
@@ -171,7 +171,7 @@ static void touch(Entity *other)
 
 		else if (self->health == -1)
 		{
-			e = getInventoryItemByObjectiveName(_("Tesla Pack"));
+			e = getInventoryItemByObjectiveName("Tesla Pack");
 
 			if (e != NULL && e->health == 0)
 			{

@@ -69,11 +69,11 @@ static void collectBomb(Entity *other)
 
 	if (other->type == PLAYER)
 	{
-		if (self->thinkTime <= 0 && getInventoryItemByObjectiveName(_("Bomb")) == NULL)
+		if (self->thinkTime <= 0 && getInventoryItemByObjectiveName("Bomb") == NULL)
 		{
 			bomb = addBomb(other->x, other->y, "item/bomb");
 
-			STRNCPY(bomb->objectiveName, _("Bomb"), sizeof(bomb->objectiveName));
+			STRNCPY(bomb->objectiveName, "Bomb", sizeof(bomb->objectiveName));
 
 			addToInventory(bomb);
 

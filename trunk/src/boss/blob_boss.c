@@ -1159,7 +1159,7 @@ static void activate(int val)
 
 	if (!(self->flags & NO_DRAW))
 	{
-		e = getInventoryItemByObjectiveName(_("Tesla Pack"));
+		e = getInventoryItemByObjectiveName("Tesla Pack");
 
 		if (e != NULL && e->health != 0)
 		{
@@ -1182,7 +1182,7 @@ static void stunnedTouch(Entity *other)
 
 	if (!(self->flags & NO_DRAW))
 	{
-		e = getInventoryItemByObjectiveName(_("Tesla Pack"));
+		e = getInventoryItemByObjectiveName("Tesla Pack");
 
 		if (e != NULL && e->health != 0)
 		{
