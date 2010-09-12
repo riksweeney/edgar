@@ -1,5 +1,0 @@
-WAIT 120
-TALK Edgar Glad to be out of there
-TALK Edgar Now to get that shield back from my double...
-ACTIVATE_REQUIRED CATACOMBS_SPAWNER
-ADD MAP_TRIGGER "map10" RUN_SCRIPT "evil_edgar_lab"

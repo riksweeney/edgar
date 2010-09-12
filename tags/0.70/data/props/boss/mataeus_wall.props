@@ -1,5 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/mataeus_wall.dat
-ANIM_FILE data/anim/wall/mataeus_wall.dat
-FLAGS FLY
-DAMAGE 1

@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/item/tuning_fork.dat
-ANIM_FILE data/anim/common/no_anim.dat
-TYPE KEY_ITEM
-DESCRIPTION A Tuning Fork
-OBJECTIVE_NAME Tuning Fork

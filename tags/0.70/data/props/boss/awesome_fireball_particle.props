@@ -1,4 +1,0 @@
-TYPE ENEMY
-GFX_FILE data/gfx/boss/awesome_fireball_particle.dat
-ANIM_FILE data/anim/common/no_anim.dat
-LAYER FOREGROUND_LAYER
