@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/item/ice_platform.dat
+ANIM_FILE data/anim/item/ice_platform.dat
+TYPE TEMP_ITEM
+THINKTIME 600
+FLAGS DO_NOT_PERSIST
