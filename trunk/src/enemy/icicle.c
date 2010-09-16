@@ -109,7 +109,7 @@ static void fall()
 	
 	checkToMap(self);
 	
-	if (self->flags & ON_GROUND)
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->flags |= NO_DRAW;
 		
@@ -153,6 +153,8 @@ static void dieWait()
 		self->flags |= FLY;
 		
 		self->flags &= ~NO_DRAW;
+		
+		self->dirX = 0;
 		
 		self->dirY = 0;
 		

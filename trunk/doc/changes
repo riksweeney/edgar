@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 0.71
+* Logs can now be reset correctly
+* The Icicles now break when landing on objects
+* It is now possible to find all your items in the Wasteland
+
 Version 0.70
 * Added the next part of the story
 * Fixed a scrolling error after defeating the Sewer boss

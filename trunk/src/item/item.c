@@ -187,6 +187,8 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 Entity *dropCollectableItem(char *name, int x, int y, int face)
 {
 	Entity *e = addTemporaryItem(name, x, y, face, 0, ITEM_JUMP_HEIGHT);
+	
+	e->type = ITEM;
 
 	e->touch = &keyItemTouch;
 

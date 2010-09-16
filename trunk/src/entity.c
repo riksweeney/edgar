@@ -163,9 +163,9 @@ void doEntities()
 							{
 								if (self->dirX != 0)
 								{
-									self->startX++;
+									self->endY++;
 
-									self->dirY = cos(DEG_TO_RAD(self->startX)) / 20;
+									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
 								}
 							}
 

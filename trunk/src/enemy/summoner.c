@@ -212,17 +212,6 @@ static void summonEnd()
 
 static void die()
 {
-	/*
-	Entity *e;
-
-	if (prand() % 3 == 0)
-	{
-		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
-
-		e->x -= e->w / 2;
-	}
-	*/
-
 	self->dirY = 0;
 
 	entityDie();

@@ -85,6 +85,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "sasquatch.h"
 #include "icicle.h"
 #include "giant_snowball.h"
+#include "ceiling_creeper.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -223,7 +224,8 @@ static Constructor enemies[] = {
 {"enemy/sasquatch", &addSasquatch},
 {"enemy/icicle", &addIcicle},
 {"enemy/giant_snowball", &addGiantSnowball},
-{"boss/black_book", &addBlackBook}
+{"boss/black_book", &addBlackBook},
+{"enemy/ceiling_creeper", &addCeilingCreeper}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
