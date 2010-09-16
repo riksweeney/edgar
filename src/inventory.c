@@ -633,6 +633,15 @@ void loadInventoryItems()
 				setPlayerShield(1);
 			}
 			
+			else if (inventory.item[i].type == TEMP_ITEM)
+			{
+				inventory.item[i].type = ITEM;
+				
+				inventory.item[i].action = doNothing;
+				
+				inventory.item[i].flags &= ~DO_NOT_PERSIST;
+			}
+			
 			if (strcmpignorecase(inventory.item[i].name, "item/safe_combination") == 0)
 			{
 				self = &inventory.item[i];
