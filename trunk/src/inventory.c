@@ -637,7 +637,7 @@ void loadInventoryItems()
 			{
 				inventory.item[i].type = ITEM;
 				
-				inventory.item[i].action = doNothing;
+				inventory.item[i].action = &doNothing;
 				
 				inventory.item[i].flags &= ~DO_NOT_PERSIST;
 			}
