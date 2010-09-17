@@ -244,7 +244,7 @@ void keyItemTouch(Entity *other)
 		
 		if (self->action == &generalItemAction)
 		{
-			self->action = doNothing;
+			self->action = &doNothing;
 		}
 		
 		self->flags &= ~DO_NOT_PERSIST;
