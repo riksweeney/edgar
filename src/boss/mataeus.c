@@ -216,16 +216,6 @@ static void entityWait()
 	{
 		self->maxThinkTime = 0;
 
-		if (self->health == self->maxHealth)
-		{
-			self->mental++;
-
-			if ((self->mental % 50) == 0)
-			{
-				setInfoBoxMessage(120, 255, 255, 255, _("Try using Mataeus's knives against him..."));
-			}
-		}
-
 		if (self->health > 1500)
 		{
 			i = prand() % 2;

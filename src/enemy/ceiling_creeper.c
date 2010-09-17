@@ -284,6 +284,9 @@ static void tongueExtendOut()
 	{
 		self->y = self->endY;
 	}
+	
+	self->box.h = self->endY - self->startY;
+	self->box.y = -self->box.h;
 }
 
 static int drawTongue()

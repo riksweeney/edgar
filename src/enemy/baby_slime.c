@@ -60,9 +60,18 @@ Entity *addBabySlime(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDieNoDrop;
 	e->pain = NULL;
-	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = NULL;
 	e->touch = &grab;
+	
+	if (strcmpignorecase(name, "enemy/purple_baby_slime") == 0)
+	{
+		e->takeDamage = &entityTakeDamageNoFlinch;
+	}
+	
+	else
+	{
+		e->takeDamage = &entityTakeDamageFlinch;
+	}
 
 	e->type = ENEMY;
 
@@ -155,14 +164,14 @@ static void grab(Entity *other)
 
 		setCustomAction(other, &slowDown, 3, 1, 0);
 
-		if (strcmpignorecase(self->name, "enemy/red_baby_slime") == 0)
+		if (strcmpignorecase(self->name, "enemy/baby_slime") == 0)
 		{
-			self->action = &stickToTargetAndDrain;
+			self->action = &stickToTarget;
 		}
 
 		else
 		{
-			self->action = &stickToTarget;
+			self->action = &stickToTargetAndDrain;
 		}
 
 		self->touch = NULL;

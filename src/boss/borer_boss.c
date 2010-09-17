@@ -489,6 +489,11 @@ static void fireRocksFinish()
 		self->x = self->startX;
 		
 		self->action = &attackFinished;
+		
+		if (self->health == self->maxHealth && prand() % 3 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("Try getting the borer to grab a bomb..."));
+		}
 	}
 }
 

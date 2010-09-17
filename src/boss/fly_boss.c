@@ -907,16 +907,6 @@ static void takeDamage(Entity *other, int damage)
 		if (self->health <= minHealth)
 		{
 			self->health = minHealth;
-
-			if (prand() % 3 == 0)
-			{
-				setInfoBoxMessage(60, 255, 255, 255, _("The wall on the right looks weak..."));
-			}
-		}
-
-		if (i >= minHealth && self->health < minHealth)
-		{
-			setInfoBoxMessage(60, 255, 255, 255, _("The wall on the right looks weak..."));
 		}
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);

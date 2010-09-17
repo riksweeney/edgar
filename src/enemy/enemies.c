@@ -134,6 +134,7 @@ static Constructor enemies[] = {
 {"boss/golem_boss", &addGolemBoss},
 {"enemy/baby_slime", &addBabySlime},
 {"enemy/red_baby_slime", &addBabySlime},
+{"enemy/purple_baby_slime", &addBabySlime},
 {"enemy/eye_spinner", &addSpinner},
 {"boss/snake_boss", &addSnakeBoss},
 {"enemy/floating_snapper", &addFloatingSnapper},
@@ -225,7 +226,8 @@ static Constructor enemies[] = {
 {"enemy/icicle", &addIcicle},
 {"enemy/giant_snowball", &addGiantSnowball},
 {"boss/black_book", &addBlackBook},
-{"enemy/ceiling_creeper", &addCeilingCreeper}
+{"enemy/ceiling_creeper", &addCeilingCreeper},
+{"enemy/red_jumping_slime", &addJumpingSlime}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
