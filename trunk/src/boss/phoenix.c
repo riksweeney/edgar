@@ -283,15 +283,6 @@ static void attackFinished()
 	self->maxThinkTime = 0;
 	
 	self->action = &entityWait;
-	
-	self->endX--;
-	
-	if (self->endX <= 0 && self->health == self->maxHealth)
-	{
-		setInfoBoxMessage(180, 255, 255, 255, _("There must be a way to extingiush the flames..."));
-		
-		self->endX = 5;
-	}
 }
 
 static void dropAttackInit()

@@ -41,6 +41,7 @@ static void swim(void);
 static void jumpOut(void);
 static void fallout(void);
 static void layEgg(void);
+static void dropPurpleSlimes(void);
 
 Entity *addJumpingSlime(int x, int y, char *name)
 {
@@ -61,16 +62,28 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->action = &purpleWait;
 
 		e->fallout = &fallout;
+		
+		e->die = &entityDie;
+	}
+	
+	else if (strcmpignorecase(name, "enemy/red_jumping_slime") == 0)
+	{
+		e->action = &entityWait;
+
+		e->fallout = &fallout;
+		
+		e->die = &die;
 	}
 
 	else
 	{
 		e->action = &entityWait;
+		
+		e->die = &entityDie;
 	}
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
 
@@ -83,7 +96,75 @@ Entity *addJumpingSlime(int x, int y, char *name)
 
 static void die()
 {
-	entityDie();
+	int i;
+	Entity *e;
+	
+	self->takeDamage = NULL;
+	
+	self->damage = 0;
+	
+	setEntityAnimation(self, DIE);
+	
+	self->mental = 5 + prand() % 15;
+	
+	if (prand() % 2 == 0)
+	{
+		for (i=0;i<self->mental;i++)
+		{
+			e = addEnemy("enemy/purple_baby_slime", self->x, self->y);
+			
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
+			
+			e->dirX = (prand() % 40) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = -8;
+			
+			e->dirX /= 10;
+		}
+		
+		self->mental = 0;
+	}
+	
+	self->thinkTime = 60 + prand() % 60;
+
+	self->action = &dropPurpleSlimes;
+	
+	self->flags |= DO_NOT_PERSIST;
+	
+	checkToMap(self);
+}
+
+static void dropPurpleSlimes()
+{
+	int i;
+	Entity *e;
+	
+	checkToMap(self);
+	
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
+	{
+		self->dirX = 0;
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		for (i=0;i<self->mental;i++)
+		{
+			e = addEnemy("enemy/purple_baby_slime", self->x, self->y);
+			
+			e->x += self->w / 2 - e->w / 2;
+			e->y += self->h / 2 - e->h / 2;
+			
+			e->dirX = (prand() % 20) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT;
+			
+			e->dirX /= 10;
+		}
+		
+		self->action = &entityDie;
+	}
 }
 
 static void entityWait()

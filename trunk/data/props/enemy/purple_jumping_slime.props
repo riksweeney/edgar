@@ -1,4 +1,4 @@
-HEALTH 140
+HEALTH 80
 DAMAGE 1
 GFX_FILE data/gfx/enemy/purple_jumping_slime.dat
 ANIM_FILE data/anim/enemy/jumping_slime.dat
