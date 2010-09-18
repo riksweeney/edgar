@@ -3044,3 +3044,12 @@ msgstr ""
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
 msgstr ""
 
+msgid "Try getting the Borer to grab a bomb..."
+msgstr ""
+
+msgid "Examine the book?"
+msgstr ""
+
+msgid "Turn on the generator?"
+msgstr ""
+
