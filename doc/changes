@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 0.75
+* Fixed the default key for action
+* The continue option is now disabled after defeating the phoenix
+* Fixed a problem with collectable items not vanishing if they can't be picked up
+
 Version 0.71
 * Logs can now be reset correctly
 * The Icicles now break when landing on objects

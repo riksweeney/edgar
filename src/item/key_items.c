@@ -242,13 +242,6 @@ void keyItemTouch(Entity *other)
 			increaseSecretsFound();
 		}
 		
-		if (self->action == &generalItemAction)
-		{
-			self->action = &doNothing;
-		}
-		
-		self->flags &= ~DO_NOT_PERSIST;
-		
 		addToInventory(self);
 	}
 }

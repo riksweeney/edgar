@@ -1202,6 +1202,8 @@ static void flyToLava()
 		
 		self->dirY = 0;
 		
+		clearContinuePoint();
+		
 		fadeBossMusic();
 		
 		entityDieNoDrop();

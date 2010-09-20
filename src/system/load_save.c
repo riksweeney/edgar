@@ -567,8 +567,6 @@ void saveGame(int slot)
 
 	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
-	read = fopen(tempFile, "rb");
-
 	write = fopen(saveFile, "wb");
 
 	fprintf(write, "VERSION %0.2f\n", VERSION);
@@ -594,6 +592,8 @@ void saveGame(int slot)
 	fprintf(write, "CONTINUES %d\n", game.continues);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
+	
+	read = fopen(tempFile, "rb");
 
 	if (read != NULL)
 	{
@@ -772,7 +772,7 @@ void saveTemporaryData()
 	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
 	read = fopen(tempFile, "rb");
-
+	
 	write = fopen(swapFile, "wb");
 
 	if (read != NULL)
@@ -899,8 +899,6 @@ void saveContinueData()
 
 	snprintf(saveFile, sizeof(saveFile), "%scontinuesave", gameSavePath);
 
-	read = fopen(tempFile, "rb");
-
 	write = fopen(saveFile, "wb");
 
 	fprintf(write, "VERSION %0.2f\n", VERSION);
@@ -926,6 +924,8 @@ void saveContinueData()
 	fprintf(write, "CONTINUES %d\n", game.continues);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
+	
+	read = fopen(tempFile, "rb");
 
 	if (read != NULL)
 	{
@@ -999,6 +999,11 @@ void saveContinueData()
 		}
 
 		free(buffer);
+	}
+	
+	else
+	{
+		showErrorAndExit("Continue data could not read temp file: %s", strerror(errno));
 	}
 
 	/* Save the player's position */
@@ -1283,7 +1288,7 @@ static void removeTemporaryData()
 
 		if (remove(tempFile) != 0)
 		{
-			perror("Could not remove temporary file");
+			showErrorAndExit("Could not remove temporary file: %s", strerror(errno));
 
 			exit(1);
 		}
@@ -1297,7 +1302,7 @@ static void removeTemporaryData()
 
 		if (remove(continueFile) != 0)
 		{
-			perror("Could not remove continue file");
+			showErrorAndExit("Could not remove continue file: %s", strerror(errno));
 
 			exit(1);
 		}
@@ -1385,7 +1390,7 @@ void saveConfig()
 
 	if (fp == NULL)
 	{
-		perror("Could not save settings");
+		showErrorAndExit("Could not save settings: %s", strerror(errno));
 
 		exit(1);
 	}
@@ -1403,21 +1408,17 @@ static void copyFile(char *src, char *dest)
 	FILE *sourceFile, *destFile;
 
 	sourceFile = fopen(src, "rb");
-
-	destFile = fopen(dest, "wb");
 	
 	if (sourceFile == NULL)
 	{
-		perror("CopyFile (src) failed");
-		
-		showErrorAndExit("Could not open %s for reading", src);
+		showErrorAndExit("Could not open %s for reading: %s", src, strerror(errno));
 	}
+	
+	destFile = fopen(dest, "wb");
 	
 	if (destFile == NULL)
 	{
-		perror("CopyFile (dest) failed");
-		
-		showErrorAndExit("Could not open %s for writing", dest);
+		showErrorAndExit("Could not open %s for writing: %s", dest, strerror(errno));
 	}
 
 	while (!feof(sourceFile))

@@ -878,6 +878,8 @@ void setPlayerWeapon(int val)
 	if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
 	{
 		playerWeapon.action = &drawBow;
+		
+		playerShield.name[0] = '\0';
 
 		playerShield.inUse = FALSE;
 	}

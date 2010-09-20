@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/map_trigger.h"
 #include "system/error.h"
 #include "system/load_save.h"
+#include "event/script.h"
 
 extern Game game;
 extern Entity *self;
@@ -99,6 +100,8 @@ void initGame()
 	game.secretsFound = 0;
 	
 	game.canContinue = FALSE;
+	
+	game.offsetX = game.offsetY = 0;
 
 	if (game.alphaSurface != NULL)
 	{
@@ -507,6 +510,9 @@ void goToNextMap()
 
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
+	
+	game.offsetX = game.offsetY = 0;
+	game.shakeThinkTime = 0;
 
 	clearScreen(0, 0, 0);
 }
@@ -998,4 +1004,14 @@ void clearContinuePoint()
 	continueData.resumeAction = NULL;
 	
 	continueData.boss[0] = '\0';
+}
+
+void updateExitCount(int exitCount)
+{
+	game.mapExitable += exitCount;
+	
+	if (game.mapExitable < 0)
+	{
+		game.mapExitable = 0;
+	}
 }

@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dialog.h"
 #include "inventory.h"
 #include "system/error.h"
+#include "game.h"
 
 static Inventory inventory;
 extern Entity *self;
@@ -124,6 +125,13 @@ int addToInventory(Entity *e)
 		{
 			if (inventory.item[i].inUse == FALSE)
 			{
+				if (e->action == &generalItemAction)
+				{
+					e->action = &doNothing;
+				}
+				
+				e->flags &= ~DO_NOT_PERSIST;
+				
 				inventory.item[i] = *e;
 
 				inventory.item[i].face = RIGHT;
