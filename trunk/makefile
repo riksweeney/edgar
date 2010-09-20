@@ -39,9 +39,10 @@ endif
 
 ifeq ($(DEV),1)
 CFLAGS = -Wall -g -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
-#CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
+#CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
 else
-CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
+#CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
+CFLAGS = -Wall -Os -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DMEDAL_SERVER_HOST=\"$(MEDAL_SERVER_HOST)\" -DMEDAL_SERVER_PORT=$(MEDAL_SERVER_PORT)
 endif
 
 ifeq ($(OS),Windows_NT)
@@ -85,7 +86,7 @@ CORE_OBJS += fish.o borer_boss.o light_pillar.o exploding_gazer_eye.o glass_cage
 CORE_OBJS += soul_merger_control_panel.o fire_tortoise.o lava_door.o dark_summoner.o flame_pillar.o phoenix.o pendulum.o extend_o_grab_button.o
 CORE_OBJS += puzzle_piece.o jigsaw_puzzle.o jigsaw_puzzle_display.o magnet.o ice_tortoise.o splitter.o attractor.o buzz_saw.o cell_bars.o
 CORE_OBJS += sorceror.o centurion_boss.o sonic_boom_panel.o sewer_boss.o item_remover.o safe.o ground_snapper.o sasquatch.o icicle.o giant_snowball.o
-CORE_OBJS += script_menu.o snow_pile.o ceiling_creeper.o
+CORE_OBJS += script_menu.o snow_pile.o ceiling_creeper.o gas_plant.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

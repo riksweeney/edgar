@@ -634,6 +634,7 @@ void resetControls(int editor)
 		control.button[CONTROL_PREVIOUS] = SDLK_COMMA;
 		control.button[CONTROL_ATTACK] = SDLK_LCTRL;
 		control.button[CONTROL_INVENTORY] = SDLK_z;
+		control.button[CONTROL_ACTIVATE] = SDLK_a;
 		#if DEV == 1
 			control.button[CONTROL_FLY] = SDLK_f;
 		#endif
@@ -646,7 +647,6 @@ void resetControls(int editor)
 			control.button[CONTROL_SAVE] = SDLK_s;
 			control.button[CONTROL_LOAD] = SDLK_l;
 			control.button[CONTROL_TOGGLE] = SDLK_e;
-			control.button[CONTROL_ACTIVATE] = SDLK_a;
 			control.button[CONTROL_CUT] = SDLK_x;
 			control.button[CONTROL_SNAP] = SDLK_g;
 		}

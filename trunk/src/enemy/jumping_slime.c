@@ -299,7 +299,7 @@ static void swim()
 
 		self->dirX = 0;
 
-		self->action = &purpleAttack;
+		self->action = strcmpignorecase(self->name, "enemy/red_jumping_slime") == 0 ? &attack : &purpleAttack;
 	}
 }
 
@@ -324,7 +324,7 @@ static void jumpOut()
 		{
 			self->dirX = 0;
 
-			self->action = &purpleAttack;
+			self->action = strcmpignorecase(self->name, "enemy/red_jumping_slime") == 0 ? &attack : &purpleAttack;
 		}
 	}
 }

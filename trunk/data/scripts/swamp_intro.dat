@@ -2,13 +2,18 @@ ADD_MEDAL enter_swamp
 TALK Edgar This place doesn't look so bad...
 WALK_TO Edgar 464 0 WAIT
 MUSIC FADE_DOWN 2000
+WAIT 30
+PLAY_SOUND sound/boss/ant_lion/earthquake.ogg
+SHAKE_SCREEN LIGHT 150
 WAIT 150
 SET Edgar FACE LEFT
 WAIT 60
 SET Edgar FACE RIGHT
 WAIT 60
 TALK Edgar What was that?
-WAIT 120
+PLAY_SOUND sound/boss/ant_lion/earthquake.ogg
+SHAKE_SCREEN MEDIUM -1
+WAIT 60
 TALK Edgar Uh Oh...
 FOLLOW NONE
 KILL WEAK_WALL_1

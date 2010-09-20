@@ -19,92 +19,86 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
-#include "../system/properties.h"
-#include "../entity.h"
-#include "../system/random.h"
-#include "../collisions.h"
 #include "../audio/audio.h"
-#include "../event/script.h"
-#include "../hud.h"
+#include "../graphics/animation.h"
+#include "../entity.h"
+#include "../collisions.h"
+#include "../custom_actions.h"
+#include "../system/properties.h"
+#include "../system/random.h"
 #include "../system/error.h"
+#include "../player.h"
 
-extern Game game;
 extern Entity *self;
 
 static void entityWait(void);
-static void touch(Entity *);
-static void activate(int);
+static void takeDamage(Entity *, int);
+static void init(void);
+static void sprayGas(void);
 
-Entity *addActionPoint(char *name, int x, int y)
+Entity *addGasPlant(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add an Action Point");
+		showErrorAndExit("No free slots to add a Gas Plant");
 	}
 
 	loadProperties(name, e);
 
-	e->touch = &touch;
-
-	e->action = &entityWait;
-
-	e->draw = &drawLoopingAnimationToMap;
-
-	e->activate = &activate;
-
 	e->x = x;
 	e->y = y;
 
-	e->health = 0;
+	e->action = &init;
+	e->draw = &drawLoopingAnimationToMap;
+	e->die = &entityDie;
+	e->touch = &entityTouch;
+	e->takeDamage = &takeDamage;
 
-	e->maxHealth = e->health;
+	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
 }
 
+static void init()
+{
+	self->mental = 0;
+	
+	self->action = &entityWait;
+}
+
 static void entityWait()
 {
-	if (self->active == TRUE)
-	{
-		self->flags &= ~NO_DRAW;
-	}
-
-	else
-	{
-		self->flags |= NO_DRAW;
-	}
-
-	self->thinkTime++;
-
-	self->face = RIGHT;
-
-	self->endX++;
-
-	if (self->endX >= 360)
-	{
-		self->endX = 0;
-	}
-
-	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 8;
+	checkToMap(self);
 }
 
-static void touch(Entity *other)
+static void takeDamage(Entity *other, int damage)
 {
-	if (other->type == PLAYER && game.showHints == TRUE && self->active == TRUE)
+	entityTakeDamageNoFlinch(other, damage);
+	
+	if (self->health > 0 && self->mental == 0)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
+		self->mental = 1;
+		
+		self->thinkTime = 15;
+		
+		self->action = &sprayGas;
 	}
 }
 
-static void activate(int val)
+static void sprayGas()
 {
-	if (self->active == TRUE)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		runScript(self->requires);
+		self->mental = 0;
+		
+		self->action = &entityWait;
 	}
+	
+	checkToMap(self);
 }

@@ -389,9 +389,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 			if (fp == NULL)
 			{
-				perror("Failed to write pak data to temp file");
-
-				exit(1);
+				showErrorAndExit("Failed to write pak data to temp file: %s", strerror(errno));
 			}
 
 			fwrite(dest, size, 1, fp);

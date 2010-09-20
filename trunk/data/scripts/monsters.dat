@@ -17,6 +17,7 @@ TALK Book They sealed the dragon away beneath an old fortress
 TALK Book It is believed he is still there
 SET EDGAR FACE RIGHT
 TALK Edgar Beneath an old fortress? Maybe they mean this one...
+SET WEAPON_BOOK HEALTH 3
 SET MONSTER_BOOK HEALTH 11
 END
 IF MONSTER_BOOK HEALTH 9
