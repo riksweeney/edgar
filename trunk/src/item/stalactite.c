@@ -37,6 +37,8 @@ static void takeDamage(Entity *, int);
 static void die(void);
 static void respawn(void);
 static void entityWait(void);
+static void fallout(void);
+static void falloutPause(void);
 
 Entity *addStalactite(int x, int y, char *name)
 {
@@ -59,6 +61,7 @@ Entity *addStalactite(int x, int y, char *name)
 	e->action = &entityWait;
 	e->touch = &touch;
 	e->die = &die;
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -80,6 +83,28 @@ static void touch(Entity *other)
 	}
 }
 
+static void fallout()
+{
+	if (self->environment == AIR || self->environment == LAVA)
+	{
+		self->thinkTime = 60;
+		
+		self->action = &falloutPause;
+	}
+}
+
+static void falloutPause()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &die;
+	}
+	
+	checkToMap(self);
+}
+
 static void entityWait()
 {
 	int i;
@@ -89,7 +114,7 @@ static void entityWait()
 
 	if (self->flags & ON_GROUND)
 	{
-		if (onGround == 0)
+		if (onGround == 0 && self->environment == AIR)
 		{
 			for (i=0;i<20;i++)
 			{
