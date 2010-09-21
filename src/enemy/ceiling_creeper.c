@@ -60,9 +60,7 @@ Entity *addCeilingCreeper(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
 	e->touch = &entityTouch;
-	e->takeDamage = &entityTakeDamageNoFlinch;
 
 	e->type = ENEMY;
 
@@ -112,7 +110,7 @@ static void addTongue()
 static void entityWait()
 {
 	if (player.health > 0 && self->mental == 0 &&
-		collision(self->x + self->box.x, self->y, self->box.w, 400, player.x ,player.y, player.w, player.h) == 1)
+		collision(self->x, self->y, self->w, 400, player.x ,player.y, player.w, player.h) == 1)
 	{
 		self->mental = 1;
 	}
@@ -173,7 +171,7 @@ static void moveToMouth()
 {
 	self->thinkTime--;
 	
-	self->y -= self->thinkTime > 0 ? 1 : self->speed;
+	self->y -= self->y - self->startY > 96 ? 1 : self->speed;
 	
 	if (self->y <= self->startY)
 	{

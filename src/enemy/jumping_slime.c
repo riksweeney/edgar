@@ -218,8 +218,28 @@ static void attack()
 			}
 			
 			self->dirY = -(6 + prand() % 2);
+			
+			if (prand() % 2 == 0)
+			{
+				self->face = LEFT;
+				
+				if (isAtEdge(self) == TRUE)
+				{
+					self->face = RIGHT;
+				}
+			}
+			
+			else
+			{
+				self->face = RIGHT;
+				
+				if (isAtEdge(self) == TRUE)
+				{
+					self->face = LEFT;
+				}
+			}
 
-			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
+			self->dirX = (prand() % 2 + 2) * (self->face == LEFT ? -1 : 1);
 			
 			self->thinkTime = 30 + prand () % 60;
 		}
@@ -255,7 +275,27 @@ static void purpleAttack()
 			
 			self->dirY = -(6 + prand() % 2);
 
-			self->dirX = (prand() % 2 + 2) * (prand() % 2 == 0 ? -1 : 1);
+			if (prand() % 2 == 0)
+			{
+				self->face = LEFT;
+				
+				if (isAtEdge(self) == TRUE)
+				{
+					self->face = RIGHT;
+				}
+			}
+			
+			else
+			{
+				self->face = RIGHT;
+				
+				if (isAtEdge(self) == TRUE)
+				{
+					self->face = LEFT;
+				}
+			}
+
+			self->dirX = (prand() % 2 + 2) * (self->face == LEFT ? -1 : 1);
 			
 			self->thinkTime = 30 + prand () % 60;
 
