@@ -35,7 +35,8 @@ static Type type[] = {
 					{RUN_SCRIPT, "RUN_SCRIPT"},
 					{UPDATE_TRIGGER, "UPDATE_TRIGGER"},
 					{KILL_ENTITY, "KILL_ENTITY"},
-					{REMOVE_INVENTORY_ITEM, "REMOVE_INVENTORY_ITEM"}
+					{REMOVE_INVENTORY_ITEM, "REMOVE_INVENTORY_ITEM"},
+					{UPDATE_EXIT, "UPDATE_EXIT"}
 					};
 static int length = sizeof(type) / sizeof(Type);
 

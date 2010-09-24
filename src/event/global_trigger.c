@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "global_trigger.h"
 #include "../event/script.h"
 #include "../hud.h"
-#include "../hud.h"
+#include "../game.h"
 #include "../inventory.h"
 #include "../graphics/graphics.h"
 #include "../dialog.h"
@@ -198,6 +198,10 @@ void fireGlobalTrigger(char *name)
 
 					case REMOVE_INVENTORY_ITEM:
 						removeInventoryItemByObjectiveName(trigger[i].targetName);
+					break;
+					
+					case UPDATE_EXIT:
+						updateExitCount(-1);
 					break;
 
 					default:
