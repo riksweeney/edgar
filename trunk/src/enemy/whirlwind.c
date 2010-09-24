@@ -28,6 +28,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../system/error.h"
 #include "../player.h"
+#include "../game.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 
@@ -36,6 +38,7 @@ static void entityWait(void);
 static void touch(Entity *);
 static void suckIn(void);
 static void die(void);
+static void addExitTrigger(Entity *);
 
 Entity *addWhirlwind(int x, int y, char *name)
 {
@@ -191,6 +194,8 @@ static void suckIn()
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0, 0);
+				
+				addExitTrigger(e);
 			}
 
 			e = removePlayerShield();
@@ -204,6 +209,8 @@ static void suckIn()
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0, 0);
+				
+				addExitTrigger(e);
 			}
 
 			setCustomAction(self->target, &invulnerable, 60, 0, 0);
@@ -246,4 +253,15 @@ static void die()
 	}
 
 	entityDie();
+}
+
+static void addExitTrigger(Entity *e)
+{
+	char itemName[MAX_VALUE_LENGTH];
+	
+	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"WHIRLWIND\"", e->objectiveName);
+	
+	addGlobalTriggerFromScript(itemName);
+	
+	updateExitCount(1);
 }

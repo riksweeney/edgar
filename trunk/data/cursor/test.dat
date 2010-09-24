@@ -13,3 +13,6 @@ enemy/whirlwind
 misc/chopped_log
 weapon/bow
 weapon/normal_arrow
+common/level_exit
+enemy/centipede
+misc/tree_stump

@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/music.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
+#include "../event/script.h"
 
 extern Entity *self, player, playerShield, playerWeapon;
 extern Game game;
@@ -118,6 +119,13 @@ static void activate(int val)
 {
 	if (self->active == TRUE)
 	{
+		if (game.mapExitable > 0)
+		{
+			runScript("items_missing");
+			
+			return;
+		}
+		
 		player.flags |= HELPLESS;
 
 		setCustomAction(&player, &helpless, 600, 0, 0);
