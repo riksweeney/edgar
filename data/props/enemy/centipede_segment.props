@@ -1,7 +1,7 @@
-HEALTH 80
+HEALTH 40
 DAMAGE 1
-GFX_FILE data/gfx/enemy/centipede.dat
-ANIM_FILE data/anim/enemy/centipede.dat
+GFX_FILE data/gfx/enemy/centipede_segment.dat
+ANIM_FILE data/anim/enemy/centipede_segment.dat
 TYPE ENEMY
 SPEED 2
 FLAGS DO_NOT_PERSIST

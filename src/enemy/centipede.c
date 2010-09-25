@@ -36,6 +36,7 @@ static void addSegments(void);
 static void segmentMove(void);
 static void segmentInit(void);
 static void reactToBlock(void);
+static void headMove(void);
 static void segmentTakeDamage(Entity *, int);
 
 Entity *addCentipede(int x, int y, char *name)
@@ -72,12 +73,25 @@ static void init()
 	
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	
-	self->action = &moveLeftToRight;
+	self->action = &headMove;
+}
+
+static void headMove()
+{
+	if (self->target->health <= 0)
+	{
+		self->die();
+	}
+	
+	else
+	{
+		moveLeftToRight();
+	}
 }
 
 static void addSegments()
 {
-	int i;
+	int i, frameCount;
 	Entity *e, *prev;
 	
 	prev = self;
@@ -104,13 +118,26 @@ static void addSegments()
 		e->face = self->face;
 		
 		e->target = prev;
+		
+		e->head = self;
+		
+		e->speed = self->speed;
 
 		setEntityAnimation(e, STAND);
+		
+		frameCount = getFrameCount(e);
+		
+		e->currentFrame = prand() % frameCount;
 		
 		e->x = self->x;
 		e->y = self->y;
 		
 		prev = e;
+		
+		if (i == 0)
+		{
+			self->target = e;
+		}
 	}
 }
 
@@ -130,8 +157,15 @@ static void segmentInit()
 }
 
 static void segmentMove()
-{
-	if (self->target->health <= 0)
+{	
+	if (self->head->health <= 0)
+	{
+		self->health = 0;
+		
+		entityDie();
+	}
+	
+	else if (self->target->health <= 0)
 	{
 		self->health = 0;
 		
@@ -140,20 +174,17 @@ static void segmentMove()
 	
 	/* If segment is facing the same way as the target then just move with it */
 	
-	if (self->face == self->target->face)
+	if (self->face == LEFT && self->x <= self->target->x - self->target->w)
 	{
-		self->x = self->face == LEFT ? self->target->x + self->w : self->target->x - self->w;
+		self->x = self->target->x - self->target->w;
 		
-		self->dirX = 0;
-	}
-	
-	else if (self->face == LEFT && self->x <= self->target->x - self->target->w)
-	{
 		self->face = self->target->face;
 	}
 	
 	else if (self->face == RIGHT && self->x >= self->target->x + self->target->w)
 	{
+		self->x = self->target->x + self->target->w;
+		
 		self->face = self->target->face;
 	}
 	
@@ -196,10 +227,7 @@ static void segmentTakeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 			}
 
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			enemyPain();
 		}
 
 		else
