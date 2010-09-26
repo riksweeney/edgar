@@ -110,6 +110,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "item_remover.h"
 #include "safe.h"
 #include "snow_pile.h"
+#include "spore_crop.h"
+#include "spore.h"
 
 extern Entity *self, player;
 
@@ -203,7 +205,9 @@ static Constructor items[] = {
 {"item/item_remover", &addItemRemover},
 {"item/safe", &addSafe},
 {"item/snow_pile", &addSnowPile},
-{"item/flaming_arrow_potion", &addFlamingArrowPotion}
+{"item/flaming_arrow_potion", &addFlamingArrowPotion},
+{"item/spore_crop", &addSporeCrop},
+{"item/spore", &addSpore}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
