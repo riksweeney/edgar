@@ -319,11 +319,14 @@ static void creeperTouch(Entity *other)
 	{
 		getCheckpoint(&x, &y);
 		
-		x = self->x;
-		
-		x += self->face == RIGHT ? -other->w : self->w;
-		
-		setCheckpoint(x, y);
+		if (x >= self->x && x <= self->x + self->w)
+		{
+			x = self->x;
+			
+			x += self->face == RIGHT ? -other->w : self->w;
+			
+			setCheckpoint(x, y);
+		}
 		
 		other->flags |= NO_DRAW;
 

@@ -79,7 +79,7 @@ void loadRequiredResources()
 
 	/* Load the font */
 
-	game.font = loadFont("font/DejaVuSans.ttf", 14);
+	game.font = loadFont("font/DejaVuSans.ttf", FONT_SIZE);
 }
 
 void freeLevelResources()

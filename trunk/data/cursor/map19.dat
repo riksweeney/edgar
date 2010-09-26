@@ -10,3 +10,9 @@ weapon/fire_shield
 weapon/pickaxe
 enemy/red_jumping_slime
 common/spawner
+weapon/bow
+weapon/pickaxe
+weapon/wood_axe
+item/flaming_arrow_potion
+common/level_exit
+item/spore_crop
