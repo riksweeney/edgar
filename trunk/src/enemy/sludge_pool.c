@@ -20,26 +20,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
-#include "../audio/audio.h"
-#include "../system/properties.h"
 #include "../entity.h"
-#include "key_items.h"
-#include "item.h"
-#include "spore.h"
-#include "../inventory.h"
+#include "../collisions.h"
+#include "../system/properties.h"
 #include "../system/error.h"
+#include "../system/random.h"
 
-extern Entity *self, player;
+extern Entity *self;
 
-static void collectSpore(Entity *);
+static void entityWait(void);
 
-Entity *addSporeCrop(int x, int y, char *name)
+Entity *addSludgePool(int x, int y, char *name)
 {
+	int frameCount;
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Spore Crop");
+		showErrorAndExit("No free slots to add a Sludge Pool");
 	}
 
 	loadProperties(name, e);
@@ -47,37 +45,22 @@ Entity *addSporeCrop(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->type = KEY_ITEM;
-
-	e->face = RIGHT;
-
-	e->action = &doNothing;
-	e->touch = &collectSpore;
-
+	e->action = &entityWait;
 	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &entityTouch;
+
+	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
-
-	e->thinkTime = 0;
+	
+	frameCount = getFrameCount(e);
+	
+	e->currentFrame = prand() % frameCount;
 
 	return e;
 }
 
-static void collectSpore(Entity *other)
+static void entityWait()
 {
-	Entity *spore = NULL;
-
-	if (self->thinkTime <= 0)
-	{
-		if (getInventoryItemByObjectiveName("Spores") == NULL)
-		{
-			spore = addSpore(other->x, other->y, "item/spores");
-
-			STRNCPY(spore->objectiveName, "Spores", sizeof(spore->objectiveName));
-
-			addToInventory(spore);
-		}
-
-		self->thinkTime = self->maxThinkTime;
-	}
+	checkToMap(self);
 }
