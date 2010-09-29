@@ -87,6 +87,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "giant_snowball.h"
 #include "ceiling_creeper.h"
 #include "centipede.h"
+#include "sludge_pool.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -230,7 +231,10 @@ static Constructor enemies[] = {
 {"enemy/ceiling_creeper", &addCeilingCreeper},
 {"enemy/red_jumping_slime", &addJumpingSlime},
 {"enemy/yellow_centipede", &addCentipede},
-{"enemy/red_centipede", &addCentipede}
+{"enemy/red_centipede", &addCentipede},
+{"enemy/green_centipede", &addCentipede},
+{"enemy/super_red_centipede", &addCentipede},
+{"enemy/sludge_pool", &addSludgePool}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

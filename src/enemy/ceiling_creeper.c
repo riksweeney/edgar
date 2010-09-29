@@ -109,10 +109,48 @@ static void addTongue()
 
 static void entityWait()
 {
-	if (player.health > 0 && self->mental == 0 &&
-		collision(self->x, self->y, self->w, 400, player.x ,player.y, player.w, player.h) == 1)
+	if (self->mental == 0 && self->startX != self->endX)
 	{
-		self->mental = 1;
+		if (self->face == LEFT)
+		{
+			if (self->x <= self->startX)
+			{
+				self->x = self->startX;
+				
+				self->face = RIGHT;
+			}
+		}
+		
+		else
+		{
+			if (self->x + self->w >= self->endX)
+			{
+				self->x = self->endX - self->w;
+				
+				self->face = LEFT;
+			}
+		}
+		
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+	
+	if (player.health > 0 && self->mental == 0 && !(player.flags & FLY))
+	{
+		if (self->startX == self->endX &&
+			collision(self->x, self->y, self->w, 400, player.x ,player.y, player.w, player.h) == 1)
+		{
+			self->dirX = 0;
+			
+			self->mental = 1;
+		}
+		
+		else if (self->startX != self->endX &&
+			collision(self->x - 4 + self->w / 2, self->y, 8, 400, player.x ,player.y, player.w, player.h) == 1)
+		{
+			self->dirX = 0;
+			
+			self->mental = 1;
+		}
 	}
 	
 	else if (self->mental == 2)
@@ -142,8 +180,6 @@ static void tongueWait()
 	}
 	
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
-	
-	checkToMap(self);
 }
 
 static void tongueTouch(Entity *other)
@@ -155,6 +191,8 @@ static void tongueTouch(Entity *other)
 		self->head->touch = &creeperTouch;
 		
 		self->target = other;
+		
+		self->target->flags |= FLY;
 		
 		self->thinkTime = 180;
 		
@@ -175,6 +213,11 @@ static void moveToMouth()
 	
 	if (self->y <= self->startY)
 	{
+		if (self->target != NULL)
+		{
+			self->target->flags &= ~FLY;
+		}
+		
 		self->target = NULL;
 		
 		self->y = self->startY;
@@ -188,6 +231,8 @@ static void moveToMouth()
 	{
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
+		
+		self->target->dirY = 0;
 	}
 }
 
@@ -246,6 +291,11 @@ static void tongueTakeDamage(Entity *other, int damage)
 		{
 			self->touch = NULL;
 			
+			if (self->target != NULL)
+			{
+				self->target->flags &= ~FLY;
+			}
+			
 			self->target = NULL;
 			
 			self->action = &tongueRetreat;
@@ -267,10 +317,10 @@ static void tongueRetreat()
 		
 		if (self->thinkTime <= 0)
 		{
+			self->head->mental = 0;
+			
 			self->action = &tongueWait;
 		}
-		
-		self->head->mental = 0;
 	}
 }
 

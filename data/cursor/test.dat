@@ -3,3 +3,6 @@ weapon/basic_sword
 weapon/small_wooden_shield
 item/spike_ball
 item/spore_crop
+enemy/sludge_pool
+enemy/yellow_centipede
+enemy/red_centipede

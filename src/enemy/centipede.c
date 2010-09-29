@@ -82,17 +82,51 @@ static void init()
 
 static void headMove()
 {
+	int currentFrame, health;
+	
 	if (self->mental >= 2)
 	{
 		self->thinkTime--;
 		
-		if (self->thinkTime <= 0)
+		if (self->thinkTime <= 300)
 		{
-			loadProperties(self->mental == 2 ? "enemy/yellow_centipede_segment" : "enemy/red_centipede_segment", self);
+			if (self->thinkTime % 15 == 0)
+			{
+				currentFrame = self->currentFrame;
+				
+				if (self->mental < 4)
+				{
+					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
+					
+					self->mental = self->mental == 2 ? 4 : 5;
+				}
+				
+				else
+				{
+					setEntityAnimation(self, STAND);
+					
+					self->mental = self->mental == 4 ? 2 : 3;
+				}
+				
+				self->currentFrame = currentFrame;
+			}
 			
-			self->mental = self->mental == 2 ? 0 : 1;
-			
-			self->touch = &touch;
+			if (self->thinkTime <= 0)
+			{
+				currentFrame = self->currentFrame;
+				
+				health = self->health;
+				
+				loadProperties(self->mental % 2 == 0 ? "enemy/yellow_centipede" : "enemy/red_centipede", self);
+				
+				self->health = health;
+				
+				self->mental = self->mental % 2;
+				
+				self->touch = &touch;
+				
+				self->currentFrame = currentFrame;
+			}
 		}
 	}
 	
@@ -111,7 +145,7 @@ static void addSegments()
 	
 	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
 	
-	for (i=0;i<self->mental;i++)
+	for (i=0;i<5;i++)
 	{
 		e = getFreeEntity();
 		
@@ -177,33 +211,74 @@ static void segmentInit()
 
 static void segmentMove()
 {
-	if (self->target->mental >= 2)
+	int currentFrame, health;
+	
+	if (self->thinkTime <= 0 && self->target->mental >= 2)
 	{
-		if (self->mental < 2)
-		{
-			loadProperties("enemy/green_centipede_segment", self);
-			
-			self->mental = self->target->mental;
-			
-			self->touch = &greenTouch;
-		}
+		currentFrame = self->currentFrame;
 		
-		else
+		health = self->health;
+		
+		loadProperties("enemy/green_centipede_segment", self);
+		
+		self->health = health;
+		
+		self->mental = self->target->mental;
+		
+		self->touch = &greenTouch;
+		
+		self->thinkTime = 60 * 30;
+		
+		self->currentFrame = currentFrame;
+	}
+	
+	if (self->mental >= 2)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 300)
 		{
-			self->thinkTime--;
+			if (self->thinkTime % 15 == 0)
+			{
+				currentFrame = self->currentFrame;
+				
+				if (self->mental < 4)
+				{
+					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
+					
+					self->mental = self->mental == 2 ? 4 : 5;
+				}
+				
+				else
+				{
+					setEntityAnimation(self, STAND);
+					
+					self->mental = self->mental == 4 ? 2 : 3;
+				}
+				
+				self->currentFrame = currentFrame;
+			}
 			
 			if (self->thinkTime <= 0)
 			{
-				loadProperties(self->mental == 2 ? "enemy/yellow_centipede_segment" : "enemy/red_centipede_segment", self);
+				currentFrame = self->currentFrame;
 				
-				self->mental = self->mental == 2 ? 0 : 1;
+				health = self->health;
+				
+				loadProperties(self->mental % 2 == 0 ? "enemy/yellow_centipede_segment" : "enemy/red_centipede_segment", self);
+				
+				self->health = health;
+				
+				self->mental = self->mental % 2;
 				
 				self->touch = &entityTouch;
+				
+				self->currentFrame = currentFrame;
 			}
 		}
 	}
 	
-	if (self->mental == 0 && self->head->health <= 0)
+	else if (self->mental == 0 && self->head->health <= 0)
 	{
 		self->health = 0;
 		
@@ -325,6 +400,8 @@ static void touch(Entity *other)
 {
 	if (self->mental < 2 && strcmpignorecase(other->name, "item/spore") == 0)
 	{
+		other->inUse = FALSE;
+		
 		self->action = &becomeGreen;
 	}
 	
@@ -336,24 +413,39 @@ static void touch(Entity *other)
 
 static void becomeGreen()
 {
+	int currentFrame, health;
+	
+	currentFrame = self->currentFrame;
+	
+	health = self->health;
+	
 	loadProperties("enemy/green_centipede", self);
+	
+	self->health = health;
 	
 	self->mental = self->mental == 0 ? 2 : 3;
 	
 	self->touch = &greenTouch;
+	
+	self->thinkTime = 60 * 30;
+	
+	self->action = &headMove;
+	
+	self->currentFrame = currentFrame;
 }
 
 static void greenTouch(Entity *other)
 {
-	float y;
+	float y1, y2;
 	
 	if (other->type == PLAYER && other->dirY > 0)
 	{
-		y = other->y - other->dirY + other->box.h;
+		y1 = other->y + other->h - other->dirY;
+		y2 = other->y + other->h;
 		
-		if (y < self->y && other->y + other->h >= self->y)
+		if (y1 <= self->y + self->box.y && y2 > self->y + self->box.y)
 		{
-			other->y = self->y - other->h;
+			other->y = self->y + self->box.y - other->h;
 			
 			other->standingOn = self;
 			other->dirY = 0;
