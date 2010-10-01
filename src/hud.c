@@ -129,17 +129,68 @@ void doHud()
 
 void drawHud()
 {
-	int i, x, y, h, w;
+	char quantity[4];
+	int i, x, y, h, w, itemBoxMid, quant;
 	float percentage, clipWidth;
+	Entity *e;
+	
+	itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
 
 	if (game.status == IN_INVENTORY)
 	{
-		drawBox(game.screen, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
+		drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
 	}
 
-	drawSelectedInventoryItem((SCREEN_WIDTH - hud.itemBox->w) / 2, 15, hud.itemBox->w, hud.itemBox->h);
+	drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
 
-	drawImage(hud.itemBox, (SCREEN_WIDTH - hud.itemBox->w) / 2, 15, FALSE, 255);
+	drawImage(hud.itemBox, itemBoxMid, 15, FALSE, 255);
+	
+	e = NULL;
+	
+	/*e = getCurrentInventoryItem();*/
+	
+	if (e != NULL)
+	{
+		x = FALSE;
+		
+		if (e->flags & STACKABLE)
+		{
+			x = TRUE;
+			
+			quant = e->health;
+		}
+		
+		else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
+		{
+			x = TRUE;
+			
+			quant = e->mental;
+		}
+		
+		if (x == TRUE)
+		{
+			if (hud.quantity != quant)
+			{
+				if (hud.quantitySurface != NULL)
+				{
+					SDL_FreeSurface(hud.quantitySurface);
+				}
+				
+				snprintf(quantity, 4, "%d", quant);
+				
+				hud.quantitySurface = generateTextSurface(quantity, game.font, 255, 255, 255, 0, 0, 0);
+
+				hud.quantitySurface = addBorder(hud.quantitySurface, 255, 255, 255, 0, 0, 0);
+			}
+			
+			drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
+		}
+	}
+	
+	else
+	{
+		hud.quantity = -1;
+	}
 
 	percentage = 0;
 
@@ -254,6 +305,13 @@ void freeHud()
 		SDL_FreeSurface(hud.medalTextSurface);
 
 		hud.medalTextSurface = NULL;
+	}
+	
+	if (hud.quantitySurface != NULL)
+	{
+		SDL_FreeSurface(hud.quantitySurface);
+
+		hud.quantitySurface = NULL;
 	}
 
 	for (i=0;i<4;i++)

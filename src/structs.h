@@ -244,8 +244,8 @@ typedef struct Script
 
 typedef struct Hud
 {
-	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime;
-	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface;
+	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime, quantity;
+	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
 	SDL_Surface *medalSurface[4];
 	Message infoMessage;
 } Hud;

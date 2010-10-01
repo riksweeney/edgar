@@ -6,3 +6,6 @@ item/spore_crop
 enemy/sludge_pool
 enemy/yellow_centipede
 enemy/red_centipede
+enemy/gas_plant
+weapon/bow
+weapon/normal_arrow

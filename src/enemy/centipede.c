@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../system/error.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void init(void);
 static void touch(Entity *);
@@ -178,7 +178,7 @@ static void addSegments()
 		
 		e->currentFrame = prand() % frameCount;
 		
-		e->x = self->x;
+		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y;
 		
 		e->mental = mental;
@@ -196,12 +196,12 @@ static void addSegments()
 
 static void segmentInit()
 {
-	if (self->face == LEFT && self->target->x + self->target->w <= self->x)
+	if (self->face == LEFT && fabs(self->target->x - self->x) >= self->target->w)
 	{
 		self->action = &segmentMove;
 	}
 	
-	else if (self->face == RIGHT && self->target->x - self->target->w >= self->x)
+	else if (self->face == RIGHT && fabs(self->target->x - self->x) >= self->w)
 	{
 		self->action = &segmentMove;
 	}
@@ -326,7 +326,10 @@ static void segmentMove()
 
 static void becomeHead()
 {
-	int x = self->x;
+	int x, y;
+	
+	x = self->x + self->w;
+	y = self->y + self->h;
 	
 	loadProperties(self->head->name, self);
 
@@ -340,6 +343,25 @@ static void becomeHead()
 	self->flags &= ~UNBLOCKABLE;
 	
 	self->x = x;
+	
+	self->y = y - self->h;
+	
+	/* Always walk away from the player */
+	
+	if (player.x > self->x)
+	{
+		if (self->face == RIGHT)
+		{
+			self->x = x - self->w;
+		}
+		
+		self->face = LEFT;
+	}
+	
+	else
+	{
+		self->face = RIGHT;
+	}
 }
 
 static void reactToBlock()
