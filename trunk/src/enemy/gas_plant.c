@@ -35,9 +35,12 @@ static void entityWait(void);
 static void takeDamage(Entity *, int);
 static void init(void);
 static void sprayGas(void);
+static void sprayGasWait(void);
+static void sprayMove(void);
 
 Entity *addGasPlant(int x, int y, char *name)
 {
+	int frameCount;
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
@@ -59,6 +62,10 @@ Entity *addGasPlant(int x, int y, char *name)
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
+	
+	frameCount = getFrameCount(e);
+	
+	e->currentFrame = prand() % frameCount;
 
 	return e;
 }
@@ -91,14 +98,108 @@ static void takeDamage(Entity *other, int damage)
 
 static void sprayGas()
 {
+	int i;
+	Entity *e;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, ATTACK_1);
+		
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a Gas Plant Spray");
+			}
+
+			loadProperties("enemy/gas_plant_spray", e);
+
+			e->action = &sprayMove;
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->type = ENEMY;
+			
+			e->dirX = i == 0 ? -e->speed : e->speed;
+			
+			e->x = self->x + self->w / 2 - e->w / 2;
+			e->y = self->y + e->offsetY;
+		}
+		
+		playSoundToMap("sound/item/spray.ogg", -1, self->x, self->y, 0);
+		
 		self->mental = 0;
+		
+		self->action = &sprayGasWait;
+		
+		self->thinkTime = 30;
+	}
+	
+	checkToMap(self);
+}
+
+static void sprayGasWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, STAND);
 		
 		self->action = &entityWait;
 	}
 	
 	checkToMap(self);
+}
+
+static void sprayMove()
+{
+	float dirY;
+
+	self->dirX *= 0.98;
+
+	if (self->mental < 2)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->mental++;
+
+			setEntityAnimation(self, self->mental == 1 ? WALK : JUMP);
+
+			self->thinkTime = self->mental == 2 ? 180 : 30;
+		}
+	}
+
+	if (fabs(self->dirX) <= 0.05)
+	{
+		self->dirX = 0;
+	}
+
+	dirY = self->dirY;
+
+	checkToMap(self);
+
+	if (self->mental == 2)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime < 90)
+		{
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= NO_DRAW;
+			}
+		}
+
+		if (self->thinkTime <= 0)
+		{
+			self->inUse = FALSE;
+		}
+	}
 }
