@@ -14,3 +14,6 @@ item/snow_pile
 npc/olaf
 common/action_point
 item/vines
+weapon/bow
+item/flaming_arrow_potion
+weapon/normal_arrow
