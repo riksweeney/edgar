@@ -236,18 +236,11 @@ static void useFlamingArrowPotion(int val)
 		fireArrow->health = 0;
 	}
 	
-	printf("There are %d regular arrows\n", arrow->health);
-	printf("There are %d flaming arrows\n", fireArrow->health);
-	
 	maxArrows = MAX_STACKABLES - fireArrow->health;
-	
-	printf("Will create %d flaming arrows\n", arrow->health > maxArrows ? maxArrows : arrow->health);
 	
 	maxArrows = arrow->health > maxArrows ? maxArrows : arrow->health;
 	
 	fireArrow->health += maxArrows;
-	
-	printf("There are now %d flaming arrows\n", fireArrow->health);
 	
 	arrow->health -= maxArrows;
 	

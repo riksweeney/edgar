@@ -152,7 +152,9 @@ static void explode()
 			
 			e->face = e->dirX < 0 ? LEFT : RIGHT;
 
-			e->flags |= FLY;
+			e->flags |= FLY|ATTACKING;
+			
+			e->reactToBlock = &bounceOffShield;
 		}
 
 		self->inUse = FALSE;

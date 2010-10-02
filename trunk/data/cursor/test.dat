@@ -9,3 +9,6 @@ enemy/red_centipede
 enemy/gas_plant
 weapon/bow
 weapon/normal_arrow
+common/spawner
+item/vines
+item/flaming_arrow_potion
