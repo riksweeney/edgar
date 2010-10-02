@@ -133,7 +133,7 @@ static void sprayMove()
 {
 	float dirY;
 
-	self->dirX *= 0.98;
+	self->dirX *= 0.95;
 
 	if (self->mental < 2)
 	{

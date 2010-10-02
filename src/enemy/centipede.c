@@ -145,7 +145,7 @@ static void addSegments()
 	
 	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
 	
-	for (i=0;i<30;i++)
+	for (i=0;i<5;i++)
 	{
 		e = getFreeEntity();
 		
