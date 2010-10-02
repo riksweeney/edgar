@@ -112,6 +112,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "snow_pile.h"
 #include "spore_crop.h"
 #include "spore.h"
+#include "vines.h"
 
 extern Entity *self, player;
 
@@ -207,7 +208,8 @@ static Constructor items[] = {
 {"item/snow_pile", &addSnowPile},
 {"item/flaming_arrow_potion", &addFlamingArrowPotion},
 {"item/spore_crop", &addSporeCrop},
-{"item/spores", &addSpore}
+{"item/spores", &addSpore},
+{"item/vines", &addVines}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

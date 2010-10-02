@@ -1786,7 +1786,7 @@ static void fireArrow()
 
 		e->face = player.face;
 
-		e->flags |= FLY;
+		e->flags |= FLY|ATTACKING;
 
 		arrow->health--;
 

@@ -145,7 +145,7 @@ static void addSegments()
 	
 	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
 	
-	for (i=0;i<5;i++)
+	for (i=0;i<30;i++)
 	{
 		e = getFreeEntity();
 		
@@ -183,11 +183,20 @@ static void addSegments()
 		
 		e->mental = mental;
 		
+		STRNCPY(e->objectiveName, self->name, sizeof(e->objectiveName));
+		
 		prev = e;
 		
 		if (i == 0)
 		{
 			self->head = e;
+		}
+		
+		if (self->flags & SPAWNED_IN)
+		{
+			e->flags |= SPAWNED_IN;
+			
+			e->spawnTime = self->spawnTime;
 		}
 	}
 	
@@ -331,8 +340,8 @@ static void becomeHead()
 	x = self->x + self->w;
 	y = self->y + self->h;
 	
-	loadProperties(self->head->name, self);
-
+	loadProperties(self->objectiveName, self);
+	
 	self->action = &moveLeftToRight;
 	self->die = &entityDie;
 	self->touch = &touch;
