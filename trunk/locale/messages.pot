@@ -3053,3 +3053,51 @@ msgstr ""
 msgid "Turn on the generator?"
 msgstr ""
 
+msgid "That monster encyclopedia said the dragon's breath incinerated everything, but that warrior still managed to defeat it"
+msgstr ""
+
+msgid "Maybe this book has information about creating a shield to resist dragon breath"
+msgstr ""
+
+msgid "Shield of Dragon Fire Resistance"
+msgstr ""
+
+msgid "Creation of shields of dragon fire resistance require occult magics and very little is known about their manufacture"
+msgstr ""
+
+msgid "Known ingredients include the shell fragment from a rampaging Master Tortoise and the staff of a Dark Summoner"
+msgstr ""
+
+msgid "Drat, that's all it says"
+msgstr ""
+
+msgid "This library is huge though, there must be a book in this place that describes the process"
+msgstr ""
+
+msgid "But I've looked everywhere, haven't I?"
+msgstr ""
+
+msgid "I need to recover my missing items before I can leave"
+msgstr ""
+
+msgid "That stuff looks dangerous, it'd probably eat through my armour in seconds"
+msgstr ""
+
+msgid "But I'll have to find a way across..."
+msgstr ""
+
+msgid "Hey, those look familiar"
+msgstr ""
+
+msgid "They look like hypnotic spores"
+msgstr ""
+
+msgid "Borgan told me that they can temporarily trick certain creatures into thinking that you're not a threat and leave you alone"
+msgstr ""
+
+msgid "Maybe they'll work on the creatures here..."
+msgstr ""
+
+msgid "Spores that will make certain monsters temporarily harmless"
+msgstr ""
+
