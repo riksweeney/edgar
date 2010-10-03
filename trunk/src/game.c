@@ -99,6 +99,8 @@ void initGame()
 	
 	game.secretsFound = 0;
 	
+	game.mapExitable = 0;
+	
 	game.canContinue = FALSE;
 	
 	game.offsetX = game.offsetY = 0;

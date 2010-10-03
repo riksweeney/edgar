@@ -69,11 +69,11 @@ static void collectSpore(Entity *other)
 
 	if (self->thinkTime <= 0)
 	{
-		if (getInventoryItemByObjectiveName("Spores") == NULL)
+		if (getInventoryItemByObjectiveName("Spore") == NULL)
 		{
 			spore = addSpore(other->x, other->y, "item/spores");
 
-			STRNCPY(spore->objectiveName, "Spores", sizeof(spore->objectiveName));
+			STRNCPY(spore->objectiveName, "Spore", sizeof(spore->objectiveName));
 
 			addToInventory(spore);
 		}

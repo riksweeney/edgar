@@ -25,4 +25,3 @@ CAMERA_SPEED -1
 TALK Edgar If those items are in this wasteland then perhaps everything else is too
 TALK Edgar I'll have to try and retrieve as much as I can...
 ADD OBJECTIVE "Retrieve items" "ALL_ITEMS_TRIGGER"
-TALK Narrator This level is fairly incomplete and inescapable so you might want to save in another slot in case you want to go secret hunting
