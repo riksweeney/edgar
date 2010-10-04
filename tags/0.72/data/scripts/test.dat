@@ -1,0 +1,2 @@
+ADD OBJECTIVE "Collect 2 Chopped Logs" " "
+ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
