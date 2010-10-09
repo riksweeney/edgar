@@ -40,7 +40,7 @@ void focusLost(void);
 void showSaveDialog(void);
 void pauseGameInventory(void);
 char *getPlayTimeAsString(void);
-void fadeFromWhite(int);
+void fadeFromColour(int, int, int, int);
 void increaseKillCount(void);
 char *getSlimeTimeAsString(void);
 void increaseSecretsFound(void);

@@ -855,7 +855,7 @@ char *getSlimeTimeAsString()
 	return timeString;
 }
 
-void fadeFromWhite(int fadeTime)
+void fadeFromColour(int r, int g, int b, int fadeTime)
 {
 	game.alphaTime = game.thinkTime = fadeTime;
 
@@ -868,7 +868,7 @@ void fadeFromWhite(int fadeTime)
 
 	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
 
-	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, 255, 255, 255);
+	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, r, g, b);
 
 	game.action = &fadeToNormal;
 }

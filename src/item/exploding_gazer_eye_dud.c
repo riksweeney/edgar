@@ -162,7 +162,7 @@ static void explode()
 	{
 		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
 
-		fadeFromWhite(60);
+		fadeFromColour(255, 255, 255, 60);
 		
 		if (self->head != NULL)
 		{

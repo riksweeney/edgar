@@ -89,6 +89,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "centipede.h"
 #include "sludge_pool.h"
 #include "gas_plant.h"
+#include "undead_gazer.h"
+#include "frog.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -236,7 +238,9 @@ static Constructor enemies[] = {
 {"enemy/green_centipede", &addCentipede},
 {"enemy/super_red_centipede", &addCentipede},
 {"enemy/sludge_pool", &addSludgePool},
-{"enemy/gas_plant", &addGasPlant}
+{"enemy/gas_plant", &addGasPlant},
+{"enemy/undead_gazer", &addUndeadGazer},
+{"enemy/frog", &addFrog}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

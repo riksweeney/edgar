@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../player.h"
 #include "../game.h"
+#include "../hud.h"
 #include "../item/item.h"
 #include "../system/error.h"
 
@@ -37,15 +38,16 @@ static void fly(void);
 static void gazeInit(void);
 static void gaze(void);
 static void gazeFinish(void);
-static void die(void);
+static void addDeathTimer(void);
+static void timerWait(void);
 
-Entity *addGazer(int x, int y, char *name)
+Entity *addUndeadGazer(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Gazer");
+		showErrorAndExit("No free slots to add an Undead Gazer");
 	}
 
 	loadProperties(name, e);
@@ -55,7 +57,7 @@ Entity *addGazer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &die;
+	e->die = &entityDie;
 
 	e->takeDamage = &entityTakeDamageNoFlinch;
 
@@ -68,20 +70,6 @@ Entity *addGazer(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
-}
-
-static void die()
-{
-	Entity *e;
-
-	if (prand() % 3 == 0)
-	{
-		e = dropCollectableItem("item/gazer_eye", self->x + self->w / 2, self->y, self->face);
-
-		e->x -= e->w / 2;
-	}
-
-	entityDie();
 }
 
 static void fly()
@@ -124,7 +112,7 @@ static void fly()
 	{
 		self->thinkTime = 0;
 
-		if (player.health > 0 && prand() % 60 == 0 && !(player.flags & HELPLESS))
+		if (self->endX != -1 && player.health > 0 && prand() % 60 == 0 && !(player.flags & HELPLESS))
 		{
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
@@ -156,13 +144,15 @@ static void gaze()
 {
 	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
 	
-	fadeFromColour(255, 255, 255, 60);
+	fadeFromColour(255, 0, 0, 60);
 
 	if ((player.x < self->x && player.face == RIGHT) || (player.x > self->x && player.face == LEFT))
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			setPlayerStunned(120);
+			addDeathTimer();
+			
+			self->endX = -1;
 
 			self->thinkTime = 30;
 		}
@@ -174,6 +164,82 @@ static void gaze()
 	}
 
 	self->action = &gazeFinish;
+}
+
+static void addDeathTimer()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Death Timer");
+	}
+
+	loadProperties("enemy/death_timer", e);
+
+	e->x = player.x;
+	e->y = player.y;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->action = &timerWait;
+	
+	e->thinkTime = 11 * 60;
+
+	e->type = ENEMY;
+	
+	e->flags |= DO_NOT_PERSIST;
+	
+	e->head = self;
+	
+	e->target = &player;
+
+	setEntityAnimation(e, STAND);
+}
+
+static void timerWait()
+{
+	Entity *temp;
+	
+	if (self->head->health <= 0 || self->target->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	else
+	{
+		self->x = self->target->x + self->target->w / 2 - self->w / 2;
+		self->startY = self->target->y - self->h - 8;
+		
+		self->startX++;
+
+		if (self->startX >= 360)
+		{
+			self->startX = 0;
+		}
+
+		self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+		
+		if (self->thinkTime > 0)
+		{
+			self->thinkTime--;
+
+			freeMessageQueue();
+
+			setInfoBoxMessage(5, 255, 255, 255, "%d", self->thinkTime / 60);
+		}
+		
+		else
+		{
+			temp = self;
+
+			self = self->target;
+
+			self->takeDamage(temp, 1);
+
+			self = temp;
+		}
+	}
 }
 
 static void gazeFinish()

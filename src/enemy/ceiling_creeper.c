@@ -339,7 +339,7 @@ static void tongueExtendOut()
 
 static int drawTongue()
 {
-	int y;
+	float y;
 	
 	y = self->y;
 	
