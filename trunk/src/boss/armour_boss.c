@@ -562,7 +562,7 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 static int drawTongue()
 {
-	int startX;
+	float startX;
 
 	startX = self->x;
 

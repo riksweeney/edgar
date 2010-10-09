@@ -40,7 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "potions.h"
 #include "power_generator.h"
 #include "grabber.h"
-#include "../world/arrow_target.h"
+#include "arrow_target.h"
 #include "symbol_block.h"
 #include "force_field.h"
 #include "gazer_eye_slot.h"
@@ -113,6 +113,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spore_crop.h"
 #include "spore.h"
 #include "vines.h"
+#include "slime_potion_pool.h"
 
 extern Entity *self, player;
 
@@ -209,7 +210,8 @@ static Constructor items[] = {
 {"item/flaming_arrow_potion", &addFlamingArrowPotion},
 {"item/spore_crop", &addSporeCrop},
 {"item/spores", &addSpore},
-{"item/vines", &addVines}
+{"item/vines", &addVines},
+{"item/slime_potion_pool", &addSlimePotionPool}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

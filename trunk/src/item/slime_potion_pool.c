@@ -23,24 +23,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../hud.h"
+#include "../inventory.h"
 #include "../collisions.h"
+#include "key_items.h"
 #include "../system/error.h"
-#include "../player.h"
-#include "../game.h"
 
 extern Entity *self;
 
+static void activate(int);
 static void entityWait(void);
-static void explodeInit(void);
-static void explode(void);
+static void touch(Entity *);
 
-Entity *addExplodingGazerEye(int x, int y, char *name)
+Entity *addSlimePotionPool(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add an Exploding Gazer Eye");
+		showErrorAndExit("No free slots to add a Slime Potion Pool");
 	}
 
 	loadProperties(name, e);
@@ -50,15 +51,17 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
+	e->face = RIGHT;
+
 	e->action = &entityWait;
-	e->touch = &entityTouch;
-	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->die = &entityDieNoDrop;
-	e->pain = &enemyPain;
+	e->activate = &activate;
+	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, STAND);
+
+	e->thinkTime = 0;
 
 	return e;
 }
@@ -66,50 +69,33 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 static void entityWait()
 {
 	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == PLAYER)
 	{
-		self->dirX = 0;
-		
-		self->thinkTime--;
-		
-		if (self->thinkTime <= 0)
-		{
-			setEntityAnimation(self, WALK);
-			
-			self->thinkTime = 15;
-			
-			self->action = &explodeInit;
-		}
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 }
 
-static void explodeInit()
+static void activate(int val)
 {
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
+	Entity *e;
+
+	if (getInventoryItemByObjectiveName(self->requires) != NULL)
 	{
-		self->thinkTime = 15;
-		
-		setEntityAnimation(self, JUMP);
-		
-		self->action = &explode;
+		e = addKeyItem(self->objectiveName, 0, 0);
+
+		replaceInventoryItem(self->requires, e);
+
+		playSoundToMap("sound/item/fill_potion.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+		setInfoBoxMessage(60, 255, 255, 255, _("Obtained %s"), _(e->objectiveName));
 	}
-}
 
-static void explode()
-{
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
+	else
 	{
-		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
-
-		fadeFromColour(255, 255, 255, 60);
-		
-		self->inUse = FALSE;
-		
-		setPlayerStunned(300);
+		setInfoBoxMessage(60, 255, 255, 255, _("%s is required"), _(self->requires));
 	}
 }

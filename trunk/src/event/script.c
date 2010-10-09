@@ -836,7 +836,7 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 			
-			fadeFromWhite(atoi(token));
+			fadeFromColour(255, 255, 255, atoi(token));
 		}
 
 		else if (strcmpignorecase("PLAY_BOSS_MUSIC", command) == 0)

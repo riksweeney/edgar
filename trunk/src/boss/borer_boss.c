@@ -820,7 +820,7 @@ static void tentacleAttackFinish()
 
 static int drawTentacle()
 {
-	int startX;
+	float startX;
 
 	startX = self->x;
 
