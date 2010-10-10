@@ -149,7 +149,7 @@ static void bounceAround()
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
 			
-			self->thinkTime = 30 + prand () % 60;
+			self->thinkTime = 30 + prand() % 60;
 			
 			self->dirY = -(6 + prand() % 2);
 			
@@ -222,7 +222,7 @@ static void mediumBounceAround()
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
 			
-			self->thinkTime = 30 + prand () % 60;
+			self->thinkTime = 30 + prand() % 60;
 			
 			self->dirY = -(6 + prand() % 2);
 			
@@ -301,7 +301,7 @@ static void smallBounceAround()
 			
 			self->dirY = -(6 + prand() % 2);
 			
-			self->thinkTime = 30 + prand () % 60;
+			self->thinkTime = 30 + prand() % 60;
 			
 			if (prand() % 2 == 0)
 			{

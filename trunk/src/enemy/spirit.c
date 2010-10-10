@@ -172,7 +172,7 @@ static void moveRandomly()
 	if (fabs(self->dirX) <= 0.1 && fabs(self->dirY) <= 0.1)
 	{
 		self->targetX = self->target->x + (prand() % self->target->w / 2);
-		self->targetY = self->target->y - 96 - (prand () % 64);
+		self->targetY = self->target->y - 96 - (prand() % 64);
 		
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 		
