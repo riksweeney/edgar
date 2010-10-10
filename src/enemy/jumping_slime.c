@@ -241,7 +241,7 @@ static void attack()
 
 			self->dirX = (prand() % 2 + 2) * (self->face == LEFT ? -1 : 1);
 			
-			self->thinkTime = 30 + prand () % 60;
+			self->thinkTime = 30 + prand() % 60;
 		}
 
 		else
@@ -297,7 +297,7 @@ static void purpleAttack()
 
 			self->dirX = (prand() % 2 + 2) * (self->face == LEFT ? -1 : 1);
 			
-			self->thinkTime = 30 + prand () % 60;
+			self->thinkTime = 30 + prand() % 60;
 
 			if (player.health > 0 && (prand() % 8 == 0))
 			{
