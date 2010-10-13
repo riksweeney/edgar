@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../game.h"
+#include "../medal.h"
 #include "../collisions.h"
 #include "../system/properties.h"
 #include "../system/random.h"
@@ -30,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void init(void);
 static void entityWait(void);
@@ -389,6 +391,13 @@ static void creeperTouch(Entity *other)
 		self->touch = &entityTouch;
 		
 		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		
+		game.timesEaten++;
+
+		if (game.timesEaten == 5)
+		{
+			addMedal("eaten_5");
+		}
 	}
 	
 	else

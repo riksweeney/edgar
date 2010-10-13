@@ -146,22 +146,14 @@ static void gaze()
 	
 	fadeFromColour(255, 0, 0, 60);
 
-	if ((player.x < self->x && player.face == RIGHT) || (player.x > self->x && player.face == LEFT))
+	if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
-		{
-			addDeathTimer();
-			
-			self->endX = -1;
+		addDeathTimer();
 
-			self->thinkTime = 30;
-		}
+		self->endX = -1;
 	}
-
-	else
-	{
-		self->thinkTime = 90;
-	}
+	
+	self->thinkTime = 30;
 
 	self->action = &gazeFinish;
 }
@@ -184,7 +176,7 @@ static void addDeathTimer()
 
 	e->action = &timerWait;
 	
-	e->thinkTime = 11 * 60;
+	e->thinkTime = 16 * 60;
 
 	e->type = ENEMY;
 	
@@ -256,6 +248,8 @@ static void gazeFinish()
 
 		/* Gaze recharge time is about 3 seconds */
 
-		self->thinkTime = 180;
+		self->thinkTime = self->endX == -1 ? 60 * 16 : 180;
+		
+		self->endX = 0;
 	}
 }

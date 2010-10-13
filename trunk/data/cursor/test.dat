@@ -1,10 +1,10 @@
 edgar/edgar
-enemy/undead_gazer
 weapon/basic_sword
 weapon/small_wooden_shield
-item/slime_potion_pool
 enemy/frog
-common/save_point
 weapon/bow
-weapon/lightning_sword
 weapon/fire_shield
+weapon/wood_axe
+weapon/pickaxe
+enemy/undead_gazer
+weapon/normal_arrow

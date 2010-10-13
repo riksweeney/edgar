@@ -46,7 +46,6 @@ static void tongueReturn(void);
 static int drawTongue(void);
 static void tongueTouch(Entity *);
 static void grabPause(void);
-static void takeDamage(Entity *, int);
 
 Entity *addFrog(int x, int y, char *name)
 {
@@ -66,7 +65,7 @@ Entity *addFrog(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
 	e->touch = &entityTouch;
-	e->takeDamage = &takeDamage;
+	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 
 	e->type = ENEMY;
@@ -103,46 +102,51 @@ static void entityWait()
 	{
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
-		if (self->thinkTime == 0)
+		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, JUMP);
+			/* Randomly jump another way */
 			
-			if (prand() % 3 == 0)
+			if (self->endX == -1)
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				self->face = self->face == LEFT ? RIGHT : LEFT;
+				
+				self->endX = 0;
 			}
 			
 			else
 			{
-				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				setEntityAnimation(self, JUMP);
+				
+				if (prand() % 3 == 0)
+				{
+					playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+				}
+				
+				else
+				{
+					playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+				}
+				
+				self->thinkTime = 30 + prand() % 30;
+				
+				self->dirY = -(8 + prand() % 2);
+				
+				if (isAtEdge(self) == TRUE)
+				{
+					self->face = self->face == LEFT ? RIGHT : LEFT;
+				}
+							
+				self->dirX = 4 * (self->face == LEFT ? -1 : 1);
 			}
-			
-			self->thinkTime = 30 + prand() % 30;
-			
-			self->dirY = -(8 + prand() % 2);
-			
-			/* Randomly jump another way */
-			
-			if (prand() % 3 == 0)
-			{
-				self->face = self->face == LEFT ? RIGHT : LEFT;
-			}
-			
-			if (isAtEdge(self) == TRUE)
-			{
-				self->face = self->face == LEFT ? RIGHT : LEFT;
-			}
-						
-			self->dirX = 4 * (self->face == LEFT ? -1 : 1);
 		}
 
 		else
 		{
 			self->thinkTime--;
 			
-			if (self->mental <= 0 && player.health > 0 && prand() % 20 == 0)
+			if (self->mental <= 0 && player.health > 0 && prand() % 45 == 0)
 			{
-				if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
+				if (collision(self->x + (self->face == RIGHT ? self->w : -120), self->y, 120, self->h, player.x, player.y, player.w, player.h) == 1)
 				{
 					self->thinkTime = 30;
 					
@@ -151,6 +155,14 @@ static void entityWait()
 					self->action = &tongueAttackInit;
 				}
 			}
+		}
+	}
+	
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->endX = -1;
 		}
 	}
 
@@ -232,7 +244,7 @@ static void tongueAttack()
 	e->startX = e->x;
 	e->startY = e->y;
 	
-	e->endX = e->startX + (e->face == LEFT ? -240 : 240);
+	e->endX = e->startX + (e->face == LEFT ? -120 : 120);
 
 	e->endY = getMapFloor(e->x, e->y);
 	
@@ -479,19 +491,4 @@ static int drawTongue()
 	drawLoopingAnimationToMap();
 
 	return TRUE;
-}
-
-static void takeDamage(Entity *other, int damage)
-{
-	if (!(self->flags & INVULNERABLE))
-	{
-		entityTakeDamageNoFlinch(other, damage);
-
-		/* Face the player */
-
-		if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && (self->flags & ON_GROUND))
-		{
-			self->face = self->face == RIGHT ? LEFT : RIGHT;
-		}
-	}
 }

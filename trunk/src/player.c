@@ -1103,7 +1103,10 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(player.flags & INVULNERABLE))
 	{
-		player.health -= damage;
+		if (game.infiniteEnergy == FALSE)
+		{
+			player.health -= damage;
+		}
 
 		player.animationCallback = NULL;
 		playerShield.animationCallback = NULL;
@@ -1303,6 +1306,13 @@ static void fallout()
 static void falloutPause()
 {
 	player.thinkTime--;
+	
+	if (player.flags & NO_DRAW)
+	{
+		player.dirY = 0;
+		
+		player.flags |= FLY;
+	}
 
 	if (player.thinkTime <= 0)
 	{
@@ -1380,8 +1390,11 @@ static void resetPlayer()
 	player.touch = &touch;
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
-
-	player.health -= (player.environment == SLIME ? 2 : 1);
+	
+	if (game.infiniteEnergy == FALSE)
+	{
+		player.health -= (player.environment == SLIME ? 2 : 1);
+	}
 	
 	if (player.health <= 0)
 	{
@@ -1392,7 +1405,7 @@ static void resetPlayer()
 		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
 	}
 
-	player.flags &= ~(HELPLESS|NO_DRAW);
+	player.flags &= ~(HELPLESS|NO_DRAW|FLY);
 
 	player.dirX = player.dirY = 0;
 
@@ -1567,6 +1580,8 @@ void freePlayer()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
+	
+	player.flags = 0;
 }
 
 static void touch(Entity *other)
@@ -1787,8 +1802,11 @@ static void fireArrow()
 		e->face = player.face;
 
 		e->flags |= FLY|ATTACKING;
-
-		arrow->health--;
+		
+		if (game.infiniteArrows == FALSE)
+		{
+			arrow->health--;
+		}
 
 		if (arrow->health <= 0)
 		{

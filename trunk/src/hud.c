@@ -147,7 +147,7 @@ void drawHud()
 	
 	e = NULL;
 	
-	/*e = getCurrentInventoryItem();*/
+	e = getCurrentInventoryItem();
 	
 	if (e != NULL)
 	{
@@ -158,6 +158,18 @@ void drawHud()
 			x = TRUE;
 			
 			quant = e->health;
+		}
+		
+		else if (strcmpignorecase(e->name, "weapon/bow") == 0)
+		{
+			e = getInventoryItemByObjectiveName(e->requires);
+			
+			if (e != NULL)
+			{
+				x = TRUE;
+				
+				quant = e->health;
+			}
 		}
 		
 		else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
@@ -178,9 +190,7 @@ void drawHud()
 				
 				snprintf(quantity, 4, "%d", quant);
 				
-				hud.quantitySurface = generateTextSurface(quantity, game.font, 255, 255, 255, 0, 0, 0);
-
-				hud.quantitySurface = addBorder(hud.quantitySurface, 255, 255, 255, 0, 0, 0);
+				hud.quantitySurface = generateTextSurface(quantity, game.font, 255, 255, 255, TRANS_R, TRANS_G, TRANS_B);
 			}
 			
 			drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
