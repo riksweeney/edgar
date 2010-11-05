@@ -144,6 +144,13 @@ static void entityWait()
 		{
 			self->thinkTime--;
 			
+			if (self->endY == -1)
+			{
+				playSoundToMap("sound/enemy/frog/croak.ogg", -1, self->x, self->y, 0);
+				
+				self->endY = 0;
+			}
+			
 			if (self->mental <= 0 && player.health > 0 && prand() % 45 == 0)
 			{
 				if (collision(self->x + (self->face == RIGHT ? self->w : -120), self->y, 120, self->h, player.x, player.y, player.w, player.h) == 1)
@@ -171,6 +178,11 @@ static void entityWait()
 	if ((self->flags & ON_GROUND) && onGround == 0)
 	{
 		setEntityAnimation(self, STAND);
+		
+		if (prand() % 3 == 0)
+		{
+			self->endY = -1;
+		}
 	}
 	
 	if (self->target != NULL)
@@ -379,7 +391,7 @@ static void tongueTouch(Entity *other)
 		
 		self->dirX = 0;
 		
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
 	}
 }
 
