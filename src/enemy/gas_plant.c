@@ -72,14 +72,47 @@ Entity *addGasPlant(int x, int y, char *name)
 
 static void init()
 {
-	self->mental = 0;
+	if (self->mental >= 0)
+	{
+		self->mental = 0;
+		
+		self->action = &entityWait;
+	}
 	
-	self->action = &entityWait;
+	else
+	{
+		switch (self->mental)
+		{
+			case -2:
+				self->action = &sprayGas;
+			break;
+			
+			case -3:
+				self->action = &sprayGasWait;
+			break;
+			
+			default:
+				self->action = &entityWait;
+			break;
+		}
+	}
 }
 
 static void entityWait()
 {
 	checkToMap(self);
+	
+	if (self->mental == -1)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->mental = -2;
+			
+			self->action = &sprayGas;
+		}
+	}
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -132,7 +165,7 @@ static void sprayGas()
 		
 		playSoundToMap("sound/item/spray.ogg", -1, self->x, self->y, 0);
 		
-		self->mental = 0;
+		self->mental = self->mental >= 0 ? 0 : -3;
 		
 		self->action = &sprayGasWait;
 		
@@ -149,6 +182,13 @@ static void sprayGasWait()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, STAND);
+		
+		if (self->mental < 0)
+		{
+			self->thinkTime = self->maxThinkTime;
+			
+			self->mental = -1;
+		}
 		
 		self->action = &entityWait;
 	}
