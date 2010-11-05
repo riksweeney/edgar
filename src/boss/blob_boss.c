@@ -157,7 +157,7 @@ static void initialise()
 			setEntityAnimation(self, WALK);
 
 			self->frameSpeed = 0;
-			
+
 			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
@@ -191,7 +191,7 @@ static void doIntro()
 		e->head = self;
 
 		e->action = &reform;
-		
+
 		e->health = 600;
 
 		e->x = self->x + self->w / 2 - e->w / 2;
@@ -242,7 +242,7 @@ static void reform()
 	else
 	{
 		self->health--;
-		
+
 		if (fabs(self->targetX - self->x) <= fabs(self->dirX) || self->health <= 0)
 		{
 			self->head->startX--;
@@ -759,7 +759,7 @@ static void eatExplode()
 		e->touch = &entityTouch;
 
 		e->damage = 0;
-		
+
 		e->health = 600;
 
 		e->action = &partWait;
@@ -1059,7 +1059,7 @@ static void attackFinished()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (other->element == LIGHTNING)
@@ -1108,7 +1108,7 @@ static void takeDamage(Entity *other, int damage)
 				self->action = &shudder;
 			}
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -1125,7 +1125,7 @@ static void takeDamage(Entity *other, int damage)
 static void eatTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		setCustomAction(self, &flashWhite, 6, 0, 0);
@@ -1139,7 +1139,7 @@ static void eatTakeDamage(Entity *other, int damage)
 		{
 			self->action = &eatExplode;
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -1596,7 +1596,7 @@ static void shudder()
 			self->mental = 30;
 		}
 
-		self->action = self->action = self->health <= 0 ? &die : &attackFinished;
+		self->action = self->health <= 0 ? &die : &attackFinished;
 	}
 }
 
@@ -1773,7 +1773,7 @@ static void dieWait()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();

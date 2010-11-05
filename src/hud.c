@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 
 extern Game game;
-extern Entity player, *self;
+extern Entity player, *self, playerWeapon;
 
 static Hud hud;
 static Message messageHead;
@@ -133,7 +133,7 @@ void drawHud()
 	int i, x, y, h, w, itemBoxMid, quant;
 	float percentage, clipWidth;
 	Entity *e;
-	
+
 	itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
 
 	if (game.status == IN_INVENTORY)
@@ -144,41 +144,30 @@ void drawHud()
 	drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
 
 	drawImage(hud.itemBox, itemBoxMid, 15, FALSE, 255);
-	
-	e = NULL;
-	
-	e = getCurrentInventoryItem();
-	
-	if (e != NULL)
+
+	if (playerWeapon.inUse == TRUE)
 	{
 		x = FALSE;
-		
-		if (e->flags & STACKABLE)
+
+		if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
 		{
-			x = TRUE;
-			
-			quant = e->health;
-		}
-		
-		else if (strcmpignorecase(e->name, "weapon/bow") == 0)
-		{
-			e = getInventoryItemByObjectiveName(e->requires);
-			
+			e = getInventoryItemByObjectiveName(playerWeapon.requires);
+
 			if (e != NULL)
 			{
 				x = TRUE;
-				
+
 				quant = e->health;
 			}
 		}
-		
-		else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
+
+		else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
 		{
 			x = TRUE;
-			
-			quant = e->mental;
+
+			quant = playerWeapon.mental;
 		}
-		
+
 		if (x == TRUE)
 		{
 			if (hud.quantity != quant)
@@ -187,16 +176,16 @@ void drawHud()
 				{
 					SDL_FreeSurface(hud.quantitySurface);
 				}
-				
+
 				snprintf(quantity, 4, "%d", quant);
-				
-				hud.quantitySurface = generateTextSurface(quantity, game.font, 255, 255, 255, TRANS_R, TRANS_G, TRANS_B);
+
+				hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255);
 			}
-			
+
 			drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
 		}
 	}
-	
+
 	else
 	{
 		hud.quantity = -1;
@@ -316,7 +305,7 @@ void freeHud()
 
 		hud.medalTextSurface = NULL;
 	}
-	
+
 	if (hud.quantitySurface != NULL)
 	{
 		SDL_FreeSurface(hud.quantitySurface);
@@ -375,11 +364,11 @@ static void addMessageToQueue(char *text, int thinkTime, int r, int g, int b)
 	STRNCPY(msg->text, text, sizeof(messageHead.text));
 
 	msg->thinkTime = thinkTime;
-	
+
 	msg->r = r;
 	msg->g = g;
 	msg->b = b;
-	
+
 	msg->next = NULL;
 
 	head->next = msg;
@@ -392,7 +381,7 @@ static void getNextMessageFromQueue()
 	if (head != NULL)
 	{
 		STRNCPY(hud.infoMessage.text, head->text, sizeof(hud.infoMessage.text));
-		
+
 		hud.infoMessage.r = head->r;
 		hud.infoMessage.g = head->g;
 		hud.infoMessage.b = head->b;

@@ -55,9 +55,9 @@ void runScript(char *name)
 	char filename[MAX_PATH_LENGTH], *line, *text, *savePtr;
 	unsigned char *buffer;
 	int i;
-	
+
 	/* Don't fire if the player's health is 0 */
-	
+
 	if (player.health <= 0)
 	{
 		return;
@@ -177,23 +177,23 @@ void readNextScriptLine()
 			{
 				return;
 			}
-			
+
 			freeDialogBox();
 		}
 
 		STRNCPY(line, script.text[script.line], sizeof(line));
-		
+
 		if (strlen(line) == 0)
 		{
 			script.line++;
-			
+
 			continue;
 		}
 
 		token = strtok_r(line, " ", &savePtr);
 
 		STRNCPY(command, token, sizeof(command));
-		
+
 		if (script.skipping == TRUE)
 		{
 			if (strcmpignorecase("IF", command) == 0)
@@ -220,22 +220,22 @@ void readNextScriptLine()
 		else if (strcmpignorecase("TALK", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			createDialogBoxFromScript(token);
 
 			readAgain = FALSE;
 		}
-		
+
 		else if (strcmpignorecase("AUTO_TALK", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
-			
+
 			token2 = strtok_r(NULL, "\0", &savePtr);
-			
+
 			createDialogBoxFromScript(token2);
 
 			val = atoi(token);
-			
+
 			script.thinkTime = val;
 		}
 
@@ -291,23 +291,23 @@ void readNextScriptLine()
 			if (strcmpignorecase(token, "HAS_VISITED") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				if (hasPersistance(token) == FALSE)
 				{
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "HAS_NOT_VISITED") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				if (hasPersistance(token) == TRUE)
 				{
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "CONFIRM_YES") == 0)
 			{
 				if (script.yesNoResult == FALSE)
@@ -315,7 +315,7 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "CONFIRM_NO") == 0)
 			{
 				if (script.yesNoResult == TRUE)
@@ -323,34 +323,34 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "EXISTS") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				if (strcmpignorecase(token, "EDGAR") == 0)
 				{
 					e = &player;
 				}
-				
+
 				else
 				{
 					e = getEntityByObjectiveName(token);
 				}
-				
+
 				if (e == NULL)
 				{
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else
 			{
 				if (strcmpignorecase(token, "EDGAR") == 0)
 				{
 					e = &player;
 				}
-				
+
 				else
 				{
 					e = getEntityByObjectiveName(token);
@@ -408,7 +408,7 @@ void readNextScriptLine()
 						script.skipping = TRUE;
 					}
 				}
-				
+
 				else if (strcmpignorecase(token, "MENTAL") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
@@ -452,7 +452,7 @@ void readNextScriptLine()
 					script.line--;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "CAMERA_NOT_AT_MINIMUM") == 0)
 			{
 				if (cameraAtMinimum() == FALSE)
@@ -464,24 +464,24 @@ void readNextScriptLine()
 					script.line--;
 				}
 			}
-			
+
 			else
 			{
 				e = getEntityByObjectiveName(token);
-				
+
 				if (e == NULL)
 				{
 					showErrorAndExit("WHILE command could not find Entity %s", token);
 				}
-				
+
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				if (strcmpignorecase(token, "HEALTH") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
-					
+
 					val = atoi(token);
-					
+
 					if (e->health == val)
 					{
 						freeDialogBox();
@@ -491,13 +491,13 @@ void readNextScriptLine()
 						script.line--;
 					}
 				}
-				
+
 				else if (strcmpignorecase(token, "MENTAL") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
-					
+
 					val = atoi(token);
-					
+
 					if (e->mental == val)
 					{
 						freeDialogBox();
@@ -621,7 +621,7 @@ void readNextScriptLine()
 				token = strtok_r(NULL, " ", &savePtr);
 
 				setEntityAnimation(e, getAnimationTypeByName(token));
-				
+
 				if (e == &player)
 				{
 					syncWeaponShieldToPlayer();
@@ -675,7 +675,7 @@ void readNextScriptLine()
 
 			activateEntitiesWithRequiredName(token, TRUE);
 		}
-		
+
 		else if (strcmpignorecase(token, "ATTACK") == 0)
 		{
 			scriptAttack();
@@ -701,37 +701,37 @@ void readNextScriptLine()
 
 			activateEntitiesWithObjectiveName(token, FALSE);
 		}
-		
+
 		else if (strcmpignorecase("ACTIVATE_OBJECTIVE_WITH_VALUE", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
-			
+
 			token2 = strtok_r(NULL, " ", &savePtr);
-			
+
 			val = atoi(token2);
 
 			activateEntitiesValueWithObjectiveName(token, val);
 		}
-		
+
 		else if (strcmpignorecase("EQUIP_WEAPON", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			setWeaponFromScript(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "SHOW_CONFIRM") == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			freeDialogBox();
-			
+
 			setScriptCounter(1);
-			
+
 			script.menu = initScriptMenu(token, &setYes, &setNo);
 
 			script.draw = &drawScriptMenu;
-			
+
 			playerWaitForConfirm();
 		}
 
@@ -746,16 +746,16 @@ void readNextScriptLine()
 		{
 			getInventoryItemFromScript(script.text[script.line]);
 		}
-		
+
 		else if (strcmpignorecase("ADD_TO_INVENTORY", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
-			
+
 			token2 = strtok_r(NULL, "\0", &savePtr);
-			
+
 			scriptAddToInventory(token, token2 == NULL ? FALSE : TRUE);
 		}
-		
+
 		else if (strcmpignorecase("HAS_OBJECTIVE", command) == 0)
 		{
 			getObjectiveFromScript(script.text[script.line]);
@@ -766,6 +766,13 @@ void readNextScriptLine()
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			useInventoryItemFromScript(token);
+		}
+
+		else if (strcmpignorecase("BECOME_SLIME", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			becomeJumpingSlime(atoi(token));
 		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)
@@ -826,16 +833,16 @@ void readNextScriptLine()
 
 			addMedal(token);
 		}
-		
+
 		else if (strcmpignorecase("ADD_SECRET", command) == 0)
 		{
 			increaseSecretsFound();
 		}
-		
+
 		else if (strcmpignorecase("FLASH_SCREEN", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			fadeFromColour(255, 255, 255, atoi(token));
 		}
 
@@ -878,12 +885,12 @@ void readNextScriptLine()
 		else if (strcmpignorecase("KILL", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e = &player;
 			}
-			
+
 			else
 			{
 				e = getEntityByObjectiveName(token);
@@ -1080,13 +1087,13 @@ void readNextScriptLine()
 
 			setCameraSpeed(atof(token));
 		}
-		
+
 		else if (strcmpignorecase("RUN_SCRIPT", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			printf("Running script %s\n", token);
-			
+
 			runScript(token);
 		}
 
@@ -1130,16 +1137,16 @@ void freeScript()
 		free(script.text);
 
 		script.text = NULL;
-		
+
 		script.counter = 0;
-		
+
 		script.thinkTime = 0;
-		
+
 		script.yesNoResult = 0;
 	}
-	
+
 	freeScriptMenu();
-	
+
 	script.draw = NULL;
 
 	freeDialogBox();
@@ -1156,30 +1163,30 @@ void scriptDrawMenu()
 static void setYes()
 {
 	script.yesNoResult = TRUE;
-	
+
 	setScriptCounter(-1);
-	
+
 	playerWaitForDialog();
-	
+
 	script.draw = NULL;
-	
+
 	freeScriptMenu();
-	
+
 	readNextScriptLine();
 }
 
 static void setNo()
 {
 	script.yesNoResult = FALSE;
-	
+
 	setScriptCounter(-1);
-	
+
 	playerWaitForDialog();
-	
+
 	script.draw = NULL;
-	
+
 	freeScriptMenu();
-	
+
 	readNextScriptLine();
 }
 
