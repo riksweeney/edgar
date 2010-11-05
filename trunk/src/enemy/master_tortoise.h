@@ -17,8 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-TTF_Font *loadFont(char *, int);
-void closeFont(TTF_Font *);
-void drawString(char *, int, int, TTF_Font *, int, int, int, int, int);
-SDL_Surface *generateTextSurface(char *, TTF_Font *, int, int, int, int, int, int);
-SDL_Surface *generateTransparentTextSurface(char *, TTF_Font *, int, int, int);
+Entity *addMasterTortoise(int, int, char *);

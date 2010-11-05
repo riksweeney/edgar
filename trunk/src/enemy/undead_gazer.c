@@ -143,16 +143,13 @@ static void gazeInit()
 static void gaze()
 {
 	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
-	
+
 	fadeFromColour(255, 0, 0, 60);
 
-	if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
-	{
-		addDeathTimer();
+	addDeathTimer();
 
-		self->endX = -1;
-	}
-	
+	self->endX = -1;
+
 	self->thinkTime = 30;
 
 	self->action = &gazeFinish;
@@ -175,15 +172,15 @@ static void addDeathTimer()
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->action = &timerWait;
-	
+
 	e->thinkTime = 16 * 60;
 
 	e->type = ENEMY;
-	
+
 	e->flags |= DO_NOT_PERSIST;
-	
+
 	e->head = self;
-	
+
 	e->target = &player;
 
 	setEntityAnimation(e, STAND);
@@ -192,17 +189,17 @@ static void addDeathTimer()
 static void timerWait()
 {
 	Entity *temp;
-	
+
 	if (self->head->health <= 0 || self->target->health <= 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		self->x = self->target->x + self->target->w / 2 - self->w / 2;
 		self->startY = self->target->y - self->h - 8;
-		
+
 		self->startX++;
 
 		if (self->startX >= 360)
@@ -211,7 +208,7 @@ static void timerWait()
 		}
 
 		self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
-		
+
 		if (self->thinkTime > 0)
 		{
 			self->thinkTime--;
@@ -220,7 +217,7 @@ static void timerWait()
 
 			setInfoBoxMessage(5, 255, 255, 255, "%d", self->thinkTime / 60);
 		}
-		
+
 		else
 		{
 			temp = self;
@@ -249,7 +246,7 @@ static void gazeFinish()
 		/* Gaze recharge time is about 3 seconds */
 
 		self->thinkTime = self->endX == -1 ? 60 * 16 : 180;
-		
+
 		self->endX = 0;
 	}
 }

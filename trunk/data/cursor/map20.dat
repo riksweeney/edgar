@@ -26,3 +26,6 @@ enemy/frog
 wall/weak_cave_wall
 item/rock
 item/slime_potion_pool
+item/slime_potion
+enemy/undead_gazer
+common/reset_switch

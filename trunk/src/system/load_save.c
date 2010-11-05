@@ -115,7 +115,7 @@ extern Game game;
 		snprintf(tempFile, sizeof(tempFile), "%stmpsave", gameSavePath);
 
 		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
-		
+
 		snprintf(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
 
 		removeTemporaryData();
@@ -229,32 +229,32 @@ int loadGame(int slot)
 		{
 			sscanf(line, "%*s %d\n", &game.timesEaten);
 		}
-		
+
 		else if (strcmpignorecase("DISTANCE_TRAVELLED", itemName) == 0)
 		{
 			sscanf(line, "%*s %u\n", &game.distanceTravelled);
 		}
-		
+
 		else if (strcmpignorecase("ATTACKS_BLOCKED", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.attacksBlocked);
 		}
-		
+
 		else if (strcmpignorecase("SLIME_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.timeSpentAsSlime);
 		}
-		
+
 		else if (strcmpignorecase("ARROWS_FIRED", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.arrowsFired);
 		}
-		
+
 		else if (strcmpignorecase("SECRETS_FOUND", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.secretsFound);
 		}
-		
+
 		else if (strcmpignorecase("CONTINUES", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.continues);
@@ -320,7 +320,7 @@ int loadGame(int slot)
 			{
 				break;
 			}
-			
+
 			showPatchMessage(completion);
 		}
 
@@ -434,17 +434,17 @@ static void patchSaveGame(char *saveFile, double version)
 					fprintf(newSave, "BATS_DROWNED %d\n", game.batsDrowned);
 
 					fprintf(newSave, "TIMES_EATEN %d\n", game.timesEaten);
-					
+
 					fprintf(newSave, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
-					
+
 					fprintf(newSave, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
-					
+
 					fprintf(newSave, "SLIME_TIME %d\n", game.timeSpentAsSlime);
-					
+
 					fprintf(newSave, "ARROWS_FIRED %d\n", game.arrowsFired);
-					
+
 					fprintf(newSave, "SECRETS_FOUND %d\n", game.secretsFound);
-					
+
 					fprintf(newSave, "CONTINUES %d\n", game.continues);
 
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
@@ -508,7 +508,7 @@ static void patchSaveGame(char *saveFile, double version)
 	free(originalBuffer);
 
 	fclose(newSave);
-	
+
 	#if DEV == 1
 		copyFile(tempFile, "tmpdata");
 	#endif
@@ -530,38 +530,38 @@ void saveGame(int slot)
 	FILE *write;
 
 	savePtr = NULL;
-	
+
 	/* Backup older save */
-	
+
 	for (i=1;;i++)
 	{
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
-		
+
 		read = fopen(saveFile, "rb");
-		
+
 		if (read == NULL)
 		{
 			break;
 		}
-		
+
 		else
 		{
 			fclose(read);
 		}
-		
+
 		snprintf(backupFile, sizeof(backupFile), "%ssave%d.%04d", gameSavePath, slot, i);
-		
+
 		read = fopen(backupFile, "rb");
-		
+
 		if (read != NULL)
 		{
 			fclose(read);
-			
+
 			continue;
 		}
-		
+
 		copyFile(saveFile, backupFile);
-		
+
 		break;
 	}
 
@@ -578,21 +578,21 @@ void saveGame(int slot)
 	fprintf(write, "BATS_DROWNED %d\n", game.batsDrowned);
 
 	fprintf(write, "TIMES_EATEN %d\n", game.timesEaten);
-	
+
 	fprintf(write, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
-	
+
 	fprintf(write, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
-	
+
 	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
-	
+
 	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
-	
+
 	fprintf(write, "SECRETS_FOUND %d\n", game.secretsFound);
-	
+
 	fprintf(write, "CONTINUES %d\n", game.continues);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
-	
+
 	read = fopen(tempFile, "rb");
 
 	if (read != NULL)
@@ -772,7 +772,7 @@ void saveTemporaryData()
 	snprintf(swapFile, sizeof(swapFile), "%sswap", gameSavePath);
 
 	read = fopen(tempFile, "rb");
-	
+
 	write = fopen(swapFile, "wb");
 
 	if (read != NULL)
@@ -910,21 +910,21 @@ void saveContinueData()
 	fprintf(write, "BATS_DROWNED %d\n", game.batsDrowned);
 
 	fprintf(write, "TIMES_EATEN %d\n", game.timesEaten);
-	
+
 	fprintf(write, "DISTANCE_TRAVELLED %u\n", game.distanceTravelled);
-	
+
 	fprintf(write, "ATTACKS_BLOCKED %d\n", game.attacksBlocked);
-	
+
 	fprintf(write, "SLIME_TIME %d\n", game.timeSpentAsSlime);
-	
+
 	fprintf(write, "ARROWS_FIRED %d\n", game.arrowsFired);
-	
+
 	fprintf(write, "SECRETS_FOUND %d\n", game.secretsFound);
-	
+
 	fprintf(write, "CONTINUES %d\n", game.continues);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
-	
+
 	read = fopen(tempFile, "rb");
 
 	if (read != NULL)
@@ -1000,10 +1000,12 @@ void saveContinueData()
 
 		free(buffer);
 	}
-	
+
 	else
 	{
-		showErrorAndExit("Continue data could not read temp file: %s", strerror(errno));
+		#if DEV == 0
+			showErrorAndExit("Continue data could not read temp file: %s", strerror(errno));
+		#endif
 	}
 
 	/* Save the player's position */
@@ -1080,7 +1082,7 @@ int loadContinueData()
 	freeGameResources();
 
 	initGame();
-	
+
 	game.canContinue = TRUE;
 
 	buffer = decompressFile(saveFile);
@@ -1120,32 +1122,32 @@ int loadContinueData()
 		{
 			sscanf(line, "%*s %d\n", &game.timesEaten);
 		}
-		
+
 		else if (strcmpignorecase("DISTANCE_TRAVELLED", itemName) == 0)
 		{
 			sscanf(line, "%*s %u\n", &game.distanceTravelled);
 		}
-		
+
 		else if (strcmpignorecase("ATTACKS_BLOCKED", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.attacksBlocked);
 		}
-		
+
 		else if (strcmpignorecase("SLIME_TIME", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.timeSpentAsSlime);
 		}
-		
+
 		else if (strcmpignorecase("ARROWS_FIRED", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.arrowsFired);
 		}
-		
+
 		else if (strcmpignorecase("SECRETS_FOUND", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.secretsFound);
 		}
-		
+
 		else if (strcmpignorecase("CONTINUES", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.continues);
@@ -1293,7 +1295,7 @@ static void removeTemporaryData()
 			exit(1);
 		}
 	}
-	
+
 	fp = fopen(continueFile, "rb");
 
 	if (fp != NULL)
@@ -1408,14 +1410,14 @@ static void copyFile(char *src, char *dest)
 	FILE *sourceFile, *destFile;
 
 	sourceFile = fopen(src, "rb");
-	
+
 	if (sourceFile == NULL)
 	{
 		showErrorAndExit("Could not open %s for reading: %s", src, strerror(errno));
 	}
-	
+
 	destFile = fopen(dest, "wb");
-	
+
 	if (destFile == NULL)
 	{
 		showErrorAndExit("Could not open %s for writing: %s", dest, strerror(errno));

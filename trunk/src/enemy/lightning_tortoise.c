@@ -50,7 +50,7 @@ Entity *addLightningTortoise(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Tortoise");
+		showErrorAndExit("No free slots to add a Lightning Tortoise");
 	}
 
 	loadProperties(name, e);
@@ -106,7 +106,7 @@ static void changeWalkDirectionStart()
 	self->animationCallback = &changeWalkDirection;
 
 	self->thinkTime = 60;
-	
+
 	checkToMap(self);
 }
 
@@ -130,7 +130,7 @@ static void changeWalkDirection()
 
 		self->action = &entityWait;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -145,7 +145,7 @@ static void changeWalkDirectionFinish()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->thinkTime = 120 + prand() % 120;
-	
+
 	checkToMap(self);
 }
 
@@ -278,7 +278,7 @@ static void takeDamage(Entity *other, int damage)
 					{
 						other->target = self;
 					}
-					
+
 					setCustomAction(self, &flashWhite, 6, 0, 0);
 
 					/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -292,14 +292,14 @@ static void takeDamage(Entity *other, int damage)
 					{
 						self->pain();
 					}
-					
+
 					if (prand() % 5 == 0)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
 				}
 			}
-			
+
 			else
 			{
 				entityTakeDamageNoFlinch(other, damage);
@@ -350,7 +350,7 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;

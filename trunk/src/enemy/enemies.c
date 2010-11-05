@@ -91,6 +91,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gas_plant.h"
 #include "undead_gazer.h"
 #include "frog.h"
+#include "master_tortoise.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -240,7 +241,8 @@ static Constructor enemies[] = {
 {"enemy/sludge_pool", &addSludgePool},
 {"enemy/gas_plant", &addGasPlant},
 {"enemy/undead_gazer", &addUndeadGazer},
-{"enemy/frog", &addFrog}
+{"enemy/frog", &addFrog},
+{"enemy/master_tortoise", &addMasterTortoise}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

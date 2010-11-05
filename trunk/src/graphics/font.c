@@ -86,8 +86,6 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 	SDL_Surface *surface;
 	SDL_Color foregroundColor, backgroundColor;
 
-	/* White text on a black background */
-
 	foregroundColor.r = fr;
 	foregroundColor.g = fg;
 	foregroundColor.b = fb;
@@ -99,6 +97,31 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
 	surface = TTF_RenderUTF8_Shaded(font, text, foregroundColor, backgroundColor);
+
+	if (surface == NULL)
+	{
+		printf("Couldn't create String %s: %s\n", text, SDL_GetError());
+
+		return NULL;
+	}
+
+	/* Return the generated string image */
+
+	return surface;
+}
+
+SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb)
+{
+	SDL_Surface *surface;
+	SDL_Color foregroundColor;
+
+	foregroundColor.r = fr;
+	foregroundColor.g = fg;
+	foregroundColor.b = fb;
+
+	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+
+	surface = TTF_RenderUTF8_Blended(font, text, foregroundColor);
 
 	if (surface == NULL)
 	{
