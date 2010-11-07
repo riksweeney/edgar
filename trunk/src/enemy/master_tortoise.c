@@ -56,7 +56,6 @@ static void iceSpikeMove(void);
 static void spikeTakeDamage(Entity *, int);
 static void breatheFireInit(void);
 static void breatheFireWait(void);
-static void init(void);
 static void becomeRampaging(void);
 
 Entity *addMasterTortoise(int x, int y, char *name)
@@ -73,7 +72,7 @@ Entity *addMasterTortoise(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
+	e->action = &walk;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -86,26 +85,6 @@ Entity *addMasterTortoise(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
-}
-
-static void init()
-{
-	switch (self->mental)
-	{
-		case 0: /* Lightning */
-			setEntityAnimation(self, STAND);
-		break;
-
-		case 1: /* Ice */
-			setEntityAnimation(self, WALK);
-		break;
-
-		default: /* Fire */
-			setEntityAnimation(self, JUMP);
-		break;
-	}
-
-	self->action = &walk;
 }
 
 static void walk()
@@ -121,83 +100,37 @@ static void walk()
 		return;
 	}
 
-	switch (self->mental)
+	if (player.health > 0 && prand() % 60 == 0)
 	{
-		case 0: /* Lightning */
-			if (self->thinkTime <= 0)
-			{
-				self->dirX = 0;
+		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
+		{
+			self->action = &breatheFireInit;
 
-				if (prand() % 3 == 0)
-				{
-					self->action = &changeWalkDirectionStart;
-				}
+			self->dirX = 0;
+		}
+	}
 
-				else
-				{
-					self->thinkTime = 60;
+	else if (self->thinkTime <= 0)
+	{
+		self->dirX = 0;
 
-					self->action = &electrifyStart;
-				}
-			}
-		break;
+		if (prand() % 3 == 0)
+		{
+			self->action = &changeWalkDirectionStart;
+		}
 
-		case 1: /* Ice */
-			if (self->thinkTime <= 0)
-			{
-				self->dirX = 0;
+		else
+		{
+			self->thinkTime = 60;
 
-				if (prand() % 3 == 0)
-				{
-					self->action = &changeWalkDirectionStart;
-				}
-
-				else
-				{
-					self->thinkTime = 60;
-
-					self->action = &iceAttackStart;
-				}
-			}
-		break;
-
-		default: /* Fire */
-			if (player.health > 0 && prand() % 60 == 0)
-			{
-				if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
-				{
-					self->action = &breatheFireInit;
-
-					self->dirX = 0;
-				}
-			}
-
-			else if (self->thinkTime <= 0)
-			{
-				self->dirX = 0;
-
-				self->action = &changeWalkDirectionStart;
-			}
-		break;
+			self->action = prand() % 2 == 0 ? &iceAttackStart : &electrifyStart;
+		}
 	}
 }
 
 static void changeWalkDirectionStart()
 {
-	switch (self->mental)
-	{
-		case 0: /* Lightning */
-			setEntityAnimation(self, CUSTOM_1);
-		break;
-
-		case 1: /* Ice */
-			setEntityAnimation(self, CUSTOM_2);
-		break;
-
-		default: /* Fire */
-			setEntityAnimation(self, CUSTOM_3);
-		break;
-	}
+	setEntityAnimation(self, CUSTOM_1);
 
 	self->action = &entityWait;
 
@@ -214,7 +147,7 @@ static void changeWalkDirection()
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_4);
+	setEntityAnimation(self, CUSTOM_2);
 
 	if (self->thinkTime <= 0)
 	{
@@ -229,20 +162,7 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		switch (self->mental)
-		{
-			case 0: /* Lightning */
-				setEntityAnimation(self, CUSTOM_1);
-			break;
-
-			case 1: /* Ice */
-				setEntityAnimation(self, CUSTOM_2);
-			break;
-
-			default: /* Fire */
-				setEntityAnimation(self, CUSTOM_3);
-			break;
-		}
+		setEntityAnimation(self, CUSTOM_1);
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
@@ -256,20 +176,7 @@ static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
 
-	switch (self->mental)
-	{
-		case 0: /* Lightning */
-			setEntityAnimation(self, STAND);
-		break;
-
-		case 1: /* Ice */
-			setEntityAnimation(self, WALK);
-		break;
-
-		default: /* Fire */
-			setEntityAnimation(self, JUMP);
-		break;
-	}
+	setEntityAnimation(self, STAND);
 
 	self->action = &walk;
 
@@ -394,9 +301,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (self->element == NO_ELEMENT)
 		{
-			if ((self->mental == 0 && other->element == LIGHTNING) ||
-				(self->mental == 1 && other->element == FIRE) ||
-				(self->mental == 2 && other->element == ICE))
+			if (other->element != NO_ELEMENT)
 			{
 				if (self->flags & INVULNERABLE)
 				{
@@ -432,7 +337,7 @@ static void takeDamage(Entity *other, int damage)
 					}
 				}
 			}
-
+			
 			else
 			{
 				entityTakeDamageNoFlinch(other, damage);
@@ -545,7 +450,7 @@ static void breatheFireWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, JUMP);
+		setEntityAnimation(self, STAND);
 
 		self->thinkTime = 300 + prand() % 180;
 
@@ -569,7 +474,7 @@ static void iceAttackStart()
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, CUSTOM_2);
+		setEntityAnimation(self, CUSTOM_1);
 
 		self->animationCallback = &createIce;
 	}
@@ -625,7 +530,7 @@ static void createIce()
 
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, CUSTOM_4);
+	setEntityAnimation(self, CUSTOM_2);
 
 	self->action = &iceAttack;
 
@@ -642,7 +547,7 @@ static void iceAttack()
 	{
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_2);
+		setEntityAnimation(self, CUSTOM_1);
 
 		self->animationCallback = &iceAttackFinish;
 
@@ -656,7 +561,7 @@ static void iceAttackFinish()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, STAND);
 
 	self->frameSpeed = 1;
 
