@@ -469,6 +469,10 @@ static void arrowTakeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		
+		damage = 0;
+		
+		addDamageScore(damage, self);
 	}
 }
 

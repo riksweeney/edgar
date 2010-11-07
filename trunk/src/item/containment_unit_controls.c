@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
@@ -33,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../event/script.h"
 #include "../system/error.h"
+#include "../system/random.h"
 
 extern Entity *self;
 
@@ -165,11 +167,13 @@ static void takeDamage(Entity *other, int damage)
 
 			fireTrigger(self->objectiveName);
 		}
+		
+		addDamageScore(damage, self);
 	}
 
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
 		
@@ -182,6 +186,15 @@ static void takeDamage(Entity *other, int damage)
 			self->reactToBlock();
 
 			self = temp;
+		}
+		
+		damage = 0;
+		
+		addDamageScore(damage, self);
+		
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 	}
 }

@@ -650,5 +650,7 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+		
+		addDamageScore(damage, self);
 	}
 }

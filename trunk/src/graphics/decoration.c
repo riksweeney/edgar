@@ -20,22 +20,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "decoration.h"
+#include "font.h"
 #include "animation.h"
 #include "graphics.h"
+#include "sprites.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../entity.h"
+#include "../map.h"
 #include "../system/error.h"
 
 static Entity decoration[MAX_DECORATIONS];
 static int decorationIndex = 0;
+
 extern Entity *self, player;
+extern Game game;
 
 static void move(void);
 static void entityWait(void);
 static void finish(void);
 static void timeout(void);
 static int drawPixel(void);
+static void riseUp(void);
+static int drawScore(void);
 
 static Constructor decorations[] = {
 {"decoration/chimney_smoke", &addSmoke},
@@ -463,6 +470,96 @@ Entity *addPixelDecoration(int x, int y)
 	e->draw = &drawPixel;
 
 	return e;
+}
+
+Entity *addDamageScore(int damage, Entity *parentEntity)
+{
+	char damageText[5], absDamageText[5];
+	int index;
+	SDL_Surface *image;
+	Sprite *sprite;
+	Entity *e = getFreeDecoration();
+	
+	if (e == NULL)
+	{
+		return NULL;
+	}
+	
+	snprintf(damageText, 5, "%d", damage);
+	
+	snprintf(absDamageText, 5, "%d", abs(damage));
+	
+	index = getSpriteIndexByName(damageText);
+	
+	if (index == -1)
+	{
+		if (damage < 0)
+		{
+			image = generateTransparentTextSurface(absDamageText, game.font, 0, 220, 0);
+		}
+		
+		else
+		{
+			image = generateTransparentTextSurface(absDamageText, game.font, 220, 220, 220);
+		}
+		
+		index = createSpriteFromSurface(damageText, image);
+	}
+	
+	else
+	{
+		sprite = getSprite(index);
+		
+		image = sprite->image;
+	}
+	
+	e->health = index;
+	
+	e->thinkTime = 60;
+
+	e->action = &riseUp;
+	e->draw = &drawScore;
+	
+	e->face = RIGHT;
+	
+	e->x = parentEntity->x + parentEntity->w / 2 - image->w / 2;
+	e->y = parentEntity->y + parentEntity->h / 2 - image->h / 2;
+	
+	e->x += prand() % 10 * (prand() % 2 == 0 ? -1 : 1);
+	e->y += prand() % 10 * (prand() % 2 == 0 ? -1 : 1);
+
+	return e;
+}
+
+static void riseUp()
+{
+	self->y--;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static int drawScore()
+{
+	int x, y;
+	int startX, startY;
+	Sprite *sprite;
+
+	startX = getMapStartX();
+	startY = getMapStartY();
+
+	x = self->x - startX;
+	y = self->y - startY;
+	
+	sprite = getSprite(self->health);
+	
+	drawImage(sprite->image, x, y, FALSE, 255);
+	
+	return TRUE;
 }
 
 static int drawPixel()

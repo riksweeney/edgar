@@ -534,6 +534,8 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		
+		damage = 0;
 	}
 
 	if (health > 20 && self->health <= 20)
@@ -546,6 +548,8 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 	}
+	
+	addDamageScore(damage, self);
 }
 
 static void throwRockStart()

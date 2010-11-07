@@ -838,7 +838,9 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			self->health -= (self->flags & HELPLESS ? damage * 3 : damage);
+			damage = (self->flags & HELPLESS ? damage * 3 : damage);
+			
+			self->health -= damage;
 		}
 
 		if (self->health > 0)
@@ -884,6 +886,8 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 

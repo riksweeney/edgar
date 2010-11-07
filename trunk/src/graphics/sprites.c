@@ -142,6 +142,41 @@ static int loadSprite(char *name)
 	return i;
 }
 
+int createSpriteFromSurface(char *name, SDL_Surface *image)
+{
+	int i;
+	
+	STRNCPY(sprite[spriteID].name, name, MAX_FILE_LENGTH);
+	
+	sprite[spriteID].image = image;
+	
+	sprite[spriteID].box.x = 0;
+	sprite[spriteID].box.y = 0;
+	sprite[spriteID].box.w = sprite[spriteID].image->w;
+	sprite[spriteID].box.h = sprite[spriteID].image->h;
+	
+	i = spriteID;
+	
+	spriteID++;
+	
+	return i;
+}
+
+int getSpriteIndexByName(char *name)
+{
+	int i;
+	
+	for (i=0;i<spriteID;i++)
+	{
+		if (strcmpignorecase(name, sprite[i].name) == 0)
+		{
+			return i;
+		}
+	}
+	
+	return -1;
+}
+
 void freeSprites()
 {
 	int i;

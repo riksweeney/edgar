@@ -1153,6 +1153,8 @@ void iceBlockTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
@@ -2297,6 +2299,8 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->die();
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
@@ -2333,6 +2337,8 @@ static void yellowTakeDamage(Entity *other, int damage)
 			{
 				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
+			
+			addDamageScore(-damage, self);
 		}
 		
 		if (other->type == PROJECTILE)

@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
@@ -30,8 +31,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../hud.h"
 #include "../map.h"
+#include "../geometry.h"
 #include "../projectile.h"
 #include "../item/item.h"
+#include "thunder_cloud.h"
+#include "rock.h"
 
 extern Entity *self, player;
 
@@ -40,12 +44,7 @@ static void entityWait(void);
 static void changeWalkDirectionStart(void);
 static void changeWalkDirection(void);
 static void changeWalkDirectionFinish(void);
-static void electrifyStart(void);
-static void electrify(void);
-static void electrifyFinish(void);
-static void createElectricity(void);
 static void takeDamage(Entity *, int);
-static void doElectricity(void);
 static void iceAttackStart(void);
 static void iceAttack(void);
 static void createIce(void);
@@ -57,6 +56,8 @@ static void spikeTakeDamage(Entity *, int);
 static void breatheFireInit(void);
 static void breatheFireWait(void);
 static void becomeRampaging(void);
+static void castLightningBolt(void);
+static void lightningBolt(void);
 
 Entity *addMasterTortoise(int x, int y, char *name)
 {
@@ -104,7 +105,9 @@ static void walk()
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			self->action = &breatheFireInit;
+			self->thinkTime = 0;
+			
+			self->action = prand() % 2 == 0 ? &castLightningBolt : &breatheFireInit;
 
 			self->dirX = 0;
 		}
@@ -116,6 +119,8 @@ static void walk()
 
 		if (prand() % 3 == 0)
 		{
+			self->mental = -1;
+			
 			self->action = &changeWalkDirectionStart;
 		}
 
@@ -123,7 +128,7 @@ static void walk()
 		{
 			self->thinkTime = 60;
 
-			self->action = prand() % 2 == 0 ? &iceAttackStart : &electrifyStart;
+			self->action = &iceAttackStart;
 		}
 	}
 }
@@ -175,6 +180,8 @@ static void changeWalkDirection()
 static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
+	
+	self->mental = 0;
 
 	setEntityAnimation(self, STAND);
 
@@ -189,107 +196,6 @@ static void changeWalkDirectionFinish()
 
 static void entityWait()
 {
-	checkToMap(self);
-}
-
-static void electrifyStart()
-{
-	self->dirX = 0;
-
-	self->frameSpeed = 0;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->frameSpeed = 1;
-
-		setEntityAnimation(self, CUSTOM_1);
-
-		self->animationCallback = &createElectricity;
-	}
-
-	checkToMap(self);
-}
-
-static void createElectricity()
-{
-	Entity *e = getFreeEntity();
-
-	if (e == NULL)
-	{
-		showErrorAndExit("No free slots to add Tortoise electricity");
-	}
-
-	loadProperties("enemy/tortoise_electricity", e);
-
-	playSoundToMap("sound/enemy/tortoise/tortoise_electric.ogg", -1, self->x, self->y, 0);
-
-	setEntityAnimation(e, STAND);
-
-	e->action = &doElectricity;
-
-	e->touch = &entityTouch;
-
-	e->takeDamage = &takeDamage;
-
-	e->draw = &drawLoopingAnimationToMap;
-
-	e->target = self;
-
-	e->face = self->face;
-
-	e->x = self->x;
-
-	e->y = self->y;
-
-	self->target = e;
-
-	self->frameSpeed = 1;
-
-	setEntityAnimation(self, ATTACK_2);
-
-	self->action = &electrify;
-
-	self->thinkTime = 120;
-}
-
-static void electrify()
-{
-	self->thinkTime--;
-
-	self->element = LIGHTNING;
-
-	if (self->thinkTime <= 0)
-	{
-		self->frameSpeed = -1;
-
-		setEntityAnimation(self, CUSTOM_1);
-
-		self->animationCallback = &electrifyFinish;
-
-		self->action = &entityWait;
-
-		self->element = NO_ELEMENT;
-
-		self->target->inUse = FALSE;
-	}
-
-	checkToMap(self);
-}
-
-static void electrifyFinish()
-{
-	setEntityAnimation(self, STAND);
-
-	self->frameSpeed = 1;
-
-	self->action = &walk;
-
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-	self->thinkTime = 120 + prand() % 120;
-
 	checkToMap(self);
 }
 
@@ -335,12 +241,23 @@ static void takeDamage(Entity *other, int damage)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
+					
+					addDamageScore(-damage, self);
 				}
 			}
 			
 			else
 			{
 				entityTakeDamageNoFlinch(other, damage);
+				
+				if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->mental != -1)
+				{
+					self->mental = -1;
+					
+					self->dirX = 0;
+					
+					self->action = &changeWalkDirectionStart;
+				}
 			}
 		}
 
@@ -402,15 +319,139 @@ static void takeDamage(Entity *other, int damage)
 	}
 }
 
-static void doElectricity()
+static void castLightningBolt()
 {
-	if (self->target->health <= 0)
+	Entity *e;
+
+	self->thinkTime--;
+	
+	setEntityAnimation(self, ATTACK_1);
+
+	if (self->thinkTime <= 0)
 	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add lightning");
+		}
+
+		loadProperties("enemy/lightning", e);
+
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = getMapCeiling(e->targetX, self->y);
+
+		e->startY = e->targetY;
+		e->endY   = getMapFloor(e->targetX, e->targetY);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, STAND);
+
+		e->action = &lightningBolt;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 0;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
+
+		setEntityAnimation(e, STAND);
+
+		self->thinkTime = 30;
+
+		self->action = &breatheFireWait;
+	}
+}
+
+static void lightningBolt()
+{
+	int i, middle;
+	Entity *e;
+
+	self->flags |= NO_DRAW;
+
+	self->thinkTime--;
+
+	middle = -1;
+
+	if (self->thinkTime <= 0)
+	{
+		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->targetX, self->startY, 0);
+
+		for (i=self->startY;i<self->endY;i+=32)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add lightning");
+			}
+
+			loadProperties("enemy/lightning", e);
+
+			setEntityAnimation(e, STAND);
+
+			if (i == self->startY)
+			{
+				middle = self->targetX + self->w / 2 - e->w / 2;
+			}
+
+			e->x = middle;
+			e->y = i;
+
+			e->action = &lightningWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->currentFrame = prand() % 6;
+
+			e->face = RIGHT;
+
+			e->thinkTime = 15;
+		}
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -8;
+
 		self->inUse = FALSE;
 	}
-
-	self->x = self->target->x + self->target->w / 2 - self->w / 2;
-	self->y = self->target->y + self->target->h - self->h;
 }
 
 static void breatheFireInit()
@@ -766,6 +807,8 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 

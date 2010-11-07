@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../hud.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../enemy/rock.h"
@@ -155,6 +156,8 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
+		
+		addDamageScore(damage, self);
 	}
 
 	else
@@ -173,6 +176,15 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
+		
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+		
+		damage = 0;
+		
+		addDamageScore(damage, self);
 	}
 }
 

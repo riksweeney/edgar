@@ -20,3 +20,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 void loadSpritesFromFile(char *, int *);
 void freeSprites(void);
 Sprite *getSprite(int);
+int createSpriteFromSurface(char *, SDL_Surface *);
+int getSpriteIndexByName(char *);

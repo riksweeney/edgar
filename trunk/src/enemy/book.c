@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../custom_actions.h"
@@ -630,6 +631,8 @@ static void takeDamage(Entity *other, int damage)
 			{
 				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
+			
+			addDamageScore(-damage, self);
 		}
 	}
 	

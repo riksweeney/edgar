@@ -1071,6 +1071,8 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->pain();
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
