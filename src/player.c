@@ -237,14 +237,34 @@ void doPlayer()
 		if (self->action == NULL)
 		{
 			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
+			playerWeapon.flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
+			playerShield.flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
 
 			for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 			{
 				if (self->customAction[i].thinkTime > 0)
 				{
+					self = &player;
+					
+					doCustomAction(&self->customAction[i]);
+				}
+				
+				if (playerWeapon.inUse == TRUE && playerWeapon.customAction[i].thinkTime > 0)
+				{
+					self = &playerWeapon;
+					
+					doCustomAction(&self->customAction[i]);
+				}
+				
+				if (playerShield.inUse == TRUE && playerShield.customAction[i].thinkTime > 0)
+				{
+					self = &playerShield;
+					
 					doCustomAction(&self->customAction[i]);
 				}
 			}
+			
+			self = &player;
 
 			if (!(self->flags & HELPLESS))
 			{
@@ -2280,7 +2300,7 @@ static void weaponTouch(Entity *other)
 
 static void lightningSwordTouch(Entity *other)
 {
-	if (other->takeDamage != NULL && !(self->flags & ATTACK_SUCCESS))
+	if (other->takeDamage != NULL && !(self->flags & INVULNERABLE))
 	{
 		self->mental--;
 		
@@ -2304,7 +2324,7 @@ static void lightningSwordTouch(Entity *other)
 			self->mental = -1;
 		}
 		
-		self->flags |= ATTACK_SUCCESS;
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 	}
 }
 

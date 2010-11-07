@@ -286,7 +286,7 @@ static void takeDamage(Entity *other, int damage)
 
 					if (other->type != PROJECTILE)
 					{
-						setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+						setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 					}
 
 					if (self->pain != NULL)
@@ -336,7 +336,7 @@ static void takeDamage(Entity *other, int damage)
 			if (self->health > 0)
 			{
 				setCustomAction(self, &flashWhite, 6, 0, 0);
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				if (self->pain != NULL)
 				{

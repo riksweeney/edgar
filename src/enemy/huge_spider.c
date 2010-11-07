@@ -215,7 +215,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 	
-	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
 	
@@ -269,7 +269,7 @@ static void touch(Entity *other)
 			self->thinkTime = 300;
 		}
 
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 	}
 

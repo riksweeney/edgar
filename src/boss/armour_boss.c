@@ -542,7 +542,7 @@ static void tongueTakeDamage(Entity *other, int damage)
 		{
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			enemyPain();
 		}
@@ -643,7 +643,7 @@ static void takeDamage(Entity *other, int damage)
 
 			armourTakeDamage(other, damage);
 
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
 
 		else
@@ -677,7 +677,7 @@ static void takeDamage(Entity *other, int damage)
 			{
 				setCustomAction(self, &flashWhite, 6, 0, 0);
 
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				enemyPain();
 			}
@@ -1282,7 +1282,7 @@ static void armourTakeDamage(Entity *other, int damage)
 			{
 				setCustomAction(e, &flashWhite, 6, 0, 0);
 
-				setCustomAction(e, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(e, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				enemyPain();
 			}

@@ -158,7 +158,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 	
-	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 	

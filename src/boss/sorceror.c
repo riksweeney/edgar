@@ -468,7 +468,7 @@ static void arrowTakeDamage(Entity *other, int damage)
 			self = temp;
 		}
 
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		
 		damage = 0;
 		

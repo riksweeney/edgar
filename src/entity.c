@@ -618,7 +618,7 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 		if (self->health > 0)
 		{
 			setCustomAction(self, &helpless, 10, 0, 0);
-			setCustomAction(self, &invulnerable, 20, 0, 0);
+			setCustomAction(self, &invulnerable, HIT_INVULNERABLE_TIME, 0, 0);
 
 			if (self->pain != NULL)
 			{
@@ -676,7 +676,7 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
 			if (self->pain != NULL)

@@ -370,7 +370,7 @@ static void takeDamage(Entity *other, int damage)
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 		}
 
@@ -451,7 +451,7 @@ static void mediumTakeDamage(Entity *other, int damage)
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 		}
 

@@ -491,7 +491,7 @@ static void takeDamage(Entity *other, int damage)
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
 
-	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 	
 	damage = 0;
 	
@@ -1598,7 +1598,7 @@ static void clawTakeDamage(Entity *other, int damage)
 
 				if (other->type != PROJECTILE)
 				{
-					setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 				}
 
 				enemyPain();
@@ -1739,11 +1739,11 @@ static void orbTakeDamage(Entity *other, int damage)
 			{
 				setCustomAction(self, &flashWhite, 6, 0, 0);
 
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 				
 				setCustomAction(self->head, &flashWhite, 6, 0, 0);
 
-				setCustomAction(self->head, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self->head, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				enemyPain();
 			}
