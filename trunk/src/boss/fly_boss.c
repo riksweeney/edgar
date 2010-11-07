@@ -910,7 +910,7 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
 		

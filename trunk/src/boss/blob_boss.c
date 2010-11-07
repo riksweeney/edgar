@@ -1079,7 +1079,7 @@ static void takeDamage(Entity *other, int damage)
 		else if (self->health > 1000)
 		{
 			setCustomAction(self, &flashWhite, 6, 0, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			self->mental--;
 
@@ -1089,7 +1089,7 @@ static void takeDamage(Entity *other, int damage)
 		else if (self->health > 0)
 		{
 			setCustomAction(self, &flashWhite, 6, 0, 0);
-			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			self->health -= damage;
 
@@ -1132,7 +1132,7 @@ static void eatTakeDamage(Entity *other, int damage)
 	if (!(self->flags & INVULNERABLE))
 	{
 		setCustomAction(self, &flashWhite, 6, 0, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		self->mental--;
 

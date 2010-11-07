@@ -623,12 +623,12 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 		
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 	}
 	
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		
 		if (other->reactToBlock != NULL)
 		{
@@ -646,7 +646,7 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 		
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		
 		damage = 0;
 		
@@ -879,7 +879,7 @@ static void tentacleTakeDamage(Entity *other, int damage)
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
 			enemyPain();
@@ -1061,7 +1061,7 @@ static void redTentacleTakeDamage(Entity *other, int damage)
 
 			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
 			enemyPain();

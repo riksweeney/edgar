@@ -676,7 +676,7 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		
 		damage = 0;
 		
@@ -713,7 +713,7 @@ static void takeDamage(Entity *other, int damage)
 
 				if (other->type != PROJECTILE)
 				{
-					setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 				}
 
 				if (self->pain != NULL)
@@ -749,7 +749,7 @@ static void touch(Entity *other)
 		self->mental--;
 		
 		setCustomAction(self, &flashWhite, 6, 0, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
 		

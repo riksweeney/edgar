@@ -85,7 +85,7 @@ Entity *addSmallRock(int x, int y, char *name)
 	
 	e->fallout = &entityDieNoDrop;
 
-	e->type = ENEMY;
+	e->type = TEMP_ITEM;
 
 	e->dirY = 0;
 

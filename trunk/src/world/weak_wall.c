@@ -107,7 +107,7 @@ static void takeDamage(Entity *other, int damage)
 		self->health -= damage;
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		if (self->health <= 0)
 		{
@@ -122,7 +122,7 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 		
