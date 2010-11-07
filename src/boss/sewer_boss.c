@@ -492,6 +492,10 @@ static void takeDamage(Entity *other, int damage)
 	}
 
 	setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+	
+	damage = 0;
+	
+	addDamageScore(damage, self);
 }
 
 static void addClaws()
@@ -1612,6 +1616,8 @@ static void clawTakeDamage(Entity *other, int damage)
 
 				self->die();
 			}
+			
+			addDamageScore(damage, self);
 		}
 	}
 }
@@ -1758,6 +1764,8 @@ static void orbTakeDamage(Entity *other, int damage)
 				
 				self->inUse = FALSE;
 			}
+			
+			addDamageScore(damage, self);
 		}
 	}
 }

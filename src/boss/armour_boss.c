@@ -557,6 +557,8 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
@@ -737,6 +739,8 @@ static void takeDamage(Entity *other, int damage)
 
 			self->thinkTime = 0;
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
@@ -1293,6 +1297,8 @@ static void armourTakeDamage(Entity *other, int damage)
 
 				self = temp;
 			}
+			
+			addDamageScore(damage, self);
 		}
 
 		return;

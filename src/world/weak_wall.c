@@ -28,6 +28,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/global_trigger.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
+#include "../system/random.h"
+#include "../graphics/decoration.h"
+#include "../hud.h"
 
 extern Entity *self;
 
@@ -133,7 +136,16 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
+		
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+		
+		damage = 0;
 	}
+	
+	addDamageScore(damage, self);
 }
 
 static void die()

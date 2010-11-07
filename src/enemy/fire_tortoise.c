@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
@@ -252,6 +253,8 @@ static void takeDamage(Entity *other, int damage)
 
 					self = temp;
 				}
+				
+				addDamageScore(-damage, self);
 			}
 		}
 		

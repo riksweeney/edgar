@@ -677,6 +677,10 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+		
+		damage = 0;
+		
+		addDamageScore(damage, self);
 	}
 	
 	else
@@ -732,6 +736,8 @@ static void takeDamage(Entity *other, int damage)
 				
 				self->action = &die;
 			}
+			
+			addDamageScore(damage, self);
 		}
 	}
 }

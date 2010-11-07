@@ -788,6 +788,8 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
+		
+		addDamageScore(damage, self);
 	}
 
 	else
@@ -813,6 +815,8 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			
+			damage = 0;
 		}
 
 		else
@@ -838,6 +842,8 @@ static void takeDamage(Entity *other, int damage)
 				resetCeiling();
 			}
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 
@@ -1080,6 +1086,8 @@ static void anchorTakeDamage(Entity *other, int damage)
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, 20, 0, 0);
+			
+			damage = 0;
 		}
 
 		else
@@ -1097,6 +1105,8 @@ static void anchorTakeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 

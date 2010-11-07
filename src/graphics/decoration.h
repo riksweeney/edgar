@@ -33,3 +33,4 @@ Entity *addBasicDecoration(int, int, char *);
 void addParticleExplosion(int, int);
 Entity *addPixelDecoration(int, int);
 Entity *addParticle(int, int);
+Entity *addDamageScore(int, Entity *);

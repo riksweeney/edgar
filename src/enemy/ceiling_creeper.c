@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../game.h"
@@ -190,7 +191,9 @@ static void tongueWait()
 
 static void tongueTouch(Entity *other)
 {
-	if (self->target == NULL && other->type == PLAYER)
+	int y;
+	
+	if (self->target == NULL && other->type == PLAYER && other->health > 0)
 	{
 		self->head->face = other->face;
 		
@@ -203,6 +206,13 @@ static void tongueTouch(Entity *other)
 		self->thinkTime = 180;
 		
 		self->action = &moveToMouth;
+		
+		y = other->y + other->h - self->h;
+		
+		if (y < self->endY)
+		{
+			self->y = y;
+		}
 	}
 	
 	else
@@ -234,7 +244,7 @@ static void moveToMouth()
 	}
 	
 	if (self->target != NULL)
-	{
+	{		
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
 		
@@ -308,6 +318,8 @@ static void tongueTakeDamage(Entity *other, int damage)
 			
 			self->thinkTime = 180;
 		}
+		
+		addDamageScore(damage, self);
 	}
 }
 

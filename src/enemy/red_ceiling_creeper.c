@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../audio/audio.h"
 #include "../entity.h"
 #include "../game.h"
@@ -224,6 +225,10 @@ static void tongueTakeDamage(Entity *other, int damage)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
+	
+	damage = 0;
+	
+	addDamageScore(damage, self);
 }
 
 static int drawTongue()
