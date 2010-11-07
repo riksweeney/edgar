@@ -218,7 +218,7 @@ void doCollisions()
 								}
 
 
-								y1 = e1->y + e1->offsetY;
+								y1 = e1->parent->y + e1->offsetY;
 							}
 							
 							else if (e2 == &playerWeapon)
@@ -234,7 +234,7 @@ void doCollisions()
 								}
 
 
-								y2 = e2->y + e2->offsetY;
+								y2 = e2->parent->y + e2->offsetY;
 							}
 
 							if (collision(x1, y1, w1, h1, x2, y2, w2, h2) == TRUE)

@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "game.h"
 #include "world/action_point.h"
 #include "world/falling_platform.h"
+#include "world/weak_wall.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1442,6 +1443,11 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "FALLING_PLATFORM") == 0)
 	{
 		addFallingPlatform(x, y, entityName);
+	}
+	
+	else if (strcmpignorecase(entityType, "WEAK_WALL") == 0)
+	{
+		addWeakWall(entityName, x, y);
 	}
 
 	else

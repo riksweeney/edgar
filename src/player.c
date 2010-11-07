@@ -27,7 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "inventory.h"
 #include "collisions.h"
 #include "custom_actions.h"
-#include "collisions.h"
 #include "player.h"
 #include "entity.h"
 #include "game.h"
@@ -95,7 +94,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 5;
+			player.maxHealth = player.health = 10;
 		#endif
 
 		setEntityAnimation(&player, STAND);
