@@ -118,13 +118,13 @@ SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, 
 	foregroundColor.r = fr;
 	foregroundColor.g = fg;
 	foregroundColor.b = fb;
-	
+
 	TTF_SetFontStyle(font, TTF_STYLE_BOLD);
 
 	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
 	surface = TTF_RenderUTF8_Solid(font, text, foregroundColor);
-	
+
 	TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
 
 	if (surface == NULL)

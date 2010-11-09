@@ -139,62 +139,64 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *e, *temp;
 
-	if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
+	if (!(self->flags & INVULNERABLE))
 	{
-		self->health--;
-
-		if (self->health > 0)
+		if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0, 0);
-			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			self->health--;
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+			}
+
+			else
+			{
+				self->health = 0;
+
+				self->touch = NULL;
+
+				e = addPermanentItem("item/purple_gem", self->x + self->w / 2, self->y);
+
+				e->dirX = other->face == LEFT ? -6 : 6;
+
+				e->dirY = -ITEM_JUMP_HEIGHT;
+
+				self->active = FALSE;
+
+				setEntityAnimation(self, WALK);
+
+				fireTrigger(self->objectiveName);
+			}
+
+			addDamageScore(damage, self);
 		}
 
 		else
 		{
-			self->health = 0;
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
-			self->touch = NULL;
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
 
-			e = addPermanentItem("item/purple_gem", self->x + self->w / 2, self->y);
+				self = other;
 
-			e->dirX = other->face == LEFT ? -6 : 6;
+				self->reactToBlock();
 
-			e->dirY = -ITEM_JUMP_HEIGHT;
+				self = temp;
+			}
 
-			self->active = FALSE;
+			damage = 0;
 
-			setEntityAnimation(self, WALK);
+			addDamageScore(damage, self);
 
-			fireTrigger(self->objectiveName);
+			if (prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+			}
 		}
-		
-		addDamageScore(damage, self);
-	}
-
-	else
-	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-		
-		if (other->reactToBlock != NULL)
-		{
-			temp = self;
-
-			self = other;
-
-			self->reactToBlock();
-
-			self = temp;
-		}
-		
-		damage = 0;
-		
-		addDamageScore(damage, self);
-		
-		if (prand() % 10 == 0)
-		{
-			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
-		}
 	}
 }

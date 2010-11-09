@@ -194,7 +194,7 @@ static void suckIn()
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0, 0);
-				
+
 				addExitTrigger(e);
 			}
 
@@ -209,7 +209,7 @@ static void suckIn()
 				e->dirY = -12;
 
 				setCustomAction(e, &invulnerable, 120, 0, 0);
-				
+
 				addExitTrigger(e);
 			}
 
@@ -258,10 +258,8 @@ static void die()
 static void addExitTrigger(Entity *e)
 {
 	char itemName[MAX_VALUE_LENGTH];
-	
+
 	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"WHIRLWIND\"", e->objectiveName);
-	
+
 	addGlobalTriggerFromScript(itemName);
-	
-	updateExitCount(1);
 }

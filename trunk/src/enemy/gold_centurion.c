@@ -71,23 +71,23 @@ static void walk()
 	if (self->active == FALSE)
 	{
 		self->flags &= ~ATTACKING;
-		
+
 		self->damage = 0;
-		
+
 		setEntityAnimation(self, STAND);
-		
+
 		checkToMap(self);
 	}
-	
+
 	else
 	{
 		self->damage = 1;
-		
+
 		self->flags |= ATTACKING;
-		
+
 		setEntityAnimation(self, WALK);
-		
-		if (self->currentFrame == 2 || self->currentFrame == 5)
+
+		if (self->offsetX != 0)
 		{
 			if (self->maxThinkTime == 0)
 			{
@@ -103,10 +103,10 @@ static void walk()
 		{
 			self->maxThinkTime = 0;
 		}
-		
+
 		checkToMap(self);
 
-		if (self->currentFrame == 2 || self->currentFrame == 5)
+		if (self->offsetX != 0)
 		{
 			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 		}
@@ -129,7 +129,7 @@ static void fallout()
 static void die()
 {
 	self->dirX = 0;
-	
+
 	self->dirY = 0.5;
 
 	checkToMap(self);

@@ -96,8 +96,8 @@ static void lookForPlayer()
 			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 		}
 	}
-	
-	if (self->currentFrame == 2 || self->currentFrame == 5)
+
+	if (self->offsetX != 0)
 	{
 		if (self->maxThinkTime == 0)
 		{
@@ -108,7 +108,7 @@ static void lookForPlayer()
 
 			self->maxThinkTime = 1;
 		}
-		
+
 		if (!(self->flags & ATTRACTED))
 		{
 			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
@@ -126,7 +126,7 @@ static void lookForPlayer()
 
 		self->face = (self->face == RIGHT ? LEFT : RIGHT);
 	}
-	
+
 	checkToMap(self);
 
 	self->thinkTime--;
@@ -135,7 +135,7 @@ static void lookForPlayer()
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	if (strcmpignorecase(self->name, "enemy/red_centurion") == 0)
 	{
 		if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0)
@@ -143,7 +143,7 @@ static void lookForPlayer()
 			if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
 				self->action = &explosionAttackInit;
-				
+
 				if (!(self->flags & ATTRACTED))
 				{
 					self->dirX = 0;
@@ -151,7 +151,7 @@ static void lookForPlayer()
 			}
 		}
 	}
-	
+
 	else
 	{
 		if (self->thinkTime == 0 && player.health > 0 && prand() % 15 == 0)
@@ -159,7 +159,7 @@ static void lookForPlayer()
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
 				self->action = &stompAttackInit;
-				
+
 				if (!(self->flags & ATTRACTED))
 				{
 					self->dirX = 0;
@@ -228,23 +228,23 @@ static void explosionAttackInit()
 static void explosionAttack()
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add a moving explosion");
 	}
 
 	loadProperties("common/explosion", e);
-	
+
 	setEntityAnimation(e, STAND);
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y + self->h - e->h;
-	
+
 	e->face = self->face;
-	
+
 	e->dirX = e->face == LEFT ? -6 : 6;
-	
+
 	e->damage = 1;
 
 	e->action = &explosionMove;
@@ -252,17 +252,17 @@ static void explosionAttack()
 	e->touch = &explosionTouch;
 
 	e->type = ENEMY;
-	
+
 	e->flags |= NO_DRAW|DO_NOT_PERSIST;
-	
+
 	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
-	
+
 	setEntityAnimation(self, ATTACK_2);
 
 	self->thinkTime = 60;
 
 	self->action = &explosionAttackFinish;
-	
+
 	checkToMap(self);
 }
 
@@ -280,31 +280,31 @@ static void explosionAttackFinish()
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 	}
-	
+
 	checkToMap(self);
 }
 
 static void explosionMove()
 {
 	Entity *e;
-	
+
 	e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
 
 	if (e != NULL)
 	{
 		e->y -= prand() % e->h;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (isAtEdge(self) == TRUE || self->dirX == 0)
 	{
 		self->touch = NULL;
-		
+
 		self->dirX = 0;
-		
+
 		self->mental = 5;
-		
+
 		self->action = &explode;
 	}
 }
@@ -312,15 +312,15 @@ static void explosionMove()
 static void explosionTouch(Entity *other)
 {
 	entityTouch(other);
-	
+
 	if (other->type == PLAYER)
 	{
 		self->touch = NULL;
-		
+
 		self->dirX = 0;
-		
+
 		self->mental = 5;
-		
+
 		self->action = &explode;
 	}
 }
@@ -331,9 +331,9 @@ static void explode()
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	stopSound(self->startX);
-	
+
 	self->startX = -1;
 
 	if (self->thinkTime <= 0)
@@ -345,9 +345,9 @@ static void explode()
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		e = addExplosion(x, y);
-		
+
 		e->type = ENEMY;
-		
+
 		e->damage = 1;
 
 		self->mental--;
@@ -432,9 +432,9 @@ static void redDie()
 	for (i=0;i<9;i++)
 	{
 		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
-		
+
 		e->action = &pieceWait;
-		
+
 		e->fallout = &pieceFallout;
 
 		e->x += (self->w - e->w) / 2;
@@ -444,41 +444,41 @@ static void redDie()
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
 		setEntityAnimation(e, i);
-		
+
 		e->head = self;
 	}
-	
+
 	self->endX = self->damage;
-	
+
 	self->damage = 0;
-	
+
 	self->health = 0;
-	
+
 	self->dirX = 0;
 
 	self->mental = 1;
-	
+
 	self->flags &= ~FLY;
 
 	self->flags |= NO_DRAW;
-	
+
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
-	
+
 	self->thinkTime = 120;
 }
 
 static void dieWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 0;
-		
+
 		self->thinkTime = 9;
-		
+
 		self->action = &reform;
 	}
 }
@@ -488,16 +488,16 @@ static void reform()
 	if (self->health == -1)
 	{
 		increaseKillCount();
-		
+
 		dropRandomItem(self->x + self->w / 2, self->y);
-		
+
 		self->action = &entityDieVanish;
 	}
-	
+
 	if (self->thinkTime == 0)
 	{
 		self->thinkTime = 30;
-		
+
 		self->action = &reformFinish;
 	}
 }
@@ -505,23 +505,23 @@ static void reform()
 static void reformFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->health = self->maxHealth;
-		
+
 		self->flags &= ~NO_DRAW;
-		
+
 		self->action = &lookForPlayer;
-		
+
 		facePlayer();
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->damage = 1;
-		
+
 		self->takeDamage = &redTakeDamage;
-		
+
 		setEntityAnimation(self, STAND);
 	}
 }
@@ -532,38 +532,38 @@ static void pieceWait()
 	{
 		self->action = &entityDieNoDrop;
 	}
-	
+
 	else if (self->head->mental == 0)
 	{
 		self->action = &pieceReform;
-		
+
 		if (self->face == LEFT)
 		{
 			self->targetX = self->head->x + self->head->w - self->w - self->offsetX;
 		}
-		
+
 		else
 		{
 			self->targetX = self->head->x + self->offsetX;
 		}
-		
+
 		self->targetY = self->head->y + self->offsetY;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->dirX *= 4;
 		self->dirY *= 4;
-		
+
 		self->flags |= FLY;
-		
+
 		self->touch = NULL;
 	}
-	
+
 	if ((self->flags & ON_GROUND) && !(self->flags & FLY))
 	{
 		self->dirX = 0;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -574,10 +574,10 @@ static void pieceReform()
 		if (self->mental == 0)
 		{
 			self->mental = 1;
-			
+
 			self->head->thinkTime--;
 		}
-		
+
 		else
 		{
 			if (self->head->health == self->head->maxHealth)
@@ -586,7 +586,7 @@ static void pieceReform()
 			}
 		}
 	}
-	
+
 	else
 	{
 		self->x += self->dirX;
@@ -597,14 +597,14 @@ static void pieceReform()
 static void pieceFallout()
 {
 	self->head->health = -1;
-	
+
 	self->inUse = FALSE;
 }
 
 static void redTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -645,12 +645,12 @@ static void redTakeDamage(Entity *other, int damage)
 		else
 		{
 			self->animationCallback = NULL;
-			
+
 			self->damage = 0;
 
 			self->die();
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }

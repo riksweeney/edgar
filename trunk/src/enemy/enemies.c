@@ -93,6 +93,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "frog.h"
 #include "master_tortoise.h"
 #include "red_ceiling_creeper.h"
+#include "rampaging_master_tortoise.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -244,7 +245,8 @@ static Constructor enemies[] = {
 {"enemy/undead_gazer", &addUndeadGazer},
 {"enemy/frog", &addFrog},
 {"enemy/master_tortoise", &addMasterTortoise},
-{"enemy/red_ceiling_creeper", &addRedCeilingCreeper}
+{"enemy/red_ceiling_creeper", &addRedCeilingCreeper},
+{"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
