@@ -128,6 +128,11 @@ static void addGlobalTrigger(char *triggerName, int count, int total, int target
 			STRNCPY(trigger[i].triggerName, triggerName, sizeof(trigger[i].triggerName));
 			STRNCPY(trigger[i].targetName, targetName, sizeof(trigger[i].targetName));
 
+			if (trigger[i].targetType == UPDATE_EXIT)
+			{
+				updateExitCount(1);
+			}
+
 			if (count >= total)
 			{
 				for (j=0;j<total;j++)
@@ -183,7 +188,7 @@ void fireGlobalTrigger(char *name)
 					case ACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, TRUE);
 					break;
-					
+
 					case DEACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, FALSE);
 					break;
@@ -199,7 +204,7 @@ void fireGlobalTrigger(char *name)
 					case REMOVE_INVENTORY_ITEM:
 						removeInventoryItemByObjectiveName(trigger[i].targetName);
 					break;
-					
+
 					case UPDATE_EXIT:
 						updateExitCount(-1);
 					break;

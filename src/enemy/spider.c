@@ -79,7 +79,7 @@ Entity *addSpider(int x, int y, char *name)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (damage < self->health)
@@ -87,7 +87,6 @@ static void takeDamage(Entity *other, int damage)
 			self->targetY = self->startY;
 
 			setCustomAction(self, &flashWhite, 6, 0, 0);
-			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			self->action = &retreat;
 		}
@@ -104,7 +103,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->action = self->die;
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -115,7 +114,9 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
 		addDamageScore(damage, self);
 	}
 }
@@ -123,7 +124,7 @@ static void takeDamage(Entity *other, int damage)
 static void redTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (damage >= self->health)
@@ -142,10 +143,8 @@ static void redTakeDamage(Entity *other, int damage)
 		else if (self->maxThinkTime < 0)
 		{
 			self->targetY = 1800;
-
-			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -156,7 +155,9 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
 		addDamageScore(damage, self);
 	}
 }
@@ -203,7 +204,7 @@ static void entityWait()
 static void move()
 {
 	self->weight = 1;
-	
+
 	self->originalWeight = self->weight;
 
 	if (self->thinkTime > 0)
@@ -246,7 +247,7 @@ static void move()
 				self->targetY = (self->targetY == self->endY ? self->startY : self->endY);
 
 				self->weight = (self->targetY == self->endY ? 2 : 3);
-				
+
 				self->originalWeight = self->weight;
 			}
 		}
@@ -256,7 +257,7 @@ static void move()
 			self->y += self->dirY;
 
 			self->weight = (self->dirY > 0 ? 2 : 3);
-			
+
 			self->originalWeight = self->weight;
 		}
 	}

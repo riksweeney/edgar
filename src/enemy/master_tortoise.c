@@ -55,9 +55,10 @@ static void iceSpikeMove(void);
 static void spikeTakeDamage(Entity *, int);
 static void breatheFireInit(void);
 static void breatheFireWait(void);
-static void becomeRampaging(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
+static void becomeRampagingInit(void);
+static void becomeRampaging(void);
 
 Entity *addMasterTortoise(int x, int y, char *name)
 {
@@ -96,39 +97,42 @@ static void walk()
 
 	if (self->health >= self->maxHealth + 200)
 	{
-		self->action = &becomeRampaging;
-
-		return;
-	}
-
-	if (player.health > 0 && prand() % 60 == 0)
-	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
-		{
-			self->thinkTime = 0;
-			
-			self->action = prand() % 2 == 0 ? &castLightningBolt : &breatheFireInit;
-
-			self->dirX = 0;
-		}
-	}
-
-	else if (self->thinkTime <= 0)
-	{
 		self->dirX = 0;
-
-		if (prand() % 3 == 0)
+		
+		self->action = &becomeRampagingInit;
+	}
+	
+	else
+	{
+		if (player.health > 0 && prand() % 60 == 0)
 		{
-			self->mental = -1;
-			
-			self->action = &changeWalkDirectionStart;
+			if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
+			{
+				self->thinkTime = 15;
+
+				self->action = prand() % 2 == 0 ? &castLightningBolt : &breatheFireInit;
+
+				self->dirX = 0;
+			}
 		}
 
-		else
+		else if (self->thinkTime <= 0)
 		{
-			self->thinkTime = 60;
+			self->dirX = 0;
 
-			self->action = &iceAttackStart;
+			if (prand() % 3 == 0)
+			{
+				self->mental = -1;
+
+				self->action = &changeWalkDirectionStart;
+			}
+
+			else
+			{
+				self->thinkTime = 60;
+
+				self->action = &iceAttackStart;
+			}
 		}
 	}
 }
@@ -156,13 +160,6 @@ static void changeWalkDirection()
 
 	if (self->thinkTime <= 0)
 	{
-		/* Change the type of enemy that you are */
-
-		if (prand() % 2 == 0)
-		{
-			self->mental = prand() % 3;
-		}
-
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 
 		self->frameSpeed = -1;
@@ -180,7 +177,7 @@ static void changeWalkDirection()
 static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
-	
+
 	self->mental = 0;
 
 	setEntityAnimation(self, STAND);
@@ -241,21 +238,21 @@ static void takeDamage(Entity *other, int damage)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
-					
+
 					addDamageScore(-damage, self);
 				}
 			}
-			
+
 			else
 			{
 				entityTakeDamageNoFlinch(other, damage);
-				
-				if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->mental != -1)
+
+				if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->dirX != 0)
 				{
 					self->mental = -1;
-					
+
 					self->dirX = 0;
-					
+
 					self->action = &changeWalkDirectionStart;
 				}
 			}
@@ -324,7 +321,7 @@ static void castLightningBolt()
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	setEntityAnimation(self, ATTACK_1);
 
 	if (self->thinkTime <= 0)
@@ -807,16 +804,35 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
 
+static void becomeRampagingInit()
+{
+	float y;
+	
+	y = self->y;
+	
+	setEntityAnimation(self, CUSTOM_3);
+	
+	self->y = y;
+	
+	self->dirY = 0;
+	
+	self->flags |= FLY;
+	
+	self->thinkTime = 180;
+	
+	checkToMap(self);
+	
+	self->action = &becomeRampaging;
+}
+
 static void becomeRampaging()
 {
-	printf("Rampaging\n");
-
-	self->health = 1;
-
-	self->action = &walk;
+	self->thinkTime--;
+	
+	checkToMap(self);
 }

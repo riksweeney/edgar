@@ -46,6 +46,7 @@ static void tongueReturn(void);
 static int drawTongue(void);
 static void tongueTouch(Entity *);
 static void grabPause(void);
+static void addExitTrigger(Entity *);
 
 Entity *addFrog(int x, int y, char *name)
 {
@@ -78,26 +79,26 @@ Entity *addFrog(int x, int y, char *name)
 static void init()
 {
 	Entity *e;
-	
+
 	if (strlen(self->objectiveName) != 0)
 	{
 		e = getEntityByName(self->objectiveName);
-		
+
 		if (e != NULL)
 		{
 			self->target = e;
-			
+
 			self->target->flags |= NO_DRAW;
 		}
 	}
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
@@ -105,37 +106,37 @@ static void entityWait()
 		if (self->thinkTime <= 0)
 		{
 			/* Randomly jump another way */
-			
+
 			if (self->endX == -1)
 			{
 				self->face = self->face == LEFT ? RIGHT : LEFT;
-				
+
 				self->endX = 0;
 			}
-			
+
 			else
 			{
 				setEntityAnimation(self, JUMP);
-				
+
 				if (prand() % 3 == 0)
 				{
 					playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
 				}
-				
+
 				else
 				{
 					playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 				}
-				
+
 				self->thinkTime = 30 + prand() % 30;
-				
+
 				self->dirY = -(8 + prand() % 2);
-				
+
 				if (isAtEdge(self) == TRUE)
 				{
 					self->face = self->face == LEFT ? RIGHT : LEFT;
 				}
-							
+
 				self->dirX = 4 * (self->face == LEFT ? -1 : 1);
 			}
 		}
@@ -143,28 +144,28 @@ static void entityWait()
 		else
 		{
 			self->thinkTime--;
-			
+
 			if (self->endY == -1)
 			{
 				playSoundToMap("sound/enemy/frog/croak.ogg", -1, self->x, self->y, 0);
-				
+
 				self->endY = 0;
 			}
-			
+
 			if (self->mental <= 0 && player.health > 0 && prand() % 45 == 0)
 			{
 				if (collision(self->x + (self->face == RIGHT ? self->w : -120), self->y, 120, self->h, player.x, player.y, player.w, player.h) == 1)
 				{
 					self->thinkTime = 30;
-					
+
 					setEntityAnimation(self, ATTACK_1);
-					
+
 					self->action = &tongueAttackInit;
 				}
 			}
 		}
 	}
-	
+
 	else
 	{
 		if (self->dirX == 0)
@@ -174,35 +175,35 @@ static void entityWait()
 	}
 
 	checkToMap(self);
-	
+
 	if ((self->flags & ON_GROUND) && onGround == 0)
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		if (prand() % 3 == 0)
 		{
 			self->endY = -1;
 		}
 	}
-	
+
 	if (self->target != NULL)
 	{
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
-		
+
 		self->mental--;
-		
+
 		if (self->mental <= 0)
 		{
 			self->target->flags &= ~NO_DRAW;
-			
+
 			setCustomAction(self->target, &invulnerable, 60, 0, 0);
-			
+
 			self->target->dirY = ITEM_JUMP_HEIGHT;
-			
+
 			self->target = NULL;
 		}
-		
+
 		else
 		{
 			setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
@@ -213,21 +214,21 @@ static void entityWait()
 static void tongueAttackInit()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &tongueAttack;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void tongueAttack()
 {
 	Entity *e;
-	
+
 	setEntityAnimation(self, ATTACK_2);
-	
+
 	e = getFreeEntity();
 
 	if (e == NULL)
@@ -255,11 +256,11 @@ static void tongueAttack()
 
 	e->startX = e->x;
 	e->startY = e->y;
-	
+
 	e->endX = e->startX + (e->face == LEFT ? -120 : 120);
 
 	e->endY = getMapFloor(e->x, e->y);
-	
+
 	e->dirX = e->face == LEFT ? -e->speed : e->speed;
 
 	e->action = &tongueMove;
@@ -267,17 +268,17 @@ static void tongueAttack()
 	e->touch = &tongueTouch;
 
 	e->draw = &drawTongue;
-	
+
 	e->die = &entityDieNoDrop;
 
 	e->type = ENEMY;
 
 	e->head = self;
-	
+
 	self->mental = -1;
 
 	checkToMap(self);
-	
+
 	self->action = &tongueAttackWait;
 }
 
@@ -286,10 +287,10 @@ static void tongueAttackWait()
 	if (self->mental != -1)
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		self->action = &entityWait;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -300,77 +301,79 @@ static void tongueMove()
 		if (self->target != NULL)
 		{
 			self->target->flags &= ~NO_DRAW;
-			
+
 			setCustomAction(self->target, &invulnerable, 60, 0, 0);
-			
+
 			self->target->dirY = ITEM_JUMP_HEIGHT;
-			
+
 			self->target = NULL;
 		}
-		
+
 		self->action = self->die;
 	}
-	
+
 	if (self->dirX == 0 || (self->face == LEFT && self->x <= self->endX) || (self->face == RIGHT && self->x >= self->endX))
 	{
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
-		
+
 		self->action = &tongueReturn;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void tongueReturn()
 {
 	self->x += self->dirX;
-	
+
 	if (self->head->health <= 0)
 	{
 		if (self->target != NULL)
 		{
 			self->target->flags &= ~NO_DRAW;
-			
+
 			setCustomAction(self->target, &invulnerable, 60, 0, 0);
-			
+
 			self->target->dirY = ITEM_JUMP_HEIGHT;
-			
+
 			self->target = NULL;
 		}
-		
+
 		self->action = self->die;
 	}
-	
+
 	if (self->target != NULL)
 	{
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
 	}
-	
+
 	if ((self->face == LEFT && self->x >= self->startX) || (self->face == RIGHT && self->x <= self->startX))
 	{
 		if (self->target != NULL)
 		{
 			self->head->target = self->target;
-			
+
 			self->head->target->flags |= NO_DRAW;
-			
+
 			self->head->mental = 60 * 60;
-			
+
 			self->target = NULL;
-			
+
 			setInfoBoxMessage(180, 255, 255, 255, _("Your %s has been stolen!"), self->head->target->objectiveName);
-			
+
 			STRNCPY(self->head->objectiveName, self->head->target->name, sizeof(self->head->objectiveName));
+
+			addExitTrigger(self->head->target);
 		}
-		
+
 		else
 		{
 			self->head->mental = 0;
 		}
-		
+
 		self->head->thinkTime = 60;
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -380,17 +383,17 @@ static void tongueTouch(Entity *other)
 	if (other->health > 0 && other->type == PLAYER && self->target == NULL)
 	{
 		self->x = other->x + other->w / 2 - self->w / 2;
-		
+
 		self->targetY = other->y;
-		
+
 		self->target = other;
-		
+
 		self->action = &grabPause;
-		
+
 		self->thinkTime = 15;
-		
+
 		self->dirX = 0;
-		
+
 		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
 	}
 }
@@ -398,52 +401,52 @@ static void tongueTouch(Entity *other)
 static void grabPause()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	self->target->x = self->x - self->target->w / 2 + self->w / 2;
-	
+
 	self->target->y = self->targetY;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->target = NULL;
-		
+
 		if (prand() % 2 == 0)
 		{
 			e = removePlayerShield();
-			
+
 			if (e == NULL)
 			{
 				e = removePlayerWeapon();
 			}
 		}
-		
+
 		else
 		{
 			e = removePlayerWeapon();
-			
+
 			if (e == NULL)
 			{
 				e = removePlayerShield();
 			}
 		}
-		
+
 		if (e != NULL)
 		{
 			setCustomAction(e, &invulnerableNoFlash, 180, 0, 0);
-			
+
 			self->target = e;
 		}
-		
+
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
-		
+
 		self->action = &tongueReturn;
-		
+
 		self->touch = NULL;
-		
+
 		setPlayerLocked(TRUE);
-		
+
 		setPlayerLocked(FALSE);
 	}
 }
@@ -453,9 +456,9 @@ static void die()
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~NO_DRAW;
-		
+
 		setCustomAction(self->target, &invulnerable, 60, 0, 0);
-		
+
 		self->target->dirY = ITEM_JUMP_HEIGHT;
 	}
 
@@ -503,4 +506,13 @@ static int drawTongue()
 	drawLoopingAnimationToMap();
 
 	return TRUE;
+}
+
+static void addExitTrigger(Entity *e)
+{
+	char itemName[MAX_VALUE_LENGTH];
+
+	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"FROG\"", e->objectiveName);
+
+	addGlobalTriggerFromScript(itemName);
 }
