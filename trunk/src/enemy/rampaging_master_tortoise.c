@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
 #include "../game.h"
@@ -64,6 +65,14 @@ static void riftTouch(Entity *);
 static void spinAttackInit(void);
 static void spinAttack(void);
 static void spinAttackEnd(void);
+static void addSparkles(void);
+static int draw(void);
+static void resumeNormal(void);
+static void breatheFireInit(void);
+static void breatheFireWait(void);
+static void castIce(void);
+static void iceDrop(void);
+static void init(void);
 
 Entity *addRampagingMasterTortoise(int x, int y, char *name)
 {
@@ -79,19 +88,29 @@ Entity *addRampagingMasterTortoise(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &walk;
+	e->action = &init;
 
-	e->draw = &drawLoopingAnimationToMap;
+	e->draw = &draw;
 	e->touch = &entityTouch;
 	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	e->resumeNormalFunction = &resumeNormal;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void init()
+{
+	self->mental = 0;
+	
+	self->startX = 0;
+
+	self->action = &walk;
 }
 
 static void walk()
@@ -106,6 +125,8 @@ static void walk()
 		if (self->maxThinkTime == 0)
 		{
 			self->maxThinkTime = 1;
+
+			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp.ogg", -1, self->x, self->y, 0);
 		}
 
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
@@ -125,20 +146,50 @@ static void walk()
 
 	checkToMap(self);
 
-	if (player.health > 0 && prand() % 60 == 0 && self->mental != -1)
+	if (player.health > 0)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (self->mental != -1 && prand() % 60 == 0)
 		{
 			self->dirX = 0;
-
-			self->action = &spinAttackInit;
 
 			self->action = &riftAttackInit;
 
 			self->thinkTime = 30;
 		}
 
+		else if (prand() % 60 == 0
+			&& collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
+		{
+			switch (prand() % 3)
+			{
+				case 0:
+					self->dirX = 0;
+
+					self->thinkTime = 60;
+
+					self->action = &spinAttackInit;
+				break;
+
+				case 1:
+					self->dirX = 0;
+
+					self->thinkTime = 15;
+
+					self->action = &castIce;
+				break;
+
+				default:
+					self->thinkTime = 15;
+
+					self->action = &breatheFireInit;
+
+					self->dirX = 0;
+				break;
+			}
+		}
 	}
+
+	addSparkles();
 }
 
 static void riftAttackInit()
@@ -153,6 +204,8 @@ static void riftAttackInit()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void riftAttack()
@@ -199,6 +252,8 @@ static void riftAttack()
 	self->action = &riftAttackFinish;
 
 	self->thinkTime = 60;
+
+	addSparkles();
 }
 
 static void riftAttackFinish()
@@ -215,6 +270,8 @@ static void riftAttackFinish()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void die()
@@ -229,6 +286,11 @@ static void die()
 	}
 
 	addMedal("kill_rampaging");
+	
+	if (self->startX == -1)
+	{
+		fadeBossMusic();
+	}
 
 	entityDie();
 }
@@ -239,8 +301,6 @@ static void takeDamage(Entity *other, int damage)
 
 	if ((prand() % 3 == 0) && self->face == other->face && self->health > 0 && self->dirX != 0)
 	{
-		self->mental = -1;
-
 		self->dirX = 0;
 
 		self->action = &changeWalkDirectionStart;
@@ -263,6 +323,8 @@ static void changeWalkDirectionStart()
 	self->thinkTime = 60;
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void changeWalkDirection()
@@ -287,13 +349,13 @@ static void changeWalkDirection()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
-
-	self->mental = 0;
 
 	setEntityAnimation(self, STAND);
 
@@ -304,6 +366,8 @@ static void changeWalkDirectionFinish()
 	self->thinkTime = 120 + prand() % 120;
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void riftMove()
@@ -479,6 +543,11 @@ static void riftDestroyWait()
 
 		self->action = &riftClose;
 	}
+
+	if (prand() % 3 == 0)
+	{
+		addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+	}
 }
 
 static void gibWait()
@@ -537,12 +606,16 @@ static void spinAttackInit()
 
 		self->action = &spinAttack;
 
-		self->mental = prand() % 3;
+		self->endX = prand() % 3;
 
-		self->dirX = self->face == LEFT ? -self->speed * 4 : self->speed * 4;
+		self->speed = self->speed * 8;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void spinAttack()
@@ -551,9 +624,9 @@ static void spinAttack()
 
 	if (self->dirX == 0 || isAtEdge(self))
 	{
-		self->mental--;
+		self->endX--;
 
-		if (self->mental <= 0)
+		if (self->endX <= 0)
 		{
 			if (self->dirX == 0)
 			{
@@ -574,11 +647,13 @@ static void spinAttack()
 		{
 			self->face = self->face == LEFT ? RIGHT : LEFT;
 
-			self->dirX = self->face == LEFT ? -self->speed * 4 : self->speed * 4;
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 		}
 
 		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 	}
+
+	addSparkles();
 }
 
 static void spinAttackEnd()
@@ -591,8 +666,208 @@ static void spinAttackEnd()
 
 		setEntityAnimation(self, STAND);
 
+		self->speed = self->originalSpeed;
+
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &walk;
+
+		self->thinkTime = 60;
 	}
+
+	addSparkles();
+}
+
+static void breatheFireInit()
+{
+	Entity *e;
+
+	setEntityAnimation(self, ATTACK_1);
+
+	e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -6 : 6), 0);
+
+	if (self->face == LEFT)
+	{
+		e->x = self->x + self->w - e->w - self->offsetX;
+	}
+
+	else
+	{
+		e->x = self->x + self->offsetX;
+	}
+
+	e->y = self->y + self->offsetY;
+
+	e->flags |= FLY;
+
+	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
+
+	self->thinkTime = 30;
+
+	self->action = &breatheFireWait;
+
+	checkToMap(self);
+}
+
+static void breatheFireWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, STAND);
+
+		self->thinkTime = 300 + prand() % 180;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+		self->action = &walk;
+	}
+
+	checkToMap(self);
+}
+
+static void castIce()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	setEntityAnimation(self, ATTACK_1);
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice Spike");
+		}
+
+		loadProperties("enemy/ice_spike", e);
+
+		setEntityAnimation(e, STAND);
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2;
+		e->targetY = getMapCeiling(self->x, self->y);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		e->action = &iceDrop;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 30;
+
+		e->flags |= FLY|DO_NOT_PERSIST;
+
+		self->thinkTime = 0;
+
+		setEntityAnimation(self, STAND);
+
+		self->action = &walk;
+	}
+
+	checkToMap(self);
+}
+
+static void iceDrop()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+	}
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+
+		for (i=0;i<8;i++)
+		{
+			e = addTemporaryItem("misc/ice_spike_piece", self->x, self->y, RIGHT, 0, 0);
+
+			e->x = self->x + self->w / 2;
+			e->x -= e->w / 2;
+
+			e->y = self->y + self->h / 2;
+			e->y -= e->h / 2;
+
+			e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimation(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+
+			e->touch = NULL;
+		}
+
+		self->inUse = FALSE;
+	}
+}
+
+static void addSparkles()
+{
+	Entity *e;
+
+	e = addBasicDecoration(self->x, self->y, "decoration/particle");
+
+	if (e != NULL)
+	{
+		e->x += prand() % self->box.w;
+		e->y += prand() % self->box.h;
+
+		e->thinkTime = 5 + prand() % 30;
+
+		setEntityAnimation(e, prand() % 5);
+
+		e->dirX = 0;
+		e->dirY = -2;
+	}
+}
+
+static int draw()
+{
+	int offsetX = self->offsetX;
+	int drawn = drawLoopingAnimationToMap();
+
+	if (drawn == TRUE)
+	{
+		if (offsetX == 0 && self->offsetX != offsetX)
+		{
+			shakeScreen(LIGHT, 5);
+		}
+	}
+
+	return drawn;
+}
+
+static void resumeNormal()
+{
+	self->face = player.x < self->x ? RIGHT : LEFT;
+
+	self->action = &changeWalkDirection;
 }
