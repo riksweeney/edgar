@@ -105,7 +105,7 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		playerShield.parent = &player;
 		playerWeapon.parent = &player;
-		
+
 		playerShield.name[0] = '\0';
 		playerWeapon.name[0] = '\0';
 
@@ -181,7 +181,7 @@ void doPlayer()
 {
 	int i, j;
 	long travelled;
-	
+
 	travelled = game.distanceTravelled;
 
 	self = &player;
@@ -237,34 +237,14 @@ void doPlayer()
 		if (self->action == NULL)
 		{
 			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
-			playerWeapon.flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
-			playerShield.flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
 
 			for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 			{
 				if (self->customAction[i].thinkTime > 0)
 				{
-					self = &player;
-					
-					doCustomAction(&self->customAction[i]);
-				}
-				
-				if (playerWeapon.inUse == TRUE && playerWeapon.customAction[i].thinkTime > 0)
-				{
-					self = &playerWeapon;
-					
-					doCustomAction(&self->customAction[i]);
-				}
-				
-				if (playerShield.inUse == TRUE && playerShield.customAction[i].thinkTime > 0)
-				{
-					self = &playerShield;
-					
 					doCustomAction(&self->customAction[i]);
 				}
 			}
-			
-			self = &player;
 
 			if (!(self->flags & HELPLESS))
 			{
@@ -463,7 +443,7 @@ void doPlayer()
 				if (input.interact == 1)
 				{
 					interactWithEntity(self->x, self->y, self->w, self->h);
-					
+
 					input.interact = 0;
 				}
 
@@ -627,9 +607,16 @@ void doPlayer()
 		{
 			playerShield.thinkTime = 0;
 		}
-		
+
+		playerWeapon.thinkTime--;
+
+		if (playerWeapon.thinkTime <= 0)
+		{
+			playerWeapon.thinkTime = 0;
+		}
+
 		game.distanceTravelled += fabs(self->dirX);
-		
+
 		if (travelled < 2250000 && game.distanceTravelled >= 2250000)
 		{
 			addMedal("50km");
@@ -653,7 +640,7 @@ void playerWaitForDialog()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	if (playerWeapon.mental == -1)
 	{
 		lightningSwordChangeToBasic();
@@ -679,9 +666,9 @@ void playerResumeNormal()
 	if (player.health != 0)
 	{
 		player.target = NULL;
-	
+
 		player.action = NULL;
-	
+
 		player.flags &= ~INVULNERABLE;
 	}
 }
@@ -691,7 +678,7 @@ static void dialogWait()
 	if (scriptWaiting() == TRUE)
 	{
 		readNextScriptLine();
-		
+
 		input.interact = 0;
 		input.jump = 0;
 		input.attack = 0;
@@ -729,9 +716,9 @@ void playerWaitForConfirm()
 static void confirmWait()
 {
 	doScriptMenu();
-	
+
 	checkToMap(&player);
-	
+
 	if (player.target != NULL)
 	{
 		player.face = player.x < player.target->x ? RIGHT : LEFT;
@@ -752,7 +739,7 @@ static void attackFinish()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerShield, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
-	
+
 	if (playerWeapon.mental == -1)
 	{
 		lightningSwordChangeToBasic();
@@ -837,9 +824,9 @@ void setPlayerShield(int val)
 
 		return;
 	}
-	
+
 	/* Don't allow the player to change shields whilst attacking */
-	
+
 	if (playerWeapon.flags & ATTACKING)
 	{
 		return;
@@ -848,9 +835,9 @@ void setPlayerShield(int val)
 	if (usingBow() == TRUE)
 	{
 		playerWeapon.animationCallback = NULL;
-		
+
 		setEntityAnimation(&player, STAND);
-		
+
 		/* Unequip the bow */
 
 		playerWeapon.inUse = FALSE;
@@ -874,20 +861,20 @@ void setPlayerWeapon(int val)
 
 		return;
 	}
-	
+
 	/* Don't allow the player to change weapons whilst attacking */
-	
+
 	if (playerWeapon.flags & ATTACKING)
 	{
 		return;
 	}
-	
+
 	playerWeapon.animationCallback = NULL;
 
 	playerWeapon = *self;
-	
+
 	playerWeapon.head = self;
-	
+
 	playerWeapon.touch = &weaponTouch;
 
 	alignAnimations(&playerWeapon);
@@ -897,16 +884,16 @@ void setPlayerWeapon(int val)
 	if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
 	{
 		playerWeapon.action = &drawBow;
-		
+
 		playerShield.name[0] = '\0';
 
 		playerShield.inUse = FALSE;
 	}
-	
+
 	else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
 	{
 		playerWeapon.action = &swingSword;
-		
+
 		if (playerWeapon.mental > 0)
 		{
 			playerWeapon.touch = &lightningSwordTouch;
@@ -946,20 +933,20 @@ void autoSetPlayerWeapon(Entity *newWeapon)
 		}
 
 		playerWeapon = *newWeapon;
-		
+
 		playerWeapon.head = newWeapon;
-		
+
 		if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
 		{
 			playerWeapon.action = &drawBow;
 
 			playerShield.inUse = FALSE;
 		}
-		
+
 		else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
 		{
 			playerWeapon.action = &swingSword;
-			
+
 			if (playerWeapon.mental > 0)
 			{
 				playerWeapon.touch = &lightningSwordTouch;
@@ -1032,9 +1019,9 @@ static void takeDamage(Entity *other, int damage)
 
 					playerShield.thinkTime = 5;
 				}
-				
+
 				game.attacksBlocked++;
-				
+
 				if (game.attacksBlocked == 2000)
 				{
 					addMedal("blocked");
@@ -1088,9 +1075,9 @@ static void takeDamage(Entity *other, int damage)
 
 				playerShield.thinkTime = 5;
 			}
-			
+
 			game.attacksBlocked++;
-			
+
 			if (game.attacksBlocked == 2000)
 			{
 				addMedal("blocked");
@@ -1139,7 +1126,7 @@ static void takeDamage(Entity *other, int damage)
 			setEntityAnimation(&playerShield, STAND);
 			setEntityAnimation(&playerWeapon, STAND);
 		}
-		
+
 		if (playerWeapon.mental == -1)
 		{
 			lightningSwordChangeToBasic();
@@ -1161,13 +1148,13 @@ static void takeDamage(Entity *other, int damage)
 			if (self->action != NULL)
 			{
 				self->action = NULL;
-				
+
 				if (self->target != NULL)
 				{
 					self->target = NULL;
 				}
 			}
-			
+
 			setCustomAction(&player, &helpless, 10, 0, 0);
 
 			setCustomAction(&player, &invulnerable, 60, 0, 0);
@@ -1325,11 +1312,11 @@ static void fallout()
 static void falloutPause()
 {
 	player.thinkTime--;
-	
+
 	if (player.flags & NO_DRAW)
 	{
 		player.dirY = 0;
-		
+
 		player.flags |= FLY;
 	}
 
@@ -1384,7 +1371,7 @@ static void resetPause()
 		{
 			player.action = &resetPlayer;
 		}
-		
+
 		player.dirY = 0;
 	}
 }
@@ -1396,11 +1383,11 @@ static void resetPlayer()
 	player.draw = &drawLoopingAnimationToMap;
 
 	getCheckpoint(&player.x, &player.y);
-	
+
 	if (game.canContinue == FALSE)
 	{
 		centerMapOnEntity(&player);
-		
+
 		cameraSnapToTargetEntity();
 	}
 
@@ -1409,18 +1396,18 @@ static void resetPlayer()
 	player.touch = &touch;
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
-	
+
 	if (game.infiniteEnergy == FALSE)
 	{
 		player.health -= (player.environment == SLIME ? 2 : 1);
 	}
-	
+
 	if (player.health <= 0)
 	{
 		removeInventoryItemByObjectiveName("Amulet of Resurrection");
-		
+
 		player.health = player.maxHealth;
-		
+
 		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
 	}
 
@@ -1488,22 +1475,22 @@ static void playerDie()
 		player.flags |= NO_DRAW;
 		playerShield.flags |= NO_DRAW;
 		playerWeapon.flags |= NO_DRAW;
-		
+
 		if (player.environment != SLIME)
 		{
 			removeInventoryItemByObjectiveName("Amulet of Resurrection");
 		}
 	}
-	
+
 	if (getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
 	{
 		player.action = &gameOverTimeOut;
-		
+
 		doGameOver();
 
 		loadGameOverMusic();
 	}
-	
+
 	else
 	{
 		player.action = &resurrectionTimeOut;
@@ -1514,34 +1501,34 @@ static void resurrectionTimeOut()
 {
 	int i;
 	Entity *e;
-	
+
 	player.thinkTime--;
-	
+
 	player.flags |= INVULNERABLE;
-	
+
 	if (player.thinkTime == 0)
 	{
 		for (i=0;i<6;i++)
 		{
 			e = getFreeEntity();
-			
+
 			if (e == NULL)
 			{
 				showErrorAndExit("No free slots to add the Resurrection particle");
 			}
-			
+
 			loadProperties("boss/awesome_fireball_particle", e);
-			
+
 			setEntityAnimation(e, STAND);
-			
+
 			e->head = &player;
-			
+
 			e->x = player.x + player.w / 2 - e->w / 2;
 			e->y = player.y + player.h / 2 - e->h / 2;
 
 			e->startX = e->x;
 			e->startY = e->y;
-			
+
 			e->draw = &drawLoopingAnimationToMap;
 
 			e->mental = 180;
@@ -1550,14 +1537,14 @@ static void resurrectionTimeOut()
 
 			e->action = &resurrectionParticleWait;
 		}
-		
+
 		player.action = &resurrectionWait;
-		
+
 		player.mental = 6;
-		
+
 		player.health = player.maxHealth;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -1566,25 +1553,25 @@ static void resurrectionWait()
 	if (player.mental == 0)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("Used Amulet of Resurrection"));
-		
+
 		removeInventoryItemByObjectiveName("Amulet of Resurrection");
-		
+
 		setEntityAnimation(&player, STAND);
 		setEntityAnimation(&playerShield, STAND);
 		setEntityAnimation(&playerWeapon, STAND);
-		
+
 		player.action = NULL;
-		
-		setCustomAction(&player, &invulnerable, 180, 0, 0);	
+
+		setCustomAction(&player, &invulnerable, 180, 0, 0);
 	}
-	
+
 	checkToMap(self);
 }
 
 static void gameOverTimeOut()
 {
 	player.thinkTime--;
-	
+
 	checkToMap(&player);
 }
 
@@ -1599,7 +1586,7 @@ void freePlayer()
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
-	
+
 	player.flags = 0;
 }
 
@@ -1617,9 +1604,9 @@ EntityList *playerGib()
 	if (player.health > 0)
 	{
 		/* Don't allow resurrecting */
-		
+
 		removeInventoryItemByObjectiveName("Amulet of Resurrection");
-		
+
 		list = throwGibs("edgar/edgar_gibs", 6);
 
 		player.inUse = TRUE;
@@ -1643,24 +1630,24 @@ void setPlayerStunned(int thinkTime)
 	{
 		return;
 	}
-	
+
 	/* Change back to Edgar */
 
 	if (player.element == WATER)
 	{
 		becomeEdgar();
 	}
-	
+
 	if (player.action != NULL)
 	{
 		player.action = NULL;
-		
+
 		if (player.target == NULL)
 		{
 			player.target = NULL;
 		}
 	}
-	
+
 	player.animationCallback = NULL;
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
@@ -1690,12 +1677,12 @@ void doStunned()
 void setPlayerSlimed(int thinkTime)
 {
 	Entity *e = NULL;
-	
+
 	if (player.health <= 0)
 	{
 		return;
 	}
-	
+
 	e = getFreeEntity();
 
 	if (e == NULL)
@@ -1737,7 +1724,7 @@ void setPlayerSlimed(int thinkTime)
 	setEntityAnimation(&player, STAND);
 	setEntityAnimation(&playerWeapon, STAND);
 	setEntityAnimation(&playerShield, STAND);
-	
+
 	player.animationCallback = NULL;
 	playerShield.animationCallback = NULL;
 	playerWeapon.animationCallback = NULL;
@@ -1751,7 +1738,7 @@ static void applySlime()
 	{
 		self->thinkTime--;
 	}
-	
+
 	self->face = player.face;
 
 	player.dirX = 0;
@@ -1806,7 +1793,7 @@ static void fireArrow()
 	if (arrow != NULL)
 	{
 		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
-		
+
 		if (e->face == LEFT)
 		{
 			e->x -= e->w;
@@ -1821,7 +1808,7 @@ static void fireArrow()
 		e->face = player.face;
 
 		e->flags |= FLY|ATTACKING;
-		
+
 		if (game.infiniteArrows == FALSE)
 		{
 			arrow->health--;
@@ -1831,14 +1818,14 @@ static void fireArrow()
 		{
 			removeInventoryItemByObjectiveName(playerWeapon.requires);
 		}
-		
+
 		game.arrowsFired++;
-		
+
 		if (game.arrowsFired == 250)
 		{
 			addMedal("arrow_250");
 		}
-		
+
 		else if (game.arrowsFired == 500)
 		{
 			addMedal("arrow_500");
@@ -1928,7 +1915,7 @@ void becomeJumpingSlime(int seconds)
 		player.y = originalY;
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Cannot transmogrify here..."));
-		
+
 		player.type = PLAYER;
 	}
 
@@ -1969,7 +1956,7 @@ void becomeEdgar()
 	player.x = midX;
 
 	player.x -= player.w / 2;
-	
+
 	player.type = PLAYER;
 
 	player.element = NO_ELEMENT;
@@ -2295,51 +2282,51 @@ void playerStand()
 
 static void weaponTouch(Entity *other)
 {
-	
+
 }
 
 static void lightningSwordTouch(Entity *other)
 {
-	if (other->takeDamage != NULL && !(self->flags & INVULNERABLE))
+	if (other->takeDamage != NULL && self->thinkTime <= 0)
 	{
 		self->mental--;
-		
+
 		self->head->mental = self->mental;
-		
+
 		if (self->mental == 10)
 		{
 			freeMessageQueue();
-			
+
 			setInfoBoxMessage(60, 255, 255, 255, _("10 charges remaining..."));
 		}
-		
+
 		else if (self->mental <= 0)
 		{
 			freeMessageQueue();
-			
+
 			setInfoBoxMessage(120, 255, 255, 255, _("%s is out of power"), self->objectiveName);
-			
+
 			self->touch = NULL;
-			
+
 			self->mental = -1;
 		}
-		
-		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		self->thinkTime = HIT_INVULNERABLE_TIME;
 	}
 }
 
 static void lightningSwordChangeToBasic()
 {
 	loadProperties("weapon/lightning_sword_empty", &playerWeapon);
-	
+
 	playerWeapon.touch = &weaponTouch;
 
 	alignAnimations(&playerWeapon);
-	
+
 	playerWeapon.action = &swingSword;
-	
+
 	playerWeapon.mental = -2;
-	
+
 	replaceInventoryItemWithName("weapon/lightning_sword", &playerWeapon);
 }
 
@@ -2347,83 +2334,83 @@ void addChargesToWeapon()
 {
 	int mental = 0;
 	Entity *e;
-	
+
 	if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0 ||
 		strcmpignorecase(playerWeapon.name, "weapon/lightning_sword_empty") == 0)
 	{
 		mental = playerWeapon.mental;
-		
+
 		if (playerWeapon.mental < 0)
 		{
 			playerWeapon.mental = 0;
 		}
-		
+
 		playerWeapon.mental += self->health;
-		
+
 		if (playerWeapon.mental > 50)
 		{
 			playerWeapon.mental = 50;
 		}
-		
+
 		playerWeapon.head->mental = playerWeapon.mental;
-		
+
 		/* Transform back into Lightning Sword */
-		
+
 		if (mental == -2)
 		{
 			mental = playerWeapon.mental;
-			
+
 			loadProperties("weapon/lightning_sword", &playerWeapon);
-			
+
 			playerWeapon.mental = mental;
-			
+
 			playerWeapon.touch = &lightningSwordTouch;
 
 			alignAnimations(&playerWeapon);
-			
+
 			playerWeapon.action = &swingSword;
-			
+
 			replaceInventoryItemWithName("weapon/lightning_sword_empty", &playerWeapon);
-			
+
 			setInfoBoxMessage(60, 255, 255, 255, _("%s has regained power"), _(playerWeapon.objectiveName));
 		}
-		
+
 		else
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s x %d"), _(self->objectiveName), self->health);
 		}
 	}
-	
+
 	else
 	{
 		e = getInventoryItemByObjectiveName(self->requires);
-		
+
 		if (e != NULL)
 		{
 			mental = e->mental;
-			
+
 			if (e->mental < 0)
 			{
 				e->mental = 0;
 			}
-			
+
 			e->mental += self->health;
-			
+
 			/* Transform back into Lightning Sword */
-			
+
 			if (mental == -2)
 			{
 				mental = e->mental;
-				
+
 				loadProperties("weapon/lightning_sword", e);
-				
+
 				e->mental = mental;
-				
+
 				e->touch = &lightningSwordTouch;
-				
+
 				setInfoBoxMessage(60, 255, 255, 255, _("%s has regained power"), _(e->objectiveName));
 			}
-			
+
 			else
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s x %d"), _(self->objectiveName), self->health);
@@ -2459,12 +2446,12 @@ static void resurrectionParticleWait()
 void setWeaponFromScript(char *name)
 {
 	self = getInventoryItemByName(name);
-	
+
 	if (self == NULL)
 	{
 		showErrorAndExit("Could not find inventory item %s\n", name);
 	}
-	
+
 	setPlayerWeapon(1);
 }
 
@@ -2472,5 +2459,5 @@ void scriptAttack()
 {
 	playerWeapon.flags |= ATTACKING;
 
-	playerWeapon.action();	
+	playerWeapon.action();
 }

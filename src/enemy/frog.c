@@ -444,10 +444,13 @@ static void grabPause()
 		self->action = &tongueReturn;
 
 		self->touch = NULL;
-
-		setPlayerLocked(TRUE);
-
-		setPlayerLocked(FALSE);
+		
+		if (self->target->health > 0)
+		{
+			setPlayerLocked(TRUE);
+	
+			setPlayerLocked(FALSE);
+		}
 	}
 }
 

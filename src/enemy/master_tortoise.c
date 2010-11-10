@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
 #include "../game.h"
@@ -36,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "thunder_cloud.h"
 #include "rock.h"
+#include "enemies.h"
 
 extern Entity *self, player;
 
@@ -58,7 +60,9 @@ static void breatheFireWait(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
 static void becomeRampagingInit(void);
-static void becomeRampaging(void);
+static void becomeRampagingStage1(void);
+static void becomeRampagingStage2(void);
+static void becomeRampagingFinish(void);
 
 Entity *addMasterTortoise(int x, int y, char *name)
 {
@@ -98,10 +102,12 @@ static void walk()
 	if (self->health >= self->maxHealth + 200)
 	{
 		self->dirX = 0;
-		
+
 		self->action = &becomeRampagingInit;
+
+		setCustomAction(self, &invulnerableNoFlash, 3600, 0, 0);
 	}
-	
+
 	else
 	{
 		if (player.health > 0 && prand() % 60 == 0)
@@ -811,28 +817,106 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 static void becomeRampagingInit()
 {
-	float y;
-	
-	y = self->y;
-	
+	self->startY = self->y;
+
 	setEntityAnimation(self, CUSTOM_3);
-	
-	self->y = y;
-	
+
+	self->y = self->startY;
+
 	self->dirY = 0;
-	
-	self->flags |= FLY;
-	
-	self->thinkTime = 180;
-	
+
+	self->thinkTime = 60;
+
 	checkToMap(self);
+
+	self->action = &becomeRampagingStage1;
 	
-	self->action = &becomeRampaging;
+	fadeOutMusic(2000);
 }
 
-static void becomeRampaging()
+static void becomeRampagingStage1()
 {
-	self->thinkTime--;
-	
+	int i;
+	long onGround = (self->flags & ON_GROUND);
+
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+		}
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, CUSTOM_4);
+
+			self->thinkTime = 180;
+
+			self->flags |= FLY;
+
+			self->action = &becomeRampagingStage2;
+		}
+	}
+}
+
+static void becomeRampagingStage2()
+{
+	if (self->y > self->startY)
+	{
+		self->y--;
+	}
+
+	else
+	{
+		self->y = self->startY;
+
+		self->thinkTime--;
+
+		if (self->thinkTime % 30 == 0)
+		{
+			self->frameSpeed += 0.5;
+		}
+
+		else if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 30;
+
+			self->action = &becomeRampagingFinish;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void becomeRampagingFinish()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->thinkTime <= 0)
+	{
+		playDefaultBossMusic();
+		
+		e = addEnemy("enemy/rampaging_master_tortoise", self->x, self->y);
+
+		setEntityAnimation(e, CUSTOM_2);
+
+		e->face = self->face;
+		
+		e->startX = -1;
+
+		self->inUse = FALSE;
+
+		e->action = e->resumeNormalFunction;
+	}
 }

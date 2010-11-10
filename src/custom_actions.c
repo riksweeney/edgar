@@ -113,7 +113,7 @@ int hasCustomAction(Entity *e, void (*func)(int *, int *, float *))
 			return TRUE;
 		}
 	}
-	
+
 	return FALSE;
 }
 
@@ -258,12 +258,12 @@ void regenerate(int *thinkTime, int *counter, float *value)
 void slimeTimeout(int *thinkTime, int *counter, float *value)
 {
 	game.timeSpentAsSlime++;
-	
+
 	if (game.timeSpentAsSlime == 36000)
 	{
 		addMedal("slime");
 	}
-	
+
 	(*thinkTime)--;
 
 	freeMessageQueue();
