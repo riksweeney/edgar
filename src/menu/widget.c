@@ -42,7 +42,7 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 		w->normalState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 
 		w->selectedState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 200, 0), 255, 255, 255, 0, 200, 0);
-		
+
 		w->disabledState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 100, 100, 100), 255, 255, 255, 100, 100, 100);
 	}
 
@@ -51,7 +51,7 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 		w->normalState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 0, 0, 0, 0, 0, 0);
 
 		w->selectedState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 200, 0), 0, 200, 0, 0, 200, 0);
-		
+
 		w->disabledState = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 100, 100, 100), 0, 0, 0, 0, 0, 0);
 	}
 
@@ -68,8 +68,10 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 	w->y = y;
 
 	w->label = NULL;
-	
+
 	w->disabled = FALSE;
+
+	w->hidden = FALSE;
 
 	return w;
 }
@@ -78,17 +80,22 @@ void drawWidget(Widget *w, Menu *m, int selected)
 {
 	int x, y;
 
+	if (w->hidden == TRUE)
+	{
+		return;
+	}
+
 	x = w->x < 0 ? (m->w - w->normalState->w) / 2 : w->x;
 	y = w->y < 0 ? (m->h - w->normalState->h) / 2 : w->y;
 
 	x += m->x;
 	y += m->y;
-	
+
 	if (w->disabled == TRUE)
 	{
 		drawImage(w->disabledState, x, y, FALSE, 255);
 	}
-	
+
 	else
 	{
 		drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE, 255);
@@ -117,7 +124,7 @@ void freeWidget(Widget *w)
 
 			w->selectedState = NULL;
 		}
-		
+
 		if (w->disabledState != NULL)
 		{
 			SDL_FreeSurface(w->disabledState);

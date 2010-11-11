@@ -87,7 +87,7 @@ CORE_OBJS += soul_merger_control_panel.o fire_tortoise.o lava_door.o dark_summon
 CORE_OBJS += puzzle_piece.o jigsaw_puzzle.o jigsaw_puzzle_display.o magnet.o ice_tortoise.o splitter.o attractor.o buzz_saw.o cell_bars.o
 CORE_OBJS += sorceror.o centurion_boss.o sonic_boom_panel.o sewer_boss.o item_remover.o safe.o ground_snapper.o sasquatch.o icicle.o giant_snowball.o
 CORE_OBJS += script_menu.o snow_pile.o ceiling_creeper.o gas_plant.o centipede.o spore_crop.o spore.o sludge_pool.o vines.o undead_gazer.o
-CORE_OBJS += slime_potion_pool.o frog.o master_tortoise.o red_ceiling_creeper.o rampaging_master_tortoise.o
+CORE_OBJS += slime_potion_pool.o frog.o master_tortoise.o red_ceiling_creeper.o rampaging_master_tortoise.o cheat_menu.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

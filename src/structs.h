@@ -27,7 +27,7 @@ typedef struct Label
 
 typedef struct Widget
 {
-	int x, y, disabled;
+	int x, y, disabled, hidden;
 	int *value, maxValue, minValue;
 	void (*clickAction)(void);
 	void (*rightAction)(void);
@@ -72,6 +72,7 @@ typedef struct Input
 	int mouseX, mouseY, toggle;
 	int activate, attack, fly, snap, cut;
 	int interact, grabbing, block, inventory;
+	int lastPressedKey;
 } Input;
 
 typedef struct CustomAction
@@ -151,7 +152,7 @@ typedef struct Game
 	int kills, batsDrowned, timesEaten, medalSupport;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
-	int disableJoystick, mapExitable;
+	int disableJoystick, mapExitable, cheatsEnabled;
 	int infiniteEnergy, infiniteArrows;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
