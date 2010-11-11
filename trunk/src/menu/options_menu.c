@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "control_menu.h"
 #include "sound_menu.h"
 #include "ok_menu.h"
+#include "cheat_menu.h"
 #include "../system/pak.h"
 #include "../init.h"
 #include "../medal.h"
@@ -37,6 +38,8 @@ extern Input input, menuInput;
 extern Game game;
 
 static Menu menu;
+static char lastKeys[MAX_VALUE_LENGTH];
+static int lastKeysIndex = 0;
 
 static void loadMenuLayout(void);
 static void toggleHints(void);
@@ -44,9 +47,11 @@ static void showControlMenu(void);
 static void showOptionsMenu(void);
 static void showSoundMenu(void);
 static void showMainMenu(void);
+static void showCheatMenu(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
 static void toggleMedal(void);
+static void enableCheatMenu(void);
 
 void drawOptionsMenu()
 {
@@ -62,16 +67,50 @@ void drawOptionsMenu()
 
 static void doMenu()
 {
+	int i;
 	Widget *w;
+
+	if (game.cheatsEnabled == FALSE && input.lastPressedKey != -1 && isalnum(input.lastPressedKey))
+	{
+		lastKeys[lastKeysIndex] = tolower(input.lastPressedKey);
+
+		lastKeysIndex++;
+
+		lastKeys[lastKeysIndex] = '\0';
+
+		if (lastKeysIndex + 1 >= MAX_VALUE_LENGTH)
+		{
+			for (i=1;i<MAX_VALUE_LENGTH;i++)
+			{
+				lastKeys[i - 1] = lastKeys[i];
+
+				lastKeys[i] = '\0';
+			}
+
+			lastKeysIndex = MAX_VALUE_LENGTH - 2;
+		}
+
+		if (strstr(lastKeys, MENU_CODE) != NULL)
+		{
+			enableCheatMenu();
+		}
+
+		input.lastPressedKey = -1;
+	}
 
 	if (input.down == TRUE || menuInput.down == TRUE)
 	{
-		menu.index++;
-
-		if (menu.index == menu.widgetCount)
+		do
 		{
-			menu.index = 0;
+			menu.index++;
+
+			if (menu.index >= menu.widgetCount)
+			{
+				menu.index = 0;
+			}
 		}
+
+		while (menu.widgets[menu.index]->hidden == TRUE);
 
 		menuInput.down = FALSE;
 		input.down = FALSE;
@@ -81,12 +120,17 @@ static void doMenu()
 
 	else if (input.up == TRUE || menuInput.up == TRUE)
 	{
-		menu.index--;
-
-		if (menu.index < 0)
+		do
 		{
-			menu.index = menu.widgetCount - 1;
+			menu.index--;
+
+			if (menu.index < 0)
+			{
+				menu.index = menu.widgetCount - 1;
+			}
 		}
+
+		while (menu.widgets[menu.index]->hidden == TRUE);
 
 		menuInput.up = FALSE;
 		input.up = FALSE;
@@ -244,6 +288,13 @@ static void loadMenuLayout()
 					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
+				else if (strcmpignorecase(menuID, "MENU_CHEAT") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showCheatMenu, x, y, TRUE);
+
+					menu.widgets[i]->hidden = game.cheatsEnabled == TRUE ? FALSE : TRUE;
+				}
+
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showMainMenu, x, y, TRUE);
@@ -288,6 +339,12 @@ Menu *initOptionsMenu()
 		loadMenuLayout();
 	}
 
+	input.lastPressedKey = -1;
+
+	lastKeysIndex = 0;
+
+	lastKeys[lastKeysIndex] = '\0';
+
 	menu.returnAction = &showMainMenu;
 
 	return &menu;
@@ -330,7 +387,7 @@ static void toggleMedal()
 	Widget *w = menu.widgets[menu.index];
 
 	game.medalSupport = game.medalSupport == TRUE ? FALSE : TRUE;
-	
+
 	if (game.medalSupport == TRUE)
 	{
 		result = connectToServer();
@@ -350,7 +407,7 @@ static void toggleMedal()
 			game.drawMenu = &drawOKMenu;
 		}
 	}
-	
+
 	updateLabelText(w->label, game.medalSupport == TRUE ? _("Yes") : _("No"));
 }
 
@@ -391,4 +448,26 @@ static void showOptionsMenu()
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
+}
+
+static void showCheatMenu()
+{
+	game.menu = initCheatMenu();
+
+	game.drawMenu = &drawCheatMenu;
+}
+
+static void enableCheatMenu()
+{
+	int i;
+
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->hidden == TRUE)
+		{
+			menu.widgets[i]->hidden = FALSE;
+		}
+	}
+
+	game.cheatsEnabled = TRUE;
 }

@@ -59,7 +59,9 @@ void getInput(int gameType)
 
 			case SDL_KEYDOWN:
 				key = event.key.keysym.sym;
-				
+
+				input.lastPressedKey = key;
+
 				if (game.status == IN_ERROR && key == SDLK_ESCAPE)
 				{
 					exit(0);
@@ -76,7 +78,7 @@ void getInput(int gameType)
 					{
 						pauseGameInventory();
 					}
-					
+
 					input.inventory = TRUE;
 				}
 
@@ -315,7 +317,7 @@ void getInput(int gameType)
 				{
 					menuInput.attack = FALSE;
 				}
-				
+
 				else if (key == control.button[CONTROL_INVENTORY])
 				{
 					input.inventory = FALSE;
@@ -424,14 +426,14 @@ void getInput(int gameType)
 					input.interact = TRUE;
 					input.grabbing = TRUE;
 				}
-				
+
 				else if (key == control.button[CONTROL_INVENTORY])
 				{
 					if (!(player.flags & HELPLESS) && player.action == NULL)
 					{
 						pauseGameInventory();
 					}
-					
+
 					input.inventory = TRUE;
 				}
 			break;
@@ -496,7 +498,7 @@ void getInput(int gameType)
 					input.interact = FALSE;
 					input.grabbing = FALSE;
 				}
-				
+
 				else if (key == control.button[CONTROL_INVENTORY])
 				{
 					input.inventory = FALSE;
@@ -559,7 +561,7 @@ void getInput(int gameType)
 
 			case REPLAYING:
 				input = getBuffer();
-				
+
 				if (input.inventory == TRUE)
 				{
 					if (!(player.flags & HELPLESS) && player.action == NULL)
@@ -573,7 +575,7 @@ void getInput(int gameType)
 			break;
 		}
 	}
-	
+
 	input.inventory = FALSE;
 }
 
@@ -641,7 +643,7 @@ void resetControls(int editor)
 		control.button[CONTROL_INTERACT] = SDLK_c;
 		control.button[CONTROL_PAUSE] = SDLK_p;
 		control.button[CONTROL_BLOCK] = SDLK_LALT;
-		
+
 		if (editor == TRUE)
 		{
 			control.button[CONTROL_SAVE] = SDLK_s;
