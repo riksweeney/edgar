@@ -4,3 +4,4 @@ ANIM_FILE data/anim/weapon/basic_sword.dat
 TYPE WEAPON
 OBJECTIVE_NAME Lightning Sword
 DESCRIPTION A Sword that can be charged with lightning
+ELEMENT NO_ELEMENT

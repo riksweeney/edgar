@@ -107,7 +107,7 @@ Entity *addRampagingMasterTortoise(int x, int y, char *name)
 static void init()
 {
 	self->mental = 0;
-	
+
 	self->startX = 0;
 
 	self->action = &walk;
@@ -286,7 +286,7 @@ static void die()
 	}
 
 	addMedal("kill_rampaging");
-	
+
 	if (self->startX == -1)
 	{
 		fadeBossMusic();
@@ -755,7 +755,7 @@ static void castIce()
 		e->y -= e->h / 2;
 
 		e->targetX = player.x + player.w / 2;
-		e->targetY = getMapCeiling(self->x, self->y);
+		e->targetY = getMapCeiling(e->targetX, self->y);
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
