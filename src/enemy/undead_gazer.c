@@ -134,8 +134,6 @@ static void gazeInit()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_1);
-
 		self->action = &gaze;
 	}
 }
@@ -238,8 +236,6 @@ static void gazeFinish()
 	if (self->thinkTime <= 0)
 	{
 		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
-
-		setEntityAnimation(self, STAND);
 
 		self->action = &fly;
 
