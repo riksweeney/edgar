@@ -48,7 +48,6 @@ static int drawTongue(void);
 static void tongueTouch(Entity *);
 static void grabPause(void);
 static void addExitTrigger(Entity *);
-static int canDropDown(void);
 
 Entity *addFrog(int x, int y, char *name)
 {
@@ -134,7 +133,7 @@ static void entityWait()
 
 				self->dirY = -(8 + prand() % 2);
 
-				if (isAtEdge(self) == TRUE && canDropDown() == FALSE)
+				if (isAtEdge(self) == TRUE)
 				{
 					self->face = self->face == LEFT ? RIGHT : LEFT;
 				}
@@ -520,34 +519,4 @@ static void addExitTrigger(Entity *e)
 	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"FROG\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
-}
-
-static int canDropDown()
-{
-	int tile, i, j;
-	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
-	int y = self->y + self->h - 1;
-
-	x /= TILE_SIZE;
-	y /= TILE_SIZE;
-
-	for(j=0;j<3;j++)
-	{
-		for (i=0;i<8;i++)
-		{
-			tile = mapTileAt(x + (self->face == LEFT ? -j : j), y + i);
-
-			if (tile >= WATER_TILE_START)
-			{
-				break;
-			}
-
-			if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
-			{
-				return TRUE;
-			}
-		}
-	}
-
-	return FALSE;
 }
