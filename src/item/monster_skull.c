@@ -44,13 +44,13 @@ static void init(void);
 static void activate(int);
 static void takeDamage(Entity *, int);
 
-Entity *addContainmentUnitControls(int x, int y, char *name)
+Entity *addMonsterSkull(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Containment Unit Controls");
+		showErrorAndExit("No free slots to add a Monster Skull");
 	}
 
 	loadProperties(name, e);
@@ -99,7 +99,7 @@ static void touch(Entity *other)
 
 	if (other->type == PLAYER && self->health > 0)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve the Purple Gem"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve the Horn"));
 	}
 
 	else if (other->type == WEAPON && (other->flags & ATTACKING))
@@ -156,7 +156,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self->touch = NULL;
 
-				e = addPermanentItem("item/purple_gem", self->x + self->w / 2, self->y);
+				e = addPermanentItem("item/monster_horn", self->x + self->w / 2, self->y);
 
 				e->dirX = other->face == LEFT ? -6 : 6;
 
