@@ -114,6 +114,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "spore.h"
 #include "vines.h"
 #include "slime_potion_pool.h"
+#include "monster_skull.h"
 
 extern Entity *self, player;
 
@@ -211,7 +212,8 @@ static Constructor items[] = {
 {"item/spore_crop", &addSporeCrop},
 {"item/spores", &addSpore},
 {"item/vines", &addVines},
-{"item/slime_potion_pool", &addSlimePotionPool}
+{"item/slime_potion_pool", &addSlimePotionPool},
+{"item/monster_skull", &addMonsterSkull}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

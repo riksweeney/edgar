@@ -11,7 +11,6 @@ weapon/pickaxe
 enemy/red_jumping_slime
 common/spawner
 weapon/bow
-weapon/pickaxe
 weapon/wood_axe
 item/flaming_arrow_potion
 common/level_exit
@@ -23,3 +22,6 @@ enemy/gas_plant
 weapon/lightning_sword
 item/vines
 enemy/frog
+item/monster_skull
+item/empty_potion
+weapon/small_wooden_shield
