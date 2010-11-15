@@ -94,7 +94,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 10;
+			player.maxHealth = player.health = 5;
 		#endif
 
 		setEntityAnimation(&player, STAND);

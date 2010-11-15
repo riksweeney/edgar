@@ -70,3 +70,4 @@ void faceTarget(void);
 void addToDrawLayer(Entity *, int);
 void clearDrawLayers(void);
 Entity *getEntityByName(char *);
+void teleportEntityFromScript(Entity *, char *);

@@ -1028,6 +1028,32 @@ void readNextScriptLine()
 			e->dirY = -JUMP_HEIGHT;
 		}
 
+		else if (strcmpignorecase("TELEPORT", command) == 0)
+		{
+			freeDialogBox();
+
+			token = strtok_r(NULL, " ", &savePtr);
+
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+
+			if (e == NULL)
+			{
+				showErrorAndExit("TELEPORT command could not find Entity %s", token);
+			}
+
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			teleportEntityFromScript(e, token);
+		}
+
 		else if (strcmpignorecase("WATCH", command) == 0)
 		{
 			freeDialogBox();

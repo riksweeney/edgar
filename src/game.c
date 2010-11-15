@@ -80,29 +80,29 @@ void initGame()
 	game.batsDrowned = 0;
 
 	game.timesEaten = 0;
-	
+
 	game.arrowsFired = 0;
 
 	game.playTime = 0;
-	
+
 	game.distanceTravelled = 0;
-	
+
 	game.timeSpentAsSlime = 0;
-	
+
 	game.attacksBlocked = 0;
 
 	game.action = NULL;
 
 	game.thinkTime = 0;
-	
+
 	game.continues = 0;
-	
+
 	game.secretsFound = 0;
-	
+
 	game.mapExitable = 0;
-	
+
 	game.canContinue = FALSE;
-	
+
 	game.offsetX = game.offsetY = 0;
 
 	if (game.alphaSurface != NULL)
@@ -507,12 +507,12 @@ void goToNextMap()
 
 		loadPlayer(start->x, start->y, NULL);
 	}
-	
+
 	fireMapTrigger(game.nextMap);
 
 	game.nextMap[0] = '\0';
 	game.playerStart[0] = '\0';
-	
+
 	game.offsetX = game.offsetY = 0;
 	game.shakeThinkTime = 0;
 
@@ -539,7 +539,7 @@ void pauseGame()
 			game.paused = TRUE;
 
 			game.status = IN_MENU;
-			
+
 			game.menu = initMainMenu();
 
 			if (game.pauseSurface == NULL)
@@ -563,12 +563,7 @@ void pauseGame()
 		break;
 
 		default:
-			if (game.menu->returnAction != NULL)
-			{
-				game.menu->returnAction();
-			}
-
-			else
+			if (game.menu->returnAction == NULL)
 			{
 				if (game.pauseSurface != NULL)
 				{
@@ -731,13 +726,13 @@ void readGameSettingsFromFile(char *buffer)
 
 			game.medalSupport = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "AUDIO_QUALITY") == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			game.audioQuality = atoi(token);
-			
+
 			if (game.audioQuality == 0)
 			{
 				game.audioQuality = 22050;
@@ -824,7 +819,7 @@ char *getPlayTimeHours()
 
 	snprintf(timeString, 5, "%d", hours);
 
-	return timeString;	
+	return timeString;
 }
 
 char *getSlimeTimeAsString()
@@ -845,9 +840,9 @@ char *getSlimeTimeAsString()
 	tempTime = game.timeSpentAsSlime;
 
 	minutes = tempTime / (60 * 60);
-	
+
 	tempTime -= minutes * 60 * 60;
-	
+
 	tempTime /= 60;
 
 	snprintf(timeString, 15, "%dM %ldS", minutes, tempTime);
@@ -916,7 +911,7 @@ void increaseKillCount()
 	{
 		addMedal("kill_1000");
 	}
-	
+
 	else if (game.kills == 2000)
 	{
 		addMedal("kill_2000");
@@ -926,73 +921,73 @@ void increaseKillCount()
 void increaseSecretsFound()
 {
 	game.secretsFound++;
-	
+
 	setInfoBoxMessage(90, 0, 255, 0, _("You found a secret!"));
-	
+
 	playSound("sound/common/secret.ogg");
 }
 
 void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
 {
 	Entity *temp;
-	
+
 	temp = self;
-	
+
 	game.canContinue = TRUE;
-	
+
 	continueData.cameraMinX = getCameraMinX();
 	continueData.cameraMinY = getCameraMinY();
 	continueData.cameraMaxX = getCameraMaxX();
 	continueData.cameraMaxY = getCameraMaxY();
-	
+
 	continueData.cameraFollow = cameraFollow;
-	
+
 	continueData.resumeAction = resumeAction;
-	
+
 	STRNCPY(continueData.boss, boss, sizeof(continueData.boss));
-	
+
 	saveContinueData();
-	
+
 	self = temp;
 }
 
 void getContinuePoint()
 {
 	Entity *e;
-	
+
 	loadContinueData();
-	
+
 	limitCamera(continueData.cameraMinX, continueData.cameraMinY, continueData.cameraMaxX, continueData.cameraMaxY);
-	
+
 	setMapStartX(continueData.cameraMinX);
 	setMapStartY(continueData.cameraMinY);
-	
+
 	setCameraPosition(continueData.cameraMinX, continueData.cameraMinY);
-	
+
 	if (continueData.cameraFollow == FALSE)
 	{
 		centerMapOnEntity(NULL);
 	}
-	
+
 	else
 	{
 		cameraSnapToTargetEntity();
 	}
-	
+
 	if (continueData.resumeAction != NULL)
 	{
 		e = getEntityByName(continueData.boss);
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("Continue data could not find %s", continueData.boss);
 		}
-		
+
 		e->action = continueData.resumeAction;
 	}
-	
+
 	game.continues++;
-	
+
 	if (game.continues == 20)
 	{
 		addMedal("continue_20");
@@ -1002,16 +997,16 @@ void getContinuePoint()
 void clearContinuePoint()
 {
 	game.canContinue = FALSE;
-	
+
 	continueData.resumeAction = NULL;
-	
+
 	continueData.boss[0] = '\0';
 }
 
 void updateExitCount(int exitCount)
 {
 	game.mapExitable += exitCount;
-	
+
 	if (game.mapExitable < 0)
 	{
 		game.mapExitable = 0;

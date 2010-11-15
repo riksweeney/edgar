@@ -89,7 +89,7 @@ Entity *getFreeEntity()
 			entity[i].frameSpeed = 1;
 
 			entity[i].weight = 1;
-			
+
 			entity[i].originalWeight = 1;
 
 			entity[i].fallout = NULL;
@@ -110,7 +110,7 @@ Entity *getFreeEntity()
 		if (count >= MAX_ENTITIES - 20)
 		{
 			printf("WARNING, compacting Entities!\n");
-			
+
 			if (count == MAX_ENTITIES)
 			{
 				break;
@@ -368,7 +368,7 @@ void doNothing()
 			self->flags |= ON_GROUND;
 		}
 	}
-	
+
 	else if (self->dirX != 0)
 	{
 		self->frameSpeed = self->dirX < 0 ? -1 : 1;
@@ -605,7 +605,7 @@ void noItemDie()
 void entityTakeDamageFlinch(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -639,7 +639,7 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -650,7 +650,7 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -658,7 +658,7 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 void entityTakeDamageNoFlinch(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -696,7 +696,7 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -707,7 +707,7 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1210,7 +1210,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 void freeEntityList(EntityList *list)
 {
 	EntityList *p, *q;
-	
+
 	if (list == NULL)
 	{
 		return;
@@ -1433,22 +1433,22 @@ void addEntityFromScript(char *line)
 	{
 		addEnemy(entityName, x, y);
 	}
-	
+
 	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)
 	{
 		e = addActionPoint("common/action_point", x, y);
-		
+
 		if (strcmpignorecase(objectiveName, " ") != 0)
 		{
 			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
 		}
 	}
-	
+
 	else if (strcmpignorecase(entityType, "FALLING_PLATFORM") == 0)
 	{
 		addFallingPlatform(x, y, entityName);
 	}
-	
+
 	else if (strcmpignorecase(entityType, "WEAK_WALL") == 0)
 	{
 		addWeakWall(entityName, x, y);
@@ -1623,7 +1623,7 @@ static void scriptDoNothing()
 
 		self->flags |= ON_GROUND;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -1745,7 +1745,7 @@ void doTeleport()
 
 		if (!(self->flags & NO_END_TELEPORT_SOUND))
 		{
-			playSoundToMap("sound/common/teleport.ogg", (self->type == PLAYER ? EDGAR_CHANNEL : -1), self->x, self->y, 0);
+			playSoundToMap("sound/common/teleport.ogg", -1, self->x, self->y, 0);
 		}
 	}
 
@@ -1827,13 +1827,13 @@ int atTarget()
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
-		
+
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		return TRUE;
 	}
-	
+
 	return FALSE;
 }
 
@@ -1859,4 +1859,15 @@ void clearDrawLayers()
 
 		memset(drawLayer[i], 0, sizeof(Entity *) * MAX_ENTITIES);
 	}
+}
+
+void teleportEntityFromScript(Entity *e, char *line)
+{
+	sscanf(line, "%d %d", &e->targetX, &e->targetY);
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	playSoundToMap("sound/common/teleport.ogg", -1, e->x, e->y, 0);
 }
