@@ -93,6 +93,8 @@ static void doMenu()
 		if (strstr(lastKeys, MENU_CODE) != NULL)
 		{
 			enableCheatMenu();
+			
+			playSound("sound/common/faster.ogg");
 		}
 
 		input.lastPressedKey = -1;

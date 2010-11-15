@@ -1,9 +1,11 @@
 #!/bin/bash
-files=""
 for i in `find /home/rik/Edgar/sound -name *.wav`;do
-	files="$files $i"
+	OUTPUT1=${i%.*}
+	OUTPUT2=${i%.*}
+	OUTPUT1+=_new.wav
+	sox $i $OUTPUT1 gain -n
+	mv $OUTPUT1 $OUTPUT2.wav
 done
-normalize-audio -b $files
 for i in `find /home/rik/Edgar/sound -name *.wav`;do
 	oggenc -q 2 $i
 done
