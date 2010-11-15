@@ -46,6 +46,7 @@ static void tongueMove(void);
 static void tongueReturn(void);
 static int drawTongue(void);
 static void tongueTouch(Entity *);
+static void frogTouch(Entity *);
 static void grabPause(void);
 static void addExitTrigger(Entity *);
 
@@ -353,19 +354,31 @@ static void tongueReturn()
 	{
 		if (self->target != NULL)
 		{
-			self->head->target = self->target;
+			if (self->target->type == PLAYER)
+			{
+				self->target->fallout();
 
-			self->head->target->flags |= NO_DRAW;
+				self->target = NULL;
 
-			self->head->mental = 60 * 60;
+				self->head->mental = 0;
+			}
 
-			self->target = NULL;
+			else
+			{
+				self->head->target = self->target;
 
-			setInfoBoxMessage(180, 255, 255, 255, _("Your %s has been stolen!"), self->head->target->objectiveName);
+				self->head->target->flags |= NO_DRAW;
 
-			STRNCPY(self->head->objectiveName, self->head->target->name, sizeof(self->head->objectiveName));
+				self->head->mental = 60 * 60;
 
-			addExitTrigger(self->head->target);
+				self->target = NULL;
+
+				setInfoBoxMessage(180, 255, 255, 255, _("Your %s has been stolen!"), self->head->target->objectiveName);
+
+				STRNCPY(self->head->objectiveName, self->head->target->name, sizeof(self->head->objectiveName));
+
+				addExitTrigger(self->head->target);
+			}
 		}
 
 		else
@@ -438,6 +451,13 @@ static void grabPause()
 			setCustomAction(e, &invulnerableNoFlash, 180, 0, 0);
 
 			self->target = e;
+		}
+
+		else
+		{
+			self->target = &player;
+
+			self->head->touch = &frogTouch;
 		}
 
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
@@ -519,4 +539,18 @@ static void addExitTrigger(Entity *e)
 	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"FROG\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
+}
+
+static void frogTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		other->health = 0;
+
+		other->flags |= NO_DRAW;
+
+		other->fallout();
+
+		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+	}
 }

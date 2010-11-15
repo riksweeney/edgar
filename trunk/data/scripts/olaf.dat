@@ -1,7 +1,51 @@
+IF OLAF HEALTH 12
+SET OLAF FACE EDGAR
+TALK Olaf Ready to go?
+SHOW_CONFIRM Return to the Fortress?
+IF CONFIRM_YES
+WAIT 15
+SET OLAF HEALTH 13
+END
+IF CONFIRM_NO
+WAIT 15
+TALK Edgar Not yet, there's something else I need to do
+TALK Olaf OK, let me know when you're ready
+END
+END
 IF OLAF HEALTH 9
 SET OLAF FACE EDGAR
 TALK Olaf Have you managed to find the horn yet?
-TALK Narrator You won't be able to find the horn in this version!
+#REMOVE "Monster Horn" 1 1 Olaf 10 11
+END
+IF OLAF HEALTH 10
+TALK Olaf Thanks, this is perfect!
+TALK Edgar Do you have everything you need now?
+TALK Olaf I sure do
+TALK Edgar So what happens now?
+TALK Olaf We can get out of here! Where do you want to go?
+TALK Edgar Back to the fortress, I still need to rescue my Dad from the sorceror
+TALK Olaf OK, remember what I told you about his disintegration spell?
+TALK Edgar I think so...
+TALK Olaf Go to the lab and combine that ring and your shield
+TALK Edgar How?
+TALK Olaf Throw the shield and ring into the cauldron along with some mandrake root, that should do it
+TALK Edgar OK
+TALK Olaf Ready to go?
+SHOW_CONFIRM Return to the Fortress?
+IF CONFIRM_YES
+WAIT 15
+SET OLAF HEALTH 13
+END
+IF CONFIRM_NO
+WAIT 15
+TALK Edgar Not yet, there's something else I need to do
+TALK Olaf OK, let me know when you're ready
+SET OLAF HEALTH 12
+END
+END
+IF OLAF HEALTH 11
+TALK Olaf Have you managed to find the horn yet?
+SET OLAF HEALTH 9
 END
 IF OLAF HEALTH 5
 WALK_TO EDGAR 23610 2154 WAIT
@@ -105,4 +149,24 @@ ADD MAP_TRIGGER "map18" RUN_SCRIPT "wasteland_intro_2"
 SET OLAF HEALTH 9
 LOAD_LEVEL map18 olaf_cave
 WAIT 300
+END
+IF OLAF HEALTH 13
+HAS_ITEM item/tuning_fork OLAF 14 15
+END
+IF OLAF HEALTH 15
+ADD_TO_INVENTORY item/tuning_fork
+SET OLAF HEALTH 14
+END
+IF OLAF HEALTH 14
+FOLLOW NONE
+TALK Edgar Yes, let's go
+TALK Olaf OK, here goes nothing, good luck finding your father
+TALK Edgar Thanks, Olaf
+TELEPORT EDGAR 22330 1750
+WAIT 60
+TELEPORT OLAF 22330 1050
+WAIT 120
+KILL OLAF
+ADD MAP_TRIGGER "map09" RUN_SCRIPT "disable_study"
+LOAD_LEVEL map09 Fortress-Basement
 END
