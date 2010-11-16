@@ -1,8 +1,0 @@
-REMOVE "Oil Can" 1 1 CATAPULT 1 2
-IF CATAPULT HEALTH 1
-ACTIVATE_OBJECTIVE CATAPULT
-TALK Edgar There, that's the hinges oiled. This should be as good as new now!
-END
-IF CATAPULT HEALTH 2
-TALK Edgar The hinges are rusted, I'll need to find some oil before I can use it
-END

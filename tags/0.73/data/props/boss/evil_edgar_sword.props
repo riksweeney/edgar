@@ -1,4 +1,0 @@
-DAMAGE 1
-GFX_FILE data/gfx/weapon/basic_sword.dat
-ANIM_FILE data/anim/boss/evil_edgar_sword.dat
-TYPE ENEMY
