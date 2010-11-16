@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/light_target.dat
+ANIM_FILE data/anim/item/light_target.dat
+TYPE KEY_ITEM
+FLAGS FLY
