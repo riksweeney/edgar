@@ -1,7 +1,0 @@
-HEALTH 500
-DAMAGE 3
-GFX_FILE data/gfx/enemy/fish.dat
-ANIM_FILE data/anim/enemy/fish.dat
-TYPE ENEMY
-SPEED 1.5
-FLAGS FLY

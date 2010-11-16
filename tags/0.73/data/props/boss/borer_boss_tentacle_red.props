@@ -1,5 +1,0 @@
-HEALTH 80
-GFX_FILE data/gfx/boss/borer_boss_tentacle_red.dat
-ANIM_FILE data/anim/boss/borer_boss_tentacle.dat
-TYPE ENEMY
-FLAGS FLY|DO_NOT_PERSIST|UNBLOCKABLE
