@@ -1197,8 +1197,6 @@ static void setYes()
 	script.draw = NULL;
 
 	freeScriptMenu();
-
-	readNextScriptLine();
 }
 
 static void setNo()
@@ -1212,8 +1210,6 @@ static void setNo()
 	script.draw = NULL;
 
 	freeScriptMenu();
-
-	readNextScriptLine();
 }
 
 void doScriptMenu()

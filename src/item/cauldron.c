@@ -72,12 +72,12 @@ Entity *addCauldron(int x, int y, char *name)
 static void entityWait()
 {
 	self->x = self->startX;
-	
+
 	if (self->mental == 1)
 	{
 		self->action = &shudder;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -97,18 +97,18 @@ static void activate(int val)
 static void shudder()
 {
 	Entity *smoke;
-	
+
 	self->endX += 90;
 
 	if (self->endX >= 360)
 	{
 		self->endX = 0;
 	}
-	
+
 	self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 4;
-	
+
 	checkToMap(self);
-	
+
 	if (self->mental == 2)
 	{
 		smoke = addSmoke(0, 0, "decoration/dust");
@@ -117,8 +117,15 @@ static void shudder()
 		{
 			smoke->x = self->x + prand() % self->w;
 			smoke->y = self->y + prand() % self->h;
-			
+
 			smoke->dirY = 0;
 		}
+	}
+
+	else if (self->mental == 0)
+	{
+		self->x = self->startX;
+
+		self->action = &entityWait;
 	}
 }

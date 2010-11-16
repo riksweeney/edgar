@@ -3,7 +3,6 @@ SET Edgar FACE RIGHT
 TALK Edgar I guess it powers that door, so I'll have to turn it on
 SHOW_CONFIRM Turn on the generator?
 IF CONFIRM_YES
-WAIT 15
 TALK Edgar Where's the switch?
 WAIT 60
 TALK Edgar Ah, here it is!

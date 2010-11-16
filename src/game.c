@@ -579,11 +579,11 @@ void pauseGame()
 				game.menu = initMainMenu();
 
 				game.drawMenu = &drawMainMenu;
+
+				pauseMusic(FALSE);
+
+				pauseSound(FALSE);
 			}
-
-			pauseMusic(FALSE);
-
-			pauseSound(FALSE);
 		break;
 	}
 }
