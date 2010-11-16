@@ -394,7 +394,7 @@ static void tongueReturn()
 
 static void tongueTouch(Entity *other)
 {
-	if (other->health > 0 && other->type == PLAYER && self->target == NULL)
+	if (other->health > 0 && !(other->flags & INVULNERABLE) && other->type == PLAYER && self->target == NULL)
 	{
 		self->x = other->x + other->w / 2 - self->w / 2;
 
