@@ -3,11 +3,9 @@ SET OLAF FACE EDGAR
 TALK Olaf Ready to go?
 SHOW_CONFIRM Return to the Fortress?
 IF CONFIRM_YES
-WAIT 15
 SET OLAF HEALTH 13
 END
 IF CONFIRM_NO
-WAIT 15
 TALK Edgar Not yet, there's something else I need to do
 TALK Olaf OK, let me know when you're ready
 END
@@ -33,11 +31,9 @@ TALK Edgar OK
 TALK Olaf Ready to go?
 SHOW_CONFIRM Return to the Fortress?
 IF CONFIRM_YES
-WAIT 15
 SET OLAF HEALTH 13
 END
 IF CONFIRM_NO
-WAIT 15
 TALK Edgar Not yet, there's something else I need to do
 TALK Olaf OK, let me know when you're ready
 SET OLAF HEALTH 12

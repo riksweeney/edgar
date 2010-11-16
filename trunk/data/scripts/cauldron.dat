@@ -2,15 +2,47 @@ IF CAULDRON HEALTH 5
 TALK Narrator Something is supposed to happen here, but it's not in this version so check back later!
 #TALK Edgar I'd better use my wooden shield for this
 #REMOVE "Small Wooden Shield" 1 1 CAULDRON 5 5
-#REMOVE "Ring of Protection" 1 1 CAULDRON 5 5
+#REMOVE "Protection Ring" 1 1 CAULDRON 5 5
 #TALK Edgar That's the shield and ring added
 #WALK_TO Edgar 21155 13322 WAIT
 #ADD_TO_INVENTORY item/mandrake_root
 #WAIT 90
 #WALK_TO Edgar 21280 13322 WAIT
-#WAIT 60
+#WAIT 30
+#FOLLOW NONE
 #REMOVE "Mandrake Root" 1 1 CAULDRON 5 5
-#AUTO_TALK 120 Edgar I'm not taking any chances this time...
+#WAIT 30
+#WALK_TO Edgar 21146 13322 WAIT
+#JUMP Edgar
+#WALK_TO Edgar 21083 13322 WAIT
+#SET EDGAR FACE RIGHT
+#TALK Edgar I'm not taking any chances this time...
+#SET EDGAR FACE LEFT
+#JUMP Edgar
+#WALK_TO Edgar 20900 13322 WAIT
+#WAIT 30
+#SET CAULDRON PROPERTY MENTAL 1
+#WAIT 120
+#SET CAULDRON PROPERTY MENTAL 0
+#WAIT 60
+#WALK_TO Edgar 21150 13322 WAIT
+#WAIT 30
+#SET CAULDRON PROPERTY MENTAL 1
+#WALK_TO_RELATIVE Edgar -64 0 WAIT
+#WAIT 30
+#SET CAULDRON PROPERTY MENTAL 0
+#WALK_TO Edgar 21150 13322 WAIT
+#SET CAULDRON PROPERTY MENTAL 1
+#WAIT 15
+#SET CAULDRON PROPERTY MENTAL 0
+#WAIT 15
+#SET CAULDRON PROPERTY MENTAL 1
+#WAIT 15
+#SET CAULDRON PROPERTY MENTAL 0
+#WAIT 30
+#WALK_TO Edgar 21280 13322 WAIT
+#TALK Edgar OK, it looks safe
+#FOLLOW EDGAR
 END
 IF CAULDRON HEALTH 4
 TALK Edgar Stupid thing. Maggie makes it all look so easy...

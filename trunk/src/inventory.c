@@ -49,9 +49,9 @@ void freeInventory()
 	inventory.selectedIndex = 0;
 
 	inventory.cursorIndex = 0;
-	
+
 	inventory.hasLightningSword = FALSE;
-	
+
 	inventory.hasBow = FALSE;
 
 	if (inventory.background != NULL)
@@ -88,7 +88,7 @@ int addToInventory(Entity *e)
 	int i, found;
 
 	found = FALSE;
-	
+
 	if (e->flags & STACKABLE)
 	{
 		for (i=0;i<MAX_INVENTORY_ITEMS;i++)
@@ -129,9 +129,9 @@ int addToInventory(Entity *e)
 				{
 					e->action = &doNothing;
 				}
-				
+
 				e->flags &= ~DO_NOT_PERSIST;
-				
+
 				inventory.item[i] = *e;
 
 				inventory.item[i].face = RIGHT;
@@ -146,17 +146,17 @@ int addToInventory(Entity *e)
 					{
 						inventory.hasBow = TRUE;
 					}
-					
+
 					else if (strcmpignorecase(inventory.item[i].name, "weapon/lightning_sword") == 0)
 					{
 						inventory.hasLightningSword = TRUE;
 					}
-					
+
 					else if (strcmpignorecase(inventory.item[i].name, "weapon/lightning_sword_empty") == 0)
 					{
 						inventory.hasLightningSword = TRUE;
 					}
-					
+
 					if (strcmpignorecase(inventory.item[i].name, "weapon/normal_arrow") != 0 &&
 						strcmpignorecase(inventory.item[i].name, "weapon/flaming_arrow") != 0)
 					{
@@ -281,35 +281,35 @@ void nextInventoryItem(int index)
 void moveInventoryItem(int index)
 {
 	Entity temp;
-	
+
 	if (inventory.item[inventory.cursorIndex].inUse == TRUE)
 	{
 		if (index == 1 && inventory.item[inventory.cursorIndex + index].inUse == TRUE && inventory.cursorIndex + index < MAX_INVENTORY_ITEMS)
 		{
 			temp = inventory.item[inventory.cursorIndex + index];
-			
+
 			inventory.item[inventory.cursorIndex + index] = inventory.item[inventory.cursorIndex];
-			
+
 			inventory.item[inventory.cursorIndex] = temp;
-			
+
 			moveInventoryCursor(index);
-			
+
 			if (inventory.cursorIndex % INVENTORY_COLUMN_COUNT == 0)
 			{
 				moveInventoryCursor(INVENTORY_COLUMN_COUNT);
 			}
 		}
-		
+
 		else if (index == -1 && inventory.cursorIndex + index >= 0)
 		{
 			temp = inventory.item[inventory.cursorIndex + index];
-			
+
 			inventory.item[inventory.cursorIndex + index] = inventory.item[inventory.cursorIndex];
-			
+
 			inventory.item[inventory.cursorIndex] = temp;
-			
+
 			moveInventoryCursor(index);
-			
+
 			if (inventory.cursorIndex != 0 && (inventory.cursorIndex % INVENTORY_COLUMN_COUNT) == INVENTORY_COLUMN_COUNT - 1)
 			{
 				moveInventoryCursor(-INVENTORY_COLUMN_COUNT);
@@ -412,6 +412,7 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 int removeInventoryItemByObjectiveName(char *name)
 {
 	int i, found;
+	Entity *e;
 
 	found = FALSE;
 
@@ -432,6 +433,20 @@ int removeInventoryItemByObjectiveName(char *name)
 			else
 			{
 				inventory.item[i].inUse = FALSE;
+
+				if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerWeapon();
+
+					e->inUse = FALSE;
+				}
+
+				else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerShield();
+
+					e->inUse = FALSE;
+				}
 			}
 
 			found = TRUE;
@@ -640,20 +655,20 @@ void loadInventoryItems()
 
 				setPlayerShield(1);
 			}
-			
+
 			else if (inventory.item[i].type == TEMP_ITEM)
 			{
 				inventory.item[i].type = ITEM;
-				
+
 				inventory.item[i].action = &doNothing;
-				
+
 				inventory.item[i].flags &= ~DO_NOT_PERSIST;
 			}
-			
+
 			if (strcmpignorecase(inventory.item[i].name, "item/safe_combination") == 0)
 			{
 				self = &inventory.item[i];
-				
+
 				self->activate(1);
 			}
 		}
@@ -692,7 +707,7 @@ void getInventoryItemFromScript(char *line)
 				item->health = 0;
 
 				removeInventoryItemByObjectiveName(itemName);
-				
+
 				if (read == 7)
 				{
 					setInfoBoxMessage(90, 255, 255, 255, _("Removed %s"), _(itemName));
@@ -802,12 +817,12 @@ void drawInventory()
 		if (inventory.item[i].inUse == TRUE)
 		{
 			e = &inventory.item[i];
-			
+
 			if (inventory.selectedIndex == i)
 			{
 				drawSprite(e, x, y, INVENTORY_BOX_SIZE, INVENTORY_BOX_SIZE, 1);
 			}
-			
+
 			else
 			{
 				drawLoopingAnimation(e, x, y, INVENTORY_BOX_SIZE, INVENTORY_BOX_SIZE, 1);
@@ -834,7 +849,7 @@ void drawInventory()
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->description), e->health);
 			}
-			
+
 			else if (strcmpignorecase(e->name, "weapon/lightning_sword") == 0)
 			{
 				snprintf(description, MAX_MESSAGE_LENGTH, "%s (%d)", _(e->objectiveName), e->mental);
@@ -925,7 +940,7 @@ void scriptAddToInventory(char *name, int quiet)
 {
 	int i;
 	Entity *e;
-	
+
 	e = addPermanentItem(name, 0, 0);
 
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
@@ -939,7 +954,7 @@ void scriptAddToInventory(char *name, int quiet)
 			inventory.item[i].thinkTime = 0;
 
 			setEntityAnimation(&inventory.item[i], STAND);
-			
+
 			if (quiet == FALSE)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("Picked up %s"), _(inventory.item[i].objectiveName));
@@ -948,14 +963,14 @@ void scriptAddToInventory(char *name, int quiet)
 			break;
 		}
 	}
-	
+
 	e->inUse = FALSE;
 }
 
 Entity *removeInventoryItemAtCursor()
 {
 	sortInventory();
-	
+
 	return (inventory.item[inventory.selectedIndex].inUse == TRUE ? &inventory.item[inventory.selectedIndex] : NULL);
 }
 
