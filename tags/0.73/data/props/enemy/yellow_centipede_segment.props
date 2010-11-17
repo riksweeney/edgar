@@ -1,0 +1,7 @@
+HEALTH 40
+DAMAGE 1
+GFX_FILE data/gfx/enemy/yellow_centipede_segment.dat
+ANIM_FILE data/anim/enemy/centipede.dat
+TYPE ENEMY
+SPEED 2
+FLAGS DO_NOT_PERSIST|UNBLOCKABLE

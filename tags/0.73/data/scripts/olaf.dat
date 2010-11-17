@@ -1,0 +1,168 @@
+IF OLAF HEALTH 12
+SET OLAF FACE EDGAR
+TALK Olaf Ready to go?
+SHOW_CONFIRM Return to the Fortress?
+IF CONFIRM_YES
+SET OLAF HEALTH 13
+END
+IF CONFIRM_NO
+TALK Edgar Not yet, there's something else I need to do
+TALK Olaf OK, let me know when you're ready
+END
+END
+IF OLAF HEALTH 9
+SET OLAF FACE EDGAR
+TALK Olaf Have you managed to find the horn yet?
+#REMOVE "Monster Horn" 1 1 Olaf 10 11
+END
+IF OLAF HEALTH 10
+TALK Olaf Thanks, this is perfect!
+TALK Edgar Do you have everything you need now?
+TALK Olaf I sure do
+TALK Edgar So what happens now?
+TALK Olaf We can get out of here! Where do you want to go?
+TALK Edgar Back to the fortress, I still need to rescue my Dad from the sorceror
+TALK Olaf OK, remember what I told you about his disintegration spell?
+TALK Edgar I think so...
+TALK Olaf Go to the lab and combine that ring and your shield
+TALK Edgar How?
+TALK Olaf Throw the shield and ring into the cauldron along with some mandrake root, that should do it
+TALK Edgar OK
+TALK Olaf Ready to go?
+SHOW_CONFIRM Return to the Fortress?
+IF CONFIRM_YES
+SET OLAF HEALTH 13
+END
+IF CONFIRM_NO
+TALK Edgar Not yet, there's something else I need to do
+TALK Olaf OK, let me know when you're ready
+SET OLAF HEALTH 12
+END
+END
+IF OLAF HEALTH 11
+TALK Olaf Have you managed to find the horn yet?
+SET OLAF HEALTH 9
+END
+IF OLAF HEALTH 5
+WALK_TO EDGAR 23610 2154 WAIT
+SET EDGAR FACE RIGHT
+FOLLOW NONE
+SET OLAF FACE LEFT
+HAS_OBJECTIVE "Retrieve Items" OLAF 6 8
+END
+IF OLAF HEALTH 6
+TALK Olaf Have you found everything yet?
+TALK Edgar Not yet, I'm still looking
+FOLLOW EDGAR
+SET OLAF HEALTH 5
+END
+IF OLAF HEALTH 8
+TALK Edgar OK, I've found everything now
+SET OLAF HEALTH 7
+END
+IF OLAF HEALTH 0
+WALK_TO EDGAR 23610 2154 WAIT
+SET EDGAR FACE RIGHT
+FOLLOW NONE
+SET OLAF FACE LEFT
+WAIT 15
+TALK Olaf ARGHHHHH!!
+TALK Edgar ARGHHHHH!!
+TALK Olaf Another human, out here? How did you get out here?
+TALK Edgar I'm not sure, I think the sorceror sent me here, but he said he was going to kill me
+HAS_ITEM "Protection Ring" 1 1 OLAF 1 2
+IF OLAF HEALTH 1
+TALK Olaf Hmmm, what's that on your hand?
+TALK Edgar This? This is just a ring I found in his fortress
+TALK Olaf It looks like a ring of protection, it must have saved you. Why were you in his fortress?
+TALK Edgar He's kidnapped my Dad and I was there trying to save him
+TALK Olaf Well, it looks like the ring's power is almost completely gone
+TALK Olaf If he hits you with that spell again it will almost certainly kill you
+END
+IF OLAF HEALTH 2
+TALK Olaf Something must have protected you from the spell. Were you wearing a pendant or a ring?
+TALK Edgar I did find a ring in the fortress but it didn't seem to have any powers
+TALK Olaf It might have been a ring of protection. I imagine that the protection would have been limited to a single use
+TALK Olaf If he hits you with that spell again it will almost certainly kill you
+END
+TALK Olaf What you could do though is combine the ring and your shield together to create a shield that will protect you from the spell
+TALK Olaf Do you have any experience mixing spells?
+TALK Edgar Kind of, but the last time I tried creating a shield the spell backfired and...
+TALK Olaf It created an evil version of yourself?
+TALK Edgar Yeah, how did you know?
+TALK Olaf Where I'm from it used to happen at least once a month
+TALK Edgar ...
+TALK Edgar Why are you here?
+TALK Olaf The sorceror caught me looting his fortress and he banished me here
+TALK Edgar What did you steal?
+TALK Olaf It was a small golden statue, probably worth a lot of money
+TALK Olaf I've been here for months now, but I've almost got all the ingredients I need to teleport back home
+TALK Olaf I just need one more thing, but it's in a cave to the west and I have no weapons to protect myself
+TALK Olaf But now you're here you can help me retrieve it
+HAS_OBJECTIVE "Retrieve Items" OLAF 3 7
+IF OLAF HEALTH 3
+TALK Edgar I haven't gotten all my stuff back yet. I think everything's here though
+TALK Edgar When I've found everything I'll come back
+TALK Olaf OK, good luck!
+FOLLOW EDGAR
+SET OLAF HEALTH 5
+END
+END
+IF OLAF HEALTH 7
+TALK Edgar What do you need?
+TALK Olaf It's the horn from a particular type of monster
+TALK Olaf There should be plenty of bones littered around so you shouldn't have to find one and kill it. Just get the horn and get out
+TALK Edgar That's it?
+TALK Olaf Hmmm
+WAIT 30
+SET OLAF FACE RIGHT
+WAIT 60
+SET OLAF FACE LEFT
+WAIT 30
+TALK Olaf Well, my stock of logs is looking quite low, maybe you could get me some more while you're out?
+TALK Edgar Don't even think about it, I'm fed up of chopping down trees and collecting logs!
+TALK Olaf OK, it was just a suggestion
+TALK Olaf Oh, you'll need this too
+ADD ENTITY KEY_ITEM item/flaming_arrow_potion " " 23610 2154
+TALK Olaf Dip your arrows into it to turn them into fire arrows, it will help you burn down the vines blocking the entrance
+TALK Edgar Thanks!
+MUSIC FADE_DOWN 2000
+WALK_TO_RELATIVE EDGAR -196 0 WAIT
+TALK Olaf Oh, one last thing.
+SET EDGAR FACE RIGHT
+TALK Olaf Don't hang around in that cave, the monsters that live in there are nothing like you'll have ever encountered before
+TALK Olaf Seriously, just get the horn
+TALK Edgar OK
+WALK_TO_RELATIVE EDGAR -240 0 WAIT
+TALK Olaf Have I just sent a young boy to his death?
+WALK_TO_RELATIVE EDGAR 196 0 WAIT
+TALK Edgar Sorry, did you say something?
+TALK Olaf Huh?! Oh no, I was just practising the teleportation incantation...
+WAIT 30
+TALK Edgar OK
+WALK_TO_RELATIVE EDGAR -196 0 WAIT
+ADD MAP_TRIGGER "map18" RUN_SCRIPT "wasteland_intro_2"
+SET OLAF HEALTH 9
+LOAD_LEVEL map18 olaf_cave
+WAIT 300
+END
+IF OLAF HEALTH 13
+HAS_ITEM item/tuning_fork OLAF 14 15
+END
+IF OLAF HEALTH 15
+ADD_TO_INVENTORY item/tuning_fork
+SET OLAF HEALTH 14
+END
+IF OLAF HEALTH 14
+FOLLOW NONE
+TALK Edgar Yes, let's go
+TALK Olaf OK, here goes nothing, good luck finding your father
+TALK Edgar Thanks, Olaf
+TELEPORT EDGAR 22330 1750
+WAIT 60
+TELEPORT OLAF 22330 1050
+WAIT 120
+KILL OLAF
+ADD MAP_TRIGGER "map09" RUN_SCRIPT "disable_study"
+LOAD_LEVEL map09 Fortress-Basement
+END
