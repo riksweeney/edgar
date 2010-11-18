@@ -114,6 +114,12 @@ typedef struct Entity
 	void (*resumeNormalFunction)(void);
 } Entity;
 
+typedef struct AnimTile
+{
+	int tileCount, tileIndex;
+	int *tile;
+} AnimTile;
+
 typedef struct Map
 {
 	char filename[MAX_VALUE_LENGTH], tilesetName[MAX_VALUE_LENGTH], ambienceName[MAX_VALUE_LENGTH];
@@ -122,6 +128,7 @@ typedef struct Map
 	int maxX, maxY, thinkTime;
 	int minX, minY, blendTime;
 	int forceMinY, darkMap;
+	int animTileTotal, animThinkTime;
 	int cameraMinX, cameraMinY, cameraMaxX, cameraMaxY;
 	int playerMinX, playerMaxX;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
@@ -129,6 +136,7 @@ typedef struct Map
 	int wrapX[2], wrapY[2];
 	float backgroundSpeed[2], cameraSpeed;
 	float cameraX, cameraY;
+	AnimTile *animTile;
 	Entity *targetEntity;
 	SDL_Surface *background[2];
 	Mix_Chunk *ambience[MAX_AMBIENT_SOUNDS];

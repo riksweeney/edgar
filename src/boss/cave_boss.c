@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../graphics/graphics.h"
 #include "../custom_actions.h"
 #include "../graphics/decoration.h"
@@ -43,6 +44,7 @@ static void doIntro(void);
 static void die(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
+static void introPause(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -87,7 +89,7 @@ static void initialise()
 
 			self->action = &doIntro;
 
-			self->thinkTime = 30;
+			self->thinkTime = 60;
 
 			self->startX = 20;
 
@@ -108,8 +110,21 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
-		self->action = &attackFinished;
+		checkToMap(self);
+
+		self->action = &introPause;
+
+		setEntityAnimation(self, STAND);
 	}
+}
+
+static void introPause()
+{
+	playDefaultBossMusic();
+
+	initBossHealthBar();
+
+	self->action = &attackFinished;
 
 	checkToMap(self);
 }

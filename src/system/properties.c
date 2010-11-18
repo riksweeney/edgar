@@ -594,11 +594,11 @@ void setProperty(Entity *e, char *name, char *value)
 	{
 		e->mental = atoi(value);
 	}
-	
+
 	else if (strcmpignorecase(name, "SPAWNTIME") == 0)
 	{
 		e->spawnTime = atoi(value);
-		
+
 		if (e->spawnTime > 0)
 		{
 			e->flags |= SPAWNED_IN;
@@ -637,7 +637,7 @@ void setProperty(Entity *e, char *name, char *value)
 		if (found == FALSE)
 		{
 			printf("%s has unknown property value %s\n", e->name, name);
-			
+
 			#if DEV == 1
 				exit(0);
 			#endif
@@ -658,7 +658,7 @@ int getEntityTypeByName(char *name)
 	}
 
 	showErrorAndExit("Unknown Entity Type %s", name);
-	
+
 	return 0;
 }
 
@@ -675,7 +675,7 @@ char *getEntityTypeByID(int id)
 	}
 
 	showErrorAndExit("Unknown Entity ID %d", id);
-	
+
 	return 0;
 }
 
@@ -692,6 +692,6 @@ static int getElementTypeByName(char *name)
 	}
 
 	showErrorAndExit("Unknown Element Type %s", name);
-	
+
 	return 0;
 }

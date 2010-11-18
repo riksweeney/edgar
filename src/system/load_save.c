@@ -1473,7 +1473,7 @@ char **getSaveFileIndex()
 
 	for (i=0;i<MAX_SAVE_SLOTS;i++)
 	{
-		entries[i] = (char *)malloc(sizeof(char *) * MAX_PATH_LENGTH);
+		entries[i] = (char *)malloc(sizeof(char) * MAX_PATH_LENGTH);
 
 		if (entries[i] == NULL)
 		{

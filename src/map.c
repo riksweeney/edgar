@@ -51,7 +51,7 @@ static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
 void loadMap(char *name, int loadEntityResources)
 {
-	int x, y;
+	int x, y, animTileID;
 	char itemName[MAX_MESSAGE_LENGTH], filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 
@@ -92,6 +92,22 @@ void loadMap(char *name, int loadEntityResources)
 	/* Read the data from the file into the map */
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
+
+	/* Reset the animated tiles */
+
+	if (map.animTileTotal > 0)
+	{
+		for (x=0;x<map.animTileTotal;x++)
+		{
+			free(map.animTile[x].tile);
+		}
+
+		free(map.animTile);
+	}
+
+	map.animTileTotal = 0;
+
+	animTileID = 0;
 
 	while (line != NULL)
 	{
@@ -214,7 +230,7 @@ void loadMap(char *name, int loadEntityResources)
 
 		else if (strcmpignorecase(itemName, "MIN_Y") == 0)
 		{
-			/* The the map's minimum Y */
+			/* The map's minimum Y */
 
 			sscanf(line, "%*s %s\n", itemName);
 
@@ -224,6 +240,56 @@ void loadMap(char *name, int loadEntityResources)
 			{
 				map.minY = MAX_MAP_Y;
 			}
+		}
+
+		else if (strcmpignorecase(itemName, "ANIM_TILE_COUNT") == 0)
+		{
+			/* The map's total number of animated tiles */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.animTileTotal = atoi(itemName);
+
+			if (map.animTileTotal > 0)
+			{
+				map.animTile = (AnimTile *)malloc(sizeof(AnimTile) * map.animTileTotal);
+
+				if (map.animTile == NULL)
+				{
+					showErrorAndExit("Failed to allocate a whole %d bytes for the animated tile count", (int)(sizeof(int *) * map.animTileTotal));
+				}
+			}
+		}
+
+		else if (strcmpignorecase(itemName, "ANIM_TILES") == 0)
+		{
+			/* A set of animated tiles */
+
+			line = strtok_r(NULL, "\n", &savePtr1);
+
+			token = strtok_r(line, " ", &savePtr2);
+
+			y = atoi(token);
+
+			map.animTile[animTileID].tileCount = y;
+
+			map.animTile[animTileID].tileIndex = 0;
+
+			map.animTile[animTileID].tile = (int *)malloc(sizeof(int) * y);
+
+			if (map.animTile[animTileID].tile == NULL)
+			{
+				showErrorAndExit("Failed to allocate a whole %d bytes for the animated tiles", (int)(sizeof(int) * y));
+			}
+
+			for (x=0;x<y;x++)
+			{
+				token = strtok_r(NULL, " ", &savePtr2);
+
+				map.animTile[animTileID].tile[x] = atoi(token);
+			}
+
+			animTileID++;
 		}
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
@@ -244,7 +310,7 @@ void loadMap(char *name, int loadEntityResources)
 					{
 						map.tile[y][x] = 1 + (prand() % 3);
 					}
-					
+
 					if (map.tile[y][x] == 132)
 					{
 						if (prand() % 50 == 0)
@@ -292,7 +358,7 @@ void loadMap(char *name, int loadEntityResources)
 					if (map.tile[y][x] == 4 && map.tile[y + 1][x] == 0)
 					{
 						map.tile[y][x] = 7 + (prand() % 3);
-						
+
 						map.tile[y + 1][x] = map.tile[y][x] + 3;
 					}
 				}
@@ -336,7 +402,7 @@ void loadMap(char *name, int loadEntityResources)
 	free(buffer);
 
 	setTransition(TRANSITION_IN, NULL);
-	
+
 	if (game.canContinue == FALSE)
 	{
 		playMapMusic();
@@ -388,6 +454,24 @@ int saveMap()
 	fprintf(fp, "WEATHER %s\n", getWeather());
 	fprintf(fp, "MIN_Y %s\n", map.forceMinY == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DARK_MAP %s\n", map.darkMap == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "ANIM_TILE_COUNT %d\n", map.animTileTotal);
+
+	if (map.animTileTotal != 0)
+	{
+		for (x=0;x<map.animTileTotal;x++)
+		{
+			fprintf(fp, "ANIM_TILES\n");
+			fprintf(fp, "%d", map.animTile[x].tileCount);
+
+			for (y=0;y<map.animTile[x].tileCount;y++)
+			{
+				fprintf(fp, " %d", map.animTile[x].tile[y]);
+			}
+
+			fprintf(fp, "\n");
+		}
+	}
+
 	fprintf(fp, "DATA\n");
 
 	/* Write the data from the file into the map */
@@ -425,6 +509,10 @@ int saveMap()
 
 void doMap()
 {
+	int i;
+
+	i = 0;
+
 	map.thinkTime--;
 
 	if (map.thinkTime <= 0)
@@ -452,12 +540,29 @@ void doMap()
 
 		map.thinkTime = 3;
 	}
-	
+
 	map.blendTime -= 3;
-	
+
 	if (map.blendTime < 0)
 	{
 		map.blendTime = 0;
+	}
+
+	map.animThinkTime--;
+
+	if (map.animThinkTime < 0)
+	{
+		for (i=0;i<map.animTileTotal;i++)
+		{
+			map.animTile[i].tileIndex++;
+
+			if (map.animTile[i].tileIndex >= map.animTile[i].tileCount)
+			{
+				map.animTile[i].tileIndex = 0;
+			}
+		}
+
+		map.animThinkTime = 6;
 	}
 }
 
@@ -494,7 +599,7 @@ static void loadMapTiles(char *dir)
 void drawMapBackground()
 {
 	int x, y;
-	
+
 	map.backgroundStartX[0] = map.startX * map.backgroundSpeed[0];
 	map.backgroundStartY[0] = map.startY * map.backgroundSpeed[0];
 
@@ -601,7 +706,7 @@ void drawMapBackground()
 
 void drawMap(int depth)
 {
-	int x, y, mapX, x1, x2, mapY, y1, y2, tileID;
+	int i, x, y, mapX, x1, x2, mapY, y1, y2, tileID;
 
 	mapX = map.startX / TILE_SIZE;
 	x1 = (map.startX % TILE_SIZE) * -1;
@@ -638,12 +743,23 @@ void drawMap(int depth)
 				break;
 			}
 
+			i = 0;
+
+			for (i=0;i<map.animTileTotal;i++)
+			{
+				if (tileID == map.animTile[i].tile[0])
+				{
+					tileID = map.animTile[i].tile[map.animTile[i].tileIndex];
+				}
+			}
+
 			if (tileID == BLANK_TILE)
 			{
 				mapX++;
 
 				continue;
 			}
+
 			/*
 			if (mapImages[tileID] == NULL)
 			{
@@ -674,24 +790,24 @@ void drawMap(int depth)
 					{
 						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
 						drawImage(mapImages[slimeTile], x, y, FALSE, map.blendTime);
-						
+
 						if (map.blendTime == 0)
 						{
 							map.tile[mapY][mapX] = WATER_TILE_START;
 						}
 					}
-					
+
 					else if (tileID == SLIME_TILE_BLEND_REVERSE)
 					{
 						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
 						drawImage(mapImages[slimeTile], x, y, FALSE, 255 - map.blendTime);
-						
+
 						if (map.blendTime == 0)
 						{
 							map.tile[mapY][mapX] = SLIME_TILE_START;
 						}
 					}
-					
+
 					else if (tileID >= FOREGROUND_TILE_START)
 					{
 						drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
@@ -1150,15 +1266,15 @@ void limitCameraFromScript(char *line)
 {
 	char limitPlayer[10];
 	int read;
-	
+
 	read = sscanf(line, "%d %d %d %d %s", &map.cameraMinX, &map.cameraMinY, &map.cameraMaxX, &map.cameraMaxY, limitPlayer);
-	
+
 	if (read == 5 && strcmpignorecase(limitPlayer, "TRUE") == 0)
 	{
 		map.playerMinX = map.cameraMinX;
 		map.playerMaxX = map.cameraMaxX;
 	}
-	
+
 	else
 	{
 		map.playerMinX = map.minX;
@@ -1173,7 +1289,7 @@ void resetCameraLimits()
 
 	map.cameraMaxX = map.maxX;
 	map.cameraMaxY = map.maxY;
-	
+
 	map.playerMinX = map.minX;
 	map.playerMaxX = map.maxX;
 }
