@@ -1,0 +1,9 @@
+TALK Edgar Got it!
+TALK Edgar What a ridiculous amount of effort to go through just to get a statue...
+SHAKE_SCREEN MEDIUM 30
+PLAY_SOUND sound/common/crash.ogg
+WAIT 45
+SET EDGAR FACE LEFT
+TALK Edgar What was that?!
+TALK Edgar I'd better get out of here and get back to the Fortress...
+ACTIVATE_REQUIRED CAVE_BOSS_TRIGGER

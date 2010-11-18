@@ -153,7 +153,7 @@ typedef struct Game
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
 	int disableJoystick, mapExitable, cheatsEnabled;
-	int infiniteEnergy, infiniteArrows;
+	int infiniteEnergy, infiniteArrows, cheating;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
