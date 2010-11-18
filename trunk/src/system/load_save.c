@@ -260,6 +260,11 @@ int loadGame(int slot)
 			sscanf(line, "%*s %d\n", &game.continues);
 		}
 
+		else if (strcmpignorecase("CHEATING", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.cheating);
+		}
+
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)
 		{
 			if (version < VERSION)
@@ -447,6 +452,8 @@ static void patchSaveGame(char *saveFile, double version)
 
 					fprintf(newSave, "CONTINUES %d\n", game.continues);
 
+					fprintf(newSave, "CHEATING %d\n", game.cheating);
+
 					fprintf(newSave, "PLAYER_LOCATION %s\n", location);
 
 					savedLocation = TRUE;
@@ -590,6 +597,8 @@ void saveGame(int slot)
 	fprintf(write, "SECRETS_FOUND %d\n", game.secretsFound);
 
 	fprintf(write, "CONTINUES %d\n", game.continues);
+
+	fprintf(write, "CHEATING %d\n", game.cheating);
 
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
@@ -923,6 +932,8 @@ void saveContinueData()
 
 	fprintf(write, "CONTINUES %d\n", game.continues);
 
+	fprintf(write, "CHEATING %d\n", game.cheating);
+
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
 	read = fopen(tempFile, "rb");
@@ -1151,6 +1162,11 @@ int loadContinueData()
 		else if (strcmpignorecase("CONTINUES", itemName) == 0)
 		{
 			sscanf(line, "%*s %d\n", &game.continues);
+		}
+
+		else if (strcmpignorecase("CHEATING", itemName) == 0)
+		{
+			sscanf(line, "%*s %d\n", &game.cheating);
 		}
 
 		else if (strcmpignorecase("PLAYER_LOCATION", itemName) == 0)

@@ -243,7 +243,7 @@ void addParticleExplosion(int x, int y)
 Entity *addParticle(int x, int y)
 {
 	Entity *e;
-	
+
 	e = getFreeDecoration();
 
 	if (e == NULL)
@@ -262,7 +262,7 @@ Entity *addParticle(int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 
 	setEntityAnimation(e, prand() % 5);
-	
+
 	return e;
 }
 
@@ -479,52 +479,52 @@ Entity *addDamageScore(int damage, Entity *parentEntity)
 	SDL_Surface *image;
 	Sprite *sprite;
 	Entity *e = getFreeDecoration();
-	
+
 	if (e == NULL)
 	{
 		return NULL;
 	}
-	
+
 	snprintf(damageText, 5, "%d", damage);
-	
+
 	snprintf(absDamageText, 5, "%d", abs(damage));
-	
+
 	index = getSpriteIndexByName(damageText);
-	
+
 	if (index == -1)
 	{
 		if (damage < 0)
 		{
-			image = generateTransparentTextSurface(absDamageText, game.font, 0, 220, 0);
+			image = generateTransparentTextSurface(absDamageText, game.font, 0, 220, 0, FALSE);
 		}
-		
+
 		else
 		{
-			image = generateTransparentTextSurface(absDamageText, game.font, 220, 220, 220);
+			image = generateTransparentTextSurface(absDamageText, game.font, 220, 220, 220, FALSE);
 		}
-		
+
 		index = createSpriteFromSurface(damageText, image);
 	}
-	
+
 	else
 	{
 		sprite = getSprite(index);
-		
+
 		image = sprite->image;
 	}
-	
+
 	e->health = index;
-	
+
 	e->thinkTime = 60;
 
 	e->action = &riseUp;
 	e->draw = &drawScore;
-	
+
 	e->face = RIGHT;
-	
+
 	e->x = parentEntity->x + parentEntity->w / 2 - image->w / 2;
 	e->y = parentEntity->y + parentEntity->h / 2 - image->h / 2;
-	
+
 	e->x += prand() % 10 * (prand() % 2 == 0 ? -1 : 1);
 	e->y += prand() % 10 * (prand() % 2 == 0 ? -1 : 1);
 
@@ -534,9 +534,9 @@ Entity *addDamageScore(int damage, Entity *parentEntity)
 static void riseUp()
 {
 	self->y--;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
@@ -554,11 +554,11 @@ static int drawScore()
 
 	x = self->x - startX;
 	y = self->y - startY;
-	
+
 	sprite = getSprite(self->health);
-	
+
 	drawImage(sprite->image, x, y, FALSE, 255);
-	
+
 	return TRUE;
 }
 

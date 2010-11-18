@@ -36,6 +36,7 @@ extern Game game;
 extern Control control;
 
 static Menu menu;
+static int healthCheat, arrowCheat;
 
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
@@ -213,14 +214,18 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteHealth, &toggleInfiniteHealth, &toggleInfiniteHealth, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.infiniteEnergy == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+
+					healthCheat = game.infiniteEnergy;
 				}
 
 				else if (strcmpignorecase(menuID, "INFINITE_ARROWS") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteArrows, &toggleInfiniteArrows, &toggleInfiniteArrows, x, y, TRUE);
 
-					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+					menu.widgets[i]->label = createLabel(game.infiniteArrows == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+
+					arrowCheat = game.infiniteArrows;
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -324,22 +329,31 @@ static void toggleInfiniteHealth()
 {
 	Widget *w = menu.widgets[menu.index];
 
-	game.infiniteEnergy = game.infiniteEnergy == TRUE ? FALSE : TRUE;
+	healthCheat = healthCheat == TRUE ? FALSE : TRUE;
 
-	updateLabelText(w->label, game.infiniteEnergy == TRUE ? _("Yes") : _("No"));
+	updateLabelText(w->label, healthCheat == TRUE ? _("Yes") : _("No"));
 }
 
 static void toggleInfiniteArrows()
 {
 	Widget *w = menu.widgets[menu.index];
 
-	game.infiniteArrows = game.infiniteArrows == TRUE ? FALSE : TRUE;
+	arrowCheat = arrowCheat == TRUE ? FALSE : TRUE;
 
-	updateLabelText(w->label, game.infiniteArrows == TRUE ? _("Yes") : _("No"));
+	updateLabelText(w->label, arrowCheat == TRUE ? _("Yes") : _("No"));
 }
 
 static void showOptionsMenu()
 {
+	game.infiniteEnergy = healthCheat == TRUE ? FALSE : TRUE;
+
+	game.infiniteArrows = arrowCheat == TRUE ? FALSE : TRUE;
+
+	if (healthCheat == TRUE || arrowCheat == TRUE)
+	{
+		game.cheating = TRUE;
+	}
+
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;

@@ -253,7 +253,7 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 	if (collision(rect.x, rect.y, rect.w, rect.h, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) == TRUE)
 	{
 		color = SDL_MapRGB(game.screen->format, r, g, b);
-		
+
 		SDL_FillRect(game.screen, &rect, color);
 	}
 }
@@ -301,12 +301,12 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	startX = getMapStartX();
 	startY = getMapStartY();
-	
+
 	SDL_GetClipRect(game.screen, &clipRect);
-	
+
 	clipX = clipRect.x;
 	clipY = clipRect.y;
-	
+
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
 
@@ -408,12 +408,12 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 
 	startX = getMapStartX();
 	startY = getMapStartY();
-	
+
 	SDL_GetClipRect(game.screen, &clipRect);
-	
+
 	clipX = clipRect.x;
 	clipY = clipRect.y;
-	
+
 	clipW = clipRect.x + clipRect.w;
 	clipH = clipRect.y + clipRect.h;
 
@@ -777,6 +777,8 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	rect.h = 1;
 
 	SDL_FillRect(newSurface, &rect, color);
+
+	SDL_SetColorKey(newSurface, SDL_RLEACCEL|SDL_SRCCOLORKEY, SDL_MapRGB(newSurface->format, TRANS_R, TRANS_G, TRANS_B));
 
 	SDL_FreeSurface(surface);
 

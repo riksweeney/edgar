@@ -179,7 +179,7 @@ void drawHud()
 
 				snprintf(quantity, 4, "%d", quant);
 
-				hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255);
+				hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255, FALSE);
 			}
 
 			drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);

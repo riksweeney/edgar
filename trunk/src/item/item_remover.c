@@ -80,7 +80,6 @@ static void removeItems()
 	Target *t;
 	char targetName[MAX_LINE_LENGTH];
 	char *items[] = {
-		"item/tuning_fork",
 		"item/invisibility_potion",
 		"item/repellent",
 		"item/water_purifier",
@@ -90,21 +89,21 @@ static void removeItems()
 		"item/gazer_eye",
 		"weapon/normal_arrow"
 	};
-	
+
 	size = sizeof(items) / sizeof(char *);
-	
+
 	resetInventoryIndex();
-	
+
 	count = 0;
-	
+
 	allTargets = 0;
-	
+
 	/* Remove all the inventory items */
-	
+
 	for (i=0;i<MAX_INVENTORY_ITEMS;i++)
 	{
 		e = removeInventoryItemAtCursor();
-		
+
 		if (e != NULL)
 		{
 			for (j=0;j<size;j++)
@@ -112,71 +111,71 @@ static void removeItems()
 				if (strcmpignorecase(e->name, items[j]) == 0)
 				{
 					e->inUse = FALSE;
-					
+
 					break;
 				}
 			}
-			
+
 			if (e->inUse == FALSE)
 			{
 				continue;
 			}
-			
+
 			if (strcmpignorecase(e->name, "item/health_potion") == 0)
 			{
 				e->mental = -1;
 			}
-			
+
 			/* Ensure that at least 1 item appears at each target */
-			
+
 			j = allTargets < self->mental ? allTargets : prand() % self->mental;
-			
+
 			allTargets++;
-			
+
 			snprintf(targetName, MAX_VALUE_LENGTH, "REMOVER_TARGET_%d", j);
-			
+
 			t = getTargetByName(targetName);
-			
+
 			if (t == NULL)
 			{
 				showErrorAndExit("Item Remover cannot find target");
 			}
-			
+
 			x = t->x;
-			
+
 			x += (prand() % 32) * (prand() % 2 == 0 ? -1 : 1);
-			
+
 			addEntity(*e, x, t->y);
-			
+
 			e->inUse = FALSE;
-			
+
 			snprintf(targetName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_TRIGGER \"ITEMS\"", e->objectiveName);
-			
+
 			count++;
-			
+
 			addGlobalTriggerFromScript(targetName);
 		}
 	}
-	
+
 	freeInventory();
-	
+
 	snprintf(targetName, MAX_LINE_LENGTH, "\"ITEMS\" %d UPDATE_OBJECTIVE \"Retrieve items\"", count);
-	
+
 	addGlobalTriggerFromScript(targetName);
-	
+
 	e = removePlayerWeapon();
-	
+
 	if (e != NULL)
 	{
 		e->inUse = FALSE;
 	}
-	
+
 	e = removePlayerShield();
-	
+
 	if (e != NULL)
 	{
 		e->inUse = FALSE;
 	}
-	
+
 	self->inUse = FALSE;
 }

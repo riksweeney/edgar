@@ -48,6 +48,7 @@ static void showOptionsMenu(void);
 static void showSoundMenu(void);
 static void showMainMenu(void);
 static void showCheatMenu(void);
+static void showCheatMenuWarn(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
 static void toggleMedal(void);
@@ -93,7 +94,7 @@ static void doMenu()
 		if (strstr(lastKeys, MENU_CODE) != NULL)
 		{
 			enableCheatMenu();
-			
+
 			playSound("sound/common/faster.ogg");
 		}
 
@@ -292,7 +293,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_CHEAT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showCheatMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showCheatMenuWarn, x, y, TRUE);
 
 					menu.widgets[i]->hidden = game.cheatsEnabled == TRUE ? FALSE : TRUE;
 				}
@@ -450,6 +451,13 @@ static void showOptionsMenu()
 	game.menu = initOptionsMenu();
 
 	game.drawMenu = &drawOptionsMenu;
+}
+
+static void showCheatMenuWarn()
+{
+	game.menu = initOKMenu(_("Enabling cheats will not allow you to achieve 100% completion in the game"), &showCheatMenu);
+
+	game.drawMenu = &drawOKMenu;
 }
 
 static void showCheatMenu()

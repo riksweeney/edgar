@@ -110,7 +110,7 @@ SDL_Surface *generateTextSurface(char *text, TTF_Font *font, int fr, int fg, int
 	return surface;
 }
 
-SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb)
+SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, int fg, int fb, int blend)
 {
 	SDL_Surface *surface;
 	SDL_Color foregroundColor;
@@ -119,13 +119,21 @@ SDL_Surface *generateTransparentTextSurface(char *text, TTF_Font *font, int fr, 
 	foregroundColor.g = fg;
 	foregroundColor.b = fb;
 
-	TTF_SetFontStyle(font, TTF_STYLE_BOLD);
+	if (blend == FALSE)
+	{
+		TTF_SetFontStyle(font, TTF_STYLE_BOLD);
 
-	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+		/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
-	surface = TTF_RenderUTF8_Solid(font, text, foregroundColor);
+		surface = TTF_RenderUTF8_Solid(font, text, foregroundColor);
 
-	TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+		TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+	}
+
+	else
+	{
+		surface = TTF_RenderUTF8_Blended(font, text, foregroundColor);
+	}
 
 	if (surface == NULL)
 	{

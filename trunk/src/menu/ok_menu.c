@@ -153,7 +153,7 @@ static void loadMenuLayout(char *text)
 
 				if (strcmpignorecase(menuID, "MENU_OK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doOK, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doOK, x, y, TRUE);
 				}
 
 				else
