@@ -521,7 +521,7 @@ static void tongueEat()
 static void tongueTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= 1;
@@ -546,7 +546,7 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 			enemyPain();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -557,7 +557,7 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -634,7 +634,7 @@ static void attackFinished()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (self->mental > 0)
@@ -660,7 +660,7 @@ static void takeDamage(Entity *other, int damage)
 				{
 					self->health = 1;
 				}
-				
+
 				if (other->type == PROJECTILE)
 				{
 					temp = self;
@@ -671,6 +671,8 @@ static void takeDamage(Entity *other, int damage)
 
 					self = temp;
 				}
+
+				addDamageScore(damage, self);
 			}
 
 			if (strcmpignorecase(other->name, "enemy/red_baby_slime") != 0)
@@ -680,11 +682,15 @@ static void takeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				enemyPain();
+
+				addDamageScore(damage, self);
 			}
 
 			else if (self->health > 0)
 			{
 				self->startX = 1200;
+
+				self->targetX += damage;
 
 				if (self->endX == 0)
 				{
@@ -700,11 +706,23 @@ static void takeDamage(Entity *other, int damage)
 					}
 
 					enemyPain();
+
+					damage = self->targetX;
+
+					addDamageScore(damage, self);
+
+					self->targetX = 0;
 				}
 			}
 
 			else
 			{
+				damage = self->targetX;
+
+				addDamageScore(damage, self);
+
+				self->targetX = 0;
+
 				setEntityAnimation(self, PAIN);
 
 				playSoundToMap("sound/boss/armour_boss/die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -739,8 +757,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self->thinkTime = 0;
 		}
-		
-		addDamageScore(damage, self);
 	}
 }
 
@@ -1286,7 +1302,7 @@ static void armourTakeDamage(Entity *other, int damage)
 
 				enemyPain();
 			}
-			
+
 			if (other->type == PROJECTILE)
 			{
 				temp = self;
@@ -1297,7 +1313,7 @@ static void armourTakeDamage(Entity *other, int damage)
 
 				self = temp;
 			}
-			
+
 			addDamageScore(damage, self);
 		}
 
@@ -1625,22 +1641,22 @@ static void starWait()
 static void introComplete()
 {
 	self->action = &attackFinished;
-	
+
 	setContinuePoint(TRUE, self->name, &continuePoint);
 }
 
 static void continuePoint()
 {
 	addYellowGem();
-	
+
 	initBossHealthBar();
 
 	playDefaultBossMusic();
-	
+
 	self->action = &attackFinished;
-	
+
 	setContinuePoint(TRUE, self->name, &continuePoint);
-	
+
 	self->touch = &entityTouch;
 
 	self->takeDamage = &takeDamage;

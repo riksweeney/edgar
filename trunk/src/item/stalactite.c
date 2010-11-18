@@ -89,7 +89,7 @@ static void fallout()
 	if (self->environment == AIR || self->environment == LAVA)
 	{
 		self->thinkTime = 60;
-		
+
 		self->action = &falloutPause;
 	}
 }
@@ -97,12 +97,12 @@ static void fallout()
 static void falloutPause()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &die;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -115,7 +115,14 @@ static void entityWait()
 
 	if (self->flags & ON_GROUND)
 	{
-		if (onGround == 0 && self->environment == AIR)
+		if (self->mental == -1)
+		{
+			self->thinkTime = 300;
+
+			self->action = &die;
+		}
+
+		else if (onGround == 0 && self->environment == AIR)
 		{
 			for (i=0;i<20;i++)
 			{
@@ -130,7 +137,7 @@ static void entityWait()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (strcmpignorecase(self->requires, other->name) == 0 || other->type == PROJECTILE)
 	{
 		self->health -= damage;
@@ -156,7 +163,7 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 
@@ -165,7 +172,7 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-		
+
 		if (other->reactToBlock != NULL)
 		{
 			temp = self;
@@ -176,14 +183,14 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		if (prand() % 10 == 0)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
-		
+
 		damage = 0;
-		
+
 		addDamageScore(damage, self);
 	}
 }

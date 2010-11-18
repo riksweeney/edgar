@@ -117,6 +117,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/sorceror.h"
 #include "../boss/centurion_boss.h"
 #include "../boss/sewer_boss.h"
+#include "../boss/cave_boss.h"
 
 #include "../system/error.h"
 
@@ -246,7 +247,8 @@ static Constructor enemies[] = {
 {"enemy/frog", &addFrog},
 {"enemy/master_tortoise", &addMasterTortoise},
 {"enemy/red_ceiling_creeper", &addRedCeilingCreeper},
-{"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise}
+{"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise},
+{"boss/cave_boss", &addCaveBoss}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
