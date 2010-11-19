@@ -226,6 +226,8 @@ static void introPause()
 		initBossHealthBar();
 
 		self->action = &entityWait;
+		
+		self->flags |= LIMIT_TO_SCREEN;
 	}
 
 	facePlayer();

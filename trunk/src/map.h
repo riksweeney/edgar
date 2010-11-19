@@ -68,3 +68,4 @@ int getCameraMaxY(void);
 int getPlayerMinX(void);
 int getPlayerMaxX(void);
 void drawMapBackground(void);
+void limitPlayerToCameraLimits(void);

@@ -199,6 +199,8 @@ static void die()
 {
 	Entity *e;
 
+	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+
 	self->flags |= NO_DRAW;
 
 	self->touch = NULL;
@@ -220,6 +222,11 @@ static void die()
 
 	e->dirX = 3;
 	e->dirY = -8;
+
+	if (self->mental == -1)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void respawn()

@@ -178,6 +178,8 @@ static void doIntro()
 	
 	self->endX = 1;
 	
+	self->flags |= LIMIT_TO_SCREEN;
+	
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= DO_NOT_PERSIST;
@@ -202,7 +204,7 @@ static void doIntro()
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND|LIMIT_TO_SCREEN);
 		
 		e->action = &introWait;
 		

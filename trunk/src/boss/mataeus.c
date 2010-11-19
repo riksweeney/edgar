@@ -173,6 +173,8 @@ static void introPause()
 	self->action = &createShield;
 
 	self->thinkTime = 90;
+	
+	self->flags |= LIMIT_TO_SCREEN;
 
 	facePlayer();
 
@@ -332,6 +334,8 @@ static void knifeThrowInit()
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		radians = DEG_TO_RAD(i * 60);
 

@@ -963,6 +963,8 @@ void getContinuePoint()
 	setMapStartY(continueData.cameraMinY);
 
 	setCameraPosition(continueData.cameraMinX, continueData.cameraMinY);
+	
+	limitPlayerToCameraLimits();
 
 	if (continueData.cameraFollow == FALSE)
 	{

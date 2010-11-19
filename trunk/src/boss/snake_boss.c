@@ -157,6 +157,8 @@ static void initialise()
 			self->thinkTime = 60;
 
 			self->face = LEFT;
+			
+			self->flags |= LIMIT_TO_SCREEN;
 
 			self->action = &riseUp;
 

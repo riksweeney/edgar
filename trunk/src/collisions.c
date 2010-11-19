@@ -75,7 +75,7 @@ void addToGrid(Entity *e)
 		top = (e->y + e->box.y) / TILE_SIZE / GRID_SIZE;
 		bottom = (e->y + e->box.y + e->box.h) / TILE_SIZE / GRID_SIZE;
 	}
-	
+
 	for (x=left;x<=right;x++)
 	{
 		for (y=top;y<=bottom;y++)
@@ -220,7 +220,7 @@ void doCollisions()
 
 								y1 = e1->parent->y + e1->offsetY;
 							}
-							
+
 							else if (e2 == &playerWeapon)
 							{
 								if (e2->face == LEFT)
@@ -286,7 +286,7 @@ Entity *checkEntityToEntity(Entity *e)
 							{
 								continue;
 							}
-							
+
 							if (e1->type == ANTI_GRAVITY || e2->type == ANTI_GRAVITY)
 							{
 								continue;
@@ -909,8 +909,8 @@ void checkToMap(Entity *e)
 
 	x1 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMinX() : getMinMapX();
 	x2 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMaxX() : getMaxMapX();
-	
-	y1 = getMinMapY();
+
+	y1 = (e->flags & LIMIT_TO_SCREEN) ? getMapStartY() : getMinMapY() - 300;
 
 	if (e->x < x1)
 	{
@@ -950,25 +950,27 @@ void checkToMap(Entity *e)
 	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
 	{
 		e->flags &= ~HELPLESS|INVULNERABLE;
-		
+
 		if (e->fallout == NULL)
 		{
 			printf("%s has no fallout defined. Removing\n", self->name);
-			
+
 			e->inUse = FALSE;
-			
+
 			return;
 		}
-		
+
 		else
 		{
 			e->fallout();
 		}
 	}
 
-	else if (e->y < -300)
+	else if (e->y < y1)
 	{
 		/* Way too high... */
+
+		e->y = y1;
 
 		e->dirY = 0;
 	}
@@ -1456,7 +1458,7 @@ int getWaterTop(int x, int y)
 
 		tileID = mapTileAt(x, y);
 	}
-	
+
 	y++;
 
 	y *= TILE_SIZE;
