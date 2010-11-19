@@ -345,9 +345,9 @@ static void toggleInfiniteArrows()
 
 static void showOptionsMenu()
 {
-	game.infiniteEnergy = healthCheat == TRUE ? FALSE : TRUE;
+	game.infiniteEnergy = healthCheat;
 
-	game.infiniteArrows = arrowCheat == TRUE ? FALSE : TRUE;
+	game.infiniteArrows = arrowCheat;
 
 	if (healthCheat == TRUE || arrowCheat == TRUE)
 	{

@@ -14,6 +14,8 @@ TALK Edgar Now to create that shield and get that sorceror...
 ADD OBJECTIVE "Create a Resist Disintegration Shield" " "
 ADD TRIGGER "Disintegration Shield" 1 UPDATE_OBJECTIVE "Create a Resist Disintegration Shield"
 SET Fortress-Study PROPERTY ACTIVE FALSE
+ADD ENTITY common/action_point "STUDY_POINT" 7760 9360
+SET STUDY_POINT PROPERTY REQUIRES sorceror_study
 TALK Narrator You will not be able to create the shield in this version!
 ADD MAP_TRIGGER "map10" RUN_SCRIPT "cauldron_shield_update"
 FOLLOW EDGAR

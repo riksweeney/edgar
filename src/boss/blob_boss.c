@@ -94,6 +94,7 @@ static void dieRise(void);
 static void dieSplit(void);
 static void dieWait(void);
 static void partFinalDie(void);
+void partTakeDamage(Entity *, int);
 
 Entity *addBlobBoss(int x, int y, char *name)
 {
@@ -152,6 +153,8 @@ static void initialise()
 			self->thinkTime = 6;
 
 			self->flags &= ~FLY;
+			
+			self->flags |= LIMIT_TO_SCREEN;
 
 			self->action = &doIntro;
 
@@ -182,6 +185,8 @@ static void doIntro()
 		loadProperties("boss/blob_boss_part", e);
 
 		setEntityAnimation(e, STAND);
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		e->draw = &drawLoopingAnimationToMap;
 
@@ -223,13 +228,13 @@ static void doIntro()
 static void reform()
 {
 	checkToMap(self);
-
+	/*
 	if (outOfBounds(self) == TRUE)
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
 	}
-
+	*/
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -737,12 +742,14 @@ static void eatExplode()
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add a Blob Boss part");
+			showErrorAndExit("No free slots to add a Blob Boss Part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);
 
 		setEntityAnimation(e, STAND);
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		e->x = self->x;
 		e->y = self->y;
@@ -1212,10 +1219,12 @@ static void splitAttackInit()
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add a Blob Boss part");
+			showErrorAndExit("No free slots to add a Blob Boss Part");
 		}
 
 		loadProperties("boss/blob_boss_part", e);
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		setEntityAnimation(e, WALK);
 
@@ -1242,7 +1251,7 @@ static void splitAttackInit()
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->takeDamage = &entityTakeDamageNoFlinch;
+		e->takeDamage = &partTakeDamage;
 
 		e->head = self;
 
@@ -1266,6 +1275,58 @@ static void splitAttackInit()
 	self->frameSpeed = 0;
 
 	self->touch = NULL;
+}
+
+void partTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		else
+		{
+			self->damage = 0;
+
+			self->die();
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
+	}
 }
 
 static void partDie()
@@ -1463,6 +1524,8 @@ static void partWait()
 	if (self->head->maxThinkTime == 0 && self->head->startX != 0)
 	{
 		self->thinkTime = 60 + prand() % 180;
+		
+		self->health = 600;
 
 		self->action = &reform;
 	}
@@ -1705,6 +1768,8 @@ static void dieSplit()
 		}
 
 		loadProperties("boss/blob_boss_part", e);
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		setEntityAnimation(e, STAND);
 

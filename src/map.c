@@ -1282,6 +1282,12 @@ void limitCameraFromScript(char *line)
 	}
 }
 
+void limitPlayerToCameraLimits()
+{
+	map.playerMinX = map.cameraMinX;
+	map.playerMaxX = map.cameraMaxX;
+}
+
 void resetCameraLimits()
 {
 	map.cameraMinX = map.minX;
