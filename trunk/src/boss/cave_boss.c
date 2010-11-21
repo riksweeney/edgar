@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../item/key_items.h"
 #include "../player.h"
+#include "../enemy/enemies.h"
 #include "../graphics/gib.h"
 #include "../system/error.h"
 
@@ -44,7 +45,13 @@ static void doIntro(void);
 static void die(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
+static void touch(Entity *);
 static void introPause(void);
+static void freezeBody(void);
+static void immolateBody(void);
+static void throwWallWalkerInit(void);
+static void throwWallWalker(void);
+static void chargePlayerInit(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -63,8 +70,8 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
-
-	e->takeDamage = &takeDamage;
+	
+	e->touch = &entityTouch;
 
 	e->die = &die;
 
@@ -96,6 +103,10 @@ static void initialise()
 			self->endX = 3;
 
 			self->startY = 0;
+			
+			self->takeDamage = &takeDamage;
+			
+			self->touch = &touch;
 
 			setContinuePoint(FALSE, self->name, NULL);
 		}
@@ -127,18 +138,150 @@ static void introPause()
 	self->action = &attackFinished;
 
 	checkToMap(self);
+	
+	self->startX = 0;
+	
+	self->endY = 25;
 }
 
 static void entityWait()
 {
-	/* Drop small creatures that steal weapons? */
+	int action;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		switch ((int)self->startX)
+		{
+			case 0:
+				action = prand() % 4;
+				
+				switch (action)
+				{
+					case 0:
+						self->action = &freezeBody;
+					break;
+					
+					case 1:
+						self->action = &immolateBody;
+					break;
+					
+					case 2:
+						self->action = &throwWallWalkerInit;
+					break;
+					
+					default:
+						self->action = &chargePlayerInit;
+					break;
+				}
+			break;
+			
+			case 1: /* Fire */
+				action = prand() % 3;
+				
+				switch (action)
+				{
+					case 0:
+					case 1:
+					case 2:
+						self->action = &throwWallWalkerInit;
+					break;
+					
+					default:
+						self->action = &chargePlayerInit;
+					break;
+				}
+			break;
+			
+			default: /* Ice */
+				action = prand() % 3;
+				
+				switch (action)
+				{
+					case 0:
+					case 1:
+					case 2:
+						self->action = &throwWallWalkerInit;
+					break;
+					
+					default:
+						self->action = &chargePlayerInit;
+					break;
+				}
+			break;
+		}
+	}
+	
+	checkToMap(self);
+}
 
-	/* Throws rocks? */
+static void throwWallWalkerInit()
+{
+	self->mental = 1 + prand() % 5;
+	
+	self->thinkTime = 30;
+	
+	self->action = &throwWallWalker;
+	
+	checkToMap(self);
+}
+
+static void throwWallWalker()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = addEnemy("enemy/wall_walker", self->x, self->y);
+		
+		e->face = self->face;
+		
+		e->dirY = ITEM_JUMP_HEIGHT;
+		
+		e->dirX = e->face == LEFT ? -e->speed : e->speed;
+		
+		self->mental--;
+		
+		self->thinkTime = 60;
+		
+		if (self->mental <= 0)
+		{
+			self->action = &attackFinished;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void chargePlayerInit()
+{
+	
+}
+
+static void freezeBody()
+{
+	self->startX = 1;
+	
+	playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	
+	self->action = &attackFinished;
+}
+
+static void immolateBody()
+{
+	self->startX = 2;
+	
+	self->action = &attackFinished;
 }
 
 static void attackFinished()
 {
 	self->mental = 0;
+	
+	self->thinkTime = 120;
 
 	self->action = &entityWait;
 }
@@ -152,50 +295,88 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (damage != 0)
+	if (self->startX == 0)
 	{
-		if (self->endX > 0)
+		if (self->flags & INVULNERABLE)
 		{
-			self->startX--;
-
-			if (self->startX <= 0)
-			{
-				self->startY = 1;
-			}
-
-			damage = 1;
+			return;
 		}
 
-		else
+		if (damage != 0)
 		{
 			self->health -= damage;
-		}
 
-		if (other->type == PROJECTILE)
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+				}
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->takeDamage = NULL;
+				
+				self->thinkTime = 120;
+				
+				self->startX = self->x;
+				
+				self->damage = 0;
+				
+				self->endX = 0;
+				
+				self->action = &die;
+			}
+			
+			addDamageScore(damage, self);
+		}
+	}
+		
+	else
+	{		
+		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		
+		if (other->reactToBlock != NULL)
 		{
 			temp = self;
 
 			self = other;
 
-			self->die();
+			self->reactToBlock();
 
 			self = temp;
 		}
 
-		setCustomAction(self, &flashWhite, 6, 0, 0);
-
-		/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-		if (other->type != PROJECTILE)
+		if (prand() % 10 == 0)
 		{
-			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 
-		if (self->pain != NULL)
-		{
-			self->pain();
-		}
-
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+		
+		damage = 0;
+		
 		addDamageScore(damage, self);
 	}
 }
@@ -221,5 +402,62 @@ static void die()
 		e->dirY = ITEM_JUMP_HEIGHT;
 
 		entityDieNoDrop();
+	}
+}
+
+static void touch(Entity *other)
+{
+	if (other->type == KEY_ITEM && strcmpignorecase(other->name, "item_stalactite") == 0)
+	{
+		if (self->startX == -1)
+		{
+			self->takeDamage(other, 500);
+			
+			other->mental = -1;
+		}
+		
+		else
+		{
+			other->action = &die;
+		}
+	}
+	
+	else if (self->startX == 1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
+	{
+		self->startY--;
+		
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		enemyPain();
+		
+		other->inUse = FALSE;
+		
+		if (self->startY <= 0)
+		{
+			self->startX = 0;
+		}
+	}
+	
+	else if (self->startX == 2 && other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
+	{
+		self->startY--;
+		
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		enemyPain();
+		
+		other->inUse = FALSE;
+		
+		if (self->startY <= 0)
+		{
+			self->startX = 0;
+		}
+	}
+	
+	else
+	{
+		entityTouch(other);
 	}
 }
