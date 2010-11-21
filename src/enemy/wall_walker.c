@@ -37,6 +37,7 @@ static void walkUpWall(void);
 static void walkOnCeiling(void);
 static void dropOnPlayer(void);
 static void dropWait(void);
+static void die(void);
 
 Entity *addWallWalker(int x, int y, char *name)
 {
@@ -54,7 +55,7 @@ Entity *addWallWalker(int x, int y, char *name)
 
 	e->action = &walkOnGround;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -160,4 +161,17 @@ static void dropWait()
 	}
 
 	checkToMap(self);
+}
+
+static void die()
+{
+	Entity *arrow;
+	
+	/* Drop between 1 and 3 arrows */
+
+	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+	arrow->health = 1 + (prand() % 3);
+
+	entityDieNoDrop();
 }

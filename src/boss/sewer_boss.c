@@ -1632,7 +1632,7 @@ static void clawDie()
 
 	arrow->health = 1 + (prand() % 3);
 
-	entityDieNoDrop();	
+	entityDieNoDrop();
 }
 
 static void slimeDie()
