@@ -86,11 +86,16 @@ static void touch(Entity *other)
 
 static void fallout()
 {
-	if (self->environment == AIR || self->environment == LAVA)
+	if (self->mental == 0 && (self->environment == AIR || self->environment == LAVA))
 	{
 		self->thinkTime = 60;
 
 		self->action = &falloutPause;
+	}
+
+	else if (self->mental == -1)
+	{
+		self->action = &die;
 	}
 }
 
@@ -153,13 +158,16 @@ static void takeDamage(Entity *other, int damage)
 
 				self->health = self->maxHealth;
 
+				if (self->mental == -1)
+				{
+					self->flags |= ATTACKING;
+				}
+
 				self->thinkTime = 1;
 			}
 
 			else
 			{
-				self->thinkTime = 300;
-
 				self->die();
 			}
 		}
@@ -205,6 +213,8 @@ static void die()
 
 	self->touch = NULL;
 
+	self->thinkTime = 300;
+
 	self->action = &respawn;
 
 	e = addSmallRock(self->x, self->y, "common/small_rock");
@@ -222,11 +232,6 @@ static void die()
 
 	e->dirX = 3;
 	e->dirY = -8;
-
-	if (self->mental == -1)
-	{
-		self->inUse = FALSE;
-	}
 }
 
 static void respawn()
@@ -252,5 +257,7 @@ static void respawn()
 		self->y = self->startY;
 
 		self->dirX = self->dirY = 0;
+
+		self->flags &= ~ATTACKING;
 	}
 }

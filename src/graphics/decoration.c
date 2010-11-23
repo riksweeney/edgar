@@ -478,7 +478,11 @@ Entity *addDamageScore(int damage, Entity *parentEntity)
 	int index;
 	SDL_Surface *image;
 	Sprite *sprite;
-	Entity *e = getFreeDecoration();
+	Entity *e;
+
+	return NULL;
+
+	e = getFreeDecoration();
 
 	if (e == NULL)
 	{

@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/enemies.h"
 #include "../graphics/gib.h"
 #include "../system/error.h"
+#include "../world/target.h"
 
 extern Entity *self, player;
 
@@ -52,6 +53,14 @@ static void immolateBody(void);
 static void throwWallWalkerInit(void);
 static void throwWallWalker(void);
 static void chargePlayerInit(void);
+static void rechargeInit(void);
+static void fallout(void);
+static void falloutPause(void);
+static void jumpOut(void);
+static void jumpOutWait(void);
+static void noTouch(Entity *);
+static void moveToRechargeTarget(void);
+static void recharge(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -70,10 +79,12 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &entityTouch;
 
 	e->die = &die;
+
+	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -98,14 +109,8 @@ static void initialise()
 
 			self->thinkTime = 60;
 
-			self->startX = 20;
-
-			self->endX = 3;
-
-			self->startY = 0;
-			
 			self->takeDamage = &takeDamage;
-			
+
 			self->touch = &touch;
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -138,73 +143,78 @@ static void introPause()
 	self->action = &attackFinished;
 
 	checkToMap(self);
-	
+
 	self->startX = 0;
-	
+
 	self->endY = 25;
+
+	self->endX = 0;
 }
 
 static void entityWait()
 {
 	int action;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		switch ((int)self->startX)
 		{
-			case 0:
-				action = prand() % 4;
-				
-				switch (action)
+			case -1:
+				if (self->startY > 0)
 				{
-					case 0:
-						self->action = &freezeBody;
-					break;
-					
-					case 1:
-						self->action = &immolateBody;
-					break;
-					
-					case 2:
-						self->action = &throwWallWalkerInit;
-					break;
-					
-					default:
-						self->action = &chargePlayerInit;
-					break;
+					action = prand() % 2;
+
+					switch (action)
+					{
+						case 0:
+							self->action = &throwWallWalkerInit;
+						break;
+
+						default:
+							self->action = &chargePlayerInit;
+						break;
+					}
+				}
+
+				else
+				{
+					self->action = &rechargeInit;
 				}
 			break;
-			
+
+			case 0:
+				switch ((int)self->endX)
+				{
+					self->action = prand() % 2 == 0 ? &immolateBody : &freezeBody;
+				}
+			break;
+
 			case 1: /* Fire */
 				action = prand() % 3;
-				
+
 				switch (action)
 				{
 					case 0:
-					case 1:
-					case 2:
 						self->action = &throwWallWalkerInit;
 					break;
-					
+
 					default:
 						self->action = &chargePlayerInit;
 					break;
 				}
 			break;
-			
+
 			default: /* Ice */
 				action = prand() % 3;
-				
+
 				switch (action)
 				{
 					case 0:
-					case 1:
-					case 2:
 						self->action = &throwWallWalkerInit;
 					break;
-					
+
 					default:
 						self->action = &chargePlayerInit;
 					break;
@@ -212,75 +222,131 @@ static void entityWait()
 			break;
 		}
 	}
-	
+
+	checkToMap(self);
+}
+
+static void rechargeInit()
+{
+	Target *t;
+
+	t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+
+	self->targetY = self->y;
+
+	self->action = &moveToRechargeTarget;
+
+	self->face = self->targetX < self->x ? LEFT : RIGHT;
+
+	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+	checkToMap(self);
+}
+
+static void moveToRechargeTarget()
+{
+	if (atTarget())
+	{
+		self->thinkTime = 600;
+
+		self->action = &recharge;
+	}
+
+	checkToMap(self);
+}
+
+static void recharge()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
 	checkToMap(self);
 }
 
 static void throwWallWalkerInit()
 {
 	self->mental = 1 + prand() % 5;
-	
+
 	self->thinkTime = 30;
-	
+
 	self->action = &throwWallWalker;
-	
+
 	checkToMap(self);
 }
 
 static void throwWallWalker()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = addEnemy("enemy/wall_walker", self->x, self->y);
-		
+
 		e->face = self->face;
-		
+
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
+		e->flags |= LIMIT_TO_SCREEN;
+
 		e->dirX = e->face == LEFT ? -e->speed : e->speed;
-		
+
 		self->mental--;
-		
+
 		self->thinkTime = 60;
-		
+
 		if (self->mental <= 0)
 		{
 			self->action = &attackFinished;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static void chargePlayerInit()
 {
-	
+	self->action = &attackFinished;
 }
 
 static void freezeBody()
 {
 	self->startX = 1;
-	
+
+	self->startY = 12;
+
 	playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-	
+
 	self->action = &attackFinished;
 }
 
 static void immolateBody()
 {
 	self->startX = 2;
-	
+
+	self->startY = 12;
+
+	playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
 	self->action = &attackFinished;
 }
 
 static void attackFinished()
 {
 	self->mental = 0;
-	
+
 	self->thinkTime = 120;
 
 	self->action = &entityWait;
@@ -295,7 +361,7 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (self->startX == 0)
+	if (self->startX == -1)
 	{
 		if (self->flags & INVULNERABLE)
 		{
@@ -304,7 +370,7 @@ static void takeDamage(Entity *other, int damage)
 
 		if (damage != 0)
 		{
-			self->health -= damage;
+			self->startY--;
 
 			if (other->type == PROJECTILE)
 			{
@@ -317,46 +383,31 @@ static void takeDamage(Entity *other, int damage)
 				self = temp;
 			}
 
-			if (self->health > 0)
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
 			{
-				setCustomAction(self, &flashWhite, 6, 0, 0);
-
-				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-				if (other->type != PROJECTILE)
-				{
-					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-				}
-
-				if (self->pain != NULL)
-				{
-					self->pain();
-				}
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
-			else
+			if (self->pain != NULL)
 			{
-				self->takeDamage = NULL;
-				
-				self->thinkTime = 120;
-				
-				self->startX = self->x;
-				
-				self->damage = 0;
-				
-				self->endX = 0;
-				
-				self->action = &die;
+				self->pain();
 			}
-			
-			addDamageScore(damage, self);
+
+			if (self->startY <= 0)
+			{
+
+			}
 		}
 	}
-		
+
 	else
-	{		
+	{
 		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-		
+
 		if (other->reactToBlock != NULL)
 		{
 			temp = self;
@@ -374,9 +425,9 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-		
+
 		damage = 0;
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -412,52 +463,139 @@ static void touch(Entity *other)
 		if (self->startX == -1)
 		{
 			self->takeDamage(other, 500);
-			
+
 			other->mental = -1;
 		}
-		
+
 		else
 		{
 			other->action = &die;
 		}
 	}
-	
+
 	else if (self->startX == 1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->startY--;
-		
+
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
-		
+
 		other->inUse = FALSE;
-		
+
 		if (self->startY <= 0)
 		{
-			self->startX = 0;
+			self->startY = 150;
+
+			self->startX = -1;
 		}
 	}
-	
+
 	else if (self->startX == 2 && other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
 	{
 		self->startY--;
-		
+
 		setCustomAction(self, &flashWhite, 6, 0, 0);
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
-		
+
 		other->inUse = FALSE;
-		
+
 		if (self->startY <= 0)
 		{
-			self->startX = 0;
+			self->startY = 150;
+
+			self->startX = -1;
 		}
 	}
-	
+
 	else
 	{
 		entityTouch(other);
 	}
+}
+
+static void fallout()
+{
+	int damage;
+
+	if (self->startX == -1)
+	{
+		damage = 500;
+
+		self->health -= damage;
+
+		addDamageScore(damage, self);
+	}
+
+	self->thinkTime = 120;
+
+	self->action = &falloutPause;
+
+	checkToMap(self);
+}
+
+static void falloutPause()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &jumpOut;
+
+		self->touch = &noTouch;
+	}
+
+	checkToMap(self);
+}
+
+static void jumpOut()
+{
+	self->dirY = -6;
+
+	self->flags |= FLY;
+
+	self->damage = 200;
+
+	self->thinkTime = 180;
+
+	self->action = &jumpOutWait;
+
+	checkToMap(self);
+}
+
+static void jumpOutWait()
+{
+	int screenMid;
+
+	if (self->environment == AIR)
+	{
+		self->flags &= ~FLY;
+
+		screenMid = getMapStartX() + SCREEN_WIDTH / 2;
+
+		self->face = self->x > screenMid ? LEFT : RIGHT;
+
+		self->dirX = self->face == LEFT ? -6 : 6;
+	}
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		self->damage = 1;
+
+		self->touch = &touch;
+
+		self->action = &attackFinished;
+	}
+}
+
+static void noTouch(Entity *other)
+{
+
 }

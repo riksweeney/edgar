@@ -35,8 +35,7 @@ extern Entity *self, player;
 static void walkOnGround(void);
 static void walkUpWall(void);
 static void walkOnCeiling(void);
-static void dropOnPlayer(void);
-static void dropWait(void);
+static void walkDownWall(void);
 static void die(void);
 
 Entity *addWallWalker(int x, int y, char *name)
@@ -71,6 +70,13 @@ static void walkOnGround()
 {
 	checkToMap(self);
 
+	if (isAtEdge(self) == TRUE)
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+
 	if (self->dirX == 0)
 	{
 		self->flags |= FLY;
@@ -97,76 +103,48 @@ static void walkUpWall()
 
 static void walkOnCeiling()
 {
+	float dirX = self->dirX;
+
 	checkToMap(self);
 
-	if (self->dirX == 0 || isAtCeilingEdge(self) == TRUE)
+	if (self->dirX == 0)
+	{
+		if (dirX == 0)
+		{
+			self->face = self->face == LEFT ? RIGHT : LEFT;
+
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		}
+
+		else
+		{
+			self->action = &walkDownWall;
+
+			self->dirY = self->speed;
+		}
+	}
+}
+
+static void walkDownWall()
+{
+	checkToMap(self);
+
+	if (self->dirY == 0)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
 
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	}
-
-	if (player.health > 0 &&
-		collision(self->x, self->y, self->w, SCREEN_HEIGHT, player.x ,player.y, player.w, player.h) == 1)
-	{
-		self->dirX = 0;
-
-		self->thinkTime = 30;
-
-		self->action = &dropOnPlayer;
-	}
-}
-
-static void dropOnPlayer()
-{
-	int i;
-	long onGround = self->flags & ON_GROUND;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
 		self->flags &= ~FLY;
-	}
-
-	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		if (onGround == 0)
-		{
-			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
-
-			for (i=0;i<20;i++)
-			{
-				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
-			}
-		}
-
-		self->action = &dropWait;
-
-		self->thinkTime = 60;
-	}
-}
-
-static void dropWait()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		self->action = &walkOnGround;
-	}
 
-	checkToMap(self);
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
 }
 
 static void die()
 {
 	Entity *arrow;
-	
+
 	/* Drop between 1 and 3 arrows */
 
 	arrow = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
