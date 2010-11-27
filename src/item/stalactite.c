@@ -78,7 +78,7 @@ static void touch(Entity *other)
 		takeDamage(other, other->damage);
 	}
 
-	if (self->inUse == TRUE)
+	if (self->inUse == TRUE && !(self->flags & ATTACKING))
 	{
 		pushEntity(other);
 	}
