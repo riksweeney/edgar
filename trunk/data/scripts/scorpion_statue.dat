@@ -6,4 +6,6 @@ WAIT 45
 SET EDGAR FACE LEFT
 TALK Edgar What was that?!
 TALK Edgar I'd better get out of here and get back to the Fortress...
-ACTIVATE_REQUIRED CAVE_BOSS_TRIGGER
+TALK Narrator There should be a boss here but it's not finished
+TALK Narrator So make a spare save if you want to fight it later since you won't be able to return here
+#ACTIVATE_REQUIRED CAVE_BOSS_TRIGGER

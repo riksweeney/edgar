@@ -1435,8 +1435,13 @@ void addEntityFromScript(char *line)
 	}
 
 	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)
-	{
+	{		
 		e = addActionPoint("common/action_point", x, y);
+		
+		e->startX = x;
+		e->startY = y;
+		e->endX = x;
+		e->endY = y;
 
 		if (strcmpignorecase(objectiveName, " ") != 0)
 		{

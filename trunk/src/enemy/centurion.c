@@ -138,7 +138,7 @@ static void lookForPlayer()
 
 	if (strcmpignorecase(self->name, "enemy/red_centurion") == 0)
 	{
-		if (self->thinkTime == 0 && player.health > 0 && prand() % 10 == 0)
+		if (self->thinkTime == 0 && !(player.flags & TELEPORTING) && player.health > 0 && prand() % 10 == 0)
 		{
 			if (collision(self->x + (self->face == RIGHT ? self->w : -240), self->y, 240, self->h, player.x, player.y, player.w, player.h) == 1)
 			{
@@ -154,7 +154,7 @@ static void lookForPlayer()
 
 	else
 	{
-		if (self->thinkTime == 0 && player.health > 0 && prand() % 15 == 0)
+		if (self->thinkTime == 0 && !(player.flags & TELEPORTING) && player.health > 0 && prand() % 15 == 0)
 		{
 			if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 			{

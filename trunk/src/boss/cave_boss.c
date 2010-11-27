@@ -61,6 +61,10 @@ static void jumpOutWait(void);
 static void noTouch(Entity *);
 static void moveToRechargeTarget(void);
 static void recharge(void);
+static void incinerateInit(void);
+static void incinerate(void);
+static void incinerateWait(void);
+static void fireWait(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -79,8 +83,6 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
-
-	e->touch = &entityTouch;
 
 	e->die = &die;
 
@@ -108,6 +110,8 @@ static void initialise()
 			self->action = &doIntro;
 
 			self->thinkTime = 60;
+
+			self->touch = &entityTouch;
 
 			self->takeDamage = &takeDamage;
 
@@ -221,6 +225,8 @@ static void entityWait()
 				}
 			break;
 		}
+		
+		self->action = &incinerateInit;
 	}
 
 	checkToMap(self);
@@ -242,6 +248,8 @@ static void rechargeInit()
 	self->targetY = self->y;
 
 	self->action = &moveToRechargeTarget;
+
+	self->touch = &noTouch;
 
 	self->face = self->targetX < self->x ? LEFT : RIGHT;
 
@@ -325,7 +333,7 @@ static void freezeBody()
 {
 	self->startX = 1;
 
-	self->startY = 12;
+	self->startY = 8;
 
 	playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -336,7 +344,7 @@ static void immolateBody()
 {
 	self->startX = 2;
 
-	self->startY = 12;
+	self->startY = 8;
 
 	playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -530,7 +538,7 @@ static void fallout()
 		addDamageScore(damage, self);
 	}
 
-	self->thinkTime = 120;
+	self->thinkTime = 360;
 
 	self->action = &falloutPause;
 
@@ -553,7 +561,7 @@ static void falloutPause()
 
 static void jumpOut()
 {
-	self->dirY = -6;
+	self->dirY = -8;
 
 	self->flags |= FLY;
 
@@ -598,4 +606,125 @@ static void jumpOutWait()
 static void noTouch(Entity *other)
 {
 
+}
+
+static void incinerateInit()
+{
+	self->thinkTime = 300;
+
+	self->action = &incinerate;
+
+	self->mental = 60;
+
+	checkToMap(self);
+}
+
+static void incinerate()
+{
+	int x, startX;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 0;
+
+		startX = getMapStartX();
+
+		x = 0;
+
+		while (x < SCREEN_WIDTH)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Fire");
+			}
+
+			loadProperties("boss/phoenix_die_fire", e);
+
+			setEntityAnimation(e, STAND);
+
+			e->x = startX + x;
+			e->y = self->y + self->h - e->h;
+
+			e->action = &fireWait;
+			e->touch = &entityTouch;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+
+			e->flags |= FLY;
+
+			e->thinkTime = 30;
+
+			e->damage = 1;
+
+			e->health = 0;
+
+			e->maxHealth = 5;
+
+			e->mental = 1;
+
+			e->head = self;
+
+			x += e->w;
+
+			self->mental++;
+		}
+
+		self->action = &incinerateWait;
+	}
+
+	checkToMap(self);
+}
+
+static void incinerateWait()
+{
+	if (self->mental <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void fireWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->health += self->mental;
+
+		if (self->health == self->maxHealth)
+		{
+			self->maxHealth = 5;
+
+			self->thinkTime = 180;
+
+			self->mental *= -1;
+		}
+
+		else if (self->health < 0)
+		{
+			self->head->mental--;
+
+			self->inUse = FALSE;
+
+			self->health = 0;
+		}
+
+		else
+		{
+			self->thinkTime = 5;
+		}
+
+		setEntityAnimation(self, self->health);
+	}
+
+	checkToMap(self);
 }
