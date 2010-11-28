@@ -11,8 +11,9 @@ SET EDGAR FACE LEFT
 WAIT 30
 TALK Edgar It worked, I'm back!
 TALK Edgar Now to create that shield and get that sorceror...
-ADD OBJECTIVE "Create a Resist Disintegration Shield" " "
+ADD OBJECTIVE "Create a Resist Disintegration Shield" "disintegration_shield_made"
 ADD TRIGGER "Disintegration Shield" 1 UPDATE_OBJECTIVE "Create a Resist Disintegration Shield"
+ADD TRIGGER "disintegration_shield_made" 1 RUN_SCRIPT "disintegration_shield"
 SET Fortress-Study PROPERTY ACTIVE FALSE
 ADD ENTITY ACTION_POINT common/action_point "STUDY_POINT" 7760 9360
 SET STUDY_POINT PROPERTY REQUIRES sorceror_study

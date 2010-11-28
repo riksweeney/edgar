@@ -428,13 +428,24 @@ void doPlayer()
 					}
 				}
 
-				if (input.attack == 1 && !(self->flags & BLOCKING) && !(self->flags & GRABBED))
+				if (input.attack == 1 && !(self->flags & GRABBED))
 				{
-					if (playerWeapon.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
+					if (!(self->flags & BLOCKING))
 					{
-						playerWeapon.flags |= ATTACKING;
+						if (playerWeapon.inUse == TRUE && !(playerWeapon.flags & ATTACKING))
+						{
+							playerWeapon.flags |= ATTACKING;
 
-						playerWeapon.action();
+							playerWeapon.action();
+						}
+					}
+					
+					else
+					{
+						if (playerShield.health >= 4)
+						{
+							printf("Will throw shield\n");
+						}
 					}
 
 					input.attack = 0;

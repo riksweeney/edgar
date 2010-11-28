@@ -166,6 +166,32 @@ int addToInventory(Entity *e)
 
 				else if (inventory.item[i].type == SHIELD)
 				{
+					if (strcmpignorecase(inventory.item[i].name, "weapon/disintegration_shield") == 0)
+					{
+						switch (inventory.item[i].health)
+						{
+							case 1:
+								loadProperties("weapon/disintegration_shield_1", &inventory.item[i]);
+							break;
+							
+							case 2:
+								loadProperties("weapon/disintegration_shield_2", &inventory.item[i]);
+							break;
+							
+							case 3:
+								loadProperties("weapon/disintegration_shield_3", &inventory.item[i]);
+							break;
+							
+							case 4:
+								loadProperties("weapon/disintegration_shield_4", &inventory.item[i]);
+							break;
+							
+							default:
+								loadProperties("weapon/disintegration_shield", &inventory.item[i]);
+							break;
+						}
+					}
+					
 					autoSetPlayerShield(&inventory.item[i]);
 				}
 
