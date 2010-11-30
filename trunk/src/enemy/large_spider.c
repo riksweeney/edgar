@@ -49,7 +49,7 @@ static void jumpUp(void);
 static int canJumpUp(void);
 static int canDropDown(void);
 static int isGapJumpable(void);
-static void pounceReactToBlock(void);
+static void pounceReactToBlock(Entity *);
 static void takeDamage(Entity *, int);
 static void panic(void);
 static void touch(Entity *);
@@ -121,10 +121,10 @@ static void touch(Entity *other)
 	if (other->type == ITEM && strcmpignorecase(other->name, "item/repellent_spray") == 0)
 	{
 		self->face = self->x < other->x ? LEFT : RIGHT;
-		
+
 		self->dirX = (self->face == LEFT ? -self->speed : self->speed);
 	}
-	
+
 	else
 	{
 		entityTouch(other);
@@ -512,7 +512,7 @@ static int isGapJumpable()
 	return FALSE;
 }
 
-static void pounceReactToBlock()
+static void pounceReactToBlock(Entity *other)
 {
 	self->dirX = self->x < player.x ? -3 : 3;
 

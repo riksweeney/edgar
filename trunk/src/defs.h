@@ -158,6 +158,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 
+#define SWORD_MAX_CHARGE 50
+
 #if DEV == 1
 	#ifdef INSTALL_PATH
 		#undef INSTALL_PATH

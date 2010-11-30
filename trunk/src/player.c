@@ -439,7 +439,7 @@ void doPlayer()
 							playerWeapon.action();
 						}
 					}
-					
+
 					else
 					{
 						if (playerShield.health >= 4)
@@ -1044,7 +1044,7 @@ static void takeDamage(Entity *other, int damage)
 
 					self = other;
 
-					self->reactToBlock();
+					self->reactToBlock(temp);
 
 					self = temp;
 
@@ -1109,7 +1109,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self = other;
 
-				self->reactToBlock();
+				self->reactToBlock(temp);
 
 				self = temp;
 			}
@@ -2358,9 +2358,9 @@ void addChargesToWeapon()
 
 		playerWeapon.mental += self->health;
 
-		if (playerWeapon.mental > 50)
+		if (playerWeapon.mental > SWORD_MAX_CHARGE)
 		{
-			playerWeapon.mental = 50;
+			playerWeapon.mental = SWORD_MAX_CHARGE;
 		}
 
 		playerWeapon.head->mental = playerWeapon.mental;
@@ -2406,6 +2406,11 @@ void addChargesToWeapon()
 			}
 
 			e->mental += self->health;
+			
+			if (e->mental > SWORD_MAX_CHARGE)
+			{
+				e->mental = SWORD_MAX_CHARGE;
+			}
 
 			/* Transform back into Lightning Sword */
 

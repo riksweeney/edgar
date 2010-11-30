@@ -45,13 +45,13 @@ static void lookForPlayer(void);
 static void dartDownInit(void);
 static void dartDown(void);
 static void dartDownFinish(void);
-static void dartReactToBlock(void);
+static void dartReactToBlock(Entity *);
 static void castFireInit(void);
 static void castFire(void);
 static void castFinish(void);
 static void fireDrop(void);
 static void fireMove(void);
-static void fireBlock(void);
+static void fireBlock(Entity *);
 static void castIceInit(void);
 static void iceTouch(Entity *);
 static void iceFallout(void);
@@ -233,7 +233,7 @@ static void dartDownFinish()
 	checkToMap(self);
 }
 
-static void dartReactToBlock()
+static void dartReactToBlock(Entity *other)
 {
 	self->flags &= ~FLY;
 
@@ -383,7 +383,7 @@ static void fireMove()
 	}
 }
 
-static void fireBlock()
+static void fireBlock(Entity *other)
 {
 	self->inUse = FALSE;
 }
@@ -590,7 +590,7 @@ static void lightningBolt()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->mental == 2 && other->element == LIGHTNING)
 	{
 		if (self->flags & INVULNERABLE)
@@ -612,7 +612,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self = temp;
 			}
-			
+
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -626,16 +626,16 @@ static void takeDamage(Entity *other, int damage)
 			{
 				self->pain();
 			}
-			
+
 			if (prand() % 5 == 0)
 			{
 				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
-			
+
 			addDamageScore(-damage, self);
 		}
 	}
-	
+
 	else
 	{
 		entityTakeDamageNoFlinch(other, damage);

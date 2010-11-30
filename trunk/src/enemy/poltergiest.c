@@ -42,7 +42,7 @@ static void bookLookForPlayer(void);
 static void createBooks(void);
 static void rotateAroundTarget(void);
 static void bookAttackPlayer(void);
-static void bookReactToBlock(void);
+static void bookReactToBlock(Entity *other);
 static void bookAttackEnd(void);
 static void bookReturn(void);
 static void bookDie(void);
@@ -358,7 +358,7 @@ static void bookAttackPlayer()
 	}
 }
 
-static void bookReactToBlock()
+static void bookReactToBlock(Entity *other)
 {
 	self->flags &= ~FLY;
 
@@ -483,7 +483,7 @@ static void bookDie()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -527,7 +527,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->thinkTime = 300;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }

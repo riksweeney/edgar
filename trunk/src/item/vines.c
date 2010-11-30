@@ -68,32 +68,32 @@ static void entityWait()
 {
 	int frameCount = getFrameCount(self);
 	Entity *e;
-	
+
 	if (self->active == TRUE)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime % 120 == 0)
 		{
 			self->currentFrame++;
-			
+
 			if (self->currentFrame >= frameCount)
 			{
 				self->currentFrame = frameCount - 1;
 			}
 		}
-		
+
 		else if (self->thinkTime % 5 == 0)
 		{
 			e = getFreeEntity();
-			
+
 			if (e == NULL)
 			{
 				showErrorAndExit("No free slots to add the Fire");
 			}
-			
+
 			loadProperties("boss/phoenix_die_fire", e);
-			
+
 			setEntityAnimation(e, STAND);
 
 			e->x = self->x + prand() % self->w;
@@ -104,33 +104,33 @@ static void entityWait()
 			e->draw = &drawLoopingAnimationToMap;
 
 			e->type = ENEMY;
-			
+
 			e->flags |= DO_NOT_PERSIST|FLY;
-			
+
 			e->thinkTime = 30;
-			
+
 			e->health = 0;
-			
+
 			e->maxHealth = 3 + prand() % 3;
-			
+
 			e->mental = 1;
-			
+
 			e->head = self;
 		}
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	else
 	{
 		self->frameSpeed = 0;
-		
+
 		self->thinkTime = frameCount * 120;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -139,15 +139,15 @@ static void touch(Entity *other)
 	if (strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
 	{
 		self->active = TRUE;
-		
+
 		other->inUse = FALSE;
 	}
-	
+
 	else if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
 	{
 		takeDamage(other, other->damage);
 	}
-	
+
 	else
 	{
 		pushEntity(other);
@@ -157,65 +157,65 @@ static void touch(Entity *other)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-	
+
 	if (other->reactToBlock != NULL)
 	{
 		temp = self;
 
 		self = other;
 
-		self->reactToBlock();
+		self->reactToBlock(temp);
 
 		self = temp;
 	}
-	
+
 	if (prand() % 10 == 0)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
-	
+
 	damage = 0;
-	
+
 	addDamageScore(damage, self);
 }
 
 static void fireWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->health += self->mental;
-		
+
 		if (self->health == self->maxHealth)
 		{
 			self->maxHealth = 5;
-			
+
 			self->thinkTime = 60;
-			
+
 			self->mental *= -1;
 		}
-		
+
 		else if (self->health < 0)
 		{
 			self->head->maxThinkTime--;
-			
+
 			self->inUse = FALSE;
-			
+
 			self->health = 0;
 		}
-		
+
 		else
 		{
 			self->thinkTime = 20;
 		}
-		
+
 		setEntityAnimation(self, self->health);
 	}
-	
+
 	checkToMap(self);
 }

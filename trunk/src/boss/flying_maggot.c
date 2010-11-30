@@ -59,7 +59,7 @@ static void secondEncounter(void);
 static void secondEncounterWait(void);
 static void secondEncounterDie(void);
 static void secondEncounterLeave(void);
-static void bounceAway(void);
+static void bounceAway(Entity *);
 static void finalEncounter(void);
 
 Entity *addFlyingMaggot(int x, int y, char *name)
@@ -103,7 +103,7 @@ static void init()
 				self->action = &secondEncounter;
 				self->die = &secondEncounterDie;
 			break;
-			
+
 			case 2:
 				self->flags &= ~NO_DRAW;
 				self->action = &finalEncounter;
@@ -364,7 +364,7 @@ static void firstEncounterLeave()
 static void secondEncounterDie()
 {
 	self->takeDamage = NULL;
-	
+
 	self->thinkTime = 120;
 
 	self->action = &secondEncounterLeave;
@@ -468,7 +468,7 @@ static void shotTouch(Entity *other)
 	}
 }
 
-static void bounceAway()
+static void bounceAway(Entity *other)
 {
 	self->dirX *= -1;
 }
@@ -512,7 +512,7 @@ static void finalEncounter()
 	{
 		self->face = self->target->x < self->x ? LEFT : RIGHT;
 	}
-	
+
 	if (self->mental == 1)
 	{
 		hover();

@@ -225,7 +225,7 @@ static void entityWait()
 				}
 			break;
 		}
-		
+
 		self->action = &incinerateInit;
 	}
 
@@ -422,7 +422,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = other;
 
-			self->reactToBlock();
+			self->reactToBlock(temp);
 
 			self = temp;
 		}

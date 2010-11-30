@@ -78,6 +78,8 @@ static void init()
 	switch (self->mental)
 	{
 		case 1:
+			setEntityAnimation(self, WALK);
+			
 			self->action = &walkAround;
 		break;
 		

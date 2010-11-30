@@ -62,7 +62,7 @@ Entity *addWeakWall(char *name, int x, int y)
 	e->takeDamage = &takeDamage;
 	e->die = &die;
 	e->fallout = &fallout;
-	
+
 	e->flags |= OBSTACLE;
 
 	setEntityAnimation(e, STAND);
@@ -86,7 +86,7 @@ static void touch(Entity *other)
 			takeDamage(other, other->damage);
 		}
 	}
-	
+
 	if (self->inUse == TRUE && self->touch != NULL)
 	{
 		pushEntity(other);
@@ -96,7 +96,7 @@ static void touch(Entity *other)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (damage > 100)
 	{
 		self->die();
@@ -114,7 +114,7 @@ static void takeDamage(Entity *other, int damage)
 			self->die();
 		}
 	}
-	
+
 	else if (self->flags & NO_DRAW)
 	{
 		return;
@@ -125,26 +125,26 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-		
+
 		if (other->reactToBlock != NULL)
 		{
 			temp = self;
 
 			self = other;
 
-			self->reactToBlock();
+			self->reactToBlock(temp);
 
 			self = temp;
 		}
-		
+
 		if (prand() % 10 == 0)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
-		
+
 		damage = 0;
 	}
-	
+
 	addDamageScore(damage, self);
 }
 
@@ -167,18 +167,18 @@ static void die()
 
 	e->dirX = 3;
 	e->dirY = -8;
-	
+
 	if (self->mental == -1)
 	{
 		self->flags |= NO_DRAW;
-		
+
 		self->touch = NULL;
-		
+
 		self->action = &dieWait;
-		
+
 		self->thinkTime = self->maxThinkTime;
 	}
-	
+
 	else
 	{
 		self->inUse = FALSE;
@@ -199,11 +199,11 @@ static void fallout()
 static void dieWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 60;
-		
+
 		self->action = &respawn;
 	}
 }
@@ -211,7 +211,7 @@ static void dieWait()
 static void respawn()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime % 3 == 0)
 	{
 		self->flags ^= NO_DRAW;
@@ -220,11 +220,11 @@ static void respawn()
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~NO_DRAW;
-		
+
 		self->touch = &touch;
-		
+
 		self->health = self->maxHealth;
-		
+
 		self->action = &doNothing;
 	}
 }

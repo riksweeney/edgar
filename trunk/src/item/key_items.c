@@ -115,6 +115,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "vines.h"
 #include "slime_potion_pool.h"
 #include "monster_skull.h"
+#include "apple_tree.h"
+#include "apple.h"
 
 extern Entity *self, player;
 
@@ -213,7 +215,9 @@ static Constructor items[] = {
 {"item/spores", &addSpore},
 {"item/vines", &addVines},
 {"item/slime_potion_pool", &addSlimePotionPool},
-{"item/monster_skull", &addMonsterSkull}
+{"item/monster_skull", &addMonsterSkull},
+{"item/apple_tree", &addAppleTree},
+{"item/apple", &addApple}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -251,7 +255,7 @@ void keyItemTouch(Entity *other)
 		{
 			increaseSecretsFound();
 		}
-		
+
 		addToInventory(self);
 	}
 }

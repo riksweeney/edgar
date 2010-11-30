@@ -109,7 +109,7 @@ typedef struct Entity
 	void (*animationCallback)(void);
 	void (*takeDamage)(struct Entity *, int);
 	void (*die)(void);
-	void (*reactToBlock)(void);
+	void (*reactToBlock)(struct Entity *);
 	void (*pain)(void);
 	void (*resumeNormalFunction)(void);
 } Entity;

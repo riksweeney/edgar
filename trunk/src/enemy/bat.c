@@ -38,7 +38,7 @@ static void pain(void);
 static void dartDownInit(void);
 static void dartDown(void);
 static void dartDownFinish(void);
-static void dartReactToBlock(void);
+static void dartReactToBlock(Entity *);
 static void redBatFallout(void);
 
 Entity *addBat(int x, int y, char *name)
@@ -247,7 +247,7 @@ static void dartDownFinish()
 	checkToMap(self);
 }
 
-static void dartReactToBlock()
+static void dartReactToBlock(Entity *other)
 {
 	self->flags &= ~FLY;
 

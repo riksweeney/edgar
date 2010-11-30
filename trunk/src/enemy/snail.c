@@ -103,18 +103,18 @@ static void takeDamage(Entity *other, int damage)
 
 					self = other;
 
-					self->reactToBlock();
+					self->reactToBlock(temp);
 
 					self = temp;
 				}
-				
+
 				if (prand() % 10 == 0)
 				{
 					setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 				}
-				
+
 				damage = 0;
-				
+
 				addDamageScore(damage, self);
 			}
 

@@ -55,8 +55,8 @@ static void attackFinished(void);
 static void knifeThrowInit(void);
 static void knifeWait(void);
 static void knifeAttack(void);
-static void knifeBlock(void);
-static void specialKnifeBlock(void);
+static void knifeBlock(Entity *);
+static void specialKnifeBlock(Entity *);
 static void knifeBlockWait(void);
 static void specialKnifeBlockWait(void);
 static void takeDamage(Entity *, int);
@@ -144,7 +144,7 @@ static void initialise()
 
 	self->endX = self->x;
 	self->endY = self->y;
-	
+
 	setContinuePoint(FALSE, self->name, NULL);
 }
 
@@ -173,7 +173,7 @@ static void introPause()
 	self->action = &createShield;
 
 	self->thinkTime = 90;
-	
+
 	self->flags |= LIMIT_TO_SCREEN;
 
 	facePlayer();
@@ -334,7 +334,7 @@ static void knifeThrowInit()
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
-		
+
 		e->flags |= LIMIT_TO_SCREEN;
 
 		radians = DEG_TO_RAD(i * 60);
@@ -551,7 +551,7 @@ static void knifeDie()
 	}
 }
 
-static void specialKnifeBlock()
+static void specialKnifeBlock(Entity *other)
 {
 	self->flags &= ~FLY;
 
@@ -568,7 +568,7 @@ static void specialKnifeBlock()
 	self->activate = &throwItem;
 }
 
-static void knifeBlock()
+static void knifeBlock(Entity *other)
 {
 	self->flags &= ~FLY;
 
@@ -585,7 +585,7 @@ static void knifeBlock()
 	self->activate = &throwItem;
 }
 
-static void specialKnifeBlockWait()
+static void specialKnifeBlockWait(void)
 {
 	checkToMap(self);
 
@@ -781,7 +781,7 @@ static void takeDamage(Entity *other, int damage)
 				self->pain();
 			}
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -792,7 +792,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 
@@ -801,14 +801,14 @@ static void takeDamage(Entity *other, int damage)
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
 			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-			
+
 			if (other->reactToBlock != NULL)
 			{
 				temp = self;
 
 				self = other;
 
-				self->reactToBlock();
+				self->reactToBlock(temp);
 
 				self = temp;
 			}
@@ -819,7 +819,7 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			
+
 			damage = 0;
 		}
 
@@ -846,7 +846,7 @@ static void takeDamage(Entity *other, int damage)
 				resetCeiling();
 			}
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1066,20 +1066,20 @@ static void alignChainToAnchor()
 static void anchorTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
 			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-			
+
 			if (other->reactToBlock != NULL)
 			{
 				temp = self;
 
 				self = other;
 
-				self->reactToBlock();
+				self->reactToBlock(temp);
 
 				self = temp;
 			}
@@ -1090,7 +1090,7 @@ static void anchorTakeDamage(Entity *other, int damage)
 			}
 
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			
+
 			damage = 0;
 		}
 
@@ -1109,7 +1109,7 @@ static void anchorTakeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1739,7 +1739,7 @@ static void dieWait()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();

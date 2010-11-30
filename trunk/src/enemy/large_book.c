@@ -55,7 +55,7 @@ static void fireDrop(void);
 static void fireFall(void);
 static void fireMove(void);
 static void fireBounce(void);
-static void fireBlock(void);
+static void fireBlock(Entity *);
 static void fireAttack(void);
 static void fireAttackPause(void);
 static void blueWait(void);
@@ -514,7 +514,7 @@ static void fireBounce()
 	}
 }
 
-static void fireBlock()
+static void fireBlock(Entity *other)
 {
 	self->inUse = FALSE;
 }
@@ -1102,7 +1102,7 @@ static void iceBlockTouch(Entity *other)
 void iceBlockTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -1118,7 +1118,7 @@ void iceBlockTakeDamage(Entity *other, int damage)
 	else if (damage != 0)
 	{
 		self->health -= damage;
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -1153,7 +1153,7 @@ void iceBlockTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1343,7 +1343,7 @@ static void createThunderCloud()
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;
 
-	e->targetX = player.x + player.w / 2;
+	e->targetX = self->x + self->w / 2;
 	e->targetY = self->y - 150;
 
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
@@ -2019,11 +2019,11 @@ static void followPlayer()
 	self->targetX = player.x - self->w / 2 + player.w / 2;
 
 	/* Position above the player */
-	
+
 	if (getDistanceFromPlayer(self) > SCREEN_WIDTH)
 	{
 		self->dirX = 0;
-		
+
 		hover();
 	}
 
@@ -2257,7 +2257,7 @@ static void physicalAttackFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -2299,7 +2299,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->die();
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -2307,7 +2307,7 @@ static void takeDamage(Entity *other, int damage)
 static void yellowTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (other->element == LIGHTNING)
 	{
 		if (self->flags & INVULNERABLE)
@@ -2318,7 +2318,7 @@ static void yellowTakeDamage(Entity *other, int damage)
 		if (damage != 0)
 		{
 			self->health += damage;
-			
+
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -2332,15 +2332,15 @@ static void yellowTakeDamage(Entity *other, int damage)
 			{
 				self->pain();
 			}
-			
+
 			if (prand() % 5 == 0)
 			{
 				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 			}
-			
+
 			addDamageScore(-damage, self);
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -2352,7 +2352,7 @@ static void yellowTakeDamage(Entity *other, int damage)
 			self = temp;
 		}
 	}
-	
+
 	else
 	{
 		takeDamage(other, damage);

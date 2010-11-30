@@ -84,15 +84,15 @@ static void entityWait()
 	{
 		midX = self->startX + (self->endX - self->startX) / 2;
 		midY = self->startY + (self->endY - self->startY) / 2;
-		
+
 		x = (prand() % 128);
 		y = (prand() % 128);
-		
+
 		if (self->x > midX)
 		{
 			x *= -1;
 		}
-		
+
 		if (self->y > midY)
 		{
 			y *= -1;
@@ -128,7 +128,7 @@ static void moveToTarget()
 	if (self->x < self->startX || self->x > self->endX)
 	{
 		self->x = self->x < self->startX ? self->startX : self->endX;
-		
+
 		self->dirX = 0;
 
 		self->dirY = 0;
@@ -137,7 +137,7 @@ static void moveToTarget()
 	if (self->y < self->startY || self->y > self->endY)
 	{
 		self->y = self->y < self->startY ? self->startY : self->endY;
-		
+
 		self->dirX = 0;
 
 		self->dirY = 0;
@@ -214,18 +214,18 @@ static void attackFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
-	
+
 	if (other->reactToBlock != NULL)
 	{
 		temp = self;
 
 		self = other;
 
-		self->reactToBlock();
+		self->reactToBlock(temp);
 
 		self = temp;
 	}
@@ -234,9 +234,9 @@ static void takeDamage(Entity *other, int damage)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
-	
+
 	damage = 0;
-	
+
 	addDamageScore(damage, self);
 }
 

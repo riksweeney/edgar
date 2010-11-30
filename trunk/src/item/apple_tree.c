@@ -40,17 +40,16 @@ extern Entity *self;
 
 static void entityWait(void);
 static void touch(Entity *);
-static void init(void);
 static void activate(int);
 static void takeDamage(Entity *, int);
 
-Entity *addMonsterSkull(int x, int y, char *name)
+Entity *addAppleTree(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Monster Skull");
+		showErrorAndExit("No free slots to add an Apple Tree");
 	}
 
 	loadProperties(name, e);
@@ -62,7 +61,7 @@ Entity *addMonsterSkull(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &init;
+	e->action = &entityWait;
 
 	e->touch = &touch;
 
@@ -79,15 +78,6 @@ Entity *addMonsterSkull(int x, int y, char *name)
 	return e;
 }
 
-static void init()
-{
-	setEntityAnimation(self, self->active == TRUE ? STAND : WALK);
-
-	self->takeDamage = self->active == TRUE ? takeDamage : NULL;
-
-	self->action = &entityWait;
-}
-
 static void entityWait()
 {
 	checkToMap(self);
@@ -95,44 +85,20 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	Entity *temp;
-
 	if (other->type == PLAYER && self->health > 0)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve the Horn"));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
 
-	else if (other->type == WEAPON && (other->flags & ATTACKING))
+	else
 	{
-		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
-		{
-			self->takeDamage(other, other->damage);
-		}
-	}
-
-	else if (other->type == PROJECTILE && other->parent != self)
-	{
-		if (self->takeDamage != NULL && !(self->flags & INVULNERABLE))
-		{
-			self->takeDamage(other, other->damage);
-		}
-
-		temp = self;
-
-		self = other;
-
-		self->die();
-
-		self = temp;
+		entityTouch(other);
 	}
 }
 
 static void activate(int val)
 {
-	if (self->active == TRUE)
-	{
-		runScript(self->requires);
-	}
+	runScript(self->requires);
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -141,7 +107,7 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
+		if (strcmpignorecase(other->name, "weapon/woodaxe") == 0)
 		{
 			self->health--;
 
@@ -152,21 +118,27 @@ static void takeDamage(Entity *other, int damage)
 
 			else
 			{
-				self->health = 0;
+				if (self->mental > 0)
+				{
+					self->health = 0;
 
-				self->touch = NULL;
+					self->touch = NULL;
 
-				e = addPermanentItem("item/monster_horn", self->x + self->w / 2, self->y);
+					e = addPermanentItem("item/apple", self->x + self->w / 2, self->y);
 
-				e->dirX = other->face == LEFT ? -6 : 6;
+					e->dirX = prand() % 2 == 0 ? -6 : 6;
 
-				e->dirY = -ITEM_JUMP_HEIGHT;
+					e->dirY = -ITEM_JUMP_HEIGHT;
 
-				self->active = FALSE;
+					self->health = self->maxHealth;
 
-				setEntityAnimation(self, WALK);
+					self->mental--;
+				}
 
-				fireTrigger(self->objectiveName);
+				else
+				{
+					setInfoBoxMessage(60, 255, 255, 255, _("It's out of apples..."));
+				}
 			}
 
 			addDamageScore(damage, self);

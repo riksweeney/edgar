@@ -44,7 +44,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	}
 
 	loadProperties(name, e);
-	
+
 	e->flags &= ~PLAYER_TOUCH_ONLY;
 
 	e->x = x;
@@ -60,7 +60,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->touch = &entityTouch;
 
 	e->type = PROJECTILE;
-	
+
 	e->fallout = &removeProjectile;
 
 	e->parent = owner;
@@ -99,10 +99,10 @@ static void projectileMove()
 	checkToMap(self);
 }
 
-void bounceOffShield()
+void bounceOffShield(Entity *other)
 {
 	self->dirX = (self->dirX < 0 ? 5 : -5);
-	
+
 	self->dirY = -5;
 
 	self->flags &= ~FLY;
