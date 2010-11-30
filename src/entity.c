@@ -440,34 +440,6 @@ void flyLeftToRight()
 	checkToMap(self);
 }
 
-void flyToTarget()
-{
-	if (self->x == self->targetX || self->dirX == 0)
-	{
-		changeTarget();
-	}
-
-	self->face = (self->dirX > 0 ? RIGHT : LEFT);
-
-	self->thinkTime += 5;
-
-	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
-
-	if (abs(self->x - self->targetX) > self->speed)
-	{
-		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
-	}
-
-	else
-	{
-		self->x = self->targetX;
-
-		self->dirX = 0;
-	}
-
-	checkToMap(self);
-}
-
 void floatLeftToRight()
 {
 	if (self->thinkTime > 0)
@@ -1345,18 +1317,11 @@ void initLineDefs()
 	}
 }
 
-void changeDirection()
+void changeDirection(Entity *other)
 {
 	self->dirX *= -1;
 
 	checkToMap(self);
-
-	self->face = self->face == RIGHT ? LEFT : RIGHT;
-}
-
-void changeTarget()
-{
-	self->targetX = self->targetX == self->endX ? self->startX : self->endX;
 
 	self->face = self->face == RIGHT ? LEFT : RIGHT;
 }
@@ -1435,9 +1400,9 @@ void addEntityFromScript(char *line)
 	}
 
 	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)
-	{		
+	{
 		e = addActionPoint("common/action_point", x, y);
-		
+
 		e->startX = x;
 		e->startY = y;
 		e->endX = x;

@@ -47,7 +47,7 @@ static void alignBodyToHead(void);
 static void fallout(void);
 static void bite(void);
 static void biteFinish(void);
-static void reactToBlock(void);
+static void reactToBlock(Entity *);
 static void lookForPlayer(void);
 static void biteTouch(Entity *);
 static void biteInit(void);
@@ -114,7 +114,7 @@ static void sink()
 	else
 	{
 		self->y = self->endY;
-		
+
 		self->dirY = 0;
 
 		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
@@ -175,13 +175,13 @@ static void entityWait()
 		{
 			self->action = &sink;
 		}
-		
+
 		else
 		{
 			lookForPlayer();
 		}
 	}
-	
+
 	else
 	{
 		lookForPlayer();
@@ -194,19 +194,19 @@ static void bodyWait()
 	{
 		self->flags |= NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags &= ~NO_DRAW;
 	}
-	
+
 	self->dirX = self->head->dirX;
-	
+
 	if (self->head->action == &entityDieNoDrop)
 	{
 		self->x = self->head->x;
 		self->y = self->head->y;
-		
+
 		self->action = &entityDieNoDrop;
 	}
 }
@@ -304,7 +304,7 @@ static void createBody()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -328,7 +328,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -339,7 +339,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -440,11 +440,11 @@ static void lookForPlayer()
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, (self->endY - self->y), player.x, player.y, player.w, player.h) == 1)
 		{
 			playSoundToMap("sound/enemy/mouth_stalk/hiss.ogg", -1, self->x, self->y, 0);
-			
+
 			self->action = &biteInit;
-			
+
 			self->thinkTime = 30;
-			
+
 			setEntityAnimation(self, ATTACK_1);
 		}
 	}
@@ -453,30 +453,30 @@ static void lookForPlayer()
 static void biteInit()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->targetX = 0;
-		
+
 		self->reactToBlock = &reactToBlock;
-		
+
 		self->touch = &biteTouch;
-		
+
 		calculatePath(self->x, self->y, player.x, player.y > self->endY ? self->y : player.y, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= 12;
 		self->dirY *= 12;
-		
+
 		if (self->dirY < 0)
 		{
 			self->dirY = 0;
 		}
-		
+
 		self->element = NO_ELEMENT;
-		
+
 		self->action = &bite;
 	}
-	
+
 	alignBodyToHead();
 }
 
@@ -485,53 +485,53 @@ static void bite()
 	if (self->dirX == 0)
 	{
 		self->reactToBlock = NULL;
-		
+
 		self->action = &biteFinish;
 	}
-	
+
 	self->targetX += fabs(self->dirX);
-	
+
 	if (self->targetX >= 160)
 	{
 		self->dirX = 0;
 	}
-	
+
 	checkToMap(self);
-	
+
 	alignBodyToHead();
 }
 
 static void biteFinish()
 {
 	self->x += self->face == LEFT ? 12 : -12;
-	
+
 	if ((self->face == RIGHT && self->x <= self->endX) || (self->face == LEFT && self->x >= self->endX))
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		self->startX = 0;
-		
+
 		self->thinkTime = prand() % 120;
-		
+
 		self->action = &riseUp;
 	}
-	
+
 	alignBodyToHead();
 }
 
-static void reactToBlock()
+static void reactToBlock(Entity *other)
 {
 	self->dirX = 0;
-	
+
 	self->action = &biteFinish;
 }
 
 static void biteTouch(Entity *other)
 {
 	int health = other->health;
-	
+
 	entityTouch(other);
-	
+
 	if (other->type == PLAYER && other->health < health)
 	{
 		self->dirX = 0;

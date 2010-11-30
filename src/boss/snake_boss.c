@@ -65,9 +65,9 @@ static void shotAttackInit(void);
 static void shotAttackWindUp(void);
 static void shotAttack(void);
 static void specialShotWait(void);
-static void specialShotBlock(void);
+static void specialShotBlock(Entity *);
 static void specialShotTouch(Entity *);
-static void biteReactToBlock(void);
+static void biteReactToBlock(Entity *);
 static void crushAttackInit(void);
 static void crushAttackMoveToPosition(void);
 static void crushAttack(void);
@@ -121,7 +121,7 @@ static void bodyWait()
 	{
 		self->flags &= ~FLASH;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -157,7 +157,7 @@ static void initialise()
 			self->thinkTime = 60;
 
 			self->face = LEFT;
-			
+
 			self->flags |= LIMIT_TO_SCREEN;
 
 			self->action = &riseUp;
@@ -165,7 +165,7 @@ static void initialise()
 			playDefaultBossMusic();
 
 			initBossHealthBar();
-			
+
 			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
@@ -217,7 +217,7 @@ static void headWait()
 			break;
 		}
 	}
-	
+
 	if (prand() % 180 == 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/hiss.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -448,7 +448,7 @@ static void shotAttackInit()
 	self->action = &shotAttackWindUp;
 
 	self->flags |= UNBLOCKABLE;
-	
+
 	self->startX = 0;
 }
 
@@ -481,7 +481,7 @@ static void shotAttack()
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
 			e->reactToBlock = &specialShotBlock;
-			
+
 			self->startX = 1;
 		}
 
@@ -820,7 +820,7 @@ static void alignBodyToHead()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		/* Only takes proper damage against its own shot */
@@ -841,7 +841,7 @@ static void takeDamage(Entity *other, int damage)
 		else
 		{
 			damage = (self->flags & HELPLESS ? damage * 3 : damage);
-			
+
 			self->health -= damage;
 		}
 
@@ -877,7 +877,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->flags &= ~(HELPLESS|FLY);
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -888,7 +888,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1001,7 +1001,7 @@ static void dieWait()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();
@@ -1027,10 +1027,10 @@ static void dieWait()
 	}
 }
 
-static void specialShotBlock()
+static void specialShotBlock(Entity *other)
 {
 	self->dirX = (self->dirX < 0 ? 5 : -5);
-	
+
 	self->dirY = -5;
 
 	self->type = ENEMY;
@@ -1093,7 +1093,7 @@ static void specialShotTouch(Entity *other)
 	}
 }
 
-static void biteReactToBlock()
+static void biteReactToBlock(Entity *other)
 {
 	self->maxThinkTime--;
 
@@ -1138,7 +1138,7 @@ static void stunned()
 		}
 
 		self->action = &attackFinished;
-		
+
 		for (i=0;i<2;i++)
 		{
 			e = getFreeEntity();

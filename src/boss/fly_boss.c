@@ -67,7 +67,7 @@ static void headButtMoveToPosition(void);
 static void moveToHeadButtRange(void);
 static void headButt(void);
 static void selectRandomBottomTarget(void);
-static void reactToHeadButtBlock(void);
+static void reactToHeadButtBlock(Entity *);
 static void dropInit(void);
 static void drop(void);
 static void dropWait(void);
@@ -141,7 +141,7 @@ static void initialise()
 			self->action = &doIntro;
 
 			self->thinkTime = 180;
-			
+
 			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
@@ -226,7 +226,7 @@ static void introPause()
 		initBossHealthBar();
 
 		self->action = &entityWait;
-		
+
 		self->flags |= LIMIT_TO_SCREEN;
 	}
 
@@ -823,7 +823,7 @@ static void dieFinish()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();
@@ -883,7 +883,7 @@ static void selectRandomBottomTarget()
 	facePlayer();
 }
 
-static void reactToHeadButtBlock()
+static void reactToHeadButtBlock(Entity *other)
 {
 	self->dirX = (self->face == LEFT ? 4 : -4);
 	self->dirY = -6;
@@ -915,7 +915,7 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -926,7 +926,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -983,7 +983,7 @@ static void ramTouch(Entity *other)
 	{
 		if (self->action == &stingAttack || self->action == &moveToHeadButtRange || self->action == &attackFinished)
 		{
-			reactToHeadButtBlock();
+			reactToHeadButtBlock(other);
 		}
 	}
 }

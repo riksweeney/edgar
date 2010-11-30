@@ -135,11 +135,11 @@ static void shatter()
 	self->targetY = self->startY;
 
 	self->animationCallback = NULL;
-	
+
 	y = self->y;
 
 	setEntityAnimation(self, CUSTOM_1);
-	
+
 	self->y = y;
 
 	self->maxThinkTime = 14;
@@ -264,7 +264,7 @@ static void shatter()
 		e->face = self->face;
 
 		e->thinkTime = prand() % 60;
-		
+
 		e->health = 360;
 
 		e->touch = &entityTouch;
@@ -311,7 +311,7 @@ static void initialise()
 			self->thinkTime = 0;
 
 			self->action = &headWait;
-			
+
 			setContinuePoint(FALSE, self->name, NULL);
 		}
 	}
@@ -516,14 +516,14 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-		
+
 		if (other->reactToBlock != NULL)
 		{
 			temp = self;
 
 			self = other;
 
-			self->reactToBlock();
+			self->reactToBlock(temp);
 
 			self = temp;
 		}
@@ -534,7 +534,7 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-		
+
 		damage = 0;
 	}
 
@@ -548,7 +548,7 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 	}
-	
+
 	addDamageScore(damage, self);
 }
 
@@ -794,7 +794,7 @@ static void dieFinish()
 			{
 				addMedal("golem_kill_grabbers");
 			}
-			
+
 			clearContinuePoint();
 
 			increaseKillCount();
@@ -834,13 +834,13 @@ static void reform()
 	if (self->thinkTime <= 0)
 	{
 		/* Move towards the head */
-		
+
 		self->health--;
 
 		if (fabs(self->x - self->targetX) <= fabs(self->dirX) || self->health <= 0)
 		{
 			self->dirX = 0;
-			
+
 			self->x = self->targetX;
 
 			self->head->maxThinkTime--;
@@ -938,7 +938,7 @@ static void headReform2()
 			}
 
 			setEntityAnimation(self, STAND);
-			
+
 			self->y = self->startY;
 
 			self->flags &= ~FLY;

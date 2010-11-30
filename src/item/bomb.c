@@ -107,11 +107,11 @@ static void startFuse()
 {
 	if (self->mental == 1)
 	{
-		self->targetX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
+		self->endX = playSoundToMap("sound/item/fuse.ogg", -1, self->x, self->y, -1);
 	}
-	
+
 	self->action = &entityWait;
-	
+
 	checkToMap(self);
 }
 
@@ -128,16 +128,16 @@ static void startMiniFuse()
 	self->active = TRUE;
 
 	self->health = 30;
-	
+
 	self->mental = 1;
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -159,9 +159,9 @@ static void dropBomb(int val)
 		self->active = TRUE;
 
 		self->health = 30;
-		
+
 		self->mental = 1;
-		
+
 		self->action = &startFuse;
 
 		addEntity(*self, player.x, player.y);
@@ -184,13 +184,13 @@ static void explode()
 		x = self->x + self->w / 2;
 		y = self->y + self->h / 2;
 
-		stopSound(self->targetX);
+		stopSound(self->endX);
 
 		x += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		e = addExplosion(x, y);
-		
+
 		if (self->damage == -1)
 		{
 			e->damage = 1;
@@ -221,13 +221,13 @@ static void miniExplode()
 	x = self->x + self->w / 2;
 	y = self->y + self->h / 2;
 
-	stopSound(self->targetX);
+	stopSound(self->endX);
 
 	e = addExplosion(x, y);
-	
+
 	e->x -= e->w / 2;
 	e->y -= e->h / 2;
-	
+
 	e->damage = 1;
 
 	self->inUse = FALSE;
@@ -251,12 +251,12 @@ static void resumeNormalFunction()
 	self->active = TRUE;
 
 	self->health = 30;
-	
+
 	self->mental = 1;
-	
+
 	self->dirX = 0;
-	
+
 	self->dirY = 0;
-	
+
 	self->action = &startFuse;
 }

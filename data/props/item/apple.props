@@ -1,4 +1,6 @@
-HEALTH 1
 GFX_FILE data/gfx/item/apple.dat
 ANIM_FILE data/anim/common/no_anim.dat
-TYPE HEALTH
+TYPE KEY_ITEM
+FLAGS STACKABLE
+DESCRIPTION A delicious apple
+OBJECTIVE_NAME Apple

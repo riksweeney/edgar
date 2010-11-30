@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void die(void);
-static void reactToBlock(void);
+static void reactToBlock(Entity *);
 static void lookForPlayer(void);
 static void spinAttackStart(void);
 static void spinAttack(void);
@@ -87,7 +87,7 @@ static void lookForPlayer()
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
-			
+
 			self->action = &spinAttackStart;
 
 			self->thinkTime = 60;
@@ -145,7 +145,7 @@ static void spinAttack()
 		{
 			self->dirX = self->face == LEFT ? 3 : -3;
 		}
-		
+
 		else
 		{
 			self->dirX = self->dirX < 0 ? 3 : -3;
@@ -192,7 +192,7 @@ static void spinAttackEnd()
 	}
 }
 
-static void reactToBlock()
+static void reactToBlock(Entity *other)
 {
 	if (player.face == LEFT)
 	{
@@ -217,6 +217,6 @@ static void reactToBlock()
 
 	else
 	{
-		changeDirection();
+		changeDirection(NULL);
 	}
 }

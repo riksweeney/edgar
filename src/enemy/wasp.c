@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
@@ -29,6 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void init(void);
+static void changeTarget(Entity *);
+static void flyToTarget(void);
 
 Entity *addWasp(int x, int y, char *name)
 {
@@ -66,4 +69,39 @@ static void init()
 	self->action = &flyToTarget;
 
 	self->action();
+}
+
+static void flyToTarget()
+{
+	if (self->x == self->targetX || self->dirX == 0)
+	{
+		changeTarget(NULL);
+	}
+
+	self->face = (self->dirX > 0 ? RIGHT : LEFT);
+
+	self->thinkTime += 5;
+
+	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
+
+	if (abs(self->x - self->targetX) > self->speed)
+	{
+		self->dirX = (self->x < self->targetX ? self->speed : -self->speed);
+	}
+
+	else
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+	}
+
+	checkToMap(self);
+}
+
+static void changeTarget(Entity *other)
+{
+	self->targetX = self->targetX == self->endX ? self->startX : self->endX;
+
+	self->face = self->face == RIGHT ? LEFT : RIGHT;
 }

@@ -39,7 +39,7 @@ static void bodyTakeDamage(Entity *, int);
 static void headTakeDamage(Entity *, int);
 static void alignBodyToHead(void);
 static void createBody(void);
-static void headChangeDirection(void);
+static void headChangeDirection(Entity *);
 static void bodyWait(void);
 
 Entity *addFlyTrap(int x, int y, char *name)
@@ -302,13 +302,13 @@ static void headTakeDamage(Entity *other, int damage)
 	}
 }
 
-static void headChangeDirection()
+static void headChangeDirection(Entity *other)
 {
 	Entity *temp;
 
 	temp = self;
 
-	self->reactToBlock();
+	self->reactToBlock(temp);
 
 	self = temp;
 

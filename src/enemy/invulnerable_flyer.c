@@ -167,18 +167,18 @@ static void flyToTop()
 static void stoneTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-	
+
 	if (other->reactToBlock != NULL)
 	{
 		temp = self;
 
 		self = other;
 
-		self->reactToBlock();
+		self->reactToBlock(temp);
 
 		self = temp;
 	}

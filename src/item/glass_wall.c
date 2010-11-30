@@ -119,23 +119,23 @@ static void horizontalGlassWait()
 			self->mental++;
 
 			setEntityAnimation(self, self->mental);
-			
+
 			self->active = FALSE;
-			
+
 			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
-			
+
 			if (self->mental == 3)
 			{
 				STRNCPY(self->objectiveName, self->requires, sizeof(self->objectiveName));
-				
+
 				STRNCPY(self->requires, "BOSS_TUNING_FORK", sizeof(self->requires));
 			}
 		}
-		
+
 		else
 		{
 			self->thinkTime++;
-			
+
 			if ((self->thinkTime % 180) == 0)
 			{
 				self->mental++;
@@ -153,7 +153,7 @@ static void horizontalGlassWait()
 			}
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -161,7 +161,7 @@ static void die()
 {
 	int i;
 	Entity *e;
-	
+
 	if (strcmpignorecase(self->name, "item/horizontal_glass_wall") == 0)
 	{
 		for (i=0;i<7;i++)
@@ -178,13 +178,13 @@ static void die()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		self->flags |= NO_DRAW;
-		
+
 		self->touch = NULL;
-		
+
 		self->action = &respawnWait;
-		
+
 		self->thinkTime = 300;
 	}
 
@@ -204,9 +204,9 @@ static void die()
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		self->inUse = FALSE;
-		
+
 		fireTrigger(self->objectiveName);
 
 		fireGlobalTrigger(self->objectiveName);
@@ -216,13 +216,13 @@ static void die()
 static void respawnWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, STAND);
-		
+
 		self->thinkTime = 60;
-		
+
 		self->action = &respawn;
 	}
 }
@@ -230,7 +230,7 @@ static void respawnWait()
 static void respawn()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime % 3 == 0)
 	{
 		self->flags ^= NO_DRAW;
@@ -239,17 +239,17 @@ static void respawn()
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~NO_DRAW;
-		
+
 		self->touch = &pushEntity;
-		
+
 		self->mental = 0;
-		
+
 		self->action = &horizontalGlassWait;
-		
+
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->active = FALSE;
-		
+
 		STRNCPY(self->requires, self->objectiveName, sizeof(self->requires));
 	}
 }
@@ -257,28 +257,28 @@ static void respawn()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 	playSoundToMap("sound/common/dink.ogg", 2, self->x, self->y, 0);
-	
+
 	if (other->reactToBlock != NULL)
 	{
 		temp = self;
 
 		self = other;
 
-		self->reactToBlock();
+		self->reactToBlock(temp);
 
 		self = temp;
 	}
-	
+
 	if (prand() % 10 == 0)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
-	
+
 	damage = 0;
-	
+
 	addDamageScore(damage, self);
 }

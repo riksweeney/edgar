@@ -48,7 +48,7 @@ Entity *addLavaDoor(int x, int y, char *name)
 	{
 		showErrorAndExit("No free slots to add a Lava Door");
 	}
-	
+
 	loadProperties(name, e);
 
 	e->x = x;
@@ -67,28 +67,28 @@ Entity *addLavaDoor(int x, int y, char *name)
 static void init()
 {
 	setEntityAnimation(self, self->health);
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			self->health = 0;
 		}
-		
+
 		self->thinkTime = 600;
-		
+
 		setEntityAnimation(self, self->health);
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -97,29 +97,29 @@ static void touch(Entity *other)
 	if (other->type == PROJECTILE && other->element == FIRE)
 	{
 		self->health++;
-		
+
 		if (self->health == 7)
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("One blow from the pickaxe should shatter it"));
 		}
-		
+
 		else if (self->health > 7)
 		{
 			self->health = 7;
 		}
-		
+
 		setEntityAnimation(self, self->health);
-		
+
 		self->thinkTime = 600;
-		
+
 		other->inUse = FALSE;
 	}
-	
+
 	else if (((other->flags & ATTACKING) || other->type == PROJECTILE) && !(self->flags & INVULNERABLE))
 	{
 		takeDamage(other, other->damage);
 	}
-	
+
 	else
 	{
 		pushEntity(other);
@@ -129,34 +129,34 @@ static void touch(Entity *other)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->health < 7)
 	{
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-	
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);	
-		
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
 		if (other->reactToBlock != NULL)
 		{
 			temp = self;
 
 			self = other;
 
-			self->reactToBlock();
+			self->reactToBlock(temp);
 
 			self = temp;
 		}
-		
+
 		if (prand() % 10 == 0)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
-		
+
 		damage = 0;
-		
+
 		addDamageScore(damage, self);
 	}
-	
+
 	else if (strcmpignorecase(other->name, "weapon/pickaxe") == 0)
 	{
 		self->action = &die;

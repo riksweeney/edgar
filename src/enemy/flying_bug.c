@@ -34,7 +34,7 @@ extern Entity *self;
 static void entityWait(void);
 static void init(void);
 static void moveToTarget(void);
-static void changeRandomTarget(void);
+static void changeRandomTarget(Entity *);
 
 Entity *addFlyingBug(int x, int y, char *name)
 {
@@ -87,13 +87,13 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		changeRandomTarget();
+		changeRandomTarget(NULL);
 
 		self->action = &moveToTarget;
 	}
 }
 
-static void changeRandomTarget()
+static void changeRandomTarget(Entity *other)
 {
 	self->targetX = self->x + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
 	self->targetY = self->y + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
@@ -110,7 +110,7 @@ static void moveToTarget()
 
 	if (self->dirX == 0 || self->dirY == 0)
 	{
-		changeRandomTarget();
+		changeRandomTarget(NULL);
 	}
 
 	x = self->dirX;
@@ -127,6 +127,6 @@ static void moveToTarget()
 
 	else if (self->dirX != x || self->dirY != y)
 	{
-		changeRandomTarget();
+		changeRandomTarget(NULL);
 	}
 }

@@ -38,7 +38,7 @@ static void headMove(void);
 static void addSegments(void);
 static void segmentMove(void);
 static void segmentInit(void);
-static void reactToBlock(void);
+static void reactToBlock(Entity *);
 static void segmentTakeDamage(Entity *, int);
 static void becomeHead(void);
 static void greenTouch(Entity *);
@@ -75,62 +75,62 @@ Entity *addCentipede(int x, int y, char *name)
 static void init()
 {
 	addSegments();
-	
+
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	
+
 	self->action = &headMove;
 }
 
 static void headMove()
 {
 	int currentFrame, health;
-	
+
 	if (self->mental >= 2)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 300)
 		{
 			if (self->thinkTime % 15 == 0)
 			{
 				currentFrame = self->currentFrame;
-				
+
 				if (self->mental < 4)
 				{
 					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
-					
+
 					self->mental = self->mental == 2 ? 4 : 5;
 				}
-				
+
 				else
 				{
 					setEntityAnimation(self, STAND);
-					
+
 					self->mental = self->mental == 4 ? 2 : 3;
 				}
-				
+
 				self->currentFrame = currentFrame;
 			}
-			
+
 			if (self->thinkTime <= 0)
 			{
 				currentFrame = self->currentFrame;
-				
+
 				health = self->health;
-				
+
 				loadProperties(self->mental % 2 == 0 ? "enemy/yellow_centipede" : "enemy/red_centipede", self);
-				
+
 				self->health = health;
-				
+
 				self->mental = self->mental % 2;
-				
+
 				self->touch = &touch;
-				
+
 				self->currentFrame = currentFrame;
 			}
 		}
 	}
-	
+
 	moveLeftToRight();
 }
 
@@ -139,17 +139,17 @@ static void addSegments()
 	char name[MAX_VALUE_LENGTH];
 	int i, frameCount, mental;
 	Entity *e, *prev;
-	
+
 	prev = self;
-	
+
 	mental = strcmpignorecase(self->name, "enemy/red_centipede") == 0 ? 1 : 0;
-	
+
 	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
-	
+
 	for (i=0;i<5;i++)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a Centipede Segment");
@@ -164,43 +164,43 @@ static void addSegments()
 		e->die = &entityDieNoDrop;
 
 		e->type = ENEMY;
-		
+
 		e->face = self->face;
-		
+
 		e->target = prev;
-		
+
 		e->head = self;
-		
+
 		e->speed = self->speed;
 
 		setEntityAnimation(e, STAND);
-		
+
 		frameCount = getFrameCount(e);
-		
+
 		e->currentFrame = prand() % frameCount;
-		
+
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y;
-		
+
 		e->mental = mental;
-		
+
 		STRNCPY(e->objectiveName, self->name, sizeof(e->objectiveName));
-		
+
 		prev = e;
-		
+
 		if (i == 0)
 		{
 			self->head = e;
 		}
-		
+
 		if (self->flags & SPAWNED_IN)
 		{
 			e->flags |= SPAWNED_IN;
-			
+
 			e->spawnTime = self->spawnTime;
 		}
 	}
-	
+
 	self->mental = mental;
 }
 
@@ -210,181 +210,181 @@ static void segmentInit()
 	{
 		self->action = &segmentMove;
 	}
-	
+
 	else if (self->face == RIGHT && fabs(self->target->x - self->x) >= self->w)
 	{
 		self->action = &segmentMove;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void segmentMove()
 {
 	int currentFrame, health;
-	
+
 	if (self->thinkTime <= 0 && self->target->mental >= 2)
 	{
 		currentFrame = self->currentFrame;
-		
+
 		health = self->health;
-		
+
 		loadProperties("enemy/green_centipede_segment", self);
-		
+
 		self->health = health;
-		
+
 		self->mental = self->target->mental;
-		
+
 		self->touch = &greenTouch;
-		
+
 		self->thinkTime = 60 * 30;
-		
+
 		self->currentFrame = currentFrame;
 	}
-	
+
 	if (self->mental >= 2)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 300)
 		{
 			if (self->thinkTime % 15 == 0)
 			{
 				currentFrame = self->currentFrame;
-				
+
 				if (self->mental < 4)
 				{
 					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
-					
+
 					self->mental = self->mental == 2 ? 4 : 5;
 				}
-				
+
 				else
 				{
 					setEntityAnimation(self, STAND);
-					
+
 					self->mental = self->mental == 4 ? 2 : 3;
 				}
-				
+
 				self->currentFrame = currentFrame;
 			}
-			
+
 			if (self->thinkTime <= 0)
 			{
 				currentFrame = self->currentFrame;
-				
+
 				health = self->health;
-				
+
 				loadProperties(self->mental % 2 == 0 ? "enemy/yellow_centipede_segment" : "enemy/red_centipede_segment", self);
-				
+
 				self->health = health;
-				
+
 				self->mental = self->mental % 2;
-				
+
 				self->touch = &entityTouch;
-				
+
 				self->currentFrame = currentFrame;
 			}
 		}
 	}
-	
+
 	else if (self->mental == 0 && self->head->health <= 0)
 	{
 		self->health = 0;
-		
+
 		entityDie();
 	}
-	
+
 	if (self->target->health <= 0)
 	{
 		if (self->mental == 1)
 		{
 			self->action = &becomeHead;
 		}
-		
+
 		else
 		{
 			self->health = 0;
-			
+
 			entityDieNoDrop();
 		}
 	}
-	
+
 	/* If segment is facing the same way as the target then just move with it */
-	
+
 	if (self->face == LEFT && self->x + self->w <= self->target->x)
 	{
 		self->x = self->target->x - self->w;
-		
+
 		self->face = self->target->face;
 	}
-	
+
 	else if (self->face == RIGHT && self->x >= self->target->x + self->target->w)
 	{
 		self->x = self->target->x + self->target->w;
-		
+
 		self->face = self->target->face;
 	}
-	
+
 	else
 	{
 		self->dirX = self->face == LEFT ? -self->target->speed : self->target->speed;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void becomeHead()
 {
 	int x, y;
-	
+
 	x = self->x + self->w;
 	y = self->y + self->h;
-	
+
 	loadProperties(self->objectiveName, self);
-	
+
 	self->action = &moveLeftToRight;
 	self->die = &entityDie;
 	self->touch = &touch;
 	self->takeDamage = &entityTakeDamageNoFlinch;
 	self->reactToBlock = &reactToBlock;
 	self->pain = &enemyPain;
-	
+
 	self->flags &= ~UNBLOCKABLE;
-	
+
 	self->x = x;
-	
+
 	self->y = y - self->h;
-	
+
 	/* Always walk away from the player */
-	
+
 	if (player.x > self->x)
 	{
 		if (self->face == RIGHT)
 		{
 			self->x = x - self->w;
 		}
-		
+
 		self->face = LEFT;
 	}
-	
+
 	else
 	{
 		self->face = RIGHT;
 	}
 }
 
-static void reactToBlock()
+static void reactToBlock(Entity *other)
 {
 	self->endX = self->x;
-	
-	changeDirection();
+
+	changeDirection(NULL);
 }
 
 static void segmentTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -414,7 +414,7 @@ static void segmentTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -425,7 +425,7 @@ static void segmentTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -435,10 +435,10 @@ static void touch(Entity *other)
 	if (self->mental < 2 && strcmpignorecase(other->name, "item/spore") == 0)
 	{
 		other->inUse = FALSE;
-		
+
 		self->action = &becomeGreen;
 	}
-	
+
 	else
 	{
 		entityTouch(other);
@@ -448,39 +448,39 @@ static void touch(Entity *other)
 static void becomeGreen()
 {
 	int currentFrame, health;
-	
+
 	currentFrame = self->currentFrame;
-	
+
 	health = self->health;
-	
+
 	loadProperties("enemy/green_centipede", self);
-	
+
 	self->health = health;
-	
+
 	self->mental = self->mental == 0 ? 2 : 3;
-	
+
 	self->touch = &greenTouch;
-	
+
 	self->thinkTime = 60 * 30;
-	
+
 	self->action = &headMove;
-	
+
 	self->currentFrame = currentFrame;
 }
 
 static void greenTouch(Entity *other)
 {
 	float y1, y2;
-	
+
 	if (other->type == PLAYER && other->dirY > 0)
 	{
 		y1 = other->y + other->h - other->dirY;
 		y2 = other->y + other->h;
-		
+
 		if (y1 <= self->y + self->box.y && y2 > self->y + self->box.y)
 		{
 			other->y = self->y + self->box.y - other->h;
-			
+
 			other->standingOn = self;
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
