@@ -5,6 +5,7 @@ Version 0.74
 * Fixed the bug allowing you to collect an infinite number of lightning sword charges
 * Fixed an animation error with the Dragon Flies
 * Fixed a bug with the thunder cloud created by the yellow book in the Library
+* Loading a game whilst being eaten no longer results in Edgar not being able to move
 
 Version 0.73
 * Added the next part of the story
