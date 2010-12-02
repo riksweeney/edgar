@@ -337,7 +337,7 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= ATTACKING;
 		}
-		
+
 		else if (strcmpignorecase(token, "LIMIT_TO_SCREEN") == 0)
 		{
 			e->flags |= LIMIT_TO_SCREEN;
@@ -430,7 +430,7 @@ void unsetFlags(Entity *e, char *flags)
 		{
 			e->flags &= ~ATTACKING;
 		}
-		
+
 		else if (strcmpignorecase(token, "LIMIT_TO_SCREEN") == 0)
 		{
 			e->flags &= ~LIMIT_TO_SCREEN;

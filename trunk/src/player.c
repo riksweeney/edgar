@@ -130,6 +130,12 @@ Entity *loadPlayer(int x, int y, char *name)
 		cameraSnapToTargetEntity();
 	}
 
+	playerWeapon.flags = 0;
+	playerShield.flags = 0;
+
+	playerWeapon.animationCallback = NULL;
+	playerShield.animationCallback = NULL;
+
 	clearCustomActions(&player);
 
 	player.alpha = 255;
@@ -1588,17 +1594,9 @@ static void gameOverTimeOut()
 
 void freePlayer()
 {
-	player.inUse = FALSE;
-
-	playerWeapon.inUse = FALSE;
-
-	playerShield.inUse = FALSE;
-
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
-	setEntityAnimation(&playerShield, STAND);
-
-	player.flags = 0;
+	memset(&player, 0, sizeof(Entity));
+	memset(&playerWeapon, 0, sizeof(Entity));
+	memset(&playerShield, 0, sizeof(Entity));
 }
 
 static void touch(Entity *other)
@@ -2406,7 +2404,7 @@ void addChargesToWeapon()
 			}
 
 			e->mental += self->health;
-			
+
 			if (e->mental > SWORD_MAX_CHARGE)
 			{
 				e->mental = SWORD_MAX_CHARGE;
