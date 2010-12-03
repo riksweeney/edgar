@@ -69,7 +69,7 @@ static void setStart()
 	{
 		printf("WARNING: Door %s at %0.0f %0.0f has no valid end\n", self->objectiveName, self->x, self->y);
 
-		self->endY = self->startY - TILE_SIZE * 2;
+		self->endY = self->startY - self->h;
 
 		printf("Setting to %f\n", self->endY);
 	}

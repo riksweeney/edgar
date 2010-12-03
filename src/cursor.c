@@ -43,7 +43,7 @@ void initCursor(char *name)
 {
 	char line[MAX_LINE_LENGTH], *token, *savePtr;
 	unsigned char *buffer;
-	
+
 	savePtr = NULL;
 
 	cursor.tileID = 0;
@@ -56,13 +56,13 @@ void initCursor(char *name)
 	loadProperties(entityNames[0], &cursor.entity);
 
 	cursor.entity.active = TRUE;
-	
+
 	cursor.entity.alpha = 255;
 
 	if (cursor.entity.weight == 0)
 	{
 		cursor.entity.weight = 1;
-		
+
 		cursor.entity.originalWeight = 1;
 	}
 
@@ -281,7 +281,7 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
-			
+
 			cursor.entity.originalWeight = 0;
 
 			cursor.entity.inUse = TRUE;
@@ -289,13 +289,13 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			
+
 			cursor.entity.alpha = 255;
 
 			if (cursor.entity.weight == 0)
 			{
 				cursor.entity.weight = 1;
-				
+
 				cursor.entity.originalWeight = 1;
 			}
 		}
@@ -324,7 +324,7 @@ void doCursor()
 			cursor.entity.draw = &drawLoopingAnimationToMap;
 
 			cursor.entity.weight = 0;
-			
+
 			cursor.entity.originalWeight = 1;
 
 			cursor.entity.inUse = TRUE;
@@ -332,13 +332,13 @@ void doCursor()
 			loadProperties(entityNames[cursor.entityType], &cursor.entity);
 
 			cursor.entity.active = TRUE;
-			
+
 			cursor.entity.alpha = 255;
 
 			if (cursor.entity.weight == 0)
 			{
 				cursor.entity.weight = 1;
-				
+
 				cursor.entity.originalWeight = 1;
 			}
 		}
@@ -400,7 +400,7 @@ void drawCursor()
 	if (cursor.type == TILES)
 	{
 		drawImage(tileImage(cursor.tileID), cursor.x, cursor.y, FALSE, 255);
-		
+
 		drawImage(tileImage(BLANK_TILE), cursor.x, cursor.y, FALSE, 255);
 	}
 

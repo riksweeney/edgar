@@ -39,7 +39,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 extern Game game;
 
-static void entityWait(void);
 static void throwApple(int);
 
 Entity *addApple(int x, int y, char *name)
@@ -60,7 +59,7 @@ Entity *addApple(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &entityWait;
+	e->action = &doNothing;
 
 	e->touch = &keyItemTouch;
 
@@ -75,16 +74,6 @@ Entity *addApple(int x, int y, char *name)
 	return e;
 }
 
-static void entityWait()
-{
-	checkToMap(self);
-	
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-	}
-}
-
 static void throwApple(int val)
 {
 	Entity *e;
@@ -96,13 +85,17 @@ static void throwApple(int val)
 		self->active = TRUE;
 
 		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
-		
+
+		e->flags &= ~ON_GROUND;
+
 		e->health = 1;
 
 		e->dirX = player.face == LEFT ? -6 : 6;
 
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
+		e->action = &doNothing;
+
 		setCustomAction(e, &invulnerableNoFlash, 60, 0, 0);
 
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);

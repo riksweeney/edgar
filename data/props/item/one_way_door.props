@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/one_way_door.dat
+ANIM_FILE data/anim/item/one_way_door.dat
+TYPE KEY_ITEM
+SPEED 2
