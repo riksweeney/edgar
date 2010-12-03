@@ -117,6 +117,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "monster_skull.h"
 #include "apple_tree.h"
 #include "apple.h"
+#include "one_way_door.h"
 
 extern Entity *self, player;
 
@@ -217,7 +218,10 @@ static Constructor items[] = {
 {"item/slime_potion_pool", &addSlimePotionPool},
 {"item/monster_skull", &addMonsterSkull},
 {"item/apple_tree", &addAppleTree},
-{"item/apple", &addApple}
+{"item/apple", &addApple},
+{"item/one_way_door", &addOneWayDoor},
+{"item/one_way_door_up", &addOneWayDoor},
+{"item/one_way_door_down", &addOneWayDoor}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
