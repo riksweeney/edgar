@@ -70,6 +70,7 @@ Entity *addFrog(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	e->fallout = &die;
 
 	e->type = ENEMY;
 

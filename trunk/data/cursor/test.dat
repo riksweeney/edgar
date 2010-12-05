@@ -1,5 +1,4 @@
 edgar/edgar
-enemy/fish
-door/large_metal_door
-common/switch
-item/slime_potion
+item/one_way_door
+item/one_way_door_down
+item/one_way_door_up
