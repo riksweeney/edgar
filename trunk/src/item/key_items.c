@@ -118,6 +118,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "apple_tree.h"
 #include "apple.h"
 #include "one_way_door.h"
+#include "colour_pot.h"
+#include "colour_display.h"
 
 extern Entity *self, player;
 
@@ -221,7 +223,9 @@ static Constructor items[] = {
 {"item/apple", &addApple},
 {"item/one_way_door", &addOneWayDoor},
 {"item/one_way_door_up", &addOneWayDoor},
-{"item/one_way_door_down", &addOneWayDoor}
+{"item/one_way_door_down", &addOneWayDoor},
+{"item/colour_pot", &addColourPot},
+{"item/colour_display", &addColourDisplay}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
