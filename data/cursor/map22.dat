@@ -7,3 +7,7 @@ common/teleporter
 lift/castle_lift
 lift/lift_target
 common/switch
+common/save_point
+item/colour_pot
+item/colour_display
+door/metal_door
