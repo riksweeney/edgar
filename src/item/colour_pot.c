@@ -188,6 +188,8 @@ static void collectColour(int val)
 {
 	if (self->mental == 0)
 	{
+		setInfoBoxMessage(60, 255, 255, 255, _("The pot is empty"));
+
 		return;
 	}
 
@@ -322,7 +324,7 @@ static void drain()
 				}
 			}
 
-			else
+			else if (self->target->health < self->target->mental)
 			{
 				playSoundToMap("sound/item/buzzer.ogg", -1, self->x, self->y, 0);
 			}

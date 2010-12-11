@@ -511,6 +511,13 @@ int drawLineDefToMap()
 	return TRUE;
 }
 
+int drawPhaseDoorToMap()
+{
+	drawBoxToMap(self->x, self->y, self->w, self->h, 0, 255, 0);
+
+	return TRUE;
+}
+
 void setEntityAnimation(Entity *e, int animationID)
 {
 	int previousRightEdge, previousAnim, newRightEdge;
