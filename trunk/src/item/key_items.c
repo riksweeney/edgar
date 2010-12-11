@@ -120,6 +120,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "one_way_door.h"
 #include "colour_pot.h"
 #include "colour_display.h"
+#include "phase_door.h"
 
 extern Entity *self, player;
 
@@ -225,7 +226,8 @@ static Constructor items[] = {
 {"item/one_way_door_up", &addOneWayDoor},
 {"item/one_way_door_down", &addOneWayDoor},
 {"item/colour_pot", &addColourPot},
-{"item/colour_display", &addColourDisplay}
+{"item/colour_display", &addColourDisplay},
+{"item/phase_door", &addPhaseDoor}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

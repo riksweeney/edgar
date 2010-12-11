@@ -1306,7 +1306,8 @@ void initLineDefs()
 
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
-		if (entity[i].inUse == TRUE && (entity[i].type == LINE_DEF || entity[i].type == SCRIPT_LINE_DEF))
+		if (entity[i].inUse == TRUE
+			&& (entity[i].type == LINE_DEF || entity[i].type == SCRIPT_LINE_DEF || strcmpignorecase(entity[i].name, "item/phase_door") == 0))
 		{
 			self = &entity[i];
 
