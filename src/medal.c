@@ -47,7 +47,7 @@ void initMedals()
 
 void addMedal(char *medalName)
 {
-	if (medal.connected == TRUE && medal.privateKeyFound == TRUE)
+	if (game.cheating == FALSE && medal.connected == TRUE && medal.privateKeyFound == TRUE)
 	{
 		addMedalToQueue(medalName);
 	}

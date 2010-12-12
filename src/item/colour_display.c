@@ -122,8 +122,6 @@ static void init()
 		self->requires[i] = '\0';
 	}
 
-	printf("Sequence is %s\n", self->requires);
-
 	activate(-1);
 
 	self->action = &entityWait;
