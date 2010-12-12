@@ -121,6 +121,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "colour_pot.h"
 #include "colour_display.h"
 #include "phase_door.h"
+#include "mastermind_display.h"
+#include "mastermind.h"
 
 extern Entity *self, player;
 
@@ -227,7 +229,11 @@ static Constructor items[] = {
 {"item/one_way_door_down", &addOneWayDoor},
 {"item/colour_pot", &addColourPot},
 {"item/colour_display", &addColourDisplay},
-{"item/phase_door", &addPhaseDoor}
+{"item/phase_door", &addPhaseDoor},
+{"item/mastermind_display", &addMastermindDisplay},
+{"item/mastermind", &addMastermind},
+{"item/mastermind_peg", &addMastermindPeg},
+{"item/mastermind_score", &addMastermindScore}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

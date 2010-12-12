@@ -1,0 +1,11 @@
+IF MASTERMIND HEALTH 0
+TALK Edgar It's a giant mastermind puzzle!
+TALK Edgar I used to play this all the time when we would travel up to the big city
+SET MASTERMIND HEALTH 1
+END
+TALK Narrator Push left or right to move the cursor
+TALK Narrator Press Attack to change the colour of the peg
+TALK Narrator When you have selected all of the colours, move the cursor onto the ? and press Attack
+TALK Narrator The number shown in the box is the number of pegs that are correctly placed
+TALK Narrator You have 10 attempts to guess the sequence
+TALK Narrator Press Action to quit
