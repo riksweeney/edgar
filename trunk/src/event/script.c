@@ -419,6 +419,26 @@ void readNextScriptLine()
 					}
 				}
 
+				else if (strcmpignorecase(token, "ACTIVE") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (e->active != TRUE)
+					{
+						script.skipping = TRUE;
+					}
+				}
+
+				else if (strcmpignorecase(token, "NOT_ACTIVE") == 0)
+				{
+					token = strtok_r(NULL, " ", &savePtr);
+
+					if (e->active != FALSE)
+					{
+						script.skipping = TRUE;
+					}
+				}
+
 				else
 				{
 					showErrorAndExit("Unknown IF command %s",token);

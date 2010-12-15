@@ -11,3 +11,15 @@ common/save_point
 item/colour_pot
 item/colour_display
 door/metal_door
+item/spring
+enemy/spike_sphere
+item/ice_spray
+item/grabber
+common/pressure_plate
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right
+item/metal_crate
+door/large_metal_door
+item/potion_dispenser
+item/slime_potion

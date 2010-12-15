@@ -123,11 +123,11 @@ Entity *addMastermindScore(int x, int y, char *name)
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->mental == -1)
 	{
 		generateSolution();
-		
+
 		self->mental = 0;
 	}
 }
@@ -137,25 +137,37 @@ static void activate(int val)
 	if (val == 1)
 	{
 		self->endX -= TILE_SIZE;
+
+		if (self->endX < self->startX)
+		{
+			self->endX = self->startX;
+		}
+
+		else
+		{
+			playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+		}
 	}
-	
+
 	else if (val == 2)
 	{
 		self->endX += TILE_SIZE;
+
+		if (self->endX >= self->startX + self->w)
+		{
+			self->endX = self->startX + self->w - TILE_SIZE;
+		}
+
+		else
+		{
+			playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+		}
 	}
-	
-	if (self->endX < self->startX)
-	{
-		self->endX = self->startX;
-	}
-	
-	else if (self->endX >= self->startX + self->w)
-	{
-		self->endX = self->startX + self->w - TILE_SIZE;
-	}
-	
+
 	if (val == 3)
 	{
+		playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
+
 		activatePeg();
 	}
 }
@@ -164,99 +176,99 @@ static void init()
 {
 	int i, x, y, col;
 	Entity *e, *prev;
-	
+
 	prev = self;
-	
+
 	x = self->x;
 	y = self->y + self->h;
-	
+
 	col = 1;
-	
+
 	if (self->mental != 2)
 	{
-		for (i=0;i<60;i++)
+		for (i=0;i<50;i++)
 		{
-			/* 5 pegs per row, plus 1 score tile and 10 rows */
-			
+			/* 4 pegs per row, plus 1 score tile and 10 rows */
+
 			e = getFreeEntity();
 
 			if (e == NULL)
 			{
 				showErrorAndExit("No free slots to add a Mastermind Peg");
 			}
-			
-			if (col == 6)
+
+			if (col == 5)
 			{
 				loadProperties("item/mastermind_score", e);
-				
+
 				col = 0;
-				
+
 				e->mental = 1;
 			}
-			
+
 			else
 			{
 				loadProperties("item/mastermind_peg", e);
-				
+
 				e->mental = 0;
 			}
-			
+
 			setEntityAnimation(e, STAND);
-			
+
 			if (i == 0)
 			{
 				y -= TILE_SIZE;
 			}
-			
-			if (i != 0 && i % 6 == 0)
+
+			if (i != 0 && i % 5 == 0)
 			{
 				x = self->x;
 				y -= TILE_SIZE;
 			}
-			
+
 			else if (i != 0)
 			{
 				x += TILE_SIZE;
 			}
-			
+
 			e->face = RIGHT;
-			
+
 			e->x = x;
 			e->y = y;
-			
+
 			e->action = &pegWait;
-			
+
 			e->draw = &drawLoopingAnimationToMap;
-			
+
 			prev->target = e;
-			
+
 			prev = e;
-			
+
 			e->target = NULL;
-			
+
 			col++;
 		}
-		
+
 		generateSolution();
-		
+
 		addCursor();
 	}
-	
+
 	self->action = &entityWait;
 }
 
 static void pegWait()
 {
-	
+
 }
 
 static void activatePeg()
 {
 	int val;
 	Entity *e;
-	
+
 	e = self->target;
-	
+
 	while (e != NULL)
 	{
 		if (e->x == self->endX && e->y == self->endY)
@@ -264,50 +276,50 @@ static void activatePeg()
 			if (e->mental == 0)
 			{
 				e->health++;
-				
+
 				if (e->health > self->health)
 				{
 					e->health = 1;
 				}
-				
+
 				setEntityAnimation(e, e->health);
 			}
-			
+
 			else
 			{
 				val = checkSolution();
-				
+
 				if (val == TRUE)
 				{
 					self->mental = 2;
-					
+
 					e = self->target;
-					
+
 					while (e != NULL)
 					{
 						e->flags &= ~DO_NOT_PERSIST;
-						
+
 						e = e->target;
 					}
-				} 
-				
+				}
+
 				else if (val == FALSE)
 				{
 					self->endY -= TILE_SIZE;
 					self->endX = self->x;
-					
+
 					if (self->endY < self->y)
 					{
 						self->endY = self->y;
-						
+
 						self->mental = 1;
 					}
 				}
 			}
-			
+
 			break;
 		}
-		
+
 		e = e->target;
 	}
 }
@@ -315,7 +327,7 @@ static void activatePeg()
 static void addCursor()
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add a Mastermind Cursor");
@@ -329,7 +341,7 @@ static void addCursor()
 	e->action = &cursorWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->head = self;
 
 	setEntityAnimation(e, STAND);
@@ -346,27 +358,27 @@ static void generateSolution()
 	int i;
 	char c[2];
 	Entity *e;
-	
-	for (i=0;i<5;i++)
+
+	for (i=0;i<4;i++)
 	{
 		snprintf(c, 2, "%ld", 1 + prand() % self->health);
-		
+
 		self->requires[i] = c[0];
 	}
-	
+
 	self->requires[i] = '\0';
-	
+
 	e = self->target;
-	
+
 	while (e != NULL)
 	{
 		e->health = 0;
-		
+
 		setEntityAnimation(e, e->health);
-		
+
 		e = e->target;
 	}
-	
+
 	self->endX = self->x;
 	self->endY = self->y + self->h - TILE_SIZE;
 }
@@ -376,66 +388,66 @@ static int checkSolution()
 	int i, total;
 	char solution[6], c[2];
 	Entity *e;
-	
+
 	e = self->target;
-	
+
 	while (e != NULL)
 	{
 		if (e->y == self->endY && e->x == self->x)
 		{
 			break;
 		}
-		
+
 		e = e->target;
 	}
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("Could not find starting peg for row");
 	}
-	
-	for (i=0;i<5;i++)
+
+	for (i=0;i<4;i++)
 	{
 		if (e->health == 0)
 		{
 			setInfoBoxMessage(180, 255, 255, 255, _("Select a colour for every peg in the row"));
-			
+
 			return -1;
 		}
-		
+
 		snprintf(c, 2, "%d", e->health);
-		
+
 		solution[i] = c[0];
-		
+
 		e = e->target;
 	}
-	
+
 	solution[i] = '\0';
-	
+
 	total = 0;
-	
-	for (i=0;i<5;i++)
+
+	for (i=0;i<4;i++)
 	{
 		if (solution[i] == self->requires[i])
 		{
 			total++;
 		}
 	}
-	
+
 	e->health = total + 1;
-	
+
 	setEntityAnimation(e, e->health);
-	
+
 	return strcmpignorecase(solution, self->requires) == 0 ? TRUE : FALSE;
 }
 
 static void pegInit()
 {
 	setEntityAnimation(self, self->health);
-	
+
 	self->mental = 0;
-	
+
 	self->action = &entityWait;
-	
+
 	self->flags &= ~DO_NOT_PERSIST;
 }

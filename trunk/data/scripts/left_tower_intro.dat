@@ -1,4 +1,10 @@
-SET Edgar FACE LEFT
 WAIT 120
+SET Edgar FACE LEFT
+WAIT 30
+SET Edgar FACE RIGHT
+WAIT 30
+SET Edgar FACE LEFT
+TALK Edgar What a hassle that was
 TALK Edgar I don't think I'll find my Dad in here
-TALK Edgar Maybe I should look somewhere else...
+TALK Edgar Maybe I should look somewhere else
+TALK Edgar Still, there might be something in here worth my time...
