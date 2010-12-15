@@ -69,13 +69,13 @@ Entity *addMastermind(int x, int y, char *name)
 }
 
 static void entityWait()
-{	
+{
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && self->active == TRUE)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
@@ -86,9 +86,9 @@ static void activate(int val)
 	if (self->active == TRUE)
 	{
 		limitCamera(self->startX, self->startY, self->startX + SCREEN_WIDTH, self->startY + SCREEN_HEIGHT);
-		
+
 		self->target->mental = -1;
-		
+
 		self->action = &readInputCode;
 
 		self->touch = NULL;
@@ -103,41 +103,41 @@ static void readInputCode()
 {
 	int val;
 	Entity *temp;
-	
+
 	if (self->target->mental == 2)
 	{
 		resetCameraLimits();
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
-		
+
 		self->action = &entityWait;
-		
+
 		self->touch = NULL;
 		self->activate = NULL;
-		
+
 		fireTrigger(self->objectiveName);
-		
+
 		fireGlobalTrigger(self->objectiveName);
-		
+
 		return;
 	}
-	
+
 	else if (self->target->mental == 1)
 	{
 		resetCameraLimits();
-		
+
 		setInfoBoxMessage(60, 255, 255, 255, _("Failed"));
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		self->action = &entityWait;
-		
+
 		self->touch = &touch;
-		
+
 		self->activate = &activate;
-		
+
 		return;
 	}
 
@@ -158,17 +158,17 @@ static void readInputCode()
 	else if (input.attack == 1)
 	{
 		input.attack = 0;
-		
+
 		val = 3;
 	}
-	
+
 	else if (input.interact == 1)
 	{
 		input.interact = 0;
-		
+
 		val = 4;
 	}
-	
+
 	else
 	{
 		val = -1;
@@ -177,13 +177,13 @@ static void readInputCode()
 	if (val == 4)
 	{
 		resetCameraLimits();
-		
+
 		setPlayerLocked(FALSE);
-		
+
 		self->target->mental = 1;
 
 		self->action = &entityWait;
-		
+
 		self->touch = &touch;
 		self->activate = &activate;
 	}
@@ -191,11 +191,11 @@ static void readInputCode()
 	else if (val != -1 && self->target->activate != NULL)
 	{
 		temp = self;
-		
+
 		self = self->target;
-		
+
 		self->activate(val);
-		
+
 		self = temp;
 	}
 }
@@ -217,7 +217,7 @@ static void init()
 	}
 
 	self->target = e;
-	
+
 	if (self->target->mental != 2)
 	{
 		self->touch = &touch;
