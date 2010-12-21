@@ -224,6 +224,16 @@ void doEntities()
 				{
 					checkToMap(self);
 				}
+				
+				if (self->standingOn != NULL)
+				{
+					self->flags |= WAS_STANDING_ON;
+				}
+				
+				else
+				{
+					self->flags &= ~WAS_STANDING_ON;
+				}
 
 				self->standingOn = NULL;
 
@@ -384,8 +394,6 @@ void doNothing()
 
 		self->thinkTime = 0;
 	}
-
-	self->standingOn = NULL;
 }
 
 void moveLeftToRight()
@@ -1841,4 +1849,15 @@ void teleportEntityFromScript(Entity *e, char *line)
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	playSoundToMap("sound/common/teleport.ogg", -1, e->x, e->y, 0);
+}
+
+int landedOnGround(long wasOnGround)
+{
+	if (((self->standingOn != NULL) && !(self->flags & WAS_STANDING_ON))
+		|| (wasOnGround == 0 && (self->flags & ON_GROUND)))
+	{
+		return TRUE;
+	}
+	
+	return FALSE;
 }

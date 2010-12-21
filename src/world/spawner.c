@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../enemy/enemies.h"
 #include "../item/item.h"
+#include "../item/key_items.h"
 #include "../entity.h"
 #include "../system/properties.h"
 #include "../player.h"
@@ -65,7 +66,7 @@ static void init()
 	Entity *e;
 	char spawnList[MAX_VALUE_LENGTH], name[MAX_VALUE_LENGTH];
 	char *token;
-	
+
 	#if DEV == 1
 	if (strlen(self->objectiveName) == 0)
 	{
@@ -157,10 +158,19 @@ static void spawn()
 							e->y += (self->h - e->h) / 2;
 						}
 					}
-					
+
 					else if (strcmpignorecase(self->name, "common/item_spawner") == 0)
 					{
 						e = addPermanentItem(self->objectiveName, self->x, self->y);
+
+						e->x += (self->w - e->w) / 2;
+
+						e->face = self->face;
+					}
+
+					else if (strcmpignorecase(self->name, "common/key_item_spawner") == 0)
+					{
+						e = addKeyItem(self->objectiveName, self->x, self->y);
 
 						e->x += (self->w - e->w) / 2;
 
@@ -242,7 +252,7 @@ static void spawn()
 					}
 
 					self->thinkTime = self->maxThinkTime;
-					
+
 					if (self->health == -3)
 					{
 						self->active = FALSE;

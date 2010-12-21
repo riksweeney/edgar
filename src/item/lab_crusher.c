@@ -309,20 +309,7 @@ static void touch(Entity *other)
 			}
 		}
 	}
-	
-	else if (strcmpignorecase(self->name, "boss/evil_edgar") == 0)
-	{
-		temp = self;
 		
-		self = other;
-		
-		self->takeDamage(other, 100);
-		
-		self->action = &rise;
-		
-		self->mental = 0;
-	}
-	
 	else
 	{
 		entityTouch(other);

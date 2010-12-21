@@ -89,13 +89,13 @@ void draw()
 					{
 						SDL_SetClipRect(game.screen, NULL);
 					}
-					
+
 					/* Draw the background */
-					
+
 					drawMapBackground();
-					
+
 					/* Draw the weather */
-					
+
 					drawWeather();
 
 					/* Draw the background map tiles */
@@ -125,7 +125,7 @@ void draw()
 					/* Draw the Entities that appear in the foreground */
 
 					drawEntities(FOREGROUND_LAYER);
-					
+
 					/* Draw the foreground map tiles */
 
 					drawMap(2);
@@ -146,33 +146,37 @@ void draw()
 					/* Draw the dialog box */
 
 					drawDialogBox();
-					
+
 					/* Draw the script dialog box */
-					
+
 					scriptDrawMenu();
 
 					/* Draw the game statuses */
 
 					drawGame();
 
-					/* Draw the screen coordinates */
+					#if DEV == 1
+						/* Draw the screen coordinates */
 
-					if (player.face == LEFT)
-					{
-						snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
-					}
+						if (player.face == LEFT)
+						{
+							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+						}
 
-					else
-					{
-						snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
-					}
+						else
+						{
+							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
+						}
 
-					/*drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);*/
+						drawString(text, 5, 5, game.font, 0, 0, 255, 255, 255);
+					#endif
 				}
 			break;
 		}
 
-		takeScreenshot();
+		#if DEV == 1
+			takeScreenshot();
+		#endif
 	}
 
 	else

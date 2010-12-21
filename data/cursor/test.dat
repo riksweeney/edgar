@@ -1,7 +1,2 @@
 edgar/edgar
-item/colour_pot
-item/colour_display
-door/metal_door
-item/phase_door
-item/mastermind_display
-item/mastermind
+common/spawner

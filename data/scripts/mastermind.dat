@@ -15,7 +15,7 @@ END
 END
 IF MASTERMIND HEALTH 0
 TALK Edgar It's a giant mastermind puzzle!
-TALK Edgar I used to play this all the time when we were travelling up to the big city
+TALK Edgar I used to play these all the time when we were travelling up to the big city
 IF MASTERMIND NOT_ACTIVE
 TALK Edgar It doesn't look like it's working though
 TALK Edgar Maybe I should come back later...

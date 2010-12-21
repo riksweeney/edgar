@@ -19,27 +19,26 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
 #include "../audio/audio.h"
-#include "../system/properties.h"
+#include "../graphics/decoration.h"
+#include "../graphics/animation.h"
 #include "../entity.h"
 #include "../collisions.h"
+#include "../custom_actions.h"
+#include "../system/properties.h"
 #include "../system/error.h"
 
 extern Entity *self;
 
-static void floatUp(void);
-static void die(void);
-static void fallout(void);
-static void touch(Entity *);
+static void entityWait(void);
 
-Entity *addBubble(int x, int y, char *name)
+Entity *addIronBall(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Bubble");
+		showErrorAndExit("No free slots to add an Iron Ball");
 	}
 
 	loadProperties(name, e);
@@ -47,69 +46,35 @@ Entity *addBubble(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->type = KEY_ITEM;
-
-	e->action = &floatUp;
-	e->touch = &touch;
-	e->die = &die;
-	e->fallout = &fallout;
-
+	e->action = &entityWait;
 	e->draw = &drawLoopingAnimationToMap;
+	e->touch = &entityTouch;
+
+	e->type = ENEMY;
 
 	setEntityAnimation(e, STAND);
 
 	return e;
 }
 
-static void touch(Entity *other)
+static void entityWait()
 {
-	if (other->y < self->y)
-	{
-		pushEntity(other);
+	long onGround = self->flags & ON_GROUND;
 
-		if (self->dirY == 0 && self->dirX == 0)
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
+	{
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+
+		if (landedOnGround(onGround) == TRUE)
 		{
-			self->die();
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 		}
 	}
 
 	else
 	{
-		self->die();
-	}
-}
-
-static void floatUp()
-{
-	float dirY;
-
-	self->dirX *= 0.95;
-
-	if (fabs(self->dirX) <= 0.05)
-	{
 		self->dirX = 0;
-
-		self->dirY = -self->speed;
 	}
-
-	dirY = self->dirY;
-
-	checkToMap(self);
-
-	if (self->dirY == 0 && dirY < 0)
-	{
-		self->die();
-	}
-}
-
-static void die()
-{
-	playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
-
-	self->inUse = FALSE;
-}
-
-static void fallout()
-{
-
 }

@@ -23,3 +23,7 @@ item/metal_crate
 door/large_metal_door
 item/potion_dispenser
 item/slime_potion
+common/spawner
+enemy/spike_wall
+item/crusher
+common/key_item_spawner

@@ -112,7 +112,7 @@ static void loadMenuLayout(int saving)
 	char filename[MAX_LINE_LENGTH], *line, *token, *savePtr1, *savePtr2;
 	char **saveFile;
 	unsigned char *buffer;
-	int x, y, i;
+	int x, y, i, width;
 
 	savePtr1 = NULL;
 	savePtr2 = NULL;
@@ -177,13 +177,13 @@ static void loadMenuLayout(int saving)
 		showErrorAndExit("Menu dimensions must be greater than 0");
 	}
 
-	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
 	free(buffer);
 
 	saveFile = getSaveFileIndex();
 
 	x = y = 5;
+
+	width = 0;
 
 	for (i=0;i<MAX_SAVE_SLOTS;i++)
 	{
@@ -198,18 +198,29 @@ static void loadMenuLayout(int saving)
 		}
 
 		y += menu.widgets[i]->normalState->h + 5;
-		
+
 		if (saveFile[i] != NULL)
 		{
 			free(saveFile[i]);
 		}
+
+		if (menu.widgets[i]->normalState->w > width)
+		{
+			width = menu.widgets[i]->normalState->w;
+		}
 	}
-	
-	free(saveFile);
+
+	menu.w = width + 10;
 
 	y += 15;
 
 	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE);
+
+	y += 5;
+
+	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+
+	free(saveFile);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
@@ -266,7 +277,7 @@ static void loadGameInSlot()
 		freeMessageQueue();
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Game Loaded"));
-		
+
 		game.paused = FALSE;
 	}
 }
