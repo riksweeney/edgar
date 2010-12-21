@@ -68,9 +68,16 @@ static void touch(Entity *other)
 		cameraSnapToTargetEntity();
 	}
 
+	else if (self->health == -1)
+	{
+		other->y = self->endY;
+
+		cameraSnapToTargetEntity();
+	}
+
 	else if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
+		/*playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);*/
 
 		self->thinkTime = 300;
 	}
@@ -91,8 +98,8 @@ static void initialise()
 	self->x = self->startX;
 	self->y = self->startY;
 
-	self->w = 1;
-	self->h = self->mental;
+	self->w = self->health == 0 ? 1 : self->mental;
+	self->h = self->health == -1 ? 1 : self->mental;
 
 	self->box.x = 0;
 	self->box.y = 0;

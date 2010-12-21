@@ -70,6 +70,8 @@ Entity *addMastermind(int x, int y, char *name)
 
 static void entityWait()
 {
+	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	
 	checkToMap(self);
 }
 

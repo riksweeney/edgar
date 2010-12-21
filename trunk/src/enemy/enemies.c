@@ -95,6 +95,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "red_ceiling_creeper.h"
 #include "rampaging_master_tortoise.h"
 #include "wall_walker.h"
+#include "iron_ball.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -250,7 +251,8 @@ static Constructor enemies[] = {
 {"enemy/red_ceiling_creeper", &addRedCeilingCreeper},
 {"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise},
 {"boss/cave_boss", &addCaveBoss},
-{"enemy/wall_walker", &addWallWalker}
+{"enemy/wall_walker", &addWallWalker},
+{"enemy/iron_ball", &addIronBall}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
@@ -268,7 +270,7 @@ Entity *addEnemy(char *name, int x, int y)
 
 			if (e->fallout == NULL)
 			{
-				e->fallout = &entityDie;
+				e->fallout = &entityDieNoDrop;
 			}
 
 			if (e->pain == NULL)
