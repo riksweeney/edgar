@@ -85,8 +85,8 @@ void drawWidget(Widget *w, Menu *m, int selected)
 		return;
 	}
 
-	x = w->x < 0 ? (m->w - w->normalState->w) / 2 : w->x;
-	y = w->y < 0 ? (m->h - w->normalState->h) / 2 : w->y;
+	x = w->x < 0 ? (m->background->w - w->normalState->w) / 2 : w->x;
+	y = w->y < 0 ? (m->background->h - w->normalState->h) / 2 : w->y;
 
 	x += m->x;
 	y += m->y;

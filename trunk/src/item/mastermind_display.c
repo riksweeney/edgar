@@ -164,7 +164,7 @@ static void activate(int val)
 		}
 	}
 
-	if (val == 3)
+	else if (val == 3)
 	{
 		playSoundToMap("sound/common/click.ogg", -1, self->x, self->y, 0);
 

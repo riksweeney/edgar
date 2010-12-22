@@ -123,6 +123,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "phase_door.h"
 #include "mastermind_display.h"
 #include "mastermind.h"
+#include "memory_match_display.h"
+#include "memory_match.h"
 
 extern Entity *self, player;
 
@@ -233,7 +235,10 @@ static Constructor items[] = {
 {"item/mastermind_display", &addMastermindDisplay},
 {"item/mastermind", &addMastermind},
 {"item/mastermind_peg", &addMastermindPeg},
-{"item/mastermind_score", &addMastermindScore}
+{"item/mastermind_score", &addMastermindScore},
+{"item/memory_match_display", &addMemoryMatchDisplay},
+{"item/memory_match", &addMemoryMatch},
+{"item/memory_match_icon", &addMemoryMatchIcon}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
