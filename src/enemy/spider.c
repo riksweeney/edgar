@@ -89,6 +89,8 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			self->action = &retreat;
+
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
 
 		else
@@ -114,8 +116,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		addDamageScore(damage, self);
 	}
@@ -143,6 +143,8 @@ static void redTakeDamage(Entity *other, int damage)
 		else if (self->maxThinkTime < 0)
 		{
 			self->targetY = 1800;
+
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
 
 		if (other->type == PROJECTILE)
@@ -155,8 +157,6 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		addDamageScore(damage, self);
 	}

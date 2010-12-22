@@ -18,5 +18,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 Entity *addMastermind(int, int, char *);
-Entity *addMastermindPeg(int, int, char *);
-Entity *addMastermindScore(int, int, char *);

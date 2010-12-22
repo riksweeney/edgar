@@ -17,6 +17,5 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-Entity *addMastermindDisplay(int, int, char *);
-Entity *addMastermindPeg(int, int, char *);
-Entity *addMastermindScore(int, int, char *);
+Entity *addMemoryMatch(int, int, char *);
+Entity *addMemoryMatchIcon(int, int, char *);
