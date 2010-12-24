@@ -27,3 +27,12 @@ common/spawner
 enemy/spike_wall
 item/crusher
 common/key_item_spawner
+common/trap_door
+wall/weak_fortress_wall
+item/bomb_pile
+weapon/pickaxe
+falling_platform/castle_falling_platform
+enemy/fish
+item/memory_match
+item/memory_match_display
+item/iron_key

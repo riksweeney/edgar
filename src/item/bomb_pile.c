@@ -67,7 +67,7 @@ static void collectBomb(Entity *other)
 {
 	Entity *bomb = NULL;
 
-	if (self->thinkTime <= 0)
+	if (other->type == PLAYER && self->thinkTime <= 0)
 	{
 		if (getInventoryItemByObjectiveName("Bomb") == NULL)
 		{

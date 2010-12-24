@@ -7,5 +7,5 @@ for i in `find /home/rik/Edgar/sound -name *.wav`;do
 	mv $OUTPUT1 $OUTPUT2.wav
 done
 for i in `find /home/rik/Edgar/sound -name *.wav`;do
-	oggenc -q 2 $i
+	oggenc -q 4 $i
 done

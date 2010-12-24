@@ -190,6 +190,9 @@ static void explode()
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		e = addExplosion(x, y);
+		
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
 
 		if (self->damage == -1)
 		{
