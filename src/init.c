@@ -35,6 +35,7 @@ void init(char *title)
 {
 	int joysticks, buttons;
 	long flags;
+	SDL_Surface *icon;
 
 	/* Set up the home directory */
 
@@ -79,6 +80,12 @@ void init(char *title)
 
 		exit(1);
 	}
+	
+	icon = loadImage("gfx/misc/alien_device.png");
+	
+	SDL_WM_SetIcon(icon, NULL);
+	
+	SDL_FreeSurface(icon);
 
 	if (game.audio == TRUE)
 	{

@@ -42,6 +42,7 @@ static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
 static void takeDamage(Entity *, int);
+static void init(void);
 
 Entity *addAppleTree(int x, int y, char *name)
 {
@@ -61,13 +62,9 @@ Entity *addAppleTree(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &entityWait;
+	e->action = &init;
 
 	e->touch = &touch;
-
-	e->activate = &activate;
-
-	e->takeDamage = &takeDamage;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -78,6 +75,20 @@ Entity *addAppleTree(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	setEntityAnimation(self, self->mental);
+	
+	if (self->mental > 0)
+	{
+		self->activate = &activate;
+		
+		self->takeDamage = &takeDamage;
+	}
+	
+	self->action = &entityWait;
+}
+
 static void entityWait()
 {
 	checkToMap(self);
@@ -85,7 +96,7 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	if (other->type == PLAYER && self->health > 0)
+	if (other->type == PLAYER && self->mental > 0)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
 	}
@@ -107,9 +118,9 @@ static void takeDamage(Entity *other, int damage)
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		if (strcmpignorecase(other->name, "weapon/woodaxe") == 0)
+		if (strcmpignorecase(other->name, "weapon/wood_axe") == 0)
 		{
-			self->health--;
+			self->health -= damage;
 
 			if (self->health > 0)
 			{
@@ -120,19 +131,19 @@ static void takeDamage(Entity *other, int damage)
 			{
 				if (self->mental > 0)
 				{
-					self->health = 0;
-
-					self->touch = NULL;
-
 					e = addPermanentItem("item/apple", self->x + self->w / 2, self->y);
 
-					e->dirX = prand() % 2 == 0 ? -6 : 6;
+					e->dirX = 10 + prand() % 10;
+					
+					e->dirX *= prand() % 2 == 0 ? -0.1 : 0.1;
 
-					e->dirY = -ITEM_JUMP_HEIGHT;
+					e->dirY = -10;
 
 					self->health = self->maxHealth;
 
 					self->mental--;
+					
+					setEntityAnimation(self, self->mental);
 				}
 
 				else
