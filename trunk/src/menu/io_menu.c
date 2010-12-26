@@ -212,8 +212,6 @@ static void loadMenuLayout(int saving)
 
 	menu.w = width + 10;
 
-	printf("Largest width is %d. Setting menu width to %d\n", width, menu.w);
-
 	y += 15;
 
 	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE);
@@ -226,8 +224,6 @@ static void loadMenuLayout(int saving)
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	printf("Setting menu width to %d\n", menu.background->w);
 }
 
 Menu *initIOMenu(int saving)

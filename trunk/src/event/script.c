@@ -412,8 +412,18 @@ void readNextScriptLine()
 				else if (strcmpignorecase(token, "MENTAL") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
+					
+					if (strcmpignorecase(token, "NOT") == 0)
+					{
+						token = strtok_r(NULL, " ", &savePtr);
 
-					if (e->mental != atoi(token))
+						if (e->mental == atoi(token))
+						{
+							script.skipping = TRUE;
+						}
+					}
+
+					else if (e->mental != atoi(token))
 					{
 						script.skipping = TRUE;
 					}
