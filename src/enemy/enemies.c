@@ -96,6 +96,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "rampaging_master_tortoise.h"
 #include "wall_walker.h"
 #include "iron_ball.h"
+#include "hoover.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -252,7 +253,8 @@ static Constructor enemies[] = {
 {"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise},
 {"boss/cave_boss", &addCaveBoss},
 {"enemy/wall_walker", &addWallWalker},
-{"enemy/iron_ball", &addIronBall}
+{"enemy/iron_ball", &addIronBall},
+{"enemy/hoover", &addHoover}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
