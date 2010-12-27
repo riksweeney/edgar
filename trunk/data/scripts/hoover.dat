@@ -1,0 +1,25 @@
+WAIT 30
+TALK Edgar Hey, what's that?
+LIMIT_CAMERA 10080 5056 10720 5504
+WAIT 120
+WALK_TO EDGAR 10476 5386 WAIT
+WAIT 30
+TALK Edgar It's a baby Hoover
+TALK Edgar I saw a grown up one in the big city, they're completely harmless
+TALK Edgar Why is it here? It must be frightened
+WALK_TO_RELATIVE EDGAR -64 0 WAIT
+TALK Edgar Hello little fella, are you lost?
+TALK Edgar Don't worry, I won't hurt you
+WALK_TO_RELATIVE EDGAR -64 0 WAIT
+WAIT 10
+SET EDGAR ANIMATION DIE
+SET EDGAR PROPERTY DIR_X 12
+SET EDGAR PROPERTY DIR_Y -8
+WAIT 90
+TALK Edgar Ow!
+SET EDGAR ANIMATION STAND
+WAIT 30
+TALK Edgar I guess it's scared. I might be able to get past it if I give it some food
+TALK Edgar They're vegetarians so I'll have to find some fruit or vegetables...
+ACTIVATE_OBJECTIVE HOOVER
+RESET_CAMERA

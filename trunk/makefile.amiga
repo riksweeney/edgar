@@ -88,7 +88,7 @@ CORE_OBJS += sorceror.o centurion_boss.o sonic_boom_panel.o sewer_boss.o item_re
 CORE_OBJS += script_menu.o snow_pile.o ceiling_creeper.o gas_plant.o centipede.o spore_crop.o spore.o sludge_pool.o vines.o undead_gazer.o
 CORE_OBJS += slime_potion_pool.o frog.o master_tortoise.o red_ceiling_creeper.o rampaging_master_tortoise.o cheat_menu.o monster_skull.o
 CORE_OBJS += cave_boss.o wall_walker.o apple_tree.o apple.o one_way_door.o colour_pot.o colour_display.o phase_door.o mastermind_display.o mastermind.o
-CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o
+CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o hoover.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

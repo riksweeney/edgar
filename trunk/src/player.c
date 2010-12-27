@@ -723,6 +723,16 @@ static void dialogWait()
 		playerShield.face = player.face;
 		playerWeapon.face = player.face;
 	}
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	}
+	
+	if (self->standingOn != NULL && self->dirY > 0)
+	{
+		self->dirY = self->standingOn->dirY + 1;
+	}
 }
 
 void playerWaitForConfirm()
