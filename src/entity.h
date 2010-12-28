@@ -70,3 +70,4 @@ void clearDrawLayers(void);
 Entity *getEntityByName(char *);
 void teleportEntityFromScript(Entity *, char *);
 int landedOnGround(long);
+EntityList *getEntitiesByName(char *);

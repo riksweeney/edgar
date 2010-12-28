@@ -19,13 +19,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../entity.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../item/item.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 #include "../geometry.h"
 #include "../player.h"
 #include "../item/key_items.h"
@@ -37,6 +41,12 @@ static void entityWait(void);
 static void blowPlayerAway(void);
 static void lookForFood(void);
 static void eatFood(void);
+static void chewFood(void);
+static void hooverSleepy(void);
+static void hooverSleep(void);
+static void init(void);
+static void zMove(void);
+static void zVanish(void);
 
 Entity *addHoover(int x, int y, char *name)
 {
@@ -52,7 +62,7 @@ Entity *addHoover(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &entityWait;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 
@@ -61,6 +71,21 @@ Entity *addHoover(int x, int y, char *name)
 	setEntityAnimation(e, STAND);
 
 	return e;
+}
+
+static void init()
+{
+	if (self->health <= 0)
+	{
+		setEntityAnimation(self, CUSTOM_4);
+		
+		self->action = &hooverSleep;
+	}
+	
+	else
+	{
+		self->action = &entityWait;
+	}
 }
 
 static void entityWait()
@@ -90,6 +115,17 @@ static void entityWait()
 		
 		self->thinkTime = 30;
 	}
+	
+	if (self->health <= 0 && self->mental <= 0)
+	{
+		setEntityAnimation(self, CUSTOM_3);
+		
+		self->thinkTime = 120;
+		
+		self->action = &hooverSleepy;
+	}
+	
+	facePlayer();
 }
 
 static void lookForFood()
@@ -100,6 +136,10 @@ static void lookForFood()
 	
 	if (collision(self->x, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
+		setEntityAnimation(self, ATTACK_1);
+		
+		self->mental = 60;
+		
 		self->action = &blowPlayerAway;
 		
 		return;
@@ -115,13 +155,15 @@ static void lookForFood()
 			{
 				self->target = &entity[i];
 				
+				faceTarget();
+				
 				entity[i].flags |= FLY;
 				
 				setCustomAction(self->target, &helpless, 600, 0, 0);
 				
 				self->action = &eatFood;
 				
-				entity[i].targetX = self->x + (self->w - entity[i].w) / 2;
+				entity[i].targetX = self->x + self->w;
 				entity[i].targetY = self->y + (self->h - entity[i].h) / 2;
 				
 				calculatePath(entity[i].x, entity[i].y, entity[i].targetX, entity[i].targetY, &self->target->dirX, &self->target->dirY);
@@ -129,7 +171,7 @@ static void lookForFood()
 				self->target->dirX *= 4;
 				self->target->dirY *= 4;
 				
-				faceTarget();
+				setEntityAnimation(self, ATTACK_2);
 				
 				return;
 			}
@@ -160,14 +202,89 @@ static void eatFood()
 	
 	if (fabs(self->target->x - self->target->targetX) <= fabs(self->target->dirX) && fabs(self->target->y - self->target->targetY) <= fabs(self->target->dirY))
 	{
+		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+		
 		setEntityAnimation(self, CUSTOM_1);
 		
-		self->mental = 60;
+		self->animationCallback = &chewFood;
 		
 		self->target->inUse = FALSE;
 		
 		self->action = &lookForFood;
-		
-		self->health--;
 	}
+}
+
+static void chewFood()
+{
+	self->mental = 60;
+	
+	setEntityAnimation(self, CUSTOM_2);
+	
+	self->health--;
+}
+
+static void hooverSleepy()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		fireTrigger(self->objectiveName);
+		
+		fireGlobalTrigger(self->objectiveName);
+		
+		setEntityAnimation(self, CUSTOM_4);
+		
+		self->action = &hooverSleep;
+	}
+	
+	checkToMap(self);
+}
+
+static void hooverSleep()
+{
+	Entity *e;
+	
+	if (prand() % 90 == 0)
+	{
+		e = addBasicDecoration(self->x + self->w, self->y, "decoration/z");
+
+		if (e != NULL)
+		{
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - self->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + self->offsetX;
+			}
+
+			e->y = self->y + self->offsetY;
+			
+			e->face = RIGHT;
+
+			e->startX = e->x;
+
+			e->action = &zMove;
+			e->animationCallback = &zVanish;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void zMove()
+{
+	self->health++;
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->health)) * 8;
+
+	self->y -= 0.5;
+}
+
+static void zVanish()
+{
+	self->inUse = FALSE;
 }

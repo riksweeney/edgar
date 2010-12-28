@@ -23,7 +23,6 @@ enemy/poltergiest_1
 common/save_point
 item/robot_direction
 item/robot
-item/centurion_statue
 common/anti_gravity
 enemy/large_red_book
 weapon/wood_axe
@@ -54,3 +53,7 @@ item/horizontal_force_field
 weapon/fire_shield
 item/safe
 boss/black_book
+item/centurion_statue
+item/tortoise_statue
+item/scorpion_statue
+item/spider_statue

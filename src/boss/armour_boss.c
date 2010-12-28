@@ -149,11 +149,23 @@ static void initialise()
 
 	else if (prand() % 120 == 0)
 	{
-		e = addBasicDecoration(self->x + self->w - 30, self->y + 30, "decoration/z");
+		e = addBasicDecoration(self->x, self->y, "decoration/z");
 
 		if (e != NULL)
 		{
 			e->face = RIGHT;
+			
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - self->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + self->offsetX;
+			}
+
+			e->y = self->y + self->offsetY;
 
 			e->startX = e->x;
 

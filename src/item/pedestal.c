@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../inventory.h"
 #include "../hud.h"
+#include "../medal.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "key_items.h"
@@ -33,7 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/global_trigger.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void entityWait(void);
 static void init(void);
@@ -133,80 +134,97 @@ static void addStatue(int val)
 
 static void touch(Entity *other)
 {
-	if (self->target != NULL)
+	if (self->active == TRUE)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve %s"), self->target->objectiveName);
-	}
+		if (self->target != NULL)
+		{
+			setInfoBoxMessage(0, 255, 255, 255, _("Press Action to retrieve %s"), self->target->objectiveName);
+		}
 
-	else
-	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
+		else
+		{
+			setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
+		}
 	}
 }
 
 static void validate()
 {
-	int i, status;
+	int i, allStatues, orderCorrect;
+	EntityList *list = getEntitiesByName(self->name);
+	EntityList *l;
+	Entity *e;
 
-	status = 0;
+	i = 0;
+	
+	allStatues = TRUE;
+	
+	orderCorrect = TRUE;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (l=list->next;l!=NULL;l=l->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM
-			&& strcmpignorecase(entity[i].name, self->objectiveName) == 0)
+		e = l->entity;
+
+		if (e->target == NULL)
 		{
-			if (entity[i].target == NULL)
-			{
-				status = 1;
+			allStatues = FALSE;
 
-				break;
-			}
+			break;
+		}
 
-			else if (strcmpignorecase(entity[i].requires, entity[i].target->objectiveName) != 0)
-			{
-				status = 2;
+		else if (strcmpignorecase(e->requires, e->target->objectiveName) != 0)
+		{
+			orderCorrect = FALSE;
 
-				break;
-			}
+			break;
 		}
 	}
 
-	if (status == 0)
+	if (allStatues == TRUE)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		if (orderCorrect == TRUE)
 		{
-			if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM
-				&& strcmpignorecase(entity[i].name, self->objectiveName) == 0)
+			for (l=list->next;l!=NULL;l=l->next)
 			{
-				entity[i].active = FALSE;
+				e = l->entity;
+				
+				e->active = FALSE;
+				
+				e->activate = NULL;
 			}
+			
+			fireTrigger(self->name);
+
+			fireGlobalTrigger(self->name);
+			
+			addMedal("occult");
 		}
-
-		fireTrigger(self->name);
-
-		fireGlobalTrigger(self->name);
+		
+		else
+		{
+			runScript("wrong_order");
+		}
 	}
-
-	else if (status == 2)
-	{
-		runScript("wrong_order");
-	}
+	
+	freeEntityList(list);
 }
 
 static void init()
 {
-	int i;
+	EntityList *list;
+	EntityList *l;
 	Entity *e = NULL;
 
 	if (strlen(self->objectiveName) != 0)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		list = getEntitiesByObjectiveName(self->objectiveName);
+		
+		for (l=list->next;l!=NULL;l=l->next)
 		{
-			if (entity[i].inUse == TRUE && entity[i].type == ITEM
-				&& strcmpignorecase(entity[i].objectiveName, self->objectiveName) == 0)
-			{
-				e = &entity[i];
+			e = l->entity;
 
+			if (e != self && strcmpignorecase(self->objectiveName, e->objectiveName) == 0)
+			{
 				break;
 			}
 		}
@@ -229,11 +247,13 @@ static void init()
 		self->target->touch = NULL;
 
 		self->target->action = &statueWait;
+		
+		freeEntityList(list);
 	}
 
 	self->action = &entityWait;
-
-	self->touch = self->active == TRUE ? &touch : NULL;
+	
+	self->activate = self->active == TRUE ? &addStatue : NULL;
 }
 
 static void statueWait()

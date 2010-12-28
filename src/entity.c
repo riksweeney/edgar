@@ -1187,6 +1187,31 @@ EntityList *getEntitiesByRequiredName(char *name)
 	return list;
 }
 
+EntityList *getEntitiesByName(char *name)
+{
+	int i;
+	EntityList *list;
+
+	list = (EntityList *)malloc(sizeof(EntityList));
+
+	if (list == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
+	list->next = NULL;
+
+	for (i=0;i<MAX_ENTITIES;i++)
+	{
+		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, name) == 0)
+		{
+			addEntityToList(list, &entity[i]);
+		}
+	}
+
+	return list;
+}
+
 void freeEntityList(EntityList *list)
 {
 	EntityList *p, *q;
