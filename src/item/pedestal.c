@@ -175,8 +175,6 @@ static void validate()
 		else if (strcmpignorecase(e->requires, e->target->objectiveName) != 0)
 		{
 			orderCorrect = FALSE;
-
-			break;
 		}
 	}
 

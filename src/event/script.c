@@ -343,6 +343,26 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			else if (strcmpignorecase(token, "NOT_EXISTS") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				if (strcmpignorecase(token, "EDGAR") == 0)
+				{
+					e = &player;
+				}
+
+				else
+				{
+					e = getEntityByObjectiveName(token);
+				}
+
+				if (e != NULL)
+				{
+					script.skipping = TRUE;
+				}
+			}
 
 			else
 			{
