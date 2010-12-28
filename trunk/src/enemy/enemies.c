@@ -121,6 +121,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/centurion_boss.h"
 #include "../boss/sewer_boss.h"
 #include "../boss/cave_boss.h"
+#include "../boss/black_book_2.h"
 
 #include "../system/error.h"
 
@@ -254,7 +255,8 @@ static Constructor enemies[] = {
 {"boss/cave_boss", &addCaveBoss},
 {"enemy/wall_walker", &addWallWalker},
 {"enemy/iron_ball", &addIronBall},
-{"enemy/hoover", &addHoover}
+{"enemy/hoover", &addHoover},
+{"boss/black_book_2", &addBlackBook2}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
