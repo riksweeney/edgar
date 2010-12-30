@@ -152,13 +152,6 @@ LOAD_LEVEL map18 olaf_cave
 WAIT 300
 END
 IF OLAF HEALTH 13
-HAS_ITEM "Tuning Fork" 1 1 OLAF 14 15
-END
-IF OLAF HEALTH 15
-ADD_TO_INVENTORY item/tuning_fork
-SET OLAF HEALTH 14
-END
-IF OLAF HEALTH 14
 FOLLOW NONE
 TALK Edgar Yes, let's go
 TALK Olaf OK, here goes nothing, good luck finding your father

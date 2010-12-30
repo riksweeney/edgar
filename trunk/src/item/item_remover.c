@@ -80,6 +80,7 @@ static void removeItems()
 	Target *t;
 	char targetName[MAX_LINE_LENGTH];
 	char *items[] = {
+		"item/tuning_fork",
 		"item/invisibility_potion",
 		"item/repellent",
 		"item/water_purifier",
