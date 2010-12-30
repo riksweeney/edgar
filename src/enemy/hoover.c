@@ -134,7 +134,7 @@ static void lookForFood()
 	
 	/* Attack player first */
 	
-	if (collision(self->x, self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+	if (collision(self->x, self->y - 640, 160, self->h + 640, player.x, player.y, player.w, player.h) == 1)
 	{
 		setEntityAnimation(self, ATTACK_1);
 		
