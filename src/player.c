@@ -729,7 +729,7 @@ static void dialogWait()
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
 	
-	if (self->standingOn != NULL && self->dirY > 0)
+	if (self->standingOn != NULL && self->dirY > 0 && self->standingOn->dirY != 0)
 	{
 		self->dirY = self->standingOn->dirY + 1;
 	}

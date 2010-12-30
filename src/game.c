@@ -505,7 +505,7 @@ void goToNextMap()
 			showErrorAndExit("Could not find player start %s", game.playerStart);
 		}
 
-		loadPlayer(start->x, start->y, NULL);
+		loadPlayer(start->startX, start->startY, NULL);
 	}
 
 	fireMapTrigger(game.nextMap);

@@ -1425,7 +1425,12 @@ void addEntityFromScript(char *line)
 
 	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)
 	{
-		addKeyItem(entityName, x, y);
+		e = addKeyItem(entityName, x, y);
+		
+		if (strcmpignorecase(objectiveName, " ") != 0)
+		{
+			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+		}
 	}
 
 	else if (strcmpignorecase(entityType, "ENEMY") == 0)
