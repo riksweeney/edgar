@@ -10,7 +10,9 @@ WAIT 120
 WALK_TO EDGAR 10476 5386 WAIT
 WAIT 30
 TALK Edgar It's a baby Hoover
-TALK Edgar I saw a grown up one in the big city, they're completely harmless
+TALK Edgar I saw a grown up one in the big city when I went there with my Dad, they're completely harmless
+WAIT 30
+TALK Edgar I miss my Dad, I hope I find him soon...
 TALK Edgar Why is it here? It must be frightened
 WALK_TO_RELATIVE EDGAR -64 0 WAIT
 TALK Edgar Hello little fella, are you lost?

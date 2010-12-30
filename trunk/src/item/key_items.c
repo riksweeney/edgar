@@ -125,6 +125,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "mastermind.h"
 #include "memory_match_display.h"
 #include "memory_match.h"
+#include "drawbridge_pulley.h"
+#include "drawbridge_anchor.h"
 
 extern Entity *self, player;
 
@@ -238,7 +240,9 @@ static Constructor items[] = {
 {"item/mastermind_score", &addMastermindScore},
 {"item/memory_match_display", &addMemoryMatchDisplay},
 {"item/memory_match", &addMemoryMatch},
-{"item/memory_match_icon", &addMemoryMatchIcon}
+{"item/memory_match_icon", &addMemoryMatchIcon},
+{"item/drawbridge_pulley", &addDrawbridgePulley},
+{"item/drawbridge_anchor", &addDrawbridgeAnchor}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
