@@ -1652,9 +1652,6 @@ msgstr ""
 msgid "Filling mine cart..."
 msgstr ""
 
-msgid "Copyright Parallel Realities 2009-2010"
-msgstr ""
-
 msgid "Out of arrows!"
 msgstr ""
 
@@ -3099,5 +3096,440 @@ msgid "Maybe they'll work on the creatures here..."
 msgstr ""
 
 msgid "Spores that will make certain monsters temporarily harmless"
+msgstr ""
+
+msgid "It's out of apples..."
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Select a colour for every peg in the row"
+msgstr ""
+
+msgid "Press Action to retrieve the Horn"
+msgstr ""
+
+msgid "Attempts remaining: %d"
+msgstr ""
+
+msgid "The pot is empty"
+msgstr ""
+
+msgid "Your %s has been stolen!"
+msgstr ""
+
+msgid "<Empty>"
+msgstr ""
+
+msgid "Enabling cheats will not allow you to achieve 100% completion in the game"
+msgstr ""
+
+msgid "Copyright Parallel Realities 2009-2011"
+msgstr ""
+
+msgid "Thanks, this is perfect!"
+msgstr ""
+
+msgid "Do you have everything you need now?"
+msgstr ""
+
+msgid "I sure do"
+msgstr ""
+
+msgid "So what happens now?"
+msgstr ""
+
+msgid "We can get out of here! Where do you want to go?"
+msgstr ""
+
+msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
+msgstr ""
+
+msgid "OK, remember what I told you about his disintegration spell?"
+msgstr ""
+
+msgid "I think so..."
+msgstr ""
+
+msgid "Go to the lab and combine that ring and your shield"
+msgstr ""
+
+msgid "How?"
+msgstr ""
+
+msgid "Throw the shield and ring into the cauldron along with some mandrake root, that should do it"
+msgstr ""
+
+msgid "OK..."
+msgstr ""
+
+msgid "Nothing will go wrong this time!"
+msgstr ""
+
+msgid "Create Disintegration Shield"
+msgstr ""
+
+msgid "(I have the statue that Olaf stole)"
+msgstr ""
+
+msgid "(Perhaps I should return it to him, he is saving me after all)"
+msgstr ""
+
+msgid "(Then again, he did steal it, and I nearly died trying to get it)"
+msgstr ""
+
+msgid "Give the statue to Olaf?"
+msgstr ""
+
+msgid "I found this in the cave, is it the statue you took?"
+msgstr ""
+
+msgid "Yes it is! Thanks for finding it!"
+msgstr ""
+
+msgid "I should be able to sell this for a decent price at the market"
+msgstr ""
+
+msgid "Ready to go?"
+msgstr ""
+
+msgid "Return to the Fortress?"
+msgstr ""
+
+msgid "Not yet, there's something else I need to do"
+msgstr ""
+
+msgid "OK, let me know when you're ready"
+msgstr ""
+
+msgid "Don't hang around in that cave, the monsters that live in there are like nothing you'll have ever encountered before"
+msgstr ""
+
+msgid "Yes, let's go"
+msgstr ""
+
+msgid "OK, here goes nothing, good luck finding your father"
+msgstr ""
+
+msgid "Thanks, Olaf"
+msgstr ""
+
+msgid "It looks like the pulley for the drawbridge"
+msgstr ""
+
+msgid "The mechanism seems to be locked tight"
+msgstr ""
+
+msgid "It doesn't look too sturdy though, perhaps I can simply smash it..."
+msgstr ""
+
+msgid "Oops..."
+msgstr ""
+
+msgid "Maybe nobody heard that?"
+msgstr ""
+
+msgid "Well, the drawbridge is down at any rate..."
+msgstr ""
+
+msgid "Got it!"
+msgstr ""
+
+msgid "What a ridiculous amount of effort to go through just to get a statue..."
+msgstr ""
+
+msgid "What was that?!"
+msgstr ""
+
+msgid "I'd better get out of here and get back to the Fortress..."
+msgstr ""
+
+msgid "There should be a boss here but it's not finished"
+msgstr ""
+
+msgid "So make a spare save if you want to fight it later since you won't be able to return here"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "It's available on iBooks and the Amazon Kindle"
+msgstr ""
+
+msgid "I'm not exactly sure what any of that means, but it sounds interesting"
+msgstr ""
+
+msgid "I might read that later..."
+msgstr ""
+
+msgid "You won't be able to find the combination in this version!"
+msgstr ""
+
+msgid "That smell..."
+msgstr ""
+
+msgid "It looks like..."
+msgstr ""
+
+msgid "It's as thick as..."
+msgstr ""
+
+msgid "And it tastes like..."
+msgstr ""
+
+msgid "It is! It's naturally occuring Slime potion!"
+msgstr ""
+
+msgid "This is a test"
+msgstr ""
+
+msgid "1"
+msgstr ""
+
+msgid "2"
+msgstr ""
+
+msgid "3"
+msgstr ""
+
+msgid "4"
+msgstr ""
+
+msgid "It's an apple tree"
+msgstr ""
+
+msgid "Shame it's not a banana tree, I don't like apples"
+msgstr ""
+
+msgid "There aren't any apples left"
+msgstr ""
+
+msgid "It looks like there are some apples in it..."
+msgstr ""
+
+msgid "I need the shell of a Rampaging Master Tortoise, the staff from a Dark Summoner"
+msgstr ""
+
+msgid "The keepsake of a warrior who has previously defeated the dragon"
+msgstr ""
+
+msgid "And a spare shield"
+msgstr ""
+
+msgid "Once I have all of those items I need to place them in the cauldron..."
+msgstr ""
+
+msgid "This is a book about occult magic"
+msgstr ""
+
+msgid "Hmm..."
+msgstr ""
+
+msgid "This is interesting:"
+msgstr ""
+
+msgid "The shell fragment of a Rampaging Master Tortoise"
+msgstr ""
+
+msgid "The staff of a Dark Summoner"
+msgstr ""
+
+msgid "If the dragon has been defeated in the past then one must also gather"
+msgstr ""
+
+msgid "The keepsake from a warrior that previously defeated it"
+msgstr ""
+
+msgid "Once the ingredients have been gathered, they must be placed in the cauldron..."
+msgstr ""
+
+msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
+msgstr ""
+
+msgid "I've got the staff, but where do I find the shell or the keepsake?"
+msgstr ""
+
+msgid "I've got the shell, but where do I find the staff or the keepsake?"
+msgstr ""
+
+msgid "I've got the shell and the staff, but where do I find the keepsake?"
+msgstr ""
+
+msgid "That's a lot of ingredients that I have no idea where to find..."
+msgstr ""
+
+msgid "A lot of books"
+msgstr ""
+
+msgid "Nothing of interest here though"
+msgstr ""
+
+msgid "Those creepers look different to the others"
+msgstr ""
+
+msgid "They also look very dangerous..."
+msgstr ""
+
+msgid "Push left or right to move the cursor"
+msgstr ""
+
+msgid "Press Attack to change the colour of the peg"
+msgstr ""
+
+msgid "When you have selected all of the colours, move the cursor onto the question mark and press Attack"
+msgstr ""
+
+msgid "The number shown in the box is the number of pegs that are correctly placed"
+msgstr ""
+
+msgid "You have 10 attempts to guess the sequence"
+msgstr ""
+
+msgid "Press Action to quit"
+msgstr ""
+
+msgid "It's not working at the moment"
+msgstr ""
+
+msgid "Maybe I should come back later..."
+msgstr ""
+
+msgid "It's a giant mastermind puzzle!"
+msgstr ""
+
+msgid "I used to play these all the time when we were travelling up to the big city"
+msgstr ""
+
+msgid "It doesn't look like it's working though"
+msgstr ""
+
+msgid "This looks like the horn that Olaf needs"
+msgstr ""
+
+msgid "I'll have to break it off somehow..."
+msgstr ""
+
+msgid "What a hassle that was"
+msgstr ""
+
+msgid "I don't think I'll find my Dad in here"
+msgstr ""
+
+msgid "Maybe I should look somewhere else"
+msgstr ""
+
+msgid "Still, there might be something in here worth my time..."
+msgstr ""
+
+msgid "There, looks like the little guy is full and is sleeping it off"
+msgstr ""
+
+msgid "I should be able to get past him without any bother now"
+msgstr ""
+
+msgid "Hey, what's that?"
+msgstr ""
+
+msgid "It's a baby Hoover"
+msgstr ""
+
+msgid "I saw a grown up one in the big city when I went there with my Dad, they're completely harmless"
+msgstr ""
+
+msgid "I miss my Dad, I hope I find him soon..."
+msgstr ""
+
+msgid "Why is it here? It must be frightened"
+msgstr ""
+
+msgid "Hello little fella, are you lost?"
+msgstr ""
+
+msgid "Don't worry, I won't hurt you"
+msgstr ""
+
+msgid "Ow!"
+msgstr ""
+
+msgid "I guess it's scared. I might be able to get past it if I give it some food"
+msgstr ""
+
+msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
+msgstr ""
+
+msgid "Hopefully I'll never have to use this again"
+msgstr ""
+
+msgid "I'll use my wooden shield..."
+msgstr ""
+
+msgid "I'm not taking any chances this time..."
+msgstr ""
+
+msgid "Did it work?"
+msgstr ""
+
+msgid "I think it's safe now..."
+msgstr ""
+
+msgid "Hmm, what's that?"
+msgstr ""
+
+msgid "It's a small statue. It must be the one that Olaf said he stole"
+msgstr ""
+
+msgid "Well, since he's helping me get back to the sorceror, the least I can do is retrieve it for him"
+msgstr ""
+
+msgid "Typical..."
+msgstr ""
+
+msgid "Well, it might have just fallen further down into the cave, I'll just have to keep looking"
+msgstr ""
+
+msgid "It looks like there's a larger network of caves down there"
+msgstr ""
+
+msgid "Olaf did tell me to just get the horn and leave"
+msgstr ""
+
+msgid "The sorceror will almost certainly destroy me if I confront him without the shield"
+msgstr ""
+
+msgid "I'd better go and make it first"
+msgstr ""
+
+msgid "Wow, what a cool looking shield"
+msgstr ""
+
+msgid "Hopefully this will protect me from that spell"
+msgstr ""
+
+msgid "But there's only one way to find out..."
+msgstr ""
+
+msgid "It worked, I'm back!"
+msgstr ""
+
+msgid "Now to create that shield and get that sorceror..."
+msgstr ""
+
+msgid "Create a Resist Disintegration Shield"
+msgstr ""
+
+msgid "You will not be able to create the shield in this version!"
+msgstr ""
+
+msgid "The horn from a fearsome monster"
+msgstr ""
+
+msgid "A delicious apple"
+msgstr ""
+
+msgid "A magical shell fragmant from a Rampaging Master Tortoise"
+msgstr ""
+
+msgid "A shield that can resist disintegration"
 msgstr ""
 

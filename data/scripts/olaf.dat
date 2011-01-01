@@ -17,6 +17,8 @@ TALK Olaf Throw the shield and ring into the cauldron along with some mandrake r
 TALK Edgar OK...
 TALK Olaf Nothing will go wrong this time!
 TALK Edgar ...
+ADD OBJECTIVE "Create a Disintegration Shield" "Disintegration Shield"
+ADD TRIGGER "Disintegration Shield" 1 UPDATE_OBJECTIVE "Create a Disintegration Shield"
 HAS_ITEM "Scorpion Statue" 1 1 Olaf 16 12
 END
 IF OLAF HEALTH 16
@@ -135,7 +137,7 @@ MUSIC FADE_DOWN 2000
 WALK_TO_RELATIVE EDGAR -196 0 WAIT
 TALK Olaf Oh, one last thing.
 SET EDGAR FACE RIGHT
-TALK Olaf Don't hang around in that cave, the monsters that live in there are nothing like you'll have ever encountered before
+TALK Olaf Don't hang around in that cave, the monsters that live in there are like nothing you'll have ever encountered before
 TALK Olaf Seriously, just get the horn
 TALK Edgar OK
 WALK_TO_RELATIVE EDGAR -240 0 WAIT

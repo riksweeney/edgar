@@ -1,4 +1,5 @@
 TALK Edgar Got it!
+ACTIVATE_OBJECTIVE Outer-Inner Cave
 SET EDGAR FACE LEFT
 TALK Edgar Hmmm...
 TALK Edgar It looks like there's a larger network of caves down there
@@ -9,5 +10,3 @@ WAIT 30
 SET EDGAR FACE LEFT
 WAIT 30
 TALK Edgar ...
-TALK Narrator You will not be able to return the horn yet, so you may as well explore the cave
-TALK Narrator Make sure you save in another slot though...
