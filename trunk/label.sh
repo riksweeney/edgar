@@ -32,3 +32,5 @@ then
 fi
 
 svn copy http://reddwarf.local/svn/Edgar/trunk http://reddwarf.local/svn/Edgar/tags/$1 -m "Tagging $1"
+
+echo Remember to add any new Medals to the website

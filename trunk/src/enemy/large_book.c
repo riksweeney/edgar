@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2010 Parallel Realities
+Copyright (C) 2009-2011 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -103,7 +103,6 @@ static void followPlayer(void);
 static void dropOnPlayer(void);
 static void dropWait(void);
 static void takeDamage(Entity *, int);
-static void yellowTakeDamage(Entity *, int);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -139,7 +138,6 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &yellowWait;
 		e->die = &yellowDieInit;
-		e->takeDamage = &yellowTakeDamage;
 	}
 
 	else
@@ -2257,64 +2255,15 @@ static void physicalAttackFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
 	}
 
-	if (damage != 0)
+	if ((other->element == LIGHTNING && strcmpignorecase(self->name, "enemy/large_yellow_book") == 0)
+		|| (other->element == FIRE && strcmpignorecase(self->name, "enemy/large_red_book") == 0))
 	{
-		self->health -= damage;
-
-		if (other->type == PROJECTILE)
-		{
-			temp = self;
-
-			self = other;
-
-			self->die();
-
-			self = temp;
-		}
-
-		if (self->health > 0)
-		{
-			setCustomAction(self, &flashWhite, 6, 0, 0);
-
-			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-			if (other->type != PROJECTILE)
-			{
-				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			}
-
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
-		}
-
-		else
-		{
-			self->die();
-		}
-
-		addDamageScore(damage, self);
-	}
-}
-
-static void yellowTakeDamage(Entity *other, int damage)
-{
-	Entity *temp;
-
-	if (other->element == LIGHTNING)
-	{
-		if (self->flags & INVULNERABLE)
-		{
-			return;
-		}
-
 		if (damage != 0)
 		{
 			self->health += damage;
@@ -2355,6 +2304,44 @@ static void yellowTakeDamage(Entity *other, int damage)
 
 	else
 	{
-		takeDamage(other, damage);
+		if (damage != 0)
+		{
+			self->health -= damage;
+
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+				}
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->die();
+			}
+
+			addDamageScore(damage, self);
+		}
 	}
 }
