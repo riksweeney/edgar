@@ -210,7 +210,7 @@ static void loadMenuLayout(int saving)
 		}
 	}
 
-	menu.w = width + 10;
+	menu.w = width + 20;
 
 	y += 15;
 

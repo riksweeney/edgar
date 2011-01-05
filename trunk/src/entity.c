@@ -224,12 +224,12 @@ void doEntities()
 				{
 					checkToMap(self);
 				}
-				
+
 				if (self->standingOn != NULL)
 				{
 					self->flags |= WAS_STANDING_ON;
 				}
-				
+
 				else
 				{
 					self->flags &= ~WAS_STANDING_ON;
@@ -679,6 +679,8 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
+			other->target = self;
+
 			temp = self;
 
 			self = other;
@@ -1426,7 +1428,7 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)
 	{
 		e = addKeyItem(entityName, x, y);
-		
+
 		if (strcmpignorecase(objectiveName, " ") != 0)
 		{
 			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
@@ -1888,6 +1890,6 @@ int landedOnGround(long wasOnGround)
 	{
 		return TRUE;
 	}
-	
+
 	return FALSE;
 }

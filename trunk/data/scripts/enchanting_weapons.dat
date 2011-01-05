@@ -9,6 +9,7 @@ TALK Book Known ingredients include the shell fragment from a Rampaging Master T
 TALK Edgar Drat, that's all it says
 TALK Edgar This library is huge though, there must be a book in this place that describes the process
 TALK Edgar But I've looked everywhere, haven't I?
+SET OCCULT_BOOK_POINT HEALTH 10
 END
 IF WEAPON_BOOK HEALTH 2
 TALK Edgar I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance

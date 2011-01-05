@@ -723,12 +723,12 @@ static void dialogWait()
 		playerShield.face = player.face;
 		playerWeapon.face = player.face;
 	}
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 	}
-	
+
 	if (self->standingOn != NULL && self->dirY > 0 && self->standingOn->dirY != 0)
 	{
 		self->dirY = self->standingOn->dirY + 1;
@@ -1822,7 +1822,7 @@ static void fireArrow()
 
 		e->reactToBlock = &bounceOffShield;
 
-		/*e->die = &stickToTarget;*/
+		e->die = &stickToTarget;
 
 		e->face = player.face;
 
@@ -2151,12 +2151,7 @@ static void applyIce()
 
 	self->face = player.face;
 
-	player.dirX = 0;
-
-	player.x = self->x + self->w / 2 - player.w / 2;
-	player.y = self->y + self->h / 2 - player.h / 2;
-
-	if (self->thinkTime <= 0 || player.health <= 0)
+	if (self->thinkTime <= 0 || player.health <= 0 || (player.flags & TELEPORTING))
 	{
 		for (i=0;i<8;i++)
 		{
@@ -2178,6 +2173,14 @@ static void applyIce()
 		self->inUse = FALSE;
 
 		player.element = NO_ELEMENT;
+	}
+
+	else
+	{
+		player.dirX = 0;
+
+		player.x = self->x + self->w / 2 - player.w / 2;
+		player.y = self->y + self->h / 2 - player.h / 2;
 	}
 
 	checkToMap(self);
