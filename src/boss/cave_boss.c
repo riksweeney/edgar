@@ -54,11 +54,6 @@ static void throwWallWalkerInit(void);
 static void throwWallWalker(void);
 static void chargePlayerInit(void);
 static void rechargeInit(void);
-static void fallout(void);
-static void falloutPause(void);
-static void jumpOut(void);
-static void jumpOutWait(void);
-static void noTouch(Entity *);
 static void moveToRechargeTarget(void);
 static void recharge(void);
 static void incinerateInit(void);
@@ -85,8 +80,6 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->die = &die;
-
-	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -163,12 +156,49 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		switch ((int)self->startX)
+		if (self->startX == 0)
 		{
-			case -1:
-				if (self->startY > 0)
-				{
-					action = prand() % 2;
+			if (self->endX == 0)
+			{
+				self->action = &immolateBody;
+			}
+
+			else if (self->endX == 1)
+			{
+				self->action = &freezeBody;
+			}
+
+			else
+			{
+				self->startX = 1;
+			}
+		}
+
+		else
+		{
+			switch ((int)self->startX)
+			{
+				case 1: /* Fire */
+					action = prand() % 3;
+
+					switch (action)
+					{
+						case 0:
+							self->action = &throwWallWalkerInit;
+						break;
+
+						case 1:
+							self->action = &incinerateInit;
+						break;
+
+						default:
+							self->action = &chargePlayerInit;
+						break;
+					}
+				break;
+
+				default: /* Ice */
+					action = prand() % 3;
 
 					switch (action)
 					{
@@ -180,53 +210,9 @@ static void entityWait()
 							self->action = &chargePlayerInit;
 						break;
 					}
-				}
-
-				else
-				{
-					self->action = &rechargeInit;
-				}
-			break;
-
-			case 0:
-				switch ((int)self->endX)
-				{
-					self->action = prand() % 2 == 0 ? &immolateBody : &freezeBody;
-				}
-			break;
-
-			case 1: /* Fire */
-				action = prand() % 3;
-
-				switch (action)
-				{
-					case 0:
-						self->action = &throwWallWalkerInit;
-					break;
-
-					default:
-						self->action = &chargePlayerInit;
-					break;
-				}
-			break;
-
-			default: /* Ice */
-				action = prand() % 3;
-
-				switch (action)
-				{
-					case 0:
-						self->action = &throwWallWalkerInit;
-					break;
-
-					default:
-						self->action = &chargePlayerInit;
-					break;
-				}
-			break;
+				break;
+			}
 		}
-
-		self->action = &incinerateInit;
 	}
 
 	checkToMap(self);
@@ -248,8 +234,6 @@ static void rechargeInit()
 	self->targetY = self->y;
 
 	self->action = &moveToRechargeTarget;
-
-	self->touch = &noTouch;
 
 	self->face = self->targetX < self->x ? LEFT : RIGHT;
 
@@ -331,9 +315,9 @@ static void chargePlayerInit()
 
 static void freezeBody()
 {
-	self->startX = 1;
+	self->startX = 2;
 
-	self->startY = 8;
+	self->startY = 16;
 
 	playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -342,9 +326,9 @@ static void freezeBody()
 
 static void immolateBody()
 {
-	self->startX = 2;
+	self->startX = 1;
 
-	self->startY = 8;
+	self->startY = 10;
 
 	playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -369,7 +353,7 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (self->startX == -1)
+	if (self->startX == 2 && other->element == FIRE)
 	{
 		if (self->flags & INVULNERABLE)
 		{
@@ -407,7 +391,7 @@ static void takeDamage(Entity *other, int damage)
 
 			if (self->startY <= 0)
 			{
-
+				self->action = &rechargeInit;
 			}
 		}
 	}
@@ -523,89 +507,6 @@ static void touch(Entity *other)
 	{
 		entityTouch(other);
 	}
-}
-
-static void fallout()
-{
-	int damage;
-
-	if (self->startX == -1)
-	{
-		damage = 500;
-
-		self->health -= damage;
-
-		addDamageScore(damage, self);
-	}
-
-	self->thinkTime = 360;
-
-	self->action = &falloutPause;
-
-	checkToMap(self);
-}
-
-static void falloutPause()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->action = &jumpOut;
-
-		self->touch = &noTouch;
-	}
-
-	checkToMap(self);
-}
-
-static void jumpOut()
-{
-	self->dirY = -8;
-
-	self->flags |= FLY;
-
-	self->damage = 200;
-
-	self->thinkTime = 180;
-
-	self->action = &jumpOutWait;
-
-	checkToMap(self);
-}
-
-static void jumpOutWait()
-{
-	int screenMid;
-
-	if (self->environment == AIR)
-	{
-		self->flags &= ~FLY;
-
-		screenMid = getMapStartX() + SCREEN_WIDTH / 2;
-
-		self->face = self->x > screenMid ? LEFT : RIGHT;
-
-		self->dirX = self->face == LEFT ? -6 : 6;
-	}
-
-	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-
-		self->damage = 1;
-
-		self->touch = &touch;
-
-		self->action = &attackFinished;
-	}
-}
-
-static void noTouch(Entity *other)
-{
-
 }
 
 static void incinerateInit()

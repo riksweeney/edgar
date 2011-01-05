@@ -1,11 +1,14 @@
+IF OCCULT_BOOK_POINT HEALTH 0
+TALK Edgar A lot of books
+TALK Edgar Nothing of interest here though
+END
 IF OCCULT_BOOK_POINT HEALTH 6
 TALK Edgar I need the shell of a Rampaging Master Tortoise, the staff from a Dark Summoner
 TALK Edgar The keepsake of a warrior who has previously defeated the dragon
 TALK Edgar And a spare shield
 TALK Edgar Once I have all of those items I need to place them in the cauldron...
 END
-IF OCCULT_BOOK_POINT HEALTH 0
-IF NOT_EXISTS BLACK_BOOK_1
+IF OCCULT_BOOK_POINT HEALTH 10
 TALK Edgar This is a book about occult magic
 TALK Edgar Hmm...
 TALK Edgar This is interesting:
@@ -39,6 +42,7 @@ IF OCCULT_BOOK_POINT HEALTH 5
 TALK Edgar That's a lot of ingredients that I have no idea where to find...
 END
 SET OCCULT_BOOK_POINT HEALTH 6
+IF NOT_EXISTS BLACK_BOOK_1
 PLAY_SOUND sound/common/spell.ogg
 WAIT 60
 SET EDGAR FACE LEFT
@@ -48,9 +52,5 @@ MUSIC FADE_DOWN 3000
 CAMERA_SPEED 1
 LIMIT_CAMERA 9248 15904 9888 16384 TRUE
 ACTIVATE_REQUIRED BLACK_BOOK_2_TRIGGER
-END
-IF EXISTS BLACK_BOOK_1
-TALK Edgar A lot of books
-TALK Edgar Nothing of interest here though
 END
 END

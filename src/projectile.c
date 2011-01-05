@@ -132,7 +132,9 @@ void stickToTarget()
 {
 	if (self->target != NULL)
 	{
-		self->thinkTime = 600;
+		self->layer = BACKGROUND_LAYER;
+
+		self->thinkTime = 180;
 
 		self->action = &stickToTargetWait;
 
@@ -140,9 +142,11 @@ void stickToTarget()
 
 		self->touch = NULL;
 
-		self->startX = prand() % 6;
+		self->offsetX = self->target->w / 2;
 
-		self->startY = prand() % 4 * prand() % 2 == 0 ? -1 : 1;
+		self->offsetY = abs(self->y - self->target->y) + (prand() % 5 * (prand() % 2 == 0 ? -1 : 1));
+
+		self->mental = self->face == self->target->face ? 0 : 1;
 	}
 
 	else
@@ -165,19 +169,25 @@ static void stickToTargetWait()
 {
 	self->thinkTime--;
 
-	if (self->target == NULL || self->target->inUse == FALSE || self->thinkTime <= 0)
+	if (self->target == NULL || self->target->health <= 0 || self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 
 		return;
 	}
 
-	self->x = self->target->x;
+	if (self->mental == 0)
+	{
+		self->face = self->target->face;
+	}
+
+	else
+	{
+		self->face = self->target->face == LEFT ? RIGHT : LEFT;
+	}
+
+	self->x = self->face == RIGHT ? self->target->x - self->w + self->offsetX : self->target->x + self->target->w - self->offsetX;
 	self->y = self->target->y;
 
-	self->face = self->target->face == LEFT ? RIGHT : LEFT;
-
-	self->x += self->face == RIGHT ? -self->w + self->startX : self->target->w - self->targetX;
-
-	self->y += self->startY;
+	self->y += self->offsetY;
 }

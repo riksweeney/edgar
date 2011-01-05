@@ -1,5 +1,4 @@
 edgar/edgar
-item/memory_match
-item/memory_match_display
-common/save_point
-enemy/hoover
+weapon/bow
+weapon/normal_arrow
+enemy/centurion

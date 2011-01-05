@@ -98,8 +98,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_FILE_LENGTH 256
 
-#define PI 3.14159265
-
 #define MAX_MESSAGE_LENGTH 256
 
 #define MAX_DROPS 256
