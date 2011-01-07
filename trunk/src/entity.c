@@ -679,8 +679,6 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 		if (other->type == PROJECTILE)
 		{
-			other->target = self;
-
 			temp = self;
 
 			self = other;
