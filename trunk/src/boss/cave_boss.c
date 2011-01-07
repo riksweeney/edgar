@@ -47,7 +47,7 @@ static void die(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
 static void touch(Entity *);
-static void introPause(void);
+static void entityWait(void);
 static void freezeBody(void);
 static void immolateBody(void);
 static void throwWallWalkerInit(void);
@@ -104,10 +104,6 @@ static void initialise()
 
 			self->thinkTime = 60;
 
-			self->touch = &entityTouch;
-
-			self->takeDamage = &takeDamage;
-
 			self->touch = &touch;
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -123,29 +119,26 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
+		playDefaultBossMusic();
+
+		initBossHealthBar();
+
+		self->takeDamage = &takeDamage;
+
+		self->action = &entityWait;
+
 		checkToMap(self);
 
-		self->action = &introPause;
+		self->startX = 0;
 
-		setEntityAnimation(self, STAND);
+		self->endY = 25;
+
+		self->endX = 0;
+
+		self->thinkTime = 0;
 	}
-}
-
-static void introPause()
-{
-	playDefaultBossMusic();
-
-	initBossHealthBar();
-
-	self->action = &attackFinished;
 
 	checkToMap(self);
-
-	self->startX = 0;
-
-	self->endY = 25;
-
-	self->endX = 0;
 }
 
 static void entityWait()
@@ -353,50 +346,7 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (self->startX == 2 && other->element == FIRE)
-	{
-		if (self->flags & INVULNERABLE)
-		{
-			return;
-		}
-
-		if (damage != 0)
-		{
-			self->startY--;
-
-			if (other->type == PROJECTILE)
-			{
-				temp = self;
-
-				self = other;
-
-				self->die();
-
-				self = temp;
-			}
-
-			setCustomAction(self, &flashWhite, 6, 0, 0);
-
-			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-			if (other->type != PROJECTILE)
-			{
-				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			}
-
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
-
-			if (self->startY <= 0)
-			{
-				self->action = &rechargeInit;
-			}
-		}
-	}
-
-	else
+	if (self->startX != -1)
 	{
 		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
@@ -416,11 +366,16 @@ static void takeDamage(Entity *other, int damage)
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 
-		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-
 		damage = 0;
 
 		addDamageScore(damage, self);
+
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+	}
+
+	else
+	{
+		entityTakeDamageNoFlinch(other, damage);
 	}
 }
 
@@ -450,22 +405,12 @@ static void die()
 
 static void touch(Entity *other)
 {
-	if (other->type == KEY_ITEM && strcmpignorecase(other->name, "item_stalactite") == 0)
+	if (self->startX == -1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item_stalactite") == 0)
 	{
-		if (self->startX == -1)
-		{
-			self->takeDamage(other, 500);
-
-			other->mental = -1;
-		}
-
-		else
-		{
-			other->action = &die;
-		}
+		self->takeDamage(other, 500);
 	}
 
-	else if (self->startX == 1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
+	else if (self->endX == 1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->startY--;
 
@@ -481,10 +426,12 @@ static void touch(Entity *other)
 			self->startY = 150;
 
 			self->startX = -1;
+
+			self->action = &rechargeInit;
 		}
 	}
 
-	else if (self->startX == 2 && other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
+	else if (self->endX == 2 && other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
 	{
 		self->startY--;
 
@@ -500,6 +447,8 @@ static void touch(Entity *other)
 			self->startY = 150;
 
 			self->startX = -1;
+
+			self->action = &rechargeInit;
 		}
 	}
 

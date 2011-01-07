@@ -41,7 +41,7 @@ static Menu menu;
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
 static void doMenu(void);
-static void showLoadDialog(void);
+static void showIOMenu(void);
 static void doNewGame(void);
 static void doTutorial(void);
 static void doQuit(void);
@@ -70,13 +70,13 @@ static void doMenu()
 		do
 		{
 			menu.index++;
-			
+
 			if (menu.index >= menu.widgetCount)
 			{
 				menu.index = 0;
 			}
 		}
-		
+
 		while (menu.widgets[menu.index]->disabled == TRUE);
 
 		menuInput.down = FALSE;
@@ -90,13 +90,13 @@ static void doMenu()
 		do
 		{
 			menu.index--;
-			
+
 			if (menu.index < 0)
 			{
 				menu.index = menu.widgetCount - 1;
 			}
 		}
-		
+
 		while (menu.widgets[menu.index]->disabled == TRUE);
 
 		menuInput.up = FALSE;
@@ -228,11 +228,11 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &getContinuePoint, x, y, TRUE);
-					
+
 					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
 				}
 
@@ -243,14 +243,14 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showLoadDialog, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showIOMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "MENU_STATS") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE);
@@ -321,20 +321,20 @@ void freeMainMenu()
 Menu *initMainMenu()
 {
 	int i;
-	
+
 	menu.action = &doMenu;
 
 	if (menu.widgets == NULL)
 	{
 		loadMenuLayout();
 	}
-	
+
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->clickAction == &getContinuePoint)
 		{
 			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-			
+
 			if (menu.widgets[i]->disabled == TRUE && menu.index == i)
 			{
 				menu.index = 0;
@@ -368,7 +368,7 @@ static void showStatsMenu()
 	game.drawMenu = &drawStatsMenu;
 }
 
-static void showLoadDialog()
+static void showIOMenu()
 {
 	game.menu = initIOMenu(FALSE);
 
