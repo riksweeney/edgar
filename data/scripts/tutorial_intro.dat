@@ -1,4 +1,5 @@
 CUSTOM_ACTION EDGAR REGENERATE
+SET EDGAR FACE RIGHT
 WAIT 60
 TALK Narrator Press Space when you have finished reading to go to the next dialog box
 TALK Narrator You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)

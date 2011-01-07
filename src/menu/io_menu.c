@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "main_menu.h"
 #include "io_menu.h"
+#include "ok_menu.h"
 #include "sound_menu.h"
 #include "../game.h"
 #include "../hud.h"
@@ -44,6 +45,7 @@ static void showMainMenu(void);
 static void doMenu(void);
 static void saveGameInSlot(void);
 static void loadGameInSlot(void);
+static void showIOMenu(void);
 
 void drawIOMenu()
 {
@@ -280,6 +282,13 @@ static void loadGameInSlot()
 
 		game.paused = FALSE;
 	}
+
+	else
+	{
+		game.menu = initOKMenu(_("Failed to load game"), &showIOMenu);
+
+		game.drawMenu = &drawOKMenu;
+	}
 }
 
 static void saveGameInSlot()
@@ -291,4 +300,11 @@ static void saveGameInSlot()
 	setInfoBoxMessage(60, 255, 255, 255, _("Game Saved"));
 
 	pauseGame();
+}
+
+static void showIOMenu()
+{
+	game.menu = initIOMenu(FALSE);
+
+	game.drawMenu = &drawIOMenu;
 }
