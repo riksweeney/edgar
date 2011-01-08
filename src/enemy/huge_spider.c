@@ -41,6 +41,7 @@ static void shudder(void);
 static void touch(Entity *);
 static void lookForPlayer(void);
 static void attack(void);
+static void init(void);
 static void attackFinish(void);
 
 Entity *addHugeSpider(int x, int y, char *name)
@@ -57,7 +58,7 @@ Entity *addHugeSpider(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &entityWait;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
@@ -65,9 +66,21 @@ Entity *addHugeSpider(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void init()
+{
+	if (self->mental >= 50)
+	{
+		self->mental = 0;
+		
+		self->thinkTime = 0;
+	}
+	
+	self->action = &entityWait;
 }
 
 static void entityWait()
