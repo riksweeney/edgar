@@ -82,6 +82,12 @@ typedef struct CustomAction
 	void (*action)(int *, int *, float *);
 } CustomAction;
 
+typedef struct EntityAnimation
+{
+	char name[MAX_VALUE_LENGTH];
+	int id;
+} EntityAnimation;
+
 typedef struct Entity
 {
 	int inUse, w, h, offsetX, offsetY;
@@ -98,6 +104,7 @@ typedef struct Entity
 	float originalSpeed, speed, weight, originalWeight;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
 	char description[MAX_MESSAGE_LENGTH];
+	EntityAnimation animation2[MAX_ANIMATION_TYPES];
 	struct Entity *standingOn, *parent, *target, *head;
 	BoundingBox box;
 	CustomAction customAction[MAX_CUSTOM_ACTIONS];
