@@ -1,7 +1,7 @@
 DAMAGE 1
 GFX_FILE data/gfx/boss/cave_boss.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/boss/cave_boss.dat
 TYPE ENEMY
-SPEED 2
+SPEED 1.5
 HEALTH 1500
-FLAGS NO_DRAW
+FLAGS NO_DRAW|FLY
