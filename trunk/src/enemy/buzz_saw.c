@@ -52,10 +52,10 @@ Entity *addBuzzSaw(int x, int y, char *name)
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
-	
+
 	e->face = RIGHT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -65,54 +65,54 @@ static void move()
 	if (self->dirX == 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->dirX = self->health == 0 ? -self->speed : self->speed;
-			
+
 			self->thinkTime = self->maxThinkTime;
-			
+
 			self->health = 1 - self->health;
 		}
 	}
-	
+
 	if (self->mental == 0 && isAtEdge(self) == TRUE)
 	{
 		self->dirX = 0;
 	}
-	
+
 	else if (self->mental == 1)
 	{
 		if (self->dirX < 0 && self->x <= self->startX)
 		{
 			self->x = self->startX;
-			
+
 			self->dirX = 0;
-			
+
 			self->health = 1;
 		}
-		
+
 		else if (self->dirX > 0 && self->x >= self->endX)
 		{
 			self->x = self->endX;
-			
+
 			self->dirX = 0;
-			
+
 			self->health = 0;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static int draw()
 {
 	Entity *e;
-	
+
 	if (drawLoopingAnimationToMap() == TRUE)
 	{
 		e = addPixelDecoration(self->x, self->y + self->h);
-		
+
 		if (e != NULL)
 		{
 			e->dirX = prand() % 20;
@@ -134,9 +134,9 @@ static int draw()
 
 			e->mental = 0;
 		}
-		
+
 		e = addPixelDecoration(self->x + self->w, self->y + self->h);
-		
+
 		if (e != NULL)
 		{
 			e->dirX = prand() % 20;
@@ -157,8 +157,8 @@ static int draw()
 			e->maxHealth = 220;
 
 			e->mental = 0;
-		}	
+		}
 	}
-	
+
 	return TRUE;
 }

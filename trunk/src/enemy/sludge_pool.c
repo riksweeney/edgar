@@ -51,10 +51,10 @@ Entity *addSludgePool(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
-	
+	setEntityAnimation(e, "STAND");
+
 	frameCount = getFrameCount(e);
-	
+
 	e->currentFrame = prand() % frameCount;
 
 	return e;

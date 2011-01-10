@@ -65,7 +65,7 @@ Entity *addGiantSnowball(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -76,10 +76,10 @@ static void init()
 	{
 		case 0:
 			self->frameSpeed = 0;
-			
+
 			self->action = &fall;
 		break;
-		
+
 		default:
 			self->action = &roll;
 		break;
@@ -89,44 +89,44 @@ static void init()
 static void fall()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->mental = 1;
-		
+
 		self->frameSpeed = 1;
-		
+
 		self->action = &roll;
-		
+
 		self->targetX = playSoundToMap("sound/boss/boulder_boss/roll.ogg", -1, self->x, self->y, -1);
 	}
-	
+
 	moveTarget();
 }
 
 static void roll()
 {
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->health = 0;
 	}
-	
+
 	if (self->target != NULL)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to escape the snowball!"));
-		
+
 		shakeFree();
 	}
-	
+
 	if (self->health <= 0 || (self->target != NULL && self->target->health <= 0))
 	{
 		self->die();
 	}
-	
+
 	else
 	{
 		moveTarget();
@@ -136,13 +136,13 @@ static void roll()
 static void shakeFree()
 {
 	Entity *e;
-	
+
 	if (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
 		input.previous == 1 || input.next == 1 || input.jump == 1 ||
 		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1)
 	{
 		self->health--;
-		
+
 		input.up = 0;
 		input.down = 0;
 		input.right = 0;
@@ -154,7 +154,7 @@ static void shakeFree()
 		input.attack = 0;
 		input.interact = 0;
 		input.block = 0;
-		
+
 		e = addTemporaryItem("misc/giant_snowball_piece", self->x, self->y, RIGHT, 0, 0);
 
 		e->x += self->w / 2 - e->w / 2;
@@ -172,9 +172,9 @@ static void touch(Entity *other)
 	if (self->target == NULL && other->type == PLAYER && !(other->flags & INVULNERABLE) && other->health > 0)
 	{
 		other->flags |= NO_DRAW;
-		
+
 		self->target = other;
-		
+
 		setPlayerLocked(TRUE);
 	}
 }
@@ -184,9 +184,9 @@ static void moveTarget()
 	if (self->target != NULL)
 	{
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
-		
+
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
-		
+
 		setCustomAction(self->target, &invulnerableNoFlash, 2, 0, 0);
 	}
 }
@@ -195,11 +195,11 @@ static void die()
 {
 	int i;
 	Entity *e;
-	
+
 	stopSound(self->targetX);
-	
+
 	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble.ogg", -1, self->x, self->y, 0);
-	
+
 	for (i=0;i<32;i++)
 	{
 		e = addTemporaryItem("misc/giant_snowball_piece", self->x, self->y, RIGHT, 0, 0);
@@ -212,22 +212,22 @@ static void die()
 
 		e->thinkTime = 60 + (prand() % 120);
 	}
-	
+
 	self->inUse = FALSE;
-	
+
 	if (self->target != NULL)
 	{
 		if (self->health <= 0)
 		{
 			self->target->dirY = ITEM_JUMP_HEIGHT;
-			
+
 			setCustomAction(self->target, &invulnerable, 15, 0, 0);
 		}
-		
+
 		self->target->environment = AIR;
-		
+
 		self->target->flags &= ~NO_DRAW;
-		
+
 		setPlayerLocked(FALSE);
 	}
 }

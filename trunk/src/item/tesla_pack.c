@@ -70,7 +70,7 @@ Entity *addTeslaPack(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -134,14 +134,14 @@ static void shockTarget()
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
 
 	temp = self;
 
 	self = self->target;
-	
+
 	self->flags &= ~INVULNERABLE;
 
 	self->takeDamage(temp, 1000);

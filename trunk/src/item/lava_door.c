@@ -59,14 +59,14 @@ Entity *addLavaDoor(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->action = &init;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->action = &entityWait;
 }
@@ -86,7 +86,7 @@ static void entityWait()
 
 		self->thinkTime = 600;
 
-		setEntityAnimation(self, self->health);
+		setEntityAnimationByID(self, self->health);
 	}
 
 	checkToMap(self);
@@ -108,7 +108,7 @@ static void touch(Entity *other)
 			self->health = 7;
 		}
 
-		setEntityAnimation(self, self->health);
+		setEntityAnimationByID(self, self->health);
 
 		self->thinkTime = 600;
 
@@ -178,7 +178,7 @@ static void die()
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
 	}

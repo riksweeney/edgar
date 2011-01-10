@@ -64,7 +64,7 @@ Entity *addGazerEyeSlot(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -115,10 +115,10 @@ static void activate(int val)
 
 			fireGlobalTrigger(self->objectiveName);
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->action = &sink;
-			
+
 			setInfoBoxMessage(60, 255, 255, 255, _("Used %s"), _(self->requires));
 		}
 
@@ -133,14 +133,14 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->action = &sink;
 	}
 
 	else
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &entityWait;
 	}

@@ -54,7 +54,7 @@ Entity *addAntiGravityField(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

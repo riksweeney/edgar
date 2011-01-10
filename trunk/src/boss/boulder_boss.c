@@ -60,7 +60,7 @@ Entity *addBoulderBoss(int x, int y, char *name)
 	e->touch = NULL;
 	e->die = &entityDie;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -138,7 +138,7 @@ static void entityWait()
 
 		playSoundToMap("sound/boss/boulder_boss/roll.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->endX = -2.0f;
 

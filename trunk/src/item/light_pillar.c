@@ -66,15 +66,15 @@ Entity *addLightPillar(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->thinkTime > 0 ? WALK : STAND);
-	
+	setEntityAnimation(self, self->thinkTime > 0 ? "WALK" : "STAND");
+
 	self->action = &entityWait;
 }
 
@@ -83,24 +83,24 @@ static void entityWait()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime == 0)
 		{
 			setDarkMap(TRUE);
-			
+
 			self->active = FALSE;
-			
+
 			stopSound(self->endX);
-			
-			setEntityAnimation(self, STAND);
+
+			setEntityAnimation(self, "STAND");
 		}
-		
+
 		else
 		{
 			setDarkMap(FALSE);
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -122,31 +122,31 @@ static void addLight(int val)
 			return;
 		}
 	}
-	
+
 	if (self->active == TRUE)
 	{
 		self->thinkTime = 0;
-		
+
 		self->active = FALSE;
-		
+
 		stopSound(self->endX);
-		
+
 		setDarkMap(TRUE);
-		
-		setEntityAnimation(self, STAND);
+
+		setEntityAnimation(self, "STAND");
 	}
-	
+
 	else
 	{
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
-		
+
 		self->active = TRUE;
-		
+
 		setDarkMap(FALSE);
-		
-		setEntityAnimation(self, WALK);
+
+		setEntityAnimation(self, "WALK");
 	}
 }
 

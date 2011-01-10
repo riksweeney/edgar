@@ -70,7 +70,7 @@ Entity *addAntLion(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -167,17 +167,17 @@ static void hunt()
 	if (self->x < self->startX)
 	{
 		self->x = self->startX;
-		
+
 		self->thinkTime--;
 	}
 
 	else if (self->x > (self->endX - self->w - 1))
 	{
 		self->x = self->endX - self->w - 1;
-		
+
 		self->thinkTime--;
 	}
-	
+
 	else
 	{
 		self->thinkTime = 60;
@@ -244,7 +244,7 @@ static void attack()
 
 		if (self->type == PLAYER)
 		{
-			freeEntityList(playerGib());		
+			freeEntityList(playerGib());
 		}
 
 		else
@@ -287,7 +287,7 @@ static void entityWait()
 		{
 			setInfoBoxMessage(300, 255, 255, 255, _("Try luring something else into the Ant Lion's pit..."));
 		}
-		
+
 		self->action = &leave;
 	}
 }

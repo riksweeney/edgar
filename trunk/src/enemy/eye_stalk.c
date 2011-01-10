@@ -67,7 +67,7 @@ Entity *addEyeStalk(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -221,7 +221,7 @@ static void createBody()
 
 		body[i]->type = ENEMY;
 
-		setEntityAnimation(body[i], STAND);
+		setEntityAnimation(body[i], "STAND");
 	}
 
 	/* Recreate the head so that it's on top */
@@ -264,7 +264,7 @@ static void createBody()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -288,7 +288,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -299,7 +299,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }

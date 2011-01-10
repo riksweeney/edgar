@@ -62,7 +62,7 @@ Entity *addSoulMergerControlPanel(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -70,12 +70,12 @@ Entity *addSoulMergerControlPanel(int x, int y, char *name)
 static void entityWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -93,7 +93,7 @@ static void activate(int val)
 	{
 		setInfoBoxMessage(120, 255, 255, 255, _("Spanner is required"));
 	}
-	
+
 	else
 	{
 		self->action = &reprogram;
@@ -109,7 +109,7 @@ static void activate(int val)
 static void reprogram()
 {
 	Entity *temp;
-	
+
 	if (input.interact == 1 || isPlayerLocked() == FALSE || self->health <= 0)
 	{
 		self->action = &entityWait;
@@ -119,35 +119,35 @@ static void reprogram()
 		self->touch = &touch;
 
 		setPlayerLocked(FALSE);
-		
+
 		input.interact = 0;
 	}
-	
+
 	else
 	{
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			self->activate = NULL;
-			
+
 			self->health = 0;
-			
+
 			self->mental = 1;
-			
+
 			self->target->mental = 1 - self->target->mental;
-			
+
 			temp = self;
-			
+
 			self = self->target;
-			
+
 			self->activate(-1);
-			
+
 			self = temp;
 		}
-		
+
 		self->thinkTime = 5;
-		
+
 		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to Cancel"));
 	}
 }
@@ -155,11 +155,11 @@ static void reprogram()
 static void init()
 {
 	Entity *e;
-	
+
 	if (self->mental == 0)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add the Soul Merger Control Panel Energy Bar");
@@ -172,20 +172,20 @@ static void init()
 		e->draw = &energyBarDraw;
 
 		e->type = ENEMY;
-		
+
 		e->head = self;
 
-		setEntityAnimation(e, STAND);
-		
+		setEntityAnimation(e, "STAND");
+
 		self->action = &entityWait;
-		
+
 		self->target = getEntityByObjectiveName(self->requires);
-		
+
 		if (self->target == NULL)
 		{
 			showErrorAndExit("Control Panel cannot find Soul Merger %s", self->requires);
 		}
-		
+
 		self->activate = &activate;
 	}
 }
@@ -194,7 +194,7 @@ static void energyBarWait()
 {
 	self->x = self->head->x - (self->w - self->head->w) / 2;
 	self->y = self->head->y - self->head->h;
-	
+
 	if (self->health < self->head->health)
 	{
 		self->health += (self->head->health / 100);
@@ -220,20 +220,20 @@ static int energyBarDraw()
 {
 	int width;
 	float percentage;
-	
+
 	if (self->head->thinkTime != 0)
 	{
 		drawLoopingAnimationToMap();
-		
+
 		percentage = self->health;
 		percentage /= self->head->maxHealth;
-		
+
 		width = self->w - 2;
-		
+
 		width *= percentage;
-		
+
 		drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 0, 220, 0);
 	}
-	
+
 	return TRUE;
 }

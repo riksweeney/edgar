@@ -120,7 +120,7 @@ Entity *addArmourBoss(int x, int y, char *name)
 
 	e->resumeNormalFunction = &introComplete;
 
-	setEntityAnimation(e, CUSTOM_1);
+	setEntityAnimation(e, "CUSTOM_1");
 
 	return e;
 }
@@ -137,7 +137,7 @@ static void initialise()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, CUSTOM_2);
+			setEntityAnimation(self, "CUSTOM_2");
 
 			self->animationCallback = &wakeUp;
 
@@ -154,7 +154,7 @@ static void initialise()
 		if (e != NULL)
 		{
 			e->face = RIGHT;
-			
+
 			if (self->face == LEFT)
 			{
 				e->x = self->x + self->w - e->w - self->offsetX;
@@ -181,7 +181,7 @@ static void wakeUp()
 {
 	setCustomAction(&player, &helpless, 2, 0, 0);
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -253,7 +253,7 @@ static void entityWait()
 
 static void lookForPlayer()
 {
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	moveLeftToRight();
 
@@ -287,7 +287,7 @@ static void lookForPlayer()
 			{
 				self->dirX = 0;
 
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, "STAND");
 
 				self->maxThinkTime = 3;
 
@@ -298,7 +298,7 @@ static void lookForPlayer()
 			{
 				self->dirX = 0;
 
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, "STAND");
 
 				self->thinkTime = 30;
 
@@ -308,7 +308,7 @@ static void lookForPlayer()
 
 		else if (prand() % 300 == 0)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->thinkTime = 120;
 
@@ -337,7 +337,7 @@ static void tongueAttackStart()
 
 	self->maxThinkTime = 0;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &tongueAttack;
 
@@ -352,7 +352,7 @@ static void tongueAttack()
 
 	self->action = &tongueAttack;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	if (self->maxThinkTime == 0)
 	{
@@ -365,7 +365,7 @@ static void tongueAttack()
 
 		loadProperties("boss/armour_boss_tongue", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->face = self->face;
 
@@ -418,7 +418,7 @@ static void tongueAttackFinish()
 {
 	self->frameSpeed = -1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &attackFinished;
 
@@ -584,7 +584,7 @@ static int drawTongue()
 
 	self->x = self->x + (self->face == RIGHT ? 0 : self->w);
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	if (self->face == RIGHT)
 	{
@@ -608,7 +608,7 @@ static int drawTongue()
 
 	/* Draw the tip */
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->x = startX;
 
@@ -621,7 +621,7 @@ static void attackFinished()
 {
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	if (self->maxThinkTime == 10)
 	{
@@ -735,7 +735,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self->targetX = 0;
 
-				setEntityAnimation(self, PAIN);
+				setEntityAnimation(self, "PAIN");
 
 				playSoundToMap("sound/boss/armour_boss/die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -841,7 +841,7 @@ static void die()
 			}
 		}
 
-		setEntityAnimation(self, DIE);
+		setEntityAnimation(self, "DIE");
 	}
 
 	else
@@ -920,7 +920,7 @@ static void regenerateArmour()
 
 			prev = e;
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			if (self->face == LEFT)
 			{
@@ -961,7 +961,7 @@ static void regenerateArmour()
 
 			e->thinkTime = 60 + prand() % 120;
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			if (self->face == LEFT)
 			{
@@ -1009,7 +1009,7 @@ static void regenerateArmour()
 
 		e->maxThinkTime = i;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		if (self->face == LEFT)
 		{
@@ -1101,7 +1101,7 @@ static void sawWait()
 
 		self->thinkTime = 60 + (self->maxThinkTime * 30);
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->action = &sawAttackStart;
 	}
@@ -1253,7 +1253,7 @@ static void sawAttackFinish()
 
 		self->thinkTime = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &sawWait;
 
@@ -1438,7 +1438,7 @@ static void activate(int val)
 
 static void chargeAttackStart()
 {
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->thinkTime--;
 
@@ -1446,7 +1446,7 @@ static void chargeAttackStart()
 	{
 		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
 
-		setEntityAnimation(self, ATTACK_4);
+		setEntityAnimation(self, "ATTACK_4");
 
 		self->action = &chargeAttack;
 
@@ -1473,7 +1473,7 @@ static void chargeAttack()
 
 		shakeScreen(MEDIUM, 60);
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->action = &stunned;
 
@@ -1507,7 +1507,7 @@ static void chargeAttack()
 
 			e->head = self;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->currentFrame = (i == 0 ? 0 : 6);
 
@@ -1548,7 +1548,7 @@ static void chargeAttackTouch(Entity *other)
 	{
 		self->dirX = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
@@ -1590,7 +1590,7 @@ static void stunned()
 
 		self->activate = NULL;
 
-		setEntityAnimation(self, CUSTOM_2);
+		setEntityAnimation(self, "CUSTOM_2");
 
 		self->animationCallback = &stunWake;
 	}

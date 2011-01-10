@@ -59,15 +59,15 @@ Entity *addMineCart(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->health >= 6 ? WALK : STAND);
-	
+	setEntityAnimation(self, self->health >= 6 ? "WALK" : "STAND");
+
 	self->action = &doNothing;
 }
 
@@ -81,36 +81,36 @@ static void touch(Entity *other)
 	if (strcmpignorecase(other->name, "common/large_rock") == 0)
 	{
 		self->health++;
-		
+
 		if (self->health == 1)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("Filling mine cart..."));
 		}
-		
+
 		if (self->health >= 6)
 		{
 			STRNCPY(self->objectiveName, "Full Mine Cart", sizeof(self->objectiveName));
-			
-			setEntityAnimation(self, WALK);
+
+			setEntityAnimation(self, "WALK");
 		}
-		
+
 		other->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		if (other->type != PLAYER)
 		{
 			self->flags |= OBSTACLE;
 		}
-		
+
 		else
 		{
 			self->flags &= ~OBSTACLE;
 		}
-		
+
 		pushEntity(other);
-		
+
 		self->flags &= ~OBSTACLE;
 	}
 }

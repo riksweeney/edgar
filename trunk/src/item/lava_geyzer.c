@@ -59,7 +59,7 @@ Entity *addLavaGeyzer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -85,7 +85,7 @@ static void createBase()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void init()

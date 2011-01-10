@@ -53,7 +53,7 @@ Entity *addJumpingFireball(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -79,7 +79,7 @@ Entity *addFireball(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -116,7 +116,7 @@ static void jump()
 	{
 		self->health--;
 
-		setEntityAnimation(self, self->dirY >= 0 ? WALK : STAND);
+		setEntityAnimation(self, self->dirY >= 0 ? "WALK" : "STAND");
 	}
 
 	checkToMap(self);

@@ -68,7 +68,7 @@ Entity *addHoover(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,11 +77,11 @@ static void init()
 {
 	if (self->health <= 0)
 	{
-		setEntityAnimation(self, CUSTOM_4);
-		
+		setEntityAnimation(self, "CUSTOM_4");
+
 		self->action = &hooverSleep;
 	}
-	
+
 	else
 	{
 		self->action = &entityWait;
@@ -91,62 +91,62 @@ static void init()
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
 	}
-	
+
 	if (self->mental > 0)
 	{
 		self->mental--;
-		
+
 		if (self->mental <= 0)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 		}
 	}
-	
+
 	if (self->active == TRUE && self->thinkTime <= 0)
 	{
 		self->action = &lookForFood;
-		
+
 		self->thinkTime = 30;
 	}
-	
+
 	if (self->health <= 0 && self->mental <= 0)
 	{
-		setEntityAnimation(self, CUSTOM_3);
-		
+		setEntityAnimation(self, "CUSTOM_3");
+
 		self->thinkTime = 120;
-		
+
 		self->action = &hooverSleepy;
 	}
-	
+
 	facePlayer();
 }
 
 static void lookForFood()
 {
 	int i;
-	
+
 	/* Attack player first */
-	
+
 	if (collision(self->x, self->y - 640, 160, self->h + 640, player.x, player.y, player.w, player.h) == 1)
 	{
-		setEntityAnimation(self, ATTACK_1);
-		
+		setEntityAnimation(self, "ATTACK_1");
+
 		self->mental = 60;
-		
+
 		self->action = &blowPlayerAway;
-		
+
 		return;
 	}
-	
+
 	/* Look for apples */
-	
+
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && (entity[i].flags & ON_GROUND) && strcmpignorecase(entity[i].name, "item/apple") == 0)
@@ -154,32 +154,32 @@ static void lookForFood()
 			if (collision(self->x - 320, self->y, 640, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
 			{
 				self->target = &entity[i];
-				
+
 				faceTarget();
-				
+
 				entity[i].flags |= FLY;
-				
+
 				setCustomAction(self->target, &helpless, 600, 0, 0);
-				
+
 				self->action = &eatFood;
-				
+
 				entity[i].targetX = self->x + self->w;
 				entity[i].targetY = self->y + (self->h - entity[i].h) / 2;
-				
+
 				calculatePath(entity[i].x, entity[i].y, entity[i].targetX, entity[i].targetY, &self->target->dirX, &self->target->dirY);
-				
+
 				self->target->dirX *= 4;
 				self->target->dirY *= 4;
-				
-				setEntityAnimation(self, ATTACK_2);
-				
+
+				setEntityAnimation(self, "ATTACK_2");
+
 				return;
 			}
 		}
 	}
-	
+
 	self->action = &entityWait;
-	
+
 	self->thinkTime = 30;
 }
 
@@ -196,20 +196,20 @@ static void blowPlayerAway()
 static void eatFood()
 {
 	setCustomAction(self->target, &helpless, 600, 0, 0);
-	
+
 	self->target->x += self->target->dirX;
 	self->target->y += self->target->dirY;
-	
+
 	if (fabs(self->target->x - self->target->targetX) <= fabs(self->target->dirX) && fabs(self->target->y - self->target->targetY) <= fabs(self->target->dirY))
 	{
 		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
-		
-		setEntityAnimation(self, CUSTOM_1);
-		
+
+		setEntityAnimation(self, "CUSTOM_1");
+
 		self->animationCallback = &chewFood;
-		
+
 		self->target->inUse = FALSE;
-		
+
 		self->action = &lookForFood;
 	}
 }
@@ -217,34 +217,34 @@ static void eatFood()
 static void chewFood()
 {
 	self->mental = 60;
-	
-	setEntityAnimation(self, CUSTOM_2);
-	
+
+	setEntityAnimation(self, "CUSTOM_2");
+
 	self->health--;
 }
 
 static void hooverSleepy()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		fireTrigger(self->objectiveName);
-		
+
 		fireGlobalTrigger(self->objectiveName);
-		
-		setEntityAnimation(self, CUSTOM_4);
-		
+
+		setEntityAnimation(self, "CUSTOM_4");
+
 		self->action = &hooverSleep;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void hooverSleep()
 {
 	Entity *e;
-	
+
 	if (prand() % 90 == 0)
 	{
 		e = addBasicDecoration(self->x + self->w, self->y, "decoration/z");
@@ -262,7 +262,7 @@ static void hooverSleep()
 			}
 
 			e->y = self->y + self->offsetY;
-			
+
 			e->face = RIGHT;
 
 			e->startX = e->x;
@@ -271,7 +271,7 @@ static void hooverSleep()
 			e->animationCallback = &zVanish;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

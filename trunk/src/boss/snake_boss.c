@@ -105,7 +105,7 @@ Entity *addSnakeBoss(int x, int y, char *name)
 
 	head->active = FALSE;
 
-	setEntityAnimation(head, STAND);
+	setEntityAnimation(head, "STAND");
 
 	return head;
 }
@@ -324,7 +324,7 @@ static void createBody()
 
 		body[i]->flags |= NO_DRAW;
 
-		setEntityAnimation(body[i], STAND);
+		setEntityAnimation(body[i], "STAND");
 	}
 
 	/* Recreate the head so that it's on top */
@@ -366,7 +366,7 @@ static void biteAttackInit()
 {
 	/*facePlayer();*/
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->targetX = self->endX + (self->face == LEFT ? -32 : 32);
 	self->targetY = self->endY - 32;
@@ -435,7 +435,7 @@ static void shotAttackInit()
 {
 	/*facePlayer();*/
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->targetX = self->endX + (self->face == LEFT ? -50 : 50);
 	self->targetY = self->endY - 32;
@@ -738,7 +738,7 @@ static void riseUpWait()
 
 static void attackFinished()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->flags &= ~UNBLOCKABLE;
 
@@ -855,7 +855,7 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			setEntityAnimation(self, PAIN);
+			setEntityAnimation(self, "PAIN");
 
 			self->health = 0;
 
@@ -953,14 +953,14 @@ static void fallToGround()
 
 		self->dirX = self->face == LEFT ? -8 : 8;
 
-		setEntityAnimation(self, DIE);
+		setEntityAnimation(self, "DIE");
 	}
 
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
-		setEntityAnimation(self, PAIN);
+		setEntityAnimation(self, "PAIN");
 
 		self->thinkTime = 180;
 
@@ -1122,7 +1122,7 @@ static void stunned()
 	long onGround = self->flags & ON_GROUND;
 	Entity *e;
 
-	setEntityAnimation(self, PAIN);
+	setEntityAnimation(self, "PAIN");
 
 	checkToMap(self);
 
@@ -1161,7 +1161,7 @@ static void stunned()
 
 			e->head = self;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->currentFrame = (i == 0 ? 0 : 6);
 

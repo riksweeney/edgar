@@ -56,7 +56,7 @@ Entity *addDoor(char *name, int x, int y, int type)
 
 	e->flags |= OBSTACLE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

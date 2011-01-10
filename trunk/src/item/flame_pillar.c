@@ -57,7 +57,7 @@ Entity *addFlamePillar(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -74,14 +74,14 @@ static void touch(Entity *other)
 	if (other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			fireTrigger(self->objectiveName);
-			
+
 			self->inUse = FALSE;
 		}
-		
+
 		other->inUse = FALSE;
 	}
 

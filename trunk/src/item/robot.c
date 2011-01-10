@@ -70,7 +70,7 @@ Entity *addRobot(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -80,7 +80,7 @@ static void init()
 	if (self->health == 2)
 	{
 		self->touch = NULL;
-		
+
 		self->activate = NULL;
 	}
 
@@ -111,29 +111,29 @@ static void touch(Entity *other)
 			{
 				case 0:
 					dirY = -self->speed;
-					
-					setEntityAnimation(self, JUMP);
+
+					setEntityAnimation(self, "JUMP");
 				break;
 
 				case 1:
 					dirY = self->speed;
-					
-					setEntityAnimation(self, JUMP);
+
+					setEntityAnimation(self, "JUMP");
 				break;
 
 				case 2:
 					dirX = -self->speed;
-					
-					setEntityAnimation(self, WALK);
-					
+
+					setEntityAnimation(self, "WALK");
+
 					self->face = LEFT;
 				break;
 
 				default:
 					dirX = self->speed;
-					
-					setEntityAnimation(self, WALK);
-					
+
+					setEntityAnimation(self, "WALK");
+
 					self->face = RIGHT;
 				break;
 			}
@@ -167,7 +167,7 @@ static void activate(int val)
 	else
 	{
 		runScript("robot_start");
-		
+
 		e = addEntity(*e, self->x, self->y);
 
 		e->touch = NULL;
@@ -203,27 +203,27 @@ static void processNextInstruction()
 	{
 		case 'u':
 			self->dirY = -self->speed;
-			setEntityAnimation(self, JUMP);
+			setEntityAnimation(self, "JUMP");
 		break;
 
 		case 'd':
 			self->dirY = self->speed;
-			setEntityAnimation(self, JUMP);
+			setEntityAnimation(self, "JUMP");
 		break;
 
 		case 'l':
 			self->dirX = -self->speed;
-			
-			setEntityAnimation(self, WALK);
-			
+
+			setEntityAnimation(self, "WALK");
+
 			self->face = LEFT;
 		break;
 
 		case 'r':
 			self->dirX = self->speed;
-			
-			setEntityAnimation(self, WALK);
-			
+
+			setEntityAnimation(self, "WALK");
+
 			self->face = RIGHT;
 		break;
 	}
@@ -257,13 +257,13 @@ static void instructionMove()
 	else if (self->x == self->endX && self->y == self->endY)
 	{
 		runScript("robot_end");
-		
+
 		self->dirX = 0;
 		self->dirY = 0;
 
 		self->action = &entityWait;
-		
-		setEntityAnimation(self, STAND);
+
+		setEntityAnimation(self, "STAND");
 
 		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
@@ -276,9 +276,9 @@ static void instructionMove()
 		self->target->inUse = FALSE;
 
 		self->target = NULL;
-		
+
 		self->touch = NULL;
-		
+
 		self->activate = NULL;
 	}
 }
@@ -304,7 +304,7 @@ static void returnMove()
 	if (self->x == self->startX && self->y == self->startY)
 	{
 		runScript("robot_end");
-		
+
 		centerMapOnEntity(&player);
 
 		self->action = &entityWait;
@@ -327,11 +327,11 @@ static void returnMove()
 		self->target->y = self->y;
 
 		self->target->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		self->target->touch = &keyItemTouch;
-		
+
 		self->target = NULL;
-		
-		setEntityAnimation(self, STAND);
+
+		setEntityAnimation(self, "STAND");
 	}
 }

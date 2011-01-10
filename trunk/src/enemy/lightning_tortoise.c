@@ -69,7 +69,7 @@ Entity *addLightningTortoise(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -100,7 +100,7 @@ static void walk()
 
 static void changeWalkDirectionStart()
 {
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &entityWait;
 
@@ -117,7 +117,7 @@ static void changeWalkDirection()
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	if (self->thinkTime <= 0)
 	{
@@ -125,7 +125,7 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
@@ -139,7 +139,7 @@ static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
 
@@ -167,7 +167,7 @@ static void electrifyStart()
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &createElectricity;
 	}
@@ -188,7 +188,7 @@ static void createElectricity()
 
 	playSoundToMap("sound/enemy/tortoise/tortoise_electric.ogg", -1, self->x, self->y, 0);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->action = &doElectricity;
 
@@ -210,7 +210,7 @@ static void createElectricity()
 
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->action = &electrify;
 
@@ -227,7 +227,7 @@ static void electrify()
 	{
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &electrifyFinish;
 
@@ -243,7 +243,7 @@ static void electrify()
 
 static void electrifyFinish()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->frameSpeed = 1;
 
@@ -298,7 +298,7 @@ static void takeDamage(Entity *other, int damage)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
-					
+
 					addDamageScore(-damage, self);
 				}
 			}

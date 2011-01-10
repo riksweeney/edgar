@@ -56,7 +56,7 @@ Entity *addSporeCrop(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 

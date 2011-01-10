@@ -66,7 +66,7 @@ Entity *addLevelExit(char *name, int x, int y)
 
 	e->type = LEVEL_EXIT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -122,18 +122,18 @@ static void activate(int val)
 		if (game.mapExitable > 0)
 		{
 			runScript("items_missing");
-			
+
 			return;
 		}
-		
+
 		player.flags |= HELPLESS;
 
 		setCustomAction(&player, &helpless, 600, 0, 0);
 		setCustomAction(&player, &invulnerableNoFlash, 600, 0, 0);
 
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
-		setEntityAnimation(&playerShield, STAND);
+		setEntityAnimation(&player, "STAND");
+		setEntityAnimation(&playerWeapon, "STAND");
+		setEntityAnimation(&playerShield, "STAND");
 
 		player.dirX = 0;
 

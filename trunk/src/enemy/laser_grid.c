@@ -56,7 +56,7 @@ Entity *addLaserGrid(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -79,7 +79,7 @@ static void entityWait()
 		if (self->thinkTime <= 0)
 		{
 			self->active = self->active == TRUE ? FALSE : TRUE;
-			
+
 			if (self->active == TRUE)
 			{
 				playSoundToMap("sound/enemy/laser/zap.ogg", 7, self->x, self->y, 0);
@@ -127,7 +127,7 @@ static void addLaser()
 
 			e->face = RIGHT;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 		}
 	}
 
@@ -158,7 +158,7 @@ static void addLaser()
 
 			e->face = RIGHT;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 		}
 	}
 }

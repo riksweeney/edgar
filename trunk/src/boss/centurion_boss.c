@@ -101,7 +101,7 @@ Entity *addCenturionBoss(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -137,7 +137,7 @@ static void initialise()
 
 static void doIntro()
 {
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	if (self->offsetX != 0)
 	{
@@ -167,7 +167,7 @@ static void doIntro()
 	{
 		self->dirX = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->mental = 1;
 
@@ -199,7 +199,7 @@ static void entityWait()
 
 		self->die = &die;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 	}
 }
 
@@ -284,7 +284,7 @@ static void lookForPlayer()
 
 static void stompAttackInit()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &stompAttack;
 
@@ -295,7 +295,7 @@ static void stompAttackInit()
 
 static void stompAttack()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
 
@@ -326,7 +326,7 @@ static void stompAttackFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &miniCenturionAttackInit;
 
@@ -336,7 +336,7 @@ static void stompAttackFinish()
 
 static void explosionAttackInit()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &explosionAttack;
 
@@ -356,7 +356,7 @@ static void explosionAttack()
 
 	loadProperties("common/explosion", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y + self->h - e->h;
@@ -386,7 +386,7 @@ static void explosionAttack()
 
 	e->startX = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", -1, self->x, self->y, -1);
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->thinkTime = 60;
 
@@ -401,7 +401,7 @@ static void explosionAttackFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->action = &lookForPlayer;
 
@@ -536,7 +536,7 @@ static void die()
 		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->head = self;
 	}
@@ -667,7 +667,7 @@ static void reformFinish()
 	{
 		self->action = &lookForPlayer;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 	}
 
 	facePlayer();
@@ -676,7 +676,7 @@ static void reformFinish()
 
 	self->takeDamage = &takeDamage;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	checkToMap(self);
 }
@@ -832,7 +832,7 @@ static Entity *addHead()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -939,7 +939,7 @@ static void headTakeDamage(Entity *other, int damage)
 
 static void miniCenturionAttackInit()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->thinkTime = 20;
 
@@ -974,7 +974,7 @@ static void miniCenturionAttack()
 
 		if (self->mental <= 0)
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
@@ -1018,7 +1018,7 @@ static Entity *addMiniCenturion()
 
 	e->flags |= LIMIT_TO_SCREEN;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->action = &miniWalk;
 	e->draw = &drawLoopingAnimationToMap;
@@ -1078,7 +1078,7 @@ static void miniWalk()
 
 static void fallout()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->element = FIRE;
 

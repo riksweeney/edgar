@@ -69,7 +69,7 @@ Entity *addPedestal(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -156,9 +156,9 @@ static void validate()
 	Entity *e;
 
 	i = 0;
-	
+
 	allStatues = TRUE;
-	
+
 	orderCorrect = TRUE;
 
 	for (l=list->next;l!=NULL;l=l->next)
@@ -185,25 +185,25 @@ static void validate()
 			for (l=list->next;l!=NULL;l=l->next)
 			{
 				e = l->entity;
-				
+
 				e->active = FALSE;
-				
+
 				e->activate = NULL;
 			}
-			
+
 			fireTrigger(self->name);
 
 			fireGlobalTrigger(self->name);
-			
+
 			addMedal("occult");
 		}
-		
+
 		else
 		{
 			runScript("wrong_order");
 		}
 	}
-	
+
 	freeEntityList(list);
 }
 
@@ -216,7 +216,7 @@ static void init()
 	if (strlen(self->objectiveName) != 0)
 	{
 		list = getEntitiesByObjectiveName(self->objectiveName);
-		
+
 		for (l=list->next;l!=NULL;l=l->next)
 		{
 			e = l->entity;
@@ -245,12 +245,12 @@ static void init()
 		self->target->touch = NULL;
 
 		self->target->action = &statueWait;
-		
+
 		freeEntityList(list);
 	}
 
 	self->action = &entityWait;
-	
+
 	self->activate = self->active == TRUE ? &addStatue : NULL;
 }
 

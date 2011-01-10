@@ -93,7 +93,7 @@ typedef struct Entity
 	int inUse, w, h, offsetX, offsetY;
 	int thinkTime, face, layer;
 	int currentFrame;
-	int type, animation[MAX_ANIMATION_TYPES];
+	int type;
 	int currentAnim, health, alpha;
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
@@ -103,8 +103,8 @@ typedef struct Entity
 	float startX, startY, endX, endY;
 	float originalSpeed, speed, weight, originalWeight;
 	char name[MAX_VALUE_LENGTH], objectiveName[MAX_VALUE_LENGTH], requires[MAX_VALUE_LENGTH];
-	char description[MAX_MESSAGE_LENGTH];
-	EntityAnimation animation2[MAX_ANIMATION_TYPES];
+	char description[MAX_MESSAGE_LENGTH], animationName[MAX_VALUE_LENGTH];
+	EntityAnimation animation[MAX_ANIMATION_TYPES];
 	struct Entity *standingOn, *parent, *target, *head;
 	BoundingBox box;
 	CustomAction customAction[MAX_CUSTOM_ACTIONS];
@@ -217,7 +217,7 @@ typedef struct Droplet
 typedef struct Properties
 {
 	char name[MAX_VALUE_LENGTH], key[MAX_PROPS_ENTRIES][MAX_VALUE_LENGTH], value[MAX_PROPS_ENTRIES][MAX_VALUE_LENGTH];
-	int animations[MAX_ANIMATION_TYPES];
+	EntityAnimation animations[MAX_ANIMATION_TYPES];
 } Properties;
 
 typedef struct Constructor

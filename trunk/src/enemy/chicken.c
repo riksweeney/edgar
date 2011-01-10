@@ -56,7 +56,7 @@ Entity *addChicken(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -113,14 +113,14 @@ static void wander()
 		{
 			self->dirX = self->speed * (prand() % 2 == 0 ? -1 : 1);
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 		}
 
 		else
 		{
 			self->dirX = 0;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 		}
 
 		self->thinkTime = 180 + prand() % 120;
@@ -180,12 +180,12 @@ static void moveToFood()
 		{
 			self->dirX = 0;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 		}
 
 		else
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 		}
 	}
 
@@ -198,7 +198,7 @@ static void moveToFood()
 
 		self->action = &doNothing;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &finishEating;
 	}
@@ -210,7 +210,7 @@ static void finishEating()
 {
 	self->target->health--;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	if (self->target->health <= 0)
 	{
@@ -232,7 +232,7 @@ static void finishEating()
 
 		self->action = &doNothing;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &finishEating;
 	}

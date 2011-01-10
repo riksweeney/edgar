@@ -58,7 +58,7 @@ Entity *addVanishingPlatform(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -100,7 +100,7 @@ static void initialize()
 		showErrorAndExit("Vanishing Platform at %d %d is inactive and has no requires", (int)self->x, (int)self->y);
 	}
 	#endif
-	
+
 	self->touch = self->health == 0 ? NULL : &pushEntity;
 
 	if (self->health == 0)

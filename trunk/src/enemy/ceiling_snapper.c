@@ -65,7 +65,7 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -104,7 +104,7 @@ static void entityWait()
 
 		self->touch = &trapEntity;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->flags &= ~FLY;
 
@@ -122,7 +122,7 @@ static void bite()
 
 		self->touch = &touch;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->flags |= FLY;
 
@@ -177,7 +177,7 @@ static void trapEntity(Entity *other)
 
 		playSoundToMap("sound/enemy/floating_snapper/chomp.ogg", -1, self->x, self->y, 0);
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 180;
 

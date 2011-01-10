@@ -74,7 +74,7 @@ Entity *addFrog(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -119,7 +119,7 @@ static void entityWait()
 
 			else
 			{
-				setEntityAnimation(self, JUMP);
+				setEntityAnimation(self, "JUMP");
 
 				if (prand() % 3 == 0)
 				{
@@ -161,7 +161,7 @@ static void entityWait()
 				{
 					self->thinkTime = 30;
 
-					setEntityAnimation(self, ATTACK_1);
+					setEntityAnimation(self, "ATTACK_1");
 
 					self->action = &tongueAttackInit;
 				}
@@ -181,7 +181,7 @@ static void entityWait()
 
 	if ((self->flags & ON_GROUND) && onGround == 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (prand() % 3 == 0)
 		{
@@ -230,7 +230,7 @@ static void tongueAttack()
 {
 	Entity *e;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	e = getFreeEntity();
 
@@ -241,7 +241,7 @@ static void tongueAttack()
 
 	loadProperties("enemy/frog_tongue", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->face = self->face;
 
@@ -289,7 +289,7 @@ static void tongueAttackWait()
 {
 	if (self->mental != -1)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &entityWait;
 	}
@@ -500,7 +500,7 @@ static int drawTongue()
 
 	self->x = self->startX - (self->face == RIGHT ? 0 : 0);
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	if (self->face == RIGHT)
 	{
@@ -524,7 +524,7 @@ static int drawTongue()
 
 	/* Draw the tip */
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->x = startX;
 

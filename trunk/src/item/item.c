@@ -77,7 +77,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 			{
 				e->activate = &setBowAmmo;
 			}
-			
+
 			else if (strcmpignorecase("weapon/flaming_arrow", e->name) == 0)
 			{
 				e->activate = &setBowAmmo;
@@ -112,7 +112,7 @@ Entity *addPermanentItem(char *name, int x, int y)
 		e->touch = &keyItemTouch;
 	}
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -168,10 +168,10 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 			if (e->element == LIGHTNING)
 			{
 				e->touch = &lightningChargeTouch;
-	
+
 				e->flags |= DO_NOT_PERSIST;
 			}
-			
+
 			else
 			{
 				e->type = TEMP_ITEM;
@@ -179,7 +179,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 		break;
 	}
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -187,7 +187,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 Entity *dropCollectableItem(char *name, int x, int y, int face)
 {
 	Entity *e = addTemporaryItem(name, x, y, face, 0, ITEM_JUMP_HEIGHT);
-	
+
 	e->type = ITEM;
 
 	e->touch = &keyItemTouch;
@@ -198,7 +198,7 @@ Entity *dropCollectableItem(char *name, int x, int y, int face)
 void dropRandomItem(int x, int y)
 {
 	Entity *e;
-	
+
 	if (prand() % 3 == 0)
 	{
 		addTemporaryItem("item/heart", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);
@@ -210,7 +210,7 @@ void dropRandomItem(int x, int y)
 
 		e->health = 1 + (prand() % 3);
 	}
-	
+
 	if (hasLightningSword() == TRUE && prand() % 5 == 0)
 	{
 		e = addTemporaryItem("item/lightning_charge", x, y, RIGHT, 0, ITEM_JUMP_HEIGHT);

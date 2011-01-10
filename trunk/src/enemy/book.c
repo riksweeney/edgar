@@ -82,7 +82,7 @@ Entity *addBook(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -310,7 +310,7 @@ static void castFire()
 
 		e->flags |= DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "DOWN");
 
 		self->endX--;
 
@@ -418,7 +418,7 @@ static void castIceInit()
 
 			e->face = self->face;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 		}
 
 		self->thinkTime = 60;
@@ -471,7 +471,7 @@ static void castLightningBolt()
 
 		loadProperties("enemy/lightning", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -493,7 +493,7 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->action = &lightningBolt;
 
@@ -509,7 +509,7 @@ static void castLightningBolt()
 
 		e->flags |= FLY|DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		self->thinkTime = 30;
 
@@ -543,7 +543,7 @@ static void lightningBolt()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i == self->startY)
 			{

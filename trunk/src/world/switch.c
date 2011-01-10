@@ -77,7 +77,7 @@ Entity *addSwitch(char *name, int x, int y)
 
 	e->type = SWITCH;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -107,7 +107,7 @@ static void call(int val)
 
 		self->active = TRUE;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->thinkTime = 120;
 
@@ -156,12 +156,12 @@ static void activate(int val)
 
 	self->active = self->active == TRUE ? FALSE : TRUE;
 
-	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	setEntityAnimation(self, self->active == TRUE ? "WALK" : "STAND");
 
 	if (self->active == TRUE)
 	{
 		total = 0;
-		
+
 		remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
 
 		if (remaining == 0)
@@ -224,7 +224,7 @@ static void entityWait()
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
-			setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+			setEntityAnimation(self, self->active == TRUE ? "WALK" : "STAND");
 
 			if (self->maxThinkTime != 0)
 			{
@@ -246,7 +246,7 @@ static void reset(int val)
 
 		self->active = TRUE;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->thinkTime = 120;
 
@@ -264,16 +264,16 @@ static void reset(int val)
 
 			self = temp;
 		}
-		
+
 		else
 		{
 			printf("Couldn't reset %s\n", self->objectiveName);
-			
+
 			if (e == NULL)
 			{
 				printf("No item found\n");
 			}
-			
+
 			else if (e->fallout == NULL)
 			{
 				printf("No fallout found\n");
@@ -284,7 +284,7 @@ static void reset(int val)
 
 static void initialise()
 {
-	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	setEntityAnimation(self, self->active == TRUE ? "WALK" : "STAND");
 
 	#if DEV == 1
 	if (strlen(self->objectiveName) == 0)

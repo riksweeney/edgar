@@ -58,7 +58,7 @@ Entity *addHeartContainer(int x, int y, char *name)
 
 	e->draw = &draw;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -70,7 +70,7 @@ static void touch(Entity *other)
 	if (other->type == PLAYER)
 	{
 		increasePlayerMaxHealth();
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -78,18 +78,18 @@ static void touch(Entity *other)
 static int draw()
 {
 	Entity *e;
-	
+
 	if (drawLoopingAnimationToMap() == TRUE && (prand() % 10 == 0))
 	{
 		e = addBasicDecoration(self->x + prand() % self->w, self->y + prand() % 25, "decoration/particle");
-		
+
 		if (e != NULL)
 		{
 			e->thinkTime = 60 + prand() % 30;
-			
+
 			e->dirY = -0.3;
 		}
 	}
-	
+
 	return TRUE;
 }

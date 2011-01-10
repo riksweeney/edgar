@@ -58,14 +58,14 @@ Entity *addSafeCombination(int x, int y, char *name)
 	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &entityTouch;
-	
+
 	e->activate = &activate;
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -79,31 +79,31 @@ static void activate(int val)
 {
 	int i, unit, dir;
 	char combination[MAX_VALUE_LENGTH];
-	
+
 	if (other->type == PLAYER)
 	{
 		if (strlen(self->requires) == 0)
 		{
 			self->description[0] = '\0';
-			
+
 			for (i=0;i<3;i++)
 			{
 				unit = 1 + prand() % 20;
-				
+
 				dir = prand() % 2;
-				
+
 				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == -1 ? "L" : "R");
-				
+
 				STRNCPY(self->requires, combination, sizeof(self->requires));
-				
+
 				snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == -1 ? "Left" : "Right");
-				
+
 				STRNCPY(self->description, combination, sizeof(self->description));
 			}
-			
+
 			STRNCPY(combination, self->requires, sizeof(self->requires));
-			
+
 			snprintf(self->description, sizeof(self->description), "A scrap of paper. %s is written on it", combination);
 		}
-	}	
+	}
 }

@@ -63,14 +63,14 @@ Entity *addMemoryMatch(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void entityWait()
 {
-	setEntityAnimation(self, self->active == TRUE ? WALK : STAND);
+	setEntityAnimation(self, self->active == TRUE ? "WALK" : "STAND");
 
 	checkToMap(self);
 }
@@ -215,7 +215,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 

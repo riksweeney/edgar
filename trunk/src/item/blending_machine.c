@@ -64,7 +64,7 @@ Entity *addBlendingMachine(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	component = addComponent("item/blender_wheel");
 
@@ -118,11 +118,11 @@ static void blend()
 	switch (self->thinkTime)
 	{
 		case 420:
-			setEntityAnimation(self, ATTACK_2);
+			setEntityAnimation(self, "ATTACK_2");
 		break;
 
 		case 300:
-			setEntityAnimation(self, ATTACK_3);
+			setEntityAnimation(self, "ATTACK_3");
 		break;
 	}
 
@@ -130,7 +130,7 @@ static void blend()
 	{
 		self->thinkTime = 90;
 
-		setEntityAnimation(self, ATTACK_4);
+		setEntityAnimation(self, "ATTACK_4");
 
 		self->action = &blendFinish;
 	}
@@ -160,7 +160,7 @@ static void blendFinish()
 
 		self->action = &entityWait;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 	}
 }
 
@@ -187,7 +187,7 @@ static void activate(int val)
 
 static void init()
 {
-	setEntityAnimation(self, self->active == FALSE ? STAND : ATTACK_1);
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "ATTACK_1");
 
 	self->action = self->thinkTime > 0 ? &blend : &entityWait;
 }
@@ -207,7 +207,7 @@ static Entity *addComponent(char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -218,13 +218,13 @@ static void handleWait()
 	{
 		if (self->parent->thinkTime == 420)
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 		}
 	}
 
 	else
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 }
 
@@ -256,6 +256,6 @@ static void switchWait()
 
 	else
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 }

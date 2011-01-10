@@ -65,7 +65,7 @@ Entity *addMastermindDisplay(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -90,7 +90,7 @@ Entity *addMastermindPeg(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -115,7 +115,7 @@ Entity *addMastermindScore(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -213,7 +213,7 @@ static void init()
 				e->mental = 0;
 			}
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i == 0)
 			{
@@ -282,7 +282,7 @@ static void activatePeg()
 					e->health = 1;
 				}
 
-				setEntityAnimation(e, e->health);
+				setEntityAnimationByID(e, e->health);
 			}
 
 			else
@@ -344,7 +344,7 @@ static void addCursor()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void cursorWait()
@@ -374,7 +374,7 @@ static void generateSolution()
 	{
 		e->health = 0;
 
-		setEntityAnimation(e, e->health);
+		setEntityAnimationByID(e, e->health);
 
 		e = e->target;
 	}
@@ -436,14 +436,14 @@ static int checkSolution()
 
 	e->health = total + 1;
 
-	setEntityAnimation(e, e->health);
+	setEntityAnimationByID(e, e->health);
 
 	return strcmpignorecase(solution, self->requires) == 0 ? TRUE : FALSE;
 }
 
 static void pegInit()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->mental = 0;
 

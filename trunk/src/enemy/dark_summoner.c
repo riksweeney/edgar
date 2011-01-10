@@ -75,7 +75,7 @@ Entity *addDarkSummoner(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -112,12 +112,12 @@ static void lookForPlayer()
 		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, 200, player.x, player.y, player.w, player.h) == 1)
 		{
 			rand = prand() % 3;
-			
+
 			self->mental = 1;
-			
+
 			self->action = rand == 0 ? &castWait : &summonWait;
 
-			setEntityAnimation(self, ATTACK_1);
+			setEntityAnimation(self, "ATTACK_1");
 
 			self->animationCallback = rand == 0 ? &castLightningBolt : &summon;
 
@@ -148,7 +148,7 @@ static void summon()
 	char *token;
 	int summonIndex = 0, summonCount = 0;
 	Entity *e;
-		
+
 	STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);
 
 	token = strtok(summonList, "|");
@@ -200,10 +200,10 @@ static void summon()
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-	
+
 	self->action = &summonWait;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->animationCallback = &summonEnd;
 }
@@ -222,24 +222,24 @@ static void hover()
 
 static void summonEnd()
 {
-	setEntityAnimation(self, STAND);
-	
+	setEntityAnimation(self, "STAND");
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
 	}
-	
+
 	else
 	{
 		if (prand() % 3 == 0)
 		{
 			self->action = &teleportAway;
 		}
-		
+
 		else
 		{
 			self->action = &lookForPlayer;
-			
+
 			self->mental = 0;
 		}
 
@@ -247,7 +247,7 @@ static void summonEnd()
 
 		self->thinkTime = 600;
 	}
-	
+
 	hover();
 }
 
@@ -270,7 +270,7 @@ static void die()
 static void takeDamage(Entity *other, int damage)
 {
 	entityTakeDamageNoFlinch(other, damage);
-	
+
 	if (self->mental == 0 && self->health > 0 && (prand() % 3 == 0))
 	{
 		self->action = &teleportAway;
@@ -280,53 +280,53 @@ static void takeDamage(Entity *other, int damage)
 static void teleportAway()
 {
 	float x;
-	
+
 	x = self->x;
-	
+
 	self->targetX = self->x < player.x ? player.x + 128 : player.x - 128 - self->w;
-	
+
 	self->targetY = self->y;
-	
+
 	self->x = self->targetX;
-	
+
 	if (isValidOnMap(self) == TRUE)
 	{
 		self->x = x;
-		
+
 		self->face = self->x < player.x ? RIGHT : LEFT;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->animationCallback = NULL;
-		
-		setEntityAnimation(self, STAND);
-		
+
+		setEntityAnimation(self, "STAND");
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		self->action = &lookForPlayer;
-		
+
 		/* Don't reset thinkTime if teleporting after summon */
-		
+
 		if (self->mental == 0)
 		{
 			self->thinkTime = 0;
 		}
 	}
-	
+
 	else
 	{
 		self->x = x;
-		
+
 		if (self->mental == 0)
 		{
 			self->action = &lookForPlayer;
 		}
 	}
-	
+
 	self->mental = 0;
 }
 
@@ -347,7 +347,7 @@ static void castLightningBolt()
 
 		loadProperties("enemy/lightning", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -369,7 +369,7 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->action = &lightningBolt;
 
@@ -385,7 +385,7 @@ static void castLightningBolt()
 
 		e->flags |= FLY|DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		self->thinkTime = 60;
 
@@ -419,7 +419,7 @@ static void lightningBolt()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i == self->startY)
 			{

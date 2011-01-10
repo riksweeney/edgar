@@ -76,7 +76,7 @@ Entity *addDrawbridgePulley(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -88,7 +88,7 @@ static void init()
 	self->takeDamage = self->active == TRUE ? takeDamage : NULL;
 
 	self->action = &entityWait;
-	
+
 	addChain();
 }
 
@@ -140,14 +140,14 @@ static void takeDamage(Entity *other, int damage)
 				self->touch = NULL;
 
 				self->active = FALSE;
-				
+
 				self->thinkTime = 300;
-				
+
 				self->action = &unravel;
 
-				setEntityAnimation(self, WALK);
-				
-				setEntityAnimation(self->target, WALK);
+				setEntityAnimation(self, "WALK");
+
+				setEntityAnimation(self->target, "WALK");
 			}
 
 			addDamageScore(damage, self);
@@ -185,15 +185,15 @@ static void takeDamage(Entity *other, int damage)
 static void unravel()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->frameSpeed = 0;
-		
-		setEntityAnimation(self->target, STAND);
-		
+
+		setEntityAnimation(self->target, "STAND");
+
 		self->action = &entityWait;
-		
+
 		runScript(self->requires);
 	}
 }
@@ -201,7 +201,7 @@ static void unravel()
 static void addChain()
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add a Drawbridge Pulley Chain");
@@ -218,36 +218,36 @@ static void addChain()
 
 	e->draw = &drawChain;
 
-	setEntityAnimation(e, STAND);
-	
+	setEntityAnimation(e, "STAND");
+
 	self->target = e;
-	
+
 	e->startX = self->startX;
 	e->startY = self->startY;
-	
+
 	e->endX = self->endX;
 	e->endY = self->endY;
 }
 
 static void chainWait()
 {
-	
+
 }
 
 static int drawChain()
 {
 	self->x = self->startX;
 	self->y = self->startY;
-	
+
 	drawLoopingAnimationToMap();
-	
+
 	while (self->x > self->endX && self->y > self->endY)
 	{
 		drawSpriteToMap();
-		
+
 		self->x -= self->offsetX;
 		self->y -= self->offsetY;
 	}
-	
+
 	return TRUE;
 }

@@ -59,7 +59,7 @@ Entity *addSpittingPlant(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -72,7 +72,7 @@ static void entityWait()
 	{
 		self->action = &doNothing;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &spit;
 	}
@@ -120,7 +120,7 @@ static void spit()
 
 	playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->animationCallback = &spitFinish;
 }
@@ -128,7 +128,7 @@ static void spit()
 
 static void spitFinish()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->thinkTime = self->maxThinkTime;
 

@@ -69,7 +69,7 @@ Entity *addGrabber(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -80,7 +80,7 @@ static void entityWait()
 	{
 		if (self->target == NULL)
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->action = &grabRock;
 		}
@@ -93,7 +93,7 @@ static void entityWait()
 
 			self->thinkTime = 60;
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->action = &dropRock;
 		}
@@ -110,7 +110,7 @@ static void entityWait()
 static void dropRock()
 {
 	Entity *temp;
-	
+
 	if (self->target != NULL)
 	{
 		self->target->flags &= ~(HELPLESS|FLY);
@@ -127,15 +127,15 @@ static void dropRock()
 
 			self->target->parent = self;
 		}
-		
+
 		else if (self->target->resumeNormalFunction != NULL)
 		{
 			temp = self;
-			
+
 			self = self->target;
-			
+
 			self->resumeNormalFunction();
-			
+
 			self = temp;
 		}
 
@@ -153,7 +153,7 @@ static void dropRock()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			moveToStart();
 		}
@@ -173,7 +173,7 @@ static void grabRock()
 
 	if (self->flags & ON_GROUND)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		moveToStart();
 	}
@@ -225,7 +225,7 @@ static void moveToTarget()
 		{
 			if (self->x == self->endX && self->y == self->endY)
 			{
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, "STAND");
 
 				self->health = 2;
 
@@ -253,9 +253,9 @@ static void touch(Entity *other)
 	{
 		if (strcmpignorecase(other->name, "boss/golem_boss") == 0)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
-			if (other->currentAnim == other->animation[CUSTOM_1] && self->health == 2)
+			if (strcmpignorecase(other->animationName, "CUSTOM_1") == 0 && self->health == 2)
 			{
 				temp = self;
 
@@ -274,7 +274,7 @@ static void touch(Entity *other)
 
 		else if ((other->flags & PUSHABLE) && ((other->flags & ON_GROUND) || (self->health == -1 && self->target == NULL)))
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			other->flags |= HELPLESS|FLY;
 
@@ -353,7 +353,7 @@ static void addChain()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void chainWait()
@@ -367,9 +367,9 @@ static void chainWait()
 static void init()
 {
 	addChain();
-	
+
 	self->dirX = 0;
-	
+
 	self->dirY = 0;
 
 	self->action = &entityWait;
@@ -378,9 +378,9 @@ static void init()
 static int drawChain()
 {
 	int y;
-	
+
 	y = self->head->startY - self->h * 2;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y >= y)

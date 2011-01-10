@@ -59,7 +59,7 @@ Entity *addSpore(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,9 +77,9 @@ static void throwSpore(int val)
 		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			self->inUse = FALSE;

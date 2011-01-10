@@ -56,7 +56,7 @@ Entity *addThunderCloud(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -97,7 +97,7 @@ static void followPlayer()
 
 	if (self->head == NULL || self->head->maxThinkTime != 1)
 	{
-		setEntityAnimation(self, DIE);
+		setEntityAnimation(self, "DIE");
 
 		self->animationCallback = &entityDieVanish;
 
@@ -127,7 +127,7 @@ static void castLightning()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = i;

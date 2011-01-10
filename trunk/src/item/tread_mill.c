@@ -56,7 +56,7 @@ Entity *addTreadMill(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -85,16 +85,16 @@ static void init()
 static void entityWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->frameSpeed = 0;
-		
+
 		self->endX = 0;
-		
+
 		self->thinkTime = 0;
 	}
-	
+
 	else
 	{
 		self->frameSpeed = self->endX;
@@ -104,15 +104,15 @@ static void entityWait()
 static void touch(Entity *other)
 {
 	pushEntity(other);
-	
+
 	if (other->standingOn == self)
 	{
 		self->thinkTime = 2;
-		
+
 		other->x -= other->dirX;
-		
+
 		self->endX = other->dirX;
-		
+
 		self->target->mental = self->endX * 2;
 	}
 }

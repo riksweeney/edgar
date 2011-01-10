@@ -68,7 +68,7 @@ Entity *addAppleTree(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -77,15 +77,15 @@ Entity *addAppleTree(int x, int y, char *name)
 
 static void init()
 {
-	setEntityAnimation(self, self->mental);
-	
+	setEntityAnimationByID(self, self->mental);
+
 	if (self->mental > 0)
 	{
 		self->activate = &activate;
-		
+
 		self->takeDamage = &takeDamage;
 	}
-	
+
 	self->action = &entityWait;
 }
 
@@ -134,7 +134,7 @@ static void takeDamage(Entity *other, int damage)
 					e = addPermanentItem("item/apple", self->x + self->w / 2, self->y);
 
 					e->dirX = 10 + prand() % 10;
-					
+
 					e->dirX *= prand() % 2 == 0 ? -0.1 : 0.1;
 
 					e->dirY = -10;
@@ -142,8 +142,8 @@ static void takeDamage(Entity *other, int damage)
 					self->health = self->maxHealth;
 
 					self->mental--;
-					
-					setEntityAnimation(self, self->mental);
+
+					setEntityAnimationByID(self, self->mental);
 				}
 
 				else

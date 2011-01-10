@@ -66,7 +66,7 @@ Entity *addSonicBoomPanel(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -74,12 +74,12 @@ Entity *addSonicBoomPanel(int x, int y, char *name)
 static void init()
 {
 	self->head = getEntityByObjectiveName(self->requires);
-	
+
 	if (self->head == NULL)
 	{
 		showErrorAndExit("Sonic Boom Panel cannot find partner %s", self->requires);
 	}
-	
+
 	self->action = &entityWait;
 }
 
@@ -97,23 +97,23 @@ static void activate(int val)
 			if (removeInventoryItemByObjectiveName("Power Cell") == TRUE)
 			{
 				self->mental++;
-				
-				setEntityAnimation(self, self->mental);
-				
+
+				setEntityAnimationByID(self, self->mental);
+
 				if (self->mental == 3 && self->mental == self->head->mental)
 				{
 					self->active = FALSE;
-					
+
 					self->head->active = FALSE;
-					
+
 					self->action = &beginCountdown;
-					
+
 					self->thinkTime = 60;
-					
+
 					self->health = 10;
 				}
 			}
-			
+
 			else
 			{
 				setInfoBoxMessage(120, 255, 255, 255, _("Power Cell is required"));
@@ -133,18 +133,18 @@ static void touch(Entity *other)
 static void beginCountdown()
 {
 	self->thinkTime--;
-	
+
 	setInfoBoxMessage(0, 255, 255, 255, _("Firing Sonic Boom in %d"), self->health);
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->health--;
-		
+
 		if (self->health < 0)
 		{
 			self->action = &sonicBoom;
 		}
-		
+
 		self->thinkTime = 60;
 	}
 }
@@ -152,14 +152,14 @@ static void beginCountdown()
 static void sonicBoom()
 {
 	activateEntitiesWithRequiredName("SONIC_BOOM", TRUE);
-	
+
 	self->mental = 0;
-	
+
 	self->head->mental = 0;
-	
-	setEntityAnimation(self, self->mental);
-	
-	setEntityAnimation(self->head, self->head->mental);
-	
+
+	setEntityAnimationByID(self, self->mental);
+
+	setEntityAnimationByID(self->head, self->head->mental);
+
 	self->action = &entityWait;
 }

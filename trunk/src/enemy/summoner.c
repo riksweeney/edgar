@@ -66,7 +66,7 @@ Entity *addSummoner(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -103,7 +103,7 @@ static void lookForPlayer()
 		{
 			self->action = &summonWait;
 
-			setEntityAnimation(self, ATTACK_1);
+			setEntityAnimation(self, "ATTACK_1");
 
 			self->animationCallback = &summon;
 
@@ -182,7 +182,7 @@ static void summon()
 
 	self->action = &summonWait;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->animationCallback = &summonEnd;
 }
@@ -201,7 +201,7 @@ static void hover()
 
 static void summonEnd()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
 

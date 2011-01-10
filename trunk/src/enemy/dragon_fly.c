@@ -68,7 +68,7 @@ Entity *addDragonFly(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -78,19 +78,19 @@ static void init()
 	switch (self->mental)
 	{
 		case 1:
-			setEntityAnimation(self, WALK);
-			
+			setEntityAnimation(self, "WALK");
+
 			self->action = &walkAround;
 		break;
-		
+
 		case 2:
 			self->action = &dropWait;
 		break;
-		
+
 		case 3:
 			self->action = &flyStart;
 		break;
-		
+
 		default:
 			self->action = &flyAround;
 		break;
@@ -113,30 +113,30 @@ static void flyAround()
 	self->dirY = cos(DEG_TO_RAD(self->startX));
 
 	checkToMap(self);
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (safeToDrop() == TRUE)
 		{
 			self->dirX = 0;
-			
+
 			self->thinkTime = 30;
-			
+
 			self->action = &dropWait;
-			
+
 			self->mental = 2;
-			
+
 			self->endX = 0;
 		}
-		
+
 		else
 		{
 			self->thinkTime = self->maxThinkTime;
 		}
 	}
-	
+
 	if (prand() % 600 == 0)
 	{
 		dropPod();
@@ -146,26 +146,26 @@ static void flyAround()
 static void dropWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirY = 3;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->flags &= ~FLY;
-		
+
 		self->action = &walkAround;
-		
+
 		self->thinkTime = 600;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
-		setEntityAnimation(self, WALK);
-		
+
+		setEntityAnimation(self, "WALK");
+
 		self->mental = 1;
 	}
 }
@@ -173,36 +173,36 @@ static void dropWait()
 static void walkAround()
 {
 	int face = self->face;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirX = 0;
-		
+
 		self->thinkTime = 30;
-		
+
 		self->dirY = -3;
-		
+
 		self->action = &flyStart;
-		
+
 		self->flags |= FLY;
-		
-		setEntityAnimation(self, STAND);
-		
+
+		setEntityAnimation(self, "STAND");
+
 		self->mental = 3;
-		
+
 		playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
 	}
-	
+
 	else
 	{
 		moveLeftToRight();
-		
+
 		if (self->face != face)
 		{
 			self->endX++;
-			
+
 			if (self->endX >= 15)
 			{
 				self->thinkTime = 0;
@@ -214,20 +214,20 @@ static void walkAround()
 static void flyStart()
 {
 	checkToMap(self);
-	
+
 	if (self->dirY == 0 || self->y < self->startY)
 	{
 		self->flags &= ~FLY;
-		
+
 		self->action = &flyAround;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->thinkTime = 600;
-		
+
 		self->mental = 0;
 	}
-	
+
 	else
 	{
 		self->dirY = -3;
@@ -272,8 +272,8 @@ static void dropPod()
 	}
 
 	loadProperties("enemy/dragon_fly_pod", e);
-	
-	setEntityAnimation(e, STAND);
+
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y + self->h / 2 - e->h / 2;
@@ -286,7 +286,7 @@ static void dropPod()
 	e->die = &entityDieNoDrop;
 	e->pain = &enemyPain;
 	e->takeDamage = &podTakeDamage;
-	
+
 	e->head = self;
 
 	e->type = ENEMY;
@@ -297,7 +297,7 @@ static void podWait()
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime < 120)
 		{
 			if (self->thinkTime % 3 == 0)
@@ -305,11 +305,11 @@ static void podWait()
 				self->flags ^= FLASH;
 			}
 		}
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->flags &= ~FLASH;
-			
+
 			self->action = &podExplode;
 
 			self->flags |= FLY;
@@ -319,7 +319,7 @@ static void podWait()
 			self->thinkTime = 5;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -333,10 +333,10 @@ static void podExplode()
 	if (self->thinkTime <= 0)
 	{
 		e = addProjectile("common/green_blob", self->head, 0, 0, -6, 0);
-		
+
 		x = self->x + self->w / 2 - e->w / 2;
 		y = self->y;
-		
+
 		e->x = x;
 		e->y = y;
 
@@ -361,7 +361,7 @@ static void podExplode()
 		e->flags |= FLY;
 
 		e->reactToBlock = &bounceOffShield;
-		
+
 		e = addProjectile("common/green_blob", self->head, x, y, -6, 6);
 
 		e->flags |= FLY;
@@ -397,7 +397,7 @@ static void podExplode()
 static void podTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -441,7 +441,7 @@ static void podTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }

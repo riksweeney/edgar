@@ -60,7 +60,7 @@ Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -68,20 +68,20 @@ Entity *addExplodingGazerEyeDud(int x, int y, char *name)
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
-		
+
 		if (self->active == FALSE)
 		{
 			self->touch = &keyItemTouch;
 		}
-		
+
 		else
 		{
 			self->touch = &touch;
-			
+
 			self->thinkTime = 30;
 		}
 	}
@@ -90,10 +90,10 @@ static void entityWait()
 static void throwGazerEye(int val)
 {
 	Entity *e;
-	
+
 	if (game.status == IN_GAME)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->active = TRUE;
 
@@ -102,9 +102,9 @@ static void throwGazerEye(int val)
 		e->touch = &touch;
 
 		e->action = &explodeWait;
-		
+
 		e->fallout = &entityDieNoDrop;
-		
+
 		e->flags |= DO_NOT_PERSIST;
 
 		e->dirX = player.face == LEFT ? -8 : 8;
@@ -114,25 +114,25 @@ static void throwGazerEye(int val)
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
 
 		self->inUse = FALSE;
-	}	
+	}
 }
 
 static void explodeWait()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, WALK);
-			
+			setEntityAnimation(self, "WALK");
+
 			self->thinkTime = 15;
-			
+
 			self->action = &explodeInit;
 		}
 	}
@@ -141,13 +141,13 @@ static void explodeWait()
 static void explodeInit()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 15;
-		
-		setEntityAnimation(self, JUMP);
-		
+
+		setEntityAnimation(self, "JUMP");
+
 		self->action = &explode;
 	}
 }
@@ -155,31 +155,31 @@ static void explodeInit()
 static void explode()
 {
 	Entity *temp;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
 
 		fadeFromColour(255, 255, 255, 60);
-		
+
 		if (self->head != NULL)
 		{
 			temp = self;
-			
+
 			self = self->head;
-			
+
 			self->activate(100);
-			
+
 			self = temp;
 		}
-		
+
 		self->inUse = FALSE;
 	}
 }
 
 static void touch(Entity *other)
 {
-	
+
 }

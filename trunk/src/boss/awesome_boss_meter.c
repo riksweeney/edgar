@@ -62,7 +62,7 @@ Entity *addAwesomeBossMeter(int x, int y, char *name)
 	e->y = y;
 
 	e->action = &init;
-	
+
 	e->takeDamage = &takeDamage;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -71,7 +71,7 @@ Entity *addAwesomeBossMeter(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -81,11 +81,11 @@ static void init()
 	if (self->active == TRUE)
 	{
 		initBossHealthBar();
-		
+
 		self->action = &entityWait;
-		
+
 		self->thinkTime = 180;
-		
+
 		self->health = 0;
 	}
 }
@@ -93,41 +93,41 @@ static void init()
 static void entityWait()
 {
 	Entity *e;
-	
+
 	if (self->damage == 0)
 	{
 		self->thinkTime--;
-		
+
 		self->flags &= ~FLY;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			clearContinuePoint();
-			
+
 			freeBossHealthBar();
 
 			e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-			
+
 			e->y -= e->h;
 
 			e->dirY = ITEM_JUMP_HEIGHT;
 
 			fadeBossMusic();
-			
+
 			entityDieVanish();
 		}
 	}
-	
+
 	else if (self->damage == self->mental && self->health == self->maxHealth)
 	{
 		self->targetY--;
-		
+
 		if (self->targetY <= 0)
 		{
 			self->targetY = 0;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -136,15 +136,15 @@ static void takeDamage(Entity *other, int damage)
 	if (self->health < self->maxHealth)
 	{
 		self->health += damage;
-		
+
 		if (self->health >= self->maxHealth)
 		{
 			self->health = self->maxHealth;
-			
+
 			setInfoBoxMessage(120, 255, 255, 255, _("Super is ready..."));
-			
+
 			self->targetX = prand() % 2;
-			
+
 			self->targetY = 120;
 		}
 	}

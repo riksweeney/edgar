@@ -65,7 +65,7 @@ Entity *addWeakWall(char *name, int x, int y)
 
 	e->flags |= OBSTACLE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

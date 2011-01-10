@@ -74,7 +74,7 @@ Entity *addSkull(int x, int y, char *name)
 
 	e->draw = &draw;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -182,7 +182,7 @@ static void activate(int val)
 		self->mental = 2;
 	}
 
-	setEntityAnimation(self, val == 1 ? WALK : STAND);
+	setEntityAnimation(self, val == 1 ? "WALK" : "STAND");
 }
 
 static void followPlayer()

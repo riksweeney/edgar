@@ -49,12 +49,12 @@ Entity *addAutoSpikeBall(int x, int y, char *name)
 	e->face = RIGHT;
 
 	e->action = &entityWait;
-	
+
 	e->touch = &entityTouch;
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,7 +77,7 @@ static void explode()
 	for (i=0;i<360;i+=12)
 	{
 		e = addProjectile("weapon/spike", self, 0, 0, 0, 0);
-		
+
 		e->damage = 1;
 
 		e->x = self->x + self->w / 2 - e->w / 2;

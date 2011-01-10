@@ -55,7 +55,7 @@ Entity *addTrapDoor(char *name, int x, int y)
 
 	e->flags |= OBSTACLE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -68,7 +68,7 @@ static void entityWait()
 
 	self->action = &entityWait;
 
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 }
 
 static void touch(Entity *other)

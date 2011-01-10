@@ -65,7 +65,7 @@ Entity *addInvulnerableFlyer(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -98,7 +98,7 @@ static void die()
 
 	self->flags &= ~FLY;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->takeDamage = &stoneTakeDamage;
 
@@ -118,7 +118,7 @@ static void die()
 
 static void stoneFinish()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 }
 
 static void dieWait()
@@ -127,7 +127,7 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_3);
+		setEntityAnimation(self, "ATTACK_3");
 
 		self->animationCallback = &reanimate;
 	}

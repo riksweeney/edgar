@@ -66,7 +66,7 @@ Entity *addNumberBlock(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -115,7 +115,7 @@ static void touch(Entity *other)
 
 			self->health = 2;
 
-			setEntityAnimation(self, self->health);
+			setEntityAnimationByID(self, self->health);
 		}
 
 		else if (self->health == 0)
@@ -154,7 +154,7 @@ static void init()
 
 	else
 	{
-		setEntityAnimation(self, self->health == 2 ? 2 : 0);
+		setEntityAnimationByID(self, self->health == 2 ? 2 : 0);
 	}
 
 	self->action = &entityWait;
@@ -186,7 +186,7 @@ static void setAllBlockValues(int value)
 	{
 		block->health = (value == 0 && block->thinkTime == 0) ? 1 : value;
 
-		setEntityAnimation(block, block->health == 1 ? 0 : block->health);
+		setEntityAnimationByID(block, block->health == 1 ? 0 : block->health);
 
 		block = block->target;
 	}

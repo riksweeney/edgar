@@ -63,7 +63,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -88,7 +88,7 @@ static void touch(Entity *other)
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->thinkTime = 30;
 
@@ -101,7 +101,7 @@ static void touch(Entity *other)
 		playSoundToMap("sound/item/spring.ogg", -1, self->x, self->y, 0);
 
 		self->action = &spring;
-		
+
 		other->standingOn = NULL;
 	}
 }
@@ -117,7 +117,7 @@ static void spring()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &entityWait;
 	}

@@ -61,7 +61,7 @@ Entity *addFish(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -69,21 +69,21 @@ Entity *addFish(int x, int y, char *name)
 static void init()
 {
 	self->endY = getWaterTop(self->x, self->y);
-	
+
 	self->action = &swim;
 }
 
 static void swim()
 {
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
-	
+
 	if (prand() % 5 == 0)
 	{
 		lookForPlayer();
@@ -110,9 +110,9 @@ static void lookForPlayer()
 	if (player.health > 0 && player.environment == WATER && getDistanceFromPlayer(self) < SCREEN_WIDTH)
 	{
 		self->thinkTime = 60;
-		
-		setEntityAnimation(self, ATTACK_1);
-		
+
+		setEntityAnimation(self, "ATTACK_1");
+
 		self->action = &attackPlayer;
 	}
 }
@@ -122,38 +122,38 @@ static void attackPlayer()
 	if (getDistanceFromPlayer(self) > SCREEN_WIDTH || player.health <= 0 || player.environment == AIR)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0 || player.health <= 0 || player.environment == AIR)
 		{
 			self->targetX = self->startX;
 			self->targetY = self->startY;
-			
+
 			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-			
+
 			self->dirX *= self->speed;
 			self->dirY *= self->speed;
-			
+
 			self->face = self->dirX < 0 ? LEFT : RIGHT;
-			
-			setEntityAnimation(self, STAND);
-			
+
+			setEntityAnimation(self, "STAND");
+
 			self->action = &returnToStart;
 		}
 	}
-	
+
 	else
 	{
 		self->thinkTime = 60;
-		
+
 		calculatePath(self->x, self->y, player.x, player.y, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= 3;
 		self->dirY *= 3;
-		
+
 		self->face = self->dirX < 0 ? LEFT : RIGHT;
-		
+
 		checkToMap(self);
-		
+
 		if (self->y < self->endY)
 		{
 			self->y = self->endY;
@@ -164,13 +164,13 @@ static void attackPlayer()
 static void returnToStart()
 {
 	checkToMap(self);
-	
+
 	if (atTarget())
 	{
 		self->dirY = 0;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->action = &swim;
 	}
 }

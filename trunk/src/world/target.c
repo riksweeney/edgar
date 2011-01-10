@@ -43,6 +43,8 @@ Target *addTarget(int x, int y, char *name)
 
 	loadProperties("lift/lift_target", &targetEntity);
 
+	setEntityAnimation(&targetEntity, "STAND");
+
 	targetEntity.draw = &drawLoopingAnimationToMap;
 
 	for (i=0;i<MAX_TARGETS;i++)
@@ -73,7 +75,7 @@ Target *addTarget(int x, int y, char *name)
 	}
 
 	showErrorAndExit("No free slots to add a target");
-	
+
 	return NULL;
 }
 
@@ -82,7 +84,7 @@ void drawTargets()
 	int i;
 
 	self = &targetEntity;
-	
+
 	self->alpha = 255;
 
 	for (i=0;i<MAX_TARGETS;i++)
@@ -108,7 +110,7 @@ Target *getTargetByName(char *name)
 			return &target[i];
 		}
 	}
-	
+
 	printf("Could not find target %s\n", name);
 
 	return NULL;

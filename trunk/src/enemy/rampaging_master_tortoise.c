@@ -99,7 +99,7 @@ Entity *addRampagingMasterTortoise(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -196,7 +196,7 @@ static void riftAttackInit()
 {
 	self->thinkTime--;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	if (self->thinkTime <= 0)
 	{
@@ -225,7 +225,7 @@ static void riftAttack()
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	if (self->face == LEFT)
 	{
@@ -262,7 +262,7 @@ static void riftAttackFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
@@ -314,7 +314,7 @@ static void entityWait()
 
 static void changeWalkDirectionStart()
 {
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &entityWait;
 
@@ -333,7 +333,7 @@ static void changeWalkDirection()
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_2);
+	setEntityAnimation(self, "CUSTOM_2");
 
 	if (self->thinkTime <= 0)
 	{
@@ -341,7 +341,7 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
@@ -357,7 +357,7 @@ static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
 
@@ -388,7 +388,7 @@ static void riftMove()
 			{
 				self->health++;
 
-				setEntityAnimation(self, self->health == 1 ? WALK : JUMP);
+				setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
 
 				self->thinkTime = 15;
 			}
@@ -438,7 +438,7 @@ static void riftClose()
 {
 	self->thinkTime--;
 
-	setEntityAnimation(self, self->thinkTime > 10 ? WALK : STAND);
+	setEntityAnimation(self, self->thinkTime > 10 ? "WALK" : "STAND");
 
 	if (self->thinkTime <= 0)
 	{
@@ -596,7 +596,7 @@ static void gibWait()
 
 static void spinAttackInit()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->thinkTime--;
 
@@ -664,7 +664,7 @@ static void spinAttackEnd()
 	{
 		facePlayer();
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->speed = self->originalSpeed;
 
@@ -682,7 +682,7 @@ static void breatheFireInit()
 {
 	Entity *e;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -6 : 6), 0);
 
@@ -715,7 +715,7 @@ static void breatheFireWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 300 + prand() % 180;
 
@@ -733,7 +733,7 @@ static void castIce()
 
 	self->thinkTime--;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	if (self->thinkTime <= 0)
 	{
@@ -746,7 +746,7 @@ static void castIce()
 
 		loadProperties("enemy/ice_spike", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -779,7 +779,7 @@ static void castIce()
 
 		self->thinkTime = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &walk;
 	}
@@ -818,7 +818,7 @@ static void iceDrop()
 			e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 
@@ -842,7 +842,7 @@ static void addSparkles()
 
 		e->thinkTime = 5 + prand() % 30;
 
-		setEntityAnimation(e, prand() % 5);
+		setEntityAnimationByID(e, prand() % 5);
 
 		e->dirX = 0;
 		e->dirY = -2;

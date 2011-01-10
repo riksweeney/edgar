@@ -62,13 +62,13 @@ Entity *addJigsawPuzzle(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void entityWait()
-{	
+{
 	checkToMap(self);
 }
 
@@ -88,14 +88,14 @@ static void activate(int val)
 		{
 			runScript("puzzle_pieces");
 		}
-		
+
 		if (self->health == 1)
 		{
 			if (self->target->mental == 0)
 			{
 				self->target->mental = -2;
 			}
-			
+
 			self->mental = 0;
 
 			setInfoBoxMessage(300, 255, 255, 255, _("Solve the jigsaw puzzle"));
@@ -117,22 +117,22 @@ static void readInputCode()
 {
 	int val;
 	Entity *temp;
-	
+
 	if (self->target->mental == -3)
 	{
 		setPlayerLocked(FALSE);
-		
+
 		setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
-		
+
 		self->action = &entityWait;
-		
+
 		self->touch = NULL;
 		self->activate = NULL;
-		
+
 		fireTrigger(self->objectiveName);
-		
+
 		fireGlobalTrigger(self->objectiveName);
-		
+
 		return;
 	}
 
@@ -167,17 +167,17 @@ static void readInputCode()
 	else if (input.attack == 1)
 	{
 		input.attack = 0;
-		
+
 		val = 5;
 	}
-	
+
 	else if (input.interact == 1)
 	{
 		input.interact = 0;
-		
+
 		val = 6;
 	}
-	
+
 	else
 	{
 		val = -1;
@@ -188,7 +188,7 @@ static void readInputCode()
 		setPlayerLocked(FALSE);
 
 		self->action = &entityWait;
-		
+
 		self->touch = &touch;
 		self->activate = &activate;
 	}
@@ -196,11 +196,11 @@ static void readInputCode()
 	else if (val != -1 && self->target->activate != NULL)
 	{
 		temp = self;
-		
+
 		self = self->target;
-		
+
 		self->activate(val);
-		
+
 		self = temp;
 	}
 }
@@ -210,7 +210,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 
@@ -222,7 +222,7 @@ static void init()
 	}
 
 	self->target = e;
-	
+
 	if (self->mental != -3)
 	{
 		self->touch = &touch;

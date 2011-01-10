@@ -60,7 +60,7 @@ Entity *addForceField(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -73,37 +73,37 @@ static void entityWait()
 		{
 			self->action = &fadeIn;
 		}
-		
+
 		else
 		{
 			self->flags |= DO_NOT_PERSIST;
-			
+
 			if (self->mental == -1)
 			{
 				playSoundToMap("sound/item/force_field_shutdown.ogg", -1, self->x, self->y, 0);
 			}
-			
+
 			self->action = &fadeOut;
 		}
-		
+
 		self->active = self->health;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void fadeOut()
 {
 	self->alpha -= 3;
-	
+
 	if (self->alpha <= 0)
 	{
 		self->alpha = 0;
-		
+
 		self->touch = NULL;
-		
+
 		self->action = &entityWait;
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -111,15 +111,15 @@ static void fadeOut()
 static void fadeIn()
 {
 	self->alpha += 3;
-	
+
 	if (self->alpha >= 128)
 	{
 		self->alpha = 128;
-		
+
 		self->touch = &pushEntity;
-		
+
 		self->action = &entityWait;
-		
+
 		self->active = TRUE;
 	}
 }
@@ -127,18 +127,18 @@ static void fadeIn()
 static void init()
 {
 	self->health = self->active;
-	
+
 	if (self->active == TRUE)
 	{
 		self->alpha = 128;
 	}
-	
+
 	else
 	{
 		self->flags |= NO_DRAW;
-		
+
 		self->touch = NULL;
 	}
-	
+
 	self->action = &entityWait;
 }

@@ -234,7 +234,7 @@ void loadProperties(char *name, Entity *e)
 		{
 			e->animation[j] = properties[i].animations[j];
 
-			if (e->animation[j] != -1)
+			if (e->animation[j].id != -1)
 			{
 				index++;
 			}
@@ -247,7 +247,7 @@ void loadProperties(char *name, Entity *e)
 
 		e->currentAnim = -1;
 
-		setEntityAnimation(e, 0);
+		setEntityAnimationByID(e, 0);
 	}
 }
 

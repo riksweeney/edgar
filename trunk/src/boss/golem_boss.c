@@ -106,7 +106,7 @@ Entity *addGolemBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -138,7 +138,7 @@ static void shatter()
 
 	y = self->y;
 
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->y = y;
 
@@ -243,7 +243,7 @@ static void shatter()
 			break;
 		}
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->action = &partWait;
 
@@ -363,7 +363,7 @@ static void entityWait()
 
 static void stompAttackStart()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->dirX = 0;
 
@@ -381,7 +381,7 @@ static void stompAttack()
 
 static void stompShake()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -417,7 +417,7 @@ static void attackFinished()
 {
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->thinkTime = 60;
 
@@ -477,7 +477,7 @@ static void takeDamage(Entity *other, int damage)
 
 			/* Don't reshatter */
 
-			if (self->currentAnim != self->animation[CUSTOM_1])
+			if (strcmpignorecase(self->animationName, "CUSTOM_1") != 0)
 			{
 				self->action = &shatter;
 
@@ -556,7 +556,7 @@ static void throwRockStart()
 {
 	/* Crouch to pick up rock */
 
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->animationCallback = &throwRock;
 
@@ -590,7 +590,7 @@ static void throwRock()
 
 	e->touch = &rockTouch;
 
-	setEntityAnimation(self, ATTACK_4);
+	setEntityAnimation(self, "ATTACK_4");
 
 	self->thinkTime = 60;
 
@@ -612,7 +612,7 @@ static void throwRockFinish()
 
 		else
 		{
-			setEntityAnimation(self, ATTACK_5);
+			setEntityAnimation(self, "ATTACK_5");
 
 			self->animationCallback = &throwRock;
 		}
@@ -937,7 +937,7 @@ static void headReform2()
 				self->action = &entityWait;
 			}
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->y = self->startY;
 

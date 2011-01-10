@@ -115,7 +115,7 @@ Entity *addBorerBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -158,7 +158,7 @@ static void addTentacles()
 
 		loadProperties("boss/borer_boss_tentacle", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->y = self->y + h - e->h / 2;
 
@@ -211,7 +211,7 @@ static void addMouth()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void doIntro()
@@ -374,7 +374,7 @@ static void fireRocks()
 
 					loadProperties("common/large_rock", e);
 
-					setEntityAnimation(e, STAND);
+					setEntityAnimation(e, "STAND");
 
 					e->x = self->x + self->w / 2 - e->w / 2;
 					e->y = self->y + (TILE_SIZE + TILE_SIZE / 2) + (TILE_SIZE * 2 * (prand() % 3)) - e->h / 2;
@@ -406,7 +406,7 @@ static void fireRocks()
 
 					loadProperties("enemy/small_boulder", e);
 
-					setEntityAnimation(e, STAND);
+					setEntityAnimation(e, "STAND");
 
 					e->x = self->x + self->w / 2 - e->w / 2;
 
@@ -544,7 +544,7 @@ static void boulderMove()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 
@@ -832,7 +832,7 @@ static int drawTentacle()
 
 	self->x += self->w;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	while (self->x <= self->endX)
 	{
@@ -843,7 +843,7 @@ static int drawTentacle()
 
 	/* Draw the tip */
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->x = startX;
 
@@ -935,7 +935,7 @@ static void addRedTentacles()
 
 		loadProperties("boss/borer_boss_tentacle_red", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + 128;
 		e->y = self->y + h - e->h / 2;

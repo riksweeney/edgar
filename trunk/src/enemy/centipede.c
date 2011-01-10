@@ -67,7 +67,7 @@ Entity *addCentipede(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -97,14 +97,14 @@ static void headMove()
 
 				if (self->mental < 4)
 				{
-					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
+					setEntityAnimation(self, self->mental == 2 ? "CUSTOM_1" : "CUSTOM_2");
 
 					self->mental = self->mental == 2 ? 4 : 5;
 				}
 
 				else
 				{
-					setEntityAnimation(self, STAND);
+					setEntityAnimation(self, "STAND");
 
 					self->mental = self->mental == 4 ? 2 : 3;
 				}
@@ -173,7 +173,7 @@ static void addSegments()
 
 		e->speed = self->speed;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		frameCount = getFrameCount(e);
 
@@ -254,14 +254,14 @@ static void segmentMove()
 
 				if (self->mental < 4)
 				{
-					setEntityAnimation(self, self->mental == 2 ? CUSTOM_1 : CUSTOM_2);
+					setEntityAnimation(self, self->mental == 2 ? "CUSTOM_1" : "CUSTOM_2");
 
 					self->mental = self->mental == 2 ? 4 : 5;
 				}
 
 				else
 				{
-					setEntityAnimation(self, STAND);
+					setEntityAnimation(self, "STAND");
 
 					self->mental = self->mental == 4 ? 2 : 3;
 				}

@@ -69,7 +69,7 @@ Entity *addBomb(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -98,7 +98,7 @@ Entity *addMiniBomb(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -121,7 +121,7 @@ static void startMiniFuse()
 
 	self->touch = &touch;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	self->animationCallback = &miniExplode;
 
@@ -152,7 +152,7 @@ static void dropBomb(int val)
 
 		self->touch = &touch;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->animationCallback = &explode;
 
@@ -190,7 +190,7 @@ static void explode()
 		y += (prand() % 32) * (prand() % 2 == 0 ? 1 : -1);
 
 		e = addExplosion(x, y);
-		
+
 		e->x -= e->w / 2;
 		e->y -= e->h / 2;
 
@@ -247,7 +247,7 @@ static void resumeNormalFunction()
 
 	self->touch = &touch;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	self->animationCallback = &explode;
 

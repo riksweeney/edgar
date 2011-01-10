@@ -54,7 +54,7 @@ Entity *addPendulum(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -69,12 +69,12 @@ static void init()
 	}
 
 	loadProperties("enemy/pendulum_ring", e);
-	
-	setEntityAnimation(e, STAND);
+
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->startX + self->w / 2 - e->w / 2;
 	e->y = self->startY;
-	
+
 	e->startX = e->x;
 	e->startY = e->y;
 
@@ -84,7 +84,7 @@ static void init()
 	e->type = ENEMY;
 
 	e->head = self;
-	
+
 	self->action = &swing;
 }
 
@@ -94,17 +94,17 @@ static void swing()
 
 	x = 0;
 	y = self->endY - self->startY;
-	
+
 	self->thinkTime += 2;
-	
+
 	radians = DEG_TO_RAD(self->thinkTime);
-	
+
 	self->dirX = (self->speed * cos(radians) - 0 * sin(radians));
-	
+
 	self->endX += self->dirX;
 
 	radians = DEG_TO_RAD(self->endX);
-	
+
 	origX = self->x;
 
 	self->x = (x * cos(radians) - y * sin(radians));
@@ -112,7 +112,7 @@ static void swing()
 
 	self->x += self->startX;
 	self->y += self->startY;
-	
+
 	if ((origX < self->startX && self->x >= self->startX) || (origX > self->startX && self->x <= self->startX))
 	{
 		playSoundToMap("sound/enemy/pendulum/swing.ogg", -1, self->x, self->y, 0);
@@ -123,25 +123,25 @@ static int ringDraw()
 {
 	int i, endX, endY;
 	float diffX, diffY;
-	
+
 	endX = self->head->x;
 	endY = self->head->y + self->head->h / 2 - self->h / 2;
-	
+
 	diffX = (endX - self->head->startX) / self->head->mental;
 	diffY = (endY - self->head->startY) / self->head->mental;
-	
+
 	drawLoopingAnimationToMap();
 
 	for (i=0;i<self->head->mental;i++)
 	{
 		drawSpriteToMap();
-		
+
 		self->x += diffX;
 		self->y += diffY;
 	}
-	
+
 	self->x = self->startX;
 	self->y = self->startY;
-	
+
 	return 1;
 }

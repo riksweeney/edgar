@@ -60,7 +60,7 @@ Entity *addCrusher(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -68,7 +68,7 @@ Entity *addCrusher(int x, int y, char *name)
 static void touch(Entity *other)
 {
 	Entity *temp;
-	
+
 	/* Injure enemies as well as player */
 
 	if (other->type == ENEMY)
@@ -94,9 +94,9 @@ static void touch(Entity *other)
 static void init()
 {
 	createArm();
-	
+
 	self->flags |= ATTACKING;
-	
+
 	self->action = &crush;
 }
 
@@ -119,21 +119,21 @@ static void crush()
 			self->y = self->endY;
 
 			self->mental = 2;
-			
+
 			self->thinkTime = 30;
-			
+
 			if (self->health == -1)
 			{
 				playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 			}
 		}
-		
+
 		else if (self->y <= self->startY)
 		{
 			self->y = self->startY;
 
 			self->mental = 1;
-			
+
 			self->thinkTime = self->maxThinkTime;
 		}
 	}
@@ -160,7 +160,7 @@ static void createArm()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void armWait()
@@ -174,9 +174,9 @@ static void armWait()
 static int drawArm()
 {
 	int y;
-	
+
 	y = self->head->startY - self->h * 2;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y >= y)

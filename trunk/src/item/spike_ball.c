@@ -61,7 +61,7 @@ Entity *addSpikeBall(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -72,14 +72,14 @@ static void throwBall(int val)
 
 	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->active = TRUE;
 
 		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
 
 		e->thinkTime = 120;
-		
+
 		e->flags |= DO_NOT_PERSIST;
 
 		e->touch = &touch;
@@ -89,7 +89,7 @@ static void throwBall(int val)
 		e->dirX = player.face == LEFT ? -8 : 8;
 
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		e->fallout = &entityDieNoDrop;
 
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
@@ -149,11 +149,11 @@ static void explode()
 
 			e->dirX = (0 * cos(DEG_TO_RAD(i)) - 12 * sin(DEG_TO_RAD(i)));
 			e->dirY = (0 * sin(DEG_TO_RAD(i)) + 12 * cos(DEG_TO_RAD(i)));
-			
+
 			e->face = e->dirX < 0 ? LEFT : RIGHT;
 
 			e->flags |= FLY|ATTACKING;
-			
+
 			e->reactToBlock = &bounceOffShield;
 		}
 

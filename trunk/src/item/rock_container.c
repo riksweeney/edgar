@@ -55,7 +55,7 @@ Entity *addRockContainer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -66,7 +66,7 @@ static void init()
 
 	height = (self->endY - self->startY) * 2 / self->speed;
 	circ = 360 * (self->speed * 0.5);
-	
+
 	#if DEV == 1
 	if (strcmpignorecase(self->objectiveName, "TESTER") == 0)
 	{
@@ -76,11 +76,11 @@ static void init()
 		printf("Time to move is %f\n", height + circ);
 	}
 	#endif
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->weight = 0;
-		
+
 		self->originalWeight = self->weight;
 	}
 
@@ -146,7 +146,7 @@ static void move()
 			self->dirY *= -1;
 
 			self->weight = 0;
-			
+
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
@@ -163,7 +163,7 @@ static void move()
 			self->dirY *= -1;
 
 			self->weight = 0;
-			
+
 			self->originalWeight = self->weight;
 
 			self->action = &rotateAroundTarget;
@@ -178,7 +178,7 @@ static void rotateAroundTarget()
 	self->endX += self->speed * 0.5;
 
 	self->weight += self->speed * 0.5;
-	
+
 	self->originalWeight = self->weight;
 
 	if (self->endX >= 360)
@@ -191,7 +191,7 @@ static void rotateAroundTarget()
 		self->endX = self->endX >= 170 && self->endX <= 190 ? 180 : 0;
 
 		self->weight = 0;
-		
+
 		self->originalWeight = self->weight;
 
 		self->action = &move;

@@ -58,7 +58,7 @@ Entity *addAttractor(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -66,13 +66,13 @@ Entity *addAttractor(int x, int y, char *name)
 static void entityWait()
 {
 	int i;
-	
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
-	
+
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
+
 	if (self->active == TRUE)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			for (i=0;i<MAX_ENTITIES;i++)
@@ -83,15 +83,15 @@ static void entityWait()
 					setCustomAction(&entity[i], &attract, self->maxThinkTime, 0, (entity[i].x < (self->x + self->w / 2) ? self->speed : -self->speed));
 				}
 			}
-			
+
 			self->thinkTime = self->maxThinkTime;
-			
+
 			if (collision(self->x - self->mental, self->y, self->mental * 2, self->mental * 2, player.x, player.y, player.w, player.h) == 1)
 			{
 				setCustomAction(&player, &attract, self->maxThinkTime, 0, (player.x < (self->x + self->w / 2) ? self->speed : -self->speed));
 			}
 		}
-		
+
 		if (prand() % 3 == 0)
 		{
 			addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);

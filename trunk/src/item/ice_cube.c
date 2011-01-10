@@ -65,7 +65,7 @@ Entity *addIceCube(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -107,7 +107,7 @@ static void fallout()
 
 		self->element = WATER;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->x -= self->w / 2;
 
@@ -135,7 +135,7 @@ static void platformTouch(Entity *other)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		pushEntity(other);
@@ -144,7 +144,7 @@ static void platformTouch(Entity *other)
 
 static void growFinish()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 }
 
 static void iceFloat()
@@ -153,7 +153,7 @@ static void iceFloat()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_3);
+		setEntityAnimation(self, "ATTACK_3");
 
 		self->animationCallback = &shrinkFinish;
 	}

@@ -67,7 +67,7 @@ Entity *addTeleporter(char *name, int x, int y)
 
 	e->flags |= OBSTACLE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -78,12 +78,12 @@ static void entityWait()
 
 	if (self->active == FALSE)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 
 	else
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 	}
 
 	checkToMap(self);
@@ -113,7 +113,7 @@ static int draw()
 
 				e->alpha = 128;
 
-				setEntityAnimation(e, prand() % 5);
+				setEntityAnimationByID(e, prand() % 5);
 			}
 		}
 	}

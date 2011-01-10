@@ -57,7 +57,7 @@ Entity *addLightBeam(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

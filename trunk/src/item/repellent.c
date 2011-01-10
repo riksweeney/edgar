@@ -61,7 +61,7 @@ Entity *addRepellent(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -84,7 +84,7 @@ static void sprayRepellent(int val)
 		e->x = player.x + (player.face == RIGHT ? player.w : 0);
 		e->y = player.y + player.h / 2;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x -= player.face == RIGHT ? e->box.x : e->box.x + e->box.w;
 
@@ -106,7 +106,7 @@ static void sprayRepellent(int val)
 		e->dirX = player.face == RIGHT ? 2 + player.speed : -2 - player.speed;
 
 		e->thinkTime = 30;
-		
+
 		e->flags |= DO_NOT_PERSIST;
 
 		playSoundToMap("sound/item/spray.ogg", -1, player.x, player.y, 0);
@@ -143,7 +143,7 @@ static void sprayMove()
 		{
 			self->mental++;
 
-			setEntityAnimation(self, self->mental == 1 ? WALK : JUMP);
+			setEntityAnimation(self, self->mental == 1 ? "WALK" : "JUMP");
 
 			self->thinkTime = self->mental == 2 ? 360 : 30;
 		}

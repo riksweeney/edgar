@@ -74,7 +74,7 @@ Entity *addIceTortoise(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -82,7 +82,7 @@ Entity *addIceTortoise(int x, int y, char *name)
 static void walk()
 {
 	moveLeftToRight();
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -106,27 +106,27 @@ static void walk()
 static void changeWalkDirectionStart()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
-	setEntityAnimation(self, CUSTOM_1);
+
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &entityWait;
 
 	self->animationCallback = &changeWalkDirection;
 
 	self->thinkTime = 60;
-	
+
 	checkToMap(self);
 }
 
 static void changeWalkDirection()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
+
 	self->thinkTime--;
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	if (self->thinkTime <= 0)
 	{
@@ -134,37 +134,37 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
 		self->action = &entityWait;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void entityWait()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
+
 	checkToMap(self);
 }
 
 static void changeWalkDirectionFinish()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
+
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->thinkTime = 300 + prand() % 180;
-	
+
 	checkToMap(self);
 }
 
@@ -180,7 +180,7 @@ static void iceAttackStart()
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &createIce;
 	}
@@ -191,19 +191,19 @@ static void iceAttackStart()
 static void createIce()
 {
 	Entity *e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add an Ice Tortoise Ice Ball");
 	}
-	
+
 	loadProperties("enemy/ice_tortoise_ice_ball", e);
-	
-	setEntityAnimation(e, STAND);
+
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + 71;
 	e->y = self->y + 21;
-	
+
 	e->dirX = 2;
 	e->dirY = -2;
 
@@ -211,21 +211,21 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
-	
+
 	e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add an Ice Tortoise Ice Ball");
 	}
-	
+
 	loadProperties("enemy/ice_tortoise_ice_ball", e);
-	
-	setEntityAnimation(e, STAND);
+
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w - e->w - 71;
 	e->y = self->y + 21;
-	
+
 	e->dirX = -2;
 	e->dirY = -2;
 
@@ -233,10 +233,10 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
-	
+
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	self->action = &iceAttack;
 
@@ -246,14 +246,14 @@ static void createIce()
 static void iceAttack()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &iceAttackFinish;
 
@@ -266,8 +266,8 @@ static void iceAttack()
 static void iceAttackFinish()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
-	
-	setEntityAnimation(self, STAND);
+
+	setEntityAnimation(self, "STAND");
 
 	self->frameSpeed = 1;
 
@@ -283,45 +283,45 @@ static void iceAttackFinish()
 static void iceBallMove()
 {
 	int x;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		x = mapTileAt(self->x / TILE_SIZE, (self->y + self->h + 5) / TILE_SIZE);
-		
+
 		if (x >= SOLID_TILE_START && x <= SOLID_TILE_END)
 		{
 			self->layer = MID_GROUND_LAYER;
-			
+
 			x = self->x + self->w / 2;
-			
-			setEntityAnimation(self, WALK);
-			
+
+			setEntityAnimation(self, "WALK");
+
 			self->x = x - self->w / 2;
-			
+
 			self->action = &iceFloorWait;
-			
+
 			self->y++;
-			
+
 			self->thinkTime = 30;
 		}
-		
+
 		else
 		{
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	else if (self->standingOn != NULL)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			self->inUse = FALSE;
@@ -332,32 +332,32 @@ static void iceBallMove()
 static void iceFloorWait()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime == 0)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add an Upside Down Ice Spike");
 		}
-		
+
 		loadProperties("enemy/ice_spike_upside_down", e);
-		
-		setEntityAnimation(e, STAND);
+
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x;
 		e->y = self->y + self->h + 8;
-		
+
 		e->startY = self->y + self->h - e->h;
 
 		e->action = &iceSpikeMove;
 		e->touch = &entityTouch;
 		e->takeDamage = &spikeTakeDamage;
 		e->draw = &drawLoopingAnimationToMap;
-		
+
 		e->head = self;
 	}
 }
@@ -366,36 +366,36 @@ static void iceSpikeMove()
 {
 	int i;
 	Entity *e;
-	
+
 	self->dirX = 0;
-	
+
 	if (self->y > self->startY)
 	{
 		self->y -= 4;
-		
+
 		if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			if (self->head != NULL)
 			{
 				self->head->inUse = FALSE;
-			
+
 				self->head = NULL;
 			}
 		}
 	}
-	
+
 	else
 	{
 		checkToMap(self);
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->takeDamage = NULL;
-			
+
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
 
 			for (i=0;i<8;i++)
@@ -411,7 +411,7 @@ static void iceSpikeMove()
 				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
-				setEntityAnimation(e, i);
+				setEntityAnimationByID(e, i);
 
 				e->thinkTime = 60 + (prand() % 60);
 
@@ -419,7 +419,7 @@ static void iceSpikeMove()
 			}
 
 			self->inUse = FALSE;
-			
+
 			if (self->head != NULL)
 			{
 				self->head->inUse = FALSE;
@@ -431,7 +431,7 @@ static void iceSpikeMove()
 static void spikeTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -469,10 +469,10 @@ static void spikeTakeDamage(Entity *other, int damage)
 		else
 		{
 			self->thinkTime = 0;
-			
+
 			self->takeDamage = NULL;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }

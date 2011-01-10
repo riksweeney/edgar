@@ -64,7 +64,7 @@ Entity *addSpirit(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -138,32 +138,32 @@ static void die()
 	EntityList *l;
 	Entity *e;
 	int i;
-	
+
 	i = 0;
 
 	for (l=list->next;l!=NULL;l=l->next)
 	{
 		e = l->entity;
-		
+
 		e->target = self->target;
-		
+
 		e->targetX = e->x + (prand() % 160) * (prand() % 2 == 0 ? -1 : 1);
 		e->targetY = e->y + (prand() % 160) * (prand() % 2 == 0 ? -1 : 1);
-		
+
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-		
+
 		e->dirX *= 6;
 		e->dirY *= 6;
-		
+
 		e->action = &moveRandomly;
-		
+
 		i++;
 	}
-	
+
 	self->target->mental = i;
-	
+
 	freeEntityList(list);
-	
+
 	self->inUse = FALSE;
 }
 
@@ -173,20 +173,20 @@ static void moveRandomly()
 	{
 		self->targetX = self->target->x + (prand() % self->target->w / 2);
 		self->targetY = self->target->y - 96 - (prand() % 64);
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= 6;
 		self->dirY *= 6;
-		
+
 		self->action = &moveAboveBottle;
 	}
-	
+
 	else
 	{
 		self->x += self->dirX;
 		self->y += self->dirY;
-		
+
 		self->dirX *= 0.95;
 		self->dirY *= 0.95;
 	}
@@ -197,18 +197,18 @@ static void moveAboveBottle()
 	if (atTarget())
 	{
 		self->thinkTime = 60 + (prand() % 60);
-		
+
 		self->targetX = self->target->x + self->target->w / 2;
 		self->targetY = self->target->y + self->target->h / 2;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= 6;
 		self->dirY *= 6;
-		
+
 		self->action = &moveIntoBottle;
 	}
-	
+
 	else
 	{
 		self->x += self->dirX;
@@ -219,14 +219,14 @@ static void moveAboveBottle()
 static void moveIntoBottle()
 {
 	self->thinkTime--;
-	
+
 	if (atTarget())
 	{
 		self->target->mental--;
-		
+
 		self->inUse = FALSE;
 	}
-	
+
 	else
 	{
 		self->x += self->dirX;

@@ -138,7 +138,7 @@ int addToInventory(Entity *e)
 
 				inventory.item[i].thinkTime = 0;
 
-				setEntityAnimation(&inventory.item[i], STAND);
+				setEntityAnimation(&inventory.item[i], "STAND");
 
 				if (inventory.item[i].type == WEAPON)
 				{
@@ -173,25 +173,25 @@ int addToInventory(Entity *e)
 							case 1:
 								loadProperties("weapon/disintegration_shield_1", &inventory.item[i]);
 							break;
-							
+
 							case 2:
 								loadProperties("weapon/disintegration_shield_2", &inventory.item[i]);
 							break;
-							
+
 							case 3:
 								loadProperties("weapon/disintegration_shield_3", &inventory.item[i]);
 							break;
-							
+
 							case 4:
 								loadProperties("weapon/disintegration_shield_4", &inventory.item[i]);
 							break;
-							
+
 							default:
 								loadProperties("weapon/disintegration_shield", &inventory.item[i]);
 							break;
 						}
 					}
-					
+
 					autoSetPlayerShield(&inventory.item[i]);
 				}
 
@@ -403,7 +403,7 @@ void replaceInventoryItem(char *name, Entity *e)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], STAND);
+			setEntityAnimation(&inventory.item[i], "STAND");
 
 			return;
 		}
@@ -426,7 +426,7 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], STAND);
+			setEntityAnimation(&inventory.item[i], "STAND");
 
 			return;
 		}
@@ -666,7 +666,7 @@ void loadInventoryItems()
 				inventory.item[i].animation[j] = e.animation[j];
 			}
 
-			setEntityAnimation(&inventory.item[i], STAND);
+			setEntityAnimation(&inventory.item[i], "STAND");
 
 			if (inventory.item[i].type == WEAPON && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
 			{
@@ -979,7 +979,7 @@ void scriptAddToInventory(char *name, int quiet)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], STAND);
+			setEntityAnimation(&inventory.item[i], "STAND");
 
 			if (quiet == FALSE)
 			{

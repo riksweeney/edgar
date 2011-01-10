@@ -230,6 +230,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MENU_CODE "fasterthanthespeedoflove"
 
+#define MAX_ANIMATION_TYPES 30
+
 enum
 {
 	LEFT,
@@ -320,28 +322,6 @@ enum
 {
 	TILES,
 	ENTITIES
-};
-
-enum
-{
-	STAND,
-	WALK,
-	JUMP,
-	PAIN,
-	DIE,
-	BLOCK,
-	ATTACK_1,
-	ATTACK_2,
-	ATTACK_3,
-	ATTACK_4,
-	ATTACK_5,
-	CUSTOM_1,
-	CUSTOM_2,
-	CUSTOM_3,
-	CUSTOM_4,
-	CUSTOM_5,
-	TAUNT,
-	MAX_ANIMATION_TYPES
 };
 
 enum

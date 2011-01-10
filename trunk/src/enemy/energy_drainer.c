@@ -75,7 +75,7 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -207,7 +207,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -218,7 +218,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -289,7 +289,7 @@ static void die()
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 180;
 
@@ -383,7 +383,7 @@ static void createBeam()
 
 	e->face = RIGHT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->action = &beamWait;
 }

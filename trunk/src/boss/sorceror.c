@@ -87,7 +87,7 @@ Entity *addSorceror(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -118,7 +118,7 @@ static void stand()
 {
 	if (self->mental == -4)
 	{
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -132,7 +132,7 @@ static void stand2()
 {
 	if (self->mental == -3)
 	{
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -153,7 +153,7 @@ static void dungeonTeleportInit()
 
 	loadProperties("boss/sorceror_teleport_spell", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + e->offsetX;
 	e->y = self->y + e->offsetY;
@@ -180,7 +180,7 @@ static void dungeonTeleportWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 
 	checkToMap(self);
@@ -213,7 +213,7 @@ static void spellMove()
 
 				e->thinkTime = 5 + prand() % 30;
 
-				setEntityAnimation(e, prand() % 5);
+				setEntityAnimationByID(e, prand() % 5);
 			}
 		}
 	}
@@ -241,7 +241,7 @@ static void offscreenTeleportInit()
 
 	loadProperties("boss/sorceror_teleport_spell", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->face = self->face;
 
@@ -281,7 +281,7 @@ static void teleportOffscreenWait()
 	{
 		self->thinkTime = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (self->mental == -2)
 		{
@@ -299,11 +299,11 @@ static void disintegrationInit()
 		showErrorAndExit("No free slots to add the Disintegration Spell");
 	}
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	loadProperties("boss/sorceror_disintegration_spell", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->face = self->face;
 
@@ -392,7 +392,7 @@ static void disintegration()
 
 static void distintegrationTouch(Entity *other)
 {
-	setEntityAnimation(&player, CUSTOM_1);
+	setEntityAnimation(&player, "CUSTOM_1");
 }
 
 static int drawSpell()

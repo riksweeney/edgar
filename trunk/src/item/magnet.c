@@ -59,7 +59,7 @@ Entity *addMagnet(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -67,73 +67,73 @@ Entity *addMagnet(int x, int y, char *name)
 static void init()
 {
 	addChain();
-	
+
 	addRay();
-	
+
 	self->endY = getMapFloor(self->startX, self->startY);
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	float dirX;
-	
+
 	self->box.h = self->endY - self->startY;
-	
+
 	if (self->health == 0 && self->active == TRUE)
 	{
 		self->endX = playSoundToMap("sound/item/magnet.ogg", -1, self->x, self->y, -1);
-		
+
 		self->health = 1;
 	}
-	
+
 	if (self->target != NULL)
 	{
 		if (self->active == TRUE)
 		{
 			setCustomAction(self->target, &helpless, 5, 0, 0);
-			
+
 			if (self->target->y > self->y + self->h)
 			{
 				self->target->y -= 2;
-				
+
 				if (self->target->y <= self->y + self->h)
 				{
 					self->target->y = self->y + self->h;
-					
+
 					self->mental = 1;
-					
+
 					playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 				}
 			}
 		}
-		
+
 		else
 		{
 			self->target->flags &= ~FLY;
-			
+
 			self->target = NULL;
-			
+
 			self->mental = 0;
-			
+
 			self->health = 0;
-			
+
 			stopSound(self->endX);
 		}
 	}
-	
+
 	if (self->active == TRUE && self->mental == 1)
-	{		
+	{
 		dirX = self->dirX;
-		
+
 		checkToMap(self);
-		
+
 		if (self->dirX == 0)
 		{
 			self->dirX = dirX < 0 ? self->speed : -self->speed;
 		}
-		
+
 		if (self->target != NULL)
 		{
 			self->target->dirX = self->dirX;
@@ -148,11 +148,11 @@ static void touch(Entity *other)
 		if (abs(other->x - self->x - self->w / 2 + other->w / 2) <= 4)
 		{
 			self->target = other;
-			
+
 			setCustomAction(self->target, &helpless, 5, 0, 0);
-			
+
 			other->dirX = 0;
-			
+
 			other->flags |= FLY;
 		}
 	}
@@ -185,15 +185,15 @@ static void addChain()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static int drawChain()
 {
 	int y;
-	
+
 	y = self->head->startY - self->h * 2;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y >= y)
@@ -227,19 +227,19 @@ static void addRay()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void rayWait()
 {
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 	self->y = self->head->y + self->head->h;
-	
+
 	if (self->head->active == TRUE)
 	{
 		self->flags &= ~NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags |= NO_DRAW;

@@ -110,7 +110,7 @@ Entity *addPhoenix(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -123,7 +123,7 @@ static void initialise()
 	{
 		if (cameraAtMinimum())
 		{
-			setEntityAnimation(self, ATTACK_1);
+			setEntityAnimation(self, "ATTACK_1");
 
 			centerMapOnEntity(NULL);
 
@@ -171,7 +171,7 @@ static void doIntro()
 
 			self->action = &introPause;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 		}
 	}
 }
@@ -186,7 +186,7 @@ static void introPause()
 
 		initBossHealthBar();
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &attackFinished;
 
@@ -212,7 +212,7 @@ static void entityWait()
 		switch (r)
 		{
 			case 0:
-				setEntityAnimation(self, WALK);
+				setEntityAnimation(self, "WALK");
 
 				self->maxThinkTime = 3;
 
@@ -229,7 +229,7 @@ static void entityWait()
 					showErrorAndExit("Phoenix cannot find target");
 				}
 
-				setEntityAnimation(self, WALK);
+				setEntityAnimation(self, "WALK");
 
 				self->action = &flameAttackInit;
 
@@ -274,7 +274,7 @@ static void attackFinished()
 {
 	facePlayer();
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->thinkTime = 60;
 
@@ -333,7 +333,7 @@ static void dropAttack()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_2);
+		setEntityAnimation(self, "ATTACK_2");
 
 		self->dirY = 12;
 	}
@@ -372,7 +372,7 @@ static void riseAttackInit()
 
 		self->thinkTime = 30;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 	}
 
 	else
@@ -392,7 +392,7 @@ static void riseAttackInit()
 
 		self->thinkTime = 30;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 	}
 }
 
@@ -415,7 +415,7 @@ static void riseAttack()
 
 		self->maxThinkTime--;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		if (player.health <= 0)
 		{
@@ -512,7 +512,7 @@ static void fireballAttackFinish()
 
 		self->dirY = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &attackFinished;
 	}
@@ -528,7 +528,7 @@ static void flameAttackInit()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, ATTACK_3);
+			setEntityAnimation(self, "ATTACK_3");
 
 			addFlame();
 
@@ -555,7 +555,7 @@ static void flameAttack()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->maxThinkTime = 0;
 
@@ -620,7 +620,7 @@ static void addFlame()
 
 	self->maxThinkTime = 1;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void flameWait()
@@ -763,7 +763,7 @@ static void touch(Entity *other)
 
 			self->action = &stunned;
 
-			setEntityAnimation(self, CUSTOM_1);
+			setEntityAnimation(self, "CUSTOM_1");
 
 			self->y -= 32;
 		}
@@ -830,7 +830,7 @@ static void lavaWait()
 	{
 		self->flags |= (FLY|ATTACKING);
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &riseAttack;
 	}
@@ -840,7 +840,7 @@ static void lavaWait()
 
 static void stunFinish()
 {
-	setEntityAnimation(self, CUSTOM_2);
+	setEntityAnimation(self, "CUSTOM_2");
 
 	self->animationCallback = &revive;
 }
@@ -851,7 +851,7 @@ static void revive()
 
 	self->dirY = -6;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	self->flags |= (FLY|ATTACKING);
 
@@ -896,7 +896,7 @@ static void addStunStar()
 
 		e->head = self;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->currentFrame = (i == 0 ? 0 : 6);
 
@@ -964,7 +964,7 @@ static void dieWait()
 
 		loadProperties("boss/phoenix_die_fire", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + prand() % self->w;
 		e->y = self->y + self->h - e->h;
@@ -1007,7 +1007,7 @@ static void becomeAsh()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, DIE);
+		setEntityAnimation(self, "DIE");
 
 		self->action = &dieFinish;
 	}
@@ -1093,7 +1093,7 @@ static void resurrectInit()
 
 			loadProperties("boss/phoenix_die_fire", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->x = self->x + prand() % self->w;
 			e->y = self->y + self->h - e->h;
@@ -1140,7 +1140,7 @@ static void becomePhoenix()
 		x = self->x;
 		w = self->w;
 
-		setEntityAnimation(self, CUSTOM_2);
+		setEntityAnimation(self, "CUSTOM_2");
 
 		self->frameSpeed = 0;
 
@@ -1168,7 +1168,7 @@ static void resurrectFlyUp()
 {
 	self->action = &resurrectFlyUp;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	if (self->y > self->endY)
 	{
@@ -1195,7 +1195,7 @@ static void flyToLava()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_2);
+		setEntityAnimation(self, "ATTACK_2");
 
 		self->dirY = 12;
 	}
@@ -1247,7 +1247,7 @@ static void fireWait()
 			self->thinkTime = 20;
 		}
 
-		setEntityAnimation(self, self->health);
+		setEntityAnimationByID(self, self->health);
 	}
 
 	checkToMap(self);

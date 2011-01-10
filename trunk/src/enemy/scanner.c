@@ -59,7 +59,7 @@ Entity *addScanner(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -67,7 +67,7 @@ Entity *addScanner(int x, int y, char *name)
 static void init()
 {
 	self->endY = getMapFloor(self->x, self->y) - self->y;
-	
+
 	self->action = strcmpignorecase("enemy/blue_scanner", self->name) == 0 ? &closedEyeMove : &lookForPlayer;
 }
 
@@ -75,23 +75,23 @@ static void lookForPlayer()
 {
 	int frame;
 	float timer;
-	
+
 	if (self->active == TRUE)
 	{
 		self->flags &= ~NO_DRAW;
-		
+
 		moveLeftToRight();
-		
+
 		if (self->currentFrame == 3)
 		{
 			if (self->health == 0)
 			{
 				/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
-				
+
 				self->health = 1;
 			}
 		}
-		
+
 		else
 		{
 			self->health = 0;
@@ -100,32 +100,32 @@ static void lookForPlayer()
 		if (player.health > 0 && player.alpha == 255 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
 		{
 			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
-			
+
 			setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
-			
+
 			self->thinkTime = 300;
 
 			activateEntitiesWithRequiredName(self->objectiveName, FALSE);
-			
+
 			if (self->mental == 1)
 			{
 				summonEnemies();
 			}
-			
+
 			frame = self->currentFrame;
 			timer = self->frameTimer;
 
-			setEntityAnimation(self, ATTACK_1);
-			
+			setEntityAnimation(self, "ATTACK_1");
+
 			self->currentFrame = frame;
 			self->frameTimer = timer;
-			
+
 			self->target = &player;
 
 			self->action = &followPlayer;
 		}
 	}
-	
+
 	else
 	{
 		self->flags |= NO_DRAW;
@@ -136,73 +136,73 @@ static void closedEyeMove()
 {
 	int frame;
 	float timer;
-	
+
 	moveLeftToRight();
-	
+
 	if (self->currentFrame == 3)
 	{
 		if (self->health == 0)
-		{	
+		{
 			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
-			
+
 			self->health = 1;
 		}
 	}
-	
+
 	else
 	{
 		self->health = 0;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 1 - self->mental;
-		
+
 		frame = self->currentFrame;
 		timer = self->frameTimer;
 
-		setEntityAnimation(self, self->mental == 0 ? STAND : WALK);
-		
+		setEntityAnimation(self, self->mental == 0 ? "STAND" : "WALK");
+
 		self->currentFrame = frame;
 		self->frameTimer = timer;
-		
+
 		self->thinkTime = self->maxThinkTime;
 	}
 
 	if (player.health > 0 && self->mental == 0 && collision(self->x + self->w / 2 - 10, self->y, 20, self->endY, player.x, player.y, player.w, player.h) == 1)
 	{
 		playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
-		
+
 		setInfoBoxMessage(120, 255, 255, 255, _("INTRUDER!"));
-		
+
 		self->thinkTime = 300;
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
-		
+
 		if (self->damage == 1)
 		{
 			summonEnemies();
 		}
-		
+
 		frame = self->currentFrame;
 		timer = self->frameTimer;
 
-		setEntityAnimation(self, ATTACK_1);
-		
+		setEntityAnimation(self, "ATTACK_1");
+
 		self->currentFrame = frame;
 		self->frameTimer = timer;
-		
+
 		self->target = &player;
-		
+
 		if (self->damage == 2)
 		{
 			self->thinkTime = 120;
-			
+
 			self->action = &teleportPlayer;
 		}
-		
+
 		else
 		{
 			self->action = &followPlayer;
@@ -214,35 +214,35 @@ static void teleportPlayer()
 {
 	int frame;
 	float timer, x, y;
-	
+
 	if (self->target != NULL)
 	{
 		getCheckpoint(&x, &y);
-		
+
 		self->target->targetX = x;
 		self->target->targetY = y;
-		
+
 		calculatePath(self->target->x, self->target->y, self->target->targetX, self->target->targetY, &self->target->dirX, &self->target->dirY);
 
 		self->target->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/teleport.ogg", (self->target->type == PLAYER ? EDGAR_CHANNEL : -1), self->target->x, self->target->y, 0);
-		
+
 		self->target = NULL;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		frame = self->currentFrame;
 		timer = self->frameTimer;
 
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, "STAND");
+
 		self->currentFrame = frame;
 		self->frameTimer = timer;
-		
+
 		self->action = strcmpignorecase("enemy/blue_scanner", self->name) == 0 ? &closedEyeMove : &lookForPlayer;
 	}
 }
@@ -251,9 +251,9 @@ static void followPlayer()
 {
 	int frame;
 	float timer;
-	
+
 	self->targetX = self->target->x - self->w / 2 + self->target->w / 2;
-	
+
 	if (self->speed != 0)
 	{
 		/* Position under the player */
@@ -278,15 +278,15 @@ static void followPlayer()
 		if (self->thinkTime <= 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-			
+
 			frame = self->currentFrame;
 			timer = self->frameTimer;
 
-			setEntityAnimation(self, STAND);
-			
+			setEntityAnimation(self, "STAND");
+
 			self->currentFrame = frame;
 			self->frameTimer = timer;
-			
+
 			self->action = strcmpignorecase("enemy/blue_scanner", self->name) == 0 ? &closedEyeMove : &lookForPlayer;
 		}
 	}
@@ -302,9 +302,9 @@ static void summonEnemies()
 	for (i=0;i<2;i++)
 	{
 		summonCount = 0;
-		
+
 		summonIndex = 0;
-		
+
 		STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);
 
 		token = strtok(summonList, "|");
@@ -320,7 +320,7 @@ static void summonEnemies()
 		{
 			showErrorAndExit("Scanner at %f %f has no summon list", self->x, self->y);
 		}
-		
+
 		summonIndex = prand() % summonCount;
 
 		STRNCPY(summonList, self->requires, MAX_VALUE_LENGTH);

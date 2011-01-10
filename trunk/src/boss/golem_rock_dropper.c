@@ -52,7 +52,7 @@ Entity *addGolemRockDropper(int x, int y, char *name)
 	e->die = &die;
 	e->activate = &activate;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

@@ -62,10 +62,10 @@ Entity *addGasPlant(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
-	
+	setEntityAnimation(e, "STAND");
+
 	frameCount = getFrameCount(e);
-	
+
 	e->currentFrame = prand() % frameCount;
 
 	return e;
@@ -76,10 +76,10 @@ static void init()
 	if (self->mental >= 0)
 	{
 		self->mental = 0;
-		
+
 		self->action = &entityWait;
 	}
-	
+
 	else
 	{
 		switch (self->mental)
@@ -87,11 +87,11 @@ static void init()
 			case -2:
 				self->action = &sprayGas;
 			break;
-			
+
 			case -3:
 				self->action = &sprayGasWait;
 			break;
-			
+
 			default:
 				self->action = &entityWait;
 			break;
@@ -102,15 +102,15 @@ static void init()
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->mental == -1)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->mental = -2;
-			
+
 			self->action = &sprayGas;
 		}
 	}
@@ -119,13 +119,13 @@ static void entityWait()
 static void takeDamage(Entity *other, int damage)
 {
 	entityTakeDamageNoFlinch(other, damage);
-	
+
 	if (self->health > 0 && self->mental == 0)
 	{
 		self->mental = 1;
-		
+
 		self->thinkTime = 15;
-		
+
 		self->action = &sprayGas;
 	}
 }
@@ -134,13 +134,13 @@ static void sprayGas()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_1);
-		
+		setEntityAnimation(self, "ATTACK_1");
+
 		for (i=0;i<2;i++)
 		{
 			e = getFreeEntity();
@@ -157,43 +157,43 @@ static void sprayGas()
 			e->touch = &entityTouch;
 
 			e->type = ENEMY;
-			
+
 			e->dirX = i == 0 ? -e->speed : e->speed;
-			
+
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + e->offsetY;
 		}
-		
+
 		playSoundToMap("sound/item/spray.ogg", -1, self->x, self->y, 0);
-		
+
 		self->mental = self->mental >= 0 ? 0 : -3;
-		
+
 		self->action = &sprayGasWait;
-		
+
 		self->thinkTime = 30;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void sprayGasWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, "STAND");
+
 		if (self->mental < 0)
 		{
 			self->thinkTime = self->maxThinkTime;
-			
+
 			self->mental = -1;
 		}
-		
+
 		self->action = &entityWait;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -211,7 +211,7 @@ static void sprayMove()
 		{
 			self->mental++;
 
-			setEntityAnimation(self, self->mental == 1 ? WALK : JUMP);
+			setEntityAnimation(self, self->mental == 1 ? "WALK" : "JUMP");
 
 			self->thinkTime = self->mental == 2 ? 180 : 30;
 		}

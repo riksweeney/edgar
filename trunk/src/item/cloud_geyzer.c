@@ -57,7 +57,7 @@ Entity *addCloudGeyzer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -66,53 +66,53 @@ static void init()
 {
 	char name[MAX_VALUE_LENGTH];
 	Entity *e;
-	
+
 	snprintf(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->objectiveName);
-	
+
 	e = getEntityByObjectiveName(name);
 
 	if (e == NULL)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a Cloud Geyzer Cloud");
 		}
-		
+
 		loadProperties("item/cloud_geyzer_cloud", e);
-		
+
 		e->x = self->x + self->w / 2 - e->w / 2;
-		
+
 		e->y = self->y;
 		e->y -= 128;
-		
+
 		STRNCPY(e->objectiveName, name, sizeof(e->objectiveName));
 	}
-	
+
 	e->face = RIGHT;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &cloudTouch;
-	
+
 	e->action = &cloudWait;
 
-	setEntityAnimation(e, STAND);
-	
+	setEntityAnimation(e, "STAND");
+
 	self->target = e;
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->target->dirY = -self->mental;
 	}
 
@@ -122,13 +122,13 @@ static void entityWait()
 static void touch(Entity *other)
 {
 	char name[MAX_VALUE_LENGTH];
-	
+
 	if (other->dirY > 0)
 	{
 		snprintf(name, MAX_VALUE_LENGTH, "%s_CLOUD", self->name);
-		
+
 		if (other->type == ITEM && strcmpignorecase(other->name, name) == 0)
-		{	
+		{
 			other->y = self->y;
 			other->y -= other->h;
 

@@ -62,12 +62,12 @@ Entity *addBabySlime(int x, int y, char *name)
 	e->pain = NULL;
 	e->reactToBlock = NULL;
 	e->touch = &grab;
-	
+
 	if (strcmpignorecase(name, "enemy/purple_baby_slime") == 0)
 	{
 		e->takeDamage = &entityTakeDamageNoFlinch;
 	}
-	
+
 	else
 	{
 		e->takeDamage = &entityTakeDamageFlinch;
@@ -75,7 +75,7 @@ Entity *addBabySlime(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -250,7 +250,7 @@ static void stickToTargetAndDrain()
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("The armour is too tough for them to penetrate..."));
 		}
-		
+
 		self->mental = 0;
 	}
 
