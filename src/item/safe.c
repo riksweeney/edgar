@@ -63,21 +63,21 @@ Entity *addSafe(int x, int y, char *name)
 	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->touch = &touch;
-	
+
 	e->activate = &activate;
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void entityWait()
 {
-	
+
 }
 
 static void touch(Entity *other)
@@ -88,29 +88,29 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	Entity *e;
-	
+
 	self->mental = 0;
-	
+
 	self->health = 0;
-	
+
 	if (strlen(self->requires) == 0)
 	{
 		e = getInventoryItemByObjectiveName("Safe Combination");
-		
+
 		if (e == NULL)
 		{
 			runScript("no_combination");
-			
+
 			return;
 		}
-		
+
 		STRNCPY(self->requires, e->requires, sizeof(self->requires));
 	}
-	
+
 	addDisplay();
-	
+
 	self->action = &readInputCode;
-	
+
 	self->objectiveName[0] = '\0';
 
 	self->touch = NULL;
@@ -138,7 +138,7 @@ static void readInputCode()
 
 		val = 1;
 	}
-	
+
 	else if (input.attack == 1 || input.block == 1)
 	{
 		input.attack = 0;
@@ -146,7 +146,7 @@ static void readInputCode()
 
 		val = 5;
 	}
-	
+
 	else
 	{
 		val = 0;
@@ -161,47 +161,47 @@ static void readInputCode()
 				if (self->health != 0)
 				{
 					snprintf(code, sizeof(code), "%s%d%s", self->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
-					
+
 					STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
-					
+
 					self->mental = 0;
 				}
-				
+
 				self->health = val;
 			}
-			
+
 			self->target->currentFrame += val;
-			
+
 			frameCount = getFrameCount(self->target);
-			
+
 			if (self->target->currentFrame >= frameCount)
 			{
 				self->target->currentFrame = 0;
 			}
-			
+
 			else if (self->target->currentFrame < 0)
 			{
 				self->target->currentFrame = frameCount - 1;
 			}
-			
+
 			self->mental += val;
 		}
-		
+
 		if (val == 5)
 		{
 			snprintf(code, sizeof(code), "%s%d%s", self->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
-			
+
 			STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
-			
+
 			printf("%s == %s\n", self->objectiveName, self->requires);
-			
+
 			if (strcmpignorecase(self->objectiveName, self->requires) == 0)
 			{
 				printf("Complete\n");
 			}
-			
+
 			self->target->inUse = FALSE;
-			
+
 			self->action = &entityWait;
 
 			self->activate = &activate;
@@ -216,9 +216,9 @@ static void readInputCode()
 static void addDisplay()
 {
 	Entity *e;
-	
+
 	e = getFreeEntity();
-	
+
 	loadProperties("item/safe_display", e);
 
 	e->type = KEY_ITEM;
@@ -228,11 +228,11 @@ static void addDisplay()
 	e->action = &doNothing;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->frameSpeed = 0;
 
-	setEntityAnimation(e, STAND);
-	
+	setEntityAnimation(e, "STAND");
+
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y - 32;
 

@@ -69,7 +69,7 @@ Entity *addLabCrusher(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,7 +77,7 @@ Entity *addLabCrusher(int x, int y, char *name)
 static void init()
 {
 	createArm();
-	
+
 	self->action = &entityWait;
 }
 
@@ -86,10 +86,10 @@ static void entityWait()
 	if (self->active == TRUE)
 	{
 		self->target = self->health == -1 ? getEntityByObjectiveName(self->requires) : &player;
-		
+
 		self->action = &followTarget;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -106,9 +106,9 @@ static void followTarget()
 			self->x = self->targetX;
 
 			self->dirX = 0;
-			
+
 			self->action = &drop;
-			
+
 			self->thinkTime = 15;
 		}
 
@@ -119,26 +119,26 @@ static void followTarget()
 	}
 
 	checkToMap(self);
-	
+
 	if (self->x < self->startX)
 	{
 		self->dirX = 0;
-		
+
 		self->x = self->startX;
-		
+
 		self->action = &drop;
-		
+
 		self->thinkTime = 15;
 	}
-	
+
 	else if (self->x > self->endX)
 	{
 		self->dirX = 0;
-		
+
 		self->x = self->endX;
-		
+
 		self->action = &drop;
-		
+
 		self->thinkTime = 15;
 	}
 }
@@ -146,27 +146,27 @@ static void followTarget()
 static void drop()
 {
 	int i;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirY = 16;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		for (i=0;i<20;i++)
 		{
 			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 		}
-		
+
 		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
-		
+
 		self->thinkTime = 30;
-		
+
 		self->action = &rise;
 	}
 }
@@ -174,28 +174,28 @@ static void drop()
 static void rise()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirY = -4;
-		
+
 		if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->mental--;
-			
+
 			if (self->mental <= 0)
 			{
 				self->active = FALSE;
 			}
-			
+
 			self->dirY = 0;
-			
+
 			self->action = &followTarget;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -220,7 +220,7 @@ static void createArm()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void armWait()
@@ -234,9 +234,9 @@ static void armWait()
 static int drawArm()
 {
 	int y;
-	
+
 	y = self->head->endY - self->h * 2;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y >= y)
@@ -278,7 +278,7 @@ static void touch(Entity *other)
 					checkToMap(other);
 
 					other->dirX = dirX;
-					
+
 					if (other->dirY == 0)
 					{
 						/* Gib the player */
@@ -302,14 +302,14 @@ static void touch(Entity *other)
 				other->dirY = 0;
 				other->flags |= ON_GROUND;
 			}
-			
+
 			else
 			{
 				entityTouch(other);
 			}
 		}
 	}
-		
+
 	else
 	{
 		entityTouch(other);

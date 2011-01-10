@@ -62,14 +62,14 @@ Entity *addExtendOGrabButton(int x, int y, char *name)
 	e->touch = &touch;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 	self->action = &entityWait;
 }
@@ -80,18 +80,18 @@ static void entityWait()
 	{
 		self->mental--;
 	}
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->thinkTime = 0;
 
 			self->active = self->active == TRUE ? FALSE : TRUE;
 
-			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 			activateEntitiesWithRequiredName(self->objectiveName, self->active);
 
@@ -105,7 +105,7 @@ static void entityWait()
 static void touch(Entity *other)
 {
 	int total, remaining;
-	
+
 	if (self->mental == 0)
 	{
 		if (strcmpignorecase(other->name, "item/extend_o_grab") == 0)
@@ -118,7 +118,7 @@ static void touch(Entity *other)
 
 				return;
 			}
-			
+
 			total = 0;
 
 			remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
@@ -127,7 +127,7 @@ static void touch(Entity *other)
 			{
 				self->active = self->active == TRUE ? FALSE : TRUE;
 
-				setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+				setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 				activateEntitiesWithRequiredName(self->objectiveName, self->active);
 
@@ -137,7 +137,7 @@ static void touch(Entity *other)
 				{
 					self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 				}
-				
+
 				else if (total > 0)
 				{
 					setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
@@ -150,10 +150,10 @@ static void touch(Entity *other)
 			}
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
-			
+
 			self->mental = 30;
 		}
-		
+
 		else
 		{
 			pushEntity(other);

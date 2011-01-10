@@ -57,7 +57,7 @@ Entity *addCrossbowBolt(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -76,9 +76,9 @@ static void entityWait()
 	int i;
 	float dirX;
 	Entity *e;
-	
+
 	dirX = self->dirX;
-	
+
 	if (dirX != 0)
 	{
 		for (e=self->target;e!=NULL;e=e->target)
@@ -87,35 +87,35 @@ static void entityWait()
 			{
 				e->flags &= ~NO_DRAW;
 			}
-			
+
 			else
 			{
 				e->flags |= NO_DRAW;
 			}
 		}
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
-		
+
 		self->mental = 1;
-		
+
 		self->touch = &pushEntity;
-		
+
 		self->x += TILE_SIZE / 2;
-		
+
 		for (e=self->target;e!=NULL;e=e->target)
 		{
 			e->x += TILE_SIZE / 2;
-			
+
 			e->dirX = 0;
-			
+
 			e->touch = &pushEntity;
 		}
-		
+
 		for (i=0;i<6;i++)
 		{
 			e = addSmallRock(self->x, self->y, "common/small_rock");
@@ -126,7 +126,7 @@ static void entityWait()
 			e->dirX = -(prand() % 4 + 1);
 			e->dirY = -(prand() % 3 + 3);
 		}
-		
+
 		shakeScreen(MEDIUM, 15);
 	}
 }

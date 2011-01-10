@@ -66,7 +66,7 @@ Entity *addLift(char *name, int startX, int startY, int type)
 
 	e->flags |= OBSTACLE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -309,7 +309,7 @@ static void autoMove()
 	else
 	{
 		self->dirY = self->dirX = 0;
-		
+
 		self->thinkTime = 0;
 	}
 }
@@ -331,7 +331,7 @@ static void setToStart()
 		{
 			self->targetX = self->endX;
 			self->targetY = self->endY;
-			
+
 			self->health = 2;
 		}
 
@@ -339,7 +339,7 @@ static void setToStart()
 		{
 			self->targetX = self->startX;
 			self->targetY = self->startY;
-			
+
 			self->health = 1;
 		}
 

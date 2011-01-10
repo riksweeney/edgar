@@ -61,7 +61,7 @@ Entity *addPump(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -70,7 +70,7 @@ Entity *addPump(int x, int y, char *name)
 
 static void entityWait()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	checkToMap(self);
 }
@@ -91,12 +91,12 @@ static void touch(Entity *other)
 		e->health += dirY;
 	}
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->action = &entityWait;
 }

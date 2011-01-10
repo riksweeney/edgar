@@ -54,7 +54,7 @@ Entity *addSmallBoulder(int x, int y, char *name)
 	e->touch = &entityTouch;
 
 	e->die = &die;
-	
+
 	e->fallout = &fallout;
 
 	e->action = &roll;
@@ -63,7 +63,7 @@ Entity *addSmallBoulder(int x, int y, char *name)
 
 	e->dirY = 0;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -95,18 +95,18 @@ static void roll()
 			self->health = 1;
 		}
 	}
-	
+
 	onGround = (self->flags & ON_GROUND);
 
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		if (onGround == 0)
 		{
 			playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
 		}
-		
+
 		self->mental = 1;
 	}
 
@@ -131,7 +131,7 @@ static void die()
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
 
@@ -145,24 +145,24 @@ static void die()
 static void fallout()
 {
 	self->element = FIRE;
-	
+
 	self->dirX = 0;
-	
+
 	self->dirY = 0;
-	
+
 	self->frameSpeed = 0;
-	
+
 	self->flags |= DO_NOT_PERSIST;
-	
+
 	self->action = &dieInLava;
 }
-	
+
 static void dieInLava()
 {
 	self->dirY = 1.5;
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->inUse = FALSE;

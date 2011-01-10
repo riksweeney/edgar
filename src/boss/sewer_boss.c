@@ -142,7 +142,7 @@ Entity *addSewerBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -200,7 +200,7 @@ static void doIntro()
 
 static void attackFinished()
 {
-	setEntityAnimation(self, self->element == SLIME ? STAND : CUSTOM_1);
+	setEntityAnimation(self, self->element == SLIME ? "STAND" : "CUSTOM_1");
 
 	self->thinkTime = 180;
 
@@ -245,7 +245,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
 
 						self->mental = -10;
 
@@ -268,7 +268,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
 
 						self->mental = -10;
 
@@ -277,7 +277,7 @@ static void entityWait()
 
 					case 2:
 					case 3:
-						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
 
 						self->mental = -5;
 
@@ -300,7 +300,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
 
 						self->mental = -10;
 
@@ -309,7 +309,7 @@ static void entityWait()
 
 					case 2:
 					case 3:
-						setEntityAnimation(self, self->element == SLIME ? ATTACK_4 : CUSTOM_5);
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
 
 						self->mental = -5;
 
@@ -390,7 +390,7 @@ static void changeSidesWait()
 		{
 			self->element = SLIME;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			addClaws();
 
@@ -581,7 +581,7 @@ static void createArm(Entity *top)
 
 		body[i]->layer = top->layer;
 
-		setEntityAnimation(body[i], STAND);
+		setEntityAnimation(body[i], "STAND");
 	}
 
 	/* Recreate the claw so that it's on top */
@@ -644,7 +644,7 @@ static void clawWait()
 
 	if (self->head->mental == -5)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->targetX = self->face == LEFT ? self->startX - 64 : self->startX + 64;
 		self->targetY = self->startY;
@@ -667,7 +667,7 @@ static void clawWait()
 
 		if ((self->head->endX == 2 && self->layer == FOREGROUND_LAYER) || self->head->endX == 1)
 		{
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->targetX = self->startX;
 			self->targetY = self->startY;
@@ -685,7 +685,7 @@ static void clawWait()
 
 	else if (self->head->mental == -20)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		if (self->layer == FOREGROUND_LAYER)
 		{
@@ -729,7 +729,7 @@ static void clawWait()
 
 	else if (self->head->mental == -50)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->face = LEFT;
 
@@ -779,7 +779,7 @@ static void clawWait()
 
 	else if (self->head->mental == -65)
 	{
-		setEntityAnimation(self, JUMP);
+		setEntityAnimation(self, "JUMP");
 
 		if (self->layer == FOREGROUND_LAYER)
 		{
@@ -928,7 +928,7 @@ static void clawSideAttackFinish()
 {
 	if (atTarget())
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->layer = self->face == RIGHT ? FOREGROUND_LAYER : BACKGROUND_LAYER;
 
@@ -1057,7 +1057,7 @@ static void punchAttackFinish()
 	{
 		if (atTarget())
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->targetX = self->startX;
 
@@ -1372,7 +1372,7 @@ static void slimeAttackMoveToTarget()
 	{
 		self->touch = NULL;
 
-		setEntityAnimation(self, self->element == SLIME ? ATTACK_1 : CUSTOM_2);
+		setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "CUSTOM_2");
 
 		self->animationCallback = &slimeAttackBreatheIn;
 
@@ -1386,7 +1386,7 @@ static void slimeAttackMoveToTarget()
 
 static void slimeAttackBreatheIn()
 {
-	setEntityAnimation(self, self->element == SLIME ? ATTACK_2 : CUSTOM_3);
+	setEntityAnimation(self, self->element == SLIME ? "ATTACK_2" : "CUSTOM_3");
 
 	self->action = &slimeAttackBreatheIn;
 
@@ -1464,7 +1464,7 @@ static void slimeAttack()
 			{
 				self->touch = NULL;
 
-				setEntityAnimation(self, self->element == SLIME ? ATTACK_1 : CUSTOM_2);
+				setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "CUSTOM_2");
 
 				self->animationCallback = &slimeAttackBreatheIn;
 
@@ -1494,7 +1494,7 @@ static void slimeAttackMouthClose()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, self->element == SLIME ? ATTACK_3 : CUSTOM_4);
+		setEntityAnimation(self, self->element == SLIME ? "ATTACK_3" : "CUSTOM_4");
 
 		self->animationCallback = &slimeAttackFinish;
 
@@ -1521,7 +1521,7 @@ static void slimeAttackFinish()
 		self->action = &attackFinished;
 	}
 
-	setEntityAnimation(self, self->element == SLIME ? STAND : CUSTOM_1);
+	setEntityAnimation(self, self->element == SLIME ? "STAND" : "CUSTOM_1");
 
 	checkToMap(self);
 }
@@ -1666,7 +1666,7 @@ static void addMouthOrb()
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->head = self;
 
@@ -1752,7 +1752,7 @@ static void orbTakeDamage(Entity *other, int damage)
 			{
 				self->head->mental = 0;
 
-				setEntityAnimation(self->head, self->head->element == WATER ? DIE : PAIN);
+				setEntityAnimation(self->head, self->head->element == WATER ? "DIE" : "PAIN");
 
 				self->head->startX = self->head->x;
 
@@ -1832,7 +1832,7 @@ static void changeToWater()
 
 	if (self->alpha <= 0)
 	{
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->alpha = 255;
 
@@ -1862,7 +1862,7 @@ static int draw()
 
 	/* Draw the other part with its rising alpha */
 
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -1873,7 +1873,7 @@ static int draw()
 
 	/* Reset back to original */
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -1899,7 +1899,7 @@ static int armDraw()
 
 	/* Draw the other part with its rising alpha */
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -1910,7 +1910,7 @@ static int armDraw()
 
 	/* Reset back to original */
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -1928,7 +1928,7 @@ static void armChangeToWater()
 	{
 		self->element = WATER;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->alpha = 255;
 

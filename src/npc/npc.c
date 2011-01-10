@@ -58,7 +58,7 @@ Entity *addNPC(char *name, int x, int y)
 
 	e->type = NPC;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

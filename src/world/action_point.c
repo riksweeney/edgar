@@ -62,7 +62,7 @@ Entity *addActionPoint(char *name, int x, int y)
 
 	e->maxHealth = e->health;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

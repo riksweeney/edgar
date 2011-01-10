@@ -58,7 +58,7 @@ Entity *addMoveableLift(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -91,7 +91,7 @@ static void activate(int val)
 		self->health = 2;
 	}
 
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->thinkTime = 120;
 }

@@ -64,7 +64,7 @@ Entity *addHealthPotion(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &useHealthPotion;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -113,7 +113,7 @@ Entity *addSlimePotion(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &useSlimePotion;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -159,7 +159,7 @@ Entity *addInvisibilityPotion(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &useInvisibilityPotion;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -196,7 +196,7 @@ Entity *addFlamingArrowPotion(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->activate = &useFlamingArrowPotion;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -205,60 +205,60 @@ static void useFlamingArrowPotion(int val)
 {
 	int addNew, maxArrows;
 	Entity *arrow, *fireArrow;
-	
+
 	arrow = getInventoryItemByName("weapon/normal_arrow");
-	
+
 	if (arrow == NULL)
 	{
 		if (game.status == IN_INVENTORY)
 		{
 			setInventoryDialogMessage(_("Normal Arrow is required"));
 		}
-		
+
 		else
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("Normal Arrow is required"));
 		}
-		
+
 		return;
 	}
-	
+
 	addNew = FALSE;
-	
+
 	fireArrow = getInventoryItemByName("weapon/flaming_arrow");
-	
+
 	if (fireArrow == NULL)
 	{
 		addNew = TRUE;
-		
+
 		fireArrow = addPermanentItem("weapon/flaming_arrow", 0, 0);
-		
+
 		fireArrow->health = 0;
 	}
-	
+
 	maxArrows = MAX_STACKABLES - fireArrow->health;
-	
+
 	maxArrows = arrow->health > maxArrows ? maxArrows : arrow->health;
-	
+
 	fireArrow->health += maxArrows;
-	
+
 	arrow->health -= maxArrows;
-	
+
 	if (game.status == IN_INVENTORY)
 	{
 		setInventoryDialogMessage(_("Created %d Flaming Arrows"), maxArrows);
 	}
-	
+
 	else
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("Created %d Flaming Arrows"), maxArrows);
 	}
-	
+
 	if (arrow->health <= 0)
 	{
 		removeInventoryItemByName("weapon/normal_arrow");
 	}
-	
+
 	if (addNew == TRUE)
 	{
 		addToInventory(fireArrow);

@@ -53,7 +53,7 @@ Entity *addPowerMeter(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -61,41 +61,41 @@ Entity *addPowerMeter(int x, int y, char *name)
 static void entityWait()
 {
 	int frameCount;
-	
+
 	self->mental--;
-	
+
 	if (self->mental <= 0)
 	{
 		self->mental = 0;
 	}
-	
+
 	if (self->health != self->mental)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->health += (self->mental < self->health ? -1 : 1);
-			
+
 			self->thinkTime = 30;
 		}
 	}
-	
+
 	frameCount = getFrameCount(self);
-	
+
 	if (self->health >= frameCount)
 	{
 		self->health = frameCount - 1;
-		
+
 		if (self->endX != 1)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-			
+
 			self->endX = 1;
 		}
 	}
-	
+
 	self->currentFrame = self->health;
-	
+
 	checkToMap(self);
 }

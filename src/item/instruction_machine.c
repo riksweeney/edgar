@@ -59,7 +59,7 @@ Entity *addInstructionMachine(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -141,10 +141,10 @@ static void readInputCode()
 	else if (input.attack == 1)
 	{
 		input.attack = 0;
-		
+
 		val = 5;
 	}
-	
+
 	else
 	{
 		val = -1;
@@ -164,7 +164,7 @@ static void readInputCode()
 		{
 			setInfoBoxMessage(300, 255, 255, 255, _("Out of space for instructions"));
 		}
-		
+
 		self->touch = &touch;
 		self->activate = &activate;
 
@@ -173,24 +173,24 @@ static void readInputCode()
 
 	else if (val != -1)
 	{
-		setEntityAnimation(self->target, val);
+		setEntityAnimationByID(self->target, val);
 
 		playSoundToMap("sound/item/charge_beep.ogg", -1, self->x, self->y, 0);
-		
+
 		switch (val)
 		{
 			case 1:
 				c = 'u';
 			break;
-			
+
 			case 2:
 				c = 'd';
 			break;
-			
+
 			case 3:
 				c = 'l';
 			break;
-			
+
 			default:
 				c = 'r';
 			break;
@@ -220,7 +220,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 

@@ -54,7 +54,7 @@ Entity *addBubbleMachine(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -67,14 +67,14 @@ static void entityWait()
 	{
 		if (self->health == 3)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->health = 0;
 		}
 
 		else
 		{
-			setEntityAnimation(self, self->health);
+			setEntityAnimationByID(self, self->health);
 		}
 
 		self->thinkTime = 0;
@@ -128,13 +128,13 @@ static void touch(Entity *other)
 			self->thinkTime = 10;
 		}
 
-		setEntityAnimation(self, self->health + 3);
+		setEntityAnimationByID(self, self->health + 3);
 	}
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->action = &entityWait;
 }

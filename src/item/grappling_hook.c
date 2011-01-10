@@ -56,7 +56,7 @@ Entity *addGrapplingHook(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

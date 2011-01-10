@@ -61,7 +61,7 @@ Entity *addRedGrub(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -97,7 +97,7 @@ static void lookForPlayer()
 
 static void spinAttackStart()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->flags |= INVULNERABLE;
 
@@ -178,7 +178,7 @@ static void spinAttackEnd()
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->dirX = 0;
 

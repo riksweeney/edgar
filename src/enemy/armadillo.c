@@ -54,7 +54,7 @@ Entity *addArmadillo(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -70,7 +70,7 @@ static void die()
 		e->x -= e->w / 2;
 
 		e->action = &generalItemAction;
-		
+
 		e->flags |= DO_NOT_PERSIST;
 	}
 

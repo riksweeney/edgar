@@ -65,7 +65,7 @@ Entity *addMataeusWall(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -93,11 +93,11 @@ static void initFall()
 	int tileX, tileY;
 
 	self->thinkTime--;
-	
+
 	if (self->mental == 0 && (self->flags & FLY))
 	{
 		self->x = self->startX;
-		
+
 		self->action = &entityWait;
 	}
 
@@ -116,7 +116,7 @@ static void initFall()
 		self->thinkTime = 0;
 
 		self->x = self->startX;
-		
+
 		self->damage = 1;
 
 		checkToMap(self);
@@ -133,14 +133,14 @@ static void initFall()
 			self->damage = 0;
 
 			self->thinkTime = 30;
-			
+
 			switch (self->mental)
 			{
 				case 0:
 				case 1:
 					self->action = &resetWait;
 				break;
-				
+
 				default:
 					self->action = &lavaWait;
 				break;
@@ -202,7 +202,7 @@ static void resetPlatform()
 	if (self->y <= self->startY)
 	{
 		self->y = self->startY;
-		
+
 		self->dirY = 0;
 
 		self->thinkTime = self->maxThinkTime;
@@ -222,9 +222,9 @@ static void lavaResetMove()
 	if (self->y <= self->startY + 256)
 	{
 		self->y = self->startY + 256;
-		
+
 		self->dirY = 0;
-		
+
 		self->head->mental--;
 
 		self->thinkTime = 60 + prand() % 300;
@@ -267,13 +267,13 @@ static void lavaResetWait()
 		else if (self->thinkTime <= 0)
 		{
 			self->x = self->startX;
-			
+
 			self->dirY = -9;
 
 			if (self->y <= self->startY)
 			{
 				self->head->mental--;
-				
+
 				self->y = self->startY;
 
 				self->thinkTime = self->maxThinkTime;
@@ -351,13 +351,13 @@ static void touch(Entity *other)
 				other->standingOn = self;
 				other->dirY = 0;
 				other->flags |= ON_GROUND;
-				
+
 				if (self->mental == 2 && self->head->mental == 0)
 				{
 					self->thinkTime = 90;
-					
+
 					self->mental = 5;
-					
+
 					self->action = &wallAttackWait;
 				}
 			}
@@ -368,7 +368,7 @@ static void touch(Entity *other)
 static void wallAttackWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime > 0 && self->thinkTime <= 90)
 	{
 		if (self->x == self->startX || (self->thinkTime % 4 == 0))
@@ -379,34 +379,34 @@ static void wallAttackWait()
 
 	else if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_1);
-		
+		setEntityAnimation(self, "ATTACK_1");
+
 		playSoundToMap("sound/item/tesla_electrocute.ogg", -1, self->x, self->y, 0);
-		
+
 		self->x = self->startX;
-		
+
 		self->thinkTime = 30;
-		
+
 		self->damage = 1;
-		
+
 		self->action = &wallAttack;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void wallAttack()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, "STAND");
+
 		self->damage = 0;
-		
+
 		self->mental = self->mental == 3 ? 3 : 2;
-		
+
 		self->thinkTime = 60 + prand() % 180;
 
 		self->action = &lavaResetWait;

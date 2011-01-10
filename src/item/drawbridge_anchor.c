@@ -63,7 +63,7 @@ Entity *addDrawbridgeAnchor(int x, int y, char *name)
 
 	e->draw = &draw;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -73,35 +73,35 @@ Entity *addDrawbridgeAnchor(int x, int y, char *name)
 static void entityWait()
 {
 	self->layer = self->mental < 0 ? BACKGROUND_LAYER : FOREGROUND_LAYER;
-	
+
 	checkToMap(self);
 }
 
 static int draw()
 {
 	drawLoopingAnimationToMap();
-	
+
 	self->x += self->offsetX;
 	self->y -= self->offsetY;
-	
-	setEntityAnimation(self, WALK);
-	
+
+	setEntityAnimation(self, "WALK");
+
 	self->face = LEFT;
-	
+
 	while (self->x < self->endX)
 	{
 		drawSpriteToMap();
-		
+
 		self->x += self->offsetX;
 		self->y -= self->offsetY;
 	}
-	
+
 	self->face = RIGHT;
-	
-	setEntityAnimation(self, STAND);
-	
+
+	setEntityAnimation(self, "STAND");
+
 	self->x = self->startX;
 	self->y = self->startY;
-	
+
 	return TRUE;
 }

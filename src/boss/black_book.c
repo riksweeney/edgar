@@ -74,7 +74,7 @@ Entity *addBlackBook(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -86,12 +86,12 @@ static void init()
 		case 0:
 			self->action = &initialise;
 		break;
-		
+
 		default:
 			self->touch = &shelfTouch;
-			
+
 			self->activate = &activate;
-			
+
 			self->action = &waitOnShelf;
 		break;
 	}
@@ -120,9 +120,9 @@ static void initialise()
 	{
 		minX = getMapStartX();
 		minY = getMapStartY();
-		
+
 		self->flags &= ~NO_DRAW;
-		
+
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
@@ -140,15 +140,15 @@ static void doIntro()
 {
 	Entity *e;
 	Target *t;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= DO_NOT_PERSIST;
-		
+
 		e = addEnemy("boss/mataeus", self->x, self->y);
-		
+
 		t = getTargetByName("MATAEUS_RIGHT_TARGET");
 
 		if (t == NULL)

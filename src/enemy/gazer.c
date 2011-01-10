@@ -65,7 +65,7 @@ Entity *addGazer(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -146,7 +146,7 @@ static void gazeInit()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &gaze;
 	}
@@ -155,7 +155,7 @@ static void gazeInit()
 static void gaze()
 {
 	playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
-	
+
 	fadeFromColour(255, 255, 255, 60);
 
 	if ((player.x < self->x && player.face == RIGHT) || (player.x > self->x && player.face == LEFT))
@@ -184,7 +184,7 @@ static void gazeFinish()
 	{
 		self->dirX = self->face == RIGHT ? self->speed : -self->speed;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &fly;
 

@@ -61,7 +61,7 @@ Entity *addEgg(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -100,7 +100,7 @@ static void hatch()
 	e->dirY = -2;
 	e->face = RIGHT;
 
-	setEntityAnimation(e, WALK);
+	setEntityAnimation(e, "WALK");
 
 	e = addTemporaryItem(self->name, self->x, self->y, self->face, 0, 0);
 
@@ -108,7 +108,7 @@ static void hatch()
 	e->dirY = -2;
 	e->face = RIGHT;
 
-	setEntityAnimation(e, JUMP);
+	setEntityAnimation(e, "JUMP");
 
 	e = addEnemy(self->objectiveName, 0, 0);
 

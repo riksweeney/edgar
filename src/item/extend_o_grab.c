@@ -65,7 +65,7 @@ Entity *addExtendOGrab(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,37 +77,37 @@ static void grab(int val)
 	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND) && isAttacking() == FALSE)
 	{
 		setCustomAction(&player, &helpless, 2, 0, 0);
-		
+
 		playerStand();
-		
+
 		player.dirX = 0;
-		
+
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add an Extend-O-Grab");
 		}
-		
+
 		loadProperties(self->name, e);
-		
-		setEntityAnimation(e, WALK);
-		
+
+		setEntityAnimation(e, "WALK");
+
 		e->flags |= FLY;
-		
+
 		e->x = player.x + player.w / 2;
 		e->y = player.y + player.h / 2 - e->h / 2;
 
 		e->dirX = player.face == LEFT ? -self->speed : self->speed;
-		
+
 		e->startX = e->x;
 
 		e->face = player.face;
-		
+
 		e->action = &extend;
 		e->touch = &touch;
 		e->draw = &draw;
-		
+
 		e->health = 1;
 
 		self->thinkTime = self->maxThinkTime;
@@ -117,45 +117,45 @@ static void grab(int val)
 static void extend()
 {
 	setCustomAction(&player, &helpless, 2, 0, 0);
-	
+
 	if (self->dirX == 0)
 	{
 		self->dirX = self->face == LEFT ? self->speed : -self->speed;
-		
+
 		self->action = &retract;
-		
-		setEntityAnimation(self, JUMP);
-		
+
+		setEntityAnimation(self, "JUMP");
+
 		self->health = 2;
 	}
-	
+
 	else
 	{
 		checkToMap(self);
-		
+
 		self->mental += fabs(self->dirX);
-		
+
 		if (self->mental >= 256)
 		{
 			self->dirX = 0;
 		}
 	}
-	
+
 	self->y = player.y + player.h / 2 - self->h / 2;
 }
 
 static void retract()
 {
 	Entity *temp;
-	
+
 	setCustomAction(&player, &helpless, 2, 0, 0);
-	
+
 	self->x += self->face == LEFT ? self->speed : -self->speed;
-	
+
 	if (self->target != NULL)
 	{
 		self->target->x += self->face == LEFT ? self->speed : -self->speed;
-		
+
 		self->target->y = self->y + self->h / 2 - self->target->h / 2;
 	}
 
@@ -164,17 +164,17 @@ static void retract()
 		if (self->target != NULL)
 		{
 			temp = self;
-			
+
 			self = self->target;
-			
+
 			self->touch(&player);
-			
+
 			self = temp;
 		}
-		
+
 		self->inUse = FALSE;
 	}
-	
+
 	self->y = player.y + player.h / 2 - self->h / 2;
 }
 
@@ -183,11 +183,11 @@ static void touch(Entity *other)
 	if (self->target == NULL && (other->touch == &keyItemTouch || other->touch == &healthTouch))
 	{
 		self->target = other;
-		
+
 		self->target->x = self->x + self->w / 2 - other->w / 2;
-		
+
 		self->target->y = self->y + self->h / 2 - other->h / 2;
-		
+
 		self->dirX = 0;
 	}
 }
@@ -200,8 +200,8 @@ static int draw()
 
 	/* Draw the segments first */
 
-	setEntityAnimation(self, BLOCK);
-	
+	setEntityAnimation(self, "BLOCK");
+
 	if (self->face == RIGHT)
 	{
 		while (self->x >= self->startX)
@@ -224,7 +224,7 @@ static int draw()
 
 	/* Draw the tip */
 
-	setEntityAnimation(self, self->health == 1 ? WALK : JUMP);
+	setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
 
 	self->x = startX;
 

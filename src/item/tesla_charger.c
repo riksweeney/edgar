@@ -64,7 +64,7 @@ Entity *addTeslaCharger(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -102,27 +102,27 @@ static void setChargeState()
 	switch (self->health)
 	{
 		case 0:
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 			self->action = &recharge;
 		break;
 
 		case 1:
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 			self->action = &recharge;
 		break;
 
 		case 2:
-			setEntityAnimation(self, JUMP);
+			setEntityAnimation(self, "JUMP");
 			self->action = &recharge;
 		break;
 
 		case 3:
-			setEntityAnimation(self, PAIN);
+			setEntityAnimation(self, "PAIN");
 			self->action = &entityWait;
 		break;
 
 		default:
-			setEntityAnimation(self, DIE);
+			setEntityAnimation(self, "DIE");
 			self->action = &entityWait;
 		break;
 	}

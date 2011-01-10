@@ -65,7 +65,7 @@ Entity *addChickenTrap(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -74,7 +74,7 @@ static void trapWait()
 {
 	if (self->target == NULL)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 
 	self->health = self->maxHealth;
@@ -86,7 +86,7 @@ static void trapWait()
 
 static void trapEntity()
 {
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	playSoundToMap("sound/item/trap_close.ogg", -1, self->x, self->y, 0);
 
@@ -141,7 +141,7 @@ static void resetTrap()
 	{
 		self->thinkTime = 0;
 
-		setEntityAnimation(self, ATTACK_2);
+		setEntityAnimation(self, "ATTACK_2");
 
 		self->animationCallback = &resetComplete;
 	}
@@ -155,7 +155,7 @@ static void resetComplete()
 
 	self->touch = &touch;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 }
 
 static void activateTrap()
@@ -184,7 +184,7 @@ static void activateTrap()
 
 					self->target->animationCallback = NULL;
 
-					setEntityAnimation(self->target, CUSTOM_1);
+					setEntityAnimation(self->target, "CUSTOM_1");
 
 					self->target->x = self->x + abs(self->target->w - self->w) / 2;
 
@@ -193,7 +193,7 @@ static void activateTrap()
 			}
 		}
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &trapEntity;
 	}

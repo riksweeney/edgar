@@ -60,7 +60,7 @@ Entity *addLargeRock(int x, int y, char *name)
 
 	e->dirY = 0;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -82,14 +82,14 @@ Entity *addSmallRock(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->action = &smallRockFall;
-	
+
 	e->fallout = &entityDieNoDrop;
 
 	e->type = TEMP_ITEM;
 
 	e->dirY = 0;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

@@ -343,7 +343,7 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "NOT_EXISTS") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
@@ -432,7 +432,7 @@ void readNextScriptLine()
 				else if (strcmpignorecase(token, "MENTAL") == 0)
 				{
 					token = strtok_r(NULL, " ", &savePtr);
-					
+
 					if (strcmpignorecase(token, "NOT") == 0)
 					{
 						token = strtok_r(NULL, " ", &savePtr);
@@ -670,7 +670,7 @@ void readNextScriptLine()
 			{
 				token = strtok_r(NULL, " ", &savePtr);
 
-				setEntityAnimation(e, getAnimationTypeByName(token));
+				setEntityAnimation(e, token);
 
 				if (e == &player)
 				{

@@ -69,7 +69,7 @@ Entity *addScorpion(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -96,7 +96,7 @@ static void addClaw()
 
 	e->flags |= ATTACKING;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	self->action = &lookForPlayer;
 }
@@ -115,7 +115,7 @@ static void takeDamage(Entity *other, int damage)
 
 static void lookForPlayer()
 {
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	moveLeftToRight();
 
@@ -140,7 +140,7 @@ static void attack()
 
 	if (distance > 18)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
@@ -149,7 +149,7 @@ static void attack()
 	{
 		self->dirX = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		move = prand() % 3;
 
@@ -183,7 +183,7 @@ static void clawAttack()
 {
 	self->dirX = 0;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->flags |= ATTACKING;
 
@@ -199,7 +199,7 @@ static void clawAttack()
 
 static void stingAttack()
 {
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->flags |= ATTACKING|UNBLOCKABLE;
 
@@ -214,7 +214,7 @@ static void attackFinished()
 
 	self->dirX = 0;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->flags &= ~(UNBLOCKABLE|ATTACKING);
 

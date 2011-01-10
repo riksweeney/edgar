@@ -63,7 +63,7 @@ Entity *addSoulBottle(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -92,7 +92,7 @@ static void useBottle(int val)
 
 		e->thinkTime = 300;
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 
 		removeInventoryItemByObjectiveName(self->objectiveName);
 	}
@@ -115,7 +115,7 @@ static void soulActivate()
 
 			loadProperties("item/bottle_magic", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y - e->h;
@@ -137,7 +137,7 @@ static void soulActivate()
 				self->target->inUse = FALSE;
 			}
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->touch = &keyItemTouch;
 		}
@@ -169,11 +169,11 @@ static void soulTouch(Entity *other)
 		self->activate = NULL;
 
 		fireTrigger(other->objectiveName);
-		
+
 		other->target = self;
 
 		other->action = other->die;
-		
+
 		self->mental = 11;
 	}
 }
@@ -186,9 +186,9 @@ static void bottleFill()
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		loadProperties("item/full_soul_bottle", self);
-		
+
 		self->touch = &keyItemTouch;
 	}
 }

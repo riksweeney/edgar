@@ -111,7 +111,7 @@ Entity *addFlyBoss(int x, int y, char *name)
 
 	e->die = &die;
 
-	setEntityAnimation(e, CUSTOM_1);
+	setEntityAnimation(e, "CUSTOM_1");
 
 	return e;
 }
@@ -160,7 +160,7 @@ static void doIntro()
 	{
 		self->x = self->startX;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
 
@@ -174,7 +174,7 @@ static void doIntro()
 			e->dirX = (prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 180 + (prand() % 60);
 		}
@@ -363,7 +363,7 @@ static void dropInit()
 {
 	Target *left, *right;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->dirY = 0;
 
@@ -605,7 +605,7 @@ static void headButtMoveToPosition()
 	{
 		self->flags &= ~(FLY|UNBLOCKABLE);
 
-		setEntityAnimation(self, ATTACK_2);
+		setEntityAnimation(self, "ATTACK_2");
 
 		self->thinkTime = 60;
 
@@ -708,7 +708,7 @@ static void stingAttackMoveToPosition()
 
 		bottomY = self->y + self->h - 1;
 
-		setEntityAnimation(self, ATTACK_3);
+		setEntityAnimation(self, "ATTACK_3");
 
 		self->y = bottomY - self->h;
 
@@ -765,7 +765,7 @@ static void stingAttack()
 
 			self->touch = &entityTouch;
 
-			setEntityAnimation(self, ATTACK_2);
+			setEntityAnimation(self, "ATTACK_2");
 
 			self->thinkTime = 180;
 		}
@@ -945,7 +945,7 @@ static void attackFinished()
 
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->y = bottomY - self->h - 1;
 

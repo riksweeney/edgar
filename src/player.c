@@ -97,7 +97,7 @@ Entity *loadPlayer(int x, int y, char *name)
 			player.maxHealth = player.health = 5;
 		#endif
 
-		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&player, "STAND");
 
 		player.draw = &drawLoopingAnimationToMap;
 
@@ -121,7 +121,7 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		loadInventoryItems();
 
-		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&player, "STAND");
 
 		setPlayerLocation(x, y);
 
@@ -317,9 +317,9 @@ void doPlayer()
 								playerWeapon.face = playerShield.face = self->face = LEFT;
 							}
 
-							setEntityAnimation(self, WALK);
-							setEntityAnimation(&playerShield, WALK);
-							setEntityAnimation(&playerWeapon, WALK);
+							setEntityAnimation(self, "WALK");
+							setEntityAnimation(&playerShield, "WALK");
+							setEntityAnimation(&playerWeapon, "WALK");
 						}
 					}
 				}
@@ -356,18 +356,18 @@ void doPlayer()
 								playerWeapon.face = playerShield.face = self->face = RIGHT;
 							}
 
-							setEntityAnimation(self, WALK);
-							setEntityAnimation(&playerShield, WALK);
-							setEntityAnimation(&playerWeapon, WALK);
+							setEntityAnimation(self, "WALK");
+							setEntityAnimation(&playerShield, "WALK");
+							setEntityAnimation(&playerWeapon, "WALK");
 						}
 					}
 				}
 
 				else if (input.left == 0 && input.right == 0 && !(self->flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
 				{
-					setEntityAnimation(self, STAND);
-					setEntityAnimation(&playerShield, STAND);
-					setEntityAnimation(&playerWeapon, STAND);
+					setEntityAnimation(self, "STAND");
+					setEntityAnimation(&playerShield, "STAND");
+					setEntityAnimation(&playerWeapon, "STAND");
 
 					if ((self->flags & GRABBING) && self->target != NULL)
 					{
@@ -487,9 +487,9 @@ void doPlayer()
 				{
 					self->flags |= BLOCKING;
 
-					setEntityAnimation(&playerWeapon, STAND);
-					setEntityAnimation(self, BLOCK);
-					setEntityAnimation(&playerShield, BLOCK);
+					setEntityAnimation(&playerWeapon, "STAND");
+					setEntityAnimation(self, "BLOCK");
+					setEntityAnimation(&playerShield, "BLOCK");
 
 					playerShield.mental++;
 				}
@@ -498,9 +498,9 @@ void doPlayer()
 				{
 					self->flags &= ~BLOCKING;
 
-					setEntityAnimation(self, STAND);
-					setEntityAnimation(&playerWeapon, STAND);
-					setEntityAnimation(&playerShield, STAND);
+					setEntityAnimation(self, "STAND");
+					setEntityAnimation(&playerWeapon, "STAND");
+					setEntityAnimation(&playerShield, "STAND");
 
 					playerShield.mental = 0;
 				}
@@ -654,9 +654,9 @@ void playerWaitForDialog()
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
 
 	if (playerWeapon.mental == -1)
 	{
@@ -763,9 +763,9 @@ static void attackFinish()
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
 
 	if (playerWeapon.mental == -1)
 	{
@@ -863,7 +863,7 @@ void setPlayerShield(int val)
 	{
 		playerWeapon.animationCallback = NULL;
 
-		setEntityAnimation(&player, STAND);
+		setEntityAnimation(&player, "STAND");
 
 		/* Unequip the bow */
 
@@ -1147,11 +1147,11 @@ static void takeDamage(Entity *other, int damage)
 
 		playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-		if (player.currentAnim != player.animation[DIE])
+		if (strcmpignorecase(player.animationName, "DIE") != 0)
 		{
-			setEntityAnimation(&player, STAND);
-			setEntityAnimation(&playerShield, STAND);
-			setEntityAnimation(&playerWeapon, STAND);
+			setEntityAnimation(&player, "STAND");
+			setEntityAnimation(&playerShield, "STAND");
+			setEntityAnimation(&playerWeapon, "STAND");
 		}
 
 		if (playerWeapon.mental == -1)
@@ -1328,9 +1328,9 @@ static void fallout()
 
 		player.touch = NULL;
 
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerShield, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
+		setEntityAnimation(&player, "STAND");
+		setEntityAnimation(&playerShield, "STAND");
+		setEntityAnimation(&playerWeapon, "STAND");
 
 		checkToMap(&player);
 	}
@@ -1479,9 +1479,9 @@ static void playerDie()
 		becomeEdgar();
 	}
 
-	setEntityAnimation(&player, DIE);
-	setEntityAnimation(&playerShield, DIE);
-	setEntityAnimation(&playerWeapon, DIE);
+	setEntityAnimation(&player, "DIE");
+	setEntityAnimation(&playerShield, "DIE");
+	setEntityAnimation(&playerWeapon, "DIE");
 
 	player.frameSpeed = 1;
 
@@ -1546,7 +1546,7 @@ static void resurrectionTimeOut()
 
 			loadProperties("boss/awesome_fireball_particle", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->head = &player;
 
@@ -1583,9 +1583,9 @@ static void resurrectionWait()
 
 		removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerShield, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
+		setEntityAnimation(&player, "STAND");
+		setEntityAnimation(&playerShield, "STAND");
+		setEntityAnimation(&playerWeapon, "STAND");
 
 		player.action = NULL;
 
@@ -1677,9 +1677,9 @@ void setPlayerStunned(int thinkTime)
 
 	setCustomAction(&player, &dizzy, thinkTime, 0, 0);
 
-	setEntityAnimation(&player, DIE);
-	setEntityAnimation(&playerShield, DIE);
-	setEntityAnimation(&playerWeapon, DIE);
+	setEntityAnimation(&player, "DIE");
+	setEntityAnimation(&playerShield, "DIE");
+	setEntityAnimation(&playerWeapon, "DIE");
 
 	player.dirX = 0;
 }
@@ -1688,9 +1688,9 @@ void doStunned()
 {
 	player.flags &= ~BLOCKING;
 
-	setEntityAnimation(&player, DIE);
-	setEntityAnimation(&playerShield, DIE);
-	setEntityAnimation(&playerWeapon, DIE);
+	setEntityAnimation(&player, "DIE");
+	setEntityAnimation(&playerShield, "DIE");
+	setEntityAnimation(&playerWeapon, "DIE");
 }
 
 void setPlayerSlimed(int thinkTime)
@@ -1730,7 +1730,7 @@ void setPlayerSlimed(int thinkTime)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = thinkTime;
 
@@ -1740,9 +1740,9 @@ void setPlayerSlimed(int thinkTime)
 
 	player.flags &= ~BLOCKING;
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
-	setEntityAnimation(&playerShield, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
 
 	player.animationCallback = NULL;
 	playerShield.animationCallback = NULL;
@@ -1773,9 +1773,9 @@ static void applySlime()
 
 static void swingSword()
 {
-	setEntityAnimation(self, ATTACK_1);
-	setEntityAnimation(&playerShield, ATTACK_1);
-	setEntityAnimation(&playerWeapon, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
+	setEntityAnimation(&playerShield, "ATTACK_1");
+	setEntityAnimation(&playerWeapon, "ATTACK_1");
 
 	playSoundToMap("sound/edgar/swing.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
@@ -1791,9 +1791,9 @@ static void drawBow()
 
 	else
 	{
-		setEntityAnimation(&player, ATTACK_2);
-		setEntityAnimation(&playerShield, ATTACK_1);
-		setEntityAnimation(&playerWeapon, ATTACK_1);
+		setEntityAnimation(&player, "ATTACK_2");
+		setEntityAnimation(&playerShield, "ATTACK_1");
+		setEntityAnimation(&playerWeapon, "ATTACK_1");
 
 		playerWeapon.animationCallback = &fireArrow;
 	}
@@ -1803,9 +1803,9 @@ static void fireArrow()
 {
 	Entity *arrow, *e;
 
-	setEntityAnimation(&player, ATTACK_2);
-	setEntityAnimation(&playerShield, ATTACK_1);
-	setEntityAnimation(&playerWeapon, ATTACK_2);
+	setEntityAnimation(&player, "ATTACK_2");
+	setEntityAnimation(&playerShield, "ATTACK_1");
+	setEntityAnimation(&playerWeapon, "ATTACK_2");
 
 	arrow = getInventoryItemByObjectiveName(playerWeapon.requires);
 
@@ -2016,9 +2016,9 @@ void setPlayerLocked(int lock)
 
 		playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-		setEntityAnimation(&player, STAND);
-		setEntityAnimation(&playerShield, STAND);
-		setEntityAnimation(&playerWeapon, STAND);
+		setEntityAnimation(&player, "STAND");
+		setEntityAnimation(&playerShield, "STAND");
+		setEntityAnimation(&playerWeapon, "STAND");
 
 		player.dirX = 0;
 	}
@@ -2121,7 +2121,7 @@ void setPlayerFrozen(int thinkTime)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = thinkTime;
 
@@ -2137,9 +2137,9 @@ void setPlayerFrozen(int thinkTime)
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
 }
 
 static void applyIce()
@@ -2163,7 +2163,7 @@ static void applyIce()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
@@ -2219,7 +2219,7 @@ void setPlayerWrapped(int thinkTime)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = thinkTime;
 
@@ -2237,9 +2237,9 @@ void setPlayerWrapped(int thinkTime)
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
 }
 
 static void applyWebbing()
@@ -2271,7 +2271,7 @@ static void applyWebbing()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
@@ -2297,9 +2297,9 @@ void playerStand()
 
 	playerWeapon.flags &= ~(ATTACKING|ATTACK_SUCCESS);
 
-	setEntityAnimation(&player, STAND);
-	setEntityAnimation(&playerShield, STAND);
-	setEntityAnimation(&playerWeapon, STAND);
+	setEntityAnimation(&player, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
 }
 
 static void weaponTouch(Entity *other)

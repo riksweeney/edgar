@@ -47,7 +47,7 @@ Entity *addConveyorBelt(char *name, int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &pushEntity;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -61,14 +61,14 @@ static void entityWait()
 			if (self->active == TRUE)
 			{
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
-				
+
 				self->frameSpeed = 1;
 			}
-			
+
 			else
 			{
 				self->dirX = 0;
-				
+
 				self->frameSpeed = 0;
 			}
 		}
@@ -78,14 +78,14 @@ static void entityWait()
 			if (self->active == TRUE)
 			{
 				self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
-				
+
 				self->frameSpeed = abs(self->frameSpeed);
 			}
-			
+
 			else
 			{
 				self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
-				
+
 				self->frameSpeed = -abs(self->frameSpeed);
 			}
 		}
@@ -101,14 +101,14 @@ static void init()
 		if (self->active == TRUE)
 		{
 			self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
-			
+
 			self->frameSpeed = 1;
 		}
-		
+
 		else
 		{
 			self->dirX = 0;
-			
+
 			self->frameSpeed = 0;
 		}
 	}
@@ -118,19 +118,19 @@ static void init()
 		if (self->active == TRUE)
 		{
 			self->dirX = self->face == LEFT ? -fabs(self->speed) : self->speed;
-			
+
 			self->frameSpeed = abs(self->frameSpeed);
 		}
-		
+
 		else
 		{
 			self->dirX = self->face == RIGHT ? -fabs(self->speed) : self->speed;
-			
+
 			self->frameSpeed = -abs(self->frameSpeed);
 		}
 	}
-	
+
 	self->dirY = self->active;
-	
+
 	self->action = &entityWait;
 }

@@ -67,7 +67,7 @@ Entity *addUndeadGazer(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -181,7 +181,7 @@ static void addDeathTimer()
 
 	e->target = &player;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void timerWait()

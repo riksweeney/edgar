@@ -56,7 +56,7 @@ Entity *addSpawner(int x, int y, char *entityToSpawn)
 
 	e->type = SPAWNER;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

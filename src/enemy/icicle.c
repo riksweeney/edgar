@@ -58,7 +58,7 @@ Entity *addIcicle(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -70,11 +70,11 @@ static void init()
 		case 0:
 			self->action = &entityWait;
 		break;
-		
+
 		case 1:
 			self->action = &fall;
 		break;
-		
+
 		default:
 			self->action = &dieWait;
 		break;
@@ -86,17 +86,17 @@ static void entityWait()
 	if (player.health > 0)
 	{
 		/* Must be within a certain range */
-		
+
 		if (collision(self->x - 32, self->y, 64, 320, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->thinkTime = 30;
-			
+
 			self->mental = 1;
-			
+
 			self->action = &fall;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -104,15 +104,15 @@ static void fall()
 {
 	int i;
 	Entity *e;
-	
+
 	self->flags &= ~FLY;
-	
+
 	checkToMap(self);
-	
+
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->flags |= NO_DRAW;
-		
+
 		for (i=0;i<8;i++)
 		{
 			e = addTemporaryItem("misc/icicle_piece", self->x, self->y, RIGHT, 0, 0);
@@ -123,19 +123,19 @@ static void fall()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
-		
+
 		playSoundToMap("sound/enemy/icicle/smash.ogg", -1, self->x, self->y, 0);
-		
+
 		self->touch = NULL;
-		
+
 		self->action = &dieWait;
-		
+
 		self->mental = 2;
-		
+
 		self->thinkTime = 300;
 	}
 }
@@ -143,27 +143,27 @@ static void fall()
 static void dieWait()
 {
 	self->flags |= NO_DRAW;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 0;
-		
+
 		self->flags |= FLY;
-		
+
 		self->flags &= ~NO_DRAW;
-		
+
 		self->dirX = 0;
-		
+
 		self->dirY = 0;
-		
+
 		self->y = self->startY;
-		
+
 		self->touch = &entityTouch;
-		
+
 		self->action = &entityWait;
-		
+
 		setCustomAction(self, &invulnerable, 180, 0, 0);
 	}
 }

@@ -67,7 +67,7 @@ Entity *addSymbolBlock(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -146,7 +146,7 @@ static void touch(Entity *other)
 		self->dirY = -5;
 
 		self->weight = 2;
-		
+
 		self->originalWeight = self->weight;
 
 		self->action = &bounce;
@@ -219,7 +219,7 @@ static void init()
 		}
 	}
 
-	setEntityAnimation(self, self->thinkTime);
+	setEntityAnimationByID(self, self->thinkTime);
 }
 
 static void changeSymbol(int val)
@@ -236,7 +236,7 @@ static void changeSymbol(int val)
 		self->thinkTime = self->maxThinkTime - 1;
 	}
 
-	setEntityAnimation(self, self->thinkTime);
+	setEntityAnimationByID(self, self->thinkTime);
 }
 
 static void doSymbolMatch()
@@ -369,16 +369,16 @@ static int getRequired()
 			if (entity[i].startY == -1)
 			{
 				/* Randomize the required block if not already done */
-				
+
 				if (entity[i].weight != 2)
 				{
 					entity[i].thinkTime = prand() % entity[i].maxThinkTime;
-					
+
 					entity[i].weight = 2;
-					
+
 					entity[i].originalWeight = entity[i].weight;
 				}
-				
+
 				return entity[i].thinkTime;
 			}
 		}

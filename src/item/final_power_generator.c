@@ -62,7 +62,7 @@ Entity *addFinalPowerGenerator(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -79,7 +79,7 @@ static void entityWait()
 
 			playSoundToMap("sound/item/generator.ogg", -1, self->x, self->y, 0);
 
-			setEntityAnimation(self, self->mental);
+			setEntityAnimationByID(self, self->mental);
 
 			self->frameSpeed = 1;
 		}
@@ -108,12 +108,12 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(self, self->mental);
+		setEntityAnimationByID(self, self->mental);
 	}
 
 	else if (self->active == FALSE && self->mental < 0)
 	{
-		setEntityAnimation(self, -self->mental);
+		setEntityAnimationByID(self, -self->mental);
 
 		self->frameSpeed = 0;
 	}

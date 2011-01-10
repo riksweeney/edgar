@@ -236,7 +236,7 @@ void addParticleExplosion(int x, int y)
 		e->action = &move;
 		e->draw = &drawLoopingAnimationToMap;
 
-		setEntityAnimation(e, prand() % 5);
+		setEntityAnimationByID(e, prand() % 5);
 	}
 }
 
@@ -261,7 +261,7 @@ Entity *addParticle(int x, int y)
 	e->action = &move;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, prand() % 5);
+	setEntityAnimationByID(e, prand() % 5);
 
 	return e;
 }

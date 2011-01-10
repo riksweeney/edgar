@@ -59,19 +59,19 @@ Entity *addSasquatch(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void lookForPlayer()
 {
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	moveLeftToRight();
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
@@ -80,17 +80,17 @@ static void lookForPlayer()
 	if (player.health > 0 && self->thinkTime <= 0)
 	{
 		/* Must be within a certain range */
-		
+
 		if (collision(self->x + (self->face == LEFT ? -300 : self->w + 64), self->y, 232, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
-			
+
 			self->thinkTime = 30;
-			
+
 			self->mental = 1 + prand() % 3;
-			
-			setEntityAnimation(self, ATTACK_1);
-			
+
+			setEntityAnimation(self, "ATTACK_1");
+
 			self->action = &createSnowball;
 		}
 	}
@@ -99,55 +99,55 @@ static void lookForPlayer()
 static void createSnowball()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_2);
-		
+		setEntityAnimation(self, "ATTACK_2");
+
 		self->action = throwSnowball;
-		
+
 		e = addProjectile("enemy/sasquatch_snowball", self, self->x, self->y, (self->face == RIGHT ? 8 : -8), 0);
-		
+
 		playSoundToMap("sound/common/throw.ogg", -1, self->x, self->y, 0);
-		
+
 		e->reactToBlock = &bounceOffShield;
-		
+
 		e->flags |= FLY;
-		
+
 		e->x += (self->face == RIGHT ? self->w : e->w);
 		e->y += self->offsetY;
-		
+
 		self->thinkTime = 15;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void throwSnowball()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental--;
-		
+
 		if (self->mental > 0)
 		{
 			self->thinkTime = 30;
-			
-			setEntityAnimation(self, ATTACK_1);
-			
+
+			setEntityAnimation(self, "ATTACK_1");
+
 			self->action = &createSnowball;
 		}
-		
+
 		else
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
-			
+
 			self->thinkTime = 120;
-			
+
 			self->action = &lookForPlayer;
 		}
 	}

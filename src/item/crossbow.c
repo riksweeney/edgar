@@ -64,7 +64,7 @@ Entity *addCrossbow(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -74,7 +74,7 @@ Entity *addCrossbow(int x, int y, char *name)
 static void addBolt()
 {
 	Entity *e;
-	
+
 	if (self->mental <= 1)
 	{
 		e = getEntityByObjectiveName("CROSSBOW_BOLT");
@@ -85,31 +85,31 @@ static void addBolt()
 		}
 
 		e->x = self->x + self->offsetX;
-		
+
 		e->y = self->y + self->offsetY;
-		
+
 		e->startX = e->x;
-		
+
 		e->startY = e->y;
-		
+
 		self->target = e;
 	}
-	
+
 	self->action = &entityWait;
 }
 
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->mental == 1)
 	{
 		playSoundToMap("sound/item/crossbow.ogg", -1, self->x, self->y, 0);
-		
+
 		self->target->dirX = 12;
-		
+
 		addRope();
-		
+
 		self->mental = 2;
 	}
 }
@@ -119,29 +119,29 @@ static void addRope()
 	int i, x;
 	float dirX;
 	Entity *e, *prev;
-	
+
 	dirX = self->target->dirX;
-	
+
 	x = self->target->x;
-	
+
 	prev = self->target;
-	
+
 	for (i=0;i<30;i++)
 	{
 		e = addWeakWall("item/rope_part", 0, 0);
-		
+
 		e->x = x;
-		
+
 		e->dirX = dirX;
-		
+
 		e->y = self->target->y;
-		
+
 		x -= e->w;
-		
+
 		prev->target = e;
-		
+
 		prev = e;
-		
+
 		e->touch = NULL;
 	}
 }

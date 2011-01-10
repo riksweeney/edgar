@@ -82,7 +82,7 @@ Entity *addFlyingMaggot(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -162,7 +162,7 @@ static void firstEncounterMoveToPosition()
 
 		self->dirX = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 300;
 
@@ -186,14 +186,14 @@ static void firstEncounterWait()
 
 	if (self->thinkTime > 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 	}
 
 	else
 	{
 		self->maxThinkTime = 5;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &fireBouncingBalls;
 	}
@@ -207,7 +207,7 @@ static void fireBouncingBalls()
 
 	self->thinkTime--;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->action = &fireBouncingBalls;
 
@@ -323,7 +323,7 @@ static void fireBouncingBallsFinish()
 {
 	self->frameSpeed = -1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &firstEncounterWait;
 }
@@ -342,7 +342,7 @@ static void firstEncounterDie()
 
 	self->animationCallback = NULL;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 }
 
 static void firstEncounterLeave()
@@ -377,7 +377,7 @@ static void secondEncounterDie()
 
 	self->animationCallback = NULL;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 }
 
 static void secondEncounterLeave()

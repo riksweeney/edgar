@@ -55,7 +55,7 @@ Entity *addBalloon(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,7 +77,7 @@ static void init()
 
 	self->action = &hover;
 
-	setEntityAnimation(self, self->mental);
+	setEntityAnimationByID(self, self->mental);
 }
 
 static void hover()

@@ -130,7 +130,7 @@ Entity *addBlobBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -153,12 +153,12 @@ static void initialise()
 			self->thinkTime = 6;
 
 			self->flags &= ~FLY;
-			
+
 			self->flags |= LIMIT_TO_SCREEN;
 
 			self->action = &doIntro;
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->frameSpeed = 0;
 
@@ -184,8 +184,8 @@ static void doIntro()
 
 		loadProperties("boss/blob_boss_part", e);
 
-		setEntityAnimation(e, STAND);
-		
+		setEntityAnimation(e, "STAND");
+
 		e->flags |= LIMIT_TO_SCREEN;
 
 		e->draw = &drawLoopingAnimationToMap;
@@ -306,7 +306,7 @@ static void entityWait()
 
 	self->thinkTime--;
 
-	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
+	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? "JUMP" : "STAND");
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
@@ -403,7 +403,7 @@ static void punch2Sink()
 	{
 		self->y = self->targetY;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		if (self->x != self->endX)
 		{
@@ -506,7 +506,7 @@ static void grubAttackInit()
 {
 	facePlayer();
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->thinkTime = 30;
 
@@ -517,7 +517,7 @@ static void grubAttackInit()
 
 static void grubAttackWait()
 {
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->thinkTime--;
 
@@ -525,7 +525,7 @@ static void grubAttackWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, ATTACK_4);
+		setEntityAnimation(self, "ATTACK_4");
 
 		self->action = &spinAttackStart;
 
@@ -634,7 +634,7 @@ static void grubAttackFinish()
 
 		facePlayer();
 
-		setEntityAnimation(self, ATTACK_2);
+		setEntityAnimation(self, "ATTACK_2");
 
 		self->animationCallback = &attackFinished;
 
@@ -747,8 +747,8 @@ static void eatExplode()
 
 		loadProperties("boss/blob_boss_part", e);
 
-		setEntityAnimation(e, STAND);
-		
+		setEntityAnimation(e, "STAND");
+
 		e->flags |= LIMIT_TO_SCREEN;
 
 		e->x = self->x;
@@ -793,7 +793,7 @@ static void eatExplode()
 
 	self->action = &explodeWait;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	self->flags |= NO_DRAW;
 
@@ -888,7 +888,7 @@ static void punchSink()
 	{
 		self->y = self->targetY;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		if (self->maxThinkTime > 0 && player.health > 0)
 		{
@@ -1018,7 +1018,7 @@ static void punchFinish()
 {
 	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 	{
-		setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
+		setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? "JUMP" : "STAND");
 
 		if (self->y > self->targetY)
 		{
@@ -1047,7 +1047,7 @@ static void attackFinished()
 
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? JUMP : STAND);
+	setEntityAnimation(self, (self->mental <= 0 || self->health <= 300) ? "JUMP" : "STAND");
 
 	self->speed = self->originalSpeed;
 
@@ -1127,7 +1127,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1160,7 +1160,7 @@ static void eatTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -1223,10 +1223,10 @@ static void splitAttackInit()
 		}
 
 		loadProperties("boss/blob_boss_part", e);
-		
+
 		e->flags |= LIMIT_TO_SCREEN;
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 
 		e->x = self->x;
 		e->y = self->y;
@@ -1268,7 +1268,7 @@ static void splitAttackInit()
 
 	self->action = &headWait;
 
-	setEntityAnimation(self, BLOCK);
+	setEntityAnimation(self, "BLOCK");
 
 	self->flags |= NO_DRAW;
 
@@ -1333,7 +1333,7 @@ static void partDie()
 {
 	self->head->maxThinkTime--;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &partWait;
 
@@ -1524,7 +1524,7 @@ static void partWait()
 	if (self->head->maxThinkTime == 0 && self->head->startX != 0)
 	{
 		self->thinkTime = 60 + prand() % 180;
-		
+
 		self->health = 600;
 
 		self->action = &reform;
@@ -1625,7 +1625,7 @@ static void floatInContainer()
 
 			self->flags |= FLY;
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->animationCallback = &leaveFinish;
 		}
@@ -1706,7 +1706,7 @@ static void dieSink()
 	{
 		self->y = self->targetY;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (fabs(self->x - self->targetX) <= fabs(self->speed))
 		{
@@ -1741,7 +1741,7 @@ static void dieRise()
 		{
 			self->frameSpeed = -1;
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->mental = 30;
 
@@ -1768,10 +1768,10 @@ static void dieSplit()
 		}
 
 		loadProperties("boss/blob_boss_part", e);
-		
+
 		e->flags |= LIMIT_TO_SCREEN;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->draw = &drawLoopingAnimationToMap;
 

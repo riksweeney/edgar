@@ -50,7 +50,7 @@ Entity *addLightSource(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -89,13 +89,13 @@ static void entityWait()
 			}
 		}
 	}
-	
+
 	else
 	{
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
-			
+
 			self->target = NULL;
 		}
 	}

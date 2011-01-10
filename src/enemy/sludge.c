@@ -96,14 +96,14 @@ Entity *addSludge(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void wander()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &wander;
 
@@ -121,7 +121,7 @@ static void wander()
 
 static void teleportAttackStart()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &teleportAttack;
 
@@ -148,7 +148,7 @@ static void teleportAttack()
 
 	self->flags |= INVULNERABLE;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->dirX = (self->face == LEFT ? -self->speed : self->speed) * 3;
 
@@ -168,7 +168,7 @@ static void teleportAttack()
 		self->dirX = 0;
 
 		self->thinkTime = 30;
-		
+
 		self->face = (prand() % 2 == 0) ? LEFT : RIGHT;
 	}
 }
@@ -193,7 +193,7 @@ static void teleportAttackFinish()
 
 	self->frameSpeed = -1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &turnToFacePlayer;
 
@@ -221,7 +221,7 @@ static void redTurnToFacePlayer()
 
 	self->action = &lookForPlayer;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 }
 
 static void touch(Entity *other)
@@ -253,7 +253,7 @@ static void lookForPlayer()
 			self->action = &redTeleportAttackStart;
 		}
 	}
-	
+
 	else if (self->thinkTime <= 0)
 	{
 		self->action = &vomitAttackStart;
@@ -294,7 +294,7 @@ static void die()
 
 static void redTeleportAttackStart()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &redTeleportAttack;
 
@@ -323,7 +323,7 @@ static void redTeleportAttack()
 
 	self->flags |= INVULNERABLE;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	if (isAtEdge(self) == 1)
 	{
@@ -366,7 +366,7 @@ static void redTeleportAttackFinish()
 
 	self->frameSpeed = -1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &redTurnToFacePlayer;
 
@@ -375,7 +375,7 @@ static void redTeleportAttackFinish()
 
 static void vomitAttackStart()
 {
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->animationCallback = &vomit;
 
@@ -405,7 +405,7 @@ static void vomit()
 	e->touch = &entityTouch;
 	e->action = &vomitFall;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	self->action = &vomitAttackFinish;
 
@@ -416,7 +416,7 @@ static void vomitAttackFinish()
 {
 	self->frameSpeed = -1;
 
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->animationCallback = &redTurnToFacePlayer;
 
@@ -433,7 +433,7 @@ static void vomitFall()
 
 		self->dirX = 0;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &vomitWait;
 	}

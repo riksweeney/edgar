@@ -34,3 +34,7 @@ gfx/boss/cave_boss/cave_boss_walk_up_flame04.png 0 21 118 71
 gfx/boss/cave_boss/cave_boss_walk_up_flame05.png 0 21 118 71
 gfx/boss/cave_boss/cave_boss_walk_up_flame06.png 0 21 118 71
 gfx/boss/cave_boss/cave_boss_walk_up_flame07.png 0 21 118 71
+gfx/boss/cave_boss/cave_boss_attack.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_attack_flame.png 23 12 67 106
+gfx/boss/cave_boss/cave_boss_attack_down_flame.png 0 23 106 67
+gfx/boss/cave_boss/cave_boss_attack_up_flame.png 0 23 106 67

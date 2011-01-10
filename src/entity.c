@@ -1500,12 +1500,12 @@ void entityWalkTo(Entity *e, char *coords)
 
 	if (read == 4)
 	{
-		setEntityAnimation(e, getAnimationTypeByName(anim));
+		setEntityAnimation(e, anim);
 	}
 
 	else
 	{
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 	}
 
 	if (e->type == PLAYER)
@@ -1545,12 +1545,12 @@ void entityWalkToRelative(Entity *e, char *coords)
 
 	if (read == 4)
 	{
-		setEntityAnimation(e, getAnimationTypeByName(anim));
+		setEntityAnimation(e, anim);
 	}
 
 	else
 	{
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 	}
 
 	if (e->type == PLAYER)
@@ -1593,7 +1593,7 @@ static void scriptEntityMoveToTarget()
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (self->type == PLAYER)
 		{
@@ -1674,7 +1674,7 @@ static void entityMoveToTarget()
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (self->type == PLAYER)
 		{
@@ -1785,7 +1785,7 @@ void doTeleport()
 
 				e->thinkTime = 5 + prand() % 30;
 
-				setEntityAnimation(e, prand() % 5);
+				setEntityAnimationByID(e, prand() % 5);
 			}
 		}
 	}

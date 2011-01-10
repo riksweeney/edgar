@@ -64,7 +64,7 @@ Entity *addFallingPlatform(int x, int y, char *name)
 	e->x = e->startX = x;
 	e->y = e->startY = y;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -145,7 +145,7 @@ static void touch(Entity *other)
 static void initFall()
 {
 	int i;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime > 0)
@@ -173,13 +173,13 @@ static void initFall()
 			if (self->environment == AIR)
 			{
 				playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
-				
+
 				for (i=0;i<20;i++)
 				{
 					addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 				}
 			}
-			
+
 			self->thinkTime = 120;
 
 			self->action = &resetWait;

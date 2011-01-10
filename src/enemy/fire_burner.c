@@ -48,7 +48,7 @@ Entity *addFireBurner(int x, int y, char *name)
 
 	e->x = x;
 	e->y = y;
-	
+
 	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -56,7 +56,7 @@ Entity *addFireBurner(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -67,7 +67,7 @@ static void init()
 	{
 		self->action = &burn;
 	}
-	
+
 	else
 	{
 		self->action = &entityWait;
@@ -77,46 +77,46 @@ static void init()
 static void burnStart()
 {
 	self->health = 1;
-	
+
 	if (self->startY == -1)
 	{
 		self->startX = playSoundToMap("sound/enemy/fire_burner/flame.ogg", -1, self->x, self->y, 0);
 	}
-	
+
 	self->thinkTime = self->maxThinkTime;
-	
-	setEntityAnimation(self, WALK);
-	
+
+	setEntityAnimation(self, "WALK");
+
 	self->animationCallback = &burn;
-	
+
 	self->touch = &entityTouch;
-	
+
 	self->action = &burnWait;
 }
 
 static void burn()
 {
 	self->action = &burn;
-	
-	setEntityAnimation(self, JUMP);
-	
+
+	setEntityAnimation(self, "JUMP");
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->startY == -1)
 		{
 			stopSound(self->startX);
 		}
-	
+
 		self->frameSpeed = -1;
-		
-		setEntityAnimation(self, WALK);
-		
+
+		setEntityAnimation(self, "WALK");
+
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->animationCallback = &entityWait;
-		
+
 		self->action = &burnWait;
 	}
 }
@@ -129,22 +129,22 @@ static void burnWait()
 static void entityWait()
 {
 	self->frameSpeed = 1;
-	
+
 	self->action = &entityWait;
-	
-	setEntityAnimation(self, STAND);
-	
+
+	setEntityAnimation(self, "STAND");
+
 	self->thinkTime--;
-	
+
 	self->touch = NULL;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->active == TRUE)
 		{
 			self->action = &burnStart;
 		}
-		
+
 		else
 		{
 			self->thinkTime = self->maxThinkTime;

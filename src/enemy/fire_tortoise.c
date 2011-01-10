@@ -67,7 +67,7 @@ Entity *addFireTortoise(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -77,7 +77,7 @@ static void walk()
 	moveLeftToRight();
 
 	self->thinkTime--;
-	
+
 	if (player.health > 0 && prand() % 60 == 0)
 	{
 		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
@@ -98,14 +98,14 @@ static void walk()
 
 static void changeWalkDirectionStart()
 {
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &entityWait;
 
 	self->animationCallback = &changeWalkDirection;
 
 	self->thinkTime = 60;
-	
+
 	checkToMap(self);
 }
 
@@ -115,7 +115,7 @@ static void changeWalkDirection()
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	if (self->thinkTime <= 0)
 	{
@@ -123,13 +123,13 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
 		self->action = &entityWait;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -137,25 +137,25 @@ static void changeWalkDirectionFinish()
 {
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->thinkTime = 300 + prand() % 180;
-	
+
 	checkToMap(self);
 }
 
 static void breatheFireInit()
 {
 	Entity *e;
-	
-	setEntityAnimation(self, ATTACK_1);
+
+	setEntityAnimation(self, "ATTACK_1");
 
 	e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -6 : 6), 0);
-	
+
 	if (self->face == LEFT)
 	{
 		e->x = self->x + self->w - e->w - self->offsetX;
@@ -165,35 +165,35 @@ static void breatheFireInit()
 	{
 		e->x = self->x + self->offsetX;
 	}
-	
+
 	e->y = self->y + self->offsetY;
 
 	e->flags |= FLY;
-	
+
 	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
-	
+
 	self->thinkTime = 30;
-	
+
 	self->action = &breatheFireWait;
-	
+
 	checkToMap(self);
 }
 
 static void breatheFireWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
-		
+		setEntityAnimation(self, "STAND");
+
 		self->thinkTime = 300 + prand() % 180;
-		
+
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
+
 		self->action = &walk;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -205,7 +205,7 @@ static void entityWait()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (damage != 0)
 	{
 		if (other->element == FIRE)
@@ -223,7 +223,7 @@ static void takeDamage(Entity *other, int damage)
 				{
 					other->target = self;
 				}
-				
+
 				setCustomAction(self, &flashWhite, 6, 0, 0);
 
 				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -237,12 +237,12 @@ static void takeDamage(Entity *other, int damage)
 				{
 					self->pain();
 				}
-				
+
 				if (prand() % 5 == 0)
 				{
 					setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 				}
-				
+
 				if (other->type == PROJECTILE)
 				{
 					temp = self;
@@ -253,11 +253,11 @@ static void takeDamage(Entity *other, int damage)
 
 					self = temp;
 				}
-				
+
 				addDamageScore(-damage, self);
 			}
 		}
-		
+
 		else
 		{
 			entityTakeDamageNoFlinch(other, damage);

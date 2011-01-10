@@ -61,7 +61,7 @@ Entity *addGoldCenturion(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -74,7 +74,7 @@ static void walk()
 
 		self->damage = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		checkToMap(self);
 	}
@@ -85,7 +85,7 @@ static void walk()
 
 		self->flags |= ATTACKING;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		if (self->offsetX != 0)
 		{

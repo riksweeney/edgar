@@ -66,7 +66,7 @@ Entity *addHugeSpider(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -76,10 +76,10 @@ static void init()
 	if (self->mental >= 50)
 	{
 		self->mental = 0;
-		
+
 		self->thinkTime = 0;
 	}
-	
+
 	self->action = &entityWait;
 }
 

@@ -60,7 +60,7 @@ Entity *addWaterPurifier(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -74,7 +74,7 @@ static void dropPurifierCapsule(int val)
 		e = addTemporaryItem("item/purifier_capsule", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -5 : 5, ITEM_JUMP_HEIGHT);
 
 		e->touch = &entityTouch;
-		
+
 		e->fallout = &capsuleFallout;
 
 		playSoundToMap("sound/common/throw.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
@@ -88,9 +88,9 @@ static void capsuleFallout()
 	if (self->environment == SLIME)
 	{
 		self->action = &purifyWater;
-		
+
 		self->thinkTime = 0;
-		
+
 		self->flags |= NO_DRAW;
 	}
 }
@@ -98,9 +98,9 @@ static void capsuleFallout()
 static void purifyWater()
 {
 	fill(self->x / TILE_SIZE, self->y / TILE_SIZE);
-	
+
 	resetBlendTime();
-	
+
 	self->inUse = FALSE;
 }
 
@@ -109,7 +109,7 @@ static void fill(int x, int y)
 	if (mapTileAt(x, y) == SLIME_TILE_START)
 	{
 		setTileAt(x, y, SLIME_TILE_BLEND);
-		
+
 		fill(x - 1, y);
 		fill(x + 1, y);
 		fill(x, y - 1);

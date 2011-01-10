@@ -54,7 +54,7 @@ Entity *addArrowTarget(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -67,35 +67,35 @@ static void entityWait()
 		{
 			self->dirY = self->speed;
 		}
-		
+
 		self->y += self->dirY;
-		
+
 		if (self->y >= self->endY)
 		{
 			self->y = self->endY;
-			
+
 			self->dirY = -self->dirY;
 		}
-		
+
 		else if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->dirY = -self->dirY;
 		}
 	}
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->thinkTime = 0;
 
 			self->active = self->active == TRUE ? FALSE : TRUE;
 
-			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 			activateEntitiesWithRequiredName(self->objectiveName, self->active);
 
@@ -108,7 +108,7 @@ static void entityWait()
 
 static void init()
 {
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 	self->action = &entityWait;
 }
@@ -139,16 +139,16 @@ static void touch(Entity *other)
 
 			return;
 		}
-		
+
 		total = 0;
 
 		remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
-		
+
 		self->active = self->active == TRUE ? FALSE : TRUE;
 
 		if (remaining == 0)
 		{
-			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 			activateEntitiesWithRequiredName(self->objectiveName, self->active);
 
@@ -158,7 +158,7 @@ static void touch(Entity *other)
 			{
 				self->endX = playSoundToMap("sound/common/tick.ogg", -1, self->x, self->y, -1);
 			}
-			
+
 			else if (total > 0)
 			{
 				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
@@ -167,8 +167,8 @@ static void touch(Entity *other)
 
 		else
 		{
-			setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
-			
+			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
+
 			setInfoBoxMessage(30, 255, 255, 255, _("%d more to go..."), remaining);
 		}
 

@@ -77,7 +77,7 @@ Entity *addMouthStalk(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -261,7 +261,7 @@ static void createBody()
 
 		body[i]->type = ENEMY;
 
-		setEntityAnimation(body[i], STAND);
+		setEntityAnimation(body[i], "STAND");
 	}
 
 	/* Recreate the head so that it's on top */
@@ -445,7 +445,7 @@ static void lookForPlayer()
 
 			self->thinkTime = 30;
 
-			setEntityAnimation(self, ATTACK_1);
+			setEntityAnimation(self, "ATTACK_1");
 		}
 	}
 }
@@ -507,7 +507,7 @@ static void biteFinish()
 
 	if ((self->face == RIGHT && self->x <= self->endX) || (self->face == LEFT && self->x >= self->endX))
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->startX = 0;
 

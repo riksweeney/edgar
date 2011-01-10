@@ -57,14 +57,14 @@ Entity *addPressurePlate(char *name, int x, int y)
 	e->x = x;
 	e->y = y;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void init()
 {
-	setEntityAnimation(self, self->thinkTime <= 0 ? STAND : WALK);
+	setEntityAnimation(self, self->thinkTime <= 0 ? "STAND" : "WALK");
 
 	self->action = &entityWait;
 }
@@ -75,7 +75,7 @@ static void entityWait()
 
 	if (self->thinkTime == 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		activateEntitiesWithRequiredName(self->objectiveName, FALSE);
 
@@ -114,7 +114,7 @@ static void activate(int val)
 
 	if (self->thinkTime == -1)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->active = TRUE;
 

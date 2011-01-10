@@ -58,7 +58,7 @@ Entity *addShieldPillar(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -69,19 +69,19 @@ static void entityWait()
 	{
 		self->action = &sink;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void sink()
 {
 	self->y += 0.25;
-	
+
 	if (self->y >= self->endY)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (prand() % 2 == 0)
 	{
 		addSmoke(self->x + prand() % self->w, self->endY - prand() % 10, "decoration/dust");

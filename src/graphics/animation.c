@@ -31,34 +31,13 @@ static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;
 extern Map map;
 
-static char *getAnimationTypeByID(int);
-
 static int animationID = -1;
-static Type type[] = {
-					{STAND, "STAND"},
-					{WALK, "WALK"},
-					{JUMP, "JUMP"},
-					{PAIN, "PAIN"},
-					{DIE, "DIE"},
-					{BLOCK, "BLOCK"},
-					{ATTACK_1, "ATTACK_1"},
-					{ATTACK_2, "ATTACK_2"},
-					{ATTACK_3, "ATTACK_3"},
-					{ATTACK_4, "ATTACK_4"},
-					{ATTACK_5, "ATTACK_5"},
-					{CUSTOM_1, "CUSTOM_1"},
-					{CUSTOM_2, "CUSTOM_2"},
-					{CUSTOM_3, "CUSTOM_3"},
-					{CUSTOM_4, "CUSTOM_4"},
-					{CUSTOM_5, "CUSTOM_5"},
-					{TAUNT, "TAUNT"}
-					};
 
-void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
+void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animationIndex)
 {
 	char *frameName, *line, *savePtr1, *savePtr2;
 	unsigned char *buffer;
-	int i;
+	int i, id;
 
 	savePtr1 = NULL;
 
@@ -66,10 +45,13 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
-		animationIndex[i] = -1;
+		animationIndex[i].name[0] = '\0';
+		animationIndex[i].id = -1;
 	}
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
+
+	id = 0;
 
 	while (line != NULL)
 	{
@@ -101,7 +83,16 @@ void loadAnimationData(char *filename, int *spriteIndex, int *animationIndex)
 				showErrorAndExit("Ran out of space for animations\n");
 			}
 
-			animationIndex[getAnimationTypeByName(frameName)] = animationID;
+			STRNCPY(animationIndex[id].name, frameName, MAX_VALUE_LENGTH);
+
+			animationIndex[id].id = animationID;
+
+			id++;
+
+			if (id == MAX_ANIMATION_TYPES)
+			{
+				showErrorAndExit("Ran out of space for animation types\n");
+			}
 		}
 
 		else if (strcmpignorecase(frameName, "FRAMES") == 0)
@@ -518,10 +509,11 @@ int drawPhaseDoorToMap()
 	return TRUE;
 }
 
-void setEntityAnimation(Entity *e, int animationID)
+void setEntityAnimation(Entity *e, char *animationName)
 {
-	int previousRightEdge, previousAnim, newRightEdge;
-	int previousBottom, newBottom;
+	int previousRightEdge, newRightEdge;
+	int previousBottom, newBottom, i;
+	char previousAnim[MAX_VALUE_LENGTH];
 	Sprite *sprite;
 
 	if (e->inUse == FALSE)
@@ -529,29 +521,41 @@ void setEntityAnimation(Entity *e, int animationID)
 		return;
 	}
 
-	previousAnim = e->currentAnim;
+	STRNCPY(previousAnim, e->animationName, MAX_VALUE_LENGTH);
 
-	if (previousAnim == -1)
+	if (strlen(previousAnim) == 0)
 	{
 		previousRightEdge = -1;
-		
+
 		previousBottom = -1;
 	}
 
 	else
 	{
 		previousRightEdge = e->x + e->w;
-		
+
 		previousBottom = e->y + e->h;
 	}
 
-	if (e->currentAnim != e->animation[animationID])
+	if (e->currentAnim == -1 || strcmpignorecase(e->animationName, animationName))
 	{
-		e->currentAnim = e->animation[animationID];
+		e->currentAnim = -1;
+
+		for (i=0;i<MAX_ANIMATION_TYPES;i++)
+		{
+			if (strcmpignorecase(e->animation[i].name, animationName) == 0)
+			{
+				STRNCPY(e->animationName, e->animation[i].name, MAX_VALUE_LENGTH);
+
+				e->currentAnim = e->animation[i].id;
+
+				break;
+			}
+		}
 
 		if (e->currentAnim == -1)
 		{
-			showErrorAndExit("Animation %s not set for %s", getAnimationTypeByID(animationID), e->name);
+			showErrorAndExit("Animation %s not set for %s", animationName, e->name);
 		}
 
 		e->currentFrame = (e->frameSpeed >= 0 ? 0 : animation[e->currentAnim].frameCount - 1);
@@ -574,7 +578,7 @@ void setEntityAnimation(Entity *e, int animationID)
 
 		/* Align the right and bottom edges to stop it looking bad */
 
-		if (previousAnim != -1)
+		if (strlen(previousAnim) != 0)
 		{
 			if (e->face == LEFT)
 			{
@@ -582,68 +586,44 @@ void setEntityAnimation(Entity *e, int animationID)
 
 				e->x += (previousRightEdge - newRightEdge);
 			}
-			
+
 			newBottom = e->y + e->h;
-			
+
 			e->y += (previousBottom - newBottom);
 		}
 	}
 }
 
-int hasEntityAnimation(Entity *e, int animationID)
-{
-	return e->animation[animationID] == -1 ? FALSE : TRUE;
-}
-
-int getAnimationTypeByName(char *name)
+int hasEntityAnimation(Entity *e, char *animationName)
 {
 	int i;
 
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
-		if (strcmpignorecase(name, type[i].name) == 0)
+		if (strcmpignorecase(e->animation[i].name, animationName) == 0)
 		{
-			return type[i].id;
+			return TRUE;
 		}
 	}
 
-	showErrorAndExit("Unknown animation %s", name);
-
-	return 0;
+	return FALSE;
 }
 
-static char *getAnimationTypeByID(int id)
+char *getAnimationTypeAtIndex(Entity *e)
 {
 	int i;
 
 	for (i=0;i<MAX_ANIMATION_TYPES;i++)
 	{
-		if (id == type[i].id)
+		if (e->currentAnim == e->animation[i].id)
 		{
-			return type[i].name;
-		}
-	}
-
-	showErrorAndExit("Unknown animation index %d", id);
-
-	return 0;
-}
-
-int getAnimationTypeAtIndex(Entity *e)
-{
-	int i;
-
-	for (i=0;i<MAX_ANIMATION_TYPES;i++)
-	{
-		if (e->currentAnim == e->animation[i])
-		{
-			return i;
+			return e->animation[i].name;
 		}
 	}
 
 	showErrorAndExit("Failed to find animation at index %d", e->currentAnim);
 
-	return 0;
+	return NULL;
 }
 
 void setFrameData(Entity *e)
@@ -679,4 +659,9 @@ Sprite *getCurrentSprite(Entity *e)
 int getFrameCount(Entity *e)
 {
 	return animation[e->currentAnim].frameCount;
+}
+
+void setEntityAnimationByID(Entity *e, int id)
+{
+	setEntityAnimation(e, e->animation[id].name);
 }

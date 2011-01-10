@@ -55,7 +55,7 @@ Entity *addSavePoint(int x, int y)
 
 	e->type = SAVE_POINT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -72,7 +72,7 @@ static void entityWait()
 	{
 		self->thinkTime = 0;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->currentFrame = frame;
 	}
@@ -86,10 +86,10 @@ static void touch(Entity *other)
 	{
 		self->thinkTime = 5;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->currentFrame = frame;
-		
+
 		if (game.showHints == TRUE)
 		{
 			setInfoBoxMessage(0, 255, 255, 255, _("Press Action to save your game"));

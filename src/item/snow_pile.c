@@ -54,7 +54,7 @@ Entity *addSnowPile(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -63,7 +63,7 @@ static void entityWait()
 {
 	#if DEV == 0
 	self->face = player.face;
-	
+
 	self->x = player.x + player.w / 2 - self->w / 2;
 	self->y = player.y;
 	#endif
@@ -73,9 +73,9 @@ static void die()
 {
 	int i;
 	Entity *e;
-	
+
 	self->targetX = playSoundToMap("sound/enemy/giant_snowball/crumble.ogg", -1, self->x, self->y, 0);
-	
+
 	for (i=0;i<32;i++)
 	{
 		e = addTemporaryItem("misc/giant_snowball_piece", self->x, self->y, RIGHT, 0, 0);
@@ -88,6 +88,6 @@ static void die()
 
 		e->thinkTime = 60 + (prand() % 120);
 	}
-	
+
 	self->inUse = FALSE;
 }

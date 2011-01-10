@@ -53,7 +53,7 @@ Entity *addSlimeContainer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -100,7 +100,7 @@ static void entityWait()
 
 	self->touch = self->active == FALSE ? &touch : NULL;
 
-	setEntityAnimation(self, self->active == FALSE ? STAND : WALK);
+	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 }
 
 static void touch(Entity *other)

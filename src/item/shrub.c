@@ -57,7 +57,7 @@ Entity *addShrub(int x, int y, char *name)
 
 	e->type = KEY_ITEM;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -108,7 +108,7 @@ static void die()
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
 	}

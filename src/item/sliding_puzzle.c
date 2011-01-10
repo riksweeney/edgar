@@ -59,13 +59,13 @@ Entity *addSlidingPuzzle(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
 
 static void entityWait()
-{	
+{
 	checkToMap(self);
 }
 
@@ -98,20 +98,20 @@ static void readInputCode()
 {
 	int val;
 	Entity *temp;
-	
+
 	if (self->target->mental == 1)
 	{
 		setPlayerLocked(FALSE);
-		
+
 		setInfoBoxMessage(60, 255, 255, 255, _("Complete"));
-		
+
 		self->action = &entityWait;
-		
+
 		self->touch = NULL;
 		self->activate = NULL;
-		
+
 		activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-		
+
 		return;
 	}
 
@@ -146,10 +146,10 @@ static void readInputCode()
 	else if (input.attack == 1)
 	{
 		input.attack = 0;
-		
+
 		val = 5;
 	}
-	
+
 	else
 	{
 		val = -1;
@@ -160,7 +160,7 @@ static void readInputCode()
 		setPlayerLocked(FALSE);
 
 		self->action = &entityWait;
-		
+
 		self->touch = &touch;
 		self->activate = &activate;
 	}
@@ -168,11 +168,11 @@ static void readInputCode()
 	else if (val != -1 && self->target->activate != NULL)
 	{
 		temp = self;
-		
+
 		self = self->target;
-		
+
 		self->activate(val);
-		
+
 		self = temp;
 	}
 }
@@ -182,7 +182,7 @@ static void init()
 	char display[MAX_VALUE_LENGTH];
 	Entity *e;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 
@@ -194,7 +194,7 @@ static void init()
 	}
 
 	self->target = e;
-	
+
 	if (self->target->mental == 0)
 	{
 		self->touch = &touch;

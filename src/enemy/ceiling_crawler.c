@@ -66,7 +66,7 @@ Entity *addCeilingCrawler(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -183,7 +183,7 @@ static void changeFloor()
 
 		self->action = !(self->flags & FLY) ? &moveOnFloor : &moveOnCeiling;
 
-		setEntityAnimation(self, !(self->flags & FLY) ? STAND : WALK);
+		setEntityAnimation(self, !(self->flags & FLY) ? "STAND" : "WALK");
 
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 	}
@@ -254,7 +254,7 @@ static void attackInit()
 {
 	self->dirX = 0;
 
-	setEntityAnimation(self, !(self->flags & FLY) ? ATTACK_1 : ATTACK_3);
+	setEntityAnimation(self, !(self->flags & FLY) ? "ATTACK_1" : "ATTACK_3");
 
 	self->animationCallback = &fireShot;
 }
@@ -298,7 +298,7 @@ static void attackWait()
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, !(self->flags & FLY) ? ATTACK_2 : ATTACK_4);
+		setEntityAnimation(self, !(self->flags & FLY) ? "ATTACK_2" : "ATTACK_4");
 
 		self->animationCallback = &attackFinished;
 	}
@@ -308,7 +308,7 @@ static void attackWait()
 
 static void attackFinished()
 {
-	setEntityAnimation(self, !(self->flags & FLY) ? STAND : WALK);
+	setEntityAnimation(self, !(self->flags & FLY) ? "STAND" : "WALK");
 
 	self->thinkTime = self->maxThinkTime;
 

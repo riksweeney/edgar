@@ -84,7 +84,7 @@ Entity *addGrubBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -92,7 +92,7 @@ Entity *addGrubBoss(int x, int y, char *name)
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->health -= damage;
@@ -113,7 +113,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self->flags &= ~FLY;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->frameSpeed = 0;
 
@@ -121,12 +121,12 @@ static void takeDamage(Entity *other, int damage)
 			self->touch = NULL;
 
 			self->action = &die;
-			
+
 			self->startX = self->x;
 
 			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
-		
+
 		if (other->type == PROJECTILE)
 		{
 			temp = self;
@@ -137,7 +137,7 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-		
+
 		addDamageScore(damage, self);
 	}
 }
@@ -157,7 +157,7 @@ static void initialise()
 
 			self->dirX = self->speed;
 
-			setEntityAnimation(self, ATTACK_2);
+			setEntityAnimation(self, "ATTACK_2");
 
 			self->action = &doIntro;
 
@@ -171,9 +171,9 @@ static void initialise()
 			initBossHealthBar();
 
 			playDefaultBossMusic();
-			
+
 			setContinuePoint(FALSE, self->name, NULL);
-			
+
 			self->damage = 0;
 		}
 	}
@@ -198,7 +198,7 @@ static void doIntro()
 
 	else if ((self->flags & ON_GROUND) && self->thinkTime == 1)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 60;
 
@@ -272,7 +272,7 @@ static void spitStart()
 	{
 		if (self->thinkTime > 0)
 		{
-			setEntityAnimation(self, ATTACK_1);
+			setEntityAnimation(self, "ATTACK_1");
 
 			self->animationCallback = &spit;
 		}
@@ -321,7 +321,7 @@ static void spinAttackStart()
 {
 	self->flags |= INVULNERABLE;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	if (self->thinkTime > 0)
 	{
@@ -393,7 +393,7 @@ static void bounceAttackStart()
 {
 	self->flags |= INVULNERABLE;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	if (self->thinkTime > 0)
 	{
@@ -476,7 +476,7 @@ static void attackFinished()
 {
 	self->flags &= ~INVULNERABLE;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->frameSpeed = 1;
 
@@ -496,7 +496,7 @@ static void die()
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		increaseKillCount();
 
 		freeBossHealthBar();
@@ -511,9 +511,9 @@ static void die()
 
 		fadeBossMusic();
 	}
-	
+
 	checkToMap(self);
-	
+
 	shudder();
 }
 
@@ -525,6 +525,6 @@ static void shudder()
 	{
 		self->startY = 0;
 	}
-	
+
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 }

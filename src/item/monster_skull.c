@@ -72,7 +72,7 @@ Entity *addMonsterSkull(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -81,7 +81,7 @@ Entity *addMonsterSkull(int x, int y, char *name)
 
 static void init()
 {
-	setEntityAnimation(self, self->active == TRUE ? STAND : WALK);
+	setEntityAnimation(self, self->active == TRUE ? "STAND" : "WALK");
 
 	self->takeDamage = self->active == TRUE ? takeDamage : NULL;
 
@@ -164,7 +164,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self->active = FALSE;
 
-				setEntityAnimation(self, WALK);
+				setEntityAnimation(self, "WALK");
 
 				fireTrigger(self->objectiveName);
 			}

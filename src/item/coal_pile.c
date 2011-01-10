@@ -62,7 +62,7 @@ Entity *addCoalPile(int x, int y, char *name)
 	e->touch = &touch;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -92,7 +92,7 @@ static Entity *addCoal(int x, int y)
 	e->touch = &addRequiredToInventory;
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

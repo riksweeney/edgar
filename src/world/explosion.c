@@ -51,12 +51,12 @@ Entity *addExplosion(int x, int y)
 
 	e->action = &explode;
 	e->touch = &entityTouch;
-	
+
 	e->die = &die;
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->animationCallback = &finish;
 

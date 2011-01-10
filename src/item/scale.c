@@ -59,7 +59,7 @@ Entity *addScale(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -72,12 +72,12 @@ static void init()
 	EntityList *l;
 	Entity *e;
 	int i;
-	
+
 	if (strlen(self->objectiveName) == 0)
 	{
 		showErrorAndExit("Scale at %d %d has no name", (int)self->x, (int)self->y);
 	}
-	
+
 	list = getEntitiesByObjectiveName(self->objectiveName);
 
 	i = 0;
@@ -95,16 +95,16 @@ static void init()
 	}
 
 	freeEntityList(list);
-	
+
 	if (self->target == NULL)
 	{
 		showErrorAndExit("Scale could not find partner %s", self->objectiveName);
 	}
 
 	self->targetY = self->startY + (self->endY - self->startY) / 2;
-	
+
 	addChain();
-	
+
 	self->mental = getMapCeiling(self->x, self->y);
 
 	self->action = &entityWait;
@@ -117,13 +117,13 @@ static void entityWait()
 		self->thinkTime--;
 
 		self->dirY = self->speed;
-		
+
 		checkToMap(self);
 
 		if (self->y >= self->endY)
 		{
 			self->y = self->endY;
-			
+
 			self->dirY = 0;
 		}
 	}
@@ -131,27 +131,27 @@ static void entityWait()
 	else if (self->target->thinkTime > 0)
 	{
 		self->dirY = -self->speed;
-		
+
 		checkToMap(self);
 
 		if (self->y <= self->startY)
 		{
 			self->y = self->startY;
-			
+
 			self->dirY = 0;
 		}
 	}
-	
+
 	else
 	{
 		self->dirY = (self->y < self->targetY ? 0.5 : -0.5);
-		
+
 		checkToMap(self);
 
 		if ((self->dirY < 0 && self->y <= self->targetY) || (self->dirY > 0 && self->y >= self->targetY))
 		{
 			self->dirY = 0;
-			
+
 			self->y = self->targetY;
 		}
 	}
@@ -179,7 +179,7 @@ static void touch(Entity *other)
 				other->standingOn = self;
 				other->dirY = 0;
 				other->flags |= ON_GROUND;
-				
+
 				if (self->target->thinkTime <= 0)
 				{
 					self->thinkTime = 30;
@@ -210,7 +210,7 @@ static void addChain()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void chainWait()
@@ -221,21 +221,21 @@ static void chainWait()
 static int drawChain()
 {
 	int y;
-	
+
 	self->y = self->head->y - self->h;
-	
+
 	y = self->head->mental - self->h * 2;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y >= y)
 	{
 		self->x = self->head->x;
-		
+
 		drawSpriteToMap();
-		
+
 		self->x = self->head->x + self->head->w - self->w;
-		
+
 		drawSpriteToMap();
 
 		self->y -= self->h;

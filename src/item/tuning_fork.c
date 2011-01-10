@@ -57,7 +57,7 @@ Entity *addTuningFork(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -66,7 +66,7 @@ static void activate(int val)
 {
 	int i;
 	Entity *temp;
-	
+
 	if (game.status == IN_GAME)
 	{
 		playSoundToMap("sound/item/tuning_fork.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
@@ -79,7 +79,7 @@ static void activate(int val)
 					|| (strcmpignorecase(entity[i].requires, "BOSS_TUNING_FORK") == 0))
 				{
 					temp = self;
-					
+
 					self = &entity[i];
 
 					self->activate(100);

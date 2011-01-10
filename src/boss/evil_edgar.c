@@ -114,7 +114,7 @@ Entity *addEvilEdgar(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -224,7 +224,7 @@ static void entityWait()
 
 						self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-						setEntityAnimation(self, CUSTOM_1);
+						setEntityAnimation(self, "CUSTOM_1");
 
 						self->action = &bowAttackInit;
 					break;
@@ -236,7 +236,7 @@ static void entityWait()
 
 						self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-						setEntityAnimation(self, WALK);
+						setEntityAnimation(self, "WALK");
 					break;
 
 					case 2:
@@ -259,7 +259,7 @@ static void entityWait()
 
 						self->action = &throwMiniBomb;
 
-						setEntityAnimation(self, STAND);
+						setEntityAnimation(self, "STAND");
 					break;
 				}
 			}
@@ -323,7 +323,7 @@ static void bowAttack()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, ATTACK_2);
+			setEntityAnimation(self, "ATTACK_2");
 
 			self->animationCallback = &fireArrow;
 
@@ -362,7 +362,7 @@ static void fireArrow()
 
 	e->flags |= FLY;
 
-	setEntityAnimation(self, ATTACK_3);
+	setEntityAnimation(self, "ATTACK_3");
 
 	self->animationCallback = &fireArrowFinish;
 
@@ -373,7 +373,7 @@ static void fireArrowFinish()
 {
 	self->action = &fireArrowFinish;
 
-	setEntityAnimation(self, CUSTOM_2);
+	setEntityAnimation(self, "CUSTOM_2");
 
 	self->thinkTime--;
 
@@ -458,7 +458,7 @@ static void attackPlayer()
 			{
 				getClosestTarget();
 
-				setEntityAnimation(self, WALK);
+				setEntityAnimation(self, "WALK");
 
 				self->action = &goToTarget;
 			}
@@ -472,7 +472,7 @@ static void attackPlayer()
 
 			if ((self->face == LEFT && abs(self->x - (player.x + player.w)) < 16) || (self->face == RIGHT && abs(player.x - (self->x + self->w)) < 16))
 			{
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, "STAND");
 
 				self->dirX = 0;
 
@@ -487,7 +487,7 @@ static void attackPlayer()
 			{
 				self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-				setEntityAnimation(self, WALK);
+				setEntityAnimation(self, "WALK");
 			}
 		}
 	}
@@ -505,7 +505,7 @@ static void slashInit()
 
 		self->action = &slash;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->flags |= ATTACKING;
 	}
@@ -517,7 +517,7 @@ static void slash()
 {
 	if (self->mental == 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime--;
 
@@ -550,7 +550,7 @@ static void goToTarget()
 
 		facePlayer();
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		if (self->y < self->targetY)
 		{
@@ -614,7 +614,7 @@ static void addSwordSwing()
 
 	e->flags |= ATTACKING;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void swordSwingWait()
@@ -639,7 +639,7 @@ static void swordSwingWait()
 
 		self->reactToBlock = &swordReactToBlock;
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &swordSwingAttackFinish;
 
@@ -684,7 +684,7 @@ static void swordSwingAttackFinish()
 
 	self->flags |= NO_DRAW;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &swordSwingWait;
 
@@ -979,7 +979,7 @@ static void activate(int val)
 
 		self->animationCallback = NULL;
 
-		setEntityAnimation(self, DIE);
+		setEntityAnimation(self, "DIE");
 
 		self->thinkTime = 600;
 
@@ -1001,7 +1001,7 @@ static void stunned()
 	{
 		getClosestTarget();
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->action = &goToTarget;
 	}
@@ -1042,7 +1042,7 @@ static void gotoTargetMachineInit()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -1068,7 +1068,7 @@ static void gotoTargetMachine()
 		{
 			if (fabs(self->x - self->targetX) <= self->speed)
 			{
-				setEntityAnimation(self, STAND);
+				setEntityAnimation(self, "STAND");
 
 				self->dirX = 0;
 

@@ -66,7 +66,7 @@ Entity *addFloatingSnapper(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -140,7 +140,7 @@ static void snapShut()
 {
 	floatUpAndDown();
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->touch = &trap;
 
@@ -160,7 +160,7 @@ static void trap(Entity *other)
 		if (other->health == 1 && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
 		{
 			self->health = 5;
-			
+
 			other->flags |= FLY;
 		}
 
@@ -179,7 +179,7 @@ static void snapShutFinish()
 
 	self->action = &snapShutFinish;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	if (self->health != 5)
 	{
@@ -204,7 +204,7 @@ static void reopen()
 
 	self->frameSpeed *= -1;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	self->animationCallback = &reopenFinish;
 }
@@ -213,7 +213,7 @@ static void reopenFinish()
 {
 	floatUpAndDown();
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->thinkTime = self->maxThinkTime;
 

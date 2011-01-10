@@ -71,7 +71,7 @@ Entity *addGlassWall(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -92,7 +92,7 @@ static void glassWait()
 		{
 			self->mental++;
 
-			setEntityAnimation(self, self->mental);
+			setEntityAnimationByID(self, self->mental);
 
 			playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
 		}
@@ -118,7 +118,7 @@ static void horizontalGlassWait()
 		{
 			self->mental++;
 
-			setEntityAnimation(self, self->mental);
+			setEntityAnimationByID(self, self->mental);
 
 			self->active = FALSE;
 
@@ -140,7 +140,7 @@ static void horizontalGlassWait()
 			{
 				self->mental++;
 
-				setEntityAnimation(self, self->mental);
+				setEntityAnimationByID(self, self->mental);
 
 				playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
 			}
@@ -174,7 +174,7 @@ static void die()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
@@ -200,7 +200,7 @@ static void die()
 			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 		}
@@ -219,7 +219,7 @@ static void respawnWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 60;
 

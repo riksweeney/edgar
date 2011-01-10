@@ -69,7 +69,7 @@ Entity *addColourPot(int x, int y, char *name)
 
 	e->touch = &touch;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }

@@ -76,7 +76,7 @@ Entity *addSnail(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -139,7 +139,7 @@ static void die()
 	{
 		/* Drop a shell */
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		if (strcmpignorecase(self->name, "enemy/purple_snail") == 0)
 		{
@@ -185,7 +185,7 @@ static void lookForPlayer()
 
 static void spitAttackInit()
 {
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
@@ -212,14 +212,14 @@ static void spitAttack()
 
 	e->reactToBlock = &bounceOffShield;
 
-	setEntityAnimation(self, ATTACK_2);
+	setEntityAnimation(self, "ATTACK_2");
 
 	self->animationCallback = &spitAttackFinish;
 }
 
 static void spitAttackFinish()
 {
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
 

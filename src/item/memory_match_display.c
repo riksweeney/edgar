@@ -66,7 +66,7 @@ Entity *addMemoryMatchDisplay(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -91,7 +91,7 @@ Entity *addMemoryMatchIcon(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -129,7 +129,7 @@ static void entityWait()
 				{
 					e->mental = 0;
 
-					setEntityAnimation(e, STAND);
+					setEntityAnimation(e, "STAND");
 				}
 
 				e = e->target;
@@ -248,7 +248,7 @@ static void init()
 
 			e->mental = 0;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i != 0 && i % 4 == 0)
 			{
@@ -304,7 +304,7 @@ static void activateIcon()
 			{
 				e->mental = 1;
 
-				setEntityAnimation(e, e->health);
+				setEntityAnimationByID(e, e->health);
 
 				self->targetX++;
 
@@ -420,7 +420,7 @@ static void addCursor()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 }
 
 static void cursorWait()
@@ -468,7 +468,7 @@ static void shuffle()
 			i = 0;
 		}
 
-		setEntityAnimation(e1, STAND);
+		setEntityAnimation(e1, "STAND");
 
 		e1 = e1->target;
 	}
@@ -514,7 +514,7 @@ static void shuffle()
 
 static void iconInit()
 {
-	setEntityAnimation(self, self->health);
+	setEntityAnimationByID(self, self->health);
 
 	self->mental = 0;
 

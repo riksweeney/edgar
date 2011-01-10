@@ -56,19 +56,19 @@ EntityList *throwGibs(char *name, int gibs)
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = -12 - (prand() % 4);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 180 + (prand() % 120);
 
 		e->draw = &drawGib;
-		
+
 		addEntityToList(list, e);
 	}
 
 	playSoundToMap("sound/common/gib.ogg", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
-	
+
 	return list;
 }
 

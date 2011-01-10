@@ -55,7 +55,7 @@ Entity *addCellBars(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->thinkTime = 0;
 
@@ -67,17 +67,17 @@ static void entityWait()
 	if (self->active == FALSE)
 	{
 		self->y -= self->speed;
-		
+
 		if (self->y < self->endY)
 		{
 			self->touch = &pushEntity;
-			
+
 			self->y = self->endY;
-			
+
 			self->mental = 1;
 		}
 	}
-	
+
 	else if (self->mental == 0)
 	{
 		#if DEV != 1

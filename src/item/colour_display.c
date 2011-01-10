@@ -64,7 +64,7 @@ Entity *addColourDisplay(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -143,31 +143,31 @@ static void activate(int val)
 		switch (col)
 		{
 			case 'R': /* Red */
-				setEntityAnimation(self, 0);
+				setEntityAnimationByID(self, 0);
 			break;
 
 			case 'Y': /* Yellow */
-				setEntityAnimation(self, 1);
+				setEntityAnimationByID(self, 1);
 			break;
 
 			case 'B': /* Blue */
-				setEntityAnimation(self, 2);
+				setEntityAnimationByID(self, 2);
 			break;
 
 			case 'O': /* Orange */
-				setEntityAnimation(self, 3);
+				setEntityAnimationByID(self, 3);
 			break;
 
 			case 'P': /* Purple */
-				setEntityAnimation(self, 4);
+				setEntityAnimationByID(self, 4);
 			break;
 
 			case 'G': /* Green */
-				setEntityAnimation(self, 5);
+				setEntityAnimationByID(self, 5);
 			break;
 
 			default: /* Off */
-				setEntityAnimation(self, 6);
+				setEntityAnimationByID(self, 6);
 			break;
 		}
 

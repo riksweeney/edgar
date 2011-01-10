@@ -53,7 +53,7 @@ Entity *addHighStriker(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -64,12 +64,12 @@ static void init()
 	{
 		self->health = self->maxHealth = 0;
 	}
-	
+
 	else
 	{
-		setEntityAnimation(self, self->health);
+		setEntityAnimationByID(self, self->health);
 	}
-	
+
 	self->maxThinkTime = self->thinkTime = 0;
 
 	self->action = &entityWait;
@@ -80,70 +80,70 @@ static void entityWait()
 	if (self->maxHealth != self->health)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->health += (self->maxThinkTime == 1 ? 1 : -1);
-			
-			setEntityAnimation(self, self->health);
-			
+
+			setEntityAnimationByID(self, self->health);
+
 			if (self->health == self->maxHealth || self->health == 0)
 			{
 				if (self->health == 14)
 				{
 					activateEntitiesWithRequiredName(self->objectiveName, TRUE);
-					
+
 					playSoundToMap("sound/item/striker_top.ogg", -1, self->x, self->y, 0);
 				}
-				
+
 				else
 				{
 					self->maxHealth = 0;
-					
+
 					self->thinkTime = 90;
-					
+
 					if (self->health == 0)
 					{
 						self->maxThinkTime = 0;
-						
+
 						self->thinkTime = 0;
 					}
-					
+
 					else
 					{
 						self->maxThinkTime = self->maxThinkTime == 1 ? -1 : 1;
 					}
 				}
 			}
-			
+
 			else
 			{
 				self->thinkTime = 4;
 			}
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
 static void touch(Entity *other)
 {
 	float dirY = other->dirY;
-	
+
 	pushEntity(other);
 
 	if (other->standingOn == self)
 	{
 		dirY *= other->weight;
-		
+
 		dirY /= 25;
-		
+
 		dirY *= 14;
-		
+
 		if (abs(dirY) > self->maxHealth && self->maxThinkTime == 0)
 		{
 			self->maxHealth = dirY > 14 ? 14 : dirY;
-			
+
 			self->maxThinkTime = 1;
 		}
 	}

@@ -69,7 +69,7 @@ Entity *addRedCeilingCreeper(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -105,7 +105,7 @@ static void addTongue()
 
 	e->head = self;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 
@@ -237,7 +237,7 @@ static int drawTongue()
 
 	y = self->y;
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	while (self->y >= self->startY)
 	{
@@ -246,7 +246,7 @@ static int drawTongue()
 		self->y -= self->h;
 	}
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->y = y;
 

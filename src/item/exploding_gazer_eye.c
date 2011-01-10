@@ -58,7 +58,7 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -66,19 +66,19 @@ Entity *addExplodingGazerEye(int x, int y, char *name)
 static void entityWait()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, WALK);
-			
+			setEntityAnimation(self, "WALK");
+
 			self->thinkTime = 15;
-			
+
 			self->action = &explodeInit;
 		}
 	}
@@ -87,13 +87,13 @@ static void entityWait()
 static void explodeInit()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 15;
-		
-		setEntityAnimation(self, JUMP);
-		
+
+		setEntityAnimation(self, "JUMP");
+
 		self->action = &explode;
 	}
 }
@@ -101,15 +101,15 @@ static void explodeInit()
 static void explode()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
 
 		fadeFromColour(255, 255, 255, 60);
-		
+
 		self->inUse = FALSE;
-		
+
 		setPlayerStunned(300);
 	}
 }

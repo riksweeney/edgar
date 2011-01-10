@@ -148,7 +148,7 @@ Entity *addLargeBook(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -358,7 +358,7 @@ static void throwFire()
 
 			e->flags |= DO_NOT_PERSIST;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "DOWN");
 		}
 	}
 
@@ -403,7 +403,7 @@ static void castFire()
 
 		e->flags |= DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "DOWN");
 
 		self->endX--;
 
@@ -676,7 +676,7 @@ static void castIce()
 
 		loadProperties("enemy/ice_spike", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -772,7 +772,7 @@ static void createIceWall()
 
 			e->thinkTime = 60;
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 		}
 
 		self->endX--;
@@ -856,7 +856,7 @@ static void iceWallMove()
 				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
-				setEntityAnimation(e, i);
+				setEntityAnimationByID(e, i);
 
 				e->thinkTime = 60 + (prand() % 60);
 
@@ -924,7 +924,7 @@ static void iceDrop()
 			e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 			e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
-			setEntityAnimation(e, i);
+			setEntityAnimationByID(e, i);
 
 			e->thinkTime = 60 + (prand() % 60);
 
@@ -978,7 +978,7 @@ static void createIceBlock()
 
 		loadProperties("edgar/edgar_frozen", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -1171,7 +1171,7 @@ static void iceBlockDie()
 		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		setEntityAnimation(e, i);
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 60 + (prand() % 60);
 
@@ -1393,7 +1393,7 @@ static void createLightningWaveInit()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->action = &lightningWaveStart;
 
@@ -1439,7 +1439,7 @@ static void createLightningWave()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->x = self->targetX + self->w / 2 - e->w / 2;
 			e->y = i;
@@ -1544,7 +1544,7 @@ static void castLightningBolt()
 
 		loadProperties("enemy/lightning", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -1568,7 +1568,7 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->action = &lightningBolt;
 
@@ -1584,7 +1584,7 @@ static void castLightningBolt()
 
 		e->flags |= FLY|DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		self->endX--;
 
@@ -1632,7 +1632,7 @@ static void lightningBolt()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i == self->startY)
 			{
@@ -2255,7 +2255,7 @@ static void physicalAttackFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;

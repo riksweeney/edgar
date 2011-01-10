@@ -59,7 +59,7 @@ Entity *addVines(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -94,7 +94,7 @@ static void entityWait()
 
 			loadProperties("boss/phoenix_die_fire", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			e->x = self->x + prand() % self->w;
 			e->y = self->y + self->h - e->h;
@@ -214,7 +214,7 @@ static void fireWait()
 			self->thinkTime = 20;
 		}
 
-		setEntityAnimation(self, self->health);
+		setEntityAnimationByID(self, self->health);
 	}
 
 	checkToMap(self);

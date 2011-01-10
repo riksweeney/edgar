@@ -88,7 +88,7 @@ Entity *addMasterTortoise(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -145,7 +145,7 @@ static void walk()
 
 static void changeWalkDirectionStart()
 {
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &entityWait;
 
@@ -162,7 +162,7 @@ static void changeWalkDirection()
 
 	self->action = &changeWalkDirection;
 
-	setEntityAnimation(self, CUSTOM_2);
+	setEntityAnimation(self, "CUSTOM_2");
 
 	if (self->thinkTime <= 0)
 	{
@@ -170,7 +170,7 @@ static void changeWalkDirection()
 
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &changeWalkDirectionFinish;
 
@@ -186,7 +186,7 @@ static void changeWalkDirectionFinish()
 
 	self->mental = 0;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
 
@@ -328,7 +328,7 @@ static void castLightningBolt()
 
 	self->thinkTime--;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	if (self->thinkTime <= 0)
 	{
@@ -341,7 +341,7 @@ static void castLightningBolt()
 
 		loadProperties("enemy/lightning", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
@@ -363,7 +363,7 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->action = &lightningBolt;
 
@@ -379,7 +379,7 @@ static void castLightningBolt()
 
 		e->flags |= FLY|DO_NOT_PERSIST;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		self->thinkTime = 30;
 
@@ -413,7 +413,7 @@ static void lightningBolt()
 
 			loadProperties("enemy/lightning", e);
 
-			setEntityAnimation(e, STAND);
+			setEntityAnimation(e, "STAND");
 
 			if (i == self->startY)
 			{
@@ -461,7 +461,7 @@ static void breatheFireInit()
 {
 	Entity *e;
 
-	setEntityAnimation(self, ATTACK_1);
+	setEntityAnimation(self, "ATTACK_1");
 
 	e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -6 : 6), 0);
 
@@ -494,7 +494,7 @@ static void breatheFireWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->thinkTime = 300 + prand() % 180;
 
@@ -518,7 +518,7 @@ static void iceAttackStart()
 	{
 		self->frameSpeed = 1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &createIce;
 	}
@@ -537,7 +537,7 @@ static void createIce()
 
 	loadProperties("enemy/ice_tortoise_ice_ball", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + 71;
 	e->y = self->y + 21;
@@ -559,7 +559,7 @@ static void createIce()
 
 	loadProperties("enemy/ice_tortoise_ice_ball", e);
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w - e->w - 71;
 	e->y = self->y + 21;
@@ -574,7 +574,7 @@ static void createIce()
 
 	self->frameSpeed = 1;
 
-	setEntityAnimation(self, CUSTOM_2);
+	setEntityAnimation(self, "CUSTOM_2");
 
 	self->action = &iceAttack;
 
@@ -591,7 +591,7 @@ static void iceAttack()
 	{
 		self->frameSpeed = -1;
 
-		setEntityAnimation(self, CUSTOM_1);
+		setEntityAnimation(self, "CUSTOM_1");
 
 		self->animationCallback = &iceAttackFinish;
 
@@ -605,7 +605,7 @@ static void iceAttackFinish()
 {
 	self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	self->frameSpeed = 1;
 
@@ -634,7 +634,7 @@ static void iceBallMove()
 
 			x = self->x + self->w / 2;
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 
 			self->x = x - self->w / 2;
 
@@ -684,7 +684,7 @@ static void iceFloorWait()
 
 		loadProperties("enemy/ice_spike_upside_down", e);
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x;
 		e->y = self->y + self->h + 8;
@@ -749,7 +749,7 @@ static void iceSpikeMove()
 				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
 				e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
 
-				setEntityAnimation(e, i);
+				setEntityAnimationByID(e, i);
 
 				e->thinkTime = 60 + (prand() % 60);
 
@@ -819,7 +819,7 @@ static void becomeRampagingInit()
 {
 	self->startY = self->y;
 
-	setEntityAnimation(self, CUSTOM_3);
+	setEntityAnimation(self, "CUSTOM_3");
 
 	self->y = self->startY;
 
@@ -830,7 +830,7 @@ static void becomeRampagingInit()
 	checkToMap(self);
 
 	self->action = &becomeRampagingStage1;
-	
+
 	fadeOutMusic(2000);
 }
 
@@ -855,7 +855,7 @@ static void becomeRampagingStage1()
 
 		if (self->thinkTime <= 0)
 		{
-			setEntityAnimation(self, CUSTOM_4);
+			setEntityAnimation(self, "CUSTOM_4");
 
 			self->thinkTime = 180;
 
@@ -906,13 +906,13 @@ static void becomeRampagingFinish()
 	if (self->thinkTime <= 0)
 	{
 		playDefaultBossMusic();
-		
+
 		e = addEnemy("enemy/rampaging_master_tortoise", self->x, self->y);
 
-		setEntityAnimation(e, CUSTOM_2);
+		setEntityAnimation(e, "CUSTOM_2");
 
 		e->face = self->face;
-		
+
 		e->startX = -1;
 
 		self->inUse = FALSE;

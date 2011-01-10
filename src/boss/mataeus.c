@@ -126,7 +126,7 @@ Entity *addMataeus(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, CUSTOM_1);
+	setEntityAnimation(e, "CUSTOM_1");
 
 	return e;
 }
@@ -135,7 +135,7 @@ static void initialise()
 {
 	self->thinkTime = 180;
 
-	setEntityAnimation(self, CUSTOM_1);
+	setEntityAnimation(self, "CUSTOM_1");
 
 	self->action = &doIntro;
 
@@ -154,7 +154,7 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, CUSTOM_2);
+		setEntityAnimation(self, "CUSTOM_2");
 
 		self->animationCallback = &introPause;
 	}
@@ -199,7 +199,7 @@ static void attackFinished()
 
 	self->takeDamage = &takeDamage;
 
-	setEntityAnimation(self, STAND);
+	setEntityAnimation(self, "STAND");
 
 	hover();
 }
@@ -350,7 +350,7 @@ static void knifeThrowInit()
 
 		e->head = self;
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 	}
 
 	self->mental = 0;
@@ -400,7 +400,7 @@ static void verticalKnifeThrowInit()
 
 		e->head = self;
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 	}
 
 	self->mental = 0;
@@ -460,7 +460,7 @@ static void verticalKnifeWait()
 
 			self->thinkTime = 60;
 
-			setEntityAnimation(self, ATTACK_2);
+			setEntityAnimation(self, "ATTACK_2");
 
 			self->health = 1;
 		}
@@ -510,7 +510,7 @@ static void knifeWait()
 
 		facePlayer();
 
-		setEntityAnimation(self, ATTACK_1);
+		setEntityAnimation(self, "ATTACK_1");
 
 		self->health = 1;
 	}
@@ -951,7 +951,7 @@ static void dropAnchor()
 
 		body[i]->type = ENEMY;
 
-		setEntityAnimation(body[i], STAND);
+		setEntityAnimation(body[i], "STAND");
 	}
 
 	/* Create the anchor so that it's on top */
@@ -975,7 +975,7 @@ static void dropAnchor()
 
 	anchor->type = ENEMY;
 
-	setEntityAnimation(anchor, STAND);
+	setEntityAnimation(anchor, "STAND");
 
 	anchor->x = self->x + self->w / 2 - anchor->w / 2;
 	anchor->y = self->y + self->h / 2 - anchor->h / 2;
@@ -1233,7 +1233,7 @@ static void openRift()
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y + self->h / 2 - e->h / 2;
@@ -1353,7 +1353,7 @@ static void riftKnifeThrowInit()
 
 		e->head = self;
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 	}
 
 	self->mental = 0;
@@ -1424,7 +1424,7 @@ static void riftRise()
 
 		self->thinkTime = 300;
 
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->touch = &riftTouch;
 
@@ -1465,7 +1465,7 @@ static void riftAttract()
 
 		self->touch = NULL;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &riftSink;
 
@@ -1628,7 +1628,7 @@ static void riftKillBoss()
 
 		self->touch = NULL;
 
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &riftSink;
 
@@ -1756,7 +1756,7 @@ static void riftDestroyWait()
 
 	if (self->mental <= 0)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		self->action = &riftSink;
 	}
@@ -1832,7 +1832,7 @@ static void createShield()
 
 	self->target = e;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y + self->h / 2 - e->h / 2;
@@ -1877,7 +1877,7 @@ static void horizontalKnifeThrowInit()
 
 		loadProperties("boss/mataeus_knife", e);
 
-		setEntityAnimation(e, WALK);
+		setEntityAnimation(e, "WALK");
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = self->y + self->h / 2 - e->h / 2;
@@ -1951,7 +1951,7 @@ static void horizontalKnifeWait()
 
 			self->thinkTime = 60;
 
-			setEntityAnimation(self, ATTACK_3);
+			setEntityAnimation(self, "ATTACK_3");
 
 			self->health = 1;
 

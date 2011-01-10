@@ -70,7 +70,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 		showErrorAndExit("No valid thinktime defined for %s", name);
 	}
 
-	if (hasEntityAnimation(e, DIE) == TRUE)
+	if (hasEntityAnimation(e, "DIE") == TRUE)
 	{
 		e->die = &projectileDie;
 	}
@@ -82,7 +82,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 	e->face = e->dirX > 0 ? RIGHT : LEFT;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -114,7 +114,7 @@ static void projectileDie()
 {
 	self->damage = 0;
 
-	setEntityAnimation(self, DIE);
+	setEntityAnimation(self, "DIE");
 
 	self->touch = NULL;
 
@@ -151,7 +151,7 @@ void stickToTarget()
 
 	else
 	{
-		if (hasEntityAnimation(self, DIE) == TRUE)
+		if (hasEntityAnimation(self, "DIE") == TRUE)
 		{
 			self->die = &projectileDie;
 		}

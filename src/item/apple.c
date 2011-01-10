@@ -69,7 +69,7 @@ Entity *addApple(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -80,7 +80,7 @@ static void throwApple(int val)
 
 	if (self->thinkTime <= 0 && game.status == IN_GAME)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 
 		self->active = TRUE;
 

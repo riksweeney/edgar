@@ -70,7 +70,7 @@ Entity *addBlackBook2(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -83,9 +83,9 @@ static void initialise()
 	{
 		minX = getMapStartX();
 		minY = getMapStartY();
-		
+
 		self->flags &= ~NO_DRAW;
-		
+
 		if (cameraAtMinimum())
 		{
 			centerMapOnEntity(NULL);
@@ -104,10 +104,10 @@ static void doIntro()
 	if (self->thinkTime <= 0)
 	{
 		setContinuePoint(FALSE, self->name, NULL);
-		
+
 		self->targetX = self->startX;
 		self->targetY = self->startY;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
@@ -121,16 +121,16 @@ static void doIntro()
 static void introPause()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		initBossHealthBar();
-		
+
 		playDefaultBossMusic();
-		
+
 		self->action = &attackFinished;
 	}
-	
+
 	hover();
 }
 

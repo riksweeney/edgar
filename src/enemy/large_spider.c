@@ -79,7 +79,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -93,7 +93,7 @@ static void redLookForPlayer()
 		self->thinkTime = 0;
 	}
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	moveAndJump();
 
@@ -101,7 +101,7 @@ static void redLookForPlayer()
 	{
 		if (collision(self->x + (self->face == LEFT ? -160 : self->w), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->thinkTime = 30;
 
@@ -140,7 +140,7 @@ static void lookForPlayer()
 		self->thinkTime = 0;
 	}
 
-	setEntityAnimation(self, WALK);
+	setEntityAnimation(self, "WALK");
 
 	moveAndJump();
 
@@ -148,7 +148,7 @@ static void lookForPlayer()
 	{
 		if (collision(self->x + (self->face == LEFT ? -64 : self->w), self->y, 64, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 
 			self->thinkTime = 30;
 
@@ -188,7 +188,7 @@ static void moveAndJump()
 		{
 			self->action = &jumpOverGap;
 
-			setEntityAnimation(self, STAND);
+			setEntityAnimation(self, "STAND");
 		}
 
 		else if (canDropDown() == FALSE)
@@ -376,7 +376,7 @@ static void webAttack()
 
 		e->face = self->face;
 
-		setEntityAnimation(e, STAND);
+		setEntityAnimation(e, "STAND");
 
 		self->mental--;
 

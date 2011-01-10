@@ -62,7 +62,7 @@ Entity *addCodeDoor(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	setEntityAnimation(e, STAND);
+	setEntityAnimation(e, "STAND");
 
 	return e;
 }
@@ -75,7 +75,7 @@ static void entityWait()
 	{
 		if (self->target != NULL)
 		{
-            setEntityAnimation(self->target, 0);
+            setEntityAnimationByID(self->target, 0);
 		}
 
 		self->thinkTime = 0;
@@ -100,7 +100,7 @@ static void activate(int val)
 		{
 			self->requires[0] = '\0';
 
-			setEntityAnimation(self, WALK);
+			setEntityAnimation(self, "WALK");
 		}
 
 		else
@@ -174,7 +174,7 @@ static void displayInputCode()
 
 		self->target->health = (int)self->target->requires[self->mental];
 
-		setEntityAnimation(self->target, self->target->health);
+		setEntityAnimationByID(self->target, self->target->health);
 
 		if (self->mental == strlen(self->target->requires))
 		{
@@ -247,7 +247,7 @@ static void readInputCode()
 
 	if (val != -1)
 	{
-		setEntityAnimation(self->target, val);
+		setEntityAnimationByID(self->target, val);
 
 		if ((int)self->target->requires[self->mental] == val)
 		{
@@ -299,7 +299,7 @@ static void readInputCode()
 	{
 		self->thinkTime = 0;
 
-		setEntityAnimation(self->target, 0);
+		setEntityAnimationByID(self->target, 0);
 	}
 }
 
@@ -310,7 +310,7 @@ static void init()
 
 	if (self->active == FALSE)
 	{
-		setEntityAnimation(self, STAND);
+		setEntityAnimation(self, "STAND");
 
 		snprintf(display, MAX_VALUE_LENGTH, "%s_DISPLAY", self->objectiveName);
 
@@ -329,7 +329,7 @@ static void init()
 
 	if (strlen(self->requires) == 0)
 	{
-		setEntityAnimation(self, WALK);
+		setEntityAnimation(self, "WALK");
 	}
 
 	self->action = &entityWait;
