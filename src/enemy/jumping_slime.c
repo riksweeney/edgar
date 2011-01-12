@@ -394,6 +394,8 @@ static void layEgg()
 	for (i=0;i<count;i++)
 	{
 		e = addEnemy("enemy/jumping_slime_egg", 0, 0);
+		
+		e->pain = &enemyPain;
 
 		e->thinkTime = 120 + (prand() % 180);
 

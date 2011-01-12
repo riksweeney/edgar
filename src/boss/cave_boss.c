@@ -39,6 +39,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/gib.h"
 #include "../system/error.h"
 #include "../world/target.h"
+#include "../geometry.h"
+#include "../enemy/egg.h"
 
 extern Entity *self, player;
 
@@ -52,15 +54,18 @@ static void entityWait(void);
 static void changeToIceInit(void);
 static void changeToFireInit(void);
 static void changeToFire(void);
+static void changeToIce(void);
 static void incinerateInit(void);
 static void incinerateMoveToTop(void);
 static void incinerate(void);
 static void incinerateWait(void);
 static void fireWait(void);
 static int fireDraw(void);
+static int iceDraw(void);
 static void spitFireInit(void);
 static void spitFireMoveToTarget(void);
 static void spitFire(void);
+static void spitFireFinish(void);
 static void fireDropInit(void);
 static void fireDropMoveToTop(void);
 static void fireDropMoveAbovePlayer(void);
@@ -71,6 +76,19 @@ static void ceilingBurnInit(void);
 static void ceilingBurnMoveToTop(void);
 static void ceilingBurn(void);
 static void ceilingBurnWait(void);
+static void stunned(void);
+static void stunFinish(void);
+static void moveToTarget(void);
+static void starWait(void);
+static void spitIceInit(void);
+static void spitIceMoveToTarget(void);
+static void spitIce(void);
+static void spitIceFinish(void);
+static void iceTouch(Entity *);
+static void eggDropInit(void);
+static void eggDropMoveToTop(void);
+static void eggDropMove(void);
+static void dropEgg(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -144,7 +162,7 @@ static void doIntro()
 
 		self->startX = 0;
 
-		self->endX = 0;
+		self->endX = 1;
 
 		self->thinkTime = 0;
 	}
@@ -182,18 +200,18 @@ static void entityWait()
 
 		if (self->thinkTime <= 0 && player.health > 0)
 		{
-			/* If the player is above then burn the roof */
-
-			if (player.y < self->y)
+			switch ((int)self->endX)
 			{
-				self->action = &ceilingBurnInit;
-			}
+				case 1: /* Fire */
+					/* If the player is above then burn the roof */
 
-			else
-			{
-				switch ((int)self->endX)
-				{
-					case 1: /* Fire */
+					if (player.y < self->y)
+					{
+						self->action = &ceilingBurnInit;
+					}
+
+					else
+					{
 						action = prand() % 7;
 
 						switch (action)
@@ -214,12 +232,13 @@ static void entityWait()
 								self->action = &incinerateInit;
 							break;
 						}
-					break;
+					}
+				break;
 
-					default: /* Ice */
-						action = prand() % 3;
-					break;
-				}
+				default: /* Ice */
+					self->action = &spitIceInit;
+					self->action = &eggDropInit;
+				break;
 			}
 		}
 	}
@@ -238,6 +257,8 @@ static void spitFireInit()
 	self->targetY = t->y;
 
 	self->mental = 5;
+
+	self->endY = prand() % 2 == 0 ? 3 : 5;
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
@@ -272,8 +293,6 @@ static void spitFireInit()
 
 		self->dirX = 0;
 		self->dirY = -self->speed;
-		
-		self->endY = prand() % 2 == 0 ? 3 : 5;
 	}
 }
 
@@ -354,6 +373,8 @@ static void spitFire()
 
 			playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
+			e->damage = 1;
+
 			e->face = self->face;
 
 			e->flags |= PLAYER_TOUCH_ONLY;
@@ -369,7 +390,7 @@ static void spitFire()
 			}
 
 			e->y = self->y + self->offsetY;
-			
+
 			if (self->endY == 3)
 			{
 				if (i != 0)
@@ -377,19 +398,19 @@ static void spitFire()
 					e->dirY = i == 1 ? -0.5 : 0.5;
 				}
 			}
-			
+
 			else
 			{
 				if (i == 0)
 				{
 					e->dirY = 0;
 				}
-				
+
 				else if (i < 3)
 				{
 					e->dirY = i == 1 ? -0.5 : 0.5;
 				}
-				
+
 				else
 				{
 					e->dirY = i == 3 ? -1 : 1;
@@ -406,7 +427,9 @@ static void spitFire()
 		{
 			setEntityAnimation(self, "FIRE_STAND");
 
-			self->action = &attackFinished;
+			self->thinkTime = 60;
+
+			self->action = &spitFireFinish;
 		}
 
 		else
@@ -414,6 +437,20 @@ static void spitFire()
 			self->thinkTime = 30;
 		}
 	}
+
+	checkToMap(self);
+}
+
+static void spitFireFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
 }
 
 static void fireDropInit()
@@ -444,6 +481,8 @@ static void fireDropMoveToTop()
 
 	if (self->y <= self->targetY)
 	{
+		self->y = self->targetY;
+		
 		self->dirY = 0;
 
 		self->startY = 3 + prand() % 3;
@@ -486,7 +525,7 @@ static void fireDropMoveAbovePlayer()
 
 			self->action = &fireDrop;
 		}
-		
+
 		else
 		{
 			setEntityAnimation(self, "FIRE_ATTACK_DOWN");
@@ -658,7 +697,7 @@ static void ceilingBurnMoveToTop()
 		self->endY = getMapStartX();
 
 		setEntityAnimation(self, "FIRE_ATTACK_UP");
-		
+
 		playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
@@ -715,7 +754,7 @@ static void ceilingBurn()
 		if (self->mental <= 0)
 		{
 			self->endY += TILE_SIZE / 2 - e->w / 2;
-			
+
 			self->thinkTime = 30;
 
 			self->action = &ceilingBurnWait;
@@ -994,12 +1033,19 @@ static void incinerateWait()
 
 	checkToMap(self);
 }
-/*
-static void rechargeInit()
+
+static void changeToIceInit()
 {
+	int startX;
 	Target *t;
 
-	t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+	startX = getMapStartX() + SCREEN_WIDTH / 2;
+
+	t = getTargetByName(self->x < startX ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+	self->startX = 1;
+
+	self->endX = 2;
 
 	if (t == NULL)
 	{
@@ -1007,31 +1053,313 @@ static void rechargeInit()
 	}
 
 	self->targetX = t->x;
+	self->targetY = t->y;
 
-	self->targetY = self->y;
+	if (self->x != self->targetX && self->y != self->targetY)
+	{
+		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
 
-	self->action = &moveToRechargeTarget;
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
 
-	self->face = self->targetX < self->x ? LEFT : RIGHT;
+		self->targetY = t->y;
 
-	self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		if (self->y > self->targetY)
+		{
+			setEntityAnimation(self, "WALK_UP");
+		}
 
-	checkToMap(self);
+		self->dirX = 0;
+		self->dirY = -self->speed;
+
+		self->action = &moveToTarget;
+
+		self->resumeNormalFunction = &changeToIce;
+	}
+
+	else
+	{
+		self->action = &changeToIce;
+	}
 }
 
-static void moveToRechargeTarget()
+static void changeToFireInit()
 {
-	if (atTarget())
-	{
-		self->thinkTime = 600;
+	int startX;
+	Target *t;
 
-		self->action = &recharge;
+	startX = getMapStartX() + SCREEN_WIDTH / 2;
+
+	t = getTargetByName(self->x < startX ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+	self->startX = 1;
+
+	self->endX = 2;
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	if (self->x != self->targetX && self->y != self->targetY)
+	{
+		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->targetY = t->y;
+
+		if (self->y > self->targetY)
+		{
+			setEntityAnimation(self, "WALK_UP");
+		}
+
+		self->dirX = 0;
+		self->dirY = -self->speed;
+
+		self->action = &moveToTarget;
+
+		self->resumeNormalFunction = &changeToFire;
+	}
+
+	else
+	{
+		self->action = &changeToFire;
+	}
+}
+
+static void moveToTarget()
+{
+	Target *t;
+
+	checkToMap(self);
+
+	if (self->dirY < 0 && self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+
+		self->dirY = 0;
+
+		self->face = self->targetX < self->x ? LEFT : RIGHT;
+
+		if (self->x != self->targetX)
+		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+			setEntityAnimation(self, "WALK");
+		}
+	}
+
+	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
+	{
+		t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->x = self->targetX;
+
+		self->targetY = t->y;
+
+		self->face = self->dirX < 0 ? RIGHT : LEFT;
+
+		self->dirX = 0;
+
+		self->dirY = self->speed;
+
+		setEntityAnimation(self, "WALK_UP");
+	}
+
+	else if (self->dirY > 0 && self->y >= self->targetY)
+	{
+		self->dirY = 0;
+
+		setEntityAnimation(self, "STAND");
+
+		self->action = self->resumeNormalFunction;
+
+		facePlayer();
+	}
+}
+
+static void spitIceInit()
+{
+	Target *t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->mental = 5;
+
+	self->endY = 5;
+
+	if (self->x == self->targetX && self->y == self->targetY)
+	{
+		setEntityAnimation(self, "ICE_ATTACK");
+
+		self->action = &spitIce;
+
+		facePlayer();
+
+		self->mental = 3 + prand() % 3;
+
+		self->thinkTime = 30;
+	}
+
+	else
+	{
+		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->targetY = t->y;
+
+		self->action = &spitIceMoveToTarget;
+
+		if (self->y > self->targetY)
+		{
+			setEntityAnimation(self, "ICE_WALK_UP");
+		}
+
+		self->dirX = 0;
+		self->dirY = -self->speed;
+	}
+}
+
+static void spitIceMoveToTarget()
+{
+	Target *t;
+
+	checkToMap(self);
+
+	if (self->dirY < 0 && self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+
+		self->dirY = 0;
+
+		self->face = self->targetX < self->x ? LEFT : RIGHT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+		setEntityAnimation(self, "ICE_WALK");
+	}
+
+	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
+	{
+		t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->x = self->targetX;
+
+		self->targetY = t->y;
+
+		self->face = self->dirX < 0 ? RIGHT : LEFT;
+
+		self->dirX = 0;
+
+		self->dirY = self->speed;
+
+		setEntityAnimation(self, "ICE_WALK_UP");
+	}
+
+	else if (self->dirY > 0 && self->y >= self->targetY)
+	{
+		self->dirY = 0;
+
+		setEntityAnimation(self, "ICE_ATTACK");
+
+		self->action = &spitIce;
+
+		facePlayer();
+
+		self->mental = 3 + prand() % 3;
+
+		self->thinkTime = 30;
+	}
+}
+
+static void spitIce()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addProjectile("enemy/ice", self, self->x, self->y, 0, 0);
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice");
+		}
+
+		e->face = self->face;
+
+		e->flags |= PLAYER_TOUCH_ONLY|FLY;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+		
+		calculatePath(e->x, e->y, player.x + player.w / 2, player.y + player.h / 2, &e->dirX, &e->dirY);
+
+		e->dirX *= 8;
+		e->dirY *= 8;
+		
+		e->touch = &iceTouch;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "ICE_STAND");
+
+			self->thinkTime = 60;
+
+			self->action = &spitIceFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
 	}
 
 	checkToMap(self);
 }
 
-static void recharge()
+static void spitIceFinish()
 {
 	self->thinkTime--;
 
@@ -1043,70 +1371,140 @@ static void recharge()
 	checkToMap(self);
 }
 
-static void throwWallWalkerInit()
+static void iceTouch(Entity *other)
 {
-	self->mental = 1 + prand() % 5;
+	if (other->type == PLAYER && other->element != ICE && !(other->flags & INVULNERABLE) && other->health > 0)
+	{
+		setPlayerFrozen(120);
 
-	self->thinkTime = 30;
+		self->inUse = FALSE;
+	}
+}
 
-	self->action = &throwWallWalker;
+static void eggDropInit()
+{
+	Target *t = getTargetByName("CAVE_BOSS_TARGET_TOP");
 
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->dirY = -self->speed;
+
+	if (self->y > self->targetY)
+	{
+		setEntityAnimation(self, "ICE_WALK_UP");
+	}
+
+	self->action = &eggDropMoveToTop;
+}
+
+static void eggDropMoveToTop()
+{
+	checkToMap(self);
+
+	if (self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+		
+		self->dirY = 0;
+
+		self->mental = 3 + prand() % 3;
+
+		self->action = &eggDropMove;
+
+		setEntityAnimation(self, "ICE_WALK");
+
+		facePlayer();
+		
+		self->targetX = getMapStartX();
+		
+		self->targetX += prand() % (SCREEN_WIDTH - self->w);
+	}
+}
+
+static void eggDropMove()
+{
+	Entity *e;
+	
+	if (abs(self->x - self->targetX) <= abs(self->dirX))
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+		
+		self->action = &dropEgg;
+		
+		setEntityAnimation(self, "ICE_ATTACK_DOWN");
+		
+		e = addEgg(self->x, self->y, "boss/cave_boss_egg");
+		
+		e->flags |= LIMIT_TO_SCREEN;
+		
+		e->pain = &enemyPain;
+		
+		e->thinkTime = 120 + (prand() % 180);
+
+		e->x = self->x + (self->w - e->w) / 2;
+		e->y = self->y + (self->h - e->h) / 2;
+
+		e->startX = e->x;
+		e->startY = e->y;
+		
+		self->thinkTime = 30;
+	}
+	
+	else
+	{
+		self->dirX = self->targetX < self->x ? -self->speed : self->speed;
+	}
+	
 	checkToMap(self);
 }
 
-static void throwWallWalker()
+static void dropEgg()
 {
-	Entity *e;
-
 	self->thinkTime--;
-
+	
 	if (self->thinkTime <= 0)
 	{
-		e = addEnemy("enemy/wall_walker", self->x, self->y);
-
-		e->face = self->face;
-
-		e->dirY = ITEM_JUMP_HEIGHT;
-
-		e->flags |= LIMIT_TO_SCREEN;
-
-		e->dirX = e->face == LEFT ? -e->speed : e->speed;
-
 		self->mental--;
-
-		self->thinkTime = 60;
-
+		
 		if (self->mental <= 0)
 		{
 			self->action = &attackFinished;
 		}
+		
+		else
+		{
+			self->targetX = getMapStartX();
+			
+			self->targetX += prand() % (SCREEN_WIDTH - self->w);
+			
+			self->action = &eggDropMove;
+			
+			setEntityAnimation(self, "ICE_WALK");
+		}
 	}
-
+	
 	checkToMap(self);
-}
-*/
-static void changeToIceInit()
-{
-	self->startX = 1;
-
-	self->endX = 2;
-
-	playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
-	self->action = &attackFinished;
-}
-
-static void changeToFireInit()
-{
-	playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
-	self->action = &changeToFire;
-
-	self->draw = &fireDraw;
 }
 
 static void changeToFire()
 {
+	if (self->alpha == 255)
+	{
+		playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->action = &changeToFire;
+
+		self->draw = &fireDraw;
+	}
+
 	self->alpha -= 3;
 
 	if (self->alpha <= 0)
@@ -1120,12 +1518,51 @@ static void changeToFire()
 		self->draw = &drawLoopingAnimationToMap;
 
 		self->mental = 0;
-		
+
 		self->startX = 1;
 
 		self->endX = 1;
 
-		self->maxThinkTime = 20;
+		/*self->maxThinkTime = 20;*/
+
+		self->maxThinkTime = 1;
+	}
+
+	checkToMap(self);
+}
+
+static void changeToIce()
+{
+	if (self->alpha == 255)
+	{
+		playSoundToMap("sound/common/freeze.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->action = &changeToIce;
+
+		self->draw = &iceDraw;
+	}
+
+	self->alpha -= 3;
+
+	if (self->alpha <= 0)
+	{
+		setEntityAnimation(self, "ICE_STAND");
+
+		self->alpha = 255;
+
+		self->action = &attackFinished;
+
+		self->draw = &drawLoopingAnimationToMap;
+
+		self->mental = 0;
+
+		self->startX = 1;
+
+		self->endX = 2;
+
+		/*self->maxThinkTime = 20;*/
+
+		self->maxThinkTime = 1;
 	}
 
 	checkToMap(self);
@@ -1134,6 +1571,8 @@ static void changeToFire()
 static void attackFinished()
 {
 	self->mental = 0;
+
+	self->damage = 1;
 
 	self->thinkTime = 30;
 
@@ -1208,12 +1647,13 @@ static void die()
 
 static void touch(Entity *other)
 {
-	if (self->startX == -1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item_stalactite") == 0)
+	if (self->startX == -1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/stalactite") == 0)
 	{
 		self->takeDamage(other, 500);
 	}
 
-	else if (self->endX == 1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
+	else if (self->startX != -1 && self->endX == 1
+		&& other->type == KEY_ITEM && strcmpignorecase(other->name, "item/ice_cube") == 0)
 	{
 		self->maxThinkTime--;
 
@@ -1226,17 +1666,26 @@ static void touch(Entity *other)
 
 		if (self->maxThinkTime <= 0)
 		{
-			self->maxThinkTime = 150;
-
 			self->startX = -1;
-			
-			self->inUse = FALSE;
 
-			/*self->action = &rechargeInit;*/
+			setEntityAnimation(self, "STUNNED");
+
+			self->flags &= ~FLY;
+
+			self->damage = 0;
+
+			self->dirX = 0;
+
+			self->dirY = 0;
+
+			self->thinkTime = 600;
+
+			self->action = &stunned;
 		}
 	}
 
-	else if (self->endX == 2 && other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
+	else if (self->startX != -1 && self->endX == 2
+		&& other->type == PROJECTILE && strcmpignorecase(other->name, "weapon/flaming_arrow") == 0)
 	{
 		self->maxThinkTime--;
 
@@ -1252,8 +1701,6 @@ static void touch(Entity *other)
 			self->maxThinkTime = 150;
 
 			self->startX = -1;
-
-			/*self->action = &rechargeInit;*/
 		}
 	}
 
@@ -1298,4 +1745,159 @@ static int fireDraw()
 	self->alpha = alpha;
 
 	return 1;
+}
+
+static int iceDraw()
+{
+	int frame, alpha;
+	float timer;
+
+	/* Draw the boss with its lowering alpha */
+
+	drawLoopingAnimationToMap();
+
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+
+	alpha = self->alpha;
+
+	/* Draw the other part with its rising alpha */
+
+	setEntityAnimation(self, "ICE_STAND");
+
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	self->alpha = 255 - alpha;
+
+	drawSpriteToMap();
+
+	/* Reset back to original */
+
+	setEntityAnimation(self, "STAND");
+
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	self->alpha = alpha;
+
+	return 1;
+}
+
+static void stunned()
+{
+	int i;
+	long onGround = self->flags & ON_GROUND;
+	Entity *e;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			for (i=0;i<2;i++)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Cave Boss's Star");
+				}
+
+				loadProperties("boss/armour_boss_star", e);
+
+				e->x = self->x;
+				e->y = self->y;
+
+				e->action = &starWait;
+
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->thinkTime = self->thinkTime;
+
+				e->head = self;
+
+				setEntityAnimation(e, "STAND");
+
+				e->currentFrame = (i == 0 ? 0 : 6);
+
+				if (self->face == LEFT)
+				{
+					e->x = self->x + self->w - e->w - e->offsetX;
+				}
+
+				else
+				{
+					e->x = self->x + e->offsetX;
+				}
+
+				e->y = self->y + e->offsetY;
+			}
+
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+
+		self->action = &stunFinish;
+	}
+}
+
+static void stunFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->startX = 0;
+
+		if (self->health <= 500)
+		{
+			self->endX = 2;
+		}
+
+		else if (self->health <= 1000)
+		{
+			self->endX = 1;
+		}
+
+		else
+		{
+			self->endX = 0;
+		}
+
+		self->flags |= FLY;
+
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void starWait()
+{
+	self->face = self->head->face;
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->head->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->head->offsetX;
+	}
+
+	self->y = self->head->y + self->head->offsetY;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }
