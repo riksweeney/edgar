@@ -111,6 +111,11 @@ static void hatch()
 	setEntityAnimation(e, "JUMP");
 
 	e = addEnemy(self->objectiveName, 0, 0);
+	
+	if (self->flags & LIMIT_TO_SCREEN)
+	{
+		e->flags |= LIMIT_TO_SCREEN;
+	}
 
 	e->x = self->x + (self->w - e->w) / 2;
 	e->y = self->y;
