@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../map.h"
 #include "../projectile.h"
 #include "../item/key_items.h"
+#include "../item/item.h"
 #include "../player.h"
 #include "../enemy/enemies.h"
 #include "../graphics/gib.h"
@@ -89,6 +90,16 @@ static void eggDropInit(void);
 static void eggDropMoveToTop(void);
 static void eggDropMove(void);
 static void dropEgg(void);
+static void icicleDropInit(void);
+static void icicleDropMoveToTop(void);
+static void icicleDrop(void);
+static void icicleDropWait(void);
+static void icicleDropFinish(void);
+static void iceDrop(void);
+static void stunWake(void);
+static void groundChargeInit(void);
+static void groundCharge(void);
+static void groundChargeFinish(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -162,7 +173,7 @@ static void doIntro()
 
 		self->startX = 0;
 
-		self->endX = 1;
+		self->endX = 3;
 
 		self->thinkTime = 0;
 	}
@@ -235,9 +246,31 @@ static void entityWait()
 					}
 				break;
 
-				default: /* Ice */
-					self->action = &spitIceInit;
-					self->action = &eggDropInit;
+				case 2: /* Ice */
+					action = prand() % 7;
+
+					switch (action)
+					{
+						case 0:
+						case 1:
+						case 2:
+							self->action = &spitIceInit;
+						break;
+
+						case 3:
+						case 4:
+						case 5:
+							self->action = &eggDropInit;
+						break;
+
+						default:
+							self->action = &icicleDropInit;
+						break;
+					}
+				break;
+
+				default: /* Standard */
+					self->action = &groundChargeInit;
 				break;
 			}
 		}
@@ -482,7 +515,7 @@ static void fireDropMoveToTop()
 	if (self->y <= self->targetY)
 	{
 		self->y = self->targetY;
-		
+
 		self->dirY = 0;
 
 		self->startY = 3 + prand() % 3;
@@ -686,6 +719,8 @@ static void ceilingBurnMoveToTop()
 
 	else if (abs(self->x - self->targetX) <= abs(self->dirX))
 	{
+		self->x = self->targetX;
+
 		self->dirX = 0;
 
 		self->mental = 30;
@@ -762,7 +797,7 @@ static void ceilingBurn()
 
 		else
 		{
-			self->thinkTime = 3;
+			self->thinkTime = 6;
 		}
 	}
 
@@ -897,6 +932,8 @@ static void incinerateMoveToTop()
 
 	else if (abs(self->x - self->targetX) <= abs(self->dirX))
 	{
+		self->x = self->targetX;
+
 		self->dirX = 0;
 
 		self->mental = 0;
@@ -1012,6 +1049,8 @@ static void incinerate()
 
 		else if (self->mental > 100)
 		{
+			self->thinkTime = 60;
+
 			self->action = &incinerateWait;
 		}
 
@@ -1028,7 +1067,12 @@ static void incinerateWait()
 {
 	if (self->endY <= 0)
 	{
-		self->action = &attackFinished;
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
 	}
 
 	checkToMap(self);
@@ -1155,6 +1199,28 @@ static void moveToTarget()
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 			setEntityAnimation(self, "WALK");
+		}
+
+		else
+		{
+			t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Cave Boss cannot find target");
+			}
+
+			self->x = self->targetX;
+
+			self->targetY = t->y;
+
+			self->face = self->dirX < 0 ? RIGHT : LEFT;
+
+			self->dirX = 0;
+
+			self->dirY = self->speed;
+
+			setEntityAnimation(self, "WALK_UP");
 		}
 	}
 
@@ -1309,6 +1375,8 @@ static void spitIce()
 
 	if (self->thinkTime <= 0)
 	{
+		facePlayer();
+		
 		e = addProjectile("enemy/ice", self, self->x, self->y, 0, 0);
 
 		if (e == NULL)
@@ -1331,12 +1399,12 @@ static void spitIce()
 		}
 
 		e->y = self->y + self->offsetY;
-		
+
 		calculatePath(e->x, e->y, player.x + player.w / 2, player.y + player.h / 2, &e->dirX, &e->dirY);
 
 		e->dirX *= 8;
 		e->dirY *= 8;
-		
+
 		e->touch = &iceTouch;
 
 		self->mental--;
@@ -1410,19 +1478,19 @@ static void eggDropMoveToTop()
 	if (self->y <= self->targetY)
 	{
 		self->y = self->targetY;
-		
+
 		self->dirY = 0;
 
-		self->mental = 3 + prand() % 3;
+		self->mental = 1 + prand() % 3;
 
 		self->action = &eggDropMove;
 
 		setEntityAnimation(self, "ICE_WALK");
 
 		facePlayer();
-		
+
 		self->targetX = getMapStartX();
-		
+
 		self->targetX += prand() % (SCREEN_WIDTH - self->w);
 	}
 }
@@ -1430,65 +1498,394 @@ static void eggDropMoveToTop()
 static void eggDropMove()
 {
 	Entity *e;
-	
+
 	if (abs(self->x - self->targetX) <= abs(self->dirX))
 	{
 		self->x = self->targetX;
 
 		self->dirX = 0;
-		
+
 		self->action = &dropEgg;
-		
+
 		setEntityAnimation(self, "ICE_ATTACK_DOWN");
-		
+
 		e = addEgg(self->x, self->y, "boss/cave_boss_egg");
-		
+
 		e->flags |= LIMIT_TO_SCREEN;
-		
+
 		e->pain = &enemyPain;
-		
+
 		e->thinkTime = 120 + (prand() % 180);
 
-		e->x = self->x + (self->w - e->w) / 2;
-		e->y = self->y + (self->h - e->h) / 2;
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		e->x -= e->w / 2;
 
 		e->startX = e->x;
 		e->startY = e->y;
-		
+
 		self->thinkTime = 30;
 	}
-	
+
 	else
 	{
 		self->dirX = self->targetX < self->x ? -self->speed : self->speed;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void dropEgg()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental--;
-		
+
 		if (self->mental <= 0)
 		{
 			self->action = &attackFinished;
 		}
-		
+
 		else
 		{
 			self->targetX = getMapStartX();
-			
+
 			self->targetX += prand() % (SCREEN_WIDTH - self->w);
-			
+
 			self->action = &eggDropMove;
-			
+
 			setEntityAnimation(self, "ICE_WALK");
 		}
+	}
+
+	checkToMap(self);
+}
+
+static void icicleDropInit()
+{
+	Target *t = getTargetByName("CAVE_BOSS_TARGET_TOP");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->dirY = -self->speed;
+
+	if (self->y > self->targetY)
+	{
+		setEntityAnimation(self, "ICE_WALK_UP");
+	}
+
+	self->action = &icicleDropMoveToTop;
+}
+
+static void icicleDropMoveToTop()
+{
+	checkToMap(self);
+
+	if (self->dirY < 0 && self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+
+		self->dirY = 0;
+
+		setEntityAnimation(self, "ICE_WALK");
+
+		self->face = self->targetX < self->x ? LEFT : RIGHT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+
+	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+
+		self->mental = 30;
+
+		self->thinkTime = 3;
+
+		self->action = &icicleDrop;
+
+		self->endY = getMapStartX();
+
+		setEntityAnimation(self, "ICE_ATTACK_UP");
+	}
+}
+
+static void icicleDrop()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice");
+		}
+
+		loadProperties("enemy/ice", e);
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		e->x -= e->w / 2;
+
+		e->action = &fireFall;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->flags |= FLY;
+
+		e->thinkTime = 600;
+
+		e->dirY = -15;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->endY += TILE_SIZE / 2 - e->w / 2;
+
+			self->thinkTime = 30;
+
+			self->action = &icicleDropWait;
+		}
+
+		else
+		{
+			self->thinkTime = 6;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void icicleDropWait()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice Spike");
+		}
+
+		loadProperties("enemy/ice_spike", e);
+
+		setEntityAnimation(e, "STAND");
+
+		e->x = self->endY;
+		e->y = getMapStartY() - e->h;
+
+		e->flags |= PLAYER_TOUCH_ONLY|FLY;
+
+		e->action = &iceDrop;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->health = 120;
+
+		e->thinkTime = 60;
+
+		e->head = self;
+
+		self->endY += e->w;
+
+		self->mental++;
+
+		if (self->endY >= getMapStartX() + SCREEN_WIDTH)
+		{
+			self->action = &icicleDropFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 10;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void icicleDropFinish()
+{
+	if (self->mental <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void iceDrop()
+{
+	int i;
+	Entity *e;
+
+	checkToMap(self);
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+	}
+
+	if (self->flags & ON_GROUND)
+	{
+		playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
+
+		for (i=0;i<8;i++)
+		{
+			e = addTemporaryItem("misc/ice_spike_piece", self->x, self->y, RIGHT, 0, 0);
+
+			e->x = self->x + self->w / 2;
+			e->x -= e->w / 2;
+
+			e->y = self->y + self->h / 2;
+			e->y -= e->h / 2;
+
+			e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT * 2 + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimationByID(e, i);
+
+			e->thinkTime = 60 + (prand() % 60);
+
+			e->touch = NULL;
+		}
+
+		self->head->mental--;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void groundChargeInit()
+{
+	checkToMap(self);
+	
+	if (self->flags & FLY)
+	{
+		setEntityAnimation(self, "GROUND_STAND");
+		
+		self->thinkTime = 120;
+		
+		self->flags &= ~FLY;
+		
+		facePlayer();
+	}
+	
+	else if (self->flags & ON_GROUND)
+	{
+		self->mental = 3 + prand() % 3;
+		
+		setEntityAnimation(self, "GROUND_WALK");
+		
+		self->action = &groundCharge;
+	}
+}
+
+static void groundCharge()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			
+			self->dirX *= 3;
+		}
+		
+		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+	}
+	
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->mental--;
+			
+			self->face = self->face == LEFT ? RIGHT : LEFT;
+			
+			if (self->mental <= 0)
+			{
+				self->thinkTime = 60;
+				
+				setEntityAnimation(self, "GROUND_STAND");
+				
+				self->action = &groundChargeFinish;
+			}
+			
+			else
+			{
+				self->dirX = self->face == LEFT ? -self->speed : self->speed;
+				
+				self->dirX *= 3;
+			}
+		}
+		
+		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+	}
+	
+	checkToMap(self);
+}
+
+static void groundChargeFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= FLY;
+		
+		self->action = &attackFinished;
 	}
 	
 	checkToMap(self);
@@ -1523,9 +1920,7 @@ static void changeToFire()
 
 		self->endX = 1;
 
-		/*self->maxThinkTime = 20;*/
-
-		self->maxThinkTime = 1;
+		self->maxThinkTime = 15;
 	}
 
 	checkToMap(self);
@@ -1560,9 +1955,7 @@ static void changeToIce()
 
 		self->endX = 2;
 
-		/*self->maxThinkTime = 20;*/
-
-		self->maxThinkTime = 1;
+		self->maxThinkTime = 20;
 	}
 
 	checkToMap(self);
@@ -1650,6 +2043,8 @@ static void touch(Entity *other)
 	if (self->startX == -1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/stalactite") == 0)
 	{
 		self->takeDamage(other, 500);
+		
+		other->mental = -2;
 	}
 
 	else if (self->startX != -1 && self->endX == 1
@@ -1698,9 +2093,21 @@ static void touch(Entity *other)
 
 		if (self->maxThinkTime <= 0)
 		{
-			self->maxThinkTime = 150;
-
 			self->startX = -1;
+
+			setEntityAnimation(self, "STUNNED");
+
+			self->flags &= ~FLY;
+
+			self->damage = 0;
+
+			self->dirX = 0;
+
+			self->dirY = 0;
+
+			self->thinkTime = 600;
+
+			self->action = &stunned;
 		}
 	}
 
@@ -1857,7 +2264,7 @@ static void stunFinish()
 
 		if (self->health <= 500)
 		{
-			self->endX = 2;
+			self->endX = 3;
 		}
 
 		else if (self->health <= 1000)
@@ -1870,12 +2277,26 @@ static void stunFinish()
 			self->endX = 0;
 		}
 
+		setEntityAnimation(self, "STUN_WAKE");
+
+		self->thinkTime = 60;
+
+		self->action = &stunWake;
+	}
+
+	checkToMap(self);
+}
+
+static void stunWake()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
 		self->flags |= FLY;
 
 		self->action = &attackFinished;
 	}
-
-	checkToMap(self);
 }
 
 static void starWait()
