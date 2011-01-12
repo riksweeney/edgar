@@ -93,7 +93,7 @@ static void fallout()
 		self->action = &falloutPause;
 	}
 
-	else if (self->mental == -1)
+	else if (self->mental < 0)
 	{
 		self->action = &die;
 	}
@@ -120,7 +120,7 @@ static void entityWait()
 
 	if (self->flags & ON_GROUND)
 	{
-		if (self->mental == -1)
+		if (self->mental < 0)
 		{
 			self->thinkTime = 300;
 
@@ -158,7 +158,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self->health = self->maxHealth;
 
-				if (self->mental == -1)
+				if (self->mental < 0)
 				{
 					self->flags |= ATTACKING;
 				}
@@ -236,28 +236,55 @@ static void die()
 
 static void respawn()
 {
+	float x, y;
+	
 	self->thinkTime--;
 
-	if (self->thinkTime == 0)
+	if (self->thinkTime <= 0)
 	{
-		self->flags &= ~NO_DRAW;
-
-		self->flags |= FLY;
-
-		self->action = &entityWait;
-
-		self->health = self->maxHealth;
-
-		self->touch = &touch;
-
-		setCustomAction(self, &invulnerable, 180, 0, 0);
-
+		if (self->mental == -2)
+		{
+			self->inUse = FALSE;
+		}
+		
+		x = self->x;
+		
+		y = self->y;
+		
 		self->x = self->startX;
 
 		self->y = self->startY;
+		
+		if (isSpaceEmpty(self) != NULL)
+		{
+			self->x = x;
+			
+			self->y = y;
+			
+			self->thinkTime = 60;
+		}
+		
+		else
+		{
+			self->flags &= ~NO_DRAW;
 
-		self->dirX = self->dirY = 0;
+			self->flags |= FLY;
 
-		self->flags &= ~ATTACKING;
+			self->action = &entityWait;
+
+			self->health = self->maxHealth;
+
+			self->touch = &touch;
+
+			setCustomAction(self, &invulnerable, 180, 0, 0);
+
+			self->x = self->startX;
+
+			self->y = self->startY;
+
+			self->dirX = self->dirY = 0;
+
+			self->flags &= ~ATTACKING;
+		}
 	}
 }
