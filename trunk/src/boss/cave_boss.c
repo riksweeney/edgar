@@ -42,12 +42,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../geometry.h"
 #include "../enemy/egg.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self, player;
 
 static void initialise(void);
 static void doIntro(void);
-static void die(void);
 static void attackFinished(void);
 static void takeDamage(Entity *, int);
 static void touch(Entity *);
@@ -100,6 +101,15 @@ static void stunWake(void);
 static void groundChargeInit(void);
 static void groundCharge(void);
 static void groundChargeFinish(void);
+static void die(void);
+static void dieFinish(void);
+static void acidStreamInit(void);
+static void acidStreamMoveToTop(void);
+static void acidStream(void);
+static void spitAcidInit(void);
+static void spitAcidMoveToTarget(void);
+static void spitAcid(void);
+static void spitAcidFinish(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -125,7 +135,7 @@ Entity *addCaveBoss(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "NORMAL_STAND");
 
 	return e;
 }
@@ -176,6 +186,8 @@ static void doIntro()
 		self->endX = 3;
 
 		self->thinkTime = 0;
+
+		self->health = 1;
 	}
 
 	checkToMap(self);
@@ -199,7 +211,7 @@ static void entityWait()
 
 		else
 		{
-			self->startX = 1;
+			self->startX = -1;
 		}
 
 		checkToMap(self);
@@ -270,7 +282,22 @@ static void entityWait()
 				break;
 
 				default: /* Standard */
-					self->action = &groundChargeInit;
+					action = prand() % 3;
+
+					switch (action)
+					{
+						case 0:
+							self->action = &groundChargeInit;
+						break;
+
+						case 1:
+							self->action = &spitAcidInit;
+						break;
+
+						default:
+							self->action = &acidStreamInit;
+						break;
+					}
 				break;
 			}
 		}
@@ -1112,7 +1139,7 @@ static void changeToIceInit()
 
 		if (self->y > self->targetY)
 		{
-			setEntityAnimation(self, "WALK_UP");
+			setEntityAnimation(self, "NORMAL_WALK_UP");
 		}
 
 		self->dirX = 0;
@@ -1163,7 +1190,7 @@ static void changeToFireInit()
 
 		if (self->y > self->targetY)
 		{
-			setEntityAnimation(self, "WALK_UP");
+			setEntityAnimation(self, "NORMAL_WALK_UP");
 		}
 
 		self->dirX = 0;
@@ -1198,7 +1225,7 @@ static void moveToTarget()
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-			setEntityAnimation(self, "WALK");
+			setEntityAnimation(self, "NORMAL_WALK");
 		}
 
 		else
@@ -1220,7 +1247,7 @@ static void moveToTarget()
 
 			self->dirY = self->speed;
 
-			setEntityAnimation(self, "WALK_UP");
+			setEntityAnimation(self, "NORMAL_WALK_UP");
 		}
 	}
 
@@ -1243,14 +1270,14 @@ static void moveToTarget()
 
 		self->dirY = self->speed;
 
-		setEntityAnimation(self, "WALK_UP");
+		setEntityAnimation(self, "NORMAL_WALK_UP");
 	}
 
 	else if (self->dirY > 0 && self->y >= self->targetY)
 	{
 		self->dirY = 0;
 
-		setEntityAnimation(self, "STAND");
+		setEntityAnimation(self, "NORMAL_STAND");
 
 		self->action = self->resumeNormalFunction;
 
@@ -1376,7 +1403,7 @@ static void spitIce()
 	if (self->thinkTime <= 0)
 	{
 		facePlayer();
-		
+
 		e = addProjectile("enemy/ice", self, self->x, self->y, 0, 0);
 
 		if (e == NULL)
@@ -1808,24 +1835,24 @@ static void iceDrop()
 static void groundChargeInit()
 {
 	checkToMap(self);
-	
+
 	if (self->flags & FLY)
 	{
-		setEntityAnimation(self, "GROUND_STAND");
-		
+		setEntityAnimation(self, "STAND");
+
 		self->thinkTime = 120;
-		
+
 		self->flags &= ~FLY;
-		
+
 		facePlayer();
 	}
-	
+
 	else if (self->flags & ON_GROUND)
 	{
 		self->mental = 3 + prand() % 3;
-		
-		setEntityAnimation(self, "GROUND_WALK");
-		
+
+		setEntityAnimation(self, "WALK");
+
 		self->action = &groundCharge;
 	}
 }
@@ -1835,59 +1862,359 @@ static void groundCharge()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
-			
+
 			self->dirX *= 3;
 		}
-		
+
 		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 	}
-	
+
 	else
 	{
 		if (self->dirX == 0)
 		{
 			self->mental--;
-			
+
 			self->face = self->face == LEFT ? RIGHT : LEFT;
-			
+
 			if (self->mental <= 0)
 			{
 				self->thinkTime = 60;
-				
-				setEntityAnimation(self, "GROUND_STAND");
-				
+
+				setEntityAnimation(self, "STAND");
+
 				self->action = &groundChargeFinish;
 			}
-			
+
 			else
 			{
 				self->dirX = self->face == LEFT ? -self->speed : self->speed;
-				
+
 				self->dirX *= 3;
 			}
 		}
-		
+
 		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 	}
-	
+
 	checkToMap(self);
 }
 
 static void groundChargeFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= FLY;
-		
+
 		self->action = &attackFinished;
 	}
+
+	checkToMap(self);
+}
+
+static void acidStreamInit()
+{
+	Target *t = getTargetByName("CAVE_BOSS_TARGET_TOP");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->dirY = -self->speed;
+
+	if (self->y > self->targetY)
+	{
+		setEntityAnimation(self, "NORMAL_WALK_UP");
+	}
+
+	self->action = &acidStreamMoveToTop;
+}
+
+static void acidStreamMoveToTop()
+{
+	checkToMap(self);
+
+	if (self->dirY < 0 && self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+
+		self->dirY = 0;
+
+		setEntityAnimation(self, "NORMAL_WALK");
+		
+		self->face = prand() % 2 == 0 ? LEFT : RIGHT;
+		
+		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+
+	else if (abs(self->x - self->targetX) <= abs(self->dirX))
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+		
+		self->thinkTime = 120;
+
+		self->action = &acidStream;
+
+		setEntityAnimation(self, "NORMAL_ATTACK_DOWN");
+	}
+}
+
+static void acidStream()
+{
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "NORMAL_ATTACK_DOWN_WALK");
+			
+			self->thinkTime = 60;
+			
+			self->mental = 1;
+			
+			self->dirX = self->face == LEFT ? self->speed : -self->speed;
+		}
+	}
 	
+	else
+	{
+		if (self->dirX == 0)
+		{
+			setEntityAnimation(self, "NORMAL_ATTACK_DOWN");
+			
+			self->thinkTime--;
+			
+			if (self->thinkTime <= 0)
+			{
+				self->action = &attackFinished;
+			}
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void spitAcidInit()
+{
+	Target *t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Cave Boss cannot find target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	self->mental = 5;
+
+	self->endY = prand() % 2 == 0 ? 3 : 5;
+
+	if (self->x == self->targetX && self->y == self->targetY)
+	{
+		setEntityAnimation(self, "NORMAL_ATTACK");
+
+		self->action = &spitAcid;
+
+		facePlayer();
+
+		self->mental = 3 + prand() % 3;
+
+		self->thinkTime = 30;
+	}
+
+	else
+	{
+		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->targetY = t->y;
+
+		self->action = &spitAcidMoveToTarget;
+
+		if (self->y > self->targetY)
+		{
+			setEntityAnimation(self, "NORMAL_WALK_UP");
+		}
+
+		self->dirX = 0;
+		self->dirY = -self->speed;
+	}
+}
+
+static void spitAcidMoveToTarget()
+{
+	Target *t;
+
+	checkToMap(self);
+
+	if (self->dirY < 0 && self->y <= self->targetY)
+	{
+		self->y = self->targetY;
+
+		self->dirY = 0;
+
+		self->face = self->targetX < self->x ? LEFT : RIGHT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+		setEntityAnimation(self, "NORMAL_WALK");
+	}
+
+	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
+	{
+		t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Cave Boss cannot find target");
+		}
+
+		self->x = self->targetX;
+
+		self->targetY = t->y;
+
+		self->face = self->dirX < 0 ? RIGHT : LEFT;
+
+		self->dirX = 0;
+
+		self->dirY = self->speed;
+
+		setEntityAnimation(self, "NORMAL_WALK_UP");
+	}
+
+	else if (self->dirY > 0 && self->y >= self->targetY)
+	{
+		self->dirY = 0;
+
+		setEntityAnimation(self, "NORMAL_ATTACK");
+
+		self->action = &spitAcid;
+
+		facePlayer();
+
+		self->mental = 3 + prand() % 3;
+
+		self->thinkTime = 30;
+	}
+}
+
+static void spitAcid()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		for (i=0;i<self->endY;i++)
+		{
+			e = addProjectile("enemy/fireball", self, self->x, self->y, (self->face == RIGHT ? 2 : -2), 0);
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a Fireball");
+			}
+
+			playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			e->damage = 1;
+
+			e->face = self->face;
+
+			e->flags |= PLAYER_TOUCH_ONLY;
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - self->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + self->offsetX;
+			}
+
+			e->y = self->y + self->offsetY;
+
+			if (self->endY == 3)
+			{
+				if (i != 0)
+				{
+					e->dirY = i == 1 ? -0.5 : 0.5;
+				}
+			}
+
+			else
+			{
+				if (i == 0)
+				{
+					e->dirY = 0;
+				}
+
+				else if (i < 3)
+				{
+					e->dirY = i == 1 ? -0.5 : 0.5;
+				}
+
+				else
+				{
+					e->dirY = i == 3 ? -1 : 1;
+				}
+			}
+
+			e->dirX *= 3;
+			e->dirY *= 3;
+		}
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "NORMAL_STAND");
+
+			self->thinkTime = 60;
+
+			self->action = &spitAcidFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void spitAcidFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
 	checkToMap(self);
 }
 
@@ -2016,26 +2343,48 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
-	Entity *e;
+	int i;
+
+	self->action = &die;
+
+	setCustomAction(self, &invulnerableNoFlash, 240, 0, 0);
+
+	setEntityAnimation(self, "STUNNED");
+
+	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->flags & ON_GROUND)
 	{
-		clearContinuePoint();
+		for (i=0;i<20;i++)
+		{
+			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+		}
 
-		increaseKillCount();
+		self->thinkTime = 120;
 
-		freeBossHealthBar();
-
-		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-
-		e->dirY = ITEM_JUMP_HEIGHT;
-
-		entityDieNoDrop();
+		self->action = &dieFinish;
 	}
+}
+
+static void dieFinish()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		setCustomAction(self, &invulnerableNoFlash, 240, 0, 0);
+
+		if (self->thinkTime <= 0)
+		{
+			fireTrigger(self->objectiveName);
+
+			fireGlobalTrigger(self->objectiveName);
+		}
+	}
+
+	checkToMap(self);
 }
 
 static void touch(Entity *other)
@@ -2043,7 +2392,7 @@ static void touch(Entity *other)
 	if (self->startX == -1 && other->type == KEY_ITEM && strcmpignorecase(other->name, "item/stalactite") == 0)
 	{
 		self->takeDamage(other, 500);
-		
+
 		other->mental = -2;
 	}
 
@@ -2144,7 +2493,7 @@ static int fireDraw()
 
 	/* Reset back to original */
 
-	setEntityAnimation(self, "STAND");
+	setEntityAnimation(self, "NORMAL_STAND");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -2181,7 +2530,7 @@ static int iceDraw()
 
 	/* Reset back to original */
 
-	setEntityAnimation(self, "STAND");
+	setEntityAnimation(self, "NORMAL_STAND");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;

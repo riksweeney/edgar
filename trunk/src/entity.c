@@ -1621,16 +1621,19 @@ static void scriptEntityMoveToTarget()
 
 static void scriptDoNothing()
 {
-	if (self->standingOn != NULL)
+	if (!(self->flags & FLY))
 	{
-		self->dirX = self->standingOn->dirX;
-
-		if (self->standingOn->dirY > 0)
+		if (self->standingOn != NULL)
 		{
-			self->dirY = self->standingOn->dirY + 1;
-		}
+			self->dirX = self->standingOn->dirX;
 
-		self->flags |= ON_GROUND;
+			if (self->standingOn->dirY > 0)
+			{
+				self->dirY = self->standingOn->dirY + 1;
+			}
+
+			self->flags |= ON_GROUND;
+		}
 	}
 
 	checkToMap(self);
