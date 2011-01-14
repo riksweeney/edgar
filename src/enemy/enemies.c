@@ -97,6 +97,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "wall_walker.h"
 #include "iron_ball.h"
 #include "hoover.h"
+#include "giant_ceiling_creeper.h"
+#include "baby_salamander.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -256,7 +258,9 @@ static Constructor enemies[] = {
 {"enemy/wall_walker", &addWallWalker},
 {"enemy/iron_ball", &addIronBall},
 {"enemy/hoover", &addHoover},
-{"boss/black_book_2", &addBlackBook2}
+{"boss/black_book_2", &addBlackBook2},
+{"enemy/giant_ceiling_creeper", &addGiantCeilingCreeper},
+{"enemy/baby_salamander", &addBabySalamander}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

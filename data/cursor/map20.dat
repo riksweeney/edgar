@@ -36,3 +36,5 @@ boss/cave_boss
 lift/lift_target
 wall/small_weak_cave_wall
 weapon/normal_arrow
+enemy/giant_ceiling_creeper
+item/heart_container

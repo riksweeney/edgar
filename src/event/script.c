@@ -1168,8 +1168,6 @@ void readNextScriptLine()
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
-			printf("Running script %s\n", token);
-
 			runScript(token);
 		}
 
