@@ -82,7 +82,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 
 	e->face = e->dirX > 0 ? RIGHT : LEFT;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimationByID(e, 0);
 
 	return e;
 }

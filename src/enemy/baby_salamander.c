@@ -61,7 +61,9 @@ Entity *addBabySalamander(int x, int y, char *name)
 
 static void die()
 {
-	addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+	Entity *e = addTemporaryItem("weapon/normal_arrow", self->x, self->y, RIGHT, 0, ITEM_JUMP_HEIGHT);
+
+	e->health = 1 + prand() % 3;
 
 	entityDie();
 }
