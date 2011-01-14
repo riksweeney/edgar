@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../item/item.h"
 #include "../player.h"
+#include "../inventory.h"
 #include "../enemy/enemies.h"
 #include "../graphics/gib.h"
 #include "../system/error.h"
@@ -64,10 +65,6 @@ static void incinerateWait(void);
 static void fireWait(void);
 static int fireDraw(void);
 static int iceDraw(void);
-static void spitFireInit(void);
-static void spitFireMoveToTarget(void);
-static void spitFire(void);
-static void spitFireFinish(void);
 static void fireDropInit(void);
 static void fireDropMoveToTop(void);
 static void fireDropMoveAbovePlayer(void);
@@ -82,10 +79,6 @@ static void stunned(void);
 static void stunFinish(void);
 static void moveToTarget(void);
 static void starWait(void);
-static void spitIceInit(void);
-static void spitIceMoveToTarget(void);
-static void spitIce(void);
-static void spitIceFinish(void);
 static void iceTouch(Entity *);
 static void eggDropInit(void);
 static void eggDropMoveToTop(void);
@@ -106,10 +99,16 @@ static void dieFinish(void);
 static void acidStreamInit(void);
 static void acidStreamMoveToTop(void);
 static void acidStream(void);
-static void spitAcidInit(void);
-static void spitAcidMoveToTarget(void);
+static void acidStreamFinish(void);
+static void spitInit(void);
+static void spitMoveToTarget(void);
+static void spitFinish(void);
+static void spitIce(void);
+static void spitFire(void);
 static void spitAcid(void);
-static void spitAcidFinish(void);
+static void finalAttack(void);
+static void slimePlayer(Entity *);
+static void dieWait(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -183,11 +182,9 @@ static void doIntro()
 
 		self->startX = 0;
 
-		self->endX = 3;
+		self->endX = 0;
 
 		self->thinkTime = 0;
-
-		self->health = 1;
 	}
 
 	checkToMap(self);
@@ -242,7 +239,7 @@ static void entityWait()
 							case 0:
 							case 1:
 							case 2:
-								self->action = &spitFireInit;
+								self->action = &spitInit;
 							break;
 
 							case 3:
@@ -259,25 +256,38 @@ static void entityWait()
 				break;
 
 				case 2: /* Ice */
-					action = prand() % 7;
+					/* If the player has no arrows then drop some eggs */
 
-					switch (action)
+					if (getInventoryItemByName("weapon/normal_arrow") == NULL && getInventoryItemByName("weapon/flaming_arrow") == NULL
+						&& getEntityByName("enemy/baby_salamander") == NULL)
 					{
-						case 0:
-						case 1:
-						case 2:
-							self->action = &spitIceInit;
-						break;
+						printf("Dropping eggs\n");
+						
+						self->action = &eggDropInit;
+					}
 
-						case 3:
-						case 4:
-						case 5:
-							self->action = &eggDropInit;
-						break;
+					else
+					{
+						action = prand() % 7;
 
-						default:
-							self->action = &icicleDropInit;
-						break;
+						switch (action)
+						{
+							case 0:
+							case 1:
+							case 2:
+								self->action = &spitInit;
+							break;
+
+							case 3:
+							case 4:
+							case 5:
+								self->action = &icicleDropInit;
+							break;
+
+							default:
+								self->action = &eggDropInit;
+							break;
+						}
 					}
 				break;
 
@@ -291,7 +301,7 @@ static void entityWait()
 						break;
 
 						case 1:
-							self->action = &spitAcidInit;
+							self->action = &spitInit;
 						break;
 
 						default:
@@ -304,7 +314,7 @@ static void entityWait()
 	}
 }
 
-static void spitFireInit()
+static void spitInit()
 {
 	Target *t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
 
@@ -322,9 +332,26 @@ static void spitFireInit()
 
 	if (self->x == self->targetX && self->y == self->targetY)
 	{
-		setEntityAnimation(self, "FIRE_ATTACK");
+		switch ((int)self->endX)
+		{
+			case 1:
+				setEntityAnimation(self, "FIRE_ATTACK");
 
-		self->action = &spitFire;
+				self->action = &spitFire;
+			break;
+
+			case 2:
+				setEntityAnimation(self, "ICE_ATTACK");
+
+				self->action = &spitIce;
+			break;
+
+			default:
+				setEntityAnimation(self, "NORMAL_ATTACK");
+
+				self->action = &spitAcid;
+			break;
+		}
 
 		facePlayer();
 
@@ -344,11 +371,24 @@ static void spitFireInit()
 
 		self->targetY = t->y;
 
-		self->action = &spitFireMoveToTarget;
+		self->action = &spitMoveToTarget;
 
 		if (self->y > self->targetY)
 		{
-			setEntityAnimation(self, "FIRE_WALK_UP");
+			switch ((int)self->endX)
+			{
+				case 1:
+					setEntityAnimation(self, "FIRE_WALK_UP");
+				break;
+
+				case 2:
+					setEntityAnimation(self, "ICE_WALK_UP");
+				break;
+
+				default:
+					setEntityAnimation(self, "NORMAL_WALK_UP");
+				break;
+			}
 		}
 
 		self->dirX = 0;
@@ -356,7 +396,7 @@ static void spitFireInit()
 	}
 }
 
-static void spitFireMoveToTarget()
+static void spitMoveToTarget()
 {
 	Target *t;
 
@@ -372,7 +412,20 @@ static void spitFireMoveToTarget()
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-		setEntityAnimation(self, "FIRE_WALK");
+		switch ((int)self->endX)
+		{
+			case 1:
+				setEntityAnimation(self, "FIRE_WALK");
+			break;
+
+			case 2:
+				setEntityAnimation(self, "ICE_WALK");
+			break;
+
+			default:
+				setEntityAnimation(self, "NORMAL_WALK");
+			break;
+		}
 	}
 
 	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
@@ -394,16 +447,48 @@ static void spitFireMoveToTarget()
 
 		self->dirY = self->speed;
 
-		setEntityAnimation(self, "FIRE_WALK_UP");
+		switch ((int)self->endX)
+		{
+			case 1:
+				setEntityAnimation(self, "FIRE_WALK_UP");
+			break;
+
+			case 2:
+				setEntityAnimation(self, "ICE_WALK_UP");
+			break;
+
+			default:
+				setEntityAnimation(self, "NORMAL_WALK_UP");
+			break;
+		}
 	}
 
 	else if (self->dirY > 0 && self->y >= self->targetY)
 	{
 		self->dirY = 0;
+		
+		self->y = self->targetY;
 
-		setEntityAnimation(self, "FIRE_ATTACK");
+		switch ((int)self->endX)
+		{
+			case 1:
+				setEntityAnimation(self, "FIRE_ATTACK");
 
-		self->action = &spitFire;
+				self->action = &spitFire;
+			break;
+
+			case 2:
+				setEntityAnimation(self, "ICE_ATTACK");
+
+				self->action = &spitIce;
+			break;
+
+			default:
+				setEntityAnimation(self, "NORMAL_ATTACK");
+
+				self->action = &spitAcid;
+			break;
+		}
 
 		facePlayer();
 
@@ -489,7 +574,7 @@ static void spitFire()
 
 			self->thinkTime = 60;
 
-			self->action = &spitFireFinish;
+			self->action = &spitFinish;
 		}
 
 		else
@@ -501,7 +586,132 @@ static void spitFire()
 	checkToMap(self);
 }
 
-static void spitFireFinish()
+static void spitIce()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		facePlayer();
+
+		e = addProjectile("enemy/ice", self, self->x, self->y, 0, 0);
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Ice");
+		}
+
+		e->face = self->face;
+
+		e->flags |= PLAYER_TOUCH_ONLY|FLY;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		calculatePath(e->x, e->y, player.x + player.w / 2, player.y + player.h / 2, &e->dirX, &e->dirY);
+
+		e->dirX *= 8;
+		e->dirY *= 8;
+
+		e->touch = &iceTouch;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "ICE_STAND");
+
+			self->thinkTime = 60;
+
+			self->action = &spitFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void spitAcid()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		for (i=0;i<3;i++)
+		{
+			e = addProjectile("boss/cave_boss_acid", self, self->x, self->y, (self->face == RIGHT ? 2 : -2), 0);
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Acid");
+			}
+
+			e->damage = 1;
+
+			e->face = self->face;
+
+			e->flags |= PLAYER_TOUCH_ONLY|FLY;
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - self->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + self->offsetX;
+			}
+
+			e->y = self->y + self->offsetY;
+
+			if (i != 0)
+			{
+				e->dirY = i == 1 ? -0.5 : 0.5;
+			}
+
+			e->dirX *= 3;
+			e->dirY *= 3;
+		}
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "NORMAL_STAND");
+
+			self->thinkTime = 60;
+
+			self->action = &spitFinish;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void spitFinish()
 {
 	self->thinkTime--;
 
@@ -619,6 +829,8 @@ static void fireDrop()
 
 		loadProperties("enemy/fire", e);
 
+		setEntityAnimation(e, "DOWN");
+
 		if (self->face == LEFT)
 		{
 			e->x = self->x + self->w - self->offsetX;
@@ -642,8 +854,6 @@ static void fireDrop()
 		e->type = ENEMY;
 
 		e->health = 0;
-
-		setEntityAnimation(e, "DOWN");
 
 		self->mental--;
 
@@ -781,6 +991,8 @@ static void ceilingBurn()
 
 		loadProperties("enemy/fire", e);
 
+		setEntityAnimation(e, "UP");
+
 		if (self->face == LEFT)
 		{
 			e->x = self->x + self->w - self->offsetX;
@@ -808,8 +1020,6 @@ static void ceilingBurn()
 		e->thinkTime = 600;
 
 		e->dirY = -15;
-
-		setEntityAnimation(e, "UP");
 
 		self->mental--;
 
@@ -993,6 +1203,8 @@ static void incinerate()
 
 		loadProperties("enemy/fire", e);
 
+		setEntityAnimation(e, "DOWN");
+
 		if (self->face == LEFT)
 		{
 			e->x = self->x + self->w - self->offsetX;
@@ -1016,8 +1228,6 @@ static void incinerate()
 		e->type = ENEMY;
 
 		e->health = 0;
-
-		setEntityAnimation(e, "DOWN");
 
 		self->mental++;
 
@@ -1285,187 +1495,6 @@ static void moveToTarget()
 	}
 }
 
-static void spitIceInit()
-{
-	Target *t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
-
-	if (t == NULL)
-	{
-		showErrorAndExit("Cave Boss cannot find target");
-	}
-
-	self->targetX = t->x;
-	self->targetY = t->y;
-
-	self->mental = 5;
-
-	self->endY = 5;
-
-	if (self->x == self->targetX && self->y == self->targetY)
-	{
-		setEntityAnimation(self, "ICE_ATTACK");
-
-		self->action = &spitIce;
-
-		facePlayer();
-
-		self->mental = 3 + prand() % 3;
-
-		self->thinkTime = 30;
-	}
-
-	else
-	{
-		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Cave Boss cannot find target");
-		}
-
-		self->targetY = t->y;
-
-		self->action = &spitIceMoveToTarget;
-
-		if (self->y > self->targetY)
-		{
-			setEntityAnimation(self, "ICE_WALK_UP");
-		}
-
-		self->dirX = 0;
-		self->dirY = -self->speed;
-	}
-}
-
-static void spitIceMoveToTarget()
-{
-	Target *t;
-
-	checkToMap(self);
-
-	if (self->dirY < 0 && self->y <= self->targetY)
-	{
-		self->y = self->targetY;
-
-		self->dirY = 0;
-
-		self->face = self->targetX < self->x ? LEFT : RIGHT;
-
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-		setEntityAnimation(self, "ICE_WALK");
-	}
-
-	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
-	{
-		t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Cave Boss cannot find target");
-		}
-
-		self->x = self->targetX;
-
-		self->targetY = t->y;
-
-		self->face = self->dirX < 0 ? RIGHT : LEFT;
-
-		self->dirX = 0;
-
-		self->dirY = self->speed;
-
-		setEntityAnimation(self, "ICE_WALK_UP");
-	}
-
-	else if (self->dirY > 0 && self->y >= self->targetY)
-	{
-		self->dirY = 0;
-
-		setEntityAnimation(self, "ICE_ATTACK");
-
-		self->action = &spitIce;
-
-		facePlayer();
-
-		self->mental = 3 + prand() % 3;
-
-		self->thinkTime = 30;
-	}
-}
-
-static void spitIce()
-{
-	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		facePlayer();
-
-		e = addProjectile("enemy/ice", self, self->x, self->y, 0, 0);
-
-		if (e == NULL)
-		{
-			showErrorAndExit("No free slots to add Ice");
-		}
-
-		e->face = self->face;
-
-		e->flags |= PLAYER_TOUCH_ONLY|FLY;
-
-		if (self->face == LEFT)
-		{
-			e->x = self->x + self->w - e->w - self->offsetX;
-		}
-
-		else
-		{
-			e->x = self->x + self->offsetX;
-		}
-
-		e->y = self->y + self->offsetY;
-
-		calculatePath(e->x, e->y, player.x + player.w / 2, player.y + player.h / 2, &e->dirX, &e->dirY);
-
-		e->dirX *= 8;
-		e->dirY *= 8;
-
-		e->touch = &iceTouch;
-
-		self->mental--;
-
-		if (self->mental <= 0)
-		{
-			setEntityAnimation(self, "ICE_STAND");
-
-			self->thinkTime = 60;
-
-			self->action = &spitIceFinish;
-		}
-
-		else
-		{
-			self->thinkTime = 30;
-		}
-	}
-
-	checkToMap(self);
-}
-
-static void spitIceFinish()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->action = &attackFinished;
-	}
-
-	checkToMap(self);
-}
-
 static void iceTouch(Entity *other)
 {
 	if (other->type == PLAYER && other->element != ICE && !(other->flags & INVULNERABLE) && other->health > 0)
@@ -1508,7 +1537,7 @@ static void eggDropMoveToTop()
 
 		self->dirY = 0;
 
-		self->mental = 1 + prand() % 3;
+		self->mental = 1 + prand() % 2;
 
 		self->action = &eggDropMove;
 
@@ -1951,9 +1980,9 @@ static void acidStreamMoveToTop()
 		self->dirY = 0;
 
 		setEntityAnimation(self, "NORMAL_WALK");
-		
+
 		self->face = prand() % 2 == 0 ? LEFT : RIGHT;
-		
+
 		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -1964,8 +1993,10 @@ static void acidStreamMoveToTop()
 		self->x = self->targetX;
 
 		self->dirX = 0;
-		
+
 		self->thinkTime = 120;
+
+		self->endY = 0;
 
 		self->action = &acidStream;
 
@@ -1975,243 +2006,98 @@ static void acidStreamMoveToTop()
 
 static void acidStream()
 {
+	Entity *e;
+
+	self->endY--;
+
+	if (self->endY <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Acid");
+		}
+
+		loadProperties("boss/cave_boss_acid", e);
+
+		setEntityAnimation(e, "DOWN");
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		e->x -= e->w / 2;
+
+		e->action = &fireFall;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->health = 0;
+
+		self->endY = 6;
+	}
+
 	if (self->mental == 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, "NORMAL_ATTACK_DOWN_WALK");
-			
+
 			self->thinkTime = 60;
-			
+
 			self->mental = 1;
-			
+
 			self->dirX = self->face == LEFT ? self->speed : -self->speed;
 		}
 	}
-	
+
 	else
 	{
 		if (self->dirX == 0)
 		{
 			setEntityAnimation(self, "NORMAL_ATTACK_DOWN");
-			
+
 			self->thinkTime--;
-			
+
 			if (self->thinkTime <= 0)
 			{
-				self->action = &attackFinished;
+				self->targetX = getMapStartX() + SCREEN_WIDTH / 2 - self->w / 2;
+
+				self->dirX = self->targetX < self->x ? -self->speed : self->speed;
+
+				self->action = &acidStreamFinish;
+
+				setEntityAnimation(self, "NORMAL_WALK");
 			}
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
-static void spitAcidInit()
+static void acidStreamFinish()
 {
-	Target *t = getTargetByName(prand() % 2 == 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
-
-	if (t == NULL)
+	if (abs(self->x - self->targetX) <= abs(self->dirX))
 	{
-		showErrorAndExit("Cave Boss cannot find target");
-	}
-
-	self->targetX = t->x;
-	self->targetY = t->y;
-
-	self->mental = 5;
-
-	self->endY = prand() % 2 == 0 ? 3 : 5;
-
-	if (self->x == self->targetX && self->y == self->targetY)
-	{
-		setEntityAnimation(self, "NORMAL_ATTACK");
-
-		self->action = &spitAcid;
-
-		facePlayer();
-
-		self->mental = 3 + prand() % 3;
-
-		self->thinkTime = 30;
-	}
-
-	else
-	{
-		t = getTargetByName("CAVE_BOSS_TARGET_TOP");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Cave Boss cannot find target");
-		}
-
-		self->targetY = t->y;
-
-		self->action = &spitAcidMoveToTarget;
-
-		if (self->y > self->targetY)
-		{
-			setEntityAnimation(self, "NORMAL_WALK_UP");
-		}
-
-		self->dirX = 0;
-		self->dirY = -self->speed;
-	}
-}
-
-static void spitAcidMoveToTarget()
-{
-	Target *t;
-
-	checkToMap(self);
-
-	if (self->dirY < 0 && self->y <= self->targetY)
-	{
-		self->y = self->targetY;
-
-		self->dirY = 0;
-
-		self->face = self->targetX < self->x ? LEFT : RIGHT;
-
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-
-		setEntityAnimation(self, "NORMAL_WALK");
-	}
-
-	else if ((self->dirX < 0 && self->x <= self->targetX) || (self->dirX > 0 && self->x >= self->targetX))
-	{
-		t = getTargetByName(self->dirX < 0 ? "CAVE_BOSS_TARGET_LEFT" : "CAVE_BOSS_TARGET_RIGHT");
-
-		if (t == NULL)
-		{
-			showErrorAndExit("Cave Boss cannot find target");
-		}
-
 		self->x = self->targetX;
 
-		self->targetY = t->y;
-
-		self->face = self->dirX < 0 ? RIGHT : LEFT;
-
 		self->dirX = 0;
 
-		self->dirY = self->speed;
-
-		setEntityAnimation(self, "NORMAL_WALK_UP");
-	}
-
-	else if (self->dirY > 0 && self->y >= self->targetY)
-	{
-		self->dirY = 0;
-
-		setEntityAnimation(self, "NORMAL_ATTACK");
-
-		self->action = &spitAcid;
-
-		facePlayer();
-
-		self->mental = 3 + prand() % 3;
-
-		self->thinkTime = 30;
-	}
-}
-
-static void spitAcid()
-{
-	int i;
-	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		for (i=0;i<self->endY;i++)
-		{
-			e = addProjectile("enemy/fireball", self, self->x, self->y, (self->face == RIGHT ? 2 : -2), 0);
-
-			if (e == NULL)
-			{
-				showErrorAndExit("No free slots to add a Fireball");
-			}
-
-			playSoundToMap("sound/enemy/fireball/fireball.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-
-			e->damage = 1;
-
-			e->face = self->face;
-
-			e->flags |= PLAYER_TOUCH_ONLY;
-
-			if (self->face == LEFT)
-			{
-				e->x = self->x + self->w - e->w - self->offsetX;
-			}
-
-			else
-			{
-				e->x = self->x + self->offsetX;
-			}
-
-			e->y = self->y + self->offsetY;
-
-			if (self->endY == 3)
-			{
-				if (i != 0)
-				{
-					e->dirY = i == 1 ? -0.5 : 0.5;
-				}
-			}
-
-			else
-			{
-				if (i == 0)
-				{
-					e->dirY = 0;
-				}
-
-				else if (i < 3)
-				{
-					e->dirY = i == 1 ? -0.5 : 0.5;
-				}
-
-				else
-				{
-					e->dirY = i == 3 ? -1 : 1;
-				}
-			}
-
-			e->dirX *= 3;
-			e->dirY *= 3;
-		}
-
-		self->mental--;
-
-		if (self->mental <= 0)
-		{
-			setEntityAnimation(self, "NORMAL_STAND");
-
-			self->thinkTime = 60;
-
-			self->action = &spitAcidFinish;
-		}
-
-		else
-		{
-			self->thinkTime = 30;
-		}
-	}
-
-	checkToMap(self);
-}
-
-static void spitAcidFinish()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
 		self->action = &attackFinished;
 	}
 
@@ -2352,6 +2238,10 @@ static void die()
 	setEntityAnimation(self, "STUNNED");
 
 	self->flags &= ~FLY;
+	
+	self->dirX = 0;
+	
+	self->mental = self->x < getMapStartX() + SCREEN_WIDTH / 2 ? 0 : 1;
 
 	checkToMap(self);
 
@@ -2362,7 +2252,11 @@ static void die()
 			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 		}
 
+		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
 		self->thinkTime = 120;
+		
+		self->endY = 0;
 
 		self->action = &dieFinish;
 	}
@@ -2383,8 +2277,76 @@ static void dieFinish()
 			fireGlobalTrigger(self->objectiveName);
 		}
 	}
+	
+	if (self->endY == 1)
+	{
+		setEntityAnimation(self, "STAND");
+		
+		self->thinkTime = 60;
+		
+		facePlayer();
+		
+		self->action = &finalAttack;
+	}
 
 	checkToMap(self);
+}
+
+static void finalAttack()
+{
+	Entity *e;
+	
+	if (self->endY == 1)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "GROUND_ATTACK");
+			
+			e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y, (self->face == RIGHT ? 7 : -7), 0);
+
+			e->touch = &slimePlayer;
+			
+			self->endY = 0;
+			
+			self->die = &dieWait;
+		}
+	}
+}
+
+static void slimePlayer(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		other->dirX = 0;
+
+		if (!(other->flags & HELPLESS))
+		{
+			setPlayerSlimed(30);
+		}
+
+		self->die();
+	}
+}
+
+static void dieWait()
+{
+	Entity *e;
+	
+	clearContinuePoint();
+
+	increaseKillCount();
+
+	freeBossHealthBar();
+
+	e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+
+	fadeBossMusic();
+
+	entityDieVanish();
 }
 
 static void touch(Entity *other)
