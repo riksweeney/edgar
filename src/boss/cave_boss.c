@@ -261,8 +261,6 @@ static void entityWait()
 					if (getInventoryItemByName("weapon/normal_arrow") == NULL && getInventoryItemByName("weapon/flaming_arrow") == NULL
 						&& getEntityByName("enemy/baby_salamander") == NULL)
 					{
-						printf("Dropping eggs\n");
-						
 						self->action = &eggDropInit;
 					}
 
