@@ -665,6 +665,8 @@ void loadInventoryItems()
 			{
 				inventory.item[i].animation[j] = e.animation[j];
 			}
+			
+			inventory.item[i].currentAnim = -1;
 
 			setEntityAnimation(&inventory.item[i], "STAND");
 

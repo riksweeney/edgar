@@ -38,7 +38,9 @@ extern Entity player;
 
 void draw()
 {
-	char text[MAX_VALUE_LENGTH];
+	#if DEV == 1
+		char text[MAX_VALUE_LENGTH];
+	#endif
 	int clipX, clipY;
 	SDL_Rect rect;
 
