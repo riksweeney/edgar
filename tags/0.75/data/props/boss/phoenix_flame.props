@@ -1,0 +1,7 @@
+GFX_FILE data/gfx/boss/phoenix_flame.dat
+ANIM_FILE data/anim/boss/phoenix_flame.dat
+TYPE ENEMY
+DAMAGE 2
+THINKTIME 120
+ELEMENT FIRE
+FLAGS FLY|UNBLOCKABLE

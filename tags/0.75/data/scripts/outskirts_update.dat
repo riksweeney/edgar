@@ -1,0 +1,20 @@
+ACTIVATE_OBJECTIVE Outskirts-Fortress
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 352 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 416 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 480 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 544 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 608 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 672 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 736 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 800 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 864 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 928 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 992 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 1056 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 1120 4320
+ADD ENTITY WEAK_WALL wall/drawbridge_down " " 1184 4320
+ADD ENTITY KEY_ITEM item/drawbridge_anchor "BACKGROUND_CHAIN" 467 4280
+SET BACKGROUND_CHAIN PROPERTY START_X 467
+SET BACKGROUND_CHAIN PROPERTY START_Y 4280
+SET BACKGROUND_CHAIN PROPERTY END_X 1248
+SET BACKGROUND_CHAIN PROPERTY MENTAL -1
