@@ -27,6 +27,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../map.h"
+#include "../projectile.h"
+#include "../graphics/decoration.h"
+#include "../graphics/graphics.h"
 #include "../game.h"
 #include "../audio/music.h"
 #include "../graphics/gib.h"
@@ -38,14 +41,120 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../enemy/enemies.h"
 #include "../event/script.h"
+#include "../player.h"
+#include "../enemy/rock.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void initialise(void);
 static void doIntro(void);
 static void introPause(void);
-static void attackFinished(void);
+static void blackBookAttackFinished(void);
+static void blackBookWait(void);
 static void hover(void);
+static void becomeKingGrub(void);
+static void becomeQueenWasp(void);
+static void becomeBlob(void);
+static void transformWait(void);
+static void transformRemove(void);
+static int energyBarDraw(void);
+static void energyBarWait(void);
+static void initEnergyBar(Entity *);
+static void addSmokeAlongBody(void);
+
+static void kingGrubWait(void);
+static void kingGrubSpitStart(void);
+static void kingGrubSpit(void);
+static void kingGrubSpitEnd(void);
+static void kingGrubTakeDamage(Entity *, int);
+static void kingGrubDie(void);
+static void kingGrubAttackFinished(void);
+static void kingGrubSpinAttackStart(void);
+static void kingGrubSpinAttack(void);
+static void kingGrubSpinAttackEnd(void);
+static void kingGrubBounceAttackStart(void);
+static void kingGrubBounceAttack(void);
+static void kingGrubBounceAttackEnd(void);
+static void kingGrubShudder(void);
+
+static void queenWaspTakeDamage(Entity *, int);
+static void queenWaspWait(void);
+static void queenWaspHover(void);
+static void queenWaspMoveToTarget(void);
+static void queenWaspFlyToTopTarget(void);
+static void queenWaspBulletFireInit(void);
+static void queenWaspBulletFireMoveToPosition(void);
+static void queenWaspFireBullets(void);
+static void queenWaspSlimeFireInit(void);
+static void queenWaspSlimeFireMoveToPosition(void);
+static void queenWaspFireSlime(void);
+static void queenWaspAttackFinished(void);
+static void queenWaspSlimePlayer(Entity *);
+static void queenWaspHeadButtInit(void);
+static void queenWaspHeadButtMoveToPosition(void);
+static void queenWaspMoveToHeadButtRange(void);
+static void queenWaspHeadButt(void);
+static void queenWaspSelectRandomBottomTarget(void);
+static void queenWaspReactToHeadButtBlock(Entity *);
+static void queenWaspDropInit(void);
+static void queenWaspDrop(void);
+static void queenWaspDropWait(void);
+static void queenWaspRamTouch(Entity *);
+static void queenWaspDie(void);
+static void queenWaspShudder(void);
+
+static void blobBounceAroundInit(void);
+static void blobBounceAround(void);
+static void blobPunchAttackInit(void);
+static void blobPunchSink(void);
+static void blobLookForPlayer(void);
+static void blobPunch(void);
+static void blobPunchFinish(void);
+static void blobShudder(void);
+static void blobGrubAttackInit(void);
+static void blobGrubAttackWait(void);
+static void blobSpinAttackStart(void);
+static void blobSpinAttack(void);
+static void blobSpinAttackEnd(void);
+static void blobGrubAttackFinish(void);
+static void blobAttackFinished(void);
+static void blobTakeDamage(Entity *, int);
+static void blobDie(void);
+static void blobShudder(void);
+
+static void becomeAwesome(void);
+static void awesomeIntro(void);
+static void awesomeIntroWait(void);
+static void awesomeWait(void);
+static void awesomeAttackFinished(void);
+static void awesomeTeleportIn(void);
+static void awesomeTeleportOut(void);
+static void awesomeTeleportWait(void);
+static void awesomeTakeDamage(Entity *, int);
+static void awesomeDie(void);
+static void awesomeHealPartner(void);
+static void awesomeAddStunStar(void);
+static void awesomeStarWait(void);
+static void awesomeFireballAttackInit(void);
+static void awesomeFireballAttack(void);
+static void awesomeFireballAttackFinished(void);
+static void awesomeSuperFireballAttackInit(void);
+static void awesomeSuperFireballAttack(void);
+static void awesomeSuperFireballAttackFinished(void);
+static void awesomeFireballTouch(Entity *);
+static void awesomeDropAttack(void);
+static void awesomeDropAttackInit(void);
+static void awesomeSuperDropAttack(void);
+static void awesomeSuperDropAttackInit(void);
+static void awesomeSuperDropAttackFinished(void);
+static void awesomeFireballChargeWait(void);
+static void awesomeSuperSpearAttackInit(void);
+static void awesomeSuperSpearAttack(void);
+static void awesomeSuperSpearAttackFinished(void);
+static void awesomeSpearWait(void);
+static void awesomeSpearRise(void);
+static void awesomeSpearSink(void);
+static void awesomeMeterDie(void);
 
 Entity *addBlackBook2(int x, int y, char *name)
 {
@@ -118,6 +227,28 @@ static void doIntro()
 	}
 }
 
+static void awesomeAttackFinished()
+{
+	Entity *temp;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		checkToMap(self);
+
+		temp = self;
+
+		self = self->head;
+
+		self->takeDamage(self, 5);
+
+		self = temp;
+
+		self->action = &awesomeTeleportOut;
+	}
+}
+
 static void introPause()
 {
 	self->thinkTime--;
@@ -128,15 +259,3052 @@ static void introPause()
 
 		playDefaultBossMusic();
 
-		self->action = &attackFinished;
+		self->action = &blackBookAttackFinished;
 	}
 
 	hover();
 }
 
-static void attackFinished()
+static void blackBookWait()
 {
+	int i;
+	
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		i = prand() % 4;
+		
+		switch (i)
+		{
+			case 0:
+				self->action = &becomeKingGrub;
+			break;
+			
+			case 1:
+				self->action = &becomeQueenWasp;
+			break;
+			
+			case 2:
+				self->action = &becomeBlob;
+			break;
+			
+			default:
+				self->action = &becomeAwesome;
+			break;
+		}
+	}
+
 	hover();
+}
+
+static void becomeKingGrub()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Black Book King Grub");
+	}
+
+	loadProperties("boss/grub_boss", e);
+	
+	e->maxHealth = e->health = 500;
+
+	e->flags |= LIMIT_TO_SCREEN;
+
+	e->face = self->face;
+
+	setEntityAnimation(e, "STAND");
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->targetX = e->x;
+	e->targetY = getMapFloor(e->x, e->y) - e->h;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	e->action = &kingGrubAttackFinished;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->touch = &entityTouch;
+
+	e->takeDamage = &kingGrubTakeDamage;
+
+	e->head = self;
+
+	self->flags |= NO_DRAW;
+
+	self->mental = 1;
+
+	self->action = &transformWait;
+
+	initEnergyBar(e);
+}
+
+static void becomeQueenWasp()
+{
+	Entity *e = getFreeEntity();
+	Target *t;
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Black Book Queen Wasp");
+	}
+
+	loadProperties("boss/fly_boss", e);
+	
+	e->maxHealth = e->health = 500;
+
+	e->flags |= LIMIT_TO_SCREEN;
+
+	e->face = self->face;
+
+	setEntityAnimation(e, "STAND");
+
+	t = getTargetByName("FLY_BOSS_TARGET_TOP_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Fly boss is missing target");
+	}
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->targetX = t->x;
+	e->targetY = t->y;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	e->action = &queenWaspAttackFinished;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->touch = &entityTouch;
+
+	e->takeDamage = &queenWaspTakeDamage;
+
+	e->head = self;
+
+	self->flags |= NO_DRAW;
+
+	self->mental = 1;
+
+	self->action = &transformWait;
+
+	initEnergyBar(e);
+}
+
+static void becomeAwesome()
+{
+	Entity *e, *meter;
+	Target *t;
+	
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Black Book Awesome Foursome");
+	}
+
+	loadProperties("boss/awesome_boss_1", e);
+	
+	e->maxHealth = e->health = 500;
+
+	e->flags |= LIMIT_TO_SCREEN;
+
+	e->face = self->face;
+
+	setEntityAnimation(e, "STAND");
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->targetX = e->x;
+	e->targetY = getMapFloor(e->x, e->y) - e->h;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags &= ~FLY;
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	e->action = &awesomeIntro;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->takeDamage = &awesomeTakeDamage;
+	
+	e->die = &awesomeDie;
+
+	e->mental = 2;
+
+	self->flags |= NO_DRAW;
+
+	self->mental = 1;
+
+	self->action = &transformWait;
+
+	meter = addEnemy("boss/awesome_boss_meter", self->x, self->y);
+
+	STRNCPY(meter->objectiveName, "AWESOME_BOSS_METER", sizeof(meter->objectiveName));
+	
+	meter->die = &awesomeMeterDie;
+	
+	t = getTargetByName("FLY_BOSS_TARGET_TOP_RIGHT");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Awesome Boss cannot find target");
+	}
+	
+	meter->y = t->y;
+	
+	meter->head = self;
+	
+	e->head = meter;
+}
+
+static void awesomeIntro()
+{
+	char name[MAX_VALUE_LENGTH];
+	Entity *e;
+
+	checkToMap(self);
+
+	self->thinkTime--;
+
+	self->endX = 1;
+
+	self->flags |= LIMIT_TO_SCREEN;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= DO_NOT_PERSIST;
+
+		snprintf(name, sizeof(name), "boss/awesome_boss_%d", self->mental);
+
+		e = addEnemy(name, self->x - 8 * self->mental, self->y - 64);
+
+		e->face = self->face;
+
+		e->active = TRUE;
+
+		e->targetX = e->x;
+		e->targetY = e->y;
+
+		e->startX = e->x;
+		e->startY = e->y;
+
+		e->maxHealth = e->health = self->maxHealth;
+
+		e->endX = self->mental;
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND|LIMIT_TO_SCREEN);
+
+		e->action = &awesomeIntroWait;
+		
+		e->takeDamage = &awesomeTakeDamage;
+		
+		e->die = &awesomeDie;
+
+		e->head = self;
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->thinkTime = 15;
+
+		self->mental++;
+
+		if (self->mental == 5)
+		{
+			self->target = getEntityByObjectiveName(self->requires);
+
+			if (self->target == NULL)
+			{
+				showErrorAndExit("Awesome Boss %s cannot find %s", self->objectiveName, self->requires);
+			}
+
+			self->thinkTime = 30;
+
+			self->action = &awesomeWait;
+		}
+	}
+}
+
+static void awesomeIntroWait()
+{
+	if (self->head->mental == 5 && self->head->thinkTime == 0)
+	{
+		self->target = getEntityByObjectiveName(self->requires);
+
+		if (self->target == NULL)
+		{
+			showErrorAndExit("Awesome Boss %s cannot find %s", self->objectiveName, self->requires);
+		}
+
+		self->action = &awesomeTeleportOut;
+
+		self->touch = &entityTouch;
+
+		initEnergyBar(self);
+		
+		self->head = getEntityByObjectiveName("AWESOME_BOSS_METER");
+
+		if (self->head == NULL)
+		{
+			showErrorAndExit("Awesome Boss could not find meter");
+		}
+
+		self->head->damage++;
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeWait()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			initEnergyBar(self);
+
+			self->head->action = self->head->resumeNormalFunction;
+
+			self->action = &awesomeTeleportOut;
+
+			self->touch = &entityTouch;
+			
+			self->head = getEntityByObjectiveName("AWESOME_BOSS_METER");
+
+			if (self->head == NULL)
+			{
+				showErrorAndExit("Awesome Boss could not find meter");
+			}
+
+			self->head->damage++;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeTeleportIn()
+{
+	if (player.health > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &awesomeAttackFinished;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeTeleportOut()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->touch = NULL;
+
+		self->flags |= NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->action = &awesomeTeleportWait;
+
+		self->head->mental++;
+
+		#if DEV == 1
+		printf("%d / %d : %d / %d\n", self->head->mental, self->head->damage, self->head->health, self->head->maxHealth);
+		#endif
+
+		self->thinkTime = 60 + prand() % 120;
+
+		/* Choose if they attack again, or their partner */
+
+		if (self->active == TRUE)
+		{
+			if (prand() % 2 == 0)
+			{
+				self->target->thinkTime = 60 + prand() % 120;
+
+				self->target->active = FALSE;
+			}
+
+			else
+			{
+				self->thinkTime = 60 + prand() % 120;
+
+				self->active = FALSE;
+
+				self->target->active = TRUE;
+			}
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeTeleportWait()
+{
+	int i;
+	Target *t;
+
+	setEntityAnimation(self, "STAND");
+
+	if (player.health <= 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->x = self->startX;
+			self->y = self->startY;
+
+			self->flags &= ~NO_DRAW;
+
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			self->action = &awesomeTeleportIn;
+
+			facePlayer();
+
+			self->head->mental--;
+		}
+	}
+
+	else if (self->target->health <= 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->x = self->target->x;
+
+			t = getTargetByName((prand() % 2 == 0) ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Awesome Boss cannot find target");
+			}
+
+			self->y = t->y;
+
+			faceTarget();
+
+			self->thinkTime = 60;
+
+			self->flags &= ~NO_DRAW;
+
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			self->action = &awesomeHealPartner;
+
+			self->touch = &entityTouch;
+
+			self->dirY = 0;
+
+			self->head->mental--;
+		}
+	}
+
+	else if (self->head->health == self->head->maxHealth)
+	{
+		if (self->head->mental == self->head->damage && self->head->targetY <= 0)
+		{
+			if (self->head->damage == 2)
+			{
+				t = getTargetByName((int)self->endX % 2 == 0 ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+
+				self->x = t->x;
+				self->y = t->y;
+
+				self->action = &awesomeSuperSpearAttackInit;
+			}
+
+			else
+			{
+				switch (self->head->targetX)
+				{
+					case 0:
+						self->thinkTime = 30 * self->endX;
+
+						self->mental = 5;
+
+						self->action = &awesomeSuperDropAttackInit;
+
+						self->flags |= FLY;
+
+						self->dirY = 0;
+					break;
+
+					default:
+						t = getTargetByName(self->endX <= 2 ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+
+						self->x = t->x;
+						self->y = t->y;
+
+						self->endY = 1;
+
+						/* The other one will stand behind their partner */
+
+						if (self->endX == 2 || self->endX == 4)
+						{
+							self->x += self->endX == 2 ? -24 : 24;
+
+							self->endY = 0;
+						}
+
+						self->action = &awesomeSuperFireballAttackInit;
+					break;
+				}
+			}
+		}
+	}
+
+	else if (self->active == TRUE)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			i = prand() % 2;
+
+			switch (i)
+			{
+				case 0:
+					self->action = &awesomeFireballAttackInit;
+				break;
+
+				default:
+					self->action = &awesomeDropAttackInit;
+				break;
+			}
+
+			setEntityAnimation(self, "STAND");
+
+			self->dirY = 0;
+
+			self->head->mental--;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeFireballAttackInit()
+{
+	Target *t = getTargetByName((prand() % 2 == 0) ? "AWESOME_TARGET_LEFT" : "AWESOME_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Awesome Boss cannot find target");
+	}
+
+	self->x = t->x + (prand() % 16) * (prand() % 2 == 0 ? 1 : -1);
+	self->y = t->y;
+
+	facePlayer();
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	self->flags &= ~NO_DRAW;
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->action = &awesomeFireballAttack;
+
+	self->touch = &entityTouch;
+
+	self->thinkTime = -1;
+}
+
+static void awesomeFireballAttack()
+{
+	int i;
+	Entity *e;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		setEntityAnimation(self, "ATTACK_1");
+
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+
+				loadProperties("boss/awesome_fireball_particle", e);
+
+				setEntityAnimation(e, "STAND");
+
+				e->head = self;
+
+				if (self->face == LEFT)
+				{
+					e->x = self->x + self->w - e->w - e->offsetX;
+				}
+
+				else
+				{
+					e->x = self->x + e->offsetX;
+				}
+
+				e->y = self->y + self->offsetY;
+
+				e->startX = e->x;
+				e->startY = e->y;
+
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 180;
+
+				e->health = i * 60;
+
+				e->action = &awesomeFireballChargeWait;
+			}
+
+			self->mental = 6;
+
+			self->thinkTime = 0;
+		}
+
+		else if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "ATTACK_2");
+
+			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
+
+			e->touch = &awesomeFireballTouch;
+
+			e->type = ENEMY;
+
+			e->x += (self->face == RIGHT ? self->w : e->w);
+			e->y += self->offsetY;
+
+			self->thinkTime = 30;
+
+			self->action = &awesomeFireballAttackFinished;
+
+			playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", -1, self->x, self->y, 0);
+		}
+	}
+}
+
+static void awesomeFireballAttackFinished()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "STAND");
+
+		self->thinkTime = 60;
+
+		self->action = &awesomeAttackFinished;
+	}
+}
+
+static void awesomeSuperFireballAttackInit()
+{
+	facePlayer();
+
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	self->flags &= ~NO_DRAW;
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->action = &awesomeSuperFireballAttack;
+
+	self->touch = &entityTouch;
+
+	self->thinkTime = -1;
+
+	self->head->mental = 0;
+}
+
+static void awesomeSuperFireballAttack()
+{
+	int i;
+	Entity *e;
+
+	checkToMap(self);
+
+	if (self->endY == 1 && (self->flags & ON_GROUND))
+	{
+		setEntityAnimation(self, "ATTACK_1");
+
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+
+				loadProperties("boss/awesome_fireball_particle", e);
+
+				setEntityAnimation(e, "STAND");
+
+				e->head = self;
+
+				if (self->face == LEFT)
+				{
+					e->x = self->x + self->w - e->w - e->offsetX;
+				}
+
+				else
+				{
+					e->x = self->x + e->offsetX;
+				}
+
+				e->y = self->y + self->offsetY;
+
+				e->startX = e->x;
+				e->startY = e->y;
+
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 360;
+
+				e->health = i * 60;
+
+				e->action = &awesomeFireballChargeWait;
+			}
+
+			self->mental = 6;
+
+			self->thinkTime = 0;
+		}
+
+		else if (self->mental <= 0)
+		{
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				setEntityAnimation(self, "ATTACK_2");
+
+				for (i=0;i<5;i++)
+				{
+					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
+
+					e->touch = &awesomeFireballTouch;
+
+					e->type = ENEMY;
+
+					e->x += (self->face == RIGHT ? self->w : e->w);
+					e->y += self->offsetY;
+
+					e->x += self->face == RIGHT ? -2 : 2;
+				}
+
+				playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+				self->thinkTime = 120;
+
+				self->target->thinkTime = 120;
+
+				self->action = &awesomeSuperFireballAttackFinished;
+
+				self->target->action = &awesomeSuperFireballAttackFinished;
+			}
+		}
+	}
+
+	else if (self->endY == 0 && self->target->health <= 0)
+	{
+		self->thinkTime = 120;
+
+		self->action = &awesomeTeleportOut;
+	}
+}
+
+static void awesomeSuperFireballAttackFinished()
+{
+	self->thinkTime--;
+
+	self->head->health = 0;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &awesomeAttackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeSuperSpearAttackInit()
+{
+	facePlayer();
+
+	playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	self->flags &= ~NO_DRAW;
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->action = &awesomeSuperSpearAttack;
+
+	self->touch = &entityTouch;
+
+	self->head->mental = 0;
+
+	self->thinkTime = -1;
+
+	if ((int)self->endX % 2 == 1)
+	{
+		self->endY = 1;
+	}
+}
+
+static void awesomeSuperSpearAttack()
+{
+	int i, j;
+	Entity *e;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		setEntityAnimation(self, "ATTACK_4");
+
+		if (self->thinkTime == -1)
+		{
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Fireball Attack particle");
+				}
+
+				loadProperties("boss/awesome_fireball_particle", e);
+
+				setEntityAnimation(e, "STAND");
+
+				e->head = self;
+
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + self->h / 2 - e->h / 2;
+
+				e->startX = e->x;
+				e->startY = e->y;
+
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->mental = 180;
+
+				e->health = i * 60;
+
+				e->action = &awesomeFireballChargeWait;
+			}
+
+			self->mental = 6;
+
+			self->thinkTime = 0;
+		}
+
+		else if (self->mental <= 0)
+		{
+			self->mental = 0;
+
+			setEntityAnimation(self, "ATTACK_3");
+
+			self->thinkTime = 60;
+
+			if (self->face == RIGHT)
+			{
+				j = 1;
+
+				for (i=self->x + self->w;i<self->target->x;)
+				{
+					e = getFreeEntity();
+
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Ground Spear");
+					}
+
+					loadProperties("enemy/ground_spear", e);
+
+					setEntityAnimation(e, "STAND");
+
+					e->x = i;
+					e->y = self->y + self->h;
+
+					e->startY = e->y - e->h;
+
+					e->endY = e->y;
+
+					e->thinkTime = 15 * j;
+
+					e->damage = 1;
+
+					e->touch = &entityTouch;
+
+					e->action = &awesomeSpearWait;
+
+					e->draw = &drawLoopingAnimationToMap;
+
+					e->head = self;
+
+					i += e->w * 2;
+
+					self->mental++;
+
+					j++;
+				}
+
+				self->action = &awesomeSuperSpearAttackFinished;
+			}
+
+			else if (self->endY == 0)
+			{
+				j = 1;
+
+				for (i=self->x;i>self->target->x + self->target->w;)
+				{
+					e = getFreeEntity();
+
+					if (e == NULL)
+					{
+						showErrorAndExit("No free slots to add a Ground Spear");
+					}
+
+					loadProperties("enemy/ground_spear", e);
+
+					setEntityAnimation(e, "STAND");
+
+					e->x = i;
+					e->y = self->y + self->h;
+
+					e->startY = e->y - e->h;
+
+					e->endY = e->y;
+
+					e->thinkTime = 15 * j;
+
+					e->damage = 1;
+
+					e->touch = &entityTouch;
+
+					e->action = &awesomeSpearWait;
+
+					e->draw = &drawLoopingAnimationToMap;
+
+					e->head = self;
+
+					i -= e->w * 2;
+
+					self->mental++;
+
+					j++;
+				}
+
+				self->action = &awesomeSuperSpearAttackFinished;
+			}
+		}
+	}
+}
+
+static void awesomeSuperSpearAttackFinished()
+{
+	self->head->health = 0;
+
+	if (self->mental <= 0)
+	{
+		self->action = &awesomeAttackFinished;
+
+		self->target->endY = 0;
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		temp = self;
+
+		self = self->head;
+
+		self->takeDamage(other, damage);
+
+		self = temp;
+
+		if (self->health <= 0)
+		{
+			self->touch = NULL;
+
+			setEntityAnimation(self, "DIE");
+
+			awesomeAddStunStar();
+
+			self->action = self->die;
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+
+		/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+		if (other->type != PROJECTILE)
+		{
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+		}
+
+		if (self->pain != NULL)
+		{
+			self->pain();
+		}
+
+		addDamageScore(damage, self);
+	}
+}
+
+static void awesomeDie()
+{
+	if (self->target->health <= 0)
+	{
+		self->head->damage--;
+
+		self->action = &entityDieNoDrop;
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeHealPartner()
+{
+	Entity *e;
+
+	if (self->flags & ON_GROUND)
+	{
+		if (prand() % 2 == 0)
+		{
+			e = addParticle(self->target->x, self->target->y);
+
+			if (e != NULL)
+			{
+				e->x += prand() % self->target->w;
+
+				e->y += prand() % self->target->h;
+
+				e->dirY = -(10 + prand() % 11);
+
+				e->dirY /= 10;
+
+				e->thinkTime = 60;
+			}
+		}
+
+		self->target->health++;
+
+		if (self->target->health >= self->target->maxHealth)
+		{
+			self->target->health = self->target->maxHealth;
+
+			self->target->action = &awesomeTeleportOut;
+
+			self->action = &awesomeTeleportOut;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void awesomeDropAttackInit()
+{
+	int minX, maxX;
+
+	minX = getCameraMinX();
+	maxX = getCameraMaxX();
+
+	setEntityAnimation(self, "ATTACK_3");
+
+	self->flags &= ~NO_DRAW;
+
+	self->x = player.x + player.w / 2 - self->w / 2;
+
+	if (self->x < minX)
+	{
+		self->x = minX;
+	}
+
+	else if (self->x + self->w >= maxX)
+	{
+		self->x = maxX - self->w - 1;
+	}
+
+	self->y = self->head->y;
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	self->action = &awesomeDropAttack;
+
+	self->thinkTime = 60;
+
+	self->dirY = 0;
+
+	self->touch = &entityTouch;
+
+	checkToMap(self);
+}
+
+static void awesomeDropAttack()
+{
+	long onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		if (onGround == 0)
+		{
+			addSmokeAlongBody();
+
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &awesomeAttackFinished;
+		}
+	}
+}
+
+static void awesomeSuperDropAttackInit()
+{
+	int minX, maxX;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		minX = getCameraMinX();
+		maxX = getCameraMaxX();
+
+		setEntityAnimation(self, "ATTACK_3");
+
+		self->flags &= ~(NO_DRAW|FLY);
+
+		self->x = player.x + player.w / 2 - self->w / 2;
+
+		if (self->x < minX)
+		{
+			self->x = minX;
+		}
+
+		else if (self->x + self->w >= maxX)
+		{
+			self->x = maxX - self->w - 1;
+		}
+
+		self->y = self->head->y;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->touch = &entityTouch;
+
+		self->action = &awesomeSuperDropAttack;
+
+		checkToMap(self);
+	}
+}
+
+static void awesomeSuperDropAttack()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			addSmokeAlongBody();
+
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+
+			self->action = &awesomeSuperDropAttackFinished;
+		}
+
+		else
+		{
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+			self->flags |= (FLY|NO_DRAW);
+
+			self->thinkTime = 90;
+
+			self->x = player.x + player.w / 2 - self->w / 2;
+
+			self->y = self->head->y;
+
+			self->dirY = 0;
+
+			self->action = &awesomeSuperDropAttackInit;
+
+			self->head->mental = 0;
+		}
+	}
+}
+
+static void awesomeSuperDropAttackFinished()
+{
+	self->thinkTime = 60;
+
+	self->head->health = 0;
+
+	self->action = &awesomeAttackFinished;
+
+	checkToMap(self);
+}
+
+static void awesomeAddStunStar()
+{
+	int i;
+	Entity *e;
+
+	for (i=0;i<2;i++)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Awesome Boss's Star");
+		}
+
+		loadProperties("boss/armour_boss_star", e);
+
+		e->x = self->x;
+		e->y = self->y;
+
+		e->action = &awesomeStarWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->thinkTime = 300;
+
+		e->head = self;
+
+		setEntityAnimation(e, "STAND");
+
+		e->currentFrame = (i == 0 ? 0 : 6);
+
+		e->x = self->x + self->w / 2 - e->w / 2;
+
+		e->y = self->y - e->h;
+	}
+}
+
+static void awesomeStarWait()
+{
+	if (self->head->health == self->head->maxHealth || self->head->target->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+
+	self->y = self->head->y - self->h - 8;
+}
+
+static void awesomeFireballTouch(Entity *other)
+{
+	Entity *temp;
+
+	/* Projectiles will cancel each other out */
+
+	if (other->dirX != self->dirX && strcmpignorecase(self->name, other->name) == 0)
+	{
+		if (self->inUse == FALSE || other->inUse == FALSE)
+		{
+			return;
+		}
+
+		self->inUse = FALSE;
+
+		other->inUse = FALSE;
+	}
+
+	else if (self->parent != other && other->takeDamage != NULL)
+	{
+		temp = self;
+
+		self = other;
+
+		self->takeDamage(temp, self->type == ENEMY ? 50 : temp->damage);
+
+		self = temp;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void awesomeFireballChargeWait()
+{
+	float radians;
+
+	self->mental -= 2;
+
+	if (self->mental <= 0)
+	{
+		self->head->mental--;
+
+		self->inUse = FALSE;
+	}
+
+	self->health += 8;
+
+	radians = DEG_TO_RAD(self->health);
+
+	self->x = (0 * cos(radians) - self->mental * sin(radians));
+	self->y = (0 * sin(radians) + self->mental * cos(radians));
+
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void addSmokeAlongBody()
+{
+	int i;
+
+	for (i=0;i<20;i++)
+	{
+		addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+	}
+}
+
+static void awesomeSpearWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->y == self->startY)
+		{
+			self->action = &awesomeSpearSink;
+		}
+
+		else
+		{
+			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+
+			self->targetY = self->startY;
+
+			self->action = &awesomeSpearRise;
+		}
+	}
+}
+
+static void awesomeSpearSink()
+{
+	if (self->y < self->endY)
+	{
+		self->y += self->speed * 2;
+	}
+
+	else
+	{
+		self->inUse = FALSE;
+
+		self->head->mental--;
+	}
+}
+
+static void awesomeSpearRise()
+{
+	if (self->y > self->startY)
+	{
+		self->y -= self->speed * 2;
+	}
+
+	else
+	{
+		self->y = self->startY;
+
+		self->thinkTime = 5;
+
+		self->action = &awesomeSpearWait;
+	}
+}
+
+static void awesomeMeterDie()
+{
+	self->thinkTime--;
+
+	self->takeDamage = NULL;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
+		self->targetY = self->head->y + self->head->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		self->action = &transformRemove;
+	}
+
+	else
+	{
+		checkToMap(self);
+	}
+}
+
+static void becomeBlob()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Black Book Blob");
+	}
+
+	loadProperties("boss/blob_boss_2", e);
+	
+	e->maxHealth = e->health = 500;
+
+	e->flags |= LIMIT_TO_SCREEN;
+
+	e->face = self->face;
+
+	setEntityAnimation(e, "STAND");
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->targetX = e->x;
+	e->targetY = getMapFloor(e->x, e->y) - e->h;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->flags &= ~FLY;
+
+	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+	e->action = &blobAttackFinished;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->touch = &entityTouch;
+
+	e->takeDamage = &blobTakeDamage;
+
+	e->head = self;
+
+	self->flags |= NO_DRAW;
+
+	self->mental = 1;
+
+	self->action = &transformWait;
+
+	initEnergyBar(e);
+}
+
+static void blobWait()
+{
+	int i;
+
+	self->dirX = 0;
+
+	facePlayer();
+
+	self->thinkTime--;
+
+	setEntityAnimation(self, "STAND");
+
+	if (self->thinkTime <= 0 && player.health > 0)
+	{
+		i = prand() % 3;
+
+		switch (i)
+		{
+			case 0:
+				self->action = &blobPunchAttackInit;
+			break;
+
+			case 1:
+				self->action = &blobBounceAroundInit;
+			break;
+
+			default:
+				self->action = &blobGrubAttackInit;
+			break;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void blobPunchAttackInit()
+{
+	Target *t;
+
+	t = getTargetByName("BLOB_TARGET_LEFT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Blob Boss could not find target");
+	}
+
+	self->startX = t->x;
+
+	t = getTargetByName("BLOB_TARGET_RIGHT");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Blob Boss could not find target");
+	}
+
+	self->endX = t->x;
+
+	self->targetY = self->y + self->h;
+
+	self->maxThinkTime = 3 + prand() % 3;
+
+	self->layer = BACKGROUND_LAYER;
+
+	self->action = &blobPunchSink;
+}
+
+static void blobPunchSink()
+{
+	if (self->y < self->targetY)
+	{
+		self->y += 3;
+	}
+
+	else
+	{
+		self->y = self->targetY;
+
+		self->flags |= NO_DRAW;
+
+		setEntityAnimation(self, "ATTACK_1");
+
+		if (self->maxThinkTime > 0 && player.health > 0)
+		{
+			self->action = &blobLookForPlayer;
+
+			self->dirX = self->speed * 1.5;
+		}
+
+		else
+		{
+			self->action = &blobPunchFinish;
+
+			self->targetX = getMapStartX() + SCREEN_WIDTH / 2 - self->w / 2;
+
+			self->targetY = self->y - self->h;
+
+			self->dirX = self->speed;
+		}
+	}
+}
+
+static void blobLookForPlayer()
+{
+	float target = player.x - self->w / 2 + player.w / 2;
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->targetY = self->y - self->h;
+
+		self->thinkTime = 30;
+
+		self->action = &blobPunch;
+	}
+
+	else
+	{
+		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			self->targetY = self->y - self->h;
+
+			self->thinkTime = 30;
+
+			self->action = &blobPunch;
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			self->targetY = self->y - self->h;
+
+			self->thinkTime = 30;
+
+			self->action = &blobPunch;
+		}
+	}
+}
+
+static void blobPunch()
+{
+	Entity *e;
+
+	if (self->y > self->targetY)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			if (self->thinkTime == 0)
+			{
+				self->flags &= ~NO_DRAW;
+
+				playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+				shakeScreen(MEDIUM, 15);
+			}
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			self->y -= 12;
+
+			if (self->y <= self->targetY)
+			{
+				self->y = self->targetY;
+
+				self->maxThinkTime--;
+
+				self->thinkTime = self->maxThinkTime > 0 ? 30 : 90;
+			}
+		}
+	}
+
+	else
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime < 0)
+		{
+			self->targetY = self->y + self->h;
+
+			self->action = &blobPunchSink;
+		}
+	}
+
+	facePlayer();
+}
+
+static void blobPunchFinish()
+{
+	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
+	{
+		self->flags &= ~NO_DRAW;
+
+		setEntityAnimation(self, "STAND");
+
+		if (self->y > self->targetY)
+		{
+			self->y -= 2;
+		}
+
+		else
+		{
+			self->action = &blobAttackFinished;
+		}
+	}
+
+	else
+	{
+		self->x += self->x < self->targetX ? self->dirX : -self->dirX;
+	}
+
+	facePlayer();
+}
+
+static void blobBounceAroundInit()
+{
+	self->maxThinkTime = 7;
+
+	self->touch = &entityTouch;
+
+	self->action = &blobBounceAround;
+
+	self->dirY = -16;
+
+	self->face = self->face == LEFT ? RIGHT : LEFT;
+}
+
+static void blobBounceAround()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->maxThinkTime--;
+
+		if (self->maxThinkTime > 0)
+		{
+			self->dirY = -16;
+		}
+
+		else
+		{
+			self->action = &blobAttackFinished;
+		}
+	}
+
+	if (self->dirX == 0 && self->maxThinkTime != 7)
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+	}
+}
+
+static void blobGrubAttackInit()
+{
+	facePlayer();
+
+	setEntityAnimation(self, "ATTACK_2");
+
+	self->thinkTime = 30;
+
+	self->animationCallback = &blobGrubAttackWait;
+
+	self->maxThinkTime = 1 + prand() % 5;
+}
+
+static void blobGrubAttackWait()
+{
+	setEntityAnimation(self, "ATTACK_3");
+
+	self->thinkTime--;
+
+	self->action = &blobGrubAttackWait;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "ATTACK_4");
+
+		self->action = &blobSpinAttackStart;
+
+		self->thinkTime = 1;
+	}
+}
+
+static void blobSpinAttackStart()
+{
+	self->flags |= INVULNERABLE;
+
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
+
+			self->dirY = -8;
+		}
+	}
+
+	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
+	{
+		self->speed = self->originalSpeed * 6;
+
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+
+		self->action = &blobSpinAttack;
+
+		self->thinkTime = 180;
+
+		self->flags |= ATTACKING;
+	}
+
+	checkToMap(self);
+}
+
+static void blobSpinAttack()
+{
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->dirX == 0 || isAtEdge(self))
+	{
+		shakeScreen(MEDIUM, 15);
+
+		self->dirX = self->face == LEFT ? 3 : -3;
+
+		self->dirY = -6;
+
+		self->action = &blobSpinAttackEnd;
+
+		self->thinkTime = 0;
+
+		playSoundToMap("sound/common/crash.ogg", -1, self->x, self->y, 0);
+
+		facePlayer();
+	}
+
+	else if (self->thinkTime <= 0)
+	{
+		self->action = &blobSpinAttackEnd;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void blobSpinAttackEnd()
+{
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	{
+		facePlayer();
+
+		self->dirX = 0;
+
+		self->maxThinkTime--;
+
+		if (self->maxThinkTime > 0)
+		{
+			self->action = &blobSpinAttackStart;
+
+			self->thinkTime = 0;
+		}
+
+		else
+		{
+			self->action = &blobGrubAttackFinish;
+
+			self->thinkTime = 30;
+		}
+	}
+}
+
+static void blobGrubAttackFinish()
+{
+	if (self->frameSpeed > 0)
+	{
+		self->frameSpeed = -1;
+
+		facePlayer();
+
+		setEntityAnimation(self, "ATTACK_2");
+
+		self->animationCallback = &blobAttackFinished;
+
+		self->frameSpeed = 0;
+	}
+
+	else if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->frameSpeed = -1;
+		}
+	}
+}
+
+static void blobAttackFinished()
+{
+	self->flags &= ~INVULNERABLE;
+
+	self->layer = MID_GROUND_LAYER;
+
+	self->frameSpeed = 1;
+
+	setEntityAnimation(self, "STAND");
+
+	self->speed = self->originalSpeed;
+
+	self->dirX = 0;
+
+	self->thinkTime = 90;
+
+	self->damage = 1;
+
+	self->action = &blobWait;
+
+	self->touch = &entityTouch;
+
+	self->activate = NULL;
+}
+
+static void blobTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (!(self->flags & INVULNERABLE))
+	{
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			enemyPain();
+		}
+
+		else
+		{
+			self->thinkTime = 120;
+
+			self->startX = self->x;
+
+			self->damage = 0;
+
+			self->action = &blobDie;
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
+	}
+}
+
+static void blobDie()
+{
+	self->thinkTime--;
+
+	self->takeDamage = NULL;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
+		self->targetY = self->head->y + self->head->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		self->action = &transformRemove;
+	}
+
+	else
+	{
+		blobShudder();
+
+		checkToMap(self);
+	}
+}
+
+static void blobShudder()
+{
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+}
+
+static void queenWaspWait()
+{
+	int i;
+
+	self->thinkTime--;
+
+	facePlayer();
+
+	queenWaspHover();
+
+	if (self->thinkTime <= 0 && player.health > 0)
+	{
+		i = prand() % 4;
+
+		switch (i)
+		{
+			case 0:
+				self->action = &queenWaspBulletFireInit;
+			break;
+
+			case 1:
+				self->action = &queenWaspHeadButtInit;
+			break;
+
+			case 2:
+				self->thinkTime = 120 + prand() % 180;
+
+				self->action = &queenWaspDropInit;
+			break;
+
+			default:
+				self->action = &queenWaspSlimeFireInit;
+			break;
+		}
+
+		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	}
+}
+
+static void queenWaspHover()
+{
+	self->startX++;
+
+	if (self->startX >= 360)
+	{
+		self->startX = 0;
+	}
+
+	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+}
+
+static void queenWaspFlyToTopTarget()
+{
+	Target *t;
+
+	/* Don't fly through the player, that'd be really annoying */
+
+	if (player.x < self->x)
+	{
+		t = getTargetByName("FLY_BOSS_TARGET_TOP_RIGHT");
+	}
+
+	else
+	{
+		t = getTargetByName("FLY_BOSS_TARGET_TOP_LEFT");
+	}
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Fly boss is missing target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->dirX *= self->speed;
+	self->dirY *= self->speed;
+
+	self->action = &queenWaspMoveToTarget;
+}
+
+static void queenWaspMoveToTarget()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime == 0)
+	{
+		self->damage = 1;
+	}
+
+	checkToMap(self);
+
+	facePlayer();
+
+	if (atTarget())
+	{
+		self->thinkTime = 120;
+
+		self->x = self->targetX;
+		self->y = self->targetY;
+
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->startX = 0;
+		self->startY = self->y;
+
+		self->action = &queenWaspWait;
+	}
+}
+
+static void queenWaspDropInit()
+{
+	Target *left, *right;
+
+	setEntityAnimation(self, "ATTACK_1");
+
+	self->dirY = 0;
+
+	left = getTargetByName("FLY_BOSS_TARGET_TOP_LEFT");
+
+	right = getTargetByName("FLY_BOSS_TARGET_TOP_RIGHT");
+
+	self->thinkTime--;
+
+	self->targetX = player.x - self->w / 2 + player.w / 2;
+
+	if (self->thinkTime > 0)
+	{
+		/* Move towards player */
+
+		if (abs(self->x - self->targetX) <= self->speed)
+		{
+			self->dirX = 0;
+		}
+
+		else
+		{
+			self->dirX = self->targetX < self->x ? -self->speed : self->speed;
+		}
+
+		checkToMap(self);
+
+		if (self->x < left->x)
+		{
+			self->x = left->x;
+
+			self->dirX = 0;
+		}
+
+		else if (self->x > right->x)
+		{
+			self->x = right->x;
+
+			self->dirX = 0;
+		}
+	}
+
+	else
+	{
+		self->thinkTime = 0;
+
+		self->action = &queenWaspDrop;
+
+		self->dirX = 0;
+	}
+}
+
+static void queenWaspDrop()
+{
+	int i;
+	long onGround = (self->flags & ON_GROUND);
+
+	self->thinkTime--;
+
+	if (self->thinkTime > 0)
+	{
+		hover();
+	}
+
+	else
+	{
+		self->frameSpeed = 0;
+
+		self->thinkTime = 0;
+
+		self->flags &= ~FLY;
+
+		checkToMap(self);
+
+		if (onGround == 0 && (self->flags & ON_GROUND))
+		{
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			shakeScreen(LIGHT, 15);
+
+			self->thinkTime = 90;
+
+			self->action = &queenWaspDropWait;
+
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+		}
+	}
+}
+
+static void queenWaspDropWait()
+{
+	self->thinkTime--;
+
+	facePlayer();
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= FLY;
+
+		self->action = &queenWaspAttackFinished;
+	}
+}
+
+static void queenWaspBulletFireInit()
+{
+	queenWaspSelectRandomBottomTarget();
+
+	self->action = &queenWaspBulletFireMoveToPosition;
+}
+
+static void queenWaspBulletFireMoveToPosition()
+{
+	checkToMap(self);
+
+	facePlayer();
+
+	if (atTarget())
+	{
+		self->maxThinkTime = 5 + prand() % 15;
+
+		self->x = self->targetX;
+		self->y = self->targetY;
+
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->startX = 0;
+		self->startY = self->y;
+
+		self->action = &queenWaspFireBullets;
+	}
+}
+
+static void queenWaspFireBullets()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->maxThinkTime--;
+
+		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
+
+		e->dirY = 0.1 * (prand() % 2 == 0 ? -1 : 1);
+
+		e->reactToBlock = &bounceOffShield;
+
+		if (self->maxThinkTime <= 0)
+		{
+			self->thinkTime = 120;
+
+			self->action = &queenWaspAttackFinished;
+		}
+
+		else
+		{
+			self->thinkTime = 6;
+		}
+	}
+}
+
+static void queenWaspSlimeFireInit()
+{
+	queenWaspSelectRandomBottomTarget();
+
+	self->action = &queenWaspSlimeFireMoveToPosition;
+}
+
+static void queenWaspSlimeFireMoveToPosition()
+{
+	checkToMap(self);
+
+	facePlayer();
+
+	if (atTarget())
+	{
+		self->maxThinkTime = 1 + prand() % 4;
+
+		self->x = self->targetX;
+		self->y = self->targetY;
+
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->startX = 0;
+		self->startY = self->y;
+
+		self->action = &queenWaspFireSlime;
+	}
+}
+
+static void queenWaspFireSlime()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->maxThinkTime--;
+
+		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
+
+		e->touch = &queenWaspSlimePlayer;
+
+		if (self->maxThinkTime <= 0)
+		{
+			self->thinkTime = 60;
+
+			self->action = ((player.flags & HELPLESS) || prand() % 3 == 0) ? &queenWaspBulletFireMoveToPosition : &queenWaspAttackFinished;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+}
+
+static void queenWaspHeadButtInit()
+{
+	queenWaspSelectRandomBottomTarget();
+
+	self->action = &queenWaspHeadButtMoveToPosition;
+}
+
+static void queenWaspHeadButtMoveToPosition()
+{
+	checkToMap(self);
+
+	facePlayer();
+
+	if (atTarget())
+	{
+		self->flags &= ~(FLY|UNBLOCKABLE);
+
+		setEntityAnimation(self, "ATTACK_2");
+
+		self->thinkTime = 60;
+
+		self->x = self->targetX;
+		self->y = self->targetY;
+
+		self->dirX = 0;
+		self->dirY = 0;
+
+		self->startX = 0;
+		self->startY = self->y;
+
+		self->action = &queenWaspMoveToHeadButtRange;
+	}
+}
+
+static void queenWaspMoveToHeadButtRange()
+{
+	int playerX, bossX;
+
+	facePlayer();
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		bossX = self->x + (self->face == LEFT ? 0 : self->w - 1);
+
+		playerX = player.x + (self->face == RIGHT ? 0 : player.w - 1);
+
+		if (abs(bossX - playerX) < 24)
+		{
+			self->dirX = 0;
+
+			self->touch = &queenWaspRamTouch;
+
+			self->action = &queenWaspHeadButt;
+
+			self->reactToBlock = &queenWaspReactToHeadButtBlock;
+		}
+
+		else
+		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void queenWaspHeadButt()
+{
+	facePlayer();
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+
+	self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+	self->dirY = -3;
+
+	checkToMap(self);
+
+	self->thinkTime = 120;
+
+	if (prand() % 2 == 0)
+	{
+		self->action = &queenWaspAttackFinished;
+
+		self->touch = &queenWaspRamTouch;
+	}
+
+	else
+	{
+		self->action = &queenWaspMoveToHeadButtRange;
+	}
+}
+
+static void queenWaspSelectRandomBottomTarget()
+{
+	Target *t;
+
+	if (prand() % 2 == 0)
+	{
+		t = getTargetByName("FLY_BOSS_TARGET_BOTTOM_RIGHT");
+	}
+
+	else
+	{
+		t = getTargetByName("FLY_BOSS_TARGET_BOTTOM_LEFT");
+	}
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Fly boss is missing target");
+	}
+
+	self->targetX = t->x;
+	self->targetY = t->y;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->dirX *= self->speed;
+	self->dirY *= self->speed;
+
+	facePlayer();
+}
+
+static void queenWaspReactToHeadButtBlock(Entity *other)
+{
+	self->dirX = (self->face == LEFT ? 4 : -4);
+	self->dirY = -6;
+
+	setCustomAction(self, &helpless, 15, 0, 0);
+
+	checkToMap(self);
+}
+
+static void queenWaspTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+			enemyPain();
+		}
+
+		else
+		{
+			self->health = 0;
+
+			self->thinkTime = 180;
+
+			self->flags &= ~FLY;
+
+			self->frameSpeed = 0;
+
+			self->takeDamage = NULL;
+
+			self->touch = NULL;
+
+			self->action = &queenWaspDie;
+
+			self->startX = self->x;
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
+	}
+}
+
+static void queenWaspDie()
+{
+	self->thinkTime--;
+
+	self->takeDamage = NULL;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
+		self->targetY = self->head->y + self->head->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		self->action = &transformRemove;
+	}
+
+	else
+	{
+		queenWaspShudder();
+
+		checkToMap(self);
+	}
+}
+
+static void queenWaspShudder()
+{
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+}
+
+static void queenWaspAttackFinished()
+{
+	int bottomY;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->frameSpeed = 1;
+
+		bottomY = self->y + self->h - 1;
+
+		self->frameSpeed = 1;
+
+		setEntityAnimation(self, "STAND");
+
+		self->y = bottomY - self->h - 1;
+
+		self->dirX = self->face == RIGHT ? -1 : 1;
+		self->dirY = 1;
+
+		self->startX = 0;
+		self->startY = self->y;
+
+		self->flags &= ~ATTACKING;
+
+		self->flags |= UNBLOCKABLE|FLY;
+
+		/* Stop the player from being hit when the animation changes */
+
+		self->damage = 0;
+
+		self->action = &queenWaspFlyToTopTarget;
+
+		self->reactToBlock = NULL;
+
+		self->thinkTime = 30;
+	}
+
+	checkToMap(self);
+}
+
+static void queenWaspRamTouch(Entity *other)
+{
+	int health = player.health;
+
+	entityTouch(other);
+
+	if (player.health < health)
+	{
+		if (self->action == &queenWaspMoveToHeadButtRange || self->action == &queenWaspAttackFinished)
+		{
+			queenWaspReactToHeadButtBlock(other);
+		}
+	}
+}
+
+static void queenWaspSlimePlayer(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		other->dirX = 0;
+
+		if (!(other->flags & HELPLESS))
+		{
+			setPlayerSlimed(180);
+		}
+
+		self->die();
+	}
+}
+
+static void kingGrubWait()
+{
+	int attack;
+
+	self->dirX = 0;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 && player.health > 0)
+	{
+		attack = prand() % 3;
+
+		switch (attack)
+		{
+			case 0:
+				self->action = &kingGrubSpitStart;
+
+				self->thinkTime = (prand() % 3) + 1;
+			break;
+
+			case 1:
+				self->action = &kingGrubSpinAttackStart;
+
+				self->thinkTime = 60;
+			break;
+
+			default:
+				self->action = &kingGrubBounceAttackStart;
+
+				self->thinkTime = 60;
+			break;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void kingGrubSpitStart()
+{
+	if (self->frameSpeed > 0)
+	{
+		if (self->thinkTime > 0)
+		{
+			setEntityAnimation(self, "ATTACK_1");
+
+			self->animationCallback = &kingGrubSpit;
+		}
+
+		else
+		{
+			self->action = &kingGrubAttackFinished;
+		}
+	}
+
+	else
+	{
+		self->animationCallback = &kingGrubSpitEnd;
+	}
+
+	checkToMap(self);
+}
+
+static void kingGrubSpitEnd()
+{
+	self->frameSpeed *= -1;
+}
+
+static void kingGrubSpit()
+{
+	int x = (self->face == RIGHT ? 40 : 17);
+
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
+
+	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+	self->thinkTime--;
+
+	self->frameSpeed *= -1;
+}
+
+static void kingGrubSpinAttackStart()
+{
+	self->flags |= INVULNERABLE;
+
+	setEntityAnimation(self, "ATTACK_2");
+
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
+
+			self->dirY = -8;
+		}
+	}
+
+	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+
+		self->action = &kingGrubSpinAttack;
+	}
+
+	checkToMap(self);
+}
+
+static void kingGrubSpinAttack()
+{
+	float speed = self->dirX;
+
+	self->flags |= INVULNERABLE;
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+
+		self->face = (player.x > self->x ? RIGHT : LEFT);
+
+		self->dirX = speed < 0 ? 3 : -3;
+
+		self->dirY = -6;
+
+		self->action = &kingGrubSpinAttackEnd;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void kingGrubSpinAttackEnd()
+{
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	{
+		self->dirX = 0;
+
+		self->action = &kingGrubAttackFinished;
+	}
+}
+
+static void kingGrubBounceAttackStart()
+{
+	self->flags |= INVULNERABLE;
+
+	setEntityAnimation(self, "ATTACK_2");
+
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime == 0)
+		{
+			self->face = (player.x > self->x ? RIGHT : LEFT);
+
+			self->frameSpeed = 2;
+
+			self->dirY = -8;
+		}
+	}
+
+	else if (self->thinkTime == 0 && self->flags & ON_GROUND)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+
+		self->dirX = (self->face == RIGHT ? 3 : -3);
+
+		self->dirY = -14;
+
+		self->action = &kingGrubBounceAttack;
+	}
+
+	checkToMap(self);
+}
+
+static void kingGrubBounceAttack()
+{
+	float speed = self->dirX;
+
+	self->flags |= INVULNERABLE;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+
+		self->dirY = -14;
+	}
+
+	if (self->dirX == 0)
+	{
+		shakeScreen(MEDIUM, 15);
+
+		playSoundToMap("sound/common/crunch.ogg", -1, self->x, self->y, 0);
+
+		self->face = (player.x > self->x ? RIGHT : LEFT);
+
+		self->dirX = speed < 0 ? 3 : -3;
+
+		self->dirY = -6;
+
+		self->action = &kingGrubBounceAttackEnd;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void kingGrubBounceAttackEnd()
+{
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	{
+		self->dirX = 0;
+
+		self->action = &kingGrubAttackFinished;
+	}
+}
+
+static void kingGrubAttackFinished()
+{
+	self->flags &= ~INVULNERABLE;
+
+	setEntityAnimation(self, "STAND");
+
+	self->frameSpeed = 1;
+
+	self->thinkTime = 90;
+
+	self->action = &kingGrubWait;
+}
+
+static void kingGrubTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+			enemyPain();
+		}
+
+		else
+		{
+			self->health = 0;
+
+			self->thinkTime = 180;
+
+			self->flags &= ~FLY;
+
+			setEntityAnimation(self, "STAND");
+
+			self->frameSpeed = 0;
+
+			self->takeDamage = NULL;
+
+			self->touch = NULL;
+
+			self->action = &kingGrubDie;
+
+			self->startX = self->x;
+
+			playSoundToMap("sound/boss/grub_boss/death.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
+	}
+}
+
+static void kingGrubDie()
+{
+	self->thinkTime--;
+
+	self->takeDamage = NULL;
+
+	if (self->thinkTime <= 0)
+	{
+		self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
+		self->targetY = self->head->y + self->head->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+
+		self->action = &transformRemove;
+	}
+
+	else
+	{
+		kingGrubShudder();
+
+		checkToMap(self);
+	}
+}
+
+static void kingGrubShudder()
+{
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+}
+
+static void blackBookAttackFinished()
+{
+	self->thinkTime = 120;
+
+	self->action = &blackBookWait;
+
+	hover();
+}
+
+static void transformWait()
+{
+	if (self->mental == 0)
+	{
+		self->flags &= ~NO_DRAW;
+		
+		self->action = &blackBookAttackFinished;
+	}
+
+	hover();
+}
+
+static void transformRemove()
+{
+	self->head->mental = 0;
+
+	self->health -= 500;
+
+	self->inUse = FALSE;
 }
 
 static void hover()
@@ -149,4 +3317,98 @@ static void hover()
 	}
 
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+}
+
+static void initEnergyBar(Entity *boss)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Awesome Boss Energy Bar");
+	}
+
+	loadProperties("boss/awesome_boss_energy_bar", e);
+
+	e->action = &energyBarWait;
+
+	e->draw = &energyBarDraw;
+
+	e->type = ENEMY;
+
+	e->active = FALSE;
+
+	e->head = boss;
+
+	setEntityAnimation(e, "STAND");
+}
+
+static void energyBarWait()
+{
+	self->x = self->head->x - (self->w - self->head->w) / 2;
+	self->y = self->head->y - self->h - 4;
+
+	if (self->health < self->head->health)
+	{
+		self->health += (self->head->health / 100);
+
+		if (self->health > self->head->health)
+		{
+			self->health = self->head->health;
+		}
+	}
+
+	else if (self->head->health < self->health)
+	{
+		self->health -= 3;
+
+		if (self->health < self->head->health)
+		{
+			self->health = self->head->health;
+		}
+	}
+
+	if (self->head->inUse == FALSE)
+	{
+		self->flags |= NO_DRAW;
+
+		self->inUse = FALSE;
+	}
+
+	self->layer = self->head->layer;
+}
+
+static int energyBarDraw()
+{
+	int width;
+	float percentage;
+
+	if (!(self->head->flags & NO_DRAW))
+	{
+		drawLoopingAnimationToMap();
+
+		percentage = self->health;
+		percentage /= self->head->maxHealth;
+
+		width = self->w - 2;
+
+		width *= percentage;
+
+		if (percentage >= 0.5)
+		{
+			drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 0, 220, 0);
+		}
+
+		else if (percentage >= 0.25)
+		{
+			drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 220, 220, 0);
+		}
+
+		else if (percentage > 0)
+		{
+			drawBoxToMap(self->x + 1, self->y + 1, width, self->h - 2, 220, 0, 0);
+		}
+	}
+
+	return TRUE;
 }

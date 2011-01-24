@@ -665,7 +665,7 @@ void loadInventoryItems()
 			{
 				inventory.item[i].animation[j] = e.animation[j];
 			}
-			
+
 			inventory.item[i].currentAnim = -1;
 
 			setEntityAnimation(&inventory.item[i], "STAND");
@@ -710,6 +710,11 @@ void getInventoryItemFromScript(char *line)
 	Entity *e, *item;
 
 	read = sscanf(line, "%s \"%[^\"]\" %d %d %s %d %d %s", command, itemName, &quantity, &quantityToRemove, entityName, &success, &failure, quiet);
+
+	if (read < 7)
+	{
+		showErrorAndExit("HAS_ITEM or REMOVE command has wrong number of arguments");
+	}
 
 	e = getEntityByObjectiveName(entityName);
 
