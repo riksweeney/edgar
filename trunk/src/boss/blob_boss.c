@@ -94,7 +94,7 @@ static void dieRise(void);
 static void dieSplit(void);
 static void dieWait(void);
 static void partFinalDie(void);
-void partTakeDamage(Entity *, int);
+static void partTakeDamage(Entity *, int);
 
 Entity *addBlobBoss(int x, int y, char *name)
 {
@@ -1277,7 +1277,7 @@ static void splitAttackInit()
 	self->touch = NULL;
 }
 
-void partTakeDamage(Entity *other, int damage)
+static void partTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 

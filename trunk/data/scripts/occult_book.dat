@@ -22,12 +22,12 @@ TALK Book If the dragon has been defeated in the past then one must also gather
 TALK Book The keepsake from a warrior that previously defeated it
 TALK Book Once the ingredients have been gathered, they must be placed in the cauldron...
 TALK Edgar Oh no, not again! I'm fed up of using that stupid cauldron!
-HAS_ITEM "Tortoise Shell" OCCULT_BOOK_POINT 1 2
+HAS_ITEM "Tortoise Shell" 1 1 OCCULT_BOOK_POINT 1 2
 IF OCCULT_BOOK_POINT HEALTH 1
-HAS_ITEM "Summoner's Staff" OCCULT_BOOK_POINT 3 4
+HAS_ITEM "Summoner's Staff" 1 1 OCCULT_BOOK_POINT 3 4
 END
 IF OCCULT_BOOK_POINT HEALTH 2
-HAS_ITEM "Summoner's Staff" OCCULT_BOOK_POINT 2 5
+HAS_ITEM "Summoner's Staff" 1 1 OCCULT_BOOK_POINT 2 5
 END
 IF OCCULT_BOOK_POINT HEALTH 2
 TALK Edgar I've got the staff, but where do I find the shell or the keepsake?
@@ -42,7 +42,7 @@ IF OCCULT_BOOK_POINT HEALTH 5
 TALK Edgar That's a lot of ingredients that I have no idea where to find...
 END
 SET OCCULT_BOOK_POINT HEALTH 6
-IF NOT_EXISTS BLACK_BOOK_1
+IF EXISTS BLACK_BOOK_1
 PLAY_SOUND sound/common/spell.ogg
 WAIT 60
 SET EDGAR FACE LEFT

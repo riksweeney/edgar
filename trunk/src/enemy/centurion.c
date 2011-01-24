@@ -378,7 +378,7 @@ static void die()
 
 	fireGlobalTrigger(self->objectiveName);
 
-	for (i=0;i<7;i++)
+	for (i=0;i<9;i++)
 	{
 		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
 
@@ -388,15 +388,7 @@ static void die()
 		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
 		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
 
-		if (i == 2 || i == 3)
-		{
-			setEntityAnimationByID(e, i == 2 ? 0 : 1);
-		}
-
-		else
-		{
-			setEntityAnimationByID(e, i);
-		}
+		setEntityAnimationByID(e, i);
 
 		e->thinkTime = 60 + (prand() % 180);
 	}
