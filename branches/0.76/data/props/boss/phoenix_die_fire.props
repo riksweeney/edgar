@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/boss/phoenix_die_fire.dat
+ANIM_FILE data/anim/boss/phoenix_die_fire.dat
+TYPE ENEMY
+THINKTIME 120
