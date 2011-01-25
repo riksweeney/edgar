@@ -163,6 +163,13 @@ void cleanup()
 		saveConfig();
 	}
 
+	/* Save on exit */
+
+	if (game.saveOnExit == TRUE)
+	{
+		saveGame(-1);
+	}
+
 	/* Free the medal queue */
 
 	freeMedalQueue();
