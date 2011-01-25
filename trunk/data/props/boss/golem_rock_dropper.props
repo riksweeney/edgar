@@ -3,5 +3,6 @@ GFX_FILE data/gfx/common/spawner.dat
 ANIM_FILE data/anim/common/no_anim.dat
 SPEED 2
 HEALTH 0
-FLAGS FLY
+FLAGS FLY|NO_DRAW
 THINKTIME 3
+MAX_THINKTIME 30

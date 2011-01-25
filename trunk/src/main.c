@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 		textdomain("edgar");
 		bindtextdomain("edgar", LOCALE_DIR);
 	#endif
-	
+
 	/* Call the cleanup function when the program exits */
 
 	atexit(cleanup);
@@ -116,20 +116,25 @@ int main(int argc, char *argv[])
 
 			i++;
 		}
-		
+
 		else if (strcmpignorecase("-nojoystick", argv[i]) == 0)
 		{
 			game.disableJoystick = TRUE;
 		}
-		
+
 		#if DEV == 1
+			else if (strcmpignorecase("-saveonexit", argv[i]) == 0)
+			{
+				game.saveOnExit = TRUE;
+			}
+
 			else
 			{
 				mapID = i;
 			}
 		#endif
 	}
-	
+
 	/* Start up SDL */
 
 	init(_("The Legend of Edgar"));
@@ -244,7 +249,7 @@ int main(int argc, char *argv[])
 				doCollisions();
 
 				doHud();
-				
+
 				doDialogBox();
 
 				processMedals();

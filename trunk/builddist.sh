@@ -1,9 +1,11 @@
-if [[ $EUID -ne 0 ]]; then
+if [ $EUID -ne 0 ]
+then
 	echo "This must be run as root"
 	exit 1
 fi
 
-if [[ $# -ne 1 ]]; then
+if [ $# -ne 1 ]
+then
 	echo ""
 	echo "Usage $0 <version>"
 	echo ""

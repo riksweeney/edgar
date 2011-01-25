@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 0.76
+* Fixed a crash when killing a centurion
+* Corrected the makefile version number
+* The fish in the Left Tower no longer become stuck if the player falls in the water
+
 Version 0.75
 * Added the next part of the story
 * The Left Tower is now accessible

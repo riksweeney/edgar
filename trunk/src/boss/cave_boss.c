@@ -109,6 +109,8 @@ static void spitAcid(void);
 static void finalAttack(void);
 static void slimePlayer(Entity *);
 static void dieWait(void);
+static void addElementParticles(void);
+static int drawCaveBoss(void);
 
 Entity *addCaveBoss(int x, int y, char *name)
 {
@@ -126,7 +128,7 @@ Entity *addCaveBoss(int x, int y, char *name)
 
 	e->action = &initialise;
 
-	e->draw = &drawLoopingAnimationToMap;
+	e->draw = &drawCaveBoss;
 
 	e->die = &die;
 
@@ -464,7 +466,7 @@ static void spitMoveToTarget()
 	else if (self->dirY > 0 && self->y >= self->targetY)
 	{
 		self->dirY = 0;
-		
+
 		self->y = self->targetY;
 
 		switch ((int)self->endX)
@@ -2123,7 +2125,7 @@ static void changeToFire()
 
 		self->action = &attackFinished;
 
-		self->draw = &drawLoopingAnimationToMap;
+		self->draw = &drawCaveBoss;
 
 		self->mental = 0;
 
@@ -2158,7 +2160,7 @@ static void changeToIce()
 
 		self->action = &attackFinished;
 
-		self->draw = &drawLoopingAnimationToMap;
+		self->draw = &drawCaveBoss;
 
 		self->mental = 0;
 
@@ -2236,9 +2238,9 @@ static void die()
 	setEntityAnimation(self, "STUNNED");
 
 	self->flags &= ~FLY;
-	
+
 	self->dirX = 0;
-	
+
 	self->mental = self->x < getMapStartX() + SCREEN_WIDTH / 2 ? 0 : 1;
 
 	checkToMap(self);
@@ -2253,7 +2255,7 @@ static void die()
 		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->thinkTime = 120;
-		
+
 		self->endY = 0;
 
 		self->action = &dieFinish;
@@ -2275,15 +2277,15 @@ static void dieFinish()
 			fireGlobalTrigger(self->objectiveName);
 		}
 	}
-	
+
 	if (self->endY == 1)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->thinkTime = 60;
-		
+
 		facePlayer();
-		
+
 		self->action = &finalAttack;
 	}
 
@@ -2293,21 +2295,21 @@ static void dieFinish()
 static void finalAttack()
 {
 	Entity *e;
-	
+
 	if (self->endY == 1)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, "GROUND_ATTACK");
-			
+
 			e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y, (self->face == RIGHT ? 7 : -7), 0);
 
 			e->touch = &slimePlayer;
-			
+
 			self->endY = 0;
-			
+
 			self->die = &dieWait;
 		}
 	}
@@ -2331,7 +2333,7 @@ static void slimePlayer(Entity *other)
 static void dieWait()
 {
 	Entity *e;
-	
+
 	clearContinuePoint();
 
 	increaseKillCount();
@@ -2630,4 +2632,48 @@ static void starWait()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void addElementParticles()
+{
+	Entity *e = NULL;
+
+	if (prand() % 3 == 0)
+	{
+		if (self->endX == 1)
+		{
+			e = addBasicDecoration(self->x, self->y, "decoration/small_flame");
+		}
+
+		else if (self->endX == 2)
+		{
+			e = addBasicDecoration(self->x, self->y, "decoration/small_ice");
+		}
+
+		if (e != NULL)
+		{
+			e->x = self->x + self->box.x;
+
+			e->y = self->y + self->box.y;
+
+			e->x += prand() % self->box.w;
+
+			e->y += prand() % self->box.h;
+
+			e->thinkTime = 30 + prand() % 30;
+
+			e->dirY = -5 - prand() % 15;
+
+			e->dirY /= 10;
+
+			setEntityAnimationByID(e, 0);
+		}
+	}
+}
+
+static int drawCaveBoss()
+{
+	addElementParticles();
+
+	return drawLoopingAnimationToMap();
 }

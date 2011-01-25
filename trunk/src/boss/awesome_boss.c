@@ -951,12 +951,21 @@ static void entityWait()
 
 static void energyBarWait()
 {
+	int increment;
+
 	self->x = self->head->x - (self->w - self->head->w) / 2;
 	self->y = self->head->y - self->h - 4;
 
 	if (self->health < self->head->health)
 	{
-		self->health += (self->head->health / 100);
+		increment = self->head->health / 100;
+
+		if (increment < 1)
+		{
+			increment = 1;
+		}
+
+		self->health += increment;
 
 		if (self->health > self->head->health)
 		{

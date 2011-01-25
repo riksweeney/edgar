@@ -54,7 +54,6 @@ static void shatter(void);
 static void initialShatter(void);
 static void die(void);
 static void takeDamage(Entity *, int);
-static void shatter(void);
 static void reform(void);
 static void headReform(void);
 static void reform2(void);
@@ -70,7 +69,6 @@ static void stompShake(void);
 static void stompAttackFinish(void);
 static void attackFinished(void);
 static void stunnedTouch(Entity *);
-static void die(void);
 static void dieFinish(void);
 static void throwRockStart(void);
 static void throwRock(void);
@@ -164,6 +162,8 @@ static void shatter()
 		e = getFreeEntity();
 
 		loadProperties("boss/golem_boss_piece", e);
+
+		e->flags |= LIMIT_TO_SCREEN;
 
 		if (e == NULL)
 		{
@@ -309,6 +309,8 @@ static void initialise()
 			centerMapOnEntity(NULL);
 
 			self->thinkTime = 0;
+
+			self->flags |= LIMIT_TO_SCREEN;
 
 			self->action = &headWait;
 
