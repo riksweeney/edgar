@@ -2117,7 +2117,6 @@ void setPlayerFrozen(int thinkTime)
 	e->face = player.face;
 
 	e->action = &applyIce;
-	e->touch = &touch;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -2179,11 +2178,9 @@ static void applyIce()
 	{
 		player.dirX = 0;
 
-		player.x = self->x + self->w / 2 - player.w / 2;
-		player.y = self->y + self->h / 2 - player.h / 2;
+		self->x = player.x + player.w / 2 - self->w / 2;
+		self->y = player.y + player.h / 2 - self->h / 2;
 	}
-
-	checkToMap(self);
 }
 
 void setPlayerWrapped(int thinkTime)
