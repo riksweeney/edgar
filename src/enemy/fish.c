@@ -138,6 +138,8 @@ static void attackPlayer()
 			setEntityAnimation(self, "STAND");
 
 			self->action = &returnToStart;
+
+			self->thinkTime = 600;
 		}
 	}
 
@@ -165,7 +167,9 @@ static void returnToStart()
 {
 	checkToMap(self);
 
-	if (atTarget())
+	self->thinkTime--;
+
+	if (atTarget() || self->thinkTime <= 0)
 	{
 		self->dirY = 0;
 
