@@ -511,9 +511,8 @@ int drawPhaseDoorToMap()
 
 void setEntityAnimation(Entity *e, char *animationName)
 {
-	int previousRightEdge, newRightEdge;
+	int previousRightEdge, previousAnim, newRightEdge;
 	int previousBottom, newBottom, i;
-	char previousAnim[MAX_VALUE_LENGTH];
 	Sprite *sprite;
 
 	if (e->inUse == FALSE)
@@ -521,9 +520,9 @@ void setEntityAnimation(Entity *e, char *animationName)
 		return;
 	}
 
-	STRNCPY(previousAnim, e->animationName, MAX_VALUE_LENGTH);
+	previousAnim = e->currentAnim;
 
-	if (strlen(previousAnim) == 0)
+	if (e->currentAnim == -1)
 	{
 		previousRightEdge = -1;
 
@@ -578,7 +577,7 @@ void setEntityAnimation(Entity *e, char *animationName)
 
 		/* Align the right and bottom edges to stop it looking bad */
 
-		if (strlen(previousAnim) != 0)
+		if (previousAnim != -1)
 		{
 			if (e->face == LEFT)
 			{

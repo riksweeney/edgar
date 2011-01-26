@@ -6,6 +6,8 @@ Version 0.76
 * Corrected the makefile version number
 * The fish in the Left Tower no longer become stuck if the player falls in the water
 * Fixed a bug when the player becomes frozen in ice
+* Fixed a bug where the player could not turn into a Slime if standing on the ground
+* Added Spanish translation
 
 Version 0.75
 * Added the next part of the story
