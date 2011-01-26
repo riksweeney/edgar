@@ -162,8 +162,11 @@ static void shatter()
 		e = getFreeEntity();
 
 		loadProperties("boss/golem_boss_piece", e);
-
-		e->flags |= LIMIT_TO_SCREEN;
+		
+		if (self->flags & LIMIT_TO_SCREEN)
+		{
+			e->flags |= LIMIT_TO_SCREEN;
+		}
 
 		if (e == NULL)
 		{

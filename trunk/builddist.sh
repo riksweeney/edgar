@@ -49,6 +49,7 @@ svn export http://reddwarf.local/svn/Edgar/tags/$APPVERSION $APPDIR
 echo "Removing unwanted data files..."
 
 rm -rf $APPDIR/dev
+rm -rf $APPDIR/test
 rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec
 rm $APPDIR/*.sh
