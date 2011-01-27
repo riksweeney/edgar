@@ -83,7 +83,7 @@ echo "Creating GZIP... $DISTNAME"
 
 cp $APPDIR/edgar.spec.base edgar.spec
 
-for f in `ls $APPDIR/locale/*.mo`; do \
+for f in `ls $APPDIR/locale/*.po`; do \
 	FILE=`echo $f | cut -d'/' -f4 | cut -d'.' -f1`
 	LINE="/usr/share/locale/$FILE/LC_MESSAGES/edgar.mo"
 	echo "Adding $LINE"

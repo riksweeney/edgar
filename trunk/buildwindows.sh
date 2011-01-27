@@ -64,7 +64,7 @@ cp /opt/Windows/lib/*.dll .
 
 cp icons/edgar.ico .
 
-for f in `ls locale/*.mo`; do \
+for f in `ls locale/*.po`; do \
 	FILE=`echo $f | cut -d'/' -f2 | cut -d'.' -f1`
 	echo "Moving $FILE.mo to locale/$FILE/LC_MESSAGES/edgar.mo"
 	mkdir -p locale/$FILE
