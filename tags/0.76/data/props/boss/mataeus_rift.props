@@ -1,0 +1,5 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/mataeus_rift.dat
+ANIM_FILE data/anim/boss/mataeus_rift.dat
+DAMAGE 1
+LAYER BACKGROUND_LAYER
