@@ -763,6 +763,11 @@ static void updateSaveFileIndex(int slot)
 	FILE *fp;
 	int i;
 
+	if (slot == -1)
+	{
+		return;
+	}
+
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
 
