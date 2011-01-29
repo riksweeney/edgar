@@ -200,7 +200,7 @@ static void clearInputCode()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self->target, 0);
+		setEntityAnimationByID(self->target, 0);
 
 		self->thinkTime = self->mental > strlen(self->target->requires) ? 0 : self->maxThinkTime;
 
