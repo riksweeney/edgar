@@ -1,7 +1,0 @@
-HEALTH 60
-GFX_FILE data/gfx/enemy/giant_ceiling_creeper_tongue.dat
-ANIM_FILE data/anim/boss/armour_boss_tongue.dat
-TYPE ENEMY
-SPEED 18
-LAYER BACKGROUND_LAYER
-FLAGS FLY|DO_NOT_PERSIST

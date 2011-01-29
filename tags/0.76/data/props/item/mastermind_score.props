@@ -1,4 +1,0 @@
-GFX_FILE data/gfx/item/mastermind_score.dat
-ANIM_FILE data/anim/item/mastermind_score.dat
-TYPE KEY_ITEM
-FLAGS FLY|DO_NOT_PERSIST

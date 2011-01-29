@@ -1,8 +1,0 @@
-HEALTH 50
-DAMAGE 1
-GFX_FILE data/gfx/enemy/baby_slime.dat
-ANIM_FILE data/anim/enemy/baby_slime.dat
-TYPE ENEMY
-SPEED 1.5
-THINKTIME 0
-FLAGS INVULNERABLE
