@@ -1,8 +1,0 @@
-DAMAGE 1
-GFX_FILE data/gfx/enemy/gas_plant_spray.dat
-ANIM_FILE data/anim/item/repellent_spray.dat
-TYPE ENEMY
-FLAGS DO_NOT_PERSIST|FLY
-THINKTIME 30
-SPEED 1.5
-LAYER BACKGROUND_LAYER

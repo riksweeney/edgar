@@ -1,5 +1,0 @@
-WAIT 60
-SET Edgar FACE RIGHT
-TALK Edgar Gross...
-ACTIVATE_OBJECTIVE Borer-Catacombs
-ADD_MEDAL kill_borer

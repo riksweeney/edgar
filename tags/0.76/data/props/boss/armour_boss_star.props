@@ -1,4 +1,0 @@
-TYPE TEMP_ITEM
-GFX_FILE data/gfx/boss/armour_boss_star.dat
-ANIM_FILE data/anim/boss/armour_boss_star.dat
-FLAGS DO_NOT_PERSIST

@@ -1,8 +1,0 @@
-TALK Edgar It's an apple tree
-TALK Edgar Shame it's not a banana tree, I don't like apples
-IF APPLE_TREE MENTAL 0
-TALK Edgar There aren't any apples left
-END
-IF APPLE_TREE MENTAL NOT 0
-TALK Edgar It looks like there are some apples in it...
-END
