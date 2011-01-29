@@ -211,7 +211,7 @@ static void readInputCode()
 	{
 		self->thinkTime = 0;
 
-		setEntityAnimation(self->target, 0);
+		setEntityAnimationByID(self->target, 0);
 	}
 }
 
