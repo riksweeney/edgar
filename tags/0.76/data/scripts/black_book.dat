@@ -1,0 +1,25 @@
+TALK Edgar This book is different to the rest
+TALK Edgar I can feel a powerful magic emanating from it
+TALK Edgar A powerful evil magic
+TALK Edgar Maybe I should leave it alone
+TALK Edgar Still, I could be wrong, maybe it's not evil magic...
+SHOW_CONFIRM Examine the book?
+IF CONFIRM_YES
+WAIT 30
+FLASH_SCREEN 180
+KILL BLACK_BOOK
+PLAY_SOUND sound/common/explosion.ogg
+SET EDGAR ANIMATION DIE
+SET EDGAR PROPERTY DIR_X 6
+SET EDGAR PROPERTY DIR_Y -12
+ACTIVATE_REQUIRED MONSTER_BOOK_TRIGGER
+SET BLACK_BOOK_1 REMOVE_FLAG NO_DRAW
+WAIT 180
+TALK Edgar What just happened?
+SET EDGAR ANIMATION STAND
+TALK Edgar Maybe I shouldn't go around touching books that give off an evil aura
+TALK Edgar And spend more time looking for my Dad
+END
+IF CONFIRM_NO
+TALK Edgar I'll leave it alone, I'm not getting a good feeling from it
+END

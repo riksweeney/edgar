@@ -1,0 +1,7 @@
+HEALTH 30
+GFX_FILE data/gfx/enemy/mini_centurion.dat
+ANIM_FILE data/anim/enemy/mini_centurion.dat
+TYPE ENEMY
+SPEED 2
+LAYER BACKGROUND_LAYER
+DAMAGE 1
