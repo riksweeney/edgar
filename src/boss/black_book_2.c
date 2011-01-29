@@ -158,6 +158,7 @@ static void awesomeSuperSpearAttackFinished(void);
 static void awesomeSpearWait(void);
 static void awesomeSpearRise(void);
 static void awesomeSpearSink(void);
+static void awesomeFireballMove(void);
 static void awesomeMeterDie(void);
 
 static void becomeGolem(void);
@@ -1976,6 +1977,10 @@ static void golemDie()
 			}
 
 			self->thinkTime = 120;
+			
+			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			
+			self->flags |= NO_DRAW;
 		}
 
 		else
@@ -2901,6 +2906,8 @@ static void awesomeFireballAttack()
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 			e->touch = &awesomeFireballTouch;
+			
+			e->action = &awesomeFireballMove;
 
 			e->type = ENEMY;
 
@@ -3019,6 +3026,8 @@ static void awesomeSuperFireballAttack()
 					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 					e->touch = &awesomeFireballTouch;
+					
+					e->action = &awesomeFireballMove;
 
 					e->type = ENEMY;
 
@@ -3684,6 +3693,18 @@ static void awesomeSpearRise()
 	}
 }
 
+static void awesomeFireballMove()
+{
+	self->thinkTime--;
+
+	if (self->dirX == 0 || self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	checkToMap(self);
+}
+
 static void awesomeMeterDie()
 {
 	self->thinkTime--;
@@ -4223,6 +4244,10 @@ static void blobTakeDamage(Entity *other, int damage)
 
 		else
 		{
+			self->frameSpeed = 0;
+			
+			self->animationCallback = NULL;
+			
 			self->thinkTime = 120;
 
 			self->startX = self->x;
@@ -5390,7 +5415,7 @@ static void transformWait()
 		self->flags &= ~NO_DRAW;
 
 		if (self->health <= 0)
-		{
+		{			
 			self->startX = self->x;
 
 			self->thinkTime = 180;
@@ -5403,35 +5428,38 @@ static void transformWait()
 			self->action = &blackBookAttackFinished;
 		}
 	}
-
-	hover();
 }
 
 static void blackBookDie()
 {
 	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	
+	if (self->thinkTime > 0)
 	{
-		self->flags &= ~FLY;
+		self->thinkTime--;
 
-		clearContinuePoint();
+		if (self->thinkTime <= 0)
+		{
+			self->flags &= ~FLY;
 
-		increaseKillCount();
+			clearContinuePoint();
 
-		freeBossHealthBar();
+			increaseKillCount();
 
-		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+			freeBossHealthBar();
 
-		e->dirY = ITEM_JUMP_HEIGHT;
+			e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+			e->dirY = ITEM_JUMP_HEIGHT;
+		}
+
+		else
+		{
+			blackBookShudder();
+		}
 	}
-
-	else
-	{
-		blackBookShudder();
-	}
+	
+	checkToMap(self);
 }
 
 static void blackBookShudder()
