@@ -79,6 +79,7 @@ static void addSmokeAlongBody(void);
 static void spearWait(void);
 static void spearRise(void);
 static void spearSink(void);
+static void fireballMove(void);
 
 Entity *addAwesomeBoss(int x, int y, char *name)
 {
@@ -558,6 +559,8 @@ static void fireballAttack()
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 			e->touch = &fireballTouch;
+			
+			e->action = &fireballMove;
 
 			e->type = ENEMY;
 
@@ -674,6 +677,8 @@ static void superFireballAttack()
 					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 					e->touch = &fireballTouch;
+					
+					e->action = &fireballMove;
 
 					e->type = ENEMY;
 
@@ -1461,4 +1466,16 @@ static void spearRise()
 
 		self->action = &spearWait;
 	}
+}
+
+static void fireballMove()
+{
+	self->thinkTime--;
+
+	if (self->dirX == 0 || self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	checkToMap(self);
 }
