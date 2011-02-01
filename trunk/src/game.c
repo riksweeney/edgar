@@ -559,6 +559,7 @@ void pauseGame()
 		break;
 
 		case IN_TITLE:
+		case IN_INVENTORY:
 			/* Do nothing */
 		break;
 

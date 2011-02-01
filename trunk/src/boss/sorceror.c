@@ -48,6 +48,7 @@ extern Entity *self, player;
 static void init(void);
 static void stand(void);
 static void stand2(void);
+static void stand3(void);
 static void dungeonTeleportInit(void);
 static void offscreenTeleportInit(void);
 static void dungeonTeleportWait(void);
@@ -109,9 +110,11 @@ static void init()
 		break;
 
 		default:
-			self->action = &stand;
+			self->action = &stand3;
 		break;
 	}
+	
+	printf("Mental is %d\n", self->mental);
 }
 
 static void stand()
@@ -137,6 +140,16 @@ static void stand2()
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &offscreenTeleportInit;
+	}
+
+	checkToMap(self);
+}
+
+static void stand3()
+{
+	if (self->mental == -2)
+	{
+		self->action = &disintegrationInit;
 	}
 
 	checkToMap(self);
@@ -330,6 +343,8 @@ static void disintegrationInit()
 
 	e->endX = player.x + player.w / 2;
 	e->endY = player.y + player.h / 2;
+	
+	e->dirX = self->face == LEFT ? -1 : 1;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -392,7 +407,29 @@ static void disintegration()
 
 static void distintegrationTouch(Entity *other)
 {
-	setEntityAnimation(&player, "CUSTOM_1");
+	Entity *temp;
+	
+	if (!(other->flags & BLOCKING))
+	{
+		setEntityAnimation(&player, "CUSTOM_1");
+		
+		self->mental = 1;
+	}
+	
+	else if (self->thinkTime > 90)
+	{
+		temp = self;
+		
+		self = other;
+		
+		other->takeDamage(temp, 1);
+		
+		self = temp;
+		
+		self->touch = NULL;
+		
+		self->thinkTime = 90;
+	}
 }
 
 static int drawSpell()
@@ -415,14 +452,17 @@ static void disintegrationAttack()
 	if (self->thinkTime <= 0)
 	{
 		self->head->mental = -1;
-
-		player.flags |= NO_DRAW;
-
+		
 		self->inUse = FALSE;
-
-		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-
-		playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		
+		if (self->mental == 1)
+		{
+			player.flags |= NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		}
 	}
 }
 
