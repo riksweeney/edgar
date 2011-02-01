@@ -502,6 +502,22 @@ void readNextScriptLine()
 					script.line--;
 				}
 			}
+			
+			else if (strcmpignorecase(token, "NOT_EXISTS") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				e = getEntityByObjectiveName(token);
+
+				if (e == NULL)
+				{
+					freeDialogBox();
+
+					script.thinkTime = 15;
+
+					script.line--;
+				}
+			}
 
 			else if (strcmpignorecase(token, "CAMERA_NOT_AT_MINIMUM") == 0)
 			{
