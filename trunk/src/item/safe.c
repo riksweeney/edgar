@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 extern Input input;
 
+static void init(void);
 static void touch(Entity *);
 static void entityWait(void);
 static void activate(int);
@@ -60,19 +61,34 @@ Entity *addSafe(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &entityWait;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
-
-	e->touch = &touch;
-
-	e->activate = &activate;
 
 	e->active = FALSE;
 
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void init()
+{
+	if (self->active == TRUE)
+	{
+		self->touch = &touch;
+
+		self->activate = &activate;
+	}
+	
+	else
+	{
+		self->touch = NULL;
+
+		self->activate = NULL;
+	}
+	
+	self->action = &entityWait;
 }
 
 static void entityWait()
@@ -95,7 +111,7 @@ static void activate(int val)
 
 	if (strlen(self->requires) == 0)
 	{
-		e = getInventoryItemByObjectiveName("Safe Combination");
+		e = getInventoryItemByObjectiveName("Scrap of Paper");
 
 		if (e == NULL)
 		{
@@ -105,6 +121,10 @@ static void activate(int val)
 		}
 
 		STRNCPY(self->requires, e->requires, sizeof(self->requires));
+		
+		runScript("has_combination");
+		
+		return;
 	}
 
 	addDisplay();
@@ -192,23 +212,30 @@ static void readInputCode()
 			snprintf(code, sizeof(code), "%s%d%s", self->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
 
 			STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
-
-			printf("%s == %s\n", self->objectiveName, self->requires);
-
-			if (strcmpignorecase(self->objectiveName, self->requires) == 0)
-			{
-				printf("Complete\n");
-			}
-
+			
 			self->target->inUse = FALSE;
 
 			self->action = &entityWait;
 
-			self->activate = &activate;
-
-			self->touch = &touch;
-
 			setPlayerLocked(FALSE);
+
+			if (strcmpignorecase(self->objectiveName, self->requires) == 0)
+			{
+				removeInventoryItemByObjectiveName("Scrap of Paper");
+				
+				printf("Complete\n");
+				
+				self->active = FALSE;
+			}
+			
+			else
+			{
+				self->activate = &activate;
+
+				self->touch = &touch;
+				
+				runScript("incorrect_combination");
+			}
 		}
 	}
 }
