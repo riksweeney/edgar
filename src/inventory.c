@@ -692,13 +692,6 @@ void loadInventoryItems()
 
 				inventory.item[i].flags &= ~DO_NOT_PERSIST;
 			}
-
-			if (strcmpignorecase(inventory.item[i].name, "item/safe_combination") == 0)
-			{
-				self = &inventory.item[i];
-
-				self->activate(1);
-			}
 		}
 	}
 }

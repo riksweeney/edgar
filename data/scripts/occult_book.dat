@@ -42,7 +42,7 @@ IF OCCULT_BOOK_POINT HEALTH 5
 TALK Edgar That's a lot of ingredients that I have no idea where to find...
 END
 SET OCCULT_BOOK_POINT HEALTH 6
-IF EXISTS BLACK_BOOK_1
+IF NOT_EXISTS BLACK_BOOK_1
 PLAY_SOUND sound/common/spell.ogg
 WAIT 60
 SET EDGAR FACE LEFT
