@@ -17,22 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void loadAnimationData(char *, int *, EntityAnimation *);
-void freeAnimations(void);
-void drawLoopingAnimation(Entity *, int, int, int, int, int);
-int drawLoopingAnimationToMap(void);
-#if DEV == 1
-void setEntityAnimation(Entity *, char *) __attribute__((nonnull(2)));
-#else
-void setEntityAnimation(Entity *, char *);
-#endif
-void setEntityAnimationByID(Entity *, int);
-int drawLineDefToMap(void);
-int drawPhaseDoorToMap(void);
-char *getAnimationTypeAtIndex(Entity *);
-int hasEntityAnimation(Entity *, char *);
-void setFrameData(Entity *);
-int drawSpriteToMap(void);
-Sprite *getCurrentSprite(Entity *);
-int getFrameCount(Entity *);
-void drawSprite(Entity *, int, int, int, int, int);
+Entity *addGrimlore(int, int, char *);
