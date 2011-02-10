@@ -1722,7 +1722,7 @@ int countSiblings(Entity *sibling, int *total)
 	for (i=0;i<MAX_ENTITIES;i++)
 	{
 		if (entity[i].inUse == TRUE && sibling != &entity[i] && sibling->type == entity[i].type
-			&& strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+			&& strcmpignorecase(sibling->objectiveName, entity[i].objectiveName) == 0)
 		{
 			if (entity[i].active == FALSE)
 			{
