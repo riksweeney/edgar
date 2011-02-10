@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/one_way_door_down.dat
+ANIM_FILE data/anim/item/one_way_door.dat
+TYPE KEY_ITEM
+SPEED 2
+MENTAL 2
+FLAGS FLY

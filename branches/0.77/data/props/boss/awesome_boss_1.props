@@ -1,0 +1,9 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/awesome_boss_1.dat
+ANIM_FILE data/anim/boss/awesome_boss.dat
+SPEED 2
+HEALTH 500
+DAMAGE 1
+FLAGS NO_DRAW
+OBJECTIVE_NAME AWESOME_1
+REQUIRES AWESOME_2
