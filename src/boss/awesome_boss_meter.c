@@ -45,9 +45,7 @@ extern Entity *self;
 
 static void init(void);
 static void entityWait(void);
-static void entityWait2(void);
 static void takeDamage(Entity *, int);
-static void resumeNormalFunction(void);
 
 Entity *addAwesomeBossMeter(int x, int y, char *name)
 {
@@ -68,8 +66,6 @@ Entity *addAwesomeBossMeter(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
-	e->resumeNormalFunction = &resumeNormalFunction;
 
 	e->type = ENEMY;
 
@@ -135,33 +131,6 @@ static void entityWait()
 	checkToMap(self);
 }
 
-static void entityWait2()
-{
-	if (self->damage == 0)
-	{
-		self->thinkTime--;
-
-		self->flags &= ~FLY;
-
-		if (self->thinkTime <= 0)
-		{
-			self->action = self->die;
-		}
-	}
-
-	else if (self->damage == self->mental && self->health == self->maxHealth)
-	{
-		self->targetY--;
-
-		if (self->targetY <= 0)
-		{
-			self->targetY = 0;
-		}
-	}
-
-	checkToMap(self);
-}
-
 static void takeDamage(Entity *other, int damage)
 {
 	if (self->health < self->maxHealth)
@@ -179,15 +148,4 @@ static void takeDamage(Entity *other, int damage)
 			self->targetY = 120;
 		}
 	}
-}
-
-static void resumeNormalFunction()
-{
-	self->active = TRUE;
-
-	self->action = &entityWait2;
-
-	self->thinkTime = 180;
-
-	self->health = 0;
 }

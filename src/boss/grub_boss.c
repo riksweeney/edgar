@@ -118,7 +118,6 @@ static void takeDamage(Entity *other, int damage)
 			self->frameSpeed = 0;
 
 			self->takeDamage = NULL;
-
 			self->touch = NULL;
 
 			self->action = &die;
@@ -220,12 +219,11 @@ static void introPause()
 	if (self->thinkTime <= 0)
 	{
 		self->touch = &entityTouch;
-
 		self->takeDamage = &takeDamage;
 
 		self->damage = self->endX;
 
-		self->action = &attackFinished;
+		attackFinished();
 	}
 
 	checkToMap(self);
@@ -281,7 +279,7 @@ static void spitStart()
 
 		else
 		{
-			self->action = &attackFinished;
+			attackFinished();
 		}
 	}
 

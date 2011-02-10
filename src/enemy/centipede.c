@@ -79,11 +79,6 @@ static void init()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->action = &headMove;
-	
-	if (self->mental >= 2)
-	{
-		self->touch = &greenTouch;
-	}
 }
 
 static void headMove()

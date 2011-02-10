@@ -170,7 +170,7 @@ static void activate(int val)
 
 			if (total > 0 && self->maxThinkTime == 0)
 			{
-				setInfoBoxMessage(30, 255, 255, 255, _("Complete"));
+				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
 			}
 		}
 

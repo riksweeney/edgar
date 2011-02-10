@@ -3,4 +3,3 @@ GFX_FILE data/gfx/boss/awesome_boss_meter.dat
 ANIM_FILE data/anim/common/no_anim.dat
 FLAGS FLY|NO_DRAW
 ACTIVE FALSE
-HEALTH 500

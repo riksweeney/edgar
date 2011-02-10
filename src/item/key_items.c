@@ -127,7 +127,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "memory_match.h"
 #include "drawbridge_pulley.h"
 #include "drawbridge_anchor.h"
-#include "safe_combination.h"
 
 extern Entity *self, player;
 
@@ -243,8 +242,7 @@ static Constructor items[] = {
 {"item/memory_match", &addMemoryMatch},
 {"item/memory_match_icon", &addMemoryMatchIcon},
 {"item/drawbridge_pulley", &addDrawbridgePulley},
-{"item/drawbridge_anchor", &addDrawbridgeAnchor},
-{"item/safe_combination", &addSafeCombination}
+{"item/drawbridge_anchor", &addDrawbridgeAnchor}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

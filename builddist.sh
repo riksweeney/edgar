@@ -1,11 +1,9 @@
-if [ $EUID -ne 0 ]
-then
+if [[ $EUID -ne 0 ]]; then
 	echo "This must be run as root"
 	exit 1
 fi
 
-if [ $# -ne 1 ]
-then
+if [[ $# -ne 1 ]]; then
 	echo ""
 	echo "Usage $0 <version>"
 	echo ""
@@ -49,7 +47,6 @@ svn export http://reddwarf.local/svn/Edgar/tags/$APPVERSION $APPDIR
 echo "Removing unwanted data files..."
 
 rm -rf $APPDIR/dev
-rm -rf $APPDIR/test
 rm $APPDIR/disclaimer.txt
 rm $APPDIR/*.spec
 rm $APPDIR/*.sh
@@ -83,7 +80,7 @@ echo "Creating GZIP... $DISTNAME"
 
 cp $APPDIR/edgar.spec.base edgar.spec
 
-for f in `ls $APPDIR/locale/*.po`; do \
+for f in `ls $APPDIR/locale/*.mo`; do \
 	FILE=`echo $f | cut -d'/' -f4 | cut -d'.' -f1`
 	LINE="/usr/share/locale/$FILE/LC_MESSAGES/edgar.mo"
 	echo "Adding $LINE"

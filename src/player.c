@@ -735,11 +735,6 @@ static void dialogWait()
 
 		self->flags |= ON_GROUND;
 	}
-	
-	if (self->flags & ON_GROUND)
-	{
-		self->dirX = 0;
-	}
 }
 
 void playerWaitForConfirm()
@@ -1028,9 +1023,7 @@ static void alignAnimations(Entity *e)
 
 static void takeDamage(Entity *other, int damage)
 {
-	int shieldHealth;
 	Entity *temp;
-	char shieldName[MAX_VALUE_LENGTH];
 
 	if (player.health <= 0 || other->parent == &playerWeapon)
 	{
@@ -1110,36 +1103,6 @@ static void takeDamage(Entity *other, int damage)
 				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 				playerShield.thinkTime = 5;
-				
-				if (strcmpignorecase(other->objectiveName, "SORCEROR_DISINTEGRATION_SPELL") == 0)
-				{
-					if (strcmpignorecase(playerShield.objectiveName, "Disintegration Shield") == 0)
-					{
-						playerShield.health++;
-						
-						if (playerShield.health >= 4)
-						{
-							setInfoBoxMessage(240, 255, 255, 255, _("Press Attack whilst Blocking to throw your shield..."));
-							
-							playerShield.health = 4;
-						}
-						
-						else
-						{
-							shieldHealth = playerShield.health;
-							
-							snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
-							
-							loadProperties(shieldName, &playerShield);
-							
-							playerShield.thinkTime = 5;
-							
-							playerShield.health = shieldHealth;
-							
-							alignAnimations(&playerShield);
-						}
-					}
-				}
 			}
 
 			game.attacksBlocked++;

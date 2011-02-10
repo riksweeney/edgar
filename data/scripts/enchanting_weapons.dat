@@ -1,16 +1,4 @@
-IF WEAPON_BOOK HEALTH 6
-TALK Edgar This library must have information on everything, so a book detailing the creation of a Shield of Dragon Fire Resistance must be here...
-END
 IF WEAPON_BOOK HEALTH 3
-HAS_OBJECTIVE "Obtain a Fire Shield" WEAPON_BOOK 4 5
-END
-IF WEAPON_BOOK HEALTH 4
-TALK Edgar That dragon stuff sounded interesting, but I'll read about it after I've created the Fire Shield
-TALK Edgar I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance
-TALK Edgar Once I've found all these items I'll have to find a place to create the shield
-SET WEAPON_BOOK HEALTH 3
-END
-IF WEAPON_BOOK HEALTH 5
 TALK Edgar That monster encyclopedia said the dragon's breath incinerated everything, but that warrior still managed to defeat it
 TALK Edgar Maybe this book has information about creating a shield to resist dragon breath
 TALK Edgar Hmmm...
@@ -22,7 +10,6 @@ TALK Edgar Drat, that's all it says
 TALK Edgar This library is huge though, there must be a book in this place that describes the process
 TALK Edgar But I've looked everywhere, haven't I?
 SET OCCULT_BOOK_POINT HEALTH 10
-SET WEAPON_BOOK HEALTH 6
 END
 IF WEAPON_BOOK HEALTH 2
 TALK Edgar I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to create a Shield of Fire Resistance

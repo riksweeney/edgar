@@ -13,17 +13,12 @@ SET EDGAR ANIMATION DIE
 SET EDGAR PROPERTY DIR_X 6
 SET EDGAR PROPERTY DIR_Y -12
 ACTIVATE_REQUIRED MONSTER_BOOK_TRIGGER
-IF EXISTS BLACK_BOOK_1
 SET BLACK_BOOK_1 REMOVE_FLAG NO_DRAW
-END
 WAIT 180
 TALK Edgar What just happened?
 SET EDGAR ANIMATION STAND
 TALK Edgar Maybe I shouldn't go around touching books that give off an evil aura
 TALK Edgar And spend more time looking for my Dad
-IF NOT_EXISTS BLACK_BOOK_1
-TALK Narrator This would have allowed you to fight Mataeus, but it looks like you've already defeated him...
-END
 END
 IF CONFIRM_NO
 TALK Edgar I'll leave it alone, I'm not getting a good feeling from it

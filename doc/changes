@@ -1,10 +1,6 @@
 CHANGE LOG
 ----------
 
-Version 0.77
-* Green Centipedes can be walked on again after loading a game
-* Fixed a bug with Evil Edgar's sword attack
-
 Version 0.76
 * Fixed a crash when killing a centurion
 * Corrected the makefile version number
