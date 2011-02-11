@@ -1,0 +1,7 @@
+TYPE ENEMY
+GFX_FILE data/gfx/boss/golem_boss.dat
+ANIM_FILE data/anim/boss/golem_boss.dat
+SPEED 2
+HEALTH 200
+FLAGS UNBLOCKABLE|OBSTACLE
+LAYER FOREGROUND_LAYER

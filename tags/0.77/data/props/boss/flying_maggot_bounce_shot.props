@@ -1,0 +1,8 @@
+GFX_FILE data/gfx/common/green_blob.dat
+ANIM_FILE data/anim/common/no_anim.dat
+TYPE ENEMY
+FLAGS UNBLOCKABLE
+SPEED 2
+DAMAGE 1
+THINKTIME 90
+WEIGHT 0.5
