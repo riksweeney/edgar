@@ -946,9 +946,9 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 
-		if (self->health <= 0)
+		if (self->health <= 1)
 		{
-			self->health = 0;
+			self->health = 1;
 		}
 
 		if (other->type == PROJECTILE)
