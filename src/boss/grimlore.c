@@ -452,3 +452,258 @@ static void armourTakeDamage(Entity *other, int damage)
 		return;
 	}
 }
+
+static void shieldWait()
+{
+	
+}
+
+static void shieldBiteInit()
+{
+	self->startX = self->x;
+	
+	self->thinkTime = 60;
+	
+	self->action = &shieldBiteWait;
+}
+
+static void shieldBiteWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+		
+		self->action = &shieldBite;
+		
+		self->reactToBlock = &shieldBiteReactToBlock;
+	}
+}
+
+static void shieldBite()
+{
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->mental--;
+		
+		self->action = &shieldBiteReturn;
+		
+		self->dirX = self->face == LEFT ? self->speed * 3 : -self->speed * 3;
+	}
+}
+
+static void shieldBiteReturn()
+{
+	if ((self->face == LEFT && self->x >= self->startX) || (self->face == RIGHT && self->x <= self->startX))
+	{
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->action = &shieldAttackFinish;
+		}
+		
+		else
+		{
+			self->action = &shieldBiteWait;
+		}
+	}
+}
+
+static void shieldAttackFinish()
+{
+	self->head->maxThinkTime = 0;
+	
+	self->action = &shieldWait;
+}
+
+static void shieldRiftAttackInit()
+{
+	self->mental = 5 + prand() % 3;
+	
+	self->action = &shieldRiftAttack;
+	
+	self->thinkTime = 60;
+}
+
+static void shieldRiftAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add an Energy Rift");
+		}
+
+		loadProperties("enemy/energy_rift", e);
+
+		e->action = &riftMove;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->type = ENEMY;
+
+		setEntityAnimation(e, "STAND");
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x - e->w;
+		}
+
+		else
+		{
+			e->x = self->x + self->w;
+		}
+
+		e->thinkTime = 15;
+		
+		e->damage = 1;
+
+		e->y = self->y;
+
+		e->dirX = self->face == LEFT ? -e->speed : e->speed;
+
+		e->head = self;
+
+		checkToMap(self);
+
+		self->mental = 5 + prand() % 3;
+
+		self->action = &riftAttackFinish;
+
+		self->thinkTime = 60;
+	}
+	
+	self->action = &shieldRiftWait;
+	
+	self->maxThinkTime = 0;
+}
+
+static void shieldRiftWait()
+{
+	if (self->maxThinkTime == 1)
+	{
+		
+	}
+}
+
+static void riftMove()
+{
+	float dirY;
+
+	self->dirX *= 0.95;
+
+	if (fabs(self->dirX) <= 0.5)
+	{
+		self->dirX = 0;
+
+		if (self->health < 2)
+		{
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->health++;
+
+				setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
+
+				self->thinkTime = 15;
+			}
+		}
+
+		else
+		{
+			self->head->maxThinkTime = 1;
+			
+			self->thinkTime = 60 + self->head->thinkTime * 60;
+
+			self->action = &riftWait;
+		}
+	}
+
+	dirY = self->dirY;
+
+	checkToMap(self);
+}
+
+static void riftWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &riftClose;
+
+		self->thinkTime = 20;
+	}
+
+	else
+	{
+		if (collision(self->x - self->mental, self->y - self->mental, self->mental * 2, self->mental * 2, player.x, player.y, player.w, player.h) == 1)
+		{
+			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? 2 : -2));
+		}
+
+		if (prand() % 3 == 0)
+		{
+			addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+		}
+	}
+}
+
+static void riftClose()
+{
+	self->thinkTime--;
+
+	setEntityAnimation(self, self->thinkTime > 10 ? "WALK" : "STAND");
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->mental = 0;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void addRiftEnergy(int x, int y)
+{
+	Entity *e;
+
+	e = addBasicDecoration(x, y, "decoration/rift_energy");
+
+	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+
+	x -= e->w / 2;
+	y -= e->h / 2;
+
+	e->targetX = x;
+	e->targetY = y;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->dirX *= 8;
+	e->dirY *= 8;
+
+	e->action = &energyMoveToRift;
+}
+
+static void energyMoveToRift()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+
+	if (atTarget())
+	{
+		self->inUse = FALSE;
+	}
+}
