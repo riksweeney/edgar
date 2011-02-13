@@ -1,6 +1,0 @@
-TYPE VANISHING_PLATFORM
-GFX_FILE data/gfx/vanishing_platform/armoury_vanishing_platform.dat
-ANIM_FILE data/anim/common/no_anim.dat
-HEALTH 1
-THINKTIME 60
-FLAGS FLY

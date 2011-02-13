@@ -1,6 +1,0 @@
-TYPE FALLING_PLATFORM
-GFX_FILE data/gfx/falling_platform/dungeon_falling_platform.dat
-ANIM_FILE data/anim/common/no_anim.dat
-SPEED 2
-HEALTH 0
-THINKTIME 60
