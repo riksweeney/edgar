@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/common/trap_door.dat
+ANIM_FILE data/anim/common/trap_door.dat
+TYPE TRAP_DOOR
+ACTIVE FALSE
+FLAGS FLY
