@@ -22,7 +22,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
-#include "../collisions.h"
 #include "../entity.h"
 #include "../player.h"
 #include "../inventory.h"
@@ -32,13 +31,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../system/random.h"
 #include "../hud.h"
-#include "../item/key_items.h"
 #include "../event/script.h"
 
 extern Entity *self;
 
 static void entityWait(void);
-static void touch(Entity *);
 
 Entity *addSafeCombination(int x, int y, char *name)
 {
@@ -62,7 +59,9 @@ Entity *addSafeCombination(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 
-	e->touch = &touch;
+	e->touch = &entityTouch;
+
+	e->activate = &activate;
 
 	e->active = FALSE;
 
@@ -76,7 +75,7 @@ static void entityWait()
 	checkToMap(self);
 }
 
-static void touch(Entity *other)
+static void activate(int val)
 {
 	int i, unit, dir;
 	char combination[MAX_VALUE_LENGTH];
@@ -86,35 +85,25 @@ static void touch(Entity *other)
 		if (strlen(self->requires) == 0)
 		{
 			self->description[0] = '\0';
-			
-			dir = prand() % 2;
 
 			for (i=0;i<3;i++)
 			{
 				unit = 1 + prand() % 20;
 
+				dir = prand() % 2;
+
 				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == -1 ? "L" : "R");
 
 				STRNCPY(self->requires, combination, sizeof(self->requires));
-				
-				if (i == 0)
-				{
-					snprintf(combination, sizeof(combination), "%d %s", unit, dir == -1 ? _("Left") : _("Right"));
-				}
-				
-				else
-				{
-					snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == -1 ? _("Left") : _("Right"));
-				}
+
+				snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == -1 ? "Left" : "Right");
 
 				STRNCPY(self->description, combination, sizeof(self->description));
-				
-				dir = dir == -1 ? 0 : -1;
 			}
+
+			STRNCPY(combination, self->requires, sizeof(self->requires));
 
 			snprintf(self->description, sizeof(self->description), "A scrap of paper. %s is written on it", combination);
 		}
 	}
-	
-	keyItemTouch(other);
 }

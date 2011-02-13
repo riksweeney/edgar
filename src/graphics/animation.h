@@ -21,11 +21,7 @@ void loadAnimationData(char *, int *, EntityAnimation *);
 void freeAnimations(void);
 void drawLoopingAnimation(Entity *, int, int, int, int, int);
 int drawLoopingAnimationToMap(void);
-#if DEV == 1
-void setEntityAnimation(Entity *, char *) __attribute__((nonnull(2)));
-#else
 void setEntityAnimation(Entity *, char *);
-#endif
 void setEntityAnimationByID(Entity *, int);
 int drawLineDefToMap(void);
 int drawPhaseDoorToMap(void);

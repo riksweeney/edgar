@@ -613,7 +613,7 @@ void drawMapBackground()
 		map.backgroundStartY[0] = map.background[0]->h - SCREEN_HEIGHT;
 	}
 
-	if (map.wrapX[0] == FALSE && map.wrapY[0] == FALSE)
+	if (map.wrapX == FALSE && map.wrapY == FALSE)
 	{
 		drawClippedImage(map.background[0], map.backgroundStartX[0], map.backgroundStartY[0], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 	}

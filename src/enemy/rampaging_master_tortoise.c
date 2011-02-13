@@ -188,6 +188,8 @@ static void walk()
 			}
 		}
 	}
+
+	addSparkles();
 }
 
 static void riftAttackInit()
@@ -202,6 +204,8 @@ static void riftAttackInit()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void riftAttack()
@@ -248,6 +252,8 @@ static void riftAttack()
 	self->action = &riftAttackFinish;
 
 	self->thinkTime = 60;
+
+	addSparkles();
 }
 
 static void riftAttackFinish()
@@ -264,6 +270,8 @@ static void riftAttackFinish()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void die()
@@ -315,6 +323,8 @@ static void changeWalkDirectionStart()
 	self->thinkTime = 60;
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void changeWalkDirection()
@@ -339,6 +349,8 @@ static void changeWalkDirection()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void changeWalkDirectionFinish()
@@ -354,6 +366,8 @@ static void changeWalkDirectionFinish()
 	self->thinkTime = 120 + prand() % 120;
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void riftMove()
@@ -600,6 +614,8 @@ static void spinAttackInit()
 	}
 
 	checkToMap(self);
+
+	addSparkles();
 }
 
 static void spinAttack()
@@ -636,6 +652,8 @@ static void spinAttack()
 
 		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 	}
+
+	addSparkles();
 }
 
 static void spinAttackEnd()
@@ -656,6 +674,8 @@ static void spinAttackEnd()
 
 		self->thinkTime = 60;
 	}
+
+	addSparkles();
 }
 
 static void breatheFireInit()
@@ -840,8 +860,6 @@ static int draw()
 		{
 			shakeScreen(LIGHT, 5);
 		}
-		
-		addSparkles();
 	}
 
 	return drawn;

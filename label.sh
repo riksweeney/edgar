@@ -31,16 +31,6 @@ then
 	exit 1
 fi
 
-CURRENT_VERSION=`grep "VERSION =" makefile | cut -d ' ' -f 3`
-
-if [ "$CURRENT_VERSION" != "$1" ]
-then
-	echo "Version mismatch in makefile"
-	echo "Expected '$1'"
-	echo "Found '$CURRENT_VERSION'"
-	exit 1
-fi
-
 svn copy http://reddwarf.local/svn/Edgar/trunk http://reddwarf.local/svn/Edgar/tags/$1 -m "Tagging $1"
 
 echo Remember to add any new Medals to the website

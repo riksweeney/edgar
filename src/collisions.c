@@ -1001,7 +1001,7 @@ void checkToMap(Entity *e)
 			{
 				if (e->type != TEMP_ITEM)
 				{
-					playSoundToMap("sound/common/lava.ogg", -1, e->x, e->y, 0);
+					playSoundToMap("sound/common/lava.ogg", -1, self->x, self->y, 0);
 				}
 
 				e->flags &= ~(HELPLESS|INVULNERABLE);
@@ -1026,7 +1026,7 @@ void checkToMap(Entity *e)
 			{
 				if (e->type != TEMP_ITEM)
 				{
-					playSoundToMap("sound/common/slime.ogg", -1, e->x, e->y, 0);
+					playSoundToMap("sound/common/slime.ogg", -1, self->x, self->y, 0);
 				}
 
 				e->flags &= ~(HELPLESS|INVULNERABLE);
@@ -1054,7 +1054,7 @@ void checkToMap(Entity *e)
 			{
 				if (e->type != TEMP_ITEM)
 				{
-					playSoundToMap("sound/common/splash.ogg", -1, e->x, e->y, 0);
+					playSoundToMap("sound/common/splash.ogg", -1, self->x, self->y, 0);
 				}
 
 				if (!(e->flags & FLOATS))

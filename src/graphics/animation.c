@@ -110,7 +110,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
-			/* Allocate space for the frame ID */
+			/* Allocate space for the frame timer */
 
 			animation[animationID].frameID = (int *)malloc(animation[animationID].frameCount * sizeof(int));
 

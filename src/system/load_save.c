@@ -538,64 +538,41 @@ void saveGame(int slot)
 
 	savePtr = NULL;
 
-	if (slot == -1)
+	/* Backup older save */
+
+	for (i=1;;i++)
 	{
-		for (i=1001;;i++)
+		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+
+		read = fopen(saveFile, "rb");
+
+		if (read == NULL)
 		{
-			snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
-
-			read = fopen(saveFile, "rb");
-
-			if (read == NULL)
-			{
-				break;
-			}
-
-			else
-			{
-				fclose(read);
-			}
-		}
-	}
-
-	else
-	{
-		/* Backup older save */
-
-		for (i=1;;i++)
-		{
-			snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
-
-			read = fopen(saveFile, "rb");
-
-			if (read == NULL)
-			{
-				break;
-			}
-
-			else
-			{
-				fclose(read);
-			}
-
-			snprintf(backupFile, sizeof(backupFile), "%ssave%d.%04d", gameSavePath, slot, i);
-
-			read = fopen(backupFile, "rb");
-
-			if (read != NULL)
-			{
-				fclose(read);
-
-				continue;
-			}
-
-			copyFile(saveFile, backupFile);
-
 			break;
 		}
 
-		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
+		else
+		{
+			fclose(read);
+		}
+
+		snprintf(backupFile, sizeof(backupFile), "%ssave%d.%04d", gameSavePath, slot, i);
+
+		read = fopen(backupFile, "rb");
+
+		if (read != NULL)
+		{
+			fclose(read);
+
+			continue;
+		}
+
+		copyFile(saveFile, backupFile);
+
+		break;
 	}
+
+	snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 
 	write = fopen(saveFile, "wb");
 
@@ -762,11 +739,6 @@ static void updateSaveFileIndex(int slot)
 	char buffer[MAX_VALUE_LENGTH], saveName[MAX_VALUE_LENGTH];
 	FILE *fp;
 	int i;
-
-	if (slot == -1)
-	{
-		return;
-	}
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);

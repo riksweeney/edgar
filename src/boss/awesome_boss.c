@@ -79,7 +79,6 @@ static void addSmokeAlongBody(void);
 static void spearWait(void);
 static void spearRise(void);
 static void spearSink(void);
-static void fireballMove(void);
 
 Entity *addAwesomeBoss(int x, int y, char *name)
 {
@@ -559,8 +558,6 @@ static void fireballAttack()
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 			e->touch = &fireballTouch;
-			
-			e->action = &fireballMove;
 
 			e->type = ENEMY;
 
@@ -677,8 +674,6 @@ static void superFireballAttack()
 					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 					e->touch = &fireballTouch;
-					
-					e->action = &fireballMove;
 
 					e->type = ENEMY;
 
@@ -956,21 +951,12 @@ static void entityWait()
 
 static void energyBarWait()
 {
-	int increment;
-
 	self->x = self->head->x - (self->w - self->head->w) / 2;
 	self->y = self->head->y - self->h - 4;
 
 	if (self->health < self->head->health)
 	{
-		increment = self->head->health / 100;
-
-		if (increment < 1)
-		{
-			increment = 1;
-		}
-
-		self->health += increment;
+		self->health += (self->head->health / 100);
 
 		if (self->health > self->head->health)
 		{
@@ -1466,16 +1452,4 @@ static void spearRise()
 
 		self->action = &spearWait;
 	}
-}
-
-static void fireballMove()
-{
-	self->thinkTime--;
-
-	if (self->dirX == 0 || self->thinkTime <= 0)
-	{
-		self->inUse = FALSE;
-	}
-
-	checkToMap(self);
 }
