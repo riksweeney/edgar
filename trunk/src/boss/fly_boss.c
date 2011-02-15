@@ -315,7 +315,7 @@ static void flyToTopTarget()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Fly boss is missing target");
+		showErrorAndExit("Fly boss cannot find target");
 	}
 
 	self->targetX = t->x;
@@ -869,7 +869,7 @@ static void selectRandomBottomTarget()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Fly boss is missing target");
+		showErrorAndExit("Fly boss cannot find target");
 	}
 
 	self->targetX = t->x;

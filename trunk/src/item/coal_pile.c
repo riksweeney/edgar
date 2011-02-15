@@ -84,7 +84,6 @@ static Entity *addCoal(int x, int y)
 	e->dirY = ITEM_JUMP_HEIGHT;
 
 	e->thinkTime = 600;
-	e->type = ITEM;
 
 	e->face = RIGHT;
 

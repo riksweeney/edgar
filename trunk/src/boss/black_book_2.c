@@ -439,7 +439,7 @@ static void guardianInitialise()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Snake boss is missing target");
+		showErrorAndExit("Snake boss cannot find target");
 	}
 
 	guardianSetSnakePosition(t->x, t->y);
@@ -888,7 +888,7 @@ static void guardianChangeSides()
 
 		if (t == NULL)
 		{
-			showErrorAndExit("Snake boss is missing target");
+			showErrorAndExit("Snake boss cannot find target");
 		}
 
 		self->damage = 0;
@@ -1977,9 +1977,9 @@ static void golemDie()
 			}
 
 			self->thinkTime = 120;
-			
+
 			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-			
+
 			self->flags |= NO_DRAW;
 		}
 
@@ -2906,7 +2906,7 @@ static void awesomeFireballAttack()
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 			e->touch = &awesomeFireballTouch;
-			
+
 			e->action = &awesomeFireballMove;
 
 			e->type = ENEMY;
@@ -3026,7 +3026,7 @@ static void awesomeSuperFireballAttack()
 					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 					e->touch = &awesomeFireballTouch;
-					
+
 					e->action = &awesomeFireballMove;
 
 					e->type = ENEMY;
@@ -4245,9 +4245,9 @@ static void blobTakeDamage(Entity *other, int damage)
 		else
 		{
 			self->frameSpeed = 0;
-			
+
 			self->animationCallback = NULL;
-			
+
 			self->thinkTime = 120;
 
 			self->startX = self->x;
@@ -4334,7 +4334,7 @@ static void becomeQueenWasp()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Fly boss is missing target");
+		showErrorAndExit("Fly boss cannot find target");
 	}
 
 	e->x = self->x;
@@ -4435,7 +4435,7 @@ static void queenWaspFlyToTopTarget()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Fly boss is missing target");
+		showErrorAndExit("Fly boss cannot find target");
 	}
 
 	self->targetX = t->x;
@@ -4821,7 +4821,7 @@ static void queenWaspSelectRandomBottomTarget()
 
 	if (t == NULL)
 	{
-		showErrorAndExit("Fly boss is missing target");
+		showErrorAndExit("Fly boss cannot find target");
 	}
 
 	self->targetX = t->x;
@@ -5415,7 +5415,7 @@ static void transformWait()
 		self->flags &= ~NO_DRAW;
 
 		if (self->health <= 0)
-		{			
+		{
 			self->startX = self->x;
 
 			self->thinkTime = 180;
@@ -5433,7 +5433,7 @@ static void transformWait()
 static void blackBookDie()
 {
 	Entity *e;
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -5458,7 +5458,7 @@ static void blackBookDie()
 			blackBookShudder();
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

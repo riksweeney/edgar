@@ -98,6 +98,8 @@ void initGame()
 	game.continues = 0;
 
 	game.secretsFound = 0;
+	
+	game.cheating = FALSE;
 
 	game.mapExitable = 0;
 
