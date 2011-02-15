@@ -147,7 +147,7 @@ static void initialise()
 
 			if (t == NULL)
 			{
-				showErrorAndExit("Snake boss is missing target");
+				showErrorAndExit("Snake boss cannot find target");
 			}
 
 			setSnakePosition(t->x, t->y);
@@ -585,7 +585,7 @@ static void changeSides()
 
 		if (t == NULL)
 		{
-			showErrorAndExit("Snake boss is missing target");
+			showErrorAndExit("Snake boss cannot find target");
 		}
 
 		self->damage = 0;

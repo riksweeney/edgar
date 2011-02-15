@@ -45,6 +45,28 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
+static void entityWait(void);
+static void swordStabInit(void);
+static void swordStab(void);
+static void swordStabWait(void);
+static void swordMoveUnderPlayer(void);
+static void swordRise(void);
+static void swordSink(void);
+static void swordFinish(void);
+static void swordTakeDamage(Entity *, int);
+static void swordDie(void);
+static void swordDropInit(void);
+static void swordDrop(void);
+static void swordDropFinish(void);
+static void takeDamage(Entity *, int);
+static void armourTakeDamage(Entity *, int);
+static void shieldWait(void);
+static void shieldBiteInit(void);
+static void shieldBiteWait(void);
+static void shieldBite(void);
+static void shieldBiteInit(void);
+static void shieldBiteInit(void);
+
 Entity *addGrimlore(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
@@ -76,13 +98,20 @@ Entity *addGrimlore(int x, int y, char *name)
 
 static void entityWait()
 {
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = swordStabInit;
+	}
+
 	checkToMap(self);
 }
 
 static void swordStabInit()
 {
 	self->thinkTime = 30;
-	
+
 	self->maxThinkTime = 1;
 
 	self->action = &swordStab;
@@ -339,9 +368,82 @@ static void swordTakeDamage(Entity *other, int damage)
 
 static void swordDie()
 {
+	dropReflectArtifact();
+	
 	self->head->maxThinkTime = 0;
 
 	self->inUse = FALSE;
+}
+
+static void swordDropInit()
+{
+	Target *t;
+
+	self->flags |= NO_DRAW;
+
+	t = getTargetByName("GRIMLORE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Grimlore cannot find target");
+	}
+
+	self->thinkTime = 60;
+
+	self->flags |= FLY;
+
+	self->action = &swordDrop;
+}
+
+static void swordDrop()
+{
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->flags &= ~(FLY|NO_DRAW);
+		}
+	}
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->thinkTime = 120;
+
+		self->action = &swordDropFinish;
+	}
+}
+
+static void swordDropFinish()
+{
+	int d1, d2;
+	Target *t1, *t2;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= NO_DRAW;
+
+		t1 = getTargetByName("GRIMLORE_LEFT_TARGET");
+
+		t2 = getTargetByName("GRIMLORE_RIGHT_TARGET");
+
+		if (t1 == NULL || t2 == NULL)
+		{
+			showErrorAndExit("Grimlore cannot find target");
+		}
+
+		d1 = abs(player.x - t1->x);
+		d2 = abs(player.x - t2->x);
+
+		self->targetX = d1 < d2 ? t2->x : t1->x;
+	}
+
+	checkToMap(self);
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -356,7 +458,7 @@ static void takeDamage(Entity *other, int damage)
 
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
-		
+
 		else if (self->mental > 0)
 		{
 			/* The armour will take the damage instead */
@@ -365,7 +467,7 @@ static void takeDamage(Entity *other, int damage)
 
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
-		
+
 		else
 		{
 			setCustomAction(self, &flashWhite, 6, 0, 0);
@@ -455,28 +557,28 @@ static void armourTakeDamage(Entity *other, int damage)
 
 static void shieldWait()
 {
-	
+
 }
 
 static void shieldBiteInit()
 {
 	self->startX = self->x;
-	
+
 	self->thinkTime = 60;
-	
+
 	self->action = &shieldBiteWait;
 }
 
 static void shieldBiteWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
-		
+
 		self->action = &shieldBite;
-		
+
 		self->reactToBlock = &shieldBiteReactToBlock;
 	}
 }
@@ -484,13 +586,13 @@ static void shieldBiteWait()
 static void shieldBite()
 {
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->mental--;
-		
+
 		self->action = &shieldBiteReturn;
-		
+
 		self->dirX = self->face == LEFT ? self->speed * 3 : -self->speed * 3;
 	}
 }
@@ -500,12 +602,12 @@ static void shieldBiteReturn()
 	if ((self->face == LEFT && self->x >= self->startX) || (self->face == RIGHT && self->x <= self->startX))
 	{
 		self->mental--;
-		
+
 		if (self->mental <= 0)
 		{
 			self->action = &shieldAttackFinish;
 		}
-		
+
 		else
 		{
 			self->action = &shieldBiteWait;
@@ -516,194 +618,153 @@ static void shieldBiteReturn()
 static void shieldAttackFinish()
 {
 	self->head->maxThinkTime = 0;
-	
+
 	self->action = &shieldWait;
 }
 
-static void shieldRiftAttackInit()
+static void shieldFlameAttackInit()
 {
-	self->mental = 5 + prand() % 3;
-	
-	self->action = &shieldRiftAttack;
-	
+	self->action = &shieldFlameAttack;
+
 	self->thinkTime = 60;
 }
 
-static void shieldRiftAttack()
+static void shieldFlameAttack()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add an Energy Rift");
+			showErrorAndExit("No free slots to add Grimlore's Shield Flame");
 		}
 
-		loadProperties("enemy/energy_rift", e);
-
-		e->action = &riftMove;
-		e->draw = &drawLoopingAnimationToMap;
-		e->touch = &entityTouch;
-
-		e->type = ENEMY;
+		loadProperties("enemy/grimlore_shield_flame", e);
 
 		setEntityAnimation(e, "STAND");
 
-		if (self->face == LEFT)
-		{
-			e->x = self->x - e->w;
-		}
+		e->dirX = self->face == LEFT ? -1 : 1;
 
-		else
-		{
-			e->x = self->x + self->w;
-		}
+		e->action = &flameWait;
 
-		e->thinkTime = 15;
-		
-		e->damage = 1;
+		e->draw = &drawLoopingAnimationToMap;
 
-		e->y = self->y;
+		e->touch = &entityTouch;
 
-		e->dirX = self->face == LEFT ? -e->speed : e->speed;
+		e->reactToBlock = &flameReactToBlock;
+
+		e->thinkTime = 10;
+
+		e->mental = 1;
+
+		e->health = 0;
 
 		e->head = self;
-
-		checkToMap(self);
-
-		self->mental = 5 + prand() % 3;
-
-		self->action = &riftAttackFinish;
-
-		self->thinkTime = 60;
 	}
-	
-	self->action = &shieldRiftWait;
-	
-	self->maxThinkTime = 0;
+
+	self->action = &shieldFlameWait;
+
+	self->maxThinkTime = 1;
 }
 
-static void shieldRiftWait()
+static void flameWait()
 {
-	if (self->maxThinkTime == 1)
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
 	{
-		
-	}
-}
+		self->health += self->mental;
 
-static void riftMove()
-{
-	float dirY;
-
-	self->dirX *= 0.95;
-
-	if (fabs(self->dirX) <= 0.5)
-	{
-		self->dirX = 0;
-
-		if (self->health < 2)
+		if (self->health >= 8)
 		{
-			self->thinkTime--;
+			self->mental = -1;
 
-			if (self->thinkTime <= 0)
-			{
-				self->health++;
-
-				setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
-
-				self->thinkTime = 15;
-			}
+			self->thinkTime = 60;
 		}
 
 		else
 		{
-			self->head->maxThinkTime = 1;
-			
-			self->thinkTime = 60 + self->head->thinkTime * 60;
-
-			self->action = &riftWait;
+			self->thinkTime = 10;
 		}
-	}
 
-	dirY = self->dirY;
-
-	checkToMap(self);
-}
-
-static void riftWait()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->action = &riftClose;
-
-		self->thinkTime = 20;
-	}
-
-	else
-	{
-		if (collision(self->x - self->mental, self->y - self->mental, self->mental * 2, self->mental * 2, player.x, player.y, player.w, player.h) == 1)
+		if (self->health < 0)
 		{
-			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? 2 : -2));
+			self->head->maxThinkTime = 0;
+
+			self->inUse = FALSE;
 		}
 
-		if (prand() % 3 == 0)
+		else
 		{
-			addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+			setEntityAnimation(e, "STAND");
 		}
 	}
 }
 
-static void riftClose()
-{
-	self->thinkTime--;
-
-	setEntityAnimation(self, self->thinkTime > 10 ? "WALK" : "STAND");
-
-	if (self->thinkTime <= 0)
-	{
-		self->head->mental = 0;
-
-		self->inUse = FALSE;
-	}
-}
-
-static void addRiftEnergy(int x, int y)
+static void dropReflectArtifact()
 {
 	Entity *e;
 
-	e = addBasicDecoration(x, y, "decoration/rift_energy");
+	e = getFreeEntity();
 
-	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
-	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Reflect Artifact");
+	}
 
-	x -= e->w / 2;
-	y -= e->h / 2;
+	loadProperties("boss/grimlore_reflect_artifact", e);
 
-	e->targetX = x;
-	e->targetY = y;
+	e->x = self->x + self->w / 2;
+	e->y = self->y + self->h / 2;
 
-	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+	e->action = &doNothing;
 
-	e->dirX *= 8;
-	e->dirY *= 8;
+	e->activate = &reflectAttacks;
 
-	e->action = &energyMoveToRift;
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->touch = &keyItemTouch;
+
+	e->dirY = ITEM_JUMP_HEIGHT;
 }
 
-static void energyMoveToRift()
+static void reflectAttackInit(int val)
 {
-	self->x += self->dirX;
-	self->y += self->dirY;
+	Entity *e;
 
-	if (atTarget())
+	if (game.status == IN_GAME)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Reflect Artifact");
+		}
+
+		loadProperties("boss/artifact_reflection_shield", e);
+
+		e->action = &reflectionShieldWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->touch = &reflectionTouch;
+	}
+}
+
+static void reflectionShieldWait()
+{
+	if (player.dirX != 0)
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void reflectionTouch(Entity *other)
+{
+
 }
