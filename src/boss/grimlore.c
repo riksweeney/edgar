@@ -44,8 +44,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
+static void initialise(void);
+static void doIntro(void);
 static void entityWait(void);
+static void attackFinished(void);
 static void swordStabInit(void);
 static void swordStab(void);
 static void swordStabWait(void);
@@ -64,8 +68,28 @@ static void shieldWait(void);
 static void shieldBiteInit(void);
 static void shieldBiteWait(void);
 static void shieldBite(void);
+static void shieldBiteReactToBlock(Entity *);
+static void shieldBiteReturn(void);
+static void shieldAttackFinish(void);
+static void shieldFlameAttack(void);
+static void shieldFlameWait(void);
+static void shieldTakeDamage(Entity *, int);
+static void dropReflectionArtifact(void);
+static void flameWait(void);
+static void flameReactToBlock(Entity *);
+static void reflectionShieldInit(int);
+static void reflectionShieldWait(void);
+static void reflectionShieldTouch(Entity *);
+static void shieldFlameWait(void);
+static void swordDropInit(void);
 static void shieldBiteInit(void);
-static void shieldBiteInit(void);
+static void reflectionShieldInit(int);
+static void reflectionShieldTouch(Entity *);
+static void shieldFlameAttackInit(void);
+static void addShield(void);
+static void addSword(void);
+static void shieldDie(void);
+static void swordWait(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -81,11 +105,10 @@ Entity *addGrimlore(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &entityWait;
+	e->action = &initialise;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
-	e->die = &die;
 
 	e->type = ENEMY;
 
@@ -94,6 +117,37 @@ Entity *addGrimlore(int x, int y, char *name)
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void initialise()
+{
+	if (self->active == TRUE)
+	{
+		self->flags &= ~NO_DRAW;
+
+		if (cameraAtMinimum())
+		{
+			centerMapOnEntity(NULL);
+
+			self->thinkTime = 60;
+
+			self->mental = 2;
+
+			self->action = &doIntro;
+
+			setContinuePoint(FALSE, self->name, NULL);
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void doIntro()
+{
+	addSword();
+	addShield();
+
+	self->action = &entityWait;
 }
 
 static void entityWait()
@@ -108,6 +162,13 @@ static void entityWait()
 	checkToMap(self);
 }
 
+static void attackFinished()
+{
+	self->thinkTime = 120;
+
+	self->action = &entityWait;
+}
+
 static void swordStabInit()
 {
 	self->thinkTime = 30;
@@ -117,6 +178,79 @@ static void swordStabInit()
 	self->action = &swordStab;
 
 	checkToMap(self);
+}
+
+static void addShield()
+{
+	Entity *e;
+
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Grimlore's Shield");
+	}
+
+	loadProperties("boss/grimlore_shield", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &shieldWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->takeDamage = &shieldTakeDamage;
+	e->die = &shieldDie;
+
+	e->type = ENEMY;
+
+	e->active = FALSE;
+
+	setEntityAnimation(e, "STAND");
+
+	e->head = self;
+}
+
+static void shieldDie()
+{
+	self->inUse = FALSE;
+}
+
+static void addSword()
+{
+	Entity *e;
+
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Grimlore's Sword");
+	}
+
+	loadProperties("boss/grimlore_sword", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &swordWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->type = ENEMY;
+
+	e->active = FALSE;
+
+	setEntityAnimation(e, "STAND");
+
+	e->head = self;
+}
+
+static void swordWait()
+{
+	if (self->maxThinkTime == 1)
+	{
+		self->action = &swordDropInit;
+	}
 }
 
 static void swordStab()
@@ -131,7 +265,7 @@ static void swordStab()
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add Grimlore's Sword");
+			showErrorAndExit("No free slots to add Grimlore's Sword Stab");
 		}
 
 		loadProperties("boss/grimlore_sword_stab", e);
@@ -146,8 +280,6 @@ static void swordStab()
 		e->die = &swordDie;
 
 		e->type = ENEMY;
-
-		e->active = FALSE;
 
 		setEntityAnimation(e, "STAND");
 
@@ -288,7 +420,7 @@ static void swordSink()
 
 		if (self->mental > 0 && player.health > 0)
 		{
-			self->action = &lookForPlayer;
+			self->action = &swordMoveUnderPlayer;
 
 			self->dirX = self->speed * 1.5;
 		}
@@ -368,8 +500,8 @@ static void swordTakeDamage(Entity *other, int damage)
 
 static void swordDie()
 {
-	dropReflectArtifact();
-	
+	dropReflectionArtifact();
+
 	self->head->maxThinkTime = 0;
 
 	self->inUse = FALSE;
@@ -448,6 +580,8 @@ static void swordDropFinish()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+
 	if (!(self->flags & INVULNERABLE))
 	{
 		if (self->head->inUse == TRUE)
@@ -555,9 +689,49 @@ static void armourTakeDamage(Entity *other, int damage)
 	}
 }
 
+static void shieldTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->health -= damage;
+
+		if (self->health <= 0)
+		{
+			self->action = &shieldDie;
+		}
+
+		else
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+			enemyPain();
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
+	}
+
+	return;
+}
+
 static void shieldWait()
 {
-
+	self->action = &shieldBiteInit;
+	self->action = &shieldFlameAttackInit;
 }
 
 static void shieldBiteInit()
@@ -581,6 +755,11 @@ static void shieldBiteWait()
 
 		self->reactToBlock = &shieldBiteReactToBlock;
 	}
+}
+
+static void shieldBiteReactToBlock(Entity *other)
+{
+	self->dirX = 0;
 }
 
 static void shieldBite()
@@ -665,11 +844,28 @@ static void shieldFlameAttack()
 		e->health = 0;
 
 		e->head = self;
+
+		e->x = self->x;
+
+		e->startX = e->x;
 	}
 
 	self->action = &shieldFlameWait;
 
 	self->maxThinkTime = 1;
+}
+
+static void shieldFlameWait()
+{
+	if (self->maxThinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+}
+
+static void flameReactToBlock(Entity *other)
+{
+	self->x = self->startX;
 }
 
 static void flameWait()
@@ -701,12 +897,12 @@ static void flameWait()
 
 		else
 		{
-			setEntityAnimation(e, "STAND");
+			setEntityAnimation(self, "STAND");
 		}
 	}
 }
 
-static void dropReflectArtifact()
+static void dropReflectionArtifact()
 {
 	Entity *e;
 
@@ -724,7 +920,7 @@ static void dropReflectArtifact()
 
 	e->action = &doNothing;
 
-	e->activate = &reflectAttacks;
+	e->activate = &reflectionShieldInit;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -733,7 +929,7 @@ static void dropReflectArtifact()
 	e->dirY = ITEM_JUMP_HEIGHT;
 }
 
-static void reflectAttackInit(int val)
+static void reflectionShieldInit(int val)
 {
 	Entity *e;
 
@@ -743,7 +939,7 @@ static void reflectAttackInit(int val)
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add the Reflect Artifact");
+			showErrorAndExit("No free slots to add the Reflection Shield");
 		}
 
 		loadProperties("boss/artifact_reflection_shield", e);
@@ -752,7 +948,7 @@ static void reflectAttackInit(int val)
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->touch = &reflectionTouch;
+		e->touch = &reflectionShieldTouch;
 	}
 }
 
@@ -764,7 +960,7 @@ static void reflectionShieldWait()
 	}
 }
 
-static void reflectionTouch(Entity *other)
+static void reflectionShieldTouch(Entity *other)
 {
 
 }
