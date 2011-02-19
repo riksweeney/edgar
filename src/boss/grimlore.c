@@ -61,6 +61,7 @@ static void swordTakeDamage(Entity *, int);
 static void swordDie(void);
 static void swordDropInit(void);
 static void swordDrop(void);
+static void swordDropTeleportAway(void);
 static void swordDropFinish(void);
 static void takeDamage(Entity *, int);
 static void armourTakeDamage(Entity *, int);
@@ -123,10 +124,13 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		self->flags &= ~NO_DRAW;
-
 		if (cameraAtMinimum())
 		{
+			self->flags &= ~NO_DRAW;
+			
+			addSword();
+			addShield();
+			
 			centerMapOnEntity(NULL);
 
 			self->thinkTime = 60;
@@ -136,6 +140,12 @@ static void initialise()
 			self->action = &doIntro;
 
 			setContinuePoint(FALSE, self->name, NULL);
+			
+			playDefaultBossMusic();
+
+			initBossHealthBar();
+
+			self->flags |= LIMIT_TO_SCREEN;
 		}
 	}
 
@@ -144,10 +154,7 @@ static void initialise()
 
 static void doIntro()
 {
-	addSword();
-	addShield();
-
-	self->action = &entityWait;
+	self->action = &attackFinished;
 }
 
 static void entityWait()
@@ -156,7 +163,8 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->action = swordStabInit;
+		self->action = &swordStabInit;
+		self->action = &swordDropInit;
 	}
 
 	checkToMap(self);
@@ -247,10 +255,29 @@ static void addSword()
 
 static void swordWait()
 {
-	if (self->maxThinkTime == 1)
+	if (self->head->flags & NO_DRAW)
 	{
-		self->action = &swordDropInit;
+		self->flags |= NO_DRAW;
 	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	self->face = self->head->face;
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
 }
 
 static void swordStab()
@@ -269,23 +296,29 @@ static void swordStab()
 		}
 
 		loadProperties("boss/grimlore_sword_stab", e);
+		
+		setEntityAnimation(e, "STAND");
 
 		e->x = self->x;
-		e->y = self->y + self->h;
+		e->y = self->y;
+		
+		e->startX = getMapStartX();
+		e->endX = e->startX + SCREEN_WIDTH - e->w - 1;
 
 		e->action = &swordMoveUnderPlayer;
 
 		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
 		e->takeDamage = &swordTakeDamage;
 		e->die = &swordDie;
 
 		e->type = ENEMY;
-
-		setEntityAnimation(e, "STAND");
+		
+		e->y = self->y - e->h + self->h;
 
 		e->startY = e->y;
 
-		e->y -= e->h;
+		e->y += e->h;
 
 		e->endY = e->y;
 
@@ -409,14 +442,16 @@ static void swordRise()
 
 static void swordSink()
 {
-	if (self->y < self->targetY)
+	if (self->y < self->endY)
 	{
 		self->y += 3;
 	}
 
 	else
 	{
-		self->y = self->targetY;
+		self->y = self->endY;
+		
+		self->mental--;
 
 		if (self->mental > 0 && player.health > 0)
 		{
@@ -512,6 +547,8 @@ static void swordDropInit()
 	Target *t;
 
 	self->flags |= NO_DRAW;
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 	t = getTargetByName("GRIMLORE_TOP_TARGET");
 
@@ -519,6 +556,8 @@ static void swordDropInit()
 	{
 		showErrorAndExit("Grimlore cannot find target");
 	}
+	
+	self->y = t->y;
 
 	self->thinkTime = 60;
 
@@ -529,13 +568,21 @@ static void swordDropInit()
 
 static void swordDrop()
 {
+	int i;
+	
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
+		
+		self->x = player.x + player.w / 2 - self->w / 2;
 
 		if (self->thinkTime <= 0)
 		{
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
 			self->flags &= ~(FLY|NO_DRAW);
+			
+			self->dirY = 0;
 		}
 	}
 
@@ -543,13 +590,22 @@ static void swordDrop()
 
 	if (self->flags & ON_GROUND)
 	{
+		playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		shakeScreen(LIGHT, 15);
+
+		for (i=0;i<20;i++)
+		{
+			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+		}
+		
 		self->thinkTime = 120;
 
-		self->action = &swordDropFinish;
+		self->action = &swordDropTeleportAway;
 	}
 }
 
-static void swordDropFinish()
+static void swordDropTeleportAway()
 {
 	int d1, d2;
 	Target *t1, *t2;
@@ -558,6 +614,12 @@ static void swordDropFinish()
 
 	if (self->thinkTime <= 0)
 	{
+		self->thinkTime = 30;
+		
+		setCustomAction(self, &invulnerableNoFlash, self->thinkTime, 0, 0);
+		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
 		self->flags |= NO_DRAW;
 
 		t1 = getTargetByName("GRIMLORE_LEFT_TARGET");
@@ -573,8 +635,28 @@ static void swordDropFinish()
 		d2 = abs(player.x - t2->x);
 
 		self->targetX = d1 < d2 ? t2->x : t1->x;
+		
+		self->action = &swordDropFinish;
 	}
 
+	checkToMap(self);
+}
+
+static void swordDropFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->targetX;
+		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->action = &attackFinished;
+	}
+	
 	checkToMap(self);
 }
 
@@ -730,8 +812,35 @@ static void shieldTakeDamage(Entity *other, int damage)
 
 static void shieldWait()
 {
-	self->action = &shieldBiteInit;
-	self->action = &shieldFlameAttackInit;
+	if (self->head->maxThinkTime == 1)
+	{
+		self->action = &shieldBiteInit;
+		self->action = &shieldFlameAttackInit;
+	}
+	
+	self->face = self->head->face;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
 }
 
 static void shieldBiteInit()
