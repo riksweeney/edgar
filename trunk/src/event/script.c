@@ -785,6 +785,13 @@ void readNextScriptLine()
 
 			setWeaponFromScript(token);
 		}
+		
+		else if (strcmpignorecase("EQUIP_SHIELD", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			setShieldFromScript(token);
+		}
 
 		else if (strcmpignorecase(token, "SHOW_CONFIRM") == 0)
 		{

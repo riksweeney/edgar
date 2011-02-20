@@ -56,3 +56,4 @@ int isPlayerLocked(void);
 void playerWaitForConfirm(void);
 void setWeaponFromScript(char *);
 void scriptAttack(void);
+void setShieldFromScript(char *);

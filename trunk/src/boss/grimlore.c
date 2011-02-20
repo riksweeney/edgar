@@ -135,8 +135,6 @@ static void initialise()
 
 			self->thinkTime = 60;
 
-			self->mental = 2;
-
 			self->action = &doIntro;
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -146,6 +144,8 @@ static void initialise()
 			initBossHealthBar();
 
 			self->flags |= LIMIT_TO_SCREEN;
+			
+			self->mental = 7;
 		}
 	}
 
@@ -159,12 +159,103 @@ static void doIntro()
 
 static void entityWait()
 {
+	int r;
+	
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		self->action = &swordStabInit;
-		self->action = &swordDropInit;
+		if (self->mental & 2) /* Has the Sword */
+		{
+			if (self->mental & 4) /* Has the Shield aswell */
+			{
+				r = prand() % 4;
+				
+				switch (r)
+				{
+					case 0:
+						self->action = &swordStabInit;
+					break;
+					
+					case 1:
+						self->maxThinkTime = 2;
+						self->action = &shieldAttackWait;
+					break;
+						
+					case 2:
+						self->maxThinkTime = 3;
+						self->action = &shieldAttackWait;
+					break;
+						
+					default:
+						self->action = &swordDropInit;
+					break;
+				}
+			}
+			
+			else /* Only the sword */
+			{
+				r = prand() % 2;
+				
+				switch (r)
+				{
+					case 0:
+						self->action = &swordStabInit;
+					break;
+						
+					default:
+						self->action = &swordDropInit;
+					break;
+				}
+			}
+		}
+		
+		else if (self->mental & 4)
+		{
+			if (self->mental & 2) /* Has the Sword */
+			{
+				r = prand() % 4;
+				
+				switch (r)
+				{
+					case 0:
+						self->action = &swordStabInit;
+					break;
+					
+					case 1:
+						self->maxThinkTime = 2;
+						self->action = &shieldAttackWait;
+					break;
+						
+					case 2:
+						self->maxThinkTime = 3;
+						self->action = &shieldAttackWait;
+					break;
+						
+					default:
+						self->action = &swordDropInit;
+					break;
+				}
+			}
+			
+			else /* Only the Sword */
+			{
+				r = prand() % 2;
+				
+				switch (r)
+				{
+					case 0:
+						self->maxThinkTime = 2;
+						self->action = &shieldAttackWait;
+					break;
+						
+					default:
+						self->maxThinkTime = 3;
+						self->action = &shieldAttackWait;
+					break;
+				}
+			}
+		}
 	}
 
 	checkToMap(self);
@@ -221,6 +312,8 @@ static void addShield()
 
 static void shieldDie()
 {
+	self->mental -= 4;
+	
 	self->inUse = FALSE;
 }
 
@@ -538,6 +631,8 @@ static void swordDie()
 	dropReflectionArtifact();
 
 	self->head->maxThinkTime = 0;
+	
+	self->head->mental -= 2;
 
 	self->inUse = FALSE;
 }
@@ -663,10 +758,16 @@ static void swordDropFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
+	
+	/*
+	Armour sets mental to 1
+	Sword sets mental to 2
+	Shield sets mental to 4
+	*/
 
 	if (!(self->flags & INVULNERABLE))
 	{
-		if (self->head->inUse == TRUE)
+		if (self->mental & 4)
 		{
 			/* The shield will take the damage instead */
 
@@ -675,7 +776,7 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 		}
 
-		else if (self->mental > 0)
+		else if (self->mental & 1)
 		{
 			/* The armour will take the damage instead */
 
@@ -720,54 +821,46 @@ static void armourTakeDamage(Entity *other, int damage)
 {
 	Entity *e, *temp;
 
-	for (e=self->target;e!=NULL;e=e->target)
+	e = self->target;
+
+	if (!(e->flags & INVULNERABLE))
 	{
+		e->health -= damage;
+
 		if (e->health <= 0)
 		{
-			continue;
+			e->thinkTime = 180;
+
+			e->flags &= ~FLY;
+
+			e->dirY = ITEM_JUMP_HEIGHT;
+
+			e->action = e->die;
+
+			self->mental -= 1;
 		}
 
-		if (!(e->flags & INVULNERABLE))
+		else
 		{
-			e->health -= damage;
+			setCustomAction(e, &flashWhite, 6, 0, 0);
 
-			if (e->health <= 0)
-			{
-				e->thinkTime = 180;
+			setCustomAction(e, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-				e->flags &= ~FLY;
-
-				e->dirY = ITEM_JUMP_HEIGHT;
-
-				e->action = e->die;
-
-				self->mental--;
-			}
-
-			else
-			{
-				setCustomAction(e, &flashWhite, 6, 0, 0);
-
-				setCustomAction(e, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-
-				enemyPain();
-			}
-
-			if (other->type == PROJECTILE)
-			{
-				temp = self;
-
-				self = other;
-
-				self->die();
-
-				self = temp;
-			}
-
-			addDamageScore(damage, self);
+			enemyPain();
 		}
 
-		return;
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+
+		addDamageScore(damage, self);
 	}
 }
 
@@ -812,10 +905,16 @@ static void shieldTakeDamage(Entity *other, int damage)
 
 static void shieldWait()
 {
-	if (self->head->maxThinkTime == 1)
+	return;
+	
+	if (self->head->maxThinkTime == 2)
+	{
+		self->action = &shieldFlameAttackInit;
+	}
+	
+	else if (self->head->maxThinkTime == 3)
 	{
 		self->action = &shieldBiteInit;
-		self->action = &shieldFlameAttackInit;
 	}
 	
 	self->face = self->head->face;
@@ -841,6 +940,14 @@ static void shieldWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
+}
+
+static void shieldAttackWait()
+{
+	if (self->maxThinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
 }
 
 static void shieldBiteInit()

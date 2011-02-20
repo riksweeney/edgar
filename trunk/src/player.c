@@ -2518,6 +2518,18 @@ void setWeaponFromScript(char *name)
 	setPlayerWeapon(1);
 }
 
+void setShieldFromScript(char *name)
+{
+	self = getInventoryItemByName(name);
+
+	if (self == NULL)
+	{
+		showErrorAndExit("Could not find inventory item %s\n", name);
+	}
+
+	setPlayerShield(1);
+}
+
 void scriptAttack()
 {
 	playerWeapon.flags |= ATTACKING;
