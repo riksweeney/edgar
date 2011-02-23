@@ -904,6 +904,13 @@ static void takeDamage(Entity *other, int damage)
 	{
 		i = self->health;
 
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
 		self->health -= damage;
 
 		if (self->health <= minHealth)

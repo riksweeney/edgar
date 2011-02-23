@@ -929,6 +929,13 @@ static void takeDamage(Entity *other, int damage)
 
 		halfHealth = self->maxHealth / 2;
 
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
 		self->health -= damage;
 
 		if (self->startX == 0)
