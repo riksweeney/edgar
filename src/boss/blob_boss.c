@@ -1098,6 +1098,13 @@ static void takeDamage(Entity *other, int damage)
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
+			/* Take minimal damage from bombs */
+
+			if (other->type == EXPLOSION)
+			{
+				damage = 1;
+			}
+
 			self->health -= damage;
 
 			if (self->health > 0)

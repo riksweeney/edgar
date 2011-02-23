@@ -660,6 +660,13 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
+			/* Take minimal damage from bombs */
+
+			if (other->type == EXPLOSION)
+			{
+				damage = 1;
+			}
+
 			self->health -= damage;
 
 			if (other->type != ENEMY && self->mental == 0 && (prand() % 10 == 0))
@@ -1286,6 +1293,13 @@ static void armourTakeDamage(Entity *other, int damage)
 
 		if (!(e->flags & INVULNERABLE))
 		{
+			/* Take minimal damage from bombs */
+
+			if (other->type == EXPLOSION)
+			{
+				damage = 1;
+			}
+
 			e->health -= damage;
 
 			if (e->health <= 0)

@@ -690,6 +690,13 @@ static void takeDamage(Entity *other, int damage)
 			return;
 		}
 
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
 		if (damage != 0)
 		{
 			self->health -= damage;

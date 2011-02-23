@@ -559,7 +559,7 @@ static void fireballAttack()
 			e = addProjectile("boss/awesome_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 			e->touch = &fireballTouch;
-			
+
 			e->action = &fireballMove;
 
 			e->type = ENEMY;
@@ -677,7 +677,7 @@ static void superFireballAttack()
 					e = addProjectile("boss/awesome_super_fireball", self, self->x, self->y, (self->face == RIGHT ? 14 : -14), 0);
 
 					e->touch = &fireballTouch;
-					
+
 					e->action = &fireballMove;
 
 					e->type = ENEMY;
@@ -1042,6 +1042,13 @@ static void takeDamage(Entity *other, int damage)
 
 	if (damage != 0)
 	{
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
 		self->health -= damage;
 
 		temp = self;
