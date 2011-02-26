@@ -75,17 +75,14 @@ static void shieldBiteReturn(void);
 static void shieldAttackFinish(void);
 static void shieldFlameAttack(void);
 static void shieldTakeDamage(Entity *, int);
-static void dropReflectionArtifact(void);
 static void flameWait(void);
-static void reflectionShieldInit(int);
-static void reflectionShieldWait(void);
-static void reflectionShieldTouch(Entity *);
 static void swordDropInit(void);
-static void reflectionShieldInit(int);
-static void reflectionShieldTouch(Entity *);
 static void shieldFlameAttackInit(void);
 static void addShield(void);
 static void addSword(void);
+static void addArmour(void);
+static void armourWait(void);
+static void armourDie(void);
 static void shieldDie(void);
 static void swordWait(void);
 static void shieldAttackWait(void);
@@ -94,6 +91,7 @@ static void shieldFaceTakeDamage(Entity *, int);
 static int biteDraw(void);
 static void shieldBiteReactToBlock(Entity *);
 static void shieldBiteMoveBack(void);
+static void dropReflectionArtifact(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -130,6 +128,8 @@ static void initialise()
 		if (cameraAtMinimum())
 		{
 			self->flags &= ~NO_DRAW;
+			
+			addArmour();
 
 			addSword();
 
@@ -276,6 +276,65 @@ static void attackFinished()
 	self->action = &entityWait;
 }
 
+static void addArmour()
+{
+	Entity *e;
+
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Grimlore's Armour");
+	}
+
+	loadProperties("boss/grimlore_armour", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &armourWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->takeDamage = &armourTakeDamage;
+	e->die = &armourDie;
+	e->touch = &entityTouch;
+
+	e->type = ENEMY;
+
+	setEntityAnimation(e, "STAND");
+
+	e->head = self;
+}
+
+static void armourWait()
+{
+	setEntityAnimation(self, self->head->animationName);
+	
+	self->face = self->head->face;
+
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+}
+
 static void addShield()
 {
 	Entity *e;
@@ -361,19 +420,6 @@ static void shieldDie()
 	self->head->mental -= 4;
 
 	printf("2. Shield dying. Grimlore mental is %d\n",self->head->mental);
-
-	self->inUse = FALSE;
-}
-
-static void armourDie()
-{
-	dropReflectionArtifact();
-
-	printf("1. Armour dying. Grimlore mental is %d\n",self->head->mental);
-
-	self->head->mental -= 1;
-
-	printf("2. Armour dying. Grimlore mental is %d\n",self->head->mental);
 
 	self->inUse = FALSE;
 }
@@ -823,6 +869,19 @@ static void swordDie()
 	self->inUse = FALSE;
 }
 
+static void armourDie()
+{
+	dropReflectionArtifact();
+
+	printf("1. Armour dying. Grimlore mental is %d\n",self->head->mental);
+
+	self->head->mental -= 1;
+
+	printf("2. Armour dying. Grimlore mental is %d\n",self->head->mental);
+
+	self->inUse = FALSE;
+}
+
 static void swordDropInit()
 {
 	Target *t;
@@ -1038,6 +1097,11 @@ static void takeDamage(Entity *other, int damage)
 static void armourTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
+	
+	if ((self->head->mental & 4) || (self->head->mental & 2))
+	{
+		return;
+	}
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -1047,7 +1111,7 @@ static void armourTakeDamage(Entity *other, int damage)
 		{
 			self->touch = NULL;
 
-			self->action = &shieldDie;
+			self->action = &armourDie;
 		}
 
 		else
@@ -1510,67 +1574,6 @@ static void flameWait()
 
 static void dropReflectionArtifact()
 {
-	Entity *e;
-
-	return;
-
-	e = getFreeEntity();
-
-	if (e == NULL)
-	{
-		showErrorAndExit("No free slots to add the Reflect Artifact");
-	}
-
-	loadProperties("boss/grimlore_reflect_artifact", e);
-
-	e->x = self->x + self->w / 2;
-	e->y = self->y + self->h / 2;
-
-	e->action = &doNothing;
-
-	e->activate = &reflectionShieldInit;
-
-	e->draw = &drawLoopingAnimationToMap;
-
-	e->touch = &keyItemTouch;
-
-	e->dirY = ITEM_JUMP_HEIGHT;
-}
-
-static void reflectionShieldInit(int val)
-{
-	Entity *e;
-
-	if (game.status == IN_GAME)
-	{
-		e = getFreeEntity();
-
-		if (e == NULL)
-		{
-			showErrorAndExit("No free slots to add the Reflection Shield");
-		}
-
-		loadProperties("boss/artifact_reflection_shield", e);
-
-		e->action = &reflectionShieldWait;
-
-		e->draw = &drawLoopingAnimationToMap;
-
-		e->touch = &reflectionShieldTouch;
-	}
-}
-
-static void reflectionShieldWait()
-{
-	if (player.dirX != 0)
-	{
-		self->inUse = FALSE;
-	}
-}
-
-static void reflectionShieldTouch(Entity *other)
-{
-
 }
 
 static int biteDraw()
