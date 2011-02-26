@@ -128,6 +128,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "drawbridge_pulley.h"
 #include "drawbridge_anchor.h"
 #include "safe_combination.h"
+#include "grimlore_artifact.h"
 
 extern Entity *self, player;
 
@@ -244,7 +245,9 @@ static Constructor items[] = {
 {"item/memory_match_icon", &addMemoryMatchIcon},
 {"item/drawbridge_pulley", &addDrawbridgePulley},
 {"item/drawbridge_anchor", &addDrawbridgeAnchor},
-{"item/safe_combination", &addSafeCombination}
+{"item/safe_combination", &addSafeCombination},
+{"item/protection_artifact", &addProtectionArtifact},
+{"item/reflection_artifact", &addReflectionArtifact}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
