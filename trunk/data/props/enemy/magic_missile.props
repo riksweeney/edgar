@@ -1,0 +1,10 @@
+GFX_FILE data/gfx/enemy/magic_missile.dat
+ANIM_FILE data/anim/enemy/magic_missile.dat
+TYPE PROJECTILE
+SPEED 3
+DAMAGE 1
+FLAGS FLY
+MENTAL 6
+HEALTH 2
+OBJECTIVE_NAME TEST_ENEMY
+MAX_THINKTIME 2

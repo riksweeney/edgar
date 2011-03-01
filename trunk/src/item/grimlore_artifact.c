@@ -40,10 +40,9 @@ extern Entity *self, player;
 extern Game game;
 
 static void reflectionShieldInit(int);
-static void reflectionShieldTouch(Entity *);
 static void protectionShieldInit(int);
-static void protectionShieldTouch(Entity *);
 static void shieldWait(void);
+static void touch(Entity *);
 
 Entity *addReflectionArtifact(int x, int y, char *name)
 {
@@ -130,13 +129,8 @@ static void reflectionShieldInit(int val)
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->touch = &reflectionShieldTouch;
+		e->touch = &touch;
 	}
-}
-
-static void reflectionShieldTouch(Entity *other)
-{
-
 }
 
 static void protectionShieldInit(int val)
@@ -158,13 +152,8 @@ static void protectionShieldInit(int val)
 
 		e->draw = &drawLoopingAnimationToMap;
 
-		e->touch = &protectionShieldTouch;
+		e->touch = &touch;
 	}
-}
-
-static void protectionShieldTouch(Entity *other)
-{
-
 }
 
 static void shieldWait()
@@ -179,9 +168,14 @@ static void shieldWait()
 	radians = DEG_TO_RAD(self->thinkTime);
 
 	self->alpha = 128 + (64 * cos(radians));
-	
+
 	if (player.dirX != 0 || player.dirY != 0)
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void touch(Entity *other)
+{
+
 }

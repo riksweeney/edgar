@@ -146,8 +146,21 @@ static void addSegments()
 	Entity *e, *prev;
 
 	prev = self;
-
-	mental = strcmpignorecase(self->name, "enemy/red_centipede") == 0 ? 1 : 0;
+	
+	if (strcmpignorecase(self->name, "enemy/green_centipede") == 0)
+	{
+		mental = 2;
+	}
+	
+	else if (strcmpignorecase(self->name, "enemy/red_centipede") == 0)
+	{
+		mental = 1;
+	}
+	
+	else
+	{
+		mental = 0;
+	}
 
 	snprintf(name, MAX_VALUE_LENGTH, "%s_segment", self->name);
 
