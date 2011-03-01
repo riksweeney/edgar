@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../world/target.h"
 #include "../enemy/rock.h"
+#include "../item/grimlore_artifact.h"
 #include "../projectile.h"
 #include "../system/error.h"
 
@@ -92,6 +93,7 @@ static int biteDraw(void);
 static void shieldBiteReactToBlock(Entity *);
 static void shieldBiteMoveBack(void);
 static void dropReflectionArtifact(void);
+static void dropProtectionArtifact(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -116,7 +118,7 @@ Entity *addGrimlore(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "FACE_FRONT");
 
 	return e;
 }
@@ -128,7 +130,7 @@ static void initialise()
 		if (cameraAtMinimum())
 		{
 			self->flags &= ~NO_DRAW;
-			
+
 			addArmour();
 
 			addSword();
@@ -186,11 +188,13 @@ static void entityWait()
 					break;
 
 					case 1:
+						setEntityAnimation(self, "SHIELD_ATTACK");
 						self->maxThinkTime = 2;
 						self->action = &shieldAttackWait;
 					break;
 
 					case 2:
+						setEntityAnimation(self, "SHIELD_ATTACK");
 						self->maxThinkTime = 3;
 						self->action = &shieldAttackWait;
 					break;
@@ -231,11 +235,13 @@ static void entityWait()
 					break;
 
 					case 1:
+						setEntityAnimation(self, "SHIELD_ATTACK");
 						self->maxThinkTime = 2;
 						self->action = &shieldAttackWait;
 					break;
 
 					case 2:
+						setEntityAnimation(self, "SHIELD_ATTACK");
 						self->maxThinkTime = 3;
 						self->action = &shieldAttackWait;
 					break;
@@ -309,7 +315,7 @@ static void addArmour()
 static void armourWait()
 {
 	setEntityAnimation(self, self->head->animationName);
-	
+
 	self->face = self->head->face;
 
 	if (self->head->flags & NO_DRAW)
@@ -404,24 +410,6 @@ static void shieldWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-}
-
-static void shieldDie()
-{
-	dropReflectionArtifact();
-
-	if (self->head->maxThinkTime == 2 || self->head->maxThinkTime == 3)
-	{
-		self->head->maxThinkTime = 0;
-	}
-
-	printf("1. Shield dying. Grimlore mental is %d\n",self->head->mental);
-
-	self->head->mental -= 4;
-
-	printf("2. Shield dying. Grimlore mental is %d\n",self->head->mental);
-
-	self->inUse = FALSE;
 }
 
 static void addSword()
@@ -860,26 +848,32 @@ static void swordDie()
 		self->head->maxThinkTime = 0;
 	}
 
-	printf("1. Sword dying. Grimlore mental is %d\n",self->head->mental);
-
 	self->head->mental -= 2;
 
-	printf("2. Sword dying. Grimlore mental is %d\n",self->head->mental);
-
-	self->inUse = FALSE;
+	entityDieNoDrop();
 }
 
 static void armourDie()
 {
 	dropReflectionArtifact();
 
-	printf("1. Armour dying. Grimlore mental is %d\n",self->head->mental);
-
 	self->head->mental -= 1;
 
-	printf("2. Armour dying. Grimlore mental is %d\n",self->head->mental);
+	entityDieNoDrop();
+}
 
-	self->inUse = FALSE;
+static void shieldDie()
+{
+	dropProtectionArtifact();
+
+	if (self->head->maxThinkTime == 2 || self->head->maxThinkTime == 3)
+	{
+		self->head->maxThinkTime = 0;
+	}
+
+	self->head->mental -= 4;
+
+	entityDieNoDrop();
 }
 
 static void swordDropInit()
@@ -1097,7 +1091,7 @@ static void takeDamage(Entity *other, int damage)
 static void armourTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if ((self->head->mental & 4) || (self->head->mental & 2))
 	{
 		return;
@@ -1251,7 +1245,7 @@ static void shieldBiteInit()
 {
 	self->thinkTime = 60;
 
-	setEntityAnimation(self, "FLAME_ATTACK");
+	setEntityAnimation(self, "SHIELD_ATTACK");
 
 	if (self->face == LEFT)
 	{
@@ -1456,7 +1450,7 @@ static void shieldAttackFinish()
 
 static void shieldFlameAttackInit()
 {
-	setEntityAnimation(self, "FLAME_ATTACK");
+	setEntityAnimation(self, "SHIELD_ATTACK");
 
 	if (self->face == LEFT)
 	{
@@ -1574,6 +1568,16 @@ static void flameWait()
 
 static void dropReflectionArtifact()
 {
+	Entity *e = addReflectionArtifact(self->x, self->y, "item/reflection_artifact");
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+}
+
+static void dropProtectionArtifact()
+{
+	Entity *e = addProtectionArtifact(self->x, self->y, "item/protection_artifact");
+
+	e->dirY = ITEM_JUMP_HEIGHT;
 }
 
 static int biteDraw()

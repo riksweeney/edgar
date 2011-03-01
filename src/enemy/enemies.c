@@ -99,6 +99,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "hoover.h"
 #include "giant_ceiling_creeper.h"
 #include "baby_salamander.h"
+#include "magic_missile.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -262,7 +263,8 @@ static Constructor enemies[] = {
 {"boss/black_book_2", &addBlackBook2},
 {"enemy/giant_ceiling_creeper", &addGiantCeilingCreeper},
 {"enemy/baby_salamander", &addBabySalamander},
-{"boss/grimlore", &addGrimlore}
+{"boss/grimlore", &addGrimlore},
+{"enemy/magic_missile", &addMagicMissile}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
