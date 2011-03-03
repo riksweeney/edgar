@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../game.h"
 #include "../player.h"
+#include "../graphics/graphics.h"
 #include "../geometry.h"
 #include "../graphics/decoration.h"
 #include "../world/target.h"
@@ -44,6 +45,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/grimlore_artifact.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../enemy/magic_missile.h"
+#include "../world/explosion.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -77,7 +80,6 @@ static void shieldAttackFinish(void);
 static void shieldFlameAttack(void);
 static void shieldTakeDamage(Entity *, int);
 static void flameWait(void);
-static void swordDropInit(void);
 static void shieldFlameAttackInit(void);
 static void addShield(void);
 static void addSword(void);
@@ -94,6 +96,14 @@ static void shieldBiteReactToBlock(Entity *);
 static void shieldBiteMoveBack(void);
 static void dropReflectionArtifact(void);
 static void dropProtectionArtifact(void);
+static void magicMissileAttackInit(void);
+static void magicMissileAttack(void);
+static void beamAttackInit(void);
+static void beamAttack(void);
+static void beamMove(void);
+static int beamDraw(void);
+static void beamExplosions(void);
+static void explosionTouch(Entity *);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -129,6 +139,8 @@ static void initialise()
 	{
 		if (cameraAtMinimum())
 		{
+			self->startY = self->y;
+
 			self->flags &= ~NO_DRAW;
 
 			addArmour();
@@ -150,8 +162,6 @@ static void initialise()
 			initBossHealthBar();
 
 			self->flags |= LIMIT_TO_SCREEN;
-
-			self->mental = 7;
 
 			self->touch = &entityTouch;
 		}
@@ -222,9 +232,9 @@ static void entityWait()
 			}
 		}
 
-		else if (self->mental & 4)
+		else if (self->mental & 4) /* Has the Shield */
 		{
-			if (self->mental & 2) /* Has the Sword */
+			if (self->mental & 2) /* Has the Sword aswell */
 			{
 				r = prand() % 4;
 
@@ -252,20 +262,40 @@ static void entityWait()
 				}
 			}
 
-			else /* Only the Sword */
+			else /* Only the Shield */
 			{
 				r = prand() % 2;
 
 				switch (r)
 				{
 					case 0:
-						self->action = &swordStabInit;
+						setEntityAnimation(self, "SHIELD_ATTACK");
+						self->maxThinkTime = 2;
+						self->action = &shieldAttackWait;
 					break;
 
 					default:
-						self->action = &swordDropInit;
+						setEntityAnimation(self, "SHIELD_ATTACK");
+						self->maxThinkTime = 3;
+						self->action = &shieldAttackWait;
 					break;
 				}
+			}
+		}
+
+		else if (self->mental & 1) /* Only armour */
+		{
+			r = prand() % 2;
+
+			switch (r)
+			{
+				case 0:
+					self->action = &magicMissileAttackInit;
+				break;
+
+				default:
+					self->action = &beamAttackInit;
+				break;
 			}
 		}
 	}
@@ -277,9 +307,13 @@ static void attackFinished()
 {
 	setEntityAnimation(self, "STAND");
 
-	self->thinkTime = 120;
+	self->flags &= ~FLY;
+
+	self->thinkTime = 60;
 
 	self->action = &entityWait;
+
+	self->layer = MID_GROUND_LAYER;
 }
 
 static void addArmour()
@@ -310,6 +344,8 @@ static void addArmour()
 	setEntityAnimation(e, "STAND");
 
 	e->head = self;
+
+	self->mental += 1;
 }
 
 static void armourWait()
@@ -371,6 +407,8 @@ static void addShield()
 	setEntityAnimation(e, "STAND");
 
 	e->head = self;
+
+	self->mental += 2;
 }
 
 static void shieldWait()
@@ -443,6 +481,8 @@ static void addSword()
 	setEntityAnimation(e, "STAND");
 
 	e->head = self;
+
+	self->mental += 4;
 }
 
 static void swordWait()
@@ -482,6 +522,8 @@ static void swordWait()
 static void swordStabInit()
 {
 	setEntityAnimation(self, "KNEEL");
+
+	self->layer = BACKGROUND_LAYER;
 
 	self->thinkTime = 60;
 
@@ -882,6 +924,8 @@ static void swordDropInit()
 
 	self->flags |= NO_DRAW;
 
+	self->layer = BACKGROUND_LAYER;
+
 	setEntityAnimation(self, "KNEEL");
 
 	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
@@ -910,6 +954,8 @@ static void swordDrop()
 
 	if (self->thinkTime > 0)
 	{
+		self->flags |= INVULNERABLE;
+
 		self->thinkTime--;
 
 		self->x = player.x + player.w / 2 - self->w / 2;
@@ -941,7 +987,7 @@ static void swordDrop()
 			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
 		}
 
-		self->thinkTime = 120;
+		self->thinkTime = 30;
 
 		self->action = &swordDropTeleportAway;
 	}
@@ -980,14 +1026,14 @@ static void swordDropTeleportAway()
 
 		if (d1 < d2)
 		{
-			self->targetX = t2->x;
+			self->x = t2->x;
 
 			self->face = LEFT;
 		}
 
 		else
 		{
-			self->targetX = t1->x;
+			self->x = t1->x;
 
 			self->face = RIGHT;
 		}
@@ -1004,8 +1050,6 @@ static void swordDropFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		self->x = self->targetX;
-
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 		self->flags &= ~NO_DRAW;
@@ -1057,6 +1101,8 @@ static void takeDamage(Entity *other, int damage)
 			{
 				damage = 1;
 			}
+
+			self->health -= damage;
 
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
@@ -1571,6 +1617,8 @@ static void dropReflectionArtifact()
 	Entity *e = addReflectionArtifact(self->x, self->y, "item/reflection_artifact");
 
 	e->dirY = ITEM_JUMP_HEIGHT;
+
+	e->dirX = self->face == LEFT ? -6 : 6;
 }
 
 static void dropProtectionArtifact()
@@ -1578,6 +1626,8 @@ static void dropProtectionArtifact()
 	Entity *e = addProtectionArtifact(self->x, self->y, "item/protection_artifact");
 
 	e->dirY = ITEM_JUMP_HEIGHT;
+
+	e->dirX = self->face == LEFT ? -6 : 6;
 }
 
 static int biteDraw()
@@ -1623,4 +1673,228 @@ static int biteDraw()
 	drawLoopingAnimationToMap();
 
 	return TRUE;
+}
+
+static void magicMissileAttackInit()
+{
+	self->thinkTime = 60;
+
+	self->endX = 4;
+
+	self->action = &magicMissileAttack;
+
+	checkToMap(self);
+}
+
+static void magicMissileAttack()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addMagicMissile(self->x, self->y, "enemy/magic_missile");
+
+		e->dirX = 0;
+		e->dirY = -e->speed;
+		e->thinkTime = 90;
+
+		e->parent = self;
+
+		STRNCPY(e->objectiveName, self->objectiveName, sizeof(e->objectiveName));
+
+		self->endX--;
+
+		if (self->endX <= 0)
+		{
+			self->action = &attackFinished;
+		}
+
+		else
+		{
+			self->thinkTime = 20;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void beamAttackInit()
+{
+	Target *t;
+
+	self->flags |= NO_DRAW;
+
+	setEntityAnimation(self, "KNEEL");
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	t = getTargetByName("GRIMLORE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Grimlore cannot find target");
+	}
+
+	self->y = t->y;
+
+	self->thinkTime = 60;
+
+	self->flags |= FLY;
+
+	self->action = &beamAttack;
+
+	self->endX = 1;
+}
+
+static void beamAttack()
+{
+	Entity *e;
+
+	if (self->endX == 1)
+	{
+		self->flags |= INVULNERABLE;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->x = getMapStartX() + SCREEN_WIDTH / 2 - self->w / 2;
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+			self->flags &= ~NO_DRAW;
+
+			self->dirY = 0;
+
+			self->endX = 2;
+
+			self->thinkTime = 30;
+		}
+	}
+
+	else if (self->endX == 2)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Grimlore's Beam");
+			}
+
+			self->maxThinkTime = 5;
+
+			e->startX = self->x + self->w / 2;
+			e->startY = self->y;
+
+			e->endX = getMapStartX() + SCREEN_WIDTH;
+			e->endY = getMapFloor(self->x, self->y);
+
+			e->x = getMapStartX();
+
+			e->action = &beamMove;
+
+			e->draw = &beamDraw;
+
+			e->head = self;
+
+			e->thinkTime = 30;
+
+			self->endX = 3;
+		}
+	}
+
+	else if (self->endX == 3)
+	{
+		if (self->maxThinkTime <= 0)
+		{
+			self->thinkTime = 120;
+
+			self->action = &swordDropTeleportAway;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void beamMove()
+{
+	self->dirX += 0.25;
+
+	self->x += self->dirX;
+
+	if (self->x > self->endX)
+	{
+		self->thinkTime--;
+
+		self->flags |= NO_DRAW;
+
+		if (self->thinkTime <= 0)
+		{
+			self->x = getMapStartX();
+
+			self->thinkTime = 3;
+
+			self->action = &beamExplosions;
+
+			self->mental = 0;
+		}
+	}
+}
+
+static void beamExplosions()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addExplosion(self->x, self->endY);
+
+		e->mental = (self->mental % 10) == 0 ? 0 : 1;
+
+		self->mental++;
+
+		e->touch = &explosionTouch;
+
+		e->y -= e->h / 2;
+
+		self->x += e->w / 2;
+
+		e->damage = 1;
+
+		self->thinkTime = 3;
+
+		if (self->x > self->endX)
+		{
+			self->head->maxThinkTime = 0;
+
+			self->inUse = FALSE;
+		}
+	}
+}
+
+static int beamDraw()
+{
+	drawLine(self->startX, self->startY, self->x, self->endY, 220, 0, 0);
+
+	return TRUE;
+}
+
+static void explosionTouch(Entity *other)
+{
+	if (other->element != FIRE)
+	{
+		entityTouch(other);
+	}
 }
