@@ -33,6 +33,8 @@ extern Game game;
 extern Entity *self;
 
 static void drawImageWhite(SDL_Surface *, int, int);
+static Uint32 getPixel(SDL_Surface *, int, int);
+static void putPixel(SDL_Surface *, int, int, Uint32);
 
 SDL_Surface *loadImage(char *name)
 {
@@ -190,7 +192,8 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int a
 */
 SDL_Surface *flipImage(SDL_Surface *image)
 {
-	int *pixels, x, y, pixel, rx, ry;
+	int x, y;
+	Uint32 pixel;
 	SDL_Surface *flipped;
 
 	flipped = createSurface(image->w, image->h);
@@ -200,17 +203,13 @@ SDL_Surface *flipImage(SDL_Surface *image)
 		SDL_LockSurface(image);
 	}
 
-	for (x=0, rx=flipped->w-1;x<flipped->w;x++, rx--)
+	for (y=0;y<image->h;y++)
 	{
-		for (y=0, ry=flipped->h-1;y<flipped->h;y++, ry--)
+		for (x=0;x<image->w;x++)
 		{
-			pixels = (int *)image->pixels;
+			pixel = getPixel(image, x, y);
 
-			pixel = pixels[(y * image->w) + x];
-
-			pixels = (int *)flipped->pixels;
-
-			pixels[(y * flipped->w) + rx] = pixel;
+			putPixel(flipped, image->w - 1 - x, y, pixel);
 		}
 	}
 
@@ -260,9 +259,8 @@ void drawBoxToMap(int x, int y, int w, int h, int r, int g, int b)
 
 void putPixelToMap(int x, int y, int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	Uint32 color = SDL_MapRGB(game.screen->format, r, g, b);
 	int startX, startY;
-	int *pixels;
 
 	startX = getMapStartX();
 	startY = getMapStartY();
@@ -280,9 +278,7 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 		SDL_LockSurface(game.screen);
 	}
 
-	pixels = (int *)game.screen->pixels;
-
-	pixels[(y * game.screen->w) + x] = color;
+	putPixel(game.screen, x, y, color);
 
 	if (SDL_MUSTLOCK(game.screen))
 	{
@@ -292,10 +288,9 @@ void putPixelToMap(int x, int y, int r, int g, int b)
 
 void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 {
-	int color = SDL_MapRGB(game.screen->format, r, g, b);
+	Uint32 color = SDL_MapRGB(game.screen->format, r, g, b);
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
-	int *pixels;
 	int clipX, clipY, clipW, clipH;
 	SDL_Rect clipRect;
 
@@ -335,8 +330,6 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 		SDL_LockSurface(game.screen);
 	}
 
-	pixels = (int *)game.screen->pixels;
-
 	if (sDelta < lDelta)
 	{
 		cycle = lDelta >> 1;
@@ -345,7 +338,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 		{
 			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 			{
-				pixels[(y1 * game.screen->w) + x1] = color;
+				putPixel(game.screen, x1, y1, color);
 			}
 
 			cycle += sDelta;
@@ -362,7 +355,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			pixels[(y1 * game.screen->w) + x1] = color;
+			putPixel(game.screen, x1, y1, color);
 		}
 	}
 
@@ -372,7 +365,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	{
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			pixels[(y1 * game.screen->w) + x1] = color;
+			putPixel(game.screen, x1, y1, color);
 		}
 
 		cycle += lDelta;
@@ -389,7 +382,7 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 
 	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 	{
-		pixels[(y1 * game.screen->w) + x1] = color;
+		putPixel(game.screen, x1, y1, color);
 	}
 
 	if (SDL_MUSTLOCK(game.screen))
@@ -398,11 +391,10 @@ void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b)
 	}
 }
 
-void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
+void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 color2, Uint32 color3)
 {
 	int lDelta, sDelta, cycle, lStep, sStep;
 	int startX, startY;
-	int *pixels;
 	int clipX, clipY, clipW, clipH;
 	SDL_Rect clipRect;
 
@@ -442,8 +434,6 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 		SDL_LockSurface(game.screen);
 	}
 
-	pixels = (int *)game.screen->pixels;
-
 	if (sDelta < lDelta)
 	{
 		cycle = lDelta >> 1;
@@ -452,11 +442,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 		{
 			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 			{
-				pixels[((y1 - 2) * game.screen->w) + x1] = color3;
-				pixels[((y1 - 1) * game.screen->w) + x1] = color2;
-				pixels[(y1 * game.screen->w) + x1] = color1;
-				pixels[((y1 + 1) * game.screen->w) + x1] = color2;
-				pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+				putPixel(game.screen, x1, y1 - 2, color3);
+				putPixel(game.screen, x1, y1 - 1, color2);
+				putPixel(game.screen, x1, y1, color1);
+				putPixel(game.screen, x1, y1 + 1, color2);
+				putPixel(game.screen, x1, y1 + 2, color3);
 			}
 
 			cycle += sDelta;
@@ -473,11 +463,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			pixels[((y1 - 2) * game.screen->w) + x1] = color3;
-			pixels[((y1 - 1) * game.screen->w) + x1] = color2;
-			pixels[(y1 * game.screen->w) + x1] = color1;
-			pixels[((y1 + 1) * game.screen->w) + x1] = color2;
-			pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+			putPixel(game.screen, x1, y1 - 2, color3);
+			putPixel(game.screen, x1, y1 - 1, color2);
+			putPixel(game.screen, x1, y1, color1);
+			putPixel(game.screen, x1, y1 + 1, color2);
+			putPixel(game.screen, x1, y1 + 2, color3);
 		}
 	}
 
@@ -487,11 +477,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 	{
 		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 		{
-			pixels[((y1 - 2) * game.screen->w) + x1] = color3;
-			pixels[((y1 - 1) * game.screen->w) + x1] = color2;
-			pixels[(y1 * game.screen->w) + x1] = color1;
-			pixels[((y1 + 1) * game.screen->w) + x1] = color2;
-			pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+			putPixel(game.screen, x1, y1 - 2, color3);
+			putPixel(game.screen, x1, y1 - 1, color2);
+			putPixel(game.screen, x1, y1, color1);
+			putPixel(game.screen, x1, y1 + 1, color2);
+			putPixel(game.screen, x1, y1 + 2, color3);
 		}
 
 		cycle += lDelta;
@@ -508,11 +498,11 @@ void drawColouredLine(int x1, int y1, int x2, int y2, int color1, int color2, in
 
 	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
 	{
-		pixels[((y1 - 2) * game.screen->w) + x1] = color3;
-		pixels[((y1 - 1) * game.screen->w) + x1] = color2;
-		pixels[(y1 * game.screen->w) + x1] = color1;
-		pixels[((y1 + 1) * game.screen->w) + x1] = color2;
-		pixels[((y1 + 2) * game.screen->w) + x1] = color3;
+		putPixel(game.screen, x1, y1 - 2, color3);
+		putPixel(game.screen, x1, y1 - 1, color2);
+		putPixel(game.screen, x1, y1, color1);
+		putPixel(game.screen, x1, y1 + 1, color2);
+		putPixel(game.screen, x1, y1 + 2, color3);
 	}
 
 	if (SDL_MUSTLOCK(game.screen))
@@ -794,11 +784,10 @@ void clearScreen(int r, int g, int b)
 
 void drawHitBox(int startX, int startY, int w, int h)
 {
-	int red, x, y, *pixels, transparent;
+	int x, y;
+	Uint32 red, transparent;
 	SDL_Rect dest;
 	SDL_Surface *image;
-
-	pixels = NULL;
 
 	red = SDL_MapRGB(game.screen->format, 255, 0, 0);
 
@@ -817,21 +806,17 @@ void drawHitBox(int startX, int startY, int w, int h)
 		{
 			if (y == 0 || y == (image->h - 1))
 			{
-				pixels = (int *)image->pixels;
-
-				pixels[(y * image->w) + x] = red;
+				putPixel(image, x, y, red);
 			}
 
 			else if (x == 0 || x == (image->w - 1))
 			{
-				pixels = (int *)image->pixels;
-
-				pixels[(y * image->w) + x] = red;
+				putPixel(image, x, y, red);
 			}
 
 			else
 			{
-				pixels[(y * image->w) + x] = transparent;
+				putPixel(image, x, y, transparent);
 			}
 		}
 	}
@@ -855,9 +840,11 @@ void drawHitBox(int startX, int startY, int w, int h)
 
 static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 {
-	unsigned char r, g, b;
-	int *pixels, x, y, pixel;
-	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
+	unsigned char r, g, b, transR, transG, transB;
+	int x, y;
+	Uint32 pixel;
+	Uint32 color = SDL_MapRGB(game.screen->format, 255, 255, 255);
+	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
 	SDL_Rect dest;
 	SDL_Surface *flipped;
 
@@ -868,19 +855,17 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 		SDL_LockSurface(image);
 	}
 
+	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
+
 	for (x=0;x<image->w;x++)
 	{
 		for (y=0;y<image->h;y++)
 		{
-			pixels = (int *)image->pixels;
-
-			pixel = pixels[(y * image->w) + x];
+			pixel = getPixel(image, x, y);
 
 			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
-			pixels = (int *)flipped->pixels;
-
-			pixels[(y * flipped->w) + x] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
+			putPixel(flipped, x, y, (r == transR && g == transG && b == transB) ? pixel : color);
 		}
 	}
 
@@ -910,8 +895,10 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 
 EntityList *createPixelsFromSprite(Sprite *sprite)
 {
-	unsigned char r, g, b;
-	int *pixels, i, x, y, pixel;
+	unsigned char r, g, b, transR, transG, transB;
+	int i, x, y;
+	Uint32 pixel;
+	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
 	SDL_Surface *image = sprite->image;
 	Entity *d;
 	EntityList *list;
@@ -930,18 +917,18 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 		SDL_LockSurface(image);
 	}
 
+	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
+
 	for (i=0;i<MAX_DECORATIONS;i++)
 	{
 		x = prand() % image->w;
 		y = prand() % image->h;
 
-		pixels = (int *)image->pixels;
-
-		pixel = pixels[(y * image->w) + x];
+		pixel = getPixel(image, x, y);
 
 		SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
-		if (r != TRANS_R && g != TRANS_G && b != TRANS_B)
+		if (r != transR && g != transG && b != transB)
 		{
 			d = addPixelDecoration(self->x + x, self->y + y);
 
@@ -968,26 +955,27 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 
 int isTransparent(SDL_Surface *image, int x, int y)
 {
-	int *pixels, pixel;
-	unsigned char r, g, b;
+	Uint32 pixel;
+	unsigned char r, g, b, transR, transG, transB;
+	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
 
 	if (SDL_MUSTLOCK(image))
 	{
 		SDL_LockSurface(image);
 	}
 
-	pixels = (int *)image->pixels;
+	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
+
+	pixel = getPixel(image, x, y);
 
 	if (SDL_MUSTLOCK(image))
 	{
 		SDL_UnlockSurface(image);
 	}
 
-	pixel = pixels[(y * image->w) + x];
-
 	SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
 
-	return (r == TRANS_R && g == TRANS_G && b == TRANS_B);
+	return (r == transR && g == transG && b == transB);
 }
 
 SDL_Surface *createSurface(int width, int height)
@@ -1006,4 +994,83 @@ SDL_Surface *createSurface(int width, int height)
 int getColour(int r, int g, int b)
 {
 	return SDL_MapRGB(game.screen->format, r, g, b);
+}
+
+static Uint32 getPixel(SDL_Surface *surface, int x, int y)
+{
+	int bpp = surface->format->BytesPerPixel;
+
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+
+	switch (bpp)
+	{
+		case 1:
+		case 8:
+			return *p;
+
+		case 2:
+		case 16:
+			return *(Uint16 *)p;
+
+		case 3:
+		case 24:
+			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+			{
+				return p[0] << 16 | p[1] << 8 | p[2];
+			}
+
+			else
+			{
+				return p[0] | p[1] << 8 | p[2] << 16;
+			}
+
+		case 4:
+		case 32:
+			return *(Uint32 *)p;
+
+		default:
+			return 0;
+	}
+}
+
+static void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
+{
+	int bpp = surface->format->BytesPerPixel;
+
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+
+	switch (bpp)
+	{
+		case 1:
+		case 8:
+			*p = pixel;
+		break;
+
+		case 2:
+		case 16:
+			*(Uint16 *)p = pixel;
+		break;
+
+		case 3:
+		case 24:
+			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+			{
+				p[0] = (pixel >> 16) & 0xff;
+				p[1] = (pixel >> 8) & 0xff;
+				p[2] = pixel & 0xff;
+			}
+
+			else
+			{
+				p[0] = pixel & 0xff;
+				p[1] = (pixel >> 8) & 0xff;
+				p[2] = (pixel >> 16) & 0xff;
+			}
+		break;
+
+		case 4:
+		case 32:
+			*(Uint32 *)p = pixel;
+		break;
+	}
 }

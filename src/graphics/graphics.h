@@ -34,5 +34,5 @@ void drawHitBox(int, int, int, int);
 void putPixelToMap(int, int, int, int, int);
 SDL_Surface *flipImage(SDL_Surface *);
 EntityList *createPixelsFromSprite(Sprite *);
-void drawColouredLine(int, int, int, int, int, int, int);
+void drawColouredLine(int, int, int, int, Uint32, Uint32, Uint32);
 int getColour(int r, int g, int b);

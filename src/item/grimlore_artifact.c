@@ -41,8 +41,9 @@ extern Game game;
 
 static void reflectionShieldInit(int);
 static void protectionShieldInit(int);
-static void shieldWait(void);
 static void touch(Entity *);
+static void protectionShieldWait(void);
+static void reflectionShieldWait(void);
 
 Entity *addReflectionArtifact(int x, int y, char *name)
 {
@@ -114,7 +115,7 @@ static void reflectionShieldInit(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
 
@@ -125,11 +126,15 @@ static void reflectionShieldInit(int val)
 
 		loadProperties("edgar/edgar_reflection_shield", e);
 
-		e->action = &shieldWait;
+		e->action = &reflectionShieldWait;
 
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->touch = &touch;
+
+		e->health = self->maxThinkTime;
+
+		self->thinkTime = self->maxThinkTime;
 	}
 }
 
@@ -137,7 +142,7 @@ static void protectionShieldInit(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
 
@@ -148,15 +153,19 @@ static void protectionShieldInit(int val)
 
 		loadProperties("edgar/edgar_protection_shield", e);
 
-		e->action = &shieldWait;
+		e->action = &protectionShieldWait;
 
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->touch = &touch;
+
+		e->head = self;
+
+		self->thinkTime = 9999999;
 	}
 }
 
-static void shieldWait()
+static void reflectionShieldWait()
 {
 	float radians;
 
@@ -169,8 +178,40 @@ static void shieldWait()
 
 	self->alpha = 128 + (64 * cos(radians));
 
+	self->health--;
+
+	if (self->health <= 60 && self->health % 3 == 0)
+	{
+		self->flags ^= NO_DRAW;
+	}
+
+	if (self->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void protectionShieldWait()
+{
+	float radians;
+
+	self->x = player.x + player.w / 2 - self->w / 2;
+	self->y = player.y + player.h / 2 - self->h / 2;
+
+	self->thinkTime += 5;
+
+	radians = DEG_TO_RAD(self->thinkTime);
+
+	self->alpha = 128 + (64 * cos(radians));
+
+	player.element = FIRE;
+
 	if (player.dirX != 0 || player.dirY != 0)
 	{
+		player.element = NO_ELEMENT;
+
+		self->head->thinkTime = 0;
+
 		self->inUse = FALSE;
 	}
 }

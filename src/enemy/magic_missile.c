@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../item/item.h"
 #include "../collisions.h"
+#include "../geometry.h"
 #include "../custom_actions.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
@@ -76,7 +77,7 @@ static void init()
 {
 	self->startX = self->x;
 	self->startY = self->y;
-	
+
 	addBreadCrumb(self->x, self->y, self->dirX, self->dirY);
 
 	self->thinkTime = self->maxThinkTime;
@@ -87,7 +88,8 @@ static void init()
 static void move()
 {
 	int midX, midY;
-	float dirX, dirY;
+	float currentDirX, currentDirY;
+	float requiredDirX, requiredDirY;
 
 	self->thinkTime--;
 
@@ -104,11 +106,11 @@ static void move()
 			self->health = 2;
 		}
 	}
-	
+
 	if (self->head == NULL || self->head->health <= 0 || self->head->inUse == FALSE)
 	{
 		self->die();
-		
+
 		return;
 	}
 
@@ -117,66 +119,55 @@ static void move()
 		midX = self->head->x + self->head->w / 2 - self->w / 2;
 		midY = self->head->y + self->head->h / 2 - self->h / 2;
 
-		dirX = self->dirX;
-		dirY = self->dirY;
+		currentDirX = self->dirX;
+		currentDirY = self->dirY;
 
-		if (fabs(midX - self->x) > fabs(self->dirX))
+		calculatePath(self->x, self->y, midX, midY, &requiredDirX, &requiredDirY);
+
+		requiredDirX *= self->speed;
+		requiredDirY *= self->speed;
+
+		if (fabs(currentDirX - requiredDirX) <= 1)
 		{
-			if (midX < self->x)
+			self->dirX = requiredDirX;
+		}
+
+		else
+		{
+			self->dirX += requiredDirX < 0 ? -1 : 1;
+
+			if (fabs(self->dirX) > self->speed)
 			{
-				self->dirX -= 1;
-
-				if (self->dirX < -self->speed)
-				{
-					self->dirX = -self->speed;
-				}
-			}
-
-			else
-			{
-				self->dirX += 1;
-
-				if (self->dirX > self->speed)
-				{
-					self->dirX = self->speed;
-				}
+				self->dirX = self->dirX < 0 ? -self->speed : self->speed;
 			}
 		}
 
-		if (fabs(midY - self->y) > fabs(self->dirY))
+		if (fabs(currentDirY - requiredDirY) <= 1)
 		{
-			if (midY < self->y)
+			self->dirY = requiredDirY;
+		}
+
+		else
+		{
+			self->dirY += requiredDirY < 0 ? -1 : 1;
+
+			if (fabs(self->dirY) > self->speed)
 			{
-				self->dirY -= 1;
-
-				if (self->dirY < -self->speed)
-				{
-					self->dirY = -self->speed;
-				}
-			}
-
-			else
-			{
-				self->dirY += 1;
-
-				if (self->dirY > self->speed)
-				{
-					self->dirY = self->speed;
-				}
+				self->dirY = self->dirY < 0 ? -self->speed : self->speed;
 			}
 		}
 
 		self->thinkTime = self->maxThinkTime;
 
-		addBreadCrumb(self->x, self->y, dirX, dirY);
+		addBreadCrumb(self->x, self->y, currentDirX, currentDirY);
 	}
 
-	dirX = self->dirX;
-	dirY = self->dirY;
+	currentDirX = self->dirX;
+	currentDirY = self->dirY;
 
 	checkToMap(self);
 
-	if ((dirX != 0 && self->dirX == 0) || (dirY != 0 && self->dirY == 0))
+	if ((currentDirX != 0 && self->dirX == 0) || (currentDirY != 0 && self->dirY == 0))
 	{
 		self->die();
 	}
@@ -264,14 +255,16 @@ static void touch(Entity *other)
 	if (strcmpignorecase(other->name, "edgar/edgar_reflection_shield") == 0)
 	{
 		self->touch = &reflectTouch;
-		
+
 		self->head = getEntityByObjectiveName(self->objectiveName);
-		
+
 		setCustomAction(&player, &invulnerableNoFlash, 120, 0, 0);
-		
+
 		self->damage = 50;
+
+		self->parent = &player;
 	}
-	
+
 	else
 	{
 		entityTouch(other);
@@ -324,7 +317,7 @@ static void addBreadCrumb(float x, float y, float dirX, float dirY)
 	crumb->type = TEMP_ITEM;
 
 	crumb->mental = 0;
-	
+
 	crumb->thinkTime = 120;
 
 	setEntityAnimation(crumb, "STAND");
@@ -334,24 +327,24 @@ static void addBreadCrumb(float x, float y, float dirX, float dirY)
 	while (e->target != NULL)
 	{
 		e = e->target;
-		
+
 		crumb->mental = e->mental + 1;
 	}
 
 	e->target = crumb;
-	
+
 	e = self;
-	
+
 	while (e->target != NULL)
 	{
 		prev = e;
-		
+
 		e = e->target;
-		
+
 		if (e->thinkTime <= 0)
 		{
 			prev->target = e->target;
-			
+
 			e->inUse = FALSE;
 		}
 	}
@@ -360,7 +353,7 @@ static void addBreadCrumb(float x, float y, float dirX, float dirY)
 static void crumbWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 0;
