@@ -1,0 +1,9 @@
+NAME weapon/pickaxe
+FRAMES 1
+1 30000 0 0
+NAME weapon/wood_axe
+FRAMES 1
+0 30000 0 0
+NAME weapon/basic_sword
+FRAMES 1
+2 30000 0 0

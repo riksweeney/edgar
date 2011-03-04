@@ -34,7 +34,6 @@ extern Entity *self, player;
 
 static void move(void);
 static void touch(Entity *);
-static void reflectTouch(Entity *);
 static void die(void);
 static void addBreadCrumb(float, float, float, float);
 static void init(void);
@@ -254,38 +253,28 @@ static void touch(Entity *other)
 {
 	if (strcmpignorecase(other->name, "edgar/edgar_reflection_shield") == 0)
 	{
-		self->touch = &reflectTouch;
+		self->touch = &entityTouch;
 
-		self->head = getEntityByObjectiveName(self->objectiveName);
+		self->head = getEntityByObjectiveName(self->requires);
 
-		setCustomAction(&player, &invulnerableNoFlash, 120, 0, 0);
+		if (self->head != NULL)
+		{
+			printf("Moving to %s (%s) at %d%d\n", self->head->name, self->head->objectiveName, (int)self->head->x, (int)self->head->y);
 
-		self->damage = 50;
+			self->damage = 50;
 
-		self->parent = &player;
+			self->parent = &player;
+		}
+
+		else
+		{
+			self->die();
+		}
 	}
 
 	else
 	{
 		entityTouch(other);
-	}
-}
-
-static void reflectTouch(Entity *other)
-{
-	Entity *temp;
-
-	if (other == self->target)
-	{
-		temp = self;
-
-		self = self->target;
-
-		self->takeDamage(temp, temp->damage);
-
-		self = temp;
-
-		self->inUse = FALSE;
 	}
 }
 
