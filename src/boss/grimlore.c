@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../hud.h"
 #include "../game.h"
+#include "../inventory.h"
 #include "../player.h"
 #include "../graphics/graphics.h"
 #include "../geometry.h"
@@ -104,6 +105,15 @@ static void beamMove(void);
 static int beamDraw(void);
 static void beamExplosions(void);
 static void explosionTouch(Entity *);
+static void magicMissileChargeWait(void);
+static void itemDestroyAttackInit(void);
+static void itemDestroyAttack(void);
+static void rotateAroundPlayer(void);
+static void itemDestroyWait(void);
+static void itemDestroyerTakeDamage(Entity *, int);
+static void itemDestroyerExpand(void);
+static void itemDestroyerRetract(void);
+static void destroyInventoryItem(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -194,6 +204,7 @@ static void entityWait()
 				switch (r)
 				{
 					case 0:
+						self->maxThinkTime = 5;
 						self->action = &swordStabInit;
 					break;
 
@@ -210,6 +221,7 @@ static void entityWait()
 					break;
 
 					default:
+						self->maxThinkTime = 5;
 						self->action = &swordDropInit;
 					break;
 				}
@@ -222,10 +234,12 @@ static void entityWait()
 				switch (r)
 				{
 					case 0:
+						self->maxThinkTime = 5;
 						self->action = &swordStabInit;
 					break;
 
 					default:
+						self->maxThinkTime = 5;
 						self->action = &swordDropInit;
 					break;
 				}
@@ -241,6 +255,7 @@ static void entityWait()
 				switch (r)
 				{
 					case 0:
+						self->maxThinkTime = 5;
 						self->action = &swordStabInit;
 					break;
 
@@ -257,6 +272,7 @@ static void entityWait()
 					break;
 
 					default:
+						self->maxThinkTime = 5;
 						self->action = &swordDropInit;
 					break;
 				}
@@ -299,6 +315,8 @@ static void entityWait()
 			}
 		}
 	}
+
+	self->action = &itemDestroyAttackInit;
 
 	checkToMap(self);
 }
@@ -364,22 +382,16 @@ static void armourWait()
 		self->flags &= ~NO_DRAW;
 	}
 
-	if (self->face == LEFT)
-	{
-		self->x = self->head->x + self->head->w - self->w - self->offsetX;
-	}
+	self->x = self->head->x;
 
-	else
-	{
-		self->x = self->head->x + self->offsetX;
-	}
-
-	self->y = self->head->y + self->offsetY;
+	self->y = self->head->y;
 }
 
 static void addShield()
 {
 	Entity *e;
+
+	return;
 
 	e = getFreeEntity();
 
@@ -454,6 +466,8 @@ static void addSword()
 {
 	Entity *e;
 
+	return;
+
 	e = getFreeEntity();
 
 	if (e == NULL)
@@ -487,6 +501,8 @@ static void addSword()
 
 static void swordWait()
 {
+	self->layer = self->head->maxThinkTime >= 4 ? MID_GROUND_LAYER : BACKGROUND_LAYER;
+
 	setEntityAnimation(self, self->head->animationName);
 
 	if (self->head->maxThinkTime == 4)
@@ -806,11 +822,11 @@ static void swordStabTakeDamage(Entity *other, int damage)
 		{
 			self->damage = 0;
 
-			self->touch = NULL;
+			self->takeDamage = NULL;
 
 			self->action = &entityDieNoDrop;
 
-			self->head->touch = NULL;
+			self->head->takeDamage = NULL;
 
 			self->head->action = &swordDie;
 		}
@@ -1037,6 +1053,8 @@ static void swordDropTeleportAway()
 
 			self->face = RIGHT;
 		}
+
+		self->y = self->startY;
 
 		self->action = &swordDropFinish;
 	}
@@ -1677,11 +1695,59 @@ static int biteDraw()
 
 static void magicMissileAttackInit()
 {
+	int i;
+	Entity *e;
+
+	setEntityAnimation(self, "MAGIC_MISSILE_START");
+
 	self->thinkTime = 60;
 
 	self->endX = 4;
 
 	self->action = &magicMissileAttack;
+
+	self->thinkTime = 0;
+
+	for (i=0;i<12;i++)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Magic Missile particle");
+		}
+
+		loadProperties("boss/grimlore_magic_missile_particle", e);
+
+		setEntityAnimation(e, i % 2 == 0 ? "LEFT" : "RIGHT");
+
+		e->head = self;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+
+		e->startX = e->x;
+		e->startY = e->y;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->mental = 180;
+
+		e->health = i * 60 + (i % 2 == 0 ? 0 : 30);
+
+		e->action = &magicMissileChargeWait;
+
+		self->thinkTime++;
+	}
 
 	checkToMap(self);
 }
@@ -1690,21 +1756,40 @@ static void magicMissileAttack()
 {
 	Entity *e;
 
-	self->thinkTime--;
+	if (self->endX < 4)
+	{
+		self->thinkTime--;
+	}
 
 	if (self->thinkTime <= 0)
 	{
+		self->endX--;
+
+		setEntityAnimation(self, (int)self->endX % 2 == 0 ? "MAGIC_MISSILE_LEFT" : "MAGIC_MISSILE_RIGHT");
+
 		e = addMagicMissile(self->x, self->y, "enemy/magic_missile");
 
-		e->dirX = 0;
-		e->dirY = -e->speed;
+		playSoundToMap("sound/boss/awesome_boss/hadouken.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		e->dirX = self->face == LEFT ? -e->speed : e->speed;
+		e->dirY = 0;
 		e->thinkTime = 90;
 
 		e->parent = self;
 
-		STRNCPY(e->objectiveName, self->objectiveName, sizeof(e->objectiveName));
-
-		self->endX--;
+		STRNCPY(e->requires, self->objectiveName, sizeof(e->requires));
 
 		if (self->endX <= 0)
 		{
@@ -1896,5 +1981,403 @@ static void explosionTouch(Entity *other)
 	if (other->element != FIRE)
 	{
 		entityTouch(other);
+	}
+}
+
+static void magicMissileChargeWait()
+{
+	float radians;
+
+	self->mental -= 2;
+
+	if (self->mental <= 0)
+	{
+		self->head->thinkTime--;
+
+		self->inUse = FALSE;
+	}
+
+	self->health += 8;
+
+	radians = DEG_TO_RAD(self->health);
+
+	self->x = (0 * cos(radians) - self->mental * sin(radians));
+	self->y = (0 * sin(radians) + self->mental * cos(radians));
+
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void itemDestroyAttackInit()
+{
+	self->action = &itemDestroyAttack;
+
+	checkToMap(self);
+}
+
+static void itemDestroyAttack()
+{
+	int i, angle;
+	Entity *e, *first, *prev;
+	char weaponName[MAX_VALUE_LENGTH];
+
+	i = prand() % 3;
+
+	switch (i)
+	{
+		case 0:
+			STRNCPY(weaponName, "weapon/pickaxe", sizeof(weaponName));
+		break;
+
+		case 1:
+			STRNCPY(weaponName, "weapon/wood_axe", sizeof(weaponName));
+		break;
+
+		default:
+			STRNCPY(weaponName, "weapon/basic_sword", sizeof(weaponName));
+		break;
+	}
+
+	angle = 0;
+
+	for (i=0;i<8;i++)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add an Item Destroyer");
+		}
+
+		loadProperties("boss/grimlore_item_destroyer", e);
+
+		e->action = &rotateAroundPlayer;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->takeDamage = &itemDestroyerTakeDamage;
+		e->touch = &entityTouch;
+
+		e->type = ENEMY;
+
+		setEntityAnimation(e, "STAND");
+
+		e->x = player.x + player.w / 2 - e->w / 2;
+		e->y = player.y + player.h / 2 - e->h / 2;
+
+		if (i == 0)
+		{
+			e->mental = 1;
+
+			e->head = self;
+
+			first = e;
+
+			self->target = e;
+		}
+
+		else
+		{
+			e->head = first;
+
+			prev->target = e;
+		}
+
+		e->active = FALSE;
+
+		e->targetX = angle;
+
+		e->endX = player.h / 2 + e->h;
+
+		e->thinkTime = 600;
+
+		angle += 45;
+
+		STRNCPY(e->requires, weaponName, sizeof(e->requires));
+
+		prev = e;
+	}
+
+	self->maxThinkTime = 1;
+
+	self->thinkTime = 60;
+
+	self->action = &itemDestroyWait;
+
+	checkToMap(self);
+}
+
+static void rotateAroundPlayer()
+{
+	float radians;
+
+	if (self->mental == 1)
+	{
+		if (self->head->maxThinkTime == 2)
+		{
+			self->active = TRUE;
+		}
+	}
+
+	else
+	{
+		self->active = self->head->active;
+
+		if (self->head->health <= 0)
+		{
+			self->die();
+
+			return;
+		}
+	}
+
+	self->targetX += 4;
+
+	radians = DEG_TO_RAD(self->targetX);
+
+	self->x = (0 * cos(radians) - self->endX * sin(radians));
+	self->y = (0 * sin(radians) + self->endX * cos(radians));
+
+	self->startX = player.x + player.w / 2 - self->w / 2;
+	self->startY = player.y + player.h / 2 - self->h / 2;
+
+	self->x += self->startX;
+	self->y += self->startY;
+
+	if (self->active == TRUE)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->endY = self->endX + 64;
+
+			self->thinkTime = 60;
+
+			self->action = &itemDestroyerExpand;
+		}
+	}
+}
+
+static void itemDestroyerExpand()
+{
+	float radians;
+
+	self->endX++;
+
+	if (self->endX > self->endY)
+	{
+		self->endX = self->endY;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &itemDestroyerRetract;
+		}
+	}
+
+	self->targetX += 4;
+
+	radians = DEG_TO_RAD(self->targetX);
+
+	self->x = (0 * cos(radians) - self->endX * sin(radians));
+	self->y = (0 * sin(radians) + self->endX * cos(radians));
+
+	self->startX = player.x + player.w / 2 - self->w / 2;
+	self->startY = player.y + player.h / 2 - self->h / 2;
+
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void itemDestroyerRetract()
+{
+	float radians;
+	Entity *e;
+
+	self->endX -= 8;
+
+	if (self->endX <= 0)
+	{
+		self->x = player.x + player.w / 2 - self->w / 2;
+		self->y = player.y + player.h / 2 - self->h / 2;
+
+		if (self->mental == 1)
+		{
+			e = addExplosion(self->x, self->y);
+
+			e->damage = 1;
+
+			destroyInventoryItem();
+
+			self->head->maxThinkTime = 0;
+		}
+
+		self->inUse = FALSE;
+
+		return;
+	}
+
+	self->targetX += 4;
+
+	radians = DEG_TO_RAD(self->targetX);
+
+	self->x = (0 * cos(radians) - self->endX * sin(radians));
+	self->y = (0 * sin(radians) + self->endX * cos(radians));
+
+	self->startX = player.x + player.w / 2 - self->w / 2;
+	self->startY = player.y + player.h / 2 - self->h / 2;
+
+	self->x += self->startX;
+	self->y += self->startY;
+}
+
+static void itemDestroyWait()
+{
+	Entity *e;
+
+	if (self->maxThinkTime == 1)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Grimlore's Weapon Box");
+			}
+
+			loadProperties("boss/grimlore_weapon_box", e);
+
+			setEntityAnimation(e, self->target->requires);
+
+			e->x = self->x + self->w / 2 - e-> w /2;
+			e->y = self->y - e->h - 16;
+
+			e->action = &doNothing;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			self->maxThinkTime = 2;
+
+			self->target = e;
+
+			self->thinkTime = 120;
+		}
+	}
+
+	if (self->maxThinkTime <= 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->target->inUse = FALSE;
+
+			self->action = &attackFinished;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void itemDestroyerTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (self->active == TRUE && strcmpignorecase(self->requires, other->name) == 0)
+	{
+		temp = self->mental == 1 ? self : self->head;
+
+		while (temp != NULL)
+		{
+			temp->health--;
+
+			setCustomAction(temp, &flashWhite, 6, 0, 0);
+			setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+			temp = temp->target;
+		}
+
+		if (self->health <= 0)
+		{
+			self->die();
+		}
+	}
+
+	else
+	{
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock(temp);
+
+			self = temp;
+		}
+
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+
+		temp = self->mental == 1 ? self : self->head;
+
+		while (temp != NULL)
+		{
+			temp->health -= damage;
+
+			setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+			temp = temp->target;
+		}
+	}
+}
+
+static void destroyInventoryItem()
+{
+	int size, i;
+	Entity *e;
+	char *items[] = {
+		"item/centurion_statue",
+		"item/scorpion_statue",
+		"item/tortoise_statue",
+		"item/spider_statue",
+		"item/health_potion",
+		"weapon/lightning_sword",
+		"item/instruction_card",
+		"weapon/normal_arrow",
+		"weapon/flaming_arrow",
+		"item/full_soul_bottle",
+		"item/soul_bottle",
+		"item/tortoise_shell",
+		"item/summoner_staff",
+		"item/flaming_arrow_potion"
+	};
+
+	size = sizeof(items) / sizeof(char *);
+
+	i = prand() % size;
+
+	e = getInventoryItemByName(items[i]);
+
+	if (e != NULL)
+	{
+		removeInventoryItemByName(items[i]);
+
+		setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"));
 	}
 }
