@@ -301,12 +301,16 @@ static void entityWait()
 
 		else if (self->mental & 1) /* Only armour */
 		{
-			r = prand() % 2;
+			r = prand() % 3;
 
 			switch (r)
 			{
 				case 0:
 					self->action = &magicMissileAttackInit;
+				break;
+				
+				case 1:
+					self->action = &itemDestroyAttackInit;
 				break;
 
 				default:
@@ -315,8 +319,6 @@ static void entityWait()
 			}
 		}
 	}
-
-	self->action = &itemDestroyAttackInit;
 
 	checkToMap(self);
 }
@@ -2056,6 +2058,7 @@ static void itemDestroyAttack()
 		e->draw = &drawLoopingAnimationToMap;
 		e->takeDamage = &itemDestroyerTakeDamage;
 		e->touch = &entityTouch;
+		e->die = &entityDieNoDrop;
 
 		e->type = ENEMY;
 
@@ -2071,8 +2074,6 @@ static void itemDestroyAttack()
 			e->head = self;
 
 			first = e;
-
-			self->target = e;
 		}
 
 		else
@@ -2096,10 +2097,37 @@ static void itemDestroyAttack()
 
 		prev = e;
 	}
+	
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Grimlore's Weapon Box");
+	}
+
+	loadProperties("boss/grimlore_weapon_box", e);
+
+	setEntityAnimationByID(e, 0);
+
+	e->x = self->x + self->w / 2 - e-> w /2;
+	e->y = self->y - e->h - 16;
+	
+	STRNCPY(e->requires, weaponName, sizeof(e->requires));
+
+	e->action = &doNothing;
+
+	e->draw = &drawLoopingAnimationToMap;
+	
+	if (self->target != NULL && self->target->inUse == TRUE)
+	{
+		self->target->inUse = FALSE;
+	}
+	
+	self->target = e;
 
 	self->maxThinkTime = 1;
 
-	self->thinkTime = 60;
+	self->thinkTime = 180;
 
 	self->action = &itemDestroyWait;
 
@@ -2234,35 +2262,39 @@ static void itemDestroyerRetract()
 
 static void itemDestroyWait()
 {
-	Entity *e;
-
 	if (self->maxThinkTime == 1)
 	{
 		self->thinkTime--;
+		
+		if (self->thinkTime > 30)
+		{
+			if (self->thinkTime % 6 == 0)
+			{
+				self->target->health++;
+				
+				if (self->target->health >= 3)
+				{
+					self->target->health = 0;
+				}
+				
+				self->target->face = self->target->face == LEFT ? RIGHT : LEFT;
+				
+				setEntityAnimationByID(self->target, self->target->health);
+				
+				playSoundToMap("sound/item/charge_beep.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			}
+		}
+		
+		else
+		{
+			setEntityAnimation(self->target, self->target->requires);
+		}
 
 		if (self->thinkTime <= 0)
 		{
-			e = getFreeEntity();
-
-			if (e == NULL)
-			{
-				showErrorAndExit("No free slots to add Grimlore's Weapon Box");
-			}
-
-			loadProperties("boss/grimlore_weapon_box", e);
-
-			setEntityAnimation(e, self->target->requires);
-
-			e->x = self->x + self->w / 2 - e-> w /2;
-			e->y = self->y - e->h - 16;
-
-			e->action = &doNothing;
-
-			e->draw = &drawLoopingAnimationToMap;
-
+			self->target->inUse = FALSE;
+			
 			self->maxThinkTime = 2;
-
-			self->target = e;
 
 			self->thinkTime = 120;
 		}
@@ -2274,8 +2306,6 @@ static void itemDestroyWait()
 
 		if (self->thinkTime <= 0)
 		{
-			self->target->inUse = FALSE;
-
 			self->action = &attackFinished;
 		}
 	}
@@ -2295,20 +2325,33 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 	if (self->active == TRUE && strcmpignorecase(self->requires, other->name) == 0)
 	{
 		temp = self->mental == 1 ? self : self->head;
-
-		while (temp != NULL)
+		
+		temp->health--;
+		
+		if (temp->health > 0)
 		{
-			temp->health--;
+			while (temp != NULL)
+			{
+				setCustomAction(temp, &flashWhite, 6, 0, 0);
+				setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
-			setCustomAction(temp, &flashWhite, 6, 0, 0);
-			setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-
-			temp = temp->target;
+				temp = temp->target;
+			}
+			
+			enemyPain();
 		}
-
-		if (self->health <= 0)
+		
+		else
 		{
+			temp = self;
+			
+			self = self->mental == 1 ? self : self->head;
+			
+			self->head->maxThinkTime = 0;
+
 			self->die();
+			
+			self = temp;
 		}
 	}
 
@@ -2318,28 +2361,14 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
-		if (other->reactToBlock != NULL)
-		{
-			temp = self;
-
-			self = other;
-
-			self->reactToBlock(temp);
-
-			self = temp;
-		}
-
-		if (prand() % 10 == 0)
-		{
-			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
-		}
-
 		temp = self->mental == 1 ? self : self->head;
 
 		while (temp != NULL)
 		{
-			temp->health -= damage;
-
+			temp->thinkTime = 0;
+			
+			temp->active = TRUE;
+			
 			setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			temp = temp->target;

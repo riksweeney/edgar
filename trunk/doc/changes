@@ -7,6 +7,7 @@ Version 0.80
 * Added a reset switch to the start of the Sewer
 * Fixed a slight problem with some of the conveyor belts in the Dungeon
 * Green Centipedes can be walked on again after loading a game (really fixed this time)
+* The game should work on 16 bit resolutions
 
 Version 0.77
 * Green Centipedes can be walked on again after loading a game
