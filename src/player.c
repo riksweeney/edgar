@@ -1030,7 +1030,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	int shieldHealth;
 	Entity *temp;
-	char shieldName[MAX_VALUE_LENGTH];
+	char shieldName[MAX_VALUE_LENGTH], oldShieldName[MAX_VALUE_LENGTH];
 
 	if (player.health <= 0 || other->parent == &playerWeapon)
 	{
@@ -1128,9 +1128,13 @@ static void takeDamage(Entity *other, int damage)
 						{
 							shieldHealth = playerShield.health;
 							
+							STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
+							
 							snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
 							
 							loadProperties(shieldName, &playerShield);
+							
+							replaceInventoryItemWithName(oldShieldName, &playerShield);
 							
 							playerShield.thinkTime = 5;
 							

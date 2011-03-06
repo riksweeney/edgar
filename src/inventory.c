@@ -492,6 +492,7 @@ int removeInventoryItemByObjectiveName(char *name)
 int removeInventoryItemByName(char *name)
 {
 	int i, found;
+	Entity *e;
 
 	found = FALSE;
 
@@ -512,6 +513,20 @@ int removeInventoryItemByName(char *name)
 			else
 			{
 				inventory.item[i].inUse = FALSE;
+
+				if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerWeapon();
+
+					e->inUse = FALSE;
+				}
+
+				else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerShield();
+
+					e->inUse = FALSE;
+				}
 			}
 
 			found = TRUE;

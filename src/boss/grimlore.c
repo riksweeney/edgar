@@ -53,8 +53,8 @@ extern Entity *self, player;
 extern Game game;
 
 static void initialise(void);
-static void doIntro(void);
 static void entityWait(void);
+static void doIntro(void);
 static void attackFinished(void);
 static void swordStabInit(void);
 static void swordStab(void);
@@ -97,6 +97,7 @@ static void shieldBiteReactToBlock(Entity *);
 static void shieldBiteMoveBack(void);
 static void dropReflectionArtifact(void);
 static void dropProtectionArtifact(void);
+static void dropBindArtifact(void);
 static void magicMissileAttackInit(void);
 static void magicMissileAttack(void);
 static void beamAttackInit(void);
@@ -145,31 +146,34 @@ Entity *addGrimlore(int x, int y, char *name)
 
 static void initialise()
 {
-	if (self->active == TRUE)
+	if (self->active == FALSE)
 	{
-		if (cameraAtMinimum())
+		addArmour();
+
+		addSword();
+
+		addShield();
+		
+		self->active = TRUE;
+		
+		self->thinkTime = 60;
+	}
+	
+	else
+	{
+		self->face = LEFT;
+		
+		if (self->head == NULL)
 		{
 			self->startY = self->y;
 
-			self->flags &= ~NO_DRAW;
-
-			addArmour();
-
-			addSword();
-
-			addShield();
-
 			centerMapOnEntity(NULL);
 
-			self->thinkTime = 60;
-
 			self->action = &doIntro;
+			
+			self->active = FALSE;
 
 			setContinuePoint(FALSE, self->name, NULL);
-
-			playDefaultBossMusic();
-
-			initBossHealthBar();
 
 			self->flags |= LIMIT_TO_SCREEN;
 
@@ -182,9 +186,18 @@ static void initialise()
 
 static void doIntro()
 {
-	self->face = LEFT;
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		playDefaultBossMusic();
 
-	self->action = &attackFinished;
+		initBossHealthBar();
+		
+		self->action = &attackFinished;
+	}
+	
+	checkToMap(self);
 }
 
 static void entityWait()
@@ -299,7 +312,7 @@ static void entityWait()
 			}
 		}
 
-		else if (self->mental & 1) /* Only armour */
+		else /* No weapons */
 		{
 			r = prand() % 3;
 
@@ -325,6 +338,8 @@ static void entityWait()
 
 static void attackFinished()
 {
+	self->maxThinkTime = 0;
+	
 	setEntityAnimation(self, "STAND");
 
 	self->flags &= ~FLY;
@@ -392,8 +407,6 @@ static void armourWait()
 static void addShield()
 {
 	Entity *e;
-
-	return;
 
 	e = getFreeEntity();
 
@@ -468,8 +481,6 @@ static void addSword()
 {
 	Entity *e;
 
-	return;
-
 	e = getFreeEntity();
 
 	if (e == NULL)
@@ -503,7 +514,7 @@ static void addSword()
 
 static void swordWait()
 {
-	self->layer = self->head->maxThinkTime >= 4 ? MID_GROUND_LAYER : BACKGROUND_LAYER;
+	self->layer = self->head->maxThinkTime >= 4 || self->head->touch == NULL ? MID_GROUND_LAYER : BACKGROUND_LAYER;
 
 	setEntityAnimation(self, self->head->animationName);
 
@@ -851,6 +862,11 @@ static void swordStabTakeDamage(Entity *other, int damage)
 static void swordTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
+	
+	if (self->head->touch == NULL)
+	{
+		return;
+	}
 
 	if ((self->flags & INVULNERABLE) || (self->head->mental & 4))
 	{
@@ -915,7 +931,7 @@ static void swordDie()
 
 static void armourDie()
 {
-	dropReflectionArtifact();
+	dropBindArtifact();
 
 	self->head->mental -= 1;
 
@@ -1208,6 +1224,11 @@ static void armourTakeDamage(Entity *other, int damage)
 static void shieldTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
+	
+	if (self->head->touch == NULL)
+	{
+		return;
+	}
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -1650,6 +1671,15 @@ static void dropProtectionArtifact()
 	e->dirX = self->face == LEFT ? -6 : 6;
 }
 
+static void dropBindArtifact()
+{
+	Entity *e = addBindArtifact(self->x, self->y, "item/bind_artifact");
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+
+	e->dirX = self->face == LEFT ? -6 : 6;
+}
+
 static int biteDraw()
 {
 	int startX;
@@ -2012,7 +2042,11 @@ static void magicMissileChargeWait()
 
 static void itemDestroyAttackInit()
 {
+	setEntityAnimation(self, "RAISE_ARMS_1");
+	
 	self->action = &itemDestroyAttack;
+	
+	self->thinkTime = 120;
 
 	checkToMap(self);
 }
@@ -2022,114 +2056,126 @@ static void itemDestroyAttack()
 	int i, angle;
 	Entity *e, *first, *prev;
 	char weaponName[MAX_VALUE_LENGTH];
-
-	i = prand() % 3;
-
-	switch (i)
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime == 60)
 	{
-		case 0:
-			STRNCPY(weaponName, "weapon/pickaxe", sizeof(weaponName));
-		break;
-
-		case 1:
-			STRNCPY(weaponName, "weapon/wood_axe", sizeof(weaponName));
-		break;
-
-		default:
-			STRNCPY(weaponName, "weapon/basic_sword", sizeof(weaponName));
-		break;
+		setEntityAnimation(self, "RAISE_ARMS_2");
+		
+		fadeFromColour(255, 0, 0, 60);
 	}
-
-	angle = 0;
-
-	for (i=0;i<8;i++)
+	
+	if (self->thinkTime <= 0)
 	{
+		i = prand() % 3;
+
+		switch (i)
+		{
+			case 0:
+				STRNCPY(weaponName, "weapon/pickaxe", sizeof(weaponName));
+			break;
+
+			case 1:
+				STRNCPY(weaponName, "weapon/wood_axe", sizeof(weaponName));
+			break;
+
+			default:
+				STRNCPY(weaponName, "weapon/basic_sword", sizeof(weaponName));
+			break;
+		}
+
+		angle = 0;
+
+		for (i=0;i<8;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add an Item Destroyer");
+			}
+
+			loadProperties("boss/grimlore_item_destroyer", e);
+
+			e->action = &rotateAroundPlayer;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->takeDamage = &itemDestroyerTakeDamage;
+			e->touch = &entityTouch;
+			e->die = &entityDieNoDrop;
+
+			e->type = ENEMY;
+
+			setEntityAnimation(e, "STAND");
+
+			e->x = player.x + player.w / 2 - e->w / 2;
+			e->y = player.y + player.h / 2 - e->h / 2;
+
+			if (i == 0)
+			{
+				e->mental = 1;
+
+				e->head = self;
+
+				first = e;
+			}
+
+			else
+			{
+				e->head = first;
+
+				prev->target = e;
+			}
+
+			e->active = FALSE;
+
+			e->targetX = angle;
+
+			e->endX = player.h / 2 + e->h;
+
+			e->thinkTime = 600;
+
+			angle += 45;
+
+			STRNCPY(e->requires, weaponName, sizeof(e->requires));
+
+			prev = e;
+		}
+		
 		e = getFreeEntity();
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add an Item Destroyer");
+			showErrorAndExit("No free slots to add Grimlore's Weapon Box");
 		}
 
-		loadProperties("boss/grimlore_item_destroyer", e);
+		loadProperties("boss/grimlore_weapon_box", e);
 
-		e->action = &rotateAroundPlayer;
+		setEntityAnimationByID(e, 0);
 
-		e->draw = &drawLoopingAnimationToMap;
-		e->takeDamage = &itemDestroyerTakeDamage;
-		e->touch = &entityTouch;
-		e->die = &entityDieNoDrop;
-
-		e->type = ENEMY;
-
-		setEntityAnimation(e, "STAND");
-
-		e->x = player.x + player.w / 2 - e->w / 2;
-		e->y = player.y + player.h / 2 - e->h / 2;
-
-		if (i == 0)
-		{
-			e->mental = 1;
-
-			e->head = self;
-
-			first = e;
-		}
-
-		else
-		{
-			e->head = first;
-
-			prev->target = e;
-		}
-
-		e->active = FALSE;
-
-		e->targetX = angle;
-
-		e->endX = player.h / 2 + e->h;
-
-		e->thinkTime = 600;
-
-		angle += 45;
-
+		e->x = self->x + self->w / 2 - e-> w /2;
+		e->y = self->y - e->h - 16;
+		
 		STRNCPY(e->requires, weaponName, sizeof(e->requires));
 
-		prev = e;
+		e->action = &doNothing;
+
+		e->draw = &drawLoopingAnimationToMap;
+		
+		if (self->target != NULL && self->target->inUse == TRUE)
+		{
+			self->target->inUse = FALSE;
+		}
+		
+		self->target = e;
+
+		self->maxThinkTime = 1;
+
+		self->thinkTime = 180;
+
+		self->action = &itemDestroyWait;
 	}
-	
-	e = getFreeEntity();
-
-	if (e == NULL)
-	{
-		showErrorAndExit("No free slots to add Grimlore's Weapon Box");
-	}
-
-	loadProperties("boss/grimlore_weapon_box", e);
-
-	setEntityAnimationByID(e, 0);
-
-	e->x = self->x + self->w / 2 - e-> w /2;
-	e->y = self->y - e->h - 16;
-	
-	STRNCPY(e->requires, weaponName, sizeof(e->requires));
-
-	e->action = &doNothing;
-
-	e->draw = &drawLoopingAnimationToMap;
-	
-	if (self->target != NULL && self->target->inUse == TRUE)
-	{
-		self->target->inUse = FALSE;
-	}
-	
-	self->target = e;
-
-	self->maxThinkTime = 1;
-
-	self->thinkTime = 180;
-
-	self->action = &itemDestroyWait;
 
 	checkToMap(self);
 }
@@ -2380,6 +2426,7 @@ static void destroyInventoryItem()
 {
 	int size, i;
 	Entity *e;
+	char itemName[MAX_VALUE_LENGTH];
 	char *items[] = {
 		"item/centurion_statue",
 		"item/scorpion_statue",
@@ -2387,6 +2434,7 @@ static void destroyInventoryItem()
 		"item/spider_statue",
 		"item/health_potion",
 		"weapon/lightning_sword",
+		"weapon/lightning_sword_empty",
 		"item/instruction_card",
 		"weapon/normal_arrow",
 		"weapon/flaming_arrow",
@@ -2405,8 +2453,10 @@ static void destroyInventoryItem()
 
 	if (e != NULL)
 	{
-		removeInventoryItemByName(items[i]);
+		STRNCPY(itemName, e->objectiveName, sizeof(itemName));
+		
+		removeInventoryItemByName(e->name);
 
-		setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"));
+		setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"), itemName);
 	}
 }
