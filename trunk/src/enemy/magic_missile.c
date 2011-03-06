@@ -259,8 +259,6 @@ static void touch(Entity *other)
 
 		if (self->head != NULL)
 		{
-			printf("Moving to %s (%s) at %d%d\n", self->head->name, self->head->objectiveName, (int)self->head->x, (int)self->head->y);
-
 			self->damage = 50;
 
 			self->parent = &player;

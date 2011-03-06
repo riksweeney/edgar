@@ -44,6 +44,9 @@ static void protectionShieldInit(int);
 static void touch(Entity *);
 static void protectionShieldWait(void);
 static void reflectionShieldWait(void);
+static void bindWait(void);
+static void throwBindArtifact(int);
+static void bindTouch(Entity *);
 
 Entity *addReflectionArtifact(int x, int y, char *name)
 {
@@ -103,6 +106,39 @@ Entity *addProtectionArtifact(int x, int y, char *name)
 	e->fallout = &keyItemFallout;
 
 	e->activate = &protectionShieldInit;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, "STAND");
+
+	return e;
+}
+
+Entity *addBindArtifact(int x, int y, char *name)
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Bind Artifact");
+	}
+
+	loadProperties(name, e);
+
+	e->x = x;
+	e->y = y;
+
+	e->type = KEY_ITEM;
+
+	e->face = RIGHT;
+
+	e->action = &doNothing;
+
+	e->touch = &keyItemTouch;
+
+	e->fallout = &keyItemFallout;
+
+	e->activate = &throwBindArtifact;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -219,4 +255,66 @@ static void protectionShieldWait()
 static void touch(Entity *other)
 {
 
+}
+
+static void throwBindArtifact(int val)
+{
+	Entity *e;
+
+	if (game.status == IN_GAME)
+	{
+		setEntityAnimation(self, "WALK");
+
+		self->active = TRUE;
+
+		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
+
+		e->thinkTime = 120;
+
+		e->flags |= DO_NOT_PERSIST|LIMIT_TO_SCREEN;
+
+		e->touch = &bindTouch;
+
+		e->action = &bindWait;
+
+		e->dirX = player.face == LEFT ? -8 : 8;
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		e->fallout = &entityDieNoDrop;
+
+		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+
+		self->inUse = FALSE;
+	}
+}
+
+static void bindWait()
+{
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+	}
+	
+	checkToMap(self);
+}
+
+static void bindTouch(Entity *other)
+{
+	if (strcmpignorecase(other->objectiveName, self->requires) == 0)
+	{
+		if (other->health <= 0)
+		{
+			printf("Will bind\n");
+		}
+		
+		else
+		{
+			printf("Binding failed\n");
+		}
+		
+		other->health = other->maxHealth;
+		
+		self->inUse = FALSE;
+	}
 }

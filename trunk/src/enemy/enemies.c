@@ -126,6 +126,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/cave_boss.h"
 #include "../boss/black_book_2.h"
 #include "../boss/grimlore.h"
+#include "../boss/grimlore_summon_spell.h"
 
 #include "../system/error.h"
 
@@ -264,7 +265,8 @@ static Constructor enemies[] = {
 {"enemy/giant_ceiling_creeper", &addGiantCeilingCreeper},
 {"enemy/baby_salamander", &addBabySalamander},
 {"boss/grimlore", &addGrimlore},
-{"enemy/magic_missile", &addMagicMissile}
+{"enemy/magic_missile", &addMagicMissile},
+{"boss/grimlore_summon_spell", &addGrimloreSummonSpell}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
