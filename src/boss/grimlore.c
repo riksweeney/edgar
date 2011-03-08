@@ -115,6 +115,20 @@ static void itemDestroyerTakeDamage(Entity *, int);
 static void itemDestroyerExpand(void);
 static void itemDestroyerRetract(void);
 static void destroyInventoryItem(void);
+static void crushAttackInit(void);
+static void crushAttackAppear(void);
+static void crushAttackWait(void);
+static void fistMoveAbovePlayer(void);
+static void fistCrush(void);
+static void crushWait(void);
+static void fistVanish(void);
+static void stunWait(void);
+static void fistTakeDamage(Entity *, int);
+static void crushToMiddleAttackInit(void);
+static void crushToMiddleAttackAppear(void);
+static void fistMoveToMiddle(void);
+static void fistVanishWait(void);
+static void fistAppearActivate(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -153,16 +167,16 @@ static void initialise()
 		addSword();
 
 		addShield();
-		
+
 		self->active = TRUE;
-		
+
 		self->thinkTime = 60;
 	}
-	
+
 	else
 	{
 		self->face = LEFT;
-		
+
 		if (self->head == NULL)
 		{
 			self->startY = self->y;
@@ -170,14 +184,12 @@ static void initialise()
 			centerMapOnEntity(NULL);
 
 			self->action = &doIntro;
-			
+
 			self->active = FALSE;
 
 			setContinuePoint(FALSE, self->name, NULL);
 
 			self->flags |= LIMIT_TO_SCREEN;
-
-			self->touch = &entityTouch;
 		}
 	}
 
@@ -187,16 +199,18 @@ static void initialise()
 static void doIntro()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
+		self->touch = &entityTouch;
+		
 		playDefaultBossMusic();
 
 		initBossHealthBar();
-		
+
 		self->action = &attackFinished;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -314,16 +328,24 @@ static void entityWait()
 
 		else /* No weapons */
 		{
-			r = prand() % 3;
+			r = prand() % 5;
 
 			switch (r)
 			{
 				case 0:
 					self->action = &magicMissileAttackInit;
 				break;
-				
+
 				case 1:
 					self->action = &itemDestroyAttackInit;
+				break;
+
+				case 2:
+					self->action = &crushAttackInit;
+				break;
+
+				case 3:
+					self->action = &crushToMiddleAttackInit;
 				break;
 
 				default:
@@ -339,7 +361,7 @@ static void entityWait()
 static void attackFinished()
 {
 	self->maxThinkTime = 0;
-	
+
 	setEntityAnimation(self, "STAND");
 
 	self->flags &= ~FLY;
@@ -862,7 +884,7 @@ static void swordStabTakeDamage(Entity *other, int damage)
 static void swordTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->head->touch == NULL)
 	{
 		return;
@@ -1098,6 +1120,7 @@ static void swordDropFinish()
 
 static void takeDamage(Entity *other, int damage)
 {
+	int health;
 	Entity *temp;
 
 	/*
@@ -1138,7 +1161,16 @@ static void takeDamage(Entity *other, int damage)
 				damage = 1;
 			}
 
+			health = self->health;
+
 			self->health -= damage;
+
+			if (self->health <= 0 && health > 0)
+			{
+				self->action = &stunWait;
+
+				self->health = 0;
+			}
 
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
@@ -1224,7 +1256,7 @@ static void armourTakeDamage(Entity *other, int damage)
 static void shieldTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->head->touch == NULL)
 	{
 		return;
@@ -1425,7 +1457,7 @@ static void shieldBiteReactToBlock(Entity *other)
 
 static void shieldBiteMoveBack()
 {
-	if ((self->face == LEFT && self->x >= self->endX) || (self->face == RIGHT && self->x <= self->endX))
+	if ((self->face == LEFT && (self->x >= self->endX || self->x >= self->startX)) || (self->face == RIGHT && (self->x <= self->endX || self->x <= self->startX)))
 	{
 		self->mental--;
 
@@ -1934,7 +1966,7 @@ static void beamAttack()
 	{
 		if (self->maxThinkTime <= 0)
 		{
-			self->thinkTime = 120;
+			self->thinkTime = 60;
 
 			self->action = &swordDropTeleportAway;
 		}
@@ -1963,7 +1995,7 @@ static void beamMove()
 
 			self->action = &beamExplosions;
 
-			self->mental = 0;
+			self->mental = 150;
 		}
 	}
 }
@@ -1976,23 +2008,19 @@ static void beamExplosions()
 
 	if (self->thinkTime <= 0)
 	{
-		e = addExplosion(self->x, self->endY);
+		e = addExplosion(self->x + prand() % SCREEN_WIDTH, self->endY);
 
 		e->mental = (self->mental % 10) == 0 ? 0 : 1;
 
-		self->mental++;
+		self->mental--;
 
 		e->touch = &explosionTouch;
 
-		e->y -= e->h / 2;
-
-		self->x += e->w / 2;
+		e->y -= prand() % e->h;
 
 		e->damage = 1;
 
-		self->thinkTime = 3;
-
-		if (self->x > self->endX)
+		if (self->mental <= 0)
 		{
 			self->head->maxThinkTime = 0;
 
@@ -2043,9 +2071,9 @@ static void magicMissileChargeWait()
 static void itemDestroyAttackInit()
 {
 	setEntityAnimation(self, "RAISE_ARMS_1");
-	
+
 	self->action = &itemDestroyAttack;
-	
+
 	self->thinkTime = 120;
 
 	checkToMap(self);
@@ -2056,16 +2084,16 @@ static void itemDestroyAttack()
 	int i, angle;
 	Entity *e, *first, *prev;
 	char weaponName[MAX_VALUE_LENGTH];
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime == 60)
 	{
 		setEntityAnimation(self, "RAISE_ARMS_2");
-		
+
 		fadeFromColour(255, 0, 0, 60);
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		i = prand() % 3;
@@ -2142,7 +2170,7 @@ static void itemDestroyAttack()
 
 			prev = e;
 		}
-		
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -2156,18 +2184,18 @@ static void itemDestroyAttack()
 
 		e->x = self->x + self->w / 2 - e-> w /2;
 		e->y = self->y - e->h - 16;
-		
+
 		STRNCPY(e->requires, weaponName, sizeof(e->requires));
 
 		e->action = &doNothing;
 
 		e->draw = &drawLoopingAnimationToMap;
-		
+
 		if (self->target != NULL && self->target->inUse == TRUE)
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		self->target = e;
 
 		self->maxThinkTime = 1;
@@ -2311,26 +2339,26 @@ static void itemDestroyWait()
 	if (self->maxThinkTime == 1)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime > 30)
 		{
 			if (self->thinkTime % 6 == 0)
 			{
 				self->target->health++;
-				
+
 				if (self->target->health >= 3)
 				{
 					self->target->health = 0;
 				}
-				
+
 				self->target->face = self->target->face == LEFT ? RIGHT : LEFT;
-				
+
 				setEntityAnimationByID(self->target, self->target->health);
-				
+
 				playSoundToMap("sound/item/charge_beep.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 			}
 		}
-		
+
 		else
 		{
 			setEntityAnimation(self->target, self->target->requires);
@@ -2339,7 +2367,7 @@ static void itemDestroyWait()
 		if (self->thinkTime <= 0)
 		{
 			self->target->inUse = FALSE;
-			
+
 			self->maxThinkTime = 2;
 
 			self->thinkTime = 120;
@@ -2371,9 +2399,9 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 	if (self->active == TRUE && strcmpignorecase(self->requires, other->name) == 0)
 	{
 		temp = self->mental == 1 ? self : self->head;
-		
+
 		temp->health--;
-		
+
 		if (temp->health > 0)
 		{
 			while (temp != NULL)
@@ -2383,20 +2411,20 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 
 				temp = temp->target;
 			}
-			
+
 			enemyPain();
 		}
-		
+
 		else
 		{
 			temp = self;
-			
+
 			self = self->mental == 1 ? self : self->head;
-			
+
 			self->head->maxThinkTime = 0;
 
 			self->die();
-			
+
 			self = temp;
 		}
 	}
@@ -2412,9 +2440,9 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 		while (temp != NULL)
 		{
 			temp->thinkTime = 0;
-			
+
 			temp->active = TRUE;
-			
+
 			setCustomAction(temp, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 			temp = temp->target;
@@ -2454,9 +2482,621 @@ static void destroyInventoryItem()
 	if (e != NULL)
 	{
 		STRNCPY(itemName, e->objectiveName, sizeof(itemName));
-		
+
 		removeInventoryItemByName(e->name);
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"), itemName);
 	}
+}
+
+static void crushAttackInit()
+{
+	Target *t;
+
+	self->flags |= NO_DRAW;
+
+	self->layer = BACKGROUND_LAYER;
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	t = getTargetByName("GRIMLORE_FIST_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Grimlore cannot find target");
+	}
+
+	self->x = t->x;
+	self->y = t->y;
+
+	self->thinkTime = 60;
+
+	self->dirY = 0;
+
+	self->flags |= FLY;
+
+	self->action = &crushAttackAppear;
+
+	checkToMap(self);
+}
+
+static void crushToMiddleAttackInit()
+{
+	Target *t;
+
+	self->flags |= NO_DRAW;
+
+	self->layer = BACKGROUND_LAYER;
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	t = getTargetByName("GRIMLORE_FIST_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Grimlore cannot find target");
+	}
+
+	self->x = t->x;
+	self->y = t->y;
+
+	self->thinkTime = 60;
+
+	self->dirY = 0;
+
+	self->flags |= FLY;
+
+	self->action = &crushToMiddleAttackAppear;
+
+	checkToMap(self);
+}
+
+static void crushAttackAppear()
+{
+	int startX;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		startX = getMapStartX();
+
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Grimlore's Fist");
+		}
+
+		loadProperties("boss/grimlore_fist", e);
+
+		e->face = LEFT;
+
+		setEntityAnimation(e, "FIST_APPEAR");
+		
+		e->animationCallback = &fistAppearActivate;
+
+		e->x = startX + SCREEN_WIDTH / 4 - e->w / 2;
+		e->y = self->y;
+
+		e->startX = startX;
+		e->endX = startX + SCREEN_WIDTH / 2 - e->w / 2;
+
+		e->startY = e->y;
+
+		e->flags |= LIMIT_TO_SCREEN;
+
+		e->action = &fistMoveAbovePlayer;
+
+		e->active = FALSE;
+
+		e->dirX = e->speed * 1.5;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->takeDamage = &fistTakeDamage;
+
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		e->mental = 600;
+
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Grimlore's Fist");
+		}
+
+		loadProperties("boss/grimlore_fist", e);
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, "FIST_APPEAR");
+		
+		e->animationCallback = &fistAppearActivate;
+
+		e->x = startX + SCREEN_WIDTH * 3 / 4 - e->w / 2;
+		e->y = self->y;
+
+		e->startX = startX + SCREEN_WIDTH / 2 - e->w / 2;
+		e->endX = startX + SCREEN_WIDTH - e->w;
+
+		e->startY = e->y;
+
+		e->flags |= LIMIT_TO_SCREEN;
+
+		e->action = &fistMoveAbovePlayer;
+
+		e->active = FALSE;
+
+		e->dirX = e->speed * 1.5;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->takeDamage = &fistTakeDamage;
+
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		e->mental = 600;
+
+		self->flags &= ~NO_DRAW;
+
+		self->maxThinkTime = 4;
+
+		self->action = &crushAttackWait;
+	}
+
+	checkToMap(self);
+}
+
+static void crushToMiddleAttackAppear()
+{
+	int startX;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		startX = getMapStartX();
+
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Grimlore's Fist");
+		}
+
+		loadProperties("boss/grimlore_fist", e);
+
+		e->face = LEFT;
+
+		setEntityAnimation(e, "FIST_APPEAR");
+		
+		e->animationCallback = &fistAppearActivate;
+
+		e->x = startX;
+		e->y = self->y;
+
+		e->endX = startX + SCREEN_WIDTH - e->w - 1;
+
+		e->startY = e->y;
+
+		e->flags |= LIMIT_TO_SCREEN;
+
+		e->action = &fistMoveToMiddle;
+
+		e->active = FALSE;
+
+		e->mental = 0;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->takeDamage = &fistTakeDamage;
+
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Grimlore's Fist");
+		}
+
+		loadProperties("boss/grimlore_fist", e);
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, "FIST_APPEAR");
+		
+		e->animationCallback = &fistAppearActivate;
+
+		e->x = startX + SCREEN_WIDTH - e->w;
+		e->y = self->y;
+
+		e->endX = startX;
+
+		e->startY = e->y;
+
+		e->flags |= LIMIT_TO_SCREEN;
+
+		e->action = &fistMoveToMiddle;
+
+		e->active = FALSE;
+
+		e->mental = 0;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->takeDamage = &fistTakeDamage;
+
+		e->touch = &entityTouch;
+
+		e->head = self;
+
+		self->flags &= ~NO_DRAW;
+
+		self->maxThinkTime = 4;
+
+		self->action = &crushAttackWait;
+	}
+
+	checkToMap(self);
+}
+
+static void crushAttackWait()
+{
+	if (self->maxThinkTime <= 0)
+	{
+		self->thinkTime = 30;
+
+		self->action = &swordDropTeleportAway;
+	}
+
+	checkToMap(self);
+}
+
+static void fistMoveAbovePlayer()
+{
+	float target;
+
+	if (self->active == FALSE)
+	{
+		return;
+	}
+
+	target = player.x - self->w / 2 + player.w / 2;
+
+	if (self->head->health <= 0 || self->mental <= 0)
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->action = &fistVanishWait;
+		
+		setEntityAnimation(self, "FIST_DISAPPEAR");
+		
+		self->animationCallback = &fistVanish;
+		
+		self->head->maxThinkTime--;
+		
+		return;
+	}
+	
+	/* Move above the player */
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->targetY = self->y - self->h;
+
+		self->thinkTime = 30;
+
+		self->dirX = 0;
+
+		self->action = &fistCrush;
+	}
+
+	else
+	{
+		self->dirX = self->speed * 1.5;
+
+		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			/* Crush if at the edge of the screen */
+
+			if (self->x == getMapStartX())
+			{
+				self->thinkTime = 30;
+
+				self->dirX = 0;
+
+				self->action = &fistCrush;
+			}
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			/* Crush if at the edge of the screen */
+
+			if (self->x == getMapStartX() + SCREEN_WIDTH - self->w)
+			{
+				self->thinkTime = 30;
+
+				self->dirX = 0;
+
+				self->action = &fistCrush;
+			}
+		}
+	}
+
+	self->mental--;
+}
+
+static void fistCrush()
+{
+	int i;
+	long onGround;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+
+		onGround = (self->flags & ON_GROUND);
+
+		checkToMap(self);
+
+		if (onGround == 0 && (self->flags & ON_GROUND))
+		{
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			shakeScreen(MEDIUM, 15);
+
+			self->thinkTime = 15;
+
+			self->action = &crushWait;
+
+			for (i=0;i<20;i++)
+			{
+				addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+			}
+		}
+	}
+
+	self->mental--;
+}
+
+static void crushWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= FLY;
+
+		if (self->y < self->startY)
+		{
+			self->y = self->startY;
+
+			self->dirY = 0;
+			self->action = &fistMoveAbovePlayer;
+
+		}
+
+		else
+		{
+			self->dirY = -4;
+		}
+	}
+
+	checkToMap(self);
+
+	self->mental--;
+}
+
+static void fistMoveToMiddle()
+{
+	int i;
+	long onGround;
+
+	if (self->active == FALSE)
+	{
+		return;
+	}
+	
+	if (self->head->health <= 0)
+	{
+		self->dirX = 0;
+		self->dirY = 0;
+		
+		self->action = &fistVanishWait;
+		
+		setEntityAnimation(self, "FIST_DISAPPEAR");
+		
+		self->animationCallback = &fistVanish;
+		
+		self->head->maxThinkTime--;
+		
+		return;
+	}
+
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->flags &= ~FLY;
+
+			onGround = (self->flags & ON_GROUND);
+
+			checkToMap(self);
+
+			if (onGround == 0 && (self->flags & ON_GROUND))
+			{
+				playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+				shakeScreen(MEDIUM, 15);
+
+				self->thinkTime = 15;
+
+				for (i=0;i<20;i++)
+				{
+					addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+				}
+
+				self->mental = 1;
+			}
+		}
+	}
+
+	else if (self->mental == 1)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->flags |= FLY;
+
+			if (self->y < self->startY)
+			{
+				self->y = self->startY;
+
+				self->dirY = 0;
+
+				if ((self->face == LEFT && self->x >= self->endX) || (self->face == RIGHT && self->x <= self->endX))
+				{
+					self->thinkTime = 60;
+
+					self->head->maxThinkTime--;
+
+					self->action = &fistVanishWait;
+					
+					setEntityAnimation(self, "FIST_DISAPPEAR");
+					
+					self->animationCallback = &fistVanish;
+				}
+
+				else
+				{
+					self->mental = 2;
+
+					if (self->face == LEFT)
+					{
+						self->targetX = self->x + self->w;
+
+						if (self->targetX > self->endX)
+						{
+							self->targetX = self->endX;
+						}
+
+						self->dirX = self->speed * 1.5;
+					}
+
+					else
+					{
+						self->targetX = self->x - self->w;
+
+						if (self->targetX < self->endX)
+						{
+							self->targetX = self->endX;
+						}
+
+						self->dirX = -self->speed * 1.5;
+					}
+				}
+			}
+
+			else
+			{
+				self->dirY = -4;
+			}
+		}
+	}
+
+	else if (self->mental == 2)
+	{
+		if ((self->face == LEFT && self->x >= self->targetX) || (self->face == RIGHT && self->x <= self->targetX))
+		{
+			self->mental = 0;
+
+			self->x = self->targetX;
+
+			self->dirX = 0;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void fistVanishWait()
+{
+	if (self->active == FALSE && self->head->maxThinkTime <= 2)
+	{
+		self->head->maxThinkTime--;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void stunWait()
+{
+
+}
+
+static void fistTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	setCustomAction(self, &flashWhite, 6, 0, 0);
+
+	/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+	if (other->type != PROJECTILE)
+	{
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+	}
+
+	enemyPain();
+
+	temp = self->head;
+
+	self = self->head;
+
+	self->takeDamage(other, damage);
+
+	self = temp;
+}
+
+static void fistAppearActivate()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->active = TRUE;
+}
+
+static void fistVanish()
+{
+	self->flags |= NO_DRAW;
+	
+	self->active = FALSE;
 }
