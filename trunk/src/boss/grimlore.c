@@ -129,6 +129,7 @@ static void crushToMiddleAttackAppear(void);
 static void fistMoveToMiddle(void);
 static void fistVanishWait(void);
 static void fistAppearActivate(void);
+static int flameDraw(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -203,7 +204,7 @@ static void doIntro()
 	if (self->thinkTime <= 0)
 	{
 		self->touch = &entityTouch;
-		
+
 		playDefaultBossMusic();
 
 		initBossHealthBar();
@@ -353,6 +354,10 @@ static void entityWait()
 				break;
 			}
 		}
+
+		setEntityAnimation(self, "SHIELD_ATTACK");
+		self->maxThinkTime = 2;
+		self->action = &shieldAttackWait;
 	}
 
 	checkToMap(self);
@@ -392,7 +397,6 @@ static void addArmour()
 	e->action = &armourWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->takeDamage = &armourTakeDamage;
 	e->die = &armourDie;
 	e->touch = &entityTouch;
 
@@ -407,6 +411,13 @@ static void addArmour()
 
 static void armourWait()
 {
+	if (self->head->head == NULL)
+	{
+		self->head->head = self;
+
+		printf("%s head is now %s\n", self->head->objectiveName, self->head->head->name);
+	}
+
 	setEntityAnimation(self, self->head->animationName);
 
 	self->face = self->head->face;
@@ -1149,6 +1160,14 @@ static void takeDamage(Entity *other, int damage)
 		{
 			/* The armour will take the damage instead */
 
+			temp = self;
+
+			self = self->head;
+
+			armourTakeDamage(self, damage);
+
+			self = temp;
+
 			return;
 		}
 
@@ -1181,10 +1200,7 @@ static void takeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			enemyPain();
 
 			if (other->type == PROJECTILE)
 			{
@@ -1561,9 +1577,14 @@ static void shieldAttackFinish()
 {
 	if (self->maxThinkTime <= 0)
 	{
-		self->head->maxThinkTime = 0;
-
-		self->action = &shieldWait;
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->head->maxThinkTime = 0;
+	
+			self->action = &shieldWait;
+		}
 	}
 }
 
@@ -1603,27 +1624,45 @@ static void shieldFlameAttack()
 			showErrorAndExit("No free slots to add Grimlore's Shield Flame");
 		}
 
-		loadProperties("enemy/fireball", e);
+		loadProperties("boss/grimlore_shield_flame", e);
 
-		setEntityAnimation(e, "STAND");
+		setEntityAnimation(e, "HEAD");
 
 		e->face = self->face;
 
 		e->action = &flameWait;
 
-		e->draw = &drawLoopingAnimationToMap;
+		e->draw = &flameDraw;
 
-		e->thinkTime = 300;
+		e->thinkTime = 120;
 
 		e->mental = 1;
 
-		e->health = 0;
+		e->health = 1200;
 
 		e->head = self;
 
-		e->x = self->x + (self->face == LEFT ? -e->w : e->w);
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
 
-		e->y = self->y + self->h / 2 - e->h / 2;
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+
+		e->dirX = 14;
+		
+		e->startX = e->x;
+		
+		e->endX = e->face == LEFT ? getMapStartX() - SCREEN_WIDTH : getMapStartX() + SCREEN_WIDTH;
+		
+		e->endY = playSoundToMap("sound/enemy/fire_burner/flame.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		
+		self->thinkTime = 60;
 
 		self->action = &shieldAttackFinish;
 
@@ -1631,58 +1670,89 @@ static void shieldFlameAttack()
 	}
 }
 
+static int flameDraw()
+{
+	int frame;
+	float timer;
+
+	self->x = self->startX;
+
+	drawLoopingAnimationToMap();
+	
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+
+	if (self->face == LEFT)
+	{
+		self->x -= self->w;
+		
+		setEntityAnimation(self, "BODY");
+		
+		self->currentFrame = frame;
+		self->frameTimer = timer;
+		
+		while (self->x >= self->endX)
+		{
+			drawSpriteToMap();
+
+			self->x -= self->w;
+		}
+	}
+
+	else
+	{
+		setEntityAnimation(self, "BODY");
+		
+		self->currentFrame = frame;
+		self->frameTimer = timer;
+		
+		while (self->x <= self->endX)
+		{
+			drawSpriteToMap();
+
+			self->x += self->w;
+		}
+	}
+	
+	setEntityAnimation(self, "HEAD");
+	
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	return TRUE;
+}
+
 static void flameWait()
 {
 	Entity *e;
 
-	self->thinkTime--;
+	self->health--;
 
+	if (self->health % 10 == 0)
+	{
+		if (collision(player.x, player.y, player.w, player.h, self->x, self->y, abs(self->startX - self->endX), self->h) == 1)
+		{
+			e = addProjectile("enemy/fireball", self->head, 0, 0, (self->face == LEFT ? -self->dirX : self->dirX), 0);
+			
+			e->damage = 1;
+
+			e->x = player.x + player.w / 2 - e->w / 2;
+			e->y = player.y + player.h / 2 - e->h / 2;
+
+			e->flags |= FLY|NO_DRAW;
+		}
+	}
+
+	self->thinkTime--;
+	
 	if (self->thinkTime <= 0)
 	{
+		stopSound(self->startY);
+		
 		self->head->maxThinkTime = 0;
-
+		
 		self->inUse = FALSE;
 	}
-
-	else if (self->thinkTime % 6 == 0)
-	{
-		e = addProjectile("enemy/fireball", self, 0, 0, (self->face == LEFT ? -6 : 6), 0);
-
-		e->x = self->x + self->w / 2 - e->w / 2;
-		e->y = self->y + self->h / 2 - e->h / 2;
-
-		e->flags |= FLY;
-	}
-	/*
-	if (self->thinkTime <= 0)
-	{
-		self->health += self->mental;
-
-		if (self->health >= 8)
-		{
-			self->mental = -1;
-
-			self->thinkTime = 60;
-		}
-
-		else
-		{
-			self->thinkTime = 10;
-		}
-
-		if (self->health < 0)
-		{
-			self->head->maxThinkTime = 0;
-
-			self->inUse = FALSE;
-		}
-
-		else
-		{
-			setEntityAnimation(self, "STAND");
-		}
-	}
-	*/
 }
 
 static void dropReflectionArtifact()
@@ -1993,6 +2063,8 @@ static void beamMove()
 
 			self->thinkTime = 3;
 
+			self->health = player.health;
+
 			self->action = &beamExplosions;
 
 			self->mental = 150;
@@ -2022,6 +2094,11 @@ static void beamExplosions()
 
 		if (self->mental <= 0)
 		{
+			if (self->health > player.health && (prand() % 3 == 0))
+			{
+				setInfoBoxMessage(120, 255, 255, 255, _("Try using one of the artifacts to protect yourself..."));
+			}
+
 			self->head->maxThinkTime = 0;
 
 			self->inUse = FALSE;
@@ -2368,6 +2445,8 @@ static void itemDestroyWait()
 		{
 			self->target->inUse = FALSE;
 
+			self->target = NULL;
+
 			self->maxThinkTime = 2;
 
 			self->thinkTime = 120;
@@ -2377,6 +2456,11 @@ static void itemDestroyWait()
 	if (self->maxThinkTime <= 0)
 	{
 		self->thinkTime--;
+
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
 
 		if (self->thinkTime <= 0)
 		{
@@ -2562,6 +2646,8 @@ static void crushAttackAppear()
 
 	self->thinkTime--;
 
+	self->flags |= INVULNERABLE;
+
 	if (self->thinkTime <= 0)
 	{
 		startX = getMapStartX();
@@ -2578,7 +2664,7 @@ static void crushAttackAppear()
 		e->face = LEFT;
 
 		setEntityAnimation(e, "FIST_APPEAR");
-		
+
 		e->animationCallback = &fistAppearActivate;
 
 		e->x = startX + SCREEN_WIDTH / 4 - e->w / 2;
@@ -2618,7 +2704,7 @@ static void crushAttackAppear()
 		e->face = RIGHT;
 
 		setEntityAnimation(e, "FIST_APPEAR");
-		
+
 		e->animationCallback = &fistAppearActivate;
 
 		e->x = startX + SCREEN_WIDTH * 3 / 4 - e->w / 2;
@@ -2679,7 +2765,7 @@ static void crushToMiddleAttackAppear()
 		e->face = LEFT;
 
 		setEntityAnimation(e, "FIST_APPEAR");
-		
+
 		e->animationCallback = &fistAppearActivate;
 
 		e->x = startX;
@@ -2716,7 +2802,7 @@ static void crushToMiddleAttackAppear()
 		e->face = RIGHT;
 
 		setEntityAnimation(e, "FIST_APPEAR");
-		
+
 		e->animationCallback = &fistAppearActivate;
 
 		e->x = startX + SCREEN_WIDTH - e->w;
@@ -2778,18 +2864,18 @@ static void fistMoveAbovePlayer()
 	{
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		self->action = &fistVanishWait;
-		
+
 		setEntityAnimation(self, "FIST_DISAPPEAR");
-		
+
 		self->animationCallback = &fistVanish;
-		
+
 		self->head->maxThinkTime--;
-		
+
 		return;
 	}
-	
+
 	/* Move above the player */
 
 	if (fabs(target - self->x) <= fabs(self->dirX))
@@ -2917,20 +3003,20 @@ static void fistMoveToMiddle()
 	{
 		return;
 	}
-	
+
 	if (self->head->health <= 0)
 	{
 		self->dirX = 0;
 		self->dirY = 0;
-		
+
 		self->action = &fistVanishWait;
-		
+
 		setEntityAnimation(self, "FIST_DISAPPEAR");
-		
+
 		self->animationCallback = &fistVanish;
-		
+
 		self->head->maxThinkTime--;
-		
+
 		return;
 	}
 
@@ -2985,9 +3071,9 @@ static void fistMoveToMiddle()
 					self->head->maxThinkTime--;
 
 					self->action = &fistVanishWait;
-					
+
 					setEntityAnimation(self, "FIST_DISAPPEAR");
-					
+
 					self->animationCallback = &fistVanish;
 				}
 
@@ -3053,11 +3139,6 @@ static void fistVanishWait()
 	}
 }
 
-static void stunWait()
-{
-
-}
-
 static void fistTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
@@ -3076,8 +3157,6 @@ static void fistTakeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 	}
 
-	enemyPain();
-
 	temp = self->head;
 
 	self = self->head;
@@ -3090,13 +3169,18 @@ static void fistTakeDamage(Entity *other, int damage)
 static void fistAppearActivate()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->active = TRUE;
 }
 
 static void fistVanish()
 {
 	self->flags |= NO_DRAW;
-	
+
 	self->active = FALSE;
+}
+
+static void stunWait()
+{
+
 }

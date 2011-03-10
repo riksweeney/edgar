@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
+#include "../hud.h"
 
 extern Entity *self, player;
 
@@ -198,6 +199,8 @@ static void addTrail()
 	e->mental = self->target->mental;
 
 	e->action = &trailMove;
+	
+	e->thinkTime = 30;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -247,10 +250,19 @@ static void trailMove()
 
 	self->x += self->dirX;
 	self->y += self->dirY;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void touch(Entity *other)
 {
+	int playerHealth;
+
 	if (strcmpignorecase(other->name, "edgar/edgar_reflection_shield") == 0)
 	{
 		self->touch = &entityTouch;
@@ -272,7 +284,14 @@ static void touch(Entity *other)
 
 	else
 	{
+		playerHealth = other->health;
+
 		entityTouch(other);
+
+		if (other->type == PLAYER && playerHealth > other->health && (prand() % 3 == 0))
+		{
+			setInfoBoxMessage(120, 255, 255, 255, _("Try using one of the artifacts to protect yourself..."));
+		}
 	}
 }
 
