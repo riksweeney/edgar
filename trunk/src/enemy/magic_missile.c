@@ -240,6 +240,8 @@ static void trailMove()
 				return;
 			}
 		}
+		
+		self->thinkTime = 30;
 
 		self->endX = e->x;
 		self->endY = e->y;
