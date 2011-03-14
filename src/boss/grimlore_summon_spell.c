@@ -92,6 +92,11 @@ static void init()
 	
 	self->endY = getMapFloor(self->x, self->y) - self->h;
 	
+	if (self->mental == 1)
+	{
+		self->layer = FOREGROUND_LAYER;
+	}
+	
 	setEntityAnimation(self, "APPEAR");
 	
 	self->animationCallback = &appearDone;
@@ -101,13 +106,23 @@ static void entityWait()
 {
 	if (self->active == TRUE)
 	{
+		if (self->health == 0)
+		{
+			setContinuePoint(FALSE, self->name, NULL);
+			
+			self->health = 1;
+		}
+		
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
 		{
 			self->layer = FOREGROUND_LAYER;
 			
-			self->target->flags &= ~NO_DRAW;
+			if (self->mental == 0)
+			{
+				self->target->flags &= ~NO_DRAW;
+			}
 			
 			setEntityAnimation(self, "DISAPPEAR");
 			
@@ -200,23 +215,63 @@ static void appearDone()
 		e->draw = &drawLoopingAnimationToMap;
 	}
 	
-	e = addGrimlore(self->x, self->y, "boss/grimlore");
+	if (self->mental == 0)
+	{
+		e = addGrimlore(self->x, self->y, "boss/grimlore");
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->flags |= NO_DRAW;
+		
+		self->target = e;
+		
+		e->head = self;
+	}
 	
-	e->x = self->x + self->w / 2 - e->w / 2;
-	e->y = self->y + self->h / 2 - e->h / 2;
-	
-	e->flags |= NO_DRAW;
-	
-	self->target = e;
-	
-	e->head = self;
+	else
+	{
+		self->target = getEntityByObjectiveName("GRIMLORE");
+		
+		self->target->flags |= NO_DRAW;
+		
+		self->layer = BACKGROUND_LAYER;
+	}
 	
 	setEntityAnimation(self, "STAND");
 }
 
 static void disappearDone()
 {
-	self->target->head = NULL;
+	Entity *temp, *e;
+	
+	if (self->mental == 0)
+	{
+		self->target->head = NULL;
+	}
+	
+	else
+	{
+		temp = self;
+		
+		self = self->target;
+		
+		clearContinuePoint();
+
+		increaseKillCount();
+
+		freeBossHealthBar();
+
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+
+		fadeBossMusic();
+
+		entityDieVanish();
+		
+		self = temp;
+	}
 	
 	self->inUse = FALSE;
 }

@@ -291,12 +291,19 @@ static void throwBindArtifact(int val)
 
 static void bindWait()
 {
+	checkToMap(self);
+	
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
 	}
 	
-	checkToMap(self);
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->thinkTime = 0;
+	}
 }
 
 static void bindTouch(Entity *other)
@@ -305,16 +312,21 @@ static void bindTouch(Entity *other)
 	{
 		if (other->health <= 0)
 		{
-			printf("Will bind\n");
+			other->mental = -100;
 		}
 		
 		else
 		{
-			printf("Binding failed\n");
+			other->mental = -99;
+			
+			other->health = other->maxHealth;
 		}
 		
-		other->health = other->maxHealth;
-		
 		self->inUse = FALSE;
+	}
+	
+	else if (other->type == PLAYER && self->thinkTime <= 0)
+	{
+		keyItemTouch(other);
 	}
 }

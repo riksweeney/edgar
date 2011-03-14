@@ -247,7 +247,8 @@ static Constructor items[] = {
 {"item/drawbridge_anchor", &addDrawbridgeAnchor},
 {"item/safe_combination", &addSafeCombination},
 {"item/protection_artifact", &addProtectionArtifact},
-{"item/reflection_artifact", &addReflectionArtifact}
+{"item/reflection_artifact", &addReflectionArtifact},
+{"item/bind_artifact", &addBindArtifact}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

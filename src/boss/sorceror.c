@@ -113,8 +113,6 @@ static void init()
 			self->action = &stand3;
 		break;
 	}
-	
-	printf("Mental is %d\n", self->mental);
 }
 
 static void stand()
