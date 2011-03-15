@@ -1076,7 +1076,7 @@ static void swordDropTeleportAway()
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 30;
-		
+
 		if (!(self->flags & NO_DRAW))
 		{
 			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
@@ -1509,10 +1509,10 @@ static void shieldBite()
 	if (self->head->health <= 0)
 	{
 		self->action = &entityDieNoDrop;
-		
+
 		return;
 	}
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -1556,10 +1556,10 @@ static void shieldBiteReturn()
 	if (self->head->health <= 0)
 	{
 		self->action = &entityDieNoDrop;
-		
+
 		return;
 	}
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -1599,7 +1599,7 @@ static void shieldAttackFinish()
 	if (self->maxThinkTime <= 0)
 	{
 		setEntityAnimation(self, "SHIELD_ATTACK_FLAME");
-		
+
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
@@ -1641,7 +1641,7 @@ static void shieldFlameAttack()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "SHIELD_ATTACK");
-		
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -1727,7 +1727,7 @@ static int flameDraw()
 	else
 	{
 		self->x += self->w;
-		
+
 		setEntityAnimation(self, "BODY");
 
 		self->currentFrame = frame;
@@ -1759,7 +1759,7 @@ static void flameWait()
 	if (self->health % 10 == 0)
 	{
 		startX = self->face == LEFT ? self->endX : self->startX;
-		
+
 		if (collision(player.x, player.y, player.w, player.h, startX, self->y, abs(self->startX - self->endX), self->h) == 1)
 		{
 			e = addProjectile("enemy/fireball", self->head, 0, 0, (self->face == LEFT ? -self->dirX : self->dirX), 0);
@@ -1775,7 +1775,7 @@ static void flameWait()
 
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		stopSound(self->endY);
 
@@ -2098,8 +2098,8 @@ static void beamMove()
 			self->action = &beamExplosions;
 
 			self->mental = 150;
-			
-			shakeScreen(LIGHT, -1);
+
+			shakeScreen(MEDIUM, -1);
 		}
 	}
 }
@@ -2134,7 +2134,7 @@ static void beamExplosions()
 			self->head->maxThinkTime = 0;
 
 			self->inUse = FALSE;
-			
+
 			shakeScreen(LIGHT, 0);
 		}
 	}
@@ -2420,14 +2420,14 @@ static void itemDestroyerRetract()
 			e = addExplosion(self->x, self->y);
 
 			e->damage = 1;
-			
+
 			if (player.maxHealth > 5)
 			{
 				player.maxHealth--;
-				
+
 				setInfoBoxMessage(90, 255, 255, 255, _("Your maximum health has decreased"));
 			}
-			
+
 			if (player.health > player.maxHealth)
 			{
 				player.health = player.maxHealth;
@@ -2664,7 +2664,7 @@ static void crushToMiddleAttackInit()
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-	t = getTargetByName("GRIMLORE_FIST_TARGET");
+	t = getTargetByName("GRIMLORE_TOP_TARGET");
 
 	if (t == NULL)
 	{
@@ -2698,7 +2698,7 @@ static void crushAttackAppear()
 	if (self->thinkTime <= 0)
 	{
 		t = getTargetByName("GRIMLORE_FIST_TARGET");
-		
+
 		startX = getMapStartX();
 
 		e = getFreeEntity();
@@ -2800,7 +2800,7 @@ static void crushToMiddleAttackAppear()
 	if (self->thinkTime <= 0)
 	{
 		t = getTargetByName("GRIMLORE_FIST_TARGET");
-		
+
 		startX = getMapStartX();
 
 		e = getFreeEntity();
@@ -3088,6 +3088,11 @@ static void fistMoveToMiddle()
 
 				self->thinkTime = 15;
 
+				if ((player.flags & ON_GROUND) && !(player.flags & INVULNERABLE))
+				{
+					setPlayerStunned(60);
+				}
+
 				for (i=0;i<20;i++)
 				{
 					addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
@@ -3231,48 +3236,48 @@ static void fistVanish()
 static void stunInit()
 {
 	self->thinkTime = 600;
-	
+
 	checkToMap(self);
-	
+
 	self->action = &stunWait;
 }
 
 static void stunWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->mental == -100)
 	{
 		self->damage = 0;
-		
+
 		self->takeDamage = NULL;
-		
+
 		self->action = &bindInit;
 	}
-	
+
 	else if (self->thinkTime <= 0)
 	{
 		self->health = self->maxHealth / 4;
-		
+
 		self->action = &swordDropTeleportAway;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void bindInit()
 {
 	Entity *e = addGrimloreSummonSpell(0, 0, "boss/grimlore_summon_spell");
-	
+
 	e->x = self->x + self->w / 2 - e->w / 2;
 	e->y = self->y;
-	
+
 	e->mental = 1;
-	
+
 	e->active = TRUE;
-	
+
 	self->action = &bindWait;
-	
+
 	checkToMap(self);
 }
 
