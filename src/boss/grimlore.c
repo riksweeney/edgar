@@ -1659,7 +1659,7 @@ static void shieldFlameAttack()
 
 		e->draw = &flameDraw;
 
-		e->thinkTime = 120;
+		e->thinkTime = 180;
 
 		e->mental = 1;
 
@@ -3273,6 +3273,8 @@ static void bindInit()
 	e->y = self->y;
 
 	e->mental = 1;
+	
+	e->health = 1;
 
 	e->active = TRUE;
 
