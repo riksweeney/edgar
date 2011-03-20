@@ -179,7 +179,7 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 		break;
 	}
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimationByID(e, 0);
 
 	return e;
 }
