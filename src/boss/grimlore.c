@@ -67,6 +67,7 @@ static void swordStabFinish(void);
 static void swordTakeDamage(Entity *, int);
 static void swordStabTakeDamage(Entity *, int);
 static void swordDie(void);
+static void swordStabDie(void);
 static void swordDropInit(void);
 static void swordDrop(void);
 static void swordDropTeleportAway(void);
@@ -413,6 +414,8 @@ static void addArmour()
 	e->head = self;
 
 	self->mental += 1;
+	
+	e->health = 30;
 }
 
 static void armourWait()
@@ -439,6 +442,11 @@ static void armourWait()
 	self->x = self->head->x;
 
 	self->y = self->head->y;
+	
+	if (self->health <= 0 && !(self->flags & NO_DRAW))
+	{
+		self->die();
+	}
 }
 
 static void addShield()
@@ -473,6 +481,8 @@ static void addShield()
 	e->head = self;
 
 	self->mental += 2;
+	
+	e->health = 30;
 }
 
 static void shieldWait()
@@ -547,6 +557,8 @@ static void addSword()
 	e->head = self;
 
 	self->mental += 4;
+	
+	e->health = 30;
 }
 
 static void swordWait()
@@ -647,7 +659,7 @@ static void swordStab()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &swordStabTakeDamage;
-	e->die = &swordDie;
+	e->die = &swordStabDie;
 
 	e->type = ENEMY;
 
@@ -690,7 +702,9 @@ static void swordStabMoveUnderPlayer()
 
 	if (self->head->health <= 0)
 	{
-		self->inUse = FALSE;
+		self->die();
+		
+		return;
 	}
 
 	if (fabs(target - self->x) <= fabs(self->dirX))
@@ -736,7 +750,9 @@ static void swordStabRise()
 
 	if (self->head->health <= 0)
 	{
-		self->inUse = FALSE;
+		self->die();
+		
+		return;
 	}
 
 	if (self->y > self->startY)
@@ -794,7 +810,9 @@ static void swordStabSink()
 {
 	if (self->head->health <= 0)
 	{
-		self->inUse = FALSE;
+		self->die();
+		
+		return;
 	}
 
 	if (self->y < self->endY)
@@ -874,11 +892,11 @@ static void swordStabTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 
-			self->action = &entityDieNoDrop;
-
 			self->head->takeDamage = NULL;
 
 			self->head->action = &swordDie;
+			
+			self->die();
 		}
 
 		if (other->type == PROJECTILE)
@@ -954,6 +972,9 @@ static void swordTakeDamage(Entity *other, int damage)
 
 static void swordDie()
 {
+	int i;
+	Entity *e;
+	
 	dropReflectionArtifact();
 
 	if (self->head->maxThinkTime == 4)
@@ -963,22 +984,92 @@ static void swordDie()
 
 	self->head->mental -= 2;
 
-	entityDieNoDrop();
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem("boss/grimlore_sword_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+	
+	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	
+	self->inUse = FALSE;
+}
+
+static void swordStabDie()
+{
+	int i;
+	Entity *e;
+
+	if (self->head->maxThinkTime == 4)
+	{
+		self->head->maxThinkTime = 0;
+	}
+
+	self->head->mental -= 2;
+
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem("boss/grimlore_sword_stab_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+	
+	self->inUse = FALSE;
 }
 
 static void armourDie()
 {
+	int i;
+	Entity *e;
+	
 	dropBindArtifact();
 
 	self->head->head = NULL;
 
 	self->head->mental -= 1;
 
-	entityDieNoDrop();
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem("boss/grimlore_armour_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+	
+	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	
+	self->inUse = FALSE;
 }
 
 static void shieldDie()
 {
+	int i;
+	Entity *e;
+	
 	dropProtectionArtifact();
 
 	if (self->head->maxThinkTime == 2 || self->head->maxThinkTime == 3)
@@ -987,8 +1078,25 @@ static void shieldDie()
 	}
 
 	self->head->mental -= 4;
+	
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem("boss/grimlore_shield_piece", self->x, self->y, RIGHT, 0, 0);
 
-	entityDieNoDrop();
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+
+	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+	
+	self->inUse = FALSE;
 }
 
 static void swordDropInit()
@@ -1241,8 +1349,6 @@ static void armourTakeDamage(Entity *other, int damage)
 		if (self->health <= 0)
 		{
 			self->touch = NULL;
-
-			self->action = &armourDie;
 		}
 
 		else
@@ -2049,6 +2155,8 @@ static void beamAttack()
 			e->endY = getMapFloor(self->x, self->y);
 
 			e->x = getMapStartX();
+			
+			e->maxThinkTime = 0;
 
 			e->action = &beamMove;
 
@@ -2123,6 +2231,8 @@ static void beamExplosions()
 		e->y -= prand() % e->h;
 
 		e->damage = 1;
+		
+		e->head = self;
 
 		if (self->mental <= 0)
 		{
@@ -2151,6 +2261,16 @@ static void explosionTouch(Entity *other)
 {
 	if (other->element != FIRE)
 	{
+		if (other->type == PLAYER)
+		{
+			if (self->head->maxThinkTime == 0)
+			{
+				destroyInventoryItem();
+				
+				self->head->maxThinkTime = 1;
+			}
+		}
+		
 		entityTouch(other);
 	}
 }
@@ -2433,8 +2553,6 @@ static void itemDestroyerRetract()
 				player.health = player.maxHealth;
 			}
 
-			destroyInventoryItem();
-
 			self->head->maxThinkTime = 0;
 		}
 
@@ -2485,17 +2603,24 @@ static void itemDestroyWait()
 		else
 		{
 			setEntityAnimation(self->target, self->target->requires);
+			
+			self->maxThinkTime = 2;
 		}
-
+	}
+	
+	else if (self->maxThinkTime == 2)
+	{
+		self->thinkTime--;
+		
 		if (self->thinkTime <= 0)
 		{
 			self->target->inUse = FALSE;
 
 			self->target = NULL;
 
-			self->maxThinkTime = 2;
-
 			self->thinkTime = 120;
+			
+			self->maxThinkTime = 3;
 		}
 	}
 
@@ -2930,7 +3055,7 @@ static void fistMoveAbovePlayer()
 	{
 		self->targetY = self->y - self->h;
 
-		self->thinkTime = 30;
+		self->thinkTime = self->face == LEFT ? 60 : 30;
 
 		self->dirX = 0;
 
