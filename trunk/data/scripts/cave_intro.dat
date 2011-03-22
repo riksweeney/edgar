@@ -10,3 +10,5 @@ SET Edgar FACE RIGHT
 WAIT 60
 TALK Edgar Looks like this wasn't such a good idea after all
 TALK Edgar There must be way out of here...
+ADD OBJECTIVE "Escape the Cave" " "
+ADD TRIGGER "Cave Escape Trigger" 1 UPDATE_OBJECTIVE "Escape the Cave"

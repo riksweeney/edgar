@@ -1,4 +1,7 @@
+FIRE_TRIGGER Cave Escape Trigger
 SET Edgar FACE LEFT
 TALK Edgar Phew, I'm glad to be out of there
 SET Edgar FACE RIGHT
 TALK Edgar Now to get through this swamp
+ADD OBJECTIVE "Negotiate the Swamp" " "
+ADD TRIGGER "Swamp Exit Trigger" 1 UPDATE_OBJECTIVE "Negotiate the Swamp"

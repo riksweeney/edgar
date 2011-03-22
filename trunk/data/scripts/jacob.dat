@@ -28,6 +28,7 @@ TALK Jacob I'll give you a sword if you get me 2 chopped logs from the forest an
 SET Jacob HEALTH 2
 END
 IF Jacob HEALTH 1
+FIRE_TRIGGER Jacob Trigger
 TALK Jacob Hello Edgar, what can I do for you today?
 TALK Edgar Do you have a sword I can borrow?
 TALK Jacob I do have a sword and you can have it if you do something for me first
