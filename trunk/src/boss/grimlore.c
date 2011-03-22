@@ -3357,6 +3357,8 @@ static void fistVanish()
 
 static void stunInit()
 {
+	setEntityAnimation(self, "STUNNED");
+	
 	self->thinkTime = 600;
 
 	checkToMap(self);
