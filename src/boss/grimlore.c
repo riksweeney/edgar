@@ -214,6 +214,8 @@ static void doIntro()
 		initBossHealthBar();
 
 		self->action = &attackFinished;
+		
+		self->endY = 0;
 	}
 
 	checkToMap(self);
@@ -377,7 +379,7 @@ static void attackFinished()
 
 	self->layer = MID_GROUND_LAYER;
 
-	if (self->mental == -99)
+	if (self->endY == -99)
 	{
 		setEntityAnimation(self, "RAISE_ARMS_1");
 
@@ -414,8 +416,6 @@ static void addArmour()
 	e->head = self;
 
 	self->mental += 1;
-	
-	e->health = 30;
 }
 
 static void armourWait()
@@ -481,8 +481,6 @@ static void addShield()
 	e->head = self;
 
 	self->mental += 2;
-	
-	e->health = 30;
 }
 
 static void shieldWait()
@@ -557,8 +555,6 @@ static void addSword()
 	e->head = self;
 
 	self->mental += 4;
-	
-	e->health = 30;
 }
 
 static void swordWait()
@@ -2081,7 +2077,7 @@ static void beamAttackInit()
 
 	self->flags |= NO_DRAW;
 
-	setEntityAnimation(self, "KNEEL");
+	setEntityAnimation(self, "BEAM_ATTACK");
 
 	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
@@ -2147,9 +2143,9 @@ static void beamAttack()
 			}
 
 			self->maxThinkTime = 5;
-
-			e->startX = self->x + self->w / 2;
-			e->startY = self->y;
+			
+			e->startX = self->x + self->offsetX;
+			e->startY = self->y + self->offsetY;
 
 			e->endX = getMapStartX() + SCREEN_WIDTH;
 			e->endY = getMapFloor(self->x, self->y);
@@ -2725,7 +2721,8 @@ static void destroyInventoryItem()
 		"item/soul_bottle",
 		"item/tortoise_shell",
 		"item/summoner_staff",
-		"item/flaming_arrow_potion"
+		"item/flaming_arrow_potion",
+		"item/resurrection_amulet"
 	};
 
 	size = sizeof(items) / sizeof(char *);
@@ -3371,7 +3368,7 @@ static void stunWait()
 {
 	self->thinkTime--;
 
-	if (self->mental == -100)
+	if (self->endY == -100)
 	{
 		self->damage = 0;
 
@@ -3415,17 +3412,21 @@ static void bindWait()
 
 static void resetWeapons()
 {
+	Entity *e;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->mental == -99)
+		if (self->endY == -99)
 		{
 			self->thinkTime = 30;
 
 			setEntityAnimation(self, "RAISE_ARMS_2");
 
 			self->mental = 0;
+			
+			self->endY = 0;
 		}
 
 		else if (self->mental == 0)
@@ -3433,6 +3434,24 @@ static void resetWeapons()
 			fadeFromColour(255, 0, 0, 60);
 
 			setEntityAnimation(self, "STAND");
+			
+			removeInventoryItemByObjectiveName("Reflection Artifact");
+			
+			removeInventoryItemByObjectiveName("Protection Artifact");
+			
+			e = getEntityByObjectiveName("Reflection Artifact");
+			
+			if (e != NULL)
+			{
+				e->inUse = FALSE;
+			}
+			
+			e = getEntityByObjectiveName("Protection Artifact");
+			
+			if (e != NULL)
+			{
+				e->inUse = FALSE;
+			}
 
 			addArmour();
 

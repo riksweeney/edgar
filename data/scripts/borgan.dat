@@ -7,6 +7,7 @@ IF Borgan HEALTH 2
 REMOVE "Coal Bag" 10 -1 Borgan 3 4
 END
 IF Borgan HEALTH 1
+FIRE_TRIGGER Borgan Trigger
 TALK Edgar Hi
 TALK Borgan Hello Edgar
 TALK Edgar Can I borrow your shield?

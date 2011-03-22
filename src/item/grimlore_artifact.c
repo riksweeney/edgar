@@ -312,12 +312,12 @@ static void bindTouch(Entity *other)
 	{
 		if (other->health <= 0)
 		{
-			other->mental = -100;
+			other->endY = -100;
 		}
 		
 		else
 		{
-			other->mental = -99;
+			other->endY = -99;
 			
 			other->health = other->maxHealth;
 		}

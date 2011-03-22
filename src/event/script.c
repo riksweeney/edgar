@@ -847,6 +847,13 @@ void readNextScriptLine()
 
 			becomeJumpingSlime(atoi(token));
 		}
+		
+		else if (strcmpignorecase("FIRE_TRIGGER", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			fireGlobalTrigger(token);
+		}
 
 		else if (strcmpignorecase("WAIT", command) == 0)
 		{
