@@ -87,7 +87,7 @@ static void addMedalToQueue(char *text)
 		head = head->next;
 	}
 
-	msg = (Message *)malloc(sizeof(Message));
+	msg = malloc(sizeof(Message));
 
 	if (msg == NULL)
 	{

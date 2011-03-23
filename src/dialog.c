@@ -57,7 +57,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 	freeDialogBox();
 
-	text = (char *)malloc(strlen(msg) + 1);
+	text = malloc(strlen(msg) + 1);
 
 	if (text == NULL)
 	{
@@ -70,7 +70,7 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	
 	if (title != NULL)
 	{
-		titleText = (char *)malloc(strlen(title) + 1);
+		titleText = malloc(strlen(title) + 1);
 
 		if (titleText == NULL)
 		{
@@ -110,14 +110,14 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		lines++;
 	}
 
-	surface = (SDL_Surface **)malloc(sizeof(SDL_Surface *) * lines);
+	surface = malloc(sizeof(SDL_Surface *) * lines);
 
 	if (surface == NULL)
 	{
 		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Surface *) * lines);
 	}
 
-	lineBreaks = (int *)malloc(sizeof(int) * lines);
+	lineBreaks = malloc(sizeof(int) * lines);
 
 	if (lineBreaks == NULL)
 	{

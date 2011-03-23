@@ -72,7 +72,7 @@ static void loadMenuLayout()
 
 	menu.widgetCount = 3;
 
-	menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 	snprintf(versionText, MAX_VALUE_LENGTH, "The Legend of Edgar v%0.2f", VERSION);
 

@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
 	printf("Compressing 00%%...\r");
 
-	fileData = (FileData *)malloc(totalFiles * sizeof(FileData));
+	fileData = malloc(totalFiles * sizeof(FileData));
 
 	if (fileData == NULL)
 	{
@@ -209,7 +209,7 @@ void recurseDirectory(char *dirName)
 
 			fclose(infile);
 
-			buffer = (unsigned char *)malloc((fileSize + 1) * sizeof(unsigned char));
+			buffer = malloc((fileSize + 1) * sizeof(unsigned char));
 
 			if (buffer == NULL)
 			{
@@ -218,7 +218,7 @@ void recurseDirectory(char *dirName)
 				exit(1);
 			}
 
-			output = (unsigned char *)malloc(ensuredSize * sizeof(unsigned char));
+			output = malloc(ensuredSize * sizeof(unsigned char));
 
 			if (output == NULL)
 			{
@@ -320,7 +320,7 @@ static void testPak(char *pakFile)
 	read = fread(&offset, sizeof(long), 1, fp);
 	read = fread(&fileCount, sizeof(int), 1, fp);
 
-	fileData = (FileData *)malloc(fileCount * sizeof(FileData));
+	fileData = malloc(fileCount * sizeof(FileData));
 
 	if (fileData == NULL)
 	{
@@ -348,14 +348,14 @@ static void testPak(char *pakFile)
 
 		fseek(fp, fileData[i].offset, SEEK_SET);
 
-		source = (unsigned char *)malloc(fileData[i].compressedSize * sizeof(unsigned char));
+		source = malloc(fileData[i].compressedSize * sizeof(unsigned char));
 
 		if (source == NULL)
 		{
 			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
 		}
 
-		dest = (unsigned char *)malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
+		dest = malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{

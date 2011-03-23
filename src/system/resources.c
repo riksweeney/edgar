@@ -237,8 +237,8 @@ char *loadResources(char *buffer)
 
 	if (key == NULL || value == NULL)
 	{
-		key = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
-		value = (char **)malloc(sizeof(char *) * MAX_PROPS_FILES);
+		key = malloc(sizeof(char *) * MAX_PROPS_FILES);
+		value = malloc(sizeof(char *) * MAX_PROPS_FILES);
 
 		if (key == NULL || value == NULL)
 		{
@@ -247,8 +247,8 @@ char *loadResources(char *buffer)
 
 		for (i=0;i<MAX_PROPS_FILES;i++)
 		{
-			key[i] = (char *)malloc(MAX_VALUE_LENGTH);
-			value[i] = (char *)malloc(MAX_VALUE_LENGTH);
+			key[i] = malloc(MAX_VALUE_LENGTH);
+			value[i] = malloc(MAX_VALUE_LENGTH);
 
 			if (key[i] == NULL || value[i] == NULL)
 			{

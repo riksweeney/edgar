@@ -192,7 +192,7 @@ static void randomize()
 	tileWidth = self->target->w;
 	boardWidth = self->w;
 
-	tiles = (int *)malloc(9 * sizeof(int));
+	tiles = malloc(9 * sizeof(int));
 
 	if (tiles == NULL)
 	{

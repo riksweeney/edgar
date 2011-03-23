@@ -55,7 +55,7 @@ void initPakFile()
 		read = fread(&offset, sizeof(unsigned long), 1, fp);
 		read = fread(&fileCount, sizeof(int), 1, fp);
 
-		fileData = (FileData *)malloc(fileCount * sizeof(FileData));
+		fileData = malloc(fileCount * sizeof(FileData));
 
 		if (fileData == NULL)
 		{
@@ -204,7 +204,7 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 
 		fseek(fp, 0L, SEEK_SET);
 
-		dest = (unsigned char *)malloc((*size) * sizeof(unsigned char));
+		dest = malloc((*size) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
@@ -241,14 +241,14 @@ static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 
 		fseek(fp, fileData[index].offset, SEEK_SET);
 
-		source = (unsigned char *)malloc(fileData[index].compressedSize * sizeof(unsigned char));
+		source = malloc(fileData[index].compressedSize * sizeof(unsigned char));
 
 		if (source == NULL)
 		{
 			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 		}
 
-		dest = (unsigned char *)malloc(fileData[index].fileSize * sizeof(unsigned char));
+		dest = malloc(fileData[index].fileSize * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
@@ -289,7 +289,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	
 	filename = NULL;
 
-	filename = (char *)malloc(MAX_PATH_LENGTH);
+	filename = malloc(MAX_PATH_LENGTH);
 
 	if (filename == NULL)
 	{
@@ -310,7 +310,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		fseek(fp, 0L, SEEK_SET);
 
-		dest = (unsigned char *)malloc((size + 2) * sizeof(unsigned char));
+		dest = malloc((size + 2) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
@@ -350,14 +350,14 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 
 		fseek(fp, fileData[index].offset, SEEK_SET);
 
-		source = (unsigned char *)malloc(fileData[index].compressedSize * sizeof(unsigned char));
+		source = malloc(fileData[index].compressedSize * sizeof(unsigned char));
 
 		if (source == NULL)
 		{
 			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 		}
 
-		dest = (unsigned char *)malloc((fileData[index].fileSize + 1) * sizeof(unsigned char));
+		dest = malloc((fileData[index].fileSize + 1) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{

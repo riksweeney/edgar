@@ -200,7 +200,7 @@ static void loadMenuLayout()
 
 			menu.widgetCount = atoi(token);
 
-			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 			if (menu.widgets == NULL)
 			{
@@ -463,7 +463,7 @@ static char *getVolumePercent(int volume)
 {
 	char *text;
 
-	text = (char *)malloc(3);
+	text = malloc(3);
 
 	if (text == NULL)
 	{
@@ -484,7 +484,7 @@ static void showOptionsMenu()
 
 static char *getQuality()
 {
-	char *text = (char *)malloc(10);
+	char *text = malloc(10);
 	
 	if (text == NULL)
 	{

@@ -544,7 +544,7 @@ static void createArm(Entity *top)
 	top->x = top->endX;
 	top->y = top->endY;
 
-	body = (Entity **)malloc(top->mental * sizeof(Entity *));
+	body = malloc(top->mental * sizeof(Entity *));
 
 	if (body == NULL)
 	{

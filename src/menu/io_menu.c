@@ -167,7 +167,7 @@ static void loadMenuLayout(int saving)
 
 	menu.widgetCount = MAX_SAVE_SLOTS + 1;
 
-	menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 	if (menu.widgets == NULL)
 	{

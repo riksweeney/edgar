@@ -270,7 +270,7 @@ static void doSymbolMatch()
 		}
 	}
 
-	list = (Entity **)malloc(count * sizeof(Entity *));
+	list = malloc(count * sizeof(Entity *));
 
 	if (list == NULL)
 	{

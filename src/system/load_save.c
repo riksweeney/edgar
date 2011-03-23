@@ -362,7 +362,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 	buffer = decompressFile(saveFile);
 
-	originalBuffer = (unsigned char *)malloc((strlen((char *)buffer) + 1) * sizeof(unsigned char));
+	originalBuffer = malloc((strlen((char *)buffer) + 1) * sizeof(unsigned char));
 
 	if (originalBuffer == NULL)
 	{
@@ -413,7 +413,7 @@ static void patchSaveGame(char *saveFile, double version)
 
 				free(buffer);
 
-				buffer = (unsigned char *)malloc((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char));
+				buffer = malloc((strlen((char *)originalBuffer) + 1) * sizeof(unsigned char));
 
 				if (buffer == NULL)
 				{
@@ -1386,7 +1386,7 @@ void loadConfig()
 
 	length = ftell(fp);
 
-	buffer = (unsigned char *)malloc((length + 1) * sizeof(unsigned char));
+	buffer = malloc((length + 1) * sizeof(unsigned char));
 
 	if (buffer == NULL)
 	{
@@ -1490,7 +1490,7 @@ char **getSaveFileIndex()
 	FILE *fp;
 	char **entries, save0[MAX_PATH_LENGTH];
 
-	entries = (char **)malloc(sizeof(char *) * MAX_SAVE_SLOTS);
+	entries = malloc(sizeof(char *) * MAX_SAVE_SLOTS);
 
 	if (entries == NULL)
 	{
@@ -1501,7 +1501,7 @@ char **getSaveFileIndex()
 
 	for (i=0;i<MAX_SAVE_SLOTS;i++)
 	{
-		entries[i] = (char *)malloc(sizeof(char) * MAX_PATH_LENGTH);
+		entries[i] = malloc(sizeof(char) * MAX_PATH_LENGTH);
 
 		if (entries[i] == NULL)
 		{

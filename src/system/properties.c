@@ -255,7 +255,7 @@ void setFlags(Entity *e, char *flags)
 {
 	char *token, *temp, *savePtr;
 
-	temp = (char *)malloc(strlen(flags) + 1);
+	temp = malloc(strlen(flags) + 1);
 
 	if (temp == NULL)
 	{
@@ -363,7 +363,7 @@ void unsetFlags(Entity *e, char *flags)
 {
 	char *token, *temp, *savePtr;
 
-	temp = (char *)malloc(strlen(flags) + 1);
+	temp = malloc(strlen(flags) + 1);
 
 	if (temp == NULL)
 	{

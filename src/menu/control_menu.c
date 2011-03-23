@@ -197,7 +197,7 @@ static void loadMenuLayout()
 
 			menu.widgetCount = atoi(token);
 
-			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 			if (menu.widgets == NULL)
 			{
@@ -610,7 +610,7 @@ static char *getDeadZoneValue(int value)
 {
 	char *text;
 
-	text = (char *)malloc(10);
+	text = malloc(10);
 
 	if (text == NULL)
 	{
@@ -626,7 +626,7 @@ static char *getJoystickButton(int val)
 {
 	char *text;
 
-	text = (char *)malloc(20);
+	text = malloc(20);
 
 	val = abs(val) - 1000;
 

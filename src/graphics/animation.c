@@ -103,7 +103,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			/* Allocate space for the frame timer */
 
-			animation[animationID].frameTimer = (int *)malloc(animation[animationID].frameCount * sizeof(int));
+			animation[animationID].frameTimer = malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].frameTimer == NULL)
 			{
@@ -112,7 +112,7 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			/* Allocate space for the frame ID */
 
-			animation[animationID].frameID = (int *)malloc(animation[animationID].frameCount * sizeof(int));
+			animation[animationID].frameID = malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].frameID == NULL)
 			{
@@ -121,14 +121,14 @@ void loadAnimationData(char *filename, int *spriteIndex, EntityAnimation *animat
 
 			/* Allocate space for the offsets */
 
-			animation[animationID].offsetX = (int *)malloc(animation[animationID].frameCount * sizeof(int));
+			animation[animationID].offsetX = malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].offsetX == NULL)
 			{
 				showErrorAndExit("Ran out of memory when creating the animation for %s\n", filename);
 			}
 
-			animation[animationID].offsetY = (int *)malloc(animation[animationID].frameCount * sizeof(int));
+			animation[animationID].offsetY = malloc(animation[animationID].frameCount * sizeof(int));
 
 			if (animation[animationID].offsetY == NULL)
 			{

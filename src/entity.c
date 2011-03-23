@@ -1142,7 +1142,7 @@ EntityList *getEntitiesByObjectiveName(char *name)
 	int i;
 	EntityList *list;
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	if (list == NULL)
 	{
@@ -1167,7 +1167,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 	int i;
 	EntityList *list;
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	if (list == NULL)
 	{
@@ -1192,7 +1192,7 @@ EntityList *getEntitiesByName(char *name)
 	int i;
 	EntityList *list;
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	if (list == NULL)
 	{
@@ -1815,7 +1815,7 @@ void addEntityToList(EntityList *head, Entity *e)
 		listHead = listHead->next;
 	}
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	list->entity = e;
 	list->next = NULL;
