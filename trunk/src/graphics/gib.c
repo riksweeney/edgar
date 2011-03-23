@@ -37,7 +37,7 @@ EntityList *throwGibs(char *name, int gibs)
 	Entity *e;
 	EntityList *list;
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	if (list == NULL)
 	{

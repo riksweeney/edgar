@@ -148,7 +148,7 @@ void savePNG(SDL_Surface *surface, char *name)
 	if (ss_size == 0)
 	{
 		ss_size = ss_h;
-		ss_rows = (unsigned char**)malloc(sizeof (unsigned char*) * ss_size);
+		ss_rows = malloc(sizeof (unsigned char*) * ss_size);
 
 		if (ss_rows == NULL)
 		{

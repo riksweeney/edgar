@@ -29,7 +29,7 @@ Label *createLabel(char *text, int x, int y)
 {
 	Label *l;
 
-	l = (Label *)malloc(sizeof(Label));
+	l = malloc(sizeof(Label));
 
 	if (l == NULL)
 	{

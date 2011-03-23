@@ -101,7 +101,7 @@ static void addToList(int y, int x, Entity *e)
 		listHead = listHead->next;
 	}
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	list->entity = e;
 	list->next = NULL;

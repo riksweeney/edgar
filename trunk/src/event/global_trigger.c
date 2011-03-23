@@ -244,7 +244,7 @@ SDL_Surface *listObjectives()
 	char message[MAX_MESSAGE_LENGTH], *allMessages;
 	SDL_Surface *image;
 
-	allMessages = (char *)malloc(MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
+	allMessages = malloc(MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 
 	if (allMessages == NULL)
 	{

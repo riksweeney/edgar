@@ -30,7 +30,7 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 {
 	Widget *w;
 
-	w = (Widget *)malloc(sizeof(Widget));
+	w = malloc(sizeof(Widget));
 
 	if (w == NULL)
 	{

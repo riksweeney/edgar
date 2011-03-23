@@ -73,7 +73,7 @@ void runScript(char *name)
 
 	buffer = loadFileFromPak(filename);
 
-	text = (char *)malloc((strlen((char *)buffer) + 1) * sizeof(char));
+	text = malloc((strlen((char *)buffer) + 1) * sizeof(char));
 
 	if (text == NULL)
 	{
@@ -93,7 +93,7 @@ void runScript(char *name)
 
 	free(text);
 
-	script.text = (char **)malloc(sizeof(char *) * script.lineCount);
+	script.text = malloc(sizeof(char *) * script.lineCount);
 
 	if (script.text == NULL)
 	{
@@ -118,7 +118,7 @@ void runScript(char *name)
 			line[strlen(line) - 1] = '\0';
 		}
 
-		script.text[i] = (char *)malloc(strlen(line) + 1);
+		script.text[i] = malloc(strlen(line) + 1);
 
 		if (script.text[i] == NULL)
 		{

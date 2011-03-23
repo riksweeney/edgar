@@ -781,7 +781,7 @@ char *getPlayTimeAsString()
 	long tempTime;
 	char *timeString;
 
-	timeString = (char *)malloc(15 * sizeof(char));
+	timeString = malloc(15 * sizeof(char));
 
 	if (timeString == NULL)
 	{
@@ -809,7 +809,7 @@ char *getPlayTimeHours()
 	long tempTime;
 	char *timeString;
 
-	timeString = (char *)malloc(5 * sizeof(char));
+	timeString = malloc(5 * sizeof(char));
 
 	if (timeString == NULL)
 	{
@@ -833,7 +833,7 @@ char *getSlimeTimeAsString()
 	long tempTime;
 	char *timeString;
 
-	timeString = (char *)malloc(15 * sizeof(char));
+	timeString = malloc(15 * sizeof(char));
 
 	if (timeString == NULL)
 	{

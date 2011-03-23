@@ -240,7 +240,7 @@ static void randomize()
 	tileWidth = self->target->w;
 	boardWidth = self->w;
 
-	tiles = (int *)malloc(self->health * sizeof(int));
+	tiles = malloc(self->health * sizeof(int));
 
 	if (tiles == NULL)
 	{

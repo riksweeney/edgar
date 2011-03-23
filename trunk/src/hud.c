@@ -354,7 +354,7 @@ static void addMessageToQueue(char *text, int thinkTime, int r, int g, int b)
 		head = head->next;
 	}
 
-	msg = (Message *)malloc(sizeof(Message));
+	msg = malloc(sizeof(Message));
 
 	if (msg == NULL)
 	{

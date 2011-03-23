@@ -38,14 +38,14 @@ void compressFile(char *sourceName)
 
 	fseek(fp, 0L, SEEK_SET);
 
-	source = (unsigned char *)malloc(fileSize * sizeof(unsigned char));
+	source = malloc(fileSize * sizeof(unsigned char));
 
 	if (source == NULL)
 	{
 		showErrorAndExit("Failed to allocate %ld bytes to compress save file", fileSize * sizeof(unsigned char));
 	}
 
-	dest = (unsigned char *)malloc(ensuredSize * sizeof(unsigned char));
+	dest = malloc(ensuredSize * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
@@ -115,14 +115,14 @@ unsigned char *decompressFile(char *sourceName)
 
 	read = fread(&fileSize, sizeof(unsigned long), 1, fp);
 
-	source = (unsigned char *)malloc(compressedSize * sizeof(unsigned char));
+	source = malloc(compressedSize * sizeof(unsigned char));
 
 	if (source == NULL)
 	{
 		showErrorAndExit("Failed to allocate %ld bytes to compress save file", compressedSize * sizeof(unsigned char));
 	}
 
-	dest = (unsigned char *)malloc((fileSize + 1) * sizeof(unsigned char));
+	dest = malloc((fileSize + 1) * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{

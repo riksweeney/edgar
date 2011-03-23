@@ -252,7 +252,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			if (map.animTileTotal > 0)
 			{
-				map.animTile = (AnimTile *)malloc(sizeof(AnimTile) * map.animTileTotal);
+				map.animTile = malloc(sizeof(AnimTile) * map.animTileTotal);
 
 				if (map.animTile == NULL)
 				{
@@ -275,7 +275,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			map.animTile[animTileID].tileIndex = 0;
 
-			map.animTile[animTileID].tile = (int *)malloc(sizeof(int) * y);
+			map.animTile[animTileID].tile = malloc(sizeof(int) * y);
 
 			if (map.animTile[animTileID].tile == NULL)
 			{

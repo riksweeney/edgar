@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define JUMP_HEIGHT 12
 
 #define TRANS_R 127
-#define TRANS_G 0
+#define TRANS_G 255
 #define TRANS_B 127
 
 #define MAX_ANIMATIONS 1024

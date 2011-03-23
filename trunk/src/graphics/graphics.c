@@ -903,7 +903,7 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 	Entity *d;
 	EntityList *list;
 
-	list = (EntityList *)malloc(sizeof(EntityList));
+	list = malloc(sizeof(EntityList));
 
 	if (list == NULL)
 	{

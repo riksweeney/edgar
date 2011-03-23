@@ -36,9 +36,9 @@ SET CAULDRON PROPERTY MENTAL 1
 WAIT 15
 SET CAULDRON PROPERTY MENTAL 0
 WAIT 60
+TALK Edgar I think it's safe now...
 ADD ENTITY SHIELD weapon/disintegration_shield " " 21280 13320
 ADD TRIGGER "Disintegration Shield" 1 RUN_SCRIPT "disintegration_shield"
-TALK Edgar I think it's safe now...
 SET CAULDRON HEALTH 6
 FOLLOW EDGAR
 END

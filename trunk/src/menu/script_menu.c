@@ -162,7 +162,7 @@ static void loadMenuLayout(char *text)
 
 			menu.widgetCount = atoi(token) + 1;
 
-			menu.widgets = (Widget **)malloc(sizeof(Widget *) * menu.widgetCount);
+			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 			if (menu.widgets == NULL)
 			{

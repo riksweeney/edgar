@@ -924,7 +924,7 @@ static void dropAnchor()
 	Entity **body, *anchor;
 	int i;
 
-	body = (Entity **)malloc(bodyParts * sizeof(Entity *));
+	body = malloc(bodyParts * sizeof(Entity *));
 
 	if (body == NULL)
 	{

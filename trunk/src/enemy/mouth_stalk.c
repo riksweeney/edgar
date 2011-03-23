@@ -225,7 +225,7 @@ static void createBody()
 		self->mental = 8;
 	}
 
-	body = (Entity **)malloc(self->mental * sizeof(Entity *));
+	body = malloc(self->mental * sizeof(Entity *));
 
 	if (body == NULL)
 	{
