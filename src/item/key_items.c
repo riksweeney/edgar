@@ -129,6 +129,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "drawbridge_anchor.h"
 #include "safe_combination.h"
 #include "grimlore_artifact.h"
+#include "hidden_passage_wall.h"
 
 extern Entity *self, player;
 
@@ -248,7 +249,8 @@ static Constructor items[] = {
 {"item/safe_combination", &addSafeCombination},
 {"item/protection_artifact", &addProtectionArtifact},
 {"item/reflection_artifact", &addReflectionArtifact},
-{"item/bind_artifact", &addBindArtifact}
+{"item/bind_artifact", &addBindArtifact},
+{"item/hidden_passage_wall", &addHiddenPassageWall}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
