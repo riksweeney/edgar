@@ -23,9 +23,9 @@ FILE *pak;
 int totalFiles, fileID = 0;
 FileData *fileData;
 
-int countFiles(char *);
-void cleanup(void);
-void recurseDirectory(char *);
+static int countFiles(char *);
+static void cleanup(void);
+static void recurseDirectory(char *);
 static void testPak(char *);
 
 int main(int argc, char *argv[])
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-int countFiles(char *dirName)
+static int countFiles(char *dirName)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
@@ -134,12 +134,12 @@ int countFiles(char *dirName)
 	return count;
 }
 
-void cleanup()
+static void cleanup()
 {
 
 }
 
-void recurseDirectory(char *dirName)
+static void recurseDirectory(char *dirName)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
