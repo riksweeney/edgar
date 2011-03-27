@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "error.h"
 
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH], continueFile[MAX_PATH_LENGTH];
+static int temporaryDataExists;
 
 static void removeTemporaryData(void);
 static void copyFile(char *, char *);
@@ -343,6 +344,8 @@ int loadGame(int slot)
 	cameraSnapToTargetEntity();
 
 	freeMessageQueue();
+	
+	temporaryDataExists = TRUE;
 
 	return TRUE;
 }
@@ -626,8 +629,16 @@ void saveGame(int slot)
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
 	read = fopen(tempFile, "rb");
+	
+	if (read == NULL)
+	{
+		if (temporaryDataExists == TRUE)
+		{
+			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+		}
+	}
 
-	if (read != NULL)
+	else
 	{
 		fclose(read);
 
@@ -812,11 +823,24 @@ void saveTemporaryData()
 
 	write = fopen(swapFile, "wb");
 
-	if (read != NULL)
+	if (read == NULL)
+	{
+		if (temporaryDataExists == TRUE)
+		{
+			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+		}
+	}
+
+	else
 	{
 		fclose(read);
 
 		buffer = decompressFile(tempFile);
+		
+		if (strlen((char *)buffer) == 0)
+		{
+			showErrorAndExit("Something went wrong when decompressing the persistance file");
+		}
 
 		line = strtok_r((char *)buffer, "\n", &savePtr);
 
@@ -920,6 +944,8 @@ void saveTemporaryData()
 	#endif
 
 	compressFile(tempFile);
+	
+	temporaryDataExists = TRUE;
 }
 
 void saveContinueData()
@@ -966,7 +992,17 @@ void saveContinueData()
 
 	read = fopen(tempFile, "rb");
 
-	if (read != NULL)
+	if (read == NULL)
+	{
+		if (temporaryDataExists == TRUE)
+		{
+			perror("Could not find persistance file");
+			
+			showErrorAndExit("Could not find persistance file");
+		}
+	}
+
+	else
 	{
 		fclose(read);
 
@@ -1038,13 +1074,6 @@ void saveContinueData()
 		}
 
 		free(buffer);
-	}
-
-	else
-	{
-		#if DEV == 0
-			showErrorAndExit("Continue data could not read temp file: %s", strerror(errno));
-		#endif
 	}
 
 	/* Save the player's position */
@@ -1125,6 +1154,11 @@ int loadContinueData()
 	game.canContinue = TRUE;
 
 	buffer = decompressFile(saveFile);
+	
+	if (strlen((char *)buffer) == 0)
+	{
+		showErrorAndExit("Something went wrong when decompressing the continue file");
+	}
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 
@@ -1244,6 +1278,11 @@ int hasPersistance(char *mapName)
 
 	if (read == NULL)
 	{
+		if (temporaryDataExists == TRUE)
+		{
+			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+		}
+		
 		return val;
 	}
 
@@ -1335,8 +1374,6 @@ static void removeTemporaryData()
 		if (remove(tempFile) != 0)
 		{
 			showErrorAndExit("Could not remove temporary file: %s", strerror(errno));
-
-			exit(1);
 		}
 	}
 
@@ -1349,10 +1386,10 @@ static void removeTemporaryData()
 		if (remove(continueFile) != 0)
 		{
 			showErrorAndExit("Could not remove continue file: %s", strerror(errno));
-
-			exit(1);
 		}
 	}
+	
+	temporaryDataExists = FALSE;
 }
 
 void loadConfig()
@@ -1450,7 +1487,7 @@ void saveConfig()
 
 static void copyFile(char *src, char *dest)
 {
-	char c;
+	int c;
 	FILE *sourceFile, *destFile;
 
 	sourceFile = fopen(src, "rb");
@@ -1467,10 +1504,8 @@ static void copyFile(char *src, char *dest)
 		showErrorAndExit("Could not open %s for writing: %s", dest, strerror(errno));
 	}
 
-	while (!feof(sourceFile))
+	while ((c = fgetc(sourceFile)) != EOF)
 	{
-		c = fgetc(sourceFile);
-
 		fputc(c, destFile);
 	}
 
