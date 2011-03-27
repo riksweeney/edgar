@@ -621,6 +621,20 @@ void patchEntities(double versionFile, char *mapName)
 
 				modifyObjective(key, value);
 			}
+			
+			else if (strcmpignorecase(itemName, "REMOVE_OBJECTIVE") == 0 && skipping == FALSE)
+			{
+				sscanf(line, "%*s \"%[^\"]\"", key);
+
+				removeObjective(key);
+			}
+			
+			else if (strcmpignorecase(itemName, "REMOVE_TRIGGER") == 0 && skipping == FALSE)
+			{
+				sscanf(line, "%*s \"%[^\"]\"", key);
+
+				removeGlobalTrigger(key);
+			}
 
 			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
 			{

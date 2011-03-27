@@ -146,6 +146,21 @@ void modifyObjective(char *objectiveName, char *completionTrigger)
 	}
 }
 
+void removeObjective(char *objectiveName)
+{
+	int i;
+
+	for (i=0;i<MAX_OBJECTIVES;i++)
+	{
+		if (strcmpignorecase(objective[i].name, objectiveName) == 0)
+		{
+			objective[i].inUse = FALSE;
+
+			break;
+		}
+	}
+}
+
 void getObjectiveFromScript(char *line)
 {
 	char command[15], objectiveName[MAX_VALUE_LENGTH], entityName[MAX_VALUE_LENGTH];

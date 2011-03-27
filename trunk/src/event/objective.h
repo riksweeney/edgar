@@ -24,3 +24,4 @@ void addObjectiveFromResource(char *[], char *[]);
 void addObjectiveFromScript(char *);
 void modifyObjective(char *, char *);
 void getObjectiveFromScript(char *);
+void removeObjective(char *);
