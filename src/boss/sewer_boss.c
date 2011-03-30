@@ -168,7 +168,7 @@ static void initialise()
 		self->endX = 0;
 
 		addMouthOrb();
-		
+
 		addSlimeDrips();
 
 		addClaws();
@@ -2259,11 +2259,11 @@ static void addSlimeDrips()
 {
 	int i;
 	Entity *e;
-	
+
 	for (i=0;i<20;i++)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a Sewer Boss Slime Drip");
@@ -2275,11 +2275,11 @@ static void addSlimeDrips()
 		e->action = &dripWait;
 
 		e->head = self;
-		
+
 		setEntityAnimationByID(e, i);
-		
-		e->mental = 0;
-		
+
+		e->mental = i;
+
 		e->currentFrame = prand() % getFrameCount(e);
 	}
 }
@@ -2299,21 +2299,21 @@ static void dripWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->mental == -30)
 	{
 		self->draw = &dripDraw;
 
 		self->action = &dripChangeToWater;
 	}
-	
+
 	if (self->element == WATER && self->head->element != WATER)
 	{
 		self->element = SLIME;
-		
+
 		setEntityAnimationByID(self, self->mental);
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -2361,18 +2361,18 @@ static void dripChangeToWater()
 {
 	int frame;
 	float timer;
-	
+
 	self->alpha--;
-	
+
 	if (self->alpha <= 0)
 	{
 		self->element = WATER;
-		
+
 		frame = self->currentFrame;
 		timer = self->frameTimer;
-		
+
 		setEntityAnimationByID(self, self->mental + 20);
-		
+
 		self->currentFrame = frame;
 		self->frameTimer = timer;
 
@@ -2382,6 +2382,6 @@ static void dripChangeToWater()
 
 		self->draw = &drawLoopingAnimationToMap;
 	}
-	
+
 	checkToMap(self);
 }
