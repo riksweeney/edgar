@@ -1,5 +1,5 @@
-REMOVE "Reflection Artifact" 1 -1 HIDDEN_PASSAGE_POINT 1 1 QUIET
-REMOVE "Protection Artifact" 1 -1 HIDDEN_PASSAGE_POINT 1 1 QUIET
+REMOVE "Reflection Artifact" 1 -1 HIDDEN_PASSAGE_WALL 1 1 QUIET
+REMOVE "Protection Artifact" 1 -1 HIDDEN_PASSAGE_WALL 1 1 QUIET
 TALK Edgar There, back to your own dimension
 SET EDGAR FACE RIGHT
 WAIT 15

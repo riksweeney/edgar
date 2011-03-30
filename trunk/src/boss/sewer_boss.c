@@ -117,6 +117,10 @@ static void grabMaggot(void);
 static void maggotGrabWait(void);
 static void struggle(void);
 static void maggotGrabSink(void);
+static void addSlimeDrips(void);
+static void dripWait(void);
+static int dripDraw(void);
+static void dripChangeToWater(void);
 
 Entity *addSewerBoss(int x, int y, char *name)
 {
@@ -164,6 +168,8 @@ static void initialise()
 		self->endX = 0;
 
 		addMouthOrb();
+		
+		addSlimeDrips();
 
 		addClaws();
 
@@ -200,7 +206,7 @@ static void doIntro()
 
 static void attackFinished()
 {
-	setEntityAnimation(self, self->element == SLIME ? "STAND" : "CUSTOM_1");
+	setEntityAnimation(self, self->element == SLIME ? "STAND" : "STAND_WATER");
 
 	self->thinkTime = 180;
 
@@ -245,7 +251,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
 
@@ -268,7 +274,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
 
@@ -277,7 +283,7 @@ static void entityWait()
 
 					case 2:
 					case 3:
-						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -5;
 
@@ -300,7 +306,7 @@ static void entityWait()
 				{
 					case 0:
 					case 1:
-						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
 
@@ -309,7 +315,7 @@ static void entityWait()
 
 					case 2:
 					case 3:
-						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "CUSTOM_5");
+						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -5;
 
@@ -1372,7 +1378,7 @@ static void slimeAttackMoveToTarget()
 	{
 		self->touch = NULL;
 
-		setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "CUSTOM_2");
+		setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "ATTACK_1_WATER");
 
 		self->animationCallback = &slimeAttackBreatheIn;
 
@@ -1386,7 +1392,7 @@ static void slimeAttackMoveToTarget()
 
 static void slimeAttackBreatheIn()
 {
-	setEntityAnimation(self, self->element == SLIME ? "ATTACK_2" : "CUSTOM_3");
+	setEntityAnimation(self, self->element == SLIME ? "ATTACK_2" : "ATTACK_2_WATER");
 
 	self->action = &slimeAttackBreatheIn;
 
@@ -1464,7 +1470,7 @@ static void slimeAttack()
 			{
 				self->touch = NULL;
 
-				setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "CUSTOM_2");
+				setEntityAnimation(self, self->element == SLIME ? "ATTACK_1" : "ATTACK_1_WATER");
 
 				self->animationCallback = &slimeAttackBreatheIn;
 
@@ -1494,7 +1500,7 @@ static void slimeAttackMouthClose()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, self->element == SLIME ? "ATTACK_3" : "CUSTOM_4");
+		setEntityAnimation(self, self->element == SLIME ? "ATTACK_3" : "ATTACK_3_WATER");
 
 		self->animationCallback = &slimeAttackFinish;
 
@@ -1521,7 +1527,7 @@ static void slimeAttackFinish()
 		self->action = &attackFinished;
 	}
 
-	setEntityAnimation(self, self->element == SLIME ? "STAND" : "CUSTOM_1");
+	setEntityAnimation(self, self->element == SLIME ? "STAND" : "STAND_WATER");
 
 	checkToMap(self);
 }
@@ -1752,7 +1758,7 @@ static void orbTakeDamage(Entity *other, int damage)
 			{
 				self->head->mental = 0;
 
-				setEntityAnimation(self->head, self->head->element == WATER ? "DIE" : "PAIN");
+				setEntityAnimation(self->head, self->head->element == WATER ? "DIE_WATER" : "DIE");
 
 				self->head->startX = self->head->x;
 
@@ -1832,7 +1838,7 @@ static void changeToWater()
 
 	if (self->alpha <= 0)
 	{
-		setEntityAnimation(self, "CUSTOM_1");
+		setEntityAnimation(self, "STAND_WATER");
 
 		self->alpha = 255;
 
@@ -1862,7 +1868,7 @@ static int draw()
 
 	/* Draw the other part with its rising alpha */
 
-	setEntityAnimation(self, "CUSTOM_1");
+	setEntityAnimation(self, "STAND_WATER");
 
 	self->currentFrame = frame;
 	self->frameTimer = timer;
@@ -2247,4 +2253,135 @@ static void struggle()
 
 		self->thinkTime = 5;
 	}
+}
+
+static void addSlimeDrips()
+{
+	int i;
+	Entity *e;
+	
+	for (i=0;i<20;i++)
+	{
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a Sewer Boss Slime Drip");
+		}
+
+		loadProperties("boss/sewer_boss_slime_drip", e);
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->action = &dripWait;
+
+		e->head = self;
+		
+		setEntityAnimationByID(e, i);
+		
+		e->mental = 0;
+		
+		e->currentFrame = prand() % getFrameCount(e);
+	}
+}
+
+static void dripWait()
+{
+	self->face = self->head->face;
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->mental == -30)
+	{
+		self->draw = &dripDraw;
+
+		self->action = &dripChangeToWater;
+	}
+	
+	if (self->element == WATER && self->head->element != WATER)
+	{
+		self->element = SLIME;
+		
+		setEntityAnimationByID(self, self->mental);
+	}
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static int dripDraw()
+{
+	int frame, alpha;
+	float timer;
+
+	/* Draw the boss with its lowering alpha */
+
+	drawLoopingAnimationToMap();
+
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+
+	alpha = self->alpha;
+
+	/* Draw the other part with its rising alpha */
+
+	setEntityAnimationByID(self, self->mental + 20);
+
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	self->alpha = 255 - alpha;
+
+	drawSpriteToMap();
+
+	/* Reset back to original */
+
+	setEntityAnimationByID(self, self->mental);
+
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	self->alpha = alpha;
+
+	return 1;
+}
+
+static void dripChangeToWater()
+{
+	int frame;
+	float timer;
+	
+	self->alpha--;
+	
+	if (self->alpha <= 0)
+	{
+		self->element = WATER;
+		
+		frame = self->currentFrame;
+		timer = self->frameTimer;
+		
+		setEntityAnimationByID(self, self->mental + 20);
+		
+		self->currentFrame = frame;
+		self->frameTimer = timer;
+
+		self->alpha = 255;
+
+		self->action = &dripWait;
+
+		self->draw = &drawLoopingAnimationToMap;
+	}
+	
+	checkToMap(self);
 }
