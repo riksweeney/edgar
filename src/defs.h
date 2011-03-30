@@ -230,7 +230,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MENU_CODE "fasterthanthespeedoflove"
 
-#define MAX_ANIMATION_TYPES 30
+#define MAX_ANIMATION_TYPES 50
 
 enum
 {
