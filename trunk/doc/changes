@@ -4,6 +4,7 @@ CHANGE LOG
 Version 0.82
 * Fixed a crash when defeating Grimlore
 * Reduced the amount of memory required by the Sewer map
+* Fixed a problem with the safe in the Library (it's not ready yet)
 
 Version 0.81
 * Fixed a crash when creating the Disintegration Shield

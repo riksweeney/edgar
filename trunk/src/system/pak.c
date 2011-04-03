@@ -46,7 +46,7 @@ void initPakFile()
 			printf("\n");
 			printf(_("If you compiled the game from source, you need to do a make install"));
 			printf("\n");
-			
+
 			exit(0);
 		}
 
@@ -59,7 +59,7 @@ void initPakFile()
 
 		if (fileData == NULL)
 		{
-			showErrorAndExit("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
+			printf("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
 		}
 
 		fseek(fp, offset, SEEK_SET);
@@ -84,11 +84,11 @@ SDL_Surface *loadImageFromPak(char *name)
 	SDL_Surface *surface;
 
 	buffer = uncompressFileRW(name, &size);
-	
+
 	rw = SDL_RWFromMem(buffer, size);
 
 	surface = IMG_Load_RW(rw, TRUE);
-	
+
 	free(buffer);
 
 	return surface;
@@ -102,11 +102,11 @@ Mix_Chunk *loadSoundFromPak(char *name)
 	Mix_Chunk *chunk;
 
 	buffer = uncompressFileRW(name, &size);
-	
+
 	rw = SDL_RWFromMem(buffer, size);
 
 	chunk = Mix_LoadWAV_RW(rw, TRUE);
-	
+
 	free(buffer);
 
 	return chunk;
@@ -120,11 +120,11 @@ TTF_Font *loadFontFromPak(char *name, int fontSize)
 	TTF_Font *font;
 
 	buffer = uncompressFileRW(name, &size);
-	
+
 	rw = SDL_RWFromMem(buffer, size);
 
 	font = TTF_OpenFontRW(rw, TRUE, fontSize);
-	
+
 	/*free(buffer);*/
 
 	return font;
@@ -286,7 +286,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	FILE *fp;
 
 	index = i = -1;
-	
+
 	filename = NULL;
 
 	filename = malloc(MAX_PATH_LENGTH);
@@ -402,7 +402,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 	{
 		free(source);
 	}
-	
+
 	if (filename != NULL && writeToFile == FALSE)
 	{
 		free(filename);

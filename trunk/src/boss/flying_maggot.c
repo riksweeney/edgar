@@ -269,9 +269,9 @@ static void secondEncounterWait()
 		self->maxThinkTime = 3;
 
 		self->action = &fireBouncingBalls2;
-
-		checkToMap(self);
 	}
+
+	checkToMap(self);
 }
 
 static void fireBouncingBalls2()
@@ -317,6 +317,8 @@ static void fireBouncingBalls2()
 			self->action = &secondEncounterWait;
 		}
 	}
+
+	checkToMap(self);
 }
 
 static void fireBouncingBallsFinish()

@@ -54,9 +54,6 @@ static void introPause(void);
 static void blackBookAttackFinished(void);
 static void blackBookWait(void);
 static void hover(void);
-static void becomeKingGrub(void);
-static void becomeQueenWasp(void);
-static void becomeBlob(void);
 static void transformWait(void);
 static void transformRemove(void);
 static int energyBarDraw(void);
@@ -66,6 +63,7 @@ static void addSmokeAlongBody(void);
 static void blackBookDie(void);
 static void blackBookShudder(void);
 
+static void becomeKingGrub(void);
 static void kingGrubWait(void);
 static void kingGrubSpitStart(void);
 static void kingGrubSpit(void);
@@ -81,6 +79,7 @@ static void kingGrubBounceAttack(void);
 static void kingGrubBounceAttackEnd(void);
 static void kingGrubShudder(void);
 
+static void becomeQueenWasp(void);
 static void queenWaspTakeDamage(Entity *, int);
 static void queenWaspWait(void);
 static void queenWaspHover(void);
@@ -107,6 +106,7 @@ static void queenWaspRamTouch(Entity *);
 static void queenWaspDie(void);
 static void queenWaspShudder(void);
 
+static void becomeBlob(void);
 static void blobBounceAroundInit(void);
 static void blobBounceAround(void);
 static void blobPunchAttackInit(void);
