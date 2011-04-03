@@ -114,6 +114,11 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 static void addGlobalTrigger(char *triggerName, int count, int total, int targetType, char *targetName)
 {
 	int i, j;
+	
+	if (strcmpignorecase(targetName, "Create a Disintegration Shield") == 0)
+	{
+		return;
+	}
 
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{

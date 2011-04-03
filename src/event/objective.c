@@ -76,6 +76,11 @@ void addObjectiveFromResource(char *key[], char *value[])
 void addObjective(char *objectiveName, char *completionTrigger)
 {
 	int i;
+	
+	if (strcmpignorecase(objectiveName, "Create a Disintegration Shield") == 0)
+	{
+		return;
+	}
 
 	for (i=0;i<MAX_OBJECTIVES;i++)
 	{

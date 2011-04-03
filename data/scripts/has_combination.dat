@@ -2,3 +2,4 @@ TALK Edgar Hmmm, maybe this scrap of paper is the combination
 TALK Edgar I'll give it a try
 TALK Narrator Push left or right to move the dial 1 unit in that direction
 TALK Narrator When you think you've input the correct combination, press Attack to open the safe
+ACTIVATE_OBJECTIVE SAFE_INSTRUCTIONS
