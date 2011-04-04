@@ -342,7 +342,7 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= LIMIT_TO_SCREEN;
 		}
-		
+
 		else if (strcmpignorecase(token, "BLOCKING") == 0)
 		{
 			e->flags |= BLOCKING;
@@ -440,7 +440,7 @@ void unsetFlags(Entity *e, char *flags)
 		{
 			e->flags &= ~LIMIT_TO_SCREEN;
 		}
-		
+
 		else if (strcmpignorecase(token, "BLOCKING") == 0)
 		{
 			e->flags &= ~BLOCKING;
