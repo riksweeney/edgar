@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../system/error.h"
 
-extern Entity *self, player;
+extern Entity *self, player, entity[MAX_ENTITIES];
 
 static void swim(void);
 static void fallout(void);
@@ -38,6 +38,10 @@ static void init(void);
 static void attackPlayer(void);
 static void lookForPlayer(void);
 static void returnToStart(void);
+static void die(void);
+static void moveToFood(void);
+static void touch(Entity *);
+static void bobOnSurface(void);
 
 Entity *addFish(int x, int y, char *name)
 {
@@ -54,7 +58,7 @@ Entity *addFish(int x, int y, char *name)
 	e->y = y;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = &entityTouch;
+	e->touch = &touch;
 	e->fallout = &fallout;
 
 	e->action = &init;
@@ -68,9 +72,23 @@ Entity *addFish(int x, int y, char *name)
 
 static void init()
 {
-	self->endY = getWaterTop(self->x, self->y);
+	self->dirY = 0;
 
-	self->action = &swim;
+	self->endY = getWaterTop(self->startX, self->startY);
+
+	if (self->mental == 1)
+	{
+		self->endY -= TILE_SIZE;
+
+		setEntityAnimation(self, "DIE");
+
+		self->action = &die;
+	}
+
+	else
+	{
+		self->action = &swim;
+	}
 }
 
 static void swim()
@@ -88,6 +106,52 @@ static void swim()
 	{
 		lookForPlayer();
 	}
+
+	if (self->mental == 1)
+	{
+		self->endY = self->endY - TILE_SIZE;
+
+		self->damage = 0;
+
+		setEntityAnimation(self, "DIE");
+
+		self->action = &die;
+	}
+
+	if (self->y < self->endY)
+	{
+		self->dirY = 0;
+
+		self->y = self->endY;
+	}
+}
+
+static void die()
+{
+	self->dirX = 0;
+
+	self->dirY = -0.5;
+
+	checkToMap(self);
+
+	if (self->y < self->endY)
+	{
+		self->y = self->endY;
+
+		self->action = &bobOnSurface;
+	}
+}
+
+static void bobOnSurface()
+{
+	self->endX++;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+
+	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 4;
 }
 
 static void fallout()
@@ -96,7 +160,7 @@ static void fallout()
 	{
 		self->flags |= FLY;
 
-		self->action = &swim;
+		self->action = self->mental == 1 ? &die : &swim;
 	}
 
 	else
@@ -107,6 +171,8 @@ static void fallout()
 
 static void lookForPlayer()
 {
+	int i;
+
 	if (player.health > 0 && player.environment == WATER && getDistanceFromPlayer(self) < SCREEN_WIDTH)
 	{
 		self->thinkTime = 60;
@@ -114,6 +180,106 @@ static void lookForPlayer()
 		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &attackPlayer;
+	}
+
+	else
+	{
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			if (entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/poison_meat") != 0)
+			{
+				continue;
+			}
+
+			if (entity[i].environment == WATER)
+			{
+				if (getDistance(self->x, self->y, entity[i].x, entity[i].y) < SCREEN_WIDTH)
+				{
+					self->target = &entity[i];
+
+					setEntityAnimation(self, "ATTACK_1");
+
+					self->action = &moveToFood;
+
+					self->thinkTime = 0;
+
+					break;
+				}
+			}
+		}
+	}
+}
+
+static void moveToFood()
+{
+	if (self->target->health <= 0 || self->target->inUse == FALSE)
+	{
+		self->targetX = self->startX;
+		self->targetY = self->startY;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed;
+		self->dirY *= self->speed;
+
+		self->face = self->dirX < 0 ? LEFT : RIGHT;
+
+		setEntityAnimation(self, "STAND");
+
+		self->action = &returnToStart;
+
+		self->thinkTime = self->mental == 1 ? 60 + prand() % 180 : 600;
+
+		self->target = NULL;
+	}
+
+	else
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 0;
+		}
+
+		calculatePath(self->x, self->y, self->target->x, self->target->y, &self->dirX, &self->dirY);
+
+		self->dirX *= 3;
+		self->dirY *= 3;
+
+		self->face = self->dirX < 0 ? LEFT : RIGHT;
+
+		checkToMap(self);
+
+		if (self->y < self->endY)
+		{
+			self->y = self->endY;
+		}
+	}
+}
+
+static void touch(Entity *other)
+{
+	if (self->target != NULL && self->target == other)
+	{
+		if (self->thinkTime <= 0)
+		{
+			self->target->health--;
+
+			self->thinkTime = 30;
+
+			self->mental = 1;
+
+			if (self->target->health <= 0)
+			{
+				self->target->inUse = FALSE;
+			}
+		}
+	}
+
+	else
+	{
+		entityTouch(other);
 	}
 }
 

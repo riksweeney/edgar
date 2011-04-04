@@ -130,6 +130,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "safe_combination.h"
 #include "grimlore_artifact.h"
 #include "hidden_passage_wall.h"
+#include "poison_meat.h"
 
 extern Entity *self, player;
 
@@ -250,7 +251,8 @@ static Constructor items[] = {
 {"item/protection_artifact", &addProtectionArtifact},
 {"item/reflection_artifact", &addReflectionArtifact},
 {"item/bind_artifact", &addBindArtifact},
-{"item/hidden_passage_wall", &addHiddenPassageWall}
+{"item/hidden_passage_wall", &addHiddenPassageWall},
+{"item/poison_meat", &addPoisonMeat}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);

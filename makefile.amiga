@@ -90,6 +90,7 @@ CORE_OBJS += slime_potion_pool.o frog.o master_tortoise.o red_ceiling_creeper.o 
 CORE_OBJS += cave_boss.o wall_walker.o apple_tree.o apple.o one_way_door.o colour_pot.o colour_display.o phase_door.o mastermind_display.o mastermind.o
 CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o hoover.o black_book_2.o drawbridge_pulley.o drawbridge_anchor.o giant_ceiling_creeper.o
 CORE_OBJS += baby_salamander.o safe_combination.o grimlore.o grimlore_artifact.o magic_missile.o grimlore_summon_spell.o hidden_passage_wall.o
+CORE_OBJS += poison_meat.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
