@@ -3533,3 +3533,144 @@ msgstr ""
 msgid "A shield that can resist disintegration"
 msgstr ""
 
+msgid "Press Attack whilst Blocking to throw your shield..."
+msgstr ""
+
+msgid "Try using one of the artifacts to protect yourself..."
+msgstr ""
+
+msgid "Failed to load game"
+msgstr ""
+
+msgid "Your maximum health has decreased"
+msgstr ""
+
+msgid "Your %s has been destroyed"
+msgstr ""
+
+msgid "Binding only works against weakened demons"
+msgstr ""
+
+msgid "Not so clever now are you?"
+msgstr ""
+
+msgid "I REALLY have to get out of here!"
+msgstr ""
+
+msgid "Persistent aren't you?"
+msgstr ""
+
+msgid "I don't know what you did last time, but trust me, you won't escape again!"
+msgstr ""
+
+msgid "(Phew)"
+msgstr ""
+
+msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
+msgstr ""
+
+msgid "Your spell won't work against me anymore"
+msgstr ""
+
+msgid "Now, if you won't tell me the whereabouts of my father"
+msgstr ""
+
+msgid "I will have to beat it out of you"
+msgstr ""
+
+msgid "You will never get that chance"
+msgstr ""
+
+msgid "Grimlore, I summon you! Destroy this pest!"
+msgstr ""
+
+msgid "Farewell, Edgar"
+msgstr ""
+
+msgid "Something's coming..."
+msgstr ""
+
+msgid "This library must have information on everything, so a book detailing the creation of a Shield of Dragon Fire Resistance must be here..."
+msgstr ""
+
+msgid "That dragon stuff sounded interesting, but I'll read about it after I've created the Fire Shield"
+msgstr ""
+
+msgid "There, back to your own dimension"
+msgstr ""
+
+msgid "Where did the sorceror go?"
+msgstr ""
+
+msgid "This would have allowed you to fight Mataeus, but it looks like you've already defeated him..."
+msgstr ""
+
+msgid "There's a draft here..."
+msgstr ""
+
+msgid "And one of these bricks is loose"
+msgstr ""
+
+msgid "Aha! It's a hidden passage!"
+msgstr ""
+
+msgid "Hopefully this will lead me to the sorceror..."
+msgstr ""
+
+msgid "Negotiate the Swamp"
+msgstr ""
+
+msgid "The door won't open, I guess I put in the combination incorrectly"
+msgstr ""
+
+msgid "The soul of a wandering spirit"
+msgstr ""
+
+msgid "Escape the Cave"
+msgstr ""
+
+msgid "Hmmm, maybe this scrap of paper is the combination"
+msgstr ""
+
+msgid "I'll give it a try"
+msgstr ""
+
+msgid "Push left or right to move the dial 1 unit in that direction"
+msgstr ""
+
+msgid "When you think you've input the correct combination, press Attack to open the safe"
+msgstr ""
+
+msgid "Talk to Borgan"
+msgstr ""
+
+msgid "Talk to Jacob"
+msgstr ""
+
+msgid "Cross the lake to the Swamp"
+msgstr ""
+
+msgid "Hmmm.. I've been all around the fortress and there are no other doors leading off anywhere"
+msgstr ""
+
+msgid "Maybe I should have another look in here..."
+msgstr ""
+
+msgid "You can also sort items in your inventory by using the Previous Item (,) and Next Item (.) buttons"
+msgstr ""
+
+msgid "Sends a weakened demon back to its own dimension"
+msgstr ""
+
+msgid "A lump of highly poisonous meat"
+msgstr ""
+
+msgid "Scrap of Paper"
+msgstr ""
+
+msgid "Creates a temporary shield that reflects magic spells"
+msgstr ""
+
+msgid "Protects against certain attacks. Stops working if you move"
+msgstr ""
+
