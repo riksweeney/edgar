@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/bottle_magic.dat
+ANIM_FILE data/anim/item/bottle_magic.dat
+TYPE ITEM
+FLAGS DO_NOT_PERSIST|FLY

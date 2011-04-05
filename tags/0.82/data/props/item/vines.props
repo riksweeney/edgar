@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/vines.dat
+ANIM_FILE data/anim/item/vines.dat
+TYPE KEY_ITEM
+ACTIVE FALSE
