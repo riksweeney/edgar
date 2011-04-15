@@ -184,7 +184,7 @@ static void doIntro()
 
 		self->startX = 0;
 
-		self->endX = 1;
+		self->endX = 0;
 
 		self->thinkTime = 0;
 	}
@@ -288,7 +288,7 @@ static void entityWait()
 								self->action = &eggDropInit;
 							break;
 						}
-						
+
 						self->action = &spitInit;
 					}
 				break;

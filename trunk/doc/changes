@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.85
+* Added the next part of the story
+* Fixed a bug with the Salamander not changing to fire
+
 Version 0.82
 * Fixed a crash when defeating Grimlore
 * Reduced the amount of memory required by the Sewer map

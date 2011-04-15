@@ -4,3 +4,9 @@ lift/mine_lift
 lift/lift_target
 common/level_exit
 common/save_point
+item/train_track
+item/train
+common/switch
+item/iron_key
+common/spawner
+vanishing_platform/armoury_vanishing_platform
