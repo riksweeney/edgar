@@ -92,6 +92,8 @@ static void activate(int val)
 		playSoundToMap("sound/item/fill_potion.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setInfoBoxMessage(60, 255, 255, 255, _("Obtained %s"), _(e->objectiveName));
+		
+		e->inUse = FALSE;
 	}
 
 	else
