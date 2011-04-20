@@ -472,7 +472,5 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 		}
-
-		addDamageScore(damage, self);
 	}
 }

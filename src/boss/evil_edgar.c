@@ -973,8 +973,6 @@ static void takeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		enemyPain();
-
-		addDamageScore(damage, self);
 	}
 }
 

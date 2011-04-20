@@ -6,3 +6,8 @@ item/ice_spray
 item/train_track
 common/switch
 item/train
+enemy/flame_statue
+weapon/fire_shield
+weapon/pickaxe
+enemy/centurion
+weapon/basic_sword

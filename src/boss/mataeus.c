@@ -799,8 +799,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 
 	else
@@ -853,8 +851,6 @@ static void takeDamage(Entity *other, int damage)
 				resetCeiling();
 			}
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -1116,8 +1112,6 @@ static void anchorTakeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

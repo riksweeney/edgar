@@ -171,8 +171,6 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
-
-		addDamageScore(damage, self);
 	}
 
 	else
@@ -198,8 +196,6 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		damage = 0;
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -237,7 +233,7 @@ static void die()
 static void respawn()
 {
 	float x, y;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -246,24 +242,24 @@ static void respawn()
 		{
 			self->inUse = FALSE;
 		}
-		
+
 		x = self->x;
-		
+
 		y = self->y;
-		
+
 		self->x = self->startX;
 
 		self->y = self->startY;
-		
+
 		if (isSpaceEmpty(self) != NULL)
 		{
 			self->x = x;
-			
+
 			self->y = y;
-			
+
 			self->thinkTime = 60;
 		}
-		
+
 		else
 		{
 			self->flags &= ~NO_DRAW;

@@ -168,8 +168,6 @@ static void takeDamage(Entity *other, int damage)
 
 				fireTrigger(self->objectiveName);
 			}
-
-			addDamageScore(damage, self);
 		}
 
 		else
@@ -188,8 +186,6 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			damage = 0;
-
-			addDamageScore(damage, self);
 
 			if (prand() % 10 == 0)
 			{

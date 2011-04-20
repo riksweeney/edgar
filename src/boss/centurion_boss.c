@@ -805,8 +805,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -932,8 +930,6 @@ static void headTakeDamage(Entity *other, int damage)
 
 			entityDieNoDrop();
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
