@@ -162,7 +162,7 @@ static void shatter()
 		e = getFreeEntity();
 
 		loadProperties("boss/golem_boss_piece", e);
-		
+
 		if (self->flags & LIMIT_TO_SCREEN)
 		{
 			e->flags |= LIMIT_TO_SCREEN;
@@ -553,8 +553,6 @@ static void takeDamage(Entity *other, int damage)
 			}
 		}
 	}
-
-	addDamageScore(damage, self);
 }
 
 static void throwRockStart()

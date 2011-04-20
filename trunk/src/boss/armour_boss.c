@@ -569,8 +569,6 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -690,8 +688,6 @@ static void takeDamage(Entity *other, int damage)
 
 					self = temp;
 				}
-
-				addDamageScore(damage, self);
 			}
 
 			if (strcmpignorecase(other->name, "enemy/red_baby_slime") != 0)
@@ -701,8 +697,6 @@ static void takeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 				enemyPain();
-
-				addDamageScore(damage, self);
 			}
 
 			else if (self->health > 0)
@@ -728,8 +722,6 @@ static void takeDamage(Entity *other, int damage)
 
 					damage = self->targetX;
 
-					addDamageScore(damage, self);
-
 					self->targetX = 0;
 				}
 			}
@@ -737,8 +729,6 @@ static void takeDamage(Entity *other, int damage)
 			else
 			{
 				damage = self->targetX;
-
-				addDamageScore(damage, self);
 
 				self->targetX = 0;
 
@@ -1339,8 +1329,6 @@ static void armourTakeDamage(Entity *other, int damage)
 
 				self = temp;
 			}
-
-			addDamageScore(damage, self);
 		}
 
 		return;

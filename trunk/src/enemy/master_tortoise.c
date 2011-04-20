@@ -244,8 +244,6 @@ static void takeDamage(Entity *other, int damage)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
-
-					addDamageScore(-damage, self);
 				}
 			}
 
@@ -810,8 +808,6 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

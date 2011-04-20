@@ -116,8 +116,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -157,8 +155,6 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

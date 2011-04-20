@@ -1191,8 +1191,6 @@ static void guardianTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -1945,8 +1943,6 @@ static void golemTakeDamage(Entity *other, int damage)
 
 		damage = 0;
 	}
-
-	addDamageScore(damage, self);
 }
 
 static void golemDie()
@@ -3314,8 +3310,6 @@ static void awesomeTakeDamage(Entity *other, int damage)
 		}
 
 		enemyPain();
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -4267,8 +4261,6 @@ static void blobTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -4890,8 +4882,6 @@ static void queenWaspTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -5354,8 +5344,6 @@ static void kingGrubTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

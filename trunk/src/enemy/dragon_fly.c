@@ -441,7 +441,5 @@ static void podTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
-
-		addDamageScore(damage, self);
 	}
 }

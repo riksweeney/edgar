@@ -79,7 +79,7 @@ static void init()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->action = &headMove;
-	
+
 	if (self->mental >= 2)
 	{
 		self->touch = &greenTouch;
@@ -146,17 +146,17 @@ static void addSegments()
 	Entity *e, *prev;
 
 	prev = self;
-	
+
 	if (strcmpignorecase(self->name, "enemy/green_centipede") == 0)
 	{
 		mental = 2;
 	}
-	
+
 	else if (strcmpignorecase(self->name, "enemy/red_centipede") == 0)
 	{
 		mental = 1;
 	}
-	
+
 	else
 	{
 		mental = 0;
@@ -443,8 +443,6 @@ static void segmentTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

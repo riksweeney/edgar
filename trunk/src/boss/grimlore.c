@@ -214,7 +214,7 @@ static void doIntro()
 		initBossHealthBar();
 
 		self->action = &attackFinished;
-		
+
 		self->endY = 0;
 	}
 
@@ -442,7 +442,7 @@ static void armourWait()
 	self->x = self->head->x;
 
 	self->y = self->head->y;
-	
+
 	if (self->health <= 0 && !(self->flags & NO_DRAW))
 	{
 		self->die();
@@ -699,7 +699,7 @@ static void swordStabMoveUnderPlayer()
 	if (self->head->health <= 0)
 	{
 		self->die();
-		
+
 		return;
 	}
 
@@ -747,7 +747,7 @@ static void swordStabRise()
 	if (self->head->health <= 0)
 	{
 		self->die();
-		
+
 		return;
 	}
 
@@ -807,7 +807,7 @@ static void swordStabSink()
 	if (self->head->health <= 0)
 	{
 		self->die();
-		
+
 		return;
 	}
 
@@ -891,7 +891,7 @@ static void swordStabTakeDamage(Entity *other, int damage)
 			self->head->takeDamage = NULL;
 
 			self->head->action = &swordDie;
-			
+
 			self->die();
 		}
 
@@ -905,8 +905,6 @@ static void swordStabTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -961,8 +959,6 @@ static void swordTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -970,7 +966,7 @@ static void swordDie()
 {
 	int i;
 	Entity *e;
-	
+
 	dropReflectionArtifact();
 
 	if (self->head->maxThinkTime == 4)
@@ -994,9 +990,9 @@ static void swordDie()
 
 		e->thinkTime = 60 + (prand() % 60);
 	}
-	
+
 	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
-	
+
 	self->inUse = FALSE;
 }
 
@@ -1026,7 +1022,7 @@ static void swordStabDie()
 
 		e->thinkTime = 60 + (prand() % 60);
 	}
-	
+
 	self->inUse = FALSE;
 }
 
@@ -1034,7 +1030,7 @@ static void armourDie()
 {
 	int i;
 	Entity *e;
-	
+
 	dropBindArtifact();
 
 	self->head->head = NULL;
@@ -1055,9 +1051,9 @@ static void armourDie()
 
 		e->thinkTime = 60 + (prand() % 60);
 	}
-	
+
 	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
-	
+
 	self->inUse = FALSE;
 }
 
@@ -1065,7 +1061,7 @@ static void shieldDie()
 {
 	int i;
 	Entity *e;
-	
+
 	dropProtectionArtifact();
 
 	if (self->head->maxThinkTime == 2 || self->head->maxThinkTime == 3)
@@ -1074,7 +1070,7 @@ static void shieldDie()
 	}
 
 	self->head->mental -= 4;
-	
+
 	for (i=0;i<7;i++)
 	{
 		e = addTemporaryItem("boss/grimlore_shield_piece", self->x, self->y, RIGHT, 0, 0);
@@ -1091,7 +1087,7 @@ static void shieldDie()
 	}
 
 	playSoundToMap("sound/common/shatter.ogg", BOSS_CHANNEL, player.x, player.y, 0);
-	
+
 	self->inUse = FALSE;
 }
 
@@ -1323,8 +1319,6 @@ static void takeDamage(Entity *other, int damage)
 
 				self = temp;
 			}
-
-			addDamageScore(damage, self);
 		}
 	}
 }
@@ -1371,8 +1365,6 @@ static void armourTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 
 	return;
@@ -1422,8 +1414,6 @@ static void shieldTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 
 	return;
@@ -1470,8 +1460,6 @@ static void shieldFaceTakeDamage(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 
 	return;
@@ -2143,7 +2131,7 @@ static void beamAttack()
 			}
 
 			self->maxThinkTime = 5;
-			
+
 			e->startX = self->x + self->offsetX;
 			e->startY = self->y + self->offsetY;
 
@@ -2151,7 +2139,7 @@ static void beamAttack()
 			e->endY = getMapFloor(self->x, self->y);
 
 			e->x = getMapStartX();
-			
+
 			e->maxThinkTime = 0;
 
 			e->action = &beamMove;
@@ -2227,7 +2215,7 @@ static void beamExplosions()
 		e->y -= prand() % e->h;
 
 		e->damage = 1;
-		
+
 		e->head = self;
 
 		if (self->mental <= 0)
@@ -2262,11 +2250,11 @@ static void explosionTouch(Entity *other)
 			if (self->head->maxThinkTime == 0)
 			{
 				destroyInventoryItem();
-				
+
 				self->head->maxThinkTime = 1;
 			}
 		}
-		
+
 		entityTouch(other);
 	}
 }
@@ -2599,15 +2587,15 @@ static void itemDestroyWait()
 		else
 		{
 			setEntityAnimation(self->target, self->target->requires);
-			
+
 			self->maxThinkTime = 2;
 		}
 	}
-	
+
 	else if (self->maxThinkTime == 2)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->target->inUse = FALSE;
@@ -2615,7 +2603,7 @@ static void itemDestroyWait()
 			self->target = NULL;
 
 			self->thinkTime = 120;
-			
+
 			self->maxThinkTime = 3;
 		}
 	}
@@ -3358,7 +3346,7 @@ static void fistVanish()
 static void stunInit()
 {
 	setEntityAnimation(self, "STUNNED");
-	
+
 	self->thinkTime = 600;
 
 	checkToMap(self);
@@ -3397,7 +3385,7 @@ static void bindInit()
 	e->y = self->y;
 
 	e->mental = 1;
-	
+
 	e->health = 1;
 
 	e->active = TRUE;
@@ -3415,7 +3403,7 @@ static void bindWait()
 static void resetWeapons()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -3427,7 +3415,7 @@ static void resetWeapons()
 			setEntityAnimation(self, "RAISE_ARMS_2");
 
 			self->mental = 0;
-			
+
 			self->endY = 0;
 		}
 
@@ -3436,20 +3424,20 @@ static void resetWeapons()
 			fadeFromColour(255, 0, 0, 60);
 
 			setEntityAnimation(self, "STAND");
-			
+
 			removeInventoryItemByObjectiveName("Reflection Artifact");
-			
+
 			removeInventoryItemByObjectiveName("Protection Artifact");
-			
+
 			e = getEntityByObjectiveName("Reflection Artifact");
-			
+
 			if (e != NULL)
 			{
 				e->inUse = FALSE;
 			}
-			
+
 			e = getEntityByObjectiveName("Protection Artifact");
-			
+
 			if (e != NULL)
 			{
 				e->inUse = FALSE;

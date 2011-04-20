@@ -151,8 +151,6 @@ static void takeDamage(Entity *other, int damage)
 					setInfoBoxMessage(60, 255, 255, 255, _("It's out of apples..."));
 				}
 			}
-
-			addDamageScore(damage, self);
 		}
 
 		else
@@ -171,8 +169,6 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			damage = 0;
-
-			addDamageScore(damage, self);
 
 			if (prand() % 10 == 0)
 			{

@@ -318,8 +318,6 @@ static void tongueTakeDamage(Entity *other, int damage)
 
 			self->thinkTime = 180;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

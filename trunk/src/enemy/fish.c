@@ -80,6 +80,8 @@ static void init()
 	{
 		self->endY -= TILE_SIZE;
 
+		self->touch = NULL;
+
 		setEntityAnimation(self, "DIE");
 
 		self->action = &die;
@@ -114,6 +116,8 @@ static void swim()
 		self->damage = 0;
 
 		setEntityAnimation(self, "DIE");
+
+		self->touch = NULL;
 
 		self->action = &die;
 	}

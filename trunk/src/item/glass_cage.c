@@ -186,8 +186,6 @@ static void takeDamage(Entity *other, int damage)
 	}
 
 	damage = 0;
-
-	addDamageScore(damage, self);
 }
 
 static void closeFinish()

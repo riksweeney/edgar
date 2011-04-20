@@ -2218,8 +2218,6 @@ static void takeDamage(Entity *other, int damage)
 
 		damage = 0;
 
-		addDamageScore(damage, self);
-
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 	}
 

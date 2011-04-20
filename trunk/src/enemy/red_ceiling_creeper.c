@@ -227,8 +227,6 @@ static void tongueTakeDamage(Entity *other, int damage)
 	}
 
 	damage = 0;
-
-	addDamageScore(damage, self);
 }
 
 static int drawTongue()

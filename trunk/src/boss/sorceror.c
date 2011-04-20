@@ -341,7 +341,7 @@ static void disintegrationInit()
 
 	e->endX = player.x + player.w / 2;
 	e->endY = player.y + player.h / 2;
-	
+
 	e->dirX = self->face == LEFT ? -1 : 1;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -406,26 +406,26 @@ static void disintegration()
 static void distintegrationTouch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (!(other->flags & BLOCKING))
 	{
 		setEntityAnimation(&player, "CUSTOM_1");
-		
+
 		self->mental = 1;
 	}
-	
+
 	else if (self->thinkTime > 90)
 	{
 		temp = self;
-		
+
 		self = other;
-		
+
 		other->takeDamage(temp, 1);
-		
+
 		self = temp;
-		
+
 		self->touch = NULL;
-		
+
 		self->thinkTime = 90;
 	}
 }
@@ -450,15 +450,15 @@ static void disintegrationAttack()
 	if (self->thinkTime <= 0)
 	{
 		self->head->mental = -1;
-		
+
 		self->inUse = FALSE;
-		
+
 		if (self->mental == 1)
 		{
 			player.flags |= NO_DRAW;
-			
+
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-			
+
 			playSoundToMap("sound/common/teleport.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 		}
 	}
@@ -509,8 +509,6 @@ static void arrowTakeDamage(Entity *other, int damage)
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 
 		damage = 0;
-
-		addDamageScore(damage, self);
 	}
 }
 

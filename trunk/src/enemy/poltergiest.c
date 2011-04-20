@@ -527,8 +527,6 @@ static void takeDamage(Entity *other, int damage)
 
 			self->thinkTime = 300;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

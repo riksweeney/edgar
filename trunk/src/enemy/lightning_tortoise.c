@@ -298,8 +298,6 @@ static void takeDamage(Entity *other, int damage)
 					{
 						setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
 					}
-
-					addDamageScore(-damage, self);
 				}
 			}
 

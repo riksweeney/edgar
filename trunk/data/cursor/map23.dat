@@ -29,3 +29,5 @@ enemy/ceiling_snapper
 enemy/fish
 item/force_field
 item/symbol_block
+enemy/flame_statue
+weapon/pickaxe

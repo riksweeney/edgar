@@ -630,8 +630,6 @@ void entityTakeDamageFlinch(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -687,8 +685,6 @@ void entityTakeDamageNoFlinch(Entity *other, int damage)
 
 			self = temp;
 		}
-
-		addDamageScore(damage, self);
 	}
 }
 

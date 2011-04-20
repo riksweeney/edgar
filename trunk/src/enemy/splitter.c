@@ -414,8 +414,6 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		enemyPain();
-
-		addDamageScore(damage, self);
 	}
 }
 
@@ -495,8 +493,6 @@ static void mediumTakeDamage(Entity *other, int damage)
 		}
 
 		enemyPain();
-
-		addDamageScore(damage, self);
 	}
 }
 
