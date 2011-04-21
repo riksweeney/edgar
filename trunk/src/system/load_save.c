@@ -344,7 +344,7 @@ int loadGame(int slot)
 	cameraSnapToTargetEntity();
 
 	freeMessageQueue();
-	
+
 	temporaryDataExists = TRUE;
 
 	return TRUE;
@@ -629,7 +629,7 @@ void saveGame(int slot)
 	fprintf(write, "PLAYER_LOCATION %s\n", mapName);
 
 	read = fopen(tempFile, "rb");
-	
+
 	if (read == NULL)
 	{
 		if (temporaryDataExists == TRUE)
@@ -836,7 +836,7 @@ void saveTemporaryData()
 		fclose(read);
 
 		buffer = decompressFile(tempFile);
-		
+
 		if (strlen((char *)buffer) == 0)
 		{
 			showErrorAndExit("Something went wrong when decompressing the persistance file");
@@ -944,7 +944,7 @@ void saveTemporaryData()
 	#endif
 
 	compressFile(tempFile);
-	
+
 	temporaryDataExists = TRUE;
 }
 
@@ -997,7 +997,7 @@ void saveContinueData()
 		if (temporaryDataExists == TRUE)
 		{
 			perror("Could not find persistance file");
-			
+
 			showErrorAndExit("Could not find persistance file");
 		}
 	}
@@ -1154,7 +1154,7 @@ int loadContinueData()
 	game.canContinue = TRUE;
 
 	buffer = decompressFile(saveFile);
-	
+
 	if (strlen((char *)buffer) == 0)
 	{
 		showErrorAndExit("Something went wrong when decompressing the continue file");
@@ -1282,7 +1282,7 @@ int hasPersistance(char *mapName)
 		{
 			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
 		}
-		
+
 		return val;
 	}
 
@@ -1388,7 +1388,7 @@ static void removeTemporaryData()
 			showErrorAndExit("Could not remove continue file: %s", strerror(errno));
 		}
 	}
-	
+
 	temporaryDataExists = FALSE;
 }
 

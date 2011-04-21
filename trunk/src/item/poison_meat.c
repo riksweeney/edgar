@@ -96,7 +96,7 @@ static void throwMeat(int val)
 
 		e->touch = &touch;
 
-		e->thinkTime = 600;
+		e->thinkTime = 1200;
 
 		e->fallout = &meatFallout;
 

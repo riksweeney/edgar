@@ -127,6 +127,8 @@ void fireTrigger(char *name)
 	int i;
 	char message[MAX_MESSAGE_LENGTH];
 
+	printf("Firing trigger %s\n", name);
+
 	if (strlen(name) == 0)
 	{
 		return;
@@ -137,6 +139,8 @@ void fireTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count++;
+
+			printf("%s: %d of %d\n", name, trigger[i].count, trigger[i].total);
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
@@ -158,7 +162,7 @@ void fireTrigger(char *name)
 					case ACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, TRUE);
 					break;
-					
+
 					case DEACTIVATE_ENTITY:
 						activateEntitiesWithRequiredName(trigger[i].targetName, FALSE);
 					break;
@@ -174,7 +178,7 @@ void fireTrigger(char *name)
 					case REMOVE_INVENTORY_ITEM:
 						removeInventoryItemByObjectiveName(trigger[i].targetName);
 					break;
-					
+
 					case UPDATE_TRIGGER:
 						fireTrigger(trigger[i].targetName);
 					break;

@@ -31,3 +31,5 @@ item/force_field
 item/symbol_block
 enemy/flame_statue
 weapon/pickaxe
+common/action_point
+item/poison_meat
