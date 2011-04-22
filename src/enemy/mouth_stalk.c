@@ -220,11 +220,6 @@ static void createBody()
 	self->x = self->endX;
 	self->y = self->endY;
 
-	if (self->mental == 0)
-	{
-		self->mental = 8;
-	}
-
 	body = malloc(self->mental * sizeof(Entity *));
 
 	if (body == NULL)

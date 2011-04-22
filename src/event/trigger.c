@@ -127,8 +127,6 @@ void fireTrigger(char *name)
 	int i;
 	char message[MAX_MESSAGE_LENGTH];
 
-	printf("Firing trigger %s\n", name);
-
 	if (strlen(name) == 0)
 	{
 		return;
@@ -139,8 +137,6 @@ void fireTrigger(char *name)
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].count++;
-
-			printf("%s: %d of %d\n", name, trigger[i].count, trigger[i].total);
 
 			if (trigger[i].targetType == UPDATE_OBJECTIVE)
 			{
