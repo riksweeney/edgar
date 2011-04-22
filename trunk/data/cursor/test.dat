@@ -1,13 +1,5 @@
 edgar/edgar
-enemy/fish
-item/poison_meat
-common/save_point
-item/ice_spray
-item/train_track
-common/switch
-item/train
+enemy/fly_trap
 enemy/flame_statue
-weapon/fire_shield
-weapon/pickaxe
-enemy/centurion
+door/metal_door
 weapon/basic_sword

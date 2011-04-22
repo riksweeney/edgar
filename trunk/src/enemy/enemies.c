@@ -101,6 +101,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "baby_salamander.h"
 #include "magic_missile.h"
 #include "flame_statue.h"
+#include "fly_trap.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -268,7 +269,8 @@ static Constructor enemies[] = {
 {"boss/grimlore", &addGrimlore},
 {"enemy/magic_missile", &addMagicMissile},
 {"boss/grimlore_summon_spell", &addGrimloreSummonSpell},
-{"enemy/flame_statue", &addFlameStatue}
+{"enemy/flame_statue", &addFlameStatue},
+{"enemy/fly_trap", &addFlyTrap}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

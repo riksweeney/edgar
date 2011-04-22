@@ -26,10 +26,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../item/item.h"
+#include "../geometry.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void headDie(void);
 static void init(void);
@@ -38,9 +39,14 @@ static void lookForPlayer(void);
 static void bodyTakeDamage(Entity *, int);
 static void headTakeDamage(Entity *, int);
 static void alignBodyToHead(void);
-static void createBody(void);
+static void createBody(Entity *, Entity *);
 static void headChangeDirection(Entity *);
 static void bodyWait(void);
+static void biteWait(void);
+static void headBiteInit(void);
+static void headBite(void);
+static void headBiteReturn(void);
+static void headBiteReactToBlock(Entity *);
 
 Entity *addFlyTrap(int x, int y, char *name)
 {
@@ -92,7 +98,11 @@ static void init()
 
 	e->head = self;
 
-	createBody();
+	createBody(e, self);
+
+	e->face = self->face;
+
+	e->dirX = self->dirX;
 
 	self->action = &lookForPlayer;
 }
@@ -100,6 +110,36 @@ static void init()
 static void lookForPlayer()
 {
 	moveLeftToRight();
+
+	self->thinkTime--;
+
+	if (player.health > 0 && self->thinkTime <= 0)
+	{
+		/* Must be within a certain range */
+
+		if (collision(self->x + (self->face == LEFT ? -200 : self->w + 64), self->y, 132, self->h, player.x, player.y, player.w, player.h) == 1)
+		{
+			self->dirX = 0;
+
+			self->thinkTime = 60;
+
+			self->action = &biteWait;
+
+			self->mental = 1;
+		}
+	}
+}
+
+static void biteWait()
+{
+	checkToMap(self);
+
+	if (self->mental == 0)
+	{
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+		self->action = &lookForPlayer;
+	}
 }
 
 static void headDie()
@@ -122,7 +162,7 @@ static void headDie()
 
 	self = e;
 
-	self->die();
+	entityDieNoDrop();
 
 	self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
 	self->dirY = ITEM_JUMP_HEIGHT;
@@ -130,47 +170,259 @@ static void headDie()
 
 static void headWait()
 {
-	self->startX = self->head->x + self->head->w / 2 - self->w / 2;
+	self->face = self->head->face;
 
-	self->y = self->head->y - 32;
-
-	self->thinkTime += 5;
-
-	if (self->thinkTime >= 360)
+	if (self->face == LEFT)
 	{
-		self->thinkTime = 0;
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
 	}
 
-	self->y = self->startX + cos(DEG_TO_RAD(self->thinkTime)) * 8;
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+
+	self->startX = self->x;
+
+	self->endX++;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		if (self->head->dirX != 0)
+		{
+			self->endX = 0;
+
+			self->dirX = -self->head->dirX;
+
+			self->head->dirX = 0;
+		}
+	}
+
+	else
+	{
+		self->dirX = self->head->dirX;
+	}
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 10;
 
 	alignBodyToHead();
+
+	if (self->head->health <= 0)
+	{
+		self->die();
+	}
+
+	if (self->head->mental == 1)
+	{
+		self->thinkTime = 30;
+
+		self->maxThinkTime = 1 + prand() % 3;
+
+		self->action = &headBiteInit;
+	}
+
+	self->damage = self->head->damage;
+
+	self->face = self->head->face;
+
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
 }
 
-static void createBody()
+static void headBiteInit()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->startX = self->x;
+		self->startY = self->y;
+
+		self->targetX = player.x;
+		self->targetY = player.y;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= 16;
+		self->dirY *= 16;
+
+		self->action = &headBite;
+
+		self->reactToBlock = &headBiteReactToBlock;
+	}
+
+	if (self->head->health <= 0)
+	{
+		self->die();
+	}
+
+	alignBodyToHead();
+
+	self->damage = self->head->damage;
+
+	self->face = self->head->face;
+
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}
+
+static void headBite()
+{
+	float dirX, dirY;
+
+	dirX = self->dirX;
+	dirY = self->dirY;
+
+	checkToMap(self);
+
+	if (atTarget() || self->dirX != dirX || self->dirY != dirY)
+	{
+		self->targetX = self->startX;
+		self->targetY = self->startY;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= 16;
+		self->dirY *= 16;
+
+		self->action = &headBiteReturn;
+	}
+
+	if (self->head->health <= 0)
+	{
+		self->die();
+	}
+
+	alignBodyToHead();
+
+	self->damage = self->head->damage;
+
+	self->face = self->head->face;
+
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}
+
+static void headBiteReactToBlock(Entity *other)
+{
+	self->targetX = self->startX;
+	self->targetY = self->startY;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->dirX *= 16;
+	self->dirY *= 16;
+
+	self->action = &headBiteReturn;
+}
+
+static void headBiteReturn()
+{
+	float dirX, dirY;
+
+	dirX = self->dirX;
+	dirY = self->dirY;
+
+	checkToMap(self);
+
+	if (atTarget() || self->dirX != dirX || self->dirY != dirY)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		self->maxThinkTime--;
+
+		if (self->maxThinkTime <= 0)
+		{
+			self->dirX = self->face == LEFT ? -self->head->speed : self->head->speed;
+
+			self->head->thinkTime = 120;
+
+			self->head->mental = 0;
+
+			self->action = &headWait;
+
+			self->reactToBlock = &headChangeDirection;
+		}
+
+		else
+		{
+			self->action = &headBiteInit;
+		}
+	}
+
+	if (self->head->health <= 0)
+	{
+		self->die();
+	}
+
+	alignBodyToHead();
+
+	self->damage = self->head->damage;
+
+	self->face = self->head->face;
+
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}
+
+static void createBody(Entity *trapHead, Entity *trapBase)
 {
 	int i;
 	Entity **body, *head;
 
-	self->x = self->endX;
-	self->y = self->endY;
+	trapHead->x = trapHead->endX;
+	trapHead->y = trapHead->endY;
 
-	if (self->mental == 0)
-	{
-		self->mental = 5;
-	}
-
-	body = malloc(self->mental * sizeof(Entity *));
+	body = malloc(trapHead->mental * sizeof(Entity *));
 
 	if (body == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for Fly Trap body...\n", self->mental * (int)sizeof(Entity *));
+		showErrorAndExit("Failed to allocate a whole %d bytes for Fly Trap body...\n", trapHead->mental * (int)sizeof(Entity *));
 	}
 
 	/* Create in reverse order so that it is drawn correctly */
 
 	resetEntityIndex();
 
-	for (i=self->mental-1;i>=0;i--)
+	for (i=trapHead->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();
 
@@ -179,10 +431,10 @@ static void createBody()
 			showErrorAndExit("No free slots to add a Fly Trap body part");
 		}
 
-		loadProperties("enemy/fly_trap_stalk", body[i]);
+		loadProperties("enemy/fly_trap_body", body[i]);
 
-		body[i]->x = self->x;
-		body[i]->y = self->y;
+		body[i]->x = trapHead->x;
+		body[i]->y = trapHead->y;
 
 		body[i]->action = &bodyWait;
 
@@ -205,44 +457,66 @@ static void createBody()
 		showErrorAndExit("No free slots to add a Fly Trap head");
 	}
 
-	*head = *self;
+	*head = *trapHead;
 
-	self->inUse = FALSE;
+	trapHead->inUse = FALSE;
 
-	self = head;
+	trapHead = head;
 
 	/* Link the sections */
 
-	for (i=self->mental-1;i>=0;i--)
+	for (i=trapHead->mental-1;i>=0;i--)
 	{
 		if (i == 0)
 		{
-			self->target = body[i];
+			trapHead->target = body[i];
 		}
 
 		else
 		{
 			body[i - 1]->target = body[i];
+
+			if (i == trapHead->mental - 1)
+			{
+				body[i]->endX = trapBase->x;
+				body[i]->endY = trapBase->y;
+			}
 		}
 
-		body[i]->head = self;
+		body[i]->head = trapHead;
 	}
 
 	free(body);
 
-	self->action = &headWait;
+	trapHead->action = &headWait;
 }
 
 static void alignBodyToHead()
 {
-	float x, y, partDistanceX, partDistanceY;
+	float x, y, partDistanceX, partDistanceY, endX, endY;
 	Entity *e;
 
-	x = self->x;
 	y = self->y;
 
-	partDistanceX = self->x + self->w - self->target->w;
-	partDistanceY = self->y + self->h - self->target->h;
+	if (self->face == LEFT)
+	{
+		x = self->x + self->w - self->target->w;
+
+		endX = self->head->x + self->head->offsetX;
+	}
+
+	else
+	{
+		x = self->x;
+
+		endX = self->head->x + self->head->offsetX;
+	}
+
+	endY = self->head->y + self->head->offsetY;
+
+	partDistanceX = endX - x;
+
+	partDistanceY = fabs(endY - self->y);
 
 	partDistanceX /= self->mental;
 	partDistanceY /= self->mental;
@@ -254,22 +528,8 @@ static void alignBodyToHead()
 		x += partDistanceX;
 		y += partDistanceY;
 
-		e->x = (e->target == NULL ? self->endX : x) + (self->w - e->w) / 2;
-		e->y = (e->target == NULL ? self->endY : y);
-
-		e->damage = self->damage;
-
-		e->face = self->face;
-
-		if (self->flags & FLASH)
-		{
-			e->flags |= FLASH;
-		}
-
-		else
-		{
-			e->flags &= ~FLASH;
-		}
+		e->x = (e->target == NULL ? endX : x);
+		e->y = (e->target == NULL ? endY : y);
 
 		e = e->target;
 	}
@@ -304,18 +564,22 @@ static void headTakeDamage(Entity *other, int damage)
 
 static void headChangeDirection(Entity *other)
 {
-	Entity *temp;
-
-	temp = self;
-
-	self->reactToBlock(temp);
-
-	self = temp;
-
-	self->face = self->head->face;
+	self->head->dirX = 0;
 }
 
 static void bodyWait()
 {
-	checkToMap(self);
+	self->damage = self->head->damage;
+
+	self->face = self->head->face;
+
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+
+	else
+	{
+		self->flags &= ~FLASH;
+	}
 }

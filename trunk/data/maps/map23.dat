@@ -5114,7 +5114,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5139,7 +5139,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5164,7 +5164,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5189,7 +5189,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5214,7 +5214,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5239,7 +5239,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5264,7 +5264,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5289,7 +5289,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5314,7 +5314,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5339,7 +5339,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5364,7 +5364,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5389,7 +5389,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5414,7 +5414,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5439,7 +5439,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5464,7 +5464,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5489,7 +5489,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5514,7 +5514,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5539,7 +5539,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5564,7 +5564,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5589,7 +5589,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5614,7 +5614,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5639,7 +5639,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5664,7 +5664,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5689,7 +5689,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5714,7 +5714,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5739,7 +5739,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5764,7 +5764,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5789,7 +5789,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5814,7 +5814,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5839,7 +5839,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5864,7 +5864,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5889,7 +5889,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5914,7 +5914,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
@@ -5939,7 +5939,7 @@ DAMAGE 0
 SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
-OBJECTIVE_NAME tortoise|fire_tortoise|ice_tortoise|ceiling_crawler
+OBJECTIVE_NAME fly_trap|ceiling_crawler
 REQUIRES 
 ACTIVE TRUE
 FACE LEFT
