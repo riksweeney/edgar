@@ -65,12 +65,26 @@ static void entityWait()
 
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
-		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+		if (self->standingOn != NULL)
+		{
+			self->face = self->standingOn->dirX < 0 ? LEFT : RIGHT;
+			
+			self->speed = self->standingOn->dirX == 0 ? self->dirX : fabs(self->standingOn->dirX);
+		}
 
 		if (landedOnGround(onGround) == TRUE)
 		{
 			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+			
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 		}
+		
+		if (self->dirX == 0)
+		{
+			self->face = self->face == LEFT ? RIGHT : LEFT;
+		}
+		
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
 	else

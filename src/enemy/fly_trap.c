@@ -97,6 +97,8 @@ static void init()
 	e->reactToBlock = &headChangeDirection;
 
 	e->head = self;
+	
+	self->head = e;
 
 	createBody(e, self);
 
@@ -184,35 +186,18 @@ static void headWait()
 
 	self->y = self->head->y + self->offsetY;
 
-	self->startX = self->x;
+	self->startY = self->y;
 
-	self->endX++;
+	self->endX += 3;
 
 	if (self->endX >= 360)
 	{
 		self->endX = 0;
 	}
+	
+	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 8;
 
 	checkToMap(self);
-
-	if (self->dirX == 0)
-	{
-		if (self->head->dirX != 0)
-		{
-			self->endX = 0;
-
-			self->dirX = -self->head->dirX;
-
-			self->head->dirX = 0;
-		}
-	}
-
-	else
-	{
-		self->dirX = self->head->dirX;
-	}
-
-	self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 10;
 
 	alignBodyToHead();
 
@@ -291,14 +276,9 @@ static void headBiteInit()
 
 static void headBite()
 {
-	float dirX, dirY;
-
-	dirX = self->dirX;
-	dirY = self->dirY;
-
 	checkToMap(self);
 
-	if (atTarget() || self->dirX != dirX || self->dirY != dirY)
+	if (atTarget() || self->dirX == 0)
 	{
 		self->targetX = self->startX;
 		self->targetY = self->startY;

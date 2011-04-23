@@ -133,13 +133,15 @@ static void entityWait()
 
 			e->type = ENEMY;
 
-			e->flags |= DO_NOT_PERSIST;
+			e->flags |= DO_NOT_PERSIST|PLAYER_TOUCH_ONLY;
 
 			setEntityAnimation(e, "STAND");
 		}
 
 		self->action = &doFlame;
 	}
+	
+	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 
 	checkToMap(self);
 }
@@ -222,12 +224,28 @@ static void doFlame()
 
 		self->action = &entityWait;
 	}
+	
+	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 
 	checkToMap(self);
 }
 
 static void flameWait()
 {
+	if (self->face == RIGHT)
+	{
+		self->x = self->head->x + self->head->w;
+
+		self->y = self->head->y + (self->head->mental == 1 ? self->head->offsetY : self->head->offsetX);
+	}
+
+	else
+	{
+		self->x = self->head->x - self->w;
+
+		self->y = self->head->y + (self->head->mental == 0 ? self->head->offsetY : self->head->offsetX);
+	}
+	
 	self->startX--;
 
 	if (self->startX <= 0)

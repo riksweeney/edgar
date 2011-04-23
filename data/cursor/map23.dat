@@ -33,3 +33,9 @@ enemy/flame_statue
 weapon/pickaxe
 common/action_point
 item/poison_meat
+lift/large_mine_lift
+wall/armoury_weak_wall
+conveyor_belt/conveyor_belt_left
+conveyor_belt/conveyor_belt_middle
+conveyor_belt/conveyor_belt_right
+common/large_pressure_plate
