@@ -43,6 +43,7 @@ extern Entity *self;
 extern Game game;
 
 static void init(void);
+static void activate(int);
 static void entityWait(void);
 static int draw(void);
 
@@ -63,6 +64,8 @@ Entity *addTrainTrack(int x, int y, char *name)
 	e->type = KEY_ITEM;
 
 	e->action = &init;
+	
+	e->activate = &activate;
 
 	e->draw = &draw;
 
@@ -88,19 +91,19 @@ static void init()
 
 	if (nextTrack != -1)
 	{
-		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->objectiveName, self->active == FALSE ? self->mental : self->health);
+		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
 
-		self->target = getEntityByRequiredName(targetTrackName);
+		self->target = getEntityByObjectiveName(targetTrackName);
 
 		if (self->target == NULL)
 		{
-			showErrorAndExit("Track %s cannot find target %s", self->requires, targetTrackName);
+			showErrorAndExit("Track %s cannot find target %s", self->objectiveName, targetTrackName);
 		}
 	}
 
-	snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->objectiveName, self->active == FALSE ? (int)self->endX : (int)self->endY);
+	snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
 
-	self->parent = getEntityByRequiredName(targetTrackName);
+	self->parent = getEntityByObjectiveName(targetTrackName);
 
 	self->action = &entityWait;
 
@@ -128,19 +131,19 @@ static void entityWait(void)
 
 		if (nextTrack != -1)
 		{
-			snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->objectiveName, self->active == FALSE ? self->mental : self->health);
+			snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? self->mental : self->health);
 
-			self->target = getEntityByRequiredName(targetTrackName);
+			self->target = getEntityByObjectiveName(targetTrackName);
 
 			if (self->target == NULL)
 			{
-				showErrorAndExit("Track %s cannot find target %s", self->requires, targetTrackName);
+				showErrorAndExit("Track %s cannot find target %s", self->objectiveName, targetTrackName);
 			}
 		}
 
-		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->objectiveName, self->active == FALSE ? (int)self->endX : (int)self->endY);
+		snprintf(targetTrackName, MAX_VALUE_LENGTH, "%s_%d", self->requires, self->active == FALSE ? (int)self->endX : (int)self->endY);
 
-		self->parent = getEntityByRequiredName(targetTrackName);
+		self->parent = getEntityByObjectiveName(targetTrackName);
 	}
 }
 
@@ -233,4 +236,9 @@ static int draw()
 	drawLoopingAnimationToMap();
 
 	return TRUE;
+}
+
+static void activate(int val)
+{
+	self->active = self->active == TRUE ? FALSE : TRUE;
 }

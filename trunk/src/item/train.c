@@ -129,7 +129,7 @@ static void moveAlongTrack()
 		{
 			snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, self->health);
 
-			e = getEntityByRequiredName(trackName);
+			e = getEntityByObjectiveName(trackName);
 
 			if (e != NULL)
 			{
@@ -139,7 +139,7 @@ static void moveAlongTrack()
 
 					snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
 
-					e = getEntityByRequiredName(trackName);
+					e = getEntityByObjectiveName(trackName);
 
 					if (e == NULL)
 					{
@@ -168,7 +168,7 @@ static void moveAlongTrack()
 
 					snprintf(trackName, MAX_VALUE_LENGTH, "%s_TRACK_%d", self->objectiveName, track);
 
-					e = getEntityByRequiredName(trackName);
+					e = getEntityByObjectiveName(trackName);
 
 					if (e == NULL)
 					{
@@ -194,7 +194,7 @@ static void moveAlongTrack()
 
 			else
 			{
-				showErrorAndExit("Train could not find track %s", trackName);
+				showErrorAndExit("Train %s could not find track %s", self->objectiveName, trackName);
 			}
 		}
 	}

@@ -84,6 +84,11 @@ Entity *addSwitch(char *name, int x, int y)
 
 static void call(int val)
 {
+	if (val != 0)
+	{
+		return;
+	}
+	
 	if (self->thinkTime == 0)
 	{
 		if (strlen(self->requires) != 0)
