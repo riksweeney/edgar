@@ -1865,8 +1865,6 @@ static void fireArrow()
 
 		e->reactToBlock = &bounceOffShield;
 
-		e->die = &stickToTarget;
-
 		e->face = player.face;
 
 		e->flags |= FLY|ATTACKING;

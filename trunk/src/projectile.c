@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 static void projectileMove(void);
 static void projectileDie(void);
 static void removeProjectile(void);
-static void stickToTargetWait(void);
 
 extern Entity *self;
 
@@ -126,68 +125,4 @@ static void projectileDie()
 static void removeProjectile()
 {
 	self->inUse = FALSE;
-}
-
-void stickToTarget()
-{
-	if (self->target != NULL)
-	{
-		self->layer = BACKGROUND_LAYER;
-
-		self->thinkTime = 180;
-
-		self->action = &stickToTargetWait;
-
-		self->flags |= DO_NOT_PERSIST;
-
-		self->touch = NULL;
-
-		self->offsetX = self->target->w / 2;
-
-		self->offsetY = abs(self->y - self->target->y) + (prand() % 5 * (prand() % 2 == 0 ? -1 : 1));
-
-		self->mental = self->face == self->target->face ? 0 : 1;
-	}
-
-	else
-	{
-		if (hasEntityAnimation(self, "DIE") == TRUE)
-		{
-			self->die = &projectileDie;
-		}
-
-		else
-		{
-			self->die = &removeProjectile;
-		}
-
-		self->die();
-	}
-}
-
-static void stickToTargetWait()
-{
-	self->thinkTime--;
-
-	if (self->target == NULL || self->target->health <= 0 || self->thinkTime <= 0)
-	{
-		self->inUse = FALSE;
-
-		return;
-	}
-
-	if (self->mental == 0)
-	{
-		self->face = self->target->face;
-	}
-
-	else
-	{
-		self->face = self->target->face == LEFT ? RIGHT : LEFT;
-	}
-
-	self->x = self->face == RIGHT ? self->target->x - self->w + self->offsetX : self->target->x + self->target->w - self->offsetX;
-	self->y = self->target->y;
-
-	self->y += self->offsetY;
 }

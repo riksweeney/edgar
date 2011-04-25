@@ -167,7 +167,7 @@ static void activate(int val)
 	{
 		total = 0;
 
-		remaining = self->maxThinkTime == 0 && self->mental == 0 ? countSiblings(self, &total) : 0;
+		remaining = self->maxThinkTime == 0 ? countSiblings(self, &total) : 0;
 
 		if (remaining == 0)
 		{

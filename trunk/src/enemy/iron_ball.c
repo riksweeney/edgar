@@ -31,6 +31,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void entityWait(void);
+static void fallout(void);
+static void falloutDie(void);
 
 Entity *addIronBall(int x, int y, char *name)
 {
@@ -48,6 +50,7 @@ Entity *addIronBall(int x, int y, char *name)
 
 	e->action = &entityWait;
 	e->draw = &drawLoopingAnimationToMap;
+	e->fallout = &fallout;
 	e->touch = &entityTouch;
 
 	e->type = ENEMY;
@@ -65,30 +68,54 @@ static void entityWait()
 
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
-		if (self->standingOn != NULL)
-		{
-			self->face = self->standingOn->dirX < 0 ? LEFT : RIGHT;
-			
-			self->speed = self->standingOn->dirX == 0 ? self->dirX : fabs(self->standingOn->dirX);
-		}
-
 		if (landedOnGround(onGround) == TRUE)
 		{
 			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 			
-			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			self->dirX = self->endX == LEFT ? -self->speed : self->speed;
+		}
+		
+		if (self->standingOn != NULL)
+		{
+			if (self->standingOn->dirX != 0)
+			{
+				self->endX = self->standingOn->dirX < 0 ? LEFT : RIGHT;
+			}
+			
+			self->speed = self->standingOn->dirX == 0 ? self->speed : fabs(self->standingOn->dirX);
 		}
 		
 		if (self->dirX == 0)
 		{
-			self->face = self->face == LEFT ? RIGHT : LEFT;
+			self->endX = self->endX == LEFT ? RIGHT : LEFT;
 		}
 		
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		self->dirX = self->endX == LEFT ? -self->speed : self->speed;
 	}
 
 	else
 	{
 		self->dirX = 0;
 	}
+}
+
+static void fallout()
+{
+	self->thinkTime = 300;
+	
+	self->flags |= DO_NOT_PERSIST;
+	
+	self->action = &falloutDie;
+}
+
+static void falloutDie()
+{
+	self->thinkTime--;
+	
+	if ((self->flags & ON_GROUND) || (self->thinkTime <= 0))
+	{
+		self->inUse = FALSE;
+	}
+	
+	checkToMap(self);
 }
