@@ -32,6 +32,7 @@ extern Entity *self;
 static void entityWait(void);
 static void init(void);
 static void touch(Entity *);
+static void callTouch(Entity *);
 
 Entity *addArrowTarget(int x, int y, char *name)
 {
@@ -96,8 +97,11 @@ static void entityWait()
 			self->active = self->active == TRUE ? FALSE : TRUE;
 
 			setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
-
-			activateEntitiesWithRequiredName(self->objectiveName, self->active);
+			
+			if (self->mental != 1)
+			{
+				activateEntitiesWithRequiredName(self->objectiveName, self->active);
+			}
 
 			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
 
@@ -111,6 +115,8 @@ static void init()
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
 	self->action = &entityWait;
+	
+	self->touch = self->mental == 1 ? &callTouch : &touch;
 }
 
 static void touch(Entity *other)
@@ -173,5 +179,27 @@ static void touch(Entity *other)
 		}
 
 		playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+	}
+}
+
+static void callTouch(Entity *other)
+{
+	if (self->thinkTime == 0)
+	{
+		if (strcmpignorecase(other->name, self->requires) == 0)
+		{
+			playSoundToMap("sound/common/switch.ogg", -1, self->x, self->y, 0);
+
+			self->active = TRUE;
+
+			setEntityAnimation(self, "WALK");
+
+			self->thinkTime = 120;
+
+			if (strlen(self->objectiveName) != 0)
+			{
+				activateEntitiesValueWithObjectiveName(self->objectiveName, self->health);
+			}
+		}
 	}
 }

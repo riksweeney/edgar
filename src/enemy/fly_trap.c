@@ -105,6 +105,8 @@ static void init()
 	e->face = self->face;
 
 	e->dirX = self->dirX;
+	
+	e->health = self->health;
 
 	self->action = &lookForPlayer;
 }
@@ -119,7 +121,7 @@ static void lookForPlayer()
 	{
 		/* Must be within a certain range */
 
-		if (collision(self->x + (self->face == LEFT ? -200 : self->w + 64), self->y, 132, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -100 : self->w + 64), self->y, 36, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
 
@@ -238,8 +240,17 @@ static void headBiteInit()
 	{
 		self->startX = self->x;
 		self->startY = self->y;
-
-		self->targetX = player.x;
+		
+		if (self->face == LEFT)
+		{
+			self->targetX = abs(player.x - self->x) > 130 ? self->x - 130 : player.x;
+		}
+		
+		else
+		{
+			self->targetX = abs(player.x - self->x) > 130 ? self->x + self->w + 130 : player.x;
+		}
+		
 		self->targetY = player.y;
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
@@ -424,6 +435,8 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 		body[i]->takeDamage = &bodyTakeDamage;
 
 		body[i]->type = ENEMY;
+		
+		body[i]->health = trapBase->health;
 
 		setEntityAnimation(body[i], "STAND");
 	}
@@ -518,7 +531,7 @@ static void alignBodyToHead()
 static void bodyTakeDamage(Entity *other, int damage)
 {
 	Entity *temp = self;
-
+	
 	self = self->head->head; /* Get the head, then the base */
 
 	self->takeDamage(other, damage);
@@ -535,11 +548,6 @@ static void headTakeDamage(Entity *other, int damage)
 	self->takeDamage(other, damage);
 
 	self = temp;
-
-	if (self->head->health > 0)
-	{
-		setCustomAction(self, &flashWhite, 6, 0, 0);
-	}
 }
 
 static void headChangeDirection(Entity *other)

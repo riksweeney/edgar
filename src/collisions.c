@@ -248,6 +248,11 @@ void doCollisions()
 								self = temp;
 							}
 						}
+						
+						if (e1->inUse == FALSE)
+						{
+							break;
+						}
 					}
 				}
 			}
