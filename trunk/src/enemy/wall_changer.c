@@ -329,7 +329,7 @@ static void changeWall()
 
 	e->head = self;
 
-	self->thinkTime = 300;
+	self->thinkTime = 600;
 }
 
 static void takeDamage(Entity *other, int damage)
