@@ -241,16 +241,7 @@ static void headBiteInit()
 		self->startX = self->x;
 		self->startY = self->y;
 		
-		if (self->face == LEFT)
-		{
-			self->targetX = abs(player.x - self->x) > 130 ? self->x - 130 : player.x;
-		}
-		
-		else
-		{
-			self->targetX = abs(player.x - self->x) > 130 ? self->x + self->w + 130 : player.x;
-		}
-		
+		self->targetX = player.x;
 		self->targetY = player.y;
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);

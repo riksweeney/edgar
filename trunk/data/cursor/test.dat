@@ -1,13 +1,3 @@
 edgar/edgar
+enemy/wall_changer
 enemy/flame_statue
-lift/mine_lift
-enemy/fly_trap
-weapon/bow
-weapon/normal_arrow
-item/arrow_target
-enemy/dark_summoner
-conveyor_belt/conveyor_belt_left
-conveyor_belt/conveyor_belt_middle
-conveyor_belt/conveyor_belt_right
-common/large_pressure_plate
-enemy/iron_ball

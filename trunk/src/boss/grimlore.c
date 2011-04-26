@@ -2397,7 +2397,7 @@ static void itemDestroyAttack()
 
 		setEntityAnimationByID(e, 0);
 
-		e->x = self->x + self->w / 2 - e-> w /2;
+		e->x = self->x + self->w / 2 - e-> w / 2;
 		e->y = self->y - e->h - 16;
 
 		STRNCPY(e->requires, weaponName, sizeof(e->requires));
