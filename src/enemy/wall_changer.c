@@ -269,8 +269,8 @@ static int isGapJumpable()
 static void die()
 {
 	Entity *e;
-
-	if (prand() % 3 == 0)
+	
+	if (prand() % 2 == 0)
 	{
 		e = addKeyItem("item/poison_meat", self->x + self->w / 2, self->y);
 
@@ -303,7 +303,7 @@ static void changeWall()
 		break;
 
 		case 1:
-			STRNCPY(self->requires, "weapon/woodaxe", sizeof(self->requires));
+			STRNCPY(self->requires, "weapon/wood_axe", sizeof(self->requires));
 			setEntityAnimationByID(e, 1);
 		break;
 

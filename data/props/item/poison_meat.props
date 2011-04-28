@@ -4,3 +4,4 @@ TYPE KEY_ITEM
 OBJECTIVE_NAME Poisonous Meat
 DESCRIPTION A lump of highly poisonous meat
 FLAGS STACKABLE
+THINKTIME 240
