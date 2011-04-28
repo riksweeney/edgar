@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../projectile.h"
 #include "../map.h"
+#include "../inventory.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../item/item.h"
@@ -286,6 +287,7 @@ static void die()
 
 static void changeWall()
 {
+	int r;
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
@@ -294,8 +296,10 @@ static void changeWall()
 	}
 
 	loadProperties("boss/grimlore_weapon_box", e);
+	
+	r = hasLightningSword() == TRUE ? 6 : 5;
 
-	switch (prand() % 4)
+	switch (prand() % r)
 	{
 		case 0:
 			STRNCPY(self->requires, "weapon/pickaxe", sizeof(self->requires));
@@ -312,9 +316,19 @@ static void changeWall()
 			setEntityAnimationByID(e, 2);
 		break;
 
-		default:
+		case 3:
 			STRNCPY(self->requires, "weapon/normal_arrow", sizeof(self->requires));
 			setEntityAnimationByID(e, 3);
+		break;
+		
+		case 4:
+			STRNCPY(self->requires, "weapon/flaming_arrow", sizeof(self->requires));
+			setEntityAnimationByID(e, 4);
+		break;
+		
+		default:
+			STRNCPY(self->requires, "weapon/lighting_sword", sizeof(self->requires));
+			setEntityAnimationByID(e, 5);
 		break;
 	}
 

@@ -76,7 +76,7 @@ static void init()
 {
 	self->dirY = 0;
 
-	self->endY = getWaterTop(self->startX, self->startY);
+	self->endY = getWaterTop(self->x, self->y);
 
 	if (self->mental == 1)
 	{
@@ -113,6 +113,8 @@ static void swim()
 
 	if (self->mental == 1)
 	{
+		self->endY = getWaterTop(self->x, self->y);
+		
 		self->endY = self->endY - TILE_SIZE;
 
 		self->damage = 0;
