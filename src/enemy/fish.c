@@ -76,10 +76,10 @@ static void init()
 {
 	self->dirY = 0;
 
-	self->endY = getWaterTop(self->x, self->y);
-
 	if (self->mental == 1)
 	{
+		self->endY = getWaterTop(self->x, self->y + 64);
+		
 		self->endY -= TILE_SIZE;
 
 		self->touch = NULL;
@@ -91,6 +91,8 @@ static void init()
 
 	else
 	{
+		self->endY = getWaterTop(self->x, self->y);
+		
 		self->action = &swim;
 	}
 }
