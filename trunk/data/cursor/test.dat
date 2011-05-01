@@ -1,5 +1,3 @@
 edgar/edgar
-weapon/wood_axe
-enemy/fish
-item/poison_meat
-common/save_point
+enemy/fly_trap
+enemy/flame_statue

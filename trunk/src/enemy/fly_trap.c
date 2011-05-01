@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../collisions.h"
@@ -130,6 +131,8 @@ static void lookForPlayer()
 			self->action = &biteWait;
 
 			self->mental = 1;
+			
+			playSoundToMap("sound/enemy/mouth_stalk/hiss.ogg", -1, self->x, self->y, 0);
 		}
 	}
 }
@@ -197,7 +200,7 @@ static void headWait()
 		self->endX = 0;
 	}
 	
-	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 8;
+	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 4;
 
 	checkToMap(self);
 
@@ -280,7 +283,7 @@ static void headBite()
 {
 	checkToMap(self);
 
-	if (atTarget() || self->dirX == 0)
+	if (atTarget() || self->dirX == 0 || self->dirY == 0)
 	{
 		self->targetX = self->startX;
 		self->targetY = self->startY;
@@ -402,7 +405,7 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 
 	/* Create in reverse order so that it is drawn correctly */
 
-	resetEntityIndex();
+	/*resetEntityIndex();*/
 
 	for (i=trapHead->mental-1;i>=0;i--)
 	{
