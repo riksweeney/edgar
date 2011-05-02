@@ -993,6 +993,8 @@ static void energyBarWait()
 		self->flags |= NO_DRAW;
 
 		self->inUse = FALSE;
+		
+		self->head = NULL;
 	}
 }
 

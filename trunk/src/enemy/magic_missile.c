@@ -109,6 +109,8 @@ static void move()
 
 	if (self->head == NULL || self->head->health <= 0 || self->head->inUse == FALSE)
 	{
+		self->head = NULL;
+		
 		self->die();
 
 		return;

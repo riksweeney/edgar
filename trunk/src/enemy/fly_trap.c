@@ -292,6 +292,8 @@ static void headBite()
 
 		self->dirX *= 16;
 		self->dirY *= 16;
+		
+		self->flags |= UNBLOCKABLE;
 
 		self->action = &headBiteReturn;
 	}
@@ -342,6 +344,8 @@ static void headBiteReturn()
 
 	if (atTarget() || self->dirX != dirX || self->dirY != dirY)
 	{
+		self->flags &= ~UNBLOCKABLE;
+		
 		self->x = self->startX;
 		self->y = self->startY;
 

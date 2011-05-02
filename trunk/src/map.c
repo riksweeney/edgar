@@ -46,6 +46,7 @@ extern Game game;
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name, int);
 static void loadAmbience(char *);
+static int countTokens(char *);
 
 static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
@@ -267,9 +268,7 @@ void loadMap(char *name, int loadEntityResources)
 
 			line = strtok_r(NULL, "\n", &savePtr1);
 
-			token = strtok_r(line, " ", &savePtr2);
-
-			y = atoi(token);
+			y = countTokens(line);
 
 			map.animTile[animTileID].tileCount = y;
 
@@ -281,12 +280,14 @@ void loadMap(char *name, int loadEntityResources)
 			{
 				showErrorAndExit("Failed to allocate a whole %d bytes for the animated tiles", (int)(sizeof(int) * y));
 			}
+			
+			token = strtok_r(line, " ", &savePtr2);
 
 			for (x=0;x<y;x++)
 			{
-				token = strtok_r(NULL, " ", &savePtr2);
-
 				map.animTile[animTileID].tile[x] = atoi(token);
+				
+				token = strtok_r(NULL, " ", &savePtr2);
 			}
 
 			animTileID++;
@@ -562,7 +563,7 @@ void doMap()
 			}
 		}
 
-		map.animThinkTime = 6;
+		map.animThinkTime = 15;
 	}
 }
 
@@ -1390,4 +1391,34 @@ int isDarkMap()
 void resetBlendTime()
 {
 	map.blendTime = 255;
+}
+
+static int countTokens(char *line)
+{
+	char *temp, *savePtr, *token;
+	int i;
+	
+	temp = malloc(strlen(line) + 1);
+	
+	if (temp == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for tokens...", (int)strlen(line) + 1);
+	}
+	
+	STRNCPY(temp, line, strlen(line) + 1);
+
+	token = strtok_r(temp, " ", &savePtr);
+	
+	i = 0;
+
+	while (token != NULL)
+	{
+		i++;
+		
+		token = strtok_r(NULL, " ", &savePtr);
+	}
+	
+	free(temp);
+	
+	return i;
 }

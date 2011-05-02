@@ -236,6 +236,8 @@ static void electrify()
 		self->element = NO_ELEMENT;
 
 		self->target->inUse = FALSE;
+		
+		self->target = NULL;
 	}
 
 	checkToMap(self);

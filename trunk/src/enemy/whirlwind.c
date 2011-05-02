@@ -108,6 +108,8 @@ static void touch(Entity *other)
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 
 		self->target = other;
@@ -249,6 +251,8 @@ static void die()
 		else
 		{
 			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 	}
 
