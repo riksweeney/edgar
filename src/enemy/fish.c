@@ -287,6 +287,8 @@ static void touch(Entity *other)
 			if (self->target->health <= 0)
 			{
 				self->target->inUse = FALSE;
+				
+				self->target = NULL;
 			}
 		}
 	}

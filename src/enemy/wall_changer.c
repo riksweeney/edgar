@@ -246,7 +246,7 @@ static int canDropDown()
 
 static int isGapJumpable()
 {
-	int tile;
+	int tile1, tile2;
 	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
 	int y = self->y + self->h - 1;
 
@@ -257,11 +257,18 @@ static int isGapJumpable()
 
 	x += self->face == LEFT ? -3 : 3;
 
-	tile = mapTileAt(x, y);
+	tile1 = mapTileAt(x, y);
+	
+	y--;
+	
+	tile2 = mapTileAt(x, y);
 
-	if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
+	if (tile1 != BLANK_TILE && tile1 < BACKGROUND_TILE_START)
 	{
-		return TRUE;
+		if (tile2 == BLANK_TILE)
+		{
+			return TRUE;
+		}
 	}
 
 	return FALSE;

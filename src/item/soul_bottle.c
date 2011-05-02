@@ -135,6 +135,8 @@ static void soulActivate()
 			if (self->target != NULL)
 			{
 				self->target->inUse = FALSE;
+				
+				self->target = NULL;
 			}
 
 			setEntityAnimation(self, "STAND");
@@ -155,6 +157,8 @@ static void soulTouch(Entity *other)
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 
 		keyItemTouch(other);
@@ -185,6 +189,8 @@ static void bottleFill()
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 
 		loadProperties("item/full_soul_bottle", self);

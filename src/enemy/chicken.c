@@ -165,8 +165,10 @@ static void wander()
 
 static void moveToFood()
 {
-	if (self->target->health <= 3)
+	if (self->target->health <= 3 || self->target->inUse == FALSE)
 	{
+		self->target = NULL;
+		
 		self->action = &wander;
 	}
 

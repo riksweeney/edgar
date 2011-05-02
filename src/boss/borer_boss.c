@@ -1200,6 +1200,8 @@ static void redTentacleAttackFinish()
 			self->action = &redTentacleExplode;
 
 			self->target->inUse = FALSE;
+			
+			self->target = NULL;
 		}
 
 		else if (self->x >= self->endX && self->target->type == PLAYER)
