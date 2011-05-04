@@ -3,7 +3,7 @@ CHANGE LOG
 
 Version 0.85
 * Added the next part of the story
-* Fixed a bug with the Salamander not changing to fire
+* Fixed a bug with the Salamander not changing to its fire form
 * Filling up the potion bottle no longer creates an additional bottle in the map
 
 Version 0.82

@@ -47,9 +47,11 @@ static int canJumpUp(void);
 static int canDropDown(void);
 static int isGapJumpable(void);
 static void takeDamage(Entity *, int);
-static void changeWall(void);
+static void changeArmour(void);
 static void boxWait(void);
 static void die(void);
+static void glowWait(void);
+static void init(void);
 
 Entity *addWallChanger(int x, int y, char *name)
 {
@@ -57,7 +59,7 @@ Entity *addWallChanger(int x, int y, char *name)
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Wall Changer");
+		showErrorAndExit("No free slots to add an Armour Changer");
 	}
 
 	loadProperties(name, e);
@@ -65,7 +67,7 @@ Entity *addWallChanger(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &lookForPlayer;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
@@ -75,9 +77,19 @@ Entity *addWallChanger(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "STAND_1");
 
 	return e;
+}
+
+static void init()
+{
+	if (self->mental == 0)
+	{
+		self->mental = 1 + prand() % 3;
+	}
+	
+	self->action = &lookForPlayer;
 }
 
 static void lookForPlayer()
@@ -86,10 +98,23 @@ static void lookForPlayer()
 
 	if (self->thinkTime <= 0)
 	{
-		changeWall();
+		changeArmour();
 	}
-
-	setEntityAnimation(self, "WALK");
+	
+	switch (self->mental)
+	{
+		case 2:
+			setEntityAnimation(self, "WALK_2");
+		break;
+		
+		case 3:
+			setEntityAnimation(self, "WALK_3");
+		break;
+		
+		default:
+			setEntityAnimation(self, "WALK_1");
+		break;
+	}
 
 	moveAndJump();
 }
@@ -119,7 +144,20 @@ static void moveAndJump()
 		{
 			self->action = &jumpOverGap;
 
-			setEntityAnimation(self, "STAND");
+			switch (self->mental)
+			{
+				case 2:
+					setEntityAnimation(self, "STAND_2");
+				break;
+				
+				case 3:
+					setEntityAnimation(self, "STAND_3");
+				break;
+				
+				default:
+					setEntityAnimation(self, "STAND_1");
+				break;
+			}
 		}
 
 		else if (canDropDown() == FALSE)
@@ -216,14 +254,16 @@ static int canJumpUp()
 
 static int canDropDown()
 {
-	int tile, i, j;
+	int tile, i, j, width;
 	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
 	int y = self->y + self->h - 1;
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
+	
+	width = self->w / TILE_SIZE;
 
-	for(j=0;j<3;j++)
+	for (j=0;j<width;j++)
 	{
 		for (i=0;i<8;i++)
 		{
@@ -236,6 +276,9 @@ static int canDropDown()
 
 			if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
 			{
+				x = (x + (self->face == LEFT ? -j : j)) * TILE_SIZE;
+				y = (y + i) * TILE_SIZE;
+				
 				return TRUE;
 			}
 		}
@@ -258,14 +301,14 @@ static int isGapJumpable()
 	x += self->face == LEFT ? -3 : 3;
 
 	tile1 = mapTileAt(x, y);
-	
-	y--;
-	
-	tile2 = mapTileAt(x, y);
 
 	if (tile1 != BLANK_TILE && tile1 < BACKGROUND_TILE_START)
 	{
-		if (tile2 == BLANK_TILE)
+		y--;
+		
+		tile2 = mapTileAt(x, y);
+		
+		if (tile2 == BLANK_TILE || (tile2 >= BACKGROUND_TILE_START && tile2 <= BACKGROUND_TILE_END))
 		{
 			return TRUE;
 		}
@@ -292,7 +335,7 @@ static void die()
 	entityDie();
 }
 
-static void changeWall()
+static void changeArmour()
 {
 	int r;
 	Entity *e = getFreeEntity();
@@ -351,6 +394,33 @@ static void changeWall()
 	e->head = self;
 
 	self->thinkTime = 600;
+	
+	e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Armour Changer Glow");
+	}
+
+	loadProperties("enemy/armour_changer_glow", e);
+	
+	e->x = self->x;
+	e->y = self->y;
+	
+	e->head = self;
+	
+	e->action = &glowWait;
+	
+	e->draw = &drawLoopingAnimationToMap;
+	
+	e->thinkTime = 60;
+	
+	e->maxThinkTime = e->thinkTime;
+	
+	setEntityAnimation(e, getAnimationTypeAtIndex(self));
+	
+	e->currentFrame = self->currentFrame;
+	e->frameTimer = self->frameTimer;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -402,6 +472,25 @@ static void boxWait()
 
 	self->thinkTime--;
 
+	if (self->thinkTime <= 0 || self->head->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void glowWait()
+{
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	self->x = self->head->x;
+	self->y = self->head->y;
+	
+	self->thinkTime--;
+	
+	self->alpha = (255 * self->thinkTime) / self->maxThinkTime;
+	
 	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		self->inUse = FALSE;

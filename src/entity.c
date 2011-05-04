@@ -53,6 +53,7 @@ static Entity *drawLayer[MAX_LAYERS][MAX_ENTITIES];
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
+static void duplicateWait(void);
 
 void freeEntities()
 {
@@ -1889,4 +1890,44 @@ int landedOnGround(long wasOnGround)
 	}
 
 	return FALSE;
+}
+
+void addDuplicateImage(Entity *e)
+{
+	Entity *duplicate;
+	
+	duplicate = getFreeEntity();
+	
+	if (duplicate == NULL)
+	{
+		showErrorAndExit("No free slots to add a duplicate image");
+	}
+	
+	loadProperties(e->name, duplicate);
+	
+	duplicate->x = e->x;
+	duplicate->y = e->y;
+	
+	duplicate->thinkTime = 30;
+	
+	duplicate->draw = &drawLoopingAnimationToMap;
+	duplicate->action = &duplicateWait;
+	
+	setEntityAnimation(duplicate, getAnimationTypeAtIndex(e));
+	
+	duplicate->currentFrame = e->currentFrame;
+	
+	duplicate->frameSpeed = 0;
+	
+	duplicate->face = e->face;
+}
+
+static void duplicateWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }

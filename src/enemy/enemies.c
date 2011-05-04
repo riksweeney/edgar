@@ -272,7 +272,7 @@ static Constructor enemies[] = {
 {"boss/grimlore_summon_spell", &addGrimloreSummonSpell},
 {"enemy/flame_statue", &addFlameStatue},
 {"enemy/fly_trap", &addFlyTrap},
-{"enemy/wall_changer", &addWallChanger}
+{"enemy/armour_changer", &addWallChanger}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
