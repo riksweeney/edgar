@@ -462,7 +462,6 @@ int saveMap()
 		for (x=0;x<map.animTileTotal;x++)
 		{
 			fprintf(fp, "ANIM_TILES\n");
-			fprintf(fp, "%d", map.animTile[x].tileCount);
 
 			for (y=0;y<map.animTile[x].tileCount;y++)
 			{

@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "graphics/animation.h"
 #include "player.h"
+#include "entity.h"
 #include "map.h"
 #include "hud.h"
 #include "medal.h"
@@ -311,6 +312,23 @@ void antiGravity(int *thinkTime, int *counter, float *value)
 		{
 			self->weight = self->originalWeight;
 			self->dirY = 0;
+		}
+	}
+}
+
+void spriteTrail(int *thinkTime, int *counter, float *value)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		(*counter)--;
+		
+		if (*counter <= 0)
+		{
+			*counter = 5;
+			
+			addDuplicateImage(self);
 		}
 	}
 }

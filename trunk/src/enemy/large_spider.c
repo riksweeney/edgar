@@ -461,14 +461,16 @@ static int canJumpUp()
 
 static int canDropDown()
 {
-	int tile, i, j;
+	int tile, i, j, width;
 	int x = self->face == LEFT ? floor(self->x) : ceil(self->x) + self->w;
 	int y = self->y + self->h - 1;
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
+	
+	width = self->w / TILE_SIZE;
 
-	for(j=0;j<3;j++)
+	for (j=0;j<width;j++)
 	{
 		for (i=0;i<8;i++)
 		{
@@ -481,6 +483,9 @@ static int canDropDown()
 
 			if (tile != BLANK_TILE && tile < BACKGROUND_TILE_START)
 			{
+				x = (x + (self->face == LEFT ? -j : j)) * TILE_SIZE;
+				y = (y + i) * TILE_SIZE;
+				
 				return TRUE;
 			}
 		}
@@ -503,14 +508,14 @@ static int isGapJumpable()
 	x += self->face == LEFT ? -3 : 3;
 
 	tile1 = mapTileAt(x, y);
-	
-	y--;
-	
-	tile2 = mapTileAt(x, y);
 
 	if (tile1 != BLANK_TILE && tile1 < BACKGROUND_TILE_START)
 	{
-		if (tile2 == BLANK_TILE)
+		y--;
+		
+		tile2 = mapTileAt(x, y);
+		
+		if (tile2 == BLANK_TILE || (tile2 >= BACKGROUND_TILE_START && tile2 <= BACKGROUND_TILE_END))
 		{
 			return TRUE;
 		}
