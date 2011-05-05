@@ -214,8 +214,6 @@ static void readInputCode()
 			STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
 			
 			self->target->inUse = FALSE;
-			
-			self->target = NULL;
 
 			self->action = &entityWait;
 

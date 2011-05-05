@@ -716,8 +716,6 @@ static void iceSpikeMove()
 			if (self->head != NULL)
 			{
 				self->head->inUse = FALSE;
-
-				self->head = NULL;
 			}
 		}
 	}
