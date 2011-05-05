@@ -2227,8 +2227,6 @@ static void maggotGrabSink()
 		self->health = 0;
 
 		self->inUse = FALSE;
-		
-		self->head = NULL;
 	}
 
 	self->head->x = self->x + self->w / 2 - self->head->w / 2;
@@ -2313,8 +2311,6 @@ static void dripWait()
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
-		
-		self->head = NULL;
 	}
 }
 

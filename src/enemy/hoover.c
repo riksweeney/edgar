@@ -209,8 +209,6 @@ static void eatFood()
 		self->animationCallback = &chewFood;
 
 		self->target->inUse = FALSE;
-		
-		self->target = NULL;
 
 		self->action = &lookForFood;
 	}

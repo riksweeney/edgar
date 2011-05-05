@@ -2409,8 +2409,6 @@ static void itemDestroyAttack()
 		if (self->target != NULL && self->target->inUse == TRUE)
 		{
 			self->target->inUse = FALSE;
-			
-			self->target = NULL;
 		}
 
 		self->target = e;
@@ -2617,8 +2615,6 @@ static void itemDestroyWait()
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
-			
-			self->target = NULL;
 		}
 
 		if (self->thinkTime <= 0)

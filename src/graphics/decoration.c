@@ -476,3 +476,37 @@ static int drawPixel()
 
 	return TRUE;
 }
+
+void addDuplicateImage(Entity *e)
+{
+	Entity *duplicate;
+	
+	duplicate = getFreeDecoration();
+	
+	if (duplicate == NULL)
+	{
+		return;
+	}
+	
+	loadProperties(e->name, duplicate);
+	
+	duplicate->x = e->x;
+	duplicate->y = e->y;
+	
+	duplicate->thinkTime = 30;
+	
+	duplicate->draw = &drawLoopingAnimationToMap;
+	duplicate->action = &move;
+	
+	setEntityAnimation(duplicate, getAnimationTypeAtIndex(e));
+	
+	duplicate->currentFrame = e->currentFrame;
+	
+	duplicate->frameSpeed = 0;
+	
+	duplicate->face = e->face;
+	
+	duplicate->layer = BACKGROUND_LAYER;
+	
+	duplicate->flags |= DO_NOT_PERSIST;
+}
