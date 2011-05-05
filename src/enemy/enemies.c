@@ -102,7 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "magic_missile.h"
 #include "flame_statue.h"
 #include "fly_trap.h"
-#include "wall_changer.h"
+#include "armour_changer.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -272,7 +272,7 @@ static Constructor enemies[] = {
 {"boss/grimlore_summon_spell", &addGrimloreSummonSpell},
 {"enemy/flame_statue", &addFlameStatue},
 {"enemy/fly_trap", &addFlyTrap},
-{"enemy/armour_changer", &addWallChanger}
+{"enemy/armour_changer", &addArmourChanger}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

@@ -1,5 +1,0 @@
-GFX_FILE data/gfx/enemy/armour_changer_glow.dat
-ANIM_FILE data/anim/enemy/armour_changer.dat
-TYPE ENEMY
-FLAGS DO_NOT_PERSIST
-LAYER FOREGROUND_LAYER

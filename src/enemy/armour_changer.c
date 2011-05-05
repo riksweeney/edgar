@@ -50,10 +50,10 @@ static void takeDamage(Entity *, int);
 static void changeArmour(void);
 static void boxWait(void);
 static void die(void);
-static void glowWait(void);
 static void init(void);
+static int draw(void);
 
-Entity *addWallChanger(int x, int y, char *name)
+Entity *addArmourChanger(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -69,7 +69,7 @@ Entity *addWallChanger(int x, int y, char *name)
 
 	e->action = &init;
 
-	e->draw = &drawLoopingAnimationToMap;
+	e->draw = &draw;
 	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
@@ -395,32 +395,9 @@ static void changeArmour()
 
 	self->thinkTime = 600;
 	
-	e = getFreeEntity();
-
-	if (e == NULL)
-	{
-		showErrorAndExit("No free slots to add a Armour Changer Glow");
-	}
-
-	loadProperties("enemy/armour_changer_glow", e);
+	self->targetX = 60;
 	
-	e->x = self->x;
-	e->y = self->y;
-	
-	e->head = self;
-	
-	e->action = &glowWait;
-	
-	e->draw = &drawLoopingAnimationToMap;
-	
-	e->thinkTime = 60;
-	
-	e->maxThinkTime = e->thinkTime;
-	
-	setEntityAnimation(e, getAnimationTypeAtIndex(self));
-	
-	e->currentFrame = self->currentFrame;
-	e->frameTimer = self->frameTimer;
+	self->targetY = self->targetX;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -478,21 +455,40 @@ static void boxWait()
 	}
 }
 
-static void glowWait()
+static int draw()
 {
-	self->face = self->head->face;
+	int currentFrame, drawn;
+	float frameTimer;
+	char animationName[MAX_VALUE_LENGTH];
 	
-	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	drawn = drawLoopingAnimationToMap();
 	
-	self->x = self->head->x;
-	self->y = self->head->y;
-	
-	self->thinkTime--;
-	
-	self->alpha = (255 * self->thinkTime) / self->maxThinkTime;
-	
-	if (self->thinkTime <= 0 || self->head->health <= 0)
+	if (self->targetX > 0)
 	{
-		self->inUse = FALSE;
+		self->targetX--;
+		
+		STRNCPY(animationName, self->animationName, MAX_VALUE_LENGTH);
+		
+		currentFrame = self->currentFrame;
+		
+		frameTimer = self->frameTimer;
+		
+		setEntityAnimation(self, strstr(animationName, "STAND") != NULL ? "GLOW_STAND" : "GLOW_WALK");
+		
+		self->currentFrame = currentFrame;
+		
+		self->alpha = (255 * self->targetX) / self->targetY;
+		
+		drawSpriteToMap();
+		
+		self->alpha = 255;
+		
+		setEntityAnimation(self, animationName);
+		
+		self->currentFrame = currentFrame;
+		
+		self->frameTimer = frameTimer;
 	}
+	
+	return drawn;
 }

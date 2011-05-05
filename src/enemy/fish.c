@@ -226,7 +226,7 @@ static void lookForPlayer()
 
 static void moveToFood()
 {
-	if (self->target->health <= 0 || self->target->inUse == FALSE)
+	if (self->target == NULL || self->target->health <= 0 || self->target->inUse == FALSE)
 	{
 		self->targetX = self->startX;
 		self->targetY = self->startY;
