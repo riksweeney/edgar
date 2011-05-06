@@ -126,6 +126,8 @@ static void meatFallout()
 	{
 		entityDieNoDrop();
 	}
+	
+	self->layer = BACKGROUND_LAYER;
 
 	self->dirX = 0;
 }

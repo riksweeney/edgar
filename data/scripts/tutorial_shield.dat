@@ -1,7 +1,7 @@
 TALK Narrator The shield will protect you from most enemy attacks
 TALK Narrator Some enemy attacks cannot be blocked
 TALK Narrator Environmental hazards, such as falling rocks, cannot be blocked
-TALK Narrator To block an attack, press and hold block (left alt).
+TALK Narrator To block an attack, press and hold block ([INPUT_BLOCK]).
 TALK Narrator You must be facing the attack to succesfully block it
 TALK Narrator Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air
 TALK Narrator Pick up the shield and continue to the right

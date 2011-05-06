@@ -44,8 +44,6 @@ static void realignGrid(void);
 static char *getDeadZoneValue(int);
 static void raiseDeadZoneValue(void);
 static void lowerDeadZoneValue(void);
-static char *getJoystickButton(int);
-static char *getKeyValue(int);
 
 void drawControlMenu()
 {
@@ -544,23 +542,6 @@ static void redefineKey()
 	realignGrid();
 }
 
-static char *getKeyValue(int key)
-{
-	char *text;
-
-	if (key < 0)
-	{
-		text = getJoystickButton(key);
-	}
-
-	else
-	{
-		text = SDL_GetKeyName(key);
-	}
-
-	return text;
-}
-
 static void lowerDeadZoneValue()
 {
 	char *text;
@@ -618,24 +599,6 @@ static char *getDeadZoneValue(int value)
 	}
 
 	snprintf(text, 10, "%d", value);
-
-	return text;
-}
-
-static char *getJoystickButton(int val)
-{
-	char *text;
-
-	text = malloc(20);
-
-	val = abs(val) - 1000;
-
-	if (text == NULL)
-	{
-		showErrorAndExit("Failed to allocate a whole 20 bytes for the joystick button label");
-	}
-
-	snprintf(text, 20, _("Joy Button #%d"), val);
 
 	return text;
 }

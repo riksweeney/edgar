@@ -23,11 +23,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/font.h"
 #include "dialog.h"
 #include "game.h"
+#include "input.h"
 #include "system/error.h"
 
 extern Game game;
+extern Control control;
 
 static DialogBox dialogBox;
+
+static char *replaceString(char *, char *, char *);
 
 void createDialogBoxFromScript(char *msg)
 {
@@ -147,19 +151,35 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	{
 		lineBreak = FALSE;
 
+		snprintf(word, sizeof(word), "%d ", game.kills);
+		
+		token = replaceString(token, "[GAME_KILLS]", word);
+		
+		token = replaceString(token, "[HOURS]", getPlayTimeHours());
+		
+		token = replaceString(token, "[INPUT_LEFT]", getKeyValue(control.button[CONTROL_LEFT]));
+		
+		token = replaceString(token, "[INPUT_RIGHT]", getKeyValue(control.button[CONTROL_RIGHT]));
+		
+		token = replaceString(token, "[INPUT_JUMP]", getKeyValue(control.button[CONTROL_JUMP]));
+		
+		token = replaceString(token, "[INPUT_BLOCK]", getKeyValue(control.button[CONTROL_BLOCK]));
+		
+		token = replaceString(token, "[INPUT_ATTACK]", getKeyValue(control.button[CONTROL_ATTACK]));
+		
+		token = replaceString(token, "[INPUT_INTERACT]", getKeyValue(control.button[CONTROL_INTERACT]));
+		
+		token = replaceString(token, "[INPUT_ACTIVATE]", getKeyValue(control.button[CONTROL_ACTIVATE]));
+		
+		token = replaceString(token, "[INPUT_INVENTORY]", getKeyValue(control.button[CONTROL_INVENTORY]));
+		
+		token = replaceString(token, "[INPUT_PREVIOUS]", getKeyValue(control.button[CONTROL_PREVIOUS]));
+		
+		token = replaceString(token, "[INPUT_NEXT]", getKeyValue(control.button[CONTROL_NEXT]));
+		
 		snprintf(word, sizeof(word), "%s ", token);
-		
-		if (strcmpignorecase(word, "[GAME_KILLS] ") == 0)
-		{
-			snprintf(word, sizeof(word), "%d ", game.kills);
-		}
-		
-		if (strcmpignorecase(word, "[HOURS] ") == 0)
-		{
-			snprintf(word, sizeof(word), "%s ", getPlayTimeHours());
-		}
 
-		else if (word[strlen(word) - 2] == '\n')
+		if (word[strlen(word) - 2] == '\n')
 		{
 			lineBreak = TRUE;
 
@@ -282,4 +302,25 @@ void freeDialogBox()
 		
 		dialogBox.thinkTime = 0;
 	}
+}
+
+static char *replaceString(char *string, char *find, char *replace)
+{
+	static char buffer[MAX_VALUE_LENGTH];
+	char *p;
+
+	p = strstr(string, find);
+	
+	if (p == NULL)
+	{
+		return string;
+	}
+	
+	strncpy(buffer, string, p - string);
+	
+	buffer[p - string] = '\0';
+	
+	snprintf(buffer + (p - string), MAX_VALUE_LENGTH, "%s%s", replace, p + strlen(find));
+	
+	return buffer;
 }

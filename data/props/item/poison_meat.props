@@ -1,5 +1,5 @@
 GFX_FILE data/gfx/item/poison_meat.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/poison_meat.dat
 TYPE KEY_ITEM
 OBJECTIVE_NAME Poisonous Meat
 DESCRIPTION A lump of highly poisonous meat

@@ -23,3 +23,4 @@ int getSingleInput(void);
 void flushInputs(void);
 void readControlsFromFile(char *);
 void writeControlsToFile(FILE *);
+char *getKeyValue(int);
