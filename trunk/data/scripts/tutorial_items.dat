@@ -1,7 +1,7 @@
 TALK Narrator To pick up an item, simply walk into it. Any collectable items will be added to your inventory.
-TALK Narrator You can view the contents of your inventory by pressing z
+TALK Narrator You can view the contents of your inventory by pressing [INPUT_INVENTORY]
 TALK Narrator Whilst in the inventory, use the arrow keys to view the items.
-TALK Narrator You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)
-TALK Narrator You can ready an item for use by pressing Block (left alt) or Action (c)
-TALK Narrator You can also sort items in your inventory by using the Previous Item (,) and Next Item (.) buttons
+TALK Narrator You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])
+TALK Narrator You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action ([INPUT_INTERACT])
+TALK Narrator You can also sort items in your inventory by using the Previous Item ([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons
 TALK Narrator Walk over the key to pick it up

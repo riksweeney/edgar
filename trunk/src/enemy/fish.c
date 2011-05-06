@@ -78,7 +78,7 @@ static void init()
 
 	if (self->mental == 1)
 	{
-		self->endY = getWaterTop(self->x, self->y + 64);
+		self->endY = getWaterTop(self->x, self->y + self->h / 2);
 		
 		self->endY -= TILE_SIZE;
 
@@ -108,7 +108,7 @@ static void swim()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
 
-	if (prand() % 5 == 0)
+	if (prand() % 30 == 0)
 	{
 		lookForPlayer();
 	}
@@ -264,6 +264,8 @@ static void moveToFood()
 		self->face = self->dirX < 0 ? LEFT : RIGHT;
 
 		checkToMap(self);
+		
+		self->endY = getWaterTop(self->x, self->y + self->h / 2);
 
 		if (self->y < self->endY)
 		{
@@ -279,6 +281,8 @@ static void touch(Entity *other)
 		if (self->thinkTime <= 0)
 		{
 			self->target->health--;
+			
+			self->target->mental++;
 
 			self->thinkTime = 30;
 
@@ -287,6 +291,11 @@ static void touch(Entity *other)
 			if (self->target->health <= 0)
 			{
 				self->target->inUse = FALSE;
+			}
+			
+			else
+			{
+				setEntityAnimationByID(self->target, self->target->mental);
 			}
 		}
 	}
@@ -333,6 +342,8 @@ static void attackPlayer()
 		self->dirY *= 3;
 
 		self->face = self->dirX < 0 ? LEFT : RIGHT;
+		
+		self->endY = getWaterTop(self->x, self->y + self->h / 2);
 
 		checkToMap(self);
 

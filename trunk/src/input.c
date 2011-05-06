@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "system/record.h"
+#include "system/error.h"
 #include "init.h"
 #include "game.h"
 
@@ -27,6 +28,8 @@ extern Input input, menuInput;
 extern Game game;
 extern Control control;
 extern Entity player;
+
+static char *getJoystickButton(int);
 
 void getInput(int gameType)
 {
@@ -834,4 +837,39 @@ void readControlsFromFile(char *buffer)
 
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
+}
+
+char *getKeyValue(int key)
+{
+	char *text;
+
+	if (key < 0)
+	{
+		text = getJoystickButton(key);
+	}
+
+	else
+	{
+		text = SDL_GetKeyName(key);
+	}
+
+	return text;
+}
+
+static char *getJoystickButton(int val)
+{
+	char *text;
+
+	text = malloc(20);
+
+	val = abs(val) - 1000;
+
+	if (text == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole 20 bytes for the joystick button label");
+	}
+
+	snprintf(text, 20, _("Joy Button #%d"), val);
+
+	return text;
 }
