@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
 	unsigned int frameLimit;
 	char *firstMap;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
+	int joystick;
 
 	#ifndef NO_GETTEXT
 		printf("Locale is %s\n", setlocale(LC_ALL, ""));
@@ -78,6 +79,8 @@ int main(int argc, char *argv[])
 	game.fps = 1000 / 60;
 
 	mapID = recordingID = replayingID = -1;
+	
+	joystick = 1;
 
 	/* Load the resources */
 
@@ -121,6 +124,13 @@ int main(int argc, char *argv[])
 		{
 			game.disableJoystick = TRUE;
 		}
+		
+		else if (strcmpignorecase("-joystick", argv[i]) == 0)
+		{
+			joystick = atoi(argv[i + 1]);
+			
+			i++;
+		}
 
 		#if DEV == 1
 			else if (strcmpignorecase("-saveonexit", argv[i]) == 0)
@@ -137,7 +147,7 @@ int main(int argc, char *argv[])
 
 	/* Start up SDL */
 
-	init(_("The Legend of Edgar"));
+	init(_("The Legend of Edgar"), joystick);
 
 	if (replayingID != -1 && recordingID != -1)
 	{

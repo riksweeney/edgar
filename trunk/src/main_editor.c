@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
 	/* Start up SDL */
 
-	init("Map Editor");
+	init("Map Editor", 1);
 
 	/* Call the cleanup function when the program exits */
 
