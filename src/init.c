@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-void init(char *title)
+void init(char *title, int joystickNum)
 {
 	int joysticks, buttons;
 	long flags;
@@ -86,14 +86,23 @@ void init(char *title)
 	}
 
 	joysticks = game.disableJoystick == TRUE ? 0 : SDL_NumJoysticks();
+	
+	joystickNum--;
+	
+	if (joystickNum < 0 || joystickNum >= joysticks)
+	{
+		printf("Joystick %d is not a valid joystick. Joysticks will be disabled\n", (joystickNum + 1));
+		
+		joysticks = 0;
+	}
 
 	buttons = 0;
 
 	if (joysticks > 0)
 	{
-		printf("Found %d joysticks. Opening Joystick #1: %s\n", joysticks, SDL_JoystickName(0));
+		printf("Found %d joysticks. Opening Joystick #%d: %s\n", joysticks, joystickNum, SDL_JoystickName(joystickNum));
 
-		game.joystick = SDL_JoystickOpen(0);
+		game.joystick = SDL_JoystickOpen(joystickNum);
 
 		buttons = SDL_JoystickNumButtons(game.joystick);
 
