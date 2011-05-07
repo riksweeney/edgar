@@ -858,18 +858,11 @@ char *getKeyValue(int key)
 
 static char *getJoystickButton(int val)
 {
-	char *text;
-
-	text = malloc(20);
+	static char text[MAX_VALUE_LENGTH];
 
 	val = abs(val) - 1000;
 
-	if (text == NULL)
-	{
-		showErrorAndExit("Failed to allocate a whole 20 bytes for the joystick button label");
-	}
-
-	snprintf(text, 20, _("Joy Button #%d"), val);
+	snprintf(text, MAX_VALUE_LENGTH, _("Joy Button #%d"), val);
 
 	return text;
 }
