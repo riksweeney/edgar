@@ -260,37 +260,35 @@ void loadMap(char *name, int loadEntityResources)
 					showErrorAndExit("Failed to allocate a whole %d bytes for the animated tile count", (int)(sizeof(int *) * map.animTileTotal));
 				}
 			}
-		}
-
-		else if (strcmpignorecase(itemName, "ANIM_TILES") == 0)
-		{
-			/* A set of animated tiles */
-
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			y = countTokens(line);
-
-			map.animTile[animTileID].tileCount = y;
-
-			map.animTile[animTileID].tileIndex = 0;
-
-			map.animTile[animTileID].tile = malloc(sizeof(int) * y);
-
-			if (map.animTile[animTileID].tile == NULL)
-			{
-				showErrorAndExit("Failed to allocate a whole %d bytes for the animated tiles", (int)(sizeof(int) * y));
-			}
 			
-			token = strtok_r(line, " ", &savePtr2);
-
-			for (x=0;x<y;x++)
+			/* A set of animated tiles */
+			
+			for (animTileID=0;animTileID<map.animTileTotal;animTileID++)
 			{
-				map.animTile[animTileID].tile[x] = atoi(token);
-				
-				token = strtok_r(NULL, " ", &savePtr2);
-			}
+				line = strtok_r(NULL, "\n", &savePtr1);
 
-			animTileID++;
+				y = countTokens(line);
+
+				map.animTile[animTileID].tileCount = y;
+
+				map.animTile[animTileID].tileIndex = 0;
+
+				map.animTile[animTileID].tile = malloc(sizeof(int) * y);
+
+				if (map.animTile[animTileID].tile == NULL)
+				{
+					showErrorAndExit("Failed to allocate a whole %d bytes for the animated tiles", (int)(sizeof(int) * y));
+				}
+				
+				token = strtok_r(line, " ", &savePtr2);
+
+				for (x=0;x<y;x++)
+				{
+					map.animTile[animTileID].tile[x] = atoi(token);
+					
+					token = strtok_r(NULL, " ", &savePtr2);
+				}
+			}
 		}
 
 		else if (strcmpignorecase(itemName, "DATA") == 0)
