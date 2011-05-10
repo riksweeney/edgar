@@ -58,6 +58,9 @@ static void explosionMove(void);
 static void explode(void);
 static void explosionTouch(Entity *);
 static void redTakeDamage(Entity *, int);
+static void creditsMove(void);
+static void redCreditsMove(void);
+static void creditsReformFinish(void);
 
 Entity *addCenturion(int x, int y, char *name)
 {
@@ -79,6 +82,8 @@ Entity *addCenturion(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redTakeDamage : &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = strcmpignorecase(name, "enemy/red_centurion") == 0 ? &redCreditsMove : &creditsMove;;
 
 	e->type = ENEMY;
 
@@ -426,6 +431,8 @@ static void redDie()
 		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
 
 		e->action = &pieceWait;
+		
+		e->creditsAction = &pieceWait;
 
 		e->fallout = &pieceFallout;
 
@@ -457,6 +464,8 @@ static void redDie()
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
+	
+	self->creditsAction = &dieWait;
 
 	self->thinkTime = 120;
 }
@@ -472,6 +481,8 @@ static void dieWait()
 		self->thinkTime = 9;
 
 		self->action = &reform;
+		
+		self->creditsAction = &reform;
 	}
 }
 
@@ -491,6 +502,8 @@ static void reform()
 		self->thinkTime = 30;
 
 		self->action = &reformFinish;
+		
+		self->creditsAction = &creditsReformFinish;
 	}
 }
 
@@ -515,6 +528,8 @@ static void reformFinish()
 		self->takeDamage = &redTakeDamage;
 
 		setEntityAnimation(self, "STAND");
+		
+		self->creditsAction = &creditsMove;
 	}
 }
 
@@ -528,6 +543,8 @@ static void pieceWait()
 	else if (self->head->mental == 0)
 	{
 		self->action = &pieceReform;
+		
+		self->creditsAction = &pieceReform;
 
 		if (self->face == LEFT)
 		{
@@ -642,5 +659,106 @@ static void redTakeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+	}
+}
+
+static void creditsMove()
+{
+	float dirX;
+	
+	self->face = RIGHT;
+	
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = self->speed;
+	}
+
+	if (self->offsetX != 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->maxThinkTime = 1;
+			
+			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->dirX = 0;
+	}
+
+	else
+	{
+		self->maxThinkTime = 0;
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void redCreditsMove()
+{
+	float dirX;
+	
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = self->speed;
+	}
+
+	if (self->offsetX != 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->thinkTime++;
+			
+			self->maxThinkTime = 1;
+			
+			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->dirX = 0;
+	}
+
+	else
+	{
+		self->maxThinkTime = 0;
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime >= 20)
+	{
+		self->creditsAction = &redDie;
+	}
+}
+
+static void creditsReformFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->health = self->maxHealth;
+		
+		self->flags &= ~NO_DRAW;
+
+		self->face = RIGHT;
+
+		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+		setEntityAnimation(self, "STAND");
+		
+		self->creditsAction = &creditsMove;
 	}
 }

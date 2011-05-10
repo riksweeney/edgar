@@ -41,6 +41,7 @@ static void fallOff(void);
 static void findPrey(void);
 static void stickToTargetAndDrain(void);
 static void fallOffWait(void);
+static void creditsMove(void);
 
 Entity *addBabySlime(int x, int y, char *name)
 {
@@ -62,6 +63,8 @@ Entity *addBabySlime(int x, int y, char *name)
 	e->pain = NULL;
 	e->reactToBlock = NULL;
 	e->touch = &grab;
+	
+	e->creditsAction = &creditsMove;
 
 	if (strcmpignorecase(name, "enemy/purple_baby_slime") == 0)
 	{
@@ -349,4 +352,44 @@ static void findPrey()
 	Entity *e = getEntityByObjectiveName("ARMOUR_BOSS");
 
 	self->target = (e == NULL ? &player : e);
+}
+
+static void creditsMove()
+{
+	int channel;
+	float dirX;
+	long onGround = (self->flags & ON_GROUND);
+
+	if (self->flags & ON_GROUND)
+	{
+		channel = 3 + (prand() % 3);
+		
+		if (prand() % 3 == 0)
+		{
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump2.ogg", channel, self->x, self->y, 0);
+		}
+
+		else
+		{
+			playSoundToMap("sound/enemy/jumping_slime/baby_jump1.ogg", channel, self->x, self->y, 0);
+		}
+		
+		self->dirX = self->speed;
+
+		self->dirY = -(8 + prand() % 4);
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	if (onGround == 0 && ((self->flags & ON_GROUND) || (self->standingOn != NULL)))
+	{
+		self->dirX = 0;
+	}
 }

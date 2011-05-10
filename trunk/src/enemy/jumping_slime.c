@@ -42,6 +42,10 @@ static void jumpOut(void);
 static void fallout(void);
 static void layEgg(void);
 static void dropPurpleSlimes(void);
+static void creditsMove(void);
+static void creditsPurpleMove(void);
+static void creditsRedMove(void);
+static void creditsDie(void);
 
 Entity *addJumpingSlime(int x, int y, char *name)
 {
@@ -64,6 +68,8 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->fallout = &fallout;
 
 		e->die = &entityDie;
+		
+		e->creditsAction = &creditsPurpleMove;
 	}
 
 	else if (strcmpignorecase(name, "enemy/red_jumping_slime") == 0)
@@ -73,6 +79,8 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->fallout = &fallout;
 
 		e->die = &die;
+		
+		e->creditsAction = &creditsRedMove;
 	}
 
 	else
@@ -80,6 +88,8 @@ Entity *addJumpingSlime(int x, int y, char *name)
 		e->action = &entityWait;
 
 		e->die = &entityDie;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -128,6 +138,8 @@ static void die()
 	self->thinkTime = 60 + prand() % 60;
 
 	self->action = &dropPurpleSlimes;
+	
+	self->creditsAction = &dropPurpleSlimes;
 
 	self->flags |= DO_NOT_PERSIST;
 
@@ -164,6 +176,8 @@ static void dropPurpleSlimes()
 		}
 
 		self->action = &entityDie;
+		
+		self->creditsAction = &creditsDie;
 	}
 }
 
@@ -406,5 +420,173 @@ static void layEgg()
 
 		e->startX = e->x;
 		e->startY = e->y;
+	}
+}
+
+static void creditsMove()
+{
+	float dirX;
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		if (self->thinkTime == 0)
+		{
+			self->dirY = -(6 + prand() % 2);
+
+			self->dirX = 3;
+
+			self->thinkTime = 30 + prand() % 30;
+			
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+		}
+
+		else
+		{
+			self->thinkTime--;
+		}
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void creditsPurpleMove()
+{
+	int i;
+	float dirX;
+	Entity *e;
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		if (self->thinkTime == 0)
+		{
+			self->dirY = -(6 + prand() % 2);
+
+			self->dirX = 3;
+
+			self->thinkTime = 30 + prand() % 30;
+			
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+			
+			self->mental++;
+			
+			if (self->mental == 7)
+			{
+				for (i=0;i<10;i++)
+				{
+					e = addEnemy("enemy/jumping_slime_egg", 0, 0);
+
+					e->thinkTime = 60 + prand() % 180;
+
+					e->x = self->x + (self->w - e->w) / 2;
+					e->y = self->y;
+					
+					e->x += (prand() % 20) * (prand() % 2 == 0 ? 1 : -1);
+
+					e->startX = e->x;
+					e->startY = e->y;
+				}
+			}
+		}
+
+		else
+		{
+			self->thinkTime--;
+		}
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void creditsRedMove()
+{
+	float dirX;
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+
+		if (self->thinkTime == 0)
+		{
+			self->dirY = -(6 + prand() % 2);
+
+			self->dirX = 3;
+
+			self->thinkTime = 30 + prand() % 30;
+			
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+			
+			self->mental++;
+			
+			if (self->mental == 10)
+			{
+				self->die();
+			}
+		}
+
+		else
+		{
+			self->thinkTime--;
+		}
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void creditsDie()
+{
+	self->thinkTime++;
+	
+	if (self->thinkTime > 180)
+	{
+		self->inUse = FALSE;
 	}
 }

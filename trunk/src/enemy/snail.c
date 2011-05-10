@@ -43,6 +43,8 @@ static void spitAttackInit(void);
 static void spitAttack(void);
 static void spitAttackFinish(void);
 static void attacking(void);
+static void creditsMove(void);
+static void creditsPurpleMove(void);
 
 Entity *addSnail(int x, int y, char *name)
 {
@@ -61,11 +63,15 @@ Entity *addSnail(int x, int y, char *name)
 	if (strcmpignorecase(name, "enemy/purple_snail") == 0)
 	{
 		e->action = &lookForPlayer;
+		
+		e->creditsAction = &creditsPurpleMove;
 	}
 
 	else
 	{
 		e->action = &moveLeftToRight;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	e->die = &die;
@@ -190,6 +196,8 @@ static void spitAttackInit()
 	self->animationCallback = &spitAttack;
 
 	self->action = &attacking;
+	
+	self->creditsAction = &attacking;
 
 	checkToMap(self);
 }
@@ -220,6 +228,8 @@ static void spitAttackFinish()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
+	
+	self->creditsAction = &creditsPurpleMove;
 
 	self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 }
@@ -227,4 +237,51 @@ static void spitAttackFinish()
 static void attacking()
 {
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	Entity *e;
+	
+	self->thinkTime++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->thinkTime >= 900)
+	{
+		e = addSnailShell(self->x, self->y, "enemy/snail_shell");
+		
+		e->face = self->face;
+		
+		e->touch = NULL;
+		
+		self->inUse = FALSE;
+	}
+}
+
+static void creditsPurpleMove()
+{
+	self->mental++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental != 0 && (self->mental % 300) == 0)
+	{
+		self->creditsAction = &spitAttackInit;
+	
+		self->dirX = 0;
+	}
 }

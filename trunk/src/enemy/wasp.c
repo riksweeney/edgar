@@ -32,6 +32,7 @@ extern Entity *self;
 static void init(void);
 static void changeTarget(Entity *);
 static void flyToTarget(void);
+static void creditsMove(void);
 
 Entity *addWasp(int x, int y, char *name)
 {
@@ -54,6 +55,8 @@ Entity *addWasp(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeTarget;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -104,4 +107,22 @@ static void changeTarget(Entity *other)
 	self->targetX = self->targetX == self->endX ? self->startX : self->endX;
 
 	self->face = self->face == RIGHT ? LEFT : RIGHT;
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	self->thinkTime += 5;
+
+	self->dirY = cos(DEG_TO_RAD(self->thinkTime));
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

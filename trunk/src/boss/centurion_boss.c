@@ -79,6 +79,10 @@ static void moveToBody(void);
 static void followPlayer(void);
 static void dropOnPlayer(void);
 static void dropWait(void);
+static void creditsMove(void);
+static void creditsMiniMove(void);
+static void creditsMoveRegular(void);
+static void creditsReformFinish(void);
 
 Entity *addCenturionBoss(int x, int y, char *name)
 {
@@ -98,6 +102,8 @@ Entity *addCenturionBoss(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &fallout;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -539,6 +545,8 @@ static void die()
 		setEntityAnimationByID(e, i);
 
 		e->head = self;
+		
+		e->creditsAction = &pieceWait;
 	}
 
 	self->damage = 0;
@@ -558,6 +566,8 @@ static void die()
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
+	
+	self->creditsAction = &dieWait;
 }
 
 static void dieWait()
@@ -600,10 +610,14 @@ static void dieWait()
 			e->dirY *= 2;
 
 			e->action = &moveToBody;
+			
+			e->creditsAction = &moveToBody;
 
 			e->thinkTime = 60;
 
 			self->action = &reform;
+			
+			self->creditsAction = &reform;
 		}
 	}
 }
@@ -641,12 +655,16 @@ static void moveToBody()
 		self->head->mental = 3;
 
 		self->action = &headWait;
+		
+		self->creditsAction = &headWait;
 
 		self->mental = 0;
 
 		self->head->health = self->head->maxHealth;
 
 		self->head->action = &reformFinish;
+		
+		self->head->creditsAction = &creditsReformFinish;
 	}
 
 	checkToMap(self);
@@ -691,6 +709,8 @@ static void pieceWait()
 	else if (self->head->mental == 3)
 	{
 		self->action = &pieceReform;
+		
+		self->creditsAction = &pieceReform;
 
 		if (self->face == LEFT)
 		{
@@ -825,6 +845,8 @@ static Entity *addHead()
 	e->action = &headWait;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &headWait;
 
 	e->type = ENEMY;
 
@@ -875,6 +897,11 @@ static void headWait()
 		self->action = &dropWait;
 
 		self->takeDamage = &headTakeDamage;
+	}
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
 	}
 
 	self->y = self->head->y + self->offsetY;
@@ -1024,6 +1051,8 @@ static Entity *addMiniCenturion()
 	e->reactToBlock = &changeDirection;
 	e->pain = &enemyPain;
 	e->die = &entityDie;
+	
+	e->creditsAction = &creditsMiniMove;
 
 	return e;
 }
@@ -1184,4 +1213,137 @@ static void dropWait()
 	}
 
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	float dirX;
+	
+	setEntityAnimation(self, "WALK");
+	
+	self->flags &= ~NO_DRAW;
+	
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = self->speed;
+	}
+
+	if (self->offsetX != 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->thinkTime++;
+			
+			self->maxThinkTime = 1;
+			
+			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->dirX = 0;
+	}
+
+	else
+	{
+		self->maxThinkTime = 0;
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime >= 10)
+	{
+		self->dirX = 0;
+		
+		setEntityAnimation(self, "STAND");
+
+		self->die = &die;
+		
+		self->die();
+		
+		self->mental = 2;
+	}
+}
+
+static void creditsMoveRegular()
+{
+	float dirX;
+	Entity *e;
+	
+	setEntityAnimation(self, "WALK");
+	
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = self->speed;
+	}
+
+	if (self->offsetX != 0)
+	{
+		if (self->maxThinkTime == 0)
+		{			
+			self->maxThinkTime = 1;
+			
+			playSoundToMap("sound/enemy/centurion/walk.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->dirX = 0;
+	}
+
+	else
+	{
+		self->maxThinkTime = 0;
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (prand() % 100 == 0)
+	{
+		e = addMiniCenturion();
+		
+		e->x = self->startX;
+		e->y = self->startY;
+	}
+}
+
+static void creditsReformFinish()
+{
+	self->health = self->maxHealth;
+
+	self->flags &= ~NO_DRAW;
+
+	self->creditsAction = &creditsMoveRegular;
+
+	setEntityAnimation(self, "WALK");
+	
+	self->face = RIGHT;
+}
+
+static void creditsMiniMove()
+{
+	self->face = RIGHT;
+	
+	self->flags &= ~LIMIT_TO_SCREEN;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

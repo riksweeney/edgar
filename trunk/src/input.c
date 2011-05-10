@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 #include "init.h"
 #include "game.h"
+#include "credits.h"
 
 extern Input input, menuInput;
 extern Game game;
@@ -65,12 +66,23 @@ void getInput(int gameType)
 
 				input.lastPressedKey = key;
 
-				if (game.status == IN_ERROR && key == SDLK_ESCAPE)
+				if (game.status == IN_ERROR)
 				{
-					exit(0);
+					if (key == SDLK_ESCAPE)
+					{
+						exit(0);
+					}
+				}
+				
+				else if (game.status == IN_CREDITS)
+				{
+					if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE] || key == control.button[CONTROL_ATTACK])
+					{
+						fadeCredits();
+					}
 				}
 
-				if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE])
+				else if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}

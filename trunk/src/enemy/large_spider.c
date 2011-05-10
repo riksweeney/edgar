@@ -53,6 +53,7 @@ static void pounceReactToBlock(Entity *);
 static void takeDamage(Entity *, int);
 static void panic(void);
 static void touch(Entity *);
+static void creditsMove(void);
 
 Entity *addLargeSpider(int x, int y, char *name)
 {
@@ -76,6 +77,8 @@ Entity *addLargeSpider(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -531,4 +534,18 @@ static void pounceReactToBlock(Entity *other)
 	self->dirY = -5;
 
 	self->face = self->face == RIGHT ? LEFT : RIGHT;
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "WALK");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

@@ -438,7 +438,8 @@ enum
 	IN_GAME,
 	IN_INVENTORY,
 	IN_EDITOR,
-	IN_ERROR
+	IN_ERROR,
+	IN_CREDITS
 };
 
 enum

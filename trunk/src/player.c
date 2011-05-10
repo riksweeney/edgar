@@ -73,6 +73,8 @@ static void resurrectionTimeOut(void);
 static void resurrectionParticleWait(void);
 static void resurrectionWait(void);
 static void confirmWait(void);
+static void creditsMove(void);
+static void creditsWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -155,6 +157,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.touch = &touch;
 
 	centerMapOnEntity(&player);
+	
+	player.creditsAction = creditsMove;
 
 	return &player;
 }
@@ -2537,4 +2541,55 @@ void scriptAttack()
 	playerWeapon.flags |= ATTACKING;
 
 	playerWeapon.action();
+}
+
+static void creditsMove()
+{
+	self->thinkTime++;
+	
+	setEntityAnimation(self, "WALK");
+	setEntityAnimation(&playerWeapon, "WALK");
+	setEntityAnimation(&playerShield, "WALK");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0 && self->mental != 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime == 180 && self->mental == 0)
+	{
+		self->thinkTime = 60;
+		
+		self->creditsAction = &creditsWait;
+	}
+}
+
+static void creditsWait()
+{
+	setEntityAnimation(self, "STAND");
+	setEntityAnimation(&playerWeapon, "STAND");
+	setEntityAnimation(&playerShield, "STAND");
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->face = self->face == LEFT ? RIGHT : LEFT;
+		
+		playerWeapon.face = self->face;
+		playerShield.face = self->face;
+		
+		self->mental++;
+		
+		self->thinkTime = 60;
+		
+		if (self->face == RIGHT)
+		{
+			self->creditsAction = &creditsMove;
+		}
+	}
 }

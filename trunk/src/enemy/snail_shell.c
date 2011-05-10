@@ -55,6 +55,8 @@ Entity *addSnailShell(int x, int y, char *name)
 	e->die = &shatter;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
+	
+	e->creditsAction = &entityWait;
 
 	e->type = ENEMY;
 
@@ -86,6 +88,8 @@ static void entityWait()
 	if (self->thinkTime <= 0)
 	{
 		self->action = &explode;
+		
+		self->creditsAction = &explode;
 	}
 
 	checkToMap(self);

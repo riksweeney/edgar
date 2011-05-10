@@ -35,6 +35,7 @@ static void entityWait(void);
 static void init(void);
 static void moveToTarget(void);
 static void changeRandomTarget(Entity *);
+static void creditsMove(void);
 
 Entity *addFlyingBug(int x, int y, char *name)
 {
@@ -57,6 +58,8 @@ Entity *addFlyingBug(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeRandomTarget;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -128,5 +131,19 @@ static void moveToTarget()
 	else if (self->dirX != x || self->dirY != y)
 	{
 		changeRandomTarget(NULL);
+	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

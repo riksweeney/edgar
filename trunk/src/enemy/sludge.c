@@ -53,6 +53,10 @@ static void vomit(void);
 static void vomitAttackFinish(void);
 static void vomitWait(void);
 static void vomitFall(void);
+static void creditsMove(void);
+static void creditsRedMove(void);
+static void creditsTeleportAttack(void);
+static void creditsTeleportAttackFinish(void);
 
 Entity *addSludge(int x, int y, char *name)
 {
@@ -85,6 +89,8 @@ Entity *addSludge(int x, int y, char *name)
 		e->action = &lookForPlayer;
 		e->takeDamage = &takeDamage;
 		e->die = &die;
+		
+		e->creditsAction = &creditsRedMove;
 	}
 
 	else
@@ -92,6 +98,8 @@ Entity *addSludge(int x, int y, char *name)
 		e->action = &init;
 		e->takeDamage = &entityTakeDamageNoFlinch;
 		e->die = &entityDie;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	e->type = ENEMY;
@@ -132,7 +140,7 @@ static void teleportAttackStart()
 
 static void teleportAttack()
 {
-	if (self->action != teleportAttack)
+	if (self->action != &teleportAttack)
 	{
 		self->action = &teleportAttack;
 
@@ -220,6 +228,8 @@ static void redTurnToFacePlayer()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->action = &lookForPlayer;
+	
+	self->creditsAction = &creditsRedMove;
 
 	setEntityAnimation(self, "STAND");
 }
@@ -404,10 +414,14 @@ static void vomit()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->action = &vomitFall;
+	
+	e->creditsAction = &vomitFall;
 
 	setEntityAnimation(e, "STAND");
 
 	self->action = &vomitAttackFinish;
+	
+	self->creditsAction = &vomitAttackFinish;
 
 	checkToMap(self);
 }
@@ -436,6 +450,8 @@ static void vomitFall()
 		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &vomitWait;
+		
+		self->creditsAction = &vomitWait;
 	}
 }
 
@@ -457,4 +473,105 @@ static void vomitWait()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void creditsRedMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	self->mental++;
+	
+	if (self->mental != 0 && (self->mental % 180) == 0)
+	{
+		self->creditsAction = &vomitAttackStart;
+		
+		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
+
+		self->dirX = 0;
+
+		self->thinkTime = 0;
+	}
+}
+
+static void creditsMove()
+{
+	float dirX;
+	
+	self->creditsAction = &creditsMove;
+	
+	if (self->mental == 0)
+	{
+		setEntityAnimation(self, "ATTACK_1");
+
+		self->animationCallback = &creditsTeleportAttack;
+
+		self->thinkTime = 120;
+	}
+	
+	else
+	{
+		setEntityAnimation(self, "STAND");
+		
+		self->dirX = self->speed;
+	}
+	
+	dirX = self->dirX;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0 && self->mental != 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void creditsTeleportAttack()
+{
+	self->creditsAction = &creditsTeleportAttack;
+
+	self->dirX = self->speed * 3;
+
+	self->flags |= INVULNERABLE;
+
+	setEntityAnimation(self, "ATTACK_2");
+
+	checkToMap(self);
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->creditsAction = &creditsTeleportAttackFinish;
+
+		self->dirX = 0;
+
+		self->thinkTime = 30 + prand() % 90;
+	}
+}
+
+static void creditsTeleportAttackFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 1;
+		
+		self->frameSpeed = -1;
+
+		setEntityAnimation(self, "ATTACK_1");
+
+		self->animationCallback = &creditsMove;
+	}
+
+	checkToMap(self);
 }

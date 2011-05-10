@@ -58,6 +58,8 @@ Entity *addEgg(int x, int y, char *name)
 	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = NULL;
+	
+	e->creditsAction = &entityWait;
 
 	e->type = ENEMY;
 
@@ -83,6 +85,8 @@ static void entityWait()
 		self->x = self->startX;
 
 		self->action = &hatch;
+		
+		self->creditsAction = &hatch;
 	}
 
 	checkToMap(self);

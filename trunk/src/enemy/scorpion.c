@@ -45,6 +45,7 @@ static void takeDamage(Entity *, int);
 static void clawWait(void);
 static void addClaw(void);
 static void clawAttackFinished(void);
+static void creditsMove(void);
 
 Entity *addScorpion(int x, int y, char *name)
 {
@@ -66,6 +67,8 @@ Entity *addScorpion(int x, int y, char *name)
 	e->pain = NULL;
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -89,6 +92,8 @@ static void addClaw()
 	e->draw = &drawLoopingAnimationToMap;
 	e->pain = NULL;
 	e->touch = NULL;
+	
+	e->creditsAction = &clawWait;
 
 	e->head = self;
 
@@ -244,6 +249,11 @@ static void clawWait()
 	{
 		entityDieNoDrop();
 	}
+	
+	else if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 
 	else
 	{
@@ -287,4 +297,25 @@ static void clawAttackFinished()
 	self->touch = NULL;
 
 	self->head->mental = 2;
+}
+
+static void creditsMove()
+{
+	if (self->mental == 0)
+	{
+		addClaw();
+		
+		self->mental = 1;
+	}
+	
+	setEntityAnimation(self, "WALK");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

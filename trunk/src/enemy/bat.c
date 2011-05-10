@@ -40,6 +40,7 @@ static void dartDown(void);
 static void dartDownFinish(void);
 static void dartReactToBlock(Entity *);
 static void redBatFallout(void);
+static void creditsMove(void);
 
 Entity *addBat(int x, int y, char *name)
 {
@@ -74,6 +75,8 @@ Entity *addBat(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->action = &fly;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -273,4 +276,18 @@ static void redBatFallout()
 	}
 
 	self->die();
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

@@ -1317,6 +1317,60 @@ int hasPersistance(char *mapName)
 	return val;
 }
 
+int bossExists(char *bossName)
+{
+	int val = FALSE;
+	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
+	unsigned char *buffer;
+	FILE *read;
+
+	savePtr = NULL;
+
+	snprintf(itemName, sizeof(itemName), "NAME %s", bossName);
+
+	read = fopen(tempFile, "rb");
+
+	if (read == NULL)
+	{
+		if (temporaryDataExists == TRUE)
+		{
+			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+		}
+
+		return val;
+	}
+
+	fclose(read);
+
+	buffer = decompressFile(tempFile);
+
+	line = strtok_r((char *)buffer, "\n", &savePtr);
+
+	while (line != NULL)
+	{
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		if (strcmpignorecase(line, itemName) == 0)
+		{
+			val = TRUE;
+		}
+
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
+
+	free(buffer);
+
+	return val;
+}
+
 void loadPersitanceData(char *mapName)
 {
 	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
