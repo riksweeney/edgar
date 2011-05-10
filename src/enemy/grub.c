@@ -22,13 +22,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
 
 extern Entity *self;
 
-static void die(void);
+static void creditsMove(void);
 
 Entity *addGrub(int x, int y, char *name)
 {
@@ -48,9 +49,11 @@ Entity *addGrub(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &die;
+	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -59,7 +62,16 @@ Entity *addGrub(int x, int y, char *name)
 	return e;
 }
 
-static void die()
+static void creditsMove()
 {
-	entityDie();
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

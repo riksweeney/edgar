@@ -42,6 +42,7 @@ static void changeWalkDirection(void);
 static void changeWalkDirectionFinish(void);
 static void breatheFireInit(void);
 static void breatheFireWait(void);
+static void creditsMove(void);
 
 Entity *addFireTortoise(int x, int y, char *name)
 {
@@ -64,6 +65,8 @@ Entity *addFireTortoise(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -175,6 +178,8 @@ static void breatheFireInit()
 	self->thinkTime = 30;
 
 	self->action = &breatheFireWait;
+	
+	self->creditsAction = &breatheFireWait;
 
 	checkToMap(self);
 }
@@ -192,6 +197,8 @@ static void breatheFireWait()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		self->action = &walk;
+		
+		self->creditsAction = &creditsMove;
 	}
 
 	checkToMap(self);
@@ -260,5 +267,28 @@ static void takeDamage(Entity *other, int damage)
 		{
 			entityTakeDamageNoFlinch(other, damage);
 		}
+	}
+}
+
+static void creditsMove()
+{
+	self->mental++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental != 0 && (self->mental % 300) == 0)
+	{
+		self->dirX = 0;
+		
+		self->creditsAction = &breatheFireInit;
 	}
 }

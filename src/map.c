@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "weather.h"
 #include "system/pak.h"
 #include "geometry.h"
+#include "credits.h"
 #include "system/error.h"
 
 static Map map;
@@ -46,7 +47,6 @@ extern Game game;
 static void loadMapTiles(char *);
 static void loadMapBackground(char *name, int);
 static void loadAmbience(char *);
-static int countTokens(char *);
 
 static char *extensions[] = {"ogg", "mp3", "wav", NULL};
 
@@ -267,7 +267,7 @@ void loadMap(char *name, int loadEntityResources)
 			{
 				line = strtok_r(NULL, "\n", &savePtr1);
 
-				y = countTokens(line);
+				y = countTokens(line, " ");
 
 				map.animTile[animTileID].tileCount = y;
 
@@ -459,8 +459,6 @@ int saveMap()
 	{
 		for (x=0;x<map.animTileTotal;x++)
 		{
-			fprintf(fp, "ANIM_TILES\n");
-
 			for (y=0;y<map.animTile[x].tileCount;y++)
 			{
 				fprintf(fp, "%d ", map.animTile[x].tile[y]);
@@ -1388,34 +1386,4 @@ int isDarkMap()
 void resetBlendTime()
 {
 	map.blendTime = 255;
-}
-
-static int countTokens(char *line)
-{
-	char *temp, *savePtr, *token;
-	int i;
-	
-	temp = malloc(strlen(line) + 1);
-	
-	if (temp == NULL)
-	{
-		showErrorAndExit("Failed to allocate a whole %d bytes for tokens...", (int)strlen(line) + 1);
-	}
-	
-	STRNCPY(temp, line, strlen(line) + 1);
-
-	token = strtok_r(temp, " ", &savePtr);
-	
-	i = 0;
-
-	while (token != NULL)
-	{
-		i++;
-		
-		token = strtok_r(NULL, " ", &savePtr);
-	}
-	
-	free(temp);
-	
-	return i;
 }

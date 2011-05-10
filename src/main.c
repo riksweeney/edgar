@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "menu/menu.h"
 #include "menu/inventory_menu.h"
 #include "system/error.h"
+#include "credits.h"
 
 Input input, menuInput;
 Entity *self, entity[MAX_ENTITIES];
@@ -58,7 +59,7 @@ int main(int argc, char *argv[])
 	unsigned int frameLimit;
 	char *firstMap;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
-	int joystick;
+	int joystick, showCredits;
 
 	#ifndef NO_GETTEXT
 		printf("Locale is %s\n", setlocale(LC_ALL, ""));
@@ -81,6 +82,8 @@ int main(int argc, char *argv[])
 	mapID = recordingID = replayingID = -1;
 	
 	joystick = 1;
+	
+	showCredits = 0;
 
 	/* Load the resources */
 
@@ -130,6 +133,11 @@ int main(int argc, char *argv[])
 			joystick = atoi(argv[i + 1]);
 			
 			i++;
+		}
+		
+		else if (strcmpignorecase("-showcredits", argv[i]) == 0)
+		{
+			showCredits = 1;
 		}
 
 		#if DEV == 1
@@ -232,6 +240,11 @@ int main(int argc, char *argv[])
 	#endif
 
 	frameLimit = SDL_GetTicks() + game.fps;
+	
+	if (showCredits == 1)
+	{
+		game.status = IN_CREDITS;
+	}
 
 	while (go == TRUE)
 	{
@@ -271,6 +284,20 @@ int main(int argc, char *argv[])
 
 			case IN_MENU:
 				doMenu();
+			break;
+			
+			case IN_CREDITS:
+				freeCollisionGrid();
+				
+				clearDrawLayers();
+				
+				doGame();
+				
+				doCredits();
+				
+				doDecorations();
+				
+				doCollisions();
 			break;
 
 			default:

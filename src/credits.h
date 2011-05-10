@@ -17,19 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-void saveGame(int);
-int loadGame(int);
-void saveTemporaryData(void);
-void setupUserHomeDirectory(void);
-void loadPersitanceData(char *);
-int hasPersistance(char *);
-void saveConfig(void);
-void loadConfig(void);
-void newGame(void);
-char *getGameSavePath(void);
-char **getSaveFileIndex(void);
-void tutorial(void);
-int getPrivateKey(char *);
-int loadContinueData(void);
-void saveContinueData(void);
-int bossExists(char *);
+void doCredits(void);
+int countTokens(char *, char *);
+void drawCredits(void);
+void freeCredits(void);
+void fadeCredits(void);

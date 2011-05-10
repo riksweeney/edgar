@@ -26,10 +26,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/item.h"
 #include "../item/key_items.h"
 #include "../system/error.h"
+#include "../collisions.h"
 
 extern Entity *self;
 
 static void die(void);
+static void creditsMove(void);
 
 Entity *addArmadillo(int x, int y, char *name)
 {
@@ -51,6 +53,8 @@ Entity *addArmadillo(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -75,4 +79,20 @@ static void die()
 	}
 
 	entityDie();
+}
+
+static void creditsMove()
+{
+	self->face = RIGHT;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

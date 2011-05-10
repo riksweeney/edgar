@@ -42,6 +42,7 @@ static void summonWait(void);
 static void hover(void);
 static void summonEnd(void);
 static void die(void);
+static void creditsMove(void);
 
 Entity *addSummoner(int x, int y, char *name)
 {
@@ -63,6 +64,8 @@ Entity *addSummoner(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -181,6 +184,8 @@ static void summon()
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
+	
+	self->creditsAction = &summonWait;
 
 	setEntityAnimation(self, "ATTACK_2");
 
@@ -204,6 +209,8 @@ static void summonEnd()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &lookForPlayer;
+	
+	self->creditsAction = &creditsMove;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -215,4 +222,33 @@ static void die()
 	self->dirY = 0;
 
 	entityDie();
+}
+
+static void creditsMove()
+{
+	hover();
+	
+	self->thinkTime++;
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime == 180)
+	{
+		STRNCPY(self->requires, "armadillo", MAX_VALUE_LENGTH);
+		
+		self->creditsAction = &summonWait;
+
+		setEntityAnimation(self, "ATTACK_1");
+
+		self->animationCallback = &summon;
+
+		self->dirX = 0;
+	}
 }

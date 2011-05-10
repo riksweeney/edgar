@@ -49,6 +49,7 @@ static void iceBallMove(void);
 static void iceFloorWait(void);
 static void iceSpikeMove(void);
 static void spikeTakeDamage(Entity *, int);
+static void creditsMove(void);
 
 Entity *addIceTortoise(int x, int y, char *name)
 {
@@ -71,6 +72,8 @@ Entity *addIceTortoise(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -211,6 +214,8 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
+	
+	e->creditsAction = &iceBallMove;
 
 	e = getFreeEntity();
 
@@ -233,12 +238,16 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
+	
+	e->creditsAction = &iceBallMove;
 
 	self->frameSpeed = 1;
 
 	setEntityAnimation(self, "CUSTOM_3");
 
 	self->action = &iceAttack;
+	
+	self->creditsAction = &iceAttack;
 
 	self->thinkTime = 120;
 }
@@ -258,6 +267,8 @@ static void iceAttack()
 		self->animationCallback = &iceAttackFinish;
 
 		self->action = &entityWait;
+		
+		self->creditsAction = &entityWait;
 	}
 
 	checkToMap(self);
@@ -278,6 +289,8 @@ static void iceAttackFinish()
 	self->thinkTime = 120 + prand() % 120;
 
 	checkToMap(self);
+	
+	self->creditsAction = &creditsMove;
 }
 
 static void iceBallMove()
@@ -301,6 +314,8 @@ static void iceBallMove()
 			self->x = x - self->w / 2;
 
 			self->action = &iceFloorWait;
+			
+			self->creditsAction = &iceFloorWait;
 
 			self->y++;
 
@@ -357,6 +372,8 @@ static void iceFloorWait()
 		e->touch = &entityTouch;
 		e->takeDamage = &spikeTakeDamage;
 		e->draw = &drawLoopingAnimationToMap;
+		
+		e->creditsAction = &iceSpikeMove;
 
 		e->head = self;
 	}
@@ -472,5 +489,28 @@ static void spikeTakeDamage(Entity *other, int damage)
 
 			self->takeDamage = NULL;
 		}
+	}
+}
+
+static void creditsMove()
+{
+	self->mental++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental != 0 && (self->mental % 300) == 0)
+	{
+		self->thinkTime = 60;
+		
+		self->creditsAction = &iceAttackStart;
 	}
 }

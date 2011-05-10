@@ -61,6 +61,8 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->fallout = &removeProjectile;
+	
+	e->creditsAction = &projectileMove;
 
 	e->parent = owner;
 

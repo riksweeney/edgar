@@ -119,6 +119,7 @@ typedef struct Entity
 	void (*reactToBlock)(struct Entity *);
 	void (*pain)(void);
 	void (*resumeNormalFunction)(void);
+	void (*creditsAction)(void);
 } Entity;
 
 typedef struct AnimTile
@@ -315,3 +316,21 @@ typedef struct DialogBox
 	int thinkTime;
 	SDL_Surface *dialogSurface;
 } DialogBox;
+
+typedef struct CreditLine
+{
+	char text[MAX_LINE_LENGTH];
+	int r, g, b;
+	float y;
+	SDL_Surface *textImage;
+} CreditLine;
+
+typedef struct Credits
+{
+	int line, lineCount, entityID, fading, alpha;
+	int startDelay, nextEntityDelay;
+	float logoY;
+	CreditLine *creditLine;
+	SDL_Surface *logo, *fadeSurface;
+} Credits;
+

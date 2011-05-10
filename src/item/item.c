@@ -59,6 +59,8 @@ Entity *addPermanentItem(char *name, int x, int y)
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &entityDie;
 	e->fallout = &itemFallout;
+	
+	e->creditsAction = &doNothing;
 
 	if (e->type == HEALTH)
 	{
@@ -147,6 +149,8 @@ Entity *addTemporaryItem(char *name, int x, int y, int face, float dirX, float d
 	e->fallout = &entityDieNoDrop;
 
 	e->touch = &noTouch;
+	
+	e->creditsAction = &generalItemAction;
 
 	switch (e->type)
 	{

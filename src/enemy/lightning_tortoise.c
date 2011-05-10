@@ -44,6 +44,7 @@ static void electrifyFinish(void);
 static void createElectricity(void);
 static void takeDamage(Entity *, int);
 static void doElectricity(void);
+static void creditsMove(void);
 
 Entity *addLightningTortoise(int x, int y, char *name)
 {
@@ -66,6 +67,8 @@ Entity *addLightningTortoise(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -191,6 +194,8 @@ static void createElectricity()
 	setEntityAnimation(e, "STAND");
 
 	e->action = &doElectricity;
+	
+	e->creditsAction = &doElectricity;
 
 	e->touch = &entityTouch;
 
@@ -213,6 +218,8 @@ static void createElectricity()
 	setEntityAnimation(self, "ATTACK_1");
 
 	self->action = &electrify;
+	
+	self->creditsAction = &electrify;
 
 	self->thinkTime = 120;
 }
@@ -232,6 +239,8 @@ static void electrify()
 		self->animationCallback = &electrifyFinish;
 
 		self->action = &entityWait;
+		
+		self->creditsAction = &entityWait;
 
 		self->element = NO_ELEMENT;
 
@@ -248,6 +257,8 @@ static void electrifyFinish()
 	self->frameSpeed = 1;
 
 	self->action = &walk;
+	
+	self->creditsAction = &creditsMove;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -374,4 +385,27 @@ static void doElectricity()
 
 	self->x = self->target->x + self->target->w / 2 - self->w / 2;
 	self->y = self->target->y + self->target->h - self->h;
+}
+
+static void creditsMove()
+{
+	self->mental++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental != 0 && (self->mental % 300) == 0)
+	{
+		self->thinkTime = 60;
+		
+		self->creditsAction = &electrifyStart;
+	}
 }

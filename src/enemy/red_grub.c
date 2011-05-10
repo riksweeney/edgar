@@ -35,6 +35,8 @@ static void lookForPlayer(void);
 static void spinAttackStart(void);
 static void spinAttack(void);
 static void spinAttackEnd(void);
+static void creditsMove(void);
+static void creditsSpinAttack(void);
 
 Entity *addRedGrub(int x, int y, char *name)
 {
@@ -58,6 +60,8 @@ Entity *addRedGrub(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
 	e->resumeNormalFunction = &spinAttack;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -124,6 +128,8 @@ static void spinAttackStart()
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
+		
+		self->creditsAction = &creditsSpinAttack;
 
 		self->thinkTime = 180;
 
@@ -218,5 +224,33 @@ static void reactToBlock(Entity *other)
 	else
 	{
 		changeDirection(NULL);
+	}
+}
+
+static void creditsMove()
+{
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	self->thinkTime++;
+	
+	if (self->thinkTime >= 180)
+	{
+		self->dirX = 0;
+
+		self->creditsAction = &spinAttackStart;
+
+		self->thinkTime = 60;
+	}
+}
+
+static void creditsSpinAttack()
+{
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

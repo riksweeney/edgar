@@ -42,6 +42,7 @@ static void fireShot(void);
 static void attackFinished(void);
 static void riseUp(void);
 static void changeWait(void);
+static void creditsMove(void);
 
 Entity *addCeilingCrawler(int x, int y, char *name)
 {
@@ -63,6 +64,8 @@ Entity *addCeilingCrawler(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -168,6 +171,8 @@ static void changeWait()
 		}
 
 		self->action = &changeFloor;
+		
+		self->creditsAction = &changeFloor;
 	}
 
 	checkToMap(self);
@@ -182,6 +187,8 @@ static void changeFloor()
 		self->thinkTime = self->maxThinkTime;
 
 		self->action = !(self->flags & FLY) ? &moveOnFloor : &moveOnCeiling;
+		
+		self->creditsAction = &creditsMove;
 
 		setEntityAnimation(self, !(self->flags & FLY) ? "STAND" : "WALK");
 
@@ -366,5 +373,28 @@ static void riseUp()
 		playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 		self->inUse = FALSE;
+	}
+}
+
+static void creditsMove()
+{
+	self->thinkTime++;
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime != 0 && (self->thinkTime % 300) == 0)
+	{
+		self->dirX = 0;
+
+		self->thinkTime = 60;
+		
+		self->creditsAction = &changeWait;
 	}
 }

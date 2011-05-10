@@ -43,6 +43,7 @@ static void podWait(void);
 static void dropPod(void);
 static void podTakeDamage(Entity *, int);
 static void podExplode(void);
+static void creditsMove(void);
 
 Entity *addDragonFly(int x, int y, char *name)
 {
@@ -65,6 +66,8 @@ Entity *addDragonFly(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -159,6 +162,8 @@ static void dropWait()
 		self->flags &= ~FLY;
 
 		self->action = &walkAround;
+		
+		self->creditsAction = &creditsMove;
 
 		self->thinkTime = 600;
 
@@ -220,6 +225,8 @@ static void flyStart()
 		self->flags &= ~FLY;
 
 		self->action = &flyAround;
+		
+		self->creditsAction = &creditsMove;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -440,6 +447,73 @@ static void podTakeDamage(Entity *other, int damage)
 			self->damage = 0;
 
 			self->die();
+		}
+	}
+}
+
+static void creditsMove()
+{
+	self->thinkTime++;
+	
+	if (self->mental == 1)
+	{
+		self->flags &= ~FLY;
+		
+		setEntityAnimation(self, "WALK");
+	}
+	
+	else
+	{
+		self->dirY = 0;
+		
+		self->flags |= FLY;
+		
+		setEntityAnimation(self, "STAND");
+	}
+	
+	setEntityAnimation(self, self->mental == 1 ? "WALK" : "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime != 0 && (self->thinkTime % 240) == 0)
+	{
+		if (self->flags & FLY)
+		{
+			self->dirX = 0;
+
+			self->thinkTime = 30;
+
+			self->creditsAction = &dropWait;
+
+			self->mental = 2;
+
+			self->endX = 0;
+		}
+		
+		else
+		{
+			self->dirX = 0;
+
+			self->thinkTime = 30;
+
+			self->dirY = -3;
+
+			self->creditsAction = &flyStart;
+
+			self->flags |= FLY;
+
+			setEntityAnimation(self, "STAND");
+
+			self->mental = 3;
+
+			playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
 		}
 	}
 }

@@ -1890,3 +1890,15 @@ int landedOnGround(long wasOnGround)
 
 	return FALSE;
 }
+
+void creditsMove()
+{
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+}

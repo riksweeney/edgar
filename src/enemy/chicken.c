@@ -34,6 +34,7 @@ static void lookForFood(void);
 static void wander(void);
 static void moveToFood(void);
 static void finishEating(void);
+static void creditsMove(void);
 
 Entity *addChicken(int x, int y, char *name)
 {
@@ -53,6 +54,8 @@ Entity *addChicken(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -237,5 +240,19 @@ static void finishEating()
 		setEntityAnimation(self, "ATTACK_1");
 
 		self->animationCallback = &finishEating;
+	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "WALK");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

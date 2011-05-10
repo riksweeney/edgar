@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "dialog.h"
 #include "inventory.h"
 #include "event/script.h"
+#include "credits.h"
 
 extern Game game;
 extern Entity player;
@@ -63,6 +64,22 @@ void draw()
 				drawHud();
 
 				drawInventory();
+			break;
+			
+			case IN_CREDITS:
+				drawEntities(BACKGROUND_LAYER);
+
+				drawEntities(MID_GROUND_LAYER);
+
+				drawPlayer();
+
+				drawDecorations();
+
+				drawEntities(FOREGROUND_LAYER);
+				
+				drawCredits();
+				
+				drawGame();
 			break;
 
 			default:
