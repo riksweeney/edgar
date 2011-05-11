@@ -20,6 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 static int textAlreadyAdded(char *text);
+static char *replaceString(char *, char *, char *);
+static void recurseDirectory(char *, char *, int *);
+static int checkExists(char *);
 
 static char added[8192][MAX_LINE_LENGTH];
 static int poIndex;
@@ -329,8 +332,18 @@ int main(int argc, char *argv[])
 static int textAlreadyAdded(char *text)
 {
 	int i;
+	char *clean;
 
 	if (strcmpignorecase("msgid \"\"", text) == 0)
+	{
+		return TRUE;
+	}
+	
+	clean = replaceString(text, "msgid \"", "");
+	clean[strlen(clean) - 1] = '\0';
+	clean = replaceString(clean, "\\\"", "\"");
+	
+	if (checkExists(clean) == FALSE)
 	{
 		return TRUE;
 	}
@@ -348,4 +361,126 @@ static int textAlreadyAdded(char *text)
 	poIndex++;
 
 	return FALSE;
+}
+
+static int checkExists(char *string)
+{
+	int found = FALSE;
+	
+	string = replaceString(string, "msgid \"", "");
+	
+	string[strlen(string) - 1] = '\0';
+	
+	recurseDirectory("data", string, &found);
+	recurseDirectory("src", string, &found);
+	
+	return found;
+}
+
+static char *replaceString(char *string, char *find, char *replace)
+{
+	static char buffer[MAX_LINE_LENGTH];
+	char *p;
+
+	p = strstr(string, find);
+	
+	if (p == NULL)
+	{
+		return string;
+	}
+	
+	strncpy(buffer, string, p - string);
+	
+	buffer[p - string] = '\0';
+	
+	snprintf(buffer + (p - string), MAX_LINE_LENGTH, "%s%s", replace, p + strlen(find));
+	
+	return buffer;
+}
+
+static void recurseDirectory(char *dirName, char *searchString, int *found)
+{
+	DIR *dirp, *dirp2;
+	struct dirent *dfile;
+	FILE *infile;
+	char filename[1024];
+	unsigned long fileSize;
+	unsigned char *buffer;
+
+	dirp = opendir(dirName);
+
+	if (dirp == NULL)
+	{
+		printf("%s: Directory does not exist or is not accessable\n", dirName);
+
+		exit(1);
+	}
+
+	while ((dfile = readdir(dirp)))
+	{
+		if (dfile->d_name[0] == '.')
+		{
+			continue;
+		}
+
+		snprintf(filename, sizeof(filename), "%s/%s", dirName, dfile->d_name);
+
+		dirp2 = opendir(filename);
+
+		if (dirp2)
+		{
+			closedir(dirp2);
+
+			recurseDirectory(filename, searchString, found);
+		}
+
+		else
+		{
+			infile = fopen(filename, "rb");
+
+			if (!infile)
+			{
+				printf("Couldn't open %s for reading!\n", filename);
+
+				closedir(dirp);
+
+				exit(1);
+			}
+
+			fseek(infile, 0L, SEEK_END);
+
+			fileSize = ftell(infile);
+
+			if (fileSize == 0)
+			{
+				printf("%s is an empty file.\n", filename);
+
+				exit(0);
+			}
+
+			buffer = malloc((fileSize + 1) * sizeof(unsigned char));
+
+			if (buffer == NULL)
+			{
+				printf("Could not create buffer\n");
+
+				exit(1);
+			}
+			
+			fseek(infile, 0L, SEEK_SET);
+
+			fread(buffer, fileSize, 1, infile);
+			
+			if (strstr((char *)buffer, searchString) != NULL)
+			{
+				*found = TRUE;
+			}
+			
+			fclose(infile);
+
+			free(buffer);
+		}
+	}
+
+	closedir(dirp);
 }

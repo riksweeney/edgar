@@ -39,6 +39,7 @@ static void touch(Entity *);
 static void suckIn(void);
 static void die(void);
 static void addExitTrigger(Entity *);
+static void creditsMove(void);
 
 Entity *addWhirlwind(int x, int y, char *name)
 {
@@ -60,6 +61,8 @@ Entity *addWhirlwind(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -262,4 +265,18 @@ static void addExitTrigger(Entity *e)
 	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"WHIRLWIND\"", e->objectiveName);
 
 	addGlobalTriggerFromScript(itemName);
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

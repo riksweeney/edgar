@@ -183,7 +183,7 @@ typedef struct Game
 	void (*transitionCallback)(void);
 	Menu *menu;
 	SDL_Surface *screen, *tempSurface, *pauseSurface, *gameOverSurface, *alphaSurface;
-	TTF_Font *font;
+	TTF_Font *font, *largeFont;
 	SDL_Joystick *joystick;
 } Game;
 
@@ -321,14 +321,14 @@ typedef struct CreditLine
 {
 	char text[MAX_LINE_LENGTH];
 	int r, g, b;
-	float y;
+	float x, y;
 	SDL_Surface *textImage;
 } CreditLine;
 
 typedef struct Credits
 {
 	int line, lineCount, entityID, fading, alpha;
-	int startDelay, nextEntityDelay;
+	int startDelay, nextEntityDelay, status;
 	float logoY;
 	CreditLine *creditLine;
 	SDL_Surface *logo, *fadeSurface;
