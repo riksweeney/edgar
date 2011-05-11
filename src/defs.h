@@ -220,7 +220,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_CHANNELS 16
 
-#define FONT_SIZE 14
+#define NORMAL_FONT_SIZE 14
+
+#define LARGE_FONT_SIZE 26
 
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 

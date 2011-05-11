@@ -79,7 +79,9 @@ void loadRequiredResources()
 
 	/* Load the font */
 
-	game.font = loadFont("font/DejaVuSans.ttf", FONT_SIZE);
+	game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
+	
+	game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
 }
 
 void freeLevelResources()
@@ -187,6 +189,8 @@ void freeAllResources()
 	/* Free the font */
 
 	closeFont(game.font);
+	
+	closeFont(game.largeFont);
 
 	/* Clear the collision grid */
 

@@ -20,9 +20,6 @@ msgstr ""
 msgid "Bow"
 msgstr ""
 
-msgid "Not working in this version!"
-msgstr ""
-
 msgid "Press Action to interact"
 msgstr ""
 
@@ -128,9 +125,6 @@ msgstr ""
 msgid "Objective Completed: %s"
 msgstr ""
 
-msgid "The wall on the right looks weak..."
-msgstr ""
-
 msgid "This weapon is not having any effect..."
 msgstr ""
 
@@ -233,9 +227,6 @@ msgstr ""
 msgid "Trap Door Switch Key"
 msgstr ""
 
-msgid "This lift has no power. I won't be able to use it until I restore the power"
-msgstr ""
-
 msgid "Keep practising!"
 msgstr ""
 
@@ -302,9 +293,6 @@ msgstr ""
 msgid "Say, I heard that something happened in that mine a few years ago"
 msgstr ""
 
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Right..."
 msgstr ""
 
@@ -344,13 +332,7 @@ msgstr ""
 msgid "There must be way out of here..."
 msgstr ""
 
-msgid "This must be the coal wants me to mine for him"
-msgstr ""
-
 msgid "I don't think my shield will protect me from those fireballs. I'll have to find a stronger one..."
-msgstr ""
-
-msgid "You won't be able to do this bit in this version, check back later!"
 msgstr ""
 
 msgid "Strange creature..."
@@ -468,9 +450,6 @@ msgid "Hi Maggie"
 msgstr ""
 
 msgid "Thanks Maggie!"
-msgstr ""
-
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "There must be something around here..."
@@ -647,12 +626,6 @@ msgstr ""
 msgid "First, you should equip the sword since it has more range and does more damage than the pickaxe"
 msgstr ""
 
-msgid "Press z to view your inventory, highlight the sword and press Attack (left ctrl) or Use Item (a)"
-msgstr ""
-
-msgid "Press z again to close your inventory"
-msgstr ""
-
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
 msgstr ""
 
@@ -683,46 +656,16 @@ msgstr ""
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
 
-msgid "Press Space when you have finished reading to go to the next dialog box"
-msgstr ""
-
-msgid "You can also move to the next dialog box by pressing Attack (left ctrl), Block (left alt), Jump (space), Action (c) or Use Item (a)"
-msgstr ""
-
 msgid "This is the tutorial for The Legend of Edgar. This tutorial will explain how to play the game."
 msgstr ""
 
 msgid "To exit this tutorial, press Escape and use the Up and Down arrow keys to choose an option. Press Return to select it."
 msgstr ""
 
-msgid "To move left and right, use the arrow keys."
-msgstr ""
-
-msgid "To make jump, press space. You can move in the air when jumping."
-msgstr ""
-
-msgid "To interact with an item, press c"
-msgstr ""
-
-msgid "Walk over to the Action Point and press c"
-msgstr ""
-
-msgid "To collect an item from your"
-msgstr ""
-
 msgid "To pick up an item, simply walk into it. Any collectable items will be added to your inventory."
 msgstr ""
 
-msgid "You can view the contents of your inventory by pressing z"
-msgstr ""
-
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr ""
-
-msgid "You can use an item immediately by pressing Attack (left ctrl) or Use Item (a)"
-msgstr ""
-
-msgid "You can ready an item for use by pressing Block (left alt) or Action (c)"
 msgstr ""
 
 msgid "Walk over the key to pick it up"
@@ -741,9 +684,6 @@ msgid "Next, press the key that you want to use instead."
 msgstr ""
 
 msgid "Regardless of what keys you choose, you can always navigate the menus using the arrow keys and Return"
-msgstr ""
-
-msgid "Note that in this tutorial, the default keys will be assumed"
 msgstr ""
 
 msgid "When you have finished configuring the keys, go right to the next Action Point"
@@ -767,9 +707,6 @@ msgstr ""
 msgid "Here's a hint to get you started"
 msgstr ""
 
-msgid "Although only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
-msgstr ""
-
 msgid "The shield will protect you from most enemy attacks"
 msgstr ""
 
@@ -777,9 +714,6 @@ msgid "Some enemy attacks cannot be blocked"
 msgstr ""
 
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr ""
-
-msgid "To block an attack, press and hold block (left alt)."
 msgstr ""
 
 msgid "You must be facing the attack to succesfully block it"
@@ -794,16 +728,10 @@ msgstr ""
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
 msgstr ""
 
-msgid "To use the pickaxe, press Attack (left ctrl)"
-msgstr ""
-
 msgid "that not all weak walls can be destroyed using the pickaxe"
 msgstr ""
 
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
-
-msgid "Something's supposed to be here but it's not in this version, check back later!"
 msgstr ""
 
 msgid "Collect 10 pieces of Coal"
@@ -825,9 +753,6 @@ msgid "Collect 6 Chopped Logs"
 msgstr ""
 
 msgid "Collect 3 Access Keys"
-msgstr ""
-
-msgid "This is a blank objective"
 msgstr ""
 
 msgid "Kill all Bats!"
@@ -885,9 +810,6 @@ msgid "Show Hints"
 msgstr ""
 
 msgid "A potion which will transform you..."
-msgstr ""
-
-msgid "Creates highly absorbant miniature ice cubes"
 msgstr ""
 
 msgid "A potion which will restore all of your health"
@@ -977,9 +899,6 @@ msgstr ""
 msgid "Press Action to reset puzzle blocks"
 msgstr ""
 
-msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
-
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr ""
 
@@ -1013,9 +932,6 @@ msgstr ""
 msgid "Please report this error to Parallel Realities"
 msgstr ""
 
-msgid "The game will now exit"
-msgstr ""
-
 msgid "It looks like a blender. I could use this to liqudise something"
 msgstr ""
 
@@ -1029,9 +945,6 @@ msgid "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to
 msgstr ""
 
 msgid "Once I've found all these items I'll have to find a place to create the shield"
-msgstr ""
-
-msgid "There's a book here about enchanting weapons"
 msgstr ""
 
 msgid "Maybe I can create a shield..."
@@ -1082,9 +995,6 @@ msgstr ""
 msgid "When the mixture turns bright blue, add the shield"
 msgstr ""
 
-msgid "I've seen most of these items in the lab so I don't need to worry about those"
-msgstr ""
-
 msgid "And the Gazers hang around in the basement so that's not a problem"
 msgstr ""
 
@@ -1119,9 +1029,6 @@ msgid "Hmmm, the air feels charged, it reminds me of Maggie's house when she was
 msgstr ""
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
-
-msgid "I wonder what other monsters there are. I'll pick a page at random..."
 msgstr ""
 
 msgid "Gazer"
@@ -1167,12 +1074,6 @@ msgid "Splitters are harmless monsters unless attacked."
 msgstr ""
 
 msgid "Upon sustaining too much damage they will split in two and attack their predator"
-msgstr ""
-
-msgid "If one of these sustains too much damage it will split once again and continue to attack"
-msgstr ""
-
-msgid "Finally, one final split will produce very small versions which are completely harmless and in this state can be simply stepped on"
 msgstr ""
 
 msgid "If all its parts are still alive, a splitter will reform itself after a while and heal its wounds"
@@ -1269,12 +1170,6 @@ msgid "Great, that's all it says. I don't even know how to tell the difference b
 msgstr ""
 
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
-
-msgid "To move Edgar left and right, use the arrow keys."
-msgstr ""
-
-msgid "To make Edgar jump, press space. You can move in the air when jumping."
 msgstr ""
 
 msgid "Although Jacob only requires you to catch 3 of his chickens, why not be nice to him and catch more? There are 10 wandering the map in all"
@@ -1478,9 +1373,6 @@ msgstr ""
 msgid "Place the 4 statues in the correct order"
 msgstr ""
 
-msgid "You will not be able to find all 4 statues in this version, so come back later!"
-msgstr ""
-
 msgid "You must have the statue you wish to use highlighted in your inventory box"
 msgstr ""
 
@@ -1538,9 +1430,6 @@ msgstr ""
 msgid "A statue of a Spider. It has 8 legs."
 msgstr ""
 
-msgid "An Armadillo Spike Ball. Will scatter spikes when thrown."
-msgstr ""
-
 msgid "A statue of a Tortoise. It has 4 legs."
 msgstr ""
 
@@ -1554,9 +1443,6 @@ msgid "Narrator"
 msgstr ""
 
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr ""
-
-msgid "Right, here goes!"
 msgstr ""
 
 msgid "I need all the main ingredients"
@@ -1601,9 +1487,6 @@ msgstr ""
 msgid "I need a blank card to put the instructions on"
 msgstr ""
 
-msgid "Maybe this wasn't such a good idea after all..."
-msgstr ""
-
 msgid "Obtain 3 Gazer Eyes"
 msgstr ""
 
@@ -1641,9 +1524,6 @@ msgid "Creates ice cubes that expand on contact with water"
 msgstr ""
 
 msgid "A bottle capable of capturing souls"
-msgstr ""
-
-msgid "Try using Mataeus's knives against him..."
 msgstr ""
 
 msgid "Cannot pick up %s. Inventory full"
@@ -1700,16 +1580,7 @@ msgstr ""
 msgid "Red Sludges live in mines so I'll have to find one around here"
 msgstr ""
 
-msgid "I also need a spare shield, but I reckon there should be an armoury around"
-msgstr ""
-
-msgid "The Gazer eyeballs are easy enough, I can just return to the basement"
-msgstr ""
-
 msgid "OK, off I go..."
-msgstr ""
-
-msgid "You won't be able to get the tentacle or shield in this version, so check back later!"
 msgstr ""
 
 msgid "It's a portrait"
@@ -1799,9 +1670,6 @@ msgstr ""
 msgid "Private key is missing"
 msgstr ""
 
-msgid "Could not connect to server"
-msgstr ""
-
 msgid "Sludge Tentacle"
 msgstr ""
 
@@ -1844,9 +1712,6 @@ msgstr ""
 msgid "I just need to find another shield to enchant"
 msgstr ""
 
-msgid "You won't be able to get the shield in this version, so check back later!"
-msgstr ""
-
 msgid "Its wounds are already healing..."
 msgstr ""
 
@@ -1875,9 +1740,6 @@ msgid "A Yellow Gem"
 msgstr ""
 
 msgid "Failed to open PAK file %s"
-msgstr ""
-
-msgid "Press Action to retrieve Purple Gem"
 msgstr ""
 
 msgid "Find a way to remove the Gem..."
@@ -2022,9 +1884,6 @@ msgid "%s has regained power"
 msgstr ""
 
 msgid "Wow, a catapult!"
-msgstr ""
-
-msgid "The hinges look rusted though, I doubt it'll work until I get those fixed"
 msgstr ""
 
 msgid "That's it? Just this old shield? It doesn't look any better than my current one."
@@ -2324,9 +2183,6 @@ msgstr ""
 msgid "Uh-Oh..."
 msgstr ""
 
-msgid "A shield that can block fire"
-msgstr ""
-
 msgid "Used Amulet of Resurrection"
 msgstr ""
 
@@ -2501,9 +2357,6 @@ msgstr ""
 msgid "Try luring something else into the Ant Lion's pit..."
 msgstr ""
 
-msgid "There must be a way to extingiush the flames..."
-msgstr ""
-
 msgid "Those flames are incredibly hot. I'll be burnt to cinders if I try and walk through them"
 msgstr ""
 
@@ -2663,18 +2516,6 @@ msgstr ""
 msgid "Using an item you have picked up is simple"
 msgstr ""
 
-msgid "Open your inventory (z) and use the arrow keys to highlight the bomb"
-msgstr ""
-
-msgid "Now press Attack (left ctrl) or Use Item (a) to select it"
-msgstr ""
-
-msgid "Now close the inventory (z)"
-msgstr ""
-
-msgid "You can now use the item by pressing Use Item (a)"
-msgstr ""
-
 msgid "Try it with the bomb, but make sure you stand well back!"
 msgstr ""
 
@@ -2738,9 +2579,6 @@ msgstr ""
 msgid "The sorceror must have done something else with him, I'll have to go back and find out"
 msgstr ""
 
-msgid "You won't be able to deal with the sorceror in this version!"
-msgstr ""
-
 msgid "A beautiful ring"
 msgstr ""
 
@@ -2757,9 +2595,6 @@ msgid "Press buttons to escape the snowball!"
 msgstr ""
 
 msgid "Have you managed to find the horn yet?"
-msgstr ""
-
-msgid "You won't be able to find the horn in this version!"
 msgstr ""
 
 msgid "Have you found everything yet?"
@@ -2885,9 +2720,6 @@ msgstr ""
 msgid "Oh, one last thing."
 msgstr ""
 
-msgid "Don't hang around in that cave, the monsters that live in there are nothing like you'll have ever encountered before"
-msgstr ""
-
 msgid "Seriously, just get the horn"
 msgstr ""
 
@@ -3002,9 +2834,6 @@ msgstr ""
 msgid "I'll leave it alone, I'm not getting a good feeling from it"
 msgstr ""
 
-msgid "This will now summon all the monsters"
-msgstr ""
-
 msgid "To turn your normal arrows into flaming arrows, just use the flaming arrow potion in the inventory screen"
 msgstr ""
 
@@ -3032,9 +2861,6 @@ msgstr ""
 msgid "Retrieve items"
 msgstr ""
 
-msgid "This level is fairly incomplete and inescapable so you might want to save in another slot in case you want to go secret hunting"
-msgstr ""
-
 msgid "A potion to create flaming arrows"
 msgstr ""
 
@@ -3060,9 +2886,6 @@ msgid "Shield of Dragon Fire Resistance"
 msgstr ""
 
 msgid "Creation of shields of dragon fire resistance require occult magics and very little is known about their manufacture"
-msgstr ""
-
-msgid "Known ingredients include the shell fragment from a rampaging Master Tortoise and the staff of a Dark Summoner"
 msgstr ""
 
 msgid "Drat, that's all it says"
@@ -3167,9 +2990,6 @@ msgstr ""
 msgid "Nothing will go wrong this time!"
 msgstr ""
 
-msgid "Create Disintegration Shield"
-msgstr ""
-
 msgid "(I have the statue that Olaf stole)"
 msgstr ""
 
@@ -3243,15 +3063,6 @@ msgid "What was that?!"
 msgstr ""
 
 msgid "I'd better get out of here and get back to the Fortress..."
-msgstr ""
-
-msgid "There should be a boss here but it's not finished"
-msgstr ""
-
-msgid "So make a spare save if you want to fight it later since you won't be able to return here"
-msgstr ""
-
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
 
 msgid "It's available on iBooks and the Amazon Kindle"
@@ -3518,9 +3329,6 @@ msgstr ""
 msgid "Create a Resist Disintegration Shield"
 msgstr ""
 
-msgid "You will not be able to create the shield in this version!"
-msgstr ""
-
 msgid "The horn from a fearsome monster"
 msgstr ""
 
@@ -3656,9 +3464,6 @@ msgstr ""
 msgid "Maybe I should have another look in here..."
 msgstr ""
 
-msgid "You can also sort items in your inventory by using the Previous Item (,) and Next Item (.) buttons"
-msgstr ""
-
 msgid "Sends a weakened demon back to its own dimension"
 msgstr ""
 
@@ -3672,5 +3477,89 @@ msgid "Creates a temporary shield that reflects magic spells"
 msgstr ""
 
 msgid "Protects against certain attacks. Stops working if you move"
+msgstr ""
+
+msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
+msgstr ""
+
+msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
+msgstr ""
+
+msgid "Press [INPUT_JUMP] when you have finished reading to go to the next dialog box"
+msgstr ""
+
+msgid "You can also move to the next dialog box by pressing Attack ([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action ([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
+msgstr ""
+
+msgid "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
+msgstr ""
+
+msgid "To interact with an item, press [INPUT_INTERACT]"
+msgstr ""
+
+msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
+msgstr ""
+
+msgid "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+msgid "Press [INPUT_INVENTORY] again to close your inventory"
+msgstr ""
+
+msgid "The water is full of those carnivorous fish"
+msgstr ""
+
+msgid "From the looks of things I'll have to swim through the water to get to the other side"
+msgstr ""
+
+msgid "But the fish will go for me the moment I enter the water"
+msgstr ""
+
+msgid "I'll have to find a way to get rid of them..."
+msgstr ""
+
+msgid "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
+msgstr ""
+
+msgid "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+msgid "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action ([INPUT_INTERACT])"
+msgstr ""
+
+msgid "You can also sort items in your inventory by using the Previous Item ([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
+msgstr ""
+
+msgid "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight the bomb"
+msgstr ""
+
+msgid "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
+msgstr ""
+
+msgid "Now close the inventory ([INPUT_INVENTORY])"
+msgstr ""
+
+msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
+msgstr ""
+
+msgid "Known ingredients include the shell fragment from a Rampaging Master Tortoise and the staff of a Dark Summoner"
+msgstr ""
+
+msgid "I also need a spare shield, but I reckon there should be an Armoury around"
+msgstr ""
+
+msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
