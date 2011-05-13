@@ -5,6 +5,7 @@ Version 0.85
 * Added the next part of the story
 * Fixed a bug with the Salamander not changing to its fire form
 * Filling up the potion bottle no longer creates an additional bottle in the map
+* Fixed a problem with games not being able to be loaded if Mini Centurions were on the map
 
 Version 0.82
 * Fixed a crash when defeating Grimlore
