@@ -1899,7 +1899,7 @@ static void horizontalKnifeThrowInit()
 
 		e->health = 0;
 
-		e->thinkTime = 180 + 30 * i;
+		e->thinkTime = 180 + 45 * i;
 
 		e->head = self;
 
