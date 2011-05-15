@@ -629,7 +629,7 @@ msgstr ""
 msgid "Occasionally, slain enemies will drop health which will vanish after a few seconds, so pick it up quickly!"
 msgstr ""
 
-msgid "If a bat is getting to close to you, hold block and it will harmlessly bounce off you"
+msgid "If a bat is getting too close to you, hold block and it will harmlessly bounce off you"
 msgstr ""
 
 msgid "Now kill all of the bats in the area!"
