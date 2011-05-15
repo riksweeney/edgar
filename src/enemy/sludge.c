@@ -292,7 +292,7 @@ static void die()
 {
 	Entity *e;
 
-	if (prand() % 3 == 0)
+	if (prand() % 2 == 0)
 	{
 		e = dropCollectableItem("item/sludge_tentacle", self->x + self->w / 2, self->y, self->face);
 
