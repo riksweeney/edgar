@@ -45,6 +45,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/egg.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
+#include "../geometry.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -131,6 +133,8 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->draw = &drawCaveBoss;
 
 	e->die = &die;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 

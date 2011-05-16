@@ -48,6 +48,7 @@ static void headBiteInit(void);
 static void headBite(void);
 static void headBiteReturn(void);
 static void headBiteReactToBlock(Entity *);
+static void creditsMove(void);
 
 Entity *addFlyTrap(int x, int y, char *name)
 {
@@ -69,6 +70,8 @@ Entity *addFlyTrap(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &init;
 
 	e->type = ENEMY;
 
@@ -96,6 +99,8 @@ static void init()
 	e->touch = &entityTouch;
 	e->takeDamage = &headTakeDamage;
 	e->reactToBlock = &headChangeDirection;
+	
+	e->creditsAction = &headWait;
 
 	e->head = self;
 	
@@ -110,6 +115,8 @@ static void init()
 	e->health = self->health;
 
 	self->action = &lookForPlayer;
+	
+	self->creditsAction = &creditsMove;
 }
 
 static void lookForPlayer()
@@ -233,6 +240,8 @@ static void headWait()
 	{
 		self->flags &= ~FLASH;
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void headBiteInit()
@@ -431,6 +440,8 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
 		body[i]->takeDamage = &bodyTakeDamage;
+		
+		body[i]->creditsAction = &bodyWait;
 
 		body[i]->type = ENEMY;
 		
@@ -480,6 +491,8 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 	free(body);
 
 	trapHead->action = &headWait;
+	
+	trapHead->creditsAction = &headWait;
 }
 
 static void alignBodyToHead()
@@ -567,5 +580,21 @@ static void bodyWait()
 	else
 	{
 		self->flags &= ~FLASH;
+	}
+	
+	self->inUse = self->head->inUse;
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

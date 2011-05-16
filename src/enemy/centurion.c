@@ -704,6 +704,8 @@ static void redCreditsMove()
 {
 	float dirX;
 	
+	self->face = RIGHT;
+	
 	if (self->maxThinkTime == 1)
 	{
 		self->dirX = self->speed;
@@ -737,7 +739,7 @@ static void redCreditsMove()
 		self->inUse = FALSE;
 	}
 	
-	if (self->thinkTime >= 20)
+	if (self->thinkTime >= 10)
 	{
 		self->creditsAction = &redDie;
 	}

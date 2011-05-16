@@ -49,6 +49,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/magic_missile.h"
 #include "../boss/grimlore_summon_spell.h"
 #include "../world/explosion.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -136,6 +137,7 @@ static int flameDraw(void);
 static void resetWeapons(void);
 static void bindInit(void);
 static void bindWait(void);
+static void creditsMove(void);
 
 Entity *addGrimlore(int x, int y, char *name)
 {
@@ -155,6 +157,8 @@ Entity *addGrimlore(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -408,6 +412,8 @@ static void addArmour()
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &armourDie;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &armourWait;
 
 	e->type = ENEMY;
 
@@ -447,6 +453,8 @@ static void armourWait()
 	{
 		self->die();
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void addShield()
@@ -471,6 +479,8 @@ static void addShield()
 	e->takeDamage = &shieldTakeDamage;
 	e->die = &shieldDie;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &shieldWait;
 
 	e->type = ENEMY;
 
@@ -520,6 +530,8 @@ static void shieldWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
+	
+	self->inUse = self->head->inUse;
 }
 
 static void addSword()
@@ -545,6 +557,8 @@ static void addSword()
 	e->takeDamage = &swordTakeDamage;
 
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &swordWait;
 
 	e->type = ENEMY;
 
@@ -591,6 +605,8 @@ static void swordWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
+	
+	self->inUse = self->head->inUse;
 }
 
 static void swordStabInit()
@@ -3461,4 +3477,15 @@ static void resetWeapons()
 	}
 
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	addArmour();
+
+	addSword();
+
+	addShield();
+	
+	self->creditsAction = &bossMoveToMiddle;
 }

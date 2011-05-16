@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/script.h"
 #include "../player.h"
 #include "../enemy/rock.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -249,6 +250,8 @@ Entity *addBlackBook2(int x, int y, char *name)
 	e->touch = NULL;
 	e->die = NULL;
 	e->takeDamage = NULL;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 
@@ -5539,12 +5542,7 @@ static void energyBarWait()
 		}
 	}
 
-	if (self->head->inUse == FALSE)
-	{
-		self->flags |= NO_DRAW;
-
-		self->inUse = FALSE;
-	}
+	self->inUse = self->head->inUse;
 
 	self->layer = self->head->layer;
 }

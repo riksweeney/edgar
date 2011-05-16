@@ -39,6 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -77,6 +78,8 @@ static void stunned(void);
 static void crushAttackHit(Entity *);
 static void bodyTakeDamage(Entity *, int);
 static void starWait(void);
+static void creditsMove(void);
+static void creditsMoveOffScreen(void);
 
 Entity *addSnakeBoss(int x, int y, char *name)
 {
@@ -100,6 +103,8 @@ Entity *addSnakeBoss(int x, int y, char *name)
 	head->touch = &entityTouch;
 	head->die = &die;
 	head->takeDamage = &takeDamage;
+	
+	head->creditsAction = &creditsMove;
 
 	head->type = ENEMY;
 
@@ -123,6 +128,8 @@ static void bodyWait()
 	}
 
 	checkToMap(self);
+	
+	self->inUse = self->head->inUse;
 }
 
 static void initialise()
@@ -317,6 +324,8 @@ static void createBody()
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
 		body[i]->takeDamage = &bodyTakeDamage;
+		
+		body[i]->creditsAction = &bodyWait;
 
 		body[i]->type = ENEMY;
 
@@ -1216,4 +1225,43 @@ static void starWait()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void creditsMove()
+{
+	if (self->health != -1)
+	{
+		createBody();
+		
+		self->endY = self->y + 32;
+		
+		self->y -= 32;
+		
+		self->health = -1;
+	}
+	
+	bossMoveToMiddle();
+	
+	self->endX = self->x;
+	
+	alignBodyToHead();
+	
+	if (self->thinkTime <= 0)
+	{
+		self->creditsAction = &creditsMoveOffScreen;
+	}
+}
+
+static void creditsMoveOffScreen()
+{
+	self->x -= 20;
+	
+	if (self->x <= -self->w)
+	{
+		self->inUse = FALSE;
+	}
+	
+	self->endX = self->x;
+	
+	alignBodyToHead();
 }

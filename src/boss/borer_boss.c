@@ -46,6 +46,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/bomb.h"
 #include "../geometry.h"
 #include "../world/explosion.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -91,6 +92,7 @@ static void slimePlayer(Entity *);
 static void slimeDie(void);
 static void dieFinish(void);
 static void leave(void);
+static void creditsMove(void);
 
 Entity *addBorerBoss(int x, int y, char *name)
 {
@@ -110,6 +112,8 @@ Entity *addBorerBoss(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -176,6 +180,8 @@ static void addTentacles()
 		e->action = &tentacleWait;
 
 		e->draw = &drawTentacle;
+		
+		e->creditsAction = &tentacleWait;
 
 		e->type = ENEMY;
 
@@ -206,6 +212,8 @@ static void addMouth()
 	e->action = &mouthWait;
 
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &mouthWait;
 
 	e->type = ENEMY;
 
@@ -717,6 +725,8 @@ static void tentacleWait()
 			self->action = &tentacleAttackInit;
 		}
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void tentacleAttackInit()
@@ -1459,4 +1469,17 @@ static void leave()
 
 		stopSound(BOSS_CHANNEL);
 	}
+}
+
+static void creditsMove()
+{
+	int x = self->targetX;
+	
+	addMouth();
+	
+	addTentacles();
+	
+	self->creditsAction = &bossMoveToMiddle;
+	
+	self->targetX = x;
 }

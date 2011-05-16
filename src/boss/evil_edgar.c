@@ -45,6 +45,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../projectile.h"
 #include "../inventory.h"
 #include "../event/script.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -111,6 +112,8 @@ Entity *addEvilEdgar(int x, int y, char *name)
 	e->touch = NULL;
 	e->die = NULL;
 	e->takeDamage = NULL;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 

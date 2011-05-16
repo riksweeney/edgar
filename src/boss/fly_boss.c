@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../graphics/decoration.h"
 #include "../system/error.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -80,6 +81,7 @@ static void fallout(void);
 static void ramTouch(Entity *);
 static void die(void);
 static void dieFinish(void);
+static void creditsMove(void);
 
 Entity *addFlyBoss(int x, int y, char *name)
 {
@@ -110,6 +112,8 @@ Entity *addFlyBoss(int x, int y, char *name)
 	e->fallout = &fallout;
 
 	e->die = &die;
+	
+	e->creditsAction = &creditsMove;
 
 	setEntityAnimation(e, "CUSTOM_1");
 
@@ -991,4 +995,13 @@ static void ramTouch(Entity *other)
 			reactToHeadButtBlock(other);
 		}
 	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->draw = &drawLoopingAnimationToMap;
+	
+	self->creditsAction = &bossMoveToMiddle;
 }

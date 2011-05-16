@@ -1,5 +1,5 @@
 MAP_NAME Credits Map
-MUSIC NONE
+MUSIC music/credits.mod
 TILESET caves
 AMBIENCE grasslands
 BACKGROUND_SPEED 0.3

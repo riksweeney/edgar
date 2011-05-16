@@ -54,6 +54,8 @@ TALK Edgar Phew, I feel whole again
 TALK Edgar And there's my Fire Shield!
 WALK_TO EDGAR 20230 13162 WAIT
 TALK Edgar Hopefully this will get me past all those fireballs...
+ADD OBJECTIVE "Confront the Sorceror" " "
+ADD TRIGGER "Confront the Sorceror" 1 UPDATE_OBJECTIVE "Confront the Sorceror"
 FOLLOW EDGAR
 RESET_CAMERA
 ADD_MEDAL kill_evil_edgar

@@ -46,7 +46,6 @@ static void redWait(void);
 static void redDie(void);
 static void redDieInit(void);
 static void shudder(void);
-static void hover(void);
 static void castFireInit(void);
 static void throwFire(void);
 static void castFire(void);
@@ -103,6 +102,9 @@ static void followPlayer(void);
 static void dropOnPlayer(void);
 static void dropWait(void);
 static void takeDamage(Entity *, int);
+static void creditsMove(void);
+static void greenCreditsMove(void);
+static void creditsSummon(void);
 
 Entity *addLargeBook(int x, int y, char *name)
 {
@@ -126,24 +128,32 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &redWait;
 		e->die = &redDieInit;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	else if (strcmpignorecase(name, "enemy/large_blue_book") == 0)
 	{
 		e->action = &blueWait;
 		e->die = &blueDieInit;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	else if (strcmpignorecase(name, "enemy/large_yellow_book") == 0)
 	{
 		e->action = &yellowWait;
 		e->die = &yellowDieInit;
+		
+		e->creditsAction = &creditsMove;
 	}
 
 	else
 	{
 		e->action = &greenWait;
 		e->die = &greenDieInit;
+		
+		e->creditsAction = &greenCreditsMove;
 	}
 
 	e->type = ENEMY;
@@ -2337,5 +2347,106 @@ static void takeDamage(Entity *other, int damage)
 				self->die();
 			}
 		}
+	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	hover();
+}
+
+static void greenCreditsMove()
+{
+	self->thinkTime++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	hover();
+	
+	if (self->thinkTime == 300)
+	{
+		self->thinkTime = 60;
+		
+		self->creditsAction = &creditsSummon;
+		
+		self->mental = 0;
+	}
+}
+
+static void creditsSummon()
+{
+	Entity *e;
+	
+	self->dirX = 0;
+	
+	hover();
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		switch (self->mental)
+		{
+			case 0:
+				e = addBook(self->x, self->y, "enemy/green_book");
+			break;
+
+			case 1:
+				e = addBook(self->x, self->y, "enemy/yellow_book");
+			break;
+
+			case 2:
+				e = addBook(self->x, self->y, "enemy/red_book");
+			break;
+
+			default:
+				e = addBook(self->x, self->y, "enemy/blue_book");
+				
+				self->creditsAction = &creditsMove;
+			break;
+		}
+		
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetY = e->y + (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
+		e->targetX = e->x - SCREEN_WIDTH / 2 + (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
+		
+		e->startY = e->targetY;
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		e->face = RIGHT;
+		
+		self->mental++;
+		
+		self->thinkTime = 30;
 	}
 }

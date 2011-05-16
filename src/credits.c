@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
+#include "audio/music.h"
 #include "system/pak.h"
 #include "system/error.h"
 #include "credits.h"
@@ -51,31 +52,50 @@ static char *enemies[] = {
 			"enemy/red_grub",
 			"enemy/jumping_slime",
 			"enemy/purple_jumping_slime",
-			"enemy/red_jumping_slime",
+			"enemy/flying_bug",
 			"enemy/scorpion",
 			"enemy/snail",
 			"enemy/purple_snail",
 			"enemy/red_bat",
 			"enemy/gazer",
+			"enemy/energy_drainer",
 			"enemy/sludge",
-			"enemy/red_sludge",
 			"enemy/summoner",
 			"enemy/centurion",
-			"enemy/red_centurion",
-			"boss/centurion_boss",
 			"enemy/tortoise",
-			"enemy/ice_tortoise",
-			"enemy/fire_tortoise",
 			"enemy/ceiling_crawler",
+			"enemy/whirlwind",
+			"enemy/large_blue_book",
+			"enemy/large_red_book",
+			"enemy/large_yellow_book",
+			"enemy/large_green_book",
 			"enemy/large_spider",
 			"enemy/large_red_spider",
-			"enemy/dragon_fly"
+			"enemy/red_sludge",
+			"enemy/dragon_fly",
+			"enemy/green_scanner",
+			"enemy/blue_scanner",
+			"enemy/fire_tortoise",
+			"enemy/dark_summoner",
+			"enemy/ice_tortoise",
+			"boss/centurion_boss",
+			"enemy/splitter",
+			"enemy/sasquatch",
+			"enemy/yellow_centipede",
+			"enemy/red_centipede",
+			"enemy/green_centipede",
+			"enemy/red_jumping_slime",
+			"enemy/frog",
+			"enemy/undead_gazer",
+			"enemy/fly_trap",
+			"enemy/armour_changer"
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 
 static char *bosses[] = {
 			"boss/grub_boss",
 			"boss/golem_boss",
+			"boss/fly_boss",
 			"boss/snake_boss",
 			"boss/blob_boss_2",
 			"boss/armour_boss",
@@ -92,20 +112,21 @@ static char *bosses[] = {
 static int bossesLength = sizeof(bosses) / sizeof(char *);
 
 static char *bossNames[] = {
-			"boss/grub_boss", "King Grub",
-			"boss/golem_boss", "The Golem",
-			"boss/snake_boss", "The Swamp Guardian",
-			"boss/blob_boss_2", "The Blob",
-			"boss/armour_boss", "The Watchdog",
-			"boss/awesome_boss_1", "The Awesome Foursome",
-			"boss/mataeus", "Mataeus",
-			"boss/phoenix", "The Phoenix",
-			"boss/borer_boss", "The Borer",
-			"boss/evil_edgar", "Evil Edgar",
-			"boss/sewer_boss", "The Sewer Dweller",
-			"boss/cave_boss", "The Salamander",
-			"boss/black_book_2", "The Black Book",
-			"boss/grimlore", "Grimlore"
+			"boss/grub_boss", "King Grub", "map03",
+			"boss/golem_boss", "The Golem", "map02",
+			"boss/fly_boss", "Queen Wasp", "map05",
+			"boss/snake_boss", "The Swamp Guardian", "map04",
+			"boss/blob_boss_2", "The Blob", "map10",
+			"boss/armour_boss", "The Watchdog", "map08",
+			"boss/awesome_boss_1", "The Awesome Foursome", "map13",
+			"boss/mataeus", "Mataeus", "map11",
+			"boss/phoenix", "The Phoenix", "map13",
+			"boss/borer_boss", "The Borer", "map14",
+			"boss/evil_edgar", "Evil Edgar", "map10",
+			"boss/sewer_boss", "The Sewer Dweller", "map07",
+			"boss/cave_boss", "The Salamander", "map20",
+			"boss/black_book_2", "The Black Book", "map11",
+			"boss/grimlore", "Grimlore", "map16"
 };
 
 static void initCredits(void);
@@ -121,9 +142,12 @@ static void initDefeatedBosses(void);
 static int getNextBoss(void);
 static void drawDefeatedBosses(void);
 static Entity *loadCreditsBoss(char *);
-static void bossMoveToMiddle(void);
 static void bossMoveOffScreen(void);
 static char *getBossName(char *);
+static char *getBossMap(char *);
+static void doChaos(void);
+static void drawChaos(void);
+static void shuffleEnemies(void);
 
 void doCredits()
 {
@@ -137,60 +161,65 @@ void doCredits()
 			doDefeatedBosses();
 		break;
 		
+		case 3:
+			doChaos();
+		break;
+		
 		default:
 			doEndCredits();
 		break;
 	}
 }
 
-static void doDefeatedBosses()
+static void doChaos()
 {
-	int i, remainingEntities;
-	
 	if (credits.creditLine == NULL)
 	{
-		initDefeatedBosses();
-	}
-	
-	remainingEntities = 0;
-	
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		self = &entity[i];
+		credits.creditLine = malloc(sizeof(CreditLine));
 
-		if (self->inUse == TRUE)
+		if (credits.creditLine == NULL)
 		{
-			remainingEntities++;
+			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
+		}
+		
+		STRNCPY(credits.creditLine[0].text, "Chaos still rests...", MAX_LINE_LENGTH);
+		
+		credits.alpha = 255;
+		
+		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
+
+		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		
+		credits.line = -1;
+		
+		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.startDelay = 180;
+	}
+	
+	credits.alpha += credits.line;
+	
+	if (credits.alpha <= 0)
+	{
+		credits.alpha = 0;
+		
+		credits.startDelay--;
+		
+		if (credits.startDelay <= 0)
+		{
+			credits.startDelay = 30;
 			
-			self->action();
-			
-			addToGrid(self);
-			
-			addToDrawLayer(self, self->layer);
+			credits.line = 1;
 		}
 	}
 	
-	if (remainingEntities == 0)
+	else if (credits.alpha >= 255)
 	{
-		if (getNextBoss() == FALSE)
-		{
-			credits.fading = TRUE;
-		}
+		credits.alpha = 255;
 		
-		else
-		{
-			setMapStartX(0);
-			setMapStartY(0);
-		}
-	}
-	
-	if (credits.fading == TRUE)
-	{
-		fadeCredits();
+		credits.startDelay--;
 		
-		credits.alpha++;
-		
-		if (credits.alpha == 255)
+		if (credits.startDelay <= 0)
 		{
 			freeCredits();
 			
@@ -206,7 +235,131 @@ static void doDefeatedBosses()
 			credits.startDelay = 0;
 			credits.nextEntityDelay = 0;
 			
+			credits.status = 0;
+			
 			newGame();
+		}
+	}
+}
+
+static void doDefeatedBosses()
+{
+	int i, remainingEntities;
+	
+	if (credits.creditLine == NULL)
+	{
+		initDefeatedBosses();
+	}
+	
+	remainingEntities = 0;
+	
+	credits.startDelay--;
+	
+	if (credits.startDelay <= 0)
+	{
+		credits.startDelay = 0;
+		
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			self = &entity[i];
+
+			if (self->inUse == TRUE)
+			{
+				remainingEntities++;
+				
+				if (!(self->flags & (FLY|GRABBED)))
+				{
+					switch (self->environment)
+					{
+						case WATER:
+						case SLIME:
+							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
+
+							if (self->flags & FLOATS)
+							{
+								if (self->dirX != 0)
+								{
+									self->endY++;
+
+									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
+								}
+							}
+
+							if (self->dirY >= MAX_WATER_SPEED)
+							{
+								self->dirY = MAX_WATER_SPEED;
+							}
+						break;
+
+						default:
+							self->dirY += GRAVITY_SPEED * self->weight;
+
+							if (self->dirY >= MAX_AIR_SPEED)
+							{
+								self->dirY = MAX_AIR_SPEED;
+							}
+
+							else if (self->dirY > 0 && self->dirY < 1)
+							{
+								self->dirY = 1;
+							}
+						break;
+					}
+				}
+				
+				if (self->creditsAction == NULL)
+				{
+					showErrorAndExit("%s has no Credits Action defined", self->name);
+				}
+				
+				self->creditsAction();
+				
+				addToGrid(self);
+				
+				addToDrawLayer(self, self->layer);
+			}
+		}
+		
+		if (remainingEntities == 0)
+		{
+			if (getNextBoss() == FALSE)
+			{
+				credits.fading = TRUE;
+			}
+			
+			else
+			{
+				setMapStartX(0);
+				setMapStartY(0);
+			}
+		}
+		
+		if (credits.fading == TRUE)
+		{
+			fadeOutMusic(4000);
+			
+			fadeCredits();
+			
+			credits.alpha++;
+			
+			if (credits.alpha >= 255)
+			{
+				freeCredits();
+				
+				player.inUse = FALSE;
+				
+				freeEntities();
+				
+				credits.line = 0;
+				credits.lineCount = 0;
+				credits.entityID = 0;
+				credits.fading = FALSE;
+				credits.alpha = 255;
+				credits.startDelay = 0;
+				credits.nextEntityDelay = 0;
+				
+				credits.status = 3;
+			}
 		}
 	}
 }
@@ -252,7 +405,7 @@ static void doGameStats()
 				credits.line = credits.lineCount;
 			}
 			
-			credits.startDelay = credits.line == credits.lineCount ? 180 : 60;
+			credits.startDelay = credits.line == credits.lineCount ? 120 : 60;
 		}
 	}
 }
@@ -281,7 +434,7 @@ static void doEndCredits()
 	{
 		credits.creditLine[i].y -= 0.25;
 		
-		if (credits.creditLine[i].y < -SCREEN_HEIGHT)
+		if (credits.creditLine[i].y < -64)
 		{
 			SDL_FreeSurface(credits.creditLine[i].textImage);
 			
@@ -341,6 +494,8 @@ static void doEndCredits()
 
 			if (self->inUse == TRUE)
 			{
+				self->takeDamage = NULL;
+				
 				if (!(self->flags & TELEPORTING))
 				{
 					remainingEntities++;
@@ -408,9 +563,12 @@ static void doEndCredits()
 		
 		if (credits.nextEntityDelay <= 0)
 		{
-			if (getNextEntity() == FALSE && remainingEntities == 0)
+			if (getNextEntity() == FALSE)
 			{
-				credits.fading = TRUE;
+				if (remainingEntities == 0)
+				{
+					credits.fading = TRUE;
+				}
 			}
 			
 			setMapStartX(TILE_SIZE * 4);
@@ -444,6 +602,13 @@ static void doEndCredits()
 			credits.nextEntityDelay = 0;
 			
 			credits.status = 1;
+			
+			if (game.kills == 0)
+			{
+				credits.status = 0;
+				
+				newGame();
+			}
 		}
 	}
 }
@@ -460,9 +625,23 @@ void drawCredits()
 			drawDefeatedBosses();
 		break;
 		
+		case 3:
+			drawChaos();
+		break;
+		
 		default:
 			drawEndCredits();
 		break;
+	}
+}
+
+static void drawChaos()
+{
+	if (credits.creditLine != NULL)
+	{
+		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, (SCREEN_HEIGHT - credits.creditLine[0].textImage->h) / 2, FALSE, 255);
+		
+		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
 	}
 }
 
@@ -474,11 +653,21 @@ static void drawDefeatedBosses()
 	{
 		for (i=0;i<credits.lineCount;i++)
 		{
+			if (i != 0 && credits.startDelay > 0)
+			{
+				continue;
+			}
+			
 			if (credits.creditLine[i].textImage != NULL)
 			{
 				drawImage(credits.creditLine[i].textImage, (SCREEN_WIDTH - credits.creditLine[i].textImage->w) / 2, credits.creditLine[i].y, FALSE, 255);
 			}
 		}
+	}
+	
+	if (credits.fading == TRUE)
+	{
+		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
 	}
 }
 
@@ -578,7 +767,7 @@ static void initGameStats()
 			credits.creditLine[i].x = (SCREEN_WIDTH - credits.creditLine[i].textImage->w) / 2;
 			credits.creditLine[i].y = y;
 			
-			y += credits.creditLine[i].textImage->h + 16;
+			y += credits.creditLine[i].textImage->h + 32;
 		}
 		
 		else if (i % 2 == 1)
@@ -672,7 +861,19 @@ static void initCredits()
 	
 	player.inUse = FALSE;
 	
-	credits.startDelay = 300;
+	credits.startDelay = 600;
+	
+	for (y=0;y<enemiesLength;y++)
+	{
+		loadProperties(enemies[y], NULL);
+	}
+	
+	for (y=0;y<bossesLength;y++)
+	{
+		loadProperties(bosses[y], NULL);
+	}
+	
+	shuffleEnemies();
 }
 
 static void initDefeatedBosses()
@@ -705,6 +906,8 @@ static void initDefeatedBosses()
 	credits.creditLine[2].textImage = NULL;
 	
 	credits.startDelay = 60;
+	
+	player.flags |= NO_DRAW;
 }
 
 int countTokens(char *line, char *delim)
@@ -827,17 +1030,17 @@ static Entity *loadCreditsBoss(char *name)
 	
 	e->flags &= ~NO_DRAW;
 	
-	e->action = &bossMoveToMiddle;
+	e->flags |= FLY;
 	
 	e->targetX = (SCREEN_WIDTH - e->w) / 2;
 	
 	e->thinkTime = 120;
 	
-	printf("Added enemy %s\n", e->name);
+	credits.line = hasPersistance(getBossMap(e->name)) == TRUE && bossExists(e->name) == FALSE ? TRUE : FALSE;
 	
 	STRNCPY(credits.creditLine[1].text, getBossName(e->name), MAX_LINE_LENGTH);
 	
-	STRNCPY(credits.creditLine[2].text, bossExists(e->name) == TRUE ? "" : "Defeated", MAX_LINE_LENGTH);
+	STRNCPY(credits.creditLine[2].text, credits.line == FALSE ? _("Undefeated") : _("Defeated"), MAX_LINE_LENGTH);
 		
 	if (credits.creditLine[1].textImage != NULL)
 	{
@@ -886,26 +1089,33 @@ void fadeCredits()
 	}
 }
 
-static void bossMoveToMiddle()
+void bossMoveToMiddle()
 {
+	self->x -= 20;
+	
 	if (self->x <= self->targetX)
 	{
+		self->x = self->targetX;
+		
 		if (strlen(credits.creditLine[2].text) != 0 && credits.creditLine[2].textImage == NULL)
 		{
-			credits.creditLine[2].textImage = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 0, 220, 0, TRUE);
+			if (credits.line == TRUE)
+			{
+				credits.creditLine[2].textImage = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 0, 220, 0, TRUE);
+			}
+			
+			else
+			{
+				credits.creditLine[2].textImage = generateTransparentTextSurface(credits.creditLine[2].text, game.largeFont, 220, 0, 0, TRUE);
+			}
 		}
 		
 		self->thinkTime--;
 		
 		if (self->thinkTime <= 0)
 		{
-			self->action = &bossMoveOffScreen;
+			self->creditsAction = &bossMoveOffScreen;
 		}
-	}
-	
-	else
-	{
-		self->x -= 20;
 	}
 }
 
@@ -923,12 +1133,8 @@ static char *getBossName(char *name)
 {
 	int i;
 	
-	printf("Searching for %s\n", name);
-	
-	for (i=0;i<bossesLength*2;i+=2)
+	for (i=0;i<bossesLength*3;i+=3)
 	{
-		printf("'%s' == '%s'\n", name, bossNames[i]);
-		
 		if (strcmpignorecase(name, bossNames[i]) == 0)
 		{
 			return bossNames[i + 1];
@@ -938,4 +1144,38 @@ static char *getBossName(char *name)
 	showErrorAndExit("Could not find name for boss %s", name);
 	
 	return NULL;
+}
+
+static char *getBossMap(char *name)
+{
+	int i;
+	
+	for (i=0;i<bossesLength*3;i+=3)
+	{
+		if (strcmpignorecase(name, bossNames[i]) == 0)
+		{
+			return bossNames[i + 2];
+		}
+	}
+	
+	showErrorAndExit("Could not find map for boss %s", name);
+	
+	return NULL;
+}
+
+static void shuffleEnemies()
+{
+	char *s;
+	int i, j;
+	
+	for (i=1;i<enemiesLength;i++)
+	{
+		s = enemies[i];
+		
+		j = 1 + prand() % (enemiesLength - 1);
+
+		enemies[i] = enemies[j];
+		
+		enemies[j] = s;
+	}
 }

@@ -47,6 +47,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../event/script.h"
 #include "../world/explosion.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -105,6 +106,8 @@ Entity *addPhoenix(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 

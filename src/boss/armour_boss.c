@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../system/error.h"
 #include "../event/script.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -87,6 +88,7 @@ static void chargeAttackTouch(Entity *);
 static void starWait(void);
 static void introComplete(void);
 static void continuePoint(void);
+static void creditsMove(void);
 
 Entity *addArmourBoss(int x, int y, char *name)
 {
@@ -119,6 +121,8 @@ Entity *addArmourBoss(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->resumeNormalFunction = &introComplete;
+	
+	e->creditsAction = &creditsMove;
 
 	setEntityAnimation(e, "CUSTOM_1");
 
@@ -908,6 +912,8 @@ static void regenerateArmour()
 			e->type = ENEMY;
 
 			e->die = &armourDie;
+			
+			e->creditsAction = &armourWait;
 
 			e->thinkTime = 60 + prand() % 120;
 
@@ -1001,6 +1007,8 @@ static void regenerateArmour()
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->takeDamage = NULL;
+		
+		e->creditsAction = &sawWait;
 
 		e->type = ENEMY;
 
@@ -1054,6 +1062,8 @@ static void armourWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
+	
+	self->inUse = self->head->inUse;
 }
 
 static void sawWait()
@@ -1109,6 +1119,8 @@ static void sawWait()
 
 		self->action = &entityDieNoDrop;
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void sawAttackWait()
@@ -1674,4 +1686,16 @@ static void continuePoint()
 	self->touch = &entityTouch;
 
 	self->takeDamage = &takeDamage;
+}
+
+static void creditsMove()
+{
+	if (self->health != -1)
+	{
+		setEntityAnimation(self, "STAND");
+		
+		regenerateArmour();
+	}
+	
+	self->creditsAction = &bossMoveToMiddle;
 }

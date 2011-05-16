@@ -475,6 +475,13 @@ static void creditsMove()
 	
 	self->dirX = self->speed;
 	
+	if (self->flags & FLY)
+	{
+		self->startX += 5;
+
+		self->dirY = cos(DEG_TO_RAD(self->startX));	
+	}
+	
 	checkToMap(self);
 	
 	if (self->dirX == 0)

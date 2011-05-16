@@ -35,6 +35,7 @@ extern Entity *self, player;
 static void createSnowball(void);
 static void lookForPlayer(void);
 static void throwSnowball(void);
+static void creditsMove(void);
 
 Entity *addSasquatch(int x, int y, char *name)
 {
@@ -56,6 +57,8 @@ Entity *addSasquatch(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -106,7 +109,9 @@ static void createSnowball()
 	{
 		setEntityAnimation(self, "ATTACK_2");
 
-		self->action = throwSnowball;
+		self->action = &throwSnowball;
+		
+		self->creditsAction = &throwSnowball;
 
 		e = addProjectile("enemy/sasquatch_snowball", self, self->x, self->y, (self->face == RIGHT ? 8 : -8), 0);
 
@@ -140,6 +145,8 @@ static void throwSnowball()
 			setEntityAnimation(self, "ATTACK_1");
 
 			self->action = &createSnowball;
+			
+			self->creditsAction = &createSnowball;
 		}
 
 		else
@@ -149,6 +156,37 @@ static void throwSnowball()
 			self->thinkTime = 120;
 
 			self->action = &lookForPlayer;
+			
+			self->creditsAction = &creditsMove;
 		}
+	}
+}
+
+static void creditsMove()
+{
+	self->thinkTime--;
+	
+	setEntityAnimation(self, "WALK");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->thinkTime <= 0)
+	{
+		self->dirX = 0;
+
+		self->thinkTime = 30;
+
+		self->mental = 1 + prand() % 3;
+
+		setEntityAnimation(self, "ATTACK_1");
+
+		self->creditsAction = &createSnowball;
 	}
 }

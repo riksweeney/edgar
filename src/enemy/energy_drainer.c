@@ -50,6 +50,7 @@ static int draw(void);
 static void createBeam(void);
 static void beamWait(void);
 static int beamDraw(void);
+static void creditsMove(void);
 
 Entity *addEnergyDrainer(int x, int y, char *name)
 {
@@ -72,6 +73,8 @@ Entity *addEnergyDrainer(int x, int y, char *name)
 	e->reactToBlock = NULL;
 	e->touch = &entityTouch;
 	e->fallout = &die;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -384,6 +387,8 @@ static void createBeam()
 	setEntityAnimation(e, "STAND");
 
 	e->action = &beamWait;
+	
+	e->creditsAction = &beamWait;
 }
 
 static void beamWait()
@@ -489,4 +494,36 @@ static int beamDraw()
 	}
 
 	return TRUE;
+}
+
+static void creditsMove()
+{
+	if (self->mental == 0)
+	{
+		createBeam();
+		
+		self->mental = 1;
+	}
+	
+	self->thinkTime += 5;
+
+	self->dirY += cos(DEG_TO_RAD(self->thinkTime));
+
+	self->dirY /= 3;
+	
+	self->dirX = self->speed;
+
+	checkToMap(self);
+
+	if (self->mental == 1)
+	{
+		self->endX = MAX(getMapCeiling(self->x + self->w - 1, self->y), getMapCeiling(self->x, self->y));
+
+		self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
+	}
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

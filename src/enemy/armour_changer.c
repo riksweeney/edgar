@@ -52,6 +52,7 @@ static void boxWait(void);
 static void die(void);
 static void init(void);
 static int draw(void);
+static void creditsMove(void);
 
 Entity *addArmourChanger(int x, int y, char *name)
 {
@@ -74,6 +75,8 @@ Entity *addArmourChanger(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &init;
 
 	e->type = ENEMY;
 
@@ -90,6 +93,8 @@ static void init()
 	}
 	
 	self->action = &lookForPlayer;
+	
+	self->creditsAction = &creditsMove;
 }
 
 static void lookForPlayer()
@@ -386,6 +391,8 @@ static void changeArmour()
 	e->y = self->y - e->h - 16;
 
 	e->action = &boxWait;
+	
+	e->creditsAction = &boxWait;
 
 	e->thinkTime = 60;
 
@@ -491,4 +498,40 @@ static int draw()
 	}
 	
 	return drawn;
+}
+
+static void creditsMove()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		changeArmour();
+		
+		self->thinkTime = 120;
+	}
+	
+	switch (self->mental)
+	{
+		case 2:
+			setEntityAnimation(self, "WALK_2");
+		break;
+		
+		case 3:
+			setEntityAnimation(self, "WALK_3");
+		break;
+		
+		default:
+			setEntityAnimation(self, "WALK_1");
+		break;
+	}
+
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }
