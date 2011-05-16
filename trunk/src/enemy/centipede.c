@@ -43,6 +43,7 @@ static void segmentTakeDamage(Entity *, int);
 static void becomeHead(void);
 static void greenTouch(Entity *);
 static void becomeGreen(void);
+static void creditsMove(void);
 
 Entity *addCentipede(int x, int y, char *name)
 {
@@ -64,6 +65,8 @@ Entity *addCentipede(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
+	
+	e->creditsAction = &init;
 
 	e->type = ENEMY;
 
@@ -84,6 +87,8 @@ static void init()
 	{
 		self->touch = &greenTouch;
 	}
+	
+	self->creditsAction = &creditsMove;
 }
 
 static void headMove()
@@ -180,6 +185,8 @@ static void addSegments()
 		e->touch = &entityTouch;
 		e->takeDamage = &segmentTakeDamage;
 		e->die = &entityDieNoDrop;
+		
+		e->creditsAction = &segmentInit;
 
 		e->type = ENEMY;
 
@@ -227,11 +234,15 @@ static void segmentInit()
 	if (self->face == LEFT && fabs(self->target->x - self->x) >= self->target->w)
 	{
 		self->action = &segmentMove;
+		
+		self->creditsAction = &creditsMove;
 	}
 
 	else if (self->face == RIGHT && fabs(self->target->x - self->x) >= self->w)
 	{
 		self->action = &segmentMove;
+		
+		self->creditsAction = &creditsMove;
 	}
 
 	checkToMap(self);
@@ -501,5 +512,19 @@ static void greenTouch(Entity *other)
 			other->dirY = 0;
 			other->flags |= ON_GROUND;
 		}
+	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

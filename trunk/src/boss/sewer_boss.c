@@ -46,6 +46,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/bomb.h"
 #include "../geometry.h"
 #include "../world/explosion.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -121,6 +122,7 @@ static void addSlimeDrips(void);
 static void dripWait(void);
 static int dripDraw(void);
 static void dripChangeToWater(void);
+static void creditsMove(void);
 
 Entity *addSewerBoss(int x, int y, char *name)
 {
@@ -139,6 +141,8 @@ Entity *addSewerBoss(int x, int y, char *name)
 	e->action = &initialise;
 	e->touch = NULL;
 	e->fallout = &fallout;
+	
+	e->creditsAction = &creditsMove;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -523,6 +527,8 @@ static void addClaws()
 		e->die = &clawDie;
 		e->action = &clawWait;
 		e->takeDamage = &clawTakeDamage;
+		
+		e->creditsAction = &clawWait;
 
 		e->head = self;
 
@@ -578,6 +584,8 @@ static void createArm(Entity *top)
 		body[i]->draw = &drawLoopingAnimationToMap;
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
+		
+		body[i]->creditsAction = &armPartWait;
 
 		body[i]->type = ENEMY;
 
@@ -816,6 +824,8 @@ static void clawWait()
 			self->inUse = FALSE;
 		}
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void clawSideAttackRise()
@@ -1294,6 +1304,8 @@ static void armPartWait()
 
 		self->action = &armChangeToWater;
 	}
+	
+	self->inUse = self->head->inUse;
 }
 
 static void alignArmToClaw()
@@ -2267,6 +2279,8 @@ static void addSlimeDrips()
 
 		e->draw = &drawLoopingAnimationToMap;
 		e->action = &dripWait;
+		
+		e->creditsAction = &dripWait;
 
 		e->head = self;
 
@@ -2280,6 +2294,9 @@ static void addSlimeDrips()
 
 static void dripWait()
 {
+	int frame;
+	float timer;
+	
 	self->face = self->head->face;
 
 	if (self->face == LEFT)
@@ -2304,14 +2321,17 @@ static void dripWait()
 	if (self->element == WATER && self->head->element != WATER)
 	{
 		self->element = SLIME;
+		
+		frame = self->currentFrame;
+		timer = self->frameTimer;
 
 		setEntityAnimationByID(self, self->mental);
+		
+		self->currentFrame = frame;
+		self->frameTimer = timer;
 	}
 
-	if (self->head->inUse == FALSE)
-	{
-		self->inUse = FALSE;
-	}
+	self->inUse = self->head->inUse;
 }
 
 static int dripDraw()
@@ -2378,4 +2398,20 @@ static void dripChangeToWater()
 	}
 
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	if (self->health != -1)
+	{
+		addSlimeDrips();
+
+		addClaws();
+		
+		self->health = -1;
+	}
+	
+	bossMoveToMiddle();
+	
+	alignArmToClaw();
 }

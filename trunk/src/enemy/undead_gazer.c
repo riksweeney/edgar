@@ -40,6 +40,7 @@ static void gaze(void);
 static void gazeFinish(void);
 static void addDeathTimer(void);
 static void timerWait(void);
+static void creditsMove(void);
 
 Entity *addUndeadGazer(int x, int y, char *name)
 {
@@ -64,6 +65,8 @@ Entity *addUndeadGazer(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->action = &fly;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -245,4 +248,35 @@ static void gazeFinish()
 
 		self->endX = 0;
 	}
+}
+
+static void creditsMove()
+{
+	self->dirX = self->speed;
+	
+	self->thinkTime++;
+	
+	if (self->thinkTime >= 180)
+	{
+		if (self->thinkTime == 180)
+		{
+			playSoundToMap("sound/enemy/gazer/growl.ogg", -1, self->x, self->y, 0);
+		}
+		
+		self->dirX = 0;
+		
+		if (self->thinkTime >= 240)
+		{
+			if (self->thinkTime >= 300)
+			{
+				playSoundToMap("sound/enemy/gazer/flash.ogg", -1, self->x, self->y, 0);
+				
+				fadeFromColour(255, 0, 0, 60);
+				
+				self->inUse = FALSE;
+			}
+		}
+	}
+	
+	checkToMap(self);
 }

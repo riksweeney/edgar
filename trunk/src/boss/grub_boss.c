@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/trigger.h"
 #include "../hud.h"
 #include "../system/error.h"
+#include "../credits.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -83,6 +84,8 @@ Entity *addGrubBoss(int x, int y, char *name)
 	e->flags |= NO_DRAW|FLY;
 
 	e->active = FALSE;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	setEntityAnimation(e, "STAND");
 

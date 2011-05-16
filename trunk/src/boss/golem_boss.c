@@ -42,6 +42,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../enemy/rock.h"
 #include "../system/error.h"
+#include "../credits.h"
 
 extern Entity *self, player, entity[MAX_ENTITIES];
 
@@ -99,6 +100,8 @@ Entity *addGolemBoss(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
 	e->die = &die;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 

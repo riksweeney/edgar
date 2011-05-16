@@ -277,7 +277,15 @@ SDL_Surface *listObjectives()
 	{
 		if (trigger[i].inUse == TRUE && trigger[i].targetType == UPDATE_OBJECTIVE)
 		{
-			snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+			if (trigger[i].total > 1)
+			{
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
+			}
+			
+			else
+			{
+				snprintf(message, MAX_MESSAGE_LENGTH, "%s\n ", _(trigger[i].targetName));
+			}
 
 			strncat(allMessages, message, (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - 1);
 		}

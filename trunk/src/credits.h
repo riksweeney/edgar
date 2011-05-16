@@ -22,3 +22,4 @@ int countTokens(char *, char *);
 void drawCredits(void);
 void freeCredits(void);
 void fadeCredits(void);
+void bossMoveToMiddle(void);

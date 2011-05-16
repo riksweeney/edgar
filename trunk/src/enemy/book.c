@@ -58,6 +58,7 @@ static void iceFallout(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
 static void takeDamage(Entity *, int);
+static void creditsMove(void);
 
 Entity *addBook(int x, int y, char *name)
 {
@@ -79,6 +80,8 @@ Entity *addBook(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -638,4 +641,20 @@ static void takeDamage(Entity *other, int damage)
 	{
 		entityTakeDamageNoFlinch(other, damage);
 	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	hover();
 }

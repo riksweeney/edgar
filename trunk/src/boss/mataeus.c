@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../projectile.h"
 #include "../system/error.h"
 #include "../graphics/gib.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 extern Game game;
@@ -101,6 +102,7 @@ static void shieldWait(void);
 static void horizontalKnifeThrowInit(void);
 static void horizontalKnifeWait(void);
 static void horizontalKnifeThrowWait(void);
+static void creditsMove(void);
 
 Entity *addMataeus(int x, int y, char *name)
 {
@@ -123,6 +125,8 @@ Entity *addMataeus(int x, int y, char *name)
 	e->die = NULL;
 	e->takeDamage = NULL;
 	e->pain = &enemyPain;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -1961,4 +1965,11 @@ static void horizontalKnifeWait()
 	}
 
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->creditsAction = &bossMoveToMiddle;
 }

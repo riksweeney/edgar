@@ -37,6 +37,8 @@ static void followPlayer(void);
 static void closedEyeMove(void);
 static void summonEnemies(void);
 static void teleportPlayer(void);
+static void creditsMove(void);
+static void blueCreditsMove(void);
 
 extern Entity *self, player;
 
@@ -56,6 +58,8 @@ Entity *addScanner(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = strcmpignorecase("enemy/blue_scanner", e->name) == 0 ? &blueCreditsMove : &creditsMove;
 
 	e->type = ENEMY;
 
@@ -356,5 +360,33 @@ static void summonEnemies()
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void blueCreditsMove()
+{
+	setEntityAnimation(self, "ATTACK_1");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

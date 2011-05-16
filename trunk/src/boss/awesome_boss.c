@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/enemies.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../credits.h"
 
 extern Entity *self, player;
 
@@ -80,6 +81,8 @@ static void spearWait(void);
 static void spearRise(void);
 static void spearSink(void);
 static void fireballMove(void);
+static void creditsMove(void);
+static void creditsMoveToMiddle(void);
 
 Entity *addAwesomeBoss(int x, int y, char *name)
 {
@@ -102,6 +105,8 @@ Entity *addAwesomeBoss(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 
 	e->die = &die;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -988,12 +993,7 @@ static void energyBarWait()
 		}
 	}
 
-	if (self->head->inUse == FALSE)
-	{
-		self->flags |= NO_DRAW;
-
-		self->inUse = FALSE;
-	}
+	self->inUse = self->head->inUse;
 }
 
 static int energyBarDraw()
@@ -1483,4 +1483,58 @@ static void fireballMove()
 	}
 
 	checkToMap(self);
+}
+
+static void creditsMove()
+{
+	Entity *e;
+	
+	e = addEnemy("boss/awesome_boss_4", self->x + 24, self->y);
+	
+	e->endX = 24;
+	
+	e->head = self;
+	
+	e->face = LEFT;
+	
+	e->creditsAction = &creditsMoveToMiddle;
+	
+	e = addEnemy("boss/awesome_boss_3", self->x + 16, self->y);
+	
+	e->endX = 16;
+	
+	e->head = self;
+	
+	e->face = LEFT;
+	
+	e->creditsAction = &creditsMoveToMiddle;
+	
+	e = addEnemy("boss/awesome_boss_2", self->x + 8, self->y);
+	
+	e->endX = 8;
+	
+	e->head = self;
+	
+	e->face = LEFT;
+	
+	e->creditsAction = &creditsMoveToMiddle;
+	
+	e = addEnemy("boss/awesome_boss_1", self->x + 0, self->y);
+	
+	e->endX = 0;
+	
+	e->head = self;
+	
+	e->face = LEFT;
+	
+	e->creditsAction = &creditsMoveToMiddle;
+	
+	self->creditsAction = &bossMoveToMiddle;
+}
+
+static void creditsMoveToMiddle()
+{
+	self->x = self->head->x + self->endX;
+	
+	self->inUse = self->head->inUse;
 }

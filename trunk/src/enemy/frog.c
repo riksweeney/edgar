@@ -49,6 +49,7 @@ static void tongueTouch(Entity *);
 static void frogTouch(Entity *);
 static void grabPause(void);
 static void addExitTrigger(Entity *);
+static void creditsMove(void);
 
 Entity *addFrog(int x, int y, char *name)
 {
@@ -71,6 +72,8 @@ Entity *addFrog(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	e->fallout = &die;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -553,5 +556,68 @@ static void frogTouch(Entity *other)
 		other->fallout();
 
 		playSoundToMap("sound/enemy/whirlwind/suck.ogg", -1, self->x, self->y, 0);
+	}
+}
+
+static void creditsMove()
+{
+	float dirX;
+	long onGround = self->flags & ON_GROUND;
+
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "JUMP");
+
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
+			}
+
+			else
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
+			}
+
+			self->thinkTime = 30 + prand() % 30;
+
+			self->dirY = -(8 + prand() % 2);
+
+			self->dirX = 4;
+		}
+
+		else
+		{
+			self->thinkTime--;
+
+			if (self->endY == -1)
+			{
+				playSoundToMap("sound/enemy/frog/croak.ogg", -1, self->x, self->y, 0);
+
+				self->endY = 0;
+			}
+		}
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+
+	if ((self->flags & ON_GROUND) && onGround == 0)
+	{
+		setEntityAnimation(self, "STAND");
+
+		if (prand() % 3 == 0)
+		{
+			self->endY = -1;
+		}
+	}
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
 	}
 }

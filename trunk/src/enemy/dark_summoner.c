@@ -51,6 +51,7 @@ static void takeDamage(Entity *, int);
 static void castLightningBolt(void);
 static void lightningBolt(void);
 static void castWait(void);
+static void creditsMove(void);
 
 Entity *addDarkSummoner(int x, int y, char *name)
 {
@@ -72,6 +73,8 @@ Entity *addDarkSummoner(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -202,6 +205,8 @@ static void summon()
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
+	
+	self->creditsAction = &summonWait;
 
 	setEntityAnimation(self, "ATTACK_2");
 
@@ -242,6 +247,8 @@ static void summonEnd()
 
 			self->mental = 0;
 		}
+		
+		self->creditsAction = &creditsMove;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -460,5 +467,49 @@ static void lightningBolt()
 		e->dirY = -8;
 
 		self->inUse = FALSE;
+	}
+}
+
+static void creditsMove()
+{
+	if (self->health != -1)
+	{
+		self->targetX = self->x + SCREEN_WIDTH / 2;
+		self->targetY = self->y;
+		
+		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->health = -1;
+		
+		self->thinkTime = 0;
+	}
+	
+	else
+	{
+		hover();
+		
+		self->dirX = self->speed;
+		
+		checkToMap(self);
+		
+		if (self->dirX == 0)
+		{
+			self->inUse = FALSE;
+		}
+		
+		if (self->thinkTime == 0)
+		{
+			STRNCPY(self->requires, "red_centurion", MAX_VALUE_LENGTH);
+			
+			self->creditsAction = &summonWait;
+
+			setEntityAnimation(self, "ATTACK_1");
+
+			self->animationCallback = &summon;
+
+			self->dirX = 0;
+		}
 	}
 }
