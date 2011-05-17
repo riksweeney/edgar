@@ -1,0 +1,18 @@
+Translating
+-----------
+
+If you want to translate The Legend of Edgar into another language, you will need to use the
+"messages.pot" file which is in the locale directory.
+
+If you have used GNU Gettext then you should be quite familiar with the process. Unfortunately I don't
+have any experience with it so I cannot offer any assistance.
+
+Most of the text in the scripts and item names have been translated
+
+You can send the .po files to the address below
+
+Richard Sweeney
+webmaster@parallelrealities.co.uk
+http://www.parallelrealities.co.uk
+
+(NB: This email address does not accept HTML formatted messages. Plain text only)
