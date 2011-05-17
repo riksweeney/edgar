@@ -825,7 +825,10 @@ static void clawWait()
 		}
 	}
 	
-	self->inUse = self->head->inUse;
+	else
+	{
+		self->inUse = self->head->inUse;
+	}
 }
 
 static void clawSideAttackRise()
