@@ -182,7 +182,7 @@ static void doChaos()
 			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
 		}
 		
-		STRNCPY(credits.creditLine[0].text, "Chaos still rests...", MAX_LINE_LENGTH);
+		STRNCPY(credits.creditLine[0].text, _("Chaos still rests..."), MAX_LINE_LENGTH);
 		
 		credits.alpha = 255;
 		
@@ -720,30 +720,30 @@ static void initGameStats()
 		showErrorAndExit("Failed to allocate %d bytes for end credits...", credits.lineCount * sizeof(CreditLine));
 	}
 	
-	STRNCPY(credits.creditLine[0].text, "Statistics", MAX_LINE_LENGTH);
+	STRNCPY(credits.creditLine[0].text, _("Statistics"), MAX_LINE_LENGTH);
 	
-	snprintf(credits.creditLine[1].text, MAX_LINE_LENGTH, "Play Time");
+	snprintf(credits.creditLine[1].text, MAX_LINE_LENGTH, _("Play Time"));
 	snprintf(credits.creditLine[2].text, MAX_LINE_LENGTH, "%s", getPlayTimeAsString());
 	
-	snprintf(credits.creditLine[3].text, MAX_LINE_LENGTH, "Kills");
+	snprintf(credits.creditLine[3].text, MAX_LINE_LENGTH, _("Kills"));
 	snprintf(credits.creditLine[4].text, MAX_LINE_LENGTH, "%d", game.kills);
 	
-	snprintf(credits.creditLine[5].text, MAX_LINE_LENGTH, "Arrows Fired");
+	snprintf(credits.creditLine[5].text, MAX_LINE_LENGTH, _("Arrows Fired"));
 	snprintf(credits.creditLine[6].text, MAX_LINE_LENGTH, "%d", game.arrowsFired);
 	
-	snprintf(credits.creditLine[7].text, MAX_LINE_LENGTH, "Distanced Travelled");
+	snprintf(credits.creditLine[7].text, MAX_LINE_LENGTH, _("Distanced Travelled"));
 	snprintf(credits.creditLine[8].text, MAX_LINE_LENGTH, "%ud", game.distanceTravelled / 45000);
 	
-	snprintf(credits.creditLine[7].text, MAX_LINE_LENGTH, "Attacks Blocked");
+	snprintf(credits.creditLine[7].text, MAX_LINE_LENGTH, _("Attacks Blocked"));
 	snprintf(credits.creditLine[8].text, MAX_LINE_LENGTH, "%d", game.attacksBlocked);
 	
-	snprintf(credits.creditLine[9].text, MAX_LINE_LENGTH, "Time Spent As A Slime");
+	snprintf(credits.creditLine[9].text, MAX_LINE_LENGTH, _("Time Spent As A Slime"));
 	snprintf(credits.creditLine[10].text, MAX_LINE_LENGTH, "%s", getSlimeTimeAsString());
 	
-	snprintf(credits.creditLine[11].text, MAX_LINE_LENGTH, "Secrets Found");
+	snprintf(credits.creditLine[11].text, MAX_LINE_LENGTH, _("Secrets Found"));
 	snprintf(credits.creditLine[12].text, MAX_LINE_LENGTH, _("%d / %d"), game.secretsFound, TOTAL_SECRETS);
 	
-	snprintf(credits.creditLine[13].text, MAX_LINE_LENGTH, "Continues");
+	snprintf(credits.creditLine[13].text, MAX_LINE_LENGTH, _("Continues"));
 	snprintf(credits.creditLine[14].text, MAX_LINE_LENGTH, "%d", game.continues);
 	
 	y = 32;
