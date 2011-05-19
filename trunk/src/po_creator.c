@@ -404,6 +404,7 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 	struct dirent *dfile;
 	FILE *infile;
 	char filename[1024];
+	int read;
 	unsigned long fileSize;
 	unsigned char *buffer;
 
@@ -469,7 +470,7 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 			
 			fseek(infile, 0L, SEEK_SET);
 
-			fread(buffer, fileSize, 1, infile);
+			read = fread(buffer, fileSize, 1, infile);
 			
 			if (strstr((char *)buffer, searchString) != NULL)
 			{

@@ -141,7 +141,7 @@ typedef struct Map
 	int playerMinX, playerMaxX;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
-	int wrapX[2], wrapY[2];
+	int wrapX[2], wrapY[2], waterBackgroundTile;
 	float backgroundSpeed[2], cameraSpeed;
 	float cameraX, cameraY;
 	AnimTile *animTile;
@@ -329,8 +329,7 @@ typedef struct Credits
 {
 	int line, lineCount, entityID, fading, alpha;
 	int startDelay, nextEntityDelay, status;
-	float logoY;
 	CreditLine *creditLine;
-	SDL_Surface *logo, *fadeSurface;
+	SDL_Surface *edgarLogo, *prLogo, *fadeSurface;
 } Credits;
 
