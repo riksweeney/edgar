@@ -391,10 +391,13 @@ static void creditsMove()
 	
 	if (self->thinkTime != 0 && (self->thinkTime % 300) == 0)
 	{
-		self->dirX = 0;
+		if ((!(self->flags & FLY) && safeToRise() == TRUE) || ((self->flags & FLY) && safeToDrop() == TRUE))
+		{
+			self->dirX = 0;
 
-		self->thinkTime = 60;
-		
-		self->creditsAction = &changeWait;
+			self->thinkTime = 60;
+			
+			self->creditsAction = &changeWait;
+		}
 	}
 }

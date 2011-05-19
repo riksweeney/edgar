@@ -1,4 +1,5 @@
 IF PUZZLE_POINT HEALTH 0
+SET EDGAR FACE LEFT
 TALK Edgar A jigsaw puzzle?!
 TALK Edgar I'm not really a fan of these
 HAS_ITEM "Lightning Sword" 1 1 PUZZLE_POINT 9 0

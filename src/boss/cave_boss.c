@@ -292,8 +292,6 @@ static void entityWait()
 								self->action = &eggDropInit;
 							break;
 						}
-
-						self->action = &spitInit;
 					}
 				break;
 

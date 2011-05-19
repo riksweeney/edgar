@@ -303,34 +303,14 @@ static void doIntro()
 	}
 }
 
-static void awesomeAttackFinished()
-{
-	Entity *temp;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		checkToMap(self);
-
-		temp = self;
-
-		self = self->head;
-
-		self->takeDamage(self, 5);
-
-		self = temp;
-
-		self->action = &awesomeTeleportOut;
-	}
-}
-
 static void introPause()
 {
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
+		self->targetX = 0;
+		
 		initBossHealthBar();
 
 		playDefaultBossMusic();
@@ -343,40 +323,38 @@ static void introPause()
 
 static void blackBookWait()
 {
-	int i;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		i = prand() % 6;
-
-		switch (i)
+		switch (self->targetX)
 		{
 			case 0:
 				self->action = &becomeKingGrub;
 			break;
 
 			case 1:
-				self->action = &becomeQueenWasp;
-			break;
-
-			case 2:
-				self->action = &becomeBlob;
-			break;
-
-			case 3:
 				self->action = &becomeGolem;
 			break;
 
-			case 4:
+			case 2:
+				self->action = &becomeQueenWasp;
+			break;
+
+			case 3:
 				self->action = &becomeGuardian;
+			break;
+
+			case 4:
+				self->action = &becomeBlob;
 			break;
 
 			default:
 				self->action = &becomeAwesome;
 			break;
 		}
+		
+		self->targetX++;
 	}
 
 	hover();
@@ -1264,6 +1242,8 @@ static void guardianFallToGround()
 
 	if (self->flags & ON_GROUND)
 	{
+		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		setEntityAnimation(self, "PAIN");
 
 		self->thinkTime = 180;
@@ -1321,6 +1301,8 @@ static void guardianDieWait()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -1582,7 +1564,7 @@ static void golemInitialShatter()
 
 		if (t == NULL)
 		{
-			showErrorAndExit("Awesome Boss cannot find target");
+			showErrorAndExit("Golem Boss cannot find target");
 		}
 
 		e->x = t->x;
@@ -2005,6 +1987,8 @@ static void golemDie()
 				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 				self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+				
+				playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &transformRemove;
 			}
@@ -2922,6 +2906,28 @@ static void awesomeFireballAttack()
 	}
 }
 
+static void awesomeAttackFinished()
+{
+	Entity *temp;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		checkToMap(self);
+
+		temp = self;
+
+		self = self->head;
+
+		self->takeDamage(self, 5);
+
+		self = temp;
+
+		self->action = &awesomeTeleportOut;
+	}
+}
+
 static void awesomeFireballAttackFinished()
 {
 	self->thinkTime--;
@@ -3716,6 +3722,8 @@ static void awesomeMeterDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -4281,6 +4289,8 @@ static void blobDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -4902,6 +4912,8 @@ static void queenWaspDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}
@@ -5364,6 +5376,8 @@ static void kingGrubDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
 	}

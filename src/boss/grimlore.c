@@ -2324,6 +2324,8 @@ static void itemDestroyAttack()
 
 		fadeFromColour(255, 0, 0, 60);
 	}
+	
+	prev = first = NULL;
 
 	if (self->thinkTime <= 0)
 	{

@@ -148,6 +148,8 @@ static char *getBossMap(char *);
 static void doChaos(void);
 static void drawChaos(void);
 static void shuffleEnemies(void);
+static void doEdgarLogo(void);
+static void drawEdgarLogo(void);
 
 void doCredits()
 {
@@ -165,248 +167,13 @@ void doCredits()
 			doChaos();
 		break;
 		
+		case 4:
+			doEdgarLogo();
+		break;
+		
 		default:
 			doEndCredits();
 		break;
-	}
-}
-
-static void doChaos()
-{
-	if (credits.creditLine == NULL)
-	{
-		credits.creditLine = malloc(sizeof(CreditLine));
-
-		if (credits.creditLine == NULL)
-		{
-			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
-		}
-		
-		STRNCPY(credits.creditLine[0].text, _("Chaos still rests..."), MAX_LINE_LENGTH);
-		
-		credits.alpha = 255;
-		
-		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
-
-		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
-		
-		credits.line = -1;
-		
-		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
-		
-		credits.startDelay = 180;
-	}
-	
-	credits.alpha += credits.line;
-	
-	if (credits.alpha <= 0)
-	{
-		credits.alpha = 0;
-		
-		credits.startDelay--;
-		
-		if (credits.startDelay <= 0)
-		{
-			credits.startDelay = 30;
-			
-			credits.line = 1;
-		}
-	}
-	
-	else if (credits.alpha >= 255)
-	{
-		credits.alpha = 255;
-		
-		credits.startDelay--;
-		
-		if (credits.startDelay <= 0)
-		{
-			freeCredits();
-			
-			player.inUse = FALSE;
-			
-			freeEntities();
-			
-			credits.line = 0;
-			credits.lineCount = 0;
-			credits.entityID = 0;
-			credits.fading = FALSE;
-			credits.alpha = 255;
-			credits.startDelay = 0;
-			credits.nextEntityDelay = 0;
-			
-			credits.status = 0;
-			
-			newGame();
-		}
-	}
-}
-
-static void doDefeatedBosses()
-{
-	int i, remainingEntities;
-	
-	if (credits.creditLine == NULL)
-	{
-		initDefeatedBosses();
-	}
-	
-	remainingEntities = 0;
-	
-	credits.startDelay--;
-	
-	if (credits.startDelay <= 0)
-	{
-		credits.startDelay = 0;
-		
-		for (i=0;i<MAX_ENTITIES;i++)
-		{
-			self = &entity[i];
-
-			if (self->inUse == TRUE)
-			{
-				remainingEntities++;
-				
-				if (!(self->flags & (FLY|GRABBED)))
-				{
-					switch (self->environment)
-					{
-						case WATER:
-						case SLIME:
-							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
-
-							if (self->flags & FLOATS)
-							{
-								if (self->dirX != 0)
-								{
-									self->endY++;
-
-									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
-								}
-							}
-
-							if (self->dirY >= MAX_WATER_SPEED)
-							{
-								self->dirY = MAX_WATER_SPEED;
-							}
-						break;
-
-						default:
-							self->dirY += GRAVITY_SPEED * self->weight;
-
-							if (self->dirY >= MAX_AIR_SPEED)
-							{
-								self->dirY = MAX_AIR_SPEED;
-							}
-
-							else if (self->dirY > 0 && self->dirY < 1)
-							{
-								self->dirY = 1;
-							}
-						break;
-					}
-				}
-				
-				if (self->creditsAction == NULL)
-				{
-					showErrorAndExit("%s has no Credits Action defined", self->name);
-				}
-				
-				self->creditsAction();
-				
-				addToGrid(self);
-				
-				addToDrawLayer(self, self->layer);
-			}
-		}
-		
-		if (remainingEntities == 0)
-		{
-			if (getNextBoss() == FALSE)
-			{
-				credits.fading = TRUE;
-			}
-			
-			else
-			{
-				setMapStartX(0);
-				setMapStartY(0);
-			}
-		}
-		
-		if (credits.fading == TRUE)
-		{
-			fadeOutMusic(4000);
-			
-			fadeCredits();
-			
-			credits.alpha++;
-			
-			if (credits.alpha >= 255)
-			{
-				freeCredits();
-				
-				player.inUse = FALSE;
-				
-				freeEntities();
-				
-				credits.line = 0;
-				credits.lineCount = 0;
-				credits.entityID = 0;
-				credits.fading = FALSE;
-				credits.alpha = 255;
-				credits.startDelay = 0;
-				credits.nextEntityDelay = 0;
-				
-				credits.status = 3;
-			}
-		}
-	}
-}
-
-static void doGameStats()
-{
-	if (credits.creditLine == NULL)
-	{
-		initGameStats();
-	}
-	
-	credits.startDelay--;
-	
-	if (credits.startDelay <= 0)
-	{
-		if (credits.fading == TRUE)
-		{
-			freeCredits();
-			
-			player.inUse = FALSE;
-			
-			freeEntities();
-			
-			credits.line = 0;
-			credits.lineCount = 0;
-			credits.entityID = 0;
-			credits.fading = FALSE;
-			credits.alpha = 255;
-			credits.startDelay = 0;
-			credits.nextEntityDelay = 0;
-			
-			credits.status = 2;
-		}
-		
-		else
-		{
-			credits.line += credits.line == 0 ? 1 : 2;
-			
-			if (credits.line > credits.lineCount)
-			{
-				credits.fading = TRUE;
-				
-				credits.line = credits.lineCount;
-			}
-			
-			credits.startDelay = credits.line == credits.lineCount ? 120 : 60;
-		}
 	}
 }
 
@@ -419,20 +186,11 @@ static void doEndCredits()
 		initCredits();
 	}
 	
-	credits.logoY -= 0.25;
-	
-	if (credits.logoY < -SCREEN_HEIGHT)
-	{
-		SDL_FreeSurface(credits.logo);
-		
-		credits.logo = NULL;
-	}
-	
 	remainingEntities = 0;
 	
 	for (i=0;i<credits.lineCount;i++)
 	{
-		credits.creditLine[i].y -= 0.25;
+		credits.creditLine[i].y -= 0.5;
 		
 		if (credits.creditLine[i].y < -64)
 		{
@@ -583,7 +341,7 @@ static void doEndCredits()
 	{
 		fadeCredits();
 		
-		credits.alpha++;
+		credits.alpha += 3;
 		
 		if (credits.alpha == 255)
 		{
@@ -602,14 +360,322 @@ static void doEndCredits()
 			credits.nextEntityDelay = 0;
 			
 			credits.status = 1;
-			
+			/*
 			if (game.kills == 0)
 			{
 				credits.status = 0;
 				
 				newGame();
 			}
+			*/
 		}
+	}
+}
+
+static void doGameStats()
+{
+	if (credits.creditLine == NULL)
+	{
+		initGameStats();
+	}
+	
+	credits.startDelay--;
+	
+	if (credits.startDelay <= 0)
+	{
+		if (credits.fading == TRUE)
+		{
+			freeCredits();
+			
+			player.inUse = FALSE;
+			
+			freeEntities();
+			
+			credits.line = 0;
+			credits.lineCount = 0;
+			credits.entityID = 0;
+			credits.fading = FALSE;
+			credits.alpha = 255;
+			credits.startDelay = 0;
+			credits.nextEntityDelay = 0;
+			
+			credits.status = 2;
+		}
+		
+		else
+		{
+			credits.line += credits.line == 0 ? 1 : 2;
+			
+			if (credits.line > credits.lineCount)
+			{
+				credits.fading = TRUE;
+				
+				credits.line = credits.lineCount;
+			}
+			
+			credits.startDelay = credits.line == credits.lineCount ? 120 : 60;
+		}
+	}
+}
+
+static void doDefeatedBosses()
+{
+	int i, remainingEntities;
+	
+	if (credits.creditLine == NULL)
+	{
+		initDefeatedBosses();
+	}
+	
+	remainingEntities = 0;
+	
+	credits.startDelay--;
+	
+	if (credits.startDelay <= 0)
+	{
+		credits.startDelay = 0;
+		
+		for (i=0;i<MAX_ENTITIES;i++)
+		{
+			self = &entity[i];
+
+			if (self->inUse == TRUE)
+			{
+				remainingEntities++;
+				
+				if (!(self->flags & (FLY|GRABBED)))
+				{
+					switch (self->environment)
+					{
+						case WATER:
+						case SLIME:
+							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
+
+							if (self->flags & FLOATS)
+							{
+								if (self->dirX != 0)
+								{
+									self->endY++;
+
+									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
+								}
+							}
+
+							if (self->dirY >= MAX_WATER_SPEED)
+							{
+								self->dirY = MAX_WATER_SPEED;
+							}
+						break;
+
+						default:
+							self->dirY += GRAVITY_SPEED * self->weight;
+
+							if (self->dirY >= MAX_AIR_SPEED)
+							{
+								self->dirY = MAX_AIR_SPEED;
+							}
+
+							else if (self->dirY > 0 && self->dirY < 1)
+							{
+								self->dirY = 1;
+							}
+						break;
+					}
+				}
+				
+				if (self->creditsAction == NULL)
+				{
+					showErrorAndExit("%s has no Credits Action defined", self->name);
+				}
+				
+				self->creditsAction();
+				
+				addToGrid(self);
+				
+				addToDrawLayer(self, self->layer);
+			}
+		}
+		
+		if (remainingEntities == 0)
+		{
+			if (getNextBoss() == FALSE)
+			{
+				credits.fading = TRUE;
+			}
+			
+			else
+			{
+				setMapStartX(0);
+				setMapStartY(0);
+			}
+		}
+		
+		if (credits.fading == TRUE)
+		{
+			fadeOutMusic(4000);
+			
+			fadeCredits();
+			
+			credits.alpha++;
+			
+			if (credits.alpha >= 255)
+			{
+				freeCredits();
+				
+				player.inUse = FALSE;
+				
+				freeEntities();
+				
+				credits.line = 0;
+				credits.lineCount = 0;
+				credits.entityID = 0;
+				credits.fading = FALSE;
+				credits.alpha = 255;
+				credits.startDelay = 0;
+				credits.nextEntityDelay = 0;
+				
+				credits.status = 3;
+			}
+		}
+	}
+}
+
+static void doChaos()
+{
+	if (credits.creditLine == NULL)
+	{
+		credits.creditLine = malloc(sizeof(CreditLine));
+
+		if (credits.creditLine == NULL)
+		{
+			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
+		}
+		
+		STRNCPY(credits.creditLine[0].text, _("Chaos still rests..."), MAX_LINE_LENGTH);
+		
+		credits.alpha = 255;
+		
+		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
+
+		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		
+		credits.line = -1;
+		
+		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.startDelay = 180;
+	}
+	
+	credits.alpha += credits.line;
+	
+	if (credits.alpha <= 0)
+	{
+		credits.alpha = 0;
+		
+		credits.startDelay--;
+		
+		if (credits.startDelay <= 0)
+		{
+			credits.startDelay = 30;
+			
+			credits.line = 1;
+		}
+	}
+	
+	else if (credits.alpha >= 255)
+	{
+		credits.alpha = 255;
+		
+		credits.startDelay--;
+		
+		if (credits.startDelay <= 0)
+		{
+			freeCredits();
+			
+			player.inUse = FALSE;
+			
+			freeEntities();
+			
+			credits.line = 0;
+			credits.lineCount = 0;
+			credits.entityID = 0;
+			credits.fading = FALSE;
+			credits.alpha = 255;
+			credits.startDelay = 0;
+			credits.nextEntityDelay = 0;
+			
+			credits.status = 4;
+		}
+	}
+}
+
+static void doEdgarLogo()
+{
+	if (credits.edgarLogo == NULL)
+	{
+		credits.creditLine = malloc(sizeof(CreditLine));
+
+		if (credits.creditLine == NULL)
+		{
+			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
+		}
+		
+		STRNCPY(credits.creditLine[0].text, _("Copyright Parallel Realities 2009 - 2011"), MAX_LINE_LENGTH);
+		
+		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.font, 220, 220, 220, TRUE);
+		
+		credits.edgarLogo = loadImage("gfx/title_screen/logo.png");
+		
+		credits.prLogo = loadImage("gfx/title_screen/alien_device.png");
+		
+		credits.alpha = 255;
+		
+		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
+
+		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		
+		credits.line = -2;
+		
+		credits.startDelay = 300;
+	}
+	
+	credits.alpha += credits.line;
+	
+	if (credits.alpha <= 0)
+	{
+		credits.alpha = 0;
+		
+		credits.startDelay--;
+		
+		if (credits.startDelay <= 0)
+		{
+			credits.line = 2;
+			
+			credits.startDelay = 60;
+		}
+	}
+	
+	else if (credits.alpha >= 255)
+	{
+		credits.alpha = 255;
+		
+		freeCredits();
+		
+		player.inUse = FALSE;
+		
+		freeEntities();
+		
+		credits.line = 0;
+		credits.lineCount = 0;
+		credits.entityID = 0;
+		credits.fading = FALSE;
+		credits.alpha = 255;
+		credits.startDelay = 0;
+		credits.nextEntityDelay = 0;
+		
+		credits.status = 0;
+		
+		newGame();
 	}
 }
 
@@ -629,19 +695,44 @@ void drawCredits()
 			drawChaos();
 		break;
 		
+		case 4:
+			drawEdgarLogo();
+		break;
+		
 		default:
 			drawEndCredits();
 		break;
 	}
 }
 
-static void drawChaos()
+static void drawEndCredits()
 {
+	int i;
+	
+	for (i=0;i<credits.lineCount;i++)
+	{
+		if (credits.creditLine[i].textImage != NULL)
+		{
+			drawImage(credits.creditLine[i].textImage, (SCREEN_WIDTH - credits.creditLine[i].textImage->w) / 2, credits.creditLine[i].y, FALSE, 255);
+		}
+	}
+	
+	if (credits.fading == TRUE)
+	{
+		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+	}
+}
+
+static void drawGameStats()
+{
+	int i;
+	
 	if (credits.creditLine != NULL)
 	{
-		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, (SCREEN_HEIGHT - credits.creditLine[0].textImage->h) / 2, FALSE, 255);
-		
-		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+		for (i=0;i<credits.line;i++)
+		{
+			drawImage(credits.creditLine[i].textImage, credits.creditLine[i].x, credits.creditLine[i].y, FALSE, 255);
+		}
 	}
 }
 
@@ -671,40 +762,124 @@ static void drawDefeatedBosses()
 	}
 }
 
-static void drawGameStats()
+static void drawChaos()
 {
-	int i;
-	
 	if (credits.creditLine != NULL)
 	{
-		for (i=0;i<credits.line;i++)
-		{
-			drawImage(credits.creditLine[i].textImage, credits.creditLine[i].x, credits.creditLine[i].y, FALSE, 255);
-		}
+		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, (SCREEN_HEIGHT - credits.creditLine[0].textImage->h) / 2, FALSE, 255);
+		
+		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
 	}
 }
 
-static void drawEndCredits()
+static void drawEdgarLogo()
 {
-	int i;
+	int height;
 	
-	if (credits.logo != NULL)
+	if (credits.edgarLogo != NULL)
 	{
-		drawImage(credits.logo, (SCREEN_WIDTH - credits.logo->w) / 2, credits.logoY, FALSE, 255);
-	}	
-	
-	for (i=0;i<credits.lineCount;i++)
-	{
-		if (credits.creditLine[i].textImage != NULL)
-		{
-			drawImage(credits.creditLine[i].textImage, (SCREEN_WIDTH - credits.creditLine[i].textImage->w) / 2, credits.creditLine[i].y, FALSE, 255);
-		}
-	}
-	
-	if (credits.fading == TRUE)
-	{
+		height = credits.creditLine[0].textImage->h + 32;
+		
+		height += credits.edgarLogo->h + 32;
+		
+		height += credits.prLogo->h;
+		
+		height = (SCREEN_HEIGHT - height) / 2;
+		
+		drawImage(credits.edgarLogo, (SCREEN_WIDTH - credits.edgarLogo->w) / 2, height, FALSE, 255);
+		
+		height += credits.edgarLogo->h + 32;
+		
+		drawImage(credits.prLogo, (SCREEN_WIDTH - credits.prLogo->w) / 2, height, FALSE, 255);
+		
+		height += credits.prLogo->h + 32;
+		
+		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, height, FALSE, 255);
+		
 		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
 	}
+}
+
+static void initCredits()
+{
+	int lineNum, y;
+	char *buffer, *token1, *token2, *savePtr1, *savePtr2;
+	
+	buffer = (char *)loadFileFromPak("data/credits");
+	
+	credits.lineCount = countTokens(buffer, "\n");
+	
+	credits.creditLine = malloc(credits.lineCount * sizeof(CreditLine));
+	
+	if (credits.creditLine == NULL)
+	{
+		showErrorAndExit("Failed to allocate %d bytes for end credits...", credits.lineCount * sizeof(CreditLine));
+	}
+	
+	lineNum = 0;
+	
+	token1 = strtok_r(buffer, "\n", &savePtr1);
+	
+	y = SCREEN_HEIGHT + 32;
+	
+	while (token1 != NULL)
+	{
+		token2 = strtok_r(token1, " ", &savePtr2);
+		
+		credits.creditLine[lineNum].r = atoi(token2);
+		
+		token2 = strtok_r(NULL, " ", &savePtr2);
+		
+		credits.creditLine[lineNum].g = atoi(token2);
+		
+		token2 = strtok_r(NULL, " ", &savePtr2);
+		
+		credits.creditLine[lineNum].b = atoi(token2);
+		
+		token2 = strtok_r(NULL, "\0", &savePtr2);
+		
+		STRNCPY(credits.creditLine[lineNum].text, token2, MAX_LINE_LENGTH);
+		
+		credits.creditLine[lineNum].y = y;
+		
+		credits.creditLine[lineNum].textImage = NULL;
+		
+		y += 32;
+		
+		lineNum++;
+		
+		token1 = strtok_r(NULL, "\n", &savePtr1);
+	}
+	
+	free(buffer);
+	
+	saveTemporaryData();
+	
+	freeInventory();
+
+	freeLevelResources();
+	
+	loadMap("map_credits", TRUE);
+	
+	setMapStartX(TILE_SIZE * 4);
+	
+	credits.entityID = 0;
+	
+	player.inUse = FALSE;
+	
+	credits.startDelay = 600;
+	
+	for (y=0;y<enemiesLength;y++)
+	{
+		loadProperties(enemies[y], NULL);
+	}
+	
+	for (y=0;y<bossesLength;y++)
+	{
+		loadProperties(bosses[y], NULL);
+	}
+	
+	shuffleEnemies();
 }
 
 static void initGameStats()
@@ -786,94 +961,6 @@ static void initGameStats()
 	}
 	
 	credits.startDelay = 60;
-}
-
-static void initCredits()
-{
-	int lineNum, y;
-	char *buffer, *token1, *token2, *savePtr1, *savePtr2;
-	
-	credits.logo = loadImage("gfx/title_screen/logo.png");
-	
-	buffer = (char *)loadFileFromPak("data/credits");
-	
-	credits.lineCount = countTokens(buffer, "\n");
-	
-	credits.creditLine = malloc(credits.lineCount * sizeof(CreditLine));
-	
-	if (credits.creditLine == NULL)
-	{
-		showErrorAndExit("Failed to allocate %d bytes for end credits...", credits.lineCount * sizeof(CreditLine));
-	}
-	
-	lineNum = 0;
-	
-	token1 = strtok_r(buffer, "\n", &savePtr1);
-	
-	y = SCREEN_HEIGHT;
-	
-	credits.logoY = y;
-	
-	y += credits.logo->h + 32;
-	
-	while (token1 != NULL)
-	{
-		token2 = strtok_r(token1, " ", &savePtr2);
-		
-		credits.creditLine[lineNum].r = atoi(token2);
-		
-		token2 = strtok_r(NULL, " ", &savePtr2);
-		
-		credits.creditLine[lineNum].g = atoi(token2);
-		
-		token2 = strtok_r(NULL, " ", &savePtr2);
-		
-		credits.creditLine[lineNum].b = atoi(token2);
-		
-		token2 = strtok_r(NULL, "\0", &savePtr2);
-		
-		STRNCPY(credits.creditLine[lineNum].text, token2, MAX_LINE_LENGTH);
-		
-		credits.creditLine[lineNum].y = y;
-		
-		credits.creditLine[lineNum].textImage = NULL;
-		
-		y += 32;
-		
-		lineNum++;
-		
-		token1 = strtok_r(NULL, "\n", &savePtr1);
-	}
-	
-	free(buffer);
-	
-	saveTemporaryData();
-	
-	freeInventory();
-
-	freeLevelResources();
-	
-	loadMap("map_credits", TRUE);
-	
-	setMapStartX(TILE_SIZE * 4);
-	
-	credits.entityID = 0;
-	
-	player.inUse = FALSE;
-	
-	credits.startDelay = 600;
-	
-	for (y=0;y<enemiesLength;y++)
-	{
-		loadProperties(enemies[y], NULL);
-	}
-	
-	for (y=0;y<bossesLength;y++)
-	{
-		loadProperties(bosses[y], NULL);
-	}
-	
-	shuffleEnemies();
 }
 
 static void initDefeatedBosses()
@@ -961,11 +1048,18 @@ void freeCredits()
 		credits.creditLine = NULL;
 	}
 	
-	if (credits.logo != NULL)
+	if (credits.prLogo != NULL)
 	{
-		SDL_FreeSurface(credits.logo);
+		SDL_FreeSurface(credits.prLogo);
 		
-		credits.logo = NULL;
+		credits.prLogo = NULL;
+	}
+	
+	if (credits.edgarLogo != NULL)
+	{
+		SDL_FreeSurface(credits.edgarLogo);
+		
+		credits.edgarLogo = NULL;
 	}
 	
 	if (credits.fadeSurface != NULL)

@@ -634,7 +634,7 @@ void saveGame(int slot)
 	{
 		if (temporaryDataExists == TRUE)
 		{
-			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+			showErrorAndExit("SAVE GAME: Could not find persistance file: %s", strerror(errno));
 		}
 	}
 
@@ -827,7 +827,7 @@ void saveTemporaryData()
 	{
 		if (temporaryDataExists == TRUE)
 		{
-			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+			showErrorAndExit("SAVE TEMP DATA: Could not find persistance file: %s", strerror(errno));
 		}
 	}
 
@@ -996,9 +996,7 @@ void saveContinueData()
 	{
 		if (temporaryDataExists == TRUE)
 		{
-			perror("Could not find persistance file");
-
-			showErrorAndExit("Could not find persistance file");
+			showErrorAndExit("SAVE CONTINUE DATA: Could not find persistance file: %s", strerror(errno));
 		}
 	}
 
@@ -1280,7 +1278,7 @@ int hasPersistance(char *mapName)
 	{
 		if (temporaryDataExists == TRUE)
 		{
-			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+			showErrorAndExit("HAS PERSISTANCE: Could not find persistance file: %s", strerror(errno));
 		}
 
 		return val;
@@ -1334,7 +1332,7 @@ int bossExists(char *bossName)
 	{
 		if (temporaryDataExists == TRUE)
 		{
-			showErrorAndExit("Could not find persistance file: %s", strerror(errno));
+			showErrorAndExit("BOSS EXISTS: Could not find persistance file: %s", strerror(errno));
 		}
 
 		return val;
@@ -1493,6 +1491,8 @@ void loadConfig()
 	buffer[length] = '\0';
 
 	fclose(fp);
+	
+	savePtr = NULL;
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
 

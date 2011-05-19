@@ -80,9 +80,19 @@ void compressFile(char *sourceName)
 
 	fp = fopen(sourceName, "wb");
 
-	fwrite(&fileSize, sizeof(unsigned long), 1, fp);
+	result = fwrite(&fileSize, sizeof(unsigned long), 1, fp);
+	
+	if (result != 1)
+	{
+		showErrorAndExit("Failed to write original filesize: %s", strerror(errno));
+	}
 
-	fwrite(dest, compressedSize, 1, fp);
+	result = fwrite(dest, compressedSize, 1, fp);
+	
+	if (result != 1)
+	{
+		showErrorAndExit("Failed to write compressed data: %s", strerror(errno));
+	}
 
 	free(source);
 
@@ -114,6 +124,11 @@ unsigned char *decompressFile(char *sourceName)
 	fseek(fp, 0L, SEEK_SET);
 
 	read = fread(&fileSize, sizeof(unsigned long), 1, fp);
+	
+	if (read != 1)
+	{
+		showErrorAndExit("Failed to read original filesize: %s", strerror(errno));
+	}
 
 	source = malloc(compressedSize * sizeof(unsigned char));
 
@@ -130,6 +145,11 @@ unsigned char *decompressFile(char *sourceName)
 	}
 
 	read = fread(source, compressedSize, 1, fp);
+	
+	if (read != 1)
+	{
+		showErrorAndExit("Failed to read compressed data: %s", strerror(errno));
+	}
 
 	result = uncompress(dest, &fileSize, source, compressedSize);
 

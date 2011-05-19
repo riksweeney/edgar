@@ -538,7 +538,7 @@ static int drawTongue()
 
 static void addExitTrigger(Entity *e)
 {
-	char itemName[MAX_VALUE_LENGTH];
+	char itemName[MAX_LINE_LENGTH];
 
 	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"FROG\"", e->objectiveName);
 
