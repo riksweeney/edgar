@@ -814,6 +814,11 @@ void readNextScriptLine()
 
 			setNextLevelFromScript(token);
 		}
+		
+		else if (strcmpignorecase("SHOW_CREDITS", command) == 0)
+		{
+			showEndCredits();
+		}
 
 		else if (strcmpignorecase("REMOVE", command) == 0 || strcmpignorecase("HAS_ITEM", command) == 0)
 		{

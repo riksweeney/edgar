@@ -68,6 +68,8 @@ void draw()
 			
 			case IN_CREDITS:
 				drawEntities(BACKGROUND_LAYER);
+				
+				drawMap(1);
 
 				drawEntities(MID_GROUND_LAYER);
 

@@ -53,6 +53,7 @@ static Entity *drawLayer[MAX_LAYERS][MAX_ENTITIES];
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
+static void duplicateWait(void);
 
 void freeEntities()
 {
@@ -1898,6 +1899,53 @@ void creditsMove()
 	checkToMap(self);
 	
 	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+void addDuplicateImage(Entity *e)
+{
+	Entity *duplicate;
+	
+	duplicate = getFreeEntity();
+	
+	if (duplicate == NULL)
+	{
+		return;
+	}
+	
+	loadProperties(e->name, duplicate);
+	
+	duplicate->x = e->x;
+	duplicate->y = e->y;
+	
+	duplicate->thinkTime = 30;
+	
+	duplicate->draw = &drawLoopingAnimationToMap;
+	
+	duplicate->action = &duplicateWait;
+	
+	duplicate->creditsAction = &duplicateWait;
+	
+	setEntityAnimation(duplicate, getAnimationTypeAtIndex(e));
+	
+	duplicate->currentFrame = e->currentFrame;
+	
+	duplicate->frameSpeed = 0;
+	
+	duplicate->face = e->face;
+	
+	duplicate->layer = BACKGROUND_LAYER;
+	
+	duplicate->flags |= DO_NOT_PERSIST;
+}
+
+static void duplicateWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}

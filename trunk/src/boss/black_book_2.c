@@ -46,6 +46,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../enemy/rock.h"
 #include "../credits.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self, player;
 
@@ -63,6 +65,9 @@ static void initEnergyBar(Entity *);
 static void addSmokeAlongBody(void);
 static void blackBookDie(void);
 static void blackBookShudder(void);
+static void addBack(void);
+static void backWait(void);
+static void blackBookDieFinish(void);
 
 static void becomeKingGrub(void);
 static void kingGrubWait(void);
@@ -288,6 +293,8 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
+		addBack();
+		
 		setContinuePoint(FALSE, self->name, NULL);
 
 		self->targetX = self->startX;
@@ -301,6 +308,33 @@ static void doIntro()
 
 		self->action = &introPause;
 	}
+}
+
+static void addBack()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add the Black Book Back");
+	}
+
+	loadProperties("boss/black_book_back", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &backWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &backWait;
+
+	e->type = ENEMY;
+
+	e->head = self;
+
+	setEntityAnimation(e, "STAND");
 }
 
 static void introPause()
@@ -5021,7 +5055,7 @@ static void becomeKingGrub()
 
 	loadProperties("boss/grub_boss", e);
 
-	e->maxHealth = e->health = 500;
+	e->maxHealth = e->health = 5;
 
 	e->flags |= LIMIT_TO_SCREEN;
 
@@ -5419,11 +5453,11 @@ static void transformWait()
 
 		self->flags &= ~NO_DRAW;
 
-		if (self->health <= 0)
+		if (self->health >= 0)
 		{
 			self->startX = self->x;
 
-			self->thinkTime = 180;
+			self->thinkTime = 300;
 
 			self->action = &blackBookDie;
 		}
@@ -5437,8 +5471,6 @@ static void transformWait()
 
 static void blackBookDie()
 {
-	Entity *e;
-
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -5452,10 +5484,10 @@ static void blackBookDie()
 			increaseKillCount();
 
 			freeBossHealthBar();
-
-			e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
-
-			e->dirY = ITEM_JUMP_HEIGHT;
+			
+			self->thinkTime = 120;
+			
+			self->action = &blackBookDieFinish;
 		}
 
 		else
@@ -5467,8 +5499,35 @@ static void blackBookDie()
 	checkToMap(self);
 }
 
+static void blackBookDieFinish()
+{
+	long onGround;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+
+		fadeBossMusic();
+	}
+	
+	onGround = self->flags & ON_GROUND;
+	
+	checkToMap(self);
+	
+	if (landedOnGround(onGround) == TRUE)
+	{
+		addSmokeAlongBody();
+	}
+}
+
 static void blackBookShudder()
 {
+	Entity *e;
+	
 	self->startY += 90;
 
 	if (self->startY >= 360)
@@ -5477,6 +5536,25 @@ static void blackBookShudder()
 	}
 
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+	
+	if (self->thinkTime <= 180 && (self->thinkTime % 5) == 0)
+	{
+		e = addTemporaryItem("boss/black_book_page", self->x, self->y, self->face, 0, 0);
+		
+		playSoundToMap("sound/boss/black_book/page.ogg", -1, self->x, self->y, 0);
+		
+		e->targetX = self->x + SCREEN_WIDTH;
+		e->targetY = self->y + (prand() % 96) * (prand() % 2 == 0 ? -1 : 1);
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->speed = 20 + (prand() % 40);
+		
+		e->speed /= 10;
+		
+		e->dirX *= e->speed;
+		e->dirY *= e->speed;
+	}
 }
 
 static void transformRemove()
@@ -5496,6 +5574,29 @@ static void hover()
 	}
 
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+}
+
+static void backWait()
+{
+	self->face = self->head->face;
+	
+	self->x = self->head->x;
+	self->y = self->head->y;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	if (!(self->head->flags & FLY))
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void initEnergyBar(Entity *boss)
@@ -5556,7 +5657,10 @@ static void energyBarWait()
 		}
 	}
 
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 
 	self->layer = self->head->layer;
 }

@@ -764,55 +764,63 @@ void drawMap(int depth)
 				exit(0);
 			}
 			*/
-
-			switch (depth)
+			
+			if (game.status == IN_CREDITS)
 			{
-				case 0:
-					if (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END)
-					{
-						drawImage(mapImages[tileID], x, y, FALSE, 255);
-					}
-				break;
-
-				case 1:
-					if (tileID < BACKGROUND_TILE_START)
-					{
-						drawImage(mapImages[tileID], x, y, FALSE, 255);
-					}
-				break;
-
-				case 2:
-					if (tileID == SLIME_TILE_BLEND)
-					{
-						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
-						drawImage(mapImages[slimeTile], x, y, FALSE, map.blendTime);
-
-						if (map.blendTime == 0)
+				drawBox(game.screen, x, y, TILE_SIZE, TILE_SIZE, 0, 0, 0);
+			}
+			
+			else
+			{
+				switch (depth)
+				{
+					case 0:
+						if (tileID >= BACKGROUND_TILE_START && tileID <= BACKGROUND_TILE_END)
 						{
-							map.tile[mapY][mapX] = WATER_TILE_START;
+							drawImage(mapImages[tileID], x, y, FALSE, 255);
 						}
-					}
+					break;
 
-					else if (tileID == SLIME_TILE_BLEND_REVERSE)
-					{
-						drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
-						drawImage(mapImages[slimeTile], x, y, FALSE, 255 - map.blendTime);
-
-						if (map.blendTime == 0)
+					case 1:
+						if (tileID < BACKGROUND_TILE_START)
 						{
-							map.tile[mapY][mapX] = SLIME_TILE_START;
+							drawImage(mapImages[tileID], x, y, FALSE, 255);
 						}
-					}
+					break;
 
-					else if (tileID >= FOREGROUND_TILE_START)
-					{
-						drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
-					}
-				break;
+					case 2:
+						if (tileID == SLIME_TILE_BLEND)
+						{
+							drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
+							drawImage(mapImages[slimeTile], x, y, FALSE, map.blendTime);
 
-				default:
-					drawImage(mapImages[tileID], x, y, FALSE, 255);
-				break;
+							if (map.blendTime == 0)
+							{
+								map.tile[mapY][mapX] = WATER_TILE_START;
+							}
+						}
+
+						else if (tileID == SLIME_TILE_BLEND_REVERSE)
+						{
+							drawImage(mapImages[WATER_TILE_START], x, y, FALSE, 128);
+							drawImage(mapImages[slimeTile], x, y, FALSE, 255 - map.blendTime);
+
+							if (map.blendTime == 0)
+							{
+								map.tile[mapY][mapX] = SLIME_TILE_START;
+							}
+						}
+
+						else if (tileID >= FOREGROUND_TILE_START)
+						{
+							drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
+						}
+					break;
+
+					default:
+						drawImage(mapImages[tileID], x, y, FALSE, 255);
+					break;
+				}
 			}
 
 			mapX++;

@@ -899,7 +899,10 @@ static void headWait()
 		self->takeDamage = &headTakeDamage;
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 
 	self->y = self->head->y + self->offsetY;
 }

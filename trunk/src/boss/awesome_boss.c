@@ -993,7 +993,10 @@ static void energyBarWait()
 		}
 	}
 
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static int energyBarDraw()
@@ -1536,5 +1539,8 @@ static void creditsMoveToMiddle()
 {
 	self->x = self->head->x + self->endX;
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }

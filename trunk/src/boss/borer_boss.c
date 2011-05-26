@@ -696,7 +696,10 @@ static void mouthWait()
 		self->flags &= ~NO_DRAW;
 	}
 
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void tentacleWait()
@@ -726,7 +729,10 @@ static void tentacleWait()
 		}
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void tentacleAttackInit()

@@ -454,7 +454,10 @@ static void armourWait()
 		self->die();
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void addShield()
@@ -531,7 +534,10 @@ static void shieldWait()
 
 	self->y = self->head->y + self->offsetY;
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void addSword()
@@ -606,7 +612,10 @@ static void swordWait()
 
 	self->y = self->head->y + self->offsetY;
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void swordStabInit()

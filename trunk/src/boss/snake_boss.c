@@ -129,7 +129,10 @@ static void bodyWait()
 
 	checkToMap(self);
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void initialise()

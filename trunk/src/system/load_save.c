@@ -118,8 +118,6 @@ extern Game game;
 		snprintf(saveFileIndex, sizeof(saveFileIndex), "%ssaveheader", gameSavePath);
 
 		snprintf(continueFile, sizeof(continueFile), "%scontinuesave", gameSavePath);
-
-		removeTemporaryData();
 	}
 #else
 	void setupUserHomeDirectory()
@@ -128,8 +126,6 @@ extern Game game;
 		STRNCPY(tempFile, "tmpsave", sizeof(tempFile));
 		STRNCPY(saveFileIndex, "saveheader", sizeof(saveFileIndex));
 		STRNCPY(continueFile, "continuesave", sizeof(continueFile));
-
-		removeTemporaryData();
 	}
 #endif
 
@@ -1305,6 +1301,8 @@ int hasPersistance(char *mapName)
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			val = TRUE;
+			
+			break;
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr);
@@ -1318,13 +1316,11 @@ int hasPersistance(char *mapName)
 int bossExists(char *bossName)
 {
 	int val = FALSE;
-	char *line, itemName[MAX_MESSAGE_LENGTH], *savePtr;
+	char *line, *savePtr;
 	unsigned char *buffer;
 	FILE *read;
 
 	savePtr = NULL;
-
-	snprintf(itemName, sizeof(itemName), "NAME %s", bossName);
 
 	read = fopen(tempFile, "rb");
 
@@ -1356,9 +1352,11 @@ int bossExists(char *bossName)
 			line[strlen(line) - 1] = '\0';
 		}
 
-		if (strcmpignorecase(line, itemName) == 0)
+		if (strstr(line, bossName) != NULL)
 		{
 			val = TRUE;
+			
+			break;
 		}
 
 		line = strtok_r(NULL, "\n", &savePtr);

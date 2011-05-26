@@ -375,8 +375,16 @@ void getInput(int gameType)
 				key = event.jbutton.button;
 
 				key = -(key + 1000);
+				
+				if (game.status == IN_CREDITS)
+				{
+					if (key == control.button[CONTROL_PAUSE] || key == control.button[CONTROL_ATTACK])
+					{
+						fadeCredits();
+					}
+				}
 
-				if (key == control.button[CONTROL_PAUSE])
+				else if (key == control.button[CONTROL_PAUSE])
 				{
 					pauseGame();
 				}

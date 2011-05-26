@@ -50,3 +50,4 @@ void clearContinuePoint(void);
 char *getPlayTimeHours(void);
 void drawWeather(void);
 void updateExitCount(int);
+void showEndCredits(void);
