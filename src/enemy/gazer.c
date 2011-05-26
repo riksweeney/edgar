@@ -199,6 +199,9 @@ static void gazeFinish()
 
 static void creditsMove()
 {
+	int currentFrame;
+	float frameTimer;
+	
 	self->dirX = self->speed;
 	
 	self->thinkTime++;
@@ -214,7 +217,15 @@ static void creditsMove()
 		
 		if (self->thinkTime >= 240)
 		{
+			currentFrame = self->currentFrame;
+			
+			frameTimer = self->frameTimer;
+			
 			setEntityAnimation(self, "ATTACK_1");
+			
+			self->currentFrame = currentFrame;
+			
+			self->frameTimer = frameTimer;
 			
 			if (self->thinkTime >= 300)
 			{

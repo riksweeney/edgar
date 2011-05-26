@@ -825,9 +825,9 @@ static void clawWait()
 		}
 	}
 	
-	else
+	if (self->head->inUse == FALSE)
 	{
-		self->inUse = self->head->inUse;
+		self->inUse = FALSE;
 	}
 }
 
@@ -1308,7 +1308,10 @@ static void armPartWait()
 		self->action = &armChangeToWater;
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void alignArmToClaw()
@@ -2334,7 +2337,10 @@ static void dripWait()
 		self->frameTimer = timer;
 	}
 
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static int dripDraw()

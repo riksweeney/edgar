@@ -57,6 +57,7 @@ static void wipeInCircleToSmall(void);
 static void wipeOutCircleToLarge(void);
 static void wipeOutCircleToSmall(void);
 static void fadeToNormal(void);
+static void initEndCredits(void);
 
 void initGame()
 {
@@ -478,6 +479,18 @@ void setNextLevelFromScript(char *token)
 	setTransition(TRANSITION_OUT, &goToNextMap);
 }
 
+void showEndCredits()
+{
+	setTransition(TRANSITION_OUT, &initEndCredits);
+}
+
+static void initEndCredits()
+{
+	game.status = IN_CREDITS;
+	
+	clearScreen(0, 0, 0);
+}
+
 void goToNextMap()
 {
 	Entity *start;
@@ -562,6 +575,7 @@ void pauseGame()
 
 		case IN_TITLE:
 		case IN_INVENTORY:
+		case IN_CREDITS:
 			/* Do nothing */
 		break;
 
@@ -641,7 +655,7 @@ void pauseGameInventory()
 void focusLost()
 {
 	#if DEV == 0
-		if (game.paused == FALSE && game.status != IN_INVENTORY && game.status != IN_EDITOR && game.status != IN_ERROR)
+		if (game.paused == FALSE && game.status == IN_GAME)
 		{
 			pauseGame();
 		}

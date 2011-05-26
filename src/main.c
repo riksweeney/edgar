@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
 		
 		else if (strcmpignorecase("-showcredits", argv[i]) == 0)
 		{
-			showCredits = 1;
+			showCredits = TRUE;
 		}
 
 		#if DEV == 1
@@ -182,20 +182,26 @@ int main(int argc, char *argv[])
 			setRecordData(argv[recordingID]);
 
 			setMapFile(mapID == -1 ? firstMap : argv[mapID]);
-
-			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
 		}
 
 		else if (replayingID != -1)
 		{
 			setReplayData(argv[replayingID], TRUE);
-
-			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
 		}
 
+		if (mapID != -1)
+		{
+			loadMap(argv[mapID], TRUE);
+		}
+		
+		else if (game.firstRun == TRUE)
+		{
+			tutorial();
+		}
+		
 		else
 		{
-			loadMap(mapID == -1 ? firstMap : argv[mapID], TRUE);
+			newGame();
 		}
 	}
 
@@ -241,7 +247,7 @@ int main(int argc, char *argv[])
 
 	frameLimit = SDL_GetTicks() + game.fps;
 	
-	if (showCredits == 1)
+	if (showCredits == TRUE)
 	{
 		game.status = IN_CREDITS;
 	}

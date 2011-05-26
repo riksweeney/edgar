@@ -241,7 +241,10 @@ static void headWait()
 		self->flags &= ~FLASH;
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void headBiteInit()
@@ -582,7 +585,10 @@ static void bodyWait()
 		self->flags &= ~FLASH;
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void creditsMove()

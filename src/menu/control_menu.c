@@ -218,11 +218,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_UP]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_UP] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "DOWN") == 0)
@@ -232,11 +227,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_DOWN]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_DOWN] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "LEFT") == 0)
@@ -246,11 +236,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_LEFT]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_LEFT] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "RIGHT") == 0)
@@ -260,11 +245,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_RIGHT]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_RIGHT] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "ATTACK") == 0)
@@ -274,11 +254,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_ATTACK]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_ATTACK] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "BLOCK") == 0)
@@ -288,11 +263,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_BLOCK]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_BLOCK] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "JUMP") == 0)
@@ -302,11 +272,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_JUMP]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_JUMP] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "INTERACT") == 0)
@@ -316,11 +281,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_INTERACT]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_INTERACT] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "USE") == 0)
@@ -331,10 +291,6 @@ static void loadMenuLayout()
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
 
-					if (control.button[CONTROL_ACTIVATE] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
@@ -344,11 +300,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_PREVIOUS]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_PREVIOUS] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
@@ -358,11 +309,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_NEXT]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_NEXT] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "INVENTORY") == 0)
@@ -372,11 +318,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_INVENTORY]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_INVENTORY] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "PAUSE") == 0)
@@ -386,11 +327,6 @@ static void loadMenuLayout()
 					text = getKeyValue(control.button[CONTROL_PAUSE]);
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-					if (control.button[CONTROL_PAUSE] < 0)
-					{
-						free(text);
-					}
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
@@ -533,11 +469,6 @@ static void redefineKey()
 	text = getKeyValue(key);
 
 	updateLabelText(w->label, text);
-
-	if (key < 0)
-	{
-		free(text);
-	}
 
 	realignGrid();
 }

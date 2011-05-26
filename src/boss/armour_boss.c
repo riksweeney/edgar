@@ -1063,7 +1063,10 @@ static void armourWait()
 
 	self->y = self->head->y + self->offsetY;
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void sawWait()
@@ -1120,7 +1123,10 @@ static void sawWait()
 		self->action = &entityDieNoDrop;
 	}
 	
-	self->inUse = self->head->inUse;
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void sawAttackWait()

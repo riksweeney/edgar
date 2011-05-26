@@ -112,21 +112,21 @@ static char *bosses[] = {
 static int bossesLength = sizeof(bosses) / sizeof(char *);
 
 static char *bossNames[] = {
-			"boss/grub_boss", "King Grub", "map03",
-			"boss/golem_boss", "The Golem", "map02",
-			"boss/fly_boss", "Queen Wasp", "map05",
-			"boss/snake_boss", "The Swamp Guardian", "map04",
-			"boss/blob_boss_2", "The Blob", "map10",
-			"boss/armour_boss", "The Watchdog", "map08",
-			"boss/awesome_boss_1", "The Awesome Foursome", "map13",
-			"boss/mataeus", "Mataeus", "map11",
-			"boss/phoenix", "The Phoenix", "map13",
-			"boss/borer_boss", "The Borer", "map14",
-			"boss/evil_edgar", "Evil Edgar", "map10",
-			"boss/sewer_boss", "The Sewer Dweller", "map07",
-			"boss/cave_boss", "The Salamander", "map20",
-			"boss/black_book_2", "The Black Book", "map11",
-			"boss/grimlore", "Grimlore", "map16"
+			"boss/grub_boss", "King Grub", "map03", "grub_boss_start",
+			"boss/golem_boss", "The Golem", "map02", "golem_boss_start",
+			"boss/fly_boss", "Queen Wasp", "map05", "fly_boss_boss",
+			"boss/snake_boss", "The Swamp Guardian", "map04", "snake_boss_start",
+			"boss/blob_boss_2", "The Blob", "map10", "blob_boss_start",
+			"boss/armour_boss", "The Watchdog", "map08", "boss/armour_boss",
+			"boss/awesome_boss_1", "The Awesome Foursome", "map13", "awesome_boss_start",
+			"boss/mataeus", "Mataeus", "map11", "mataeus_boss_start",
+			"boss/phoenix", "The Phoenix", "map12", "lava_boss_start",
+			"boss/borer_boss", "The Borer", "map14", "boss/borer_boss",
+			"boss/evil_edgar", "Evil Edgar", "map10", "evil_edgar_start",
+			"boss/sewer_boss", "The Sewer Dweller", "map07", "sewer_boss_start",
+			"boss/cave_boss", "The Salamander", "map20", "cave_boss_start",
+			"boss/black_book_2", "The Black Book", "map11", "boss/black_book_2",
+			"boss/grimlore", "Grimlore", "map16", "hidden_passage_hint"
 };
 
 static void initCredits(void);
@@ -145,6 +145,7 @@ static Entity *loadCreditsBoss(char *);
 static void bossMoveOffScreen(void);
 static char *getBossName(char *);
 static char *getBossMap(char *);
+static char *getBossTrigger(char *);
 static void doChaos(void);
 static void drawChaos(void);
 static void shuffleEnemies(void);
@@ -347,7 +348,7 @@ static void doEndCredits()
 		{
 			freeCredits();
 			
-			player.inUse = FALSE;
+			player.flags |= NO_DRAW;
 			
 			freeEntities();
 			
@@ -387,7 +388,7 @@ static void doGameStats()
 		{
 			freeCredits();
 			
-			player.inUse = FALSE;
+			player.flags |= NO_DRAW;
 			
 			freeEntities();
 			
@@ -522,7 +523,7 @@ static void doDefeatedBosses()
 			{
 				freeCredits();
 				
-				player.inUse = FALSE;
+				player.flags |= NO_DRAW;
 				
 				freeEntities();
 				
@@ -592,7 +593,7 @@ static void doChaos()
 		{
 			freeCredits();
 			
-			player.inUse = FALSE;
+			player.flags |= NO_DRAW;
 			
 			freeEntities();
 			
@@ -661,7 +662,7 @@ static void doEdgarLogo()
 		
 		freeCredits();
 		
-		player.inUse = FALSE;
+		player.flags |= NO_DRAW;
 		
 		freeEntities();
 		
@@ -865,7 +866,7 @@ static void initCredits()
 	
 	credits.entityID = 0;
 	
-	player.inUse = FALSE;
+	player.flags |= NO_DRAW;
 	
 	credits.startDelay = 600;
 	
@@ -1130,7 +1131,7 @@ static Entity *loadCreditsBoss(char *name)
 	
 	e->thinkTime = 120;
 	
-	credits.line = hasPersistance(getBossMap(e->name)) == TRUE && bossExists(e->name) == FALSE ? TRUE : FALSE;
+	credits.line = hasPersistance(getBossMap(e->name)) == TRUE && bossExists(getBossTrigger(e->name)) == FALSE ? TRUE : FALSE;
 	
 	STRNCPY(credits.creditLine[1].text, getBossName(e->name), MAX_LINE_LENGTH);
 	
@@ -1227,7 +1228,7 @@ static char *getBossName(char *name)
 {
 	int i;
 	
-	for (i=0;i<bossesLength*3;i+=3)
+	for (i=0;i<bossesLength*4;i+=4)
 	{
 		if (strcmpignorecase(name, bossNames[i]) == 0)
 		{
@@ -1244,7 +1245,7 @@ static char *getBossMap(char *name)
 {
 	int i;
 	
-	for (i=0;i<bossesLength*3;i+=3)
+	for (i=0;i<bossesLength*4;i+=4)
 	{
 		if (strcmpignorecase(name, bossNames[i]) == 0)
 		{
@@ -1253,6 +1254,23 @@ static char *getBossMap(char *name)
 	}
 	
 	showErrorAndExit("Could not find map for boss %s", name);
+	
+	return NULL;
+}
+
+static char *getBossTrigger(char *name)
+{
+	int i;
+	
+	for (i=0;i<bossesLength*4;i+=4)
+	{
+		if (strcmpignorecase(name, bossNames[i]) == 0)
+		{
+			return bossNames[i + 3];
+		}
+	}
+	
+	showErrorAndExit("Could not find trigger for boss %s", name);
 	
 	return NULL;
 }

@@ -382,7 +382,7 @@ static void changeArmour()
 		break;
 		
 		default:
-			STRNCPY(self->requires, "weapon/lighting_sword", sizeof(self->requires));
+			STRNCPY(self->requires, "weapon/lightning_sword", sizeof(self->requires));
 			setEntityAnimationByID(e, 5);
 		break;
 	}
