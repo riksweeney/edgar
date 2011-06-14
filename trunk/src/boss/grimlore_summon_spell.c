@@ -92,6 +92,8 @@ static void init()
 	
 	self->endY = getMapFloor(self->x, self->y) - self->h;
 	
+	self->targetX = playSoundToMap("sound/boss/grimlore/grimlore_summon.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+	
 	if (self->mental == 1)
 	{
 		self->layer = FOREGROUND_LAYER;
@@ -272,6 +274,8 @@ static void disappearDone()
 		
 		self = temp;
 	}
+	
+	stopSound(self->targetX);
 	
 	self->inUse = FALSE;
 }

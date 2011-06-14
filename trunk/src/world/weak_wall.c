@@ -201,6 +201,9 @@ static void dieWait()
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = 60;
+		
+		self->x = self->startX;
+		self->y = self->startY;
 
 		self->action = &respawn;
 	}

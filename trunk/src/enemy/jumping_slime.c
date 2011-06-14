@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
+static void redDie(void);
 static void die(void);
 static void entityWait(void);
 static void purpleWait(void);
@@ -67,7 +68,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 
 		e->fallout = &fallout;
 
-		e->die = &entityDie;
+		e->die = &die;
 		
 		e->creditsAction = &creditsPurpleMove;
 	}
@@ -78,7 +79,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 
 		e->fallout = &fallout;
 
-		e->die = &die;
+		e->die = &redDie;
 		
 		e->creditsAction = &creditsRedMove;
 	}
@@ -87,7 +88,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 	{
 		e->action = &entityWait;
 
-		e->die = &entityDie;
+		e->die = &die;
 		
 		e->creditsAction = &creditsMove;
 	}
@@ -105,6 +106,13 @@ Entity *addJumpingSlime(int x, int y, char *name)
 }
 
 static void die()
+{
+	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
+}
+
+static void redDie()
 {
 	int i;
 	Entity *e;
@@ -134,6 +142,8 @@ static void die()
 
 		self->mental = 0;
 	}
+	
+	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
 
 	self->thinkTime = 60 + prand() % 60;
 
@@ -561,6 +571,8 @@ static void creditsRedMove()
 			
 			if (self->mental == 10)
 			{
+				playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+				
 				self->die();
 			}
 		}

@@ -14,6 +14,7 @@ IF WEAPON_BOOK HEALTH 5
 TALK Edgar That monster encyclopedia said the dragon's breath incinerated everything, but that warrior still managed to defeat it
 TALK Edgar Maybe this book has information about creating a shield to resist dragon breath
 TALK Edgar Hmmm...
+PLAY_SOUND sound/boss/black_book/page.ogg
 WAIT 60
 TALK Book Shield of Dragon Fire Resistance
 TALK Book Creation of shields of dragon fire resistance require occult magics and very little is known about their manufacture
@@ -31,8 +32,10 @@ END
 IF WEAPON_BOOK HEALTH 1
 TALK Edgar There's a book here about enchanting equipment
 TALK Edgar Maybe I can create a shield...
+PLAY_SOUND sound/boss/black_book/page.ogg
 TALK Edgar Swords... Armour... Wands...
 TALK Edgar Stupid book. It's not in order and there's no index
+PLAY_SOUND sound/boss/black_book/page.ogg
 TALK Edgar Here we go: Shields
 TALK Book Shield of Fire Resistance
 TALK Book Ingredients

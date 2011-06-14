@@ -135,6 +135,8 @@ static void takeDamage(Entity *other, int damage)
 
 			else
 			{
+				self->targetX = playSoundToMap("sound/item/chain.ogg", -1, self->x, self->y, -1);
+				
 				self->health = 0;
 
 				self->touch = NULL;
@@ -189,6 +191,8 @@ static void unravel()
 		setEntityAnimation(self->target, "STAND");
 
 		self->action = &entityWait;
+		
+		stopSound(self->targetX);
 
 		runScript(self->requires);
 	}

@@ -87,12 +87,14 @@ Entity *addBat(int x, int y, char *name)
 
 static void die()
 {
+	playSoundToMap("sound/enemy/bat/squeak.ogg", -1, self->x, self->y, 0);
+	
 	entityDie();
 }
 
 static void pain()
 {
-	playSoundToMap("sound/enemy/bat/squeak.ogg", -1, self->x, self->y, 0);
+	playSoundToMap("sound/common/splat1.ogg", -1, self->x, self->y, 0);
 }
 
 static void fly()

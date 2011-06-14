@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
@@ -74,6 +75,8 @@ static void useBottle(int val)
 
 	if (game.status == IN_GAME)
 	{
+		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
+		
 		e = addEntity(*self, player.x + (player.face == LEFT ? 0 : player.w), player.y);
 
 		e->dirX = player.face == LEFT ? -5 : 5;
@@ -175,6 +178,10 @@ static void soulTouch(Entity *other)
 		other->action = other->die;
 
 		self->mental = 11;
+		
+		playSoundToMap("sound/enemy/spirit/spirit_explode.ogg", -1, self->x, self->y, 0);
+		
+		self->endX = playSoundToMap("sound/enemy/spirit/spirit_scream.ogg", -1, self->x, self->y, 0);
 	}
 }
 
@@ -186,9 +193,15 @@ static void bottleFill()
 		{
 			self->target->inUse = FALSE;
 		}
+		
+		stopSound(self->endX);
+		
+		playSoundToMap("sound/item/cork.ogg", -1, self->x, self->y, 0);
 
 		loadProperties("item/full_soul_bottle", self);
 
 		self->touch = &keyItemTouch;
+		
+		self->action = &doNothing;
 	}
 }

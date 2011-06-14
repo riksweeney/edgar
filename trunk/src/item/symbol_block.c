@@ -116,6 +116,8 @@ static void autoTouch(Entity *other)
 
 	if (other->dirY == 0 && dirY < 0)
 	{
+		playSoundToMap("sound/item/block_beep.ogg", -1, self->x, self->y, 0);
+		
 		self->damage = self->damage == 0 ? 1 : 0;
 
 		self->flags &= ~FLY;
@@ -141,6 +143,8 @@ static void touch(Entity *other)
 
 	if (other->dirY == 0 && dirY < 0 && other->type == PLAYER)
 	{
+		playSoundToMap("sound/item/block_beep.ogg", -1, self->x, self->y, 0);
+		
 		self->flags &= ~FLY;
 
 		self->dirY = -5;

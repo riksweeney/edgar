@@ -43,6 +43,7 @@ static void turnToFacePlayer(void);
 static void lookForPlayer(void);
 static void takeDamage(Entity *, int);
 static void die(void);
+static void redDie(void);
 static void redTeleportAttackStart(void);
 static void redTeleportAttack(void);
 static void redTeleportAttackFinishPause(void);
@@ -88,7 +89,7 @@ Entity *addSludge(int x, int y, char *name)
 	{
 		e->action = &lookForPlayer;
 		e->takeDamage = &takeDamage;
-		e->die = &die;
+		e->die = &redDie;
 		
 		e->creditsAction = &creditsRedMove;
 	}
@@ -97,7 +98,7 @@ Entity *addSludge(int x, int y, char *name)
 	{
 		e->action = &init;
 		e->takeDamage = &entityTakeDamageNoFlinch;
-		e->die = &entityDie;
+		e->die = &die;
 		
 		e->creditsAction = &creditsMove;
 	}
@@ -290,6 +291,13 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
+	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
+}
+
+static void redDie()
+{
 	Entity *e;
 
 	if (prand() % 2 == 0)
@@ -298,6 +306,8 @@ static void die()
 
 		e->x -= e->w / 2;
 	}
+	
+	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
 
 	entityDie();
 }

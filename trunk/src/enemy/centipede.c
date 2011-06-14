@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
 #include "../entity.h"
@@ -44,6 +45,7 @@ static void becomeHead(void);
 static void greenTouch(Entity *);
 static void becomeGreen(void);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addCentipede(int x, int y, char *name)
 {
@@ -61,7 +63,7 @@ Entity *addCentipede(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &touch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
@@ -142,6 +144,13 @@ static void headMove()
 	}
 
 	moveLeftToRight();
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/centipede/centipede_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void addSegments()

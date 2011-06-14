@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "rock.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void walk(void);
 static void die(void);
@@ -73,6 +74,7 @@ static void breatheFireWait(void);
 static void castIce(void);
 static void iceDrop(void);
 static void init(void);
+static void creditsMove(void);
 
 Entity *addRampagingMasterTortoise(int x, int y, char *name)
 {
@@ -96,6 +98,8 @@ Entity *addRampagingMasterTortoise(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->resumeNormalFunction = &resumeNormal;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -269,6 +273,8 @@ static void riftAttackFinish()
 static void die()
 {
 	Entity *e;
+	
+	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Tortoise Shell") == NULL)
 	{
@@ -322,6 +328,8 @@ static void changeWalkDirection()
 	self->thinkTime--;
 
 	self->action = &changeWalkDirection;
+	
+	self->creditsAction = &changeWalkDirection;
 
 	setEntityAnimation(self, "CUSTOM_2");
 
@@ -336,6 +344,8 @@ static void changeWalkDirection()
 		self->animationCallback = &changeWalkDirectionFinish;
 
 		self->action = &entityWait;
+		
+		self->creditsAction = &entityWait;
 	}
 
 	checkToMap(self);
@@ -348,6 +358,8 @@ static void changeWalkDirectionFinish()
 	setEntityAnimation(self, "STAND");
 
 	self->action = &walk;
+	
+	self->creditsAction = &creditsMove;
 
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
@@ -836,7 +848,7 @@ static int draw()
 
 	if (drawn == TRUE)
 	{
-		if (offsetX == 0 && self->offsetX != offsetX)
+		if (game.status == IN_GAME && offsetX == 0 && self->offsetX != offsetX)
 		{
 			shakeScreen(LIGHT, 5);
 		}
@@ -852,4 +864,42 @@ static void resumeNormal()
 	self->face = player.x < self->x ? RIGHT : LEFT;
 
 	self->action = &changeWalkDirection;
+	
+	self->creditsAction = &changeWalkDirection;
+}
+
+static void creditsMove()
+{
+	float dirX;
+	
+	if (self->maxThinkTime == 1)
+	{
+		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
+	}
+
+	if (self->offsetX != 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->maxThinkTime = 1;
+
+			playSoundToMap("sound/enemy/rampaging_master_tortoise/stomp.ogg", -1, self->x, self->y, 0);
+		}
+
+		self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+	}
+
+	else
+	{
+		self->maxThinkTime = 0;
+	}
+	
+	dirX = self->dirX;
+
+	checkToMap(self);
+	
+	if (self->dirX == 0 && dirX != 0)
+	{
+		self->inUse = FALSE;
+	}
 }

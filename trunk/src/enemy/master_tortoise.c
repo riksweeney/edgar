@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "enemies.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void walk(void);
 static void entityWait(void);
@@ -63,6 +64,8 @@ static void becomeRampagingInit(void);
 static void becomeRampagingStage1(void);
 static void becomeRampagingStage2(void);
 static void becomeRampagingFinish(void);
+static void die(void);
+static void creditsMove(void);
 
 Entity *addMasterTortoise(int x, int y, char *name)
 {
@@ -82,9 +85,11 @@ Entity *addMasterTortoise(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
+	
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -826,8 +831,13 @@ static void becomeRampagingInit()
 	checkToMap(self);
 
 	self->action = &becomeRampagingStage1;
-
-	fadeOutMusic(2000);
+	
+	self->creditsAction = &becomeRampagingStage1;
+	
+	if (game.status == IN_GAME)
+	{
+		fadeOutMusic(2000);
+	}
 }
 
 static void becomeRampagingStage1()
@@ -858,6 +868,8 @@ static void becomeRampagingStage1()
 			self->flags |= FLY;
 
 			self->action = &becomeRampagingStage2;
+			
+			self->creditsAction = &becomeRampagingStage2;
 		}
 	}
 }
@@ -885,6 +897,8 @@ static void becomeRampagingStage2()
 			self->thinkTime = 30;
 
 			self->action = &becomeRampagingFinish;
+			
+			self->creditsAction = &becomeRampagingFinish;
 		}
 	}
 
@@ -901,7 +915,10 @@ static void becomeRampagingFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		playDefaultBossMusic();
+		if (game.status == IN_GAME)
+		{
+			playDefaultBossMusic();
+		}
 
 		e = addEnemy("enemy/rampaging_master_tortoise", self->x, self->y);
 
@@ -914,5 +931,39 @@ static void becomeRampagingFinish()
 		self->inUse = FALSE;
 
 		e->action = e->resumeNormalFunction;
+		
+		e->creditsAction = e->resumeNormalFunction;
+	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
+}
+
+static void creditsMove()
+{
+	self->mental++;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental != 0 && (self->mental % 400) == 0)
+	{
+		self->thinkTime = 60;
+		
+		self->dirX = 0;
+		
+		self->creditsAction = &becomeRampagingInit;
 	}
 }

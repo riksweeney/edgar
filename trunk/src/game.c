@@ -92,8 +92,6 @@ void initGame()
 
 	game.attacksBlocked = 0;
 
-	game.action = NULL;
-
 	game.thinkTime = 0;
 
 	game.continues = 0;
@@ -121,19 +119,22 @@ void initGame()
 
 		game.pauseSurface = NULL;
 	}
+
+	if (game.gameOverSurface != NULL)
+	{
+		SDL_FreeSurface(game.gameOverSurface);
+
+		game.gameOverSurface = NULL;
+	}
 }
 
 void doGame()
 {
 	/* Execute the action if there is one */
 
-	if (game.action != NULL)
-	{
-		if (game.action != NULL)
-		{
-			game.action();
-		}
-	}
+	doGameOver();
+	
+	fadeToNormal();
 
 	if (game.shakeThinkTime > 0 || game.shakeThinkTime == -1)
 	{
@@ -204,10 +205,7 @@ void drawGame()
 		drawImage(game.alphaSurface, 0, 0, FALSE, -1);
 	}
 
-	if (game.action == &doGameOver)
-	{
-		drawGameOver();
-	}
+	drawGameOver();
 
 	if (game.transition != NULL)
 	{
@@ -768,23 +766,27 @@ void initGameOver()
 	}
 
 	game.transitionX = 0;
-
-	game.action = &doGameOver;
 }
 
 void doGameOver()
 {
-	game.transitionX += 3;
+	if (game.gameOverSurface != NULL)
+	{
+		game.transitionX += 3;
+	}
 }
 
 void drawGameOver()
 {
-	if (game.transitionX >= game.gameOverSurface->w)
+	if (game.gameOverSurface != NULL)
 	{
-		game.transitionX = game.gameOverSurface->w;
-	}
+		if (game.transitionX >= game.gameOverSurface->w)
+		{
+			game.transitionX = game.gameOverSurface->w;
+		}
 
-	drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.transitionX, game.gameOverSurface->h);
+		drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.transitionX, game.gameOverSurface->h);
+	}
 }
 
 char *getPlayTimeAsString()
@@ -881,27 +883,26 @@ void fadeFromColour(int r, int g, int b, int fadeTime)
 	game.alphaSurface = createSurface(game.screen->w, game.screen->h);
 
 	drawBox(game.alphaSurface, 0, 0, game.screen->w, game.screen->h, r, g, b);
-
-	game.action = &fadeToNormal;
 }
 
 static void fadeToNormal()
 {
-	float alpha = 255.0f / game.alphaTime;
-
-	alpha *= game.thinkTime;
-
-	SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
-
-	game.thinkTime--;
-
-	if (game.thinkTime <= 0)
+	if (game.alphaSurface != NULL)
 	{
-		SDL_FreeSurface(game.alphaSurface);
+		float alpha = 255.0f / game.alphaTime;
 
-		game.alphaSurface = NULL;
+		alpha *= game.thinkTime;
 
-		game.action = NULL;
+		SDL_SetAlpha(game.alphaSurface, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
+
+		game.thinkTime--;
+
+		if (game.thinkTime <= 0)
+		{
+			SDL_FreeSurface(game.alphaSurface);
+
+			game.alphaSurface = NULL;
+		}
 	}
 }
 

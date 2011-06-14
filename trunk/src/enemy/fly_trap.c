@@ -49,6 +49,7 @@ static void headBite(void);
 static void headBiteReturn(void);
 static void headBiteReactToBlock(Entity *);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addFlyTrap(int x, int y, char *name)
 {
@@ -66,7 +67,7 @@ Entity *addFlyTrap(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -603,4 +604,11 @@ static void creditsMove()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }

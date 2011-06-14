@@ -54,6 +54,7 @@ static void takeDamage(Entity *, int);
 static void panic(void);
 static void touch(Entity *);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addLargeSpider(int x, int y, char *name)
 {
@@ -73,7 +74,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 	e->resumeNormalFunction = strcmpignorecase(name, "enemy/large_red_spider") == 0 ? &redLookForPlayer : &lookForPlayer;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
@@ -534,6 +535,13 @@ static void pounceReactToBlock(Entity *other)
 	self->dirY = -5;
 
 	self->face = self->face == RIGHT ? LEFT : RIGHT;
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void creditsMove()

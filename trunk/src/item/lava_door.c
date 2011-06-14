@@ -165,6 +165,8 @@ static void die()
 {
 	int i;
 	Entity *e;
+	
+	playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
 
 	for (i=0;i<7;i++)
 	{

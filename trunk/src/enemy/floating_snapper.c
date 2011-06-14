@@ -194,6 +194,16 @@ static void snapShutFinish()
 
 		self->touch = &touch;
 	}
+	
+	else
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime == 0)
+		{
+			playSoundToMap("sound/enemy/floating_snapper/burp.ogg", -1, self->x, self->y, 0);
+		}
+	}
 }
 
 static void reopen()

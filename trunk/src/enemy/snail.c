@@ -159,10 +159,10 @@ static void die()
 
 		e->x += (self->w - e->w) / 2;
 	}
-
-	self->die = &entityDie;
-
-	self->die();
+	
+	playSoundToMap("sound/enemy/snail/snail_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void lookForPlayer()

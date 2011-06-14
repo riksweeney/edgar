@@ -67,7 +67,8 @@ static void blackBookDie(void);
 static void blackBookShudder(void);
 static void addBack(void);
 static void backWait(void);
-static void blackBookDieFinish(void);
+static void dieFinish(void);
+static void creditsMove(void);
 
 static void becomeKingGrub(void);
 static void kingGrubWait(void);
@@ -256,7 +257,7 @@ Entity *addBlackBook2(int x, int y, char *name)
 	e->die = NULL;
 	e->takeDamage = NULL;
 	
-	e->creditsAction = &bossMoveToMiddle;
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -293,9 +294,9 @@ static void doIntro()
 
 	if (self->thinkTime <= 0)
 	{
-		addBack();
-		
 		setContinuePoint(FALSE, self->name, NULL);
+		
+		addBack();
 
 		self->targetX = self->startX;
 		self->targetY = self->startY;
@@ -325,10 +326,10 @@ static void addBack()
 	e->y = self->y;
 
 	e->action = &backWait;
-
-	e->draw = &drawLoopingAnimationToMap;
 	
 	e->creditsAction = &backWait;
+
+	e->draw = &drawLoopingAnimationToMap;
 
 	e->type = ENEMY;
 
@@ -794,6 +795,8 @@ static void guardianShotAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -1265,6 +1268,8 @@ static void guardianFallToGround()
 
 	if (self->thinkTime <= 0)
 	{
+		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == LEFT ? -8 : 8;
@@ -1940,7 +1945,7 @@ static void golemTakeDamage(Entity *other, int damage)
 
 	else
 	{
-		playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 		if (other->reactToBlock != NULL)
 		{
@@ -4065,10 +4070,17 @@ static void blobBounceAroundInit()
 
 static void blobBounceAround()
 {
+	long onGround = self->flags & ON_GROUND;
+	
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
+		if (onGround == 0)
+		{
+			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+		
 		self->maxThinkTime--;
 
 		if (self->maxThinkTime > 0)
@@ -4668,6 +4680,8 @@ static void queenWaspFireBullets()
 	if (self->thinkTime <= 0)
 	{
 		self->maxThinkTime--;
+		
+		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -4728,6 +4742,8 @@ static void queenWaspFireSlime()
 	if (self->thinkTime <= 0)
 	{
 		self->maxThinkTime--;
+		
+		playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -5055,7 +5071,7 @@ static void becomeKingGrub()
 
 	loadProperties("boss/grub_boss", e);
 
-	e->maxHealth = e->health = 5;
+	e->maxHealth = e->health = 500;
 
 	e->flags |= LIMIT_TO_SCREEN;
 
@@ -5453,7 +5469,7 @@ static void transformWait()
 
 		self->flags &= ~NO_DRAW;
 
-		if (self->health >= 0)
+		if (self->health <= 0)
 		{
 			self->startX = self->x;
 
@@ -5471,13 +5487,20 @@ static void transformWait()
 
 static void blackBookDie()
 {
+	Entity *e;
+	
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
 		{
-			self->flags &= ~FLY;
+			e = addEnemy("boss/black_book_3", self->x, self->y);
+			
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+			
+			e->active = FALSE;
 
 			clearContinuePoint();
 
@@ -5485,9 +5508,11 @@ static void blackBookDie()
 
 			freeBossHealthBar();
 			
-			self->thinkTime = 120;
+			self->flags |= NO_DRAW;
 			
-			self->action = &blackBookDieFinish;
+			self->thinkTime = 180;
+			
+			self->action = &dieFinish;
 		}
 
 		else
@@ -5499,28 +5524,13 @@ static void blackBookDie()
 	checkToMap(self);
 }
 
-static void blackBookDieFinish()
+static void dieFinish()
 {
-	long onGround;
-	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
-		fireTrigger(self->objectiveName);
-
-		fireGlobalTrigger(self->objectiveName);
-
-		fadeBossMusic();
-	}
-	
-	onGround = self->flags & ON_GROUND;
-	
-	checkToMap(self);
-	
-	if (landedOnGround(onGround) == TRUE)
-	{
-		addSmokeAlongBody();
+		self->action = &entityDieVanish;
 	}
 }
 
@@ -5537,7 +5547,7 @@ static void blackBookShudder()
 
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 	
-	if (self->thinkTime <= 180 && (self->thinkTime % 5) == 0)
+	if (self->thinkTime <= 180 && (self->thinkTime % 10) == 0)
 	{
 		e = addTemporaryItem("boss/black_book_page", self->x, self->y, self->face, 0, 0);
 		
@@ -5593,7 +5603,7 @@ static void backWait()
 		self->flags &= ~NO_DRAW;
 	}
 	
-	if (!(self->head->flags & FLY))
+	if (!(self->head->flags & FLY) || self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
 	}
@@ -5698,4 +5708,11 @@ static int energyBarDraw()
 	}
 
 	return TRUE;
+}
+
+static void creditsMove()
+{
+	addBack();
+	
+	self->creditsAction = &bossMoveToMiddle;
 }

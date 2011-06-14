@@ -822,10 +822,17 @@ static void bounceAroundInit()
 
 static void bounceAround()
 {
+	long onGround = self->flags & ON_GROUND;
+	
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
+		if (onGround == 0)
+		{
+			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		}
+		
 		self->maxThinkTime--;
 
 		if (self->maxThinkTime > 0)

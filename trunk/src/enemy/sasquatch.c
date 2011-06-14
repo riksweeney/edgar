@@ -36,6 +36,7 @@ static void createSnowball(void);
 static void lookForPlayer(void);
 static void throwSnowball(void);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addSasquatch(int x, int y, char *name)
 {
@@ -53,7 +54,7 @@ Entity *addSasquatch(int x, int y, char *name)
 
 	e->action = &lookForPlayer;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -65,6 +66,13 @@ Entity *addSasquatch(int x, int y, char *name)
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+
+	entityDie();
 }
 
 static void lookForPlayer()

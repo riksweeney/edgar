@@ -170,6 +170,11 @@ void drawHud()
 
 		if (x == TRUE)
 		{
+			if (quant < 0)
+			{
+				quant = 0;
+			}
+			
 			if (hud.quantity != quant)
 			{
 				if (hud.quantitySurface != NULL)
@@ -488,4 +493,9 @@ int showMedal(int medalType, char *message)
 	playSound("sound/common/trophy.ogg");
 
 	return TRUE;
+}
+
+int spotlightSize()
+{
+	return hud.spotlight->w;
 }

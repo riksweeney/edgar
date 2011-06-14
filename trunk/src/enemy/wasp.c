@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
+static void die(void);
 static void init(void);
 static void changeTarget(Entity *);
 static void flyToTarget(void);
@@ -52,7 +53,7 @@ Entity *addWasp(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeTarget;
 	
@@ -125,4 +126,11 @@ static void creditsMove()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/wasp/wasp_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }

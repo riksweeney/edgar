@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "system/random.h"
+#include "audio/audio.h"
 #include "map.h"
 #include "graphics/graphics.h"
 #include "draw.h"
@@ -29,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 static Droplet droplet[MAX_DROPS];
 extern Game game;
+extern Entity player;
 
 static void initLightRain(void);
 static void initHeavyRain(void);
@@ -175,13 +177,6 @@ static void storm()
 	rain();
 
 	game.weatherThinkTime--;
-
-	if (game.weatherThinkTime <= 0)
-	{
-		fadeFromColour(255, 255, 255, 30);
-
-		game.weatherThinkTime = 600 + prand() % 1200;
-	}
 }
 
 static void initSnow()
@@ -238,19 +233,20 @@ static void drawRain()
 {
 	int i;
 
-	if (game.weatherThinkTime >= -10 && game.weatherThinkTime < 0)
+	if (game.weatherThinkTime <= 0)
 	{
-		clearScreen(255, 255, 255);
-	}
+		i = playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, player.x, player.y, 0);
+		
+		fadeFromColour(255, 255, 255, 30);
 
-	else
+		game.weatherThinkTime = 600 + i * 60;
+	}
+	
+	for (i=0;i<MAX_DROPS;i++)
 	{
-		for (i=0;i<MAX_DROPS;i++)
+		if (droplet[i].active == TRUE)
 		{
-			if (droplet[i].active == TRUE)
-			{
-				drawBox(game.screen, droplet[i].x, droplet[i].y, 1, 8, 220, 220, 220);
-			}
+			drawBox(game.screen, droplet[i].x, droplet[i].y, 1, 8, 220, 220, 220);
 		}
 	}
 }

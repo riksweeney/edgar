@@ -90,7 +90,7 @@ static void lookForPlayer()
 		{
 			if (self->health == 0)
 			{
-				/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+				playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
 
 				self->health = 1;
 			}
@@ -147,7 +147,7 @@ static void closedEyeMove()
 	{
 		if (self->health == 0)
 		{
-			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
 
 			self->health = 1;
 		}

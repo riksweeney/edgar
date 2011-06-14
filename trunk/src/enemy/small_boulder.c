@@ -137,6 +137,8 @@ static void die()
 
 		stopSound(self->targetX);
 	}
+	
+	playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }
