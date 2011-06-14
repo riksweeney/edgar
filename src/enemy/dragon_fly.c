@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
+static void die(void);
 static void init(void);
 static void flyAround(void);
 static void dropWait(void);
@@ -63,7 +64,7 @@ Entity *addDragonFly(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	
@@ -523,4 +524,11 @@ static void creditsMove()
 			playSoundToMap("sound/enemy/bug/buzz.ogg", -1, self->x, self->y, 0);
 		}
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/wasp/wasp_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }

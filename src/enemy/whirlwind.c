@@ -254,6 +254,8 @@ static void die()
 			self->target->inUse = FALSE;
 		}
 	}
+	
+	playSoundToMap("sound/enemy/whirlwind/whirlwind_die.ogg", -1, self->x, self->y, 0);
 
 	entityDie();
 }

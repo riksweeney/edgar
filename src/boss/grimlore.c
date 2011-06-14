@@ -2170,6 +2170,8 @@ static void beamAttack()
 			e->action = &beamMove;
 
 			e->draw = &beamDraw;
+			
+			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_beam.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 			e->head = self;
 
@@ -2203,6 +2205,13 @@ static void beamMove()
 		self->thinkTime--;
 
 		self->flags |= NO_DRAW;
+		
+		if (self->targetX != -1)
+		{
+			stopSound(self->targetX);
+			
+			self->targetX = -1;
+		}
 
 		if (self->thinkTime <= 0)
 		{

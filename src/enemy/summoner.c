@@ -219,6 +219,8 @@ static void summonEnd()
 
 static void die()
 {
+	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	
 	self->dirY = 0;
 
 	entityDie();

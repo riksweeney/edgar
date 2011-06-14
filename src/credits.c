@@ -88,7 +88,8 @@ static char *enemies[] = {
 			"enemy/frog",
 			"enemy/undead_gazer",
 			"enemy/fly_trap",
-			"enemy/armour_changer"
+			"enemy/armour_changer",
+			"enemy/master_tortoise"
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 
@@ -872,12 +873,12 @@ static void initCredits()
 	
 	for (y=0;y<enemiesLength;y++)
 	{
-		loadProperties(enemies[y], NULL);
+		/*loadProperties(enemies[y], NULL);*/
 	}
 	
 	for (y=0;y<bossesLength;y++)
 	{
-		loadProperties(bosses[y], NULL);
+		/*loadProperties(bosses[y], NULL);*/
 	}
 	
 	shuffleEnemies();
@@ -1078,10 +1079,6 @@ static Entity *loadCreditsEntity(char *name)
 	if (strstr(name, "/edgar") != NULL)
 	{
 		e = loadPlayer(0, 0, name);
-		
-		addPermanentItem("weapon/fire_shield", 0, 300);
-		
-		addPermanentItem("weapon/basic_sword", 0, 300);
 	}
 	
 	else

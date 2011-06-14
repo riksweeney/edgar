@@ -261,6 +261,8 @@ static void summonEnd()
 static void die()
 {
 	Entity *e;
+	
+	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 3 == 0)
 	{

@@ -43,6 +43,7 @@ static void attackFinished(void);
 static void riseUp(void);
 static void changeWait(void);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addCeilingCrawler(int x, int y, char *name)
 {
@@ -60,7 +61,7 @@ Entity *addCeilingCrawler(int x, int y, char *name)
 
 	e->action = &changeFloor;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -104,6 +105,13 @@ static void moveOnFloor()
 			}
 		}
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/ceiling_crawler/ceiling_crawler_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void moveOnCeiling()

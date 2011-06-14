@@ -43,6 +43,7 @@ static void entityWait(void);
 static void touch(Entity *);
 static void flameTouch(Entity *);
 static void takeDamage(Entity *, int);
+static void resumeNormalFunction(void);
 
 Entity *addFlameStatue(int x, int y, char *name)
 {
@@ -63,6 +64,7 @@ Entity *addFlameStatue(int x, int y, char *name)
 	e->die = &die;
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
+	e->resumeNormalFunction = &resumeNormalFunction;
 
 	e->type = ENEMY;
 
@@ -312,4 +314,9 @@ static void die()
 
 		self->damage = 0;
 	}
+}
+
+static void resumeNormalFunction()
+{
+	self->action = &entityWait;
 }

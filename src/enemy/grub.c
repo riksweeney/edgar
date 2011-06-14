@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void creditsMove(void);
+static void die(void);
 
 Entity *addGrub(int x, int y, char *name)
 {
@@ -49,7 +50,7 @@ Entity *addGrub(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeDirection;
 	
@@ -60,6 +61,13 @@ Entity *addGrub(int x, int y, char *name)
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void creditsMove()

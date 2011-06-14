@@ -7,6 +7,8 @@ Version 0.86
 * The Armour Changers can now be hurt by the lightning sword
 * Fixed a crash when destroying Grimlore's armour
 * Fixed a crash in the control menu when configuring a joystick control
+* Added a large number of sound effects
+* Apples can now be used without having to reload a game
 
 Version 0.85
 * Added the next part of the story

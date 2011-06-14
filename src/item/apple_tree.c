@@ -120,6 +120,8 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "weapon/wood_axe") == 0)
 		{
+			playSoundToMap("sound/item/chop.ogg", -1, self->x, self->y, 0);
+			
 			self->health -= damage;
 
 			if (self->health > 0)
@@ -131,7 +133,7 @@ static void takeDamage(Entity *other, int damage)
 			{
 				if (self->mental > 0)
 				{
-					e = addPermanentItem("item/apple", self->x + self->w / 2, self->y);
+					e = addKeyItem("item/apple", self->x + self->w / 2, self->y);
 
 					e->dirX = 10 + prand() % 10;
 

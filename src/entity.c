@@ -1906,6 +1906,7 @@ void creditsMove()
 
 void addDuplicateImage(Entity *e)
 {
+	char shadowAnim[MAX_VALUE_LENGTH];
 	Entity *duplicate;
 	
 	duplicate = getFreeEntity();
@@ -1928,7 +1929,9 @@ void addDuplicateImage(Entity *e)
 	
 	duplicate->creditsAction = &duplicateWait;
 	
-	setEntityAnimation(duplicate, getAnimationTypeAtIndex(e));
+	snprintf(shadowAnim, MAX_VALUE_LENGTH, "%s_SHADOW", getAnimationTypeAtIndex(e));
+	
+	setEntityAnimation(duplicate, shadowAnim);
 	
 	duplicate->currentFrame = e->currentFrame;
 	

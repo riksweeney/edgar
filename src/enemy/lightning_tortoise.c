@@ -45,6 +45,7 @@ static void createElectricity(void);
 static void takeDamage(Entity *, int);
 static void doElectricity(void);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addLightningTortoise(int x, int y, char *name)
 {
@@ -64,7 +65,7 @@ Entity *addLightningTortoise(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	
@@ -374,6 +375,13 @@ static void takeDamage(Entity *other, int damage)
 			self = temp;
 		}
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void doElectricity()

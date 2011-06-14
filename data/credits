@@ -19,6 +19,10 @@
 220 220 220 KDE
 220 220 220 Kubuntu
 220 220 220 #
+200 200 0 Translators
+220 220 220 Michał Lisowski (Polish)
+220 220 220 Traperic (Spanish)
+220 220 220 #
 200 200 0 Music
 220 220 220 Village
 220 220 220 by Jakim of Stage Magician
@@ -92,28 +96,27 @@
 220 220 220 Credits
 220 220 220 by Necros / Straylight
 220 220 220 #
-220 220 220 #
 220 220 0 Samples from freesounds.org
 220 220 220 #
-220 220 220 distress_lo.wav (as spell.ogg)
+220 220 220 distress_lo (as spell.ogg)
 220 220 220 by ignotus
 220 220 220 #
-220 220 220 interdimensional01.wav (as summon.ogg)
+220 220 220 interdimensional01 (as summon.ogg)
 220 220 220 by ignotus
 220 220 220 #
 220 220 220 cruch - eggshells medium.aif (as hatch.ogg)
 220 220 220 by IEDlabs
 220 220 220 #
-220 220 220 spraycan1.wav (as spray.ogg)
+220 220 220 spraycan1 (as spray.ogg)
 220 220 220 by HerbertBoland
 220 220 220 #
-220 220 220 Balloon-Burst-07.wav (as burst.ogg)
+220 220 220 Balloon-Burst-07 (as burst.ogg)
 220 220 220 by Gniffelbaf
 220 220 220 #
-220 220 220 dum_dum_dummmmm_.wav (as evil_edgar_appear.ogg)
+220 220 220 dum_dum_dummmmm_ (as evil_edgar_appear.ogg)
 220 220 220 by Wolfsinger
 220 220 220 #
-220 220 220 Wind3.wav as (breathe_in.ogg)
+220 220 220 Wind3 as (breathe_in.ogg)
 220 220 220 by pushtobreak
 220 220 220 #
 220 220 220 Glass_Break (as smash.ogg)
@@ -125,8 +128,86 @@
 220 220 220 electrocute (as electrocute.ogg)
 220 220 220 by aust_paul
 220 220 220 #
-220 220 220 drop_cardboard_box.wav (as stomp.ogg)
+220 220 220 drop_cardboard_box (as stomp.ogg)
 220 220 220 by farbin
 220 220 220 #
-220 220 220 Page_Turn_24.wav (as page.ogg)
+220 220 220 Page_Turn_07 (as page.ogg)
 220 220 220 by koops
+220 220 220 #
+220 220 220 Burp004 (as burp.ogg)
+220 220 220 by HardPCM
+220 220 220 #
+220 220 220 18 (as safe_open.ogg)
+220 220 220 by adcbicycle
+220 220 220 #
+220 220 220 jawharp (as bounce.ogg)
+220 220 220 by memexikon
+220 220 220 #
+220 220 220 chop (as chop.ogg)
+220 220 220 by hazure
+220 220 220 #
+220 220 220 deathb (as grub_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 deathd (as snail_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 deathe (as slime_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 deathr (as sludge_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 deaths (as gazer_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 grunt1 (as tortoise_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 painb (as armadillo_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 painp (as centipede_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 piggrunt2 (as ceiling_crawler_die.ogg)
+220 220 220 by Michel88
+220 220 220 #
+220 220 220 Smashing_1 (as centurion_die.ogg)
+220 220 220 by Timbre
+220 220 220 #
+220 220 220 maxxbasswind (as whirlwind_die.ogg)
+220 220 220 by plagasul
+220 220 220 #
+220 220 220 Monster_2 (as snake_boss_die.ogg)
+220 220 220 by Sea_Fury
+220 220 220 #
+220 220 220 smalllas (as snake_boss_shot.ogg)
+220 220 220 by inferno
+220 220 220 #
+220 220 220 Mitraillette_3 (as fly_boss_bullet.ogg)
+220 220 220 by davidou
+220 220 220 #
+220 220 220 BeepRising (as block_beep.ogg)
+220 220 220 by acclivity
+220 220 220 #
+220 220 220 42 (as grimlore_beam.ogg)
+220 220 220 by CosmicD
+220 220 220 #
+220 220 220 teleport (as grimlore_summon.ogg)
+220 220 220 by NoiseCollector
+220 220 220 #
+220 220 220 death_scream (as poltergiest_die.ogg)
+220 220 220 by Syna_Max
+220 220 220 #
+220 220 220 psycho_screams_2 (as spirit_scream.ogg)
+220 220 220 by FreqMan
+220 220 220 #
+220 220 220 Cork_Bottle_opening_Bordeaux_Chateau_Les_Joualles_2003 (as cork.ogg)
+220 220 220 by Greg_Baumont
+220 220 220 #
+220 220 220 flak_hit (as spirit_explode.ogg)
+220 220 220 by smcameron
+220 220 220 #
+220 220 220 chain
+220 220 220 by smargroth

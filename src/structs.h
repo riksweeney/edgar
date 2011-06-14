@@ -175,7 +175,6 @@ typedef struct Game
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
-	void (*action)(void);
 	void (*drawMenu)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);

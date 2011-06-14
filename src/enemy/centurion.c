@@ -382,6 +382,8 @@ static void die()
 	fireTrigger(self->objectiveName);
 
 	fireGlobalTrigger(self->objectiveName);
+	
+	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
 
 	for (i=0;i<9;i++)
 	{
@@ -423,6 +425,8 @@ static void redDie()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
+	
+	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 

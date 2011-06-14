@@ -64,6 +64,8 @@ Entity *addShrub(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
+	Entity *temp;
+	
 	pushEntity(other);
 
 	if ((other->flags & ATTACKING) && !(self->flags & INVULNERABLE))
@@ -78,6 +80,27 @@ static void touch(Entity *other)
 			if (self->health <= 0)
 			{
 				self->action = &die;
+			}
+			
+			else
+			{
+				playSoundToMap("sound/item/chop.ogg", -1, self->x, self->y, 0);
+			}
+		}
+		
+		else
+		{
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock(temp);
+
+				self = temp;
 			}
 		}
 	}

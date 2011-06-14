@@ -46,6 +46,7 @@ static void clawWait(void);
 static void addClaw(void);
 static void clawAttackFinished(void);
 static void creditsMove(void);
+static void die(void);
 
 Entity *addScorpion(int x, int y, char *name)
 {
@@ -63,7 +64,7 @@ Entity *addScorpion(int x, int y, char *name)
 
 	e->action = &addClaw;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->pain = NULL;
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
@@ -75,6 +76,13 @@ Entity *addScorpion(int x, int y, char *name)
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void addClaw()

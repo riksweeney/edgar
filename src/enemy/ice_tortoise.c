@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self, player;
 
+static void die(void);
 static void walk(void);
 static void changeWalkDirectionStart(void);
 static void changeWalkDirection(void);
@@ -69,7 +70,7 @@ Entity *addIceTortoise(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
 	
@@ -490,6 +491,13 @@ static void spikeTakeDamage(Entity *other, int damage)
 			self->takeDamage = NULL;
 		}
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void creditsMove()

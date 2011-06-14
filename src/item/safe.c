@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../medal.h"
 #include "../player.h"
 #include "../inventory.h"
 #include "../world/target.h"
@@ -67,7 +68,7 @@ Entity *addSafe(int x, int y, char *name)
 
 	e->active = FALSE;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "CLOSED");
 
 	return e;
 }
@@ -83,6 +84,11 @@ static void init()
 	
 	else
 	{
+		if (self->health == -99)
+		{
+			setEntityAnimation(self, "OPEN");
+		}
+		
 		self->touch = NULL;
 
 		self->activate = NULL;
@@ -221,9 +227,15 @@ static void readInputCode()
 
 			if (strcmpignorecase(self->objectiveName, self->requires) == 0)
 			{
+				playSoundToMap("sound/item/safe_open.ogg", -1, self->x, self->y, 0);
+				
+				setEntityAnimation(self, "OPEN");
+				
 				removeInventoryItemByObjectiveName("Scrap of Paper");
 				
-				printf("Complete\n");
+				addMedal("safe_open");
+				
+				self->health = -99;
 				
 				self->active = FALSE;
 			}

@@ -27,3 +27,4 @@ void initBossHealthBar(void);
 void freeBossHealthBar(void);
 void drawSpotlight(int, int);
 int showMedal(int, char *);
+int spotlightSize(void);

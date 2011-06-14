@@ -83,6 +83,8 @@ static void die()
 
 		e->x -= e->w / 2;
 	}
+	
+	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
 	entityDie();
 }
@@ -93,7 +95,7 @@ static void fly()
 	{
 		if (self->mental == 0)
 		{
-			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}

@@ -37,6 +37,7 @@ extern Entity *self, player;
 static void fly(void);
 static void gazeInit(void);
 static void gaze(void);
+static void die(void);
 static void gazeFinish(void);
 static void addDeathTimer(void);
 static void timerWait(void);
@@ -58,7 +59,7 @@ Entity *addUndeadGazer(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	e->die = &entityDie;
+	e->die = &die;
 
 	e->takeDamage = &entityTakeDamageNoFlinch;
 
@@ -81,7 +82,7 @@ static void fly()
 	{
 		if (self->mental == 0)
 		{
-			/*playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);*/
+			playSoundToMap("sound/enemy/gazer/flap.ogg", -1, self->x, self->y, 0);
 
 			self->mental = 1;
 		}
@@ -129,6 +130,13 @@ static void fly()
 			}
 		}
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void gazeInit()

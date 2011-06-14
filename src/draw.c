@@ -95,13 +95,13 @@ void draw()
 					{
 						/* Set the clipping bounds */
 
-						clipX = player.x + player.w / 2 - 96 - getMapStartX();
-						clipY = player.y + player.h / 2 - 96 - getMapStartY();
+						clipX = player.x + player.w / 2 - spotlightSize() / 2 - getMapStartX();
+						clipY = player.y + player.h / 2 - spotlightSize() / 2 - getMapStartY();
 
 						rect.x = clipX;
 						rect.y = clipY;
 
-						rect.w = rect.h = 192;
+						rect.w = rect.h = spotlightSize();
 
 						SDL_SetClipRect(game.screen, &rect);
 					}

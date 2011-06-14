@@ -333,6 +333,11 @@ void changeSoundQuality()
 	
 	Mix_CloseAudio();
 	
+	if (game.audio == FALSE)
+	{
+		return;
+	}
+	
 	initAudio();
 	
 	playLoadedMusic();

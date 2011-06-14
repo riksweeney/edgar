@@ -488,6 +488,8 @@ static void shotAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -959,6 +961,8 @@ static void fallToGround()
 
 	if (self->thinkTime <= 0)
 	{
+		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == LEFT ? -8 : 8;

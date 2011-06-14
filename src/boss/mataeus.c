@@ -809,7 +809,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
-			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{
@@ -1078,7 +1078,7 @@ static void anchorTakeDamage(Entity *other, int damage)
 	{
 		if (strcmpignorecase(other->name, "boss/mataeus_knife_special") != 0)
 		{
-			playSoundToMap("sound/common/dink.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
 			{
@@ -1817,7 +1817,7 @@ static void createShield()
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Mataeus Shield");
+		showErrorAndExit("No free slots to add Mataeus' Shield");
 	}
 
 	loadProperties("boss/mataeus_shield", e);
