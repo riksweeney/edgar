@@ -74,6 +74,10 @@ static void floorRiseInit(void);
 static void floorRiseWait(void);
 static void floorRise(void);
 static void floorTouch(Entity *);
+static void lightningDropInit(void);
+static void lightningDrop(void);
+static void lightningGroundAttack(void);
+static void groundLightningMove(void);
 
 Entity *addSorceror2(int x, int y, char *name)
 {
@@ -168,6 +172,8 @@ static void entityWait()
 			}
 		}
 	}
+	
+	self->action = &lightningDropInit;
 }
 
 static void lightningDropInit()
