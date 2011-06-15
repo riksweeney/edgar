@@ -135,7 +135,7 @@ void newGame()
 
 	freeGameResources();
 
-	loadMap("map01", TRUE);
+	loadMap("map24", TRUE);
 
 	initGame();
 
