@@ -30,7 +30,7 @@ static Properties properties[MAX_PROPS_FILES];
 
 static int getElementTypeByName(char *);
 
-static char *ignoreProps[] = {"GFX_FILE", "ANIM_FILE", "NAME", NULL};
+static char *ignoreProps[] = {"GFX_FILE", "ANIM_FILE", NULL};
 
 static Type entityType[] = {
 					{PLAYER, "PLAYER"},
@@ -638,6 +638,11 @@ void setProperty(Entity *e, char *name, char *value)
 	else if (strcmpignorecase(name, "DESCRIPTION") == 0)
 	{
 		STRNCPY(e->description, value, sizeof(e->description));
+	}
+	
+	else if (strcmpignorecase(name, "NAME") == 0)
+	{
+		STRNCPY(e->name, value, sizeof(e->name));
 	}
 
 	else
