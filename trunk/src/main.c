@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
 
 	if (loadSlot == -1)
 	{
-		firstMap = game.firstRun == TRUE ? "tutorial" : "map24";
+		firstMap = game.firstRun == TRUE ? "tutorial" : "map01";
 
 		if (recordingID != -1)
 		{

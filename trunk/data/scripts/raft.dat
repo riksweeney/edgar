@@ -33,11 +33,6 @@ IF Raft_Point HEALTH 4
 REMOVE "Chopped Log" 6 6 Raft_Point 4 4
 TALK Edgar OK, here goes!
 KILL Raft_Point
-IF NOT_EXISTS NEW_MAP
-ADD ENTITY ITEM misc/raft "Raft" 9856 905
-END
-IF EXISTS NEW_MAP
 ADD ENTITY ITEM misc/raft "Raft" 3360 256
-END
 SET Raft FACE LEFT
 END
