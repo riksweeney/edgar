@@ -11,8 +11,3 @@ ADD OBJECTIVE "Talk to Jacob" " "
 ADD TRIGGER "Jacob Trigger" 1 UPDATE_OBJECTIVE "Talk to Jacob"
 ADD OBJECTIVE "Cross the lake to the Swamp" " "
 ADD TRIGGER "Swamp Trigger" 1 UPDATE_OBJECTIVE "Cross the lake to the Swamp"
-IF EXISTS NEW_MAP
-ADD MAP_TRIGGER "map02" RUN_SCRIPT "update_mine_exit"
-ADD MAP_TRIGGER "map03" RUN_SCRIPT "update_forest_exit"
-ADD MAP_TRIGGER "map04" RUN_SCRIPT "update_swamp_exit"
-END
