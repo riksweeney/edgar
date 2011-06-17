@@ -50,7 +50,6 @@ static void teleportAway(void);
 static void takeDamage(Entity *, int);
 static void castLightningBolt(void);
 static void lightningBolt(void);
-static void castWait(void);
 static void creditsMove(void);
 
 Entity *addDarkSummoner(int x, int y, char *name)
@@ -118,7 +117,7 @@ static void lookForPlayer()
 
 			self->mental = 1;
 
-			self->action = rand == 0 ? &castWait : &summonWait;
+			self->action = &summonWait;
 
 			setEntityAnimation(self, "ATTACK_1");
 
@@ -132,13 +131,6 @@ static void lookForPlayer()
 }
 
 static void summonWait()
-{
-	checkToMap(self);
-
-	hover();
-}
-
-static void castWait()
 {
 	checkToMap(self);
 

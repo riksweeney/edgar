@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../hud.h"
 #include "../player.h"
+#include "sorceror.h"
 #include "../graphics/decoration.h"
 #include "../system/error.h"
 
@@ -60,11 +61,9 @@ static void arrowTakeDamage(Entity *, int);
 static void disintegrationInit(void);
 static void disintegrationWait(void);
 static void disintegrationAttack(void);
-static int drawSpell(void);
-static void drawDisintegrationLine(int, int, int, int, int, int, int);
 static void disintegrationWait(void);
 static void disintegration(void);
-static void distintegrationTouch(Entity *);
+static void disintegrationTouch(Entity *);
 
 Entity *addSorceror(int x, int y, char *name)
 {
@@ -391,7 +390,7 @@ static void disintegration()
 
 		self->thinkTime = 300;
 
-		self->touch = &distintegrationTouch;
+		self->touch = &disintegrationTouch;
 
 		self->action = &disintegrationAttack;
 
@@ -403,7 +402,7 @@ static void disintegration()
 	}
 }
 
-static void distintegrationTouch(Entity *other)
+static void disintegrationTouch(Entity *other)
 {
 	Entity *temp;
 
@@ -430,7 +429,7 @@ static void distintegrationTouch(Entity *other)
 	}
 }
 
-static int drawSpell()
+int drawSpell()
 {
 	int color1, color2, color3;
 
@@ -512,7 +511,7 @@ static void arrowTakeDamage(Entity *other, int damage)
 	}
 }
 
-static void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
+void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
 {
 	int speed;
 	float dirX, dirY, x, y, ix, iy, yy;

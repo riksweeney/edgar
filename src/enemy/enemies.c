@@ -103,6 +103,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "flame_statue.h"
 #include "fly_trap.h"
 #include "armour_changer.h"
+#include "sorceror_dark_summoner.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -132,6 +133,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/grimlore_summon_spell.h"
 #include "../boss/black_book_3.h"
 #include "../boss/sorceror_2.h"
+#include "../boss/sorceror_floor.h"
 
 #include "../system/error.h"
 
@@ -278,7 +280,9 @@ static Constructor enemies[] = {
 {"enemy/mini_centurion", &addLargeRock},
 {"enemy/mini_red_centurion", &addLargeRock},
 {"boss/black_book_3", &addBlackBook3},
-{"boss/sorceror_2", &addSorceror2}
+{"boss/sorceror_2", &addSorceror2},
+{"enemy/sorceror_dark_summoner", &addSorcerorDarkSummoner},
+{"boss/sorceror_floor", &addSorcerorFloor}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

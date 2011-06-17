@@ -1,0 +1,11 @@
+TALK Edgar Nowhere left to hide
+TALK Sorceror You defeated Grimlore? Impossible!
+TALK Edgar He submitted to my sword just like everything else in this foul place
+TALK Edgar This is your last chance, tell me where my father is!
+TALK Sorceror I DON'T KNOW WHAT YOU'RE TALKING ABOUT!
+TALK Edgar LIAR!
+TALK Edgar Now, prepare to taste the steel of my blade!
+MUSIC FADE 1000
+TALK Sorceror Very well. If that is your wish, I shall destroy you where you stand
+MUSIC LOAD music/dgt_enemy.it
+TALK Sorceror Prepare yourself, Edgar

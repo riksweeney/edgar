@@ -402,7 +402,7 @@ void loadMap(char *name, int loadEntityResources)
 
 	setTransition(TRANSITION_IN, NULL);
 
-	if (game.canContinue == FALSE)
+	if (game.canContinue == FALSE && game.overrideMusic == FALSE)
 	{
 		playMapMusic();
 	}

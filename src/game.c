@@ -103,6 +103,8 @@ void initGame()
 	game.mapExitable = 0;
 
 	game.canContinue = FALSE;
+	
+	game.overrideMusic = FALSE;
 
 	game.offsetX = game.offsetY = 0;
 
@@ -475,10 +477,17 @@ void setNextLevelFromScript(char *token)
 	setNextLevel(name, playerStart);
 
 	setTransition(TRANSITION_OUT, &goToNextMap);
+	
+	if (game.overrideMusic == FALSE)
+	{
+		fadeOutMusic(1000);
+	}
 }
 
 void showEndCredits()
 {
+	game.overrideMusic = FALSE;
+	
 	setTransition(TRANSITION_OUT, &initEndCredits);
 }
 

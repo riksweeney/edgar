@@ -2,4 +2,5 @@ GFX_FILE data/gfx/boss/sorceror_shield.dat
 ANIM_FILE data/anim/common/no_anim.dat
 TYPE ENEMY
 THINKTIME 120
-HEALTH 10
+HEALTH 250
+DAMAGE 1

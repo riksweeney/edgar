@@ -394,6 +394,8 @@ static void riftMove()
 
 		else
 		{
+			self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+			
 			self->thinkTime = 300;
 
 			self->touch = &riftTouch;
@@ -413,6 +415,8 @@ static void riftWait()
 
 	if (self->thinkTime <= 0)
 	{
+		stopSound(self->health);
+		
 		self->action = &riftClose;
 
 		self->thinkTime = 20;

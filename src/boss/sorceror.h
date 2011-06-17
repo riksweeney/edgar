@@ -18,3 +18,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 Entity *addSorceror(int, int, char *);
+int drawSpell(void);
+void drawDisintegrationLine(int, int, int, int, int, int, int);
