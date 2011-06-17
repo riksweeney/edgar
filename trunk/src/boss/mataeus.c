@@ -1424,6 +1424,8 @@ static void riftRise()
 	if (self->y <= self->startY)
 	{
 		stopSound(self->health);
+		
+		self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
 
 		self->y = self->startY;
 
@@ -1487,10 +1489,9 @@ static void riftAttract()
 
 static void riftSink()
 {
-	if (self->health == -1)
-	{
-		self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
-	}
+	stopSound(self->health);
+	
+	self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 	self->y += 0.5;
 

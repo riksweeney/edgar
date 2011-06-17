@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../enemy/rock.h"
 #include "../item/item.h"
 #include "../game.h"
+#include "../inventory.h"
 #include "../audio/music.h"
 #include "../audio/audio.h"
 #include "../graphics/gib.h"
@@ -41,12 +42,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../world/target.h"
 #include "../hud.h"
+#include "sorceror.h"
 #include "../player.h"
 #include "../graphics/decoration.h"
 #include "../system/error.h"
 #include "../enemy/thunder_cloud.h"
 
-extern Entity *self, player;
+extern Entity *self, player, playerWeapon, playerShield;
 
 static void init(void);
 static void entityWait(void);
@@ -62,6 +64,7 @@ static void holdPersonSpellMove(void);
 static void holdPersonWait(void);
 static void createShieldInit(void);
 static void createShield(void);
+static void createShieldFinish(void);
 static void shieldWait(void);
 static void shieldTakeDamage(Entity *, int);
 static void shieldDie(void);
@@ -70,14 +73,37 @@ static void holdPersonBackWait(void);
 static void holdPersonPieceMove(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
-static void floorRiseInit(void);
-static void floorRiseWait(void);
-static void floorRise(void);
-static void floorTouch(Entity *);
 static void lightningDropInit(void);
 static void lightningDrop(void);
 static void lightningGroundAttack(void);
 static void groundLightningMove(void);
+static void teleportAway(void);
+static void teleportAwayFinish(void);
+static void takeDamage(Entity *, int);
+static void callSummonersInit(void);
+static void callSummoners(void);
+static void callSummonersWait(void);
+static void plasmaAttackInit(void);
+static void plasmaAttack(void);
+static void plasmaAttackFinish(void);
+static void plasmaTakeDamage(Entity *, int);
+static void disintegrationAttackInit(void);
+static void disintegrationAttack(void);
+static void disintegrationSpellInit(void);
+static void disintegrationSpellAttack(void);
+static void disintegrationAttackWait(void);
+static void disintegrationTouch(Entity *);
+static void riftAttackInit(void);
+static void riftAttack(void);
+static void riftAttackWait(void);
+static void riftWait(void);
+static void riftMove(void);
+static void riftClose(void);
+static void addRiftEnergy(int, int);
+static void energyMoveToRift(void);
+static void destroyFloorInit(void);
+static void destroyFloor(void);
+static void continuePoint(void);
 
 Entity *addSorceror2(int x, int y, char *name)
 {
@@ -98,6 +124,8 @@ Entity *addSorceror2(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->touch = &entityTouch;
+	
+	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
 
@@ -110,18 +138,13 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		setContinuePoint(FALSE, self->name, NULL);
-		
-		self->targetX = self->x;
-		self->targetY = self->y;
-
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		setContinuePoint(FALSE, self->name, &continuePoint);
 
 		self->thinkTime = 120;
 		
 		self->action = &createShieldInit;
+		
+		self->maxThinkTime = 0;
 	}
 	
 	checkToMap(self);
@@ -129,66 +152,722 @@ static void init()
 
 static void attackFinished()
 {
-	self->thinkTime = 180;
+	self->dirX = 0;
+	
+	self->dirY = 0;
+	
+	self->mental = 0;
+	
+	self->thinkTime = 120;
 	
 	self->action = &entityWait;
+	
+	setEntityAnimation(self, "STAND");
 }
 
 static void entityWait()
 {
+	int rand;
+	Entity *disintegrationShield;
+	
 	self->thinkTime--;
 	
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (getEntityByName("enemy/flame_statue") != NULL)
+		if (self->startX == 0)
 		{
-			switch (prand() % 2)
+			switch ((int)self->startY)
 			{
-				case 1:
-					self->action = &floorRiseInit;
+				case 0:
+					self->action = &callSummonersInit;
+				break;
+				
+				case 3:
+					self->action = &disintegrationAttackInit;
 				break;
 				
 				default:
-					self->action = &holdPersonInit;
+					self->action = &createShieldInit;
 				break;
 			}
 		}
 		
 		else
 		{
-			switch (prand() % 2)
+			disintegrationShield = getInventoryItemByObjectiveName("Disintegration Shield");
+			
+			switch (disintegrationShield->health)
 			{
-				case 0:
-					self->action = &holdPersonInit;
+				case 1:
+					rand = prand() % 3;
 				break;
 				
-				case 1:
-					self->action = &floorRiseInit;
+				case 2:
+					rand = prand() % 5;
 				break;
 				
 				default:
-					self->action = &statueAttackInit;
+					rand = prand() % 6;
 				break;
+			}
+			
+			if (getEntityByName("enemy/flame_statue") != NULL)
+			{
+				switch (rand)
+				{
+					case 0:
+						self->action = &plasmaAttackInit;
+					break;
+					
+					case 1:
+						self->action = &lightningDropInit;
+					break;
+					
+					case 2:
+						self->action = &destroyFloorInit;
+					break;
+					
+					case 3:
+						self->action = &riftAttackInit;
+					break;
+					
+					case 4:
+						self->action = &holdPersonInit;
+					break;
+				}
+			}
+			
+			else
+			{
+				switch (rand)
+				{
+					case 0:
+						self->action = &plasmaAttackInit;
+					break;
+					
+					case 1:
+						self->action = &lightningDropInit;
+					break;
+					
+					case 2:
+						self->action = &destroyFloorInit;
+					break;
+					
+					case 3:
+						self->action = &riftAttackInit;
+					break;
+					
+					case 4:
+						self->action = &holdPersonInit;
+					break;
+					
+					default:
+						self->action = &statueAttackInit;
+					break;
+				}
 			}
 		}
 	}
+}
+
+static void destroyFloorInit()
+{
+	int rand;
+	Target *t;
 	
-	self->action = &lightningDropInit;
+	rand = prand() % 2;
+	
+	t = getTargetByName(rand == 0 ? "SORCEROR_LEFT_TARGET" : "SORCEROR_RIGHT_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Sorceror cannot find target");
+	}
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->x = t->x;
+	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+	
+	self->face = rand == 0 ? RIGHT : LEFT;
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	self->flags |= NO_DRAW;
+	
+	self->thinkTime = 120;
+	
+	self->action = &destroyFloor;
+	
+	self->mental = 0;
+}
+
+static void destroyFloor()
+{
+	EntityList *list;
+	EntityList *l;
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			setEntityAnimation(self, "ATTACK_1");
+			
+			self->flags &= ~NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			self->mental = 1;
+			
+			self->thinkTime = 600;
+			
+			list = getEntitiesByObjectiveName("SORCEROR_FLOOR");
+			
+			for (l=list->next;l!=NULL;l=l->next)
+			{
+				e = l->entity;
+
+				e->active = TRUE;
+			}
+
+			freeEntityList(list);
+		}
+		
+		else if (self->mental == 1 || player.y > getMapStartY() + SCREEN_HEIGHT)
+		{
+			setEntityAnimation(self, "STAND");
+			
+			list = getEntitiesByObjectiveName("SORCEROR_FLOOR");
+			
+			for (l=list->next;l!=NULL;l=l->next)
+			{
+				e = l->entity;
+
+				e->active = FALSE;
+			}
+			
+			freeEntityList(list);
+			
+			self->thinkTime = 60;
+			
+			self->action = &teleportAway;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void riftAttackInit()
+{
+	int rand;
+	Target *t;
+	
+	rand = prand() % 2;
+	
+	t = getTargetByName(rand == 0 ? "SORCEROR_LEFT_TARGET" : "SORCEROR_RIGHT_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Sorceror cannot find target");
+	}
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->x = t->x;
+	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+	
+	self->face = rand == 0 ? RIGHT : LEFT;
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	self->flags |= NO_DRAW;
+	
+	self->thinkTime = 30;
+	
+	self->action = &riftAttack;
+}
+
+static void riftAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			self->flags &= ~NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			self->mental = 1;
+			
+			self->thinkTime = 60;
+		}
+		
+		else
+		{
+			setEntityAnimation(self, "ATTACK_1");
+			
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add an Energy Rift");
+			}
+
+			loadProperties("enemy/energy_rift", e);
+
+			e->damage = 1;
+
+			e->action = &riftMove;
+			
+			e->touch = &entityTouch;
+			
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+
+			setEntityAnimation(e, "STAND");
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x - e->w;
+			}
+
+			else
+			{
+				e->x = self->x + self->w;
+			}
+
+			e->thinkTime = 15;
+
+			e->y = self->y;
+
+			e->dirX = self->face == LEFT ? -e->speed : e->speed;
+
+			e->head = self;
+			
+			e->targetX = getMapStartX() + SCREEN_WIDTH / 2 - e->w / 2;
+			e->targetY = e->y;
+			
+			e->health = 0;
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			self->mental = -1;
+
+			self->action = &riftAttackWait;
+
+			self->thinkTime = 60;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void riftMove()
+{
+	float dirY;
+	
+	self->dirX *= 0.975;
+
+	if (fabs(self->dirX) <= 0.5)
+	{
+		self->dirX = 0;
+
+		if (self->health < 2)
+		{
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->health++;
+
+				setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
+
+				self->thinkTime = 15;
+			}
+		}
+
+		else
+		{
+			self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+			
+			self->thinkTime = 300;
+
+			self->action = &riftWait;
+		}
+	}
+
+	dirY = self->dirY;
+
+	checkToMap(self);
+}
+
+static void riftAttackWait()
+{	
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "STAND");
+		}
+	}
+	
+	if (self->mental == 0)
+	{
+		self->action = &teleportAway;
+	}
+	
+	checkToMap(self);
+}
+
+static void riftWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		stopSound(self->health);
+		
+		self->action = &riftClose;
+
+		self->thinkTime = 20;
+	}
+
+	else
+	{
+		setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? 2 : -2));
+
+		if (prand() % 3 == 0)
+		{
+			addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+		}
+	}
+}
+
+static void riftClose()
+{
+	self->thinkTime--;
+
+	setEntityAnimation(self, self->thinkTime > 10 ? "WALK" : "STAND");
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->mental = 0;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void addRiftEnergy(int x, int y)
+{
+	Entity *e;
+
+	e = addBasicDecoration(x, y, "decoration/rift_energy");
+
+	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+
+	x -= e->w / 2;
+	y -= e->h / 2;
+
+	e->targetX = x;
+	e->targetY = y;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->dirX *= 8;
+	e->dirY *= 8;
+
+	e->action = &energyMoveToRift;
+}
+
+static void energyMoveToRift()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+
+	if (atTarget())
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void disintegrationAttackInit()
+{
+	int rand;
+	Target *t;
+	
+	rand = prand() % 2;
+	
+	t = getTargetByName(rand == 0 ? "SORCEROR_LEFT_TARGET" : "SORCEROR_RIGHT_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Sorceror cannot find target");
+	}
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->x = t->x;
+	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+	
+	self->face = rand == 0 ? RIGHT : LEFT;
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	self->flags |= NO_DRAW;
+	
+	self->thinkTime = 30;
+	
+	self->mental = 0;
+	
+	self->action = &disintegrationAttack;
+}
+
+static void disintegrationAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			self->flags &= ~NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			self->mental = 1;
+			
+			self->thinkTime = 30;
+		}
+		
+		else
+		{
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Disintegration Spell");
+			}
+			
+			setEntityAnimation(self, "ATTACK_2");
+
+			loadProperties("boss/sorceror_disintegration_spell", e);
+
+			setEntityAnimation(e, "STAND");
+
+			e->face = self->face;
+
+			if (self->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+
+			e->action = &disintegrationSpellInit;
+
+			e->thinkTime = 60;
+
+			e->startX = e->x;
+			e->startY = e->y;
+
+			e->head = self;
+
+			e->endX = player.x + player.w / 2;
+			e->endY = player.y + player.h / 2;
+
+			e->draw = &drawLoopingAnimationToMap;
+			
+			self->mental = 1;
+
+			self->action = &disintegrationAttackWait;
+			
+			self->thinkTime = 30;
+		}		
+	}
+}
+
+static void disintegrationAttackWait()
+{
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->startY = -1;
+			
+			self->action = &teleportAway;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void disintegrationSpellInit()
+{
+	Entity *e = addPixelDecoration(self->x, self->y);
+
+	if (e != NULL)
+	{
+		e->x = self->x + (prand() % 32) * (prand() % 2 == 0 ? -1 : 1) + self->w / 2;
+		e->y = self->y + (prand() % 32) * (prand() % 2 == 0 ? -1 : 1) + self->h / 2;
+
+		e->startX = e->x;
+		e->startY = e->y;
+
+		e->endX = self->x;
+		e->endY = self->y;
+
+		e->thinkTime = 15;
+
+		e->health = 230;
+
+		e->maxHealth = 230;
+
+		e->mental = 230;
+
+		calculatePath(e->startX, e->startY, e->endX, e->endY, &e->dirX, &e->dirY);
+	}
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		playSoundToMap("sound/boss/sorceror/electrocute.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		self->endX = player.x + player.w / 2;
+		self->endY = player.y + player.h / 2;
+
+		self->thinkTime = 300;
+
+		self->touch = &disintegrationTouch;
+
+		self->action = &disintegrationSpellAttack;
+
+		self->draw = &drawSpell;
+
+		self->layer = BACKGROUND_LAYER;
+
+		self->flags &= ~NO_DRAW;
+	}
+}
+
+static void disintegrationTouch(Entity *other)
+{
+	Entity *temp;
+	
+	if (other->type == PLAYER)
+	{
+		if ((other->flags & BLOCKING) && strcmpignorecase(playerShield.objectiveName, "Disintegration Shield") == 0)
+		{
+			if (self->mental != 3)
+			{
+				self->dirX = self->head->face == LEFT ? -1 : 1;
+				
+				temp = self;
+
+				self = other;
+
+				other->takeDamage(temp, 1);
+
+				self = temp;
+				
+				self->mental = 3;
+				
+				self->thinkTime = 30;
+				
+				stopSound(BOSS_CHANNEL);
+			}
+		}
+
+		else 
+		{
+			if (self->mental != 2)
+			{
+				setPlayerLocked(TRUE);
+				
+				setPlayerLocked(FALSE);
+				
+				self->thinkTime = 180;
+				
+				other->dirX = 0;
+				
+				setCustomAction(other, &helpless, self->thinkTime, 0, 0);
+				
+				setEntityAnimation(other, "CUSTOM_1");
+
+				self->mental = 2;
+				
+				playSoundToMap("sound/boss/sorceror/electrocute.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+			}
+		}
+	}
+}
+
+static void disintegrationSpellAttack()
+{
+	Entity *temp;
+	
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->mental = 0;
+
+		self->inUse = FALSE;
+
+		if (self->mental == 2)
+		{
+			/* Gib the player */
+
+			temp = self;
+			
+			self = &player;
+
+			freeEntityList(playerGib());
+
+			self = temp;
+		}
+		
+		stopSound(BOSS_CHANNEL);
+	}
+	
+	self->endX = player.x + player.w / 2;
+	self->endY = player.y + player.h / 2;
+	
+	self->x = self->endX;
+	self->y = self->endY;
 }
 
 static void lightningDropInit()
 {
 	Target *t;
 
-	self->flags |= NO_DRAW;
-
-	self->layer = BACKGROUND_LAYER;
-
 	setEntityAnimation(self, "RAISE_ARMS");
 
 	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->flags |= NO_DRAW;
 	
 	t = getTargetByName("SORCEROR_TOP_TARGET");
 
@@ -201,14 +880,13 @@ static void lightningDropInit()
 
 	self->thinkTime = 60;
 
-	self->flags |= FLY;
-
 	self->action = &lightningDrop;
 }
 
 static void lightningDrop()
 {
 	int i;
+	long onGround;
 
 	if (self->thinkTime > 0)
 	{
@@ -231,10 +909,12 @@ static void lightningDrop()
 			setEntityAnimation(self, "STAND");
 		}
 	}
+	
+	onGround = self->flags & ON_GROUND;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -271,16 +951,16 @@ static void lightningGroundAttack()
 				showErrorAndExit("No free slots to add the Sorceror's Ground Lightning");
 			}
 			
-			loadProperties("boss/sorceror_ground_lightning", e);
+			loadProperties("enemy/fire", e);
 			
-			setEntityAnimation(e, "FRONT");
+			setEntityAnimation(e, "UP");
 			
 			e->face = RIGHT;
 			
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + self->h - e->h;
 			
-			e->dirX = i == 0 ? 2 : -2;
+			e->dirX = i == 0 ? 6 : -6;
 			
 			e->action = &groundLightningMove;
 			
@@ -291,7 +971,67 @@ static void lightningGroundAttack()
 		
 		self->mental--;
 		
+		self->thinkTime = 60;
+		
+		if (self->mental <= 0)
+		{
+			self->action = &teleportAway;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void teleportAway()
+{
+	int rand;
+	Target *t;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		rand = prand() % 2;
+		
+		t = getTargetByName(rand == 0 ? "SORCEROR_LEFT_TARGET" : "SORCEROR_RIGHT_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Sorceror cannot find target");
+		}
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->flags |= NO_DRAW|FLY;
+
+		self->x = t->x;
+		self->y = t->y;
+		
+		self->face = rand == 0 ? RIGHT : LEFT;
+		
+		self->action = &teleportAwayFinish;
+		
 		self->thinkTime = 30;
+	}
+	
+	checkToMap(self);
+}
+
+static void teleportAwayFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "STAND");
+		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->action = &attackFinished;
 	}
 	
 	checkToMap(self);
@@ -336,7 +1076,7 @@ static void statueAttack()
 		
 		e->mental = 0;
 		
-		e->y = getMapFloor(self->x, self->y);
+		e->y = getMapFloor(self->x + self->w / 2, self->y);
 		
 		e->targetY = e->y - e->h;
 		
@@ -356,7 +1096,7 @@ static void statueAttack()
 		
 		e->mental = 1;
 		
-		e->y = getMapFloor(self->x, self->y);
+		e->y = getMapFloor(self->x + self->w / 2, self->y);
 		
 		e->targetY = e->y - e->h;
 		
@@ -418,7 +1158,7 @@ static void statueRiseWait()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->action = &attackFinished;
+		self->action = &teleportAway;
 	}
 }
 
@@ -471,7 +1211,7 @@ static void holdPerson()
 		{
 			self->action = &holdPersonWait;
 			
-			self->thinkTime = 300;
+			self->thinkTime = 180;
 		}
 		
 		else
@@ -542,6 +1282,11 @@ static void holdPersonSpellMove()
 	
 	else
 	{
+		if (self->mental == 3)
+		{
+			setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to remove the hold person spell!"));
+		}
+		
 		if (self->face != player.face)
 		{
 			self->face = player.face;
@@ -603,6 +1348,8 @@ static void holdPersonWait()
 	
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "ATTACK_2");
+		
 		self->mental = 3;
 		
 		self->action = &castLightningBolt;
@@ -672,9 +1419,9 @@ static void castLightningBolt()
 
 		if (self->mental <= 0)
 		{
-			self->thinkTime = 0;
+			self->thinkTime = 60;
 
-			self->action = &attackFinished;
+			self->action = &teleportAway;
 		}
 
 		else
@@ -760,7 +1507,7 @@ static void createShieldInit()
 {
 	setEntityAnimation(self, "RAISE_ARMS");
 	
-	self->thinkTime = 30;
+	self->thinkTime = 120;
 	
 	self->action = &createShield;
 	
@@ -813,8 +1560,24 @@ static void createShield()
 		e->y = self->y + self->h / 2 - e->h / 2;
 		
 		self->startX = 1;
+		
+		self->head = e;
+		
+		self->thinkTime = 30;
+		
+		self->action = &createShieldFinish;
+	}
+	
+	checkToMap(self);
+}
 
-		self->action = &attackFinished;
+static void createShieldFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &teleportAway;
 	}
 	
 	checkToMap(self);
@@ -823,6 +1586,16 @@ static void createShield()
 static void shieldWait()
 {
 	float radians;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
 
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 	self->y = self->head->y + self->head->h / 2 - self->h / 2;
@@ -884,6 +1657,44 @@ static void shieldTakeDamage(Entity *other, int damage)
 	}
 }
 
+static void takeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+	
+	if (damage != 0)
+	{
+		if (self->startX == 1)
+		{
+			return;
+		}
+		
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+		
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+		
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock(temp);
+
+			self = temp;
+		}
+
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+	}
+}
+
 static void shieldDie()
 {
 	int i, x, y;
@@ -891,6 +1702,8 @@ static void shieldDie()
 	
 	x = self->x;
 	y = self->y;
+	
+	playSoundToMap("sound/boss/sorceror/shield_die.ogg", -1, self->x, self->y, 0);
 	
 	for (i=0;i<6;i++)
 	{
@@ -962,6 +1775,8 @@ static void shieldDie()
 		}
 	}
 	
+	self->head->startY = 0;
+	
 	self->head->startX = 0;
 	
 	self->inUse = FALSE;
@@ -980,122 +1795,197 @@ static void pieceWait()
 	self->y += self->dirY;
 }
 
-static void floorRiseInit()
+static void callSummonersInit()
 {
-	EntityList *list = getEntitiesByObjectiveName("SORCEROR_FLOOR");
-	EntityList *l;
-	Entity *e;
-	int playerMid = player.x + player.w / 2;
+	self->mental = 3;
 	
-	for (l=list->next;l!=NULL;l=l->next)
-	{
-		e = l->entity;
-		
-		if (playerMid >= e->x && playerMid <= e->x + e->w)
-		{
-			e->head = self;
-			
-			e->action = &floorRise;
-			
-			e->touch = &floorTouch;
-			
-			self->mental = 1;
-			
-			break;
-		}
-	}
+	self->thinkTime = 60;
 	
-	self->action = self->mental == 1 ? &floorRiseWait : &entityWait;
-	
-	freeEntityList(list);
+	self->action = &callSummoners;
 }
 
-static void floorRiseWait()
+static void callSummoners()
 {
-	if (self->mental == 0)
+	int r;
+	Entity *e;
+	Target *t;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "ATTACK_1");
+		
+		self->mental--;
+		
+		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
+		e = addEnemy("enemy/sorceror_dark_summoner", 0, 0);
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		r = prand() % 3;
+		
+		switch (r)
+		{
+			case 0:
+				t = getTargetByName("DARK_SUMMONER_TARGET_0");
+			break;
+			
+			case 1:
+				t = getTargetByName("DARK_SUMMONER_TARGET_1");
+			break;
+			
+			default:
+				t = getTargetByName("DARK_SUMMONER_TARGET_2");
+			break;
+		}
+		
+		e->targetX = t->x;
+		e->targetY = t->y;
+		
+		e->startX = e->targetX;
+		e->startY = e->targetY;
+		
+		e->maxThinkTime = self->maxThinkTime;
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
+		
+		e->head = self;
+		
+		if (t == NULL)
+		{
+			showErrorAndExit("Sorceror cannot find target");
+		}
+		
+		if (self->mental <= 0)
+		{
+			setEntityAnimation(self, "STAND");
+			
+			self->maxThinkTime++;
+			
+			self->action = &callSummonersWait;
+		}
+		
+		self->thinkTime = 90;
+	}
+}
+
+static void callSummonersWait()
+{
+	if (self->startY == 3)
 	{
 		self->action = &attackFinished;
 	}
-}
-
-static void floorRise()
-{
-	self->dirY = -3.5;
 	
 	checkToMap(self);
+}
+
+static void plasmaAttackInit()
+{
+	setEntityAnimation(self, "ATTACK_1");
 	
-	if (self->dirY == 0)
+	self->thinkTime = 30;
+	
+	self->mental = 5 + prand() % 6;
+	
+	self->action = &plasmaAttack;
+}
+
+static void plasmaAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		self->head->mental = 0;
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		
-		self->die();
+		if (self->mental == 1)
+		{
+			e = addProjectile("boss/snake_boss_special_shot", self, 0, 0, 0, 0);
+			
+			e->takeDamage = &plasmaTakeDamage;
+		}
+		
+		else
+		{
+			e = addProjectile("boss/snake_boss_normal_shot", self, 0, 0, 0, 0);
+		}
+		
+		e->flags |= FLY|UNBLOCKABLE;
+		
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = self->y + self->h / 2 - e->h / 2;
+		
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = player.y + player.h / 2 - e->h / 2;
+		
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		
+		e->dirX *= 12;
+		e->dirY *= 12;
+		
+		self->mental--;
+		
+		if (self->mental <= 0)
+		{
+			self->thinkTime = 120;
+			
+			self->action = &plasmaAttackFinish;
+		}
+		
+		else
+		{
+			self->thinkTime = 30;
+		}
 	}
 }
 
-static void floorTouch(Entity *other)
+static void plasmaAttackFinish()
 {
-	int bottomBefore;
-	float dirX;
-	Entity *temp;
-
-	if (other->type == PLAYER && self->damage != 0)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		temp = self;
-
-		self = other;
-
-		self->takeDamage(temp, temp->damage);
-
-		self = temp;
+		self->action = &teleportAway;
 	}
+	
+	checkToMap(self);
+}
 
-	if (other->type == PLAYER && other->dirY > 0 && !(other->flags & NO_DRAW))
-	{
-		/* Trying to move down */
+static void plasmaTakeDamage(Entity *other, int damage)
+{
+	Entity *sorceror;
+	
+	sorceror = self->parent;
+	
+	self->parent = &playerWeapon;
+	
+	self->targetX = sorceror->x + sorceror->w / 2 - self->w / 2;
+	self->targetY = sorceror->y + sorceror->h / 2 - self->h / 2;
+	
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+	
+	self->dirX *= 12;
+	self->dirY *= 12;
+	
+	self->thinkTime = 300;
+	
+	self->damage = 50;
+	
+	self->reactToBlock = &bounceOffShield;
+	
+	self->takeDamage = NULL;
+}
 
-		if (collision(other->x, other->y, other->w, other->h, self->x, self->y, self->w, self->h) == 1)
-		{
-			bottomBefore = other->y + other->h - other->dirY - 1;
+static void continuePoint()
+{
+	playBossMusic("music/dgt_enemy.it");
 
-			if (abs(bottomBefore - self->y) < self->h - 1)
-			{
-				if (self->dirY < 0)
-				{
-					other->y -= self->dirY;
-
-					other->dirY = self->dirY;
-
-					dirX = other->dirX;
-
-					other->dirX = 0;
-
-					checkToMap(other);
-
-					other->dirX = dirX;
-
-					if (other->dirY == 0)
-					{
-						/* Gib the player */
-
-						temp = self;
-
-						self = other;
-
-						freeEntityList(playerGib());
-
-						self = temp;
-					}
-				}
-
-				/* Place the player as close to the solid tile as possible */
-
-				other->y = self->y;
-				other->y -= other->h;
-
-				other->standingOn = self;
-				other->dirY = 0;
-				other->flags |= ON_GROUND;
-			}
-		}
-	}
+	self->action = &init;
 }

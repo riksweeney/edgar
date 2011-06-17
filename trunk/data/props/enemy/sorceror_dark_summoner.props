@@ -1,0 +1,8 @@
+HEALTH 60
+DAMAGE 1
+GFX_FILE data/gfx/enemy/dark_summoner.dat
+ANIM_FILE data/anim/enemy/summoner.dat
+TYPE ENEMY
+SPEED 2
+REQUIRES large_red_spider|red_sludge|whirlwind|dragon_fly
+THINKTIME 0

@@ -4,3 +4,6 @@ weapon/pickaxe
 weapon/fire_shield
 weapon/basic_sword
 wall/sorceror_floor
+lift/lift_target
+enemy/dark_summoner
+weapon/disintegration_shield

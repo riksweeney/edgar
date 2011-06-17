@@ -71,6 +71,11 @@ static void entityWait()
 
 	if (self->active == TRUE)
 	{
+		if (self->health == -1)
+		{
+			self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+		}
+		
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
@@ -90,6 +95,8 @@ static void entityWait()
 			{
 				setCustomAction(&player, &attract, self->maxThinkTime, 0, (player.x < (self->x + self->w / 2) ? self->speed : -self->speed));
 			}
+			
+			stopSound(self->health);
 		}
 
 		if (prand() % 3 == 0)
