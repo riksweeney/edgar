@@ -33,6 +33,6 @@ IF Raft_Point HEALTH 4
 REMOVE "Chopped Log" 6 6 Raft_Point 4 4
 TALK Edgar OK, here goes!
 KILL Raft_Point
-ADD ENTITY ITEM misc/raft "Raft" 3360 256
+ADD ENTITY ITEM misc/raft "Raft" 9856 905
 SET Raft FACE LEFT
 END

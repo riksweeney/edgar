@@ -96,7 +96,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 11;
+			player.maxHealth = player.health = 5;
 		#endif
 
 		setEntityAnimation(&player, "STAND");
@@ -279,10 +279,7 @@ void doPlayer()
 
 				if (self->standingOn != NULL)
 				{
-					if (!(self->flags & ATTRACTED))
-					{
-						self->dirX = self->standingOn->dirX;
-					}
+					self->dirX = self->standingOn->dirX;
 
 					if (self->standingOn->dirY > 0)
 					{

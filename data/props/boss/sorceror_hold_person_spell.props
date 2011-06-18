@@ -2,4 +2,4 @@ GFX_FILE data/gfx/boss/sorceror_hold_person_spell.dat
 ANIM_FILE data/anim/boss/sorceror_hold_person_spell.dat
 TYPE ENEMY
 THINKTIME 120
-HEALTH 12
+HEALTH 8

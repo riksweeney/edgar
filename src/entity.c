@@ -712,7 +712,7 @@ void enemyPain()
 void entityTouch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (other->type == PLAYER && self->parent != other && self->damage != 0)
 	{
 		temp = self;

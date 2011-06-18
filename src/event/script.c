@@ -910,16 +910,6 @@ void readNextScriptLine()
 
 				loadMusic(token);
 			}
-			
-			else if (strcmpignorecase("OVERRIDE", token) == 0)
-			{
-				game.overrideMusic = TRUE;
-			}
-			
-			else if (strcmpignorecase("REMOVE_OVERRIDE", token) == 0)
-			{
-				game.overrideMusic = FALSE;
-			}
 		}
 
 		else if (strcmpignorecase("ADD_MEDAL", command) == 0)
