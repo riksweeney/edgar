@@ -289,15 +289,6 @@ int loadGame(int slot)
 
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
-	/* Fudge to make a game saved in the new Village map still load OK */
-	
-	if (foundResources == FALSE)
-	{
-		sscanf(mapName, "%*s %s\n", itemName);
-		
-		loadMap(itemName, TRUE);
-	}
 
 	if (patchGame == TRUE)
 	{
@@ -340,6 +331,15 @@ int loadGame(int slot)
 		}
 
 		return loadGame(slot);
+	}
+	
+	/* Fudge to make a game saved in the new Village map still load OK */
+	
+	if (foundResources == FALSE)
+	{
+		sscanf(mapName, "%*s %s\n", itemName);
+		
+		loadMap(itemName, TRUE);
 	}
 
 	free(buffer);
