@@ -12,7 +12,7 @@ END
 IF Jacob HEALTH 7
 REMOVE "Chicken Feed Bag" 0 -1 Jacob 7 7
 TALK Jacob Thanks Edgar! My chickens are back and these logs will do me fine
-ADD ENTITY WEAPON weapon/basic_sword " " 4030 2582
+ADD ENTITY WEAPON weapon/basic_sword " " 1880 510
 TALK Jacob Take this sword, may it serve you well!
 TALK Edgar Thank you!
 SET Jacob HEALTH 8
@@ -34,7 +34,7 @@ TALK Edgar Do you have a sword I can borrow?
 TALK Jacob I do have a sword and you can have it if you do something for me first
 TALK Edgar OK... what do I have to do?
 TALK Jacob Some of my chickens have escaped from their pen and I would be very grateful if you can get them back for me
-ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 4030 2582
+ADD ENTITY KEY_ITEM item/chicken_feed_bag " " 1880 510
 TALK Jacob I have set up some traps near their pen, you can lure them to the traps using this chicken feed. I don't need them all, but at least 3 would be very helpful. I can get the rest myself.
 TALK Edgar That's it?
 TALK Jacob Not quite. Can you also get me some wood from the forest? 2 logs should be sufficient
@@ -59,21 +59,21 @@ SET Jacob HEALTH 2
 END
 IF Jacob HEALTH 9
 TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
 TALK Edgar Thanks Jacob
 SET Jacob HEALTH 8
 END
 IF Jacob HEALTH 10
 TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
 TALK Edgar Thanks Jacob
 SET Jacob HEALTH 5
 END
 IF Jacob HEALTH 11
 TALK Jacob Oh, thanks Edgar, I only needed 3, but thanks for the additional help!
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Here, Maggie made me this health potion but I don't need it so why don't you have it?
 TALK Edgar Thanks Jacob
 SET Jacob HEALTH 3
@@ -81,10 +81,10 @@ END
 IF Jacob HEALTH 12
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob Here, I have these for you
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
@@ -93,10 +93,10 @@ END
 IF Jacob HEALTH 13
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob Here, I have these for you
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
@@ -105,10 +105,10 @@ END
 IF Jacob HEALTH 14
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob Here, I have these for you
-ADD ENTITY ITEM item/health_potion " " 4030 2582
+ADD ENTITY ITEM item/health_potion " " 1880 510
 TALK Jacob Maggie made me this health potion but you can have it
 TALK Jacob And this is something very special
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
@@ -117,7 +117,7 @@ END
 IF Jacob HEALTH 15
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
@@ -126,7 +126,7 @@ END
 IF Jacob HEALTH 16
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
@@ -135,7 +135,7 @@ END
 IF Jacob HEALTH 17
 TALK Jacob Wow, you caught them all, thanks alot!
 TALK Jacob You saved me a lot of time. Maggie made me something else but since you have been so helpful, you can have it.
-ADD ENTITY KEY_ITEM item/heart_container " " 4030 2582
+ADD ENTITY KEY_ITEM item/heart_container " " 1880 510
 TALK Jacob May this help you on your way to becoming a strong warrior
 ADD_MEDAL all_chickens
 ADD_SECRET
