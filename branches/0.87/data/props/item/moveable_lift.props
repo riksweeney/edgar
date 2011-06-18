@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/moveable_lift.dat
+ANIM_FILE data/anim/item/moveable_lift.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME Moveable Lift
+FLAGS PUSHABLE
+FACE RIGHT

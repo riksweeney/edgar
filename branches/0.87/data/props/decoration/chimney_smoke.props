@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/decoration/chimney_smoke.dat
+ANIM_FILE data/anim/decoration/chimney_smoke.dat
+SPEED 0.3

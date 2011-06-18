@@ -1,0 +1,12 @@
+WAIT 60
+WALK_TO EDGAR 10740 12458 WAIT
+SET EDGAR FACE RIGHT
+WAIT 30
+TALK Edgar A safe in a library? Bit of a cliché...
+WALK_TO EDGAR 10885 12458 WAIT
+SET EDGAR FACE LEFT
+WAIT 30
+WALK_TO EDGAR 10740 12458 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar It looks too thick to break open, I'll have to open it using the combination
+TALK Narrator You won't be able to find the combination in this version!

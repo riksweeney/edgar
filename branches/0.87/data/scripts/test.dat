@@ -1,0 +1,11 @@
+ADD OBJECTIVE "Collect 2 Chopped Logs" " "
+ADD TRIGGER "Chopped Log" 2 UPDATE_OBJECTIVE "Collect 2 Chopped Logs"
+SHOW_CONFIRM This is a test
+IF CONFIRM_YES
+TALK Edgar 1
+TALK Edgar 2
+END
+IF CONFIRM_NO
+TALK Edgar 3
+TALK Edgar 4
+END

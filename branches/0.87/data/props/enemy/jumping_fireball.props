@@ -1,0 +1,9 @@
+GFX_FILE data/gfx/enemy/jumping_fireball.dat
+ANIM_FILE data/anim/enemy/jumping_fireball.dat
+TYPE ENEMY
+DAMAGE 1
+SPEED 8
+WEIGHT 0.3
+THINKTIME 120
+ELEMENT FIRE
+FLAGS PLAYER_TOUCH_ONLY
