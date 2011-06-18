@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 0.87
+* Made the Village map a lot smaller
+
 Version 0.86
 * Fixed the Salamander only performing one attack in its ice form
 * Finally fixed the map resetting bug
