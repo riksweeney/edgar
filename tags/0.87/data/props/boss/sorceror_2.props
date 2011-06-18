@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/boss/sorceror.dat
+ANIM_FILE data/anim/boss/sorceror.dat
+TYPE ENEMY
+THINKTIME 120
+FLAGS FLY
