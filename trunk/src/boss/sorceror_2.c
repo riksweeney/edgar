@@ -53,7 +53,6 @@ extern Entity *self, player, playerWeapon, playerShield;
 static void init(void);
 static void entityWait(void);
 static void attackFinished(void);
-static void entityWait(void);
 static void statueAttackInit(void);
 static void statueAttack(void);
 static void statueRise(void);
@@ -104,6 +103,7 @@ static void energyMoveToRift(void);
 static void destroyFloorInit(void);
 static void destroyFloor(void);
 static void continuePoint(void);
+static void hover(void);
 
 Entity *addSorceror2(int x, int y, char *name)
 {
@@ -138,13 +138,19 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
+		initBossHealthBar();
+		
 		setContinuePoint(FALSE, self->name, &continuePoint);
 
 		self->thinkTime = 120;
 		
-		self->action = &createShieldInit;
+		self->action = &teleportAway;
 		
 		self->maxThinkTime = 0;
+		
+		self->startX = 0;
+		
+		self->startY = -1;
 	}
 	
 	checkToMap(self);
@@ -268,6 +274,8 @@ static void entityWait()
 			}
 		}
 	}
+	
+	hover();
 }
 
 static void destroyFloorInit()
@@ -295,7 +303,7 @@ static void destroyFloorInit()
 	
 	self->flags |= NO_DRAW;
 	
-	self->thinkTime = 120;
+	self->thinkTime = 60;
 	
 	self->action = &destroyFloor;
 	
@@ -314,13 +322,22 @@ static void destroyFloor()
 	{
 		if (self->mental == 0)
 		{
-			setEntityAnimation(self, "ATTACK_1");
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 			
 			self->flags &= ~NO_DRAW;
 			
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 			
+			self->thinkTime = 60;
+			
 			self->mental = 1;
+		}
+		
+		else if (self->mental == 1)
+		{
+			setEntityAnimation(self, "ATTACK_1");
+			
+			self->mental = 2;
 			
 			self->thinkTime = 600;
 			
@@ -336,7 +353,7 @@ static void destroyFloor()
 			freeEntityList(list);
 		}
 		
-		else if (self->mental == 1 || player.y > getMapStartY() + SCREEN_HEIGHT)
+		else if (self->mental == 2)
 		{
 			setEntityAnimation(self, "STAND");
 			
@@ -351,10 +368,17 @@ static void destroyFloor()
 			
 			freeEntityList(list);
 			
-			self->thinkTime = 60;
+			self->thinkTime = 30;
 			
 			self->action = &teleportAway;
 		}
+	}
+	
+	if (player.y >= getMaxMapY())
+	{
+		self->thinkTime = 5;
+		
+		self->mental = 2;
 	}
 	
 	checkToMap(self);
@@ -1032,6 +1056,10 @@ static void teleportAwayFinish()
 		self->flags &= ~NO_DRAW;
 		
 		self->action = &attackFinished;
+		
+		self->endY = self->y;
+		
+		self->endX = 0;
 	}
 	
 	checkToMap(self);
@@ -1054,6 +1082,8 @@ static void statueAttackInit()
 	self->thinkTime = 15;
 	
 	self->action = &statueAttack;
+	
+	hover();
 }
 
 static void statueAttack()
@@ -1082,6 +1112,8 @@ static void statueAttack()
 		
 		e->action = &statueRise;
 		
+		e->touch = NULL;
+		
 		e->thinkTime = 240;
 		
 		e = addEnemy("enemy/flame_statue", 0, 0);
@@ -1102,12 +1134,16 @@ static void statueAttack()
 		
 		e->action = &statueRise;
 		
+		e->touch = NULL;
+		
 		e->thinkTime = 240;
 		
 		self->thinkTime = 600;
 		
 		self->action = &statueRiseWait;
 	}
+	
+	hover();
 }
 
 static void statueRise()
@@ -1158,8 +1194,10 @@ static void statueRiseWait()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->action = &teleportAway;
+		self->action = &attackFinished;
 	}
+	
+	hover();
 }
 
 static void holdPersonInit()
@@ -1171,6 +1209,8 @@ static void holdPersonInit()
 	self->action = &holdPerson;
 	
 	self->mental = 3;
+	
+	hover();
 }
 
 static void holdPerson()
@@ -1219,6 +1259,8 @@ static void holdPerson()
 			self->thinkTime = 5;
 		}
 	}
+	
+	hover();
 }
 
 static void holdPersonSpellMove()
@@ -1354,6 +1396,8 @@ static void holdPersonWait()
 		
 		self->action = &castLightningBolt;
 	}
+	
+	hover();
 }
 
 static void castLightningBolt()
@@ -1421,7 +1465,7 @@ static void castLightningBolt()
 		{
 			self->thinkTime = 60;
 
-			self->action = &teleportAway;
+			self->action = &attackFinished;
 		}
 
 		else
@@ -1430,7 +1474,7 @@ static void castLightningBolt()
 		}
 	}
 
-	checkToMap(self);
+	hover();
 }
 
 static void lightningBolt()
@@ -1511,7 +1555,7 @@ static void createShieldInit()
 	
 	self->action = &createShield;
 	
-	checkToMap(self);
+	hover();
 }
 
 static void createShield()
@@ -1568,7 +1612,7 @@ static void createShield()
 		self->action = &createShieldFinish;
 	}
 	
-	checkToMap(self);
+	hover();
 }
 
 static void createShieldFinish()
@@ -1577,10 +1621,10 @@ static void createShieldFinish()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->action = &teleportAway;
+		self->action = &attackFinished;
 	}
 	
-	checkToMap(self);
+	hover();
 }
 
 static void shieldWait()
@@ -1802,6 +1846,8 @@ static void callSummonersInit()
 	self->thinkTime = 60;
 	
 	self->action = &callSummoners;
+	
+	hover();
 }
 
 static void callSummoners()
@@ -1870,8 +1916,10 @@ static void callSummoners()
 			self->action = &callSummonersWait;
 		}
 		
-		self->thinkTime = 90;
+		self->thinkTime = 30;
 	}
+	
+	hover();
 }
 
 static void callSummonersWait()
@@ -1881,7 +1929,7 @@ static void callSummonersWait()
 		self->action = &attackFinished;
 	}
 	
-	checkToMap(self);
+	hover();
 }
 
 static void plasmaAttackInit()
@@ -1893,6 +1941,8 @@ static void plasmaAttackInit()
 	self->mental = 5 + prand() % 6;
 	
 	self->action = &plasmaAttack;
+	
+	hover();
 }
 
 static void plasmaAttack()
@@ -1944,6 +1994,8 @@ static void plasmaAttack()
 			self->thinkTime = 30;
 		}
 	}
+	
+	hover();
 }
 
 static void plasmaAttackFinish()
@@ -1952,10 +2004,10 @@ static void plasmaAttackFinish()
 	
 	if (self->thinkTime <= 0)
 	{
-		self->action = &teleportAway;
+		self->action = &attackFinished;
 	}
 	
-	checkToMap(self);
+	hover();
 }
 
 static void plasmaTakeDamage(Entity *other, int damage)
@@ -1988,4 +2040,16 @@ static void continuePoint()
 	playBossMusic("music/dgt_enemy.it");
 
 	self->action = &init;
+}
+
+static void hover()
+{
+	self->endX++;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+
+	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 8;
 }

@@ -579,11 +579,11 @@ char *loadResources(char *buffer)
 	return line;
 }
 
-void patchEntities(double versionFile, char *mapName)
+int patchEntities(double versionFile, char *mapName)
 {
 	char patchFile[MAX_PATH_LENGTH], *line, *savePtr, itemName[MAX_VALUE_LENGTH];
 	char key[MAX_VALUE_LENGTH], value[MAX_VALUE_LENGTH];
-	int skipping = FALSE, x, y, read, found;
+	int skipping = FALSE, x, y, read, found, saveMap;
 	unsigned char *buffer;
 	Entity *e;
 	Target *t;
@@ -591,6 +591,8 @@ void patchEntities(double versionFile, char *mapName)
 	savePtr = NULL;
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
+	
+	saveMap = TRUE;
 
 	if (existsInPak(patchFile) == TRUE)
 	{
@@ -729,10 +731,17 @@ void patchEntities(double versionFile, char *mapName)
 					setProperty(e, key, value);
 				}
 			}
+			
+			else if (strcmpignorecase(itemName, "RENAME_MAP") == 0 && skipping == FALSE)
+			{
+				saveMap = FALSE;
+			}
 
 			line = strtok_r(NULL, "\n", &savePtr);
 		}
 
 		free(buffer);
 	}
+	
+	return saveMap;
 }
