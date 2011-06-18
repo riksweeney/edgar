@@ -1432,7 +1432,12 @@ void addEntityFromScript(char *line)
 
 	else if (strcmpignorecase(entityType, "ENEMY") == 0)
 	{
-		addEnemy(entityName, x, y);
+		e = addEnemy(entityName, x, y);
+		
+		if (strcmpignorecase(objectiveName, " ") != 0)
+		{
+			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+		}
 	}
 
 	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)

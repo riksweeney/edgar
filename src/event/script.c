@@ -909,6 +909,8 @@ void readNextScriptLine()
 				token = strtok_r(NULL, "\0", &savePtr);
 
 				loadMusic(token);
+				
+				playLoadedMusic();
 			}
 			
 			else if (strcmpignorecase("OVERRIDE", token) == 0)
@@ -1200,6 +1202,25 @@ void readNextScriptLine()
 		else if (strcmpignorecase("RESET_CAMERA", command) == 0)
 		{
 			resetCameraLimits();
+		}
+		
+		else if (strcmpignorecase("CAMERA_SNAP", command) == 0)
+		{
+			token = strtok_r(NULL, " ", &savePtr);
+			
+			if (strcmpignorecase(token, "EDGAR") == 0)
+			{
+				e = &player;
+			}
+
+			else
+			{
+				e = getEntityByObjectiveName(token);
+			}
+			
+			centerMapOnEntity(e);
+			
+			cameraSnapToTargetEntity();
 		}
 
 		else if (strcmpignorecase("CAMERA_SPEED", command) == 0)

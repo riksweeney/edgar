@@ -56,6 +56,7 @@ static void wipeInCircleToLarge(void);
 static void wipeInCircleToSmall(void);
 static void wipeOutCircleToLarge(void);
 static void wipeOutCircleToSmall(void);
+static void creditsWipeOut(void);
 static void fadeToNormal(void);
 static void initEndCredits(void);
 
@@ -461,6 +462,35 @@ static void wipeOutCircleToSmall()
 	game.transitionX -= 10;
 }
 
+static void creditsWipeOut()
+{
+	if (game.transitionX <= -5)
+	{
+		game.transition = NULL;
+
+		if (game.transitionCallback != NULL)
+		{
+			game.transitionCallback();
+		}
+
+		return;
+	}
+
+	drawCircleFromSurface(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, game.transitionX < 0 ? 0 : game.transitionX);
+
+	game.transitionX -= 5;
+	
+	if (game.transitionX <= spotlightSize() / 2)
+	{
+		if (game.transitionY > 0)
+		{
+			game.transitionX = spotlightSize() / 2;
+			
+			game.transitionY--;
+		}
+	}
+}
+
 void setNextLevel(char *name, char *playerStart)
 {
 	STRNCPY(game.nextMap, name, sizeof(game.nextMap));
@@ -488,7 +518,11 @@ void showEndCredits()
 {
 	game.overrideMusic = FALSE;
 	
-	setTransition(TRANSITION_OUT, &initEndCredits);
+	game.transitionX = SCREEN_WIDTH;
+	game.transitionY = 120;
+	game.transition = &creditsWipeOut;
+	
+	game.transitionCallback = &initEndCredits;
 }
 
 static void initEndCredits()

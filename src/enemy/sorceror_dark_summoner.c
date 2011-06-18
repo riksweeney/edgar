@@ -574,7 +574,7 @@ static void castIce()
 	int i, mapFloor;
 	Entity *e;
 
-	mapFloor = getMapFloor(self->head->x, self->head->y);
+	mapFloor = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
 	
 	for (i=0;i<2;i++)
 	{
@@ -588,7 +588,7 @@ static void castIce()
 		loadProperties("enemy/ice_wall", e);
 
 		e->x = player.x + player.w / 2 + (i == 0 ? -200 : 200);
-		e->y = mapFloor + 50;
+		e->y = mapFloor;
 
 		e->face = (i == 0 ? RIGHT : LEFT);
 
@@ -615,8 +615,6 @@ static void castIce()
 	self->thinkTime = 60;
 
 	self->action = &summonEnd;
-
-	checkToMap(self);
 }
 
 static void iceWallMove()

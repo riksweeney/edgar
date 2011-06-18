@@ -319,4 +319,6 @@ static void die()
 static void resumeNormalFunction()
 {
 	self->action = &entityWait;
+	
+	self->touch = &touch;
 }

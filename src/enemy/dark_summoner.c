@@ -390,7 +390,11 @@ static void castLightningBolt()
 
 		self->thinkTime = 60;
 
-		self->action = &summonEnd;
+		self->action = &summonWait;
+
+		setEntityAnimation(self, "ATTACK_2");
+
+		self->animationCallback = &summonEnd;
 	}
 }
 
