@@ -162,7 +162,7 @@ int loadGame(int slot)
 	double version = 0;
 	float percentage, steps;
 	unsigned char *buffer;
-	int patchGame = FALSE;
+	int patchGame = FALSE, foundResources;
 	FILE *fp;
 
 	savePtr = NULL;
@@ -185,6 +185,8 @@ int loadGame(int slot)
 	buffer = decompressFile(saveFile);
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
+	
+	foundResources = FALSE;
 
 	while (line != NULL)
 	{
@@ -280,6 +282,8 @@ int loadGame(int slot)
 
 		else if (strcmpignorecase(line, mapName) == 0)
 		{
+			foundResources = TRUE;
+			
 			loadResources(savePtr);
 		}
 
@@ -328,6 +332,15 @@ int loadGame(int slot)
 
 		return loadGame(slot);
 	}
+	
+	/* Fudge to make a game saved in the new Village map still load OK */
+	
+	if (foundResources == FALSE)
+	{
+		sscanf(mapName, "%*s %s\n", itemName);
+		
+		loadMap(itemName, TRUE);
+	}
 
 	free(buffer);
 
@@ -350,7 +363,7 @@ static void patchSaveGame(char *saveFile, double version)
 {
 	char location[MAX_VALUE_LENGTH], *line, *savePtr, itemName[MAX_MESSAGE_LENGTH], *returnedName, mapName[MAX_VALUE_LENGTH];
 	unsigned char *buffer, *originalBuffer;
-	int savedLocation = FALSE;
+	int savedLocation = FALSE, saveMap;
 	FILE *newSave;
 
 	savePtr = NULL;
@@ -397,6 +410,8 @@ static void patchSaveGame(char *saveFile, double version)
 
 		else if (strcmpignorecase("MAP_NAME", itemName) == 0)
 		{
+			saveMap = TRUE;
+			
 			if (strlen(mapName) == 0 || strcmpignorecase(line, mapName) == 0)
 			{
 				sscanf(line, "%*s %s\n", itemName);
@@ -425,7 +440,12 @@ static void patchSaveGame(char *saveFile, double version)
 
 				/* Load up the patch file */
 
-				patchEntities(version, itemName);
+				saveMap = patchEntities(version, itemName);
+				
+				if (saveMap == FALSE)
+				{
+					snprintf(itemName, sizeof(itemName), "%ld_old", game.playTime * SDL_GetTicks());
+				}
 
 				if (savedLocation == FALSE)
 				{
