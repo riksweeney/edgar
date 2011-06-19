@@ -40,6 +40,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../system/load_save.h"
 #include "../medal.h"
+#include "../weather.h"
 #include "../menu/script_menu.h"
 
 extern Entity player, *self;
@@ -792,6 +793,23 @@ void readNextScriptLine()
 
 			setShieldFromScript(token);
 		}
+		
+		else if (strcmpignorecase("UNEQUIP_WEAPON", command) == 0)
+		{
+			unsetWeapon();
+		}
+		
+		else if (strcmpignorecase("UNEQUIP_SHIELD", command) == 0)
+		{
+			unsetShield();
+		}
+		
+		else if (strcmpignorecase("WEATHER", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+			
+			setWeather(getWeatherTypeByName(token));
+		}
 
 		else if (strcmpignorecase(token, "SHOW_CONFIRM") == 0)
 		{
@@ -1041,7 +1059,8 @@ void readNextScriptLine()
 		}
 
 		else if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0
-			|| strcmpignorecase("REQUIRES_WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO_RELATIVE", command) == 0)
+			|| strcmpignorecase("REQUIRES_WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO_RELATIVE", command) == 0
+			|| strcmpignorecase("WALK_TO_ENTITY", command) == 0)
 		{
 			freeDialogBox();
 
@@ -1054,7 +1073,8 @@ void readNextScriptLine()
 
 			else
 			{
-				e = (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0) ? getEntityByObjectiveName(token) : getEntityByRequiredName(token);
+				e = (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("WALK_TO_RELATIVE", command) == 0
+				|| strcmpignorecase("WALK_TO_ENTITY", command) == 0) ? getEntityByObjectiveName(token) : getEntityByRequiredName(token);
 			}
 
 			if (e == NULL)
@@ -1067,6 +1087,11 @@ void readNextScriptLine()
 			if (strcmpignorecase("WALK_TO", command) == 0 || strcmpignorecase("REQUIRES_WALK_TO", command) == 0)
 			{
 				entityWalkTo(e, token);
+			}
+			
+			else if (strcmpignorecase("WALK_TO_ENTITY", command) == 0)
+			{
+				entityWalkToEntity(e, token);
 			}
 
 			else

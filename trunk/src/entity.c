@@ -1516,6 +1516,59 @@ void entityWalkTo(Entity *e, char *coords)
 	}
 }
 
+void entityWalkToEntity(Entity *e, char *coords)
+{
+	int read;
+	char wait[10], anim[10], entityName[MAX_VALUE_LENGTH];
+	Entity *e2;
+
+	read = sscanf(coords, "%s %s %s", entityName, wait, anim);
+	
+	e2 = getEntityByObjectiveName(entityName);
+	
+	if (e2 == NULL)
+	{
+		showErrorAndExit("Could not find Entity %s to walk to", entityName);
+	}
+
+	e->targetX = e2->x;
+	e->targetY = e2->y;
+
+	if (!(e->flags & FLY))
+	{
+		e->targetY = e->y;
+	}
+
+	if (strcmpignorecase(wait, "WAIT") == 0)
+	{
+		e->action = &scriptEntityMoveToTarget;
+
+		setScriptCounter(1);
+	}
+
+	else
+	{
+		e->action = &entityMoveToTarget;
+	}
+
+	e->face = (e->x < e->targetX) ? RIGHT : LEFT;
+
+	if (read == 3)
+	{
+		setEntityAnimation(e, anim);
+	}
+
+	else
+	{
+		setEntityAnimation(e, "WALK");
+	}
+
+	if (e->type == PLAYER)
+	{
+		syncWeaponShieldToPlayer();
+	}
+}
+
 void entityWalkToRelative(Entity *e, char *coords)
 {
 	int x, y, read;
@@ -1926,7 +1979,7 @@ void addDuplicateImage(Entity *e)
 	duplicate->x = e->x;
 	duplicate->y = e->y;
 	
-	duplicate->thinkTime = 30;
+	duplicate->thinkTime = 15;
 	
 	duplicate->draw = &drawLoopingAnimationToMap;
 	
@@ -1947,6 +2000,8 @@ void addDuplicateImage(Entity *e)
 	duplicate->layer = BACKGROUND_LAYER;
 	
 	duplicate->flags |= DO_NOT_PERSIST;
+	
+	duplicate->head = e;
 }
 
 static void duplicateWait()

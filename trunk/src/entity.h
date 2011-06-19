@@ -72,3 +72,4 @@ void teleportEntityFromScript(Entity *, char *);
 int landedOnGround(long);
 EntityList *getEntitiesByName(char *);
 void addDuplicateImage(Entity *);
+void entityWalkToEntity(Entity *, char *);

@@ -624,7 +624,7 @@ static void iceWallMove()
 
 	if (self->y > self->targetY)
 	{
-		self->y -= 1;
+		self->y -= 12;
 
 		if (self->y <= self->targetY)
 		{

@@ -75,6 +75,11 @@ static void resurrectionWait(void);
 static void confirmWait(void);
 static void creditsMove(void);
 static void creditsWait(void);
+static void shieldAttackInit(void);
+static void shieldAttack(void);
+static void shieldAttackMove(void);
+static void shieldTouch(Entity *);
+static void shieldSideAttackInit(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -455,9 +460,15 @@ void doPlayer()
 
 					else
 					{
-						if (playerShield.health >= 4)
+						if (playerShield.inUse == TRUE && playerShield.health >= 4)
 						{
-							printf("Will throw shield\n");
+							setEntityAnimation(self, "STAND");
+							setEntityAnimation(&playerShield, "STAND");
+							setEntityAnimation(&playerWeapon, "STAND");
+							
+							playerShield.action = &shieldAttack;
+							
+							playerShield.action();
 						}
 					}
 
@@ -1126,7 +1137,7 @@ static void takeDamage(Entity *other, int damage)
 						
 						if (playerShield.health >= 4)
 						{
-							setInfoBoxMessage(240, 255, 255, 255, _("Press Attack whilst Blocking to throw your shield..."));
+							setInfoBoxMessage(360, 255, 255, 255, _("Press Attack whilst Blocking to use your shield..."));
 							
 							playerShield.health = 4;
 						}
@@ -1907,6 +1918,258 @@ static void fireArrow()
 	playerWeapon.animationCallback = &attackFinish;
 }
 
+static void shieldAttack()
+{
+	Entity *shield = removePlayerShield();
+	
+	if (shield == NULL)
+	{
+		return;
+	}
+	
+	shield->target = getEntityByObjectiveName("SORCEROR");
+	
+	if (shield->target == NULL)
+	{
+		showErrorAndExit("Shield could not find Sorceror");
+	}
+	
+	shield->thinkTime = 60;
+	
+	shield->action = &shieldAttackInit;
+	
+	shield->touch = &shieldTouch;
+	
+	shield->mental = 0;
+	
+	shield->flags |= FLY;
+	
+	shield->layer = FOREGROUND_LAYER;
+	
+	if (player.face == LEFT)
+	{
+		shield->x = player.x + player.w - shield->w - shield->offsetX;
+	}
+
+	else
+	{
+		shield->x = player.x + shield->offsetX;
+	}
+
+	shield->y = player.y + shield->offsetY;
+	
+	setEntityAnimation(shield, "SHIELD_ATTACK");
+	
+	setCustomAction(shield, &spriteTrail, 3600, 0, 0);
+}
+
+static void shieldAttackInit()
+{
+	float x, y, radians;
+	
+	if (self->target->startX == 2)
+	{
+		self->thinkTime--;
+	}
+	
+	if (self->thinkTime <= 0)
+	{
+		self->x = player.x + player.w / 2 - self->w / 2;
+		self->y = player.y + player.h / 2 - self->h / 2;
+		
+		self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
+		self->targetY = self->target->y + self->target->h / 2 - self->h / 2;
+		
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+		
+		self->dirX *= self->speed * 2;
+		self->dirY *= self->speed * 2;
+		
+		self->action = &shieldAttackMove;
+		
+		self->thinkTime = 300;
+		
+		self->mental = 0;
+		
+		self->health = 30;
+		
+		self->maxThinkTime = 30;
+	}
+	
+	else
+	{
+		x = 0;
+		y = 64;
+
+		self->startX += self->speed / 2;
+
+		if (self->startX >= 360)
+		{
+			self->startX = 0;
+		}
+
+		radians = DEG_TO_RAD(self->startX);
+
+		self->x = (x * cos(radians) - y * sin(radians));
+		self->y = (x * sin(radians) + y * cos(radians));
+
+		self->x += player.x;
+		self->y += player.y;
+
+		self->x += (player.w - self->w) / 2;
+		self->y += (player.h - self->h) / 2;
+	}
+}
+
+static void shieldAttackMove()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0 && self->mental == 0)
+	{
+		self->fallout();
+	}
+}
+
+static void shieldAttackVanish()
+{
+	Entity *temp;
+	
+	self->x += self->dirX;
+	self->y += self->dirY;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= NO_DRAW;
+		
+		self->maxThinkTime -= 5;
+		
+		self->thinkTime = self->maxThinkTime;
+		
+		self->action = &shieldSideAttackInit;
+		
+		self->health--;
+		
+		if (self->health <= 0)
+		{
+			temp = self;
+			
+			self = self->target;
+			
+			clearCustomAction(self, &helpless);
+			
+			self->die();
+			
+			self = temp;
+			
+			clearCustomAction(self, &spriteTrail);
+			
+			setEntityAnimation(self, "STAND");
+			
+			self->fallout();
+		}
+	}
+}
+
+static void shieldSideAttackInit()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->target->x + self->target->w / 2 - self->w / 2;
+		self->y = self->target->y + self->target->h / 2 - self->h / 2;
+		
+		switch (self->mental)
+		{
+			case 0:
+				self->x -= 32;
+			break;
+			
+			case 1:
+				self->x += 32;
+			break;
+			
+			case 2:
+				self->y -= 32;
+			break;
+			
+			case 3:
+				self->y += 32;
+			break;
+			
+			case 4:
+				self->x -= 32;
+				self->y -= 32;
+			break;
+			
+			case 5:
+				self->x += 32;
+				self->y -= 32;
+			break;
+			
+			case 6:
+				self->x += 32;
+				self->y += 32;
+			break;
+			
+			default:
+				self->x -= 32;
+				self->y += 32;
+			break;
+		}
+		
+		self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
+		self->targetY = self->target->y + self->target->h / 2 - self->h / 2;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed;
+		self->dirY *= self->speed;
+
+		self->action = &shieldAttackMove;
+		
+		self->touch = &shieldTouch;
+
+		self->thinkTime = 300;
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->mental++;
+		
+		if (self->mental >= 8)
+		{
+			self->mental = 0;
+		}
+	}
+}
+
+static void shieldTouch(Entity *other)
+{
+	if (other == self->target)
+	{
+		other->dirX = 0;
+		other->dirY = 0;
+		
+		setCustomAction(other, &helpless, 300, 0, 0);
+		
+		self->action = &shieldAttackVanish;
+		
+		self->touch = NULL;
+		
+		self->thinkTime = 10;
+		
+		playSoundToMap("sound/edgar/shield.ogg", BOSS_CHANNEL, player.x, player.y, 0);
+		
+		other->health = 0;
+	}
+}
+
 void setBowAmmo(int val)
 {
 	Entity *bow = getInventoryItemByObjectiveName("Bow");
@@ -2120,6 +2383,8 @@ Entity *removePlayerShield()
 		removeInventoryItemByObjectiveName(playerShield.objectiveName);
 
 		e = addPermanentItem(playerShield.name, self->x, self->y);
+		
+		e->health = playerShield.health;
 
 		playerShield.inUse = FALSE;
 	}
@@ -2537,6 +2802,22 @@ void setShieldFromScript(char *name)
 	}
 
 	setPlayerShield(1);
+}
+
+void unsetWeapon()
+{
+	if (playerWeapon.inUse == TRUE)
+	{
+		playerWeapon.inUse = FALSE;
+	}
+}
+
+void unsetShield()
+{
+	if (playerShield.inUse == TRUE)
+	{
+		playerShield.inUse = FALSE;
+	}
 }
 
 void scriptAttack()

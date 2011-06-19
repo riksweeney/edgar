@@ -57,3 +57,5 @@ void playerWaitForConfirm(void);
 void setWeaponFromScript(char *);
 void scriptAttack(void);
 void setShieldFromScript(char *);
+void unsetWeapon(void);
+void unsetShield(void);

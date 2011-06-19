@@ -129,6 +129,19 @@ extern Game game;
 	}
 #endif
 
+void startOnMap(char *mapName)
+{
+	removeTemporaryData();
+
+	freeGameResources();
+
+	loadMap(mapName, TRUE);
+
+	initGame();
+
+	cameraSnapToTargetEntity();
+}
+
 void newGame()
 {
 	removeTemporaryData();
@@ -547,7 +560,7 @@ static void patchSaveGame(char *saveFile, double version)
 void saveGame(int slot)
 {
 	char itemName[MAX_MESSAGE_LENGTH], *line, *savePtr;
-	char backupFile[MAX_PATH_LENGTH], saveFile[MAX_PATH_LENGTH];
+	char saveFile[MAX_PATH_LENGTH];
 	char *mapName = getMapFilename();
 	int i;
 	unsigned char *buffer;
@@ -579,7 +592,7 @@ void saveGame(int slot)
 
 	else
 	{
-		/* Backup older save */
+		/* Backup older save
 
 		for (i=1;;i++)
 		{
@@ -612,7 +625,7 @@ void saveGame(int slot)
 
 			break;
 		}
-
+		*/
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 	}
 

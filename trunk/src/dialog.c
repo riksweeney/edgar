@@ -157,6 +157,10 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		
 		token = replaceString(token, "[HOURS]", getPlayTimeHours());
 		
+		snprintf(word, sizeof(word), "%d ", game.continues);
+		
+		token = replaceString(token, "[CONTINUE_COUNT]", word);
+		
 		token = replaceString(token, "[INPUT_LEFT]", getKeyValue(control.button[CONTROL_LEFT]));
 		
 		token = replaceString(token, "[INPUT_RIGHT]", getKeyValue(control.button[CONTROL_RIGHT]));
