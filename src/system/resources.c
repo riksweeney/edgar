@@ -101,10 +101,13 @@ void freeLevelResources()
 	/* Free the sounds */
 
 	freeSounds();
+	
+	if (game.overrideMusic == FALSE)
+	{
+		/* Free music */
 
-	/* Free music */
-
-	freeMusic();
+		freeMusic();
+	}
 
 	/* Free the map data */
 

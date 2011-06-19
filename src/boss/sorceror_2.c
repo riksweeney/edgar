@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../graphics/graphics.h"
 #include "../system/properties.h"
+#include "../credits.h"
 #include "../entity.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
@@ -39,9 +40,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/gib.h"
 #include "../item/key_items.h"
 #include "../event/trigger.h"
+#include "../event/global_trigger.h"
 #include "../geometry.h"
 #include "../world/target.h"
 #include "../hud.h"
+#include "../dialog.h"
 #include "sorceror.h"
 #include "../player.h"
 #include "../graphics/decoration.h"
@@ -104,6 +107,11 @@ static void destroyFloorInit(void);
 static void destroyFloor(void);
 static void continuePoint(void);
 static void hover(void);
+static void finalAttackInit(void);
+static void finalAttack(void);
+static void finalAttackFinish(void);
+static void die(void);
+static void dieWait(void);
 
 Entity *addSorceror2(int x, int y, char *name)
 {
@@ -126,6 +134,10 @@ Entity *addSorceror2(int x, int y, char *name)
 	e->touch = &entityTouch;
 	
 	e->takeDamage = &takeDamage;
+	
+	e->die = &die;
+	
+	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
 
@@ -202,6 +214,11 @@ static void entityWait()
 		{
 			disintegrationShield = getInventoryItemByObjectiveName("Disintegration Shield");
 			
+			if (disintegrationShield == NULL)
+			{
+				disintegrationShield = getEntityByObjectiveName("Disintegration Shield");
+			}
+			
 			switch (disintegrationShield->health)
 			{
 				case 1:
@@ -212,8 +229,12 @@ static void entityWait()
 					rand = prand() % 5;
 				break;
 				
-				default:
+				case 3:
 					rand = prand() % 6;
+				break;
+				
+				default:
+					rand = 6;
 				break;
 			}
 			
@@ -237,7 +258,11 @@ static void entityWait()
 						self->action = &riftAttackInit;
 					break;
 					
-					case 4:
+					case 6:
+						self->action = &finalAttackInit;
+					break;
+					
+					default:
 						self->action = &holdPersonInit;
 					break;
 				}
@@ -267,6 +292,10 @@ static void entityWait()
 						self->action = &holdPersonInit;
 					break;
 					
+					case 6:
+						self->action = &finalAttackInit;
+					break;
+					
 					default:
 						self->action = &statueAttackInit;
 					break;
@@ -276,6 +305,94 @@ static void entityWait()
 	}
 	
 	hover();
+}
+
+static void finalAttackInit()
+{
+	Target *t;
+	
+	t = getTargetByName("SORCEROR_MID_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Sorceror cannot find target");
+	}
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->x = t->x;
+	self->y = t->y;
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	self->flags |= NO_DRAW;
+	
+	self->thinkTime = 30;
+	
+	self->action = &finalAttack;
+	
+	self->mental = 0;
+	
+	hover();
+}
+
+static void finalAttack()
+{
+	Entity *temp;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			
+			self->flags &= ~NO_DRAW;
+			
+			createAutoDialogBox(_("Sorceror"), _("Enough! Prepare to die..."), 180);
+			
+			self->thinkTime = 600;
+			
+			self->mental = 1;
+		}
+		
+		else
+		{
+			/* Gib the player */
+
+			temp = self;
+			
+			self = &player;
+
+			freeEntityList(playerGib());
+
+			self = temp;
+			
+			self->thinkTime = 120;
+			
+			self->action = &finalAttackFinish;
+		}
+	}
+	
+	else if (self->thinkTime <= 420 && self->mental == 1)
+	{
+		self->startX = 2;
+	}
+	
+	hover();
+}
+
+static void finalAttackFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &teleportAway;
+	}
 }
 
 static void destroyFloorInit()
@@ -295,7 +412,6 @@ static void destroyFloorInit()
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 	
 	self->x = t->x;
-	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
 	
 	self->face = rand == 0 ? RIGHT : LEFT;
 	
@@ -322,6 +438,8 @@ static void destroyFloor()
 	{
 		if (self->mental == 0)
 		{
+			self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+			
 			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 			
 			self->flags &= ~NO_DRAW;
@@ -401,7 +519,6 @@ static void riftAttackInit()
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 	
 	self->x = t->x;
-	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
 	
 	self->face = rand == 0 ? RIGHT : LEFT;
 	
@@ -424,6 +541,8 @@ static void riftAttack()
 	{
 		if (self->mental == 0)
 		{
+			self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+			
 			self->flags &= ~NO_DRAW;
 			
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -642,7 +761,6 @@ static void disintegrationAttackInit()
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 	
 	self->x = t->x;
-	self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
 	
 	self->face = rand == 0 ? RIGHT : LEFT;
 	
@@ -667,6 +785,8 @@ static void disintegrationAttack()
 	{
 		if (self->mental == 0)
 		{
+			self->y = getMapFloor(self->x + self->w / 2, self->y) - self->h;
+			
 			self->flags &= ~NO_DRAW;
 			
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -1597,6 +1717,8 @@ static void createShield()
 		e->alpha = 128;
 		
 		e->face = RIGHT;
+		
+		e->maxHealth = self->health;
 
 		setEntityAnimation(e, "STAND");
 
@@ -1649,6 +1771,11 @@ static void shieldWait()
 	radians = DEG_TO_RAD(self->thinkTime);
 
 	self->alpha = 128 + (64 * cos(radians));
+	
+	if (self->maxHealth != self->head->health)
+	{
+		self->die();
+	}
 }
 
 static void shieldTakeDamage(Entity *other, int damage)
@@ -1888,6 +2015,11 @@ static void callSummoners()
 			break;
 		}
 		
+		if (t == NULL)
+		{
+			showErrorAndExit("Sorceror cannot find target");
+		}
+		
 		e->targetX = t->x;
 		e->targetY = t->y;
 		
@@ -1901,11 +2033,6 @@ static void callSummoners()
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 		
 		e->head = self;
-		
-		if (t == NULL)
-		{
-			showErrorAndExit("Sorceror cannot find target");
-		}
 		
 		if (self->mental <= 0)
 		{
@@ -2052,4 +2179,53 @@ static void hover()
 	}
 
 	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 8;
+}
+
+static void die()
+{
+	int i;
+	long onGround;
+	
+	self->action = &die;
+	
+	self->damage = 0;
+	
+	self->flags &= ~FLY;
+	
+	onGround = self->flags & ON_GROUND;
+	
+	checkToMap(self);
+	
+	if (landedOnGround(onGround) == TRUE)
+	{
+		playSoundToMap("sound/enemy/red_grub/thud.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		shakeScreen(LIGHT, 15);
+
+		for (i=0;i<20;i++)
+		{
+			addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+		}
+		
+		fireTrigger(self->objectiveName);
+		
+		fireGlobalTrigger(self->objectiveName);
+		
+		self->die = &entityDieNoDrop;
+		
+		self->action = &dieWait;
+		
+		clearContinuePoint();
+
+		increaseKillCount();
+
+		freeBossHealthBar();
+
+		fadeBossMusic();
+	}
+}
+
+static void dieWait()
+{
+	checkToMap(self);
 }

@@ -1,0 +1,32 @@
+WEATHER NO_WEATHER
+SET EDGAR ANIMATION SAD
+SET EDGAR PROPERTY X 18200
+SET EDGAR PROPERTY Y 4458
+SET EDGAR FACE RIGHT
+UNEQUIP_WEAPON
+UNEQUIP_SHIELD
+CAMERA_SNAP EDGAR
+WAIT 240
+AUTO_TALK 180 Edgar I can't believe he's gone
+AUTO_TALK 180 Edgar I tried so hard to find him
+AUTO_TALK 180 Edgar And I failed
+AUTO_TALK 180 Edgar What am I going to do now?
+AUTO_TALK 120 Edgar *sniff*
+MUSIC FADE_DOWN 2000
+WAIT 240
+AUTO_TALK 180 ??? Edgar! Edgar, where are you?
+AUTO_TALK 120 Edgar !
+AUTO_TALK 180 Edgar That voice...
+AUTO_TALK 180 Edgar It can't be...
+WALK_TO_RELATIVE EDGAR -180 0 WAIT
+MUSIC LOAD music/GSLINGER.MOD
+AUTO_TALK 120 Edgar Daddy!
+AUTO_TALK 120 Edgar's_Father Edgar!
+AUTO_TALK 180 Edgar's_Father Jacob, I found him!
+AUTO_TALK 180 Edgar's_Father What are you doing here, son? It's dangerous, we have to leave
+AUTO_TALK 180 Edgar I came to rescue you!
+AUTO_TALK 180 Edgar's_Father Eh? What are you... No, tell me later, let's go home
+WAIT 60
+ADD MAP_TRIGGER "map01" RUN_SCRIPT "ending_part2"
+LOAD_LEVEL map01 Forest-Village Entrance
+WAIT 180

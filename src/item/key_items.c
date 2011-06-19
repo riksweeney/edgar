@@ -306,6 +306,8 @@ void keyItemFallout()
 	self->thinkTime = 120;
 
 	self->action = &keyItemRespawn;
+	
+	self->flags &= ~FLY;
 }
 
 void keyItemRespawn()

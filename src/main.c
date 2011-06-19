@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
 
 		if (mapID != -1)
 		{
-			loadMap(argv[mapID], TRUE);
+			startOnMap(argv[mapID]);
 		}
 		
 		else if (game.firstRun == TRUE)

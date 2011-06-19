@@ -33,3 +33,4 @@ int getPrivateKey(char *);
 int loadContinueData(void);
 void saveContinueData(void);
 int bossExists(char *);
+void startOnMap(char *);
