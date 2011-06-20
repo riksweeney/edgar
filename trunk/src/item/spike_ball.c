@@ -110,6 +110,8 @@ static void throwBall(int val)
 
 static void entityWait()
 {
+	long onGround;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -122,10 +124,12 @@ static void entityWait()
 
 		self->thinkTime = 15;
 	}
+	
+	onGround = self->flags & ON_GROUND;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->dirX = 0;
 	}

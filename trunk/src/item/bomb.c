@@ -136,9 +136,13 @@ static void startMiniFuse()
 
 static void entityWait()
 {
+	long onGround;
+	
+	onGround = self->flags & ON_GROUND;
+
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->dirX = 0;
 	}

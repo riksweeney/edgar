@@ -291,9 +291,13 @@ static void throwBindArtifact(int val)
 
 static void bindWait()
 {
-	checkToMap(self);
+	long onGround;
 	
-	if (self->flags & ON_GROUND)
+	onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->dirX = 0;
 	}

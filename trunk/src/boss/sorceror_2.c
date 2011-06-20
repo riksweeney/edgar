@@ -827,7 +827,7 @@ static void disintegrationAttack()
 
 			e->action = &disintegrationSpellInit;
 
-			e->thinkTime = 60;
+			e->thinkTime = 120;
 
 			e->startX = e->x;
 			e->startY = e->y;
@@ -1322,7 +1322,7 @@ static void statueRiseWait()
 
 static void holdPersonInit()
 {
-	setEntityAnimation(self, "RAISE_ARMS");
+	setEntityAnimation(self, "ATTACK_1");
 	
 	self->thinkTime = 15;
 	

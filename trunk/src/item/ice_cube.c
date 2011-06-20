@@ -72,7 +72,13 @@ Entity *addIceCube(int x, int y, char *name)
 
 static void entityWait()
 {
-	if (self->flags & ON_GROUND)
+	long onGround;
+	
+	onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->dirX = 0;
 

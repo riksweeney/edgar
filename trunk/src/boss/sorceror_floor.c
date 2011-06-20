@@ -67,7 +67,10 @@ Entity *addSorcerorFloor(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
+	if (strcmpignorecase("boss/sorceror_shield", other->name) != 0)
+	{
+		pushEntity(other);
+	}
 	
 	if (other->standingOn == self && other->type == PLAYER && self->active == TRUE)
 	{
