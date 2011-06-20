@@ -103,9 +103,14 @@ static void useBottle(int val)
 
 static void soulActivate()
 {
+	long onGround;
 	Entity *e;
 
-	if (self->flags & ON_GROUND)
+	onGround = self->flags & ON_GROUND;
+
+	checkToMap(self);
+
+	if (landedOnGround(onGround) == TRUE)
 	{
 		if (self->health == 0)
 		{

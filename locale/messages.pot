@@ -3341,9 +3341,6 @@ msgstr ""
 msgid "A shield that can resist disintegration"
 msgstr ""
 
-msgid "Press Attack whilst Blocking to throw your shield..."
-msgstr ""
-
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr ""
 
@@ -3375,9 +3372,6 @@ msgid "(Phew)"
 msgstr ""
 
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
-
-msgid "Your spell won't work against me anymore"
 msgstr ""
 
 msgid "Now, if you won't tell me the whereabouts of my father"
@@ -3554,12 +3548,318 @@ msgstr ""
 msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
 msgstr ""
 
+msgid "Press Attack whilst Blocking to use your shield..."
+msgstr ""
+
+msgid "Chaos still rests..."
+msgstr ""
+
+msgid "Copyright Parallel Realities 2009 - 2011"
+msgstr ""
+
+msgid "Play Time"
+msgstr ""
+
+msgid "Kills"
+msgstr ""
+
+msgid "Arrows Fired"
+msgstr ""
+
+msgid "Distanced Travelled"
+msgstr ""
+
+msgid "Attacks Blocked"
+msgstr ""
+
+msgid "Time Spent As A Slime"
+msgstr ""
+
+msgid "Secrets Found"
+msgstr ""
+
+msgid "%d / %d"
+msgstr ""
+
+msgid "Continues"
+msgstr ""
+
+msgid "Defeated Bosses"
+msgstr ""
+
+msgid "Undefeated"
+msgstr ""
+
+msgid "Defeated"
+msgstr ""
+
+msgid "Sorceror"
+msgstr ""
+
+msgid "Enough! Prepare to die..."
+msgstr ""
+
+msgid "Quickly turn left and right to remove the hold person spell!"
+msgstr ""
+
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
 
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
 msgstr ""
 
+msgid "Your spell won't work against me any more"
+msgstr ""
+
+msgid "I can't believe he's gone"
+msgstr ""
+
+msgid "I tried so hard to find him"
+msgstr ""
+
+msgid "And I failed"
+msgstr ""
+
+msgid "What am I going to do now?"
+msgstr ""
+
+msgid "*sniff*"
+msgstr ""
+
+msgid "Edgar! Edgar, where are you?"
+msgstr ""
+
+msgid "!"
+msgstr ""
+
+msgid "That voice..."
+msgstr ""
+
+msgid "It can't be..."
+msgstr ""
+
+msgid "Daddy!"
+msgstr ""
+
+msgid "Edgar!"
+msgstr ""
+
+msgid "Jacob, I found him!"
+msgstr ""
+
+msgid "What are you doing here, son? It's dangerous, we have to leave"
+msgstr ""
+
+msgid "I came to rescue you!"
+msgstr ""
+
+msgid "Eh? What are you... No, tell me later, let's go home"
+msgstr ""
+
+msgid "Nowhere left to hide"
+msgstr ""
+
+msgid "You defeated Grimlore? Impossible!"
+msgstr ""
+
+msgid "He submitted to my sword just like everything else in this foul place"
+msgstr ""
+
+msgid "This is your last chance, tell me where my father is!"
+msgstr ""
+
+msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
+msgstr ""
+
+msgid "LIAR! I've run out of patience, prepare to die!"
+msgstr ""
+
+msgid "Very well. If that is your wish"
+msgstr ""
+
+msgid "Many have suffered at my hand"
+msgstr ""
+
+msgid "Your death will be quick, but extremely painful"
+msgstr ""
+
+msgid "I will add your head to the long line of foolish adventurers who have tried to best me"
+msgstr ""
+
+msgid "Prepare yourself, Edgar"
+msgstr ""
+
+msgid "Escape the Catacombs"
+msgstr ""
+
+msgid "He's through here, I can feel it"
+msgstr ""
+
+msgid "There's no going back once I step through that door, I'd better make sure I'm ready"
+msgstr ""
+
+msgid "OK, here we go..."
+msgstr ""
+
+msgid "Maybe I should prepare a little bit more first"
+msgstr ""
+
+msgid "...and when you didn't come home last night I set off to find you"
+msgstr ""
+
+msgid "You went to the Sorceror's Fortress?!"
+msgstr ""
+
+msgid "I thought he'd kidnapped you! Where were you?"
+msgstr ""
+
+msgid "Erm... well you see"
+msgstr ""
+
+msgid "When I went out last night I went to Jacob's for a couple of drinks"
+msgstr ""
+
+msgid "*cough*"
+msgstr ""
+
+msgid "several drinks"
+msgstr ""
+
+msgid "On the way home I stopped by the well to have a drink of water"
+msgstr ""
+
+msgid "and I fell in"
+msgstr ""
+
+msgid "What?"
+msgstr ""
+
+msgid "I fell down the well"
+msgstr ""
+
+msgid "I was down there until only a couple of hours ago"
+msgstr ""
+
+msgid "Are you kidding me?"
+msgstr ""
+
+msgid "I shouted down that well, didn't you hear me?"
+msgstr ""
+
+msgid "I was out cold"
+msgstr ""
+
+msgid "Plus, the hangover was absolute murder"
+msgstr ""
+
+msgid "I crossed the swamp"
+msgstr ""
+
+msgid "Broke into the Sorceror's Fortress"
+msgstr ""
+
+msgid "Fought countless numbers of ferocious monsters"
+msgstr ""
+
+msgid "Got imprisoned in his dungeon"
+msgstr ""
+
+msgid "And was teleported to another part of the world!"
+msgstr ""
+
+msgid "I nearly died!"
+msgstr ""
+
+msgid "[CONTINUE_COUNT] times according to my count"
+msgstr ""
+
+msgid "And after all that, when I defeated the Sorceror, he had no idea who you were"
+msgstr ""
+
+msgid "You killed the Sorceror?!"
+msgstr ""
+
+msgid "I thought he'd kidnapped Dad!"
+msgstr ""
+
+msgid "Wow, that has to be the greatest wrongful accusation I think I'll ever hear!"
+msgstr ""
+
+msgid "Nevermind, I'm sure in a few years we'll all look back on this and laugh..."
+msgstr ""
+
+msgid "Hey Jacob, looks like your chickens have escaped from their pen"
+msgstr ""
+
+msgid "Edgar, why don't you help Jacob round them up?"
+msgstr ""
+
+msgid "It shouldn't take you long..."
+msgstr ""
+
+msgid "Confront the Sorceror"
+msgstr ""
+
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+
+msgid "Return to the Study"
+msgstr ""
+
+msgid "I think it's dead"
+msgstr ""
+
+msgid "Or at least as dead as a book can be"
+msgstr ""
+
+msgid "It might be safe to touch now"
+msgstr ""
+
+msgid "This page just has a sequence of numbers scrawled on it"
+msgstr ""
+
+msgid "I'll take it with me, it might come in handy"
+msgstr ""
+
+msgid "Besides, this thing nearly killed me twice, I should have some sort of trophy of my victory"
+msgstr ""
+
+msgid "I'll leave it alone, especially after what happened last time..."
+msgstr ""
+
+msgid "Find Evil Edgar"
+msgstr ""
+
+msgid "Ugh, you have defeated me"
+msgstr ""
+
+msgid "How..."
+msgstr ""
+
+msgid "TALK! Where is my father?"
+msgstr ""
+
+msgid "I... I don't understand..."
+msgstr ""
+
+msgid "Last night you came to my village and kidnapped my father"
+msgstr ""
+
+msgid "Where is he?"
+msgstr ""
+
+msgid "I..."
+msgstr ""
+
+msgid "I have never been to your village"
+msgstr ""
+
+msgid "I don't know where your father is..."
+msgstr ""
+
+msgid "But if you didn't take my Dad"
+msgstr ""
+
+msgid "Defeat the Sorceror"
 msgstr ""
 

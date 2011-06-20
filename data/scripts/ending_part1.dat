@@ -18,7 +18,7 @@ AUTO_TALK 180 ??? Edgar! Edgar, where are you?
 AUTO_TALK 120 Edgar !
 AUTO_TALK 180 Edgar That voice...
 AUTO_TALK 180 Edgar It can't be...
-WALK_TO_RELATIVE EDGAR -180 0 WAIT
+WALK_TO_RELATIVE EDGAR -360 0 WAIT
 MUSIC LOAD music/GSLINGER.MOD
 AUTO_TALK 120 Edgar Daddy!
 AUTO_TALK 120 Edgar's_Father Edgar!

@@ -5,6 +5,7 @@ IF CONFIRM_YES
 TALK Edgar OK, here we go...
 ADD MAP_TRIGGER "map24" RUN_SCRIPT sorceror_start
 LOAD_LEVEL map24
+WAIT 180
 END
 IF CONFIRM_NO
 TALK Edgar Maybe I should prepare a little bit more first
