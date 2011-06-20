@@ -106,6 +106,8 @@ void initGame()
 	game.canContinue = FALSE;
 	
 	game.overrideMusic = FALSE;
+	
+	game.showHUD = TRUE;
 
 	game.offsetX = game.offsetY = 0;
 

@@ -1261,6 +1261,21 @@ void readNextScriptLine()
 
 			runScript(token);
 		}
+		
+		else if (strcmpignorecase("HUD", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			if (strcmpignorecase("OFF", token) == 0)
+			{
+				game.showHUD = FALSE;
+			}
+			
+			else
+			{
+				game.showHUD = TRUE;
+			}
+		}
 
 		else if (command[0] != '#')
 		{
