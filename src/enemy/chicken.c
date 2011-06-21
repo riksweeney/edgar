@@ -35,6 +35,7 @@ static void wander(void);
 static void moveToFood(void);
 static void finishEating(void);
 static void creditsMove(void);
+static void resumeNormalFunction(void);
 
 Entity *addChicken(int x, int y, char *name)
 {
@@ -54,6 +55,7 @@ Entity *addChicken(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	e->resumeNormalFunction = &resumeNormalFunction;
 	
 	e->creditsAction = &creditsMove;
 
@@ -255,4 +257,9 @@ static void creditsMove()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+static void resumeNormalFunction()
+{
+	self->action = &wander;
 }
