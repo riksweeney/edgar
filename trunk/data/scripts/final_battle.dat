@@ -1,10 +1,10 @@
 TALK Edgar He's through here, I can feel it
 TALK Edgar There's no going back once I step through that door, I'd better make sure I'm ready
-SHOW CONFIRM Enter the door?
+SHOW_CONFIRM Enter the door?
 IF CONFIRM_YES
 TALK Edgar OK, here we go...
-ADD MAP_TRIGGER "map24" RUN_SCRIPT sorceror_start
-LOAD_LEVEL map24
+ADD MAP_TRIGGER "map24" RUN_SCRIPT "sorceror_start"
+LOAD_LEVEL map24 Observatory-Right Tower
 WAIT 180
 END
 IF CONFIRM_NO

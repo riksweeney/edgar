@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../collisions.h"
+#include "../custom_actions.h"
 #include "../item/key_items.h"
 #include "../event/global_trigger.h"
 #include "../world/target.h"
@@ -123,7 +124,9 @@ static void removeChicken()
 		self->target->x = target->x;
 		self->target->y = target->y;
 
-		self->target->flags &= ~HELPLESS;
+		clearCustomAction(self->target, &helpless);
+		
+		self->target->action = self->target->resumeNormalFunction;
 
 		self->target = NULL;
 
@@ -176,13 +179,13 @@ static void activateTrap()
 				{
 					self->target = &entity[i];
 
-					self->target->flags |= HELPLESS;
+					setCustomAction(self->target, &helpless, 300, 0, 0);
 
 					self->target->dirX = 0;
 
 					self->target->animationCallback = NULL;
 
-					setEntityAnimation(self->target, "CUSTOM_1");
+					setEntityAnimation(self->target, "STAND");
 
 					self->target->x = self->x + abs(self->target->w - self->w) / 2;
 
