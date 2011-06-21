@@ -1955,7 +1955,7 @@ static void shieldDie()
 
 static void pieceWait()
 {
-	self->alpha -= 6;
+	self->alpha -= 2;
 	
 	if (self->alpha <= 0)
 	{

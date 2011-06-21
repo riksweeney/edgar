@@ -132,11 +132,11 @@ static void lookForPlayer()
 				break;
 				
 				case 1:
-					self->animationCallback = &castLightningBolt;
+					self->animationCallback = &castFireInit;
 				break;
 				
 				default:
-					self->animationCallback = &castFireInit;
+					self->animationCallback = &castLightningBolt;
 				break;
 			}
 

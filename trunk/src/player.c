@@ -1159,6 +1159,8 @@ static void takeDamage(Entity *other, int damage)
 							playerShield.health = shieldHealth;
 							
 							alignAnimations(&playerShield);
+							
+							setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
 						}
 					}
 				}
