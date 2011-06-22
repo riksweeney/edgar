@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
-#include "../graphics/decoration.h"
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../hud.h"
@@ -28,11 +27,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
-#include "../item/item.h"
 #include "../projectile.h"
 #include "snail_shell.h"
 #include "../system/error.h"
-#include "../game.h"
 
 extern Entity *self, player;
 

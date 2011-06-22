@@ -28,7 +28,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../hud.h"
 #include "../inventory.h"
-#include "../event/script.h"
 
 extern Entity *self, player;
 extern Input input;

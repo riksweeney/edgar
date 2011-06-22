@@ -21,13 +21,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "system/random.h"
 #include "system/resources.h"
-#include "game.h"
 #include "medal.h"
 #include "system/record.h"
 #include "system/load_save.h"
 #include "audio/audio.h"
 #include "system/pak.h"
-#include "graphics/graphics.h"
 
 extern Game game;
 

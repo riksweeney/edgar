@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../game.h"
 #include "../audio/music.h"
 #include "../collisions.h"
-#include "../item/key_items.h"
 #include "../world/target.h"
 #include "../graphics/decoration.h"
 #include "../player.h"

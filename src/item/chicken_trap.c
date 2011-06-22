@@ -28,8 +28,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../event/global_trigger.h"
 #include "../world/target.h"
-#include "../player.h"
-#include "../hud.h"
 #include "../system/error.h"
 
 extern Entity *self, entity[MAX_ENTITIES];

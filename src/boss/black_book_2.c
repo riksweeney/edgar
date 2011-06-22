@@ -32,22 +32,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "../game.h"
 #include "../audio/music.h"
-#include "../graphics/gib.h"
-#include "../event/trigger.h"
 #include "../hud.h"
-#include "../inventory.h"
 #include "../item/item.h"
-#include "../item/key_items.h"
 #include "../world/target.h"
 #include "../system/error.h"
 #include "../geometry.h"
 #include "../enemy/enemies.h"
-#include "../event/script.h"
 #include "../player.h"
 #include "../enemy/rock.h"
 #include "../credits.h"
-#include "../event/trigger.h"
-#include "../event/global_trigger.h"
 
 extern Entity *self, player;
 

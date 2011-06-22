@@ -28,7 +28,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../system/error.h"
 #include "../player.h"
-#include "../game.h"
 #include "../event/global_trigger.h"
 
 extern Entity *self;

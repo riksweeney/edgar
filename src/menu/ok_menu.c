@@ -21,11 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "widget.h"
 #include "../draw.h"
-#include "label.h"
 #include "../init.h"
 #include "../graphics/graphics.h"
 #include "../system/pak.h"
-#include "../input.h"
 #include "../audio/audio.h"
 #include "ok_menu.h"
 #include "../system/error.h"

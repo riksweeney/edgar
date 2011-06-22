@@ -29,8 +29,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../collisions.h"
 #include "../world/target.h"
-#include "../player.h"
-#include "../event/trigger.h"
 
 extern Entity *self, player;
 
