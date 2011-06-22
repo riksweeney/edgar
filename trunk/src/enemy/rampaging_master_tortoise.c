@@ -33,14 +33,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../medal.h"
 #include "../inventory.h"
-#include "../hud.h"
-#include "../map.h"
 #include "../geometry.h"
 #include "../projectile.h"
 #include "../player.h"
 #include "../item/item.h"
-#include "thunder_cloud.h"
-#include "rock.h"
 
 extern Entity *self, player;
 extern Game game;

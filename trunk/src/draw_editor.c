@@ -21,11 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "cursor.h"
 #include "map.h"
-#include "graphics/decoration.h"
 #include "entity.h"
 #include "player.h"
-#include "hud.h"
-#include "game.h"
 #include "graphics/font.h"
 #include "world/target.h"
 #include "status_panel.h"

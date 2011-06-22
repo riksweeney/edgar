@@ -21,8 +21,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "game.h"
 #include "medal.h"
-#include "weather.h"
-#include "graphics/font.h"
 #include "system/random.h"
 #include "audio/audio.h"
 #include "audio/music.h"
@@ -40,7 +38,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "event/map_trigger.h"
 #include "system/error.h"
 #include "system/load_save.h"
-#include "event/script.h"
 
 extern Game game;
 extern Entity *self;

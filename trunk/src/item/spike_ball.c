@@ -25,7 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../projectile.h"
 #include "key_items.h"
-#include "../hud.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
 

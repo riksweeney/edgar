@@ -25,13 +25,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/random.h"
 #include "../audio/audio.h"
-#include "enemies.h"
-#include "../custom_actions.h"
-#include "../hud.h"
 #include "../player.h"
 #include "../geometry.h"
 #include "../system/error.h"
-#include "../game.h"
 
 extern Entity *self, player;
 extern Game game;

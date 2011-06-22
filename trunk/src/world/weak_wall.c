@@ -29,7 +29,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../system/error.h"
 #include "../system/random.h"
-#include "../graphics/decoration.h"
 #include "../hud.h"
 
 extern Entity *self;

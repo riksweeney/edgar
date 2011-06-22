@@ -36,7 +36,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../world/explosion.h"
 #include "../geometry.h"
-#include "../inventory.h"
 #include "../item/item.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"

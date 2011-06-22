@@ -24,8 +24,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../collisions.h"
 #include "../audio/audio.h"
-#include "../enemy/enemies.h"
-#include "../item/item.h"
 #include "../graphics/decoration.h"
 #include "../system/error.h"
 #include "../system/random.h"

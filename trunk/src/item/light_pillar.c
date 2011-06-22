@@ -27,10 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../map.h"
 #include "../collisions.h"
-#include "key_items.h"
-#include "../event/script.h"
-#include "../event/trigger.h"
-#include "../event/global_trigger.h"
 #include "../system/error.h"
 
 extern Entity *self;

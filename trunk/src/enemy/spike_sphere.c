@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../audio/audio.h"
-#include "../graphics/decoration.h"
 #include "../graphics/animation.h"
 #include "../entity.h"
 #include "../custom_actions.h"

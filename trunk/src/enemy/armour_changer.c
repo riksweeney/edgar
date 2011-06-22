@@ -20,12 +20,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
-#include "../graphics/decoration.h"
 #include "../entity.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
-#include "../player.h"
-#include "../projectile.h"
 #include "../map.h"
 #include "../inventory.h"
 #include "../system/properties.h"
@@ -34,7 +31,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../item/key_items.h"
 #include "../system/error.h"
 #include "../audio/audio.h"
-#include "../game.h"
 #include "../hud.h"
 
 extern Entity *self;

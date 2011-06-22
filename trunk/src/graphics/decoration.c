@@ -20,14 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "decoration.h"
-#include "font.h"
 #include "animation.h"
 #include "graphics.h"
-#include "sprites.h"
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../entity.h"
-#include "../map.h"
 #include "../system/error.h"
 
 static Entity decoration[MAX_DECORATIONS];

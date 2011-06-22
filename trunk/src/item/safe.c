@@ -26,11 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../medal.h"
 #include "../player.h"
 #include "../inventory.h"
-#include "../world/target.h"
-#include "../event/global_trigger.h"
-#include "../event/objective.h"
 #include "../system/error.h"
-#include "../system/random.h"
 #include "../hud.h"
 #include "../event/script.h"
 

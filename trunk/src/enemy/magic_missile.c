@@ -23,11 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../system/properties.h"
 #include "../system/random.h"
-#include "../item/item.h"
 #include "../collisions.h"
 #include "../geometry.h"
-#include "../custom_actions.h"
-#include "../item/key_items.h"
 #include "../system/error.h"
 #include "../hud.h"
 

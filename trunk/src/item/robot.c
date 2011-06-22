@@ -24,7 +24,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../collisions.h"
 #include "key_items.h"
-#include "item.h"
 #include "../map.h"
 #include "../hud.h"
 #include "../player.h"

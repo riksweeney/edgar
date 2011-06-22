@@ -26,7 +26,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/graphics.h"
 #include "options_menu.h"
 #include "../system/pak.h"
-#include "../input.h"
 #include "../audio/music.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
