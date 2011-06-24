@@ -128,6 +128,10 @@ static void activate(int val)
 		
 		return;
 	}
+	
+	runScript("incomplete");
+	
+	return;
 
 	addDisplay();
 

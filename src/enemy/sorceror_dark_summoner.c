@@ -54,6 +54,7 @@ static void lightningBolt(void);
 static void castWait(void);
 static void ballWait(void);
 static void moveToSorceror(void);
+static void flashWait(void);
 
 Entity *addSorcerorDarkSummoner(int x, int y, char *name)
 {
@@ -255,6 +256,8 @@ static void ballWait()
 
 static void moveToSorceror()
 {
+	Entity *e;
+	
 	self->x += self->dirX;
 	self->y += self->dirY;
 
@@ -262,6 +265,38 @@ static void moveToSorceror()
 	{
 		self->target->startY++;
 
+		self->inUse = FALSE;
+		
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a Sorceror Energy Flash");
+		}
+
+		loadProperties("boss/sorceror_energy_flash", e);
+		
+		setEntityAnimation(e, "STAND");
+		
+		e->head = self->target;
+
+		e->x = e->head->x;
+		e->y = e->head->y;
+
+		e->action = &flashWait;
+		e->draw = &drawLoopingAnimationToMap;
+	}
+}
+
+static void flashWait()
+{
+	self->x = self->head->x;
+	self->y = self->head->y;
+	
+	self->alpha -= 12;
+	
+	if (self->alpha <= 0)
+	{
 		self->inUse = FALSE;
 	}
 }

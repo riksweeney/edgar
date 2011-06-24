@@ -63,6 +63,8 @@ static void holdPersonWait(void);
 static void createShieldInit(void);
 static void createShield(void);
 static void createShieldFinish(void);
+static void pieceMoveToShield(void);
+static void shieldCreateWait(void);
 static void shieldWait(void);
 static void shieldTakeDamage(Entity *, int);
 static void shieldDie(void);
@@ -71,10 +73,11 @@ static void holdPersonBackWait(void);
 static void holdPersonPieceMove(void);
 static void castLightningBolt(void);
 static void lightningBolt(void);
-static void lightningDropInit(void);
-static void lightningDrop(void);
-static void lightningGroundAttack(void);
-static void groundLightningMove(void);
+static void flameWaveDropInit(void);
+static void flameWaveDrop(void);
+static void flameWaveAttack(void);
+static void flameWaveMove(void);
+static void flameWaveAnim(void);
 static void teleportAway(void);
 static void teleportAwayFinish(void);
 static void takeDamage(Entity *, int);
@@ -243,7 +246,7 @@ static void entityWait()
 					break;
 					
 					case 1:
-						self->action = &lightningDropInit;
+						self->action = &flameWaveDropInit;
 					break;
 					
 					case 2:
@@ -273,7 +276,7 @@ static void entityWait()
 					break;
 					
 					case 1:
-						self->action = &lightningDropInit;
+						self->action = &flameWaveDropInit;
 					break;
 					
 					case 2:
@@ -997,11 +1000,11 @@ static void disintegrationSpellAttack()
 	self->y = self->endY;
 }
 
-static void lightningDropInit()
+static void flameWaveDropInit()
 {
 	Target *t;
 
-	setEntityAnimation(self, "RAISE_ARMS");
+	setEntityAnimation(self, "ATTACK_3");
 
 	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
@@ -1020,10 +1023,10 @@ static void lightningDropInit()
 
 	self->thinkTime = 60;
 
-	self->action = &lightningDrop;
+	self->action = &flameWaveDrop;
 }
 
-static void lightningDrop()
+static void flameWaveDrop()
 {
 	int i;
 	long onGround;
@@ -1045,8 +1048,6 @@ static void lightningDrop()
 			self->flags &= ~(FLY|NO_DRAW);
 
 			self->dirY = 0;
-			
-			setEntityAnimation(self, "STAND");
 		}
 	}
 	
@@ -1069,11 +1070,11 @@ static void lightningDrop()
 
 		self->thinkTime = 30;
 
-		self->action = &lightningGroundAttack;
+		self->action = &flameWaveAttack;
 	}
 }
 
-static void lightningGroundAttack()
+static void flameWaveAttack()
 {
 	int i;
 	Entity *e;
@@ -1088,25 +1089,25 @@ static void lightningGroundAttack()
 			
 			if (e == NULL)
 			{
-				showErrorAndExit("No free slots to add the Sorceror's Ground Lightning");
+				showErrorAndExit("No free slots to add the Sorceror's Flame Wave");
 			}
 			
-			loadProperties("enemy/fire", e);
+			loadProperties("boss/sorceror_flame_wave", e);
 			
-			setEntityAnimation(e, "UP");
+			setEntityAnimation(e, "GROW_INIT");
 			
-			e->face = RIGHT;
+			e->face = i == 0 ? LEFT : RIGHT;
 			
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + self->h - e->h;
 			
-			e->dirX = i == 0 ? 6 : -6;
-			
-			e->action = &groundLightningMove;
+			e->action = &flameWaveMove;
 			
 			e->draw = &drawLoopingAnimationToMap;
 			
 			e->touch = &entityTouch;
+			
+			e->animationCallback = &flameWaveAnim;
 		}
 		
 		self->mental--;
@@ -1120,6 +1121,67 @@ static void lightningGroundAttack()
 	}
 	
 	checkToMap(self);
+}
+
+static void flameWaveMove()
+{
+	int startX, x;
+	Entity *e;
+	
+	switch (self->maxThinkTime)
+	{
+		case 1:
+			startX = getMapStartX();
+			
+			x = self->x + (self->face == RIGHT ? -self->w : self->w);
+			
+			if (!(x <= startX || x >= startX + SCREEN_WIDTH - self->w))
+			{
+				e = getFreeEntity();
+				
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Sorceror's Flame Wave");
+				}
+				
+				loadProperties("boss/sorceror_flame_wave", e);
+				
+				setEntityAnimation(e, "GROW_INIT");
+				
+				e->face = self->face;
+				
+				e->x = x;
+				e->y = self->y;
+				
+				e->action = &flameWaveMove;
+				
+				e->draw = &drawLoopingAnimationToMap;
+				
+				e->touch = &entityTouch;
+				
+				e->animationCallback = &flameWaveAnim;
+			}
+
+			setEntityAnimation(self, "GROW");
+			
+			self->animationCallback = &flameWaveAnim;
+			
+			self->maxThinkTime = 2;
+		break;
+		
+		case 3:
+			self->inUse = FALSE;
+		break;
+		
+		default:
+			
+		break;
+	}
+}
+
+static void flameWaveAnim()
+{
+	self->maxThinkTime++;
 }
 
 static void teleportAway()
@@ -1181,19 +1243,9 @@ static void teleportAwayFinish()
 	checkToMap(self);
 }
 
-static void groundLightningMove()
-{
-	if (self->dirX == 0)
-	{
-		self->inUse = FALSE;
-	}
-	
-	checkToMap(self);
-}
-
 static void statueAttackInit()
 {
-	setEntityAnimation(self, "RAISE_ARMS");
+	setEntityAnimation(self, "ATTACK_1");
 	
 	self->thinkTime = 15;
 	
@@ -1665,72 +1717,198 @@ static void lightningBolt()
 
 static void createShieldInit()
 {
-	setEntityAnimation(self, "RAISE_ARMS");
-	
-	self->thinkTime = 120;
+	self->thinkTime = 60;
 	
 	self->action = &createShield;
+	
+	self->mental = 0;
 	
 	hover();
 }
 
 static void createShield()
 {
-	Entity *e;
+	int i, x, y;
+	Entity *shield, *e;
 	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
-		e = getFreeEntity();
-
-		if (e == NULL)
+		if (self->mental == 0)
 		{
-			showErrorAndExit("No free slots to add the Sorceror's Shield");
+			setEntityAnimation(self, "ATTACK_1");
+			
+			shield = getFreeEntity();
+
+			if (shield == NULL)
+			{
+				showErrorAndExit("No free slots to add the Sorceror's Shield");
+			}
+
+			loadProperties("boss/sorceror_shield", shield);
+
+			shield->x = self->x;
+			shield->y = self->y;
+
+			shield->action = &shieldCreateWait;
+
+			shield->draw = &drawLoopingAnimationToMap;
+			
+			shield->touch = &entityTouch;
+			
+			shield->takeDamage = &shieldTakeDamage;
+			
+			shield->pain = &enemyPain;
+			
+			shield->die = &shieldDie;
+
+			shield->type = ENEMY;
+
+			shield->head = self;
+
+			shield->alpha = 128;
+			
+			shield->face = RIGHT;
+			
+			shield->maxHealth = self->health;
+
+			setEntityAnimation(shield, "STAND");
+
+			shield->x = self->x + self->w / 2 - shield->w / 2;
+			shield->y = self->y + self->h / 2 - shield->h / 2;
+			
+			shield->flags |= NO_DRAW;
+			
+			self->startX = 1;
+			
+			self->head = shield;
+			
+			shield->mental = 6;
+			
+			x = shield->x;
+			y = shield->y;
+			
+			for (i=0;i<6;i++)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add the Sorceror's Shield Piece");
+				}
+
+				loadProperties("boss/sorceror_shield_piece", e);
+				
+				setEntityAnimationByID(e, i);
+
+				e->x = x;
+				e->y = y;
+				
+				e->startX = e->x;
+				e->startY = e->y;
+
+				e->action = &pieceMoveToShield;
+
+				e->draw = &drawLoopingAnimationToMap;
+
+				e->type = ENEMY;
+
+				e->alpha = 128;
+				
+				e->face = RIGHT;
+				
+				e->head = shield;
+				
+				if (x == shield->x)
+				{
+					x += e->w;
+				}
+				
+				else
+				{
+					x = shield->x;
+					
+					y += e->h;
+				}
+				
+				switch (i)
+				{
+					case 0:
+						e->dirX = -12;
+						e->dirY = -6;
+					break;
+					
+					case 1:
+						e->dirX = 12;
+						e->dirY = -6;
+					break;
+					
+					case 2:
+						e->dirX = -12;
+						e->dirY = 0;
+					break;
+					
+					case 3:
+						e->dirX = 12;
+						e->dirY = 0;
+					break;
+					
+					case 4:
+						e->dirX = -12;
+						e->dirY = 6;
+					break;
+					
+					default:
+						e->dirX = 12;
+						e->dirY = 6;
+					break;
+				}
+				
+				e->x += e->dirX * 60;
+				e->y += e->dirY * 60;
+				
+				e->dirX *= -1;
+				e->dirY *= -1;
+			}
+			
+			self->mental = 1;
 		}
-
-		loadProperties("boss/sorceror_shield", e);
-
-		e->x = self->x;
-		e->y = self->y;
-
-		e->action = &shieldWait;
-
-		e->draw = &drawLoopingAnimationToMap;
 		
-		e->touch = &entityTouch;
-		
-		e->takeDamage = &shieldTakeDamage;
-		
-		e->pain = &enemyPain;
-		
-		e->die = &shieldDie;
-
-		e->type = ENEMY;
-
-		e->head = self;
-
-		e->alpha = 128;
-		
-		e->face = RIGHT;
-		
-		e->maxHealth = self->health;
-
-		setEntityAnimation(e, "STAND");
-
-		e->x = self->x + self->w / 2 - e->w / 2;
-		e->y = self->y + self->h / 2 - e->h / 2;
-		
-		self->startX = 1;
-		
-		self->head = e;
-		
-		self->thinkTime = 30;
-		
-		self->action = &createShieldFinish;
+		else if (self->mental == 2)
+		{
+			self->thinkTime = 30;
+			
+			self->action = &createShieldFinish;
+		}
 	}
+}
+
+static void pieceMoveToShield()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
 	
-	hover();
+	if (fabs(self->x - self->startX) <= fabs(self->dirX) && fabs(self->y - self->startY) <= fabs(self->dirY))
+	{
+		self->head->mental--;
+		
+		self->inUse = FALSE;
+	}
+}
+
+static void shieldCreateWait()
+{
+	if (self->mental == 0)
+	{
+		self->action = &shieldWait;
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->alpha = 128;
+		
+		self->head->mental = 2;
+	}
 }
 
 static void createShieldFinish()
