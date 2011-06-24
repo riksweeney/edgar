@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "../hud.h"
+#include "../collisions.h"
 #include "../game.h"
 #include "../system/error.h"
 
@@ -75,6 +76,8 @@ static void entityWait()
 
 		self->currentFrame = frame;
 	}
+	
+	checkToMap(self);
 }
 
 static void touch(Entity *other)

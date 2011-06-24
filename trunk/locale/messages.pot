@@ -3863,3 +3863,71 @@ msgstr ""
 msgid "Defeat the Sorceror"
 msgstr ""
 
+msgid "Village"
+msgstr ""
+
+msgid "Mine"
+msgstr ""
+
+msgid "Forest"
+msgstr ""
+
+msgid "Forbidden Swamp"
+msgstr ""
+
+msgid "Cave"
+msgstr ""
+
+msgid "Fortress Outskirts"
+msgstr ""
+
+msgid "Sewer"
+msgstr ""
+
+msgid "Fortress Basement"
+msgstr ""
+
+msgid "Fortress Ground Floor"
+msgstr ""
+
+msgid "Laboratory"
+msgstr ""
+
+msgid "Library"
+msgstr ""
+
+msgid "Fortress Mine"
+msgstr ""
+
+msgid "Armoury"
+msgstr ""
+
+msgid "Borer Cave"
+msgstr ""
+
+msgid "Catacombs"
+msgstr ""
+
+msgid "Study"
+msgstr ""
+
+msgid "Dungeon"
+msgstr ""
+
+msgid "Frozen Wastes"
+msgstr ""
+
+msgid "Outer Cave Network"
+msgstr ""
+
+msgid "Inner Cave Network"
+msgstr ""
+
+msgid "Graveyard"
+msgstr ""
+
+msgid "Left Tower"
+msgstr ""
+
+msgid "Right Tower"
+msgstr ""
