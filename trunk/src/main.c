@@ -106,13 +106,6 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
-		else if (strcmpignorecase("-bmpwrite", argv[i]) == 0)
-		{
-			setScreenshotDir(argv[i + 1]);
-
-			i++;
-		}
-
 		else if (strcmpignorecase("-load", argv[i]) == 0)
 		{
 			loadSlot = atoi(argv[i + 1]);
@@ -136,11 +129,31 @@ int main(int argc, char *argv[])
 		{
 			showCredits = TRUE;
 		}
+		
+		else if (strstr(argv[i], "-h") != NULL || strstr(argv[i], "-H") != NULL)
+		{
+			printf("The Legend of Edgar options\n\n");
+			printf("-record <filename>: Captures keyboard input\n");
+			printf("-playback <filename>: Replays keyboard input\n");
+			printf("-load <save_slot>: Loads the game in slot <save_slot>. Slots start at 0\n");
+			printf("-nojoystick: Disables the joystick\n");
+			printf("-joystick <joystick_slot>: Use joystick <joystick_slot>. Slots start at 0\n");
+			printf("-showcredits: Shows the end credits\n");
+			
+			exit(0);
+		}
 
 		#if DEV == 1
 			else if (strcmpignorecase("-saveonexit", argv[i]) == 0)
 			{
 				game.saveOnExit = TRUE;
+			}
+			
+			else if (strcmpignorecase("-bmpwrite", argv[i]) == 0)
+			{
+				setScreenshotDir(argv[i + 1]);
+
+				i++;
 			}
 
 			else

@@ -45,7 +45,7 @@ CFLAGS = -mcrt=newlib -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEA
 endif
 
 ifeq ($(OS),Windows_NT)
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_net -lz -llibintl -lm
+LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_net -lz -lintl -lm
 else
 LFLAGS = -lSDL_gfx -lSDL_net -lSDL_image -ltiff -lpng -ljpeg -lz -lintl -lSDL_mixer -lsmpeg -lm -lvorbisfile -lvorbis -logg -lstdc++ -lSDL_ttf -lfreetype -lz -lsdlmain -lsdl -lauto -lpthread -lm -lunix
 endif

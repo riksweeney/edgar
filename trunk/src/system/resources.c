@@ -78,10 +78,20 @@ void loadRequiredResources()
 	initHud();
 
 	/* Load the font */
-
-	game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
 	
-	game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
+	if (strlen(game.customFont) == 0)
+	{
+		game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
+		
+		game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
+	}
+	
+	else
+	{
+		game.font = loadCustomFont(game.customFont, game.fontSizeSmall);
+		
+		game.largeFont = loadCustomFont(game.customFont, game.fontSizeLarge);
+	}
 }
 
 void freeLevelResources()
