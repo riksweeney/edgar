@@ -279,6 +279,8 @@ static void moveToSorceror()
 		setEntityAnimation(e, "STAND");
 		
 		e->head = self->target;
+		
+		e->face = self->target->face;
 
 		e->x = e->head->x;
 		e->y = e->head->y;

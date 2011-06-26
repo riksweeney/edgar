@@ -2,7 +2,8 @@ CHANGE LOG
 ----------
 
 Version 0.90
-* Added the final part of the story, the game is now completable
+* The Windows version no longer crashes when trying to load Gettext files
+* Added the final part of the story, the main quest is now completable
 * Made the Watchdog easier to defeat
 
 Version 0.87

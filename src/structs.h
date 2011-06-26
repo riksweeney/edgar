@@ -171,10 +171,12 @@ typedef struct Game
 	int disableJoystick, mapExitable, cheatsEnabled;
 	int infiniteEnergy, infiniteArrows, cheating;
 	int saveOnExit, overrideMusic, showHUD;
+	int fontSizeSmall, fontSizeLarge;
 	unsigned int distanceTravelled;
 	float checkpointX, checkpointY;
 	long startTicks, endTicks, playTime;
 	char nextMap[MAX_VALUE_LENGTH], playerStart[MAX_VALUE_LENGTH];
+	char customFont[MAX_FILE_LENGTH];
 	void (*drawMenu)(void);
 	void (*weatherAction)(void);
 	void (*weatherDraw)(void);

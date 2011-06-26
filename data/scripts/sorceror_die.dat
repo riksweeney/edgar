@@ -4,23 +4,23 @@ HUD OFF
 ADD_MEDAL kill_sorceror
 WALK_TO_ENTITY EDGAR SORCEROR WAIT
 SET EDGAR FACE RIGHT
-AUTO_TALK 180 Sorceror Ugh, you have defeated me
-AUTO_TALK 120 Sorceror How...
-AUTO_TALK 180 Edgar TALK! Where is my father?
-AUTO_TALK 180 Sorceror I... I don't understand...
-AUTO_TALK 240 Edgar Last night you came to my village and kidnapped my father
-AUTO_TALK 180 Edgar Where is he?
+TALK Sorceror Ugh, you have defeated me
+TALK Sorceror How...
+TALK Edgar TALK! Where is my father?
+TALK Sorceror I... I don't understand...
+TALK Edgar Last night you came to my village and kidnapped my father
+TALK Edgar Where is he?
 MUSIC FADE_DOWN 2000
-AUTO_TALK 120 Sorceror I...
-AUTO_TALK 180 Sorceror I have never been to your village
-AUTO_TALK 180 Sorceror I don't know where your father is...
-AUTO_TALK 120 Sorceror ...
+TALK Sorceror I...
+TALK Sorceror I have never been to your village
+TALK Sorceror I don't know where your father is...
+TALK Sorceror ...
 KILL SORCEROR
 WAIT 180
 MUSIC LOAD music/oxide_-_sadness.xm
 SET EDGAR ANIMATION SAD
-AUTO_TALK 180 Edgar But if you didn't take my Dad
-AUTO_TALK 180 Edgar Where is he?
+TALK Edgar But if you didn't take my Dad
+TALK Edgar Where is he?
 WAIT 120
 ADD MAP_TRIGGER "map04" RUN_SCRIPT "ending_part1"
 LOAD_LEVEL map04 Swamp-Village Entrance

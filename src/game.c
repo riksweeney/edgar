@@ -307,8 +307,6 @@ static void shake()
 
 static void wipeOutRightToLeft()
 {
-	fadeOutMusic(1000);
-
 	if (game.transitionX <= -15)
 	{
 		game.transition = NULL;
@@ -328,8 +326,6 @@ static void wipeOutRightToLeft()
 
 static void wipeOutLeftToRight()
 {
-	fadeOutMusic(1000);
-
 	if (game.transitionX > SCREEN_WIDTH + 15)
 	{
 		game.transition = NULL;
@@ -728,6 +724,13 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
 	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport);
 	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
+	
+	if (strlen(game.customFont) != 0)
+	{
+		fprintf(fp, "FONT %s\n", game.customFont);
+		fprintf(fp, "SMALL_FONT_SIZE %d\n", game.fontSizeSmall);
+		fprintf(fp, "LARGE_FONT_SIZE %d\n", game.fontSizeLarge);
+	}
 }
 
 void readGameSettingsFromFile(char *buffer)
@@ -795,8 +798,39 @@ void readGameSettingsFromFile(char *buffer)
 				game.audioQuality = 22050;
 			}
 		}
+		
+		else if (strcmpignorecase(token, "FONT") == 0)
+		{
+			token = strtok(NULL, "\0");
+			
+			STRNCPY(game.customFont, token, MAX_FILE_LENGTH);
+		}
+		
+		else if (strcmpignorecase(token, "SMALL_FONT_SIZE") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.fontSizeSmall = atoi(token);
+		}
+		
+		else if (strcmpignorecase(token, "LARGE_FONT_SIZE") == 0)
+		{
+			token = strtok(NULL, "\0");
+
+			game.fontSizeLarge = atoi(token);
+		}
 
 		line = strtok_r(NULL, "\n", &savePtr);
+	}
+	
+	if (strlen(game.customFont) != 0)
+	{
+		if (game.fontSizeSmall <= 0 || game.fontSizeLarge <= 0)
+		{
+			printf(_("SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"));
+			
+			exit(1);
+		}
 	}
 }
 

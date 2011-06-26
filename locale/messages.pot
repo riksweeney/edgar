@@ -2948,9 +2948,6 @@ msgstr ""
 msgid "Enabling cheats will not allow you to achieve 100% completion in the game"
 msgstr ""
 
-msgid "Copyright Parallel Realities 2009-2011"
-msgstr ""
-
 msgid "Thanks, this is perfect!"
 msgstr ""
 
@@ -3072,9 +3069,6 @@ msgid "I'm not exactly sure what any of that means, but it sounds interesting"
 msgstr ""
 
 msgid "I might read that later..."
-msgstr ""
-
-msgid "You won't be able to find the combination in this version!"
 msgstr ""
 
 msgid "That smell..."
@@ -3602,12 +3596,6 @@ msgstr ""
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Your spell won't work against me any more"
 msgstr ""
 
@@ -3800,9 +3788,6 @@ msgstr ""
 msgid "Confront the Sorceror"
 msgstr ""
 
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr ""
-
 msgid "Return to the Study"
 msgstr ""
 
@@ -3863,43 +3848,13 @@ msgstr ""
 msgid "Defeat the Sorceror"
 msgstr ""
 
-msgid "Village"
-msgstr ""
-
 msgid "Mine"
 msgstr ""
 
 msgid "Forest"
 msgstr ""
 
-msgid "Forbidden Swamp"
-msgstr ""
-
-msgid "Cave"
-msgstr ""
-
-msgid "Fortress Outskirts"
-msgstr ""
-
-msgid "Sewer"
-msgstr ""
-
 msgid "Fortress Basement"
-msgstr ""
-
-msgid "Fortress Ground Floor"
-msgstr ""
-
-msgid "Laboratory"
-msgstr ""
-
-msgid "Library"
-msgstr ""
-
-msgid "Fortress Mine"
-msgstr ""
-
-msgid "Armoury"
 msgstr ""
 
 msgid "Borer Cave"
@@ -3931,3 +3886,22 @@ msgstr ""
 
 msgid "Right Tower"
 msgstr ""
+
+msgid "Your shield is increasing in power..."
+msgstr ""
+
+msgid "The Legend of Edgar v%0.2f"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Enter the door?"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+

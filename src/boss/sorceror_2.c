@@ -46,6 +46,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../system/error.h"
 #include "../enemy/thunder_cloud.h"
+#include "../item/item.h"
 
 extern Entity *self, player, playerWeapon, playerShield;
 
@@ -108,7 +109,9 @@ static void continuePoint(void);
 static void hover(void);
 static void finalAttackInit(void);
 static void finalAttack(void);
+static void finalSpellWait(void);
 static void finalAttackFinish(void);
+static void staffMoveAroundSorceror(void);
 static void die(void);
 static void dieWait(void);
 
@@ -343,45 +346,175 @@ static void finalAttack()
 	
 	if (self->thinkTime <= 0)
 	{
-		if (self->mental == 0)
+		switch (self->mental)
 		{
-			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-			
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-			
-			self->flags &= ~NO_DRAW;
-			
-			createAutoDialogBox(_("Sorceror"), _("Enough! Prepare to die..."), 180);
-			
-			self->thinkTime = 600;
-			
-			self->mental = 1;
-		}
-		
-		else
-		{
-			/* Gib the player */
+			case 0:
+				setEntityAnimation(self, "ATTACK_4");
+				
+				addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+				
+				playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+				
+				self->flags &= ~NO_DRAW;
+				
+				self->face = RIGHT;
+				
+				createAutoDialogBox(_("Sorceror"), _("Enough! Prepare to die..."), 180);
+				
+				self->thinkTime = 180;
+				
+				self->mental = 1;
+				
+				temp = getFreeEntity();
+				
+				if (temp == NULL)
+				{
+					showErrorAndExit("No free slots to add a the staff");
+				}
 
-			temp = self;
-			
-			self = &player;
+				loadProperties("boss/sorceror_staff", temp);
 
-			freeEntityList(playerGib());
+				temp->action = &staffMoveAroundSorceror;
+				
+				temp->draw = &drawLoopingAnimationToMap;
 
-			self = temp;
+				temp->type = ENEMY;
+
+				setEntityAnimationByID(temp, 0);
+
+				temp->x = self->x + self->w / 2 - temp->w / 2;
+
+				temp->y = self->y + self->h / 2 - temp->h / 2;
+				
+				temp->startX = temp->x;
+				
+				temp->startY = temp->y;
+				
+				temp->head = self;
+				
+				temp->health = self->health;
+				
+				temp->mental = self->box.w;
+			break;
+				
+			case 1:
+				temp = getFreeEntity();
+				
+				if (temp == NULL)
+				{
+					showErrorAndExit("No free slots to add a the Final Attack spell");
+				}
+
+				loadProperties("boss/sorceror_final_spell", temp);
+
+				temp->action = &finalSpellWait;
+				
+				temp->draw = &drawLoopingAnimationToMap;
+
+				temp->type = ENEMY;
+
+				setEntityAnimationByID(temp, 0);
+
+				temp->x = self->x + temp->offsetX;
+
+				temp->y = self->y + temp->offsetY;
+				
+				temp->head = self;
+				
+				temp->thinkTime = 60;
+				
+				self->thinkTime = 660;
+				
+				self->mental = 2;
+				
+				temp->health = self->health;
+			break;
 			
-			self->thinkTime = 120;
-			
-			self->action = &finalAttackFinish;
+			default:
+				self->mental = 3;
+				
+				playSoundToMap("sound/common/massive_explosion.ogg", -1, self->x, self->y, 0);
+				
+				fadeFromColour(0, 0, 200, 30);
+				
+				/* Gib the player */
+
+				temp = self;
+				
+				self = &player;
+
+				freeEntityList(playerGib());
+
+				self = temp;
+				
+				self->thinkTime = 120;
+				
+				self->action = &finalAttackFinish;
+			break;
 		}
 	}
 	
-	else if (self->thinkTime <= 420 && self->mental == 1)
+	else if (self->thinkTime <= 420 && self->mental == 2)
 	{
 		self->startX = 2;
 	}
+}
+
+static void finalSpellWait()
+{
+	Entity *e;
 	
-	hover();
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental++;
+		
+		if (self->mental >= 9)
+		{
+			self->mental = 9;
+		}
+		
+		setEntityAnimationByID(self, self->mental);
+		
+		self->thinkTime = 60;
+	}
+	
+	if (self->head->mental == 3 || self->health != self->head->health)
+	{
+		self->inUse = FALSE;
+	}
+	
+	else
+	{
+		e = addPixelDecoration(self->x, self->y);
+
+		if (e != NULL)
+		{
+			e->x = self->x + (prand() % 32) * (prand() % 2 == 0 ? -1 : 1) + self->w / 2;
+			e->y = self->y + (prand() % 32) * (prand() % 2 == 0 ? -1 : 1) + self->h / 2;
+
+			e->startX = e->x;
+			e->startY = e->y;
+
+			e->endX = self->x + self->w / 2;
+			e->endY = self->y + self->h / 2;
+
+			e->thinkTime = 15;
+
+			e->health = 0;
+
+			e->maxHealth = 255;
+
+			e->mental = 0;
+
+			calculatePath(e->startX, e->startY, e->endX, e->endY, &e->dirX, &e->dirY);
+		}
+	}
+	
+	self->x = self->head->x + self->offsetX;
+
+	self->y = self->head->y + self->offsetY;
 }
 
 static void finalAttackFinish()
@@ -391,6 +524,29 @@ static void finalAttackFinish()
 	if (self->thinkTime <= 0)
 	{
 		self->action = &teleportAway;
+	}
+}
+
+static void staffMoveAroundSorceror()
+{
+	int previousX;
+	
+	self->endX += self->speed;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+	
+	previousX = self->x;
+
+	self->x = self->startX + cos(DEG_TO_RAD(self->endX)) * self->mental;
+	
+	self->layer = previousX < self->x ? BACKGROUND_LAYER : FOREGROUND_LAYER;
+	
+	if ((self->head->flags & NO_DRAW) || self->health != self->head->health)
+	{
+		self->inUse = FALSE;
 	}
 }
 
@@ -1925,7 +2081,9 @@ static void createShieldFinish()
 
 static void shieldWait()
 {
+	int i;
 	float radians;
+	Entity *e;
 	
 	if (self->head->flags & NO_DRAW)
 	{
@@ -1949,6 +2107,23 @@ static void shieldWait()
 	if (self->maxHealth != self->head->health)
 	{
 		self->die();
+		
+		for (i=0;i<8;i++)
+		{
+			e = addTemporaryItem("boss/sorceror_staff_piece", self->x, self->y, self->face, 0, 0);
+			
+			setEntityAnimationByID(e, i == 0 ? 0 : 1);
+			
+			e->x += (self->head->w - e->w) / 2;
+			e->y += (self->head->h - e->h) / 2;
+
+			e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+			setEntityAnimationByID(e, i == 0 ? 0 : 1);
+
+			e->thinkTime = 180 + (prand() % 60);
+		}
 	}
 }
 
@@ -2359,6 +2534,8 @@ static void die()
 {
 	int i;
 	long onGround;
+	
+	setEntityAnimation(self, "DIE");
 	
 	self->action = &die;
 	

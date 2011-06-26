@@ -36,6 +36,20 @@ TTF_Font *loadFont(char *name, int size)
 	return font;
 }
 
+TTF_Font *loadCustomFont(char *name, int size)
+{
+	TTF_Font *font = TTF_OpenFont(name, size);
+
+	if (font == NULL)
+	{
+		printf("Failed to open Font %s: %s\n", name, TTF_GetError());
+
+		exit(1);
+	}
+
+	return font;
+}
+
 void closeFont(TTF_Font *font)
 {
 	/* Close the font once we're done with it */
