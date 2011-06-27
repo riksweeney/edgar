@@ -34,3 +34,4 @@ lift/lift_target
 common/level_exit
 enemy/grub
 item/bomb
+npc/edgar_father
