@@ -41,6 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "world/action_point.h"
 #include "world/falling_platform.h"
 #include "world/weak_wall.h"
+#include "npc/npc.h"
 
 extern Entity *self, entity[MAX_ENTITIES];
 
@@ -1420,6 +1421,16 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)
 	{
 		e = addKeyItem(entityName, x, y);
+
+		if (strcmpignorecase(objectiveName, " ") != 0)
+		{
+			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
+		}
+	}
+	
+	else if (strcmpignorecase(entityType, "NPC") == 0)
+	{
+		e = addNPC(entityName, x, y);
 
 		if (strcmpignorecase(objectiveName, " ") != 0)
 		{

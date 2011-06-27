@@ -114,6 +114,13 @@ static void finalAttackFinish(void);
 static void staffMoveAroundSorceror(void);
 static void die(void);
 static void dieWait(void);
+static void lightningCageInit(void);
+static void lightningCageCreate(void);
+static void lightningCageWait(void);
+static void lightningCageMoveAbovePlayer(void);
+static void lightningCage(void);
+static void lightningCageFinish(void);
+static void cageLightningWait(void);
 
 Entity *addSorceror2(int x, int y, char *name)
 {
@@ -199,6 +206,7 @@ static void entityWait()
 			switch ((int)self->startY)
 			{
 				case 0:
+					self->action = &lightningCageInit;
 					self->action = &callSummonersInit;
 				break;
 				
@@ -307,6 +315,307 @@ static void entityWait()
 	}
 	
 	hover();
+}
+
+static void lightningCageInit()
+{
+	Target *t;
+	
+	t = getTargetByName("SORCEROR_MID_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Sorceror cannot find target");
+	}
+	
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	self->x = t->x;
+	self->y = t->y;
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	self->flags |= NO_DRAW;
+	
+	self->thinkTime = 30;
+	
+	self->action = &lightningCageCreate;
+	
+	self->mental = 0;
+}
+
+static void lightningCageCreate()
+{
+	int i;
+	Entity *e;
+	
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = player.x + player.w / 2 - self->w / 2;
+		
+		setEntityAnimation(self, "ATTACK_5");
+		
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		self->flags &= ~NO_DRAW;
+		
+		self->face = RIGHT;
+		
+		self->mental = 0;
+		
+		self->thinkTime = 60;
+		
+		self->maxThinkTime = 0;
+		
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a lightning cage");
+			}
+			
+			loadProperties("boss/sorceror_lightning_cage_spell", e);
+			
+			e->action = &lightningCageWait;
+			
+			e->draw = &drawLoopingAnimationToMap;
+			
+			e->touch = &entityTouch;
+			
+			e->head = self;
+			
+			e->face = i == 0 ? LEFT : RIGHT;
+			
+			setEntityAnimation(e, "STAND");
+			
+			if (e->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+		}
+		
+		self->action = &lightningCageMoveAbovePlayer;
+	}
+}
+
+static void lightningCageMoveAbovePlayer()
+{
+	if (self->maxThinkTime == 0)
+	{
+		self->targetX = player.x - self->w / 2 + player.w / 2;
+
+		/* Position above the player */
+
+		if (abs(self->x - self->targetX) <= self->speed * 3)
+		{
+			self->dirX = 0;
+		}
+
+		else
+		{
+			self->dirX = self->targetX < self->x ? -player.speed * 3 : player.speed * 3;
+		}
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->thinkTime = 30;
+			
+			self->maxThinkTime = 2;
+			
+			self->mental = 1;
+		}
+		
+		else
+		{
+			self->action = &lightningCage;
+			
+			self->targetX = prand() % 2 == 0 ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+			
+			self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+			
+			self->thinkTime = 30;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void lightningCage()
+{
+	int startX;
+	
+	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
+	{
+		self->x = self->targetX;
+		
+		self->dirX = 0;
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->maxThinkTime--;
+			
+			if (self->maxThinkTime <= 0)
+			{
+				self->action = &lightningCageFinish;
+			}
+			
+			else
+			{
+				startX = getMapStartX();
+				
+				self->targetX = self->x != startX ? startX : getMapStartX() + SCREEN_WIDTH - self->w;
+				
+				self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+			}
+			
+			self->thinkTime = 30;
+		}
+	}
+	
+	else
+	{
+		self->x += self->dirX;
+	}
+}
+
+static void lightningCageFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 2;
+		
+		self->action = &teleportAway;
+	}
+}
+
+static void lightningCageWait()
+{
+	int i, middle;
+	Entity *e;
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->mental == 1)
+	{
+		if (self->mental == 0)
+		{
+			self->endY = getMapFloor(self->x + self->w / 2, self->y);
+			
+			for (i=self->y;i<self->endY;i+=32)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add lightning");
+				}
+
+				loadProperties("enemy/lightning", e);
+
+				setEntityAnimation(e, "STAND");
+
+				if (i == self->startY)
+				{
+					middle = self->targetX + self->w / 2 - e->w / 2;
+				}
+
+				e->x = middle;
+				e->y = i;
+
+				e->action = &cageLightningWait;
+
+				e->draw = &drawLoopingAnimationToMap;
+				e->touch = &entityTouch;
+
+				e->head = self;
+
+				e->currentFrame = prand() % 6;
+
+				e->face = RIGHT;
+				
+				e->thinkTime = 15;
+			}
+			
+			e->mental = 1;
+			
+			self->mental = 1;
+		}
+	}
+	
+	else if (self->head->mental == 2)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void cageLightningWait()
+{
+	Entity *e;
+	
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+	
+	if (self->mental == 1)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y = self->y;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y = self->y;
+
+			e->dirX = 3;
+			e->dirY = -8;
+			
+			self->thinkTime = 15;
+		}
+	}
 }
 
 static void finalAttackInit()

@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/boss/sorceror_lightning_cage_spell.dat
+ANIM_FILE data/anim/boss/sorceror_lightning_cage_spell.dat
+TYPE ENEMY
+THINKTIME 60
+FLAGS FLY
+LAYER FOREGROUND_LAYER
