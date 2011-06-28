@@ -3770,21 +3770,6 @@ msgstr ""
 msgid "I thought he'd kidnapped Dad!"
 msgstr ""
 
-msgid "Wow, that has to be the greatest wrongful accusation I think I'll ever hear!"
-msgstr ""
-
-msgid "Nevermind, I'm sure in a few years we'll all look back on this and laugh..."
-msgstr ""
-
-msgid "Hey Jacob, looks like your chickens have escaped from their pen"
-msgstr ""
-
-msgid "Edgar, why don't you help Jacob round them up?"
-msgstr ""
-
-msgid "It shouldn't take you long..."
-msgstr ""
-
 msgid "Confront the Sorceror"
 msgstr ""
 
@@ -3893,16 +3878,7 @@ msgstr ""
 msgid "The Legend of Edgar v%0.2f"
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Enter the door?"
-msgstr ""
-
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "King Grub"
@@ -3947,8 +3923,45 @@ msgstr ""
 msgid "The Black Book"
 msgstr ""
 
-msgid "Grimlore"
-msgstr ""
-
 msgid "The Sorceror"
 msgstr ""
+
+msgid "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Wow, that has to be the worst case of false accusation I think I'll ever hear!"
+msgstr ""
+
+msgid "But more seriously, you disobeyed me, son"
+msgstr ""
+
+msgid "I told you to never set foot in the Forbidden Swamp"
+msgstr ""
+
+msgid "And for that, you'll have to be punished"
+msgstr ""
+
+msgid "But Dad..."
+msgstr ""
+
+msgid "Be quiet!"
+msgstr ""
+
+msgid "I just need to think of something suitable..."
+msgstr ""
+
+msgid "Looks like your chickens have escaped from their pen again, Jacob"
+msgstr ""
+
+msgid "Actually, I think I know what your punishment is going to be..."
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+

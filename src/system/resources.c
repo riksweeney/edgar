@@ -54,7 +54,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/script.h"
 #include "../collisions.h"
 #include "../menu/main_menu.h"
-#include "../npc/npc.h"
+#include "../world/npc.h"
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
 #include "../world/trap_door.h"
