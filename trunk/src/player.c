@@ -101,7 +101,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 11;
+			player.maxHealth = player.health = 5;
 		#endif
 
 		setEntityAnimation(&player, "STAND");
@@ -1142,26 +1142,23 @@ static void takeDamage(Entity *other, int damage)
 							playerShield.health = 4;
 						}
 						
-						else
-						{
-							shieldHealth = playerShield.health;
-							
-							STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
-							
-							snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
-							
-							loadProperties(shieldName, &playerShield);
-							
-							replaceInventoryItemWithName(oldShieldName, &playerShield);
-							
-							playerShield.thinkTime = 5;
-							
-							playerShield.health = shieldHealth;
-							
-							alignAnimations(&playerShield);
-							
-							setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
-						}
+						shieldHealth = playerShield.health;
+						
+						STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
+						
+						snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
+						
+						loadProperties(shieldName, &playerShield);
+						
+						replaceInventoryItemWithName(oldShieldName, &playerShield);
+						
+						playerShield.thinkTime = 5;
+						
+						playerShield.health = shieldHealth;
+						
+						alignAnimations(&playerShield);
+						
+						setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
 					}
 				}
 			}

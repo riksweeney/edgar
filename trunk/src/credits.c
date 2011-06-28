@@ -87,7 +87,8 @@ static char *enemies[] = {
 			"enemy/undead_gazer",
 			"enemy/fly_trap",
 			"enemy/armour_changer",
-			"enemy/master_tortoise"
+			"enemy/master_tortoise",
+			"enemy/bat"
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 
@@ -362,14 +363,13 @@ static void doEndCredits()
 			credits.nextEntityDelay = 0;
 			
 			credits.status = 1;
-			/*
+			
 			if (game.kills == 0)
 			{
 				credits.status = 0;
 				
 				newGame();
 			}
-			*/
 		}
 	}
 }
@@ -1130,7 +1130,7 @@ static Entity *loadCreditsBoss(char *name)
 	
 	credits.line = hasPersistance(getBossMap(e->name)) == TRUE && bossExists(getBossTrigger(e->name)) == FALSE ? TRUE : FALSE;
 	
-	STRNCPY(credits.creditLine[1].text, getBossName(e->name), MAX_LINE_LENGTH);
+	STRNCPY(credits.creditLine[1].text, _(getBossName(e->name)), MAX_LINE_LENGTH);
 	
 	STRNCPY(credits.creditLine[2].text, credits.line == FALSE ? _("Undefeated") : _("Defeated"), MAX_LINE_LENGTH);
 		
