@@ -3905,3 +3905,50 @@ msgstr ""
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
+msgid "King Grub"
+msgstr ""
+
+msgid "The Golem"
+msgstr ""
+
+msgid "Queen Wasp"
+msgstr ""
+
+msgid "The Swamp Guardian"
+msgstr ""
+
+msgid "The Blob"
+msgstr ""
+
+msgid "The Watchdog"
+msgstr ""
+
+msgid "The Awesome Foursome"
+msgstr ""
+
+msgid "Mataeus"
+msgstr ""
+
+msgid "The Phoenix"
+msgstr ""
+
+msgid "The Borer"
+msgstr ""
+
+msgid "Evil Edgar"
+msgstr ""
+
+msgid "The Sewer Dweller"
+msgstr ""
+
+msgid "The Salamander"
+msgstr ""
+
+msgid "The Black Book"
+msgstr ""
+
+msgid "Grimlore"
+msgstr ""
+
+msgid "The Sorceror"
+msgstr ""
