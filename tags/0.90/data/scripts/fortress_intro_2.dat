@@ -1,8 +1,0 @@
-WAIT 120
-FIRE_TRIGGER Catacombs Trigger
-TALK Edgar Glad to be out of there
-TALK Edgar Now to get that shield back from my double...
-ACTIVATE_REQUIRED CATACOMBS_SPAWNER
-ADD MAP_TRIGGER "map10" RUN_SCRIPT "evil_edgar_lab"
-ADD OBJECTIVE "Find Evil Edgar" " "
-ADD TRIGGER "Evil Edgar Trigger" 1 UPDATE_OBJECTIVE "Find Evil Edgar"
