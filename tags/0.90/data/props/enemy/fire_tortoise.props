@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/fire_tortoise.dat
+ANIM_FILE data/anim/enemy/fire_tortoise.dat
+TYPE ENEMY
+DAMAGE 1
+HEALTH 60
+SPEED 1
