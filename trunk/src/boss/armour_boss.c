@@ -669,6 +669,8 @@ static void takeDamage(Entity *other, int damage)
 			}
 
 			self->health -= damage;
+			
+			printf("%d of %d\n", self->health, self->maxHealth);
 
 			if (other->type != ENEMY && self->mental == 0 && (prand() % 10 == 0))
 			{
@@ -793,7 +795,7 @@ static void regenerateHealth()
 	}
 	#endif
 
-	self->health += 3;
+	self->health += 1;
 
 	if (self->health > self->maxHealth)
 	{
