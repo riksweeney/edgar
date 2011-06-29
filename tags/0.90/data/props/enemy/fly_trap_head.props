@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/enemy/fly_trap_head.dat
+ANIM_FILE data/anim/enemy/fly_trap_head.dat
+TYPE ENEMY
+DAMAGE 1
+FLAGS DO_NOT_PERSIST|FLY
+MENTAL 8
