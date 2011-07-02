@@ -34,3 +34,5 @@ int loadContinueData(void);
 void saveContinueData(void);
 int bossExists(char *);
 void startOnMap(char *);
+void loadObtainedMedals(void);
+void saveObtainedMedals(void);

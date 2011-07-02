@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.91
+* Fixed a problem with the book in the Occult section of the Library
+* Added support for offline medals
+
 Version 0.90
 * The Windows version no longer crashes when trying to load Gettext files
 * Added the final part of the story, the main quest is now completable

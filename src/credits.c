@@ -807,7 +807,7 @@ static void initCredits()
 	int lineNum, y;
 	char *buffer, *token1, *token2, *savePtr1, *savePtr2;
 	
-	buffer = (char *)loadFileFromPak("data/credits");
+	buffer = (char *)loadFileFromPak("data/credits.dat");
 	
 	credits.lineCount = countTokens(buffer, "\n");
 	

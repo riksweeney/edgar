@@ -26,28 +26,34 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/font.h"
 #include "graphics/graphics.h"
 #include "input.h"
+#include "credits.h"
+#include "system/pak.h"
 
 extern Game game;
 
-static Medal medal;
+static NetworkMedal networkMedal;
+static Medal *medal;
 static Message messageHead;
+static int medalCount, awardedMedalIndex;
 
 static void addMedalToQueue(char *);
-static int postMedal(void *);
 static void getNextMedalFromQueue(void);
+static void loadMedals(void);
 
 void initMedals()
 {
 	messageHead.next = NULL;
 
-	medal.medalMessage.text[0] = '\0';
-
-	connectToServer();
+	networkMedal.medalMessage.text[0] = '\0';
+	
+	loadMedals();
+	
+	loadObtainedMedals();
 }
 
 void addMedal(char *medalName)
 {
-	if (game.cheating == FALSE && medal.connected == TRUE && medal.privateKeyFound == TRUE)
+	if (game.cheating == FALSE)
 	{
 		addMedalToQueue(medalName);
 	}
@@ -55,18 +61,26 @@ void addMedal(char *medalName)
 
 void processMedals()
 {
-	if (medal.processing == FALSE)
+	if (strlen(networkMedal.medalMessage.text) == 0)
 	{
-		if (strlen(medal.medalMessage.text) == 0)
+		awardedMedalIndex = -1;
+		
+		getNextMedalFromQueue();
+		
+		networkMedal.thinkTime = 60;
+	}
+	
+	else
+	{
+		networkMedal.thinkTime--;
+		
+		if (networkMedal.thinkTime <= 0)
 		{
-			getNextMedalFromQueue();
-		}
-
-		else
-		{
-			medal.processing = TRUE;
-
-			medal.thread = SDL_CreateThread(&postMedal, NULL);
+			networkMedal.thinkTime = 0;
+			
+			showMedal(medal[awardedMedalIndex].medalType, medal[awardedMedalIndex].description);
+			
+			networkMedal.thinkTime = 60;
 		}
 	}
 }
@@ -103,11 +117,24 @@ static void addMedalToQueue(char *text)
 
 static void getNextMedalFromQueue()
 {
+	int i;
 	Message *head = messageHead.next;
 
 	if (head != NULL)
 	{
-		STRNCPY(medal.medalMessage.text, head->text, sizeof(medal.medalMessage.text));
+		for (i=0;i<medalCount;i++)
+		{
+			if (medal[i].obtained == FALSE && strcmpignorecase(medal[i].code, head->text) == 0)
+			{
+				STRNCPY(networkMedal.medalMessage.text, head->text, sizeof(networkMedal.medalMessage.text));
+				
+				medal[i].obtained = TRUE;
+				
+				awardedMedalIndex = i;
+				
+				break;
+			}
+		}
 
 		messageHead.next = head->next;
 
@@ -128,258 +155,121 @@ void freeMedalQueue()
 
 	messageHead.next = NULL;
 
-	medal.medalMessage.text[0] = '\0';
+	networkMedal.medalMessage.text[0] = '\0';
 
-	SDL_KillThread(medal.thread);
-}
-
-static int postMedal(void *data)
-{
-	char medalName[MAX_MESSAGE_LENGTH], in[MAX_LINE_LENGTH], out[2][MAX_LINE_LENGTH];
-	char *token, *store;
-	int i, len, response[2];
-	TCPsocket socket;
-
-	STRNCPY(medalName, medal.medalMessage.text, MAX_MESSAGE_LENGTH);
-
-	for (i=0;i<strlen(medalName);i++)
-	{
-		if (medalName[i] == ' ' || medalName[i] == '#' || medalName[i] == ',')
-		{
-			medalName[i] = '_';
-		}
-	}
-
-	medal.medalMessage.text[0] = '\0';
-
-	socket = SDLNet_TCP_Open(&medal.ip);
-
-	if (socket == NULL)
-	{
-		printf("Failed to create socket: %s\n", SDLNet_GetError());
-
-		medal.processing = FALSE;
-
-		return 0;
-	}
-
-	snprintf(out[0], MAX_LINE_LENGTH, "GET /addMedal/%s/LOE_%s HTTP/1.1\nHost: %s\nUser-Agent:LOE%.2f-%d\n\n", medal.privateKey, medalName, MEDAL_SERVER_HOST, VERSION, RELEASE);
-
-	len = strlen(out[0]) + 1;
-
-	if (SDLNet_TCP_Send(socket, (void*)out[0], len) < len)
-	{
-		printf("Medal sending failed: %s\n", SDLNet_GetError());
-
-		printf("Disconnected\n");
-
-		SDLNet_TCP_Close(socket);
-
-		medal.processing = FALSE;
-
-		return 0;
-	}
-
-	SDLNet_TCP_Recv(socket, in, MAX_LINE_LENGTH - 1);
-
-	response[0] = response[1] = 0;
-
-	token = strtok_r(in, "\n", &store);
-
-	i = 0;
-
-	while (token != NULL)
-	{
-		if (strstr(token, "MEDAL_RESPONSE"))
-		{
-			sscanf(token, "%*s %d %[^\n\r]", &response[i], out[i]);
-
-			i++;
-
-			if (i == 2)
-			{
-				break;
-			}
-		}
-
-		token = strtok_r(NULL, "\n", &store);
-	}
-
-	SDLNet_TCP_Close(socket);
-
-	printf("MedalServer Response: %d '%s'\n", response[1], out[1]);
-
-	if (response[1] > 0 && response[1] <= 4)
-	{
-		while (showMedal(response[1], out[1]) == FALSE)
-		{
-			SDL_Delay(1000);
-		}
-	}
-
-	printf("MedalServer Response: %d '%s'\n", response[0], out[0]);
-
-	if (response[0] > 0 && response[0] <= 4)
-	{
-		while (showMedal(response[0], out[0]) == FALSE)
-		{
-			SDL_Delay(1000);
-		}
-	}
+	SDL_KillThread(networkMedal.thread);
 	
-	medal.processing = FALSE;
-
-	return 1;
-}
-
-int connectToServer()
-{
-	if (medal.connected == TRUE)
+	saveObtainedMedals();
+	
+	if (medal != NULL)
 	{
-		return 0;
+		free(medal);
+		
+		medal = NULL;
 	}
-
-	if (getPrivateKey(medal.privateKey) == FALSE)
-	{
-		medal.privateKeyFound = FALSE;
-
-		return 1;
-	}
-
-	medal.privateKeyFound = TRUE;
-
-	printf("Trying to connect to %s:%d\n", MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
-
-	if (SDLNet_ResolveHost(&medal.ip, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT) == -1)
-	{
-		printf("Could not connect to medal server: %s\n", SDLNet_GetError());
-
-		return 2;
-	}
-
-	printf("Connected %s to %s:%d\n", medal.privateKey, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
-
-	medal.connected = TRUE;
-
-	return 0;
 }
 
 void medalProcessingFinished()
 {
-	medal.processing = FALSE;
+	networkMedal.medalMessage.text[0] = '\0';
 }
 
-void showMedalScreen()
+static void loadMedals()
 {
-	int i, h, y;
-	SDL_Rect src, dest;
-	SDL_Surface *title, *message, *message2;
-	char text[MAX_MESSAGE_LENGTH];
+	int i;
+	char *line, *medalType, *hidden, *code, *description, *savePtr1, *savePtr2;
+	unsigned char *buffer;
 
-	if (medal.privateKeyFound == TRUE)
+	buffer = loadFileFromPak("data/medals.dat");
+	
+	medalCount = countTokens((char *)buffer, "\n");
+	
+	medal = malloc(medalCount * sizeof(Medal));
+	
+	if (medal == NULL)
 	{
-		if (medal.connected == TRUE)
+		showErrorAndExit("Failed to allocate %d bytes for Medals", medalCount * (int)sizeof(Medal));
+	}
+	
+	line = strtok_r((char *)buffer, "\n", &savePtr1);
+	
+	i = 0;
+	
+	while (line != NULL)
+	{
+		code = strtok_r(line, " ", &savePtr2);
+		
+		medalType = strtok_r(NULL, " ", &savePtr2);
+		
+		hidden = strtok_r(NULL, " ", &savePtr2);
+		
+		description = strtok_r(NULL, "\0", &savePtr2);
+		
+		STRNCPY(medal[i].code, code, sizeof(medal[i].code));
+		
+		if (strcmpignorecase(medalType, "B") == 0)
 		{
-			return;
+			medal[i].medalType = 0;
 		}
-
+		
+		else if (strcmpignorecase(medalType, "S") == 0)
+		{
+			medal[i].medalType = 1;
+		}
+		
+		else if (strcmpignorecase(medalType, "G") == 0)
+		{
+			medal[i].medalType = 2;
+		}
+		
 		else
 		{
-			snprintf(text, MAX_MESSAGE_LENGTH, _("Could not connect to Medal Server at %s:%d"), MEDAL_SERVER_HOST, MEDAL_SERVER_PORT);
-
-			message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
+			medal[i].medalType = 3;
 		}
+		
+		medal[i].hidden = strcmpignorecase(hidden, "Y") == 0 ? TRUE : FALSE;
+		
+		STRNCPY(medal[i].description, description, sizeof(medal[i].description));
+		
+		medal[i].obtained = FALSE;
+		
+		i++;
+		
+		line = strtok_r(NULL, "\n", &savePtr1);
 	}
+}
 
-	else
+Medal *getMedals()
+{
+	return medal;
+}
+
+int getMedalCount()
+{
+	return medalCount;
+}
+
+void resetObtainedMedals()
+{
+	int i;
+	
+	for (i=0;i<medalCount;i++)
 	{
-		snprintf(text, MAX_MESSAGE_LENGTH, _("Could not find Medal Key"));
-
-		message = generateTextSurface(text, game.font, 220, 0, 0, 0, 0, 0);
+		medal[i].obtained = FALSE;
 	}
+}
 
-	title = generateTextSurface(_("The Legend of Edgar"), game.font, 0, 220, 0, 0, 0, 0);
-
-	message2 = generateTextSurface(_("You will not be able to earn Medals for this game"), game.font, 220, 0, 0, 0, 0, 0);
-
-	if (title == NULL || message == NULL || message2 == NULL)
+void setObtainedMedal(char *medalCode)
+{
+	int i;
+	
+	for (i=0;i<medalCount;i++)
 	{
-		return;
-	}
-
-	if (game.tempSurface != NULL)
-	{
-		SDL_FreeSurface(game.tempSurface);
-
-		game.tempSurface = NULL;
-	}
-
-	game.tempSurface = createSurface(SCREEN_WIDTH, SCREEN_HEIGHT);
-
-	drawBox(game.tempSurface, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, 0);
-
-	h = title->h + message->h + message2->h + 90;
-
-	y = (SCREEN_HEIGHT - h) / 2;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = title->w;
-	src.h = title->h;
-
-	dest.x = (SCREEN_WIDTH - title->w) / 2;
-	dest.y = y;
-	dest.w = title->w;
-	dest.h = title->h;
-
-	SDL_BlitSurface(title, &src, game.tempSurface, &dest);
-
-	y += message->h + 45;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = message->w;
-	src.h = message->h;
-
-	dest.x = (SCREEN_WIDTH - message->w) / 2;
-	dest.y = y;
-	dest.w = message->w;
-	dest.h = message->h;
-
-	SDL_BlitSurface(message, &src, game.tempSurface, &dest);
-
-	y += message2->h + 45;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = message2->w;
-	src.h = message2->h;
-
-	dest.x = (SCREEN_WIDTH - message2->w) / 2;
-	dest.y = y;
-	dest.w = message2->w;
-	dest.h = message2->h;
-
-	SDL_BlitSurface(message2, &src, game.tempSurface, &dest);
-
-	SDL_FreeSurface(title);
-	SDL_FreeSurface(message);
-	SDL_FreeSurface(message2);
-
-	for (i=0;i<120;i++)
-	{
-		getInput(IN_TITLE);
-
-		clearScreen(0, 0, 0);
-
-		SDL_BlitSurface(game.tempSurface, NULL, game.screen, NULL);
-
-		/* Swap the buffers */
-
-		SDL_Flip(game.screen);
-
-		/* Sleep briefly */
-
-		SDL_Delay(16);
+		if (strcmpignorecase(medal[i].code, medalCode) == 0)
+		{
+			medal[i].obtained = TRUE;
+			
+			break;
+		}
 	}
 }

@@ -710,7 +710,6 @@ void resetGameSettings()
 	game.musicDefaultVolume = 10;
 	game.showHints = TRUE;
 	game.fullscreen = FALSE;
-	game.medalSupport = TRUE;
 	game.audioQuality = 22050;
 }
 
@@ -722,7 +721,6 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "MUSIC_VOLUME %d\n", game.musicDefaultVolume);
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
-	fprintf(fp, "MEDAL_SUPPORT %d\n", game.medalSupport);
 	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
 	
 	if (strlen(game.customFont) != 0)
@@ -778,13 +776,6 @@ void readGameSettingsFromFile(char *buffer)
 			token = strtok(NULL, "\0");
 
 			game.fullscreen = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "MEDAL_SUPPORT") == 0)
-		{
-			token = strtok(NULL, "\0");
-
-			game.medalSupport = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "AUDIO_QUALITY") == 0)

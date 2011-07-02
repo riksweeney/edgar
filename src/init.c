@@ -130,7 +130,7 @@ void init(char *title, int joystickNum)
 		printf("Couldn't initialize SDL Net: %s\n", SDLNet_GetError());
 	}
 
-	else if (game.medalSupport == TRUE)
+	else
 	{
 		initMedals();
 	}

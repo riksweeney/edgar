@@ -93,12 +93,12 @@ void drawWidget(Widget *w, Menu *m, int selected)
 
 	if (w->disabled == TRUE)
 	{
-		drawImage(w->disabledState, x, y, FALSE, 255);
+		drawImage(w->disabledState, x, y - m->startY, FALSE, 255);
 	}
 
 	else
 	{
-		drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y, FALSE, 255);
+		drawImage(selected == TRUE ? w->selectedState : w->normalState, x, y - m->startY, FALSE, 255);
 	}
 
 	if (w->label != NULL)

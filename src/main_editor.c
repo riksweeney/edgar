@@ -30,11 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 Input input, menuInput;
 Entity player, playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
-Animation animation[MAX_ANIMATIONS];
-Sound sound[MAX_SOUNDS];
 Game game;
-Inventory inventory;
-Droplet droplet[MAX_DROPS];
 Cursor cursor;
 Target target[MAX_TARGETS];
 Control control;

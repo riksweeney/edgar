@@ -53,6 +53,14 @@ void initHud()
 	hud.medalSurface[2] = loadImage("gfx/hud/gold_medal.png");
 
 	hud.medalSurface[3] = loadImage("gfx/hud/ruby_medal.png");
+	
+	hud.disabledMedalSurface[0] = loadImage("gfx/hud/disabled_bronze_medal.png");
+
+	hud.disabledMedalSurface[1] = loadImage("gfx/hud/disabled_silver_medal.png");
+
+	hud.disabledMedalSurface[2] = loadImage("gfx/hud/disabled_gold_medal.png");
+
+	hud.disabledMedalSurface[3] = loadImage("gfx/hud/disabled_ruby_medal.png");
 
 	messageHead.next = NULL;
 
@@ -325,6 +333,13 @@ void freeHud()
 
 			hud.medalSurface[i] = NULL;
 		}
+		
+		if (hud.disabledMedalSurface[i] != NULL)
+		{
+			SDL_FreeSurface(hud.disabledMedalSurface[i]);
+
+			hud.disabledMedalSurface[i] = NULL;
+		}
 	}
 
 	freeMessageQueue();
@@ -453,31 +468,29 @@ void drawSpotlight(int x, int y)
 	drawImage(hud.spotlight, x, y, FALSE, 255);
 }
 
-int showMedal(int medalType, char *message)
+void showMedal(int medalType, char *message)
 {
 	SDL_Surface *textSurface, *medalSurface;
 	SDL_Rect dest;
 
 	if (hud.medalTextSurface != NULL)
 	{
-		return FALSE;
+		return;
 	}
-
-	medalType--;
 
 	textSurface = generateTextSurface(message, game.font, 0, 220, 0, 0, 0, 0);
 
 	medalSurface = createSurface(textSurface->w + hud.medalSurface[medalType]->w + 18, MAX(textSurface->h, hud.medalSurface[medalType]->h));
 
 	dest.x = 5;
-	dest.y = 0;
+	dest.y = hud.medalSurface[medalType]->h / 2 - medalSurface->h / 2;
 	dest.w = hud.medalSurface[medalType]->w;
 	dest.h = hud.medalSurface[medalType]->h;
 
 	SDL_BlitSurface(hud.medalSurface[medalType], NULL, medalSurface, &dest);
 
 	dest.x = hud.medalSurface[medalType]->w + 13;
-	dest.y = 0;
+	dest.y = hud.medalSurface[medalType]->h / 2 - textSurface->h / 2;
 	dest.w = textSurface->w;
 	dest.h = textSurface->h;
 
@@ -485,16 +498,21 @@ int showMedal(int medalType, char *message)
 
 	hud.medalTextSurface = addBorder(medalSurface, 255, 255, 255, 0, 0, 0);
 
-	hud.medalThinkTime = 240;
+	hud.medalThinkTime = 180;
 
 	SDL_FreeSurface(textSurface);
 
 	playSound("sound/common/trophy.ogg");
 
-	return TRUE;
+	return;
 }
 
 int spotlightSize()
 {
 	return hud.spotlight->w;
+}
+
+SDL_Surface *getMedalImage(int medalType, int obtained)
+{
+	return obtained == TRUE ? hud.medalSurface[medalType] : hud.disabledMedalSurface[medalType];
 }

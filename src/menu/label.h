@@ -18,6 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 Label *createLabel(char *, int, int);
+Label *createImageLabel(SDL_Surface *, int, int);
 void drawLabel(Label *, Menu *);
 void freeLabel(Label *);
 void updateLabelText(Label *, char *);

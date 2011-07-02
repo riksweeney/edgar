@@ -44,9 +44,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 Input input, menuInput;
 Entity *self, entity[MAX_ENTITIES];
-Animation animation[MAX_ANIMATIONS];
 Game game;
-Droplet droplet[MAX_DROPS];
 Entity player, playerShield, playerWeapon;
 Target target[MAX_TARGETS];
 Control control;
@@ -173,11 +171,6 @@ int main(int argc, char *argv[])
 	}
 
 	loadRequiredResources();
-
-	if (game.medalSupport == TRUE)
-	{
-		showMedalScreen();
-	}
 
 	/* Initialise the game variables */
 

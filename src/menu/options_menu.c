@@ -30,7 +30,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "cheat_menu.h"
 #include "../system/pak.h"
 #include "../init.h"
-#include "../medal.h"
 #include "../audio/audio.h"
 #include "../system/error.h"
 
@@ -44,14 +43,12 @@ static int lastKeysIndex = 0;
 static void loadMenuLayout(void);
 static void toggleHints(void);
 static void showControlMenu(void);
-static void showOptionsMenu(void);
 static void showSoundMenu(void);
 static void showMainMenu(void);
 static void showCheatMenu(void);
 static void showCheatMenuWarn(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
-static void toggleMedal(void);
 static void enableCheatMenu(void);
 
 void drawOptionsMenu()
@@ -189,7 +186,7 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
+	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
 
@@ -197,9 +194,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), "data/menu/options_menu.dat");
-
-	buffer = loadFileFromPak(filename);
+	buffer = loadFileFromPak("data/menu/options_menu.dat");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
@@ -282,13 +277,6 @@ static void loadMenuLayout()
 					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE);
 
 					menu.widgets[i]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_MEDAL") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleMedal, &toggleMedal, &toggleMedal, x, y, TRUE);
-
-					menu.widgets[i]->label = createLabel(game.medalSupport == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_CHEAT") == 0)
@@ -384,36 +372,6 @@ static void toggleHints()
 	updateLabelText(w->label, game.showHints == TRUE ? _("Yes") : _("No"));
 }
 
-static void toggleMedal()
-{
-	int result;
-	Widget *w = menu.widgets[menu.index];
-
-	game.medalSupport = game.medalSupport == TRUE ? FALSE : TRUE;
-
-	if (game.medalSupport == TRUE)
-	{
-		result = connectToServer();
-
-		if (result != 0)
-		{
-			if (result == 1)
-			{
-				game.menu = initOKMenu(_("Private key is missing. You will not be able to earn Medals for this game."), &showOptionsMenu);
-			}
-
-			else
-			{
-				game.menu = initOKMenu(_("Could not connect to the server. You will not be able to earn Medals for this game."), &showOptionsMenu);
-			}
-
-			game.drawMenu = &drawOKMenu;
-		}
-	}
-
-	updateLabelText(w->label, game.medalSupport == TRUE ? _("Yes") : _("No"));
-}
-
 static void toggleFullscreen()
 {
 	Widget *w = menu.widgets[menu.index];
@@ -444,13 +402,6 @@ static void showMainMenu()
 	game.menu = initMainMenu();
 
 	game.drawMenu = &drawMainMenu;
-}
-
-static void showOptionsMenu()
-{
-	game.menu = initOptionsMenu();
-
-	game.drawMenu = &drawOptionsMenu;
 }
 
 static void showCheatMenuWarn()

@@ -1,4 +1,4 @@
-VERSION = 0.90
+VERSION = 0.91
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -70,7 +70,7 @@ CORE_OBJS += enemy_generator.o flying_bug.o potions.o pak.o control_menu.o label
 CORE_OBJS += io_menu.o inventory_menu.o scorpion.o status_panel.o trap_door.o arrow_target.o eye_stalk.o snail_shell.o
 CORE_OBJS += flying_maggot.o conveyor_belt.o power_generator.o laser_grid.o ceiling_snapper.o gazer.o
 CORE_OBJS += teleporter.o sludge.o grabber.o golem_rock_dropper.o yes_no_menu.o about_menu.o summoner.o energy_drainer.o
-CORE_OBJS += symbol_block.o number_block.o force_field.o pump.o gazer_eye_slot.o spring.o invulnerable_flyer.o centurion.o
+CORE_OBJS += symbol_block.o number_block.o force_field.o gazer_eye_slot.o spring.o centurion.o
 CORE_OBJS += ice_cube.o vanishing_platform.o armadillo.o bubble_machine.o bubble.o map_trigger.o potion_dispenser.o
 CORE_OBJS += ceiling_crawler.o tesla_charger.o tesla_pack.o lightning_tortoise.o fire_burner.o high_striker.o containment_unit.o
 CORE_OBJS += blob_boss.o containment_unit_controls.o ice_spray.o blending_machine.o robot.o anti_gravity_field.o spike_ball.o
@@ -92,7 +92,7 @@ CORE_OBJS += cave_boss.o wall_walker.o apple_tree.o apple.o one_way_door.o colou
 CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o hoover.o black_book_2.o drawbridge_pulley.o drawbridge_anchor.o giant_ceiling_creeper.o
 CORE_OBJS += baby_salamander.o safe_combination.o grimlore.o grimlore_artifact.o magic_missile.o grimlore_summon_spell.o hidden_passage_wall.o
 CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o credits.o black_book_3.o sorceror_2.o sorceror_dark_summoner.o
-CORE_OBJS += sorceror_floor.o
+CORE_OBJS += sorceror_floor.o medals_menu.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o
