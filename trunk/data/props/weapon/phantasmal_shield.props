@@ -1,0 +1,7 @@
+HEALTH 1
+GFX_FILE data/gfx/weapon/phantasmal_shield.dat
+ANIM_FILE data/anim/weapon/fire_shield.dat
+TYPE SHIELD
+OBJECTIVE_NAME Phantasmal Shield
+DESCRIPTION Reflects phantasmal forces. Blocking later increases reflection strength 
+ELEMENT PHANTASMAL

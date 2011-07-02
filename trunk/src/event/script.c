@@ -324,6 +324,22 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			else if (strcmpignorecase(token, "CHEATING") == 0)
+			{
+				if (game.cheating == FALSE)
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "NOT_CHEATING") == 0)
+			{
+				if (game.cheating == TRUE)
+				{
+					script.skipping = TRUE;
+				}
+			}
 
 			else if (strcmpignorecase(token, "EXISTS") == 0)
 			{

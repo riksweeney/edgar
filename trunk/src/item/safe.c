@@ -133,8 +133,6 @@ static void activate(int val)
 
 	self->action = &readInputCode;
 
-	self->objectiveName[0] = '\0';
-
 	self->touch = NULL;
 
 	self->activate = NULL;
@@ -182,9 +180,9 @@ static void readInputCode()
 			{
 				if (self->health != 0)
 				{
-					snprintf(code, sizeof(code), "%s%d%s", self->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
+					snprintf(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
 
-					STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
+					STRNCPY(self->target->objectiveName, code, sizeof(self->target->objectiveName));
 
 					self->mental = 0;
 				}
@@ -211,33 +209,29 @@ static void readInputCode()
 
 		if (val == 5)
 		{
-			snprintf(code, sizeof(code), "%s%d%s", self->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
+			snprintf(code, sizeof(code), "%s%d%s", self->target->objectiveName, abs(self->mental), self->health == -1 ? "L" : "R");
 
-			STRNCPY(self->objectiveName, code, sizeof(self->objectiveName));
-			
-			self->target->inUse = FALSE;
+			STRNCPY(self->target->objectiveName, code, sizeof(self->target->objectiveName));
 
-			self->action = &entityWait;
-
-			setPlayerLocked(FALSE);
-
-			if (strcmpignorecase(self->objectiveName, self->requires) == 0)
+			if (strcmpignorecase(self->target->objectiveName, self->requires) == 0)
 			{
-				playSoundToMap("sound/item/safe_open.ogg", -1, self->x, self->y, 0);
+				self->target->inUse = FALSE;
+
+				self->action = &entityWait;
+
+				setPlayerLocked(FALSE);
 				
-				setEntityAnimation(self, "OPEN");
-				
-				removeInventoryItemByObjectiveName("Scrap of Paper");
-				
-				addMedal("safe_open");
-				
-				self->health = -99;
-				
-				self->active = FALSE;
+				runScript("correct_combination");
 			}
 			
 			else
 			{
+				self->target->inUse = FALSE;
+
+				self->action = &entityWait;
+
+				setPlayerLocked(FALSE);
+				
 				self->activate = &activate;
 
 				self->touch = &touch;
@@ -258,7 +252,7 @@ static void addDisplay()
 
 	e->type = KEY_ITEM;
 
-	e->face = LEFT;
+	e->face = RIGHT;
 
 	e->action = &doNothing;
 

@@ -26,7 +26,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "control_menu.h"
 #include "stats_menu.h"
 #include "yes_no_menu.h"
+#include "inventory_menu.h"
+#include "ok_menu.h"
 #include "cheat_menu.h"
+#include "about_menu.h"
 
 extern Game game;
 
@@ -57,4 +60,10 @@ void freeMenus()
 	freeStatsMenu();
 
 	freeCheatMenu();
+	
+	freeInventoryMenu();
+	
+	freeOKMenu();
+	
+	freeAboutMenu();
 }

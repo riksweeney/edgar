@@ -45,6 +45,26 @@ Label *createLabel(char *text, int x, int y)
 	return l;
 }
 
+Label *createImageLabel(SDL_Surface *image, int x, int y)
+{
+	Label *l;
+
+	l = malloc(sizeof(Label));
+
+	if (l == NULL)
+	{
+		showErrorAndExit("Failed to allocate %d bytes to create image Label", (int)sizeof(Label));
+	}
+
+	l->text = image;
+
+	l->x = x;
+
+	l->y = y;
+
+	return l;
+}
+
 void updateLabelText(Label *l, char *text)
 {
 	if (l->text != NULL)
@@ -67,7 +87,7 @@ void drawLabel(Label *l, Menu *m)
 
 	if (l != NULL)
 	{
-		drawImage(l->text, x, y, FALSE, 255);
+		drawImage(l->text, x, y - m->startY, FALSE, 255);
 	}
 }
 

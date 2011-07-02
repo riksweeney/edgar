@@ -39,6 +39,7 @@ typedef struct Widget
 typedef struct Menu
 {
 	int index, x, y, w, h, widgetCount;
+	int startY, endY;
 	SDL_Surface *background;
 	Widget **widgets;
 	Label **labels;
@@ -165,7 +166,7 @@ typedef struct Game
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
-	int kills, batsDrowned, timesEaten, medalSupport;
+	int kills, batsDrowned, timesEaten;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
 	int disableJoystick, mapExitable, cheatsEnabled;
@@ -266,17 +267,23 @@ typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime, quantity;
 	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
-	SDL_Surface *medalSurface[4];
+	SDL_Surface *medalSurface[4], *disabledMedalSurface[4];
 	Message infoMessage;
 } Hud;
 
-typedef struct Medal
+typedef struct NetworkMedal
 {
 	char privateKey[MAX_VALUE_LENGTH];
-	int processing, connected, privateKeyFound;
+	int processing, connected, privateKeyFound, thinkTime;
 	Message medalMessage;
 	IPaddress ip;
 	SDL_Thread *thread;
+} NetworkMedal;
+
+typedef struct Medal
+{
+	char code[MAX_VALUE_LENGTH], description[MAX_MESSAGE_LENGTH];
+	int medalType, obtained, hidden;
 } Medal;
 
 typedef struct Control

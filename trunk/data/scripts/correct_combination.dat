@@ -1,0 +1,23 @@
+KILL SAFE_INSTRUCTIONS
+PLAY_SOUND sound/item/safe_open.ogg
+SET LIBRARY_SAFE ANIMATION OPEN
+REMOVE "Scrap of Paper" 1 -1 LIBRARY_SAFE -99 -99 QUIET
+ADD_MEDAL safe_open
+SET LIBRARY_SAFE PROPERTY ACTIVE FALSE
+WAIT 60
+IF CHEATING
+TALK Edgar There's a note in here
+TALK Edgar It says the following:
+TALK Note Cheaters never proper
+TALK Edgar Oh...
+END
+IF NOT_CHEATING
+WALK_TO EDGAR 10823 12451 WAIT
+TALK Edgar Oh, what's this?
+ADD ENTITY WEAPON weapon/phantasmal_shield " " 10823 12451
+TALK Edgar I saw this shield in the book about enchanting weapons
+TALK Edgar It's a Phantasmal Shield
+TALK Narrator The Phantasmal Shield will protect you from phantasmal forces
+TALK Narrator In addition to this it can reflect phantasmal projectiles back at the owner
+TALK Narrator Blocking at the last moment increases the power of the reflected projectile
+END

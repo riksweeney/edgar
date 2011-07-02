@@ -53,7 +53,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../dialog.h"
 #include "../event/script.h"
 #include "../collisions.h"
-#include "../menu/main_menu.h"
+#include "../menu/menu.h"
 #include "../world/npc.h"
 #include "../world/action_point.h"
 #include "../world/falling_platform.h"
@@ -211,7 +211,7 @@ void freeAllResources()
 
 	/* Free the menus */
 
-	freeMainMenu();
+	freeMenus();
 
 	/* Free the pak file */
 

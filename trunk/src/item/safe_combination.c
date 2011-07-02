@@ -85,26 +85,26 @@ static void touch(Entity *other)
 			{
 				unit = 1 + prand() % 20;
 
-				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == -1 ? "L" : "R");
+				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == 0 ? "L" : "R");
 
 				STRNCPY(self->requires, combination, sizeof(self->requires));
 				
 				if (i == 0)
 				{
-					snprintf(combination, sizeof(combination), "%d %s", unit, dir == -1 ? _("Left") : _("Right"));
+					snprintf(combination, sizeof(combination), "%d %s", unit, dir == 0 ? _("Left") : _("Right"));
 				}
 				
 				else
 				{
-					snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == -1 ? _("Left") : _("Right"));
+					snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == 0 ? _("Left") : _("Right"));
 				}
 
 				STRNCPY(self->description, combination, sizeof(self->description));
 				
-				dir = dir == -1 ? 0 : -1;
+				dir = dir == 1 ? 0 : 1;
 			}
 
-			snprintf(self->description, sizeof(self->description), "A scrap of paper. %s is written on it", combination);
+			snprintf(self->description, sizeof(self->description), _("A scrap of paper. %s is written on it"), combination);
 		}
 	}
 	

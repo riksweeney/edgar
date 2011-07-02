@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../hud.h"
 #include "../input.h"
 #include "error.h"
+#include "../medal.h"
 
 static char gameSavePath[MAX_PATH_LENGTH], tempFile[MAX_PATH_LENGTH], saveFileIndex[MAX_PATH_LENGTH], continueFile[MAX_PATH_LENGTH];
 static int temporaryDataExists;
@@ -1734,4 +1735,72 @@ static void showPatchMessage(char *message)
 	/* Swap the buffers */
 
 	SDL_Flip(game.screen);
+}
+
+void loadObtainedMedals()
+{
+	char medalFile[MAX_PATH_LENGTH], *line, *savePtr;
+	unsigned char *buffer;
+	FILE *fp;
+
+	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
+
+	fp = fopen(medalFile, "rb");
+
+	if (fp == NULL)
+	{
+		return;
+	}
+	
+	fclose(fp);
+
+	buffer = decompressFile(medalFile);
+
+	line = strtok_r((char *)buffer, "\n", &savePtr);
+	
+	while (line != NULL)
+	{
+		setObtainedMedal(line);
+		
+		line = strtok_r(NULL, "\n", &savePtr);
+	}
+	
+	free(buffer);
+}
+
+void saveObtainedMedals()
+{
+	int i, medalCount;
+	char medalFile[MAX_PATH_LENGTH];
+	Medal *medal;
+	FILE *fp;
+
+	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
+
+	fp = fopen(medalFile, "wb");
+
+	if (fp == NULL)
+	{
+		showErrorAndExit("Could not save Medal data: %s", strerror(errno));
+	}
+	
+	medalCount = getMedalCount();
+	
+	medal = getMedals();
+	
+	for (i=0;i<medalCount;i++)
+	{
+		if (medal[i].obtained == TRUE)
+		{
+			fprintf(fp, "%s\n", medal[i].code);
+		}
+	}
+	
+	fclose(fp);
+	
+	#if DEV == 1
+		copyFile(medalFile, "medaldata");
+	#endif
+
+	compressFile(medalFile);
 }

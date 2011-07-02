@@ -235,6 +235,8 @@ static void finishEating()
 		if (strcmpignorecase(self->target->name, "item/chicken_feed") == 0)
 		{
 			self->target->thinkTime = 600;
+			
+			self->target->flags &= ~NO_DRAW;
 		}
 
 		self->action = &doNothing;

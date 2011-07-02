@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "yes_no_menu.h"
 #include "about_menu.h"
 #include "stats_menu.h"
+#include "medals_menu.h"
 #include "../system/pak.h"
 #include "../system/load_save.h"
 #include "../game.h"
@@ -48,6 +49,7 @@ static void doQuit(void);
 static void showMainMenu(void);
 static void showAboutMenu(void);
 static void showStatsMenu(void);
+static void showMedalsMenu(void);
 
 void drawMainMenu()
 {
@@ -153,7 +155,7 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
+	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
 
@@ -161,9 +163,7 @@ static void loadMenuLayout()
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), "data/menu/main_menu.dat");
-
-	buffer = loadFileFromPak(filename);
+	buffer = loadFileFromPak("data/menu/main_menu.dat");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
@@ -254,6 +254,11 @@ static void loadMenuLayout()
 				else if (strcmpignorecase(menuID, "MENU_STATS") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE);
+				}
+				
+				else if (strcmpignorecase(menuID, "MENU_MEDALS") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showMedalsMenu, x, y, TRUE);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
@@ -373,6 +378,13 @@ static void showIOMenu()
 	game.menu = initIOMenu(FALSE);
 
 	game.drawMenu = &drawIOMenu;
+}
+
+static void showMedalsMenu()
+{
+	game.menu = initMedalsMenu();
+
+	game.drawMenu = &drawMedalsMenu;
 }
 
 static void doNewGame()

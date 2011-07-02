@@ -105,7 +105,7 @@ static void doMenu()
 
 static void loadMenuLayout(char *text)
 {
-	char filename[MAX_LINE_LENGTH], *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
+	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	unsigned char *buffer;
 	int x, y, i;
 
@@ -113,9 +113,7 @@ static void loadMenuLayout(char *text)
 
 	i = 0;
 
-	snprintf(filename, sizeof(filename), "data/menu/yes_no_menu.dat");
-
-	buffer = loadFileFromPak(filename);
+	buffer = loadFileFromPak("data/menu/yes_no_menu.dat");
 
 	line = strtok_r((char *)buffer, "\n", &savePtr1);
 
