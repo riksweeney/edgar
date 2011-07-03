@@ -9,6 +9,7 @@ kill_grimlore S Y Defeated Grimlore
 kill_phoenix S Y Defeated the Phoenix
 kill_rampaging S N Defeated a Rampaging Master Tortoise
 lightning_sword S Y Obtained the Lightning Sword
+safe_open S N Opened the safe in the Library
 occult S Y Located the Occult Section
 sorceror_start S Y Met the Sorceror
 10_hp B N Obtained 10 Hit Points
