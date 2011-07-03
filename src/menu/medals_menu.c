@@ -77,6 +77,16 @@ static void doMenu()
 		showMainMenu();
 	}
 	
+	else if (input.block == TRUE || menuInput.block == TRUE)
+	{
+		menuInput.block = FALSE;
+		input.block = FALSE;
+
+		playSound("sound/common/click.ogg");
+
+		showMainMenu();
+	}
+	
 	else if (input.down == TRUE || menuInput.down == TRUE)
 	{
 		menu.startY += 3;

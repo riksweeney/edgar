@@ -39,6 +39,7 @@ static int medalCount, awardedMedalIndex;
 static void addMedalToQueue(char *);
 static void getNextMedalFromQueue(void);
 static void loadMedals(void);
+static int getOnlineMedals(void *);
 
 void initMedals()
 {
@@ -49,6 +50,8 @@ void initMedals()
 	loadMedals();
 	
 	loadObtainedMedals();
+	
+	networkMedal.thread = SDL_CreateThread(&getOnlineMedals, NULL);
 }
 
 void addMedal(char *medalName)
@@ -272,4 +275,66 @@ void setObtainedMedal(char *medalCode)
 			break;
 		}
 	}
+}
+
+static int getOnlineMedals(void *data)
+{
+	char in[MAX_LINE_LENGTH], out[MAX_LINE_LENGTH], *savePtr;
+	char *token;
+	int len;
+	TCPsocket socket;
+	
+	if (getPrivateKey(networkMedal.privateKey) == FALSE)
+	{
+		return 0;
+	}
+	
+	if (SDLNet_ResolveHost(&networkMedal.ip, MEDAL_SERVER_HOST, MEDAL_SERVER_PORT) == -1)
+	{
+		printf("Could not connect to medal server: %s\n", SDLNet_GetError());
+
+		return 1;
+	}
+
+	socket = SDLNet_TCP_Open(&networkMedal.ip);
+
+	if (socket == NULL)
+	{
+		printf("Failed to create socket: %s\n", SDLNet_GetError());
+
+		return 1;
+	}
+
+	snprintf(out, MAX_LINE_LENGTH, "GET /getMedals/%s HTTP/1.1\nHost: %s\nUser-Agent:LOE%.2f-%d\n\n", networkMedal.privateKey, MEDAL_SERVER_HOST, VERSION, RELEASE);
+
+	len = strlen(out) + 1;
+
+	if (SDLNet_TCP_Send(socket, (void*)out, len) < len)
+	{
+		printf("SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+		
+		SDLNet_TCP_Close(socket);
+
+		return 1;
+	}
+
+	SDLNet_TCP_Recv(socket, in, MAX_LINE_LENGTH - 1);
+
+	token = strtok_r(in, "\n", &savePtr);
+
+	while (token != NULL)
+	{
+		if (strstr(token, "LOE_"))
+		{
+			STRNCPY(out, token + 4, sizeof(out));
+			
+			setObtainedMedal(out);
+		}
+		
+		token = strtok_r(NULL, "\n", &savePtr);
+	}
+
+	SDLNet_TCP_Close(socket);
+
+	return 0;
 }
