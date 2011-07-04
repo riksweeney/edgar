@@ -6,7 +6,7 @@ Version 0.91
 * Added support for offline medals
 
 Version 0.90
-* The Windows version no longer crashes when trying to load Gettext files
+* The Windows version no longer crashes when trying to load GNU gettext files
 * Added the final part of the story, the main quest is now completable
 * Made the Watchdog easier to defeat
 

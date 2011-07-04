@@ -8,7 +8,8 @@ WAIT 60
 IF CHEATING
 TALK Edgar There's a note in here
 TALK Edgar It says the following:
-TALK Note Cheaters never proper
+TALK Note Cheaters never prosper
+SET EDGAR ANIMATION SAD
 TALK Edgar Oh...
 END
 IF NOT_CHEATING
@@ -20,4 +21,5 @@ TALK Edgar It's a Phantasmal Shield
 TALK Narrator The Phantasmal Shield will protect you from phantasmal forces
 TALK Narrator In addition to this it can reflect phantasmal projectiles back at the owner
 TALK Narrator Blocking at the last moment increases the power of the reflected projectile
+TALK Narrator The shield has no use in this version!
 END

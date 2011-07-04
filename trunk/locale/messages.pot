@@ -1625,15 +1625,6 @@ msgstr ""
 msgid "I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though."
 msgstr ""
 
-msgid "Could not connect to Medal Server at %s:%d"
-msgstr ""
-
-msgid "Could not find Medal Key"
-msgstr ""
-
-msgid "You will not be able to earn Medals for this game"
-msgstr ""
-
 msgid "There's another sign here"
 msgstr ""
 
@@ -1661,13 +1652,7 @@ msgstr ""
 msgid "Repellent"
 msgstr ""
 
-msgid "Medal Support"
-msgstr ""
-
 msgid "Fortress Mine"
-msgstr ""
-
-msgid "Private key is missing"
 msgstr ""
 
 msgid "Sludge Tentacle"
@@ -2205,12 +2190,6 @@ msgid "Press Action to Cancel"
 msgstr ""
 
 msgid "%s is needed to activate this Light Pillar"
-msgstr ""
-
-msgid "Private key is missing. You will not be able to earn Medals for this game."
-msgstr ""
-
-msgid "Could not connect to the server. You will not be able to earn Medals for this game."
 msgstr ""
 
 msgid "Evil_Edgar"
@@ -3929,12 +3908,6 @@ msgstr ""
 msgid "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Wow, that has to be the worst case of false accusation I think I'll ever hear!"
 msgstr ""
 
@@ -3962,6 +3935,191 @@ msgstr ""
 msgid "Actually, I think I know what your punishment is going to be..."
 msgstr ""
 
+msgid "Defeated the Sorceror"
+msgstr ""
+
+msgid "Defeated Chaos"
+msgstr ""
+
+msgid "Walked 50km"
+msgstr ""
+
+msgid "Fired 500 arrows"
+msgstr ""
+
+msgid "Defeated 1000 enemies"
+msgstr ""
+
+msgid "Defeated 2000 enemies"
+msgstr ""
+
+msgid "Defeated the Black Book"
+msgstr ""
+
+msgid "Defeated Grimlore"
+msgstr ""
+
+msgid "Defeated the Phoenix"
+msgstr ""
+
+msgid "Defeated a Rampaging Master Tortoise"
+msgstr ""
+
+msgid "Obtained the Lightning Sword"
+msgstr ""
+
+msgid "Opened the safe in the Library"
+msgstr ""
+
+msgid "Located the Occult Section"
+msgstr ""
+
+msgid "Met the Sorceror"
+msgstr ""
+
+msgid "Obtained 10 Hit Points"
+msgstr ""
+
+msgid "Rescued all of Jacob's chickens"
+msgstr ""
+
+msgid "Fired 250 arrows"
+msgstr ""
+
+msgid "Blocked 2000 attacks"
+msgstr ""
+
+msgid "Continued 20 times"
+msgstr ""
+
+msgid "Drowned 20 Red Bats"
+msgstr ""
+
+msgid "Escaped the Dungeon"
+msgstr ""
+
+msgid "Got eaten 5 times"
+msgstr ""
+
+msgid "Entered the Forbidden Swamp"
+msgstr ""
+
+msgid "Completed the Tutorial"
+msgstr ""
+
+msgid "Obtained the Fire Shield"
+msgstr ""
+
+msgid "Got to the Fortress"
+msgstr ""
+
+msgid "Defeated the Golem using only the grabbers"
+msgstr ""
+
+msgid "Defeated 100 enemies"
+msgstr ""
+
+msgid "Defeated 200 enemies"
+msgstr ""
+
+msgid "Defeated 500 enemies"
+msgstr ""
+
+msgid "Defeated the Watchdog"
+msgstr ""
+
+msgid "Defeated the Awesome Foursome"
+msgstr ""
+
+msgid "Defeated the Blob"
+msgstr ""
+
+msgid "Defeated the Borer"
+msgstr ""
+
+msgid "Defeated Evil Edgar"
+msgstr ""
+
+msgid "Defeated the Queen Fly"
+msgstr ""
+
+msgid "Defeated the Golem"
+msgstr ""
+
+msgid "Defeated the King Grub"
+msgstr ""
+
+msgid "Defeated Mataeus"
+msgstr ""
+
+msgid "Defeated the Salamander"
+msgstr ""
+
+msgid "Defeated the Sewer Dweller"
+msgstr ""
+
+msgid "Defeated the Forbidden Swamp guardian"
+msgstr ""
+
+msgid "Read all of the Monster Compendium"
+msgstr ""
+
+msgid "Obtained the Amulet of Resurrection"
+msgstr ""
+
+msgid "Spent 10 minutes as a Slime"
+msgstr ""
+
+msgid "A scrap of paper. %s is written on it"
+msgstr ""
+
+msgid "Hidden Medal"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "It might be an ant lion looking for food"
+msgstr ""
+
+msgid "If I go down there, it'll almost certainly eat me"
+msgstr ""
+
+msgid "Maybe I could lure something else into its pit..."
+msgstr ""
+
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
+msgid "There's a note in here"
+msgstr ""
+
+msgid "It says the following:"
+msgstr ""
+
+msgid "Cheaters never prosper"
+msgstr ""
+
+msgid "Oh..."
+msgstr ""
+
+msgid "I saw this shield in the book about enchanting weapons"
+msgstr ""
+
+msgid "It's a Phantasmal Shield"
+msgstr ""
+
+msgid "The Phantasmal Shield will protect you from phantasmal forces"
+msgstr ""
+
+msgid "In addition to this it can reflect phantasmal projectiles back at the owner"
+msgstr ""
+
+msgid "Blocking at the last moment increases the power of the reflected projectile"
+msgstr ""
+
+msgid "Reflects phantasmal forces. Blocking later increases reflection strength"
+msgstr ""
