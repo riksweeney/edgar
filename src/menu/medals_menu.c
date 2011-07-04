@@ -89,7 +89,7 @@ static void doMenu()
 	
 	else if (input.down == TRUE || menuInput.down == TRUE)
 	{
-		menu.startY += 3;
+		menu.startY += 6;
 		
 		if (menu.startY > menu.endY)
 		{
@@ -99,7 +99,7 @@ static void doMenu()
 	
 	else if (input.up == TRUE || menuInput.up == TRUE)
 	{
-		menu.startY -= 3;
+		menu.startY -= 6;
 		
 		if (menu.startY < 0)
 		{
