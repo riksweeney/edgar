@@ -417,10 +417,6 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 		showErrorAndExit("Failed to allocate a whole %d bytes for Fly Trap body...\n", trapHead->mental * (int)sizeof(Entity *));
 	}
 
-	/* Create in reverse order so that it is drawn correctly */
-
-	/*resetEntityIndex();*/
-
 	for (i=trapHead->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();

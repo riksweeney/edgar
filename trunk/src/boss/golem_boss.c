@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../credits.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void initialise(void);
 static void headReform(void);
@@ -451,8 +451,11 @@ static void stunnedTouch(Entity *other)
 
 static void takeDamage(Entity *other, int damage)
 {
-	int i, health;
+	int health;
 	Entity *temp;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	if (self->flags & INVULNERABLE)
 	{
@@ -547,11 +550,11 @@ static void takeDamage(Entity *other, int damage)
 
 	if (health > 20 && self->health <= 20)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, "ROCK_GRABBER") == 0)
+			if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->objectiveName, "ROCK_GRABBER") == 0)
 			{
-				entity[i].health = 1;
+				el->entity->health = 1;
 			}
 		}
 	}

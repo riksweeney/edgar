@@ -929,10 +929,6 @@ static void dropAnchor()
 		showErrorAndExit("Failed to allocate a whole %d bytes for Mataeus Anchor chain...", bodyParts * (int)sizeof(Entity *));
 	}
 
-	/* Create in reverse order so that it is drawn correctly */
-
-	resetEntityIndex();
-
 	for (i=bodyParts-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();
@@ -1707,22 +1703,25 @@ static void addRiftEnergy(int x, int y)
 	Entity *e;
 
 	e = addBasicDecoration(x, y, "decoration/rift_energy");
+	
+	if (e != NULL)
+	{
+		e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+		e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
 
-	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
-	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+		x -= e->w / 2;
+		y -= e->h / 2;
 
-	x -= e->w / 2;
-	y -= e->h / 2;
+		e->targetX = x;
+		e->targetY = y;
 
-	e->targetX = x;
-	e->targetY = y;
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+		e->dirX *= 8;
+		e->dirY *= 8;
 
-	e->dirX *= 8;
-	e->dirY *= 8;
-
-	e->action = &energyMoveToRift;
+		e->action = &energyMoveToRift;
+	}
 }
 
 static void energyMoveToRift()

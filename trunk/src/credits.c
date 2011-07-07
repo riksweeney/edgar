@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/load_save.h"
 
 extern Game game;
-extern Entity *self, entity[MAX_ENTITIES], player;
+extern Entity *self, player;
 
 static Credits credits;
 static char *enemies[] = {
@@ -183,6 +183,9 @@ void doCredits()
 static void doEndCredits()
 {
 	int i, r, g, b, remainingEntities;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 	
 	if (credits.creditLine == NULL)
 	{
@@ -249,9 +252,9 @@ static void doEndCredits()
 			addToGrid(self);
 		}
 		
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			self = &entity[i];
+			self = el->entity;
 
 			if (self->inUse == TRUE)
 			{
@@ -422,7 +425,10 @@ static void doGameStats()
 
 static void doDefeatedBosses()
 {
-	int i, remainingEntities;
+	int remainingEntities;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 	
 	if (credits.creditLine == NULL)
 	{
@@ -437,9 +443,9 @@ static void doDefeatedBosses()
 	{
 		credits.startDelay = 0;
 		
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			self = &entity[i];
+			self = el->entity;
 
 			if (self->inUse == TRUE)
 			{

@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 typedef struct Label
 {
 	int x, y;
+	int r, g, b;
 	SDL_Surface *text;
 } Label;
 
@@ -29,6 +30,7 @@ typedef struct Widget
 {
 	int x, y, disabled, hidden;
 	int *value, maxValue, minValue;
+	int r, g, b;
 	void (*clickAction)(void);
 	void (*rightAction)(void);
 	void (*leftAction)(void);

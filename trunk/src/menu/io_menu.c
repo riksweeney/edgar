@@ -187,12 +187,12 @@ static void loadMenuLayout(int saving)
 	{
 		if (saveFile == NULL || strlen(saveFile[i]) == 0)
 		{
-			menu.widgets[i] = createWidget(_("<Empty>"), NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : NULL, -1, y, FALSE);
+			menu.widgets[i] = createWidget(_("<Empty>"), NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : NULL, -1, y, FALSE, 255, 255, 255);
 		}
 
 		else
 		{
-			menu.widgets[i] = createWidget(saveFile[i], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE);
+			menu.widgets[i] = createWidget(saveFile[i], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE, 255, 255, 255);
 		}
 
 		y += menu.widgets[i]->normalState->h + 5;
@@ -212,7 +212,7 @@ static void loadMenuLayout(int saving)
 
 	y += 15;
 
-	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE);
+	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE, 255, 255, 255);
 
 	y += 5;
 

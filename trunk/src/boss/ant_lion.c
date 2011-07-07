@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/gib.h"
 #include "../system/error.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void patrol(void);
 static void lookForFood(void);
@@ -96,7 +96,9 @@ static void patrol()
 
 static void lookForFood()
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	if (collision(self->x - 320, self->y, 640, self->h, player.x, player.y, player.w, player.h) == 1)
 	{
@@ -109,12 +111,12 @@ static void lookForFood()
 
 	else
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, "enemy/grub") == 0 &&
-				collision(self->x - 320, self->y, 640, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->name, "enemy/grub") == 0 &&
+				collision(self->x - 320, self->y, 640, self->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 			{
-				self->target = &entity[i];
+				self->target = el->entity;
 
 				playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 

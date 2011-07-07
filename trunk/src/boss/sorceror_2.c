@@ -1943,6 +1943,8 @@ static void holdPersonSpellMove()
 		break;
 	}
 	
+	player.flags &= ~ON_GROUND;
+	
 	if (self->y < self->targetY)
 	{
 		self->y += 12;

@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/random.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void autoTouch(Entity *);
 static void touch(Entity *);
@@ -244,6 +244,9 @@ static void doSymbolMatch()
 {
 	int i, count, remaining, required;
 	Entity **list;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	count = 0;
 
@@ -251,22 +254,22 @@ static void doSymbolMatch()
 
 	required = -1;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(self->objectiveName, el->entity->objectiveName) == 0)
 		{
 			count++;
 
 			/* Only do validation if all the blocks have stopped */
 
-			if (entity[i].damage != 0)
+			if (el->entity->damage != 0)
 			{
 				return;
 			}
 
-			if (entity[i].startY == -1)
+			if (el->entity->startY == -1)
 			{
-				required = entity[i].thinkTime;
+				required = el->entity->thinkTime;
 			}
 		}
 	}
@@ -280,13 +283,13 @@ static void doSymbolMatch()
 
 	count = 0;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(self->objectiveName, el->entity->objectiveName) == 0)
 		{
-			list[count] = &entity[i];
+			list[count] = el->entity;
 
-			if (entity[i].thinkTime != required)
+			if (el->entity->thinkTime != required)
 			{
 				remaining++;
 			}
@@ -361,26 +364,28 @@ static void appear()
 
 static int getRequired()
 {
-	int i;
-
-	for (i=0;i<MAX_ENTITIES;i++)
+	EntityList *el, *entities;
+	
+	entities = getEntities();
+	
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(self->objectiveName, entity[i].objectiveName) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(self->objectiveName, el->entity->objectiveName) == 0)
 		{
-			if (entity[i].startY == -1)
+			if (el->entity->startY == -1)
 			{
 				/* Randomize the required block if not already done */
 
-				if (entity[i].weight != 2)
+				if (el->entity->weight != 2)
 				{
-					entity[i].thinkTime = prand() % entity[i].maxThinkTime;
+					el->entity->thinkTime = prand() % el->entity->maxThinkTime;
 
-					entity[i].weight = 2;
+					el->entity->weight = 2;
 
-					entity[i].originalWeight = entity[i].weight;
+					el->entity->originalWeight = el->entity->weight;
 				}
 
-				return entity[i].thinkTime;
+				return el->entity->thinkTime;
 			}
 		}
 	}

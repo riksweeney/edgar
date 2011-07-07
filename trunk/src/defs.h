@@ -112,8 +112,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #define MAX_AMBIENT_SOUNDS 10
 
-#define MAX_DECORATIONS 512
-
 #define MAX_TARGETS 255
 
 #define MAX_HUD_MESSAGES 5
@@ -233,6 +231,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MENU_CODE "fasterthanthespeedoflove"
 
 #define MAX_ANIMATION_TYPES 50
+
+#define rand() USE_PRAND_INSTEAD_OF_RAND()
 
 enum
 {

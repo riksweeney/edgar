@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES], player;
+extern Entity *self, player;
 
 static void entityWait(void);
 static void addRiftEnergy(int, int);
@@ -65,7 +65,9 @@ Entity *addAttractor(int x, int y, char *name)
 
 static void entityWait()
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	setEntityAnimation(self, self->active == FALSE ? "STAND" : "WALK");
 
@@ -80,12 +82,12 @@ static void entityWait()
 
 		if (self->thinkTime <= 0)
 		{
-			for (i=0;i<MAX_ENTITIES;i++)
+			for (el=entities->next;el!=NULL;el=el->next)
 			{
-				if (entity[i].inUse == TRUE && entity[i].type == ENEMY &&
-					collision(self->x - self->mental, self->y, self->mental * 2, self->mental * 2, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+				if (el->entity->inUse == TRUE && el->entity->type == ENEMY &&
+					collision(self->x - self->mental, self->y, self->mental * 2, self->mental * 2, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 				{
-					setCustomAction(&entity[i], &attract, self->maxThinkTime, 0, (entity[i].x < (self->x + self->w / 2) ? self->speed : -self->speed));
+					setCustomAction(el->entity, &attract, self->maxThinkTime, 0, (el->entity->x < (self->x + self->w / 2) ? self->speed : -self->speed));
 				}
 			}
 

@@ -512,7 +512,7 @@ static void fireBullets()
 	{
 		self->maxThinkTime--;
 		
-		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 
@@ -574,7 +574,7 @@ static void fireSlime()
 	{
 		self->maxThinkTime--;
 		
-		playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/grub_boss/fire.ogg", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
 

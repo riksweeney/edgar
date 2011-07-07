@@ -211,7 +211,7 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "UP") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_UP]);
 
@@ -220,7 +220,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "DOWN") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_DOWN], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_DOWN], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_DOWN]);
 
@@ -229,7 +229,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "LEFT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_LEFT], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_LEFT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_LEFT]);
 
@@ -238,7 +238,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "RIGHT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_RIGHT], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_RIGHT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_RIGHT]);
 
@@ -247,7 +247,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "ATTACK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ATTACK], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ATTACK], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_ATTACK]);
 
@@ -256,7 +256,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "BLOCK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_BLOCK], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_BLOCK], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_BLOCK]);
 
@@ -265,7 +265,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "JUMP") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_JUMP], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_JUMP], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_JUMP]);
 
@@ -274,7 +274,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "INTERACT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INTERACT], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INTERACT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_INTERACT]);
 
@@ -283,7 +283,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "USE") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ACTIVATE], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ACTIVATE], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_ACTIVATE]);
 
@@ -293,7 +293,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_PREVIOUS]);
 
@@ -302,7 +302,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_NEXT]);
 
@@ -311,7 +311,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "INVENTORY") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INVENTORY], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INVENTORY], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_INVENTORY]);
 
@@ -320,7 +320,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "PAUSE") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PAUSE], NULL, NULL, &redefineKey, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PAUSE], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
 
 					text = getKeyValue(control.button[CONTROL_PAUSE]);
 
@@ -329,12 +329,12 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "DEAD_ZONE") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.deadZone, &lowerDeadZoneValue, &raiseDeadZoneValue, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.deadZone, &lowerDeadZoneValue, &raiseDeadZoneValue, NULL, x, y, TRUE, 255, 255, 255);
 
 					text = getDeadZoneValue(control.deadZone);
 

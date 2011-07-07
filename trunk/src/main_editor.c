@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 
 Input input, menuInput;
-Entity player, playerWeapon, playerShield, *self, entity[MAX_ENTITIES];
+Entity player, playerWeapon, playerShield, *self;
 Game game;
 Cursor cursor;
 Target target[MAX_TARGETS];
@@ -62,6 +62,8 @@ int main(int argc, char *argv[])
 	/* Load the resources */
 
 	loadRequiredResources();
+	
+	freeEntities();
 
 	if (argc > 1)
 	{

@@ -213,44 +213,44 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &getContinuePoint, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &getContinuePoint, x, y, TRUE, 255, 255, 255);
 
 					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_TUTORIAL") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doTutorial, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doTutorial, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showIOMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showIOMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_STATS") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showAboutMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showAboutMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doQuit, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doQuit, x, y, TRUE, 255, 255, 255);
 				}
 
 				else

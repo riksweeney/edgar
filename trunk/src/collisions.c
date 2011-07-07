@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "audio/audio.h"
 #include "entity.h"
 
-extern Entity entity[MAX_ENTITIES], *self;
+extern Entity *self;
 extern Entity player, playerShield, playerWeapon;
 
 static Grid grid[GRID_MAX_Y][GRID_MAX_X];
@@ -365,19 +365,21 @@ Entity *checkEntityToEntity(Entity *e)
 
 Entity *isSpaceEmpty(Entity *e)
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	if (player.inUse == TRUE && collision(e->x, e->y, e->w, e->h, player.x, player.y, player.w, player.h) == 1)
 	{
 		return &player;
 	}
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && e != &entity[i]
-			&& collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (el->entity->inUse == TRUE && e != el->entity
+			&& collision(e->x, e->y, e->w, e->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
@@ -386,12 +388,14 @@ Entity *isSpaceEmpty(Entity *e)
 
 int isNearObstacle(Entity *e)
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && (entity[i].flags & (OBSTACLE|PUSHABLE))
-			&& collision(e->x, e->y, e->w, e->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+		if (el->entity->inUse == TRUE && (el->entity->flags & (OBSTACLE|PUSHABLE))
+			&& collision(e->x, e->y, e->w, e->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 		{
 			return TRUE;
 		}
@@ -1078,6 +1082,9 @@ int isAtEdge(Entity *e)
 	int i, tile;
 	int x = e->face == LEFT ? floor(e->x) : ceil(e->x) + e->w;
 	int y = e->y + e->h - 1;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
@@ -1163,13 +1170,13 @@ int isAtEdge(Entity *e)
 
 	/* There might still be Entities that can be walked on */
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (e != &entity[i] && entity[i].inUse == TRUE && entity[i].touch != NULL
-			&& ((entity[i].flags & (PUSHABLE|OBSTACLE)) || (entity[i].type == WEAK_WALL)
-			|| (entity[i].type == PRESSURE_PLATE) || (entity[i].type == ANTI_GRAVITY)))
+		if (e != el->entity && el->entity->inUse == TRUE && el->entity->touch != NULL
+			&& ((el->entity->flags & (PUSHABLE|OBSTACLE)) || (el->entity->type == WEAK_WALL)
+			|| (el->entity->type == PRESSURE_PLATE) || (el->entity->type == ANTI_GRAVITY)))
 		{
-			if (collision(x, e->y, 1, e->h + 10, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == TRUE)
+			if (collision(x, e->y, 1, e->h + 10, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == TRUE)
 			{
 				return FALSE;
 			}
