@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "enemies.h"
 #include "../system/error.h"
+#include "../system/random.h"
 
 extern Entity *self;
 
@@ -99,7 +100,7 @@ static void entityWait()
 
 			e->face = self->face;
 
-			self->thinkTime = (rand() % self->maxThinkTime);
+			self->thinkTime = (prand() % self->maxThinkTime);
 		}
 	}
 

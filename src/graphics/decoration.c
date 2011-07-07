@@ -27,8 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../entity.h"
 #include "../system/error.h"
 
-static Entity decoration[MAX_DECORATIONS];
-static int decorationIndex = 0;
+static EntityList *decoration;
 
 extern Entity *self, player;
 extern Game game;
@@ -65,82 +64,107 @@ Entity *addDecoration(char *name, int x, int y)
 
 void freeDecorations()
 {
-	/* Clear the list */
+	EntityList *p, *q;
 
-	memset(decoration, 0, sizeof(Entity) * MAX_DECORATIONS);
+	if (decoration != NULL)
+	{
+		for (p=decoration->next;p!=NULL;p=q)
+		{
+			free(p->entity);
+			
+			q = p->next;
+
+			free(p);
+		}
+
+		free(decoration);
+	}
+	
+	decoration = malloc(sizeof(EntityList));
+
+	if (decoration == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
+	decoration->next = NULL;
 }
 
 Entity *getFreeDecoration()
 {
-	int i, count;
-
-	count = 0;
-
-	/* Loop through all the Decorations and find a free slot */
-
-	for (i=decorationIndex;;i++)
+	Entity *e;
+	
+	e = malloc(sizeof(Entity));
+	
+	if (e == NULL)
 	{
-		if (i >= MAX_DECORATIONS)
-		{
-			i = 0;
-		}
-
-		if (decoration[i].inUse == FALSE)
-		{
-			memset(&decoration[i], 0, sizeof(Entity));
-
-			decoration[i].inUse = TRUE;
-
-			decoration[i].active = TRUE;
-
-			decoration[i].frameSpeed = 1;
-
-			decoration[i].alpha = 255;
-
-			decorationIndex = i + 1;
-
-			return &decoration[i];
-		}
-
-		count++;
-
-		if (count >= MAX_DECORATIONS)
-		{
-			break;
-		}
+		showErrorAndExit("Failed to allocate %d bytes for a Decoration", (int)sizeof(Entity));
 	}
+	
+	memset(e, 0, sizeof(Entity));
 
-	/* Return NULL if you couldn't any free slots */
+	e->inUse = TRUE;
 
-	return NULL;
+	e->active = TRUE;
+
+	e->frameSpeed = 1;
+
+	e->alpha = 255;
+
+	addEntityToList(decoration, e);
+	
+	return e;
 }
 
 void doDecorations()
 {
-	int i;
+	int removeCount;
+	EntityList *el;
 
 	/* Loop through the Decorations and perform their action */
 
-	for (i=0;i<MAX_DECORATIONS;i++)
+	for (el=decoration->next;el!=NULL;el=el->next)
 	{
-		self = &decoration[i];
+		self = el->entity;
 
 		if (self->inUse == TRUE)
 		{
 			self->action();
 		}
 	}
+	
+	if (game.frames % 300 == 0)
+	{
+		removeCount = 0;
+		
+		for (el=decoration->next;el!=NULL;el=el->next)
+		{
+			if (el->entity->inUse == FALSE)
+			{
+				removeEntityFromList(decoration, el->entity);
+				
+				removeCount++;
+			}
+		}
+		
+		#if DEV == 1
+		if (removeCount != 0)
+		{
+			printf("Removed %d decorations taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
+		}
+		#endif
+	}
 }
 
 void drawDecorations()
 {
-	int i;
+	EntityList *el;
 
 	/* Loop through the Decorations and perform their action */
 
-	for (i=0;i<MAX_DECORATIONS;i++)
+	for (el=decoration->next;el!=NULL;el=el->next)
 	{
-		self = &decoration[i];
+		self = el->entity;
 
 		if (self->inUse == TRUE)
 		{

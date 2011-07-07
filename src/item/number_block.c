@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void touch(Entity *);
 static Entity *getNextBlock(char *, int);
@@ -157,18 +157,20 @@ static void init()
 
 static Entity *getFirstBlock(char *name)
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM
-			&& strcmpignorecase(entity[i].objectiveName, name) == 0 && entity[i].thinkTime == 0)
+		if (el->entity->inUse == TRUE && el->entity->type == KEY_ITEM
+			&& strcmpignorecase(el->entity->objectiveName, name) == 0 && el->entity->thinkTime == 0)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
-	showErrorAndExit("Could not find first Number Block for %s", entity[i].objectiveName);
+	showErrorAndExit("Could not find first Number Block for %s", el->entity->objectiveName);
 
 	return NULL;
 }
@@ -201,14 +203,16 @@ static void killAllBlocks()
 
 static Entity *getNextBlock(char *name, int value)
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].type == KEY_ITEM && strcmpignorecase(entity[i].objectiveName, name) == 0
-			&& entity[i].thinkTime == value)
+		if (el->entity->inUse == TRUE && el->entity->type == KEY_ITEM && strcmpignorecase(el->entity->objectiveName, name) == 0
+			&& el->entity->thinkTime == value)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 

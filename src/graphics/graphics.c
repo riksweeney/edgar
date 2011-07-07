@@ -895,7 +895,7 @@ static void drawImageWhite(SDL_Surface *image, int destX, int destY)
 EntityList *createPixelsFromSprite(Sprite *sprite)
 {
 	unsigned char r, g, b, transR, transG, transB;
-	int i, x, y;
+	int x, y;
 	Uint32 pixel;
 	Uint32 transparent = SDL_MapRGB(game.screen->format, TRANS_R, TRANS_G, TRANS_B);
 	SDL_Surface *image = sprite->image;
@@ -918,28 +918,28 @@ EntityList *createPixelsFromSprite(Sprite *sprite)
 
 	SDL_GetRGB(transparent, game.screen->format, &transR, &transG, &transB);
 
-	for (i=0;i<MAX_DECORATIONS;i++)
+	for (y=0;y<image->h;y++)
 	{
-		x = prand() % image->w;
-		y = prand() % image->h;
-
-		pixel = getPixel(image, x, y);
-
-		SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-
-		if (r != transR && g != transG && b != transB)
+		for (x=0;x<image->w;x++)
 		{
-			d = addPixelDecoration(self->x + x, self->y + y);
+			pixel = getPixel(image, x, y);
 
-			if (d != NULL)
+			SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
+
+			if (r != transR && g != transG && b != transB)
 			{
-				d->health = r;
+				d = addPixelDecoration(self->x + x, self->y + y);
 
-				d->maxHealth = g;
+				if (d != NULL)
+				{
+					d->health = r;
 
-				d->mental = b;
+					d->maxHealth = g;
 
-				addEntityToList(list, d);
+					d->mental = b;
+
+					addEntityToList(list, d);
+				}
 			}
 		}
 	}

@@ -38,7 +38,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../credits.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void entityWait(void);
 static void spitStart(void);

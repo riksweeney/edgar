@@ -208,7 +208,7 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "INFINITE_HEALTH") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteHealth, &toggleInfiniteHealth, &toggleInfiniteHealth, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteHealth, &toggleInfiniteHealth, &toggleInfiniteHealth, x, y, TRUE, 255, 255, 255);
 
 					menu.widgets[i]->label = createLabel(game.infiniteEnergy == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 
@@ -217,7 +217,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "INFINITE_ARROWS") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteArrows, &toggleInfiniteArrows, &toggleInfiniteArrows, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteArrows, &toggleInfiniteArrows, &toggleInfiniteArrows, x, y, TRUE, 255, 255, 255);
 
 					menu.widgets[i]->label = createLabel(game.infiniteArrows == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 
@@ -226,7 +226,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else

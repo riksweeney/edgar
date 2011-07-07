@@ -30,7 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../world/target.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void trapWait(void);
 static void trapEntity(void);
@@ -159,7 +159,9 @@ static void resetComplete()
 
 static void activateTrap()
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	self->thinkTime--;
 
@@ -169,13 +171,13 @@ static void activateTrap()
 	{
 		self->thinkTime = 0;
 
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			if (entity[i].inUse == TRUE && entity[i].type == ENEMY && strcmpignorecase(entity[i].name, "enemy/chicken") == 0)
+			if (el->entity->inUse == TRUE && el->entity->type == ENEMY && strcmpignorecase(el->entity->name, "enemy/chicken") == 0)
 			{
-				if (collision(self->x, self->y, self->w, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+				if (collision(self->x, self->y, self->w, self->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 				{
-					self->target = &entity[i];
+					self->target = el->entity;
 
 					setCustomAction(self->target, &helpless, 300, 0, 0);
 

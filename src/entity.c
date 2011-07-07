@@ -43,109 +43,106 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "world/weak_wall.h"
 #include "world/npc.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
+extern Game game;
 
-static int entityIndex = 0, drawLayerIndex[MAX_LAYERS];
+static int drawLayerIndex[MAX_LAYERS];
 static Entity *drawLayer[MAX_LAYERS][MAX_ENTITIES];
+static EntityList *entities;
 
 static void scriptEntityMoveToTarget(void);
 static void entityMoveToTarget(void);
 static void scriptDoNothing(void);
 static void duplicateWait(void);
+static int isReferenced(Entity *);
 
 void freeEntities()
 {
-	/* Clear the list */
+	EntityList *p, *q;
 
-	memset(entity, 0, sizeof(Entity) * MAX_ENTITIES);
+	if (entities != NULL)
+	{
+		for (p=entities->next;p!=NULL;p=q)
+		{
+			if (p->entity != NULL)
+			{
+				free(p->entity);
+			}
+			
+			q = p->next;
 
-	entityIndex = 0;
+			free(p);
+		}
+
+		free(entities);
+	}
+	
+	entities = malloc(sizeof(EntityList));
+
+	if (entities == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
+	entities->next = NULL;
 }
 
 Entity *getFreeEntity()
 {
-	int i, count;
-
-	count = 0;
-
-	/* Loop through all the entities and find a free slot */
-
-	for (i=entityIndex;;i++)
+	Entity *e;
+	
+	e = malloc(sizeof(Entity));
+	
+	if (e == NULL)
 	{
-		if (i >= MAX_ENTITIES)
-		{
-			i = 0;
-		}
-
-		if (entity[i].inUse == FALSE)
-		{
-			memset(&entity[i], 0, sizeof(Entity));
-
-			entity[i].inUse = TRUE;
-
-			entity[i].active = TRUE;
-
-			entity[i].frameSpeed = 1;
-
-			entity[i].weight = 1;
-
-			entity[i].originalWeight = 1;
-
-			entity[i].fallout = NULL;
-
-			entity[i].currentAnim = -1;
-
-			entity[i].layer = MID_GROUND_LAYER;
-
-			entity[i].alpha = 255;
-
-			entityIndex = i + 1;
-
-			return &entity[i];
-		}
-
-		count++;
-
-		if (count >= MAX_ENTITIES - 20)
-		{
-			printf("WARNING, compacting Entities!\n");
-
-			if (count == MAX_ENTITIES)
-			{
-				break;
-			}
-		}
+		showErrorAndExit("Failed to allocate %d bytes for an Entity", (int)sizeof(Entity));
 	}
+	
+	memset(e, 0, sizeof(Entity));
 
-	/* Return NULL if you couldn't any free slots */
+	e->inUse = TRUE;
 
-	return NULL;
-}
+	e->active = TRUE;
 
-void resetEntityIndex()
-{
-	entityIndex = 0;
+	e->frameSpeed = 1;
+
+	e->weight = 1;
+
+	e->originalWeight = 1;
+
+	e->fallout = NULL;
+
+	e->currentAnim = -1;
+
+	e->layer = MID_GROUND_LAYER;
+
+	e->alpha = 255;
+
+	addEntityToList(entities, e);
+	
+	return e;
 }
 
 void doEntities()
 {
-	int i, j;
+	int i, removeCount;
+	EntityList *el;
 
 	/* Loop through the entities and perform their action */
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		self = &entity[i];
+		self = el->entity;
 
 		if (self->inUse == TRUE)
 		{
 			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
 
-			for (j=0;j<MAX_CUSTOM_ACTIONS;j++)
+			for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 			{
-				if (self->customAction[j].thinkTime > 0)
+				if (self->customAction[i].thinkTime > 0)
 				{
-					doCustomAction(&self->customAction[j]);
+					doCustomAction(&self->customAction[i]);
 				}
 			}
 
@@ -255,19 +252,42 @@ void doEntities()
 			addToDrawLayer(self, self->layer);
 		}
 	}
+	
+	if (game.frames % 300 == 0)
+	{
+		removeCount = 0;
+		
+		for (el=entities->next;el!=NULL;el=el->next)
+		{
+			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
+			{
+				removeEntityFromList(entities, el->entity);
+				
+				removeCount++;
+			}
+		}
+		
+		#if DEV == 1
+		if (removeCount != 0)
+		{
+			printf("Removed %d entities taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
+		}
+		#endif
+	}
 }
 
 void drawEntities(int depth)
 {
 	int i, drawn;
+	EntityList *el;
 
 	/* Draw standard entities */
 
 	if (depth == -1)
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			self = &entity[i];
+			self = el->entity;
 
 			if (self->inUse == TRUE)
 			{
@@ -1062,40 +1082,33 @@ void pushEntity(Entity *other)
 
 Entity *addEntity(Entity e, int x, int y)
 {
-	int i;
+	Entity *ent;
+	
+	ent = getFreeEntity();
 
-	for (i=0;i<MAX_ENTITIES;i++)
-	{
-		if (entity[i].inUse == FALSE)
-		{
-			entity[i] = e;
+	memcpy(ent, &e, sizeof(Entity));
 
-			entity[i].currentFrame = 0;
+	ent->currentFrame = 0;
 
-			entity[i].inUse = TRUE;
+	ent->inUse = TRUE;
 
-			entity[i].x = x;
+	ent->x = x;
 
-			entity[i].y = y;
+	ent->y = y;
 
-			return &entity[i];
-		}
-	}
+	return ent;
 
-	showErrorAndExit("Could not add Entity %s", e.name);
-
-	return NULL;
 }
 
 Entity *getEntityByName(char *name)
 {
-	int i;
+	EntityList *el;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->name, name) == 0)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
@@ -1104,13 +1117,13 @@ Entity *getEntityByName(char *name)
 
 Entity *getEntityByObjectiveName(char *name)
 {
-	int i;
+	EntityList *el;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->objectiveName, name) == 0)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
@@ -1119,13 +1132,13 @@ Entity *getEntityByObjectiveName(char *name)
 
 Entity *getEntityByRequiredName(char *name)
 {
-	int i;
+	EntityList *el;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->requires, name) == 0)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
@@ -1134,8 +1147,7 @@ Entity *getEntityByRequiredName(char *name)
 
 EntityList *getEntitiesByObjectiveName(char *name)
 {
-	int i;
-	EntityList *list;
+	EntityList *list, *el;
 
 	list = malloc(sizeof(EntityList));
 
@@ -1146,11 +1158,11 @@ EntityList *getEntitiesByObjectiveName(char *name)
 
 	list->next = NULL;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->objectiveName, name) == 0)
 		{
-			addEntityToList(list, &entity[i]);
+			addEntityToList(list, el->entity);
 		}
 	}
 
@@ -1159,8 +1171,7 @@ EntityList *getEntitiesByObjectiveName(char *name)
 
 EntityList *getEntitiesByRequiredName(char *name)
 {
-	int i;
-	EntityList *list;
+	EntityList *list, *el;
 
 	list = malloc(sizeof(EntityList));
 
@@ -1171,11 +1182,11 @@ EntityList *getEntitiesByRequiredName(char *name)
 
 	list->next = NULL;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->requires, name) == 0)
 		{
-			addEntityToList(list, &entity[i]);
+			addEntityToList(list, el->entity);
 		}
 	}
 
@@ -1184,8 +1195,7 @@ EntityList *getEntitiesByRequiredName(char *name)
 
 EntityList *getEntitiesByName(char *name)
 {
-	int i;
-	EntityList *list;
+	EntityList *list, *el;
 
 	list = malloc(sizeof(EntityList));
 
@@ -1196,11 +1206,11 @@ EntityList *getEntitiesByName(char *name)
 
 	list->next = NULL;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].name, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->name, name) == 0)
 		{
-			addEntityToList(list, &entity[i]);
+			addEntityToList(list, el->entity);
 		}
 	}
 
@@ -1228,13 +1238,13 @@ void freeEntityList(EntityList *list)
 
 Entity *getEntityByStartXY(int x, int y)
 {
-	int i;
+	EntityList *el;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].startX == x && entity[i].startY == y)
+		if (el->entity->inUse == TRUE && el->entity->startX == x && el->entity->startY == y)
 		{
-			return &entity[i];
+			return el->entity;
 		}
 	}
 
@@ -1243,52 +1253,52 @@ Entity *getEntityByStartXY(int x, int y)
 
 void activateEntitiesWithRequiredName(char *name, int active)
 {
-	int i;
+	EntityList *el;
 
 	if (name == NULL || strlen(name) == 0)
 	{
 		showErrorAndExit("Activate Required Entities : Name is blank!");
 	}
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].requires, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->requires, name) == 0)
 		{
-			entity[i].active = active;
+			el->entity->active = active;
 		}
 	}
 }
 
 void activateEntitiesWithObjectiveName(char *name, int active)
 {
-	int i;
+	EntityList *el;
 
 	if (name == NULL || strlen(name) == 0)
 	{
 		showErrorAndExit("Activate Objective Entities : Name is blank!");
 	}
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (el->entity->inUse == TRUE && strcmpignorecase(el->entity->objectiveName, name) == 0)
 		{
-			entity[i].active = active;
+			el->entity->active = active;
 		}
 	}
 }
 
 void activateEntitiesValueWithObjectiveName(char *name, int value)
 {
-	int i;
+	EntityList *el;
 	Entity *temp;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].activate != NULL && strcmpignorecase(entity[i].objectiveName, name) == 0)
+		if (el->entity->inUse == TRUE && el->entity->activate != NULL && strcmpignorecase(el->entity->objectiveName, name) == 0)
 		{
 			temp = self;
 
-			self = &entity[i];
+			self = el->entity;
 
 			if (self->type == MANUAL_LIFT && self->active == FALSE)
 			{
@@ -1307,18 +1317,18 @@ void activateEntitiesValueWithObjectiveName(char *name, int value)
 
 void interactWithEntity(int x, int y, int w, int h)
 {
-	int i;
+	EntityList *el;
 	Entity *e;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && entity[i].activate != NULL)
+		if (el->entity->inUse == TRUE && el->entity->activate != NULL)
 		{
-			if (collision(x, y, w, h, entity[i].x + entity[i].box.x, entity[i].y + entity[i].box.y, entity[i].box.w, entity[i].box.h) == 1)
+			if (collision(x, y, w, h, el->entity->x + el->entity->box.x, el->entity->y + el->entity->box.y, el->entity->box.w, el->entity->box.h) == 1)
 			{
 				e = self;
 
-				self = &entity[i];
+				self = el->entity;
 
 				self->activate(0);
 
@@ -1330,14 +1340,14 @@ void interactWithEntity(int x, int y, int w, int h)
 
 void initLineDefs()
 {
-	int i;
+	EntityList *el;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE
-			&& (entity[i].type == LINE_DEF || entity[i].type == SCRIPT_LINE_DEF || strcmpignorecase(entity[i].name, "item/phase_door") == 0))
+		if (el->entity->inUse == TRUE
+			&& (el->entity->type == LINE_DEF || el->entity->type == SCRIPT_LINE_DEF || strcmpignorecase(el->entity->name, "item/phase_door") == 0))
 		{
-			self = &entity[i];
+			self = el->entity;
 
 			self->flags &= ~NO_DRAW;
 
@@ -1357,13 +1367,14 @@ void changeDirection(Entity *other)
 
 void writeEntitiesToFile(FILE *fp)
 {
-	int i, count;
+	int count;
+	EntityList *el;
 
 	count = 0;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		self = &entity[i];
+		self = el->entity;
 
 		if (self->inUse == TRUE && self->type != PROJECTILE && !(self->flags & DO_NOT_PERSIST))
 		{
@@ -1778,16 +1789,17 @@ void rotateAroundStartPoint()
 
 int countSiblings(Entity *sibling, int *total)
 {
-	int i, remaining = 0;
+	int remaining = 0;
+	EntityList *el;
 
 	*total = 0;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && sibling != &entity[i] && sibling->type == entity[i].type
-			&& strcmpignorecase(sibling->objectiveName, entity[i].objectiveName) == 0)
+		if (el->entity->inUse == TRUE && sibling != el->entity && sibling->type == el->entity->type
+			&& strcmpignorecase(sibling->objectiveName, el->entity->objectiveName) == 0)
 		{
-			if (entity[i].active == FALSE)
+			if (el->entity->active == FALSE)
 			{
 				remaining++;
 			}
@@ -2019,5 +2031,52 @@ static void duplicateWait()
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
+	}
+}
+
+EntityList *getEntities()
+{
+	return entities;
+}
+
+static int isReferenced(Entity *e)
+{
+	EntityList *el;
+	
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		if (el->entity->head == e || el->entity->target == e || el->entity->standingOn == e || el->entity->head == e)
+		{
+			return TRUE;
+		}
+	}
+	
+	return FALSE;
+}
+
+void removeEntityFromList(EntityList *list, Entity *e)
+{
+	EntityList *prev, *el;
+	
+	prev = list;
+	
+	for (el=list->next;el!=NULL;el=el->next)
+	{
+		if (el->entity == e)
+		{
+			free(el->entity);
+			
+			el->entity = NULL;
+			
+			prev->next = el->next;
+			
+			free(el);
+			
+			el = NULL;
+			
+			return;
+		}
+		
+		prev = el;
 	}
 }

@@ -180,12 +180,20 @@ static void loadMenuLayout()
 
 		if (medal[i].hidden == TRUE && medal[i].obtained == FALSE)
 		{
-			menu.widgets[i] = createWidget(_("Hidden Medal"), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
+			menu.widgets[i] = createWidget(_("Hidden Medal"), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
 		}
 		
 		else
 		{
-			menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE);
+			if (medal[i].obtained == TRUE)
+			{
+				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 0, 200, 0);
+			}
+			
+			else
+			{
+				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
+			}
 		}
 		
 		if (width < menu.widgets[i]->x + menu.widgets[i]->normalState->w)

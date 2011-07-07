@@ -525,7 +525,7 @@ void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int colo
 
 	while (!(fabs(x2 - x) <= fabs(dirX)))
 	{
-		yy = (rand() % 8) * (rand() % 2 == 0 ? -1 : 1);
+		yy = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
 
 		drawColouredLine(x, y, x + dirX, y + dirY + yy, color1, color2, color3);
 

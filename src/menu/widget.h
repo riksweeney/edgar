@@ -17,7 +17,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-Widget *createWidget(char *, int *, void (*)(void), void (*)(void), void (*)(void), int, int, int);
+Widget *createWidget(char *, int *, void (*)(void), void (*)(void), void (*)(void), int, int, int, int, int, int);
 void drawWidget(Widget *, Menu *, int);
 void freeWidget(Widget *);
 void setWidgetDisabled(Widget *, int, int);

@@ -43,7 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "credits.h"
 
 Input input, menuInput;
-Entity *self, entity[MAX_ENTITIES];
+Entity *self;
 Game game;
 Entity player, playerShield, playerWeapon;
 Target target[MAX_TARGETS];

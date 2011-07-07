@@ -78,11 +78,11 @@ static void loadMenuLayout()
 		showErrorAndExit("Ran out of memory when creating About Menu");
 	}
 
-	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, 20, FALSE);
+	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
 
-	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2011"), NULL, NULL, NULL, NULL, -1, 70, FALSE);
+	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2011"), NULL, NULL, NULL, NULL, -1, 70, FALSE, 255, 255, 255);
 
-	menu.widgets[2] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, 120, TRUE);
+	menu.widgets[2] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, 120, TRUE, 255, 255, 255);
 
 	/* Resize */
 

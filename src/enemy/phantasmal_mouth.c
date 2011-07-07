@@ -20,9 +20,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../graphics/animation.h"
+#include "../audio/audio.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../custom_actions.h"
+#include "../projectile.h"
+#include "../hud.h"
 #include "../collisions.h"
+#include "../item/item.h"
+#include "../system/random.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 #include "../system/error.h"
 
 extern Entity *self, player;
@@ -30,9 +38,13 @@ extern Entity *self, player;
 static void lookForPlayer(void);
 static void ballAttackInit(void);
 static void ballAttack(void);
-static void ballFinish(void);
+static void ballAttackWait(void);
+static void ballAttackFinish(void);
+static void takeDamage(Entity *, int);
+static void reflect(Entity *);
+static void die(void);
 
-Entity *addBat(int x, int y, char *name)
+Entity *addPhantasmalMouth(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
@@ -64,7 +76,7 @@ static void lookForPlayer()
 {
 	if (player.health > 0)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -160), self->y, 160, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->thinkTime = 180;
 
@@ -77,8 +89,6 @@ static void lookForPlayer()
 
 static void ballAttackInit()
 {
-	Entity *e;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -97,13 +107,13 @@ static void ballAttack()
 {
 	Entity *e;
 
-	self->action = &attackWait;
+	self->action = &ballAttackWait;
 
 	self->frameSpeed = 0;
 
 	self->thinkTime = 60;
 
-	e = addProjectile("common/green_blob", self, self->x + self->w / 2, self->y, 0, 3 * (self->flags & FLY) ? 1 : -1);
+	e = addProjectile("enemy/phantasmal_shot", self, self->x + self->w / 2, self->y, 0, 3 * (self->flags & FLY) ? 1 : -1);
 
 	e->x -= e->w / 2;
 
@@ -140,17 +150,17 @@ static void ballAttackFinish()
 
 static void reflect(Entity *other)
 {
-	if (other->mental < 15)
+	if (other->mental < 30)
 	{
 		self->damage = 50;
 	}
 
-	else if (other->mental < 30)
+	else if (other->mental < 60)
 	{
 		self->damage = 30;
 	}
 
-	else if (other->mental < 60)
+	else if (other->mental < 90)
 	{
 		self->damage = 20;
 	}
@@ -163,4 +173,83 @@ static void reflect(Entity *other)
 	self->parent = other;
 
 	self->dirX = -self->dirX;
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+	
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+	
+	if (other->element == PHANTASMAL && damage >= 50)
+	{
+		self->die();
+	}
+	
+	else
+	{
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock(temp);
+
+			self = temp;
+		}
+
+		if (prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+
+		damage = 0;
+	}
+}
+
+static void die()
+{
+	int i;
+	Entity *e;
+	char name[MAX_VALUE_LENGTH];
+	
+	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+
+	snprintf(name, sizeof(name), "%s_piece", self->name);
+
+	fireTrigger(self->objectiveName);
+
+	fireGlobalTrigger(self->objectiveName);
+
+	for (i=0;i<9;i++)
+	{
+		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->w - e->w) / 2;
+
+		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 180);
+	}
+
+	self->damage = 0;
+
+	self->inUse = FALSE;
+}
+
+static void ballAttackWait()
+{
+	checkToMap(self);
 }

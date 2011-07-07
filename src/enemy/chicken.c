@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../system/error.h"
 
-extern Entity entity[MAX_ENTITIES], *self;
+extern Entity *self;
 
 static void lookForFood(void);
 static void wander(void);
@@ -68,34 +68,37 @@ Entity *addChicken(int x, int y, char *name)
 
 static void lookForFood()
 {
-	int i, distance, target, newDistance;
+	int distance, newDistance;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
-	newDistance = distance = target = -1;
+	newDistance = distance = -1;
+	
+	self->target = NULL;
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/chicken_feed") != 0)
+		if (el->entity->inUse == FALSE || strcmpignorecase(el->entity->name, "item/chicken_feed") != 0)
 		{
 			continue;
 		}
 
-		if (entity[i].health > 3)
+		if (el->entity->health > 3)
 		{
-			newDistance = getDistance(self->x, self->y, entity[i].x, entity[i].y);
+			newDistance = getDistance(self->x, self->y, el->entity->x, el->entity->y);
 
-			if (newDistance < 320 && (target == -1 || newDistance < distance))
+			if (newDistance < 320 && (self->target == NULL || newDistance < distance))
 			{
 				distance = newDistance;
 
-				target = i;
+				self->target = el->entity;
 			}
 		}
 	}
 
-	if (target != -1)
+	if (self->target != NULL)
 	{
-		self->target = &entity[target];
-
 		self->face = (self->target->x < self->x ? LEFT : RIGHT);
 
 		self->action = &moveToFood;

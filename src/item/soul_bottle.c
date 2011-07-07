@@ -151,8 +151,6 @@ static void soulActivate()
 
 		self->dirX = 0;
 	}
-
-	checkToMap(self);
 }
 
 static void soulTouch(Entity *other)

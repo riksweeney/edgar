@@ -172,9 +172,9 @@ static void loadMenuLayout(char *text)
 			{
 				if (i == 0)
 				{
-					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE);
+					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
 
-					menu.widgets[i++] = createWidget(_("Any unsaved progress will be lost"), NULL, NULL, NULL, NULL, -1, 70, FALSE);
+					menu.widgets[i++] = createWidget(_("Any unsaved progress will be lost"), NULL, NULL, NULL, NULL, -1, 70, FALSE, 255, 255, 255);
 				}
 
 				token = strtok_r(NULL, "\0", &savePtr2);
@@ -183,12 +183,12 @@ static void loadMenuLayout(char *text)
 
 				if (strcmpignorecase(menuID, "MENU_YES") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doYes, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doYes, x, y, TRUE, 255, 255, 255);
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_NO") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doNo, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doNo, x, y, TRUE, 255, 255, 255);
 				}
 
 				else

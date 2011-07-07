@@ -215,14 +215,14 @@ static void loadMenuLayout()
 
 				if (strcmpignorecase(menuID, "SOUND") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE, 255, 255, 255);
 
 					menu.widgets[i]->label = createLabel(game.audio == TRUE || game.audioDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
 				}
 
 				else if (strcmpignorecase(menuID, "SFX_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE, 255, 255, 255);
 
 					text = getVolumePercent(game.sfxDefaultVolume);
 
@@ -233,7 +233,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MUSIC_VOLUME") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE, 255, 255, 255);
 
 					text = getVolumePercent(game.musicDefaultVolume);
 
@@ -244,7 +244,7 @@ static void loadMenuLayout()
 				
 				else if (strcmpignorecase(menuID, "BUFFER") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE, 255, 255, 255);
 					
 					text = getQuality();
 
@@ -255,7 +255,7 @@ static void loadMenuLayout()
 
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE);
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
 				}
 
 				else

@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/global_trigger.h"
 #include "../system/error.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void swim(void);
 static void fallout(void);
@@ -186,7 +186,9 @@ static void fallout()
 
 static void lookForPlayer()
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	if (player.health > 0 && player.environment == WATER && getDistanceFromPlayer(self) < SCREEN_WIDTH)
 	{
@@ -199,18 +201,18 @@ static void lookForPlayer()
 
 	else
 	{
-		for (i=0;i<MAX_ENTITIES;i++)
+		for (el=entities->next;el!=NULL;el=el->next)
 		{
-			if (entity[i].inUse == FALSE || strcmpignorecase(entity[i].name, "item/poison_meat") != 0)
+			if (el->entity->inUse == FALSE || strcmpignorecase(el->entity->name, "item/poison_meat") != 0)
 			{
 				continue;
 			}
 
-			if (entity[i].environment == WATER)
+			if (el->entity->environment == WATER)
 			{
-				if (getDistance(self->x, self->y, entity[i].x, entity[i].y) < SCREEN_WIDTH)
+				if (getDistance(self->x, self->y, el->entity->x, el->entity->y) < SCREEN_WIDTH)
 				{
-					self->target = &entity[i];
+					self->target = el->entity;
 
 					setEntityAnimation(self, "ATTACK_1");
 

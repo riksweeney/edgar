@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../system/error.h"
 
-extern Entity *self, entity[MAX_ENTITIES];
+extern Entity *self;
 
 static void touch(Entity *);
 static void spring(void);

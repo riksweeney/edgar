@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../player.h"
 #include "../system/error.h"
 
-extern Entity *self, player, entity[MAX_ENTITIES];
+extern Entity *self, player;
 
 static void entityWait(void);
 static void blowPlayerAway(void);
@@ -128,7 +128,9 @@ static void entityWait()
 
 static void lookForFood()
 {
-	int i;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
 
 	/* Attack player first */
 
@@ -145,26 +147,26 @@ static void lookForFood()
 
 	/* Look for apples */
 
-	for (i=0;i<MAX_ENTITIES;i++)
+	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (entity[i].inUse == TRUE && (entity[i].flags & ON_GROUND) && strcmpignorecase(entity[i].name, "item/apple") == 0)
+		if (el->entity->inUse == TRUE && (el->entity->flags & ON_GROUND) && strcmpignorecase(el->entity->name, "item/apple") == 0)
 		{
-			if (collision(self->x - 320, self->y, 640, self->h, entity[i].x, entity[i].y, entity[i].w, entity[i].h) == 1)
+			if (collision(self->x - 320, self->y, 640, self->h, el->entity->x, el->entity->y, el->entity->w, el->entity->h) == 1)
 			{
-				self->target = &entity[i];
+				self->target = el->entity;
 
 				faceTarget();
 
-				entity[i].flags |= FLY;
+				el->entity->flags |= FLY;
 
 				setCustomAction(self->target, &helpless, 600, 0, 0);
 
 				self->action = &eatFood;
 
-				entity[i].targetX = self->x + self->w;
-				entity[i].targetY = self->y + (self->h - entity[i].h) / 2;
+				el->entity->targetX = self->x + self->w;
+				el->entity->targetY = self->y + (self->h - el->entity->h) / 2;
 
-				calculatePath(entity[i].x, entity[i].y, entity[i].targetX, entity[i].targetY, &self->target->dirX, &self->target->dirY);
+				calculatePath(el->entity->x, el->entity->y, el->entity->targetX, el->entity->targetY, &self->target->dirX, &self->target->dirY);
 
 				self->target->dirX *= 4;
 				self->target->dirY *= 4;

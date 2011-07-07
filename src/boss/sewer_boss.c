@@ -554,10 +554,6 @@ static void createArm(Entity *top)
 		showErrorAndExit("Failed to allocate a whole %d bytes for Sewer Boss Arm...\n", top->mental * (int)sizeof(Entity *));
 	}
 
-	/* Create in reverse order so that it is drawn correctly */
-
-	resetEntityIndex();
-
 	for (i=top->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();

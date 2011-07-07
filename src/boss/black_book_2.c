@@ -605,10 +605,6 @@ static void guardianCreateBody()
 
 	snprintf(bodyName, sizeof(bodyName), "%s_body", self->name);
 
-	/* Create in reverse order so that it is drawn correctly */
-
-	resetEntityIndex();
-
 	for (i=self->mental-1;i>=0;i--)
 	{
 		body[i] = getFreeEntity();
