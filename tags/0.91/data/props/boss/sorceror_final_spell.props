@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/boss/sorceror_final_spell.dat
+ANIM_FILE data/anim/boss/sorceror_final_spell.dat
+TYPE ENEMY

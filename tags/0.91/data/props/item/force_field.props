@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/force_field.dat
+ANIM_FILE data/anim/item/force_field.dat
+TYPE KEY_ITEM
+FLAGS OBSTACLE|FLY

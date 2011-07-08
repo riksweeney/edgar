@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/item/train_track.dat
+ANIM_FILE data/anim/item/train_track.dat
+TYPE KEY_ITEM
+ACTIVE FALSE
