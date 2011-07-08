@@ -24,7 +24,7 @@ enter_swamp B Y Entered the Forbidden Swamp
 finish_tutorial B N Completed the Tutorial
 fire_shield B N Obtained the Fire Shield
 fortress_start B Y Got to the Fortress
-golem_kill_grabbers B Y Defeated the Golem using only the grabbers
+golem_kill_grabbers B N Defeated the Golem using only the grabbers
 kill_100 B N Defeated 100 enemies
 kill_200 B N Defeated 200 enemies
 kill_500 B N Defeated 500 enemies
