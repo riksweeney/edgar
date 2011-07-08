@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "collisions.h"
 #include "draw.h"
 #include "input.h"
+#include "graphics/decoration.h"
 #include "entity.h"
 
 Input input, menuInput;
@@ -64,6 +65,8 @@ int main(int argc, char *argv[])
 	loadRequiredResources();
 	
 	freeEntities();
+	
+	freeDecorations();
 
 	if (argc > 1)
 	{
