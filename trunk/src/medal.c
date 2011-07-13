@@ -23,9 +23,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 #include "hud.h"
 #include "medal.h"
-#include "graphics/font.h"
-#include "graphics/graphics.h"
-#include "input.h"
 #include "credits.h"
 #include "system/pak.h"
 
@@ -182,6 +179,10 @@ static void loadMedals()
 	int i;
 	char *line, *medalType, *hidden, *code, *description, *savePtr1, *savePtr2;
 	unsigned char *buffer;
+	
+	savePtr1 = NULL;
+	
+	savePtr2 = NULL;
 
 	buffer = loadFileFromPak("data/medals.dat");
 	

@@ -330,3 +330,22 @@ void spriteTrail(int *thinkTime, int *counter, float *value)
 		}
 	}
 }
+
+void stickToFloor(int *thinkTime, int *counter, float *value)
+{
+	(*thinkTime)--;
+	
+	if (*thinkTime != 0)
+	{
+		self->speed = self->originalSpeed * 0.25;
+		
+		self->flags |= GROUNDED;
+	}
+	
+	else
+	{
+		self->speed = self->originalSpeed;
+		
+		self->flags &= ~GROUNDED;
+	}
+}

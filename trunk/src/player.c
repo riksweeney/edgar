@@ -558,8 +558,11 @@ void doPlayer()
 								playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 							}
 						}
-
-						self->dirY = -JUMP_HEIGHT;
+						
+						if (!(player.flags & GROUNDED))
+						{
+							self->dirY = -JUMP_HEIGHT;
+						}
 					}
 
 					if (!(self->element == WATER && self->environment == WATER))

@@ -527,6 +527,10 @@ static void lightningCageWait()
 
 	self->y = self->head->y + self->offsetY;
 	
+	middle = 0;
+	
+	e = NULL;
+	
 	if (self->head->mental == 1)
 	{
 		if (self->mental == 0)
@@ -1943,7 +1947,7 @@ static void holdPersonSpellMove()
 		break;
 	}
 	
-	player.flags &= ~ON_GROUND;
+	player.flags |= GROUNDED;
 	
 	if (self->y < self->targetY)
 	{
@@ -1972,6 +1976,8 @@ static void holdPersonSpellMove()
 			
 			if (self->health <= 0)
 			{
+				player.flags &= ~GROUNDED;
+				
 				setEntityAnimation(self, "LEFT_PIECE");
 				
 				self->layer = FOREGROUND_LAYER;

@@ -25,7 +25,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics.h"
 #include "decoration.h"
 #include "../entity.h"
-#include "../system/random.h"
 #include "../system/error.h"
 
 extern Game game;
