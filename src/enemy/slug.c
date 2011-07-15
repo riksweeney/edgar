@@ -33,12 +33,13 @@ static void moveOnCeiling(void);
 static void riseToCeiling(void);
 static void init(void);
 static void slimeWait(void);
-static void ceilingSlimeWait(void);
 static void slimeTouch(Entity *);
 static void creditsMove(void);
-static void ceilingSlimeDrip(void);
-static void ceilingSlimeDripWait(void);
-static void slimePuddleForm(void);
+static void iceDripForm(void);
+static void iceDrip(void);
+static void iceDripWait(void);
+static void iceForm(void);
+static void iceSlimeTouch(Entity *);
 
 Entity *addSlug(int x, int y, char *name)
 {
@@ -98,7 +99,7 @@ static void move()
 		
 		loadProperties("enemy/slug_slime", e);
 		
-		setEntityAnimation(e, "GROUND");
+		setEntityAnimation(e, "SLIME");
 		
 		e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
 		e->y = self->y + self->h - e->h;
@@ -165,15 +166,19 @@ static void moveOnCeiling()
 		
 		loadProperties("enemy/slug_slime", e);
 		
-		setEntityAnimation(e, "CEILING");
+		setEntityAnimation(e, "ICE_START");
 		
 		e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
 		e->y = self->y;
 		
-		e->action = &ceilingSlimeWait;
+		e->action = &iceDripForm;
 		e->draw = &drawLoopingAnimationToMap;
 		
 		e->thinkTime = 180;
+		
+		e->mental = 1;
+		
+		e->flags |= FLY;
 		
 		self->startX = e->w;
 	}
@@ -199,48 +204,48 @@ static void slimeWait()
 	checkToMap(self);
 }
 
-static void ceilingSlimeWait()
+static void iceDripForm()
 {
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "DRIP_FORM");
+		setEntityAnimation(self, "ICE_DRIP_FORM");
 		
-		self->animationCallback = &ceilingSlimeDrip;
+		self->animationCallback = &iceDrip;
 	}
 	
 	checkToMap(self);
 }
 
-static void ceilingSlimeDrip()
+static void iceDrip()
 {
-	setEntityAnimation(self, "DRIP");
+	setEntityAnimation(self, "ICE_DRIP");
 	
 	self->flags &= ~FLY;
 	
-	self->action = &ceilingSlimeDripWait;
+	self->action = &iceDripWait;
 	
 	checkToMap(self);
 }
 
-static void ceilingSlimeDripWait()
+static void iceDripWait()
 {
 	checkToMap(self);
 	
 	if (self->flags & ON_GROUND)
 	{
-		setEntityAnimation(self, "DRIP_FINISH");
+		setEntityAnimation(self, "ICE_DRIP_FINISH");
 		
-		self->animationCallback = &slimePuddleForm;
+		self->animationCallback = &iceForm;
 	}
 }
 
-static void slimePuddleForm()
+static void iceForm()
 {
-	setEntityAnimation(self, "GROUND");
+	setEntityAnimation(self, "ICE");
 	
-	self->touch = &slimeTouch;
+	self->touch = &iceSlimeTouch;
 	
 	self->thinkTime = self->maxThinkTime;
 	
@@ -252,6 +257,19 @@ static void slimeTouch(Entity *other)
 	if (other->type == PLAYER)
 	{
 		setCustomAction(other, &stickToFloor, 3, 0, 0);
+	}
+}
+
+static void iceSlimeTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		setCustomAction(other, &removeFriction, 3, 0, 0);
+	}
+	
+	else if (other->mental == 0 && strcmpignorecase(other->name, "enemy/slug_slime") == 0)
+	{
+		other->inUse = FALSE;
 	}
 }
 

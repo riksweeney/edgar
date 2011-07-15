@@ -168,7 +168,10 @@ void helpless(int *thinkTime, int *counter, float *value)
 
 	else
 	{
-		self->dirX = 0;
+		if (!(self->flags & ATTRACTED) && !(self->flags & FRICTIONLESS))
+		{
+			self->dirX = 0;
+		}
 
 		if (self->flags & FLY)
 		{
@@ -347,5 +350,15 @@ void stickToFloor(int *thinkTime, int *counter, float *value)
 		self->speed = self->originalSpeed;
 		
 		self->flags &= ~GROUNDED;
+	}
+}
+
+void removeFriction(int *thinkTime, int *counter, float *value)
+{
+	(*thinkTime)--;
+	
+	if (*thinkTime != 0)
+	{
+		self->flags |= FRICTIONLESS;
 	}
 }
