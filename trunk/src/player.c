@@ -263,9 +263,9 @@ void doPlayer()
 
 			if (!(self->flags & HELPLESS))
 			{
-				/* Don't reset the speed if being pulled towards target */
+				/* Don't reset the speed if being pulled towards target or on ice */
 
-				if (!(self->flags & ATTRACTED))
+				if (!(self->flags & ATTRACTED) && !(self->flags & FRICTIONLESS))
 				{
 					self->dirX = 0;
 				}
@@ -307,19 +307,45 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{
-							self->dirX -= self->speed;
+						{							
+							if (self->flags & FRICTIONLESS)
+							{
+								self->dirX -= self->speed * 0.01;
+								
+								if (self->dirX < -self->speed)
+								{
+									self->dirX = -self->speed;
+								}
+							}
+							
+							else
+							{
+								self->dirX -= self->speed;
+							}
 						}
 
 						else if (!(playerWeapon.flags & ATTACKING))
 						{
-							self->dirX -= self->speed;
+							if (self->flags & FRICTIONLESS)
+							{
+								self->dirX -= self->speed * 0.01;
+								
+								if (self->dirX < -self->speed)
+								{
+									self->dirX = -self->speed;
+								}
+							}
+							
+							else
+							{
+								self->dirX -= self->speed;
+							}
 
 							/* Only pull the target */
 
 							if ((self->flags & GRABBING) && self->target != NULL && self->target->x > self->x)
 							{
-								self->target->dirX = -self->speed;
+								self->target->dirX = self->dirX;
 
 								self->target->frameSpeed = -1;
 							}
@@ -346,19 +372,45 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{
-							self->dirX += self->speed;
+						{							
+							if (self->flags & FRICTIONLESS)
+							{
+								self->dirX += self->speed * 0.01;
+								
+								if (self->dirX > self->speed)
+								{
+									self->dirX = self->speed;
+								}
+							}
+							
+							else
+							{
+								self->dirX += self->speed;
+							}
 						}
 
 						else if (!(playerWeapon.flags & ATTACKING))
 						{
-							self->dirX += self->speed;
+							if (self->flags & FRICTIONLESS)
+							{
+								self->dirX += self->speed * 0.01;
+								
+								if (self->dirX > self->speed)
+								{
+									self->dirX = self->speed;
+								}
+							}
+							
+							else
+							{
+								self->dirX += self->speed;
+							}
 
 							/* Only pull the target */
 
 							if ((self->flags & GRABBING) && self->target != NULL && self->target->x < self->x)
 							{
-								self->target->dirX = self->speed;
+								self->target->dirX = self->dirX;
 
 								self->target->frameSpeed = 1;
 							}
@@ -605,6 +657,11 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
+				
+				if (self->flags & ON_GROUND)
+				{
+					self->flags &= ~FRICTIONLESS;
+				}
 
 				if (self->environment == AIR && i == WATER && self->dirY < 0)
 				{

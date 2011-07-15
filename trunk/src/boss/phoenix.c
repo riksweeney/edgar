@@ -653,22 +653,65 @@ static void takeDamage(Entity *other, int damage)
 
 	if (self->mental > 0)
 	{
-		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
-
-		if (other->reactToBlock != NULL)
+		if (other->element == FIRE)
 		{
-			temp = self;
+			self->health += damage;
 
-			self = other;
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
 
-			self->reactToBlock(temp);
+			setCustomAction(self, &flashWhite, 6, 0, 0);
 
-			self = temp;
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+
+			if (prand() % 5 == 0)
+			{
+				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
+			}
+
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
 		}
-
-		if (prand() % 10 == 0)
+		
+		else
 		{
-			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+			if (other->reactToBlock != NULL)
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock(temp);
+
+				self = temp;
+			}
+
+			if (prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+			}
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
@@ -692,21 +735,15 @@ static void takeDamage(Entity *other, int damage)
 
 		if (damage != 0)
 		{
-			self->health -= damage;
-
-			if (other->type == PROJECTILE)
+			if (other->element == FIRE)
 			{
-				temp = self;
+				self->health += damage;
 
-				self = other;
+				if (other->type == PROJECTILE)
+				{
+					other->target = self;
+				}
 
-				self->die();
-
-				self = temp;
-			}
-
-			if (self->health > 0)
-			{
 				setCustomAction(self, &flashWhite, 6, 0, 0);
 
 				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -720,21 +757,72 @@ static void takeDamage(Entity *other, int damage)
 				{
 					self->pain();
 				}
-			}
 
+				if (prand() % 5 == 0)
+				{
+					setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
+				}
+
+				if (other->type == PROJECTILE)
+				{
+					temp = self;
+
+					self = other;
+
+					self->die();
+
+					self = temp;
+				}
+				
+				self->thinkTime = 0;
+			}
+			
 			else
 			{
-				self->takeDamage = NULL;
+				self->health -= damage;
 
-				self->thinkTime = 120;
+				if (other->type == PROJECTILE)
+				{
+					temp = self;
 
-				self->startX = self->x;
+					self = other;
 
-				self->damage = 0;
+					self->die();
 
-				self->endX = 0;
+					self = temp;
+				}
 
-				self->action = &die;
+				if (self->health > 0)
+				{
+					setCustomAction(self, &flashWhite, 6, 0, 0);
+
+					/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+					if (other->type != PROJECTILE)
+					{
+						setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+					}
+
+					if (self->pain != NULL)
+					{
+						self->pain();
+					}
+				}
+
+				else
+				{
+					self->takeDamage = NULL;
+
+					self->thinkTime = 120;
+
+					self->startX = self->x;
+
+					self->damage = 0;
+
+					self->endX = 0;
+
+					self->action = &die;
+				}
 			}
 		}
 	}
