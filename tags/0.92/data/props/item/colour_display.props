@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/colour_display.dat
+ANIM_FILE data/anim/item/colour_display.dat
+TYPE KEY_ITEM
+FLAGS FLY
+MENTAL 5
+THINKTIME 100
