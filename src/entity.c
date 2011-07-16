@@ -85,6 +85,8 @@ void freeEntities()
 	}
 
 	entities->next = NULL;
+	
+	clearDrawLayers();
 }
 
 Entity *getFreeEntity()
