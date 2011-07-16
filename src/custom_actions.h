@@ -35,5 +35,3 @@ void invisible(int *, int *, float *);
 void antiGravity(int *, int *, float *);
 void attract(int *, int *, float *);
 void spriteTrail(int *, int *, float *);
-void stickToFloor(int *, int *, float *);
-void removeFriction(int *, int *, float *);

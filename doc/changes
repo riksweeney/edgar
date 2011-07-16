@@ -1,6 +1,9 @@
 CHANGE LOG
 ----------
 
+Version 0.92
+* Fixed a crash when loading a game
+
 Version 0.91
 * Fixed a problem with the book in the Occult section of the Library
 * Added support for offline medals
