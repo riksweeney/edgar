@@ -263,9 +263,9 @@ void doPlayer()
 
 			if (!(self->flags & HELPLESS))
 			{
-				/* Don't reset the speed if being pulled towards target or on ice */
+				/* Don't reset the speed if being pulled towards target */
 
-				if (!(self->flags & ATTRACTED) && !(self->flags & FRICTIONLESS))
+				if (!(self->flags & ATTRACTED))
 				{
 					self->dirX = 0;
 				}
@@ -307,45 +307,19 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{							
-							if (self->flags & FRICTIONLESS)
-							{
-								self->dirX -= self->speed * 0.01;
-								
-								if (self->dirX < -self->speed)
-								{
-									self->dirX = -self->speed;
-								}
-							}
-							
-							else
-							{
-								self->dirX -= self->speed;
-							}
+						{
+							self->dirX -= self->speed;
 						}
 
 						else if (!(playerWeapon.flags & ATTACKING))
 						{
-							if (self->flags & FRICTIONLESS)
-							{
-								self->dirX -= self->speed * 0.01;
-								
-								if (self->dirX < -self->speed)
-								{
-									self->dirX = -self->speed;
-								}
-							}
-							
-							else
-							{
-								self->dirX -= self->speed;
-							}
+							self->dirX -= self->speed;
 
 							/* Only pull the target */
 
 							if ((self->flags & GRABBING) && self->target != NULL && self->target->x > self->x)
 							{
-								self->target->dirX = self->dirX;
+								self->target->dirX = -self->speed;
 
 								self->target->frameSpeed = -1;
 							}
@@ -372,45 +346,19 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{							
-							if (self->flags & FRICTIONLESS)
-							{
-								self->dirX += self->speed * 0.01;
-								
-								if (self->dirX > self->speed)
-								{
-									self->dirX = self->speed;
-								}
-							}
-							
-							else
-							{
-								self->dirX += self->speed;
-							}
+						{
+							self->dirX += self->speed;
 						}
 
 						else if (!(playerWeapon.flags & ATTACKING))
 						{
-							if (self->flags & FRICTIONLESS)
-							{
-								self->dirX += self->speed * 0.01;
-								
-								if (self->dirX > self->speed)
-								{
-									self->dirX = self->speed;
-								}
-							}
-							
-							else
-							{
-								self->dirX += self->speed;
-							}
+							self->dirX += self->speed;
 
 							/* Only pull the target */
 
 							if ((self->flags & GRABBING) && self->target != NULL && self->target->x < self->x)
 							{
-								self->target->dirX = self->dirX;
+								self->target->dirX = self->speed;
 
 								self->target->frameSpeed = 1;
 							}
@@ -610,11 +558,8 @@ void doPlayer()
 								playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 							}
 						}
-						
-						if (!(player.flags & GROUNDED))
-						{
-							self->dirY = -JUMP_HEIGHT;
-						}
+
+						self->dirY = -JUMP_HEIGHT;
 					}
 
 					if (!(self->element == WATER && self->environment == WATER))
@@ -657,11 +602,6 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-				
-				if (self->flags & ON_GROUND)
-				{
-					self->flags &= ~FRICTIONLESS;
-				}
 
 				if (self->environment == AIR && i == WATER && self->dirY < 0)
 				{

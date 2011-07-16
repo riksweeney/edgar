@@ -1742,8 +1742,6 @@ void loadObtainedMedals()
 	char medalFile[MAX_PATH_LENGTH], *line, *savePtr;
 	unsigned char *buffer;
 	FILE *fp;
-	
-	savePtr = NULL;
 
 	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
 

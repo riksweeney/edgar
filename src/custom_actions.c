@@ -168,10 +168,7 @@ void helpless(int *thinkTime, int *counter, float *value)
 
 	else
 	{
-		if (!(self->flags & ATTRACTED) && !(self->flags & FRICTIONLESS))
-		{
-			self->dirX = 0;
-		}
+		self->dirX = 0;
 
 		if (self->flags & FLY)
 		{
@@ -331,34 +328,5 @@ void spriteTrail(int *thinkTime, int *counter, float *value)
 			
 			addDuplicateImage(self);
 		}
-	}
-}
-
-void stickToFloor(int *thinkTime, int *counter, float *value)
-{
-	(*thinkTime)--;
-	
-	if (*thinkTime != 0)
-	{
-		self->speed = self->originalSpeed * 0.25;
-		
-		self->flags |= GROUNDED;
-	}
-	
-	else
-	{
-		self->speed = self->originalSpeed;
-		
-		self->flags &= ~GROUNDED;
-	}
-}
-
-void removeFriction(int *thinkTime, int *counter, float *value)
-{
-	(*thinkTime)--;
-	
-	if (*thinkTime != 0)
-	{
-		self->flags |= FRICTIONLESS;
 	}
 }

@@ -101,7 +101,7 @@ typedef struct Entity
 	int maxHealth, damage, active, maxThinkTime;
 	int targetX, targetY, environment, element;
 	int mental, spawnTime;
-	unsigned long flags;
+	long flags;
 	float x, y, dirX, dirY, frameSpeed, frameTimer;
 	float startX, startY, endX, endY;
 	float originalSpeed, speed, weight, originalWeight;

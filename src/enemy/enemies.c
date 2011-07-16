@@ -100,7 +100,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "fly_trap.h"
 #include "armour_changer.h"
 #include "sorceror_dark_summoner.h"
-#include "slug.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -279,9 +278,7 @@ static Constructor enemies[] = {
 {"boss/black_book_3", &addBlackBook3},
 {"boss/sorceror_2", &addSorceror2},
 {"enemy/sorceror_dark_summoner", &addSorcerorDarkSummoner},
-{"boss/sorceror_floor", &addSorcerorFloor},
-{"enemy/slug", &addSlug},
-{"enemy/upside_down_slug", &addSlug}
+{"boss/sorceror_floor", &addSorcerorFloor}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

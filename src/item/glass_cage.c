@@ -103,7 +103,7 @@ static void entityWait()
 
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
 
-		self->target->flags |= GROUNDED;
+		self->target->flags &= ~ON_GROUND;
 	}
 
 	if (self->active == TRUE || self->health <= 0)
@@ -113,11 +113,6 @@ static void entityWait()
 		if (self->thinkTime <= 0)
 		{
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
-			
-			if (self->target != NULL)
-			{
-				self->target->flags &= ~GROUNDED;
-			}
 
 			self->action = &die;
 		}
