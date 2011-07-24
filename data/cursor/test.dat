@@ -4,3 +4,6 @@ enemy/slug
 weapon/small_wooden_shield
 enemy/upside_down_slug
 weapon/basic_sword
+item/portable_save
+item/safe_combination
+common/save_point

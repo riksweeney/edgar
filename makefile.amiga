@@ -1,4 +1,4 @@
-VERSION = 0.91
+VERSION = 0.93
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -91,7 +91,7 @@ CORE_OBJS += cave_boss.o wall_walker.o apple_tree.o apple.o one_way_door.o colou
 CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o hoover.o black_book_2.o drawbridge_pulley.o drawbridge_anchor.o giant_ceiling_creeper.o
 CORE_OBJS += baby_salamander.o safe_combination.o grimlore.o grimlore_artifact.o magic_missile.o grimlore_summon_spell.o hidden_passage_wall.o
 CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o credits.o black_book_3.o sorceror_2.o sorceror_dark_summoner.o
-CORE_OBJS += sorceror_floor.o medals_menu.o phantasmal_mouth.o ghost.o slug.o
+CORE_OBJS += sorceror_floor.o medals_menu.o phantasmal_mouth.o ghost.o slug.o portable_save.o
 
 ifeq ($(OS),Windows_NT)
 CORE_OBJS += strtok_r.o

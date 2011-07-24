@@ -31,6 +31,7 @@ extern Entity *self;
 
 static void entityWait(void);
 static void touch(Entity *);
+static void activate(int);
 
 Entity *addSafeCombination(int x, int y, char *name)
 {
@@ -55,6 +56,8 @@ Entity *addSafeCombination(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->touch = &touch;
+	
+	e->activate = &activate;
 
 	e->active = FALSE;
 
@@ -77,8 +80,6 @@ static void touch(Entity *other)
 	{
 		if (strlen(self->requires) == 0)
 		{
-			self->description[0] = '\0';
-			
 			dir = prand() % 2;
 
 			for (i=0;i<3;i++)
@@ -89,24 +90,57 @@ static void touch(Entity *other)
 
 				STRNCPY(self->requires, combination, sizeof(self->requires));
 				
-				if (i == 0)
-				{
-					snprintf(combination, sizeof(combination), "%d %s", unit, dir == 0 ? _("Left") : _("Right"));
-				}
-				
-				else
-				{
-					snprintf(combination, sizeof(combination), "%s, %d %s", self->description, unit, dir == 0 ? _("Left") : _("Right"));
-				}
-
-				STRNCPY(self->description, combination, sizeof(self->description));
-				
 				dir = dir == 1 ? 0 : 1;
 			}
-
-			snprintf(self->description, sizeof(self->description), _("A scrap of paper. %s is written on it"), combination);
+			
+			self->activate(1);
 		}
 	}
 	
 	keyItemTouch(other);
+}
+
+static void activate(int val)
+{
+	char combination[MAX_VALUE_LENGTH], turns[5];
+	int i, j;
+	
+	j = 0;
+	
+	combination[0] = '\0';
+	
+	for (i=0;i<strlen(self->requires);i++)
+	{
+		if (isdigit(self->requires[i]))
+		{
+			turns[j++] = self->requires[i];
+			
+			turns[j] = '\0';
+		}
+		
+		else
+		{
+			val = atoi(turns);
+			
+			if (strlen(combination) == 0)
+			{
+				snprintf(self->description, sizeof(self->description), "%d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
+			}
+			
+			else
+			{
+				snprintf(self->description, sizeof(self->description), " %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
+			}
+			
+			strncat(combination, self->description, sizeof(combination));
+			
+			j = 0;
+			
+			turns[j] = '\0';
+		}
+	}
+
+	STRNCPY(self->description, combination, sizeof(self->description));
+	
+	snprintf(self->description, sizeof(self->description), _("A scrap of paper. %s is written on it"), combination);
 }

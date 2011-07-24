@@ -2,3 +2,8 @@ edgar/edgar
 common/level_exit
 common/save_point
 common/spawner
+enemy/red_spider
+falling_platform/catacombs_falling_platform
+door/large_metal_door
+item/iron_key
+item/bell
