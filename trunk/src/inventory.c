@@ -85,6 +85,7 @@ void freeInventory()
 int addToInventory(Entity *e)
 {
 	int i, found;
+	Entity *temp;
 
 	found = FALSE;
 
@@ -127,6 +128,17 @@ int addToInventory(Entity *e)
 				if (e->action == &generalItemAction)
 				{
 					e->action = &doNothing;
+				}
+				
+				if (strcmpignorecase(e->name, "item/safe_combination") == 0)
+				{
+					temp = self;
+					
+					self = e;
+					
+					self->activate(1);
+					
+					self = temp;
 				}
 
 				e->flags &= ~DO_NOT_PERSIST;

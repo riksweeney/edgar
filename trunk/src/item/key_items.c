@@ -133,6 +133,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "poison_meat.h"
 #include "train_track.h"
 #include "train.h"
+#include "portable_save.h"
 
 extern Entity *self, player;
 
@@ -256,7 +257,8 @@ static Constructor items[] = {
 {"item/hidden_passage_wall", &addHiddenPassageWall},
 {"item/poison_meat", &addPoisonMeat},
 {"item/train_track", &addTrainTrack},
-{"item/train", &addTrain}
+{"item/train", &addTrain},
+{"item/portable_save", &addPortableSave}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
