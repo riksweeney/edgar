@@ -107,6 +107,7 @@ static void move()
 		e->action = &slimeWait;
 		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &slimeTouch;
+		e->fallout = &entityDieNoDrop;
 		
 		self->startX = e->w;
 	}
@@ -173,6 +174,7 @@ static void moveOnCeiling()
 		
 		e->action = &iceDripForm;
 		e->draw = &drawLoopingAnimationToMap;
+		e->fallout = &entityDieNoDrop;
 		
 		e->thinkTime = 180;
 		

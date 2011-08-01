@@ -1147,7 +1147,7 @@ static void takeDamage(Entity *other, int damage)
 
 					self = other;
 
-					self->reactToBlock(temp);
+					self->reactToBlock(&playerShield);
 
 					self = temp;
 
@@ -1245,7 +1245,7 @@ static void takeDamage(Entity *other, int damage)
 
 				self = other;
 
-				self->reactToBlock(temp);
+				self->reactToBlock(&playerShield);
 
 				self = temp;
 			}

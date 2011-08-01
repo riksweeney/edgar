@@ -438,7 +438,7 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 
 		while (x1 != x2)
 		{
-			if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+			if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 			{
 				putPixel(game.screen, x1, y1 - 2, color3);
 				putPixel(game.screen, x1, y1 - 1, color2);
@@ -459,7 +459,7 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 			x1 += lStep;
 		}
 
-		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
 			putPixel(game.screen, x1, y1 - 2, color3);
 			putPixel(game.screen, x1, y1 - 1, color2);
@@ -473,7 +473,7 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 
 	while (y1 != y2)
 	{
-		if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+		if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 		{
 			putPixel(game.screen, x1, y1 - 2, color3);
 			putPixel(game.screen, x1, y1 - 1, color2);
@@ -494,7 +494,7 @@ void drawColouredLine(int x1, int y1, int x2, int y2, Uint32 color1, Uint32 colo
 		y1 += sStep;
 	}
 
-	if (x1 >= clipX && x1 < clipW && y1 >= clipY && y1 < clipH)
+	if (x1 >= clipX && x1 < clipW && y1 - 2 >= clipY && y1 + 2 < clipH)
 	{
 		putPixel(game.screen, x1, y1 - 2, color3);
 		putPixel(game.screen, x1, y1 - 1, color2);

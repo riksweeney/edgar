@@ -82,6 +82,8 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->face = e->dirX > 0 ? RIGHT : LEFT;
 
 	setEntityAnimationByID(e, 0);
+	
+	e->flags |= ATTACKING;
 
 	return e;
 }

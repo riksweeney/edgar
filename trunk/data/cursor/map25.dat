@@ -7,3 +7,7 @@ falling_platform/catacombs_falling_platform
 door/large_metal_door
 item/iron_key
 item/bell
+enemy/crypt_skull
+weapon/basic_sword
+item/portable_save
+enemy/skull_door

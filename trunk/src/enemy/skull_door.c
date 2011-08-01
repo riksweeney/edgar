@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../projectile.h"
 #include "../hud.h"
+#include "../graphics/decoration.h"
 #include "../collisions.h"
 #include "../item/item.h"
 #include "../system/random.h"
@@ -36,21 +37,22 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self, player;
 
 static void lookForPlayer(void);
-static void ballAttackInit(void);
-static void ballAttack(void);
-static void ballAttackWait(void);
-static void ballAttackFinish(void);
+static void skullAttackChargeUp(void);
+static void skullAttack(void);
+static void skullAttackFinish(void);
 static void takeDamage(Entity *, int);
-static void reflect(Entity *);
+static void skullShotMove(void);
+static void touch(Entity *);
+static void skullShotReflect(Entity *);
 static void die(void);
 
-Entity *addPhantasmalMouth(int x, int y, char *name)
+Entity *addSkullDoor(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Phantasmal Mouth");
+		showErrorAndExit("No free slots to add a Skull Door");
 	}
 
 	loadProperties(name, e);
@@ -59,7 +61,7 @@ Entity *addPhantasmalMouth(int x, int y, char *name)
 	e->y = y;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = &entityTouch;
+	e->touch = &touch;
 	e->die = &die;
 	e->takeDamage = &takeDamage;
 
@@ -76,103 +78,142 @@ static void lookForPlayer()
 {
 	if (player.health > 0)
 	{
-		if (collision(self->x + (self->face == RIGHT ? self->w : -320), self->y, 320, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -300 : self->w + 64), self->y, 232, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
-			self->thinkTime = 180;
+			setEntityAnimation(self, "CHARGE");
 
-			self->action = &ballAttackInit;
+			self->animationCallback = &skullAttackChargeUp;
 		}
 	}
 
 	checkToMap(self);
 }
 
-static void ballAttackInit()
+static void skullAttackChargeUp()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		ballAttack();
-
-		self->thinkTime = 60;
-
-		self->action = &ballAttackFinish;
-	}
-
-	checkToMap(self);
+	setEntityAnimation(self, "CHARGE_WAIT");
+	
+	self->thinkTime = 30;
+	
+	self->action = &skullAttack;
 }
 
-static void ballAttack()
+static void skullAttack()
 {
 	Entity *e;
-
-	self->action = &ballAttackWait;
-
-	self->frameSpeed = 0;
-
-	self->thinkTime = 60;
-
-	e = addProjectile("enemy/phantasmal_shot", self, self->x + self->w / 2, self->y, 0, 3 * (self->flags & FLY) ? 1 : -1);
-
-	e->x -= e->w / 2;
-
-	e->flags |= FLY;
-
-	e->y += !(self->flags & FLY) > 0 ? 5 : (self->h - 5);
-
-	e->type = ENEMY;
-
-	e->parent = NULL;
-
-	e->element = PHANTASMAL;
-
-	e->reactToBlock = &reflect;
-
-	e->flags |= DO_NOT_PERSIST;
-
-	e->head = self;
-
-	e->thinkTime = 5;
-}
-
-static void ballAttackFinish()
-{
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->action = &lookForPlayer;
+		setEntityAnimation(self, "ATTACK");
+		
+		e = addProjectile("enemy/skull_shot", self, self->x, self->y, self->face == LEFT ? -6 : 6, 0);
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - self->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+		
+		e->y = self->y + self->offsetY;
+		
+		e->face = self->face;
+		
+		e->action = &skullShotMove;
+
+		e->flags |= FLY;
+
+		e->reactToBlock = &skullShotReflect;
+
+		e->thinkTime = 1200;
+		
+		e->mental = 2;
+
+		self->thinkTime = 60;
+		
+		self->action = &skullAttackFinish;
 	}
 
 	checkToMap(self);
 }
 
-static void reflect(Entity *other)
+static void skullAttackFinish()
 {
-	if (other->mental < 30)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "STAND");
+		
+		self->action = &lookForPlayer;
+	}
+	
+	checkToMap(self);
+}
+
+static void skullShotMove()
+{
+	Entity *e;
+	
+	self->mental--;
+	
+	if (self->mental <= 0)
+	{
+		e = addBasicDecoration(self->x, self->y, "decoration/skull_trail");
+		
+		if (e != NULL)
+		{
+			e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
+			
+			e->y = self->y + self->h / 2 - e->h / 2;
+			
+			e->y += (prand() % 8) * (prand() % 2 == 0 ? 1 : -1);
+			
+			e->thinkTime = 15 + prand() % 15;
+			
+			e->dirY = (1 + prand() % 10) * (prand() % 2 == 0 ? 1 : -1);
+			
+			e->dirY /= 10;
+		}
+		
+		self->mental = 2;
+	}
+	
+	checkToMap(self);
+}
+
+static void skullShotReflect(Entity *other)
+{
+	if (other->mental <= 7)
 	{
 		self->damage = 50;
 	}
 
-	else if (other->mental < 60)
+	else if (other->mental <= 15)
 	{
 		self->damage = 30;
 	}
 
-	else if (other->mental < 90)
+	else if (other->mental <= 30)
 	{
 		self->damage = 20;
 	}
 
 	else
 	{
-		self->damage = 10;
+		self->damage = 5;
 	}
 
 	self->parent = other;
 
 	self->dirX = -self->dirX;
+	
+	self->face = self->face == LEFT ? RIGHT : LEFT;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -184,9 +225,9 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 	
-	if (other->element == PHANTASMAL && damage >= 50)
+	if (other->element == PHANTASMAL)
 	{
-		self->die();
+		entityTakeDamageNoFlinch(other, damage);
 	}
 	
 	else
@@ -243,13 +284,41 @@ static void die()
 
 		e->thinkTime = 60 + (prand() % 180);
 	}
-
+	
 	self->damage = 0;
 
-	self->inUse = FALSE;
+	if (!(self->flags & INVULNERABLE))
+	{
+		self->touch = &entityTouch;
+		
+		self->flags &= ~FLY;
+
+		self->flags |= (DO_NOT_PERSIST|NO_DRAW);
+
+		self->thinkTime = 60;
+
+		setCustomAction(self, &invulnerableNoFlash, 240, 0, 0);
+
+		self->frameSpeed = 0;
+
+		self->action = &standardDie;
+
+		self->damage = 0;
+	}
 }
 
-static void ballAttackWait()
+static void touch(Entity *other)
 {
-	checkToMap(self);
+	if (!(other->parent != NULL && other->parent == self))
+	{
+		if (other->flags & ATTACKING)
+		{
+			takeDamage(other, other->damage);
+		}
+
+		if (self->inUse == TRUE && self->touch != NULL)
+		{
+			pushEntity(other);
+		}
+	}
 }

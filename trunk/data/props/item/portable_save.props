@@ -1,5 +1,5 @@
 GFX_FILE data/gfx/item/portable_save.dat
-ANIM_FILE data/anim/common/no_anim.dat
+ANIM_FILE data/anim/item/portable_save.dat
 TYPE KEY_ITEM
 DESCRIPTION Creates a save point at your current position
 OBJECTIVE_NAME Portable Save Point
