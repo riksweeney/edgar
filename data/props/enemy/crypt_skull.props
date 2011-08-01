@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/skull.dat
+ANIM_FILE data/anim/item/skull.dat
+TYPE ENEMY
+HEALTH 600
+FLAGS FLY|NO_DRAW
+DAMAGE 2

@@ -504,7 +504,7 @@ static void arrowTakeDamage(Entity *other, int damage)
 void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int color2, int color3)
 {
 	int speed;
-	float dirX, dirY, x, y, ix, iy, yy;
+	float dirX, dirY, x, y, ix, iy, xx, yy;
 
 	speed = 8;
 
@@ -519,22 +519,39 @@ void drawDisintegrationLine(int x1, int y1, int x2, int y2, int color1, int colo
 	ix = x1;
 	iy = y1;
 
-	color1 = getColour(231, 231, 231);
-	color2 = getColour(57, 57, 224);
-	color3 = getColour(41, 41, 160);
-
-	while (!(fabs(x2 - x) <= fabs(dirX)))
+	if (fabs(dirX) > fabs(dirY))
 	{
-		yy = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
+		while (!(fabs(x2 - x) <= fabs(dirX)))
+		{
+			yy = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
 
-		drawColouredLine(x, y, x + dirX, y + dirY + yy, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX, y + dirY + yy, color1, color2, color3);
 
-		x += dirX;
-		y += dirY + yy;
+			x += dirX;
+			y += dirY + yy;
 
-		drawColouredLine(x, y, x + dirX, y + dirY - yy, color1, color2, color3);
+			drawColouredLine(x, y, x + dirX, y + dirY - yy, color1, color2, color3);
 
-		x += dirX;
-		y += dirY - yy;
+			x += dirX;
+			y += dirY - yy;
+		}
+	}
+	
+	else
+	{
+		while (!(fabs(y2 - y) <= fabs(dirY)))
+		{
+			xx = (prand() % 8) * (prand() % 2 == 0 ? -1 : 1);
+
+			drawColouredLine(x, y, x + dirX + xx, y + dirY, color1, color2, color3);
+
+			x += dirX + xx;
+			y += dirY;
+
+			drawColouredLine(x, y, x + dirX - xx, y + dirY, color1, color2, color3);
+
+			x += dirX - xx;
+			y += dirY;
+		}
 	}
 }

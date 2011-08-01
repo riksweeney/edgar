@@ -149,7 +149,7 @@ int addToInventory(Entity *e)
 
 				inventory.item[i].thinkTime = 0;
 
-				setEntityAnimation(&inventory.item[i], "STAND");
+				setEntityAnimationByID(&inventory.item[i], 0);
 
 				if (inventory.item[i].type == WEAPON)
 				{

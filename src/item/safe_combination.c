@@ -129,7 +129,7 @@ static void activate(int val)
 			
 			else
 			{
-				snprintf(self->description, sizeof(self->description), " %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
+				snprintf(self->description, sizeof(self->description), ", %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
 			}
 			
 			strncat(combination, self->description, sizeof(combination));
@@ -142,5 +142,5 @@ static void activate(int val)
 
 	STRNCPY(self->description, combination, sizeof(self->description));
 	
-	snprintf(self->description, sizeof(self->description), _("A scrap of paper. %s is written on it"), combination);
+	snprintf(self->description, sizeof(self->description), _("A scrap of paper. \"%s\" is written on it"), combination);
 }
