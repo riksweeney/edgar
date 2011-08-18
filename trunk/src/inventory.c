@@ -847,7 +847,7 @@ void clearInventoryDescription()
 
 void drawInventory()
 {
-	int i, x, y;
+	int i, x, y, descriptionY;
 	char description[MAX_MESSAGE_LENGTH];
 	Entity *e;
 
@@ -892,6 +892,8 @@ void drawInventory()
 	}
 
 	e = &inventory.item[inventory.cursorIndex];
+	
+	descriptionY = inventory.y + inventory.background->h + 10;
 
 	if (inventory.description == NULL)
 	{
@@ -919,13 +921,18 @@ void drawInventory()
 
 			inventory.description = createDialogBox(NULL, description);
 
-			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
+			drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, descriptionY, FALSE, 255);
 		}
 	}
 
 	else
 	{
-		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, inventory.y + inventory.background->h + 10, FALSE, 255);
+		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, descriptionY, FALSE, 255);
+	}
+	
+	if (inventory.description != NULL)
+	{
+		descriptionY += inventory.description->h + 10;
 	}
 
 	if (inventory.objectives == NULL)
@@ -946,7 +953,7 @@ void drawInventory()
 
 	drawImage(inventory.cursor, x, y, FALSE, 255);
 
-	drawImage(inventory.objectives, (SCREEN_WIDTH - inventory.objectives->w) / 2, 325, FALSE, 255);
+	drawImage(inventory.objectives, (SCREEN_WIDTH - inventory.objectives->w) / 2, descriptionY, FALSE, 255);
 }
 
 void setInventoryDialogMessage(char *fmt, ...)

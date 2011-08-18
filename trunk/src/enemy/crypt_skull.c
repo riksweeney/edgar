@@ -93,66 +93,74 @@ static void appear()
 
 static void beamAttackInit()
 {
-	int i;
+	int i, j;
 	Entity *e, *prev;
 	
-	for (i=0;i<16;i++)
+	for (j=0;j<self->mental;j++)
 	{
-		e = getFreeEntity();
-		
-		if (e == NULL)
+		for (i=0;i<16;i++)
 		{
-			showErrorAndExit("No free slots to add a Crypt Skull Beam");
-		}
-		
-		loadProperties("boss/sorceror_disintegration_spell", e);
+			e = getFreeEntity();
+			
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a Crypt Skull Beam");
+			}
+			
+			loadProperties("boss/sorceror_disintegration_spell", e);
 
-		setEntityAnimation(e, "STAND");
-		
-		if (i == 0)
-		{
-			e->flags &= ~NO_DRAW;
+			setEntityAnimation(e, "STAND");
 			
-			e->x = self->x + self->w / 2 - e->w / 2;
-			e->y = self->y + self->h / 2 - e->h / 2;
+			if (i == 0)
+			{
+				e->flags &= ~NO_DRAW;
+				
+				e->x = self->x + self->w / 2 - e->w / 2;
+				e->y = self->y + self->h / 2 - e->h / 2;
+				
+				e->startX = e->x;
+				e->startY = e->y;
+				
+				e->y = j == 0 ? self->startY : self->endY;
+				
+				e->draw = &drawBeam;
+				e->action = &beamAttack;
+				e->touch = &entityTouch;
+				
+				e->speed = self->speed;
+				
+				e->dirX = j == 0 ? e->speed : -e->speed;
+				e->dirY = 0;
+				
+				e->head = self;
+				
+				self->action = &beamAttackWait;
+				
+				prev = e;
+				
+				e->damage = 1;
+				
+				if (j == 0)
+				{
+					e->targetX = playSoundToMap("sound/enemy/laser/zap.ogg", -1, self->x, self->y, -1);
+				}
+			}
 			
-			e->startX = e->x;
-			e->startY = e->y;
+			else
+			{
+				e->draw = &drawLoopingAnimationToMap;
+				e->touch = &entityTouch;
+				e->action = &doNothing;
+				
+				e->damage = 1;
+				
+				prev->target = e;
+				
+				prev = e;
+			}
 			
-			e->y = self->startY;
-			
-			e->draw = &drawBeam;
-			e->action = &beamAttack;
-			e->touch = &entityTouch;
-			
-			e->dirX = 5;
-			e->dirY = 0;
-			
-			e->head = self;
-			
-			self->action = &beamAttackWait;
-			
-			prev = e;
-			
-			e->damage = 1;
-			
-			e->targetX = playSoundToMap("sound/enemy/laser/zap.ogg", -1, self->x, self->y, -1);
+			e->flags |= FLY|DO_NOT_PERSIST|UNBLOCKABLE|PLAYER_TOUCH_ONLY;
 		}
-		
-		else
-		{
-			e->draw = &drawLoopingAnimationToMap;
-			e->touch = &entityTouch;
-			e->action = &doNothing;
-			
-			e->damage = 1;
-			
-			prev->target = e;
-			
-			prev = e;
-		}
-		
-		e->flags |= FLY|DO_NOT_PERSIST|UNBLOCKABLE|PLAYER_TOUCH_ONLY;
 	}
 }
 
@@ -169,7 +177,7 @@ static void beamAttack()
 		self->x = self->head->endX;
 		
 		self->dirX = 0;
-		self->dirY = 5;
+		self->dirY = self->speed;
 	}
 	
 	else if (self->dirX < 0 && self->x <= self->head->startX)
@@ -177,14 +185,14 @@ static void beamAttack()
 		self->x = self->head->startX;
 		
 		self->dirX = 0;
-		self->dirY = -5;
+		self->dirY = -self->speed;
 	}
 	
 	else if (self->dirY > 0 && self->y >= self->head->endY)
 	{
 		self->y = self->head->endY;
 		
-		self->dirX = -5;
+		self->dirX = -self->speed;
 		self->dirY = 0;
 	}
 	
@@ -192,7 +200,7 @@ static void beamAttack()
 	{
 		self->y = self->head->startY;
 		
-		self->dirX = 5;
+		self->dirX = self->speed;
 		self->dirY = 0;
 	}
 	

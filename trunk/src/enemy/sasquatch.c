@@ -90,7 +90,7 @@ static void lookForPlayer()
 	{
 		/* Must be within a certain range */
 
-		if (collision(self->x + (self->face == LEFT ? -300 : self->w + 64), self->y, 232, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -300 : self->w), self->y, 300, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
 
