@@ -78,7 +78,7 @@ static void lookForPlayer()
 {
 	if (player.health > 0)
 	{
-		if (collision(self->x + (self->face == LEFT ? -300 : self->w + 64), self->y, 232, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -400 : self->w), self->y, 400, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			setEntityAnimation(self, "CHARGE");
 
@@ -109,6 +109,8 @@ static void skullAttack()
 		setEntityAnimation(self, "ATTACK");
 		
 		e = addProjectile("enemy/skull_shot", self, self->x, self->y, self->face == LEFT ? -6 : 6, 0);
+		
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
 		if (self->face == LEFT)
 		{
