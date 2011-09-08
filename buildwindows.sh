@@ -28,7 +28,7 @@ rm -rf $APPDIR
 
 echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
-svn export http://reddwarf.local/svn/Edgar/tags/$APPVERSION $APPDIR
+svn export https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$APPVERSION $APPDIR
 
 echo "Removing unwanted data files..."
 

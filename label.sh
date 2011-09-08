@@ -61,7 +61,6 @@ then
 	exit 1
 fi
 
-svn copy http://reddwarf.local/svn/Edgar/trunk http://reddwarf.local/svn/Edgar/tags/$1 -m "Tagging $1"
+svn copy https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1 -m "Tagging $1"
 
-echo Remember to add any new Medals to the website
 echo Update the messages.pot file
