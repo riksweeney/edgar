@@ -350,9 +350,6 @@ msgstr ""
 msgid "Have fun!"
 msgstr ""
 
-msgid "Thanks for resucing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
-
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
 msgstr ""
 
@@ -4070,16 +4067,7 @@ msgstr ""
 msgid "Spent 10 minutes as a Slime"
 msgstr ""
 
-msgid "A scrap of paper. %s is written on it"
-msgstr ""
-
 msgid "Hidden Medal"
-msgstr ""
-
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
 msgstr ""
 
 msgid "It might be an ant lion looking for food"
@@ -4089,9 +4077,6 @@ msgid "If I go down there, it'll almost certainly eat me"
 msgstr ""
 
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
-
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "There's a note in here"
@@ -4121,5 +4106,32 @@ msgstr ""
 msgid "Blocking at the last moment increases the power of the reflected projectile"
 msgstr ""
 
-msgid "Reflects phantasmal forces. Blocking later increases reflection strength"
+msgid "You cannot use this item here"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+
+msgid "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "The shield has no use in this version!"
+msgstr ""
+
+msgid "A bell"
+msgstr ""
+
+msgid "Creates a save point at your current position"
+msgstr ""
+
+msgid "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""

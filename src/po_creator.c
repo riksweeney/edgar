@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
 	poIndex = 0;
 
-	fp = fopen("locale/messages.pot", "rb");
+	fp = fopen("locale/edgar.pot", "rb");
 
 	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
 	{
