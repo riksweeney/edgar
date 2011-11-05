@@ -1,0 +1,20 @@
+FIRE_TRIGGER Sorceror Trigger
+SET SORCEROR FACE RIGHT
+ADD_MEDAL sorceror_start
+LIMIT_CAMERA 640 32 1280 480
+WALK_TO EDGAR 778 426 WAIT
+WAIT 30
+TALK Edgar Finally, we meet at last!
+SET SORCEROR FACE LEFT
+TALK Sorceror Who are you?
+TALK Edgar My name is Edgar and I have spent the last [HOURS] hours trying to find you!
+TALK Sorceror Fascinating. What do you want?
+TALK Edgar I've come to rescue my father, tell me where he is!
+TALK Sorceror Your father? My dear child, I do not have the foggiest idea what you are talking about
+TALK Sorceror But if he's anywhere, he'll be in my dungeon. Why don't you look there?
+SET SORCEROR PROPERTY MENTAL -4
+WAIT 60
+WHILE EXISTS SORCEROR_SPELL
+WAIT 120
+LOAD_LEVEL map17 dungeon_entrance
+WAIT 300
