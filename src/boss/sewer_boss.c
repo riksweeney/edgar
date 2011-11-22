@@ -242,12 +242,14 @@ static void entityWait()
 		{
 			if (self->health >= 300)
 			{
-				action = prand() % 3;
+				action = prand() % 5;
 
 				switch (action)
 				{
 					case 0:
 					case 1:
+					case 2:
+					case 3:
 						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
@@ -265,12 +267,13 @@ static void entityWait()
 
 			else if (self->health >= 200)
 			{
-				action = prand() % 5;
+				action = prand() % 7;
 
 				switch (action)
 				{
 					case 0:
 					case 1:
+					case 2:
 						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
@@ -278,8 +281,9 @@ static void entityWait()
 						self->action = &punchWait;
 					break;
 
-					case 2:
 					case 3:
+					case 4:
+					case 5:
 						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -5;
@@ -297,12 +301,13 @@ static void entityWait()
 
 			else
 			{
-				action = prand() % 7;
+				action = prand() % 9;
 
 				switch (action)
 				{
 					case 0:
 					case 1:
+					case 2:
 						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -10;
@@ -310,8 +315,9 @@ static void entityWait()
 						self->action = &punchWait;
 					break;
 
-					case 2:
 					case 3:
+					case 4:
+					case 5:
 						setEntityAnimation(self, self->element == SLIME ? "ATTACK_4" : "ATTACK_4_WATER");
 
 						self->mental = -5;
@@ -319,8 +325,9 @@ static void entityWait()
 						self->action = &punchWait;
 					break;
 
-					case 4:
-					case 5:
+					case 6:
+					case 7:
+					case 8:
 						self->dirY = self->speed;
 
 						self->action = &sinkAttackInit;
@@ -965,6 +972,8 @@ static void punchAttackInit()
 
 			self->dirX *= 12;
 			self->dirY *= 12;
+			
+			self->flags &= ~UNBLOCKABLE;
 
 			self->action = &punchAttack;
 

@@ -1188,6 +1188,8 @@ static void anchorDie()
 	Entity *e;
 
 	e = self;
+	
+	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
 
 	self = self->target;
 
@@ -1462,8 +1464,6 @@ static void riftAttract()
 
 	if (self->thinkTime <= 0)
 	{
-		self->health = -1;
-
 		self->touch = NULL;
 
 		setEntityAnimation(self, "STAND");
