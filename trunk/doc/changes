@@ -1,6 +1,13 @@
 CHANGE LOG
 ----------
 
+Version 0.94
+* Fixed a problem with the ice cubes moving too quickly
+* Jacob no longer drops infinite swords
+* The rift summoned by Mataeus no longer plays its sound effect endlessly
+* Fixed a problem with The Sewer Dweller's attacks being unblockable
+* Ice cubes now vanish after a few seconds instead of hanging around forever
+
 Version 0.93
 * Fixed the description on the scrap of paper after loading a game
 

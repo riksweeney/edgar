@@ -72,7 +72,7 @@ static void entityWait()
 
 	checkToMap(self);
 
-	if (landedOnGround(onGround) == TRUE)
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->dirX = 0;
 
@@ -128,7 +128,7 @@ static void explodeWait()
 
 	checkToMap(self);
 
-	if (landedOnGround(onGround) == TRUE)
+	if (landedOnGround(onGround) == TRUE || onGround != 0)
 	{
 		self->dirX = 0;
 
