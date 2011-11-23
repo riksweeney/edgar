@@ -384,8 +384,6 @@ static void castLightningBolt()
 
 		setEntityAnimation(e, "STAND");
 
-		self->thinkTime = 60;
-
 		self->action = &summonWait;
 
 		setEntityAnimation(self, "ATTACK_2");
