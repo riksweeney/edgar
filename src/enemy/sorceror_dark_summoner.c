@@ -417,9 +417,11 @@ static void castFire()
 
 		if (self->endX <= 0)
 		{
-			self->thinkTime = 60;
+			self->action = &summonWait;
 
-			self->action = &summonEnd;
+			setEntityAnimation(self, "ATTACK_2");
+
+			self->animationCallback = &summonEnd;
 		}
 
 		else
@@ -524,9 +526,11 @@ static void castLightningBolt()
 
 		setEntityAnimation(e, "STAND");
 
-		self->thinkTime = 60;
+		self->action = &summonWait;
 
-		self->action = &summonEnd;
+		setEntityAnimation(self, "ATTACK_2");
+
+		self->animationCallback = &summonEnd;
 	}
 }
 
@@ -643,9 +647,11 @@ static void castIce()
 		setEntityAnimation(e, "STAND");
 	}
 
-	self->thinkTime = 60;
+	self->action = &summonWait;
 
-	self->action = &summonEnd;
+	setEntityAnimation(self, "ATTACK_2");
+
+	self->animationCallback = &summonEnd;
 }
 
 static void iceWallMove()
