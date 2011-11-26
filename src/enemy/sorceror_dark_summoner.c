@@ -417,7 +417,7 @@ static void castFire()
 
 		if (self->endX <= 0)
 		{
-			self->action = &summonWait;
+			self->action = &castWait;
 
 			setEntityAnimation(self, "ATTACK_2");
 
@@ -526,7 +526,7 @@ static void castLightningBolt()
 
 		setEntityAnimation(e, "STAND");
 
-		self->action = &summonWait;
+		self->action = &castWait;
 
 		setEntityAnimation(self, "ATTACK_2");
 
@@ -647,7 +647,7 @@ static void castIce()
 		setEntityAnimation(e, "STAND");
 	}
 
-	self->action = &summonWait;
+	self->action = &castWait;
 
 	setEntityAnimation(self, "ATTACK_2");
 
