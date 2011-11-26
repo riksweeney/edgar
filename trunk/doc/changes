@@ -7,6 +7,7 @@ Version 0.94
 * The rift summoned by Mataeus no longer plays its sound effect endlessly
 * Fixed a problem with The Sewer Dweller's attacks being unblockable
 * Ice cubes now vanish after a few seconds instead of hanging around forever
+* Dark Summoners no longer get stuck after casting lightning
 
 Version 0.93
 * Fixed the description on the scrap of paper after loading a game
