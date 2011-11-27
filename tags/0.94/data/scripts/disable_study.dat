@@ -1,0 +1,22 @@
+SET EDGAR ADD_FLAG NO_DRAW
+FOLLOW NONE
+SET EDGAR FACE LEFT
+SET EDGAR PROPERTY X 10000
+SET EDGAR PROPERTY Y 10300
+TELEPORT EDGAR 6240 12630
+WAIT 120
+SET EDGAR FACE RIGHT
+WAIT 30
+SET EDGAR FACE LEFT
+WAIT 30
+TALK Edgar It worked, I'm back!
+TALK Edgar Now to create that shield and get that sorceror...
+ADD OBJECTIVE "Create a Resist Disintegration Shield" "disintegration_shield_made"
+ADD TRIGGER "Disintegration Shield" 1 UPDATE_OBJECTIVE "Create a Resist Disintegration Shield"
+ADD TRIGGER "disintegration_shield_made" 1 RUN_SCRIPT "disintegration_shield"
+SET Fortress-Study PROPERTY ACTIVE FALSE
+ADD ENTITY ACTION_POINT common/action_point "STUDY_POINT" 7760 9360
+SET STUDY_POINT PROPERTY REQUIRES sorceror_study
+ADD MAP_TRIGGER "map10" RUN_SCRIPT "cauldron_shield_update"
+SET MASTERMIND PROPERTY ACTIVE TRUE
+FOLLOW EDGAR
