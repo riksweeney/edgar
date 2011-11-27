@@ -380,6 +380,63 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
+			
+			else if (strcmpignorecase(token, "EQUALS") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+				
+				token2 = strtok_r(NULL, " ", &savePtr);
+				
+				val = -1;
+				
+				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
+				{
+					val = game.continues;
+				}
+				
+				if (val != atoi(token2))
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "GREATER_THAN") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+				
+				token2 = strtok_r(NULL, " ", &savePtr);
+				
+				val = -1;
+				
+				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
+				{
+					val = game.continues;
+				}
+				
+				if (val <= atoi(token2))
+				{
+					script.skipping = TRUE;
+				}
+			}
+			
+			else if (strcmpignorecase(token, "LESS_THAN") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+				
+				token2 = strtok_r(NULL, " ", &savePtr);
+				
+				val = -1;
+				
+				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
+				{
+					val = game.continues;
+				}
+				
+				if (val > atoi(token2))
+				{
+					script.skipping = TRUE;
+				}
+			}
 
 			else
 			{

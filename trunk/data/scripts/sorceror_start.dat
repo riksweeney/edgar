@@ -1,6 +1,6 @@
+SET EDGAR HEALTH MAX
 SET EDGAR FACE RIGHT
 WAIT 120
-SET EDGAR HEALTH MAX
 TALK Edgar Nowhere left to hide
 TALK Sorceror You defeated Grimlore? Impossible!
 TALK Edgar He submitted to my sword just like everything else in this foul place
