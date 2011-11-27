@@ -2289,7 +2289,7 @@ msgid "Master Key"
 msgstr "Llave maestra"
 
 msgid ""
-"The sorcerer must have taken Dad to his castle. I'll have to rescue him from "
+"The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
 "El hechicero debe haber llevado a papá a su castillo. Tendré que sacarle "
