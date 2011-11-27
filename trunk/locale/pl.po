@@ -554,7 +554,7 @@ msgid "You again?!"
 msgstr "Znowu ty?!"
 
 msgid ""
-"The sorcerer must have taken Dad to his castle. I'll have to rescue him from "
+"The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr "Czarnoksiężnik porwał Ojca do zamku. Będę musiał go stamtąd uwolnić."
 

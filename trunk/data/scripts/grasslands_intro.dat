@@ -1,6 +1,6 @@
 WAIT 120
 SET Edgar FACE LEFT
-TALK Edgar The sorcerer must have taken Dad to his castle. I'll have to rescue him from there.
+TALK Edgar The sorceror must have taken Dad to his castle. I'll have to rescue him from there.
 SET Edgar FACE RIGHT
 TALK Edgar The only way to get to the castle is through the Forbidden Swamp to the East.
 TALK Edgar There's a lake between the Village and the Swamp so I'll need a raft to get across.
