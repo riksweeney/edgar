@@ -145,7 +145,7 @@ void doDecorations()
 				
 				removeCount++;
 				
-				el = decoration->next;
+				el = decoration;
 			}
 		}
 		
