@@ -267,7 +267,7 @@ void doEntities()
 				
 				removeCount++;
 				
-				el = entities->next;
+				el = entities;
 			}
 		}
 		
