@@ -2,6 +2,7 @@ CHANGE LOG
 ----------
 
 Version 0.94
+* Fixed the crash on Windows
 * Fixed a problem with the ice cubes moving too quickly
 * Jacob no longer drops infinite swords
 * The rift summoned by Mataeus no longer plays its sound effect endlessly

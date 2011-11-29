@@ -144,6 +144,8 @@ void doDecorations()
 				removeEntityFromList(decoration, el->entity);
 				
 				removeCount++;
+				
+				el = decoration->next;
 			}
 		}
 		
