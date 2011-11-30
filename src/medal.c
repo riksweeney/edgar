@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Game game;
 
-static NetworkMedal networkMedal;
+static MedalQueue medalQueue;
 static Medal *medal;
 static Message messageHead;
 static int medalCount, awardedMedalIndex;
@@ -41,7 +41,7 @@ void initMedals()
 {
 	messageHead.next = NULL;
 
-	networkMedal.medalMessage.text[0] = '\0';
+	medalQueue.medalMessage.text[0] = '\0';
 	
 	loadMedals();
 	
@@ -58,26 +58,26 @@ void addMedal(char *medalName)
 
 void processMedals()
 {
-	if (strlen(networkMedal.medalMessage.text) == 0)
+	if (strlen(medalQueue.medalMessage.text) == 0)
 	{
 		awardedMedalIndex = -1;
 		
 		getNextMedalFromQueue();
 		
-		networkMedal.thinkTime = 60;
+		medalQueue.thinkTime = 60;
 	}
 	
 	else
 	{
-		networkMedal.thinkTime--;
+		medalQueue.thinkTime--;
 		
-		if (networkMedal.thinkTime <= 0)
+		if (medalQueue.thinkTime <= 0)
 		{
-			networkMedal.thinkTime = 0;
+			medalQueue.thinkTime = 0;
 			
 			showMedal(medal[awardedMedalIndex].medalType, medal[awardedMedalIndex].description);
 			
-			networkMedal.thinkTime = 60;
+			medalQueue.thinkTime = 60;
 		}
 	}
 }
@@ -123,7 +123,7 @@ static void getNextMedalFromQueue()
 		{
 			if (medal[i].obtained == FALSE && strcmpignorecase(medal[i].code, head->text) == 0)
 			{
-				STRNCPY(networkMedal.medalMessage.text, head->text, sizeof(networkMedal.medalMessage.text));
+				STRNCPY(medalQueue.medalMessage.text, head->text, sizeof(medalQueue.medalMessage.text));
 				
 				medal[i].obtained = TRUE;
 				
@@ -152,7 +152,7 @@ void freeMedalQueue()
 
 	messageHead.next = NULL;
 
-	networkMedal.medalMessage.text[0] = '\0';
+	medalQueue.medalMessage.text[0] = '\0';
 	
 	saveObtainedMedals();
 	
@@ -166,7 +166,7 @@ void freeMedalQueue()
 
 void medalProcessingFinished()
 {
-	networkMedal.medalMessage.text[0] = '\0';
+	medalQueue.medalMessage.text[0] = '\0';
 }
 
 static void loadMedals()

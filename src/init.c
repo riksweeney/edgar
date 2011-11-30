@@ -124,16 +124,10 @@ void init(char *title, int joystickNum)
 	/* Init the PAK file */
 
 	initPakFile();
+	
+	/* Init the medals */
 
-	if (SDLNet_Init() < 0)
-	{
-		printf("Couldn't initialize SDL Net: %s\n", SDLNet_GetError());
-	}
-
-	else
-	{
-		initMedals();
-	}
+	initMedals();
 }
 
 void toggleFullScreen()
@@ -188,10 +182,6 @@ void cleanup()
 	/* Close SDL_TTF */
 
 	TTF_Quit();
-
-	/* Quit SDL_Net */
-
-	SDLNet_Quit();
 
 	/* Close the mixer */
 
