@@ -17,7 +17,7 @@ LOCALE_MO = $(patsubst %.po,%.mo,$(wildcard locale/*.po))
 
 CFLAGS = `$(SDLC) --cflags` -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
 
-LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDL_net -lSDLmain
+LFLAGS = `$(SDLC) --libs` -lintl -lz -lSDL_mixer -lSDL_image -lSDL_ttf -lSDLmain
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o

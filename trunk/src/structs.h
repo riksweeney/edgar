@@ -273,14 +273,11 @@ typedef struct Hud
 	Message infoMessage;
 } Hud;
 
-typedef struct NetworkMedal
+typedef struct MedalQueue
 {
-	char privateKey[MAX_VALUE_LENGTH];
-	int processing, connected, privateKeyFound, thinkTime;
+	int processing, thinkTime;
 	Message medalMessage;
-	IPaddress ip;
-	SDL_Thread *thread;
-} NetworkMedal;
+} MedalQueue;
 
 typedef struct Medal
 {
