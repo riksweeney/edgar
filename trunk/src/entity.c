@@ -68,7 +68,7 @@ void freeEntities()
 			{
 				free(p->entity);
 			}
-			
+
 			q = p->next;
 
 			free(p);
@@ -76,7 +76,7 @@ void freeEntities()
 
 		free(entities);
 	}
-	
+
 	entities = malloc(sizeof(EntityList));
 
 	if (entities == NULL)
@@ -85,21 +85,21 @@ void freeEntities()
 	}
 
 	entities->next = NULL;
-	
+
 	clearDrawLayers();
 }
 
 Entity *getFreeEntity()
 {
 	Entity *e;
-	
+
 	e = malloc(sizeof(Entity));
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("Failed to allocate %d bytes for an Entity", (int)sizeof(Entity));
 	}
-	
+
 	memset(e, 0, sizeof(Entity));
 
 	e->inUse = TRUE;
@@ -121,14 +121,14 @@ Entity *getFreeEntity()
 	e->alpha = 255;
 
 	addEntityToList(entities, e);
-	
+
 	return e;
 }
 
 void doEntities()
 {
 	int i, removeCount;
-	EntityList *el;
+	EntityList *el, *prev, *el2;
 
 	/* Loop through the entities and perform their action */
 
@@ -254,23 +254,31 @@ void doEntities()
 			addToDrawLayer(self, self->layer);
 		}
 	}
-	
+
 	if (game.frames % 300 == 0)
 	{
 		removeCount = 0;
-		
-		for (el=entities->next;el!=NULL;el=el->next)
+
+		prev = entities;
+
+		for (el=entities->next;el!=NULL;el=el2)
 		{
+			el2 = el->next;
+
 			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
 			{
-				removeEntityFromList(entities, el->entity);
-				
+				prev->next = el->next;
+
 				removeCount++;
-				
-				el = entities;
+
+				free(el->entity);
+
+				free(el);
 			}
+
+			prev = prev->next;
 		}
-		
+
 		#if DEV == 1
 		if (removeCount != 0)
 		{
@@ -734,7 +742,7 @@ void enemyPain()
 void entityTouch(Entity *other)
 {
 	Entity *temp;
-	
+
 	if (other->type == PLAYER && self->parent != other && self->damage != 0)
 	{
 		temp = self;
@@ -1087,7 +1095,7 @@ void pushEntity(Entity *other)
 Entity *addEntity(Entity e, int x, int y)
 {
 	Entity *ent;
-	
+
 	ent = getFreeEntity();
 
 	memcpy(ent, &e, sizeof(Entity));
@@ -1442,7 +1450,7 @@ void addEntityFromScript(char *line)
 			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
 		}
 	}
-	
+
 	else if (strcmpignorecase(entityType, "NPC") == 0)
 	{
 		e = addNPC(entityName, x, y);
@@ -1456,7 +1464,7 @@ void addEntityFromScript(char *line)
 	else if (strcmpignorecase(entityType, "ENEMY") == 0)
 	{
 		e = addEnemy(entityName, x, y);
-		
+
 		if (strcmpignorecase(objectiveName, " ") != 0)
 		{
 			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
@@ -1546,9 +1554,9 @@ void entityWalkToEntity(Entity *e, char *coords)
 	Entity *e2;
 
 	read = sscanf(coords, "%s %s %s", entityName, wait, anim);
-	
+
 	e2 = getEntityByObjectiveName(entityName);
-	
+
 	if (e2 == NULL)
 	{
 		showErrorAndExit("Could not find Entity %s to walk to", entityName);
@@ -1977,9 +1985,9 @@ int landedOnGround(long wasOnGround)
 void creditsMove()
 {
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
@@ -1990,48 +1998,48 @@ void addDuplicateImage(Entity *e)
 {
 	char shadowAnim[MAX_VALUE_LENGTH];
 	Entity *duplicate;
-	
+
 	duplicate = getFreeEntity();
-	
+
 	if (duplicate == NULL)
 	{
 		return;
 	}
-	
+
 	loadProperties(e->name, duplicate);
-	
+
 	duplicate->x = e->x;
 	duplicate->y = e->y;
-	
+
 	duplicate->thinkTime = 15;
-	
+
 	duplicate->draw = &drawLoopingAnimationToMap;
-	
+
 	duplicate->action = &duplicateWait;
-	
+
 	duplicate->creditsAction = &duplicateWait;
-	
+
 	snprintf(shadowAnim, MAX_VALUE_LENGTH, "%s_SHADOW", getAnimationTypeAtIndex(e));
-	
+
 	setEntityAnimation(duplicate, shadowAnim);
-	
+
 	duplicate->currentFrame = e->currentFrame;
-	
+
 	duplicate->frameSpeed = 0;
-	
+
 	duplicate->face = e->face;
-	
+
 	duplicate->layer = BACKGROUND_LAYER;
-	
+
 	duplicate->flags |= DO_NOT_PERSIST;
-	
+
 	duplicate->head = e;
 }
 
 static void duplicateWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
@@ -2046,7 +2054,7 @@ EntityList *getEntities()
 static int isReferenced(Entity *e)
 {
 	EntityList *el;
-	
+
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
 		if (el->entity->head == e || el->entity->target == e || el->entity->standingOn == e || el->entity->head == e)
@@ -2054,33 +2062,33 @@ static int isReferenced(Entity *e)
 			return TRUE;
 		}
 	}
-	
+
 	return FALSE;
 }
 
 void removeEntityFromList(EntityList *list, Entity *e)
 {
 	EntityList *prev, *el;
-	
+
 	prev = list;
-	
+
 	for (el=list->next;el!=NULL;el=el->next)
 	{
 		if (el->entity == e)
 		{
 			free(el->entity);
-			
+
 			el->entity = NULL;
-			
+
 			prev->next = el->next;
-			
+
 			free(el);
-			
+
 			el = NULL;
-			
+
 			return;
 		}
-		
+
 		prev = el;
 	}
 }
