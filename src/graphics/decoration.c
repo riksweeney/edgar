@@ -71,7 +71,7 @@ void freeDecorations()
 		for (p=decoration->next;p!=NULL;p=q)
 		{
 			free(p->entity);
-			
+
 			q = p->next;
 
 			free(p);
@@ -79,7 +79,7 @@ void freeDecorations()
 
 		free(decoration);
 	}
-	
+
 	decoration = malloc(sizeof(EntityList));
 
 	if (decoration == NULL)
@@ -93,14 +93,14 @@ void freeDecorations()
 Entity *getFreeDecoration()
 {
 	Entity *e;
-	
+
 	e = malloc(sizeof(Entity));
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("Failed to allocate %d bytes for a Decoration", (int)sizeof(Entity));
 	}
-	
+
 	memset(e, 0, sizeof(Entity));
 
 	e->inUse = TRUE;
@@ -112,14 +112,14 @@ Entity *getFreeDecoration()
 	e->alpha = 255;
 
 	addEntityToList(decoration, e);
-	
+
 	return e;
 }
 
 void doDecorations()
 {
 	int removeCount;
-	EntityList *el;
+	EntityList *el, *prev, *el2;
 
 	/* Loop through the Decorations and perform their action */
 
@@ -132,23 +132,31 @@ void doDecorations()
 			self->action();
 		}
 	}
-	
+
 	if (game.frames % 300 == 0)
 	{
 		removeCount = 0;
-		
+
+		prev = entities;
+
 		for (el=decoration->next;el!=NULL;el=el->next)
 		{
+			el2 = el->next;
+
 			if (el->entity->inUse == FALSE)
 			{
-				removeEntityFromList(decoration, el->entity);
-				
+				prev->next = el->next;
+
 				removeCount++;
-				
-				el = decoration;
+
+				free(el->entity);
+
+				free(el);
 			}
+
+			prev = prev->next;
 		}
-		
+
 		#if DEV == 1
 		if (removeCount != 0)
 		{
