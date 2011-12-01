@@ -267,16 +267,19 @@ void doEntities()
 
 			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
 			{
-				prev->next = el->next;
+				prev->next = el2;
 
 				removeCount++;
-
+				
 				free(el->entity);
 
 				free(el);
 			}
 
-			prev = prev->next;
+			else
+			{
+				prev = prev->next;
+			}
 		}
 
 		#if DEV == 1
@@ -2057,7 +2060,17 @@ static int isReferenced(Entity *e)
 
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (el->entity->head == e || el->entity->target == e || el->entity->standingOn == e || el->entity->head == e)
+		if (el->entity->head == e)
+		{
+			return TRUE;
+		}
+		
+		if (el->entity->target == e)
+		{
+			return TRUE;
+		}
+		
+		if (el->entity->standingOn == e)
 		{
 			return TRUE;
 		}

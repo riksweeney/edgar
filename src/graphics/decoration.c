@@ -137,24 +137,27 @@ void doDecorations()
 	{
 		removeCount = 0;
 
-		prev = entities;
+		prev = decoration;
 
-		for (el=decoration->next;el!=NULL;el=el->next)
+		for (el=decoration->next;el!=NULL;el=el2)
 		{
 			el2 = el->next;
-
+			
 			if (el->entity->inUse == FALSE)
 			{
-				prev->next = el->next;
+				prev->next = el2;
 
 				removeCount++;
-
+				
 				free(el->entity);
 
 				free(el);
 			}
 
-			prev = prev->next;
+			else
+			{
+				prev = prev->next;
+			}
 		}
 
 		#if DEV == 1
