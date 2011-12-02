@@ -259,9 +259,9 @@ void loadMap(char *name, int loadEntityResources)
 					showErrorAndExit("Failed to allocate a whole %d bytes for the animated tile count", (int)(sizeof(int *) * map.animTileTotal));
 				}
 			}
-			
+
 			/* A set of animated tiles */
-			
+
 			for (animTileID=0;animTileID<map.animTileTotal;animTileID++)
 			{
 				line = strtok_r(NULL, "\n", &savePtr1);
@@ -278,13 +278,13 @@ void loadMap(char *name, int loadEntityResources)
 				{
 					showErrorAndExit("Failed to allocate a whole %d bytes for the animated tiles", (int)(sizeof(int) * y));
 				}
-				
+
 				token = strtok_r(line, " ", &savePtr2);
 
 				for (x=0;x<y;x++)
 				{
 					map.animTile[animTileID].tile[x] = atoi(token);
-					
+
 					token = strtok_r(NULL, " ", &savePtr2);
 				}
 			}
@@ -763,12 +763,12 @@ void drawMap(int depth)
 				exit(0);
 			}
 			*/
-			
+
 			if (game.status == IN_CREDITS)
 			{
 				drawBox(game.screen, x, y, TILE_SIZE, TILE_SIZE, 0, 0, 0);
 			}
-			
+
 			else
 			{
 				switch (depth)
@@ -1368,16 +1368,6 @@ char *getMapName()
 int getDistanceFromCamera(int x, int y)
 {
 	return getDistance(map.cameraX + SCREEN_WIDTH / 2, map.cameraY + SCREEN_HEIGHT / 2, x, y);
-}
-
-int outOfBounds(Entity *e)
-{
-	if (e->x < map.startX || e->x > map.startX + SCREEN_WIDTH || e->y < map.startY || e->y > map.startY + SCREEN_HEIGHT)
-	{
-		return TRUE;
-	}
-
-	return FALSE;
 }
 
 void setDarkMap(int dark)

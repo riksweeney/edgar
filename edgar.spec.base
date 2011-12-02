@@ -5,7 +5,7 @@ Release: %{release}
 Source: %{name}-%{version}-%{release}.tar.gz
 Vendor: Parallel Realities
 Packager: Richard Sweeney
-URL: http://www.parallelrealities.co.uk/edgar.php
+URL: http://www.parallelrealities.co.uk/p/legend-of-edgar.html
 Group: Games/Arcade
 License: GPL
 %description
