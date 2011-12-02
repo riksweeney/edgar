@@ -122,7 +122,7 @@ Entity *addBlobBoss(int x, int y, char *name)
 	}
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
@@ -227,13 +227,7 @@ static void doIntro()
 static void reform()
 {
 	checkToMap(self);
-	/*
-	if (outOfBounds(self) == TRUE)
-	{
-		self->x = self->targetX;
-		self->y = self->targetY;
-	}
-	*/
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -819,7 +813,7 @@ static void bounceAroundInit()
 static void bounceAround()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -828,7 +822,7 @@ static void bounceAround()
 		{
 			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
-		
+
 		self->maxThinkTime--;
 
 		if (self->maxThinkTime > 0)
@@ -1352,12 +1346,6 @@ static void partDie()
 static void partAttack()
 {
 	long onGround = (self->flags & ON_GROUND);
-
-	if (outOfBounds(self) == TRUE)
-	{
-		self->x = self->targetX;
-		self->y = self->targetY;
-	}
 
 	checkToMap(self);
 
