@@ -191,6 +191,13 @@ static void skullShotMove()
 
 static void skullShotReflect(Entity *other)
 {
+	if (other->element != PHANTASMAL)
+	{
+		self->inUse = FALSE;
+		
+		return;
+	}
+	
 	if (other->mental <= 7)
 	{
 		self->damage = 50;

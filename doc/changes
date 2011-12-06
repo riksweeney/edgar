@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.95
 * Removed dependency on SDL_Net
+* Made one the light pillars in the Catacombs stay active longer
 
 Version 0.94
 * Fixed the crash on Windows
