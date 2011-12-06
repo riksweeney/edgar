@@ -22,12 +22,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../graphics/graphics.h"
+#include "../graphics/decoration.h"
 #include "../entity.h"
 #include "../boss/sorceror.h"
 #include "../system/properties.h"
+#include "../system/random.h"
 #include "../custom_actions.h"
 #include "../system/error.h"
 #include "../collisions.h"
+#include "../map.h"
+#include "../geometry.h"
 
 extern Entity *self, player;
 
@@ -254,48 +258,53 @@ static void beamAttack()
 
 static void directBeamAttackInit()
 {
-	self->thinkTime = 90;
+	self->thinkTime = 180;
 
 	self->action = &directBeamAttackChargeUp;
 }
 
 static void directBeamAttackChargeUp()
 {
-	Entity *e = addPixelDecoration(self->x, self->y);
+	Entity *e;
 
-	if (e != NULL)
+	if (player.health > 0)
 	{
-		e->x = self->x + (prand() % self->w) * (prand() % 2 == 0 ? -1 : 1) + self->w / 2;
-		e->y = self->y + (prand() % self->h) * (prand() % 2 == 0 ? -1 : 1) + self->h / 2;
+		e = addPixelDecoration(self->x, self->y);
+		
+		if (e != NULL)
+		{
+			e->x = self->x + (prand() % self->w) * (prand() % 2 == 0 ? -1 : 1) + self->w / 2;
+			e->y = self->y + (prand() % self->h) * (prand() % 2 == 0 ? -1 : 1) + self->h / 2;
 
-		e->startX = e->x;
-		e->startY = e->y;
+			e->startX = e->x;
+			e->startY = e->y;
 
-		e->endX = self->x + self->w / 2;
-		e->endY = self->y + self->h / 2;
+			e->endX = self->x + self->w / 2;
+			e->endY = self->y + self->h / 2;
 
-		e->thinkTime = 15;
+			e->thinkTime = 15;
 
-		e->health = 231;
+			e->health = 231;
 
-		e->maxHealth = 231;
+			e->maxHealth = 231;
 
-		e->mental = 231;
+			e->mental = 231;
 
-		calculatePath(e->startX, e->startY, e->endX, e->endY, &e->dirX, &e->dirY);
-	}
+			calculatePath(e->startX, e->startY, e->endX, e->endY, &e->dirX, &e->dirY);
+		}
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 15;
 
-	self->thinkTime--;
+			self->targetX = player.x + player.w / 2;
 
-	if (self->thinkTime <= 0)
-	{
-		self->thinkTime = 30;
+			self->targetY = player.y + player.h / 2;
 
-		self->targetX = player.x + player.w / 2;
-
-		self->targetY = player.y + player.h / 2;
-
-		self->action = &directBeamAttack;
+			self->action = &directBeamAttack;
+		}
 	}
 }
 
@@ -351,7 +360,7 @@ static void directBeamAttack()
 
 				self->action = &directBeamAttackChargeUp;
 
-				self->thinkTime = 90;
+				self->thinkTime = 60;
 
 				prev = e;
 
@@ -382,6 +391,7 @@ static void directBeamAttack()
 
 static void directBeamAttackWait()
 {
+	float x, y, partDistanceX, partDistanceY;
 	Entity *e;
 
 	self->thinkTime--;
