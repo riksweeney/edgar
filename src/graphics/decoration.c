@@ -413,7 +413,7 @@ static void move()
 
 	self->thinkTime--;
 
-	if (self->thinkTime == 0)
+	if (self->thinkTime <= 0)
 	{
 		self->inUse = FALSE;
 	}
