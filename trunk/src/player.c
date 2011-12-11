@@ -80,6 +80,7 @@ static void shieldAttack(void);
 static void shieldAttackMove(void);
 static void shieldTouch(Entity *);
 static void shieldSideAttackInit(void);
+static void starWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -195,6 +196,7 @@ void setPlayerShieldName(char *name)
 void doPlayer()
 {
 	int i, j;
+	int left, right, up, down, attack, block;
 	long travelled;
 
 	travelled = game.distanceTravelled;
@@ -251,7 +253,7 @@ void doPlayer()
 
 		if (self->action == NULL)
 		{
-			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED);
+			self->flags &= ~(HELPLESS|INVULNERABLE|FLASH|ATTRACTED|CONFUSED);
 
 			for (i=0;i<MAX_CUSTOM_ACTIONS;i++)
 			{
@@ -268,6 +270,55 @@ void doPlayer()
 				if (!(self->flags & ATTRACTED) && !(self->flags & FRICTIONLESS))
 				{
 					self->dirX = 0;
+				}
+				
+				/* If confused, then swap around all the controls */
+				
+				left = right = 0;
+				up = down = 0;
+				attack = block = 0;
+				
+				if (self->flags & CONFUSED)
+				{
+					if (input.left == 1)
+					{
+						right = 1;
+					}
+					
+					else if (input.right == 1)
+					{
+						left = 1;
+					}
+					
+					if (input.up == 1)
+					{
+						down = 1;
+					}
+					
+					else if (input.down == 1)
+					{
+						up = 1;
+					}
+					
+					if (input.attack == 1)
+					{
+						block = 1;
+					}
+					
+					if (input.block == 1)
+					{
+						attack = 1;
+					}
+				}
+				
+				else
+				{
+					left = input.left;
+					right = input.right;
+					up = input.up;
+					down = input.down;
+					attack = input.attack;
+					block = input.block;
 				}
 
 				if (!(self->flags & ON_GROUND) || (self->standingOn != NULL && self->standingOn->dirY != 0))
@@ -297,7 +348,7 @@ void doPlayer()
 					self->flags |= ON_GROUND;
 				}
 
-				if (input.left == 1)
+				if (left == 1)
 				{
 					if (self->flags & BLOCKING)
 					{
@@ -362,7 +413,7 @@ void doPlayer()
 					}
 				}
 
-				else if (input.right == 1)
+				else if (right == 1)
 				{
 					if (self->flags & BLOCKING)
 					{
@@ -427,7 +478,7 @@ void doPlayer()
 					}
 				}
 
-				else if (input.left == 0 && input.right == 0 && !(self->flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
+				else if (left == 0 && right == 0 && !(self->flags & BLOCKING) && !(playerWeapon.flags & ATTACKING))
 				{
 					setEntityAnimation(self, "STAND");
 					setEntityAnimation(&playerShield, "STAND");
@@ -441,7 +492,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.up == 1)
+				if (up == 1)
 				{
 					if (self->element == WATER && self->environment == WATER)
 					{
@@ -468,10 +519,11 @@ void doPlayer()
 						}
 
 						input.up = 0;
+						input.down = 0;
 					}
 				}
 
-				if (input.down == 1)
+				if (down == 1)
 				{
 					if (self->environment == WATER || (self->flags & FLY))
 					{
@@ -494,11 +546,12 @@ void doPlayer()
 							}
 
 							input.down = 0;
+							input.up = 0;
 						}
 					}
 				}
 
-				if (input.attack == 1 && !(self->flags & GRABBED))
+				if (attack == 1 && !(self->flags & GRABBED))
 				{
 					if (!(self->flags & BLOCKING))
 					{
@@ -524,7 +577,15 @@ void doPlayer()
 						}
 					}
 
-					input.attack = 0;
+					if (self->flags & CONFUSED)
+					{
+						input.block = 0;
+					}
+					
+					else
+					{
+						input.attack = 0;
+					}
 				}
 
 				if (input.interact == 1)
@@ -553,7 +614,7 @@ void doPlayer()
 					}
 				}
 
-				if (input.block == 1 && (self->flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(self->flags & GRABBED))
+				if (block == 1 && (self->flags & ON_GROUND) && playerShield.inUse == TRUE && !(playerWeapon.flags & ATTACKING) && !(self->flags & GRABBED))
 				{
 					self->flags |= BLOCKING;
 
@@ -564,7 +625,7 @@ void doPlayer()
 					playerShield.mental++;
 				}
 
-				else if ((input.block == 0 && (self->flags & BLOCKING)))
+				else if ((block == 0 && (self->flags & BLOCKING)))
 				{
 					self->flags &= ~BLOCKING;
 
@@ -1889,6 +1950,62 @@ static void applySlime()
 	{
 		self->inUse = FALSE;
 	}
+}
+
+void setPlayerConfused(int thinkTime)
+{
+	int i;
+	Entity *e;
+
+	if (!(player.flags & CONFUSED))
+	{
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add Edgar's Star");
+			}
+
+			loadProperties("boss/armour_boss_star", e);
+
+			e->x = player.x;
+			e->y = player.y;
+
+			e->action = &starWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->thinkTime = thinkTime;
+
+			e->head = &player;
+
+			setEntityAnimation(e, "STAND");
+
+			e->currentFrame = (i == 0 ? 0 : 6);
+
+			e->x = player.x + player.w / 2 - e->w / 2;
+
+			e->y = player.y - e->h;
+		}
+	}
+	
+	setCustomAction(&player, &confused, thinkTime, 0, 0);
+	
+	setInfoBoxMessage(thinkTime, 255, 255, 255, _("Your controls have been reversed!"));
+}
+
+static void starWait()
+{
+	if (self->head->mental > 0 || self->head->health <= 0)
+	{
+		self->inUse = FALSE;
+	}
+
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+
+	self->y = self->head->y - self->h - 8;
 }
 
 static void swingSword()

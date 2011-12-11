@@ -59,3 +59,4 @@ void scriptAttack(void);
 void setShieldFromScript(char *);
 void unsetWeapon(void);
 void unsetShield(void);
+void setPlayerConfused(int);

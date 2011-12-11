@@ -362,3 +362,13 @@ void removeFriction(int *thinkTime, int *counter, float *value)
 		self->flags |= FRICTIONLESS;
 	}
 }
+
+void confused(int *thinkTime, int *counter, float *value)
+{
+	(*thinkTime)--;
+
+	if (*thinkTime != 0)
+	{
+		self->flags |= CONFUSED;
+	}
+}

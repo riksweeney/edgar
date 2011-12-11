@@ -2060,17 +2060,7 @@ static int isReferenced(Entity *e)
 
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
-		if (el->entity->head == e)
-		{
-			return TRUE;
-		}
-		
-		if (el->entity->target == e)
-		{
-			return TRUE;
-		}
-		
-		if (el->entity->standingOn == e)
+		if (el->entity->head == e || el->entity->target == e || el->entity->standingOn == e)
 		{
 			return TRUE;
 		}

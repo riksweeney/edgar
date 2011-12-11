@@ -37,3 +37,4 @@ void attract(int *, int *, float *);
 void spriteTrail(int *, int *, float *);
 void stickToFloor(int *, int *, float *);
 void removeFriction(int *, int *, float *);
+void confused(int *, int *, float *);
