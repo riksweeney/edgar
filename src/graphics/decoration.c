@@ -118,8 +118,7 @@ Entity *getFreeDecoration()
 
 void doDecorations()
 {
-	int removeCount;
-	EntityList *el, *prev, *el2;
+	EntityList *el;
 
 	/* Loop through the Decorations and perform their action */
 
@@ -130,6 +129,22 @@ void doDecorations()
 		if (self->inUse == TRUE)
 		{
 			self->action();
+		}
+	}
+}
+
+void drawDecorations()
+{
+	int removeCount;
+	EntityList *el, *prev, *el2;
+
+	for (el=decoration->next;el!=NULL;el=el->next)
+	{
+		self = el->entity;
+
+		if (self->inUse == TRUE)
+		{
+			self->draw();
 		}
 	}
 
@@ -170,23 +185,6 @@ void doDecorations()
 			printf("Removed %d decorations taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
 		}
 		#endif
-	}
-}
-
-void drawDecorations()
-{
-	EntityList *el;
-
-	/* Loop through the Decorations and perform their action */
-
-	for (el=decoration->next;el!=NULL;el=el->next)
-	{
-		self = el->entity;
-
-		if (self->inUse == TRUE)
-		{
-			self->draw();
-		}
 	}
 }
 
