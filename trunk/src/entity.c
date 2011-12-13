@@ -270,10 +270,14 @@ void doEntities()
 				prev->next = el2;
 
 				removeCount++;
-				
+
 				free(el->entity);
 
+				el->entity = NULL;
+
 				free(el);
+
+				el = NULL;
 			}
 
 			else
@@ -1946,6 +1950,11 @@ void faceTarget()
 
 void addToDrawLayer(Entity *e, int layer)
 {
+	if (e->inUse == FALSE)
+	{
+		return;
+	}
+
 	drawLayer[layer][drawLayerIndex[layer]] = e;
 
 	drawLayerIndex[layer]++;
@@ -2067,31 +2076,4 @@ static int isReferenced(Entity *e)
 	}
 
 	return FALSE;
-}
-
-void removeEntityFromList(EntityList *list, Entity *e)
-{
-	EntityList *prev, *el;
-
-	prev = list;
-
-	for (el=list->next;el!=NULL;el=el->next)
-	{
-		if (el->entity == e)
-		{
-			free(el->entity);
-
-			el->entity = NULL;
-
-			prev->next = el->next;
-
-			free(el);
-
-			el = NULL;
-
-			return;
-		}
-
-		prev = el;
-	}
 }

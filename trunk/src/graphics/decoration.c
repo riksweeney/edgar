@@ -142,16 +142,20 @@ void doDecorations()
 		for (el=decoration->next;el!=NULL;el=el2)
 		{
 			el2 = el->next;
-			
+
 			if (el->entity->inUse == FALSE)
 			{
 				prev->next = el2;
 
 				removeCount++;
-				
+
 				free(el->entity);
 
+				el->entity = NULL;
+
 				free(el);
+
+				el = NULL;
 			}
 
 			else
