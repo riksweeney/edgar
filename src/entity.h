@@ -73,4 +73,3 @@ EntityList *getEntitiesByName(char *);
 void addDuplicateImage(Entity *);
 void entityWalkToEntity(Entity *, char *);
 EntityList *getEntities(void);
-void removeEntityFromList(EntityList *, Entity *);
