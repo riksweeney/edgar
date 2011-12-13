@@ -127,8 +127,8 @@ Entity *getFreeEntity()
 
 void doEntities()
 {
-	int i, removeCount;
-	EntityList *el, *prev, *el2;
+	int i;
+	EntityList *el;
 
 	/* Loop through the entities and perform their action */
 
@@ -254,51 +254,12 @@ void doEntities()
 			addToDrawLayer(self, self->layer);
 		}
 	}
-
-	if (game.frames % 300 == 0)
-	{
-		removeCount = 0;
-
-		prev = entities;
-
-		for (el=entities->next;el!=NULL;el=el2)
-		{
-			el2 = el->next;
-
-			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
-			{
-				prev->next = el2;
-
-				removeCount++;
-
-				free(el->entity);
-
-				el->entity = NULL;
-
-				free(el);
-
-				el = NULL;
-			}
-
-			else
-			{
-				prev = prev->next;
-			}
-		}
-
-		#if DEV == 1
-		if (removeCount != 0)
-		{
-			printf("Removed %d entities taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
-		}
-		#endif
-	}
 }
 
 void drawEntities(int depth)
 {
-	int i, drawn;
-	EntityList *el;
+	int i, drawn, removeCount;
+	EntityList *el, *prev, *el2;
 
 	/* Draw standard entities */
 
@@ -360,6 +321,45 @@ void drawEntities(int depth)
 				}
 			}
 		}
+	}
+
+	if (game.frames % 300 == 0)
+	{
+		removeCount = 0;
+
+		prev = entities;
+
+		for (el=entities->next;el!=NULL;el=el2)
+		{
+			el2 = el->next;
+
+			if (el->entity->inUse == FALSE && isReferenced(el->entity) == FALSE)
+			{
+				prev->next = el2;
+
+				removeCount++;
+
+				free(el->entity);
+
+				el->entity = NULL;
+
+				free(el);
+
+				el = NULL;
+			}
+
+			else
+			{
+				prev = prev->next;
+			}
+		}
+
+		#if DEV == 1
+		if (removeCount != 0)
+		{
+			printf("Removed %d entities taking up %d bytes\n", removeCount, (int)sizeof(Entity) * removeCount);
+		}
+		#endif
 	}
 }
 
@@ -1950,11 +1950,6 @@ void faceTarget()
 
 void addToDrawLayer(Entity *e, int layer)
 {
-	if (e->inUse == FALSE)
-	{
-		return;
-	}
-
 	drawLayer[layer][drawLayerIndex[layer]] = e;
 
 	drawLayerIndex[layer]++;
