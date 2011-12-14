@@ -4,10 +4,10 @@ then
 	exit 1
 fi
 
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 then
 	echo ""
-	echo "Usage $0 <version>"
+	echo "Usage $0 <version> <release>"
 	echo ""
 	exit 1
 fi
@@ -15,7 +15,7 @@ fi
 ###### VARIABLES ############
 
 APPVERSION="$1"
-APPRELEASE="1"
+APPRELEASE="$2"
 
 ARCH=`uname -m`
 

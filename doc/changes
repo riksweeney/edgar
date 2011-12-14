@@ -2,6 +2,8 @@ CHANGE LOG
 ----------
 
 Version 0.95
+* The Crypt is now accessible
+* Fixed more crashes on Windows
 * Removed dependency on SDL_Net
 * Made one the light pillars in the Catacombs stay active longer
 
