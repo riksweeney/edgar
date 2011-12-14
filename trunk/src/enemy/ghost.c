@@ -32,15 +32,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../collisions.h"
 
-extern Entity *self, player, playerShield;
+extern Entity *self;
 
+static void moveToSkeleton(void);
+static void resurrect(void);
+static void resurrectFinish(void);
+static void hover(void);
 static void creditsMove(void);
-static void lookForPlayer(void);
-static void confuseAttack(void);
-static void confuseAttackFinish(void);
-static void init(void);
-static void rayTouch(Entity *);
-static void hover();
 
 Entity *addGhost(int x, int y, char *name)
 {
@@ -56,13 +54,10 @@ Entity *addGhost(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &init;
+	e->action = &moveLeftToRight;
 	e->draw = &drawLoopingAnimationToMap;
-	e->takeDamage = NULL;
-	e->touch = &entityTouch;
-	e->reactToBlock = &changeDirection;
-	e->die = &entityDie;
-	
+	e->touch = &touch;
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -72,163 +67,67 @@ Entity *addGhost(int x, int y, char *name)
 	return e;
 }
 
-static void init()
+static void touch(Entity *other)
 {
-	self->maxThinkTime = self->alpha;
-	
-	self->action = &lookForPlayer;
+	if (other->health == 0 && other->thinkTime == 0
+		(strcmpignorecase(other->name, "enemy/arrow_skeleton") == 0 ||
+		strcmpignorecase(other->name, "enemy/sword_skeleton") == 0))
+	{
+		self->action = &moveToSkeleton;
+
+		self->target = other;
+
+		self->targetX = other->x + self->w / 2 - other->w / 2;
+	}
 }
 
-static void lookForPlayer()
+static void moveToSkeleton()
 {
-	moveLeftToRight();
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX))
 	{
-		self->thinkTime = 0;
+		self->dirX = 0;
+
+		self->thinkTime = 30;
+
+		self->action = &resurrect;
 	}
 
-	if (player.health > 0 && self->thinkTime <= 0)
-	{
-		/* Must be within a certain range */
-
-		if (collision(self->x + (self->face == LEFT ? -180 : self->w), self->y, 180, self->h, player.x, player.y, player.w, player.h) == 1)
-		{
-			self->targetX = 3;
-			
-			self->dirX = 0;
-
-			self->thinkTime = 30;
-
-			self->action = &confuseAttack;
-			
-			setEntityAnimation(self, "ATTACK");
-		}
-	}
-	
-	self->mental--;
-	
-	if (self->mental <= 0)
-	{
-		self->mental = 0;
-		
-		self->takeDamage = NULL;
-		
-		self->alpha = self->maxThinkTime;
-	}
-	
-	hover();
-}
-
-static void confuseAttack()
-{
-	Entity *e;
-	
-	self->thinkTime--;
-	
-	if (self->thinkTime <= 0)
-	{
-		e = addProjectile("enemy/ghost_reverse_ray", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 4 : -4), 0);
-		
-		if (self->face == LEFT)
-		{
-			e->x = self->x + self->w - e->w - self->offsetX;
-		}
-
-		else
-		{
-			e->x = self->x + self->offsetX;
-		}
-
-		e->y = self->y + self->offsetY;
-
-		e->touch = &rayTouch;
-		
-		self->targetX--;
-		
-		if (self->targetX <= 0)
-		{
-			self->thinkTime = 120;
-			
-			self->action = &confuseAttackFinish;
-		}
-		
-		else
-		{
-			self->thinkTime = 2;
-		}
-	}
-	
 	checkToMap(self);
-	
+
 	hover();
 }
 
-static void rayTouch(Entity *other)
-{
-	if (other->type == PLAYER && !(other->flags & INVULNERABLE) && other->health > 0)
-	{
-		if ((other->flags & BLOCKING) && ((self->dirX > 0 && player.face == LEFT) || (self->dirX < 0 && player.face == RIGHT)))
-		{
-			player.dirX = self->dirX < 0 ? -2 : 2;
-
-			checkToMap(&player);
-
-			setCustomAction(&player, &helpless, 2, 0, 0);
-
-			if (playerShield.thinkTime <= 0)
-			{
-				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
-
-				playerShield.thinkTime = 5;
-			}
-			
-			self->parent = other;
-
-			self->dirX = -self->dirX;
-			
-			self->face = self->face == LEFT ? RIGHT : LEFT;
-		}
-
-		else
-		{
-			setPlayerConfused(600);
-			
-			self->inUse = FALSE;
-		}
-	}
-	
-	else if (self->parent->type == PLAYER && strcmpignorecase(other->name, "enemy/ghost") == 0)
-	{
-		other->mental = 300;
-		
-		other->alpha = 255;
-		
-		other->takeDamage = &entityTakeDamageNoFlinch;
-		
-		self->inUse = FALSE;
-	}
-}
-
-static void confuseAttackFinish()
+static void resurrect()
 {
 	self->thinkTime--;
-	
+
+	if (self->thinkTime <= 0)
+	{
+		self->target->health = self->target->maxHealth;
+
+		self->thinkTime = 60;
+
+		self->action = &resurrectFinish;
+	}
+
+	checkToMap(self);
+
+	hover();
+}
+
+static void resurrectFinish()
+{
+	self->thinkTime--;
+
 	if (self->thinkTime <= 0)
 	{
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
-		
-		self->thinkTime = 180;
-		
-		self->action = &lookForPlayer;
-		
-		setEntityAnimation(self, "STAND");
+
+		self->action = &moveLeftToRight;
 	}
-	
+
 	checkToMap(self);
-	
+
 	hover();
 }
 
@@ -247,17 +146,17 @@ static void hover()
 static void creditsMove()
 {
 	self->face = RIGHT;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	hover();
 }

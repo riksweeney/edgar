@@ -1,7 +1,7 @@
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 	then
 	echo ""
-	echo "Usage $0 <version>"
+	echo "Usage $0 <version> <release>"
 	echo ""
 	exit 1
 fi
@@ -10,7 +10,7 @@ fi
 
 APPNAME="edgar"
 APPVERSION="$1"
-APPRELEASE="1"
+APPRELEASE="$2"
 
 APPDIR="$APPNAME-$APPVERSION/"
 
@@ -74,7 +74,7 @@ done
 
 makensis install.nsi
 
-mv *.installer.exe ../edgar-$1-1.installer.exe
+mv *.installer.exe ../edgar-$APPVERSION-$APPRELEASE.installer.exe
 
 cd ..
 
