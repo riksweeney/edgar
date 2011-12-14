@@ -1950,6 +1950,11 @@ void faceTarget()
 
 void addToDrawLayer(Entity *e, int layer)
 {
+	if (e->inUse == FALSE)
+	{
+		return;
+	}
+	
 	drawLayer[layer][drawLayerIndex[layer]] = e;
 
 	drawLayerIndex[layer]++;

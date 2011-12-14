@@ -130,7 +130,7 @@ static void confuseAttack()
 	
 	if (self->thinkTime <= 0)
 	{
-		e = addProjectile("enemy/ghost_reverse_ray", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 5 : -5), 0);
+		e = addProjectile("enemy/ghost_reverse_ray", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 4 : -4), 0);
 		
 		if (self->face == LEFT)
 		{
@@ -157,7 +157,7 @@ static void confuseAttack()
 		
 		else
 		{
-			self->thinkTime = 5;
+			self->thinkTime = 2;
 		}
 	}
 	

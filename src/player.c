@@ -1992,13 +1992,13 @@ void setPlayerConfused(int thinkTime)
 	}
 	
 	setCustomAction(&player, &confused, thinkTime, 0, 0);
-	
-	setInfoBoxMessage(thinkTime, 255, 255, 255, _("Your controls have been reversed!"));
 }
 
 static void starWait()
 {
-	if (self->head->mental > 0 || self->head->health <= 0)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		self->inUse = FALSE;
 	}
@@ -2006,6 +2006,8 @@ static void starWait()
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 
 	self->y = self->head->y - self->h - 8;
+	
+	setInfoBoxMessage(0, 255, 255, 255, _("Your controls have been reversed!"));
 }
 
 static void swingSword()
