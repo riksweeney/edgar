@@ -38,6 +38,7 @@ static void moveToSkeleton(void);
 static void resurrect(void);
 static void resurrectFinish(void);
 static void hover(void);
+static void touch(Entity *);
 static void creditsMove(void);
 
 Entity *addGhost(int x, int y, char *name)
@@ -69,7 +70,7 @@ Entity *addGhost(int x, int y, char *name)
 
 static void touch(Entity *other)
 {
-	if (other->health == 0 && other->thinkTime == 0
+	if (other->health == 0 && other->thinkTime == 0 &&
 		(strcmpignorecase(other->name, "enemy/arrow_skeleton") == 0 ||
 		strcmpignorecase(other->name, "enemy/sword_skeleton") == 0))
 	{

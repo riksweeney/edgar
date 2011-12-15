@@ -27,6 +27,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../projectile.h"
 #include "../system/error.h"
 #include "../audio/audio.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
+#include "../item/item.h"
+#include "../geometry.h"
+#include "../player.h"
 
 extern Entity *self, player;
 
@@ -42,6 +47,7 @@ static void arrowLookForPlayer(void);
 static void readyArrow(void);
 static void fireArrow(void);
 static void fireArrowWait(void);
+static void fireArrowFinish(void);
 static void addSwordSwing(void);
 static void swordLookForPlayer(void);
 static void attackPlayer(void);
@@ -191,8 +197,6 @@ static void reform()
 		self->thinkTime = 30;
 
 		self->action = &reformFinish;
-
-		self->creditsAction = &creditsReformFinish;
 	}
 }
 
@@ -641,4 +645,20 @@ static void swordSwingAttackFinish()
 static void swordReactToBlock(Entity *other)
 {
 	self->damage = 0;
+}
+
+static void creditsMove()
+{
+	self->face = RIGHT;
+
+	setEntityAnimation(self, "WALK");
+
+	self->dirX = self->speed;
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }
