@@ -104,6 +104,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "crypt_skull.h"
 #include "skull_door.h"
 #include "ghost.h"
+#include "skeleton.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -287,7 +288,9 @@ static Constructor enemies[] = {
 {"enemy/upside_down_slug", &addSlug},
 {"enemy/crypt_skull", &addCryptSkull},
 {"enemy/skull_door", &addSkullDoor},
-{"enemy/ghost", &addGhost}
+{"enemy/ghost", &addGhost},
+{"enemy/arrow_skeleton", &addSkeleton},
+{"enemy/sword_skeleton", &addSkeleton}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
