@@ -5,6 +5,7 @@ END
 IF OCCULT_BOOK_POINT HEALTH 6
 TALK Edgar I need the shell of a Rampaging Master Tortoise, the staff from a Dark Summoner
 TALK Edgar The keepsake of a warrior who has previously defeated the dragon
+TALK Edgar The soul of a wandering spirit
 TALK Edgar And a spare shield
 TALK Edgar Once I have all of those items I need to place them in the cauldron...
 END
