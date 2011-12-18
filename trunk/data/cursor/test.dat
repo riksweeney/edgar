@@ -1,5 +1,4 @@
 edgar/edgar
 enemy/ghost
-weapon/phantasmal_shield
-weapon/fire_shield
-weapon/basic_sword
+enemy/sword_skeleton
+enemy/arrow_skeleton

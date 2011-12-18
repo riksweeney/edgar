@@ -91,7 +91,9 @@ static char *enemies[] = {
 			"enemy/bat",
 			"enemy/slug",
 			"enemy/upside_down_slug",
-			"enemy/ghost"
+			"enemy/ghost",
+			"enemy/arrow_skeleton",
+			"enemy/sword_skeleton"
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 

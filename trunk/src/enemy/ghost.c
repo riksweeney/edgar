@@ -34,6 +34,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
+static void init(void);
+static void move(void);
 static void moveToSkeleton(void);
 static void resurrect(void);
 static void resurrectFinish(void);
@@ -55,7 +57,7 @@ Entity *addGhost(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &moveLeftToRight;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 
@@ -68,17 +70,35 @@ Entity *addGhost(int x, int y, char *name)
 	return e;
 }
 
+static void init()
+{
+	self->mental = 0;
+	
+	self->action = &move;
+}
+
+static void move()
+{
+	moveLeftToRight();
+	
+	hover();
+}
+
 static void touch(Entity *other)
 {
-	if (other->health == 0 && other->thinkTime == 0 &&
+	if (self->mental == 0 && other->health == 0 && other->thinkTime == 0 &&
 		(strcmpignorecase(other->name, "enemy/arrow_skeleton") == 0 ||
 		strcmpignorecase(other->name, "enemy/sword_skeleton") == 0))
 	{
+		self->mental = 1;
+		
 		self->action = &moveToSkeleton;
 
 		self->target = other;
 
 		self->targetX = other->x + self->w / 2 - other->w / 2;
+		
+		self->thinkTime = 30;
 	}
 }
 
@@ -91,6 +111,20 @@ static void moveToSkeleton()
 		self->thinkTime = 30;
 
 		self->action = &resurrect;
+	}
+	
+	else
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->dirX = 0;
+			
+			self->x = self->targetX;
+			
+			self->action = &resurrect;
+		}
 	}
 
 	checkToMap(self);
@@ -124,7 +158,9 @@ static void resurrectFinish()
 	{
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
-		self->action = &moveLeftToRight;
+		self->action = &move;
+		
+		self->mental = 0;
 	}
 
 	checkToMap(self);

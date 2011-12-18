@@ -2050,7 +2050,7 @@ static void fireArrow()
 
 	if (arrow != NULL)
 	{
-		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + 15, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
+		e = addProjectile(arrow->name, &playerWeapon, playerWeapon.x + (player.face == RIGHT ? 0 : player.w), player.y + player.offsetY, player.face == RIGHT ? arrow->speed : -arrow->speed, 0);
 
 		if (e->face == LEFT)
 		{
