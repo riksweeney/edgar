@@ -223,3 +223,9 @@
 220 220 220 #
 220 220 220 je_breaking (as shield_die.ogg)
 220 220 220 by cmusounddesign
+220 220 220 #
+220 220 220 cracking (as skeleton_die.ogg)
+220 220 220 by smidoid
+220 220 220 #
+220 220 220 cracking (as skeleton_resurrect.ogg)
+220 220 220 by smidoid

@@ -345,7 +345,7 @@ static void fireArrow()
 {
 	Entity *e;
 
-	e = addProjectile(self->startX == 1 ? "weapon/flaming_arrow" : "weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + 27, self->face == RIGHT ? 12 : -12, 0);
+	e = addProjectile(self->startX == 1 ? "weapon/flaming_arrow" : "weapon/normal_arrow", self, self->x + (self->face == RIGHT ? 0 : self->w), self->y + self->offsetY, self->face == RIGHT ? 12 : -12, 0);
 
 	e->damage = 1;
 
