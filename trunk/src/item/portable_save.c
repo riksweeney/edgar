@@ -77,8 +77,10 @@ static void createSave(int val)
 
 	if (game.status == IN_GAME)
 	{
+		player.inUse = FALSE;
+		
 		if (strcmpignorecase(getMapFilename(), self->requires) != 0 ||
-			player.standingOn != NULL || isSpaceEmpty(self) != NULL)
+			player.standingOn != NULL || isSpaceEmpty(&player) != NULL)
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("You cannot use this item here"));
 		}
@@ -99,6 +101,8 @@ static void createSave(int val)
 
 			removeInventoryItemByObjectiveName(self->objectiveName);
 		}
+		
+		player.inUse = TRUE;
 	}
 }
 
