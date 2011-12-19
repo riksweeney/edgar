@@ -24,6 +24,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../entity.h"
 #include "key_items.h"
+#include "../inventory.h"
+#include "../hud.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../system/error.h"
@@ -53,7 +55,7 @@ Entity *addBellRope(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &entityWait;
+	e->action = &init;
 
 	e->touch = &touch;
 
@@ -72,7 +74,7 @@ static void init()
 {
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(e, "BELL");
+		setEntityAnimation(self, "BELL");
 	}
 
 	self->head = getEntityByObjectiveName(self->requires);
@@ -100,14 +102,14 @@ static void touch(Entity *other)
 
 static void activate(int val)
 {
+	int i;
 	char tune[MAX_VALUE_LENGTH];
-	Entity *e;
 
 	if (self->active == FALSE)
 	{
 		if (removeInventoryItemByObjectiveName("Bell") == TRUE)
 		{
-			setEntityAnimation(e, "BELL");
+			setEntityAnimation(self, "BELL");
 
 			self->active = TRUE;
 		}

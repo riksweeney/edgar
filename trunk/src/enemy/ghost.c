@@ -201,18 +201,31 @@ static void hover()
 
 static void creditsMove()
 {
-	self->face = RIGHT;
-
-	setEntityAnimation(self, "STAND");
-
-	self->dirX = self->speed;
-
-	checkToMap(self);
-
-	if (self->dirX == 0)
+	if (self->health == 2)
 	{
-		self->inUse = FALSE;
-	}
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->face = RIGHT;
 
-	hover();
+			setEntityAnimation(self, "STAND");
+
+			self->dirX = self->speed;
+
+			checkToMap(self);
+
+			if (self->dirX == 0)
+			{
+				self->inUse = FALSE;
+			}
+
+			hover();
+		}
+	}
+	
+	else
+	{
+		self->thinkTime = 120;
+	}
 }
