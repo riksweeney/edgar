@@ -88,7 +88,7 @@ Entity *addMasterTortoise(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -542,8 +542,8 @@ static void createIce()
 
 	setEntityAnimation(e, "STAND");
 
-	e->x = self->x + 71;
-	e->y = self->y + 21;
+	e->x = self->x + self->offsetX;
+	e->y = self->y + self->offsetY;
 
 	e->dirX = 2;
 	e->dirY = -2;
@@ -564,8 +564,8 @@ static void createIce()
 
 	setEntityAnimation(e, "STAND");
 
-	e->x = self->x + self->w - e->w - 71;
-	e->y = self->y + 21;
+	e->x = self->x + self->w - e->w - self->offsetX;
+	e->y = self->y + self->offsetY;
 
 	e->dirX = -2;
 	e->dirY = -2;
@@ -721,7 +721,7 @@ static void iceSpikeMove()
 			if (self->head != NULL)
 			{
 				self->head->inUse = FALSE;
-				
+
 				self->head = NULL;
 			}
 		}
@@ -831,9 +831,9 @@ static void becomeRampagingInit()
 	checkToMap(self);
 
 	self->action = &becomeRampagingStage1;
-	
+
 	self->creditsAction = &becomeRampagingStage1;
-	
+
 	if (game.status == IN_GAME)
 	{
 		fadeOutMusic(2000);
@@ -868,7 +868,7 @@ static void becomeRampagingStage1()
 			self->flags |= FLY;
 
 			self->action = &becomeRampagingStage2;
-			
+
 			self->creditsAction = &becomeRampagingStage2;
 		}
 	}
@@ -897,7 +897,7 @@ static void becomeRampagingStage2()
 			self->thinkTime = 30;
 
 			self->action = &becomeRampagingFinish;
-			
+
 			self->creditsAction = &becomeRampagingFinish;
 		}
 	}
@@ -931,7 +931,7 @@ static void becomeRampagingFinish()
 		self->inUse = FALSE;
 
 		e->action = e->resumeNormalFunction;
-		
+
 		e->creditsAction = e->resumeNormalFunction;
 	}
 }
@@ -939,31 +939,31 @@ static void becomeRampagingFinish()
 static void die()
 {
 	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
 static void creditsMove()
 {
 	self->mental++;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->mental != 0 && (self->mental % 400) == 0)
 	{
 		self->thinkTime = 60;
-		
+
 		self->dirX = 0;
-		
+
 		self->creditsAction = &becomeRampagingInit;
 	}
 }

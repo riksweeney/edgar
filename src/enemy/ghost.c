@@ -73,22 +73,22 @@ Entity *addGhost(int x, int y, char *name)
 static void init()
 {
 	self->mental = 0;
-	
+
 	self->action = &move;
 }
 
 static void move()
 {
 	moveLeftToRight();
-	
+
 	hover();
-	
+
 	self->health--;
-	
+
 	if (self->health <= 0)
 	{
 		playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
-		
+
 		self->health = (6 + prand() % 10) * 60;
 	}
 }
@@ -100,13 +100,15 @@ static void touch(Entity *other)
 		strcmpignorecase(other->name, "enemy/sword_skeleton") == 0))
 	{
 		self->mental = 1;
-		
+
 		self->action = &moveToSkeleton;
+
+		self->creditsAction = &moveToSkeleton;
 
 		self->target = other;
 
 		self->targetX = other->x + self->w / 2 - other->w / 2;
-		
+
 		self->thinkTime = 30;
 	}
 }
@@ -120,19 +122,23 @@ static void moveToSkeleton()
 		self->thinkTime = 30;
 
 		self->action = &resurrect;
+
+		self->creditsAction = &resurrect;
 	}
-	
+
 	else
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->dirX = 0;
-			
+
 			self->x = self->targetX;
-			
+
 			self->action = &resurrect;
+
+			self->creditsAction = &resurrect;
 		}
 	}
 
@@ -152,6 +158,8 @@ static void resurrect()
 		self->thinkTime = 60;
 
 		self->action = &resurrectFinish;
+
+		self->creditsAction = &resurrectFinish;
 	}
 
 	checkToMap(self);
@@ -168,7 +176,9 @@ static void resurrectFinish()
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 		self->action = &move;
-		
+
+		self->creditsAction = &creditsMove;
+
 		self->mental = 0;
 	}
 

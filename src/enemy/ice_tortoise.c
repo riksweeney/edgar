@@ -69,7 +69,7 @@ Entity *addIceTortoise(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -201,8 +201,8 @@ static void createIce()
 
 	setEntityAnimation(e, "STAND");
 
-	e->x = self->x + 71;
-	e->y = self->y + 21;
+	e->x = self->x + self->offsetX;
+	e->y = self->y + self->offsetY;
 
 	e->dirX = 2;
 	e->dirY = -2;
@@ -211,7 +211,7 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
-	
+
 	e->creditsAction = &iceBallMove;
 
 	e = getFreeEntity();
@@ -225,8 +225,8 @@ static void createIce()
 
 	setEntityAnimation(e, "STAND");
 
-	e->x = self->x + self->w - e->w - 71;
-	e->y = self->y + 21;
+	e->x = self->x + self->w - e->w - self->offsetX;
+	e->y = self->y + self->offsetY;
 
 	e->dirX = -2;
 	e->dirY = -2;
@@ -235,7 +235,7 @@ static void createIce()
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->fallout = &entityDieNoDrop;
-	
+
 	e->creditsAction = &iceBallMove;
 
 	self->frameSpeed = 1;
@@ -243,7 +243,7 @@ static void createIce()
 	setEntityAnimation(self, "CUSTOM_3");
 
 	self->action = &iceAttack;
-	
+
 	self->creditsAction = &iceAttack;
 
 	self->thinkTime = 120;
@@ -264,7 +264,7 @@ static void iceAttack()
 		self->animationCallback = &iceAttackFinish;
 
 		self->action = &entityWait;
-		
+
 		self->creditsAction = &entityWait;
 	}
 
@@ -286,7 +286,7 @@ static void iceAttackFinish()
 	self->thinkTime = 120 + prand() % 120;
 
 	checkToMap(self);
-	
+
 	self->creditsAction = &creditsMove;
 }
 
@@ -311,7 +311,7 @@ static void iceBallMove()
 			self->x = x - self->w / 2;
 
 			self->action = &iceFloorWait;
-			
+
 			self->creditsAction = &iceFloorWait;
 
 			self->y++;
@@ -369,7 +369,7 @@ static void iceFloorWait()
 		e->touch = &entityTouch;
 		e->takeDamage = &spikeTakeDamage;
 		e->draw = &drawLoopingAnimationToMap;
-		
+
 		e->creditsAction = &iceSpikeMove;
 
 		e->head = self;
@@ -394,7 +394,7 @@ static void iceSpikeMove()
 			if (self->head != NULL)
 			{
 				self->head->inUse = FALSE;
-				
+
 				self->head = NULL;
 			}
 		}
@@ -492,29 +492,29 @@ static void spikeTakeDamage(Entity *other, int damage)
 static void die()
 {
 	playSoundToMap("sound/enemy/tortoise/tortoise_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
 static void creditsMove()
 {
 	self->mental++;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->mental != 0 && (self->mental % 300) == 0)
 	{
 		self->thinkTime = 60;
-		
+
 		self->creditsAction = &iceAttackStart;
 	}
 }

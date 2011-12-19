@@ -96,7 +96,7 @@ static void init()
 	if (self->health == 0)
 	{
 		self->damage = -1;
-		
+
 		self->action = &die;
 	}
 
@@ -105,7 +105,7 @@ static void init()
 		if (strcmpignorecase(self->name, "enemy/arrow_skeleton") == 0)
 		{
 			addBow();
-			
+
 			self->action = &arrowLookForPlayer;
 		}
 
@@ -116,8 +116,8 @@ static void init()
 			self->action = &swordLookForPlayer;
 		}
 	}
-	
-	self->creditsAction = &creditsMove;
+
+	self->creditsAction = &creditsDie;
 }
 
 static void die()
@@ -125,15 +125,15 @@ static void die()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
-	
+
 	i = self->damage;
 
 	loadProperties(prand() % 2 == 0 ? "enemy/arrow_skeleton" : "enemy/sword_skeleton", self);
-	
+
 	snprintf(name, sizeof(name), "%s_piece", self->name);
-	
+
 	self->mental = 0;
-	
+
 	self->damage = i;
 
 	for (i=0;i<7;i++)
@@ -155,10 +155,10 @@ static void die()
 		setEntityAnimationByID(e, i);
 
 		e->head = self;
-		
+
 		self->mental++;
 	}
-	
+
 	if (self->damage >= 0)
 	{
 		fireTrigger(self->objectiveName);
@@ -168,7 +168,7 @@ static void die()
 		dropRandomItem(self->x + self->w / 2, self->y);
 
 		playSoundToMap("sound/enemy/skeleton/skeleton_die.ogg", -1, self->x, self->y, 0);
-		
+
 		self->thinkTime = 30 * 60;
 	}
 
@@ -187,7 +187,7 @@ static void die()
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
-	
+
 	self->creditsAction = &dieWait;
 }
 
@@ -202,11 +202,13 @@ static void dieWait()
 		if (self->health != 0)
 		{
 			playSoundToMap("sound/enemy/skeleton/skeleton_resurrect.ogg", -1, self->x, self->y, 0);
-			
+
 			self->action = &reform;
+
+			self->creditsAction = &reform;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -217,6 +219,8 @@ static void reform()
 		self->thinkTime = 30;
 
 		self->action = &reformFinish;
+
+		self->creditsAction = &reformFinish;
 	}
 }
 
@@ -233,7 +237,7 @@ static void reformFinish()
 		if (strcmpignorecase(self->name, "enemy/arrow_skeleton") == 0)
 		{
 			addBow();
-			
+
 			self->action = &arrowLookForPlayer;
 		}
 
@@ -285,7 +289,7 @@ static void pieceWait()
 
 		self->touch = NULL;
 	}
-	
+
 	else
 	{
 		checkToMap(self);
@@ -328,7 +332,7 @@ static void pieceFallout()
 {
 	self->dirX = 0;
 	self->dirY = 0;
-	
+
 	self->x = self->head->x;
 	self->y = self->head->y;
 }
@@ -353,7 +357,7 @@ static void arrowLookForPlayer()
 		if (collision(self->x + (self->face == LEFT ? -200 : self->w), self->y, 200, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
-			
+
 			self->mental = 1 + prand() % 3;
 
 			facePlayer();
@@ -366,7 +370,7 @@ static void arrowLookForPlayer()
 static void readyArrow()
 {
 	self->flags |= ATTACKING;
-	
+
 	setEntityAnimation(self, "FIRE_ARROW");
 
 	self->animationCallback = &fireArrow;
@@ -416,7 +420,7 @@ static void fireArrowFinish()
 	self->action = &fireArrowFinish;
 
 	setEntityAnimation(self, "STAND");
-	
+
 	self->flags &= ~ATTACKING;
 
 	self->thinkTime--;
@@ -428,7 +432,7 @@ static void fireArrowFinish()
 		if (self->mental <= 0)
 		{
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
-			
+
 			self->action = &arrowLookForPlayer;
 
 			self->thinkTime = 180;
@@ -540,7 +544,7 @@ static void slash()
 			self->thinkTime = 60;
 
 			self->action = &swordLookForPlayer;
-			
+
 			self->dirX = self->face == LEFT ? -self->speed : self->speed;
 		}
 	}
@@ -570,7 +574,7 @@ static void addBow()
 	{
 		e->x = self->x + e->offsetX;
 	}
-	
+
 	e->y = self->y + e->offsetY;
 
 	e->action = &bowWait;
@@ -578,7 +582,7 @@ static void addBow()
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = NULL;
 	e->takeDamage = NULL;
-	
+
 	e->creditsAction = &bowWait;
 
 	e->type = ENEMY;
@@ -594,14 +598,14 @@ static void bowWait()
 	{
 		self->flags |= NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags &= ~NO_DRAW;
 	}
-	
+
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	self->face = self->head->face;
 
 	if (self->face == LEFT)
@@ -613,9 +617,9 @@ static void bowWait()
 	{
 		self->x = self->head->x + self->offsetX;
 	}
-	
+
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->health <= 0 || self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -642,7 +646,7 @@ static void addSword()
 	e->touch = &entityTouch;
 	e->die = NULL;
 	e->takeDamage = NULL;
-	
+
 	e->creditsAction = &swordWait;
 
 	e->type = ENEMY;
@@ -657,7 +661,7 @@ static void addSword()
 static void swordWait()
 {
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	self->face = self->head->face;
 
 	if (self->face == LEFT)
@@ -718,7 +722,7 @@ static void swordAttackFinish()
 	self->damage = 0;
 
 	setEntityAnimation(self, "STAND");
-	
+
 	if (self->face == LEFT)
 	{
 		self->x = self->head->x + self->head->w - self->w - self->offsetX;
@@ -744,6 +748,67 @@ static void swordAttackFinish()
 static void swordReactToBlock(Entity *other)
 {
 	self->damage = 0;
+}
+
+static void creditsDie()
+{
+	int i;
+	Entity *e;
+	char name[MAX_VALUE_LENGTH];
+
+	snprintf(name, sizeof(name), "%s_piece", self->name);
+
+	self->mental = 0;
+
+	self->damage = i;
+
+	for (i=0;i<7;i++)
+	{
+		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
+
+		e->action = &pieceWait;
+
+		e->creditsAction = &pieceWait;
+
+		e->fallout = &pieceFallout;
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->w - e->w) / 2;
+
+		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->head = self;
+
+		while (!(e->flags & ON_GROUND))
+		{
+			checkToMap(e);
+		}
+
+		e->dirX = 0;
+
+		self->mental++;
+	}
+
+	self->endX = self->damage;
+
+	self->damage = 0;
+
+	self->health = 0;
+
+	self->dirX = 0;
+
+	self->flags &= ~FLY;
+
+	self->flags |= NO_DRAW;
+
+	self->takeDamage = NULL;
+
+	self->action = &dieWait;
+
+	self->creditsAction = &dieWait;
 }
 
 static void creditsMove()

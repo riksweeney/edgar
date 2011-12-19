@@ -83,7 +83,7 @@ Entity *addGrubBoss(int x, int y, char *name)
 	e->flags |= NO_DRAW|FLY;
 
 	e->active = FALSE;
-	
+
 	e->creditsAction = &bossMoveToMiddle;
 
 	setEntityAnimation(e, "STAND");
@@ -300,16 +300,17 @@ static void spitEnd()
 
 static void spit()
 {
-	int x = (self->face == RIGHT ? 40 : 17);
+	int x = (self->face == RIGHT ? self->offsetX : self->x + self->w - self->w - self->offsetX);
+	int y = self->offsetY;
 
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 7 : -7), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 4 : -4), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 1 : -1), -12);
 
 	if (self->health < 100)
 	{
-		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
-		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 2.5 : -2.5), -12);
+		addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 5.5 : -5.5), -12);
 	}
 
 	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
