@@ -60,6 +60,8 @@ static void swordReactToBlock(Entity *);
 static void addBow(void);
 static void bowWait(void);
 static void creditsMove(void);
+static void creditsMove2(void);
+static void creditsDie(void);
 
 Entity *addSkeleton(int x, int y, char *name)
 {
@@ -116,8 +118,10 @@ static void init()
 			self->action = &swordLookForPlayer;
 		}
 	}
+	
+	self->mental = 150 + prand() % 210;
 
-	self->creditsAction = &creditsDie;
+	self->creditsAction = &creditsMove;
 }
 
 static void die()
@@ -256,7 +260,7 @@ static void reformFinish()
 
 		setEntityAnimation(self, "STAND");
 
-		self->creditsAction = &creditsMove;
+		self->creditsAction = &creditsMove2;
 	}
 }
 
@@ -760,8 +764,6 @@ static void creditsDie()
 
 	self->mental = 0;
 
-	self->damage = i;
-
 	for (i=0;i<7;i++)
 	{
 		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
@@ -782,15 +784,14 @@ static void creditsDie()
 
 		e->head = self;
 
-		while (!(e->flags & ON_GROUND))
-		{
-			checkToMap(e);
-		}
-
-		e->dirX = 0;
-
 		self->mental++;
 	}
+	
+	playSoundToMap("sound/enemy/skeleton/skeleton_die.ogg", -1, self->x, self->y, 0);
+	
+	e = getEntityByName("enemy/ghost");
+	
+	e->health++;
 
 	self->endX = self->damage;
 
@@ -812,6 +813,24 @@ static void creditsDie()
 }
 
 static void creditsMove()
+{
+	self->face = RIGHT;
+
+	setEntityAnimation(self, "WALK");
+
+	self->dirX = self->speed;
+
+	checkToMap(self);
+	
+	self->mental--;
+
+	if (self->mental <= 0)
+	{
+		self->creditsAction = &creditsDie;
+	}
+}
+
+static void creditsMove2()
 {
 	self->face = RIGHT;
 

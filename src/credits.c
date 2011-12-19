@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "entity.h"
 #include "game.h"
 #include "collisions.h"
+#include "world/target.h"
 #include "system/load_save.h"
 #include "system/random.h"
 #include "system/load_save.h"
@@ -44,6 +45,7 @@ extern Entity *self, player;
 static Credits credits;
 static char *enemies[] = {
 			"edgar/edgar",
+			"enemy/ghost",
 			"enemy/chicken",
 			"enemy/grub",
 			"enemy/wasp",
@@ -91,7 +93,6 @@ static char *enemies[] = {
 			"enemy/bat",
 			"enemy/slug",
 			"enemy/upside_down_slug",
-			"enemy/ghost",
 			"enemy/arrow_skeleton",
 			"enemy/sword_skeleton"
 };
@@ -189,6 +190,7 @@ static void doEndCredits()
 {
 	int i, r, g, b, remainingEntities;
 	EntityList *el, *entities;
+	Target *t;
 
 	entities = getEntities();
 
@@ -339,8 +341,10 @@ static void doEndCredits()
 					credits.fading = TRUE;
 				}
 			}
+			
+			t = getTargetByName("CREDITS_TARGET");
 
-			setMapStartX(TILE_SIZE * 4);
+			setMapStartX(t->x);
 
 			centerMapOnEntity(NULL);
 
@@ -817,6 +821,7 @@ static void initCredits()
 {
 	int lineNum, y;
 	char *buffer, *token1, *token2, *savePtr1, *savePtr2;
+	Target *t;
 
 	buffer = (char *)loadFileFromPak("data/credits.dat");
 
@@ -873,24 +878,16 @@ static void initCredits()
 	freeLevelResources();
 
 	loadMap("map_credits", TRUE);
+	
+	t = getTargetByName("CREDITS_TARGET");
 
-	setMapStartX(TILE_SIZE * 4);
+	setMapStartX(t->x);
 
 	credits.entityID = 0;
 
 	player.flags |= NO_DRAW;
 
 	credits.startDelay = 600;
-
-	for (y=0;y<enemiesLength;y++)
-	{
-		/*loadProperties(enemies[y], NULL);*/
-	}
-
-	for (y=0;y<bossesLength;y++)
-	{
-		/*loadProperties(bosses[y], NULL);*/
-	}
 
 	shuffleEnemies();
 }
@@ -1086,20 +1083,19 @@ void freeCredits()
 static Entity *loadCreditsEntity(char *name)
 {
 	Entity *e;
+	Target *t;
+	
+	t = getTargetByName("CREDITS_TARGET");
 
 	if (strstr(name, "/edgar") != NULL)
 	{
-		e = loadPlayer(0, 0, name);
+		e = loadPlayer(0, t->y, name);
 	}
 
 	else
 	{
-		e = addEnemy(name, 0, 0);
+		e = addEnemy(name, 0, t->y);
 	}
-
-	e->x = 0;
-
-	e->y = 350;
 
 	e->face = RIGHT;
 
@@ -1287,12 +1283,14 @@ static void shuffleEnemies()
 {
 	char *s;
 	int i, j;
+	
+	/* Skip Edgar and the Ghost */
 
-	for (i=1;i<enemiesLength;i++)
+	for (i=2;i<enemiesLength;i++)
 	{
 		s = enemies[i];
 
-		j = 1 + prand() % (enemiesLength - 1);
+		j = 2 + prand() % (enemiesLength - 2);
 
 		enemies[i] = enemies[j];
 
