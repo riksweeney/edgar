@@ -82,6 +82,15 @@ static void move()
 	moveLeftToRight();
 	
 	hover();
+	
+	self->health--;
+	
+	if (self->health <= 0)
+	{
+		playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
+		
+		self->health = (6 + prand() % 10) * 60;
+	}
 }
 
 static void touch(Entity *other)

@@ -414,7 +414,7 @@ void replaceInventoryItem(char *name, Entity *e)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], "STAND");
+			setEntityAnimationByID(&inventory.item[i], 0);
 
 			return;
 		}
@@ -437,7 +437,7 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], "STAND");
+			setEntityAnimationByID(&inventory.item[i], 0);
 
 			return;
 		}
@@ -694,7 +694,7 @@ void loadInventoryItems()
 
 			inventory.item[i].currentAnim = -1;
 
-			setEntityAnimation(&inventory.item[i], "STAND");
+			setEntityAnimationByID(&inventory.item[i], 0);
 
 			if (inventory.item[i].type == WEAPON && strcmpignorecase(inventory.item[i].name, playerWeapon.name) == 0)
 			{
@@ -1012,7 +1012,7 @@ void scriptAddToInventory(char *name, int quiet)
 
 			inventory.item[i].thinkTime = 0;
 
-			setEntityAnimation(&inventory.item[i], "STAND");
+			setEntityAnimationByID(&inventory.item[i], 0);
 
 			if (quiet == FALSE)
 			{

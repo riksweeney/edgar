@@ -172,81 +172,11 @@ static void shatter()
 		{
 			showErrorAndExit("No free slots to add a Golem Boss Body Part");
 		}
-
-		switch (i)
-		{
-			case 0: /* Back hand */
-				e->targetX = 28;
-				e->targetY = 90;
-			break;
-
-			case 1: /* Back forearm  */
-				e->targetX = 29;
-				e->targetY = 53;
-			break;
-
-			case 2: /* Back shoulder  */
-				e->targetX = 28;
-				e->targetY = 36;
-			break;
-
-			case 3: /* Back foot  */
-				e->targetX = 31;
-				e->targetY = 155;
-			break;
-
-			case 4: /* Back leg  */
-				e->targetX = 31;
-				e->targetY = 108;
-			break;
-
-			case 5: /* Back hip joint  */
-				e->targetX = 20;
-				e->targetY = 95;
-			break;
-
-			case 6: /* Torso  */
-				e->targetX = 7;
-				e->targetY = 21;
-			break;
-
-			case 7: /* Hip  */
-				e->targetX = 17;
-				e->targetY = 78;
-			break;
-
-			case 8: /* Front hip joint  */
-				e->targetX = 20;
-				e->targetY = 95;
-			break;
-
-			case 9: /* Front leg  */
-				e->targetX = 23;
-				e->targetY = 108;
-			break;
-
-			case 10: /* Front foot  */
-				e->targetX = 23;
-				e->targetY = 155;
-			break;
-
-			case 11: /* Front shoulder  */
-				e->targetX = 28;
-				e->targetY = 36;
-			break;
-
-			case 12: /* Front forearm  */
-				e->targetX = 29;
-				e->targetY = 52;
-			break;
-
-			case 13: /* Front hand  */
-				e->targetX = 28;
-				e->targetY = 90;
-			break;
-		}
-
+		
 		setEntityAnimationByID(e, i);
+
+		e->targetX = e->offsetX;
+		e->targetY = e->offsetY;
 
 		e->action = &partWait;
 
