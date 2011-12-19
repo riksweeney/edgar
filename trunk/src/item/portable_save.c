@@ -77,25 +77,26 @@ static void createSave(int val)
 
 	if (game.status == IN_GAME)
 	{
-		if (strcmpignorecase(getMapFilename(), self->requires) != 0)
+		if (strcmpignorecase(getMapFilename(), self->requires) != 0 ||
+			player.standingOn != NULL || isSpaceEmpty(self) != NULL)
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("You cannot use this item here"));
 		}
-		
+
 		else
 		{
 			e = addEntity(*self, player.x, player.y);
-			
+
 			e->touch = &entityTouch;
-			
+
 			e->thinkTime = 180;
-			
+
 			e->x += (player.w - e->w) / 2;
-			
+
 			e->mental = 0;
-			
+
 			e->action = &savePointWait;
-			
+
 			removeInventoryItemByObjectiveName(self->objectiveName);
 		}
 	}
@@ -104,26 +105,26 @@ static void createSave(int val)
 static void savePointWait()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime % 15 == 0)
 	{
 		setEntityAnimation(self, self->mental == 0 ? "BIG" : "LITTLE");
-		
+
 		self->mental = self->mental == 0 ? 1 : 0;
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = addSavePoint(self->x, self->y);
-		
+
 		e->y = self->y + self->h;
-		
+
 		e->y -= e->h;
-		
+
 		self->inUse = FALSE;
 	}
-	
+
 	checkToMap(self);
 }

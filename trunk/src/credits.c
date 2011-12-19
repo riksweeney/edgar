@@ -1099,7 +1099,7 @@ static Entity *loadCreditsEntity(char *name)
 
 	e->x = 0;
 
-	e->y = 250;
+	e->y = 350;
 
 	e->face = RIGHT;
 

@@ -89,7 +89,7 @@ Entity *addSludge(int x, int y, char *name)
 		e->action = &lookForPlayer;
 		e->takeDamage = &takeDamage;
 		e->die = &redDie;
-		
+
 		e->creditsAction = &creditsRedMove;
 	}
 
@@ -98,7 +98,7 @@ Entity *addSludge(int x, int y, char *name)
 		e->action = &init;
 		e->takeDamage = &entityTakeDamageNoFlinch;
 		e->die = &die;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -228,7 +228,7 @@ static void redTurnToFacePlayer()
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
 
 	self->action = &lookForPlayer;
-	
+
 	self->creditsAction = &creditsRedMove;
 
 	setEntityAnimation(self, "STAND");
@@ -291,7 +291,7 @@ static void takeDamage(Entity *other, int damage)
 static void die()
 {
 	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -305,7 +305,7 @@ static void redDie()
 
 		e->x -= e->w / 2;
 	}
-	
+
 	playSoundToMap("sound/enemy/sludge/sludge_die.ogg", -1, self->x, self->y, 0);
 
 	entityDie();
@@ -403,7 +403,6 @@ static void vomitAttackStart()
 
 static void vomit()
 {
-	int x;
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
@@ -411,25 +410,32 @@ static void vomit()
 		showErrorAndExit("No free slots to add Sludge Vomit");
 	}
 
-	x = self->face == RIGHT ? self->x + self->w + 18 : self->x - 9;
-
 	loadProperties("enemy/sludge_vomit", e);
 
-	e->x = x;
-	e->y = self->y + 13;
+	if (self->face == LEFT)
+	{
+		e->x = self->x + self->w - e->w - self->offsetX;
+	}
+
+	else
+	{
+		e->x = self->x + self->offsetX;
+	}
+
+	e->y = self->y + self->offsetY;
 
 	e->dirX = self->face == LEFT ? -5 : 5;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->action = &vomitFall;
-	
+
 	e->creditsAction = &vomitFall;
 
 	setEntityAnimation(e, "STAND");
 
 	self->action = &vomitAttackFinish;
-	
+
 	self->creditsAction = &vomitAttackFinish;
 
 	checkToMap(self);
@@ -459,7 +465,7 @@ static void vomitFall()
 		setEntityAnimation(self, "ATTACK_1");
 
 		self->action = &vomitWait;
-		
+
 		self->creditsAction = &vomitWait;
 	}
 }
@@ -487,22 +493,22 @@ static void vomitWait()
 static void creditsRedMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	self->mental++;
-	
+
 	if (self->mental != 0 && (self->mental % 180) == 0)
 	{
 		self->creditsAction = &vomitAttackStart;
-		
+
 		playSoundToMap("sound/enemy/snail/spit.ogg", -1, self->x, self->y, 0);
 
 		self->dirX = 0;
@@ -514,9 +520,9 @@ static void creditsRedMove()
 static void creditsMove()
 {
 	float dirX;
-	
+
 	self->creditsAction = &creditsMove;
-	
+
 	if (self->mental == 0)
 	{
 		setEntityAnimation(self, "ATTACK_1");
@@ -525,18 +531,18 @@ static void creditsMove()
 
 		self->thinkTime = 120;
 	}
-	
+
 	else
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->dirX = self->speed;
 	}
-	
+
 	dirX = self->dirX;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0 && self->mental != 0)
 	{
 		self->inUse = FALSE;
@@ -570,11 +576,11 @@ static void creditsTeleportAttack()
 static void creditsTeleportAttackFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 1;
-		
+
 		self->frameSpeed = -1;
 
 		setEntityAnimation(self, "ATTACK_1");

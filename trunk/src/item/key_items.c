@@ -134,6 +134,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "train_track.h"
 #include "train.h"
 #include "portable_save.h"
+#include "bell_rope.h"
 
 extern Entity *self, player;
 
@@ -258,7 +259,8 @@ static Constructor items[] = {
 {"item/poison_meat", &addPoisonMeat},
 {"item/train_track", &addTrainTrack},
 {"item/train", &addTrain},
-{"item/portable_save", &addPortableSave}
+{"item/portable_save", &addPortableSave},
+{"item/bell_rope", &addBellRope}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
@@ -308,7 +310,7 @@ void keyItemFallout()
 	self->thinkTime = 120;
 
 	self->action = &keyItemRespawn;
-	
+
 	self->flags &= ~FLY;
 }
 

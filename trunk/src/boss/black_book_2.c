@@ -249,7 +249,7 @@ Entity *addBlackBook2(int x, int y, char *name)
 	e->touch = NULL;
 	e->die = NULL;
 	e->takeDamage = NULL;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -288,7 +288,7 @@ static void doIntro()
 	if (self->thinkTime <= 0)
 	{
 		setContinuePoint(FALSE, self->name, NULL);
-		
+
 		addBack();
 
 		self->targetX = self->startX;
@@ -319,7 +319,7 @@ static void addBack()
 	e->y = self->y;
 
 	e->action = &backWait;
-	
+
 	e->creditsAction = &backWait;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -338,7 +338,7 @@ static void introPause()
 	if (self->thinkTime <= 0)
 	{
 		self->targetX = 0;
-		
+
 		initBossHealthBar();
 
 		playDefaultBossMusic();
@@ -381,7 +381,7 @@ static void blackBookWait()
 				self->action = &becomeAwesome;
 			break;
 		}
-		
+
 		self->targetX++;
 	}
 
@@ -785,7 +785,7 @@ static void guardianShotAttack()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -1258,7 +1258,7 @@ static void guardianFallToGround()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == LEFT ? -8 : 8;
@@ -1271,7 +1271,7 @@ static void guardianFallToGround()
 	if (self->flags & ON_GROUND)
 	{
 		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		setEntityAnimation(self, "PAIN");
 
 		self->thinkTime = 180;
@@ -1329,7 +1329,7 @@ static void guardianDieWait()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
@@ -1656,80 +1656,10 @@ static void golemShatter()
 			showErrorAndExit("No free slots to add a Golem Boss Body Part");
 		}
 
-		switch (i)
-		{
-			case 0: /* Back hand */
-				e->targetX = 28;
-				e->targetY = 90;
-			break;
-
-			case 1: /* Back forearm  */
-				e->targetX = 29;
-				e->targetY = 53;
-			break;
-
-			case 2: /* Back shoulder  */
-				e->targetX = 28;
-				e->targetY = 36;
-			break;
-
-			case 3: /* Back foot  */
-				e->targetX = 31;
-				e->targetY = 155;
-			break;
-
-			case 4: /* Back leg  */
-				e->targetX = 31;
-				e->targetY = 108;
-			break;
-
-			case 5: /* Back hip joint  */
-				e->targetX = 20;
-				e->targetY = 95;
-			break;
-
-			case 6: /* Torso  */
-				e->targetX = 7;
-				e->targetY = 21;
-			break;
-
-			case 7: /* Hip  */
-				e->targetX = 17;
-				e->targetY = 78;
-			break;
-
-			case 8: /* Front hip joint  */
-				e->targetX = 20;
-				e->targetY = 95;
-			break;
-
-			case 9: /* Front leg  */
-				e->targetX = 23;
-				e->targetY = 108;
-			break;
-
-			case 10: /* Front foot  */
-				e->targetX = 23;
-				e->targetY = 155;
-			break;
-
-			case 11: /* Front shoulder  */
-				e->targetX = 28;
-				e->targetY = 36;
-			break;
-
-			case 12: /* Front forearm  */
-				e->targetX = 29;
-				e->targetY = 52;
-			break;
-
-			case 13: /* Front hand  */
-				e->targetX = 28;
-				e->targetY = 90;
-			break;
-		}
-
 		setEntityAnimationByID(e, i);
+
+		e->targetX = e->offsetX;
+		e->targetY = e->offsetY;
 
 		e->action = &golemPartWait;
 
@@ -2015,7 +1945,7 @@ static void golemDie()
 				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 				self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-				
+
 				playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &transformRemove;
@@ -3750,7 +3680,7 @@ static void awesomeMeterDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
@@ -4060,7 +3990,7 @@ static void blobBounceAroundInit()
 static void blobBounceAround()
 {
 	long onGround = self->flags & ON_GROUND;
-	
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -4069,7 +3999,7 @@ static void blobBounceAround()
 		{
 			playSoundToMap("sound/boss/blob_boss/bounce.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 		}
-		
+
 		self->maxThinkTime--;
 
 		if (self->maxThinkTime > 0)
@@ -4324,7 +4254,7 @@ static void blobDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
@@ -4669,7 +4599,7 @@ static void queenWaspFireBullets()
 	if (self->thinkTime <= 0)
 	{
 		self->maxThinkTime--;
-		
+
 		playSoundToMap("sound/boss/fly_boss/fly_boss_bullet.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_shot", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -4731,7 +4661,7 @@ static void queenWaspFireSlime()
 	if (self->thinkTime <= 0)
 	{
 		self->maxThinkTime--;
-		
+
 		playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		e = addProjectile("boss/fly_boss_slime", self, self->x + (self->face == RIGHT ? self->w : 0), self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -4951,7 +4881,7 @@ static void queenWaspDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
@@ -5166,13 +5096,14 @@ static void kingGrubSpitEnd()
 
 static void kingGrubSpit()
 {
-	int x = (self->face == RIGHT ? 40 : 17);
+	int x = (self->face == RIGHT ? self->offsetX : self->x + self->w - self->w - self->offsetX);
+	int y = self->offsetY;
 
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 7 : -7), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 4 : -4), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 1 : -1), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 2.5 : -2.5), -12);
-	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + 6, (self->face == RIGHT ? 5.5 : -5.5), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 7 : -7), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 4 : -4), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 1 : -1), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 2.5 : -2.5), -12);
+	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 5.5 : -5.5), -12);
 
 	playSoundToMap("sound/boss/grub_boss/fire.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
@@ -5415,7 +5346,7 @@ static void kingGrubDie()
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		playSoundToMap("sound/common/spell.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 		self->action = &transformRemove;
@@ -5477,7 +5408,7 @@ static void transformWait()
 static void blackBookDie()
 {
 	Entity *e;
-	
+
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
@@ -5485,10 +5416,10 @@ static void blackBookDie()
 		if (self->thinkTime <= 0)
 		{
 			e = addEnemy("boss/black_book_3", self->x, self->y);
-			
+
 			e->x += (self->w - e->w) / 2;
 			e->y += (self->h - e->h) / 2;
-			
+
 			e->active = FALSE;
 
 			clearContinuePoint();
@@ -5496,11 +5427,11 @@ static void blackBookDie()
 			increaseKillCount();
 
 			freeBossHealthBar();
-			
+
 			self->flags |= NO_DRAW;
-			
+
 			self->thinkTime = 180;
-			
+
 			self->action = &dieFinish;
 		}
 
@@ -5516,7 +5447,7 @@ static void blackBookDie()
 static void dieFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &entityDieVanish;
@@ -5526,7 +5457,7 @@ static void dieFinish()
 static void blackBookShudder()
 {
 	Entity *e;
-	
+
 	self->startY += 90;
 
 	if (self->startY >= 360)
@@ -5535,22 +5466,22 @@ static void blackBookShudder()
 	}
 
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
-	
+
 	if (self->thinkTime <= 180 && (self->thinkTime % 10) == 0)
 	{
 		e = addTemporaryItem("boss/black_book_page", self->x, self->y, self->face, 0, 0);
-		
+
 		playSoundToMap("sound/boss/black_book/page.ogg", -1, self->x, self->y, 0);
-		
+
 		e->targetX = self->x + SCREEN_WIDTH;
 		e->targetY = self->y + (prand() % 96) * (prand() % 2 == 0 ? -1 : 1);
-		
+
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-		
+
 		e->speed = 20 + (prand() % 40);
-		
+
 		e->speed /= 10;
-		
+
 		e->dirX *= e->speed;
 		e->dirY *= e->speed;
 	}
@@ -5578,20 +5509,20 @@ static void hover()
 static void backWait()
 {
 	self->face = self->head->face;
-	
+
 	self->x = self->head->x;
 	self->y = self->head->y;
-	
+
 	if (self->head->flags & NO_DRAW)
 	{
 		self->flags |= NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags &= ~NO_DRAW;
 	}
-	
+
 	if (!(self->head->flags & FLY) || self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -5702,6 +5633,6 @@ static int energyBarDraw()
 static void creditsMove()
 {
 	addBack();
-	
+
 	self->creditsAction = &bossMoveToMiddle;
 }
