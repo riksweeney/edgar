@@ -19,3 +19,6 @@ item/health_potion
 item/ice_spray
 enemy/ghost
 enemy/sword_skeleton
+weapon/bow
+weapon/lightning_sword
+weapon/normal_arrow

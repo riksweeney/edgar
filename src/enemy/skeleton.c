@@ -95,6 +95,8 @@ static void init()
 {
 	if (self->health == 0)
 	{
+		self->damage = -1;
+		
 		self->action = &die;
 	}
 
@@ -123,12 +125,16 @@ static void die()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
+	
+	i = self->damage;
 
 	loadProperties(prand() % 2 == 0 ? "enemy/arrow_skeleton" : "enemy/sword_skeleton", self);
 	
 	snprintf(name, sizeof(name), "%s_piece", self->name);
 	
 	self->mental = 0;
+	
+	self->damage = i;
 
 	for (i=0;i<7;i++)
 	{
@@ -153,7 +159,7 @@ static void die()
 		self->mental++;
 	}
 	
-	if (self->damage != 0)
+	if (self->damage >= 0)
 	{
 		fireTrigger(self->objectiveName);
 
@@ -163,7 +169,7 @@ static void die()
 
 		playSoundToMap("sound/enemy/skeleton/skeleton_die.ogg", -1, self->x, self->y, 0);
 		
-		self->thinkTime = 300;
+		self->thinkTime = 30 * 60;
 	}
 
 	self->endX = self->damage;
@@ -320,6 +326,9 @@ static void pieceReform()
 
 static void pieceFallout()
 {
+	self->dirX = 0;
+	self->dirY = 0;
+	
 	self->x = self->head->x;
 	self->y = self->head->y;
 }
@@ -341,7 +350,7 @@ static void arrowLookForPlayer()
 	{
 		/* Must be within a certain range */
 
-		if (collision(self->x + (self->face == LEFT ? -300 : self->w), self->y, 300, self->h, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x + (self->face == LEFT ? -200 : self->w), self->y, 200, self->h, player.x, player.y, player.w, player.h) == 1)
 		{
 			self->dirX = 0;
 			
@@ -418,6 +427,8 @@ static void fireArrowFinish()
 
 		if (self->mental <= 0)
 		{
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+			
 			self->action = &arrowLookForPlayer;
 
 			self->thinkTime = 180;
@@ -483,7 +494,7 @@ static void attackPlayer()
 
 		self->thinkTime--;
 
-		if (self->thinkTime <= 0)
+		if (self->thinkTime <= 0 || isAtEdge(self) == TRUE)
 		{
 			self->face = self->face == LEFT ? RIGHT : LEFT;
 
@@ -707,6 +718,18 @@ static void swordAttackFinish()
 	self->damage = 0;
 
 	setEntityAnimation(self, "STAND");
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
 
 	self->action = &swordWait;
 
