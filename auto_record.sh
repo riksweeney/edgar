@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -e test/test_replay1001.zip ];
 then
 	echo ./edgar -record test/test_replay1001.dat -saveonexit

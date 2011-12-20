@@ -29,6 +29,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../system/error.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 
 extern Entity *self;
 
@@ -77,11 +79,23 @@ static void init()
 		setEntityAnimation(self, "BELL");
 	}
 
-	self->head = getEntityByObjectiveName(self->requires);
-
-	if (self->head == NULL)
+	if (self->mental == -1)
 	{
-		showErrorAndExit("Bell Rope cannot find %s", self->requires);
+		self->touch = NULL;
+		
+		self->flags |= NO_DRAW;
+		
+		self->activate = NULL;
+	}
+
+	else
+	{
+		self->head = getEntityByObjectiveName(self->requires);
+
+		if (self->head == NULL)
+		{
+			showErrorAndExit("Bell Rope cannot find %s", self->requires);
+		}
 	}
 
 	self->action = &entityWait;
@@ -146,7 +160,9 @@ static void activate(int val)
 
 		if (strstr(self->head->description, self->head->requires) != NULL)
 		{
-			printf("Correct tune\n");
+			fireTrigger(self->head->objectiveName);
+			
+			fireGlobalTrigger(self->head->objectiveName);
 		}
 	}
 }

@@ -84,7 +84,7 @@ static void init()
 
 		e->type = ITEM;
 
-		e->face = RIGHT;
+		e->face = prand() % 2 == 0 ? LEFT : RIGHT;
 
 		e->action = &appleWait;
 
@@ -100,6 +100,8 @@ static void init()
 		e->dirX = 1 * (prand() % 2 == 0 ? -1 : 1);
 
 		e->startX = e->x;
+		
+		e->thinkTime = prand() % 20;
 
 		e->flags |= DO_NOT_PERSIST;
 
@@ -141,7 +143,7 @@ static void activate(int val)
 
 static void takeDamage(Entity *other, int damage)
 {
-	Entity *e, *temp;
+	Entity *temp;
 
 	if (!(self->flags & INVULNERABLE))
 	{
@@ -207,7 +209,7 @@ static void appleWait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->x = self->startX + self->dirX;
+		self->x += self->dirX;
 
 		if (abs(self->startX - self->x) > 1)
 		{
