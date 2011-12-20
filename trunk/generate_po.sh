@@ -1,3 +1,4 @@
+#!/bin/bash
 FILES=`find . -name *.c`
 
 xgettext --no-wrap --keyword='_' $FILES

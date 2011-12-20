@@ -1,0 +1,9 @@
+ACTIVATE_OBJECTIVE CRYPT_DOOR
+SET EDGAR FACE RIGHT
+WAIT 60
+TALK Edgar Great, that worked!
+WALK_TO EDGAR 9535 0 WAIT
+TALK Edgar This looks like the keepsake
+TALK Edgar Thank goodness for that, I really didn't want to have to open that coffin
+SET EDGAR FACE LEFT
+TALK Edgar Now to get out of here...

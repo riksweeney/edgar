@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo modprobe snd-aloop
 rm /home/rik/temp/*.bmp
 ./edgar -load 0 -playback replay.dat -bmpwrite /home/rik/temp

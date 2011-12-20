@@ -72,11 +72,7 @@ Entity *addGhost(int x, int y, char *name)
 
 static void init()
 {
-	int floor;
-
-	floor = MIN(getMapFloor(self->startX + self->w - 1, self->y), getMapFloor(self->startX, self->y));
-
-	self->endY = floor - self->y;
+	self->endY = MIN(getMapFloor(self->startX + self->w - 1, self->y), getMapFloor(self->startX, self->y));
 
 	self->mental = 0;
 
@@ -161,7 +157,7 @@ static void moveToSkeleton()
 
 static void resurrect()
 {
-	self->dirY = self->speed;
+	self->dirY = self->speed / 2;
 
 	checkToMap(self);
 
@@ -185,7 +181,7 @@ static void resurrectFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		self->dirY = -self->speed;
+		self->dirY = -self->speed / 2;
 
 		checkToMap(self);
 
@@ -239,13 +235,13 @@ static void creditsMove()
 
 			hover();
 
-			self->health--;
+			self->maxHealth--;
 
-			if (self->health <= 0)
+			if (self->maxHealth <= 0)
 			{
 				playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
 
-				self->health = (6 + prand() % 10) * 60;
+				self->maxHealth = (6 + prand() % 10) * 60;
 			}
 		}
 	}
