@@ -1,5 +1,5 @@
-if [ $# -ne 1 ]
-	then
+if [ $# -ne 1 ];
+then
 	echo ""
 	echo "Usage $0 <version>"
 	echo ""
@@ -20,9 +20,9 @@ MAP_TOTAL=`grep item/health_potion data/maps/*.dat | wc -l`
 
 POTION_TOTAL=`grep -m 1 item/health_potion data/scripts/*.dat | wc -l`
 
-TOTAL=$(($SCRIPT_TOTAL+$MAP_TOTAL+$POTION_TOTAL))
+TOTAL=$(($SCRIPT_TOTAL + $MAP_TOTAL + $POTION_TOTAL))
 
-if [ "$TOTAL" != "$CURRENT_TOTAL" ]
+if [ "$TOTAL" != "$CURRENT_TOTAL" ];
 then
 	echo "Secret tally does not match"
 	echo "Expected '$CURRENT_TOTAL'"
@@ -33,7 +33,7 @@ fi
 
 CURRENT_VERSION=`grep "VERSION =" makefile | cut -d ' ' -f 3`
 
-if [ "$CURRENT_VERSION" != "$1" ]
+if [ "$CURRENT_VERSION" != "$1" ];
 then
 	echo "Version mismatch in makefile"
 	echo "Expected '$1'"
@@ -43,7 +43,7 @@ fi
 
 CURRENT_VERSION=`grep "VERSION =" makefile.windows | cut -d ' ' -f 3`
 
-if [ "$CURRENT_VERSION" != "$1" ]
+if [ "$CURRENT_VERSION" != "$1" ];
 then
 	echo "Version mismatch in makefile.windows"
 	echo "Expected '$1'"
@@ -53,7 +53,7 @@ fi
 
 CURRENT_VERSION=`grep "VERSION =" makefile.amiga | cut -d ' ' -f 3`
 
-if [ "$CURRENT_VERSION" != "$1" ]
+if [ "$CURRENT_VERSION" != "$1" ];
 then
 	echo "Version mismatch in makefile.amiga"
 	echo "Expected '$1'"

@@ -33,14 +33,14 @@ static char musicName[MAX_VALUE_LENGTH];
 void loadMusic(char *name)
 {
 	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
-	
+
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
 	}
 
 	freeMusic();
-	
+
 	if (strcmpignorecase(name, "NO_MUSIC") == 0)
 	{
 		return;
@@ -57,7 +57,7 @@ void loadMusic(char *name)
 void freeMusic()
 {
 	stopMusic();
-	
+
 	if (music != NULL)
 	{
 		Mix_FreeMusic(music);
@@ -72,19 +72,19 @@ void playLoadedMusic()
 	{
 		return;
 	}
-	
-	loadMusic(musicName);
-	
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
 
-	Mix_PlayMusic(music, -1);	
+	loadMusic(musicName);
+
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
+
+	Mix_PlayMusic(music, -1);
 }
 
 void playMapMusic()
 {
 	loadMusic(getMapMusic());
-	
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
+
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
 
 	Mix_PlayMusic(music, -1);
 }
@@ -108,7 +108,7 @@ void fadeInMusic(int time)
 
 void setMusicVolume()
 {
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
 }
 
 void pauseMusic(int pause)
@@ -131,15 +131,15 @@ void playDefaultBossMusic()
 {
 	loadMusic("music/terrortech_inc_.xm");
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
+
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
 	{
 		printf("%f music/terrortech_inc_.xm\n", (float)game.frames / 60);
 	}
 	#endif
-	
+
 	Mix_PlayMusic(music, -1);
 }
 
@@ -147,15 +147,15 @@ void playBossMusic(char *name)
 {
 	loadMusic(name);
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
-	
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
+
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
 	{
 		printf("%f %s\n", (float)game.frames / 60, name);
 	}
 	#endif
-	
+
 	Mix_PlayMusic(music, -1);
 }
 
@@ -183,7 +183,7 @@ void loadGameOverMusic()
 static void playGameOverMusic()
 {
 	STRNCPY(musicName, "music/oxide_-_sadness.xm", MAX_VALUE_LENGTH);
-	
+
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{
 		return;
@@ -193,7 +193,7 @@ static void playGameOverMusic()
 
 	loadMusic("music/oxide_-_sadness.xm");
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME);
+	Mix_VolumeMusic(game.musicDefaultVolume * MIX_MAX_VOLUME);
 
 	Mix_PlayMusic(music, -1);
 }

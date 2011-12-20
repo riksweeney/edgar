@@ -1,4 +1,4 @@
-if [ ! -e test/test_replay1001.zip ]
+if [ ! -e test/test_replay1001.zip ];
 then
 	echo ./edgar -record test/test_replay1001.dat -saveonexit
 	./edgar -record test/test_replay1001.dat -saveonexit
@@ -9,7 +9,7 @@ else
 for i in {1002..100000}
 do
 REPLAY_FILE="test_replay"${i}
-if [ ! -e test/"$REPLAY_FILE".zip ]
+if [ ! -e test/"$REPLAY_FILE".zip ];
 then
 	j=$((i - 1))
 	echo ./edgar -load $j -record test/$REPLAY_FILE.dat -saveonexit

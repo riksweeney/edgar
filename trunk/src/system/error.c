@@ -31,7 +31,7 @@ static void drawError(void);
 void showErrorAndExit(char *fmt, ...)
 {
 	int h, y;
-	SDL_Rect src, dest;
+	SDL_Rect dest;
 	SDL_Surface *title, *error1, *error2, *error3;
 	char text[MAX_MESSAGE_LENGTH];
 	va_list ap;
@@ -74,59 +74,39 @@ void showErrorAndExit(char *fmt, ...)
 
 	y = (SCREEN_HEIGHT - h) / 2;
 
-	src.x = 0;
-	src.y = 0;
-	src.w = title->w;
-	src.h = title->h;
-
 	dest.x = (SCREEN_WIDTH - title->w) / 2;
 	dest.y = y;
 	dest.w = title->w;
 	dest.h = title->h;
 
-	SDL_BlitSurface(title, &src, game.tempSurface, &dest);
+	SDL_BlitSurface(title, NULL, game.tempSurface, &dest);
 
 	y += title->h + 15;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = error1->w;
-	src.h = error1->h;
 
 	dest.x = (SCREEN_WIDTH - error1->w) / 2;
 	dest.y = y;
 	dest.w = error1->w;
 	dest.h = error1->h;
 
-	SDL_BlitSurface(error1, &src, game.tempSurface, &dest);
+	SDL_BlitSurface(error1, NULL, game.tempSurface, &dest);
 
 	y += error1->h + 15;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = error2->w;
-	src.h = error2->h;
 
 	dest.x = (SCREEN_WIDTH - error2->w) / 2;
 	dest.y = y;
 	dest.w = error2->w;
 	dest.h = error2->h;
 
-	SDL_BlitSurface(error2, &src, game.tempSurface, &dest);
+	SDL_BlitSurface(error2, NULL, game.tempSurface, &dest);
 
 	y += error2->h + 15;
-
-	src.x = 0;
-	src.y = 0;
-	src.w = error3->w;
-	src.h = error3->h;
 
 	dest.x = (SCREEN_WIDTH - error3->w) / 2;
 	dest.y = y;
 	dest.w = error3->w;
 	dest.h = error3->h;
 
-	SDL_BlitSurface(error3, &src, game.tempSurface, &dest);
+	SDL_BlitSurface(error3, NULL, game.tempSurface, &dest);
 
 	SDL_FreeSurface(title);
 	SDL_FreeSurface(error1);
