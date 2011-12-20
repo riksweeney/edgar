@@ -61,7 +61,7 @@ Entity *addGhost(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
 
-	e->creditsAction = &creditsMove;
+	e->creditsAction = &init;
 
 	e->type = ENEMY;
 
@@ -72,9 +72,17 @@ Entity *addGhost(int x, int y, char *name)
 
 static void init()
 {
+	int floor;
+
+	floor = MIN(getMapFloor(self->startX + self->w - 1, self->y), getMapFloor(self->startX, self->y));
+
+	self->endY = floor - self->y;
+
 	self->mental = 0;
 
 	self->action = &move;
+
+	self->creditsAction = &creditsMove;
 }
 
 static void move()
@@ -91,6 +99,8 @@ static void move()
 
 		self->health = (6 + prand() % 10) * 60;
 	}
+
+	self->box.h = self->endY - self->y;
 }
 
 static void touch(Entity *other)
@@ -108,6 +118,8 @@ static void touch(Entity *other)
 		self->target = other;
 
 		self->targetX = other->x + self->w / 2 - other->w / 2;
+
+		self->targetY = other->y + other->h / 2 - self->h;
 
 		self->thinkTime = 30;
 	}
@@ -149,22 +161,22 @@ static void moveToSkeleton()
 
 static void resurrect()
 {
-	self->thinkTime--;
+	self->dirY = self->speed;
 
-	if (self->thinkTime <= 0)
+	checkToMap(self);
+
+	if (self->dirY == 0 || self->y >= self->targetY)
 	{
-		self->target->health = self->target->maxHealth;
+		self->dirY = 0;
 
 		self->thinkTime = 60;
+
+		self->target->health = self->target->maxHealth;
 
 		self->action = &resurrectFinish;
 
 		self->creditsAction = &resurrectFinish;
 	}
-
-	checkToMap(self);
-
-	hover();
 }
 
 static void resurrectFinish()
@@ -173,30 +185,35 @@ static void resurrectFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		self->dirX = self->face == LEFT ? -self->speed : self->speed;
+		self->dirY = -self->speed;
 
-		self->action = &move;
+		checkToMap(self);
 
-		self->creditsAction = &creditsMove;
+		if (self->y <= self->startY)
+		{
+			self->y = self->startY;
 
-		self->mental = 0;
+			self->dirX = self->face == LEFT ? -self->speed : self->speed;
+
+			self->action = &move;
+
+			self->creditsAction = &creditsMove;
+
+			self->mental = 0;
+		}
 	}
-
-	checkToMap(self);
-
-	hover();
 }
 
 static void hover()
 {
-	self->startX += 4;
+	self->endX += 4;
 
-	if (self->startX >= 360)
+	if (self->endX >= 360)
 	{
-		self->startX = 0;
+		self->endX = 0;
 	}
 
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 4;
+	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 4;
 }
 
 static void creditsMove()
@@ -204,7 +221,7 @@ static void creditsMove()
 	if (self->health == 2)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->face = RIGHT;
@@ -221,11 +238,22 @@ static void creditsMove()
 			}
 
 			hover();
+
+			self->health--;
+
+			if (self->health <= 0)
+			{
+				playSoundToMap("sound/enemy/ghost/ghost.ogg", -1, self->x, self->y, 0);
+
+				self->health = (6 + prand() % 10) * 60;
+			}
 		}
 	}
-	
+
 	else
 	{
 		self->thinkTime = 120;
 	}
+
+	self->box.h = self->endY - self->y;
 }

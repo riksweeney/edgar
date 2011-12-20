@@ -6,6 +6,7 @@ Version 0.95
 * Fixed more crashes on Windows
 * Removed dependency on SDL_Net
 * Made one the light pillars in the Catacombs stay active longer
+* Raising and lowering the music volume now works correctly
 
 Version 0.94
 * Fixed the crash on Windows

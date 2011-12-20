@@ -1,5 +1,5 @@
-if [ $# -ne 2 ]
-	then
+if [ $# -ne 2 ];
+then
 	echo ""
 	echo "Usage $0 <version> <release>"
 	echo ""

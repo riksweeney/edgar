@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
+static void appleWait(void);
 static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
@@ -72,7 +73,38 @@ Entity *addAppleTree(int x, int y, char *name)
 
 static void init()
 {
-	setEntityAnimationByID(self, self->mental);
+	int i;
+	Entity *e;
+
+	for (i=0;i<self->mental;i++)
+	{
+		e = getFreeEntity();
+
+		loadProperties("item/tree_apple", e);
+
+		e->type = ITEM;
+
+		e->face = RIGHT;
+
+		e->action = &appleWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->mental = i + 1;
+
+		setEntityAnimationByID(e, i);
+
+		e->x = self->x + e->offsetX;
+		e->y = self->y + e->offsetY;
+
+		e->dirX = 1 * (prand() % 2 == 0 ? -1 : 1);
+
+		e->startX = e->x;
+
+		e->flags |= DO_NOT_PERSIST;
+
+		e->head = self;
+	}
 
 	if (self->mental > 0)
 	{
@@ -116,7 +148,7 @@ static void takeDamage(Entity *other, int damage)
 		if (strcmpignorecase(other->name, "weapon/wood_axe") == 0)
 		{
 			playSoundToMap("sound/item/chop.ogg", -1, self->x, self->y, 0);
-			
+
 			self->health -= damage;
 
 			if (self->health > 0)
@@ -128,19 +160,9 @@ static void takeDamage(Entity *other, int damage)
 			{
 				if (self->mental > 0)
 				{
-					e = addKeyItem("item/apple", self->x + self->w / 2, self->y);
-
-					e->dirX = 10 + prand() % 10;
-
-					e->dirX *= prand() % 2 == 0 ? -0.1 : 0.1;
-
-					e->dirY = -10;
-
 					self->health = self->maxHealth;
 
 					self->mental--;
-
-					setEntityAnimationByID(self, self->mental);
 				}
 
 				else
@@ -174,5 +196,37 @@ static void takeDamage(Entity *other, int damage)
 		}
 
 		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+	}
+}
+
+static void appleWait()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX + self->dirX;
+
+		if (abs(self->startX - self->x) > 1)
+		{
+			self->dirX *= -1;
+		}
+
+		self->thinkTime = 20;
+	}
+
+	if (self->mental > self->head->mental)
+	{
+		e = addKeyItem("item/apple", self->x, self->y);
+
+		e->dirX = 10 + prand() % 10;
+
+		e->dirX *= prand() % 2 == 0 ? -0.1 : 0.1;
+
+		e->dirY = -10;
+
+		self->inUse = FALSE;
 	}
 }

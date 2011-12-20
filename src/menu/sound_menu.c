@@ -42,7 +42,7 @@ static void doMenu(void);
 static char *getVolumePercent(int);
 static void toggleSound(void);
 static void realignGrid(void);
-static void changeVolume(int *, int *, Widget *, int);
+static void changeVolume(int *, Widget *, int);
 static void lowerSFXVolume(void);
 static void raiseSFXVolume(void);
 static void lowerMusicVolume(void);
@@ -241,11 +241,11 @@ static void loadMenuLayout()
 
 					free(text);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "BUFFER") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE, 255, 255, 255);
-					
+
 					text = getQuality();
 
 					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
@@ -359,7 +359,7 @@ static void toggleSound()
 	if (game.audio == FALSE)
 	{
 		game.audioDisabled = FALSE;
-		
+
 		freeMusic();
 
 		Mix_CloseAudio();
@@ -385,32 +385,39 @@ static void lowerSFXVolume()
 {
 	Widget *w = menu.widgets[menu.index];
 
-	changeVolume(&game.sfxDefaultVolume, &game.sfxVolume, w, -1);
+	changeVolume(&game.sfxDefaultVolume, w, -1);
 }
 
 static void raiseSFXVolume()
 {
 	Widget *w = menu.widgets[menu.index];
 
-	changeVolume(&game.sfxDefaultVolume, &game.sfxVolume, w, 1);
+	changeVolume(&game.sfxDefaultVolume, w, 1);
 }
 
 static void lowerMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
 
-	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, -1);
+	changeVolume(&game.musicDefaultVolume, w, -1);
+}
+
+static void raiseMusicVolume()
+{
+	Widget *w = menu.widgets[menu.index];
+
+	changeVolume(&game.musicDefaultVolume, w, 1);
 }
 
 static void toggleQuality()
 {
 	char *text;
 	Widget *w = menu.widgets[menu.index];
-	
+
 	game.audioQuality = game.audioQuality == 22050 ? 44100 : 22050;
 
 	changeSoundQuality();
-	
+
 	text = getQuality();
 
 	updateLabelText(w->label, text);
@@ -418,16 +425,8 @@ static void toggleQuality()
 	free(text);
 }
 
-static void raiseMusicVolume()
+static void changeVolume(int *maxVolume, Widget *w, int adjustment)
 {
-	Widget *w = menu.widgets[menu.index];
-
-	changeVolume(&game.musicDefaultVolume, &game.musicVolume, w, 1);
-}
-
-static void changeVolume(int *maxVolume, int *currentVolume, Widget *w, int adjustment)
-{
-	int align = (*maxVolume) == (*currentVolume) ? TRUE : FALSE;
 	char *text;
 
 	*maxVolume += adjustment;
@@ -440,11 +439,6 @@ static void changeVolume(int *maxVolume, int *currentVolume, Widget *w, int adju
 	else if (*maxVolume > 10)
 	{
 		*maxVolume = 10;
-	}
-
-	if (align == TRUE)
-	{
-		*currentVolume = *maxVolume;
 	}
 
 	setMusicVolume();
@@ -482,13 +476,13 @@ static void showOptionsMenu()
 static char *getQuality()
 {
 	char *text = malloc(10);
-	
+
 	if (text == NULL)
 	{
 		showErrorAndExit("Failed to allocate a whole 10 bytes for a Quality label");
 	}
-	
+
 	snprintf(text, 10, "%d", game.audioQuality);
-	
+
 	return text;
 }
