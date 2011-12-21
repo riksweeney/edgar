@@ -46,6 +46,7 @@ static Credits credits;
 static char *enemies[] = {
 			"edgar/edgar",
 			"enemy/ghost",
+			"boss/ant_lion",
 			"enemy/chicken",
 			"enemy/grub",
 			"enemy/wasp",
@@ -341,7 +342,7 @@ static void doEndCredits()
 					credits.fading = TRUE;
 				}
 			}
-			
+
 			t = getTargetByName("CREDITS_TARGET");
 
 			setMapStartX(t->x);
@@ -878,7 +879,7 @@ static void initCredits()
 	freeLevelResources();
 
 	loadMap("map_credits", TRUE);
-	
+
 	t = getTargetByName("CREDITS_TARGET");
 
 	setMapStartX(t->x);
@@ -1084,7 +1085,7 @@ static Entity *loadCreditsEntity(char *name)
 {
 	Entity *e;
 	Target *t;
-	
+
 	t = getTargetByName("CREDITS_TARGET");
 
 	if (strstr(name, "/edgar") != NULL)
@@ -1283,14 +1284,14 @@ static void shuffleEnemies()
 {
 	char *s;
 	int i, j;
-	
-	/* Skip Edgar and the Ghost */
 
-	for (i=2;i<enemiesLength;i++)
+	/* Skip Edgar, the Ghost and the Ant Lion */
+
+	for (i=3;i<enemiesLength;i++)
 	{
 		s = enemies[i];
 
-		j = 2 + prand() % (enemiesLength - 2);
+		j = 3 + prand() % (enemiesLength - 3);
 
 		enemies[i] = enemies[j];
 

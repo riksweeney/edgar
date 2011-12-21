@@ -130,7 +130,7 @@ static void takeDamage(Entity *other, int damage)
 			else
 			{
 				self->targetX = playSoundToMap("sound/item/chain.ogg", -1, self->x, self->y, -1);
-				
+
 				self->health = 0;
 
 				self->touch = NULL;
@@ -164,7 +164,7 @@ static void takeDamage(Entity *other, int damage)
 
 			damage = 0;
 
-			if (prand() % 10 == 0)
+			if (other->type != PROJECTILE && prand() % 10 == 0)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
@@ -185,7 +185,7 @@ static void unravel()
 		setEntityAnimation(self->target, "STAND");
 
 		self->action = &entityWait;
-		
+
 		stopSound(self->targetX);
 
 		runScript(self->requires);

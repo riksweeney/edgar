@@ -928,6 +928,10 @@ static void becomeRampagingFinish()
 
 		e->startX = -1;
 
+		e->flags |= SPAWNED_IN;
+
+		e->spawnTime = self->spawnTime;
+
 		self->inUse = FALSE;
 
 		e->action = e->resumeNormalFunction;

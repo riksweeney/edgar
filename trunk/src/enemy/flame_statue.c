@@ -141,7 +141,7 @@ static void entityWait()
 
 		self->action = &doFlame;
 	}
-	
+
 	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 
 	checkToMap(self);
@@ -183,7 +183,7 @@ static void takeDamage(Entity *other, int damage)
 				self = temp;
 			}
 
-			if (prand() % 10 == 0)
+			if (other->type != PROJECTILE && prand() % 10 == 0)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
@@ -225,7 +225,7 @@ static void doFlame()
 
 		self->action = &entityWait;
 	}
-	
+
 	self->dirX = self->standingOn != NULL ? self->standingOn->dirX : 0;
 
 	checkToMap(self);
@@ -246,7 +246,7 @@ static void flameWait()
 
 		self->y = self->head->y + (self->head->mental == 0 ? self->head->offsetY : self->head->offsetX);
 	}
-	
+
 	self->startX--;
 
 	if (self->startX <= 0)
@@ -269,7 +269,7 @@ static void die()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
-	
+
 	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
@@ -298,7 +298,7 @@ static void die()
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->touch = &entityTouch;
-		
+
 		self->flags &= ~FLY;
 
 		self->flags |= (DO_NOT_PERSIST|NO_DRAW);
@@ -318,6 +318,6 @@ static void die()
 static void resumeNormalFunction()
 {
 	self->action = &entityWait;
-	
+
 	self->touch = &touch;
 }

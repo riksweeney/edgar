@@ -100,7 +100,7 @@ static void init()
 		e->dirX = 1 * (prand() % 2 == 0 ? -1 : 1);
 
 		e->startX = e->x;
-		
+
 		e->thinkTime = prand() % 20;
 
 		e->flags |= DO_NOT_PERSIST;
@@ -191,7 +191,7 @@ static void takeDamage(Entity *other, int damage)
 
 			damage = 0;
 
-			if (prand() % 10 == 0)
+			if (other->type != PROJECTILE && prand() % 10 == 0)
 			{
 				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
