@@ -52,7 +52,7 @@ Entity *addGrub(int x, int y, char *name)
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -65,18 +65,25 @@ Entity *addGrub(int x, int y, char *name)
 static void die()
 {
 	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
 static void creditsMove()
 {
+	self->thinkTime++;
+
+	if (self->thinkTime > 600)
+	{
+		self->mental = 1;
+	}
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

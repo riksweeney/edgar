@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 
 extern Entity *self, player;
+extern Game game;
 
 static void patrol(void);
 static void lookForFood(void);
@@ -44,6 +45,7 @@ static void addDust(void);
 static void entityWait(void);
 static void noTouch(Entity *);
 static void attack(void);
+static void creditsAction(void);
 
 Entity *addAntLion(int x, int y, char *name)
 {
@@ -65,6 +67,8 @@ Entity *addAntLion(int x, int y, char *name)
 	e->touch = &noTouch;
 	e->die = NULL;
 	e->takeDamage = NULL;
+
+	e->creditsAction = &creditsAction;
 
 	e->type = ENEMY;
 
@@ -97,7 +101,7 @@ static void patrol()
 static void lookForFood()
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	if (collision(self->x - 320, self->y, 640, self->h, player.x, player.y, player.w, player.h) == 1)
@@ -183,13 +187,18 @@ static void hunt()
 		self->thinkTime = 60;
 	}
 
-	shakeScreen(LIGHT, 5);
+	if (game.status == IN_GAME)
+	{
+		shakeScreen(LIGHT, 5);
+	}
 
 	if (self->thinkTime <= 0)
 	{
 		/* Give up hunting */
 
 		self->action = &patrol;
+
+		self->creditsAction = &leave;
 
 		self->target = NULL;
 
@@ -218,6 +227,8 @@ static void trapTarget(Entity *other)
 	/* Trap the target */
 
 	self->action = &attack;
+
+	self->creditsAction = &attack;
 
 	self->touch = NULL;
 
@@ -256,6 +267,8 @@ static void attack()
 
 		self->action = &entityWait;
 
+		self->creditsAction = &entityWait;
+
 		self->touch = NULL;
 
 		self->thinkTime = 120;
@@ -289,6 +302,8 @@ static void entityWait()
 		}
 
 		self->action = &leave;
+
+		self->creditsAction = &leave;
 	}
 }
 
@@ -300,4 +315,26 @@ static void addDust()
 static void noTouch(Entity *other)
 {
 
+}
+
+static void creditsAction()
+{
+	if (self->target != NULL)
+	{
+		self->target = getEntityByName("enemy/grub");
+	}
+
+	else
+	{
+		if (self->target->mental == 1)
+		{
+			self->startX = getMapStartX();
+
+			self->endX = getMapStartX() + SCREEN_WIDTH;
+
+			playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+
+			self->creditsAction = &hunt;
+		}
+	}
 }

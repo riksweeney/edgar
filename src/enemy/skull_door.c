@@ -92,24 +92,24 @@ static void lookForPlayer()
 static void skullAttackChargeUp()
 {
 	setEntityAnimation(self, "CHARGE_WAIT");
-	
+
 	self->thinkTime = 30;
-	
+
 	self->action = &skullAttack;
 }
 
 static void skullAttack()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "ATTACK");
-		
+
 		e = addProjectile("enemy/skull_shot", self, self->x, self->y, self->face == LEFT ? -6 : 6, 0);
-		
+
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
 		if (self->face == LEFT)
@@ -121,11 +121,11 @@ static void skullAttack()
 		{
 			e->x = self->x + self->offsetX;
 		}
-		
+
 		e->y = self->y + self->offsetY;
-		
+
 		e->face = self->face;
-		
+
 		e->action = &skullShotMove;
 
 		e->flags |= FLY;
@@ -133,11 +133,11 @@ static void skullAttack()
 		e->reactToBlock = &skullShotReflect;
 
 		e->thinkTime = 1200;
-		
+
 		e->mental = 2;
 
 		self->thinkTime = 60;
-		
+
 		self->action = &skullAttackFinish;
 	}
 
@@ -147,45 +147,45 @@ static void skullAttack()
 static void skullAttackFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->action = &lookForPlayer;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void skullShotMove()
 {
 	Entity *e;
-	
+
 	self->mental--;
-	
+
 	if (self->mental <= 0)
 	{
 		e = addBasicDecoration(self->x, self->y, "decoration/skull_trail");
-		
+
 		if (e != NULL)
 		{
 			e->x = self->face == LEFT ? self->x + self->w - e->w : self->x;
-			
+
 			e->y = self->y + self->h / 2 - e->h / 2;
-			
+
 			e->y += (prand() % 8) * (prand() % 2 == 0 ? 1 : -1);
-			
+
 			e->thinkTime = 15 + prand() % 15;
-			
+
 			e->dirY = (1 + prand() % 10) * (prand() % 2 == 0 ? 1 : -1);
-			
+
 			e->dirY /= 10;
 		}
-		
+
 		self->mental = 2;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -194,10 +194,10 @@ static void skullShotReflect(Entity *other)
 	if (other->element != PHANTASMAL)
 	{
 		self->inUse = FALSE;
-		
+
 		return;
 	}
-	
+
 	if (other->mental <= 7)
 	{
 		self->damage = 50;
@@ -221,24 +221,24 @@ static void skullShotReflect(Entity *other)
 	self->parent = other;
 
 	self->dirX = -self->dirX;
-	
+
 	self->face = self->face == LEFT ? RIGHT : LEFT;
 }
 
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
 	}
-	
+
 	if (other->element == PHANTASMAL)
 	{
 		entityTakeDamageNoFlinch(other, damage);
 	}
-	
+
 	else
 	{
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
@@ -256,7 +256,7 @@ static void takeDamage(Entity *other, int damage)
 			self = temp;
 		}
 
-		if (prand() % 10 == 0)
+		if (other->type != PROJECTILE && prand() % 10 == 0)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
@@ -270,7 +270,7 @@ static void die()
 	int i;
 	Entity *e;
 	char name[MAX_VALUE_LENGTH];
-	
+
 	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
 
 	snprintf(name, sizeof(name), "%s_piece", self->name);
@@ -293,13 +293,13 @@ static void die()
 
 		e->thinkTime = 60 + (prand() % 180);
 	}
-	
+
 	self->damage = 0;
 
 	if (!(self->flags & INVULNERABLE))
 	{
 		self->touch = &entityTouch;
-		
+
 		self->flags &= ~FLY;
 
 		self->flags |= (DO_NOT_PERSIST|NO_DRAW);

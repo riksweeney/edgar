@@ -248,7 +248,7 @@ void doCollisions()
 								self = temp;
 							}
 						}
-						
+
 						if (e1->inUse == FALSE)
 						{
 							break;
@@ -366,7 +366,7 @@ Entity *checkEntityToEntity(Entity *e)
 Entity *isSpaceEmpty(Entity *e)
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	if (player.inUse == TRUE && collision(e->x, e->y, e->w, e->h, player.x, player.y, player.w, player.h) == 1)
@@ -389,7 +389,7 @@ Entity *isSpaceEmpty(Entity *e)
 int isNearObstacle(Entity *e)
 {
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	for (el=entities->next;el!=NULL;el=el->next)
@@ -962,7 +962,7 @@ void checkToMap(Entity *e)
 
 		if (e->fallout == NULL)
 		{
-			printf("%s has no fallout defined. Removing\n", self->name);
+			printf("%s has no fallout defined. Removing\n", e->name);
 
 			e->inUse = FALSE;
 
@@ -1083,7 +1083,7 @@ int isAtEdge(Entity *e)
 	int x = e->face == LEFT ? floor(e->x) : ceil(e->x) + e->w;
 	int y = e->y + e->h - 1;
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	x /= TILE_SIZE;

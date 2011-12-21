@@ -113,7 +113,7 @@ static void entityWait()
 		if (self->thinkTime <= 0)
 		{
 			playSoundToMap("sound/common/shatter.ogg", -1, self->x, self->y, 0);
-			
+
 			if (self->target != NULL)
 			{
 				self->target->flags &= ~GROUNDED;
@@ -183,7 +183,7 @@ static void takeDamage(Entity *other, int damage)
 		self = temp;
 	}
 
-	if (prand() % 10 == 0)
+	if (other->type != PROJECTILE && prand() % 10 == 0)
 	{
 		setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 	}
