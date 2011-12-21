@@ -26,7 +26,6 @@ void stopMusic(void);
 void pauseMusic(int);
 void fadeOutMusic(int);
 void fadeInMusic(int);
-void setMusicVolume(void);
 void resumeMusic(void);
 void fadeBossMusic(void);
 void loadGameOverMusic(void);

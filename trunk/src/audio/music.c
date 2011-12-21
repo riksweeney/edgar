@@ -75,18 +75,18 @@ void playLoadedMusic()
 
 	loadMusic(musicName);
 
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
-
 	Mix_PlayMusic(music, -1);
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void playMapMusic()
 {
 	loadMusic(getMapMusic());
 
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
-
 	Mix_PlayMusic(music, -1);
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void stopMusic()
@@ -106,11 +106,6 @@ void fadeInMusic(int time)
 	Mix_FadeInMusic(music, -1, time);
 }
 
-void setMusicVolume()
-{
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
-}
-
 void pauseMusic(int pause)
 {
 	if (music != NULL)
@@ -124,14 +119,14 @@ void pauseMusic(int pause)
 		{
 			Mix_PauseMusic();
 		}
+		
+		Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 	}
 }
 
 void playDefaultBossMusic()
 {
 	loadMusic("music/terrortech_inc_.xm");
-
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
@@ -141,13 +136,13 @@ void playDefaultBossMusic()
 	#endif
 
 	Mix_PlayMusic(music, -1);
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void playBossMusic(char *name)
 {
 	loadMusic(name);
-
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
@@ -157,6 +152,8 @@ void playBossMusic(char *name)
 	#endif
 
 	Mix_PlayMusic(music, -1);
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void resumeMusic()
@@ -193,7 +190,7 @@ static void playGameOverMusic()
 
 	loadMusic("music/oxide_-_sadness.xm");
 
-	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
-
 	Mix_PlayMusic(music, -1);
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
