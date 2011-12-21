@@ -440,8 +440,8 @@ static void changeVolume(int *maxVolume, Widget *w, int adjustment)
 	{
 		*maxVolume = 10;
 	}
-
-	setMusicVolume();
+	
+	game.musicDefaultVolume = *maxVolume;
 
 	text = getVolumePercent(*maxVolume);
 

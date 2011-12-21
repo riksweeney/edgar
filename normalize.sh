@@ -8,8 +8,6 @@ for i in `find /home/rik/Edgar/sound -name *.wav`;do
 	then
 		sox $i $OUTPUT1 gain -n
 		mv $OUTPUT1 $OUTPUT2.wav
+		oggenc -q 4 $i
 	fi
-done
-for i in `find /home/rik/Edgar/sound -name *.wav`;do
-	oggenc -q 4 $i
 done
