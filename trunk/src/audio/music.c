@@ -26,7 +26,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Game game;
 
 static void playGameOverMusic(void);
-static void setVolume(void);
 
 static Mix_Music *music;
 static char musicName[MAX_VALUE_LENGTH];
@@ -77,8 +76,8 @@ void playLoadedMusic()
 	loadMusic(musicName);
 
 	Mix_PlayMusic(music, -1);
-
-	setVolume();
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void playMapMusic()
@@ -86,8 +85,8 @@ void playMapMusic()
 	loadMusic(getMapMusic());
 
 	Mix_PlayMusic(music, -1);
-
-	setVolume();
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void stopMusic()
@@ -114,8 +113,8 @@ void pauseMusic(int pause)
 		if (pause == FALSE)
 		{
 			Mix_ResumeMusic();
-
-			setVolume();
+			
+			Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 		}
 
 		else
@@ -137,8 +136,8 @@ void playDefaultBossMusic()
 	#endif
 
 	Mix_PlayMusic(music, -1);
-
-	setVolume();
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void playBossMusic(char *name)
@@ -153,8 +152,8 @@ void playBossMusic(char *name)
 	#endif
 
 	Mix_PlayMusic(music, -1);
-
-	setVolume();
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void resumeMusic()
@@ -192,23 +191,6 @@ static void playGameOverMusic()
 	loadMusic("music/oxide_-_sadness.xm");
 
 	Mix_PlayMusic(music, -1);
-
-	setVolume();
-}
-
-static void setVolume()
-{
-	int i = 0;
-
-	while (Mix_PlayingMusic() == 0)
-	{
-		i++;
-
-		if (i > 500)
-		{
-			break;
-		}
-	}
-
+	
 	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
