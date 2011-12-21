@@ -398,6 +398,8 @@ static void raiseSFXVolume()
 static void lowerMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
+	
+	pauseMusic(FALSE);
 
 	changeVolume(&game.musicDefaultVolume, w, -1);
 }
@@ -405,6 +407,8 @@ static void lowerMusicVolume()
 static void raiseMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
+	
+	pauseMusic(FALSE);
 
 	changeVolume(&game.musicDefaultVolume, w, 1);
 }
@@ -440,8 +444,6 @@ static void changeVolume(int *maxVolume, Widget *w, int adjustment)
 	{
 		*maxVolume = 10;
 	}
-	
-	game.musicDefaultVolume = *maxVolume;
 
 	text = getVolumePercent(*maxVolume);
 

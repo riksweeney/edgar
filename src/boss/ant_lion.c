@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/decoration.h"
 #include "../game.h"
 #include "../hud.h"
+#include "../map.h"
 #include "../player.h"
 #include "../graphics/gib.h"
 #include "../system/error.h"
@@ -319,22 +320,19 @@ static void noTouch(Entity *other)
 
 static void creditsAction()
 {
-	if (self->target != NULL)
+	if (self->target == NULL)
 	{
 		self->target = getEntityByName("enemy/grub");
 	}
 
-	else
+	else if (self->target->mental == 1)
 	{
-		if (self->target->mental == 1)
-		{
-			self->startX = getMapStartX();
+		self->startX = getMapStartX();
 
-			self->endX = getMapStartX() + SCREEN_WIDTH;
+		self->endX = getMapStartX() + SCREEN_WIDTH;
 
-			playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+		playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
-			self->creditsAction = &hunt;
-		}
+		self->creditsAction = &hunt;
 	}
 }

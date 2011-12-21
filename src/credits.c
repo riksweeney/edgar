@@ -46,7 +46,6 @@ static Credits credits;
 static char *enemies[] = {
 			"edgar/edgar",
 			"enemy/ghost",
-			"boss/ant_lion",
 			"enemy/chicken",
 			"enemy/grub",
 			"enemy/wasp",
@@ -1285,13 +1284,13 @@ static void shuffleEnemies()
 	char *s;
 	int i, j;
 
-	/* Skip Edgar, the Ghost and the Ant Lion */
+	/* Skip Edgar and the Ghost */
 
-	for (i=3;i<enemiesLength;i++)
+	for (i=2;i<enemiesLength;i++)
 	{
 		s = enemies[i];
 
-		j = 3 + prand() % (enemiesLength - 3);
+		j = 2 + prand() % (enemiesLength - 2);
 
 		enemies[i] = enemies[j];
 

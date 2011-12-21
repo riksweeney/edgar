@@ -103,6 +103,16 @@ static void init()
 
 static void entityWait()
 {
+	if (self->thinkTime > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "BELL");
+		}
+	}
+	
 	checkToMap(self);
 }
 
@@ -136,6 +146,10 @@ static void activate(int val)
 
 	else
 	{
+		self->thinkTime = 90;
+		
+		setEntityAnimation(self, "RING");
+		
 		snprintf(tune, MAX_VALUE_LENGTH, "sound/item/bell%d.ogg", self->mental);
 
 		playSoundToMap(tune, -1, self->x, self->y, 0);

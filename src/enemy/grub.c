@@ -73,7 +73,7 @@ static void creditsMove()
 {
 	self->thinkTime++;
 
-	if (self->thinkTime > 600)
+	if (self->thinkTime > 400)
 	{
 		self->mental = 1;
 	}
