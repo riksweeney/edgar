@@ -135,6 +135,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "train.h"
 #include "portable_save.h"
 #include "bell_rope.h"
+#include "music_sheet_display.h"
 
 extern Entity *self, player;
 
@@ -260,7 +261,8 @@ static Constructor items[] = {
 {"item/train_track", &addTrainTrack},
 {"item/train", &addTrain},
 {"item/portable_save", &addPortableSave},
-{"item/bell_rope", &addBellRope}
+{"item/bell_rope", &addBellRope},
+{"item/music_sheet_display", &addMusicSheetDisplay}
 };
 
 static int length = sizeof(items) / sizeof(Constructor);
