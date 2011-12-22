@@ -4106,13 +4106,7 @@ msgstr ""
 msgid "Blocking at the last moment increases the power of the reflected projectile"
 msgstr ""
 
-msgid "You cannot use this item here"
-msgstr ""
-
 msgid "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
-
-msgid "The shield has no use in this version!"
 msgstr ""
 
 msgid "A bell"
@@ -4124,20 +4118,59 @@ msgstr ""
 msgid "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Near misses don't count"
 msgstr ""
 
 msgid "Only the once though"
 msgstr ""
 
+msgid "Your controls have been reversed!"
+msgstr ""
+
+msgid "You cannot use this here"
+msgstr ""
+
+msgid "You can only use this item in an empty space"
+msgstr ""
+
+msgid "Bell"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Great, that worked!"
+msgstr ""
+
+msgid "This looks like the keepsake"
+msgstr ""
+
+msgid "Thank goodness for that, I really didn't want to have to open that coffin"
+msgstr ""
+
+msgid "Now to get out of here..."
+msgstr ""
+
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "I don't have all the ingredients yet."
+msgstr ""
+
+msgid "The book said I needed to find the following"
+msgstr ""
+
+msgid "The keepsake of the warrior that previously defeated it"
+msgstr ""
+
+msgid "I should create the disintegraion shield and rescue my Dad before I go chasing after that dragon"
+msgstr ""
+
+msgid "A sheet of music"
 msgstr ""
