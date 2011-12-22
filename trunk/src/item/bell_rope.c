@@ -74,6 +74,8 @@ Entity *addBellRope(int x, int y, char *name)
 
 static void init()
 {
+	int i;
+
 	if (self->active == TRUE)
 	{
 		setEntityAnimation(self, "BELL");
@@ -82,10 +84,20 @@ static void init()
 	if (self->mental == -1)
 	{
 		self->touch = NULL;
-		
+
 		self->flags |= NO_DRAW;
-		
+
 		self->activate = NULL;
+
+		if (strlen(self->requires) == 0)
+		{
+			for (i=0;i<8;i++)
+			{
+				self->requires[i] = '0' + prand() % 5;
+			}
+
+			self->requires[i] = '\0';
+		}
 	}
 
 	else
@@ -106,13 +118,13 @@ static void entityWait()
 	if (self->thinkTime > 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, "BELL");
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -147,36 +159,39 @@ static void activate(int val)
 	else
 	{
 		self->thinkTime = 90;
-		
+
 		setEntityAnimation(self, "RING");
-		
+
 		snprintf(tune, MAX_VALUE_LENGTH, "sound/item/bell%d.ogg", self->mental);
 
 		playSoundToMap(tune, -1, self->x, self->y, 0);
 
-		self->head->description[self->head->health] = '0' + self->mental;
-
-		self->head->health++;
-
-		self->head->description[self->head->health] = '\0';
-
-		if (self->head->health + 1 >= MAX_VALUE_LENGTH)
+		if (self->head->active == TRUE)
 		{
-			for (i=1;i<MAX_VALUE_LENGTH;i++)
-			{
-				self->head->description[i - 1] = self->head->description[i];
+			self->head->description[self->head->health] = '0' + self->mental;
 
-				self->head->description[i] = '\0';
+			self->head->health++;
+
+			self->head->description[self->head->health] = '\0';
+
+			if (self->head->health + 1 >= MAX_VALUE_LENGTH)
+			{
+				for (i=1;i<MAX_VALUE_LENGTH;i++)
+				{
+					self->head->description[i - 1] = self->head->description[i];
+
+					self->head->description[i] = '\0';
+				}
+
+				self->head->health = MAX_VALUE_LENGTH - 2;
 			}
 
-			self->head->health = MAX_VALUE_LENGTH - 2;
-		}
+			if (strstr(self->head->description, self->head->requires) != NULL)
+			{
+				fireTrigger(self->head->objectiveName);
 
-		if (strstr(self->head->description, self->head->requires) != NULL)
-		{
-			fireTrigger(self->head->objectiveName);
-			
-			fireGlobalTrigger(self->head->objectiveName);
+				fireGlobalTrigger(self->head->objectiveName);
+			}
 		}
 	}
 }
