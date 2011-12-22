@@ -79,10 +79,14 @@ static void createSave(int val)
 	{
 		player.inUse = FALSE;
 		
-		if (strcmpignorecase(getMapFilename(), self->requires) != 0 ||
-			player.standingOn != NULL || isSpaceEmpty(&player) != NULL)
+		if (strcmpignorecase(getMapFilename(), self->requires) != 0)
 		{
-			setInfoBoxMessage(120, 255, 255, 255, _("You cannot use this item here"));
+			setInfoBoxMessage(120, 255, 255, 255, _("You cannot use this here"));
+		}
+		
+		else if (player.standingOn != NULL || isSpaceEmpty(&player) != NULL)
+		{
+			setInfoBoxMessage(120, 255, 255, 255, _("You can only use this item in an empty space"));
 		}
 
 		else
