@@ -103,6 +103,8 @@ static void beamAttackInit()
 {
 	int i, j;
 	Entity *e, *prev;
+	
+	prev = NULL;
 
 	for (j=0;j<self->mental;j++)
 	{
@@ -312,6 +314,8 @@ static void directBeamAttack()
 {
 	int i, tileID;
 	Entity *e, *prev;
+	
+	prev = NULL;
 
 	self->thinkTime--;
 
