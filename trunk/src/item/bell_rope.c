@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../system/error.h"
+#include "../system/random.h"
 #include "../event/trigger.h"
 #include "../event/global_trigger.h"
 
@@ -93,7 +94,7 @@ static void init()
 		{
 			for (i=0;i<8;i++)
 			{
-				self->requires[i] = '0' + prand() % 5;
+				self->requires[i] = prand() % 5;
 			}
 
 			self->requires[i] = '\0';
@@ -168,7 +169,7 @@ static void activate(int val)
 
 		if (self->head->active == TRUE)
 		{
-			self->head->description[self->head->health] = '0' + self->mental;
+			self->head->description[self->head->health] = self->mental;
 
 			self->head->health++;
 

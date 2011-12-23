@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 extern Entity *self;
 
+static void init(void);
 static void sheetWait(void);
 static void noteWait(void);
 
@@ -51,7 +52,7 @@ Entity *addMusicSheetDisplay(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &sheetWait;
+	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -83,9 +84,9 @@ static void init()
 
 		loadProperties("item/music_note", e);
 
-		note = atoi(self->head->requires[i]);
+		note = (int)self->head->requires[i];
 
-		setEntityAnimation(e, note);
+		setEntityAnimationByID(e, note);
 
 		e->x = self->x + e->offsetX * (i + 1);
 		e->y = self->y + e->offsetY;
@@ -100,6 +101,8 @@ static void init()
 
 		e->head = self;
 	}
+	
+	self->action = &sheetWait;
 }
 
 static void sheetWait()
