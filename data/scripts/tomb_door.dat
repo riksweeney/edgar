@@ -23,7 +23,7 @@ END
 IF TOMB_DOOR_POINT HEALTH 3
 TALK Edgar I need to find out what Ivan's anthem is
 TALK Edgar Randomly ringing bells isn't going to work...
-SET CRYPT_POINT HEALTH 1
+SET TOMB_DOOR_POINT HEALTH 1
 END
 IF TOMB_DOOR_POINT HEALTH 0
 SET EDGAR FACE RIGHT

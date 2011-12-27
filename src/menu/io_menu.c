@@ -67,7 +67,7 @@ static void doMenu()
 
 		if (menu.index == menu.widgetCount)
 		{
-			menu.index = 0;
+			menu.index = 1;
 		}
 
 		menuInput.down = FALSE;
@@ -80,7 +80,7 @@ static void doMenu()
 	{
 		menu.index--;
 
-		if (menu.index < 0)
+		if (menu.index < 1)
 		{
 			menu.index = menu.widgetCount - 1;
 		}
@@ -112,7 +112,7 @@ static void loadMenuLayout(int saving)
 	char *line, *token, *savePtr1, *savePtr2;
 	char **saveFile;
 	unsigned char *buffer;
-	int x, y, i, width;
+	int x, y, i, j, width;
 
 	savePtr1 = NULL;
 	savePtr2 = NULL;
@@ -161,7 +161,7 @@ static void loadMenuLayout(int saving)
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	menu.widgetCount = MAX_SAVE_SLOTS + 1;
+	menu.widgetCount = MAX_SAVE_SLOTS + 2;
 
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
@@ -182,39 +182,59 @@ static void loadMenuLayout(int saving)
 	x = y = 5;
 
 	width = 0;
-
-	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	
+	if (saving == TRUE)
 	{
-		if (saveFile == NULL || strlen(saveFile[i]) == 0)
+		menu.widgets[i] = createWidget(_("Choose slot to save to"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+	}
+	
+	else
+	{
+		menu.widgets[i] = createWidget(_("Choose slot to load from"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+	}
+	
+	width = menu.widgets[i]->normalState->w;
+	
+	y += menu.widgets[i]->normalState->h + 5;
+	
+	i++;
+
+	for (j=0;j<MAX_SAVE_SLOTS;j++)
+	{
+		if (saveFile == NULL || strlen(saveFile[j]) == 0)
 		{
 			menu.widgets[i] = createWidget(_("<Empty>"), NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : NULL, -1, y, FALSE, 255, 255, 255);
 		}
 
 		else
 		{
-			menu.widgets[i] = createWidget(saveFile[i], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE, 255, 255, 255);
+			menu.widgets[i] = createWidget(saveFile[j], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE, 255, 255, 255);
 		}
 
 		y += menu.widgets[i]->normalState->h + 5;
 
-		if (saveFile[i] != NULL)
+		if (saveFile[j] != NULL)
 		{
-			free(saveFile[i]);
+			free(saveFile[j]);
 		}
 
 		if (menu.widgets[i]->normalState->w > width)
 		{
 			width = menu.widgets[i]->normalState->w;
 		}
+		
+		i++;
 	}
 
 	menu.w = width + 20;
 
 	y += 15;
 
-	menu.widgets[MAX_SAVE_SLOTS] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE, 255, 255, 255);
+	menu.widgets[i] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE, 255, 255, 255);
 
-	y += 5;
+	y += menu.widgets[i]->normalState->h + 10;
+	
+	menu.h = y;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
@@ -233,6 +253,11 @@ Menu *initIOMenu(int saving)
 	loadMenuLayout(saving);
 
 	menu.returnAction = saving == TRUE ? NULL : &showMainMenu;
+	
+	if (menu.index == 0)
+	{
+		menu.index = 1;
+	}
 
 	return &menu;
 }
@@ -268,7 +293,7 @@ static void showMainMenu()
 
 static void loadGameInSlot()
 {
-	if (loadGame(menu.index) == TRUE)
+	if (loadGame(menu.index - 1) == TRUE)
 	{
 		menu.returnAction = NULL;
 
@@ -289,7 +314,7 @@ static void loadGameInSlot()
 
 static void saveGameInSlot()
 {
-	saveGame(menu.index);
+	saveGame(menu.index - 1);
 
 	freeMessageQueue();
 

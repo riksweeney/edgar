@@ -143,7 +143,7 @@ static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 
-	if (strcmpignorecase(self->requires, other->name) == 0 || other->type == PROJECTILE)
+	if (strcmpignorecase(self->requires, other->name) == 0)
 	{
 		self->health -= damage;
 

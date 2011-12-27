@@ -24,7 +24,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "system/error.h"
 #include "credits.h"
 #include "inventory.h"
-#include "system/properties.h"
 #include "system/resources.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
@@ -265,12 +264,12 @@ static void doEndCredits()
 
 			if (self->inUse == TRUE)
 			{
+				remainingEntities++;
+				
 				self->takeDamage = NULL;
 
 				if (!(self->flags & TELEPORTING))
 				{
-					remainingEntities++;
-
 					if (!(self->flags & (FLY|GRABBED)))
 					{
 						switch (self->environment)

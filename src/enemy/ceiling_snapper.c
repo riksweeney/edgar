@@ -38,6 +38,9 @@ static void bite(void);
 static void biteFinish(void);
 static void touch(Entity *);
 static void trapEntity(Entity *);
+static void createVine(void);
+static void vineWait(void);
+static int drawVine(void);
 
 Entity *addCeilingSnapper(int x, int y, char *name)
 {
@@ -70,6 +73,8 @@ Entity *addCeilingSnapper(int x, int y, char *name)
 
 static void init()
 {
+	createVine();
+	
 	self->endY = MIN(getMapFloor(self->x + self->w - 1, self->y), getMapFloor(self->x, self->y));
 
 	self->endY -= self->startY;
@@ -190,4 +195,52 @@ static void trapEntity(Entity *other)
 			addMedal("eaten_5");
 		}
 	}
+}
+
+static void createVine()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Ceiling Snapper Vine");
+	}
+
+	loadProperties("enemy/ceiling_snapper_vine", e);
+
+	e->type = ENEMY;
+
+	e->face = RIGHT;
+
+	e->action = &vineWait;
+
+	e->draw = &drawVine;
+
+	e->head = self;
+
+	setEntityAnimation(e, "STAND");
+}
+
+static void vineWait()
+{
+	checkToMap(self);
+
+	self->x = self->head->x;
+	self->y = self->head->y - self->h + self->offsetY;
+}
+
+static int drawVine()
+{
+	int y = self->head->startY - self->h;
+	
+	drawLoopingAnimationToMap();
+
+	while (self->y > y)
+	{
+		drawSpriteToMap();
+
+		self->y -= self->h;
+	}
+
+	return TRUE;
 }

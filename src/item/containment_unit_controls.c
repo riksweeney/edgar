@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../event/script.h"
 #include "../system/error.h"
 #include "../system/random.h"
+#include "../world/explosion.h"
 
 extern Entity *self;
 
@@ -86,6 +87,30 @@ static void init()
 
 static void entityWait()
 {
+	Entity *e;
+	
+	if (self->mental > 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->thinkTime = 5;
+			
+			e = addExplosion(0, 0);
+			
+			e->x = self->x + self->w / 2 - e->w / 2;
+			e->y = self->y + self->h / 2 - e->h / 2;
+			
+			e->x += prand() % e->w * (prand() % 2 == 0 ? 1 : -1);
+			e->y += prand() % e->h * (prand() % 2 == 0 ? 1 : -1);
+			
+			e->damage = 0;
+			
+			self->mental--;
+		}
+	}
+	
 	checkToMap(self);
 }
 
@@ -156,13 +181,15 @@ static void takeDamage(Entity *other, int damage)
 
 				e->dirX = other->face == LEFT ? -6 : 6;
 
-				e->dirY = -ITEM_JUMP_HEIGHT;
+				e->dirY = ITEM_JUMP_HEIGHT;
 
 				self->active = FALSE;
 
 				setEntityAnimation(self, "WALK");
 
 				fireTrigger(self->objectiveName);
+				
+				self->mental = 15;
 			}
 		}
 

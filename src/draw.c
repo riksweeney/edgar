@@ -159,12 +159,9 @@ void draw()
 						SDL_SetClipRect(game.screen, NULL);
 					}
 					
-					if (game.showHUD == TRUE)
-					{
-						/* Draw the hud */
-						
-						drawHud();
-					}
+					/* Draw the hud */
+					
+					drawHud();
 
 					/* Draw the dialog box */
 

@@ -128,7 +128,7 @@ static void explodeWait()
 
 	checkToMap(self);
 
-	if (landedOnGround(onGround) == TRUE || onGround != 0)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->dirX = 0;
 

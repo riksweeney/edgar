@@ -141,127 +141,130 @@ void drawHud()
 	float percentage, clipWidth;
 	Entity *e;
 
-	itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
-
-	if (game.status == IN_INVENTORY)
+	if (game.showHUD == TRUE)
 	{
-		drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
-	}
+		itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
 
-	drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
-
-	drawImage(hud.itemBox, itemBoxMid, 15, FALSE, 255);
-
-	if (playerWeapon.inUse == TRUE)
-	{
-		x = FALSE;
-
-		if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
+		if (game.status == IN_INVENTORY)
 		{
-			e = getInventoryItemByObjectiveName(playerWeapon.requires);
+			drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
+		}
 
-			if (e != NULL)
+		drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
+
+		drawImage(hud.itemBox, itemBoxMid, 15, FALSE, 255);
+
+		if (playerWeapon.inUse == TRUE)
+		{
+			x = FALSE;
+
+			if (strcmpignorecase(playerWeapon.name, "weapon/bow") == 0)
+			{
+				e = getInventoryItemByObjectiveName(playerWeapon.requires);
+
+				if (e != NULL)
+				{
+					x = TRUE;
+
+					quant = e->health;
+				}
+			}
+
+			else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
 			{
 				x = TRUE;
 
-				quant = e->health;
+				quant = playerWeapon.mental;
 			}
-		}
 
-		else if (strcmpignorecase(playerWeapon.name, "weapon/lightning_sword") == 0)
-		{
-			x = TRUE;
-
-			quant = playerWeapon.mental;
-		}
-
-		if (x == TRUE)
-		{
-			if (quant < 0)
+			if (x == TRUE)
 			{
-				quant = 0;
-			}
-			
-			if (hud.quantity != quant)
-			{
-				if (hud.quantitySurface != NULL)
+				if (quant < 0)
 				{
-					SDL_FreeSurface(hud.quantitySurface);
+					quant = 0;
+				}
+				
+				if (hud.quantity != quant)
+				{
+					if (hud.quantitySurface != NULL)
+					{
+						SDL_FreeSurface(hud.quantitySurface);
+					}
+
+					snprintf(quantity, 4, "%d", quant);
+
+					hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255, FALSE);
 				}
 
-				snprintf(quantity, 4, "%d", quant);
-
-				hud.quantitySurface = generateTransparentTextSurface(quantity, game.font, 255, 255, 255, FALSE);
+				drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
 			}
-
-			drawImage(hud.quantitySurface, (SCREEN_WIDTH - hud.quantitySurface->w) / 2, 15 + hud.itemBox->h + 5, FALSE, 255);
 		}
-	}
 
-	else
-	{
-		hud.quantity = -1;
-	}
-
-	percentage = 0;
-
-	if (hud.bossHealth != NULL)
-	{
-		x = SCREEN_WIDTH - 6;
-		y = 5;
-
-		x -= (hud.heart->w + 5) * 10;
-
-		percentage = hud.bossHealthIndex * 100;
-
-		percentage /= hud.bossMaxHealth;
-
-		for (i=10;i<=100;i+=10)
+		else
 		{
-			if (i <= percentage)
+			hud.quantity = -1;
+		}
+
+		percentage = 0;
+
+		if (hud.bossHealth != NULL)
+		{
+			x = SCREEN_WIDTH - 6;
+			y = 5;
+
+			x -= (hud.heart->w + 5) * 10;
+
+			percentage = hud.bossHealthIndex * 100;
+
+			percentage /= hud.bossMaxHealth;
+
+			for (i=10;i<=100;i+=10)
 			{
-				drawImage(hud.heart, x, y, FALSE, 255);
-			}
+				if (i <= percentage)
+				{
+					drawImage(hud.heart, x, y, FALSE, 255);
+				}
 
-			else if (i - 10 < percentage)
+				else if (i - 10 < percentage)
+				{
+					clipWidth = (percentage - (i - 10)) / 10;
+
+					w = hud.heart->w * clipWidth;
+
+					drawClippedImage(hud.heart, 0, 0, x, y, w, hud.heart->h);
+				}
+
+				drawImage(hud.emptyHeart, x, y, FALSE, 255);
+
+				x += hud.heart->w + 5;
+			}
+		}
+
+		if (hud.infoMessage.surface != NULL)
+		{
+			drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE, 255);
+		}
+
+		w = h = 5;
+
+		for (i=0;i<player.maxHealth;i++)
+		{
+			if (i != 0 && (i % 10) == 0)
 			{
-				clipWidth = (percentage - (i - 10)) / 10;
+				h += hud.heart->h;
 
-				w = hud.heart->w * clipWidth;
-
-				drawClippedImage(hud.heart, 0, 0, x, y, w, hud.heart->h);
+				w = 5;
 			}
 
-			drawImage(hud.emptyHeart, x, y, FALSE, 255);
+			if (i < player.health)
+			{
+				drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30), 255);
+			}
 
-			x += hud.heart->w + 5;
+			drawImage(hud.emptyHeart, w, h, FALSE, 255);
+
+			w += hud.heart->w + 5;
 		}
-	}
-
-	if (hud.infoMessage.surface != NULL)
-	{
-		drawImage(hud.infoMessage.surface, (SCREEN_WIDTH - hud.infoMessage.surface->w) / 2, SCREEN_HEIGHT - TILE_SIZE - 1, FALSE, 255);
-	}
-
-	w = h = 5;
-
-	for (i=0;i<player.maxHealth;i++)
-	{
-		if (i != 0 && (i % 10) == 0)
-		{
-			h += hud.heart->h;
-
-			w = 5;
-		}
-
-		if (i < player.health)
-		{
-			drawImage(hud.heart, w, h, (player.health <= 3 && hud.thinkTime <= 30), 255);
-		}
-
-		drawImage(hud.emptyHeart, w, h, FALSE, 255);
-
-		w += hud.heart->w + 5;
 	}
 
 	if (hud.medalTextSurface != NULL)
