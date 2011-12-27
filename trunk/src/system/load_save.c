@@ -592,40 +592,8 @@ void saveGame(int slot)
 
 	else
 	{
-		/* Backup older save
-
-		for (i=1;;i++)
-		{
-			snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
-
-			read = fopen(saveFile, "rb");
-
-			if (read == NULL)
-			{
-				break;
-			}
-
-			else
-			{
-				fclose(read);
-			}
-
-			snprintf(backupFile, sizeof(backupFile), "%ssave%d.%04d", gameSavePath, slot, i);
-
-			read = fopen(backupFile, "rb");
-
-			if (read != NULL)
-			{
-				fclose(read);
-
-				continue;
-			}
-
-			copyFile(saveFile, backupFile);
-
-			break;
-		}
-		*/
+		/* Backup older save */
+		
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 	}
 

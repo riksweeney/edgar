@@ -27,7 +27,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/sorceror.h"
 #include "../system/properties.h"
 #include "../system/random.h"
-#include "../custom_actions.h"
 #include "../system/error.h"
 #include "../collisions.h"
 #include "../map.h"
@@ -39,10 +38,6 @@ static void entityWait(void);
 static void beamAttackInit(void);
 static void beamAttack(void);
 static void beamAttackWait(void);
-static void directBeamAttackInit(void);
-static void directBeamAttackChargeUp(void);
-static void directBeamAttack(void);
-static void directBeamAttackWait(void);
 static int drawBeam(void);
 static void appear(void);
 
@@ -95,18 +90,20 @@ static void appear()
 
 		self->takeDamage = &entityTakeDamageNoFlinch;
 
-		self->action = self->mental == -1 ? &directBeamAttackInit : &beamAttackInit;
+		self->action = &beamAttackInit;
 	}
 }
 
 static void beamAttackInit()
 {
-	int i, j;
+	int i, j, beams;
 	Entity *e, *prev;
 	
 	prev = NULL;
+	
+	beams = self->mental == -1 ? 2 : self->mental;
 
-	for (j=0;j<self->mental;j++)
+	for (j=0;j<beams;j++)
 	{
 		for (i=0;i<16;i++)
 		{
@@ -170,19 +167,36 @@ static void beamAttackInit()
 			}
 
 			e->flags |= FLY|DO_NOT_PERSIST|UNBLOCKABLE|PLAYER_TOUCH_ONLY;
+			
+			e->mental = self->mental;
+			
+			e->thinkTime = 300;
+			
+			e->health = 0;
 		}
 	}
 }
 
 static void beamAttack()
 {
-	float x, y, partDistanceX, partDistanceY;
+	float x, y, partDistanceX, partDistanceY, speedX, speedY;
 	Entity *e;
+	
+	speedX = self->dirX;
+	speedY = self->dirY;
+	
+	if (self->mental == -1)
+	{
+		speedX *= cos(DEG_TO_RAD(self->endX));
+		speedY *= cos(DEG_TO_RAD(self->endX));
+		
+		self->endX += 0.3;
+	}
 
-	self->x += self->dirX;
-	self->y += self->dirY;
+	self->x += speedX;
+	self->y += speedY;
 
-	if (self->dirX > 0 && self->x >= self->head->endX)
+	if (speedX > 0 && self->x >= self->head->endX)
 	{
 		self->x = self->head->endX;
 
@@ -190,7 +204,7 @@ static void beamAttack()
 		self->dirY = self->speed;
 	}
 
-	else if (self->dirX < 0 && self->x <= self->head->startX)
+	else if (speedX < 0 && self->x <= self->head->startX)
 	{
 		self->x = self->head->startX;
 
@@ -198,7 +212,7 @@ static void beamAttack()
 		self->dirY = -self->speed;
 	}
 
-	else if (self->dirY > 0 && self->y >= self->head->endY)
+	else if (speedY > 0 && self->y >= self->head->endY)
 	{
 		self->y = self->head->endY;
 
@@ -206,7 +220,7 @@ static void beamAttack()
 		self->dirY = 0;
 	}
 
-	else if (self->dirY < 0 && self->y <= self->head->startY)
+	else if (speedY < 0 && self->y <= self->head->startY)
 	{
 		self->y = self->head->startY;
 
@@ -228,190 +242,6 @@ static void beamAttack()
 		self->inUse = FALSE;
 
 		stopSound(self->targetX);
-	}
-
-	else
-	{
-		x = self->startX;
-		y = self->startY;
-
-		partDistanceX = self->x - self->startX;
-		partDistanceY = self->y - self->startY;
-
-		partDistanceX /= 16;
-		partDistanceY /= 16;
-
-		e = self->target;
-
-		while (e != NULL)
-		{
-			x += partDistanceX;
-			y += partDistanceY;
-
-			e->x = (e->target == NULL ? self->startX : x);
-			e->y = (e->target == NULL ? self->startY : y);
-
-			e->damage = self->damage;
-
-			e = e->target;
-		}
-	}
-}
-
-static void directBeamAttackInit()
-{
-	self->thinkTime = 180;
-
-	self->action = &directBeamAttackChargeUp;
-}
-
-static void directBeamAttackChargeUp()
-{
-	Entity *e;
-
-	if (player.health > 0)
-	{
-		e = addPixelDecoration(self->x, self->y);
-		
-		if (e != NULL)
-		{
-			e->x = self->x + (prand() % self->w) * (prand() % 2 == 0 ? -1 : 1) + self->w / 2;
-			e->y = self->y + (prand() % self->h) * (prand() % 2 == 0 ? -1 : 1) + self->h / 2;
-
-			e->startX = e->x;
-			e->startY = e->y;
-
-			e->endX = self->x + self->w / 2;
-			e->endY = self->y + self->h / 2;
-
-			e->thinkTime = 15;
-
-			e->health = 231;
-
-			e->maxHealth = 231;
-
-			e->mental = 231;
-
-			calculatePath(e->startX, e->startY, e->endX, e->endY, &e->dirX, &e->dirY);
-		}
-		
-		self->thinkTime--;
-		
-		if (self->thinkTime <= 0)
-		{
-			self->thinkTime = 15;
-
-			self->targetX = player.x + player.w / 2;
-
-			self->targetY = player.y + player.h / 2;
-
-			self->action = &directBeamAttack;
-		}
-	}
-}
-
-static void directBeamAttack()
-{
-	int i, tileID;
-	Entity *e, *prev;
-	
-	prev = NULL;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		for (i=0;i<16;i++)
-		{
-			e = getFreeEntity();
-
-			if (e == NULL)
-			{
-				showErrorAndExit("No free slots to add a Crypt Skull Beam");
-			}
-
-			loadProperties("boss/sorceror_disintegration_spell", e);
-
-			setEntityAnimation(e, "STAND");
-
-			if (i == 0)
-			{
-				e->flags &= ~NO_DRAW;
-
-				e->x = self->x + self->w / 2 - e->w / 2;
-				e->y = self->y + self->h / 2 - e->h / 2;
-
-				e->startX = e->x;
-				e->startY = e->y;
-
-				calculatePath(e->startX, e->startY, self->targetX, self->targetY, &e->dirX, &e->dirY);
-
-				tileID = mapTileAt(e->x / TILE_SIZE, e->y / TILE_SIZE);
-
-				while (!(tileID >= SOLID_TILE_START && tileID <= SOLID_TILE_END))
-				{
-					e->x += e->dirX;
-					e->y += e->dirY;
-
-					tileID = mapTileAt(e->x / TILE_SIZE, e->y / TILE_SIZE);
-				}
-
-				e->draw = &drawBeam;
-				e->action = &directBeamAttackWait;
-				e->touch = &entityTouch;
-
-				e->head = self;
-
-				self->action = &directBeamAttackChargeUp;
-
-				self->thinkTime = 60;
-
-				prev = e;
-
-				e->damage = 1;
-
-				e->thinkTime = 15;
-
-				playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
-			}
-
-			else
-			{
-				e->draw = &drawLoopingAnimationToMap;
-				e->touch = &entityTouch;
-				e->action = &doNothing;
-
-				e->damage = 1;
-
-				prev->target = e;
-
-				prev = e;
-			}
-
-			e->flags |= FLY|DO_NOT_PERSIST|UNBLOCKABLE|PLAYER_TOUCH_ONLY;
-		}
-	}
-}
-
-static void directBeamAttackWait()
-{
-	float x, y, partDistanceX, partDistanceY;
-	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		e = self->target;
-
-		while (e != NULL)
-		{
-			e->inUse = FALSE;
-
-			e = e->target;
-		}
-
-		self->inUse = FALSE;
 	}
 
 	else

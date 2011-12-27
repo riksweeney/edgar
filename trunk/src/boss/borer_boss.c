@@ -1205,7 +1205,7 @@ static void redTentacleAttackFinish()
 
 			self->health = 30;
 
-			stopSound(self->target->targetX);
+			stopSound(self->target->endX);
 
 			self->thinkTime = 30;
 

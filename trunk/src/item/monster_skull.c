@@ -156,7 +156,7 @@ static void takeDamage(Entity *other, int damage)
 
 				e->dirX = other->face == LEFT ? -6 : 6;
 
-				e->dirY = -ITEM_JUMP_HEIGHT;
+				e->dirY = ITEM_JUMP_HEIGHT;
 
 				self->active = FALSE;
 

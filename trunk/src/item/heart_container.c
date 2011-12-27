@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../graphics/animation.h"
 #include "../system/properties.h"
 #include "../entity.h"
+#include "../collisions.h"
 #include "../player.h"
 #include "../system/random.h"
 #include "../graphics/decoration.h"
@@ -30,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern Entity *self;
 
 static void touch(Entity *);
+static void entityWait(void);
 static int draw(void);
 
 Entity *addHeartContainer(int x, int y, char *name)
@@ -50,16 +52,34 @@ Entity *addHeartContainer(int x, int y, char *name)
 
 	e->face = RIGHT;
 
-	e->action = &doNothing;
+	e->action = &entityWait;
 	e->touch = &touch;
 
 	e->draw = &draw;
 
 	setEntityAnimation(e, "STAND");
 
-	e->thinkTime = 0;
-
 	return e;
+}
+
+static void entityWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime < 90)
+	{
+		if (self->thinkTime % 3 == 0)
+		{
+			self->flags ^= NO_DRAW;
+		}
+	}
+
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+	
+	checkToMap(self);
 }
 
 static void touch(Entity *other)

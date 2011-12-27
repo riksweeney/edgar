@@ -4055,7 +4055,7 @@ msgstr ""
 msgid "Defeated the Sewer Dweller"
 msgstr ""
 
-msgid "Defeated the Forbidden Swamp guardian"
+msgid "Defeated the Forbidden Swamp Guardian"
 msgstr ""
 
 msgid "Read all of the Monster Compendium"

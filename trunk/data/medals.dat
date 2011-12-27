@@ -1,4 +1,5 @@
 kill_sorceror G N Defeated the Sorceror
+complete_5hp G N Completed the game with only 5 hit points
 kill_chaos G Y Defeated Chaos
 50km S N Walked 50km
 arrow_500 S N Fired 500 arrows
@@ -40,7 +41,7 @@ kill_grub B Y Defeated the King Grub
 kill_mataeus B Y Defeated Mataeus
 kill_salamander B Y Defeated the Salamander
 kill_sewer B Y Defeated the Sewer Dweller
-kill_swamp_boss B Y Defeated the Forbidden Swamp guardian
+kill_swamp_boss B Y Defeated the Forbidden Swamp Guardian
 read_monster_book B Y Read all of the Monster Compendium
 resurrection_amulet B Y Obtained the Amulet of Resurrection
 slime B N Spent 10 minutes as a Slime
