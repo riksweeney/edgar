@@ -19,14 +19,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../system/error.h"
+#include "../collisions.h"
 #include "../custom_actions.h"
-#include "../inventory.h"
 #include "../entity.h"
 #include "../game.h"
+#include "../inventory.h"
+#include "../system/error.h"
 #include "item.h"
 #include "key_items.h"
-#include "../collisions.h"
 
 #include "chicken_feed.h"
 #include "chicken_trap.h"

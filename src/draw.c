@@ -19,19 +19,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
-#include "map.h"
-#include "graphics/decoration.h"
-#include "entity.h"
-#include "player.h"
-#include "hud.h"
-#include "game.h"
-#include "graphics/font.h"
-#include "system/record.h"
-#include "graphics/graphics.h"
-#include "dialog.h"
-#include "inventory.h"
-#include "event/script.h"
 #include "credits.h"
+#include "dialog.h"
+#include "entity.h"
+#include "event/script.h"
+#include "game.h"
+#include "graphics/decoration.h"
+#include "graphics/font.h"
+#include "graphics/graphics.h"
+#include "hud.h"
+#include "inventory.h"
+#include "map.h"
+#include "player.h"
+#include "system/record.h"
 
 extern Game game;
 extern Entity player;

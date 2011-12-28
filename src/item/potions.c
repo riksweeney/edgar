@@ -19,17 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../system/properties.h"
-#include "../graphics/animation.h"
-#include "../entity.h"
-#include "../player.h"
-#include "../inventory.h"
 #include "../custom_actions.h"
-#include "../item/item.h"
-#include "../inventory.h"
-#include "../item/key_items.h"
-#include "../system/error.h"
+#include "../entity.h"
+#include "../graphics/animation.h"
 #include "../hud.h"
+#include "../inventory.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
+#include "../player.h"
+#include "../system/error.h"
+#include "../system/properties.h"
 
 extern Entity *self, player;
 extern Game game;

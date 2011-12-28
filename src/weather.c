@@ -19,14 +19,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
-#include "system/random.h"
 #include "audio/audio.h"
-#include "map.h"
-#include "graphics/graphics.h"
 #include "draw.h"
-#include "weather.h"
 #include "game.h"
+#include "graphics/graphics.h"
+#include "map.h"
 #include "system/error.h"
+#include "system/random.h"
+#include "weather.h"
 
 static Droplet droplet[MAX_DROPS];
 extern Game game;

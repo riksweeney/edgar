@@ -19,18 +19,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "widget.h"
-#include "../init.h"
-#include "../graphics/graphics.h"
-#include "main_menu.h"
-#include "io_menu.h"
-#include "ok_menu.h"
-#include "../game.h"
-#include "../hud.h"
-#include "../system/pak.h"
-#include "../system/load_save.h"
 #include "../audio/audio.h"
+#include "../game.h"
+#include "../graphics/graphics.h"
+#include "../hud.h"
+#include "../init.h"
 #include "../system/error.h"
+#include "../system/load_save.h"
+#include "../system/pak.h"
+#include "io_menu.h"
+#include "main_menu.h"
+#include "ok_menu.h"
+#include "widget.h"
 
 extern Input input, menuInput;
 extern Game game;

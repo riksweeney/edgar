@@ -19,16 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../dialog.h"
 #include "../entity.h"
+#include "../event/script.h"
+#include "../game.h"
+#include "../hud.h"
+#include "../inventory.h"
+#include "../system/error.h"
+#include "global_trigger.h"
 #include "objective.h"
 #include "trigger.h"
-#include "global_trigger.h"
-#include "../event/script.h"
-#include "../hud.h"
-#include "../game.h"
-#include "../inventory.h"
-#include "../dialog.h"
-#include "../system/error.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 

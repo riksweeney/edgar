@@ -19,12 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
-#include "../system/properties.h"
 #include "../entity.h"
-#include "item.h"
-#include "../system/error.h"
+#include "../graphics/animation.h"
 #include "../hud.h"
+#include "../system/error.h"
+#include "../system/properties.h"
+#include "item.h"
 
 extern Entity *self;
 

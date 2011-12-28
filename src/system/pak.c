@@ -19,8 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 #include "pak.h"
-#include "load_save.h"
 #include "error.h"
+#include "load_save.h"
 
 static unsigned char *uncompressFile(char *, int);
 static unsigned char *uncompressFileRW(char *, unsigned long *);

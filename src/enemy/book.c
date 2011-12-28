@@ -19,21 +19,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
 #include "../audio/audio.h"
-#include "../entity.h"
-#include "../custom_actions.h"
-#include "../system/properties.h"
-#include "../system/random.h"
 #include "../collisions.h"
+#include "../custom_actions.h"
+#include "../entity.h"
 #include "../geometry.h"
-#include "../system/error.h"
+#include "../graphics/animation.h"
+#include "../hud.h"
+#include "../item/ice_cube.h"
 #include "../player.h"
 #include "../projectile.h"
-#include "../item/ice_cube.h"
-#include "thunder_cloud.h"
+#include "../system/error.h"
+#include "../system/properties.h"
+#include "../system/random.h"
 #include "rock.h"
-#include "../hud.h"
+#include "thunder_cloud.h"
 
 extern Entity *self, player;
 

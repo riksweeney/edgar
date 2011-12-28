@@ -19,12 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../graphics/animation.h"
 #include "../graphics/sprites.h"
-#include "../audio/audio.h"
-#include "properties.h"
 #include "error.h"
 #include "pak.h"
+#include "properties.h"
 
 static Properties properties[MAX_PROPS_FILES];
 

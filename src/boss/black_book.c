@@ -19,18 +19,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
-#include "../system/properties.h"
-#include "../entity.h"
 #include "../audio/audio.h"
 #include "../collisions.h"
-#include "../map.h"
-#include "../hud.h"
-#include "../world/target.h"
-#include "../system/error.h"
-#include "../geometry.h"
 #include "../enemy/enemies.h"
+#include "../entity.h"
 #include "../event/script.h"
+#include "../geometry.h"
+#include "../graphics/animation.h"
+#include "../hud.h"
+#include "../map.h"
+#include "../system/error.h"
+#include "../system/properties.h"
+#include "../world/target.h"
 
 extern Entity *self;
 

@@ -19,16 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
 #include "../enemy/enemies.h"
+#include "../entity.h"
+#include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
-#include "../entity.h"
-#include "../system/properties.h"
 #include "../player.h"
-#include "../graphics/decoration.h"
 #include "../projectile.h"
 #include "../system/error.h"
+#include "../system/properties.h"
 #include "../system/random.h"
 
 extern Entity *self;

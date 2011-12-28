@@ -20,12 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../entity.h"
-#include "objective.h"
-#include "trigger.h"
-#include "../inventory.h"
 #include "../event/script.h"
 #include "../hud.h"
+#include "../inventory.h"
 #include "../system/error.h"
+#include "objective.h"
+#include "trigger.h"
 
 static Trigger trigger[MAX_TRIGGERS];
 static Type type[] = {
