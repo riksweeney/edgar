@@ -7,6 +7,10 @@ Version 0.95
 * Removed dependency on SDL_Net
 * Made one the light pillars in the Catacombs stay active longer
 * Raising and lowering the music volume now works correctly
+* Fixed a possible hang during the end credits
+* Bombs grabbed by the Borer no longer play their sound effect endlessly
+* Dud Gazer Eyes no longer float in the air when thrown
+* Added a new medal: "Completed the game with only 5 hit points"
 
 Version 0.94
 * Fixed the crash on Windows
