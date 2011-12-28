@@ -19,14 +19,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
+#include "../collisions.h"
+#include "../entity.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
+#include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
-#include "../collisions.h"
-#include "../system/error.h"
-#include "../entity.h"
-#include "../audio/audio.h"
 
 static void entityWait(void);
 static void touch(Entity *);

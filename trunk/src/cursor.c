@@ -19,16 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
-#include "graphics/animation.h"
+#include "collisions.h"
 #include "entity.h"
-#include "system/properties.h"
+#include "graphics/animation.h"
+#include "graphics/graphics.h"
 #include "map.h"
 #include "player.h"
-#include "collisions.h"
-#include "world/target.h"
-#include "graphics/graphics.h"
-#include "system/pak.h"
 #include "status_panel.h"
+#include "system/pak.h"
+#include "system/properties.h"
+#include "world/target.h"
 
 extern Cursor cursor;
 extern Input input;

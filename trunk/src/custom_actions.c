@@ -19,11 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
-#include "player.h"
+#include "custom_actions.h"
 #include "entity.h"
 #include "hud.h"
 #include "medal.h"
-#include "custom_actions.h"
+#include "player.h"
 #include "system/error.h"
 
 extern Entity *self;

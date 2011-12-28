@@ -20,12 +20,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "headers.h"
 
 #include "cursor.h"
-#include "map.h"
 #include "entity.h"
-#include "player.h"
 #include "graphics/font.h"
-#include "world/target.h"
+#include "map.h"
+#include "player.h"
 #include "status_panel.h"
+#include "world/target.h"
 
 extern Game game;
 extern Cursor cursor;

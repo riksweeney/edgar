@@ -19,9 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/music.h"
 #include "../graphics/font.h"
 #include "../graphics/graphics.h"
-#include "../audio/music.h"
 #include "../input.h"
 
 extern Game game;

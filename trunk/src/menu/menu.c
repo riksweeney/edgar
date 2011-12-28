@@ -19,17 +19,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "about_menu.h"
+#include "cheat_menu.h"
+#include "control_menu.h"
+#include "inventory_menu.h"
+#include "io_menu.h"
 #include "main_menu.h"
+#include "ok_menu.h"
 #include "options_menu.h"
 #include "sound_menu.h"
-#include "io_menu.h"
-#include "control_menu.h"
 #include "stats_menu.h"
 #include "yes_no_menu.h"
-#include "inventory_menu.h"
-#include "ok_menu.h"
-#include "cheat_menu.h"
-#include "about_menu.h"
 
 extern Game game;
 

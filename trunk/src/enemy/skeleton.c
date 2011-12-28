@@ -19,19 +19,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "../graphics/animation.h"
-#include "../entity.h"
+#include "../audio/audio.h"
 #include "../collisions.h"
-#include "../system/properties.h"
-#include "../system/random.h"
+#include "../entity.h"
+#include "../event/global_trigger.h"
+#include "../event/trigger.h"
+#include "../geometry.h"
+#include "../graphics/animation.h"
+#include "../item/item.h"
+#include "../player.h"
 #include "../projectile.h"
 #include "../system/error.h"
-#include "../audio/audio.h"
-#include "../event/trigger.h"
-#include "../event/global_trigger.h"
-#include "../item/item.h"
-#include "../geometry.h"
-#include "../player.h"
+#include "../system/properties.h"
+#include "../system/random.h"
 
 extern Entity *self, player;
 

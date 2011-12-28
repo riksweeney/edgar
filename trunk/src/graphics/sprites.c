@@ -19,10 +19,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "sprites.h"
-#include "graphics.h"
-#include "../system/pak.h"
 #include "../system/error.h"
+#include "../system/pak.h"
+#include "graphics.h"
+#include "sprites.h"
 
 static Sprite sprite[MAX_SPRITES];
 

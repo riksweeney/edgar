@@ -19,9 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "random.h"
 #include "../map.h"
 #include "error.h"
+#include "random.h"
 
 static void saveBuffer(void);
 static void loadBuffer(void);

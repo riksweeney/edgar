@@ -19,15 +19,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "headers.h"
 
-#include "cursor.h"
-#include "init.h"
-#include "system/resources.h"
-#include "map.h"
 #include "collisions.h"
+#include "cursor.h"
 #include "draw.h"
-#include "input.h"
-#include "graphics/decoration.h"
 #include "entity.h"
+#include "graphics/decoration.h"
+#include "init.h"
+#include "input.h"
+#include "map.h"
+#include "system/resources.h"
 
 Input input, menuInput;
 Entity player, playerWeapon, playerShield, *self;

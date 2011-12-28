@@ -19,13 +19,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../collisions.h"
+#include "../map.h"
+#include "../system/error.h"
+#include "../system/pak.h"
 #include "animation.h"
 #include "graphics.h"
 #include "sprites.h"
-#include "../map.h"
-#include "../collisions.h"
-#include "../system/pak.h"
-#include "../system/error.h"
 
 static Animation animation[MAX_ANIMATIONS];
 extern Entity *self;

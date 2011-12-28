@@ -19,18 +19,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
-#include "widget.h"
+#include "../audio/audio.h"
 #include "../draw.h"
+#include "../graphics/graphics.h"
 #include "../hud.h"
 #include "../init.h"
-#include "../graphics/graphics.h"
+#include "../medal.h"
+#include "../system/error.h"
 #include "../system/pak.h"
-#include "../audio/audio.h"
+#include "label.h"
 #include "main_menu.h"
 #include "medals_menu.h"
-#include "label.h"
-#include "../system/error.h"
-#include "../medal.h"
+#include "widget.h"
 
 extern Input input, menuInput;
 extern Game game;
