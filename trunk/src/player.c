@@ -145,6 +145,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	playerShield.animationCallback = NULL;
 
 	clearCustomActions(&player);
+	
+	player.thinkTime = 0;
 
 	player.alpha = 255;
 
