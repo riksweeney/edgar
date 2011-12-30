@@ -278,7 +278,7 @@ msgstr "Ten teleport nie jest aktywny"
 
 #: src/world/level_exit.c:113
 #, c-format
-msgid "Press Action to go to the %s"
+msgid "Press Action to go to %s"
 msgstr "Naciśnij klawisz akcji by iść do %s"
 
 #: src/world/lift.c:159

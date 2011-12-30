@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -92,7 +92,8 @@ static char *enemies[] = {
 			"enemy/slug",
 			"enemy/upside_down_slug",
 			"enemy/arrow_skeleton",
-			"enemy/sword_skeleton"
+			"enemy/sword_skeleton",
+			"enemy/ceiling_creeper"
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 
@@ -378,7 +379,7 @@ static void doEndCredits()
 			{
 				credits.status = 0;
 
-				newGame();
+				titleScreen();
 			}
 		}
 	}
@@ -635,7 +636,7 @@ static void doEdgarLogo()
 			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
 		}
 
-		STRNCPY(credits.creditLine[0].text, _("Copyright Parallel Realities 2009 - 2011"), MAX_LINE_LENGTH);
+		STRNCPY(credits.creditLine[0].text, _("Copyright Parallel Realities 2009 - 2012"), MAX_LINE_LENGTH);
 
 		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.font, 220, 220, 220, TRUE);
 
@@ -690,7 +691,7 @@ static void doEdgarLogo()
 
 		credits.status = 0;
 
-		newGame();
+		titleScreen();
 	}
 }
 

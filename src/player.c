@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -105,7 +105,7 @@ Entity *loadPlayer(int x, int y, char *name)
 			player.maxHealth = player.health = 5;
 		#endif
 
-		setEntityAnimation(&player, "STAND");
+		setEntityAnimationByID(&player, 0);
 
 		player.draw = &drawLoopingAnimationToMap;
 
@@ -129,7 +129,7 @@ Entity *loadPlayer(int x, int y, char *name)
 
 		loadInventoryItems();
 
-		setEntityAnimation(&player, "STAND");
+		setEntityAnimationByID(&player, 0);
 
 		setPlayerLocation(x, y);
 

@@ -1,11 +1,11 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation file for The Legend of Edgar.
+# Copyright (C) 2012 Parallel Realities.
+# Richard Sweeney 2012.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar 0.92\n"
+"Project-Id-Version: The Legend of Edgar 0.95\n"
 "POT-Creation-Date: 2011-7-16 13:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -153,9 +153,6 @@ msgid "This door is locked"
 msgstr ""
 
 msgid "This teleporter is not active"
-msgstr ""
-
-msgid "Press Action to go to the %s"
 msgstr ""
 
 msgid "Push Up or Down to use this lift"
@@ -501,9 +498,6 @@ msgid "Guess I have no choice now."
 msgstr ""
 
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
-
-msgid "Something is supposed to happen now, but it's not in this version. Check back later!"
 msgstr ""
 
 msgid "There's a note here"
@@ -1292,37 +1286,13 @@ msgstr ""
 msgid "Ice Spray"
 msgstr ""
 
-msgid "Library"
-msgstr ""
-
 msgid "Right Wing Lift Key"
 msgstr ""
 
 msgid "Mine Entrance Door Key"
 msgstr ""
 
-msgid "Village"
-msgstr ""
-
-msgid "Cave"
-msgstr ""
-
-msgid "Fortress Outskirts"
-msgstr ""
-
-msgid "Forbidden Swamp"
-msgstr ""
-
 msgid "Sewage Restricted Zone Key"
-msgstr ""
-
-msgid "Basement"
-msgstr ""
-
-msgid "Fortress Ground Floor"
-msgstr ""
-
-msgid "Sewer"
 msgstr ""
 
 msgid "Fortress Main Key"
@@ -1335,9 +1305,6 @@ msgid "Teleporter Access Key 2"
 msgstr ""
 
 msgid "Teleporter Access Key 3"
-msgstr ""
-
-msgid "Laboratory"
 msgstr ""
 
 msgid "Empty Bottle"
@@ -3317,9 +3284,6 @@ msgstr ""
 msgid "Failed to load game"
 msgstr ""
 
-msgid "Your maximum health has decreased"
-msgstr ""
-
 msgid "Your %s has been destroyed"
 msgstr ""
 
@@ -3809,45 +3773,6 @@ msgstr ""
 msgid "Defeat the Sorceror"
 msgstr ""
 
-msgid "Mine"
-msgstr ""
-
-msgid "Forest"
-msgstr ""
-
-msgid "Fortress Basement"
-msgstr ""
-
-msgid "Borer Cave"
-msgstr ""
-
-msgid "Catacombs"
-msgstr ""
-
-msgid "Study"
-msgstr ""
-
-msgid "Dungeon"
-msgstr ""
-
-msgid "Frozen Wastes"
-msgstr ""
-
-msgid "Outer Cave Network"
-msgstr ""
-
-msgid "Inner Cave Network"
-msgstr ""
-
-msgid "Graveyard"
-msgstr ""
-
-msgid "Left Tower"
-msgstr ""
-
-msgid "Right Tower"
-msgstr ""
-
 msgid "Your shield is increasing in power..."
 msgstr ""
 
@@ -4136,12 +4061,6 @@ msgstr ""
 msgid "Bell"
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "Great, that worked!"
 msgstr ""
 
@@ -4152,12 +4071,6 @@ msgid "Thank goodness for that, I really didn't want to have to open that coffin
 msgstr ""
 
 msgid "Now to get out of here..."
-msgstr ""
-
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr ""
-
-msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
 
 msgid "I don't have all the ingredients yet."
@@ -4173,4 +4086,214 @@ msgid "I should create the disintegraion shield and rescue my Dad before I go ch
 msgstr ""
 
 msgid "A sheet of music"
+msgstr ""
+
+msgid "Choose slot to save to"
+msgstr ""
+
+msgid "Choose slot to load from"
+msgstr ""
+
+msgid "Press Action to go to %s"
+msgstr ""
+
+msgid "Give up?"
+msgstr ""
+
+msgid "I'll figure this out another time"
+msgstr ""
+
+msgid "This music sheet might be his anthem, I'll give it a go"
+msgstr ""
+
+msgid "I need to find out what Ivan's anthem is"
+msgstr ""
+
+msgid "Randomly ringing bells isn't going to work..."
+msgstr ""
+
+msgid "Something is etched on this door"
+msgstr ""
+
+msgid "Enshrined in this tomb is the great warrior Ivan"
+msgstr ""
+
+msgid "Defeater of the evil dragon known as Chaos"
+msgstr ""
+
+msgid "Access to his tomb is granted only to those who play his anthem"
+msgstr ""
+
+msgid "His anthem? How on earth am I going to figure that out?!"
+msgstr ""
+
+msgid "What a terrible anthem though, almost completely random"
+msgstr ""
+
+msgid "the Village"
+msgstr ""
+
+msgid "the Mine"
+msgstr ""
+
+msgid "the Forest"
+msgstr ""
+
+msgid "the Forbidden Swamp"
+msgstr ""
+
+msgid "the Cave"
+msgstr ""
+
+msgid "the Fortress Outskirts"
+msgstr ""
+
+msgid "the Sewer"
+msgstr ""
+
+msgid "the Fortress Basement"
+msgstr ""
+
+msgid "the Fortress Ground Floor"
+msgstr ""
+
+msgid "the Laboratory"
+msgstr ""
+
+msgid "the Library"
+msgstr ""
+
+msgid "the Fortress Mine"
+msgstr ""
+
+msgid "the Armoury"
+msgstr ""
+
+msgid "the Borer Cave"
+msgstr ""
+
+msgid "the Catacombs"
+msgstr ""
+
+msgid "the Study"
+msgstr ""
+
+msgid "the Dungeon"
+msgstr ""
+
+msgid "the Frozen Wastes"
+msgstr ""
+
+msgid "the Outer Cave Network"
+msgstr ""
+
+msgid "the Inner Cave Network"
+msgstr ""
+
+msgid "the Graveyard"
+msgstr ""
+
+msgid "the Left Tower"
+msgstr ""
+
+msgid "the Right Tower"
+msgstr ""
+
+msgid "the Crypt"
+msgstr ""
+
+msgid "Village"
+msgstr ""
+
+msgid "Mine"
+msgstr ""
+
+msgid "Forest"
+msgstr ""
+
+msgid "Forbidden Swamp"
+msgstr ""
+
+msgid "Cave"
+msgstr ""
+
+msgid "Fortress Outskirts"
+msgstr ""
+
+msgid "Sewer"
+msgstr ""
+
+msgid "Fortress Basement"
+msgstr ""
+
+msgid "Fortress Ground Floor"
+msgstr ""
+
+msgid "Laboratory"
+msgstr ""
+
+msgid "Library"
+msgstr ""
+
+msgid "Borer Cave"
+msgstr ""
+
+msgid "Catacombs"
+msgstr ""
+
+msgid "Study"
+msgstr ""
+
+msgid "Dungeon"
+msgstr ""
+
+msgid "Frozen Wastes"
+msgstr ""
+
+msgid "Outer Cave Network"
+msgstr ""
+
+msgid "Inner Cave Network"
+msgstr ""
+
+msgid "Graveyard"
+msgstr ""
+
+msgid "Left Tower"
+msgstr ""
+
+msgid "Right Tower"
+msgstr ""
+
+msgid "The Observatory"
+msgstr ""
+
+msgid "Crypt"
+msgstr ""
+
+msgid "Checkpoint"
+msgstr ""
+
+msgid "Copyright Parallel Realities 2009 - 2012"
+msgstr ""
+
+msgid "Restart Checkpoint"
+msgstr ""
+
+msgid "Cheats can only be enabled in-game"
+msgstr ""
+
+msgid "Press any key"
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""

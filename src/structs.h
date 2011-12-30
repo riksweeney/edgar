@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -166,7 +166,7 @@ typedef struct Game
 	int sfxDefaultVolume, musicDefaultVolume;
 	int showHints, status, fps, audioQuality;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
-	int gameType, transitionX, transitionY;
+	int gameType, transitionX, transitionY, previousStatus;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
 	int kills, batsDrowned, timesEaten;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
@@ -340,3 +340,8 @@ typedef struct Credits
 	SDL_Surface *edgarLogo, *prLogo, *fadeSurface;
 } Credits;
 
+typedef struct Title
+{
+	int thinkTime, continueSlot;
+	SDL_Surface *edgarLogo, *copyright, *startButton;
+} Title;

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -17,25 +17,25 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
 #include <ctype.h>
-#include <locale.h>
-#include <zlib.h>
 #include <dirent.h>
-#include <sys/types.h>
-#include <stdarg.h>
 #include <errno.h>
+#include <locale.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+#include <zlib.h>
 
 #ifndef NO_GETTEXT
 	#include <libintl.h>
 #endif
 
 #ifndef WIN32
-	#include <sys/stat.h>
 	#include <pwd.h>
 	#include <unistd.h>
 	#include <errno.h>

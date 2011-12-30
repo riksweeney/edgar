@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -166,6 +166,17 @@ void tutorial()
 	initGame();
 
 	cameraSnapToTargetEntity();
+}
+
+void titleScreen()
+{
+	removeTemporaryData();
+
+	freeGameResources();
+
+	initGame();
+	
+	game.status = IN_TITLE;
 }
 
 int loadGame(int slot)
@@ -800,6 +811,44 @@ static void updateSaveFileIndex(int slot)
 	}
 
 	fclose(fp);
+}
+
+int getMostRecentSave()
+{
+	char saveFile[MAX_PATH_LENGTH];
+	struct stat fileInfo;
+	int i, modTime, slot;
+	FILE *fp;
+	
+	modTime = 0;
+	
+	slot = -1;
+	
+	for (i=0;i<MAX_SAVE_SLOTS;i++)
+	{
+		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
+		
+		fp = fopen(saveFile, "rb");
+		
+		if (fp == NULL)
+		{
+			continue;
+		}
+		
+		if (stat(saveFile, &fileInfo) != -1)
+		{
+			if (fileInfo.st_mtime > modTime)
+			{
+				modTime = fileInfo.st_mtime;
+				
+				slot = i;
+			}
+		}
+
+		fclose(fp);
+	}
+	
+	return slot;
 }
 
 void saveTemporaryData()

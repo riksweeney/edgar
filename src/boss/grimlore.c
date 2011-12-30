@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2555,17 +2555,7 @@ static void itemDestroyerRetract()
 
 			e->damage = 1;
 
-			if (player.maxHealth > 5)
-			{
-				player.maxHealth--;
-
-				setInfoBoxMessage(90, 255, 255, 255, _("Your maximum health has decreased"));
-			}
-
-			if (player.health > player.maxHealth)
-			{
-				player.health = player.maxHealth;
-			}
+			setPlayerConfused(600);
 
 			self->head->maxThinkTime = 0;
 		}

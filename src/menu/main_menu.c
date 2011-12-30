@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../game.h"
 #include "../graphics/graphics.h"
+#include "../hud.h"
 #include "../init.h"
 #include "../system/error.h"
 #include "../system/load_save.h"
@@ -29,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "about_menu.h"
 #include "io_menu.h"
 #include "medals_menu.h"
+#include "ok_menu.h"
 #include "options_menu.h"
 #include "stats_menu.h"
 #include "widget.h"
@@ -50,6 +52,9 @@ static void showMainMenu(void);
 static void showAboutMenu(void);
 static void showStatsMenu(void);
 static void showMedalsMenu(void);
+static void quitToTitle(void);
+static void continueGame(void);
+static void restartCheckpoint(void);
 
 void drawMainMenu()
 {
@@ -79,7 +84,7 @@ static void doMenu()
 			}
 		}
 
-		while (menu.widgets[menu.index]->disabled == TRUE);
+		while (menu.widgets[menu.index]->disabled == TRUE || menu.widgets[menu.index]->hidden == TRUE);
 
 		menuInput.down = FALSE;
 		input.down = FALSE;
@@ -99,7 +104,7 @@ static void doMenu()
 			}
 		}
 
-		while (menu.widgets[menu.index]->disabled == TRUE);
+		while (menu.widgets[menu.index]->disabled == TRUE || menu.widgets[menu.index]->hidden == TRUE);
 
 		menuInput.up = FALSE;
 		input.up = FALSE;
@@ -230,9 +235,16 @@ static void loadMenuLayout()
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
+				{					
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &continueGame, x, y, TRUE, 255, 255, 255);
+					
+					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+				}
+				
+				else if (strcmpignorecase(menuID, "MENU_CHECKPOINT") == 0)
 				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &getContinuePoint, x, y, TRUE, 255, 255, 255);
-
+					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &restartCheckpoint, x, y, TRUE, 255, 255, 255);
+					
 					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
 				}
 
@@ -329,25 +341,33 @@ Menu *initMainMenu()
 
 	menu.action = &doMenu;
 
-	if (menu.widgets == NULL)
-	{
-		loadMenuLayout();
-	}
+	loadMenuLayout();
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
-		if (menu.widgets[i]->clickAction == &getContinuePoint)
+		if (menu.widgets[i]->clickAction == &continueGame)
 		{
 			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-
-			if (menu.widgets[i]->disabled == TRUE && menu.index == i)
-			{
-				menu.index = 0;
-			}
+			
+			menu.widgets[i]->hidden = game.previousStatus == IN_TITLE ? FALSE : TRUE;
+		}
+		
+		else if (menu.widgets[i]->clickAction == &restartCheckpoint)
+		{
+			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+			
+			menu.widgets[i]->hidden = game.previousStatus == IN_GAME ? FALSE : TRUE;
+		}
+		
+		else if (menu.widgets[i]->clickAction == &showStatsMenu)
+		{
+			menu.widgets[i]->disabled = game.previousStatus == IN_GAME ? FALSE : TRUE;
 		}
 	}
 
 	menu.returnAction = NULL;
+	
+	menu.index = 0;
 
 	return &menu;
 }
@@ -389,23 +409,80 @@ static void showMedalsMenu()
 
 static void doNewGame()
 {
-	game.menu = initYesNoMenu(_("Start a new game?"), &newGame, &showMainMenu);
-
-	game.drawMenu = &drawYesNoMenu;
+	if (game.previousStatus == IN_TITLE)
+	{
+		newGame();
+	}
+	
+	else
+	{
+		game.menu = initYesNoMenu(_("Start a new game?"), &newGame, &showMainMenu);
+	
+		game.drawMenu = &drawYesNoMenu;
+	}
 }
 
 static void doTutorial()
 {
-	game.menu = initYesNoMenu(_("Play the tutorial?"), &tutorial, &showMainMenu);
+	if (game.previousStatus == IN_TITLE)
+	{
+		tutorial();
+	}
+	
+	else
+	{
+		game.menu = initYesNoMenu(_("Play the tutorial?"), &tutorial, &showMainMenu);
 
-	game.drawMenu = &drawYesNoMenu;
+		game.drawMenu = &drawYesNoMenu;
+	}
 }
 
 static void doQuit()
 {
-	game.menu = initYesNoMenu(_("Exit the game?"), &quitGame, &showMainMenu);
+	if (game.previousStatus == IN_TITLE)
+	{
+		quitGame();
+	}
+	
+	else
+	{
+		game.menu = initYesNoMenu(_("Exit the game?"), &quitToTitle, &showMainMenu);
 
-	game.drawMenu = &drawYesNoMenu;
+		game.drawMenu = &drawYesNoMenu;
+	}
+}
+
+static void continueGame()
+{
+	if (loadGame(getMostRecentSave()) == TRUE)
+	{
+		menu.returnAction = NULL;
+
+		freeMessageQueue();
+
+		setInfoBoxMessage(60, 255, 255, 255, _("Game Loaded"));
+
+		game.paused = FALSE;
+	}
+
+	else
+	{
+		game.menu = initOKMenu(_("Failed to load game"), &showIOMenu);
+
+		game.drawMenu = &drawOKMenu;
+	}
+}
+
+static void restartCheckpoint()
+{
+	getContinuePoint();
+}
+
+static void quitToTitle()
+{
+	pauseGame();
+	
+	setTransition(TRANSITION_OUT, &titleScreen);
 }
 
 static void showMainMenu()

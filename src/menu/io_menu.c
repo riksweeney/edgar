@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -211,16 +211,16 @@ static void loadMenuLayout(int saving)
 			menu.widgets[i] = createWidget(saveFile[j], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE, 255, 255, 255);
 		}
 
-		y += menu.widgets[i]->normalState->h + 5;
+		y += menu.widgets[i]->selectedState->h + 5;
 
 		if (saveFile[j] != NULL)
 		{
 			free(saveFile[j]);
 		}
 
-		if (menu.widgets[i]->normalState->w > width)
+		if (menu.widgets[i]->selectedState->w > width)
 		{
-			width = menu.widgets[i]->normalState->w;
+			width = menu.widgets[i]->selectedState->w;
 		}
 		
 		i++;

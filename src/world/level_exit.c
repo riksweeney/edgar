@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -109,7 +109,7 @@ static void touch(Entity *other)
 {
 	if (other->type == PLAYER && self->active == TRUE)
 	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to go to the %s"), _(self->requires));
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to go to %s"), _(self->requires));
 	}
 }
 
