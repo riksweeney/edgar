@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -312,6 +312,8 @@ static void wipeOutRightToLeft()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -331,6 +333,8 @@ static void wipeOutLeftToRight()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -350,6 +354,8 @@ static void wipeInLeftToRight()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -369,6 +375,8 @@ static void wipeInRightToLeft()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -388,6 +396,8 @@ static void wipeInCircleToLarge()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -407,6 +417,8 @@ static void wipeInCircleToSmall()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -426,6 +438,8 @@ static void wipeOutCircleToLarge()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -445,6 +459,8 @@ static void wipeOutCircleToSmall()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -464,6 +480,8 @@ static void creditsWipeOut()
 
 		if (game.transitionCallback != NULL)
 		{
+			clearScreen(0, 0, 0);
+			
 			game.transitionCallback();
 		}
 
@@ -522,8 +540,6 @@ void showEndCredits()
 static void initEndCredits()
 {
 	game.status = IN_CREDITS;
-	
-	clearScreen(0, 0, 0);
 }
 
 void goToNextMap()
@@ -586,7 +602,10 @@ void pauseGame()
 	switch (game.status)
 	{
 		case IN_GAME:
+		case IN_TITLE:
 			game.paused = TRUE;
+			
+			game.previousStatus = game.status;
 
 			game.status = IN_MENU;
 
@@ -608,7 +627,6 @@ void pauseGame()
 			exit(0);
 		break;
 
-		case IN_TITLE:
 		case IN_INVENTORY:
 		case IN_CREDITS:
 			/* Do nothing */
@@ -626,7 +644,7 @@ void pauseGame()
 
 				game.paused = FALSE;
 
-				game.status = IN_GAME;
+				game.status = game.previousStatus;
 
 				game.menu = initMainMenu();
 
@@ -1033,6 +1051,8 @@ void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
 	saveContinueData();
 
 	self = temp;
+	
+	setInfoBoxMessage(90, 0, 255, 0, _("Checkpoint"));
 }
 
 void getContinuePoint()

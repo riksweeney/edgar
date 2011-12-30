@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -23,14 +23,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/sorceror.h"
 #include "../collisions.h"
 #include "../entity.h"
-#include "../geometry.h"
 #include "../graphics/animation.h"
-#include "../graphics/decoration.h"
 #include "../graphics/graphics.h"
-#include "../map.h"
 #include "../system/error.h"
 #include "../system/properties.h"
-#include "../system/random.h"
 
 extern Entity *self, player;
 

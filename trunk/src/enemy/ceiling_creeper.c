@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -43,6 +43,8 @@ static void tongueExtendOut(void);
 static int drawTongue(void);
 static void creeperTouch(Entity *);
 static void moveToMouthFinish(void);
+static void creditsAction(void);
+static void creditsMove(void);
 
 Entity *addCeilingCreeper(int x, int y, char *name)
 {
@@ -61,6 +63,8 @@ Entity *addCeilingCreeper(int x, int y, char *name)
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
+	
+	e->creditsAction = &creditsAction;
 
 	e->type = ENEMY;
 
@@ -401,5 +405,33 @@ static void creeperTouch(Entity *other)
 	else
 	{
 		entityTouch(other);
+	}
+}
+
+static void creditsAction()
+{
+	self->dirY -= GRAVITY_SPEED * self->weight;
+	
+	checkToMap(self);
+	
+	if (self->dirY == 0)
+	{
+		self->creditsAction = &creditsMove;
+	}
+}
+
+static void creditsMove()
+{
+	self->face = RIGHT;
+	
+	setEntityAnimation(self, "STAND");
+	
+	self->dirX = self->speed;
+	
+	checkToMap(self);
+	
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
 	}
 }

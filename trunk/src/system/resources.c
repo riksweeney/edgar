@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../menu/menu.h"
 #include "../player.h"
 #include "../status_panel.h"
+#include "../title.h"
 #include "../world/action_point.h"
 #include "../world/anti_gravity_field.h"
 #include "../world/conveyor_belt.h"
@@ -174,6 +175,10 @@ void freeGameResources()
 	/* Clear the boss meter */
 
 	freeBossHealthBar();
+	
+	/* Free the title screen */
+	
+	freeTitle();
 }
 
 void freeAllResources()

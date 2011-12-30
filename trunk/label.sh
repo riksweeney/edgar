@@ -63,5 +63,3 @@ then
 fi
 
 svn copy https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1 -m "Tagging $1"
-
-echo Update the messages.pot file

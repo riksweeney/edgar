@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -71,6 +71,13 @@ void getInput(int gameType)
 					{
 						exit(0);
 					}
+				}
+				
+				else if (game.status == IN_TITLE)
+				{
+					pauseGame();
+					
+					return;
 				}
 				
 				else if (game.status == IN_CREDITS)
@@ -381,6 +388,11 @@ void getInput(int gameType)
 					{
 						fadeCredits();
 					}
+				}
+				
+				else if (game.status == IN_TITLE)
+				{
+					pauseGame();
 				}
 
 				else if (key == control.button[CONTROL_PAUSE])

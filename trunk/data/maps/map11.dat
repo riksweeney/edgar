@@ -665,7 +665,7 @@ SPAWNTIME 0
 SPEED 0.00
 WEIGHT 1.00
 OBJECTIVE_NAME Fortress-Library
-REQUIRES Fortress Ground Floor
+REQUIRES the Fortress Ground Floor
 ACTIVE TRUE
 FACE RIGHT
 }

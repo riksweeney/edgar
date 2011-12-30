@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.95
 * The Crypt is now accessible
+* Added a basic title screen
 * Fixed more crashes on Windows
 * Removed dependency on SDL_Net
 * Made one the light pillars in the Catacombs stay active longer
@@ -10,6 +11,8 @@ Version 0.95
 * Fixed a possible hang during the end credits
 * Bombs grabbed by the Borer no longer play their sound effect endlessly
 * Dud Gazer Eyes no longer float in the air when thrown
+* Renamed Continue to Restart Checkpoint
+* The Restart Checkpoint option is now disabled after defeating the Watchdog
 * Added a new medal: "Completed the game with only 5 hit points"
 
 Version 0.94

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "map.h"
 #include "player.h"
 #include "system/record.h"
+#include "title.h"
 
 extern Game game;
 extern Entity player;
@@ -55,6 +56,10 @@ void draw()
 
 		switch (game.status)
 		{
+			case IN_TITLE:
+				drawTitle();
+			break;
+			
 			case IN_INVENTORY:
 				SDL_SetClipRect(game.screen, NULL);
 

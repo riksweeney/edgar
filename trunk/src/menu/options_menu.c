@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2009-2011 Parallel Realities
+Copyright (C) 2009-2012 Parallel Realities
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -49,6 +49,7 @@ static void showCheatMenuWarn(void);
 static void doMenu(void);
 static void toggleFullscreen(void);
 static void enableCheatMenu(void);
+static void showOptionsMenu(void);
 
 void drawOptionsMenu()
 {
@@ -405,8 +406,16 @@ static void showMainMenu()
 
 static void showCheatMenuWarn()
 {
-	game.menu = initOKMenu(_("Enabling cheats will not allow you to achieve 100% completion in the game"), &showCheatMenu);
-
+	if (game.previousStatus == IN_TITLE)
+	{
+		game.menu = initOKMenu(_("Cheats can only be enabled in-game"), &showOptionsMenu);
+	}
+	
+	else
+	{
+		game.menu = initOKMenu(_("Enabling cheats will not allow you to achieve 100% completion in the game"), &showCheatMenu);
+	}
+	
 	game.drawMenu = &drawOKMenu;
 }
 
@@ -430,4 +439,11 @@ static void enableCheatMenu()
 	}
 
 	game.cheatsEnabled = TRUE;
+}
+
+static void showOptionsMenu()
+{
+	game.menu = initOptionsMenu();
+
+	game.drawMenu = &drawOptionsMenu;
 }

@@ -165,7 +165,7 @@ msgstr "La puerta está cerrada"
 msgid "This teleporter is not active"
 msgstr "Este teletransportador no está activo"
 
-msgid "Press Action to go to the %s"
+msgid "Press Action to go to %s"
 msgstr "Pulsa Acción para ir al %s"
 
 msgid "Push Up or Down to use this lift"
