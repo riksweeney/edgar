@@ -1265,6 +1265,11 @@ static void takeDamage(Entity *other, int damage)
 							playerShield.health = 4;
 						}
 						
+						else
+						{
+							setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
+						}
+						
 						shieldHealth = playerShield.health;
 						
 						STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
@@ -1280,8 +1285,6 @@ static void takeDamage(Entity *other, int damage)
 						playerShield.health = shieldHealth;
 						
 						alignAnimations(&playerShield);
-						
-						setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
 					}
 				}
 			}

@@ -849,14 +849,14 @@ void initGameOver()
 		game.gameOverSurface = loadImage("gfx/common/gameover.png");
 	}
 
-	game.transitionX = 0;
+	game.gameOverX = 0;
 }
 
 void doGameOver()
 {
 	if (game.gameOverSurface != NULL)
 	{
-		game.transitionX += 3;
+		game.gameOverX += 3;
 	}
 }
 
@@ -864,12 +864,12 @@ void drawGameOver()
 {
 	if (game.gameOverSurface != NULL)
 	{
-		if (game.transitionX >= game.gameOverSurface->w)
+		if (game.gameOverX >= game.gameOverSurface->w)
 		{
-			game.transitionX = game.gameOverSurface->w;
+			game.gameOverX = game.gameOverSurface->w;
 		}
 
-		drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.transitionX, game.gameOverSurface->h);
+		drawClippedImage(game.gameOverSurface, 0, 0, (SCREEN_WIDTH - game.gameOverSurface->w) / 2, (SCREEN_HEIGHT - game.gameOverSurface->h) / 2, game.gameOverX, game.gameOverSurface->h);
 	}
 }
 
@@ -1051,8 +1051,6 @@ void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
 	saveContinueData();
 
 	self = temp;
-	
-	setInfoBoxMessage(90, 0, 255, 0, _("Checkpoint"));
 }
 
 void getContinuePoint()

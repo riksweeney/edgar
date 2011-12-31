@@ -366,8 +366,6 @@ Menu *initMainMenu()
 	}
 
 	menu.returnAction = NULL;
-	
-	menu.index = 0;
 
 	return &menu;
 }
@@ -480,6 +478,8 @@ static void restartCheckpoint()
 
 static void quitToTitle()
 {
+	menu.index = 0;
+	
 	pauseGame();
 	
 	setTransition(TRANSITION_OUT, &titleScreen);

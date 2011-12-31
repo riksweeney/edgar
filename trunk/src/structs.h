@@ -162,7 +162,7 @@ typedef struct Sound
 typedef struct Game
 {
 	int thinkTime, weatherType, weatherThinkTime;
-	int audio, hasConfig, fullscreen;
+	int audio, hasConfig, fullscreen, gameOverX;
 	int sfxDefaultVolume, musicDefaultVolume;
 	int showHints, status, fps, audioQuality;
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
