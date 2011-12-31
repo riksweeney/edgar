@@ -666,7 +666,7 @@ int patchEntities(double versionFile, char *mapName)
 
 			else if (strcmpignorecase(itemName, "REMOVE_ENTITY") == 0 && skipping == FALSE)
 			{
-				read = sscanf(line, "%*s %s %d %d\n", itemName, &x, &y);
+				read = sscanf(line, "%*s %s %d %d", itemName, &x, &y);
 
 				found = FALSE;
 
@@ -706,7 +706,7 @@ int patchEntities(double versionFile, char *mapName)
 
 			else if (strcmpignorecase(itemName, "UPDATE_ENTITY") == 0 && skipping == FALSE)
 			{
-				read = sscanf(line, "%*s %s %s %s\n", itemName, key, value);
+				read = sscanf(line, "%*s %s %s %s", itemName, key, value);
 
 				if (strcmpignorecase(itemName, "PLAYER") == 0)
 				{
@@ -731,7 +731,7 @@ int patchEntities(double versionFile, char *mapName)
 
 			else if (strcmpignorecase(itemName, "UPDATE_ENTITY_BY_START") == 0 && skipping == FALSE)
 			{
-				read = sscanf(line, "%*s %d %d %s %s\n", &x, &y, key, value);
+				read = sscanf(line, "%*s %d %d %s %[^\n]s", &x, &y, key, value);
 
 				if (strcmpignorecase(itemName, "PLAYER") == 0)
 				{

@@ -35,7 +35,6 @@ extern Game game;
 static void entityWait(void);
 static void touch(Entity *);
 static void activate(int);
-static void init(void);
 
 Entity *addLevelExit(char *name, int x, int y)
 {
@@ -55,7 +54,7 @@ Entity *addLevelExit(char *name, int x, int y)
 
 	STRNCPY(e->name, name, sizeof(e->name));
 
-	e->action = &init;
+	e->action = &entityWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &touch;
@@ -67,13 +66,6 @@ Entity *addLevelExit(char *name, int x, int y)
 	setEntityAnimation(e, "STAND");
 
 	return e;
-}
-
-static void init()
-{
-	self->action = &entityWait;
-
-	self->action();
 }
 
 static void entityWait()
