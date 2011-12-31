@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "graphics/animation.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
+#include "audio/music.h"
 #include "player.h"
 #include "system/load_save.h"
 #include "system/random.h"
@@ -91,6 +92,10 @@ static void initTitle()
 	}
 	
 	setTransition(TRANSITION_IN, NULL);
+	
+	loadMusic("music/march13.it");
+	
+	playLoadedMusic();
 }
 
 void freeTitle()

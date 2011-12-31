@@ -87,13 +87,13 @@ static char *enemies[] = {
 			"enemy/undead_gazer",
 			"enemy/fly_trap",
 			"enemy/armour_changer",
-			"enemy/master_tortoise",
 			"enemy/bat",
 			"enemy/slug",
 			"enemy/upside_down_slug",
 			"enemy/arrow_skeleton",
 			"enemy/sword_skeleton",
-			"enemy/ceiling_creeper"
+			"enemy/ceiling_creeper",
+			"enemy/master_tortoise" /* Always last */
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
 
@@ -1283,13 +1283,13 @@ static void shuffleEnemies()
 	char *s;
 	int i, j;
 
-	/* Skip Edgar and the Ghost */
+	/* Skip Edgar and the Ghost. Leave the Master Tortoise last */
 
-	for (i=2;i<enemiesLength;i++)
+	for (i=2;i<enemiesLength-1;i++)
 	{
 		s = enemies[i];
 
-		j = 2 + prand() % (enemiesLength - 2);
+		j = 2 + prand() % (enemiesLength - 3);
 
 		enemies[i] = enemies[j];
 

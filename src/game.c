@@ -617,10 +617,13 @@ void pauseGame()
 
 				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
 			}
-
-			pauseMusic(TRUE);
-
-			pauseSound(TRUE);
+			
+			if (game.previousStatus == IN_GAME)
+			{
+				pauseMusic(TRUE);
+	
+				pauseSound(TRUE);
+			}
 		break;
 
 		case IN_EDITOR:

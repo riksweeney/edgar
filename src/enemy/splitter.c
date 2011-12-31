@@ -413,6 +413,8 @@ static void takeDamage(Entity *other, int damage)
 			e->dirY /= 10;
 
 			e->flags |= DO_NOT_PERSIST;
+			
+			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
 		}
@@ -492,6 +494,8 @@ static void mediumTakeDamage(Entity *other, int damage)
 			e->dirY /= 10;
 
 			e->flags |= DO_NOT_PERSIST;
+			
+			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
 		}
@@ -648,6 +652,8 @@ static void largeCreditsMove()
 
 				e->dirX /= 10;
 				e->dirY /= 10;
+				
+				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
 			}
@@ -725,6 +731,8 @@ static void mediumCreditsMove()
 
 				e->dirX /= 10;
 				e->dirY /= 10;
+				
+				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
 			}
