@@ -398,19 +398,19 @@ static void raiseSFXVolume()
 static void lowerMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
-	pauseMusic(FALSE);
 
 	changeVolume(&game.musicDefaultVolume, w, -1);
+	
+	pauseMusic(FALSE);
 }
 
 static void raiseMusicVolume()
 {
 	Widget *w = menu.widgets[menu.index];
-	
-	pauseMusic(FALSE);
 
 	changeVolume(&game.musicDefaultVolume, w, 1);
+	
+	pauseMusic(FALSE);
 }
 
 static void toggleQuality()
