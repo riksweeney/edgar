@@ -39,14 +39,19 @@ void showErrorAndExit(char *fmt, ...)
 	va_start(ap, fmt);
 	vsnprintf(text, sizeof(text), fmt, ap);
 	va_end(ap);
+	
+	error1 = error2 = error3 = title = NULL;
+	
+	if (game.font != NULL)
+	{
+		title = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);
 
-	title = generateTextSurface(_("The Legend of Edgar has encountered the following error"), game.font, 0, 220, 0, 0, 0, 0);
+		error1 = generateTextSurface(text, game.font, 220, 220, 220, 0, 0, 0);
 
-	error1 = generateTextSurface(text, game.font, 220, 220, 220, 0, 0, 0);
+		error2 = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
 
-	error2 = generateTextSurface(_("Please report this error to Parallel Realities"), game.font, 0, 220, 0, 0, 0, 0);
-
-	error3 = generateTextSurface(_("Press Escape to exit"), game.font, 0, 220, 0, 0, 0, 0);
+		error3 = generateTextSurface(_("Press Escape to exit"), game.font, 0, 220, 0, 0, 0, 0);
+	}
 
 	printf("%s\n", text);
 

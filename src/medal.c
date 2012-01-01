@@ -154,10 +154,10 @@ void freeMedalQueue()
 
 	medalQueue.medalMessage.text[0] = '\0';
 	
-	saveObtainedMedals();
-	
 	if (medal != NULL)
 	{
+		saveObtainedMedals();
+		
 		free(medal);
 		
 		medal = NULL;
@@ -223,7 +223,7 @@ static void loadMedals()
 		
 		else
 		{
-			medal[i].medalType = 3;
+			showErrorAndExit("Unknown Medal type %s", medalType);
 		}
 		
 		medal[i].hidden = strcmpignorecase(hidden, "Y") == 0 ? TRUE : FALSE;

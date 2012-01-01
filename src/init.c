@@ -151,7 +151,9 @@ void cleanup()
 
 	fps *= 1000;
 
-	printf("%d frames in %ld milliseconds (%.2f fps)\n", game.frames, (game.endTicks - game.startTicks), fps);
+	#if DEV == 1
+		printf("%d frames in %ld milliseconds (%.2f fps)\n", game.frames, (game.endTicks - game.startTicks), fps);
+	#endif
 
 	/* Stop the replay data */
 
