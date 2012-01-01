@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../init.h"
 #include "../system/error.h"
 #include "../system/pak.h"
+#include "cheat_menu.h"
 #include "label.h"
 #include "options_menu.h"
 #include "widget.h"
@@ -264,11 +265,10 @@ static void loadMenuLayout()
 Menu *initCheatMenu()
 {
 	menu.action = &doMenu;
+	
+	freeCheatMenu();
 
-	if (menu.widgets == NULL)
-	{
-		loadMenuLayout();
-	}
+	loadMenuLayout();
 
 	menu.returnAction = &showOptionsMenu;
 

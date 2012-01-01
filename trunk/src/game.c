@@ -96,6 +96,10 @@ void initGame()
 	game.secretsFound = 0;
 	
 	game.cheating = FALSE;
+	
+	game.infiniteArrows = FALSE;
+	
+	game.infiniteEnergy = FALSE;
 
 	game.mapExitable = 0;
 
