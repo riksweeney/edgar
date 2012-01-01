@@ -697,6 +697,8 @@ int patchEntities(double versionFile, char *mapName)
 
 					if (e != NULL)
 					{
+						printf("Removing %s\n", e->name);
+						
 						e->inUse = FALSE;
 
 						found = TRUE;

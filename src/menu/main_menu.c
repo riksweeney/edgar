@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../game.h"
 #include "../graphics/graphics.h"
 #include "../hud.h"
@@ -483,6 +484,8 @@ static void quitToTitle()
 	pauseGame();
 	
 	setTransition(TRANSITION_OUT, &titleScreen);
+	
+	fadeOutMusic(500);
 }
 
 static void showMainMenu()
