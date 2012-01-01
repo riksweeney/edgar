@@ -2,3 +2,4 @@ GFX_FILE data/gfx/item/bell_rope.dat
 ANIM_FILE data/anim/item/bell_rope.dat
 TYPE KEY_ITEM
 FLAGS FLY
+LAYER BACKGROUND_LAYER

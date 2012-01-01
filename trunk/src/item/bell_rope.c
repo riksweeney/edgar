@@ -124,8 +124,6 @@ static void entityWait()
 			setEntityAnimation(self, "BELL");
 		}
 	}
-
-	checkToMap(self);
 }
 
 static void touch(Entity *other)
