@@ -35,7 +35,6 @@ void writePlayerMapStartToFile(FILE *);
 void increasePlayerMaxHealth(void);
 void syncWeaponShieldToPlayer(void);
 void freePlayer(void);
-void resetPlayerAnimations(void);
 EntityList *playerGib(void);
 void facePlayer(void);
 void setPlayerSlimed(int);

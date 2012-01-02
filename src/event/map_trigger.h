@@ -21,7 +21,5 @@ void fireMapTrigger(char *);
 void writeMapTriggersToFile(FILE *);
 void addMapTriggerFromResource(char *[], char *[]);
 void freeMapTriggers(void);
-int getMapTriggerTypeByName(char *);
-char *getMapTriggerTypeByID(int);
 void updateMapTrigger(char *, int);
 void addMapTriggerFromScript(char *);

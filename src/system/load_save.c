@@ -134,10 +134,10 @@ void startOnMap(char *mapName)
 	removeTemporaryData();
 
 	freeGameResources();
+	
+	initGame();
 
 	loadMap(mapName, TRUE);
-
-	initGame();
 
 	cameraSnapToTargetEntity();
 }
@@ -147,10 +147,10 @@ void newGame()
 	removeTemporaryData();
 
 	freeGameResources();
+	
+	initGame();
 
 	loadMap("map01", TRUE);
-
-	initGame();
 
 	cameraSnapToTargetEntity();
 }
@@ -160,10 +160,10 @@ void tutorial()
 	removeTemporaryData();
 
 	freeGameResources();
+	
+	initGame();
 
 	loadMap("tutorial", TRUE);
-
-	initGame();
 
 	cameraSnapToTargetEntity();
 }
@@ -1686,28 +1686,6 @@ char **getSaveFileIndex()
 	fclose(fp);
 
 	return entries;
-}
-
-int getPrivateKey(char *privateKey)
-{
-	int result;
-	char keyPath[MAX_PATH_LENGTH];
-	FILE *fp;
-
-	snprintf(keyPath, MAX_PATH_LENGTH, "%smedalKey", gameSavePath);
-
-	fp = fopen(keyPath, "rb");
-
-	if (fp == NULL)
-	{
-		return FALSE;
-	}
-
-	result = fscanf(fp, "%s", privateKey);
-
-	fclose(fp);
-
-	return TRUE;
 }
 
 static void showPatchMessage(char *message)
