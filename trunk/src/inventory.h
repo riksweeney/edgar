@@ -21,7 +21,6 @@ int addToInventory(Entity *);
 void moveInventoryCursor(int);
 void selectInventoryItem(void);
 Entity *getInventoryItemByObjectiveName(char *);
-void dropInventoryItem(void);
 void useInventoryItem(void);
 void doInventory(void);
 void drawSelectedInventoryItem(int, int, int, int);

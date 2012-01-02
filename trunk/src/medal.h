@@ -22,7 +22,6 @@ void addMedal(char *);
 void processMedals(void);
 void freeMedalQueue(void);
 void medalProcessingFinished(void);
-int connectToServer(void);
 Medal *getMedals(void);
 int getMedalCount(void);
 void setObtainedMedal(char *);
