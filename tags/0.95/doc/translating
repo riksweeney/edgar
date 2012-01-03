@@ -1,0 +1,14 @@
+Translating
+-----------
+
+If you want to translate The Legend of Edgar into another language, you will need to use the
+"edgar.pot" file which is in the locale directory.
+
+If you have used GNU Gettext then you should be quite familiar with the process. Unfortunately I don't
+have any experience with it so I cannot offer any assistance.
+
+Most of the text in the scripts and item names have been translated
+
+You can attach the po files to the SourceForge tracker
+
+https://sourceforge.net/tracker/?group_id=332836
