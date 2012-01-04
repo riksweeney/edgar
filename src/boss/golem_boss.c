@@ -53,9 +53,6 @@ static void initialShatter(void);
 static void die(void);
 static void takeDamage(Entity *, int);
 static void reform(void);
-static void headReform(void);
-static void reform2(void);
-static void headReform2(void);
 static void commence(void);
 static void entityWait(void);
 static void headWait(void);
@@ -97,7 +94,7 @@ Entity *addGolemBoss(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
 	e->die = &die;
-	
+
 	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
@@ -172,11 +169,8 @@ static void shatter()
 		{
 			showErrorAndExit("No free slots to add a Golem Boss Body Part");
 		}
-		
-		setEntityAnimationByID(e, i);
 
-		e->targetX = e->offsetX;
-		e->targetY = e->offsetY;
+		setEntityAnimationByID(e, i);
 
 		e->action = &partWait;
 
@@ -206,15 +200,15 @@ static void shatter()
 
 		if (e->face == LEFT)
 		{
-			e->targetX = self->x + self->w - e->w - e->targetX;
+			e->targetX = self->x + self->w - e->w - e->offsetX;
 		}
 
 		else
 		{
-			e->targetX = self->x + e->targetX;
+			e->targetX = self->x + e->offsetX;
 		}
 
-		e->targetY += self->startY;
+		e->targetY += self->offsetY;
 
 		e->target = NULL;
 
@@ -384,7 +378,7 @@ static void takeDamage(Entity *other, int damage)
 	int health;
 	Entity *temp;
 	EntityList *el, *entities;
-	
+
 	entities = getEntities();
 
 	if (self->flags & INVULNERABLE)
@@ -434,7 +428,7 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->health = 19;
 		}
-		
+
 		playSoundToMap("sound/common/rock_shatter.ogg", -1, self->x, self->y, 0);
 
 		setCustomAction(self, &flashWhite, 6, 0, 0);
