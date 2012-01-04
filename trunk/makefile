@@ -137,6 +137,7 @@ clean:
 	
 buildpak: $(PAK_PROG)
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) -test $(PAK_FILE)
 
 # install
 install: all

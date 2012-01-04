@@ -35,6 +35,7 @@ void initPakFile()
 		unsigned long offset;
 		FILE *fp;
 		int read;
+		double version;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
@@ -50,16 +51,23 @@ void initPakFile()
 			exit(0);
 		}
 
-		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
+		fseek(fp, -(sizeof(unsigned long) + sizeof(int) + sizeof(double)), SEEK_END);
 
 		read = fread(&offset, sizeof(unsigned long), 1, fp);
 		read = fread(&fileCount, sizeof(int), 1, fp);
+		read = fread(&version, sizeof(double), 1, fp);
 
 		fileData = malloc(fileCount * sizeof(FileData));
 
 		if (fileData == NULL)
 		{
-			printf("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
+			showErrorAndExit("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
+		}
+
+		if (version != VERSION)
+		{
+			printf("WARNING: PAK file appears to be from a different version. The game might not run correctly\n");
+			printf("Game version: %0.2f PAK file version: %0.2f\n", VERSION, version);
 		}
 
 		fseek(fp, offset, SEEK_SET);

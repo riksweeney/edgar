@@ -97,5 +97,6 @@ clean:
 	
 buildpak: $(PAK_PROG)
 	wine $(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	wine $(PAK_PROG) -test $(PAK_FILE)
 
 include makefile.dep

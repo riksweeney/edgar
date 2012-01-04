@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 {
 	int i;
 	long length;
+	double version;
 
 	if (argc == 3)
 	{
@@ -88,8 +89,11 @@ int main(int argc, char *argv[])
 		fwrite(&fileData[i], sizeof(FileData), 1, pak);
 	}
 
+	version = VERSION;
+
 	fwrite(&length, sizeof(long), 1, pak);
 	fwrite(&totalFiles, sizeof(int), 1, pak);
+	fwrite(&version, sizeof(double), 1, pak);
 
 	fclose(pak);
 
@@ -315,16 +319,24 @@ static void testPak(char *pakFile)
 		printf("Failed to open PAK file %s\n", pakFile);
 	}
 
-	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+	fseek(fp, -(sizeof(long) + sizeof(int) + sizeof(double)), SEEK_END);
 
 	read = fread(&offset, sizeof(long), 1, fp);
 	read = fread(&fileCount, sizeof(int), 1, fp);
+	read = fread(&version, sizeof(double), 1, fp);
 
 	fileData = malloc(fileCount * sizeof(FileData));
 
 	if (fileData == NULL)
 	{
 		printf("Could not allocate %d bytes for FileData\n", (int)(fileCount * sizeof(FileData)));
+
+		exit(1);
+	}
+
+	if (version != VERSION)
+	{
+		printf("Version mismatch: Game version: %0.2f PAK file version: %0.2f\n", VERSION, version);
 
 		exit(1);
 	}

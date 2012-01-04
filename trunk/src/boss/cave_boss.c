@@ -129,7 +129,7 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->draw = &drawCaveBoss;
 
 	e->die = &die;
-	
+
 	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
@@ -179,8 +179,6 @@ static void doIntro()
 		self->takeDamage = &takeDamage;
 
 		self->action = &attackFinished;
-
-		checkToMap(self);
 
 		self->startX = 0;
 
