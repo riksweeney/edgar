@@ -37,6 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "player.h"
 #include "system/error.h"
 #include "system/load_save.h"
+#include "system/pak.h"
 #include "system/record.h"
 #include "system/resources.h"
 #include "title.h"
@@ -170,6 +171,10 @@ int main(int argc, char *argv[])
 	}
 
 	loadRequiredResources();
+	
+	#if DEV == 0
+		verifyVersion();
+	#endif
 
 	/* Initialise the game variables */
 	

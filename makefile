@@ -83,10 +83,10 @@ CORE_OBJS += shield_pillar.o crossbow.o crossbow_bolt.o catapult.o stats_menu.o 
 CORE_OBJS += fish.o borer_boss.o light_pillar.o exploding_gazer_eye.o glass_cage.o lab_crusher.o exploding_gazer_eye_dud.o soul_merger.o
 CORE_OBJS += soul_merger_control_panel.o fire_tortoise.o lava_door.o dark_summoner.o flame_pillar.o phoenix.o pendulum.o extend_o_grab_button.o
 CORE_OBJS += puzzle_piece.o jigsaw_puzzle.o jigsaw_puzzle_display.o magnet.o ice_tortoise.o splitter.o attractor.o buzz_saw.o cell_bars.o
-CORE_OBJS += sorceror.o centurion_boss.o sonic_boom_panel.o sewer_boss.o item_remover.o safe.o ground_snapper.o sasquatch.o icicle.o giant_snowball.o
+CORE_OBJS += sorceror.o centurion_boss.o sewer_boss.o item_remover.o safe.o ground_snapper.o sasquatch.o icicle.o giant_snowball.o
 CORE_OBJS += script_menu.o snow_pile.o ceiling_creeper.o gas_plant.o centipede.o spore_crop.o spore.o sludge_pool.o vines.o undead_gazer.o
 CORE_OBJS += slime_potion_pool.o frog.o master_tortoise.o red_ceiling_creeper.o rampaging_master_tortoise.o cheat_menu.o monster_skull.o
-CORE_OBJS += cave_boss.o wall_walker.o apple_tree.o apple.o one_way_door.o colour_pot.o colour_display.o phase_door.o mastermind_display.o mastermind.o
+CORE_OBJS += cave_boss.o apple_tree.o apple.o one_way_door.o colour_pot.o colour_display.o phase_door.o mastermind_display.o mastermind.o
 CORE_OBJS += iron_ball.o memory_match.o memory_match_display.o hoover.o black_book_2.o drawbridge_pulley.o drawbridge_anchor.o giant_ceiling_creeper.o
 CORE_OBJS += baby_salamander.o safe_combination.o grimlore.o grimlore_artifact.o magic_missile.o grimlore_summon_spell.o hidden_passage_wall.o
 CORE_OBJS += poison_meat.o train.o train_track.o flame_statue.o armour_changer.o credits.o black_book_3.o sorceror_2.o sorceror_dark_summoner.o
@@ -145,6 +145,7 @@ ifeq ($(DEV),1)
 	echo Cannot install if DEV is set to 1!
 else
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) -test $(PAK_FILE)
 
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)

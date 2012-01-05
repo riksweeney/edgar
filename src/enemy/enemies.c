@@ -90,7 +90,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "master_tortoise.h"
 #include "red_ceiling_creeper.h"
 #include "rampaging_master_tortoise.h"
-#include "wall_walker.h"
 #include "iron_ball.h"
 #include "hoover.h"
 #include "giant_ceiling_creeper.h"
@@ -266,7 +265,6 @@ static Constructor enemies[] = {
 {"enemy/red_ceiling_creeper", &addRedCeilingCreeper},
 {"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise},
 {"boss/cave_boss", &addCaveBoss},
-{"enemy/wall_walker", &addWallWalker},
 {"enemy/iron_ball", &addIronBall},
 {"enemy/hoover", &addHoover},
 {"boss/black_book_2", &addBlackBook2},

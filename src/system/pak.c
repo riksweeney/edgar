@@ -35,7 +35,6 @@ void initPakFile()
 		unsigned long offset;
 		FILE *fp;
 		int read;
-		double version;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
@@ -51,23 +50,16 @@ void initPakFile()
 			exit(0);
 		}
 
-		fseek(fp, -(sizeof(unsigned long) + sizeof(int) + sizeof(double)), SEEK_END);
+		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
 
 		read = fread(&offset, sizeof(unsigned long), 1, fp);
 		read = fread(&fileCount, sizeof(int), 1, fp);
-		read = fread(&version, sizeof(double), 1, fp);
 
 		fileData = malloc(fileCount * sizeof(FileData));
 
 		if (fileData == NULL)
 		{
 			showErrorAndExit("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
-		}
-
-		if (version != VERSION)
-		{
-			printf("WARNING: PAK file appears to be from a different version. The game might not run correctly\n");
-			printf("Game version: %0.2f PAK file version: %0.2f\n", VERSION, version);
 		}
 
 		fseek(fp, offset, SEEK_SET);
@@ -82,6 +74,18 @@ void initPakFile()
 		fileCount = 0;
 		fileData = NULL;
 	#endif
+}
+
+void verifyVersion()
+{
+	char version[5];
+	
+	snprintf(version, sizeof(version), "%0.2f", VERSION);
+	
+	if (existsInPak(version) == FALSE)
+	{
+		showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
+	}
 }
 
 SDL_Surface *loadImageFromPak(char *name)
