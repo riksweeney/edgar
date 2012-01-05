@@ -20,20 +20,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../headers.h"
 
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../collisions.h"
+#include "../custom_actions.h"
 #include "../enemy/enemies.h"
 #include "../entity.h"
 #include "../event/script.h"
+#include "../game.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
+#include "../graphics/decoration.h"
 #include "../hud.h"
 #include "../map.h"
+#include "../player.h"
+#include "../projectile.h"
 #include "../system/error.h"
 #include "../system/properties.h"
+#include "../system/random.h"
 #include "../world/target.h"
 #include "../weather.h"
 
-extern Entity *self;
+extern Entity *self, player;
 
 static void initialise(void);
 static void doIntro(void);
@@ -48,14 +55,26 @@ static void phantasmalBoltMoveToTarget(void);
 static void phantasmalBolt(void);
 static void phantasmalBoltFinish(void);
 static void phantasmalBoltMove(void);
-static void phantasmalBoltReflect(void);
+static void phantasmalBoltReflect(Entity *);
 static void scytheThrowInit(void);
 static void scytheThrowMoveToTarget(void);
 static void scytheThrow(void);
 static void scytheThrowWait(void);
 static void scytheMove(void);
+static void soulStealInit(void);
+static void soulStealMoveToPlayer(void);
+static void soulSteal(void);
+static void soulStealFinish(void);
 static void soulWait(void);
+static void spikeAttackInit(void);
+static void spikeAttackMoveToTopTarget(void);
+static void spikeAttackWait(void);
+static void spikeRise(void);
+static void spikeSink(void);
+static void beamWait(void);
 static void soulLeave(void);
+static void becomeTransparent(void);
+static void takeDamage(Entity *, int);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -89,25 +108,24 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		if (strcmpignorecase(getWeatherTypeByID("HEAVY_RAIN") != 0)
+		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
 		{
 			setWeather(HEAVY_RAIN);
+			
+			playDefaultBossMusic();
 		}
 
-		self->flags &= ~NO_DRAW;
+		centerMapOnEntity(NULL);
 
-		if (cameraAtMinimum())
-		{
-			centerMapOnEntity(NULL);
+		self->action = &doIntro;
 
-			self->action = &doIntro;
+		self->thinkTime = 60;
+		
+		self->endX = 0;
 
-			self->thinkTime = 60;
+		self->touch = &entityTouch;
 
-			self->touch = &touch;
-
-			setContinuePoint(FALSE, self->name, NULL);
-		}
+		setContinuePoint(FALSE, self->name, NULL);
 	}
 
 	checkToMap(self);
@@ -138,6 +156,8 @@ static void doIntro()
 	e->y = t->y;
 
 	e->startY = e->y;
+	
+	e->alpha = 255;
 
 	e->action = &soulWait;
 
@@ -155,8 +175,6 @@ static void doIntro()
 
 	self->flags |= LIMIT_TO_SCREEN;
 
-	playDefaultBossMusic();
-
 	initBossHealthBar();
 
 	self->takeDamage = &takeDamage;
@@ -164,6 +182,8 @@ static void doIntro()
 	self->action = &attackFinished;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void entityWait()
@@ -188,6 +208,8 @@ static void entityWait()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void soulStealInit()
@@ -199,6 +221,10 @@ static void soulStealInit()
 	self->thinkTime = 30;
 
 	self->action = &soulStealMoveToPlayer;
+	
+	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void soulStealMoveToPlayer()
@@ -237,6 +263,10 @@ static void soulStealMoveToPlayer()
 
 		self->thinkTime = 600;
 	}
+	
+	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void soulSteal()
@@ -249,6 +279,10 @@ static void soulSteal()
 	{
 		self->action = &soulStealFinish;
 	}
+	
+	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void soulStealFinish()
@@ -321,6 +355,10 @@ static void soulStealFinish()
 
 		player.die();
 	}
+	
+	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void spikeAttackInit()
@@ -345,6 +383,8 @@ static void spikeAttackInit()
 	self->thinkTime = 30;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void spikeAttackMoveToTopTarget()
@@ -381,18 +421,20 @@ static void spikeAttackMoveToTopTarget()
 
 			e->mental = 0;
 
-			self->action = &spikeAttackTopWait;
+			self->action = &spikeAttackWait;
 
 			self->mental = 1;
 		}
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void beamWait()
 {
-	int x, startX;
+	int x, startX, floor;
 	Entity *e;
 
 	if (self->mental == 0)
@@ -401,6 +443,8 @@ static void beamWait()
 
 		if (self->thinkTime <= 0)
 		{
+			floor = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
+			
 			/* Left side of beam */
 
 			x = self->x;
@@ -416,6 +460,11 @@ static void beamWait()
 				e->head = self;
 
 				e->x = x - e->w;
+				e->y = floor;
+				
+				e->startY = e->y - e->h;
+				
+				e->endY = e->y;
 
 				e->action = &spikeRise;
 				e->draw = &drawLoopingAnimationToMap;
@@ -445,6 +494,11 @@ static void beamWait()
 				e->head = self;
 
 				e->x = x;
+				e->y = floor;
+				
+				e->startY = e->y - e->h;
+				
+				e->endY = e->y;
 
 				e->action = &spikeRise;
 				e->draw = &drawLoopingAnimationToMap;
@@ -468,6 +522,41 @@ static void beamWait()
 		self->head->mental = 0;
 
 		self->inUse = FALSE;
+	}
+}
+
+static void spikeRise()
+{
+	if (self->y > self->startY)
+	{
+		self->y -= self->speed * 2;
+	}
+
+	else
+	{
+		self->y = self->startY;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &spikeSink;
+		}
+	}
+}
+
+static void spikeSink()
+{
+	if (self->y < self->endY)
+	{
+		self->y += self->speed * 2;
+	}
+	
+	else
+	{
+		self->inUse = FALSE;
+		
+		self->head->mental = 2;
 	}
 }
 
@@ -513,6 +602,8 @@ static void scytheThrowInit()
 	self->action = &scytheThrowMoveToTarget;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void scytheThrowMoveToTarget()
@@ -527,6 +618,8 @@ static void scytheThrowMoveToTarget()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void scytheThrow()
@@ -574,7 +667,7 @@ static void scytheThrow()
 
 		e->targetX = self->face == LEFT ? e->x - distance : e->x + distance;
 
-		self->action = &scytheWait;
+		self->action = &scytheThrowWait;
 
 		self->thinkTime = 1;
 
@@ -582,9 +675,11 @@ static void scytheThrow()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
-static void scytheWait()
+static void scytheThrowWait()
 {
 	if (self->thinkTime <= 0)
 	{
@@ -592,6 +687,8 @@ static void scytheWait()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void scytheMove()
@@ -663,6 +760,8 @@ static void phantasmalBoltInit()
 	self->action = &phantasmalBoltMoveToTarget;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void phantasmalBoltMoveToTarget()
@@ -675,6 +774,8 @@ static void phantasmalBoltMoveToTarget()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void phantasmalBolt()
@@ -725,6 +826,8 @@ static void phantasmalBolt()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void phantasmalBoltFinish()
@@ -739,6 +842,8 @@ static void phantasmalBoltFinish()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void phantasmalBoltMove()
@@ -828,6 +933,8 @@ static void raiseDeadInit()
 	self->action = &raiseDeadMoveToTopTarget;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void raiseDeadMoveToTopTarget()
@@ -858,6 +965,8 @@ static void raiseDeadMoveToTopTarget()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void raiseDead()
@@ -894,6 +1003,8 @@ static void raiseDead()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void raiseDeadFinish()
@@ -918,6 +1029,8 @@ static void raiseDeadFinish()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void attackFinished()
@@ -931,10 +1044,19 @@ static void attackFinished()
 	self->action = &entityWait;
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void becomeTransparent()
 {
+	if (strcmpignorecase(self->name, "boss/azriel") != 0)
+	{
+		printf("%s cannot become transparent!\n", self->name);
+		
+		exit(1);
+	}
+	
 	self->endX--;
 
 	if (self->endX <= 0)
@@ -957,8 +1079,6 @@ static void becomeTransparent()
 
 static void takeDamage(Entity *other, int damage)
 {
-	Entity *temp;
-
 	if (self->flags & INVULNERABLE)
 	{
 		return;
