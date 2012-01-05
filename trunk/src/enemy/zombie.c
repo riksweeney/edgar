@@ -19,19 +19,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
 #include "../system/error.h"
 #include "../system/properties.h"
+#include "../system/random.h"
 
-Entity *addSpinner(int x, int y, char *name)
+extern Entity *self;
+
+static void creditsMove(void);
+
+Entity *addZombie(int x, int y, char *name)
 {
 	Entity *e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add a Spinner");
+		showErrorAndExit("No free slots to add a Zombie");
 	}
 
 	loadProperties(name, e);
@@ -39,17 +47,59 @@ Entity *addSpinner(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &rotateAroundStartPoint;
+	e->action = &moveLeftToRight;
 	e->draw = &drawLoopingAnimationToMap;
+	e->die = &die;
 	e->touch = &entityTouch;
-	e->die = &entityDieNoDrop;
-	e->pain = NULL;
 	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->reactToBlock = NULL;
+	e->reactToBlock = &changeDirection;
+
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void rise()
+{
+
+}
+
+static void die()
+{
+	Entity *e;
+
+	if (prand() % 3 == 0)
+	{
+		e = addKeyItem("item/spike_ball", self->x + self->w / 2, self->y);
+
+		e->x -= e->w / 2;
+
+		e->action = &generalItemAction;
+
+		e->flags |= DO_NOT_PERSIST;
+	}
+
+	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
+
+	entityDie();
+}
+
+static void creditsMove()
+{
+	self->face = RIGHT;
+
+	setEntityAnimation(self, "STAND");
+
+	self->dirX = self->speed;
+
+	checkToMap(self);
+
+	if (self->dirX == 0)
+	{
+		self->inUse = FALSE;
+	}
 }

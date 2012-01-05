@@ -31,6 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../world/target.h"
+#include "../weather.h"
 
 extern Entity *self;
 
@@ -54,6 +55,7 @@ static void scytheThrow(void);
 static void scytheThrowWait(void);
 static void scytheMove(void);
 static void soulWait(void);
+static void soulLeave(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -87,6 +89,11 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
+		if (strcmpignorecase(getWeatherTypeByID("HEAVY_RAIN") != 0)
+		{
+			setWeather(HEAVY_RAIN);
+		}
+
 		self->flags &= ~NO_DRAW;
 
 		if (cameraAtMinimum())
@@ -110,40 +117,42 @@ static void doIntro()
 {
 	Entity *e;
 	Target *t;
-	
+
 	e = getFreeEntity();
-	
+
 	if (e == NULL)
 	{
 		showErrorAndExit("No free slots to add Edgar's Soul");
 	}
-	
+
 	t = getTargetByName("EDGAR_SOUL_TARGET");
-	
+
 	if (t == NULL)
 	{
 		showErrorAndExit("Azirel cannot find target");
 	}
-	
+
 	loadProperties("boss/edgar_soul", e);
 
 	e->x = t->x;
 	e->y = t->y;
+
+	e->startY = e->y;
 
 	e->action = &soulWait;
 
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->type = ENEMY;
-	
-	e->mental = 30 * 60;
-	
+
+	e->mental = 60 * 60;
+
 	self->target = e;
-	
+
 	e->target = self;
 
 	setEntityAnimation(e, "STAND");
-	
+
 	self->flags |= LIMIT_TO_SCREEN;
 
 	playDefaultBossMusic();
@@ -165,7 +174,7 @@ static void entityWait()
 	{
 		if (self->target->mental <= 0)
 		{
-			self->action = &phantasmalBoltInit;
+			self->action = self->maxThinkTime == 0 ? &phantasmalBoltInit : &soulStealInit;
 		}
 
 		else
@@ -226,15 +235,17 @@ static void soulStealMoveToPlayer()
 
 		self->action = &soulSteal;
 
-		self->mental = self->health - 150;
+		self->thinkTime = 600;
 	}
 }
 
 static void soulSteal()
 {
+	self->thinkTime--;
+
 	player.x = self->targetX;
 
-	if (self->health <= self->mental)
+	if (self->thinkTime <= 0)
 	{
 		self->action = &soulStealFinish;
 	}
@@ -243,12 +254,11 @@ static void soulSteal()
 static void soulStealFinish()
 {
 	Target *t = getTargetByName("AZRIEL_TOP_TARGET");
+	Entity *e;
 
 	self->flags |= NO_DRAW;
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-
-	self->thinkTime = 30;
 
 	if (t == NULL)
 	{
@@ -257,6 +267,60 @@ static void soulStealFinish()
 
 	self->targetX = t->x;
 	self->targetY = t->y;
+
+	self->target->health++;
+
+	self->target->alpha = self->target->health * 64;
+
+	if (self->target->alpha > 255)
+	{
+		self->target->alpha = 255;
+	}
+
+	self->target->mental = 60 * 60;
+
+	self->target->maxThinkTime = 0;
+
+	player.alpha -= 64;
+
+	if (player.alpha <= 0)
+	{
+		e = removePlayerWeapon();
+
+		if (e != NULL)
+		{
+			if (e->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+		}
+
+		e = removePlayerShield();
+
+		if (e != NULL)
+		{
+			if (e->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+		}
+
+		player.die();
+	}
 }
 
 static void spikeAttackInit()
@@ -656,6 +720,8 @@ static void phantasmalBolt()
 		self->action = &phantasmalBoltFinish;
 
 		self->endY = 0;
+
+		self->target->maxThinkTime = 1;
 	}
 
 	checkToMap(self);
@@ -931,9 +997,37 @@ static void takeDamage(Entity *other, int damage)
 static void soulWait()
 {
 	self->mental--;
-	
+
 	if (self->mental <= 0)
 	{
 		self->mental = 0;
+	}
+
+	self->endX++;
+
+	if (self->endX >= 360)
+	{
+		self->endX = 0;
+	}
+
+	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 8;
+
+	if (self->alpha >= 255)
+	{
+		self->flags &= ~FLY;
+
+		self->action = &soulLeave;
+	}
+}
+
+static void soulLeave()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		setEntityAnimation(self, "WALK");
+
+		self->dirX = -self->speed;
 	}
 }

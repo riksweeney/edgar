@@ -34,7 +34,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "jumping_slime.h"
 #include "egg.h"
 #include "baby_slime.h"
-#include "spinner.h"
 #include "floating_snapper.h"
 #include "enemy_generator.h"
 #include "flying_bug.h"
@@ -160,7 +159,6 @@ static Constructor enemies[] = {
 {"enemy/baby_slime", &addBabySlime},
 {"enemy/red_baby_slime", &addBabySlime},
 {"enemy/purple_baby_slime", &addBabySlime},
-{"enemy/eye_spinner", &addSpinner},
 {"boss/snake_boss", &addSnakeBoss},
 {"enemy/floating_snapper", &addFloatingSnapper},
 {"enemy/bee_hive", &addEnemyGenerator},

@@ -292,7 +292,7 @@ Entity *addKeyItem(char *name, int x, int y)
 
 void keyItemTouch(Entity *other)
 {
-	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
+	if (!(self->flags & INVULNERABLE) && other->type == PLAYER && other->health > 0)
 	{
 		if (self->mental != -1 && strcmpignorecase(self->name, "item/health_potion") == 0)
 		{
