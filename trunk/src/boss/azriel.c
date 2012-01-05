@@ -53,6 +53,7 @@ static void scytheThrowMoveToTarget(void);
 static void scytheThrow(void);
 static void scytheThrowWait(void);
 static void scytheMove(void);
+static void soulWait(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -107,6 +108,42 @@ static void initialise()
 
 static void doIntro()
 {
+	Entity *e;
+	Target *t;
+	
+	e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Edgar's Soul");
+	}
+	
+	t = getTargetByName("EDGAR_SOUL_TARGET");
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Azirel cannot find target");
+	}
+	
+	loadProperties("boss/edgar_soul", e);
+
+	e->x = t->x;
+	e->y = t->y;
+
+	e->action = &soulWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->type = ENEMY;
+	
+	e->mental = 30 * 60;
+	
+	self->target = e;
+	
+	e->target = self;
+
+	setEntityAnimation(e, "STAND");
+	
 	self->flags |= LIMIT_TO_SCREEN;
 
 	playDefaultBossMusic();
@@ -126,7 +163,7 @@ static void entityWait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->endY >= 5)
+		if (self->target->mental <= 0)
 		{
 			self->action = &phantasmalBoltInit;
 		}
@@ -888,5 +925,15 @@ static void takeDamage(Entity *other, int damage)
 	else
 	{
 		entityTakeDamageNoFlinch(other, damage);
+	}
+}
+
+static void soulWait()
+{
+	self->mental--;
+	
+	if (self->mental <= 0)
+	{
+		self->mental = 0;
 	}
 }

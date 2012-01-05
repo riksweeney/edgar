@@ -106,7 +106,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "magnet.h"
 #include "attractor.h"
 #include "cell_bars.h"
-#include "sonic_boom_panel.h"
 #include "item_remover.h"
 #include "safe.h"
 #include "snow_pile.h"
@@ -225,7 +224,6 @@ static Constructor items[] = {
 {"item/attractor", &addAttractor},
 {"item/horizontal_glass_wall", &addGlassWall},
 {"item/cell_bars", &addCellBars},
-{"item/sonic_boom_panel", &addSonicBoomPanel},
 {"item/item_remover", &addItemRemover},
 {"item/safe", &addSafe},
 {"item/snow_pile", &addSnowPile},
