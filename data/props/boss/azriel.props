@@ -1,0 +1,8 @@
+HEALTH 4000
+DAMAGE 1
+GFX_FILE data/gfx/enemy/ghost.dat
+ANIM_FILE data/anim/enemy/ghost.dat
+TYPE ENEMY
+FLAGS NO_DRAW|FLY
+SPEED 2.5
+ALPHA 128

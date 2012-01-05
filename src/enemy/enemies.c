@@ -133,6 +133,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../boss/black_book_3.h"
 #include "../boss/sorceror_2.h"
 #include "../boss/sorceror_floor.h"
+#include "../boss/azriel.h"
 
 #include "../system/error.h"
 
@@ -286,7 +287,8 @@ static Constructor enemies[] = {
 {"enemy/skull_door", &addSkullDoor},
 {"enemy/ghost", &addGhost},
 {"enemy/arrow_skeleton", &addSkeleton},
-{"enemy/sword_skeleton", &addSkeleton}
+{"enemy/sword_skeleton", &addSkeleton},
+{"boss/azriel", &addAzriel}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
