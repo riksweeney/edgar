@@ -103,6 +103,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "skull_door.h"
 #include "ghost.h"
 #include "skeleton.h"
+#include "zombie.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -288,7 +289,8 @@ static Constructor enemies[] = {
 {"enemy/ghost", &addGhost},
 {"enemy/arrow_skeleton", &addSkeleton},
 {"enemy/sword_skeleton", &addSkeleton},
-{"boss/azriel", &addAzriel}
+{"boss/azriel", &addAzriel},
+{"enemy/zombie", &addZombie}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);

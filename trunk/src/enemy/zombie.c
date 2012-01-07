@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../custom_actions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
+#include "../hud.h"
 #include "../inventory.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
@@ -32,7 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 
-extern Entity *self, player;
+extern Entity *self, player, playerWeapon;
 
 static void rise(void);
 static void attackPlayer(void);
@@ -40,6 +41,7 @@ static void touch(Entity *);
 static void stealItem(void);
 static void leave(void);
 static void sink(void);
+static void die(void);
 static Entity *getRandomItem(void);
 static void creditsMove(void);
 
@@ -59,8 +61,7 @@ Entity *addZombie(int x, int y, char *name)
 
 	e->action = &rise;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
-	e->touch = &touch;
+	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 
 	e->creditsAction = &creditsMove;
@@ -74,23 +75,34 @@ Entity *addZombie(int x, int y, char *name)
 
 static void rise()
 {
-	facePlayer();
+	self->thinkTime--;
 	
-	if (self->y > self->startY)
+	if (self->thinkTime <= 0)
 	{
-		self->y--;
-	}
-	
-	else
-	{
-		self->y = self->startY;
+		facePlayer();
 		
-		self->action = &attackPlayer;
+		if (self->y > self->startY)
+		{
+			self->y--;
+		}
+		
+		else
+		{
+			self->touch = &touch;
+			
+			self->y = self->startY;
+			
+			self->action = &attackPlayer;
+			
+			self->layer = MID_GROUND_LAYER;
+		}
 	}
 }
 
 static void attackPlayer()
 {
+	facePlayer();
+	
 	self->dirX = player.x < self->x ? -self->speed : self->speed;
 	
 	checkToMap(self);
@@ -121,24 +133,30 @@ static void touch(Entity *other)
 		other->inUse = FALSE;
 	}
 
-	else if (self->target == other && !(self->flags & GRABBING))
+	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
-		self->targetX = player.x;
+		self->takeDamage = entityTakeDamageNoFlinch;
 		
-		player.flags |= GROUNDED;
+		self->targetX = player.x;
 
 		self->action = &stealItem;
 		
-		self->thinkTime = 300;
+		self->thinkTime = 120;
 
 		self->flags |= GRABBING;
-
-		self->layer = FOREGROUND_LAYER;
+		
+		setCustomAction(&player, &stickToFloor, 3, 0, 0);
 	}
 }
 
 static void stealItem()
 {
+	self->layer = FOREGROUND_LAYER;
+	
+	setCustomAction(&player, &stickToFloor, 3, 0, 0);
+	
+	player.x = self->targetX;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
@@ -147,6 +165,10 @@ static void stealItem()
 		
 		if (self->target != NULL)
 		{
+			self->target->flags |= NO_DRAW;
+			
+			setInfoBoxMessage(180, 255, 255, 255, _("Your %s has been stolen!"), self->target->objectiveName);
+			
 			setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
 		}
 		
@@ -176,9 +198,18 @@ static void leave()
 	
 	if (fabs(self->startX - self->x) <= fabs(self->dirX) || self->thinkTime <= 0)
 	{
+		self->touch = NULL;
+		
 		self->dirX = 0;
 		
 		self->action = &sink;
+		
+		self->layer = BACKGROUND_LAYER;
+		
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
 	}
 }
 
@@ -187,53 +218,76 @@ static void sink()
 	self->y++;
 	
 	if (self->y >= self->endY)
-	{
-		if (self->target != NULL)
-		{
-			self->target->inUse = FALSE;
-		}
-		
+	{		
 		self->inUse = FALSE;
 	}
 }
 
+static void die()
+{
+	if (self->target != NULL)
+	{
+		self->target->flags &= ~NO_DRAW;
+
+		setCustomAction(self->target, &invulnerable, 60, 0, 0);
+
+		self->target->dirY = ITEM_JUMP_HEIGHT;
+	}
+
+	entityDie();
+}
+
 static Entity *getRandomItem()
 {
-	int size, i;
+	int size, i, count;
 	Entity *e;
-	char itemName[MAX_VALUE_LENGTH];
 	char *items[] = {
 		"item/health_potion",
+		"weapon/normal_arrow",
+		"weapon/fire_arrow",
+		"item/spike_ball",
+		"item/spike_ball",
 		"weapon/lightning_sword",
 		"weapon/lightning_sword_empty",
-		"item/instruction_card",
-		"weapon/normal_arrow",
-		"weapon/flaming_arrow",
 		"item/full_soul_bottle",
 		"item/tortoise_shell",
 		"item/summoner_staff",
+		"item/keepsake",
 		"item/flaming_arrow_potion",
 		"item/resurrection_amulet",
-		"item/bomb",
-		"item/spike_ball"
+		"item/bomb"
 	};
 
 	size = sizeof(items) / sizeof(char *);
+	
+	e = NULL;
 
-	i = prand() % size;
-
-	e = getInventoryItemByName(items[i]);
-
-	if (e != NULL)
+	for (count=0;count<size;count++)
 	{
-		if (strcmpignorecase(e->name, "item/health_potion") == 0)
-		{
-			e->mental = -1;
-		}
-		
-		STRNCPY(itemName, e->objectiveName, sizeof(itemName));
+		i = prand() % size;
 
-		removeInventoryItemByName(e->name);
+		e = getInventoryItemByName(items[i]);
+
+		if (e != NULL)
+		{
+			if (strcmpignorecase(e->name, "item/health_potion") == 0)
+			{
+				e->mental = -1;
+			}
+			
+			if (strcmpignorecase(e->name, playerWeapon.name) == 0)
+			{
+				setPlayerLocked(TRUE);
+
+				setPlayerLocked(FALSE);
+			}
+
+			removeInventoryItemByName(e->name);
+			
+			e = addEntity(*e, self->x, self->y);
+			
+			break;
+		}
 	}
 	
 	return e;
