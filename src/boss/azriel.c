@@ -30,7 +30,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
+#include "../graphics/graphics.h"
 #include "../hud.h"
+#include "../inventory.h"
+#include "../item/key_items.h"
 #include "../map.h"
 #include "../player.h"
 #include "../projectile.h"
@@ -75,6 +78,10 @@ static void beamWait(void);
 static void soulLeave(void);
 static void becomeTransparent(void);
 static void takeDamage(Entity *, int);
+static void die(void);
+static void dieShudder(void);
+static void dieMoveToTop(void);
+static void dieWait(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -94,7 +101,7 @@ Entity *addAzriel(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = NULL;
-	e->die = NULL;
+	e->die = &die;
 	e->takeDamage = NULL;
 
 	e->type = ENEMY;
@@ -110,6 +117,8 @@ static void initialise()
 	{
 		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
 		{
+			self->flags &= ~NO_DRAW;
+			
 			setWeather(HEAVY_RAIN);
 			
 			playDefaultBossMusic();
@@ -157,7 +166,7 @@ static void doIntro()
 
 	e->startY = e->y;
 	
-	e->alpha = 255;
+	e->alpha = 0;
 
 	e->action = &soulWait;
 
@@ -165,11 +174,13 @@ static void doIntro()
 
 	e->type = ENEMY;
 
-	e->mental = 60 * 60;
+	e->mental = 60 * 5;
 
 	self->target = e;
 
 	e->target = self;
+	
+	e->maxThinkTime = 1;
 
 	setEntityAnimation(e, "STAND");
 
@@ -194,16 +205,16 @@ static void entityWait()
 	{
 		if (self->target->mental <= 0)
 		{
-			self->action = self->maxThinkTime == 0 ? &phantasmalBoltInit : &soulStealInit;
+			self->action = self->target->maxThinkTime == 0 ? &phantasmalBoltInit : &soulStealInit;
 		}
 
 		else
 		{
-			self->action = &raiseDeadInit;
-
 			self->action = &spikeAttackInit;
 
 			self->action = &scytheThrowInit;
+			
+			self->action = &raiseDeadInit;
 		}
 	}
 
@@ -217,6 +228,8 @@ static void soulStealInit()
 	self->flags |= NO_DRAW;
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
@@ -258,6 +271,8 @@ static void soulStealMoveToPlayer()
 		player.flags |= GROUNDED;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		self->action = &soulSteal;
 
@@ -271,12 +286,58 @@ static void soulStealMoveToPlayer()
 
 static void soulSteal()
 {
+	Target *t;
+	
 	self->thinkTime--;
 
 	player.x = self->targetX;
 
 	if (self->thinkTime <= 0)
 	{
+		player.flags &= ~GROUNDED;
+		
+		self->flags |= NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		t = getTargetByName("AZRIEL_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Azriel cannot find target");
+		}
+
+		self->x = t->x;
+		self->y = t->y;
+
+		self->target->health++;
+
+		self->target->alpha = self->target->health * 64;
+
+		if (self->target->alpha > 255)
+		{
+			self->target->alpha = 255;
+		}
+
+		self->target->mental = 60 * 5;
+
+		/*self->target->maxThinkTime = 0;*/
+
+		player.alpha -= 64;
+
+		if (player.alpha <= 0)
+		{
+			player.thinkTime = 600;
+			
+			player.health = 0;
+			
+			setPlayerLocked(TRUE);
+		}
+		
+		self->thinkTime = 30;
+		
 		self->action = &soulStealFinish;
 	}
 	
@@ -287,73 +348,17 @@ static void soulSteal()
 
 static void soulStealFinish()
 {
-	Target *t = getTargetByName("AZRIEL_TOP_TARGET");
-	Entity *e;
-
-	self->flags |= NO_DRAW;
-
-	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-
-	if (t == NULL)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		showErrorAndExit("Azriel cannot find target");
-	}
+		self->flags &= ~NO_DRAW;
 
-	self->targetX = t->x;
-	self->targetY = t->y;
-
-	self->target->health++;
-
-	self->target->alpha = self->target->health * 64;
-
-	if (self->target->alpha > 255)
-	{
-		self->target->alpha = 255;
-	}
-
-	self->target->mental = 60 * 60;
-
-	self->target->maxThinkTime = 0;
-
-	player.alpha -= 64;
-
-	if (player.alpha <= 0)
-	{
-		e = removePlayerWeapon();
-
-		if (e != NULL)
-		{
-			if (e->face == LEFT)
-			{
-				e->x = self->x + self->w - e->w - e->offsetX;
-			}
-
-			else
-			{
-				e->x = self->x + e->offsetX;
-			}
-
-			e->y = self->y + e->offsetY;
-		}
-
-		e = removePlayerShield();
-
-		if (e != NULL)
-		{
-			if (e->face == LEFT)
-			{
-				e->x = self->x + self->w - e->w - e->offsetX;
-			}
-
-			else
-			{
-				e->x = self->x + e->offsetX;
-			}
-
-			e->y = self->y + e->offsetY;
-		}
-
-		player.die();
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		self->action = &attackFinished;
 	}
 	
 	checkToMap(self);
@@ -948,7 +953,7 @@ static void raiseDeadMoveToTopTarget()
 
 		self->action = &raiseDead;
 
-		self->mental = 3 + prand() % 4;
+		self->mental = 3 + prand() % 3;
 
 		STRNCPY(self->description, "123456", sizeof(self->description));
 
@@ -979,7 +984,7 @@ static void raiseDead()
 
 	if (self->thinkTime <= 0)
 	{
-		snprintf(targetName, MAX_VALUE_LENGTH, "GRAVE_%d", self->description[self->mental]);
+		snprintf(targetName, MAX_VALUE_LENGTH, "GRAVE_%c", self->description[self->mental]);
 
 		t = getTargetByName(targetName);
 
@@ -989,8 +994,16 @@ static void raiseDead()
 		}
 
 		e = addEnemy("enemy/zombie", t->x, t->y);
-
-		e->head = self;
+		
+		e->y = getMapFloor(self->x + self->w / 2, self->y);
+		
+		e->startX = e->x;
+		
+		e->startY = e->y - e->h;
+		
+		e->endY = e->y;
+		
+		e->thinkTime = 15 + prand() % 105;
 
 		self->mental--;
 
@@ -1079,6 +1092,8 @@ static void becomeTransparent()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -1110,7 +1125,62 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		entityTakeDamageNoFlinch(other, damage);
+		if (self->flags & INVULNERABLE)
+		{
+			return;
+		}
+
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
+		if (damage != 0)
+		{
+			self->health -= damage;
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+				}
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->damage = 0;
+
+				if (other->type == WEAPON || other->type == PROJECTILE)
+				{
+					increaseKillCount();
+				}
+
+				self->die();
+			}
+
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
+		}
 	}
 }
 
@@ -1134,7 +1204,7 @@ static void soulWait()
 
 	if (self->alpha >= 255)
 	{
-		self->flags &= ~FLY;
+		self->thinkTime = 90;
 
 		self->action = &soulLeave;
 	}
@@ -1142,12 +1212,158 @@ static void soulWait()
 
 static void soulLeave()
 {
+	if (self->flags & FLY)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			removeInventoryItemByObjectiveName("Amulet of Resurrection");
+
+			player.die();
+			
+			self->thinkTime = 30;
+			
+			self->flags &= ~FLY;
+		}
+	}
+	
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
-		setEntityAnimation(self, "WALK");
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "WALK");
 
-		self->dirX = -self->speed;
+			self->dirX = -self->speed;
+		}
+	}
+}
+
+static void die()
+{
+	self->startX = self->x;
+	
+	self->thinkTime = 180;
+	
+	self->takeDamage = NULL;
+	
+	self->action = &dieShudder;
+}
+
+static void dieShudder()
+{
+	Target *t;
+	
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		t = getTargetByName("AZRIEL_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Azriel cannot find target");
+		}
+
+		self->x = t->x;
+		self->y = t->y;
+		
+		self->action = &dieMoveToTop;
+		
+		self->thinkTime = 60;
+	}
+}
+
+static void dieMoveToTop()
+{
+	EntityList *l, *list;
+	Entity *e;
+	int i;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		if (self->flags & NO_DRAW)
+		{
+			self->flags &= ~NO_DRAW;
+			
+			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+			
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+			
+			self->thinkTime = 120;
+		}
+		
+		else
+		{
+			list = createPixelsFromSprite(getCurrentSprite(self));
+
+			i = 0;
+
+			for (l=list->next;l!=NULL;l=l->next)
+			{
+				e = l->entity;
+				
+				e->dirX = prand() % 30 * (e->x < self->x + self->w / 2 ? -1 : 1);
+				e->dirY = prand() % 30 * (e->y < self->y + self->h / 2 ? -1 : 1);
+				
+				e->dirX /= 10;
+				e->dirY /= 10;
+				
+				e->thinkTime = 120;
+			}
+			
+			self->flags |= NO_DRAW;
+
+			freeEntityList(list);
+			
+			self->thinkTime = 180;
+			
+			self->action = &dieWait;
+		}
+	}
+}
+
+static void dieWait()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		clearContinuePoint();
+		
+		freeBossHealthBar();
+
+		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+		e->x -= e->w;
+
+		e->dirY = ITEM_JUMP_HEIGHT;
+		
+		self->action = &entityDieVanish;
+		
+		fadeBossMusic();
 	}
 }
