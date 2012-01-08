@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../audio/audio.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
+#include "../enemy/rock.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../hud.h"
@@ -75,6 +76,8 @@ Entity *addZombie(int x, int y, char *name)
 
 static void rise()
 {
+	Entity *e;
+	
 	self->thinkTime--;
 	
 	if (self->thinkTime <= 0)
@@ -83,14 +86,34 @@ static void rise()
 		
 		if (self->y > self->startY)
 		{
-			self->y--;
+			self->y -= 4;
 		}
 		
 		else
 		{
+			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = 3;
+			e->dirY = -8;
+			
 			self->touch = &touch;
 			
 			self->y = self->startY;
+			
+			self->thinkTime = 15;
 			
 			self->action = &attackPlayer;
 			
@@ -101,11 +124,16 @@ static void rise()
 
 static void attackPlayer()
 {
-	facePlayer();
+	self->thinkTime--;
 	
-	self->dirX = player.x < self->x ? -self->speed : self->speed;
-	
-	checkToMap(self);
+	if (self->thinkTime <= 0)
+	{
+		facePlayer();
+		
+		self->dirX = player.x < self->x ? -self->speed : self->speed;
+		
+		checkToMap(self);
+	}
 }
 
 static void touch(Entity *other)
@@ -138,10 +166,12 @@ static void touch(Entity *other)
 		self->takeDamage = entityTakeDamageNoFlinch;
 		
 		self->targetX = player.x;
+		
+		self->endX = self->x;
 
 		self->action = &stealItem;
 		
-		self->thinkTime = 120;
+		self->thinkTime = 180;
 
 		self->flags |= GRABBING;
 		
@@ -151,6 +181,8 @@ static void touch(Entity *other)
 
 static void stealItem()
 {
+	self->x = self->endX;
+	
 	self->layer = FOREGROUND_LAYER;
 	
 	setCustomAction(&player, &stickToFloor, 3, 0, 0);

@@ -1,5 +1,5 @@
 GFX_FILE data/gfx/edgar/edgar.dat
 ANIM_FILE data/anim/edgar/edgar.dat
 TYPE ENEMY
-FLAGS FLY|DO_NOT_PERSIST
+FLAGS FLY|DO_NOT_PERSIST|NO_DRAW
 SPEED 2.5

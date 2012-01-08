@@ -248,16 +248,6 @@ int getMedalCount()
 	return medalCount;
 }
 
-void resetObtainedMedals()
-{
-	int i;
-	
-	for (i=0;i<medalCount;i++)
-	{
-		medal[i].obtained = FALSE;
-	}
-}
-
 void setObtainedMedal(char *medalCode)
 {
 	int i;
