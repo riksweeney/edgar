@@ -24,6 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../enemy/enemies.h"
+#include "../enemy/rock.h"
 #include "../entity.h"
 #include "../event/script.h"
 #include "../game.h"
@@ -73,8 +74,15 @@ static void spikeAttackInit(void);
 static void spikeAttackMoveToTopTarget(void);
 static void spikeAttackWait(void);
 static void spikeRise(void);
+static void spikeWait(void);
 static void spikeSink(void);
 static void beamWait(void);
+static void redBeamWait(void);
+static void beamAppearFinish(void);
+static void beamDisappearFinish(void);
+static void beamFinish(void);
+static void redBeamFinish(void);
+static int drawBeam(void);
 static void soulLeave(void);
 static void becomeTransparent(void);
 static void takeDamage(Entity *, int);
@@ -174,13 +182,13 @@ static void doIntro()
 
 	e->type = ENEMY;
 
-	e->mental = 60 * 5;
+	e->mental = 60 * 60;
 
 	self->target = e;
 
 	e->target = self;
 	
-	e->maxThinkTime = 1;
+	e->maxThinkTime = 0;
 
 	setEntityAnimation(e, "STAND");
 
@@ -210,11 +218,21 @@ static void entityWait()
 
 		else
 		{
-			self->action = &spikeAttackInit;
-
-			self->action = &scytheThrowInit;
-			
-			self->action = &raiseDeadInit;
+			switch (prand() % 3)
+			{
+				case 0:
+					self->action = &scytheThrowInit;
+					self->action = &raiseDeadInit;
+				break;
+				
+				case 1:
+					self->action = &raiseDeadInit;
+				break;
+				
+				default:
+					self->action = &spikeAttackInit;
+				break;
+			}
 		}
 	}
 
@@ -249,8 +267,6 @@ static void soulStealMoveToPlayer()
 
 	if (self->thinkTime <= 0)
 	{
-		facePlayer();
-
 		self->flags &= ~NO_DRAW;
 
 		t = getTargetByName("AZRIEL_LEFT_TARGET");
@@ -269,6 +285,8 @@ static void soulStealMoveToPlayer()
 		self->targetX = player.x;
 
 		player.flags |= GROUNDED;
+		
+		facePlayer();
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 		
@@ -321,9 +339,9 @@ static void soulSteal()
 			self->target->alpha = 255;
 		}
 
-		self->target->mental = 60 * 5;
+		self->target->mental = 60 * 60;
 
-		/*self->target->maxThinkTime = 0;*/
+		self->target->maxThinkTime = 0;
 
 		player.alpha -= 64;
 
@@ -405,26 +423,32 @@ static void spikeAttackMoveToTopTarget()
 			e = getFreeEntity();
 
 			loadProperties("boss/azriel_light_beam", e);
+			
+			setEntityAnimation(e, "APPEAR");
+			
+			e->animationCallback = &beamAppearFinish;
 
 			e->head = self;
 
-			e->x = getMapStartX() + prand() % SCREEN_WIDTH;
-
-			e->x -= e->w;
-
-			e->flags |= NO_DRAW;
+			e->x = getMapStartX() + prand() % (SCREEN_WIDTH - e->w);
+			
+			e->y = getMapFloor(self->x + self->w / 2, self->y) - e->h;
+			
+			e->startY = e->y;
 
 			e->action = &beamWait;
-			e->draw = &drawLoopingAnimationToMap;
+			e->draw = &drawBeam;
 			e->touch = &entityTouch;
 
 			e->face = RIGHT;
 
 			e->type = ENEMY;
 
-			e->thinkTime = 360;
+			e->thinkTime = 240;
 
-			e->mental = 0;
+			e->mental = prand() % 3 == 0 ? 1 : 0;
+			
+			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_summon.ogg", -1, e->x, e->y, -1);
 
 			self->action = &spikeAttackWait;
 
@@ -437,17 +461,53 @@ static void spikeAttackMoveToTopTarget()
 	becomeTransparent();
 }
 
+static void beamAppearFinish()
+{
+	setEntityAnimation(self, "STAND");
+}
+
+static int drawBeam()
+{
+	int y;
+	
+	self->y = self->startY;
+	
+	y = self->y;
+	
+	drawLoopingAnimationToMap();
+
+	while (self->y > 0)
+	{
+		self->y -= self->h;
+		
+		drawSpriteToMap();
+	}
+
+	return TRUE;
+}
+
 static void beamWait()
 {
-	int x, startX, floor;
+	int i, x, startX, floor;
 	Entity *e;
 
-	if (self->mental == 0)
-	{
-		self->thinkTime--;
+	self->thinkTime--;
 
-		if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 1)
 		{
+			self->thinkTime = 60;
+			
+			setEntityAnimation(self, "STAND_RED");
+			
+			self->action = &redBeamWait;
+		}
+		
+		else
+		{
+			i = 0;
+			
 			floor = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
 			
 			/* Left side of beam */
@@ -479,9 +539,11 @@ static void beamWait()
 
 				e->type = ENEMY;
 
-				e->thinkTime = 120;
+				e->thinkTime = prand() % 30;
 
 				x = e->x;
+				
+				i++;
 			}
 
 			/* Right side of beam */
@@ -513,36 +575,152 @@ static void beamWait()
 
 				e->type = ENEMY;
 
-				e->thinkTime = 120;
+				e->thinkTime = prand() % 30;
 
 				x = e->x + e->w;
+				
+				i++;
 			}
-
-			self->mental = 1;
+			
+			self->mental = i;
+			
+			self->thinkTime = 30;
+			
+			self->action = &beamFinish;
 		}
 	}
+}
 
-	else if (self->mental == 2)
+static void redBeamWait()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		self->head->mental = 0;
+		e = getFreeEntity();
 
-		self->inUse = FALSE;
+		loadProperties("boss/azriel_ground_spikes", e);
+
+		e->head = self;
+
+		e->x = self->x + self->w / 2 - e->w / 2;
+		e->y = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
+		
+		e->startY = e->y - e->h;
+		
+		e->endY = e->y;
+
+		e->action = &spikeRise;
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = &entityTouch;
+
+		e->face = RIGHT;
+
+		e->type = ENEMY;
+		
+		self->thinkTime = 30;
+		
+		self->action = &redBeamFinish;
 	}
+}
+
+static void beamFinish()
+{
+	if (self->mental <= 0)
+	{
+		setEntityAnimation(self, "DISAPPEAR");
+		
+		self->animationCallback = &beamDisappearFinish;
+	}
+}
+
+static void redBeamFinish()
+{
+	if (self->mental <= 0)
+	{
+		setEntityAnimation(self, "DISAPPEAR_RED");
+		
+		self->animationCallback = &beamDisappearFinish;
+	}
+}
+
+static void beamDisappearFinish()
+{
+	self->head->mental = 0;
+
+	self->inUse = FALSE;
+	
+	stopSound(self->targetX);
 }
 
 static void spikeRise()
 {
-	if (self->y > self->startY)
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		self->y -= self->speed * 2;
-	}
+		if (self->y > self->startY)
+		{
+			self->y -= self->speed * 2;
+		}
 
+		else
+		{
+			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			shakeScreen(MEDIUM, 15);
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = 3;
+			e->dirY = -8;
+			
+			self->y = self->startY;
+			
+			self->health = 15;
+
+			self->thinkTime = 120;
+
+			self->action = &spikeWait;
+		}
+	}
+}
+
+static void spikeWait()
+{
+	if (self->health > 0)
+	{
+		self->y = self->startY + cos(DEG_TO_RAD(self->endX)) * 2;
+
+		self->health--;
+
+		if (self->health <= 0)
+		{
+			self->y = self->startY;
+		}
+
+		self->endX += 90;
+	}
+	
 	else
 	{
-		self->y = self->startY;
-
 		self->thinkTime--;
-
+		
 		if (self->thinkTime <= 0)
 		{
 			self->action = &spikeSink;
@@ -561,7 +739,7 @@ static void spikeSink()
 	{
 		self->inUse = FALSE;
 		
-		self->head->mental = 2;
+		self->head->mental--;
 	}
 }
 
@@ -791,9 +969,9 @@ static void phantasmalBolt()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "ATTACK");
+		setEntityAnimation(self, "STAND");
 
-		e = addProjectile("boss/phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
+		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
@@ -807,7 +985,7 @@ static void phantasmalBolt()
 			e->x = self->x + self->offsetX;
 		}
 
-		e->y = self->y + self->offsetY;
+		e->y = self->y + self->h / 2;
 
 		e->face = self->face;
 
@@ -821,7 +999,7 @@ static void phantasmalBolt()
 
 		e->mental = 2;
 
-		self->thinkTime = 60;
+		self->thinkTime = 120;
 
 		self->action = &phantasmalBoltFinish;
 
@@ -1108,6 +1286,17 @@ static void takeDamage(Entity *other, int damage)
 			self->endX = damage;
 
 			entityTakeDamageNoFlinch(other, damage);
+			
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
 		}
 
 		else
@@ -1125,11 +1314,6 @@ static void takeDamage(Entity *other, int damage)
 
 	else
 	{
-		if (self->flags & INVULNERABLE)
-		{
-			return;
-		}
-
 		/* Take minimal damage from bombs */
 
 		if (other->type == EXPLOSION)

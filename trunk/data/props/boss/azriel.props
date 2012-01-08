@@ -1,4 +1,4 @@
-HEALTH 4000
+HEALTH 5000
 DAMAGE 1
 GFX_FILE data/gfx/enemy/ghost.dat
 ANIM_FILE data/anim/enemy/ghost.dat
