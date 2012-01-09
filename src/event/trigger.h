@@ -24,3 +24,4 @@ void freeTriggers(void);
 int getTriggerTypeByName(char *);
 char *getTriggerTypeByID(int);
 void updateTrigger(char *, int);
+void removeTrigger(char *);

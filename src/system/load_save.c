@@ -54,23 +54,10 @@ extern Game game;
 	void setupUserHomeDirectory()
 	{
 		char *userHome;
-		char *name;
 		char dir[MAX_PATH_LENGTH];
 		struct passwd *pass;
 
-		name = getlogin();
-
-		STRNCPY(dir, "", sizeof(dir));
-
-		if (name != NULL)
-		{
-			pass = getpwnam(name);
-		}
-
-		else
-		{
-			pass = getpwuid(geteuid());
-		}
+		pass = getpwuid(geteuid());
 
 		if (pass == NULL)
 		{
