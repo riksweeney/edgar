@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "headers.h"
@@ -511,20 +511,33 @@ int removeInventoryItemByName(char *name)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].name, name) == 0)
 		{
-			inventory.item[i].inUse = FALSE;
-
-			if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+			if (inventory.item[i].flags & STACKABLE)
 			{
-				e = removePlayerWeapon();
+				inventory.item[i].health--;
 
-				e->inUse = FALSE;
+				if (inventory.item[i].health <= 0)
+				{
+					inventory.item[i].inUse = FALSE;
+				}
 			}
 
-			else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+			else
 			{
-				e = removePlayerShield();
+				inventory.item[i].inUse = FALSE;
 
-				e->inUse = FALSE;
+				if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerWeapon();
+
+					e->inUse = FALSE;
+				}
+
+				else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerShield();
+
+					e->inUse = FALSE;
+				}
 			}
 
 			found = TRUE;

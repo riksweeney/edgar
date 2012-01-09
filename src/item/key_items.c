@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../headers.h"
@@ -106,6 +106,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "magnet.h"
 #include "attractor.h"
 #include "cell_bars.h"
+#include "sonic_boom_panel.h"
 #include "item_remover.h"
 #include "safe.h"
 #include "snow_pile.h"
@@ -224,6 +225,7 @@ static Constructor items[] = {
 {"item/attractor", &addAttractor},
 {"item/horizontal_glass_wall", &addGlassWall},
 {"item/cell_bars", &addCellBars},
+{"item/sonic_boom_panel", &addSonicBoomPanel},
 {"item/item_remover", &addItemRemover},
 {"item/safe", &addSafe},
 {"item/snow_pile", &addSnowPile},
@@ -292,7 +294,7 @@ Entity *addKeyItem(char *name, int x, int y)
 
 void keyItemTouch(Entity *other)
 {
-	if (!(self->flags & INVULNERABLE) && other->type == PLAYER && other->health > 0)
+	if (!(self->flags & INVULNERABLE) && other->type == PLAYER)
 	{
 		if (self->mental != -1 && strcmpignorecase(self->name, "item/health_potion") == 0)
 		{

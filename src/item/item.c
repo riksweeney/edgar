@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../headers.h"
@@ -25,8 +25,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../inventory.h"
-#include "item.h"
-#include "key_items.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
 #include "../player.h"
 #include "../projectile.h"
 #include "../system/error.h"

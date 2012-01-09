@@ -1,10 +1,6 @@
 CHANGE LOG
 ----------
 
-Version 0.96
-* The Crypt is now completable
-* Home directory lookup now more stable on Linux
-
 Version 0.95
 * The Crypt is now accessible
 * Added a basic title screen

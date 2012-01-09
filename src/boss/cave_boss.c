@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../headers.h"
@@ -129,7 +129,7 @@ Entity *addCaveBoss(int x, int y, char *name)
 	e->draw = &drawCaveBoss;
 
 	e->die = &die;
-
+	
 	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
@@ -179,6 +179,8 @@ static void doIntro()
 		self->takeDamage = &takeDamage;
 
 		self->action = &attackFinished;
+
+		checkToMap(self);
 
 		self->startX = 0;
 

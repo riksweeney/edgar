@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "headers.h"
@@ -26,15 +26,12 @@ FileData *fileData;
 static int countFiles(char *);
 static void cleanup(void);
 static void recurseDirectory(char *);
-static void compressFile(char *, DIR *);
 static void testPak(char *);
 
 int main(int argc, char *argv[])
 {
 	int i;
 	long length;
-	char versionName[5];
-	FILE *versionFile;
 
 	if (argc == 3)
 	{
@@ -55,15 +52,11 @@ int main(int argc, char *argv[])
 	}
 
 	pak = fopen(argv[argc - 1], "wb");
-	
-	totalFiles = 0;
 
 	for (i=1;i<argc-1;i++)
 	{
 		totalFiles += countFiles(argv[i]);
 	}
-	
-	totalFiles++;
 
 	printf("Will compress %d files\n", totalFiles);
 
@@ -77,23 +70,11 @@ int main(int argc, char *argv[])
 	}
 
 	atexit(cleanup);
-	
-	snprintf(versionName, sizeof(versionName), "%0.2f", VERSION);
-	
-	versionFile = fopen(versionName, "wb");
-	
-	fprintf(versionFile, "%s", versionName);
-	
-	fclose(versionFile);
 
 	for (i=1;i<argc-1;i++)
 	{
 		recurseDirectory(argv[i]);
 	}
-	
-	compressFile(versionName, NULL);
-	
-	remove(versionName);
 
 	length = ftell(pak);
 
@@ -162,7 +143,13 @@ static void recurseDirectory(char *dirName)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
+	FILE *infile;
 	char filename[1024];
+	int compressionResult;
+	unsigned long fileSize, compressedSize, ensuredSize;
+	gzFile fp;
+	float percentage;
+	unsigned char *buffer, *output;
 
 	dirp = opendir(dirName);
 
@@ -193,135 +180,123 @@ static void recurseDirectory(char *dirName)
 
 		else
 		{
-			compressFile(filename, dirp);
+			infile = fopen(filename, "rb");
+
+			if (!infile)
+			{
+				printf("Couldn't open %s for reading!\n", filename);
+
+				closedir(dirp);
+				gzclose(pak);
+
+				exit(1);
+			}
+
+			fseek(infile, 0L, SEEK_END);
+
+			fileSize = ftell(infile);
+
+			if (fileSize == 0)
+			{
+				printf("%s is an empty file.\n", filename);
+
+				exit(0);
+			}
+
+			ensuredSize = fileSize * 1.01 + 12;
+
+			compressedSize = ensuredSize;
+
+			fclose(infile);
+
+			buffer = malloc((fileSize + 1) * sizeof(unsigned char));
+
+			if (buffer == NULL)
+			{
+				printf("Could not create buffer\n");
+
+				exit(1);
+			}
+
+			output = malloc(ensuredSize * sizeof(unsigned char));
+
+			if (output == NULL)
+			{
+				printf("Could not create output\n");
+
+				exit(1);
+			}
+
+			fp = gzopen(filename, "rb");
+
+			if (!fp)
+			{
+				printf("Couldn't open %s for reading!\n", filename);
+
+				closedir(dirp);
+
+				gzclose(pak);
+
+				exit(1);
+			}
+
+			gzread(fp, buffer, fileSize);
+
+			gzclose(fp);
+
+			compressionResult = compress2(output, &compressedSize, buffer, fileSize, 9);
+
+			if (compressionResult != Z_OK)
+			{
+				printf("Compression of %s failed\n", filename);
+
+				if (compressionResult == Z_BUF_ERROR)
+				{
+					printf("Buffer too small\n");
+
+					exit(1);
+				}
+
+				if (compressionResult == Z_MEM_ERROR)
+				{
+					printf("Out of RAM\n");
+
+					exit(1);
+				}
+
+				if (compressionResult == Z_STREAM_ERROR)
+				{
+					printf("Stream error\n");
+
+					exit(1);
+				}
+			}
+
+			percentage = fileID;
+
+			percentage /= totalFiles;
+
+			percentage *= 100;
+
+			printf("Compressing %02d%%...\r", (int)percentage);
+
+			STRNCPY(fileData[fileID].filename, filename, MAX_FILE_LENGTH);
+
+			fileData[fileID].fileSize = fileSize;
+			fileData[fileID].compressedSize = compressedSize;
+			fileData[fileID].offset = ftell(pak);
+
+			fwrite(output, compressedSize, 1, pak);
+
+			fileID++;
+
+			free(buffer);
+
+			free(output);
 		}
 	}
 
 	closedir(dirp);
-}
-
-static void compressFile(char *filename, DIR *dirp)
-{
-	FILE *infile;
-	int compressionResult;
-	unsigned long fileSize, compressedSize, ensuredSize;
-	gzFile fp;
-	float percentage;
-	unsigned char *buffer, *output;
-	
-	infile = fopen(filename, "rb");
-
-	if (!infile)
-	{
-		printf("Couldn't open %s for reading!\n", filename);
-
-		closedir(dirp);
-		gzclose(pak);
-
-		exit(1);
-	}
-
-	fseek(infile, 0L, SEEK_END);
-
-	fileSize = ftell(infile);
-
-	if (fileSize == 0)
-	{
-		printf("%s is an empty file.\n", filename);
-
-		exit(0);
-	}
-
-	ensuredSize = fileSize * 1.01 + 12;
-
-	compressedSize = ensuredSize;
-
-	fclose(infile);
-
-	buffer = malloc((fileSize + 1) * sizeof(unsigned char));
-
-	if (buffer == NULL)
-	{
-		printf("Could not create buffer\n");
-
-		exit(1);
-	}
-
-	output = malloc(ensuredSize * sizeof(unsigned char));
-
-	if (output == NULL)
-	{
-		printf("Could not create output\n");
-
-		exit(1);
-	}
-
-	fp = gzopen(filename, "rb");
-
-	if (!fp)
-	{
-		printf("Couldn't open %s for reading!\n", filename);
-
-		closedir(dirp);
-
-		gzclose(pak);
-
-		exit(1);
-	}
-
-	gzread(fp, buffer, fileSize);
-
-	gzclose(fp);
-
-	compressionResult = compress2(output, &compressedSize, buffer, fileSize, 9);
-
-	if (compressionResult != Z_OK)
-	{
-		printf("Compression of %s failed\n", filename);
-
-		if (compressionResult == Z_BUF_ERROR)
-		{
-			printf("Buffer too small\n");
-
-			exit(1);
-		}
-
-		if (compressionResult == Z_MEM_ERROR)
-		{
-			printf("Out of RAM\n");
-
-			exit(1);
-		}
-
-		if (compressionResult == Z_STREAM_ERROR)
-		{
-			printf("Stream error\n");
-
-			exit(1);
-		}
-	}
-
-	percentage = fileID;
-
-	percentage /= totalFiles;
-
-	percentage *= 100;
-
-	printf("Compressing %02d%%...\r", (int)percentage);
-
-	STRNCPY(fileData[fileID].filename, filename, MAX_FILE_LENGTH);
-
-	fileData[fileID].fileSize = fileSize;
-	fileData[fileID].compressedSize = compressedSize;
-	fileData[fileID].offset = ftell(pak);
-
-	fwrite(output, compressedSize, 1, pak);
-
-	fileID++;
-
-	free(buffer);
-
-	free(output);
 }
 
 static void testPak(char *pakFile)

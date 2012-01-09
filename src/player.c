@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "headers.h"
@@ -1004,16 +1004,6 @@ void setPlayerShield(int val)
 
 	if (playerWeapon.flags & ATTACKING)
 	{
-		if (game.status == IN_INVENTORY)
-		{
-			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
-		}
-		
-		else
-		{
-			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
-		}
-		
 		return;
 	}
 
@@ -1051,16 +1041,6 @@ void setPlayerWeapon(int val)
 
 	if (playerWeapon.flags & ATTACKING)
 	{
-		if (game.status == IN_INVENTORY)
-		{
-			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
-		}
-		
-		else
-		{
-			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
-		}
-		
 		return;
 	}
 
@@ -1692,6 +1672,8 @@ static void playerDie()
 	player.frameSpeed = 1;
 
 	player.health = 0;
+
+	/*player.flags &= ~NO_DRAW;*/
 
 	player.flags |= HELPLESS;
 

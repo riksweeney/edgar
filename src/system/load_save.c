@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../headers.h"
@@ -54,10 +54,23 @@ extern Game game;
 	void setupUserHomeDirectory()
 	{
 		char *userHome;
+		char *name;
 		char dir[MAX_PATH_LENGTH];
 		struct passwd *pass;
 
-		pass = getpwuid(geteuid());
+		name = getlogin();
+
+		STRNCPY(dir, "", sizeof(dir));
+
+		if (name != NULL)
+		{
+			pass = getpwnam(name);
+		}
+
+		else
+		{
+			pass = getpwuid(geteuid());
+		}
 
 		if (pass == NULL)
 		{

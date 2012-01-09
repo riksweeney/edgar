@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
 #include "../headers.h"
@@ -34,6 +34,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "jumping_slime.h"
 #include "egg.h"
 #include "baby_slime.h"
+#include "spinner.h"
 #include "floating_snapper.h"
 #include "enemy_generator.h"
 #include "flying_bug.h"
@@ -89,6 +90,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "master_tortoise.h"
 #include "red_ceiling_creeper.h"
 #include "rampaging_master_tortoise.h"
+#include "wall_walker.h"
 #include "iron_ball.h"
 #include "hoover.h"
 #include "giant_ceiling_creeper.h"
@@ -103,7 +105,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "skull_door.h"
 #include "ghost.h"
 #include "skeleton.h"
-#include "zombie.h"
 
 #include "../boss/ant_lion.h"
 #include "../boss/boulder_boss.h"
@@ -134,7 +135,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../boss/black_book_3.h"
 #include "../boss/sorceror_2.h"
 #include "../boss/sorceror_floor.h"
-#include "../boss/azriel.h"
 
 #include "../system/error.h"
 
@@ -161,6 +161,7 @@ static Constructor enemies[] = {
 {"enemy/baby_slime", &addBabySlime},
 {"enemy/red_baby_slime", &addBabySlime},
 {"enemy/purple_baby_slime", &addBabySlime},
+{"enemy/eye_spinner", &addSpinner},
 {"boss/snake_boss", &addSnakeBoss},
 {"enemy/floating_snapper", &addFloatingSnapper},
 {"enemy/bee_hive", &addEnemyGenerator},
@@ -265,6 +266,7 @@ static Constructor enemies[] = {
 {"enemy/red_ceiling_creeper", &addRedCeilingCreeper},
 {"enemy/rampaging_master_tortoise", &addRampagingMasterTortoise},
 {"boss/cave_boss", &addCaveBoss},
+{"enemy/wall_walker", &addWallWalker},
 {"enemy/iron_ball", &addIronBall},
 {"enemy/hoover", &addHoover},
 {"boss/black_book_2", &addBlackBook2},
@@ -288,9 +290,7 @@ static Constructor enemies[] = {
 {"enemy/skull_door", &addSkullDoor},
 {"enemy/ghost", &addGhost},
 {"enemy/arrow_skeleton", &addSkeleton},
-{"enemy/sword_skeleton", &addSkeleton},
-{"boss/azriel", &addAzriel},
-{"enemy/zombie", &addZombie}
+{"enemy/sword_skeleton", &addSkeleton}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
