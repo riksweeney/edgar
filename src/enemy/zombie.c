@@ -14,7 +14,7 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 #include "../headers.h"
@@ -230,18 +230,11 @@ static void leave()
 	
 	if (fabs(self->startX - self->x) <= fabs(self->dirX) || self->thinkTime <= 0)
 	{
-		self->touch = NULL;
-		
 		self->dirX = 0;
 		
 		self->action = &sink;
 		
 		self->layer = BACKGROUND_LAYER;
-		
-		if (self->target != NULL)
-		{
-			self->target->inUse = FALSE;
-		}
 	}
 }
 
@@ -250,7 +243,12 @@ static void sink()
 	self->y++;
 	
 	if (self->y >= self->endY)
-	{		
+	{
+		if (self->target != NULL)
+		{
+			self->target->inUse = FALSE;
+		}
+		
 		self->inUse = FALSE;
 	}
 }
@@ -313,10 +311,10 @@ static Entity *getRandomItem()
 
 				setPlayerLocked(FALSE);
 			}
-
-			removeInventoryItemByName(e->name);
 			
 			e = addEntity(*e, self->x, self->y);
+
+			removeInventoryItemByName(items[i]);
 			
 			break;
 		}
