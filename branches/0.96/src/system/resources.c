@@ -657,6 +657,8 @@ int patchEntities(double versionFile, char *mapName)
 				sscanf(line, "%*s \"%[^\"]\"", key);
 
 				removeGlobalTrigger(key);
+				
+				removeTrigger(key);
 			}
 
 			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)

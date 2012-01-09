@@ -1,6 +1,10 @@
 CHANGE LOG
 ----------
 
+Version 0.96
+* Fixed a problem with some level exits not activating (making the Crypt accessible)
+* Home directory lookup now more stable on Linux
+
 Version 0.95
 * The Crypt is now accessible
 * Added a basic title screen
