@@ -1,0 +1,7 @@
+MENTAL 320
+GFX_FILE data/gfx/enemy/energy_rift.dat
+ANIM_FILE data/anim/enemy/energy_rift.dat
+TYPE ENEMY
+SPEED 6
+FLAGS DO_NOT_PERSIST|FLY
+LAYER BACKGROUND_LAYER

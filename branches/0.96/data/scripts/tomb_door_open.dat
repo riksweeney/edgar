@@ -1,0 +1,12 @@
+ACTIVATE_OBJECTIVE TOMB_DOOR
+FOLLOW EDGAR
+RESET_CAMERA
+SET EDGAR FACE RIGHT
+WAIT 60
+TALK Edgar Great, that worked!
+TALK Edgar What a terrible anthem though, almost completely random
+WALK_TO EDGAR 9535 0 WAIT
+TALK Edgar This looks like the keepsake
+TALK Edgar Thank goodness for that, I really didn't want to have to open that coffin
+SET EDGAR FACE LEFT
+TALK Edgar Now to get out of here...
