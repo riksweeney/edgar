@@ -455,6 +455,8 @@ static void continueGame()
 {
 	if (loadGame(getMostRecentSave()) == TRUE)
 	{
+		menu.index = 0;
+		
 		menu.returnAction = NULL;
 
 		freeMessageQueue();

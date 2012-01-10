@@ -2,7 +2,7 @@ CHANGE LOG
 ----------
 
 Version 0.96
-* The Crypt is now completable
+* Fixed a problem with some level exits not activating (making the Crypt accessible)
 * Home directory lookup now more stable on Linux
 
 Version 0.95
