@@ -59,7 +59,7 @@ void initPakFile()
 
 		if (fileData == NULL)
 		{
-			printf("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
+			showErrorAndExit("Failed to allocate %d bytes for FileData", fileCount * (int)sizeof(FileData));
 		}
 
 		fseek(fp, offset, SEEK_SET);
@@ -74,6 +74,18 @@ void initPakFile()
 		fileCount = 0;
 		fileData = NULL;
 	#endif
+}
+
+void verifyVersion()
+{
+	char version[5];
+	
+	snprintf(version, sizeof(version), "%0.2f", VERSION);
+	
+	if (existsInPak(version) == FALSE)
+	{
+		showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
+	}
 }
 
 SDL_Surface *loadImageFromPak(char *name)

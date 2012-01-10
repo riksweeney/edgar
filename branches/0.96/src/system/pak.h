@@ -25,3 +25,4 @@ Mix_Music *loadMusicFromPak(char *);
 unsigned char *loadFileFromPak(char *);
 TTF_Font *loadFontFromPak(char *, int);
 int existsInPak(char *);
+void verifyVersion(void);
