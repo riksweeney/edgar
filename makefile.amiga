@@ -143,6 +143,7 @@ ifeq ($(DEV),1)
 	echo Cannot install if DEV is set to 1!
 else
 	./$(PAK_PROG) data gfx music sound font $(PAK_FILE)
+	./$(PAK_PROG) -test $(PAK_FILE)
 
 	mkdir -p $(BIN_DIR)
 	mkdir -p $(DATA_DIR)
