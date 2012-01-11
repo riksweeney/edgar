@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/bomb.dat
+ANIM_FILE data/anim/common/bomb.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME Bomb
+SFX_FILE data/sfx/item/bomb.dat
+DESCRIPTION A powerful bomb
