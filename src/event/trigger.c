@@ -190,6 +190,21 @@ void fireTrigger(char *name)
 	}
 }
 
+void removeTrigger(char *name)
+{
+	int i;
+	
+	for (i=0;i<MAX_TRIGGERS;i++)
+	{
+		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
+		{
+			trigger[i].inUse = FALSE;
+			
+			break;
+		}
+	}
+}
+
 void updateTrigger(char *name, int value)
 {
 	int i;

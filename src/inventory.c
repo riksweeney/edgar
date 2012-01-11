@@ -511,20 +511,33 @@ int removeInventoryItemByName(char *name)
 	{
 		if (inventory.item[i].inUse == TRUE && strcmpignorecase(inventory.item[i].name, name) == 0)
 		{
-			inventory.item[i].inUse = FALSE;
-
-			if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+			if (inventory.item[i].flags & STACKABLE)
 			{
-				e = removePlayerWeapon();
+				inventory.item[i].health--;
 
-				e->inUse = FALSE;
+				if (inventory.item[i].health <= 0)
+				{
+					inventory.item[i].inUse = FALSE;
+				}
 			}
 
-			else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+			else
 			{
-				e = removePlayerShield();
+				inventory.item[i].inUse = FALSE;
 
-				e->inUse = FALSE;
+				if (strcmpignorecase(playerWeapon.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerWeapon();
+
+					e->inUse = FALSE;
+				}
+
+				else if (strcmpignorecase(playerShield.name, inventory.item[i].name) == 0)
+				{
+					e = removePlayerShield();
+
+					e->inUse = FALSE;
+				}
 			}
 
 			found = TRUE;

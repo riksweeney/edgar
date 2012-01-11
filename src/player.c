@@ -1004,16 +1004,6 @@ void setPlayerShield(int val)
 
 	if (playerWeapon.flags & ATTACKING)
 	{
-		if (game.status == IN_INVENTORY)
-		{
-			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
-		}
-		
-		else
-		{
-			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
-		}
-		
 		return;
 	}
 
@@ -1051,16 +1041,6 @@ void setPlayerWeapon(int val)
 
 	if (playerWeapon.flags & ATTACKING)
 	{
-		if (game.status == IN_INVENTORY)
-		{
-			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
-		}
-		
-		else
-		{
-			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
-		}
-		
 		return;
 	}
 
@@ -1692,6 +1672,8 @@ static void playerDie()
 	player.frameSpeed = 1;
 
 	player.health = 0;
+
+	/*player.flags &= ~NO_DRAW;*/
 
 	player.flags |= HELPLESS;
 

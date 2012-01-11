@@ -1004,13 +1004,6 @@ void readNextScriptLine()
 				playLoadedMusic();
 			}
 			
-			else if (strcmpignorecase("PLAY_BOSS_MUSIC", token) == 0)
-			{
-				playDefaultBossMusic();
-				
-				playLoadedMusic();
-			}
-			
 			else if (strcmpignorecase("OVERRIDE", token) == 0)
 			{
 				game.overrideMusic = TRUE;

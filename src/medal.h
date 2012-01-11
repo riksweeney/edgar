@@ -25,3 +25,4 @@ void medalProcessingFinished(void);
 Medal *getMedals(void);
 int getMedalCount(void);
 void setObtainedMedal(char *);
+void resetObtainedMedals(void);

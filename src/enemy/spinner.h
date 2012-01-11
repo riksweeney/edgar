@@ -17,11 +17,4 @@ along with this program; if not, write to the Free Software
 Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
-void fireTrigger(char *);
-void writeTriggersToFile(FILE *);
-void addTriggerFromResource(char *[], char *[]);
-void freeTriggers(void);
-int getTriggerTypeByName(char *);
-char *getTriggerTypeByID(int);
-void updateTrigger(char *, int);
-void removeTrigger(char *);
+Entity *addSpinner(int, int, char *);

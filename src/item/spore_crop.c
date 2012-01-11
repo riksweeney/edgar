@@ -64,7 +64,7 @@ static void collectSpore(Entity *other)
 {
 	Entity *spore = NULL;
 
-	if (self->thinkTime <= 0 && other->health > 0)
+	if (self->thinkTime <= 0)
 	{
 		if (getInventoryItemByObjectiveName("Spore") == NULL)
 		{
