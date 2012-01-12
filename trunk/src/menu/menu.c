@@ -60,10 +60,59 @@ void freeMenus()
 	freeStatsMenu();
 
 	freeCheatMenu();
-	
+
 	freeInventoryMenu();
-	
+
 	freeOKMenu();
-	
+
 	freeAboutMenu();
+}
+
+void resizeMenu(Menu *menu)
+{
+	int i, width, height, widgetWidth, widgetHeight;
+	Widget *widget;
+	Label *label;
+
+	width = -1;
+	height = -1;
+
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		widget = menu.widgets[i]->selectedState;
+
+		if (widget == NULL)
+		{
+			widget = menu.widgets[i]->normalState;
+		}
+
+		label = widget->label;
+
+		if (label != NULL)
+		{
+			widgetWidth = label->text->x + label->text->w;
+
+			widgetHeight = label->text->h;
+		}
+
+		else
+		{
+			widgetWidth = widget->w;
+
+			widgetHeight = widget->h;
+		}
+
+		if (widgetWidth > width)
+		{
+			width = widgetWidth;
+		}
+
+		if (widgetHeight > height)
+		{
+			height = widgetHeight;
+		}
+	}
+
+	menu->w = width;
+	menu->h = height;
 }
