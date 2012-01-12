@@ -208,7 +208,7 @@ static void shatter()
 			e->targetX = self->x + e->offsetX;
 		}
 
-		e->targetY += self->offsetY;
+		e->targetY = self->y + e->offsetY;
 
 		e->target = NULL;
 

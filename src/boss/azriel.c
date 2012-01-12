@@ -64,6 +64,8 @@ static void scytheThrowInit(void);
 static void scytheThrowMoveToTarget(void);
 static void scytheThrow(void);
 static void scytheThrowWait(void);
+static void scytheThrowTeleportAway(void);
+static void scytheThrowFinish(void);
 static void scytheMove(void);
 static void soulStealInit(void);
 static void soulStealMoveToPlayer(void);
@@ -222,7 +224,6 @@ static void entityWait()
 			{
 				case 0:
 					self->action = &scytheThrowInit;
-					self->action = &raiseDeadInit;
 				break;
 				
 				case 1:
@@ -830,7 +831,7 @@ static void scytheThrow()
 			e->x = self->x + self->offsetX;
 		}
 
-		e->y = self->y + self->offsetY;
+		e->y = self->y + 48;
 
 		e->startX = e->x;
 
@@ -846,7 +847,7 @@ static void scytheThrow()
 
 		e->flags |= FLY;
 
-		distance = SCREEN_WIDTH / self->mental;
+		distance = (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 2) / self->mental;
 
 		e->targetX = self->face == LEFT ? e->x - distance : e->x + distance;
 
@@ -866,12 +867,53 @@ static void scytheThrowWait()
 {
 	if (self->thinkTime <= 0)
 	{
-		self->action = self->mental <= 0 ? &attackFinished : &scytheThrow;
+		self->thinkTime = 10;
+		
+		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrow;
 	}
 
 	checkToMap(self);
 	
 	becomeTransparent();
+}
+
+static void scytheThrowTeleportAway()
+{
+	Target *t;
+	
+	self->flags |= NO_DRAW;
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+	
+	t = getTargetByName("AZRIEL_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Azriel cannot find target");
+	}
+
+	self->x = t->x;
+	self->y = t->y;
+	
+	self->action = &scytheThrowFinish;
+	
+	self->thinkTime = 30;
+}
+
+static void scytheThrowFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		self->action = &attackFinished;
+	}
 }
 
 static void scytheMove()
