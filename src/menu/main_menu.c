@@ -236,16 +236,16 @@ static void loadMenuLayout()
 				}
 
 				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
-				{					
+				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &continueGame, x, y, TRUE, 255, 255, 255);
-					
+
 					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
 				}
-				
+
 				else if (strcmpignorecase(menuID, "MENU_CHECKPOINT") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &restartCheckpoint, x, y, TRUE, 255, 255, 255);
-					
+
 					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
 				}
 
@@ -268,7 +268,7 @@ static void loadMenuLayout()
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE, 255, 255, 255);
 				}
-				
+
 				else if (strcmpignorecase(menuID, "MENU_MEDALS") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showMedalsMenu, x, y, TRUE, 255, 255, 255);
@@ -301,10 +301,9 @@ static void loadMenuLayout()
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
+	/* Resize */
+
+	resizeMenu(&menu);
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
@@ -349,17 +348,17 @@ Menu *initMainMenu()
 		if (menu.widgets[i]->clickAction == &continueGame)
 		{
 			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-			
+
 			menu.widgets[i]->hidden = game.previousStatus == IN_TITLE ? FALSE : TRUE;
 		}
-		
+
 		else if (menu.widgets[i]->clickAction == &restartCheckpoint)
 		{
 			menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-			
+
 			menu.widgets[i]->hidden = game.previousStatus == IN_GAME ? FALSE : TRUE;
 		}
-		
+
 		else if (menu.widgets[i]->clickAction == &showStatsMenu)
 		{
 			menu.widgets[i]->disabled = game.previousStatus == IN_GAME ? FALSE : TRUE;
@@ -412,11 +411,11 @@ static void doNewGame()
 	{
 		newGame();
 	}
-	
+
 	else
 	{
 		game.menu = initYesNoMenu(_("Start a new game?"), &newGame, &showMainMenu);
-	
+
 		game.drawMenu = &drawYesNoMenu;
 	}
 }
@@ -427,7 +426,7 @@ static void doTutorial()
 	{
 		tutorial();
 	}
-	
+
 	else
 	{
 		game.menu = initYesNoMenu(_("Play the tutorial?"), &tutorial, &showMainMenu);
@@ -442,7 +441,7 @@ static void doQuit()
 	{
 		quitGame();
 	}
-	
+
 	else
 	{
 		game.menu = initYesNoMenu(_("Exit the game?"), &quitToTitle, &showMainMenu);
@@ -456,7 +455,7 @@ static void continueGame()
 	if (loadGame(getMostRecentSave()) == TRUE)
 	{
 		menu.index = 0;
-		
+
 		menu.returnAction = NULL;
 
 		freeMessageQueue();
@@ -482,11 +481,11 @@ static void restartCheckpoint()
 static void quitToTitle()
 {
 	menu.index = 0;
-	
+
 	pauseGame();
-	
+
 	setTransition(TRANSITION_OUT, &titleScreen);
-	
+
 	fadeOutMusic(500);
 }
 

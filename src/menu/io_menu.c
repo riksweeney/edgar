@@ -182,21 +182,21 @@ static void loadMenuLayout(int saving)
 	x = y = 5;
 
 	width = 0;
-	
+
 	if (saving == TRUE)
 	{
 		menu.widgets[i] = createWidget(_("Choose slot to save to"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
-	
+
 	else
 	{
 		menu.widgets[i] = createWidget(_("Choose slot to load from"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
-	
+
 	width = menu.widgets[i]->normalState->w;
-	
+
 	y += menu.widgets[i]->normalState->h + 5;
-	
+
 	i++;
 
 	for (j=0;j<MAX_SAVE_SLOTS;j++)
@@ -222,7 +222,7 @@ static void loadMenuLayout(int saving)
 		{
 			width = menu.widgets[i]->selectedState->w;
 		}
-		
+
 		i++;
 	}
 
@@ -233,8 +233,10 @@ static void loadMenuLayout(int saving)
 	menu.widgets[i] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE, 255, 255, 255);
 
 	y += menu.widgets[i]->normalState->h + 10;
-	
-	menu.h = y;
+
+	/* Resize */
+
+	resizeMenu(&menu);
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
@@ -253,7 +255,7 @@ Menu *initIOMenu(int saving)
 	loadMenuLayout(saving);
 
 	menu.returnAction = saving == TRUE ? NULL : &showMainMenu;
-	
+
 	if (menu.index == 0)
 	{
 		menu.index = 1;
