@@ -174,7 +174,7 @@ static void loadMenuLayout(char *text)
 				{
 					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
 				}
-
+				
 				token = strtok_r(NULL, "\0", &savePtr2);
 
 				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
@@ -206,9 +206,12 @@ static void loadMenuLayout(char *text)
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	/* Resize */
-
-	resizeMenu(&menu);
+	if (menu.w <= 0 || menu.h <= 0)
+	{
+		showErrorAndExit("Menu dimensions must be greater than 0");
+	}
+	
+	menu.w = menu.widgets[0]->selectedState->w + 20;
 
 	x = menu.widgets[1]->normalState->w + menu.widgets[2]->normalState->w + 20;
 
@@ -256,7 +259,7 @@ void freeScriptMenu()
 		}
 
 		free(menu.widgets);
-
+		
 		menu.widgets = NULL;
 	}
 

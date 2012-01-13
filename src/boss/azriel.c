@@ -184,13 +184,13 @@ static void doIntro()
 
 	e->type = ENEMY;
 
-	e->mental = 60 * 60;
+	e->thinkTime = e->maxThinkTime;
 
 	self->target = e;
 
 	e->target = self;
 	
-	e->maxThinkTime = 0;
+	e->mental = 0;
 
 	setEntityAnimation(e, "STAND");
 
@@ -213,9 +213,9 @@ static void entityWait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->target->mental <= 0)
+		if (self->target->thinkTime <= 0)
 		{
-			self->action = self->target->maxThinkTime == 0 ? &phantasmalBoltInit : &soulStealInit;
+			self->action = self->target->mental == 0 ? &phantasmalBoltInit : &soulStealInit;
 		}
 
 		else
@@ -340,9 +340,9 @@ static void soulSteal()
 			self->target->alpha = 255;
 		}
 
-		self->target->mental = 60 * 60;
+		self->target->thinkTime = self->target->maxThinkTime;
 
-		self->target->maxThinkTime = 0;
+		self->target->mental = 0;
 
 		player.alpha -= 64;
 
@@ -846,8 +846,21 @@ static void scytheThrow()
 		e->type = ENEMY;
 
 		e->flags |= FLY;
-
-		distance = (SCREEN_WIDTH / 2) + (SCREEN_WIDTH / 2) / self->mental;
+		
+		switch (self->mental)
+		{
+			case 3:
+				distance = SCREEN_WIDTH * 0.5;
+			break;
+			
+			case 2:
+				distance = SCREEN_WIDTH * 0.75;
+			break;
+			
+			default:
+				distance = SCREEN_WIDTH;
+			break;
+		}
 
 		e->targetX = self->face == LEFT ? e->x - distance : e->x + distance;
 
@@ -867,7 +880,7 @@ static void scytheThrowWait()
 {
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = 10;
+		self->thinkTime = self->mental <= 0 ? 30 : 10;
 		
 		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrow;
 	}
@@ -881,25 +894,30 @@ static void scytheThrowTeleportAway()
 {
 	Target *t;
 	
-	self->flags |= NO_DRAW;
-
-	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+	self->thinkTime--;
 	
-	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-	
-	t = getTargetByName("AZRIEL_TOP_TARGET");
-
-	if (t == NULL)
+	if (self->thinkTime <= 0)
 	{
-		showErrorAndExit("Azriel cannot find target");
-	}
+		self->flags |= NO_DRAW;
 
-	self->x = t->x;
-	self->y = t->y;
-	
-	self->action = &scytheThrowFinish;
-	
-	self->thinkTime = 30;
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+		
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		t = getTargetByName("AZRIEL_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Azriel cannot find target");
+		}
+
+		self->x = t->x;
+		self->y = t->y;
+		
+		self->action = &scytheThrowFinish;
+		
+		self->thinkTime = 30;
+	}
 }
 
 static void scytheThrowFinish()
@@ -1047,7 +1065,7 @@ static void phantasmalBolt()
 
 		self->endY = 0;
 
-		self->target->maxThinkTime = 1;
+		self->target->mental = 1;
 	}
 
 	checkToMap(self);
@@ -1412,11 +1430,11 @@ static void takeDamage(Entity *other, int damage)
 
 static void soulWait()
 {
-	self->mental--;
+	self->thinkTime--;
 
-	if (self->mental <= 0)
+	if (self->thinkTime <= 0)
 	{
-		self->mental = 0;
+		self->thinkTime = 0;
 	}
 
 	self->endX++;
