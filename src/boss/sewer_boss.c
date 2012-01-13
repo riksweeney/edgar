@@ -56,7 +56,6 @@ static void createArm(Entity *);
 static void clawWait(void);
 static void armPartWait(void);
 static void alignArmToClaw(void);
-static void hover(void);
 static void punchAttackInit(void);
 static void punchAttack(void);
 static void punchWait(void);
@@ -133,7 +132,7 @@ Entity *addSewerBoss(int x, int y, char *name)
 	e->action = &initialise;
 	e->touch = NULL;
 	e->fallout = &fallout;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->draw = &drawLoopingAnimationToMap;
@@ -355,8 +354,6 @@ static void entityWait()
 	}
 
 	checkToMap(self);
-
-	hover();
 }
 
 static void punchWait()
@@ -526,7 +523,7 @@ static void addClaws()
 		e->die = &clawDie;
 		e->action = &clawWait;
 		e->takeDamage = &clawTakeDamage;
-		
+
 		e->creditsAction = &clawWait;
 
 		e->head = self;
@@ -579,7 +576,7 @@ static void createArm(Entity *top)
 		body[i]->draw = &drawLoopingAnimationToMap;
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
-		
+
 		body[i]->creditsAction = &armPartWait;
 
 		body[i]->type = ENEMY;
@@ -819,7 +816,7 @@ static void clawWait()
 			self->inUse = FALSE;
 		}
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -971,7 +968,7 @@ static void punchAttackInit()
 
 			self->dirX *= 12;
 			self->dirY *= 12;
-			
+
 			self->flags &= ~UNBLOCKABLE;
 
 			self->action = &punchAttack;
@@ -1304,7 +1301,7 @@ static void armPartWait()
 
 		self->action = &armChangeToWater;
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -1349,20 +1346,6 @@ static void alignArmToClaw()
 
 		e = e->target;
 	}
-}
-
-static void hover()
-{
-	return;
-
-	self->startX++;
-
-	if (self->startX >= 360)
-	{
-		self->startX = 0;
-	}
-
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 16;
 }
 
 static void slimeAttackInit()
@@ -2282,7 +2265,7 @@ static void addSlimeDrips()
 
 		e->draw = &drawLoopingAnimationToMap;
 		e->action = &dripWait;
-		
+
 		e->creditsAction = &dripWait;
 
 		e->head = self;
@@ -2299,7 +2282,7 @@ static void dripWait()
 {
 	int frame;
 	float timer;
-	
+
 	self->face = self->head->face;
 
 	if (self->face == LEFT)
@@ -2324,12 +2307,12 @@ static void dripWait()
 	if (self->element == WATER && self->head->element != WATER)
 	{
 		self->element = SLIME;
-		
+
 		frame = self->currentFrame;
 		timer = self->frameTimer;
 
 		setEntityAnimationByID(self, self->mental);
-		
+
 		self->currentFrame = frame;
 		self->frameTimer = timer;
 	}
@@ -2413,11 +2396,11 @@ static void creditsMove()
 		addSlimeDrips();
 
 		addClaws();
-		
+
 		self->health = -1;
 	}
-	
+
 	bossMoveToMiddle();
-	
+
 	alignArmToClaw();
 }

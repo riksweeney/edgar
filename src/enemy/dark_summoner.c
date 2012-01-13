@@ -68,7 +68,7 @@ Entity *addDarkSummoner(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -193,7 +193,7 @@ static void summon()
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
 
 	self->action = &summonWait;
-	
+
 	self->creditsAction = &summonWait;
 
 	setEntityAnimation(self, "ATTACK_2");
@@ -203,14 +203,14 @@ static void summon()
 
 static void hover()
 {
-	self->startX++;
+	self->endX++;
 
-	if (self->startX >= 360)
+	if (self->endX >= 360)
 	{
-		self->startX = 0;
+		self->endX = 0;
 	}
 
-	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
+	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 8;
 }
 
 static void summonEnd()
@@ -235,7 +235,7 @@ static void summonEnd()
 
 			self->mental = 0;
 		}
-		
+
 		self->creditsAction = &creditsMove;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
@@ -249,7 +249,7 @@ static void summonEnd()
 static void die()
 {
 	Entity *e;
-	
+
 	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
 	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 3 == 0)
@@ -468,33 +468,33 @@ static void creditsMove()
 	{
 		self->targetX = self->x + SCREEN_WIDTH / 2;
 		self->targetY = self->y;
-		
+
 		self->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
+
 		self->health = -1;
-		
+
 		self->thinkTime = 0;
 	}
-	
+
 	else
 	{
 		hover();
-		
+
 		self->dirX = self->speed;
-		
+
 		checkToMap(self);
-		
+
 		if (self->dirX == 0)
 		{
 			self->inUse = FALSE;
 		}
-		
+
 		if (self->thinkTime == 0)
 		{
 			STRNCPY(self->requires, "red_centurion", MAX_VALUE_LENGTH);
-			
+
 			self->creditsAction = &summonWait;
 
 			setEntityAnimation(self, "ATTACK_1");

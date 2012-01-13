@@ -31,7 +31,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "chicken_feed.h"
 #include "chicken_trap.h"
 #include "coal_pile.h"
-#include "rock_pile.h"
 #include "heart_container.h"
 #include "shrub.h"
 #include "stalactite.h"
@@ -142,7 +141,6 @@ static Constructor items[] = {
 {"item/chicken_feed_bag", &addChickenFeedBag},
 {"item/chicken_trap", &addChickenTrap},
 {"item/coal_pile", &addCoalPile},
-{"item/rock_pile", &addRockPile},
 {"misc/small_tree", &addShrub},
 {"item/heart_container", &addHeartContainer},
 {"item/stalactite", &addStalactite},

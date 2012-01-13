@@ -1,5 +1,5 @@
 IF BLENDER HEALTH 0
-TALK Edgar It looks like a blender. I could use this to liqudise something
+TALK Edgar It looks like a blender. I could use this to liquidise something
 END
 IF BLENDER HEALTH 1
 HAS_ITEM "Sludge Tentacle" 1 1 BLENDER 2 3

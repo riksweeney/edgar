@@ -92,6 +92,15 @@ static void die(void);
 static void dieShudder(void);
 static void dieMoveToTop(void);
 static void dieWait(void);
+static void lightningCageInit(void);
+static void lightningCageCreate(void);
+static void lightningCageWait(void);
+static void lightningCageMoveAbovePlayer(void);
+static void lightningCage(void);
+static void lightningCageFinish(void);
+static void cageLightningWait(void);
+static void appear(void);
+static void moveToAzriel(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -125,29 +134,123 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
+		if (self->mental == 0)
 		{
-			self->flags &= ~NO_DRAW;
-			
-			setWeather(HEAVY_RAIN);
-			
-			playDefaultBossMusic();
+			if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
+			{
+				self->flags &= ~NO_DRAW;
+
+				setWeather(HEAVY_RAIN);
+
+				playDefaultBossMusic();
+			}
+
+			centerMapOnEntity(NULL);
+
+			self->action = &doIntro;
+
+			self->thinkTime = 60;
+
+			self->endX = 0;
+
+			self->touch = &entityTouch;
+
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 
-		centerMapOnEntity(NULL);
-
-		self->action = &doIntro;
-
-		self->thinkTime = 60;
-		
-		self->endX = 0;
-
-		self->touch = &entityTouch;
-
-		setContinuePoint(FALSE, self->name, NULL);
+		else
+		{
+			self->action = &appear;
+		}
 	}
 
 	checkToMap(self);
+}
+
+static void appear()
+{
+	EntityList *l, *list;
+	Target *t[6];
+	Entity *e;
+	int i, grave;
+
+	list = createPixelsFromSprite(getCurrentSprite(self));
+
+	i = 0;
+
+	t[0] = getTargetByName("GRAVE_1");
+	t[1] = getTargetByName("GRAVE_2");
+	t[2] = getTargetByName("GRAVE_3");
+	t[3] = getTargetByName("GRAVE_4");
+	t[4] = getTargetByName("GRAVE_5");
+	t[5] = getTargetByName("GRAVE_6");
+
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		grave = 1 + prand() % 6;
+
+		if (t[grave] == NULL)
+		{
+			showErrorAndExit("Azirel cannot find target");
+		}
+
+		e = l->entity;
+
+		e->targetX = e->x;
+		e->targetY = e->y;
+
+		e->x = t[grave]->x;
+		e->y = t[grave]->y;
+
+		calculatePath(e->x, e->y, e->targetX, self->targetY, &e->dirX, &e->dirY);
+
+		e->dirX *= 3;
+		e->dirY *= 3;
+
+		e->head = self;
+
+		e->thinkTime = prand() % 180;
+
+		e->action = &moveToAzriel;
+
+		i++;
+	}
+
+	self->mental = i;
+
+	self->flags |= NO_DRAW;
+
+	freeEntityList(list);
+
+	self->active = FALSE;
+
+	self->action = &initialise;
+}
+
+static void moveToAzriel()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+
+		if (atTarget())
+		{
+			if (self->active == TRUE)
+			{
+				self->head->mental--;
+
+				self->active = FALSE;
+			}
+
+			if (self->head->active == TRUE)
+			{
+				self->inUse = FALSE;
+			}
+		}
+	}
 }
 
 static void doIntro()
@@ -175,7 +278,7 @@ static void doIntro()
 	e->y = t->y;
 
 	e->startY = e->y;
-	
+
 	e->alpha = 0;
 
 	e->action = &soulWait;
@@ -189,7 +292,7 @@ static void doIntro()
 	self->target = e;
 
 	e->target = self;
-	
+
 	e->mental = 0;
 
 	setEntityAnimation(e, "STAND");
@@ -203,7 +306,7 @@ static void doIntro()
 	self->action = &attackFinished;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -220,16 +323,20 @@ static void entityWait()
 
 		else
 		{
-			switch (prand() % 3)
+			switch (prand() % 4)
 			{
 				case 0:
 					self->action = &scytheThrowInit;
 				break;
-				
+
 				case 1:
 					self->action = &raiseDeadInit;
 				break;
-				
+
+				case 2:
+					self->action = &lightningCageInit;
+				break;
+
 				default:
 					self->action = &spikeAttackInit;
 				break;
@@ -238,8 +345,313 @@ static void entityWait()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
+}
+
+static void lightningCageInit()
+{
+	Target *t;
+
+	t = getTargetByName("AZRIEL_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Azriel cannot find target");
+	}
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	self->x = t->x;
+	self->y = t->y;
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	self->flags |= NO_DRAW;
+
+	self->thinkTime = 30;
+
+	self->action = &lightningCageCreate;
+
+	self->mental = 0;
+}
+
+static void lightningCageCreate()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = player.x + player.w / 2 - self->w / 2;
+
+		setEntityAnimation(self, "ATTACK_5");
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->flags &= ~NO_DRAW;
+
+		self->face = RIGHT;
+
+		self->mental = 0;
+
+		self->thinkTime = 60;
+
+		self->maxThinkTime = 0;
+
+		for (i=0;i<2;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a lightning cage");
+			}
+
+			loadProperties("boss/sorceror_lightning_cage_spell", e);
+
+			e->action = &lightningCageWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->face = i == 0 ? LEFT : RIGHT;
+
+			setEntityAnimation(e, "STAND");
+
+			if (e->face == LEFT)
+			{
+				e->x = self->x + self->w - e->w - e->offsetX;
+			}
+
+			else
+			{
+				e->x = self->x + e->offsetX;
+			}
+
+			e->y = self->y + e->offsetY;
+		}
+
+		self->action = &lightningCageMoveAbovePlayer;
+	}
+}
+
+static void lightningCageMoveAbovePlayer()
+{
+	if (self->maxThinkTime == 0)
+	{
+		self->targetX = player.x - self->w / 2 + player.w / 2;
+
+		/* Position above the player */
+
+		if (abs(self->x - self->targetX) <= self->speed * 3)
+		{
+			self->dirX = 0;
+		}
+
+		else
+		{
+			self->dirX = self->targetX < self->x ? -player.speed * 3 : player.speed * 3;
+		}
+	}
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->maxThinkTime == 0)
+		{
+			self->thinkTime = 30;
+
+			self->maxThinkTime = 2;
+
+			self->mental = 1;
+		}
+
+		else
+		{
+			self->action = &lightningCage;
+
+			self->targetX = prand() % 2 == 0 ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+
+			self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void lightningCage()
+{
+	int startX;
+
+	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
+	{
+		self->x = self->targetX;
+
+		self->dirX = 0;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->maxThinkTime--;
+
+			if (self->maxThinkTime <= 0)
+			{
+				self->action = &lightningCageFinish;
+			}
+
+			else
+			{
+				startX = getMapStartX();
+
+				self->targetX = self->x != startX ? startX : getMapStartX() + SCREEN_WIDTH - self->w;
+
+				self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+			}
+
+			self->thinkTime = 30;
+		}
+	}
+
+	else
+	{
+		self->x += self->dirX;
+	}
+}
+
+static void lightningCageFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 2;
+
+		self->action = &attackFinished;
+	}
+}
+
+static void lightningCageWait()
+{
+	int i, middle;
+	Entity *e;
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+
+	middle = 0;
+
+	e = NULL;
+
+	if (self->head->mental == 1)
+	{
+		if (self->mental == 0)
+		{
+			self->endY = getMapFloor(self->x + self->w / 2, self->y);
+
+			for (i=self->y;i<self->endY;i+=32)
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add lightning");
+				}
+
+				loadProperties("enemy/lightning", e);
+
+				setEntityAnimation(e, "STAND");
+
+				if (i == self->startY)
+				{
+					middle = self->targetX + self->w / 2 - e->w / 2;
+				}
+
+				e->x = middle;
+				e->y = i;
+
+				e->action = &cageLightningWait;
+
+				e->draw = &drawLoopingAnimationToMap;
+				e->touch = &entityTouch;
+
+				e->head = self;
+
+				e->currentFrame = prand() % 6;
+
+				e->face = RIGHT;
+
+				e->thinkTime = 15;
+			}
+
+			e->mental = 1;
+
+			self->mental = 1;
+		}
+	}
+
+	else if (self->head->mental == 2)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void cageLightningWait()
+{
+	Entity *e;
+
+	self->x = self->head->x + self->head->w / 2 - self->w / 2;
+
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+
+	if (self->mental == 1)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y = self->y;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y = self->y;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			self->thinkTime = 15;
+		}
+	}
 }
 
 static void soulStealInit()
@@ -247,15 +659,15 @@ static void soulStealInit()
 	self->flags |= NO_DRAW;
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-	
+
 	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 	self->thinkTime = 30;
 
 	self->action = &soulStealMoveToPlayer;
-	
+
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -286,27 +698,27 @@ static void soulStealMoveToPlayer()
 		self->targetX = player.x;
 
 		player.flags |= GROUNDED;
-		
+
 		facePlayer();
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		self->action = &soulSteal;
 
 		self->thinkTime = 600;
 	}
-	
+
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
 static void soulSteal()
 {
 	Target *t;
-	
+
 	self->thinkTime--;
 
 	player.x = self->targetX;
@@ -314,13 +726,13 @@ static void soulSteal()
 	if (self->thinkTime <= 0)
 	{
 		player.flags &= ~GROUNDED;
-		
+
 		self->flags |= NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-		
+
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
 		if (t == NULL)
@@ -349,39 +761,39 @@ static void soulSteal()
 		if (player.alpha <= 0)
 		{
 			player.thinkTime = 600;
-			
+
 			player.health = 0;
-			
+
 			setPlayerLocked(TRUE);
 		}
-		
+
 		self->thinkTime = 30;
-		
+
 		self->action = &soulStealFinish;
 	}
-	
+
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
 static void soulStealFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-		
+
 		self->action = &attackFinished;
 	}
-	
+
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -407,7 +819,7 @@ static void spikeAttackInit()
 	self->thinkTime = 30;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -424,17 +836,17 @@ static void spikeAttackMoveToTopTarget()
 			e = getFreeEntity();
 
 			loadProperties("boss/azriel_light_beam", e);
-			
+
 			setEntityAnimation(e, "APPEAR");
-			
+
 			e->animationCallback = &beamAppearFinish;
 
 			e->head = self;
 
 			e->x = getMapStartX() + prand() % (SCREEN_WIDTH - e->w);
-			
+
 			e->y = getMapFloor(self->x + self->w / 2, self->y) - e->h;
-			
+
 			e->startY = e->y;
 
 			e->action = &beamWait;
@@ -448,7 +860,7 @@ static void spikeAttackMoveToTopTarget()
 			e->thinkTime = 240;
 
 			e->mental = prand() % 3 == 0 ? 1 : 0;
-			
+
 			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_summon.ogg", -1, e->x, e->y, -1);
 
 			self->action = &spikeAttackWait;
@@ -458,7 +870,7 @@ static void spikeAttackMoveToTopTarget()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -470,17 +882,17 @@ static void beamAppearFinish()
 static int drawBeam()
 {
 	int y;
-	
+
 	self->y = self->startY;
-	
+
 	y = self->y;
-	
+
 	drawLoopingAnimationToMap();
 
 	while (self->y > 0)
 	{
 		self->y -= self->h;
-		
+
 		drawSpriteToMap();
 	}
 
@@ -499,18 +911,18 @@ static void beamWait()
 		if (self->mental == 1)
 		{
 			self->thinkTime = 60;
-			
+
 			setEntityAnimation(self, "STAND_RED");
-			
+
 			self->action = &redBeamWait;
 		}
-		
+
 		else
 		{
 			i = 0;
-			
+
 			floor = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
-			
+
 			/* Left side of beam */
 
 			x = self->x;
@@ -527,9 +939,9 @@ static void beamWait()
 
 				e->x = x - e->w;
 				e->y = floor;
-				
+
 				e->startY = e->y - e->h;
-				
+
 				e->endY = e->y;
 
 				e->action = &spikeRise;
@@ -543,7 +955,7 @@ static void beamWait()
 				e->thinkTime = prand() % 30;
 
 				x = e->x;
-				
+
 				i++;
 			}
 
@@ -563,9 +975,9 @@ static void beamWait()
 
 				e->x = x;
 				e->y = floor;
-				
+
 				e->startY = e->y - e->h;
-				
+
 				e->endY = e->y;
 
 				e->action = &spikeRise;
@@ -579,14 +991,14 @@ static void beamWait()
 				e->thinkTime = prand() % 30;
 
 				x = e->x + e->w;
-				
+
 				i++;
 			}
-			
+
 			self->mental = i;
-			
+
 			self->thinkTime = 30;
-			
+
 			self->action = &beamFinish;
 		}
 	}
@@ -595,9 +1007,9 @@ static void beamWait()
 static void redBeamWait()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
@@ -608,9 +1020,9 @@ static void redBeamWait()
 
 		e->x = self->x + self->w / 2 - e->w / 2;
 		e->y = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
-		
+
 		e->startY = e->y - e->h;
-		
+
 		e->endY = e->y;
 
 		e->action = &spikeRise;
@@ -620,9 +1032,9 @@ static void redBeamWait()
 		e->face = RIGHT;
 
 		e->type = ENEMY;
-		
+
 		self->thinkTime = 30;
-		
+
 		self->action = &redBeamFinish;
 	}
 }
@@ -632,7 +1044,7 @@ static void beamFinish()
 	if (self->mental <= 0)
 	{
 		setEntityAnimation(self, "DISAPPEAR");
-		
+
 		self->animationCallback = &beamDisappearFinish;
 	}
 }
@@ -642,7 +1054,7 @@ static void redBeamFinish()
 	if (self->mental <= 0)
 	{
 		setEntityAnimation(self, "DISAPPEAR_RED");
-		
+
 		self->animationCallback = &beamDisappearFinish;
 	}
 }
@@ -652,16 +1064,16 @@ static void beamDisappearFinish()
 	self->head->mental = 0;
 
 	self->inUse = FALSE;
-	
+
 	stopSound(self->targetX);
 }
 
 static void spikeRise()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->y > self->startY)
@@ -690,9 +1102,9 @@ static void spikeRise()
 
 			e->dirX = 3;
 			e->dirY = -8;
-			
+
 			self->y = self->startY;
-			
+
 			self->health = 15;
 
 			self->thinkTime = 120;
@@ -717,11 +1129,11 @@ static void spikeWait()
 
 		self->endX += 90;
 	}
-	
+
 	else
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->action = &spikeSink;
@@ -735,11 +1147,11 @@ static void spikeSink()
 	{
 		self->y += self->speed * 2;
 	}
-	
+
 	else
 	{
 		self->inUse = FALSE;
-		
+
 		self->head->mental--;
 	}
 }
@@ -786,7 +1198,7 @@ static void scytheThrowInit()
 	self->action = &scytheThrowMoveToTarget;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -802,7 +1214,7 @@ static void scytheThrowMoveToTarget()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -846,17 +1258,17 @@ static void scytheThrow()
 		e->type = ENEMY;
 
 		e->flags |= FLY;
-		
+
 		switch (self->mental)
 		{
 			case 3:
 				distance = SCREEN_WIDTH * 0.5;
 			break;
-			
+
 			case 2:
 				distance = SCREEN_WIDTH * 0.75;
 			break;
-			
+
 			default:
 				distance = SCREEN_WIDTH;
 			break;
@@ -872,7 +1284,7 @@ static void scytheThrow()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -881,29 +1293,29 @@ static void scytheThrowWait()
 	if (self->thinkTime <= 0)
 	{
 		self->thinkTime = self->mental <= 0 ? 30 : 10;
-		
+
 		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrow;
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
 static void scytheThrowTeleportAway()
 {
 	Target *t;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-		
+
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
 		if (t == NULL)
@@ -913,9 +1325,9 @@ static void scytheThrowTeleportAway()
 
 		self->x = t->x;
 		self->y = t->y;
-		
+
 		self->action = &scytheThrowFinish;
-		
+
 		self->thinkTime = 30;
 	}
 }
@@ -923,13 +1335,13 @@ static void scytheThrowTeleportAway()
 static void scytheThrowFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		self->action = &attackFinished;
 	}
 }
@@ -1003,7 +1415,7 @@ static void phantasmalBoltInit()
 	self->action = &phantasmalBoltMoveToTarget;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1017,7 +1429,7 @@ static void phantasmalBoltMoveToTarget()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1069,7 +1481,7 @@ static void phantasmalBolt()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1085,7 +1497,7 @@ static void phantasmalBoltFinish()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1176,7 +1588,7 @@ static void raiseDeadInit()
 	self->action = &raiseDeadMoveToTopTarget;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1208,7 +1620,7 @@ static void raiseDeadMoveToTopTarget()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1232,15 +1644,15 @@ static void raiseDead()
 		}
 
 		e = addEnemy("enemy/zombie", t->x, t->y);
-		
+
 		e->y = getMapFloor(self->x + self->w / 2, self->y);
-		
+
 		e->startX = e->x;
-		
+
 		e->startY = e->y - e->h;
-		
+
 		e->endY = e->y;
-		
+
 		e->thinkTime = 15 + prand() % 105;
 
 		self->mental--;
@@ -1254,7 +1666,7 @@ static void raiseDead()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1280,22 +1692,18 @@ static void raiseDeadFinish()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
 static void attackFinished()
 {
-	self->mental = 0;
-
-	self->damage = 1;
-
 	self->thinkTime = 30;
 
 	self->action = &entityWait;
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -1304,10 +1712,10 @@ static void becomeTransparent()
 	if (strcmpignorecase(self->name, "boss/azriel") != 0)
 	{
 		printf("%s cannot become transparent!\n", self->name);
-		
+
 		exit(1);
 	}
-	
+
 	self->endX--;
 
 	if (self->endX <= 0)
@@ -1331,7 +1739,7 @@ static void becomeTransparent()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -1346,7 +1754,7 @@ static void takeDamage(Entity *other, int damage)
 			self->endX = damage;
 
 			entityTakeDamageNoFlinch(other, damage);
-			
+
 			if (other->type == PROJECTILE)
 			{
 				temp = self;
@@ -1459,25 +1867,25 @@ static void soulLeave()
 	if (self->flags & FLY)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
 			player.die();
-			
+
 			self->thinkTime = 30;
-			
+
 			self->flags &= ~FLY;
 		}
 	}
-	
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, "WALK");
@@ -1490,18 +1898,18 @@ static void soulLeave()
 static void die()
 {
 	self->startX = self->x;
-	
+
 	self->thinkTime = 180;
-	
+
 	self->takeDamage = NULL;
-	
+
 	self->action = &dieShudder;
 }
 
 static void dieShudder()
 {
 	Target *t;
-	
+
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 
 	self->startY += 90;
@@ -1510,17 +1918,17 @@ static void dieShudder()
 	{
 		self->startY = 0;
 	}
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-		
+
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-		
+
 		t = getTargetByName("AZRIEL_TOP_TARGET");
 
 		if (t == NULL)
@@ -1530,9 +1938,9 @@ static void dieShudder()
 
 		self->x = t->x;
 		self->y = t->y;
-		
+
 		self->action = &dieMoveToTop;
-		
+
 		self->thinkTime = 60;
 	}
 }
@@ -1542,22 +1950,22 @@ static void dieMoveToTop()
 	EntityList *l, *list;
 	Entity *e;
 	int i;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->flags & NO_DRAW)
 		{
 			self->flags &= ~NO_DRAW;
-			
+
 			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-			
+
 			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-			
+
 			self->thinkTime = 120;
 		}
-		
+
 		else
 		{
 			list = createPixelsFromSprite(getCurrentSprite(self));
@@ -1567,22 +1975,22 @@ static void dieMoveToTop()
 			for (l=list->next;l!=NULL;l=l->next)
 			{
 				e = l->entity;
-				
+
 				e->dirX = prand() % 30 * (e->x < self->x + self->w / 2 ? -1 : 1);
 				e->dirY = prand() % 30 * (e->y < self->y + self->h / 2 ? -1 : 1);
-				
+
 				e->dirX /= 10;
 				e->dirY /= 10;
-				
-				e->thinkTime = 120;
+
+				e->thinkTime = 180 + prand() % 180;
 			}
-			
+
 			self->flags |= NO_DRAW;
 
 			freeEntityList(list);
-			
+
 			self->thinkTime = 180;
-			
+
 			self->action = &dieWait;
 		}
 	}
@@ -1591,13 +1999,13 @@ static void dieMoveToTop()
 static void dieWait()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		clearContinuePoint();
-		
+
 		freeBossHealthBar();
 
 		e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
@@ -1605,9 +2013,11 @@ static void dieWait()
 		e->x -= e->w;
 
 		e->dirY = ITEM_JUMP_HEIGHT;
-		
+
 		self->action = &entityDieVanish;
-		
+
 		fadeBossMusic();
+
+		player.alpha = 255;
 	}
 }

@@ -2,3 +2,4 @@ FOLLOW EDGAR
 RESET_CAMERA
 ADD_SECRET
 ADD_MEDAL kill_azriel
+ADD MAP_TRIGGER "map10" RUN_SCRIPT "cauldron_dragon_shield_update"
