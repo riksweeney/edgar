@@ -57,6 +57,7 @@ TALK Edgar Got imprisoned in his dungeon
 TALK Edgar And was teleported to another part of the world!
 TALK Edgar I nearly died!
 IF EQUALS [CONTINUE_COUNT] 0
+ADD_MEDAL no_continues
 TALK Maggie Near misses don't count
 END
 IF EQUALS [CONTINUE_COUNT] 1

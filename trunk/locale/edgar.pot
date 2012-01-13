@@ -584,7 +584,7 @@ msgstr ""
 msgid "I wonder if it works both ways..."
 msgstr ""
 
-msgid "Horray!"
+msgid "Hooray!"
 msgstr ""
 
 msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
@@ -707,7 +707,7 @@ msgstr ""
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr ""
 
-msgid "You must be facing the attack to succesfully block it"
+msgid "You must be facing the attack to successfully block it"
 msgstr ""
 
 msgid "Note that you cannot move whilst blocking, but you can face the other way. You also cannot block in the air"
@@ -717,9 +717,6 @@ msgid "Pick up the shield and continue to the right"
 msgstr ""
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr ""
-
-msgid "that not all weak walls can be destroyed using the pickaxe"
 msgstr ""
 
 msgid "Destroy the wall using the pickaxe and continue"
@@ -923,7 +920,7 @@ msgstr ""
 msgid "Please report this error to Parallel Realities"
 msgstr ""
 
-msgid "It looks like a blender. I could use this to liqudise something"
+msgid "It looks like a blender. I could use this to liquidise something"
 msgstr ""
 
 msgid "This must be the coal Borgan wants me to mine for him"
@@ -1049,7 +1046,7 @@ msgstr ""
 msgid "Centurions are magically created creatures, usually dispatched as sentries or guards"
 msgstr ""
 
-msgid "Though slow moving, their massive size allows them to simply march through any defense"
+msgid "Though slow moving, their massive size allows them to simply march through any defence"
 msgstr ""
 
 msgid "Instead of arms, many have huge pile drivers which they use to shake the ground and disorientate threats"
@@ -1097,7 +1094,7 @@ msgstr ""
 msgid "But additionally, if they receive too much energy from healing, they evolve and go on the rampage"
 msgstr ""
 
-msgid "In this state they will smash through any defense and produce Dark Matter which destroys anything it touches"
+msgid "In this state they will smash through any defence and produce Dark Matter which destroys anything it touches"
 msgstr ""
 
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
@@ -1148,7 +1145,7 @@ msgstr ""
 msgid "Unlike its green cousin, the Red Sludge stays deep underground and rarely, if ever, surfaces"
 msgstr ""
 
-msgid "Its prefered habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
+msgid "Its preferred habitat are dry and mineral rich areas and as a result have been found lurking in areas of mines abandoned by humans"
 msgstr ""
 
 msgid "They are very wary of humans and will attack on sight, usually vomiting up an acid which takes time to evaporate"
@@ -1208,7 +1205,7 @@ msgstr ""
 msgid "Pink Hoovers are small quadrupeds with a long snout"
 msgstr ""
 
-msgid "The primary puropse of the snout is to forage for food but it also serves as a defense mechanism"
+msgid "The primary purpose of the snout is to forage for food but it also serves as a defence mechanism"
 msgstr ""
 
 msgid "and are more than capable of keeping a predator at bay by simply blowing them away"
@@ -2015,7 +2012,7 @@ msgstr ""
 msgid "A dragon?! Dad told me they were all extinct!"
 msgstr ""
 
-msgid "For years he wreaked havoc across this land and took thousands of innocent lives, his firey breath incinerated everything in its path"
+msgid "For years he wreaked havoc across this land and took thousands of innocent lives, his fiery breath incinerated everything in its path"
 msgstr ""
 
 msgid "Finally a brave warrior and a group of magicians managed to overwhelm and bind him"
@@ -2081,7 +2078,7 @@ msgstr ""
 msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
 msgstr ""
 
-msgid "That was self defense!"
+msgid "That was self defence!"
 msgstr ""
 
 msgid "Did you try talking to them?"
@@ -2366,7 +2363,7 @@ msgstr ""
 msgid "The pieces are locked behind doors which seem to be linked to the Red Centurions"
 msgstr ""
 
-msgid "The Centurions appear to be indestructable however"
+msgid "The Centurions appear to be indestructible however"
 msgstr ""
 
 msgid "Unless I can find a way to destroy them I will die down here"
@@ -2438,7 +2435,7 @@ msgstr ""
 msgid "Is this what I think it is?"
 msgstr ""
 
-msgid "It is! It's an Amulet of Ressurection!"
+msgid "It is! It's an Amulet of Resurrection!"
 msgstr ""
 
 msgid "Borgan has one of these, but it's been used up. He must have had a lucky escape from something."
@@ -2447,7 +2444,7 @@ msgstr ""
 msgid "This should make my quest a lot easier"
 msgstr ""
 
-msgid "The Amulet of Ressurection will restore all your health once when it drops to 0"
+msgid "The Amulet of Resurrection will restore all your health once when it drops to 0"
 msgstr ""
 
 msgid "However, it will not save you from anything that causes instant death, such as lava or certain boss attacks"
@@ -3026,7 +3023,7 @@ msgstr ""
 msgid "And it tastes like..."
 msgstr ""
 
-msgid "It is! It's naturally occuring Slime potion!"
+msgid "It is! It's naturally occurring Slime potion!"
 msgstr ""
 
 msgid "This is a test"
@@ -3272,7 +3269,7 @@ msgstr ""
 msgid "A delicious apple"
 msgstr ""
 
-msgid "A magical shell fragmant from a Rampaging Master Tortoise"
+msgid "A magical shell fragment from a Rampaging Master Tortoise"
 msgstr ""
 
 msgid "A shield that can resist disintegration"
@@ -4082,7 +4079,7 @@ msgstr ""
 msgid "The keepsake of the warrior that previously defeated it"
 msgstr ""
 
-msgid "I should create the disintegraion shield and rescue my Dad before I go chasing after that dragon"
+msgid "I should create the disintegration shield and rescue my Dad before I go chasing after that dragon"
 msgstr ""
 
 msgid "A sheet of music"

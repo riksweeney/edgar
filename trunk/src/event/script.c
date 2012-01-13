@@ -324,7 +324,7 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "CHEATING") == 0)
 			{
 				if (game.cheating == FALSE)
@@ -332,7 +332,7 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "NOT_CHEATING") == 0)
 			{
 				if (game.cheating == TRUE)
@@ -380,58 +380,58 @@ void readNextScriptLine()
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "EQUALS") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				token2 = strtok_r(NULL, " ", &savePtr);
-				
+
 				val = -1;
-				
+
 				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
 				{
 					val = game.continues;
 				}
-				
+
 				if (val != atoi(token2))
 				{
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "GREATER_THAN") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				token2 = strtok_r(NULL, " ", &savePtr);
-				
+
 				val = -1;
-				
+
 				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
 				{
 					val = game.continues;
 				}
-				
+
 				if (val <= atoi(token2))
 				{
 					script.skipping = TRUE;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "LESS_THAN") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
-				
+
 				token2 = strtok_r(NULL, " ", &savePtr);
-				
+
 				val = -1;
-				
+
 				if (strcmpignorecase(token, "[CONTINUE_COUNT]") == 0)
 				{
 					val = game.continues;
 				}
-				
+
 				if (val > atoi(token2))
 				{
 					script.skipping = TRUE;
@@ -557,7 +557,7 @@ void readNextScriptLine()
 			}
 		}
 
-		else if (strcmpignorecase("WHILE", command) == 0)
+		else if (strcmpignorecase("WHILE", command) == 0 || strcmpignorecase("WHILE_NOT", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
 
@@ -576,7 +576,7 @@ void readNextScriptLine()
 					script.line--;
 				}
 			}
-			
+
 			else if (strcmpignorecase(token, "NOT_EXISTS") == 0)
 			{
 				token = strtok_r(NULL, " ", &savePtr);
@@ -622,7 +622,8 @@ void readNextScriptLine()
 
 					val = atoi(token);
 
-					if (e->health == val)
+					if ((strcmpignorecase("WHILE", command) == 0 && e->health == val) ||
+						(strcmpignorecase("WHILE_NOT", command) == 0 && e->health != val))
 					{
 						freeDialogBox();
 
@@ -638,7 +639,8 @@ void readNextScriptLine()
 
 					val = atoi(token);
 
-					if (e->mental == val)
+					if ((strcmpignorecase("WHILE", command) == 0 && e->mental == val) ||
+						(strcmpignorecase("WHILE_NOT", command) == 0 && e->mental != val))
 					{
 						freeDialogBox();
 
@@ -859,28 +861,28 @@ void readNextScriptLine()
 
 			setWeaponFromScript(token);
 		}
-		
+
 		else if (strcmpignorecase("EQUIP_SHIELD", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
 
 			setShieldFromScript(token);
 		}
-		
+
 		else if (strcmpignorecase("UNEQUIP_WEAPON", command) == 0)
 		{
 			unsetWeapon();
 		}
-		
+
 		else if (strcmpignorecase("UNEQUIP_SHIELD", command) == 0)
 		{
 			unsetShield();
 		}
-		
+
 		else if (strcmpignorecase("WEATHER", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
-			
+
 			setWeather(getWeatherTypeByName(token));
 		}
 
@@ -905,7 +907,7 @@ void readNextScriptLine()
 
 			setNextLevelFromScript(token);
 		}
-		
+
 		else if (strcmpignorecase("SHOW_CREDITS", command) == 0)
 		{
 			showEndCredits();
@@ -943,7 +945,7 @@ void readNextScriptLine()
 
 			becomeJumpingSlime(atoi(token));
 		}
-		
+
 		else if (strcmpignorecase("FIRE_TRIGGER", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
@@ -1000,22 +1002,22 @@ void readNextScriptLine()
 				token = strtok_r(NULL, "\0", &savePtr);
 
 				loadMusic(token);
-				
+
 				playLoadedMusic();
 			}
-			
+
 			else if (strcmpignorecase("PLAY_BOSS_MUSIC", token) == 0)
 			{
 				playDefaultBossMusic();
-				
+
 				playLoadedMusic();
 			}
-			
+
 			else if (strcmpignorecase("OVERRIDE", token) == 0)
 			{
 				game.overrideMusic = TRUE;
 			}
-			
+
 			else if (strcmpignorecase("REMOVE_OVERRIDE", token) == 0)
 			{
 				game.overrideMusic = FALSE;
@@ -1168,7 +1170,7 @@ void readNextScriptLine()
 			{
 				entityWalkTo(e, token);
 			}
-			
+
 			else if (strcmpignorecase("WALK_TO_ENTITY", command) == 0)
 			{
 				entityWalkToEntity(e, token);
@@ -1308,11 +1310,11 @@ void readNextScriptLine()
 		{
 			resetCameraLimits();
 		}
-		
+
 		else if (strcmpignorecase("CAMERA_SNAP", command) == 0)
 		{
 			token = strtok_r(NULL, " ", &savePtr);
-			
+
 			if (strcmpignorecase(token, "EDGAR") == 0)
 			{
 				e = &player;
@@ -1322,9 +1324,9 @@ void readNextScriptLine()
 			{
 				e = getEntityByObjectiveName(token);
 			}
-			
+
 			centerMapOnEntity(e);
-			
+
 			cameraSnapToTargetEntity();
 		}
 
@@ -1341,7 +1343,7 @@ void readNextScriptLine()
 
 			runScript(token);
 		}
-		
+
 		else if (strcmpignorecase("HUD", command) == 0)
 		{
 			token = strtok_r(NULL, "\0", &savePtr);
@@ -1350,7 +1352,7 @@ void readNextScriptLine()
 			{
 				game.showHUD = FALSE;
 			}
-			
+
 			else
 			{
 				game.showHUD = TRUE;

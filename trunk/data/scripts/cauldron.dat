@@ -20,8 +20,7 @@ IF CAULDRON HEALTH 6
 TALK Edgar Hopefully I'll never have to use this again
 END
 IF CAULDRON HEALTH 7
-TALK Edgar I should create the disintegraion shield and rescue my Dad before I go chasing after that dragon
-TALK Edgar I'll use my wooden shield...
+TALK Edgar I should create the disintegration shield and rescue my Dad before I go chasing after that dragon
 REMOVE "Small Wooden Shield" 1 1 CAULDRON 5 5
 REMOVE "Protection Ring" 1 1 CAULDRON 5 5
 FOLLOW NONE
