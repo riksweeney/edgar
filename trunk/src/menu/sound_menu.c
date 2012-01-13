@@ -275,9 +275,10 @@ static void loadMenuLayout()
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	/* Resize */
-
-	resizeMenu(&menu);
+	if (menu.w <= 0 || menu.h <= 0)
+	{
+		showErrorAndExit("Menu dimensions must be greater than 0");
+	}
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
@@ -399,7 +400,7 @@ static void lowerMusicVolume()
 	Widget *w = menu.widgets[menu.index];
 
 	changeVolume(&game.musicDefaultVolume, w, -1);
-
+	
 	pauseMusic(FALSE);
 }
 
@@ -408,7 +409,7 @@ static void raiseMusicVolume()
 	Widget *w = menu.widgets[menu.index];
 
 	changeVolume(&game.musicDefaultVolume, w, 1);
-
+	
 	pauseMusic(FALSE);
 }
 

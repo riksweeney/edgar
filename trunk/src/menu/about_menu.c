@@ -86,7 +86,17 @@ static void loadMenuLayout()
 
 	/* Resize */
 
-	resizeMenu(&menu);
+	if (menu.widgets[0]->selectedState->w > menu.widgets[1]->selectedState->w)
+	{
+		menu.w = menu.widgets[0]->selectedState->w + 20;
+	}
+
+	else
+	{
+		menu.w = menu.widgets[1]->selectedState->w + 20;
+	}
+
+	menu.h = 170;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
@@ -97,7 +107,7 @@ static void loadMenuLayout()
 Menu *initAboutMenu()
 {
 	menu.action = &doMenu;
-
+	
 	freeAboutMenu();
 
 	loadMenuLayout();

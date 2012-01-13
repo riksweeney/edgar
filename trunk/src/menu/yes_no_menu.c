@@ -208,9 +208,22 @@ static void loadMenuLayout(char *text)
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
+	if (menu.w <= 0 || menu.h <= 0)
+	{
+		showErrorAndExit("Menu dimensions must be greater than 0");
+	}
+
 	/* Resize */
 
-	resizeMenu(&menu);
+	if (menu.widgets[0]->selectedState->w > menu.widgets[1]->selectedState->w)
+	{
+		menu.w = menu.widgets[0]->selectedState->w + 20;
+	}
+
+	else
+	{
+		menu.w = menu.widgets[1]->selectedState->w + 20;
+	}
 
 	x = menu.widgets[2]->normalState->w + menu.widgets[3]->normalState->w + 20;
 

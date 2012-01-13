@@ -169,9 +169,14 @@ static void loadMenuLayout(char *text)
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
+	if (menu.w <= 0 || menu.h <= 0)
+	{
+		showErrorAndExit("Menu dimensions must be greater than 0");
+	}
+
 	/* Resize */
 
-	resizeMenu(&menu);
+	menu.w = menu.widgets[0]->selectedState->w + 20;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
