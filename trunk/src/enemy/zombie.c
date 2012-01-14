@@ -242,6 +242,11 @@ static void sink()
 {
 	self->y++;
 	
+	if (self->target != NULL)
+	{
+		setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
+	}
+	
 	if (self->y >= self->endY)
 	{
 		if (self->target != NULL)

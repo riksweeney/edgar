@@ -187,7 +187,7 @@ static void appear()
 
 	for (l=list->next;l!=NULL;l=l->next)
 	{
-		grave = 1 + prand() % 6;
+		grave = prand() % 6;
 
 		if (t[grave] == NULL)
 		{
@@ -202,7 +202,7 @@ static void appear()
 		e->x = t[grave]->x;
 		e->y = t[grave]->y;
 
-		calculatePath(e->x, e->y, e->targetX, self->targetY, &e->dirX, &e->dirY);
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->dirX *= 3;
 		e->dirY *= 3;
@@ -387,7 +387,7 @@ static void lightningCageCreate()
 	{
 		self->x = player.x + player.w / 2 - self->w / 2;
 
-		setEntityAnimation(self, "ATTACK_5");
+		/*setEntityAnimation(self, "ATTACK_5");*/
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -412,7 +412,7 @@ static void lightningCageCreate()
 				showErrorAndExit("No free slots to add a lightning cage");
 			}
 
-			loadProperties("boss/sorceror_lightning_cage_spell", e);
+			loadProperties("boss/azriel_lightning_cage_spell", e);
 
 			e->action = &lightningCageWait;
 

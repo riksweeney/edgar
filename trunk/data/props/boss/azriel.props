@@ -5,4 +5,3 @@ ANIM_FILE data/anim/enemy/ghost.dat
 TYPE ENEMY
 FLAGS NO_DRAW|FLY
 SPEED 2.5
-ALPHA 128
