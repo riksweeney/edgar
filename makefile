@@ -109,7 +109,6 @@ makefile.dep : src/*/*.h src/*.h
 	$(CXX) $(CFLAGS) -c -s $<
 	
 %.mo: %.po
-	msgmerge --width=110 --update $< locale/edgar.pot
 	msgfmt -c -o $@ $<
 
 # linking the program.
