@@ -74,8 +74,6 @@ Entity *addBellRope(int x, int y, char *name)
 
 static void init()
 {
-	int i;
-
 	if (self->active == TRUE)
 	{
 		setEntityAnimation(self, "BELL");
@@ -133,7 +131,9 @@ static void activate(int val)
 		{
 			for (i=0;i<8;i++)
 			{
-				self->requires[i] = prand() % 5;
+				snprintf(tune, MAX_VALUE_LENGTH, "%ld", prand() % 5);
+				
+				self->requires[i] = tune[0];
 			}
 
 			self->requires[i] = '\0';
@@ -173,7 +173,9 @@ static void activate(int val)
 
 			if (self->head->active == TRUE)
 			{
-				self->head->description[self->head->health] = self->mental;
+				snprintf(tune, MAX_VALUE_LENGTH, "%d", self->mental);
+				
+				self->head->description[self->head->health] = tune[0];
 
 				self->head->health++;
 
@@ -190,6 +192,8 @@ static void activate(int val)
 
 					self->head->health = MAX_VALUE_LENGTH - 2;
 				}
+				
+				printf("%s == %s\n", self->head->description, self->head->requires);
 
 				if (strstr(self->head->description, self->head->requires) != NULL)
 				{

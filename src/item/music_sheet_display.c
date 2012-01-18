@@ -81,11 +81,11 @@ static void init()
 
 		loadProperties("item/music_note", e);
 
-		note = (int)self->head->requires[i];
+		note = self->head->requires[i] - '0';
 
 		setEntityAnimationByID(e, note);
 
-		e->x = self->x + e->offsetX * (i + 1);
+		e->x = self->x + self->offsetX + e->offsetX * (i + 1);
 		e->y = self->y + e->offsetY;
 
 		e->type = KEY_ITEM;

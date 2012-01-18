@@ -213,10 +213,15 @@ static void loadMenuLayout(char *text)
 	
 	menu.w = menu.widgets[0]->selectedState->w + 20;
 
-	x = menu.widgets[1]->normalState->w + menu.widgets[2]->normalState->w + 20;
-
-	menu.widgets[1]->x = (menu.w - x) / 2;
+	menu.widgets[1]->x = 10;
 	menu.widgets[2]->x = menu.widgets[1]->x + menu.widgets[1]->selectedState->w + 20;
+	
+	x = menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10;
+	
+	if (x > menu.w)
+	{
+		menu.w = x;
+	}
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
