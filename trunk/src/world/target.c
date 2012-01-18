@@ -111,7 +111,9 @@ Target *getTargetByName(char *name)
 		}
 	}
 
-	printf("Could not find target %s\n", name);
+	#if DEV == 1
+		printf("Could not find target %s\n", name);
+	#endif
 
 	return NULL;
 }
