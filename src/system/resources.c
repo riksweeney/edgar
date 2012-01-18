@@ -78,18 +78,18 @@ void loadRequiredResources()
 	initHud();
 
 	/* Load the font */
-	
+
 	if (strlen(game.customFont) == 0)
 	{
 		game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
-		
+
 		game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
 	}
-	
+
 	else
 	{
 		game.font = loadCustomFont(game.customFont, game.fontSizeSmall);
-		
+
 		game.largeFont = loadCustomFont(game.customFont, game.fontSizeLarge);
 	}
 }
@@ -111,7 +111,7 @@ void freeLevelResources()
 	/* Free the sounds */
 
 	freeSounds();
-	
+
 	if (game.overrideMusic == FALSE)
 	{
 		/* Free music */
@@ -175,9 +175,9 @@ void freeGameResources()
 	/* Clear the boss meter */
 
 	freeBossHealthBar();
-	
+
 	/* Free the title screen */
-	
+
 	freeTitle();
 }
 
@@ -206,7 +206,7 @@ void freeAllResources()
 	/* Free the font */
 
 	closeFont(game.font);
-	
+
 	closeFont(game.largeFont);
 
 	/* Clear the collision grid */
@@ -608,7 +608,7 @@ int patchEntities(double versionFile, char *mapName)
 	savePtr = NULL;
 
 	snprintf(patchFile, sizeof(patchFile), "data/patch/%0.2f.dat", versionFile);
-	
+
 	saveMap = TRUE;
 
 	if (existsInPak(patchFile) == TRUE)
@@ -644,19 +644,21 @@ int patchEntities(double versionFile, char *mapName)
 
 				modifyObjective(key, value);
 			}
-			
+
 			else if (strcmpignorecase(itemName, "REMOVE_OBJECTIVE") == 0 && skipping == FALSE)
 			{
 				sscanf(line, "%*s \"%[^\"]\"", key);
 
 				removeObjective(key);
 			}
-			
+
 			else if (strcmpignorecase(itemName, "REMOVE_TRIGGER") == 0 && skipping == FALSE)
 			{
 				sscanf(line, "%*s \"%[^\"]\"", key);
 
 				removeGlobalTrigger(key);
+
+				removeTrigger(key);
 			}
 
 			else if (strcmpignorecase(line, "ADD_ENTITY") == 0 && skipping == FALSE)
@@ -748,7 +750,7 @@ int patchEntities(double versionFile, char *mapName)
 					setProperty(e, key, value);
 				}
 			}
-			
+
 			else if (strcmpignorecase(itemName, "RENAME_MAP") == 0 && skipping == FALSE)
 			{
 				saveMap = FALSE;
@@ -759,6 +761,6 @@ int patchEntities(double versionFile, char *mapName)
 
 		free(buffer);
 	}
-	
+
 	return saveMap;
 }
