@@ -138,8 +138,6 @@ static void activate(int val)
 
 			self->requires[i] = '\0';
 
-			printf("Solution is %s\n", self->requires);
-
 			self->active = TRUE;
 		}
 	}
@@ -192,8 +190,6 @@ static void activate(int val)
 
 					self->head->health = MAX_VALUE_LENGTH - 2;
 				}
-				
-				printf("%s == %s\n", self->head->description, self->head->requires);
 
 				if (strstr(self->head->description, self->head->requires) != NULL)
 				{
