@@ -1426,6 +1426,8 @@ static void stickToPlayerAndDrain()
 {
 	Entity *temp;
 
+	setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the pieces!"));
+
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + (player.w - self->w) / 2 + self->startX;

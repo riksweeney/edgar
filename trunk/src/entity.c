@@ -22,7 +22,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "audio/audio.h"
 #include "collisions.h"
 #include "custom_actions.h"
-#include "enemy/enemies.h"
 #include "entity.h"
 #include "event/global_trigger.h"
 #include "event/script.h"
@@ -38,10 +37,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "system/error.h"
 #include "system/properties.h"
 #include "system/random.h"
-#include "world/action_point.h"
-#include "world/falling_platform.h"
-#include "world/npc.h"
-#include "world/weak_wall.h"
 
 extern Entity *self;
 extern Game game;
@@ -1437,75 +1432,16 @@ void addEntityFromScript(char *line)
 
 	sscanf(line, "%s %s \"%[^\"]\" %d %d", entityType, entityName, objectiveName, &x, &y);
 
-	if (strcmpignorecase(entityType, "WEAPON") == 0 || strcmpignorecase(entityType, "SHIELD") == 0 ||
-		strcmpignorecase(entityType, "ITEM") == 0)
+	e = addEntityFromResource(entityType, entityName, x, y);
+
+	e->startX = x;
+	e->startY = y;
+	e->endX = x;
+	e->endY = y;
+
+	if (strcmpignorecase(objectiveName, " ") != 0)
 	{
-		e = addPermanentItem(entityName, x, y);
-
-		if (strcmpignorecase(objectiveName, " ") != 0)
-		{
-			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
-		}
-	}
-
-	else if (strcmpignorecase(entityType, "KEY_ITEM") == 0)
-	{
-		e = addKeyItem(entityName, x, y);
-
-		if (strcmpignorecase(objectiveName, " ") != 0)
-		{
-			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
-		}
-	}
-
-	else if (strcmpignorecase(entityType, "NPC") == 0)
-	{
-		e = addNPC(entityName, x, y);
-
-		if (strcmpignorecase(objectiveName, " ") != 0)
-		{
-			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
-		}
-	}
-
-	else if (strcmpignorecase(entityType, "ENEMY") == 0)
-	{
-		e = addEnemy(entityName, x, y);
-
-		if (strcmpignorecase(objectiveName, " ") != 0)
-		{
-			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
-		}
-	}
-
-	else if (strcmpignorecase(entityType, "ACTION_POINT") == 0)
-	{
-		e = addActionPoint("common/action_point", x, y);
-
-		e->startX = x;
-		e->startY = y;
-		e->endX = x;
-		e->endY = y;
-
-		if (strcmpignorecase(objectiveName, " ") != 0)
-		{
-			STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
-		}
-	}
-
-	else if (strcmpignorecase(entityType, "FALLING_PLATFORM") == 0)
-	{
-		addFallingPlatform(x, y, entityName);
-	}
-
-	else if (strcmpignorecase(entityType, "WEAK_WALL") == 0)
-	{
-		addWeakWall(entityName, x, y);
-	}
-
-	else
-	{
-		showErrorAndExit("ADD ENTITY command encountered unknown entity %s", entityType);
+		STRNCPY(e->objectiveName, objectiveName, sizeof(e->objectiveName));
 	}
 }
 
@@ -1954,7 +1890,7 @@ void addToDrawLayer(Entity *e, int layer)
 	{
 		return;
 	}
-	
+
 	drawLayer[layer][drawLayerIndex[layer]] = e;
 
 	drawLayerIndex[layer]++;
