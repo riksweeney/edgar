@@ -65,6 +65,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "error.h"
 #include "pak.h"
 #include "properties.h"
+#include "resources.h"
 
 extern Game game;
 extern Entity player;
@@ -364,7 +365,7 @@ char *loadResources(char *buffer)
 
 		else if (strcmpignorecase(line, "}") == 0)
 		{
-			e = addEntityFromResource(value[type], value[name], value[startX], value[startY]);
+			e = addEntityFromResource(value[type], value[name], startX == -1 ? 0 : atoi(value[startX]), startY == -1 ? 0 : atoi(value[startY]));
 
 			if (e != NULL)
 			{
@@ -441,23 +442,23 @@ char *loadResources(char *buffer)
 	return line;
 }
 
-Entity *addEntityFromResource(char *type, char *name, char *startX, char *startY)
+Entity *addEntityFromResource(char *type, char *name, int startX, int startY)
 {
 	Entity *e = NULL;
 
 	if (strcmpignorecase(type, "ITEM") == 0 || strcmpignorecase(type, "SHIELD") == 0 || strcmpignorecase(type, "WEAPON") == 0)
 	{
-		e = addPermanentItem(name, atoi(startX), atoi(startY));
+		e = addPermanentItem(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "TEMP_ITEM") == 0 || strcmpignorecase(type, "HEALTH") == 0)
 	{
-		e = addTemporaryItem(name, atoi(startX), atoi(startY), LEFT, 0, 0);
+		e = addTemporaryItem(name, startX, startY, LEFT, 0, 0);
 	}
 
 	else if (strcmpignorecase(type, "PLAYER") == 0)
 	{
-		e = loadPlayer(atoi(startX), atoi(startY), NULL);
+		e = loadPlayer(startX, startY, NULL);
 	}
 
 	else if (strcmpignorecase(type, "PLAYER_WEAPON") == 0)
@@ -472,77 +473,77 @@ Entity *addEntityFromResource(char *type, char *name, char *startX, char *startY
 
 	else if (strcmpignorecase(type, "KEY_ITEM") == 0)
 	{
-		e = addKeyItem(name, atoi(startX), atoi(startY));
+		e = addKeyItem(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "ENEMY") == 0)
 	{
-		e = addEnemy(name, atoi(startX), atoi(startY));
+		e = addEnemy(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "NPC") == 0)
 	{
-		e = addNPC(name, atoi(startX), atoi(startY));
+		e = addNPC(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "AUTO_LIFT") == 0 || strcmpignorecase(type, "MANUAL_LIFT") == 0)
 	{
-		e = addLift(name, atoi(startX), atoi(startY), getEntityTypeByName(type));
+		e = addLift(name, startX, startY, getEntityTypeByName(type));
 	}
 
 	else if (strcmpignorecase(type, "SPAWNER") == 0)
 	{
-		e = addSpawner(atoi(startX), atoi(startY), name);
+		e = addSpawner(startX, startY, name);
 	}
 
 	else if (strcmpignorecase(type, "TARGET") == 0)
 	{
-		addTarget(atoi(startX), atoi(startY), name);
+		addTarget(startX, startY, name);
 	}
 
 	else if (strcmpignorecase(type, "PRESSURE_PLATE") == 0)
 	{
-		e = addPressurePlate(name, atoi(startX), atoi(startY));
+		e = addPressurePlate(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "TELEPORTER") == 0)
 	{
-		e = addTeleporter(name, atoi(startX), atoi(startY));
+		e = addTeleporter(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "AUTO_DOOR") == 0 || strcmpignorecase(type, "MANUAL_DOOR") == 0)
 	{
-		e = addDoor(name, atoi(startX), atoi(startY), getEntityTypeByName(type));
+		e = addDoor(name, startX, startY, getEntityTypeByName(type));
 	}
 
 	else if (strcmpignorecase(type, "WEAK_WALL") == 0)
 	{
-		e = addWeakWall(name, atoi(startX), atoi(startY));
+		e = addWeakWall(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "TRAP_DOOR") == 0)
 	{
-		e = addTrapDoor(name, atoi(startX), atoi(startY));
+		e = addTrapDoor(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "CONVEYOR_BELT") == 0)
 	{
-		e = addConveyorBelt(name, atoi(startX), atoi(startY));
+		e = addConveyorBelt(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "SWITCH") == 0)
 	{
-		e = addSwitch(name, atoi(startX), atoi(startY));
+		e = addSwitch(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "SCRIPT_LINE_DEF") == 0 || strcmpignorecase(type, "LINE_DEF") == 0)
 	{
-		e = addLineDef(type, name, atoi(startX), atoi(startY));
+		e = addLineDef(type, name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "LEVEL_EXIT") == 0)
 	{
-		e = addLevelExit(name, atoi(startX), atoi(startY));
+		e = addLevelExit(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "SAVE_POINT") == 0)
@@ -551,7 +552,7 @@ Entity *addEntityFromResource(char *type, char *name, char *startX, char *startY
 
 		if (game.gameType == NORMAL)
 		{
-			e = addSavePoint(atoi(startX), atoi(startY));
+			e = addSavePoint(startX, startY);
 		}
 	}
 
@@ -577,22 +578,22 @@ Entity *addEntityFromResource(char *type, char *name, char *startX, char *startY
 
 	else if (strcmpignorecase(type, "ACTION_POINT") == 0)
 	{
-		e = addActionPoint(name, atoi(startX), atoi(startY));
+		e = addActionPoint(name, startX, startY);
 	}
 
 	else if (strcmpignorecase(type, "FALLING_PLATFORM") == 0)
 	{
-		e = addFallingPlatform(atoi(startX), atoi(startY), name);
+		e = addFallingPlatform(startX, startY, name);
 	}
 
 	else if (strcmpignorecase(type, "VANISHING_PLATFORM") == 0)
 	{
-		e = addVanishingPlatform(atoi(startX), atoi(startY), name);
+		e = addVanishingPlatform(startX, startY, name);
 	}
 
 	else if (strcmpignorecase(type, "ANTI_GRAVITY") == 0)
 	{
-		e = addAntiGravityField(atoi(startX), atoi(startY), name);
+		e = addAntiGravityField(startX, startY, name);
 	}
 
 	else

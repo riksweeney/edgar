@@ -23,3 +23,4 @@ void freeLevelResources(void);
 void freeGameResources(void);
 char *loadResources(char *);
 int patchEntities(double, char *);
+Entity *addEntityFromResource(char *, char *, int, int);
