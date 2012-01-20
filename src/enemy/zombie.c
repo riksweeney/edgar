@@ -77,18 +77,18 @@ Entity *addZombie(int x, int y, char *name)
 static void rise()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		facePlayer();
-		
+
 		if (self->y > self->startY)
 		{
 			self->y -= 4;
 		}
-		
+
 		else
 		{
 			playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -108,15 +108,15 @@ static void rise()
 
 			e->dirX = 3;
 			e->dirY = -8;
-			
+
 			self->touch = &touch;
-			
+
 			self->y = self->startY;
-			
+
 			self->thinkTime = 15;
-			
+
 			self->action = &attackPlayer;
-			
+
 			self->layer = MID_GROUND_LAYER;
 		}
 	}
@@ -125,13 +125,13 @@ static void rise()
 static void attackPlayer()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		facePlayer();
-		
+
 		self->dirX = player.x < self->x ? -self->speed : self->speed;
-		
+
 		checkToMap(self);
 	}
 }
@@ -164,17 +164,17 @@ static void touch(Entity *other)
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
 		self->takeDamage = entityTakeDamageNoFlinch;
-		
+
 		self->targetX = player.x;
-		
+
 		self->endX = self->x;
 
 		self->action = &stealItem;
-		
+
 		self->thinkTime = 180;
 
 		self->flags |= GRABBING;
-		
+
 		setCustomAction(&player, &stickToFloor, 3, 0, 0);
 	}
 }
@@ -182,32 +182,32 @@ static void touch(Entity *other)
 static void stealItem()
 {
 	self->x = self->endX;
-	
+
 	self->layer = FOREGROUND_LAYER;
-	
+
 	setCustomAction(&player, &stickToFloor, 3, 0, 0);
-	
+
 	player.x = self->targetX;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->target = getRandomItem();
-		
+
 		if (self->target != NULL)
 		{
 			self->target->flags |= NO_DRAW;
-			
+
 			setInfoBoxMessage(180, 255, 255, 255, _("Your %s has been stolen!"), self->target->objectiveName);
-			
+
 			setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
 		}
-		
+
 		self->face = self->startX < self->x ? LEFT : RIGHT;
-		
+
 		self->thinkTime = 600;
-		
+
 		self->action = &leave;
 	}
 }
@@ -215,7 +215,7 @@ static void stealItem()
 static void leave()
 {
 	self->dirX = self->face == LEFT ? -self->speed : self->speed;
-	
+
 	if (self->target != NULL)
 	{
 		self->target->x = self->x + self->w / 2 - self->target->w / 2;
@@ -223,17 +223,17 @@ static void leave()
 
 		setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
 	}
-	
+
 	checkToMap(self);
-	
+
 	self->thinkTime--;
-	
+
 	if (fabs(self->startX - self->x) <= fabs(self->dirX) || self->thinkTime <= 0)
 	{
 		self->dirX = 0;
-		
+
 		self->action = &sink;
-		
+
 		self->layer = BACKGROUND_LAYER;
 	}
 }
@@ -241,19 +241,19 @@ static void leave()
 static void sink()
 {
 	self->y++;
-	
+
 	if (self->target != NULL)
 	{
 		setCustomAction(self->target, &invulnerableNoFlash, 15, 0, 0);
 	}
-	
+
 	if (self->y >= self->endY)
 	{
 		if (self->target != NULL)
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -281,7 +281,6 @@ static Entity *getRandomItem()
 		"weapon/normal_arrow",
 		"weapon/fire_arrow",
 		"item/spike_ball",
-		"item/spike_ball",
 		"weapon/lightning_sword",
 		"weapon/lightning_sword_empty",
 		"item/full_soul_bottle",
@@ -294,7 +293,7 @@ static Entity *getRandomItem()
 	};
 
 	size = sizeof(items) / sizeof(char *);
-	
+
 	e = NULL;
 
 	for (count=0;count<size;count++)
@@ -309,22 +308,22 @@ static Entity *getRandomItem()
 			{
 				e->mental = -1;
 			}
-			
+
 			if (strcmpignorecase(e->name, playerWeapon.name) == 0)
 			{
 				setPlayerLocked(TRUE);
 
 				setPlayerLocked(FALSE);
 			}
-			
+
 			e = addEntity(*e, self->x, self->y);
 
 			removeInventoryItemByName(items[i]);
-			
+
 			break;
 		}
 	}
-	
+
 	return e;
 }
 

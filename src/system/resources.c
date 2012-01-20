@@ -364,162 +364,7 @@ char *loadResources(char *buffer)
 
 		else if (strcmpignorecase(line, "}") == 0)
 		{
-			e = NULL;
-
-			if (strcmpignorecase(value[type], "ITEM") == 0 || strcmpignorecase(value[type], "SHIELD") == 0 || strcmpignorecase(value[type], "WEAPON") == 0)
-			{
-				e = addPermanentItem(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "TEMP_ITEM") == 0 || strcmpignorecase(value[type], "HEALTH") == 0)
-			{
-				e = addTemporaryItem(value[name], atoi(value[startX]), atoi(value[startY]), LEFT, 0, 0);
-			}
-
-			else if (strcmpignorecase(value[type], "PLAYER") == 0)
-			{
-				e = loadPlayer(atoi(value[startX]), atoi(value[startY]), NULL);
-			}
-
-			else if (strcmpignorecase(value[type], "PLAYER_WEAPON") == 0)
-			{
-				setPlayerWeaponName(value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "PLAYER_SHIELD") == 0)
-			{
-				setPlayerShieldName(value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "KEY_ITEM") == 0)
-			{
-				e = addKeyItem(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "ENEMY") == 0)
-			{
-				e = addEnemy(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "NPC") == 0)
-			{
-				e = addNPC(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "AUTO_LIFT") == 0 || strcmpignorecase(value[type], "MANUAL_LIFT") == 0)
-			{
-				e = addLift(value[name], atoi(value[startX]), atoi(value[startY]), getEntityTypeByName(value[type]));
-			}
-
-			else if (strcmpignorecase(value[type], "SPAWNER") == 0)
-			{
-				e = addSpawner(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "TARGET") == 0)
-			{
-				addTarget(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "PRESSURE_PLATE") == 0)
-			{
-				e = addPressurePlate(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "TELEPORTER") == 0)
-			{
-				e = addTeleporter(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "AUTO_DOOR") == 0 || strcmpignorecase(value[type], "MANUAL_DOOR") == 0)
-			{
-				e = addDoor(value[name], atoi(value[startX]), atoi(value[startY]), getEntityTypeByName(value[type]));
-			}
-
-			else if (strcmpignorecase(value[type], "WEAK_WALL") == 0)
-			{
-				e = addWeakWall(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "TRAP_DOOR") == 0)
-			{
-				e = addTrapDoor(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "CONVEYOR_BELT") == 0)
-			{
-				e = addConveyorBelt(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "SWITCH") == 0)
-			{
-				e = addSwitch(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "SCRIPT_LINE_DEF") == 0 || strcmpignorecase(value[type], "LINE_DEF") == 0)
-			{
-				e = addLineDef(value[type], value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "LEVEL_EXIT") == 0)
-			{
-				e = addLevelExit(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "SAVE_POINT") == 0)
-			{
-				/* Save points don't spawn for replays */
-
-				if (game.gameType == NORMAL)
-				{
-					e = addSavePoint(atoi(value[startX]), atoi(value[startY]));
-				}
-			}
-
-			else if (strcmpignorecase(value[type], "TRIGGER") == 0)
-			{
-				addTriggerFromResource(key, value);
-			}
-
-			else if (strcmpignorecase(value[type], "GLOBAL_TRIGGER") == 0)
-			{
-				addGlobalTriggerFromResource(key, value);
-			}
-
-			else if (strcmpignorecase(value[type], "MAP_TRIGGER") == 0)
-			{
-				addMapTriggerFromResource(key, value);
-			}
-
-			else if (strcmpignorecase(value[type], "OBJECTIVE") == 0)
-			{
-				addObjectiveFromResource(key, value);
-			}
-
-			else if (strcmpignorecase(value[type], "ACTION_POINT") == 0)
-			{
-				e = addActionPoint(value[name], atoi(value[startX]), atoi(value[startY]));
-			}
-
-			else if (strcmpignorecase(value[type], "FALLING_PLATFORM") == 0)
-			{
-				e = addFallingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "VANISHING_PLATFORM") == 0)
-			{
-				e = addVanishingPlatform(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else if (strcmpignorecase(value[type], "ANTI_GRAVITY") == 0)
-			{
-				e = addAntiGravityField(atoi(value[startX]), atoi(value[startY]), value[name]);
-			}
-
-			else
-			{
-				showErrorAndExit("Unknown Entity type %s", value[type]);
-			}
+			e = addEntityFromResource(value[type], value[name], value[startX], value[startY]);
 
 			if (e != NULL)
 			{
@@ -594,6 +439,168 @@ char *loadResources(char *buffer)
 	loadInventoryItems();
 
 	return line;
+}
+
+Entity *addEntityFromResource(char *type, char *name, char *startX, char *startY)
+{
+	Entity *e = NULL;
+
+	if (strcmpignorecase(type, "ITEM") == 0 || strcmpignorecase(type, "SHIELD") == 0 || strcmpignorecase(type, "WEAPON") == 0)
+	{
+		e = addPermanentItem(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "TEMP_ITEM") == 0 || strcmpignorecase(type, "HEALTH") == 0)
+	{
+		e = addTemporaryItem(name, atoi(startX), atoi(startY), LEFT, 0, 0);
+	}
+
+	else if (strcmpignorecase(type, "PLAYER") == 0)
+	{
+		e = loadPlayer(atoi(startX), atoi(startY), NULL);
+	}
+
+	else if (strcmpignorecase(type, "PLAYER_WEAPON") == 0)
+	{
+		setPlayerWeaponName(name);
+	}
+
+	else if (strcmpignorecase(type, "PLAYER_SHIELD") == 0)
+	{
+		setPlayerShieldName(name);
+	}
+
+	else if (strcmpignorecase(type, "KEY_ITEM") == 0)
+	{
+		e = addKeyItem(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "ENEMY") == 0)
+	{
+		e = addEnemy(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "NPC") == 0)
+	{
+		e = addNPC(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "AUTO_LIFT") == 0 || strcmpignorecase(type, "MANUAL_LIFT") == 0)
+	{
+		e = addLift(name, atoi(startX), atoi(startY), getEntityTypeByName(type));
+	}
+
+	else if (strcmpignorecase(type, "SPAWNER") == 0)
+	{
+		e = addSpawner(atoi(startX), atoi(startY), name);
+	}
+
+	else if (strcmpignorecase(type, "TARGET") == 0)
+	{
+		addTarget(atoi(startX), atoi(startY), name);
+	}
+
+	else if (strcmpignorecase(type, "PRESSURE_PLATE") == 0)
+	{
+		e = addPressurePlate(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "TELEPORTER") == 0)
+	{
+		e = addTeleporter(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "AUTO_DOOR") == 0 || strcmpignorecase(type, "MANUAL_DOOR") == 0)
+	{
+		e = addDoor(name, atoi(startX), atoi(startY), getEntityTypeByName(type));
+	}
+
+	else if (strcmpignorecase(type, "WEAK_WALL") == 0)
+	{
+		e = addWeakWall(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "TRAP_DOOR") == 0)
+	{
+		e = addTrapDoor(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "CONVEYOR_BELT") == 0)
+	{
+		e = addConveyorBelt(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "SWITCH") == 0)
+	{
+		e = addSwitch(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "SCRIPT_LINE_DEF") == 0 || strcmpignorecase(type, "LINE_DEF") == 0)
+	{
+		e = addLineDef(type, name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "LEVEL_EXIT") == 0)
+	{
+		e = addLevelExit(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "SAVE_POINT") == 0)
+	{
+		/* Save points don't spawn for replays */
+
+		if (game.gameType == NORMAL)
+		{
+			e = addSavePoint(atoi(startX), atoi(startY));
+		}
+	}
+
+	else if (strcmpignorecase(type, "TRIGGER") == 0)
+	{
+		addTriggerFromResource(key, value);
+	}
+
+	else if (strcmpignorecase(type, "GLOBAL_TRIGGER") == 0)
+	{
+		addGlobalTriggerFromResource(key, value);
+	}
+
+	else if (strcmpignorecase(type, "MAP_TRIGGER") == 0)
+	{
+		addMapTriggerFromResource(key, value);
+	}
+
+	else if (strcmpignorecase(type, "OBJECTIVE") == 0)
+	{
+		addObjectiveFromResource(key, value);
+	}
+
+	else if (strcmpignorecase(type, "ACTION_POINT") == 0)
+	{
+		e = addActionPoint(name, atoi(startX), atoi(startY));
+	}
+
+	else if (strcmpignorecase(type, "FALLING_PLATFORM") == 0)
+	{
+		e = addFallingPlatform(atoi(startX), atoi(startY), name);
+	}
+
+	else if (strcmpignorecase(type, "VANISHING_PLATFORM") == 0)
+	{
+		e = addVanishingPlatform(atoi(startX), atoi(startY), name);
+	}
+
+	else if (strcmpignorecase(type, "ANTI_GRAVITY") == 0)
+	{
+		e = addAntiGravityField(atoi(startX), atoi(startY), name);
+	}
+
+	else
+	{
+		showErrorAndExit("Unknown Entity type %s", type);
+	}
+
+	return e;
 }
 
 int patchEntities(double versionFile, char *mapName)
