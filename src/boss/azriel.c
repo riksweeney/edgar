@@ -697,7 +697,7 @@ static void soulStealMoveToPlayer()
 
 		self->targetX = player.x;
 
-		player.flags |= GROUNDED;
+		setCustomAction(&player, &stickToFloor, 3, 0, 0);
 
 		facePlayer();
 
@@ -725,8 +725,6 @@ static void soulSteal()
 
 	if (self->thinkTime <= 0)
 	{
-		player.flags &= ~GROUNDED;
-
 		self->flags |= NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);

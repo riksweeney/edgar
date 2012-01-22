@@ -175,8 +175,12 @@ static void loadMenuLayout(char *text)
 	}
 
 	/* Resize */
+	
+	menu.widgets[0]->y = 20;
+	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + 20;
 
 	menu.w = menu.widgets[0]->selectedState->w + 20;
+	menu.h = menu.widgets[1]->y + menu.widgets[1]->normalState->h + 20;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 

@@ -30,6 +30,9 @@ TALK Olaf Yes it is! Thanks for finding it!
 REMOVE "Scorpion Statue" 1 1 Olaf 12 12
 TALK Olaf I should be able to sell this for a decent price at the market
 END
+IF CONFIRM_NO
+TALK Edgar (I think I'll keep it for myself)
+END
 SET OLAF HEALTH 12
 END
 IF OLAF HEALTH 12

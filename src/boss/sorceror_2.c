@@ -1633,7 +1633,7 @@ static void holdPersonSpellMove()
 		break;
 	}
 
-	player.flags |= GROUNDED;
+	setCustomAction(&player, &stickToFloor, 3, 0, 0);
 
 	if (self->y < self->targetY)
 	{
@@ -1662,8 +1662,6 @@ static void holdPersonSpellMove()
 
 			if (self->health <= 0)
 			{
-				player.flags &= ~GROUNDED;
-
 				setEntityAnimation(self, "LEFT_PIECE");
 
 				self->layer = FOREGROUND_LAYER;

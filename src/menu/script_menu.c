@@ -211,17 +211,29 @@ static void loadMenuLayout(char *text)
 		showErrorAndExit("Menu dimensions must be greater than 0");
 	}
 	
-	menu.w = menu.widgets[0]->selectedState->w + 20;
-
-	menu.widgets[1]->x = 10;
-	menu.widgets[2]->x = menu.widgets[1]->x + menu.widgets[1]->selectedState->w + 20;
+	menu.w = menu.widgets[0]->selectedState->w;
 	
-	x = menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10;
+	menu.widgets[0]->y = 10;
+	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + 20;
+	menu.widgets[2]->y = menu.widgets[1]->y;
+	
+	x = menu.widgets[1]->normalState->w + menu.widgets[2]->normalState->w + 20;
+	y = menu.widgets[2]->y + menu.widgets[2]->normalState->h + 10;
 	
 	if (x > menu.w)
 	{
 		menu.w = x;
 	}
+	
+	if (menu.w < 150)
+	{
+		menu.w = 150;
+	}
+	
+	menu.h = y;
+
+	menu.widgets[1]->x = abs(menu.w - x) / 2 + 5;
+	menu.widgets[2]->x = menu.widgets[1]->x + menu.widgets[1]->selectedState->w + 20;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 

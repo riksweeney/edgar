@@ -2,6 +2,7 @@ kill_sorceror G N Defeated the Sorceror
 complete_5hp G N Completed the game with only 5 hit points
 kill_chaos G Y Defeated Chaos
 50km S N Walked 50km
+kill_azriel S Y Defeated Azriel
 arrow_500 S N Fired 500 arrows
 kill_1000 S N Defeated 1000 enemies
 kill_2000 S N Defeated 2000 enemies
