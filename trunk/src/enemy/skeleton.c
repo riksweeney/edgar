@@ -259,6 +259,10 @@ static void reformFinish()
 		self->takeDamage = &entityTakeDamageNoFlinch;
 
 		setEntityAnimation(self, "STAND");
+		
+		self->animationCallback = NULL;
+		
+		self->flags &= ~ATTACKING;
 
 		self->creditsAction = &creditsMove2;
 	}

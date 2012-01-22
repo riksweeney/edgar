@@ -214,6 +214,12 @@ static void loadMenuLayout(char *text)
 	}
 
 	/* Resize */
+	
+	menu.widgets[0]->y = 10;
+	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + 20;
+	
+	menu.widgets[2]->y = menu.widgets[1]->y + menu.widgets[1]->selectedState->h + 20;
+	menu.widgets[3]->y = menu.widgets[2]->y;
 
 	if (menu.widgets[0]->selectedState->w > menu.widgets[1]->selectedState->w)
 	{
@@ -224,10 +230,12 @@ static void loadMenuLayout(char *text)
 	{
 		menu.w = menu.widgets[1]->selectedState->w + 20;
 	}
+	
+	menu.h = menu.widgets[2]->y + menu.widgets[2]->selectedState->h + 10;
 
 	x = menu.widgets[2]->normalState->w + menu.widgets[3]->normalState->w + 20;
 
-	menu.widgets[2]->x = (menu.w - x) / 2;
+	menu.widgets[2]->x = (menu.w - x) / 2 + 5;
 	menu.widgets[3]->x = menu.widgets[2]->x + menu.widgets[2]->selectedState->w + 20;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);

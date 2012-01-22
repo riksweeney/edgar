@@ -1,3 +1,4 @@
+REMOVE "Music Sheet" 0 -1 TOMB_DOOR_POINT 0 0
 DEACTIVATE_OBJECTIVE BELL_ROPE_HEAD
 KILL TOMB_DOOR_POINT
 SET MUSIC_SHEET_DISPLAY PROPERTY MENTAL 1
@@ -10,6 +11,9 @@ TALK Edgar Great, that worked!
 TALK Edgar What a terrible anthem though, almost completely random
 WALK_TO EDGAR 9535 0 WAIT
 TALK Edgar This looks like the keepsake
-TALK Edgar Thank goodness for that, I really didn't want to have to open that coffin
+WALK_TO EDGAR 9705 0 WAIT
+WAIT 30
 SET EDGAR FACE LEFT
+TALK Edgar Thank goodness for that, I really didn't want to have to open that coffin
 TALK Edgar Now to get out of here...
+ADD MAP_TRIGGER "map21" RUN_SCRIPT "graveyard_weather"
