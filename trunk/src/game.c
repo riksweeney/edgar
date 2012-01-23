@@ -94,19 +94,21 @@ void initGame()
 	game.continues = 0;
 
 	game.secretsFound = 0;
-	
+
 	game.cheating = FALSE;
-	
+
 	game.infiniteArrows = FALSE;
-	
+
 	game.infiniteEnergy = FALSE;
+
+	game.lavaNotFatal = FALSE;
 
 	game.mapExitable = 0;
 
 	game.canContinue = FALSE;
-	
+
 	game.overrideMusic = FALSE;
-	
+
 	game.showHUD = TRUE;
 
 	game.offsetX = game.offsetY = 0;
@@ -138,7 +140,7 @@ void doGame()
 	/* Execute the action if there is one */
 
 	doGameOver();
-	
+
 	fadeToNormal();
 
 	if (game.shakeThinkTime > 0 || game.shakeThinkTime == -1)
@@ -317,7 +319,7 @@ static void wipeOutRightToLeft()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -338,7 +340,7 @@ static void wipeOutLeftToRight()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -359,7 +361,7 @@ static void wipeInLeftToRight()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -380,7 +382,7 @@ static void wipeInRightToLeft()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -401,7 +403,7 @@ static void wipeInCircleToLarge()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -422,7 +424,7 @@ static void wipeInCircleToSmall()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -443,7 +445,7 @@ static void wipeOutCircleToLarge()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -464,7 +466,7 @@ static void wipeOutCircleToSmall()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -485,7 +487,7 @@ static void creditsWipeOut()
 		if (game.transitionCallback != NULL)
 		{
 			clearScreen(0, 0, 0);
-			
+
 			game.transitionCallback();
 		}
 
@@ -495,13 +497,13 @@ static void creditsWipeOut()
 	drawCircleFromSurface(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, game.transitionX < 0 ? 0 : game.transitionX);
 
 	game.transitionX -= 5;
-	
+
 	if (game.transitionX <= spotlightSize() / 2)
 	{
 		if (game.transitionY > 0)
 		{
 			game.transitionX = spotlightSize() / 2;
-			
+
 			game.transitionY--;
 		}
 	}
@@ -523,7 +525,7 @@ void setNextLevelFromScript(char *token)
 	setNextLevel(name, playerStart);
 
 	setTransition(TRANSITION_OUT, &goToNextMap);
-	
+
 	if (game.overrideMusic == FALSE)
 	{
 		fadeOutMusic(1000);
@@ -533,11 +535,11 @@ void setNextLevelFromScript(char *token)
 void showEndCredits()
 {
 	game.overrideMusic = FALSE;
-	
+
 	game.transitionX = SCREEN_WIDTH;
 	game.transitionY = 120;
 	game.transition = &creditsWipeOut;
-	
+
 	game.transitionCallback = &initEndCredits;
 }
 
@@ -608,7 +610,7 @@ void pauseGame()
 		case IN_GAME:
 		case IN_TITLE:
 			game.paused = TRUE;
-			
+
 			game.previousStatus = game.status;
 
 			game.status = IN_MENU;
@@ -621,11 +623,11 @@ void pauseGame()
 
 				SDL_BlitSurface(game.screen, NULL, game.pauseSurface, NULL);
 			}
-			
+
 			if (game.previousStatus == IN_GAME)
 			{
 				pauseMusic(TRUE);
-	
+
 				pauseSound(TRUE);
 			}
 		break;
@@ -746,7 +748,7 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
 	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
-	
+
 	if (strlen(game.customFont) != 0)
 	{
 		fprintf(fp, "FONT %s\n", game.customFont);
@@ -813,21 +815,21 @@ void readGameSettingsFromFile(char *buffer)
 				game.audioQuality = 22050;
 			}
 		}
-		
+
 		else if (strcmpignorecase(token, "FONT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			STRNCPY(game.customFont, token, MAX_FILE_LENGTH);
 		}
-		
+
 		else if (strcmpignorecase(token, "SMALL_FONT_SIZE") == 0)
 		{
 			token = strtok(NULL, "\0");
 
 			game.fontSizeSmall = atoi(token);
 		}
-		
+
 		else if (strcmpignorecase(token, "LARGE_FONT_SIZE") == 0)
 		{
 			token = strtok(NULL, "\0");
@@ -837,13 +839,13 @@ void readGameSettingsFromFile(char *buffer)
 
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	if (strlen(game.customFont) != 0)
 	{
 		if (game.fontSizeSmall <= 0 || game.fontSizeLarge <= 0)
 		{
 			printf(_("SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"));
-			
+
 			exit(1);
 		}
 	}
@@ -1072,7 +1074,7 @@ void getContinuePoint()
 	setMapStartY(continueData.cameraMinY);
 
 	setCameraPosition(continueData.cameraMinX, continueData.cameraMinY);
-	
+
 	limitPlayerToCameraLimits();
 
 	if (continueData.cameraFollow == FALSE)

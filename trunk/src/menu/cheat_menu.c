@@ -35,7 +35,7 @@ extern Game game;
 extern Control control;
 
 static Menu menu;
-static int healthCheat, arrowCheat;
+static int healthCheat, arrowCheat, lavaCheat;
 
 static void loadMenuLayout(void);
 static void showOptionsMenu(void);
@@ -225,6 +225,15 @@ static void loadMenuLayout()
 					arrowCheat = game.infiniteArrows;
 				}
 
+				else if (strcmpignorecase(menuID, "LAVA_NOT_FATAL") == 0)
+				{
+					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleLavaNotFatal, &toggleLavaNotFatal, &toggleLavaNotFatal, x, y, TRUE, 255, 255, 255);
+
+					menu.widgets[i]->label = createLabel(game.lavaNotFatal == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
+
+					lavaCheat = game.lavaNotFatal;
+				}
+
 				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
 				{
 					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
@@ -265,7 +274,7 @@ static void loadMenuLayout()
 Menu *initCheatMenu()
 {
 	menu.action = &doMenu;
-	
+
 	freeCheatMenu();
 
 	loadMenuLayout();
@@ -339,13 +348,24 @@ static void toggleInfiniteArrows()
 	updateLabelText(w->label, arrowCheat == TRUE ? _("Yes") : _("No"));
 }
 
+static void toggleLavaNotFatal()
+{
+	Widget *w = menu.widgets[menu.index];
+
+	lavaCheat = lavaCheat == TRUE ? FALSE : TRUE;
+
+	updateLabelText(w->label, lavaCheat == TRUE ? _("Yes") : _("No"));
+}
+
 static void showOptionsMenu()
 {
 	game.infiniteEnergy = healthCheat;
 
 	game.infiniteArrows = arrowCheat;
 
-	if (healthCheat == TRUE || arrowCheat == TRUE)
+	game.lavaNotFatal = lavaCheat;
+
+	if (healthCheat == TRUE || arrowCheat == TRUE || lavaCheat == TRUE)
 	{
 		game.cheating = TRUE;
 	}

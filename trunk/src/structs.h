@@ -168,11 +168,11 @@ typedef struct Game
 	int offsetX, offsetY, shakeThinkTime, shakeStrength;
 	int gameType, transitionX, transitionY, previousStatus;
 	int frames, drawScreen, paused, firstRun, audioDisabled;
-	int kills, batsDrowned, timesEaten;
+	int kills, batsDrowned, timesEaten, cheating;
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
 	int disableJoystick, mapExitable, cheatsEnabled;
-	int infiniteEnergy, infiniteArrows, cheating;
+	int infiniteEnergy, infiniteArrows, lavaNotFatal;
 	int saveOnExit, overrideMusic, showHUD;
 	int fontSizeSmall, fontSizeLarge;
 	unsigned int distanceTravelled;

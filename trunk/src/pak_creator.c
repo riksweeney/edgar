@@ -55,14 +55,14 @@ int main(int argc, char *argv[])
 	}
 
 	pak = fopen(argv[argc - 1], "wb");
-	
+
 	totalFiles = 0;
 
 	for (i=1;i<argc-1;i++)
 	{
 		totalFiles += countFiles(argv[i]);
 	}
-	
+
 	totalFiles++;
 
 	printf("Will compress %d files\n", totalFiles);
@@ -74,25 +74,27 @@ int main(int argc, char *argv[])
 	if (fileData == NULL)
 	{
 		printf("Failed to create File Data\n");
+
+		exit(1);
 	}
 
 	atexit(cleanup);
-	
+
 	snprintf(versionName, sizeof(versionName), "%0.2f", VERSION);
-	
+
 	versionFile = fopen(versionName, "wb");
-	
+
 	fprintf(versionFile, "%s", versionName);
-	
+
 	fclose(versionFile);
 
 	for (i=1;i<argc-1;i++)
 	{
 		recurseDirectory(argv[i]);
 	}
-	
+
 	compressFile(versionName, NULL);
-	
+
 	remove(versionName);
 
 	length = ftell(pak);
@@ -208,7 +210,7 @@ static void compressFile(char *filename, DIR *dirp)
 	gzFile fp;
 	float percentage;
 	unsigned char *buffer, *output;
-	
+
 	infile = fopen(filename, "rb");
 
 	if (!infile)
@@ -229,7 +231,7 @@ static void compressFile(char *filename, DIR *dirp)
 	{
 		printf("%s is an empty file.\n", filename);
 
-		exit(0);
+		exit(1);
 	}
 
 	ensuredSize = fileSize * 1.01 + 12;
@@ -282,23 +284,24 @@ static void compressFile(char *filename, DIR *dirp)
 		if (compressionResult == Z_BUF_ERROR)
 		{
 			printf("Buffer too small\n");
-
-			exit(1);
 		}
 
-		if (compressionResult == Z_MEM_ERROR)
+		else if (compressionResult == Z_MEM_ERROR)
 		{
 			printf("Out of RAM\n");
-
-			exit(1);
 		}
 
-		if (compressionResult == Z_STREAM_ERROR)
+		else if (compressionResult == Z_STREAM_ERROR)
 		{
 			printf("Stream error\n");
-
-			exit(1);
 		}
+
+		else
+		{
+			printf("Unknown error\n");
+		}
+
+		exit(1);
 	}
 
 	percentage = fileID;
@@ -338,6 +341,8 @@ static void testPak(char *pakFile)
 	if (fp == NULL)
 	{
 		printf("Failed to open PAK file %s\n", pakFile);
+
+		exit(1);
 	}
 
 	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
@@ -377,14 +382,18 @@ static void testPak(char *pakFile)
 
 		if (source == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
+
+			exit(1);
 		}
 
 		dest = malloc((fileData[i].fileSize + 1) * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
-			printf("Failed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
+
+			exit(1);
 		}
 
 		read = fread(source, fileData[i].compressedSize, 1, fp);
@@ -397,7 +406,9 @@ static void testPak(char *pakFile)
 
 		if (size != fileData[i].fileSize)
 		{
-			printf("Failed to decompress %s. Expected %ld, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
+			printf("\nFailed to decompress %s. Expected %ld, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
+
+			exit(1);
 		}
 
 		free(source);

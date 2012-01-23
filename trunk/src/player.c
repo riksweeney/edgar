@@ -145,7 +145,7 @@ Entity *loadPlayer(int x, int y, char *name)
 	playerShield.animationCallback = NULL;
 
 	clearCustomActions(&player);
-	
+
 	player.thinkTime = 0;
 
 	player.alpha = 255;
@@ -165,7 +165,7 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.touch = &touch;
 
 	centerMapOnEntity(&player);
-	
+
 	player.creditsAction = creditsMove;
 
 	return &player;
@@ -273,46 +273,46 @@ void doPlayer()
 				{
 					self->dirX = 0;
 				}
-				
+
 				/* If confused, then swap around all the controls */
-				
+
 				left = right = 0;
 				up = down = 0;
 				attack = block = 0;
-				
+
 				if (self->flags & CONFUSED)
 				{
 					if (input.left == 1)
 					{
 						right = 1;
 					}
-					
+
 					else if (input.right == 1)
 					{
 						left = 1;
 					}
-					
+
 					if (input.up == 1)
 					{
 						down = 1;
 					}
-					
+
 					else if (input.down == 1)
 					{
 						up = 1;
 					}
-					
+
 					if (input.attack == 1)
 					{
 						block = 1;
 					}
-					
+
 					if (input.block == 1)
 					{
 						attack = 1;
 					}
 				}
-				
+
 				else
 				{
 					left = input.left;
@@ -360,17 +360,17 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{							
+						{
 							if (self->flags & FRICTIONLESS)
 							{
 								self->dirX -= self->speed * 0.01;
-								
+
 								if (self->dirX < -self->speed)
 								{
 									self->dirX = -self->speed;
 								}
 							}
-							
+
 							else
 							{
 								self->dirX -= self->speed;
@@ -382,13 +382,13 @@ void doPlayer()
 							if (self->flags & FRICTIONLESS)
 							{
 								self->dirX -= self->speed * 0.01;
-								
+
 								if (self->dirX < -self->speed)
 								{
 									self->dirX = -self->speed;
 								}
 							}
-							
+
 							else
 							{
 								self->dirX -= self->speed;
@@ -425,17 +425,17 @@ void doPlayer()
 					else
 					{
 						if ((playerWeapon.flags & ATTACKING) && !(self->flags & ON_GROUND))
-						{							
+						{
 							if (self->flags & FRICTIONLESS)
 							{
 								self->dirX += self->speed * 0.01;
-								
+
 								if (self->dirX > self->speed)
 								{
 									self->dirX = self->speed;
 								}
 							}
-							
+
 							else
 							{
 								self->dirX += self->speed;
@@ -447,13 +447,13 @@ void doPlayer()
 							if (self->flags & FRICTIONLESS)
 							{
 								self->dirX += self->speed * 0.01;
-								
+
 								if (self->dirX > self->speed)
 								{
 									self->dirX = self->speed;
 								}
 							}
-							
+
 							else
 							{
 								self->dirX += self->speed;
@@ -572,9 +572,9 @@ void doPlayer()
 							setEntityAnimation(self, "STAND");
 							setEntityAnimation(&playerShield, "STAND");
 							setEntityAnimation(&playerWeapon, "STAND");
-							
+
 							playerShield.action = &shieldAttack;
-							
+
 							playerShield.action();
 						}
 					}
@@ -583,7 +583,7 @@ void doPlayer()
 					{
 						input.block = 0;
 					}
-					
+
 					else
 					{
 						input.attack = 0;
@@ -673,7 +673,7 @@ void doPlayer()
 								playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 							}
 						}
-						
+
 						if (!(player.flags & GROUNDED))
 						{
 							self->dirY = -JUMP_HEIGHT;
@@ -720,7 +720,7 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-				
+
 				if (self->flags & ON_GROUND)
 				{
 					self->flags &= ~FRICTIONLESS;
@@ -876,7 +876,7 @@ static void dialogWait()
 
 		self->flags |= ON_GROUND;
 	}
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -1008,12 +1008,12 @@ void setPlayerShield(int val)
 		{
 			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
 		}
-		
+
 		else
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
 		}
-		
+
 		return;
 	}
 
@@ -1055,12 +1055,12 @@ void setPlayerWeapon(int val)
 		{
 			setInventoryDialogMessage(_("Cannot equip items whilst attacking"));
 		}
-		
+
 		else
 		{
 			setInfoBoxMessage(120, 255, 255, 255, _("Cannot equip items whilst attacking"));
 		}
-		
+
 		return;
 	}
 
@@ -1271,39 +1271,39 @@ static void takeDamage(Entity *other, int damage)
 				playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
 
 				playerShield.thinkTime = 5;
-				
+
 				if (strcmpignorecase(other->objectiveName, "SORCEROR_DISINTEGRATION_SPELL") == 0)
 				{
 					if (strcmpignorecase(playerShield.objectiveName, "Disintegration Shield") == 0)
 					{
 						playerShield.health++;
-						
+
 						if (playerShield.health >= 4)
 						{
 							setInfoBoxMessage(360, 255, 255, 255, _("Press Attack whilst Blocking to use your shield..."));
-							
+
 							playerShield.health = 4;
 						}
-						
+
 						else
 						{
 							setInfoBoxMessage(180, 255, 255, 255, _("Your shield is increasing in power..."));
 						}
-						
+
 						shieldHealth = playerShield.health;
-						
+
 						STRNCPY(oldShieldName, playerShield.name, sizeof(oldShieldName));
-						
+
 						snprintf(shieldName, MAX_VALUE_LENGTH, "weapon/disintegration_shield_%d", shieldHealth);
-						
+
 						loadProperties(shieldName, &playerShield);
-						
+
 						replaceInventoryItemWithName(oldShieldName, &playerShield);
-						
+
 						playerShield.thinkTime = 5;
-						
+
 						playerShield.health = shieldHealth;
-						
+
 						alignAnimations(&playerShield);
 					}
 				}
@@ -1570,7 +1570,7 @@ static void resetPause()
 	switch (player.environment)
 	{
 		case LAVA:
-			minHealth = 99999;
+			minHealth = game.lavaNotFatal == TRUE ? 2 : 99999;
 		break;
 
 		case SLIME:
@@ -1582,7 +1582,8 @@ static void resetPause()
 		break;
 	}
 
-	if ((player.health <= minHealth && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL) || player.environment == LAVA)
+	if ((player.health <= minHealth && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
+		|| (player.environment == LAVA && game.lavaNotFatal == FALSE))
 	{
 		player.health = 0;
 
@@ -2013,14 +2014,14 @@ void setPlayerConfused(int thinkTime)
 			e->y = player.y - e->h;
 		}
 	}
-	
+
 	setCustomAction(&player, &confused, thinkTime, 0, 0);
 }
 
 static void starWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		self->inUse = FALSE;
@@ -2029,7 +2030,7 @@ static void starWait()
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
 
 	self->y = self->head->y - self->h - 8;
-	
+
 	setInfoBoxMessage(0, 255, 255, 255, _("Your controls have been reversed!"));
 }
 
@@ -2122,31 +2123,31 @@ static void fireArrow()
 static void shieldAttack()
 {
 	Entity *shield = removePlayerShield();
-	
+
 	if (shield == NULL)
 	{
 		return;
 	}
-	
+
 	shield->target = getEntityByObjectiveName("SORCEROR");
-	
+
 	if (shield->target == NULL)
 	{
 		showErrorAndExit("Shield could not find Sorceror");
 	}
-	
+
 	shield->thinkTime = 60;
-	
+
 	shield->action = &shieldAttackInit;
-	
+
 	shield->touch = &shieldTouch;
-	
+
 	shield->mental = 0;
-	
+
 	shield->flags |= FLY;
-	
+
 	shield->layer = FOREGROUND_LAYER;
-	
+
 	if (player.face == LEFT)
 	{
 		shield->x = player.x + player.w - shield->w - shield->offsetX;
@@ -2158,45 +2159,45 @@ static void shieldAttack()
 	}
 
 	shield->y = player.y + shield->offsetY;
-	
+
 	setEntityAnimation(shield, "SHIELD_ATTACK");
-	
+
 	setCustomAction(shield, &spriteTrail, 3600, 0, 0);
 }
 
 static void shieldAttackInit()
 {
 	float x, y, radians;
-	
+
 	if (self->target->startX == 2)
 	{
 		self->thinkTime--;
 	}
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->x = player.x + player.w / 2 - self->w / 2;
 		self->y = player.y + player.h / 2 - self->h / 2;
-		
+
 		self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
 		self->targetY = self->target->y + self->target->h / 2 - self->h / 2;
-		
+
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-		
+
 		self->dirX *= self->speed * 2;
 		self->dirY *= self->speed * 2;
-		
+
 		self->action = &shieldAttackMove;
-		
+
 		self->thinkTime = 300;
-		
+
 		self->mental = 0;
-		
+
 		self->health = 30;
-		
+
 		self->maxThinkTime = 30;
 	}
-	
+
 	else
 	{
 		x = 0;
@@ -2226,9 +2227,9 @@ static void shieldAttackMove()
 {
 	self->x += self->dirX;
 	self->y += self->dirY;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0 && self->mental == 0)
 	{
 		self->fallout();
@@ -2238,40 +2239,40 @@ static void shieldAttackMove()
 static void shieldAttackVanish()
 {
 	Entity *temp;
-	
+
 	self->x += self->dirX;
 	self->y += self->dirY;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags |= NO_DRAW;
-		
+
 		self->maxThinkTime -= 5;
-		
+
 		self->thinkTime = self->maxThinkTime;
-		
+
 		self->action = &shieldSideAttackInit;
-		
+
 		self->health--;
-		
+
 		if (self->health <= 0)
 		{
 			temp = self;
-			
+
 			self = self->target;
-			
+
 			clearCustomAction(self, &helpless);
-			
+
 			self->die();
-			
+
 			self = temp;
-			
+
 			clearCustomAction(self, &spriteTrail);
-			
+
 			setEntityAnimation(self, "STAND");
-			
+
 			self->fallout();
 		}
 	}
@@ -2280,51 +2281,51 @@ static void shieldAttackVanish()
 static void shieldSideAttackInit()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->x = self->target->x + self->target->w / 2 - self->w / 2;
 		self->y = self->target->y + self->target->h / 2 - self->h / 2;
-		
+
 		switch (self->mental)
 		{
 			case 0:
 				self->x -= 32;
 			break;
-			
+
 			case 1:
 				self->x += 32;
 			break;
-			
+
 			case 2:
 				self->y -= 32;
 			break;
-			
+
 			case 3:
 				self->y += 32;
 			break;
-			
+
 			case 4:
 				self->x -= 32;
 				self->y -= 32;
 			break;
-			
+
 			case 5:
 				self->x += 32;
 				self->y -= 32;
 			break;
-			
+
 			case 6:
 				self->x += 32;
 				self->y += 32;
 			break;
-			
+
 			default:
 				self->x -= 32;
 				self->y += 32;
 			break;
 		}
-		
+
 		self->targetX = self->target->x + self->target->w / 2 - self->w / 2;
 		self->targetY = self->target->y + self->target->h / 2 - self->h / 2;
 
@@ -2334,15 +2335,15 @@ static void shieldSideAttackInit()
 		self->dirY *= self->speed;
 
 		self->action = &shieldAttackMove;
-		
+
 		self->touch = &shieldTouch;
 
 		self->thinkTime = 300;
-		
+
 		self->flags &= ~NO_DRAW;
-		
+
 		self->mental++;
-		
+
 		if (self->mental >= 8)
 		{
 			self->mental = 0;
@@ -2356,17 +2357,17 @@ static void shieldTouch(Entity *other)
 	{
 		other->dirX = 0;
 		other->dirY = 0;
-		
+
 		setCustomAction(other, &helpless, 300, 0, 0);
-		
+
 		self->action = &shieldAttackVanish;
-		
+
 		self->touch = NULL;
-		
+
 		self->thinkTime = 10;
-		
+
 		playSoundToMap("sound/edgar/shield.ogg", BOSS_CHANNEL, player.x, player.y, 0);
-		
+
 		other->health = 0;
 	}
 }
@@ -2584,7 +2585,7 @@ Entity *removePlayerShield()
 		removeInventoryItemByObjectiveName(playerShield.objectiveName);
 
 		e = addPermanentItem(playerShield.name, self->x, self->y);
-		
+
 		e->health = playerShield.health;
 
 		playerShield.inUse = FALSE;
@@ -3031,24 +3032,24 @@ void scriptAttack()
 static void creditsMove()
 {
 	self->thinkTime++;
-	
+
 	setEntityAnimation(self, "WALK");
 	setEntityAnimation(&playerWeapon, "WALK");
 	setEntityAnimation(&playerShield, "WALK");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && self->mental != 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	if (self->thinkTime == 180 && self->mental == 0)
 	{
 		self->thinkTime = 60;
-		
+
 		self->creditsAction = &creditsWait;
 	}
 }
@@ -3058,20 +3059,20 @@ static void creditsWait()
 	setEntityAnimation(self, "STAND");
 	setEntityAnimation(&playerWeapon, "STAND");
 	setEntityAnimation(&playerShield, "STAND");
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->face = self->face == LEFT ? RIGHT : LEFT;
-		
+
 		playerWeapon.face = self->face;
 		playerShield.face = self->face;
-		
+
 		self->mental++;
-		
+
 		self->thinkTime = 60;
-		
+
 		if (self->face == RIGHT)
 		{
 			self->creditsAction = &creditsMove;
