@@ -4,7 +4,9 @@ CHANGE LOG
 Version 0.97
 * Added the next part of the optional quest
 * Changed a puzzle in the Laboratory map
+* Made a change to the Fortress Mine map
 * Added a new medal: "Completed the game without continuing"
+* Added another cheat that prevents instant death in lava
 
 Version 0.96
 * Fixed a problem with some level exits not activating (making the Crypt accessible)
