@@ -131,7 +131,7 @@ static void shatter()
 
 	self->animationCallback = NULL;
 
-	y = self->y;
+	y = self->startY;
 
 	setEntityAnimation(self, "CUSTOM_1");
 

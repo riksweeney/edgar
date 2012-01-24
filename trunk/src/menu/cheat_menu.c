@@ -42,6 +42,7 @@ static void showOptionsMenu(void);
 static void doMenu(void);
 static void toggleInfiniteHealth(void);
 static void toggleInfiniteArrows(void);
+static void toggleLavaNotFatal(void);
 static void realignGrid(void);
 
 void drawCheatMenu()
