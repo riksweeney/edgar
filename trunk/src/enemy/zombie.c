@@ -116,6 +116,8 @@ static void rise()
 			self->thinkTime = 15;
 
 			self->action = &attackPlayer;
+			
+			setEntityAnimation(self, "WALK");
 
 			self->layer = MID_GROUND_LAYER;
 		}
@@ -233,6 +235,8 @@ static void leave()
 		self->dirX = 0;
 
 		self->action = &sink;
+		
+		setEntityAnimation(self, "STAND");
 
 		self->layer = BACKGROUND_LAYER;
 	}

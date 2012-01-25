@@ -93,6 +93,7 @@ static char *enemies[] = {
 			"enemy/arrow_skeleton",
 			"enemy/sword_skeleton",
 			"enemy/ceiling_creeper",
+			"enemy/zombie",
 			"enemy/master_tortoise" /* Always last */
 };
 static int enemiesLength = sizeof(enemies) / sizeof(char *);
