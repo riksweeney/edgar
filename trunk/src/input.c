@@ -72,14 +72,14 @@ void getInput(int gameType)
 						exit(0);
 					}
 				}
-				
+
 				else if (game.status == IN_TITLE)
 				{
 					pauseGame();
-					
+
 					return;
 				}
-				
+
 				else if (game.status == IN_CREDITS)
 				{
 					if (key == SDLK_ESCAPE || key == control.button[CONTROL_PAUSE] || key == control.button[CONTROL_ATTACK])
@@ -381,7 +381,7 @@ void getInput(int gameType)
 				key = event.jbutton.button;
 
 				key = -(key + 1000);
-				
+
 				if (game.status == IN_CREDITS)
 				{
 					if (key == control.button[CONTROL_PAUSE] || key == control.button[CONTROL_ATTACK])
@@ -389,10 +389,12 @@ void getInput(int gameType)
 						fadeCredits();
 					}
 				}
-				
+
 				else if (game.status == IN_TITLE)
 				{
 					pauseGame();
+
+					return;
 				}
 
 				else if (key == control.button[CONTROL_PAUSE])
