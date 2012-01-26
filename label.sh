@@ -62,4 +62,22 @@ then
 	exit 1
 fi
 
+CURRENT_VERSION=`grep "Version " doc/readme | cut -d ' ' -f 2`
+
+if [ "$CURRENT_VERSION" != "$1" ];
+then
+	echo "Version mismatch in readme"
+	echo "Expected '$1'"
+	echo "Found '$CURRENT_VERSION'"
+	exit 1
+fi
+
+UNCOMMIT_COUNT=`svn status | wc -l`
+
+if [ "$UNCOMMIT_COUNT" != "0" ];
+then
+	echo "There are uncommitted changes in the working copy"
+	exit 1
+fi
+
 svn copy https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$1 -m "Tagging $1"
