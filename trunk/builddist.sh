@@ -49,10 +49,12 @@ svn export https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/
 
 echo "Removing unwanted data files..."
 
+cp $APPDIR/edgar.spec.base edgar.spec
+
 rm -rf $APPDIR/dev
 rm -rf $APPDIR/test
 rm $APPDIR/disclaimer.txt
-rm $APPDIR/*.spec
+rm $APPDIR/*.spec*
 rm $APPDIR/*.sh
 rm $APPDIR/*.nsi
 rm $APPDIR/*.txt
@@ -81,8 +83,6 @@ for i in `find . -name *.jpg | grep -v doc`;do
 done
 
 echo "Creating GZIP... $DISTNAME"
-
-cp $APPDIR/edgar.spec.base edgar.spec
 
 for f in `ls $APPDIR/locale/*.po`; do \
 	FILE=`echo $f | cut -d'/' -f4 | cut -d'.' -f1`

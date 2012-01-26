@@ -29,6 +29,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../inventory.h"
 #include "../item/item.h"
 #include "../item/key_items.h"
+#include "../map.h"
 #include "../player.h"
 #include "../system/error.h"
 #include "../system/properties.h"
@@ -45,6 +46,11 @@ static void sink(void);
 static void die(void);
 static Entity *getRandomItem(void);
 static void creditsMove(void);
+static void creditsHeadMove(void);
+static void fallOff(void);
+static void headWait(void);
+static void init(void);
+static void walkOffScreen(void);
 
 Entity *addZombie(int x, int y, char *name)
 {
@@ -60,18 +66,55 @@ Entity *addZombie(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &rise;
+	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
 	e->takeDamage = &entityTakeDamageFlinch;
 
-	e->creditsAction = &creditsMove;
+	e->creditsAction = &init;
 
 	e->type = ENEMY;
 
 	setEntityAnimation(e, "STAND");
 
 	return e;
+}
+
+static void init()
+{
+	Entity *e = getFreeEntity();
+	
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add a Zombie Head");
+	}
+
+	loadProperties("enemy/zombie_head", e);
+
+	setEntityAnimation(e, self->animationName);
+
+	if (e->face == LEFT)
+	{
+		e->x = self->x + self->w - e->w - e->offsetX;
+	}
+
+	else
+	{
+		e->x = self->x + e->offsetX;
+	}
+
+	e->y = self->y + e->offsetY;
+	
+	e->head = self;
+	
+	e->action = &headWait;
+	e->draw = &drawLoopingAnimationToMap;
+	
+	e->creditsAction = &creditsHeadMove;
+	
+	self->action = &rise;
+	
+	self->creditsAction = &creditsMove;
 }
 
 static void rise()
@@ -273,7 +316,29 @@ static void die()
 		self->target->dirY = ITEM_JUMP_HEIGHT;
 	}
 
-	entityDie();
+	if (self->dirX != 0)
+	{
+		setCustomAction(self, &invulnerableNoFlash, 600, 0, 0);
+		
+		self->action = &walkOffScreen;
+	}
+	
+	else
+	{
+		entityDieNoDrop();
+	}
+}
+
+static void walkOffScreen()
+{
+	int startX = getMapStartX();
+	
+	checkToMap(self);
+	
+	if (self->x + self->w < startX || self->x > startX + SCREEN_WIDTH)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static Entity *getRandomItem()
@@ -344,5 +409,117 @@ static void creditsMove()
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
+	}
+}
+
+static void headWait()
+{
+	self->layer = self->head->layer;
+	
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, self->head->animationName);
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+	
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+	
+	if (self->head->health <= 0)
+	{
+		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		self->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+		
+		self->action = &fallOff;
+		
+		self->thinkTime = 180;
+	}
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void fallOff()
+{
+	checkToMap(self);
+	
+	if (self->flags & ON_GROUND)
+	{
+		self->dirX = 0;
+		
+		self->thinkTime--;
+		
+		if (self->thinkTime < 90)
+		{
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= NO_DRAW;
+			}
+			
+			if (self->thinkTime <= 0)
+			{
+				self->inUse = FALSE;
+			}
+		}
+	}
+}
+
+static void creditsHeadMove()
+{
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, self->head->animationName);
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	self->mental++;
+	
+	if (self->mental != 0 && (self->mental % 300) == 0)
+	{
+		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		self->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+		
+		self->creditsAction = &fallOff;
+		
+		self->thinkTime = 360;
 	}
 }

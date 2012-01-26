@@ -718,6 +718,8 @@ static void soulStealMoveToPlayer()
 static void soulSteal()
 {
 	Target *t;
+	
+	setCustomAction(&player, &stickToFloor, 3, 0, 0);
 
 	self->thinkTime--;
 
