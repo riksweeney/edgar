@@ -75,9 +75,9 @@ int main(int argc, char *argv[])
 	game.fps = 1000 / 60;
 
 	mapID = recordingID = replayingID = -1;
-	
+
 	joystick = 1;
-	
+
 	showCredits = 0;
 
 	/* Load the resources */
@@ -115,20 +115,20 @@ int main(int argc, char *argv[])
 		{
 			game.disableJoystick = TRUE;
 		}
-		
+
 		else if (strcmpignorecase("-joystick", argv[i]) == 0)
 		{
 			joystick = atoi(argv[i + 1]);
-			
+
 			i++;
 		}
-		
+
 		else if (strcmpignorecase("-showcredits", argv[i]) == 0)
 		{
 			showCredits = TRUE;
 		}
-		
-		else if (strstr(argv[i], "-h") != NULL || strstr(argv[i], "-H") != NULL)
+
+		else if (strstr(argv[i], "-h") != NULL || strstr(argv[i], "-help") != NULL)
 		{
 			printf("The Legend of Edgar options\n\n");
 			printf("-record <filename>: Captures keyboard input\n");
@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
 			printf("-nojoystick: Disables the joystick\n");
 			printf("-joystick <joystick_slot>: Use joystick <joystick_slot>. Slots start at 0\n");
 			printf("-showcredits: Shows the end credits\n");
-			
+
 			exit(0);
 		}
 
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 			{
 				game.saveOnExit = TRUE;
 			}
-			
+
 			else if (strcmpignorecase("-bmpwrite", argv[i]) == 0)
 			{
 				setScreenshotDir(argv[i + 1]);
@@ -171,13 +171,13 @@ int main(int argc, char *argv[])
 	}
 
 	loadRequiredResources();
-	
+
 	#if DEV == 0
 		verifyVersion();
 	#endif
 
 	/* Initialise the game variables */
-	
+
 	freeGameResources();
 
 	initGame();
@@ -202,12 +202,12 @@ int main(int argc, char *argv[])
 		{
 			startOnMap(argv[mapID]);
 		}
-		
+
 		else if (game.firstRun == TRUE)
 		{
 			tutorial();
 		}
-		
+
 		else
 		{
 			game.status = IN_TITLE;
@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
 	#endif
 
 	frameLimit = SDL_GetTicks() + game.fps;
-	
+
 	if (showCredits == TRUE)
 	{
 		game.status = IN_CREDITS;
@@ -270,7 +270,7 @@ int main(int argc, char *argv[])
 			case IN_TITLE:
 				doTitle();
 			break;
-			
+
 			case IN_GAME:
 				freeCollisionGrid();
 
@@ -304,18 +304,18 @@ int main(int argc, char *argv[])
 			case IN_MENU:
 				doMenu();
 			break;
-			
+
 			case IN_CREDITS:
 				freeCollisionGrid();
-				
+
 				clearDrawLayers();
-				
+
 				doGame();
-				
+
 				doCredits();
-				
+
 				doDecorations();
-				
+
 				doCollisions();
 			break;
 
