@@ -36,3 +36,4 @@ SDL_Surface *flipImage(SDL_Surface *);
 EntityList *createPixelsFromSprite(Sprite *);
 void drawColouredLine(int, int, int, int, Uint32, Uint32, Uint32);
 int getColour(int r, int g, int b);
+SDL_Surface *copyImage(SDL_Surface *);

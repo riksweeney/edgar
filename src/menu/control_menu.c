@@ -27,6 +27,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/error.h"
 #include "../system/pak.h"
 #include "label.h"
+#include "ok_menu.h"
 #include "options_menu.h"
 #include "widget.h"
 
@@ -44,6 +45,7 @@ static void realignGrid(void);
 static char *getDeadZoneValue(int);
 static void raiseDeadZoneValue(void);
 static void lowerDeadZoneValue(void);
+static void showControlMenu(void);
 
 void drawControlMenu()
 {
@@ -67,7 +69,7 @@ static void doMenu()
 
 		if (menu.index == menu.widgetCount)
 		{
-			menu.index = 0;
+			menu.index = 1;
 		}
 
 		menuInput.down = FALSE;
@@ -80,7 +82,7 @@ static void doMenu()
 	{
 		menu.index--;
 
-		if (menu.index < 0)
+		if (menu.index < 1)
 		{
 			menu.index = menu.widgetCount - 1;
 		}
@@ -139,237 +141,108 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
 	char *text;
-	unsigned char *buffer;
-	int x, y, i;
+	int y;
+	
+	y = 0;
+	
+	menu.widgetCount = 16;
+	
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	savePtr1 = NULL;
-
-	i = 0;
-
-	buffer = loadFileFromPak("data/menu/control_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token);
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Control Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "UP") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_UP]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "DOWN") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_DOWN], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_DOWN]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "LEFT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_LEFT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_LEFT]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "RIGHT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_RIGHT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_RIGHT]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "ATTACK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ATTACK], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_ATTACK]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "BLOCK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_BLOCK], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_BLOCK]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "JUMP") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_JUMP], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_JUMP]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "INTERACT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INTERACT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_INTERACT]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "USE") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_ACTIVATE], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_ACTIVATE]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-
-				}
-
-				else if (strcmpignorecase(menuID, "PREV_ITEM") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_PREVIOUS]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "NEXT_ITEM") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_NEXT]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "INVENTORY") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_INVENTORY], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_INVENTORY]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "PAUSE") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_PAUSE], NULL, NULL, &redefineKey, x, y, TRUE, 255, 255, 255);
-
-					text = getKeyValue(control.button[CONTROL_PAUSE]);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x, y);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "DEAD_ZONE") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.deadZone, &lowerDeadZoneValue, &raiseDeadZoneValue, NULL, x, y, TRUE, 255, 255, 255);
-
-					text = getDeadZoneValue(control.deadZone);
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
+		showErrorAndExit("Ran out of memory when creating Control Menu");
 	}
+	
+	menu.widgets[0] = createWidget(_("Use Up and Down to select. Enter to change."), NULL, NULL, NULL, &redefineKey, -1, y, FALSE, 255, 255, 255);
 
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
+	menu.widgets[1] = createWidget(_("Up"), &control.button[CONTROL_UP], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
 
-	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+	text = getKeyValue(control.button[CONTROL_UP]);
 
-	free(buffer);
+	menu.widgets[1]->label = createLabel(text, menu.widgets[0]->x, y);
+	
+	menu.widgets[2] = createWidget(_("Down"), &control.button[CONTROL_DOWN], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
 
-	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
-	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
+	text = getKeyValue(control.button[CONTROL_DOWN]);
 
+	menu.widgets[2]->label = createLabel(text, menu.widgets[1]->x, y);
+	
+	menu.widgets[3] = createWidget(_("Left"), &control.button[CONTROL_LEFT], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_LEFT]);
+
+	menu.widgets[3]->label = createLabel(text, menu.widgets[2]->x, y);
+
+	menu.widgets[4] = createWidget(_("Right"), &control.button[CONTROL_RIGHT], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_RIGHT]);
+
+	menu.widgets[4]->label = createLabel(text, menu.widgets[3]->x, y);
+
+	menu.widgets[5] = createWidget(_("Attack"), &control.button[CONTROL_ATTACK], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_ATTACK]);
+
+	menu.widgets[5]->label = createLabel(text, menu.widgets[4]->x, y);
+
+	menu.widgets[6] = createWidget(_("Block"), &control.button[CONTROL_BLOCK], NULL, NULL, &redefineKey, 20, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_BLOCK]);
+
+	menu.widgets[6]->label = createLabel(text, menu.widgets[5]->x, y);
+	
+	menu.widgets[7] = createWidget(_("Jump"), &control.button[CONTROL_JUMP], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_JUMP]);
+
+	menu.widgets[7]->label = createLabel(text, menu.widgets[6]->x, y);
+	
+	menu.widgets[8] = createWidget(_("Interact"), &control.button[CONTROL_INTERACT], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_INTERACT]);
+
+	menu.widgets[8]->label = createLabel(text, menu.widgets[7]->x, y);
+	
+	menu.widgets[9] = createWidget(_("Use"), &control.button[CONTROL_ACTIVATE], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_ACTIVATE]);
+
+	menu.widgets[9]->label = createLabel(text, menu.widgets[8]->x, y);
+	
+	menu.widgets[10] = createWidget(_("Previous Item"), &control.button[CONTROL_PREVIOUS], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_PREVIOUS]);
+
+	menu.widgets[10]->label = createLabel(text, menu.widgets[9]->x, y);
+	
+	menu.widgets[11] = createWidget(_("Next Item"), &control.button[CONTROL_NEXT], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_NEXT]);
+
+	menu.widgets[11]->label = createLabel(text, menu.widgets[10]->x, y);
+	
+	menu.widgets[12] = createWidget(_("Inventory"), &control.button[CONTROL_INVENTORY], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_INVENTORY]);
+
+	menu.widgets[12]->label = createLabel(text, menu.widgets[11]->x, y);
+	
+	menu.widgets[13] = createWidget(_("Pause"), &control.button[CONTROL_PAUSE], NULL, NULL, &redefineKey, 40, y, TRUE, 255, 255, 255);
+
+	text = getKeyValue(control.button[CONTROL_PAUSE]);
+
+	menu.widgets[13]->label = createLabel(text, menu.widgets[12]->x, y);
+	
+	menu.widgets[14] = createWidget(_("Dead Zone"), &control.deadZone, &lowerDeadZoneValue, &raiseDeadZoneValue, NULL, 40, y, TRUE, 255, 255, 255);
+
+	text = getDeadZoneValue(control.deadZone);
+
+	menu.widgets[14]->label = createLabel(text, menu.widgets[13]->x + menu.widgets[13]->normalState->w + 10, y);
+	
+	menu.widgets[15] = createWidget(_("Back"), NULL, NULL, NULL, &showOptionsMenu, -1, y, TRUE, 255, 255, 255);
+	
 	realignGrid();
 }
 
@@ -383,31 +256,128 @@ Menu *initControlMenu()
 	}
 
 	menu.returnAction = &showOptionsMenu;
+	
+	menu.index = 1;
 
 	return &menu;
 }
 
 static void realignGrid()
 {
-	int i, maxWidth = 0;
-
-	if (menu.widgets != NULL)
+	int i, y, w, maxWidth1, maxWidth2, colWidth1, colWidth2;
+	
+	y = BUTTON_PADDING + BORDER_PADDING;
+	
+	maxWidth1 = maxWidth2 = w = 0;
+	
+	colWidth1 = colWidth2 = 0;
+	
+	menu.widgets[0]->y = y = BUTTON_PADDING + BORDER_PADDING;
+	
+	colWidth2 = menu.widgets[0]->selectedState->w;
+	
+	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
+	
+	for (i=1;i<8;i++)
 	{
-		for (i=0;i<menu.widgetCount;i++)
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth1)
 		{
-			if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
-			{
-				maxWidth = menu.widgets[i]->normalState->w;
-			}
+			maxWidth1 = menu.widgets[i]->normalState->w;
 		}
+	}
 
-		for (i=0;i<menu.widgetCount;i++)
+	for (i=1;i<8;i++)
+	{
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
 		{
-			if (menu.widgets[i]->label != NULL)
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth1 + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > colWidth1)
 			{
-				menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+				colWidth1 = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > colWidth1)
+			{
+				colWidth1 = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
+	}
+	
+	y = menu.widgets[1]->y;
+	
+	for (i=8;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth2)
+		{
+			maxWidth2 = menu.widgets[i]->normalState->w;
+		}
+	}
+	
+	for (i=8;i<menu.widgetCount;i++)
+	{
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = colWidth1 + BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth2 + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > colWidth2)
+			{
+				colWidth2 = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > colWidth2)
+			{
+				colWidth2 = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
+	}
+	
+	w = colWidth2 + BUTTON_PADDING;
+	
+	if (menu.w != w)
+	{
+		if (menu.background != NULL)
+		{
+			SDL_FreeSurface(menu.background);
+
+			menu.background = NULL;
+		}
+		
+		menu.w = w;
+		menu.h = y - BORDER_PADDING;
+
+		menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
+
+		menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
+		menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
 	}
 }
 
@@ -435,7 +405,7 @@ void freeControlMenu()
 
 static void redefineKey()
 {
-	int key, oldKey;
+	int i, key, oldKey;
 	char *text;
 	Widget *w = menu.widgets[menu.index];
 
@@ -467,6 +437,21 @@ static void redefineKey()
 	text = getKeyValue(key);
 
 	updateLabelText(w->label, text);
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (i == menu.index)
+		{
+			continue;
+		}
+		
+		if (menu.widgets[i]->value != NULL && *menu.widgets[i]->value == key)
+		{
+			*menu.widgets[i]->value = -1;
+			
+			updateLabelText(menu.widgets[i]->label, "?");
+		}
+	}
 
 	realignGrid();
 }
@@ -511,9 +496,58 @@ static void raiseDeadZoneValue()
 
 static void showOptionsMenu()
 {
-	game.menu = initOptionsMenu();
+	int i, j, valid;
+	
+	valid = TRUE;
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->value == NULL)
+		{
+			continue;
+		}
+		
+		if (*menu.widgets[i]->value == -1)
+		{
+			valid = FALSE;
+			
+			break;
+		}
+		
+		for (j=0;j<menu.widgetCount;j++)
+		{
+			if (i == j || menu.widgets[j]->value == NULL)
+			{
+				continue;
+			}
+			
+			if (*menu.widgets[i]->value == *menu.widgets[j]->value)
+			{
+				valid = FALSE;
+			}
+		}
+	}
+	
+	if (valid == TRUE)
+	{
+		game.menu = initOptionsMenu();
 
-	game.drawMenu = &drawOptionsMenu;
+		game.drawMenu = &drawOptionsMenu;
+	}
+	
+	else
+	{
+		game.menu = initOKMenu(_("Please configure all controls"), &showControlMenu);
+		
+		game.drawMenu = &drawOKMenu;
+	}
+}
+
+static void showControlMenu()
+{
+	game.menu = initControlMenu();
+
+	game.drawMenu = &drawControlMenu;
 }
 
 static char *getDeadZoneValue(int value)

@@ -135,8 +135,12 @@ void freeWidget(Widget *w)
 		if (w->label != NULL)
 		{
 			freeLabel(w->label);
+			
+			w->label = NULL;
 		}
 
 		free(w);
+		
+		w = NULL;
 	}
 }

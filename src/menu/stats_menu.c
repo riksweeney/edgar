@@ -67,231 +67,117 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
-	unsigned char *buffer;
-	int x, y, i, width;
+	char menuName[MAX_VALUE_LENGTH], *token;
+	int w, y, i, width, maxWidth;
 	float distance;
-
-	savePtr1 = NULL;
+	
+	w = 0;
 
 	i = 0;
 	
 	width = 0;
-
-	buffer = loadFileFromPak("data/menu/stats_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
-	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token) + MAX_STATISTICS;
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Stats Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			i = 0;
-			
-			menu.widgets[i] = createWidget(_("Statistics"), NULL, NULL, NULL, NULL, -1, 20 + i * 40, TRUE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			token = getPlayTimeAsString();
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
-			
-			free(token);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			distance = game.distanceTravelled;
-			
-			distance /= 45000; /* 45 pixels is 1 metre */
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			token = getSlimeTimeAsString();
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
-			
-			free(token);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			snprintf(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
-			
-			menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-			
-			i++;
-			
-			token = strtok_r(NULL, "\0", &savePtr2);
-
-			sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-			if (strcmpignorecase(menuID, "MENU_OK") == 0)
-			{
-				menu.widgets[i] = createWidget(menuName, NULL, NULL, NULL, NULL, x, 20 + i * 40, TRUE, 255, 255, 255);
-			}
-
-			else
-			{
-				showErrorAndExit("Unknown widget %s", menuID);
-			}
-			
-			if (menu.widgets[i]->selectedState->w > width)
-			{
-				width = menu.widgets[i]->selectedState->w;
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
-	}
-
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
-
-	/* Resize */
-
-	menu.w = width + 20;
 	
-	menu.h = 20 + i * 40 + menu.widgets[i]->selectedState->h;
+	maxWidth = 0;
+
+	menu.widgetCount = 11;
+	
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
+
+	if (menu.widgets == NULL)
+	{
+		showErrorAndExit("Ran out of memory when creating Stats Menu");
+	}
+
+	menu.widgets[0] = createWidget(_("Statistics"), NULL, NULL, NULL, NULL, -1, 0, TRUE, 255, 255, 255);
+	
+	token = getPlayTimeAsString();
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
+	
+	free(token);
+	
+	menu.widgets[1] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
+	
+	menu.widgets[2] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
+	
+	menu.widgets[3] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
+	
+	menu.widgets[4] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);			
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
+	
+	menu.widgets[5] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	distance = game.distanceTravelled;
+	
+	distance /= 45000; /* 45 pixels is 1 metre */
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
+	
+	menu.widgets[6] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
+	
+	menu.widgets[7] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	token = getSlimeTimeAsString();
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
+	
+	free(token);
+	
+	menu.widgets[8] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	snprintf(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
+	
+	menu.widgets[9] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+	
+	menu.widgets[10] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, 0, TRUE, 255, 255, 255);
+	
+	y = BUTTON_PADDING / 2 + BORDER_PADDING;
+
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING / 2 + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}		
+
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING / 2;
+	}
+	
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(buffer);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
@@ -305,7 +191,7 @@ Menu *initStatsMenu()
 
 	loadMenuLayout();
 
-	menu.index = MAX_STATISTICS;
+	menu.index = 10;
 
 	menu.returnAction = &showMainMenu;
 

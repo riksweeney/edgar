@@ -192,8 +192,6 @@ void draw()
 						{
 							snprintf(text, sizeof(text), "%3d : %3d", (int)player.x, (int)player.y);
 						}
-
-						drawString(text, 5, 30, game.font, 0, 0, 255, 255, 255);
 					#endif
 				}
 			break;

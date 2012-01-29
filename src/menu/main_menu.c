@@ -161,154 +161,94 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
-	unsigned char *buffer;
-	int x, y, i;
+	int i, x, y, w, maxWidth;
+	
+	y = x = -1;
 
-	savePtr1 = NULL;
+	menu.widgetCount = 10;
 
-	i = 0;
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	buffer = loadFileFromPak("data/menu/main_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
+		showErrorAndExit("Ran out of memory when creating Main Menu");
+	}
+	
+	menu.widgets[0] = createWidget(_("New Game"), NULL, NULL, NULL, &doNewGame, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[1] = createWidget(_("Continue"), NULL, NULL, NULL, &continueGame, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[1]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+	
+	menu.widgets[2] = createWidget(_("Restart Checkpoint"), NULL, NULL, NULL, &restartCheckpoint, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[2]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
+	
+	menu.widgets[3] = createWidget(_("Tutorial"), NULL, NULL, NULL, &doTutorial, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[4] = createWidget(_("Load Game"), NULL, NULL, NULL, &showIOMenu, x, y, TRUE, 255, 255, 255);
+
+	menu.widgets[5] = createWidget(_("Options"), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[6] = createWidget(_("Statistics"), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[7] = createWidget(_("Medals"), NULL, NULL, NULL, &showMedalsMenu, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[8] = createWidget(_("About"), NULL, NULL, NULL, &showAboutMenu, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[9] = createWidget(_("Quit"), NULL, NULL, NULL, &doQuit, x, y, TRUE, 255, 255, 255);
+	
+	y = BUTTON_PADDING + BORDER_PADDING;
+	
+	w = 0;
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
 		{
-			line[strlen(line) - 1] = '\0';
+			maxWidth = menu.widgets[i]->normalState->w;
 		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token);
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Main Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "MENU_NEW_GAME") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doNewGame, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_CONTINUE") == 0)
-				{					
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &continueGame, x, y, TRUE, 255, 255, 255);
-					
-					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-				}
-				
-				else if (strcmpignorecase(menuID, "MENU_CHECKPOINT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &restartCheckpoint, x, y, TRUE, 255, 255, 255);
-					
-					menu.widgets[i]->disabled = game.canContinue == TRUE ? FALSE : TRUE;
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_TUTORIAL") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doTutorial, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_LOAD") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showIOMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_OPTIONS") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_STATS") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showStatsMenu, x, y, TRUE, 255, 255, 255);
-				}
-				
-				else if (strcmpignorecase(menuID, "MENU_MEDALS") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showMedalsMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_ABOUT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showAboutMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_QUIT") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doQuit, x, y, TRUE, 255, 255, 255);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
+	for (i=0;i<menu.widgetCount;i++)
 	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		if (i != 1)
+		{
+			y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
+		}
 	}
+	
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(buffer);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
@@ -341,6 +281,8 @@ Menu *initMainMenu()
 	int i;
 
 	menu.action = &doMenu;
+	
+	freeMainMenu();
 
 	loadMenuLayout();
 

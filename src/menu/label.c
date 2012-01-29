@@ -56,7 +56,7 @@ Label *createImageLabel(SDL_Surface *image, int x, int y)
 		showErrorAndExit("Failed to allocate %d bytes to create image Label", (int)sizeof(Label));
 	}
 
-	l->text = image;
+	l->text = copyImage(image);
 
 	l->x = x;
 
@@ -103,5 +103,7 @@ void freeLabel(Label *l)
 		}
 
 		free(l);
+		
+		l = NULL;
 	}
 }

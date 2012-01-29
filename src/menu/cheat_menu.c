@@ -43,7 +43,6 @@ static void doMenu(void);
 static void toggleInfiniteHealth(void);
 static void toggleInfiniteArrows(void);
 static void toggleLavaNotFatal(void);
-static void realignGrid(void);
 
 void drawCheatMenu()
 {
@@ -139,137 +138,92 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
-	unsigned char *buffer;
-	int x, y, i;
+	int i, x, y, w, maxWidth;
+	
+	menu.widgetCount = 4;
+	
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	savePtr1 = NULL;
-
-	i = 0;
-
-	buffer = loadFileFromPak("data/menu/cheat_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
+		showErrorAndExit("Ran out of memory when creating Cheat Menu");
+	}
+	
+	x = 20;
+	
+	y = 0;
+
+	menu.widgets[0] = createWidget(_("Infinite Health"), NULL, &toggleInfiniteHealth, &toggleInfiniteHealth, &toggleInfiniteHealth, x, y, TRUE, 255, 255, 255);
+
+	menu.widgets[0]->label = createLabel(game.infiniteEnergy == TRUE ? _("Yes") : _("No"), menu.widgets[0]->x + menu.widgets[0]->normalState->w + 10, y);
+
+	healthCheat = game.infiniteEnergy;
+	
+	menu.widgets[1] = createWidget(_("Infinite Arrows"), NULL, &toggleInfiniteArrows, &toggleInfiniteArrows, &toggleInfiniteArrows, x, y, TRUE, 255, 255, 255);
+
+	menu.widgets[1]->label = createLabel(game.infiniteArrows == TRUE ? _("Yes") : _("No"), menu.widgets[1]->x + menu.widgets[1]->normalState->w + 10, y);
+
+	arrowCheat = game.infiniteArrows;
+	
+	menu.widgets[2] = createWidget(_("Lava is not fatal"), NULL, &toggleLavaNotFatal, &toggleLavaNotFatal, &toggleLavaNotFatal, x, y, TRUE, 255, 255, 255);
+
+	menu.widgets[2]->label = createLabel(game.lavaNotFatal == TRUE ? _("Yes") : _("No"), menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10, y);
+
+	lavaCheat = game.lavaNotFatal;
+	
+	menu.widgets[3] = createWidget(_("Back"), NULL, NULL, NULL, &showOptionsMenu, -1, y, TRUE, 255, 255, 255);
+
+	y = BUTTON_PADDING + BORDER_PADDING;
+	
+	maxWidth = w = 0;
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
 		{
-			line[strlen(line) - 1] = '\0';
+			maxWidth = menu.widgets[i]->normalState->w;
 		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token);
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Cheat Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "INFINITE_HEALTH") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteHealth, &toggleInfiniteHealth, &toggleInfiniteHealth, x, y, TRUE, 255, 255, 255);
-
-					menu.widgets[i]->label = createLabel(game.infiniteEnergy == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					healthCheat = game.infiniteEnergy;
-				}
-
-				else if (strcmpignorecase(menuID, "INFINITE_ARROWS") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleInfiniteArrows, &toggleInfiniteArrows, &toggleInfiniteArrows, x, y, TRUE, 255, 255, 255);
-
-					menu.widgets[i]->label = createLabel(game.infiniteArrows == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					arrowCheat = game.infiniteArrows;
-				}
-
-				else if (strcmpignorecase(menuID, "LAVA_NOT_FATAL") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, &toggleLavaNotFatal, &toggleLavaNotFatal, &toggleLavaNotFatal, x, y, TRUE, 255, 255, 255);
-
-					menu.widgets[i]->label = createLabel(game.lavaNotFatal == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					lavaCheat = game.lavaNotFatal;
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
+	for (i=0;i<menu.widgetCount;i++)
 	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
 	}
+	
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
-	free(buffer);
-
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	realignGrid();
 }
 
 Menu *initCheatMenu()
@@ -283,30 +237,6 @@ Menu *initCheatMenu()
 	menu.returnAction = &showOptionsMenu;
 
 	return &menu;
-}
-
-static void realignGrid()
-{
-	int i, maxWidth = 0;
-
-	if (menu.widgets != NULL)
-	{
-		for (i=0;i<menu.widgetCount;i++)
-		{
-			if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
-			{
-				maxWidth = menu.widgets[i]->normalState->w;
-			}
-		}
-
-		for (i=0;i<menu.widgetCount;i++)
-		{
-			if (menu.widgets[i]->label != NULL)
-			{
-				menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			}
-		}
-	}
 }
 
 void freeCheatMenu()

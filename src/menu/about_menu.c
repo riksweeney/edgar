@@ -65,6 +65,7 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
+	int y;
 	char versionText[MAX_VALUE_LENGTH];
 
 	menu.widgetCount = 3;
@@ -77,12 +78,20 @@ static void loadMenuLayout()
 	{
 		showErrorAndExit("Ran out of memory when creating About Menu");
 	}
+	
+	y = BUTTON_PADDING + BORDER_PADDING;
 
-	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
+	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+	
+	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
 
-	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2012"), NULL, NULL, NULL, NULL, -1, 70, FALSE, 255, 255, 255);
+	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2012"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+	
+	y += menu.widgets[1]->selectedState->h + BUTTON_PADDING;
 
-	menu.widgets[2] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, 120, TRUE, 255, 255, 255);
+	menu.widgets[2] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, y, TRUE, 255, 255, 255);
+	
+	y += menu.widgets[2]->selectedState->h + BUTTON_PADDING;
 
 	/* Resize */
 
@@ -96,7 +105,7 @@ static void loadMenuLayout()
 		menu.w = menu.widgets[1]->selectedState->w + 20;
 	}
 
-	menu.h = 170;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
