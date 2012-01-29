@@ -105,139 +105,49 @@ static void doMenu()
 
 static void loadMenuLayout(char *text)
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
-	unsigned char *buffer;
-	int x, y, i;
+	int x, y;
+	
+	x = 20;
+	
+	y = 0;
 
-	savePtr1 = NULL;
+	menu.widgetCount = 3;
 
-	i = 0;
-
-	buffer = loadFileFromPak("data/menu/script_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
+	
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token) + 1;
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Script Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				if (i == 0)
-				{
-					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
-				}
-				
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "MENU_YES") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doYes, x, y, TRUE, 255, 255, 255);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_NO") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, doNo, x, y, TRUE, 255, 255, 255);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
-	}
-
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
+		showErrorAndExit("Ran out of memory when creating Script Menu");
 	}
 	
-	menu.w = menu.widgets[0]->selectedState->w;
+	menu.widgets[0] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
 	
-	menu.widgets[0]->y = 10;
-	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + 20;
+	menu.widgets[1] = createWidget(_("Yes"), NULL, NULL, NULL, doYes, x, y, TRUE, 255, 255, 255);
+	
+	menu.widgets[2] = createWidget(_("No"), NULL, NULL, NULL, doNo, x, y, TRUE, 255, 255, 255);
+
+	/* Resize */
+	
+	menu.widgets[0]->y = BORDER_PADDING + BUTTON_PADDING;
+	
+	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + BUTTON_PADDING;
 	menu.widgets[2]->y = menu.widgets[1]->y;
-	
-	x = menu.widgets[1]->normalState->w + menu.widgets[2]->normalState->w + 20;
-	y = menu.widgets[2]->y + menu.widgets[2]->normalState->h + 10;
-	
-	if (x > menu.w)
-	{
-		menu.w = x;
-	}
+
+	menu.w = menu.widgets[0]->selectedState->w;
 	
 	if (menu.w < 150)
 	{
 		menu.w = 150;
 	}
 	
-	menu.h = y;
+	menu.h = menu.widgets[2]->y + menu.widgets[2]->selectedState->h + BUTTON_PADDING - BORDER_PADDING;
 
-	menu.widgets[1]->x = abs(menu.w - x) / 2 + 5;
-	menu.widgets[2]->x = menu.widgets[1]->x + menu.widgets[1]->selectedState->w + 20;
+	x = menu.widgets[1]->normalState->w + BUTTON_PADDING + menu.widgets[2]->normalState->w;
+
+	menu.widgets[1]->x = (menu.w - x) / 2;
+	menu.widgets[2]->x = menu.widgets[1]->x + menu.widgets[1]->selectedState->w + BUTTON_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(buffer);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;

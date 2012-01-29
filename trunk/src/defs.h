@@ -126,8 +126,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define MAX_STACKABLES 20
 
-#define MAX_STATISTICS 10
-
 #define TELEPORT_SPEED 10
 
 #define SPAWNED_IN_TIME 18000
@@ -221,6 +219,10 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #define MAX_ANIMATION_TYPES 50
 
 #define rand() USE_PRAND_INSTEAD_OF_RAND()
+
+#define BORDER_PADDING 5
+
+#define BUTTON_PADDING 20
 
 enum
 {

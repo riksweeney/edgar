@@ -876,7 +876,12 @@ char *getKeyValue(int key)
 {
 	char *text;
 
-	if (key < 0)
+	if (key == -1)
+	{
+		text = "?";
+	}
+	
+	else if (key < 0)
 	{
 		text = getJoystickButton(key);
 	}

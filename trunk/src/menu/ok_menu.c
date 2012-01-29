@@ -73,118 +73,71 @@ static void doMenu()
 
 static void loadMenuLayout(char *text)
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2;
-	unsigned char *buffer;
-	int x, y, i;
-
-	savePtr1 = NULL;
+	int y, i, w, maxWidth;
 
 	i = 0;
 
-	buffer = loadFileFromPak("data/menu/ok_menu.dat");
+	menu.widgetCount = 2;
 
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	while (line != NULL)
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token) + 1;
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating OK Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				if (i == 0)
-				{
-					menu.widgets[i++] = createWidget(text, NULL, NULL, NULL, NULL, -1, 10, FALSE, 255, 255, 255);
-				}
-
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "MENU_OK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &doOK, x, y, TRUE, 255, 255, 255);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
+		showErrorAndExit("Ran out of memory when creating OK Menu");
 	}
-
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
-
-	/* Resize */
+		
+	menu.widgets[0] = createWidget(text, NULL, NULL, NULL, NULL, -1, 10, FALSE, 255, 255, 255);
 	
-	menu.widgets[0]->y = 20;
-	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + 20;
+	menu.widgets[1] = createWidget(_("OK"), NULL, NULL, NULL, &doOK, -1, 10, TRUE, 255, 255, 255);
 
-	menu.w = menu.widgets[0]->selectedState->w + 20;
-	menu.h = menu.widgets[1]->y + menu.widgets[1]->normalState->h + 20;
+	y = BUTTON_PADDING + BORDER_PADDING;
+	
+	maxWidth = w = 0;
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
+		{
+			maxWidth = menu.widgets[i]->normalState->w;
+		}
+	}
+
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
+	}
+	
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(buffer);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;

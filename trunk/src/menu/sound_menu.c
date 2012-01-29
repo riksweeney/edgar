@@ -41,7 +41,6 @@ static void showOptionsMenu(void);
 static void doMenu(void);
 static char *getVolumePercent(int);
 static void toggleSound(void);
-static void realignGrid(void);
 static void changeVolume(int *, Widget *, int);
 static void lowerSFXVolume(void);
 static void raiseSFXVolume(void);
@@ -144,150 +143,101 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, menuID[MAX_VALUE_LENGTH], menuName[MAX_VALUE_LENGTH], *token, *savePtr1, *savePtr2, *text;
-	unsigned char *buffer;
-	int x, y, i;
+	char *text;
+	int x, y, w, maxWidth, i;
 
-	savePtr1 = NULL;
+	menu.widgetCount = 5;
 
-	i = 0;
+	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
-	buffer = loadFileFromPak("data/menu/sound_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
+	if (menu.widgets == NULL)
 	{
-		if (line[strlen(line) - 1] == '\n')
+		showErrorAndExit("Ran out of memory when creating Control Menu");
+	}
+	
+	x = y = 0;
+
+	menu.widgets[0] = createWidget(_("Sound"), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE, 255, 255, 255);
+
+	menu.widgets[0]->label = createLabel(game.audio == TRUE || game.audioDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[0]->x + menu.widgets[0]->normalState->w + 10, y);
+	
+	menu.widgets[1] = createWidget(_("SFX Volume"), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE, 255, 255, 255);
+
+	text = getVolumePercent(game.sfxDefaultVolume);
+
+	menu.widgets[1]->label = createLabel(_(text), menu.widgets[1]->x + menu.widgets[1]->normalState->w + 10, y);
+
+	free(text);
+	
+	menu.widgets[2] = createWidget(_("Music Volume"), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE, 255, 255, 255);
+
+	text = getVolumePercent(game.musicDefaultVolume);
+
+	menu.widgets[2]->label = createLabel(_(text), menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10, y);
+
+	free(text);
+	
+	menu.widgets[3] = createWidget(_("Audio Quality"), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE, 255, 255, 255);
+
+	text = getQuality();
+
+	menu.widgets[3]->label = createLabel(text, menu.widgets[3]->x + menu.widgets[3]->normalState->w + 10, y);
+
+	free(text);
+	
+	menu.widgets[4] = createWidget(_("Back"), NULL, NULL, NULL, &showOptionsMenu, -1, y, TRUE, 255, 255, 255);
+
+	y = BUTTON_PADDING + BORDER_PADDING;
+	
+	maxWidth = w = 0;
+	
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
 		{
-			line[strlen(line) - 1] = '\0';
+			maxWidth = menu.widgets[i]->normalState->w;
 		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "WIDGET_COUNT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.widgetCount = atoi(token);
-
-			menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-
-			if (menu.widgets == NULL)
-			{
-				showErrorAndExit("Ran out of memory when creating Control Menu");
-			}
-		}
-
-		else if (strcmpignorecase(token, "WIDGET") == 0)
-		{
-			if (menu.widgets != NULL)
-			{
-				token = strtok_r(NULL, "\0", &savePtr2);
-
-				sscanf(token, "%s \"%[^\"]\" %d %d", menuID, menuName, &x, &y);
-
-				if (strcmpignorecase(menuID, "SOUND") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE, 255, 255, 255);
-
-					menu.widgets[i]->label = createLabel(game.audio == TRUE || game.audioDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-				}
-
-				else if (strcmpignorecase(menuID, "SFX_VOLUME") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE, 255, 255, 255);
-
-					text = getVolumePercent(game.sfxDefaultVolume);
-
-					menu.widgets[i]->label = createLabel(_(text), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					free(text);
-				}
-
-				else if (strcmpignorecase(menuID, "MUSIC_VOLUME") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE, 255, 255, 255);
-
-					text = getVolumePercent(game.musicDefaultVolume);
-
-					menu.widgets[i]->label = createLabel(_(text), menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					free(text);
-				}
-
-				else if (strcmpignorecase(menuID, "BUFFER") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE, 255, 255, 255);
-
-					text = getQuality();
-
-					menu.widgets[i]->label = createLabel(text, menu.widgets[i]->x + menu.widgets[i]->normalState->w + 10, y);
-
-					free(text);
-				}
-
-				else if (strcmpignorecase(menuID, "MENU_BACK") == 0)
-				{
-					menu.widgets[i] = createWidget(_(menuName), NULL, NULL, NULL, &showOptionsMenu, x, y, TRUE, 255, 255, 255);
-				}
-
-				else
-				{
-					showErrorAndExit("Unknown widget %s", menuID);
-				}
-
-				i++;
-			}
-
-			else
-			{
-				showErrorAndExit("Widget Count must be defined!");
-			}
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
+	for (i=0;i<menu.widgetCount;i++)
 	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
 	}
+	
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
 
-	free(buffer);
-
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
-
-	realignGrid();
 }
 
 Menu *initSoundMenu()
@@ -302,30 +252,6 @@ Menu *initSoundMenu()
 	menu.returnAction = &showOptionsMenu;
 
 	return &menu;
-}
-
-static void realignGrid()
-{
-	int i, maxWidth = 0;
-
-	if (menu.widgets != NULL)
-	{
-		for (i=0;i<menu.widgetCount;i++)
-		{
-			if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
-			{
-				maxWidth = menu.widgets[i]->normalState->w;
-			}
-		}
-
-		for (i=0;i<menu.widgetCount;i++)
-		{
-			if (menu.widgets[i]->label != NULL)
-			{
-				menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			}
-		}
-	}
 }
 
 void freeSoundMenu()

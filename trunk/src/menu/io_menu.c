@@ -109,57 +109,12 @@ static void doMenu()
 
 static void loadMenuLayout(int saving)
 {
-	char *line, *token, *savePtr1, *savePtr2;
 	char **saveFile;
-	unsigned char *buffer;
-	int x, y, i, j, width;
-
-	savePtr1 = NULL;
-	savePtr2 = NULL;
+	int y, i, j, width , maxWidth, w;
 
 	i = 0;
-
-	buffer = loadFileFromPak("data/menu/io_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
-	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-
-		line = strtok_r(NULL, "\n", &savePtr1);
-	}
+	
+	y = BUTTON_PADDING / 2 + BORDER_PADDING;
 
 	menu.widgetCount = MAX_SAVE_SLOTS + 2;
 
@@ -170,34 +125,21 @@ static void loadMenuLayout(int saving)
 		showErrorAndExit("Ran out of memory when creating IO Menu");
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
-
-	free(buffer);
-
 	saveFile = getSaveFileIndex();
-
-	x = y = 5;
-
-	width = 0;
 	
 	if (saving == TRUE)
 	{
-		menu.widgets[i] = createWidget(_("Choose slot to save to"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+		menu.widgets[0] = createWidget(_("Choose slot to save to"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
 	
 	else
 	{
-		menu.widgets[i] = createWidget(_("Choose slot to load from"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
+		menu.widgets[0] = createWidget(_("Choose slot to load from"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
 	
-	width = menu.widgets[i]->normalState->w;
+	maxWidth = 0;
 	
-	y += menu.widgets[i]->normalState->h + 5;
-	
-	i++;
+	i = 1;
 
 	for (j=0;j<MAX_SAVE_SLOTS;j++)
 	{
@@ -210,8 +152,6 @@ static void loadMenuLayout(int saving)
 		{
 			menu.widgets[i] = createWidget(saveFile[j], NULL, NULL, NULL, saving == TRUE ? &saveGameInSlot : &loadGameInSlot, -1, y, FALSE, 255, 255, 255);
 		}
-
-		y += menu.widgets[i]->selectedState->h + 5;
 
 		if (saveFile[j] != NULL)
 		{
@@ -226,19 +166,44 @@ static void loadMenuLayout(int saving)
 		i++;
 	}
 
-	menu.w = width + 20;
-
-	y += 15;
-
 	menu.widgets[i] = createWidget(_("Back"), NULL, 0, 0, &showMainMenu, -1, y, TRUE, 255, 255, 255);
 
-	y += menu.widgets[i]->normalState->h + 10;
+	for (i=0;i<menu.widgetCount;i++)
+	{
+		menu.widgets[i]->y = y;
+		
+		if (menu.widgets[i]->x != -1)
+		{
+			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
+		}
+		
+		if (menu.widgets[i]->label != NULL)
+		{
+			menu.widgets[i]->label->y = y;
+			
+			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
+			
+			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
+			{
+				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
+			}
+		}
+		
+		else
+		{
+			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
+			{
+				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
+			}
+		}
+		
+		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING / 2;
+	}
 	
-	menu.h = y;
+	menu.w = w + BUTTON_PADDING;
+	menu.h = y - BORDER_PADDING;
 
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(saveFile);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;

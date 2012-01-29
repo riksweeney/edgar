@@ -109,9 +109,8 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, *token, *savePtr1, *savePtr2;
+	char *line, *savePtr1;
 	Medal *medal;
-	unsigned char *buffer;
 	int i, width, medalCount;
 
 	savePtr1 = NULL;
@@ -124,48 +123,6 @@ static void loadMenuLayout()
 	
 	width = 0;
 
-	buffer = loadFileFromPak("data/menu/medals_menu.dat");
-
-	line = strtok_r((char *)buffer, "\n", &savePtr1);
-
-	while (line != NULL)
-	{
-		if (line[strlen(line) - 1] == '\n')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[strlen(line) - 1] == '\r')
-		{
-			line[strlen(line) - 1] = '\0';
-		}
-
-		if (line[0] == '#' || line[0] == '\n')
-		{
-			line = strtok_r(NULL, "\n", &savePtr1);
-
-			continue;
-		}
-
-		token = strtok_r(line, " ", &savePtr2);
-
-		if (strcmpignorecase(token, "WIDTH") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.w = atoi(token);
-		}
-
-		else if (strcmpignorecase(token, "HEIGHT") == 0)
-		{
-			token = strtok_r(NULL, " ", &savePtr2);
-
-			menu.h = atoi(token);
-		}
-		
-		line = strtok_r(NULL, "\n", &savePtr1);
-	}
-
 	menu.widgetCount = medalCount;
 
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
@@ -175,8 +132,8 @@ static void loadMenuLayout()
 		showErrorAndExit("Ran out of memory when creating Medals Menu");
 	}
 
-	for (i=0;i<menu.widgetCount;i++)	{
-
+	for (i=0;i<menu.widgetCount;i++)
+	{
 		if (medal[i].hidden == TRUE && medal[i].obtained == FALSE)
 		{
 			menu.widgets[i] = createWidget(_("Hidden Medal"), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
@@ -213,6 +170,8 @@ static void loadMenuLayout()
 	
 	menu.w = 0;
 	
+	menu.h = SCREEN_HEIGHT - BUTTON_PADDING;
+	
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->label != NULL)
@@ -226,14 +185,7 @@ static void loadMenuLayout()
 		}
 	}
 
-	if (menu.w <= 0 || menu.h <= 0)
-	{
-		showErrorAndExit("Menu dimensions must be greater than 0");
-	}
-
 	menu.background = addBorder(createSurface(menu.w, menu.h), 255, 255, 255, 0, 0, 0);
-
-	free(buffer);
 
 	menu.x = (SCREEN_WIDTH - menu.background->w) / 2;
 	menu.y = (SCREEN_HEIGHT - menu.background->h) / 2;
@@ -242,6 +194,8 @@ static void loadMenuLayout()
 Menu *initMedalsMenu()
 {
 	menu.action = &doMenu;
+	
+	freeMedalsMenu();
 
 	loadMenuLayout();
 
@@ -264,6 +218,8 @@ void freeMedalsMenu()
 		}
 
 		free(menu.widgets);
+		
+		menu.widgets = NULL;
 	}
 
 	if (menu.background != NULL)

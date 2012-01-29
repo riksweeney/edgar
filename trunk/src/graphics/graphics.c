@@ -188,6 +188,42 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int a
 	SDL_FreeSurface(flipped);
 }
 */
+SDL_Surface *copyImage(SDL_Surface *image)
+{
+	int x, y;
+	Uint32 pixel;
+	SDL_Surface *flipped;
+
+	flipped = createSurface(image->w, image->h);
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_LockSurface(image);
+	}
+
+	for (y=0;y<image->h;y++)
+	{
+		for (x=0;x<image->w;x++)
+		{
+			pixel = getPixel(image, x, y);
+
+			putPixel(flipped, x, y, pixel);
+		}
+	}
+
+	if (SDL_MUSTLOCK(image))
+	{
+		SDL_UnlockSurface(image);
+	}
+
+	if (image->flags & SDL_SRCCOLORKEY)
+	{
+		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
+	}
+
+	return flipped;
+}
+
 SDL_Surface *flipImage(SDL_Surface *image)
 {
 	int x, y;
