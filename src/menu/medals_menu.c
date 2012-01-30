@@ -48,58 +48,58 @@ void drawMedalsMenu()
 	SDL_Rect rect;
 
 	drawImage(menu.background, menu.x, menu.y, FALSE, 196);
-	
+
 	rect.x = menu.x + 5;
 	rect.y = menu.y + 5;
 	rect.w = menu.w;
 	rect.h = menu.h;
-	
+
 	SDL_SetClipRect(game.screen, &rect);
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		drawWidget(menu.widgets[i], &menu, -1);
 	}
-	
+
 	SDL_SetClipRect(game.screen, NULL);
 }
 
 static void doMenu()
 {
-	if (input.attack == TRUE || menuInput.attack == TRUE)
+	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
+		memset(&menuInput, 0, sizeof(Input));
+		memset(&input, 0, sizeof(Input));
 
 		playSound("sound/common/click.ogg");
 
 		showMainMenu();
 	}
-	
-	else if (input.block == TRUE || menuInput.block == TRUE)
+
+	else if (menuInput.block == TRUE || input.block == TRUE)
 	{
-		menuInput.block = FALSE;
-		input.block = FALSE;
+		memset(&menuInput, 0, sizeof(Input));
+		memset(&input, 0, sizeof(Input));
 
 		playSound("sound/common/click.ogg");
 
 		showMainMenu();
 	}
-	
-	else if (input.down == TRUE || menuInput.down == TRUE)
+
+	else if (menuInput.down == TRUE || input.down == TRUE)
 	{
 		menu.startY += 6;
-		
-		if (menu.startY > menu.endY)
+
+		if (menu.startY > menu.endY - menu.h)
 		{
-			menu.startY = menu.endY;
+			menu.startY = menu.endY - menu.h;
 		}
 	}
-	
-	else if (input.up == TRUE || menuInput.up == TRUE)
+
+	else if (menuInput.up == TRUE || input.up == TRUE)
 	{
 		menu.startY -= 6;
-		
+
 		if (menu.startY < 0)
 		{
 			menu.startY = 0;
@@ -114,13 +114,13 @@ static void loadMenuLayout()
 	int i, width, medalCount;
 
 	savePtr1 = NULL;
-	
+
 	medal = getMedals();
-	
+
 	medalCount = getMedalCount();
 
 	i = 0;
-	
+
 	width = 0;
 
 	menu.widgetCount = medalCount;
@@ -138,46 +138,46 @@ static void loadMenuLayout()
 		{
 			menu.widgets[i] = createWidget(_("Hidden Medal"), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
 		}
-		
+
 		else
 		{
 			if (medal[i].obtained == TRUE)
 			{
 				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 0, 200, 0);
 			}
-			
+
 			else
 			{
 				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
 			}
 		}
-		
+
 		if (width < menu.widgets[i]->x + menu.widgets[i]->normalState->w)
 		{
 			width = menu.widgets[i]->x + menu.widgets[i]->normalState->w;
 		}
-		
+
 		menu.widgets[i]->label = createImageLabel(getMedalImage(medal[i].medalType, medal[i].obtained), menu.widgets[i]->x, menu.widgets[i]->y);
-		
+
 		menu.widgets[i]->label->y = menu.widgets[i]->y + menu.widgets[i]->normalState->h / 2 - menu.widgets[i]->label->text->h / 2;
-		
+
 		menu.endY = menu.widgets[i]->y + menu.widgets[i]->normalState->h - menu.h;
 	}
 
 	line = strtok_r(NULL, "\n", &savePtr1);
-	
+
 	width += 15;
-	
+
 	menu.w = 0;
-	
+
 	menu.h = SCREEN_HEIGHT - BUTTON_PADDING;
-	
+
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->x = width;
-			
+
 			if (menu.w < menu.widgets[i]->label->x + menu.widgets[i]->label->text->w)
 			{
 				menu.w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
@@ -194,7 +194,7 @@ static void loadMenuLayout()
 Menu *initMedalsMenu()
 {
 	menu.action = &doMenu;
-	
+
 	freeMedalsMenu();
 
 	loadMenuLayout();
@@ -218,7 +218,7 @@ void freeMedalsMenu()
 		}
 
 		free(menu.widgets);
-		
+
 		menu.widgets = NULL;
 	}
 

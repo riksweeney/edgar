@@ -54,15 +54,15 @@ void drawStatsMenu()
 
 static void doMenu()
 {
-	if (input.attack == TRUE || menuInput.attack == TRUE)
+	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
-
 		playSound("sound/common/click.ogg");
 
 		showMainMenu();
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout()
@@ -70,17 +70,17 @@ static void loadMenuLayout()
 	char menuName[MAX_VALUE_LENGTH], *token;
 	int w, y, i, width, maxWidth;
 	float distance;
-	
+
 	w = 0;
 
 	i = 0;
-	
+
 	width = 0;
-	
+
 	maxWidth = 0;
 
 	menu.widgetCount = 11;
-	
+
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
 
 	if (menu.widgets == NULL)
@@ -89,91 +89,91 @@ static void loadMenuLayout()
 	}
 
 	menu.widgets[0] = createWidget(_("Statistics"), NULL, NULL, NULL, NULL, -1, 0, TRUE, 255, 255, 255);
-	
+
 	token = getPlayTimeAsString();
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Play Time: %s"), token);
-	
+
 	free(token);
-	
+
 	menu.widgets[1] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Kills: %d"), game.kills);
-	
+
 	menu.widgets[2] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Arrows Fired: %d"), game.arrowsFired);
-	
+
 	menu.widgets[3] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Bats Drowned: %d"), game.batsDrowned);
-	
-	menu.widgets[4] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);			
-	
+
+	menu.widgets[4] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Times Eaten: %d"), game.timesEaten);
-	
+
 	menu.widgets[5] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	distance = game.distanceTravelled;
-	
+
 	distance /= 45000; /* 45 pixels is 1 metre */
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Distanced Travelled: %0.1fKM"), distance);
-	
+
 	menu.widgets[6] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Attacks Blocked: %d"), game.attacksBlocked);
-	
+
 	menu.widgets[7] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	token = getSlimeTimeAsString();
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Time Spent As A Slime: %s"), token);
-	
+
 	free(token);
-	
+
 	menu.widgets[8] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	snprintf(menuName, MAX_VALUE_LENGTH, _("Secrets Found: %d / %d"), game.secretsFound, TOTAL_SECRETS);
-	
+
 	menu.widgets[9] = createWidget(menuName, NULL, NULL, NULL, NULL, 10, 0, FALSE, 255, 255, 255);
-	
+
 	menu.widgets[10] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, 0, TRUE, 255, 255, 255);
-	
+
 	y = BUTTON_PADDING / 2 + BORDER_PADDING;
 
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		menu.widgets[i]->y = y;
-		
+
 		if (menu.widgets[i]->x != -1)
 		{
 			menu.widgets[i]->x = BUTTON_PADDING / 2 + BORDER_PADDING;
 		}
-		
+
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->y = y;
-			
+
 			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			
+
 			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
 			{
 				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
-		
+
 		else
 		{
 			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
 			{
 				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
 			}
-		}		
+		}
 
 		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING / 2;
 	}
-	
+
 	menu.w = w + BUTTON_PADDING;
 	menu.h = y - BORDER_PADDING;
 
@@ -186,7 +186,7 @@ static void loadMenuLayout()
 Menu *initStatsMenu()
 {
 	menu.action = &doMenu;
-	
+
 	freeStatsMenu();
 
 	loadMenuLayout();

@@ -55,12 +55,9 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.attack == TRUE || menuInput.attack == TRUE)
+	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
-
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
 
 		playSound("sound/common/click.ogg");
 
@@ -69,6 +66,9 @@ static void doMenu()
 			w->clickAction();
 		}
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout(char *text)
@@ -85,15 +85,15 @@ static void loadMenuLayout(char *text)
 	{
 		showErrorAndExit("Ran out of memory when creating OK Menu");
 	}
-		
+
 	menu.widgets[0] = createWidget(text, NULL, NULL, NULL, NULL, -1, 10, FALSE, 255, 255, 255);
-	
+
 	menu.widgets[1] = createWidget(_("OK"), NULL, NULL, NULL, &doOK, -1, 10, TRUE, 255, 255, 255);
 
 	y = BUTTON_PADDING + BORDER_PADDING;
-	
+
 	maxWidth = w = 0;
-	
+
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
@@ -105,24 +105,24 @@ static void loadMenuLayout(char *text)
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		menu.widgets[i]->y = y;
-		
+
 		if (menu.widgets[i]->x != -1)
 		{
 			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
 		}
-		
+
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->y = y;
-			
+
 			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			
+
 			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
 			{
 				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
-		
+
 		else
 		{
 			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
@@ -130,10 +130,10 @@ static void loadMenuLayout(char *text)
 				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
 			}
 		}
-		
+
 		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
 	}
-	
+
 	menu.w = w + BUTTON_PADDING;
 	menu.h = y - BORDER_PADDING;
 
@@ -149,10 +149,7 @@ Menu *initOKMenu(char *text, void (*yes)(void))
 
 	OKAction = yes;
 
-	if (menu.widgets != NULL)
-	{
-		freeOKMenu();
-	}
+	freeOKMenu();
 
 	loadMenuLayout(text);
 

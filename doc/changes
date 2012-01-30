@@ -8,6 +8,7 @@ Version 0.97
 * Added a new medal: "Completed the game without continuing"
 * Added another cheat that prevents instant death in lava
 * Fixed memory leaks in the menus
+* Corrected some speling problems
 
 Version 0.96
 * Fixed a problem with some level exits not activating (making the Crypt accessible)

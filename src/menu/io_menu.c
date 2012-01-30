@@ -61,7 +61,7 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.down == TRUE || menuInput.down == TRUE)
+	if (menuInput.down == TRUE || input.down == TRUE)
 	{
 		menu.index++;
 
@@ -70,13 +70,10 @@ static void doMenu()
 			menu.index = 1;
 		}
 
-		menuInput.down = FALSE;
-		input.down = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.up == TRUE || menuInput.up == TRUE)
+	else if (menuInput.up == TRUE || input.up == TRUE)
 	{
 		menu.index--;
 
@@ -85,13 +82,10 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		menuInput.up = FALSE;
-		input.up = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE || menuInput.attack == TRUE)
+	else if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -101,10 +95,10 @@ static void doMenu()
 
 			w->clickAction();
 		}
-
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout(int saving)
@@ -113,7 +107,7 @@ static void loadMenuLayout(int saving)
 	int y, i, j, width , maxWidth, w;
 
 	i = 0;
-	
+
 	y = BUTTON_PADDING / 2 + BORDER_PADDING;
 
 	menu.widgetCount = MAX_SAVE_SLOTS + 2;
@@ -126,19 +120,19 @@ static void loadMenuLayout(int saving)
 	}
 
 	saveFile = getSaveFileIndex();
-	
+
 	if (saving == TRUE)
 	{
 		menu.widgets[0] = createWidget(_("Choose slot to save to"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
-	
+
 	else
 	{
 		menu.widgets[0] = createWidget(_("Choose slot to load from"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
 	}
-	
+
 	maxWidth = 0;
-	
+
 	i = 1;
 
 	for (j=0;j<MAX_SAVE_SLOTS;j++)
@@ -162,7 +156,7 @@ static void loadMenuLayout(int saving)
 		{
 			width = menu.widgets[i]->selectedState->w;
 		}
-		
+
 		i++;
 	}
 
@@ -171,24 +165,24 @@ static void loadMenuLayout(int saving)
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		menu.widgets[i]->y = y;
-		
+
 		if (menu.widgets[i]->x != -1)
 		{
 			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
 		}
-		
+
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->y = y;
-			
+
 			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			
+
 			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
 			{
 				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
-		
+
 		else
 		{
 			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
@@ -196,10 +190,10 @@ static void loadMenuLayout(int saving)
 				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
 			}
 		}
-		
+
 		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING / 2;
 	}
-	
+
 	menu.w = w + BUTTON_PADDING;
 	menu.h = y - BORDER_PADDING;
 
@@ -218,7 +212,7 @@ Menu *initIOMenu(int saving)
 	loadMenuLayout(saving);
 
 	menu.returnAction = saving == TRUE ? NULL : &showMainMenu;
-	
+
 	if (menu.index == 0)
 	{
 		menu.index = 1;

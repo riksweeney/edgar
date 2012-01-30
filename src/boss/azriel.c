@@ -101,6 +101,7 @@ static void lightningCageFinish(void);
 static void cageLightningWait(void);
 static void appear(void);
 static void moveToAzriel(void);
+static void creditsMove(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -122,6 +123,8 @@ Entity *addAzriel(int x, int y, char *name)
 	e->touch = NULL;
 	e->die = &die;
 	e->takeDamage = NULL;
+
+	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
 
@@ -718,7 +721,7 @@ static void soulStealMoveToPlayer()
 static void soulSteal()
 {
 	Target *t;
-	
+
 	setCustomAction(&player, &stickToFloor, 3, 0, 0);
 
 	self->thinkTime--;
@@ -2020,4 +2023,11 @@ static void dieWait()
 
 		player.alpha = 255;
 	}
+}
+
+static void creditsMove()
+{
+	setEntityAnimation(self, "STAND");
+
+	self->creditsAction = &bossMoveToMiddle;
 }
