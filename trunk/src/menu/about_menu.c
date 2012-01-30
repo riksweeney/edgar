@@ -52,15 +52,15 @@ void drawAboutMenu()
 
 static void doMenu()
 {
-	if (input.attack == TRUE || menuInput.attack == TRUE)
+	if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
-
 		playSound("sound/common/click.ogg");
 
 		showMainMenu();
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout()
@@ -78,19 +78,19 @@ static void loadMenuLayout()
 	{
 		showErrorAndExit("Ran out of memory when creating About Menu");
 	}
-	
+
 	y = BUTTON_PADDING + BORDER_PADDING;
 
 	menu.widgets[0] = createWidget(versionText, NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
-	
+
 	y += menu.widgets[0]->selectedState->h + BUTTON_PADDING;
 
 	menu.widgets[1] = createWidget(_("Copyright Parallel Realities 2009 - 2012"), NULL, NULL, NULL, NULL, -1, y, FALSE, 255, 255, 255);
-	
+
 	y += menu.widgets[1]->selectedState->h + BUTTON_PADDING;
 
 	menu.widgets[2] = createWidget(_("OK"), NULL, NULL, NULL, NULL, -1, y, TRUE, 255, 255, 255);
-	
+
 	y += menu.widgets[2]->selectedState->h + BUTTON_PADDING;
 
 	/* Resize */
@@ -116,10 +116,11 @@ static void loadMenuLayout()
 Menu *initAboutMenu()
 {
 	menu.action = &doMenu;
-	
-	freeAboutMenu();
 
-	loadMenuLayout();
+	if (menu.widgets == NULL)
+	{
+		loadMenuLayout();
+	}
 
 	menu.index = 2;
 

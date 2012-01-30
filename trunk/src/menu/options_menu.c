@@ -94,11 +94,9 @@ static void doMenu()
 
 			playSound("sound/common/faster.ogg");
 		}
-
-		input.lastPressedKey = -1;
 	}
 
-	if (input.down == TRUE || menuInput.down == TRUE)
+	if (menuInput.down == TRUE || input.down == TRUE)
 	{
 		do
 		{
@@ -112,13 +110,10 @@ static void doMenu()
 
 		while (menu.widgets[menu.index]->hidden == TRUE);
 
-		menuInput.down = FALSE;
-		input.down = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.up == TRUE || menuInput.up == TRUE)
+	else if (menuInput.up == TRUE || input.up == TRUE)
 	{
 		do
 		{
@@ -132,56 +127,49 @@ static void doMenu()
 
 		while (menu.widgets[menu.index]->hidden == TRUE);
 
-		menuInput.up = FALSE;
-		input.up = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE || menuInput.attack == TRUE)
+	else if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
 		if (w->clickAction != NULL)
 		{
-			menuInput.attack = FALSE;
-			input.attack = FALSE;
-
 			playSound("sound/common/click.ogg");
 
 			w->clickAction();
 		}
 	}
 
-	else if (input.left == TRUE || menuInput.left == TRUE)
+	else if (menuInput.left == TRUE || input.left == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
 		if (w->rightAction != NULL)
 		{
-			menuInput.left = FALSE;
-			input.left = FALSE;
-
 			playSound("sound/common/click.ogg");
 
 			w->rightAction();
 		}
 	}
 
-	else if (input.right == TRUE || menuInput.right == TRUE)
+	else if (menuInput.right == TRUE || input.right == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
 		if (w->leftAction != NULL)
 		{
-			menuInput.right = FALSE;
-			input.right = FALSE;
-
 			playSound("sound/common/click.ogg");
 
 			w->leftAction();
 		}
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
+
+	input.lastPressedKey = -1;
 }
 
 static void loadMenuLayout()
@@ -196,33 +184,33 @@ static void loadMenuLayout()
 	{
 		showErrorAndExit("Ran out of memory when creating Options Menu");
 	}
-	
+
 	y = x = 0;
-	
+
 	menu.widgets[0] = createWidget(_("Configure Controls"), NULL, NULL, NULL, &showControlMenu, -1, y, TRUE, 255, 255, 255);
-	
+
 	menu.widgets[1] = createWidget(_("Configure Sound"), NULL, NULL, NULL, &showSoundMenu, -1, y, TRUE, 255, 255, 255);
-	
+
 	menu.widgets[2] = createWidget(_("Fullscreen"), NULL, &toggleFullscreen, &toggleFullscreen, &toggleFullscreen, x, y, TRUE, 255, 255, 255);
 
 	menu.widgets[2]->label = createLabel(game.fullscreen == TRUE ? _("Yes") : _("No"), menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10, y);
-	
+
 	menu.widgets[3] = createWidget(_("Show Hints"), NULL, &toggleHints, &toggleHints, &toggleHints, x, y, TRUE, 255, 255, 255);
 
 	menu.widgets[3]->label = createLabel(game.showHints == TRUE ? _("Yes") : _("No"), menu.widgets[3]->x + menu.widgets[3]->normalState->w + 10, y);
-	
+
 	menu.widgets[4] = createWidget(_("Cheats"), NULL, NULL, NULL, &showCheatMenuWarn, -1, y, TRUE, 255, 255, 255);
 
 	menu.widgets[4]->hidden = game.cheatsEnabled == TRUE ? FALSE : TRUE;
-	
+
 	menu.widgets[5] = createWidget(_("Back"), NULL, NULL, NULL, &showMainMenu, -1, y, TRUE, 255, 255, 255);
 
 	y = BUTTON_PADDING + BORDER_PADDING;
-	
+
 	w = 0;
-	
+
 	maxWidth = 0;
-	
+
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
@@ -234,24 +222,24 @@ static void loadMenuLayout()
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		menu.widgets[i]->y = y;
-		
+
 		if (menu.widgets[i]->x != -1)
 		{
 			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
 		}
-		
+
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->y = y;
-			
+
 			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			
+
 			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
 			{
 				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
-		
+
 		else
 		{
 			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
@@ -259,10 +247,10 @@ static void loadMenuLayout()
 				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
 			}
 		}
-		
+
 		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
 	}
-	
+
 	menu.w = w + BUTTON_PADDING;
 	menu.h = y - BORDER_PADDING;
 
@@ -361,12 +349,12 @@ static void showCheatMenuWarn()
 	{
 		game.menu = initOKMenu(_("Cheats can only be enabled in-game"), &showOptionsMenu);
 	}
-	
+
 	else
 	{
 		game.menu = initOKMenu(_("Enabling cheats will not allow you to achieve 100% completion in the game"), &showCheatMenu);
 	}
-	
+
 	game.drawMenu = &drawOKMenu;
 }
 

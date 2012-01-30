@@ -57,7 +57,7 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.right == TRUE || menuInput.right == TRUE)
+	if (menuInput.right == TRUE || input.right == TRUE)
 	{
 		menu.index++;
 
@@ -66,13 +66,10 @@ static void doMenu()
 			menu.index = 2;
 		}
 
-		menuInput.right = FALSE;
-		input.right = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.left == TRUE || menuInput.left == TRUE)
+	else if (menuInput.left == TRUE || input.left == TRUE)
 	{
 		menu.index--;
 
@@ -81,18 +78,12 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		menuInput.left = FALSE;
-		input.left = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE || menuInput.attack == TRUE)
+	else if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
-
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
 
 		playSound("sound/common/click.ogg");
 
@@ -101,12 +92,15 @@ static void doMenu()
 			w->clickAction();
 		}
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout(char *text)
 {
 	int x, y;
-	
+
 	x = 0;
 	y = 0;
 
@@ -124,14 +118,14 @@ static void loadMenuLayout(char *text)
 	menu.widgets[1] = createWidget(_("Any unsaved progress will be lost"), NULL, NULL, NULL, NULL, -1, 70, FALSE, 255, 255, 255);
 
 	menu.widgets[2] = createWidget(_("Yes"), NULL, NULL, NULL, &doYes, x, y, TRUE, 255, 255, 255);
-	
+
 	menu.widgets[3] = createWidget(_("No"), NULL, NULL, NULL, &doNo, x, y, TRUE, 255, 255, 255);
 
 	/* Resize */
-	
+
 	menu.widgets[0]->y = BORDER_PADDING + BUTTON_PADDING;
 	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + BUTTON_PADDING;
-	
+
 	menu.widgets[2]->y = menu.widgets[1]->y + menu.widgets[1]->selectedState->h + BUTTON_PADDING;
 	menu.widgets[3]->y = menu.widgets[2]->y;
 
@@ -144,7 +138,7 @@ static void loadMenuLayout(char *text)
 	{
 		menu.w = menu.widgets[1]->selectedState->w;
 	}
-	
+
 	menu.h = menu.widgets[2]->y + menu.widgets[2]->selectedState->h + BUTTON_PADDING - BORDER_PADDING;
 
 	x = menu.widgets[2]->normalState->w + BUTTON_PADDING + menu.widgets[3]->normalState->w;
@@ -165,10 +159,7 @@ Menu *initYesNoMenu(char *text, void (*yes)(void), void (*no)(void))
 	yesAction = yes;
 	noAction = no;
 
-	if (menu.widgets != NULL)
-	{
-		freeYesNoMenu();
-	}
+	freeYesNoMenu();
 
 	loadMenuLayout(text);
 

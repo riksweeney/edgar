@@ -57,7 +57,7 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.right == TRUE || menuInput.right == TRUE)
+	if (input.right == TRUE)
 	{
 		menu.index++;
 
@@ -66,13 +66,12 @@ static void doMenu()
 			menu.index = 1;
 		}
 
-		menuInput.right = FALSE;
 		input.right = FALSE;
 
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.left == TRUE || menuInput.left == TRUE)
+	else if (input.left == TRUE)
 	{
 		menu.index--;
 
@@ -81,17 +80,15 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		menuInput.left = FALSE;
 		input.left = FALSE;
 
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE || menuInput.attack == TRUE)
+	else if (input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
-		menuInput.attack = FALSE;
 		input.attack = FALSE;
 
 		playSound("sound/common/click.ogg");
@@ -106,40 +103,40 @@ static void doMenu()
 static void loadMenuLayout(char *text)
 {
 	int x, y;
-	
+
 	x = 20;
-	
+
 	y = 0;
 
 	menu.widgetCount = 3;
 
 	menu.widgets = malloc(sizeof(Widget *) * menu.widgetCount);
-	
+
 	if (menu.widgets == NULL)
 	{
 		showErrorAndExit("Ran out of memory when creating Script Menu");
 	}
-	
+
 	menu.widgets[0] = createWidget(text, NULL, NULL, NULL, NULL, -1, 20, FALSE, 255, 255, 255);
-	
+
 	menu.widgets[1] = createWidget(_("Yes"), NULL, NULL, NULL, doYes, x, y, TRUE, 255, 255, 255);
-	
+
 	menu.widgets[2] = createWidget(_("No"), NULL, NULL, NULL, doNo, x, y, TRUE, 255, 255, 255);
 
 	/* Resize */
-	
+
 	menu.widgets[0]->y = BORDER_PADDING + BUTTON_PADDING;
-	
+
 	menu.widgets[1]->y = menu.widgets[0]->y + menu.widgets[0]->selectedState->h + BUTTON_PADDING;
 	menu.widgets[2]->y = menu.widgets[1]->y;
 
 	menu.w = menu.widgets[0]->selectedState->w;
-	
+
 	if (menu.w < 150)
 	{
 		menu.w = 150;
 	}
-	
+
 	menu.h = menu.widgets[2]->y + menu.widgets[2]->selectedState->h + BUTTON_PADDING - BORDER_PADDING;
 
 	x = menu.widgets[1]->normalState->w + BUTTON_PADDING + menu.widgets[2]->normalState->w;
@@ -160,10 +157,7 @@ Menu *initScriptMenu(char *text, void (*yes)(void), void (*no)(void))
 	yesAction = yes;
 	noAction = no;
 
-	if (menu.widgets != NULL)
-	{
-		freeScriptMenu();
-	}
+	freeScriptMenu();
 
 	loadMenuLayout(text);
 
@@ -186,7 +180,7 @@ void freeScriptMenu()
 		}
 
 		free(menu.widgets);
-		
+
 		menu.widgets = NULL;
 	}
 

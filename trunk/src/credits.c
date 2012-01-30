@@ -113,6 +113,7 @@ static char *bosses[] = {
 			"boss/sewer_boss",
 			"boss/cave_boss",
 			"boss/black_book_2",
+			"boss/azriel",
 			"boss/grimlore",
 			"boss/sorceror_2"
 };
@@ -133,6 +134,7 @@ static char *bossNames[] = {
 			"boss/sewer_boss", "The Sewer Dweller", "map07", "sewer_boss_start",
 			"boss/cave_boss", "The Salamander", "map20", "cave_boss_start",
 			"boss/black_book_2", "The Black Book", "map11", "boss/black_book_2",
+			"boss/azriel", "Azriel", "map21", "boss/azriel",
 			"boss/grimlore", "Grimlore", "map16", "hidden_passage_hint",
 			"boss/sorceror_2", "The Sorceror", "map24", "boss/sorceror_2"
 };
@@ -266,7 +268,7 @@ static void doEndCredits()
 			if (self->inUse == TRUE)
 			{
 				remainingEntities++;
-				
+
 				self->takeDamage = NULL;
 
 				if (!(self->flags & TELEPORTING))

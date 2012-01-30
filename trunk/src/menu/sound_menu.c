@@ -65,7 +65,7 @@ static void doMenu()
 {
 	Widget *w;
 
-	if (input.down == TRUE || menuInput.down == TRUE)
+	if (menuInput.down == TRUE || input.down == TRUE)
 	{
 		menu.index++;
 
@@ -74,13 +74,10 @@ static void doMenu()
 			menu.index = 0;
 		}
 
-		menuInput.down = FALSE;
-		input.down = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.up == TRUE || menuInput.up == TRUE)
+	else if (menuInput.up == TRUE || input.up == TRUE)
 	{
 		menu.index--;
 
@@ -89,13 +86,10 @@ static void doMenu()
 			menu.index = menu.widgetCount - 1;
 		}
 
-		menuInput.up = FALSE;
-		input.up = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.attack == TRUE || menuInput.attack == TRUE)
+	else if (menuInput.attack == TRUE || input.attack == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -104,13 +98,10 @@ static void doMenu()
 			w->clickAction();
 		}
 
-		menuInput.attack = FALSE;
-		input.attack = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.left == TRUE || menuInput.left == TRUE)
+	else if (menuInput.left == TRUE || input.left == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -119,13 +110,10 @@ static void doMenu()
 			w->leftAction();
 		}
 
-		menuInput.left = FALSE;
-		input.left = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
 
-	else if (input.right == TRUE || menuInput.right == TRUE)
+	else if (menuInput.right == TRUE || input.right == TRUE)
 	{
 		w = menu.widgets[menu.index];
 
@@ -134,11 +122,11 @@ static void doMenu()
 			w->rightAction();
 		}
 
-		menuInput.right = FALSE;
-		input.right = FALSE;
-
 		playSound("sound/common/click.ogg");
 	}
+
+	memset(&menuInput, 0, sizeof(Input));
+	memset(&input, 0, sizeof(Input));
 }
 
 static void loadMenuLayout()
@@ -154,13 +142,13 @@ static void loadMenuLayout()
 	{
 		showErrorAndExit("Ran out of memory when creating Control Menu");
 	}
-	
+
 	x = y = 0;
 
 	menu.widgets[0] = createWidget(_("Sound"), &control.button[CONTROL_UP], &toggleSound, &toggleSound, &toggleSound, x, y, TRUE, 255, 255, 255);
 
 	menu.widgets[0]->label = createLabel(game.audio == TRUE || game.audioDisabled == TRUE ? _("Yes") : _("No"), menu.widgets[0]->x + menu.widgets[0]->normalState->w + 10, y);
-	
+
 	menu.widgets[1] = createWidget(_("SFX Volume"), &game.sfxDefaultVolume, &lowerSFXVolume, &raiseSFXVolume, NULL, x, y, TRUE, 255, 255, 255);
 
 	text = getVolumePercent(game.sfxDefaultVolume);
@@ -168,7 +156,7 @@ static void loadMenuLayout()
 	menu.widgets[1]->label = createLabel(_(text), menu.widgets[1]->x + menu.widgets[1]->normalState->w + 10, y);
 
 	free(text);
-	
+
 	menu.widgets[2] = createWidget(_("Music Volume"), &game.musicDefaultVolume, &lowerMusicVolume, &raiseMusicVolume, NULL, x, y, TRUE, 255, 255, 255);
 
 	text = getVolumePercent(game.musicDefaultVolume);
@@ -176,7 +164,7 @@ static void loadMenuLayout()
 	menu.widgets[2]->label = createLabel(_(text), menu.widgets[2]->x + menu.widgets[2]->normalState->w + 10, y);
 
 	free(text);
-	
+
 	menu.widgets[3] = createWidget(_("Audio Quality"), &game.audioQuality, &toggleQuality, &toggleQuality, &toggleQuality, x, y, TRUE, 255, 255, 255);
 
 	text = getQuality();
@@ -184,13 +172,13 @@ static void loadMenuLayout()
 	menu.widgets[3]->label = createLabel(text, menu.widgets[3]->x + menu.widgets[3]->normalState->w + 10, y);
 
 	free(text);
-	
+
 	menu.widgets[4] = createWidget(_("Back"), NULL, NULL, NULL, &showOptionsMenu, -1, y, TRUE, 255, 255, 255);
 
 	y = BUTTON_PADDING + BORDER_PADDING;
-	
+
 	maxWidth = w = 0;
-	
+
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		if (menu.widgets[i]->label != NULL && menu.widgets[i]->normalState->w > maxWidth)
@@ -202,24 +190,24 @@ static void loadMenuLayout()
 	for (i=0;i<menu.widgetCount;i++)
 	{
 		menu.widgets[i]->y = y;
-		
+
 		if (menu.widgets[i]->x != -1)
 		{
 			menu.widgets[i]->x = BUTTON_PADDING + BORDER_PADDING;
 		}
-		
+
 		if (menu.widgets[i]->label != NULL)
 		{
 			menu.widgets[i]->label->y = y;
-			
+
 			menu.widgets[i]->label->x = menu.widgets[i]->x + maxWidth + 10;
-			
+
 			if (menu.widgets[i]->label->x + menu.widgets[i]->label->text->w > w)
 			{
 				w = menu.widgets[i]->label->x + menu.widgets[i]->label->text->w;
 			}
 		}
-		
+
 		else
 		{
 			if (menu.widgets[i]->x + menu.widgets[i]->selectedState->w > w)
@@ -227,10 +215,10 @@ static void loadMenuLayout()
 				w = menu.widgets[i]->x + menu.widgets[i]->selectedState->w;
 			}
 		}
-		
+
 		y += menu.widgets[i]->selectedState->h + BUTTON_PADDING;
 	}
-	
+
 	menu.w = w + BUTTON_PADDING;
 	menu.h = y - BORDER_PADDING;
 
@@ -326,7 +314,7 @@ static void lowerMusicVolume()
 	Widget *w = menu.widgets[menu.index];
 
 	changeVolume(&game.musicDefaultVolume, w, -1);
-	
+
 	pauseMusic(FALSE);
 }
 
@@ -335,7 +323,7 @@ static void raiseMusicVolume()
 	Widget *w = menu.widgets[menu.index];
 
 	changeVolume(&game.musicDefaultVolume, w, 1);
-	
+
 	pauseMusic(FALSE);
 }
 
