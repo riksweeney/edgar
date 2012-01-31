@@ -755,12 +755,12 @@ SDL_Surface *addBorder(SDL_Surface *surface, int r, int g, int b, int br, int bg
 	SDL_Rect rect;
 	SDL_Surface *newSurface;
 
-	newSurface = createSurface(surface->w + 10, surface->h + 10);
+	newSurface = createSurface(surface->w + BORDER_PADDING * 2, surface->h + BORDER_PADDING * 2);
 
 	SDL_FillRect(newSurface, NULL, SDL_MapRGB(game.screen->format, br, bg, bb));
 
-	rect.x = 5;
-	rect.y = 5;
+	rect.x = BORDER_PADDING;
+	rect.y = BORDER_PADDING;
 	rect.w = surface->w;
 	rect.h = surface->h;
 
