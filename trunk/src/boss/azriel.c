@@ -98,6 +98,7 @@ static void lightningCageCreate(void);
 static void lightningCageWait(void);
 static void lightningCageMoveAbovePlayer(void);
 static void lightningCage(void);
+static void lightningCageMoveBackToPlayer(void);
 static void lightningCageFinish(void);
 static void cageLightningWait(void);
 static void appear(void);
@@ -161,7 +162,7 @@ static void initialise()
 			self->endX = 0;
 
 			self->touch = &entityTouch;
-			
+
 			addScythe();
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -501,7 +502,7 @@ static void lightningCageMoveAbovePlayer()
 
 static void lightningCage()
 {
-	int startX;
+	int playerMid, startX;
 
 	if (fabs(self->x - self->targetX) <= fabs(self->dirX))
 	{
@@ -524,7 +525,7 @@ static void lightningCage()
 			{
 				startX = getMapStartX();
 
-				self->targetX = self->x != startX ? startX : getMapStartX() + SCREEN_WIDTH - self->w;
+				self->targetX = self->x != startX ? startX : startX + SCREEN_WIDTH - self->w;
 
 				self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
 			}
@@ -536,7 +537,41 @@ static void lightningCage()
 	else
 	{
 		self->x += self->dirX;
+
+		playerMid = player.x + player.w / 2;
+
+		if (!(playerMid >= self->x && playerMid <= self->x + self->w))
+		{
+			printf("Player outside cage\n");
+
+			self->action = &lightningCageMoveBackToPlayer;
+		}
 	}
+}
+
+static void lightningCageMoveBackToPlayer()
+{
+	self->targetX = player.x - self->w / 2 + player.w / 2;
+
+	/* Position above the player */
+
+	if (abs(self->x - self->targetX) <= player.speed / 2)
+	{
+		self->action = &lightningCage;
+
+		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+
+		self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+
+		self->thinkTime = 30;
+	}
+
+	else
+	{
+		self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
+	}
+
+	checkToMap(self);
 }
 
 static void lightningCageFinish()
@@ -2054,7 +2089,7 @@ static void addScythe()
 	e->creditsAction = &scytheCreditsMove;
 
 	e->type = ENEMY;
-	
+
 	e->head = self;
 
 	setEntityAnimation(e, "STAND");
@@ -2063,9 +2098,9 @@ static void addScythe()
 static void scytheWait()
 {
 	self->face = self->head->face;
-	
+
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	if (self->face == LEFT)
 	{
 		self->x = self->head->x + self->head->w - self->w - self->offsetX;
@@ -2077,24 +2112,24 @@ static void scytheWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	self->alpha = self->head->alpha;
-	
+
 	if (self->head->flags & NO_DRAW)
 	{
 		self->flags |= NO_DRAW;
 	}
-	
+
 	else
 	{
 		self->flags &= ~NO_DRAW;
 	}
-	
+
 	if (self->head->flags & FLASH)
 	{
 		self->flags |= FLASH;
 	}
-	
+
 	else
 	{
 		self->flags &= ~FLASH;
@@ -2106,10 +2141,10 @@ static void creditsMove()
 	if (self->mental == 0)
 	{
 		addScythe();
-		
+
 		self->mental = 1;
 	}
-	
+
 	setEntityAnimation(self, "STAND");
 
 	self->creditsAction = &bossMoveToMiddle;
@@ -2118,9 +2153,9 @@ static void creditsMove()
 static void scytheCreditsMove()
 {
 	self->face = self->head->face;
-	
+
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	if (self->face == LEFT)
 	{
 		self->x = self->head->x + self->head->w - self->w - self->offsetX;
@@ -2132,7 +2167,7 @@ static void scytheCreditsMove()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
