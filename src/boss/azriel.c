@@ -23,6 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../audio/music.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
+#include "../credits.h"
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
 #include "../entity.h"
@@ -102,6 +103,9 @@ static void cageLightningWait(void);
 static void appear(void);
 static void moveToAzriel(void);
 static void creditsMove(void);
+static void addScythe(void);
+static void scytheWait(void);
+static void scytheCreditsMove(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -157,6 +161,8 @@ static void initialise()
 			self->endX = 0;
 
 			self->touch = &entityTouch;
+			
+			addScythe();
 
 			setContinuePoint(FALSE, self->name, NULL);
 		}
@@ -398,7 +404,7 @@ static void lightningCageCreate()
 
 		self->flags &= ~NO_DRAW;
 
-		self->face = RIGHT;
+		self->face = prand() % 2 == 0 ? LEFT : RIGHT;
 
 		self->mental = 0;
 
@@ -482,7 +488,7 @@ static void lightningCageMoveAbovePlayer()
 		{
 			self->action = &lightningCage;
 
-			self->targetX = prand() % 2 == 0 ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
+			self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
 
 			self->dirX = self->targetX < self->x ? -player.speed / 2 : player.speed / 2;
 
@@ -2025,9 +2031,110 @@ static void dieWait()
 	}
 }
 
+static void addScythe()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Azriel's Scythe");
+	}
+
+	loadProperties("boss/azriel_scythe", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->action = &scytheWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = NULL;
+	e->takeDamage = NULL;
+
+	e->creditsAction = &scytheCreditsMove;
+
+	e->type = ENEMY;
+	
+	e->head = self;
+
+	setEntityAnimation(e, "STAND");
+}
+
+static void scytheWait()
+{
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	self->alpha = self->head->alpha;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->flags |= NO_DRAW;
+	}
+	
+	else
+	{
+		self->flags &= ~NO_DRAW;
+	}
+	
+	if (self->head->flags & FLASH)
+	{
+		self->flags |= FLASH;
+	}
+	
+	else
+	{
+		self->flags &= ~FLASH;
+	}
+}
+
 static void creditsMove()
 {
+	if (self->mental == 0)
+	{
+		addScythe();
+		
+		self->mental = 1;
+	}
+	
 	setEntityAnimation(self, "STAND");
 
 	self->creditsAction = &bossMoveToMiddle;
+}
+
+static void scytheCreditsMove()
+{
+	self->face = self->head->face;
+	
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+	
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
 }
