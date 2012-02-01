@@ -188,26 +188,26 @@ void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int a
 	SDL_FreeSurface(flipped);
 }
 */
-SDL_Surface *copyImage(SDL_Surface *image)
+SDL_Surface *copyImage(SDL_Surface *image, int x, int y, int w, int h)
 {
-	int x, y;
+	int x1, y1;
 	Uint32 pixel;
 	SDL_Surface *flipped;
 
-	flipped = createSurface(image->w, image->h);
+	flipped = createSurface(w, h);
 
 	if (SDL_MUSTLOCK(image))
 	{
 		SDL_LockSurface(image);
 	}
 
-	for (y=0;y<image->h;y++)
+	for (y1=y;y1<h;y1++)
 	{
-		for (x=0;x<image->w;x++)
+		for (x1=x;x1<w;x1++)
 		{
-			pixel = getPixel(image, x, y);
+			pixel = getPixel(image, x1, y1);
 
-			putPixel(flipped, x, y, pixel);
+			putPixel(flipped, x1, y1, pixel);
 		}
 	}
 

@@ -53,7 +53,7 @@ void initHud()
 	hud.medalSurface[2] = loadImage("gfx/hud/gold_medal.png");
 
 	hud.medalSurface[3] = loadImage("gfx/hud/ruby_medal.png");
-	
+
 	hud.disabledMedalSurface[0] = loadImage("gfx/hud/disabled_bronze_medal.png");
 
 	hud.disabledMedalSurface[1] = loadImage("gfx/hud/disabled_silver_medal.png");
@@ -61,6 +61,8 @@ void initHud()
 	hud.disabledMedalSurface[2] = loadImage("gfx/hud/disabled_gold_medal.png");
 
 	hud.disabledMedalSurface[3] = loadImage("gfx/hud/disabled_ruby_medal.png");
+
+	hud.itemBoxTemp = NULL;
 
 	messageHead.next = NULL;
 
@@ -145,9 +147,11 @@ void drawHud()
 	{
 		itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
 
+		hud.itemBoxTemp = copyImage(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
+
 		if (game.status == IN_INVENTORY)
 		{
-			drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
+			drawImage(hud.itemBoxTemp, itemBoxMid, 15, FALSE, 255);
 		}
 
 		drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
@@ -183,7 +187,7 @@ void drawHud()
 				{
 					quant = 0;
 				}
-				
+
 				if (hud.quantity != quant)
 				{
 					if (hud.quantitySurface != NULL)
@@ -286,6 +290,13 @@ void freeHud()
 		hud.itemBox = NULL;
 	}
 
+	if (hud.itemBoxTemp != NULL)
+	{
+		SDL_FreeSurface(hud.itemBoxTemp);
+
+		hud.itemBoxTemp = NULL;
+	}
+
 	if (hud.heart != NULL)
 	{
 		SDL_FreeSurface(hud.heart);
@@ -336,7 +347,7 @@ void freeHud()
 
 			hud.medalSurface[i] = NULL;
 		}
-		
+
 		if (hud.disabledMedalSurface[i] != NULL)
 		{
 			SDL_FreeSurface(hud.disabledMedalSurface[i]);
