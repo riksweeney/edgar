@@ -56,7 +56,7 @@ Label *createImageLabel(SDL_Surface *image, int x, int y)
 		showErrorAndExit("Failed to allocate %d bytes to create image Label", (int)sizeof(Label));
 	}
 
-	l->text = copyImage(image);
+	l->text = copyImage(image, 0, 0, image->w, image->h);
 
 	l->x = x;
 
@@ -70,6 +70,8 @@ void updateLabelText(Label *l, char *text)
 	if (l->text != NULL)
 	{
 		SDL_FreeSurface(l->text);
+
+		l->text = NULL;
 	}
 
 	l->text = addBorder(generateTextSurface(text, game.font, 255, 255, 255, 0, 0, 0), 255, 255, 255, 0, 0, 0);
@@ -103,7 +105,7 @@ void freeLabel(Label *l)
 		}
 
 		free(l);
-		
+
 		l = NULL;
 	}
 }
