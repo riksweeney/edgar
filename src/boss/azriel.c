@@ -100,9 +100,8 @@ static void lightningCageMoveAbovePlayer(void);
 static void lightningCage(void);
 static void lightningCageMoveBackToPlayer(void);
 static void lightningCageFinish(void);
+static void lightningCageTeleportAway(void);
 static void cageLightningWait(void);
-static void appear(void);
-static void moveToAzriel(void);
 static void creditsMove(void);
 static void addScythe(void);
 static void scytheWait(void);
@@ -142,125 +141,31 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		if (self->mental == 0)
+		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
 		{
-			if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
-			{
-				self->flags &= ~NO_DRAW;
+			self->flags &= ~NO_DRAW;
 
-				setWeather(HEAVY_RAIN);
+			setWeather(HEAVY_RAIN);
 
-				playDefaultBossMusic();
-			}
-
-			centerMapOnEntity(NULL);
-
-			self->action = &doIntro;
-
-			self->thinkTime = 60;
-
-			self->endX = 0;
-
-			self->touch = &entityTouch;
-
-			addScythe();
-
-			setContinuePoint(FALSE, self->name, NULL);
+			playDefaultBossMusic();
 		}
 
-		else
-		{
-			self->action = &appear;
-		}
+		centerMapOnEntity(NULL);
+
+		self->action = &doIntro;
+
+		self->thinkTime = 60;
+
+		self->endX = 0;
+
+		self->touch = &entityTouch;
+
+		addScythe();
+
+		setContinuePoint(FALSE, self->name, NULL);
 	}
 
 	checkToMap(self);
-}
-
-static void appear()
-{
-	EntityList *l, *list;
-	Target *t[6];
-	Entity *e;
-	int i, grave;
-
-	list = createPixelsFromSprite(getCurrentSprite(self));
-
-	i = 0;
-
-	t[0] = getTargetByName("GRAVE_1");
-	t[1] = getTargetByName("GRAVE_2");
-	t[2] = getTargetByName("GRAVE_3");
-	t[3] = getTargetByName("GRAVE_4");
-	t[4] = getTargetByName("GRAVE_5");
-	t[5] = getTargetByName("GRAVE_6");
-
-	for (l=list->next;l!=NULL;l=l->next)
-	{
-		grave = prand() % 6;
-
-		if (t[grave] == NULL)
-		{
-			showErrorAndExit("Azirel cannot find target");
-		}
-
-		e = l->entity;
-
-		e->targetX = e->x;
-		e->targetY = e->y;
-
-		e->x = t[grave]->x;
-		e->y = t[grave]->y;
-
-		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-
-		e->dirX *= 3;
-		e->dirY *= 3;
-
-		e->head = self;
-
-		e->thinkTime = prand() % 180;
-
-		e->action = &moveToAzriel;
-
-		i++;
-	}
-
-	self->mental = i;
-
-	self->flags |= NO_DRAW;
-
-	freeEntityList(list);
-
-	self->active = FALSE;
-
-	self->action = &initialise;
-}
-
-static void moveToAzriel()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->x += self->dirX;
-		self->y += self->dirY;
-
-		if (atTarget())
-		{
-			if (self->active == TRUE)
-			{
-				self->head->mental--;
-
-				self->active = FALSE;
-			}
-
-			if (self->head->active == TRUE)
-			{
-				self->inUse = FALSE;
-			}
-		}
-	}
 }
 
 static void doIntro()
@@ -299,7 +204,7 @@ static void doIntro()
 
 	e->thinkTime = e->maxThinkTime;
 
-	self->target = e;
+	self->head = e;
 
 	e->target = self;
 
@@ -326,9 +231,9 @@ static void entityWait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
-		if (self->target->thinkTime <= 0)
+		if (self->head->thinkTime <= 0)
 		{
-			self->action = self->target->mental == 0 ? &phantasmalBoltInit : &soulStealInit;
+			self->action = self->head->mental == 0 ? &phantasmalBoltInit : &soulStealInit;
 		}
 
 		else
@@ -352,6 +257,8 @@ static void entityWait()
 				break;
 			}
 		}
+		
+		self->action = &lightningCageInit;
 	}
 
 	checkToMap(self);
@@ -384,6 +291,10 @@ static void lightningCageInit()
 	self->action = &lightningCageCreate;
 
 	self->mental = 0;
+	
+	self->target->layer = BACKGROUND_LAYER;
+	
+	becomeTransparent();
 }
 
 static void lightningCageCreate()
@@ -395,9 +306,9 @@ static void lightningCageCreate()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "ATTACK_1");
+		
 		self->x = player.x + player.w / 2 - self->w / 2;
-
-		/*setEntityAnimation(self, "ATTACK_5");*/
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -451,6 +362,8 @@ static void lightningCageCreate()
 
 		self->action = &lightningCageMoveAbovePlayer;
 	}
+	
+	becomeTransparent();
 }
 
 static void lightningCageMoveAbovePlayer()
@@ -498,6 +411,8 @@ static void lightningCageMoveAbovePlayer()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void lightningCage()
@@ -540,13 +455,13 @@ static void lightningCage()
 
 		playerMid = player.x + player.w / 2;
 
-		if (!(playerMid >= self->x && playerMid <= self->x + self->w))
+		if (player.health > 0 && !(playerMid >= self->x && playerMid <= self->x + self->w))
 		{
-			printf("Player outside cage\n");
-
 			self->action = &lightningCageMoveBackToPlayer;
 		}
 	}
+	
+	becomeTransparent();
 }
 
 static void lightningCageMoveBackToPlayer()
@@ -572,18 +487,66 @@ static void lightningCageMoveBackToPlayer()
 	}
 
 	checkToMap(self);
+	
+	becomeTransparent();
 }
 
 static void lightningCageFinish()
 {
+	Target *t;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 2;
 
+		t = getTargetByName("AZRIEL_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Azriel cannot find target");
+		}
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		self->x = t->x;
+		self->y = t->y;
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->flags |= NO_DRAW;
+
+		self->thinkTime = 30;
+		
+		self->action = &lightningCageTeleportAway;
+	}
+	
+	becomeTransparent();
+}
+
+static void lightningCageTeleportAway()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "STAND");
+		
+		self->flags &= ~NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		self->target->layer = MID_GROUND_LAYER;
+
 		self->action = &attackFinished;
 	}
+
+	checkToMap(self);
+
+	becomeTransparent();
 }
 
 static void lightningCageWait()
@@ -651,11 +614,21 @@ static void lightningCageWait()
 			e->mental = 1;
 
 			self->mental = 1;
+			
+			if (self->face == LEFT)
+			{
+				self->targetX = playSoundToMap("sound/boss/azriel/azriel_lightning_cage.ogg", -1, self->x, self->y, -1);
+			}
 		}
 	}
 
 	else if (self->head->mental == 2)
 	{
+		if (self->face == LEFT)
+		{
+			stopSound(self->targetX);
+		}
+		
 		self->inUse = FALSE;
 	}
 }
@@ -787,18 +760,18 @@ static void soulSteal()
 		self->x = t->x;
 		self->y = t->y;
 
-		self->target->health++;
+		self->head->health++;
 
-		self->target->alpha = self->target->health * 64;
+		self->head->alpha = self->head->health * 64;
 
-		if (self->target->alpha > 255)
+		if (self->head->alpha > 255)
 		{
-			self->target->alpha = 255;
+			self->head->alpha = 255;
 		}
 
-		self->target->thinkTime = self->target->maxThinkTime;
+		self->head->thinkTime = self->head->maxThinkTime;
 
-		self->target->mental = 0;
+		self->head->mental = 0;
 
 		player.alpha -= 64;
 
@@ -1521,7 +1494,7 @@ static void phantasmalBolt()
 
 		self->endY = 0;
 
-		self->target->mental = 1;
+		self->head->mental = 1;
 	}
 
 	checkToMap(self);
@@ -2089,6 +2062,8 @@ static void addScythe()
 	e->creditsAction = &scytheCreditsMove;
 
 	e->type = ENEMY;
+	
+	self->target = e;
 
 	e->head = self;
 
