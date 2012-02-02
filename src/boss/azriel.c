@@ -58,6 +58,7 @@ static void raiseDeadFinish(void);
 static void phantasmalBoltInit(void);
 static void phantasmalBoltMoveToTarget(void);
 static void phantasmalBolt(void);
+static void phantasmalBoltWait(void);
 static void phantasmalBoltFinish(void);
 static void phantasmalBoltMove(void);
 static void phantasmalBoltReflect(Entity *);
@@ -258,7 +259,7 @@ static void entityWait()
 			}
 		}
 		
-		self->action = &lightningCageInit;
+		self->action = &phantasmalBoltInit;
 	}
 
 	checkToMap(self);
@@ -1438,9 +1439,46 @@ static void phantasmalBoltInit()
 
 static void phantasmalBoltMoveToTarget()
 {
+	Entity *e;
+	
 	if (atTarget())
 	{
-		self->thinkTime = 120;
+		setEntityAnimation(self, "ATTACK_2");
+		
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Azriel's Phantasmal Bolt");
+		}
+		
+		loadProperties("boss/azriel_phantasmal_bolt", e);
+		
+		setEntityAnimationByID(e, 0);
+		
+		e->face = self->face;
+
+		if (e->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+		
+		e->action = &phantasmalBoltWait;
+		
+		e->draw = &drawLoopingAnimationToMap;
+		
+		e->thinkTime = 30;
+		
+		e->head = self;
+		
+		self->mental = 1;
 
 		self->action = &phantasmalBolt;
 	}
@@ -1450,31 +1488,56 @@ static void phantasmalBoltMoveToTarget()
 	becomeTransparent();
 }
 
+static void phantasmalBoltWait()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->mental++;
+		
+		if (self->mental > 6)
+		{
+			self->head->mental = 0;
+			
+			self->mental = 6;
+			
+			self->inUse = FALSE;
+		}
+		
+		setEntityAnimationByID(self, self->mental);
+		
+		self->thinkTime = self->mental == 6 ? 180 : 60;
+	}
+}
+
 static void phantasmalBolt()
 {
 	Entity *e;
 
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->mental == 0)
 	{
-		setEntityAnimation(self, "STAND");
+		setEntityAnimation(self, "ATTACK_3");
 
 		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
+		
+		e->face = self->face;
+		
+		setEntityAnimation(e, "FIRE");
 
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
 		if (self->face == LEFT)
 		{
-			e->x = self->x + self->w - e->w - self->offsetX;
+			e->x = self->x + self->w - e->w - e->offsetX;
 		}
 
 		else
 		{
-			e->x = self->x + self->offsetX;
+			e->x = self->x + e->offsetX;
 		}
 
-		e->y = self->y + self->h / 2;
+		e->y = self->y + e->offsetY;
 
 		e->face = self->face;
 
@@ -1526,7 +1589,7 @@ static void phantasmalBoltMove()
 
 	if (self->mental <= 0)
 	{
-		e = addBasicDecoration(self->x, self->y, "decoration/skull_trail");
+		e = addBasicDecoration(self->x, self->y, "decoration/bolt_trail");
 
 		if (e != NULL)
 		{
@@ -1972,6 +2035,8 @@ static void dieMoveToTop()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "STAND");
+		
 		if (self->flags & NO_DRAW)
 		{
 			self->flags &= ~NO_DRAW;

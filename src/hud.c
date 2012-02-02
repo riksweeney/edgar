@@ -62,8 +62,6 @@ void initHud()
 
 	hud.disabledMedalSurface[3] = loadImage("gfx/hud/disabled_ruby_medal.png");
 
-	hud.itemBoxTemp = NULL;
-
 	messageHead.next = NULL;
 
 	hud.bossHealth = NULL;
@@ -147,11 +145,9 @@ void drawHud()
 	{
 		itemBoxMid = (SCREEN_WIDTH - hud.itemBox->w) / 2;
 
-		hud.itemBoxTemp = copyImage(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
-
 		if (game.status == IN_INVENTORY)
 		{
-			drawImage(hud.itemBoxTemp, itemBoxMid, 15, FALSE, 255);
+			drawBox(game.screen, itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h, 0, 0, 0);
 		}
 
 		drawSelectedInventoryItem(itemBoxMid, 15, hud.itemBox->w, hud.itemBox->h);
@@ -288,13 +284,6 @@ void freeHud()
 		SDL_FreeSurface(hud.itemBox);
 
 		hud.itemBox = NULL;
-	}
-
-	if (hud.itemBoxTemp != NULL)
-	{
-		SDL_FreeSurface(hud.itemBoxTemp);
-
-		hud.itemBoxTemp = NULL;
 	}
 
 	if (hud.heart != NULL)
