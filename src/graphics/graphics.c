@@ -119,75 +119,7 @@ void drawClippedImage(SDL_Surface *image, int srcX, int srcY, int destX, int des
 
 	SDL_BlitSurface(image, &src, game.screen, &dest);
 }
-/*
-void drawFlippedImage(SDL_Surface *image, int destX, int destY, int white, int alpha)
-{
-	unsigned char r, g, b;
-	int *pixels, x, y, pixel, rx, ry;
-	int color = SDL_MapRGB(game.screen->format, 255, 255, 255);
-	SDL_Rect dest;
-	SDL_Surface *flipped;
 
-	flipped = createSurface(image->w, image->h);
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_LockSurface(image);
-	}
-
-	for (x=0, rx=flipped->w-1;x<flipped->w;x++, rx--)
-	{
-		for (y=0, ry=flipped->h-1;y<flipped->h;y++, ry--)
-		{
-			pixels = (int *)image->pixels;
-
-			pixel = pixels[(y * image->w) + x];
-
-			pixels = (int *)flipped->pixels;
-
-			if (white == TRUE)
-			{
-				SDL_GetRGB(pixel, game.screen->format, &r, &g, &b);
-
-				pixels[(y * flipped->w) + rx] = (r == TRANS_R && g == TRANS_G && b == TRANS_B) ? pixel : color;
-			}
-
-			else
-			{
-				pixels[(y * flipped->w) + rx] = pixel;
-			}
-		}
-	}
-
-	if (SDL_MUSTLOCK(image))
-	{
-		SDL_UnlockSurface(image);
-	}
-
-	if (image->flags & SDL_SRCCOLORKEY)
-	{
-		SDL_SetColorKey(flipped, SDL_RLEACCEL|SDL_SRCCOLORKEY, image->format->colorkey);
-	}
-
-	if (alpha != 255 && white == FALSE)
-	{
-		SDL_SetAlpha(flipped, SDL_SRCALPHA|SDL_RLEACCEL, alpha);
-	}
-
-	Set the blitting rectangle to the size of the src image
-
-	dest.x = game.offsetX + destX;
-	dest.y = game.offsetY + destY;
-	dest.w = flipped->w;
-	dest.h = flipped->h;
-
-	Blit the entire image onto the screen at coordinates x and y
-
-	SDL_BlitSurface(flipped, NULL, game.screen, &dest);
-
-	SDL_FreeSurface(flipped);
-}
-*/
 SDL_Surface *copyImage(SDL_Surface *image, int x, int y, int w, int h)
 {
 	int x1, y1, x2, y2;
@@ -200,7 +132,7 @@ SDL_Surface *copyImage(SDL_Surface *image, int x, int y, int w, int h)
 	{
 		SDL_LockSurface(image);
 	}
-	
+
 	x2 = y2 = 0;
 
 	for (y1=y;y1<y+h;y1++)
@@ -210,12 +142,12 @@ SDL_Surface *copyImage(SDL_Surface *image, int x, int y, int w, int h)
 			pixel = getPixel(image, x1, y1);
 
 			putPixel(flipped, x2, y2, pixel);
-			
+
 			x2++;
 		}
-		
+
 		x2 = 0;
-		
+
 		y2++;
 	}
 

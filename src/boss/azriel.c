@@ -24,6 +24,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../credits.h"
+#include "../dialog.h"
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
 #include "../entity.h"
@@ -133,7 +134,7 @@ Entity *addAzriel(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "INTRO");
 
 	return e;
 }
@@ -142,6 +143,8 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
+		setEntityAnimation(self, "STAND");
+
 		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
 		{
 			self->flags &= ~NO_DRAW;
@@ -258,7 +261,7 @@ static void entityWait()
 				break;
 			}
 		}
-		
+
 		self->action = &phantasmalBoltInit;
 	}
 
@@ -292,9 +295,9 @@ static void lightningCageInit()
 	self->action = &lightningCageCreate;
 
 	self->mental = 0;
-	
+
 	self->target->layer = BACKGROUND_LAYER;
-	
+
 	becomeTransparent();
 }
 
@@ -308,7 +311,7 @@ static void lightningCageCreate()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "ATTACK_1");
-		
+
 		self->x = player.x + player.w / 2 - self->w / 2;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -363,7 +366,7 @@ static void lightningCageCreate()
 
 		self->action = &lightningCageMoveAbovePlayer;
 	}
-	
+
 	becomeTransparent();
 }
 
@@ -412,7 +415,7 @@ static void lightningCageMoveAbovePlayer()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
@@ -461,7 +464,7 @@ static void lightningCage()
 			self->action = &lightningCageMoveBackToPlayer;
 		}
 	}
-	
+
 	becomeTransparent();
 }
 
@@ -488,14 +491,14 @@ static void lightningCageMoveBackToPlayer()
 	}
 
 	checkToMap(self);
-	
+
 	becomeTransparent();
 }
 
 static void lightningCageFinish()
 {
 	Target *t;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -519,10 +522,10 @@ static void lightningCageFinish()
 		self->flags |= NO_DRAW;
 
 		self->thinkTime = 30;
-		
+
 		self->action = &lightningCageTeleportAway;
 	}
-	
+
 	becomeTransparent();
 }
 
@@ -533,13 +536,13 @@ static void lightningCageTeleportAway()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->flags &= ~NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-		
+
 		self->target->layer = MID_GROUND_LAYER;
 
 		self->action = &attackFinished;
@@ -615,7 +618,7 @@ static void lightningCageWait()
 			e->mental = 1;
 
 			self->mental = 1;
-			
+
 			if (self->face == LEFT)
 			{
 				self->targetX = playSoundToMap("sound/boss/azriel/azriel_lightning_cage.ogg", -1, self->x, self->y, -1);
@@ -629,7 +632,7 @@ static void lightningCageWait()
 		{
 			stopSound(self->targetX);
 		}
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -1440,22 +1443,22 @@ static void phantasmalBoltInit()
 static void phantasmalBoltMoveToTarget()
 {
 	Entity *e;
-	
+
 	if (atTarget())
 	{
 		setEntityAnimation(self, "ATTACK_2");
-		
+
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add Azriel's Phantasmal Bolt");
 		}
-		
+
 		loadProperties("boss/azriel_phantasmal_bolt", e);
-		
+
 		setEntityAnimationByID(e, 0);
-		
+
 		e->face = self->face;
 
 		if (e->face == LEFT)
@@ -1469,15 +1472,15 @@ static void phantasmalBoltMoveToTarget()
 		}
 
 		e->y = self->y + e->offsetY;
-		
+
 		e->action = &phantasmalBoltWait;
-		
+
 		e->draw = &drawLoopingAnimationToMap;
-		
+
 		e->thinkTime = 30;
-		
+
 		e->head = self;
-		
+
 		self->mental = 1;
 
 		self->action = &phantasmalBolt;
@@ -1491,22 +1494,22 @@ static void phantasmalBoltMoveToTarget()
 static void phantasmalBoltWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental++;
-		
+
 		if (self->mental > 6)
 		{
 			self->head->mental = 0;
-			
+
 			self->mental = 6;
-			
+
 			self->inUse = FALSE;
 		}
-		
+
 		setEntityAnimationByID(self, self->mental);
-		
+
 		self->thinkTime = self->mental == 6 ? 180 : 60;
 	}
 }
@@ -1520,9 +1523,9 @@ static void phantasmalBolt()
 		setEntityAnimation(self, "ATTACK_3");
 
 		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
-		
+
 		e->face = self->face;
-		
+
 		setEntityAnimation(e, "FIRE");
 
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
@@ -2035,8 +2038,10 @@ static void dieMoveToTop()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "STAND");
-		
+		self->target->inUse = FALSE;
+
+		setEntityAnimation(self, "INTRO");
+
 		if (self->flags & NO_DRAW)
 		{
 			self->flags &= ~NO_DRAW;
@@ -2045,7 +2050,9 @@ static void dieMoveToTop()
 
 			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
-			self->thinkTime = 120;
+			self->thinkTime = 180;
+
+			createAutoDialogBox(_("Azriel"), _("Until we meet again..."), 120);
 		}
 
 		else
@@ -2071,7 +2078,7 @@ static void dieMoveToTop()
 
 			freeEntityList(list);
 
-			self->thinkTime = 180;
+			self->thinkTime = 120;
 
 			self->action = &dieWait;
 		}
@@ -2127,7 +2134,7 @@ static void addScythe()
 	e->creditsAction = &scytheCreditsMove;
 
 	e->type = ENEMY;
-	
+
 	self->target = e;
 
 	e->head = self;
