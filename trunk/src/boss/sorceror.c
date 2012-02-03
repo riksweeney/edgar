@@ -383,7 +383,7 @@ static void disintegration()
 
 		self->action = &disintegrationAttack;
 
-		self->draw = &drawSpell;
+		self->draw = &drawDisintegrationSpell;
 
 		self->layer = BACKGROUND_LAYER;
 
@@ -418,7 +418,7 @@ static void disintegrationTouch(Entity *other)
 	}
 }
 
-int drawSpell()
+int drawDisintegrationSpell()
 {
 	int color1, color2, color3;
 

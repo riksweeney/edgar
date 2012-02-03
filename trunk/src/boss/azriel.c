@@ -21,6 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../audio/audio.h"
 #include "../audio/music.h"
+#include "../boss/sorceror.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../credits.h"
@@ -108,6 +109,8 @@ static void creditsMove(void);
 static void addScythe(void);
 static void scytheWait(void);
 static void scytheCreditsMove(void);
+static void soulStealSpellAttack(void);
+int drawSoulStealSpell(void);
 
 Entity *addAzriel(int x, int y, char *name)
 {
@@ -262,7 +265,7 @@ static void entityWait()
 			}
 		}
 
-		self->action = &phantasmalBoltInit;
+		self->action = &lightningCageInit;
 	}
 
 	checkToMap(self);
@@ -695,12 +698,15 @@ static void soulStealInit()
 static void soulStealMoveToPlayer()
 {
 	int mid;
+	Entity *e;
 	Target *t;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "ATTACK_4");
+		
 		self->flags &= ~NO_DRAW;
 
 		t = getTargetByName("AZRIEL_LEFT_TARGET");
@@ -712,7 +718,7 @@ static void soulStealMoveToPlayer()
 
 		mid = getMapStartX() + SCREEN_WIDTH / 2;
 
-		self->x = player.x < mid ? player.x + player.w + 16 : player.x - self->w - 16;
+		self->x = player.x < mid ? player.x + player.w + 24 : player.x - self->w - 24;
 
 		self->y = t->y;
 
@@ -729,11 +735,83 @@ static void soulStealMoveToPlayer()
 		self->action = &soulSteal;
 
 		self->thinkTime = 600;
+		
+		self->maxThinkTime = player.alpha;
+		
+		self->targetY = player.alpha;
+		
+		self->mental = -3;
+		
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Soul Steal Spell");
+		}
+		
+		loadProperties("boss/azriel_soul_steal_spell", e);
+
+		setEntityAnimation(e, "STAND");
+
+		e->face = self->face;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+
+		e->action = &soulStealSpellAttack;
+
+		e->startX = e->x;
+		e->startY = e->y;
+
+		e->head = self;
+
+		e->endX = player.x + player.w / 2;
+		e->endY = player.y + player.h / 2;
+
+		e->draw = &drawSoulStealSpell;
+		
+		e->flags &= ~NO_DRAW;
 	}
 
 	checkToMap(self);
 
 	becomeTransparent();
+}
+
+static void soulStealSpellAttack()
+{
+	self->endX = player.x + player.w / 2;
+	self->endY = player.y + player.h / 2;
+
+	self->x = self->endX;
+	self->y = self->endY;
+	
+	if (self->head->flags & NO_DRAW)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+int drawSoulStealSpell()
+{
+	int color1, color2, color3;
+
+	color1 = getColour(38, 152, 38);
+	color2 = getColour(50, 200, 50);
+	color3 = getColour(56, 225, 56);
+
+	drawDisintegrationLine(self->startX, self->startY, self->endX, self->endY, color1, color2, color3);
+
+	return TRUE;
 }
 
 static void soulSteal()
@@ -745,6 +823,24 @@ static void soulSteal()
 	self->thinkTime--;
 
 	player.x = self->targetX;
+	
+	self->maxThinkTime += self->mental;
+	
+	if (self->maxThinkTime > 255)
+	{
+		self->maxThinkTime = 255;
+		
+		self->mental *= -1;
+	}
+	
+	else if (self->maxThinkTime < 0)
+	{
+		self->maxThinkTime = 0;
+		
+		self->mental *= -1;
+	}
+	
+	player.alpha = self->maxThinkTime;
 
 	if (self->thinkTime <= 0)
 	{
@@ -776,11 +872,15 @@ static void soulSteal()
 		self->head->thinkTime = self->head->maxThinkTime;
 
 		self->head->mental = 0;
+		
+		player.alpha = self->targetY;
 
 		player.alpha -= 64;
 
 		if (player.alpha <= 0)
 		{
+			player.alpha = 0;
+			
 			player.thinkTime = 600;
 
 			player.health = 0;
@@ -804,6 +904,8 @@ static void soulStealFinish()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, player.health == 0 ? "INTRO" : "STAND");
+		
 		self->flags &= ~NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -1510,7 +1612,7 @@ static void phantasmalBoltWait()
 
 		setEntityAnimationByID(self, self->mental);
 
-		self->thinkTime = self->mental == 6 ? 180 : 60;
+		self->thinkTime = self->mental == 6 ? 60 : 20;
 	}
 }
 
@@ -1525,6 +1627,13 @@ static void phantasmalBolt()
 		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
 		e->face = self->face;
+		
+		e->damage = player.health / 2;
+		
+		if (e->damage == 0)
+		{
+			e->damage = 1;
+		}
 
 		setEntityAnimation(e, "FIRE");
 
@@ -1682,6 +1791,8 @@ static void raiseDeadMoveToTopTarget()
 
 	if (atTarget())
 	{
+		setEntityAnimation(self, "ATTACK_3");
+		
 		self->thinkTime = 30;
 
 		self->action = &raiseDead;
@@ -1993,13 +2104,13 @@ static void dieShudder()
 {
 	Target *t;
 
-	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+	self->x = self->startX + sin(DEG_TO_RAD(self->targetY)) * 4;
 
-	self->startY += 90;
+	self->targetY += 90;
 
-	if (self->startY >= 360)
+	if (self->targetY >= 360)
 	{
-		self->startY = 0;
+		self->targetY = 0;
 	}
 
 	self->thinkTime--;
@@ -2020,11 +2131,13 @@ static void dieShudder()
 		}
 
 		self->x = t->x;
-		self->y = t->y;
+		self->y = self->startY;
 
 		self->action = &dieMoveToTop;
 
 		self->thinkTime = 60;
+		
+		self->mental = 0;
 	}
 }
 
@@ -2038,49 +2151,58 @@ static void dieMoveToTop()
 
 	if (self->thinkTime <= 0)
 	{
-		self->target->inUse = FALSE;
-
-		setEntityAnimation(self, "INTRO");
-
-		if (self->flags & NO_DRAW)
+		switch (self->mental)
 		{
-			self->flags &= ~NO_DRAW;
+			case 0:
+				self->target->inUse = FALSE;
 
-			addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+				setEntityAnimation(self, "INTRO");
+				
+				self->flags &= ~NO_DRAW;
 
-			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+				addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
-			self->thinkTime = 180;
+				playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
-			createAutoDialogBox(_("Azriel"), _("Until we meet again..."), 120);
-		}
+				self->thinkTime = 90;
+				
+				self->mental = 1;
+			break;
+			
+			case 1:
+				createAutoDialogBox(_("Azriel"), _("Until we meet again..."), 120);
+				
+				self->mental = 2;
+				
+				self->thinkTime = 180;
+			break;
+			
+			default:
+				list = createPixelsFromSprite(getCurrentSprite(self));
 
-		else
-		{
-			list = createPixelsFromSprite(getCurrentSprite(self));
+				i = 0;
 
-			i = 0;
+				for (l=list->next;l!=NULL;l=l->next)
+				{
+					e = l->entity;
 
-			for (l=list->next;l!=NULL;l=l->next)
-			{
-				e = l->entity;
+					e->dirX = prand() % 30 * (e->x < self->x + self->w / 2 ? -1 : 1);
+					e->dirY = prand() % 30 * (e->y < self->y + self->h / 2 ? -1 : 1);
 
-				e->dirX = prand() % 30 * (e->x < self->x + self->w / 2 ? -1 : 1);
-				e->dirY = prand() % 30 * (e->y < self->y + self->h / 2 ? -1 : 1);
+					e->dirX /= 10;
+					e->dirY /= 10;
 
-				e->dirX /= 10;
-				e->dirY /= 10;
+					e->thinkTime = 180 + prand() % 180;
+				}
 
-				e->thinkTime = 180 + prand() % 180;
-			}
+				self->flags |= NO_DRAW;
 
-			self->flags |= NO_DRAW;
+				freeEntityList(list);
 
-			freeEntityList(list);
+				self->thinkTime = 120;
 
-			self->thinkTime = 120;
-
-			self->action = &dieWait;
+				self->action = &dieWait;
+			break;
 		}
 	}
 }

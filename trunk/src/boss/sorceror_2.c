@@ -1060,7 +1060,7 @@ static void disintegrationSpellInit()
 
 		self->action = &disintegrationSpellAttack;
 
-		self->draw = &drawSpell;
+		self->draw = &drawDisintegrationSpell;
 
 		self->layer = BACKGROUND_LAYER;
 
