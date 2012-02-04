@@ -66,6 +66,7 @@ static void phantasmalBoltMove(void);
 static void phantasmalBoltReflect(Entity *);
 static void scytheThrowInit(void);
 static void scytheThrowMoveToTarget(void);
+static void scytheThrowReady(void);
 static void scytheThrow(void);
 static void scytheThrowWait(void);
 static void scytheThrowTeleportAway(void);
@@ -311,7 +312,7 @@ static void lightningCageCreate()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "ATTACK_1");
+		setEntityAnimation(self, "LIGHTNING_CAGE");
 
 		self->x = player.x + player.w / 2 - self->w / 2;
 
@@ -703,7 +704,7 @@ static void soulStealMoveToPlayer()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "ATTACK_4");
+		setEntityAnimation(self, "SOUL_STEAL");
 		
 		self->flags &= ~NO_DRAW;
 
@@ -1327,13 +1328,9 @@ static void scytheThrowMoveToTarget()
 {
 	if (atTarget())
 	{
-		self->thinkTime = 30;
-
 		self->mental = 3;
-
-		self->action = &scytheThrow;
 		
-		self->target->endX = -1;
+		self->action = &scytheThrowReady;
 	}
 
 	checkToMap(self);
@@ -1341,10 +1338,45 @@ static void scytheThrowMoveToTarget()
 	becomeTransparent();
 }
 
+static void scytheThrowReady()
+{
+	Entity *e;
+	
+	setEntityAnimation(self, "SCYTHE_THROW_READY");
+	
+	self->animationCallback = &scytheThrow;
+	
+	e = self->target;
+	
+	e->endX = -1;
+	
+	setEntityAnimation(e, "SCYTHE_THROW_READY");
+	
+	e->face = self->face;
+	
+	if (e->face == LEFT)
+	{
+		e->x = self->x + self->w - e->w - e->offsetX;
+	}
+
+	else
+	{
+		e->x = self->x + e->offsetX;
+	}
+
+	e->y = self->y + e->offsetY;
+
+	e->startX = e->x;
+	
+	checkToMap(self);
+
+	becomeTransparent();
+}
+
 static void scytheThrow()
 {
-	int distance;
 	Entity *e;
+	int distance;
 
 	self->thinkTime--;
 
@@ -1354,24 +1386,10 @@ static void scytheThrow()
 		
 		e->alpha = 255;
 		
-		setEntityAnimation(e, "ATTACK_5");
+		setEntityAnimation(self, "SCYTHE_THROW");
 		
-		e->face = self->face;
+		setEntityAnimation(e, "SCYTHE_THROW");
 		
-		if (e->face == LEFT)
-		{
-			e->x = self->x + self->w - e->w - e->offsetX;
-		}
-
-		else
-		{
-			e->x = self->x + e->offsetX;
-		}
-
-		e->y = self->y + e->offsetY;
-
-		e->startX = e->x;
-
 		e->dirX = self->face == LEFT ? -e->speed : e->speed;
 
 		e->action = &scytheMove;
@@ -1380,11 +1398,11 @@ static void scytheThrow()
 		switch (self->mental)
 		{
 			case 3:
-				distance = SCREEN_WIDTH * 0.5;
+				distance = SCREEN_WIDTH / 3;
 			break;
 
 			case 2:
-				distance = SCREEN_WIDTH * 0.75;
+				distance = SCREEN_WIDTH * 2 / 3;
 			break;
 
 			default:
@@ -1394,12 +1412,12 @@ static void scytheThrow()
 		
 		if (self->face == LEFT)
 		{
-			e->targetX = e->x - distance + e->w;
+			e->targetX = e->x - distance;
 		}
 		
 		else
 		{
-			e->targetX = e->x + distance - e->w;
+			e->targetX = e->x + distance;
 		}
 		
 		if (e->endX == -1)
@@ -1427,7 +1445,7 @@ static void scytheThrowWait()
 		
 		self->thinkTime = self->mental <= 0 ? 60 : 5;
 
-		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrow;
+		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrowReady;
 	}
 
 	checkToMap(self);
@@ -1496,9 +1514,9 @@ static void scytheMove()
 			{
 				self->action = &scytheWait;
 				self->touch = NULL;
-				
-				stopSound(self->endX);
 			}
+			
+			stopSound(self->endX);
 		}
 	}
 
@@ -1517,9 +1535,9 @@ static void scytheMove()
 			{
 				self->action = &scytheWait;
 				self->touch = NULL;
-				
-				stopSound(self->endX);
 			}
+			
+			stopSound(self->endX);
 		}
 	}
 
@@ -1570,7 +1588,7 @@ static void phantasmalBoltMoveToTarget()
 
 	if (atTarget())
 	{
-		setEntityAnimation(self, "ATTACK_2");
+		setEntityAnimation(self, "PHANTASMAL_BOLT_READY");
 
 		e = getFreeEntity();
 
@@ -1644,7 +1662,7 @@ static void phantasmalBolt()
 
 	if (self->mental == 0)
 	{
-		setEntityAnimation(self, "ATTACK_3");
+		setEntityAnimation(self, "PHANTASMAL_BOLT_FIRE");
 
 		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
@@ -1813,7 +1831,7 @@ static void raiseDeadMoveToTopTarget()
 
 	if (atTarget())
 	{
-		setEntityAnimation(self, "ATTACK_3");
+		setEntityAnimation(self, "PHANTASMAL_BOLT_FIRE");
 		
 		self->thinkTime = 30;
 

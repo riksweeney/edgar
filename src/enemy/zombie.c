@@ -208,7 +208,11 @@ static void touch(Entity *other)
 
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
+		setEntityAnimation(self, "ATTACK_1");
+		
 		self->takeDamage = entityTakeDamageNoFlinch;
+		
+		self->dirX = 0;
 
 		self->targetX = player.x;
 
@@ -238,6 +242,8 @@ static void stealItem()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "WALK");
+		
 		self->target = getRandomItem();
 
 		if (self->target != NULL)
@@ -432,26 +438,6 @@ static void headWait()
 
 	self->y = self->head->y + self->offsetY;
 	
-	if (self->head->flags & NO_DRAW)
-	{
-		self->flags |= NO_DRAW;
-	}
-	
-	else
-	{
-		self->flags &= ~NO_DRAW;
-	}
-	
-	if (self->head->flags & FLASH)
-	{
-		self->flags |= FLASH;
-	}
-	
-	else
-	{
-		self->flags &= ~FLASH;
-	}
-	
 	if (self->head->health <= 0)
 	{
 		self->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
@@ -460,6 +446,29 @@ static void headWait()
 		self->action = &fallOff;
 		
 		self->thinkTime = 180;
+	}
+	
+	else
+	{
+		if (self->head->flags & NO_DRAW)
+		{
+			self->flags |= NO_DRAW;
+		}
+		
+		else
+		{
+			self->flags &= ~NO_DRAW;
+		}
+		
+		if (self->head->flags & FLASH)
+		{
+			self->flags |= FLASH;
+		}
+		
+		else
+		{
+			self->flags &= ~FLASH;
+		}
 	}
 	
 	if (self->head->inUse == FALSE)
