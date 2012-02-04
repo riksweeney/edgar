@@ -106,7 +106,7 @@ static void loadMenuLayout(int saving)
 	char **saveFile;
 	int y, i, j, width , maxWidth, w;
 
-	i = 0;
+	w = i = 0;
 
 	y = BUTTON_PADDING / 2 + BORDER_PADDING;
 

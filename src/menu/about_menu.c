@@ -97,12 +97,12 @@ static void loadMenuLayout()
 
 	if (menu.widgets[0]->selectedState->w > menu.widgets[1]->selectedState->w)
 	{
-		menu.w = menu.widgets[0]->selectedState->w + 20;
+		menu.w = menu.widgets[0]->selectedState->w;
 	}
 
 	else
 	{
-		menu.w = menu.widgets[1]->selectedState->w + 20;
+		menu.w = menu.widgets[1]->selectedState->w;
 	}
 
 	menu.h = y - BORDER_PADDING;

@@ -1,28 +1,27 @@
-WEATHER HEAVY_RAIN
 MUSIC FADE_DOWN 3000
 CAMERA_SPEED 1
 LIMIT_CAMERA 1184 128 1824 576 TRUE
 WALK_TO EDGAR 1260 522 WAIT
-#WAIT 30
-#TALK ??? Who dares pillage the tomb of the great warrior Ivan?
-#WALK_TO EDGAR 1640 522 WAIT
-#WAIT 30
-#WALK_TO EDGAR 1430 522 WAIT
-#WAIT 30
-#TALK Edgar Who said that?
-#TALK ??? Insolent cur, you will suffer for your disrespect
-#FLASH_SCREEN 30
-#PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
-#WAIT 60
-#FLASH_SCREEN 30
-#PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
-#WAIT 60
-#FLASH_SCREEN 30
-#PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
+WAIT 30
+TALK ??? Who dares pillage the tomb of the great warrior Ivan?
+WALK_TO EDGAR 1640 522 WAIT
+WAIT 30
+WALK_TO EDGAR 1430 522 WAIT
+WAIT 30
+TALK Edgar Who said that?
+TALK ??? Insolent cur, you will suffer for your disrespect
+FLASH_SCREEN 30
+PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
+WAIT 60
+FLASH_SCREEN 30
+PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
+WAIT 60
+FLASH_SCREEN 30
+PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
 SET AZRIEL FACE RIGHT
 SET AZRIEL REMOVE_FLAG NO_DRAW
-#WAIT 120
-#MUSIC PLAY_BOSS_MUSIC
-#WAIT 120
-#TALK Azriel I, am Azriel
+WAIT 120
+MUSIC PLAY_BOSS_MUSIC
+WAIT 120
+TALK Azriel I, am Azriel
 ACTIVATE_OBJECTIVE AZRIEL
