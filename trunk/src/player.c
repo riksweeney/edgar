@@ -1570,7 +1570,7 @@ static void resetPause()
 	switch (player.environment)
 	{
 		case LAVA:
-			minHealth = game.lavaNotFatal == TRUE ? 2 : 99999;
+			minHealth = game.lavaIsFatal == FALSE ? 2 : 99999;
 		break;
 
 		case SLIME:
@@ -1583,7 +1583,7 @@ static void resetPause()
 	}
 
 	if ((player.health <= minHealth && getInventoryItemByObjectiveName("Amulet of Resurrection") == NULL)
-		|| (player.environment == LAVA && game.lavaNotFatal == FALSE))
+		|| (player.environment == LAVA && game.lavaIsFatal == TRUE))
 	{
 		player.health = 0;
 

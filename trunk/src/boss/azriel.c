@@ -264,8 +264,6 @@ static void entityWait()
 				break;
 			}
 		}
-
-		self->action = &lightningCageInit;
 	}
 
 	checkToMap(self);
@@ -1334,6 +1332,8 @@ static void scytheThrowMoveToTarget()
 		self->mental = 3;
 
 		self->action = &scytheThrow;
+		
+		self->target->endX = -1;
 	}
 
 	checkToMap(self);
@@ -1350,37 +1350,32 @@ static void scytheThrow()
 
 	if (self->thinkTime <= 0)
 	{
-		e = getFreeEntity();
-
-		loadProperties("boss/azriel_scythe", e);
-
-		e->head = self;
-
-		if (self->face == LEFT)
+		e = self->target;
+		
+		e->alpha = 255;
+		
+		setEntityAnimation(e, "ATTACK_5");
+		
+		e->face = self->face;
+		
+		if (e->face == LEFT)
 		{
-			e->x = self->x + self->w - self->offsetX;
+			e->x = self->x + self->w - e->w - e->offsetX;
 		}
 
 		else
 		{
-			e->x = self->x + self->offsetX;
+			e->x = self->x + e->offsetX;
 		}
 
-		e->y = self->y + 48;
+		e->y = self->y + e->offsetY;
 
 		e->startX = e->x;
 
 		e->dirX = self->face == LEFT ? -e->speed : e->speed;
 
 		e->action = &scytheMove;
-		e->draw = &drawLoopingAnimationToMap;
 		e->touch = &entityTouch;
-
-		e->face = self->face;
-
-		e->type = ENEMY;
-
-		e->flags |= FLY;
 
 		switch (self->mental)
 		{
@@ -1396,8 +1391,21 @@ static void scytheThrow()
 				distance = SCREEN_WIDTH;
 			break;
 		}
-
-		e->targetX = self->face == LEFT ? e->x - distance : e->x + distance;
+		
+		if (self->face == LEFT)
+		{
+			e->targetX = e->x - distance + e->w;
+		}
+		
+		else
+		{
+			e->targetX = e->x + distance - e->w;
+		}
+		
+		if (e->endX == -1)
+		{
+			e->endX = playSoundToMap("sound/boss/azriel/azriel_scythe_throw.ogg", -1, self->x, self->y, -1);
+		}
 
 		self->action = &scytheThrowWait;
 
@@ -1415,7 +1423,9 @@ static void scytheThrowWait()
 {
 	if (self->thinkTime <= 0)
 	{
-		self->thinkTime = self->mental <= 0 ? 30 : 10;
+		setEntityAnimation(self, "STAND");
+		
+		self->thinkTime = self->mental <= 0 ? 60 : 5;
 
 		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrow;
 	}
@@ -1481,8 +1491,14 @@ static void scytheMove()
 		else if (self->dirX > 0 && self->x >= self->startX)
 		{
 			self->head->thinkTime = 0;
-
-			self->inUse = FALSE;
+			
+			if (self->head->mental == 0)
+			{
+				self->action = &scytheWait;
+				self->touch = NULL;
+				
+				stopSound(self->endX);
+			}
 		}
 	}
 
@@ -1496,8 +1512,14 @@ static void scytheMove()
 		else if (self->dirX < 0 && self->x <= self->startX)
 		{
 			self->head->thinkTime = 0;
-
-			self->inUse = FALSE;
+			
+			if (self->head->mental == 0)
+			{
+				self->action = &scytheWait;
+				self->touch = NULL;
+				
+				stopSound(self->endX);
+			}
 		}
 	}
 
@@ -1892,6 +1914,8 @@ static void raiseDeadFinish()
 
 static void attackFinished()
 {
+	setEntityAnimation(self, "STAND");
+	
 	self->thinkTime = 30;
 
 	self->action = &entityWait;
@@ -2155,6 +2179,8 @@ static void dieMoveToTop()
 		{
 			case 0:
 				self->target->inUse = FALSE;
+				
+				stopSound(self->target->endX);
 
 				setEntityAnimation(self, "INTRO");
 				

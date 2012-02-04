@@ -101,7 +101,7 @@ void initGame()
 
 	game.infiniteEnergy = FALSE;
 
-	game.lavaNotFatal = FALSE;
+	game.lavaIsFatal = TRUE;
 
 	game.mapExitable = 0;
 

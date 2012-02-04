@@ -172,7 +172,7 @@ typedef struct Game
 	int attacksBlocked, timeSpentAsSlime, arrowsFired;
 	int secretsFound, alphaTime, canContinue, continues;
 	int disableJoystick, mapExitable, cheatsEnabled;
-	int infiniteEnergy, infiniteArrows, lavaNotFatal;
+	int infiniteEnergy, infiniteArrows, lavaIsFatal;
 	int saveOnExit, overrideMusic, showHUD;
 	int fontSizeSmall, fontSizeLarge;
 	unsigned int distanceTravelled;

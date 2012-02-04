@@ -109,11 +109,8 @@ static void doMenu()
 
 static void loadMenuLayout()
 {
-	char *line, *savePtr1;
 	Medal *medal;
 	int i, width, medalCount;
-
-	savePtr1 = NULL;
 
 	medal = getMedals();
 
@@ -163,8 +160,6 @@ static void loadMenuLayout()
 
 		menu.endY = menu.widgets[i]->y + menu.widgets[i]->normalState->h - menu.h;
 	}
-
-	line = strtok_r(NULL, "\n", &savePtr1);
 
 	width += 15;
 
