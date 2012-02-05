@@ -436,6 +436,8 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 			inventory.item[i].face = RIGHT;
 
 			inventory.item[i].thinkTime = 0;
+			
+			inventory.item[i].alpha = 255;
 
 			setEntityAnimationByID(&inventory.item[i], 0);
 
