@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 
 	mapID = recordingID = replayingID = -1;
 
-	joystick = 1;
+	joystick = 0;
 
 	showCredits = 0;
 
