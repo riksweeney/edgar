@@ -10,18 +10,11 @@ WALK_TO EDGAR 1430 522 WAIT
 WAIT 30
 TALK Edgar Who said that?
 TALK ??? Insolent cur, you will suffer for your disrespect
-FLASH_SCREEN 30
-PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
-WAIT 60
-FLASH_SCREEN 30
-PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
-WAIT 60
-FLASH_SCREEN 30
-PLAY_SOUND sound/enemy/thunder_cloud/lightning.ogg
-SET AZRIEL FACE RIGHT
+SET AZRIEL PROPERTY MENTAL -1
+ACTIVATE_OBJECTIVE AZRIEL
+WHILE_NOT AZRIEL MENTAL 0
 SET AZRIEL REMOVE_FLAG NO_DRAW
-WAIT 120
 MUSIC PLAY_BOSS_MUSIC
-WAIT 120
+WAIT 60
 TALK Azriel I, am Azriel
 ACTIVATE_OBJECTIVE AZRIEL

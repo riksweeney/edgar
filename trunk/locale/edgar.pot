@@ -5,7 +5,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar 0.95\n"
+"Project-Id-Version: The Legend of Edgar 0.97\n"
 "POT-Creation-Date: 2011-7-16 13:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -582,9 +582,6 @@ msgid "Wow! That was cool! This must be a mechanical teleporter."
 msgstr ""
 
 msgid "I wonder if it works both ways..."
-msgstr ""
-
-msgid "Hooray!"
 msgstr ""
 
 msgid "Not only is this going to save me a lot of walking, it's also loads of fun!"
@@ -2468,15 +2465,6 @@ msgstr ""
 msgid "A piece of a puzzle"
 msgstr ""
 
-msgid "Power Cell is required"
-msgstr ""
-
-msgid "Press Action to use the Sonic Boom"
-msgstr ""
-
-msgid "Firing Sonic Boom in %d"
-msgstr ""
-
 msgid "The glass looks very weak now..."
 msgstr ""
 
@@ -4283,14 +4271,92 @@ msgstr ""
 msgid "Press any key"
 msgstr ""
 
+msgid "Cannot equip items whilst attacking"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Medals"
+msgstr ""
+
+msgid "Audio Quality"
+msgstr ""
+
+msgid "Cheats"
+msgstr ""
+
+msgid "Infinite Health"
+msgstr ""
+
+msgid "Infinite Arrows"
+msgstr ""
+
+msgid "Lava is fatal"
+msgstr ""
+
+msgid "Use Up and Down to select. Enter to change."
+msgstr ""
+
+msgid "Interact"
+msgstr ""
+
+msgid "Use"
+msgstr ""
+
+msgid "Please configure all controls"
+msgstr ""
+
+msgid "Quickly turn left and right to shake off the pieces!"
+msgstr ""
+
+msgid "Azriel"
+msgstr ""
+
+msgid "Until we meet again..."
+msgstr ""
+
+msgid "(I think I'll keep it for myself)"
+msgstr ""
+
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 msgstr ""
 
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
 msgstr ""
 
+msgid "I'll try again"
+msgstr ""
+
+msgid "I'll keep trying"
+msgstr ""
+
+msgid "Huh, it's started to rain"
+msgstr ""
+
+msgid "Who dares pillage the tomb of the great warrior Ivan?"
+msgstr ""
+
+msgid "Who said that?"
+msgstr ""
+
+msgid "Insolent cur, you will suffer for your disrespect"
+msgstr ""
+
+msgid "I, am Azriel"
+msgstr ""
+
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "Horray!"
+msgstr ""
+
+msgid "I'll leave it alone for the moment"
+msgstr ""
+
+msgid "Ivan's keepsake"
 msgstr ""

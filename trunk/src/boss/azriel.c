@@ -50,6 +50,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 extern Entity *self, player;
 
 static void initialise(void);
+static void appear(void);
+static void moveToAzriel(void);
 static void doIntro(void);
 static void attackFinished(void);
 static void entityWait(void);
@@ -147,33 +149,123 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		setEntityAnimation(self, "STAND");
-
-		if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
+		if (self->mental == 0)
 		{
-			self->flags &= ~NO_DRAW;
+			if (strcmpignorecase(getWeather(), "HEAVY_RAIN") != 0)
+			{
+				self->flags &= ~NO_DRAW;
 
-			setWeather(HEAVY_RAIN);
+				setWeather(HEAVY_RAIN);
 
-			playDefaultBossMusic();
+				playDefaultBossMusic();
+			}
+
+			centerMapOnEntity(NULL);
+
+			self->action = &doIntro;
+
+			self->thinkTime = 60;
+
+			self->endX = 0;
+
+			self->touch = &entityTouch;
+
+			setContinuePoint(FALSE, self->name, NULL);
 		}
 
-		centerMapOnEntity(NULL);
-
-		self->action = &doIntro;
-
-		self->thinkTime = 60;
-
-		self->endX = 0;
-
-		self->touch = &entityTouch;
-
-		addScythe();
-
-		setContinuePoint(FALSE, self->name, NULL);
+		else
+		{
+			self->action = &appear;
+		}
 	}
 
 	checkToMap(self);
+}
+
+static void appear()
+{
+	EntityList *l, *list;
+	Target *t[6];
+	Entity *e;
+	int i, grave;
+
+	list = createPixelsFromSprite(getCurrentSprite(self));
+
+	i = 0;
+
+	t[0] = getTargetByName("GRAVE_1");
+	t[1] = getTargetByName("GRAVE_2");
+	t[2] = getTargetByName("GRAVE_3");
+	t[3] = getTargetByName("GRAVE_4");
+	t[4] = getTargetByName("GRAVE_5");
+	t[5] = getTargetByName("GRAVE_6");
+
+	for (l=list->next;l!=NULL;l=l->next)
+	{
+		grave = prand() % 6;
+
+		if (t[grave] == NULL)
+		{
+			showErrorAndExit("Azirel cannot find target");
+		}
+
+		e = l->entity;
+
+		e->targetX = e->x;
+		e->targetY = e->y;
+
+		e->x = t[grave]->x;
+		e->y = t[grave]->y;
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->dirX *= 3;
+		e->dirY *= 3;
+
+		e->head = self;
+
+		e->thinkTime = prand() % 180;
+
+		e->action = &moveToAzriel;
+
+		i++;
+	}
+
+	self->mental = i;
+
+	self->flags |= NO_DRAW;
+
+	freeEntityList(list);
+
+	self->active = FALSE;
+
+	self->action = &initialise;
+}
+
+static void moveToAzriel()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->x += self->dirX;
+		self->y += self->dirY;
+
+		if (atTarget())
+		{
+			if (self->active == TRUE)
+			{
+				self->head->mental--;
+
+				self->active = FALSE;
+			}
+
+			if (self->head->active == TRUE)
+			{
+				self->inUse = FALSE;
+			}
+		}
+	}
 }
 
 static void doIntro()
@@ -231,6 +323,10 @@ static void doIntro()
 	checkToMap(self);
 
 	becomeTransparent();
+	
+	setEntityAnimation(self, "STAND");
+	
+	addScythe();
 }
 
 static void entityWait()
@@ -374,23 +470,6 @@ static void lightningCageCreate()
 
 static void lightningCageMoveAbovePlayer()
 {
-	if (self->maxThinkTime == 0)
-	{
-		self->targetX = player.x - self->w / 2 + player.w / 2;
-
-		/* Position above the player */
-
-		if (abs(self->x - self->targetX) <= self->speed * 3)
-		{
-			self->dirX = 0;
-		}
-
-		else
-		{
-			self->dirX = self->targetX < self->x ? -player.speed * 3 : player.speed * 3;
-		}
-	}
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
