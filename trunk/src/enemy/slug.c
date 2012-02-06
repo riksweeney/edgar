@@ -19,6 +19,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
 #include "../entity.h"
@@ -32,6 +33,7 @@ static void move(void);
 static void moveOnCeiling(void);
 static void riseToCeiling(void);
 static void init(void);
+static void die(void);
 static void slimeWait(void);
 static void slimeTouch(Entity *);
 static void creditsMove(void);
@@ -57,7 +59,7 @@ Entity *addSlug(int x, int y, char *name)
 
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
-	e->die = &entityDie;
+	e->die = &die;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
@@ -184,6 +186,13 @@ static void moveOnCeiling()
 		
 		self->startX = e->w;
 	}
+}
+
+static void die()
+{
+	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
+	
+	entityDie();
 }
 
 static void slimeWait()

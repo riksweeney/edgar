@@ -2325,6 +2325,8 @@ static void dieMoveToTop()
 				self->thinkTime = 120;
 
 				self->action = &dieWait;
+				
+				playSoundToMap("sound/boss/azriel/azriel_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 			break;
 		}
 	}
