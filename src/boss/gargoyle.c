@@ -212,7 +212,43 @@ static void entityWait()
 
 		else
 		{
+			swtich (self->maxThinkTime)
+			{
+				case 0:
+					switch (prand() % 4)
+					{
+						/* Stab */
+						/* Vertical throw */
+						/* Weapon remove blast */
+					}
+				break;
 
+				case 1:
+					switch (prand() % 4)
+					{
+						/* Portal attack */
+						/* Wind attack */
+						/* Weapon remove blast */
+					}
+				break;
+
+				case 2:
+					switch (prand() % 4)
+					{
+						/* Invisible drop */
+						/* Weapon remove blast */
+					}
+				break;
+
+				default:
+					switch (prand() % 4)
+					{
+						/* Drop attack */
+						/* Weapon remove blast */
+						/* Punch */
+					}
+				break;
+			}
 		}
 	}
 
