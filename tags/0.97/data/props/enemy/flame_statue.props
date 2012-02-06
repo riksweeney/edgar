@@ -1,0 +1,4 @@
+HEALTH 8
+GFX_FILE data/gfx/enemy/flame_statue.dat
+ANIM_FILE data/anim/enemy/flame_statue.dat
+TYPE ENEMY
