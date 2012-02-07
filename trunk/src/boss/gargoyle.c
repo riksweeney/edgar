@@ -205,7 +205,7 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->target == NULL)
+		if (self->target == NULL && self->maxThinkTime < 3)
 		{
 			self->action = &createLanceInit;
 		}
@@ -218,7 +218,7 @@ static void entityWait()
 					switch (prand() % 4)
 					{
 						/* Stab */
-						/* Vertical throw */
+						/* Vertical throw 1 */
 						/* Weapon remove blast */
 					}
 				break;
@@ -228,6 +228,7 @@ static void entityWait()
 					{
 						/* Portal attack */
 						/* Wind attack */
+						/* Vertical throw 2 */
 						/* Weapon remove blast */
 					}
 				break;
@@ -236,6 +237,7 @@ static void entityWait()
 					switch (prand() % 4)
 					{
 						/* Invisible drop */
+						/* Vertical throw 3 */
 						/* Weapon remove blast */
 					}
 				break;
@@ -347,6 +349,8 @@ static void lanceAppearFinish()
 {
 	self->head->mental = 0;
 
+	self->head->health = self->head->maxHealth;
+
 	self->action = &lanceWait;
 }
 
@@ -365,6 +369,508 @@ static void lanceWait()
 	}
 
 	e->y = self->y + self->offsetY;
+}
+
+static void weaponRemoveBlastInit()
+{
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->thinkTime = 120;
+
+		self->action = &weaponRemoveBlast;
+	}
+}
+
+static void weaponRemoveBlast()
+{
+	Entity *e;
+
+	facePlayer();
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addProjectile("boss/gargoyle_weapon_remove_blast", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
+
+		e->face = self->face;
+
+		e->damage = player.health / 2;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+
+		e->touch = &blastRemoveWeapon;
+
+		e->flags |= FLY;
+
+		e->thinkTime = 1200;
+
+		self->thinkTime = 120;
+
+		self->action = &weaponRemoveBlastFinish;
+	}
+
+	checkToMap(self);
+}
+
+static void blastRemoveWeapon(Entity *other)
+{
+	Entity *e;
+
+	e = removePlayerWeapon();
+
+	if (e != NULL)
+	{
+		e->x = self->x;
+		e->y = self->y;
+
+		e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = -12;
+
+		setCustomAction(e, &invulnerable, 120, 0, 0);
+
+		addExitTrigger(e);
+	}
+
+	e = removePlayerShield();
+
+	if (e != NULL)
+	{
+		e->x = self->x;
+		e->y = self->y;
+
+		e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = -12;
+
+		setCustomAction(e, &invulnerable, 120, 0, 0);
+
+		addExitTrigger(e);
+	}
+
+	setCustomAction(self->target, &invulnerable, 60, 0, 0);
+
+	setPlayerStunned(30);
+
+	self->target->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
+	self->target->dirY = -8;
+
+	self->inUse = FALSE;
+}
+
+static void weaponRemoveBlastFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	/* Take minimal damage from bombs */
+
+	if (other->type == EXPLOSION)
+	{
+		damage = 1;
+	}
+
+	if (damage != 0)
+	{
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			}
+
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+		}
+
+		/* Don't die if you've still got lances to wield */
+
+		else if (self->maxThinkTime >= 3)
+		{
+			self->damage = 0;
+
+			if (other->type == WEAPON || other->type == PROJECTILE)
+			{
+				increaseKillCount();
+			}
+
+			self->die();
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+	}
+
+	if (other->type == PROJECTILE)
+	{
+		temp = self;
+
+		self = other;
+
+		self->die();
+
+		self = temp;
+	}
+}
+
+static void lanceWait()
+{
+	self->face = self->head->face;
+
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+
+	if (self->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+}
+
+static void lanceAttack1()
+{
+	int i;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->maxThinkTime = 0;
+
+		self->mental = 2;
+
+		self->action = &createLightningOrb;
+	}
+
+	checkToMap(self);
+}
+
+static void createLightningOrb()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a lightning orb");
+		}
+
+		loadProperties("boss/gargoyle_lightning_orb", e);
+
+		e->x = self->x;
+		e->y = self->y;
+
+		e->action = &orbMoveToTop;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = NULL;
+		e->takeDamage = NULL;
+
+		e->type = ENEMY;
+
+		e->head = self;
+
+		setEntityAnimation(e, "STAND");
+
+		self->mental--;
+
+		self->maxThinkTime++;
+
+		if (self->mental <= 0)
+		{
+			self->action = &lanceAttack1Wait;
+		}
+
+		else
+		{
+			self->thinkTime = 15;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void lanceAttack1Wait()
+{
+	if (self->maxThinkTime <= 0)
+	{
+		self->thinkTime = 30;
+
+		self->action = &lanceAttackTeleportAway;
+	}
+
+	checkToMap(self);
+}
+
+static void orbMoveToTop()
+{
+	self->y -= self->speed;
+
+	if (self->y <= self->targetY)
+	{
+		self->action = &orbFollowPlayer;
+	}
+}
+
+static void orbFollowPlayer()
+{
+	float target = player.x - self->w / 2 + player.w / 2;
+
+	/* Move above the player */
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->thinkTime = 30;
+
+		self->dirX = 0;
+
+		self->action = &orbCastLightning;
+	}
+
+	else
+	{
+		self->dirX = self->speed * 1.5;
+
+		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			self->thinkTime = 30;
+
+			self->dirX = 0;
+
+			self->action = &orbCastLightning;
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			self->thinkTime = 30;
+
+			self->dirX = 0;
+
+			self->action = &orbCastLightning;
+		}
+	}
+}
+
+static void orbCastLightning()
+{
+	int i;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 && player.health > 0)
+	{
+		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+
+		for (i=self->endY-32;i>=self->startY;i-=32)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add lightning");
+			}
+
+			loadProperties("enemy/lightning", e);
+
+			setEntityAnimation(e, "STAND");
+
+			e->x = self->x + self->w / 2 - e->w / 2;
+			e->y = i;
+
+			e->action = &lightningWait;
+
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->currentFrame = prand() % 6;
+
+			e->face = RIGHT;
+
+			e->thinkTime = 15;
+		}
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e = addSmallRock(self->x, self->endY, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -8;
+
+		self->action = &castLightningFinish;
+
+		self->thinkTime = 30;
+	}
+}
+
+static void castLightningFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->head->maxThinkTime--;
+
+			self->inUse = FALSE;
+		}
+
+		else
+		{
+			self->action = &followPlayer;
+		}
+
+		self->thinkTime = 30;
+	}
+}
+
+void lightningWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void lanceAttack2()
+{
+	int i;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->maxThinkTime = 0;
+
+		self->action = &createMiniGargoyleInit;
+	}
+
+	checkToMap(self);
+}
+
+static void lanceAttackTeleportAway()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags |= NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->face = self->head->face;
+
+		setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+
+		if (self->face == LEFT)
+		{
+			self->x = self->head->x + self->head->w - self->w - self->offsetX;
+		}
+
+		else
+		{
+			self->x = self->head->x + self->offsetX;
+		}
+
+		self->y = self->head->y + self->offsetY;
+
+		self->thinkTime = 30;
+
+		self->action = &lanceAttackTeleportFinish;
+	}
+}
+
+static void lanceAttackTeleportFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->action = &lanceWait;
+	}
 }
 
 static void addStoneCoat()

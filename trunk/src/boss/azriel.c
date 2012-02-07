@@ -323,9 +323,9 @@ static void doIntro()
 	checkToMap(self);
 
 	becomeTransparent();
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	addScythe();
 }
 
@@ -784,7 +784,7 @@ static void soulStealMoveToPlayer()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "SOUL_STEAL");
-		
+
 		self->flags &= ~NO_DRAW;
 
 		t = getTargetByName("AZRIEL_LEFT_TARGET");
@@ -813,20 +813,20 @@ static void soulStealMoveToPlayer()
 		self->action = &soulSteal;
 
 		self->thinkTime = 600;
-		
+
 		self->maxThinkTime = player.alpha;
-		
+
 		self->targetY = player.alpha;
-		
+
 		self->mental = -3;
-		
+
 		e = getFreeEntity();
 
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add the Soul Steal Spell");
 		}
-		
+
 		loadProperties("boss/azriel_soul_steal_spell", e);
 
 		setEntityAnimation(e, "STAND");
@@ -856,7 +856,7 @@ static void soulStealMoveToPlayer()
 		e->endY = player.y + player.h / 2;
 
 		e->draw = &drawSoulStealSpell;
-		
+
 		e->flags &= ~NO_DRAW;
 	}
 
@@ -872,7 +872,7 @@ static void soulStealSpellAttack()
 
 	self->x = self->endX;
 	self->y = self->endY;
-	
+
 	if (self->head->flags & NO_DRAW)
 	{
 		self->inUse = FALSE;
@@ -901,23 +901,23 @@ static void soulSteal()
 	self->thinkTime--;
 
 	player.x = self->targetX;
-	
+
 	self->maxThinkTime += self->mental;
-	
+
 	if (self->maxThinkTime > 255)
 	{
 		self->maxThinkTime = 255;
-		
+
 		self->mental *= -1;
 	}
-	
+
 	else if (self->maxThinkTime < 0)
 	{
 		self->maxThinkTime = 0;
-		
+
 		self->mental *= -1;
 	}
-	
+
 	player.alpha = self->maxThinkTime;
 
 	if (self->thinkTime <= 0)
@@ -950,7 +950,7 @@ static void soulSteal()
 		self->head->thinkTime = self->head->maxThinkTime;
 
 		self->head->mental = 0;
-		
+
 		player.alpha = self->targetY;
 
 		player.alpha -= 64;
@@ -958,7 +958,7 @@ static void soulSteal()
 		if (player.alpha <= 0)
 		{
 			player.alpha = 0;
-			
+
 			player.thinkTime = 600;
 
 			player.health = 0;
@@ -983,7 +983,7 @@ static void soulStealFinish()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, player.health == 0 ? "INTRO" : "STAND");
-		
+
 		self->flags &= ~NO_DRAW;
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -1408,7 +1408,7 @@ static void scytheThrowMoveToTarget()
 	if (atTarget())
 	{
 		self->mental = 3;
-		
+
 		self->action = &scytheThrowReady;
 	}
 
@@ -1420,19 +1420,19 @@ static void scytheThrowMoveToTarget()
 static void scytheThrowReady()
 {
 	Entity *e;
-	
+
 	setEntityAnimation(self, "SCYTHE_THROW_READY");
-	
+
 	self->animationCallback = &scytheThrow;
-	
+
 	e = self->target;
-	
+
 	e->endX = -1;
-	
+
 	setEntityAnimation(e, "SCYTHE_THROW_READY");
-	
+
 	e->face = self->face;
-	
+
 	if (e->face == LEFT)
 	{
 		e->x = self->x + self->w - e->w - e->offsetX;
@@ -1446,7 +1446,7 @@ static void scytheThrowReady()
 	e->y = self->y + e->offsetY;
 
 	e->startX = e->x;
-	
+
 	checkToMap(self);
 
 	becomeTransparent();
@@ -1462,13 +1462,13 @@ static void scytheThrow()
 	if (self->thinkTime <= 0)
 	{
 		e = self->target;
-		
+
 		e->alpha = 255;
-		
+
 		setEntityAnimation(self, "SCYTHE_THROW");
-		
+
 		setEntityAnimation(e, "SCYTHE_THROW");
-		
+
 		e->dirX = self->face == LEFT ? -e->speed : e->speed;
 
 		e->action = &scytheMove;
@@ -1488,17 +1488,17 @@ static void scytheThrow()
 				distance = SCREEN_WIDTH;
 			break;
 		}
-		
+
 		if (self->face == LEFT)
 		{
 			e->targetX = e->x - distance;
 		}
-		
+
 		else
 		{
 			e->targetX = e->x + distance;
 		}
-		
+
 		if (e->endX == -1)
 		{
 			e->endX = playSoundToMap("sound/boss/azriel/azriel_scythe_throw.ogg", -1, self->x, self->y, -1);
@@ -1521,7 +1521,7 @@ static void scytheThrowWait()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->thinkTime = self->mental <= 0 ? 60 : 5;
 
 		self->action = self->mental <= 0 ? &scytheThrowTeleportAway : &scytheThrowReady;
@@ -1588,13 +1588,13 @@ static void scytheMove()
 		else if (self->dirX > 0 && self->x >= self->startX)
 		{
 			self->head->thinkTime = 0;
-			
+
 			if (self->head->mental == 0)
 			{
 				self->action = &scytheWait;
 				self->touch = NULL;
 			}
-			
+
 			stopSound(self->endX);
 		}
 	}
@@ -1609,13 +1609,13 @@ static void scytheMove()
 		else if (self->dirX < 0 && self->x <= self->startX)
 		{
 			self->head->thinkTime = 0;
-			
+
 			if (self->head->mental == 0)
 			{
 				self->action = &scytheWait;
 				self->touch = NULL;
 			}
-			
+
 			stopSound(self->endX);
 		}
 	}
@@ -1746,9 +1746,9 @@ static void phantasmalBolt()
 		e = addProjectile("boss/azriel_phantasmal_bolt", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
 		e->face = self->face;
-		
+
 		e->damage = player.health / 2;
-		
+
 		if (e->damage == 0)
 		{
 			e->damage = 1;
@@ -1769,8 +1769,6 @@ static void phantasmalBolt()
 		}
 
 		e->y = self->y + e->offsetY;
-
-		e->face = self->face;
 
 		e->action = &phantasmalBoltMove;
 
@@ -1911,7 +1909,7 @@ static void raiseDeadMoveToTopTarget()
 	if (atTarget())
 	{
 		setEntityAnimation(self, "PHANTASMAL_BOLT_FIRE");
-		
+
 		self->thinkTime = 30;
 
 		self->action = &raiseDead;
@@ -2012,7 +2010,7 @@ static void raiseDeadFinish()
 static void attackFinished()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->thinkTime = 30;
 
 	self->action = &entityWait;
@@ -2257,7 +2255,7 @@ static void dieShudder()
 		self->action = &dieMoveToTop;
 
 		self->thinkTime = 60;
-		
+
 		self->mental = 0;
 	}
 }
@@ -2276,11 +2274,11 @@ static void dieMoveToTop()
 		{
 			case 0:
 				self->target->inUse = FALSE;
-				
+
 				stopSound(self->target->endX);
 
 				setEntityAnimation(self, "INTRO");
-				
+
 				self->flags &= ~NO_DRAW;
 
 				addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -2288,18 +2286,18 @@ static void dieMoveToTop()
 				playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 				self->thinkTime = 90;
-				
+
 				self->mental = 1;
 			break;
-			
+
 			case 1:
 				createAutoDialogBox(_("Azriel"), _("Until we meet again..."), 120);
-				
+
 				self->mental = 2;
-				
+
 				self->thinkTime = 180;
 			break;
-			
+
 			default:
 				list = createPixelsFromSprite(getCurrentSprite(self));
 
@@ -2325,7 +2323,7 @@ static void dieMoveToTop()
 				self->thinkTime = 120;
 
 				self->action = &dieWait;
-				
+
 				playSoundToMap("sound/boss/azriel/azriel_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 			break;
 		}
