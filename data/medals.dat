@@ -1,6 +1,7 @@
 kill_sorceror G N Defeated the Sorceror
 complete_5hp G N Completed the game with only 5 hit points
 kill_chaos G Y Defeated Chaos
+20_hp S N Obtained 20 Hit Points
 50km S N Walked 50km
 kill_azriel S Y Defeated Azriel
 arrow_500 S N Fired 500 arrows
@@ -44,6 +45,7 @@ kill_mataeus B Y Defeated Mataeus
 kill_salamander B Y Defeated the Salamander
 kill_sewer B Y Defeated the Sewer Dweller
 kill_swamp_boss B Y Defeated the Forbidden Swamp Guardian
+kill_gargoyle B Y Defeated the Gargoyle
 read_monster_book B Y Read all of the Monster Compendium
 resurrection_amulet B Y Obtained the Amulet of Resurrection
 slime B N Spent 10 minutes as a Slime
