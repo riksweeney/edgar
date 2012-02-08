@@ -252,7 +252,7 @@ static void die()
 
 	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
-	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 3 == 0)
+	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 2 == 0)
 	{
 		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
 

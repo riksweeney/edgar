@@ -27,7 +27,7 @@ static void saveBuffer(void);
 static void loadBuffer(void);
 
 static int frame = 0;
-static Input inputBuffer[MAX_INPUTS];
+static int inputBuffer[MAX_INPUTS];
 static int bufferID = 0;
 static FILE *replayBuffer;
 static int inputsRead = 0;
@@ -142,7 +142,22 @@ void takeSingleScreenshot()
 
 void putBuffer(Input inp)
 {
-	inputBuffer[bufferID] = inp;
+	int input = 0;
+
+	if (inp.up == 1)        input |= 1;
+	if (inp.down == 1)      input |= 2;
+	if (inp.left == 1)      input |= 4;
+	if (inp.right == 1)     input |= 8;
+	if (inp.jump == 1)      input |= 16;
+	if (inp.attack == 1)    input |= 32;
+	if (inp.block == 1)     input |= 64;
+	if (inp.activate == 1)  input |= 128;
+	if (inp.interact == 1)  input |= 256;
+	if (inp.previous == 1)  input |= 512;
+	if (inp.next == 1)      input |= 1024;
+	if (inp.inventory == 1) input |= 2048;
+
+	inputBuffer[bufferID] = input;
 
 	bufferID++;
 
@@ -156,7 +171,10 @@ void putBuffer(Input inp)
 
 Input getBuffer()
 {
+	int input;
 	Input inp;
+
+	memset(&inp, 0, sizeof(Input));
 
 	if (bufferID == 0)
 	{
@@ -170,7 +188,20 @@ Input getBuffer()
 		exit(0);
 	}
 
-	inp = inputBuffer[bufferID];
+	input = inputBuffer[bufferID];
+
+	if (input & 1)    inp.up = 1;
+	if (input & 2)    inp.down = 1;
+	if (input & 4)    inp.left = 1;
+	if (input & 8)    inp.right = 1;
+	if (input & 16)   inp.jump = 1;
+	if (input & 32)   inp.attack = 1;
+	if (input & 64)   inp.block = 1;
+	if (input & 128)  inp.activate = 1;
+	if (input & 256)  inp.interact = 1;
+	if (input & 512)  inp.previous = 1;
+	if (input & 1024) inp.next = 1;
+	if (input & 2048) inp.inventory = 1;
 
 	bufferID++;
 
@@ -184,12 +215,12 @@ Input getBuffer()
 
 static void saveBuffer()
 {
-	fwrite(inputBuffer, sizeof(Input), bufferID, replayBuffer);
+	fwrite(inputBuffer, sizeof(int), bufferID, replayBuffer);
 }
 
 static void loadBuffer()
 {
-	inputsRead = fread(inputBuffer, sizeof(Input), MAX_INPUTS, replayBuffer);
+	inputsRead = fread(inputBuffer, sizeof(int), MAX_INPUTS, replayBuffer);
 
 	if (inputsRead != MAX_INPUTS)
 	{

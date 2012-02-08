@@ -226,7 +226,6 @@ static void entityWait()
 				case 1:
 					switch (prand() % 4)
 					{
-						/* Portal attack */
 						/* Wind attack */
 						/* Vertical throw 2 */
 						/* Weapon remove blast */
@@ -809,15 +808,54 @@ void lightningWait()
 
 static void lanceAttack2()
 {
+	self->thinkTime--;
+
+	checkToMap(self);
+}
+
+static void becomeMiniGargoyleInit()
+{
 	int i;
 
+	self->flags |= NO_DRAW;
+
+	self->touch = NULL;
+
+	self->mental = 0;
+
+	for (i=0;i<20;i++)
+	{
+		e = addEnemy("enemy/mini_gargoyle", 0, 0);
+
+		self->mental++;
+	}
+
+	checkToMap(self);
+}
+
+static void becomeMiniGargoyleWait()
+{
+	if (self->mental <= 0)
+	{
+		self->thinkTime = 60;
+
+		self->action = &becomeMiniGargoyleFinish;
+	}
+
+	checkToMap(self);
+}
+
+static void becomeMiniGargoyleFinish()
+{
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->maxThinkTime = 0;
+		self->flags &= ~NO_DRAW;
 
-		self->action = &createMiniGargoyleInit;
+		self->touch = entityTouch;
+
+		self->action = &attackFinished;
 	}
 
 	checkToMap(self);
