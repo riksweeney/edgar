@@ -27,7 +27,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../init.h"
 #include "../system/error.h"
 #include "../system/load_save.h"
-#include "../system/pak.h"
 #include "about_menu.h"
 #include "io_menu.h"
 #include "medals_menu.h"

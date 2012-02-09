@@ -156,6 +156,7 @@ void putBuffer(Input inp)
 	if (inp.previous == 1)  input |= 512;
 	if (inp.next == 1)      input |= 1024;
 	if (inp.inventory == 1) input |= 2048;
+	if (inp.grabbing == 1)  input |= 4096;
 
 	inputBuffer[bufferID] = input;
 
@@ -202,6 +203,7 @@ Input getBuffer()
 	if (input & 512)  inp.previous = 1;
 	if (input & 1024) inp.next = 1;
 	if (input & 2048) inp.inventory = 1;
+	if (input & 4096) inp.grabbing = 1;
 
 	bufferID++;
 

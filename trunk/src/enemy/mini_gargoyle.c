@@ -19,17 +19,11 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
-#include "../audio/audio.h"
 #include "../collisions.h"
 #include "../custom_actions.h"
-#include "../enemy/rock.h"
 #include "../entity.h"
+#include "../geometry.h"
 #include "../graphics/animation.h"
-#include "../hud.h"
-#include "../inventory.h"
-#include "../item/item.h"
-#include "../item/key_items.h"
-#include "../map.h"
 #include "../player.h"
 #include "../system/error.h"
 #include "../system/properties.h"
@@ -64,9 +58,8 @@ Entity *addMiniGargoyle(int x, int y, char *name)
 	e->action = &attackPlayer;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
-	e->takeDamage = &entityTakeDamageFlinch;
-
-	e->creditsAction = &init;
+	e->takeDamage = &takeDamage;
+	e->touch = &touch;
 
 	e->type = ENEMY;
 
@@ -226,7 +219,7 @@ static void moveToGargoyleInit()
 		self->head->endX++;
 
 		self->targetX = self->head->x;
-		self->targetY = self->head->y
+		self->targetY = self->head->y;
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 

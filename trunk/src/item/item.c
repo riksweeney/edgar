@@ -25,13 +25,13 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../inventory.h"
-#include "item.h"
-#include "key_items.h"
 #include "../player.h"
 #include "../projectile.h"
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
+#include "item.h"
+#include "key_items.h"
 
 extern Entity *self;
 extern Entity player;

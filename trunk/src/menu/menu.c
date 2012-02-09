@@ -25,13 +25,13 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "inventory_menu.h"
 #include "io_menu.h"
 #include "main_menu.h"
+#include "medals_menu.h"
 #include "ok_menu.h"
 #include "options_menu.h"
 #include "script_menu.h"
 #include "sound_menu.h"
 #include "stats_menu.h"
 #include "yes_no_menu.h"
-#include "medals_menu.h"
 
 extern Game game;
 
