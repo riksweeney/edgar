@@ -19,11 +19,11 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "headers.h"
 
+#include "audio/music.h"
 #include "game.h"
 #include "graphics/animation.h"
 #include "graphics/font.h"
 #include "graphics/graphics.h"
-#include "audio/music.h"
 #include "player.h"
 #include "system/load_save.h"
 #include "system/random.h"

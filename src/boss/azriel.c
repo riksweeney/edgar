@@ -23,13 +23,12 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../audio/music.h"
 #include "../boss/sorceror.h"
 #include "../collisions.h"
-#include "../custom_actions.h"
 #include "../credits.h"
+#include "../custom_actions.h"
 #include "../dialog.h"
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
 #include "../entity.h"
-#include "../event/script.h"
 #include "../game.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
@@ -44,8 +43,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
-#include "../world/target.h"
 #include "../weather.h"
+#include "../world/target.h"
 
 extern Entity *self, player;
 

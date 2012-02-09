@@ -26,15 +26,11 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
 #include "../entity.h"
-#include "../event/script.h"
 #include "../game.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
-#include "../graphics/graphics.h"
 #include "../hud.h"
-#include "../inventory.h"
-#include "../item/key_items.h"
 #include "../map.h"
 #include "../player.h"
 #include "../projectile.h"
@@ -42,7 +38,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 #include "../world/target.h"
-#include "../weather.h"
 
 extern Entity *self, player;
 

@@ -25,7 +25,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../graphics/graphics.h"
 #include "../init.h"
 #include "../system/error.h"
-#include "../system/pak.h"
 #include "label.h"
 #include "options_menu.h"
 #include "widget.h"

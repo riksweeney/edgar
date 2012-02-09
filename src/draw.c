@@ -25,7 +25,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "event/script.h"
 #include "game.h"
 #include "graphics/decoration.h"
-#include "graphics/font.h"
 #include "graphics/graphics.h"
 #include "hud.h"
 #include "inventory.h"
