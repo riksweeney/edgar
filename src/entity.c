@@ -782,7 +782,7 @@ void pushEntity(Entity *other)
 	static int depth = 0;
 	long wasOnGround;
 
-	if (other->touch == NULL || (other->type == WEAPON && other->flags & ATTACKING) || (other->flags & PLAYER_TOUCH_ONLY))
+	if (other->touch == NULL || (other->type == WEAPON && (other->flags & ATTACKING)) || (other->flags & PLAYER_TOUCH_ONLY))
 	{
 		return;
 	}
@@ -1066,30 +1066,21 @@ void pushEntity(Entity *other)
 			collided = TRUE;
 		}
 	}
-	/*
+
 	else if (collided == FALSE)
 	{
-		if (self->x > other->x && depth == 1)
-		{
-			Place the entity as close as possible
+		printf("%s failed to collide with %s, placing on top...\n", other->name, self->name);
 
-			self->x = getRightEdge(other);
+		/* Place the entity as close as possible */
 
-			self->dirX = 0;
-		}
+		other->y = self->y + self->box.y;
+		other->y -= other->box.h + other->box.y;
 
-		else if (depth == 1)
-		{
-			Place the entity as close as possible
-
-			self->x = getLeftEdge(other);
-
-			self->x -= self->box.w;
-
-			self->dirX = 0;
-		}
+		other->standingOn = self;
+		other->dirY = 0;
+		other->flags |= ON_GROUND;
 	}
-	*/
+
 	other->x += other->dirX;
 	other->y += other->dirY;
 }

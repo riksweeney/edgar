@@ -100,7 +100,15 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
+	if (other->dirX == 0 && self->dirY > 0)
+	{
+		self->y -= self->dirY;
+	}
+
+	else
+	{
+		pushEntity(other);
+	}
 
 	if (self->type == MANUAL_DOOR)
 	{
