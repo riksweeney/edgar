@@ -127,7 +127,7 @@ static void fallout()
 
 static void platformTouch(Entity *other)
 {
-	if (other->flags & ATTACKING)
+	if ((other->flags & ATTACKING) && other->type == ENEMY)
 	{
 		self->inUse = FALSE;
 	}

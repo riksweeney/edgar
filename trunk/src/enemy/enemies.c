@@ -135,6 +135,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../boss/sorceror_2.h"
 #include "../boss/sorceror_floor.h"
 #include "../boss/azriel.h"
+#include "../boss/mini_gargolye.h"
 
 #include "../system/error.h"
 
@@ -290,7 +291,8 @@ static Constructor enemies[] = {
 {"enemy/arrow_skeleton", &addSkeleton},
 {"enemy/sword_skeleton", &addSkeleton},
 {"boss/azriel", &addAzriel},
-{"enemy/zombie", &addZombie}
+{"enemy/zombie", &addZombie},
+{"boss/mini_gargoyle", &addMiniGargoyle}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
