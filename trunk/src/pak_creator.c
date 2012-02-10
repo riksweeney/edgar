@@ -213,7 +213,8 @@ static void compressFile(char *filename, DIR *dirp)
 {
 	FILE *infile;
 	int compressionResult;
-	int fileSize, compressedSize, ensuredSize;
+	int fileSize, ensuredSize;
+	unsigned long compressedSize;
 	gzFile fp;
 	float percentage;
 	unsigned char *buffer, *output;
@@ -339,7 +340,7 @@ static void testPak(char *pakFile)
 	FileData *fileData;
 	int fileCount, i, read;
 	int offset;
-	int size;
+	unsigned long size;
 	FILE *fp;
 	unsigned char *source, *dest;
 
@@ -381,7 +382,7 @@ static void testPak(char *pakFile)
 		fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
 		fileData[i].fileSize = SWAP32(fileData[i].fileSize);
 
-		printf("'%s' at offset %ld : %ld -> %ld\n", fileData[i].filename, fileData[i].offset, fileData[i].compressedSize, fileData[i].fileSize);
+		printf("'%s' at offset %d : %d -> %d\n", fileData[i].filename, fileData[i].offset, fileData[i].compressedSize, fileData[i].fileSize);
 	}
 
 	for (i=0;i<fileCount;i++)
@@ -396,7 +397,7 @@ static void testPak(char *pakFile)
 
 		if (source == NULL)
 		{
-			printf("\nFailed to allocate %ld bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
 
 			exit(1);
 		}
@@ -405,7 +406,7 @@ static void testPak(char *pakFile)
 
 		if (dest == NULL)
 		{
-			printf("\nFailed to allocate %ld bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
 
 			exit(1);
 		}
@@ -420,7 +421,7 @@ static void testPak(char *pakFile)
 
 		if (size != fileData[i].fileSize)
 		{
-			printf("\nFailed to decompress %s. Expected %ld, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
+			printf("\nFailed to decompress %s. Expected %d, got %ld\n", fileData[i].filename, fileData[i].fileSize, size);
 
 			exit(1);
 		}
