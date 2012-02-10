@@ -23,7 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "load_save.h"
 
 static unsigned char *uncompressFile(char *, int);
-static unsigned char *uncompressFileRW(char *, int *);
+static unsigned char *uncompressFileRW(char *, unsigned long *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
@@ -100,7 +100,7 @@ void verifyVersion()
 
 SDL_Surface *loadImageFromPak(char *name)
 {
-	int size;
+	unsigned long size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	SDL_Surface *surface;
@@ -118,7 +118,7 @@ SDL_Surface *loadImageFromPak(char *name)
 
 Mix_Chunk *loadSoundFromPak(char *name)
 {
-	int size;
+	unsigned long size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	Mix_Chunk *chunk;
@@ -136,7 +136,7 @@ Mix_Chunk *loadSoundFromPak(char *name)
 
 TTF_Font *loadFontFromPak(char *name, int fontSize)
 {
-	int size;
+	unsigned long size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	TTF_Font *font;
@@ -203,7 +203,7 @@ Mix_Music *loadMusicFromPak(char *name)
 	#endif
 }
 
-static unsigned char *uncompressFileRW(char *name, int *size)
+static unsigned char *uncompressFileRW(char *name, unsigned long *size)
 {
 	int i, index;
 	unsigned char *source, *dest;
@@ -267,18 +267,18 @@ static unsigned char *uncompressFileRW(char *name, int *size)
 
 		if (source == NULL)
 		{
-			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
+			showErrorAndExit("Failed to allocate %d bytes to load %s from PAK", fileData[index].compressedSize * (int)sizeof(unsigned char), name);
 		}
 
 		dest = malloc(fileData[index].fileSize * sizeof(unsigned char));
 
 		if (dest == NULL)
 		{
-			showErrorAndExit("Failed to allocate %ld bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
+			showErrorAndExit("Failed to allocate %d bytes to load %s from PAK", fileData[index].fileSize * (int)sizeof(unsigned char), name);
 		}
 
 		read = fread(source, fileData[i].compressedSize, 1, fp);
-
+		
 		(*size) = fileData[index].fileSize;
 
 		uncompress(dest, size, source, fileData[index].compressedSize);
@@ -303,7 +303,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index, read;
 	char *filename;
-	int size;
+	unsigned long size;
 	unsigned char *source, *dest;
 	FILE *fp;
 
@@ -387,7 +387,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 		}
 
 		read = fread(source, fileData[index].compressedSize, 1, fp);
-
+		
 		size = fileData[index].fileSize;
 
 		uncompress(dest, &size, source, fileData[index].compressedSize);
