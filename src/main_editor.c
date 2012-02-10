@@ -33,7 +33,6 @@ Input input, menuInput;
 Entity player, playerWeapon, playerShield, *self;
 Game game;
 Cursor cursor;
-Target target[MAX_TARGETS];
 Control control;
 
 int main(int argc, char *argv[])
@@ -63,9 +62,9 @@ int main(int argc, char *argv[])
 	/* Load the resources */
 
 	loadRequiredResources();
-	
+
 	freeEntities();
-	
+
 	freeDecorations();
 
 	if (argc > 1)

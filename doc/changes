@@ -2,6 +2,7 @@ CHANGE LOG
 ----------
 
 Version 0.98
+* Fixed a problem with objects falling through pressure plates
 * Updated the Fortress Outskirts map
 * Chaos will be in the next version...
 

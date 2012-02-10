@@ -48,6 +48,12 @@ static void doIntro(void);
 static void introFinish(void);
 static void attackFinished(void);
 static void coatWait(void);
+static void lanceThrowInit(void);
+static void lanceThrowMoveToTarget(void);
+static void lanceThrow(void);
+static void lanceThrowWait(void);
+static void lanceDrop(void);
+static void lanceAttack1(void);
 
 Entity *addGargoyle(int x, int y, char *name)
 {
@@ -79,16 +85,29 @@ Entity *addGargoyle(int x, int y, char *name)
 
 static void init()
 {
-	if (self->mental == 0)
+	switch (self->mental)
 	{
-		addStoneCoat();
+		case -1:
+			setEntiyAnimation(self, "REACH_STONE");
 
-		self->action = &initialise;
-	}
+			self->takeDamage = &dieTakeDamage;
 
-	else
-	{
-		self->action = &introFinish;
+			self->touch = &dieTouch;
+
+			self->activate = &activate;
+
+			self->action = &dieFinish;
+		break;
+
+		case 0:
+			addStoneCoat();
+
+			self->action = &initialise;
+		break;
+
+		default:
+			self->action = &introFinish;
+		break;
 	}
 }
 
@@ -187,7 +206,7 @@ static void introFinish()
 
 static void attackFinished()
 {
-	self->thinkTime = 30;
+	self->thinkTime = 60;
 
 	self->action = &entityWait;
 
@@ -212,9 +231,17 @@ static void entityWait()
 				case 0:
 					switch (prand() % 4)
 					{
-						/* Stab */
-						/* Vertical throw 1 */
-						/* Weapon remove blast */
+						case 0:
+							self->action = &lanceStab;
+						break;
+
+						case 1:
+							self->action = &weaponRemoveBlastInit;
+						break;
+
+						default:
+							self->action = &lanceThrowInit;
+						break;
 					}
 				break;
 
@@ -246,6 +273,70 @@ static void entityWait()
 				break;
 			}
 		}
+	}
+
+	checkToMap(self);
+}
+
+static void lanceThrowInit()
+{
+	Target *t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Gargoyle cannot find target");
+	}
+
+	self->targetX = self->x;
+	self->targetY = t->y;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->dirX *= self->speed;
+	self->dirY *= self->speed;
+
+	self->flags |= FLY;
+
+	self->action = &lanceThrowMoveToTarget;
+
+	checkToMap(self);
+}
+
+static void lanceThrowMoveToTarget()
+{
+	if (atTarget())
+	{
+		self->thinkTime = 30;
+
+		self->action = &lanceThrow;
+	}
+
+	checkToMap(self);
+}
+
+static void lanceThrow()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "LANCE_THROW");
+
+		self->target->mental = -1;
+
+		self->action = &lanceThrowWait;
+
+		self->mental = 1;
+	}
+
+	checkToMap(self);
+}
+
+static void lanceThrowWait()
+{
+	if (self->mental == 0)
+	{
+		self->action = &attackFinished;
 	}
 
 	checkToMap(self);
@@ -309,6 +400,8 @@ static void createLance()
 
 	self->target = e;
 
+	e->maxThinkTime = 0;
+
 	self->action = &createLanceWait;
 }
 
@@ -328,15 +421,15 @@ static void lanceAppearWait()
 
 	if (self->face == LEFT)
 	{
-		e->x = self->x + self->w - e->w - self->offsetX;
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
 	}
 
 	else
 	{
-		e->x = self->x + self->offsetX;
+		self->x = self->head->x + self->offsetX;
 	}
 
-	e->y = self->y + self->offsetY;
+	self->y = self->head->y + self->offsetY;
 }
 
 static void lanceAppearFinish()
@@ -352,17 +445,51 @@ static void lanceWait()
 {
 	self->face = self->head->face;
 
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+
 	if (self->face == LEFT)
 	{
-		e->x = self->x + self->w - e->w - self->offsetX;
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
 	}
 
 	else
 	{
-		e->x = self->x + self->offsetX;
+		self->x = self->head->x + self->offsetX;
 	}
 
-	e->y = self->y + self->offsetY;
+	self->y = self->head->y + self->offsetY;
+
+	if (self->mental == -1)
+	{
+		self->action = &lanceDrop;
+	}
+}
+
+static void lanceDrop()
+{
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		switch (self->maxThinkTime)
+		{
+			case 0:
+				self->action = &lanceAttack1;
+			break;
+
+			case 1:
+				self->action = &lanceAttack2;
+			break;
+
+			default:
+				self->action = &lanceAttack3;
+			break;
+		}
+
+		self->thinkTime = 30;
+	}
 }
 
 static void weaponRemoveBlastInit()
@@ -425,44 +552,47 @@ static void blastRemoveWeapon(Entity *other)
 {
 	Entity *e;
 
-	e = removePlayerWeapon();
-
-	if (e != NULL)
+	if (other->type == PLAYER)
 	{
-		e->x = self->x;
-		e->y = self->y;
+		e = removePlayerWeapon();
 
-		e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
-		e->dirY = -12;
+		if (e != NULL)
+		{
+			e->x = self->x;
+			e->y = self->y;
 
-		setCustomAction(e, &invulnerable, 120, 0, 0);
+			e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = -12;
 
-		addExitTrigger(e);
+			setCustomAction(e, &invulnerable, 120, 0, 0);
+
+			addExitTrigger(e);
+		}
+
+		e = removePlayerShield();
+
+		if (e != NULL)
+		{
+			e->x = self->x;
+			e->y = self->y;
+
+			e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
+			e->dirY = -12;
+
+			setCustomAction(e, &invulnerable, 120, 0, 0);
+
+			addExitTrigger(e);
+		}
+
+		setCustomAction(self->target, &invulnerable, 60, 0, 0);
+
+		setPlayerStunned(30);
+
+		self->target->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
+		self->target->dirY = -8;
+
+		self->inUse = FALSE;
 	}
-
-	e = removePlayerShield();
-
-	if (e != NULL)
-	{
-		e->x = self->x;
-		e->y = self->y;
-
-		e->dirX = (6 + prand() % 3) * (prand() % 2 == 0 ? -1 : 1);
-		e->dirY = -12;
-
-		setCustomAction(e, &invulnerable, 120, 0, 0);
-
-		addExitTrigger(e);
-	}
-
-	setCustomAction(self->target, &invulnerable, 60, 0, 0);
-
-	setPlayerStunned(30);
-
-	self->target->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
-	self->target->dirY = -8;
-
-	self->inUse = FALSE;
 }
 
 static void weaponRemoveBlastFinish()
@@ -518,11 +648,6 @@ static void takeDamage(Entity *other, int damage)
 		{
 			self->damage = 0;
 
-			if (other->type == WEAPON || other->type == PROJECTILE)
-			{
-				increaseKillCount();
-			}
-
 			self->die();
 		}
 
@@ -548,25 +673,6 @@ static void takeDamage(Entity *other, int damage)
 
 		self = temp;
 	}
-}
-
-static void lanceWait()
-{
-	self->face = self->head->face;
-
-	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-
-	if (self->face == LEFT)
-	{
-		self->x = self->head->x + self->head->w - self->w - self->offsetX;
-	}
-
-	else
-	{
-		self->x = self->head->x + self->offsetX;
-	}
-
-	self->y = self->head->y + self->offsetY;
 }
 
 static void lanceAttack1()
@@ -818,11 +924,19 @@ static void becomeMiniGargoyleInit()
 
 	self->mental = 0;
 
+	self->endX = 0;
+
 	for (i=0;i<20;i++)
 	{
 		e = addEnemy("enemy/mini_gargoyle", 0, 0);
 
+		e->head = self;
+
+		e->thinkTime = 30 + prand() % 120;
+
 		self->mental++;
+
+		self->endX++;
 	}
 
 	checkToMap(self);
@@ -830,10 +944,8 @@ static void becomeMiniGargoyleInit()
 
 static void becomeMiniGargoyleWait()
 {
-	if (self->mental <= 0)
+	if (self->endX <= 0)
 	{
-		self->thinkTime = 60;
-
 		self->action = &becomeMiniGargoyleFinish;
 	}
 
@@ -848,7 +960,7 @@ static void becomeMiniGargoyleFinish()
 	{
 		self->flags &= ~NO_DRAW;
 
-		self->touch = entityTouch;
+		self->touch = &entityTouch;
 
 		self->action = &attackFinished;
 	}
@@ -903,6 +1015,8 @@ static void lanceAttackTeleportFinish()
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		self->action = &lanceWait;
+
+		self->head->mental = 0;
 	}
 }
 
@@ -937,6 +1051,10 @@ static void addStoneCoat()
 
 static void coatWait()
 {
+	self->face = self->head->face;
+
+	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
+
 	if (self->head->mental == 1)
 	{
 		self->alpha--;
@@ -949,6 +1067,200 @@ static void coatWait()
 		}
 	}
 
+	else if (self->head->mental == 2)
+	{
+		self->alpha++;
+
+		if (self->alpha >= 255)
+		{
+			self->head->mental = 0;
+
+			self->mental = 0;
+		}
+	}
+
 	self->x = self->head->x;
 	self->y = self->head->y;
+
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void die()
+{
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->damage = 0;
+
+		self->takeDamage = NULL;
+
+		shakeScreen(MEDIUM, 30);
+
+		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+		for (i=0;i<30;i++)
+		{
+			e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+			if (e != NULL)
+			{
+				e->y -= prand() % e->h;
+			}
+		}
+
+		addStoneCoat();
+
+		self->health = 0;
+
+		self->mental = 2;
+
+		self->thinkTime = 60;
+
+		self->action = &dieWait;
+
+		self->startX = self->x;
+	}
+}
+
+static void dieWait()
+{
+	setEntiyAnimation(self, "REACH");
+
+	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
+
+	self->startY += 90;
+
+	if (self->startY >= 360)
+	{
+		self->startY = 0;
+	}
+
+	if (self->mental == 0)
+	{
+		self->x = self->startX;
+
+		self->mental = -1;
+
+		setEntiyAnimation(self, "REACH_STONE");
+
+		self->takeDamage = &dieTakeDamage;
+
+		self->touch = &dieTouch;
+
+		self->activate = &activate;
+
+		self->health = 8;
+
+		self->action = &dieFinish;
+
+		clearContinuePoint();
+
+		increaseKillCount();
+
+		freeBossHealthBar();
+
+		fadeBossMusic();
+
+		fireTrigger(self->objectiveName);
+
+		fireGlobalTrigger(self->objectiveName);
+	}
+}
+
+static void dieTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		setInfoBoxMessage(0, 255, 255, 255, _("Press Action to interact"));
+	}
+
+	else
+	{
+		entityTouch(other);
+	}
+}
+
+static void activate(int val)
+{
+	runScript(self->requires);
+}
+
+static void dieFinish()
+{
+	checkToMap(self);
+}
+
+static void takeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (strcmpignorecase("weapon/pickaxe", other->name) == 0)
+	{
+		self->health -= damage;
+
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		if (self->health <= 0)
+		{
+			self->action = &stoneDie;
+		}
+	}
+
+	else
+	{
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock(temp);
+
+			self = temp;
+		}
+
+		if (other->type != PROJECTILE && prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+
+		damage = 0;
+	}
+}
+
+static void stoneDie()
+{
+	int i;
+
+	Entity *e = addKeyItem("item/heart_container", self->x + self->w / 2, self->y);
+
+	e->dirY = ITEM_JUMP_HEIGHT;
+
+	for (i=0;i<8;i++)
+	{
+		e = addTemporaryItem("boss/gargoyle_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 10) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+
+	self->inUse = FALSE;
 }

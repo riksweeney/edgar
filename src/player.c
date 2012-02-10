@@ -1666,6 +1666,11 @@ void increasePlayerMaxHealth()
 	{
 		addMedal("10_hp");
 	}
+
+	else if (player.health == 20)
+	{
+		addMedal("20_hp");
+	}
 }
 
 void syncWeaponShieldToPlayer()

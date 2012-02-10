@@ -116,10 +116,8 @@ static void touch(Entity *other)
 	{
 		self->startX = prand() % other->w;
 		self->startY = prand() % other->h;
-		
-		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
-		self->head->endX--;
+		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
 		self->action = &raiseOffScreen;
 
@@ -216,8 +214,6 @@ static void moveToGargoyleInit()
 
 	if (self->thinkTime <= 0)
 	{
-		self->head->endX++;
-
 		self->targetX = self->head->x;
 		self->targetY = self->head->y;
 
@@ -227,6 +223,8 @@ static void moveToGargoyleInit()
 		self->dirY *= self->speed;
 
 		self->action = &moveToGargoyle;
+
+		self->thinkTime = 180;
 	}
 
 	checkToMap(self);
@@ -243,6 +241,8 @@ static void moveToGargoyle()
 			self->head->endX--;
 
 			self->thinkTime = 60;
+
+			self->head->thinkTime = 60;
 		}
 
 		else if (self->head->endX <= 0)
@@ -251,24 +251,38 @@ static void moveToGargoyle()
 
 			if (self->thinkTime <= 0)
 			{
-				self->head->flags &= ~NO_DRAW;
-
 				self->inUse = FALSE;
 			}
 		}
 	}
+
+	else
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->x = self->targetX;
+			self->y = self->targetY;
+
+			self->dirX = 0;
+			self->dirY = 0;
+		}
+	}
+
+	checkToMap(self);
 }
 
 static void raiseOffScreen()
 {
 	self->x = player.x + self->startX;
 	self->y = player.y + self->startY;
-	
+
 	self->y -= 0.1;
 
 	player.x = self->targetX;
 	player.y = self->y - self->startY;
-	
+
 	if (self->y < self->targetY)
 	{
 		freeEntityList(playerGib());
