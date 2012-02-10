@@ -27,12 +27,12 @@ static unsigned char *uncompressFileRW(char *, unsigned long *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
-static int fileCount;
+static int32_t fileCount;
 
 void initPakFile()
 {
 	#if DEV == 0
-		int offset;
+		int32_t offset;
 		FILE *fp;
 		int read, i;
 
@@ -50,10 +50,10 @@ void initPakFile()
 			exit(0);
 		}
 
-		fseek(fp, -(sizeof(int) + sizeof(int)), SEEK_END);
+		fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
 
-		read = fread(&offset, sizeof(int), 1, fp);
-		read = fread(&fileCount, sizeof(int), 1, fp);
+		read = fread(&offset, sizeof(int32_t), 1, fp);
+		read = fread(&fileCount, sizeof(int32_t), 1, fp);
 
 		offset = SWAP32(offset);
 		fileCount = SWAP32(fileCount);

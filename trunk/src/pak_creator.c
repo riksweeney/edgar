@@ -20,7 +20,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "headers.h"
 
 FILE *pak;
-int totalFiles, fileID = 0;
+int fileID = 0;
+int32_t totalFiles;
 FileData *fileData;
 
 static int countFiles(char *);
@@ -32,7 +33,7 @@ static void testPak(char *);
 int main(int argc, char *argv[])
 {
 	int i;
-	int length;
+	int32_t length;
 	char versionName[5];
 	FILE *versionFile;
 
@@ -116,8 +117,8 @@ int main(int argc, char *argv[])
 	length = SWAP32(length);
 	totalFiles = SWAP32(totalFiles);
 
-	fwrite(&length, sizeof(int), 1, pak);
-	fwrite(&totalFiles, sizeof(int), 1, pak);
+	fwrite(&length, sizeof(int32_t), 1, pak);
+	fwrite(&totalFiles, sizeof(int32_t), 1, pak);
 
 	fclose(pak);
 
@@ -338,8 +339,8 @@ static void compressFile(char *filename, DIR *dirp)
 static void testPak(char *pakFile)
 {
 	FileData *fileData;
-	int fileCount, i, read;
-	int offset;
+	int i, read;
+	int32_t offset, fileCount;
 	unsigned long size;
 	FILE *fp;
 	unsigned char *source, *dest;
@@ -353,10 +354,10 @@ static void testPak(char *pakFile)
 		exit(1);
 	}
 
-	fseek(fp, -(sizeof(int) + sizeof(int)), SEEK_END);
+	fseek(fp, -(sizeof(int32_t) + sizeof(int32_t)), SEEK_END);
 
-	read = fread(&offset, sizeof(int), 1, fp);
-	read = fread(&fileCount, sizeof(int), 1, fp);
+	read = fread(&offset, sizeof(int32_t), 1, fp);
+	read = fread(&fileCount, sizeof(int32_t), 1, fp);
 
 	offset = SWAP32(offset);
 	fileCount = SWAP32(fileCount);

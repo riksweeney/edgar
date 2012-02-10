@@ -21,13 +21,13 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "error.h"
 
-static unsigned char *decompressFileOld(char *);
+static unsigned char *decompressFile64(char *);
 
 void compressFile(char *sourceName)
 {
 	int read, result;
 	unsigned char *source, *dest;
-	int fileSize, ensuredSize;
+	int32_t fileSize, ensuredSize;
 	unsigned long compressedSize;
 	FILE *fp;
 
@@ -82,8 +82,10 @@ void compressFile(char *sourceName)
 	}
 
 	fp = fopen(sourceName, "wb");
+	
+	fileSize = SWAP32(fileSize);
 
-	result = fwrite(&fileSize, sizeof(int), 1, fp);
+	result = fwrite(&fileSize, sizeof(int32_t), 1, fp);
 	
 	if (result != 1)
 	{
@@ -107,7 +109,7 @@ void compressFile(char *sourceName)
 unsigned char *decompressFile(char *sourceName)
 {
 	unsigned char *source, *dest;
-	int compressedSize, int32;
+	int32_t compressedSize, int32;
 	unsigned long fileSize;
 	FILE *fp;
 	int read, result;
@@ -123,28 +125,24 @@ unsigned char *decompressFile(char *sourceName)
 
 	compressedSize = ftell(fp);
 
-	compressedSize -= sizeof(int);
+	compressedSize -= sizeof(int32_t);
 
 	fseek(fp, 0L, SEEK_SET);
 
-	read = fread(&int32, sizeof(int), 1, fp);
+	read = fread(&int32, sizeof(int32_t), 1, fp);
 
-	fileSize = int32;
+	fileSize = SWAP32(int32);
 	
 	if (read != 1)
 	{
-		printf("1. New decompression method failed, trying old method...\n");
-
-		return decompressFileOld(sourceName);
+		return decompressFile64(sourceName);
 	}
 
 	source = malloc(compressedSize * sizeof(unsigned char));
 
 	if (source == NULL)
 	{
-		printf("2. New decompression method failed, trying old method...\n");
-
-		return decompressFileOld(sourceName);
+		return decompressFile64(sourceName);
 	}
 
 	dest = malloc((fileSize + 1) * sizeof(unsigned char));
@@ -153,9 +151,7 @@ unsigned char *decompressFile(char *sourceName)
 	{
 		free(source);
 
-		printf("3. New decompression method failed, trying old method...\n");
-		
-		return decompressFileOld(sourceName);
+		return decompressFile64(sourceName);
 	}
 
 	read = fread(source, compressedSize, 1, fp);
@@ -166,9 +162,7 @@ unsigned char *decompressFile(char *sourceName)
 		
 		free(dest);
 		
-		printf("4.New decompression method failed, trying old method...\n");
-		
-		return decompressFileOld(sourceName);
+		return decompressFile64(sourceName);
 	}
 
 	result = uncompress(dest, &fileSize, source, compressedSize);
@@ -186,18 +180,16 @@ unsigned char *decompressFile(char *sourceName)
 			free(dest);
 		}
 		
-		printf("5. New decompression method failed, trying old method...\n");
-		
-		return decompressFileOld(sourceName);
+		return decompressFile64(sourceName);
 	}
 
 	return dest;
 }
 
-static unsigned char *decompressFileOld(char *sourceName)
+static unsigned char *decompressFile64(char *sourceName)
 {
 	unsigned char *source, *dest;
-	uint64_t long64;
+	int64_t long64;
 	unsigned long compressedSize, fileSize;
 	FILE *fp;
 	int read, result;
@@ -213,13 +205,13 @@ static unsigned char *decompressFileOld(char *sourceName)
 
 	compressedSize = ftell(fp);
 
-	compressedSize -= sizeof(long64);
+	compressedSize -= sizeof(int64_t);
 
 	fseek(fp, 0L, SEEK_SET);
 
-	read = fread(&long64, sizeof(long64), 1, fp);
+	read = fread(&long64, sizeof(int64_t), 1, fp);
 	
-	fileSize = long64;
+	fileSize = SWAP64(long64);
 	
 	if (read != 1)
 	{
