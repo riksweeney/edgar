@@ -135,7 +135,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../boss/sorceror_2.h"
 #include "../boss/sorceror_floor.h"
 #include "../boss/azriel.h"
-#include "../boss/mini_gargolye.h"
+#include "../boss/mini_gargoyle.h"
 
 #include "../system/error.h"
 

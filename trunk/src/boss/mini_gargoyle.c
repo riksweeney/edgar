@@ -38,7 +38,6 @@ static void die(void);
 static void dieWait(void);
 static void moveToGargoyleInit(void);
 static void moveToGargoyle(void);
-static void stickAndWait(void);
 static void raiseOffScreen(void);
 
 Entity *addMiniGargoyle(int x, int y, char *name)
@@ -116,12 +115,13 @@ static void touch(Entity *other)
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
 		self->startX = prand() % other->w;
-
 		self->startY = prand() % other->h;
+		
+		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
 		self->head->endX--;
 
-		self->action = &stickAndWait;
+		self->action = &raiseOffScreen;
 
 		self->thinkTime = 120;
 
@@ -259,34 +259,16 @@ static void moveToGargoyle()
 	}
 }
 
-static void stickAndWait()
-{
-	self->x = player.x + self->startX;
-	self->y = player.x + self->startY;
-
-	if (self->head->endX <= 0)
-	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
-		{
-			self->targetX = player.x;
-			self->targetY = self->y - SCREEN_HEIGHT;
-
-			self->action = &raiseOffScreen;
-		}
-	}
-
-	checkToMap(self);
-}
-
 static void raiseOffScreen()
 {
-	self->y -= 3;
+	self->x = player.x + self->startX;
+	self->y = player.y + self->startY;
+	
+	self->y -= 0.1;
 
 	player.x = self->targetX;
 	player.y = self->y - self->startY;
-
+	
 	if (self->y < self->targetY)
 	{
 		freeEntityList(playerGib());

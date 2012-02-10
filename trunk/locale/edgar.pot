@@ -3473,9 +3473,6 @@ msgstr ""
 msgid "Chaos still rests..."
 msgstr ""
 
-msgid "Copyright Parallel Realities 2009 - 2011"
-msgstr ""
-
 msgid "Play Time"
 msgstr ""
 
