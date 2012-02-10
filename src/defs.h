@@ -179,9 +179,11 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
 	#define SWAP16(X) (X)
 	#define SWAP32(X) (X)
+	#define SWAP64(X) (X)
 #else
 	#define SWAP16(X) SDL_Swap16(X)
 	#define SWAP32(X) SDL_Swap32(X)
+	#define SWAP64(X) SDL_Swap64(X)
 #endif
 
 #define MAX_SOUNDS 256

@@ -4,7 +4,8 @@ CHANGE LOG
 Version 0.98
 * Fixed a problem with objects falling through pressure plates
 * Updated the Fortress Outskirts map
-* Chaos will be in the next version...
+* 32 bit saves can now be loaded on 64 bit machines and vice-versa
+* Just one more major release to go...
 
 Version 0.97
 * Added the next part of the optional quest
