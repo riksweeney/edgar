@@ -92,7 +92,14 @@ static void entityWait()
 
 static void touch(Entity *other)
 {
-	pushEntity(other);
+	/* Place the entity as close as possible */
+
+	other->y = self->y + self->box.y;
+	other->y -= other->box.h + other->box.y;
+
+	other->standingOn = self;
+	other->dirY = 0;
+	other->flags |= ON_GROUND;
 
 	if (other->standingOn == self)
 	{

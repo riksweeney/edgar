@@ -1067,20 +1067,6 @@ void pushEntity(Entity *other)
 		}
 	}
 
-	else if (collided == FALSE)
-	{
-		printf("%s failed to collide with %s, placing on top...\n", other->name, self->name);
-
-		/* Place the entity as close as possible */
-
-		other->y = self->y + self->box.y;
-		other->y -= other->box.h + other->box.y;
-
-		other->standingOn = self;
-		other->dirY = 0;
-		other->flags |= ON_GROUND;
-	}
-
 	other->x += other->dirX;
 	other->y += other->dirY;
 }
