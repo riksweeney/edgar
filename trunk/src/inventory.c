@@ -129,15 +129,15 @@ int addToInventory(Entity *e)
 				{
 					e->action = &doNothing;
 				}
-				
+
 				if (strcmpignorecase(e->name, "item/safe_combination") == 0)
 				{
 					temp = self;
-					
+
 					self = e;
-					
+
 					self->activate(1);
-					
+
 					self = temp;
 				}
 
@@ -361,7 +361,7 @@ void selectInventoryItem(void)
 	{
 		inventory.selectedIndex = inventory.cursorIndex;
 
-		setInventoryDialogMessage(_("Readied %s"), _(inventory.item[inventory.cursorIndex].objectiveName));
+		setInventoryDialogMessage(_("Selected %s"), _(inventory.item[inventory.cursorIndex].objectiveName));
 	}
 }
 
@@ -436,7 +436,7 @@ void replaceInventoryItemWithName(char *name, Entity *e)
 			inventory.item[i].face = RIGHT;
 
 			inventory.item[i].thinkTime = 0;
-			
+
 			inventory.item[i].alpha = 255;
 
 			setEntityAnimationByID(&inventory.item[i], 0);
@@ -881,7 +881,7 @@ void drawInventory()
 	}
 
 	e = &inventory.item[inventory.cursorIndex];
-	
+
 	descriptionY = inventory.y + inventory.background->h + 10;
 
 	if (inventory.description == NULL)
@@ -918,7 +918,7 @@ void drawInventory()
 	{
 		drawImage(inventory.description, (SCREEN_WIDTH - inventory.description->w) / 2, descriptionY, FALSE, 255);
 	}
-	
+
 	if (inventory.description != NULL)
 	{
 		descriptionY += inventory.description->h + 10;

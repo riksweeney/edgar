@@ -32,7 +32,7 @@ static void testPak(char *);
 int main(int argc, char *argv[])
 {
 	int i;
-	long length;
+	int length;
 	char versionName[5];
 	FILE *versionFile;
 
@@ -106,10 +106,17 @@ int main(int argc, char *argv[])
 			break;
 		}
 
+		fileData[i].offset = SWAP32(fileData[i].offset);
+		fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
+		fileData[i].fileSize = SWAP32(fileData[i].fileSize);
+
 		fwrite(&fileData[i], sizeof(FileData), 1, pak);
 	}
 
-	fwrite(&length, sizeof(long), 1, pak);
+	length = SWAP32(length);
+	totalFiles = SWAP32(totalFiles);
+
+	fwrite(&length, sizeof(int), 1, pak);
 	fwrite(&totalFiles, sizeof(int), 1, pak);
 
 	fclose(pak);
@@ -206,7 +213,7 @@ static void compressFile(char *filename, DIR *dirp)
 {
 	FILE *infile;
 	int compressionResult;
-	unsigned long fileSize, compressedSize, ensuredSize;
+	int fileSize, compressedSize, ensuredSize;
 	gzFile fp;
 	float percentage;
 	unsigned char *buffer, *output;
@@ -331,8 +338,8 @@ static void testPak(char *pakFile)
 {
 	FileData *fileData;
 	int fileCount, i, read;
-	long offset;
-	unsigned long size;
+	int offset;
+	int size;
 	FILE *fp;
 	unsigned char *source, *dest;
 
@@ -345,10 +352,13 @@ static void testPak(char *pakFile)
 		exit(1);
 	}
 
-	fseek(fp, -(sizeof(long) + sizeof(int)), SEEK_END);
+	fseek(fp, -(sizeof(int) + sizeof(int)), SEEK_END);
 
-	read = fread(&offset, sizeof(long), 1, fp);
+	read = fread(&offset, sizeof(int), 1, fp);
 	read = fread(&fileCount, sizeof(int), 1, fp);
+
+	offset = SWAP32(offset);
+	fileCount = SWAP32(fileCount);
 
 	fileData = malloc(fileCount * sizeof(FileData));
 
@@ -367,6 +377,10 @@ static void testPak(char *pakFile)
 
 	for (i=0;i<fileCount;i++)
 	{
+		fileData[i].offset = SWAP32(fileData[i].offset);
+		fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
+		fileData[i].fileSize = SWAP32(fileData[i].fileSize);
+
 		printf("'%s' at offset %ld : %ld -> %ld\n", fileData[i].filename, fileData[i].offset, fileData[i].compressedSize, fileData[i].fileSize);
 	}
 

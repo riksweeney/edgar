@@ -307,7 +307,7 @@ typedef struct Grid
 typedef struct FileData
 {
 	char filename[MAX_FILE_LENGTH];
-	long fileSize, compressedSize, offset;
+	int fileSize, compressedSize, offset;
 } FileData;
 
 typedef struct ContinueData

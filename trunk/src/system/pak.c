@@ -23,7 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "load_save.h"
 
 static unsigned char *uncompressFile(char *, int);
-static unsigned char *uncompressFileRW(char *, unsigned long *);
+static unsigned char *uncompressFileRW(char *, int *);
 
 static FileData *fileData;
 static char pakFile[MAX_PATH_LENGTH];
@@ -32,9 +32,9 @@ static int fileCount;
 void initPakFile()
 {
 	#if DEV == 0
-		unsigned long offset;
+		int offset;
 		FILE *fp;
-		int read;
+		int read, i;
 
 		snprintf(pakFile, sizeof(pakFile), "%s%s", INSTALL_PATH, PAK_FILE);
 
@@ -50,10 +50,13 @@ void initPakFile()
 			exit(0);
 		}
 
-		fseek(fp, -(sizeof(unsigned long) + sizeof(int)), SEEK_END);
+		fseek(fp, -(sizeof(int) + sizeof(int)), SEEK_END);
 
-		read = fread(&offset, sizeof(unsigned long), 1, fp);
+		read = fread(&offset, sizeof(int), 1, fp);
 		read = fread(&fileCount, sizeof(int), 1, fp);
+
+		offset = SWAP32(offset);
+		fileCount = SWAP32(fileCount);
 
 		fileData = malloc(fileCount * sizeof(FileData));
 
@@ -68,6 +71,13 @@ void initPakFile()
 
 		printf("Loaded up PAK file with %d entries\n", fileCount);
 
+		for (i=0;i<fileCount;i++)
+		{
+			fileData[i].offset = SWAP32(fileData[i].offset);
+			fileData[i].compressedSize = SWAP32(fileData[i].compressedSize);
+			fileData[i].fileSize = SWAP32(fileData[i].fileSize);
+		}
+
 		fclose(fp);
 	#else
 		pakFile[0] = '\0';
@@ -79,9 +89,9 @@ void initPakFile()
 void verifyVersion()
 {
 	char version[5];
-	
+
 	snprintf(version, sizeof(version), "%0.2f", VERSION);
-	
+
 	if (existsInPak(version) == FALSE)
 	{
 		showErrorAndExit("Game and PAK file versions do not match. Please reinstall the game.");
@@ -90,7 +100,7 @@ void verifyVersion()
 
 SDL_Surface *loadImageFromPak(char *name)
 {
-	unsigned long size;
+	int size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	SDL_Surface *surface;
@@ -108,7 +118,7 @@ SDL_Surface *loadImageFromPak(char *name)
 
 Mix_Chunk *loadSoundFromPak(char *name)
 {
-	unsigned long size;
+	int size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	Mix_Chunk *chunk;
@@ -126,7 +136,7 @@ Mix_Chunk *loadSoundFromPak(char *name)
 
 TTF_Font *loadFontFromPak(char *name, int fontSize)
 {
-	unsigned long size;
+	int size;
 	unsigned char *buffer;
 	SDL_RWops *rw;
 	TTF_Font *font;
@@ -193,7 +203,7 @@ Mix_Music *loadMusicFromPak(char *name)
 	#endif
 }
 
-static unsigned char *uncompressFileRW(char *name, unsigned long *size)
+static unsigned char *uncompressFileRW(char *name, int *size)
 {
 	int i, index;
 	unsigned char *source, *dest;
@@ -293,7 +303,7 @@ static unsigned char *uncompressFile(char *name, int writeToFile)
 {
 	int i, index, read;
 	char *filename;
-	unsigned long size;
+	int size;
 	unsigned char *source, *dest;
 	FILE *fp;
 

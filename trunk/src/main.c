@@ -46,7 +46,6 @@ Input input, menuInput;
 Entity *self;
 Game game;
 Entity player, playerShield, playerWeapon;
-Target target[MAX_TARGETS];
 Control control;
 
 int main(int argc, char *argv[])
