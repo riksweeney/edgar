@@ -45,14 +45,14 @@ void compressFile(char *sourceName)
 
 	if (source == NULL)
 	{
-		showErrorAndExit("Failed to allocate %ld bytes to compress save file", fileSize * sizeof(unsigned char));
+		showErrorAndExit("Failed to allocate %ld bytes to compress file %s", fileSize * sizeof(unsigned char), sourceName);
 	}
 
 	dest = malloc(ensuredSize * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
-		showErrorAndExit("Failed to allocate %ld bytes to compress save file", ensuredSize * sizeof(unsigned char));
+		showErrorAndExit("Failed to allocate %ld bytes to compress file %s", ensuredSize * sizeof(unsigned char), sourceName);
 	}
 
 	compressedSize = ensuredSize;
@@ -118,7 +118,7 @@ unsigned char *decompressFile(char *sourceName)
 
 	if (fp == NULL)
 	{
-		showErrorAndExit("Could not open save file %s", sourceName);
+		showErrorAndExit("Could not open file %s", sourceName);
 	}
 
 	fseek(fp, 0L, SEEK_END);
@@ -193,12 +193,14 @@ static unsigned char *decompressFile64(char *sourceName)
 	unsigned long compressedSize, fileSize;
 	FILE *fp;
 	int read, result;
+	
+	printf("%s appears to be a 64 bit file.\nFalling back to old loading routine...\n", sourceName);
 
 	fp = fopen(sourceName, "rb");
 
 	if (fp == NULL)
 	{
-		showErrorAndExit("Could not open save file %s", sourceName);
+		showErrorAndExit("Could not open file %s", sourceName);
 	}
 
 	fseek(fp, 0L, SEEK_END);

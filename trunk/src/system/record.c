@@ -39,7 +39,7 @@ void setReplayData(char *name, int loadedGame)
 {
 	char mapFile[6];
 	double version;
-	long seed;
+	int32_t seed;
 	int read;
 
 	printf("Setting replay file to %s\n", name);
@@ -62,9 +62,11 @@ void setReplayData(char *name, int loadedGame)
 		printf("This replay is from a different version and may not function correctly\n");
 	}
 
-	read = fread(&seed, sizeof(long), 1, replayBuffer);
+	read = fread(&seed, sizeof(int32_t), 1, replayBuffer);
+	
+	seed = SWAP32(seed);
 
-	printf("Setting seed %ld\n", seed);
+	printf("Setting seed %d\n", seed);
 
 	setSeed(seed);
 
@@ -82,7 +84,7 @@ void setReplayData(char *name, int loadedGame)
 
 void setRecordData(char *name)
 {
-	long seed;
+	int32_t seed;
 	double version = VERSION;
 
 	printf("Setting record file to %s\n", name);
@@ -97,12 +99,14 @@ void setRecordData(char *name)
 	game.gameType = RECORDING;
 
 	seed = time(NULL);
+	
+	seed = SWAP32(seed);
 
 	fwrite(&version, sizeof(double), 1, replayBuffer);
 
-	fwrite(&seed, sizeof(long), 1, replayBuffer);
+	fwrite(&seed, sizeof(int32_t), 1, replayBuffer);
 
-	printf("Setting seed %ld\n", seed);
+	printf("Setting seed %d\n", seed);
 
 	setSeed(seed);
 }
@@ -157,6 +161,8 @@ void putBuffer(Input inp)
 	if (inp.next == 1)      input |= 1024;
 	if (inp.inventory == 1) input |= 2048;
 	if (inp.grabbing == 1)  input |= 4096;
+	
+	input = SWAP32(input);
 
 	inputBuffer[bufferID] = input;
 
@@ -190,6 +196,8 @@ Input getBuffer()
 	}
 
 	input = inputBuffer[bufferID];
+	
+	input = SWAP32(input);
 
 	if (input & 1)    inp.up = 1;
 	if (input & 2)    inp.down = 1;

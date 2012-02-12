@@ -26,10 +26,16 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
 #include "../entity.h"
+#include "../event/script.h"
+#include "../event/trigger.h"
+#include "../event/global_trigger.h"
 #include "../game.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
+#include "../inventory.h"
+#include "../item/item.h"
+#include "../item/key_items.h"
 #include "../hud.h"
 #include "../map.h"
 #include "../player.h"
@@ -39,6 +45,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/random.h"
 #include "../world/target.h"
 
+extern Input input;
 extern Entity *self, player;
 
 static void initialise(void);
@@ -47,13 +54,52 @@ static void init(void);
 static void doIntro(void);
 static void introFinish(void);
 static void attackFinished(void);
+static void entityWait(void);
+static void takeDamage(Entity *, int);
+static void stoneTakeDamage(Entity *, int);
+static void die(void);
+static void dieWait(void);
+static void dieFinish(void);
+static void activate(int);
+static void stoneTouch(Entity *);
+static void stoneDie(void);
 static void coatWait(void);
+static void createLanceInit(void);
+static void createLance(void);
+static void createLanceWait(void);
+static void lanceAppearWait(void);
+static void lanceAppearFinish(void);
+static void lanceWait(void);
 static void lanceThrowInit(void);
 static void lanceThrowMoveToTarget(void);
 static void lanceThrow(void);
 static void lanceThrowWait(void);
 static void lanceDrop(void);
+static void lanceStab(void);
 static void lanceAttack1(void);
+static void lanceAttack1Wait(void);
+static void lanceAttack2(void);
+static void lanceAttack3(void);
+static void lanceAttackTeleportAway(void);
+static void lanceAttackTeleportFinish(void);
+static void weaponRemoveBlastInit(void);
+static void weaponRemoveBlast(void);
+static void blastRemoveWeapon(Entity *);
+static void weaponRemoveBlastFinish(void);
+static void createLightningOrb(void);
+static void orbMoveToTop(void);
+static void orbFollowPlayer(void);
+static void orbCastLightning(void);
+static void orbCastLightningFinish(void);
+static void lightningWait(void);
+static void becomeMiniGargoyleInit(void);
+static void becomeMiniGargoyleWait(void);
+static void becomeMiniGargoyleFinish(void);
+static void addExitTrigger(Entity *);
+static void petrifyAttackInit(void);
+static void petrifyAttack(void);
+static void petrifyAttackWait(void);
+static void petrifyPlayer(void);
 
 Entity *addGargoyle(int x, int y, char *name)
 {
@@ -88,11 +134,11 @@ static void init()
 	switch (self->mental)
 	{
 		case -1:
-			setEntiyAnimation(self, "REACH_STONE");
+			setEntityAnimation(self, "REACH_STONE");
 
-			self->takeDamage = &dieTakeDamage;
+			self->takeDamage = &stoneTakeDamage;
 
-			self->touch = &dieTouch;
+			self->touch = &stoneTouch;
 
 			self->activate = &activate;
 
@@ -199,6 +245,8 @@ static void introFinish()
 		facePlayer();
 
 		playDefaultBossMusic();
+		
+		self->takeDamage = &takeDamage;
 
 		self->action = &attackFinished;
 	}
@@ -226,22 +274,30 @@ static void entityWait()
 
 		else
 		{
-			swtich (self->maxThinkTime)
+			switch (self->maxThinkTime)
 			{
 				case 0:
-					switch (prand() % 4)
+					if (self->health <= 0)
 					{
-						case 0:
-							self->action = &lanceStab;
-						break;
+						self->action = &lanceThrowInit;
+					}
+					
+					else
+					{
+						switch (prand() % 4)
+						{
+							case 0:
+								self->action = &lanceStab;
+							break;
 
-						case 1:
-							self->action = &weaponRemoveBlastInit;
-						break;
+							case 1:
+								self->action = &weaponRemoveBlastInit;
+							break;
 
-						default:
-							self->action = &lanceThrowInit;
-						break;
+							default:
+								self->action = &petrifyAttackInit;
+							break;
+						}
 					}
 				break;
 
@@ -251,6 +307,7 @@ static void entityWait()
 						/* Wind attack */
 						/* Vertical throw 2 */
 						/* Weapon remove blast */
+						self->action = &becomeMiniGargoyleInit;
 					}
 				break;
 
@@ -276,6 +333,11 @@ static void entityWait()
 	}
 
 	checkToMap(self);
+}
+
+static void lanceStab()
+{
+	
 }
 
 static void lanceThrowInit()
@@ -364,11 +426,11 @@ static void createLance()
 
 	self->mental = 1;
 
-	Entity *e = getFreeEntity();
+	e = getFreeEntity();
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add the Gargoyle");
+		showErrorAndExit("No free slots to add the Gargoyle's Lance");
 	}
 
 	switch (self->maxThinkTime)
@@ -492,6 +554,165 @@ static void lanceDrop()
 	}
 }
 
+static void petrifyAttackInit()
+{
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->thinkTime = 120;
+
+		self->action = &petrifyAttack;
+	}
+}
+
+static void petrifyAttack()
+{
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+		
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a petrification");
+		}
+			
+		loadProperties("boss/gargoyle_lightning_orb", e);
+
+		e->x = self->x;
+		e->y = self->y;
+		
+		e->startX = e->x;
+
+		e->action = &petrifyPlayer;
+
+		e->draw = &drawLoopingAnimationToMap;
+		e->touch = NULL;
+		e->takeDamage = NULL;
+
+		e->type = ENEMY;
+
+		e->head = self;
+
+		setEntityAnimation(e, "STAND");
+
+		self->mental = 1;
+		
+		self->thinkTime = 120;
+		
+		self->action = &petrifyAttackWait;
+		
+		setPlayerLocked(TRUE);
+	}
+	
+	checkToMap(self);
+}
+
+static void petrifyAttackWait()
+{
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
+	}
+	
+	checkToMap(self);
+}
+
+static void petrifyPlayer()
+{
+	int i;
+	Entity *e;
+	
+	self->thinkTime--;
+	
+	setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
+	
+	if (self->thinkTime <= 0 && self->mental < 4)
+	{
+		self->mental++;
+		
+		if (self->mental >= 4)
+		{
+			self->mental = 4;
+			
+			if (player.health > 0)
+			{
+				removeInventoryItemByObjectiveName("Amulet of Resurrection");
+
+				player.die();
+				
+				player.flags |= NO_DRAW;
+			}
+		}
+		
+		setEntityAnimationByID(self, self->mental);
+		
+		self->thinkTime = 60;
+	}
+	
+	if (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
+		input.previous == 1 || input.next == 1 || input.jump == 1 ||
+		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1)
+	{
+		self->health--;
+
+		input.up = 0;
+		input.down = 0;
+		input.right = 0;
+		input.left = 0;
+		input.previous = 0;
+		input.next = 0;
+		input.jump = 0;
+		input.activate = 0;
+		input.attack = 0;
+		input.interact = 0;
+		input.block = 0;
+		
+		e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (prand() % 6) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = -4;
+
+		e->thinkTime = 60 + (prand() % 120);
+		
+		if (self->health <= 0)
+		{
+			for (i=0;i<8;i++)
+			{
+				e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
+				
+				e->x += prand() % self->w;
+				e->y += prand() % self->h;
+
+				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
+				e->dirY = -2.5;
+
+				e->thinkTime = 60 + (prand() % 120);
+			}
+			
+			self->head->mental = 0;
+			
+			self->inUse = FALSE;
+			
+			setPlayerLocked(FALSE);
+		}
+	}
+}
+
 static void weaponRemoveBlastInit()
 {
 	self->flags &= ~FLY;
@@ -609,6 +830,8 @@ static void weaponRemoveBlastFinish()
 
 static void takeDamage(Entity *other, int damage)
 {
+	Entity *temp;
+	
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -650,6 +873,11 @@ static void takeDamage(Entity *other, int damage)
 
 			self->die();
 		}
+		
+		else
+		{
+			self->health = 0;
+		}
 
 		if (other->type == PROJECTILE)
 		{
@@ -677,8 +905,6 @@ static void takeDamage(Entity *other, int damage)
 
 static void lanceAttack1()
 {
-	int i;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -690,6 +916,16 @@ static void lanceAttack1()
 		self->action = &createLightningOrb;
 	}
 
+	checkToMap(self);
+}
+
+static void lanceAttack2()
+{
+	checkToMap(self);
+}
+
+static void lanceAttack3()
+{
 	checkToMap(self);
 }
 
@@ -867,31 +1103,19 @@ static void orbCastLightning()
 		e->dirX = 3;
 		e->dirY = -8;
 
-		self->action = &castLightningFinish;
+		self->action = &orbCastLightningFinish;
 
 		self->thinkTime = 30;
 	}
 }
 
-static void castLightningFinish()
+static void orbCastLightningFinish()
 {
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		self->mental--;
-
-		if (self->mental <= 0)
-		{
-			self->head->maxThinkTime--;
-
-			self->inUse = FALSE;
-		}
-
-		else
-		{
-			self->action = &followPlayer;
-		}
+		self->action = &orbFollowPlayer;
 
 		self->thinkTime = 30;
 	}
@@ -907,16 +1131,10 @@ void lightningWait()
 	}
 }
 
-static void lanceAttack2()
-{
-	self->thinkTime--;
-
-	checkToMap(self);
-}
-
 static void becomeMiniGargoyleInit()
 {
 	int i;
+	Entity *e;
 
 	self->flags |= NO_DRAW;
 
@@ -938,6 +1156,8 @@ static void becomeMiniGargoyleInit()
 
 		self->endX++;
 	}
+	
+	self->action = &becomeMiniGargoyleWait;
 
 	checkToMap(self);
 }
@@ -1045,8 +1265,6 @@ static void addStoneCoat()
 	e->head = self;
 
 	setEntityAnimation(e, "STAND");
-
-	return e;
 }
 
 static void coatWait()
@@ -1090,6 +1308,9 @@ static void coatWait()
 
 static void die()
 {
+	int i;
+	Entity *e;
+	
 	self->flags &= ~FLY;
 
 	checkToMap(self);
@@ -1130,7 +1351,7 @@ static void die()
 
 static void dieWait()
 {
-	setEntiyAnimation(self, "REACH");
+	setEntityAnimation(self, "REACH");
 
 	self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
 
@@ -1147,11 +1368,11 @@ static void dieWait()
 
 		self->mental = -1;
 
-		setEntiyAnimation(self, "REACH_STONE");
+		setEntityAnimation(self, "REACH_STONE");
 
-		self->takeDamage = &dieTakeDamage;
+		self->takeDamage = &stoneTakeDamage;
 
-		self->touch = &dieTouch;
+		self->touch = &stoneTouch;
 
 		self->activate = &activate;
 
@@ -1173,7 +1394,7 @@ static void dieWait()
 	}
 }
 
-static void dieTouch(Entity *other)
+static void stoneTouch(Entity *other)
 {
 	if (other->type == PLAYER)
 	{
@@ -1196,7 +1417,7 @@ static void dieFinish()
 	checkToMap(self);
 }
 
-static void takeDamage(Entity *other, int damage)
+static void stoneTakeDamage(Entity *other, int damage)
 {
 	Entity *temp;
 
@@ -1263,4 +1484,13 @@ static void stoneDie()
 	}
 
 	self->inUse = FALSE;
+}
+
+static void addExitTrigger(Entity *e)
+{
+	char itemName[MAX_LINE_LENGTH];
+
+	snprintf(itemName, MAX_LINE_LENGTH, "\"%s\" 1 UPDATE_EXIT \"GARGOYLE_BOSS\"", e->objectiveName);
+
+	addGlobalTriggerFromScript(itemName);
 }

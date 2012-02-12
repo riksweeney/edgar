@@ -167,6 +167,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	centerMapOnEntity(&player);
 
 	player.creditsAction = creditsMove;
+	
+	setCheckpoint(player.x, player.y);
 
 	return &player;
 }
