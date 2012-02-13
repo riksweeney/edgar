@@ -3,6 +3,7 @@ CHANGE LOG
 
 Version 0.98
 * Fixed a problem with objects falling through pressure plates
+* Fixed a crash when etnering the Sewer after returning from the Wasteland
 * Updated the Fortress Outskirts map
 * Made the data and save files architecture independent
 * Just one more major release to go...

@@ -186,23 +186,40 @@ static void die()
 	self->damage = 0;
 
 	self->action = &dieWait;
+	
+	self->thinkTime = 180;
 
 	self->head->mental--;
-
-	self->head->endX = 0;
 }
 
 static void dieWait()
 {
-	if (self->head->mental <= 0)
+	if (self->head->inUse == FALSE)
 	{
-		self->thinkTime = 60;
+		if (self->head->mental <= 0)
+		{
+			self->thinkTime = 60;
 
-		self->action = &moveToGargoyleInit;
+			self->action = &moveToGargoyleInit;
 
-		self->flags |= FLY;
+			self->flags |= FLY;
 
-		self->mental = 1;
+			self->mental = 1;
+		}
+	}
+	
+	else
+	{
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->flags |= FLY;
+			
+			self->health = self->maxHealth;
+			
+			self->action = &attackPlayer;
+		}
 	}
 
 	checkToMap(self);
