@@ -788,6 +788,8 @@ static void blastRemoveWeapon(Entity *other)
 			setCustomAction(e, &invulnerable, 120, 0, 0);
 
 			addExitTrigger(e);
+			
+			e->flags |= LIMIT_TO_SCREEN;
 		}
 
 		e = removePlayerShield();
@@ -803,6 +805,8 @@ static void blastRemoveWeapon(Entity *other)
 			setCustomAction(e, &invulnerable, 120, 0, 0);
 
 			addExitTrigger(e);
+			
+			e->flags |= LIMIT_TO_SCREEN;
 		}
 
 		setCustomAction(self->target, &invulnerable, 60, 0, 0);
@@ -1164,7 +1168,7 @@ static void becomeMiniGargoyleInit()
 
 static void becomeMiniGargoyleWait()
 {
-	if (self->endX <= 0)
+	if (self->target->inUse == FALSE)
 	{
 		self->action = &becomeMiniGargoyleFinish;
 	}
