@@ -182,6 +182,8 @@ static void initialise()
 				self->thinkTime = 30;
 
 				self->action = &doIntro;
+
+				self->mental = 1;
 			}
 		}
 	}
@@ -193,6 +195,7 @@ static void doIntro()
 {
 	int i;
 	Entity *e;
+	long onGround = self->flags & ON_GROUND;
 
 	if (atTarget())
 	{
@@ -206,7 +209,7 @@ static void doIntro()
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		shakeScreen(MEDIUM, 30);
 
@@ -242,10 +245,8 @@ static void introFinish()
 
 		initBossHealthBar();
 
-		facePlayer();
-
 		playDefaultBossMusic();
-		
+
 		self->takeDamage = &takeDamage;
 
 		self->action = &attackFinished;
@@ -277,14 +278,14 @@ static void entityWait()
 			switch (self->maxThinkTime)
 			{
 				case 0:
-					if (self->health <= 0)
+					if (self->health == self->maxHealth * 0.25f)
 					{
 						self->action = &lanceThrowInit;
 					}
-					
+
 					else
 					{
-						switch (prand() % 4)
+						switch (prand() % 3)
 						{
 							case 0:
 								self->action = &lanceStab;
@@ -302,21 +303,52 @@ static void entityWait()
 				break;
 
 				case 1:
-					switch (prand() % 4)
+					if (self->health == self->maxHealth * 0.25f)
 					{
-						/* Wind attack */
-						/* Vertical throw 2 */
-						/* Weapon remove blast */
-						self->action = &becomeMiniGargoyleInit;
+						self->action = &lanceThrowInit;
+					}
+
+					else
+					{
+						switch (prand() % 3)
+						{
+							case 0:
+								self->action = &lanceStab;
+							break;
+
+							case 1:
+								self->action = &weaponRemoveBlastInit;
+							break;
+
+							default:
+								self->action = &bridgeDestroyInit;
+							break;
+						}
 					}
 				break;
 
 				case 2:
-					switch (prand() % 4)
+					if (self->health == self->maxHealth * 0.25f)
 					{
-						/* Invisible drop */
-						/* Vertical throw 3 */
-						/* Weapon remove blast */
+						self->action = &lanceThrowInit;
+					}
+
+					else
+					{
+						switch (prand() % 3)
+						{
+							case 0:
+								self->action = &lanceStab;
+							break;
+
+							case 1:
+								self->action = &weaponRemoveBlastInit;
+							break;
+
+							default:
+								self->action = &invisibleAttackInit;
+							break;
+						}
 					}
 				break;
 
@@ -335,9 +367,326 @@ static void entityWait()
 	checkToMap(self);
 }
 
+static void invisibleAttackInit()
+{
+	long onGround = self->flags & ON_GROUND;
+
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (landedOnGround(onGround) == TRUE)
+	{
+		self->action = &becomeInvisible
+
+		self->endY = self->y + self->h;
+	}
+}
+
+static void becomeInvisible()
+{
+	Target *t;
+
+	self->alpha -= 2;
+
+	if (self->alpha <= 0)
+	{
+		t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Gargoyle cannot find target");
+		}
+
+		self->alpha = 0;
+
+		self->targetX = self->x;
+		self->targetY = t->y;
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed;
+		self->dirY *= self->speed;
+
+		self->flags |= FLY;
+
+		self->action = &invisibleAttackMoveToTop;
+
+		checkToMap(self);
+	}
+}
+
+static void invisibleAttackMoveToTop()
+{
+	if (atTarget())
+	{
+		self->action = &invisibleAttackFollowPlayer;
+	}
+
+	checkToMap(self);
+}
+
+static void invisibleAttackFollowPlayer()
+{
+	float target;
+
+	target = player.x - self->w / 2 + player.w / 2;
+
+	/* Move above the player */
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->targetY = self->y - self->h;
+
+		self->thinkTime = 60;
+
+		self->dirX = 0;
+
+		self->action = &invisibleDrop;
+	}
+
+	else
+	{
+		self->dirX = self->speed * 1.5;
+
+		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			/* Drop if at the edge of the screen */
+
+			if (self->x == getMapStartX())
+			{
+				self->thinkTime = 60;
+
+				self->dirX = 0;
+
+				self->action = &invisibleDrop;
+			}
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			/* Drop if at the edge of the screen */
+
+			if (self->x == getMapStartX() + SCREEN_WIDTH - self->w)
+			{
+				self->thinkTime = 60;
+
+				self->dirX = 0;
+
+				self->action = &invisibleDrop;
+			}
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void invisibleDrop()
+{
+	Entity *e;
+	long onGround = self->flags & ON_GROUND;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (landedOnGround(onGround) == TRUE)
+		{
+			self->alpha = 255;
+
+			self->thinkTime = 30;
+
+			self->action = &invisibleDropWait
+		}
+
+		self->flags &= ~FLY;
+	}
+
+	else
+	{
+		e = addSmoke(self->x + self->w / 2, self->endY, "decoration/dust");
+
+		e->dirX = -3;
+
+		e = addSmoke(self->x + self->w / 2, self->endY, "decoration/dust");
+
+		e->dirX = 3;
+	}
+
+	checkToMap(self);
+}
+
+static void invisibleDropWait()
+{
+	Target *t;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->action = &attackFinished;
+		}
+
+		else
+		{
+			t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Gargoyle cannot find target");
+			}
+
+			self->alpha = 0;
+
+			self->targetX = self->x;
+			self->targetY = t->y;
+
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+			self->dirX *= self->speed;
+			self->dirY *= self->speed;
+
+			self->flags |= FLY;
+
+			self->action = &invisibleAttackMoveToTop;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void bridgeDestroyInit()
+{
+	Target *t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Gargoyle cannot find target");
+	}
+
+	self->targetX = self->x;
+	self->targetY = t->y;
+
+	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+	self->dirX *= self->speed;
+	self->dirY *= self->speed;
+
+	self->flags |= FLY;
+
+	self->action = &bridgeDestroyMoveToTarget;
+
+	checkToMap(self);
+}
+
+static void bridgeDestroyMoveToTarget()
+{
+	if (atTarget())
+	{
+		self->action = &bridgeDestroyFollowPlayer;
+	}
+
+	checkToMap(self);
+}
+
+static void bridgeDestroyFollowPlayer()
+{
+	float target;
+
+	target = player.x - self->w / 2 + player.w / 2;
+
+	/* Move above the player */
+
+	if (fabs(target - self->x) <= fabs(self->dirX))
+	{
+		self->targetY = self->y - self->h;
+
+		self->thinkTime = 30;
+
+		self->dirX = 0;
+
+		self->action = &bridgeDestroy;
+	}
+
+	else
+	{
+		self->dirX = self->speed * 1.5;
+
+		self->x += target > self->x ? self->dirX : -self->dirX;
+
+		if (self->x < self->startX)
+		{
+			self->x = self->startX;
+
+			/* Throw if at the edge of the screen */
+
+			if (self->x == getMapStartX())
+			{
+				self->thinkTime = 30;
+
+				self->dirX = 0;
+
+				self->action = &bridgeDestroy;
+			}
+		}
+
+		else if (self->x > self->endX)
+		{
+			self->x = self->endX;
+
+			/* Throw if at the edge of the screen */
+
+			if (self->x == getMapStartX() + SCREEN_WIDTH - self->w)
+			{
+				self->thinkTime = 30;
+
+				self->dirX = 0;
+
+				self->action = &bridgeDestroy;
+			}
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void bridgeDestroy()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->target->mental = -2;
+
+		self->action = &bridgeDestroyWait;
+	}
+
+	checkToMap(self);
+}
+
+static void bridgeDestroyWait()
+{
+	if (self->target->mental == 0)
+	{
+		self->mental--;
+
+		self->action = self->mental > 0 ? &bridgeDestroyFollowPlayer : &attackFinished;
+	}
+}
+
 static void lanceStab()
 {
-	
+
 }
 
 static void lanceThrowInit()
@@ -406,11 +755,13 @@ static void lanceThrowWait()
 
 static void createLanceInit()
 {
+	long onGround = self->flags & ON_GROUND;
+
 	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->thinkTime = 15;
 
@@ -451,6 +802,8 @@ static void createLance()
 	e->action = &lanceAppearWait;
 
 	e->draw = &drawLoopingAnimationToMap;
+
+	e->touch = &entityTouch;
 
 	e->type = ENEMY;
 
@@ -525,16 +878,43 @@ static void lanceWait()
 	{
 		self->action = &lanceDrop;
 	}
+
+	else if (self->mental == -2)
+	{
+		self->flags |= ATTACKING;
+
+		self->fallout = &lanceFallout;
+
+		self->action = &lanceDestroyBridge;
+	}
+}
+
+static void lanceDestroyBridge()
+{
+	self->dirY = 8;
+
+	checkToMap(self);
+}
+
+static void lanceFallout()
+{
+	self->y = self->head->y + self->offsetY;
+
+	self->action = &lanceAttackTeleportFinish;
 }
 
 static void lanceDrop()
 {
+	long onGround = self->flags & ON_GROUND;
+
 	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
+		playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+
 		switch (self->maxThinkTime)
 		{
 			case 0:
@@ -556,11 +936,13 @@ static void lanceDrop()
 
 static void petrifyAttackInit()
 {
+	long onGround = self->flags & ON_GROUND;
+
 	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->thinkTime = 120;
 
@@ -571,23 +953,23 @@ static void petrifyAttackInit()
 static void petrifyAttack()
 {
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		e = getFreeEntity();
-		
+
 		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a petrification");
 		}
-			
+
 		loadProperties("boss/gargoyle_lightning_orb", e);
 
 		e->x = self->x;
 		e->y = self->y;
-		
+
 		e->startX = e->x;
 
 		e->action = &petrifyPlayer;
@@ -603,14 +985,14 @@ static void petrifyAttack()
 		setEntityAnimation(e, "STAND");
 
 		self->mental = 1;
-		
+
 		self->thinkTime = 120;
-		
+
 		self->action = &petrifyAttackWait;
-		
+
 		setPlayerLocked(TRUE);
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -619,13 +1001,13 @@ static void petrifyAttackWait()
 	if (self->mental == 0)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->action = &attackFinished;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -633,34 +1015,34 @@ static void petrifyPlayer()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
-	
+
 	setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
-	
+
 	if (self->thinkTime <= 0 && self->mental < 4)
 	{
 		self->mental++;
-		
+
 		if (self->mental >= 4)
 		{
 			self->mental = 4;
-			
+
 			if (player.health > 0)
 			{
 				removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
 				player.die();
-				
+
 				player.flags |= NO_DRAW;
 			}
 		}
-		
+
 		setEntityAnimationByID(self, self->mental);
-		
+
 		self->thinkTime = 60;
 	}
-	
+
 	if (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
 		input.previous == 1 || input.next == 1 || input.jump == 1 ||
 		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1)
@@ -678,7 +1060,7 @@ static void petrifyPlayer()
 		input.attack = 0;
 		input.interact = 0;
 		input.block = 0;
-		
+
 		e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
 
 		e->x += self->w / 2 - e->w / 2;
@@ -688,13 +1070,13 @@ static void petrifyPlayer()
 		e->dirY = -4;
 
 		e->thinkTime = 60 + (prand() % 120);
-		
+
 		if (self->health <= 0)
 		{
 			for (i=0;i<8;i++)
 			{
 				e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
-				
+
 				e->x += prand() % self->w;
 				e->y += prand() % self->h;
 
@@ -703,11 +1085,11 @@ static void petrifyPlayer()
 
 				e->thinkTime = 60 + (prand() % 120);
 			}
-			
+
 			self->head->mental = 0;
-			
+
 			self->inUse = FALSE;
-			
+
 			setPlayerLocked(FALSE);
 		}
 	}
@@ -715,11 +1097,13 @@ static void petrifyPlayer()
 
 static void weaponRemoveBlastInit()
 {
+	long onGround = self->flags & ON_GROUND;
+
 	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->thinkTime = 120;
 
@@ -788,7 +1172,7 @@ static void blastRemoveWeapon(Entity *other)
 			setCustomAction(e, &invulnerable, 120, 0, 0);
 
 			addExitTrigger(e);
-			
+
 			e->flags |= LIMIT_TO_SCREEN;
 		}
 
@@ -805,7 +1189,7 @@ static void blastRemoveWeapon(Entity *other)
 			setCustomAction(e, &invulnerable, 120, 0, 0);
 
 			addExitTrigger(e);
-			
+
 			e->flags |= LIMIT_TO_SCREEN;
 		}
 
@@ -835,7 +1219,7 @@ static void weaponRemoveBlastFinish()
 static void takeDamage(Entity *other, int damage)
 {
 	Entity *temp;
-	
+
 	if (self->flags & INVULNERABLE)
 	{
 		return;
@@ -867,20 +1251,25 @@ static void takeDamage(Entity *other, int damage)
 			{
 				self->pain();
 			}
+
+			/* Don't die if you've still got lances to wield */
+
+			if (self->maxThinkTime < 3 && self->health < self->maxHealth * 0.25f)
+			{
+				self->health = self->maxHealth * 0.25f;
+			}
 		}
 
-		/* Don't die if you've still got lances to wield */
-
-		else if (self->maxThinkTime >= 3)
-		{
-			self->damage = 0;
-
-			self->die();
-		}
-		
 		else
 		{
 			self->health = 0;
+
+			if (self->maxThinkTime >= 3)
+			{
+				self->damage = 0;
+
+				self->die();
+			}
 		}
 
 		if (other->type == PROJECTILE)
@@ -925,12 +1314,259 @@ static void lanceAttack1()
 
 static void lanceAttack2()
 {
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->action = &becomeMiniGargoyleInit;
+
+		self->action = &lanceAttack2Wait;
+	}
+
+	checkToMap(self);
+}
+
+static void lanceAttack2Wait()
+{
 	checkToMap(self);
 }
 
 static void lanceAttack3()
 {
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->maxThinkTime = 0;
+
+		self->action = &fakeLanceDropInit;
+	}
+
 	checkToMap(self);
+}
+
+static void fakeLanceDropInit()
+{
+	Target *t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Lance cannot find target");
+	}
+
+	self->flags |= (FLY|NO_DRAW);
+
+	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+	playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+	self->y = t->y;
+
+	self->thinkTime = 30;
+
+	self->action = &fakeLanceDropAppear;
+}
+
+static void fakeLanceDropAppear()
+{
+	int i, real, x, lanceCount;
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		lanceCount = 5;
+
+		real = prand() % lanceCount;
+
+		x = SCREEN_WIDTH / (lanceCount + 1);
+
+		for (i=0;i<lanceCount;i++)
+		{
+			if (i == real)
+			{
+				e = self;
+			}
+
+			else
+			{
+				e = getFreeEntity();
+
+				if (e == NULL)
+				{
+					showErrorAndExit("No free slots to add a fake lance");
+				}
+
+				loadProperties("boss/gargoyle_fake_lance", e);
+				e->draw = &drawLoopingAnimationToMap;
+				e->touch = &entityTouch;
+				e->takeDamage = &entityTakeDamageNoFlinch;
+
+				e->type = ENEMY;
+
+				setEntityAnimation(e, "STAND");
+
+				e->mental = -1;
+
+				e->head = self->head;
+			}
+
+			e->action = &fakeLanceDropWait;
+
+			e->flags &= ~NO_DRAW;
+
+			e->flags |= FLY;
+
+			e->x = x;
+			e->y = self->y;
+
+			e->thinkTime = 30 * i;
+
+			e->maxThinkTime = (30 * lanceCount) + 60;
+
+			x += SCREEN_WIDTH / (lanceCount + 1);
+		}
+	}
+}
+
+static void fakeLanceDropWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		self->action = &fakeLanceDrop;
+
+		self->thinkTime = self->maxThinkTime;
+	}
+
+	checkToMap(self);
+}
+
+static void fakeLanceDrop()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+	}
+
+	checkToMap(self);
+
+	long onGround = self->flags & ON_GROUND;
+
+	self->flags &= ~FLY;
+
+	checkToMap(self);
+
+	if (landedOnGround(onGround) == TRUE)
+	{
+		if (self->mental != -1)
+		{
+			self->thinkTime = 360;
+
+			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
+		}
+
+		else
+		{
+			self->thinkTime = 240 + prand() % 120;
+		}
+
+		self->action = &fakeLanceDropWait;
+	}
+}
+
+static void fakeLanceDropWait()
+{
+	self->thinkTime--;
+
+	if (self->mental == -1 && self->thinkTime < 120)
+	{
+		if (self->thinkTime % 3 == 0)
+		{
+			self->flags ^= FLASH;
+		}
+	}
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &self->mental == -1 ? &lanceExplode : &fakeLanceDropInit;
+	}
+
+	checkToMap(self);
+}
+
+static void lanceExplode()
+{
+	int x, y;
+	Entity *e;
+
+	e = addProjectile("common/green_blob", self->head, 0, 0, -6, 0);
+
+	x = self->x + self->w / 2 - e->w / 2;
+	y = self->y + self->h / 2 - e->h / 2;
+
+	e->x = x;
+	e->y = y;
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, -6, -6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, 0, -6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, 6, -6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, -6, 6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, 0, 6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, 6, 6);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	e = addProjectile("common/green_blob", self->head, x, y, 6, 0);
+
+	e->flags |= FLY;
+
+	e->reactToBlock = &bounceOffShield;
+
+	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+
+	self->inUse = FALSE;
 }
 
 static void createLightningOrb()
@@ -985,13 +1621,6 @@ static void createLightningOrb()
 
 static void lanceAttack1Wait()
 {
-	if (self->maxThinkTime <= 0)
-	{
-		self->thinkTime = 30;
-
-		self->action = &lanceAttackTeleportAway;
-	}
-
 	checkToMap(self);
 }
 
@@ -1160,7 +1789,7 @@ static void becomeMiniGargoyleInit()
 
 		self->endX++;
 	}
-	
+
 	self->action = &becomeMiniGargoyleWait;
 
 	checkToMap(self);
@@ -1232,13 +1861,15 @@ static void lanceAttackTeleportFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		self->flags &= ~NO_DRAW;
+		self->flags &= ~(NO_DRAW|ATTACKING);
 
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		self->action = &lanceWait;
+
+		self->mental = 0;
 
 		self->head->mental = 0;
 	}
@@ -1314,12 +1945,13 @@ static void die()
 {
 	int i;
 	Entity *e;
-	
+	long onGround = self->flags & ON_GROUND;
+
 	self->flags &= ~FLY;
 
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND)
+	if (landedOnGround(onGround) == TRUE)
 	{
 		self->damage = 0;
 
