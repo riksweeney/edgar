@@ -39,7 +39,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #ifndef WIN32
 	#include <pwd.h>
 	#include <unistd.h>
-	#include <errno.h>
 #else
 	#include "strtok_r.h"
 #endif

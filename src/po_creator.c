@@ -130,13 +130,13 @@ int main(int argc, char *argv[])
 				{
 					line[strlen(line) - 1] = '\0';
 				}
-				
+
 				if (strstr(line, "AUTO_TALK") != NULL)
 				{
 					token = strtok(line, " ");
 
 					token = strtok(NULL, " ");
-					
+
 					token = strtok(NULL, " ");
 
 					token = strtok(NULL, "\0");
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 						printf("%s\nmsgstr \"\"\n\n", line);
 					}
 				}
-				
+
 				else if (strstr(line, "ADD OBJECTIVE") != NULL)
 				{
 					sscanf(line, "%*s %*s \"%[^\"]\"", filename);
@@ -176,7 +176,7 @@ int main(int argc, char *argv[])
 						printf("%s\nmsgstr \"\"\n\n", line);
 					}
 				}
-				
+
 				else if (strstr(line, "SHOW_CONFIRM") != NULL)
 				{
 					token = strtok(line, " ");
@@ -338,11 +338,11 @@ static int textAlreadyAdded(char *text)
 	{
 		return TRUE;
 	}
-	
+
 	clean = replaceString(text, "msgid \"", "");
 	clean[strlen(clean) - 1] = '\0';
 	clean = replaceString(clean, "\\\"", "\"");
-	
+
 	if (checkExists(clean) == FALSE)
 	{
 		return TRUE;
@@ -366,14 +366,18 @@ static int textAlreadyAdded(char *text)
 static int checkExists(char *string)
 {
 	int found = FALSE;
-	
+
 	string = replaceString(string, "msgid \"", "");
-	
+
 	string[strlen(string) - 1] = '\0';
-	
-	recurseDirectory("data", string, &found);
+
 	recurseDirectory("src", string, &found);
-	
+
+	if (found == FALSE)
+	{
+		recurseDirectory("data", string, &found);
+	}
+
 	return found;
 }
 
@@ -383,18 +387,18 @@ static char *replaceString(char *string, char *find, char *replace)
 	char *p;
 
 	p = strstr(string, find);
-	
+
 	if (p == NULL)
 	{
 		return string;
 	}
-	
+
 	strncpy(buffer, string, p - string);
-	
+
 	buffer[p - string] = '\0';
-	
+
 	snprintf(buffer + (p - string), MAX_LINE_LENGTH, "%s%s", replace, p + strlen(find));
-	
+
 	return buffer;
 }
 
@@ -467,19 +471,26 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 
 				exit(1);
 			}
-			
+
 			fseek(infile, 0L, SEEK_SET);
 
 			read = fread(buffer, fileSize, 1, infile);
-			
+
 			if (strstr((char *)buffer, searchString) != NULL)
 			{
 				*found = TRUE;
 			}
-			
+
 			fclose(infile);
 
 			free(buffer);
+
+			if (found == TRUE)
+			{
+				closedir(dirp);
+
+				return;
+			}
 		}
 	}
 
