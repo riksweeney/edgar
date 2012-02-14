@@ -369,8 +369,6 @@ static int checkExists(char *string)
 
 	string = replaceString(string, "msgid \"", "");
 
-	string[strlen(string) - 1] = '\0';
-
 	recurseDirectory("src", string, &found);
 
 	if (found == FALSE)
@@ -421,7 +419,7 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 		exit(1);
 	}
 
-	while ((dfile = readdir(dirp)))
+	while ((dfile = readdir(dirp)) && *found == FALSE)
 	{
 		if (dfile->d_name[0] == '.')
 		{
@@ -484,13 +482,6 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 			fclose(infile);
 
 			free(buffer);
-
-			if (found == TRUE)
-			{
-				closedir(dirp);
-
-				return;
-			}
 		}
 	}
 
