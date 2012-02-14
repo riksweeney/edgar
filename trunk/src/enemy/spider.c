@@ -93,15 +93,18 @@ static void takeDamage(Entity *other, int damage)
 
 		else
 		{
-			increaseKillCount();
-
-			self->health -= damage;
-
 			self->flags &= ~FLY;
 
 			self->dirY = ITEM_JUMP_HEIGHT;
 
-			self->action = self->die;
+			self->damage = 0;
+
+			if (other->type == WEAPON || other->type == PROJECTILE)
+			{
+				increaseKillCount();
+			}
+
+			self->die();
 		}
 
 		if (other->type == PROJECTILE)
@@ -125,15 +128,18 @@ static void redTakeDamage(Entity *other, int damage)
 	{
 		if (damage >= self->health)
 		{
-			increaseKillCount();
-
-			self->health -= damage;
-
 			self->flags &= ~FLY;
 
 			self->dirY = ITEM_JUMP_HEIGHT;
 
-			self->action = self->die;
+			self->damage = 0;
+
+			if (other->type == WEAPON || other->type == PROJECTILE)
+			{
+				increaseKillCount();
+			}
+
+			self->die();
 		}
 
 		else if (self->maxThinkTime < 0)

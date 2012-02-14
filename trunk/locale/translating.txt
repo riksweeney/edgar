@@ -1,14 +1,25 @@
 Translating
 -----------
 
-If you want to translate The Legend of Edgar into another language, you will need to use the
-"edgar.pot" file which is in the locale directory.
+If you want to help with translating the game into another language, you can do so by downloading the edgar.pot file from
 
-If you have used GNU Gettext then you should be quite familiar with the process. Unfortunately I don't
-have any experience with it so I cannot offer any assistance.
+http://legendofedgar.svn.sourceforge.net/viewvc/legendofedgar/trunk/locale/edgar.pot
 
-Most of the text in the scripts and item names have been translated
+and use it to translate the game.
 
-You can attach the po files to the SourceForge tracker
+Alternatively, you log into Transifex
 
-https://sourceforge.net/tracker/?group_id=332836
+https://www.transifex.net/projects/p/legendofedgar
+
+You will need to create an account to do it this way.
+
+You will need knowledge of gettext, which you can read up about here
+
+http://en.wikipedia.org/wiki/GNU_Gettext
+
+There are two partial translations present in the game, Polish and Spanish, though fairly out of date
+now, serve as a good starting point.
+
+Richard Sweeney
+riksweeney@users.sourceforge.net
+http://www.parallelrealities.co.uk/p/legend-of-edgar.html
