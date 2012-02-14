@@ -80,7 +80,6 @@ static void lanceAttack1(void);
 static void lanceAttack1Wait(void);
 static void lanceAttack2(void);
 static void lanceAttack3(void);
-static void lanceAttackTeleportAway(void);
 static void lanceAttackTeleportFinish(void);
 static void weaponRemoveBlastInit(void);
 static void weaponRemoveBlast(void);
@@ -100,6 +99,29 @@ static void petrifyAttackInit(void);
 static void petrifyAttack(void);
 static void petrifyAttackWait(void);
 static void petrifyPlayer(void);
+static void invisibleAttackInit(void);
+static void becomeInvisible(void);
+static void invisibleAttackMoveToTop(void);
+static void invisibleAttackMoveToTop(void);
+static void invisibleAttackFollowPlayer(void);
+static void invisibleDrop(void);
+static void invisibleDropWait(void);
+static void bridgeDestroyInit(void);
+static void bridgeDestroyMoveToTarget(void);
+static void bridgeDestroyFollowPlayer(void);
+static void bridgeDestroy(void);
+static void bridgeDestroyWait(void);
+static void lanceAttack2(void);
+static void lanceAttack2Wait(void);
+static void lanceDestroyBridge(void);
+static void lanceFallout(void);
+static void lanceAttack3(void);
+static void fakeLanceDropInit(void);
+static void fakeLanceDropAppear(void);
+static void fakeLanceDropWait(void);
+static void fakeLanceDrop(void);
+static void fakeLanceDropExplodeWait(void);
+static void lanceExplode(void);
 
 Entity *addGargoyle(int x, int y, char *name)
 {
@@ -377,7 +399,7 @@ static void invisibleAttackInit()
 
 	if (landedOnGround(onGround) == TRUE)
 	{
-		self->action = &becomeInvisible
+		self->action = &becomeInvisible;
 
 		self->endY = self->y + self->h;
 	}
@@ -502,7 +524,7 @@ static void invisibleDrop()
 
 			self->thinkTime = 30;
 
-			self->action = &invisibleDropWait
+			self->action = &invisibleDropWait;
 		}
 
 		self->flags &= ~FLY;
@@ -1452,18 +1474,14 @@ static void fakeLanceDropWait()
 
 static void fakeLanceDrop()
 {
+	long onGround = self->flags & ON_GROUND;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~FLY;
 	}
-
-	checkToMap(self);
-
-	long onGround = self->flags & ON_GROUND;
-
-	self->flags &= ~FLY;
 
 	checkToMap(self);
 
@@ -1481,11 +1499,11 @@ static void fakeLanceDrop()
 			self->thinkTime = 240 + prand() % 120;
 		}
 
-		self->action = &fakeLanceDropWait;
+		self->action = &fakeLanceDropExplodeWait;
 	}
 }
 
-static void fakeLanceDropWait()
+static void fakeLanceDropExplodeWait()
 {
 	self->thinkTime--;
 
@@ -1499,7 +1517,7 @@ static void fakeLanceDropWait()
 
 	if (self->thinkTime <= 0)
 	{
-		self->action = &self->mental == -1 ? &lanceExplode : &fakeLanceDropInit;
+		self->action = self->mental == -1 ? &lanceExplode : &fakeLanceDropInit;
 	}
 
 	checkToMap(self);
@@ -1819,40 +1837,6 @@ static void becomeMiniGargoyleFinish()
 	}
 
 	checkToMap(self);
-}
-
-static void lanceAttackTeleportAway()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->flags |= NO_DRAW;
-
-		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
-
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-
-		self->face = self->head->face;
-
-		setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-
-		if (self->face == LEFT)
-		{
-			self->x = self->head->x + self->head->w - self->w - self->offsetX;
-		}
-
-		else
-		{
-			self->x = self->head->x + self->offsetX;
-		}
-
-		self->y = self->head->y + self->offsetY;
-
-		self->thinkTime = 30;
-
-		self->action = &lanceAttackTeleportFinish;
-	}
 }
 
 static void lanceAttackTeleportFinish()

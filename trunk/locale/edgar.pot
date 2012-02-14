@@ -5,7 +5,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Legend of Edgar 0.97\n"
+"Project-Id-Version: The Legend of Edgar 0.98\n"
 "POT-Creation-Date: 2011-7-16 13:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -33,9 +33,6 @@ msgid "Small Rock"
 msgstr ""
 
 msgid "Press Action to retrieve the Purple Gem"
-msgstr ""
-
-msgid "Chicken"
 msgstr ""
 
 msgid "Tesla Pack"
@@ -168,9 +165,6 @@ msgid "Picked up %s x %d"
 msgstr ""
 
 msgid "Picked up %s"
-msgstr ""
-
-msgid "Readied %s"
 msgstr ""
 
 msgid "%s is required to carry this item"
@@ -872,9 +866,6 @@ msgstr ""
 msgid "Whatever that thing was it was draining the power from that generator and using it against me."
 msgstr ""
 
-msgid "That might explain why that lift wasn't working. Defeating the other drainers should restore the power."
-msgstr ""
-
 msgid "Defeat all Energy Drainers"
 msgstr ""
 
@@ -1497,9 +1488,6 @@ msgid "There's something moving around down there..."
 msgstr ""
 
 msgid "Good riddance..."
-msgstr ""
-
-msgid "Huh, dÈj‡† vu..."
 msgstr ""
 
 msgid "If the lift is out of order then it must be reset"
@@ -2279,9 +2267,6 @@ msgstr ""
 msgid "Automatically brings you back to life once if you die"
 msgstr ""
 
-msgid "A spare fuse"
-msgstr ""
-
 msgid "Flaming Arrows"
 msgstr ""
 
@@ -2712,9 +2697,6 @@ msgid "When you think you've entered the combination correctly, press Attack to 
 msgstr ""
 
 msgid "There's no way I'll be able to figure out the combination, I'll have to find out what it is"
-msgstr ""
-
-msgid "A safe in a library? Bit of a clichÈ..."
 msgstr ""
 
 msgid "It looks too thick to break open, I'll have to open it using the combination"
@@ -4304,12 +4286,6 @@ msgstr ""
 msgid "(I think I'll keep it for myself)"
 msgstr ""
 
-msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr ""
-
-msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
-msgstr ""
-
 msgid "I'll try again"
 msgstr ""
 
@@ -4331,12 +4307,6 @@ msgstr ""
 msgid "I, am Azriel"
 msgstr ""
 
-msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
-msgstr ""
-
-msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
-msgstr ""
-
 msgid "Horray!"
 msgstr ""
 
@@ -4344,4 +4314,40 @@ msgid "I'll leave it alone for the moment"
 msgstr ""
 
 msgid "Ivan's keepsake"
+msgstr ""
+
+msgid "Selected %s"
+msgstr ""
+
+msgid "Press buttons to break the petrification!"
+msgstr ""
+
+msgid "A safe in a library? Bit of a clich√©..."
+msgstr ""
+
+msgid "I don't want to go back to the swamp"
+msgstr ""
+
+msgid "I'm pretty sure Dad's in the fortress"
+msgstr ""
+
+msgid "Maybe I should check the swamp again..."
+msgstr ""
+
+msgid "It's petrified again"
+msgstr ""
+
+msgid "Huh, d√©j√† vu..."
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+
+msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
+msgstr ""
+
+msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
+msgstr ""
+
+msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
