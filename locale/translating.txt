@@ -7,9 +7,9 @@ http://legendofedgar.svn.sourceforge.net/viewvc/legendofedgar/trunk/locale/edgar
 
 and use it to translate the game.
 
-Alternatively, you log into Transifex
+Alternatively, you can log into Launchpad
 
-https://www.transifex.net/projects/p/legendofedgar
+https://translations.launchpad.net/edgar
 
 You will need to create an account to do it this way.
 

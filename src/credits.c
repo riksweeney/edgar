@@ -928,7 +928,7 @@ static void initGameStats()
 	snprintf(credits.creditLine[10].text, MAX_LINE_LENGTH, "%s", getSlimeTimeAsString());
 
 	snprintf(credits.creditLine[11].text, MAX_LINE_LENGTH, _("Secrets Found"));
-	snprintf(credits.creditLine[12].text, MAX_LINE_LENGTH, _("%d / %d"), game.secretsFound, TOTAL_SECRETS);
+	snprintf(credits.creditLine[12].text, MAX_LINE_LENGTH, "%d / %d", game.secretsFound, TOTAL_SECRETS);
 
 	snprintf(credits.creditLine[13].text, MAX_LINE_LENGTH, _("Continues"));
 	snprintf(credits.creditLine[14].text, MAX_LINE_LENGTH, "%d", game.continues);

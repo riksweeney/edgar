@@ -110,12 +110,6 @@ msgstr ""
 msgid "Press Action to talk to %s"
 msgstr ""
 
-msgid "%d"
-msgstr ""
-
-msgid "%s (%d / %d)"
-msgstr ""
-
 msgid "New Objective: %s"
 msgstr ""
 
@@ -168,12 +162,6 @@ msgid "Picked up %s"
 msgstr ""
 
 msgid "%s is required to carry this item"
-msgstr ""
-
-msgid "%s (%d)"
-msgstr ""
-
-msgid "%s"
 msgstr ""
 
 msgid "Storage Key"
@@ -3462,9 +3450,6 @@ msgid "Time Spent As A Slime"
 msgstr ""
 
 msgid "Secrets Found"
-msgstr ""
-
-msgid "%d / %d"
 msgstr ""
 
 msgid "Continues"
