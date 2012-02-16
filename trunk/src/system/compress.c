@@ -62,7 +62,7 @@ void compressFile(char *sourceName)
 	fclose(fp);
 
 	result = compress2(dest, &compressedSize, source, fileSize, 9);
-	
+
 	if (result != Z_OK)
 	{
 		switch (result)
@@ -70,11 +70,11 @@ void compressFile(char *sourceName)
 			case Z_BUF_ERROR:
 				showErrorAndExit("Compression of file %s failed. Buffer too small", sourceName);
 			break;
-			
+
 			case Z_MEM_ERROR:
 				showErrorAndExit("Compression of file %s failed. Insufficient memory", sourceName);
 			break;
-			
+
 			default:
 				showErrorAndExit("Compression of file %s failed. Stream size incorrectly defined", sourceName);
 			break;
@@ -82,18 +82,18 @@ void compressFile(char *sourceName)
 	}
 
 	fp = fopen(sourceName, "wb");
-	
+
 	fileSize = SWAP32(fileSize);
 
 	result = fwrite(&fileSize, sizeof(int32_t), 1, fp);
-	
+
 	if (result != 1)
 	{
 		showErrorAndExit("Failed to write original filesize: %s", strerror(errno));
 	}
 
 	result = fwrite(dest, compressedSize, 1, fp);
-	
+
 	if (result != 1)
 	{
 		showErrorAndExit("Failed to write compressed data: %s", strerror(errno));
@@ -132,7 +132,7 @@ unsigned char *decompressFile(char *sourceName)
 	read = fread(&int32, sizeof(int32_t), 1, fp);
 
 	fileSize = SWAP32(int32);
-	
+
 	if (read != 1)
 	{
 		return decompressFile64(sourceName);
@@ -155,13 +155,13 @@ unsigned char *decompressFile(char *sourceName)
 	}
 
 	read = fread(source, compressedSize, 1, fp);
-	
+
 	if (read != 1)
 	{
 		free(source);
-		
+
 		free(dest);
-		
+
 		return decompressFile64(sourceName);
 	}
 
@@ -172,14 +172,14 @@ unsigned char *decompressFile(char *sourceName)
 	fclose(fp);
 
 	free(source);
-	
+
 	if (result != Z_OK)
 	{
 		if (dest != NULL)
 		{
 			free(dest);
 		}
-		
+
 		return decompressFile64(sourceName);
 	}
 
@@ -193,7 +193,7 @@ static unsigned char *decompressFile64(char *sourceName)
 	unsigned long compressedSize, fileSize;
 	FILE *fp;
 	int read, result;
-	
+
 	printf("%s appears to be a 64 bit file.\nFalling back to old loading routine...\n", sourceName);
 
 	fp = fopen(sourceName, "rb");
@@ -212,9 +212,9 @@ static unsigned char *decompressFile64(char *sourceName)
 	fseek(fp, 0L, SEEK_SET);
 
 	read = fread(&long64, sizeof(int64_t), 1, fp);
-	
+
 	fileSize = SWAP64(long64);
-	
+
 	if (read != 1)
 	{
 		showErrorAndExit("Failed to read original filesize: %s", strerror(errno));
@@ -224,18 +224,18 @@ static unsigned char *decompressFile64(char *sourceName)
 
 	if (source == NULL)
 	{
-		showErrorAndExit("Failed to allocate %ld bytes to decompress save file", compressedSize * sizeof(unsigned char));
+		showErrorAndExit("Failed to allocate %ld bytes to decompress file %s", compressedSize * sizeof(unsigned char), sourceName);
 	}
 
 	dest = malloc((fileSize + 1) * sizeof(unsigned char));
 
 	if (dest == NULL)
 	{
-		showErrorAndExit("Failed to allocate %ld bytes to decompress save file", (fileSize + 1) * sizeof(unsigned char));
+		showErrorAndExit("Failed to allocate %ld bytes to decompress file %s", (fileSize + 1) * sizeof(unsigned char), sourceName);
 	}
 
 	read = fread(source, compressedSize, 1, fp);
-	
+
 	if (read != 1)
 	{
 		showErrorAndExit("Failed to read compressed data: %s", strerror(errno));
@@ -248,7 +248,7 @@ static unsigned char *decompressFile64(char *sourceName)
 	fclose(fp);
 
 	free(source);
-	
+
 	if (result != Z_OK)
 	{
 		switch (result)
@@ -256,11 +256,11 @@ static unsigned char *decompressFile64(char *sourceName)
 			case Z_BUF_ERROR:
 				showErrorAndExit("Decompression of file %s failed. Buffer too small", sourceName);
 			break;
-			
+
 			case Z_MEM_ERROR:
 				showErrorAndExit("Decompression of file %s failed. Insufficient memory", sourceName);
 			break;
-			
+
 			default:
 				showErrorAndExit("Decompression of file %s failed. Data is corrupt", sourceName);
 			break;
