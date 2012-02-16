@@ -863,9 +863,6 @@ msgstr ""
 msgid "Press Action to reset puzzle blocks"
 msgstr ""
 
-msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
-msgstr ""
-
 msgid "I still need an Empty Bottle to put the potion in"
 msgstr ""
 
@@ -2483,9 +2480,6 @@ msgstr ""
 msgid "A beautiful ring"
 msgstr ""
 
-msgid "A power cell from a Gold Centurion"
-msgstr ""
-
 msgid "Normal Arrow is required"
 msgstr ""
 
@@ -2982,9 +2976,6 @@ msgid "And it tastes like..."
 msgstr ""
 
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
-
-msgid "This is a test"
 msgstr ""
 
 msgid "It's an apple tree"
@@ -3821,6 +3812,12 @@ msgstr ""
 msgid "Defeated the Phoenix"
 msgstr ""
 
+msgid "Defeated Azriel"
+msgstr ""
+
+msgid "Defeated the Gargoyle"
+msgstr ""
+
 msgid "Defeated a Rampaging Master Tortoise"
 msgstr ""
 
@@ -3837,6 +3834,9 @@ msgid "Met the Sorceror"
 msgstr ""
 
 msgid "Obtained 10 Hit Points"
+msgstr ""
+
+msgid "Obtained 20 Hit Points"
 msgstr ""
 
 msgid "Rescued all of Jacob's chickens"
@@ -4208,9 +4208,6 @@ msgstr ""
 msgid "Crypt"
 msgstr ""
 
-msgid "Checkpoint"
-msgstr ""
-
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr ""
 
@@ -4331,8 +4328,12 @@ msgstr ""
 msgid "Er, yeah, there was what you'd call an \"incident\", but that part of the mine was sealed up a long time ago"
 msgstr ""
 
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
+msgstr ""
+
 msgid "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
+
