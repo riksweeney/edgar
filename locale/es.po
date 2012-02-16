@@ -113,12 +113,6 @@ msgstr "Botón de joystick #%d"
 msgid "Press Action to talk to %s"
 msgstr "Pulsa Acción para hablar con %s"
 
-msgid "%d"
-msgstr "%d"
-
-msgid "%s (%d / %d)"
-msgstr "%s (%d / %d)"
-
 msgid "New Objective: %s"
 msgstr "Nuevo objetivo: %s"
 
@@ -172,12 +166,6 @@ msgstr "Recogido %s"
 
 msgid "%s is required to carry this item"
 msgstr "Necesitas %s para llevar este objeto"
-
-msgid "%s (%d)"
-msgstr "%s (%d)"
-
-msgid "%s"
-msgstr "%s"
 
 msgid "Storage Key"
 msgstr "Llave del almacén"
@@ -969,9 +957,6 @@ msgstr "No hay objetivos"
 
 msgid "Press Action to reset puzzle blocks"
 msgstr "Pulsa Acción para resetear los bloques de puzzle"
-
-msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
-msgstr "Necesito el tentáculo de un Lodo rojo y 3 globos oculares de Mirones para hacer la poción"
 
 msgid "I still need an Empty Bottle to put the potion in"
 msgstr "Todavía necesito una botella vacía para meter la poción dentro"
@@ -2832,9 +2817,6 @@ msgstr "El hechicero debe haber hecho alguna otra cosa con el, tendré que regre
 msgid "A beautiful ring"
 msgstr "Un anillo bonito"
 
-msgid "A power cell from a Gold Centurion"
-msgstr "Una pila de un Centurión dorado"
-
 msgid "Normal Arrow is required"
 msgstr "Necesitas flechas normales"
 
@@ -3398,9 +3380,6 @@ msgstr "Y sabe como..."
 msgid "It is! It's naturally occurring Slime potion!"
 msgstr "¡Lo es!, ¡es una poción de Lodo natural!"
 
-msgid "This is a test"
-msgstr "Esto es una prueba"
-
 msgid "It's an apple tree"
 msgstr "Es un manzano"
 
@@ -3920,9 +3899,6 @@ msgstr ""
 msgid "Secrets Found"
 msgstr ""
 
-msgid "%d / %d"
-msgstr ""
-
 msgid "Continues"
 msgstr ""
 
@@ -4303,6 +4279,12 @@ msgstr ""
 msgid "Defeated the Phoenix"
 msgstr ""
 
+msgid "Defeated Azriel"
+msgstr ""
+
+msgid "Defeated the Gargoyle"
+msgstr ""
+
 msgid "Defeated a Rampaging Master Tortoise"
 msgstr ""
 
@@ -4319,6 +4301,9 @@ msgid "Met the Sorceror"
 msgstr ""
 
 msgid "Obtained 10 Hit Points"
+msgstr ""
+
+msgid "Obtained 20 Hit Points"
 msgstr ""
 
 msgid "Rescued all of Jacob's chickens"
@@ -4822,12 +4807,37 @@ msgid ""
 "mine was sealed up a long time ago"
 msgstr "Er, si, hubo lo que podríamos llamar un \"incidente\", pero esa parte de la mina fue sellada hace mucho tiempo"
 
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
+msgstr ""
+
 msgid ""
 "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr "Borgan dijo que una sección de la mina fue sellada tras un \"incidente\""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
+
+#~ msgid "%d"
+#~ msgstr "%d"
+
+#~ msgid "%s (%d / %d)"
+#~ msgstr "%s (%d / %d)"
+
+#~ msgid "%s (%d)"
+#~ msgstr "%s (%d)"
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid ""
+#~ "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
+#~ msgstr "Necesito el tentáculo de un Lodo rojo y 3 globos oculares de Mirones para hacer la poción"
+
+#~ msgid "A power cell from a Gold Centurion"
+#~ msgstr "Una pila de un Centurión dorado"
+
+#~ msgid "This is a test"
+#~ msgstr "Esto es una prueba"
 
 #~ msgid "Not working in this version!"
 #~ msgstr "¡No funciona en esta versión!"

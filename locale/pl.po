@@ -113,12 +113,6 @@ msgstr ""
 msgid "Press Action to talk to %s"
 msgstr "Naciśnij klawisz akcji aby porozmawiać z %s"
 
-msgid "%d"
-msgstr "%d"
-
-msgid "%s (%d / %d)"
-msgstr "%s (%d / %d)"
-
 msgid "New Objective: %s"
 msgstr "Nowe zadanie: %s"
 
@@ -172,12 +166,6 @@ msgstr "Podniosłeś %s"
 
 msgid "%s is required to carry this item"
 msgstr "Potrzebujesz %s aby unieść ten przedmiot"
-
-msgid "%s (%d)"
-msgstr "%s (%d)"
-
-msgid "%s"
-msgstr "%s"
 
 msgid "Storage Key"
 msgstr "Klucz do Schowka"
@@ -1021,9 +1009,6 @@ msgid "No Objectives"
 msgstr ""
 
 msgid "Press Action to reset puzzle blocks"
-msgstr ""
-
-msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion "
 msgstr ""
 
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2844,9 +2829,6 @@ msgstr ""
 msgid "A beautiful ring"
 msgstr ""
 
-msgid "A power cell from a Gold Centurion"
-msgstr ""
-
 msgid "Normal Arrow is required"
 msgstr ""
 
@@ -3403,9 +3385,6 @@ msgstr ""
 msgid "It is! It's naturally occurring Slime potion!"
 msgstr ""
 
-msgid "This is a test"
-msgstr ""
-
 msgid "It's an apple tree"
 msgstr ""
 
@@ -3922,9 +3901,6 @@ msgstr ""
 msgid "Secrets Found"
 msgstr ""
 
-msgid "%d / %d"
-msgstr ""
-
 msgid "Continues"
 msgstr ""
 
@@ -4305,6 +4281,12 @@ msgstr ""
 msgid "Defeated the Phoenix"
 msgstr ""
 
+msgid "Defeated Azriel"
+msgstr ""
+
+msgid "Defeated the Gargoyle"
+msgstr ""
+
 msgid "Defeated a Rampaging Master Tortoise"
 msgstr ""
 
@@ -4321,6 +4303,9 @@ msgid "Met the Sorceror"
 msgstr ""
 
 msgid "Obtained 10 Hit Points"
+msgstr ""
+
+msgid "Obtained 20 Hit Points"
 msgstr ""
 
 msgid "Rescued all of Jacob's chickens"
@@ -4826,12 +4811,27 @@ msgstr ""
 "Eeee, no tak, można to nazwać swego rodzaju \"wypadkiem\", ale ta część "
 "kopalni została zapieczontowana dawno temu"
 
+msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
+msgstr ""
+
 msgid ""
 "Borgan said that a section of the mine was sealed up after an \"incident\""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
+
+#~ msgid "%d"
+#~ msgstr "%d"
+
+#~ msgid "%s (%d / %d)"
+#~ msgstr "%s (%d / %d)"
+
+#~ msgid "%s (%d)"
+#~ msgstr "%s (%d)"
+
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "Not working in this version!"
 #~ msgstr "Nie działa z tą wersją!"
