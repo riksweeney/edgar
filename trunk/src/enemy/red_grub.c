@@ -27,7 +27,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/properties.h"
 #include "../system/random.h"
 
-extern Entity *self, player;
+extern Entity *self, player, playerShield;
 
 static void die(void);
 static void reactToBlock(Entity *);
@@ -181,7 +181,7 @@ static void spinAttack()
 static void spinAttackEnd()
 {
 	checkToMap(self);
-
+	
 	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
@@ -202,31 +202,22 @@ static void spinAttackEnd()
 
 static void reactToBlock(Entity *other)
 {
-	if (player.face == LEFT)
+	if (other == &playerShield)
 	{
-		self->x = player.x - self->w;
+		other = &player;
+	}
+	
+	if (self->dirX > 0)
+	{
+		self->x = other->x - self->w;
 	}
 
 	else
 	{
-		self->x = player.x + player.w;
+		self->x = other->x + other->w;
 	}
 
-	if (self->action == &spinAttack)
-	{
-		self->dirX = player.face == LEFT ? -5 : 5;
-
-		self->dirY = -6;
-
-		self->action = &spinAttackEnd;
-
-		self->thinkTime = 0;
-	}
-
-	else
-	{
-		changeDirection(NULL);
-	}
+	self->dirX = 0;
 }
 
 static void creditsMove()
