@@ -80,6 +80,8 @@ Entity *addAntLion(int x, int y, char *name)
 
 static void patrol()
 {
+	self->mental--;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -91,9 +93,11 @@ static void patrol()
 		self->action = &moveToTarget;
 	}
 
-	if (prand() % 30 == 0)
+	if (self->mental <= 0)
 	{
 		lookForFood();
+		
+		self->mental = 30;
 	}
 
 	addDust();

@@ -25,6 +25,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../event/global_trigger.h"
 #include "../event/trigger.h"
 #include "../graphics/animation.h"
+#include "../hud.h"
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
@@ -90,6 +91,8 @@ static void touch(Entity *other)
 		
 		else
 		{
+			setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			
 			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
 			if (other->reactToBlock != NULL)
@@ -101,6 +104,11 @@ static void touch(Entity *other)
 				self->reactToBlock(temp);
 
 				self = temp;
+			}
+			
+			if (other->type != PROJECTILE && prand() % 10 == 0)
+			{
+				setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 			}
 		}
 	}
