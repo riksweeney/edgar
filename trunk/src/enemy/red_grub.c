@@ -60,7 +60,7 @@ Entity *addRedGrub(int x, int y, char *name)
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &reactToBlock;
 	e->resumeNormalFunction = &spinAttack;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -73,7 +73,7 @@ Entity *addRedGrub(int x, int y, char *name)
 static void die()
 {
 	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -130,7 +130,7 @@ static void spinAttackStart()
 		self->dirX = (self->face == RIGHT ? self->speed : -self->speed);
 
 		self->action = &spinAttack;
-		
+
 		self->creditsAction = &creditsSpinAttack;
 
 		self->thinkTime = 180;
@@ -151,12 +151,12 @@ static void spinAttack()
 	{
 		if (self->dirX == 0)
 		{
-			self->dirX = self->face == LEFT ? 3 : -3;
+			self->dirX = self->face == LEFT ? 5 : -5;
 		}
 
 		else
 		{
-			self->dirX = self->dirX < 0 ? 3 : -3;
+			self->dirX = self->dirX < 0 ? 5 : -5;
 		}
 
 		self->dirY = -6;
@@ -167,7 +167,7 @@ static void spinAttack()
 
 		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 
-		self->face = (player.x > self->x ? RIGHT : LEFT);
+		self->face = self->face == LEFT ? RIGHT : LEFT;
 	}
 
 	else if (self->thinkTime <= 0)
@@ -232,11 +232,11 @@ static void reactToBlock(Entity *other)
 static void creditsMove()
 {
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	self->thinkTime++;
-	
+
 	if (self->thinkTime >= 180)
 	{
 		self->dirX = 0;

@@ -153,7 +153,7 @@ static void hunt()
 
 	/* Position under the player */
 
-	if (abs(self->x - self->targetX) <= self->speed)
+	if (abs(self->x - self->targetX) <= self->speed * 3)
 	{
 		self->dirX = 0;
 
@@ -323,11 +323,11 @@ static void creditsAction()
 	if (self->target == NULL)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->target = getEntityByName("enemy/grub");
-			
+
 			self->thinkTime = 15;
 		}
 	}
