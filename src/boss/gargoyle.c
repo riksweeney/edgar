@@ -140,7 +140,7 @@ Entity *addGargoyle(int x, int y, char *name)
 	e->action = &init;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = NULL;
+	e->touch = &entityTouch;
 	e->die = &die;
 	e->takeDamage = NULL;
 
@@ -181,33 +181,9 @@ static void init()
 
 static void initialise()
 {
-	Target *t;
-
 	if (self->active == TRUE)
 	{
-		if (cameraAtMinimum())
-		{
-			if (self->mental == 0)
-			{
-				t = getTargetByName("GARGOYLE_INTRO_TARGET");
-
-				if (t == NULL)
-				{
-					showErrorAndExit("Gargoyle cannot find target");
-				}
-
-				calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-				self->dirX *= self->speed;
-				self->dirY *= self->speed;
-
-				self->thinkTime = 30;
-
-				self->action = &doIntro;
-
-				self->mental = 1;
-			}
-		}
+		self->action = &doIntro;
 	}
 
 	checkToMap(self);
@@ -218,16 +194,6 @@ static void doIntro()
 	int i;
 	Entity *e;
 	long onGround = self->flags & ON_GROUND;
-
-	if (atTarget())
-	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
-		{
-			self->flags &= ~FLY;
-		}
-	}
 
 	checkToMap(self);
 
@@ -259,6 +225,8 @@ static void introFinish()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "FACE_FRONT");
+		
 		self->maxThinkTime = 0;
 
 		self->mental = 2;
@@ -290,7 +258,7 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		if (self->target == NULL && self->maxThinkTime < 3)
+		if ((self->target == NULL || self->target->inUse == FALSE) && self->maxThinkTime < 3)
 		{
 			self->action = &createLanceInit;
 		}
@@ -300,7 +268,7 @@ static void entityWait()
 			switch (self->maxThinkTime)
 			{
 				case 0:
-					if (self->health == self->maxHealth * 0.25f)
+					if (self->health == self->maxHealth / 4)
 					{
 						self->action = &lanceThrowInit;
 					}
@@ -325,7 +293,7 @@ static void entityWait()
 				break;
 
 				case 1:
-					if (self->health == self->maxHealth * 0.25f)
+					if (self->health == self->maxHealth / 4)
 					{
 						self->action = &lanceThrowInit;
 					}
@@ -350,7 +318,7 @@ static void entityWait()
 				break;
 
 				case 2:
-					if (self->health == self->maxHealth * 0.25f)
+					if (self->health == self->maxHealth / 4)
 					{
 						self->action = &lanceThrowInit;
 					}
@@ -777,18 +745,16 @@ static void lanceThrowWait()
 
 static void createLanceInit()
 {
-	long onGround = self->flags & ON_GROUND;
-
 	self->flags &= ~FLY;
-
-	checkToMap(self);
-
-	if (landedOnGround(onGround) == TRUE)
+	
+	if (self->flags & ON_GROUND)
 	{
-		self->thinkTime = 15;
+		self->thinkTime = 30;
 
 		self->action = &createLance;
 	}
+	
+	checkToMap(self);
 }
 
 static void createLance()
@@ -796,50 +762,57 @@ static void createLance()
 	Entity *e;
 
 	setEntityAnimation(self, "CREATE_LANCE");
-
+	
 	self->mental = 1;
-
-	e = getFreeEntity();
-
-	if (e == NULL)
+	
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		showErrorAndExit("No free slots to add the Gargoyle's Lance");
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add the Gargoyle's Lance");
+		}
+
+		switch (self->maxThinkTime)
+		{
+			case 0:
+				loadProperties("boss/gargoyle_lance_1", e);
+			break;
+
+			case 1:
+				loadProperties("boss/gargoyle_lance_2", e);
+			break;
+
+			default:
+				loadProperties("boss/gargoyle_lance_3", e);
+			break;
+		}
+
+		e->action = &lanceAppearWait;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->touch = &entityTouch;
+
+		e->type = ENEMY;
+
+		e->head = self;
+
+		setEntityAnimation(e, "LANCE_APPEAR");
+
+		e->animationCallback = &lanceAppearFinish;
+
+		self->target = e;
+
+		e->maxThinkTime = 0;
+		
+		self->action = &createLanceWait;
 	}
-
-	switch (self->maxThinkTime)
-	{
-		case 0:
-			loadProperties("boss/gargoyle_lance_1", e);
-		break;
-
-		case 1:
-			loadProperties("boss/gargoyle_lance_2", e);
-		break;
-
-		default:
-			loadProperties("boss/gargoyle_lance_3", e);
-		break;
-	}
-
-	e->action = &lanceAppearWait;
-
-	e->draw = &drawLoopingAnimationToMap;
-
-	e->touch = &entityTouch;
-
-	e->type = ENEMY;
-
-	e->head = self;
-
-	setEntityAnimation(e, "LANCE_APPEAR");
-
-	e->animationCallback = &lanceAppearFinish;
-
-	self->target = e;
-
-	e->maxThinkTime = 0;
-
-	self->action = &createLanceWait;
+	
+	checkToMap(self);
 }
 
 static void createLanceWait()
@@ -1276,9 +1249,9 @@ static void takeDamage(Entity *other, int damage)
 
 			/* Don't die if you've still got lances to wield */
 
-			if (self->maxThinkTime < 3 && self->health < self->maxHealth * 0.25f)
+			if (self->maxThinkTime < 3 && self->health < self->maxHealth / 4)
 			{
-				self->health = self->maxHealth * 0.25f;
+				self->health = self->maxHealth / 4;
 			}
 		}
 
@@ -1868,7 +1841,7 @@ static void addStoneCoat()
 		showErrorAndExit("No free slots to add the Gargoyle Stone Coat");
 	}
 
-	loadProperties("boss/gargoyle_stone", e);
+	loadProperties("boss/gargoyle_stone_coat", e);
 
 	e->x = self->x;
 	e->y = self->y;
@@ -1883,7 +1856,7 @@ static void addStoneCoat()
 
 	e->head = self;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, getAnimationTypeAtIndex(self));
 }
 
 static void coatWait()
