@@ -1857,6 +1857,8 @@ static void golemTakeDamage(Entity *other, int damage)
 			self->startX = self->x;
 
 			self->damage = 0;
+			
+			self->takeDamage = NULL;
 
 			self->action = &golemDie;
 		}
