@@ -85,7 +85,7 @@ void init(char *title, int joystickNum)
 
 	joysticks = game.disableJoystick == TRUE ? 0 : SDL_NumJoysticks();
 	
-	if (joystickNum < 0 || joystickNum >= joysticks)
+	if (joysticks > 0 && (joystickNum < 0 || joystickNum >= joysticks))
 	{
 		printf("Joystick %d is not a valid joystick. Joysticks will be disabled\n", joystickNum);
 		
