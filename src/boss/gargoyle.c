@@ -213,7 +213,7 @@ static void doIntro()
 			}
 		}
 
-		self->thinkTime = 30;
+		self->thinkTime = 60;
 
 		self->action = &introFinish;
 	}
@@ -225,17 +225,15 @@ static void introFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "FACE_FRONT");
-		
 		self->maxThinkTime = 0;
+		
+		playDefaultBossMusic();
 
 		self->mental = 2;
 
 		setContinuePoint(FALSE, self->name, NULL);
 
 		initBossHealthBar();
-
-		playDefaultBossMusic();
 
 		self->takeDamage = &takeDamage;
 

@@ -398,7 +398,7 @@ static void testPak(char *pakFile)
 
 		if (source == NULL)
 		{
-			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].compressedSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].compressedSize * (int)sizeof(unsigned char), fileData[i].filename);
 
 			exit(1);
 		}
@@ -407,7 +407,7 @@ static void testPak(char *pakFile)
 
 		if (dest == NULL)
 		{
-			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].fileSize * sizeof(unsigned char), fileData[i].filename);
+			printf("\nFailed to allocate %d bytes to load %s from PAK\n", fileData[i].fileSize * (int)sizeof(unsigned char), fileData[i].filename);
 
 			exit(1);
 		}
