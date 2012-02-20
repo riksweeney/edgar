@@ -4762,3 +4762,12 @@ msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
 msgstr ""
+
+msgid "Completed the game with only 5 hit points"
+msgstr ""
+
+msgid "Completed the game without continuing"
+msgstr ""
+
+msgid "Accessed the Crypt"
+msgstr ""

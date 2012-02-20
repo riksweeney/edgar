@@ -9,3 +9,4 @@ wall/drawbridge_up
 wall/drawbridge_down
 item/drawbridge_anchor
 boss/gargoyle
+lift/lift_target
