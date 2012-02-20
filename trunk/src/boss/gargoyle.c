@@ -90,7 +90,9 @@ static void weaponRemoveBlast(void);
 static void blastRemoveWeapon(Entity *);
 static void weaponRemoveBlastFinish(void);
 static void createLightningOrb(void);
-static void createLightningGrid(void);
+static void lightningGridAttackInit(void);
+static void lightningGridAttack(void);
+static void lightningGridAttackWait(void);
 static void orbMoveToTop(void);
 static void orbMoveToTarget(void);
 static void orbFollowPlayer(void);
@@ -132,6 +134,7 @@ static void fakeLanceDropExplodeWait(void);
 static void lanceExplode(void);
 static void splitInHalfInit(void);
 static void splitInHalf(void);
+static void splitInHalfMove(void);
 static void cloneCheck(void);
 static void cloneDie(void);
 static void dropAttackInit(void);
@@ -308,6 +311,8 @@ static void entityWait()
 								self->action = &lightningGridAttackInit;
 							break;
 						}
+						
+						self->action = &lightningGridAttackInit;
 					}
 				break;
 
@@ -382,7 +387,7 @@ static void entityWait()
 						switch (prand() % 3)
 						{
 							case 0:
-								self->action = &lanceStabInit;
+								self->action = &dropAttackInit;
 							break;
 
 							case 1:
@@ -415,6 +420,8 @@ static void splitInHalfInit()
 
 static void splitInHalf()
 {
+	Entity *e;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -434,7 +441,7 @@ static void splitInHalf()
 
 		e->touch = &entityTouch;
 
-		e->takeDamage = &entityTakeDamage;
+		e->takeDamage = &entityTakeDamageNoFlinch;
 
 		e->die = &entityDie;
 
@@ -508,7 +515,7 @@ static void dropAttackInit()
 
 	t = getTargetByName("GARGOYLE_TOP_TARGET");
 
-	if (t != null)
+	if (t != NULL)
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
@@ -531,7 +538,7 @@ static void dropAttackMoveToTop()
 {
 	if (atTarget())
 	{
-		self->action = &dropAttackMoveAbovePlayer;
+		self->action = &dropAttackFollowPlayer;
 	}
 
 	checkToMap(self);
@@ -598,7 +605,9 @@ static void dropAttackFollowPlayer()
 
 static void dropAttack()
 {
+	int i;
 	long onGround = self->flags & ON_GROUND;
+	Entity *e;
 
 	self->flags &= ~FLY;
 
@@ -656,13 +665,15 @@ static void lightningGridAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "CREATE_LANCE");
+		
 		self->mental = 0;
+		
+		self->endX = 0;
 
-		orbCount = 5;
+		orbCount = 6;
 
-		real = prand() % orbCount;
-
-		x = SCREEN_WIDTH / (orbCount + 1);
+		x = getMapStartX();
 
 		t = getTargetByName("GARGOYLE_TOP_TARGET");
 
@@ -671,7 +682,7 @@ static void lightningGridAttack()
 			showErrorAndExit("Gargoyle cannot find target");
 		}
 
-		for (i=0;i<orbCount;i++)
+		for (i=0;i<orbCount+1;i++)
 		{
 			e = getFreeEntity();
 
@@ -685,13 +696,13 @@ static void lightningGridAttack()
 			e->x = self->x + self->w / 2 - e->w / 2;
 			e->y = self->y + self->h / 2 - e->h / 2;
 
-			e->targetX = x;
+			e->targetX = x - e->w / 2;
 			e->targetY = t->y;
 
 			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-			e->dirX *= 8;
-			e->dirY *= 8;
+			e->dirX *= 12;
+			e->dirY *= 12;
 
 			e->action = &orbMoveToTarget;
 
@@ -702,17 +713,25 @@ static void lightningGridAttack()
 			e->type = ENEMY;
 
 			e->thinkTime = 30;
+			
+			e->mental = 1;
+			
+			e->health = i == 0 ? -1 : 0;
 
 			e->head = self;
 
-			x += SCREEN_WIDTH / (lanceCount + 1);
+			x += SCREEN_WIDTH / orbCount;
+			
+			self->mental++;
+			
+			self->endX++;
 		}
 
 		setEntityAnimation(e, "STAND");
 
-		self->mental++;
-
 		self->thinkTime = 60;
+		
+		self->action = &lightningGridAttackWait;
 	}
 
 	checkToMap(self);
@@ -722,16 +741,28 @@ static void orbMoveToTarget()
 {
 	if (atTarget())
 	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->mental == 1)
 		{
-			self->startY = self->targetY;
-			self->endY   = getMapFloor(self->targetX, self->targetY);
+			self->head->endX--;
+			
+			self->mental = 0;
+		}
+		
+		else if (self->head->endX <= 0)
+		{
+			self->thinkTime--;
 
-			self->action = &orbCastLightning1;
+			if (self->thinkTime <= 0)
+			{
+				self->startY = self->targetY;
+				self->endY   = getMapFloor(self->targetX, self->targetY);
+
+				self->action = &orbCastLightning1;
+			}
 		}
 	}
+	
+	checkToMap(self);
 }
 
 static void orbCastLightning1()
@@ -741,9 +772,12 @@ static void orbCastLightning1()
 
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0 && player.health > 0)
+	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+		if (self->health == -1)
+		{
+			playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, self->x, self->y, 0);
+		}
 
 		for (i=self->endY-32;i>=self->startY;i-=32)
 		{
@@ -830,21 +864,29 @@ static void lanceStabInit()
 
 	self->flags |= FLY;
 
-	setEntityAnimation(self, "FLY");
+	setEntityAnimation(self, "STAND");
 
-	if (prand() % 2 == 0)
+	if (player.x > self->x)
 	{
-		t = getTargetByName("GARGOYLE_TARGET_LEFT");
+		t = getTargetByName("GARGOYLE_LEFT_TARGET");
 
 		self->face = RIGHT;
 	}
 
 	else
 	{
-		t = getTargetByName("GARGOYLE_TARGET_RIGHT");
+		t = getTargetByName("GARGOYLE_RIGHT_TARGET");
 
 		self->face = LEFT;
 	}
+	
+	if (t == NULL)
+	{
+		showErrorAndExit("Gargoyle cannot find target");
+	}
+	
+	self->targetX = t->x;
+	self->targetY = t->y;
 
 	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
@@ -866,10 +908,10 @@ static void lanceStabMoveToTarget()
 
 		if (self->thinkTime <= 0)
 		{
-			calculatePath(self->x, self->y, player.x, player.y, &self->dirX, &self->dirY);
+			calculatePath(self->x, self->y, player.x, player.y + player.h - self->h, &self->dirX, &self->dirY);
 
-			self->dirX *= 5;
-			self->dirY *= 5;
+			self->dirX *= 12;
+			self->dirY *= 12;
 
 			self->action = &lanceStab;
 
@@ -882,8 +924,10 @@ static void lanceStabMoveToTarget()
 
 static void lanceStab()
 {
-	if (self->dirX == 0)
+	if (self->dirX == 0 || self->standingOn != NULL)
 	{
+		self->flags &= ~FLY;
+		
 		self->dirX = self->face == RIGHT ? -5 : 5;
 		self->dirY = -6;
 
@@ -895,8 +939,10 @@ static void lanceStab()
 	checkToMap(self);
 }
 
-static void lanceStabReactToBlock()
+static void lanceStabReactToBlock(Entity *other)
 {
+	self->flags &= ~FLY;
+	
 	self->dirX = self->face == RIGHT ? -5 : 5;
 	self->dirY = -6;
 
@@ -907,10 +953,23 @@ static void lanceStabReactToBlock()
 
 static void lanceStabFinish()
 {
+	int i;
+	Entity *e;
+	
 	self->reactToBlock = NULL;
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
+		for (i=0;i<5;i++)
+		{
+			e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+			if (e != NULL)
+			{
+				e->y -= prand() % e->h;
+			}
+		}
+		
 		self->dirX = 0;
 
 		self->thinkTime--;
@@ -1353,8 +1412,6 @@ static void createLance()
 		e->action = &lanceAppearWait;
 
 		e->draw = &drawLoopingAnimationToMap;
-
-		e->touch = &entityTouch;
 
 		e->type = ENEMY;
 
@@ -1934,7 +1991,7 @@ static void fakeLanceDropAppear()
 
 		real = prand() % lanceCount;
 
-		x = SCREEN_WIDTH / (lanceCount + 1);
+		x = getMapStartX() + SCREEN_WIDTH / (lanceCount + 1);
 
 		for (i=0;i<lanceCount;i++)
 		{
@@ -2383,6 +2440,8 @@ static void lanceAttackTeleportFinish()
 		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+		
+		self->touch = NULL;
 
 		self->action = &lanceWait;
 
