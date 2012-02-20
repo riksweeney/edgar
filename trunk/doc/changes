@@ -2,12 +2,12 @@ CHANGE LOG
 ----------
 
 Version 0.98
-* Added French and Russian translations
+* Added French, Czech and Russian translations
 * Updated the Fortress Outskirts map
 * Made the data and save files architecture independent (so a 32bit x86 save will work on a 64bit PPC machine etc.)
 * Fixed a problem with objects falling through pressure plates
 * Fixed a crash when entering the Sewer after returning from the Wasteland
-* Made the Ant Lion in the Forbidden Swamp hardly to simply walk past
+* Made the Ant Lion in the Forbidden Swamp harder to simply walk past
 * Fixed a problem with Red Grubs getting stuck in some walls after bouncing off them
 * Hitting the small trees no longer plays multiple sound effects
 * Attacking the Black Book's version of the Golem after it has been defeated no longer causes a crash
