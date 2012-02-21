@@ -1981,7 +1981,7 @@ static void acidStreamMoveToTop()
 
 		self->face = prand() % 2 == 0 ? LEFT : RIGHT;
 
-		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w - 1;
+		self->targetX = self->face == LEFT ? getMapStartX() : getMapStartX() + SCREEN_WIDTH - self->w;
 
 		self->dirX = self->face == LEFT ? -self->speed : self->speed;
 	}
