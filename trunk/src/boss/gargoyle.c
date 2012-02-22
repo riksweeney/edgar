@@ -258,7 +258,9 @@ static void introFinish()
 
 		self->takeDamage = &takeDamage;
 
-		self->action = &attackFinished;
+		self->action = &entityWait;
+		
+		self->thinkTime = 90;
 
 		self->flags |= LIMIT_TO_SCREEN;
 	}
@@ -272,6 +274,8 @@ static void attackFinished()
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
+	
+	setEntityAnimation(self, "FLY");
 
 	self->flags |= FLY;
 
@@ -299,7 +303,7 @@ static void attackFinishedMoveUp()
 		if (self->thinkTime <= 0)
 		{
 			self->targetX = getMapStartX() + prand() % (SCREEN_WIDTH - self->w);
-			self->targetY = t->y;
+			self->targetY = self->y;
 
 			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
@@ -319,7 +323,7 @@ static void attackFinishedMoveHorizontal()
 {
 	if (atTarget())
 	{
-		self->thinkTime = 30;
+		self->thinkTime = 0;
 
 		self->action = &entityWait;
 	}
@@ -360,18 +364,18 @@ static void entityWait()
 
 							case 1:
 								self->action = &weaponRemoveBlastInit;
+								self->action = &lanceStabInit;
 							break;
 
 							case 2:
 								self->action = &petrifyAttackInit;
+								self->action = &lightningGridAttackInit;
 							break;
 
 							default:
 								self->action = &lightningGridAttackInit;
 							break;
 						}
-
-						self->action = &lightningGridAttackInit;
 					}
 				break;
 
@@ -706,6 +710,8 @@ static void lightningGridAttackInit()
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
+		setEntityAnimation(self, "STAND");
+		
 		self->thinkTime = 30;
 
 		self->action = &lightningGridAttack;
@@ -922,10 +928,6 @@ static void lanceStabInit()
 {
 	Target *t;
 
-	self->flags |= FLY;
-
-	setEntityAnimation(self, "STAND");
-
 	if (player.x > self->x)
 	{
 		t = getTargetByName("GARGOYLE_LEFT_TARGET");
@@ -970,8 +972,8 @@ static void lanceStabMoveToTarget()
 		{
 			calculatePath(self->x, self->y, player.x, player.y + player.h - self->h, &self->dirX, &self->dirY);
 
-			self->dirX *= 12;
-			self->dirY *= 12;
+			self->dirX *= 16;
+			self->dirY *= 16;
 
 			self->action = &lanceStab;
 
@@ -1014,12 +1016,19 @@ static void lanceStabReactToBlock(Entity *other)
 static void lanceStabFinish()
 {
 	int i;
+	long onGround;
 	Entity *e;
 
 	self->reactToBlock = NULL;
-
-	if (self->standingOn != NULL || (self->flags & ON_GROUND))
+	
+	onGround = self->flags & ON_GROUND;
+	
+	checkToMap(self);
+	
+	if (landedOnGround(onGround) == TRUE)
 	{
+		setEntityAnimation(self, "STAND");
+		
 		for (i=0;i<5;i++)
 		{
 			e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
@@ -1029,7 +1038,10 @@ static void lanceStabFinish()
 				e->y -= prand() % e->h;
 			}
 		}
+	}
 
+	if (self->standingOn != NULL || (self->flags & ON_GROUND))
+	{
 		self->dirX = 0;
 
 		self->thinkTime--;
@@ -1039,8 +1051,6 @@ static void lanceStabFinish()
 			self->action = &attackFinished;
 		}
 	}
-
-	checkToMap(self);
 }
 
 static void invisibleAttackInit()
@@ -1506,7 +1516,7 @@ static void createLance()
 
 		self->action = &createLanceWait;
 
-		self->thinkTime = 30;
+		self->thinkTime = 90;
 	}
 
 	checkToMap(self);
