@@ -22,6 +22,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../audio/audio.h"
 #include "../audio/music.h"
 #include "../collisions.h"
+#include "../credits.h"
 #include "../custom_actions.h"
 #include "../enemy/enemies.h"
 #include "../enemy/rock.h"
@@ -342,7 +343,7 @@ static void entityWait()
 {
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 && player.health > 0)
 	{
 		if ((self->target == NULL || self->target->inUse == FALSE) && self->maxThinkTime < 3)
 		{
@@ -379,8 +380,6 @@ static void entityWait()
 								self->action = &lightningGridAttackInit;
 							break;
 						}
-
-						self->action = &weaponRemoveBlastInit;
 					}
 				break;
 
@@ -1644,9 +1643,13 @@ static void petrifyAttackInit()
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
-		self->thinkTime = 120;
+		setEntityAnimation(self, "STAND");
+		
+		self->thinkTime = 60;
 
 		self->action = &petrifyAttack;
+		
+		self->mental = 0;
 	}
 
 	checkToMap(self);
@@ -1660,39 +1663,55 @@ static void petrifyAttack()
 
 	if (self->thinkTime <= 0)
 	{
-		e = getFreeEntity();
-
-		if (e == NULL)
+		if (self->mental == 0)
 		{
-			showErrorAndExit("No free slots to add a petrification");
+			setEntityAnimation(self, "CREATE_LANCE");
+			
+			self->thinkTime = 30;
+			
+			self->mental = 1;
 		}
+		
+		else
+		{
+			fadeFromColour(255, 255, 0, 15);
+			
+			e = getFreeEntity();
 
-		loadProperties("boss/gargoyle_lightning_orb", e);
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a petrification");
+			}
 
-		e->x = self->x;
-		e->y = self->y;
+			loadProperties("edgar/edgar_petrify", e);
 
-		e->startX = e->x;
+			e->x = player.x;
+			e->y = player.y;
 
-		e->action = &petrifyPlayer;
+			e->startX = e->x;
 
-		e->draw = &drawLoopingAnimationToMap;
-		e->touch = NULL;
-		e->takeDamage = NULL;
+			e->action = &petrifyPlayer;
+			
+			e->face = player.face;
 
-		e->type = ENEMY;
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = NULL;
+			e->takeDamage = NULL;
 
-		e->head = self;
+			e->type = ENEMY;
 
-		setEntityAnimation(e, "STAND");
+			e->head = self;
+			
+			e->thinkTime = 120;
 
-		self->mental = 1;
+			setEntityAnimationByID(e, 0);
 
-		self->thinkTime = 120;
+			self->thinkTime = 120;
 
-		self->action = &petrifyAttackWait;
+			self->action = &petrifyAttackWait;
 
-		setPlayerLocked(TRUE);
+			setPlayerLocked(TRUE);
+		}
 	}
 
 	checkToMap(self);
@@ -1715,20 +1734,24 @@ static void petrifyAttackWait()
 
 static void petrifyPlayer()
 {
-	int i;
 	Entity *e;
 
 	self->thinkTime--;
 
-	setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
-
-	if (self->thinkTime <= 0 && self->mental < 4)
+	if (self->mental > 0 && self->mental < 5)
 	{
+		setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
+	}
+
+	if (self->thinkTime <= 0 && self->mental < 5)
+	{
+		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+		
 		self->mental++;
 
-		if (self->mental >= 4)
+		if (self->mental >= 5)
 		{
-			self->mental = 4;
+			self->mental = 5;
 
 			if (player.health > 0)
 			{
@@ -1745,10 +1768,13 @@ static void petrifyPlayer()
 		self->thinkTime = 60;
 	}
 
-	if (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
-		input.previous == 1 || input.next == 1 || input.jump == 1 ||
-		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1)
+	if (self->mental > 0 && player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 ||
+		 input.left == 1 || input.previous == 1 || input.next == 1 || input.jump == 1 ||
+		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1))
 	{
+		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
+		self->x = player.x;
+		
 		self->health--;
 
 		input.up = 0;
@@ -1763,30 +1789,39 @@ static void petrifyPlayer()
 		input.interact = 0;
 		input.block = 0;
 
-		e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
+		e = addSmallRock(self->x, self->y, "common/small_rock");
 
 		e->x += self->w / 2 - e->w / 2;
 		e->y += self->h / 2 - e->h / 2;
 
-		e->dirX = (prand() % 6) * (prand() % 2 == 0 ? -1 : 1);
-		e->dirY = -4;
+		e->dirX = (2 + prand() % 6) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = -8;
 
 		e->thinkTime = 60 + (prand() % 120);
+		
+		e->layer = FOREGROUND_LAYER;
 
 		if (self->health <= 0)
 		{
-			for (i=0;i<8;i++)
-			{
-				e = addTemporaryItem("misc/petrify_piece", self->x, self->y, RIGHT, 0, 0);
+			e = addSmallRock(self->x, self->y, "common/small_rock");
 
-				e->x += prand() % self->w;
-				e->y += prand() % self->h;
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
 
-				e->dirX = (prand() % 4) * (prand() % 2 == 0 ? -1 : 1);
-				e->dirY = -2.5;
+			e->dirX = -3;
+			e->dirY = -8;
+			
+			e->layer = FOREGROUND_LAYER;
 
-				e->thinkTime = 60 + (prand() % 120);
-			}
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
+
+			e->dirX = 3;
+			e->dirY = -8;
+			
+			e->layer = FOREGROUND_LAYER;
 
 			self->head->mental = 0;
 
@@ -1795,6 +1830,8 @@ static void petrifyPlayer()
 			setPlayerLocked(FALSE);
 		}
 	}
+	
+	self->y = player.y;
 }
 
 static void weaponRemoveBlastInit()
@@ -1828,6 +1865,8 @@ static void weaponRemoveBlast()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "WEAPON_REMOVE");
+		
+		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/gargoyle_weapon_remove_blast", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
 
@@ -1857,7 +1896,7 @@ static void weaponRemoveBlast()
 
 		self->mental--;
 
-		self->thinkTime = self->mental > 0 ? 15 : 60;
+		self->thinkTime = self->mental > 0 ? 30 : 60;
 	}
 
 	checkToMap(self);
@@ -1904,13 +1943,17 @@ static void blastRemoveWeapon(Entity *other)
 
 			e->flags |= LIMIT_TO_SCREEN;
 		}
+		
+		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
-		setCustomAction(self->target, &invulnerable, 60, 0, 0);
+		setCustomAction(other, &invulnerable, 60, 0, 0);
 
 		setPlayerStunned(30);
 
-		self->target->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
-		self->target->dirY = -8;
+		other->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
+		other->dirY = -8;
+		
+		checkToMap(other);
 
 		self->inUse = FALSE;
 	}

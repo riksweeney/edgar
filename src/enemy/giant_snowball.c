@@ -136,9 +136,9 @@ static void shakeFree()
 {
 	Entity *e;
 
-	if (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
+	if (player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 || input.left == 1 ||
 		input.previous == 1 || input.next == 1 || input.jump == 1 ||
-		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1)
+		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1))
 	{
 		self->health--;
 
