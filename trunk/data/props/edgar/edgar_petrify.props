@@ -1,0 +1,5 @@
+GFX_FILE data/gfx/edgar/edgar_petrify.dat
+ANIM_FILE data/anim/edgar/edgar_petrify.dat
+TYPE ENEMY
+LAYER FOREGROUND_LAYER
+HEALTH 30
