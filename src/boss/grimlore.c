@@ -151,7 +151,7 @@ Entity *addGrimlore(int x, int y, char *name)
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->takeDamage = &takeDamage;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -406,7 +406,7 @@ static void addArmour()
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &armourDie;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &armourWait;
 
 	e->type = ENEMY;
@@ -447,7 +447,7 @@ static void armourWait()
 	{
 		self->die();
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -476,7 +476,7 @@ static void addShield()
 	e->takeDamage = &shieldTakeDamage;
 	e->die = &shieldDie;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &shieldWait;
 
 	e->type = ENEMY;
@@ -527,7 +527,7 @@ static void shieldWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -557,7 +557,7 @@ static void addSword()
 	e->takeDamage = &swordTakeDamage;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &swordWait;
 
 	e->type = ENEMY;
@@ -605,7 +605,7 @@ static void swordWait()
 	}
 
 	self->y = self->head->y + self->offsetY;
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -2164,7 +2164,7 @@ static void beamAttack()
 			e->action = &beamMove;
 
 			e->draw = &beamDraw;
-			
+
 			e->targetX = playSoundToMap("sound/boss/grimlore/grimlore_beam.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 			e->head = self;
@@ -2199,11 +2199,11 @@ static void beamMove()
 		self->thinkTime--;
 
 		self->flags |= NO_DRAW;
-		
+
 		if (self->targetX != -1)
 		{
 			stopSound(self->targetX);
-			
+
 			self->targetX = -1;
 		}
 
@@ -2336,7 +2336,7 @@ static void itemDestroyAttack()
 
 		fadeFromColour(255, 0, 0, 60);
 	}
-	
+
 	prev = first = NULL;
 
 	if (self->thinkTime <= 0)
@@ -2711,7 +2711,7 @@ static void itemDestroyerTakeDamage(Entity *other, int damage)
 
 static void destroyInventoryItem()
 {
-	int size, i;
+	int size, i, index;
 	Entity *e;
 	char itemName[MAX_VALUE_LENGTH];
 	char *items[] = {
@@ -2730,22 +2730,28 @@ static void destroyInventoryItem()
 		"item/tortoise_shell",
 		"item/summoner_staff",
 		"item/flaming_arrow_potion",
-		"item/resurrection_amulet"
+		"item/resurrection_amulet",
+		"item/keepsake"
 	};
 
 	size = sizeof(items) / sizeof(char *);
 
-	i = prand() % size;
-
-	e = getInventoryItemByName(items[i]);
-
-	if (e != NULL)
+	for (i=0;i<size;i++)
 	{
-		STRNCPY(itemName, e->objectiveName, sizeof(itemName));
+		index = prand() % size;
 
-		removeInventoryItemByName(e->name);
+		e = getInventoryItemByName(items[index]);
 
-		setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"), itemName);
+		if (e != NULL)
+		{
+			STRNCPY(itemName, e->objectiveName, sizeof(itemName));
+
+			removeInventoryItemByName(e->name);
+
+			setInfoBoxMessage(60, 255, 255, 255, _("Your %s has been destroyed"), itemName);
+
+			return;
+		}
 	}
 }
 
@@ -3490,6 +3496,6 @@ static void creditsMove()
 	addSword();
 
 	addShield();
-	
+
 	self->creditsAction = &bossMoveToMiddle;
 }
