@@ -154,14 +154,9 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 	{
 		return -1;
 	}
-	/*
-	if (channel > 1 && Mix_Playing(channel) == 1)
-	{
-		return -1;
-	}
-	*/
+
 	Mix_VolumeChunk(chunk, volume);
-	
+
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
 	{
@@ -209,7 +204,7 @@ void playSound(char *name)
 	}
 
 	Mix_VolumeChunk(chunk, game.sfxDefaultVolume * VOLUME_STEPS);
-	
+
 	#if DEV == 1
 	if (game.gameType == REPLAYING)
 	{
@@ -315,12 +310,12 @@ void pauseSound(int pause)
 	{
 		return;
 	}
-	
+
 	if (pause == TRUE)
 	{
 		Mix_Pause(-1);
 	}
-	
+
 	else
 	{
 		Mix_Resume(-1);
@@ -330,15 +325,15 @@ void pauseSound(int pause)
 void changeSoundQuality()
 {
 	freeMusic();
-	
+
 	Mix_CloseAudio();
-	
+
 	if (game.audio == FALSE)
 	{
 		return;
 	}
-	
+
 	initAudio();
-	
+
 	playLoadedMusic();
 }

@@ -1386,6 +1386,8 @@ static void lanceThrowMoveToTarget()
 {
 	if (atTarget())
 	{
+		setEntityAnimation(self, "LANCE_THROW_READY");
+
 		self->thinkTime = 30;
 
 		self->action = &lanceThrow;
@@ -1403,6 +1405,8 @@ static void lanceThrow()
 		setEntityAnimation(self, "LANCE_THROW");
 
 		self->target->mental = -1;
+
+		self->target->dirY = 4;
 
 		self->action = &lanceThrowWait;
 
@@ -1644,11 +1648,11 @@ static void petrifyAttackInit()
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		self->thinkTime = 60;
 
 		self->action = &petrifyAttack;
-		
+
 		self->mental = 0;
 	}
 
@@ -1666,16 +1670,16 @@ static void petrifyAttack()
 		if (self->mental == 0)
 		{
 			setEntityAnimation(self, "CREATE_LANCE");
-			
+
 			self->thinkTime = 30;
-			
+
 			self->mental = 1;
 		}
-		
+
 		else
 		{
 			fadeFromColour(255, 255, 0, 15);
-			
+
 			e = getFreeEntity();
 
 			if (e == NULL)
@@ -1691,7 +1695,7 @@ static void petrifyAttack()
 			e->startX = e->x;
 
 			e->action = &petrifyPlayer;
-			
+
 			e->face = player.face;
 
 			e->draw = &drawLoopingAnimationToMap;
@@ -1701,7 +1705,7 @@ static void petrifyAttack()
 			e->type = ENEMY;
 
 			e->head = self;
-			
+
 			e->thinkTime = 60;
 
 			setEntityAnimationByID(e, 0);
@@ -1746,7 +1750,7 @@ static void petrifyPlayer()
 	if (self->thinkTime <= 0 && self->mental < 4)
 	{
 		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
-		
+
 		self->mental++;
 
 		if (self->mental >= 4)
@@ -1774,7 +1778,7 @@ static void petrifyPlayer()
 	{
 		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
 		self->x = player.x;
-		
+
 		self->health--;
 
 		input.up = 0;
@@ -1798,7 +1802,7 @@ static void petrifyPlayer()
 		e->dirY = -8;
 
 		e->thinkTime = 60 + (prand() % 120);
-		
+
 		e->layer = FOREGROUND_LAYER;
 
 		if (self->health <= 0)
@@ -1810,7 +1814,7 @@ static void petrifyPlayer()
 
 			e->dirX = -3;
 			e->dirY = -8;
-			
+
 			e->layer = FOREGROUND_LAYER;
 
 			e = addSmallRock(self->x, self->y, "common/small_rock");
@@ -1820,7 +1824,7 @@ static void petrifyPlayer()
 
 			e->dirX = 3;
 			e->dirY = -8;
-			
+
 			e->layer = FOREGROUND_LAYER;
 
 			self->head->mental = 0;
@@ -1830,7 +1834,7 @@ static void petrifyPlayer()
 			setPlayerLocked(FALSE);
 		}
 	}
-	
+
 	self->y = player.y;
 }
 
@@ -1865,7 +1869,7 @@ static void weaponRemoveBlast()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "WEAPON_REMOVE");
-		
+
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", -1, self->x, self->y, 0);
 
 		e = addProjectile("boss/gargoyle_weapon_remove_blast", self, self->x, self->y, self->face == LEFT ? -8 : 8, 0);
@@ -1943,7 +1947,7 @@ static void blastRemoveWeapon(Entity *other)
 
 			e->flags |= LIMIT_TO_SCREEN;
 		}
-		
+
 		playSoundToMap("sound/common/punch.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		setCustomAction(other, &invulnerable, 60, 0, 0);
@@ -1952,7 +1956,7 @@ static void blastRemoveWeapon(Entity *other)
 
 		other->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
 		other->dirY = -8;
-		
+
 		checkToMap(other);
 
 		self->inUse = FALSE;

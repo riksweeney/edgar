@@ -167,7 +167,9 @@ Entity *loadPlayer(int x, int y, char *name)
 	centerMapOnEntity(&player);
 
 	player.creditsAction = creditsMove;
-	
+
+	player.maxThinkTime = 0;
+
 	setCheckpoint(player.x, player.y);
 
 	return &player;
@@ -818,6 +820,8 @@ void playerWaitForDialog()
 
 	player.flags |= INVULNERABLE;
 
+	player.maxThinkTime = 1;
+
 	player.action = &dialogWait;
 }
 
@@ -827,7 +831,12 @@ void playerResumeNormal()
 	{
 		player.target = NULL;
 
-		player.action = NULL;
+		if (player.maxThinkTime == 1)
+		{
+			player.maxThinkTime = 0;
+
+			player.action = NULL;
+		}
 
 		player.flags &= ~INVULNERABLE;
 	}

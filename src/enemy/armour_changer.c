@@ -71,7 +71,7 @@ Entity *addArmourChanger(int x, int y, char *name)
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &init;
 
 	e->type = ENEMY;
@@ -87,9 +87,9 @@ static void init()
 	{
 		self->mental = 1 + prand() % 3;
 	}
-	
+
 	self->action = &lookForPlayer;
-	
+
 	self->creditsAction = &creditsMove;
 }
 
@@ -101,17 +101,17 @@ static void lookForPlayer()
 	{
 		changeArmour();
 	}
-	
+
 	switch (self->mental)
 	{
 		case 2:
 			setEntityAnimation(self, "WALK_2");
 		break;
-		
+
 		case 3:
 			setEntityAnimation(self, "WALK_3");
 		break;
-		
+
 		default:
 			setEntityAnimation(self, "WALK_1");
 		break;
@@ -150,11 +150,11 @@ static void moveAndJump()
 				case 2:
 					setEntityAnimation(self, "STAND_2");
 				break;
-				
+
 				case 3:
 					setEntityAnimation(self, "STAND_3");
 				break;
-				
+
 				default:
 					setEntityAnimation(self, "STAND_1");
 				break;
@@ -261,7 +261,7 @@ static int canDropDown()
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	width = self->w / TILE_SIZE;
 
 	for (j=0;j<width;j++)
@@ -279,7 +279,7 @@ static int canDropDown()
 			{
 				x = (x + (self->face == LEFT ? -j : j)) * TILE_SIZE;
 				y = (y + i) * TILE_SIZE;
-				
+
 				return TRUE;
 			}
 		}
@@ -306,9 +306,9 @@ static int isGapJumpable()
 	if (tile1 != BLANK_TILE && tile1 < BACKGROUND_TILE_START)
 	{
 		y--;
-		
+
 		tile2 = mapTileAt(x, y);
-		
+
 		if (tile2 == BLANK_TILE || (tile2 >= BACKGROUND_TILE_START && tile2 <= BACKGROUND_TILE_END))
 		{
 			return TRUE;
@@ -321,10 +321,10 @@ static int isGapJumpable()
 static void die()
 {
 	Entity *e;
-	
+
 	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
-	
-	if (prand() % 3 != 0)
+
+	if (prand() % 2 != 0)
 	{
 		e = addKeyItem("item/poison_meat", self->x + self->w / 2, self->y);
 
@@ -349,7 +349,7 @@ static void changeArmour()
 	}
 
 	loadProperties("boss/grimlore_weapon_box", e);
-	
+
 	r = hasLightningSword() == TRUE ? 6 : 5;
 
 	switch (prand() % r)
@@ -373,12 +373,12 @@ static void changeArmour()
 			STRNCPY(self->requires, "weapon/normal_arrow", sizeof(self->requires));
 			setEntityAnimationByID(e, 3);
 		break;
-		
+
 		case 4:
 			STRNCPY(self->requires, "weapon/flaming_arrow", sizeof(self->requires));
 			setEntityAnimationByID(e, 4);
 		break;
-		
+
 		default:
 			STRNCPY(self->requires, "weapon/lightning_sword", sizeof(self->requires));
 			setEntityAnimationByID(e, 5);
@@ -389,7 +389,7 @@ static void changeArmour()
 	e->y = self->y - e->h - 16;
 
 	e->action = &boxWait;
-	
+
 	e->creditsAction = &boxWait;
 
 	e->thinkTime = 60;
@@ -399,9 +399,9 @@ static void changeArmour()
 	e->head = self;
 
 	self->thinkTime = 600;
-	
+
 	self->targetX = 60;
-	
+
 	self->targetY = self->targetX;
 }
 
@@ -465,36 +465,36 @@ static int draw()
 	int currentFrame, drawn;
 	float frameTimer;
 	char animationName[MAX_VALUE_LENGTH];
-	
+
 	drawn = drawLoopingAnimationToMap();
-	
+
 	if (self->targetX > 0)
 	{
 		self->targetX--;
-		
+
 		STRNCPY(animationName, self->animationName, MAX_VALUE_LENGTH);
-		
+
 		currentFrame = self->currentFrame;
-		
+
 		frameTimer = self->frameTimer;
-		
+
 		setEntityAnimation(self, strstr(animationName, "STAND") != NULL ? "GLOW_STAND" : "GLOW_WALK");
-		
+
 		self->currentFrame = currentFrame;
-		
+
 		self->alpha = (255 * self->targetX) / self->targetY;
-		
+
 		drawSpriteToMap();
-		
+
 		self->alpha = 255;
-		
+
 		setEntityAnimation(self, animationName);
-		
+
 		self->currentFrame = currentFrame;
-		
+
 		self->frameTimer = frameTimer;
 	}
-	
+
 	return drawn;
 }
 
@@ -505,29 +505,29 @@ static void creditsMove()
 	if (self->thinkTime <= 0)
 	{
 		changeArmour();
-		
+
 		self->thinkTime = 120;
 	}
-	
+
 	switch (self->mental)
 	{
 		case 2:
 			setEntityAnimation(self, "WALK_2");
 		break;
-		
+
 		case 3:
 			setEntityAnimation(self, "WALK_3");
 		break;
-		
+
 		default:
 			setEntityAnimation(self, "WALK_1");
 		break;
 	}
 
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
