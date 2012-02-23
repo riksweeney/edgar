@@ -945,7 +945,7 @@ static void lanceStabMoveToTarget()
 	{
 		facePlayer();
 
-		calculatePath(self->x, self->y, player.x, player.y + player.h - self->h, &self->dirX, &self->dirY);
+		calculatePath(self->x, self->y, player.x + player.w, player.y + player.h - self->h, &self->dirX, &self->dirY);
 
 		self->dirX *= 16;
 		self->dirY *= 16;
@@ -1702,7 +1702,7 @@ static void petrifyAttack()
 
 			e->head = self;
 			
-			e->thinkTime = 120;
+			e->thinkTime = 60;
 
 			setEntityAnimationByID(e, 0);
 
@@ -1738,20 +1738,20 @@ static void petrifyPlayer()
 
 	self->thinkTime--;
 
-	if (self->mental > 0 && self->mental < 5)
+	if (self->mental < 4)
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
 	}
 
-	if (self->thinkTime <= 0 && self->mental < 5)
+	if (self->thinkTime <= 0 && self->mental < 4)
 	{
 		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
 		
 		self->mental++;
 
-		if (self->mental >= 5)
+		if (self->mental >= 4)
 		{
-			self->mental = 5;
+			self->mental = 4;
 
 			if (player.health > 0)
 			{
@@ -1768,7 +1768,7 @@ static void petrifyPlayer()
 		self->thinkTime = 60;
 	}
 
-	if (self->mental > 0 && player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 ||
+	if (player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 ||
 		 input.left == 1 || input.previous == 1 || input.next == 1 || input.jump == 1 ||
 		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1))
 	{
