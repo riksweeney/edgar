@@ -958,7 +958,7 @@ void checkToMap(Entity *e)
 
 	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
 	{
-		e->flags &= ~HELPLESS|INVULNERABLE;
+		e->flags &= ~(HELPLESS|INVULNERABLE);
 
 		if (e->fallout == NULL)
 		{
