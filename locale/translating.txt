@@ -1,24 +1,9 @@
 Translating
 -----------
 
-If you want to help with translating the game into another language, you can do so by downloading the edgar.pot file from
-
-http://legendofedgar.svn.sourceforge.net/viewvc/legendofedgar/trunk/locale/edgar.pot
-
-and use it to translate the game.
-
-Alternatively, you can log into Launchpad
+If you want to help with translating the game into another language, you can do so by logging into Launchpad
 
 https://translations.launchpad.net/edgar
-
-You will need to create an account to do it this way.
-
-You will need knowledge of gettext, which you can read up about here
-
-http://en.wikipedia.org/wiki/GNU_Gettext
-
-There are two partial translations present in the game, Polish and Spanish, though fairly out of date
-now, serve as a good starting point.
 
 Richard Sweeney
 riksweeney@users.sourceforge.net
