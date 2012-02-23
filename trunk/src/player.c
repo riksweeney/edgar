@@ -820,9 +820,10 @@ void playerWaitForDialog()
 
 	player.flags |= INVULNERABLE;
 
-	player.maxThinkTime = 1;
-
-	player.action = &dialogWait;
+	if (player.maxThinkTime != 1)
+	{
+		player.action = &dialogWait;
+	}
 }
 
 void playerResumeNormal()
@@ -831,10 +832,8 @@ void playerResumeNormal()
 	{
 		player.target = NULL;
 
-		if (player.maxThinkTime == 1)
+		if (player.maxThinkTime != 1)
 		{
-			player.maxThinkTime = 0;
-
 			player.action = NULL;
 		}
 
@@ -1534,6 +1533,8 @@ static void fallout()
 	if (!(player.flags & HELPLESS))
 	{
 		centerMapOnEntity(NULL);
+		
+		player.maxThinkTime = 1;
 
 		player.thinkTime = 120;
 
@@ -1635,6 +1636,8 @@ static void resetPlayer()
 
 		cameraSnapToTargetEntity();
 	}
+	
+	player.maxThinkTime = 0;
 
 	player.action = NULL;
 

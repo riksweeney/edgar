@@ -89,6 +89,7 @@ static void lanceAttack1Wait(void);
 static void lanceAttack2(void);
 static void lanceAttack3(void);
 static void lanceAttackTeleportFinish(void);
+static void lanceDie(void);
 static void weaponRemoveBlastInit(void);
 static void weaponRemoveBlast(void);
 static void blastRemoveWeapon(Entity *);
@@ -202,6 +203,8 @@ static void init()
 		break;
 
 		default:
+			setEntityAnimation(self, "FACE_FRONT");
+			
 			self->action = &introFinish;
 		break;
 	}
@@ -283,7 +286,7 @@ static void attackFinished()
 
 	setEntityAnimation(self, "FLY");
 
-	self->flags |= FLY;
+	self->flags |= (FLY|UNBLOCKABLE);
 
 	self->targetX = self->x;
 	self->targetY = t->y;
@@ -330,6 +333,8 @@ static void attackFinishedMoveHorizontal()
 	if (atTarget())
 	{
 		self->thinkTime = 0;
+		
+		self->flags &= ~UNBLOCKABLE;
 
 		self->action = &entityWait;
 	}
@@ -476,7 +481,7 @@ static void entityWait()
 
 static void splitInHalfInit()
 {
-	setEntityAnimation(self, "FACE_FRONT");
+	setEntityAnimation(self, "FACE_FRONT_FLY");
 
 	self->thinkTime = 30;
 
@@ -582,7 +587,7 @@ static void dropAttackInit()
 
 	t = getTargetByName("GARGOYLE_TOP_TARGET");
 
-	if (t != NULL)
+	if (t == NULL)
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
@@ -945,7 +950,7 @@ static void lanceStabMoveToTarget()
 	{
 		facePlayer();
 
-		calculatePath(self->x, self->y, player.x + player.w, player.y + player.h - self->h, &self->dirX, &self->dirY);
+		calculatePath(self->x, self->y, player.x + player.w / 2 - self->w / 2, player.y + player.h / 2 - self->h / 2, &self->dirX, &self->dirY);
 
 		self->dirX *= 16;
 		self->dirY *= 16;
@@ -953,6 +958,8 @@ static void lanceStabMoveToTarget()
 		self->action = &lanceStab;
 
 		self->reactToBlock = &lanceStabReactToBlock;
+		
+		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
 	}
 
 	checkToMap(self);
@@ -985,6 +992,8 @@ static void lanceStabReactToBlock(Entity *other)
 	self->action = &lanceStabFinish;
 
 	self->thinkTime = 30;
+	
+	checkToMap(self);
 }
 
 static void lanceStabFinish()
@@ -1366,6 +1375,10 @@ static void lanceThrowInit()
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
+	
+	self->face = RIGHT;
+	
+	setEntityAnimation(self, "LANCE_THROW_READY");
 
 	self->targetX = self->x;
 	self->targetY = t->y;
@@ -1378,6 +1391,8 @@ static void lanceThrowInit()
 	self->flags |= FLY;
 
 	self->action = &lanceThrowMoveToTarget;
+	
+	self->thinkTime = 30;
 
 	checkToMap(self);
 }
@@ -1385,12 +1400,23 @@ static void lanceThrowInit()
 static void lanceThrowMoveToTarget()
 {
 	if (atTarget())
-	{
-		setEntityAnimation(self, "LANCE_THROW_READY");
+	{		
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->targetX = getMapStartX() + prand() % (SCREEN_WIDTH - self->w);
+			self->targetY = self->y;
 
-		self->thinkTime = 30;
+			calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
-		self->action = &lanceThrow;
+			self->dirX *= 3;
+			self->dirY *= 3;
+			
+			self->thinkTime = 60;
+
+			self->action = &lanceThrow;
+		}
 	}
 
 	checkToMap(self);
@@ -1398,19 +1424,22 @@ static void lanceThrowMoveToTarget()
 
 static void lanceThrow()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (atTarget())
 	{
-		setEntityAnimation(self, "LANCE_THROW");
+		self->thinkTime--;
 
-		self->target->mental = -1;
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "LANCE_THROW");
 
-		self->target->dirY = 4;
+			self->target->mental = -1;
 
-		self->action = &lanceThrowWait;
+			self->target->dirY = 4;
 
-		self->mental = 1;
+			self->action = &lanceThrowWait;
+
+			self->thinkTime = 30;
+		}
 	}
 
 	checkToMap(self);
@@ -1418,9 +1447,14 @@ static void lanceThrow()
 
 static void lanceThrowWait()
 {
-	if (self->mental == 0)
+	if (self->target->inUse == FALSE)
 	{
-		self->action = &attackFinished;
+		self->thinkTime--;
+		
+		if (self->thinkTime <= 0)
+		{
+			self->action = &attackFinished;
+		}
 	}
 
 	checkToMap(self);
@@ -1454,6 +1488,8 @@ static void createLance()
 
 	if (self->thinkTime <= 0)
 	{
+		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance.ogg", -1, self->x, self->y, 0);
+		
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -1585,12 +1621,22 @@ static void lanceWait()
 
 	if (self->mental == -1)
 	{
+		setEntityAnimation(self, "LANCE_THROW");
+		
+		self->pain = &enemyPain;
+		
+		self->touch = &entityTouch;
+		
 		self->action = &lanceDrop;
 	}
 
 	else if (self->mental == -2)
 	{
+		setEntityAnimation(self, "LANCE_THROW");
+		
 		self->flags |= ATTACKING;
+		
+		self->touch = &entityTouch;
 
 		self->fallout = &lanceFallout;
 
@@ -1618,6 +1664,12 @@ static void lanceDrop()
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
+		self->takeDamage = &entityTakeDamageNoFlinch;
+		
+		self->die = &lanceDie;
+		
+		setEntityAnimation(self, "LANCE_IN_GROUND");
+		
 		playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
 
 		switch (self->maxThinkTime)
@@ -1639,6 +1691,34 @@ static void lanceDrop()
 	}
 
 	checkToMap(self);
+}
+
+static void lanceDie()
+{
+	int i;
+	Entity *e;
+	char name[MAX_VALUE_LENGTH];
+
+	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
+
+	snprintf(name, sizeof(name), "%s_piece", self->name);
+
+	for (i=0;i<6;i++)
+	{
+		e = addTemporaryItem(name, self->x, self->y, self->face, 0, 0);
+
+		e->x += (self->w - e->w) / 2;
+		e->y += (self->w - e->w) / 2;
+
+		e->dirX = (prand() % 5) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = ITEM_JUMP_HEIGHT + (prand() % ITEM_JUMP_HEIGHT);
+
+		setEntityAnimationByID(e, i);
+
+		e->thinkTime = 60 + (prand() % 60);
+	}
+
+	self->inUse = FALSE;
 }
 
 static void petrifyAttackInit()
@@ -1678,6 +1758,8 @@ static void petrifyAttack()
 
 		else
 		{
+			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify.ogg", -1, self->x, self->y, 0);
+			
 			fadeFromColour(255, 255, 0, 15);
 
 			e = getFreeEntity();
@@ -2063,9 +2145,9 @@ static void lanceAttack1()
 
 	if (self->thinkTime <= 0)
 	{
-		self->maxThinkTime = 0;
-
 		self->mental = 2;
+		
+		self->endX = 1;
 
 		self->action = &createLightningOrb;
 	}
@@ -2327,6 +2409,7 @@ static void lanceExplode()
 static void createLightningOrb()
 {
 	Entity *e;
+	Target *t;
 
 	self->thinkTime--;
 
@@ -2338,11 +2421,23 @@ static void createLightningOrb()
 		{
 			showErrorAndExit("No free slots to add a lightning orb");
 		}
+		
+		t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+		if (t == NULL)
+		{
+			showErrorAndExit("Gargoyle cannot find target");
+		}
 
 		loadProperties("boss/gargoyle_lightning_orb", e);
 
 		e->x = self->x;
 		e->y = self->y;
+		
+		e->startX = getMapStartX();
+		e->endX   = getMapStartX() + SCREEN_WIDTH - e->w;
+		
+		e->targetY = t->y;
 
 		e->endY = self->y + self->h;
 
@@ -2355,12 +2450,14 @@ static void createLightningOrb()
 		e->type = ENEMY;
 
 		e->head = self;
+		
+		e->mental = self->endX;
 
 		setEntityAnimation(e, "STAND");
 
 		self->mental--;
-
-		self->maxThinkTime++;
+		
+		self->endX++;
 
 		if (self->mental <= 0)
 		{
@@ -2383,7 +2480,7 @@ static void lanceAttack1Wait()
 
 static void orbMoveToTop()
 {
-	self->y -= self->speed;
+	self->y -= self->speed * 2;
 
 	if (self->y <= self->targetY)
 	{
@@ -2435,6 +2532,11 @@ static void orbFollowPlayer()
 
 			self->action = &orbCastLightning2;
 		}
+	}
+	
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
 	}
 }
 
@@ -2497,7 +2599,7 @@ static void orbCastLightning2()
 
 		self->action = &orbCastLightningFinish2;
 
-		self->thinkTime = 30;
+		self->thinkTime = 30 * self->mental;
 	}
 }
 
