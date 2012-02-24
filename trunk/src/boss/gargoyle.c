@@ -113,7 +113,6 @@ static void addExitTrigger(Entity *);
 static void petrifyAttackInit(void);
 static void petrifyAttack(void);
 static void petrifyAttackWait(void);
-static void petrifyPlayer(void);
 static void invisibleAttackInit(void);
 static void becomeInvisible(void);
 static void invisibleAttackMoveToTop(void);
@@ -204,7 +203,7 @@ static void init()
 
 		default:
 			setEntityAnimation(self, "FACE_FRONT");
-			
+
 			self->action = &introFinish;
 		break;
 	}
@@ -277,7 +276,7 @@ static void introFinish()
 
 static void attackFinished()
 {
-	Target *t = getTargetByName("GARGOYLE_LEFT_TARGET");
+	Target *t = getTargetByName("GARGOYLE_BOTTOM_TARGET");
 
 	if (t == NULL)
 	{
@@ -333,7 +332,7 @@ static void attackFinishedMoveHorizontal()
 	if (atTarget())
 	{
 		self->thinkTime = 0;
-		
+
 		self->flags &= ~UNBLOCKABLE;
 
 		self->action = &entityWait;
@@ -367,23 +366,27 @@ static void entityWait()
 
 					else
 					{
-						switch (prand() % 4)
+						if (player.element == ICE)
 						{
-							case 0:
-								self->action = &lanceStabInit;
-							break;
+							self->action = &petrifyAttackInit;
+						}
 
-							case 1:
-								self->action = &weaponRemoveBlastInit;
-							break;
+						else
+						{
+							switch (prand() % 3)
+							{
+								case 0:
+									self->action = &lanceStabInit;
+								break;
 
-							case 2:
-								self->action = &petrifyAttackInit;
-							break;
+								case 1:
+									self->action = &petrifyAttackInit;
+								break;
 
-							default:
-								self->action = &lightningGridAttackInit;
-							break;
+								default:
+									self->action = &lightningGridAttackInit;
+								break;
+							}
 						}
 					}
 				break;
@@ -396,7 +399,7 @@ static void entityWait()
 
 					else
 					{
-						switch (prand() % 4)
+						switch (prand() % 3)
 						{
 							case 0:
 								self->action = &lanceStabInit;
@@ -404,10 +407,6 @@ static void entityWait()
 
 							case 1:
 								self->action = &weaponRemoveBlastInit;
-							break;
-
-							case 2:
-								self->action = &petrifyAttackInit;
 							break;
 
 							default:
@@ -425,23 +424,31 @@ static void entityWait()
 
 					else
 					{
-						switch (prand() % 4)
+						if (player.element == ICE)
 						{
-							case 0:
-								self->action = &lanceStabInit;
-							break;
+							self->action = &petrifyAttackInit;
+						}
 
-							case 1:
-								self->action = &weaponRemoveBlastInit;
-							break;
+						else
+						{
+							switch (prand() % 4)
+							{
+								case 0:
+									self->action = &lanceStabInit;
+								break;
 
-							case 2:
-								self->action = &petrifyAttackInit;
-							break;
+								case 1:
+									self->action = &weaponRemoveBlastInit;
+								break;
 
-							default:
-								self->action = &invisibleAttackInit;
-							break;
+								case 2:
+									self->action = &petrifyAttackInit;
+								break;
+
+								default:
+									self->action = &invisibleAttackInit;
+								break;
+							}
 						}
 					}
 				break;
@@ -958,7 +965,7 @@ static void lanceStabMoveToTarget()
 		self->action = &lanceStab;
 
 		self->reactToBlock = &lanceStabReactToBlock;
-		
+
 		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
 	}
 
@@ -992,7 +999,7 @@ static void lanceStabReactToBlock(Entity *other)
 	self->action = &lanceStabFinish;
 
 	self->thinkTime = 30;
-	
+
 	checkToMap(self);
 }
 
@@ -1250,7 +1257,7 @@ static void invisibleDropWait()
 
 static void bridgeDestroyInit()
 {
-	Target *t = getTargetByName("GARGOYLE_TOP_TARGET");
+	Target *t = getTargetByName("GARGOYLE_BOTTOM_TARGET");
 
 	if (t == NULL)
 	{
@@ -1369,15 +1376,15 @@ static void bridgeDestroyWait()
 
 static void lanceThrowInit()
 {
-	Target *t = getTargetByName("GARGOYLE_LEFT_TARGET");
+	Target *t = getTargetByName("GARGOYLE_MID_TARGET");
 
 	if (t == NULL)
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
-	
+
 	self->face = RIGHT;
-	
+
 	setEntityAnimation(self, "LANCE_THROW_READY");
 
 	self->targetX = self->x;
@@ -1391,7 +1398,7 @@ static void lanceThrowInit()
 	self->flags |= FLY;
 
 	self->action = &lanceThrowMoveToTarget;
-	
+
 	self->thinkTime = 30;
 
 	checkToMap(self);
@@ -1400,9 +1407,9 @@ static void lanceThrowInit()
 static void lanceThrowMoveToTarget()
 {
 	if (atTarget())
-	{		
+	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->targetX = getMapStartX() + prand() % (SCREEN_WIDTH - self->w);
@@ -1412,7 +1419,7 @@ static void lanceThrowMoveToTarget()
 
 			self->dirX *= 3;
 			self->dirY *= 3;
-			
+
 			self->thinkTime = 60;
 
 			self->action = &lanceThrow;
@@ -1450,7 +1457,7 @@ static void lanceThrowWait()
 	if (self->target->inUse == FALSE)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->action = &attackFinished;
@@ -1489,7 +1496,7 @@ static void createLance()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/boss/gargoyle/gargoyle_create_lance.ogg", -1, self->x, self->y, 0);
-		
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -1622,20 +1629,20 @@ static void lanceWait()
 	if (self->mental == -1)
 	{
 		setEntityAnimation(self, "LANCE_THROW");
-		
+
 		self->pain = &enemyPain;
-		
+
 		self->touch = &entityTouch;
-		
+
 		self->action = &lanceDrop;
 	}
 
 	else if (self->mental == -2)
 	{
 		setEntityAnimation(self, "LANCE_THROW");
-		
+
 		self->flags |= ATTACKING;
-		
+
 		self->touch = &entityTouch;
 
 		self->fallout = &lanceFallout;
@@ -1665,11 +1672,11 @@ static void lanceDrop()
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
 		self->takeDamage = &entityTakeDamageNoFlinch;
-		
+
 		self->die = &lanceDie;
-		
+
 		setEntityAnimation(self, "LANCE_IN_GROUND");
-		
+
 		playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
 
 		switch (self->maxThinkTime)
@@ -1729,7 +1736,7 @@ static void petrifyAttackInit()
 	{
 		setEntityAnimation(self, "STAND");
 
-		self->thinkTime = 60;
+		self->thinkTime = 30;
 
 		self->action = &petrifyAttack;
 
@@ -1741,8 +1748,6 @@ static void petrifyAttackInit()
 
 static void petrifyAttack()
 {
-	Entity *e;
-
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -1751,7 +1756,7 @@ static void petrifyAttack()
 		{
 			setEntityAnimation(self, "CREATE_LANCE");
 
-			self->thinkTime = 30;
+			self->thinkTime = 60;
 
 			self->mental = 1;
 		}
@@ -1759,44 +1764,22 @@ static void petrifyAttack()
 		else
 		{
 			playSoundToMap("sound/boss/gargoyle/gargoyle_petrify.ogg", -1, self->x, self->y, 0);
-			
-			fadeFromColour(255, 255, 0, 15);
 
-			e = getFreeEntity();
+			fadeFromColour(255, 255, 0, 30);
 
-			if (e == NULL)
+			if (player.element == ICE)
 			{
-				showErrorAndExit("No free slots to add a petrification");
+				player.die();
 			}
 
-			loadProperties("edgar/edgar_petrify", e);
-
-			e->x = player.x;
-			e->y = player.y;
-
-			e->startX = e->x;
-
-			e->action = &petrifyPlayer;
-
-			e->face = player.face;
-
-			e->draw = &drawLoopingAnimationToMap;
-			e->touch = NULL;
-			e->takeDamage = NULL;
-
-			e->type = ENEMY;
-
-			e->head = self;
-
-			e->thinkTime = 60;
-
-			setEntityAnimationByID(e, 0);
+			else
+			{
+				setPlayerPetrified();
+			}
 
 			self->thinkTime = 120;
 
 			self->action = &petrifyAttackWait;
-
-			setPlayerLocked(TRUE);
 		}
 	}
 
@@ -1805,123 +1788,14 @@ static void petrifyAttack()
 
 static void petrifyAttackWait()
 {
-	if (self->mental == 0)
-	{
-		self->thinkTime--;
+	self->thinkTime--;
 
-		if (self->thinkTime <= 0)
-		{
-			self->action = &attackFinished;
-		}
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
 	}
 
 	checkToMap(self);
-}
-
-static void petrifyPlayer()
-{
-	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->mental < 4)
-	{
-		setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
-	}
-
-	if (self->thinkTime <= 0 && self->mental < 4)
-	{
-		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
-
-		self->mental++;
-
-		if (self->mental >= 4)
-		{
-			self->mental = 4;
-
-			if (player.health > 0)
-			{
-				removeInventoryItemByObjectiveName("Amulet of Resurrection");
-
-				player.die();
-
-				player.flags |= NO_DRAW;
-			}
-		}
-
-		setEntityAnimationByID(self, self->mental);
-
-		self->thinkTime = 60;
-	}
-
-	if (player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 ||
-		 input.left == 1 || input.previous == 1 || input.next == 1 || input.jump == 1 ||
-		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1))
-	{
-		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
-		self->x = player.x;
-		
-		playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
-
-		self->health--;
-
-		input.up = 0;
-		input.down = 0;
-		input.right = 0;
-		input.left = 0;
-		input.previous = 0;
-		input.next = 0;
-		input.jump = 0;
-		input.activate = 0;
-		input.attack = 0;
-		input.interact = 0;
-		input.block = 0;
-
-		e = addSmallRock(self->x, self->y, "common/small_rock");
-
-		e->x += self->w / 2 - e->w / 2;
-		e->y += self->h / 2 - e->h / 2;
-
-		e->dirX = (2 + prand() % 6) * (prand() % 2 == 0 ? -1 : 1);
-		e->dirY = -8;
-
-		e->thinkTime = 60 + (prand() % 120);
-
-		e->layer = FOREGROUND_LAYER;
-
-		if (self->health <= 0)
-		{
-			e = addSmallRock(self->x, self->y, "common/small_rock");
-
-			e->x += (self->w - e->w) / 2;
-			e->y -= e->h;
-
-			e->dirX = -3;
-			e->dirY = -8;
-
-			e->layer = FOREGROUND_LAYER;
-
-			e = addSmallRock(self->x, self->y, "common/small_rock");
-
-			e->x += (self->w - e->w) / 2;
-			e->y -= e->h;
-
-			e->dirX = 3;
-			e->dirY = -8;
-
-			e->layer = FOREGROUND_LAYER;
-
-			self->head->mental = 0;
-
-			self->inUse = FALSE;
-
-			setPlayerLocked(FALSE);
-			
-			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
-		}
-	}
-
-	self->y = player.y;
 }
 
 static void weaponRemoveBlastInit()
@@ -1998,7 +1872,7 @@ static void blastRemoveWeapon(Entity *other)
 {
 	Entity *e;
 
-	if (other->type == PLAYER)
+	if (other->type == PLAYER && !(other->flags & INVULNERABLE))
 	{
 		e = removePlayerWeapon();
 
@@ -2150,7 +2024,7 @@ static void lanceAttack1()
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 2;
-		
+
 		self->endX = 1;
 
 		self->action = &createLightningOrb;
@@ -2425,7 +2299,7 @@ static void createLightningOrb()
 		{
 			showErrorAndExit("No free slots to add a lightning orb");
 		}
-		
+
 		t = getTargetByName("GARGOYLE_TOP_TARGET");
 
 		if (t == NULL)
@@ -2437,10 +2311,10 @@ static void createLightningOrb()
 
 		e->x = self->x;
 		e->y = self->y;
-		
+
 		e->startX = getMapStartX();
 		e->endX   = getMapStartX() + SCREEN_WIDTH - e->w;
-		
+
 		e->targetY = t->y;
 
 		e->endY = self->y + self->h;
@@ -2454,13 +2328,13 @@ static void createLightningOrb()
 		e->type = ENEMY;
 
 		e->head = self;
-		
+
 		e->mental = self->endX;
 
 		setEntityAnimation(e, "STAND");
 
 		self->mental--;
-		
+
 		self->endX++;
 
 		if (self->mental <= 0)
@@ -2537,7 +2411,7 @@ static void orbFollowPlayer()
 			self->action = &orbCastLightning2;
 		}
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;

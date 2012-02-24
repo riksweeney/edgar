@@ -23,6 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "audio/music.h"
 #include "collisions.h"
 #include "custom_actions.h"
+#include "enemy/rock.h"
 #include "entity.h"
 #include "event/script.h"
 #include "game.h"
@@ -81,6 +82,7 @@ static void shieldAttackMove(void);
 static void shieldTouch(Entity *);
 static void shieldSideAttackInit(void);
 static void starWait(void);
+static void applyPetrification(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -1533,7 +1535,7 @@ static void fallout()
 	if (!(player.flags & HELPLESS))
 	{
 		centerMapOnEntity(NULL);
-		
+
 		player.maxThinkTime = 1;
 
 		player.thinkTime = 120;
@@ -1636,7 +1638,7 @@ static void resetPlayer()
 
 		cameraSnapToTargetEntity();
 	}
-	
+
 	player.maxThinkTime = 0;
 
 	player.action = NULL;
@@ -2813,6 +2815,189 @@ static void applyWebbing()
 	}
 
 	checkToMap(self);
+}
+
+void setPlayerPetrified()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Petrified Player");
+	}
+
+	loadProperties("edgar/edgar_petrify", e);
+
+	e->x = player.x;
+	e->y = player.y;
+
+	e->startX = e->x;
+
+	e->action = &applyPetrification;
+
+	e->face = player.face;
+
+	e->draw = &drawLoopingAnimationToMap;
+	e->touch = NULL;
+	e->takeDamage = NULL;
+
+	e->type = ENEMY;
+
+	e->head = self;
+
+	e->maxThinkTime = 5;
+
+	e->thinkTime = e->maxThinkTime;
+
+	e->health = 4;
+
+	setEntityAnimationByID(e, e->health);
+
+	setPlayerLocked(TRUE);
+
+	player.element = ICE;
+}
+
+static void applyPetrification()
+{
+	Entity *e;
+
+	if (self->thinkTime <= 0)
+	{
+		playSoundToMap("sound/item/crack.ogg", -1, self->x, self->y, 0);
+
+		self->health--;
+
+		self->thinkTime = self->maxThinkTime;
+
+		if (self->health < 0)
+		{
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e->layer = FOREGROUND_LAYER;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y -= e->h;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			e->layer = FOREGROUND_LAYER;
+
+			self->inUse = FALSE;
+
+			setPlayerLocked(FALSE);
+
+			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+
+			player.element = NO_ELEMENT;
+		}
+
+		else
+		{
+			setEntityAnimationByID(self, self->health);
+		}
+	}
+
+	if (player.health > 0 && (input.up == 1 || input.down == 1 || input.right == 1 ||
+		 input.left == 1 || input.previous == 1 || input.next == 1 || input.jump == 1 ||
+		input.activate == 1 || input.attack == 1 || input.interact == 1 || input.block == 1))
+	{
+		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
+		self->x = player.x;
+
+		playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
+
+		self->thinkTime--;
+
+		input.up = 0;
+		input.down = 0;
+		input.right = 0;
+		input.left = 0;
+		input.previous = 0;
+		input.next = 0;
+		input.jump = 0;
+		input.activate = 0;
+		input.attack = 0;
+		input.interact = 0;
+		input.block = 0;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += self->w / 2 - e->w / 2;
+		e->y += self->h / 2 - e->h / 2;
+
+		e->dirX = (2 + prand() % 6) * (prand() % 2 == 0 ? -1 : 1);
+		e->dirY = -8;
+
+		e->thinkTime = 60 + (prand() % 120);
+
+		e->layer = FOREGROUND_LAYER;
+	}
+
+	if (player.health > 0)
+	{
+		setInfoBoxMessage(0, 255, 255, 255, _("Press buttons to break the petrification!"));
+	}
+
+	else
+	{
+		player.flags |= NO_DRAW;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -8;
+
+		e->layer = FOREGROUND_LAYER;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -8;
+
+		e->layer = FOREGROUND_LAYER;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = -3;
+		e->dirY = -4;
+
+		e->layer = FOREGROUND_LAYER;
+
+		e = addSmallRock(self->x, self->y, "common/small_rock");
+
+		e->x += (self->w - e->w) / 2;
+		e->y -= e->h;
+
+		e->dirX = 3;
+		e->dirY = -4;
+
+		e->layer = FOREGROUND_LAYER;
+
+		self->inUse = FALSE;
+
+		playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+	}
+
+	self->y = player.y;
 }
 
 int isAttacking()
