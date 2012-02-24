@@ -13,6 +13,7 @@ Version 0.98
 * Hitting the small trees no longer plays multiple sound effects
 * Attacking the Black Book's version of the Golem after it has been defeated no longer causes a crash
 * The Black Book's version of the Queen Wasp now does damage when it head butts you
+* Fixed a small problem with Edgar sometimes being able to walk in the water in the Right Tower
 * Just one more major release to go :)
 
 Version 0.97

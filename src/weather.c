@@ -129,7 +129,7 @@ static void initHeavyRain()
 static void rain()
 {
 	int i;
-	
+
 	for (i=0;i<MAX_DROPS;i++)
 	{
 		if (droplet[i].active == TRUE)
@@ -144,7 +144,7 @@ static void rain()
 				droplet[i].dirY = 8 + prand() % 8;
 			}
 		}
-		
+
 		else
 		{
 			break;
@@ -207,12 +207,17 @@ static void snow()
 	{
 		droplet[i].x += droplet[i].dirX;
 		droplet[i].y += droplet[i].dirY;
-		
+
 		if (droplet[i].x < 0)
 		{
-			droplet[i].x = SCREEN_WIDTH - droplet[i].x;
+			droplet[i].x = SCREEN_WIDTH + droplet[i].x;
 		}
-		
+
+		else if (droplet[i].x > SCREEN_WIDTH)
+		{
+			droplet[i].x = droplet[i].x - SCREEN_WIDTH;
+		}
+
 		if (prand() % 30 == 0)
 		{
 			droplet[i].dirX = 0.1f * (prand() % 20) - 0.1f * (prand() % 20);
@@ -236,12 +241,12 @@ static void drawRain()
 	if (game.weatherThinkTime <= 0)
 	{
 		i = playSoundToMap("sound/enemy/thunder_cloud/lightning.ogg", -1, player.x, player.y, 0);
-		
+
 		fadeFromColour(255, 255, 255, 30);
 
 		game.weatherThinkTime = 600 + i * 60;
 	}
-	
+
 	for (i=0;i<MAX_DROPS;i++)
 	{
 		if (droplet[i].active == TRUE)
@@ -280,7 +285,7 @@ int getWeatherTypeByName(char *name)
 	}
 
 	showErrorAndExit("Unknown Weather Type %s", name);
-	
+
 	return 0;
 }
 
@@ -297,7 +302,7 @@ char *getWeatherTypeByID(int id)
 	}
 
 	showErrorAndExit("Unknown Weather ID %d", id);
-	
+
 	return 0;
 }
 
