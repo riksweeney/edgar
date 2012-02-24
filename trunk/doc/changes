@@ -12,6 +12,7 @@ Version 0.98
 * Fixed a problem with Red Grubs getting stuck in some walls after bouncing off them
 * Hitting the small trees no longer plays multiple sound effects
 * Attacking the Black Book's version of the Golem after it has been defeated no longer causes a crash
+* The Black Book's version of the Queen Wasp now does damage when it head butts you
 * Just one more major release to go :)
 
 Version 0.97
