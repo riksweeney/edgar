@@ -1860,6 +1860,8 @@ static void petrifyPlayer()
 	{
 		player.x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
 		self->x = player.x;
+		
+		playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", EDGAR_CHANNEL, self->x, self->y, 0);
 
 		self->health--;
 
@@ -1914,6 +1916,8 @@ static void petrifyPlayer()
 			self->inUse = FALSE;
 
 			setPlayerLocked(FALSE);
+			
+			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
 		}
 	}
 

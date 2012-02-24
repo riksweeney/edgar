@@ -4372,6 +4372,8 @@ static void queenWaspWait()
 				self->action = &queenWaspSlimeFireInit;
 			break;
 		}
+		
+		self->damage = 1;
 
 		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
@@ -4423,13 +4425,6 @@ static void queenWaspFlyToTopTarget()
 
 static void queenWaspMoveToTarget()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime == 0)
-	{
-		self->damage = 1;
-	}
-
 	checkToMap(self);
 
 	facePlayer();
