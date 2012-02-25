@@ -1242,6 +1242,21 @@ Entity *getEntityByStartXY(int x, int y)
 	return NULL;
 }
 
+Entity *getEntityByXY(int x, int y)
+{
+	EntityList *el;
+
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		if (el->entity->inUse == TRUE && el->entity->x == x && el->entity->y == y)
+		{
+			return el->entity;
+		}
+	}
+
+	return NULL;
+}
+
 void activateEntitiesWithRequiredName(char *name, int active)
 {
 	EntityList *el;

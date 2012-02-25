@@ -2845,7 +2845,7 @@ void setPlayerPetrified()
 
 	e->head = self;
 
-	e->maxThinkTime = 5;
+	e->maxThinkTime = 10;
 
 	e->thinkTime = e->maxThinkTime;
 
