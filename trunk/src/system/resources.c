@@ -758,6 +758,26 @@ int patchEntities(double versionFile, char *mapName)
 					setProperty(e, key, value);
 				}
 			}
+			
+			else if (strcmpignorecase(itemName, "UPDATE_ENTITY_BY_XY") == 0 && skipping == FALSE)
+			{
+				read = sscanf(line, "%*s %d %d %s %[^\n]s", &x, &y, key, value);
+
+				if (strcmpignorecase(itemName, "PLAYER") == 0)
+				{
+					e = &player;
+				}
+
+				else
+				{
+					e = getEntityByXY(x, y);
+				}
+
+				if (e != NULL)
+				{
+					setProperty(e, key, value);
+				}
+			}
 
 			else if (strcmpignorecase(itemName, "RENAME_MAP") == 0 && skipping == FALSE)
 			{
