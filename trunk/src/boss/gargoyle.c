@@ -255,8 +255,6 @@ static void introFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		self->maxThinkTime = 2;
-		
 		playDefaultBossMusic();
 
 		self->mental = 2;
@@ -370,7 +368,7 @@ static void entityWait()
 
 					else
 					{
-						if (player.element == ICE)
+						if (player.element == SLIME)
 						{
 							self->action = &petrifyAttackInit;
 						}
@@ -428,7 +426,7 @@ static void entityWait()
 
 					else
 					{
-						if (player.element == ICE)
+						if (player.element == SLIME)
 						{
 							self->action = &petrifyAttackInit;
 						}
@@ -454,15 +452,13 @@ static void entityWait()
 								break;
 							}
 						}
-						
-						self->action = &invisibleAttackInit;
 					}
 				break;
 
 				default:
-					if (self->target->inUse == FALSE && self->maxThinkTime == 4)
+					if (self->target->inUse == FALSE && self->maxThinkTime == 3)
 					{
-						self->maxThinkTime = 5;
+						self->maxThinkTime = 4;
 
 						self->action = &splitInHalfInit;
 					}
@@ -494,7 +490,7 @@ static void entityWait()
 
 static void splitInHalfInit()
 {
-	setEntityAnimation(self, "FACE_FRONT_FLY");
+	setEntityAnimation(self, "DROP_ATTACK");
 
 	self->thinkTime = 30;
 
@@ -534,7 +530,7 @@ static void splitInHalf()
 
 		e->head = self;
 
-		e->flags |= LIMIT_TO_SCREEN|DO_NOT_PERSIST;
+		e->flags |= LIMIT_TO_SCREEN|DO_NOT_PERSIST|FLY;
 
 		e->targetX = self->x - self->w;
 
@@ -572,14 +568,14 @@ static void splitInHalfMove()
 		{
 			self->flags &= ~NO_DRAW;
 
-			self->action = &attackFinished;
+			/*self->action = &attackFinished;*/
 		}
 
 		else if (self->target != NULL && self->target->dirX == 0)
 		{
 			self->flags &= ~NO_DRAW;
 
-			self->action = &attackFinished;
+			/*self->action = &attackFinished;*/
 		}
 	}
 
@@ -623,6 +619,8 @@ static void dropAttackMoveToTop()
 {
 	if (atTarget())
 	{
+		setEntityAnimation(self, "DROP_ATTACK");
+		
 		self->action = &dropAttackFollowPlayer;
 	}
 
@@ -756,7 +754,7 @@ static void lightningGridAttack()
 
 		self->mental = 0;
 
-		self->endX = 0;
+		self->endY = 0;
 
 		orbCount = 6;
 
@@ -813,7 +811,7 @@ static void lightningGridAttack()
 
 			self->mental++;
 
-			self->endX++;
+			self->endY++;
 		}
 
 		setEntityAnimation(e, "STAND");
@@ -832,12 +830,12 @@ static void orbMoveToTarget()
 	{
 		if (self->mental == 1)
 		{
-			self->head->endX--;
+			self->head->endY--;
 
 			self->mental = 0;
 		}
 
-		else if (self->head->endX <= 0)
+		else if (self->head->endY <= 0)
 		{
 			self->thinkTime--;
 
@@ -1004,7 +1002,7 @@ static void lanceStabReactToBlock(Entity *other)
 
 	self->action = &lanceStabFinish;
 
-	self->thinkTime = 30;
+	self->thinkTime = 60;
 
 	checkToMap(self);
 }
@@ -1077,7 +1075,7 @@ static void becomeInvisible()
 		
 		self->flags |= NO_DRAW;
 		
-		self->mental = 3 + prand() % 3;
+		self->mental = 1 + prand() % 3;
 		
 		t = getTargetByName("GARGOYLE_TOP_TARGET");
 
@@ -1315,6 +1313,8 @@ static void bridgeDestroyMoveToTarget()
 		self->mental = 5;
 		
 		self->action = &bridgeDestroyFollowPlayer;
+		
+		printf("StartX is %f. EndX is %f\n", self->startX, self->endX);
 	}
 
 	checkToMap(self);
@@ -1716,6 +1716,40 @@ static void lanceDestroyBridge()
 
 static void lanceFallout()
 {
+	int distance;
+	float checkPointX, checkpointY;
+	int startX, endX;
+	EntityList *el, *entities;
+
+	entities = getEntities();
+	
+	distance = 0;
+	
+	startX = getMapStartX();
+	endX   = getMapStartX() + SCREEN_WIDTH;
+	
+	/* Get a wall furthest away from the boss */
+
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		if (el->entity->inUse == TRUE && el->entity->type == WEAK_WALL && el->entity->mental == -1 &&
+			el->entity->touch != NULL && el->entity->x >= startX && el->entity->x < endX)
+		{
+			if (abs(el->entity->x - self->head->x) > distance)
+			{
+				distance = abs(el->entity->x - self->head->x);
+				
+				printf("%d is furthest from the boss\n", distance);
+			}
+		}
+	}
+	
+	printf("Setting checkpoint to %d %d\n", startX + distance + player.w / 2, (int)player.y);
+	
+	getCheckpoint(&checkPointX, &checkpointY); 
+	
+	setCheckpoint(startX + distance + player.w / 2, checkpointY);
+	
 	self->y = self->head->y + self->offsetY;
 
 	self->action = &lanceAttackTeleportFinish;
@@ -1821,7 +1855,7 @@ static void petrifyAttack()
 
 			fadeFromColour(255, 255, 0, 30);
 
-			if (player.element == ICE)
+			if (player.element == SLIME)
 			{
 				player.die();
 			}
