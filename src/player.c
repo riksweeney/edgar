@@ -2855,7 +2855,7 @@ void setPlayerPetrified()
 
 	setPlayerLocked(TRUE);
 
-	player.element = ICE;
+	player.element = SLIME;
 }
 
 static void applyPetrification()

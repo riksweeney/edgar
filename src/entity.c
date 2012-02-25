@@ -1857,7 +1857,35 @@ void killEntity(char *name)
 
 int atTarget()
 {
-	if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
+	if (fabs(self->dirY) > 0 && fabs(self->dirY) < 0.01)
+	{
+		if (fabs(self->targetX - self->x) <= fabs(self->dirX))
+		{
+			self->x = self->targetX;
+			self->y = self->targetY;
+
+			self->dirX = 0;
+			self->dirY = 0;
+
+			return TRUE;
+		}
+	}
+	
+	else if (fabs(self->dirX) > 0 && fabs(self->dirX) < 0.01)
+	{
+		if (fabs(self->targetY - self->y) <= fabs(self->dirY))
+		{
+			self->x = self->targetX;
+			self->y = self->targetY;
+
+			self->dirX = 0;
+			self->dirY = 0;
+
+			return TRUE;
+		}
+	}
+	
+	else if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
 		self->x = self->targetX;
 		self->y = self->targetY;
