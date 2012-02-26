@@ -299,7 +299,7 @@ static void spitEnd()
 
 static void spit()
 {
-	int x = (self->face == RIGHT ? self->offsetX : self->x + self->w - self->w - self->offsetX);
+	int x = (self->face == RIGHT ? self->offsetX : self->w - self->offsetX);
 	int y = self->offsetY;
 
 	addProjectile("boss/grub_boss_shot", self, self->x + x, self->y + y, (self->face == RIGHT ? 7 : -7), -12);

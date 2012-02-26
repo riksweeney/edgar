@@ -130,6 +130,8 @@ static void shatter()
 	self->targetY = self->startY;
 
 	self->animationCallback = NULL;
+	
+	self->frameSpeed = 1;
 
 	y = self->startY;
 

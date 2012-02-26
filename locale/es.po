@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Traduccion de Edgar 0.75\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-16 23:03+0000\n"
-"Last-Translator: Traperic <Unknown>\n"
+"PO-Revision-Date: 2012-02-21 16:34+0000\n"
+"Last-Translator: riksweeney <riksweeney@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-19 10:00+0000\n"
-"X-Generator: Launchpad (build 14814)\n"
+"X-Launchpad-Export-Date: 2012-02-26 21:28+0000\n"
+"X-Generator: Launchpad (build 14860)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1723,7 +1723,7 @@ msgid "Nothing happened. I don't think that's the right order"
 msgstr "No ha pasado nada. No creo que ese sea el orden correcto"
 
 msgid "Tuning Fork"
-msgstr ""
+msgstr "Diapasón"
 
 msgid "Second Floor Keycard"
 msgstr "Llave tarjeta de la Segunda planta"
@@ -4070,7 +4070,7 @@ msgid "Grimlore, I summon you! Destroy this pest!"
 msgstr ""
 
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Adiós, Edgar"
 
 msgid "Something's coming..."
 msgstr ""
@@ -4274,7 +4274,7 @@ msgid "Play Time"
 msgstr ""
 
 msgid "Kills"
-msgstr ""
+msgstr "Muertes"
 
 msgid "Arrows Fired"
 msgstr ""
@@ -4334,7 +4334,7 @@ msgid "Edgar! Edgar, where are you?"
 msgstr ""
 
 msgid "!"
-msgstr ""
+msgstr "!"
 
 msgid "That voice..."
 msgstr ""
@@ -4343,10 +4343,10 @@ msgid "It can't be..."
 msgstr ""
 
 msgid "Daddy!"
-msgstr ""
+msgstr "Papi!"
 
 msgid "Edgar!"
-msgstr ""
+msgstr "Edgar!"
 
 msgid "Jacob, I found him!"
 msgstr ""
@@ -4859,7 +4859,7 @@ msgid "You can only use this item in an empty space"
 msgstr ""
 
 msgid "Bell"
-msgstr ""
+msgstr "Campana"
 
 msgid "Great, that worked!"
 msgstr ""
@@ -5009,10 +5009,10 @@ msgid "Village"
 msgstr "Pueblo"
 
 msgid "Mine"
-msgstr ""
+msgstr "Mina"
 
 msgid "Forest"
-msgstr ""
+msgstr "Bosque"
 
 msgid "Forbidden Swamp"
 msgstr "Pantano Prohibido"
@@ -5045,10 +5045,10 @@ msgid "Catacombs"
 msgstr ""
 
 msgid "Study"
-msgstr ""
+msgstr "Estudio"
 
 msgid "Dungeon"
-msgstr ""
+msgstr "Mazmorra"
 
 msgid "Frozen Wastes"
 msgstr ""
@@ -5060,7 +5060,7 @@ msgid "Inner Cave Network"
 msgstr ""
 
 msgid "Graveyard"
-msgstr ""
+msgstr "Cementerio"
 
 msgid "Left Tower"
 msgstr ""
@@ -5072,7 +5072,7 @@ msgid "The Observatory"
 msgstr ""
 
 msgid "Crypt"
-msgstr ""
+msgstr "Cripta"
 
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr ""
@@ -5093,7 +5093,7 @@ msgid "Continue"
 msgstr ""
 
 msgid "Medals"
-msgstr ""
+msgstr "Medallas"
 
 msgid "Audio Quality"
 msgstr ""
@@ -5208,4 +5208,13 @@ msgstr ""
 "Borgan dijo que una sección de la mina fue sellada tras un \"incidente\""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "Completed the game with only 5 hit points"
+msgstr ""
+
+msgid "Completed the game without continuing"
+msgstr ""
+
+msgid "Accessed the Crypt"
 msgstr ""

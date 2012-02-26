@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-19 08:51+0000\n"
+"PO-Revision-Date: 2012-02-26 18:46+0000\n"
 "Last-Translator: Kulti <kultihell@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-19 10:00+0000\n"
-"X-Generator: Launchpad (build 14814)\n"
+"X-Launchpad-Export-Date: 2012-02-26 21:28+0000\n"
+"X-Generator: Launchpad (build 14860)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr "Поворачивайтесь из стороны в сторону, чтобы стряхнуть слизней"
@@ -24,7 +24,7 @@ msgid "Bow"
 msgstr "Лук"
 
 msgid "Press Action to interact"
-msgstr ""
+msgstr "Нажмите Действие для взаимодействия"
 
 msgid "%s is required"
 msgstr "Требуется %s"
@@ -36,22 +36,22 @@ msgid "Small Rock"
 msgstr "Маленький камень"
 
 msgid "Press Action to retrieve the Purple Gem"
-msgstr ""
+msgstr "Нажмите Действие, чтобы извлечь Аметист"
 
 msgid "Tesla Pack"
-msgstr ""
+msgstr "Катушка Тесла"
 
 msgid "Press Action to retrieve Tesla Pack"
-msgstr ""
+msgstr "Нажмите Действие, чтобы взять Катушку Тесла"
 
 msgid "Press Action to replace Tesla Pack"
-msgstr ""
+msgstr "Нажмите Действие, чтобы восстановить Катушку Тесла"
 
 msgid "Obtained %s"
 msgstr "Получите %s"
 
 msgid "Complete"
-msgstr ""
+msgstr "Завершено"
 
 msgid "%d more to go..."
 msgstr "Еще %d..."
@@ -60,10 +60,10 @@ msgid "Used %s"
 msgstr "Использовано %s"
 
 msgid "Cannot equip items whilst transmogrified"
-msgstr ""
+msgstr "Нельзя экипироваться будучи преобразованным"
 
 msgid "Equipped %s"
-msgstr ""
+msgstr "Экипирован %s"
 
 msgid "Maximum health has increased!"
 msgstr "Максимальное здоровье увеличено!"
@@ -111,7 +111,7 @@ msgid "Joy Button #%d"
 msgstr ""
 
 msgid "Press Action to talk to %s"
-msgstr ""
+msgstr "Нажмите Действие, чтобы поговорить с %s"
 
 msgid "New Objective: %s"
 msgstr "Новое задание: %ы"
@@ -120,10 +120,10 @@ msgid "Objective Completed: %s"
 msgstr "Задание выполнено: %s"
 
 msgid "This weapon is not having any effect..."
-msgstr ""
+msgstr "Это оружие не эффективно..."
 
 msgid "Press Action to attach the Tesla Pack"
-msgstr ""
+msgstr "Нажмите Действие, чтобы прикрепить Катушку Тесла"
 
 msgid "The Legend of Edgar"
 msgstr "Легенда об Эдгаре"
@@ -132,13 +132,13 @@ msgid "%s is needed to activate this switch"
 msgstr "Требуется %s для активации этого переключателя"
 
 msgid "Press Action to use this switch"
-msgstr ""
+msgstr "Нажмите Действие, чтобы использовать переключатель"
 
 msgid "Press Action to save your game"
-msgstr ""
+msgstr "Нажмите Действие, чтобы сохранить вашу игру"
 
 msgid "%s is required to use this Pressure Plate"
-msgstr ""
+msgstr "Требуется %s, чтобы использовать эту Прижимную Плиту"
 
 msgid "%s is needed to open this door"
 msgstr "Нужен %s, чтобы открыть эту дверь"
@@ -156,7 +156,7 @@ msgid "This lift is not active"
 msgstr "Этот лифт неактивен"
 
 msgid "Cannot carry any more %s"
-msgstr ""
+msgstr "Нельзя несть %s больше, чем есть"
 
 msgid "Picked up %s x %d"
 msgstr "Подобрано %s x %d"
@@ -168,16 +168,16 @@ msgid "%s is required to carry this item"
 msgstr "Требуется %s, чтобы нести этот предмет."
 
 msgid "Storage Key"
-msgstr ""
+msgstr "Ключ от склада"
 
 msgid "Coal Bag Storage Switch Key"
-msgstr ""
+msgstr "Ключ от переключателя на  складе угольных мешков"
 
 msgid "Large Room Key"
-msgstr ""
+msgstr "Ключ от большой комнаты"
 
 msgid "Coal Bag"
-msgstr ""
+msgstr "Угольный мешок"
 
 msgid "Forest Cell Key"
 msgstr ""
@@ -198,16 +198,16 @@ msgid "Waste Processing Key"
 msgstr ""
 
 msgid "Access Key 1"
-msgstr ""
+msgstr "Ключ доступа 1"
 
 msgid "Access Key 2"
-msgstr ""
+msgstr "Ключ доступа 2"
 
 msgid "Access Key 3"
-msgstr ""
+msgstr "Ключ доступа 3"
 
 msgid "Trap Door Switch Key"
-msgstr ""
+msgstr "Ключ от переключателя двери-ловушки"
 
 msgid "Keep practising!"
 msgstr "Упражняйтесь!"
@@ -546,28 +546,29 @@ msgid "This had better be the last time I have to do this..."
 msgstr "Лучше бы это был последний раз, когда мне приходится делать это..."
 
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "Это просто! И я всегда могу вернуться назад!"
 
 msgid "Oh...."
 msgstr "Ох..."
 
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "Похоже у меня нет выбора."
 
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "Держись Папа, я иду..."
 
 msgid "There's a note here"
-msgstr ""
+msgstr "Здесь надпись"
 
 msgid "I've been trapped down here for what seems like an eternity"
 msgstr ""
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr ""
+"Чтобы выбраться из этого места мне нужны 3 ключа доступа для работы лифтов"
 
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "До сих пор я нашел только 1"
 
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
@@ -584,15 +585,17 @@ msgid "If I don't get out of here I'll suffer the same fate..."
 msgstr ""
 
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "Ох, что это?"
 
 msgid "There's a note here too"
-msgstr ""
+msgstr "Здесь тоже надпись"
 
 msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
 msgstr ""
+"Это зелье прекрасно! Выпив его, человек становится существом за очень "
+"короткое время"
 
 msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
@@ -603,76 +606,84 @@ msgid "There's a tiny bit left, it should be safe to drink"
 msgstr ""
 
 msgid "OK, here goes nothing..."
-msgstr ""
+msgstr "ОК, ничего не происходит..."
 
 msgid "Urgh!! This is horrible!"
-msgstr ""
+msgstr "Арг!! Это ужасно!"
 
 msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
 msgstr ""
+"Борган говорил мне, что Слизень может плавать в воде, может быть это "
+"полезно..."
 
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
 msgstr ""
+"Когда превращаетесь в Слизня, вы можете двигаться, как обычно. Так же вы "
+"можете плавать в воде и двигаться там вверх и вниз."
 
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
 msgstr ""
+"Вы можете выпрыгнуть из воды, находясь рядом с поверхностью, нажимая вверх "
+"или прыжок"
 
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
 msgstr ""
+"Следите за таймером внизу экрана. Когда он достигнет 0 вы автоматически "
+"станете человеком"
 
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "Это место выглядит не так уж и плохо..."
 
 msgid "What was that?"
-msgstr ""
+msgstr "Что это было?"
 
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Ах ох..."
 
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "Фью, я очень рад выбраться оттуда"
 
 msgid "Now to get through this swamp"
 msgstr ""
 
 msgid "Hey, what's this?"
-msgstr ""
+msgstr "Эй, что это?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
 msgstr ""
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr ""
+msgstr "Вау! Это было круто! Должно быть это механический телепорт"
 
 msgid "I wonder if it works both ways..."
-msgstr ""
+msgstr "Надеюсь, он работает в обе стороны..."
 
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
 msgstr ""
 
 msgid "Now try out your shield"
-msgstr ""
+msgstr "Теперь попробуйте ваш щит"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
 msgstr ""
 
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "Некоторые предметы в игре можно толкать и тянуть"
 
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "Чтобы толкать предмет, просто идите на него"
 
 msgid "To pull an item, walk into while holding down Action"
-msgstr ""
+msgstr "Чтобы тянуть предмет, отходите от него, удерживая Действие"
 
 msgid "You can then pull the item around until you let go of Action"
 msgstr ""
@@ -684,11 +695,15 @@ msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
 msgstr ""
+"Это последняя часть обучения и она обучит вас блокировать и атаковать "
+"противников"
 
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
 msgstr ""
+"Во-первых, вы должны экипироваться мечом, т.к. он атакует на большее "
+"расстояние и наносит больше вреда, чем кирка"
 
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
@@ -715,6 +730,8 @@ msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
+"Чтобы открыть заблокированную дверь, от которой у вас есть ключ, просто "
+"идите на нее. Для этого не нужно выбирать ключ в инвентаре."
 
 msgid "Open the door and continue to the right"
 msgstr ""
@@ -731,6 +748,8 @@ msgstr ""
 
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
+"Чтобы начать играть основную историю, нажмите Esc и выберите в меню Новая "
+"Игра."
 
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
@@ -832,7 +851,7 @@ msgid "Rescue 3 Chickens"
 msgstr ""
 
 msgid "Find 4 Gems"
-msgstr ""
+msgstr "Найти 4 драгоценных камня"
 
 msgid "Repair Generators"
 msgstr ""
@@ -853,28 +872,28 @@ msgid "Chopped Log"
 msgstr ""
 
 msgid "Green Gem"
-msgstr ""
+msgstr "Изумруд"
 
 msgid "Red Gem"
-msgstr ""
+msgstr "Рубин"
 
 msgid "Blue Gem"
-msgstr ""
+msgstr "Сапфир"
 
 msgid "Purple Gem"
-msgstr ""
+msgstr "Аметист"
 
 msgid "Teleporter Key"
 msgstr ""
 
 msgid "New Game"
-msgstr ""
+msgstr "Новая игра"
 
 msgid "Tutorial"
 msgstr ""
 
 msgid "Load Game"
-msgstr ""
+msgstr "Загрузить игру"
 
 msgid "Options"
 msgstr ""
@@ -898,7 +917,7 @@ msgid "Show Hints"
 msgstr ""
 
 msgid "A potion which will transform you..."
-msgstr ""
+msgstr "Зелье, которое превратит вас..."
 
 msgid "A potion which will restore all of your health"
 msgstr ""
@@ -913,13 +932,13 @@ msgid "The eyeball from a Gazer"
 msgstr ""
 
 msgid "A Tesla Pack. It has no charge."
-msgstr ""
+msgstr "Катушка Тесла. Не заряжена."
 
 msgid "A Summoner's Staff. It cannot be used by humans."
 msgstr ""
 
 msgid "A Tesla Pack. It is fully charged."
-msgstr ""
+msgstr "Катушка Тесла. Полностью заряжена."
 
 msgid "An empty potion bottle"
 msgstr ""
@@ -984,7 +1003,7 @@ msgid "No Objectives"
 msgstr ""
 
 msgid "Press Action to reset puzzle blocks"
-msgstr ""
+msgstr "Нажмите Действие, чтобы восстановить головолоку"
 
 msgid "I still need an Empty Bottle to put the potion in"
 msgstr ""
@@ -1102,7 +1121,7 @@ msgid ""
 msgstr ""
 
 msgid "Hmmm..."
-msgstr ""
+msgstr "Хммм..."
 
 msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
@@ -1115,15 +1134,17 @@ msgid ""
 msgstr ""
 
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Вау, лаборатория!"
 
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
 msgstr ""
+"Я люблю наблюдать, как Мэгги делает заклинания и зелья, возможно, я смогу "
+"здесь сделать это самостоятельно!"
 
 msgid "Wow, I've never seen so many books in one place!"
-msgstr ""
+msgstr "Вау, я никогда не видел так много книг в одно месте!"
 
 msgid ""
 "There must be information about every subject here, this could be useful..."
@@ -1135,7 +1156,7 @@ msgid ""
 msgstr ""
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "Ох, Эдгар, ты ранен! Позволь мне залечить твои раны!"
 
 msgid "Gazer"
 msgstr ""
@@ -1501,7 +1522,7 @@ msgid "First Floor Key"
 msgstr ""
 
 msgid "Press Action to retrieve %s"
-msgstr ""
+msgstr "Нажмите Действие, чтобы получить %s"
 
 msgid "Hmm, this is new."
 msgstr ""
@@ -1569,19 +1590,19 @@ msgid "Scorpion Statue"
 msgstr ""
 
 msgid "A Blue Gem"
-msgstr ""
+msgstr "Сапфир"
 
 msgid "A statue of a Centurion. It has 2 legs."
 msgstr ""
 
 msgid "A Green Gem"
-msgstr ""
+msgstr "Изумруд"
 
 msgid "A Purple Gem"
-msgstr ""
+msgstr "Аметист"
 
 msgid "A Red Gem"
-msgstr ""
+msgstr "Рубин"
 
 msgid "A statue of a Scorpion. It has 6 legs."
 msgstr ""
@@ -1908,16 +1929,16 @@ msgid "I guess it powers that door, so I'll have to turn it on"
 msgstr ""
 
 msgid "A Yellow Gem"
-msgstr ""
+msgstr "Топаз"
 
 msgid "Failed to open PAK file %s"
 msgstr ""
 
 msgid "Find a way to remove the Gem..."
-msgstr ""
+msgstr "Найдите способ удалить Драгоценный Камень..."
 
 msgid "Press Action to retrieve the Yellow Gem"
-msgstr ""
+msgstr "Нажмите действие, чтобы извлечь Топаз"
 
 msgid "I should be safe up here, but I need to get rid of it"
 msgstr ""
@@ -2230,7 +2251,7 @@ msgid "Secrets Found: %d / %d"
 msgstr ""
 
 msgid "Press Action to activate the Light Pillar"
-msgstr ""
+msgstr "Нажмите Действие, чтобы активировать Столб Света"
 
 msgid "Removed %s"
 msgstr ""
@@ -2387,7 +2408,7 @@ msgid "Used Amulet of Resurrection"
 msgstr ""
 
 msgid "Press Action to enter the Soul Merger"
-msgstr ""
+msgstr "Нажмите Действие, чтобы войти в Соединитель Душ"
 
 msgid "An IN Chamber and an OUT Chamber are required"
 msgstr ""
@@ -2396,13 +2417,13 @@ msgid "One blow from the pickaxe should shatter it"
 msgstr ""
 
 msgid "Press Action to reprogram the Soul Merger"
-msgstr ""
+msgstr "Нажмите Действие, чтобы перепрограммировать Соединитель Душ"
 
 msgid "Spanner is required"
 msgstr ""
 
 msgid "Press Action to Cancel"
-msgstr ""
+msgstr "Нажмите Действие для отмены"
 
 msgid "%s is needed to activate this Light Pillar"
 msgstr ""
@@ -2691,7 +2712,7 @@ msgid "Press Attack again to stop moving the current piece"
 msgstr ""
 
 msgid "Press Action to quit the puzzle"
-msgstr ""
+msgstr "Нажмите Действие для выхода из головоломки"
 
 msgid ""
 "Ugh, I'm getting really fed up of waking up in strange places with my eyes "
@@ -2820,7 +2841,7 @@ msgid "Press buttons to escape the snowball!"
 msgstr ""
 
 msgid "Have you managed to find the horn yet?"
-msgstr ""
+msgstr "Вам уже удалось найти рог?"
 
 msgid "Have you found everything yet?"
 msgstr ""
@@ -2854,7 +2875,7 @@ msgid ""
 msgstr ""
 
 msgid "He's kidnapped my Dad and I was there trying to save him"
-msgstr ""
+msgstr "Он похитил моего отца, и я был там, пытаясь спасти его"
 
 msgid "Well, it looks like the ring's power is almost completely gone"
 msgstr ""
@@ -2938,12 +2959,14 @@ msgid "What do you need?"
 msgstr ""
 
 msgid "It's the horn from a particular type of monster"
-msgstr ""
+msgstr "Это рог от конкретного типа монстра?"
 
 msgid ""
 "There should be plenty of bones littered around so you shouldn't have to "
 "find one and kill it. Just get the horn and get out"
 msgstr ""
+"Там должно валяться много костей, так что вам не нужно никого убивать. "
+"Просто возьмите рог и возвращайтесь"
 
 msgid "Hmmm"
 msgstr ""
@@ -2973,7 +2996,7 @@ msgid "Oh, one last thing."
 msgstr ""
 
 msgid "Seriously, just get the horn"
-msgstr ""
+msgstr "Серьезно, просто взять рог"
 
 msgid "Have I just sent a young boy to his death?"
 msgstr ""
@@ -3105,7 +3128,7 @@ msgid ""
 msgstr ""
 
 msgid "Retrieve horn"
-msgstr ""
+msgstr "Получить рог"
 
 msgid "Ouch, my head..."
 msgstr ""
@@ -3207,7 +3230,7 @@ msgid "Select a colour for every peg in the row"
 msgstr ""
 
 msgid "Press Action to retrieve the Horn"
-msgstr ""
+msgstr "Нажмите Действие, чтобы получить Рог"
 
 msgid "Attempts remaining: %d"
 msgstr ""
@@ -3468,7 +3491,7 @@ msgid "You have 10 attempts to guess the sequence"
 msgstr ""
 
 msgid "Press Action to quit"
-msgstr ""
+msgstr "Нажмите Действие, чтобы выйти"
 
 msgid "It's not working at the moment"
 msgstr ""
@@ -3487,7 +3510,7 @@ msgid "It doesn't look like it's working though"
 msgstr ""
 
 msgid "This looks like the horn that Olaf needs"
-msgstr ""
+msgstr "Это выглядит, как рог, который нужен Олафу"
 
 msgid "I'll have to break it off somehow..."
 msgstr ""
@@ -3581,7 +3604,7 @@ msgid "It looks like there's a larger network of caves down there"
 msgstr ""
 
 msgid "Olaf did tell me to just get the horn and leave"
-msgstr ""
+msgstr "Олаф сказал мне просто взять рог и вернуться"
 
 msgid ""
 "The sorceror will almost certainly destroy me if I confront him without the "
@@ -3610,7 +3633,7 @@ msgid "Create a Resist Disintegration Shield"
 msgstr ""
 
 msgid "The horn from a fearsome monster"
-msgstr ""
+msgstr "Рог от страшного монстра"
 
 msgid "A delicious apple"
 msgstr ""
@@ -3625,7 +3648,7 @@ msgid "Try using one of the artifacts to protect yourself..."
 msgstr ""
 
 msgid "Failed to load game"
-msgstr ""
+msgstr "Ошибка при загрузке игры"
 
 msgid "Your %s has been destroyed"
 msgstr ""
@@ -4432,7 +4455,7 @@ msgid "A bell"
 msgstr ""
 
 msgid "Creates a save point at your current position"
-msgstr ""
+msgstr "Создает точку сохранения на вашей текущей позиции"
 
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
@@ -4487,13 +4510,13 @@ msgid "A sheet of music"
 msgstr ""
 
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "Выберите слот для сохранения"
 
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "Выберите слот для загрузки"
 
 msgid "Press Action to go to %s"
-msgstr ""
+msgstr "Нажмите Действие, чтобы пойти в %s"
 
 msgid "Give up?"
 msgstr ""
@@ -4799,4 +4822,13 @@ msgid ""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "Completed the game with only 5 hit points"
+msgstr ""
+
+msgid "Completed the game without continuing"
+msgstr ""
+
+msgid "Accessed the Crypt"
 msgstr ""
