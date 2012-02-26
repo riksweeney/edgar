@@ -2854,6 +2854,8 @@ void setPlayerPetrified()
 	setEntityAnimationByID(e, e->health);
 
 	setPlayerLocked(TRUE);
+	
+	player.flags &= ~NO_DRAW;
 
 	player.element = SLIME;
 }

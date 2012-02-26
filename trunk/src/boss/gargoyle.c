@@ -136,6 +136,7 @@ static void fakeLanceDropAppear(void);
 static void fakeLanceDropWait(void);
 static void fakeLanceDrop(void);
 static void fakeLanceDropExplodeWait(void);
+static void fakeLanceDie(void);
 static void lanceExplode(void);
 static void splitInHalfInit(void);
 static void splitInHalf(void);
@@ -185,6 +186,8 @@ static void init()
 	switch (self->mental)
 	{
 		case -1:
+			self->flags &= ~FLY;
+			
 			setEntityAnimation(self, "REACH_STONE");
 
 			self->takeDamage = &stoneTakeDamage;
@@ -197,7 +200,7 @@ static void init()
 		break;
 
 		case 0:
-			addStoneCoat();
+			/*addStoneCoat();*/
 
 			self->action = &initialise;
 		break;
@@ -256,6 +259,8 @@ static void introFinish()
 	if (self->thinkTime <= 0)
 	{
 		playDefaultBossMusic();
+		
+		self->maxThinkTime = 2;
 
 		self->mental = 2;
 
@@ -454,31 +459,21 @@ static void entityWait()
 						}
 					}
 				break;
+				
+				case 3:
+					self->action = &splitInHalfInit;
+				break;
 
 				default:
-					if (self->target->inUse == FALSE && self->maxThinkTime == 3)
+					switch (prand() % 2)
 					{
-						self->maxThinkTime = 4;
+						case 0:
+							self->action = &dropAttackInit;
+						break;
 
-						self->action = &splitInHalfInit;
-					}
-
-					else
-					{
-						switch (prand() % 3)
-						{
-							case 0:
-								self->action = &dropAttackInit;
-							break;
-
-							case 1:
-								self->action = &weaponRemoveBlastInit;
-							break;
-
-							default:
-								self->action = &attackFinished;
-							break;
-						}
+						case 1:
+							self->action = &weaponRemoveBlastInit;
+						break;
 					}
 				break;
 			}
@@ -490,9 +485,11 @@ static void entityWait()
 
 static void splitInHalfInit()
 {
+	self->maxThinkTime = 4;
+	
 	setEntityAnimation(self, "DROP_ATTACK");
 
-	self->thinkTime = 30;
+	self->thinkTime = 60;
 
 	self->action = &splitInHalf;
 
@@ -515,6 +512,11 @@ static void splitInHalf()
 		}
 
 		loadProperties(self->name, e);
+		
+		setEntityAnimation(e, "DROP_ATTACK");
+		
+		e->x = self->x;
+		e->y = self->y;
 
 		e->action = &splitInHalfMove;
 
@@ -524,7 +526,9 @@ static void splitInHalf()
 
 		e->takeDamage = &entityTakeDamageNoFlinch;
 
-		e->die = &entityDieNoDrop;
+		e->die = &cloneDie;
+		
+		e->pain = &enemyPain;
 
 		e->type = ENEMY;
 
@@ -541,8 +545,11 @@ static void splitInHalf()
 		e->maxThinkTime = self->maxThinkTime;
 
 		e->thinkTime = 0;
+		
+		e->startX = getMapStartX();
+		e->endX   = getMapStartX() + SCREEN_WIDTH - e->w;
 
-		self->health = self->maxHealth;
+		e->health = self->health;
 
 		self->action = &splitInHalfMove;
 
@@ -555,6 +562,9 @@ static void splitInHalf()
 		self->target = e;
 
 		self->thinkTime = 0;
+		
+		self->startX = getMapStartX();
+		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
 	}
 }
 
@@ -568,14 +578,14 @@ static void splitInHalfMove()
 		{
 			self->flags &= ~NO_DRAW;
 
-			/*self->action = &attackFinished;*/
+			self->action = &attackFinished;
 		}
 
 		else if (self->target != NULL && self->target->dirX == 0)
 		{
 			self->flags &= ~NO_DRAW;
 
-			/*self->action = &attackFinished;*/
+			self->action = &attackFinished;
 		}
 	}
 
@@ -607,6 +617,9 @@ static void dropAttackInit()
 	self->flags |= FLY;
 
 	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+	
+	self->dirX *= 5;
+	self->dirY *= 5;
 
 	self->action = &dropAttackMoveToTop;
 
@@ -642,6 +655,8 @@ static void dropAttackFollowPlayer()
 		self->targetY = self->y - self->h;
 
 		self->dirX = 0;
+		
+		self->thinkTime = 30;
 
 		self->action = &dropAttack;
 	}
@@ -661,6 +676,8 @@ static void dropAttackFollowPlayer()
 			if (self->x == getMapStartX())
 			{
 				self->dirX = 0;
+				
+				self->thinkTime = 30;
 
 				self->action = &dropAttack;
 			}
@@ -675,13 +692,13 @@ static void dropAttackFollowPlayer()
 			if (self->x == getMapStartX() + SCREEN_WIDTH - self->w)
 			{
 				self->dirX = 0;
+				
+				self->thinkTime = 30;
 
 				self->action = &dropAttack;
 			}
 		}
 	}
-
-	checkToMap(self);
 
 	cloneCheck();
 }
@@ -692,30 +709,37 @@ static void dropAttack()
 	long onGround = self->flags & ON_GROUND;
 	Entity *e;
 
-	self->flags &= ~FLY;
-
-	if (landedOnGround(onGround) == TRUE)
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
 	{
-		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
+		self->flags &= ~FLY;
 
-		for (i=0;i<30;i++)
+		if (landedOnGround(onGround) == TRUE)
 		{
-			e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 
-			if (e != NULL)
+			for (i=0;i<30;i++)
 			{
-				e->y -= prand() % e->h;
+				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+				if (e != NULL)
+				{
+					e->y -= prand() % e->h;
+				}
 			}
+			
+			self->thinkTime = 30;
 		}
-	}
 
-	if (self->standingOn != NULL || (self->flags & ON_GROUND))
-	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
+		if (self->standingOn != NULL || (self->flags & ON_GROUND))
 		{
-			self->action = &attackFinished;
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				self->action = &attackFinished;
+			}
 		}
 	}
 
@@ -2164,6 +2188,8 @@ static void fakeLanceDropInit()
 	}
 
 	self->flags |= (FLY|NO_DRAW);
+	
+	setEntityAnimation(self, "LANCE_THROW");
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
 
@@ -2212,31 +2238,33 @@ static void fakeLanceDropAppear()
 				e->draw = &drawLoopingAnimationToMap;
 				e->touch = &entityTouch;
 				e->takeDamage = &entityTakeDamageNoFlinch;
+				e->die = &fakeLanceDie;
+				e->pain = &enemyPain;
 
 				e->type = ENEMY;
 
-				setEntityAnimation(e, "STAND");
+				setEntityAnimation(e, "LANCE_THROW");
 
-				e->mental = -1;
+				e->mental = 0;
 
-				e->head = self->head;
+				e->head = self;
 			}
 
 			e->action = &fakeLanceDropWait;
 
-			e->flags &= ~NO_DRAW;
-
-			e->flags |= FLY;
+			e->flags |= (FLY|NO_DRAW);
 
 			e->x = x;
 			e->y = self->y;
 
 			e->thinkTime = 30 * i;
 
-			e->maxThinkTime = (30 * lanceCount) + 60;
+			e->maxThinkTime = 30 * (lanceCount - i);
 
 			x += SCREEN_WIDTH / (lanceCount + 1);
 		}
+		
+		self->endX = lanceCount - 1;
 	}
 }
 
@@ -2266,21 +2294,23 @@ static void fakeLanceDrop()
 
 	if (self->thinkTime <= 0)
 	{
-		self->flags &= ~FLY;
+		self->dirY = 14;
 	}
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
-		if (self->mental != -1)
+		setEntityAnimation(self, "LANCE_IN_GROUND");
+		
+		if (self->mental == -1)
 		{
-			self->thinkTime = 360;
+			self->thinkTime = 600;
 
 			playSoundToMap("sound/enemy/ground_spear/spear.ogg", -1, self->x, self->y, 0);
 		}
 
 		else
 		{
-			self->thinkTime = 240 + prand() % 120;
+			self->thinkTime = 180 + prand() % 120;
 		}
 
 		self->action = &fakeLanceDropExplodeWait;
@@ -2291,19 +2321,27 @@ static void fakeLanceDrop()
 
 static void fakeLanceDropExplodeWait()
 {
-	self->thinkTime--;
-
-	if (self->mental == -1 && self->thinkTime < 120)
+	if (self->mental != -1)
 	{
-		if (self->thinkTime % 3 == 0)
+		self->thinkTime--;
+
+		if (self->thinkTime < 120)
 		{
-			self->flags ^= FLASH;
+			if (self->thinkTime % 3 == 0)
+			{
+				self->flags ^= FLASH;
+			}
+		}
+
+		if (self->thinkTime <= 0)
+		{
+			self->action = &lanceExplode;
 		}
 	}
-
-	if (self->thinkTime <= 0)
+	
+	else if (self->endX <= 0)
 	{
-		self->action = self->mental == -1 ? &lanceExplode : &fakeLanceDropInit;
+		self->action = &fakeLanceDropInit;
 	}
 
 	checkToMap(self);
@@ -2326,42 +2364,6 @@ static void lanceExplode()
 
 	e->reactToBlock = &bounceOffShield;
 
-	e = addProjectile("common/green_blob", self->head, x, y, -6, -6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
-	e = addProjectile("common/green_blob", self->head, x, y, 0, -6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
-	e = addProjectile("common/green_blob", self->head, x, y, 6, -6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
-	e = addProjectile("common/green_blob", self->head, x, y, -6, 6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
-	e = addProjectile("common/green_blob", self->head, x, y, 0, 6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
-	e = addProjectile("common/green_blob", self->head, x, y, 6, 6);
-
-	e->flags |= FLY;
-
-	e->reactToBlock = &bounceOffShield;
-
 	e = addProjectile("common/green_blob", self->head, x, y, 6, 0);
 
 	e->flags |= FLY;
@@ -2369,8 +2371,17 @@ static void lanceExplode()
 	e->reactToBlock = &bounceOffShield;
 
 	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
+	
+	self->head->endX--;
 
 	self->inUse = FALSE;
+}
+
+static void fakeLanceDie()
+{
+	self->head->endX--;
+	
+	entityDieNoDrop();
 }
 
 static void createLightningOrb()
@@ -2692,6 +2703,8 @@ static void addStoneCoat()
 	e->type = ENEMY;
 
 	e->head = self;
+	
+	self->target = e;
 
 	setEntityAnimation(e, getAnimationTypeAtIndex(self));
 }
@@ -2721,9 +2734,14 @@ static void coatWait()
 		if (self->alpha >= 255)
 		{
 			self->head->mental = 0;
-
-			self->mental = 0;
+			
+			self->alpha = 255;
 		}
+	}
+	
+	else if (self->head->mental == -1)
+	{
+		self->inUse = FALSE;
 	}
 
 	self->x = self->head->x;
@@ -2740,6 +2758,14 @@ static void die()
 	int i;
 	long onGround;
 	Entity *e;
+	
+	self->action = &die;
+	
+	self->damage = 0;
+
+	self->takeDamage = NULL;
+	
+	setEntityAnimation(self, "FACE_FRONT_CROUCH");
 
 	self->dirX = 0;
 
@@ -2751,7 +2777,7 @@ static void die()
 
 	if (landedOnGround(onGround) == TRUE)
 	{
-		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
 
 		shakeScreen(MEDIUM, 30);
 
@@ -2768,15 +2794,11 @@ static void die()
 
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
-		self->damage = 0;
-
-		self->takeDamage = NULL;
-
-		addStoneCoat();
+		self->maxThinkTime = 0;
 
 		self->health = 0;
 
-		self->thinkTime = 60;
+		self->thinkTime = 180;
 
 		self->action = &dieWait;
 
@@ -2790,46 +2812,84 @@ static void dieWait()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, "REACH");
-
-		self->x = self->startX + sin(DEG_TO_RAD(self->startY)) * 4;
-
-		self->startY += 90;
-
-		if (self->startY >= 360)
+		switch (self->maxThinkTime)
 		{
-			self->startY = 0;
-		}
+			case 0:
+				setEntityAnimation(self, "FACE_FRONT");
+				
+				self->thinkTime = 60;
+				
+				self->maxThinkTime = 1;
+			break;
+			
+			case 1:
+				facePlayer();
+				
+				setEntityAnimation(self, "FACE_PLAYER");
+				
+				self->thinkTime = 60;
+				
+				self->maxThinkTime = 2;
+			break;
+			
+			case 2:
+				setEntityAnimation(self, "STAND");
+				
+				self->thinkTime = 60;
+				
+				self->maxThinkTime = 3;
+			break;
+			
+			case 3:
+				setEntityAnimation(self, "REACH");
+				
+				addStoneCoat();
+				
+				self->target->alpha = 0;
+				
+				self->mental = 2;
+				
+				self->maxThinkTime = 4;
+				
+				playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+			break;
 
-		if (self->mental == 0)
-		{
-			self->x = self->startX;
+			default:
+				self->x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
+				
+				if (self->mental == 0)
+				{
+					stopSound(BOSS_CHANNEL);
+					
+					self->x = self->startX;
 
-			self->mental = -1;
+					self->mental = -1;
 
-			setEntityAnimation(self, "REACH_STONE");
+					setEntityAnimation(self, "REACH_STONE");
 
-			self->takeDamage = &stoneTakeDamage;
+					self->takeDamage = &stoneTakeDamage;
 
-			self->touch = &stoneTouch;
+					self->touch = &stoneTouch;
 
-			self->activate = &activate;
+					self->activate = &activate;
 
-			self->health = 8;
+					self->health = 8;
 
-			self->action = &dieFinish;
+					self->action = &dieFinish;
 
-			clearContinuePoint();
+					clearContinuePoint();
 
-			increaseKillCount();
+					increaseKillCount();
 
-			freeBossHealthBar();
+					freeBossHealthBar();
 
-			fadeBossMusic();
+					fadeBossMusic();
 
-			fireTrigger(self->objectiveName);
+					fireTrigger(self->objectiveName);
 
-			fireGlobalTrigger(self->objectiveName);
+					fireGlobalTrigger(self->objectiveName);
+				}
+			break;
 		}
 	}
 }
@@ -2937,19 +2997,21 @@ static void addExitTrigger(Entity *e)
 
 static void cloneCheck()
 {
-	if (self->head != NULL && self->head->health > 0)
+	if (self->head != NULL && self->head->health <= 0)
 	{
-		self->takeDamage = NULL;
-
-		self->dirX = 0;
-		self->dirY = 0;
-
 		self->action = &cloneDie;
 	}
 }
 
 static void cloneDie()
 {
+	self->damage = 0;
+	
+	self->dirX = 0;
+	self->dirY = 0;
+	
+	self->takeDamage = NULL;
+	
 	self->alpha -= 2;
 
 	if (self->alpha <= 0)

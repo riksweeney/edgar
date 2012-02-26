@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ ! -e test/test_replay1001.zip ];
 then
-	echo ./edgar -record test/test_replay1001.dat -saveonexit
-	./edgar -record test/test_replay1001.dat -saveonexit
+	echo ./edgar map01 -record test/test_replay1001.dat -saveonexit
+	./edgar map01 -record test/test_replay1001.dat -saveonexit
 	zip test/test_replay1001.zip test/test_replay1001.dat
 	rm test/test_replay1001.dat
 	exit
