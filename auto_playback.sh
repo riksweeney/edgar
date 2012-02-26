@@ -8,8 +8,8 @@ then
 	if [ $j = 1000 ];
 	then
 		unzip test/$REPLAY_FILE.zip
-		echo ./edgar -playback test/$REPLAY_FILE.dat -saveonexit
-		./edgar -playback test/$REPLAY_FILE.dat -saveonexit
+		echo ./edgar map01 -playback test/$REPLAY_FILE.dat -saveonexit
+		./edgar map01 -playback test/$REPLAY_FILE.dat -saveonexit
 		rm test/$REPLAY_FILE.dat
 	else
 		unzip test/$REPLAY_FILE.zip
