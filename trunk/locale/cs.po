@@ -1,16 +1,16 @@
-# Polish translations for edgar package.
-# Copyright (C) 2009 THE edgar'S COPYRIGHT HOLDER
+# Czech translation for edgar
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the edgar package.
-#  <lisu@mojserver.pl>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: edgar 0.31\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: edgar\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-21 16:48+0000\n"
-"Last-Translator: riksweeney <riksweeney@hotmail.com>\n"
-"Language-Team: Polish\n"
+"PO-Revision-Date: 2012-02-20 16:07+0000\n"
+"Last-Translator: Marvn <Unknown>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,719 +18,685 @@ msgstr ""
 "X-Generator: Launchpad (build 14860)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr "ObrĂłÄ siÄ szybko w lewo i prawo aby strzÄsnÄÄ szlam!"
+msgstr ""
 
 msgid "Bow"
-msgstr "Ĺuk"
+msgstr "Luk"
 
 msgid "Press Action to interact"
-msgstr "WciĹnij klawisz akcji aby odziaĹywaÄ"
+msgstr ""
 
 msgid "%s is required"
-msgstr "Potrzebujesz %s"
+msgstr "%s je požadován"
 
 msgid "Bomb"
 msgstr "Bomba"
 
 msgid "Small Rock"
-msgstr "MaĹy KamieĹ"
+msgstr ""
 
 msgid "Press Action to retrieve the Purple Gem"
 msgstr ""
 
 msgid "Tesla Pack"
-msgstr "Zestaw Tesli"
+msgstr ""
 
 msgid "Press Action to retrieve Tesla Pack"
-msgstr "WciĹnij klawisz akcji aby otrzymaÄ Zestaw Tesli"
+msgstr ""
 
 msgid "Press Action to replace Tesla Pack"
-msgstr "WciĹnij klawisz akcji aby zamieniÄ Zestaw Tesli"
+msgstr ""
 
 msgid "Obtained %s"
-msgstr "OtrzymaĹeĹ %s"
+msgstr "Získán %s"
 
 msgid "Complete"
-msgstr "Zrobione"
+msgstr "Hotovo"
 
 msgid "%d more to go..."
-msgstr "PozostaĹo %d..."
+msgstr ""
 
 msgid "Used %s"
-msgstr "UĹźyĹeĹ %s"
+msgstr ""
 
 msgid "Cannot equip items whilst transmogrified"
-msgstr "Nie moĹźesz zakĹadaÄ przedmiotĂłw gdy jesteĹ przemieniony"
+msgstr ""
 
 msgid "Equipped %s"
-msgstr "ZaĹoĹźyĹeĹ %s"
+msgstr ""
 
 msgid "Maximum health has increased!"
-msgstr "OsiÄgnÄĹeĹ maksymalny poziom Ĺźycia!"
+msgstr "Maximální počet životů byl navýšen!"
 
 msgid "Bow will now fire %s"
-msgstr "Nie moĹźesz uĹźyÄ %s jako pocisku do Ĺuku"
+msgstr "Luk teď bude střílet %s"
 
 msgid "A bow is required to use this item"
-msgstr "Potrzebujesz Ĺuku aby uĹźyÄ tego przedmiotu"
+msgstr "K použití tohoto předmětu je třeba mít luk"
 
 msgid "Cannot transmogrify here..."
-msgstr "Nie moĹźesz siÄ tutaj przemieniÄ..."
+msgstr ""
 
 msgid "Yes"
-msgstr "Tak"
+msgstr "Ano"
 
 msgid "No"
-msgstr "Nie"
+msgstr "Ne"
 
 msgid "Start a new game?"
-msgstr "RozpoczÄÄ nowÄ grÄ?"
+msgstr "Začít novou hru?"
 
 msgid "Play the tutorial?"
-msgstr "RozpoczÄÄ samouczek?"
+msgstr "Hrát tutoriál?"
 
 msgid "Exit the game?"
-msgstr "WyjĹÄ z gry?"
+msgstr "Ukončit hru?"
 
 msgid "Back"
-msgstr "PowrĂłt"
+msgstr "Zpět"
 
 msgid "Game Loaded"
-msgstr "Gra wczytana"
+msgstr "Hra načtena"
 
 msgid "Game Saved"
-msgstr ""
+msgstr "Hra uložena"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Any unsaved progress will be lost"
-msgstr "Niezapisany postÄp zostanie utracony"
+msgstr "Neuložená pozice bude ztracena"
 
 msgid "Joy Button #%d"
 msgstr ""
 
 msgid "Press Action to talk to %s"
-msgstr "NaciĹnij klawisz akcji aby porozmawiaÄ z %s"
+msgstr "Stiskni Akce pro rozhovor s %s"
 
 msgid "New Objective: %s"
-msgstr "Nowe zadanie: %s"
+msgstr "Nový úkol: %s"
 
 msgid "Objective Completed: %s"
-msgstr "Zadanie wykonane: %s"
+msgstr "Úkol dokončen: %s"
 
 msgid "This weapon is not having any effect..."
-msgstr "Ta broĹ nie przynosi efektu..."
+msgstr "Tato zbraň nemá žádný účinek..."
 
 msgid "Press Action to attach the Tesla Pack"
-msgstr "NaciĹnij klawisz akcji aby przygotowaÄ Zestaw Tesli"
+msgstr "Stisnki Akce pro zapojení Tesla Akumulátoru"
 
 msgid "The Legend of Edgar"
-msgstr ""
+msgstr "Legenda o Edgarovi"
 
 msgid "%s is needed to activate this switch"
-msgstr "Potrzebujesz %s aby uaktywniÄ tÄ dĹşwigniÄ"
+msgstr "%s je potřeba pro použití spínače"
 
 msgid "Press Action to use this switch"
-msgstr "NaciĹnij klawisz akcji aby uaktywniÄ tÄ dĹşwigniÄ"
+msgstr "Stisnki Akce pro použití spínače"
 
 msgid "Press Action to save your game"
-msgstr "NaciĹnij klawisz akcji aby zapisaÄ grÄ"
+msgstr "Stiskni Akce pro uložení hry"
 
 msgid "%s is required to use this Pressure Plate"
-msgstr "Potrzebujesz %s do uĹźycia tej PĹyty"
+msgstr ""
 
 msgid "%s is needed to open this door"
-msgstr "Potrzebujesz %s aby otworzyÄ te drzwi"
+msgstr "%s je potřeba pro otevření dveří"
 
 msgid "This door is locked"
-msgstr "Te drzwi sÄ zamkniÄte"
+msgstr "Dveře jsou zamčené"
 
 msgid "This teleporter is not active"
-msgstr "Ten teleport nie jest aktywny"
+msgstr "Teleport není aktivní"
 
 msgid "Push Up or Down to use this lift"
-msgstr "NaciĹnij w gĂłrÄ lub w dĂłĹ by uĹźyÄ tej windy"
+msgstr "Stiskni Nahoru nebo Dolu pro použití výtahu"
 
 msgid "This lift is not active"
-msgstr "Ta winda nie jest aktywna"
+msgstr "Výtah není aktivní"
 
 msgid "Cannot carry any more %s"
-msgstr "Nie moĹźesz udĹşwignÄÄ wiÄcej %s"
+msgstr "Není možné vzít další %s"
 
 msgid "Picked up %s x %d"
-msgstr "PodniosĹeĹ %s x %d"
+msgstr ""
 
 msgid "Picked up %s"
-msgstr "PodniosĹeĹ %s"
+msgstr "Sebrán %s"
 
 msgid "%s is required to carry this item"
-msgstr "Potrzebujesz %s aby unieĹÄ ten przedmiot"
+msgstr "%s je potřeba pro sebrání tohoto předmětu"
 
 msgid "Storage Key"
-msgstr "Klucz do Schowka"
+msgstr "Klíč od skladiště"
 
 msgid "Coal Bag Storage Switch Key"
-msgstr ""
+msgstr "Klíč od skladiště s pytlem na uhlí"
 
 msgid "Large Room Key"
-msgstr "Klucz do Wielkeij Sali"
+msgstr "Klíč od velké místnosti"
 
 msgid "Coal Bag"
-msgstr "Torba na WÄgiel"
+msgstr "Pytel na uhlí"
 
 msgid "Forest Cell Key"
-msgstr "Klucz do LeĹnej KomĂłrki"
+msgstr "Klíč od lesní komnaty"
 
 msgid "Wood Axe"
-msgstr "Drewaniny TopĂłr"
+msgstr "Sekera"
 
 msgid "Health Potion"
-msgstr "Mikstura Ĺťycia"
+msgstr "Elixír zdraví"
 
 msgid "Outflow Key"
-msgstr "Klucz do OdpĹywu"
+msgstr ""
 
 msgid "Flow Control Key"
-msgstr "Klucz do Kontroli OdpĹywu"
+msgstr ""
 
 msgid "Waste Processing Key"
-msgstr "Klucz do PrzetwĂłrstwa OdadĂłw"
+msgstr ""
 
 msgid "Access Key 1"
-msgstr "Klucz DostÄpu 1"
+msgstr ""
 
 msgid "Access Key 2"
-msgstr "Klucz DostÄpu 2"
+msgstr ""
 
 msgid "Access Key 3"
-msgstr "Klucz DostÄpu 3"
+msgstr ""
 
 msgid "Trap Door Switch Key"
-msgstr ""
+msgstr "Klíč od padacích dveří"
 
 msgid "Keep practising!"
-msgstr "Nie przestawaj ÄwiczyÄ!"
+msgstr "Pokračuj v tréninku!"
 
 msgid "Hi"
-msgstr "CzeĹÄ"
+msgstr "Ahoj"
 
 msgid "Hello Edgar"
-msgstr "Witaj Edgarze"
+msgstr "Ahoj Edgare"
 
 msgid "Can I borrow your shield?"
-msgstr "MogÄ poĹźyczyÄ twojÄ tarczÄ?"
+msgstr "Mohu si půjčit tvůj štít?"
 
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Jdeš trénovat své bojové umění?"
 
 msgid "Something like that"
-msgstr "CoĹ w tym stylu"
+msgstr "Něco takového"
 
 msgid "If you run me an errand then you can have the shield"
-msgstr "JeĹli wykonasz dla mnie zadanie to dostaniesz tarczÄ"
+msgstr "Když pro mě něco zařídíš, můžeš mít můj klíč"
 
 msgid "What do I have to do?"
-msgstr "Co masz do roboty?"
+msgstr "Co mám udělat?"
 
 msgid "Go to the mine and collect me some coal"
-msgstr "Udaj siÄ do kopalni i przynieĹ mi trochÄ wÄgla"
+msgstr "Jdi do dolu a přines mi trochu uhlí"
 
 msgid "But we have plenty of coal!"
-msgstr "Ale przecieĹź mamy peĹno wÄgla!"
+msgstr "Ale vždyť máme spousty uhlí!"
 
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
 msgstr ""
-"Tak, ale to nie jest stary wÄgiel, ten wÄgiel jest specjalny, bardziej "
-"siÄ rozgrzewa i starcza na dĹuĹźej"
+"Jasně. ale tohle není jen tak obyčejné uhlí, tohle uhlí je speciální. Žhne "
+"větším žárem a vydrží déle"
 
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
-"PotrzebujÄ tylko 10 kawaĹkĂłw, wiÄc nie powinno zajÄÄ ci to wiele czasu"
+msgstr "Potřebuju toho jen 10 kousků, takže by ti to nemělo zabrat moc času"
 
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
-msgstr ""
-"Upewnij siÄ, Ĺźe wĹoĹźyĹeĹ go do torby. Dotykanie go przez dĹugi czas "
-"odbije siÄ na twoim zdrowiu"
+msgstr "Určitě použij pytel, dotýkat se ho moc dlouho není zdravé"
 
 msgid "Do you have a bag?"
-msgstr "Masz torbÄ?"
+msgstr "Máš nějaký pytel?"
 
 msgid "No, you can probably find one in the mine though"
-msgstr "Nie, prawdopodobnie znajdziesz jakÄĹ w kopalni"
+msgstr "Nemám, ale pravděpodobně bys měl jeden najít někde v dole"
 
 msgid "OK, I'll get the coal"
-msgstr "W porzÄdku, wezmÄ wÄgiel"
+msgstr "Dobře, seženu ti to uhlí"
 
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
 msgstr ""
-"Masz, weĹş ten kilof. MoĹźesz go wykorzystaÄ do wykopania wÄgla oraz do "
-"przebicia sĹabszych Ĺcian skalnych, ktĂłre napotkasz"
+"Tu máš, vezmi si tenhle krumpáč. Můžeš ho použít k těžbě uhlí a k proražení "
+"slabšich zdí"
 
 msgid "You'll also need this key to get into the mine"
-msgstr ""
-"BÄdziesz takĹźe potrzebowaĹ tego klucza aby dostaÄ siÄ do kopalni"
+msgstr "Takz budeš potřebovat tenhle klíč, aby ses do dolu dostal"
 
 msgid "Thanks!"
-msgstr "DziÄki!"
+msgstr "Díky!"
 
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
-"DziÄkujÄ ci, Edgar. Ten wÄgiel jest doskonaĹy! Mam nadziejÄ, Ĺźe "
-"nietoperze nie napÄdziĹy ci strachu."
+"Díky Edgare, tohle uhlí je perfektní! Doufám že tě ty netopýři moc "
+"nevyděsili."
 
 msgid "The bats were the least of my worries..."
-msgstr "Nietoprze byĹy najmniejszym moim zmartwieniem..."
+msgstr "Netopýři byli poslední z mých starostí..."
 
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr "SĹyszaĹem, Ĺźe coĹ siÄ wydarzyĹo w tej kopalni kilka lat temu"
+msgstr "Slyšel jsem, že se v dole před pár lety něco stalo"
 
 msgid "Right..."
-msgstr "SĹusznie..."
+msgstr "Jasně..."
 
 msgid "Here, have my shield and have fun!"
-msgstr "ProszÄ, weĹş tÄ tarczÄ i baw siÄ dobrze!"
+msgstr "Tumáš, vezmi si můj štít a užij si ho!"
 
 msgid "Just stay away from the Forbidden Swamp"
-msgstr "Poprostu trzymaj siÄ z daleka od Zakazanego Bagna"
+msgstr "Jen se drž dál od Zakázané bažiny"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr "Tak zrobiÄ. Czy mogÄ poĹźyczyÄ twĂłj kilof na jakiĹ czas?"
+msgstr "Dobře, mohu si tvůj krumpáč ještě chvíli nechat?"
 
 msgid "Sure thing, just bring it back in one piece"
-msgstr "Pewnie, tylko zwrĂłÄ go w jednym kawaĹku"
+msgstr "Určitě, jen mi ho vrať v jednom kuse"
 
 msgid "Thanks, Borgan!"
-msgstr "DziÄki, Borgan!"
+msgstr "Díky, Borgane!"
 
 msgid "Have you managed to find the coal yet?"
-msgstr "Czy udaĹo ci siÄ znaleĹşÄ wÄgiel?"
+msgstr "Už se ti podařilo najít to uhlí?"
 
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
-"MoĹźesz przeciÄgaÄ przedmioty napierajÄc na nie wciskajÄc jednoczeĹnie "
-"klawisz akcji."
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr "MoĹźesz i potem ciÄgnÄÄ dopĂłki nie zwolnisz klawisza akcji"
+msgstr ""
 
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
 msgstr ""
+"Tahle skála je moc pevná na můj krumpáč. Budu muset použít něco jiného, "
+"pokud se chci dostat skrz..."
 
 msgid "Urgh, what happened?"
-msgstr "Uhhh, co siÄ staĹo?"
+msgstr "Uff, co se stalo?"
 
 msgid "Looks like this wasn't such a good idea after all"
-msgstr "To chyba nie byĹ dobry pomysĹ"
+msgstr "Tak to vypadá, že to nakonec nebyl tak dobrý nápad"
 
 msgid "There must be way out of here..."
-msgstr "Musi byÄ jakaĹ droga na zewnÄtrz..."
+msgstr "Musí existovat cesta ven..."
 
 msgid ""
 "I don't think my shield will protect me from those fireballs. I'll have to "
 "find a stronger one..."
 msgstr ""
+"Nemyslím, že mě můj štít dokáže uchránit před ohnivými koulemi. Budu muset "
+"najít nějaký silnější..."
 
 msgid "Strange creature..."
-msgstr "Dziwne stworzenie..."
+msgstr "Podivné stvoření..."
 
 msgid "Wait, what was that?"
-msgstr "Czekaj, co to byĹo?"
+msgstr "Počkat, co to bylo?"
 
 msgid "You again?!"
-msgstr "Znowu ty?!"
+msgstr "Zase ty?!"
 
 msgid ""
 "Something is supposed to happen here, but it's not in this version so check "
 "back later!"
 msgstr ""
-"CoĹ powinno siÄ tu wydarzyÄ, ale nie w tej wersji wiÄc sprawdĹş kiedy "
-"indziej!"
+"Tady by se mělo něco stát, ale není to v této verzi, takže se vrať později!"
 
 msgid "Have fun!"
-msgstr "MiĹej zabawy!"
+msgstr "Bav se!"
 
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr ""
-"DziÄki Edgar! Moje kurczaki wrĂłciĹy a te kĹody bardzo mi siÄ przydadzÄ"
+msgstr "Díky Edgare! Slepice jsou zpět a ty klády jsou v pořádku"
 
 msgid "Take this sword, may it serve you well!"
-msgstr "WeĹş ten miecz, niech sĹuĹźy ci dobrze!"
+msgstr "Vezmi si tento meč, ať ti dobře slouží!"
 
 msgid "Thank you!"
-msgstr "DziÄkujÄ ci!"
+msgstr "Děkuji!"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr "DziÄki za kĹody, czy udaĹo ci siÄ coĹ zdziaĹaÄ z kurczakmi?"
+msgstr "Díky za klády, nějaký pokrok se slepicemi?"
 
 msgid ""
 "I'll give you a sword if you get me 2 chopped logs from the forest and "
 "rescue at least 3 of my chickens"
 msgstr ""
-"Dam ci miecz jeĹli przyniesiesz mi 2 ĹciÄte kĹody z lasu i uratujesz "
-"przynajmniej 3 moje kurczaki"
+"Dám ti meč, pokud mi přineseš dvě klády z lesa a chytíš aspoň 3 z mých slepic"
 
 msgid "Hello Edgar, what can I do for you today?"
-msgstr "Witaj Edgarze. co mogÄ dziĹ zrobiÄ dla ciebie?"
+msgstr "Ahoj Edgare, co pro tebe můžu udělat?"
 
 msgid "Do you have a sword I can borrow?"
-msgstr "Czy masz miecz, ktĂłry mĂłgĹbym poĹźyczyÄ?"
+msgstr "Neměl bys na půjčení meč?"
 
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
-msgstr ""
-"Mam miecz, a ty moĹźesz go zdobyÄ jeĹli najpierw zrobisz coĹ dla mnie"
+msgstr "M8m meč a mohu ti ho půjčit, pokud pro mě nejdřív něco uděláš"
 
 msgid "OK... what do I have to do?"
-msgstr "Dobrze... co powinienem zrobiÄ?"
+msgstr "Dobře... co by to mělo být?"
 
 msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
 msgstr ""
-"Kilka moich kurczakĂłw uciekĹo z zagrody i byĹbym bardzo wdziÄczyny "
-"jeĹli sporwadziĹbyĹ je z powrotem"
+"Některé z mých slepic musely utéct z ohrady a byl bych ti vděčný, kdybys je "
+"mohl pochytat"
 
 msgid ""
 "I have set up some traps near their pen, you can lure them to the traps "
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
 msgstr ""
-"ZamontowaĹem kilka puĹapek obok ich zagrody, wiÄc moĹźesz je tam zwabiÄ "
-"za pomocÄ tej paszy. Nie potrzebuje ich wszystkich, wystarczy, Ĺźe "
-"sprowadzisz przynajmniej 3 a bÄdÄ bardzo wdziÄczyny. Z resztÄ sobie "
-"poradzÄ."
+"Nalýčil jsem pasti poblíž ohrady, přilákej je blíž pomocí ptačího zobu. "
+"Nepotřebuju je všechny, ale pochytej aspoň 3. O zbytek se mohu postarat sám."
 
 msgid "That's it?"
-msgstr "To wszystko?"
+msgstr "To je všechno?"
 
 msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
 msgstr ""
-"Czy mĂłgĹbyĹ takĹźe przynieĹÄ mi trochÄ drewna z lasu? 2 kĹody powinny "
-"byÄ wystarczjÄce"
+"N0 úplně. Mohl bys mi taky přinést trochu dříví z lesa? 2 klády by měly "
+"stačit"
 
 msgid "Do you have an axe?"
-msgstr "Masz jakiĹ topĂłr?"
+msgstr "Máš nějakou sekeru?"
 
 msgid ""
 "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr ""
-"Ekhm... ZostawiĹem mĂłj topĂłr gdzie? w lesie. Powinien nadal tam byÄ"
+msgstr "Hmm... nechal jsem svou sekeru někde v lese. Pořád by tam měla být"
 
 msgid "Isn't that forest dangerous?"
-msgstr "Czy ten las jest niebezpieczny?"
+msgstr "Není ten les nebezpečný?"
 
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr ""
-"Nie zupeĹnie. JeĹli cokolwiek stanie na twej drodze poprostu uĹźyj broni"
+msgstr "Ani né, cokoliv se ti připlete do cesty jen prašť svojí zbraní"
 
 msgid "Such as an axe?"
-msgstr "Takiej jak topĂłr?"
+msgstr "Jako třeba sekerou?"
 
 msgid "Yes, that would do the trick"
-msgstr "Tak, to powinno siÄ udaÄ"
+msgstr "Jo, to by mělo stačit"
 
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
 msgstr ""
-"Ale tak naprawdÄ nie ma tam nic takiego co mogĹoby ciÄ skrzywdziÄ. Ta "
-"sprawa zostaĹa rozwiÄzana dawno temu..."
+"Ale vážně, není tam nic co by tě mohlo vážně zranit. Ten problém byl vyřešen "
+"již před dlouhou dobou..."
 
 msgid "Good luck!"
-msgstr "Powodzenia!"
+msgstr "Hodně zdaru!"
 
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr ""
-"Oh, dziÄkujÄ Edgarze. PotrzebowaĹem tylko 3 ale dziÄki za dodatkowÄ "
-"pomoc!"
+msgstr "Jé, díky Edgare! Stačili jen 3, ale díky za námahu!"
 
 msgid ""
 "Here, Maggie made me this health potion but I don't need it so why don't you "
 "have it?"
 msgstr ""
-"Maggie przyrzÄdziĹa dla mnie tÄ miksturÄ zdrowia, ale nie jest mi "
-"potrzebna. MoĹźe ty jÄ weĹşmiesz?"
+"Tady, Maggie mi vyrobila tenhle elixír zdraví, sám ho nepotřebuji, ale tobě "
+"by se mohl hodit."
 
 msgid "Thanks Jacob"
-msgstr "DziÄki Jacob"
+msgstr "Děkuji Jacobe"
 
 msgid "Wow, you caught them all, thanks alot!"
-msgstr "Wow, zĹapaĹeĹ je wszystkie. Wielkie dziÄki!"
+msgstr "Páni, pochytal si je všechny, díky moc!"
 
 msgid "Here, I have these for you"
-msgstr "Trzymaj, to dla ciebie"
+msgstr "Tumáš, tohle je pro tebe"
 
 msgid "Maggie made me this health potion but you can have it"
-msgstr ""
-"Maggie przyrzÄdziĹa dla mnie tÄ miksturÄ zdrowia ale moĹźesz jÄ wziÄÄ"
+msgstr "Maggie mi připravila tenhle elixír zdraví, ale můžeš si ho vzít"
 
 msgid "And this is something very special"
-msgstr "A to jest coĹ bardzo wyjÄtkowego"
+msgstr "A tady je něco hodně speciálního"
 
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr "PomoĹźe ci to w drodze do zostania silnym wojownikiem"
+msgstr "Snad ti to pomůže na tvé cestě stát se silným válečníkem"
 
 msgid ""
 "You saved me a lot of time. Maggie made me something else but since you have "
 "been so helpful, you can have it."
 msgstr ""
-"ZaoszczÄdziĹeĹ mi wiele czasu. Maggie przygotowaĹa dla mnie coĹ jeszcze "
-"ale skoro byĹeĹ tak pomocny, moĹźesz to wziÄÄ."
+"Ušetřil jsi mi hodně času. Maggie mi připravile ještě něco, ale protože jsi "
+"mi pomohl, můžeš si to vzít."
 
 msgid "Hi Maggie"
-msgstr "CzeĹÄ Maggie"
+msgstr "Ahoj Maggie"
 
 msgid "Thanks Maggie!"
-msgstr "DziÄkujÄ Maggie!"
+msgstr "Díky Maggie"
 
 msgid "There must be something around here..."
-msgstr "Muci tutaj coĹ byÄ..."
+msgstr "Něco tu musí být..."
 
 msgid "Drat, the drawbridge is up. There must be another entrance..."
 msgstr ""
-"A niech to, ten zwodzony most jest podniesiony. Musi istnieÄ jakieĹ inne "
-"wejĹcie..."
+"Klatě, padací most je zvednutý. Musí existovat ještě jiná cesta dovnitř..."
 
 msgid "Wait, what's that?"
-msgstr "Czekaj, co to jest?"
+msgstr "Počkat, co to je?"
 
 msgid "Maybe I could tunnel my way in..."
-msgstr "MoĹźe mogÄ wykopaÄ tunel do Ĺrodka..."
+msgstr "Možná bych se mohl dovnitř prokopat..."
 
 msgid "These machines aren't working."
-msgstr "Ta maszyneria nie dziaĹa."
+msgstr "Tyhle stroje nefungují."
 
 msgid ""
 "It looks like a gem should fit in this hole, maybe I can find some "
 "replacements."
 msgstr ""
-"WyglÄda na to, Ĺźe do tego otworu powinien pasowaÄ kamieĹ. MogÄ "
-"znaleĹşÄ jakiĹ zamiennik."
+"Vypadá to, že krystal by měl pasovat do této díry. Možný budu moct najít "
+"nějaké náhradní."
 
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
 msgstr ""
-"WyglÄda na lekko wciĹniÄte tutaj. Prawdopodobnie mogÄ to poluzowaÄ "
-"kilofem..."
+"Vypadá to, že je tam pevně zasazen. Nejspíš bych ho mohl povolit pomocí "
+"krumpáče..."
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr "Aby dostaÄ siÄ na Zakazane Bagno bÄdÄ musiaĹ zbudowaÄ tratwÄ."
+msgstr "Abych se dostal k Zakázanému močálu, budu potřebovat vor."
 
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr ""
-"MogÄ zbudowaÄ tratwÄ, jeĹli zetnÄ wystarczajÄco duĹźo drzew z lasu"
+msgstr "Mohu postavit vor, pokud získám dost klád z lesa"
 
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr "PotrzebujÄ 6 ĹciÄtych kĹĂłd by zbudowaÄ tratwÄ"
+msgstr "Potřebuji 6 klád na stavbu voru"
 
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr "Nie wejdÄ na bagno bez miecza i tarczy"
+msgstr "Nepůjdu do močálu bez meče a štítu"
 
 msgid "OK, here goes!"
-msgstr "Dobra, no to ruszamy!"
+msgstr "Tak, jdem na to!"
 
 msgid "Aw, not again!"
-msgstr "Uh, nie znowu!"
+msgstr "Aa, už né!"
 
 msgid "This had better be the last time I have to do this..."
-msgstr "Mam nadziejÄ Ĺźe to ostatni raz..."
+msgstr "Tohle je snad naposled, kdy to musím udělat..."
 
 msgid "That was easy! And I can always get back later!"
-msgstr "To byĹo proste! I zawsze mogÄ wrĂłciÄ pĂłĹşniej!"
+msgstr "To bylo jednoduché! A vždycky se mohu vrátit zpátky!"
 
 msgid "Oh...."
-msgstr "Oh..."
+msgstr "Ou...."
 
 msgid "Guess I have no choice now."
-msgstr "Chyba nie mam innego wyboru."
+msgstr "Tak teď už nemám na výběr."
 
 msgid "Hang on Dad, I'm coming..."
-msgstr "Trzymaj siÄ Ojcze, nadchodzÄ..."
+msgstr "Vydrž táto, jdu si pro tebe..."
 
 msgid "There's a note here"
-msgstr "Jest tu jakaĹ wiadomoĹÄ"
+msgstr "Je tu poznámka"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr "ZostaĹem tu uwiÄziony na wiecznoĹÄ"
+msgstr "Zdá se to jako věčnost, co jsem tu byl vězněn"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
 msgstr ""
-"Aby siÄ stÄd wydostaÄ potrzbne mi sÄ 3 Klucze DostÄpu aby uruchomiÄ "
-"windy"
+"Abzch se odsud dostal, potřebuji 3 Přístupové klíče k ovládání výtahů"
 
 msgid "So far I have only found 1"
-msgstr "Jak do tej pory znalazĹem tylko 1"
+msgstr "Zatím jsem našel pouze jediný"
 
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
 msgstr ""
-"Jest jeszcze gorzej. MogÄ dosiÄgnÄÄ dĹşwigni tylko za pomocÄ strzaĹy"
+"Aby to nebylo snadné, mohu se dostat jen k některým přepínačům dobře "
+"umístěným šípem"
 
 msgid "But spares aren't common and I have run out"
-msgstr "Ale czÄĹci zamienne sÄ trudne do zdobycia"
+msgstr "Ale náhradní nejsou běžné a mohli by mi dojít"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
-"JeĹli siÄ stÄd w krĂłtce nie uwolniÄ, obawiam siÄ Ĺźe mogÄ umrzeÄ z "
-"gĹodu"
+msgstr "Pokud rychle nenajdu cestu ven, mohl bych umřít hlady"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr "JeĹli siÄ stÄd nie wysdostanÄ spotka mnie ten sam los..."
+msgstr "Pokud se nedostanu pryč, čeká mě stejný osud..."
 
 msgid "Oh, what's this?"
-msgstr "Oh, co to jest?"
+msgstr "Jé, co to je?"
 
 msgid "There's a note here too"
-msgstr "Tutaj rĂłwnieĹź jest wiadomoĹÄ"
+msgstr "Taky je tu poznámka"
 
 msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
 msgstr ""
-"Mikstura jest doskonaĹa! Wypicie jej spowoduje zamianÄ czĹowieka na "
-"stworzenie na krĂłtki czas"
+"Tenhle lektvar je perfektní! Po vypití změní  na krátký čas člověka v potvoru"
 
 msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
 "time anything should be possible"
 msgstr ""
-"W tej chwili mogÄ przemieniÄ siÄ tylko w jedno stworzenie ale z biegiem "
-"czasu wszystko bÄdzie moĹźliwe"
+"Zatím mohu přeměnit jen sebe v jednu potvoru, ale trocha času a nic nebude "
+"nemožné"
 
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr "ZostaĹ jeszczy maĹy Ĺyczek, moĹźna go bezpiecznie wypiÄ"
+msgstr "Pár kapek tu zbývá, mělo by být bezpečné to vypít"
 
 msgid "OK, here goes nothing..."
-msgstr "Ok, nic siÄ nie dzieje..."
+msgstr "OK, nic se nestalo..."
 
 msgid "Urgh!! This is horrible!"
-msgstr "Argh!! To jest okropne!"
+msgstr "Ahh!! Tohle je příšerné!"
 
 msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
 msgstr ""
+"Borgan mi řekl, že Slizáci mohou plavat ve vodě, takže by to mohlo být "
+"užitečné..."
 
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
 msgstr ""
-"BÄdÄc przemienionym w Szlam, moĹźesz poruszaÄ siÄ normalnie. MoĹźesz "
-"takĹźe pĹywaÄ w wodzie i uĹźywaÄ klawiszy gĂłra i dĂłĹ aby siÄ poruszaÄ"
 
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
 msgstr ""
-"WciĹniÄcie klawisza gĂłra lub skok sprawi, Ĺźe wyskoczysz z wody jeĹli "
-"jesteĹ blisko powierzchni"
 
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
 msgstr ""
-"ZwrĂłÄ uwagÄ na zegarek w dolnej czÄĹci ekranu. Kiedy osiÄgnie on 0 "
-"wtedy automatycznie staniesz siÄ czĹowiekiem"
 
 msgid "This place doesn't look so bad..."
-msgstr "To miejsce nie wyglÄda tak Ĺşle..."
+msgstr "Tohle místo nevypadá tak špatně..."
 
 msgid "What was that?"
-msgstr "Co to byĹo?"
+msgstr "Co to bylo?"
 
 msgid "Uh Oh..."
-msgstr "Uh Oh..."
+msgstr ""
 
 msgid "Phew, I'm glad to be out of there"
-msgstr "Uff, cieszÄ siÄ, Ĺźe juĹź po wszystkim"
+msgstr "Fíí, jsem rád že jsem pryč"
 
 msgid "Now to get through this swamp"
-msgstr "Teraz muszÄ przedostaÄ siÄ przez bagno"
+msgstr "Teď se dostat skrz močál"
 
 msgid "Hey, what's this?"
-msgstr "Hej, co to jest?"
+msgstr "Hej, co to je?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr "WyglÄda nieszkodliwie, SprĂłbujÄ na tym stanÄc"
+msgstr "Vypadá to neškodně, zkusím na to šlápnout"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr "Wow! TO byĹo Ĺwietna! To musi byÄ mechaniczny teleporter."
+msgstr "Wow! Tak to je hustý! To musí být mechanický teleport"
 
 msgid "I wonder if it works both ways..."
-msgstr "Ciekawe czy dziaĹa w dwie strony..."
+msgstr "Zajímalo by mě, jestli je obousměrný..."
 
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr ""
-"To nie tylko pozowli zaoszczÄdziÄ mi mnĂłstwa czasu, ale to takĹźe "
-"Ĺwietna zabawa!"
+msgstr "Nejenom že mi to ušetří hodně chození, taky je to celkem sranda!"
 
 msgid "Now try out your shield"
-msgstr "Teraz wyprĂłbuj swojÄ tarczÄ"
+msgstr "Tak a teď vyzkoušej svůj štít"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
 msgstr ""
-"Zablokuj palety wypuszczone przez roĹlinÄ i wskocz na nastÄpnÄ pĂłĹkÄ"
 
 msgid "Some items in the game can be pushed and pulled"
-msgstr "NiektĂłre przedmioty w grze da siÄ ciÄgnÄÄ i przesuwaÄ"
+msgstr ""
 
 msgid "To push an item, simply walk into it"
-msgstr "Aby popchnÄÄ przedmiot poprostu wejdĹş w niego"
+msgstr ""
 
 msgid "To pull an item, walk into while holding down Action"
-msgstr "Aby pociÄgnÄÄ przedmiot, wejdĹş w niego naciskajÄc klawisz Akcji"
+msgstr ""
 
 msgid "You can then pull the item around until you let go of Action"
 msgstr ""
-"NastÄpnie moĹźesz pociÄgnÄÄ przedmiot dopĂłki nie puĹcisz klawisza Akcji"
 
 msgid "Pull the box over the other side and use it to reach the ledge"
 msgstr ""
-"PrzeciÄgnij skrzyniÄ na drugi koniec i uĹźyj jej, aby dostaÄ siÄ na "
-"pĂłĹkÄ"
 
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
 msgstr ""
-"To jest ostatnia czÄĹÄ samouczka. Nauczy ciÄ ona jak siÄ broniÄ i "
-"atakowaÄ wrogĂłw"
 
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
 msgstr ""
-"Najpierw powinieneĹ dobyÄ miecza poniewaĹź ma on wiÄkszy zasiÄg i zadaje "
-"wiÄcej obraĹźeĹ niĹź kilof"
 
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
 msgstr ""
-"Czasami, gdy pokonasz wroga, wyrzuci on z siebie Ĺźycie, ktĂłre po kilku "
-"sekundach zniknie, wiÄc musisz szybko je podnieĹÄ!"
 
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
@@ -738,136 +704,109 @@ msgid ""
 msgstr ""
 
 msgid "Now kill all of the bats in the area!"
-msgstr "Teraz zabij wszystkie nietoperze w okolicy!"
+msgstr ""
 
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr "W grze sÄ dwa typy drzwi. Drzwi RÄczne i Automatyczne."
+msgstr ""
 
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
 msgstr ""
-"Drzwi RÄczne potrzebujÄ klucza, aby je otworzyÄ, Automatyczne potrzebujÄ "
-"dĹşwigni."
 
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
 msgstr ""
-"Aby otworzyÄ zamkniÄte drzwi, do ktĂłrych posiadasz klucz, poprostu wejdĹş "
-"w nie. Nie musisz wybieraÄ klucza ze swojego ekwipunku."
 
 msgid "Open the door and continue to the right"
-msgstr "OtwĂłrz drzwi i idĹş dalej w prawo"
+msgstr ""
 
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
 msgstr ""
-"Gratulacje! Znasz juĹź podstawy gry i powineineĹ je wyprĂłbowaÄ w "
-"gĹĂłwnej grze"
 
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
 msgstr ""
-"JeĹli chcesz powtĂłrzyÄ ten samouczek, wciĹnij Escape i wybierz Samouczek "
-"z menu"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
-"Aby zagraÄ w gĹĂłwnÄ grÄ, wciĹnij Escape i wybierz Nowa Gra z menu"
 
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
-"To jest samouczek gry The Legend of Edgar. WyjaĹni ci on jak graÄ w tÄ "
-"grÄ."
 
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
-"Abu opuĹciÄ samouczek, wciĹnij Escape nastÄpnie uĹźyj strzaĹek GĂłra i "
-"DĂłĹ by wybraÄ opcjÄ. WciĹnij Enter aby jÄ wybraÄ."
 
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
 msgstr ""
-"Aby podnieĹÄ przedmiot, poprostu wejdĹş na niego. Wszystkie przedmioty do "
-"podniesienia zostanÄ dodane do twojego ekwipunku."
 
 msgid "Whilst in the inventory, use the arrow keys to view the items."
 msgstr ""
-"Kiedy jesteĹ w oknie ekwipunku, wciskaj strzaĹki w celu obejrzenie "
-"przedmiotĂłw."
 
 msgid "Walk over the key to pick it up"
-msgstr "WejdĹş na klucz by go podnieĹÄ"
+msgstr ""
 
 msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
 msgstr ""
-"MoĹźesz zmieniÄ ukĹad klawisz w grze naciskajÄc Escape i wybierajÄc "
-"Opcje z menu"
 
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr "Wybierz Konfiguracja Klawiszy uĹźywjÄc strzaĹek i wciĹnij Enter"
+msgstr ""
 
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
 msgstr ""
-"UĹźyj strzaĹek do wybrania akcji, ktĂłrÄ chcesz skonfigurowaÄ i naciĹnij "
-"Enter."
 
 msgid "Next, press the key that you want to use instead."
-msgstr "NastÄpnie wciĹnij klawisz, ktĂłrego chcesz uĹźwyac w zamian."
+msgstr ""
 
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
 msgstr ""
-"Bez wzglÄdu na to jakie klawisze skonfigurujesz, zawsze moĹźesz uĹźywaÄ "
-"klawiszy strzaĹek oraz Entera do poruszania siÄ po menu"
 
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
 msgstr ""
-"Kiedy skoĹczysz konfigurowaÄ klawisze, przejdĹş w prawo do nastÄpnego "
-"Punktu Akcji"
 
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr "Kilof jest jednÄ z wielu broni, jakie napotkasz w grze"
+msgstr ""
 
 msgid "You can use it as both a weapon and a tool"
-msgstr "MoĹźesz go uĹźyÄ zarĂłwno jako broni jak i narzÄdzia"
+msgstr ""
 
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr "PodnieĹ kilof i przejdĹş do nastÄpnego Punktu Akcji"
+msgstr ""
 
 msgid "Congratulations, you found a secret!"
-msgstr "Gratulacje, odkryĹeĹ sekret!"
+msgstr ""
 
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr "W gĹĂłwnej grze jest wiele sekretĂłw, wiÄc wypatruj ich uwaĹźnie"
+msgstr ""
 
 msgid "Here's a hint to get you started"
-msgstr "Oto wskazĂłwka na dobry poczÄtek"
+msgstr ""
 
 msgid "The shield will protect you from most enemy attacks"
-msgstr "Tarcza bÄdzie ciÄ chroniÄ przed atakami wiÄkszoĹci wrogĂłw"
+msgstr ""
 
 msgid "Some enemy attacks cannot be blocked"
-msgstr "Ataki niektĂłrych wrogĂłw nie mogÄ byÄ zablokowane"
+msgstr ""
 
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
 msgstr ""
-"NiebezpieczeĹstwa Ĺrodowiskowe, takie jak osuwanie siÄ kamieni, nie mogÄ "
-"byÄ zablokowane"
 
 msgid "You must be facing the attack to successfully block it"
 msgstr ""
@@ -876,80 +815,78 @@ msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
 msgstr ""
-"ZauwaĹź, Ĺźe podczas bloku nie moĹźesz siÄ poruszaÄ, ale moĹźesz siÄ "
-"obracaÄ. Nie moĹźesz takĹźe blokowaÄ w powietrzu"
 
 msgid "Pick up the shield and continue to the right"
-msgstr "PodnieĹ tarczÄ i idĹş dalej na prawo"
+msgstr ""
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr "Ten mur jest kruchy, moĹźna go zburzyÄ uĹźywajÄc kilofa"
+msgstr ""
 
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr "Zburz mur i kontynuuj"
+msgstr ""
 
 msgid "Collect 10 pieces of Coal"
-msgstr "Zbierz 10 kawaĹkĂłw WÄgla"
+msgstr ""
 
 msgid "Collect 2 Chopped Logs"
-msgstr "Zbierz 2 ĹciÄte KĹody"
+msgstr ""
 
 msgid "Rescue 3 Chickens"
-msgstr "Uratuj 3 Kurczaki"
+msgstr ""
 
 msgid "Find 4 Gems"
-msgstr "ZnajdĹş 4 Kamienie"
+msgstr ""
 
 msgid "Repair Generators"
-msgstr "Napraw Generatory"
+msgstr ""
 
 msgid "Collect 6 Chopped Logs"
-msgstr "Zbierz 6 ĹciÄtych KĹĂłd"
+msgstr ""
 
 msgid "Collect 3 Access Keys"
-msgstr "ZnajdĹş 3 Klucze DostÄpu"
+msgstr ""
 
 msgid "Kill all Bats!"
-msgstr "Zabij wszystkie Nietoperze!"
+msgstr ""
 
 msgid "Coal"
-msgstr "WÄgiel"
+msgstr ""
 
 msgid "Chopped Log"
-msgstr "ĹciÄta KĹoda"
+msgstr ""
 
 msgid "Green Gem"
-msgstr "Zielony KamieĹ"
+msgstr ""
 
 msgid "Red Gem"
-msgstr "Czerowny KamieĹ"
+msgstr ""
 
 msgid "Blue Gem"
-msgstr "Niebieski KamieĹ"
+msgstr ""
 
 msgid "Purple Gem"
-msgstr "Fioletowy KamieĹ"
+msgstr ""
 
 msgid "Teleporter Key"
 msgstr ""
 
 msgid "New Game"
-msgstr "Nowa Gra"
+msgstr ""
 
 msgid "Tutorial"
-msgstr "Podręcznik"
+msgstr ""
 
 msgid "Load Game"
-msgstr "Wczytaj grę"
+msgstr ""
 
 msgid "Options"
-msgstr "Preferencje"
+msgstr ""
 
 msgid "About"
-msgstr "O"
+msgstr ""
 
 msgid "Quit"
-msgstr "Wyjdź"
+msgstr ""
 
 msgid "Configure Controls"
 msgstr ""
@@ -958,7 +895,7 @@ msgid "Configure Sound"
 msgstr ""
 
 msgid "Fullscreen"
-msgstr "Pełen ekran"
+msgstr ""
 
 msgid "Show Hints"
 msgstr ""
@@ -1070,7 +1007,7 @@ msgid "This machine is not active"
 msgstr ""
 
 msgid "Repeat the sequence"
-msgstr "Powtórz sekwencję"
+msgstr ""
 
 msgid "Correct Sequence"
 msgstr ""
@@ -1121,7 +1058,7 @@ msgid "Shield of Fire Resistance"
 msgstr ""
 
 msgid "Ingredients"
-msgstr "Składniki"
+msgstr ""
 
 msgid "One must gather the following"
 msgstr ""
@@ -1486,22 +1423,22 @@ msgid ""
 msgstr ""
 
 msgid "Up"
-msgstr "W górę"
+msgstr ""
 
 msgid "Down"
-msgstr "W dół"
+msgstr ""
 
 msgid "Left"
-msgstr "W lewo"
+msgstr ""
 
 msgid "Right"
-msgstr "W prawo"
+msgstr ""
 
 msgid "Jump"
-msgstr "Skok"
+msgstr ""
 
 msgid "Attack"
-msgstr "Atak"
+msgstr ""
 
 msgid "Block"
 msgstr ""
@@ -1510,31 +1447,31 @@ msgid "Action"
 msgstr ""
 
 msgid "Use Item"
-msgstr "Użyj elementu"
+msgstr ""
 
 msgid "Previous Item"
-msgstr "Poprzedni element"
+msgstr ""
 
 msgid "Next Item"
-msgstr "Następny element"
+msgstr ""
 
 msgid "Inventory"
-msgstr "Inwentarz"
+msgstr ""
 
 msgid "Pause"
-msgstr "Wstrzymaj"
+msgstr ""
 
 msgid "Dead Zone"
 msgstr ""
 
 msgid "Sound"
-msgstr "Dźwięk"
+msgstr ""
 
 msgid "SFX Volume"
 msgstr ""
 
 msgid "Music Volume"
-msgstr "Głośność Muzyki"
+msgstr ""
 
 msgid "Ice Spray"
 msgstr ""
@@ -1861,18 +1798,15 @@ msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
-"CzarnoksiÄĹźnik porwaĹ Ojca do zamku. BÄdÄ musiaĹ go stamtÄd uwolniÄ."
 
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr "Jedyna droga do zamku wiedzie przez Zakazane Bagno na Wschodzie."
+msgstr ""
 
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
 msgstr ""
-"PomiÄdzy WioskÄ a Bagnem jest jezioro, wiÄc bÄdÄ potrzebowaĹ tratwy "
-"aby siÄ przeprawiÄ."
 
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
@@ -1992,7 +1926,7 @@ msgid "I should be safe up here, but I need to get rid of it"
 msgstr ""
 
 msgid "Book"
-msgstr "Książka"
+msgstr ""
 
 msgid "Sign"
 msgstr ""
@@ -2093,7 +2027,7 @@ msgid "Light Key"
 msgstr ""
 
 msgid "Rope"
-msgstr "Lina"
+msgstr ""
 
 msgid "Extend-O-Grab"
 msgstr ""
@@ -2111,16 +2045,16 @@ msgid "Armoury"
 msgstr ""
 
 msgid "Maggie"
-msgstr "Maggie"
+msgstr ""
 
 msgid "Jacob"
-msgstr "Jacob"
+msgstr ""
 
 msgid "Borgan"
-msgstr "Borgan"
+msgstr ""
 
 msgid "Edgar"
-msgstr "Edgar"
+msgstr ""
 
 msgid "Mine Cart"
 msgstr ""
@@ -2317,7 +2251,7 @@ msgid "Where am I?"
 msgstr ""
 
 msgid "Chaos"
-msgstr "Chaos"
+msgstr ""
 
 msgid "Chaos is an ancient, evil dragon"
 msgstr ""
@@ -3380,7 +3314,7 @@ msgid "OK, here goes nothing, good luck finding your father"
 msgstr ""
 
 msgid "Thanks, Olaf"
-msgstr ""
+msgstr "Děkujeme, Olaf"
 
 msgid "It looks like the pulley for the drawbridge"
 msgstr ""
@@ -3998,7 +3932,7 @@ msgid "Edgar! Edgar, where are you?"
 msgstr ""
 
 msgid "!"
-msgstr "!"
+msgstr ""
 
 msgid "That voice..."
 msgstr ""
@@ -4007,10 +3941,10 @@ msgid "It can't be..."
 msgstr ""
 
 msgid "Daddy!"
-msgstr "Tatuś!"
+msgstr ""
 
 msgid "Edgar!"
-msgstr "Edgar!"
+msgstr ""
 
 msgid "Jacob, I found him!"
 msgstr ""
@@ -4523,7 +4457,7 @@ msgid "You can only use this item in an empty space"
 msgstr ""
 
 msgid "Bell"
-msgstr "Dzwon"
+msgstr ""
 
 msgid "Great, that worked!"
 msgstr ""
@@ -4562,7 +4496,7 @@ msgid "Choose slot to load from"
 msgstr ""
 
 msgid "Press Action to go to %s"
-msgstr "NaciĹnij klawisz akcji by iĹÄ do %s"
+msgstr ""
 
 msgid "Give up?"
 msgstr ""
@@ -4670,19 +4604,19 @@ msgid "the Crypt"
 msgstr ""
 
 msgid "Village"
-msgstr "Wieś"
+msgstr ""
 
 msgid "Mine"
 msgstr ""
 
 msgid "Forest"
-msgstr "Las"
+msgstr ""
 
 msgid "Forbidden Swamp"
 msgstr ""
 
 msgid "Cave"
-msgstr "Jaskinia"
+msgstr ""
 
 msgid "Fortress Outskirts"
 msgstr ""
@@ -4697,22 +4631,22 @@ msgid "Fortress Ground Floor"
 msgstr ""
 
 msgid "Laboratory"
-msgstr "Laboratorium"
+msgstr ""
 
 msgid "Library"
-msgstr "Biblioteka"
+msgstr ""
 
 msgid "Borer Cave"
 msgstr ""
 
 msgid "Catacombs"
-msgstr "Katakumby"
+msgstr ""
 
 msgid "Study"
 msgstr ""
 
 msgid "Dungeon"
-msgstr "Lochy"
+msgstr ""
 
 msgid "Frozen Wastes"
 msgstr ""
@@ -4724,7 +4658,7 @@ msgid "Inner Cave Network"
 msgstr ""
 
 msgid "Graveyard"
-msgstr "Cmentarz"
+msgstr ""
 
 msgid "Left Tower"
 msgstr ""
@@ -4736,7 +4670,7 @@ msgid "The Observatory"
 msgstr ""
 
 msgid "Crypt"
-msgstr "Krypta"
+msgstr ""
 
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr ""
@@ -4754,13 +4688,13 @@ msgid "Cannot equip items whilst attacking"
 msgstr ""
 
 msgid "Continue"
-msgstr "Kontynuuj"
+msgstr ""
 
 msgid "Medals"
-msgstr "Medale"
+msgstr ""
 
 msgid "Audio Quality"
-msgstr "Jakość dźwięku"
+msgstr ""
 
 msgid "Cheats"
 msgstr ""
@@ -4820,7 +4754,7 @@ msgid "I, am Azriel"
 msgstr ""
 
 msgid "Horray!"
-msgstr "Hura!"
+msgstr ""
 
 msgid "I'll leave it alone for the moment"
 msgstr ""
@@ -4859,8 +4793,6 @@ msgid ""
 "Er, yeah, there was what you'd call an \"incident\", but that part of the "
 "mine was sealed up a long time ago"
 msgstr ""
-"Eeee, no tak, moĹźna to nazwaÄ swego rodzaju \"wypadkiem\", ale ta czÄĹÄ "
-"kopalni zostaĹa zapieczontowana dawno temu"
 
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""

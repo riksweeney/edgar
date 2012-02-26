@@ -176,7 +176,7 @@ Entity *addGargoyle(int x, int y, char *name)
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, "CROUCH");
+	setEntityAnimation(e, "FACE_FRONT_CROUCH");
 
 	return e;
 }
@@ -200,13 +200,13 @@ static void init()
 		break;
 
 		case 0:
-			/*addStoneCoat();*/
+			addStoneCoat();
 
 			self->action = &initialise;
 		break;
 
 		default:
-			setEntityAnimation(self, "FACE_FRONT");
+			setEntityAnimation(self, "FACE_FRONT_CROUCH");
 
 			self->action = &introFinish;
 		break;
@@ -258,26 +258,36 @@ static void introFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		playDefaultBossMusic();
+		if (self->mental == 0)
+		{
+			playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+			
+			self->mental = 1;
+		}
 		
-		self->maxThinkTime = 2;
+		else if (self->mental == 2)
+		{
+			self->maxThinkTime = 1;
+			
+			stopSound(BOSS_CHANNEL);
+			
+			playDefaultBossMusic();
 
-		self->mental = 2;
+			setContinuePoint(FALSE, self->name, NULL);
 
-		setContinuePoint(FALSE, self->name, NULL);
+			initBossHealthBar();
 
-		initBossHealthBar();
+			self->takeDamage = &takeDamage;
 
-		self->takeDamage = &takeDamage;
+			self->action = &entityWait;
 
-		self->action = &entityWait;
+			self->thinkTime = 90;
 
-		self->thinkTime = 90;
-
-		self->flags |= LIMIT_TO_SCREEN;
-		
-		self->startX = getMapStartX();
-		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
+			self->flags |= LIMIT_TO_SCREEN;
+			
+			self->startX = getMapStartX();
+			self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
+		}
 	}
 }
 
@@ -420,6 +430,8 @@ static void entityWait()
 								self->action = &bridgeDestroyInit;
 							break;
 						}
+						
+						self->action = &bridgeDestroyInit;
 					}
 				break;
 
@@ -1337,8 +1349,6 @@ static void bridgeDestroyMoveToTarget()
 		self->mental = 5;
 		
 		self->action = &bridgeDestroyFollowPlayer;
-		
-		printf("StartX is %f. EndX is %f\n", self->startX, self->endX);
 	}
 
 	checkToMap(self);
@@ -1360,7 +1370,10 @@ static void bridgeDestroyFollowPlayer()
 
 		self->dirX = 0;
 
-		self->action = &bridgeDestroy;
+		if (player.y < getMapStartY() + SCREEN_HEIGHT)
+		{
+			self->action = &bridgeDestroy;
+		}
 	}
 
 	else
@@ -1378,8 +1391,11 @@ static void bridgeDestroyFollowPlayer()
 			self->thinkTime = 15;
 
 			self->dirX = 0;
-
-			self->action = &bridgeDestroy;
+			
+			if (player.y < getMapStartY() + SCREEN_HEIGHT)
+			{
+				self->action = &bridgeDestroy;
+			}
 		}
 
 		else if (self->x > self->endX)
@@ -1392,7 +1408,10 @@ static void bridgeDestroyFollowPlayer()
 
 			self->dirX = 0;
 
-			self->action = &bridgeDestroy;
+			if (player.y < getMapStartY() + SCREEN_HEIGHT)
+			{
+				self->action = &bridgeDestroy;
+			}
 		}
 	}
 }
@@ -1741,7 +1760,7 @@ static void lanceDestroyBridge()
 static void lanceFallout()
 {
 	int distance;
-	float checkPointX, checkpointY;
+	float checkpointX, checkpointY, x;
 	int startX, endX;
 	EntityList *el, *entities;
 
@@ -1752,7 +1771,7 @@ static void lanceFallout()
 	startX = getMapStartX();
 	endX   = getMapStartX() + SCREEN_WIDTH;
 	
-	/* Get a wall furthest away from the boss */
+	/* Get a piece furthest away from the boss */
 
 	for (el=entities->next;el!=NULL;el=el->next)
 	{
@@ -1763,16 +1782,17 @@ static void lanceFallout()
 			{
 				distance = abs(el->entity->x - self->head->x);
 				
-				printf("%d is furthest from the boss\n", distance);
+				checkpointX = el->entity->x;
 			}
 		}
 	}
 	
-	printf("Setting checkpoint to %d %d\n", startX + distance + player.w / 2, (int)player.y);
+	getCheckpoint(&x, &checkpointY); 
 	
-	getCheckpoint(&checkPointX, &checkpointY); 
+	setCheckpoint(checkpointX, checkpointY);
 	
-	setCheckpoint(startX + distance + player.w / 2, checkpointY);
+	self->currentFrame = self->head->currentFrame;
+	self->frameTimer = self->head->frameTimer;
 	
 	self->y = self->head->y + self->offsetY;
 
@@ -2697,7 +2717,7 @@ static void addStoneCoat()
 	e->action = &coatWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = NULL;
+	e->touch = &entityTouch;
 	e->takeDamage = NULL;
 
 	e->type = ENEMY;
@@ -2721,7 +2741,7 @@ static void coatWait()
 
 		if (self->alpha <= 0)
 		{
-			self->head->mental = 0;
+			self->head->mental = 2;
 
 			self->inUse = FALSE;
 		}
@@ -2851,7 +2871,7 @@ static void dieWait()
 				
 				self->maxThinkTime = 4;
 				
-				playSoundToMap("sound/boss/gargoyle/petrify_shake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 			break;
 
 			default:
@@ -3047,7 +3067,7 @@ static void addLance()
 
 	loadProperties("boss/gargoyle_lance_1", e);
 
-	e->action = &lanceCreditsMove;
+	e->creditsAction = &lanceCreditsMove;
 
 	e->draw = &drawLoopingAnimationToMap;
 

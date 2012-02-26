@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-15 09:28+0000\n"
+"PO-Revision-Date: 2012-02-21 12:17+0000\n"
 "Last-Translator: riksweeney <riksweeney@hotmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-19 10:00+0000\n"
-"X-Generator: Launchpad (build 14814)\n"
+"X-Launchpad-Export-Date: 2012-02-26 21:28+0000\n"
+"X-Generator: Launchpad (build 14860)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr ""
 
 msgid "Bow"
-msgstr ""
+msgstr "Bogen"
 
 msgid "Press Action to interact"
 msgstr ""
@@ -93,7 +93,7 @@ msgid "Exit the game?"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 msgid "Game Loaded"
 msgstr ""
@@ -213,10 +213,10 @@ msgid "Keep practising!"
 msgstr ""
 
 msgid "Hi"
-msgstr ""
+msgstr "Guten Tag"
 
 msgid "Hello Edgar"
-msgstr ""
+msgstr "Guten Tag Edgar"
 
 msgid "Can I borrow your shield?"
 msgstr ""
@@ -346,7 +346,7 @@ msgid ""
 msgstr ""
 
 msgid "Have fun!"
-msgstr ""
+msgstr "Viel Spaß!"
 
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
 msgstr ""
@@ -355,7 +355,7 @@ msgid "Take this sword, may it serve you well!"
 msgstr ""
 
 msgid "Thank you!"
-msgstr ""
+msgstr "Danke!"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
 msgstr ""
@@ -425,7 +425,7 @@ msgid ""
 msgstr ""
 
 msgid "Good luck!"
-msgstr ""
+msgstr "Viel Glück!"
 
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
@@ -460,7 +460,7 @@ msgid ""
 msgstr ""
 
 msgid "Hi Maggie"
-msgstr ""
+msgstr "Guten Tag Maggie"
 
 msgid "Thanks Maggie!"
 msgstr "Danke Maggie!"
@@ -813,7 +813,7 @@ msgid "Kill all Bats!"
 msgstr ""
 
 msgid "Coal"
-msgstr ""
+msgstr "Kohle"
 
 msgid "Chopped Log"
 msgstr ""
@@ -834,19 +834,19 @@ msgid "Teleporter Key"
 msgstr ""
 
 msgid "New Game"
-msgstr ""
+msgstr "Neues Spiel"
 
 msgid "Tutorial"
 msgstr ""
 
 msgid "Load Game"
-msgstr ""
+msgstr "Spielstand laden"
 
 msgid "Options"
 msgstr ""
 
 msgid "About"
-msgstr ""
+msgstr "Über"
 
 msgid "Quit"
 msgstr ""
@@ -921,7 +921,7 @@ msgid "An axe suitable for chopping trees"
 msgstr ""
 
 msgid "Pickaxe"
-msgstr ""
+msgstr "Pickel"
 
 msgid "A pickaxe lent to you by Borgan"
 msgstr ""
@@ -1021,7 +1021,7 @@ msgid "Shield of Fire Resistance"
 msgstr ""
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Zutaten"
 
 msgid "One must gather the following"
 msgstr ""
@@ -1386,22 +1386,22 @@ msgid ""
 msgstr ""
 
 msgid "Up"
-msgstr ""
+msgstr "Hoch"
 
 msgid "Down"
-msgstr ""
+msgstr "Runter"
 
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 msgid "Jump"
 msgstr ""
 
 msgid "Attack"
-msgstr ""
+msgstr "Angriff"
 
 msgid "Block"
 msgstr ""
@@ -1889,7 +1889,7 @@ msgid "I should be safe up here, but I need to get rid of it"
 msgstr ""
 
 msgid "Book"
-msgstr ""
+msgstr "Buch"
 
 msgid "Sign"
 msgstr ""
@@ -1990,7 +1990,7 @@ msgid "Light Key"
 msgstr ""
 
 msgid "Rope"
-msgstr ""
+msgstr "Seil"
 
 msgid "Extend-O-Grab"
 msgstr ""
@@ -2005,7 +2005,7 @@ msgid "Catapult Lift Key"
 msgstr ""
 
 msgid "Armoury"
-msgstr ""
+msgstr "Zeughaus"
 
 msgid "Maggie"
 msgstr "Maggie"
@@ -2214,7 +2214,7 @@ msgid "Where am I?"
 msgstr ""
 
 msgid "Chaos"
-msgstr ""
+msgstr "Chaos"
 
 msgid "Chaos is an ancient, evil dragon"
 msgstr ""
@@ -3185,7 +3185,7 @@ msgid "Your %s has been stolen!"
 msgstr ""
 
 msgid "<Empty>"
-msgstr ""
+msgstr "<Leer>"
 
 msgid ""
 "Enabling cheats will not allow you to achieve 100% completion in the game"
@@ -3631,7 +3631,7 @@ msgid "Grimlore, I summon you! Destroy this pest!"
 msgstr ""
 
 msgid "Farewell, Edgar"
-msgstr ""
+msgstr "Auf Wiedersehen, Edgar"
 
 msgid "Something's coming..."
 msgstr ""
@@ -3895,7 +3895,7 @@ msgid "Edgar! Edgar, where are you?"
 msgstr ""
 
 msgid "!"
-msgstr ""
+msgstr "!"
 
 msgid "That voice..."
 msgstr ""
@@ -3904,10 +3904,10 @@ msgid "It can't be..."
 msgstr ""
 
 msgid "Daddy!"
-msgstr ""
+msgstr "Papa!"
 
 msgid "Edgar!"
-msgstr ""
+msgstr "Edgar!"
 
 msgid "Jacob, I found him!"
 msgstr ""
@@ -4765,4 +4765,13 @@ msgid ""
 msgstr ""
 
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
+msgstr ""
+
+msgid "Completed the game with only 5 hit points"
+msgstr ""
+
+msgid "Completed the game without continuing"
+msgstr ""
+
+msgid "Accessed the Crypt"
 msgstr ""
