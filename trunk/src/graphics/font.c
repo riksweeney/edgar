@@ -50,6 +50,49 @@ TTF_Font *loadCustomFont(char *name, int size)
 	return font;
 }
 
+int validateFont(TTF_Font *font)
+{
+	/* Verify if the font has glyphs for the text below */
+
+	char *text = _("Press Action to interact");
+	int i, length;
+	Uint16 ch;
+
+	length = strlen(text);
+
+	for (i=0;i<length;i++) {
+		ch = ((unsigned char *)text)[i];
+
+		if (ch >= 0xF0)
+		{
+			ch  = (Uint16)(text[i]   & 0x07) << 18;
+			ch |= (Uint16)(text[++i] & 0x3F) << 12;
+			ch |= (Uint16)(text[++i] & 0x3F) << 6;
+			ch |= (Uint16)(text[++i] & 0x3F);
+		}
+
+		else if (ch >= 0xE0)
+		{
+			ch  = (Uint16)(text[i]   & 0x0F) << 12;
+			ch |= (Uint16)(text[++i] & 0x3F) << 6;
+			ch |= (Uint16)(text[++i] & 0x3F);
+		}
+
+		else if (ch >= 0xC0)
+		{
+			ch  = (Uint16)(text[i]   & 0x1F) << 6;
+			ch |= (Uint16)(text[++i] & 0x3F);
+		}
+
+		if (TTF_GlyphMetrics(font, ch, &minx, &maxx, &miny, &maxy, &advance) == -1)
+		{
+			return FALSE;
+		}
+	}
+
+	return TRUE;
+}
+
 void closeFont(TTF_Font *font)
 {
 	/* Close the font once we're done with it */

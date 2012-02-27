@@ -305,7 +305,7 @@ static void touch(Entity *other)
 		self = temp;
 	}
 
-	if (other->type == PLAYER && other->dirY > 0 && !(other->flags & NO_DRAW))
+	if (other->type == PLAYER && other->dirY > 0)
 	{
 		/* Trying to move down */
 
