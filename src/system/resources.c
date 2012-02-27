@@ -74,17 +74,52 @@ static char **key, **value;
 
 void loadRequiredResources()
 {
+	char *fonts[] = {"font/DejaVuSans.ttf", "font/DroidSansFallback.ttf"};
+	int i, fontLength, found;
+
+	fontLength = sizeof(fonts) / sizeof(char *);
+
 	/* Load the hud */
 
 	initHud();
 
 	/* Load the font */
 
+	found = FALSE;
+
 	if (strlen(game.customFont) == 0)
 	{
-		game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
+		for (i=0;i<fontLength;i++)
+		{
+			game.font = loadFont(fonts[i], NORMAL_FONT_SIZE);
 
-		game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
+			game.largeFont = loadFont(fonts[i], LARGE_FONT_SIZE);
+
+			if (validateFont(game.font) == TRUE)
+			{
+				found = TRUE;
+
+				break;
+			}
+
+			else
+			{
+				printf("%s does not support test string, trying next one\n", fonts[i]);
+
+				closeFont(game.font);
+
+				closeFont(game.largeFont);
+			}
+		}
+
+		if (found == FALSE)
+		{
+			printf("Could not find a useable font, falling back to %s\n", fonts[0]);
+
+			game.font = loadFont(fonts[0], NORMAL_FONT_SIZE);
+
+			game.largeFont = loadFont(fonts[0], LARGE_FONT_SIZE);
+		}
 	}
 
 	else
@@ -758,7 +793,7 @@ int patchEntities(double versionFile, char *mapName)
 					setProperty(e, key, value);
 				}
 			}
-			
+
 			else if (strcmpignorecase(itemName, "UPDATE_ENTITY_BY_XY") == 0 && skipping == FALSE)
 			{
 				read = sscanf(line, "%*s %d %d %s %[^\n]s", &x, &y, key, value);
