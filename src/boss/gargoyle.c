@@ -1418,11 +1418,20 @@ static void bridgeDestroyFollowPlayer()
 
 static void bridgeDestroy()
 {
+	int currentFrame;
+	float frameTimer;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
+		currentFrame = self->currentFrame;
+		frameTimer = self->frameTimer;
+		
 		setEntityAnimation(self, "LANCE_THROW");
+		
+		self->currentFrame = currentFrame;
+		self->frameTimer = frameTimer;
 		
 		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
 		

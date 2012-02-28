@@ -74,51 +74,28 @@ static char **key, **value;
 
 void loadRequiredResources()
 {
-	char *fonts[] = {"font/DejaVuSans.ttf", "font/DroidSansFallback.ttf"};
-	int i, fontLength, found;
-
-	fontLength = sizeof(fonts) / sizeof(char *);
-
 	/* Load the hud */
 
 	initHud();
 
 	/* Load the font */
 
-	found = FALSE;
-
 	if (strlen(game.customFont) == 0)
 	{
-		for (i=0;i<fontLength;i++)
+		if (getByteCodeForTestString() >= 0x4E00)
 		{
-			game.font = loadFont(fonts[i], NORMAL_FONT_SIZE);
+			printf("String appears to be CJK...\n");
+			
+			game.font = loadFont("font/DroidSansFallback.ttf", NORMAL_FONT_SIZE);
 
-			game.largeFont = loadFont(fonts[i], LARGE_FONT_SIZE);
-
-			if (validateFont(game.font) == TRUE)
-			{
-				found = TRUE;
-
-				break;
-			}
-
-			else
-			{
-				printf("%s does not support test string, trying next one\n", fonts[i]);
-
-				closeFont(game.font);
-
-				closeFont(game.largeFont);
-			}
+			game.largeFont = loadFont("font/DroidSansFallback.ttf", LARGE_FONT_SIZE);
 		}
-
-		if (found == FALSE)
+		
+		else
 		{
-			printf("Could not find a useable font, falling back to %s\n", fonts[0]);
+			game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
 
-			game.font = loadFont(fonts[0], NORMAL_FONT_SIZE);
-
-			game.largeFont = loadFont(fonts[0], LARGE_FONT_SIZE);
+			game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
 		}
 	}
 
