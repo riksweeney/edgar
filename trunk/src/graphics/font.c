@@ -50,44 +50,50 @@ TTF_Font *loadCustomFont(char *name, int size)
 	return font;
 }
 
-int getByteCodeForTestString()
+int getCharacterCodeForTestString()
 {
-	/* Will replace this with TTF_GlyphIsProvided when SDL_TTF 2.0.10 available in Ubuntu LTS */
-	
-	char *text = _("Press Action to interact");
-	int i, length, ch, highest;
+	/* Will replace this with TTF_GlyphIsProvided when (if) SDL_TTF 2.0.10 becomes available in Ubuntu LTS */
 
-	length = strlen(text);
-	
+	char *text[] = {_("Press Action to interact"), _("OK"), _("Yes"), _("No"), _("Bow")};
+	int i, j, length, ch, highest, textCount;
+
+	textCount = sizeof(text) / sizeof(char *);
+
 	highest = 0;
 
-	for (i=0;i<length;i++) {
-		ch = ((unsigned char *)text)[i];
+	for (j=0;j<textCount;j++)
+	{
+		length = strlen(text[j]);
 
-		if (ch >= 0xF0)
-		{
-			ch  = (int)(text[i]   & 0x07) << 18;
-			ch |= (int)(text[++i] & 0x3F) << 12;
-			ch |= (int)(text[++i] & 0x3F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
+		for (i=0;i<length;i++) {
 
-		else if (ch >= 0xE0)
-		{
-			ch  = (int)(text[i]   & 0x0F) << 12;
-			ch |= (int)(text[++i] & 0x3F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
+			ch = ((unsigned char *)text)[i];
 
-		else if (ch >= 0xC0)
-		{
-			ch  = (int)(text[i]   & 0x1F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
-		
-		if (ch > highest)
-		{
-			highest = ch;
+			if (ch >= 0xF0)
+			{
+				ch  = (int)(text[i]   & 0x07) << 18;
+				ch |= (int)(text[++i] & 0x3F) << 12;
+				ch |= (int)(text[++i] & 0x3F) << 6;
+				ch |= (int)(text[++i] & 0x3F);
+			}
+
+			else if (ch >= 0xE0)
+			{
+				ch  = (int)(text[i]   & 0x0F) << 12;
+				ch |= (int)(text[++i] & 0x3F) << 6;
+				ch |= (int)(text[++i] & 0x3F);
+			}
+
+			else if (ch >= 0xC0)
+			{
+				ch  = (int)(text[i]   & 0x1F) << 6;
+				ch |= (int)(text[++i] & 0x3F);
+			}
+
+			if (ch > highest)
+			{
+				highest = ch;
+			}
 		}
 	}
 

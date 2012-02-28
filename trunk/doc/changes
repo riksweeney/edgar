@@ -2,7 +2,7 @@ CHANGE LOG
 ----------
 
 Version 0.98
-* Added French, Czech and Russian translations
+* Added French, Czech, Simplified Chinese and Russian translations
 * Updated the Fortress Outskirts map
 * Made the data and save files architecture independent (so a 32bit x86 save will work on a 64bit PPC machine etc.)
 * Fixed a problem with objects falling through pressure plates
@@ -15,7 +15,7 @@ Version 0.98
 * The Black Book's version of the Queen Wasp now does damage when it head butts you
 * Fixed a small problem with Edgar sometimes being able to walk in the water in the Right Tower
 * The Watchdog's saw blade attack is no longer blockable
-* Various minor fixes
+* Fixed red spiders sometimes not dying when killed
 * Just one more major release to go :)
 
 Version 0.97

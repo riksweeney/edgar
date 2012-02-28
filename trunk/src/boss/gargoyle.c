@@ -150,6 +150,8 @@ static void dropAttack(void);
 static void creditsMove(void);
 static void addLance(void);
 static void lanceCreditsMove(void);
+static void fallout(void);
+static void falloutWait(void);
 
 Entity *addGargoyle(int x, int y, char *name)
 {
@@ -171,6 +173,7 @@ Entity *addGargoyle(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->die = &die;
 	e->takeDamage = NULL;
+	e->fallout = &fallout;
 
 	e->creditsAction = &creditsMove;
 
@@ -187,7 +190,7 @@ static void init()
 	{
 		case -1:
 			self->flags &= ~FLY;
-			
+
 			setEntityAnimation(self, "REACH_STONE");
 
 			self->takeDamage = &stoneTakeDamage;
@@ -261,16 +264,16 @@ static void introFinish()
 		if (self->mental == 0)
 		{
 			playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
-			
+
 			self->mental = 1;
 		}
-		
+
 		else if (self->mental == 2)
 		{
 			self->maxThinkTime = 1;
-			
+
 			stopSound(BOSS_CHANNEL);
-			
+
 			playDefaultBossMusic();
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -284,7 +287,7 @@ static void introFinish()
 			self->thinkTime = 90;
 
 			self->flags |= LIMIT_TO_SCREEN;
-			
+
 			self->startX = getMapStartX();
 			self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
 		}
@@ -430,7 +433,7 @@ static void entityWait()
 								self->action = &bridgeDestroyInit;
 							break;
 						}
-						
+
 						self->action = &bridgeDestroyInit;
 					}
 				break;
@@ -471,7 +474,7 @@ static void entityWait()
 						}
 					}
 				break;
-				
+
 				case 3:
 					self->action = &splitInHalfInit;
 				break;
@@ -498,7 +501,7 @@ static void entityWait()
 static void splitInHalfInit()
 {
 	self->maxThinkTime = 4;
-	
+
 	setEntityAnimation(self, "DROP_ATTACK");
 
 	self->thinkTime = 60;
@@ -524,9 +527,9 @@ static void splitInHalf()
 		}
 
 		loadProperties(self->name, e);
-		
+
 		setEntityAnimation(e, "DROP_ATTACK");
-		
+
 		e->x = self->x;
 		e->y = self->y;
 
@@ -539,7 +542,7 @@ static void splitInHalf()
 		e->takeDamage = &entityTakeDamageNoFlinch;
 
 		e->die = &cloneDie;
-		
+
 		e->pain = &enemyPain;
 
 		e->type = ENEMY;
@@ -557,7 +560,7 @@ static void splitInHalf()
 		e->maxThinkTime = self->maxThinkTime;
 
 		e->thinkTime = 0;
-		
+
 		e->startX = getMapStartX();
 		e->endX   = getMapStartX() + SCREEN_WIDTH - e->w;
 
@@ -574,7 +577,7 @@ static void splitInHalf()
 		self->target = e;
 
 		self->thinkTime = 0;
-		
+
 		self->startX = getMapStartX();
 		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
 	}
@@ -629,7 +632,7 @@ static void dropAttackInit()
 	self->flags |= FLY;
 
 	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-	
+
 	self->dirX *= 5;
 	self->dirY *= 5;
 
@@ -645,7 +648,7 @@ static void dropAttackMoveToTop()
 	if (atTarget())
 	{
 		setEntityAnimation(self, "DROP_ATTACK");
-		
+
 		self->action = &dropAttackFollowPlayer;
 	}
 
@@ -667,7 +670,7 @@ static void dropAttackFollowPlayer()
 		self->targetY = self->y - self->h;
 
 		self->dirX = 0;
-		
+
 		self->thinkTime = 30;
 
 		self->action = &dropAttack;
@@ -688,7 +691,7 @@ static void dropAttackFollowPlayer()
 			if (self->x == getMapStartX())
 			{
 				self->dirX = 0;
-				
+
 				self->thinkTime = 30;
 
 				self->action = &dropAttack;
@@ -704,7 +707,7 @@ static void dropAttackFollowPlayer()
 			if (self->x == getMapStartX() + SCREEN_WIDTH - self->w)
 			{
 				self->dirX = 0;
-				
+
 				self->thinkTime = 30;
 
 				self->action = &dropAttack;
@@ -722,7 +725,7 @@ static void dropAttack()
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~FLY;
@@ -740,7 +743,7 @@ static void dropAttack()
 					e->y -= prand() % e->h;
 				}
 			}
-			
+
 			self->thinkTime = 30;
 		}
 
@@ -1100,7 +1103,7 @@ static void invisibleAttackInit()
 static void becomeInvisible()
 {
 	Target *t;
-	
+
 	setEntityAnimation(self, "CREATE_LANCE");
 
 	self->alpha -= 3;
@@ -1108,11 +1111,11 @@ static void becomeInvisible()
 	if (self->alpha <= 0)
 	{
 		self->alpha = 255;
-		
+
 		self->flags |= NO_DRAW;
-		
+
 		self->mental = 1 + prand() % 3;
-		
+
 		t = getTargetByName("GARGOYLE_TOP_TARGET");
 
 		if (t == NULL)
@@ -1141,7 +1144,7 @@ static void invisibleAttackMoveToTop()
 	if (atTarget())
 	{
 		setEntityAnimation(self, "DROP_ATTACK");
-		
+
 		self->action = &invisibleAttackFollowPlayer;
 	}
 
@@ -1219,7 +1222,7 @@ static void invisibleDrop()
 		if (self->standingOn != NULL || (self->flags & ON_GROUND))
 		{
 			shakeScreen(LIGHT, 15);
-			
+
 			for (i=0;i<30;i++)
 			{
 				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
@@ -1229,11 +1232,11 @@ static void invisibleDrop()
 					e->y -= prand() % e->h;
 				}
 			}
-			
+
 			playSoundToMap("sound/enemy/red_grub/thud.ogg", -1, self->x, self->y, 0);
-			
+
 			self->flags &= ~NO_DRAW;
-			
+
 			self->mental--;
 
 			self->thinkTime = self->mental <= 0 ? 30 : 60;
@@ -1319,7 +1322,7 @@ static void invisibleDropWait()
 static void bridgeDestroyInit()
 {
 	Target *t = getTargetByName("GARGOYLE_MID_TARGET");
-	
+
 	setEntityAnimation(self, "LANCE_THROW_READY");
 
 	if (t == NULL)
@@ -1347,7 +1350,7 @@ static void bridgeDestroyMoveToTarget()
 	if (atTarget())
 	{
 		self->mental = 5;
-		
+
 		self->action = &bridgeDestroyFollowPlayer;
 	}
 
@@ -1391,7 +1394,7 @@ static void bridgeDestroyFollowPlayer()
 			self->thinkTime = 15;
 
 			self->dirX = 0;
-			
+
 			if (player.y < getMapStartY() + SCREEN_HEIGHT)
 			{
 				self->action = &bridgeDestroy;
@@ -1420,21 +1423,21 @@ static void bridgeDestroy()
 {
 	int currentFrame;
 	float frameTimer;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		currentFrame = self->currentFrame;
 		frameTimer = self->frameTimer;
-		
+
 		setEntityAnimation(self, "LANCE_THROW");
-		
+
 		self->currentFrame = currentFrame;
 		self->frameTimer = frameTimer;
-		
+
 		playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
-		
+
 		self->target->mental = -2;
 
 		self->action = &bridgeDestroyWait;
@@ -1448,26 +1451,26 @@ static void bridgeDestroyWait()
 	if (self->target->mental == 0)
 	{
 		setEntityAnimation(self, "LANCE_THROW_READY");
-		
+
 		self->mental--;
-		
+
 		self->thinkTime = 60;
 
 		self->action = self->mental > 0 ? &bridgeDestroyFollowPlayer : &bridgeDestroyFinish;
 	}
-	
+
 	checkToMap(self);
 }
 
 static void bridgeDestroyFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->action = &attackFinished;
 	}
-	
+
 	checkToMap(self);
 }
 
@@ -1558,7 +1561,7 @@ static void lanceThrowWait()
 		if (self->thinkTime <= 0)
 		{
 			self->maxThinkTime++;
-			
+
 			self->action = &attackFinished;
 		}
 	}
@@ -1728,7 +1731,7 @@ static void lanceWait()
 	if (self->mental == -1)
 	{
 		self->dirY = 14;
-		
+
 		setEntityAnimation(self, "LANCE_THROW");
 
 		self->pain = &enemyPain;
@@ -1741,7 +1744,7 @@ static void lanceWait()
 	else if (self->mental == -2)
 	{
 		self->dirY = 14;
-		
+
 		setEntityAnimation(self, "LANCE_THROW");
 
 		self->flags |= ATTACKING;
@@ -1752,14 +1755,14 @@ static void lanceWait()
 
 		self->action = &lanceDestroyBridge;
 	}
-	
+
 	self->alpha = self->head->alpha;
 }
 
 static void lanceDestroyBridge()
 {
 	checkToMap(self);
-	
+
 	if (self->y > getMapStartY() + SCREEN_HEIGHT)
 	{
 		lanceFallout();
@@ -1774,12 +1777,12 @@ static void lanceFallout()
 	EntityList *el, *entities;
 
 	entities = getEntities();
-	
+
 	distance = 0;
-	
+
 	startX = getMapStartX();
 	endX   = getMapStartX() + SCREEN_WIDTH;
-	
+
 	/* Get a piece furthest away from the boss */
 
 	for (el=entities->next;el!=NULL;el=el->next)
@@ -1790,19 +1793,19 @@ static void lanceFallout()
 			if (abs(el->entity->x - self->head->x) > distance)
 			{
 				distance = abs(el->entity->x - self->head->x);
-				
+
 				checkpointX = el->entity->x;
 			}
 		}
 	}
-	
-	getCheckpoint(&x, &checkpointY); 
-	
+
+	getCheckpoint(&x, &checkpointY);
+
 	setCheckpoint(checkpointX, checkpointY);
-	
+
 	self->currentFrame = self->head->currentFrame;
 	self->frameTimer = self->head->frameTimer;
-	
+
 	self->y = self->head->y + self->offsetY;
 
 	self->action = &lanceAttackTeleportFinish;
@@ -2217,7 +2220,7 @@ static void fakeLanceDropInit()
 	}
 
 	self->flags |= (FLY|NO_DRAW);
-	
+
 	setEntityAnimation(self, "LANCE_THROW");
 
 	addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
@@ -2263,7 +2266,7 @@ static void fakeLanceDropAppear()
 				}
 
 				loadProperties("boss/gargoyle_fake_lance", e);
-				
+
 				e->draw = &drawLoopingAnimationToMap;
 				e->touch = &entityTouch;
 				e->takeDamage = &entityTakeDamageNoFlinch;
@@ -2292,7 +2295,7 @@ static void fakeLanceDropAppear()
 
 			x += SCREEN_WIDTH / (lanceCount + 1);
 		}
-		
+
 		self->endX = lanceCount - 1;
 	}
 }
@@ -2329,7 +2332,7 @@ static void fakeLanceDrop()
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
 		setEntityAnimation(self, "LANCE_IN_GROUND");
-		
+
 		if (self->mental == -1)
 		{
 			self->thinkTime = 600;
@@ -2367,7 +2370,7 @@ static void fakeLanceDropExplodeWait()
 			self->action = &lanceExplode;
 		}
 	}
-	
+
 	else if (self->endX <= 0)
 	{
 		self->action = &fakeLanceDropInit;
@@ -2400,7 +2403,7 @@ static void lanceExplode()
 	e->reactToBlock = &bounceOffShield;
 
 	playSoundToMap("sound/common/explosion.ogg", -1, self->x, self->y, 0);
-	
+
 	self->head->endX--;
 
 	self->inUse = FALSE;
@@ -2409,7 +2412,7 @@ static void lanceExplode()
 static void fakeLanceDie()
 {
 	self->head->endX--;
-	
+
 	entityDieNoDrop();
 }
 
@@ -2675,15 +2678,18 @@ static void becomeMiniGargoyleWait()
 
 static void becomeMiniGargoyleFinish()
 {
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
+	if (self->endX <= 0)
 	{
-		self->flags &= ~NO_DRAW;
+		self->thinkTime--;
 
-		self->touch = &entityTouch;
+		if (self->thinkTime <= 0)
+		{
+			self->flags &= ~NO_DRAW;
 
-		self->action = &attackFinished;
+			self->touch = &entityTouch;
+
+			self->action = &attackFinished;
+		}
 	}
 
 	checkToMap(self);
@@ -2732,7 +2738,7 @@ static void addStoneCoat()
 	e->type = ENEMY;
 
 	e->head = self;
-	
+
 	self->target = e;
 
 	setEntityAnimation(e, getAnimationTypeAtIndex(self));
@@ -2763,11 +2769,11 @@ static void coatWait()
 		if (self->alpha >= 255)
 		{
 			self->head->mental = 0;
-			
+
 			self->alpha = 255;
 		}
 	}
-	
+
 	else if (self->head->mental == -1)
 	{
 		self->inUse = FALSE;
@@ -2787,13 +2793,13 @@ static void die()
 	int i;
 	long onGround;
 	Entity *e;
-	
+
 	self->action = &die;
-	
+
 	self->damage = 0;
 
 	self->takeDamage = NULL;
-	
+
 	setEntityAnimation(self, "FACE_FRONT_CROUCH");
 
 	self->dirX = 0;
@@ -2845,51 +2851,51 @@ static void dieWait()
 		{
 			case 0:
 				setEntityAnimation(self, "FACE_FRONT");
-				
+
 				self->thinkTime = 60;
-				
+
 				self->maxThinkTime = 1;
 			break;
-			
+
 			case 1:
 				facePlayer();
-				
+
 				setEntityAnimation(self, "FACE_PLAYER");
-				
+
 				self->thinkTime = 60;
-				
+
 				self->maxThinkTime = 2;
 			break;
-			
+
 			case 2:
 				setEntityAnimation(self, "STAND");
-				
+
 				self->thinkTime = 60;
-				
+
 				self->maxThinkTime = 3;
 			break;
-			
+
 			case 3:
 				setEntityAnimation(self, "REACH");
-				
+
 				addStoneCoat();
-				
+
 				self->target->alpha = 0;
-				
+
 				self->mental = 2;
-				
+
 				self->maxThinkTime = 4;
-				
+
 				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 			break;
 
 			default:
 				self->x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
-				
+
 				if (self->mental == 0)
 				{
 					stopSound(BOSS_CHANNEL);
-					
+
 					self->x = self->startX;
 
 					self->mental = -1;
@@ -3035,12 +3041,12 @@ static void cloneCheck()
 static void cloneDie()
 {
 	self->damage = 0;
-	
+
 	self->dirX = 0;
 	self->dirY = 0;
-	
+
 	self->takeDamage = NULL;
-	
+
 	self->alpha -= 2;
 
 	if (self->alpha <= 0)
@@ -3108,5 +3114,44 @@ static void lanceCreditsMove()
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
+	}
+}
+
+static void fallout()
+{
+	Target *t = getTargetByName("GARGOYLE_TOP_TARGET");
+
+	if (t == NULL)
+	{
+		showErrorAndExit("Gargoyle cannot find target");
+	}
+
+	setEntityAnimation(self, "FLY");
+
+	self->x = t->x;
+	self->y = t->y;
+
+	self->flags |= FLY|NO_DRAW;
+
+	self->thinkTime = 60;
+
+	self->action = &falloutWait;
+}
+
+static void falloutWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~NO_DRAW;
+
+		self->thinkTime = 30;
+
+		self->action = &entityWait;
+
+		addParticleExplosion(self->x + self->w / 2, self->y + self->h / 2);
+
+		playSoundToMap("sound/common/teleport.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 	}
 }
