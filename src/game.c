@@ -748,13 +748,9 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "HINTS %d\n", game.showHints);
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
 	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
-
-	if (strlen(game.customFont) != 0)
-	{
-		fprintf(fp, "FONT %s\n", game.customFont);
-		fprintf(fp, "SMALL_FONT_SIZE %d\n", game.fontSizeSmall);
-		fprintf(fp, "LARGE_FONT_SIZE %d\n", game.fontSizeLarge);
-	}
+	fprintf(fp, "FONT %s\n", game.customFont);
+	fprintf(fp, "SMALL_FONT_SIZE %d\n", game.fontSizeSmall);
+	fprintf(fp, "LARGE_FONT_SIZE %d\n", game.fontSizeLarge);
 }
 
 void readGameSettingsFromFile(char *buffer)
@@ -844,9 +840,7 @@ void readGameSettingsFromFile(char *buffer)
 	{
 		if (game.fontSizeSmall <= 0 || game.fontSizeLarge <= 0)
 		{
-			printf(_("SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"));
-
-			exit(1);
+			showErrorAndExit(_("SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom font"));
 		}
 	}
 }

@@ -186,7 +186,7 @@ static void die()
 	self->damage = 0;
 
 	self->action = &dieWait;
-	
+
 	self->thinkTime = 180;
 
 	self->head->mental--;
@@ -194,7 +194,7 @@ static void die()
 
 static void dieWait()
 {
-	if (self->head->inUse == FALSE)
+	if (self->head->target->inUse == FALSE)
 	{
 		if (self->head->mental <= 0)
 		{
@@ -207,17 +207,19 @@ static void dieWait()
 			self->mental = 1;
 		}
 	}
-	
+
 	else
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
+			self->head->mental++;
+
 			self->flags |= FLY;
-			
+
 			self->health = self->maxHealth;
-			
+
 			self->action = &attackPlayer;
 		}
 	}
@@ -241,7 +243,7 @@ static void moveToGargoyleInit()
 
 		self->action = &moveToGargoyle;
 
-		self->thinkTime = 180;
+		self->thinkTime = 600;
 	}
 
 	checkToMap(self);
