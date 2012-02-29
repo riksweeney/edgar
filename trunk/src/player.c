@@ -2838,7 +2838,7 @@ void setPlayerPetrified()
 	e->face = player.face;
 
 	e->draw = &drawLoopingAnimationToMap;
-	e->touch = NULL;
+	e->touch = &entityTouch;
 	e->takeDamage = NULL;
 
 	e->type = ENEMY;
@@ -2854,7 +2854,7 @@ void setPlayerPetrified()
 	setEntityAnimationByID(e, e->health);
 
 	setPlayerLocked(TRUE);
-	
+
 	player.flags &= ~NO_DRAW;
 
 	player.element = SLIME;
