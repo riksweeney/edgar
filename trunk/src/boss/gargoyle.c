@@ -270,8 +270,6 @@ static void introFinish()
 
 		else if (self->mental == 2)
 		{
-			self->maxThinkTime = 1;
-
 			stopSound(BOSS_CHANNEL);
 
 			playDefaultBossMusic();
