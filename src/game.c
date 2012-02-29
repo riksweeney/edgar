@@ -749,8 +749,8 @@ void writeGameSettingsToFile(FILE *fp)
 	fprintf(fp, "FULLSCREEN %d\n", game.fullscreen);
 	fprintf(fp, "AUDIO_QUALITY %d\n", game.audioQuality);
 	fprintf(fp, "FONT %s\n", game.customFont);
-	fprintf(fp, "SMALL_FONT_SIZE %d\n", game.fontSizeSmall);
-	fprintf(fp, "LARGE_FONT_SIZE %d\n", game.fontSizeLarge);
+	fprintf(fp, "SMALL_FONT_SIZE %d\n", game.fontSizeSmall == 0 ? NORMAL_FONT_SIZE : game.fontSizeSmall);
+	fprintf(fp, "LARGE_FONT_SIZE %d\n", game.fontSizeLarge == 0 ? LARGE_FONT_SIZE : game.fontSizeLarge);
 }
 
 void readGameSettingsFromFile(char *buffer)

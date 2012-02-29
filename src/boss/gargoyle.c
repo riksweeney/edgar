@@ -431,8 +431,6 @@ static void entityWait()
 								self->action = &bridgeDestroyInit;
 							break;
 						}
-
-						self->action = &bridgeDestroyInit;
 					}
 				break;
 
@@ -645,7 +643,7 @@ static void dropAttackMoveToTop()
 {
 	if (atTarget())
 	{
-		setEntityAnimation(self, "DROP_ATTACK");
+		setEntityAnimation(self, "DROP_ATTACK_READY");
 
 		self->action = &dropAttackFollowPlayer;
 	}
@@ -726,7 +724,7 @@ static void dropAttack()
 
 	if (self->thinkTime <= 0)
 	{
-		self->frameSpeed = 0;
+		setEntityAnimation(self, "DROP_ATTACK");
 
 		self->flags &= ~FLY;
 
@@ -753,8 +751,6 @@ static void dropAttack()
 
 			if (self->thinkTime <= 0)
 			{
-				self->frameSpeed = 1;
-
 				self->action = &attackFinished;
 			}
 		}
@@ -1533,13 +1529,24 @@ static void lanceThrowMoveToTarget()
 
 static void lanceThrow()
 {
+	int currentFrame;
+	float frameTimer;
+	
 	if (atTarget())
 	{
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
 		{
+			currentFrame = self->currentFrame;
+			frameTimer = self->frameTimer;
+
 			setEntityAnimation(self, "LANCE_THROW");
+
+			self->currentFrame = currentFrame;
+			self->frameTimer = frameTimer;
+
+			playSoundToMap("sound/boss/gargoyle/gargoyle_lance_stab.ogg", -1, self->x, self->y, 0);
 
 			self->target->mental = -1;
 
@@ -2641,6 +2648,8 @@ static void becomeMiniGargoyleInit()
 {
 	int i;
 	Entity *e;
+	
+	fadeFromColour(255, 255, 255, 30);
 
 	self->flags |= NO_DRAW;
 
@@ -2650,15 +2659,25 @@ static void becomeMiniGargoyleInit()
 
 	self->endX = 0;
 
-	for (i=0;i<20;i++)
+	for (i=0;i<18;i++)
 	{
-		e = addEnemy("enemy/mini_gargoyle", 0, 0);
+		e = addEnemy("boss/mini_gargoyle", 0, 0);
+		
+		setEntityAnimationByID(e, i);
+		
+		e->x = self->x + e->offsetX;
+		e->y = self->y + e->offsetY;
+		
+		e->endX = e->x;
+		e->endY = e->y;
+		
+		setEntityAnimation(e, "STAND");
 
 		e->targetY = getMapStartY() - player.h - TILE_SIZE;
 
 		e->head = self;
 
-		e->thinkTime = 30 + prand() % 120;
+		e->thinkTime = 60 + prand() % 120;
 
 		self->mental++;
 
@@ -2688,11 +2707,21 @@ static void becomeMiniGargoyleFinish()
 
 		if (self->thinkTime <= 0)
 		{
-			self->flags &= ~NO_DRAW;
+			if (self->flags & NO_DRAW)
+			{
+				fadeFromColour(255, 255, 255, 30);
+				
+				self->flags &= ~NO_DRAW;
+				
+				self->thinkTime = 60;
+			}
+			
+			else
+			{
+				self->touch = &entityTouch;
 
-			self->touch = &entityTouch;
-
-			self->action = &attackFinished;
+				self->action = &attackFinished;
+			}
 		}
 	}
 
@@ -3007,7 +3036,7 @@ static void stoneDie()
 
 	e->dirY = ITEM_JUMP_HEIGHT;
 
-	for (i=0;i<8;i++)
+	for (i=0;i<7;i++)
 	{
 		e = addTemporaryItem("boss/gargoyle_piece", self->x, self->y, RIGHT, 0, 0);
 
@@ -3021,6 +3050,8 @@ static void stoneDie()
 
 		e->thinkTime = 60 + (prand() % 60);
 	}
+	
+	playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->inUse = FALSE;
 }

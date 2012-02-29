@@ -24,6 +24,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../entity.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
+#include "../hud.h"
 #include "../player.h"
 #include "../system/error.h"
 #include "../system/properties.h"
@@ -57,6 +58,7 @@ Entity *addMiniGargoyle(int x, int y, char *name)
 	e->action = &attackPlayer;
 	e->draw = &drawLoopingAnimationToMap;
 	e->die = &die;
+	e->pain = &enemyPain;
 	e->takeDamage = &takeDamage;
 	e->touch = &touch;
 
@@ -73,6 +75,8 @@ static void attackPlayer()
 
 	if (self->thinkTime <= 0)
 	{
+		setEntityAnimation(self, "STAND");
+		
 		facePlayer();
 
 		self->targetX = player.x + player.w / 2 - self->w / 2;
@@ -114,8 +118,8 @@ static void touch(Entity *other)
 
 	else if (other->type == PLAYER && !(self->flags & GRABBING))
 	{
-		self->startX = prand() % other->w;
-		self->startY = prand() % other->h;
+		self->startX = prand() % (other->w - self->w);
+		self->startY = prand() % (other->h - self->h);
 
 		setCustomAction(other, &slowDown, 3, 1, 0);
 
@@ -123,9 +127,15 @@ static void touch(Entity *other)
 
 		self->action = &raiseOffScreen;
 
-		self->thinkTime = 120;
+		self->thinkTime = 0;
+
+		self->flags |= GRABBING;
 
 		self->layer = FOREGROUND_LAYER;
+
+		other->flags |= GRABBED;
+
+		self->mental = 3 + (prand() % 3);
 	}
 }
 
@@ -181,16 +191,20 @@ static void takeDamage(Entity *other, int damage)
 
 static void raiseOffScreen()
 {
-	setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
+	if (player.health > 0)
+	{
+		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
+	}
+	
+	setCustomAction(&player, &antiGravity, 2, 0, 0);
 
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + self->startX;
 	self->y = player.y + self->startY;
 
-	self->y -= 0.1;
+	self->y -= 0.02;
 
-	player.x = self->targetX;
 	player.y = self->y - self->startY;
 
 	if (self->y < self->targetY)
@@ -216,17 +230,15 @@ static void raiseOffScreen()
 
 	if (self->mental <= 0)
 	{
-		self->x = player.x + player.w / 2 - self->w / 2;
-
-		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
+		self->health = 0;
+		
+		self->dirX = 4 * (prand() % 2 == 0 ? -1 : 1);
 
 		self->dirY = -6;
 
 		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &die;
-
-		self->thinkTime = 300;
 
 		player.flags &= ~GRABBED;
 
@@ -236,6 +248,8 @@ static void raiseOffScreen()
 
 static void die()
 {
+	setEntityAnimation(self, "DIE");
+	
 	self->flags &= ~FLY;
 
 	self->takeDamage = NULL;
@@ -244,50 +258,50 @@ static void die()
 
 	self->action = &dieWait;
 
-	self->thinkTime = 180;
+	self->thinkTime = 240;
 
 	self->head->mental--;
 }
 
 static void dieWait()
 {
-	if (self->head->target->inUse == FALSE)
-	{
-		if (self->head->mental <= 0)
-		{
-			self->thinkTime = 60;
-
-			self->action = &moveToGargoyleInit;
-
-			self->touch = NULL;
-
-			self->flags |= FLY;
-
-			self->mental = 1;
-		}
-	}
-
-	else
-	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
-		{
-			self->head->mental++;
-
-			self->flags |= FLY;
-
-			self->health = self->maxHealth;
-
-			self->action = &attackPlayer;
-		}
-	}
-
 	checkToMap(self);
 
-	if (self->flags & ON_GROUND) || self->standingOn != NULL)
+	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->dirX = 0;
+		
+		if (self->head->target->inUse == FALSE)
+		{
+			if (self->head->mental <= 0)
+			{
+				setEntityAnimation(self, "STAND");
+				
+				self->thinkTime = 60;
+
+				self->action = &moveToGargoyleInit;
+
+				self->mental = 1;
+			}
+		}
+
+		else
+		{
+			self->thinkTime--;
+
+			if (self->thinkTime <= 0)
+			{
+				setEntityAnimation(self, "STAND");
+				
+				self->head->mental++;
+
+				self->flags |= FLY;
+
+				self->health = self->maxHealth;
+
+				self->action = &attackPlayer;
+			}
+		}
 	}
 }
 
@@ -297,13 +311,17 @@ static void moveToGargoyleInit()
 
 	if (self->thinkTime <= 0)
 	{
-		self->targetX = self->head->x;
-		self->targetY = self->head->y;
+		self->targetX = self->endX;
+		self->targetY = self->endY;
 
 		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
 
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
+		
+		self->touch = NULL;
+
+		self->flags |= FLY;
 
 		self->action = &moveToGargoyle;
 
