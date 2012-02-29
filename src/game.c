@@ -769,42 +769,60 @@ void readGameSettingsFromFile(char *buffer)
 		{
 			token = strtok(NULL, "\0");
 
-			game.audio = atoi(token);
+			if (token != NULL)
+			{
+				game.audio = atoi(token);
+			}
 		}
 
 		else if (strcmpignorecase(token, "SFX_VOLUME") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.sfxDefaultVolume = atoi(token);
+			if (token != NULL)
+			{
+				game.sfxDefaultVolume = atoi(token);
+			}
 		}
 
 		else if (strcmpignorecase(token, "MUSIC_VOLUME") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.musicDefaultVolume = atoi(token);
+			if (token != NULL)
+			{
+				game.musicDefaultVolume = atoi(token);
+			}
 		}
 
 		else if (strcmpignorecase(token, "HINTS") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.showHints = atoi(token);
+			if (token != NULL)
+			{
+				game.showHints = atoi(token);
+			}
 		}
 
 		else if (strcmpignorecase(token, "FULLSCREEN") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.fullscreen = atoi(token);
+			if (token != NULL)
+			{
+				game.fullscreen = atoi(token);
+			}
 		}
 
 		else if (strcmpignorecase(token, "AUDIO_QUALITY") == 0)
 		{
 			token = strtok(NULL, "\0");
 
-			game.audioQuality = atoi(token);
+			if (token != NULL)
+			{
+				game.audioQuality = atoi(token);
+			}
 
 			if (game.audioQuality == 0)
 			{
@@ -815,20 +833,29 @@ void readGameSettingsFromFile(char *buffer)
 		else if (strcmpignorecase(token, "FONT") == 0)
 		{
 			token = strtok(NULL, "\0");
-
-			STRNCPY(game.customFont, token, MAX_FILE_LENGTH);
+			
+			if (token != NULL)
+			{
+				STRNCPY(game.customFont, token, MAX_FILE_LENGTH);
+			}
 		}
 
 		else if (strcmpignorecase(token, "SMALL_FONT_SIZE") == 0)
 		{
-			token = strtok(NULL, "\0");
+			if (token != NULL)
+			{
+				token = strtok(NULL, "\0");
+			}
 
 			game.fontSizeSmall = atoi(token);
 		}
 
 		else if (strcmpignorecase(token, "LARGE_FONT_SIZE") == 0)
 		{
-			token = strtok(NULL, "\0");
+			if (token != NULL)
+			{
+				token = strtok(NULL, "\0");
+			}
 
 			game.fontSizeLarge = atoi(token);
 		}
