@@ -726,6 +726,8 @@ static void dropAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		self->frameSpeed = 0;
+
 		self->flags &= ~FLY;
 
 		if (landedOnGround(onGround) == TRUE)
@@ -751,6 +753,8 @@ static void dropAttack()
 
 			if (self->thinkTime <= 0)
 			{
+				self->frameSpeed = 1;
+
 				self->action = &attackFinished;
 			}
 		}
@@ -2649,6 +2653,8 @@ static void becomeMiniGargoyleInit()
 	for (i=0;i<20;i++)
 	{
 		e = addEnemy("enemy/mini_gargoyle", 0, 0);
+
+		e->targetY = getMapStartY() - player.h - TILE_SIZE;
 
 		e->head = self;
 

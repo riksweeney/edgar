@@ -117,6 +117,8 @@ static void touch(Entity *other)
 		self->startX = prand() % other->w;
 		self->startY = prand() % other->h;
 
+		setCustomAction(other, &slowDown, 3, 1, 0);
+
 		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
 		self->action = &raiseOffScreen;
@@ -177,6 +179,61 @@ static void takeDamage(Entity *other, int damage)
 	}
 }
 
+static void raiseOffScreen()
+{
+	setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
+
+	setCustomAction(&player, &slowDown, 3, 0, 0);
+
+	self->x = player.x + self->startX;
+	self->y = player.y + self->startY;
+
+	self->y -= 0.1;
+
+	player.x = self->targetX;
+	player.y = self->y - self->startY;
+
+	if (self->y < self->targetY)
+	{
+		freeEntityList(playerGib());
+
+		self->inUse = FALSE;
+	}
+
+	self->thinkTime++;
+
+	if (self->face != player.face)
+	{
+		self->face = player.face;
+
+		if (self->thinkTime <= 15)
+		{
+			self->mental--;
+		}
+
+		self->thinkTime = 0;
+	}
+
+	if (self->mental <= 0)
+	{
+		self->x = player.x + player.w / 2 - self->w / 2;
+
+		self->dirX = self->speed * 2 * (prand() % 2 == 0 ? -1 : 1);
+
+		self->dirY = -6;
+
+		setCustomAction(&player, &slowDown, 3, -1, 0);
+
+		self->action = &die;
+
+		self->thinkTime = 300;
+
+		player.flags &= ~GRABBED;
+
+		self->flags &= ~GRABBING;
+	}
+}
+
 static void die()
 {
 	self->flags &= ~FLY;
@@ -202,6 +259,8 @@ static void dieWait()
 
 			self->action = &moveToGargoyleInit;
 
+			self->touch = NULL;
+
 			self->flags |= FLY;
 
 			self->mental = 1;
@@ -225,6 +284,11 @@ static void dieWait()
 	}
 
 	checkToMap(self);
+
+	if (self->flags & ON_GROUND) || self->standingOn != NULL)
+	{
+		self->dirX = 0;
+	}
 }
 
 static void moveToGargoyleInit()
@@ -290,22 +354,4 @@ static void moveToGargoyle()
 	}
 
 	checkToMap(self);
-}
-
-static void raiseOffScreen()
-{
-	self->x = player.x + self->startX;
-	self->y = player.y + self->startY;
-
-	self->y -= 0.1;
-
-	player.x = self->targetX;
-	player.y = self->y - self->startY;
-
-	if (self->y < self->targetY)
-	{
-		freeEntityList(playerGib());
-
-		self->inUse = FALSE;
-	}
 }
