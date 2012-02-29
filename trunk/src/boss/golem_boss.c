@@ -689,6 +689,8 @@ static void explodeOnGround()
 
 	if (self->flags & ON_GROUND)
 	{
+		playSoundToMap("sound/common/crumble.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		
 		for (i=0;i<20;i++)
 		{
 			e = addSmallRock(self->x, self->y, "common/small_rock");
