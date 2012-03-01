@@ -285,9 +285,6 @@ static void introFinish()
 			self->thinkTime = 90;
 
 			self->flags |= LIMIT_TO_SCREEN;
-
-			self->startX = getMapStartX();
-			self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
 		}
 	}
 }
@@ -300,6 +297,8 @@ static void attackFinished()
 	{
 		showErrorAndExit("Gargoyle cannot find target");
 	}
+	
+	facePlayer();
 
 	setEntityAnimation(self, "FLY");
 
@@ -367,6 +366,9 @@ static void entityWait()
 
 	if (self->thinkTime <= 0 && player.health > 0)
 	{
+		self->startX = getMapStartX();
+		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
+		
 		if ((self->target == NULL || self->target->inUse == FALSE) && self->maxThinkTime < 3)
 		{
 			self->action = &createLanceInit;
@@ -573,9 +575,6 @@ static void splitInHalf()
 		self->target = e;
 
 		self->thinkTime = 0;
-
-		self->startX = getMapStartX();
-		self->endX   = getMapStartX() + SCREEN_WIDTH - self->w;
 	}
 }
 
@@ -1555,6 +1554,8 @@ static void lanceThrow()
 			self->action = &lanceThrowWait;
 
 			self->thinkTime = 30;
+			
+			self->maxThinkTime++;
 		}
 	}
 
@@ -1569,8 +1570,6 @@ static void lanceThrowWait()
 
 		if (self->thinkTime <= 0)
 		{
-			self->maxThinkTime++;
-
 			self->action = &attackFinished;
 		}
 	}
@@ -1663,7 +1662,7 @@ static void createLanceWait()
 		if (self->thinkTime <= 0)
 		{
 			self->health = self->maxHealth;
-
+			
 			facePlayer();
 
 			setEntityAnimation(self, "STAND");
@@ -2837,7 +2836,7 @@ static void die()
 
 	self->dirX = 0;
 
-	self->flags &= ~FLY;
+	self->flags &= ~(FLY|LIMIT_TO_SCREEN);
 
 	onGround = self->flags & ON_GROUND;
 
@@ -3075,6 +3074,10 @@ static void cloneCheck()
 
 static void cloneDie()
 {
+	self->action = &cloneDie;
+	
+	self->frameSpeed = 0;
+	
 	self->damage = 0;
 
 	self->dirX = 0;
@@ -3165,6 +3168,9 @@ static void fallout()
 
 	self->x = t->x;
 	self->y = t->y;
+	
+	self->dirX = 0;
+	self->dirY = 0;
 
 	self->flags |= FLY|NO_DRAW;
 

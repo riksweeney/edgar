@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-26 18:46+0000\n"
+"PO-Revision-Date: 2012-02-29 12:59+0000\n"
 "Last-Translator: Kulti <kultihell@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-26 21:28+0000\n"
-"X-Generator: Launchpad (build 14860)\n"
+"X-Launchpad-Export-Date: 2012-03-01 21:04+0000\n"
+"X-Generator: Launchpad (build 14886)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
 msgstr "Поворачивайтесь из стороны в сторону, чтобы стряхнуть слизней"
@@ -180,7 +180,7 @@ msgid "Coal Bag"
 msgstr "Угольный мешок"
 
 msgid "Forest Cell Key"
-msgstr ""
+msgstr "Ключ от комнаты в лесу"
 
 msgid "Wood Axe"
 msgstr "Топор"
@@ -189,13 +189,13 @@ msgid "Health Potion"
 msgstr "Зелье лечения"
 
 msgid "Outflow Key"
-msgstr ""
+msgstr "Ключ-утечка"
 
 msgid "Flow Control Key"
-msgstr ""
+msgstr "Ключ управления потоком"
 
 msgid "Waste Processing Key"
-msgstr ""
+msgstr "Ключ переработки отходов"
 
 msgid "Access Key 1"
 msgstr "Ключ доступа 1"
@@ -222,7 +222,7 @@ msgid "Can I borrow your shield?"
 msgstr "Могу я позаимствовать твой щит?"
 
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "Для тренировки своих боевых навыков?"
 
 msgid "Something like that"
 msgstr "Что-то вроде этого"
@@ -248,6 +248,7 @@ msgstr ""
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
 msgstr ""
+"Мне нужно всего 10 кусочков угля, не думаю, что это займет много времени"
 
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
@@ -299,7 +300,7 @@ msgid "Just stay away from the Forbidden Swamp"
 msgstr "Держись подальше от Запретного Болота"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "Сделаю. Можно взять вашу кирку ненадолго?"
 
 msgid "Sure thing, just bring it back in one piece"
 msgstr "Конечно, только верни его в целости"
@@ -314,9 +315,10 @@ msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
 msgstr ""
+"Вы можете тянуть некоторые предметы, нажав на них, удерживая кнопку Действие."
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "Вы можете его \"таскать\", пока держите кнопку Действие"
 
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
@@ -579,10 +581,10 @@ msgid "But spares aren't common and I have run out"
 msgstr ""
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
+msgstr "Если я не найду выход в ближайшее время, то, боюсь, умру от голода"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr ""
+msgstr "Если я не найду выход отсюда, меня ждет такая же участь..."
 
 msgid "Oh, what's this?"
 msgstr "Ох, что это?"
@@ -603,7 +605,7 @@ msgid ""
 msgstr ""
 
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr ""
+msgstr "Там еще осталось немного, оно должно быть безопасно для питья"
 
 msgid "OK, here goes nothing..."
 msgstr "ОК, ничего не происходит..."
@@ -652,13 +654,13 @@ msgid "Phew, I'm glad to be out of there"
 msgstr "Фью, я очень рад выбраться оттуда"
 
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "А теперь надо пройти через это болото"
 
 msgid "Hey, what's this?"
 msgstr "Эй, что это?"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr ""
+msgstr "Выглядит довольно безвредно, попробую наступить на это"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
 msgstr "Вау! Это было круто! Должно быть это механический телепорт"
@@ -669,6 +671,7 @@ msgstr "Надеюсь, он работает в обе стороны..."
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
 msgstr ""
+"Это не только избавляет меня от необходимости много ходить, это еще и весело!"
 
 msgid "Now try out your shield"
 msgstr "Теперь попробуйте ваш щит"
@@ -687,9 +690,10 @@ msgstr "Чтобы тянуть предмет, отходите от него, 
 
 msgid "You can then pull the item around until you let go of Action"
 msgstr ""
+"Вы можете тянуть некоторые предметы, пока не отпустите кнопку Действие."
 
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr ""
+msgstr "Подтяните коробку на другую сторону, чтобы добраться до выступа"
 
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
@@ -709,22 +713,29 @@ msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
 msgstr ""
+"Иногда, из убитых врагов падает здоровье, которое исчезнет через несколько "
+"секунд, так что поднимайте его быстро!"
 
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
+"Если летучая мышь остановится рядом с вами, удерживайте блок, и она просто "
+"отскочит от вас"
 
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "А теперь убейте всех летучих мышей!"
 
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
 msgstr ""
+"В игре существует два типа дверей. Открываемые вручную и автоматически."
 
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
 msgstr ""
+"Двери открываемые вручную требуют соответствующего ключа, автоматические - "
+"переключателя."
 
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
@@ -734,17 +745,19 @@ msgstr ""
 "идите на нее. Для этого не нужно выбирать ключ в инвентаре."
 
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "Откройте дверь и двигайтесь дальше"
 
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
 msgstr ""
+"Поздравляю! Теперь вы знаете основы игры и можете попробовать пройти игру"
 
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
 msgstr ""
+"Если вы хотите переиграть обучение, нажмите Escape и выберите в меню Обучение"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
 msgstr ""
@@ -755,11 +768,15 @@ msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
 msgstr ""
+"Это обучение для игры Легенда об Эдгаре. Оно объяснит вам, как играть в эту "
+"игру."
 
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
+"Чтобы выйти из обучения, нажмите Escape и используйте стрелки вверх и вниз "
+"для выбора пункта меню и нажмите Return."
 
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
@@ -807,10 +824,10 @@ msgid "Pick up the pickaxe and continue to the next Action Point"
 msgstr ""
 
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "Поздравляю, вы нашли секрет!"
 
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr ""
+msgstr "В основной игре много секретов, попробуйте найти их"
 
 msgid "Here's a hint to get you started"
 msgstr ""
@@ -929,7 +946,7 @@ msgid "A potion which renders you invisible to certain enemies"
 msgstr ""
 
 msgid "The eyeball from a Gazer"
-msgstr ""
+msgstr "Глазное яблоко Наблюдателя"
 
 msgid "A Tesla Pack. It has no charge."
 msgstr "Катушка Тесла. Не заряжена."
@@ -1032,16 +1049,17 @@ msgid "Incorrect Sequence"
 msgstr ""
 
 msgid "The Legend of Edgar has encountered the following error"
-msgstr ""
+msgstr "Легенда об Эдгаре обнаружила следующую ошибку"
 
 msgid "Please report this error to Parallel Realities"
-msgstr ""
+msgstr "Пожалуйста, сообщите об этой ошибке Parallel Realities"
 
 msgid "It looks like a blender. I could use this to liquidise something"
 msgstr ""
+"Это похоже на блендер. Я мог бы использовать его, чтобы взболтать что-нибудь"
 
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "Это должно быть уголь, который Борган просил принести ему из шахт"
 
 msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
@@ -1059,43 +1077,43 @@ msgid ""
 msgstr ""
 
 msgid "Maybe I can create a shield..."
-msgstr ""
+msgstr "Возможно, я смогу сделать щит..."
 
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "Мечи... Доспехи... Жезлы..."
 
 msgid "Stupid book. It's not in order and there's no index"
-msgstr ""
+msgstr "Глупая книга. Все не по порядку и нет индекса"
 
 msgid "Here we go: Shields"
-msgstr ""
+msgstr "Поехали: Щиты"
 
 msgid "Shield of Fire Resistance"
-msgstr ""
+msgstr "Огнеупорный Щит"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ингридиенты"
 
 msgid "One must gather the following"
-msgstr ""
+msgstr "Надо собрать следующее"
 
 msgid "The root of a Mandrake"
-msgstr ""
+msgstr "Корень Мандрагоры"
 
 msgid "The fat of a Darsh (left to stand for 3 months)"
 msgstr ""
 
 msgid "Powered Condor bones"
-msgstr ""
+msgstr "Усиленная кость кондора"
 
 msgid "3 eyes of the Gazer"
-msgstr ""
+msgstr "3 глаза Наблюдателей"
 
 msgid "The freshly cut tentacle from a female Red Sludge"
 msgstr ""
 
 msgid "The shield to apply the enchantment"
-msgstr ""
+msgstr "Щит, который нужно улучшить"
 
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
 msgstr ""
@@ -1106,10 +1124,10 @@ msgid ""
 msgstr ""
 
 msgid "When the mixture turns bright blue, add the shield"
-msgstr ""
+msgstr "Когда смесь станет ярко голубой, добавьте щит"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr ""
+msgstr "Наблюдатели обитают в подвале, так что это не проблема"
 
 msgid ""
 "What I do need to find is a Red Sludge, but I have no idea where to find one"
@@ -1159,10 +1177,10 @@ msgid "Oh Edgar, you're hurt! Let me heal your wounds"
 msgstr "Ох, Эдгар, ты ранен! Позволь мне залечить твои раны!"
 
 msgid "Gazer"
-msgstr ""
+msgstr "Наблюдатель"
 
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr ""
+msgstr "Наблюдатели - летающие циклопы, которых можно найти в разных местах"
 
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
@@ -1176,15 +1194,21 @@ msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
 msgstr ""
+"Наблюдатели атакуют (и защищаются), открывая глаз, который поражает всех, "
+"кто в них смотрит"
 
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
+"Эта атака эффективна только в том случае, если жертва стоит лицом к "
+"Наблюдателю"
 
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
+"Глазное яблоко Наблюдателя содержит магические свойства и является общим "
+"ингредиентом для приготовления заклинаний"
 
 msgid "Centurion, Grey"
 msgstr ""
@@ -1676,7 +1700,7 @@ msgid "I need a blank card to put the instructions on"
 msgstr ""
 
 msgid "Obtain 3 Gazer Eyes"
-msgstr ""
+msgstr "Получите 3 Глаза Наблюдателя"
 
 msgid "Obtain 1 Red Sludge Tentacle"
 msgstr ""
@@ -2390,7 +2414,7 @@ msgid "Stupid thing. Maggie makes it all look so easy..."
 msgstr ""
 
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr ""
+msgstr "ОК, Глазные Яблоки и Щупалец добавлены"
 
 msgid "And the rest of the ingredients too"
 msgstr ""
@@ -3880,7 +3904,7 @@ msgid ""
 msgstr ""
 
 msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
-msgstr ""
+msgstr "Добыть глаза Наблюдателей легко, мне могу просто вернуться в Подвал"
 
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
@@ -4831,4 +4855,7 @@ msgid "Completed the game without continuing"
 msgstr ""
 
 msgid "Accessed the Crypt"
+msgstr ""
+
+msgid "Quickly turn left and right to shake off the miniature gargoyles!"
 msgstr ""

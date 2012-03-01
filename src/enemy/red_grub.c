@@ -182,7 +182,7 @@ static void spinAttackEnd()
 {
 	checkToMap(self);
 	
-	if ((self->flags & ON_GROUND) && self->thinkTime == 0)
+	if (((self->flags & ON_GROUND) || self->standingOn != NULL) && self->thinkTime == 0)
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
 
