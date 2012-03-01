@@ -4771,3 +4771,6 @@ msgstr ""
 
 msgid "Accessed the Crypt"
 msgstr ""
+
+msgid "Quickly turn left and right to shake off the miniature gargoyles!"
+msgstr ""
