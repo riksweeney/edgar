@@ -228,7 +228,7 @@ static void raiseOffScreen()
 		self->thinkTime = 0;
 	}
 
-	if (self->mental <= 0)
+	if (self->mental <= 0 || self->health <= 0)
 	{
 		self->health = 0;
 		
@@ -250,7 +250,9 @@ static void die()
 {
 	setEntityAnimation(self, "DIE");
 	
-	self->flags &= ~FLY;
+	player.flags &= ~GRABBED;
+	
+	self->flags &= ~(FLY|GRABBING);
 
 	self->takeDamage = NULL;
 
@@ -300,6 +302,8 @@ static void dieWait()
 				self->health = self->maxHealth;
 
 				self->action = &attackPlayer;
+				
+				self->takeDamage = &takeDamage;
 			}
 		}
 	}

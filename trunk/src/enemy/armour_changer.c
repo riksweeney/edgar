@@ -324,7 +324,7 @@ static void die()
 
 	playSoundToMap("sound/enemy/armadillo/armadillo_die.ogg", -1, self->x, self->y, 0);
 
-	if (prand() % 2 != 0)
+	if (prand() % 3 != 0)
 	{
 		e = addKeyItem("item/poison_meat", self->x + self->w / 2, self->y);
 

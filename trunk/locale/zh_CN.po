@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-26 15:44+0000\n"
+"PO-Revision-Date: 2012-02-27 13:59+0000\n"
 "Last-Translator: acme_pjz <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-26 21:28+0000\n"
-"X-Generator: Launchpad (build 14860)\n"
+"X-Launchpad-Export-Date: 2012-03-01 21:04+0000\n"
+"X-Generator: Launchpad (build 14886)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr ""
+msgstr "快速左右摇动以甩开史莱姆！"
 
 msgid "Bow"
 msgstr "弓"
 
 msgid "Press Action to interact"
-msgstr ""
+msgstr "按动作键交谈"
 
 msgid "%s is required"
 msgstr "需要 %s"
@@ -219,574 +219,574 @@ msgid "Hello Edgar"
 msgstr "你好，Edgar"
 
 msgid "Can I borrow your shield?"
-msgstr ""
+msgstr "我可以借你的盾一用么？"
 
 msgid "Off to practice your fighting skills?"
-msgstr ""
+msgstr "外出练习你的战斗技能？"
 
 msgid "Something like that"
-msgstr ""
+msgstr "可以这么说吧"
 
 msgid "If you run me an errand then you can have the shield"
-msgstr ""
+msgstr "如果你能完成我给你的任务， 你就可以借走盾"
 
 msgid "What do I have to do?"
-msgstr ""
+msgstr "我要做什么事？"
 
 msgid "Go to the mine and collect me some coal"
-msgstr ""
+msgstr "去矿井里面收集一些煤给我"
 
 msgid "But we have plenty of coal!"
-msgstr ""
+msgstr "但是我们已经有许多煤了啊！"
 
 msgid ""
 "Yes, but this is not any old coal, this coal is special, it burns hotter and "
 "lasts longer"
-msgstr ""
+msgstr "没错， 不过这次我要你找的不是以前的煤， 这煤是不一般的， 能烧得更热更久"
 
 msgid ""
 "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr ""
+msgstr "我只需要10块这样的煤， 应该不会花费你太多时间"
 
 msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
-msgstr ""
+msgstr "你要确保把煤放到袋子里面， 摸煤太久对你的身体可没好处"
 
 msgid "Do you have a bag?"
-msgstr ""
+msgstr "你有袋子么？"
 
 msgid "No, you can probably find one in the mine though"
-msgstr ""
+msgstr "没有， 不过你应该能在矿井里面找到一个"
 
 msgid "OK, I'll get the coal"
-msgstr ""
+msgstr "好的， 我会把煤带回来"
 
 msgid ""
 "Here, take this pickaxe. You can use it to mine the coal and hack through "
 "any weaker walls you encounter"
-msgstr ""
+msgstr "把这把鹤嘴锄拿去。 你能用这个来采煤， 还可以砸开不太坚硬的墙壁"
 
 msgid "You'll also need this key to get into the mine"
-msgstr ""
+msgstr "你还需要这把钥匙来打开矿井的门"
 
 msgid "Thanks!"
 msgstr "谢谢！"
 
 msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
-msgstr ""
+msgstr "谢谢你， Edgar。 这些煤看起来非常棒！ 希望那些蝙蝠没有把你吓到。"
 
 msgid "The bats were the least of my worries..."
-msgstr ""
+msgstr "我才不担心那些蝙蝠呢……"
 
 msgid "Say, I heard that something happened in that mine a few years ago"
-msgstr ""
+msgstr "呃， 我听说几年之前矿井里面发生了一些事情"
 
 msgid "Right..."
-msgstr ""
+msgstr "哦……"
 
 msgid "Here, have my shield and have fun!"
-msgstr ""
+msgstr "这是我的盾。 把它拿去， 另外祝你玩得愉快！"
 
 msgid "Just stay away from the Forbidden Swamp"
-msgstr ""
+msgstr "只不过你要离禁忌沼泽远远的"
 
 msgid "Will do, can I hold on to your pickaxe for a while?"
-msgstr ""
+msgstr "我知道。 我能再多借你的鹤嘴锄一会么？"
 
 msgid "Sure thing, just bring it back in one piece"
-msgstr ""
+msgstr "没问题， 就算你把它搞坏了， 把它的碎片拿回来也行！"
 
 msgid "Thanks, Borgan!"
-msgstr ""
+msgstr "谢谢你， Borgan！"
 
 msgid "Have you managed to find the coal yet?"
-msgstr ""
+msgstr "现在你找到煤了么？"
 
 msgid ""
 "You can pull some items around by pushing against them whilst holding down "
 "the Action button."
-msgstr ""
+msgstr "当你按着动作键的时候， 可以拉动一些物品。"
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr ""
+msgstr "你可以随意拉动它们， 直到你松开动作键为止。"
 
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
-msgstr ""
+msgstr "看起来这石头太硬， 鹤嘴锄砸不动。 我必须用什么别的东西来搞定它……"
 
 msgid "Urgh, what happened?"
-msgstr ""
+msgstr "呃， 发生了什么事？"
 
 msgid "Looks like this wasn't such a good idea after all"
-msgstr ""
+msgstr "看起来这不是一个很好的主意"
 
 msgid "There must be way out of here..."
-msgstr ""
+msgstr "这里肯定有别的路出去……"
 
 msgid ""
 "I don't think my shield will protect me from those fireballs. I'll have to "
 "find a stronger one..."
-msgstr ""
+msgstr "我认为我的盾并不能阻挡住这些火球。 我必须找到更好的盾……"
 
 msgid "Strange creature..."
-msgstr ""
+msgstr "奇怪的生物……"
 
 msgid "Wait, what was that?"
-msgstr ""
+msgstr "等等， 那是什么？"
 
 msgid "You again?!"
-msgstr ""
+msgstr "又是你？！"
 
 msgid ""
 "Something is supposed to happen here, but it's not in this version so check "
 "back later!"
-msgstr ""
+msgstr "这里应当会有什么东西， 不过在这个版本中没有。 下个版本时再回来看！"
 
 msgid "Have fun!"
-msgstr ""
+msgstr "玩得愉快！"
 
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
-msgstr ""
+msgstr "谢谢你， Edgar！ 我的鸡已经抓回来了， 这些原木也很有用"
 
 msgid "Take this sword, may it serve you well!"
-msgstr ""
+msgstr "把这剑拿去， 希望你用得顺手！"
 
 msgid "Thank you!"
 msgstr "谢谢！"
 
 msgid "Thanks for the logs, have you had any luck with the chickens?"
-msgstr ""
+msgstr "谢谢你给我带回这些原木， 你在抓鸡的事情上有什么进展么？"
 
 msgid ""
 "I'll give you a sword if you get me 2 chopped logs from the forest and "
 "rescue at least 3 of my chickens"
-msgstr ""
+msgstr "如果你能给我从森林里带回2根原木， 再帮我抓回至少3只鸡， 我就把剑给你"
 
 msgid "Hello Edgar, what can I do for you today?"
-msgstr ""
+msgstr "你好， Edgar， 今天我可以为你做什么事情吗？"
 
 msgid "Do you have a sword I can borrow?"
-msgstr ""
+msgstr "我想借一把剑， 不知道你有没有？"
 
 msgid ""
 "I do have a sword and you can have it if you do something for me first"
-msgstr ""
+msgstr "我确实有一把剑， 而且你可以拿去， 不过你要先帮我做一些事情"
 
 msgid "OK... what do I have to do?"
-msgstr ""
+msgstr "好吧……我要做什么事情呢？"
 
 msgid ""
 "Some of my chickens have escaped from their pen and I would be very grateful "
 "if you can get them back for me"
-msgstr ""
+msgstr "我的一些鸡从鸡笼里面跑掉了， 如果你能帮我把鸡抓回来的话， 我会很感激的"
 
 msgid ""
 "I have set up some traps near their pen, you can lure them to the traps "
 "using this chicken feed. I don't need them all, but at least 3 would be very "
 "helpful. I can get the rest myself."
-msgstr ""
+msgstr "我在鸡笼旁边放置了一些陷阱， 你可以用这些鸡食把它们引过来。 我不需要你把它们全抓住， 至少3只就很有帮助了。 剩下的我可以自己抓。"
 
 msgid "That's it?"
-msgstr ""
+msgstr "就这个事情么？"
 
 msgid ""
 "Not quite. Can you also get me some wood from the forest? 2 logs should be "
 "sufficient"
-msgstr ""
+msgstr "还没完呢。 你能帮我从森林里面带回一些木头么？ 2根原木应该就够了"
 
 msgid "Do you have an axe?"
-msgstr ""
+msgstr "你有斧头么？"
 
 msgid ""
 "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr ""
+msgstr "嗯……我把我的斧头落在森林的什么地方了。 不过应该还在森林里……"
 
 msgid "Isn't that forest dangerous?"
-msgstr ""
+msgstr "森林不是很危险么？"
 
 msgid "Not really, if anything gets in your way, just hit it with a weapon"
-msgstr ""
+msgstr "不是啊。 如果什么东西胆敢靠近你的话， 用武器来揍它就成了"
 
 msgid "Such as an axe?"
-msgstr ""
+msgstr "比如说用斧头？"
 
 msgid "Yes, that would do the trick"
-msgstr ""
+msgstr "是的，这就够了"
 
 msgid "..."
-msgstr ""
+msgstr "……"
 
 msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
-msgstr ""
+msgstr "不过确切地说， 森林里并没有什么能真正地伤害你。 问题在很久以前就已经解决了……"
 
 msgid "Good luck!"
-msgstr ""
+msgstr "祝你好运！"
 
 msgid ""
 "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr ""
+msgstr "噢， 谢谢你， Edgar， 我只需要3只鸡， 不过还是谢谢你的额外帮助！"
 
 msgid ""
 "Here, Maggie made me this health potion but I don't need it so why don't you "
 "have it?"
-msgstr ""
+msgstr "Maggie给我做了一瓶生命药剂， 不过我并不需要这东西。 你拿上它用处会大一些"
 
 msgid "Thanks Jacob"
-msgstr ""
+msgstr "谢谢你，Jacob"
 
 msgid "Wow, you caught them all, thanks alot!"
-msgstr ""
+msgstr "哇， 你把所有的鸡都抓住了， 太感谢你了！"
 
 msgid "Here, I have these for you"
-msgstr ""
+msgstr "我有一些东西要给你"
 
 msgid "Maggie made me this health potion but you can have it"
-msgstr ""
+msgstr "Maggie给我做了一瓶生命药剂， 不过你可以拿走它"
 
 msgid "And this is something very special"
-msgstr ""
+msgstr "这里还有一个非常特殊的东西"
 
 msgid "May this help you on your way to becoming a strong warrior"
-msgstr ""
+msgstr "希望这可以帮助你在成为一名勇猛战士的路上前进"
 
 msgid ""
 "You saved me a lot of time. Maggie made me something else but since you have "
 "been so helpful, you can have it."
-msgstr ""
+msgstr "你帮我省下了大量时间。 Maggie给我做了别的东西， 既然你这么助人为乐， 你可以把它拿去。"
 
 msgid "Hi Maggie"
-msgstr ""
+msgstr "你好，Maggie"
 
 msgid "Thanks Maggie!"
-msgstr ""
+msgstr "谢谢你，Maggie"
 
 msgid "There must be something around here..."
-msgstr ""
+msgstr "这附近肯定有什么东西……"
 
 msgid "Drat, the drawbridge is up. There must be another entrance..."
-msgstr ""
+msgstr "该死，吊桥收起来了。 这里肯定还有别的入口……"
 
 msgid "Wait, what's that?"
-msgstr ""
+msgstr "等等，那是什么？"
 
 msgid "Maybe I could tunnel my way in..."
-msgstr ""
+msgstr "也许我可以从这里钻进去……"
 
 msgid "These machines aren't working."
-msgstr ""
+msgstr "这些机器不工作了。"
 
 msgid ""
 "It looks like a gem should fit in this hole, maybe I can find some "
 "replacements."
-msgstr ""
+msgstr "看起来这个洞正好能放下一颗宝石， 也许我能找到替代品。"
 
 msgid ""
 "It looks like it's tightly wedged in there. I can probably loosen it with "
 "the pickaxe..."
-msgstr ""
+msgstr "看起来它被紧紧地嵌在这里了。 我可以用鹤嘴锄来弄松它……"
 
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
-msgstr ""
+msgstr "为了去禁忌沼泽，我要造一个木筏。"
 
 msgid "I can build the raft if I chop down enough trees from the forest"
-msgstr ""
+msgstr "如果我从森林里面砍足够的树， 我就能造一艘木筏"
 
 msgid "I need 6 Chopped Logs to build a raft"
-msgstr ""
+msgstr "我需要6根原木来建造木筏"
 
 msgid "I'm not going to the swamp without a sword and shield"
-msgstr ""
+msgstr "没有剑和盾，去沼泽简直是开玩笑"
 
 msgid "OK, here goes!"
-msgstr ""
+msgstr "现在出发！"
 
 msgid "Aw, not again!"
-msgstr ""
+msgstr "啊，不会要再来一次吧！"
 
 msgid "This had better be the last time I have to do this..."
-msgstr ""
+msgstr "这最好是最后一次我不得不干这事情……"
 
 msgid "That was easy! And I can always get back later!"
-msgstr ""
+msgstr "这很容易！而且我以后总是可以再回来的！"
 
 msgid "Oh...."
-msgstr ""
+msgstr "啊……"
 
 msgid "Guess I have no choice now."
-msgstr ""
+msgstr "似乎现在我别无选择了。"
 
 msgid "Hang on Dad, I'm coming..."
-msgstr ""
+msgstr "父亲，坚持住，我就来……"
 
 msgid "There's a note here"
-msgstr ""
+msgstr "这里有一些字迹"
 
 msgid "I've been trapped down here for what seems like an eternity"
-msgstr ""
+msgstr "我被困在这里了，而且似乎没有办法出去"
 
 msgid "To get out of this place I need 3 Access Keys to work the lifts"
-msgstr ""
+msgstr "要离开这个鬼地方， 我要收集3把通道钥匙来开启这个升降梯"
 
 msgid "So far I have only found 1"
-msgstr ""
+msgstr "到目前为止我只找到1把"
 
 msgid ""
 "To make matters worse, I can only reach some switches with a carefully "
 "placed arrow"
-msgstr ""
+msgstr "更糟糕的是， 有些开关只能从巧妙的位置射箭达到"
 
 msgid "But spares aren't common and I have run out"
-msgstr ""
+msgstr "但是箭很难找到，我已经用完了"
 
 msgid "If I don't find a way out of here soon, I fear I may starve"
-msgstr ""
+msgstr "如果我不能尽快想办法出去的话，恐怕会被饿死在这里"
 
 msgid "If I don't get out of here I'll suffer the same fate..."
-msgstr ""
+msgstr "如果我不尽快出去的话， 我也会落得这个下场……"
 
 msgid "Oh, what's this?"
-msgstr ""
+msgstr "哦，这是什么？"
 
 msgid "There's a note here too"
-msgstr ""
+msgstr "这里还有一个说明"
 
 msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
-msgstr ""
+msgstr "这个药剂非常棒！ 喝下它能在短时间内把一个人变形成一种生物"
 
 msgid ""
 "So far I can only transmogrify myself into one creature but with a bit more "
 "time anything should be possible"
-msgstr ""
+msgstr "到目前为止我只能把自己变成一种生物， 但是如果再给一些时间的话任何东西都是有可能的"
 
 msgid "There's a tiny bit left, it should be safe to drink"
-msgstr ""
+msgstr "这里还留下了一点， 喝下去应该是安全的"
 
 msgid "OK, here goes nothing..."
-msgstr ""
+msgstr "哈哈，似乎没有什么事情发生……"
 
 msgid "Urgh!! This is horrible!"
-msgstr ""
+msgstr "啊！！这太可怕了！"
 
 msgid ""
 "Borgan told me that Slimes can swim in water though, so maybe this will be "
 "useful..."
-msgstr ""
+msgstr "不过Borgan告诉我史莱姆可以在水里游泳， 这个东西看来还是有用的……"
 
 msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
-msgstr ""
+msgstr "当变形为史莱姆的时候， 你可以像平常一样移动。 你还可以在水里游泳， 按上和下控制方向"
 
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
-msgstr ""
+msgstr "在靠近水面的地方， 按上或者跳跃键可以跳跃出水面"
 
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
-msgstr ""
+msgstr "注意屏幕下方的时间显示。 当时间变成0的时候你将会重新变回来"
 
 msgid "This place doesn't look so bad..."
-msgstr ""
+msgstr "这地方看起来不是很糟……"
 
 msgid "What was that?"
-msgstr ""
+msgstr "那是什么？"
 
 msgid "Uh Oh..."
-msgstr ""
+msgstr "不好……"
 
 msgid "Phew, I'm glad to be out of there"
-msgstr ""
+msgstr "呼，总算出来了"
 
 msgid "Now to get through this swamp"
-msgstr ""
+msgstr "现在要穿过这片沼泽"
 
 msgid "Hey, what's this?"
-msgstr ""
+msgstr "嘿，这是什么？"
 
 msgid "Looks pretty harmless, I'll try stepping on it"
-msgstr ""
+msgstr "看起来无害，我站上去试试"
 
 msgid "Wow! That was cool! This must be a mechanical teleporter."
-msgstr ""
+msgstr "哇！这太棒了！这肯定是一个传送门。"
 
 msgid "I wonder if it works both ways..."
-msgstr ""
+msgstr "我觉得它是双向的……"
 
 msgid ""
 "Not only is this going to save me a lot of walking, it's also loads of fun!"
-msgstr ""
+msgstr "这不仅节省了我大量走路的时间，还十分有趣！"
 
 msgid "Now try out your shield"
-msgstr ""
+msgstr "现在试试你的盾"
 
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr ""
+msgstr "挡住植物射出的弹丸， 然后跳到下一个平台上"
 
 msgid "Some items in the game can be pushed and pulled"
-msgstr ""
+msgstr "游戏中的一些物品可以被推拉"
 
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "要推动一件物品， 只需要走过去"
 
 msgid "To pull an item, walk into while holding down Action"
-msgstr ""
+msgstr "要拉动一件物品， 再走过去的时候按住动作键"
 
 msgid "You can then pull the item around until you let go of Action"
-msgstr ""
+msgstr "你可以随意拉动物品， 直到你松开动作键为止"
 
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr ""
+msgstr "把箱子拉动到另一边， 利用箱子跳上平台"
 
 msgid ""
 "This is the last part of the tutorial and will teach you to block and attack "
 "enemies"
-msgstr ""
+msgstr "这是教程的最后一部分， 将教给你如何格挡和攻击敌人"
 
 msgid ""
 "First, you should equip the sword since it has more range and does more "
 "damage than the pickaxe"
-msgstr ""
+msgstr "首先你应该把剑给装备上， 因为它的攻击范围和杀伤力都比鹤嘴锄要大"
 
 msgid ""
 "Occasionally, slain enemies will drop health which will vanish after a few "
 "seconds, so pick it up quickly!"
-msgstr ""
+msgstr "有时击败敌人之后会掉落一些物品， 但是物品在几秒内就会消失， 因此要迅速过去捡！"
 
 msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
-msgstr ""
+msgstr "如果蝙蝠离你太近， 按下格挡键， 它就会被弹开"
 
 msgid "Now kill all of the bats in the area!"
-msgstr ""
+msgstr "现在把这片区域内的蝙蝠都杀光！"
 
 msgid ""
 "There are two types of door in the game. Manual doors and Automatic doors."
-msgstr ""
+msgstr "游戏中有两种类型的门。 一种是手动的， 另一种是自动的。"
 
 msgid ""
 "Manual doors require keys to open them, Automatic doors require switches."
-msgstr ""
+msgstr "手动的门需要用钥匙来打开， 自动的门则需要开关。"
 
 msgid ""
 "To open a locked door that you have the key for, simply walk into it. There "
 "is no need to have the key selected in your inventory."
-msgstr ""
+msgstr "如果你有一个门所对应的钥匙， 只要走过去就行了。 不需要在道具栏里面选择相应的钥匙。"
 
 msgid "Open the door and continue to the right"
-msgstr ""
+msgstr "把门打开， 继续往右走"
 
 msgid ""
 "Congratulations! Now you know the basics of playing you should try the main "
 "game"
-msgstr ""
+msgstr "恭喜你完成教程！ 现在你已经知道了游戏的基本玩法， 可以试一下主游戏了"
 
 msgid ""
 "If you want to replay this tutorial, press Escape and select Tutorial from "
 "the menu"
-msgstr ""
+msgstr "如果你想再次进行教程， 按Esc键， 在主菜单里面选择“教程”"
 
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr ""
+msgstr "要玩主游戏， 按Esc键， 在主菜单里面选择“新游戏”"
 
 msgid ""
 "This is the tutorial for The Legend of Edgar. This tutorial will explain how "
 "to play the game."
-msgstr ""
+msgstr "这是Edgar传奇的游戏教程。 该教程将会教给你如何玩这个游戏。"
 
 msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
-msgstr ""
+msgstr "要退出教程， 按Esc键并用方向键选择一个选项。 按回车键选择。"
 
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
-msgstr ""
+msgstr "要捡起一个物品， 只要走过去就行了。 任何可以拾取的物品都会自动添加到道具栏。"
 
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr ""
+msgstr "在道具栏中， 使用方向键来查看物品。"
 
 msgid "Walk over the key to pick it up"
-msgstr ""
+msgstr "走到钥匙上面以捡起它"
 
 msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
-msgstr ""
+msgstr "要修改按键设置， 按Esc键， 在主菜单里面选择“选项”"
 
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr ""
+msgstr "选择“设置按键”， 然后按回车键"
 
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
-msgstr ""
+msgstr "用方向键选择你想要修改的按键， 然后按回车键。"
 
 msgid "Next, press the key that you want to use instead."
-msgstr ""
+msgstr "按下你想设置成的新的按键。"
 
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
-msgstr ""
+msgstr "不论你设置的按键是什么， 在菜单里面总是可以用方向键和回车键"
 
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
-msgstr ""
+msgstr "当你设置好按键之后， 继续走到右边的事件点"
 
 msgid "The pickaxe is one of many weapons you will encounter in the game"
-msgstr ""
+msgstr "鹤嘴锄是你能在游戏里面见到的武器之一"
 
 msgid "You can use it as both a weapon and a tool"
-msgstr ""
+msgstr "你可以把它当成一个武器， 也可以是一个工具"
 
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "捡起鹤嘴锄， 然后走到下一个事件点"
 
 msgid "Congratulations, you found a secret!"
-msgstr ""
+msgstr "恭喜你发现了一个秘密！"
 
 msgid "There are many secrets in the main game so keep a look out for them"
-msgstr ""
+msgstr "在游戏中有许多隐藏的秘密， 一定要仔细观察找到它们哟！"
 
 msgid "Here's a hint to get you started"
 msgstr ""
 
 msgid "The shield will protect you from most enemy attacks"
-msgstr ""
+msgstr "盾可以保护你免受大多数敌人的攻击"
 
 msgid "Some enemy attacks cannot be blocked"
-msgstr ""
+msgstr "不过有一些敌人的攻击不能被格挡"
 
 msgid "Environmental hazards, such as falling rocks, cannot be blocked"
-msgstr ""
+msgstr "环境里的威胁， 例如落石， 也不能被格挡"
 
 msgid "You must be facing the attack to successfully block it"
-msgstr ""
+msgstr "你必须面对着攻击才能成功地格挡"
 
 msgid ""
 "Note that you cannot move whilst blocking, but you can face the other way. "
 "You also cannot block in the air"
-msgstr ""
+msgstr "当格挡的时候， 你不能移动， 不过可以改变朝向。 在空中的时候也不能格挡"
 
 msgid "Pick up the shield and continue to the right"
-msgstr ""
+msgstr "捡起盾并继续往右走"
 
 msgid "This is a weak wall, it can be smashed down using the pickaxe"
-msgstr ""
+msgstr "这是不太坚硬的墙， 可以用鹤嘴锄来砸开它"
 
 msgid "Destroy the wall using the pickaxe and continue"
-msgstr ""
+msgstr "砸开墙壁， 继续往右走"
 
 msgid "Collect 10 pieces of Coal"
 msgstr "收集10块煤"
@@ -897,7 +897,7 @@ msgid "A bag suitable for carrying coal"
 msgstr "一个适于装煤的袋子"
 
 msgid "Basic Sword"
-msgstr ""
+msgstr "普通剑"
 
 msgid "A Sword given to you by Jacob"
 msgstr "Jacob给你的一把剑"
@@ -941,7 +941,7 @@ msgstr "炸药储藏室钥匙"
 msgid ""
 "Whatever that thing was it was draining the power from that generator and "
 "using it against me."
-msgstr ""
+msgstr "不管这个东西是什么， 不过可以看出它从发电机中吸取了能量， 并用这些能量来对付我。"
 
 msgid "Defeat all Energy Drainers"
 msgstr "摧毁所有能量吸取器"
@@ -961,10 +961,10 @@ msgstr "这里就是城堡了。"
 msgid ""
 "It looks like a lot of doors lead off to other areas, I should have a proper "
 "look around before I go anywhere else..."
-msgstr ""
+msgstr "看起来有许多门通向不同的区域， 我需要仔细观察一下再决定去什么地方……"
 
 msgid "Try hitting the skull..."
-msgstr ""
+msgstr "打骷髅试试看……"
 
 msgid "This machine is not active"
 msgstr "这台机器没有启动"
@@ -985,151 +985,151 @@ msgid "Please report this error to Parallel Realities"
 msgstr ""
 
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
+msgstr "这机器看起来像台搅拌机。 我可以用它来搅碎什么东西"
 
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr ""
+msgstr "这一定就是Borgan想让我带给他的煤"
 
 msgid ""
 "That might explain why that lift wasn't working. Defeating the other "
 "drainers should restore the power here."
-msgstr ""
+msgstr "这也许可以解释为什么那个升降梯不工作。 把其它的能量吸取器摧毁也许就能恢复这里的电力。"
 
 msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
-msgstr ""
+msgstr "我需要3个凝视者的眼球， 一个红色污泥怪触须， 还要再找一个盾来制作火焰防护盾"
 
 msgid ""
 "Once I've found all these items I'll have to find a place to create the "
 "shield"
-msgstr ""
+msgstr "一旦我找到这些东西之后， 我还要找一个地方来制作盾"
 
 msgid "Maybe I can create a shield..."
-msgstr ""
+msgstr "也许我可以做一个盾……"
 
 msgid "Swords... Armour... Wands..."
-msgstr ""
+msgstr "剑…… 护甲…… 法杖……"
 
 msgid "Stupid book. It's not in order and there's no index"
-msgstr ""
+msgstr "这书写得真烂。 里面的内容没有按顺序， 也没有索引"
 
 msgid "Here we go: Shields"
-msgstr ""
+msgstr "啊， 找到了： 盾"
 
 msgid "Shield of Fire Resistance"
-msgstr ""
+msgstr "火焰防护之盾"
 
 msgid "Ingredients"
 msgstr "原料"
 
 msgid "One must gather the following"
-msgstr ""
+msgstr "必须收集到下面的东西："
 
 msgid "The root of a Mandrake"
-msgstr ""
+msgstr "曼德拉草的根"
 
 msgid "The fat of a Darsh (left to stand for 3 months)"
 msgstr ""
 
 msgid "Powered Condor bones"
-msgstr ""
+msgstr "秃鹫骨头粉末"
 
 msgid "3 eyes of the Gazer"
-msgstr ""
+msgstr "3个凝视者的眼球"
 
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr ""
+msgstr "从雌性红色污泥怪上切下来的新鲜的触须"
 
 msgid "The shield to apply the enchantment"
-msgstr ""
+msgstr "需要附魔的盾"
 
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr ""
+msgstr "把凝视者的眼球和污泥怪触须搅拌好"
 
 msgid ""
 "Add the root, fat and bones into the cauldron and mix together with the "
 "blended Gazer eyes and Sludge tentacle"
-msgstr ""
+msgstr "把草根、 脂肪， 还有骨头放入坩埚中， 放入搅拌好的凝视者的眼球和污泥怪触须"
 
 msgid "When the mixture turns bright blue, add the shield"
-msgstr ""
+msgstr "当混合液变成亮蓝色的时候， 放入盾"
 
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr ""
+msgstr "凝视者在地下室中四处游荡， 所以凝视者的眼球也不是问题"
 
 msgid ""
 "What I do need to find is a Red Sludge, but I have no idea where to find one"
-msgstr ""
+msgstr "现在的问题是要找红色污泥怪， 不过我不知道在什么地方可以找到"
 
 msgid ""
 "I can't use my current shield in the experiment in case it backfires so I'll "
 "have to find another one"
-msgstr ""
+msgstr "我不能用我现在的盾来做实验， 免得出现什么问题， 因此我还要找另外的盾"
 
 msgid "Hmmm..."
-msgstr ""
+msgstr "嗯……"
 
 msgid ""
 "There might be potions room or lab where I can find the roots, fat and bones "
 "so I don't need to worry about those"
-msgstr ""
+msgstr "这里应该有药剂室或者实验室， 里面能找到草根、 脂肪， 还有骨头， 这些东西应该不用担心"
 
 msgid ""
 "You must have the instruction card you wish to use highlighted in your "
 "inventory box"
-msgstr ""
+msgstr "请在道具栏中选择你想使用的指令卡"
 
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "哇，一个实验室！"
 
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
-msgstr ""
+msgstr "我喜欢看Maggie制作魔法和药水， 也许我在这里也能做一些！"
 
 msgid "Wow, I've never seen so many books in one place!"
-msgstr ""
+msgstr "哇， 我从没见过这么多的书同时放在一个地方！"
 
 msgid ""
 "There must be information about every subject here, this could be useful..."
-msgstr ""
+msgstr "这里肯定有各种方面的信息， 估计能从中找到有用的……"
 
 msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
-msgstr ""
+msgstr "嗯……这里的空气中似乎充斥着魔法， 就像Maggie在制作魔咒时候一样。 我应当小心一点。"
 
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
-msgstr ""
+msgstr "噢， Edgar， 你受伤了！ 让我来治疗你的伤口"
 
 msgid "Gazer"
 msgstr "凝视者"
 
 msgid "Gazers are flying cycloptic creatures found in various places"
-msgstr ""
+msgstr "凝视者是一种飞行的独眼生物， 可以在不同的地方找到"
 
 msgid ""
 "Their single eye is usually closed and they rely on sonar for movement"
-msgstr ""
+msgstr "它们的独眼一般是闭上的， 在飞行中主要依靠声呐"
 
 msgid ""
 "They use their strong sense of smell to look out for predator and prey alike"
-msgstr ""
+msgstr "它们用超常的嗅觉来躲避捕食者， 寻找猎物"
 
 msgid ""
 "Gazers attack (and defend themselves) by opening their eye which will dazzle "
 "anything looking at it"
-msgstr ""
+msgstr "凝视者用它们的眼睛来攻击（以及保护自己）。 当眼睛睁开的时候会使所有看着它的生物晕眩"
 
 msgid ""
 "This attack is only effective however if the victim is facing the Gazer"
-msgstr ""
+msgstr "这攻击仅当受害者面对凝视者的时候才有效"
 
 msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
-msgstr ""
+msgstr "凝视着的眼球包含着魔法力量， 是魔法准备中常用的原料"
 
 msgid "Centurion, Grey"
 msgstr ""
@@ -4774,4 +4774,7 @@ msgid "Completed the game without continuing"
 msgstr ""
 
 msgid "Accessed the Crypt"
+msgstr ""
+
+msgid "Quickly turn left and right to shake off the miniature gargoyles!"
 msgstr ""
