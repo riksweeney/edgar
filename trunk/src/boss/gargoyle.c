@@ -2926,10 +2926,10 @@ static void dieWait()
 
 				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 			break;
-
-			default:
+			
+			case 5:
 				self->x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
-
+				
 				if (self->mental == 0)
 				{
 					stopSound(BOSS_CHANNEL);
@@ -2939,29 +2939,35 @@ static void dieWait()
 					self->mental = -1;
 
 					setEntityAnimation(self, "REACH_STONE");
-
-					self->takeDamage = &stoneTakeDamage;
-
-					self->touch = &stoneTouch;
-
-					self->activate = &activate;
-
-					self->health = 8;
-
-					self->action = &dieFinish;
-
-					clearContinuePoint();
-
-					increaseKillCount();
-
-					freeBossHealthBar();
-
-					fadeBossMusic();
-
-					fireTrigger(self->objectiveName);
-
-					fireGlobalTrigger(self->objectiveName);
+					
+					self->thinkTime = 30;
+					
+					self->maxThinkTime = 6;
 				}
+			break;
+
+			default:
+				self->takeDamage = &stoneTakeDamage;
+
+				self->touch = &stoneTouch;
+
+				self->activate = &activate;
+
+				self->health = 8;
+
+				self->action = &dieFinish;
+
+				clearContinuePoint();
+
+				increaseKillCount();
+
+				freeBossHealthBar();
+
+				fadeBossMusic();
+
+				fireTrigger(self->objectiveName);
+
+				fireGlobalTrigger(self->objectiveName);
 			break;
 		}
 	}
