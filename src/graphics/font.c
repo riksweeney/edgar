@@ -54,41 +54,50 @@ int getCharacterCodeForTestString()
 {
 	/* Will replace this with TTF_GlyphIsProvided when (if) SDL_TTF 2.0.10 becomes available in Ubuntu LTS */
 
-	char *text = _("Press Action to interact");
-	int i, length, ch, highest;
+	char *text[5];
+	int i, length, ch, highest, j;
+	
+	text[0] = _("Press Action to interact");
+	text[1] = _("Quickly turn left and right to shake off the slimes!");
+	text[2] = _("Bow");
+	text[3] = _("Yes");
+	text[4] = _("No");
 
 	highest = 0;
 
-	length = strlen(text);
+	for (j=0;j<5;j++)
+	{
+		length = strlen(text[j]);
 
-	for (i=0;i<length;i++) {
-
-		ch = ((unsigned char *)text)[i];
-
-		if (ch >= 0xF0)
+		for (i=0;i<length;i++)
 		{
-			ch  = (int)(text[i]   & 0x07) << 18;
-			ch |= (int)(text[++i] & 0x3F) << 12;
-			ch |= (int)(text[++i] & 0x3F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
+			ch = ((unsigned char *)text[j])[i];
 
-		else if (ch >= 0xE0)
-		{
-			ch  = (int)(text[i]   & 0x0F) << 12;
-			ch |= (int)(text[++i] & 0x3F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
+			if (ch >= 0xF0)
+			{
+				ch  = (int)(text[j][i]   & 0x07) << 18;
+				ch |= (int)(text[j][++i] & 0x3F) << 12;
+				ch |= (int)(text[j][++i] & 0x3F) << 6;
+				ch |= (int)(text[j][++i] & 0x3F);
+			}
 
-		else if (ch >= 0xC0)
-		{
-			ch  = (int)(text[i]   & 0x1F) << 6;
-			ch |= (int)(text[++i] & 0x3F);
-		}
+			else if (ch >= 0xE0)
+			{
+				ch  = (int)(text[j][i]   & 0x0F) << 12;
+				ch |= (int)(text[j][++i] & 0x3F) << 6;
+				ch |= (int)(text[j][++i] & 0x3F);
+			}
 
-		if (ch > highest)
-		{
-			highest = ch;
+			else if (ch >= 0xC0)
+			{
+				ch  = (int)(text[j][i]   & 0x1F) << 6;
+				ch |= (int)(text[j][++i] & 0x3F);
+			}
+
+			if (ch > highest)
+			{
+				highest = ch;
+			}
 		}
 	}
 

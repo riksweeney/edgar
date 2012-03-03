@@ -8,29 +8,29 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-20 18:30+0000\n"
-"Last-Translator: riksweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2012-03-03 11:59+0000\n"
+"Last-Translator: Munehiro Yamamoto <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-01 21:04+0000\n"
+"X-Launchpad-Export-Date: 2012-03-03 12:40+0000\n"
 "X-Generator: Launchpad (build 14886)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr ""
+msgstr "スライムを振り払うために左右にすばやく回ってください"
 
 msgid "Bow"
-msgstr ""
+msgstr "弓"
 
 msgid "Press Action to interact"
 msgstr ""
 
 msgid "%s is required"
-msgstr ""
+msgstr "%s が必要です"
 
 msgid "Bomb"
-msgstr ""
+msgstr "爆弾"
 
 msgid "Small Rock"
 msgstr ""
@@ -48,22 +48,22 @@ msgid "Press Action to replace Tesla Pack"
 msgstr ""
 
 msgid "Obtained %s"
-msgstr ""
+msgstr "%s を手に入れた"
 
 msgid "Complete"
-msgstr ""
+msgstr "完了"
 
 msgid "%d more to go..."
 msgstr ""
 
 msgid "Used %s"
-msgstr ""
+msgstr "%s を使った"
 
 msgid "Cannot equip items whilst transmogrified"
 msgstr ""
 
 msgid "Equipped %s"
-msgstr ""
+msgstr "%s を装備した"
 
 msgid "Maximum health has increased!"
 msgstr ""
@@ -84,22 +84,22 @@ msgid "No"
 msgstr "いいえ"
 
 msgid "Start a new game?"
-msgstr ""
+msgstr "新規にゲームを始めますか？"
 
 msgid "Play the tutorial?"
-msgstr ""
+msgstr "チュートリアルをプレイしますか？"
 
 msgid "Exit the game?"
-msgstr ""
+msgstr "ゲームを終了しますか？"
 
 msgid "Back"
 msgstr ""
 
 msgid "Game Loaded"
-msgstr ""
+msgstr "ゲームを読み込みました"
 
 msgid "Game Saved"
-msgstr ""
+msgstr "ゲームを保存しました"
 
 msgid "OK"
 msgstr ""
@@ -108,7 +108,7 @@ msgid "Any unsaved progress will be lost"
 msgstr ""
 
 msgid "Joy Button #%d"
-msgstr ""
+msgstr "ジョイパット ボタン #%d"
 
 msgid "Press Action to talk to %s"
 msgstr ""
@@ -141,10 +141,10 @@ msgid "%s is required to use this Pressure Plate"
 msgstr ""
 
 msgid "%s is needed to open this door"
-msgstr ""
+msgstr "このドアを開けるためには %s が必要です"
 
 msgid "This door is locked"
-msgstr ""
+msgstr "このドアはロックされています"
 
 msgid "This teleporter is not active"
 msgstr ""
