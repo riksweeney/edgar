@@ -1,0 +1,4 @@
+GFX_FILE data/gfx/npc/jacob.dat
+ANIM_FILE data/anim/npc/jacob.dat
+TYPE NPC
+HEALTH 1

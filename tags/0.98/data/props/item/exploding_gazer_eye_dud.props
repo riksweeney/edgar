@@ -1,0 +1,6 @@
+GFX_FILE data/gfx/item/exploding_gazer_eye.dat
+ANIM_FILE data/anim/item/exploding_gazer_eye.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME Dud Exploding Gazer Eyeball
+DESCRIPTION An exploding Gazer Eyeball. A dud?
+THINKTIME 240

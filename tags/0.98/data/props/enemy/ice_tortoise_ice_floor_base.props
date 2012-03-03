@@ -1,0 +1,3 @@
+GFX_FILE data/gfx/enemy/ice_tortoise_ice_floor_base.dat
+ANIM_FILE data/anim/enemy/ice_tortoise_ice_floor_base.dat
+FLAGS DO_NOT_PERSIST

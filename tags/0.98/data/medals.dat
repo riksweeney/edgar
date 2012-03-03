@@ -1,0 +1,51 @@
+kill_sorceror G N Defeated the Sorceror
+complete_5hp G N Completed the game with only 5 hit points
+kill_chaos G Y Defeated Chaos
+20_hp S N Obtained 20 Hit Points
+50km S N Walked 50km
+kill_azriel S Y Defeated Azriel
+arrow_500 S N Fired 500 arrows
+kill_1000 S N Defeated 1000 enemies
+kill_2000 S N Defeated 2000 enemies
+no_continues S N Completed the game without continuing
+kill_black_book S Y Defeated the Black Book
+kill_grimlore S Y Defeated Grimlore
+kill_phoenix S Y Defeated the Phoenix
+kill_rampaging S N Defeated a Rampaging Master Tortoise
+lightning_sword S Y Obtained the Lightning Sword
+safe_open S N Opened the safe in the Library
+occult S Y Located the Occult Section
+access_crypt S N Accessed the Crypt
+sorceror_start S Y Met the Sorceror
+10_hp B N Obtained 10 Hit Points
+all_chickens B Y Rescued all of Jacob's chickens
+arrow_250 B N Fired 250 arrows
+blocked B N Blocked 2000 attacks
+continue_20 B Y Continued 20 times
+drown_bat B N Drowned 20 Red Bats
+dungeon_escape B Y Escaped the Dungeon
+eaten_5 B N Got eaten 5 times
+enter_swamp B Y Entered the Forbidden Swamp
+finish_tutorial B N Completed the Tutorial
+fire_shield B N Obtained the Fire Shield
+fortress_start B Y Got to the Fortress
+golem_kill_grabbers B N Defeated the Golem using only the grabbers
+kill_100 B N Defeated 100 enemies
+kill_200 B N Defeated 200 enemies
+kill_500 B N Defeated 500 enemies
+kill_armour B Y Defeated the Watchdog
+kill_awesome B Y Defeated the Awesome Foursome
+kill_blob B Y Defeated the Blob
+kill_borer B Y Defeated the Borer
+kill_evil_edgar B Y Defeated Evil Edgar
+kill_fly B Y Defeated the Queen Fly
+kill_golem B Y Defeated the Golem
+kill_grub B Y Defeated the King Grub
+kill_mataeus B Y Defeated Mataeus
+kill_salamander B Y Defeated the Salamander
+kill_sewer B Y Defeated the Sewer Dweller
+kill_swamp_boss B Y Defeated the Forbidden Swamp Guardian
+kill_gargoyle B Y Defeated the Gargoyle
+read_monster_book B Y Read all of the Monster Compendium
+resurrection_amulet B Y Obtained the Amulet of Resurrection
+slime B N Spent 10 minutes as a Slime
