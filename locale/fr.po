@@ -8,18 +8,17 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-26 19:46+0000\n"
-"Last-Translator: Sebastien Belzile <seb.belzile@gmail.com>\n"
+"PO-Revision-Date: 2012-03-04 11:05+0000\n"
+"Last-Translator: phap <phapthan@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-03 12:40+0000\n"
+"X-Launchpad-Export-Date: 2012-03-04 16:00+0000\n"
 "X-Generator: Launchpad (build 14886)\n"
 
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr ""
-"Tourne rapidement à gauche et à droite pour te débarrasser des Slimes!"
+msgstr "Tourne rapidement de gauche à droite pour te débarasser des Slimes!"
 
 msgid "Bow"
 msgstr "Arc"
@@ -88,7 +87,7 @@ msgid "Start a new game?"
 msgstr "Commencer une nouvelle partie?"
 
 msgid "Play the tutorial?"
-msgstr "Jouer le tutoriel?"
+msgstr "Faire le tutoriel?"
 
 msgid "Exit the game?"
 msgstr "Quitter la partie?"
@@ -97,22 +96,22 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Game Loaded"
-msgstr "Partie chargé"
+msgstr "Partie chargée"
 
 msgid "Game Saved"
-msgstr "Partie sauvegardé"
+msgstr "Partie sauvegardée"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Any unsaved progress will be lost"
-msgstr "Tout vos progrès non-sauvegardé vont être perdu"
+msgstr "Tous vos progrès non sauvegardés seront perdus"
 
 msgid "Joy Button #%d"
 msgstr ""
 
 msgid "Press Action to talk to %s"
-msgstr "Appuie sur Action pour parler à %s"
+msgstr ""
 
 msgid "New Objective: %s"
 msgstr "Nouvel Objectif : %s"
@@ -121,7 +120,7 @@ msgid "Objective Completed: %s"
 msgstr "Objectif Complété : %s"
 
 msgid "This weapon is not having any effect..."
-msgstr "Cette arme n'a aucun effet"
+msgstr "Cette arme n'a aucun effet..."
 
 msgid "Press Action to attach the Tesla Pack"
 msgstr "Appuie sur Action pour attacher le Pack Tesla"
@@ -211,7 +210,7 @@ msgid "Trap Door Switch Key"
 msgstr "Clef de l'interrupteur de la trappe"
 
 msgid "Keep practising!"
-msgstr "Continu de pratiquer!"
+msgstr "Continue de pratiquer!"
 
 msgid "Hi"
 msgstr "Salut"
@@ -220,10 +219,10 @@ msgid "Hello Edgar"
 msgstr "Salut Edgar"
 
 msgid "Can I borrow your shield?"
-msgstr "Puis-je emprunter ton bouclier"
+msgstr "Puis-je emprunter ton bouclier?"
 
 msgid "Off to practice your fighting skills?"
-msgstr "Tu est sorti t'entraîner au combat?"
+msgstr "Tu as fini de t'entraîner au combat?"
 
 msgid "Something like that"
 msgstr "Quelque chose comme ça"
@@ -233,10 +232,10 @@ msgstr ""
 "Si tu accomplis un petit travail pour moi, tu pourra avoir le bouclier"
 
 msgid "What do I have to do?"
-msgstr "Qu'est ce que je dois faire?"
+msgstr "Qu'est-ce que je dois faire?"
 
 msgid "Go to the mine and collect me some coal"
-msgstr "Va à la mine et rapporte moi du charbon"
+msgstr "Va à la mine et rapporte-moi du charbon"
 
 msgid "But we have plenty of coal!"
 msgstr "Mais nous avons déjà beaucoup de charbon!"
@@ -258,14 +257,14 @@ msgid ""
 "Make sure you put it in a bag, touching it for too long will be bad for your "
 "health"
 msgstr ""
-"Assure toi de les mettre dans un sac car les toucher trop longtemps pourrait "
+"Assure-toi de les mettre dans un sac car les toucher trop longtemps pourrait "
 "être mauvais pour ta santé"
 
 msgid "Do you have a bag?"
 msgstr "Est-ce que tu as un sac?"
 
 msgid "No, you can probably find one in the mine though"
-msgstr "Non, tu peux probablement en trouver un dans la mine"
+msgstr "non, mais tu peux sûrement en trouver un dans la mine"
 
 msgid "OK, I'll get the coal"
 msgstr "Ok, je vais chercher le charbon"
@@ -275,7 +274,7 @@ msgid ""
 "any weaker walls you encounter"
 msgstr ""
 "Tiens, prend cette pioche. Tu pourras l'utiliser pour récolter le charbon et "
-"pour détruire tout les faibles murs que tu rencontreras"
+"pour détruire tous les murs fragiles que tu rencontreras"
 
 msgid "You'll also need this key to get into the mine"
 msgstr "Tu auras aussi besoin de cette clef pour entrer dans la mine"
@@ -287,21 +286,21 @@ msgid ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
 "Merci Edgar, ce charbon est parfait! J'espère que les chauves-souris ne "
-"t'ont pas trop effrayées."
+"t'ont pas trop effrayé."
 
 msgid "The bats were the least of my worries..."
 msgstr "Les chauves-souris étaient le dernier de mes soucis"
 
 msgid "Say, I heard that something happened in that mine a few years ago"
 msgstr ""
-"Dit donc, j'ai entendu dire que quelque chose est arrivé dans cette mine il "
+"Dis donc, j'ai entendu dire que quelque chose est arrivé dans cette mine il "
 "y a quelques années"
 
 msgid "Right..."
 msgstr "Effectivement..."
 
 msgid "Here, have my shield and have fun!"
-msgstr "Tiens, prend mon bouclier et amuse toi!"
+msgstr "Tiens, prend mon bouclier et amuse-toi!"
 
 msgid "Just stay away from the Forbidden Swamp"
 msgstr "Mais reste loin du Marais interdit"
@@ -310,7 +309,7 @@ msgid "Will do, can I hold on to your pickaxe for a while?"
 msgstr "D'accord. Puis-je garder ta pioche pour un moment?"
 
 msgid "Sure thing, just bring it back in one piece"
-msgstr "Bien sûr, mais ramène moi la en un seul morceau"
+msgstr "Bien sûr, mais ramène-moi la en un seul morceau"
 
 msgid "Thanks, Borgan!"
 msgstr "Merci, Borgan!"
@@ -324,7 +323,7 @@ msgid ""
 msgstr "Tu peux déplacer certains objets en tenant le bouton Action enfoncé"
 
 msgid "You can then pull it around until you let go of the Action button"
-msgstr "Tu pourras tirer jusqu'à ce que tu relâche le bouton Action"
+msgstr "Tu pourras alors tirer jusqu'à ce que tu relâches le bouton Action"
 
 msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
@@ -334,10 +333,10 @@ msgstr ""
 "quelque chose d'autre..."
 
 msgid "Urgh, what happened?"
-msgstr "Urgh, mais que c'est-il passé?"
+msgstr "Urgh, mais que s'est-il passé?"
 
 msgid "Looks like this wasn't such a good idea after all"
-msgstr "Ce n'était pas une très bonne idée après tout"
+msgstr "On dirait que ce n'était pas une très bonne idée après tout"
 
 msgid "There must be way out of here..."
 msgstr "Il doit y avoir un moyen de sortir d'ici..."
