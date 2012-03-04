@@ -47,6 +47,12 @@ echo "Getting Subversion Tag $APPVERSION-$APPRELEASE"
 
 svn export https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/tags/$APPVERSION $APPDIR
 
+echo "Getting latest translations from the trunk"
+
+rm -rf $APPDIR/locale
+
+svn export https://legendofedgar.svn.sourceforge.net/svnroot/legendofedgar/trunk/locale $APPDIR/locale
+
 echo "Removing unwanted data files..."
 
 cp $APPDIR/edgar.spec.base edgar.spec

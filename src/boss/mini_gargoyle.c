@@ -40,6 +40,7 @@ static void dieWait(void);
 static void moveToGargoyleInit(void);
 static void moveToGargoyle(void);
 static void raiseOffScreen(void);
+static void fallout(void);
 
 Entity *addMiniGargoyle(int x, int y, char *name)
 {
@@ -61,6 +62,7 @@ Entity *addMiniGargoyle(int x, int y, char *name)
 	e->pain = &enemyPain;
 	e->takeDamage = &takeDamage;
 	e->touch = &touch;
+	e->fallout = &fallout;
 
 	e->type = ENEMY;
 
@@ -376,4 +378,13 @@ static void moveToGargoyle()
 	}
 
 	checkToMap(self);
+}
+
+static void fallout()
+{
+	self->x = self->endX;
+	self->y = self->endY;
+
+	self->dirX = 0;
+	self->dirY = 0;
 }

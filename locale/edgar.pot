@@ -4774,3 +4774,18 @@ msgstr ""
 
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
 msgstr ""
+
+msgid "Leave now if you wish to live"
+msgstr ""
+
+msgid "If you proceed, I will fight you and destroy you. Flee now, while you can"
+msgstr ""
+
+msgid "You fool. Do you truly seek destruction?"
+msgstr ""
+
+msgid "Then I shall destroy you!!"
+msgstr ""
+
+msgid "Go back now"
+msgstr ""

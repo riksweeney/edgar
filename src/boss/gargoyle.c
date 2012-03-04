@@ -273,6 +273,8 @@ static void introFinish()
 			stopSound(BOSS_CHANNEL);
 
 			playDefaultBossMusic();
+			
+			self->maxThinkTime = 0;
 
 			setContinuePoint(FALSE, self->name, NULL);
 
@@ -2669,6 +2671,8 @@ static void becomeMiniGargoyleInit()
 
 		e->endX = e->x;
 		e->endY = e->y;
+		
+		e->flags |= LIMIT_TO_SCREEN;
 
 		setEntityAnimation(e, "STAND");
 

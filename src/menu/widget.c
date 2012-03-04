@@ -26,6 +26,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 extern Game game;
 
+static SDL_Surface *createWidgetText(char *, TTF_Font *, int, int, int, int, int, int);
+
 Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), void (*rightAction)(void), void (*clickAction)(void), int x, int y, int border, int r, int g, int b)
 {
 	Widget *w;
@@ -39,20 +41,20 @@ Widget *createWidget(char *text, int *controlValue, void (*leftAction)(void), vo
 
 	if (border == TRUE)
 	{
-		w->normalState = addBorder(generateTextSurface(text, game.font, r, g, b, 0, 0, 0), 255, 255, 255, 0, 0, 0);
+		w->normalState = addBorder(createWidgetText(text, game.font, r, g, b, 0, 0, 0), 255, 255, 255, 0, 0, 0);
 
-		w->selectedState = addBorder(generateTextSurface(text, game.font, r, g, b, 0, 200, 0), 255, 255, 255, 0, 200, 0);
+		w->selectedState = addBorder(createWidgetText(text, game.font, r, g, b, 0, 200, 0), 255, 255, 255, 0, 200, 0);
 
-		w->disabledState = addBorder(generateTextSurface(text, game.font, r, g, b, 100, 100, 100), 255, 255, 255, 100, 100, 100);
+		w->disabledState = addBorder(createWidgetText(text, game.font, r, g, b, 100, 100, 100), 255, 255, 255, 100, 100, 100);
 	}
 
 	else
 	{
-		w->normalState = addBorder(generateTextSurface(text, game.font, r, g, b, 0, 0, 0), 0, 0, 0, 0, 0, 0);
+		w->normalState = addBorder(createWidgetText(text, game.font, r, g, b, 0, 0, 0), 0, 0, 0, 0, 0, 0);
 
-		w->selectedState = addBorder(generateTextSurface(text, game.font, r, g, b, 0, 200, 0), 0, 200, 0, 0, 200, 0);
+		w->selectedState = addBorder(createWidgetText(text, game.font, r, g, b, 0, 200, 0), 0, 200, 0, 0, 200, 0);
 
-		w->disabledState = addBorder(generateTextSurface(text, game.font, r, g, b, 100, 100, 100), 0, 0, 0, 0, 0, 0);
+		w->disabledState = addBorder(createWidgetText(text, game.font, r, g, b, 100, 100, 100), 0, 0, 0, 0, 0, 0);
 	}
 
 	w->value = controlValue;
@@ -143,4 +145,148 @@ void freeWidget(Widget *w)
 		
 		w = NULL;
 	}
+}
+
+static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, int fb, int br, int bg, int bb)
+{
+	char *text, *token, word[MAX_VALUE_LENGTH], *savePtr;
+	int i, lines, w, h, maxWidth, lineBreak, *lineBreaks;
+	SDL_Surface **surface, *tempSurface;
+	SDL_Rect dest;
+
+	savePtr = NULL;
+
+	text = malloc(strlen(msg) + 1);
+
+	if (text == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Text", (int)strlen(msg) + 1);
+	}
+	
+	STRNCPY(text, msg, strlen(msg) + 1);
+
+	token = strtok_r(text, " ", &savePtr);
+
+	i = 0;
+
+	while (token != NULL)
+	{
+		i++;
+
+		token = strtok_r(NULL, " ", &savePtr);
+	}
+
+	lines = i;
+
+	surface = malloc(sizeof(SDL_Surface *) * lines);
+
+	if (surface == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for the Dialog Surfaces", (int)sizeof(SDL_Surface *) * lines);
+	}
+
+	lineBreaks = malloc(sizeof(int) * lines);
+
+	if (lineBreaks == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for the line breaks", (int)sizeof(int) * lines);
+	}
+
+	STRNCPY(text, msg, strlen(msg) + 1);
+
+	token = strtok_r(text, " ", &savePtr);
+
+	i = 0;
+
+	maxWidth = w = h = 0;
+
+	while (token != NULL)
+	{
+		lineBreak = FALSE;
+		
+		snprintf(word, sizeof(word), "%s ", token);
+
+		if (word[strlen(word) - 2] == '\n')
+		{
+			lineBreak = TRUE;
+
+			word[strlen(word) - 2] = '\0';
+		}
+
+		surface[i] = generateTextSurface(word, game.font, fr, fg, fb, br, bg, bb);
+
+		lineBreaks[i] = lineBreak;
+
+		if (h == 0)
+		{
+			h += surface[i]->h + 5;
+		}
+
+		if (w + surface[i]->w > MAX_SCRIPT_WIDTH)
+		{
+			w = 0;
+
+			h += surface[i]->h + 5;
+		}
+
+		w += surface[i]->w;
+
+		if (w > maxWidth)
+		{
+			maxWidth = w;
+		}
+
+		if (lineBreak == TRUE)
+		{
+			w = 0;
+
+			h += surface[i]->h + 5;
+		}
+
+		i++;
+
+		token = strtok_r(NULL, " ", &savePtr);
+	}
+
+	h -= 5;
+
+	tempSurface = createSurface(maxWidth, h);
+
+	w = h = 0;
+
+	for (i=0;i<lines;i++)
+	{
+		if (w + surface[i]->w > MAX_SCRIPT_WIDTH)
+		{
+			w = 0;
+
+			h += surface[i]->h + 5;
+		}
+
+		dest.x = w;
+		dest.y = h;
+		dest.w = surface[i]->w;
+		dest.h = surface[i]->h;
+
+		SDL_BlitSurface(surface[i], NULL, tempSurface, &dest);
+
+		w += surface[i]->w;
+
+		SDL_FreeSurface(surface[i]);
+
+		if (lineBreaks[i] == TRUE)
+		{
+			w = 0;
+
+			h += surface[i]->h + 5;
+		}
+	}
+
+	free(surface);
+
+	free(text);
+
+	free(lineBreaks);
+
+	return tempSurface;
 }

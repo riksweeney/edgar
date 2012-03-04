@@ -84,6 +84,8 @@ void loadMap(char *name, int loadEntityResources)
 	map.maxX = map.maxY = 0;
 
 	map.forceMinY = FALSE;
+	
+	map.waterBackgroundTile = 0;
 
 	/* Reset the clipping */
 
@@ -240,6 +242,15 @@ void loadMap(char *name, int loadEntityResources)
 			{
 				map.minY = MAX_MAP_Y;
 			}
+		}
+		
+		else if (strcmpignorecase(itemName, "WATER_BACKGROUND_TILE") == 0)
+		{
+			/* The water background tile */
+
+			sscanf(line, "%*s %s\n", itemName);
+
+			map.waterBackgroundTile = atoi(itemName);
 		}
 
 		else if (strcmpignorecase(itemName, "ANIM_TILE_COUNT") == 0)
@@ -452,6 +463,7 @@ int saveMap()
 	fprintf(fp, "WEATHER %s\n", getWeather());
 	fprintf(fp, "MIN_Y %s\n", map.forceMinY == TRUE ? "TRUE" : "FALSE");
 	fprintf(fp, "DARK_MAP %s\n", map.darkMap == TRUE ? "TRUE" : "FALSE");
+	fprintf(fp, "WATER_BACKGROUND_TILE %d\n", map.waterBackgroundTile);
 	fprintf(fp, "ANIM_TILE_COUNT %d\n", map.animTileTotal);
 
 	if (map.animTileTotal != 0)
@@ -778,6 +790,11 @@ void drawMap(int depth)
 						{
 							drawImage(mapImages[tileID], x, y, FALSE, 255);
 						}
+						
+						else if (map.waterBackgroundTile != 0 && tileID == WATER_TILE_START)
+						{
+							drawImage(mapImages[map.waterBackgroundTile], x, y, FALSE, 255);
+						}
 					break;
 
 					case 1:
@@ -811,7 +828,7 @@ void drawMap(int depth)
 						}
 
 						else if (tileID >= FOREGROUND_TILE_START)
-						{
+						{							
 							drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
 						}
 					break;
