@@ -347,6 +347,11 @@ void setFlags(Entity *e, char *flags)
 		{
 			e->flags |= BLOCKING;
 		}
+		
+		else if (strcmpignorecase(token, "NO_END_TELEPORT_SOUND") == 0)
+		{
+			e->flags |= NO_END_TELEPORT_SOUND;
+		}
 
 		else
 		{
@@ -444,6 +449,11 @@ void unsetFlags(Entity *e, char *flags)
 		else if (strcmpignorecase(token, "BLOCKING") == 0)
 		{
 			e->flags &= ~BLOCKING;
+		}
+		
+		else if (strcmpignorecase(token, "NO_END_TELEPORT_SOUND") == 0)
+		{
+			e->flags &= ~NO_END_TELEPORT_SOUND;
 		}
 
 		else

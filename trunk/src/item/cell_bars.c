@@ -76,6 +76,8 @@ static void entityWait()
 
 	else if (self->mental == 0)
 	{
+		#if DEV == 0
 		player.x = self->x + self->w / 2 - player.w / 2;
+		#endif
 	}
 }

@@ -981,7 +981,12 @@ static void soulStealFinish()
 
 	if (self->thinkTime <= 0)
 	{
-		setEntityAnimation(self, player.health == 0 ? "INTRO" : "STAND");
+		if (player.health == 0)
+		{
+			self->target->inUse = FALSE;
+		}
+		
+		setEntityAnimation(self, "STAND");
 
 		self->flags &= ~NO_DRAW;
 
@@ -2008,7 +2013,7 @@ static void raiseDeadFinish()
 
 static void attackFinished()
 {
-	setEntityAnimation(self, "STAND");
+	setEntityAnimation(self, player.alpha == 0 ? "INTRO" : "STAND");
 
 	self->thinkTime = 30;
 
