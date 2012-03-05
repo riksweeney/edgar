@@ -75,7 +75,7 @@ Entity *addBat(int x, int y, char *name)
 	e->reactToBlock = &changeDirection;
 
 	e->action = &fly;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -88,7 +88,7 @@ Entity *addBat(int x, int y, char *name)
 static void die()
 {
 	playSoundToMap("sound/enemy/bat/squeak.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
@@ -198,6 +198,8 @@ static void dartDownInit()
 		self->dirX *= self->speed * 6;
 		self->dirY *= self->speed * 6;
 
+		self->face = dirX < 0 ? LEFT : RIGHT;
+
 		self->action = &dartDown;
 
 		self->reactToBlock = &dartReactToBlock;
@@ -208,9 +210,11 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
-		self->thinkTime = 1;
+		self->flags &= ~FLY;
 
-		self->dirX = self->dirY = 0;
+		self->dirX = self->face == RIGHT ? -3 : 3;
+
+		self->dirY = -5;
 
 		self->action = &dartDownFinish;
 	}
@@ -254,15 +258,9 @@ static void dartDownFinish()
 
 static void dartReactToBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -3 : 3;
-
-	self->dirY = -5;
-
 	self->thinkTime = 60;
 
-	self->action = &dartDownFinish;
+	self->dirX = 0;
 }
 
 static void redBatFallout()
@@ -283,11 +281,11 @@ static void redBatFallout()
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

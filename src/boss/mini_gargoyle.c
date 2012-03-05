@@ -78,7 +78,7 @@ static void attackPlayer()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		facePlayer();
 
 		self->targetX = player.x + player.w / 2 - self->w / 2;
@@ -130,8 +130,6 @@ static void touch(Entity *other)
 		self->action = &raiseOffScreen;
 
 		self->thinkTime = 0;
-
-		self->flags |= GRABBING;
 
 		self->layer = FOREGROUND_LAYER;
 
@@ -197,15 +195,18 @@ static void raiseOffScreen()
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
 	}
-	
-	setCustomAction(&player, &antiGravity, 2, 0, 0);
+
+	if (!(self->flags & GRABBING))
+	{
+		setCustomAction(&player, &antiGravity, 2, 1, 0.02);
+
+		self->flags |= GRABBING;
+	}
 
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + self->startX;
 	self->y = player.y + self->startY;
-
-	self->y -= 0.02;
 
 	player.y = self->y - self->startY;
 
@@ -233,7 +234,7 @@ static void raiseOffScreen()
 	if (self->mental <= 0 || self->health <= 0)
 	{
 		self->health = 0;
-		
+
 		self->dirX = 4 * (prand() % 2 == 0 ? -1 : 1);
 
 		self->dirY = -6;
@@ -251,9 +252,9 @@ static void raiseOffScreen()
 static void die()
 {
 	setEntityAnimation(self, "DIE");
-	
+
 	player.flags &= ~GRABBED;
-	
+
 	self->flags &= ~(FLY|GRABBING);
 
 	self->takeDamage = NULL;
@@ -274,13 +275,13 @@ static void dieWait()
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->dirX = 0;
-		
+
 		if (self->head->target->inUse == FALSE)
 		{
 			if (self->head->mental <= 0)
 			{
 				setEntityAnimation(self, "STAND");
-				
+
 				self->thinkTime = 60;
 
 				self->action = &moveToGargoyleInit;
@@ -296,7 +297,7 @@ static void dieWait()
 			if (self->thinkTime <= 0)
 			{
 				setEntityAnimation(self, "STAND");
-				
+
 				self->head->mental++;
 
 				self->flags |= FLY;
@@ -304,7 +305,7 @@ static void dieWait()
 				self->health = self->maxHealth;
 
 				self->action = &attackPlayer;
-				
+
 				self->takeDamage = &takeDamage;
 			}
 		}
@@ -324,7 +325,7 @@ static void moveToGargoyleInit()
 
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
-		
+
 		self->touch = NULL;
 
 		self->flags |= FLY;

@@ -74,7 +74,7 @@ Entity *addLargeSpider(int x, int y, char *name)
 	e->touch = &touch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -277,6 +277,18 @@ static void pounceAttack()
 			self->dirY = -6;
 		}
 
+		else
+		{
+			if (self->dirX == 0)
+			{
+				self->dirX = self->face == RIGHT ? -3 : 3;
+
+				self->dirY = -5;
+
+				self->face = self->face == RIGHT ? LEFT : RIGHT;
+			}
+		}
+
 		onGround = (self->flags & ON_GROUND);
 
 		checkToMap(self);
@@ -467,7 +479,7 @@ static int canDropDown()
 
 	x /= TILE_SIZE;
 	y /= TILE_SIZE;
-	
+
 	width = self->w / TILE_SIZE;
 
 	for (j=0;j<width;j++)
@@ -485,7 +497,7 @@ static int canDropDown()
 			{
 				x = (x + (self->face == LEFT ? -j : j)) * TILE_SIZE;
 				y = (y + i) * TILE_SIZE;
-				
+
 				return TRUE;
 			}
 		}
@@ -512,9 +524,9 @@ static int isGapJumpable()
 	if (tile1 != BLANK_TILE && tile1 < BACKGROUND_TILE_START)
 	{
 		y--;
-		
+
 		tile2 = mapTileAt(x, y);
-		
+
 		if (tile2 == BLANK_TILE || (tile2 >= BACKGROUND_TILE_START && tile2 <= BACKGROUND_TILE_END))
 		{
 			return TRUE;
@@ -526,28 +538,24 @@ static int isGapJumpable()
 
 static void pounceReactToBlock(Entity *other)
 {
-	self->dirX = self->x < player.x ? -3 : 3;
-
-	self->dirY = -5;
-
-	self->face = self->face == RIGHT ? LEFT : RIGHT;
+	self->dirX = 0;
 }
 
 static void die()
 {
 	playSoundToMap("sound/enemy/grub/grub_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }
 
 static void creditsMove()
 {
 	setEntityAnimation(self, "WALK");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

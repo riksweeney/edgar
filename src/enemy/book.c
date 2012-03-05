@@ -77,7 +77,7 @@ Entity *addBook(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -173,6 +173,8 @@ static void dartDownInit()
 		self->dirX *= self->speed * 10;
 		self->dirY *= self->speed * 10;
 
+		self->face = self->dirX < 0 ? LEFT : RIGHT;
+
 		self->action = &dartDown;
 
 		self->reactToBlock = &dartReactToBlock;
@@ -185,9 +187,11 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
-		self->thinkTime = 1;
+		self->flags &= ~FLY;
 
-		self->dirX = self->dirY = 0;
+		self->dirX = self->face == RIGHT ? -3 : 3;
+
+		self->dirY = -5;
 
 		self->action = &dartDownFinish;
 	}
@@ -235,15 +239,9 @@ static void dartDownFinish()
 
 static void dartReactToBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -3 : 3;
-
-	self->dirY = -5;
+	self->dirX = 0;
 
 	self->thinkTime = 60;
-
-	self->action = &dartDownFinish;
 }
 
 static void hover()
@@ -385,7 +383,7 @@ static void fireMove()
 
 static void fireBlock(Entity *other)
 {
-	self->inUse = FALSE;
+	self->dirX = 0;
 }
 
 static void castIceInit()
@@ -643,15 +641,15 @@ static void takeDamage(Entity *other, int damage)
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	hover();
 }

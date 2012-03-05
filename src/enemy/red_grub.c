@@ -181,7 +181,7 @@ static void spinAttack()
 static void spinAttackEnd()
 {
 	checkToMap(self);
-	
+
 	if (((self->flags & ON_GROUND) || self->standingOn != NULL) && self->thinkTime == 0)
 	{
 		self->face = (player.x > self->x ? RIGHT : LEFT);
@@ -202,21 +202,6 @@ static void spinAttackEnd()
 
 static void reactToBlock(Entity *other)
 {
-	if (other == &playerShield)
-	{
-		other = &player;
-	}
-	
-	if (self->dirX > 0)
-	{
-		self->x = other->x - self->w;
-	}
-
-	else
-	{
-		self->x = other->x + other->w;
-	}
-
 	self->dirX = 0;
 }
 

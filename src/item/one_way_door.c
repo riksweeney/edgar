@@ -117,13 +117,13 @@ static void upTouch(Entity *other)
 
 			else
 			{
-				setCustomAction(other, &antiGravity, self->speed, 0, 0);
+				setCustomAction(other, &antiGravity, 2, 0, 1);
 			}
 		}
 
 		else
 		{
-			setCustomAction(other, &antiGravity, self->speed, 0, 0);
+			setCustomAction(other, &antiGravity, 2, 0, 1);
 		}
 	}
 }

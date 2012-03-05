@@ -345,9 +345,15 @@ static void bookAttackPlayer()
 
 	checkToMap(self);
 
-	if ((self->dirX == 0 && dirX != 0) || (self->dirY == 0 && dirY != 0))
+	if (self->dirX == 0)
 	{
-		self->action = &bookReturn;
+		self->flags &= ~FLY;
+
+		self->dirX = self->x < player.x ? -5 : 5;
+
+		self->dirY = -5;
+
+		self->action = &bookAttackEnd;
 	}
 
 	else if (self->head->health <= 0)
@@ -358,27 +364,9 @@ static void bookAttackPlayer()
 
 static void bookReactToBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -5 : 5;
-
-	self->dirY = -5;
-
-	self->action = &bookAttackEnd;
-
 	self->thinkTime = 120;
 
-	self->startX += self->speed;
-
-	if (self->startX >= 360)
-	{
-		self->startX = 0;
-	}
-
-	if (self->head->health <= 0)
-	{
-		entityDie();
-	}
+	self->dirX = 0;
 }
 
 static void bookAttackEnd()

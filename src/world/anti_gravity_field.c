@@ -96,13 +96,13 @@ static void touch(Entity *other)
 
 			else
 			{
-				setCustomAction(other, &antiGravity, 2, 0, 0);
+				setCustomAction(other, &antiGravity, 2, 0, 1);
 			}
 		}
 
 		else
 		{
-			setCustomAction(other, &antiGravity, 2, 0, 0);
+			setCustomAction(other, &antiGravity, 2, 0, 1);
 		}
 	}
 }

@@ -468,7 +468,7 @@ static void shotTouch(Entity *other)
 
 static void bounceAway(Entity *other)
 {
-	self->dirX *= -1;
+	self->dirX = 0;
 }
 
 static void hover()

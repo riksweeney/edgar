@@ -123,7 +123,7 @@ Entity *addMataeus(int x, int y, char *name)
 	e->die = NULL;
 	e->takeDamage = NULL;
 	e->pain = &enemyPain;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -555,16 +555,6 @@ static void knifeDie()
 
 static void specialKnifeBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -5 : 5;
-
-	self->dirY = -5;
-
-	self->thinkTime = 120;
-
-	self->damage = 50;
-
 	self->action = &specialKnifeBlockWait;
 
 	self->activate = &throwItem;
@@ -572,16 +562,6 @@ static void specialKnifeBlock(Entity *other)
 
 static void knifeBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->x < player.x ? -5 : 5;
-
-	self->dirY = -5;
-
-	self->thinkTime = 120;
-
-	self->damage = 50;
-
 	self->action = &knifeBlockWait;
 
 	self->activate = &throwItem;
@@ -589,6 +569,19 @@ static void knifeBlock(Entity *other)
 
 static void specialKnifeBlockWait(void)
 {
+	if (self->flags & FLY)
+	{
+		self->flags &= ~FLY;
+
+		self->dirX = self->x < player.x ? -5 : 5;
+
+		self->dirY = -5;
+
+		self->thinkTime = 120;
+
+		self->damage = 50;
+	}
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -607,6 +600,19 @@ static void specialKnifeBlockWait(void)
 
 static void knifeBlockWait()
 {
+	if (self->flags & FLY)
+	{
+		self->flags &= ~FLY;
+
+		self->dirX = self->x < player.x ? -5 : 5;
+
+		self->dirY = -5;
+
+		self->thinkTime = 120;
+
+		self->damage = 50;
+	}
+
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -1188,7 +1194,7 @@ static void anchorDie()
 	Entity *e;
 
 	e = self;
-	
+
 	playSoundToMap("sound/enemy/centurion/centurion_die.ogg", -1, self->x, self->y, 0);
 
 	self = self->target;
@@ -1420,7 +1426,7 @@ static void riftRise()
 	if (self->y <= self->startY)
 	{
 		stopSound(self->health);
-		
+
 		self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
 
 		self->y = self->startY;
@@ -1484,7 +1490,7 @@ static void riftAttract()
 static void riftSink()
 {
 	stopSound(self->health);
-	
+
 	self->health = playSoundToMap("sound/boss/ant_lion/earthquake.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 
 	self->y += 0.5;
@@ -1703,7 +1709,7 @@ static void addRiftEnergy(int x, int y)
 	Entity *e;
 
 	e = addBasicDecoration(x, y, "decoration/rift_energy");
-	
+
 	if (e != NULL)
 	{
 		e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
@@ -1968,6 +1974,6 @@ static void horizontalKnifeWait()
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->creditsAction = &bossMoveToMiddle;
 }

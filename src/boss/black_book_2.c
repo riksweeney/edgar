@@ -397,7 +397,7 @@ static void blackBookWait()
 			case 2:
 				self->action = &becomeGuardian;
 			break;
-			
+
 			case 3:
 				self->action = &becomeGargoyle;
 			break;
@@ -445,7 +445,7 @@ static void becomeGargoyle()
 	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 	e->flags |= (NO_DRAW|HELPLESS|TELEPORTING);
-	
+
 	e->flags &= ~FLY;
 
 	e->action = &gargoyleInitialise;
@@ -455,7 +455,7 @@ static void becomeGargoyle()
 	e->touch = &entityTouch;
 
 	e->takeDamage = &gargoyleTakeDamage;
-	
+
 	e->die = &gargoyleDie;
 
 	e->head = self;
@@ -480,7 +480,7 @@ static void gargoyleInitialise()
 		self->action = &gargoyleWait;
 
 		self->thinkTime = 90;
-		
+
 		initEnergyBar(self);
 	}
 }
@@ -856,7 +856,7 @@ static void gargoyleDropAttack()
 	int i;
 	long onGround = self->flags & ON_GROUND;
 	Entity *e;
-	
+
 	checkToMap(self);
 
 	self->thinkTime--;
@@ -949,16 +949,7 @@ static void gargoyleLanceStab()
 
 static void gargoyleLanceStabReactToBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->face == RIGHT ? -5 : 5;
-	self->dirY = -6;
-
-	self->action = &gargoyleLanceStabFinish;
-
-	self->thinkTime = 60;
-
-	checkToMap(self);
+	self->dirX = 0;
 }
 
 static void gargoyleLanceStabFinish()
@@ -1810,9 +1801,9 @@ static void gargoyleTakeDamage(Entity *other, int damage)
 			if (self->maxThinkTime >= 3)
 			{
 				self->mental = 0;
-				
+
 				self->thinkTime = 180;
-				
+
 				self->damage = 0;
 
 				self->die();
@@ -2105,16 +2096,16 @@ static void gargoyleDie()
 	if (self->standingOn != NULL || (self->flags & ON_GROUND))
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			if (self->mental == 0)
 			{
 				gargoyleAddStoneCoat();
-				
+
 				self->target->alpha = 0;
 			}
-			
+
 			else if (self->mental == 1)
 			{
 				self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
@@ -2157,7 +2148,7 @@ static void gargoyleAddStoneCoat()
 	e->head = self;
 
 	self->target = e;
-	
+
 	e->thinkTime = 30;
 
 	setEntityAnimation(e, getAnimationTypeAtIndex(self));
@@ -2168,15 +2159,15 @@ static void gargoyleCoatWait()
 	self->face = self->head->face;
 
 	setEntityAnimation(self, getAnimationTypeAtIndex(self->head));
-	
+
 	self->alpha++;
 
 	if (self->alpha >= 255)
 	{
 		self->thinkTime--;
-		
+
 		self->alpha = 255;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			self->head->mental = 1;
@@ -2533,6 +2524,8 @@ static void guardianBiteAttackWindUp()
 		self->action = &guardianBiteAttack;
 
 		self->reactToBlock = &guardianBiteReactToBlock;
+
+		self->dirX = (self->targetX < self->x ? -self->speed * 2 : self->speed * 2);
 	}
 
 	guardianAlignBodyToHead();
@@ -2540,11 +2533,9 @@ static void guardianBiteAttackWindUp()
 
 static void guardianBiteAttack()
 {
-	self->dirX = (self->targetX < self->x ? -self->speed * 2 : self->speed * 2);
-
 	checkToMap(self);
 
-	if (fabs(self->x - self->targetX) < self->speed)
+	if (fabs(self->targetX - self->x) <= fabs(self->dirX))
 	{
 		self->x = self->targetX;
 
@@ -3237,25 +3228,9 @@ static void guardianSpecialShotTouch(Entity *other)
 
 static void guardianBiteReactToBlock(Entity *other)
 {
-	self->maxThinkTime--;
+	self->targetX = self->x;
 
-	if (self->maxThinkTime <= 0)
-	{
-		self->action = &guardianAttackFinished;
-	}
-
-	else
-	{
-		self->targetX = self->endX + (self->face == LEFT ? -32 : 32);
-		self->targetY = self->endY - 32;
-
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-		self->dirX *= 4;
-		self->dirY *= 4;
-
-		self->action = &guardianBiteAttackWindUp;
-	}
+	self->dirX = 0;
 }
 
 static void guardianStunned()
@@ -5390,7 +5365,7 @@ static void queenWaspWait()
 				self->action = &queenWaspSlimeFireInit;
 			break;
 		}
-		
+
 		self->damage = 1;
 
 		playSoundToMap("sound/boss/fly_boss/buzz.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -5747,7 +5722,8 @@ static void queenWaspMoveToHeadButtRange()
 
 		if (abs(bossX - playerX) < 24)
 		{
-			self->dirX = 0;
+			self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+			self->dirY = -3;
 
 			self->touch = &queenWaspRamTouch;
 
@@ -5767,30 +5743,36 @@ static void queenWaspMoveToHeadButtRange()
 
 static void queenWaspHeadButt()
 {
-	facePlayer();
+	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
+		facePlayer();
+
 		self->dirX = 0;
-	}
 
-	self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
-	self->dirY = -3;
+		self->thinkTime = 120;
 
-	checkToMap(self);
+		if (prand() % 2 == 0)
+		{
+			self->action = &queenWaspAttackFinished;
 
-	self->thinkTime = 120;
+			self->touch = &queenWaspRamTouch;
+		}
 
-	if (prand() % 2 == 0)
-	{
-		self->action = &queenWaspAttackFinished;
-
-		self->touch = &queenWaspRamTouch;
+		else
+		{
+			self->action = &queenWaspMoveToHeadButtRange;
+		}
 	}
 
 	else
 	{
-		self->action = &queenWaspMoveToHeadButtRange;
+		if (self->dirX == 0)
+		{
+			self->dirX = (self->face == LEFT ? 4 : -4);
+			self->dirY = -6;
+		}
 	}
 }
 
@@ -5826,12 +5808,7 @@ static void queenWaspSelectRandomBottomTarget()
 
 static void queenWaspReactToHeadButtBlock(Entity *other)
 {
-	self->dirX = (self->face == LEFT ? 4 : -4);
-	self->dirY = -6;
-
-	setCustomAction(self, &helpless, 15, 0, 0);
-
-	checkToMap(self);
+	self->dirX = 0;
 }
 
 static void queenWaspTakeDamage(Entity *other, int damage)

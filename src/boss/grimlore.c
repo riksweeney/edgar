@@ -1582,13 +1582,13 @@ static void shieldBiteReactToBlock(Entity *other)
 {
 	self->endX = self->face == LEFT ? self->x + 64 : self->x - 64;
 
-	self->dirX = self->face == LEFT ? 2 : -2;
-
 	self->action = &shieldBiteMoveBack;
 }
 
 static void shieldBiteMoveBack()
 {
+	self->dirX = self->face == LEFT ? 2 : -2;
+
 	if ((self->face == LEFT && (self->x >= self->endX || self->x >= self->startX)) || (self->face == RIGHT && (self->x <= self->endX || self->x <= self->startX)))
 	{
 		self->mental--;
