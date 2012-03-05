@@ -114,8 +114,10 @@ static void addMedalToQueue(char *text)
 
 static void getNextMedalFromQueue()
 {
-	int i;
+	int i, medalsAwarded;
 	Message *head = messageHead.next;
+	
+	medalsAwarded = 0;
 
 	if (head != NULL)
 	{
@@ -128,14 +130,24 @@ static void getNextMedalFromQueue()
 				medal[i].obtained = TRUE;
 				
 				awardedMedalIndex = i;
-				
-				break;
+			}
+			
+			if (medal[i].obtained == TRUE)
+			{
+				medalsAwarded++;
 			}
 		}
+		
+		printf("Medals awarded %d of %d\n", medalsAwarded, medalCount);
 
 		messageHead.next = head->next;
 
 		free(head);
+	}
+	
+	if (medalsAwarded == medalCount - 1)
+	{
+		addMedal("all_medals");
 	}
 }
 
@@ -217,6 +229,11 @@ static void loadMedals()
 		}
 		
 		else if (strcmpignorecase(medalType, "G") == 0)
+		{
+			medal[i].medalType = 2;
+		}
+		
+		else if (strcmpignorecase(medalType, "R") == 0)
 		{
 			medal[i].medalType = 2;
 		}
