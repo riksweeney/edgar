@@ -638,9 +638,10 @@ static void moveToHeadButtRange()
 
 		if (abs(bossX - playerX) < 24)
 		{
-			self->dirX = 0;
+			self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
+			self->dirY = -3;
 
-			self->touch = &ramTouch;
+			self->touch = &tamTouch;
 
 			self->action = &headButt;
 
@@ -658,30 +659,36 @@ static void moveToHeadButtRange()
 
 static void headButt()
 {
-	facePlayer();
+	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
 	{
+		facePlayer();
+
 		self->dirX = 0;
-	}
 
-	self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
-	self->dirY = -3;
+		self->thinkTime = 120;
 
-	checkToMap(self);
+		if (prand() % 2 == 0)
+		{
+			self->action = &queenWaspAttackFinished;
 
-	self->thinkTime = 120;
+			self->touch = &queenWaspRamTouch;
+		}
 
-	if (prand() % 2 == 0)
-	{
-		self->action = &attackFinished;
-
-		self->touch = &ramTouch;
+		else
+		{
+			self->action = &queenWaspMoveToHeadButtRange;
+		}
 	}
 
 	else
 	{
-		self->action = &moveToHeadButtRange;
+		if (self->dirX == 0)
+		{
+			self->dirX = (self->face == LEFT ? 4 : -4);
+			self->dirY = -6;
+		}
 	}
 }
 
@@ -885,12 +892,7 @@ static void selectRandomBottomTarget()
 
 static void reactToHeadButtBlock(Entity *other)
 {
-	self->dirX = (self->face == LEFT ? 4 : -4);
-	self->dirY = -6;
-
-	setCustomAction(self, &helpless, 15, 0, 0);
-
-	checkToMap(self);
+	self->dirX = 0;
 }
 
 static void takeDamage(Entity *other, int damage)

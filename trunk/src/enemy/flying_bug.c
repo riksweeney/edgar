@@ -57,7 +57,7 @@ Entity *addFlyingBug(int x, int y, char *name)
 	e->die = &entityDie;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeRandomTarget;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -97,13 +97,7 @@ static void entityWait()
 
 static void changeRandomTarget(Entity *other)
 {
-	self->targetX = self->x + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
-	self->targetY = self->y + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
-
-	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-	self->dirX *= self->speed;
-	self->dirY *= self->speed;
+	self->dirX = 0;
 }
 
 static void moveToTarget()
@@ -112,7 +106,13 @@ static void moveToTarget()
 
 	if (self->dirX == 0 || self->dirY == 0)
 	{
-		changeRandomTarget(NULL);
+		self->targetX = self->x + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
+		self->targetY = self->y + (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
+
+		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
+
+		self->dirX *= self->speed;
+		self->dirY *= self->speed;
 	}
 
 	x = self->dirX;
@@ -136,11 +136,11 @@ static void moveToTarget()
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

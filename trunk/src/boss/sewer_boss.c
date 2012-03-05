@@ -890,7 +890,7 @@ static void clawSideAttackWait()
 
 static void clawSideAttack()
 {
-	if (atTarget())
+	if (atTarget() || self->dirX == 0)
 	{
 		self->targetX = self->startX;
 		self->targetY = self->y;
@@ -918,19 +918,9 @@ static void clawSideAttack()
 
 static void sideAttackReactToBlock(Entity *other)
 {
-	self->endX--;
+	self->dirX = 0;
 
-	self->targetX = self->startX;
-	self->targetY = self->y;
-
-	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-	self->dirX *= 6;
-	self->dirY *= 6;
-
-	self->action = &clawSideAttackWait;
-
-	self->thinkTime = 60;
+	self->targetX = self->x;
 }
 
 static void clawSideAttackFinish()
@@ -984,35 +974,9 @@ static void punchAttackInit()
 
 static void punchReactToBlock(Entity *other)
 {
-	self->endX--;
+	self->dirX = 0;
 
-	if (self->endX <= 0)
-	{
-		self->targetX = self->startX;
-		self->targetY = self->y;
-
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-		self->dirX *= 4;
-		self->dirY *= 4;
-
-		self->action = &punchAttackFinish;
-
-		self->thinkTime = 60;
-	}
-
-	else
-	{
-		self->targetX = self->face == LEFT ? self->startX - 64 : self->startX + 64;
-		self->targetY = self->startY;
-
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-		self->dirX *= 6;
-		self->dirY *= 6;
-
-		self->action = &punchAttackInit;
-	}
+	self->targetX = self->x;
 }
 
 static void punchAttack()

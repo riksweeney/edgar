@@ -119,17 +119,17 @@ static void lookForPlayer()
 			self->action = &castWait;
 
 			setEntityAnimation(self, "ATTACK_1");
-			
+
 			switch (self->maxThinkTime)
 			{
 				case 2:
 					self->animationCallback = &castIce;
 				break;
-				
+
 				case 1:
 					self->animationCallback = &castFireInit;
 				break;
-				
+
 				default:
 					self->animationCallback = &castLightningBolt;
 				break;
@@ -204,9 +204,9 @@ static void die()
 	}
 
 	loadProperties("enemy/energy_drainer_ball", e);
-	
+
 	setEntityAnimation(e, "STAND");
-	
+
 	e->target = self->head;
 
 	e->x = self->x + self->w / 2;
@@ -226,7 +226,7 @@ static void die()
 	e->type = ENEMY;
 
 	e->thinkTime = 90;
-	
+
 	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
 	entityDie();
@@ -257,7 +257,7 @@ static void ballWait()
 static void moveToSorceror()
 {
 	Entity *e;
-	
+
 	self->x += self->dirX;
 	self->y += self->dirY;
 
@@ -266,7 +266,7 @@ static void moveToSorceror()
 		self->target->startY++;
 
 		self->inUse = FALSE;
-		
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -275,11 +275,11 @@ static void moveToSorceror()
 		}
 
 		loadProperties("boss/sorceror_energy_flash", e);
-		
+
 		setEntityAnimation(e, "STAND");
-		
+
 		e->head = self->target;
-		
+
 		e->face = self->target->face;
 
 		e->x = e->head->x;
@@ -294,9 +294,9 @@ static void flashWait()
 {
 	self->x = self->head->x;
 	self->y = self->head->y;
-	
+
 	self->alpha -= 12;
-	
+
 	if (self->alpha <= 0)
 	{
 		self->inUse = FALSE;
@@ -371,7 +371,7 @@ static void castFireInit()
 	self->endX = 5;
 
 	playSoundToMap("sound/enemy/fireball/fireball.ogg", -1, self->x, self->y, 0);
-	
+
 	self->action = &castFire;
 }
 
@@ -466,7 +466,7 @@ static void fireMove()
 
 static void fireBlock(Entity *other)
 {
-	self->inUse = FALSE;
+	self->dirX = 0;
 }
 
 static void castLightningBolt()
@@ -610,7 +610,7 @@ static void castIce()
 	Entity *e;
 
 	mapFloor = getMapFloor(self->head->x + self->head->w / 2, self->head->y);
-	
+
 	for (i=0;i<2;i++)
 	{
 		e = getFreeEntity();
@@ -686,7 +686,7 @@ static void iceWallMove()
 
 			e->dirX = 3;
 			e->dirY = -8;
-			
+
 			self->touch = &iceWallTouch;
 		}
 	}

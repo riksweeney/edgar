@@ -68,7 +68,7 @@ Entity *addFlyTrap(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
 	e->reactToBlock = &changeDirection;
-	
+
 	e->creditsAction = &init;
 
 	e->type = ENEMY;
@@ -97,11 +97,11 @@ static void init()
 	e->touch = &entityTouch;
 	e->takeDamage = &headTakeDamage;
 	e->reactToBlock = &headChangeDirection;
-	
+
 	e->creditsAction = &headWait;
 
 	e->head = self;
-	
+
 	self->head = e;
 
 	createBody(e, self);
@@ -109,11 +109,11 @@ static void init()
 	e->face = self->face;
 
 	e->dirX = self->dirX;
-	
+
 	e->health = self->health;
 
 	self->action = &lookForPlayer;
-	
+
 	self->creditsAction = &creditsMove;
 }
 
@@ -136,7 +136,7 @@ static void lookForPlayer()
 			self->action = &biteWait;
 
 			self->mental = 1;
-			
+
 			playSoundToMap("sound/enemy/mouth_stalk/hiss.ogg", -1, self->x, self->y, 0);
 		}
 	}
@@ -204,7 +204,7 @@ static void headWait()
 	{
 		self->endX = 0;
 	}
-	
+
 	self->y = self->startY + sin(DEG_TO_RAD(self->endX)) * 4;
 
 	checkToMap(self);
@@ -238,7 +238,7 @@ static void headWait()
 	{
 		self->flags &= ~FLASH;
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -253,7 +253,7 @@ static void headBiteInit()
 	{
 		self->startX = self->x;
 		self->startY = self->y;
-		
+
 		self->targetX = player.x;
 		self->targetY = player.y;
 
@@ -302,7 +302,7 @@ static void headBite()
 
 		self->dirX *= 16;
 		self->dirY *= 16;
-		
+
 		self->flags |= UNBLOCKABLE;
 
 		self->action = &headBiteReturn;
@@ -332,15 +332,7 @@ static void headBite()
 
 static void headBiteReactToBlock(Entity *other)
 {
-	self->targetX = self->startX;
-	self->targetY = self->startY;
-
-	calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-	self->dirX *= 16;
-	self->dirY *= 16;
-
-	self->action = &headBiteReturn;
+	self->dirX = 0;
 }
 
 static void headBiteReturn()
@@ -355,7 +347,7 @@ static void headBiteReturn()
 	if (atTarget() || self->dirX != dirX || self->dirY != dirY)
 	{
 		self->flags &= ~UNBLOCKABLE;
-		
+
 		self->x = self->startX;
 		self->y = self->startY;
 
@@ -437,11 +429,11 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
 		body[i]->takeDamage = &bodyTakeDamage;
-		
+
 		body[i]->creditsAction = &bodyWait;
 
 		body[i]->type = ENEMY;
-		
+
 		body[i]->health = trapBase->health;
 
 		setEntityAnimation(body[i], "STAND");
@@ -488,7 +480,7 @@ static void createBody(Entity *trapHead, Entity *trapBase)
 	free(body);
 
 	trapHead->action = &headWait;
-	
+
 	trapHead->creditsAction = &headWait;
 }
 
@@ -539,7 +531,7 @@ static void alignBodyToHead()
 static void bodyTakeDamage(Entity *other, int damage)
 {
 	Entity *temp = self;
-	
+
 	self = self->head->head; /* Get the head, then the base */
 
 	self->takeDamage(other, damage);
@@ -578,7 +570,7 @@ static void bodyWait()
 	{
 		self->flags &= ~FLASH;
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -588,11 +580,11 @@ static void bodyWait()
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
@@ -602,6 +594,6 @@ static void creditsMove()
 static void die()
 {
 	playSoundToMap("sound/enemy/jumping_slime/slime_die.ogg", -1, self->x, self->y, 0);
-	
+
 	entityDie();
 }

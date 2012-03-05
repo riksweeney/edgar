@@ -1364,11 +1364,7 @@ void initLineDefs()
 
 void changeDirection(Entity *other)
 {
-	self->dirX *= -1;
-
-	checkToMap(self);
-
-	self->face = self->face == RIGHT ? LEFT : RIGHT;
+	self->dirX = 0;
 }
 
 void writeEntitiesToFile(FILE *fp)
@@ -1870,7 +1866,7 @@ int atTarget()
 			return TRUE;
 		}
 	}
-	
+
 	else if (fabs(self->dirX) > 0 && fabs(self->dirX) < 0.01)
 	{
 		if (fabs(self->targetY - self->y) <= fabs(self->dirY))
@@ -1884,7 +1880,7 @@ int atTarget()
 			return TRUE;
 		}
 	}
-	
+
 	else if (fabs(self->targetX - self->x) <= fabs(self->dirX) && fabs(self->targetY - self->y) <= fabs(self->dirY))
 	{
 		self->x = self->targetX;

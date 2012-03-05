@@ -162,6 +162,8 @@ static void skullShotMove()
 {
 	Entity *e;
 
+	self->dirX = self->face == LEFT ? -fabs(self->dirX) : fabs(self->dirX);
+
 	self->mental--;
 
 	if (self->mental <= 0)
@@ -187,6 +189,11 @@ static void skullShotMove()
 	}
 
 	checkToMap(self);
+
+	if (self->dirX == 0 || self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void skullShotReflect(Entity *other)
@@ -219,8 +226,6 @@ static void skullShotReflect(Entity *other)
 	}
 
 	self->parent = other;
-
-	self->dirX = -self->dirX;
 
 	self->face = self->face == LEFT ? RIGHT : LEFT;
 }

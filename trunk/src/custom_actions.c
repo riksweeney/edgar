@@ -301,12 +301,17 @@ void antiGravity(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
 
+	if (*counter <= 0)
+	{
+		(*counter) = 1;
+	}
+
 	if (!(self->flags & FLY))
 	{
 		if (*thinkTime != 0)
 		{
 			self->weight = 0;
-			self->dirY = -1;
+			self->dirY = -1 * (*counter);
 		}
 
 		else
@@ -324,11 +329,11 @@ void spriteTrail(int *thinkTime, int *counter, float *value)
 	if (*thinkTime != 0)
 	{
 		(*counter)--;
-		
+
 		if (*counter <= 0)
 		{
 			*counter = 5;
-			
+
 			addDuplicateImage(self);
 		}
 	}
@@ -337,18 +342,18 @@ void spriteTrail(int *thinkTime, int *counter, float *value)
 void stickToFloor(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
-	
+
 	if (*thinkTime != 0)
 	{
 		self->speed = self->originalSpeed * 0.25;
-		
+
 		self->flags |= GROUNDED;
 	}
-	
+
 	else
 	{
 		self->speed = self->originalSpeed;
-		
+
 		self->flags &= ~GROUNDED;
 	}
 }
@@ -356,7 +361,7 @@ void stickToFloor(int *thinkTime, int *counter, float *value)
 void removeFriction(int *thinkTime, int *counter, float *value)
 {
 	(*thinkTime)--;
-	
+
 	if (*thinkTime != 0)
 	{
 		self->flags |= FRICTIONLESS;

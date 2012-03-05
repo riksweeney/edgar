@@ -28,6 +28,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 static void projectileMove(void);
 static void projectileDie(void);
 static void removeProjectile(void);
+static void bounceOffShieldAction(void);
 
 extern Entity *self;
 
@@ -59,7 +60,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->type = PROJECTILE;
 
 	e->fallout = &removeProjectile;
-	
+
 	e->creditsAction = &projectileMove;
 
 	e->parent = owner;
@@ -82,7 +83,7 @@ Entity *addProjectile(char *name, Entity *owner, int x, int y, float dirX, float
 	e->face = e->dirX > 0 ? RIGHT : LEFT;
 
 	setEntityAnimationByID(e, 0);
-	
+
 	e->flags |= ATTACKING;
 
 	return e;
@@ -102,13 +103,27 @@ static void projectileMove()
 
 void bounceOffShield(Entity *other)
 {
-	self->dirX = (self->dirX < 0 ? 5 : -5);
+	self->face = self->dirX < 0 ? LEFT : RIGHT;
 
-	self->dirY = -5;
+	self->dirX = 0;
 
-	self->flags &= ~FLY;
+	self->action = &bounceOffShieldAction;
+}
 
-	self->touch = NULL;
+static void bounceOffShieldAction()
+{
+	if (self->touch != NULL)
+	{
+		self->dirX = (self->face == LEFT ? 5 : -5);
+
+		self->dirY = -5;
+
+		self->flags &= ~FLY;
+
+		self->touch = NULL;
+	}
+
+	checkToMap(self);
 }
 
 static void projectileDie()

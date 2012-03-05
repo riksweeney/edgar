@@ -127,7 +127,7 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &redWait;
 		e->die = &redDieInit;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -135,7 +135,7 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &blueWait;
 		e->die = &blueDieInit;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -143,7 +143,7 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &yellowWait;
 		e->die = &yellowDieInit;
-		
+
 		e->creditsAction = &creditsMove;
 	}
 
@@ -151,7 +151,7 @@ Entity *addLargeBook(int x, int y, char *name)
 	{
 		e->action = &greenWait;
 		e->die = &greenDieInit;
-		
+
 		e->creditsAction = &greenCreditsMove;
 	}
 
@@ -523,7 +523,7 @@ static void fireBounce()
 
 static void fireBlock(Entity *other)
 {
-	self->inUse = FALSE;
+	self->dirX = 0;
 }
 
 static void blueWait()
@@ -2352,42 +2352,42 @@ static void takeDamage(Entity *other, int damage)
 static void creditsMove()
 {
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	hover();
 }
 
 static void greenCreditsMove()
 {
 	self->thinkTime++;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	hover();
-	
+
 	if (self->thinkTime == 300)
 	{
 		self->thinkTime = 60;
-		
+
 		self->creditsAction = &creditsSummon;
-		
+
 		self->mental = 0;
 	}
 }
@@ -2395,13 +2395,13 @@ static void greenCreditsMove()
 static void creditsSummon()
 {
 	Entity *e;
-	
+
 	self->dirX = 0;
-	
+
 	hover();
-	
+
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		switch (self->mental)
@@ -2420,11 +2420,11 @@ static void creditsSummon()
 
 			default:
 				e = addBook(self->x, self->y, "enemy/blue_book");
-				
+
 				self->creditsAction = &creditsMove;
 			break;
 		}
-		
+
 		e->x = self->x + self->w / 2;
 		e->y = self->y + self->h / 2;
 
@@ -2433,7 +2433,7 @@ static void creditsSummon()
 
 		e->targetY = e->y + (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
 		e->targetX = e->x - SCREEN_WIDTH / 2 + (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
-		
+
 		e->startY = e->targetY;
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
@@ -2443,9 +2443,9 @@ static void creditsSummon()
 		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
 
 		e->face = RIGHT;
-		
+
 		self->mental++;
-		
+
 		self->thinkTime = 30;
 	}
 }

@@ -273,7 +273,7 @@ static void introFinish()
 			stopSound(BOSS_CHANNEL);
 
 			playDefaultBossMusic();
-			
+
 			self->maxThinkTime = 0;
 
 			setContinuePoint(FALSE, self->name, NULL);
@@ -1033,16 +1033,7 @@ static void lanceStab()
 
 static void lanceStabReactToBlock(Entity *other)
 {
-	self->flags &= ~FLY;
-
-	self->dirX = self->face == RIGHT ? -5 : 5;
-	self->dirY = -6;
-
-	self->action = &lanceStabFinish;
-
-	self->thinkTime = 60;
-
-	checkToMap(self);
+	self->dirX = 0;
 }
 
 static void lanceStabFinish()
@@ -2671,7 +2662,7 @@ static void becomeMiniGargoyleInit()
 
 		e->endX = e->x;
 		e->endY = e->y;
-		
+
 		e->flags |= LIMIT_TO_SCREEN;
 
 		setEntityAnimation(e, "STAND");
@@ -2930,10 +2921,10 @@ static void dieWait()
 
 				playSoundToMap("sound/boss/gargoyle/gargoyle_stone_to_flesh.ogg", BOSS_CHANNEL, self->x, self->y, -1);
 			break;
-			
+
 			case 5:
 				self->x = self->startX + 1 * (prand() % 2 == 0 ? 1 : -1);
-				
+
 				if (self->mental == 0)
 				{
 					stopSound(BOSS_CHANNEL);
@@ -2943,9 +2934,9 @@ static void dieWait()
 					self->mental = -1;
 
 					setEntityAnimation(self, "REACH_STONE");
-					
+
 					self->thinkTime = 30;
-					
+
 					self->maxThinkTime = 6;
 				}
 			break;

@@ -985,7 +985,7 @@ static void soulStealFinish()
 		{
 			self->target->inUse = FALSE;
 		}
-		
+
 		setEntityAnimation(self, "STAND");
 
 		self->flags &= ~NO_DRAW;
@@ -1818,6 +1818,8 @@ static void phantasmalBoltMove()
 {
 	Entity *e;
 
+	self->dirX = self->face == LEFT ? -fabs(self->dirX) : fabs(self->dirX);
+
 	self->mental--;
 
 	if (self->mental <= 0)
@@ -1843,6 +1845,11 @@ static void phantasmalBoltMove()
 	}
 
 	checkToMap(self);
+
+	if (self->dirX == 0 || self->thinkTime <= 0)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void phantasmalBoltReflect(Entity *other)
@@ -1875,8 +1882,6 @@ static void phantasmalBoltReflect(Entity *other)
 	}
 
 	self->parent = other;
-
-	self->dirX = -self->dirX;
 
 	self->face = self->face == LEFT ? RIGHT : LEFT;
 }

@@ -125,7 +125,7 @@ static void takeDamage(Entity *other, int damage)
 
 		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
 
-		if (other->reactToBlock != NULL)
+		if (other->type == PROJECTILE && other->reactToBlock != NULL)
 		{
 			temp = self;
 

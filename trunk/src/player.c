@@ -1218,7 +1218,7 @@ static void takeDamage(Entity *other, int damage)
 			{
 				player.dirX = other->dirX < 0 ? -2 : 2;
 
-				checkToMap(&player);
+				other->x = other->dirX > 0 ? player.x - other->w : player.x + player.w;
 
 				setCustomAction(&player, &helpless, 2, 0, 0);
 
@@ -1267,16 +1267,34 @@ static void takeDamage(Entity *other, int damage)
 			if (other->dirX != 0)
 			{
 				player.dirX = other->dirX < 0 ? -2 : 2;
+
+				other->x = other->dirX > 0 ? player.x - other->w : player.x + player.w;
 			}
 
 			else
 			{
 				player.dirX = player.x < other->x ? -6 : 6;
+
+				other->x = other->x < player.x ? player.x - other->w : player.x + player.w;
 			}
 
-			checkToMap(&player);
-
 			setCustomAction(&player, &helpless, 2, 0, 0);
+
+			if (other->reactToBlock == NULL)
+			{
+				other->dirX = 0;
+			}
+
+			else
+			{
+				temp = self;
+
+				self = other;
+
+				self->reactToBlock(&playerShield);
+
+				self = temp;
+			}
 
 			if (playerShield.thinkTime <= 0)
 			{
@@ -1326,26 +1344,6 @@ static void takeDamage(Entity *other, int damage)
 			if (game.attacksBlocked == 2000)
 			{
 				addMedal("blocked");
-			}
-
-			other->x = other->x < player.x ? player.x - other->w - 4 : player.x + player.w + 4;
-
-			if (other->reactToBlock == NULL)
-			{
-				other->dirX = other->dirX < 0 ? 2 : -2;
-
-				checkToMap(other);
-			}
-
-			else
-			{
-				temp = self;
-
-				self = other;
-
-				self->reactToBlock(&playerShield);
-
-				self = temp;
 			}
 
 			return;

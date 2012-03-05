@@ -101,7 +101,7 @@ Entity *addSnakeBoss(int x, int y, char *name)
 	head->touch = &entityTouch;
 	head->die = &die;
 	head->takeDamage = &takeDamage;
-	
+
 	head->creditsAction = &creditsMove;
 
 	head->type = ENEMY;
@@ -126,7 +126,7 @@ static void bodyWait()
 	}
 
 	checkToMap(self);
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -321,7 +321,7 @@ static void createBody()
 		body[i]->touch = &entityTouch;
 		body[i]->die = &entityDieNoDrop;
 		body[i]->takeDamage = &bodyTakeDamage;
-		
+
 		body[i]->creditsAction = &bodyWait;
 
 		body[i]->type = ENEMY;
@@ -483,7 +483,7 @@ static void shotAttack()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/snake_boss_shot.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
@@ -956,7 +956,7 @@ static void fallToGround()
 	if (self->thinkTime <= 0)
 	{
 		playSoundToMap("sound/boss/snake_boss/snake_boss_die.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == LEFT ? -8 : 8;
@@ -969,7 +969,7 @@ static void fallToGround()
 	if (self->flags & ON_GROUND)
 	{
 		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		setEntityAnimation(self, "PAIN");
 
 		self->thinkTime = 180;
@@ -1105,25 +1105,9 @@ static void specialShotTouch(Entity *other)
 
 static void biteReactToBlock(Entity *other)
 {
-	self->maxThinkTime--;
+	self->targetX = self->x;
 
-	if (self->maxThinkTime <= 0)
-	{
-		self->action = &attackFinished;
-	}
-
-	else
-	{
-		self->targetX = self->endX + (self->face == LEFT ? -32 : 32);
-		self->targetY = self->endY - 32;
-
-		calculatePath(self->x, self->y, self->targetX, self->targetY, &self->dirX, &self->dirY);
-
-		self->dirX *= 4;
-		self->dirY *= 4;
-
-		self->action = &biteAttackWindUp;
-	}
+	self->dirX = 0;
 }
 
 static void stunned()
@@ -1235,20 +1219,20 @@ static void creditsMove()
 	if (self->health != -1)
 	{
 		createBody();
-		
+
 		self->endY = self->y + 32;
-		
+
 		self->y -= 32;
-		
+
 		self->health = -1;
 	}
-	
+
 	bossMoveToMiddle();
-	
+
 	self->endX = self->x;
-	
+
 	alignBodyToHead();
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->creditsAction = &creditsMoveOffScreen;
@@ -1258,13 +1242,13 @@ static void creditsMove()
 static void creditsMoveOffScreen()
 {
 	self->x -= 20;
-	
+
 	if (self->x <= -self->w)
 	{
 		self->inUse = FALSE;
 	}
-	
+
 	self->endX = self->x;
-	
+
 	alignBodyToHead();
 }

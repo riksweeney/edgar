@@ -107,7 +107,7 @@ Entity *addBorerBoss(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &creditsMove;
 
 	e->type = ENEMY;
@@ -175,7 +175,7 @@ static void addTentacles()
 		e->action = &tentacleWait;
 
 		e->draw = &drawTentacle;
-		
+
 		e->creditsAction = &tentacleWait;
 
 		e->type = ENEMY;
@@ -207,7 +207,7 @@ static void addMouth()
 	e->action = &mouthWait;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &mouthWait;
 
 	e->type = ENEMY;
@@ -592,25 +592,7 @@ static void bombMove()
 
 static void rockBlock(Entity *other)
 {
-	Entity *e;
-
-	e = addSmallRock(self->x, self->y, "common/small_rock");
-
-	e->x += (self->w - e->w) / 2;
-	e->y += (self->h - e->h) / 2;
-
-	e->dirX = 3;
-	e->dirY = -4;
-
-	e = addSmallRock(self->x, self->y, "common/small_rock");
-
-	e->x += (self->w - e->w) / 2;
-	e->y += (self->h - e->h) / 2;
-
-	e->dirX = 3;
-	e->dirY = -8;
-
-	self->inUse = FALSE;
+	self->dirX = 0;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -723,7 +705,7 @@ static void tentacleWait()
 			self->action = &tentacleAttackInit;
 		}
 	}
-	
+
 	if (self->head->inUse == FALSE)
 	{
 		self->inUse = FALSE;
@@ -1475,12 +1457,12 @@ static void leave()
 static void creditsMove()
 {
 	int x = self->targetX;
-	
+
 	addMouth();
-	
+
 	addTentacles();
-	
+
 	self->creditsAction = &bossMoveToMiddle;
-	
+
 	self->targetX = x;
 }
