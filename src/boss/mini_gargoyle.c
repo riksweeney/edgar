@@ -128,9 +128,9 @@ static void touch(Entity *other)
 		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
 		self->action = &raiseOffScreen;
-		
+
 		self->y -= self->dirY;
-		
+
 		self->dirY = 0;
 
 		self->thinkTime = 0;
@@ -138,7 +138,7 @@ static void touch(Entity *other)
 		self->layer = FOREGROUND_LAYER;
 
 		other->flags |= GRABBED;
-		
+
 		self->flags |= GRABBING;
 
 		self->mental = 3 + (prand() % 3);
@@ -203,7 +203,7 @@ static void raiseOffScreen()
 	}
 
 	player.y -= player.dirY;
-	
+
 	player.dirY = 0;
 
 	player.y -= 0.1;
