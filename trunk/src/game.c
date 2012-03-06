@@ -833,7 +833,7 @@ void readGameSettingsFromFile(char *buffer)
 		else if (strcmpignorecase(token, "FONT") == 0)
 		{
 			token = strtok(NULL, "\0");
-			
+
 			if (token != NULL)
 			{
 				STRNCPY(game.customFont, token, MAX_FILE_LENGTH);
@@ -1057,6 +1057,11 @@ void increaseSecretsFound()
 	setInfoBoxMessage(90, 0, 255, 0, _("You found a secret!"));
 
 	playSound("sound/common/secret.ogg");
+
+	if (game.secretsFound == TOTAL_SECRETS)
+	{
+		addMedal("all_secrets");
+	}
 }
 
 void setContinuePoint(int cameraFollow, char *boss, void (*resumeAction)(void))
