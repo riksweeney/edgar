@@ -237,8 +237,13 @@ void doPlayer()
 
 				default:
 					self->dirY += GRAVITY_SPEED * self->weight;
+					
+					if (self->weight < 0 && self->dirY < -2)
+					{
+						self->dirY = -2;
+					}
 
-					if (self->dirY >= MAX_AIR_SPEED)
+					else if (self->dirY >= MAX_AIR_SPEED)
 					{
 						self->dirY = MAX_AIR_SPEED;
 					}
@@ -658,7 +663,7 @@ void doPlayer()
 					input.next = input.previous = 0;
 				}
 
-				if (input.jump == 1 && !(self->flags & BLOCKING))
+				if (input.jump == 1 && !(self->flags & (BLOCKING|GRABBED)))
 				{
 					if (self->element == WATER && self->environment == WATER)
 					{

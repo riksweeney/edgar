@@ -99,6 +99,7 @@ static void queenWaspHeadButtInit(void);
 static void queenWaspHeadButtMoveToPosition(void);
 static void queenWaspMoveToHeadButtRange(void);
 static void queenWaspHeadButt(void);
+static void queenWaspHeadButtFinish(void);
 static void queenWaspSelectRandomBottomTarget(void);
 static void queenWaspReactToHeadButtBlock(Entity *);
 static void queenWaspDropInit(void);
@@ -3229,6 +3230,8 @@ static void guardianSpecialShotTouch(Entity *other)
 static void guardianBiteReactToBlock(Entity *other)
 {
 	self->targetX = self->x;
+	
+	self->x = (int)self->x;
 
 	self->dirX = 0;
 }
@@ -5725,8 +5728,6 @@ static void queenWaspMoveToHeadButtRange()
 			self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
 			self->dirY = -3;
 
-			self->touch = &queenWaspRamTouch;
-
 			self->action = &queenWaspHeadButt;
 
 			self->reactToBlock = &queenWaspReactToHeadButtBlock;
@@ -5743,8 +5744,23 @@ static void queenWaspMoveToHeadButtRange()
 
 static void queenWaspHeadButt()
 {
+	self->touch = &queenWaspRamTouch;
+	
 	checkToMap(self);
 
+	if (self->dirX == 0)
+	{
+		self->dirX = (self->face == LEFT ? 4 : -4);
+		self->dirY = -6;
+		
+		self->action = &queenWaspHeadButtFinish;
+	}
+}
+
+static void queenWaspHeadButtFinish()
+{
+	self->touch = &entityTouch;
+	
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
@@ -5756,8 +5772,6 @@ static void queenWaspHeadButt()
 		if (prand() % 2 == 0)
 		{
 			self->action = &queenWaspAttackFinished;
-
-			self->touch = &queenWaspRamTouch;
 		}
 
 		else
@@ -5765,15 +5779,8 @@ static void queenWaspHeadButt()
 			self->action = &queenWaspMoveToHeadButtRange;
 		}
 	}
-
-	else
-	{
-		if (self->dirX == 0)
-		{
-			self->dirX = (self->face == LEFT ? 4 : -4);
-			self->dirY = -6;
-		}
-	}
+	
+	checkToMap(self);
 }
 
 static void queenWaspSelectRandomBottomTarget()
@@ -5949,10 +5956,7 @@ static void queenWaspRamTouch(Entity *other)
 
 	if (player.health < health)
 	{
-		if (self->action == &queenWaspMoveToHeadButtRange || self->action == &queenWaspAttackFinished)
-		{
-			queenWaspReactToHeadButtBlock(other);
-		}
+		queenWaspReactToHeadButtBlock(other);
 	}
 }
 

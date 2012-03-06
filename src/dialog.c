@@ -189,6 +189,13 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 
 			word[strlen(word) - 2] = '\0';
 		}
+		
+		token = strtok_r(NULL, " ", &savePtr);
+		
+		if (token == NULL)
+		{
+			word[strlen(word) - 1] = '\0';
+		}
 
 		surface[i] = generateTextSurface(word, game.font, 255, 255, 255, 0, 0, 0);
 
@@ -221,8 +228,6 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 		}
 
 		i++;
-
-		token = strtok_r(NULL, " ", &savePtr);
 	}
 
 	h -= 5;
