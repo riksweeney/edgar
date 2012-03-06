@@ -921,6 +921,8 @@ static void sideAttackReactToBlock(Entity *other)
 	self->dirX = 0;
 
 	self->targetX = self->x;
+	
+	self->x = (int)self->x;
 }
 
 static void clawSideAttackFinish()
@@ -977,6 +979,8 @@ static void punchReactToBlock(Entity *other)
 	self->dirX = 0;
 
 	self->targetX = self->x;
+	
+	self->x = (int)self->x;
 }
 
 static void punchAttack()

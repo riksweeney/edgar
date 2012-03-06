@@ -63,6 +63,7 @@ static void takeDamage(Entity *, int);
 static void shotAttackInit(void);
 static void shotAttackWindUp(void);
 static void shotAttack(void);
+static void specialShotMove(void);
 static void specialShotWait(void);
 static void specialShotBlock(Entity *);
 static void specialShotTouch(Entity *);
@@ -487,6 +488,8 @@ static void shotAttack()
 		if (prand() % 4 == 0 && self->startX == 0)
 		{
 			e = addProjectile("boss/snake_boss_special_shot", self, self->x + self->w / 2, self->y + self->h / 2, (self->face == RIGHT ? 7 : -7), 0);
+			
+			e->action = &specialShotMove;
 
 			e->reactToBlock = &specialShotBlock;
 
@@ -1037,27 +1040,37 @@ static void dieWait()
 	}
 }
 
+static void specialShotMove()
+{
+	if (!(self->flags & FLY))
+	{
+		self->dirX = (self->face == LEFT ? 5 : -5);
+
+		self->dirY = -5;
+
+		self->type = ENEMY;
+
+		self->target = self->parent;
+
+		self->parent = NULL;
+
+		self->action = &specialShotWait;
+
+		self->touch = NULL;
+
+		self->thinkTime = 300;
+
+		self->die = &entityDieNoDrop;
+	}
+	
+	checkToMap(self);
+}
+
 static void specialShotBlock(Entity *other)
 {
-	self->dirX = (self->dirX < 0 ? 5 : -5);
-
-	self->dirY = -5;
-
-	self->type = ENEMY;
-
-	self->target = self->parent;
-
-	self->parent = NULL;
-
+	self->dirX = 0;
+	
 	self->flags &= ~FLY;
-
-	self->action = &specialShotWait;
-
-	self->touch = NULL;
-
-	self->thinkTime = 300;
-
-	self->die = &entityDieNoDrop;
 }
 
 static void specialShotWait()
@@ -1105,9 +1118,11 @@ static void specialShotTouch(Entity *other)
 
 static void biteReactToBlock(Entity *other)
 {
-	self->targetX = self->x;
-
 	self->dirX = 0;
+
+	self->targetX = self->x;
+	
+	self->x = (int)self->x;
 }
 
 static void stunned()

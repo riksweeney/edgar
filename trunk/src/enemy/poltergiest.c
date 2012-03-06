@@ -345,7 +345,7 @@ static void bookAttackPlayer()
 
 	checkToMap(self);
 
-	if (self->dirX == 0)
+	if (self->dirX == 0 || (self->flags & ON_GROUND))
 	{
 		self->flags &= ~FLY;
 

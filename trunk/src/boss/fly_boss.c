@@ -64,6 +64,7 @@ static void headButtInit(void);
 static void headButtMoveToPosition(void);
 static void moveToHeadButtRange(void);
 static void headButt(void);
+static void headButtFinish(void);
 static void selectRandomBottomTarget(void);
 static void reactToHeadButtBlock(Entity *);
 static void dropInit(void);
@@ -272,6 +273,8 @@ static void entityWait()
 				self->action = &stingAttackInit;
 			break;
 		}
+		
+		self->action = &headButtInit;
 
 		self->damage = 1;
 
@@ -641,8 +644,6 @@ static void moveToHeadButtRange()
 			self->dirX = self->face == LEFT ? -self->speed * 3 : self->speed * 3;
 			self->dirY = -3;
 
-			self->touch = &tamTouch;
-
 			self->action = &headButt;
 
 			self->reactToBlock = &reactToHeadButtBlock;
@@ -659,8 +660,23 @@ static void moveToHeadButtRange()
 
 static void headButt()
 {
+	self->touch = &ramTouch;
+	
 	checkToMap(self);
 
+	if (self->dirX == 0)
+	{
+		self->dirX = (self->face == LEFT ? 4 : -4);
+		self->dirY = -6;
+		
+		self->action = &headButtFinish;
+	}
+}
+
+static void headButtFinish()
+{
+	self->touch = &entityTouch;
+	
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
@@ -671,25 +687,16 @@ static void headButt()
 
 		if (prand() % 2 == 0)
 		{
-			self->action = &queenWaspAttackFinished;
-
-			self->touch = &queenWaspRamTouch;
+			self->action = &attackFinished;
 		}
 
 		else
 		{
-			self->action = &queenWaspMoveToHeadButtRange;
+			self->action = &moveToHeadButtRange;
 		}
 	}
-
-	else
-	{
-		if (self->dirX == 0)
-		{
-			self->dirX = (self->face == LEFT ? 4 : -4);
-			self->dirY = -6;
-		}
-	}
+	
+	checkToMap(self);
 }
 
 static void stingAttackInit()
@@ -988,10 +995,7 @@ static void ramTouch(Entity *other)
 
 	if (player.health < health)
 	{
-		if (self->action == &stingAttack || self->action == &moveToHeadButtRange || self->action == &attackFinished)
-		{
-			reactToHeadButtBlock(other);
-		}
+		reactToHeadButtBlock(other);
 	}
 }
 

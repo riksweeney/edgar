@@ -212,6 +212,13 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 
 			word[strlen(word) - 2] = '\0';
 		}
+		
+		token = strtok_r(NULL, " ", &savePtr);
+		
+		if (token == NULL)
+		{
+			word[strlen(word) - 1] = '\0';
+		}
 
 		surface[i] = generateTextSurface(word, game.font, fr, fg, fb, br, bg, bb);
 
@@ -244,8 +251,6 @@ static SDL_Surface *createWidgetText(char *msg, TTF_Font *font, int fr, int fg, 
 		}
 
 		i++;
-
-		token = strtok_r(NULL, " ", &savePtr);
 	}
 
 	h -= 5;

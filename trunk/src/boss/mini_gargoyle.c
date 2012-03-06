@@ -128,12 +128,18 @@ static void touch(Entity *other)
 		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
 
 		self->action = &raiseOffScreen;
+		
+		self->y -= self->dirY;
+		
+		self->dirY = 0;
 
 		self->thinkTime = 0;
 
 		self->layer = FOREGROUND_LAYER;
 
 		other->flags |= GRABBED;
+		
+		self->flags |= GRABBING;
 
 		self->mental = 3 + (prand() % 3);
 	}
@@ -196,19 +202,16 @@ static void raiseOffScreen()
 		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
 	}
 
-	if (!(self->flags & GRABBING))
-	{
-		setCustomAction(&player, &antiGravity, 2, 1, 0.02);
+	player.y -= player.dirY;
+	
+	player.dirY = 0;
 
-		self->flags |= GRABBING;
-	}
+	player.y -= 0.1;
 
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + self->startX;
 	self->y = player.y + self->startY;
-
-	player.y = self->y - self->startY;
 
 	if (self->y < self->targetY)
 	{
@@ -242,10 +245,6 @@ static void raiseOffScreen()
 		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &die;
-
-		player.flags &= ~GRABBED;
-
-		self->flags &= ~GRABBING;
 	}
 }
 

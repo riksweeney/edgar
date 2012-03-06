@@ -187,6 +187,8 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
+		self->thinkTime = 30;
+		
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == RIGHT ? -3 : 3;
@@ -205,6 +207,8 @@ static void dartDownFinish()
 
 	if (self->thinkTime == 0)
 	{
+		self->dirX = 0;
+		
 		self->dirY = -self->speed;
 
 		self->flags |= FLY;
