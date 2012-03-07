@@ -252,7 +252,7 @@ static void die()
 
 	playSoundToMap("sound/enemy/gazer/gazer_die.ogg", -1, self->x, self->y, 0);
 
-	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL && prand() % 2 == 0)
+	if (getInventoryItemByObjectiveName("Summoner's Staff") == NULL)
 	{
 		e = dropCollectableItem("item/summoner_staff", self->x + self->w / 2, self->y, self->face);
 
@@ -366,8 +366,6 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, "STAND");
-
 		e->action = &lightningBolt;
 
 		e->draw = &drawLoopingAnimationToMap;
@@ -381,8 +379,6 @@ static void castLightningBolt()
 		e->thinkTime = 0;
 
 		e->flags |= FLY|DO_NOT_PERSIST;
-
-		setEntityAnimation(e, "STAND");
 
 		self->action = &summonWait;
 
