@@ -136,7 +136,7 @@ static void takeDamage(Entity *other, int damage)
 			self = temp;
 		}
 
-		if (other->type != PROJECTILE && prand() % 10 == 0)
+		if ((other->type != PROJECTILE && other->type != ENEMY) && prand() % 10 == 0)
 		{
 			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
