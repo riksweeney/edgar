@@ -20,9 +20,14 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../headers.h"
 
 #include "../audio/audio.h"
+#include "../custom_actions.h"
 #include "../collisions.h"
+#include "../dialog.h"
+#include "../enemy/rock.h"
+#include "../enemy/thunder_cloud.h"
 #include "../entity.h"
 #include "../game.h"
+#include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
 #include "../graphics/gib.h"
@@ -44,9 +49,12 @@ static void breatheFireFinish(void);
 static void spearAttackInit(void);
 static void spearAttack(void);
 static void spearAttackFinished(void);
+static void blindAttackInit(void);
+static void blindAttack(void);
+static void blindSpellWait(void);
 static void confuseAttackInit(void);
 static void confuseAttack(void);
-static void confuseAttackFinished(void);
+static void confuseSpellWait(void);
 static void holdPersonInit(void);
 static void holdPerson(void);
 static void holdPersonSpellMove(void);
@@ -61,6 +69,7 @@ static void spearWait(void);
 static void spearRise(void);
 static void spearSink(void);
 static void creditsAction(void);
+static void die(void);
 
 Entity *addChaos(int x, int y, char *name)
 {
@@ -110,6 +119,8 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
+		rand = 1;
+		
 		if (self->target != NULL && self->target->mental == 1) /* Confused */
 		{
 
@@ -213,6 +224,10 @@ static void breatheFire()
 				createAutoDialogBox(_("Chaos"), _("Suffer!"), 120);
 			break;
 		}
+		
+		self->maxThinkTime = 1;
+		
+		self->action = &breatheFireFinish;
 	}
 
 	checkToMap(self);
@@ -350,6 +365,8 @@ static void confuseAttackInit()
 	self->thinkTime = 120;
 
 	createAutoDialogBox(_("Chaos"), _("Confuse"), 120);
+	
+	self->action = &confuseAttack;
 }
 
 static void confuseAttack()
@@ -407,6 +424,8 @@ static void blindAttackInit()
 	self->thinkTime = 120;
 
 	createAutoDialogBox(_("Chaos"), _("Darkness"), 120);
+	
+	self->action = &blindAttack;
 }
 
 static void blindAttack()
@@ -653,8 +672,6 @@ static void holdPersonWait()
 
 		self->action = &castLightningBolt;
 	}
-
-	hover();
 }
 
 static void castLightningBolt()
@@ -730,8 +747,6 @@ static void castLightningBolt()
 			self->thinkTime = 30;
 		}
 	}
-
-	hover();
 }
 
 static void lightningBolt()
@@ -865,4 +880,14 @@ static void spearRise()
 
 		self->action = &spearWait;
 	}
+}
+
+static void die()
+{
+	
+}
+
+static void creditsAction()
+{
+	
 }

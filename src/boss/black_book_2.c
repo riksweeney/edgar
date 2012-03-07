@@ -2105,9 +2105,11 @@ static void gargoyleDie()
 				gargoyleAddStoneCoat();
 
 				self->target->alpha = 0;
+				
+				self->mental = 1;
 			}
 
-			else if (self->mental == 1)
+			else if (self->mental == 2)
 			{
 				self->targetX = self->head->x + self->head->w / 2 - self->w / 2;
 				self->targetY = self->head->y + self->head->h / 2 - self->h / 2;
@@ -2171,7 +2173,7 @@ static void gargoyleCoatWait()
 
 		if (self->thinkTime <= 0)
 		{
-			self->head->mental = 1;
+			self->head->mental = 2;
 		}
 	}
 

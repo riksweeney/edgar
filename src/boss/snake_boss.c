@@ -399,6 +399,8 @@ static void biteAttackWindUp()
 		self->action = &biteAttack;
 
 		self->reactToBlock = &biteReactToBlock;
+		
+		self->dirX = (self->targetX < self->x ? -self->speed * 2 : self->speed * 2);
 	}
 
 	alignBodyToHead();
@@ -406,8 +408,6 @@ static void biteAttackWindUp()
 
 static void biteAttack()
 {
-	self->dirX = (self->targetX < self->x ? -self->speed * 2 : self->speed * 2);
-
 	checkToMap(self);
 
 	if (fabs(self->x - self->targetX) < self->speed)
