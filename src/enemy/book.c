@@ -188,7 +188,7 @@ static void dartDown()
 	if (self->dirY == 0 || self->dirX == 0)
 	{
 		self->thinkTime = 30;
-		
+
 		self->flags &= ~FLY;
 
 		self->dirX = self->face == RIGHT ? -3 : 3;
@@ -208,7 +208,7 @@ static void dartDownFinish()
 	if (self->thinkTime == 0)
 	{
 		self->dirX = 0;
-		
+
 		self->dirY = -self->speed;
 
 		self->flags |= FLY;
@@ -495,8 +495,6 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, "STAND");
-
 		e->action = &lightningBolt;
 
 		e->draw = &drawLoopingAnimationToMap;
@@ -510,8 +508,6 @@ static void castLightningBolt()
 		e->thinkTime = 0;
 
 		e->flags |= FLY|DO_NOT_PERSIST;
-
-		setEntityAnimation(e, "STAND");
 
 		self->thinkTime = 30;
 

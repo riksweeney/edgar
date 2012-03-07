@@ -508,8 +508,6 @@ static void castLightningBolt()
 
 		e->face = RIGHT;
 
-		setEntityAnimation(e, "STAND");
-
 		e->action = &lightningBolt;
 
 		e->draw = &drawLoopingAnimationToMap;
@@ -523,8 +521,6 @@ static void castLightningBolt()
 		e->thinkTime = 0;
 
 		e->flags |= FLY|DO_NOT_PERSIST;
-
-		setEntityAnimation(e, "STAND");
 
 		self->action = &castWait;
 

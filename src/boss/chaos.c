@@ -120,7 +120,7 @@ static void entityWait()
 	if (self->thinkTime <= 0)
 	{
 		rand = 1;
-		
+
 		if (self->target != NULL && self->target->mental == 1) /* Confused */
 		{
 
@@ -152,6 +152,22 @@ static void entityWait()
 			case 4:
 				self->action = &holdPersonInit;
 			break;
+
+			case 5:
+				self->action = &stalagtiteAttackInit;
+			break;
+
+			case 6:
+				self->action = &eatAttackInit;
+			break;
+
+			case 7:
+				self->action = &stalagmiteAttackInit;
+			break;
+
+			case 8:
+				self->action = &stompAttackInit;
+			break;
 		}
 
 		if (game.cheating == TRUE)
@@ -161,6 +177,297 @@ static void entityWait()
 	}
 
 	checkToMap(self);
+}
+
+static void eatAttackInit()
+{
+
+}
+
+static void stompAttackInit()
+{
+	setEntityAnimation(self, "STOMP_RAISE");
+
+	self->animationCallback = &stompReady;
+
+	self->thinkTime = 30;
+
+	self->action = &stompAttack;
+
+	self->mental = 1;
+
+	checkToMap(self);
+}
+
+static void stompReady()
+{
+	setEntityAnimation(self, "STOMP_READY");
+
+	self->mental = 0;
+}
+
+static void stompAttack()
+{
+	if (self->mental == 0)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			setEntityAnimation(self, "STOMP");
+
+			shakeScreen(STRONG, 120);
+
+			activateEntitiesValueWithObjectiveName("CHAOS_ROCK_DROPPER", 5);
+
+			if (player.flags & ON_GROUND)
+			{
+				setPlayerStunned(120);
+			}
+
+			self->thinkTime = 60;
+
+			self->action = &stompAttackFinish;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void stompAttackFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void stalagmiteAttackInit()
+{
+	self->mental = 2 + prand() % 4;
+
+	self->action = &stalagmiteAttack;
+
+	self->thinkTime = 0;
+
+	checkToMap(self);
+}
+
+static void stalagmiteAttack()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a stalagmite");
+		}
+
+		loadProperties("enemy/stalagmite", e);
+
+		setEntityAnimation(e, "STAND");
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = getMapFloor(self->x, self->y);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, "STAND");
+
+		e->action = &stalagmiteRise;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 0;
+
+		e->flags |= DO_NOT_PERSIST;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->thinkTime = 60;
+
+			self->action = &attackFinished;
+		}
+
+		else
+		{
+			self->thinkTime = 180;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void stalagmiteRise()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->y > self->startY)
+		{
+			self->y -= self->speed * 2;
+		}
+
+		else
+		{
+			playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+
+			shakeScreen(MEDIUM, 15);
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = -3;
+			e->dirY = -8;
+
+			e = addSmallRock(self->x, self->y, "common/small_rock");
+
+			e->x += (self->w - e->w) / 2;
+			e->y += (self->h - e->h) / 2;
+
+			e->dirX = 3;
+			e->dirY = -8;
+
+			self->y = self->startY;
+
+			self->health = 15;
+
+			self->thinkTime = 120;
+
+			self->action = &stalagmiteWait;
+		}
+	}
+}
+
+static void stalagmiteWait()
+{
+	checkToMap(self);
+}
+
+static void stalagtiteAttackInit()
+{
+	self->mental = 2 + prand() % 4;
+
+	self->action = &stalagtiteAttack;
+
+	self->thinkTime = 0;
+
+	checkToMap(self);
+}
+
+static void stalagtiteAttack()
+{
+	Entity *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add a stalagtite");
+		}
+
+		loadProperties("enemy/stalagtite", e);
+
+		setEntityAnimation(e, "STAND");
+
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
+
+		e->x -= e->w / 2;
+		e->y -= e->h / 2;
+
+		e->targetX = player.x + player.w / 2 - e->w / 2;
+		e->targetY = getMapCeiling(self->x, self->y);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+		e->head = self;
+
+		e->face = RIGHT;
+
+		setEntityAnimation(e, "STAND");
+
+		e->action = &stalagtiteFall;
+
+		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
+
+		e->face = self->face;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 0;
+
+		e->flags |= DO_NOT_PERSIST;
+
+		self->mental--;
+
+		if (self->mental <= 0)
+		{
+			self->thinkTime = 60;
+
+			self->action = &attackFinished;
+		}
+
+		else
+		{
+			self->thinkTime = 30;
+		}
+	}
+
+	checkToMap(self);
+}
+
+static void stalagtiteFall()
+{
+	checkToMap(self);
+
+	if (self->flags & ON_GROUND)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void breatheFireInit()
@@ -224,9 +531,9 @@ static void breatheFire()
 				createAutoDialogBox(_("Chaos"), _("Suffer!"), 120);
 			break;
 		}
-		
+
 		self->maxThinkTime = 1;
-		
+
 		self->action = &breatheFireFinish;
 	}
 
@@ -365,7 +672,7 @@ static void confuseAttackInit()
 	self->thinkTime = 120;
 
 	createAutoDialogBox(_("Chaos"), _("Confuse"), 120);
-	
+
 	self->action = &confuseAttack;
 }
 
@@ -424,7 +731,7 @@ static void blindAttackInit()
 	self->thinkTime = 120;
 
 	createAutoDialogBox(_("Chaos"), _("Darkness"), 120);
-	
+
 	self->action = &blindAttack;
 }
 
@@ -731,8 +1038,6 @@ static void castLightningBolt()
 
 		e->flags |= FLY|DO_NOT_PERSIST;
 
-		setEntityAnimation(e, "STAND");
-
 		self->mental--;
 
 		if (self->mental <= 0)
@@ -884,10 +1189,10 @@ static void spearRise()
 
 static void die()
 {
-	
+
 }
 
 static void creditsAction()
 {
-	
+
 }
