@@ -137,8 +137,6 @@ static void getNextMedalFromQueue()
 				medalsAwarded++;
 			}
 		}
-		
-		printf("Medals awarded %d of %d\n", medalsAwarded, medalCount);
 
 		messageHead.next = head->next;
 

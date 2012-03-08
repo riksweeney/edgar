@@ -111,38 +111,28 @@ static void entityWait()
 		{
 			/* Randomly jump another way */
 
-			if (self->endX == -1)
-			{
-				self->face = self->face == LEFT ? RIGHT : LEFT;
+			setEntityAnimation(self, "JUMP");
 
-				self->endX = 0;
+			if (prand() % 3 == 0)
+			{
+				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
 			}
 
 			else
 			{
-				setEntityAnimation(self, "JUMP");
-
-				if (prand() % 3 == 0)
-				{
-					playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
-				}
-
-				else
-				{
-					playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
-				}
-
-				self->thinkTime = 30 + prand() % 30;
-
-				self->dirY = -(8 + prand() % 2);
-
-				if (isAtEdge(self) == TRUE)
-				{
-					self->face = self->face == LEFT ? RIGHT : LEFT;
-				}
-
-				self->dirX = 4 * (self->face == LEFT ? -1 : 1);
+				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
+
+			self->thinkTime = 30 + prand() % 30;
+
+			self->dirY = -(8 + prand() % 2);
+
+			if (isAtEdge(self) == TRUE)
+			{
+				self->face = self->face == LEFT ? RIGHT : LEFT;
+			}
+
+			self->dirX = 4 * (self->face == LEFT ? -1 : 1);
 		}
 
 		else
@@ -174,7 +164,9 @@ static void entityWait()
 	{
 		if (self->dirX == 0)
 		{
-			self->endX = -1;
+			self->face = self->face == LEFT ? RIGHT : LEFT;
+			
+			self->dirX = self->face == LEFT ? -4 : 4;
 		}
 	}
 

@@ -273,8 +273,6 @@ static void entityWait()
 				self->action = &stingAttackInit;
 			break;
 		}
-		
-		self->action = &headButtInit;
 
 		self->damage = 1;
 

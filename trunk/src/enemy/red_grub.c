@@ -143,8 +143,6 @@ static void spinAttackStart()
 
 static void spinAttack()
 {
-	self->thinkTime--;
-
 	checkToMap(self);
 
 	if (self->dirX == 0 || isAtEdge(self))
