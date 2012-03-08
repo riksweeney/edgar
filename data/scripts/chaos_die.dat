@@ -1,0 +1,15 @@
+WAIT 30
+WALK_TO EDGAR 0 0 WAIT
+SET EDGAR FACE RIGHT
+TALK Chaos Ugh, I underestimated you. You are a worthy opponent
+TALK Chaos I bestow upon you this weapon
+ADD ENTITY WEAPON weapon/legendary_sword " " 0 0
+TALK Chaos Now I must rest until I am strong enough to escape this wretched place
+TALK Chaos Even if it takes another 100 years
+TALK Chaos Now, begone from my sight, mighty warrior
+TELEPORT EDGAR -1000 -1000
+SET EDGAR ADD_FLAG NO_END_TELEPORT_SOUND
+WAIT 60
+ADD MAP_TRIGGER "map09" RUN_SCRIPT "chaos_finish"
+ADD MAP_TRIGGER "map17" RUN_SCRIPT "seal_chaos_entrance"
+LOAD_LEVEL map09 Fortress-Basement
