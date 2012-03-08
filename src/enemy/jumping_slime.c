@@ -46,6 +46,7 @@ static void creditsMove(void);
 static void creditsPurpleMove(void);
 static void creditsRedMove(void);
 static void creditsDie(void);
+static void reactToBlock(Entity *);
 
 Entity *addJumpingSlime(int x, int y, char *name)
 {
@@ -95,7 +96,7 @@ Entity *addJumpingSlime(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->takeDamage = &entityTakeDamageNoFlinch;
-	e->reactToBlock = NULL;
+	e->reactToBlock = &reactToBlock;
 
 	e->type = ENEMY;
 
@@ -272,6 +273,14 @@ static void attack()
 			self->thinkTime--;
 		}
 	}
+	
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->dirX = self->face == LEFT ? 2 : -2;
+		}
+	}
 
 	checkToMap(self);
 }
@@ -333,8 +342,21 @@ static void purpleAttack()
 			self->thinkTime--;
 		}
 	}
+	
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->dirX = self->face == LEFT ? 2 : -2;
+		}
+	}
 
 	checkToMap(self);
+}
+
+static void reactToBlock(Entity *other)
+{
+	self->dirX = 0;
 }
 
 static void swim()

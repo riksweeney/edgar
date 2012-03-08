@@ -46,6 +46,20 @@ static void breatheFireInit(void);
 static void breatheIn(void);
 static void breatheFire(void);
 static void breatheFireFinish(void);
+static void stalagtiteAttackInit(void);
+static void stalagtiteAttack(void);
+static void stalagtiteFall(void);
+static void stalagmiteAttackInit(void);
+static void stalagmiteAttack(void);
+static void stalagmiteRise(void);
+static void stalagmiteWait(void);
+static void eatAttackInit(void);
+static void stompAttackInit(void);
+static void stompAttackReady(void);
+static void stompAttack(void);
+static void stompAttackFinish(void);
+static void eatAttackInit(void);
+static void eatAttackInit(void);
 static void spearAttackInit(void);
 static void spearAttack(void);
 static void spearAttackFinished(void);
@@ -188,7 +202,7 @@ static void stompAttackInit()
 {
 	setEntityAnimation(self, "STOMP_RAISE");
 
-	self->animationCallback = &stompReady;
+	self->animationCallback = &stompAttackReady;
 
 	self->thinkTime = 30;
 
@@ -199,7 +213,7 @@ static void stompAttackInit()
 	checkToMap(self);
 }
 
-static void stompReady()
+static void stompAttackReady()
 {
 	setEntityAnimation(self, "STOMP_READY");
 
