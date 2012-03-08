@@ -1,0 +1,5 @@
+HEALTH 3000
+DAMAGE 1
+GFX_FILE data/gfx/boss/chaos.dat
+ANIM_FILE data/anim/boss/chaos.dat
+TYPE ENEMY

@@ -26,12 +26,15 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../enemy/rock.h"
 #include "../enemy/thunder_cloud.h"
 #include "../entity.h"
+#include "../event/global_trigger.h"
+#include "../event/trigger.h"
 #include "../game.h"
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
 #include "../graphics/gib.h"
 #include "../hud.h"
+#include "../inventory.h"
 #include "../map.h"
 #include "../player.h"
 #include "../system/error.h"
@@ -45,6 +48,9 @@ static void initialise(void);
 static void breatheFireInit(void);
 static void breatheIn(void);
 static void breatheFire(void);
+static void flameWait(void);
+static int flameDraw(void);
+static void flameTouch(Entity *);
 static void breatheFireFinish(void);
 static void stalagtiteAttackInit(void);
 static void stalagtiteAttack(void);
@@ -84,6 +90,7 @@ static void spearRise(void);
 static void spearSink(void);
 static void creditsAction(void);
 static void die(void);
+static void dieWait(void);
 
 Entity *addChaos(int x, int y, char *name)
 {
@@ -133,60 +140,63 @@ static void entityWait()
 
 	if (self->thinkTime <= 0)
 	{
-		rand = 1;
-
-		if (self->target != NULL && self->target->mental == 1) /* Confused */
+		if (player.health > 0)
 		{
+			rand = 1;
 
-		}
+			if (self->target != NULL && self->target->mental == 1) /* Confused */
+			{
 
-		else if (self->target != NULL && self->target->mental == 2) /* Blinded */
-		{
+			}
 
-		}
+			else if (self->target != NULL && self->target->mental == 2) /* Blinded */
+			{
 
-		switch (rand)
-		{
-			case 0:
+			}
+
+			switch (rand)
+			{
+				case 0:
+					self->action = &breatheFireInit;
+				break;
+
+				case 1:
+					self->action = &spearAttackInit;
+				break;
+
+				case 2:
+					self->action = &confuseAttackInit;
+				break;
+
+				case 3:
+					self->action = &blindAttackInit;
+				break;
+
+				case 4:
+					self->action = &holdPersonInit;
+				break;
+
+				case 5:
+					self->action = &stalagtiteAttackInit;
+				break;
+
+				case 6:
+					self->action = &eatAttackInit;
+				break;
+
+				case 7:
+					self->action = &stalagmiteAttackInit;
+				break;
+
+				case 8:
+					self->action = &stompAttackInit;
+				break;
+			}
+
+			if (game.cheating == TRUE)
+			{
 				self->action = &breatheFireInit;
-			break;
-
-			case 1:
-				self->action = &spearAttackInit;
-			break;
-
-			case 2:
-				self->action = &confuseAttackInit;
-			break;
-
-			case 3:
-				self->action = &blindAttackInit;
-			break;
-
-			case 4:
-				self->action = &holdPersonInit;
-			break;
-
-			case 5:
-				self->action = &stalagtiteAttackInit;
-			break;
-
-			case 6:
-				self->action = &eatAttackInit;
-			break;
-
-			case 7:
-				self->action = &stalagmiteAttackInit;
-			break;
-
-			case 8:
-				self->action = &stompAttackInit;
-			break;
-		}
-
-		if (game.cheating == TRUE)
-		{
-			self->action = &breatheFireInit;
+			}
 		}
 	}
 
@@ -546,6 +556,53 @@ static void breatheFire()
 			break;
 		}
 
+		e = getFreeEntity();
+
+		if (e == NULL)
+		{
+			showErrorAndExit("No free slots to add Chaos's Fire");
+		}
+
+		loadProperties("boss/chaos_flame", e);
+
+		setEntityAnimation(e, "HEAD");
+
+		e->face = self->face;
+
+		e->action = &flameWait;
+
+		e->draw = &flameDraw;
+
+		e->thinkTime = 180;
+
+		e->mental = 1;
+
+		e->health = 1200;
+
+		e->head = self;
+
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - e->offsetX;
+		}
+
+		else
+		{
+			e->x = self->x + e->offsetX;
+		}
+
+		e->y = self->y + e->offsetY;
+
+		e->dirX = 14;
+
+		e->startX = e->x;
+
+		e->endX = e->face == LEFT ? getMapStartX() - SCREEN_WIDTH : getMapStartX() + SCREEN_WIDTH;
+
+		playSoundToMap("sound/boss/chaos/flame.ogg", BOSS_CHANNEL, self->x, self->y, -1);
+
+		self->thinkTime = 60;
+
 		self->maxThinkTime = 1;
 
 		self->action = &breatheFireFinish;
@@ -554,10 +611,144 @@ static void breatheFire()
 	checkToMap(self);
 }
 
+static int flameDraw()
+{
+	int frame;
+	float timer;
+
+	self->x = self->startX;
+
+	drawLoopingAnimationToMap();
+
+	frame = self->currentFrame;
+	timer = self->frameTimer;
+
+	if (self->face == LEFT)
+	{
+		self->x -= self->w;
+
+		setEntityAnimation(self, "BODY");
+
+		self->currentFrame = frame;
+		self->frameTimer = timer;
+
+		while (self->x >= self->endX)
+		{
+			drawSpriteToMap();
+
+			self->x -= self->w;
+		}
+	}
+
+	else
+	{
+		self->x += self->w;
+
+		setEntityAnimation(self, "BODY");
+
+		self->currentFrame = frame;
+		self->frameTimer = timer;
+
+		while (self->x <= self->endX)
+		{
+			drawSpriteToMap();
+
+			self->x += self->w;
+		}
+	}
+
+	setEntityAnimation(self, "HEAD");
+
+	self->currentFrame = frame;
+	self->frameTimer = timer;
+
+	return TRUE;
+}
+
+static void flameWait()
+{
+	int startX;
+	Entity *e;
+
+	self->health--;
+
+	if (self->health % 10 == 0)
+	{
+		startX = self->face == LEFT ? self->endX : self->startX;
+
+		if (collision(player.x, player.y, player.w, player.h, startX, self->y, abs(self->startX - self->endX), self->h) == 1)
+		{
+			e = addProjectile("enemy/fireball", self->head, 0, 0, (self->face == LEFT ? -self->dirX : self->dirX), 0);
+
+			e->touch = &flameTouch;
+
+			e->self->takeDamage(other, other->damage);
+
+			e->element = DRAGON_FIRE;
+
+			e->damage = 100;
+
+			e->x = player.x + player.w / 2 - e->w / 2;
+			e->y = player.y + player.h / 2 - e->h / 2;
+
+			e->flags |= FLY|NO_DRAW;
+		}
+	}
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 || self->head->health <= 0)
+	{
+		self->head->maxThinkTime = 0;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void flameTouch(Entity *other)
+{
+	int playerHealth;
+	Entity *temp;
+
+	if (other->type == PLAYER)
+	{
+		playerHealth = other->health;
+
+		if (game.cheating == TRUE)
+		{
+			game.healthCheat = FALSE;
+
+			self->flags |= UNBLOCKABLE;
+		}
+
+		temp = self;
+
+		self = other;
+
+		self->takeDamage(temp, temp->damage);
+
+		self = temp;
+
+		if (other->health != playerHealth)
+		{
+			other->flags |= NO_DRAW;
+
+			removeInventoryItemByObjectiveName("Amulet of Resurrection");
+
+			other->die();
+		}
+	}
+}
+
 static void breatheFireFinish()
 {
 	if (self->maxThinkTime <= 0)
 	{
+		if (player.health <= 0)
+		{
+			createAutoDialogBox(_("Chaos"), _("Pathetic"), 300);
+		}
+
 		self->action = &attackFinished;
 	}
 
@@ -1201,9 +1392,87 @@ static void spearRise()
 	}
 }
 
+static void takeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (self->flags & INVULNERABLE)
+	{
+		return;
+	}
+
+	if (damage != 0)
+	{
+		/* Take minimal damage from bombs */
+
+		if (other->type == EXPLOSION)
+		{
+			damage = 1;
+		}
+
+		self->health -= damage;
+
+		if (self->health > 0)
+		{
+			setCustomAction(self, &flashWhite, 6, 0, 0);
+
+			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+			if (other->type != PROJECTILE)
+			{
+				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+			}
+
+			enemyPain();
+		}
+
+		else
+		{
+			self->damage = 0;
+
+			if (other->type == WEAPON || other->type == PROJECTILE)
+			{
+				increaseKillCount();
+			}
+
+			self->die();
+		}
+
+		if (other->type == PROJECTILE)
+		{
+			temp = self;
+
+			self = other;
+
+			self->die();
+
+			self = temp;
+		}
+	}
+}
+
 static void die()
 {
+	self->damage = 0;
 
+	self->takeDamage = NULL;
+
+	fireTrigger(self->objectiveName);
+
+	fireGlobalTrigger(self->objectiveName);
+
+	clearContinuePoint();
+
+	freeBossHealthBar();
+
+	self->action = &dieWait;
+
+	checkToMap(self);
+}
+
+static void dieWait()
+{
+	checkToMap(self);
 }
 
 static void creditsAction()

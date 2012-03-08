@@ -2,10 +2,11 @@ CHANGE LOG
 ----------
 
 Version 0.99
-* The game is now 100% completable
+* The game is now 100% completable (barring any bugs)
 * Added the final boss
 * The secret wall in the Crypt can now be destroyed
 * The Black Book now turns into the Gargoyle rather than the Golem
+* Fixed a problem with the treadmill in the Armoury
 
 Version 0.98
 * Added French, Czech, Simplified Chinese and Russian translations
