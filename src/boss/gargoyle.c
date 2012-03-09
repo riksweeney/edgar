@@ -2059,10 +2059,11 @@ static void blastRemoveWeapon(Entity *other)
 
 		setPlayerStunned(30);
 
+		other->x -= other->dirX;
+		other->y -= other->dirY;
+
 		other->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
 		other->dirY = -8;
-
-		checkToMap(other);
 
 		self->inUse = FALSE;
 	}

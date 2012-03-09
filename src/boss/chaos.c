@@ -37,6 +37,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../inventory.h"
 #include "../map.h"
 #include "../player.h"
+#include "../projectile.h"
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
@@ -59,13 +60,17 @@ static void stalagmiteAttackInit(void);
 static void stalagmiteAttack(void);
 static void stalagmiteRise(void);
 static void stalagmiteWait(void);
+static void stalagmiteTakeDamage(Entity *, int);
 static void eatAttackInit(void);
+static void eatAttack(void);
+static void eatDone(void);
+static void eatTouch(Entity *);
+static void eatAttackWait(void);
+static void eatAttackFinish(void);
 static void stompAttackInit(void);
 static void stompAttackReady(void);
 static void stompAttack(void);
 static void stompAttackFinish(void);
-static void eatAttackInit(void);
-static void eatAttackInit(void);
 static void spearAttackInit(void);
 static void spearAttack(void);
 static void spearAttackFinished(void);
@@ -142,16 +147,19 @@ static void entityWait()
 	{
 		if (player.health > 0)
 		{
-			rand = 1;
-
 			if (self->target != NULL && self->target->mental == 1) /* Confused */
 			{
-
+				rand = prand() % 7;
 			}
 
 			else if (self->target != NULL && self->target->mental == 2) /* Blinded */
 			{
+				rand = prand() % 5;
+			}
 
+			else
+			{
+				rand = prand() % 9;
 			}
 
 			switch (rand)
@@ -161,15 +169,15 @@ static void entityWait()
 				break;
 
 				case 1:
-					self->action = &spearAttackInit;
+					self->action = &stalagtiteAttackInit;
 				break;
 
 				case 2:
-					self->action = &confuseAttackInit;
+					self->action = &eatAttackInit;
 				break;
 
 				case 3:
-					self->action = &blindAttackInit;
+					self->action = &stalagmiteAttackInit;
 				break;
 
 				case 4:
@@ -177,19 +185,19 @@ static void entityWait()
 				break;
 
 				case 5:
-					self->action = &stalagtiteAttackInit;
+					self->action = &spearAttackInit;
 				break;
 
 				case 6:
-					self->action = &eatAttackInit;
+					self->action = &stompAttackInit;
 				break;
 
 				case 7:
-					self->action = &stalagmiteAttackInit;
+					self->action = &confuseAttackInit;
 				break;
 
-				case 8:
-					self->action = &stompAttackInit;
+				default:
+					self->action = &blindAttackInit;
 				break;
 			}
 
@@ -205,7 +213,102 @@ static void entityWait()
 
 static void eatAttackInit()
 {
+	self->thinkTime = 60;
 
+	self->action = &eatAttack;
+
+	checkToMap(self);
+}
+
+static void eatAttack()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		setEntityAnimation(self, "EAT");
+
+		self->animationCallback = &eatDone;
+
+		self->touch = &eatTouch;
+	}
+}
+
+static void eatTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		self->flags |= GRABBING;
+
+		other->flags |= NO_DRAW;
+
+		self->thinkTime = 600;
+
+		self->mental = self->health - 80;
+	}
+}
+
+static void eatDone()
+{
+	setEntityAnimation(self, "STAND");
+
+	self->action = &eatAttackWait;
+}
+
+static void eatAttackWait()
+{
+	if (self->flags & GRABBING)
+	{
+		player.x = self->offsetX;
+		player.y = self->offsetY;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			player.health--;
+
+			self->thinkTime = 60;
+
+			if (player.health <= 0)
+			{
+				removeInventoryItemByObjectiveName("Amulet of Resurrection");
+
+				self->action = &attackFinished;
+			}
+		}
+
+		if (self->health <= self->mental)
+		{
+			self->action = &eatAttackFinish;
+		}
+	}
+
+	else
+	{
+		self->action = &attackFinished;
+	}
+}
+
+static void eatAttackFinish()
+{
+	setEntityAnimation(self, "OPEN_MOUTH");
+
+	setCustomAction(&player, &invulnerable, 60, 0, 0);
+
+	setPlayerStunned(30);
+
+	player.x -= player.dirX;
+	player.y -= player.dirY;
+
+	player.dirX = (10 + prand() % 3) * (self->face == LEFT ? -1 : 1);
+	player.dirY = -3;
+
+	self->touch = &entityTouch;
+
+	self->flags &= ~GRABBING;
+
+	self->action = &attackFinished;
 }
 
 static void stompAttackInit()
@@ -272,6 +375,8 @@ static void stompAttackFinish()
 
 static void stalagmiteAttackInit()
 {
+	createAutoDialogBox(_("Chaos"), _("Stalagmite"), 120);
+
 	self->mental = 2 + prand() % 4;
 
 	self->action = &stalagmiteAttack;
@@ -321,6 +426,12 @@ static void stalagmiteAttack()
 		e->action = &stalagmiteRise;
 
 		e->draw = &drawLoopingAnimationToMap;
+
+		e->touch = &entityTouch;
+
+		e->takeDamage = &stalagmiteTakeDamage;
+
+		e->die = &entityDieNoDrop;
 
 		e->head = self;
 
@@ -401,8 +512,55 @@ static void stalagmiteWait()
 	checkToMap(self);
 }
 
+static void stalagmiteTakeDamage(Entity *other, int damage)
+{
+	Entity *temp;
+
+	if (strcmpignorecase(self->requires, other->name) == 0)
+	{
+		self->health -= damage;
+
+		setCustomAction(self, &flashWhite, 6, 0, 0);
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		if (self->health <= 0)
+		{
+			self->damage = 0;
+
+			self->die();
+		}
+	}
+
+	else
+	{
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+		if (other->reactToBlock != NULL)
+		{
+			temp = self;
+
+			self = other;
+
+			self->reactToBlock(temp);
+
+			self = temp;
+		}
+
+		if (other->type != PROJECTILE && prand() % 10 == 0)
+		{
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
+		}
+
+		damage = 0;
+	}
+}
+
 static void stalagtiteAttackInit()
 {
+	createAutoDialogBox(_("Chaos"), _("Stalagtite"), 120);
+
 	self->mental = 2 + prand() % 4;
 
 	self->action = &stalagtiteAttack;
@@ -537,6 +695,8 @@ static void breatheIn()
 
 static void breatheFire()
 {
+	Entity *e;
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
@@ -682,8 +842,6 @@ static void flameWait()
 
 			e->touch = &flameTouch;
 
-			e->self->takeDamage(other, other->damage);
-
 			e->element = DRAGON_FIRE;
 
 			e->damage = 100;
@@ -716,7 +874,7 @@ static void flameTouch(Entity *other)
 
 		if (game.cheating == TRUE)
 		{
-			game.healthCheat = FALSE;
+			game.infiniteEnergy = FALSE;
 
 			self->flags |= UNBLOCKABLE;
 		}
@@ -1453,17 +1611,30 @@ static void takeDamage(Entity *other, int damage)
 
 static void die()
 {
+	setEntityAnimation(self, "DIE_1");
+
+	if (self->flags & GRABBING)
+	{
+		self->touch = &entityTouch;
+
+		setCustomAction(&player, &invulnerable, 60, 0, 0);
+
+		setPlayerStunned(30);
+
+		player.x -= player.dirX;
+		player.y -= player.dirY;
+
+		player.dirX = (10 + prand() % 3) * (self->face == LEFT ? -1 : 1);
+		player.dirY = -3;
+	}
+
+	self->mental = 0;
+
+	self->thinkTime = 180;
+
 	self->damage = 0;
 
 	self->takeDamage = NULL;
-
-	fireTrigger(self->objectiveName);
-
-	fireGlobalTrigger(self->objectiveName);
-
-	clearContinuePoint();
-
-	freeBossHealthBar();
 
 	self->action = &dieWait;
 
@@ -1472,6 +1643,45 @@ static void die()
 
 static void dieWait()
 {
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		if (self->mental == 0)
+		{
+			shakeScreen(MEDIUM, 60);
+
+			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+
+			for (i=0;i<30;i++)
+			{
+				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
+
+				if (e != NULL)
+				{
+					e->y -= prand() % e->h;
+				}
+			}
+
+			self->mental = 1;
+
+			setEntityAnimation(self, "DIE_2");
+
+			self->thinkTime = 60;
+		}
+
+		else
+		{
+			fireTrigger(self->objectiveName);
+
+			fireGlobalTrigger(self->objectiveName);
+
+			clearContinuePoint();
+
+			freeBossHealthBar();
+		}
+	}
+
 	checkToMap(self);
 }
 

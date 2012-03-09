@@ -1728,10 +1728,11 @@ static void gargoyleBlastRemoveWeapon(Entity *other)
 
 		setPlayerStunned(30);
 
+		other->x -= other->dirX;
+		other->y -= other->dirY;
+
 		other->dirX = (6 + prand() % 3) * (self->dirX < 0 ? -1 : 1);
 		other->dirY = -8;
-
-		checkToMap(other);
 
 		self->inUse = FALSE;
 	}
@@ -2105,7 +2106,7 @@ static void gargoyleDie()
 				gargoyleAddStoneCoat();
 
 				self->target->alpha = 0;
-				
+
 				self->mental = 1;
 			}
 
@@ -3232,7 +3233,7 @@ static void guardianSpecialShotTouch(Entity *other)
 static void guardianBiteReactToBlock(Entity *other)
 {
 	self->targetX = self->x;
-	
+
 	self->x = (int)self->x;
 
 	self->dirX = 0;
@@ -5747,14 +5748,14 @@ static void queenWaspMoveToHeadButtRange()
 static void queenWaspHeadButt()
 {
 	self->touch = &queenWaspRamTouch;
-	
+
 	checkToMap(self);
 
 	if (self->dirX == 0)
 	{
 		self->dirX = (self->face == LEFT ? 4 : -4);
 		self->dirY = -6;
-		
+
 		self->action = &queenWaspHeadButtFinish;
 	}
 }
@@ -5762,7 +5763,7 @@ static void queenWaspHeadButt()
 static void queenWaspHeadButtFinish()
 {
 	self->touch = &entityTouch;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		facePlayer();
@@ -5781,7 +5782,7 @@ static void queenWaspHeadButtFinish()
 			self->action = &queenWaspMoveToHeadButtRange;
 		}
 	}
-	
+
 	checkToMap(self);
 }
 

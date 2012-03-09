@@ -16,8 +16,12 @@ TALK Book For years he wreaked havoc across this land and took thousands of inno
 TALK Book Finally a brave warrior and a group of magicians managed to overwhelm and bind him
 TALK Book They sealed the dragon away beneath an old fortress
 TALK Book It is believed he is still there
+TALK Book Slowly regaining his power until he is strong enough to break free and terrorise the world once again
 SET EDGAR FACE RIGHT
 TALK Edgar Beneath an old fortress? Maybe they mean this one...
+TALK Edgar If that drgaon is regaining its power then it must be stopped before it's too late
+TALK Edgar But if its breath destroys anything then I won't be able to protect myself
+TALK Edgar Unless...
 SET WEAPON_BOOK HEALTH 3
 SET MONSTER_BOOK HEALTH 11
 END

@@ -629,6 +629,7 @@ int patchEntities(double versionFile, char *mapName)
 	int skipping = FALSE, x, y, read, found, saveMap;
 	unsigned char *buffer;
 	Entity *e;
+	EntityList *el, *entities;
 	Target *t;
 
 	savePtr = NULL;
@@ -794,6 +795,44 @@ int patchEntities(double versionFile, char *mapName)
 				if (e != NULL)
 				{
 					setProperty(e, key, value);
+				}
+			}
+
+			else if (strcmpignorecase(itemName, "TRANSLATE_ENTITIES") == 0 && skipping == FALSE)
+			{
+				read = sscanf(line, "%*s %d %d", &x, &y);
+
+				entities = getEntities();
+
+				player.x -= x;
+				player.y -= y;
+
+				for (el=entities->next;el!=NULL;el=el->next)
+				{
+					e = el->entity;
+
+					e->x -= x;
+					e->y -= y;
+
+					if (e->startX - x > 0)
+					{
+						e->startX -= x;
+					}
+
+					if (e->startY - y > 0)
+					{
+						e->startY -= y;
+					}
+
+					if (e->endX - x > 0)
+					{
+						e->endX -= x;
+					}
+
+					if (e->endY - y > 0)
+					{
+						e->endY -= y;
+					}
 				}
 			}
 
