@@ -237,7 +237,7 @@ void doPlayer()
 
 				default:
 					self->dirY += GRAVITY_SPEED * self->weight;
-					
+
 					if (self->weight < 0 && self->dirY < -2)
 					{
 						self->dirY = -2;
@@ -1000,6 +1000,7 @@ void drawPlayer()
 			}
 		}
 	}
+
 	self = &player;
 
 	if (self->health <= 0 && self->thinkTime == 0)
@@ -2004,6 +2005,18 @@ void setPlayerConfused(int thinkTime)
 {
 	int i;
 	Entity *e;
+
+	if (player.health <= 0)
+	{
+		return;
+	}
+
+	/* Change back to Edgar */
+
+	if (player.element == WATER)
+	{
+		becomeEdgar();
+	}
 
 	if (!(player.flags & CONFUSED))
 	{

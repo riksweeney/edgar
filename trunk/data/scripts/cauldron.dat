@@ -1,3 +1,6 @@
+IF CAULDRON HEALTH 11
+TALK Edgar Maybe this thing isn't so bad after all
+END
 IF CAULDRON HEALTH 8
 HAS_ITEM "Tortoise Shell" 1 1 CAULDRON 9 10
 HAS_ITEM "Full Soul Bottle" 1 1 CAULDRON 9 10
@@ -5,7 +8,32 @@ HAS_ITEM "Summoner's Staff" 1 1 CAULDRON 9 10
 HAS_ITEM "Keepsake" 1 1 CAULDRON 9 10
 END
 IF CAULDRON HEALTH 9
-TALK Narrator Something is supposed to happen here, but it's not in this version so check back later!
+REMOVE "Tortoise Shell" 1 1 CAULDRON 11 11
+REMOVE "Full Soul Bottle" 1 1 CAULDRON 11 11
+REMOVE "Summoner's Staff" 1 1 CAULDRON 11 11
+REMOVE "Keepsake" 1 1 CAULDRON 11 11
+TALK Edgar That's all the ingredients, I just need to add a shield
+TALK Edgar I don't think I'll need the Phantasmal Shield any more...
+REMOVE "Phantasmal Shield" 1 1 CAULDRON 11 11
+WAIT 30
+WALK_TO Edgar 21146 13322 WAIT
+SET EDGAR FACE RIGHT
+TALK Edgar Please don't make another evil version of me...
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 1
+WAIT 120
+SET CAULDRON PROPERTY MENTAL 0
+WAIT 60
+ADD ENTITY SHIELD weapon/dragon_shield " " 21280 13320
+WAIT 60
+WALK_TO Edgar 21280 13322 WAIT
+ADD_MEDAL dragon_shield
+TALK Edgar What a fine looking shield
+TALK Edgar But will it protect me from that dragon's flames?
+TALK Edgar I guess there's only one way to find out...
+TALK Edgar The book said it was sealed below a fortress
+TALK Edgar If it is this one then the only two places it could be are the catacombs and the dungeon
+TALK Edgar I should start my search there
 END
 IF CAULDRON HEALTH 10
 TALK Edgar I don't have all the ingredients yet.
