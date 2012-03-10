@@ -25,6 +25,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../hud.h"
+#include "../map.h"
 #include "../player.h"
 #include "../system/error.h"
 #include "../system/properties.h"
@@ -125,14 +126,14 @@ static void touch(Entity *other)
 
 		setCustomAction(other, &slowDown, 3, 1, 0);
 
-		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
+		self->targetY = getMapStartY() - SCREEN_HEIGHT / 2;
 
 		self->action = &raiseOffScreen;
+		
+		other->y -= other->dirY;
 
-		self->y -= self->dirY;
-
-		self->dirY = 0;
-
+		other->dirY = 0;
+		
 		self->thinkTime = 0;
 
 		self->layer = FOREGROUND_LAYER;
@@ -201,6 +202,8 @@ static void raiseOffScreen()
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
 	}
+	
+	player.flags |= GRABBED;
 
 	player.y -= player.dirY;
 

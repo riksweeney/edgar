@@ -54,7 +54,7 @@ int getCharacterCodeForTestString()
 {
 	/* Will replace this with TTF_GlyphIsProvided when (if) SDL_TTF 2.0.10 becomes available in Ubuntu LTS */
 
-	char *text[5];
+	char *text[7];
 	int i, length, ch, highest, j;
 	
 	text[0] = _("Press Action to interact");
@@ -62,6 +62,8 @@ int getCharacterCodeForTestString()
 	text[2] = _("Bow");
 	text[3] = _("Yes");
 	text[4] = _("No");
+	text[5] = _("Thanks, this is perfect!");
+	text[6] = _("Do you have everything you need now?");
 
 	highest = 0;
 

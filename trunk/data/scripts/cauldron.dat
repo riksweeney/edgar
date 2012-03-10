@@ -13,7 +13,7 @@ REMOVE "Full Soul Bottle" 1 1 CAULDRON 11 11
 REMOVE "Summoner's Staff" 1 1 CAULDRON 11 11
 REMOVE "Keepsake" 1 1 CAULDRON 11 11
 TALK Edgar That's all the ingredients, I just need to add a shield
-TALK Edgar I don't think I'll need the Phantasmal Shield any more...
+TALK Edgar I don't think I'll need the Phantasmal Shield anymore...
 REMOVE "Phantasmal Shield" 1 1 CAULDRON 11 11
 WAIT 30
 WALK_TO Edgar 21146 13322 WAIT
