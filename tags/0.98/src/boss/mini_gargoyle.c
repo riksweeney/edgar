@@ -25,6 +25,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../hud.h"
+#include "../map.h"
 #include "../player.h"
 #include "../system/error.h"
 #include "../system/properties.h"
@@ -78,7 +79,7 @@ static void attackPlayer()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		facePlayer();
 
 		self->targetX = player.x + player.w / 2 - self->w / 2;
@@ -125,17 +126,21 @@ static void touch(Entity *other)
 
 		setCustomAction(other, &slowDown, 3, 1, 0);
 
-		self->targetY = player.y + self->startY - SCREEN_HEIGHT;
+		self->targetY = getMapStartY() - SCREEN_HEIGHT / 2;
 
 		self->action = &raiseOffScreen;
+		
+		other->y -= other->dirY;
 
+		other->dirY = 0;
+		
 		self->thinkTime = 0;
-
-		self->flags |= GRABBING;
 
 		self->layer = FOREGROUND_LAYER;
 
 		other->flags |= GRABBED;
+
+		self->flags |= GRABBING;
 
 		self->mental = 3 + (prand() % 3);
 	}
@@ -197,17 +202,17 @@ static void raiseOffScreen()
 	{
 		setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to shake off the miniature gargoyles!"));
 	}
-	
-	setCustomAction(&player, &antiGravity, 2, 0, 0);
+
+	player.y -= player.dirY;
+
+	player.dirY = 0;
+
+	player.y -= 0.1;
 
 	setCustomAction(&player, &slowDown, 3, 0, 0);
 
 	self->x = player.x + self->startX;
 	self->y = player.y + self->startY;
-
-	self->y -= 0.02;
-
-	player.y = self->y - self->startY;
 
 	if (self->y < self->targetY)
 	{
@@ -233,7 +238,7 @@ static void raiseOffScreen()
 	if (self->mental <= 0 || self->health <= 0)
 	{
 		self->health = 0;
-		
+
 		self->dirX = 4 * (prand() % 2 == 0 ? -1 : 1);
 
 		self->dirY = -6;
@@ -241,19 +246,15 @@ static void raiseOffScreen()
 		setCustomAction(&player, &slowDown, 3, -1, 0);
 
 		self->action = &die;
-
-		player.flags &= ~GRABBED;
-
-		self->flags &= ~GRABBING;
 	}
 }
 
 static void die()
 {
 	setEntityAnimation(self, "DIE");
-	
+
 	player.flags &= ~GRABBED;
-	
+
 	self->flags &= ~(FLY|GRABBING);
 
 	self->takeDamage = NULL;
@@ -274,13 +275,13 @@ static void dieWait()
 	if ((self->flags & ON_GROUND) || self->standingOn != NULL)
 	{
 		self->dirX = 0;
-		
+
 		if (self->head->target->inUse == FALSE)
 		{
 			if (self->head->mental <= 0)
 			{
 				setEntityAnimation(self, "STAND");
-				
+
 				self->thinkTime = 60;
 
 				self->action = &moveToGargoyleInit;
@@ -296,7 +297,7 @@ static void dieWait()
 			if (self->thinkTime <= 0)
 			{
 				setEntityAnimation(self, "STAND");
-				
+
 				self->head->mental++;
 
 				self->flags |= FLY;
@@ -304,7 +305,7 @@ static void dieWait()
 				self->health = self->maxHealth;
 
 				self->action = &attackPlayer;
-				
+
 				self->takeDamage = &takeDamage;
 			}
 		}
@@ -324,7 +325,7 @@ static void moveToGargoyleInit()
 
 		self->dirX *= self->speed;
 		self->dirY *= self->speed;
-		
+
 		self->touch = NULL;
 
 		self->flags |= FLY;
