@@ -274,7 +274,7 @@ static void introFinish()
 
 			playDefaultBossMusic();
 
-			self->maxThinkTime = 0;
+			self->maxThinkTime = 1;
 
 			setContinuePoint(FALSE, self->name, NULL);
 
@@ -1654,7 +1654,7 @@ static void createLanceWait()
 
 		if (self->thinkTime <= 0)
 		{
-			self->health = self->maxHealth;
+			self->health = self->maxHealth / 4;
 
 			facePlayer();
 

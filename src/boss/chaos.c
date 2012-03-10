@@ -46,6 +46,7 @@ extern Entity *self, player;
 extern Game game;
 
 static void initialise(void);
+static void takeDamage(Entity *, int);
 static void breatheFireInit(void);
 static void breatheIn(void);
 static void breatheFire(void);
@@ -116,7 +117,7 @@ Entity *addChaos(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
 	e->die = &die;
-	e->takeDamage = &entityTakeDamageNoFlinch;
+	e->takeDamage = &takeDamage;
 
 	e->creditsAction = &creditsAction;
 
@@ -1643,6 +1644,9 @@ static void die()
 
 static void dieWait()
 {
+	int i;
+	Entity *e;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
