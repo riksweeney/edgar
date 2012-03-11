@@ -834,6 +834,24 @@ int patchEntities(double versionFile, char *mapName)
 						e->endY -= y;
 					}
 				}
+				
+				t = getTargets();
+				
+				for (x=0;x<MAX_TARGETS;x++)
+				{
+					if (t[x].active == TRUE)
+					{
+						if (t[x].x - x > 0)
+						{
+							t[x].x -= x;
+						}
+						
+						if (t[x].y - y > 0)
+						{
+							t[x].y -= y;
+						}
+					}
+				}
 			}
 
 			else if (strcmpignorecase(itemName, "RENAME_MAP") == 0 && skipping == FALSE)

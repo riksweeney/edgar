@@ -387,7 +387,87 @@ void loadMap(char *name, int loadEntityResources)
 
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
+	/*
+	printf("X %d - %d Y: %d - %d\n", map.minX, map.maxX, map.minY, map.maxY);
+	
+	yy = 0;
+	
+	if (map.minY != 0 || map.minX != 0)
+	{
+		for (y=map.minY;y<=map.maxY;y++)
+		{
+			xx = 0;
+			
+			for (x=map.minX;x<=map.maxX;x++)
+			{
+				map.tile[yy][xx] = map.tile[y][x];
+				
+				xx++;
+				
+				map.tile[y][x] = 0;
+			}
+			
+			yy++;
+		}
+		
+		
+		map.minX *= TILE_SIZE;
+		map.minY *= TILE_SIZE;
+		
+		printf("Move entities %d and %d\n", map.minX, map.minY);
+		
+		entities = getEntities();
 
+		player.x -= map.minX;
+		player.y -= map.minY;
+
+		for (el=entities->next;el!=NULL;el=el->next)
+		{
+			e = el->entity;
+
+			e->x -= map.minX;
+			e->y -= map.minY;
+
+			if (e->startX - map.minX > 0)
+			{
+				e->startX -= map.minX;
+			}
+
+			if (e->startY - map.minY > 0)
+			{
+				e->startY -= map.minY;
+			}
+
+			if (e->endX - map.minX > 0)
+			{
+				e->endX -= map.minX;
+			}
+
+			if (e->endY - map.minY > 0)
+			{
+				e->endY -= map.minY;
+			}
+		}
+		
+		targets = getTargets();
+		
+		for (x=0;x<MAX_TARGETS;x++)
+		{
+			if (targets[x].active == TRUE)
+			{
+				if (targets[x].x - map.minX > 0)
+				{
+					targets[x].x -= map.minX;
+				}
+				
+				if (targets[x].y - map.minY > 0)
+				{
+					targets[x].y -= map.minY;
+				}
+			}
+		}
+	}
+	*/
 	/* Set the maximum scroll position of the map */
 
 	map.maxX = (map.maxX + 1) * TILE_SIZE;
