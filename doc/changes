@@ -6,7 +6,7 @@ Version 0.99
 * Added the final boss
 * The secret wall in the Crypt can now be destroyed
 * The Black Book now turns into the Gargoyle rather than the Golem
-* Fixed a problem with the treadmill in the Armoury
+* Fixed the camera when fixing the power generators
 
 Version 0.98
 * Added French, Czech, Simplified Chinese and Russian translations

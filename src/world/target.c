@@ -118,6 +118,11 @@ Target *getTargetByName(char *name)
 	return NULL;
 }
 
+Target *getTargets()
+{
+	return target;
+}
+
 void writeTargetsToFile(FILE *fp)
 {
 	int i;

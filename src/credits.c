@@ -382,9 +382,6 @@ static void doEndCredits()
 
 			if (game.kills == 0)
 			{
-				credits.status = 0;
-
-				titleScreen();
 			}
 		}
 	}
@@ -565,67 +562,118 @@ static void doChaos()
 {
 	if (credits.creditLine == NULL)
 	{
-		credits.creditLine = malloc(sizeof(CreditLine));
+		credits.creditLine = malloc(sizeof(CreditLine) * 2);
 
 		if (credits.creditLine == NULL)
 		{
-			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine));
+			showErrorAndExit("Failed to allocate %d bytes for end credits...", sizeof(CreditLine) * 2);
 		}
 
-		STRNCPY(credits.creditLine[0].text, _("Chaos still rests..."), MAX_LINE_LENGTH);
-
-		credits.alpha = 255;
-
-		credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
-
-		drawBox(credits.fadeSurface, 0, 0, game.screen->w, game.screen->h, 0, 0, 0);
+		if (hasPersistance("map26") == TRUE)
+		{
+			STRNCPY(credits.creditLine[0].text, _("Chaos has been subdued"), MAX_LINE_LENGTH);
+			
+			STRNCPY(credits.creditLine[1].text, _("For now..."), MAX_LINE_LENGTH);
+		}
+		
+		else
+		{
+			STRNCPY(credits.creditLine[0].text, _("Chaos will soon be free"), MAX_LINE_LENGTH);
+			
+			STRNCPY(credits.creditLine[1].text, _("To terrorise the world once again"), MAX_LINE_LENGTH);
+		}
 
 		credits.line = -1;
 
 		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.creditLine[1].textImage = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
+		
+		credits.creditLine[0].x = (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2;
+		
+		credits.creditLine[1].x = (SCREEN_WIDTH - credits.creditLine[1].textImage->w) / 2;
+		
+		credits.creditLine[0].y = (SCREEN_HEIGHT - (credits.creditLine[0].textImage->h + credits.creditLine[1].textImage->h + 80)) / 2;
+		
+		credits.creditLine[1].y = credits.creditLine[0].y + 80;
+		
+		credits.creditLine[0].r = 255;
+		
+		credits.creditLine[1].r = 540;
 
 		credits.startDelay = 180;
+		
+		credits.fadeSurface = createSurface(game.screen->w, MAX(credits.creditLine[0].textImage->h, credits.creditLine[1].textImage->h));
+
+		drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
 	}
-
-	credits.alpha += credits.line;
-
-	if (credits.alpha <= 0)
+	
+	if (credits.line == -1)
 	{
-		credits.alpha = 0;
-
-		credits.startDelay--;
-
-		if (credits.startDelay <= 0)
+		credits.creditLine[0].r += credits.line;
+		
+		credits.creditLine[1].r += credits.line;
+		
+		if (credits.creditLine[0].r <= 0)
 		{
-			credits.startDelay = 30;
+			credits.creditLine[0].r = 0;
+		}
+		
+		if (credits.creditLine[1].r <= 0)
+		{
+			credits.creditLine[1].r = 0;
+		}
+		
+		if (credits.creditLine[1].r <= 0)
+		{
+			credits.startDelay--;
 
-			credits.line = 1;
+			if (credits.startDelay <= 0)
+			{
+				credits.startDelay = 30;
+
+				credits.line = 1;
+			}
 		}
 	}
-
-	else if (credits.alpha >= 255)
-	{
-		credits.alpha = 255;
-
+	
+	else
+	{		
 		credits.startDelay--;
 
 		if (credits.startDelay <= 0)
 		{
-			freeCredits();
+			credits.creditLine[0].r += credits.line;
+			
+			credits.creditLine[1].r += credits.line;
+			
+			if (credits.creditLine[0].r >= 255)
+			{
+				credits.creditLine[0].r = 255;
+				
+				credits.creditLine[1].r = 255;
+				
+				credits.startDelay--;
+				
+				if (credits.startDelay <= 0)
+				{
+					freeCredits();
 
-			player.flags |= NO_DRAW;
+					player.flags |= NO_DRAW;
 
-			freeEntities();
+					freeEntities();
 
-			credits.line = 0;
-			credits.lineCount = 0;
-			credits.entityID = 0;
-			credits.fading = FALSE;
-			credits.alpha = 255;
-			credits.startDelay = 0;
-			credits.nextEntityDelay = 0;
+					credits.line = 0;
+					credits.lineCount = 0;
+					credits.entityID = 0;
+					credits.fading = FALSE;
+					credits.alpha = 255;
+					credits.startDelay = 0;
+					credits.nextEntityDelay = 0;
 
-			credits.status = 4;
+					credits.status = 4;
+				}
+			}
 		}
 	}
 }
@@ -787,9 +835,16 @@ static void drawChaos()
 {
 	if (credits.creditLine != NULL)
 	{
-		drawImage(credits.creditLine[0].textImage, (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2, (SCREEN_HEIGHT - credits.creditLine[0].textImage->h) / 2, FALSE, 255);
-
-		drawImage(credits.fadeSurface, 0, 0, FALSE, credits.alpha);
+		drawImage(credits.creditLine[0].textImage, credits.creditLine[0].x, credits.creditLine[0].y, FALSE, 255);
+		
+		drawImage(credits.fadeSurface, 0, credits.creditLine[0].y, FALSE, credits.creditLine[0].r);
+		
+		if (credits.creditLine[1].r <= 255)
+		{
+			drawImage(credits.creditLine[1].textImage, credits.creditLine[1].x, credits.creditLine[1].y, FALSE, 255);
+			
+			drawImage(credits.fadeSurface, 0, credits.creditLine[1].y, FALSE, credits.creditLine[1].r);
+		}
 	}
 }
 
