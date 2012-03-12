@@ -341,12 +341,6 @@ static int textAlreadyAdded(char *text)
 
 	clean = replaceString(text, "msgid \"", "");
 	clean[strlen(clean) - 1] = '\0';
-	clean = replaceString(clean, "\\\"", "\"");
-
-	if (checkExists(clean) == FALSE)
-	{
-		return TRUE;
-	}
 
 	for (i=0;i<poIndex;i++)
 	{
@@ -356,7 +350,16 @@ static int textAlreadyAdded(char *text)
 		}
 	}
 
+	clean = replaceString(clean, "\\\"", "\"");
+
+	if (checkExists(clean) == FALSE)
+	{
+		return TRUE;
+	}
+
 	STRNCPY(added[poIndex], text, MAX_LINE_LENGTH);
+
+	added[poIndex] = replaceString(added[poIndex], "\"", "\\\"");
 
 	poIndex++;
 
@@ -405,8 +408,8 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
 	FILE *infile;
-	char filename[1024];
-	int read;
+	char filename[1024], *line, *savePtr;
+	int read, lineNum;
 	unsigned long fileSize;
 	unsigned char *buffer;
 
@@ -414,7 +417,7 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 
 	if (dirp == NULL)
 	{
-		printf("%s: Directory does not exist or is not accessable\n", dirName);
+		printf("%s: Directory does not exist or is not accessible\n", dirName);
 
 		exit(1);
 	}
@@ -474,14 +477,34 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 
 			read = fread(buffer, fileSize, 1, infile);
 
-			if (strstr((char *)buffer, searchString) != NULL)
+			line = strtok_r((char *)buffer, "\n", &savePtr);
+
+			lineNum = 1;
+
+			while (line != null && (*found == FALSE))
 			{
-				*found = TRUE;
+				if (strstr(line, searchString) != NULL)
+				{
+					printf("#: %s:%d\n", filename, lineNum);
+
+					*found = TRUE;
+
+					break;
+				}
+
+				line = strtok_r(NULL, "\n", &savePtr);
+
+				lineNum++;
 			}
 
 			fclose(infile);
 
 			free(buffer);
+
+			if (*found == TRUE)
+			{
+				return;
+			}
 		}
 	}
 

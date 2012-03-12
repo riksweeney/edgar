@@ -19,7 +19,7 @@ TALK Book It is believed he is still there
 TALK Book Slowly regaining his power until he is strong enough to break free and terrorise the world once again
 SET EDGAR FACE RIGHT
 TALK Edgar Beneath an old fortress? Maybe they mean this one...
-TALK Edgar If that drgaon is regaining its power then it must be stopped before it's too late
+TALK Edgar If that dragon is regaining its power then it must be stopped before it's too late
 TALK Edgar But if its breath destroys anything then I won't be able to protect myself
 TALK Edgar Unless...
 SET WEAPON_BOOK HEALTH 3
