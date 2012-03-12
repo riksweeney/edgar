@@ -1,4 +1,4 @@
-HEALTH 3000
+HEALTH 2500
 DAMAGE 1
 GFX_FILE data/gfx/boss/chaos.dat
 ANIM_FILE data/anim/boss/chaos.dat

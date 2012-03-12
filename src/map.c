@@ -84,7 +84,7 @@ void loadMap(char *name, int loadEntityResources)
 	map.maxX = map.maxY = 0;
 
 	map.forceMinY = FALSE;
-	
+
 	map.waterBackgroundTile = 0;
 
 	/* Reset the clipping */
@@ -243,7 +243,7 @@ void loadMap(char *name, int loadEntityResources)
 				map.minY = MAX_MAP_Y;
 			}
 		}
-		
+
 		else if (strcmpignorecase(itemName, "WATER_BACKGROUND_TILE") == 0)
 		{
 			/* The water background tile */
@@ -389,33 +389,33 @@ void loadMap(char *name, int loadEntityResources)
 	}
 	/*
 	printf("X %d - %d Y: %d - %d\n", map.minX, map.maxX, map.minY, map.maxY);
-	
+
 	yy = 0;
-	
+
 	if (map.minY != 0 || map.minX != 0)
 	{
 		for (y=map.minY;y<=map.maxY;y++)
 		{
 			xx = 0;
-			
+
 			for (x=map.minX;x<=map.maxX;x++)
 			{
 				map.tile[yy][xx] = map.tile[y][x];
-				
+
 				xx++;
-				
+
 				map.tile[y][x] = 0;
 			}
-			
+
 			yy++;
 		}
-		
-		
+
+
 		map.minX *= TILE_SIZE;
 		map.minY *= TILE_SIZE;
-		
-		printf("Move entities %d and %d\n", map.minX, map.minY);
-		
+
+		printf("MAP_NAME %s\nTRANSLATE_ENTITIES %d %d\n", name, map.minX, map.minY);
+
 		entities = getEntities();
 
 		player.x -= map.minX;
@@ -448,9 +448,9 @@ void loadMap(char *name, int loadEntityResources)
 				e->endY -= map.minY;
 			}
 		}
-		
+
 		targets = getTargets();
-		
+
 		for (x=0;x<MAX_TARGETS;x++)
 		{
 			if (targets[x].active == TRUE)
@@ -459,7 +459,7 @@ void loadMap(char *name, int loadEntityResources)
 				{
 					targets[x].x -= map.minX;
 				}
-				
+
 				if (targets[x].y - map.minY > 0)
 				{
 					targets[x].y -= map.minY;
@@ -870,7 +870,7 @@ void drawMap(int depth)
 						{
 							drawImage(mapImages[tileID], x, y, FALSE, 255);
 						}
-						
+
 						else if (map.waterBackgroundTile != 0 && tileID == WATER_TILE_START)
 						{
 							drawImage(mapImages[map.waterBackgroundTile], x, y, FALSE, 255);
@@ -908,7 +908,7 @@ void drawMap(int depth)
 						}
 
 						else if (tileID >= FOREGROUND_TILE_START)
-						{							
+						{
 							drawImage(mapImages[tileID], x, y, FALSE, tileID >= WATER_TILE_START && tileID <= WATER_TILE_END ? 128 : 255);
 						}
 					break;
