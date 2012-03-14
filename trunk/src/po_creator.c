@@ -21,7 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 static int textAlreadyAdded(char *text);
 static char *replaceString(char *, char *, char *);
-static void recurseDirectory(char *, char *, int *);
+static int recurseDirectory(char *, char *);
 static int checkExists(char *);
 
 static char added[8192][MAX_LINE_LENGTH];
@@ -341,6 +341,8 @@ static int textAlreadyAdded(char *text)
 
 	clean = replaceString(text, "msgid \"", "");
 	clean[strlen(clean) - 1] = '\0';
+	clean = replaceString(clean, "\\", "");
+	clean = replaceString(clean, "\\", "");
 
 	for (i=0;i<poIndex;i++)
 	{
@@ -350,16 +352,12 @@ static int textAlreadyAdded(char *text)
 		}
 	}
 
-	clean = replaceString(clean, "\\\"", "\"");
-
 	if (checkExists(clean) == FALSE)
 	{
 		return TRUE;
 	}
 
 	STRNCPY(added[poIndex], text, MAX_LINE_LENGTH);
-
-	added[poIndex] = replaceString(added[poIndex], "\"", "\\\"");
 
 	poIndex++;
 
@@ -372,11 +370,16 @@ static int checkExists(char *string)
 
 	string = replaceString(string, "msgid \"", "");
 
-	recurseDirectory("src", string, &found);
+	found = recurseDirectory("data/scripts", string);
 
 	if (found == FALSE)
 	{
-		recurseDirectory("data", string, &found);
+		found = recurseDirectory("src", string);
+	}
+
+	if (found == FALSE)
+	{
+		found = recurseDirectory("data", string);
 	}
 
 	return found;
@@ -403,15 +406,14 @@ static char *replaceString(char *string, char *find, char *replace)
 	return buffer;
 }
 
-static void recurseDirectory(char *dirName, char *searchString, int *found)
+static int recurseDirectory(char *dirName, char *searchString)
 {
 	DIR *dirp, *dirp2;
 	struct dirent *dfile;
 	FILE *infile;
-	char filename[1024], *line, *savePtr;
-	int read, lineNum;
+	char filename[MAX_LINE_LENGTH], buffer[MAX_LINE_LENGTH];
+	int lineNum;
 	unsigned long fileSize;
-	unsigned char *buffer;
 
 	dirp = opendir(dirName);
 
@@ -422,7 +424,7 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 		exit(1);
 	}
 
-	while ((dfile = readdir(dirp)) && *found == FALSE)
+	while ((dfile = readdir(dirp)))
 	{
 		if (dfile->d_name[0] == '.')
 		{
@@ -437,7 +439,12 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 		{
 			closedir(dirp2);
 
-			recurseDirectory(filename, searchString, found);
+			if (recurseDirectory(filename, searchString) == TRUE)
+			{
+				closedir(dirp);
+
+				return TRUE;
+			}
 		}
 
 		else
@@ -459,54 +466,38 @@ static void recurseDirectory(char *dirName, char *searchString, int *found)
 
 			if (fileSize == 0)
 			{
-				printf("%s is an empty file.\n", filename);
+				printf("%s is an empty file!\n", filename);
 
-				exit(0);
-			}
-
-			buffer = malloc((fileSize + 1) * sizeof(unsigned char));
-
-			if (buffer == NULL)
-			{
-				printf("Could not create buffer\n");
+				closedir(dirp);
 
 				exit(1);
 			}
 
 			fseek(infile, 0L, SEEK_SET);
 
-			read = fread(buffer, fileSize, 1, infile);
-
-			line = strtok_r((char *)buffer, "\n", &savePtr);
-
 			lineNum = 1;
 
-			while (line != null && (*found == FALSE))
+			while (fgets(buffer, MAX_LINE_LENGTH, infile) != NULL)
 			{
-				if (strstr(line, searchString) != NULL)
+				if (strstr(buffer, searchString) != NULL)
 				{
 					printf("#: %s:%d\n", filename, lineNum);
 
-					*found = TRUE;
+					fclose(infile);
 
-					break;
+					closedir(dirp);
+
+					return TRUE;
 				}
-
-				line = strtok_r(NULL, "\n", &savePtr);
 
 				lineNum++;
 			}
 
 			fclose(infile);
-
-			free(buffer);
-
-			if (*found == TRUE)
-			{
-				return;
-			}
 		}
 	}
 
 	closedir(dirp);
+
+	return FALSE;
 }

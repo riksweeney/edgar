@@ -77,6 +77,25 @@ void draw()
 	SDL_Delay(1);
 }
 
+void drawExport()
+{
+	/* Draw the background */
+	
+	drawMapBackground();
+
+	/* Draw the map whole map */
+
+	drawMap(-1);
+
+	/* Draw the entities */
+
+	drawEntities(-1);
+
+	/* Swap the buffers */
+
+	SDL_Flip(game.screen);
+}
+
 void delay(unsigned int frameLimit)
 {
 	unsigned int ticks = SDL_GetTicks();
