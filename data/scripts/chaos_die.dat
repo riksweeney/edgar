@@ -1,11 +1,12 @@
 WAIT 30
 WALK_TO EDGAR 0 0 WAIT
 SET EDGAR FACE RIGHT
-TALK Chaos Ugh, I underestimated you. You are a worthy opponent
-TALK Chaos I bestow upon you this weapon
+TALK Chaos Once again, I have been bested
+TALK Chaos A worthy opponent deserves a weapon worthy of themselves
+TALK Chaos I bestow upon you this sword
 ADD ENTITY WEAPON weapon/legendary_sword " " 0 0
 TALK Chaos Now I must rest until I am strong enough to escape this wretched place
-TALK Chaos Even if it takes another 100 years
+TALK Chaos Even if it takes another 100 years, I will be free
 TALK Chaos Now, begone from my sight, mighty warrior
 TELEPORT EDGAR -1000 -1000
 SET EDGAR ADD_FLAG NO_END_TELEPORT_SOUND

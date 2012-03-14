@@ -21,9 +21,10 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "collisions.h"
 #include "cursor.h"
-#include "draw.h"
+#include "draw_editor.h"
 #include "entity.h"
 #include "graphics/decoration.h"
+#include "graphics/graphics.h"
 #include "init.h"
 #include "input.h"
 #include "map.h"
@@ -38,8 +39,11 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit;
-	int go;
+	int go, x, y, export;
 	Entity startPos;
+	char filename[256];
+	SDL_Surface *map;
+	SDL_Rect rect;
 
 	#if DEV == 0
 		printf("Editor doesn't work if DEV is set to 0\n");
@@ -54,6 +58,8 @@ int main(int argc, char *argv[])
 	/* Call the cleanup function when the program exits */
 
 	atexit(cleanup);
+	
+	export = FALSE;
 
 	go = TRUE;
 
@@ -70,6 +76,11 @@ int main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		loadMap(argv[1], TRUE);
+		
+		if (argc > 2 && strcmpignorecase(argv[2], "EXPORT") == 0)
+		{
+			export = TRUE;
+		}
 	}
 
 	else
@@ -79,13 +90,25 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	/* Load the background image */
+	if (export == TRUE)
+	{
+		x = getMinMapX();
+		y = getMinMapY();
+		
+		setMapStartX(x);
+		setMapStartY(y);
+		
+		map = createSurface(getMaxMapX() - getMinMapX() + SCREEN_WIDTH, getMaxMapY() - getMinMapY() + SCREEN_HEIGHT);
+	}
 
-	setMinMapX(0);
-	setMinMapY(0);
+	else
+	{
+		setMinMapX(0);
+		setMinMapY(0);
 
-	setMaxMapX(MAX_MAP_X * TILE_SIZE);
-	setMaxMapY(MAX_MAP_Y * TILE_SIZE);
+		setMaxMapX(MAX_MAP_X * TILE_SIZE);
+		setMaxMapY(MAX_MAP_Y * TILE_SIZE);
+	}
 
 	/* Initialise the cursor */
 
@@ -126,30 +149,87 @@ int main(int argc, char *argv[])
 	game.fps = 1000 / 60;
 
 	frameLimit = SDL_GetTicks() + game.fps;
-
-	while (go == TRUE)
+	
+	if (export == TRUE)
 	{
-		/* Get the input */
+		x = getMinMapX();
+		y = getMinMapY();
+		
+		setMapStartX(x);
+		setMapStartY(y);
+		
+		map = createSurface(getMaxMapX() - getMinMapX() + SCREEN_WIDTH, getMaxMapY() - getMinMapY() + SCREEN_HEIGHT);
 
-		getInput(game.gameType);
+		while (go == TRUE)
+		{
+			/* Do the map */
 
-		/* Do the cursor */
+			doMap();
 
-		doCursor();
+			/* Draw the map */
 
-		/* Do the map */
+			drawExport();
 
-		doMap();
+			/* Sleep briefly to stop sucking up all the CPU time */
 
-		/* Draw the map */
+			frameLimit = SDL_GetTicks() + game.fps;
+			
+			rect.x = x;
+			rect.y = y;
+			rect.w = SCREEN_WIDTH;
+			rect.h = SCREEN_HEIGHT;
+			
+			SDL_BlitSurface(game.screen, NULL, map, &rect);
+			
+			x += SCREEN_WIDTH;
+			
+			if (x >= getMaxMapX())
+			{
+				x = getMinMapX();
+				
+				y += SCREEN_HEIGHT;
+				
+				if (y >= getMaxMapY())
+				{
+					snprintf(filename, 256, "%s.bmp", argv[1]);
+					
+					SDL_SaveBMP(map, filename);
+					
+					exit(0);
+				}
+			}
+			
+			setMapStartX(x);
+			setMapStartY(y);
+		}
+	}
+	
+	else
+	{
+		while (go == TRUE)
+		{
+			/* Get the input */
 
-		draw();
+			getInput(game.gameType);
 
-		/* Sleep briefly to stop sucking up all the CPU time */
+			/* Do the cursor */
 
-		delay(frameLimit);
+			doCursor();
 
-		frameLimit = SDL_GetTicks() + game.fps;
+			/* Do the map */
+
+			doMap();
+
+			/* Draw the map */
+
+			draw();
+
+			/* Sleep briefly to stop sucking up all the CPU time */
+
+			delay(frameLimit);
+
+			frameLimit = SDL_GetTicks() + game.fps;
+		}
 	}
 
 	/* Exit the program */

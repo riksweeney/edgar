@@ -382,6 +382,9 @@ static void doEndCredits()
 
 			if (game.kills == 0)
 			{
+				credits.status = 0;
+
+				titleScreen();
 			}
 		}
 	}
