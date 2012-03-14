@@ -646,7 +646,7 @@ static void destroyFloor()
 		}
 	}
 
-	if (player.y >= getMaxMapY())
+	if (player.y >= getMapMaxY())
 	{
 		self->thinkTime = 5;
 

@@ -36,3 +36,6 @@ EntityList *createPixelsFromSprite(Sprite *);
 void drawColouredLine(int, int, int, int, Uint32, Uint32, Uint32);
 int getColour(int r, int g, int b);
 SDL_Surface *copyImage(SDL_Surface *, int, int, int, int);
+void takeScreenshot(void);
+void takeSingleScreenshot(char *);
+void setScreenshotDir(char *);

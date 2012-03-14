@@ -26,12 +26,10 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 static void saveBuffer(void);
 static void loadBuffer(void);
 
-static int frame = 0;
 static int inputBuffer[MAX_INPUTS];
 static int bufferID = 0;
 static FILE *replayBuffer;
 static int inputsRead = 0;
-static char screenshotPath[MAX_PATH_LENGTH];
 
 extern Game game;
 
@@ -63,7 +61,7 @@ void setReplayData(char *name, int loadedGame)
 	}
 
 	read = fread(&seed, sizeof(int32_t), 1, replayBuffer);
-	
+
 	seed = SWAP32(seed);
 
 	printf("Setting seed %d\n", seed);
@@ -99,7 +97,7 @@ void setRecordData(char *name)
 	game.gameType = RECORDING;
 
 	seed = time(NULL);
-	
+
 	seed = SWAP32(seed);
 
 	fwrite(&version, sizeof(double), 1, replayBuffer);
@@ -116,32 +114,6 @@ void setMapFile(char *name)
 	printf("Setting map to %s\n", name);
 
 	fwrite(name, 5, 1, replayBuffer);
-}
-
-void setScreenshotDir(char *name)
-{
-	STRNCPY(screenshotPath, name, sizeof(screenshotPath));
-
-	printf("Set screenshot directory to %s\n", screenshotPath);
-}
-
-void takeScreenshot()
-{
-	char filename[MAX_PATH_LENGTH];
-
-	if (strlen(screenshotPath) != 0)
-	{
-		snprintf(filename, sizeof(filename), "%s/edgar%06d.bmp", screenshotPath, frame);
-
-		frame++;
-
-		SDL_SaveBMP(game.screen, filename);
-	}
-}
-
-void takeSingleScreenshot()
-{
-	SDL_SaveBMP(game.screen, "edgar.bmp");
 }
 
 void putBuffer(Input inp)
@@ -161,7 +133,7 @@ void putBuffer(Input inp)
 	if (inp.next == 1)      input |= 1024;
 	if (inp.inventory == 1) input |= 2048;
 	if (inp.grabbing == 1)  input |= 4096;
-	
+
 	input = SWAP32(input);
 
 	inputBuffer[bufferID] = input;
@@ -196,7 +168,7 @@ Input getBuffer()
 	}
 
 	input = inputBuffer[bufferID];
-	
+
 	input = SWAP32(input);
 
 	if (input & 1)    inp.up = 1;
