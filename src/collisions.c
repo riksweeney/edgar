@@ -916,10 +916,10 @@ void checkToMap(Entity *e)
 	e->x += e->dirX;
 	e->y += e->dirY;
 
-	x1 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMinX() : getMinMapX();
-	x2 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMaxX() : getMaxMapX();
+	x1 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMinX() : getMapMinX();
+	x2 = (e->type == PLAYER || (e->flags & LIMIT_TO_SCREEN)) ? getPlayerMaxX() : getMapMaxX();
 
-	y1 = (e->flags & LIMIT_TO_SCREEN) ? getMapStartY() : getMinMapY() - 300;
+	y1 = (e->flags & LIMIT_TO_SCREEN) ? getMapStartY() : getMapMinY() - 300;
 
 	if (e->x < x1)
 	{
@@ -956,7 +956,7 @@ void checkToMap(Entity *e)
 		}
 	}
 
-	if (e->y > getMaxMapY() && e->y - e->dirY <= getMaxMapY())
+	if (e->y > getMapMaxY() && e->y - e->dirY <= getMapMaxY())
 	{
 		e->flags &= ~(HELPLESS|INVULNERABLE);
 
@@ -1274,7 +1274,7 @@ int isValidOnMap(Entity *e)
 {
 	int i, x1, x2, y1, y2;
 
-	if (e->x < getMinMapX() || e->x + e->w > getMaxMapX() || e->h < 0 || e->y + e->h > getMaxMapY())
+	if (e->x < getMapMinX() || e->x + e->w > getMapMaxX() || e->h < 0 || e->y + e->h > getMapMaxY())
 	{
 		return FALSE;
 	}
@@ -1346,7 +1346,7 @@ int isValidOnMap(Entity *e)
 
 int getMapFloor(int x, int y)
 {
-	int maxY = getMaxMapY() / TILE_SIZE;
+	int maxY = getMapMaxY() / TILE_SIZE;
 	int tileID;
 
 	x /= TILE_SIZE;
@@ -1425,7 +1425,7 @@ int getMapLeft(int x, int y)
 
 int getMapRight(int x, int y)
 {
-	int maxX = getMaxMapX() / TILE_SIZE;
+	int maxX = getMapMaxX() / TILE_SIZE;
 	int tileID;
 
 	x /= TILE_SIZE;

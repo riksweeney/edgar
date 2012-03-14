@@ -39,11 +39,9 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit;
-	int go, x, y, export;
+	int go, x, y, export, row, col;
 	Entity startPos;
-	char filename[256];
-	SDL_Surface *map;
-	SDL_Rect rect;
+	char filename[MAX_VALUE_LENGTH];
 
 	#if DEV == 0
 		printf("Editor doesn't work if DEV is set to 0\n");
@@ -58,7 +56,7 @@ int main(int argc, char *argv[])
 	/* Call the cleanup function when the program exits */
 
 	atexit(cleanup);
-	
+
 	export = FALSE;
 
 	go = TRUE;
@@ -76,7 +74,7 @@ int main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		loadMap(argv[1], TRUE);
-		
+
 		if (argc > 2 && strcmpignorecase(argv[2], "EXPORT") == 0)
 		{
 			export = TRUE;
@@ -92,13 +90,11 @@ int main(int argc, char *argv[])
 
 	if (export == TRUE)
 	{
-		x = getMinMapX();
-		y = getMinMapY();
-		
-		setMapStartX(x);
-		setMapStartY(y);
-		
-		map = createSurface(getMaxMapX() - getMinMapX() + SCREEN_WIDTH, getMaxMapY() - getMinMapY() + SCREEN_HEIGHT);
+		maxX = getMapMaxX();
+		maxY = getMapMaxY();
+
+		setMapMaxX(MAX_MAP_X * TILE_SIZE);
+		setMapMaxY(MAX_MAP_Y * TILE_SIZE);
 	}
 
 	else
@@ -106,8 +102,8 @@ int main(int argc, char *argv[])
 		setMinMapX(0);
 		setMinMapY(0);
 
-		setMaxMapX(MAX_MAP_X * TILE_SIZE);
-		setMaxMapY(MAX_MAP_Y * TILE_SIZE);
+		setMapMaxX(MAX_MAP_X * TILE_SIZE);
+		setMapMaxY(MAX_MAP_Y * TILE_SIZE);
 	}
 
 	/* Initialise the cursor */
@@ -149,16 +145,16 @@ int main(int argc, char *argv[])
 	game.fps = 1000 / 60;
 
 	frameLimit = SDL_GetTicks() + game.fps;
-	
+
 	if (export == TRUE)
 	{
-		x = getMinMapX();
-		y = getMinMapY();
-		
+		x = getMapMinX();
+		y = getMapMinY();
+
 		setMapStartX(x);
 		setMapStartY(y);
-		
-		map = createSurface(getMaxMapX() - getMinMapX() + SCREEN_WIDTH, getMaxMapY() - getMinMapY() + SCREEN_HEIGHT);
+
+		col = row = 0;
 
 		while (go == TRUE)
 		{
@@ -170,40 +166,35 @@ int main(int argc, char *argv[])
 
 			drawExport();
 
-			/* Sleep briefly to stop sucking up all the CPU time */
+			snprintf(filename, MAX_VALUE_LENGTH, "%d_%s_%d.bmp", row, argv[1], col);
 
-			frameLimit = SDL_GetTicks() + game.fps;
-			
-			rect.x = x;
-			rect.y = y;
-			rect.w = SCREEN_WIDTH;
-			rect.h = SCREEN_HEIGHT;
-			
-			SDL_BlitSurface(game.screen, NULL, map, &rect);
-			
+			takeScreenshot(filename);
+
 			x += SCREEN_WIDTH;
-			
-			if (x >= getMaxMapX())
+
+			col++;
+
+			if (x >= maxX)
 			{
-				x = getMinMapX();
-				
+				x = getMapMinX();
+
+				row++;
+
+				col = 0;
+
 				y += SCREEN_HEIGHT;
-				
-				if (y >= getMaxMapY())
+
+				if (y >= maxY)
 				{
-					snprintf(filename, 256, "%s.bmp", argv[1]);
-					
-					SDL_SaveBMP(map, filename);
-					
 					exit(0);
 				}
 			}
-			
+
 			setMapStartX(x);
 			setMapStartY(y);
 		}
 	}
-	
+
 	else
 	{
 		while (go == TRUE)

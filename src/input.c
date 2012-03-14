@@ -196,7 +196,7 @@ void getInput(int gameType)
 
 				else if (key == SCREENSHOT_KEY && game.gameType != RECORDING)
 				{
-					takeSingleScreenshot();
+					takeSingleScreenshot("edgar.bmp");
 				}
 
 				if (key == SDLK_UP)
@@ -880,7 +880,7 @@ char *getKeyValue(int key)
 	{
 		text = "?";
 	}
-	
+
 	else if (key < 0)
 	{
 		text = getJoystickButton(key);

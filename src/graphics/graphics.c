@@ -34,6 +34,9 @@ static void drawImageWhite(SDL_Surface *, int, int);
 static Uint32 getPixel(SDL_Surface *, int, int);
 static void putPixel(SDL_Surface *, int, int, Uint32);
 
+static char screenshotPath[MAX_PATH_LENGTH];
+static int frame = 0;
+
 SDL_Surface *loadImage(char *name)
 {
 	/* Load the image using SDL Image */
@@ -1047,4 +1050,30 @@ static void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 			*(Uint32 *)p = pixel;
 		break;
 	}
+}
+
+void setScreenshotDir(char *name)
+{
+	STRNCPY(screenshotPath, name, sizeof(screenshotPath));
+
+	printf("Set screenshot directory to %s\n", screenshotPath);
+}
+
+void takeScreenshot()
+{
+	char filename[MAX_PATH_LENGTH];
+
+	if (strlen(screenshotPath) != 0)
+	{
+		snprintf(filename, sizeof(filename), "%s/edgar%06d.bmp", screenshotPath, frame);
+
+		frame++;
+
+		SDL_SaveBMP(game.screen, filename);
+	}
+}
+
+void takeSingleScreenshot(char *name)
+{
+	SDL_SaveBMP(game.screen, name);
 }

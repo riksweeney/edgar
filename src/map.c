@@ -1153,22 +1153,22 @@ int mapTileAt(int x, int y)
 	return map.tile[y][x];
 }
 
-int getMaxMapX()
+int getMapMaxX()
 {
 	return map.maxX;
 }
 
-int getMaxMapY()
+int getMapMaxY()
 {
 	return map.maxY;
 }
 
-void setMaxMapX(int max)
+void setMapMaxX(int max)
 {
 	map.maxX = max;
 }
 
-void setMaxMapY(int max)
+void setMapMaxY(int max)
 {
 	map.maxY = max;
 }
@@ -1183,12 +1183,12 @@ void setMinMapY(int min)
 	map.minY = min;
 }
 
-int getMinMapX()
+int getMapMinX()
 {
 	return map.minX;
 }
 
-int getMinMapY()
+int getMapMinY()
 {
 	return map.minY;
 }
