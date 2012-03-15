@@ -39,7 +39,7 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit;
-	int go, x, y, export, row, col;
+	int go, x, y, export, row, col, maxX, maxY;
 	Entity startPos;
 	char filename[MAX_VALUE_LENGTH];
 
@@ -166,9 +166,9 @@ int main(int argc, char *argv[])
 
 			drawExport();
 
-			snprintf(filename, MAX_VALUE_LENGTH, "%d_%s_%d.bmp", row, argv[1], col);
+			snprintf(filename, MAX_VALUE_LENGTH, "%03d_%s_%03d.bmp", row, argv[1], col);
 
-			takeScreenshot(filename);
+			takeSingleScreenshot(filename);
 
 			x += SCREEN_WIDTH;
 

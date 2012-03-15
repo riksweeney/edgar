@@ -26,6 +26,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "entity.h"
 #include "game.h"
 #include "graphics/decoration.h"
+#include "graphics/graphics.h"
 #include "hud.h"
 #include "init.h"
 #include "input.h"

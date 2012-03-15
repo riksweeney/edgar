@@ -22,6 +22,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "cursor.h"
 #include "entity.h"
 #include "graphics/font.h"
+#include "graphics/graphics.h"
 #include "map.h"
 #include "player.h"
 #include "status_panel.h"
@@ -33,6 +34,10 @@ extern Cursor cursor;
 void draw()
 {
 	char text[MAX_VALUE_LENGTH];
+	
+	/* Clear screen */
+	
+	clearScreen(0, 0, 0);
 	
 	/* Draw the background */
 	
@@ -79,10 +84,10 @@ void draw()
 
 void drawExport()
 {
-	/* Draw the background */
+	/* Clear screen */
 	
-	drawMapBackground();
-
+	clearScreen(0, 0, 0);
+	
 	/* Draw the map whole map */
 
 	drawMap(-1);
