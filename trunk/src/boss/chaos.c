@@ -54,9 +54,9 @@ static void flameWait(void);
 static int flameDraw(void);
 static void flameTouch(Entity *);
 static void breatheFireFinish(void);
-static void stalagtiteAttackInit(void);
-static void stalagtiteAttack(void);
-static void stalagtiteFall(void);
+static void stalactiteAttackInit(void);
+static void stalactiteAttack(void);
+static void stalactiteFall(void);
 static void stalagmiteAttackInit(void);
 static void stalagmiteAttack(void);
 static void stalagmiteRise(void);
@@ -170,7 +170,7 @@ static void entityWait()
 				break;
 
 				case 1:
-					self->action = &stalagtiteAttackInit;
+					self->action = &stalactiteAttackInit;
 				break;
 
 				case 2:
@@ -558,20 +558,20 @@ static void stalagmiteTakeDamage(Entity *other, int damage)
 	}
 }
 
-static void stalagtiteAttackInit()
+static void stalactiteAttackInit()
 {
-	createAutoDialogBox(_("Chaos"), _("Stalagtite"), 120);
+	createAutoDialogBox(_("Chaos"), _("Stalactite"), 120);
 
 	self->mental = 2 + prand() % 4;
 
-	self->action = &stalagtiteAttack;
+	self->action = &stalactiteAttack;
 
 	self->thinkTime = 0;
 
 	checkToMap(self);
 }
 
-static void stalagtiteAttack()
+static void stalactiteAttack()
 {
 	Entity *e;
 
@@ -583,10 +583,10 @@ static void stalagtiteAttack()
 
 		if (e == NULL)
 		{
-			showErrorAndExit("No free slots to add a stalagtite");
+			showErrorAndExit("No free slots to add a stalactite");
 		}
 
-		loadProperties("enemy/stalagtite", e);
+		loadProperties("item/stalactite", e);
 
 		setEntityAnimation(e, "STAND");
 
@@ -611,7 +611,7 @@ static void stalagtiteAttack()
 
 		setEntityAnimation(e, "STAND");
 
-		e->action = &stalagtiteFall;
+		e->action = &stalactiteFall;
 
 		e->draw = &drawLoopingAnimationToMap;
 
@@ -643,7 +643,7 @@ static void stalagtiteAttack()
 	checkToMap(self);
 }
 
-static void stalagtiteFall()
+static void stalactiteFall()
 {
 	checkToMap(self);
 
@@ -1646,7 +1646,7 @@ static void dieWait()
 {
 	int i;
 	Entity *e;
-	
+
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
