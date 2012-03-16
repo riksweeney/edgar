@@ -7,4 +7,4 @@ msgcat --no-wrap locale/edgar.pot > t
 mv t locale/edgar.pot
 head -n 15 locale/edgar.pot > t
 ./po_creator >> t
-msgcat t > locale/edgar.pot
+mv t locale/edgar.pot

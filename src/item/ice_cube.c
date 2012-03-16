@@ -163,7 +163,7 @@ static void iceFloat()
 
 	self->y = self->startY + sin(DEG_TO_RAD(self->startX)) * 8;
 
-	self->dirY = -3;
+	self->dirY = 3;
 }
 
 static void shrinkFinish()
