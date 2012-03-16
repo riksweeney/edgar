@@ -78,6 +78,8 @@ static void floatUpAndDown()
 	}
 
 	self->y = self->endY + sin(DEG_TO_RAD(self->endX)) * 5;
+	
+	self->dirY = 3;
 }
 
 static void entityWait()
@@ -96,7 +98,7 @@ static void entityWait()
 
 	if (self->health == 1)
 	{
-		self->thinkTime--;
+		/*self->thinkTime--;*/
 
 		if (self->x == self->startX || (self->thinkTime % 4 == 0))
 		{

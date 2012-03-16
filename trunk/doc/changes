@@ -7,6 +7,7 @@ Version 0.99
 * The secret wall in the Crypt can now be destroyed
 * The Black Book now turns into the Gargoyle rather than the Golem
 * Fixed a bug in the cutscene when fixing the power generators
+* Fixed a problem where you sometimes could not jump on ice cubes
 
 Version 0.98
 * Added French, Czech, Simplified Chinese and Russian translations
