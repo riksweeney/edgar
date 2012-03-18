@@ -151,13 +151,13 @@ SDL_Surface *createDialogBox(char *title, char *msg)
 	{
 		lineBreak = FALSE;
 
-		snprintf(word, sizeof(word), "%d ", game.kills);
+		snprintf(word, sizeof(word), "%d", game.kills);
 		
 		token = replaceString(token, "[GAME_KILLS]", word);
 		
 		token = replaceString(token, "[HOURS]", getPlayTimeHours());
 		
-		snprintf(word, sizeof(word), "%d ", game.continues);
+		snprintf(word, sizeof(word), "%d", game.continues);
 		
 		token = replaceString(token, "[CONTINUE_COUNT]", word);
 		

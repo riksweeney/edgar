@@ -279,6 +279,8 @@ static void lookForPlayer()
 				playSoundToMap("sound/boss/armour_boss/growl.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 				self->action = &chargeAttackStart;
+				
+				self->startX = 3600;
 			}
 		}
 

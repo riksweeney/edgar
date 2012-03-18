@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-14 15:34+0000\n"
+"PO-Revision-Date: 2012-03-16 16:03+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-14 19:56+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-18 14:41+0000\n"
+"X-Generator: Launchpad (build 14951)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -278,7 +278,7 @@ msgstr "Ale když jsi tu ty, mohl bys mi pomoct tu věc získat"
 #: data/scripts/olaf.dat:112
 msgid ""
 "I haven't gotten all my stuff back yet. I think everything's here though"
-msgstr ""
+msgstr "Ještě nemám zpět všechny svoje věci. Všechno by tu mělo být"
 
 #: data/scripts/olaf.dat:113
 msgid "When I've found everything I'll come back"
@@ -476,7 +476,7 @@ msgstr "Seber štít a pokračuj vpravo"
 
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
-msgstr ""
+msgstr "Je to portrét"
 
 #: data/scripts/incomplete.dat:1
 msgid ""
@@ -682,7 +682,7 @@ msgstr "Okamžitě odejdi pokud si přeješ žít"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Jdi zpátky"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
@@ -759,7 +759,7 @@ msgstr "Použij šipky vlevo a vpravo pro posunutí o jeden dílek"
 msgid ""
 "Make sure you keep count of how many times you move the dial since no on-"
 "screen notification is given"
-msgstr ""
+msgstr "Pamatuj si počet, protože na obrazovce postup neuvidíš"
 
 #: data/scripts/safe_instructions.dat:3
 msgid ""
@@ -927,7 +927,7 @@ msgstr ""
 #: data/scripts/statue_required.dat:1
 msgid ""
 "You must have the statue you wish to use highlighted in your inventory box"
-msgstr ""
+msgstr "Musíš mit sošku ve svém inventáři"
 
 #: data/scripts/centurion_boss_start.dat:9
 msgid "Huh, what's that?"
@@ -1054,7 +1054,7 @@ msgstr "Co to bylo?"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Uh Oh..."
-msgstr ""
+msgstr "Uh Oh..."
 
 #: data/scripts/tutorial_doors.dat:1
 msgid ""
@@ -1362,23 +1362,27 @@ msgstr ""
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap, mobile"
-msgstr ""
+msgstr "Venus Flytrap, pohyblivá"
 
 #: data/scripts/monsters.dat:61
 msgid ""
 "Mobile Venus Flytraps have evolved roots and are able to move to their food "
 "rather than waiting for it to come to them"
 msgstr ""
+"Pohyblivá Venus Flytrap si vyvynula kořeny a je schopna se ke své potravě "
+"dostat a nemusí čekat, až potrava přijde k ní"
 
 #: data/scripts/monsters.dat:62
 msgid ""
 "Their necks are incredibly elastic and are able to snap at their prey from a "
 "considerable distance away"
 msgstr ""
+"Její krk je neuvěřitelně pružný a je schopna dostat svou kořist na značnou "
+"vzdálenost"
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr ""
+msgstr "Želva, Královská"
 
 #: data/scripts/monsters.dat:69
 msgid ""
@@ -1576,7 +1580,7 @@ msgstr "34 dílů! Jak vůbec může existovat takové množství potvor?"
 
 #: data/scripts/monsters.dat:124
 msgid "This might have come in handy when I was hunting for the Red Sludges"
-msgstr ""
+msgstr "Tohle by se mohlo hodit až budu lovit červené bahňáky"
 
 #: data/scripts/monsters.dat:125
 msgid "Still, there might be something else in these books worth reading..."
@@ -1584,7 +1588,7 @@ msgstr "Stejně, v těch knihách by mohlo být něco hodné přečtení..."
 
 #: data/scripts/monsters.dat:128
 msgid "Looks like they're in alphabetical order though"
-msgstr ""
+msgstr "Vypadá to, že jsou v alfabetickém pořádku"
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
@@ -1976,7 +1980,7 @@ msgstr "Kam se ten černokněžník poděl?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
-msgstr ""
+msgstr "Konečně se setkáváme!"
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
@@ -2057,7 +2061,7 @@ msgstr ""
 
 #: data/scripts/blender.dat:2
 msgid "It looks like a blender. I could use this to liquidise something"
-msgstr ""
+msgstr "Vypadá to jako mixér. Mohu to použít na mixování"
 
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
@@ -2095,25 +2099,28 @@ msgstr ""
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr ""
+msgstr "Wau, laboratoř!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
 "I love watching Maggie make spells and potions, maybe I can make some of my "
 "own here!"
 msgstr ""
+"Vždycky jsem rád sledoval Maggie při výrobě lektvarů a kouzel, možná bych si "
+"tu mohl nějaké vyrobit sám!"
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "Už není kam se schovat"
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
-msgstr ""
+msgstr "Ty jsi porazil Grimlora? Nemožné!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
 msgstr ""
+"Podvolil se mému meči, ostatně jako vše ostatní v tomhle zkaženém místě"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
@@ -2225,7 +2232,7 @@ msgstr "Dostaň se z katakomb"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr ""
+msgstr "Procházel tudy, cítím to"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
@@ -2278,6 +2285,8 @@ msgid ""
 "To exit this tutorial, press Escape and use the Up and Down arrow keys to "
 "choose an option. Press Return to select it."
 msgstr ""
+"Pro ukončení tutoriálu, stiskni Escape a použij šipky pro navigaci v menu. "
+"Stiskni Zpět pro vybrání možnosti."
 
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
@@ -2295,7 +2304,7 @@ msgstr "Pro použití předmětu stiskni [INPUT_INTERACT]"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Přijdi k Action Pointu a stiskni [INPUT_INTERACT]"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
@@ -2384,7 +2393,7 @@ msgstr "Hustý, funguje to!"
 
 #: data/scripts/smoothie_colour.dat:2
 msgid "I'm not sure about the colour though, I thought it would be red?"
-msgstr ""
+msgstr "Jenom si nejsem jistý ohledně barev, neměla to být červená?"
 
 #: data/scripts/smoothie_colour.dat:3
 msgid "Maybe it's supposed to be yellow..."
@@ -2741,7 +2750,7 @@ msgstr "A MÁ MŮJ OHNIVÝ ŠTÍT!!"
 
 #: data/scripts/robot.dat:1
 msgid "Hey wow, what a cute little machine!"
-msgstr ""
+msgstr "No hustý, roztomilá hračička!"
 
 #: data/scripts/robot.dat:2
 msgid ""
@@ -2811,11 +2820,11 @@ msgstr "Můžeš ho použít jako zbraň nebo jako nástroj"
 
 #: data/scripts/tutorial_pickaxe.dat:3
 msgid "Pick up the pickaxe and continue to the next Action Point"
-msgstr ""
+msgstr "Seber krumpáč a pokračuj k dalšímu Action Pointu"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "Je tu draft..."
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
@@ -2839,7 +2848,7 @@ msgstr "Teď se dostat skrz močál"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "Vypořádej se s močálem"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
@@ -2891,7 +2900,7 @@ msgstr "Postav se černokněžníkovi"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
-msgstr ""
+msgstr "Tady bych měl být v bezpečí, ale musím se toho zbavit"
 
 #: data/scripts/instruction_machine.dat:1
 msgid ""
@@ -2910,6 +2919,8 @@ msgid ""
 "You will then be prompted to input the directions for the robot to follow. "
 "This is done in the same way as the sequence doors"
 msgstr ""
+"Potom budeš požádán o vložení instrukcí pro robota. Ty se dělá stejně jako u "
+"sekvenčních dveří"
 
 #: data/scripts/instruction_machine.dat:4
 msgid "When you have finished inputting the directions, press Attack"
@@ -2968,7 +2979,7 @@ msgstr "Musíš mít kartu s instrukcemi označenou ve svém inventáři"
 
 #: data/scripts/boulder_boss_2_die.dat:3
 msgid "Good riddance..."
-msgstr ""
+msgstr "Dobré rozloučení..."
 
 #: data/scripts/crossbow.dat:5
 msgid "OK, let's see if this works..."
@@ -3022,7 +3033,7 @@ msgstr ""
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
+msgstr "Myslím, že jsem něco cítil. Je tu draft..."
 
 #: data/scripts/library_outro.dat:1
 msgid ""
@@ -3079,140 +3090,143 @@ msgstr "Tak, lano je pevě přivázané"
 
 #: data/scripts/grappling_hook.dat:9
 msgid "I need to find some rope before I can fire it"
-msgstr ""
+msgstr "Musím najít nějaké lano než budu moct střílet"
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
-msgstr ""
+msgstr "Zápasnický hák"
 
 #: data/scripts/grappling_hook.dat:14
 msgid ""
 "I could probably use it to form a bridge to the other side, but there's no "
 "rope"
 msgstr ""
+"Mohl bych ho použít k vytvoření mostu na druhou stranu, ale nemám žádné lano"
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "Jabloň"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
-msgstr ""
+msgstr "Škoda že to není banánovník, jablka moc nemusím"
 
 #: data/scripts/apple_tree.dat:4
 msgid "There aren't any apples left"
-msgstr ""
+msgstr "Už na ní nejsou žádná jablka"
 
 #: data/scripts/apple_tree.dat:7
 msgid "It looks like there are some apples in it..."
-msgstr ""
+msgstr "Jsou na ní nějaká jablka"
 
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
-msgstr ""
+msgstr "Ty dveře se neotevřou, asi jsem vložil špatnou kombinaci"
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Hromady knih"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
-msgstr ""
+msgstr "Ale nic co by mě zajímalo"
 
 #: data/scripts/occult_book.dat:6
 msgid ""
 "I need the shell of a Rampaging Master Tortoise, the staff from a Dark "
 "Summoner"
-msgstr ""
+msgstr "Potřebuji krunýř ze zuřící želvy královské, hůlku temného vyvolavače"
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
-msgstr ""
+msgstr "Pozůstalost po válečníkovi, který přemohl draka"
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "Duše potulného ducha"
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
-msgstr ""
+msgstr "A volný štít"
 
 #: data/scripts/occult_book.dat:10
 msgid ""
 "Once I have all of those items I need to place them in the cauldron..."
-msgstr ""
+msgstr "Až budu mít všechny tyto věci, musím je dát do kotlíku..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
-msgstr ""
+msgstr "Je tu kniha o okultní magii"
 
 #: data/scripts/occult_book.dat:14
 msgid "Hmm..."
-msgstr ""
+msgstr "Hmm..."
 
 #: data/scripts/occult_book.dat:15
 msgid "This is interesting:"
-msgstr ""
+msgstr "Tohle zní zajímavě:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Úlomek krunýře zuřící želvy královské"
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
-msgstr ""
+msgstr "Hůlka temného vyvolavače"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
-msgstr ""
+msgstr "Pokud už byl drak v minulosti poražen, rovněž je třeba získat"
 
 #: data/scripts/occult_book.dat:24
 msgid "The keepsake from a warrior that previously defeated it"
-msgstr ""
+msgstr "Pozůstalost po válečníkovi, který draka porazil"
 
 #: data/scripts/occult_book.dat:25
 msgid ""
 "Once the ingredients have been gathered, they must be placed in the "
 "cauldron..."
-msgstr ""
+msgstr "Až budou ingredience schromážděny, musí být vloženy do kotlíku..."
 
 #: data/scripts/occult_book.dat:26
 msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
-msgstr ""
+msgstr "Ale né, už né! Už mám dost hraní si s tím hloupým kotlíkem!"
 
 #: data/scripts/occult_book.dat:35
 msgid "I've got the staff, but where do I find the shell or the keepsake?"
-msgstr ""
+msgstr "Mám tu hůlku, ale kde mám najít krunýř nebo pozůstalost?"
 
 #: data/scripts/occult_book.dat:38
 msgid "I've got the shell, but where do I find the staff or the keepsake?"
-msgstr ""
+msgstr "Mám tu hůlku, ale kde mám najít krunýř nebo pozůstalost?"
 
 #: data/scripts/occult_book.dat:41
 msgid "I've got the shell and the staff, but where do I find the keepsake?"
-msgstr ""
+msgstr "Mám tu hůlku, ale kde mám najít krunýř nebo pozůstalost?"
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
-msgstr ""
+msgstr "Je tu mnoho ingrediencí, které netuším jak získat..."
 
 #: data/scripts/anti_gravity.dat:1
 msgid "Hmm, this is new."
-msgstr ""
+msgstr "Hmm, tohle je novinka."
 
 #: data/scripts/anti_gravity.dat:2
 msgid ""
 "It doesn't look like it can hurt me though, but there's only one way to find "
 "out..."
 msgstr ""
+"Nevypadá to, že by mi mohl ublížit, ale je jen jedna možnost, jak to "
+"zjistit..."
 
 #: data/scripts/creepers.dat:2
 msgid "Those creepers look different to the others"
-msgstr ""
+msgstr "Tyhle creepři vypadaji jinak než ostatní"
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Taky vypadají dost nebezpečně..."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
@@ -3232,35 +3246,38 @@ msgstr "Vydrž táto, jdu si pro tebe..."
 
 #: data/scripts/lightning_sword.dat:2
 msgid "Hey, a lightning sword!"
-msgstr ""
+msgstr "Hele, bleskový meč!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr ""
+msgstr "Vypadá o hodně silnější než můj stávající meč"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
-msgstr ""
+msgstr "S tímhle mečem budu téměř k nezastavení"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
-msgstr ""
+msgstr "Téměěř"
 
 #: data/scripts/lightning_sword.dat:6
 msgid ""
 "The Lightning Sword has a limited number of charges and will lose its power "
 "when these charges are used up"
 msgstr ""
+"Bleskový meč má omezený počet nabití a ztratí svou sílu, pokud se vybije"
 
 #: data/scripts/lightning_sword.dat:7
 msgid "Enemies will randomly drop more charges when they are killed"
-msgstr ""
+msgstr "Ze zabitých nepřátel teď občas budou padat náboje pro meč"
 
 #: data/scripts/lightning_sword.dat:8
 msgid ""
 "Note that if the sword completely loses its power it will revert to a "
 "regular sword with very little power until you can find more charges"
 msgstr ""
+"Pokud je meč zcela vybitý, ztratí svou sílu a bude z něj normální meč s "
+"velmi malou silou, dokud nenajdeš další náboje"
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
@@ -3269,7 +3286,7 @@ msgstr "Bav se!"
 #: data/scripts/jacob.dat:10
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
+msgstr "Děkuji za záchranu mých slepic, už pro mě máš 2 klády z lesa?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
@@ -3375,11 +3392,11 @@ msgstr "Hodně zdaru!"
 
 #: data/scripts/jacob.dat:51
 msgid "Collect 2 Chopped Logs"
-msgstr ""
+msgstr "Seber 2 klády"
 
 #: data/scripts/jacob.dat:53
 msgid "Rescue 3 Chickens"
-msgstr ""
+msgstr "Zachraň 3 slepice"
 
 #: data/scripts/jacob.dat:62
 msgid ""
@@ -3440,45 +3457,48 @@ msgstr ""
 
 #: data/scripts/power_generators.dat:6
 msgid "Find 4 Gems"
-msgstr ""
+msgstr "Najdi 4 krystaly"
 
 #: data/scripts/power_generators.dat:12
 msgid "Repair Generators"
-msgstr ""
+msgstr "Oprav generátory"
 
 #: data/scripts/gold_centurion.dat:7
 msgid "This centurion has no power"
-msgstr ""
+msgstr "Tenhle centurion nemá žadnou energii"
 
 #: data/scripts/gold_centurion.dat:9
 msgid ""
 "It's connected to this treadmill so I could probably charge it up with "
 "enough speed"
 msgstr ""
+"Je spojený s běhacím pásem, takže dostatečná rychlost by mu měla poskytnout "
+"dostatek energie"
 
 #: data/scripts/gold_centurion.dat:10
 msgid "I can't run in this armour, though"
-msgstr ""
+msgstr "Ale sám nemůžu běhat v tomhle brnění"
 
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 msgstr ""
+"Navíc jsem unavený ze všeho toho chození, skákání, bojování, plavání..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
-msgstr ""
+msgstr "myšlení, dolování, sekání, strkání, tahání, nošení..."
 
 #: data/scripts/gold_centurion.dat:13
 msgid "and catching chickens"
-msgstr ""
+msgstr "a chytání slepic"
 
 #: data/scripts/gold_centurion.dat:14
 msgid "I'll get something else to do it instead"
-msgstr ""
+msgstr "Najdu něco jiného, co to za mě udělá"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
-msgstr ""
+msgstr "Zabij všechny netpýry!"
 
 #: data/scripts/cave_bomb.dat:1
 msgid ""
@@ -3498,181 +3518,199 @@ msgstr "Musí existovat cesta ven..."
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "Uteč z jeskyní"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
-msgstr ""
+msgstr "Wau, tahle věc je obrovská!"
 
 #: data/scripts/huge_spider.dat:7
 msgid ""
 "I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
+"Pochybuji, že proti ní můžu uspět s mečem, ale stejně se přez ní musím nějak "
+"dostat..."
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
-msgstr ""
+msgstr "Hmmm, možná tenhle kus papíru je ta kombinace"
 
 #: data/scripts/has_combination.dat:2
 msgid "I'll give it a try"
-msgstr ""
+msgstr "Zkusím to"
 
 #: data/scripts/has_combination.dat:3
 msgid "Push left or right to move the dial 1 unit in that direction"
-msgstr ""
+msgstr "Mačkej vlevo a vpravo pro posunutí o jeden dílek"
 
 #: data/scripts/has_combination.dat:4
 msgid ""
 "When you think you've input the correct combination, press Attack to open "
 "the safe"
 msgstr ""
+"Až si budeš myslet, že jsi zadal správnou kombinaci, stiskni Útok a otevři "
+"sejf"
 
 #: data/scripts/resurrection_amulet.dat:1
 msgid "Is this what I think it is?"
-msgstr ""
+msgstr "Je to to, co si myslím že to je?"
 
 #: data/scripts/resurrection_amulet.dat:3
 msgid "It is! It's an Amulet of Resurrection!"
-msgstr ""
+msgstr "No jasně! Tohle je Amulet vzkříšení!"
 
 #: data/scripts/resurrection_amulet.dat:4
 msgid ""
 "Borgan has one of these, but it's been used up. He must have had a lucky "
 "escape from something."
 msgstr ""
+"Borgan taky jeden má, ale ten je vypotřebovaný. Jednou musel mít díky němu "
+"dost kliku."
 
 #: data/scripts/resurrection_amulet.dat:5
 msgid "This should make my quest a lot easier"
-msgstr ""
+msgstr "Tohle by mi mělou mou výpravu dost ulehčit"
 
 #: data/scripts/resurrection_amulet.dat:6
 msgid ""
 "The Amulet of Resurrection will restore all your health once when it drops "
 "to 0"
-msgstr ""
+msgstr "Amulet vzkříšení ti jednou obnoví zdraví, pokud klesne na 0"
 
 #: data/scripts/resurrection_amulet.dat:7
 msgid ""
 "However, it will not save you from anything that causes instant death, such "
 "as lava or certain boss attacks"
 msgstr ""
+"Nicméně ti nepomůže proti ničemu, co zpusobí okamžitou smrt, jako například "
+"láva nebo některé útoky Bossů"
 
 #: data/scripts/evil_edgar_encounter_1.dat:9
 msgid "Me? I'm you!"
-msgstr ""
+msgstr "Já? Já jsem ty!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:10
 msgid "No you're not, where did you come from?"
-msgstr ""
+msgstr "Ne, to nejsi! Odkud si přišel?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:11
 msgid ""
 "When your stupid experiment failed, part of your conscious separated and "
 "created me"
 msgstr ""
+"Když tvůj hloupý experiment selhal, část tvého větomí se oddělila a stvořila "
+"mě"
 
 #: data/scripts/evil_edgar_encounter_1.dat:12
 msgid "I'm like you in every way, just more evil"
-msgstr ""
+msgstr "Jsem ve všch ohledech jako ty, akorát zlejší"
 
 #: data/scripts/evil_edgar_encounter_1.dat:13
 msgid "I'm not evil!"
-msgstr ""
+msgstr "Ja nejsem zlý!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:14
 msgid ""
 "Yes you are, you know that little part of you that enjoyed pulling the legs "
 "off insects?"
 msgstr ""
+"Ale seš, však víš, ta tvoje část co si užívala trhání nožiček brouků?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:15
 msgid "Hey, I don't do that anymore!"
-msgstr ""
+msgstr "Hele, to už dlouho nedělám!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:16
 msgid "Oh sure, what about the [GAME_KILLS] creatures that you killed?"
-msgstr ""
+msgstr "No jasně, a co těch [GAME_KILLS] potvor co jsi zabil?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:17
 msgid "That was self defence!"
-msgstr ""
+msgstr "To bylo v sebeobraně!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:18
 msgid "Did you try talking to them?"
-msgstr ""
+msgstr "Snažil jsi se s nimi dohodnout?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:19
 msgid "You're crazy!"
-msgstr ""
+msgstr "Seš blázen!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:20
 msgid "No, I'm evil!"
-msgstr ""
+msgstr "Ne, zato jsem zlý!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:21
 msgid "That's my shield! I need to it rescue my Dad!"
-msgstr ""
+msgstr "Máš můj štít! Budu ho potřebovat pro záchranu svého táty!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:22
 msgid "Well it's mine now"
-msgstr ""
+msgstr "No, tak ten je teď můj"
 
 #: data/scripts/evil_edgar_encounter_1.dat:23
 msgid "Give it back!"
-msgstr ""
+msgstr "Vrať mi ho!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:24
 msgid "Make me!"
-msgstr ""
+msgstr "Donuť mě!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:25
 msgid "Fine, I will!"
-msgstr ""
+msgstr "Dobře, jak si přeješ!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:34
 msgid "Loser"
-msgstr ""
+msgstr "Chudák"
 
 #: data/scripts/evil_edgar_encounter_1.dat:35
 msgid ""
 "I'll collect his corpse later. The equipment in the lab should be enough for "
 "me to carry out my plan..."
 msgstr ""
+"Vrátím se pro jeho tělo později. Vybavení laboratoře by mělo stačit pro "
+"uskutečnění mého plánu..."
 
 #: data/scripts/centurion_pressure_plate.dat:1
 msgid ""
 "This lift is controlled by that pressure plate, but I can't stand on it and "
 "use the lift at the same time"
 msgstr ""
+"Tenhle výtah je ovládán tlakovým panelem, ale nemohu na něm stát a používat "
+"výtah zároveň"
 
 #: data/scripts/centurion_pressure_plate.dat:2
 msgid ""
 "I'll have to find something else to stand on the pressure plate for me..."
-msgstr ""
+msgstr "Musím najít něco jiného, co by stálo na panelu místo mě..."
 
 #: data/scripts/wasteland_intro_2.dat:2
 msgid ""
 "To turn your normal arrows into flaming arrows, just use the flaming arrow "
 "potion in the inventory screen"
 msgstr ""
+"Pro výrobu ohnivých šípů z normálních použij lektvar ohnivých šípů ve svém "
+"inventáři"
 
 #: data/scripts/wasteland_intro_2.dat:3
 msgid ""
 "To swap between firing normal arrows and flaming arrows, select the arrows "
 "in the inventory"
 msgstr ""
+"Pro změnu mezi normálními a ohnivými šípy vyber příslušné šípy v inventáři"
 
 #: data/scripts/wasteland_intro_2.dat:4
 msgid "Retrieve horn"
-msgstr ""
+msgstr "Získej roh"
 
 #: data/scripts/mastermind.dat:4
 msgid "Push left or right to move the cursor"
-msgstr ""
+msgstr "Mačkej vlevo a vpravo pro pohyb kurzorem"
 
 #: data/scripts/mastermind.dat:5
 msgid "Press Attack to change the colour of the peg"
-msgstr ""
+msgstr "Zmačkni útok pro změnu barvy klíčku"
 
 #: data/scripts/mastermind.dat:6
 msgid ""
@@ -3817,64 +3855,73 @@ msgid ""
 "That should do it. Hopefully that other lift by the Sewer should now be "
 "working"
 msgstr ""
+"To by mělo stačit. Snad teď bude i ten druhý výtah ve stokách fungovat"
 
 #: data/scripts/monster_horn.dat:1
 msgid "This looks like the horn that Olaf needs"
-msgstr ""
+msgstr "To vypadá jako ten roh, který Olaf potřebuje"
 
 #: data/scripts/monster_horn.dat:2
 msgid "I'll have to break it off somehow..."
-msgstr ""
+msgstr "Musím to nějak prorazit..."
 
 #: data/scripts/library_intro.dat:3
 msgid "Wow, I've never seen so many books in one place!"
-msgstr ""
+msgstr "Wau, nikdy jsem pohromadě neviděl tolik knih!"
 
 #: data/scripts/library_intro.dat:4
 msgid ""
 "There must be information about every subject here, this could be useful..."
 msgstr ""
+"Musí tu být informace o naprosto všech věcech, to by se mohlo hodit..."
 
 #: data/scripts/library_intro.dat:6
 msgid ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 msgstr ""
+"Hmmm, ve vzduchu je cítit náboj, připomíná mi to dům Maggie, když v něm "
+"vyráběla kouzla. Měl bych být opatrný."
 
 #: data/scripts/grasslands_intro.dat:3
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
+"Černokněžník musel unést mého tátu na svůj hrad. Tam ho musím jít zachránit"
 
 #: data/scripts/grasslands_intro.dat:5
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr ""
+msgstr "Jediná cesta k hradu vede skrz zakázaný močál na východě"
 
 #: data/scripts/grasslands_intro.dat:6
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
 msgstr ""
+"Jezero odděluje močál od vesnice, takže budu pořebovat vor, pokud se mám "
+"přez něj dostat."
 
 #: data/scripts/grasslands_intro.dat:7
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
 msgstr ""
+"Taky budu pořebovat štít a meč pro sebeobranu. O tom si můžu promluvit s "
+"Borganem a Jákobem."
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Talk to Borgan"
-msgstr ""
+msgstr "Promluv si s Borganem"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Talk to Jacob"
-msgstr ""
+msgstr "Promluv si s Jákobem"
 
 #: data/scripts/grasslands_intro.dat:12
 msgid "Cross the lake to the Swamp"
-msgstr ""
+msgstr "Překonej jezero před Močálem"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
@@ -3886,200 +3933,222 @@ msgstr "Zase ty?!"
 
 #: data/scripts/left_tower_intro.dat:7
 msgid "What a hassle that was"
-msgstr ""
+msgstr "To byla ale lapálie"
 
 #: data/scripts/left_tower_intro.dat:8
 msgid "I don't think I'll find my Dad in here"
-msgstr ""
+msgstr "Nemyslím se, že svého otce najdu tady"
 
 #: data/scripts/left_tower_intro.dat:9
 msgid "Maybe I should look somewhere else"
-msgstr ""
+msgstr "Asi bych se měl porozhlédnout někde jinde"
 
 #: data/scripts/left_tower_intro.dat:10
 msgid "Still, there might be something in here worth my time..."
-msgstr ""
+msgstr "Přesto by tu mohlo být něco, co by stálo za tu námahu..."
 
 #: data/scripts/hidden_passage_hint.dat:1
 msgid ""
 "Hmmm.. I've been all around the fortress and there are no other doors "
 "leading off anywhere"
 msgstr ""
+"Hmmm.. Prošel jsem celou pevností, ale nikde tu nejsou žádné další dveře, co "
+"by vedli ven"
 
 #: data/scripts/hidden_passage_hint.dat:3
 msgid "Maybe I should have another look in here..."
-msgstr ""
+msgstr "Možná bych to měl znovu prohledat zde..."
 
 #: data/scripts/tutorial_items.dat:1
 msgid ""
 "To pick up an item, simply walk into it. Any collectable items will be added "
 "to your inventory."
 msgstr ""
+"Pro sebrání předmětu, jednoduše k němu dojdi. Všechny sebratelné předměty se "
+"pak objeví v tvém inventáři"
 
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
-msgstr ""
+msgstr "Do inventáře se dostaneš stisknutím [INPUT_INVENTORY]"
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
-msgstr ""
+msgstr "Až budeš v inventáři, použij šipky pro výběr předmětů"
 
 #: data/scripts/tutorial_items.dat:4
 msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Předmět můžeš rovnou použít stiskem ([INPUT_ATTACK]) nebo použít zvolený "
+"předmět stisknutím ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
 msgstr ""
+"Stisknutím tlačítka Blok ([INPUT_BLOCK]) nebo Akce ([INPUT_INTERACT]) si "
+"připravíš vybraný předmět pro použití"
 
 #: data/scripts/tutorial_items.dat:6
 msgid ""
 "You can also sort items in your inventory by using the Previous Item "
 "([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
 msgstr ""
+"Pro organizaci předmětů v invetáři můžeš použít tlačítka Předchozí předmět "
+"([INPUT_PREVIOUS]) a Další předmět ([INPUT_NEXT])"
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
-msgstr ""
+msgstr "Dojdi ke klíči a seber ho"
 
 #: data/scripts/fortress_intro.dat:3
 msgid "So this is the Fortress."
-msgstr ""
+msgstr "Takže tohle je ta Pevnost"
 
 #: data/scripts/fortress_intro.dat:4
 msgid ""
 "It looks like a lot of doors lead off to other areas, I should have a proper "
 "look around before I go anywhere else..."
 msgstr ""
+"Vypadá to, že se odsud dá jít do mnoha lokací. Měl bych to tu nejdřív "
+"pořádně prozkoumat, než se někam vydám..."
 
 #: data/scripts/tutorial_keys.dat:1
 msgid ""
 "You can change all of the controls in the game by pressing Escape and "
 "selecting Options in the menu"
 msgstr ""
+"Všechny ovádací prvky můžeš změnit tak, že stiskneš Escape a vybereš "
+"Možnosti v menu"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Select Configure Controls using the arrow keys and press Return"
-msgstr ""
+msgstr "Vyber možnost Nastavení ovládání pomocí šipek a stiskni Zpět"
 
 #: data/scripts/tutorial_keys.dat:3
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
-msgstr ""
+msgstr "Pomocí šipek vyber možnost, kterou chceš změnit a stiskni Zpět"
 
 #: data/scripts/tutorial_keys.dat:4
 msgid "Next, press the key that you want to use instead."
-msgstr ""
+msgstr "Potom stiskni klávesu, kterou chceš používat"
 
 #: data/scripts/tutorial_keys.dat:5
 msgid ""
 "Regardless of what keys you choose, you can always navigate the menus using "
 "the arrow keys and Return"
 msgstr ""
+"Bez ohledu na změnu, v menu lze stále navigovat pomocí šipek a klávesy Zpět"
 
 #: data/scripts/tutorial_keys.dat:6
 msgid ""
 "When you have finished configuring the keys, go right to the next Action "
 "Point"
-msgstr ""
+msgstr "Až budeš hotov, pokračuj vpravo k dalšímu Action Pointu"
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
-msgstr ""
+msgstr "Je tu kniha \"The Third Side\" od Stephena J Sweeneyho"
 
 #: data/scripts/sludge_pool.dat:1
 msgid ""
 "That stuff looks dangerous, it'd probably eat through my armour in seconds"
 msgstr ""
+"Tohle vypadá dost nebezpečně, skrz mé brnění by se to dostalo během několika "
+"sekund"
 
 #: data/scripts/sludge_pool.dat:2
 msgid "But I'll have to find a way across..."
-msgstr ""
+msgstr "Ale stejně musím najít způsob, jak to překonat..."
 
 #: data/scripts/hoover.dat:2
 msgid "There, looks like the little guy is full and is sleeping it off"
-msgstr ""
+msgstr "Tak, drobeček se najed a těď sladce spí"
 
 #: data/scripts/hoover.dat:3
 msgid "I should be able to get past him without any bother now"
-msgstr ""
+msgstr "Teď bych se měl dostat bez problémů dál"
 
 #: data/scripts/hoover.dat:7
 msgid "Hey, what's that?"
-msgstr ""
+msgstr "Hej, co to je?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
-msgstr ""
+msgstr "Je to mládě Hoovera"
 
 #: data/scripts/hoover.dat:13
 msgid ""
 "I saw a grown up one in the big city when I went there with my Dad, they're "
 "completely harmless"
 msgstr ""
+"Jednou jsem viděl dospělého, když jsem byl ve městě se svým táto. Jsou "
+"docela neškodní..."
 
 #: data/scripts/hoover.dat:16
 msgid "I miss my Dad, I hope I find him soon..."
-msgstr ""
+msgstr "Chybí mi můj táta, snad ho brzo najdu..."
 
 #: data/scripts/hoover.dat:18
 msgid "Why is it here? It must be frightened"
-msgstr ""
+msgstr "Co tu vlasně dělá? Musí být dost vyděšený"
 
 #: data/scripts/hoover.dat:20
 msgid "Hello little fella, are you lost?"
-msgstr ""
+msgstr "Jak se máš maličký, neztratil ses?"
 
 #: data/scripts/hoover.dat:21
 msgid "Don't worry, I won't hurt you"
-msgstr ""
+msgstr "Mě se bát nemusíš, neublížím ti"
 
 #: data/scripts/hoover.dat:30
 msgid "Ow!"
-msgstr ""
+msgstr "Ou!"
 
 #: data/scripts/hoover.dat:33
 msgid ""
 "I guess it's scared. I might be able to get past it if I give it some food"
 msgstr ""
+"Musí být vyděšený. Mohl bych se přez něj dostat pokud mu seženu nějakou "
+"potravu"
 
 #: data/scripts/hoover.dat:34
 msgid "They're vegetarians so I'll have to find some fruit or vegetables..."
-msgstr ""
+msgstr "Jsou to vegetariáni, takže to musí být ovoce nebo zelenina..."
 
 #: data/scripts/armoury_intro.dat:2
 msgid "Wow, this place is empty!"
-msgstr ""
+msgstr "Wau, tohle místo je tak prázdné!"
 
 #: data/scripts/armoury_intro.dat:3
 msgid "I guess the sorceror has no need for weapons since he has magic"
-msgstr ""
+msgstr "Černokněžnik nejspíš nepotřebuje žádné zbraně, když má svou magii"
 
 #: data/scripts/armoury_intro.dat:4
 msgid "Still, there must be something of use in here"
-msgstr ""
+msgstr "Přesto tu musí být aspoň něco k užitku"
 
 #: data/scripts/well.dat:3
 msgid "I've already checked, he's not down there..."
-msgstr ""
+msgstr "Už jsem to tu kontroloval, tam dole není..."
 
 #: data/scripts/well.dat:7
 msgid ""
 "I've heard of people falling into the well before, maybe Dad's in there..."
 msgstr ""
+"Znám případy lidí, co spadli do studny. Možná se to stalo i mému otci..."
 
 #: data/scripts/well.dat:8
 msgid "DAD!!!!! ARE YOU DOWN THERE?!!!!!"
-msgstr ""
+msgstr "TÁTÓ!!!! JSI TAM DOLE VE STUDNÍÍÍ?!!!!"
 
 #: data/scripts/well.dat:10
 msgid "Nothing. I guess I'll have to keep on looking"
-msgstr ""
+msgstr "Nic. Tak to musím pokračovat v pátrání"
 
 #: data/scripts/slime_potion.dat:3
 msgid "There's a note here too"
@@ -4125,314 +4194,335 @@ msgid ""
 "When transformed into a Slime, you can move around as normal. You can also "
 "swim in the water and use up and down to move around"
 msgstr ""
+"Když jsi přeměněn na Slizáka, můžeš se pohybovat jako normálně. Taky můžeš "
+"plavat ve vodě a pohybovat se v ní šipkama nahoru a dolu"
 
 #: data/scripts/slime_potion.dat:14
 msgid ""
 "Pushing up or jump will make you jump out of the water if you're near the "
 "surface"
 msgstr ""
+"Stiskntím šipky nahoru nebo tlačítka Skok se dostaneš ven z vody, pokud jsi "
+"blízko hladině"
 
 #: data/scripts/slime_potion.dat:15
 msgid ""
 "Keep an eye on the timer at the bottom of the screen. When it reaches 0 you "
 "will automatically become human again"
 msgstr ""
+"Sleduj časovač v dolní části obrazovky. Jen co dojde k nule, automaticky se "
+"změníš zpět v člověka"
 
 #: data/scripts/cauldron.dat:2
 msgid "Maybe this thing isn't so bad after all"
-msgstr ""
+msgstr "Možná to nakonec nebude tak špatné"
 
 #: data/scripts/cauldron.dat:15
 msgid "That's all the ingredients, I just need to add a shield"
-msgstr ""
+msgstr "Mám všechny ingredience, teď už stačí jen přidat štít"
 
 #: data/scripts/cauldron.dat:16
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
-msgstr ""
+msgstr "Nemyslím, že bych měl ještě nějaké využití pro Nadpřirozený štít..."
 
 #: data/scripts/cauldron.dat:21
 msgid "Please don't make another evil version of me..."
-msgstr ""
+msgstr "Prosím neudělej další zlou verzi..."
 
 #: data/scripts/cauldron.dat:31
 msgid "What a fine looking shield"
-msgstr ""
+msgstr "To je ale krásný štít"
 
 #: data/scripts/cauldron.dat:32
 msgid "But will it protect me from that dragon's flames?"
-msgstr ""
+msgstr "Ale ochrání mě před dračím dechem?"
 
 #: data/scripts/cauldron.dat:33
 msgid "I guess there's only one way to find out..."
-msgstr ""
+msgstr "To nebudu vědět, dokud to nevyzkouším..."
 
 #: data/scripts/cauldron.dat:34
 msgid "The book said it was sealed below a fortress"
-msgstr ""
+msgstr "Podle knihy je zapečetěn někde pod pevností"
 
 #: data/scripts/cauldron.dat:35
 msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
+"Pokud je to tato pevnost, přichází v úvahu jen dvě místa: katakomby a žalář"
 
 #: data/scripts/cauldron.dat:36
 msgid "I should start my search there"
-msgstr ""
+msgstr "Tam bych mel začít hledat"
 
 #: data/scripts/cauldron.dat:39
 msgid "I don't have all the ingredients yet."
-msgstr ""
+msgstr "Ještě nemám všechny potřebné ingredience."
 
 #: data/scripts/cauldron.dat:40
 msgid "The book said I needed to find the following"
-msgstr ""
+msgstr "Dle knihy potřebuji následující"
 
 #: data/scripts/cauldron.dat:44
 msgid "The keepsake of the warrior that previously defeated it"
-msgstr ""
+msgstr "Pozůstalost po válečníkovi, který už draka porazil"
 
 #: data/scripts/cauldron.dat:48
 msgid "Hopefully I'll never have to use this again"
-msgstr ""
+msgstr "Snad to už nikdy nebudu muset použít"
 
 #: data/scripts/cauldron.dat:51
 msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
+"Měl bych vyrobit Disintegrační štít a jít zachranit tátu dřív, než se budu "
+"honit za drakem"
 
 #: data/scripts/cauldron.dat:60
 msgid "I'm not taking any chances this time..."
-msgstr ""
+msgstr "Tentokrát neponechám nic náhodě..."
 
 #: data/scripts/cauldron.dat:69
 msgid "Did it work?"
-msgstr ""
+msgstr "Fungovalo to?"
 
 #: data/scripts/cauldron.dat:85
 msgid "I think it's safe now..."
-msgstr ""
+msgstr "Teď už by to mělo být bezpečné..."
 
 #: data/scripts/cauldron.dat:92
 msgid "I'll use my wooden shield..."
-msgstr ""
+msgstr "Použiji svůj dřevěný štít..."
 
 #: data/scripts/cauldron.dat:133
 msgid "Stupid thing. Maggie makes it all look so easy..."
-msgstr ""
+msgstr "Hloupá magie. Když to dělá Maggie, vypadá to tak jednoduše..."
 
 #: data/scripts/cauldron.dat:136
 msgid "It's a cauldron. Maggie has one just like this"
-msgstr ""
+msgstr "Kotlík. Maggie má přesně takový"
 
 #: data/scripts/cauldron.dat:147
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
-msgstr ""
+msgstr "Dobrá, přidávám Gayerovu bulvu a chapadlo"
 
 #: data/scripts/cauldron.dat:158
 msgid "And the rest of the ingredients too"
-msgstr ""
+msgstr "A teď i zbytek ingediencí"
 
 #: data/scripts/cauldron.dat:161
 msgid "Aha! It's gone blue, just like the book said it would"
-msgstr ""
+msgstr "Ha! Zmodralo to, přesně jak se píše v knize"
 
 #: data/scripts/cauldron.dat:162
 msgid "Now to add the shield"
-msgstr ""
+msgstr "Tak a teď přidám štít"
 
 #: data/scripts/cauldron.dat:171
 msgid "Uh-Oh..."
-msgstr ""
+msgstr "Uh-Oh..."
 
 #: data/scripts/cauldron.dat:197
 msgid "I need all the main ingredients"
-msgstr ""
+msgstr "Potřebuji všechny hlavní přísady"
 
 #: data/scripts/cauldron.dat:198
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
-msgstr ""
+msgstr "3 Gazerovy oči, 1 chapadlo Červeného bahňáka a volný štít"
 
 #: data/scripts/cauldron.dat:199
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
-msgstr ""
+msgstr "Taky musím rozmixovat chapadlo a oči"
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
-msgstr ""
+msgstr "Vypadá to mrtvě"
 
 #: data/scripts/black_book_search.dat:7
 msgid "Or at least as dead as a book can be"
-msgstr ""
+msgstr "Nebo aspoň tak mrtvě, jak jen kniha může vypadat"
 
 #: data/scripts/black_book_search.dat:8
 msgid "It might be safe to touch now"
-msgstr ""
+msgstr "Už by mělo být bezpečné se jí dotknout"
 
 #: data/scripts/black_book_search.dat:18
 msgid "This page just has a sequence of numbers scrawled on it"
-msgstr ""
+msgstr "Na téhle stránce je načmáraná sekvnece nějakých čísel"
 
 #: data/scripts/black_book_search.dat:19
 msgid "I'll take it with me, it might come in handy"
-msgstr ""
+msgstr "Vezmu si ji s sebou, mohla by se to hodit"
 
 #: data/scripts/black_book_search.dat:20
 msgid ""
 "Besides, this thing nearly killed me twice, I should have some sort of "
 "trophy of my victory"
 msgstr ""
+"Navíc, tahle věc mě dvakrát málem zabile, takže si zasloužím nějakou trofej"
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
-msgstr ""
+msgstr "Nechám jí být, zvlášť potom co se stalo posledně..."
 
 #: data/scripts/cave_statue.dat:1
 msgid "Hmm, what's that?"
-msgstr ""
+msgstr "Hmm, co to bylo?"
 
 #: data/scripts/cave_statue.dat:2
 msgid "It's a small statue. It must be the one that Olaf said he stole"
-msgstr ""
+msgstr "Je to malá soška. To musí být ta co Olaf ukradl"
 
 #: data/scripts/cave_statue.dat:3
 msgid ""
 "Well, since he's helping me get back to the sorceror, the least I can do is "
 "retrieve it for him"
 msgstr ""
+"Mno, vzhledem k tomu, že mi pomáhá vrátit se k černokněžníkovi, tak to "
+"nejmenší, co můžu udělat, je přinést mu ji zpátky"
 
 #: data/scripts/cave_statue.dat:7
 msgid "Typical..."
-msgstr ""
+msgstr "Typické..."
 
 #: data/scripts/cave_statue.dat:8
 msgid ""
 "Well, it might have just fallen further down into the cave, I'll just have "
 "to keep looking"
 msgstr ""
+"Tak, nejspíš se jen propadla do hlubší jeskyně, budu muset dál hledat"
 
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
-msgstr ""
+msgstr "Huh, déjà vu..."
 
 #: data/scripts/chaos_die.dat:8
 msgid ""
 "Now I must rest until I am strong enough to escape this wretched place"
 msgstr ""
+"Teď musím odpočívat, dokud nebudu mít dost síly, abych se dostal z tohoto "
+"prokletého místa"
 
 #: data/scripts/chaos_die.dat:9
 msgid "Even if it takes another 100 years"
-msgstr ""
+msgstr "I kdyby to mělo trvat dalších 100 let"
 
 #: data/scripts/chaos_die.dat:10
 msgid "Now, begone from my sight, mighty warrior"
-msgstr ""
+msgstr "Teď se mi kliď z očí, mocný válečníku"
 
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
-msgstr ""
+msgstr "Zdá se, že tam dole je ještě rozsáhlejší systém jeskyní"
 
 #: data/scripts/monster_horn_taken.dat:6
 msgid "Olaf did tell me to just get the horn and leave"
-msgstr ""
+msgstr "Olaf mi říkal, abych jen sebral roh a vypadnul"
 
 #: data/scripts/no_instructions.dat:1
 msgid ""
 "This card is blank, I'll have to put some instructions on it to make it "
 "useable."
 msgstr ""
+"Tahla karta je prázdná, budu na ní muset nahrát nějaké instrukce, aby šla "
+"použít"
 
 #: data/scripts/sorceror_study.dat:1
 msgid ""
 "The sorceror will almost certainly destroy me if I confront him without the "
 "shield"
-msgstr ""
+msgstr "Černokněžník mě docela určitě zničí, pokud se mu postavím bez štítu"
 
 #: data/scripts/sorceror_study.dat:2
 msgid "I'd better go and make it first"
-msgstr ""
+msgstr "Měl bych jít a udělat to hned"
 
 #: data/scripts/fortress_intro_2.dat:3
 msgid "Glad to be out of there"
-msgstr ""
+msgstr "Je to úleva být venku"
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
-msgstr ""
+msgstr "Teď musím získat štít zpět od svého dvojníka..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
-msgstr ""
+msgstr "Najdi zlého Edgara"
 
 #: data/scripts/spores.dat:1
 msgid "Hey, those look familiar"
-msgstr ""
+msgstr "Hej, to vypadá povědomě"
 
 #: data/scripts/spores.dat:2
 msgid "They look like hypnotic spores"
-msgstr ""
+msgstr "To musí být hypnotické houbičky"
 
 #: data/scripts/spores.dat:3
 msgid ""
 "Borgan told me that they can temporarily trick certain creatures into "
 "thinking that you're not a threat and leave you alone"
 msgstr ""
+"Borgan mi říkal, že dokáží dočasně zmást některé potvory, aby si mysleli, že "
+"pro ně nejste hrozba a ignorovali vás"
 
 #: data/scripts/spores.dat:5
 msgid "Maybe they'll work on the creatures here..."
-msgstr ""
+msgstr "Možná budou fungovat i na potvory tady v jeskyni..."
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
-msgstr ""
+msgstr "Nádhera, fungovalo to!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
-msgstr ""
+msgstr "Taký hrozný hymnus, je naprosto náhodný..."
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Tohle by mohla být ta pozůstalost"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
-msgstr ""
+msgstr "Ještěže tak, vážně bych nechtěl otevírat tu rakev"
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
-msgstr ""
+msgstr "Teď odsud vypadnout..."
 
 #: data/scripts/lava_door.dat:1
 msgid "I've seen this type of metal before, it heats up really easily"
-msgstr ""
+msgstr "Tenhle typ kovu znám, dokáže se rozžhavit velmi rychle"
 
 #: data/scripts/lava_door.dat:2
 msgid "Maybe I can find a way to melt it..."
-msgstr ""
+msgstr "Možná se mi ho podaří roztavit..."
 
 #: data/scripts/sliding_puzzle.dat:2
 msgid "Cool, a giant sliding puzzle! I have one of these back home!"
-msgstr ""
+msgstr "Hustý, obrovská posunovací hlavolam! Doma mám taky takový!"
 
 #: data/scripts/sliding_puzzle.dat:3
 msgid "Well, not a giant one, obviously..."
-msgstr ""
+msgstr "Ne tak velký, pochopitelně..."
 
 #: data/scripts/sliding_puzzle.dat:6
 msgid "Push left, right, up or down to move the blocks"
-msgstr ""
+msgstr "Mačkej šipky pro pohyb bloky"
 
 #: data/scripts/sliding_puzzle.dat:7
 msgid ""
 "Arrange the blocks so that the numbers 1 to 8 appear in order from left to "
 "right and the empty block is in the bottom right corner"
 msgstr ""
+"Uspořádej bloky tak, že čísla od 1 do 8 budou popřadě zleva doprava a "
+"prázdný blok bude v pravém dloním rohu"
 
 #: data/scripts/sliding_puzzle.dat:8
 msgid "Press Attack to quit the puzzle"
-msgstr ""
+msgstr "Stiskni Útok pro opuštění hlavolamu"
 
 #: data/scripts/raft.dat:8
 msgid "To get to the Forbidden Swamp I'll need to build a raft."
@@ -4464,7 +4554,7 @@ msgstr "Zajímalo by mě, jestli je obousměrný..."
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
-msgstr ""
+msgstr "Hurá!"
 
 #: data/scripts/teleporter_discovery.dat:15
 msgid ""
@@ -4473,256 +4563,262 @@ msgstr "Nejenom že mi to ušetří hodně chození, taky je to celkem sranda!"
 
 #: data/scripts/correct_combination.dat:9
 msgid "There's a note in here"
-msgstr ""
+msgstr "Je tu nápis"
 
 #: data/scripts/correct_combination.dat:10
 msgid "It says the following:"
-msgstr ""
+msgstr "Stojí tu:"
 
 #: data/scripts/correct_combination.dat:11
 msgid "Cheaters never prosper"
-msgstr ""
+msgstr "Podvodník nikdy nevydělá"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Oh..."
-msgstr ""
+msgstr "Oh..."
 
 #: data/scripts/correct_combination.dat:19
 msgid "I saw this shield in the book about enchanting weapons"
-msgstr ""
+msgstr "Viděl jsem tenhle štít v knize o očarování zbraní"
 
 #: data/scripts/correct_combination.dat:20
 msgid "It's a Phantasmal Shield"
-msgstr ""
+msgstr "Je to Nadpřirozený štít"
 
 #: data/scripts/correct_combination.dat:21
 msgid "The Phantasmal Shield will protect you from phantasmal forces"
-msgstr ""
+msgstr "Nadpřirozený štít tě ochrání před nadpřirozenými silami"
 
 #: data/scripts/correct_combination.dat:22
 msgid ""
 "In addition to this it can reflect phantasmal projectiles back at the owner"
-msgstr ""
+msgstr "Navíc dokáže odražet nadpřirozené útoky zpět na útočníky"
 
 #: data/scripts/correct_combination.dat:23
 msgid ""
 "Blocking at the last moment increases the power of the reflected projectile"
-msgstr ""
+msgstr "Zablokování útoku na poslední chvíly přidá odraženému útoku na síle"
 
 #: data/scripts/sorceror_die.dat:10
 msgid "Ugh, you have defeated me"
-msgstr ""
+msgstr "Ugh, ty jsi mě porazil"
 
 #: data/scripts/sorceror_die.dat:11
 msgid "How..."
-msgstr ""
+msgstr "Jak..."
 
 #: data/scripts/sorceror_die.dat:12
 msgid "TALK! Where is my father?"
-msgstr ""
+msgstr "MLUV! Kde je můj otec?"
 
 #: data/scripts/sorceror_die.dat:13
 msgid "I... I don't understand..."
-msgstr ""
+msgstr "Já... Já tomu nerozumím..."
 
 #: data/scripts/sorceror_die.dat:14
 msgid "Last night you came to my village and kidnapped my father"
-msgstr ""
+msgstr "Včera v noci jsi přišel do naší vesnice a unesl mého otce"
 
 #: data/scripts/sorceror_die.dat:15
 msgid "Where is he?"
-msgstr ""
+msgstr "Tak kde je?"
 
 #: data/scripts/sorceror_die.dat:13
 msgid "I..."
-msgstr ""
+msgstr "Já..."
 
 #: data/scripts/sorceror_die.dat:18
 msgid "I have never been to your village"
-msgstr ""
+msgstr "Nikdy jsem ve tvé vesnici nebyl"
 
 #: data/scripts/sorceror_die.dat:19
 msgid "I don't know where your father is..."
-msgstr ""
+msgstr "A nemám tušení, kde je tvůj otec..."
 
 #: data/scripts/sorceror_die.dat:25
 msgid "But if you didn't take my Dad"
-msgstr ""
+msgstr "Ale pokud jsi neunesl mého otce"
 
 #: data/scripts/evil_edgar_start.dat:9
 msgid "Found you!"
-msgstr ""
+msgstr "Mám tě!"
 
 #: data/scripts/evil_edgar_start.dat:11
 msgid "You survived?!"
-msgstr ""
+msgstr "Tys to přežil?"
 
 #: data/scripts/evil_edgar_start.dat:12
 msgid ""
 "You sound surprised, I thought you'd have known considering we're the same."
-msgstr ""
+msgstr "Zníš překvapeně, jako by jsi zapomněl, že mi dva jsme stejní."
 
 #: data/scripts/evil_edgar_start.dat:13
 msgid "Except you're evil"
-msgstr ""
+msgstr "Až na to, že ty jsi zlí"
 
 #: data/scripts/evil_edgar_start.dat:14
 msgid "More evil"
-msgstr ""
+msgstr "Zlejší"
 
 #: data/scripts/evil_edgar_start.dat:15
 msgid "Whatever, now I..."
-msgstr ""
+msgstr "Jak chceš, takže teď..."
 
 #: data/scripts/evil_edgar_start.dat:21
 msgid "What is all this stuff?"
-msgstr ""
+msgstr "K čemu jsou všechny tyhle věci?"
 
 #: data/scripts/evil_edgar_start.dat:22
 msgid "Your experiment separated part of your conscious"
-msgstr ""
+msgstr "Tvůj experiment oddělil čast tvého vědomí"
 
 #: data/scripts/evil_edgar_start.dat:23
 msgid "Yes I know that, you already told me"
-msgstr ""
+msgstr "Tohle vím, už jsi mi to říkal"
 
 #: data/scripts/evil_edgar_start.dat:24
 msgid "I'm still talking!"
-msgstr ""
+msgstr "Nech mě domluvit!"
 
 #: data/scripts/evil_edgar_start.dat:26
 msgid "There should only be one of us in this world: one body, one conscious"
-msgstr ""
+msgstr "Na tomhle světě by měl být jen jeden z nás: jedno tělo, jedna mysl"
 
 #: data/scripts/evil_edgar_start.dat:27
 msgid "These machines will join us together"
-msgstr ""
+msgstr "Tenhle stroj nás spojí dohromady"
 
 #: data/scripts/evil_edgar_start.dat:28
 msgid "The one on the left is for the original body, you"
-msgstr ""
+msgstr "Kabina vlevo je pro původní tělo, čili pro tebe"
 
 #: data/scripts/evil_edgar_start.dat:29
 msgid "And the one on the right is for the new body, me"
-msgstr ""
+msgstr "A ta vpravo je pro nové tělo, tedy mě"
 
 #: data/scripts/evil_edgar_start.dat:30
 msgid ""
 "You will go in the one on the left and I'll go in the one on the right"
-msgstr ""
+msgstr "Ty půjdeš do té levé a já do té pravé"
 
 #: data/scripts/evil_edgar_start.dat:31
 msgid "It will then merge your body into mine, leaving just me"
-msgstr ""
+msgstr "Tvoje tělo pak bude spojeno s mým a zůstanu pouze já"
 
 #: data/scripts/evil_edgar_start.dat:32
 msgid "Merge us together? Over my dead body!"
-msgstr ""
+msgstr "Spojí nás dva dohromady? Jedině přez mojí mrtvolu!"
 
 #: data/scripts/evil_edgar_start.dat:33
 msgid ""
 "That was the plan. Since you're alive though, you've saved me the bother of "
 "having to drag your carcass all the way back here"
 msgstr ""
+"Takový byl plán. Jenže ty stále žiješ, což mi ušetří námahu. Nemusím se "
+"vracet pro tvoje tělo a nést ho až sem"
 
 #: data/scripts/evil_edgar_start.dat:34
 msgid "Now get in the machine!"
-msgstr ""
+msgstr "Tak a teď vstup do stroje!"
 
 #: data/scripts/disintegration_shield.dat:1
 msgid "Wow, what a cool looking shield"
-msgstr ""
+msgstr "Wau, krásný štít"
 
 #: data/scripts/disintegration_shield.dat:2
 msgid "Hopefully this will protect me from that spell"
-msgstr ""
+msgstr "Sand mě ochrání před tím kouzlem"
 
 #: data/scripts/disintegration_shield.dat:3
 msgid "But there's only one way to find out..."
-msgstr ""
+msgstr "Ale je jen jeden způsob, jak to zjistit..."
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Defeat the Sorceror"
-msgstr ""
+msgstr "Poraž černokněžníka"
 
 #: data/scripts/disable_study.dat:12
 msgid "It worked, I'm back!"
-msgstr ""
+msgstr "Fungovalo to, jsem zpátky!"
 
 #: data/scripts/disable_study.dat:13
 msgid "Now to create that shield and get that sorceror..."
-msgstr ""
+msgstr "Teď jen vytvořit štít a hurá na černokněžníka..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
-msgstr ""
+msgstr "Vytvoř Disintegrační štít"
 
 #: data/scripts/tutorial_bomb.dat:1
 msgid "Using an item you have picked up is simple"
-msgstr ""
+msgstr "Použití předmětu v inventáři je snadné"
 
 #: data/scripts/tutorial_bomb.dat:2
 msgid ""
 "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
 "the bomb"
-msgstr ""
+msgstr "Otevři inventář ([INPUT_INVENTORY])  a použij šipky pro výběr bomby"
 
 #: data/scripts/tutorial_bomb.dat:3
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
 msgstr ""
+"Teď stiskni Útok ([INPUT_ATTACK]) nebo Pouřít ([INPUT_ACTIVATE]) pro vybrání"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
-msgstr ""
+msgstr "Zavři svůj inventář ([INPUT_INVENTORY])"
 
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
-msgstr ""
+msgstr "Teď můžeš použít vybraný předmět tlačítkem Použít ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
-msgstr ""
+msgstr "Zkus to s bombou, ale drž se mimo dosah výbuchu!"
 
 #: data/scripts/tutorial_bomb.dat:7
 msgid ""
 "While you are in the inventory screen, the action is paused so you can take "
 "your time"
 msgstr ""
+"Pokud je otevřený inventář, hra je pozastavena, takže není třeba spěchat"
 
 #: data/scripts/tutorial_bomb.dat:8
 msgid ""
 "Some items, such as health potions and weapons can be used in the inventory "
 "screen, so there is no need to exit the inventory"
 msgstr ""
+"Některé předměty, jako třeba elixír zdraví nebo zbraně, mohou být použity "
+"přímo z inventáře, takže není třeba ho zavírat"
 
 #: data/scripts/final_generator.dat:1
 msgid "This generator looks OK, it just isn't on"
-msgstr ""
+msgstr "Generátor se zdá být v pořádku, jenom není zapnutý"
 
 #: data/scripts/final_generator.dat:3
 msgid "I guess it powers that door, so I'll have to turn it on"
-msgstr ""
+msgstr "Tuším, že dodává energii dveřím, takže ho budu muset zapnout"
 
 #: data/scripts/final_generator.dat:4
 msgid "Turn on the generator?"
-msgstr ""
+msgstr "Zapnout generátor?"
 
 #: data/scripts/final_generator.dat:6
 msgid "Where's the switch?"
-msgstr ""
+msgstr "Kde je to tlačítko?"
 
 #: data/scripts/final_generator.dat:8
 msgid "Ah, here it is!"
-msgstr ""
+msgstr "Á, tady je!"
 
 #: data/scripts/final_generator.dat:36
 msgid "I'll leave it alone for the moment"
-msgstr ""
+msgstr "Zatím ho nechám být"
 
 #: src/enemy/baby_slime.c:201
 msgid "Quickly turn left and right to shake off the slimes!"
-msgstr ""
+msgstr "Rychle se otáčej  vlevo a vpravo abys setřásl slizáky"
 
 #: src/player.c:64
 msgid "Bow"
@@ -4730,7 +4826,7 @@ msgstr "Luk"
 
 #: src/item/catapult.c:137
 msgid "Press Action to interact"
-msgstr ""
+msgstr "Stiskni Akce pro použití"
 
 #: src/item/potion_dispenser.c:101
 msgid "%s is required"
@@ -4742,23 +4838,23 @@ msgstr "Bomba"
 
 #: src/enemy/rock.c:74
 msgid "Small Rock"
-msgstr ""
+msgstr "Kámen"
 
 #: src/item/containment_unit_controls.c:123
 msgid "Press Action to retrieve the Purple Gem"
-msgstr ""
+msgstr "Stiskni Akce pro získání Purpurového krystalu"
 
 #: src/item/tesla_pack.c:47
 msgid "Tesla Pack"
-msgstr ""
+msgstr "Tesla akumulátor"
 
 #: src/item/tesla_charger.c:169
 msgid "Press Action to retrieve Tesla Pack"
-msgstr ""
+msgstr "Stiskni Akce pro získání Tesla akumulátoru"
 
 #: src/item/tesla_charger.c:178
 msgid "Press Action to replace Tesla Pack"
-msgstr ""
+msgstr "Stiskni Akce pro výměnu Tesla akumulátoru"
 
 #: src/item/potion_dispenser.c:94
 msgid "Obtained %s"
@@ -4770,19 +4866,19 @@ msgstr "Hotovo"
 
 #: src/item/arrow_target.c:177
 msgid "%d more to go..."
-msgstr ""
+msgstr "%d zbývá..."
 
 #: src/item/potions.c:76
 msgid "Used %s"
-msgstr ""
+msgstr "%s použit"
 
 #: src/player.c:1016
 msgid "Cannot equip items whilst transmogrified"
-msgstr ""
+msgstr "Není možné používat předměty dokud jsi přeměněný"
 
 #: src/player.c:1055
 msgid "Equipped %s"
-msgstr ""
+msgstr "%s vybaven"
 
 #: src/player.c:1683
 msgid "Maximum health has increased!"
@@ -4798,7 +4894,7 @@ msgstr "K použití tohoto předmětu je třeba mít luk"
 
 #: src/player.c:2486
 msgid "Cannot transmogrify here..."
-msgstr ""
+msgstr "Tady se nemůžeš přeměnit..."
 
 #: data/scripts/olaf.dat:29
 msgid "Yes"
@@ -4838,7 +4934,7 @@ msgstr "Neuložená pozice bude ztracena"
 
 #: src/input.c:903
 msgid "Joy Button #%d"
-msgstr ""
+msgstr "Joy Button #%d"
 
 #: src/world/npc.c:78
 msgid "Press Action to talk to %s"
@@ -4878,7 +4974,7 @@ msgstr "Stiskni Akce pro uložení hry"
 
 #: src/world/pressure_plate.c:113
 msgid "%s is required to use this Pressure Plate"
-msgstr ""
+msgstr "%s je potřeba k použití této tlakové plošiny"
 
 #: src/world/door.c:122
 msgid "%s is needed to open this door"
@@ -4906,7 +5002,7 @@ msgstr "Není možné vzít další %s"
 
 #: src/player.c:3136
 msgid "Picked up %s x %d"
-msgstr ""
+msgstr "Sebrán %s x %d"
 
 #: src/player.c:3136
 msgid "Picked up %s"
@@ -4946,27 +5042,27 @@ msgstr "Elixír zdraví"
 
 #: data/maps/map07.dat:2218
 msgid "Outflow Key"
-msgstr ""
+msgstr "Outflow Klíč"
 
 #: data/maps/map07.dat:3642
 msgid "Flow Control Key"
-msgstr ""
+msgstr "Flow Control Klíč"
 
 #: data/maps/map07.dat:3668
 msgid "Waste Processing Key"
-msgstr ""
+msgstr "Klíč od zpracování odpadu"
 
 #: data/scripts/sewer_trap_note.dat:12
 msgid "Access Key 1"
-msgstr ""
+msgstr "Přístupový klíč 1"
 
 #: data/scripts/sewer_trap_note.dat:13
 msgid "Access Key 2"
-msgstr ""
+msgstr "Přístupový klíč 2"
 
 #: data/scripts/sewer_trap_note.dat:14
 msgid "Access Key 3"
-msgstr ""
+msgstr "Přístupový klíč 3"
 
 #: data/maps/map07.dat:2518
 msgid "Trap Door Switch Key"
@@ -4974,155 +5070,155 @@ msgstr "Klíč od padacích dveří"
 
 #: data/scripts/borgan.dat:7
 msgid "Coal"
-msgstr ""
+msgstr "Uhlí"
 
 #: data/scripts/raft_2.dat:2
 msgid "Chopped Log"
-msgstr ""
+msgstr "Kláda"
 
 #: data/scripts/power_generators.dat:8
 msgid "Green Gem"
-msgstr ""
+msgstr "Zelený krystal"
 
 #: data/scripts/power_generators.dat:9
 msgid "Red Gem"
-msgstr ""
+msgstr "Červený krystal"
 
 #: data/scripts/power_generators.dat:10
 msgid "Blue Gem"
-msgstr ""
+msgstr "Modrý krystal"
 
 #: data/scripts/power_generators.dat:11
 msgid "Purple Gem"
-msgstr ""
+msgstr "Fialový krystal"
 
 #: data/maps/map10.dat:6167
 msgid "Teleporter Key"
-msgstr ""
+msgstr "Klíč od teleportu"
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "New Game"
-msgstr ""
+msgstr "Nová hra"
 
 #: data/scripts/tutorial_finish.dat:3
 msgid "Tutorial"
-msgstr ""
+msgstr "Tutoriál"
 
 #: src/menu/main_menu.c:176
 msgid "Load Game"
-msgstr ""
+msgstr "Načíst hru"
 
 #: data/scripts/tutorial_keys.dat:1
 msgid "Options"
-msgstr ""
+msgstr "Nastavení"
 
 #: src/menu/main_menu.c:52
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #: src/menu/main_menu.c:50
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: data/scripts/tutorial_keys.dat:2
 msgid "Configure Controls"
-msgstr ""
+msgstr "Nastavení kláves"
 
 #: src/menu/options_menu.c:191
 msgid "Configure Sound"
-msgstr ""
+msgstr "Nastavení zvuku"
 
 #: src/menu/options_menu.c:49
 msgid "Fullscreen"
-msgstr ""
+msgstr "Celá obrazovka"
 
 #: src/menu/options_menu.c:197
 msgid "Show Hints"
-msgstr ""
+msgstr "Ukazuj nápovědu"
 
 #: data/props/item/slime_potion.props:6
 msgid "A potion which will transform you..."
-msgstr ""
+msgstr "Lektvar, který te přemění..."
 
 #: data/props/item/health_potion.props:6
 msgid "A potion which will restore all of your health"
-msgstr ""
+msgstr "Lektvar, který ti obnoví tvé zdraví"
 
 #: data/props/item/bomb.props:6
 msgid "A powerful bomb"
-msgstr ""
+msgstr "Mocná bomba"
 
 #: data/props/item/invisibility_potion.props:6
 msgid "A potion which renders you invisible to certain enemies"
-msgstr ""
+msgstr "Lektvar, který tě učiní neviditelným pro určité potvory"
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr ""
+msgstr "Oční bulva Gazera"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
-msgstr ""
+msgstr "Tesla akumulátor. Není nabitý."
 
 #: data/props/item/summoner_staff.props:5
 msgid "A Summoner's Staff. It cannot be used by humans."
-msgstr ""
+msgstr "Vyvolávačova hůlka. Pro lidi nepoužitelná."
 
 #: data/props/item/tesla_pack_full.props:5
 msgid "A Tesla Pack. It is fully charged."
-msgstr ""
+msgstr "Tesla akumulátor. Je plně nabitý."
 
 #: data/props/item/empty_potion.props:6
 msgid "An empty potion bottle"
-msgstr ""
+msgstr "Prázdla lahev na lektvary"
 
 #: data/props/item/chicken_feed_bag.props:6
 msgid "A bag of chicken feed"
-msgstr ""
+msgstr "Pytel s ptačím zobem"
 
 #: data/props/item/coal_bag.props:6
 msgid "A bag suitable for carrying coal"
-msgstr ""
+msgstr "Pytel vhodný na nošení uhlí"
 
 #: data/scripts/raft.dat:19
 msgid "Basic Sword"
-msgstr ""
+msgstr "Jednoduchý meč"
 
 #: data/props/weapon/basic_sword.props:6
 msgid "A Sword given to you by Jacob"
-msgstr ""
+msgstr "Meč co ti dal Jákob"
 
 #: src/player.c:2439
 msgid "A bow"
-msgstr ""
+msgstr "Luk"
 
 #: data/scripts/cauldron.dat:52
 msgid "Small Wooden Shield"
-msgstr ""
+msgstr "Malý dřevěný štít"
 
 #: data/props/weapon/small_wooden_shield.props:6
 msgid "A small shield that provides basic protection"
-msgstr ""
+msgstr "Malý štít, který ti poskytne základní ochranu"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow"
-msgstr ""
+msgstr "Normální šíp"
 
 #: data/props/weapon/normal_arrow.props:6
 msgid "Normal Arrows"
-msgstr ""
+msgstr "Normální šípy"
 
 #: data/props/weapon/wood_axe.props:6
 msgid "An axe suitable for chopping trees"
-msgstr ""
+msgstr "Sekera vhodná k porážení stromů"
 
 #: data/maps/tutorial.dat:2141
 msgid "Pickaxe"
-msgstr ""
+msgstr "Krumpáč"
 
 #: data/props/weapon/pickaxe.props:6
 msgid "A pickaxe lent to you by Borgan"
-msgstr ""
+msgstr "Krumpáč, který ti zapůjčil Borgan"
 
 #: data/maps/map10.dat:4042
 msgid "Fire Burner Key"
@@ -5130,7 +5226,7 @@ msgstr ""
 
 #: data/maps/map10.dat:4192
 msgid "Potion Room Key"
-msgstr ""
+msgstr "klíč od komnaty s lektvary"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
@@ -5138,43 +5234,43 @@ msgstr ""
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
-msgstr ""
+msgstr "klíč od demoličního skladu"
 
 #: src/event/global_trigger.c:302
 msgid "No Objectives"
-msgstr ""
+msgstr "žádné úkoly"
 
 #: src/world/switch.c:316
 msgid "Press Action to reset puzzle blocks"
-msgstr ""
+msgstr "Stiskni Akce pro resetování hlavolamu"
 
 #: src/enemy/poltergiest.c:556
 msgid "Try hitting the skull..."
-msgstr ""
+msgstr "Zkus zasáhnout tu lebku..."
 
 #: src/item/blending_machine.c:184
 msgid "This machine is not active"
-msgstr ""
+msgstr "Tenhle stroj je nefunkční"
 
 #: src/item/code_door.c:120
 msgid "Repeat the sequence"
-msgstr ""
+msgstr "Opakuj sekvenci"
 
 #: src/item/code_door.c:264
 msgid "Correct Sequence"
-msgstr ""
+msgstr "Správná sekvence"
 
 #: src/item/code_door.c:288
 msgid "Incorrect Sequence"
-msgstr ""
+msgstr "Nesprávná sekvence"
 
 #: src/system/error.c:47
 msgid "The Legend of Edgar has encountered the following error"
-msgstr ""
+msgstr "Legenda o Edgarovi narazila na následující chybu"
 
 #: src/system/error.c:51
 msgid "Please report this error to Parallel Realities"
-msgstr ""
+msgstr "Prosím nahlaste chybu na Parallel Realities"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap"
@@ -5182,359 +5278,360 @@ msgstr ""
 
 #: src/item/moveable_lift.c:72
 msgid "Push Up or Down to raise or lower the platform"
-msgstr ""
+msgstr "Zmačkni Nahoru nebo Dolu pro rampou"
 
 #: data/scripts/monsters.dat:82
 msgid "Up"
-msgstr ""
+msgstr "Nahoru"
 
 #: data/scripts/tutorial_intro.dat:7
 msgid "Down"
-msgstr ""
+msgstr "Dolů"
 
 #: src/collisions.c:72
 msgid "Left"
-msgstr ""
+msgstr "Vlevo"
 
 #: data/scripts/borgan.dat:40
 msgid "Right"
-msgstr ""
+msgstr "Vpravo"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Jump"
-msgstr ""
+msgstr "Skok"
 
 #: data/scripts/safe_instructions.dat:3
 msgid "Attack"
-msgstr ""
+msgstr "Útok"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block"
-msgstr ""
+msgstr "Blok"
 
 #: data/scripts/box_pushing.dat:1
 msgid "Action"
-msgstr ""
+msgstr "Akce"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Use Item"
-msgstr ""
+msgstr "Použij předmět"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Previous Item"
-msgstr ""
+msgstr "Předchozí předmět"
 
 #: data/scripts/tutorial_items.dat:6
 msgid "Next Item"
-msgstr ""
+msgstr "Další předmět"
 
 #: src/draw.c:69
 msgid "Inventory"
-msgstr ""
+msgstr "Inventář"
 
 #: src/draw.c:65
 msgid "Pause"
-msgstr ""
+msgstr "Pauza"
 
 #: src/menu/control_menu.c:225
 msgid "Dead Zone"
-msgstr ""
+msgstr "Zóna mrtvých"
 
 #: src/collisions.c:1013
 msgid "Sound"
-msgstr ""
+msgstr "Zvuk"
 
 #: src/menu/sound_menu.c:151
 msgid "SFX Volume"
-msgstr ""
+msgstr "Hlasitost zvuku"
 
 #: src/menu/sound_menu.c:159
 msgid "Music Volume"
-msgstr ""
+msgstr "Hlasitost hudby"
 
 #: data/scripts/purifier.dat:2
 msgid "Ice Spray"
-msgstr ""
+msgstr "Ledový sprej"
 
 #: data/maps/map09.dat:5468
 msgid "Right Wing Lift Key"
-msgstr ""
+msgstr "Klíč od výtahu v pravém křídle"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine Entrance Door Key"
-msgstr ""
+msgstr "Klíč od vstupu do dolu"
 
 #: data/maps/map07.dat:3168
 msgid "Sewage Restricted Zone Key"
-msgstr ""
+msgstr "Klíč od omezené odpadní zóny"
 
 #: data/maps/map08.dat:2567
 msgid "Fortress Main Key"
-msgstr ""
+msgstr "Hlavní klíč od pevnosti"
 
 #: data/maps/map08.dat:10217
 msgid "Teleporter Access Key 1"
-msgstr ""
+msgstr "Klíč pro přístup k teleportu 1"
 
 #: data/maps/map08.dat:10317
 msgid "Teleporter Access Key 2"
-msgstr ""
+msgstr "Klíč pro přístup k teleportu 2"
 
 #: data/maps/map08.dat:10943
 msgid "Teleporter Access Key 3"
-msgstr ""
+msgstr "Klíč pro přístup k teleportu 3"
 
 #: data/scripts/purifier.dat:8
 msgid "Empty Bottle"
-msgstr ""
+msgstr "Prázdná lahev"
 
 #: data/maps/map11.dat:2094
 msgid "First Floor Key"
-msgstr ""
+msgstr "Klíč od prvního podlaží"
 
 #: src/item/pedestal.c:138
 msgid "Press Action to retrieve %s"
-msgstr ""
+msgstr "Stiskni akce pro získání %s"
 
 #: src/item/tuning_fork.c:41
 msgid "Tuning Fork"
-msgstr ""
+msgstr "Vidlicová ladička"
 
 #: data/maps/map11.dat:4818
 msgid "Second Floor Keycard"
-msgstr ""
+msgstr "Karta od druhého podlaží"
 
 #: data/maps/map11.dat:2643
 msgid "Instruction Card #1"
-msgstr ""
+msgstr "Instrukční karta #1"
 
 #: data/maps/map11.dat:2568
 msgid "Instruction Card #2"
-msgstr ""
+msgstr "Instrukční karta #2"
 
 #: data/maps/map11.dat:8093
 msgid "Instruction Card #3"
-msgstr ""
+msgstr "Instrukční karta #3"
 
 #: data/maps/map11.dat:13193
 msgid "Instruction Card #4"
-msgstr ""
+msgstr "Instrukční karta #4"
 
 #: data/maps/map11.dat:3393
 msgid "Centurion Statue"
-msgstr ""
+msgstr "Soška centuriona"
 
 #: data/maps/map22.dat:10167
 msgid "Spider Statue"
-msgstr ""
+msgstr "Soška hada"
 
 #: data/maps/map07.dat:8567
 msgid "Tortoise Statue"
-msgstr ""
+msgstr "Soška želvy"
 
 #: data/scripts/olaf.dat:20
 msgid "Scorpion Statue"
-msgstr ""
+msgstr "Soška škorpiona"
 
 #: data/props/item/blue_gem.props:5
 msgid "A Blue Gem"
-msgstr ""
+msgstr "Modrý krystal"
 
 #: data/props/item/centurion_statue.props:4
 msgid "A statue of a Centurion. It has 2 legs."
-msgstr ""
+msgstr "Soška centuriona. Má dvě nohy."
 
 #: data/props/item/green_gem.props:5
 msgid "A Green Gem"
-msgstr ""
+msgstr "Zelený krystal"
 
 #: data/props/item/purple_gem.props:5
 msgid "A Purple Gem"
-msgstr ""
+msgstr "Purpurový krystal"
 
 #: data/props/item/red_gem.props:5
 msgid "A Red Gem"
-msgstr ""
+msgstr "Červený krystal"
 
 #: data/props/item/scorpion_statue.props:4
 msgid "A statue of a Scorpion. It has 6 legs."
-msgstr ""
+msgstr "Soška škorpiona. Má šest nohou"
 
 #: data/props/item/spider_statue.props:4
 msgid "A statue of a Spider. It has 8 legs."
-msgstr ""
+msgstr "Soška pavouka. Má osm nohou"
 
 #: data/props/item/tortoise_statue.props:4
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr ""
+msgstr "Soška želvy. Má čtyři nohy"
 
 #: data/props/item/tuning_fork.props:4
 msgid "A Tuning Fork"
-msgstr ""
+msgstr "Vidlicová ladička"
 
 #: data/props/misc/chopped_log.props:7
 msgid "A chopped log"
-msgstr ""
+msgstr "Kláda"
 
 #: data/scripts/tutorial_shield.dat:1
 msgid "Narrator"
-msgstr ""
+msgstr "Vypravěč"
 
 #: src/item/instruction_machine.c:92
 msgid "Enter the directions"
-msgstr ""
+msgstr "Vlož instrukce"
 
 #: src/item/instruction_machine.c:164
 msgid "Out of space for instructions"
-msgstr ""
+msgstr "Došlo místo na další instrukce"
 
 #: data/props/item/ice_spray.props:5
 msgid "Creates ice cubes that expand on contact with water"
-msgstr ""
+msgstr "Vytváří ledové kostky, které se roztáhnou při kontaktu s vodou"
 
 #: data/props/item/soul_bottle.props:5
 msgid "A bottle capable of capturing souls"
-msgstr ""
+msgstr "Lahev schopná polapit duše"
 
 #: src/inventory.c:242
 msgid "Cannot pick up %s. Inventory full"
-msgstr ""
+msgstr "Není možné sebrat %s. Inventář je plný"
 
 #: src/item/mine_cart.c:85
 msgid "Filling mine cart..."
-msgstr ""
+msgstr "Důlní vozík se zaplňuje..."
 
 #: src/player.c:2154
 msgid "Out of arrows!"
-msgstr ""
+msgstr "Došli ti šípy!"
 
 #: data/props/item/full_soul_bottle.props:5
 msgid "A bottle with a soul trapped inside"
-msgstr ""
+msgstr "Láhev s polapenou duší uvnitř"
 
 #: src/item/mine_cart.c:90
 msgid "Full Mine Cart"
-msgstr ""
+msgstr "Plný důlní vozík"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr ""
+msgstr "Klíč od zpracování"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
-msgstr ""
+msgstr "Klíč od pravého drapáku"
 
 #: data/maps/map12.dat:5343
 msgid "Left Grabber Key"
-msgstr ""
+msgstr "Klíč od levého drapáku"
 
 #: data/maps/map12.dat:5443
 msgid "Master Key"
-msgstr ""
+msgstr "Hlavní klíč"
 
 #: data/props/item/oil_can.props:5
 msgid "An Oil Can"
-msgstr ""
+msgstr "Plechovka s olejem"
 
 #: data/scripts/rusted.dat:1
 msgid "Oil Can"
-msgstr ""
+msgstr "Plechovka s olejem"
 
 #: data/props/item/repellent.props:5
 msgid "A powerful repellent"
-msgstr ""
+msgstr "Silný repelent"
 
 #: src/item/repellent.c:33
 msgid "Repellent"
-msgstr ""
+msgstr "Repelent"
 
 #: data/maps/map08.dat:12568
 msgid "Fortress Mine"
-msgstr ""
+msgstr "Pevnostní důl"
 
 #: data/scripts/monsters.dat:122
 msgid "Sludge Tentacle"
-msgstr ""
+msgstr "Bahňákovo chapadlo"
 
 #: data/props/item/sludge_tentacle.props:5
 msgid "A Red Sludge Tentacle"
-msgstr ""
+msgstr "Chapadlo Červeného bahňáka"
 
 #: data/scripts/old_shield.dat:7
 msgid "Eyeball Smoothie"
-msgstr ""
+msgstr "Oční smoothie"
 
 #: data/props/item/eyeball_smoothie.props:5
 msgid "A liquid made from eyeballs and tentacles"
-msgstr ""
+msgstr "Tekutina vyrobená z očí a chapadel"
 
 #: src/system/load_save.c:1684
 msgid "Patching your save game. Please wait..."
-msgstr ""
+msgstr "Patchuji uloženou pozici. Prosím čekejte..."
 
 #: src/enemy/huge_spider.c:272
 msgid "Now! Run while it's stunned!"
-msgstr ""
+msgstr "Teď! Bež dokud je ochromený!"
 
 #: data/scripts/smoothie_colour.dat:10
 msgid "I just need to find another shield to enchant"
-msgstr ""
+msgstr "Teď už zbýva jen najít další štít"
 
 #: src/boss/armour_boss.c:675
 msgid "Its wounds are already healing..."
-msgstr ""
+msgstr "Jeho zranění se už léčí..."
 
 #: src/system/pak.c:47
 msgid "If you compiled the game from source, you need to do a make install"
 msgstr ""
+"Pokud jste hru přeložili ze zdrojáků, musíte zpustit \"make install\""
 
 #: data/props/item/yellow_gem.props:5
 msgid "A Yellow Gem"
-msgstr ""
+msgstr "Žlutý krystal"
 
 #: src/pak_creator.c:352
 msgid "Failed to open PAK file %s"
-msgstr ""
+msgstr "Nepodařilo se otevřít PAK soubor %s"
 
 #: src/boss/armour_boss.c:1435
 msgid "Find a way to remove the Gem..."
-msgstr ""
+msgstr "Najdi způsob pro sebrání krystalu..."
 
 #: src/boss/armour_boss.c:1446
 msgid "Press Action to retrieve the Yellow Gem"
-msgstr ""
+msgstr "Stiskni Akce pro získání Žlutého krystalu"
 
 #: data/scripts/knights.dat:3
 msgid "Book"
-msgstr ""
+msgstr "Kniha"
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "Sign"
-msgstr ""
+msgstr "Nápis"
 
 #: data/scripts/tutorial_shield.dat:6
 msgid "Note"
-msgstr ""
+msgstr "Poznámka"
 
 #: src/item/sliding_puzzle.c:81
 msgid "Solve the sliding puzzle"
-msgstr ""
+msgstr "Vyřeš posunovací hlavolam"
 
 #: src/enemy/baby_slime.c:252
 msgid "The armour is too tough for them to penetrate..."
-msgstr ""
+msgstr "Brnění je pro ně moc silné, nedokáží se skrz něj dostat,,,"
 
 #: data/props/item/rope.props:5
 msgid "A length of rope"
-msgstr ""
+msgstr "Provaz"
 
 #: data/props/item/extend_o_grab.props:5
 msgid "A device for grabbing far away objects"
-msgstr ""
+msgstr "Zařízení pro uchopení vzdálených předmětů"
 
 #: data/props/item/water_purifier.props:6
 msgid "A bottle of pills that convert slime into water"
-msgstr ""
+msgstr "Lahev s pilulkami, které přeměňují sliz ve vodu"
 
 #: data/maps/tutorial.dat:1916
 msgid "Tutorial Key"
@@ -5542,191 +5639,191 @@ msgstr ""
 
 #: data/maps/map15.dat:9668
 msgid "Light Key"
-msgstr ""
+msgstr "Klíč od světel"
 
 #: data/scripts/crossbow.dat:2
 msgid "Rope"
-msgstr ""
+msgstr "Provaz"
 
 #: src/item/extend_o_grab_button.c:42
 msgid "Extend-O-Grab"
-msgstr ""
+msgstr "Extend-O-Grab"
 
 #: data/maps/map13.dat:2968
 msgid "Water Purifiers"
-msgstr ""
+msgstr "Čistič vody"
 
 #: data/maps/map13.dat:2494
 msgid "Right Wing Key"
-msgstr ""
+msgstr "Klíč od pravého křídla"
 
 #: data/maps/map13.dat:3394
 msgid "Catapult Lift Key"
-msgstr ""
+msgstr "Klíč od výtahu katapultu"
 
 #: data/scripts/library_outro.dat:4
 msgid "Armoury"
-msgstr ""
+msgstr "Zbrojnice"
 
 #: data/scripts/maggie.dat:3
 msgid "Maggie"
-msgstr ""
+msgstr "Maggie"
 
 #: data/scripts/tutorial_secret.dat:5
 msgid "Jacob"
-msgstr ""
+msgstr "Jákob"
 
 #: data/scripts/borgan.dat:1
 msgid "Borgan"
-msgstr ""
+msgstr "Borgan"
 
 #: data/scripts/olaf.dat:7
 msgid "Edgar"
-msgstr ""
+msgstr "Edgar"
 
 #: src/item/mine_cart.c:41
 msgid "Mine Cart"
-msgstr ""
+msgstr "Důlní vozík"
 
 #: src/player.c:3131
 msgid "%s has regained power"
-msgstr ""
+msgstr "%s získal zpět svou sílu"
 
 #: data/props/item/old_shield.props:5
 msgid "An old shield found in the Armoury"
-msgstr ""
+msgstr "Starý štít nalezený ve zbrojnici"
 
 #: data/props/weapon/lightning_sword_empty.props:6
 msgid "A Sword that can be charged with lightning"
-msgstr ""
+msgstr "Meč, který muže být nabit blesky"
 
 #: data/props/weapon/lightning_sword.props:6
 msgid "A Sword imbued with the power of lightning"
-msgstr ""
+msgstr "Meč nabitý silou blesků"
 
 #: data/scripts/jigsaw_puzzle.dat:5
 msgid "Lightning Sword"
-msgstr ""
+msgstr "Bleskový meč"
 
 #: src/enemy/scanner.c:108
 msgid "INTRUDER!"
-msgstr ""
+msgstr "NARUŠITEL!"
 
 #: src/credits.c:970
 msgid "Statistics"
-msgstr ""
+msgstr "Statistiky"
 
 #: src/menu/stats_menu.c:94
 msgid "Play Time: %s"
-msgstr ""
+msgstr "Herní čas: %s"
 
 #: src/menu/stats_menu.c:100
 msgid "Kills: %d"
-msgstr ""
+msgstr "Zabití: %d"
 
 #: src/menu/stats_menu.c:108
 msgid "Bats Drowned: %d"
-msgstr ""
+msgstr "Utopeno netopýrů: %d"
 
 #: src/menu/stats_menu.c:112
 msgid "Times Eaten: %d"
-msgstr ""
+msgstr "Sněden: %d"
 
 #: src/menu/stats_menu.c:120
 msgid "Distanced Travelled: %0.1fKM"
-msgstr ""
+msgstr "Uražená vzdálenost: %0.1fKM"
 
 #: src/menu/stats_menu.c:124
 msgid "Attacks Blocked: %d"
-msgstr ""
+msgstr "Zablokováno útoků: %d"
 
 #: src/menu/stats_menu.c:130
 msgid "Time Spent As A Slime: %s"
-msgstr ""
+msgstr "Čas strávený jako slizák: %s"
 
 #: src/menu/stats_menu.c:104
 msgid "Arrows Fired: %d"
-msgstr ""
+msgstr "Vystřeleno šípů: %d"
 
 #: src/game.c:1057
 msgid "You found a secret!"
-msgstr ""
+msgstr "Našel jsi tajemství!"
 
 #: src/player.c:3056
 msgid "10 charges remaining..."
-msgstr ""
+msgstr "Zbývá 10 nábojů..."
 
 #: src/player.c:3063
 msgid "%s is out of power"
-msgstr ""
+msgstr "%s je vybitý"
 
 #: src/enemy/lightning_tortoise.c:310
 msgid "The damage from this weapon is being absorbed..."
-msgstr ""
+msgstr "Zranění této zbraně je pohlcováno..."
 
 #: src/menu/stats_menu.c:136
 msgid "Secrets Found: %d / %d"
-msgstr ""
+msgstr "Tajemství nalezeno: %d / %d"
 
 #: src/item/light_pillar.c:151
 msgid "Press Action to activate the Light Pillar"
-msgstr ""
+msgstr "Stiskni Akce pro zapnutí Světelného majáku"
 
 #: src/inventory.c:754
 msgid "Removed %s"
-msgstr ""
+msgstr "%s byl odstraněn"
 
 #: src/boss/awesome_boss.c:1147
 msgid "Their partner will heal them when they fall..."
-msgstr ""
+msgstr "Jejich parťák je vyléčí, pokud padnou..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
-msgstr ""
+msgstr "Fatalita je připravená..."
 
 #: src/player.c:1665
 msgid "Used Amulet of Resurrection"
-msgstr ""
+msgstr "Použit Amulet vzkříšení"
 
 #: src/item/soul_merger.c:116
 msgid "Press Action to enter the Soul Merger"
-msgstr ""
+msgstr "Stiskni Akce pro vstup do slučovače duší"
 
 #: src/item/soul_merger.c:139
 msgid "An IN Chamber and an OUT Chamber are required"
-msgstr ""
+msgstr "Vstupni a výstupní komora je požadována"
 
 #: src/item/lava_door.c:101
 msgid "One blow from the pickaxe should shatter it"
-msgstr ""
+msgstr "Jeden úder krumpáčem by to měl rozbít"
 
 #: src/item/soul_merger_control_panel.c:85
 msgid "Press Action to reprogram the Soul Merger"
-msgstr ""
+msgstr "Stiskni Akce pro přeprogramování slučovače duší"
 
 #: src/item/soul_merger_control_panel.c:93
 msgid "Spanner is required"
-msgstr ""
+msgstr "Potřebuješ montážní klíč"
 
 #: src/item/soul_merger_control_panel.c:150
 msgid "Press Action to Cancel"
-msgstr ""
+msgstr "Stiskni Akce pro zrušení"
 
 #: src/item/light_pillar.c:116
 msgid "%s is needed to activate this Light Pillar"
-msgstr ""
+msgstr "Potřebuješ %s pro zapnutí Světelného majáku"
 
 #: data/scripts/soul_merger.dat:2
 msgid "Evil_Edgar"
-msgstr ""
+msgstr "Zlý_Edgar"
 
 #: src/boss/evil_edgar.c:273
 msgid "I'm better than you in every single way..."
-msgstr ""
+msgstr "Jsem lepši než ty ve všech ohledech..."
 
 #: src/boss/evil_edgar.c:286
 msgid "Get down from there!"
-msgstr ""
+msgstr "Pojď sem dolů!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
@@ -5734,15 +5831,15 @@ msgstr ""
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
-msgstr ""
+msgstr "Zhyň!"
 
 #: src/boss/evil_edgar.c:983
 msgid "Arghh! My eyes!"
-msgstr ""
+msgstr "Argh! Moje oči!"
 
 #: data/props/item/spanner.props:6
 msgid "A spanner"
-msgstr ""
+msgstr "Montářní klíč"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"

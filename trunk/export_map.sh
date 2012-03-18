@@ -15,9 +15,13 @@ do
 		then
 			break
 		fi
-		tiles=`ls "$yy"_"$map"_*.bmp | wc -l`
+		for i in `ls "$yy"_"$map"_*.bmp`
+		do
+			convert "$i" -resize 25% temp_"$i".bmp
+		done
+		tiles=`ls temp_"$yy"_"$map"_*.bmp | wc -l`
 		echo Combining $tiles columns
-		montage -mode concatenate -tile "$tiles"x1 "$yy"_"$map"_*.bmp "$yy"_"$map".png
+		montage -mode concatenate -tile "$tiles"x1 temp_"$yy"_"$map"_*.bmp "$yy"_"$map".png
 	done
 	
 	tiles=`ls *_"$map".png | wc -l`
