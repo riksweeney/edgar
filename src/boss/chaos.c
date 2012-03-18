@@ -1564,7 +1564,7 @@ static void takeDamage(Entity *other, int damage)
 	{
 		/* Take minimal damage from bombs */
 
-		if (other->type == EXPLOSION)
+		if (other->type == EXPLOSION || strcmpignorecase(other->name, "weapon/spike") == 0)
 		{
 			damage = 1;
 		}

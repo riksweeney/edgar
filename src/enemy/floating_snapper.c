@@ -98,7 +98,7 @@ static void entityWait()
 
 	if (self->health == 1)
 	{
-		/*self->thinkTime--;*/
+		self->thinkTime--;
 
 		if (self->x == self->startX || (self->thinkTime % 4 == 0))
 		{

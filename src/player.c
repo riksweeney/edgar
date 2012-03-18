@@ -171,6 +171,8 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.creditsAction = creditsMove;
 
 	player.maxThinkTime = 0;
+	
+	player.standingOn = NULL;
 
 	setCheckpoint(player.x, player.y);
 
@@ -731,7 +733,7 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-
+				
 				if (self->flags & ON_GROUND)
 				{
 					self->flags &= ~FRICTIONLESS;
