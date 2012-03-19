@@ -63,7 +63,7 @@ Entity *addCeilingCreeper(int x, int y, char *name)
 	e->action = &init;
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
-	
+
 	e->creditsAction = &creditsAction;
 
 	e->type = ENEMY;
@@ -184,7 +184,7 @@ static void tongueWait()
 
 		self->touch = &tongueTouch;
 
-		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+		playSoundToMap("sound/boss/armour_boss/tongue_start.ogg", -1, self->x, self->y, 0);
 	}
 
 	self->x = self->head->x + self->head->w / 2 - self->w / 2;
@@ -411,9 +411,9 @@ static void creeperTouch(Entity *other)
 static void creditsAction()
 {
 	self->dirY -= GRAVITY_SPEED * self->weight;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirY == 0)
 	{
 		self->creditsAction = &creditsMove;
@@ -423,13 +423,13 @@ static void creditsAction()
 static void creditsMove()
 {
 	self->face = RIGHT;
-	
+
 	setEntityAnimation(self, "STAND");
-	
+
 	self->dirX = self->speed;
-	
+
 	checkToMap(self);
-	
+
 	if (self->dirX == 0)
 	{
 		self->inUse = FALSE;

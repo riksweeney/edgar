@@ -171,7 +171,7 @@ Entity *loadPlayer(int x, int y, char *name)
 	player.creditsAction = creditsMove;
 
 	player.maxThinkTime = 0;
-	
+
 	player.standingOn = NULL;
 
 	setCheckpoint(player.x, player.y);
@@ -733,7 +733,7 @@ void doPlayer()
 			if (!(self->flags & TELEPORTING))
 			{
 				checkToMap(self);
-				
+
 				if (self->flags & ON_GROUND)
 				{
 					self->flags &= ~FRICTIONLESS;
@@ -2596,13 +2596,15 @@ static void playerWait()
 
 Entity *removePlayerWeapon()
 {
-	Entity *e;
+	Entity *weapon, *e;
 
 	if (playerWeapon.inUse == TRUE)
 	{
-		removeInventoryItemByObjectiveName(playerWeapon.objectiveName);
+		weapon = getInventoryItemByObjectiveName(playerWeapon.objectiveName);
 
-		e = addPermanentItem(playerWeapon.name, self->x, self->y);
+		e = addEntity(*weapon, self->x, self->y);
+
+		removeInventoryItemByObjectiveName(weapon->objectiveName);
 
 		playerWeapon.inUse = FALSE;
 	}
@@ -2617,15 +2619,15 @@ Entity *removePlayerWeapon()
 
 Entity *removePlayerShield()
 {
-	Entity *e;
+	Entity *shield, *e;
 
 	if (playerShield.inUse == TRUE)
 	{
-		removeInventoryItemByObjectiveName(playerShield.objectiveName);
+		shield = getInventoryItemByObjectiveName(playerShield.objectiveName);
 
-		e = addPermanentItem(playerShield.name, self->x, self->y);
+		e = addEntity(*shield, self->x, self->y);
 
-		e->health = playerShield.health;
+		removeInventoryItemByObjectiveName(shield->objectiveName);
 
 		playerShield.inUse = FALSE;
 	}
