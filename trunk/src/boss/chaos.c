@@ -54,6 +54,17 @@ static void flameWait(void);
 static int flameDraw(void);
 static void flameTouch(Entity *);
 static void breatheFireFinish(void);
+static void vineAttackInit(void);
+static void vineAttack(void);
+static void vineAttackFinish(void);
+static void riftAttackInit(void);
+static void riftAttack(void);
+static void riftAttackWait(void);
+static void riftOpen(void);
+static void riftWait(void);
+static void riftClose(void);
+static void addRiftEnergy(int, int);
+static void energyMoveToRift(void);
 static void stalactiteAttackInit(void);
 static void stalactiteAttack(void);
 static void stalactiteFall(void);
@@ -150,17 +161,17 @@ static void entityWait()
 		{
 			if (self->target != NULL && self->target->mental == 1) /* Confused */
 			{
-				rand = prand() % 7;
+				rand = prand() % 9;
 			}
 
 			else if (self->target != NULL && self->target->mental == 2) /* Blinded */
 			{
-				rand = prand() % 5;
+				rand = prand() % 7;
 			}
 
 			else
 			{
-				rand = prand() % 9;
+				rand = prand() % 11;
 			}
 
 			switch (rand)
@@ -186,14 +197,22 @@ static void entityWait()
 				break;
 
 				case 5:
-					self->action = &spearAttackInit;
+					self->action = &vineAttackInit;
 				break;
 
 				case 6:
-					self->action = &stompAttackInit;
+					self->action = &riftAttackInit;
 				break;
 
 				case 7:
+					self->action = &spearAttackInit;
+				break;
+
+				case 8:
+					self->action = &stompAttackInit;
+				break;
+
+				case 9:
 					self->action = &confuseAttackInit;
 				break;
 
@@ -207,6 +226,226 @@ static void entityWait()
 				self->action = &breatheFireInit;
 			}
 		}
+	}
+
+	checkToMap(self);
+}
+
+static void riftAttackInit()
+{
+	createAutoDialogBox(_("Chaos"), _("Rift"), 120);
+
+	self->thinkTime = 120;
+
+	self->action = &riftAttack;
+}
+
+static void riftAttack()
+{
+	int i;
+	Entity *e;
+	Target *t;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->mental = 2;
+
+		for (i=0;i<self->mental;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add an Energy Rift");
+			}
+
+			loadProperties("enemy/energy_rift", e);
+
+			e->damage = 1;
+
+			e->action = &riftOpen;
+
+			e->touch = &entityTouch;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+
+			setEntityAnimation(e, "STAND");
+
+			t = getTargetByName(i == 0 ? "CHAOS_TARGET_LEFT" : "CHAOS_TARGET_RIGHT");
+
+			if (t == NULL)
+			{
+				showErrorAndExit("Chaos cannot find target");
+			}
+
+			e->thinkTime = 15;
+
+			e->y = self->y;
+
+			e->head = self;
+
+			e->health = 0;
+		}
+
+		self->action = &riftAttackWait;
+
+		self->thinkTime = 15;
+	}
+
+	checkToMap(self);
+}
+
+static void riftAttackWait()
+{
+	if (self->mental == 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	checkToMap(self);
+}
+
+static void riftOpen()
+{
+	if (self->health < 2)
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			self->health++;
+
+			setEntityAnimation(self, self->health == 1 ? "WALK" : "JUMP");
+
+			self->thinkTime = 15;
+		}
+	}
+
+	else
+	{
+		self->health = playSoundToMap("sound/item/rift.ogg", -1, self->x, self->y, -1);
+
+		self->thinkTime = 300;
+
+		self->action = &riftWait;
+	}
+
+	checkToMap(self);
+}
+
+static void riftWait()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0 || self->head->health <= 0)
+	{
+		stopSound(self->health);
+
+		self->action = &riftClose;
+
+		self->thinkTime = 20;
+	}
+
+	else
+	{
+		if (collision(self->x - 128, self->y - 128, 256, 256, player.x, player.y, player.w, player.h) == 1)
+		{
+			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? 2 : -2));
+		}
+
+		if (prand() % 3 == 0)
+		{
+			addRiftEnergy(self->x + self->w / 2, self->y + self->h / 2);
+		}
+	}
+}
+
+static void riftClose()
+{
+	self->thinkTime--;
+
+	setEntityAnimation(self, self->thinkTime > 10 ? "WALK" : "STAND");
+
+	if (self->thinkTime <= 0)
+	{
+		self->head->mental--;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void addRiftEnergy(int x, int y)
+{
+	Entity *e;
+
+	e = addBasicDecoration(x, y, "decoration/rift_energy");
+
+	e->x += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+	e->y += prand() % 128 * (prand() % 2 == 0 ? -1 : 1);
+
+	x -= e->w / 2;
+	y -= e->h / 2;
+
+	e->targetX = x;
+	e->targetY = y;
+
+	calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+	e->dirX *= 8;
+	e->dirY *= 8;
+
+	e->action = &energyMoveToRift;
+}
+
+static void energyMoveToRift()
+{
+	self->x += self->dirX;
+	self->y += self->dirY;
+
+	if (atTarget())
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void vineAttackInit()
+{
+	self->thinkTime = 120;
+
+	createAutoDialogBox(_("Chaos"), _("Tendrils"), 120);
+
+	self->action = &vineAttack;
+
+	checkToMap(self);
+}
+
+static void vineAttack()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		activateEntitiesWithObjectiveName("CHAOS_VINES", TRUE);
+
+		self->thinkTime = 120;
+
+		self->action = &vineAttackFinish;
+	}
+
+	checkToMap(self);
+}
+
+static void vineAttackFinish()
+{
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
 	}
 
 	checkToMap(self);
