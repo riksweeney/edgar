@@ -216,14 +216,12 @@ void draw()
 
 	/* Sleep briefly */
 
-	/*SDL_Delay(1);*/
+	SDL_Delay(1);
 }
 
 void delay(unsigned int frameLimit)
 {
 	unsigned int ticks = SDL_GetTicks();
-	
-	return;
 
 	if (frameLimit < ticks)
 	{

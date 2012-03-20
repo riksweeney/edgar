@@ -47,7 +47,6 @@ extern Entity *self, player;
 static void entityWait(void);
 static void vineMoveDown(void);
 static void vineMoveUp(void);
-static void vineTakeDamage(void);
 static void grabPlayer(void);
 static void touch(Entity *);
 static void grabPlayer(void);

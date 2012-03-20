@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-16 16:03+0000\n"
+"PO-Revision-Date: 2012-03-20 07:51+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-18 14:41+0000\n"
-"X-Generator: Launchpad (build 14951)\n"
+"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
+"X-Generator: Launchpad (build 14969)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -1652,19 +1652,19 @@ msgstr "Budu muset najít jiný důl někde v okolí..."
 
 #: data/scripts/mine2_exit.dat:1
 msgid "The boss that was guarding the Mine wasn't in the previous version"
-msgstr ""
+msgstr "Boss který chránil Důl nebyl v předchozí verzi"
 
 #: data/scripts/mine2_exit.dat:2
 msgid "Because it is in this version you won't be able to leave"
-msgstr ""
+msgstr "Protože je v této, nemohl bys odejít"
 
 #: data/scripts/mine2_exit.dat:3
 msgid "You will now be transported outside"
-msgstr ""
+msgstr "Teď budeš transportován ven"
 
 #: data/scripts/mine2_exit.dat:4
 msgid "We apologize for the inconvenience"
-msgstr ""
+msgstr "Omlouváme se za způsobené potíže"
 
 #: data/scripts/sewer_boss_start.dat:15
 msgid ""
@@ -2083,19 +2083,19 @@ msgstr "Některé předměty ve hře mohou být taženy a tlačeny"
 
 #: data/scripts/tutorial_boxes.dat:2
 msgid "To push an item, simply walk into it"
-msgstr ""
+msgstr "Pro tlačení předmětu do něj stačí strkat"
 
 #: data/scripts/tutorial_boxes.dat:3
 msgid "To pull an item, walk into while holding down Action"
-msgstr ""
+msgstr "Pro tažení předmětu stiskni tlašítko Akce a stč do předmětu"
 
 #: data/scripts/tutorial_boxes.dat:4
 msgid "You can then pull the item around until you let go of Action"
-msgstr ""
+msgstr "Pak můžeš táhnout předmět, dokud držíš tlačítko akce"
 
 #: data/scripts/tutorial_boxes.dat:5
 msgid "Pull the box over the other side and use it to reach the ledge"
-msgstr ""
+msgstr "Dotáhni tu krabici na druhou stranu a použij jí k dosažení římsy"
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
@@ -3717,78 +3717,82 @@ msgid ""
 "When you have selected all of the colours, move the cursor onto the question "
 "mark and press Attack"
 msgstr ""
+"Až vybereš všechny barvy, posuň kursor na značku otázky a stiskni Útok"
 
 #: data/scripts/mastermind.dat:7
 msgid ""
 "The number shown in the box is the number of pegs that are correctly placed"
-msgstr ""
+msgstr "Číslo v rámečku značí počet správně umístěných čtverečků"
 
 #: data/scripts/mastermind.dat:8
 msgid "You have 10 attempts to guess the sequence"
-msgstr ""
+msgstr "Máš 10 pokusů na uhodnutí posloupnosti"
 
 #: data/scripts/jigsaw_puzzle.dat:27
 msgid "Press Action to quit"
-msgstr ""
+msgstr "Stiskni Akce pro ukončení"
 
 #: data/scripts/mastermind.dat:12
 msgid "It's not working at the moment"
-msgstr ""
+msgstr "Momentálně je mimo provoz"
 
 #: data/scripts/mastermind.dat:13
 msgid "Maybe I should come back later..."
-msgstr ""
+msgstr "Možná bych se tu měl stavit později..."
 
 #: data/scripts/mastermind.dat:17
 msgid "It's a giant mastermind puzzle!"
-msgstr ""
+msgstr "Je to obrovský mastermind hlavolam!"
 
 #: data/scripts/mastermind.dat:18
 msgid ""
 "I used to play these all the time when we were travelling up to the big city"
-msgstr ""
+msgstr "Takové jsem hrál v jednom kuse, když jsme cestovali do města"
 
 #: data/scripts/mastermind.dat:20
 msgid "It doesn't look like it's working though"
-msgstr ""
+msgstr "Ale nevypadá funkčně"
 
 #: data/scripts/gargoyle_stone.dat:1
 msgid "It's petrified again"
-msgstr ""
+msgstr "Znovu zkameněl"
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
-msgstr ""
+msgstr "Voda je plná masožravých ryb"
 
 #: data/scripts/fish.dat:2
 msgid ""
 "From the looks of things I'll have to swim through the water to get to the "
 "other side"
 msgstr ""
+"Situace je taková, že budu muse proplavat skrz, pokud se chci dostat na "
+"druhou stranu"
 
 #: data/scripts/fish.dat:3
 msgid "But the fish will go for me the moment I enter the water"
-msgstr ""
+msgstr "Ale ty ryby po mě půjdou jen co se dotknu hladiny"
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
-msgstr ""
+msgstr "Musím najít cestu, jak se těch ryb zbavit"
 
 #: data/scripts/rusted.dat:4
 msgid "There, that's the hinges oiled. This should be as good as new now!"
-msgstr ""
+msgstr "Tak, naolejoval jsem mechanismus. Teď by měl být jako nový!"
 
 #: data/scripts/rusted.dat:7
 msgid "The hinges are rusted, I'll need to find some oil before I can use it"
 msgstr ""
+"Mechanismus je zarezlý, budu ho muset naolejovat, než se bude dát použít"
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
-msgstr ""
+msgstr "Tak a..."
 
 #: data/scripts/fireball_passage.dat:8
 msgid "I still need a Fire Shield"
-msgstr ""
+msgstr "Ještě potřebuji Ohnivý štít"
 
 #: data/scripts/fireball_passage.dat:12
 msgid ""
@@ -3800,55 +3804,60 @@ msgstr ""
 
 #: data/scripts/old_shield.dat:3
 msgid "Obtain a Fire Shield"
-msgstr ""
+msgstr "Získej Ohnivý štít"
 
 #: data/scripts/puzzle_pieces.dat:5
 msgid "I need all 9 puzzle pieces"
-msgstr ""
+msgstr "Potřebuji všech 9 dílků skládačky"
 
 #: data/scripts/dungeon_escape.dat:2
 msgid "I'm back in the Fortress, thank goodness for that"
-msgstr ""
+msgstr "Jsem zpět v pevnosti, díky Bohu za to"
 
 #: data/scripts/dungeon_escape.dat:3
 msgid ""
 "But Dad wasn't in there, I looked everywhere and there was no sign of him"
 msgstr ""
+"Ale táta tam nikde nebyl, díval jsem se všude a nebyl tam ani náznak jeho "
+"přítomnosti"
 
 #: data/scripts/dungeon_escape.dat:4
 msgid ""
 "The sorceror must have done something else with him, I'll have to go back "
 "and find out"
 msgstr ""
+"Černokněžník s ním musel udělat něco jiného, budu se muset vrátit a zjistit "
+"co"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "Return to the Study"
-msgstr ""
+msgstr "Vrať se do pracovny"
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
-msgstr ""
+msgstr "Au, moje hlava..."
 
 #: data/scripts/wasteland_intro.dat:12
 msgid "Oh no, I've lost all my equipment!"
-msgstr ""
+msgstr "Ale ne, přišel jsem o všechno vybavení!"
 
 #: data/scripts/wasteland_intro.dat:20
 msgid "Some of my stuff is over there..."
-msgstr ""
+msgstr "Některé moje věci se válí támhle..."
 
 #: data/scripts/wasteland_intro.dat:25
 msgid ""
 "If those items are in this wasteland then perhaps everything else is too"
 msgstr ""
+"Pokud jsou tyto věci v těhle pustinách, pak by tu mohly být všechny mé věci"
 
 #: data/scripts/wasteland_intro.dat:26
 msgid "I'll have to try and retrieve as much as I can..."
-msgstr ""
+msgstr "Musím se pokusit zachránit co nejvíc dokážu..."
 
 #: data/scripts/wasteland_intro.dat:27
 msgid "Retrieve items"
-msgstr ""
+msgstr "Získej zpět své vybavení"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid ""
@@ -5222,7 +5231,7 @@ msgstr "Krumpáč, který ti zapůjčil Borgan"
 
 #: data/maps/map10.dat:4042
 msgid "Fire Burner Key"
-msgstr ""
+msgstr "Klíč od ohnivých trysek"
 
 #: data/maps/map10.dat:4192
 msgid "Potion Room Key"
@@ -5635,7 +5644,7 @@ msgstr "Lahev s pilulkami, které přeměňují sliz ve vodu"
 
 #: data/maps/tutorial.dat:1916
 msgid "Tutorial Key"
-msgstr ""
+msgstr "Tutoriálový klíč"
 
 #: data/maps/map15.dat:9668
 msgid "Light Key"
@@ -5827,7 +5836,7 @@ msgstr "Pojď sem dolů!"
 
 #: src/boss/evil_edgar.c:786
 msgid "Stupid duds..."
-msgstr ""
+msgstr "Hloupe zmetky..."
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
@@ -5843,924 +5852,930 @@ msgstr "Montářní klíč"
 
 #: data/props/item/exploding_gazer_eye_dud.props:5
 msgid "An exploding Gazer Eyeball. A dud?"
-msgstr ""
+msgstr "Explodující Gazerovi oči? Žeby zmetky?"
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
-msgstr ""
+msgstr "Automaticky tě vylečí pokud zemřeš"
 
 #: src/item/potions.c:247
 msgid "Flaming Arrows"
-msgstr ""
+msgstr "Hořící šípy"
 
 #: data/props/weapon/fire_shield.props:6
 msgid "A shield that can resist fire"
-msgstr ""
+msgstr "Štít který dokáže odolat ohni"
 
 #: src/item/jigsaw_puzzle.c:98
 msgid "Solve the jigsaw puzzle"
-msgstr ""
+msgstr "Vyřeš skládačku"
 
 #: src/boss/ant_lion.c:306
 msgid "Try luring something else into the Ant Lion's pit..."
-msgstr ""
+msgstr "Zkus nalákat něco jiného do Mravkolvovi díry..."
 
 #: data/props/item/puzzle_piece.props:5
 msgid "A piece of a puzzle"
-msgstr ""
+msgstr "Dílek skládačky"
 
 #: src/boss/centurion_boss.c:321
 msgid "The glass looks very weak now..."
-msgstr ""
+msgstr "Sklo teď vypadá velmi slabě..."
 
 #: src/system/error.c:53
 msgid "Press Escape to exit"
-msgstr ""
+msgstr "Stiskni Escape pro ukončení"
 
 #: data/props/item/protection_ring.props:4
 msgid "A beautiful ring"
-msgstr ""
+msgstr "Nádherný prsten"
 
 #: src/item/potions.c:213
 msgid "Normal Arrow is required"
-msgstr ""
+msgstr "Je potřeba Normální šíp"
 
 #: src/item/potions.c:247
 msgid "Created %d Flaming Arrows"
-msgstr ""
+msgstr "Vyrobeno %d ohnivých šípů"
 
 #: src/enemy/giant_snowball.c:119
 msgid "Press buttons to escape the snowball!"
-msgstr ""
+msgstr "Mačkej klávesy, aby ses vyprostil ze sněhové koule!"
 
 #: data/props/item/flaming_arrow_potion.props:6
 msgid "A potion to create flaming arrows"
-msgstr ""
+msgstr "Lektvar pro výrobu ohnivých šípů"
 
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
-msgstr ""
+msgstr "Pásovcova bodlinová koule. Vypustí bodliny po odhození"
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr ""
+msgstr "Zkus nechat Borera chytit bombu..."
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
-msgstr ""
+msgstr "Houbičky, které dočasně zpacifikují některá monstra"
 
 #: src/item/apple_tree.c:172
 msgid "It's out of apples..."
-msgstr ""
+msgstr "Jablka došla..."
 
 #: src/game.c:918
 msgid "Failed"
-msgstr ""
+msgstr "Nezdařilo se"
 
 #: src/item/mastermind_display.c:411
 msgid "Select a colour for every peg in the row"
-msgstr ""
+msgstr "Vyberte barvu pro každý čtverec v řadě"
 
 #: src/item/monster_skull.c:98
 msgid "Press Action to retrieve the Horn"
-msgstr ""
+msgstr "Stiskni Akce pro získání rohu"
 
 #: src/item/memory_match_display.c:113
 msgid "Attempts remaining: %d"
-msgstr ""
+msgstr "Zbývá pokusů: %d"
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
-msgstr ""
+msgstr "Hrnec je prázdný"
 
 #: src/enemy/frog.c:370
 msgid "Your %s has been stolen!"
-msgstr ""
+msgstr "Tvůj %s byl ukraden!"
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
-msgstr ""
+msgstr "<Prázdný>"
 
 #: data/props/item/monster_horn.props:5
 msgid "The horn from a fearsome monster"
-msgstr ""
+msgstr "Roh děsivého monstra"
 
 #: data/props/item/apple.props:5
 msgid "A delicious apple"
-msgstr ""
+msgstr "Lahodné jablko"
 
 #: data/props/item/tortoise_shell.props:5
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Magický úlomek krunýře zuřící želvy královské"
 
 #: data/props/weapon/disintegration_shield_1.props:5
 msgid "A shield that can resist disintegration"
-msgstr ""
+msgstr "Stít, který dokaže odolat disintegraci"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
-msgstr ""
+msgstr "Zkus použít jeden z artefaktů na svou obranu..."
 
 #: src/menu/main_menu.c:387
 msgid "Failed to load game"
-msgstr ""
+msgstr "Načtení hry selhalo"
 
 #: src/boss/grimlore.c:2751
 msgid "Your %s has been destroyed"
-msgstr ""
+msgstr "Tvůj %s byl zničen"
 
 #: src/boss/grimlore.c:3483
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Zpoutání funguje pouze na oslabené démony"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr ""
+msgstr "Pošle oslabeného démona zpět do jeho vlastní dimenze"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr ""
+msgstr "Hrouda silně jedovatého masa"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
-msgstr ""
+msgstr "Kus papíru"
 
 #: data/props/item/reflection_artifact.props:5
 msgid "Creates a temporary shield that reflects magic spells"
-msgstr ""
+msgstr "Vytvoří dočasný štít, který odraží magické útoky"
 
 #: data/props/item/protection_artifact.props:5
 msgid "Protects against certain attacks. Stops working if you move"
-msgstr ""
+msgstr "Chrání před určitými útoky. Přestane funogvat, pokud se pohneš"
 
 #: src/player.c:1319
 msgid "Press Attack whilst Blocking to use your shield..."
-msgstr ""
+msgstr "Stiskni Útok během blokování pro použití štítu..."
 
 #: src/game.c:918
 msgid "Play Time"
-msgstr ""
+msgstr "Herní čas"
 
 #: src/credits.c:975
 msgid "Kills"
-msgstr ""
+msgstr "Zabití"
 
 #: src/credits.c:978
 msgid "Arrows Fired"
-msgstr ""
+msgstr "Šíp vystřelen"
 
 #: src/credits.c:981
 msgid "Distanced Travelled"
-msgstr ""
+msgstr "Uražení vzdálenost"
 
 #: src/credits.c:984
 msgid "Attacks Blocked"
-msgstr ""
+msgstr "Útoků zablokováno"
 
 #: src/credits.c:987
 msgid "Time Spent As A Slime"
-msgstr ""
+msgstr "Čas strávený ve formě slizáka"
 
 #: src/credits.c:990
 msgid "Secrets Found"
-msgstr ""
+msgstr "Odhaleno tajemství"
 
 #: src/credits.c:993
 msgid "Continues"
-msgstr ""
+msgstr "Pokračování"
 
 #: src/credits.c:1049
 msgid "Defeated Bosses"
-msgstr ""
+msgstr "Porařeno bossů"
 
 #: src/credits.c:1204
 msgid "Undefeated"
-msgstr ""
+msgstr "Neporažen"
 
 #: src/credits.c:152
 msgid "Defeated"
-msgstr ""
+msgstr "Poražen"
 
 #: data/scripts/sorceror_intro_2.dat:1
 msgid "Sorceror"
-msgstr ""
+msgstr "Černokněžník"
 
 #: src/boss/sorceror_2.c:361
 msgid "Enough! Prepare to die..."
-msgstr ""
+msgstr "Dost! Připrav se na smrt..."
 
 #: src/boss/chaos.c:1278
 msgid "Quickly turn left and right to remove the hold person spell!"
-msgstr ""
+msgstr "Rychle se otáčej vlevo a vpravo pro odstranění svazovacího kouzla!"
 
 #: src/player.c:1326
 msgid "Your shield is increasing in power..."
-msgstr ""
+msgstr "Tvůj štít nabíra na síle..."
 
 #: src/menu/about_menu.c:75
 msgid "The Legend of Edgar v%0.2f"
-msgstr ""
+msgstr "Legenda o Edgarovi v%0.2f"
 
 #: src/credits.c:124
 msgid "King Grub"
-msgstr ""
+msgstr "Král červů"
 
 #: src/credits.c:125
 msgid "The Golem"
-msgstr ""
+msgstr "Golem"
 
 #: src/credits.c:126
 msgid "Queen Wasp"
-msgstr ""
+msgstr "Vosí královna"
 
 #: src/credits.c:127
 msgid "The Swamp Guardian"
-msgstr ""
+msgstr "Strážce močálu"
 
 #: src/credits.c:129
 msgid "The Blob"
-msgstr ""
+msgstr "Blob"
 
 #: src/credits.c:130
 msgid "The Watchdog"
-msgstr ""
+msgstr "Hlídací pes"
 
 #: src/credits.c:131
 msgid "The Awesome Foursome"
-msgstr ""
+msgstr "Úžasný čtyřka"
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
-msgstr ""
+msgstr "Mataeus"
 
 #: src/credits.c:133
 msgid "The Phoenix"
-msgstr ""
+msgstr "Fénix"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr ""
+msgstr "Borer"
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Evil Edgar"
-msgstr ""
+msgstr "Zlý Edgar"
 
 #: src/credits.c:136
 msgid "The Sewer Dweller"
-msgstr ""
+msgstr "Sewer Dweller"
 
 #: src/credits.c:137
 msgid "The Salamander"
-msgstr ""
+msgstr "Salamandr"
 
 #: src/credits.c:138
 msgid "The Black Book"
-msgstr ""
+msgstr "Černá kniha"
 
 #: src/credits.c:141
 msgid "The Sorceror"
-msgstr ""
+msgstr "Černokněžník"
 
 #: data/medals.dat:3
 msgid "Defeated the Sorceror"
-msgstr ""
+msgstr "Poraž černokněžníka"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
-msgstr ""
+msgstr "Poraž Chaose"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
-msgstr ""
+msgstr "Ušel 50 km"
 
 #: data/medals.dat:10
 msgid "Fired 500 arrows"
-msgstr ""
+msgstr "Vypálil 500 šípů"
 
 #: data/medals.dat:11
 msgid "Defeated 1000 enemies"
-msgstr ""
+msgstr "Porazil 1000 nepřátel"
 
 #: data/medals.dat:12
 msgid "Defeated 2000 enemies"
-msgstr ""
+msgstr "Porazil 2000 nepřátel"
 
 #: data/medals.dat:14
 msgid "Defeated the Black Book"
-msgstr ""
+msgstr "Porazil Černou knihu"
 
 #: data/medals.dat:15
 msgid "Defeated Grimlore"
-msgstr ""
+msgstr "Porazil Grimlora"
 
 #: data/medals.dat:16
 msgid "Defeated the Phoenix"
-msgstr ""
+msgstr "Porazil Fénixe"
 
 #: data/medals.dat:9
 msgid "Defeated Azriel"
-msgstr ""
+msgstr "Porazil Azriela"
 
 #: data/medals.dat:51
 msgid "Defeated the Gargoyle"
-msgstr ""
+msgstr "Porazil Gargoyla"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
-msgstr ""
+msgstr "Porazil zuřící želvu královskou"
 
 #: data/medals.dat:18
 msgid "Obtained the Lightning Sword"
-msgstr ""
+msgstr "Získal Bleskový meč"
 
 #: data/medals.dat:19
 msgid "Opened the safe in the Library"
-msgstr ""
+msgstr "Otevřel sejf v knihovně"
 
 #: data/medals.dat:20
 msgid "Located the Occult Section"
-msgstr ""
+msgstr "Našel Okultní sekci"
 
 #: data/medals.dat:22
 msgid "Met the Sorceror"
-msgstr ""
+msgstr "Potkal černokněžníka"
 
 #: data/medals.dat:23
 msgid "Obtained 10 Hit Points"
-msgstr ""
+msgstr "Získal 10 životů"
 
 #: data/medals.dat:7
 msgid "Obtained 20 Hit Points"
-msgstr ""
+msgstr "Získal 20 životů"
 
 #: data/medals.dat:24
 msgid "Rescued all of Jacob's chickens"
-msgstr ""
+msgstr "Zachránil všechny Jákobovi slepice"
 
 #: data/medals.dat:25
 msgid "Fired 250 arrows"
-msgstr ""
+msgstr "Vypálil 250 šípů"
 
 #: data/medals.dat:26
 msgid "Blocked 2000 attacks"
-msgstr ""
+msgstr "Zablokoval 2000 útoků"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "Pokračoval 20x"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
-msgstr ""
+msgstr "Utopil 20 červených netopýrů"
 
 #: data/medals.dat:29
 msgid "Escaped the Dungeon"
-msgstr ""
+msgstr "Unikl ze žaláře"
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "Byl 5x sněden"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
-msgstr ""
+msgstr "Vstoupil do zakázaného močálu"
 
 #: data/medals.dat:32
 msgid "Completed the Tutorial"
-msgstr ""
+msgstr "Dokončil tutoriál"
 
 #: data/medals.dat:33
 msgid "Obtained the Fire Shield"
-msgstr ""
+msgstr "Získal Ohnivý štít"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Dostal se do pevnosti"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
-msgstr ""
+msgstr "Porazil Golema pouze pomocí drapáků"
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
-msgstr ""
+msgstr "Porazil 100 nepřátel"
 
 #: data/medals.dat:37
 msgid "Defeated 200 enemies"
-msgstr ""
+msgstr "Porazil 200 nepřátel"
 
 #: data/medals.dat:38
 msgid "Defeated 500 enemies"
-msgstr ""
+msgstr "Porazil 500 nepřátel"
 
 #: data/medals.dat:39
 msgid "Defeated the Watchdog"
-msgstr ""
+msgstr "Porazil Hlídacího psa"
 
 #: data/medals.dat:40
 msgid "Defeated the Awesome Foursome"
-msgstr ""
+msgstr "Porazil Úžasnou čtyřku"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
-msgstr ""
+msgstr "c Bloba"
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr ""
+msgstr "Porazil Borera"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
-msgstr ""
+msgstr "Porazil Zlého Edgara"
 
 #: data/medals.dat:44
 msgid "Defeated the Queen Fly"
-msgstr ""
+msgstr "Porazil Vosí královnu"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem"
-msgstr ""
+msgstr "Porazil Golema"
 
 #: data/medals.dat:46
 msgid "Defeated the King Grub"
-msgstr ""
+msgstr "Porazil Krále červů"
 
 #: data/medals.dat:47
 msgid "Defeated Mataeus"
-msgstr ""
+msgstr "Porazil Mataeuse"
 
 #: data/medals.dat:48
 msgid "Defeated the Salamander"
-msgstr ""
+msgstr "Porazil Salamandra"
 
 #: data/medals.dat:49
 msgid "Defeated the Sewer Dweller"
-msgstr ""
+msgstr "Porazil Sewer Dwellera"
 
 #: data/medals.dat:50
 msgid "Defeated the Forbidden Swamp Guardian"
-msgstr ""
+msgstr "Porazil Strážce zakázaného močálu"
 
 #: data/medals.dat:52
 msgid "Read all of the Monster Compendium"
-msgstr ""
+msgstr "Přečetl celou encyklopedii monster"
 
 #: data/medals.dat:53
 msgid "Obtained the Amulet of Resurrection"
-msgstr ""
+msgstr "Získal Amulet vzkříšení"
 
 #: data/medals.dat:54
 msgid "Spent 10 minutes as a Slime"
-msgstr ""
+msgstr "Strávi 10 minut jako slizák"
 
 #: src/menu/medals_menu.c:135
 msgid "Hidden Medal"
-msgstr ""
+msgstr "Skrytá medaile"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
-msgstr ""
+msgstr "Zvonek"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
-msgstr ""
+msgstr "Vytvoří ukládací stanoviště na tvé aktuální pozici"
 
 #: src/player.c:2071
 msgid "Your controls have been reversed!"
-msgstr ""
+msgstr "Máš přehozené ovládání!"
 
 #: src/item/portable_save.c:82
 msgid "You cannot use this here"
-msgstr ""
+msgstr "Tohle tu nemůžeš použít"
 
 #: src/item/portable_save.c:87
 msgid "You can only use this item in an empty space"
-msgstr ""
+msgstr "Tento předmět můžeš použít pouze na volném prostranství"
 
 #: src/item/key_items.c:260
 msgid "Bell"
-msgstr ""
+msgstr "Zvonek"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
-msgstr ""
+msgstr "Notový zápis"
 
 #: src/menu/io_menu.c:125
 msgid "Choose slot to save to"
-msgstr ""
+msgstr "Vyber slot pro uložení"
 
 #: src/menu/io_menu.c:130
 msgid "Choose slot to load from"
-msgstr ""
+msgstr "Vyber slot pro nahrání"
 
 #: src/world/level_exit.c:104
 msgid "Press Action to go to %s"
-msgstr ""
+msgstr "Stiskni Akce pro přesun do %s"
 
 #: data/scripts/grasslands_intro.dat:6
 msgid "the Village"
-msgstr ""
+msgstr "Vesnice"
 
 #: data/scripts/mine2_exit.dat:1
 msgid "the Mine"
-msgstr ""
+msgstr "Důl"
 
 #: data/maps/map01.dat:1843
 msgid "the Forest"
-msgstr ""
+msgstr "Les"
 
 #: data/scripts/borgan.dat:44
 msgid "the Forbidden Swamp"
-msgstr ""
+msgstr "Zakázaný močál"
 
 #: data/scripts/cave_intro.dat:13
 msgid "the Cave"
-msgstr ""
+msgstr "Jeskyně"
 
 #: data/maps/map09.dat:10143
 msgid "the Fortress Outskirts"
-msgstr ""
+msgstr "Okolí pevnosti"
 
 #: data/scripts/power_generators_fixed.dat:10
 msgid "the Sewer"
-msgstr ""
+msgstr "Stoky"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "Pevnostní sklepení"
 
 #: data/maps/map08.dat:3418
 msgid "the Fortress Ground Floor"
-msgstr ""
+msgstr "Přízemí pevnosti"
 
 #: data/scripts/old_shield.dat:17
 msgid "the Laboratory"
-msgstr ""
+msgstr "Laboratoř"
 
 #: data/medals.dat:19
 msgid "the Library"
-msgstr ""
+msgstr "Knihovna"
 
 #: data/maps/map08.dat:12568
 msgid "the Fortress Mine"
-msgstr ""
+msgstr "Pevnostní důl"
 
 #: data/maps/map09.dat:2918
 msgid "the Armoury"
-msgstr ""
+msgstr "Zbrojnice"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr ""
+msgstr "Borerova jeskyně"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
-msgstr ""
+msgstr "Katakomby"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
-msgstr ""
+msgstr "Pracovna"
 
 #: data/medals.dat:29
 msgid "the Dungeon"
-msgstr ""
+msgstr "Žalář"
 
 #: data/maps/map19.dat:3293
 msgid "the Frozen Wastes"
-msgstr ""
+msgstr "Zamrzlé pustiny"
 
 #: data/maps/map18.dat:4918
 msgid "the Outer Cave Network"
-msgstr ""
+msgstr "Vnější jeskynní systém"
 
 #: data/maps/map19.dat:5643
 msgid "the Inner Cave Network"
-msgstr ""
+msgstr "Vnitřní jeskynní systém"
 
 #: data/maps/map09.dat:6218
 msgid "the Graveyard"
-msgstr ""
+msgstr "Hřbitov"
 
 #: data/maps/map09.dat:10018
 msgid "the Left Tower"
-msgstr ""
+msgstr "Levé věž"
 
 #: data/maps/map16.dat:1968
 msgid "the Right Tower"
-msgstr ""
+msgstr "Pravá věž"
 
 #: data/medals.dat:21
 msgid "the Crypt"
-msgstr ""
+msgstr "Krypta"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Village"
-msgstr ""
+msgstr "Vesnice"
 
 #: data/scripts/borgan.dat:28
 msgid "Mine"
-msgstr ""
+msgstr "Důl"
 
 #: data/scripts/ending_part1.dat:35
 msgid "Forest"
-msgstr ""
+msgstr "Les"
 
 #: data/scripts/borgan.dat:44
 msgid "Forbidden Swamp"
-msgstr ""
+msgstr "Zakázaný močál"
 
 #: data/scripts/swamp_intro.dat:22
 msgid "Cave"
-msgstr ""
+msgstr "Jeskyně"
 
 #: data/maps/map06.dat:1
 msgid "Fortress Outskirts"
-msgstr ""
+msgstr "Okolí pevnosti"
 
 #: data/scripts/mine2_exit.dat:5
 msgid "Sewer"
-msgstr ""
+msgstr "Stoky"
 
 #: data/maps/map08.dat:1
 msgid "Fortress Basement"
-msgstr ""
+msgstr "Pevnostní sklep"
 
 #: data/maps/map08.dat:3418
 msgid "Fortress Ground Floor"
-msgstr ""
+msgstr "Přízemí pevnosti"
 
 #: data/scripts/old_shield.dat:17
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratoř"
 
 #: src/graphics/save_png.c:25
 msgid "Library"
-msgstr ""
+msgstr "Knihovna"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "Borerova jeskyně"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
-msgstr ""
+msgstr "Katakomby"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
-msgstr ""
+msgstr "Pracovna"
 
 #: src/boss/sorceror.c:45
 msgid "Dungeon"
-msgstr ""
+msgstr "Žalář"
 
 #: data/maps/map18.dat:1
 msgid "Frozen Wastes"
-msgstr ""
+msgstr "Zamrzlé pustiny"
 
 #: data/maps/map18.dat:4918
 msgid "Outer Cave Network"
-msgstr ""
+msgstr "Vnější jeskynní systém"
 
 #: data/maps/map19.dat:5643
 msgid "Inner Cave Network"
-msgstr ""
+msgstr "Vnitřní jeskynní systém"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Graveyard"
-msgstr ""
+msgstr "Hřbitov"
 
 #: data/maps/map22.dat:1
 msgid "Left Tower"
-msgstr ""
+msgstr "Levá věž"
 
 #: data/scripts/final_battle.dat:7
 msgid "Right Tower"
-msgstr ""
+msgstr "Pravá věž"
 
 #: data/maps/map24.dat:1
 msgid "The Observatory"
-msgstr ""
+msgstr "Observatoř"
 
 #: data/scripts/graveyard_weather.dat:1
 msgid "Crypt"
-msgstr ""
+msgstr "Krypta"
 
 #: src/credits.c:695
 msgid "Copyright Parallel Realities 2009 - 2012"
-msgstr ""
+msgstr "Copyright Parallel Realities 2009 - 2012"
 
 #: src/menu/main_menu.c:170
 msgid "Restart Checkpoint"
-msgstr ""
+msgstr "Resetuj Checkpoint"
 
 #: src/menu/options_menu.c:349
 msgid "Cheats can only be enabled in-game"
-msgstr ""
+msgstr "Cheaty mohou být pouřity pouze ve hře"
 
 #: src/title.c:79
 msgid "Press any key"
-msgstr ""
+msgstr "Stiskni libovolnou klávesu"
 
 #: src/player.c:1027
 msgid "Cannot equip items whilst attacking"
-msgstr ""
+msgstr "Nemůže vybavit předmět během útočení"
 
 #: src/game.c:44
 msgid "Continue"
-msgstr ""
+msgstr "Pokračovat"
 
 #: src/menu/medals_menu.h:20
 msgid "Medals"
-msgstr ""
+msgstr "Medaile"
 
 #: src/menu/sound_menu.c:167
 msgid "Audio Quality"
-msgstr ""
+msgstr "Kvalita zvuku"
 
 #: src/menu/options_menu.c:201
 msgid "Cheats"
-msgstr ""
+msgstr "Cheaty"
 
 #: src/menu/cheat_menu.c:143
 msgid "Infinite Health"
-msgstr ""
+msgstr "Nekonečné zdraví"
 
 #: src/menu/cheat_menu.c:149
 msgid "Infinite Arrows"
-msgstr ""
+msgstr "Nekonečně šípů"
 
 #: src/menu/cheat_menu.c:155
 msgid "Lava is fatal"
-msgstr ""
+msgstr "Láva je smrtelná"
 
 #: src/menu/control_menu.c:145
 msgid "Use Up and Down to select. Enter to change."
-msgstr ""
+msgstr "Použij šipky pro vybrání. Stiskni Enter pro změnu"
 
 #: src/menu/control_menu.c:189
 msgid "Interact"
-msgstr ""
+msgstr "Interakce"
 
 #: data/scripts/safe_instructions.dat:1
 msgid "Use"
-msgstr ""
+msgstr "Použít"
 
 #: src/menu/control_menu.c:527
 msgid "Please configure all controls"
-msgstr ""
+msgstr "Nastav si ovládání"
 
 #: src/boss/blob_boss.c:1429
 msgid "Quickly turn left and right to shake off the pieces!"
-msgstr ""
+msgstr "Rychle se otáčej vlevo a vpravo pro setřesení kousků!"
 
 #: data/scripts/azriel_start.dat:19
 msgid "Azriel"
-msgstr ""
+msgstr "Azriel"
 
 #: src/boss/azriel.c:2303
 msgid "Until we meet again..."
-msgstr ""
+msgstr "Dokud se znovu nesetkáme..."
 
 #: data/props/item/keepsake.props:4
 msgid "Ivan's keepsake"
-msgstr ""
+msgstr "Pozůstalost po Ivanovi"
 
 #: src/inventory.c:364
 msgid "Selected %s"
-msgstr ""
+msgstr "%s vybrán"
 
 #: src/player.c:2966
 msgid "Press buttons to break the petrification!"
-msgstr ""
+msgstr "Mačkej klávesy, aby ses zbavil zkamenění"
 
 #: data/medals.dat:4
 msgid "Completed the game with only 5 hit points"
-msgstr ""
+msgstr "Dokončil hru pouze s 5ti životy"
 
 #: data/medals.dat:13
 msgid "Completed the game without continuing"
-msgstr ""
+msgstr "Dokončil hru bez pokračování"
 
 #: data/medals.dat:21
 msgid "Accessed the Crypt"
-msgstr ""
+msgstr "Vstoupil do krypty"
 
 #: src/boss/mini_gargoyle.c:203
 msgid "Quickly turn left and right to shake off the miniature gargoyles!"
-msgstr ""
+msgstr "Rychle se otáčej vlevo a vpravo pro setřesení miniaturních gargoylů!"
 
 #: data/medals.dat:6
 msgid "Dragon Shield"
-msgstr ""
+msgstr "Dračí štít"
 
 #: data/props/weapon/dragon_shield.props:6
 msgid "A shield that can resist dragon breath"
-msgstr ""
+msgstr "Štít který dokáže odolat dračímu dechu"
 
 #: src/game.c:870
 msgid ""
 "SMALL_FONT_SIZE and LARGE_FONT_SIZE must be specified when using a custom "
 "font"
 msgstr ""
+"MALL_FONT_SIZE a LARGE_FONT_SIZE musí být specifikovány při použití "
+"vlastních fontů"
 
 #: src/menu/options_menu.c:354
 msgid ""
 "Enabling cheats will not allow you to achieve 100% completion in the game"
-msgstr ""
+msgstr "Použití cheatů ti nedovolí dokončit hru na 100%"
 
 #: src/boss/evil_edgar.c:204
 msgid ""
 "You got into the machine by yourself?! You're even stupider than I thought "
 "you were!"
 msgstr ""
+"Ty jsi vlezl do toho stroje jen tak?! Jsi ještě hloupejší, než jsem si "
+"myslel!"
 
 #: src/boss/chaos.c:379
 msgid "Stalagmite"
-msgstr ""
+msgstr "Stalagmit"
 
 #: src/boss/chaos.c:563
 msgid "Stalagtite"
-msgstr ""
+msgstr "Stalagtit"
 
 #: src/boss/chaos.c:708
 msgid "Burn to ashes!"
-msgstr ""
+msgstr "Shoř na popel!"
 
 #: src/boss/chaos.c:712
 msgid "Feel my power!"
-msgstr ""
+msgstr "Pociť mou sílu!"
 
 #: src/boss/chaos.c:716
 msgid "Suffer!"
-msgstr ""
+msgstr "Trp!"
 
 #: src/boss/chaos.c:908
 msgid "Pathetic"
-msgstr ""
+msgstr "Ubohý"
 
 #: src/boss/chaos.c:921
 msgid "Impale"
-msgstr ""
+msgstr "Narazit"
 
 #: src/player.c:2004
 msgid "Confuse"
-msgstr ""
+msgstr "Zmatení"
 
 #: src/boss/chaos.c:1097
 msgid "Darkness"
-msgstr ""
+msgstr "Temnota"
 
 #: src/boss/chaos.c:1156
 msgid "Hold Person"
-msgstr ""
+msgstr "Drž osobu"
 
 #: data/props/weapon/legendary_sword.props:6
 msgid "A Sword of Legend"
-msgstr ""
+msgstr "Meč legendy"
 
 #: data/props/weapon/phantasmal_shield.props:6
 msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
+"Odraží nadpřirozené síly. Zablokování na poslední chvíli zvětší sílu útoku."
 
 #: src/credits.c:577
 msgid "Chaos has been subdued"
-msgstr ""
+msgstr "Chaos byl pokořen"
 
 #: src/credits.c:579
 msgid "For now..."
-msgstr ""
+msgstr "Pro tentokrát..."
 
 #: src/credits.c:584
 msgid "Chaos will soon be free"
-msgstr ""
+msgstr "Chaos bude brzy svobodný"
 
 #: src/credits.c:586
 msgid "To terrorise the world once again"
-msgstr ""
+msgstr "Aby opět terorizoval svět"
 
 #: data/scripts/monsters.dat:22
 msgid ""
 "If that dragon is regaining its power then it must be stopped before it's "
 "too late"
 msgstr ""
+"Pokud drak sbírá svou sílu, musí být zastaven dřív, než bude moc pozdě"
 
 #: data/scripts/gold_centurion.dat:2
 msgid "I'll find something else to work the treadmill for me"
-msgstr ""
+msgstr "Najdu něco jiného, co bude běžet na páse místo mě"
 
 #: data/scripts/chaos_die.dat:4
 msgid "Once again, I have been bested"
-msgstr ""
+msgstr "Znovu jsem byl přemožen"
 
 #: data/scripts/chaos_die.dat:5
 msgid "A worthy opponent deserves a weapon worthy of themselves"
-msgstr ""
+msgstr "Důstojný soupeř si zasluhuje důstojnou zbraň"
 
 #: data/scripts/chaos_die.dat:6
 msgid "I bestow upon you this sword"
-msgstr ""
+msgstr "Propůjčuji ti tento meč"
 
 #: data/scripts/chaos_die.dat:9
 msgid "Even if it takes another 100 years, I will be free"
-msgstr ""
+msgstr "I kdyby to mělo trvat dalších sto let, jednou budu opět svobodný"
