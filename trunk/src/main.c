@@ -52,7 +52,6 @@ Control control;
 int main(int argc, char *argv[])
 {
 	unsigned int frameLimit;
-	char *firstMap;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
 	int joystick, showCredits;
 
@@ -78,7 +77,7 @@ int main(int argc, char *argv[])
 
 	joystick = 0;
 
-	showCredits = 0;
+	showCredits = FALSE;
 
 	/* Load the resources */
 
@@ -165,12 +164,12 @@ int main(int argc, char *argv[])
 
 	init(_("The Legend of Edgar"), joystick);
 
+	loadRequiredResources();
+
 	if (replayingID != -1 && recordingID != -1)
 	{
 		showErrorAndExit("Cannot record and replay at the same time");
 	}
-
-	loadRequiredResources();
 
 	#if DEV == 0
 		verifyVersion();
@@ -184,18 +183,18 @@ int main(int argc, char *argv[])
 
 	if (loadSlot == -1)
 	{
-		firstMap = game.firstRun == TRUE ? "tutorial" : "map01";
-
 		if (recordingID != -1)
 		{
 			setRecordData(argv[recordingID]);
 
-			setMapFile(mapID == -1 ? firstMap : argv[mapID]);
+			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
 		}
 
 		else if (replayingID != -1)
 		{
 			setReplayData(argv[replayingID], TRUE);
+
+			setMapFile(mapID == -1 ? "map01" : argv[mapID]);
 		}
 
 		if (mapID != -1)
