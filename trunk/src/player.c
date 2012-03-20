@@ -2596,15 +2596,15 @@ static void playerWait()
 
 Entity *removePlayerWeapon()
 {
-	Entity *weapon, *e;
+	Entity *e;
 
 	if (playerWeapon.inUse == TRUE)
 	{
-		weapon = getInventoryItemByObjectiveName(playerWeapon.objectiveName);
+		removeInventoryItemByObjectiveName(playerWeapon.objectiveName);
 
-		e = addEntity(*weapon, self->x, self->y);
-
-		removeInventoryItemByObjectiveName(weapon->objectiveName);
+		e = addPermanentItem(playerWeapon.name, self->x, self->y);
+		
+		e->mental = playerWeapon.mental;
 
 		playerWeapon.inUse = FALSE;
 	}
@@ -2619,15 +2619,15 @@ Entity *removePlayerWeapon()
 
 Entity *removePlayerShield()
 {
-	Entity *shield, *e;
+	Entity *e;
 
 	if (playerShield.inUse == TRUE)
 	{
-		shield = getInventoryItemByObjectiveName(playerShield.objectiveName);
+		removeInventoryItemByObjectiveName(playerShield.objectiveName);
 
-		e = addEntity(*shield, self->x, self->y);
+		e = addPermanentItem(playerShield.name, self->x, self->y);
 
-		removeInventoryItemByObjectiveName(shield->objectiveName);
+		e->health = playerShield.health;
 
 		playerShield.inUse = FALSE;
 	}

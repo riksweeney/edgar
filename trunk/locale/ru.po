@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-18 12:00+0000\n"
+"PO-Revision-Date: 2012-03-19 14:33+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-18 14:41+0000\n"
-"X-Generator: Launchpad (build 14951)\n"
+"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
+"X-Generator: Launchpad (build 14969)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -3367,8 +3367,8 @@ msgid ""
 "But seriously, there's nothing in there that can really harm you. That "
 "problem was dealt with a long time ago..."
 msgstr ""
-"А если серьезно, там ничего нет, что может тебе навредить. That problem was "
-"dealt with a long time ago..."
+"А если серьёзно, там ничего нет, что может тебе навредить. Проблемы бывали "
+"очень давно..."
 
 #: data/scripts/jacob.dat:49
 msgid "Good luck!"
@@ -5790,11 +5790,11 @@ msgstr ""
 
 #: src/boss/evil_edgar.c:887
 msgid "Die!"
-msgstr ""
+msgstr "Умри!"
 
 #: src/boss/evil_edgar.c:983
 msgid "Arghh! My eyes!"
-msgstr ""
+msgstr "Ах! Мои глаза!"
 
 #: data/props/item/spanner.props:6
 msgid "A spanner"
@@ -5806,15 +5806,15 @@ msgstr ""
 
 #: data/props/item/resurrection_amulet.props:5
 msgid "Automatically brings you back to life once if you die"
-msgstr ""
+msgstr "Самостоятельно и всего один раз воскрешает в случае гибели."
 
 #: src/item/potions.c:247
 msgid "Flaming Arrows"
-msgstr ""
+msgstr "Огненные Стрелы"
 
 #: data/props/weapon/fire_shield.props:6
 msgid "A shield that can resist fire"
-msgstr ""
+msgstr "Огненный Щит"
 
 #: src/item/jigsaw_puzzle.c:98
 msgid "Solve the jigsaw puzzle"
@@ -5854,7 +5854,7 @@ msgstr ""
 
 #: data/props/item/flaming_arrow_potion.props:6
 msgid "A potion to create flaming arrows"
-msgstr ""
+msgstr "Зелье создания огненных стрел"
 
 #: data/props/item/spike_ball.props:5
 msgid "An Armadillo Spike Ball. Scatters spikes when thrown"
@@ -5862,7 +5862,7 @@ msgstr ""
 
 #: src/boss/borer_boss.c:498
 msgid "Try getting the Borer to grab a bomb..."
-msgstr ""
+msgstr "Попытайтесь использовать Червя как бомбу"
 
 #: data/props/item/spores.props:5
 msgid "Spores that will make certain monsters temporarily harmless"
@@ -5870,7 +5870,7 @@ msgstr ""
 
 #: src/item/apple_tree.c:172
 msgid "It's out of apples..."
-msgstr ""
+msgstr "Это из яблок..."
 
 #: src/game.c:918
 msgid "Failed"
@@ -5938,7 +5938,7 @@ msgstr ""
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
-msgstr ""
+msgstr "Кусок чрезвычайно ядовитого мяса"
 
 #: data/scripts/correct_combination.dat:4
 msgid "Scrap of Paper"
@@ -6050,7 +6050,7 @@ msgstr ""
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
-msgstr ""
+msgstr "Матаёус"
 
 #: src/credits.c:133
 msgid "The Phoenix"
@@ -6058,7 +6058,7 @@ msgstr "Феникс"
 
 #: src/credits.c:134
 msgid "The Borer"
-msgstr ""
+msgstr "Червь"
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Evil Edgar"
@@ -6194,7 +6194,7 @@ msgstr "Добыт Огненный Щит"
 
 #: data/medals.dat:34
 msgid "Got to the Fortress"
-msgstr ""
+msgstr "Достиг Крепости"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
@@ -6226,7 +6226,7 @@ msgstr ""
 
 #: data/medals.dat:42
 msgid "Defeated the Borer"
-msgstr ""
+msgstr "Победил Червя"
 
 #: data/medals.dat:43
 msgid "Defeated Evil Edgar"
@@ -6246,7 +6246,7 @@ msgstr "Победить Короля-Личинку"
 
 #: data/medals.dat:47
 msgid "Defeated Mataeus"
-msgstr ""
+msgstr "Победил Матаёуса"
 
 #: data/medals.dat:48
 msgid "Defeated the Salamander"
@@ -6346,7 +6346,7 @@ msgstr "Канализация"
 
 #: data/maps/map09.dat:5943
 msgid "the Fortress Basement"
-msgstr ""
+msgstr "Подвал Крепости"
 
 #: data/maps/map08.dat:3418
 msgid "the Fortress Ground Floor"
@@ -6370,7 +6370,7 @@ msgstr "Оружейная"
 
 #: data/maps/map15.dat:1868
 msgid "the Borer Cave"
-msgstr ""
+msgstr "пещера Червя"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "the Catacombs"
@@ -6458,7 +6458,7 @@ msgstr "Библиотека"
 
 #: data/maps/map15.dat:1868
 msgid "Borer Cave"
-msgstr ""
+msgstr "Пещера Червя"
 
 #: data/scripts/borer_boss_die.dat:4
 msgid "Catacombs"
@@ -6714,7 +6714,7 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:4
 msgid "Once again, I have been bested"
-msgstr ""
+msgstr "И снова я был побеждён"
 
 #: data/scripts/chaos_die.dat:5
 msgid "A worthy opponent deserves a weapon worthy of themselves"

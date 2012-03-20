@@ -41,6 +41,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../system/error.h"
 #include "../system/properties.h"
 #include "../system/random.h"
+#include "../world/target.h"
 
 extern Entity *self, player;
 extern Game game;

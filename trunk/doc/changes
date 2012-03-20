@@ -6,6 +6,7 @@ Version 0.99
 * Added the final boss
 * The Watchdog no longer occasionally freezes after charging at Edgar
 * The secret wall in the Crypt can now be destroyed
+* The Lightning Sword charges are no longer reset to 10 when an enemy steals it
 * The Black Book now turns into the Gargoyle rather than the Golem
 * Fixed a bug in the cutscene when fixing the power generators
 * Fixed a potential crash when changing maps from the Outskirts to the Fortress
