@@ -66,7 +66,7 @@ Entity *addSplitter(int x, int y, char *name)
 	e->touch = &entityTouch;
 	e->takeDamage = &takeDamage;
 	e->fallout = &entityDie;
-	
+
 	e->creditsAction = &largeCreditsMove;
 
 	e->type = ENEMY;
@@ -187,6 +187,14 @@ static void bounceAround()
 		}
 	}
 
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->dirX = self->face == LEFT ? 2 : -2;
+		}
+	}
+
 	checkToMap(self);
 }
 
@@ -259,6 +267,14 @@ static void mediumBounceAround()
 			self->thinkTime--;
 
 			self->mental--;
+		}
+	}
+
+	else
+	{
+		if (self->dirX == 0)
+		{
+			self->dirX = self->face == LEFT ? 2 : -2;
 		}
 	}
 
@@ -413,7 +429,7 @@ static void takeDamage(Entity *other, int damage)
 			e->dirY /= 10;
 
 			e->flags |= DO_NOT_PERSIST;
-			
+
 			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
@@ -494,7 +510,7 @@ static void mediumTakeDamage(Entity *other, int damage)
 			e->dirY /= 10;
 
 			e->flags |= DO_NOT_PERSIST;
-			
+
 			playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 			self->inUse = FALSE;
@@ -596,7 +612,7 @@ static void largeCreditsMove()
 {
 	float dirX;
 	Entity *e;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -608,7 +624,7 @@ static void largeCreditsMove()
 			self->dirX = 3;
 
 			self->thinkTime = 30 + prand() % 30;
-			
+
 			if (prand() % 3 == 0)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
@@ -618,17 +634,17 @@ static void largeCreditsMove()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
-			
+
 			self->mental++;
-			
+
 			if (self->mental == 5)
 			{
 				e = addSplitterMedium(self->x, self->y, "enemy/splitter_medium");
 
 				e->creditsAction = &mediumCreditsMove;
-				
+
 				e->mental = 3 + prand() % 8;
-														  
+
 				e->x += self->w / 2 - e->w / 2;
 				e->y += self->h / 2 - e->h / 2;
 
@@ -641,7 +657,7 @@ static void largeCreditsMove()
 				e = addSplitterMedium(self->x, self->y, "enemy/splitter_medium");
 
 				e->creditsAction = &mediumCreditsMove;
-				
+
 				e->mental = 3 + prand() % 8;
 
 				e->x += self->w / 2 - e->w / 2;
@@ -652,7 +668,7 @@ static void largeCreditsMove()
 
 				e->dirX /= 10;
 				e->dirY /= 10;
-				
+
 				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
@@ -664,11 +680,11 @@ static void largeCreditsMove()
 			self->thinkTime--;
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -679,7 +695,7 @@ static void mediumCreditsMove()
 {
 	float dirX;
 	Entity *e;
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		self->dirX = 0;
@@ -691,7 +707,7 @@ static void mediumCreditsMove()
 			self->dirX = 3;
 
 			self->thinkTime = 30 + prand() % 30;
-			
+
 			if (prand() % 3 == 0)
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump2.ogg", -1, self->x, self->y, 0);
@@ -701,9 +717,9 @@ static void mediumCreditsMove()
 			{
 				playSoundToMap("sound/enemy/jumping_slime/jump1.ogg", -1, self->x, self->y, 0);
 			}
-			
+
 			self->mental--;
-			
+
 			if (self->mental <= 0)
 			{
 				e = addSplitterSmall(self->x, self->y, "enemy/splitter_small");
@@ -731,7 +747,7 @@ static void mediumCreditsMove()
 
 				e->dirX /= 10;
 				e->dirY /= 10;
-				
+
 				playSoundToMap("sound/common/pop.ogg", -1, self->x, self->y, 0);
 
 				self->inUse = FALSE;
@@ -743,11 +759,11 @@ static void mediumCreditsMove()
 			self->thinkTime--;
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;
@@ -758,13 +774,13 @@ static void smallCreditsMove()
 {
 	float dirX;
 	long onGround = (self->flags & ON_GROUND);
-	
+
 	self->face = RIGHT;
 
 	if (self->flags & ON_GROUND)
 	{
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			if (prand() % 3 == 0)
@@ -784,11 +800,11 @@ static void smallCreditsMove()
 			self->dirX = (prand() % 2 + 2) * (self->face == LEFT ? -1 : 1);
 		}
 	}
-	
+
 	dirX = self->dirX;
 
 	checkToMap(self);
-	
+
 	if (self->dirX == 0 && dirX != 0)
 	{
 		self->inUse = FALSE;

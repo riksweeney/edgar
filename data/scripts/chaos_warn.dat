@@ -27,6 +27,7 @@ IF CONFIRM_NO
 WAIT 30
 SHOW_CONFIRM You fool. Do you truly seek destruction?
 IF CONFIRM_YES
+WAIT 30
 TALK ??? Then I shall destroy you!!
 FOLLOW NONE
 TELEPORT EDGAR 20638 10855
