@@ -895,9 +895,11 @@ static void stalactiteFall()
 
 static void breatheFireInit()
 {
+	setEntityAnimation(self, "BREATHE_IN");
+	
 	self->thinkTime = 240;
 
-	playSoundToMap("sound/boss/chaos/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);
+	/*playSoundToMap("sound/boss/chaos/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);*/
 
 	self->action = &breatheIn;
 
@@ -917,13 +919,23 @@ static void breatheIn()
 		self->action = &breatheFire;
 	}
 
-	e = addSmoke(self->endX + (prand() % (SCREEN_WIDTH / 2)), self->y, "decoration/dust");
+	e = addSmoke(0, 0, self->y + self->h, "decoration/dust");
 
 	if (e != NULL)
 	{
-		e->y += prand() % self->h;
+		if (self->face == LEFT)
+		{
+			e->x = self->x + self->w - e->w - self->offsetX;
+		}
 
-		calculatePath(e->x, e->y, self->x + self->w / 2, self->y + self->h / 2, &e->dirX, &e->dirY);
+		else
+		{
+			e->x = self->x + self->offsetX;
+		}
+
+		e->y = self->y + self->offsetY;
+
+		calculatePath(e->x, e->y, self->x + self->w / 2, e->y, &e->dirX, &e->dirY);
 
 		e->dirX *= 6;
 		e->dirY *= 6;
