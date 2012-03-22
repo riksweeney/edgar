@@ -69,6 +69,7 @@ static void energyMoveToRift(void);
 static void stalactiteAttackInit(void);
 static void stalactiteAttack(void);
 static void stalactiteFall(void);
+static void stalactiteDie(void);
 static void stalagmiteAttackInit(void);
 static void stalagmiteAttack(void);
 static void stalagmiteRise(void);
@@ -144,7 +145,13 @@ static void initialise()
 {
 	if (self->active == TRUE)
 	{
-		self->action = &breatheFireInit;
+		setContinuePoint(FALSE, self->name, NULL);
+
+		initBossHealthBar();
+
+		self->thinkTime = 60;
+
+		self->action = &entityWait;
 	}
 
 	checkToMap(self);
@@ -226,6 +233,8 @@ static void entityWait()
 			{
 				self->action = &breatheFireInit;
 			}
+
+			self->action = &stalactiteAttackInit;
 		}
 	}
 
@@ -672,7 +681,7 @@ static void stalagmiteAttack()
 
 		e->takeDamage = &stalagmiteTakeDamage;
 
-		e->die = &entityDieNoDrop;
+		e->die = &stalactiteDie;
 
 		e->head = self;
 
@@ -750,6 +759,11 @@ static void stalagmiteRise()
 
 static void stalagmiteWait()
 {
+	if (self->head->health <= 0)
+	{
+		self->die();
+	}
+
 	checkToMap(self);
 }
 
@@ -855,6 +869,8 @@ static void stalactiteAttack()
 
 		e->draw = &drawLoopingAnimationToMap;
 
+		e->die = &stalactiteDie;
+
 		e->head = self;
 
 		e->face = self->face;
@@ -889,17 +905,42 @@ static void stalactiteFall()
 
 	if (self->flags & ON_GROUND)
 	{
-		self->inUse = FALSE;
+		self->die();
 	}
+}
+
+static void stalactiteDie()
+{
+	Entity *e;
+
+	playSoundToMap("sound/common/crumble.ogg", -1, self->x, self->y, 0);
+
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = -3;
+	e->dirY = -8;
+
+	e = addSmallRock(self->x, self->y, "common/small_rock");
+
+	e->x += (self->w - e->w) / 2;
+	e->y += (self->h - e->h) / 2;
+
+	e->dirX = 3;
+	e->dirY = -8;
+
+	self->inUse = FALSE;
 }
 
 static void breatheFireInit()
 {
 	setEntityAnimation(self, "BREATHE_IN");
-	
+
 	self->thinkTime = 240;
 
-	/*playSoundToMap("sound/boss/chaos/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);*/
+	playSoundToMap("sound/boss/chaos/breathe_in.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
 	self->action = &breatheIn;
 
@@ -935,7 +976,13 @@ static void breatheIn()
 
 		e->y = self->y + self->offsetY;
 
-		calculatePath(e->x, e->y, self->x + self->w / 2, e->y, &e->dirX, &e->dirY);
+		e->targetX = e->x;
+		e->targetY = e->y;
+
+		e->x += (128 + prand() % 128) * (self->face == LEFT ? -1 : 1);
+		e->y += (prand() % 16) * (prand() % 2 == 0 ? -1 : 1);
+
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->dirX *= 6;
 		e->dirY *= 6;
@@ -1110,8 +1157,6 @@ static void flameWait()
 
 	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
-		self->head->maxThinkTime = 0;
-
 		self->inUse = FALSE;
 	}
 }
@@ -1300,6 +1345,8 @@ static void confuseAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		fadeFromColour(0, 200, 0, 30);
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -1322,6 +1369,8 @@ static void confuseAttack()
 
 		e->mental = 1;
 
+		e->head = self;
+
 		setPlayerConfused(e->thinkTime);
 
 		self->action = &attackFinished;
@@ -1336,7 +1385,7 @@ static void confuseSpellWait()
 {
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		self->inUse = FALSE;
 	}
@@ -1359,6 +1408,8 @@ static void blindAttack()
 
 	if (self->thinkTime <= 0)
 	{
+		fadeFromColour(0, 0, 0, 30);
+
 		e = getFreeEntity();
 
 		if (e == NULL)
@@ -1381,6 +1432,8 @@ static void blindAttack()
 
 		e->mental = 2;
 
+		e->head = self;
+
 		setDarkMap(TRUE);
 
 		self->action = &attackFinished;
@@ -1395,7 +1448,7 @@ static void blindSpellWait()
 {
 	self->thinkTime--;
 
-	if (self->thinkTime <= 0)
+	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		setDarkMap(FALSE);
 
@@ -1445,6 +1498,8 @@ static void holdPerson()
 		e->action = &holdPersonSpellMove;
 
 		e->draw = &drawLoopingAnimationToMap;
+
+		e->head = self;
 
 		self->mental--;
 
@@ -1525,19 +1580,16 @@ static void holdPersonSpellMove()
 
 	else
 	{
-		if (self->mental == 3)
-		{
-			setInfoBoxMessage(0, 255, 255, 255, _("Quickly turn left and right to remove the hold person spell!"));
-		}
-
 		if (self->face != player.face)
 		{
 			self->face = player.face;
 
 			self->health--;
 
-			if (self->health <= 0)
+			if (self->health <= 0 || self->head->health <= 0)
 			{
+				self->health = 0;
+
 				setEntityAnimation(self, "LEFT_PIECE");
 
 				self->layer = FOREGROUND_LAYER;
@@ -1769,6 +1821,11 @@ static void spearWait()
 			self->action = &spearRise;
 		}
 	}
+
+	if (self->head->health <= 0 && self->y == self->endY)
+	{
+		self->inUse = FALSE;
+	}
 }
 
 static void spearSink()
@@ -1866,6 +1923,10 @@ static void die()
 {
 	setEntityAnimation(self, "DIE_1");
 
+	self->animationCallback = NULL;
+
+	activateEntitiesWithObjectiveName("CHAOS_VINES", FALSE);
+
 	if (self->flags & GRABBING)
 	{
 		self->touch = &entityTouch;
@@ -1890,6 +1951,8 @@ static void die()
 	self->takeDamage = NULL;
 
 	self->action = &dieWait;
+
+	fadeOutMusic(3000);
 
 	checkToMap(self);
 }
@@ -1923,7 +1986,7 @@ static void dieWait()
 
 			setEntityAnimation(self, "DIE_2");
 
-			self->thinkTime = 60;
+			self->thinkTime = 120;
 		}
 
 		else

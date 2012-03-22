@@ -144,7 +144,7 @@ typedef struct Map
 	int playerMinX, playerMaxX;
 	int tile[MAX_MAP_Y][MAX_MAP_X];
 	int hasAmbience, backgroundStartX[2], backgroundStartY[2];
-	int wrapX[2], wrapY[2], waterBackgroundTile;
+	int wrapX[2], wrapY[2];
 	float backgroundSpeed[2], cameraSpeed;
 	float cameraX, cameraY;
 	AnimTile *animTile;

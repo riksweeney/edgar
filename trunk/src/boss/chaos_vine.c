@@ -102,6 +102,16 @@ static void entityWait()
 		}
 	}
 
+	else
+	{
+		if (self->y > self->startY)
+		{
+			self->touch = NULL;
+
+			self->action = &vineMoveUp;
+		}
+	}
+
 	checkToMap(self);
 }
 
