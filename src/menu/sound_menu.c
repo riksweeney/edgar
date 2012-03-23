@@ -373,7 +373,7 @@ static char *getVolumePercent(int volume)
 
 	if (text == NULL)
 	{
-		showErrorAndExit("Failed to allocate a whole 3 bytes for a volume label");
+		showErrorAndExit("Failed to allocate a whole 3 bytes for a Volume label");
 	}
 
 	snprintf(text, 3, "%d", volume);

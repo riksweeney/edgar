@@ -55,13 +55,7 @@ int main(int argc, char *argv[])
 	int go, i, mapID, loadSlot, recordingID, replayingID;
 	int joystick, showCredits;
 
-	#ifndef NO_GETTEXT
-		printf("Locale is %s\n", setlocale(LC_ALL, ""));
-		printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
-		printf("atof(2.75) is %f\n", atof("2.75"));
-		textdomain("edgar");
-		bindtextdomain("edgar", LOCALE_DIR);
-	#endif
+	setLocale();
 
 	/* Call the cleanup function when the program exits */
 

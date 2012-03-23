@@ -84,11 +84,11 @@ void init(char *title, int joystickNum)
 	}
 
 	joysticks = game.disableJoystick == TRUE ? 0 : SDL_NumJoysticks();
-	
+
 	if (joysticks > 0 && (joystickNum < 0 || joystickNum >= joysticks))
 	{
 		printf("Joystick %d is not a valid joystick. Joysticks will be disabled\n", joystickNum);
-		
+
 		joysticks = 0;
 	}
 
@@ -122,10 +122,76 @@ void init(char *title, int joystickNum)
 	/* Init the PAK file */
 
 	initPakFile();
-	
+
 	/* Init the medals */
 
 	initMedals();
+}
+
+void setLocale()
+{
+	#ifndef NO_GETTEXT
+		char locale[MAX_FILE_LENGTH], c[MAX_FILE_LENGTH], *lang;
+		int i;
+
+		locale[0] = '\0';
+		c[0]      = '\0';
+
+		lang = NULL;
+
+		#ifdef _WIN32
+			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_FILE_LENGTH);
+
+			if (c[0] != '\0')
+			{
+				STRNCPY(locale, c, MAX_FILE_LENGTH);
+			}
+
+			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_FILE_LENGTH);
+
+			if (c[0] != '\0')
+			{
+				strncat(locale, "_", MAX_FILE_LENGTH - strlen(locale) - 1);
+
+				strncat(locale, c, MAX_FILE_LENGTH - strlen(locale) - 1);
+			}
+		#else
+			lang = getenv("LANG");
+
+			if (lang != NULL)
+			{
+				STRNCPY(locale, lang, MAX_FILE_LENGTH);
+			}
+
+			if (strlen(locale) < 2)
+			{
+				lang = getenv("LC_ALL");
+
+				if (lang != NULL)
+				{
+					STRNCPY(locale, lang, MAX_FILE_LENGTH);
+				}
+			}
+		#endif
+
+		printf("Got %s from environment\n", locale);
+
+		if (strstr(locale, ".") != NULL)
+		{
+			lang = strtok(locale, ".");
+		}
+
+		else
+		{
+			lang = locale;
+		}
+
+		printf("Locale is %s\n", setlocale(LC_ALL, lang));
+		printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
+		printf("atof(2.75) is %f\n", atof("2.75"));
+		textdomain("edgar");
+		bindtextdomain("edgar", LOCALE_DIR);
+	#endif
 }
 
 void toggleFullScreen()

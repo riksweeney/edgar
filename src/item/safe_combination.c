@@ -56,7 +56,7 @@ Entity *addSafeCombination(int x, int y, char *name)
 	e->draw = &drawLoopingAnimationToMap;
 
 	e->touch = &touch;
-	
+
 	e->activate = &activate;
 
 	e->active = FALSE;
@@ -89,14 +89,14 @@ static void touch(Entity *other)
 				snprintf(combination, sizeof(combination), "%s%d%s", self->requires, unit, dir == 0 ? "L" : "R");
 
 				STRNCPY(self->requires, combination, sizeof(self->requires));
-				
+
 				dir = dir == 1 ? 0 : 1;
 			}
-			
+
 			self->activate(1);
 		}
 	}
-	
+
 	keyItemTouch(other);
 }
 
@@ -104,43 +104,43 @@ static void activate(int val)
 {
 	char combination[MAX_VALUE_LENGTH], turns[5];
 	int i, j;
-	
+
 	j = 0;
-	
+
 	combination[0] = '\0';
-	
+
 	for (i=0;i<strlen(self->requires);i++)
 	{
 		if (isdigit(self->requires[i]))
 		{
 			turns[j++] = self->requires[i];
-			
+
 			turns[j] = '\0';
 		}
-		
+
 		else
 		{
 			val = atoi(turns);
-			
+
 			if (strlen(combination) == 0)
 			{
 				snprintf(self->description, sizeof(self->description), "%d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
 			}
-			
+
 			else
 			{
 				snprintf(self->description, sizeof(self->description), ", %d %s", val, self->requires[i] == 'L' ? _("Left") : _("Right"));
 			}
-			
-			strncat(combination, self->description, sizeof(combination));
-			
+
+			strncat(combination, self->description, MAX_MESSAGE_LENGTH - strlen(combination) - 1);
+
 			j = 0;
-			
+
 			turns[j] = '\0';
 		}
 	}
 
 	STRNCPY(self->description, combination, sizeof(self->description));
-	
+
 	snprintf(self->description, sizeof(self->description), _("A scrap of paper. \"%s\" is written on it"), combination);
 }

@@ -113,7 +113,7 @@ void addGlobalTriggerFromResource(char *key[], char *value[])
 static void addGlobalTrigger(char *triggerName, int count, int total, int targetType, char *targetName)
 {
 	int i, j;
-	
+
 	if (strcmpignorecase(targetName, "Create a Disintegration Shield") == 0)
 	{
 		return;
@@ -227,13 +227,13 @@ void fireGlobalTrigger(char *name)
 void removeGlobalTrigger(char *name)
 {
 	int i;
-	
+
 	for (i=0;i<MAX_TRIGGERS;i++)
 	{
 		if (trigger[i].inUse == TRUE && strcmpignorecase(trigger[i].triggerName, name) == 0)
 		{
 			trigger[i].inUse = FALSE;
-			
+
 			break;
 		}
 	}
@@ -280,13 +280,13 @@ SDL_Surface *listObjectives()
 			{
 				snprintf(message, MAX_MESSAGE_LENGTH, "%s (%d / %d)\n ", _(trigger[i].targetName), trigger[i].count, trigger[i].total);
 			}
-			
+
 			else
 			{
 				snprintf(message, MAX_MESSAGE_LENGTH, "%s\n ", _(trigger[i].targetName));
 			}
 
-			strncat(allMessages, message, (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - 1);
+			strncat(allMessages, message, (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - strlen(allMessages) - 1);
 		}
 	}
 
@@ -299,7 +299,7 @@ SDL_Surface *listObjectives()
 
 	if (strlen(allMessages) == 0)
 	{
-		strncat(allMessages, _("No Objectives"), (MAX_MESSAGE_LENGTH * MAX_TRIGGERS) - 1);
+		STRNCPY(allMessages, _("No Objectives"), MAX_MESSAGE_LENGTH * MAX_TRIGGERS);
 	}
 
 	image = createDialogBox(NULL, allMessages);

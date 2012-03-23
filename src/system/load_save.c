@@ -50,7 +50,7 @@ static void showPatchMessage(char *);
 
 extern Game game;
 
-#ifndef WIN32
+#ifndef _WIN32
 	void setupUserHomeDirectory()
 	{
 		char *userHome;
@@ -121,7 +121,7 @@ void startOnMap(char *mapName)
 	removeTemporaryData();
 
 	freeGameResources();
-	
+
 	initGame();
 
 	loadMap(mapName, TRUE);
@@ -134,7 +134,7 @@ void newGame()
 	removeTemporaryData();
 
 	freeGameResources();
-	
+
 	initGame();
 
 	loadMap("map01", TRUE);
@@ -147,7 +147,7 @@ void tutorial()
 	removeTemporaryData();
 
 	freeGameResources();
-	
+
 	initGame();
 
 	loadMap("tutorial", TRUE);
@@ -162,7 +162,7 @@ void titleScreen()
 	freeGameResources();
 
 	initGame();
-	
+
 	game.status = IN_TITLE;
 }
 
@@ -196,7 +196,7 @@ int loadGame(int slot)
 	buffer = decompressFile(saveFile);
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
-	
+
 	foundResources = FALSE;
 
 	while (line != NULL)
@@ -294,7 +294,7 @@ int loadGame(int slot)
 		else if (strcmpignorecase(line, mapName) == 0)
 		{
 			foundResources = TRUE;
-			
+
 			loadResources(savePtr);
 		}
 
@@ -343,13 +343,13 @@ int loadGame(int slot)
 
 		return loadGame(slot);
 	}
-	
+
 	/* Fudge to make a game saved in the new Village map still load OK */
-	
+
 	if (foundResources == FALSE)
 	{
 		sscanf(mapName, "%*s %s\n", itemName);
-		
+
 		loadMap(itemName, TRUE);
 	}
 
@@ -422,7 +422,7 @@ static void patchSaveGame(char *saveFile, double version)
 		else if (strcmpignorecase("MAP_NAME", itemName) == 0)
 		{
 			saveMap = TRUE;
-			
+
 			if (strlen(mapName) == 0 || strcmpignorecase(line, mapName) == 0)
 			{
 				sscanf(line, "%*s %s\n", itemName);
@@ -452,7 +452,7 @@ static void patchSaveGame(char *saveFile, double version)
 				/* Load up the patch file */
 
 				saveMap = patchEntities(version, itemName);
-				
+
 				if (saveMap == FALSE)
 				{
 					snprintf(itemName, sizeof(itemName), "%ld_old", game.playTime * SDL_GetTicks());
@@ -591,7 +591,7 @@ void saveGame(int slot)
 	else
 	{
 		/* Backup older save */
-		
+
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, slot);
 	}
 
@@ -806,35 +806,35 @@ int getMostRecentSave()
 	struct stat fileInfo;
 	int i, modTime, slot;
 	FILE *fp;
-	
+
 	modTime = 0;
-	
+
 	slot = -1;
-	
+
 	for (i=0;i<MAX_SAVE_SLOTS;i++)
 	{
 		snprintf(saveFile, sizeof(saveFile), "%ssave%d", gameSavePath, i);
-		
+
 		fp = fopen(saveFile, "rb");
-		
+
 		if (fp == NULL)
 		{
 			continue;
 		}
-		
+
 		if (stat(saveFile, &fileInfo) != -1)
 		{
 			if (fileInfo.st_mtime > modTime)
 			{
 				modTime = fileInfo.st_mtime;
-				
+
 				slot = i;
 			}
 		}
 
 		fclose(fp);
 	}
-	
+
 	return slot;
 }
 
@@ -1338,7 +1338,7 @@ int hasPersistance(char *mapName)
 		if (strcmpignorecase(line, itemName) == 0)
 		{
 			val = TRUE;
-			
+
 			break;
 		}
 
@@ -1392,7 +1392,7 @@ int bossExists(char *bossName)
 		if (strstr(line, bossName) != NULL)
 		{
 			val = TRUE;
-			
+
 			break;
 		}
 
@@ -1526,7 +1526,7 @@ void loadConfig()
 	buffer[length] = '\0';
 
 	fclose(fp);
-	
+
 	savePtr = NULL;
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
@@ -1724,7 +1724,7 @@ void loadObtainedMedals()
 	char medalFile[MAX_PATH_LENGTH], *line, *savePtr;
 	unsigned char *buffer;
 	FILE *fp;
-	
+
 	savePtr = NULL;
 
 	snprintf(medalFile, MAX_PATH_LENGTH, "%smedals", gameSavePath);
@@ -1735,20 +1735,20 @@ void loadObtainedMedals()
 	{
 		return;
 	}
-	
+
 	fclose(fp);
 
 	buffer = decompressFile(medalFile);
 
 	line = strtok_r((char *)buffer, "\n", &savePtr);
-	
+
 	while (line != NULL)
 	{
 		setObtainedMedal(line);
-		
+
 		line = strtok_r(NULL, "\n", &savePtr);
 	}
-	
+
 	free(buffer);
 }
 
@@ -1767,11 +1767,11 @@ void saveObtainedMedals()
 	{
 		showErrorAndExit("Could not save Medal data: %s", strerror(errno));
 	}
-	
+
 	medalCount = getMedalCount();
-	
+
 	medal = getMedals();
-	
+
 	for (i=0;i<medalCount;i++)
 	{
 		if (medal[i].obtained == TRUE)
@@ -1779,9 +1779,9 @@ void saveObtainedMedals()
 			fprintf(fp, "%s\n", medal[i].code);
 		}
 	}
-	
+
 	fclose(fp);
-	
+
 	#if DEV == 1
 		copyFile(medalFile, "medaldata");
 	#endif

@@ -132,7 +132,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define SPAWNED_IN_TIME 18000
 
-#ifdef WIN32
+#ifdef _WIN32
 	#define strcmpignorecase(x, y) stricmp(x, y)
 #else
 	#define strcmpignorecase(x, y) strcasecmp(x, y)
@@ -150,7 +150,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define DEG_TO_RAD(x) ((x) * PI / 180)
 
-#define TOTAL_SECRETS 25
+#define TOTAL_SECRETS 26
 
 #define STRNCPY(dest, src, n) strncpy(dest, src, n); dest[n - 1] = '\0'
 

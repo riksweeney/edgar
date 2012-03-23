@@ -71,7 +71,7 @@ Entity *addChaosVine(int x, int y, char *name)
 	e->action = &entityWait;
 
 	e->draw = &draw;
-	
+
 	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
@@ -183,9 +183,9 @@ static void touch(Entity *other)
 		self->thinkTime = 180;
 
 		self->action = &raiseOffGround;
-		
+
 		self->y = self->target->y;
-		
+
 		self->targetX = self->x + self->w / 2 - player.w / 2;
 
 		self->targetY = self->target->y - self->target->h;
@@ -208,11 +208,11 @@ static void raiseOffGround()
 	{
 		self->dirY = -2;
 	}
-	
+
 	checkToMap(self);
-	
+
 	self->target->x = self->targetX;
-	
+
 	self->target->y = self->y;
 }
 
@@ -225,64 +225,92 @@ static void takeDamage(Entity *other, int damage)
 		return;
 	}
 
-	if (damage != 0)
+	if (strcmpignorecase("weapon/wood_axe", other->name) == 0)
 	{
-		self->health -= damage;
+		if (damage != 0)
+		{
+			self->health -= damage;
 
-		if (other->type == PROJECTILE)
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
+
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
+
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
+
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+				}
+
+				if (self->pain != NULL)
+				{
+					self->pain();
+				}
+			}
+
+			else
+			{
+				self->touch = NULL;
+
+				if (self->target != NULL)
+				{
+					self->target->flags &= ~FLY;
+				}
+
+				self->active = FALSE;
+
+				self->target = NULL;
+
+				self->action = &vineMoveUp;
+			}
+		}
+	}
+
+	else
+	{
+		setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+
+		playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
+
+		if (other->reactToBlock != NULL)
 		{
 			temp = self;
 
 			self = other;
 
-			self->die();
+			self->reactToBlock(temp);
 
 			self = temp;
 		}
 
-		if (self->health > 0)
+		if (other->type != PROJECTILE && prand() % 10 == 0)
 		{
-			setCustomAction(self, &flashWhite, 6, 0, 0);
-
-			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
-
-			if (other->type != PROJECTILE)
-			{
-				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
-			}
-
-			if (self->pain != NULL)
-			{
-				self->pain();
-			}
+			setInfoBoxMessage(60, 255, 255, 255, _("This weapon is not having any effect..."));
 		}
 
-		else
-		{
-			self->touch = NULL;
-
-			if (self->target != NULL)
-			{
-				self->target->flags &= ~FLY;
-			}
-
-			self->active = FALSE;
-
-			self->target = NULL;
-
-			self->action = &vineMoveUp;
-		}
+		damage = 0;
 	}
 }
 
 static int draw()
 {
 	int y = self->y;
-	
+
 	drawLoopingAnimationToMap();
-	
+
 	setEntityAnimation(self, "BODY");
-	
+
 	self->y = y - self->h;
 
 	while (self->y >= self->startY - self->h)
@@ -291,9 +319,9 @@ static int draw()
 
 		self->y -= self->h;
 	}
-	
+
 	setEntityAnimation(self, "HEAD");
-	
+
 	self->y = y;
 
 	return TRUE;
