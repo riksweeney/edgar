@@ -36,7 +36,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 	#include <libintl.h>
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
 	#include <pwd.h>
 	#include <unistd.h>
 #else
