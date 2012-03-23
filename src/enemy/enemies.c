@@ -120,6 +120,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../boss/cave_boss.h"
 #include "../boss/centurion_boss.h"
 #include "../boss/chaos.h"
+#include "../boss/chaos_vine.h"
 #include "../boss/evil_edgar.h"
 #include "../boss/fly_boss.h"
 #include "../boss/flying_maggot.h"
@@ -296,7 +297,8 @@ static Constructor enemies[] = {
 {"enemy/zombie", &addZombie},
 {"boss/gargoyle", &addGargoyle},
 {"boss/mini_gargoyle", &addMiniGargoyle},
-{"boss/chaos", &addChaos}
+{"boss/chaos", &addChaos},
+{"boss/chaos_vine", &addChaosVine}
 };
 
 static int length = sizeof(enemies) / sizeof(Constructor);
