@@ -52,6 +52,7 @@ static void touch(Entity *);
 static void grabPlayer(void);
 static void raiseOffGround(void);
 static void takeDamage(Entity *, int);
+static int draw(void);
 
 Entity *addChaosVine(int x, int y, char *name)
 {
@@ -69,12 +70,13 @@ Entity *addChaosVine(int x, int y, char *name)
 
 	e->action = &entityWait;
 
-	e->draw = &drawLoopingAnimationToMap;
+	e->draw = &draw;
+	
 	e->takeDamage = &takeDamage;
 
 	e->type = ENEMY;
 
-	setEntityAnimation(e, "STAND");
+	setEntityAnimation(e, "HEAD");
 
 	return e;
 }
@@ -147,7 +149,7 @@ static void vineMoveUp()
 
 	else
 	{
-		self->dirY = 8;
+		self->dirY = -8;
 	}
 
 	checkToMap(self);
@@ -166,7 +168,7 @@ static void grabPlayer()
 
 	else
 	{
-		self->dirY = 4;
+		self->dirY = 14;
 	}
 
 	checkToMap(self);
@@ -174,26 +176,19 @@ static void grabPlayer()
 
 static void touch(Entity *other)
 {
-	int y;
-
 	if (self->target == NULL && other->type == PLAYER && other->health > 0)
 	{
 		self->target = other;
 
-		self->target->flags |= FLY;
-
 		self->thinkTime = 180;
 
 		self->action = &raiseOffGround;
+		
+		self->y = self->target->y;
+		
+		self->targetX = self->x + self->w / 2 - player.w / 2;
 
-		self->targetY = self->endY - self->target->h;
-
-		y = other->y + other->h - self->h;
-
-		if (y < self->endY)
-		{
-			self->y = y;
-		}
+		self->targetY = self->target->y - self->target->h;
 	}
 
 	else
@@ -207,16 +202,18 @@ static void raiseOffGround()
 	if (self->y <= self->targetY)
 	{
 		self->dirY = 0;
-
-		self->action = &entityWait;
 	}
 
 	else
 	{
 		self->dirY = -2;
 	}
-
+	
 	checkToMap(self);
+	
+	self->target->x = self->targetX;
+	
+	self->target->y = self->y;
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -276,4 +273,28 @@ static void takeDamage(Entity *other, int damage)
 			self->action = &vineMoveUp;
 		}
 	}
+}
+
+static int draw()
+{
+	int y = self->y;
+	
+	drawLoopingAnimationToMap();
+	
+	setEntityAnimation(self, "BODY");
+	
+	self->y = y - self->h;
+
+	while (self->y >= self->startY - self->h)
+	{
+		drawSpriteToMap();
+
+		self->y -= self->h;
+	}
+	
+	setEntityAnimation(self, "HEAD");
+	
+	self->y = y;
+
+	return TRUE;
 }

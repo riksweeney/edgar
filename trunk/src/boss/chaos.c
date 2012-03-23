@@ -20,6 +20,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../headers.h"
 
 #include "../audio/audio.h"
+#include "../audio/music.h"
 #include "../custom_actions.h"
 #include "../collisions.h"
 #include "../dialog.h"
@@ -68,10 +69,12 @@ static void addRiftEnergy(int, int);
 static void energyMoveToRift(void);
 static void stalactiteAttackInit(void);
 static void stalactiteAttack(void);
+static void stalactiteAttackFinish(void);
 static void stalactiteFall(void);
 static void stalactiteDie(void);
 static void stalagmiteAttackInit(void);
 static void stalagmiteAttack(void);
+static void stalagmiteAttackFinish(void);
 static void stalagmiteRise(void);
 static void stalagmiteWait(void);
 static void stalagmiteTakeDamage(Entity *, int);
@@ -150,6 +153,8 @@ static void initialise()
 		initBossHealthBar();
 
 		self->thinkTime = 60;
+		
+		self->maxThinkTime = 0;
 
 		self->action = &entityWait;
 	}
@@ -169,58 +174,54 @@ static void entityWait()
 		{
 			if (self->target != NULL && self->target->mental == 1) /* Confused */
 			{
-				rand = prand() % 9;
+				rand = prand() % 8;
 			}
 
 			else if (self->target != NULL && self->target->mental == 2) /* Blinded */
 			{
-				rand = prand() % 7;
+				rand = prand() % 6;
 			}
 
 			else
 			{
-				rand = prand() % 11;
+				rand = prand() % 10;
 			}
 
 			switch (rand)
 			{
 				case 0:
-					self->action = &breatheFireInit;
-				break;
-
-				case 1:
 					self->action = &stalactiteAttackInit;
 				break;
 
-				case 2:
+				case 1:
 					self->action = &eatAttackInit;
 				break;
 
-				case 3:
+				case 2:
 					self->action = &stalagmiteAttackInit;
 				break;
 
-				case 4:
+				case 3:
 					self->action = &holdPersonInit;
 				break;
 
-				case 5:
+				case 4:
 					self->action = &vineAttackInit;
 				break;
 
-				case 6:
+				case 5:
 					self->action = &riftAttackInit;
 				break;
 
-				case 7:
+				case 6:
 					self->action = &spearAttackInit;
 				break;
 
-				case 8:
+				case 7:
 					self->action = &stompAttackInit;
 				break;
 
-				case 9:
+				case 8:
 					self->action = &confuseAttackInit;
 				break;
 
@@ -229,38 +230,55 @@ static void entityWait()
 				break;
 			}
 
-			if (game.cheating == TRUE)
+			if (game.cheating == TRUE || self->maxThinkTime <= 0)
 			{
 				self->action = &breatheFireInit;
 			}
 
-			self->action = &stalactiteAttackInit;
+			self->action = &vineAttackInit;
 		}
 	}
+	
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
 
 static void riftAttackInit()
 {
-	createAutoDialogBox(_("Chaos"), _("Rift"), 120);
+	createAutoDialogBox(_("Chaos"), _("Rift"), 60);
 
-	self->thinkTime = 120;
+	self->thinkTime = 60;
 
 	self->action = &riftAttack;
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void riftAttack()
 {
-	int i;
+	int i, width;
 	Entity *e;
-	Target *t;
+	Target *t1, *t2;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 2;
+		
+		t1 = getTargetByName("CHAOS_TARGET_LEFT");
+		
+		t2 = getTargetByName("CHAOS_TARGET_RIGHT");
+		
+		if (t1 == NULL || t2 == NULL)
+		{
+			showErrorAndExit("Chaos cannot find target");
+		}
+		
+		width = (t2->x - t1->x) / 2;
 
 		for (i=0;i<self->mental;i++)
 		{
@@ -273,7 +291,7 @@ static void riftAttack()
 
 			loadProperties("enemy/energy_rift", e);
 
-			e->damage = 1;
+			e->damage = 3;
 
 			e->action = &riftOpen;
 
@@ -284,17 +302,13 @@ static void riftAttack()
 			e->type = ENEMY;
 
 			setEntityAnimation(e, "STAND");
-
-			t = getTargetByName(i == 0 ? "CHAOS_TARGET_LEFT" : "CHAOS_TARGET_RIGHT");
-
-			if (t == NULL)
-			{
-				showErrorAndExit("Chaos cannot find target");
-			}
+			
+			e->x = (i == 0 ? t1->x : t2->x) - e->w / 2;
+			e->y = (i == 0 ? t1->y : t2->y);
+			
+			e->speed = width;
 
 			e->thinkTime = 15;
-
-			e->y = self->y;
 
 			e->head = self;
 
@@ -306,6 +320,8 @@ static void riftAttack()
 		self->thinkTime = 15;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -315,6 +331,8 @@ static void riftAttackWait()
 	{
 		self->action = &attackFinished;
 	}
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -344,6 +362,8 @@ static void riftOpen()
 		self->action = &riftWait;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -362,9 +382,9 @@ static void riftWait()
 
 	else
 	{
-		if (collision(self->x - 128, self->y - 128, 256, 256, player.x, player.y, player.w, player.h) == 1)
+		if (collision(self->x - self->speed, self->y - self->speed, self->speed * 2, self->speed * 2, player.x, player.y, player.w, player.h) == 1)
 		{
-			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? 2 : -2));
+			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? player.speed - 0.25 : -(player.speed - 0.25)));
 		}
 
 		if (prand() % 3 == 0)
@@ -430,6 +450,8 @@ static void vineAttackInit()
 
 	self->action = &vineAttack;
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -446,6 +468,8 @@ static void vineAttack()
 		self->action = &vineAttackFinish;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -458,6 +482,8 @@ static void vineAttackFinish()
 		self->action = &attackFinished;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -466,6 +492,8 @@ static void eatAttackInit()
 	self->thinkTime = 60;
 
 	self->action = &eatAttack;
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -482,6 +510,10 @@ static void eatAttack()
 
 		self->touch = &eatTouch;
 	}
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void eatTouch(Entity *other)
@@ -538,6 +570,10 @@ static void eatAttackWait()
 	{
 		self->action = &attackFinished;
 	}
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void eatAttackFinish()
@@ -559,6 +595,10 @@ static void eatAttackFinish()
 	self->flags &= ~GRABBING;
 
 	self->action = &attackFinished;
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void stompAttackInit()
@@ -572,6 +612,8 @@ static void stompAttackInit()
 	self->action = &stompAttack;
 
 	self->mental = 1;
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -608,6 +650,8 @@ static void stompAttack()
 		}
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -619,6 +663,8 @@ static void stompAttackFinish()
 	{
 		self->action = &attackFinished;
 	}
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -632,6 +678,8 @@ static void stalagmiteAttackInit()
 	self->action = &stalagmiteAttack;
 
 	self->thinkTime = 0;
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -651,7 +699,7 @@ static void stalagmiteAttack()
 			showErrorAndExit("No free slots to add a stalagmite");
 		}
 
-		loadProperties("enemy/stalagmite", e);
+		loadProperties("item/stalagmite", e);
 
 		setEntityAnimation(e, "STAND");
 
@@ -660,6 +708,8 @@ static void stalagmiteAttack()
 
 		e->targetX = player.x + player.w / 2 - e->w / 2;
 		e->targetY = getMapFloor(self->x, self->y);
+		
+		e->startY = e->targetY - e->h;
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
@@ -678,6 +728,8 @@ static void stalagmiteAttack()
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->touch = &entityTouch;
+		
+		e->damage = 3;
 
 		e->takeDamage = &stalagmiteTakeDamage;
 
@@ -697,9 +749,9 @@ static void stalagmiteAttack()
 
 		if (self->mental <= 0)
 		{
-			self->thinkTime = 60;
+			self->thinkTime = 120;
 
-			self->action = &attackFinished;
+			self->action = &stalagmiteAttackFinish;
 		}
 
 		else
@@ -707,6 +759,22 @@ static void stalagmiteAttack()
 			self->thinkTime = 180;
 		}
 	}
+
+	self->maxThinkTime--;
+
+	checkToMap(self);
+}
+
+static void stalagmiteAttackFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+	
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -747,10 +815,6 @@ static void stalagmiteRise()
 			e->dirY = -8;
 
 			self->y = self->startY;
-
-			self->health = 15;
-
-			self->thinkTime = 120;
 
 			self->action = &stalagmiteWait;
 		}
@@ -822,6 +886,8 @@ static void stalactiteAttackInit()
 
 	self->thinkTime = 0;
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -866,6 +932,8 @@ static void stalactiteAttack()
 		setEntityAnimation(e, "STAND");
 
 		e->action = &stalactiteFall;
+		
+		e->touch = &entityTouch;
 
 		e->draw = &drawLoopingAnimationToMap;
 
@@ -876,8 +944,10 @@ static void stalactiteAttack()
 		e->face = self->face;
 
 		e->type = ENEMY;
+		
+		e->damage = 1;
 
-		e->thinkTime = 0;
+		e->thinkTime = 15 + prand() % 45;
 
 		e->flags |= DO_NOT_PERSIST;
 
@@ -885,9 +955,9 @@ static void stalactiteAttack()
 
 		if (self->mental <= 0)
 		{
-			self->thinkTime = 60;
+			self->thinkTime = 120;
 
-			self->action = &attackFinished;
+			self->action = &stalactiteAttackFinish;
 		}
 
 		else
@@ -896,11 +966,34 @@ static void stalactiteAttack()
 		}
 	}
 
+	self->maxThinkTime--;
+
+	checkToMap(self);
+}
+
+static void stalactiteAttackFinish()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->action = &attackFinished;
+	}
+	
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
 static void stalactiteFall()
 {
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->flags &= ~FLY;
+	}
+	
 	checkToMap(self);
 
 	if (self->flags & ON_GROUND)
@@ -960,7 +1053,7 @@ static void breatheIn()
 		self->action = &breatheFire;
 	}
 
-	e = addSmoke(0, 0, self->y + self->h, "decoration/dust");
+	e = addSmoke(0, 0, "decoration/dust");
 
 	if (e != NULL)
 	{
@@ -1063,7 +1156,7 @@ static void breatheFire()
 
 		self->thinkTime = 60;
 
-		self->maxThinkTime = 1;
+		self->mental = 1;
 
 		self->action = &breatheFireFinish;
 	}
@@ -1198,7 +1291,7 @@ static void flameTouch(Entity *other)
 
 static void breatheFireFinish()
 {
-	if (self->maxThinkTime <= 0)
+	if (self->mental <= 0)
 	{
 		if (player.health <= 0)
 		{
@@ -1206,6 +1299,8 @@ static void breatheFireFinish()
 		}
 
 		self->action = &attackFinished;
+		
+		self->maxThinkTime = 30 * 60;
 	}
 
 	checkToMap(self);
@@ -1218,6 +1313,8 @@ static void spearAttackInit()
 	createAutoDialogBox(_("Chaos"), _("Impale"), 120);
 
 	self->action = &spearAttack;
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -1255,7 +1352,7 @@ static void spearAttack()
 
 		e->thinkTime = 15 * j;
 
-		e->damage = 1;
+		e->damage = 3;
 
 		e->touch = &entityTouch;
 
@@ -1271,8 +1368,8 @@ static void spearAttack()
 
 		j++;
 	}
-
-	i += e->w * 4;
+	
+	j = 1;
 
 	for (;i<self->x;)
 	{
@@ -1296,7 +1393,7 @@ static void spearAttack()
 
 		e->thinkTime = 15 * j;
 
-		e->damage = 1;
+		e->damage = 3;
 
 		e->touch = &entityTouch;
 
@@ -1315,6 +1412,8 @@ static void spearAttack()
 
 	self->action = &spearAttackFinished;
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -1324,6 +1423,8 @@ static void spearAttackFinished()
 	{
 		self->action = &attackFinished;
 	}
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
@@ -1335,6 +1436,10 @@ static void confuseAttackInit()
 	createAutoDialogBox(_("Chaos"), _("Confuse"), 120);
 
 	self->action = &confuseAttack;
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void confuseAttack()
@@ -1378,6 +1483,8 @@ static void confuseAttack()
 		self->target = e;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -1398,6 +1505,10 @@ static void blindAttackInit()
 	createAutoDialogBox(_("Chaos"), _("Darkness"), 120);
 
 	self->action = &blindAttack;
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void blindAttack()
@@ -1441,6 +1552,8 @@ static void blindAttack()
 		self->target = e;
 	}
 
+	self->maxThinkTime--;
+
 	checkToMap(self);
 }
 
@@ -1465,6 +1578,10 @@ static void holdPersonInit()
 	self->action = &holdPerson;
 
 	self->mental = 3;
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void holdPerson()
@@ -1515,6 +1632,10 @@ static void holdPerson()
 			self->thinkTime = 5;
 		}
 	}
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void holdPersonSpellMove()
@@ -1647,6 +1768,10 @@ static void holdPersonWait()
 
 		self->action = &castLightningBolt;
 	}
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void castLightningBolt()
@@ -1720,6 +1845,10 @@ static void castLightningBolt()
 			self->thinkTime = 30;
 		}
 	}
+	
+	self->maxThinkTime--;
+
+	checkToMap(self);
 }
 
 static void lightningBolt()
@@ -1770,6 +1899,8 @@ static void lightningBolt()
 			e->face = RIGHT;
 
 			e->thinkTime = 15;
+			
+			e->damage = 3;
 		}
 
 		e = addSmallRock(self->x, self->endY, "common/small_rock");
@@ -1797,6 +1928,8 @@ static void attackFinished()
 	self->thinkTime = 60;
 
 	self->action = &entityWait;
+
+	self->maxThinkTime--;
 
 	checkToMap(self);
 }
