@@ -563,8 +563,20 @@ static void doDefeatedBosses()
 
 static void doChaos()
 {
+	Entity *e;
+	Target *t;
+
 	if (credits.creditLine == NULL)
 	{
+		e = addEnemy("boss/chaos", 0, 0);
+
+		t = getTargetByName("CHAOS_TARGET");
+
+		e->x = t->x;
+		e->y = t->y;
+
+		e->alpha = 0;
+
 		credits.creditLine = malloc(sizeof(CreditLine) * 2);
 
 		if (credits.creditLine == NULL)
@@ -575,89 +587,89 @@ static void doChaos()
 		if (hasPersistance("map26") == TRUE)
 		{
 			STRNCPY(credits.creditLine[0].text, _("Chaos has been subdued"), MAX_LINE_LENGTH);
-			
+
 			STRNCPY(credits.creditLine[1].text, _("For now..."), MAX_LINE_LENGTH);
 		}
-		
+
 		else
 		{
 			STRNCPY(credits.creditLine[0].text, _("Chaos will soon be free"), MAX_LINE_LENGTH);
-			
+
 			STRNCPY(credits.creditLine[1].text, _("To terrorise the world once again"), MAX_LINE_LENGTH);
 		}
 
 		credits.line = -1;
 
 		credits.creditLine[0].textImage = generateTransparentTextSurface(credits.creditLine[0].text, game.largeFont, 220, 220, 220, TRUE);
-		
+
 		credits.creditLine[1].textImage = generateTransparentTextSurface(credits.creditLine[1].text, game.largeFont, 220, 220, 220, TRUE);
-		
+
 		credits.creditLine[0].x = (SCREEN_WIDTH - credits.creditLine[0].textImage->w) / 2;
-		
+
 		credits.creditLine[1].x = (SCREEN_WIDTH - credits.creditLine[1].textImage->w) / 2;
-		
+
 		credits.creditLine[0].y = (SCREEN_HEIGHT - (credits.creditLine[0].textImage->h + credits.creditLine[1].textImage->h + 80)) / 2;
-		
+
 		credits.creditLine[1].y = credits.creditLine[0].y + 80;
-		
+
 		credits.creditLine[0].r = 255;
-		
+
 		credits.creditLine[1].r = 540;
 
 		credits.startDelay = 180;
-		
+
 		credits.fadeSurface = createSurface(game.screen->w, MAX(credits.creditLine[0].textImage->h, credits.creditLine[1].textImage->h));
 
 		drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
 	}
-	
+
 	if (credits.line == -1)
 	{
 		credits.creditLine[0].r += credits.line;
-		
+
 		credits.creditLine[1].r += credits.line;
-		
+
 		if (credits.creditLine[0].r <= 0)
 		{
 			credits.creditLine[0].r = 0;
 		}
-		
+
 		if (credits.creditLine[1].r <= 0)
 		{
 			credits.creditLine[1].r = 0;
 		}
-		
+
 		if (credits.creditLine[1].r <= 0)
 		{
 			credits.startDelay--;
 
 			if (credits.startDelay <= 0)
 			{
-				credits.startDelay = 30;
+				credits.startDelay = 180;
 
 				credits.line = 1;
 			}
 		}
 	}
-	
+
 	else
-	{		
+	{
 		credits.startDelay--;
 
 		if (credits.startDelay <= 0)
 		{
 			credits.creditLine[0].r += credits.line;
-			
+
 			credits.creditLine[1].r += credits.line;
-			
+
 			if (credits.creditLine[0].r >= 255)
 			{
 				credits.creditLine[0].r = 255;
-				
+
 				credits.creditLine[1].r = 255;
-				
+
 				credits.startDelay--;
-				
+
 				if (credits.startDelay <= 0)
 				{
 					freeCredits();
@@ -839,13 +851,13 @@ static void drawChaos()
 	if (credits.creditLine != NULL)
 	{
 		drawImage(credits.creditLine[0].textImage, credits.creditLine[0].x, credits.creditLine[0].y, FALSE, 255);
-		
+
 		drawImage(credits.fadeSurface, 0, credits.creditLine[0].y, FALSE, credits.creditLine[0].r);
-		
+
 		if (credits.creditLine[1].r <= 255)
 		{
 			drawImage(credits.creditLine[1].textImage, credits.creditLine[1].x, credits.creditLine[1].y, FALSE, 255);
-			
+
 			drawImage(credits.fadeSurface, 0, credits.creditLine[1].y, FALSE, credits.creditLine[1].r);
 		}
 	}

@@ -6,8 +6,8 @@ TALK Edgar It's over
 TALK Edgar Hey, what's that? It looks like a sword
 WALK_TO EDGAR 1090 394 WAIT
 WAIT 30
-ADD ENTITY weapon/legendary_sword " " 1090 394
 WALK_TO EDGAR 690 394 WAIT
+EQUIP_WEAPON weapon/legendary_sword
 SET EDGAR FACE RIGHT
 TALK Edgar This must be Ivan's sword
 TALK Chaos You... You will never defeat me
@@ -15,7 +15,7 @@ TALK Chaos I will escape this wretched place
 TALK Chaos Even if it takes me another 100 years
 TALK Chaos These chains won't hold me forever
 TALK Edgar Time to finish this. Prepare yourself!
-TALK Chaos No! Banish!
+TALK Chaos No! BANISH!
 TELEPORT EDGAR -1000 -1000
 SET EDGAR ADD_FLAG NO_END_TELEPORT_SOUND
 WAIT 60

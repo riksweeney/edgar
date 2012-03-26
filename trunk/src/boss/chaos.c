@@ -112,6 +112,9 @@ static void creditsAction(void);
 static void die(void);
 static void dieWait(void);
 static void continuePoint(void);
+static void addLegendarySword(void);
+static void swordWait(void);
+static void creditsDone(void);
 
 Entity *addChaos(int x, int y, char *name)
 {
@@ -127,7 +130,7 @@ Entity *addChaos(int x, int y, char *name)
 	e->x = x;
 	e->y = y;
 
-	e->action = &initialise;
+	e->action = &addLegendarySword;
 
 	e->draw = &drawLoopingAnimationToMap;
 	e->touch = &entityTouch;
@@ -303,7 +306,7 @@ static void riftAttack()
 			e->x = (i == 0 ? t1->x : t2->x) - e->w / 2;
 			e->y = (i == 0 ? t1->y : t2->y);
 
-			e->speed = width;
+			e->speed = width * 0.75;
 
 			e->thinkTime = 15;
 
@@ -489,16 +492,16 @@ static void vineAttackFinish()
 static void eatAttackInit()
 {
 	Target *t = getTargetByName("CHAOS_EAT_TARGET");
-	
+
 	if (t == NULL)
 	{
 		showErrorAndExit("Chaos cannot find target");
 	}
-	
+
 	self->thinkTime = 60;
 
 	self->action = &eatAttack;
-	
+
 	self->targetX = t->x;
 
 	self->maxThinkTime--;
@@ -515,36 +518,36 @@ static void eatAttack()
 		if (self->x <= self->targetX)
 		{
 			setEntityAnimation(self, "MOUTH_CLOSE");
-			
+
 			if (self->flags & GRABBING)
 			{
 				self->mental = self->health - 80;
-				
+
 				self->thinkTime = 600;
-				
+
 				self->action = &eatAttackWait;
 			}
-			
+
 			else
 			{
 				self->thinkTime = 60;
-				
+
 				self->action = &eatAttackFinish;
 			}
-			
+
 			self->targetX = self->startX;
-			
+
 			self->dirX = 0;
 		}
-		
+
 		else
 		{
 			setEntityAnimation(self, "MOUTH_OPEN");
-			
+
 			self->dirX = -12;
-			
+
 			self->touch = &eatTouch;
-			
+
 			if (self->flags & GRABBING)
 			{
 				if (self->face == LEFT)
@@ -576,7 +579,7 @@ static void eatTouch(Entity *other)
 			self->flags |= GRABBING;
 		}
 	}
-	
+
 	else
 	{
 		entityTouch(other);
@@ -586,7 +589,7 @@ static void eatTouch(Entity *other)
 static void eatAttackWait()
 {
 	Entity *temp;
-	
+
 	if (self->face == LEFT)
 	{
 		player.x = self->x + self->w - player.w - self->offsetX;
@@ -604,11 +607,11 @@ static void eatAttackWait()
 	if (self->thinkTime <= 0)
 	{
 		temp = self;
-		
+
 		self = &player;
-		
+
 		self->takeDamage(temp, 3);
-		
+
 		self = temp;
 
 		self->thinkTime = 60;
@@ -624,7 +627,7 @@ static void eatAttackWait()
 	if (self->health <= self->mental)
 	{
 		setEntityAnimation(self, "SPIT_OUT");
-		
+
 		if (self->face == LEFT)
 		{
 			player.x = self->x + self->w - player.w - self->offsetX;
@@ -650,9 +653,9 @@ static void eatAttackWait()
 		self->touch = &entityTouch;
 
 		self->flags &= ~GRABBING;
-		
+
 		self->thinkTime = 60;
-		
+
 		self->action = &eatAttackFinish;
 	}
 
@@ -664,22 +667,22 @@ static void eatAttackWait()
 static void eatAttackFinish()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		if (self->x >= self->targetX)
 		{
 			setEntityAnimation(self, "STAND");
-			
+
 			self->touch = &entityTouch;
-			
+
 			self->x = self->startX;
-			
+
 			self->action = &attackFinished;
-			
+
 			self->dirX = 0;
 		}
-		
+
 		else
 		{
 			self->dirX = 12;
@@ -695,30 +698,30 @@ static void stompAttackInit()
 {
 	int i;
 	Entity *e;
-	
+
 	setEntityAnimation(self, "STOMP_READY");
-	
+
 	self->weight = 0.5;
 
 	self->dirY = -8;
-	
+
 	self->action = &stompAttackRise;
-	
+
 	for (i=0;i<30;i++)
 	{
 		e = addSmoke(0, 0, "decoration/dust");
-		
+
 		if (e != NULL)
 		{
 			e->x = self->x + prand() % self->w;
 			e->y = self->y + self->h;
-			
+
 			e->dirX = (10 + prand() % 30);
 
 			e->dirX /= 10;
 
 			e->y -= prand() % e->h;
-			
+
 			if (e->x < self->x + self->w / 2)
 			{
 				e->dirX *= -1;
@@ -734,13 +737,13 @@ static void stompAttackRise()
 	if (self->dirY >= 0)
 	{
 		self->dirY = 0;
-		
+
 		self->flags |= FLY;
-		
+
 		self->thinkTime = 60;
-		
+
 		self->weight = 1;
-		
+
 		self->action = &stompAttackDrop;
 	}
 
@@ -752,20 +755,20 @@ static void stompAttackRise()
 static void stompAttackDrop()
 {
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->flags &= ~FLY;
 	}
-	
+
 	checkToMap(self);
-	
+
 	if (self->flags & ON_GROUND)
 	{
 		setEntityAnimation(self, "STAND");
-		
+
 		playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
-		
+
 		shakeScreen(STRONG, 120);
 
 		activateEntitiesValueWithObjectiveName("CHAOS_ROCK_DROPPER", 5);
@@ -1163,6 +1166,8 @@ static void breatheFireInit()
 
 	self->action = &breatheIn;
 
+	self->creditsAction = &breatheIn;
+
 	checkToMap(self);
 }
 
@@ -1177,6 +1182,8 @@ static void breatheIn()
 		self->thinkTime = 30;
 
 		self->action = &breatheFire;
+
+		self->creditsAction = &breatheFire;
 	}
 
 	e = addSmoke(0, 0, "decoration/dust");
@@ -1198,14 +1205,14 @@ static void breatheIn()
 		e->targetX = e->x;
 		e->targetY = e->y;
 
-		e->x += (128 + prand() % 256) * (self->face == LEFT ? -1 : 1);
+		e->x += (128 + prand() % 128) * (self->face == LEFT ? -1 : 1);
 		e->y += (prand() % 64) * (prand() % 2 == 0 ? -1 : 1);
 
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->dirX *= 6;
 		e->dirY *= 6;
-		
+
 		e->thinkTime = 10;
 	}
 
@@ -1223,7 +1230,7 @@ static void breatheFire()
 	if (self->thinkTime <= 0)
 	{
 		setEntityAnimation(self, "BREATHE_FIRE");
-		
+
 		switch (prand() % 4)
 		{
 			case 0:
@@ -1255,6 +1262,8 @@ static void breatheFire()
 		e->face = self->face;
 
 		e->action = &flameWait;
+
+		e->creditsAction = &flameWait;
 
 		e->draw = &drawLoopingAnimationToMap;
 
@@ -1291,6 +1300,8 @@ static void breatheFire()
 		self->mental = 1;
 
 		self->action = &breatheFireFinish;
+
+		self->creditsAction = &breatheFireFinish;
 	}
 
 	checkToMap(self);
@@ -1326,7 +1337,7 @@ static void flameWait()
 	if (self->thinkTime <= 0 || self->head->health <= 0)
 	{
 		self->head->mental = 0;
-		
+
 		self->inUse = FALSE;
 	}
 }
@@ -1358,7 +1369,7 @@ static void flameTouch(Entity *other)
 		if (other->health != playerHealth)
 		{
 			setPlayerAsh();
-			
+
 			other->flags |= NO_DRAW;
 
 			removeInventoryItemByObjectiveName("Amulet of Resurrection");
@@ -1373,19 +1384,21 @@ static void breatheFireFinish()
 	if (self->mental == 0)
 	{
 		setEntityAnimation(self, "MOUTH_OPEN");
-		
+
 		self->thinkTime--;
-		
+
 		if (self->thinkTime <= 0)
 		{
 			setEntityAnimation(self, "STAND");
-			
+
 			if (player.health <= 0)
 			{
 				createAutoDialogBox(_("Chaos"), _("Pathetic"), 300);
 			}
 
 			self->action = &attackFinished;
+
+			self->creditsAction = &creditsDone;
 
 			self->maxThinkTime = 30 * 60;
 		}
@@ -1413,7 +1426,7 @@ static void spearAttack()
 	Entity *e;
 
 	self->thinkTime--;
-	
+
 	if (self->thinkTime <= 0)
 	{
 		self->mental = 0;
@@ -1653,12 +1666,12 @@ static void blindAttack()
 static void blindSpellWait()
 {
 	self->thinkTime--;
-	
+
 	if (self->head->flags & GRABBING)
 	{
 		setDarkMap(FALSE);
 	}
-	
+
 	else
 	{
 		setDarkMap(TRUE);
@@ -2107,17 +2120,15 @@ static void takeDamage(Entity *other, int damage)
 
 	if (damage != 0)
 	{
-		/* Take minimal damage from bombs */
-
-		if (other->type == EXPLOSION || strcmpignorecase(other->name, "weapon/spike") == 0)
+		if (other->element == FIRE)
 		{
-			damage = 2;
-		}
+			self->health += damage;
 
-		self->health -= damage;
+			if (other->type == PROJECTILE)
+			{
+				other->target = self;
+			}
 
-		if (self->health > 0)
-		{
 			setCustomAction(self, &flashWhite, 6, 0, 0);
 
 			/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
@@ -2127,30 +2138,75 @@ static void takeDamage(Entity *other, int damage)
 				setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
 			}
 
-			enemyPain();
+			if (self->pain != NULL)
+			{
+				self->pain();
+			}
+
+			if (prand() % 5 == 0)
+			{
+				setInfoBoxMessage(90, 255, 255, 255, _("The damage from this weapon is being absorbed..."));
+			}
+
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
 		}
 
 		else
 		{
-			self->damage = 0;
+			/* Take minimal damage from bombs */
 
-			if (other->type == WEAPON || other->type == PROJECTILE)
+			if (other->type == EXPLOSION || strcmpignorecase(other->name, "weapon/spike") == 0)
 			{
-				increaseKillCount();
+				damage = 1;
 			}
 
-			self->die();
-		}
+			self->health -= damage;
 
-		if (other->type == PROJECTILE)
-		{
-			temp = self;
+			if (self->health > 0)
+			{
+				setCustomAction(self, &flashWhite, 6, 0, 0);
 
-			self = other;
+				/* Don't make an enemy invulnerable from a projectile hit, allows multiple hits */
 
-			self->die();
+				if (other->type != PROJECTILE)
+				{
+					setCustomAction(self, &invulnerableNoFlash, HIT_INVULNERABLE_TIME, 0, 0);
+				}
 
-			self = temp;
+				enemyPain();
+			}
+
+			else
+			{
+				self->damage = 0;
+
+				if (other->type == WEAPON || other->type == PROJECTILE)
+				{
+					increaseKillCount();
+				}
+
+				self->die();
+			}
+
+			if (other->type == PROJECTILE)
+			{
+				temp = self;
+
+				self = other;
+
+				self->die();
+
+				self = temp;
+			}
 		}
 	}
 }
@@ -2158,11 +2214,11 @@ static void takeDamage(Entity *other, int damage)
 static void die()
 {
 	self->flags &= ~FLY;
-	
+
 	self->weight = 1;
-	
+
 	playSoundToMap("sound/boss/chaos/die.ogg", BOSS_CHANNEL, self->x, self->y, -1);
-	
+
 	setEntityAnimation(self, "DIE_1");
 
 	self->animationCallback = NULL;
@@ -2248,14 +2304,71 @@ static void dieWait()
 
 static void creditsAction()
 {
+	if (self->active == TRUE)
+	{
+		self->alpha++;
 
+		if (self->alpha >= 255)
+		{
+			self->creditsAction = &breatheFireInit;
+		}
+	}
 }
 
 static void continuePoint()
 {
-	self->action = &initialise;
-	
+	self->action = &addLegendarySword;
+
 	playMapMusic();
-	
+
 	checkToMap(self);
+}
+
+static void addLegendarySword()
+{
+	Entity *e;
+
+	e = getFreeEntity();
+
+	loadProperties("weapon/legendary_sword", e);
+
+	e->x = self->x;
+	e->y = self->y;
+
+	e->flags |= DO_NOT_PERSIST;
+
+	e->action = &swordWait;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	e->head = self;
+
+	setEntityAnimation(e, "STICK_IN_CHAOS");
+
+	self->action = &initialise;
+}
+
+static void swordWait()
+{
+	if (self->head->health <= 0)
+	{
+		self->touch = &keyItemTouch;
+	}
+
+	if (self->head->face == LEFT)
+	{
+		self->x = self->head->x + self->head->w - self->w - self->offsetX;
+	}
+
+	else
+	{
+		self->x = self->head->x + self->offsetX;
+	}
+
+	self->y = self->head->y + self->offsetY;
+}
+
+static void creditsDone()
+{
+	self->inUse = FALSE;
 }
