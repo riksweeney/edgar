@@ -97,7 +97,7 @@ Entity *addPhoenix(int x, int y, char *name)
 	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
-	
+
 	e->creditsAction = &bossMoveToMiddle;
 
 	e->type = ENEMY;
@@ -691,7 +691,7 @@ static void takeDamage(Entity *other, int damage)
 				self = temp;
 			}
 		}
-		
+
 		else
 		{
 			playSoundToMap("sound/common/dink.ogg", -1, self->x, self->y, 0);
@@ -772,10 +772,10 @@ static void takeDamage(Entity *other, int damage)
 
 					self = temp;
 				}
-				
+
 				self->thinkTime = 0;
 			}
-			
+
 			else
 			{
 				self->health -= damage;
@@ -1055,6 +1055,7 @@ static void dieWait()
 		e->y = self->y + self->h - e->h;
 
 		e->action = &fireWait;
+
 		e->touch = &entityTouch;
 
 		e->draw = &drawLoopingAnimationToMap;
@@ -1184,6 +1185,7 @@ static void resurrectInit()
 			e->y = self->y + self->h - e->h;
 
 			e->action = &fireWait;
+
 			e->touch = &entityTouch;
 
 			e->draw = &drawLoopingAnimationToMap;

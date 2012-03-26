@@ -77,7 +77,7 @@ makefile.dep : src/*/*.h src/*.h
 	$(CXX) $(CFLAGS) -c -s $<
 	
 %.mo: %.po
-	msgfmt -c -o $@ $<
+	wine /opt/Windows/bin/msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)

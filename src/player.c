@@ -84,6 +84,7 @@ static void shieldSideAttackInit(void);
 static void starWait(void);
 static void applyPetrification(void);
 static void applyAsh(void);
+static void fireWait(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -2604,7 +2605,7 @@ Entity *removePlayerWeapon()
 		removeInventoryItemByObjectiveName(playerWeapon.objectiveName);
 
 		e = addPermanentItem(playerWeapon.name, self->x, self->y);
-		
+
 		e->mental = playerWeapon.mental;
 
 		playerWeapon.inUse = FALSE;
@@ -3029,7 +3030,7 @@ void setPlayerAsh()
 
 	if (e == NULL)
 	{
-		showErrorAndExit("No free slots to add Ashed Player");
+		showErrorAndExit("No free slots to add an Ashed Player");
 	}
 
 	/* Change back to Edgar */
@@ -3052,7 +3053,13 @@ void setPlayerAsh()
 
 	setEntityAnimation(e, "STAND");
 
-	e->thinkTime = 0;
+	e->flags |= NO_DRAW;
+
+	e->mental = 8;
+
+	e->maxThinkTime = e->mental;
+
+	e->thinkTime = 15;
 
 	player.dirX = 0;
 }
@@ -3061,24 +3068,113 @@ static void applyAsh()
 {
 	Entity *e;
 
-	self->x = player.x;
-	self->y = player.y;
-	
+	if (self->maxThinkTime <= 0)
+	{
+		self->x = player.x;
+		self->y = player.y;
+
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			e = addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+
+			if (e != NULL)
+			{
+				e->dirY = -(5 + prand() % 20);
+
+				e->dirY /= 10;
+			}
+
+			self->thinkTime = 5 + prand() % 10;
+		}
+	}
+
+	else
+	{
+		self->thinkTime--;
+
+		if (self->thinkTime <= 0)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add the Fire");
+			}
+
+			loadProperties("boss/phoenix_die_fire", e);
+
+			setEntityAnimation(e, "STAND");
+
+			e->x = self->x + prand() % self->w;
+			e->y = self->y + self->h - e->h;
+
+			e->action = &fireWait;
+
+			e->touch = &entityTouch;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+
+			e->thinkTime = 30;
+
+			e->health = 0;
+
+			e->maxHealth = 3 + prand() % 3;
+
+			e->mental = 1;
+
+			e->head = self;
+
+			self->thinkTime = 10;
+
+			self->mental--;
+		}
+	}
+}
+
+static void fireWait()
+{
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		e = addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+		self->health += self->mental;
 
-		if (e != NULL)
+		if (self->health == self->maxHealth)
 		{
-			e->dirY = -(5 + prand() % 20);
+			self->head->maxThinkTime--;
 
-			e->dirY /= 10;
+			if (self->head->maxThinkTime <= 0)
+			{
+				self->head->flags &= ~NO_DRAW;
+			}
+
+			self->maxHealth = 5;
+
+			self->thinkTime = 30;
+
+			self->mental *= -1;
 		}
 
-		self->thinkTime = 5 + prand() % 10;
+		else if (self->health < 0)
+		{
+			self->inUse = FALSE;
+
+			self->health = 0;
+		}
+
+		else
+		{
+			self->thinkTime = 20;
+		}
+
+		setEntityAnimationByID(self, self->health);
 	}
+
+	checkToMap(self);
 }
 
 int isAttacking()
