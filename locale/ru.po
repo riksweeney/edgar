@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-19 14:33+0000\n"
+"PO-Revision-Date: 2012-03-23 15:02+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
-"X-Generator: Launchpad (build 14969)\n"
+"X-Launchpad-Export-Date: 2012-03-23 19:08+0000\n"
+"X-Generator: Launchpad (build 14996)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -1020,7 +1020,7 @@ msgstr "(Фу)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Эй, посмотри на то, что один из шаров на щите засветился)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
@@ -1648,10 +1648,12 @@ msgid ""
 "Great, that's all it says. I don't even know how to tell the difference "
 "between a male and female. I'll just to take a chance..."
 msgstr ""
+"Это всё, что говорится об этом. Я даже не знаю, какая разница между  мужской "
+"особью и женской. Я рискну..."
 
 #: data/scripts/monsters.dat:138
 msgid "Besides, what's the worst that could happen?"
-msgstr ""
+msgstr "Что ещё хуже этого может произойти?"
 
 #: data/scripts/monsters.dat:139
 msgid ""
@@ -2050,11 +2052,11 @@ msgstr ""
 
 #: data/scripts/purifier.dat:12
 msgid "I remember Borgan telling me how ironic that is"
-msgstr ""
+msgstr "Я припоминаю, как  с долей иронии рассказывал мне Борган"
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
-msgstr ""
+msgstr "Я должен найти что-то, что помогло бы мне донести..."
 
 #: data/scripts/purple_gem.dat:1
 msgid ""
@@ -2312,11 +2314,11 @@ msgstr "Проходи Точку Действия и жми [INPUT_INTERACT]"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
-msgstr ""
+msgstr "Прежде, чем уйти, необходимо вернуть пропавшие вещи"
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr ""
+msgstr "Кто осмелился ограбить могилу великого воина Ивана?"
 
 #: data/scripts/azriel_start.dat:11
 msgid "Who said that?"
@@ -2324,7 +2326,7 @@ msgstr "Кто это сказал?"
 
 #: data/scripts/azriel_start.dat:12
 msgid "Insolent cur, you will suffer for your disrespect"
-msgstr ""
+msgstr "Наглый невежа, ты будешь страдать своё неуважение"
 
 #: data/scripts/azriel_start.dat:19
 msgid "I, am Azriel"
@@ -2610,23 +2612,25 @@ msgstr "Однако, по видимому, это единственный в�
 
 #: data/scripts/jigsaw_puzzle.dat:16
 msgid "Looks like I need 9 pieces to slot into the frame"
-msgstr ""
+msgstr "Похоже, что надо 9 штук в пазы рамки"
 
 #: data/scripts/jigsaw_puzzle.dat:19
 msgid "The frame is empty"
-msgstr ""
+msgstr "Рамка пуста"
 
 #: data/scripts/jigsaw_puzzle.dat:20
 msgid ""
 "Hopefully the pieces I need are around somewhere, otherwise I'm going to die "
 "down here"
 msgstr ""
+"Надеюсь, что необходимые части поблизости, иначе здесь придётся умереть"
 
 #: data/scripts/jigsaw_puzzle.dat:23
 msgid ""
 "I've got all the pieces, I just need to place them in the frame and solve "
 "the puzzle"
 msgstr ""
+"У меня все части. Просто надо поместить их в рамку и решать головоломку."
 
 #: data/scripts/jigsaw_puzzle.dat:24
 msgid "Push left, right, up or down to move the cursor"
@@ -2656,7 +2660,7 @@ msgstr ""
 
 #: data/scripts/ice_spray.dat:8
 msgid "Those fish look quite dangerous too"
-msgstr ""
+msgstr "Эти рыбы выглядят весьма опасно"
 
 #: data/scripts/ice_spray.dat:9
 msgid "I'll have to find another way of getting across"
@@ -2738,7 +2742,7 @@ msgstr "Что?!"
 
 #: data/scripts/evil_edgar_sighted.dat:25
 msgid "He looks just like me"
-msgstr ""
+msgstr "Он выглядит, как я"
 
 #: data/scripts/evil_edgar_sighted.dat:26
 msgid "AND HE HAS MY FIRE SHIELD!!"
@@ -2753,6 +2757,8 @@ msgid ""
 "It's got a little slot on the back of it. I guess I put something in there "
 "to make it do stuff"
 msgstr ""
+"У него сзади небольшой слот. Я думаю, поместив туда нечто, можно его "
+"заставить что-то сделать"
 
 #: data/scripts/robot.dat:3
 msgid "The robot uses instruction cards to move around"
@@ -2770,12 +2776,16 @@ msgid ""
 "However, since you can't read the instructions on the card, you will have to "
 "try them all out until one works"
 msgstr ""
+"Однако, поскольку нельзя прочесть инструкции с карты, придётся попробовать "
+"их все, пока одна не заработает"
 
 #: data/scripts/robot.dat:6
 msgid ""
 "If the robot doesn't reach its target, then it will return to its starting "
 "position allowing you to try again"
 msgstr ""
+"Если робот не достигнет цели, он вернётся назад на исходную позицию, "
+"позволив повторить снова"
 
 #: data/scripts/dungeon_intro.dat:4
 msgid ""
@@ -2789,15 +2799,15 @@ msgstr "О нет, я в ловушке!"
 
 #: data/scripts/dungeon_intro.dat:13
 msgid "There must be a way to get this door open"
-msgstr ""
+msgstr "Должен быть способ открыть эту дверь"
 
 #: data/scripts/dungeon_intro.dat:16
 msgid "Wait, perhaps that button unlocks it"
-msgstr ""
+msgstr "Подожди, возможно кнопка разблокирует"
 
 #: data/scripts/dungeon_intro.dat:17
 msgid "If only I could reach it..."
-msgstr ""
+msgstr "Если только доберусь до неё..."
 
 #: data/scripts/tutorial_pickaxe.dat:1
 msgid "The pickaxe is one of many weapons you will encounter in the game"
@@ -2814,11 +2824,11 @@ msgstr "Поднимите кирку и продолжайте до следу�
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "Здесь план..."
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
-msgstr ""
+msgstr "И один из этих кирпичей болтается"
 
 #: data/scripts/hidden_passage.dat:7
 msgid "Aha! It's a hidden passage!"
@@ -2842,7 +2852,7 @@ msgstr "Преодолеть Болото"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
-msgstr ""
+msgstr "Здесь дощечка"
 
 #: data/scripts/statues.dat:2
 msgid "Place the 4 statues in the correct order"
@@ -2858,23 +2868,23 @@ msgstr "Ха ха ха!"
 
 #: data/scripts/soul_merger.dat:3
 msgid "Soon we will be one again..."
-msgstr ""
+msgstr "Скоро мы снова будем единым целым..."
 
 #: data/scripts/soul_merger.dat:29
 msgid "Wait, something's wrong..."
-msgstr ""
+msgstr "Подожди, что-то не то..."
 
 #: data/scripts/soul_merger.dat:30
 msgid "OH NO! THIS IS THE WRONG MACHINE!!"
-msgstr ""
+msgstr "О НЕТ! ЭТО НЕИСПРАВНАЯ МАШИНА!!"
 
 #: data/scripts/soul_merger.dat:40
 msgid "ARGHHHHHH!!!!"
-msgstr ""
+msgstr "ОХ!!!"
 
 #: data/scripts/soul_merger.dat:53
 msgid "Phew, I feel whole again"
-msgstr ""
+msgstr "Фу, я снова себя чувствую единым целым"
 
 #: data/scripts/soul_merger.dat:54
 msgid "And there's my Fire Shield!"
@@ -2927,6 +2937,8 @@ msgid ""
 "That glass looks too thick for me to crack, I'll have to find some other way "
 "of shattering it..."
 msgstr ""
+"Это стекло слишком толстое, чтобы я его смог разбить. Придётся найти какой-"
+"то другой способ его разрушить..."
 
 #: data/scripts/mine_secret.dat:1
 msgid ""
@@ -2946,6 +2958,8 @@ msgid ""
 "Hang on a second, Maggie told me to always ask if someone had lost something "
 "before taking it..."
 msgstr ""
+"Секундочку, Мегги сказала мне всегда спросить, потерял ли кто, прежде чем "
+"брать это..."
 
 #: data/scripts/protection_ring.dat:8
 msgid "ANYONE LOST A RING?!"
@@ -2953,7 +2967,7 @@ msgstr "НИКТО НЕ ТЕРЯЛ КОЛЬЦО?"
 
 #: data/scripts/protection_ring.dat:10
 msgid "No one? Guess it's mine then!"
-msgstr ""
+msgstr "Никого? Так это моё!"
 
 #: data/scripts/instruction_card.dat:1
 msgid ""
@@ -2975,19 +2989,19 @@ msgstr "Хорошо, смотри, если это работает..."
 msgid ""
 "I'll have no problem walking over this rope either, thanks to my tightrope "
 "walking skills"
-msgstr ""
+msgstr "Благодаря навыкам эквилибриста, я без проблем иду по этому канату"
 
 #: data/scripts/crossbow.dat:18
 msgid "And Dad said it'd never come in handy!"
-msgstr ""
+msgstr "И Папа говорил, что это никогда не пригодится!"
 
 #: data/scripts/crossbow.dat:21
 msgid "I need a length of rope to attach to the bolt"
-msgstr ""
+msgstr "Я должен конец каната привязать к болту"
 
 #: data/scripts/crossbow.dat:25
 msgid "It's a giant crossbow"
-msgstr ""
+msgstr "Это гигантский арбалет"
 
 #: data/scripts/crossbow.dat:29
 msgid "I could probably use it to create a bridge over those spikes"
@@ -2995,7 +3009,7 @@ msgstr "Я мог бы воспользоваться этим для созда
 
 #: data/scripts/crossbow.dat:34
 msgid "I'll need some rope first though"
-msgstr ""
+msgstr "Всё-таки необходим какой-то канат"
 
 #: data/scripts/fortress_mine_lift.dat:1
 msgid "There's a sign here"
@@ -3015,26 +3029,31 @@ msgstr ""
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
+msgstr "Мне кажется я чувствую что-то. Там план..."
 
 #: data/scripts/library_outro.dat:1
 msgid ""
 "This place is crazy, I'd better hurry up and find Dad before I end up "
 "getting killed!"
 msgstr ""
+"Это место безумно. Я лучше потороплюсь и поищу Папу, прежде чем меня в "
+"конечном итоге убьют!"
 
 #: data/scripts/library_outro.dat:2
 msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
 msgstr ""
+"Следовательно, чтобы создать Огненный Щит, я должен получить щупальце "
+"Красной Грязи"
 
 #: data/scripts/library_outro.dat:3
 msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr ""
+msgstr "Красная Грязь обитает в шахтах, поэтому я должен здесь её найти"
 
 #: data/scripts/library_outro.dat:4
 msgid ""
 "I also need a spare shield, but I reckon there should be an Armoury around"
 msgstr ""
+"Мне так же нужен запасной щит, который, по моему, должен быть в Оружейной"
 
 #: data/scripts/library_outro.dat:5
 msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
@@ -3066,15 +3085,15 @@ msgstr ""
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
-msgstr ""
+msgstr "Канет прочно закреплён"
 
 #: data/scripts/grappling_hook.dat:9
 msgid "I need to find some rope before I can fire it"
-msgstr ""
+msgstr "Я смогу стрелять после того, как найду канат"
 
 #: data/scripts/grappling_hook.dat:13
 msgid "It's a Grappling Hook"
-msgstr ""
+msgstr "Это шлюпочный якорь"
 
 #: data/scripts/grappling_hook.dat:14
 msgid ""
@@ -3086,11 +3105,11 @@ msgstr ""
 
 #: data/scripts/apple_tree.dat:1
 msgid "It's an apple tree"
-msgstr ""
+msgstr "Это яблоня"
 
 #: data/scripts/apple_tree.dat:2
 msgid "Shame it's not a banana tree, I don't like apples"
-msgstr ""
+msgstr "Жаль, что это не банан, я не люблю яблоки"
 
 #: data/scripts/apple_tree.dat:4
 msgid "There aren't any apples left"
@@ -3102,15 +3121,15 @@ msgstr ""
 
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
-msgstr ""
+msgstr "Дверь не открывается. Я думаю, что ввёл неправильную комбинацию"
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
-msgstr ""
+msgstr "Множество книг"
 
 #: data/scripts/occult_book.dat:3
 msgid "Nothing of interest here though"
-msgstr ""
+msgstr "Тем не менее, ничего интересного"
 
 #: data/scripts/occult_book.dat:6
 msgid ""
@@ -3126,7 +3145,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "Душа блуждающего привидения"
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
@@ -3136,6 +3155,8 @@ msgstr "И запасной щит"
 msgid ""
 "Once I have all of those items I need to place them in the cauldron..."
 msgstr ""
+"Как только у меня будут все те предметы, я должен буду поместить их в "
+"котёл..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
@@ -3170,6 +3191,7 @@ msgid ""
 "Once the ingredients have been gathered, they must be placed in the "
 "cauldron..."
 msgstr ""
+"Как только составляющие будут собраны, они должны быть помещены в котёл..."
 
 #: data/scripts/occult_book.dat:26
 msgid "Oh no, not again! I'm fed up of using that stupid cauldron!"
@@ -3189,7 +3211,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:44
 msgid "That's a lot of ingredients that I have no idea where to find..."
-msgstr ""
+msgstr "Очень много компонентов, которые я не знаю, где искать..."
 
 #: data/scripts/anti_gravity.dat:1
 msgid "Hmm, this is new."
@@ -3200,14 +3222,16 @@ msgid ""
 "It doesn't look like it can hurt me though, but there's only one way to find "
 "out..."
 msgstr ""
+"Это не похоже на то, что может мне повредить, хотя есть только один способ "
+"это выяснить..."
 
 #: data/scripts/creepers.dat:2
 msgid "Those creepers look different to the others"
-msgstr ""
+msgstr "Те лианы выглядят отличными от других"
 
 #: data/scripts/creepers.dat:3
 msgid "They also look very dangerous..."
-msgstr ""
+msgstr "Также они кажутся очень опасными..."
 
 #: data/scripts/raft_end.dat:6
 msgid "That was easy! And I can always get back later!"
@@ -3231,11 +3255,11 @@ msgstr "Эй, молниевый меч!"
 
 #: data/scripts/lightning_sword.dat:3
 msgid "It looks a lot more powerful than my current sword too"
-msgstr ""
+msgstr "На вид это значительно мощнее  моего нынешнего меча"
 
 #: data/scripts/lightning_sword.dat:4
 msgid "With this I should be almost unstoppable"
-msgstr ""
+msgstr "С этим я стану почти неудержим"
 
 #: data/scripts/lightning_sword.dat:5
 msgid "Almost"
@@ -3266,7 +3290,7 @@ msgstr "Удачи!"
 #: data/scripts/jacob.dat:10
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
-msgstr ""
+msgstr "Спасибо за спасение моих курочек, принёс мне ещё два бревна из леса?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
@@ -3466,10 +3490,11 @@ msgstr ""
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 msgstr ""
+"Кроме того, я устал от всей этой ходьбы, прыжков, сражений, плавания..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
-msgstr ""
+msgstr "раздумываний, копания, рубки, тягания, толкания, таскания..."
 
 #: data/scripts/gold_centurion.dat:13
 msgid "and catching chickens"
@@ -3546,7 +3571,7 @@ msgstr ""
 
 #: data/scripts/resurrection_amulet.dat:5
 msgid "This should make my quest a lot easier"
-msgstr ""
+msgstr "Это должно сделать мои поиски гораздо легче"
 
 #: data/scripts/resurrection_amulet.dat:6
 msgid ""
@@ -3601,11 +3626,11 @@ msgstr ""
 
 #: data/scripts/evil_edgar_encounter_1.dat:17
 msgid "That was self defence!"
-msgstr ""
+msgstr "Это была самооборона!"
 
 #: data/scripts/evil_edgar_encounter_1.dat:18
 msgid "Did you try talking to them?"
-msgstr ""
+msgstr "Ты пробовал с ними говорить?"
 
 #: data/scripts/evil_edgar_encounter_1.dat:19
 msgid "You're crazy!"
@@ -3671,6 +3696,8 @@ msgid ""
 "To swap between firing normal arrows and flaming arrows, select the arrows "
 "in the inventory"
 msgstr ""
+"Для переключения стрельбы между нормальными и огненными стрелами, выбирай "
+"стрелы в инвентаре"
 
 #: data/scripts/wasteland_intro_2.dat:4
 msgid "Retrieve horn"

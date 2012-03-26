@@ -1,5 +1,6 @@
 edgar/edgar
 boss/chaos
+weapon/dragon_shield
 weapon/lightning_sword
 weapon/basic_sword
 weapon/bow
@@ -8,3 +9,5 @@ weapon/normal_arrow
 weapon/pickaxe
 lift/lift_target
 boss/chaos_vine
+weapon/wood_axe
+boss/golem_rock_dropper

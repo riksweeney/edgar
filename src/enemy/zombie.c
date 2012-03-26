@@ -352,7 +352,7 @@ static Entity *getRandomItem()
 	char *items[] = {
 		"item/health_potion",
 		"weapon/normal_arrow",
-		"weapon/fire_arrow",
+		"weapon/flaming_arrow",
 		"item/spike_ball",
 		"weapon/lightning_sword",
 		"weapon/lightning_sword_empty",

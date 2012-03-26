@@ -60,3 +60,4 @@ void unsetWeapon(void);
 void unsetShield(void);
 void setPlayerConfused(int);
 void setPlayerPetrified(void);
+void setPlayerAsh(void);

@@ -1156,12 +1156,12 @@ void setMapMaxY(int max)
 	map.maxY = max;
 }
 
-void setMinMapX(int min)
+void setMapMinX(int min)
 {
 	map.minX = min;
 }
 
-void setMinMapY(int min)
+void setMapMinY(int min)
 {
 	map.minY = min;
 }

@@ -99,8 +99,8 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		setMinMapX(0);
-		setMinMapY(0);
+		setMapMinX(0);
+		setMapMaxY(0);
 
 		setMapMaxX(MAX_MAP_X * TILE_SIZE);
 		setMapMaxY(MAX_MAP_Y * TILE_SIZE);

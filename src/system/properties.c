@@ -73,7 +73,8 @@ static Type elementType[] = {
 					{ICE, "ICE"},
 					{LIGHTNING, "LIGHTNING"},
 					{PHANTASMAL, "PHANTASMAL"},
-					{SLIME, "SLIME"}
+					{SLIME, "SLIME"},
+					{DRAGON_FIRE, "DRAGON_FIRE"}
 					};
 static int elementLength = sizeof(elementType) / sizeof(Type);
 

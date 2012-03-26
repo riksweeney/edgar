@@ -188,6 +188,8 @@ static void loadMenuLayout()
 	y = BUTTON_PADDING + BORDER_PADDING;
 
 	w = 0;
+	
+	maxWidth = 0;
 
 	for (i=0;i<menu.widgetCount;i++)
 	{

@@ -83,6 +83,7 @@ static void shieldTouch(Entity *);
 static void shieldSideAttackInit(void);
 static void starWait(void);
 static void applyPetrification(void);
+static void applyAsh(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -104,7 +105,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 5;
+			player.maxHealth = player.health = 20;
 		#endif
 
 		setEntityAnimationByID(&player, 0);
@@ -3020,6 +3021,64 @@ static void applyPetrification()
 	}
 
 	self->y = player.y;
+}
+
+void setPlayerAsh()
+{
+	Entity *e = getFreeEntity();
+
+	if (e == NULL)
+	{
+		showErrorAndExit("No free slots to add Ashed Player");
+	}
+
+	/* Change back to Edgar */
+
+	if (player.element == WATER)
+	{
+		becomeEdgar();
+	}
+
+	loadProperties("edgar/edgar_ash", e);
+
+	e->x = player.x;
+	e->y = player.y;
+
+	e->face = player.face;
+
+	e->action = &applyAsh;
+
+	e->draw = &drawLoopingAnimationToMap;
+
+	setEntityAnimation(e, "STAND");
+
+	e->thinkTime = 0;
+
+	player.dirX = 0;
+}
+
+static void applyAsh()
+{
+	Entity *e;
+
+	self->x = player.x;
+	self->y = player.y;
+	
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		e = addSmoke(self->x + prand() % self->w, self->y + self->h - prand() % 10, "decoration/dust");
+
+		if (e != NULL)
+		{
+			e->dirY = -(5 + prand() % 20);
+
+			e->dirY /= 10;
+		}
+
+		self->thinkTime = 5 + prand() % 10;
+	}
 }
 
 int isAttacking()
