@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-20 07:51+0000\n"
+"PO-Revision-Date: 2012-03-20 16:38+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
-"X-Generator: Launchpad (build 14969)\n"
+"X-Launchpad-Export-Date: 2012-03-23 19:08+0000\n"
+"X-Generator: Launchpad (build 14996)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -4939,7 +4939,7 @@ msgstr "Hra uložena"
 
 #: src/menu/yes_no_menu.c:117
 msgid "Any unsaved progress will be lost"
-msgstr "Neuložená pozice bude ztracena"
+msgstr "Neuložený postup hrou bude ztracen"
 
 #: src/input.c:903
 msgid "Joy Button #%d"
@@ -5239,7 +5239,7 @@ msgstr "klíč od komnaty s lektvary"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
-msgstr ""
+msgstr "Klíč od přepadové chodby"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
@@ -5283,7 +5283,7 @@ msgstr "Prosím nahlaste chybu na Parallel Realities"
 
 #: data/scripts/monsters.dat:60
 msgid "Venus Flytrap"
-msgstr ""
+msgstr "Venus Flytrap"
 
 #: src/item/moveable_lift.c:72
 msgid "Push Up or Down to raise or lower the platform"

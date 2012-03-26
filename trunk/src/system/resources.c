@@ -74,8 +74,6 @@ static char **key, **value;
 
 void loadRequiredResources()
 {
-	int code;
-
 	/* Load the hud */
 
 	initHud();
@@ -84,25 +82,9 @@ void loadRequiredResources()
 
 	if (strlen(game.customFont) == 0)
 	{
-		code = getCharacterCodeForTestString();
+		game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
 
-		if (code >= 0x4E00)
-		{
-			#if DEV == 1
-				printf("Code %d appears to be CJK. Using fallback font\n", code);
-			#endif
-
-			game.font = loadFont("font/DroidSansFallback.ttf", NORMAL_FONT_SIZE);
-
-			game.largeFont = loadFont("font/DroidSansFallback.ttf", LARGE_FONT_SIZE);
-		}
-
-		else
-		{
-			game.font = loadFont("font/DejaVuSans.ttf", NORMAL_FONT_SIZE);
-
-			game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
-		}
+		game.largeFont = loadFont("font/DejaVuSans.ttf", LARGE_FONT_SIZE);
 	}
 
 	else

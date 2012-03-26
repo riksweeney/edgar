@@ -1,0 +1,6 @@
+HEALTH 2750
+DAMAGE 1
+GFX_FILE data/gfx/boss/chaos_flame.dat
+ANIM_FILE data/anim/boss/chaos_flame.dat
+TYPE ENEMY
+LAYER FOREGROUND_LAYER

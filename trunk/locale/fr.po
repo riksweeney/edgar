@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-18 14:38+0000\n"
-"Last-Translator: TartinesKiller <Unknown>\n"
+"PO-Revision-Date: 2012-03-22 11:09+0000\n"
+"Last-Translator: Sebastien Belzile <seb.belzile@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
-"X-Generator: Launchpad (build 14969)\n"
+"X-Launchpad-Export-Date: 2012-03-23 19:08+0000\n"
+"X-Generator: Launchpad (build 14996)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -353,7 +353,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr "Merci!"
+msgstr "Merci !"
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
@@ -510,6 +510,7 @@ msgstr "Je l'ai!"
 msgid ""
 "What a ridiculous amount of effort to go through just to get a statue..."
 msgstr ""
+"C'est ridicule le nombre d'effort nécessaire pour obtenir cette statue..."
 
 #: data/scripts/scorpion_statue.dat:3
 msgid "I'd better get out of here and get back to the Fortress..."
@@ -674,6 +675,8 @@ msgstr "J'ai trouvé un moyen de tuer les Centurions"
 msgid ""
 "They will reform unless one of their parts falls into the slime or lava"
 msgstr ""
+"Ils se reformeront à moins qu'un de leur morceau tombe dans la boue ou dans "
+"l'eau."
 
 #: data/scripts/centurion_note_2.dat:4
 msgid ""
@@ -795,6 +798,8 @@ msgid ""
 "When you think you've entered the combination correctly, press Attack to try "
 "and open the door"
 msgstr ""
+"Quand tu pense que tu as entré la combinaison correctement, appuie sur "
+"Attaque pour essayer d'ouvrir la porte."
 
 #: data/scripts/no_combination.dat:1
 msgid ""
@@ -1005,7 +1010,7 @@ msgstr "Et ça a un goût de..."
 
 #: data/scripts/slime_potion_pool.dat:8
 msgid "It is! It's naturally occurring Slime potion!"
-msgstr ""
+msgstr "C'est ça! C'est de la potion de Slime naturelle!"
 
 #: data/scripts/cave_boss_die.dat:10
 msgid "Gotcha!"
@@ -1052,7 +1057,7 @@ msgstr "(Hé, regarde ça, un des orbes sur le bouclier s'est allumé...)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Tes sorts ne fonctionneront plus contre moi."
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
@@ -1212,7 +1217,7 @@ msgstr "Tu abandonne ?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "J'essaierai une autre fois."
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
@@ -1992,11 +1997,11 @@ msgstr ""
 
 #: data/scripts/items_found.dat:4
 msgid "If I can..."
-msgstr ""
+msgstr "Si je peux..."
 
 #: data/scripts/graveyard_weather.dat:4
 msgid "Huh, it's started to rain"
-msgstr ""
+msgstr "Huh, il pleus."
 
 #: data/scripts/sewer_trap_note.dat:2
 msgid "I've been trapped down here for what seems like an eternity"
@@ -2043,7 +2048,7 @@ msgstr "Ce mur est faible et peut être détruit avec une pioche."
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "Pour utiliser la pioche, appuie sur Attaque ([INPUT_ATTACK])"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
@@ -2057,15 +2062,15 @@ msgstr "Détruit le mur avec la pioche et continu"
 
 #: data/scripts/grimlore_die.dat:3
 msgid "There, back to your own dimension"
-msgstr ""
+msgstr "Enfin, de retour dans leur propre dimension."
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "Mais où est le sorcier?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
-msgstr ""
+msgstr "Finalement, nous nous rencontrons!"
 
 #: data/scripts/sorceror_intro_1.dat:9
 msgid "Who are you?"
@@ -2075,25 +2080,30 @@ msgstr "Qui êtes vous?"
 msgid ""
 "My name is Edgar and I have spent the last [HOURS] hours trying to find you!"
 msgstr ""
+"Mon nom est Edgar. J'essais de vous trouver depuis les dernières [HOURS] "
+"heures!"
 
 #: data/scripts/sorceror_intro_1.dat:11
 msgid "Fascinating. What do you want?"
-msgstr ""
+msgstr "Fascinant. Que veux-tu?"
 
 #: data/scripts/sorceror_intro_1.dat:12
 msgid "I've come to rescue my father, tell me where he is!"
-msgstr ""
+msgstr "Je suis venu sauver mon père, dit moi où il est!"
 
 #: data/scripts/sorceror_intro_1.dat:13
 msgid ""
 "Your father? My dear child, I do not have the foggiest idea what you are "
 "talking about"
 msgstr ""
+"Ton père? Mon chère enfant, je n'est pas la moindre idée de ce que tu parles."
 
 #: data/scripts/sorceror_intro_1.dat:14
 msgid ""
 "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 msgstr ""
+"Mais s'il est quelque part, il est dans mon donjon. Pourquoi ne vas-tu pas "
+"voir là-bas?"
 
 #: data/scripts/ant_lion.dat:1
 msgid "There's something moving around down there..."
@@ -2101,15 +2111,15 @@ msgstr "Il y a quelque chose qui bouge là bas..."
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "Ce doit être une fourmis-lion qui cherche de la nourriture."
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "Si je descend, je vais certainement me faire manger."
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "Peut-être que je peux attirer quelque chose dans le trou..."
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
@@ -2151,6 +2161,8 @@ msgstr ""
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
+"J'ai besoin d'une Tentacule de Boue Rouge et 3 yeux de Contemplateur pour "
+"faire cette potion."
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2195,7 +2207,7 @@ msgstr ""
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "Aucun endroit où se cacher."
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
@@ -2204,40 +2216,43 @@ msgstr ""
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
 msgstr ""
+"Il s'est soumis à mon épée comme tous les autres dans cet endroit de fou."
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
-msgstr ""
+msgstr "C'est votre dernière chance, dites-moi où se trouve mon père!"
 
 #: data/scripts/sorceror_start.dat:8
 msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
-msgstr ""
+msgstr "JE NE SAIS PAS DE QUOI TU PARLES!"
 
 #: data/scripts/sorceror_start.dat:9
 msgid "LIAR! I've run out of patience, prepare to die!"
-msgstr ""
+msgstr "MENTEUR! Je n'ai plus de patience, prépare toi à mourir!"
 
 #: data/scripts/sorceror_start.dat:11
 msgid "Very well. If that is your wish"
-msgstr ""
+msgstr "Très bien. Si c'est ce que tu souhaites."
 
 #: data/scripts/sorceror_start.dat:12
 msgid "Many have suffered at my hand"
-msgstr ""
+msgstr "J'ai fais souffrir bien des gens."
 
 #: data/scripts/sorceror_start.dat:13
 msgid "Your death will be quick, but extremely painful"
-msgstr ""
+msgstr "Ta mort sera rapide, mais extrêmement douloureuse."
 
 #: data/scripts/sorceror_start.dat:14
 msgid ""
 "I will add your head to the long line of foolish adventurers who have tried "
 "to best me"
 msgstr ""
+"J'ajouterai ta tête à la longue ligne d'aventuriers qui ont essayer de me "
+"battre."
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Prépare toi, Edgar."
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
@@ -2255,31 +2270,33 @@ msgstr ""
 
 #: data/scripts/black_book.dat:1
 msgid "This book is different to the rest"
-msgstr ""
+msgstr "Ce livre est différent du reste."
 
 #: data/scripts/black_book.dat:2
 msgid "I can feel a powerful magic emanating from it"
-msgstr ""
+msgstr "Je peux sentir qu'une puissante magie en émane."
 
 #: data/scripts/black_book.dat:3
 msgid "A powerful evil magic"
-msgstr ""
+msgstr "Une magie puissante et démoniaque"
 
 #: data/scripts/black_book.dat:4
 msgid "Maybe I should leave it alone"
-msgstr ""
+msgstr "Peut-être que je devrais le laisser tranquille."
 
 #: data/scripts/black_book.dat:5
 msgid "Still, I could be wrong, maybe it's not evil magic..."
 msgstr ""
+"Mais encore, je peux me tromper, peut-être que ce n'est pas une magie "
+"démoniaque..."
 
 #: data/scripts/black_book.dat:6
 msgid "Examine the book?"
-msgstr ""
+msgstr "Examiner le livre?"
 
 #: data/scripts/black_book.dat:20
 msgid "What just happened?"
-msgstr ""
+msgstr "Qu'est-ce qui s'est passé?"
 
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"

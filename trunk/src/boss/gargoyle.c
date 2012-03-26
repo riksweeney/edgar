@@ -1783,6 +1783,8 @@ static void lanceFallout()
 
 	startX = getMapStartX();
 	endX   = getMapStartX() + SCREEN_WIDTH;
+	
+	checkpointX = startX;
 
 	/* Get a piece furthest away from the boss */
 

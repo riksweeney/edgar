@@ -189,6 +189,8 @@ static void touch(Entity *other)
 		self->targetX = self->x + self->w / 2 - player.w / 2;
 
 		self->targetY = self->target->y - self->target->h;
+		
+		other->weight = 0;
 	}
 
 	else
@@ -265,6 +267,8 @@ static void takeDamage(Entity *other, int damage)
 
 				if (self->target != NULL)
 				{
+					self->target->weight = 1;
+					
 					self->target->flags &= ~FLY;
 				}
 
