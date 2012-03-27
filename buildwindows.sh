@@ -65,7 +65,7 @@ make -f makefile.windows VERSION=$1 -j3
 
 make -f makefile.windows -j3 buildpak
 
-rm *.po
+rm locale/*.po
 
 cp /opt/Windows/lib/*.dll .
 

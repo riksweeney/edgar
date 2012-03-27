@@ -60,7 +60,7 @@ Entity *addMusicSheetDisplay(int x, int y, char *name)
 
 static void init()
 {
-	int i, note;
+	int i, note, length;
 	Entity *e;
 
 	self->head = getEntityByObjectiveName("BELL_ROPE_HEAD");
@@ -70,7 +70,9 @@ static void init()
 		showErrorAndExit("Music Sheet cannot find BELL_ROPE_HEAD");
 	}
 
-	for (i=0;i<strlen(self->head->requires);i++)
+	length = strlen(self->head->requires);
+
+	for (i=0;i<length;i++)
 	{
 		e = getFreeEntity();
 
@@ -98,7 +100,7 @@ static void init()
 
 		e->head = self;
 	}
-	
+
 	self->action = &sheetWait;
 }
 

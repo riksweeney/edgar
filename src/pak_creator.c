@@ -388,8 +388,6 @@ static void testPak(char *pakFile)
 
 	for (i=0;i<fileCount;i++)
 	{
-		rewind(fp);
-
 		printf("Testing %s...", fileData[i].filename);
 
 		fseek(fp, fileData[i].offset, SEEK_SET);
