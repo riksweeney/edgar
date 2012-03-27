@@ -345,3 +345,25 @@ typedef struct Title
 	int thinkTime, continueSlot;
 	SDL_Surface *edgarLogo, *copyright, *startButton;
 } Title;
+
+typedef struct Bucket
+{
+	char *key, *value;
+	struct Bucket *next;
+} Bucket;
+
+typedef struct HashTable
+{
+	Bucket **bucket;
+} HashTable;
+
+typedef struct MOHeader
+{
+	int magicNumber, version, stringCount;
+	int originalOffset, translatedOffset;
+} MOHeader;
+
+typedef struct MOEntry
+{
+	int length, offset;
+} MOEntry;

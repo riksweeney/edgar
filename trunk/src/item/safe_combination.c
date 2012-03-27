@@ -103,13 +103,15 @@ static void touch(Entity *other)
 static void activate(int val)
 {
 	char combination[MAX_VALUE_LENGTH], turns[5];
-	int i, j;
+	int i, j, length;
 
 	j = 0;
 
 	combination[0] = '\0';
 
-	for (i=0;i<strlen(self->requires);i++)
+	length = strlen(self->requires);
+
+	for (i=0;i<length;i++)
 	{
 		if (isdigit(self->requires[i]))
 		{

@@ -132,7 +132,7 @@ int playSoundToMap(char *name, int channel, int x, int y, int loops)
 
 	/* The further away the camera is, the quieter the sound */
 
-	distance = (channel == EDGAR_CHANNEL ? 0 : getDistanceFromCamera(x, y));
+	distance = ((channel == EDGAR_CHANNEL || channel == BOSS_CHANNEL) ? 0 : getDistanceFromCamera(x, y));
 
 	volume = game.sfxDefaultVolume * VOLUME_STEPS;
 

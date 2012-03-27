@@ -1835,6 +1835,11 @@ void addEntityToList(EntityList *head, Entity *e)
 
 	list = malloc(sizeof(EntityList));
 
+	if (list == NULL)
+	{
+		showErrorAndExit("Failed to allocate a whole %d bytes for Entity List", (int)sizeof(EntityList));
+	}
+
 	list->entity = e;
 	list->next = NULL;
 
