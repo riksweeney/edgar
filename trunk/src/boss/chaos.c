@@ -35,6 +35,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../graphics/decoration.h"
 #include "../graphics/gib.h"
 #include "../hud.h"
+#include "../item/key_items.h"
 #include "../inventory.h"
 #include "../map.h"
 #include "../player.h"
@@ -517,6 +518,8 @@ static void eatAttack()
 	{
 		if (self->x <= self->targetX)
 		{
+			self->x = self->targetX;
+			
 			setEntityAnimation(self, "MOUTH_CLOSE");
 
 			if (self->flags & GRABBING)
@@ -802,7 +805,7 @@ static void stalagmiteAttackInit()
 {
 	createAutoDialogBox(_("Chaos"), _("Stalagmite"), 90);
 
-	self->mental = 2 + prand() % 4;
+	self->mental = 1 + prand() % 3;
 
 	self->action = &stalagmiteAttack;
 
@@ -858,7 +861,7 @@ static void stalagmiteAttack()
 
 		e->touch = &entityTouch;
 
-		e->damage = 3;
+		e->damage = 2;
 
 		e->takeDamage = &stalagmiteTakeDamage;
 
@@ -878,7 +881,7 @@ static void stalagmiteAttack()
 
 		if (self->mental <= 0)
 		{
-			self->thinkTime = 120;
+			self->thinkTime = 60;
 
 			self->action = &stalagmiteAttackFinish;
 		}
@@ -1074,9 +1077,9 @@ static void stalactiteAttack()
 
 		e->type = ENEMY;
 
-		e->damage = 3;
+		e->damage = 2;
 
-		e->thinkTime = 15 + prand() % 45;
+		e->thinkTime = 0;
 
 		e->flags |= DO_NOT_PERSIST;
 
@@ -1091,7 +1094,7 @@ static void stalactiteAttack()
 
 		else
 		{
-			self->thinkTime = 60;
+			self->thinkTime = 45;
 		}
 	}
 
@@ -1213,7 +1216,7 @@ static void breatheIn()
 		e->dirX *= 6;
 		e->dirY *= 6;
 
-		e->thinkTime = 10;
+		e->thinkTime = 30;
 	}
 
 	setCustomAction(&player, &attract, 2, 0, (player.x < (self->x + self->w / 2) ? (player.speed - 0.5) : -(player.speed - 0.5)));
@@ -1457,7 +1460,7 @@ static void spearAttack()
 
 			e->thinkTime = 15 * j;
 
-			e->damage = 3;
+			e->damage = 2;
 
 			e->touch = &entityTouch;
 
@@ -2016,7 +2019,7 @@ static void lightningBolt()
 
 			e->thinkTime = 15;
 
-			e->damage = 2;
+			e->damage = 3;
 		}
 
 		e = addSmallRock(self->x, self->endY, "common/small_rock");
@@ -2224,6 +2227,8 @@ static void die()
 	self->animationCallback = NULL;
 
 	activateEntitiesWithObjectiveName("CHAOS_VINES", FALSE);
+	
+	self->x = self->startX;
 
 	if (self->flags & GRABBING)
 	{
@@ -2327,6 +2332,10 @@ static void continuePoint()
 static void addLegendarySword()
 {
 	Entity *e;
+	
+	self->action = &initialise;
+	
+	return;
 
 	e = getFreeEntity();
 

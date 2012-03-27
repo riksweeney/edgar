@@ -213,9 +213,27 @@ static void raiseOffGround()
 
 	checkToMap(self);
 
-	self->target->x = self->targetX;
+	if (self->target->health > 0)
+	{
+		self->target->x = self->targetX;
 
-	self->target->y = self->y;
+		self->target->y = self->y;
+	}
+	
+	else
+	{
+		self->target->dirY = 0;
+		
+		self->target->weight = 1;
+		
+		self->target->flags &= ~FLY;
+		
+		self->active = FALSE;
+
+		self->target = NULL;
+
+		self->action = &vineMoveUp;
+	}
 }
 
 static void takeDamage(Entity *other, int damage)
@@ -267,6 +285,8 @@ static void takeDamage(Entity *other, int damage)
 
 				if (self->target != NULL)
 				{
+					self->target->dirY = 0;
+					
 					self->target->weight = 1;
 					
 					self->target->flags &= ~FLY;
