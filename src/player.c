@@ -84,7 +84,7 @@ static void shieldSideAttackInit(void);
 static void starWait(void);
 static void applyPetrification(void);
 static void applyAsh(void);
-static void fireWait(void);
+static void becomeAsh(void);
 
 Entity *loadPlayer(int x, int y, char *name)
 {
@@ -3053,26 +3053,23 @@ void setPlayerAsh()
 
 	setEntityAnimation(e, "STAND");
 
-	e->flags |= NO_DRAW;
+	e->animationCallback = &becomeAsh;
 
-	e->mental = 8;
-
-	e->maxThinkTime = e->mental;
-
-	e->thinkTime = 15;
+	e->mental = 0;
 
 	player.dirX = 0;
+	player.dirY = 0;
 }
 
 static void applyAsh()
 {
 	Entity *e;
 
-	if (self->maxThinkTime <= 0)
-	{
-		self->x = player.x;
-		self->y = player.y;
+	self->x = player.x;
+	self->y = player.y;
 
+	if (self->mental == 1)
+	{
 		self->thinkTime--;
 
 		if (self->thinkTime <= 0)
@@ -3089,92 +3086,13 @@ static void applyAsh()
 			self->thinkTime = 5 + prand() % 10;
 		}
 	}
-
-	else
-	{
-		self->thinkTime--;
-
-		if (self->thinkTime <= 0)
-		{
-			e = getFreeEntity();
-
-			if (e == NULL)
-			{
-				showErrorAndExit("No free slots to add the Fire");
-			}
-
-			loadProperties("boss/phoenix_die_fire", e);
-
-			setEntityAnimation(e, "STAND");
-
-			e->x = self->x + prand() % self->w;
-			e->y = self->y + self->h - e->h;
-
-			e->action = &fireWait;
-
-			e->touch = &entityTouch;
-
-			e->draw = &drawLoopingAnimationToMap;
-
-			e->type = ENEMY;
-
-			e->thinkTime = 30;
-
-			e->health = 0;
-
-			e->maxHealth = 3 + prand() % 3;
-
-			e->mental = 1;
-
-			e->head = self;
-
-			self->thinkTime = 10;
-
-			self->mental--;
-		}
-	}
 }
 
-static void fireWait()
+static void becomeAsh()
 {
-	self->thinkTime--;
+	setEntityAnimation(self, "ASH");
 
-	if (self->thinkTime <= 0)
-	{
-		self->health += self->mental;
-
-		if (self->health == self->maxHealth)
-		{
-			self->head->maxThinkTime--;
-
-			if (self->head->maxThinkTime <= 0)
-			{
-				self->head->flags &= ~NO_DRAW;
-			}
-
-			self->maxHealth = 5;
-
-			self->thinkTime = 30;
-
-			self->mental *= -1;
-		}
-
-		else if (self->health < 0)
-		{
-			self->inUse = FALSE;
-
-			self->health = 0;
-		}
-
-		else
-		{
-			self->thinkTime = 20;
-		}
-
-		setEntityAnimationByID(self, self->health);
-	}
-
-	checkToMap(self);
+	self->mental = 1;
 }
 
 int isAttacking()

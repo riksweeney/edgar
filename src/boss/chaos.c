@@ -67,17 +67,19 @@ static void riftWait(void);
 static void riftClose(void);
 static void addRiftEnergy(int, int);
 static void energyMoveToRift(void);
-static void stalactiteAttackInit(void);
-static void stalactiteAttack(void);
-static void stalactiteAttackFinish(void);
-static void stalactiteFall(void);
-static void stalactiteDie(void);
+static void spinnerAttackInit(void);
+static void spinnerAttack(void);
+static void spinnerAttackFinish(void);
+static void spinnerMove(void);
+static void rotateAroundTarget(void);
+static void spinnerPartDie(void);
 static void stalagmiteAttackInit(void);
 static void stalagmiteAttack(void);
 static void stalagmiteAttackFinish(void);
 static void stalagmiteRise(void);
 static void stalagmiteWait(void);
 static void stalagmiteTakeDamage(Entity *, int);
+static void stalagmiteDie(void);
 static void eatAttackInit(void);
 static void eatAttack(void);
 static void eatTouch(Entity *);
@@ -182,7 +184,7 @@ static void entityWait()
 
 			else if (self->target != NULL && self->target->inUse == TRUE && self->target->mental == 2) /* Blinded */
 			{
-				rand = prand() % 6;
+				rand = prand() % 4;
 			}
 
 			else
@@ -193,31 +195,31 @@ static void entityWait()
 			switch (rand)
 			{
 				case 0:
-					self->action = &stalactiteAttackInit;
-				break;
-
-				case 1:
 					self->action = &eatAttackInit;
 				break;
 
-				case 2:
+				case 1:
 					self->action = &stalagmiteAttackInit;
 				break;
 
-				case 3:
+				case 2:
 					self->action = &holdPersonInit;
 				break;
 
-				case 4:
+				case 3:
 					self->action = &vineAttackInit;
 				break;
 
-				case 5:
+				case 4:
 					self->action = &riftAttackInit;
 				break;
 
-				case 6:
+				case 5:
 					self->action = &spearAttackInit;
+				break;
+
+				case 6:
+					self->action = &spinnerAttackInit;
 				break;
 
 				case 7:
@@ -519,7 +521,7 @@ static void eatAttack()
 		if (self->x <= self->targetX)
 		{
 			self->x = self->targetX;
-			
+
 			setEntityAnimation(self, "MOUTH_CLOSE");
 
 			if (self->flags & GRABBING)
@@ -865,7 +867,7 @@ static void stalagmiteAttack()
 
 		e->takeDamage = &stalagmiteTakeDamage;
 
-		e->die = &stalactiteDie;
+		e->die = &stalagmiteDie;
 
 		e->head = self;
 
@@ -1008,133 +1010,7 @@ static void stalagmiteTakeDamage(Entity *other, int damage)
 	}
 }
 
-static void stalactiteAttackInit()
-{
-	createAutoDialogBox(_("Chaos"), _("Stalactite"), 90);
-
-	self->mental = 3 + prand() % 4;
-
-	self->action = &stalactiteAttack;
-
-	self->thinkTime = 60;
-
-	self->maxThinkTime--;
-
-	checkToMap(self);
-}
-
-static void stalactiteAttack()
-{
-	Entity *e;
-
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		e = getFreeEntity();
-
-		if (e == NULL)
-		{
-			showErrorAndExit("No free slots to add a stalactite");
-		}
-
-		loadProperties("item/stalactite", e);
-
-		setEntityAnimation(e, "STAND");
-
-		e->x = self->x + self->w / 2;
-		e->y = self->y + self->h / 2;
-
-		e->x -= e->w / 2;
-		e->y -= e->h / 2;
-
-		e->targetX = player.x + player.w / 2 - e->w / 2;
-		e->targetY = getMapCeiling(self->x, self->y);
-
-		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
-
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-
-		e->head = self;
-
-		e->face = RIGHT;
-
-		setEntityAnimation(e, "STAND");
-
-		e->action = &stalactiteFall;
-
-		e->touch = &entityTouch;
-
-		e->draw = &drawLoopingAnimationToMap;
-
-		e->die = &stalactiteDie;
-
-		e->head = self;
-
-		e->face = self->face;
-
-		e->type = ENEMY;
-
-		e->damage = 2;
-
-		e->thinkTime = 0;
-
-		e->flags |= DO_NOT_PERSIST;
-
-		self->mental--;
-
-		if (self->mental <= 0)
-		{
-			self->thinkTime = 120;
-
-			self->action = &stalactiteAttackFinish;
-		}
-
-		else
-		{
-			self->thinkTime = 45;
-		}
-	}
-
-	self->maxThinkTime--;
-
-	checkToMap(self);
-}
-
-static void stalactiteAttackFinish()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->action = &attackFinished;
-	}
-
-	self->maxThinkTime--;
-
-	checkToMap(self);
-}
-
-static void stalactiteFall()
-{
-	self->thinkTime--;
-
-	if (self->thinkTime <= 0)
-	{
-		self->flags &= ~FLY;
-	}
-
-	checkToMap(self);
-
-	if (self->flags & ON_GROUND)
-	{
-		self->die();
-	}
-}
-
-static void stalactiteDie()
+static void stalagmiteDie()
 {
 	Entity *e;
 
@@ -1157,6 +1033,180 @@ static void stalactiteDie()
 	e->dirY = -8;
 
 	self->inUse = FALSE;
+}
+
+static void spinnerAttackInit()
+{
+	createAutoDialogBox(_("Chaos"), _("Orbs"), 90);
+
+	self->mental = 3 + prand() % 4;
+
+	self->action = &spinnerAttack;
+
+	self->thinkTime = 60;
+
+	self->maxThinkTime--;
+
+	checkToMap(self);
+}
+
+static void spinnerAttack()
+{
+	int i;
+	Entity *spinner, *e;
+
+	self->thinkTime--;
+
+	if (self->thinkTime <= 0)
+	{
+		spinner = getFreeEntity();
+
+		if (spinner == NULL)
+		{
+			showErrorAndExit("No free slots to add a spinner");
+		}
+
+		loadProperties("boss/snake_boss_normal_shot", spinner);
+
+		setEntityAnimation(spinner, "STAND");
+
+		spinner->x = self->x + self->w / 2;
+		spinner->y = self->y + self->h / 2;
+
+		spinner->dirX = self->face == LEFT ? -4 : 4;
+
+		spinner->flags |= FLY;
+
+		spinner->targetX = getMapStartX() - 128;
+
+		spinner->head = self;
+
+		spinner->face = RIGHT;
+
+		spinner->action = &spinnerMove;
+
+		spinner->draw = &drawLoopingAnimationToMap;
+
+		spinner->type = ENEMY;
+
+		spinner->health = 0;
+
+		for (i=0;i<8;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a spinner part");
+			}
+
+			loadProperties("boss/snake_boss_normal_shot", e);
+
+			setEntityAnimation(e, "STAND");
+
+			e->x = spinner->x;
+			e->y = spinner->y;
+
+			e->startX = DEG_TO_RAD(i * 30);
+
+			e->mental = 0;
+
+			e->damage = 2;
+
+			e->health = 30;
+
+			e->speed = 3;
+
+			e->flags |= FLY;
+
+			e->head = spinner;
+
+			e->face = RIGHT;
+
+			e->action = &rotateAroundTarget;
+
+			e->takeDamage = &entityTakeDamage;
+
+			e->takeDamage = NULL;
+
+			e->die = &spinnerPartDie;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+
+			spinner->health++;
+		}
+
+		self->action = &spinnerAttackFinish;
+	}
+
+	self->maxThinkTime--;
+
+	checkToMap(self);
+}
+
+static void spinnerAttackFinish()
+{
+	if (self->mental == 0)
+	{
+		self->action = &attackFinished;
+	}
+
+	self->maxThinkTime--;
+
+	checkToMap(self);
+}
+
+static void spinnerMove()
+{
+	checkToMap(self);
+
+	if (self->health <= 0 || self->x <= self->targetX)
+	{
+		self->head->mental = 0;
+
+		self->inUse = FALSE;
+	}
+}
+
+static void rotateAroundTarget()
+{
+	float radians;
+
+	self->mental++;
+
+	if (self->mental > 128)
+	{
+		self->mental = 128;
+	}
+
+	self->startX += self->speed;
+
+	if (self->startX >= 360)
+	{
+		self->startX = 0;
+	}
+
+	radians = DEG_TO_RAD(self->startX);
+
+	self->x = self->head->x;
+	self->y = self->head->y;
+
+	self->x += (0 * cos(radians) - self->mental * sin(radians));
+	self->y += (0 * sin(radians) + self->mental * cos(radians));
+
+	if (self->head->inUse == FALSE)
+	{
+		self->inUse = FALSE;
+	}
+}
+
+static void spinnerPartDie()
+{
+	self->head->health--;
+
+	entityDieNoDrop();
 }
 
 static void breatheFireInit()
@@ -2227,7 +2277,7 @@ static void die()
 	self->animationCallback = NULL;
 
 	activateEntitiesWithObjectiveName("CHAOS_VINES", FALSE);
-	
+
 	self->x = self->startX;
 
 	if (self->flags & GRABBING)
@@ -2332,9 +2382,9 @@ static void continuePoint()
 static void addLegendarySword()
 {
 	Entity *e;
-	
+
 	self->action = &initialise;
-	
+
 	return;
 
 	e = getFreeEntity();
