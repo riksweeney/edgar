@@ -27,12 +27,12 @@ static void initTable(void);
 
 void setLanguage()
 {
-	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH]
+	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
 	char *lang, **key, **value;
-	int read;
+	int read, i;
 	FILE *fp;
 	MOHeader header;
-	MOEntry *original, *translated;
+	MOEntry *original, *translation;
 
 	initTable();
 
@@ -85,9 +85,9 @@ void setLanguage()
 
 	original = malloc(sizeof(MOEntry) * header.stringCount);
 
-	translated = malloc(sizeof(MOEntry) * header.stringCount);
+	translation = malloc(sizeof(MOEntry) * header.stringCount);
 
-	if (original == NULL || translated == NULL)
+	if (original == NULL || translation == NULL)
 	{
 		printf("Failed to allocate %d bytes for translation strings\n", sizeof(MOEntry) * header.stringCount);
 
@@ -113,8 +113,8 @@ void setLanguage()
 
 	for (i=0;i<header.stringCount;i++)
 	{
-		fread(&original[i].offset, sizeof(int), 1, fp);
 		fread(&original[i].length, sizeof(int), 1, fp);
+		fread(&original[i].offset, sizeof(int), 1, fp);
 
 		key[i] = malloc(original[i].length + 1);
 
@@ -130,8 +130,8 @@ void setLanguage()
 
 	for (i=0;i<header.stringCount;i++)
 	{
-		fread(&translation[i].offset, sizeof(int), 1, fp);
 		fread(&translation[i].length, sizeof(int), 1, fp);
+		fread(&translation[i].offset, sizeof(int), 1, fp);
 
 		value[i] = malloc(translation[i].length + 1);
 
@@ -143,26 +143,20 @@ void setLanguage()
 		}
 	}
 
-	fseek(fp, original[0].offset, SEEK_SET);
-
 	for (i=0;i<header.stringCount;i++)
 	{
+		fseek(fp, original[i].offset, SEEK_SET);
+		
 		fread(key[i], original[i].length, 1, fp);
-
-		#if DEV == 1
-			printf("msgid %d: %s\n", i, key[i]);
-		#endif
 	}
 
 	fseek(fp, translation[0].offset, SEEK_SET);
 
 	for (i=0;i<header.stringCount;i++)
 	{
+		fseek(fp, translation[i].offset, SEEK_SET);
+		
 		fread(value[i], translation[i].length, 1, fp);
-
-		#if DEV == 1
-			printf("msgstr %d: %s\n", i, value[i]);
-		#endif
 	}
 
 	fclose(fp);
@@ -182,7 +176,7 @@ void setLanguage()
 
 	free(original);
 
-	free(translated);
+	free(translation);
 }
 
 static int hashCode(char *data)
@@ -194,7 +188,7 @@ static int hashCode(char *data)
 
 	hash = 0;
 
-	for (i=0;length;i++)
+	for (i=0;i<length;i++)
 	{
 		hash = data[i] + (hash << 5) - hash;
 	}
@@ -229,7 +223,7 @@ static void put(char *key, char *value)
 	unsigned int hash = hashCode(key);
 
 	#if DEV == 1
-		printf("Got %d from %s\n", hash, key);
+		printf("%s = %s\n", key, value);
 	#endif
 
 	bucket = table.bucket[hash];
@@ -251,9 +245,9 @@ static void put(char *key, char *value)
 	newBucket->key   = malloc(strlen(key) + 1);
 	newBucket->value = malloc(strlen(value) + 1);
 
-	if (newBucket->key != NULL || newBucket->value)
+	if (newBucket->key == NULL || newBucket->value == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for a translation\n", newBucket->key);
+		printf("Failed to allocate a whole %d bytes for a translation\n", strlen(newBucket->key) + 1);
 
 		exit(1);
 	}
