@@ -360,7 +360,7 @@ typedef struct HashTable
 typedef struct MOHeader
 {
 	int magicNumber, version, stringCount;
-	int originalOffset, translatedOffset;
+	int originalOffset, translationOffset;
 } MOHeader;
 
 typedef struct MOEntry
