@@ -76,12 +76,20 @@ void setLanguage()
 
 	if (fp == NULL)
 	{
-		printf("Failed to open %s/%s/LC_MESSAGES/edgar.mo\n", LOCALE_DIR, language);
+		#if DEV == 1
+			printf("Failed to open %s/%s/LC_MESSAGES/edgar.mo\n", LOCALE_DIR, language);
+		#endif
 
 		return;
 	}
 
 	read = fread(&header, sizeof(header), 1, fp);
+
+	header.stringCount = SWAP32(header.stringCount);
+
+	header.originalOffset = SWAP32(header.originalOffset);
+
+	header.translationOffset = SWAP32(header.translationOffset);
 
 	original = malloc(sizeof(MOEntry) * header.stringCount);
 
@@ -113,8 +121,11 @@ void setLanguage()
 
 	for (i=0;i<header.stringCount;i++)
 	{
-		fread(&original[i].length, sizeof(int), 1, fp);
-		fread(&original[i].offset, sizeof(int), 1, fp);
+		fread(&original[i].length, sizeof(int32_t), 1, fp);
+		fread(&original[i].offset, sizeof(int32_t), 1, fp);
+
+		original[i].length = SWAP32(original[i].length);
+		original[i].offset = SWAP32(original[i].offset);
 
 		key[i] = malloc(original[i].length + 1);
 
@@ -130,8 +141,11 @@ void setLanguage()
 
 	for (i=0;i<header.stringCount;i++)
 	{
-		fread(&translation[i].length, sizeof(int), 1, fp);
-		fread(&translation[i].offset, sizeof(int), 1, fp);
+		fread(&translation[i].length, sizeof(int32_t), 1, fp);
+		fread(&translation[i].offset, sizeof(int32_t), 1, fp);
+
+		translation[i].length = SWAP32(translation[i].length);
+		translation[i].offset = SWAP32(translation[i].offset);
 
 		value[i] = malloc(translation[i].length + 1);
 
@@ -146,17 +160,19 @@ void setLanguage()
 	for (i=0;i<header.stringCount;i++)
 	{
 		fseek(fp, original[i].offset, SEEK_SET);
-		
-		fread(key[i], original[i].length, 1, fp);
-	}
 
-	fseek(fp, translation[0].offset, SEEK_SET);
+		fread(key[i], original[i].length, 1, fp);
+
+		key[i][original[i].length] = '\0';
+	}
 
 	for (i=0;i<header.stringCount;i++)
 	{
 		fseek(fp, translation[i].offset, SEEK_SET);
-		
+
 		fread(value[i], translation[i].length, 1, fp);
+
+		value[i][translation[i].length] = '\0';
 	}
 
 	fclose(fp);
@@ -177,6 +193,20 @@ void setLanguage()
 	free(original);
 
 	free(translation);
+
+	#if DEV == 1
+		read = 0;
+
+		for (i=0;i<TABLE_SIZE;i++)
+		{
+			if (table.bucketCount[i] != 0)
+			{
+				read++;
+			}
+		}
+
+		printf("Using %d of %d buckets (%d%%)\n", read, TABLE_SIZE, (read *  100) / TABLE_SIZE);
+	#endif
 }
 
 static int hashCode(char *data)
@@ -202,9 +232,11 @@ static void initTable()
 
 	table.bucket = malloc(sizeof(Bucket *) * TABLE_SIZE);
 
-	if (table.bucket == NULL)
+	table.bucketCount = malloc(sizeof(int) * TABLE_SIZE);
+
+	if (table.bucket == NULL || table.bucketCount == NULL)
 	{
-		printf("Failed to allocate %d bytes for a hashtable\n", sizeof(Bucket *) * TABLE_SIZE);
+		printf("Failed to allocate %d bytes for a HashTable\n", sizeof(Bucket *) * TABLE_SIZE);
 
 		exit(1);
 	}
@@ -214,6 +246,8 @@ static void initTable()
 		table.bucket[i] = malloc(sizeof(Bucket));
 
 		table.bucket[i]->next = NULL;
+
+		table.bucketCount[i] = 0;
 	}
 }
 
@@ -237,7 +271,7 @@ static void put(char *key, char *value)
 
 	if (newBucket == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for a hashtable bucket\n", sizeof(Bucket));
+		printf("Failed to allocate a whole %d bytes for a HashTable bucket\n", sizeof(Bucket));
 
 		exit(1);
 	}
@@ -258,6 +292,8 @@ static void put(char *key, char *value)
 	newBucket->next = NULL;
 
 	bucket->next = newBucket;
+
+	table.bucketCount[hash]++;
 }
 
 char *getTranslatedString(char *key)

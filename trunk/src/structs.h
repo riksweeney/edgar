@@ -355,15 +355,16 @@ typedef struct Bucket
 typedef struct HashTable
 {
 	Bucket **bucket;
+	int *bucketCount;
 } HashTable;
 
 typedef struct MOHeader
 {
-	int magicNumber, version, stringCount;
-	int originalOffset, translationOffset;
+	int32_t magicNumber, version, stringCount;
+	int32_t originalOffset, translationOffset;
 } MOHeader;
 
 typedef struct MOEntry
 {
-	int length, offset;
+	int32_t length, offset;
 } MOEntry;

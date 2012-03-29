@@ -26,7 +26,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 static void saveBuffer(void);
 static void loadBuffer(void);
 
-static int inputBuffer[MAX_INPUTS];
+static int32_t inputBuffer[MAX_INPUTS];
 static int bufferID = 0;
 static FILE *replayBuffer;
 static int inputsRead = 0;
@@ -118,7 +118,7 @@ void setMapFile(char *name)
 
 void putBuffer(Input inp)
 {
-	int input = 0;
+	int32_t input = 0;
 
 	if (inp.up == 1)        input |= 1;
 	if (inp.down == 1)      input |= 2;
@@ -150,7 +150,7 @@ void putBuffer(Input inp)
 
 Input getBuffer()
 {
-	int input;
+	int32_t input;
 	Input inp;
 
 	memset(&inp, 0, sizeof(Input));
@@ -197,12 +197,12 @@ Input getBuffer()
 
 static void saveBuffer()
 {
-	fwrite(inputBuffer, sizeof(int), bufferID, replayBuffer);
+	fwrite(inputBuffer, sizeof(int32_t), bufferID, replayBuffer);
 }
 
 static void loadBuffer()
 {
-	inputsRead = fread(inputBuffer, sizeof(int), MAX_INPUTS, replayBuffer);
+	inputsRead = fread(inputBuffer, sizeof(int32_t), MAX_INPUTS, replayBuffer);
 
 	if (inputsRead != MAX_INPUTS)
 	{

@@ -239,7 +239,7 @@ static void entityWait()
 			{
 				self->action = &breatheFireInit;
 			}
-			
+
 			self->action = &spinnerAttackInit;
 		}
 	}
@@ -2284,7 +2284,17 @@ static void die()
 
 	if (self->flags & GRABBING)
 	{
-		self->touch = &entityTouch;
+		if (self->face == LEFT)
+		{
+			player.x = self->x + self->w - player.w - self->offsetX;
+		}
+
+		else
+		{
+			player.x = self->x + self->offsetX;
+		}
+
+		player.y = self->y + self->offsetY;
 
 		setCustomAction(&player, &invulnerable, 60, 0, 0);
 
@@ -2295,6 +2305,8 @@ static void die()
 
 		player.dirX = (10 + prand() % 3) * (self->face == LEFT ? -1 : 1);
 		player.dirY = -3;
+
+		self->touch = &entityTouch;
 	}
 
 	self->mental = 0;
@@ -2323,6 +2335,8 @@ static void dieWait()
 	{
 		if (self->mental == 0)
 		{
+			setEntityAnimation(self, "DIE_2");
+
 			shakeScreen(MEDIUM, 60);
 
 			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
@@ -2338,8 +2352,6 @@ static void dieWait()
 			}
 
 			self->mental = 1;
-
-			setEntityAnimation(self, "DIE_2");
 
 			self->thinkTime = 120;
 		}
