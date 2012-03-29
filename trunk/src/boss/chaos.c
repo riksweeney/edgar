@@ -239,6 +239,8 @@ static void entityWait()
 			{
 				self->action = &breatheFireInit;
 			}
+			
+			self->action = &spinnerAttackInit;
 		}
 	}
 
@@ -1125,7 +1127,7 @@ static void spinnerAttack()
 
 			e->action = &rotateAroundTarget;
 
-			e->takeDamage = &entityTakeDamage;
+			e->takeDamage = &entityTakeDamageNoFlinch;
 
 			e->takeDamage = NULL;
 
