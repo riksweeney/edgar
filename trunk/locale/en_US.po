@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-15 13:25-0000\n"
+"PO-Revision-Date: 2012-03-30 10:49-0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -599,7 +599,7 @@ msgstr "If you proceed, I will fight you and destroy you. Flee now, while you ca
 msgid "You fool. Do you truly seek destruction?"
 msgstr "You fool. Do you truly seek destruction?"
 
-#: data/scripts/chaos_warn.dat:30
+#: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
 msgstr "Then I shall destroy you!!"
 
@@ -2271,7 +2271,7 @@ msgstr "This had better be the last time I have to do this..."
 msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "This must be the coal Borgan wants me to mine for him"
 
-#: data/scripts/evil_edgar_sighted.dat:7
+#: data/scripts/chaos_finish.dat:12
 msgid "What the?!"
 msgstr "What the?!"
 
@@ -2526,30 +2526,6 @@ msgstr "Be sure to reset the lift to avoid a long walk back to the surface..."
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
 msgstr "I thought I felt something. There's a draft here..."
-
-#: data/scripts/library_outro.dat:1
-msgid "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-msgstr "This place is crazy, I'd better hurry up and find Dad before I end up getting killed!"
-
-#: data/scripts/library_outro.dat:2
-msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-msgstr "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-
-#: data/scripts/library_outro.dat:3
-msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr "Red Sludges live in mines so I'll have to find one around here"
-
-#: data/scripts/library_outro.dat:4
-msgid "I also need a spare shield, but I reckon there should be an Armoury around"
-msgstr "I also need a spare shield, but I reckon there should be an Armory around"
-
-#: data/scripts/library_outro.dat:5
-msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
-msgstr "The Gazer eyeballs are easy enough, I can just return to the Basement"
-
-#: data/scripts/library_outro.dat:6
-msgid "OK, off I go..."
-msgstr "OK, off I go..."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid "Congratulations! Now you know the basics of playing you should try the main game"
@@ -3655,18 +3631,6 @@ msgstr "Well, it might have just fallen further down into the cave, I'll just ha
 msgid "Huh, déjà vu..."
 msgstr "Huh, déjà vu..."
 
-#: data/scripts/chaos_die.dat:8
-msgid "Now I must rest until I am strong enough to escape this wretched place"
-msgstr "Now I must rest until I am strong enough to escape this wretched place"
-
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years"
-msgstr "Even if it takes another 100 years"
-
-#: data/scripts/chaos_die.dat:10
-msgid "Now, begone from my sight, mighty warrior"
-msgstr "Now, begone from my sight, mighty warrior"
-
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
 msgstr "It looks like there's a larger network of caves down there"
@@ -4091,27 +4055,27 @@ msgstr "%d more to go..."
 msgid "Used %s"
 msgstr "Used %s"
 
-#: src/player.c:1016
+#: src/player.c:1020
 msgid "Cannot equip items whilst transmogrified"
 msgstr "Cannot equip items while transmogrified"
 
-#: src/player.c:1055
+#: src/player.c:1059
 msgid "Equipped %s"
 msgstr "Equipped %s"
 
-#: src/player.c:1683
+#: src/player.c:1687
 msgid "Maximum health has increased!"
 msgstr "Maximum health has increased!"
 
-#: src/player.c:2420
+#: src/player.c:2424
 msgid "Bow will now fire %s"
 msgstr "Bow will now fire %s"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow is required to use this item"
 msgstr "A bow is required to use this item"
 
-#: src/player.c:2486
+#: src/player.c:2490
 msgid "Cannot transmogrify here..."
 msgstr "Cannot transmogrify here..."
 
@@ -4123,15 +4087,15 @@ msgstr "Yes"
 msgid "No"
 msgstr "No"
 
-#: src/menu/main_menu.c:334
+#: src/menu/main_menu.c:336
 msgid "Start a new game?"
 msgstr "Start a new game?"
 
-#: src/menu/main_menu.c:349
+#: src/menu/main_menu.c:351
 msgid "Play the tutorial?"
 msgstr "Play the tutorial?"
 
-#: src/menu/main_menu.c:364
+#: src/menu/main_menu.c:366
 msgid "Exit the game?"
 msgstr "Exit the game?"
 
@@ -4139,7 +4103,7 @@ msgstr "Exit the game?"
 msgid "Back"
 msgstr "Back"
 
-#: src/menu/main_menu.c:380
+#: src/menu/main_menu.c:382
 msgid "Game Loaded"
 msgstr "Game Loaded"
 
@@ -4151,7 +4115,7 @@ msgstr "Game Saved"
 msgid "Any unsaved progress will be lost"
 msgstr "Any unsaved progress will be lost"
 
-#: src/input.c:903
+#: src/input.c:904
 msgid "Joy Button #%d"
 msgstr "Joy Button #%d"
 
@@ -4219,11 +4183,11 @@ msgstr "This lift is not active"
 msgid "Cannot carry any more %s"
 msgstr "Cannot carry any more %s"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s x %d"
 msgstr "Picked up %s x %d"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s"
 msgstr "Picked up %s"
 
@@ -4251,7 +4215,7 @@ msgstr "Coal Bag"
 msgid "Forest Cell Key"
 msgstr "Forest Cell Key"
 
-#: data/maps/map03.dat:5442
+#: data/maps/map26.dat:2117
 msgid "Wood Axe"
 msgstr "Wood Axe"
 
@@ -4407,7 +4371,7 @@ msgstr "Basic Sword"
 msgid "A Sword given to you by Jacob"
 msgstr "A Sword given to you by Jacob"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow"
 msgstr "A bow"
 
@@ -4719,7 +4683,7 @@ msgstr "Cannot pick up %s. Inventory full"
 msgid "Filling mine cart..."
 msgstr "Filling mine cart..."
 
-#: src/player.c:2154
+#: src/player.c:2158
 msgid "Out of arrows!"
 msgstr "Out of arrows!"
 
@@ -4795,7 +4759,7 @@ msgstr "Now! Run while it's stunned!"
 msgid "I just need to find another shield to enchant"
 msgstr "I just need to find another shield to enchant"
 
-#: src/boss/armour_boss.c:675
+#: src/boss/armour_boss.c:677
 msgid "Its wounds are already healing..."
 msgstr "Its wounds are already healing..."
 
@@ -4811,11 +4775,11 @@ msgstr "A Yellow Gem"
 msgid "Failed to open PAK file %s"
 msgstr "Failed to open PAK file %s"
 
-#: src/boss/armour_boss.c:1435
+#: src/boss/armour_boss.c:1437
 msgid "Find a way to remove the Gem..."
 msgstr "Find a way to remove the Gem..."
 
-#: src/boss/armour_boss.c:1446
+#: src/boss/armour_boss.c:1448
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr "Press Action to retrieve the Yellow Gem"
 
@@ -4879,7 +4843,7 @@ msgstr "Right Wing Key"
 msgid "Catapult Lift Key"
 msgstr "Catapult Lift Key"
 
-#: data/scripts/library_outro.dat:4
+#: data/maps/map09.dat:2917
 msgid "Armoury"
 msgstr "Armory"
 
@@ -4903,7 +4867,7 @@ msgstr "Edgar"
 msgid "Mine Cart"
 msgstr "Mine Cart"
 
-#: src/player.c:3131
+#: src/player.c:3208
 msgid "%s has regained power"
 msgstr "%s has regained power"
 
@@ -4927,7 +4891,7 @@ msgstr "Lightning Sword"
 msgid "INTRUDER!"
 msgstr "INTRUDER!"
 
-#: src/credits.c:970
+#: src/credits.c:982
 msgid "Statistics"
 msgstr "Statistics"
 
@@ -4967,11 +4931,11 @@ msgstr "Arrows Fired: %d"
 msgid "You found a secret!"
 msgstr "You found a secret!"
 
-#: src/player.c:3056
+#: src/player.c:3133
 msgid "10 charges remaining..."
 msgstr "10 charges remaining..."
 
-#: src/player.c:3063
+#: src/player.c:3140
 msgid "%s is out of power"
 msgstr "%s is out of power"
 
@@ -4999,7 +4963,7 @@ msgstr "Their partner will heal them when they fall..."
 msgid "Super is ready..."
 msgstr "Super is ready..."
 
-#: src/player.c:1665
+#: src/player.c:1669
 msgid "Used Amulet of Resurrection"
 msgstr "Used Amulet of Resurrection"
 
@@ -5179,7 +5143,7 @@ msgstr "A shield that can resist disintegration"
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr "Try using one of the artifacts to protect yourself..."
 
-#: src/menu/main_menu.c:387
+#: src/menu/main_menu.c:389
 msgid "Failed to load game"
 msgstr "Failed to load game"
 
@@ -5211,7 +5175,7 @@ msgstr "Creates a temporary shield that reflects magic spells"
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Protects against certain attacks. Stops working if you move"
 
-#: src/player.c:1319
+#: src/player.c:1323
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Press Attack while Blocking to use your shield..."
 
@@ -5219,39 +5183,39 @@ msgstr "Press Attack while Blocking to use your shield..."
 msgid "Play Time"
 msgstr "Play Time"
 
-#: src/credits.c:975
+#: src/credits.c:987
 msgid "Kills"
 msgstr "Kills"
 
-#: src/credits.c:978
+#: src/credits.c:990
 msgid "Arrows Fired"
 msgstr "Arrows Fired"
 
-#: src/credits.c:981
+#: src/credits.c:993
 msgid "Distanced Travelled"
 msgstr "Distanced Traveled"
 
-#: src/credits.c:984
+#: src/credits.c:996
 msgid "Attacks Blocked"
 msgstr "Attacks Blocked"
 
-#: src/credits.c:987
+#: src/credits.c:999
 msgid "Time Spent As A Slime"
 msgstr "Time Spent As A Slime"
 
-#: src/credits.c:990
+#: src/credits.c:1002
 msgid "Secrets Found"
 msgstr "Secrets Found"
 
-#: src/credits.c:993
+#: src/credits.c:1005
 msgid "Continues"
 msgstr "Continues"
 
-#: src/credits.c:1049
+#: src/credits.c:1061
 msgid "Defeated Bosses"
 msgstr "Defeated Bosses"
 
-#: src/credits.c:1204
+#: src/credits.c:1216
 msgid "Undefeated"
 msgstr "Undefeated"
 
@@ -5267,11 +5231,11 @@ msgstr "Sorcerer"
 msgid "Enough! Prepare to die..."
 msgstr "Enough! Prepare to die..."
 
-#: src/boss/chaos.c:1278
+#: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr "Quickly turn left and right to remove the hold person spell!"
 
-#: src/player.c:1326
+#: src/player.c:1330
 msgid "Your shield is increasing in power..."
 msgstr "Your shield is increasing in power..."
 
@@ -5543,7 +5507,7 @@ msgstr "A bell"
 msgid "Creates a save point at your current position"
 msgstr "Creates a save point at your current position"
 
-#: src/player.c:2071
+#: src/player.c:2075
 msgid "Your controls have been reversed!"
 msgstr "Your controls have been reversed!"
 
@@ -5763,7 +5727,7 @@ msgstr "The Observatory"
 msgid "Crypt"
 msgstr "Crypt"
 
-#: src/credits.c:695
+#: src/credits.c:707
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr "Copyright Parallel Realities 2009 - 2012"
 
@@ -5779,7 +5743,7 @@ msgstr "Cheats can only be enabled in-game"
 msgid "Press any key"
 msgstr "Press any key"
 
-#: src/player.c:1027
+#: src/player.c:1031
 msgid "Cannot equip items whilst attacking"
 msgstr "Cannot equip items while attacking"
 
@@ -5847,7 +5811,7 @@ msgstr "Ivan's keepsake"
 msgid "Selected %s"
 msgstr "Selected %s"
 
-#: src/player.c:2966
+#: src/player.c:2972
 msgid "Press buttons to break the petrification!"
 msgstr "Press buttons to break the petrification!"
 
@@ -5887,43 +5851,39 @@ msgstr "Enabling cheats will not allow you to achieve 100% completion in the gam
 msgid "You got into the machine by yourself?! You're even stupider than I thought you were!"
 msgstr "You got into the machine by yourself?! You're even stupider than I thought you were!"
 
-#: src/boss/chaos.c:379
+#: src/boss/chaos.c:808
 msgid "Stalagmite"
 msgstr "Stalagmite"
 
-#: src/boss/chaos.c:563
-msgid "Stalagtite"
-msgstr "Stalagtite"
-
-#: src/boss/chaos.c:708
+#: src/boss/chaos.c:1288
 msgid "Burn to ashes!"
 msgstr "Burn to ashes!"
 
-#: src/boss/chaos.c:712
+#: src/boss/chaos.c:1292
 msgid "Feel my power!"
 msgstr "Feel my power!"
 
-#: src/boss/chaos.c:716
+#: src/boss/chaos.c:1300
 msgid "Suffer!"
 msgstr "Suffer!"
 
-#: src/boss/chaos.c:908
+#: src/boss/chaos.c:1447
 msgid "Pathetic"
 msgstr "Pathetic"
 
-#: src/boss/chaos.c:921
+#: src/boss/chaos.c:1465
 msgid "Impale"
 msgstr "Impale"
 
-#: src/player.c:2004
+#: src/player.c:2008
 msgid "Confuse"
 msgstr "Confuse"
 
-#: src/boss/chaos.c:1097
+#: src/boss/chaos.c:1662
 msgid "Darkness"
 msgstr "Darkness"
 
-#: src/boss/chaos.c:1156
+#: src/boss/chaos.c:1741
 msgid "Hold Person"
 msgstr "Hold Person"
 
@@ -5935,35 +5895,130 @@ msgstr "A Sword of Legend"
 msgid "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr "Reflects phantasmal forces. Blocking at the last moment increases the power."
 
-#: src/credits.c:577
+#: src/credits.c:589
 msgid "Chaos has been subdued"
 msgstr "Chaos has been subdued"
 
-#: src/credits.c:579
+#: src/credits.c:591
 msgid "For now..."
 msgstr "For now..."
 
-#: src/credits.c:584
+#: src/credits.c:596
 msgid "Chaos will soon be free"
 msgstr "Chaos will soon be free"
 
-#: src/credits.c:586
+#: src/credits.c:598
 msgid "To terrorise the world once again"
 msgstr "To terrorize the world once again"
 
-#: data/scripts/chaos_die.dat:4
-msgid "Once again, I have been bested"
-msgstr "Once again, I have been bested"
+#: src/item/attractor.c:36
+msgid "Rift"
+msgstr "Rift"
+
+#: src/boss/chaos.c:454
+msgid "Tendrils"
+msgstr "Tendrils"
+
+#: src/boss/chaos.c:1040
+msgid "Orbs"
+msgstr "Orbs"
+
+#: src/boss/chaos.c:1296
+msgid "I will destroy you!"
+msgstr "I will destroy you!"
+
+#: data/scripts/chaos_finish.dat:13
+msgid "He must have teleported me away with the last of his magic"
+msgstr "He must have teleported me away with the last of his magic"
+
+#: data/scripts/chaos_finish.dat:14
+msgid "Even though I didn't manage to slay him, he's now too weak to pose a threat to the world"
+msgstr "Even though I didn't manage to slay him, he's now too weak to pose a threat to the world"
+
+#: data/scripts/chaos_finish.dat:15
+msgid "Time to get back to rescuing my father..."
+msgstr "Time to get back to rescuing my father..."
+
+#: data/scripts/sealed_entrance.dat:1
+msgid "It's sealed tight. I'm not getting back in there"
+msgstr "It's sealed tight. I'm not getting back in there"
 
 #: data/scripts/chaos_die.dat:5
-msgid "A worthy opponent deserves a weapon worthy of themselves"
-msgstr "A worthy opponent deserves a weapon worthy of themselves"
+msgid "It's over"
+msgstr "It's over"
 
 #: data/scripts/chaos_die.dat:6
-msgid "I bestow upon you this sword"
-msgstr "I bestow upon you this sword"
+msgid "Hey, what's that? It looks like a sword"
+msgstr "Hey, what's that? It looks like a sword"
 
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years, I will be free"
-msgstr "Even if it takes another 100 years, I will be free"
+#: data/scripts/chaos_die.dat:12
+msgid "This must be Ivan's sword"
+msgstr "This must be Ivan's sword"
 
+#: data/scripts/chaos_die.dat:13
+msgid "You... You will never defeat me"
+msgstr "You... You will never defeat me"
+
+#: data/scripts/chaos_die.dat:14
+msgid "I will escape this wretched place"
+msgstr "I will escape this wretched place"
+
+#: data/scripts/chaos_die.dat:15
+msgid "Even if it takes me another 100 years"
+msgstr "Even if it takes me another 100 years"
+
+#: data/scripts/chaos_die.dat:16
+msgid "These chains won't hold me forever"
+msgstr "These chains won't hold me forever"
+
+#: data/scripts/chaos_die.dat:17
+msgid "Time to finish this. Prepare yourself!"
+msgstr "Time to finish this. Prepare yourself!"
+
+#: data/scripts/chaos_die.dat:18
+msgid "No! BANISH!"
+msgstr "No! BANISH!"
+
+#~ msgid ""
+#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
+#~ "getting killed!"
+#~ msgstr ""
+#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
+#~ "getting killed!"
+
+#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+#~ msgstr "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+
+#~ msgid "Red Sludges live in mines so I'll have to find one around here"
+#~ msgstr "Red Sludges live in mines so I'll have to find one around here"
+
+#~ msgid ""
+#~ "I also need a spare shield, but I reckon there should be an Armoury around"
+#~ msgstr ""
+#~ "I also need a spare shield, but I reckon there should be an Armory around"
+
+#~ msgid ""
+#~ "The Gazer eyeballs are easy enough, I can just return to the Basement"
+#~ msgstr ""
+#~ "The Gazer eyeballs are easy enough, I can just return to the Basement"
+
+#~ msgid "OK, off I go..."
+#~ msgstr "OK, off I go..."
+
+#~ msgid "Now, begone from my sight, mighty warrior"
+#~ msgstr "Now, begone from my sight, mighty warrior"
+
+#~ msgid "Stalagtite"
+#~ msgstr "Stalagtite"
+
+#~ msgid "Once again, I have been bested"
+#~ msgstr "Once again, I have been bested"
+
+#~ msgid "A worthy opponent deserves a weapon worthy of themselves"
+#~ msgstr "A worthy opponent deserves a weapon worthy of themselves"
+
+#~ msgid "I bestow upon you this sword"
+#~ msgstr "I bestow upon you this sword"
+
+#~ msgid "Even if it takes another 100 years, I will be free"
+#~ msgstr "Even if it takes another 100 years, I will be free"

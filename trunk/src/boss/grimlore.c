@@ -2731,7 +2731,8 @@ static void destroyInventoryItem()
 		"item/summoner_staff",
 		"item/flaming_arrow_potion",
 		"item/resurrection_amulet",
-		"item/keepsake"
+		"item/keepsake",
+		"weapon/legendary_sword"
 	};
 
 	size = sizeof(items) / sizeof(char *);
