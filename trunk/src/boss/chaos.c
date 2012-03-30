@@ -239,8 +239,6 @@ static void entityWait()
 			{
 				self->action = &breatheFireInit;
 			}
-
-			self->action = &spinnerAttackInit;
 		}
 	}
 
@@ -1068,16 +1066,16 @@ static void spinnerAttack()
 			showErrorAndExit("No free slots to add a spinner");
 		}
 
-		loadProperties("boss/snake_boss_normal_shot", spinner);
+		loadProperties("boss/snake_boss_special_shot", spinner);
 
 		setEntityAnimation(spinner, "STAND");
 
 		spinner->x = self->x + self->w / 2;
 		spinner->y = self->y + self->h / 2;
 
-		spinner->dirX = self->face == LEFT ? -4 : 4;
+		spinner->dirX = self->face == LEFT ? -1 : 1;
 
-		spinner->flags |= FLY;
+		spinner->flags |= FLY|NO_DRAW;
 
 		spinner->targetX = getMapStartX() - 128;
 
@@ -1109,7 +1107,7 @@ static void spinnerAttack()
 			e->x = spinner->x;
 			e->y = spinner->y;
 
-			e->startX = DEG_TO_RAD(i * 30);
+			e->startX = i * 30;
 
 			e->mental = 0;
 
@@ -1127,9 +1125,7 @@ static void spinnerAttack()
 
 			e->action = &rotateAroundTarget;
 
-			e->takeDamage = &entityTakeDamageNoFlinch;
-
-			e->takeDamage = NULL;
+			e->touch = &entityTouch;
 
 			e->die = &spinnerPartDie;
 
@@ -1176,7 +1172,7 @@ static void rotateAroundTarget()
 {
 	float radians;
 
-	self->mental++;
+	self->mental += 4;
 
 	if (self->mental > 128)
 	{
@@ -2335,13 +2331,15 @@ static void dieWait()
 	{
 		if (self->mental == 0)
 		{
+			self->layer = MID_GROUND_LAYER;
+			
 			setEntityAnimation(self, "DIE_2");
 
 			shakeScreen(MEDIUM, 60);
 
 			playSoundToMap("sound/common/crash.ogg", BOSS_CHANNEL, self->x, self->y, 0);
 
-			for (i=0;i<30;i++)
+			for (i=0;i<300;i++)
 			{
 				e = addSmoke(self->x + (prand() % self->w), self->y + self->h, "decoration/dust");
 
@@ -2397,10 +2395,6 @@ static void addLegendarySword()
 {
 	Entity *e;
 
-	self->action = &initialise;
-
-	return;
-
 	e = getFreeEntity();
 
 	loadProperties("weapon/legendary_sword", e);
@@ -2425,8 +2419,14 @@ static void swordWait()
 {
 	if (self->head->health <= 0)
 	{
+		setEntityAnimation(self, "STICK_IN_CHAOS_DIE");
+		
 		self->touch = &keyItemTouch;
 	}
+	
+	self->face = self->head->face;
+	
+	self->layer = self->head->layer;
 
 	if (self->head->face == LEFT)
 	{
