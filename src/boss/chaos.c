@@ -1053,88 +1053,46 @@ static void spinnerAttackInit()
 static void spinnerAttack()
 {
 	int i;
-	Entity *spinner, *e;
+	Entity *e;
 
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0)
 	{
-		spinner = getFreeEntity();
+		e = getFreeEntity();
 
-		if (spinner == NULL)
+		if (e == NULL)
 		{
 			showErrorAndExit("No free slots to add a spinner");
 		}
 
-		loadProperties("boss/snake_boss_special_shot", spinner);
+		loadProperties("boss/snake_boss_special_shot", e);
 
-		setEntityAnimation(spinner, "STAND");
+		setEntityAnimation(e, "STAND");
 
-		spinner->x = self->x + self->w / 2;
-		spinner->y = self->y + self->h / 2;
+		e->x = self->x + self->w / 2;
+		e->y = self->y + self->h / 2;
 
-		spinner->dirX = self->face == LEFT ? -1 : 1;
+		e->targetX = self->x - e->w;
+		e->targetY = self->y + self->h / 2;
 
-		spinner->flags |= FLY|NO_DRAW;
+		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
-		spinner->targetX = getMapStartX() - 128;
+		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
 
-		spinner->head = self;
+		e->dirX = self->face == LEFT ? -1 : 1;
 
-		spinner->face = RIGHT;
+		e->flags |= FLY|NO_DRAW;
 
-		spinner->action = &spinnerMove;
+		e->head = self;
 
-		spinner->draw = &drawLoopingAnimationToMap;
+		e->face = RIGHT;
 
-		spinner->type = ENEMY;
+		e->action = &spinnerMove;
 
-		spinner->health = 0;
+		e->draw = &drawLoopingAnimationToMap;
 
-		for (i=0;i<8;i++)
-		{
-			e = getFreeEntity();
-
-			if (e == NULL)
-			{
-				showErrorAndExit("No free slots to add a spinner part");
-			}
-
-			loadProperties("boss/snake_boss_normal_shot", e);
-
-			setEntityAnimation(e, "STAND");
-
-			e->x = spinner->x;
-			e->y = spinner->y;
-
-			e->startX = i * 30;
-
-			e->mental = 0;
-
-			e->damage = 2;
-
-			e->health = 30;
-
-			e->speed = 3;
-
-			e->flags |= FLY;
-
-			e->head = spinner;
-
-			e->face = RIGHT;
-
-			e->action = &rotateAroundTarget;
-
-			e->touch = &entityTouch;
-
-			e->die = &spinnerPartDie;
-
-			e->draw = &drawLoopingAnimationToMap;
-
-			e->type = ENEMY;
-
-			spinner->health++;
-		}
+		e->type = ENEMY;
 
 		self->action = &spinnerAttackFinish;
 	}
@@ -1158,9 +1116,62 @@ static void spinnerAttackFinish()
 
 static void spinnerMove()
 {
+	int i;
+	Entity *e;
+
+	if (self->flags & NO_DRAW)
+	{
+		for (i=0;i<8;i++)
+		{
+			e = getFreeEntity();
+
+			if (e == NULL)
+			{
+				showErrorAndExit("No free slots to add a spinner part");
+			}
+
+			loadProperties("boss/snake_boss_normal_shot", e);
+
+			setEntityAnimation(e, "STAND");
+
+			e->x = self->x;
+			e->y = self->y;
+
+			e->startX = i * 30;
+
+			e->mental = 0;
+
+			e->damage = 2;
+
+			e->health = 30;
+
+			e->speed = 3;
+
+			e->flags |= FLY;
+
+			e->head = self;
+
+			e->face = RIGHT;
+
+			e->action = &rotateAroundTarget;
+
+			e->touch = &entityTouch;
+
+			e->die = &spinnerPartDie;
+
+			e->draw = &drawLoopingAnimationToMap;
+
+			e->type = ENEMY;
+		}
+
+		self->flags |= NO_DRAW;
+
+		self->targetX = getMapStartX() - 128;
+	}
+
 	checkToMap(self);
 
-	if (self->health <= 0 || self->x <= self->targetX)
+	if (self->x <= self->targetX)
 	{
 		self->head->mental = 0;
 
@@ -1285,19 +1296,19 @@ static void breatheFire()
 		switch (prand() % 4)
 		{
 			case 0:
-				createAutoDialogBox(_("Chaos"), _("Burn to ashes!"), 120);
+				createAutoDialogBox(_("Chaos"), _("Burn to ashes!"), 180);
 			break;
 
 			case 1:
-				createAutoDialogBox(_("Chaos"), _("Feel my power!"), 120);
+				createAutoDialogBox(_("Chaos"), _("Feel my power!"), 180);
 			break;
 
 			case 2:
-				createAutoDialogBox(_("Chaos"), _("I will destroy you!"), 120);
+				createAutoDialogBox(_("Chaos"), _("I will destroy you!"), 180);
 			break;
 
 			default:
-				createAutoDialogBox(_("Chaos"), _("Suffer!"), 120);
+				createAutoDialogBox(_("Chaos"), _("Suffer!"), 180);
 			break;
 		}
 
@@ -2332,7 +2343,7 @@ static void dieWait()
 		if (self->mental == 0)
 		{
 			self->layer = MID_GROUND_LAYER;
-			
+
 			setEntityAnimation(self, "DIE_2");
 
 			shakeScreen(MEDIUM, 60);
@@ -2420,12 +2431,12 @@ static void swordWait()
 	if (self->head->health <= 0)
 	{
 		setEntityAnimation(self, "STICK_IN_CHAOS_DIE");
-		
+
 		self->touch = &keyItemTouch;
 	}
-	
+
 	self->face = self->head->face;
-	
+
 	self->layer = self->head->layer;
 
 	if (self->head->face == LEFT)
