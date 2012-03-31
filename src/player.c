@@ -106,7 +106,7 @@ Entity *loadPlayer(int x, int y, char *name)
 		player.maxHealth = player.health = 5;
 
 		#if DEV == 1
-			player.maxHealth = player.health = 20;
+			player.maxHealth = player.health = 5;
 		#endif
 
 		setEntityAnimationByID(&player, 0);
@@ -3053,8 +3053,6 @@ void setPlayerAsh()
 
 	setEntityAnimation(e, "STAND");
 
-	e->animationCallback = &becomeAsh;
-
 	e->mental = 0;
 
 	player.dirX = 0;
@@ -3067,8 +3065,17 @@ static void applyAsh()
 
 	self->x = player.x;
 	self->y = player.y;
+	
+	if (player.mental == 0 && self->mental == 0)
+	{
+		self->mental = 1;
+		
+		setEntityAnimation(self, "BECOME_ASH");
+		
+		self->animationCallback = &becomeAsh;
+	}
 
-	if (self->mental == 1)
+	if (self->mental == 2)
 	{
 		self->thinkTime--;
 
@@ -3090,9 +3097,9 @@ static void applyAsh()
 
 static void becomeAsh()
 {
-	setEntityAnimation(self, "ASH");
+	setEntityAnimation(self, "ASH_WAIT");
 
-	self->mental = 1;
+	self->mental = 2;
 }
 
 int isAttacking()

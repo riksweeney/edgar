@@ -33,6 +33,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../geometry.h"
 #include "../graphics/animation.h"
 #include "../graphics/decoration.h"
+#include "../graphics/graphics.h"
 #include "../graphics/gib.h"
 #include "../hud.h"
 #include "../item/key_items.h"
@@ -309,7 +310,7 @@ static void riftAttack()
 			e->x = (i == 0 ? t1->x : t2->x) - e->w / 2;
 			e->y = (i == 0 ? t1->y : t2->y);
 
-			e->speed = width * 0.75;
+			e->speed = width;
 
 			e->thinkTime = 15;
 
@@ -370,6 +371,8 @@ static void riftOpen()
 
 static void riftWait()
 {
+	int x, y;
+	
 	self->thinkTime--;
 
 	if (self->thinkTime <= 0 || self->head->health <= 0)
@@ -383,7 +386,10 @@ static void riftWait()
 
 	else
 	{
-		if (collision(self->x - self->speed, self->y - self->speed, self->speed * 2, self->speed * 2, player.x, player.y, player.w, player.h) == 1)
+		x = self->x + self->w / 2;
+		y = self->y + self->h / 2;
+		
+		if (collision(x - self->speed, y - self->speed, self->speed * 2, self->speed * 2, player.x, player.y, player.w, player.h) == 1)
 		{
 			setCustomAction(&player, &attract, 5, 0, (player.x < (self->x + self->w / 2) ? player.speed - 0.25 : -(player.speed - 0.25)));
 		}
@@ -1330,7 +1336,10 @@ static void breatheFire()
 
 		e->thinkTime = 300;
 		
-		shakeScreen(LIGHT, 300);
+		if (game.status != IN_CREDITS)
+		{
+			shakeScreen(LIGHT, 300);
+		}
 
 		e->mental = 1;
 
@@ -1438,6 +1447,8 @@ static void flameTouch(Entity *other)
 			removeInventoryItemByObjectiveName("Amulet of Resurrection");
 
 			other->die();
+			
+			other->mental = 1;
 		}
 	}
 }
@@ -1456,6 +1467,8 @@ static void breatheFireFinish()
 
 			if (player.health <= 0)
 			{
+				player.mental = 0;
+				
 				createAutoDialogBox(_("Chaos"), _("Pathetic"), 300);
 			}
 
@@ -2399,10 +2412,12 @@ static void creditsAction()
 {
 	if (self->active == TRUE)
 	{
-		self->alpha++;
+		self->alpha += 2;
 
 		if (self->alpha >= 255)
 		{
+			self->alpha = 255;
+			
 			self->creditsAction = &breatheFireInit;
 		}
 	}
