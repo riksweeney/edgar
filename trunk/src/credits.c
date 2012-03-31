@@ -163,6 +163,7 @@ static void drawChaos(void);
 static void shuffleEnemies(void);
 static void doEdgarLogo(void);
 static void drawEdgarLogo(void);
+static int doCreditsEntities(void);
 
 void doCredits()
 {
@@ -193,16 +194,13 @@ void doCredits()
 static void doEndCredits()
 {
 	int i, r, g, b, remainingEntities;
-	EntityList *el, *entities;
 	Target *t;
-
-	entities = getEntities();
 
 	if (credits.creditLine == NULL)
 	{
 		initCredits();
 	}
-
+	
 	remainingEntities = 0;
 
 	for (i=0;i<credits.lineCount;i++)
@@ -262,77 +260,8 @@ static void doEndCredits()
 
 			addToGrid(self);
 		}
-
-		for (el=entities->next;el!=NULL;el=el->next)
-		{
-			self = el->entity;
-
-			if (self->inUse == TRUE)
-			{
-				remainingEntities++;
-
-				self->takeDamage = NULL;
-
-				if (!(self->flags & TELEPORTING))
-				{
-					if (!(self->flags & (FLY|GRABBED)))
-					{
-						switch (self->environment)
-						{
-							case WATER:
-							case SLIME:
-								self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
-
-								if (self->flags & FLOATS)
-								{
-									if (self->dirX != 0)
-									{
-										self->endY++;
-
-										self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
-									}
-								}
-
-								if (self->dirY >= MAX_WATER_SPEED)
-								{
-									self->dirY = MAX_WATER_SPEED;
-								}
-							break;
-
-							default:
-								self->dirY += GRAVITY_SPEED * self->weight;
-
-								if (self->dirY >= MAX_AIR_SPEED)
-								{
-									self->dirY = MAX_AIR_SPEED;
-								}
-
-								else if (self->dirY > 0 && self->dirY < 1)
-								{
-									self->dirY = 1;
-								}
-							break;
-						}
-					}
-
-					if (self->creditsAction == NULL)
-					{
-						showErrorAndExit("%s has no Credits Action defined", self->name);
-					}
-
-					self->creditsAction();
-
-					addToGrid(self);
-
-					addToDrawLayer(self, self->layer);
-				}
-
-				else
-				{
-					doTeleport();
-				}
-			}
-		}
+		
+		remainingEntities += doCreditsEntities();
 
 		credits.nextEntityDelay--;
 
@@ -439,9 +368,6 @@ static void doGameStats()
 static void doDefeatedBosses()
 {
 	int remainingEntities;
-	EntityList *el, *entities;
-
-	entities = getEntities();
 
 	if (credits.creditLine == NULL)
 	{
@@ -456,66 +382,7 @@ static void doDefeatedBosses()
 	{
 		credits.startDelay = 0;
 
-		for (el=entities->next;el!=NULL;el=el->next)
-		{
-			self = el->entity;
-
-			if (self->inUse == TRUE)
-			{
-				remainingEntities++;
-
-				if (!(self->flags & (FLY|GRABBED)))
-				{
-					switch (self->environment)
-					{
-						case WATER:
-						case SLIME:
-							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
-
-							if (self->flags & FLOATS)
-							{
-								if (self->dirX != 0)
-								{
-									self->endY++;
-
-									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
-								}
-							}
-
-							if (self->dirY >= MAX_WATER_SPEED)
-							{
-								self->dirY = MAX_WATER_SPEED;
-							}
-						break;
-
-						default:
-							self->dirY += GRAVITY_SPEED * self->weight;
-
-							if (self->dirY >= MAX_AIR_SPEED)
-							{
-								self->dirY = MAX_AIR_SPEED;
-							}
-
-							else if (self->dirY > 0 && self->dirY < 1)
-							{
-								self->dirY = 1;
-							}
-						break;
-					}
-				}
-
-				if (self->creditsAction == NULL)
-				{
-					showErrorAndExit("%s has no Credits Action defined", self->name);
-				}
-
-				self->creditsAction();
-
-				addToGrid(self);
-
-				addToDrawLayer(self, self->layer);
-			}
-		}
+		remainingEntities = doCreditsEntities();
 
 		if (remainingEntities == 0)
 		{
@@ -574,6 +441,8 @@ static void doChaos()
 
 		e->x = t->x;
 		e->y = t->y;
+		
+		e->active = FALSE;
 
 		e->alpha = 0;
 
@@ -608,7 +477,7 @@ static void doChaos()
 
 		credits.creditLine[1].x = (SCREEN_WIDTH - credits.creditLine[1].textImage->w) / 2;
 
-		credits.creditLine[0].y = (SCREEN_HEIGHT - (credits.creditLine[0].textImage->h + credits.creditLine[1].textImage->h + 80)) / 2;
+		credits.creditLine[0].y = 80;
 
 		credits.creditLine[1].y = credits.creditLine[0].y + 80;
 
@@ -622,6 +491,8 @@ static void doChaos()
 
 		drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
 	}
+	
+	doCreditsEntities();
 
 	if (credits.line == -1)
 	{
@@ -641,6 +512,8 @@ static void doChaos()
 
 		if (credits.creditLine[1].r <= 0)
 		{
+			activateEntitiesWithObjectiveName("CHAOS", TRUE);
+			
 			credits.startDelay--;
 
 			if (credits.startDelay <= 0)
@@ -648,6 +521,12 @@ static void doChaos()
 				credits.startDelay = 180;
 
 				credits.line = 1;
+				
+				SDL_FreeSurface(credits.fadeSurface);
+				
+				credits.fadeSurface = createSurface(game.screen->w, game.screen->h);
+
+				drawBox(credits.fadeSurface, 0, 0, credits.fadeSurface->w, credits.fadeSurface->h, 0, 0, 0);
 			}
 		}
 	}
@@ -1370,4 +1249,87 @@ static void shuffleEnemies()
 
 		enemies[j] = s;
 	}
+}
+
+static int doCreditsEntities()
+{
+	int remainingEntities;
+	EntityList *el, *entities;
+	
+	entities = getEntities();
+	
+	remainingEntities = 0;
+	
+	for (el=entities->next;el!=NULL;el=el->next)
+	{
+		self = el->entity;
+
+		if (self->inUse == TRUE)
+		{
+			remainingEntities++;
+
+			self->takeDamage = NULL;
+
+			if (!(self->flags & TELEPORTING))
+			{
+				if (!(self->flags & (FLY|GRABBED)))
+				{
+					switch (self->environment)
+					{
+						case WATER:
+						case SLIME:
+							self->dirY += GRAVITY_SPEED * 0.25 * self->weight;
+
+							if (self->flags & FLOATS)
+							{
+								if (self->dirX != 0)
+								{
+									self->endY++;
+
+									self->dirY = cos(DEG_TO_RAD(self->endY)) / 20;
+								}
+							}
+
+							if (self->dirY >= MAX_WATER_SPEED)
+							{
+								self->dirY = MAX_WATER_SPEED;
+							}
+						break;
+
+						default:
+							self->dirY += GRAVITY_SPEED * self->weight;
+
+							if (self->dirY >= MAX_AIR_SPEED)
+							{
+								self->dirY = MAX_AIR_SPEED;
+							}
+
+							else if (self->dirY > 0 && self->dirY < 1)
+							{
+								self->dirY = 1;
+							}
+						break;
+					}
+				}
+
+				if (self->creditsAction == NULL)
+				{
+					showErrorAndExit("%s has no Credits Action defined", self->name);
+				}
+
+				self->creditsAction();
+
+				addToGrid(self);
+
+				addToDrawLayer(self, self->layer);
+			}
+
+			else
+			{
+				doTeleport();
+			}
+		}
+	}
+	
+	return remainingEntities;
 }
