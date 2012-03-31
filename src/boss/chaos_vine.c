@@ -178,6 +178,10 @@ static void touch(Entity *other)
 {
 	if (self->target == NULL && other->type == PLAYER && other->health > 0)
 	{
+		setPlayerLocked(TRUE);
+		
+		setPlayerLocked(FALSE);
+		
 		self->target = other;
 
 		self->thinkTime = 180;

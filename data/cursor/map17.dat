@@ -8,7 +8,6 @@ lift/mine_lift
 lift/lift_target
 common/switch
 door/metal_door
-weapon/basic_sword
 item/bomb_pile
 enemy/laser_grid
 enemy/horizontal_laser_grid
@@ -16,8 +15,6 @@ item/extend_o_grab
 item/water_purifier
 item/ice_spray
 item/extend_o_grab_button
-weapon/bow
-weapon/normal_arrow
 conveyor_belt/conveyor_belt_left
 conveyor_belt/conveyor_belt_middle
 conveyor_belt/conveyor_belt_right
@@ -31,7 +28,6 @@ door/large_metal_door
 wall/armoury_weak_wall
 item/crusher
 item/bomb
-weapon/pickaxe
 common/pressure_plate
 item/wooden_crate
 common/reset_switch
@@ -40,7 +36,6 @@ item/jigsaw_puzzle
 item/jigsaw_puzzle_display
 item/magnet
 common/spawner
-weapon/fire_shield
 enemy/dark_summoner
 common/action_point
 door/skull_door
@@ -57,3 +52,11 @@ common/level_exit
 boss/centurion_boss
 item/protection_ring
 item/tuning_fork
+weapon/basic_sword
+weapon/bow
+weapon/normal_arrow
+weapon/pickaxe
+weapon/dragon_shield
+item/health_potion
+weapon/wood_axe
+weapon/lightning_sword

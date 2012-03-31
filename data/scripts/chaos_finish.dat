@@ -6,9 +6,13 @@ SET EDGAR PROPERTY Y 10300
 TELEPORT EDGAR 6240 12630
 WAIT 120
 SET EDGAR FACE RIGHT
-WAIT 15
+WAIT 30
 SET EDGAR FACE LEFT
-WAIT 15
+WAIT 30
+SET EDGAR FACE RIGHT
+WAIT 30
+SET EDGAR FACE LEFT
+WAIT 30
 TALK Edgar What the?!
 TALK Edgar He must have teleported me away with the last of his magic
 TALK Edgar Even though I didn't manage to slay him, he's now too weak to pose a threat to the world

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-23 19:08+0000\n"
-"X-Generator: Launchpad (build 14996)\n"
+"X-Launchpad-Export-Date: 2012-03-30 18:16+0000\n"
+"X-Generator: Launchpad (build 15032)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -695,7 +695,7 @@ msgstr ""
 msgid "You fool. Do you truly seek destruction?"
 msgstr "Ty hlupáku. Skutečně hledáš zkázu?"
 
-#: data/scripts/chaos_warn.dat:30
+#: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
 msgstr "Potom tě tedy zničím!!"
 
@@ -1263,6 +1263,13 @@ msgstr ""
 #: data/scripts/monsters.dat:21
 msgid "Beneath an old fortress? Maybe they mean this one..."
 msgstr "Pod starou pevností? Možná je to tahle..."
+
+#: data/scripts/monsters.dat:22
+msgid ""
+"If that dragon is regaining its power then it must be stopped before it's "
+"too late"
+msgstr ""
+"Pokud drak sbírá svou sílu, musí být zastaven dřív, než bude moc pozdě"
 
 #: data/scripts/monsters.dat:23
 msgid ""
@@ -2736,7 +2743,7 @@ msgstr "Tohle je snad naposled, kdy to musím udělat..."
 msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "Tohle musí být to uhlí, které po mě chce Borgan natěžit"
 
-#: data/scripts/evil_edgar_sighted.dat:7
+#: data/scripts/chaos_finish.dat:12
 msgid "What the?!"
 msgstr "Co to?!"
 
@@ -3034,38 +3041,6 @@ msgstr ""
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
 msgstr "Myslím, že jsem něco cítil. Je tu draft..."
-
-#: data/scripts/library_outro.dat:1
-msgid ""
-"This place is crazy, I'd better hurry up and find Dad before I end up "
-"getting killed!"
-msgstr ""
-"Tohle místo je šílené, měl bych si pospíšit a najít tátu než dřív, než tu "
-"naleznu svou smrt!"
-
-#: data/scripts/library_outro.dat:2
-msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-msgstr ""
-"Takže, pro vytvoření Ohnivého štítu musím získat chapadlo Červeného bahňáka"
-
-#: data/scripts/library_outro.dat:3
-msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr ""
-"Červený bahňáci žijí v dolech, takže bych seměl po nějakém poohlédnout"
-
-#: data/scripts/library_outro.dat:4
-msgid ""
-"I also need a spare shield, but I reckon there should be an Armoury around"
-msgstr ""
-"Také budu potřebovat další štít, ale to by měla vyřešit návštěva zbrojnice"
-
-#: data/scripts/library_outro.dat:5
-msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
-msgstr "Gazerovi oči bych měl získat snadno, stačí se vrátit do sklepení"
-
-#: data/scripts/library_outro.dat:6
-msgid "OK, off I go..."
-msgstr "OK, takže pojďmež..."
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
@@ -3495,6 +3470,10 @@ msgstr "a chytání slepic"
 #: data/scripts/gold_centurion.dat:14
 msgid "I'll get something else to do it instead"
 msgstr "Najdu něco jiného, co to za mě udělá"
+
+#: data/scripts/gold_centurion.dat:2
+msgid "I'll find something else to work the treadmill for me"
+msgstr "Najdu něco jiného, co bude běžet na páse místo mě"
 
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
@@ -4407,21 +4386,6 @@ msgstr ""
 msgid "Huh, déjà vu..."
 msgstr "Huh, déjà vu..."
 
-#: data/scripts/chaos_die.dat:8
-msgid ""
-"Now I must rest until I am strong enough to escape this wretched place"
-msgstr ""
-"Teď musím odpočívat, dokud nebudu mít dost síly, abych se dostal z tohoto "
-"prokletého místa"
-
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years"
-msgstr "I kdyby to mělo trvat dalších 100 let"
-
-#: data/scripts/chaos_die.dat:10
-msgid "Now, begone from my sight, mighty warrior"
-msgstr "Teď se mi kliď z očí, mocný válečníku"
-
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
 msgstr "Zdá se, že tam dole je ještě rozsáhlejší systém jeskyní"
@@ -4881,27 +4845,27 @@ msgstr "%d zbývá..."
 msgid "Used %s"
 msgstr "%s použit"
 
-#: src/player.c:1016
+#: src/player.c:1020
 msgid "Cannot equip items whilst transmogrified"
 msgstr "Není možné používat předměty dokud jsi přeměněný"
 
-#: src/player.c:1055
+#: src/player.c:1059
 msgid "Equipped %s"
 msgstr "%s vybaven"
 
-#: src/player.c:1683
+#: src/player.c:1687
 msgid "Maximum health has increased!"
 msgstr "Maximální počet životů byl navýšen!"
 
-#: src/player.c:2420
+#: src/player.c:2424
 msgid "Bow will now fire %s"
 msgstr "Luk teď bude střílet %s"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow is required to use this item"
 msgstr "K použití tohoto předmětu je třeba mít luk"
 
-#: src/player.c:2486
+#: src/player.c:2490
 msgid "Cannot transmogrify here..."
 msgstr "Tady se nemůžeš přeměnit..."
 
@@ -4913,15 +4877,15 @@ msgstr "Ano"
 msgid "No"
 msgstr "Ne"
 
-#: src/menu/main_menu.c:334
+#: src/menu/main_menu.c:336
 msgid "Start a new game?"
 msgstr "Začít novou hru?"
 
-#: src/menu/main_menu.c:349
+#: src/menu/main_menu.c:351
 msgid "Play the tutorial?"
 msgstr "Hrát tutoriál?"
 
-#: src/menu/main_menu.c:364
+#: src/menu/main_menu.c:366
 msgid "Exit the game?"
 msgstr "Ukončit hru?"
 
@@ -4929,7 +4893,7 @@ msgstr "Ukončit hru?"
 msgid "Back"
 msgstr "Zpět"
 
-#: src/menu/main_menu.c:380
+#: src/menu/main_menu.c:382
 msgid "Game Loaded"
 msgstr "Hra načtena"
 
@@ -4941,7 +4905,7 @@ msgstr "Hra uložena"
 msgid "Any unsaved progress will be lost"
 msgstr "Neuložený postup hrou bude ztracen"
 
-#: src/input.c:903
+#: src/input.c:904
 msgid "Joy Button #%d"
 msgstr "Joy Button #%d"
 
@@ -5009,11 +4973,11 @@ msgstr "Výtah není aktivní"
 msgid "Cannot carry any more %s"
 msgstr "Není možné vzít další %s"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s x %d"
 msgstr "Sebrán %s x %d"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s"
 msgstr "Sebrán %s"
 
@@ -5041,7 +5005,7 @@ msgstr "Pytel na uhlí"
 msgid "Forest Cell Key"
 msgstr "Klíč od lesní komnaty"
 
-#: data/maps/map03.dat:5442
+#: data/maps/map26.dat:2117
 msgid "Wood Axe"
 msgstr "Sekera"
 
@@ -5197,7 +5161,7 @@ msgstr "Jednoduchý meč"
 msgid "A Sword given to you by Jacob"
 msgstr "Meč co ti dal Jákob"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow"
 msgstr "Luk"
 
@@ -5509,7 +5473,7 @@ msgstr "Není možné sebrat %s. Inventář je plný"
 msgid "Filling mine cart..."
 msgstr "Důlní vozík se zaplňuje..."
 
-#: src/player.c:2154
+#: src/player.c:2158
 msgid "Out of arrows!"
 msgstr "Došli ti šípy!"
 
@@ -5585,7 +5549,7 @@ msgstr "Teď! Bež dokud je ochromený!"
 msgid "I just need to find another shield to enchant"
 msgstr "Teď už zbýva jen najít další štít"
 
-#: src/boss/armour_boss.c:675
+#: src/boss/armour_boss.c:677
 msgid "Its wounds are already healing..."
 msgstr "Jeho zranění se už léčí..."
 
@@ -5602,11 +5566,11 @@ msgstr "Žlutý krystal"
 msgid "Failed to open PAK file %s"
 msgstr "Nepodařilo se otevřít PAK soubor %s"
 
-#: src/boss/armour_boss.c:1435
+#: src/boss/armour_boss.c:1437
 msgid "Find a way to remove the Gem..."
 msgstr "Najdi způsob pro sebrání krystalu..."
 
-#: src/boss/armour_boss.c:1446
+#: src/boss/armour_boss.c:1448
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr "Stiskni Akce pro získání Žlutého krystalu"
 
@@ -5670,7 +5634,7 @@ msgstr "Klíč od pravého křídla"
 msgid "Catapult Lift Key"
 msgstr "Klíč od výtahu katapultu"
 
-#: data/scripts/library_outro.dat:4
+#: data/maps/map09.dat:2917
 msgid "Armoury"
 msgstr "Zbrojnice"
 
@@ -5694,7 +5658,7 @@ msgstr "Edgar"
 msgid "Mine Cart"
 msgstr "Důlní vozík"
 
-#: src/player.c:3131
+#: src/player.c:3208
 msgid "%s has regained power"
 msgstr "%s získal zpět svou sílu"
 
@@ -5718,7 +5682,7 @@ msgstr "Bleskový meč"
 msgid "INTRUDER!"
 msgstr "NARUŠITEL!"
 
-#: src/credits.c:970
+#: src/credits.c:982
 msgid "Statistics"
 msgstr "Statistiky"
 
@@ -5758,11 +5722,11 @@ msgstr "Vystřeleno šípů: %d"
 msgid "You found a secret!"
 msgstr "Našel jsi tajemství!"
 
-#: src/player.c:3056
+#: src/player.c:3133
 msgid "10 charges remaining..."
 msgstr "Zbývá 10 nábojů..."
 
-#: src/player.c:3063
+#: src/player.c:3140
 msgid "%s is out of power"
 msgstr "%s je vybitý"
 
@@ -5790,7 +5754,7 @@ msgstr "Jejich parťák je vyléčí, pokud padnou..."
 msgid "Super is ready..."
 msgstr "Fatalita je připravená..."
 
-#: src/player.c:1665
+#: src/player.c:1669
 msgid "Used Amulet of Resurrection"
 msgstr "Použit Amulet vzkříšení"
 
@@ -5970,7 +5934,7 @@ msgstr "Stít, který dokaže odolat disintegraci"
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr "Zkus použít jeden z artefaktů na svou obranu..."
 
-#: src/menu/main_menu.c:387
+#: src/menu/main_menu.c:389
 msgid "Failed to load game"
 msgstr "Načtení hry selhalo"
 
@@ -6002,7 +5966,7 @@ msgstr "Vytvoří dočasný štít, který odraží magické útoky"
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Chrání před určitými útoky. Přestane funogvat, pokud se pohneš"
 
-#: src/player.c:1319
+#: src/player.c:1323
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Stiskni Útok během blokování pro použití štítu..."
 
@@ -6010,39 +5974,39 @@ msgstr "Stiskni Útok během blokování pro použití štítu..."
 msgid "Play Time"
 msgstr "Herní čas"
 
-#: src/credits.c:975
+#: src/credits.c:987
 msgid "Kills"
 msgstr "Zabití"
 
-#: src/credits.c:978
+#: src/credits.c:990
 msgid "Arrows Fired"
 msgstr "Šíp vystřelen"
 
-#: src/credits.c:981
+#: src/credits.c:993
 msgid "Distanced Travelled"
 msgstr "Uražení vzdálenost"
 
-#: src/credits.c:984
+#: src/credits.c:996
 msgid "Attacks Blocked"
 msgstr "Útoků zablokováno"
 
-#: src/credits.c:987
+#: src/credits.c:999
 msgid "Time Spent As A Slime"
 msgstr "Čas strávený ve formě slizáka"
 
-#: src/credits.c:990
+#: src/credits.c:1002
 msgid "Secrets Found"
 msgstr "Odhaleno tajemství"
 
-#: src/credits.c:993
+#: src/credits.c:1005
 msgid "Continues"
 msgstr "Pokračování"
 
-#: src/credits.c:1049
+#: src/credits.c:1061
 msgid "Defeated Bosses"
 msgstr "Porařeno bossů"
 
-#: src/credits.c:1204
+#: src/credits.c:1216
 msgid "Undefeated"
 msgstr "Neporažen"
 
@@ -6058,11 +6022,11 @@ msgstr "Černokněžník"
 msgid "Enough! Prepare to die..."
 msgstr "Dost! Připrav se na smrt..."
 
-#: src/boss/chaos.c:1278
+#: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr "Rychle se otáčej vlevo a vpravo pro odstranění svazovacího kouzla!"
 
-#: src/player.c:1326
+#: src/player.c:1330
 msgid "Your shield is increasing in power..."
 msgstr "Tvůj štít nabíra na síle..."
 
@@ -6334,7 +6298,7 @@ msgstr "Zvonek"
 msgid "Creates a save point at your current position"
 msgstr "Vytvoří ukládací stanoviště na tvé aktuální pozici"
 
-#: src/player.c:2071
+#: src/player.c:2075
 msgid "Your controls have been reversed!"
 msgstr "Máš přehozené ovládání!"
 
@@ -6554,7 +6518,7 @@ msgstr "Observatoř"
 msgid "Crypt"
 msgstr "Krypta"
 
-#: src/credits.c:695
+#: src/credits.c:707
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr "Copyright Parallel Realities 2009 - 2012"
 
@@ -6570,7 +6534,7 @@ msgstr "Cheaty mohou být pouřity pouze ve hře"
 msgid "Press any key"
 msgstr "Stiskni libovolnou klávesu"
 
-#: src/player.c:1027
+#: src/player.c:1031
 msgid "Cannot equip items whilst attacking"
 msgstr "Nemůže vybavit předmět během útočení"
 
@@ -6638,7 +6602,7 @@ msgstr "Pozůstalost po Ivanovi"
 msgid "Selected %s"
 msgstr "%s vybrán"
 
-#: src/player.c:2966
+#: src/player.c:2972
 msgid "Press buttons to break the petrification!"
 msgstr "Mačkej klávesy, aby ses zbavil zkamenění"
 
@@ -6687,43 +6651,39 @@ msgstr ""
 "Ty jsi vlezl do toho stroje jen tak?! Jsi ještě hloupejší, než jsem si "
 "myslel!"
 
-#: src/boss/chaos.c:379
+#: src/boss/chaos.c:808
 msgid "Stalagmite"
 msgstr "Stalagmit"
 
-#: src/boss/chaos.c:563
-msgid "Stalagtite"
-msgstr "Stalagtit"
-
-#: src/boss/chaos.c:708
+#: src/boss/chaos.c:1288
 msgid "Burn to ashes!"
 msgstr "Shoř na popel!"
 
-#: src/boss/chaos.c:712
+#: src/boss/chaos.c:1292
 msgid "Feel my power!"
 msgstr "Pociť mou sílu!"
 
-#: src/boss/chaos.c:716
+#: src/boss/chaos.c:1300
 msgid "Suffer!"
 msgstr "Trp!"
 
-#: src/boss/chaos.c:908
+#: src/boss/chaos.c:1447
 msgid "Pathetic"
 msgstr "Ubohý"
 
-#: src/boss/chaos.c:921
+#: src/boss/chaos.c:1465
 msgid "Impale"
 msgstr "Narazit"
 
-#: src/player.c:2004
+#: src/player.c:2008
 msgid "Confuse"
 msgstr "Zmatení"
 
-#: src/boss/chaos.c:1097
+#: src/boss/chaos.c:1662
 msgid "Darkness"
 msgstr "Temnota"
 
-#: src/boss/chaos.c:1156
+#: src/boss/chaos.c:1741
 msgid "Hold Person"
 msgstr "Drž osobu"
 
@@ -6737,45 +6697,141 @@ msgid ""
 msgstr ""
 "Odraží nadpřirozené síly. Zablokování na poslední chvíli zvětší sílu útoku."
 
-#: src/credits.c:577
+#: src/credits.c:589
 msgid "Chaos has been subdued"
 msgstr "Chaos byl pokořen"
 
-#: src/credits.c:579
+#: src/credits.c:591
 msgid "For now..."
 msgstr "Pro tentokrát..."
 
-#: src/credits.c:584
+#: src/credits.c:596
 msgid "Chaos will soon be free"
 msgstr "Chaos bude brzy svobodný"
 
-#: src/credits.c:586
+#: src/credits.c:598
 msgid "To terrorise the world once again"
 msgstr "Aby opět terorizoval svět"
 
-#: data/scripts/monsters.dat:22
-msgid ""
-"If that dragon is regaining its power then it must be stopped before it's "
-"too late"
+#: src/item/attractor.c:36
+msgid "Rift"
 msgstr ""
-"Pokud drak sbírá svou sílu, musí být zastaven dřív, než bude moc pozdě"
 
-#: data/scripts/gold_centurion.dat:2
-msgid "I'll find something else to work the treadmill for me"
-msgstr "Najdu něco jiného, co bude běžet na páse místo mě"
+#: src/boss/chaos.c:454
+msgid "Tendrils"
+msgstr ""
 
-#: data/scripts/chaos_die.dat:4
-msgid "Once again, I have been bested"
-msgstr "Znovu jsem byl přemožen"
+#: src/boss/chaos.c:1040
+msgid "Orbs"
+msgstr ""
+
+#: src/boss/chaos.c:1296
+msgid "I will destroy you!"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:13
+msgid "He must have teleported me away with the last of his magic"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:14
+msgid ""
+"Even though I didn't manage to slay him, he's now too weak to pose a threat "
+"to the world"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:15
+msgid "Time to get back to rescuing my father..."
+msgstr ""
+
+#: data/scripts/sealed_entrance.dat:1
+msgid "It's sealed tight. I'm not getting back in there"
+msgstr ""
 
 #: data/scripts/chaos_die.dat:5
-msgid "A worthy opponent deserves a weapon worthy of themselves"
-msgstr "Důstojný soupeř si zasluhuje důstojnou zbraň"
+msgid "It's over"
+msgstr ""
 
 #: data/scripts/chaos_die.dat:6
-msgid "I bestow upon you this sword"
-msgstr "Propůjčuji ti tento meč"
+msgid "Hey, what's that? It looks like a sword"
+msgstr ""
 
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years, I will be free"
-msgstr "I kdyby to mělo trvat dalších sto let, jednou budu opět svobodný"
+#: data/scripts/chaos_die.dat:12
+msgid "This must be Ivan's sword"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:13
+msgid "You... You will never defeat me"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:14
+msgid "I will escape this wretched place"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:15
+msgid "Even if it takes me another 100 years"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:16
+msgid "These chains won't hold me forever"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:17
+msgid "Time to finish this. Prepare yourself!"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:18
+msgid "No! BANISH!"
+msgstr ""
+
+#~ msgid "OK, off I go..."
+#~ msgstr "OK, takže pojďmež..."
+
+#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+#~ msgstr ""
+#~ "Takže, pro vytvoření Ohnivého štítu musím získat chapadlo Červeného bahňáka"
+
+#~ msgid ""
+#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
+#~ "getting killed!"
+#~ msgstr ""
+#~ "Tohle místo je šílené, měl bych si pospíšit a najít tátu než dřív, než tu "
+#~ "naleznu svou smrt!"
+
+#~ msgid "Red Sludges live in mines so I'll have to find one around here"
+#~ msgstr ""
+#~ "Červený bahňáci žijí v dolech, takže bych seměl po nějakém poohlédnout"
+
+#~ msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
+#~ msgstr "Gazerovi oči bych měl získat snadno, stačí se vrátit do sklepení"
+
+#~ msgid ""
+#~ "I also need a spare shield, but I reckon there should be an Armoury around"
+#~ msgstr ""
+#~ "Také budu potřebovat další štít, ale to by měla vyřešit návštěva zbrojnice"
+
+#~ msgid "Even if it takes another 100 years"
+#~ msgstr "I kdyby to mělo trvat dalších 100 let"
+
+#~ msgid "Now, begone from my sight, mighty warrior"
+#~ msgstr "Teď se mi kliď z očí, mocný válečníku"
+
+#~ msgid ""
+#~ "Now I must rest until I am strong enough to escape this wretched place"
+#~ msgstr ""
+#~ "Teď musím odpočívat, dokud nebudu mít dost síly, abych se dostal z tohoto "
+#~ "prokletého místa"
+
+#~ msgid "Stalagtite"
+#~ msgstr "Stalagtit"
+
+#~ msgid "Once again, I have been bested"
+#~ msgstr "Znovu jsem byl přemožen"
+
+#~ msgid "A worthy opponent deserves a weapon worthy of themselves"
+#~ msgstr "Důstojný soupeř si zasluhuje důstojnou zbraň"
+
+#~ msgid "Even if it takes another 100 years, I will be free"
+#~ msgstr "I kdyby to mělo trvat dalších sto let, jednou budu opět svobodný"
+
+#~ msgid "I bestow upon you this sword"
+#~ msgstr "Propůjčuji ti tento meč"
