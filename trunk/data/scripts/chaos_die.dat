@@ -1,4 +1,5 @@
 WAIT 30
+FOLLOW EDGAR
 LIMIT_CAMERA 512 0 1152 448
 WALK_TO EDGAR 690 394 WAIT
 SET EDGAR FACE RIGHT
@@ -6,8 +7,8 @@ TALK Edgar It's over
 TALK Edgar Hey, what's that? It looks like a sword
 WALK_TO EDGAR 1110 394 WAIT
 WAIT 30
-WALK_TO EDGAR 690 394 WAIT
 EQUIP_WEAPON weapon/legendary_sword
+WALK_TO EDGAR 690 394 WAIT
 SET EDGAR FACE RIGHT
 TALK Edgar This must be Ivan's sword
 TALK Chaos You... You will never defeat me

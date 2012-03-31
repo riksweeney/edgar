@@ -536,6 +536,8 @@ static void eatAttack()
 			else
 			{
 				self->thinkTime = 60;
+				
+				self->touch = &entityTouch;
 
 				self->action = &eatAttackFinish;
 			}
@@ -678,8 +680,6 @@ static void eatAttackFinish()
 		if (self->x >= self->targetX)
 		{
 			setEntityAnimation(self, "STAND");
-
-			self->touch = &entityTouch;
 
 			self->x = self->startX;
 
@@ -1052,7 +1052,6 @@ static void spinnerAttackInit()
 
 static void spinnerAttack()
 {
-	int i;
 	Entity *e;
 
 	self->thinkTime--;
@@ -1079,8 +1078,6 @@ static void spinnerAttack()
 		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
 
 		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
-
-		e->dirX = self->face == LEFT ? -1 : 1;
 
 		e->flags |= FLY|NO_DRAW;
 
@@ -1119,7 +1116,7 @@ static void spinnerMove()
 	int i;
 	Entity *e;
 
-	if (self->flags & NO_DRAW)
+	if (!(self->flags & NO_DRAW))
 	{
 		for (i=0;i<8;i++)
 		{
@@ -1167,11 +1164,13 @@ static void spinnerMove()
 		self->flags |= NO_DRAW;
 
 		self->targetX = getMapStartX() - 128;
+		
+		self->dirX = -1;
 	}
 
 	checkToMap(self);
 
-	if (self->x <= self->targetX)
+	if (self->x <= self->targetX && (self->flags & NO_DRAW))
 	{
 		self->head->mental = 0;
 
@@ -1330,6 +1329,8 @@ static void breatheFire()
 		e->draw = &drawLoopingAnimationToMap;
 
 		e->thinkTime = 300;
+		
+		shakeScreen(LIGHT, 300);
 
 		e->mental = 1;
 
@@ -2337,11 +2338,25 @@ static void dieWait()
 	Entity *e;
 
 	self->thinkTime--;
+	
+	if (self->mental == 0)
+	{
+		self->x = self->startX + sin(DEG_TO_RAD(self->endX)) * 4;
+
+		self->endX += 90;
+
+		if (self->endX >= 360)
+		{
+			self->endX = 0;
+		}
+	}
 
 	if (self->thinkTime <= 0)
 	{
 		if (self->mental == 0)
 		{
+			self->x = self->startX;
+			
 			self->layer = MID_GROUND_LAYER;
 
 			setEntityAnimation(self, "DIE_2");

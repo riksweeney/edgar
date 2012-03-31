@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Traduccion de Edgar 0.75\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-21 16:34+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
+"PO-Revision-Date: 2012-03-29 18:09+0000\n"
+"Last-Translator: Eleanor Robinson <ellier8@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-20 07:52+0000\n"
-"X-Generator: Launchpad (build 14969)\n"
+"X-Launchpad-Export-Date: 2012-03-30 18:16+0000\n"
+"X-Generator: Launchpad (build 15032)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -113,7 +113,7 @@ msgstr "Debería poder vender esto por un precio decente en el mercado"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
-msgstr ""
+msgstr "Pienso que lo guardaré a mí mismo"
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
@@ -469,6 +469,7 @@ msgstr ""
 #: data/scripts/tutorial_shield.dat:4
 msgid "To block an attack, press and hold block ([INPUT_BLOCK])."
 msgstr ""
+"Para impedir un ataque, pulsa y mantiene presionado 'block' ([INPUT_BLOCK)."
 
 #: data/scripts/tutorial_shield.dat:5
 msgid "You must be facing the attack to successfully block it"
@@ -695,24 +696,24 @@ msgstr "Parece que no pudo salir..."
 
 #: data/scripts/chaos_warn.dat:2
 msgid "Leave now if you wish to live"
-msgstr ""
+msgstr "Márchate ahora si quieres vivir"
 
 #: data/scripts/chaos_warn.dat:4
 msgid "Go back now"
-msgstr ""
+msgstr "Vuelve ahora"
 
 #: data/scripts/chaos_warn.dat:15
 msgid ""
 "If you proceed, I will fight you and destroy you. Flee now, while you can"
-msgstr ""
+msgstr "Si avanzas, te lucharé y te aplastaré. Huye ahora, hasta que puedas."
 
 #: data/scripts/chaos_warn.dat:28
 msgid "You fool. Do you truly seek destruction?"
-msgstr ""
+msgstr "Idiota.  ¿Buscas realmente la destrucción?"
 
-#: data/scripts/chaos_warn.dat:30
+#: data/scripts/chaos_warn.dat:31
 msgid "Then I shall destroy you!!"
-msgstr ""
+msgstr "¡Pues te aplastaré!"
 
 #: data/scripts/tutorial_secret.dat:2
 msgid "Congratulations, you found a secret!"
@@ -1023,22 +1024,23 @@ msgstr ""
 msgid ""
 "I don't know what you did last time, but trust me, you won't escape again!"
 msgstr ""
+"No sé qué hiciste la ultima vez, pero  confía en mí, ¡no escaparás otra vez!"
 
 #: data/scripts/sorceror_intro_3.dat:20
 msgid "(Phew)"
-msgstr ""
+msgstr "(¡Uf!)"
 
 #: data/scripts/sorceror_intro_3.dat:21
 msgid "(Hey, look at that, one of the orbs on the shield has lit up...)"
-msgstr ""
+msgstr "(Oye, mira, se ha iluminado uno de los orbes del escudo...)"
 
 #: data/scripts/sorceror_intro_3.dat:22
 msgid "Your spell won't work against me any more"
-msgstr ""
+msgstr "Tu encanto no funcionará más contra mi"
 
 #: data/scripts/sorceror_intro_3.dat:23
 msgid "Now, if you won't tell me the whereabouts of my father"
-msgstr ""
+msgstr "A ver, si no me dices el paradero de mi padre"
 
 #: data/scripts/sorceror_intro_3.dat:24
 msgid "I will have to beat it out of you"
@@ -1046,11 +1048,11 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:25
 msgid "You will never get that chance"
-msgstr ""
+msgstr "Nunca tendrás esa oportunidad"
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore, I summon you! Destroy this pest!"
-msgstr ""
+msgstr "¡Grimlore, te llamo! ¡Elimina esta peste!"
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
@@ -1058,7 +1060,7 @@ msgstr "Adiós, Edgar"
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
-msgstr ""
+msgstr "Algo viene..."
 
 #: data/scripts/spirit.dat:1
 msgid ""
@@ -1123,19 +1125,19 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
-msgstr ""
+msgstr "No puedo creer que se fuera"
 
 #: data/scripts/ending_part1.dat:13
 msgid "I tried so hard to find him"
-msgstr ""
+msgstr "Me esforcé mucho por encontrarle"
 
 #: data/scripts/ending_part1.dat:14
 msgid "And I failed"
-msgstr ""
+msgstr "Y fracasé"
 
 #: data/scripts/ending_part1.dat:15
 msgid "What am I going to do now?"
-msgstr ""
+msgstr "¿Qué voy a hacer ahora?"
 
 #: data/scripts/ending_part1.dat:16
 msgid "*sniff*"
@@ -1143,7 +1145,7 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar! Edgar, where are you?"
-msgstr ""
+msgstr "¡Edgar! Edgar, ¿Dónde estás?"
 
 #: data/scripts/olaf.dat:6
 msgid "!"
@@ -1151,11 +1153,11 @@ msgstr "!"
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
-msgstr ""
+msgstr "Esta voz..."
 
 #: data/scripts/ending_part1.dat:22
 msgid "It can't be..."
-msgstr ""
+msgstr "No puede ser..."
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
@@ -1167,67 +1169,67 @@ msgstr "Edgar!"
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
-msgstr ""
+msgstr "Jacob, ¡le encontré¡"
 
 #: data/scripts/ending_part1.dat:30
 msgid "What are you doing here, son? It's dangerous, we have to leave"
-msgstr ""
+msgstr "¿Qué haces aquí, hijo? Es peligroso, tenemos que irnos"
 
 #: data/scripts/ending_part1.dat:31
 msgid "I came to rescue you!"
-msgstr ""
+msgstr "¡Vengo por rescatarte!"
 
 #: data/scripts/ending_part1.dat:32
 msgid "Eh? What are you... No, tell me later, let's go home"
-msgstr ""
+msgstr "¿Cómo? ¿Qué...? No dígame más tarde, vamos a casa"
 
 #: data/scripts/tomb_door.dat:2
 msgid "I'll try again"
-msgstr ""
+msgstr "Intentaré otra vez"
 
 #: data/scripts/tomb_door.dat:6
 msgid "Give up?"
-msgstr ""
+msgstr "¿Te rindes?"
 
 #: data/scripts/tomb_door.dat:8
 msgid "I'll figure this out another time"
-msgstr ""
+msgstr "Lo entenderé en otra ocasión"
 
 #: data/scripts/tomb_door.dat:15
 msgid "I'll keep trying"
-msgstr ""
+msgstr "Seguiré intentando"
 
 #: data/scripts/tomb_door.dat:22
 msgid "This music sheet might be his anthem, I'll give it a go"
-msgstr ""
+msgstr "Esta hoja de partitura podría ser su himno, lo intentaré"
 
 #: data/scripts/tomb_door.dat:33
 msgid "I need to find out what Ivan's anthem is"
-msgstr ""
+msgstr "Necesito descubrir el himno de Ivan"
 
 #: data/scripts/tomb_door.dat:34
 msgid "Randomly ringing bells isn't going to work..."
-msgstr ""
+msgstr "Tocar timbres al azar no resultará..."
 
 #: data/scripts/tomb_door.dat:39
 msgid "Something is etched on this door"
-msgstr ""
+msgstr "Algo está grabado en esta puerta"
 
 #: data/scripts/tomb_door.dat:40
 msgid "Enshrined in this tomb is the great warrior Ivan"
-msgstr ""
+msgstr "Consagrado en esta tumba es el grande guerrero Ivan"
 
 #: data/scripts/tomb_door.dat:41
 msgid "Defeater of the evil dragon known as Chaos"
-msgstr ""
+msgstr "Vencedor del malvado dragón llamado Chaos"
 
 #: data/scripts/tomb_door.dat:42
 msgid "Access to his tomb is granted only to those who play his anthem"
-msgstr ""
+msgstr "Se da el acceso a su tumba solamente a los que juegen su himno"
 
 #: data/scripts/tomb_door.dat:43
 msgid "His anthem? How on earth am I going to figure that out?!"
-msgstr ""
+msgstr "¿Su himno? ¿Cómo va a ser posible resolverlo?"
 
 #: data/scripts/monsters.dat:2
 msgid "This entire section is about monsters"
@@ -1290,14 +1292,20 @@ msgstr ""
 msgid "Beneath an old fortress? Maybe they mean this one..."
 msgstr "¿Bajo una vieja fortaleza?, quizá se refieran a esta..."
 
+#: data/scripts/monsters.dat:22
+msgid ""
+"If that dragon is regaining its power then it must be stopped before it's "
+"too late"
+msgstr ""
+
 #: data/scripts/monsters.dat:23
 msgid ""
 "But if its breath destroys anything then I won't be able to protect myself"
-msgstr ""
+msgstr "Pero si su aliento destruye algo no podré protegerme"
 
 #: data/scripts/monsters.dat:24
 msgid "Unless..."
-msgstr ""
+msgstr "A menos que..."
 
 #: data/scripts/sorceror_intro_3.dat:29
 msgid "Grimlore"
@@ -1629,11 +1637,11 @@ msgstr "Parace que están en orden alfabético"
 
 #: data/scripts/monsters.dat:130
 msgid "Slime, Green... Slime, Purple... Sludge, Green..."
-msgstr ""
+msgstr "Limo, verde...Limo, morado... Lodo, verde..."
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr ""
+msgstr "Lodo, rojo"
 
 #: data/scripts/monsters.dat:133
 msgid ""
@@ -1717,12 +1725,17 @@ msgid ""
 "This library must have information on everything, so a book detailing the "
 "creation of a Shield of Dragon Fire Resistance must be here..."
 msgstr ""
+"Esta biblioteca debe tener información sobre todo, entonces un libro "
+"detallando la creación de un Escudo que resiste el Fuego del Dragón debe "
+"estar aquí..."
 
 #: data/scripts/enchanting_weapons.dat:8
 msgid ""
 "That dragon stuff sounded interesting, but I'll read about it after I've "
 "created the Fire Shield"
 msgstr ""
+"Estas cosas sobre dragones parecieron interesantes, pero lo leeré después de "
+"crear el Escudo del Fuego"
 
 #: data/scripts/enchanting_weapons.dat:9
 msgid ""
@@ -1777,6 +1790,8 @@ msgid ""
 "Known ingredients include the shell fragment from a Rampaging Master "
 "Tortoise and the staff of a Dark Summoner"
 msgstr ""
+"Ingredientes conocidos incluyen el fragmento de la carapacho de una Maestra "
+"Tortuga Devastadora  y el bastón de un Invocador Oscuro"
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
@@ -2000,7 +2015,7 @@ msgstr "Esto es una pared débil, puede ser destruida usando la piqueta"
 
 #: data/scripts/tutorial_walls.dat:2
 msgid "To use the pickaxe, press Attack ([INPUT_ATTACK])"
-msgstr ""
+msgstr "Para utilizar el pico, pulsa Atacar ([INPUT_ATTACK])"
 
 #: data/scripts/tutorial_walls.dat:3
 msgid "Note that not all weak walls can be destroyed using the pickaxe"
@@ -2018,7 +2033,7 @@ msgstr ""
 
 #: data/scripts/grimlore_die.dat:10
 msgid "Where did the sorceror go?"
-msgstr ""
+msgstr "¿Dónde fue el hechicero?"
 
 #: data/scripts/sorceror_intro_1.dat:7
 msgid "Finally, we meet at last!"
@@ -2063,15 +2078,15 @@ msgstr "Hay algo moviéndose por ahí abajo..."
 
 #: data/scripts/ant_lion.dat:2
 msgid "It might be an ant lion looking for food"
-msgstr ""
+msgstr "Podría ser una hormiga león que busca comida"
 
 #: data/scripts/ant_lion.dat:3
 msgid "If I go down there, it'll almost certainly eat me"
-msgstr ""
+msgstr "Si bajo allí, es casi cierto que me coma"
 
 #: data/scripts/ant_lion.dat:7
 msgid "Maybe I could lure something else into its pit..."
-msgstr ""
+msgstr "Quizás pueda atraer otra cosa en su guarida"
 
 #: data/scripts/purifier.dat:1
 msgid "That's a lot of slime"
@@ -2111,6 +2126,8 @@ msgstr "Se parece a una licuadora. La podría usar para licuar algo"
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
+"Necesito un Tentáculo de Lodo Rojo y 3 Globos Oculares de un Gazer para "
+"hacer la poción"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2157,49 +2174,52 @@ msgstr ""
 
 #: data/scripts/sorceror_start.dat:4
 msgid "Nowhere left to hide"
-msgstr ""
+msgstr "No queda ninguna parte para esconder"
 
 #: data/scripts/sorceror_start.dat:5
 msgid "You defeated Grimlore? Impossible!"
-msgstr ""
+msgstr "¿Venciste a Grimlore? ¡Imposible!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
 msgstr ""
+"Se sometió a mi espada tal como a todo lo demás en este  horrible lugar"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
-msgstr ""
+msgstr "Esta es tu última oportunidad, ¡dime donde está mi padre!"
 
 #: data/scripts/sorceror_start.dat:8
 msgid "I DON'T KNOW WHAT YOU'RE TALKING ABOUT!"
-msgstr ""
+msgstr "¡NO SÉ DE QUÉ ESTÁS HABLANDO!"
 
 #: data/scripts/sorceror_start.dat:9
 msgid "LIAR! I've run out of patience, prepare to die!"
-msgstr ""
+msgstr "¡MENTIROSO! Mi paciencia ha terminado, ¡prepárate para morir!"
 
 #: data/scripts/sorceror_start.dat:11
 msgid "Very well. If that is your wish"
-msgstr ""
+msgstr "Muy bien. Como quieras"
 
 #: data/scripts/sorceror_start.dat:12
 msgid "Many have suffered at my hand"
-msgstr ""
+msgstr "Muchos han sufrido por mi mano"
 
 #: data/scripts/sorceror_start.dat:13
 msgid "Your death will be quick, but extremely painful"
-msgstr ""
+msgstr "Tu muerte será rápida, pero extremamente dolorosa"
 
 #: data/scripts/sorceror_start.dat:14
 msgid ""
 "I will add your head to the long line of foolish adventurers who have tried "
 "to best me"
 msgstr ""
+"Añadiré tu cabeza a la larga serie de aventureros idiotas que han intentado "
+"vencerme"
 
 #: data/scripts/sorceror_start.dat:16
 msgid "Prepare yourself, Edgar"
-msgstr ""
+msgstr "Prepárate, Edgar"
 
 #: data/scripts/tutorial_reset_switch.dat:1
 msgid "Reset switches allow you to reset an object's position on the map"
@@ -2257,6 +2277,8 @@ msgid ""
 "This would have allowed you to fight Mataeus, but it looks like you've "
 "already defeated him..."
 msgstr ""
+"Éste te habría permitido luchar con Mataeus, pero parece que ya le has "
+"vencido"
 
 #: data/scripts/black_book.dat:29
 msgid "I'll leave it alone, I'm not getting a good feeling from it"
@@ -2268,39 +2290,43 @@ msgstr "Oh bien, apenas puedo ver nada"
 
 #: data/scripts/catacombs_intro.dat:9
 msgid "I'll have to be careful where I tread..."
-msgstr ""
+msgstr "Debo tener cuidado con donde piso"
 
 #: data/scripts/catacombs_intro.dat:10
 msgid "Escape the Catacombs"
-msgstr ""
+msgstr "Escape las Catacumbas"
 
 #: data/scripts/final_battle.dat:1
 msgid "He's through here, I can feel it"
-msgstr ""
+msgstr "Está por acá, puedo sentirlo"
 
 #: data/scripts/final_battle.dat:2
 msgid ""
 "There's no going back once I step through that door, I'd better make sure "
 "I'm ready"
 msgstr ""
+"Una vez que paso por la puerta no podré volver, debería asegurarme de que "
+"estoy listo"
 
 #: data/scripts/final_battle.dat:3
 msgid "Enter the door?"
-msgstr ""
+msgstr "¿Entre en la puerta?"
 
 #: data/scripts/final_battle.dat:5
 msgid "OK, here we go..."
-msgstr ""
+msgstr "Vale, allá vamos..."
 
 #: data/scripts/final_battle.dat:11
 msgid "Maybe I should prepare a little bit more first"
-msgstr ""
+msgstr "Quizás debería preparar un poco más primero"
 
 #: data/scripts/tutorial_intro.dat:4
 msgid ""
 "Press [INPUT_JUMP] when you have finished reading to go to the next dialog "
 "box"
 msgstr ""
+"Pulsa [INPUT_JUMP] cuando hayas terminado de leer para ir a la próxima caja "
+"de diálogo"
 
 #: data/scripts/tutorial_intro.dat:5
 msgid ""
@@ -2308,6 +2334,9 @@ msgid ""
 "([INPUT_ATTACK]), Block ([INPUT_BLOCK]), Jump ([INPUT_JUMP]), Action "
 "([INPUT_INTERACT]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Puedes también moverte a la próxima caja de diálogo pulsando Atacar "
+"([INPUT_ATTACK]), Impedir ([INPUT_BLOCK]), Saltar ([INPUT_JUMP]), Acción "
+"([INPUT_INTERACT]) o Usar Objeto (INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_intro.dat:6
 msgid ""
@@ -2328,19 +2357,23 @@ msgstr ""
 #: data/scripts/tutorial_intro.dat:8
 msgid "To move Edgar left and right, use [INPUT_LEFT] and [INPUT_RIGHT]."
 msgstr ""
+"Para mover a Edgar a la izquierda o a la derecha, utiliza [INPUT_LEFT] y "
+"[INPUT_RIGHT]."
 
 #: data/scripts/tutorial_intro.dat:9
 msgid ""
 "To make Edgar jump, press [INPUT_JUMP]. You can move in the air when jumping."
 msgstr ""
+"Para hacer que Edgar salte, pulsa [INPUT_JUMP]. Puedes moverte en el aire "
+"cuando salta."
 
 #: data/scripts/tutorial_intro.dat:10
 msgid "To interact with an item, press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Para interactuar con un objeto, pulsa [INPUT_INTERACT]"
 
 #: data/scripts/tutorial_intro.dat:11
 msgid "Walk over to the Action Point and press [INPUT_INTERACT]"
-msgstr ""
+msgstr "Camina hacia El Punto de Acción y pulsa [INPUT_INTERACT]"
 
 #: data/scripts/items_missing.dat:1
 msgid "I need to recover my missing items before I can leave"
@@ -2348,19 +2381,19 @@ msgstr "Tengo que recuperar mis objetos perdidos antes de irme"
 
 #: data/scripts/azriel_start.dat:6
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
-msgstr ""
+msgstr "¿Quién se atreva a saquear la tumba del grande guerrero Ivan?"
 
 #: data/scripts/azriel_start.dat:11
 msgid "Who said that?"
-msgstr ""
+msgstr "¿Quién dijo eso?"
 
 #: data/scripts/azriel_start.dat:12
 msgid "Insolent cur, you will suffer for your disrespect"
-msgstr ""
+msgstr "Bellaco insolente, sufrirás por tu falta de respeto"
 
 #: data/scripts/azriel_start.dat:19
 msgid "I, am Azriel"
-msgstr ""
+msgstr "Yo soy Azriel"
 
 #: data/scripts/centurion_note_1.dat:2
 msgid "I've managed to escape from my cell and am trying to find a way out"
@@ -2460,15 +2493,15 @@ msgstr "Estoy seguro de todos modos ya que está en esa jaula..."
 
 #: data/scripts/gargoyle_start.dat:6
 msgid "I don't want to go back to the swamp"
-msgstr ""
+msgstr "No quiero volver al pantano"
 
 #: data/scripts/gargoyle_start.dat:8
 msgid "I'm pretty sure Dad's in the fortress"
-msgstr ""
+msgstr "Estoy seguro de que papá está en la fortaleza"
 
 #: data/scripts/gargoyle_start.dat:12
 msgid "Maybe I should check the swamp again..."
-msgstr ""
+msgstr "Quizás debería buscar en el pantano otra vez..."
 
 #: data/scripts/gargoyle_start.dat:21
 msgid "What was that?!"
@@ -2476,71 +2509,71 @@ msgstr "¿Qué fue eso?"
 
 #: data/scripts/ending_part2.dat:32
 msgid "...and when you didn't come home last night I set off to find you"
-msgstr ""
+msgstr "...y cuando no volviste a casa anoche salí para encontrarte"
 
 #: data/scripts/ending_part2.dat:33
 msgid "You went to the Sorceror's Fortress?!"
-msgstr ""
+msgstr "¿Fuiste a La Fortaleza del Hechicero?"
 
 #: data/scripts/ending_part2.dat:34
 msgid "I thought he'd kidnapped you! Where were you?"
-msgstr ""
+msgstr "¡Pensaba que te había secuestrado! ¿Dónde estabas?"
 
 #: data/scripts/ending_part2.dat:35
 msgid "Erm... well you see"
-msgstr ""
+msgstr "Mmmm...bueno verás"
 
 #: data/scripts/ending_part2.dat:36
 msgid "When I went out last night I went to Jacob's for a couple of drinks"
-msgstr ""
+msgstr "Cuando salí anoche, fui a la casa de Jacob para unas copas"
 
 #: data/scripts/ending_part2.dat:37
 msgid "*cough*"
-msgstr ""
+msgstr "*tose*"
 
 #: data/scripts/ending_part2.dat:38
 msgid "several drinks"
-msgstr ""
+msgstr "varias copas"
 
 #: data/scripts/ending_part2.dat:39
 msgid "On the way home I stopped by the well to have a drink of water"
-msgstr ""
+msgstr "Al volver a casa, pasé por el pozo para beber agua"
 
 #: data/scripts/ending_part2.dat:40
 msgid "and I fell in"
-msgstr ""
+msgstr "y me caí"
 
 #: data/scripts/sorceror_intro_2.dat:22
 msgid "What?"
-msgstr ""
+msgstr "¿Cómo?"
 
 #: data/scripts/ending_part2.dat:45
 msgid "I fell down the well"
-msgstr ""
+msgstr "Me caí al pozo"
 
 #: data/scripts/ending_part2.dat:46
 msgid "I was down there until only a couple of hours ago"
-msgstr ""
+msgstr "Estaba allí hasta hace un par de horas"
 
 #: data/scripts/ending_part2.dat:47
 msgid "Are you kidding me?"
-msgstr ""
+msgstr "¿Te estás riendo de mí?"
 
 #: data/scripts/ending_part2.dat:49
 msgid "I shouted down that well, didn't you hear me?"
-msgstr ""
+msgstr "Grité hasta abajo del pozo, ¿no me escuchaste?"
 
 #: data/scripts/ending_part2.dat:50
 msgid "I was out cold"
-msgstr ""
+msgstr "Estaba inconsciente"
 
 #: data/scripts/ending_part2.dat:51
 msgid "Plus, the hangover was absolute murder"
-msgstr ""
+msgstr "Además, la resaca era la muerte"
 
 #: data/scripts/ending_part2.dat:53
 msgid "I crossed the swamp"
-msgstr ""
+msgstr "Crucé el pantano"
 
 #: data/scripts/ending_part2.dat:54
 msgid "Broke into the Sorceror's Fortress"
@@ -2560,62 +2593,64 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:58
 msgid "I nearly died!"
-msgstr ""
+msgstr "¡Casi murió!"
 
 #: data/scripts/ending_part2.dat:61
 msgid "Near misses don't count"
-msgstr ""
+msgstr "Estar cerca no cuenta"
 
 #: data/scripts/ending_part2.dat:64
 msgid "Only the once though"
-msgstr ""
+msgstr "Aunque solamente la una vez"
 
 #: data/scripts/ending_part2.dat:67
 msgid "[CONTINUE_COUNT] times according to my count"
-msgstr ""
+msgstr "[CONTINUE_COUNT]veces según mi recuento\""
 
 #: data/scripts/ending_part2.dat:73
 msgid ""
 "And after all that, when I defeated the Sorceror, he had no idea who you were"
 msgstr ""
+"Y después de todo eso, cuande vencí al Hechicero, no sabía quién eras"
 
 #: data/scripts/ending_part2.dat:74
 msgid "You killed the Sorceror?!"
-msgstr ""
+msgstr "¿Mataste al Hechicero?!"
 
 #: data/scripts/ending_part2.dat:75
 msgid "I thought he'd kidnapped Dad!"
-msgstr ""
+msgstr "¡Pensaba que había secuestrado a papá!"
 
 #: data/scripts/ending_part2.dat:76
 msgid ""
 "Wow, that has to be the worst case of false accusation I think I'll ever "
 "hear!"
 msgstr ""
+"¡pa!¡Eso debe ser el peor caso de denuncia falsa que pienso que oíré nunca!"
 
 #: data/scripts/ending_part2.dat:78
 msgid "But more seriously, you disobeyed me, son"
-msgstr ""
+msgstr "Pero más seriamente, me desobedeció, hijo"
 
 #: data/scripts/ending_part2.dat:79
 msgid "I told you to never set foot in the Forbidden Swamp"
-msgstr ""
+msgstr "Te dije que no pongas nunca un pie en el Pantano Prohibido"
 
 #: data/scripts/ending_part2.dat:80
 msgid "And for that, you'll have to be punished"
-msgstr ""
+msgstr "Y por eso, tendrás que ser castigado"
 
 #: data/scripts/ending_part2.dat:82
 msgid "But Dad..."
-msgstr ""
+msgstr "Pero papá..."
 
 #: data/scripts/ending_part2.dat:83
 msgid "Be quiet!"
-msgstr ""
+msgstr "¡Callate!"
 
 #: data/scripts/ending_part2.dat:84
 msgid "I just need to think of something suitable..."
-msgstr ""
+msgstr "Sólo necesito pensar en algo adecuado..."
 
 #: data/scripts/ending_part2.dat:88
 msgid "Looks like your chickens have escaped from their pen again, Jacob"
@@ -2623,7 +2658,7 @@ msgstr ""
 
 #: data/scripts/ending_part2.dat:92
 msgid "Actually, I think I know what your punishment is going to be..."
-msgstr ""
+msgstr "De hecho, pienso que sé lo que va a ser tu castigo..."
 
 #: data/scripts/jigsaw_puzzle.dat:3
 msgid "A jigsaw puzzle?!"
@@ -2730,10 +2765,12 @@ msgid ""
 "Press [INPUT_INVENTORY] to view your inventory, highlight the sword and "
 "press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Pulsa [INPUT_INVENTORY] para ver tu inventario, marca la espada y pulsa "
+"Atacar ([INPUT_ATTACK]) o Usar Objeto ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_combat.dat:4
 msgid "Press [INPUT_INVENTORY] again to close your inventory"
-msgstr ""
+msgstr "Pulsa [INPUT_INVENTORY] otra vez para cerrar tu inventorio"
 
 #: data/scripts/tutorial_combat.dat:5
 msgid ""
@@ -2748,6 +2785,8 @@ msgid ""
 "If a bat is getting too close to you, hold block and it will harmlessly "
 "bounce off you"
 msgstr ""
+"Si un murciélago va demasiado cerca a ti, apreta 'block' y rebotará contra "
+"ti sin causar daño"
 
 #: data/scripts/tutorial_combat.dat:7
 msgid "Now kill all of the bats in the area!"
@@ -2773,7 +2812,7 @@ msgstr "Estaría mejor si esta es la última vez que tengo que hacer esto..."
 msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "Esto debe ser el carbón que Borgan quiere que le lleve"
 
-#: data/scripts/evil_edgar_sighted.dat:7
+#: data/scripts/chaos_finish.dat:12
 msgid "What the?!"
 msgstr "¡¿Qué?!"
 
@@ -2862,19 +2901,19 @@ msgstr "Coge la piqueta y continúa al próximo Punto de Acción"
 
 #: data/scripts/hidden_passage.dat:1
 msgid "There's a draft here..."
-msgstr ""
+msgstr "Hay una corriente de aire aquí"
 
 #: data/scripts/hidden_passage.dat:2
 msgid "And one of these bricks is loose"
-msgstr ""
+msgstr "Y uno de estos ladrillos es suelto"
 
 #: data/scripts/hidden_passage.dat:7
 msgid "Aha! It's a hidden passage!"
-msgstr ""
+msgstr "¡Ajá!¡Es un pasillo escondido!"
 
 #: data/scripts/hidden_passage.dat:8
 msgid "Hopefully this will lead me to the sorceror..."
-msgstr ""
+msgstr "Espero que me conduzca al hechicero..."
 
 #: data/scripts/swamp_intro_2.dat:3
 msgid "Phew, I'm glad to be out of there"
@@ -2886,7 +2925,7 @@ msgstr "Ahora a atravesar este pantano"
 
 #: data/scripts/swamp_intro_2.dat:6
 msgid "Negotiate the Swamp"
-msgstr ""
+msgstr "Salva el Pantano"
 
 #: data/scripts/statues.dat:1
 msgid "There's a plaque here"
@@ -2934,7 +2973,7 @@ msgstr "Espero que esto me servirá para pasar todas esas bolas de fuego..."
 
 #: data/scripts/soul_merger.dat:57
 msgid "Confront the Sorceror"
-msgstr ""
+msgstr "Enfréntate al Hechicero"
 
 #: data/scripts/armour_boss_start.dat:13
 msgid "I should be safe up here, but I need to get rid of it"
@@ -3078,40 +3117,7 @@ msgstr ""
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
-msgstr ""
-
-#: data/scripts/library_outro.dat:1
-msgid ""
-"This place is crazy, I'd better hurry up and find Dad before I end up "
-"getting killed!"
-msgstr ""
-"¡Este lugar es de locos, será mejor que me dé prisa y encuentre a papá antes "
-"de que termine asesinado!"
-
-#: data/scripts/library_outro.dat:2
-msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-msgstr ""
-"Así que, para crear el Escudo de fuego tengo que conseguir un tentáculo de "
-"Lodo rojo"
-
-#: data/scripts/library_outro.dat:3
-msgid "Red Sludges live in mines so I'll have to find one around here"
-msgstr ""
-"Los Lodos rojos viven en las minas por lo que tengo que encontrar una por "
-"aquí"
-
-#: data/scripts/library_outro.dat:4
-msgid ""
-"I also need a spare shield, but I reckon there should be an Armoury around"
-msgstr ""
-
-#: data/scripts/library_outro.dat:5
-msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
-msgstr ""
-
-#: data/scripts/library_outro.dat:6
-msgid "OK, off I go..."
-msgstr "Vale, me voy..."
+msgstr "Pensé que me senté algo. Hay una corriente de aire aquí"
 
 #: data/scripts/tutorial_finish.dat:2
 msgid ""
@@ -3172,6 +3178,7 @@ msgstr "Parece que hay algunas manzanas dentro..."
 #: data/scripts/incorrect_combination.dat:1
 msgid "The door won't open, I guess I put in the combination incorrectly"
 msgstr ""
+"No abre la puerta, supongo que introduje la combinación incorrectamente"
 
 #: data/scripts/occult_book.dat:2
 msgid "A lot of books"
@@ -3196,7 +3203,7 @@ msgstr ""
 
 #: data/scripts/occult_book.dat:8
 msgid "The soul of a wandering spirit"
-msgstr ""
+msgstr "El alma de un espíritu errante"
 
 #: data/scripts/occult_book.dat:9
 msgid "And a spare shield"
@@ -3342,6 +3349,7 @@ msgstr "¡Pásalo bien!"
 msgid ""
 "Thanks for rescuing my chickens, have you got me 2 logs from the forest yet?"
 msgstr ""
+"Gracias por rescatar mis gallinas, ¿todavía me has traído 2 leños del bosque?"
 
 #: data/scripts/jacob.dat:14
 msgid "Thanks Edgar! My chickens are back and these logs will do me fine"
@@ -3556,6 +3564,10 @@ msgstr "y cazar pollos"
 msgid "I'll get something else to do it instead"
 msgstr "Conseguiré hacerlo de otra manera"
 
+#: data/scripts/gold_centurion.dat:2
+msgid "I'll find something else to work the treadmill for me"
+msgstr ""
+
 #: data/scripts/tutorial_objective.dat:1
 msgid "Kill all Bats!"
 msgstr "¡Mata todos los murciélagos!"
@@ -3565,6 +3577,8 @@ msgid ""
 "This rock looks too strong for my pickaxe. I'll have to use something else "
 "to get through..."
 msgstr ""
+"Esta roca parece demasiado fuerte para mi pico. Tendré que usar otra cosa "
+"para pasar..."
 
 #: data/scripts/cave_intro.dat:11
 msgid "Looks like this wasn't such a good idea after all"
@@ -3576,7 +3590,7 @@ msgstr "Debe haber alguna forma de salir de aquí..."
 
 #: data/scripts/cave_intro.dat:13
 msgid "Escape the Cave"
-msgstr ""
+msgstr "Escapa de la Cueva"
 
 #: data/scripts/huge_spider.dat:6
 msgid "Wow, that thing is huge!"
@@ -3590,21 +3604,24 @@ msgstr ""
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
-msgstr ""
+msgstr "Hmmm, quizás este pedacito de papel sea la combinación"
 
 #: data/scripts/has_combination.dat:2
 msgid "I'll give it a try"
-msgstr ""
+msgstr "Lo probaré"
 
 #: data/scripts/has_combination.dat:3
 msgid "Push left or right to move the dial 1 unit in that direction"
 msgstr ""
+"Pulsa izquierda o derecha para mover el cuadrante1 unidad en esa dirección"
 
 #: data/scripts/has_combination.dat:4
 msgid ""
 "When you think you've input the correct combination, press Attack to open "
 "the safe"
 msgstr ""
+"Cuando pienses que has entrado la combinación correcta, pulsa Ataque para "
+"abrir la caja fuerte"
 
 #: data/scripts/resurrection_amulet.dat:1
 msgid "Is this what I think it is?"
@@ -3822,21 +3839,22 @@ msgstr ""
 
 #: data/scripts/fish.dat:1
 msgid "The water is full of those carnivorous fish"
-msgstr ""
+msgstr "El agua está llena de esos peces carnívoros"
 
 #: data/scripts/fish.dat:2
 msgid ""
 "From the looks of things I'll have to swim through the water to get to the "
 "other side"
 msgstr ""
+"Según parece tendré que nadar a través del agua para llegar al otro lado"
 
 #: data/scripts/fish.dat:3
 msgid "But the fish will go for me the moment I enter the water"
-msgstr ""
+msgstr "Pero los peces me atacarán el momento en que entro en el agua"
 
 #: data/scripts/fish.dat:4
 msgid "I'll have to find a way to get rid of them..."
-msgstr ""
+msgstr "Tendré que encontrar una manera de deshacérmelos..."
 
 #: data/scripts/rusted.dat:4
 msgid "There, that's the hinges oiled. This should be as good as new now!"
@@ -3894,7 +3912,7 @@ msgstr ""
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "Return to the Study"
-msgstr ""
+msgstr "Vuelve al Estudio"
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
@@ -3990,15 +4008,15 @@ msgstr ""
 
 #: data/scripts/grasslands_intro.dat:8
 msgid "Talk to Borgan"
-msgstr ""
+msgstr "Habla con Borgan"
 
 #: data/scripts/grasslands_intro.dat:10
 msgid "Talk to Jacob"
-msgstr ""
+msgstr "Habla con Jacob"
 
 #: data/scripts/grasslands_intro.dat:12
 msgid "Cross the lake to the Swamp"
-msgstr ""
+msgstr "Cruza el lago al Pantano"
 
 #: data/scripts/flying_maggot_start_2.dat:8
 msgid "Wait, what was that?"
@@ -4029,10 +4047,11 @@ msgid ""
 "Hmmm.. I've been all around the fortress and there are no other doors "
 "leading off anywhere"
 msgstr ""
+"Hmmm...He ido por la fortaleza y no hay más puertas que conduce a algún sitio"
 
 #: data/scripts/hidden_passage_hint.dat:3
 msgid "Maybe I should have another look in here..."
-msgstr ""
+msgstr "Quizás debería mirar otra vez por aquí..."
 
 #: data/scripts/tutorial_items.dat:1
 msgid ""
@@ -4045,7 +4064,7 @@ msgstr ""
 #: data/scripts/tutorial_items.dat:2
 msgid ""
 "You can view the contents of your inventory by pressing [INPUT_INVENTORY]"
-msgstr ""
+msgstr "Para ver el contenido de tu inventorio pulsa [INPUT_INVENTORY]"
 
 #: data/scripts/tutorial_items.dat:3
 msgid "Whilst in the inventory, use the arrow keys to view the items."
@@ -4057,18 +4076,24 @@ msgid ""
 "You can use an item immediately by pressing Attack ([INPUT_ATTACK]) or Use "
 "Item ([INPUT_ACTIVATE])"
 msgstr ""
+"Puedes usar un objeto inmediatamente: pulsa Atacar ([INPUT_ATTACK]) o Usar "
+"Objeto ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_items.dat:5
 msgid ""
 "You can ready an item for use by pressing Block ([INPUT_BLOCK]) or Action "
 "([INPUT_INTERACT])"
 msgstr ""
+"Para prepararle un objeto para usar, pulsa Block ([INPUT_BLOCK]) o Acción "
+"([INPUT_INTERACT])"
 
 #: data/scripts/tutorial_items.dat:6
 msgid ""
 "You can also sort items in your inventory by using the Previous Item "
 "([INPUT_PREVIOUS]) and Next Item ([INPUT_NEXT]) buttons"
 msgstr ""
+"Puedes también arreglar objetos en tu inventorio: usa los botones el Objeto "
+"Anterior ([INPUT_PREVIOUS]) y el Objeto Siguiente ([INPUT_NEXT])"
 
 #: data/scripts/tutorial_items.dat:7
 msgid "Walk over the key to pick it up"
@@ -4127,7 +4152,7 @@ msgstr ""
 
 #: data/scripts/third_side.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Third Side\""
-msgstr ""
+msgstr "Es un libro de Stephen J Sweeney que se llama \"El Tercer Lado\""
 
 #: data/scripts/sludge_pool.dat:1
 msgid ""
@@ -4290,57 +4315,59 @@ msgstr ""
 
 #: data/scripts/cauldron.dat:2
 msgid "Maybe this thing isn't so bad after all"
-msgstr ""
+msgstr "Quizás esta cosa no sea tan mala después de todo"
 
 #: data/scripts/cauldron.dat:15
 msgid "That's all the ingredients, I just need to add a shield"
-msgstr ""
+msgstr "Estos son todos los ingredientes, sólo necesito añadir un escudo"
 
 #: data/scripts/cauldron.dat:16
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
-msgstr ""
+msgstr "No pienso que necesite el Escudo Fantasmal más..."
 
 #: data/scripts/cauldron.dat:21
 msgid "Please don't make another evil version of me..."
-msgstr ""
+msgstr "Por favor no haces otra versión mala de mí..."
 
 #: data/scripts/cauldron.dat:31
 msgid "What a fine looking shield"
-msgstr ""
+msgstr "Qué hermoso escudo"
 
 #: data/scripts/cauldron.dat:32
 msgid "But will it protect me from that dragon's flames?"
-msgstr ""
+msgstr "¿Pero va a protegerme de las llamas de ese dragón?"
 
 #: data/scripts/cauldron.dat:33
 msgid "I guess there's only one way to find out..."
-msgstr ""
+msgstr "Supongo que solamente hay una manera de descubrir..."
 
 #: data/scripts/cauldron.dat:34
 msgid "The book said it was sealed below a fortress"
-msgstr ""
+msgstr "El libro dijo que estaba cerrado debajo de una fortaleza"
 
 #: data/scripts/cauldron.dat:35
 msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
+"Si es esta fortaleza los dos únicos lugares donde podría estar son las "
+"catacumbas y la mazmorra"
 
 #: data/scripts/cauldron.dat:36
 msgid "I should start my search there"
-msgstr ""
+msgstr "Debería empezar mi búsqueda allí"
 
 #: data/scripts/cauldron.dat:39
 msgid "I don't have all the ingredients yet."
-msgstr ""
+msgstr "No tengo todavía todos los ingredientes"
 
 #: data/scripts/cauldron.dat:40
 msgid "The book said I needed to find the following"
-msgstr ""
+msgstr "El libro dijo que necesité encontrar lo siguiente"
 
 #: data/scripts/cauldron.dat:44
 msgid "The keepsake of the warrior that previously defeated it"
-msgstr ""
+msgstr "El recuerdo del guerrero que lo venció anteriormente"
 
 #: data/scripts/cauldron.dat:48
 msgid "Hopefully I'll never have to use this again"
@@ -4351,10 +4378,12 @@ msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
+"Debería crear el escudo de desintegración y rescatar a mi papá antes de ir "
+"tras ese dragón"
 
 #: data/scripts/cauldron.dat:60
 msgid "I'm not taking any chances this time..."
-msgstr ""
+msgstr "No corro riesgos esta vez..."
 
 #: data/scripts/cauldron.dat:69
 msgid "Did it work?"
@@ -4412,33 +4441,35 @@ msgstr "Necesito también licuar los globos oculares y el tentáculo"
 
 #: data/scripts/black_book_search.dat:6
 msgid "I think it's dead"
-msgstr ""
+msgstr "Pienso que está muerto"
 
 #: data/scripts/black_book_search.dat:7
 msgid "Or at least as dead as a book can be"
-msgstr ""
+msgstr "O al menos tan muerto que puede estar un libro"
 
 #: data/scripts/black_book_search.dat:8
 msgid "It might be safe to touch now"
-msgstr ""
+msgstr "Puede ser seguro tocar ahora"
 
 #: data/scripts/black_book_search.dat:18
 msgid "This page just has a sequence of numbers scrawled on it"
-msgstr ""
+msgstr "Esta hoja sólo tiene una secuencia de números garabateada en ella"
 
 #: data/scripts/black_book_search.dat:19
 msgid "I'll take it with me, it might come in handy"
-msgstr ""
+msgstr "La llevaré conmigo, podría venir muy bien"
 
 #: data/scripts/black_book_search.dat:20
 msgid ""
 "Besides, this thing nearly killed me twice, I should have some sort of "
 "trophy of my victory"
 msgstr ""
+"Además, esta cosa casi me mató dos veces, debería tener un tipo de trofeo de "
+"mi victoria"
 
 #: data/scripts/black_book_search.dat:25
 msgid "I'll leave it alone, especially after what happened last time..."
-msgstr ""
+msgstr "No lo llevaré, sobre todo después de lo que pasó la última vez..."
 
 #: data/scripts/cave_statue.dat:1
 msgid "Hmm, what's that?"
@@ -4470,19 +4501,6 @@ msgstr ""
 #: data/scripts/fortress_mine_intro.dat:1
 msgid "Huh, déjà vu..."
 msgstr "Huh, déjà vu..."
-
-#: data/scripts/chaos_die.dat:8
-msgid ""
-"Now I must rest until I am strong enough to escape this wretched place"
-msgstr ""
-
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years"
-msgstr ""
-
-#: data/scripts/chaos_die.dat:10
-msgid "Now, begone from my sight, mighty warrior"
-msgstr ""
 
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
@@ -4522,7 +4540,7 @@ msgstr "Ahora a recuperar el escudo de mi doble..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
-msgstr ""
+msgstr "Encuentra a Malo Edgar"
 
 #: data/scripts/spores.dat:1
 msgid "Hey, those look familiar"
@@ -4546,24 +4564,25 @@ msgstr "Quizá funcionen con las criaturas que hay aquí..."
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
-msgstr ""
+msgstr "¡Excelente, eso funcionó!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
-msgstr ""
+msgstr "Pero qué terrible himno, casi completamente al azar"
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Este parece como el recuerdo"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
 msgstr ""
+"Gracias a Dios por eso, de verdad no quería tener que abrir este ataúd"
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
-msgstr ""
+msgstr "Ahora para irme de aquí..."
 
 #: data/scripts/lava_door.dat:1
 msgid "I've seen this type of metal before, it heats up really easily"
@@ -4628,7 +4647,7 @@ msgstr "Me pregunto si funciona en ambas direcciones..."
 
 #: data/scripts/teleporter_discovery.dat:14
 msgid "Horray!"
-msgstr ""
+msgstr "¡hurra!"
 
 #: data/scripts/teleporter_discovery.dat:15
 msgid ""
@@ -4637,81 +4656,81 @@ msgstr "¡No sólo me va a ahorrar andar un montón, además es divertido!"
 
 #: data/scripts/correct_combination.dat:9
 msgid "There's a note in here"
-msgstr ""
+msgstr "Hay una nota aquí"
 
 #: data/scripts/correct_combination.dat:10
 msgid "It says the following:"
-msgstr ""
+msgstr "Dice lo siguiente:"
 
 #: data/scripts/correct_combination.dat:11
 msgid "Cheaters never prosper"
-msgstr ""
+msgstr "Tramposos nunca prosperan"
 
 #: data/scripts/swamp_intro.dat:17
 msgid "Oh..."
-msgstr ""
+msgstr "Oh..."
 
 #: data/scripts/correct_combination.dat:19
 msgid "I saw this shield in the book about enchanting weapons"
-msgstr ""
+msgstr "Vi este escudo en el libro para encantar armas"
 
 #: data/scripts/correct_combination.dat:20
 msgid "It's a Phantasmal Shield"
-msgstr ""
+msgstr "Es un Escudo Fantasmal"
 
 #: data/scripts/correct_combination.dat:21
 msgid "The Phantasmal Shield will protect you from phantasmal forces"
-msgstr ""
+msgstr "El Escudo Fantasmal te protegerá de las fuerzas fantasmales"
 
 #: data/scripts/correct_combination.dat:22
 msgid ""
 "In addition to this it can reflect phantasmal projectiles back at the owner"
-msgstr ""
+msgstr "Además puede reflejar proyectiles fantasmales hacia el dueño"
 
 #: data/scripts/correct_combination.dat:23
 msgid ""
 "Blocking at the last moment increases the power of the reflected projectile"
-msgstr ""
+msgstr "Bloquear al último momento aumenta el poder del proyectil reflejado"
 
 #: data/scripts/sorceror_die.dat:10
 msgid "Ugh, you have defeated me"
-msgstr ""
+msgstr "¡uf! Tu me has vencido"
 
 #: data/scripts/sorceror_die.dat:11
 msgid "How..."
-msgstr ""
+msgstr "¿Cómo...?"
 
 #: data/scripts/sorceror_die.dat:12
 msgid "TALK! Where is my father?"
-msgstr ""
+msgstr "¡HABLA!¿Dónde está mi padre?"
 
 #: data/scripts/sorceror_die.dat:13
 msgid "I... I don't understand..."
-msgstr ""
+msgstr "Yo...yo no entiendo..."
 
 #: data/scripts/sorceror_die.dat:14
 msgid "Last night you came to my village and kidnapped my father"
-msgstr ""
+msgstr "Anoche veniste a mi pueblo y secuestraste a mi padre"
 
 #: data/scripts/sorceror_die.dat:15
 msgid "Where is he?"
-msgstr ""
+msgstr "¿Dónde está?"
 
 #: data/scripts/sorceror_die.dat:13
 msgid "I..."
-msgstr ""
+msgstr "Yo..."
 
 #: data/scripts/sorceror_die.dat:18
 msgid "I have never been to your village"
-msgstr ""
+msgstr "Yo no he ido nunca a tu pueblo"
 
 #: data/scripts/sorceror_die.dat:19
 msgid "I don't know where your father is..."
-msgstr ""
+msgstr "No sé donde está tu padre..."
 
 #: data/scripts/sorceror_die.dat:25
 msgid "But if you didn't take my Dad"
-msgstr ""
+msgstr "Pero si tú no llevas a mi papá"
 
 #: data/scripts/evil_edgar_start.dat:9
 msgid "Found you!"
@@ -4812,7 +4831,7 @@ msgstr "Pero solo hay una forma de saberlo..."
 
 #: data/scripts/disintegration_shield.dat:5
 msgid "Defeat the Sorceror"
-msgstr ""
+msgstr "Vence al Hechicero"
 
 #: data/scripts/disable_study.dat:12
 msgid "It worked, I'm back!"
@@ -4835,19 +4854,23 @@ msgid ""
 "Open your inventory ([INPUT_INVENTORY]) and use the arrow keys to highlight "
 "the bomb"
 msgstr ""
+"Abre tu inventorio ([INPUT_INVENTORY]) y usa las teclas de dirección para "
+"marcar la bomba"
 
 #: data/scripts/tutorial_bomb.dat:3
 msgid ""
 "Now press Attack ([INPUT_ATTACK]) or Use Item ([INPUT_ACTIVATE]) to select it"
 msgstr ""
+"Ahora pulsa Atacar ([INPUT_ATTACK]) o Usar Objeto ([INPUT_ACTIVATE]) para "
+"seleccionarlo"
 
 #: data/scripts/tutorial_bomb.dat:4
 msgid "Now close the inventory ([INPUT_INVENTORY])"
-msgstr ""
+msgstr "Ahora cerra el inventorio ([INPUT_INVENTORY])"
 
 #: data/scripts/tutorial_bomb.dat:5
 msgid "You can now use the item by pressing Use Item ([INPUT_ACTIVATE])"
-msgstr ""
+msgstr "Ahora para usar el objeto pulsa Usar Objeto ([INPUT_ACTIVATE])"
 
 #: data/scripts/tutorial_bomb.dat:6
 msgid "Try it with the bomb, but make sure you stand well back!"
@@ -4951,27 +4974,27 @@ msgstr "%d más para llegar"
 msgid "Used %s"
 msgstr "Usado %s"
 
-#: src/player.c:1016
+#: src/player.c:1020
 msgid "Cannot equip items whilst transmogrified"
 msgstr "No puedo equipar objetos mientras estoy transformado"
 
-#: src/player.c:1055
+#: src/player.c:1059
 msgid "Equipped %s"
 msgstr "Equipado %s"
 
-#: src/player.c:1683
+#: src/player.c:1687
 msgid "Maximum health has increased!"
 msgstr "¡La salud máxima se ha incrementado!"
 
-#: src/player.c:2420
+#: src/player.c:2424
 msgid "Bow will now fire %s"
 msgstr "El arco ahora disparará %s"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow is required to use this item"
 msgstr "Necesitas un arco para utilizar este objeto"
 
-#: src/player.c:2486
+#: src/player.c:2490
 msgid "Cannot transmogrify here..."
 msgstr "No me puedo transformas aquí..."
 
@@ -4983,15 +5006,15 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-#: src/menu/main_menu.c:334
+#: src/menu/main_menu.c:336
 msgid "Start a new game?"
 msgstr "¿Comenzar un juego nuevo?"
 
-#: src/menu/main_menu.c:349
+#: src/menu/main_menu.c:351
 msgid "Play the tutorial?"
 msgstr "¿Jugar el tutorial?"
 
-#: src/menu/main_menu.c:364
+#: src/menu/main_menu.c:366
 msgid "Exit the game?"
 msgstr "¿Salir del juego?"
 
@@ -4999,7 +5022,7 @@ msgstr "¿Salir del juego?"
 msgid "Back"
 msgstr "Atrás"
 
-#: src/menu/main_menu.c:380
+#: src/menu/main_menu.c:382
 msgid "Game Loaded"
 msgstr "Juego Cargado"
 
@@ -5011,7 +5034,7 @@ msgstr "Juego Guardado"
 msgid "Any unsaved progress will be lost"
 msgstr "Cualquier progreso que no se haya guardado se perderá"
 
-#: src/input.c:903
+#: src/input.c:904
 msgid "Joy Button #%d"
 msgstr "Botón de joystick #%d"
 
@@ -5079,11 +5102,11 @@ msgstr "Este ascensor no está activo"
 msgid "Cannot carry any more %s"
 msgstr "No puedo llevar más %s"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s x %d"
 msgstr "Recogido %s x %d"
 
-#: src/player.c:3136
+#: src/player.c:3213
 msgid "Picked up %s"
 msgstr "Recogido %s"
 
@@ -5111,7 +5134,7 @@ msgstr "Bolsa de carbón"
 msgid "Forest Cell Key"
 msgstr ""
 
-#: data/maps/map03.dat:5442
+#: data/maps/map26.dat:2117
 msgid "Wood Axe"
 msgstr "Hacha de madera"
 
@@ -5267,7 +5290,7 @@ msgstr "Espada básica"
 msgid "A Sword given to you by Jacob"
 msgstr "Una espada que te ha dado Jacob"
 
-#: src/player.c:2439
+#: src/player.c:2443
 msgid "A bow"
 msgstr "Un arco"
 
@@ -5579,7 +5602,7 @@ msgstr "No puedo coger %s. El inventario está lleno"
 msgid "Filling mine cart..."
 msgstr "Llenando el carro de la mina..."
 
-#: src/player.c:2154
+#: src/player.c:2158
 msgid "Out of arrows!"
 msgstr "¡No quedan flechas!"
 
@@ -5655,7 +5678,7 @@ msgstr "¡Ahora!,¡corre mientras esté aturdido!"
 msgid "I just need to find another shield to enchant"
 msgstr "Necesito encontrar otro escudo para encantar"
 
-#: src/boss/armour_boss.c:675
+#: src/boss/armour_boss.c:677
 msgid "Its wounds are already healing..."
 msgstr "Sus heridas están sanando ya..."
 
@@ -5672,11 +5695,11 @@ msgstr "Una joya amarilla"
 msgid "Failed to open PAK file %s"
 msgstr "No se ha podido abrir el fichero PAK %s"
 
-#: src/boss/armour_boss.c:1435
+#: src/boss/armour_boss.c:1437
 msgid "Find a way to remove the Gem..."
 msgstr "Busca una forma de sacar la joya"
 
-#: src/boss/armour_boss.c:1446
+#: src/boss/armour_boss.c:1448
 msgid "Press Action to retrieve the Yellow Gem"
 msgstr "Pulsa Acción para recuperar la Joya amarilla"
 
@@ -5740,7 +5763,7 @@ msgstr "Llave del ala derecha"
 msgid "Catapult Lift Key"
 msgstr "Llave del ascensor a la catapulta"
 
-#: data/scripts/library_outro.dat:4
+#: data/maps/map09.dat:2917
 msgid "Armoury"
 msgstr "Armeria"
 
@@ -5764,7 +5787,7 @@ msgstr "Edgar"
 msgid "Mine Cart"
 msgstr "Carro de la mina"
 
-#: src/player.c:3131
+#: src/player.c:3208
 msgid "%s has regained power"
 msgstr "%s ha recargado energía"
 
@@ -5788,7 +5811,7 @@ msgstr "Espada relámpago"
 msgid "INTRUDER!"
 msgstr "¡INTRUSO!"
 
-#: src/credits.c:970
+#: src/credits.c:982
 msgid "Statistics"
 msgstr "Estadísticas"
 
@@ -5828,11 +5851,11 @@ msgstr "Flechas disparadas: %d"
 msgid "You found a secret!"
 msgstr "¡Has encontrado un secreto!"
 
-#: src/player.c:3056
+#: src/player.c:3133
 msgid "10 charges remaining..."
 msgstr "Quedan 10 cargas..."
 
-#: src/player.c:3063
+#: src/player.c:3140
 msgid "%s is out of power"
 msgstr "%s no tiene energía"
 
@@ -5860,7 +5883,7 @@ msgstr ""
 msgid "Super is ready..."
 msgstr "Super está listo..."
 
-#: src/player.c:1665
+#: src/player.c:1669
 msgid "Used Amulet of Resurrection"
 msgstr "Amuleto de resurrección utilizado"
 
@@ -6041,7 +6064,7 @@ msgstr "Un escudo que puede soportar la desintegración"
 msgid "Try using one of the artifacts to protect yourself..."
 msgstr ""
 
-#: src/menu/main_menu.c:387
+#: src/menu/main_menu.c:389
 msgid "Failed to load game"
 msgstr ""
 
@@ -6073,7 +6096,7 @@ msgstr ""
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr ""
 
-#: src/player.c:1319
+#: src/player.c:1323
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
 
@@ -6081,39 +6104,39 @@ msgstr ""
 msgid "Play Time"
 msgstr ""
 
-#: src/credits.c:975
+#: src/credits.c:987
 msgid "Kills"
 msgstr "Muertes"
 
-#: src/credits.c:978
+#: src/credits.c:990
 msgid "Arrows Fired"
 msgstr ""
 
-#: src/credits.c:981
+#: src/credits.c:993
 msgid "Distanced Travelled"
 msgstr ""
 
-#: src/credits.c:984
+#: src/credits.c:996
 msgid "Attacks Blocked"
 msgstr ""
 
-#: src/credits.c:987
+#: src/credits.c:999
 msgid "Time Spent As A Slime"
 msgstr ""
 
-#: src/credits.c:990
+#: src/credits.c:1002
 msgid "Secrets Found"
 msgstr ""
 
-#: src/credits.c:993
+#: src/credits.c:1005
 msgid "Continues"
 msgstr ""
 
-#: src/credits.c:1049
+#: src/credits.c:1061
 msgid "Defeated Bosses"
 msgstr ""
 
-#: src/credits.c:1204
+#: src/credits.c:1216
 msgid "Undefeated"
 msgstr ""
 
@@ -6129,11 +6152,11 @@ msgstr ""
 msgid "Enough! Prepare to die..."
 msgstr ""
 
-#: src/boss/chaos.c:1278
+#: src/boss/sorceror_2.c:1654
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
 
-#: src/player.c:1326
+#: src/player.c:1330
 msgid "Your shield is increasing in power..."
 msgstr ""
 
@@ -6405,7 +6428,7 @@ msgstr ""
 msgid "Creates a save point at your current position"
 msgstr ""
 
-#: src/player.c:2071
+#: src/player.c:2075
 msgid "Your controls have been reversed!"
 msgstr ""
 
@@ -6625,7 +6648,7 @@ msgstr ""
 msgid "Crypt"
 msgstr "Cripta"
 
-#: src/credits.c:695
+#: src/credits.c:707
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr ""
 
@@ -6641,7 +6664,7 @@ msgstr ""
 msgid "Press any key"
 msgstr ""
 
-#: src/player.c:1027
+#: src/player.c:1031
 msgid "Cannot equip items whilst attacking"
 msgstr ""
 
@@ -6709,7 +6732,7 @@ msgstr ""
 msgid "Selected %s"
 msgstr ""
 
-#: src/player.c:2966
+#: src/player.c:2972
 msgid "Press buttons to break the petrification!"
 msgstr ""
 
@@ -6757,43 +6780,39 @@ msgstr ""
 "¡¿Has entrado en la máquina tú mismo?!, ¡eres todavía más estúpido de lo que "
 "yo creía!"
 
-#: src/boss/chaos.c:379
+#: src/boss/chaos.c:808
 msgid "Stalagmite"
 msgstr ""
 
-#: src/boss/chaos.c:563
-msgid "Stalagtite"
-msgstr ""
-
-#: src/boss/chaos.c:708
+#: src/boss/chaos.c:1288
 msgid "Burn to ashes!"
 msgstr ""
 
-#: src/boss/chaos.c:712
+#: src/boss/chaos.c:1292
 msgid "Feel my power!"
 msgstr ""
 
-#: src/boss/chaos.c:716
+#: src/boss/chaos.c:1300
 msgid "Suffer!"
 msgstr ""
 
-#: src/boss/chaos.c:908
+#: src/boss/chaos.c:1447
 msgid "Pathetic"
 msgstr ""
 
-#: src/boss/chaos.c:921
+#: src/boss/chaos.c:1465
 msgid "Impale"
 msgstr ""
 
-#: src/player.c:2004
+#: src/player.c:2008
 msgid "Confuse"
 msgstr ""
 
-#: src/boss/chaos.c:1097
+#: src/boss/chaos.c:1662
 msgid "Darkness"
 msgstr ""
 
-#: src/boss/chaos.c:1156
+#: src/boss/chaos.c:1741
 msgid "Hold Person"
 msgstr ""
 
@@ -6806,44 +6825,131 @@ msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
 
-#: src/credits.c:577
+#: src/credits.c:589
 msgid "Chaos has been subdued"
 msgstr ""
 
-#: src/credits.c:579
+#: src/credits.c:591
 msgid "For now..."
 msgstr ""
 
-#: src/credits.c:584
+#: src/credits.c:596
 msgid "Chaos will soon be free"
 msgstr ""
 
-#: src/credits.c:586
+#: src/credits.c:598
 msgid "To terrorise the world once again"
 msgstr ""
 
-#: data/scripts/monsters.dat:22
+#: src/item/attractor.c:36
+msgid "Rift"
+msgstr ""
+
+#: src/boss/chaos.c:454
+msgid "Tendrils"
+msgstr ""
+
+#: src/boss/chaos.c:1040
+msgid "Orbs"
+msgstr ""
+
+#: src/boss/chaos.c:1296
+msgid "I will destroy you!"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:13
+msgid "He must have teleported me away with the last of his magic"
+msgstr ""
+
+#: data/scripts/chaos_finish.dat:14
 msgid ""
-"If that dragon is regaining its power then it must be stopped before it's "
-"too late"
+"Even though I didn't manage to slay him, he's now too weak to pose a threat "
+"to the world"
 msgstr ""
 
-#: data/scripts/gold_centurion.dat:2
-msgid "I'll find something else to work the treadmill for me"
+#: data/scripts/chaos_finish.dat:15
+msgid "Time to get back to rescuing my father..."
 msgstr ""
 
-#: data/scripts/chaos_die.dat:4
-msgid "Once again, I have been bested"
+#: data/scripts/sealed_entrance.dat:1
+msgid "It's sealed tight. I'm not getting back in there"
 msgstr ""
 
 #: data/scripts/chaos_die.dat:5
-msgid "A worthy opponent deserves a weapon worthy of themselves"
+msgid "It's over"
 msgstr ""
 
 #: data/scripts/chaos_die.dat:6
-msgid "I bestow upon you this sword"
+msgid "Hey, what's that? It looks like a sword"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:9
-msgid "Even if it takes another 100 years, I will be free"
+#: data/scripts/chaos_die.dat:12
+msgid "This must be Ivan's sword"
 msgstr ""
+
+#: data/scripts/chaos_die.dat:13
+msgid "You... You will never defeat me"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:14
+msgid "I will escape this wretched place"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:15
+msgid "Even if it takes me another 100 years"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:16
+msgid "These chains won't hold me forever"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:17
+msgid "Time to finish this. Prepare yourself!"
+msgstr ""
+
+#: data/scripts/chaos_die.dat:18
+msgid "No! BANISH!"
+msgstr ""
+
+#~ msgid ""
+#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
+#~ "getting killed!"
+#~ msgstr ""
+#~ "¡Este lugar es de locos, será mejor que me dé prisa y encuentre a papá antes "
+#~ "de que termine asesinado!"
+
+#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
+#~ msgstr ""
+#~ "Así que, para crear el Escudo de fuego tengo que conseguir un tentáculo de "
+#~ "Lodo rojo"
+
+#~ msgid "Red Sludges live in mines so I'll have to find one around here"
+#~ msgstr ""
+#~ "Los Lodos rojos viven en las minas por lo que tengo que encontrar una por "
+#~ "aquí"
+
+#~ msgid "OK, off I go..."
+#~ msgstr "Vale, me voy..."
+
+#~ msgid ""
+#~ "I also need a spare shield, but I reckon there should be an Armoury around"
+#~ msgstr ""
+#~ "También necesito un escudo de más, pero creo que debería haber una armería "
+#~ "por ahí"
+
+#~ msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
+#~ msgstr ""
+#~ "Los globos oculares de Glazer son bastante fáciles a encontrar, sólo puedo "
+#~ "volver al Sótano"
+
+#~ msgid ""
+#~ "Now I must rest until I am strong enough to escape this wretched place"
+#~ msgstr ""
+#~ "Ahora tengo que tomarme un descanso hasta que sea bastante fuerte para "
+#~ "escaparme de este maldito lugar"
+
+#~ msgid "Even if it takes another 100 years"
+#~ msgstr "Aunque falten otros 100 años"
+
+#~ msgid "Now, begone from my sight, mighty warrior"
+#~ msgstr "Ahora, fuera de aquí, poderoso guerrero"
