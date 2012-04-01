@@ -192,11 +192,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #define ITEM_JUMP_HEIGHT -6
 
-#ifndef NO_GETTEXT
-	#define _(string) gettext(string)
-#else
-	#define _(string) string
-#endif
+#define _(string) getTranslatedString(string)
 
 #define SCREENSHOT_KEY SDLK_F10
 

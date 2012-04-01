@@ -18,5 +18,5 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 */
 
 char *getTranslatedString(char *);
-void initLanguage(void);
+void setLanguage(char *);
 void cleanupLanguage(void);

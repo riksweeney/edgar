@@ -32,10 +32,6 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include <time.h>
 #include <zlib.h>
 
-#ifndef NO_GETTEXT
-	#include <libintl.h>
-#endif
-
 #ifndef _WIN32
 	#include <pwd.h>
 	#include <unistd.h>
@@ -51,3 +47,4 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "SDL/SDL_ttf.h"
 
 #include "structs.h"
+#include "i18n.h"
