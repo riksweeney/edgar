@@ -269,7 +269,7 @@ typedef struct Hud
 {
 	int thinkTime, *bossHealth, bossHealthIndex, bossMaxHealth, medalThinkTime, quantity;
 	SDL_Surface *itemBox, *heart, *emptyHeart, *spotlight, *medalTextSurface, *quantitySurface;
-	SDL_Surface *medalSurface[4], *disabledMedalSurface[4];
+	SDL_Surface *medalSurface[4], *disabledMedalSurface;
 	Message infoMessage;
 } Hud;
 

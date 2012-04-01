@@ -1133,7 +1133,7 @@ static void spinnerMove()
 				showErrorAndExit("No free slots to add a spinner part");
 			}
 
-			loadProperties("boss/snake_boss_normal_shot", e);
+			loadProperties("boss/snake_boss_special_shot", e);
 
 			setEntityAnimation(e, "STAND");
 
