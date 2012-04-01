@@ -233,7 +233,7 @@ static void loadMedals()
 		
 		else if (strcmpignorecase(medalType, "R") == 0)
 		{
-			medal[i].medalType = 2;
+			medal[i].medalType = 3;
 		}
 		
 		else

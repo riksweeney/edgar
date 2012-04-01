@@ -54,13 +54,7 @@ void initHud()
 
 	hud.medalSurface[3] = loadImage("gfx/hud/ruby_medal.png");
 
-	hud.disabledMedalSurface[0] = loadImage("gfx/hud/disabled_bronze_medal.png");
-
-	hud.disabledMedalSurface[1] = loadImage("gfx/hud/disabled_silver_medal.png");
-
-	hud.disabledMedalSurface[2] = loadImage("gfx/hud/disabled_gold_medal.png");
-
-	hud.disabledMedalSurface[3] = loadImage("gfx/hud/disabled_ruby_medal.png");
+	hud.disabledMedalSurface = loadImage("gfx/hud/disabled_medal.png");
 
 	messageHead.next = NULL;
 
@@ -336,13 +330,13 @@ void freeHud()
 
 			hud.medalSurface[i] = NULL;
 		}
+	}
+	
+	if (hud.disabledMedalSurface != NULL)
+	{
+		SDL_FreeSurface(hud.disabledMedalSurface);
 
-		if (hud.disabledMedalSurface[i] != NULL)
-		{
-			SDL_FreeSurface(hud.disabledMedalSurface[i]);
-
-			hud.disabledMedalSurface[i] = NULL;
-		}
+		hud.disabledMedalSurface = NULL;
 	}
 
 	freeMessageQueue();
@@ -517,5 +511,5 @@ int spotlightSize()
 
 SDL_Surface *getMedalImage(int medalType, int obtained)
 {
-	return obtained == TRUE ? hud.medalSurface[medalType] : hud.disabledMedalSurface[medalType];
+	return obtained == TRUE ? hud.medalSurface[medalType] : hud.disabledMedalSurface;
 }
