@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-30 18:16+0000\n"
+"X-Launchpad-Export-Date: 2012-04-01 14:44+0000\n"
 "X-Generator: Launchpad (build 15032)\n"
 
 #: data/scripts/olaf.dat:6
@@ -6782,56 +6782,3 @@ msgstr ""
 #: data/scripts/chaos_die.dat:18
 msgid "No! BANISH!"
 msgstr ""
-
-#~ msgid "OK, off I go..."
-#~ msgstr "OK, takže pojďmež..."
-
-#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-#~ msgstr ""
-#~ "Takže, pro vytvoření Ohnivého štítu musím získat chapadlo Červeného bahňáka"
-
-#~ msgid ""
-#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
-#~ "getting killed!"
-#~ msgstr ""
-#~ "Tohle místo je šílené, měl bych si pospíšit a najít tátu než dřív, než tu "
-#~ "naleznu svou smrt!"
-
-#~ msgid "Red Sludges live in mines so I'll have to find one around here"
-#~ msgstr ""
-#~ "Červený bahňáci žijí v dolech, takže bych seměl po nějakém poohlédnout"
-
-#~ msgid "The Gazer eyeballs are easy enough, I can just return to the Basement"
-#~ msgstr "Gazerovi oči bych měl získat snadno, stačí se vrátit do sklepení"
-
-#~ msgid ""
-#~ "I also need a spare shield, but I reckon there should be an Armoury around"
-#~ msgstr ""
-#~ "Také budu potřebovat další štít, ale to by měla vyřešit návštěva zbrojnice"
-
-#~ msgid "Even if it takes another 100 years"
-#~ msgstr "I kdyby to mělo trvat dalších 100 let"
-
-#~ msgid "Now, begone from my sight, mighty warrior"
-#~ msgstr "Teď se mi kliď z očí, mocný válečníku"
-
-#~ msgid ""
-#~ "Now I must rest until I am strong enough to escape this wretched place"
-#~ msgstr ""
-#~ "Teď musím odpočívat, dokud nebudu mít dost síly, abych se dostal z tohoto "
-#~ "prokletého místa"
-
-#~ msgid "Stalagtite"
-#~ msgstr "Stalagtit"
-
-#~ msgid "Once again, I have been bested"
-#~ msgstr "Znovu jsem byl přemožen"
-
-#~ msgid "A worthy opponent deserves a weapon worthy of themselves"
-#~ msgstr "Důstojný soupeř si zasluhuje důstojnou zbraň"
-
-#~ msgid "Even if it takes another 100 years, I will be free"
-#~ msgstr "I kdyby to mělo trvat dalších sto let, jednou budu opět svobodný"
-
-#~ msgid "I bestow upon you this sword"
-#~ msgstr "Propůjčuji ti tento meč"

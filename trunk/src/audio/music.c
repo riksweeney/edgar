@@ -32,7 +32,10 @@ static char musicName[MAX_VALUE_LENGTH];
 
 void loadMusic(char *name)
 {
-	STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	if (strcmpignorecase(musicName, name) != 0)
+	{
+		STRNCPY(musicName, name, MAX_VALUE_LENGTH);
+	}
 
 	if (game.audio == FALSE || game.musicDefaultVolume == 0)
 	{

@@ -4,6 +4,7 @@ CHANGE LOG
 Version 0.99
 * The game is now 100% completable (barring any bugs)
 * Added the final boss
+* Windows should now render UTF-8 strings correctly (such as Russian)
 * The Watchdog no longer occasionally freezes after charging at Edgar
 * The secret wall in the Crypt can now be destroyed
 * Made the final flooded tunnel in the Dungeon wider

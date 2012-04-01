@@ -251,6 +251,8 @@ static void loadMedals()
 		
 		line = strtok_r(NULL, "\n", &savePtr1);
 	}
+	
+	free(buffer);
 }
 
 Medal *getMedals()

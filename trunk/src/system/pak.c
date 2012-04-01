@@ -44,7 +44,7 @@ void initPakFile()
 		{
 			printf(_("Failed to open PAK file %s"), pakFile);
 			printf("\n");
-			printf(_("If you compiled the game from source, you need to do a make install"));
+			printf("%s", _("If you compiled the game from source, you need to do a make install"));
 			printf("\n");
 
 			exit(0);

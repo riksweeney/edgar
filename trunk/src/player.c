@@ -1234,7 +1234,10 @@ static void takeDamage(Entity *other, int damage)
 
 				if (playerShield.thinkTime <= 0)
 				{
-					playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					if (other->element != DRAGON_FIRE)
+					{
+						playSoundToMap("sound/edgar/block.ogg", EDGAR_CHANNEL, player.x, player.y, 0);
+					}
 
 					playerShield.thinkTime = 5;
 				}

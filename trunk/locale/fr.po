@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-30 18:16+0000\n"
+"X-Launchpad-Export-Date: 2012-04-01 14:44+0000\n"
 "X-Generator: Launchpad (build 15032)\n"
 
 #: data/scripts/olaf.dat:6
@@ -6888,23 +6888,3 @@ msgstr ""
 #: data/scripts/chaos_die.dat:18
 msgid "No! BANISH!"
 msgstr ""
-
-#~ msgid "So, to create that Fire Shield I have to get a Red Sludge tentacle"
-#~ msgstr ""
-#~ "Donc, pour créé ce Bouclier de Feu, je doit obtenir une Tentacule de Boue "
-#~ "Rouge."
-
-#~ msgid ""
-#~ "This place is crazy, I'd better hurry up and find Dad before I end up "
-#~ "getting killed!"
-#~ msgstr ""
-#~ "C'est un endroit de fou. Je ferrais bien de me dépêcher à retrouver Papa "
-#~ "avant de me faire tuer!"
-
-#~ msgid "OK, off I go..."
-#~ msgstr "OK, je pars..."
-
-#~ msgid "Red Sludges live in mines so I'll have to find one around here"
-#~ msgstr ""
-#~ "Les Boues Rouges vivent dans les mines donc je vais devoir en trouver une "
-#~ "dans les environs."

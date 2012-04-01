@@ -25,7 +25,7 @@ static int hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
 
-void setLanguage()
+void setLanguage(char *applicationName)
 {
 	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
 	char *lang, **key, **value;
@@ -65,8 +65,10 @@ void setLanguage()
 
 		STRNCPY(language, lang, MAX_LINE_LENGTH);
 	}
+	
+	printf("Locale is %s\n", language);
 
-	snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/edgar.mo", LOCALE_DIR, language);
+	snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
 
 	#if DEV == 1
 		printf("Opening %s\n", c);
@@ -77,10 +79,32 @@ void setLanguage()
 	if (fp == NULL)
 	{
 		#if DEV == 1
-			printf("Failed to open %s/%s/LC_MESSAGES/edgar.mo\n", LOCALE_DIR, language);
+			printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
 		#endif
+		
+		if (strstr(language, "_") != NULL)
+		{
+			lang = strtok(language, "_");
 
-		return;
+			STRNCPY(language, lang, MAX_LINE_LENGTH);
+			
+			snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+			
+			#if DEV == 1
+				printf("Opening %s\n", c);
+			#endif
+			
+			fp = fopen(c, "rb");
+			
+			if (fp == NULL)
+			{				
+				#if DEV == 1
+					printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
+				#endif
+				
+				return;
+			}
+		}
 	}
 
 	read = fread(&header, sizeof(header), 1, fp);
@@ -257,7 +281,7 @@ static void put(char *key, char *value)
 	unsigned int hash = hashCode(key);
 
 	#if DEV == 1
-		printf("%s = %s\n", key, value);
+		printf("%s = %d\n", key, hash);
 	#endif
 
 	bucket = table.bucket[hash];
