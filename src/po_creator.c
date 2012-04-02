@@ -88,6 +88,38 @@ int main(int argc, char *argv[])
 
 	fclose(fp);
 
+	fp = fopen("data/medals.dat", "rb");
+
+	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	{
+		if (line[strlen(line) - 1] == '\n')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		if (line[strlen(line) - 1] == '\r')
+		{
+			line[strlen(line) - 1] = '\0';
+		}
+
+		token = strtok(line, " ");
+
+		token = strtok(NULL, " ");
+
+		token = strtok(NULL, " ");
+
+		token = strtok(NULL, "\0");
+
+		snprintf(line, sizeof(line), "msgid \"%s\"", token);
+
+		if (textAlreadyAdded(line) == FALSE)
+		{
+			printf("%s\nmsgstr \"\"\n\n", line);
+		}
+	}
+
+	fclose(fp);
+
 	dirp = opendir("data/scripts");
 
 	if (dirp == NULL)

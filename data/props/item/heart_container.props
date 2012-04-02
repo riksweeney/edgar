@@ -2,4 +2,4 @@ GFX_FILE data/gfx/item/heart_container.dat
 ANIM_FILE data/anim/item/heart_container.dat
 TYPE KEY_ITEM
 FLAGS DO_NOT_PERSIST
-THINKTIME 3600
+THINKTIME 1800

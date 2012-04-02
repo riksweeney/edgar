@@ -65,7 +65,7 @@ void setLanguage(char *applicationName)
 
 		STRNCPY(language, lang, MAX_LINE_LENGTH);
 	}
-	
+
 	printf("Locale is %s\n", language);
 
 	snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
@@ -81,29 +81,31 @@ void setLanguage(char *applicationName)
 		#if DEV == 1
 			printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
 		#endif
-		
-		if (strstr(language, "_") != NULL)
-		{
-			lang = strtok(language, "_");
 
-			STRNCPY(language, lang, MAX_LINE_LENGTH);
-			
-			snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
-			
+		if (strstr(language, "_") == NULL)
+		{
+			return;
+		}
+
+		lang = strtok(language, "_");
+
+		STRNCPY(language, lang, MAX_LINE_LENGTH);
+
+		snprintf(c, MAX_LINE_LENGTH, "%s/%s/LC_MESSAGES/%s.mo", LOCALE_DIR, language, applicationName);
+
+		#if DEV == 1
+			printf("Opening %s\n", c);
+		#endif
+
+		fp = fopen(c, "rb");
+
+		if (fp == NULL)
+		{
 			#if DEV == 1
-				printf("Opening %s\n", c);
+				printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
 			#endif
-			
-			fp = fopen(c, "rb");
-			
-			if (fp == NULL)
-			{				
-				#if DEV == 1
-					printf("Failed to open %s/%s/LC_MESSAGES/%s.mo\n", LOCALE_DIR, language, applicationName);
-				#endif
-				
-				return;
-			}
+
+			return;
 		}
 	}
 

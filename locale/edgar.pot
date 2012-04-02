@@ -5727,12 +5727,24 @@ msgstr ""
 msgid "The Sorceror"
 msgstr ""
 
-#: data/medals.dat:3
-msgid "Defeated the Sorceror"
+#: data/medals.dat:1
+msgid "Became a legend"
 msgstr ""
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
+msgstr ""
+
+#: data/medals.dat:3
+msgid "Defeated the Sorceror"
+msgstr ""
+
+#: data/medals.dat:6
+msgid "Obtained the Dragon Shield"
+msgstr ""
+
+#: data/medals.dat:5
+msgid "Found all secrets"
 msgstr ""
 
 #: data/medals.dat:8

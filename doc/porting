@@ -1,6 +1,6 @@
 PORTING
 
-Updated: December 2011
+Updated: April 2012
 
 In order to successfully port The Legend of Edgar to another platform you will need,
 
@@ -21,9 +21,7 @@ There are a few considerations when porting to other platforms,
 If you encounter any bugs please let me know where you encountered it and most importantly
 how to reproduce it!
 
-One final note, there is an editor for the game, but it is shipped as is without support. It
-does the job I need it to do and unless it hinders my ability to construct later levels in the
-game, I won't be changing it! So please don't flag bugs in the editor.
+One final note, there is an editor for the game, but it is shipped as is without support.
 
 Richard Sweeney
 riksweeney@users.sourceforge.net
