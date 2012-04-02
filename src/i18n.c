@@ -109,12 +109,6 @@ void setLanguage(char *applicationName)
 
 	read = fread(&header, sizeof(header), 1, fp);
 
-	header.stringCount = SWAP32(header.stringCount);
-
-	header.originalOffset = SWAP32(header.originalOffset);
-
-	header.translationOffset = SWAP32(header.translationOffset);
-
 	original = malloc(sizeof(MOEntry) * header.stringCount);
 
 	translation = malloc(sizeof(MOEntry) * header.stringCount);
@@ -148,9 +142,6 @@ void setLanguage(char *applicationName)
 		fread(&original[i].length, sizeof(int32_t), 1, fp);
 		fread(&original[i].offset, sizeof(int32_t), 1, fp);
 
-		original[i].length = SWAP32(original[i].length);
-		original[i].offset = SWAP32(original[i].offset);
-
 		key[i] = malloc(original[i].length + 1);
 
 		if (key[i] == NULL)
@@ -167,9 +158,6 @@ void setLanguage(char *applicationName)
 	{
 		fread(&translation[i].length, sizeof(int32_t), 1, fp);
 		fread(&translation[i].offset, sizeof(int32_t), 1, fp);
-
-		translation[i].length = SWAP32(translation[i].length);
-		translation[i].offset = SWAP32(translation[i].offset);
 
 		value[i] = malloc(translation[i].length + 1);
 
