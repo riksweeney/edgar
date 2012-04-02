@@ -65,8 +65,6 @@ make -f makefile.windows VERSION=$1 -j3
 
 make -f makefile.windows -j3 buildpak
 
-rm locale/*.po
-
 cp /opt/Windows/lib/*.dll .
 
 cp icons/edgar.ico .
@@ -78,6 +76,8 @@ for f in `ls locale/*.po`; do \
 	mkdir -p locale/$FILE/LC_MESSAGES
 	mv locale/$FILE.mo locale/$FILE/LC_MESSAGES/edgar.mo
 done
+
+rm locale/*.po
 
 makensis install.nsi
 

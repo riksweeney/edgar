@@ -1181,11 +1181,11 @@ msgstr "Their necks are incredibly elastic and are able to snap at their prey fr
 
 #: data/scripts/monsters.dat:68
 msgid "Tortoise, Master"
-msgstr "Tortoise, Master"
+msgstr "Turtle, Master"
 
 #: data/scripts/monsters.dat:69
 msgid "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
-msgstr "Master Tortoises are frightening beasts. Found in far away lands they possess the ability to change their heads"
+msgstr "Master Turtles are frightening beasts. Found in far away lands they possess the ability to change their heads"
 
 #: data/scripts/monsters.dat:70
 msgid "They combine all the abilities of their cousins to breathe fire, create ice and electrify themselves"
@@ -1205,7 +1205,7 @@ msgstr "In this state they will smash through any defense and produce Dark Matte
 
 #: data/scripts/monsters.dat:74
 msgid "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
-msgstr "However, the shell of a rampaging Master Tortoise is highly magical and is an essential ingredient when creating powerful magics and items"
+msgstr "However, the shell of a rampaging Master Turtle is highly magical and is an essential ingredient when creating powerful magics and items"
 
 #: data/scripts/monsters.dat:80
 msgid "Grub, Red"
@@ -1413,7 +1413,7 @@ msgstr "Creation of shields of dragon fire resistance require occult magics and 
 
 #: data/scripts/enchanting_weapons.dat:21
 msgid "Known ingredients include the shell fragment from a Rampaging Master Tortoise and the staff of a Dark Summoner"
-msgstr "Known ingredients include the shell fragment from a Rampaging Master Tortoise and the staff of a Dark Summoner"
+msgstr "Known ingredients include the shell fragment from a Rampaging Master Turtle and the staff of a Dark Summoner"
 
 #: data/scripts/enchanting_weapons.dat:22
 msgid "Drat, that's all it says"
@@ -2585,7 +2585,7 @@ msgstr "Nothing of interest here though"
 
 #: data/scripts/occult_book.dat:6
 msgid "I need the shell of a Rampaging Master Tortoise, the staff from a Dark Summoner"
-msgstr "I need the shell of a Rampaging Master Tortoise, the staff from a Dark Summoner"
+msgstr "I need the shell of a Rampaging Master Turtle, the staff from a Dark Summoner"
 
 #: data/scripts/occult_book.dat:7
 msgid "The keepsake of a warrior who has previously defeated the dragon"
@@ -2617,7 +2617,7 @@ msgstr "This is interesting:"
 
 #: data/scripts/occult_book.dat:19
 msgid "The shell fragment of a Rampaging Master Tortoise"
-msgstr "The shell fragment of a Rampaging Master Tortoise"
+msgstr "The shell fragment of a Rampaging Master Turtle"
 
 #: data/scripts/occult_book.dat:20
 msgid "The staff of a Dark Summoner"
@@ -4609,7 +4609,7 @@ msgstr "Spider Statue"
 
 #: data/maps/map07.dat:8567
 msgid "Tortoise Statue"
-msgstr "Tortoise Statue"
+msgstr "Turtle Statue"
 
 #: data/scripts/olaf.dat:20
 msgid "Scorpion Statue"
@@ -4645,7 +4645,7 @@ msgstr "A statue of a Spider. It has 8 legs."
 
 #: data/props/item/tortoise_statue.props:4
 msgid "A statue of a Tortoise. It has 4 legs."
-msgstr "A statue of a Tortoise. It has 4 legs."
+msgstr "A statue of a Turtle. It has 4 legs."
 
 #: data/props/item/tuning_fork.props:4
 msgid "A Tuning Fork"
@@ -5133,7 +5133,7 @@ msgstr "A delicious apple"
 
 #: data/props/item/tortoise_shell.props:5
 msgid "A magical shell fragment from a Rampaging Master Tortoise"
-msgstr "A magical shell fragment from a Rampaging Master Tortoise"
+msgstr "A magical shell fragment from a Rampaging Master Turtle"
 
 #: data/props/weapon/disintegration_shield_1.props:5
 msgid "A shield that can resist disintegration"
@@ -5349,7 +5349,7 @@ msgstr "Defeated the Gargoyle"
 
 #: data/medals.dat:17
 msgid "Defeated a Rampaging Master Tortoise"
-msgstr "Defeated a Rampaging Master Tortoise"
+msgstr "Defeated a Rampaging Master Turtle"
 
 #: data/medals.dat:18
 msgid "Obtained the Lightning Sword"
