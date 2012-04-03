@@ -36,6 +36,8 @@ void setLanguage(char *applicationName)
 
 	initTable();
 
+	language[0] = '\0';
+
 	#ifdef _WIN32
 		GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_LINE_LENGTH);
 
