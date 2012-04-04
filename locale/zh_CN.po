@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-01 14:44+0000\n"
-"X-Generator: Launchpad (build 15032)\n"
+"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
+"X-Generator: Launchpad (build 15055)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -2519,7 +2519,7 @@ msgstr "这最好是最后一次我不得不干这事情……"
 msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "这一定就是Borgan想让我带给他的煤"
 
-#: data/scripts/chaos_finish.dat:12
+#: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
 msgstr ""
 
@@ -3862,119 +3862,119 @@ msgstr "注意屏幕下方的时间显示。 当时间变成0的时候你将会�
 msgid "Maybe this thing isn't so bad after all"
 msgstr ""
 
-#: data/scripts/cauldron.dat:15
+#: data/scripts/cauldron.dat:21
 msgid "That's all the ingredients, I just need to add a shield"
 msgstr ""
 
-#: data/scripts/cauldron.dat:16
+#: data/scripts/cauldron.dat:22
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:21
+#: data/scripts/cauldron.dat:27
 msgid "Please don't make another evil version of me..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:31
+#: data/scripts/cauldron.dat:37
 msgid "What a fine looking shield"
 msgstr ""
 
-#: data/scripts/cauldron.dat:32
+#: data/scripts/cauldron.dat:38
 msgid "But will it protect me from that dragon's flames?"
 msgstr ""
 
-#: data/scripts/cauldron.dat:33
+#: data/scripts/cauldron.dat:39
 msgid "I guess there's only one way to find out..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:34
+#: data/scripts/cauldron.dat:40
 msgid "The book said it was sealed below a fortress"
 msgstr ""
 
-#: data/scripts/cauldron.dat:35
+#: data/scripts/cauldron.dat:41
 msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
 
-#: data/scripts/cauldron.dat:36
+#: data/scripts/cauldron.dat:42
 msgid "I should start my search there"
 msgstr ""
 
-#: data/scripts/cauldron.dat:39
+#: data/scripts/cauldron.dat:45
 msgid "I don't have all the ingredients yet."
 msgstr ""
 
-#: data/scripts/cauldron.dat:40
+#: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
 msgstr ""
 
-#: data/scripts/cauldron.dat:44
+#: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
 msgstr ""
 
-#: data/scripts/cauldron.dat:48
+#: data/scripts/cauldron.dat:54
 msgid "Hopefully I'll never have to use this again"
 msgstr ""
 
-#: data/scripts/cauldron.dat:51
+#: data/scripts/cauldron.dat:57
 msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
 msgstr ""
 
-#: data/scripts/cauldron.dat:60
+#: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:69
+#: data/scripts/cauldron.dat:75
 msgid "Did it work?"
 msgstr ""
 
-#: data/scripts/cauldron.dat:85
+#: data/scripts/cauldron.dat:91
 msgid "I think it's safe now..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:92
+#: data/scripts/cauldron.dat:98
 msgid "I'll use my wooden shield..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:133
+#: data/scripts/cauldron.dat:139
 msgid "Stupid thing. Maggie makes it all look so easy..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:136
+#: data/scripts/cauldron.dat:142
 msgid "It's a cauldron. Maggie has one just like this"
 msgstr ""
 
-#: data/scripts/cauldron.dat:147
+#: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
 msgstr ""
 
-#: data/scripts/cauldron.dat:158
+#: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
 msgstr ""
 
-#: data/scripts/cauldron.dat:161
+#: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
 msgstr ""
 
-#: data/scripts/cauldron.dat:162
+#: data/scripts/cauldron.dat:168
 msgid "Now to add the shield"
 msgstr ""
 
-#: data/scripts/cauldron.dat:171
+#: data/scripts/cauldron.dat:177
 msgid "Uh-Oh..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:197
+#: data/scripts/cauldron.dat:203
 msgid "I need all the main ingredients"
 msgstr ""
 
-#: data/scripts/cauldron.dat:198
+#: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr ""
 
-#: data/scripts/cauldron.dat:199
+#: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
 msgstr ""
 
@@ -4491,19 +4491,19 @@ msgstr "变形的时候不能装备物品"
 msgid "Equipped %s"
 msgstr "%s 已装备"
 
-#: src/player.c:1687
+#: src/player.c:1690
 msgid "Maximum health has increased!"
 msgstr "最大生命值已增加！"
 
-#: src/player.c:2424
+#: src/player.c:2427
 msgid "Bow will now fire %s"
 msgstr "弓现在将发射 %s"
 
-#: src/player.c:2443
+#: src/player.c:2446
 msgid "A bow is required to use this item"
 msgstr "需要弓来使用这件物品"
 
-#: src/player.c:2490
+#: src/player.c:2493
 msgid "Cannot transmogrify here..."
 msgstr "不能在这里变形……"
 
@@ -4611,11 +4611,11 @@ msgstr "升降梯没有启动"
 msgid "Cannot carry any more %s"
 msgstr "不能再拿更多的 %s 了"
 
-#: src/player.c:3213
+#: src/player.c:3223
 msgid "Picked up %s x %d"
 msgstr "捡到 %s x %d"
 
-#: src/player.c:3213
+#: src/player.c:3223
 msgid "Picked up %s"
 msgstr "捡到 %s"
 
@@ -4643,7 +4643,7 @@ msgstr "煤袋"
 msgid "Forest Cell Key"
 msgstr "森林牢房钥匙"
 
-#: data/maps/map26.dat:2117
+#: data/maps/map03.dat:5442
 msgid "Wood Axe"
 msgstr "伐木斧"
 
@@ -4799,11 +4799,11 @@ msgstr "普通剑"
 msgid "A Sword given to you by Jacob"
 msgstr "Jacob给你的一把剑"
 
-#: src/player.c:2443
+#: src/player.c:2446
 msgid "A bow"
 msgstr "一张弓"
 
-#: data/scripts/cauldron.dat:52
+#: data/scripts/cauldron.dat:58
 msgid "Small Wooden Shield"
 msgstr "小木盾"
 
@@ -5111,7 +5111,7 @@ msgstr ""
 msgid "Filling mine cart..."
 msgstr ""
 
-#: src/player.c:2158
+#: src/player.c:2161
 msgid "Out of arrows!"
 msgstr ""
 
@@ -5295,7 +5295,7 @@ msgstr ""
 msgid "Mine Cart"
 msgstr ""
 
-#: src/player.c:3208
+#: src/player.c:3218
 msgid "%s has regained power"
 msgstr ""
 
@@ -5319,7 +5319,7 @@ msgstr ""
 msgid "INTRUDER!"
 msgstr ""
 
-#: src/credits.c:982
+#: src/credits.c:861
 msgid "Statistics"
 msgstr ""
 
@@ -5359,11 +5359,11 @@ msgstr ""
 msgid "You found a secret!"
 msgstr ""
 
-#: src/player.c:3133
+#: src/player.c:3143
 msgid "10 charges remaining..."
 msgstr ""
 
-#: src/player.c:3140
+#: src/player.c:3150
 msgid "%s is out of power"
 msgstr ""
 
@@ -5391,7 +5391,7 @@ msgstr ""
 msgid "Super is ready..."
 msgstr ""
 
-#: src/player.c:1669
+#: src/player.c:1672
 msgid "Used Amulet of Resurrection"
 msgstr ""
 
@@ -5575,11 +5575,11 @@ msgstr ""
 msgid "Failed to load game"
 msgstr ""
 
-#: src/boss/grimlore.c:2751
+#: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
 msgstr ""
 
-#: src/boss/grimlore.c:3483
+#: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
 msgstr ""
 
@@ -5603,7 +5603,7 @@ msgstr ""
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr ""
 
-#: src/player.c:1323
+#: src/player.c:1326
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
 
@@ -5611,39 +5611,39 @@ msgstr ""
 msgid "Play Time"
 msgstr ""
 
-#: src/credits.c:987
+#: src/credits.c:866
 msgid "Kills"
 msgstr ""
 
-#: src/credits.c:990
+#: src/credits.c:869
 msgid "Arrows Fired"
 msgstr ""
 
-#: src/credits.c:993
+#: src/credits.c:872
 msgid "Distanced Travelled"
 msgstr ""
 
-#: src/credits.c:996
+#: src/credits.c:875
 msgid "Attacks Blocked"
 msgstr ""
 
-#: src/credits.c:999
+#: src/credits.c:878
 msgid "Time Spent As A Slime"
 msgstr ""
 
-#: src/credits.c:1002
+#: src/credits.c:881
 msgid "Secrets Found"
 msgstr ""
 
-#: src/credits.c:1005
+#: src/credits.c:884
 msgid "Continues"
 msgstr ""
 
-#: src/credits.c:1061
+#: src/credits.c:940
 msgid "Defeated Bosses"
 msgstr ""
 
-#: src/credits.c:1216
+#: src/credits.c:1095
 msgid "Undefeated"
 msgstr ""
 
@@ -5663,7 +5663,7 @@ msgstr ""
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
 
-#: src/player.c:1330
+#: src/player.c:1333
 msgid "Your shield is increasing in power..."
 msgstr ""
 
@@ -5731,12 +5731,24 @@ msgstr ""
 msgid "The Sorceror"
 msgstr ""
 
-#: data/medals.dat:3
-msgid "Defeated the Sorceror"
+#: data/medals.dat:1
+msgid "Became a legend"
 msgstr ""
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
+msgstr ""
+
+#: data/medals.dat:3
+msgid "Defeated the Sorceror"
+msgstr ""
+
+#: data/medals.dat:6
+msgid "Obtained the Dragon Shield"
+msgstr ""
+
+#: data/medals.dat:5
+msgid "Found all secrets"
 msgstr ""
 
 #: data/medals.dat:8
@@ -5935,7 +5947,7 @@ msgstr ""
 msgid "Creates a save point at your current position"
 msgstr ""
 
-#: src/player.c:2075
+#: src/player.c:2078
 msgid "Your controls have been reversed!"
 msgstr ""
 
@@ -6155,7 +6167,7 @@ msgstr ""
 msgid "Crypt"
 msgstr ""
 
-#: src/credits.c:707
+#: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr ""
 
@@ -6239,7 +6251,7 @@ msgstr ""
 msgid "Selected %s"
 msgstr ""
 
-#: src/player.c:2972
+#: src/player.c:2975
 msgid "Press buttons to break the petrification!"
 msgstr ""
 
@@ -6284,39 +6296,39 @@ msgid ""
 "you were!"
 msgstr ""
 
-#: src/boss/chaos.c:808
+#: src/boss/chaos.c:814
 msgid "Stalagmite"
 msgstr ""
 
-#: src/boss/chaos.c:1288
+#: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
 msgstr ""
 
-#: src/boss/chaos.c:1292
+#: src/boss/chaos.c:1308
 msgid "Feel my power!"
 msgstr ""
 
-#: src/boss/chaos.c:1300
+#: src/boss/chaos.c:1316
 msgid "Suffer!"
 msgstr ""
 
-#: src/boss/chaos.c:1447
+#: src/boss/chaos.c:1472
 msgid "Pathetic"
 msgstr ""
 
-#: src/boss/chaos.c:1465
+#: src/boss/chaos.c:1490
 msgid "Impale"
 msgstr ""
 
-#: src/player.c:2008
+#: src/player.c:2011
 msgid "Confuse"
 msgstr ""
 
-#: src/boss/chaos.c:1662
+#: src/boss/chaos.c:1687
 msgid "Darkness"
 msgstr ""
 
-#: src/boss/chaos.c:1741
+#: src/boss/chaos.c:1766
 msgid "Hold Person"
 msgstr ""
 
@@ -6329,19 +6341,19 @@ msgid ""
 "Reflects phantasmal forces. Blocking at the last moment increases the power."
 msgstr ""
 
-#: src/credits.c:589
+#: src/credits.c:458
 msgid "Chaos has been subdued"
 msgstr ""
 
-#: src/credits.c:591
+#: src/credits.c:460
 msgid "For now..."
 msgstr ""
 
-#: src/credits.c:596
+#: src/credits.c:465
 msgid "Chaos will soon be free"
 msgstr ""
 
-#: src/credits.c:598
+#: src/credits.c:467
 msgid "To terrorise the world once again"
 msgstr ""
 
@@ -6349,29 +6361,29 @@ msgstr ""
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:454
+#: src/boss/chaos.c:460
 msgid "Tendrils"
 msgstr ""
 
-#: src/boss/chaos.c:1040
+#: src/boss/chaos.c:1046
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1296
+#: src/boss/chaos.c:1312
 msgid "I will destroy you!"
 msgstr ""
 
-#: data/scripts/chaos_finish.dat:13
+#: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
 msgstr ""
 
-#: data/scripts/chaos_finish.dat:14
+#: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
 
-#: data/scripts/chaos_finish.dat:15
+#: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
 msgstr ""
 
@@ -6379,38 +6391,38 @@ msgstr ""
 msgid "It's sealed tight. I'm not getting back in there"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:5
+#: data/scripts/chaos_die.dat:6
 msgid "It's over"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:6
+#: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:12
+#: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:13
+#: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:14
+#: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:15
+#: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:16
+#: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:17
+#: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
 msgstr ""
 
-#: data/scripts/chaos_die.dat:18
+#: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
 msgstr ""
