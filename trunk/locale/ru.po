@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-01 11:43+0000\n"
+"PO-Revision-Date: 2012-04-04 11:11+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-01 14:44+0000\n"
-"X-Generator: Launchpad (build 15032)\n"
+"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
+"X-Generator: Launchpad (build 15055)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -1590,8 +1590,8 @@ msgid ""
 "A Gazer's eyeball contains magical properties and is a common ingredient in "
 "spell preparation"
 msgstr ""
-"Глазное яблоко Наблюдателя содержит магические свойства и является общим "
-"ингредиентом для приготовления заклинаний"
+"Глаз Наблюдателя содержит магические свойства и является общим ингредиентом "
+"для приготовления заклинаний"
 
 #: data/scripts/monsters.dat:120
 msgid "Ah, here is a compendium of monsters"
@@ -2114,7 +2114,7 @@ msgstr "Подтяните коробку на другую сторону, чт
 
 #: data/scripts/laboratory_intro.dat:3
 msgid "Wow, a laboratory!"
-msgstr "Вау, лаборатория!"
+msgstr "Ух ты, лаборатория!"
 
 #: data/scripts/laboratory_intro.dat:4
 msgid ""
@@ -2749,7 +2749,7 @@ msgstr "Лучше бы это был последний раз, когда мн
 msgid "This must be the coal Borgan wants me to mine for him"
 msgstr "Это должно быть уголь, который Борган просил принести ему из шахт"
 
-#: data/scripts/chaos_finish.dat:12
+#: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
 msgstr "Что?!"
 
@@ -3531,6 +3531,8 @@ msgstr "Ничего себе, какая громадина!"
 msgid ""
 "I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
+"Мне надо пройти, но я сомневаюсь, что мой меч сможет нанести хотя бы "
+"царапину..."
 
 #: data/scripts/has_combination.dat:1
 msgid "Hmmm, maybe this scrap of paper is the combination"
@@ -3830,7 +3832,7 @@ msgstr ""
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "Return to the Study"
-msgstr ""
+msgstr "Вернуться в Кабинет"
 
 #: data/scripts/wasteland_intro.dat:5
 msgid "Ouch, my head..."
@@ -3862,6 +3864,7 @@ msgid ""
 "That should do it. Hopefully that other lift by the Sewer should now be "
 "working"
 msgstr ""
+"Это должно запустить его. Надеюсь, что остальные лифты канализации заработают"
 
 #: data/scripts/monster_horn.dat:1
 msgid "This looks like the horn that Olaf needs"
@@ -4139,7 +4142,7 @@ msgstr "Я считаю, что колдуну не нужно оружие, т�
 
 #: data/scripts/armoury_intro.dat:4
 msgid "Still, there must be something of use in here"
-msgstr ""
+msgstr "Всё же, хоть чем-то здесь пользовались"
 
 #: data/scripts/well.dat:3
 msgid "I've already checked, he's not down there..."
@@ -4226,61 +4229,61 @@ msgstr ""
 msgid "Maybe this thing isn't so bad after all"
 msgstr "Возможно всё не так уж и плохо"
 
-#: data/scripts/cauldron.dat:15
+#: data/scripts/cauldron.dat:21
 msgid "That's all the ingredients, I just need to add a shield"
 msgstr "Это все компоненты, нужно добавить щит"
 
-#: data/scripts/cauldron.dat:16
+#: data/scripts/cauldron.dat:22
 msgid "I don't think I'll need the Phantasmal Shield anymore..."
 msgstr "Думаю, что призрачный щит больше не нужен..."
 
-#: data/scripts/cauldron.dat:21
+#: data/scripts/cauldron.dat:27
 msgid "Please don't make another evil version of me..."
 msgstr "Пожалуйста, не делай больше моей плохой версии..."
 
-#: data/scripts/cauldron.dat:31
+#: data/scripts/cauldron.dat:37
 msgid "What a fine looking shield"
 msgstr "Какой красивый щит"
 
-#: data/scripts/cauldron.dat:32
+#: data/scripts/cauldron.dat:38
 msgid "But will it protect me from that dragon's flames?"
 msgstr "Защитит ли он меня от пламени дракона?"
 
-#: data/scripts/cauldron.dat:33
+#: data/scripts/cauldron.dat:39
 msgid "I guess there's only one way to find out..."
 msgstr "Предполагаю, что это можно определить только одним способом..."
 
-#: data/scripts/cauldron.dat:34
+#: data/scripts/cauldron.dat:40
 msgid "The book said it was sealed below a fortress"
 msgstr "В книге сказано, что это запечатано под крепостью"
 
-#: data/scripts/cauldron.dat:35
+#: data/scripts/cauldron.dat:41
 msgid ""
 "If it is this one then the only two places it could be are the catacombs and "
 "the dungeon"
 msgstr ""
 
-#: data/scripts/cauldron.dat:36
+#: data/scripts/cauldron.dat:42
 msgid "I should start my search there"
 msgstr "Должен начать свои поиски там"
 
-#: data/scripts/cauldron.dat:39
+#: data/scripts/cauldron.dat:45
 msgid "I don't have all the ingredients yet."
 msgstr "У меня ещё не все составляющие."
 
-#: data/scripts/cauldron.dat:40
+#: data/scripts/cauldron.dat:46
 msgid "The book said I needed to find the following"
 msgstr ""
 
-#: data/scripts/cauldron.dat:44
+#: data/scripts/cauldron.dat:50
 msgid "The keepsake of the warrior that previously defeated it"
 msgstr "Подарок воина, победившего его"
 
-#: data/scripts/cauldron.dat:48
+#: data/scripts/cauldron.dat:54
 msgid "Hopefully I'll never have to use this again"
 msgstr "Надеюсь, я больше не буду это использовать"
 
-#: data/scripts/cauldron.dat:51
+#: data/scripts/cauldron.dat:57
 msgid ""
 "I should create the disintegration shield and rescue my Dad before I go "
 "chasing after that dragon"
@@ -4288,59 +4291,59 @@ msgstr ""
 "Необходимо создать щит, сопротивляющийся разрушению, и спасти Папу, а потом "
 "гоняться за драконом"
 
-#: data/scripts/cauldron.dat:60
+#: data/scripts/cauldron.dat:66
 msgid "I'm not taking any chances this time..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:69
+#: data/scripts/cauldron.dat:75
 msgid "Did it work?"
 msgstr "Это сработало?"
 
-#: data/scripts/cauldron.dat:85
+#: data/scripts/cauldron.dat:91
 msgid "I think it's safe now..."
 msgstr "Считаю, что теперь безопасно..."
 
-#: data/scripts/cauldron.dat:92
+#: data/scripts/cauldron.dat:98
 msgid "I'll use my wooden shield..."
 msgstr "Я должен использовать свой деревянный щит..."
 
-#: data/scripts/cauldron.dat:133
+#: data/scripts/cauldron.dat:139
 msgid "Stupid thing. Maggie makes it all look so easy..."
 msgstr ""
 
-#: data/scripts/cauldron.dat:136
+#: data/scripts/cauldron.dat:142
 msgid "It's a cauldron. Maggie has one just like this"
 msgstr "Это котёл. Мегги имеет такой же"
 
-#: data/scripts/cauldron.dat:147
+#: data/scripts/cauldron.dat:153
 msgid "OK, that's the Gazer Eyeball and Tentacle added"
 msgstr "Хорошо, Глаз Наблюдателя и Щупальце добавлены"
 
-#: data/scripts/cauldron.dat:158
+#: data/scripts/cauldron.dat:164
 msgid "And the rest of the ingredients too"
 msgstr "И также остальные компоненты"
 
-#: data/scripts/cauldron.dat:161
+#: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
 msgstr "Ага! Исчезла синева, как и сказано в книге"
 
-#: data/scripts/cauldron.dat:162
+#: data/scripts/cauldron.dat:168
 msgid "Now to add the shield"
 msgstr "Теперь добавить щит"
 
-#: data/scripts/cauldron.dat:171
+#: data/scripts/cauldron.dat:177
 msgid "Uh-Oh..."
 msgstr "Ух-Ох..."
 
-#: data/scripts/cauldron.dat:197
+#: data/scripts/cauldron.dat:203
 msgid "I need all the main ingredients"
 msgstr "Мне нужны все основные компоненты"
 
-#: data/scripts/cauldron.dat:198
+#: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
 msgstr "3 Глаза Наблюдателя, 1 щупалец Красного слизня и запасной щит"
 
-#: data/scripts/cauldron.dat:199
+#: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
 msgstr "Мне нужно смешать глаз и щупальца в жидкость"
 
@@ -4386,7 +4389,7 @@ msgstr "Это статуэтка. Должно быть та, о которой
 msgid ""
 "Well, since he's helping me get back to the sorceror, the least I can do is "
 "retrieve it for him"
-msgstr ""
+msgstr "Так как он помогает мне вернуться к колдуну, я хоть верну ему это"
 
 #: data/scripts/cave_statue.dat:7
 msgid "Typical..."
@@ -4404,7 +4407,7 @@ msgstr "Хм, дежавю..."
 
 #: data/scripts/monster_horn_taken.dat:5
 msgid "It looks like there's a larger network of caves down there"
-msgstr ""
+msgstr "Похоже, что внизу существует большая сеть пещер"
 
 #: data/scripts/monster_horn_taken.dat:6
 msgid "Olaf did tell me to just get the horn and leave"
@@ -4421,10 +4424,11 @@ msgid ""
 "The sorceror will almost certainly destroy me if I confront him without the "
 "shield"
 msgstr ""
+"Колдун наверняка уничтожит меня, если буду противостоять ему без щита"
 
 #: data/scripts/sorceror_study.dat:2
 msgid "I'd better go and make it first"
-msgstr ""
+msgstr "Лучше сначала пойду и сделаю его"
 
 #: data/scripts/fortress_intro_2.dat:3
 msgid "Glad to be out of there"
@@ -4432,7 +4436,7 @@ msgstr ""
 
 #: data/scripts/fortress_intro_2.dat:4
 msgid "Now to get that shield back from my double..."
-msgstr ""
+msgstr "Теперь забрать щит у моего двойника..."
 
 #: data/scripts/fortress_intro_2.dat:7
 msgid "Find Evil Edgar"
@@ -4451,39 +4455,41 @@ msgid ""
 "Borgan told me that they can temporarily trick certain creatures into "
 "thinking that you're not a threat and leave you alone"
 msgstr ""
+"Борган рассказывал, что они временно действуют на некоторых существ, делая "
+"их безвредными"
 
 #: data/scripts/spores.dat:5
 msgid "Maybe they'll work on the creatures here..."
-msgstr ""
+msgstr "Может быть они подействуют на существ сейчас..."
 
 #: data/scripts/tomb_door_open.dat:10
 msgid "Great, that worked!"
-msgstr ""
+msgstr "О, это работает!"
 
 #: data/scripts/tomb_door_open.dat:11
 msgid "What a terrible anthem though, almost completely random"
-msgstr ""
+msgstr "Какой ужасный гимн, почти кокафония"
 
 #: data/scripts/tomb_door_open.dat:13
 msgid "This looks like the keepsake"
-msgstr ""
+msgstr "Это похоже на подарок"
 
 #: data/scripts/tomb_door_open.dat:17
 msgid ""
 "Thank goodness for that, I really didn't want to have to open that coffin"
-msgstr ""
+msgstr "Какое счастье, я ведь никак не хочу открывать этот гроб"
 
 #: data/scripts/tomb_door_open.dat:18
 msgid "Now to get out of here..."
-msgstr ""
+msgstr "Пора выбираться отсюда..."
 
 #: data/scripts/lava_door.dat:1
 msgid "I've seen this type of metal before, it heats up really easily"
-msgstr ""
+msgstr "Я видел такой металл раньше, он очень легко нагревается"
 
 #: data/scripts/lava_door.dat:2
 msgid "Maybe I can find a way to melt it..."
-msgstr ""
+msgstr "Возможно я придумаю, как его расплавить..."
 
 #: data/scripts/sliding_puzzle.dat:2
 msgid "Cool, a giant sliding puzzle! I have one of these back home!"
@@ -4550,7 +4556,7 @@ msgstr ""
 
 #: data/scripts/correct_combination.dat:9
 msgid "There's a note in here"
-msgstr ""
+msgstr "Вот записка"
 
 #: data/scripts/correct_combination.dat:10
 msgid "It says the following:"
@@ -4628,20 +4634,22 @@ msgstr "Если ты не похищал моего Папу"
 
 #: data/scripts/evil_edgar_start.dat:9
 msgid "Found you!"
-msgstr ""
+msgstr "Ты нашёлся!"
 
 #: data/scripts/evil_edgar_start.dat:11
 msgid "You survived?!"
-msgstr ""
+msgstr "Ты жыв?!"
 
 #: data/scripts/evil_edgar_start.dat:12
 msgid ""
 "You sound surprised, I thought you'd have known considering we're the same."
 msgstr ""
+"Ты говоришь, что удивлён? Я думаю, что ты бы знал, учитывая, что мы с тобой "
+"одно и то же"
 
 #: data/scripts/evil_edgar_start.dat:13
 msgid "Except you're evil"
-msgstr ""
+msgstr "Кроме твоего зла"
 
 #: data/scripts/evil_edgar_start.dat:14
 msgid "More evil"
@@ -4661,11 +4669,11 @@ msgstr ""
 
 #: data/scripts/evil_edgar_start.dat:23
 msgid "Yes I know that, you already told me"
-msgstr ""
+msgstr "Я знаю, ты уже говорил мне"
 
 #: data/scripts/evil_edgar_start.dat:24
 msgid "I'm still talking!"
-msgstr ""
+msgstr "Я ещё говорю!"
 
 #: data/scripts/evil_edgar_start.dat:26
 msgid "There should only be one of us in this world: one body, one conscious"
@@ -4728,7 +4736,7 @@ msgstr "Это работает, возвращаюсь!"
 
 #: data/scripts/disable_study.dat:13
 msgid "Now to create that shield and get that sorceror..."
-msgstr ""
+msgstr "Теперь создать щит и к волшебнику..."
 
 #: data/scripts/disable_study.dat:14
 msgid "Create a Resist Disintegration Shield"
@@ -4871,19 +4879,19 @@ msgstr "Нельзя экипироваться будучи преобразо�
 msgid "Equipped %s"
 msgstr "Экипирован %s"
 
-#: src/player.c:1687
+#: src/player.c:1690
 msgid "Maximum health has increased!"
 msgstr "Максимальное здоровье увеличено!"
 
-#: src/player.c:2424
+#: src/player.c:2427
 msgid "Bow will now fire %s"
 msgstr "Теперь лук стреляет %s"
 
-#: src/player.c:2443
+#: src/player.c:2446
 msgid "A bow is required to use this item"
 msgstr "Нужен лук, чтобы использовать этот предмет"
 
-#: src/player.c:2490
+#: src/player.c:2493
 msgid "Cannot transmogrify here..."
 msgstr "Невозможно превратиться здесь..."
 
@@ -4991,11 +4999,11 @@ msgstr "Этот лифт неактивен"
 msgid "Cannot carry any more %s"
 msgstr "Не унести больше %s"
 
-#: src/player.c:3213
+#: src/player.c:3223
 msgid "Picked up %s x %d"
 msgstr "Подобрано %s x %d"
 
-#: src/player.c:3213
+#: src/player.c:3223
 msgid "Picked up %s"
 msgstr "Подобрано %s"
 
@@ -5023,7 +5031,7 @@ msgstr "Угольный мешок"
 msgid "Forest Cell Key"
 msgstr "Ключ от лесной кельи"
 
-#: data/maps/map26.dat:2117
+#: data/maps/map03.dat:5442
 msgid "Wood Axe"
 msgstr "Топор"
 
@@ -5145,7 +5153,7 @@ msgstr "Зелье, которое делает вас невидимым для
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr "Глазное яблоко Наблюдателя"
+msgstr "Глазн Наблюдателя"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
@@ -5179,11 +5187,11 @@ msgstr "Простой меч"
 msgid "A Sword given to you by Jacob"
 msgstr "Меч от Якоба"
 
-#: src/player.c:2443
+#: src/player.c:2446
 msgid "A bow"
 msgstr "Лук"
 
-#: data/scripts/cauldron.dat:52
+#: data/scripts/cauldron.dat:58
 msgid "Small Wooden Shield"
 msgstr "Маленький деревянный щит"
 
@@ -5221,7 +5229,7 @@ msgstr "Ключ от комнаты с зельем"
 
 #: data/maps/map08.dat:2643
 msgid "Surge Passage Key"
-msgstr ""
+msgstr "Ключ элекроразрядного тоннеля"
 
 #: data/maps/map08.dat:5793
 msgid "Demolition Storage Key"
@@ -5489,9 +5497,9 @@ msgstr "Нельзя подобрать %s. Инвентарь переполн�
 
 #: src/item/mine_cart.c:85
 msgid "Filling mine cart..."
-msgstr ""
+msgstr "Погрузка рудничной тележки..."
 
-#: src/player.c:2158
+#: src/player.c:2161
 msgid "Out of arrows!"
 msgstr "Закончились стрелы!"
 
@@ -5501,19 +5509,19 @@ msgstr "Бутылка с пойманным духом"
 
 #: src/item/mine_cart.c:90
 msgid "Full Mine Cart"
-msgstr ""
+msgstr "Рудничная тележка полна"
 
 #: data/maps/map12.dat:2442
 msgid "Processing Lift Key"
-msgstr ""
+msgstr "Ключ лифта переработки"
 
 #: data/maps/map12.dat:5318
 msgid "Right Grabber Key"
-msgstr ""
+msgstr "Ключ правого захвата"
 
 #: data/maps/map12.dat:5343
 msgid "Left Grabber Key"
-msgstr ""
+msgstr "Ключ левого захвата"
 
 #: data/maps/map12.dat:5443
 msgid "Master Key"
@@ -5613,11 +5621,11 @@ msgstr "Доспехи не по зубам..."
 
 #: data/props/item/rope.props:5
 msgid "A length of rope"
-msgstr ""
+msgstr "Длина каната"
 
 #: data/props/item/extend_o_grab.props:5
 msgid "A device for grabbing far away objects"
-msgstr ""
+msgstr "Устройство захвата удалённых объектов"
 
 #: data/props/item/water_purifier.props:6
 msgid "A bottle of pills that convert slime into water"
@@ -5629,7 +5637,7 @@ msgstr "Учебный Ключ"
 
 #: data/maps/map15.dat:9668
 msgid "Light Key"
-msgstr ""
+msgstr "Ключ освещения"
 
 #: data/scripts/crossbow.dat:2
 msgid "Rope"
@@ -5637,7 +5645,7 @@ msgstr "Канат"
 
 #: src/item/extend_o_grab_button.c:42
 msgid "Extend-O-Grab"
-msgstr ""
+msgstr "Выдвижной захват"
 
 #: data/maps/map13.dat:2968
 msgid "Water Purifiers"
@@ -5649,7 +5657,7 @@ msgstr "Ключ правого крыла"
 
 #: data/maps/map13.dat:3394
 msgid "Catapult Lift Key"
-msgstr ""
+msgstr "Ключ лифта катапульты"
 
 #: data/maps/map09.dat:2917
 msgid "Armoury"
@@ -5673,9 +5681,9 @@ msgstr "Эдгар"
 
 #: src/item/mine_cart.c:41
 msgid "Mine Cart"
-msgstr ""
+msgstr "Рудничная тележка"
 
-#: src/player.c:3208
+#: src/player.c:3218
 msgid "%s has regained power"
 msgstr ""
 
@@ -5699,7 +5707,7 @@ msgstr "Меч молний"
 msgid "INTRUDER!"
 msgstr "САМОЗВАНЕЦ!"
 
-#: src/credits.c:982
+#: src/credits.c:861
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -5739,11 +5747,11 @@ msgstr "Выпущено стрел: %d"
 msgid "You found a secret!"
 msgstr "Найден тайник!"
 
-#: src/player.c:3133
+#: src/player.c:3143
 msgid "10 charges remaining..."
 msgstr "10 зарядов осталось..."
 
-#: src/player.c:3140
+#: src/player.c:3150
 msgid "%s is out of power"
 msgstr ""
 
@@ -5765,13 +5773,13 @@ msgstr "Удалено %s"
 
 #: src/boss/awesome_boss.c:1147
 msgid "Their partner will heal them when they fall..."
-msgstr ""
+msgstr "Напарники исцеляют, когда они падают в бою..."
 
 #: src/boss/awesome_boss_meter.c:164
 msgid "Super is ready..."
 msgstr ""
 
-#: src/player.c:1669
+#: src/player.c:1672
 msgid "Used Amulet of Resurrection"
 msgstr "Использован Амулет Воскрешения"
 
@@ -5809,7 +5817,7 @@ msgstr "Злой Эдгар"
 
 #: src/boss/evil_edgar.c:273
 msgid "I'm better than you in every single way..."
-msgstr ""
+msgstr "Я лучше тебя во всём..."
 
 #: src/boss/evil_edgar.c:286
 msgid "Get down from there!"
@@ -5909,7 +5917,7 @@ msgstr ""
 
 #: src/item/mastermind_display.c:411
 msgid "Select a colour for every peg in the row"
-msgstr ""
+msgstr "Выбрать цвет для каждого колышка в ряду"
 
 #: src/item/monster_skull.c:98
 msgid "Press Action to retrieve the Horn"
@@ -5917,7 +5925,7 @@ msgstr "Нажмите Действие, чтобы получить Рог"
 
 #: src/item/memory_match_display.c:113
 msgid "Attempts remaining: %d"
-msgstr ""
+msgstr "Осталось попыток: %d"
 
 #: src/item/colour_pot.c:183
 msgid "The pot is empty"
@@ -5955,17 +5963,17 @@ msgstr "Попробуй использовать один из артефакт
 msgid "Failed to load game"
 msgstr "Ошибка при загрузке игры"
 
-#: src/boss/grimlore.c:2751
+#: src/boss/grimlore.c:2752
 msgid "Your %s has been destroyed"
 msgstr ""
 
-#: src/boss/grimlore.c:3483
+#: src/boss/grimlore.c:3484
 msgid "Binding only works against weakened demons"
-msgstr ""
+msgstr "Удерживаются только ослабевшие демоны"
 
 #: data/props/item/bind_artifact.props:5
 msgid "Sends a weakened demon back to its own dimension"
-msgstr ""
+msgstr "Ослабевший демон отправляется назад в своё измерение"
 
 #: data/props/item/poison_meat.props:5
 msgid "A lump of highly poisonous meat"
@@ -5983,7 +5991,7 @@ msgstr "Создаёт временный щит для отражения ма�
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Защищает против некоторых атак. Прекращает работу при движении"
 
-#: src/player.c:1323
+#: src/player.c:1326
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
 
@@ -5991,39 +5999,39 @@ msgstr ""
 msgid "Play Time"
 msgstr "Время игры"
 
-#: src/credits.c:987
+#: src/credits.c:866
 msgid "Kills"
 msgstr "Убито"
 
-#: src/credits.c:990
+#: src/credits.c:869
 msgid "Arrows Fired"
 msgstr "Выпущено стрел"
 
-#: src/credits.c:993
+#: src/credits.c:872
 msgid "Distanced Travelled"
 msgstr "Пройдено пути"
 
-#: src/credits.c:996
+#: src/credits.c:875
 msgid "Attacks Blocked"
 msgstr "Отражено атак"
 
-#: src/credits.c:999
+#: src/credits.c:878
 msgid "Time Spent As A Slime"
 msgstr "Время в образе слизня"
 
-#: src/credits.c:1002
+#: src/credits.c:881
 msgid "Secrets Found"
 msgstr "Найдено секретов"
 
-#: src/credits.c:1005
+#: src/credits.c:884
 msgid "Continues"
 msgstr "Продолжений"
 
-#: src/credits.c:1061
+#: src/credits.c:940
 msgid "Defeated Bosses"
 msgstr "Повержено главарей"
 
-#: src/credits.c:1216
+#: src/credits.c:1095
 msgid "Undefeated"
 msgstr "Восстановлено"
 
@@ -6043,7 +6051,7 @@ msgstr "Достаточно! Готовься к смерти..."
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
 
-#: src/player.c:1330
+#: src/player.c:1333
 msgid "Your shield is increasing in power..."
 msgstr "Твой щит увеличивает в силе..."
 
@@ -6077,7 +6085,7 @@ msgstr "Сторожевой Пёс"
 
 #: src/credits.c:131
 msgid "The Awesome Foursome"
-msgstr ""
+msgstr "Ужасный квартет"
 
 #: data/scripts/black_book.dat:25
 msgid "Mataeus"
@@ -6111,13 +6119,25 @@ msgstr "Чёрная Книга"
 msgid "The Sorceror"
 msgstr "Колдун"
 
-#: data/medals.dat:3
-msgid "Defeated the Sorceror"
-msgstr "Поверг колдуна"
+#: data/medals.dat:1
+msgid "Became a legend"
+msgstr "Стал легендой"
 
 #: data/medals.dat:2
 msgid "Defeated Chaos"
 msgstr "Уничтожен Хаос"
+
+#: data/medals.dat:3
+msgid "Defeated the Sorceror"
+msgstr "Поверг колдуна"
+
+#: data/medals.dat:6
+msgid "Obtained the Dragon Shield"
+msgstr "Получен щит дракона"
+
+#: data/medals.dat:5
+msgid "Found all secrets"
+msgstr "Найдены все секреты"
 
 #: data/medals.dat:8
 msgid "Walked 50km"
@@ -6197,7 +6217,7 @@ msgstr "Блокировано 2000 атак"
 
 #: data/medals.dat:27
 msgid "Continued 20 times"
-msgstr ""
+msgstr "Продолжено 20 раз"
 
 #: data/medals.dat:28
 msgid "Drowned 20 Red Bats"
@@ -6209,7 +6229,7 @@ msgstr "Сбежал из Темницы"
 
 #: data/medals.dat:30
 msgid "Got eaten 5 times"
-msgstr ""
+msgstr "Съели 5 раз"
 
 #: data/medals.dat:31
 msgid "Entered the Forbidden Swamp"
@@ -6229,7 +6249,7 @@ msgstr "Достиг Крепости"
 
 #: data/medals.dat:35
 msgid "Defeated the Golem using only the grabbers"
-msgstr ""
+msgstr "Победил Голема, пользуясь только захватами"
 
 #: data/medals.dat:36
 msgid "Defeated 100 enemies"
@@ -6249,7 +6269,7 @@ msgstr "Повержен Сторожевой Пёс"
 
 #: data/medals.dat:40
 msgid "Defeated the Awesome Foursome"
-msgstr ""
+msgstr "Побеждён ужасный квартет"
 
 #: data/medals.dat:41
 msgid "Defeated the Blob"
@@ -6309,13 +6329,13 @@ msgstr "Скрытая медаль"
 
 #: data/props/item/bell.props:5
 msgid "A bell"
-msgstr ""
+msgstr "Колокольчик"
 
 #: data/props/item/portable_save.props:4
 msgid "Creates a save point at your current position"
 msgstr "Создает точку сохранения на вашей текущей позиции"
 
-#: src/player.c:2075
+#: src/player.c:2078
 msgid "Your controls have been reversed!"
 msgstr "Обратное управление!"
 
@@ -6329,7 +6349,7 @@ msgstr "Этим можно воспользоваться в свободном
 
 #: src/item/key_items.c:260
 msgid "Bell"
-msgstr ""
+msgstr "Колокольчик"
 
 #: data/props/item/music_sheet.props:4
 msgid "A sheet of music"
@@ -6409,7 +6429,7 @@ msgstr "Подземелье"
 
 #: data/scripts/dungeon_escape.dat:7
 msgid "the Study"
-msgstr ""
+msgstr "Кабинет"
 
 #: data/medals.dat:29
 msgid "the Dungeon"
@@ -6477,7 +6497,7 @@ msgstr "Крепостной Подвал"
 
 #: data/maps/map08.dat:3418
 msgid "Fortress Ground Floor"
-msgstr "цокольный этаж Крепости"
+msgstr "Цокольный этаж Крепости"
 
 #: data/scripts/old_shield.dat:17
 msgid "Laboratory"
@@ -6497,7 +6517,7 @@ msgstr "Подземелье"
 
 #: data/scripts/enable_study.dat:1
 msgid "Study"
-msgstr ""
+msgstr "Кабинет"
 
 #: src/boss/sorceror.c:45
 msgid "Dungeon"
@@ -6535,7 +6555,7 @@ msgstr "Обсерватория"
 msgid "Crypt"
 msgstr "Склеп"
 
-#: src/credits.c:707
+#: src/credits.c:586
 msgid "Copyright Parallel Realities 2009 - 2012"
 msgstr "Авторское право Parallel Realities 2009 - 2012"
 
@@ -6605,7 +6625,7 @@ msgstr "Быстро вращайся, чтобы избавиться от ша
 
 #: data/scripts/azriel_start.dat:19
 msgid "Azriel"
-msgstr ""
+msgstr "Азриэль"
 
 #: src/boss/azriel.c:2303
 msgid "Until we meet again..."
@@ -6619,7 +6639,7 @@ msgstr "Подарок Ивана"
 msgid "Selected %s"
 msgstr "Выбрано %s"
 
-#: src/player.c:2972
+#: src/player.c:2975
 msgid "Press buttons to break the petrification!"
 msgstr "Нажать кнопку для прекращения окаменения!"
 
@@ -6666,39 +6686,39 @@ msgid ""
 "you were!"
 msgstr "Ты забрался в машину сам?! Ты оказался ещё глупее, чем я думал!"
 
-#: src/boss/chaos.c:808
+#: src/boss/chaos.c:814
 msgid "Stalagmite"
 msgstr "Сталагмит"
 
-#: src/boss/chaos.c:1288
+#: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
 msgstr "Сгори до тла!"
 
-#: src/boss/chaos.c:1292
+#: src/boss/chaos.c:1308
 msgid "Feel my power!"
 msgstr "Почувствуй мою силу!"
 
-#: src/boss/chaos.c:1300
+#: src/boss/chaos.c:1316
 msgid "Suffer!"
 msgstr "Страдай!"
 
-#: src/boss/chaos.c:1447
+#: src/boss/chaos.c:1472
 msgid "Pathetic"
 msgstr "Жалкий"
 
-#: src/boss/chaos.c:1465
+#: src/boss/chaos.c:1490
 msgid "Impale"
 msgstr "Израненный"
 
-#: src/player.c:2008
+#: src/player.c:2011
 msgid "Confuse"
 msgstr "Замешательство"
 
-#: src/boss/chaos.c:1662
+#: src/boss/chaos.c:1687
 msgid "Darkness"
 msgstr "Мрак"
 
-#: src/boss/chaos.c:1741
+#: src/boss/chaos.c:1766
 msgid "Hold Person"
 msgstr "Остолбенелый человек"
 
@@ -6713,19 +6733,19 @@ msgstr ""
 "Отражает призрачные силы. Блокирует, мгновенно увеличивая силу отражённого "
 "заряда."
 
-#: src/credits.c:589
+#: src/credits.c:458
 msgid "Chaos has been subdued"
 msgstr "Хаос был подавлен"
 
-#: src/credits.c:591
+#: src/credits.c:460
 msgid "For now..."
 msgstr "На данный момент..."
 
-#: src/credits.c:596
+#: src/credits.c:465
 msgid "Chaos will soon be free"
 msgstr "Хаос вскоре будет свободен"
 
-#: src/credits.c:598
+#: src/credits.c:467
 msgid "To terrorise the world once again"
 msgstr "Чтобы снова ужасать мир"
 
@@ -6733,30 +6753,30 @@ msgstr "Чтобы снова ужасать мир"
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:454
+#: src/boss/chaos.c:460
 msgid "Tendrils"
-msgstr ""
+msgstr "Усы"
 
-#: src/boss/chaos.c:1040
+#: src/boss/chaos.c:1046
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1296
+#: src/boss/chaos.c:1312
 msgid "I will destroy you!"
 msgstr "Я уничтожу тебя!"
 
-#: data/scripts/chaos_finish.dat:13
+#: data/scripts/chaos_finish.dat:17
 msgid "He must have teleported me away with the last of his magic"
 msgstr "Похоже, что он телепортировал меня из последних магических сил"
 
-#: data/scripts/chaos_finish.dat:14
+#: data/scripts/chaos_finish.dat:18
 msgid ""
 "Even though I didn't manage to slay him, he's now too weak to pose a threat "
 "to the world"
 msgstr ""
 "Хоть я и не убил его, он слишком слаб, чтобы представлять угрозу миру"
 
-#: data/scripts/chaos_finish.dat:15
+#: data/scripts/chaos_finish.dat:19
 msgid "Time to get back to rescuing my father..."
 msgstr "Пора вернуться к спасению моего Папы..."
 
@@ -6764,38 +6784,38 @@ msgstr "Пора вернуться к спасению моего Папы..."
 msgid "It's sealed tight. I'm not getting back in there"
 msgstr "Он надёжно запечатан. Я не смогу туда вернуться"
 
-#: data/scripts/chaos_die.dat:5
+#: data/scripts/chaos_die.dat:6
 msgid "It's over"
 msgstr "Кончено"
 
-#: data/scripts/chaos_die.dat:6
+#: data/scripts/chaos_die.dat:7
 msgid "Hey, what's that? It looks like a sword"
 msgstr "Эй, что это? Похоже на меч"
 
-#: data/scripts/chaos_die.dat:12
+#: data/scripts/chaos_die.dat:13
 msgid "This must be Ivan's sword"
 msgstr "Это должно быть меч Ивана"
 
-#: data/scripts/chaos_die.dat:13
+#: data/scripts/chaos_die.dat:14
 msgid "You... You will never defeat me"
 msgstr "Ты... Ты никогда не одолеешь меня"
 
-#: data/scripts/chaos_die.dat:14
+#: data/scripts/chaos_die.dat:15
 msgid "I will escape this wretched place"
 msgstr "Я убегу из этого ужасного места"
 
-#: data/scripts/chaos_die.dat:15
+#: data/scripts/chaos_die.dat:16
 msgid "Even if it takes me another 100 years"
 msgstr "Даже если мне потребуется ещё 100 лет"
 
-#: data/scripts/chaos_die.dat:16
+#: data/scripts/chaos_die.dat:17
 msgid "These chains won't hold me forever"
 msgstr "Эти цепи не смогут держать меня вечно"
 
-#: data/scripts/chaos_die.dat:17
+#: data/scripts/chaos_die.dat:18
 msgid "Time to finish this. Prepare yourself!"
 msgstr "Пора покончить с этим. Приготовься!"
 
-#: data/scripts/chaos_die.dat:18
+#: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
-msgstr ""
+msgstr "Нет! ИЗГНАНИЕ!"

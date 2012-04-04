@@ -1,4 +1,4 @@
-# German translation for edgar
+# Brazilian Portuguese translation for edgar
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the edgar package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-02-21 12:17+0000\n"
-"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2012-04-03 00:17+0000\n"
+"Last-Translator: rodrigo <bilufe@yahoo.com.br>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
-msgstr ""
+msgstr "Obrigado, isto é perfeito!"
 
 #: data/scripts/olaf.dat:7
 msgid "Do you have everything you need now?"
-msgstr ""
+msgstr "Você tem tudo que precisa agora?"
 
 #: data/scripts/olaf.dat:8
 msgid "I sure do"
-msgstr ""
+msgstr "Tenho certeza que"
 
 #: data/scripts/olaf.dat:9
 msgid "So what happens now?"
-msgstr ""
+msgstr "Então o que acontece agora?"
 
 #: data/scripts/olaf.dat:10
 msgid "We can get out of here! Where do you want to go?"
-msgstr ""
+msgstr "Nós podemos sair daqui! Onde você quer ir?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
@@ -44,10 +44,11 @@ msgstr ""
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
 msgstr ""
+"OK, lembra-se que eu disse a você sobre o feitiço de desintegração histórica?"
 
 #: data/scripts/olaf.dat:13
 msgid "I think so..."
-msgstr ""
+msgstr "Eu acho que sim..."
 
 #: data/scripts/olaf.dat:14
 msgid "Go to the lab and combine that ring and your shield"
@@ -55,7 +56,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:15
 msgid "How?"
-msgstr ""
+msgstr "Como?"
 
 #: data/scripts/olaf.dat:16
 msgid ""
@@ -65,7 +66,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:17
 msgid "OK..."
-msgstr ""
+msgstr "OK..."
 
 #: data/scripts/olaf.dat:18
 msgid "Nothing will go wrong this time!"
@@ -77,7 +78,7 @@ msgstr "..."
 
 #: data/scripts/olaf.dat:23
 msgid "(I have the statue that Olaf stole)"
-msgstr ""
+msgstr "(Eu tenho a estátua que Olaf roubou )"
 
 #: data/scripts/olaf.dat:24
 msgid "(Perhaps I should return it to him, he is saving me after all)"
@@ -89,19 +90,19 @@ msgstr ""
 
 #: data/scripts/olaf.dat:26
 msgid "Give the statue to Olaf?"
-msgstr ""
+msgstr "Dê a estátua para Olaf?"
 
 #: data/scripts/olaf.dat:28
 msgid "I found this in the cave, is it the statue you took?"
-msgstr ""
+msgstr "Achei isso na caverna, é a estátua que você tirou?"
 
 #: data/scripts/olaf.dat:29
 msgid "Yes it is! Thanks for finding it!"
-msgstr ""
+msgstr "Sim, é! Obrigado por encontrá-lo!"
 
 #: data/scripts/olaf.dat:31
 msgid "I should be able to sell this for a decent price at the market"
-msgstr ""
+msgstr "Eu deveria ser capaz de vender isso por um preço decente no mercado"
 
 #: data/scripts/olaf.dat:34
 msgid "(I think I'll keep it for myself)"
@@ -109,11 +110,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:40
 msgid "Ready to go?"
-msgstr ""
+msgstr "Pronto para ir?"
 
 #: data/scripts/olaf.dat:41
 msgid "Return to the Fortress?"
-msgstr ""
+msgstr "Voltar para a Fortaleza?"
 
 #: data/scripts/olaf.dat:46
 msgid "Not yet, there's something else I need to do"
@@ -320,7 +321,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:136
 msgid "Thanks!"
-msgstr "Danke!"
+msgstr ""
 
 #: data/scripts/olaf.dat:139
 msgid "Oh, one last thing."
@@ -338,7 +339,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:12
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #: data/scripts/olaf.dat:145
 msgid "Have I just sent a young boy to his death?"
@@ -362,7 +363,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:161
 msgid "Thanks, Olaf"
-msgstr "Danke, Olaf"
+msgstr ""
 
 #: data/scripts/basement_lift_power.dat:1
 msgid ""
@@ -728,11 +729,11 @@ msgstr ""
 
 #: data/scripts/borgan.dat:11
 msgid "Hi"
-msgstr "Guten Tag"
+msgstr ""
 
 #: data/scripts/borgan.dat:12
 msgid "Hello Edgar"
-msgstr "Guten Tag Edgar"
+msgstr ""
 
 #: data/scripts/borgan.dat:13
 msgid "Can I borrow your shield?"
@@ -846,7 +847,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:47
 msgid "Thanks, Borgan!"
-msgstr "Danke, Borgan!"
+msgstr ""
 
 #: data/scripts/borgan.dat:52
 msgid "Have you managed to find the coal yet?"
@@ -920,7 +921,7 @@ msgstr ""
 
 #: data/scripts/maggie.dat:4
 msgid "Hi Maggie"
-msgstr "Guten Tag Maggie"
+msgstr ""
 
 #: data/scripts/maggie.dat:7
 msgid "Oh Edgar, you're hurt! Let me heal your wounds"
@@ -928,7 +929,7 @@ msgstr ""
 
 #: data/scripts/maggie.dat:52
 msgid "Thanks Maggie!"
-msgstr "Danke Maggie!"
+msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:9
 msgid "Persistent aren't you?"
@@ -969,7 +970,7 @@ msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:33
 msgid "Farewell, Edgar"
-msgstr "Auf Wiedersehen, Edgar"
+msgstr ""
 
 #: data/scripts/sorceror_intro_3.dat:38
 msgid "Something's coming..."
@@ -1055,7 +1056,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:6
 msgid "!"
-msgstr "!"
+msgstr ""
 
 #: data/scripts/ending_part1.dat:21
 msgid "That voice..."
@@ -1067,11 +1068,11 @@ msgstr ""
 
 #: data/scripts/ending_part1.dat:25
 msgid "Daddy!"
-msgstr "Papa!"
+msgstr ""
 
 #: data/scripts/ending_part1.dat:19
 msgid "Edgar!"
-msgstr "Edgar!"
+msgstr ""
 
 #: data/scripts/ending_part1.dat:28
 msgid "Jacob, I found him!"
@@ -1152,7 +1153,7 @@ msgstr ""
 
 #: data/scripts/tomb_door.dat:41
 msgid "Chaos"
-msgstr "Chaos"
+msgstr ""
 
 #: data/scripts/monsters.dat:9
 msgid "Chaos is an ancient, evil dragon"
@@ -1635,7 +1636,7 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:41
 msgid "Ingredients"
-msgstr "Zutaten"
+msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:42
 msgid "One must gather the following"
@@ -3004,7 +3005,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:6
 msgid "Have fun!"
-msgstr "Viel Spaß!"
+msgstr ""
 
 #: data/scripts/jacob.dat:10
 msgid ""
@@ -3021,7 +3022,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:17
 msgid "Thank you!"
-msgstr "Danke!"
+msgstr ""
 
 #: data/scripts/jacob.dat:23
 msgid "Thanks for the logs, have you had any luck with the chickens?"
@@ -3102,7 +3103,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:49
 msgid "Good luck!"
-msgstr "Viel Glück!"
+msgstr ""
 
 #: data/scripts/jacob.dat:51
 msgid "Collect 2 Chopped Logs"
@@ -3125,7 +3126,7 @@ msgstr ""
 
 #: data/scripts/jacob.dat:65
 msgid "Thanks Jacob"
-msgstr "Danke Jacob"
+msgstr ""
 
 #: data/scripts/jacob.dat:86
 msgid "Wow, you caught them all, thanks alot!"
@@ -4433,7 +4434,7 @@ msgstr ""
 
 #: src/player.c:64
 msgid "Bow"
-msgstr "Bogen"
+msgstr ""
 
 #: src/item/catapult.c:137
 msgid "Press Action to interact"
@@ -4445,7 +4446,7 @@ msgstr ""
 
 #: src/item/bomb_pile.h:20
 msgid "Bomb"
-msgstr "Bombe"
+msgstr ""
 
 #: src/enemy/rock.c:74
 msgid "Small Rock"
@@ -4509,11 +4510,11 @@ msgstr ""
 
 #: data/scripts/olaf.dat:29
 msgid "Yes"
-msgstr "Ja"
+msgstr ""
 
 #: data/scripts/olaf.dat:18
 msgid "No"
-msgstr "Nein"
+msgstr ""
 
 #: src/menu/main_menu.c:336
 msgid "Start a new game?"
@@ -4529,7 +4530,7 @@ msgstr ""
 
 #: data/scripts/olaf.dat:11
 msgid "Back"
-msgstr "Zurück"
+msgstr ""
 
 #: src/menu/main_menu.c:382
 msgid "Game Loaded"
@@ -4681,7 +4682,7 @@ msgstr ""
 
 #: data/scripts/borgan.dat:7
 msgid "Coal"
-msgstr "Kohle"
+msgstr ""
 
 #: data/scripts/raft_2.dat:2
 msgid "Chopped Log"
@@ -4709,7 +4710,7 @@ msgstr ""
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "New Game"
-msgstr "Neues Spiel"
+msgstr ""
 
 #: data/scripts/tutorial_finish.dat:3
 msgid "Tutorial"
@@ -4717,7 +4718,7 @@ msgstr ""
 
 #: src/menu/main_menu.c:176
 msgid "Load Game"
-msgstr "Spielstand laden"
+msgstr ""
 
 #: data/scripts/tutorial_keys.dat:1
 msgid "Options"
@@ -4725,7 +4726,7 @@ msgstr ""
 
 #: src/menu/main_menu.c:52
 msgid "About"
-msgstr "Über"
+msgstr ""
 
 #: src/menu/main_menu.c:50
 msgid "Quit"
@@ -4825,7 +4826,7 @@ msgstr ""
 
 #: data/maps/tutorial.dat:2141
 msgid "Pickaxe"
-msgstr "Pickel"
+msgstr ""
 
 #: data/props/weapon/pickaxe.props:6
 msgid "A pickaxe lent to you by Borgan"
@@ -4893,19 +4894,19 @@ msgstr ""
 
 #: data/scripts/monsters.dat:82
 msgid "Up"
-msgstr "Hoch"
+msgstr ""
 
 #: data/scripts/tutorial_intro.dat:7
 msgid "Down"
-msgstr "Runter"
+msgstr ""
 
 #: src/collisions.c:72
 msgid "Left"
-msgstr "Links"
+msgstr ""
 
 #: data/scripts/borgan.dat:40
 msgid "Right"
-msgstr "Rechts"
+msgstr ""
 
 #: data/scripts/tutorial_intro.dat:5
 msgid "Jump"
@@ -4913,7 +4914,7 @@ msgstr ""
 
 #: data/scripts/safe_instructions.dat:3
 msgid "Attack"
-msgstr "Angriff"
+msgstr ""
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block"
@@ -5213,7 +5214,7 @@ msgstr ""
 
 #: data/scripts/knights.dat:3
 msgid "Book"
-msgstr "Buch"
+msgstr ""
 
 #: data/scripts/fortress_mine_exit_sign.dat:2
 msgid "Sign"
@@ -5253,7 +5254,7 @@ msgstr ""
 
 #: data/scripts/crossbow.dat:2
 msgid "Rope"
-msgstr "Seil"
+msgstr ""
 
 #: src/item/extend_o_grab_button.c:42
 msgid "Extend-O-Grab"
@@ -5273,19 +5274,19 @@ msgstr ""
 
 #: data/maps/map09.dat:2917
 msgid "Armoury"
-msgstr "Zeughaus"
+msgstr ""
 
 #: data/scripts/maggie.dat:3
 msgid "Maggie"
-msgstr "Maggie"
+msgstr ""
 
 #: data/scripts/tutorial_secret.dat:5
 msgid "Jacob"
-msgstr "Jacob"
+msgstr ""
 
 #: data/scripts/borgan.dat:1
 msgid "Borgan"
-msgstr "Borgan"
+msgstr ""
 
 #: data/scripts/olaf.dat:7
 msgid "Edgar"
@@ -5549,7 +5550,7 @@ msgstr ""
 
 #: src/menu/io_menu.c:141
 msgid "<Empty>"
-msgstr "<Leer>"
+msgstr ""
 
 #: data/props/item/monster_horn.props:5
 msgid "The horn from a fearsome monster"
