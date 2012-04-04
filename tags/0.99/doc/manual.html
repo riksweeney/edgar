@@ -1,0 +1,292 @@
+<html>
+<head>
+	<title>The Legend of Edgar Gameplay Manual</title>
+	<meta content="">
+	<style>
+		a {color: #499FFF; text-decoration: none; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+		a:hover {color: #499FFF; text-decoration: underline; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+		body {color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+		p.terminal {color: #00CC00; font-family: monospace; font-size: 13px;}
+		table {color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+		table.blue {background-color: #000066; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px;}
+		td {color: #FFFFFF; background-color: #000000; 13px}
+		h4 {background: #0022FF; font-size: 13px;}
+	</style>
+</head>
+<body BGCOLOR="#000000" COLOR="#FFFFFF">
+
+<CENTER>
+
+<TABLE WIDTH="100%" BGCOLOR="#0022FF" CELLPADDING="10"><TR BGCOLOR="#000000"><TD>
+
+<CENTER>
+<IMG SRC="logo.png">
+<TABLE CELLSPACING="5"><TR>
+<TD VALIGN="BOTTOM"><IMG SRC="purple_jumping_slime.gif" TITLE="Purple Slime"></TD>
+<TD VALIGN="BOTTOM"><IMG SRC="frog.gif" TITLE="Frog"></TD>
+<TD VALIGN="BOTTOM"><IMG SRC="edgar.gif" TITLE="Edgar"></TD>
+<TD VALIGN="BOTTOM"><IMG SRC="gazer.gif" TITLE="Gazer"></TD>
+<TD VALIGN="BOTTOM"><IMG SRC="tortoise.gif" TITLE="Tortoise"></TD>
+</TR></TABLE>
+</CENTER>
+
+<A NAME="license"></A>
+<H4>License and Disclaimer</H4>
+
+<P>This program is free software; you can redistribute it and/or<BR>
+modify it under the terms of the GNU General Public License<BR>
+as published by the Free Software Foundation; either version 2<BR>
+of the License, or (at your option) any later version.</P>
+
+<P>This program is distributed in the hope that it will be useful,<BR>
+but WITHOUT ANY WARRANTY; without even the implied warranty of<BR>
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</P>
+
+<P>See the GNU General Public License for more details.</P>
+
+<P>You should have received a copy of the GNU General Public License<BR>
+along with this program; if not, write to the Free Software<BR>
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.<BR></P>
+
+<P>The Legend of Edgar is distributed and licensed under the GNU General Public License. You can read
+the full license by clicking <A HREF="LICENSE">here</A>.</P>
+
+<P>This license agreement is shown the first time the game is played. IT MUST NOT BE REMOVED UNDER ANY
+CIRCUMSTANCES. DO NOT DISTRIBUTE THIS GAME IN ANY FORM WHERE THE USER DOES NOT SEE THE LICENSE.</P>
+
+<P>This manual is based on the downloadable version of The Legend of Edgar as found on the Parallel Realities
+website. Be aware that depending on the version of the game you are playing this manual may be incomplete or
+incorrect in places.</P>
+
+<A NAME="introduction"></A>
+<H4>Introduction</H4>
+<P>The Legend of Edgar is a platform game, not unlike those found on the Amiga and SNES. Edgar must
+battle his way across the world, solving puzzles and defeating powerful enemies to achieve his quest.</P>
+
+<A NAME="requirements"></A>
+<H4>Requirements</H4>
+<P>The Legend of Edgar requires the following,</P>
+<UL>
+	<LI><A HREF="http://www.libsdl.org" TARGET="_new">SDL</A></LI>
+	<LI><A HREF="http://www.libsdl.org/projects/SDL_image" TARGET="_new">SDL Image</A></LI>
+	<LI><A HREF="http://www.libsdl.org/projects/SDL_mixer" TARGET="_new">SDL Mixer</A></LI>
+	<LI><A HREF="http://www.libsdl.org/projects/SDL_ttf" TARGET="_new">SDL TTF</A></LI>
+	<LI><A HREF="http://zlib.net" TARGET="_new">Zlib</A></LI>
+</UL>
+
+<P>
+<PRE>
+Screen Resolution : 640 x 480
+Color Depth       : 16 bit or greater
+Minimum Memory    : 32MB
+Harddrive         : 32MB
+Controls          : Keyboard, Joystick
+</PRE>
+
+<P>Most Linux users will find that the required SDL libraries came with their system and are probably already
+installed. If not, click the name of the library above to go to the relevant homepage.</P>
+
+<A NAME="installation"></A>
+<H4>Installation</H4>
+<P>The Legend of Edgar can be installed in two different ways. The first (and easiest) is by using
+a binary RPM package. The second involves building the game. It is recommended that you install via an RPM
+if you are able to. You will require the libraries listed in the Requirements section whichever method you
+choose. For installation from source you will also require the development packages for those libraries
+listed.</P>
+
+<P><B>Installation from RPM Package</B></P>
+<P>To install from RPM simply use your preferred method of installation (eg - via a GUI such as KPackage
+or via a terminal). If you wish to install via a terminal you can use the do so by typing
+the following (remember to change the filename to match the name of the package you are installing),</P>
+
+<P CLASS="terminal">rpm -U edgar-x.x-x.i586.rpm</P>
+
+<P>Provided you have all the required libraries installed the game should install without problems.</P>
+
+<P><B>Installation from source</B></P>
+<P>If you choose this method you will need to build the game from source. This will require all the appropriate
+development libraries (see Requirements) and some knowledge of building an application using the source code.
+Open a terminal and use the following commands to extract, compile and install the game (again remember to change the
+filename to match the name of the download),</P>
+
+<P CLASS="terminal">
+tar xzf edgar-x.x-x.tar.gz<BR>
+cd edgar-x.x-x<BR>
+make<BR>
+make install<FONT COLOR="#FFFFFF">*</FONT><BR>
+</P>
+
+<P><I>* - You will have to be root in order to perform this step.</I></P>
+
+<P>Notes</P>
+<UL>
+	<LI>Default installation target is /usr/games for the binary and /usr/share/games for the data</LI>
+	<LI>Menu items are added for Gnome and KDE desktops into Games and Games/Arcade respectively.</LI>
+</UL>
+
+<A NAME="running"></A>
+<H4>Running</H4>
+<P>Either type,</P>
+
+<P CLASS="terminal">edgar</P>
+
+<P>in a terminal window, or you can use the menu links that have been added for Gnome and KDE desktops. These under located in Games
+and Games / Arcade respectively.</P>
+
+<A NAME="story"></A>
+<H4>The Story</H4>
+
+<P>When Edgar's father fails to return home after venturing out one dark and stormy night, Edgar fears
+the worst: he has been captured by the evil sorceror who lives in a fortress beyond the forbidden swamp.</P>
+<P>Donning his armour, Edgar sets off to rescue him, but his quest will not be easy...</P>
+
+<A NAME="controls"></A>
+<H4>Default Controls</H4>
+
+<P><B>In Game</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">Arrow Left / Right</TD><TD>Move Left / Right</TD></TR>
+<TR><TD>Arrow Up / Down</TD><TD>Move Lifts Up / Down</TD></TR>
+<TR><TD>Space</TD><TD>Jump</TD></TR>
+<TR><TD>Left Control</TD><TD>Attack with equipped weapon</TD></TR>
+<TR><TD>Left Alt</TD><TD>Block with equipped shield</TD></TR>
+<TR><TD>a</TD><TD>Use selected inventory item</TD></TR>
+<TR><TD>c</TD><TD>Interact / Talk / Pull item*</TD></TR>
+<TR><TD>z</TD><TD>View Inventory</TD></TR>
+<TR><TD>(comma)</TD><TD>Previous Inventory Item</TD></TR>
+<TR><TD>(period)</TD><TD>Next Inventory Item</TD></TR>
+<TR><TD>Escape</TD><TD>Main Menu</TD></TR>
+</TABLE>
+
+*To pull an item, push against it whilst holding down 'c'. You can then move it around until you let go of 'c'.
+
+<P><B>Inventory</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">Arrow Keys</TD><TD>Move selection icon</TD></TR>
+<TR><TD>Left Control / a</TD><TD>Use selected item immediately</TD></TR>
+<TR><TD>Left Alt / c</TD><TD>Select item but do not use it*</TD></TR>
+<TR><TD>z / Escape</TD><TD>Exit inventory</TD></TR>
+<TR><TD>(comma)</TD><TD>Move the currently highlighted item left (allows sorting of items)</TD></TR>
+<TR><TD>(period)</TD><TD>Move the currently highlighted item right (allows sorting of items)</TD></TR>
+</TABLE>
+
+*Selecting an item rather than using it means that you can ready items such as health potions to use at a specific moment.
+
+<P><B>Options Menu</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">Arrow Up / Down</TD><TD>Move selection Up / Down</TD></TR>
+<TR><TD WIDTH="200">Arrow Left / Right</TD><TD>Lower / Raise selected sound option</TD></TR>
+<TR><TD WIDTH="200">Return</TD><TD>Activate Menu Option</TD></TR>
+<TR><TD>Escape</TD><TD>Previous Menu</TD></TR>
+</TABLE>
+
+<P><B>Misc</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">F12</TD><TD>Toggle Full Screen</TD></TR>
+<TR><TD WIDTH="200">F10</TD><TD>Take Screenshot</TD></TR>
+</TABLE>
+
+<A NAME="keyboard"></A>
+<H4>Keyboard Configuration</H4>
+<P>To change the controls select Configure Controls from the Options menu.</P>
+<P>The currently configured button will be displayed to the right of the action. To configure an
+action highlight the action you wish to set (using the arrow keys on the keyboard) and then press Return.
+The current button configuration entry will become a '?' and allow you to press the new key you wish
+to use. After doing so the new button will then be displayed.</P>
+<P>Repeat this process until you have configured all the keys you wish to. Key configuration is
+saved to a file called config in ~/.parallelrealities/edgar/. Configuration is saved only
+once and not on a save game basis.</P>
+
+<A NAME="joypad"></A>
+<H4>Joypad Configuration</H4>
+<P>Joypad configuration is done in the same manner as configuring the keyboard. If you have an analogue joystick
+you can use the first analogue stick to move Edgar, so if you have a PlayStation 2 compatible joypad then this will
+be the left analogue stick. You can also set the "deadzone" of the analogue stick to make it more or less
+sensitive to movement.</P>
+
+<A NAME="starting"></A>
+<H4>Starting a New Game</H4>
+<P>In the current version, you will start on the tutorial level if the game cannot find any saved configuration options,
+otherwise a game will start.</P>
+
+<A NAME="saving"></A>
+<H4>Saving a game</H4>
+<P>Save points allow you to save your game and carry on where you left off. There are 10 save game
+slots.</P>
+
+<A NAME="loading"></A>
+<H4>Loading a game</H4>
+<P>The in-game menu allows you to load a saved game.</P>
+
+<A NAME="menu"></A>
+<H4>Menus</H4>
+
+<P><B>Main Menu</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">New Game</TD><TD>Starts a new game</TD></TR>
+<TR><TD WIDTH="200">Continue</TD><TD>Loads up your most recently saved game*</TD></TR>
+<TR><TD WIDTH="200">Restart Checkpoint</TD><TD>Allows you to continue if you die against a boss**</TD></TR>
+<TR><TD>Tutorial</TD><TD>Starts the tutorial</TD></TR>
+<TR><TD>Load Game</TD><TD>Displays a list of previously saved games</TD></TR>
+<TR><TD>Options</TD><TD>Displays the options menu</TD></TR>
+<TR><TD>About</TD><TD>Shows the current version of the game</TD></TR>
+<TR><TD>Quit</TD><TD>Quits the game</TD></TR>
+</TABLE>
+
+*Only available on the title screen
+<BR/>
+**Only available in-game
+
+<P><B>Options Menu</B></P>
+<TABLE CLASS="blue" CELLPADDING="3">
+<TR><TD WIDTH="200">Configure Controls</TD><TD>Allows you to configure the controls.</TD></TR>
+<TR><TD>Configure Sound</TD><TD>Allows you to turn the toggle sound and the volume of music and sound effects</TD></TR>
+<TR><TD>Fullscreen</TD><TD>Toggles full screen mode</TD></TR>
+<TR><TD>Show Hints</TD><TD>Toggles tips for using switches, lifts and other common world items</TD></TR>
+</TABLE>
+
+<A NAME="medals"></A>
+<H4>Medals</H4>
+<P>You can earn medals in the game for performing certain actions, such as killing a certain number
+of enemies or by progressing further in the game.</P>
+
+<A NAME="commandline"></A>
+<H4>Command Line Options</H4>
+<P>Type edgar -h to view a full list of command line options</P>
+
+<A NAME="translating"></A>
+<H4>Translating</H4>
+
+<P>If you want to help with translating the game into another language, you can do so by logging into Launchpad
+<BR>
+<BR>
+<A HREF="https://translations.launchpad.net/edgar" TARGET="_new">https://translations.launchpad.net/edgar</A>
+
+<A NAME="about"></A>
+<H4>About</H4>
+
+<P>Parallel Realities started off writing games on the Amiga using AMOS and then, later, Blitz Basic
+2. Games written included the BOTSS Trilogy and most notably TANX Squadron. TANX Squadron was awarded
+Amiga Format's contributor prize of the month in the summer of 1999. Project: Starfighter was Parallel
+Realities' first contribution to the Linux gaming scene and was well recieved when it was released in
+2001. This was followed in 2003 with the release of Blob Wars : Metal Blob Solid and its sequel, Blob
+and Conquer, in 2008.</P>
+
+<P>The Legend of Edgar is our fifth contribution to Linux and we hope you enjoy it as much
+as Project: Starfighter and the Blob Wars saga.</P>
+
+<CENTER>
+<P>&nbsp;</P>
+The Legend of Edgar<BR>
+Copyright &copy; 2009 - 2012 Parallel Realities<BR>
+Licensed under the GNU General Public License</P>
+<P>&nbsp;</P>
+</CENTER>
+
+<P ALIGN="RIGHT"><A HREF="http://www.parallelrealities.co.uk">www.parallelrealities.co.uk</A></P>
+
+</TD></TR></TABLE>
+</CENTER>
+
+</body>
+</html>
