@@ -210,7 +210,7 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
-		self->thinkTime = 30;
+		self->thinkTime = 300;
 		
 		self->flags &= ~FLY;
 

@@ -36,6 +36,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../graphics/graphics.h"
 #include "../graphics/gib.h"
 #include "../hud.h"
+#include "../item/item.h"
 #include "../item/key_items.h"
 #include "../inventory.h"
 #include "../map.h"
@@ -118,6 +119,7 @@ static void dieWait(void);
 static void continuePoint(void);
 static void addLegendarySword(void);
 static void swordWait(void);
+static void swordTouch(Entity *);
 static void creditsDone(void);
 
 Entity *addChaos(int x, int y, char *name)
@@ -2436,9 +2438,7 @@ static void addLegendarySword()
 {
 	Entity *e;
 
-	e = getFreeEntity();
-
-	loadProperties("weapon/legendary_sword", e);
+	e = addPermanentItem("weapon/legendary_sword", 0, 0);
 
 	e->x = self->x;
 	e->y = self->y;
@@ -2446,6 +2446,8 @@ static void addLegendarySword()
 	e->flags |= DO_NOT_PERSIST;
 
 	e->action = &swordWait;
+	
+	e->touch = NULL;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -2461,8 +2463,8 @@ static void swordWait()
 	if (self->head->health <= 0)
 	{
 		setEntityAnimation(self, "STICK_IN_CHAOS_DIE");
-
-		self->touch = &keyItemTouch;
+		
+		self->touch = &swordTouch;
 	}
 
 	self->face = self->head->face;
@@ -2485,4 +2487,16 @@ static void swordWait()
 static void creditsDone()
 {
 	self->inUse = FALSE;
+}
+
+static void swordTouch(Entity *other)
+{
+	if (other->type == PLAYER)
+	{
+		self->head = NULL;
+		
+		self->action = &doNothing;
+		
+		self->touch = &keyItemTouch;
+	}
 }

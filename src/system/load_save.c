@@ -137,7 +137,9 @@ void newGame()
 
 	initGame();
 
-	loadMap("map01", TRUE);
+	loadMap("map04", TRUE);
+	
+	fireMapTrigger("map04");
 
 	cameraSnapToTargetEntity();
 }

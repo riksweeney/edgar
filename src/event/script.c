@@ -1336,6 +1336,13 @@ void readNextScriptLine()
 
 			setCameraSpeed(atof(token));
 		}
+		
+		else if (strcmpignorecase("CAMERA_START", command) == 0)
+		{
+			token = strtok_r(NULL, "\0", &savePtr);
+
+			setCameraPositionFromScript(token);
+		}
 
 		else if (strcmpignorecase("RUN_SCRIPT", command) == 0)
 		{

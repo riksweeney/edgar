@@ -1,6 +1,11 @@
 CHANGE LOG
 ----------
 
+Version 1.00
+* Added a basic introduction to set up the story
+* The Queen Wasp's defeated status is now displayed correctly in the credits
+* Fixed a potential crash after defeating Chaos
+
 Version 0.99
 * The game is now 100% completable (barring any bugs)
 * Added the final boss

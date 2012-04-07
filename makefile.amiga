@@ -1,4 +1,4 @@
-VERSION = 0.99
+VERSION = 1.00
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -112,23 +112,15 @@ makefile.dep : src/*/*.h src/*.h
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
+	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
+	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
-	
-# linking the program.
-$(PO_PROG): $(PO_OBJS)
-	$(CXX) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
-
-# linking the program.
-$(TILE_PROG): $(TILE_OBJS)
-	$(CXX) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS)
+	$(CXX) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:

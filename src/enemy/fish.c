@@ -132,6 +132,12 @@ static void swim()
 
 		fireGlobalTrigger(self->objectiveName);
 	}
+	
+	else if (self->environment == AIR)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+	}
 
 	if (self->y < self->endY)
 	{
