@@ -670,6 +670,7 @@ static void castIceInit()
 
 static void castIce()
 {
+	int x, y;
 	Entity *e;
 
 	self->thinkTime--;
@@ -686,48 +687,62 @@ static void castIce()
 		loadProperties("enemy/ice_spike", e);
 
 		setEntityAnimation(e, "STAND");
-
-		e->x = self->x + self->w / 2;
-		e->y = self->y + self->h / 2;
-
-		e->x -= e->w / 2;
-		e->y -= e->h / 2;
-
-		e->targetX = player.x + player.w / 2;
-		e->targetY = self->y - 100 - (prand() % 60);
-
-		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
-
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-
-		e->action = &iceDrop;
-		e->draw = &drawLoopingAnimationToMap;
-		e->touch = &entityTouch;
-
-		e->head = self;
-
-		e->face = self->face;
-
-		e->type = ENEMY;
-
-		e->thinkTime = 30;
-
-		e->flags |= FLY|DO_NOT_PERSIST;
-
-		self->endX--;
-
-		if (self->endX <= 0)
+		
+		x = player.x + player.w / 2;
+		y = self->y - 100 - (prand() % 60);
+		
+		e->x = x;
+		e->y = y;
+		
+		if (isValidOnMap(e) == TRUE)
 		{
-			self->thinkTime = 0;
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
 
-			self->action = &castIceFinish;
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+			
+			e->targetX = x;
+			e->targetY = y;
+			
+			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			e->action = &iceDrop;
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+
+			e->head = self;
+
+			e->face = self->face;
+
+			e->type = ENEMY;
+
+			e->thinkTime = 30;
+
+			e->flags |= FLY|DO_NOT_PERSIST;
+
+			self->endX--;
+
+			if (self->endX <= 0)
+			{
+				self->thinkTime = 0;
+
+				self->action = &castIceFinish;
+			}
+
+			else
+			{
+				self->thinkTime = 30;
+			}
 		}
-
+		
 		else
 		{
-			self->thinkTime = 30;
+			e->inUse = FALSE;
 		}
 	}
 
@@ -972,6 +987,7 @@ static void castIceFinish()
 
 static void createIceBlock()
 {
+	int x, y;
 	Entity *e;
 
 	self->thinkTime--;
@@ -988,54 +1004,68 @@ static void createIceBlock()
 		loadProperties("edgar/edgar_frozen", e);
 
 		setEntityAnimation(e, "STAND");
-
-		e->x = self->x + self->w / 2;
-		e->y = self->y + self->h / 2;
-
-		e->x -= e->w / 2;
-		e->y -= e->h / 2;
-
-		e->targetX = player.x + player.w / 2;
-		e->targetY = self->y - 100 - (prand() % 60);
-
-		e->damage = 1;
-
-		e->health = 50;
-
-		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-
-		e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
-
-		playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
-
-		e->action = &iceBlockDrop;
-		e->draw = &drawLoopingAnimationToMap;
-		e->touch = &entityTouch;
-		e->pain = &enemyPain;
-		e->die = &iceBlockDie;
-
-		e->head = self;
-
-		e->face = self->face;
-
-		e->type = ENEMY;
-
-		e->thinkTime = 30;
-
-		e->flags |= FLY|DO_NOT_PERSIST;
-
-		self->endX--;
-
-		if (self->endX <= 0)
+		
+		x = player.x + player.w / 2;
+		y = self->y - 100 - (prand() % 60);
+		
+		e->x = x;
+		e->y = y;
+		
+		if (isValidOnMap(e) == TRUE)
 		{
-			self->thinkTime = 0;
+			e->x = self->x + self->w / 2;
+			e->y = self->y + self->h / 2;
 
-			self->action = &castIceFinish;
+			e->x -= e->w / 2;
+			e->y -= e->h / 2;
+
+			e->targetX = x;
+			e->targetY = y;
+
+			e->damage = 1;
+
+			e->health = 50;
+
+			calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
+
+			e->flags |= (NO_DRAW|HELPLESS|TELEPORTING|NO_END_TELEPORT_SOUND);
+
+			playSoundToMap("sound/common/spell.ogg", -1, self->x, self->y, 0);
+
+			e->action = &iceBlockDrop;
+			e->draw = &drawLoopingAnimationToMap;
+			e->touch = &entityTouch;
+			e->pain = &enemyPain;
+			e->die = &iceBlockDie;
+
+			e->head = self;
+
+			e->face = self->face;
+
+			e->type = ENEMY;
+
+			e->thinkTime = 30;
+
+			e->flags |= FLY|DO_NOT_PERSIST;
+
+			self->endX--;
+
+			if (self->endX <= 0)
+			{
+				self->thinkTime = 0;
+
+				self->action = &castIceFinish;
+			}
+
+			else
+			{
+				self->thinkTime = 60;
+			}
 		}
-
+		
 		else
 		{
-			self->thinkTime = 60;
+			e->inUse = FALSE;
 		}
 	}
 

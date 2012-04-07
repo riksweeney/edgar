@@ -462,7 +462,7 @@ void freeBossHealthBar()
 
 void drawSpotlight(int x, int y)
 {
-	drawImage(hud.spotlight, x, y, FALSE, 255);
+	drawImage(hud.spotlight, x - game.offsetX, y - game.offsetY, FALSE, 255);
 }
 
 void showMedal(int medalType, char *message)

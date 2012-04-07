@@ -68,3 +68,4 @@ int getPlayerMinX(void);
 int getPlayerMaxX(void);
 void drawMapBackground(void);
 void limitPlayerToCameraLimits(void);
+void setCameraPositionFromScript(char *);

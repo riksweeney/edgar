@@ -116,8 +116,6 @@ void pauseMusic(int pause)
 		if (pause == FALSE)
 		{
 			Mix_ResumeMusic();
-			
-			Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 		}
 
 		else
@@ -125,6 +123,13 @@ void pauseMusic(int pause)
 			Mix_PauseMusic();
 		}
 	}
+}
+
+void updateMusicVolume()
+{
+	Mix_ResumeMusic();
+	
+	Mix_VolumeMusic(game.musicDefaultVolume * VOLUME_STEPS);
 }
 
 void playDefaultBossMusic()

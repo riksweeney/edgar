@@ -23,6 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "audio/music.h"
 #include "credits.h"
 #include "entity.h"
+#include "event/map_trigger.h"
 #include "event/trigger.h"
 #include "game.h"
 #include "geometry.h"
@@ -574,6 +575,10 @@ int saveMap()
 	/* And the triggers */
 
 	writeTriggersToFile(fp);
+	
+	/* And the map triggers */
+	
+	writeMapTriggersToFile(fp);
 
 	/* Close the file afterwards */
 
@@ -1334,6 +1339,19 @@ void setCameraPosition(int x, int y)
 {
 	map.cameraX = x;
 	map.cameraY = y;
+	
+	map.startX = map.cameraX;
+	map.startY = map.cameraY;
+}
+
+void setCameraPositionFromScript(char *position)
+{
+	char *x, *y;
+	
+	x = strtok(position, " ");
+	y = strtok(NULL, " ");
+	
+	setCameraPosition(atoi(x), atoi(y));
 }
 
 void limitCamera(int minX, int minY, int maxX, int maxY)

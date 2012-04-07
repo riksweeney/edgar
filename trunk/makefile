@@ -1,4 +1,4 @@
-VERSION = 0.99
+VERSION = 1.00
 RELEASE = 1
 DEV = 0
 PAK_FILE = edgar.pak
@@ -125,7 +125,7 @@ $(PO_PROG): $(PO_OBJS)
 
 # linking the program.
 $(TILE_PROG): $(TILE_OBJS)
-	$(CXX) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS)
+	$(CXX) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS) -lpng
 
 # cleaning everything that can be automatically recreated with "make".
 clean:

@@ -123,7 +123,7 @@ static int bossesLength = sizeof(bosses) / sizeof(char *);
 static char *bossNames[] = {
 			"boss/grub_boss", "King Grub", "map03", "grub_boss_start",
 			"boss/golem_boss", "The Golem", "map02", "golem_boss_start",
-			"boss/fly_boss", "Queen Wasp", "map05", "fly_boss_boss",
+			"boss/fly_boss", "Queen Wasp", "map05", "fly_boss_start",
 			"boss/snake_boss", "The Swamp Guardian", "map04", "snake_boss_start",
 			"boss/gargoyle", "The Gargoyle", "map06", "gargoyle_start",
 			"boss/blob_boss_2", "The Blob", "map10", "blob_boss_start",

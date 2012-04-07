@@ -23,14 +23,16 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 static void cleanup(void);
 static SDL_Surface *loadImage(char *);
+static int isDuplicate(SDL_Surface *, int, int);
+static Uint32 getPixel(SDL_Surface *, int, int);
 
 static SDL_Surface *temp, *newSurface, *image, *screen;
 
 int main(int argc, char *argv[])
 {
-	int x, y, i, OK;
+	int x, y, i, OK, startIndex;
 	char name[20];
-	SDL_Rect src;
+	SDL_Rect src, dest;
 	unsigned char r, g, b;
 	int *pixels, xx, yy, pixel;
 	int color;
@@ -58,6 +60,8 @@ int main(int argc, char *argv[])
 	image = loadImage(argv[1]);
 	
 	i = atoi(argv[2]);
+	
+	startIndex = i;
 
 	temp = SDL_CreateRGBSurface(SDL_HWSURFACE, TILE_SIZE, TILE_SIZE, image->format->BitsPerPixel, image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
 
@@ -75,8 +79,13 @@ int main(int argc, char *argv[])
 			src.y = y;
 			src.w = image->w - x >= TILE_SIZE ? TILE_SIZE : image->w - x;
 			src.h = image->h - y >= TILE_SIZE ? TILE_SIZE : image->h - y;
+			
+			dest.x = 0;
+			dest.y = 0;
+			dest.w = src.w;
+			dest.h = src.h;
 
-			SDL_BlitSurface(image, &src, newSurface, NULL);
+			SDL_BlitSurface(image, &src, newSurface, &dest);
 
 			sprintf(name, "%d.png", i);
 
@@ -101,7 +110,7 @@ int main(int argc, char *argv[])
 				}
 			}
 
-			if (OK == 1)
+			if (OK == 1 && isDuplicate(newSurface, startIndex, i) == FALSE)
 			{
 				printf("Saving %s\n", name);
 
@@ -152,6 +161,88 @@ static SDL_Surface *loadImage(char *name)
 	/* Return the processed image */
 
 	return image;
+}
+
+static int isDuplicate(SDL_Surface *surface, int startIndex, int currentIndex)
+{
+	char name[10];
+	int i, x, y, duplicate;
+	SDL_Surface *temp;
+	
+	duplicate = FALSE;
+	
+	for (i=startIndex;i<currentIndex;i++)
+	{
+		sprintf(name, "%d.png", i);
+		
+		printf("Checking if %d.png is a duplicate of %d.png\n", currentIndex, startIndex);
+		
+		temp = loadImage(name);
+		
+		duplicate = TRUE;
+		
+		for (y=0;y<temp->h;y++)
+		{
+			for (x=0;x<temp->w;x++)
+			{
+				if (getPixel(temp, x, y) != getPixel(surface, x, y))
+				{
+					duplicate = FALSE;
+				}
+			}
+		}
+		
+		SDL_FreeSurface(temp);
+		
+		if (duplicate == TRUE)
+		{
+			break;
+		}
+	}
+	
+	if (duplicate == TRUE)
+	{
+		printf("Image is a duplicate\n");
+	}
+	
+	return duplicate;
+}
+
+static Uint32 getPixel(SDL_Surface *surface, int x, int y)
+{
+	int bpp = surface->format->BytesPerPixel;
+
+	Uint8 *p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
+
+	switch (bpp)
+	{
+		case 1:
+		case 8:
+			return *p;
+
+		case 2:
+		case 16:
+			return *(Uint16 *)p;
+
+		case 3:
+		case 24:
+			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+			{
+				return p[0] << 16 | p[1] << 8 | p[2];
+			}
+
+			else
+			{
+				return p[0] | p[1] << 8 | p[2] << 16;
+			}
+
+		case 4:
+		case 32:
+			return *(Uint32 *)p;
+
+		default:
+			return 0;
+	}
 }
 
 static void cleanup()

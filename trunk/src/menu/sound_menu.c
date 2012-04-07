@@ -314,7 +314,7 @@ static void lowerMusicVolume()
 
 	changeVolume(&game.musicDefaultVolume, w, -1);
 
-	pauseMusic(FALSE);
+	updateMusicVolume();
 }
 
 static void raiseMusicVolume()
@@ -323,7 +323,7 @@ static void raiseMusicVolume()
 
 	changeVolume(&game.musicDefaultVolume, w, 1);
 
-	pauseMusic(FALSE);
+	updateMusicVolume();
 }
 
 static void toggleQuality()
