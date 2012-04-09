@@ -125,13 +125,13 @@ static void activate(int val)
 
 		self->active = TRUE;
 
-		remaining = countSiblings(self, &total);
+		remaining = self->mental == -1 ? 0 : countSiblings(self, &total);
 
 		if (remaining == 0)
 		{
 			activateEntitiesWithRequiredName(self->objectiveName, TRUE);
 
-			if (total > 0)
+			if (total > 0 && self->mental != -1)
 			{
 				setInfoBoxMessage(30, 255, 255, 255, _("Complete"), remaining);
 			}

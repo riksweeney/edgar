@@ -139,12 +139,12 @@ static void loadMenuLayout()
 		{
 			if (medal[i].obtained == TRUE)
 			{
-				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 0, 200, 0);
+				menu.widgets[i] = createWidget(_(medal[i].description), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 0, 200, 0);
 			}
 
 			else
 			{
-				menu.widgets[i] = createWidget(medal[i].description, NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
+				menu.widgets[i] = createWidget(_(medal[i].description), NULL, NULL, NULL, NULL, 10, 20 + i * 40, FALSE, 255, 255, 255);
 			}
 		}
 

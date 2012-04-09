@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	#endif
 	
-	setLanguage("edgar");
+	setLanguage("edgar", NULL);
 
 	/* Start up SDL */
 

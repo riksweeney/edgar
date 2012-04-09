@@ -1,11 +1,10 @@
 HUD ON
 SET EDGAR PROPERTY X 1476
 SET EDGAR PROPERTY Y 362
+SET EDGAR FACE RIGHT
 CAMERA_SNAP EDGAR
 WAIT 120
-SET Edgar FACE LEFT
 TALK Edgar The sorceror must have taken Dad to his castle. I'll have to rescue him from there.
-SET Edgar FACE RIGHT
 TALK Edgar The only way to get to the castle is through the Forbidden Swamp to the East.
 TALK Edgar There's a lake between the Village and the Swamp so I'll need a raft to get across.
 TALK Edgar I'll also need a sword and shield to defend myself. I can speak to Borgan and Jacob to get these though.

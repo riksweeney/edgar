@@ -50,7 +50,8 @@ extern Entity *self, player;
 
 static void initialise(void);
 static void appear(void);
-static void moveToAzriel(void);
+static void createLightBeam(void);
+static void introRaise(void);
 static void doIntro(void);
 static void attackFinished(void);
 static void entityWait(void);
@@ -183,86 +184,95 @@ static void initialise()
 
 static void appear()
 {
-	EntityList *l, *list;
-	Target *t[6];
-	Entity *e;
-	int i, grave;
-
-	list = createPixelsFromSprite(getCurrentSprite(self));
-
-	i = 0;
-
-	t[0] = getTargetByName("GRAVE_1");
-	t[1] = getTargetByName("GRAVE_2");
-	t[2] = getTargetByName("GRAVE_3");
-	t[3] = getTargetByName("GRAVE_4");
-	t[4] = getTargetByName("GRAVE_5");
-	t[5] = getTargetByName("GRAVE_6");
-
-	for (l=list->next;l!=NULL;l=l->next)
+	Entity *e = getEntityByObjectiveName("AZRIEL_GRAVE");
+	
+	if (e == NULL)
 	{
-		grave = prand() % 6;
-
-		if (t[grave] == NULL)
-		{
-			showErrorAndExit("Azirel cannot find target");
-		}
-
-		e = l->entity;
-
-		e->targetX = e->x;
-		e->targetY = e->y;
-
-		e->x = t[grave]->x;
-		e->y = t[grave]->y;
-
-		calculatePath(e->x, e->y, e->targetX, e->targetY, &e->dirX, &e->dirY);
-
-		e->dirX *= 3;
-		e->dirY *= 3;
-
-		e->head = self;
-
-		e->thinkTime = prand() % 180;
-
-		e->action = &moveToAzriel;
-
-		i++;
+		showErrorAndExit("Azirel cannot find AZRIEL_GRAVE");
 	}
-
-	self->mental = i;
-
-	self->flags |= NO_DRAW;
-
-	freeEntityList(list);
+	
+	self->layer = BACKGROUND_LAYER;
+	
+	self->y = e->y + e->h;
 
 	self->active = FALSE;
 
-	self->action = &initialise;
+	self->action = &createLightBeam;
+	
+	self->flags &= ~NO_DRAW;
+	
+	e->mental = 1;
+	
+	self->thinkTime = 120;
 }
 
-static void moveToAzriel()
+static void createLightBeam()
 {
+	Entity *e;
+	
 	self->thinkTime--;
-
+	
 	if (self->thinkTime <= 0)
 	{
-		self->x += self->dirX;
-		self->y += self->dirY;
+		e = getFreeEntity();
 
-		if (atTarget())
+		loadProperties("boss/azriel_light_beam", e);
+
+		setEntityAnimation(e, "APPEAR");
+
+		e->animationCallback = &beamAppearFinish;
+
+		self->target = e;
+		
+		e->head = self;
+
+		e->x = self->x + self->w / 2 - e->w / 2;
+
+		e->y = getMapFloor(self->x + self->w / 2, self->y) - e->h;
+
+		e->startY = e->y;
+
+		e->action = &beamWait;
+		e->draw = &drawBeam;
+		e->touch = &entityTouch;
+
+		e->face = RIGHT;
+
+		e->type = ENEMY;
+
+		e->thinkTime = 3600;
+
+		e->mental = 0;
+
+		self->action = &introRaise;
+		
+		self->thinkTime = 120;
+		
+		self->mental = 1;
+		
+		playDefaultBossMusic();
+	}
+}
+
+static void introRaise()
+{
+	self->thinkTime--;
+	
+	if (self->thinkTime <= 0)
+	{
+		self->y--;
+		
+		if (self->y <= self->startY)
 		{
-			if (self->active == TRUE)
-			{
-				self->head->mental--;
-
-				self->active = FALSE;
-			}
-
-			if (self->head->active == TRUE)
-			{
-				self->inUse = FALSE;
-			}
+			self->target->action = &beamFinish;
+			
+			self->y = self->startY;
+			
+			self->action = &initialise;
+			
+			self->active = FALSE;
+			
+			self->mental = 0;
 		}
 	}
 }

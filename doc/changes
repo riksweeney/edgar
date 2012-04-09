@@ -5,6 +5,10 @@ Version 1.00
 * Added a basic introduction to set up the story
 * The Queen Wasp's defeated status is now displayed correctly in the credits
 * Fixed a potential crash after defeating Chaos
+* The medals in the menu are now translated correctly
+* Changed Azriel's intro
+* Made a minor change to the Dungeon map
+* Automatic language selection can be overridden on the commandline. Type edgar -help for details
 
 Version 0.99
 * The game is now 100% completable (barring any bugs)
