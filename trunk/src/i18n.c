@@ -25,7 +25,7 @@ static int hashCode(char *);
 static void put(char *, char *);
 static void initTable(void);
 
-void setLanguage(char *applicationName)
+void setLanguage(char *applicationName, char *languageCode)
 {
 	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
 	char *lang, **key, **value;
@@ -38,28 +38,36 @@ void setLanguage(char *applicationName)
 
 	language[0] = '\0';
 
-	#ifdef _WIN32
-		GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_LINE_LENGTH);
-
-		if (c[0] != '\0')
-		{
-			STRNCPY(language, c, MAX_LINE_LENGTH);
-
-			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_LINE_LENGTH);
+	if (languageCode == NULL)
+	{
+		#ifdef _WIN32
+			GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME, c, MAX_LINE_LENGTH);
 
 			if (c[0] != '\0')
 			{
-				strncat(language, "_", MAX_MESSAGE_LENGTH - strlen(language) - 1);
+				STRNCPY(language, c, MAX_LINE_LENGTH);
 
-				strncat(language, c, MAX_MESSAGE_LENGTH - strlen(language) - 1);
+				GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, c, MAX_LINE_LENGTH);
+
+				if (c[0] != '\0')
+				{
+					strncat(language, "_", MAX_MESSAGE_LENGTH - strlen(language) - 1);
+
+					strncat(language, c, MAX_MESSAGE_LENGTH - strlen(language) - 1);
+				}
 			}
-		}
-	#else
-		if ((lang = getenv("LC_ALL")) || (lang = getenv("LC_CTYPE")) || (lang = getenv("LANG")))
-		{
-			STRNCPY(language, lang, MAX_LINE_LENGTH);
-		}
-	#endif
+		#else
+			if ((lang = getenv("LC_ALL")) || (lang = getenv("LC_CTYPE")) || (lang = getenv("LANG")))
+			{
+				STRNCPY(language, lang, MAX_LINE_LENGTH);
+			}
+		#endif
+	}
+	
+	else
+	{
+		STRNCPY(language, languageCode, MAX_LINE_LENGTH);
+	}
 
 	if (strstr(language, ".") != NULL)
 	{

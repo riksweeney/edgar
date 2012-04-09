@@ -53,15 +53,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int frameLimit;
 	int go, i, mapID, loadSlot, recordingID, replayingID;
-	int joystick, showCredits;
-
-	setLanguage("edgar");
-	printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
-	printf("atof(2.75) is %f\n", atof("2.75"));
-
-	/* Call the cleanup function when the program exits */
-
-	atexit(cleanup);
+	int joystick, showCredits, languageID;
 
 	go = TRUE;
 
@@ -69,7 +61,7 @@ int main(int argc, char *argv[])
 
 	game.fps = 1000 / 60;
 
-	mapID = recordingID = replayingID = -1;
+	languageID = mapID = recordingID = replayingID = -1;
 
 	joystick = 0;
 
@@ -122,16 +114,24 @@ int main(int argc, char *argv[])
 		{
 			showCredits = TRUE;
 		}
+		
+		else if (strcmpignorecase("-language", argv[i]) == 0)
+		{
+			languageID = i + 1;
+			
+			i++;
+		}
 
 		else if (strstr(argv[i], "-h") != NULL || strstr(argv[i], "-help") != NULL)
 		{
 			printf("The Legend of Edgar options\n\n");
-			printf("-record <filename>: Captures keyboard input\n");
-			printf("-playback <filename>: Replays keyboard input\n");
-			printf("-load <save_slot>: Loads the game in slot <save_slot>. Slots start at 0\n");
-			printf("-nojoystick: Disables the joystick\n");
-			printf("-joystick <joystick_slot>: Use joystick <joystick_slot>. Slots start at 0\n");
-			printf("-showcredits: Shows the end credits\n");
+			printf("\t-record <filename>: Captures keyboard input\n");
+			printf("\t-playback <filename>: Replays keyboard input\n");
+			printf("\t-load <save_slot>: Loads the game in slot <save_slot>. Slots start at 0\n");
+			printf("\t-nojoystick: Disables the joystick\n");
+			printf("\t-joystick <joystick_slot>: Use joystick <joystick_slot>. Slots start at 0\n");
+			printf("\t-showcredits: Shows the end credits\n");
+			printf("\t-language <language_code>: Use language <language_code>. e.g. en_US, es, pl\n\n");
 
 			exit(0);
 		}
@@ -155,6 +155,14 @@ int main(int argc, char *argv[])
 			}
 		#endif
 	}
+	
+	setLanguage("edgar", languageID == -1 ? NULL : argv[languageID]);
+	printf("Numeric is %s\n", setlocale(LC_NUMERIC, "C"));
+	printf("atof(2.75) is %f\n", atof("2.75"));
+	
+	/* Call the cleanup function when the program exits */
+
+	atexit(cleanup);
 
 	/* Start up SDL */
 
