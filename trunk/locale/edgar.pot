@@ -6417,9 +6417,7 @@ msgid "Edgar, I have to go out for a few hours"
 msgstr ""
 
 #: data/scripts/intro_part1.dat:12
-msgid ""
-"It's your bed time in half an hour, so I don't want to catch you still up "
-"when I get back"
+msgid "You can stay up for another 30 minutes, but then you're to pack up your toys and go to bed"
 msgstr ""
 
 #: data/scripts/intro_part2.dat:10
