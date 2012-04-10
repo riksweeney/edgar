@@ -138,10 +138,8 @@ void newGame()
 	initGame();
 
 	loadMap("map04", TRUE);
-	
-	fireMapTrigger("map04");
 
-	cameraSnapToTargetEntity();
+	runScript("intro_part_1");
 }
 
 void tutorial()
