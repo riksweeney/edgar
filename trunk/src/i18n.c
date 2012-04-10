@@ -127,7 +127,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	if (original == NULL || translation == NULL)
 	{
-		printf("Failed to allocate %d bytes for translation strings\n", sizeof(MOEntry) * header.stringCount);
+		printf("Failed to allocate %d bytes for translation strings\n", (int)sizeof(MOEntry) * header.stringCount);
 
 		exit(1);
 	}
@@ -144,7 +144,7 @@ void setLanguage(char *applicationName, char *languageCode)
 
 	if (key == NULL || value == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for translation strings\n", sizeof(char *) * header.stringCount);
+		printf("Failed to allocate a whole %d bytes for translation strings\n", (int)sizeof(char *) * header.stringCount);
 
 		exit(1);
 	}
@@ -260,7 +260,7 @@ static void initTable()
 
 	if (table.bucket == NULL || table.bucketCount == NULL)
 	{
-		printf("Failed to allocate %d bytes for a HashTable\n", sizeof(Bucket *) * TABLE_SIZE);
+		printf("Failed to allocate %d bytes for a HashTable\n", (int)sizeof(Bucket *) * TABLE_SIZE);
 
 		exit(1);
 	}
@@ -295,7 +295,7 @@ static void put(char *key, char *value)
 
 	if (newBucket == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for a HashTable bucket\n", sizeof(Bucket));
+		printf("Failed to allocate a whole %d bytes for a HashTable bucket\n", (int)sizeof(Bucket));
 
 		exit(1);
 	}
@@ -305,7 +305,7 @@ static void put(char *key, char *value)
 
 	if (newBucket->key == NULL || newBucket->value == NULL)
 	{
-		printf("Failed to allocate a whole %d bytes for a translation\n", strlen(newBucket->key) + 1);
+		printf("Failed to allocate a whole %d bytes for a translation\n", (int)strlen(newBucket->key) + 1);
 
 		exit(1);
 	}
