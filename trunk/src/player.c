@@ -411,11 +411,21 @@ void doPlayer()
 
 							/* Only pull the target */
 
-							if ((self->flags & GRABBING) && self->target != NULL && self->target->x > self->x)
+							if ((self->flags & GRABBING) && self->target != NULL)
 							{
-								self->target->dirX = self->dirX;
+								if (self->target->x > self->x)
+								{
+									self->target->dirX = self->dirX;
 
-								self->target->frameSpeed = -1;
+									self->target->frameSpeed = -1;
+								}
+
+								else
+								{
+									self->target->dirX = 0;
+
+									self->target->frameSpeed = 0;
+								}
 							}
 
 							else
@@ -476,11 +486,21 @@ void doPlayer()
 
 							/* Only pull the target */
 
-							if ((self->flags & GRABBING) && self->target != NULL && self->target->x < self->x)
+							if ((self->flags & GRABBING) && self->target != NULL)
 							{
-								self->target->dirX = self->dirX;
+								if (self->target->x < self->x)
+								{
+									self->target->dirX = self->dirX;
 
-								self->target->frameSpeed = 1;
+									self->target->frameSpeed = 1;
+								}
+
+								else
+								{
+									self->target->dirX = 0;
+
+									self->target->frameSpeed = 0;
+								}
 							}
 
 							else
@@ -3068,13 +3088,13 @@ static void applyAsh()
 
 	self->x = player.x;
 	self->y = player.y;
-	
+
 	if (player.mental == 0 && self->mental == 0)
 	{
 		self->mental = 1;
-		
+
 		setEntityAnimation(self, "BECOME_ASH");
-		
+
 		self->animationCallback = &becomeAsh;
 	}
 
