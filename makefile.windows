@@ -9,7 +9,7 @@ PROG      = edgar.exe
 ED_PROG   = mapeditor.exe
 PAK_PROG  = pak.exe
 
-CXX       = i586-mingw32msvc-gcc
+CC        = i586-mingw32msvc-gcc
 SDLC      = /opt/Windows/bin/sdl-config
 
 LOCALE_DIR = locale/
@@ -70,26 +70,26 @@ CORE_OBJS += strtok_r.o
 all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO)
 
 makefile.dep : src/*/*.h src/*.h
-	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
+	for i in src/*.c src/*/*.c; do $(CC) $(CFLAGS) -MM "$${i}"; done > $@
 
 # compiling other source files.
 %.o:
-	$(CXX) $(CFLAGS) -c -s $<
+	$(CC) $(CFLAGS) -c -s $<
 	
 %.mo: %.po
 	wine /opt/Windows/bin/msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
+	$(CC) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
+	$(CC) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CXX) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
+	$(CC) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:

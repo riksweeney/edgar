@@ -19,7 +19,7 @@ PO_PROG   = po_creator
 TILE_PROG = tile_creator
 endif
 
-CXX       = gcc
+CC       = gcc
 
 PREFIX = $(DESTDIR)/usr
 BIN_DIR = $(PREFIX)/games/
@@ -98,34 +98,34 @@ endif
 all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO) $(PO_PROG)
 
 makefile.dep : src/*/*.h src/*.h
-	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
+	for i in src/*.c src/*/*.c; do $(CC) -MM "$${i}"; done > $@
 
 # compiling other source files.
 %.o:
-	$(CXX) $(CFLAGS) -c -s $<
+	$(CC) $(CFLAGS) -c -s $<
 	
 %.mo: %.po
 	msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
+	$(CC) $(MAIN_OBJS) $(CORE_OBJS) -o $(PROG) $(LFLAGS)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
+	$(CC) $(EDIT_OBJS) $(CORE_OBJS) -o $(ED_PROG) $(LFLAGS)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CXX) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
+	$(CC) $(PAK_OBJS) -o $(PAK_PROG) $(LFLAGS)
 	
 # linking the program.
 $(PO_PROG): $(PO_OBJS)
-	$(CXX) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
+	$(CC) $(PO_OBJS) -o $(PO_PROG) $(LFLAGS)
 
 # linking the program.
 $(TILE_PROG): $(TILE_OBJS)
-	$(CXX) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS) -lpng
+	$(CC) $(TILE_OBJS) -o $(TILE_PROG) $(LFLAGS) -lpng
 
 # cleaning everything that can be automatically recreated with "make".
 clean:

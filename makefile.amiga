@@ -5,21 +5,13 @@ PAK_FILE = edgar.pak
 DOCS = doc/*
 ICONS = icons/
 
-ifeq ($(OS),Windows_NT)
-PROG      = edgar.exe
-ED_PROG   = mapeditor.exe
-PAK_PROG  = pak.exe
-PO_PROG   = po_creator.exe
-TILE_PROG = tile_creator.exe
-else
 PROG      = edgar
 ED_PROG   = mapeditor
 PAK_PROG  = pak
 PO_PROG   = po_creator
 TILE_PROG = tile_creator
-endif
 
-CXX       = gcc
+CC       = gcc
 
 PREFIX = $(DESTDIR)/usr
 BIN_DIR = $(PREFIX)/games/
@@ -35,18 +27,9 @@ else
 DATA_DIR = data/
 endif
 
-ifeq ($(DEV),1)
-CFLAGS = -Wall -g -pedantic -Werror -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
-#CFLAGS = -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
-else
 CFLAGS = -mcrt=newlib -Wall -O2 -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\"
-endif
 
-ifeq ($(OS),Windows_NT)
-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
-else
 LFLAGS = -lSDL_gfx -lSDL_image -ltiff -lpng -ljpeg -lz -lSDL_mixer -lsmpeg -lm -lvorbisfile -lvorbis -logg -lstdc++ -lSDL_ttf -lfreetype -lz -lsdlmain -lsdl -lauto -lpthread -lm -lunix
-endif
 
 TILE_OBJS  = tile_creator.o save_png.o
 PAK_OBJS   = pak_creator.o
@@ -101,26 +84,26 @@ endif
 all : $(PROG) makefile.dep $(ED_PROG) $(PAK_PROG) $(LOCALE_MO) $(PO_PROG)
 
 makefile.dep : src/*/*.h src/*.h
-	for i in src/*.c src/*/*.c; do gcc -MM "$${i}"; done > $@
+	for i in src/*.c src/*/*.c; do $(CC) -MM "$${i}"; done > $@
 
 # compiling other source files.
 %.o:
-	$(CXX) $(CFLAGS) -c -s $<
+	$(CC) $(CFLAGS) -c -s $<
 	
 %.mo: %.po
 	msgfmt -c -o $@ $<
 
 # linking the program.
 $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
-	$(CXX) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
+	$(CC) $(MAIN_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(PROG)
 	
 # linking the program.
 $(ED_PROG): $(EDIT_OBJS) $(CORE_OBJS)
-	$(CXX) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
+	$(CC) $(EDIT_OBJS) $(CORE_OBJS) $(LFLAGS) -o $(ED_PROG)
 
 # linking the program.
 $(PAK_PROG): $(PAK_OBJS)
-	$(CXX) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
+	$(CC) $(PAK_OBJS) $(LFLAGS) -o $(PAK_PROG)
 
 # cleaning everything that can be automatically recreated with "make".
 clean:
