@@ -1436,7 +1436,7 @@ void addEntityFromScript(char *line)
 void entityWalkTo(Entity *e, char *coords)
 {
 	int x, y, read;
-	char wait[10], anim[10];
+	char wait[10], anim[20];
 
 	read = sscanf(coords, "%d %d %s %s", &x, &y, wait, anim);
 
@@ -1481,7 +1481,7 @@ void entityWalkTo(Entity *e, char *coords)
 void entityWalkToEntity(Entity *e, char *coords)
 {
 	int read;
-	char wait[10], anim[10], entityName[MAX_VALUE_LENGTH];
+	char wait[10], anim[20], entityName[MAX_VALUE_LENGTH];
 	Entity *e2;
 
 	read = sscanf(coords, "%s %s %s", entityName, wait, anim);
@@ -1534,7 +1534,7 @@ void entityWalkToEntity(Entity *e, char *coords)
 void entityWalkToRelative(Entity *e, char *coords)
 {
 	int x, y, read;
-	char wait[10], anim[10];
+	char wait[10], anim[20];
 
 	read = sscanf(coords, "%d %d %s %s", &x, &y, wait, anim);
 

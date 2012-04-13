@@ -23,6 +23,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 #include "../event/global_trigger.h"
 #include "../event/map_trigger.h"
 #include "../event/objective.h"
+#include "../event/script.h"
 #include "../event/trigger.h"
 #include "../game.h"
 #include "../graphics/font.h"
@@ -139,7 +140,7 @@ void newGame()
 
 	loadMap("map04", TRUE);
 
-	runScript("intro_part_1");
+	runScript("intro_part1");
 }
 
 void tutorial()

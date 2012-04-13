@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-20 16:38+0000\n"
+"PO-Revision-Date: 2012-04-06 11:57+0000\n"
 "Last-Translator: Marvn <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
-"X-Generator: Launchpad (build 15055)\n"
+"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -214,7 +214,7 @@ msgid ""
 "What you could do though is combine the ring and your shield together to "
 "create a shield that will protect you from the spell"
 msgstr ""
-"Co můžeš udělat je zkombinovat prsten a tvůj štít pro vytvoření stítu, který "
+"Co můžeš udělat je zkombinovat prsten a tvůj štít pro vytvoření štítu, který "
 "tě před tím kouzlem ochrání"
 
 #: data/scripts/olaf.dat:97
@@ -3871,19 +3871,19 @@ msgstr ""
 "Hmmm, ve vzduchu je cítit náboj, připomíná mi to dům Maggie, když v něm "
 "vyráběla kouzla. Měl bych být opatrný."
 
-#: data/scripts/grasslands_intro.dat:3
+#: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr ""
 "Černokněžník musel unést mého tátu na svůj hrad. Tam ho musím jít zachránit"
 
-#: data/scripts/grasslands_intro.dat:5
+#: data/scripts/grasslands_intro.dat:8
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr "Jediná cesta k hradu vede skrz zakázaný močál na východě"
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
@@ -3891,7 +3891,7 @@ msgstr ""
 "Jezero odděluje močál od vesnice, takže budu pořebovat vor, pokud se mám "
 "přez něj dostat."
 
-#: data/scripts/grasslands_intro.dat:7
+#: data/scripts/grasslands_intro.dat:10
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
@@ -3899,15 +3899,15 @@ msgstr ""
 "Taky budu pořebovat štít a meč pro sebeobranu. O tom si můžu promluvit s "
 "Borganem a Jákobem."
 
-#: data/scripts/grasslands_intro.dat:8
+#: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
 msgstr "Promluv si s Borganem"
 
-#: data/scripts/grasslands_intro.dat:10
+#: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
 msgstr "Promluv si s Jákobem"
 
-#: data/scripts/grasslands_intro.dat:12
+#: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
 msgstr "Překonej jezero před Močálem"
 
@@ -5537,7 +5537,7 @@ msgstr "Oční smoothie"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Tekutina vyrobená z očí a chapadel"
 
-#: src/system/load_save.c:1684
+#: src/system/load_save.c:1686
 msgid "Patching your save game. Please wait..."
 msgstr "Patchuji uloženou pozici. Prosím čekejte..."
 
@@ -5928,7 +5928,7 @@ msgstr "Magický úlomek krunýře zuřící želvy královské"
 
 #: data/props/weapon/disintegration_shield_1.props:5
 msgid "A shield that can resist disintegration"
-msgstr "Stít, který dokaže odolat disintegraci"
+msgstr "Štít, který dokaže odolat disintegraci"
 
 #: src/enemy/magic_missile.c:292
 msgid "Try using one of the artifacts to protect yourself..."
@@ -6342,7 +6342,7 @@ msgstr "Vyber slot pro nahrání"
 msgid "Press Action to go to %s"
 msgstr "Stiskni Akce pro přesun do %s"
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
 msgstr "Vesnice"
 
@@ -6454,7 +6454,7 @@ msgstr "Les"
 msgid "Forbidden Swamp"
 msgstr "Zakázaný močál"
 
-#: data/scripts/swamp_intro.dat:22
+#: data/scripts/intro_part1.dat:16
 msgid "Cave"
 msgstr "Jeskyně"
 
@@ -6663,27 +6663,27 @@ msgstr ""
 "Ty jsi vlezl do toho stroje jen tak?! Jsi ještě hloupejší, než jsem si "
 "myslel!"
 
-#: src/boss/chaos.c:814
+#: src/boss/chaos.c:816
 msgid "Stalagmite"
 msgstr "Stalagmit"
 
-#: src/boss/chaos.c:1304
+#: src/boss/chaos.c:1306
 msgid "Burn to ashes!"
 msgstr "Shoř na popel!"
 
-#: src/boss/chaos.c:1308
+#: src/boss/chaos.c:1310
 msgid "Feel my power!"
 msgstr "Pociť mou sílu!"
 
-#: src/boss/chaos.c:1316
+#: src/boss/chaos.c:1318
 msgid "Suffer!"
 msgstr "Trp!"
 
-#: src/boss/chaos.c:1472
+#: src/boss/chaos.c:1474
 msgid "Pathetic"
 msgstr "Ubohý"
 
-#: src/boss/chaos.c:1490
+#: src/boss/chaos.c:1492
 msgid "Impale"
 msgstr "Narazit"
 
@@ -6691,11 +6691,11 @@ msgstr "Narazit"
 msgid "Confuse"
 msgstr "Zmatení"
 
-#: src/boss/chaos.c:1687
+#: src/boss/chaos.c:1689
 msgid "Darkness"
 msgstr "Temnota"
 
-#: src/boss/chaos.c:1766
+#: src/boss/chaos.c:1768
 msgid "Hold Person"
 msgstr "Drž osobu"
 
@@ -6729,15 +6729,15 @@ msgstr "Aby opět terorizoval svět"
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:460
+#: src/boss/chaos.c:462
 msgid "Tendrils"
 msgstr ""
 
-#: src/boss/chaos.c:1046
+#: src/boss/chaos.c:1048
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1312
+#: src/boss/chaos.c:1314
 msgid "I will destroy you!"
 msgstr ""
 
@@ -6793,4 +6793,42 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:10
+msgid "What a horrible night"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:11
+msgid "Edgar, I have to go out for a few hours"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:10
+msgid "The following morning..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:11
+msgid "Dad! Where are you?"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:17
+msgid "It doesn't look like Dad came home last night"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:19
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:20
+msgid "That can only mean one thing..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:22
+msgid "He must have been kidnapped by that evil sorceror!"
 msgstr ""

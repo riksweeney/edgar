@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
-"X-Generator: Launchpad (build 15055)\n"
+"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -3975,7 +3975,7 @@ msgstr ""
 "Hmmm, el aire está cargado, me recuerda a la casa de Maggie cuando estaba "
 "haciendo experimentos. Debería tener cuidado."
 
-#: data/scripts/grasslands_intro.dat:3
+#: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
@@ -3983,14 +3983,14 @@ msgstr ""
 "El hechicero debe haber llevado a papá a su castillo. Tendré que sacarle de "
 "allí."
 
-#: data/scripts/grasslands_intro.dat:5
+#: data/scripts/grasslands_intro.dat:8
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr ""
 "El único modo de llegar al castillo es a través del Pantano Prohibido que se "
 "encuentra al este."
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
@@ -3998,7 +3998,7 @@ msgstr ""
 "Hay también un lago entre el Pueblo y el Pantano así que necesitaré una "
 "balsa para cruzarlo."
 
-#: data/scripts/grasslands_intro.dat:7
+#: data/scripts/grasslands_intro.dat:10
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
@@ -4006,15 +4006,15 @@ msgstr ""
 "También necesitaré una espada y un escudo para defenderme. Sin embargo, "
 "puedo hablar con Borgan y Jacob para conseguirlos."
 
-#: data/scripts/grasslands_intro.dat:8
+#: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
 msgstr "Habla con Borgan"
 
-#: data/scripts/grasslands_intro.dat:10
+#: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
 msgstr "Habla con Jacob"
 
-#: data/scripts/grasslands_intro.dat:12
+#: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
 msgstr "Cruza el lago al Pantano"
 
@@ -5666,7 +5666,7 @@ msgstr "Globo ocular licuado"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Un líquido hecho de globos oculares y tentáculos"
 
-#: src/system/load_save.c:1684
+#: src/system/load_save.c:1686
 msgid "Patching your save game. Please wait..."
 msgstr "Parcheando tu partida guardada. Por favor espera..."
 
@@ -6472,7 +6472,7 @@ msgstr ""
 msgid "Press Action to go to %s"
 msgstr "Pulsa Acción para ir al %s"
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
 msgstr ""
 
@@ -6584,7 +6584,7 @@ msgstr "Bosque"
 msgid "Forbidden Swamp"
 msgstr "Pantano Prohibido"
 
-#: data/scripts/swamp_intro.dat:22
+#: data/scripts/intro_part1.dat:16
 msgid "Cave"
 msgstr "Cueva"
 
@@ -6792,27 +6792,27 @@ msgstr ""
 "¡¿Has entrado en la máquina tú mismo?!, ¡eres todavía más estúpido de lo que "
 "yo creía!"
 
-#: src/boss/chaos.c:814
+#: src/boss/chaos.c:816
 msgid "Stalagmite"
 msgstr ""
 
-#: src/boss/chaos.c:1304
+#: src/boss/chaos.c:1306
 msgid "Burn to ashes!"
 msgstr ""
 
-#: src/boss/chaos.c:1308
+#: src/boss/chaos.c:1310
 msgid "Feel my power!"
 msgstr ""
 
-#: src/boss/chaos.c:1316
+#: src/boss/chaos.c:1318
 msgid "Suffer!"
 msgstr ""
 
-#: src/boss/chaos.c:1472
+#: src/boss/chaos.c:1474
 msgid "Pathetic"
 msgstr ""
 
-#: src/boss/chaos.c:1490
+#: src/boss/chaos.c:1492
 msgid "Impale"
 msgstr ""
 
@@ -6820,11 +6820,11 @@ msgstr ""
 msgid "Confuse"
 msgstr ""
 
-#: src/boss/chaos.c:1687
+#: src/boss/chaos.c:1689
 msgid "Darkness"
 msgstr ""
 
-#: src/boss/chaos.c:1766
+#: src/boss/chaos.c:1768
 msgid "Hold Person"
 msgstr ""
 
@@ -6857,15 +6857,15 @@ msgstr ""
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:460
+#: src/boss/chaos.c:462
 msgid "Tendrils"
 msgstr ""
 
-#: src/boss/chaos.c:1046
+#: src/boss/chaos.c:1048
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1312
+#: src/boss/chaos.c:1314
 msgid "I will destroy you!"
 msgstr ""
 
@@ -6921,4 +6921,42 @@ msgstr ""
 
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:10
+msgid "What a horrible night"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:11
+msgid "Edgar, I have to go out for a few hours"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:12
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:10
+msgid "The following morning..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:11
+msgid "Dad! Where are you?"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:17
+msgid "It doesn't look like Dad came home last night"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:19
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:20
+msgid "That can only mean one thing..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:22
+msgid "He must have been kidnapped by that evil sorceror!"
 msgstr ""

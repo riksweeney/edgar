@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-04 11:11+0000\n"
+"PO-Revision-Date: 2012-04-11 11:02+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
-"X-Generator: Launchpad (build 15055)\n"
+"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -635,8 +635,7 @@ msgstr "Этот щит не лучше моего нынешнего."
 msgid ""
 "I just need to create the liquid from the Sludge tentacle and Gazer eyeballs"
 msgstr ""
-"Теперь мне нужно просто сделать смесь из щупальца Слизня и глазных яблок "
-"Наблюдателя"
+"Теперь мне нужно просто сделать смесь из щупальца Грязи и глаз Наблюдателя"
 
 #: data/scripts/old_shield.dat:32
 msgid "That's not a good sign..."
@@ -782,7 +781,7 @@ msgstr ""
 msgid ""
 "There's no way I'll be able to figure out the combination, I'll have to find "
 "out what it is"
-msgstr ""
+msgstr "Я не могу вычислить комбинацию, мне её придётся найти"
 
 #: data/scripts/borgan.dat:4
 msgid "Keep practising!"
@@ -1360,11 +1359,11 @@ msgstr ""
 
 #: data/scripts/monsters.dat:51
 msgid "Hoover, Pink"
-msgstr ""
+msgstr "Гувер, Розовый"
 
 #: data/scripts/monsters.dat:52
 msgid "Pink Hoovers are small quadrupeds with a long snout"
-msgstr ""
+msgstr "Розовые Гуверы - небольшие четвероногие с длинной мордой"
 
 #: data/scripts/monsters.dat:53
 msgid ""
@@ -1619,7 +1618,7 @@ msgstr "Слизь, Зелёная... Слизь, Фиолетовая... Гря
 
 #: data/scripts/monsters.dat:132
 msgid "Sludge, Red"
-msgstr "Слизень, Красный"
+msgstr "Грязь, Красная"
 
 #: data/scripts/monsters.dat:133
 msgid ""
@@ -1715,7 +1714,7 @@ msgid ""
 "I need to find 3 Gazer Eyes, 1 Red Sludge Tentacle and an extra shield to "
 "create a Shield of Fire Resistance"
 msgstr ""
-"Мне нужно найти 3 глаза Наблюдателя, 1 щупалец  Красного слизня и "
+"Мне нужно найти 3 глаза Наблюдателя, 1 щупальце  Красной Грязи и "
 "дополнительный щит, чтобы создать Огнеупорный щит"
 
 #: data/scripts/enchanting_weapons.dat:10
@@ -1783,7 +1782,7 @@ msgstr "Но я посмотрел везде, не так ли?"
 
 #: data/scripts/enchanting_weapons.dat:33
 msgid "There's a book here about enchanting equipment"
-msgstr "Там книга о волшебных вещах"
+msgstr "Вот книга о волшебных вещах"
 
 #: data/scripts/enchanting_weapons.dat:34
 msgid "Maybe I can create a shield..."
@@ -1807,7 +1806,7 @@ msgstr "Огнеупорный Щит"
 
 #: data/scripts/enchanting_weapons.dat:41
 msgid "Ingredients"
-msgstr "Ингридиенты"
+msgstr "Составляющие"
 
 #: data/scripts/enchanting_weapons.dat:42
 msgid "One must gather the following"
@@ -1831,7 +1830,7 @@ msgstr "3 глаза Наблюдателей"
 
 #: data/scripts/enchanting_weapons.dat:47
 msgid "The freshly cut tentacle from a female Red Sludge"
-msgstr "Свежесрезанный щупалец Красного слизня женского пола"
+msgstr "Свежесрезанное щупальце Красной Грязи женского пола"
 
 #: data/scripts/enchanting_weapons.dat:48
 msgid "The shield to apply the enchantment"
@@ -1839,7 +1838,7 @@ msgstr "Щит, который нужно улучшить"
 
 #: data/scripts/enchanting_weapons.dat:49
 msgid "Blend the Gazer eyes and Sludge tentacle into a smooth liquid"
-msgstr "Смешайте глаза Наблюдателя и щупалец Слизня в однородную жидкость"
+msgstr "Смешайте глаза Наблюдателя и щупальце Грязи в однородную жидкость"
 
 #: data/scripts/enchanting_weapons.dat:50
 msgid ""
@@ -1847,7 +1846,7 @@ msgid ""
 "blended Gazer eyes and Sludge tentacle"
 msgstr ""
 "Добавьте корень, жир и кости в котел и смешайте вместе со смесью из глаз "
-"Наблюдателя и щупальца Слизня"
+"Наблюдателя и щупальца Грязи"
 
 #: data/scripts/enchanting_weapons.dat:51
 msgid "When the mixture turns bright blue, add the shield"
@@ -1871,7 +1870,7 @@ msgstr ""
 
 #: data/scripts/enchanting_weapons.dat:59
 msgid "And the Gazers hang around in the basement so that's not a problem"
-msgstr "Наблюдатели обитают в подвале, так что это не проблема"
+msgstr "Наблюдатели обитают в подвале, так что и это не проблема"
 
 #: data/scripts/enchanting_weapons.dat:60
 msgid ""
@@ -2064,7 +2063,7 @@ msgstr "Я припоминаю, как  с долей иронии расска
 
 #: data/scripts/purifier.dat:14
 msgid "I'll have to find something to help me get across..."
-msgstr "Я должен найти что-то, что помогло бы мне донести..."
+msgstr "Я должен найти что-то, что помогло бы мне перебраться..."
 
 #: data/scripts/purple_gem.dat:1
 msgid ""
@@ -2081,7 +2080,7 @@ msgstr ""
 #: data/scripts/blender.dat:11
 msgid "I need a Red Sludge Tentacle and 3 Gazer Eyeballs to make the potion"
 msgstr ""
-"Мне нужен щупалец Красного Слизня и 3 Глаза Наблюдателя, чтобы сделать зелье"
+"Мне нужно щупальце Красной Грязи и 3 Глаза Наблюдателя, чтобы сделать зелье"
 
 #: data/scripts/blender.dat:18
 msgid "I still need an Empty Bottle to put the potion in"
@@ -2747,7 +2746,7 @@ msgstr "Лучше бы это был последний раз, когда мн
 
 #: data/scripts/coal_mining.dat:1
 msgid "This must be the coal Borgan wants me to mine for him"
-msgstr "Это должно быть уголь, который Борган просил принести ему из шахт"
+msgstr "Это должно быть уголь, который Борган просил принести ему из шахты"
 
 #: data/scripts/chaos_finish.dat:16
 msgid "What the?!"
@@ -3892,27 +3891,27 @@ msgstr ""
 "Хмммм, воздух кажется заряженным, это напоминает мне дом Мэгги, когда она "
 "делала заклинания. Мне следует быть осторожнее."
 
-#: data/scripts/grasslands_intro.dat:3
+#: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 msgstr "Колдун, должно быть, забрал отца в свой замок. Я должен спасти его."
 
-#: data/scripts/grasslands_intro.dat:5
+#: data/scripts/grasslands_intro.dat:8
 msgid ""
 "The only way to get to the castle is through the Forbidden Swamp to the East."
 msgstr ""
 "Единственный способ добраться до замка это пройти через Запретные Болота на "
 "востоке."
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid ""
 "There's a lake between the Village and the Swamp so I'll need a raft to get "
 "across."
 msgstr ""
 "Между деревней и болотом находится озеро, так что мне понадобится плот."
 
-#: data/scripts/grasslands_intro.dat:7
+#: data/scripts/grasslands_intro.dat:10
 msgid ""
 "I'll also need a sword and shield to defend myself. I can speak to Borgan "
 "and Jacob to get these though."
@@ -3920,15 +3919,15 @@ msgstr ""
 "Также мне необходим меч и щит, чтобы защитить себя. Я могу поговорить с "
 "Борганом и Якобом, чтобы получить их."
 
-#: data/scripts/grasslands_intro.dat:8
+#: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
 msgstr "Разговор с Борганом"
 
-#: data/scripts/grasslands_intro.dat:10
+#: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
 msgstr "Разговор с Якобом"
 
-#: data/scripts/grasslands_intro.dat:12
+#: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
 msgstr "Пересечь озеро на пути к Болоту"
 
@@ -4044,8 +4043,8 @@ msgstr ""
 msgid ""
 "Use the arrow keys to select the control you want to change and press Return."
 msgstr ""
-"Используйте клавиши-стрелки для выбора пункта управления, которое желаете "
-"изменить, и на нажмите Enter"
+"Используйте клавиши-стрелки для выбора пункта управления, который желаете "
+"изменить, и нажмите Enter"
 
 #: data/scripts/tutorial_keys.dat:4
 msgid "Next, press the key that you want to use instead."
@@ -4093,7 +4092,7 @@ msgstr "Эй, что такое?"
 
 #: data/scripts/hoover.dat:12
 msgid "It's a baby Hoover"
-msgstr ""
+msgstr "Гуверёнок"
 
 #: data/scripts/hoover.dat:13
 msgid ""
@@ -4170,8 +4169,8 @@ msgid ""
 "The potion is perfect! Quaffing it will turn a human into a creature for a "
 "small amount of time"
 msgstr ""
-"Это зелье великолепно! Выпив его, человек становится существом за очень "
-"короткое время"
+"Это зелье великолепно! Выпив его, человек становится неким существом на "
+"непродолжительное время"
 
 #: data/scripts/slime_potion.dat:5
 msgid ""
@@ -4187,11 +4186,11 @@ msgstr "Там еще осталось немного, оно должно бы�
 
 #: data/scripts/slime_potion.dat:7
 msgid "OK, here goes nothing..."
-msgstr "ОК, ничего не происходит..."
+msgstr "Хорошо, ничего не происходит..."
 
 #: data/scripts/slime_potion.dat:11
 msgid "Urgh!! This is horrible!"
-msgstr "Арг!! Это ужасно!"
+msgstr "Аx!! Это ужасно!"
 
 #: data/scripts/slime_potion.dat:12
 msgid ""
@@ -4325,7 +4324,7 @@ msgstr "И также остальные компоненты"
 
 #: data/scripts/cauldron.dat:167
 msgid "Aha! It's gone blue, just like the book said it would"
-msgstr "Ага! Исчезла синева, как и сказано в книге"
+msgstr "Ага! Посинело, как и сказано в книге"
 
 #: data/scripts/cauldron.dat:168
 msgid "Now to add the shield"
@@ -4341,7 +4340,7 @@ msgstr "Мне нужны все основные компоненты"
 
 #: data/scripts/cauldron.dat:204
 msgid "3 Gazer Eyeballs, 1 Red Sludge Tentacle and a spare shield"
-msgstr "3 Глаза Наблюдателя, 1 щупалец Красного слизня и запасной щит"
+msgstr "3 Глаза Наблюдателя, 1 щупальце Красной Грязи и запасной щит"
 
 #: data/scripts/cauldron.dat:205
 msgid "I also need to blend the eyeballs and the tentacle into a liquid"
@@ -5153,7 +5152,7 @@ msgstr "Зелье, которое делает вас невидимым для
 
 #: data/props/item/gazer_eye.props:5
 msgid "The eyeball from a Gazer"
-msgstr "Глазн Наблюдателя"
+msgstr "Глаз Наблюдателя"
 
 #: data/props/item/tesla_pack_empty.props:5
 msgid "A Tesla Pack. It has no charge."
@@ -5563,7 +5562,7 @@ msgstr ""
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Зелье из глаз и щупалец"
 
-#: src/system/load_save.c:1684
+#: src/system/load_save.c:1686
 msgid "Patching your save game. Please wait..."
 msgstr "Конвертирование Вашего сохранения. Пожалуйста, подождите..."
 
@@ -6367,7 +6366,7 @@ msgstr "Выберите слот для загрузки"
 msgid "Press Action to go to %s"
 msgstr "Нажмите Действие, чтобы пойти в %s"
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
 msgstr "Деревня"
 
@@ -6479,7 +6478,7 @@ msgstr "Лес"
 msgid "Forbidden Swamp"
 msgstr "Запретное болото"
 
-#: data/scripts/swamp_intro.dat:22
+#: data/scripts/intro_part1.dat:16
 msgid "Cave"
 msgstr "Пещера"
 
@@ -6686,27 +6685,27 @@ msgid ""
 "you were!"
 msgstr "Ты забрался в машину сам?! Ты оказался ещё глупее, чем я думал!"
 
-#: src/boss/chaos.c:814
+#: src/boss/chaos.c:816
 msgid "Stalagmite"
 msgstr "Сталагмит"
 
-#: src/boss/chaos.c:1304
+#: src/boss/chaos.c:1306
 msgid "Burn to ashes!"
 msgstr "Сгори до тла!"
 
-#: src/boss/chaos.c:1308
+#: src/boss/chaos.c:1310
 msgid "Feel my power!"
 msgstr "Почувствуй мою силу!"
 
-#: src/boss/chaos.c:1316
+#: src/boss/chaos.c:1318
 msgid "Suffer!"
 msgstr "Страдай!"
 
-#: src/boss/chaos.c:1472
+#: src/boss/chaos.c:1474
 msgid "Pathetic"
 msgstr "Жалкий"
 
-#: src/boss/chaos.c:1490
+#: src/boss/chaos.c:1492
 msgid "Impale"
 msgstr "Израненный"
 
@@ -6714,11 +6713,11 @@ msgstr "Израненный"
 msgid "Confuse"
 msgstr "Замешательство"
 
-#: src/boss/chaos.c:1687
+#: src/boss/chaos.c:1689
 msgid "Darkness"
 msgstr "Мрак"
 
-#: src/boss/chaos.c:1766
+#: src/boss/chaos.c:1768
 msgid "Hold Person"
 msgstr "Остолбенелый человек"
 
@@ -6753,15 +6752,15 @@ msgstr "Чтобы снова ужасать мир"
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:460
+#: src/boss/chaos.c:462
 msgid "Tendrils"
 msgstr "Усы"
 
-#: src/boss/chaos.c:1046
+#: src/boss/chaos.c:1048
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1312
+#: src/boss/chaos.c:1314
 msgid "I will destroy you!"
 msgstr "Я уничтожу тебя!"
 
@@ -6819,3 +6818,41 @@ msgstr "Пора покончить с этим. Приготовься!"
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
 msgstr "Нет! ИЗГНАНИЕ!"
+
+#: data/scripts/intro_part1.dat:10
+msgid "What a horrible night"
+msgstr "Какая ужасная ночь"
+
+#: data/scripts/intro_part1.dat:11
+msgid "Edgar, I have to go out for a few hours"
+msgstr "Эдгар, мне надо отлучиться на несколько часов"
+
+#: data/scripts/intro_part1.dat:12
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr "Ты можешь не ложиться ещё 30 минут, затем собери игрушки и иди спать"
+
+#: data/scripts/intro_part2.dat:10
+msgid "The following morning..."
+msgstr "На следующее утро..."
+
+#: data/scripts/intro_part2.dat:11
+msgid "Dad! Where are you?"
+msgstr "Папа! Где ты?"
+
+#: data/scripts/intro_part2.dat:17
+msgid "It doesn't look like Dad came home last night"
+msgstr "Не похоже, что Папа вечером возвратился домой"
+
+#: data/scripts/intro_part2.dat:19
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr "На кровати не спали и мой завтрак не готов"
+
+#: data/scripts/intro_part2.dat:20
+msgid "That can only mean one thing..."
+msgstr "Это может значить только одно..."
+
+#: data/scripts/intro_part2.dat:22
+msgid "He must have been kidnapped by that evil sorceror!"
+msgstr "Его похитил злой колдун!"
