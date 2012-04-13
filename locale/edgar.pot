@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-04 16:44+0000\n"
-"X-Generator: Launchpad (build 15055)\n"
+"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 
 #: data/scripts/olaf.dat:6
 msgid "Thanks, this is perfect!"
@@ -172,7 +172,8 @@ msgid "Well, it looks like the ring's power is almost completely gone"
 msgstr ""
 
 #: data/scripts/olaf.dat:88
-msgid "If he hits you with that spell again it will almost certainly kill you"
+msgid ""
+"If he hits you with that spell again it will almost certainly kill you"
 msgstr ""
 
 #: data/scripts/olaf.dat:91
@@ -182,7 +183,8 @@ msgid ""
 msgstr ""
 
 #: data/scripts/olaf.dat:92
-msgid "I did find a ring in the fortress but it didn't seem to have any powers"
+msgid ""
+"I did find a ring in the fortress but it didn't seem to have any powers"
 msgstr ""
 
 #: data/scripts/olaf.dat:93
@@ -488,7 +490,8 @@ msgid "It's available on iBooks and the Amazon Kindle"
 msgstr ""
 
 #: data/scripts/knights.dat:4
-msgid "I'm not exactly sure what any of that means, but it sounds interesting"
+msgid ""
+"I'm not exactly sure what any of that means, but it sounds interesting"
 msgstr ""
 
 #: data/scripts/knights.dat:5
@@ -601,7 +604,8 @@ msgid "I've found a way to kill the Centurions"
 msgstr ""
 
 #: data/scripts/centurion_note_2.dat:3
-msgid "They will reform unless one of their parts falls into the slime or lava"
+msgid ""
+"They will reform unless one of their parts falls into the slime or lava"
 msgstr ""
 
 #: data/scripts/centurion_note_2.dat:4
@@ -761,7 +765,8 @@ msgid ""
 msgstr ""
 
 #: data/scripts/borgan.dat:21
-msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgid ""
+"I only need 10 pieces of the stuff, so it shouldn't take you very long"
 msgstr ""
 
 #: data/scripts/borgan.dat:22
@@ -797,7 +802,8 @@ msgid "Collect 10 pieces of Coal"
 msgstr ""
 
 #: data/scripts/borgan.dat:36
-msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgid ""
+"Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
 
 #: data/scripts/borgan.dat:37
@@ -1412,7 +1418,8 @@ msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr ""
 
 #: data/scripts/monsters.dat:112
-msgid "Their single eye is usually closed and they rely on sonar for movement"
+msgid ""
+"Their single eye is usually closed and they rely on sonar for movement"
 msgstr ""
 
 #: data/scripts/monsters.dat:113
@@ -1427,7 +1434,8 @@ msgid ""
 msgstr ""
 
 #: data/scripts/monsters.dat:115
-msgid "This attack is only effective however if the victim is facing the Gazer"
+msgid ""
+"This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
 
 #: data/scripts/monsters.dat:116
@@ -1827,7 +1835,8 @@ msgid ""
 msgstr ""
 
 #: data/scripts/sorceror_intro_1.dat:14
-msgid "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
+msgid ""
+"But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 msgstr ""
 
 #: data/scripts/ant_lion.dat:1
@@ -2865,7 +2874,8 @@ msgid "And a spare shield"
 msgstr ""
 
 #: data/scripts/occult_book.dat:10
-msgid "Once I have all of those items I need to place them in the cauldron..."
+msgid ""
+"Once I have all of those items I need to place them in the cauldron..."
 msgstr ""
 
 #: data/scripts/occult_book.dat:13
@@ -3028,7 +3038,8 @@ msgid "Do you have a sword I can borrow?"
 msgstr ""
 
 #: data/scripts/jacob.dat:34
-msgid "I do have a sword and you can have it if you do something for me first"
+msgid ""
+"I do have a sword and you can have it if you do something for me first"
 msgstr ""
 
 #: data/scripts/jacob.dat:35
@@ -3059,7 +3070,8 @@ msgid "Do you have an axe?"
 msgstr ""
 
 #: data/scripts/jacob.dat:42
-msgid "Erm... I left my axe in the forest somewhere. It should still be there"
+msgid ""
+"Erm... I left my axe in the forest somewhere. It should still be there"
 msgstr ""
 
 #: data/scripts/jacob.dat:43
@@ -3097,7 +3109,8 @@ msgid "Rescue 3 Chickens"
 msgstr ""
 
 #: data/scripts/jacob.dat:62
-msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgid ""
+"Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
 msgstr ""
 
 #: data/scripts/jacob.dat:64
@@ -3215,7 +3228,8 @@ msgid "Wow, that thing is huge!"
 msgstr ""
 
 #: data/scripts/huge_spider.dat:7
-msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgid ""
+"I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
 
 #: data/scripts/has_combination.dat:1
@@ -4296,7 +4310,8 @@ msgid "And the one on the right is for the new body, me"
 msgstr ""
 
 #: data/scripts/evil_edgar_start.dat:30
-msgid "You will go in the one on the left and I'll go in the one on the right"
+msgid ""
+"You will go in the one on the left and I'll go in the one on the right"
 msgstr ""
 
 #: data/scripts/evil_edgar_start.dat:31
@@ -6417,7 +6432,9 @@ msgid "Edgar, I have to go out for a few hours"
 msgstr ""
 
 #: data/scripts/intro_part1.dat:12
-msgid "You can stay up for another 30 minutes, but then you're to pack up your toys and go to bed"
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
 msgstr ""
 
 #: data/scripts/intro_part2.dat:10

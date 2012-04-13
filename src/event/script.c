@@ -769,6 +769,18 @@ void readNextScriptLine()
 					syncWeaponShieldToPlayer();
 				}
 			}
+			
+			else if (strcmpignorecase(token, "PROPERTIES") == 0)
+			{
+				token = strtok_r(NULL, " ", &savePtr);
+
+				loadProperties(token, e);
+
+				if (e == &player)
+				{
+					syncWeaponShieldToPlayer();
+				}
+			}
 
 			else if (strcmpignorecase(token, "SPEED") == 0)
 			{
