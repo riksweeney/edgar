@@ -29,7 +29,7 @@ void setLanguage(char *applicationName, char *languageCode)
 {
 	char language[MAX_LINE_LENGTH], c[MAX_LINE_LENGTH];
 	char *lang, **key, **value;
-	int read, i;
+	int read, i, swap;
 	FILE *fp;
 	MOHeader header;
 	MOEntry *original, *translation;
@@ -120,6 +120,27 @@ void setLanguage(char *applicationName, char *languageCode)
 	}
 
 	read = fread(&header, sizeof(header), 1, fp);
+	
+	swap = FALSE;
+	
+	#if SDL_BYTEORDER == SDL_LIL_ENDIAN
+	if (header.magicNumber == 0xde120495)
+	{
+		swap = TRUE;
+	}
+	#else
+	if (header.magicNumber == 0x950412de)
+	{
+		swap = TRUE;
+	}
+	#endif
+	
+	if (swap == TRUE)
+	{
+		header.stringCount = SDL_Swap32(header.stringCount);
+		header.originalOffset = SDL_Swap32(header.originalOffset);
+		header.translationOffset = SDL_Swap32(header.translationOffset);
+	}
 
 	original = malloc(sizeof(MOEntry) * header.stringCount);
 
@@ -153,6 +174,12 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		fread(&original[i].length, sizeof(int32_t), 1, fp);
 		fread(&original[i].offset, sizeof(int32_t), 1, fp);
+		
+		if (swap == TRUE)
+		{
+			original[i].length = SDL_Swap32(original[i].length);
+			original[i].offset = SDL_Swap32(original[i].offset);
+		}
 
 		key[i] = malloc(original[i].length + 1);
 
@@ -170,6 +197,12 @@ void setLanguage(char *applicationName, char *languageCode)
 	{
 		fread(&translation[i].length, sizeof(int32_t), 1, fp);
 		fread(&translation[i].offset, sizeof(int32_t), 1, fp);
+		
+		if (swap == TRUE)
+		{
+			translation[i].length = SDL_Swap32(translation[i].length);
+			translation[i].offset = SDL_Swap32(translation[i].offset);
+		}
 
 		value[i] = malloc(translation[i].length + 1);
 

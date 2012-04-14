@@ -210,7 +210,7 @@ static void dartDown()
 {
 	if (self->dirY == 0 || self->dirX == 0)
 	{
-		self->thinkTime = 300;
+		self->thinkTime = 30;
 		
 		self->flags &= ~FLY;
 
@@ -226,8 +226,6 @@ static void dartDown()
 
 static void dartDownFinish()
 {
-	self->thinkTime--;
-
 	if (self->thinkTime == 0)
 	{
 		self->dirX = 0;
@@ -254,6 +252,8 @@ static void dartDownFinish()
 		if ((self->flags & ON_GROUND) || (self->standingOn != NULL))
 		{
 			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
+			
+			self->thinkTime--;
 		}
 	}
 
