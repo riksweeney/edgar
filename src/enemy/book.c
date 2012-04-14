@@ -203,8 +203,6 @@ static void dartDown()
 
 static void dartDownFinish()
 {
-	self->thinkTime--;
-
 	if (self->thinkTime == 0)
 	{
 		self->dirX = 0;
@@ -232,6 +230,8 @@ static void dartDownFinish()
 
 	else
 	{
+		self->thinkTime--;
+		
 		if ((self->flags & ON_GROUND) || (self->standingOn != NULL))
 		{
 			self->dirX = self->standingOn == NULL ? 0 : self->standingOn->dirX;
