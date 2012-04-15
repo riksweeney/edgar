@@ -1,0 +1,7 @@
+HEALTH 1
+GFX_FILE data/gfx/weapon/dragon_shield.dat
+ANIM_FILE data/anim/weapon/fire_shield.dat
+TYPE SHIELD
+OBJECTIVE_NAME Dragon Shield
+DESCRIPTION A shield that can resist dragon breath
+ELEMENT DRAGON_FIRE

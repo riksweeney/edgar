@@ -1,0 +1,6 @@
+THINKTIME 1800
+GFX_FILE data/gfx/item/slime_potion_pool.dat
+ANIM_FILE data/anim/item/slime_potion_pool.dat
+TYPE KEY_ITEM
+OBJECTIVE_NAME item/slime_potion
+REQUIRES Empty Bottle

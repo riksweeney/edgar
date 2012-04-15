@@ -1,0 +1,5 @@
+HEALTH 5
+GFX_FILE data/gfx/item/flame_pillar.dat
+ANIM_FILE data/anim/item/flame_pillar.dat
+TYPE KEY_ITEM
+DAMAGE 5

@@ -1,0 +1,387 @@
+CHANGE LOG
+----------
+
+Version 1.00
+* Added a basic introduction to set up the story
+* The Queen Wasp's defeated status is now displayed correctly in the credits
+* Fixed a potential crash after defeating Chaos
+* The medals in the menu are now translated correctly
+* Changed Azriel's intro
+* Made a minor change to the Dungeon map
+* Automatic language selection can be overridden on the commandline. Type edgar -help for details
+
+Version 0.99
+* The game is now 100% completable (barring any bugs)
+* Added the final boss
+* Windows should now render UTF-8 strings correctly (such as Russian)
+* The Watchdog no longer occasionally freezes after charging at Edgar
+* The secret wall in the Crypt can now be destroyed
+* Made the final flooded tunnel in the Dungeon wider
+* The Lightning Sword charges are no longer reset to 10 when an enemy steals it
+* The Black Book now turns into the Gargoyle rather than the Golem
+* Fixed a bug in the cutscene when fixing the power generators
+* Fixed a potential crash when changing maps from the Outskirts to the Fortress
+* Fixed a problem where you sometimes could not jump on ice cubes or floating snappers
+
+Version 0.98
+* Added French, Czech, Simplified Chinese and Russian translations
+* Updated the Fortress Outskirts map
+* Made the data and save files architecture independent (so a 32bit x86 save will work on a 64bit PPC machine etc.)
+* Fixed a problem with objects falling through pressure plates
+* Fixed the trapdoor puzzle in the Laboratory
+* Fixed a crash when entering the Sewer after returning from the Wasteland
+* Made the Ant Lion in the Forbidden Swamp harder to simply walk past
+* Fixed a problem with Red Grubs getting stuck in some walls after bouncing off them
+* Hitting the small trees no longer plays multiple sound effects
+* Attacking the Black Book's version of the Golem after it has been defeated no longer causes a crash
+* The Black Book's version of the Queen Wasp now does damage when it head butts you
+* Fixed a small problem with Edgar sometimes being able to walk in the water in the Right Tower
+* The Watchdog's saw blade attack is no longer blockable
+* Various other minor fixes
+* Just one more major release to go...
+
+Version 0.97
+* Added the next part of the optional quest
+* Changed a puzzle in the Laboratory map
+* Made a change to the Fortress Mine map
+* Added a new medal: "Completed the game without continuing"
+* Added another cheat that prevents instant death in lava
+* Fixed memory leaks in the menus
+* Corrected some speling problems
+
+Version 0.96
+* Fixed a problem with some level exits not activating (making the Crypt accessible)
+* Home directory lookup now more stable on Linux
+
+Version 0.95
+* The Crypt is now accessible
+* Added a basic title screen
+* Fixed more crashes on Windows
+* Removed dependency on SDL_Net
+* Made one the light pillars in the Catacombs stay active longer
+* Raising and lowering the music volume now works correctly
+* Fixed a possible hang during the end credits
+* Bombs grabbed by the Borer no longer play their sound effect endlessly
+* Dud Gazer Eyes no longer float in the air when thrown
+* Renamed Continue to Restart Checkpoint
+* The Restart Checkpoint option is now disabled after defeating the Watchdog
+* Added a new medal: "Completed the game with only 5 hit points"
+
+Version 0.94
+* Fixed the crash on Windows
+* Fixed a problem with the ice cubes moving too quickly
+* Jacob no longer drops infinite swords
+* The rift summoned by Mataeus no longer plays its sound effect endlessly
+* Fixed a problem with The Sewer Dweller's attacks being unblockable
+* Ice cubes now vanish after a few seconds instead of hanging around forever
+* Dark Summoners no longer get stuck after casting lightning
+
+Version 0.93
+* Fixed the description on the scrap of paper after loading a game
+
+Version 0.92
+* Fixed a crash when loading a game
+
+Version 0.91
+* Fixed a problem with the book in the Occult section of the Library
+* Added support for offline medals
+
+Version 0.90
+* The Windows version no longer crashes when trying to load GNU gettext files
+* Added the final part of the story, the main quest is now completable
+* Made the Watchdog easier to defeat
+
+Version 0.87
+* Made the Village a lot smaller
+
+Version 0.86
+* Fixed the Salamander only performing one attack in its ice form
+* Finally fixed the map resetting bug
+* The Armour Changers can now be hurt by the lightning sword
+* Fixed a crash when destroying Grimlore's armour
+* Fixed a crash in the control menu when configuring a joystick control
+* Added a large number of sound effects
+* Apples can now be used without having to reload a game
+
+Version 0.85
+* Added the next part of the story
+* Fixed a bug with the Salamander not changing to its fire form
+* Filling up the potion bottle no longer creates an additional bottle in the map
+* Fixed a problem with games not being able to be loaded if Mini Centurions were on the map
+
+Version 0.82
+* Fixed a crash when defeating Grimlore
+* Reduced the amount of memory required by the Sewer map
+* Fixed a problem with the safe in the Library (it's not ready yet)
+
+Version 0.81
+* Fixed a crash when creating the Disintegration Shield
+
+Version 0.80
+* Added the next part of the story
+* Fixed a problem with the robot on the third floor of the Library
+* Added a reset switch to the start of the Sewer
+* Fixed a slight problem with some of the conveyor belts in the Dungeon
+* Green Centipedes can be walked on again after loading a game (really fixed this time)
+* The game should work on 16 bit resolutions
+
+Version 0.77
+* Green Centipedes can be walked on again after loading a game
+* Fixed a bug with Evil Edgar's sword attack
+* Fighting Mataeus before reading the enchanting weapons book no longer breaks the game
+
+Version 0.76
+* Fixed a crash when killing a centurion
+* Corrected the makefile version number
+* The fish in the Left Tower no longer become stuck if the player falls in the water
+* Fixed a bug when the player becomes frozen in ice
+* Fixed a bug where the player could not turn into a Slime if standing on the ground
+* Added Spanish translation
+
+Version 0.75
+* Added the next part of the story
+* The Left Tower is now accessible
+* The Graveyard is now accessible
+* Fixed the bug allowing the player to collect an infinite number of lightning sword charges
+* Fixed an animation error with the Dragon Flies
+* Fixed a bug with the thunder cloud created by the yellow book in the Library
+* Loading a game whilst being eaten no longer results in Edgar being unable to move
+* Loading a game whilst the huge spider is stunned no longer freezes it
+
+Version 0.73
+* Added the next part of the story
+* The number of arrows / Lightning Sword charges is now displayed under the item box
+* Damage points now appear when an entity is hit
+
+Version 0.72
+* Added the next part of the story
+* Fixed the default key for the Action command
+* The continue option is now disabled after defeating the Phoenix
+* Fixed a problem with collectable items not vanishing if they can't be picked up
+
+Version 0.71
+* Logs can now be reset correctly
+* The Icicles now break when landing on objects
+* It is now possible to find all your items in the Wasteland
+
+Version 0.70
+* Added the next part of the story
+* Fixed a scrolling error after defeating the Sewer boss
+* Loading a game correctly sets the Bow
+* Made Mataeus completely optional
+* Fixed a bug with the Sewer boss
+* You can now choose the audio quality which should prevent audio underrun messages
+
+Version 0.67
+* Fixed the Armadillo Spike Ball duplication bug
+* Fixed a problem with the Dice blocks in the laboratory
+* Finally added the Sewer Restricted Zone Key
+* Added the ability to disable the joystick via the command line, see the manual for details
+
+Version 0.66
+* Starting the game with no sound and then enabling it no longer causes an error
+* The ice balls thrown by the Ice Tortoises no longer crash the game if they fall out of the map
+* Attempting to squash a little Splitter when it's growing bigger no longer causes an error
+* Made the Dungeon easier
+* Fixed a problem with the antigravity fields
+* Added incremental backups of save files to protect against corruption
+
+Version 0.65
+* Added the next part of the story
+* Dying and then being stunned by a Centurion no longer leaves you immortal
+* Fixed a crash when creating the Fire Shield
+
+Version 0.62
+* Fixed a bug with the Golem
+* Fixed a bug with the Medals meaning that you could only earn 1 per session
+* The Large Green Book no longer attacks you if you move off screen
+* The slime covering the player now vanishes again after a moment
+* The red grubs no longer keep moving during their spin attack startup
+
+Version 0.61
+* Fixed the Lightning Sword going into negative charges
+* Fixed a bug when failing to Transmogrify
+* The Armoury Boss no longer gets stuck when dropping from the ceiling
+* Updated the tutorial to include general item use
+* The Basement Boss can now be hurt when continuing
+* Fixed a memory leak in the menu
+* Added the ability to set the audio buffer size. Use this if the sound stutters
+* Enemies now drop charges if you load a game with an uncharged Lightning Sword
+* The Red Centurions can now hurt you again after reforming
+* Added support for sorting inventory items using the previous and next inventory item buttons
+
+Version 0.60
+* Edgar now animates when firing the bow
+* Added the next part of the story
+* Fixed the fish swimming out of the water
+* The game should now compile OK on Macs
+
+Version 0.59
+* Fixed a problem with the lasers in the Basement and the Laboratory
+* Fixed a potential crash when fighting Mataeus
+* Added 64 bit binaries :)
+
+Version 0.58
+* Fixed a problem with bombs dropped by the Borer
+* The Borer can no longer grab more than 1 item at a time
+* The potion bottle is no longer lost when creating the spell
+
+Version 0.57
+* Water purifiers should no longer crash various maps
+* Added the next part of the story
+* Secret tally is now reset when a new game is started
+
+Version 0.56
+* Explosions that kill enemies no longer crash the game
+* Added the Armoury Boss
+* Added the ability to continue against most bosses
+
+Version 0.55
+* Added the Armoury map, you can get to it via the Fortress Ground Floor
+* Fixed a problem with some key mappings
+* Added some statistics, such as play time and enemies killed
+* Fixed a bunch of memory leaks
+* Added more Medals to earn, check Parallel Realities for details
+* Scripts no longer freeze when they are interrupted when loading a game
+
+Version 0.52
+* Minor update to the Basement boss
+
+Version 0.51
+* Added the missing Basement boss
+* Fixed the broken translations in the Windows build
+* The repellent clouds can no longer be picked up when you reload a game
+* Fixed the crash in the Library when reading the book
+* The game no longer segfaults if it is installed incorrectly
+
+Version 0.50
+* Added the 2nd Mine map, you can get to it via the Basement
+* Added a large number of translations from Google
+* Added support for Medals, you will need to register with Parallel Realities to use this feature
+* Changed the Ant Lion puzzle
+
+Version 0.46
+* Fixed / removed broken lift switches in the Village and Mines
+* Fixed a crash in the Mines
+* Fixed the robot on the 3rd floor of the Library
+* Fixed a potential crash when the whirlwinds steal your weapons
+* The Fire Shield objective cannot be accepted multiple times
+* Weapons can no longer be permanently lost in the water
+* Fixed the Fly Boss's death sequence
+* Saved games now store the currently selected inventory item
+
+Version 0.45
+* Added the rest of the Library Map
+* Health dropping now works correctly when the bow is equipped
+* Music and sound effects are halted when the game is paused
+* Items in a grabber should now stay put better
+* Energy drainers now drop between 1 and 3 arrows when they die
+* The Blob Boss should no longer get stuck when reforming
+* Added switches that reset puzzle blocks, play the tutorial to see how they work
+* Boss music actually plays now
+* Increased the inventory size
+
+Version 0.41
+* Fixed the Golem Boss (again)
+* Fixed a broken Action Point in the Fortress
+* Sequence blocks can no longer be grabbed and moved around
+
+Version 0.40
+* Updated the Basement Map
+* Sprite flipping is cached rather than being done on the fly
+* Added missing lift call switches
+* Fixed the arrows falling through the lift after the first Maggot encounter
+* The game now reports any catchable errors (segfaults still need to be caught with gdb)
+* Added the Library Map
+* The Golem Boss should no longer get stuck when reforming
+* Removed redundant translation strings
+* Items such as Bombs can no longer be thrown while in the inventory screen
+* The wooden doors now look slightly more like wooden doors
+
+Version 0.33
+* The game now works correctly for locales using comma as their decimal separator
+* Fixed behaviour of lifts when loading games
+* Polish characters should now be displayed correctly in the translation
+
+Version 0.32
+* Corrected errors in the translation handling
+* Edgar's weapon and shield are re-equipped after transforming back
+* The inventory screen now shows the current Objectives and their completion status
+* Fixed behaviour of flying creatures hitting slopes
+* Countdown timer no longer flickers when trying to display other messages
+* Fixed a potentially nasty bug on the Golem Boss
+* Weapons no longer fall through lifts, pressure plates and other objects
+* Fixed weapon collision detection
+* Added Polish translation
+* Fixed a problem with Map Triggers accumulating which would eventually lead to a crash when changing maps
+* Starting a new game during a Gazer's flash no longer leaves the screen white
+* Blob Boss's punch can no longer get stuck in the scenery
+
+Version 0.31
+* Gravity now affects Edgar again when updating from an older version
+* Added most translation strings
+
+Version 0.30
+
+* Fixed the scorpion's movement after its attack is blocked
+* Lifts no longer change direction when using your weapon in a tight passage
+* Added the Fortress Map
+* Added the Laboratory Map
+* Added proper joypad support
+* Fixed scrolling speed when standing on a lift
+
+Version 0.26
+
+* The Forbidden Swamp boss can no longer be frozen by standing behind her
+* Game no longer crashes when the fading music is interrupted
+
+Version 0.25
+
+* Fixed the chickens (again)
+* Reduced the number of chickens to catch to 3 (and there was much rejoicing)
+* Fixed the sprite priorities (again)
+* Added the Basement map
+* Fixed health drop chance when using the bow
+* Fixed corruption of items when swapping items in the inventory
+* Selecting an inventory item using the block or interact button will only select it for use rather than using it immediately. Useful for bombs.
+* Slight performance improvements
+* Added a tutorial level
+* Added confirmations to menu options
+* Used sound frequency 44100 to prevent crackles (thanks Fish Fillets)
+* More arrows are now dropped by enemies
+* Minor update to the Mine
+
+Version 0.22
+
+* Fixed a problem with sprite priorities, so now you know what killed you in the Forbidden Swamp
+
+Version 0.20
+
+* The game should now work on 64 bit CPUs
+* Added the Forbidden Swamp boss
+* Added basic inventory system so the player can see items and their quantities
+* The Forest map now has proper scroll limits
+* Water animates
+* Raft interaction point only takes away the logs when the objective has been completed
+* Added the Sewer and Fortress Outskirts maps
+* Made Edgar move 25% faster
+* Persistance file is now deleted when starting a new game
+* Fixed a problem with some Entities moving into a non existant collision grid
+* The game attempts to patch your saved game but YMMV
+
+Version 0.11
+
+* Fixed a problem with music loading
+* Edgar can now attack in the air whilst moving
+* Added save slots
+* Added Objective item counter
+* Improved slope code
+
+Version 0.10
+
+* Initial release
+
+
+Richard Sweeney
+
+http://www.parallelrealities.co.uk/p/legend-of-edgar.html

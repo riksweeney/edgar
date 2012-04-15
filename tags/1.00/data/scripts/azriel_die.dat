@@ -1,0 +1,6 @@
+FOLLOW EDGAR
+RESET_CAMERA
+ADD_SECRET
+ADD_MEDAL kill_azriel
+ACTIVATE_OBJECTIVE Graveyard-Crypt
+ADD MAP_TRIGGER "map10" RUN_SCRIPT "cauldron_dragon_shield_update"

@@ -1,0 +1,19 @@
+IF DRAWBRIDGE_PULLEY ACTIVE
+TALK Edgar It looks like the pulley for the drawbridge
+TALK Edgar The mechanism seems to be locked tight
+TALK Edgar It doesn't look too sturdy though, perhaps I can simply smash it...
+END
+IF DRAWBRIDGE_PULLEY NOT_ACTIVE
+SHAKE_SCREEN STRONG 30
+PLAY_SOUND sound/common/crash.ogg
+WAIT 60
+TALK Edgar Oops...
+SET EDGAR FACE RIGHT
+WAIT 30
+SET EDGAR FACE LEFT
+WAIT 30
+TALK Edgar Maybe nobody heard that?
+TALK Edgar Well, the drawbridge is down at any rate...
+ACTIVATE_OBJECTIVE Outskirts-Fortress
+ADD MAP_TRIGGER "map06" RUN_SCRIPT "outskirts_update"
+END
