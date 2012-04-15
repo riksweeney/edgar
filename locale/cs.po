@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
 "X-Generator: Launchpad (build 15070)\n"
 
 #: data/scripts/olaf.dat:6
@@ -477,13 +477,6 @@ msgstr "Seber štít a pokračuj vpravo"
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
 msgstr "Je to portrét"
-
-#: data/scripts/incomplete.dat:1
-msgid ""
-"Something is supposed to happen here, but it's not in this version so check "
-"back later!"
-msgstr ""
-"Tady by se mělo něco stát, ale není to v této verzi, takže se vrať později!"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
@@ -2321,15 +2314,15 @@ msgstr "Musím najít své chybějící vybavení než budu moct odejít"
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
 msgstr "Kdo se opovažuje vykrádat hrobku velkého válečníka Ivana?"
 
-#: data/scripts/azriel_start.dat:11
+#: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
 msgstr "Kdo to řekl?"
 
-#: data/scripts/azriel_start.dat:12
+#: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
 msgstr "Nevycválaný spratku, budeš trpět za své rouhání"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
 msgstr "Já jsem Azriel"
 
@@ -4845,27 +4838,27 @@ msgstr "%d zbývá..."
 msgid "Used %s"
 msgstr "%s použit"
 
-#: src/player.c:1020
+#: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
 msgstr "Není možné používat předměty dokud jsi přeměněný"
 
-#: src/player.c:1059
+#: src/player.c:1079
 msgid "Equipped %s"
 msgstr "%s vybaven"
 
-#: src/player.c:1690
+#: src/player.c:1710
 msgid "Maximum health has increased!"
 msgstr "Maximální počet životů byl navýšen!"
 
-#: src/player.c:2427
+#: src/player.c:2447
 msgid "Bow will now fire %s"
 msgstr "Luk teď bude střílet %s"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow is required to use this item"
 msgstr "K použití tohoto předmětu je třeba mít luk"
 
-#: src/player.c:2493
+#: src/player.c:2513
 msgid "Cannot transmogrify here..."
 msgstr "Tady se nemůžeš přeměnit..."
 
@@ -4973,11 +4966,11 @@ msgstr "Výtah není aktivní"
 msgid "Cannot carry any more %s"
 msgstr "Není možné vzít další %s"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s x %d"
 msgstr "Sebrán %s x %d"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s"
 msgstr "Sebrán %s"
 
@@ -5161,7 +5154,7 @@ msgstr "Jednoduchý meč"
 msgid "A Sword given to you by Jacob"
 msgstr "Meč co ti dal Jákob"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow"
 msgstr "Luk"
 
@@ -5297,11 +5290,11 @@ msgstr "Předchozí předmět"
 msgid "Next Item"
 msgstr "Další předmět"
 
-#: src/draw.c:69
+#: src/draw.c:68
 msgid "Inventory"
 msgstr "Inventář"
 
-#: src/draw.c:65
+#: src/draw.c:64
 msgid "Pause"
 msgstr "Pauza"
 
@@ -5357,7 +5350,7 @@ msgstr "Klíč pro přístup k teleportu 3"
 msgid "Empty Bottle"
 msgstr "Prázdná lahev"
 
-#: data/maps/map11.dat:2094
+#: data/maps/map11.dat:2093
 msgid "First Floor Key"
 msgstr "Klíč od prvního podlaží"
 
@@ -5369,27 +5362,27 @@ msgstr "Stiskni akce pro získání %s"
 msgid "Tuning Fork"
 msgstr "Vidlicová ladička"
 
-#: data/maps/map11.dat:4818
+#: data/maps/map11.dat:4817
 msgid "Second Floor Keycard"
 msgstr "Karta od druhého podlaží"
 
-#: data/maps/map11.dat:2643
+#: data/maps/map11.dat:2642
 msgid "Instruction Card #1"
 msgstr "Instrukční karta #1"
 
-#: data/maps/map11.dat:2568
+#: data/maps/map11.dat:2567
 msgid "Instruction Card #2"
 msgstr "Instrukční karta #2"
 
-#: data/maps/map11.dat:8093
+#: data/maps/map11.dat:8092
 msgid "Instruction Card #3"
 msgstr "Instrukční karta #3"
 
-#: data/maps/map11.dat:13193
+#: data/maps/map11.dat:13192
 msgid "Instruction Card #4"
 msgstr "Instrukční karta #4"
 
-#: data/maps/map11.dat:3393
+#: data/maps/map11.dat:3392
 msgid "Centurion Statue"
 msgstr "Soška centuriona"
 
@@ -5473,7 +5466,7 @@ msgstr "Není možné sebrat %s. Inventář je plný"
 msgid "Filling mine cart..."
 msgstr "Důlní vozík se zaplňuje..."
 
-#: src/player.c:2161
+#: src/player.c:2181
 msgid "Out of arrows!"
 msgstr "Došli ti šípy!"
 
@@ -5537,7 +5530,7 @@ msgstr "Oční smoothie"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Tekutina vyrobená z očí a chapadel"
 
-#: src/system/load_save.c:1686
+#: src/system/load_save.c:1685
 msgid "Patching your save game. Please wait..."
 msgstr "Patchuji uloženou pozici. Prosím čekejte..."
 
@@ -5658,7 +5651,7 @@ msgstr "Edgar"
 msgid "Mine Cart"
 msgstr "Důlní vozík"
 
-#: src/player.c:3218
+#: src/player.c:3238
 msgid "%s has regained power"
 msgstr "%s získal zpět svou sílu"
 
@@ -5722,11 +5715,11 @@ msgstr "Vystřeleno šípů: %d"
 msgid "You found a secret!"
 msgstr "Našel jsi tajemství!"
 
-#: src/player.c:3143
+#: src/player.c:3163
 msgid "10 charges remaining..."
 msgstr "Zbývá 10 nábojů..."
 
-#: src/player.c:3150
+#: src/player.c:3170
 msgid "%s is out of power"
 msgstr "%s je vybitý"
 
@@ -5754,7 +5747,7 @@ msgstr "Jejich parťák je vyléčí, pokud padnou..."
 msgid "Super is ready..."
 msgstr "Fatalita je připravená..."
 
-#: src/player.c:1672
+#: src/player.c:1692
 msgid "Used Amulet of Resurrection"
 msgstr "Použit Amulet vzkříšení"
 
@@ -5966,7 +5959,7 @@ msgstr "Vytvoří dočasný štít, který odraží magické útoky"
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Chrání před určitými útoky. Přestane funogvat, pokud se pohneš"
 
-#: src/player.c:1326
+#: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Stiskni Útok během blokování pro použití štítu..."
 
@@ -6026,7 +6019,7 @@ msgstr "Dost! Připrav se na smrt..."
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr "Rychle se otáčej vlevo a vpravo pro odstranění svazovacího kouzla!"
 
-#: src/player.c:1333
+#: src/player.c:1353
 msgid "Your shield is increasing in power..."
 msgstr "Tvůj štít nabíra na síle..."
 
@@ -6310,7 +6303,7 @@ msgstr "Zvonek"
 msgid "Creates a save point at your current position"
 msgstr "Vytvoří ukládací stanoviště na tvé aktuální pozici"
 
-#: src/player.c:2078
+#: src/player.c:2098
 msgid "Your controls have been reversed!"
 msgstr "Máš přehozené ovládání!"
 
@@ -6454,7 +6447,7 @@ msgstr "Les"
 msgid "Forbidden Swamp"
 msgstr "Zakázaný močál"
 
-#: data/scripts/intro_part1.dat:16
+#: data/scripts/intro_part1.dat:18
 msgid "Cave"
 msgstr "Jeskyně"
 
@@ -6546,7 +6539,7 @@ msgstr "Cheaty mohou být pouřity pouze ve hře"
 msgid "Press any key"
 msgstr "Stiskni libovolnou klávesu"
 
-#: src/player.c:1031
+#: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
 msgstr "Nemůže vybavit předmět během útočení"
 
@@ -6598,11 +6591,11 @@ msgstr "Nastav si ovládání"
 msgid "Quickly turn left and right to shake off the pieces!"
 msgstr "Rychle se otáčej vlevo a vpravo pro setřesení kousků!"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "Azriel"
 msgstr "Azriel"
 
-#: src/boss/azriel.c:2303
+#: src/boss/azriel.c:2313
 msgid "Until we meet again..."
 msgstr "Dokud se znovu nesetkáme..."
 
@@ -6614,7 +6607,7 @@ msgstr "Pozůstalost po Ivanovi"
 msgid "Selected %s"
 msgstr "%s vybrán"
 
-#: src/player.c:2975
+#: src/player.c:2995
 msgid "Press buttons to break the petrification!"
 msgstr "Mačkej klávesy, aby ses zbavil zkamenění"
 
@@ -6663,39 +6656,39 @@ msgstr ""
 "Ty jsi vlezl do toho stroje jen tak?! Jsi ještě hloupejší, než jsem si "
 "myslel!"
 
-#: src/boss/chaos.c:816
+#: src/boss/chaos.c:814
 msgid "Stalagmite"
 msgstr "Stalagmit"
 
-#: src/boss/chaos.c:1306
+#: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
 msgstr "Shoř na popel!"
 
-#: src/boss/chaos.c:1310
+#: src/boss/chaos.c:1308
 msgid "Feel my power!"
 msgstr "Pociť mou sílu!"
 
-#: src/boss/chaos.c:1318
+#: src/boss/chaos.c:1316
 msgid "Suffer!"
 msgstr "Trp!"
 
-#: src/boss/chaos.c:1474
+#: src/boss/chaos.c:1472
 msgid "Pathetic"
 msgstr "Ubohý"
 
-#: src/boss/chaos.c:1492
+#: src/boss/chaos.c:1490
 msgid "Impale"
 msgstr "Narazit"
 
-#: src/player.c:2011
+#: src/player.c:2031
 msgid "Confuse"
 msgstr "Zmatení"
 
-#: src/boss/chaos.c:1689
+#: src/boss/chaos.c:1687
 msgid "Darkness"
 msgstr "Temnota"
 
-#: src/boss/chaos.c:1768
+#: src/boss/chaos.c:1766
 msgid "Hold Person"
 msgstr "Drž osobu"
 
@@ -6729,15 +6722,15 @@ msgstr "Aby opět terorizoval svět"
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:462
+#: src/boss/chaos.c:460
 msgid "Tendrils"
 msgstr ""
 
-#: src/boss/chaos.c:1048
+#: src/boss/chaos.c:1046
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1314
+#: src/boss/chaos.c:1312
 msgid "I will destroy you!"
 msgstr ""
 
@@ -6795,40 +6788,52 @@ msgstr ""
 msgid "No! BANISH!"
 msgstr ""
 
-#: data/scripts/intro_part1.dat:10
+#: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
 msgstr ""
 
-#: data/scripts/intro_part1.dat:11
+#: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
 msgstr ""
 
-#: data/scripts/intro_part1.dat:12
+#: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr ""
 
-#: data/scripts/intro_part2.dat:10
+#: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
 msgstr ""
 
-#: data/scripts/intro_part2.dat:11
+#: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
 msgstr ""
 
-#: data/scripts/intro_part2.dat:17
+#: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
 msgstr ""
 
-#: data/scripts/intro_part2.dat:19
+#: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
 msgstr ""
 
-#: data/scripts/intro_part2.dat:20
+#: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
 msgstr ""
 
-#: data/scripts/intro_part2.dat:22
+#: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:1
+msgid "Something very powerful was here"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:2
+msgid "I can still feel the magical charge that it gave off"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:3
+msgid "Whatever it was, it's long gone..."
 msgstr ""

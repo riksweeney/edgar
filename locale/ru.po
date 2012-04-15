@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: edgar\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-04-11 11:02+0000\n"
+"PO-Revision-Date: 2012-04-14 11:40+0000\n"
 "Last-Translator: igor <igor@sato.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-11 15:52+0000\n"
+"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
 "X-Generator: Launchpad (build 15070)\n"
 
 #: data/scripts/olaf.dat:6
@@ -480,14 +480,6 @@ msgstr "Поднимайте щит и двигайтесь дальше"
 #: data/scripts/portrait.dat:1
 msgid "It's a portrait"
 msgstr "Это портрет"
-
-#: data/scripts/incomplete.dat:1
-msgid ""
-"Something is supposed to happen here, but it's not in this version so check "
-"back later!"
-msgstr ""
-"Что-то должно произойти здесь, но не в этой версии, так что вернитесь сюда "
-"позже!"
 
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
@@ -2327,15 +2319,15 @@ msgstr "Прежде, чем уйти, необходимо вернуть пр�
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
 msgstr "Кто осмелился ограбить могилу великого воина Ивана?"
 
-#: data/scripts/azriel_start.dat:11
+#: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
 msgstr "Кто это сказал?"
 
-#: data/scripts/azriel_start.dat:12
+#: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
 msgstr "Наглый невежа, ты будешь страдать своё неуважение"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
 msgstr "Я - Азраил"
 
@@ -4870,27 +4862,27 @@ msgstr "Еще %d..."
 msgid "Used %s"
 msgstr "Использовано %s"
 
-#: src/player.c:1020
+#: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
 msgstr "Нельзя экипироваться будучи преобразованным"
 
-#: src/player.c:1059
+#: src/player.c:1079
 msgid "Equipped %s"
 msgstr "Экипирован %s"
 
-#: src/player.c:1690
+#: src/player.c:1710
 msgid "Maximum health has increased!"
 msgstr "Максимальное здоровье увеличено!"
 
-#: src/player.c:2427
+#: src/player.c:2447
 msgid "Bow will now fire %s"
 msgstr "Теперь лук стреляет %s"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow is required to use this item"
 msgstr "Нужен лук, чтобы использовать этот предмет"
 
-#: src/player.c:2493
+#: src/player.c:2513
 msgid "Cannot transmogrify here..."
 msgstr "Невозможно превратиться здесь..."
 
@@ -4998,11 +4990,11 @@ msgstr "Этот лифт неактивен"
 msgid "Cannot carry any more %s"
 msgstr "Не унести больше %s"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s x %d"
 msgstr "Подобрано %s x %d"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s"
 msgstr "Подобрано %s"
 
@@ -5186,7 +5178,7 @@ msgstr "Простой меч"
 msgid "A Sword given to you by Jacob"
 msgstr "Меч от Якоба"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow"
 msgstr "Лук"
 
@@ -5322,11 +5314,11 @@ msgstr "Пред. предмет"
 msgid "Next Item"
 msgstr "След. предмет"
 
-#: src/draw.c:69
+#: src/draw.c:68
 msgid "Inventory"
 msgstr "Инвентарь"
 
-#: src/draw.c:65
+#: src/draw.c:64
 msgid "Pause"
 msgstr "Пауза"
 
@@ -5382,7 +5374,7 @@ msgstr "3-й ключ к телепорту"
 msgid "Empty Bottle"
 msgstr "пустая бутылочка"
 
-#: data/maps/map11.dat:2094
+#: data/maps/map11.dat:2093
 msgid "First Floor Key"
 msgstr "Ключ 1-го этажа"
 
@@ -5394,27 +5386,27 @@ msgstr "Нажмите Действие, чтобы получить %s"
 msgid "Tuning Fork"
 msgstr "Камертон"
 
-#: data/maps/map11.dat:4818
+#: data/maps/map11.dat:4817
 msgid "Second Floor Keycard"
 msgstr "Ключ-карта 2-го этажа"
 
-#: data/maps/map11.dat:2643
+#: data/maps/map11.dat:2642
 msgid "Instruction Card #1"
 msgstr "Карта инструкций #1"
 
-#: data/maps/map11.dat:2568
+#: data/maps/map11.dat:2567
 msgid "Instruction Card #2"
 msgstr "Карта инструкций #2"
 
-#: data/maps/map11.dat:8093
+#: data/maps/map11.dat:8092
 msgid "Instruction Card #3"
 msgstr "Карта инструкций #3"
 
-#: data/maps/map11.dat:13193
+#: data/maps/map11.dat:13192
 msgid "Instruction Card #4"
 msgstr "Карта инструкций #4"
 
-#: data/maps/map11.dat:3393
+#: data/maps/map11.dat:3392
 msgid "Centurion Statue"
 msgstr "Статуя Центуриона"
 
@@ -5498,7 +5490,7 @@ msgstr "Нельзя подобрать %s. Инвентарь переполн�
 msgid "Filling mine cart..."
 msgstr "Погрузка рудничной тележки..."
 
-#: src/player.c:2161
+#: src/player.c:2181
 msgid "Out of arrows!"
 msgstr "Закончились стрелы!"
 
@@ -5562,7 +5554,7 @@ msgstr ""
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "Зелье из глаз и щупалец"
 
-#: src/system/load_save.c:1686
+#: src/system/load_save.c:1685
 msgid "Patching your save game. Please wait..."
 msgstr "Конвертирование Вашего сохранения. Пожалуйста, подождите..."
 
@@ -5682,7 +5674,7 @@ msgstr "Эдгар"
 msgid "Mine Cart"
 msgstr "Рудничная тележка"
 
-#: src/player.c:3218
+#: src/player.c:3238
 msgid "%s has regained power"
 msgstr ""
 
@@ -5746,11 +5738,11 @@ msgstr "Выпущено стрел: %d"
 msgid "You found a secret!"
 msgstr "Найден тайник!"
 
-#: src/player.c:3143
+#: src/player.c:3163
 msgid "10 charges remaining..."
 msgstr "10 зарядов осталось..."
 
-#: src/player.c:3150
+#: src/player.c:3170
 msgid "%s is out of power"
 msgstr ""
 
@@ -5778,7 +5770,7 @@ msgstr "Напарники исцеляют, когда они падают в �
 msgid "Super is ready..."
 msgstr ""
 
-#: src/player.c:1672
+#: src/player.c:1692
 msgid "Used Amulet of Resurrection"
 msgstr "Использован Амулет Воскрешения"
 
@@ -5990,7 +5982,7 @@ msgstr "Создаёт временный щит для отражения ма�
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Защищает против некоторых атак. Прекращает работу при движении"
 
-#: src/player.c:1326
+#: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr ""
 
@@ -6050,7 +6042,7 @@ msgstr "Достаточно! Готовься к смерти..."
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr ""
 
-#: src/player.c:1333
+#: src/player.c:1353
 msgid "Your shield is increasing in power..."
 msgstr "Твой щит увеличивает в силе..."
 
@@ -6334,7 +6326,7 @@ msgstr "Колокольчик"
 msgid "Creates a save point at your current position"
 msgstr "Создает точку сохранения на вашей текущей позиции"
 
-#: src/player.c:2078
+#: src/player.c:2098
 msgid "Your controls have been reversed!"
 msgstr "Обратное управление!"
 
@@ -6478,7 +6470,7 @@ msgstr "Лес"
 msgid "Forbidden Swamp"
 msgstr "Запретное болото"
 
-#: data/scripts/intro_part1.dat:16
+#: data/scripts/intro_part1.dat:18
 msgid "Cave"
 msgstr "Пещера"
 
@@ -6570,7 +6562,7 @@ msgstr "Коды включаются только в игре"
 msgid "Press any key"
 msgstr "Нажми любую клавишу"
 
-#: src/player.c:1031
+#: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
 msgstr "Невозможно экипироваться во время атаки"
 
@@ -6622,11 +6614,11 @@ msgstr "Пожалуйста, настройте всё управление"
 msgid "Quickly turn left and right to shake off the pieces!"
 msgstr "Быстро вращайся, чтобы избавиться от шариков!"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "Azriel"
 msgstr "Азриэль"
 
-#: src/boss/azriel.c:2303
+#: src/boss/azriel.c:2313
 msgid "Until we meet again..."
 msgstr "Пока не повстречаемся снова..."
 
@@ -6638,7 +6630,7 @@ msgstr "Подарок Ивана"
 msgid "Selected %s"
 msgstr "Выбрано %s"
 
-#: src/player.c:2975
+#: src/player.c:2995
 msgid "Press buttons to break the petrification!"
 msgstr "Нажать кнопку для прекращения окаменения!"
 
@@ -6685,39 +6677,39 @@ msgid ""
 "you were!"
 msgstr "Ты забрался в машину сам?! Ты оказался ещё глупее, чем я думал!"
 
-#: src/boss/chaos.c:816
+#: src/boss/chaos.c:814
 msgid "Stalagmite"
 msgstr "Сталагмит"
 
-#: src/boss/chaos.c:1306
+#: src/boss/chaos.c:1304
 msgid "Burn to ashes!"
 msgstr "Сгори до тла!"
 
-#: src/boss/chaos.c:1310
+#: src/boss/chaos.c:1308
 msgid "Feel my power!"
 msgstr "Почувствуй мою силу!"
 
-#: src/boss/chaos.c:1318
+#: src/boss/chaos.c:1316
 msgid "Suffer!"
 msgstr "Страдай!"
 
-#: src/boss/chaos.c:1474
+#: src/boss/chaos.c:1472
 msgid "Pathetic"
 msgstr "Жалкий"
 
-#: src/boss/chaos.c:1492
+#: src/boss/chaos.c:1490
 msgid "Impale"
 msgstr "Израненный"
 
-#: src/player.c:2011
+#: src/player.c:2031
 msgid "Confuse"
 msgstr "Замешательство"
 
-#: src/boss/chaos.c:1689
+#: src/boss/chaos.c:1687
 msgid "Darkness"
 msgstr "Мрак"
 
-#: src/boss/chaos.c:1768
+#: src/boss/chaos.c:1766
 msgid "Hold Person"
 msgstr "Остолбенелый человек"
 
@@ -6752,15 +6744,15 @@ msgstr "Чтобы снова ужасать мир"
 msgid "Rift"
 msgstr ""
 
-#: src/boss/chaos.c:462
+#: src/boss/chaos.c:460
 msgid "Tendrils"
 msgstr "Усы"
 
-#: src/boss/chaos.c:1048
+#: src/boss/chaos.c:1046
 msgid "Orbs"
 msgstr ""
 
-#: src/boss/chaos.c:1314
+#: src/boss/chaos.c:1312
 msgid "I will destroy you!"
 msgstr "Я уничтожу тебя!"
 
@@ -6819,40 +6811,52 @@ msgstr "Пора покончить с этим. Приготовься!"
 msgid "No! BANISH!"
 msgstr "Нет! ИЗГНАНИЕ!"
 
-#: data/scripts/intro_part1.dat:10
+#: data/scripts/intro_part1.dat:12
 msgid "What a horrible night"
 msgstr "Какая ужасная ночь"
 
-#: data/scripts/intro_part1.dat:11
+#: data/scripts/intro_part1.dat:13
 msgid "Edgar, I have to go out for a few hours"
 msgstr "Эдгар, мне надо отлучиться на несколько часов"
 
-#: data/scripts/intro_part1.dat:12
+#: data/scripts/intro_part1.dat:14
 msgid ""
 "You can stay up for another 30 minutes, but then you're to pack up your toys "
 "and go to bed"
 msgstr "Ты можешь не ложиться ещё 30 минут, затем собери игрушки и иди спать"
 
-#: data/scripts/intro_part2.dat:10
+#: data/scripts/intro_part2.dat:11
 msgid "The following morning..."
 msgstr "На следующее утро..."
 
-#: data/scripts/intro_part2.dat:11
+#: data/scripts/intro_part2.dat:12
 msgid "Dad! Where are you?"
 msgstr "Папа! Где ты?"
 
-#: data/scripts/intro_part2.dat:17
+#: data/scripts/intro_part2.dat:18
 msgid "It doesn't look like Dad came home last night"
 msgstr "Не похоже, что Папа вечером возвратился домой"
 
-#: data/scripts/intro_part2.dat:19
+#: data/scripts/intro_part2.dat:20
 msgid "His bed hasn't been slept in and my breakfast isn't ready"
 msgstr "На кровати не спали и мой завтрак не готов"
 
-#: data/scripts/intro_part2.dat:20
+#: data/scripts/intro_part2.dat:21
 msgid "That can only mean one thing..."
 msgstr "Это может значить только одно..."
 
-#: data/scripts/intro_part2.dat:22
+#: data/scripts/intro_part2.dat:23
 msgid "He must have been kidnapped by that evil sorceror!"
 msgstr "Его похитил злой колдун!"
+
+#: data/scripts/black_book_vanished.dat:1
+msgid "Something very powerful was here"
+msgstr "Здесь было нечто очень мощное"
+
+#: data/scripts/black_book_vanished.dat:2
+msgid "I can still feel the magical charge that it gave off"
+msgstr "Всё ещё ощущается магический заряд, который исходил ранее"
+
+#: data/scripts/black_book_vanished.dat:3
+msgid "Whatever it was, it's long gone..."
+msgstr "Что бы там ни было, это было давным давно..."

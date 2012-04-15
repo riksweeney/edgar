@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: The Legend of Edgar 0.98\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-16 13:33+0100\n"
-"PO-Revision-Date: 2012-03-30 10:49-0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2012-04-11 20:39+0000\n"
+"Last-Translator: Richard Sweeney <riksweeney@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-14 19:56+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
-"X-Poedit-Language: English\n"
+"X-Launchpad-Export-Date: 2012-04-15 07:16+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 "X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: data/scripts/olaf.dat:6
@@ -37,7 +37,8 @@ msgstr "We can get out of here! Where do you want to go?"
 
 #: data/scripts/olaf.dat:11
 msgid "Back to the fortress, I still need to rescue my Dad from the sorceror"
-msgstr "Back to the fortress, I still need to rescue my Dad from the sorcerer"
+msgstr ""
+"Back to the fortress, I still need to rescue my Dad from the sorcerer"
 
 #: data/scripts/olaf.dat:12
 msgid "OK, remember what I told you about his disintegration spell?"
@@ -180,8 +181,10 @@ msgid "Well, it looks like the ring's power is almost completely gone"
 msgstr "Well, it looks like the ring's power is almost completely gone"
 
 #: data/scripts/olaf.dat:88
-msgid "If he hits you with that spell again it will almost certainly kill you"
-msgstr "If he hits you with that spell again it will almost certainly kill you"
+msgid ""
+"If he hits you with that spell again it will almost certainly kill you"
+msgstr ""
+"If he hits you with that spell again it will almost certainly kill you"
 
 #: data/scripts/olaf.dat:91
 msgid ""
@@ -192,7 +195,8 @@ msgstr ""
 "or a ring?"
 
 #: data/scripts/olaf.dat:92
-msgid "I did find a ring in the fortress but it didn't seem to have any powers"
+msgid ""
+"I did find a ring in the fortress but it didn't seem to have any powers"
 msgstr ""
 "I did find a ring in the fortress but it didn't seem to have any powers"
 
@@ -478,14 +482,6 @@ msgstr "Pick up the shield and continue to the right"
 msgid "It's a portrait"
 msgstr "It's a portrait"
 
-#: data/scripts/incomplete.dat:1
-msgid ""
-"Something is supposed to happen here, but it's not in this version so check "
-"back later!"
-msgstr ""
-"Something is supposed to happen here, but it's not in this version so check "
-"back later!"
-
 #: data/scripts/scorpion_statue.dat:1
 msgid "Got it!"
 msgstr "Got it!"
@@ -522,15 +518,18 @@ msgstr "Oh, what's this?"
 
 #: data/scripts/knights.dat:2
 msgid "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
-msgstr "It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
+msgstr ""
+"It's a book by Stephen J Sweeney called \"The Honour of the Knights\""
 
 #: data/scripts/knights.dat:3
 msgid "It's available on iBooks and the Amazon Kindle"
 msgstr "It's available on iBooks and the Amazon Kindle"
 
 #: data/scripts/knights.dat:4
-msgid "I'm not exactly sure what any of that means, but it sounds interesting"
-msgstr "I'm not exactly sure what any of that means, but it sounds interesting"
+msgid ""
+"I'm not exactly sure what any of that means, but it sounds interesting"
+msgstr ""
+"I'm not exactly sure what any of that means, but it sounds interesting"
 
 #: data/scripts/knights.dat:5
 msgid "I might read that later..."
@@ -647,7 +646,8 @@ msgid "I've found a way to kill the Centurions"
 msgstr "I've found a way to kill the Centurions"
 
 #: data/scripts/centurion_note_2.dat:3
-msgid "They will reform unless one of their parts falls into the slime or lava"
+msgid ""
+"They will reform unless one of their parts falls into the slime or lava"
 msgstr ""
 "They will reform unless one of their parts falls into the slime or lava"
 
@@ -828,8 +828,10 @@ msgstr ""
 "lasts longer"
 
 #: data/scripts/borgan.dat:21
-msgid "I only need 10 pieces of the stuff, so it shouldn't take you very long"
-msgstr "I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgid ""
+"I only need 10 pieces of the stuff, so it shouldn't take you very long"
+msgstr ""
+"I only need 10 pieces of the stuff, so it shouldn't take you very long"
 
 #: data/scripts/borgan.dat:22
 msgid ""
@@ -868,7 +870,8 @@ msgid "Collect 10 pieces of Coal"
 msgstr "Collect 10 pieces of Coal"
 
 #: data/scripts/borgan.dat:36
-msgid "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
+msgid ""
+"Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 msgstr ""
 "Thank you, Edgar, this coal is perfect! Hope the bats didn't scare you."
 
@@ -1100,7 +1103,8 @@ msgstr "Now try out your shield"
 
 #: data/scripts/tutorial_blocking.dat:2
 msgid "Block the pellets spat out by the plant and jump up to the next ledge"
-msgstr "Block the pellets spat out by the plant and jump up to the next ledge"
+msgstr ""
+"Block the pellets spat out by the plant and jump up to the next ledge"
 
 #: data/scripts/ending_part1.dat:12
 msgid "I can't believe he's gone"
@@ -1555,8 +1559,10 @@ msgid "Gazers are flying cycloptic creatures found in various places"
 msgstr "Gazers are flying cycloptic creatures found in various places"
 
 #: data/scripts/monsters.dat:112
-msgid "Their single eye is usually closed and they rely on sonar for movement"
-msgstr "Their single eye is usually closed and they rely on sonar for movement"
+msgid ""
+"Their single eye is usually closed and they rely on sonar for movement"
+msgstr ""
+"Their single eye is usually closed and they rely on sonar for movement"
 
 #: data/scripts/monsters.dat:113
 msgid ""
@@ -1573,7 +1579,8 @@ msgstr ""
 "anything looking at it"
 
 #: data/scripts/monsters.dat:115
-msgid "This attack is only effective however if the victim is facing the Gazer"
+msgid ""
+"This attack is only effective however if the victim is facing the Gazer"
 msgstr ""
 "This attack is only effective however if the victim is facing the Gazer"
 
@@ -2022,7 +2029,8 @@ msgstr ""
 "talking about"
 
 #: data/scripts/sorceror_intro_1.dat:14
-msgid "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
+msgid ""
+"But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 msgstr ""
 "But if he's anywhere, he'll be in my dungeon. Why don't you look there?"
 
@@ -2130,7 +2138,8 @@ msgstr "You defeated Grimlore? Impossible!"
 
 #: data/scripts/sorceror_start.dat:6
 msgid "He submitted to my sword just like everything else in this foul place"
-msgstr "He submitted to my sword just like everything else in this foul place"
+msgstr ""
+"He submitted to my sword just like everything else in this foul place"
 
 #: data/scripts/sorceror_start.dat:7
 msgid "This is your last chance, tell me where my father is!"
@@ -2210,7 +2219,8 @@ msgstr "What just happened?"
 
 #: data/scripts/black_book.dat:22
 msgid "Maybe I shouldn't go around touching books that give off an evil aura"
-msgstr "Maybe I shouldn't go around touching books that give off an evil aura"
+msgstr ""
+"Maybe I shouldn't go around touching books that give off an evil aura"
 
 #: data/scripts/black_book.dat:23
 msgid "And spend more time looking for my Dad"
@@ -2324,15 +2334,15 @@ msgstr "I need to recover my missing items before I can leave"
 msgid "Who dares pillage the tomb of the great warrior Ivan?"
 msgstr "Who dares pillage the tomb of the great warrior Ivan?"
 
-#: data/scripts/azriel_start.dat:11
+#: data/scripts/azriel_start.dat:12
 msgid "Who said that?"
 msgstr "Who said that?"
 
-#: data/scripts/azriel_start.dat:12
+#: data/scripts/azriel_start.dat:13
 msgid "Insolent cur, you will suffer for your disrespect"
 msgstr "Insolent cur, you will suffer for your disrespect"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "I, am Azriel"
 msgstr "I, am Azriel"
 
@@ -3044,7 +3054,8 @@ msgstr "There are 4 reset switches along the lift shaft which must be reset"
 
 #: data/scripts/fortress_mine_lift.dat:4
 msgid "Be sure to reset the lift to avoid a long walk back to the surface..."
-msgstr "Be sure to reset the lift to avoid a long walk back to the surface..."
+msgstr ""
+"Be sure to reset the lift to avoid a long walk back to the surface..."
 
 #: data/scripts/draft_wall.dat:1
 msgid "I thought I felt something. There's a draft here..."
@@ -3068,7 +3079,8 @@ msgstr ""
 
 #: data/scripts/tutorial_finish.dat:4
 msgid "To play the main game, press Escape and select New Game from the menu"
-msgstr "To play the main game, press Escape and select New Game from the menu"
+msgstr ""
+"To play the main game, press Escape and select New Game from the menu"
 
 #: data/scripts/grappling_hook.dat:5
 msgid "There, the rope's firmly attached"
@@ -3138,8 +3150,10 @@ msgid "And a spare shield"
 msgstr "And a spare shield"
 
 #: data/scripts/occult_book.dat:10
-msgid "Once I have all of those items I need to place them in the cauldron..."
-msgstr "Once I have all of those items I need to place them in the cauldron..."
+msgid ""
+"Once I have all of those items I need to place them in the cauldron..."
+msgstr ""
+"Once I have all of those items I need to place them in the cauldron..."
 
 #: data/scripts/occult_book.dat:13
 msgid "This is a book about occult magic"
@@ -3163,7 +3177,8 @@ msgstr "The staff of a Dark Summoner"
 
 #: data/scripts/occult_book.dat:23
 msgid "If the dragon has been defeated in the past then one must also gather"
-msgstr "If the dragon has been defeated in the past then one must also gather"
+msgstr ""
+"If the dragon has been defeated in the past then one must also gather"
 
 #: data/scripts/occult_book.dat:24
 msgid "The keepsake from a warrior that previously defeated it"
@@ -3312,8 +3327,10 @@ msgid "Do you have a sword I can borrow?"
 msgstr "Do you have a sword I can borrow?"
 
 #: data/scripts/jacob.dat:34
-msgid "I do have a sword and you can have it if you do something for me first"
-msgstr "I do have a sword and you can have it if you do something for me first"
+msgid ""
+"I do have a sword and you can have it if you do something for me first"
+msgstr ""
+"I do have a sword and you can have it if you do something for me first"
 
 #: data/scripts/jacob.dat:35
 msgid "OK... what do I have to do?"
@@ -3350,8 +3367,10 @@ msgid "Do you have an axe?"
 msgstr "Do you have an axe?"
 
 #: data/scripts/jacob.dat:42
-msgid "Erm... I left my axe in the forest somewhere. It should still be there"
-msgstr "Erm... I left my axe in the forest somewhere. It should still be there"
+msgid ""
+"Erm... I left my axe in the forest somewhere. It should still be there"
+msgstr ""
+"Erm... I left my axe in the forest somewhere. It should still be there"
 
 #: data/scripts/jacob.dat:43
 msgid "Isn't that forest dangerous?"
@@ -3390,8 +3409,10 @@ msgid "Rescue 3 Chickens"
 msgstr "Rescue 3 Chickens"
 
 #: data/scripts/jacob.dat:62
-msgid "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
-msgstr "Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgid ""
+"Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
+msgstr ""
+"Oh, thanks Edgar, I only needed 3, but thanks for the additional help!"
 
 #: data/scripts/jacob.dat:64
 msgid ""
@@ -3471,7 +3492,8 @@ msgstr "I can't run in this armor, though"
 
 #: data/scripts/gold_centurion.dat:11
 msgid "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
-msgstr "Plus, I'm tired from all this walking, jumping, fighting, swimming..."
+msgstr ""
+"Plus, I'm tired from all this walking, jumping, fighting, swimming..."
 
 #: data/scripts/gold_centurion.dat:12
 msgid "thinking, mining, chopping, pushing, pulling, carrying..."
@@ -3518,7 +3540,8 @@ msgid "Wow, that thing is huge!"
 msgstr "Wow, that thing is huge!"
 
 #: data/scripts/huge_spider.dat:7
-msgid "I doubt my sword will even make a scratch, but I need to get past it..."
+msgid ""
+"I doubt my sword will even make a scratch, but I need to get past it..."
 msgstr ""
 "I doubt my sword will even make a scratch, but I need to get past it..."
 
@@ -3782,7 +3805,8 @@ msgstr "There, that's the hinges oiled. This should be as good as new now!"
 
 #: data/scripts/rusted.dat:7
 msgid "The hinges are rusted, I'll need to find some oil before I can use it"
-msgstr "The hinges are rusted, I'll need to find some oil before I can use it"
+msgstr ""
+"The hinges are rusted, I'll need to find some oil before I can use it"
 
 #: data/scripts/fireball_passage.dat:5
 msgid "Here goes..."
@@ -3890,7 +3914,7 @@ msgstr ""
 "Hmmm, the air feels charged, it reminds me of Maggie's house when she was "
 "making spells. I should be careful."
 
-#: data/scripts/grasslands_intro.dat:3
+#: data/scripts/grasslands_intro.dat:7
 msgid ""
 "The sorceror must have taken Dad to his castle. I'll have to rescue him from "
 "there."
@@ -3898,37 +3922,37 @@ msgstr ""
 "The sorcerer must have taken Dad to his castle. I'll have to rescue him from "
 "there."
 
-#: data/scripts/grasslands_intro.dat:5
-msgid ""
-"The only way to get to the castle is through the Forbidden Swamp to the East."
-msgstr ""
-"The only way to get to the castle is through the Forbidden Swamp to the East."
-
-#: data/scripts/grasslands_intro.dat:6
-msgid ""
-"There's a lake between the Village and the Swamp so I'll need a raft to get "
-"across."
-msgstr ""
-"There's a lake between the Village and the Swamp so I'll need a raft to get "
-"across."
-
-#: data/scripts/grasslands_intro.dat:7
-msgid ""
-"I'll also need a sword and shield to defend myself. I can speak to Borgan "
-"and Jacob to get these though."
-msgstr ""
-"I'll also need a sword and shield to defend myself. I can speak to Borgan "
-"and Jacob to get these though."
-
 #: data/scripts/grasslands_intro.dat:8
+msgid ""
+"The only way to get to the castle is through the Forbidden Swamp to the East."
+msgstr ""
+"The only way to get to the castle is through the Forbidden Swamp to the East."
+
+#: data/scripts/grasslands_intro.dat:9
+msgid ""
+"There's a lake between the Village and the Swamp so I'll need a raft to get "
+"across."
+msgstr ""
+"There's a lake between the Village and the Swamp so I'll need a raft to get "
+"across."
+
+#: data/scripts/grasslands_intro.dat:10
+msgid ""
+"I'll also need a sword and shield to defend myself. I can speak to Borgan "
+"and Jacob to get these though."
+msgstr ""
+"I'll also need a sword and shield to defend myself. I can speak to Borgan "
+"and Jacob to get these though."
+
+#: data/scripts/grasslands_intro.dat:11
 msgid "Talk to Borgan"
 msgstr "Talk to Borgan"
 
-#: data/scripts/grasslands_intro.dat:10
+#: data/scripts/grasslands_intro.dat:13
 msgid "Talk to Jacob"
 msgstr "Talk to Jacob"
 
-#: data/scripts/grasslands_intro.dat:12
+#: data/scripts/grasslands_intro.dat:15
 msgid "Cross the lake to the Swamp"
 msgstr "Cross the lake to the Swamp"
 
@@ -4690,7 +4714,8 @@ msgstr "I'm still talking!"
 
 #: data/scripts/evil_edgar_start.dat:26
 msgid "There should only be one of us in this world: one body, one conscious"
-msgstr "There should only be one of us in this world: one body, one conscious"
+msgstr ""
+"There should only be one of us in this world: one body, one conscious"
 
 #: data/scripts/evil_edgar_start.dat:27
 msgid "These machines will join us together"
@@ -4705,8 +4730,10 @@ msgid "And the one on the right is for the new body, me"
 msgstr "And the one on the right is for the new body, me"
 
 #: data/scripts/evil_edgar_start.dat:30
-msgid "You will go in the one on the left and I'll go in the one on the right"
-msgstr "You will go in the one on the left and I'll go in the one on the right"
+msgid ""
+"You will go in the one on the left and I'll go in the one on the right"
+msgstr ""
+"You will go in the one on the left and I'll go in the one on the right"
 
 #: data/scripts/evil_edgar_start.dat:31
 msgid "It will then merge your body into mine, leaving just me"
@@ -4882,27 +4909,27 @@ msgstr "%d more to go..."
 msgid "Used %s"
 msgstr "Used %s"
 
-#: src/player.c:1020
+#: src/player.c:1040
 msgid "Cannot equip items whilst transmogrified"
 msgstr "Cannot equip items while transmogrified"
 
-#: src/player.c:1059
+#: src/player.c:1079
 msgid "Equipped %s"
 msgstr "Equipped %s"
 
-#: src/player.c:1690
+#: src/player.c:1710
 msgid "Maximum health has increased!"
 msgstr "Maximum health has increased!"
 
-#: src/player.c:2427
+#: src/player.c:2447
 msgid "Bow will now fire %s"
 msgstr "Bow will now fire %s"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow is required to use this item"
 msgstr "A bow is required to use this item"
 
-#: src/player.c:2493
+#: src/player.c:2513
 msgid "Cannot transmogrify here..."
 msgstr "Cannot transmogrify here..."
 
@@ -5010,11 +5037,11 @@ msgstr "This lift is not active"
 msgid "Cannot carry any more %s"
 msgstr "Cannot carry any more %s"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s x %d"
 msgstr "Picked up %s x %d"
 
-#: src/player.c:3223
+#: src/player.c:3243
 msgid "Picked up %s"
 msgstr "Picked up %s"
 
@@ -5198,7 +5225,7 @@ msgstr "Basic Sword"
 msgid "A Sword given to you by Jacob"
 msgstr "A Sword given to you by Jacob"
 
-#: src/player.c:2446
+#: src/player.c:2466
 msgid "A bow"
 msgstr "A bow"
 
@@ -5334,11 +5361,11 @@ msgstr "Previous Item"
 msgid "Next Item"
 msgstr "Next Item"
 
-#: src/draw.c:69
+#: src/draw.c:68
 msgid "Inventory"
 msgstr "Inventory"
 
-#: src/draw.c:65
+#: src/draw.c:64
 msgid "Pause"
 msgstr "Pause"
 
@@ -5394,7 +5421,7 @@ msgstr "Teleporter Access Key 3"
 msgid "Empty Bottle"
 msgstr "Empty Bottle"
 
-#: data/maps/map11.dat:2094
+#: data/maps/map11.dat:2093
 msgid "First Floor Key"
 msgstr "First Floor Key"
 
@@ -5406,27 +5433,27 @@ msgstr "Press Action to retrieve %s"
 msgid "Tuning Fork"
 msgstr "Tuning Fork"
 
-#: data/maps/map11.dat:4818
+#: data/maps/map11.dat:4817
 msgid "Second Floor Keycard"
 msgstr "Second Floor Keycard"
 
-#: data/maps/map11.dat:2643
+#: data/maps/map11.dat:2642
 msgid "Instruction Card #1"
 msgstr "Instruction Card #1"
 
-#: data/maps/map11.dat:2568
+#: data/maps/map11.dat:2567
 msgid "Instruction Card #2"
 msgstr "Instruction Card #2"
 
-#: data/maps/map11.dat:8093
+#: data/maps/map11.dat:8092
 msgid "Instruction Card #3"
 msgstr "Instruction Card #3"
 
-#: data/maps/map11.dat:13193
+#: data/maps/map11.dat:13192
 msgid "Instruction Card #4"
 msgstr "Instruction Card #4"
 
-#: data/maps/map11.dat:3393
+#: data/maps/map11.dat:3392
 msgid "Centurion Statue"
 msgstr "Centurion Statue"
 
@@ -5510,7 +5537,7 @@ msgstr "Cannot pick up %s. Inventory full"
 msgid "Filling mine cart..."
 msgstr "Filling mine cart..."
 
-#: src/player.c:2161
+#: src/player.c:2181
 msgid "Out of arrows!"
 msgstr "Out of arrows!"
 
@@ -5574,7 +5601,7 @@ msgstr "Eyeball Smoothie"
 msgid "A liquid made from eyeballs and tentacles"
 msgstr "A liquid made from eyeballs and tentacles"
 
-#: src/system/load_save.c:1684
+#: src/system/load_save.c:1685
 msgid "Patching your save game. Please wait..."
 msgstr "Patching your save game. Please wait..."
 
@@ -5694,7 +5721,7 @@ msgstr "Edgar"
 msgid "Mine Cart"
 msgstr "Mine Cart"
 
-#: src/player.c:3218
+#: src/player.c:3238
 msgid "%s has regained power"
 msgstr "%s has regained power"
 
@@ -5758,11 +5785,11 @@ msgstr "Arrows Fired: %d"
 msgid "You found a secret!"
 msgstr "You found a secret!"
 
-#: src/player.c:3143
+#: src/player.c:3163
 msgid "10 charges remaining..."
 msgstr "10 charges remaining..."
 
-#: src/player.c:3150
+#: src/player.c:3170
 msgid "%s is out of power"
 msgstr "%s is out of power"
 
@@ -5790,7 +5817,7 @@ msgstr "Their partner will heal them when they fall..."
 msgid "Super is ready..."
 msgstr "Super is ready..."
 
-#: src/player.c:1672
+#: src/player.c:1692
 msgid "Used Amulet of Resurrection"
 msgstr "Used Amulet of Resurrection"
 
@@ -6002,7 +6029,7 @@ msgstr "Creates a temporary shield that reflects magic spells"
 msgid "Protects against certain attacks. Stops working if you move"
 msgstr "Protects against certain attacks. Stops working if you move"
 
-#: src/player.c:1326
+#: src/player.c:1346
 msgid "Press Attack whilst Blocking to use your shield..."
 msgstr "Press Attack while Blocking to use your shield..."
 
@@ -6062,7 +6089,7 @@ msgstr "Enough! Prepare to die..."
 msgid "Quickly turn left and right to remove the hold person spell!"
 msgstr "Quickly turn left and right to remove the hold person spell!"
 
-#: src/player.c:1333
+#: src/player.c:1353
 msgid "Your shield is increasing in power..."
 msgstr "Your shield is increasing in power..."
 
@@ -6346,7 +6373,7 @@ msgstr "A bell"
 msgid "Creates a save point at your current position"
 msgstr "Creates a save point at your current position"
 
-#: src/player.c:2078
+#: src/player.c:2098
 msgid "Your controls have been reversed!"
 msgstr "Your controls have been reversed!"
 
@@ -6378,7 +6405,7 @@ msgstr "Choose slot to load from"
 msgid "Press Action to go to %s"
 msgstr "Press Action to go to %s"
 
-#: data/scripts/grasslands_intro.dat:6
+#: data/scripts/grasslands_intro.dat:9
 msgid "the Village"
 msgstr "the Village"
 
@@ -6490,7 +6517,7 @@ msgstr "Forest"
 msgid "Forbidden Swamp"
 msgstr "Forbidden Swamp"
 
-#: data/scripts/swamp_intro.dat:22
+#: data/scripts/intro_part1.dat:18
 msgid "Cave"
 msgstr "Cave"
 
@@ -6582,7 +6609,7 @@ msgstr "Cheats can only be enabled in-game"
 msgid "Press any key"
 msgstr "Press any key"
 
-#: src/player.c:1031
+#: src/player.c:1051
 msgid "Cannot equip items whilst attacking"
 msgstr "Cannot equip items while attacking"
 
@@ -6634,11 +6661,11 @@ msgstr "Please configure all controls"
 msgid "Quickly turn left and right to shake off the pieces!"
 msgstr "Quickly turn left and right to shake off the pieces!"
 
-#: data/scripts/azriel_start.dat:19
+#: data/scripts/azriel_start.dat:18
 msgid "Azriel"
 msgstr "Azriel"
 
-#: src/boss/azriel.c:2303
+#: src/boss/azriel.c:2313
 msgid "Until we meet again..."
 msgstr "Until we meet again..."
 
@@ -6650,7 +6677,7 @@ msgstr "Ivan's keepsake"
 msgid "Selected %s"
 msgstr "Selected %s"
 
-#: src/player.c:2975
+#: src/player.c:2995
 msgid "Press buttons to break the petrification!"
 msgstr "Press buttons to break the petrification!"
 
@@ -6724,7 +6751,7 @@ msgstr "Pathetic"
 msgid "Impale"
 msgstr "Impale"
 
-#: src/player.c:2011
+#: src/player.c:2031
 msgid "Confuse"
 msgstr "Confuse"
 
@@ -6833,3 +6860,53 @@ msgstr "Time to finish this. Prepare yourself!"
 #: data/scripts/chaos_die.dat:19
 msgid "No! BANISH!"
 msgstr "No! BANISH!"
+
+#: data/scripts/intro_part1.dat:12
+msgid "What a horrible night"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:13
+msgid "Edgar, I have to go out for a few hours"
+msgstr ""
+
+#: data/scripts/intro_part1.dat:14
+msgid ""
+"You can stay up for another 30 minutes, but then you're to pack up your toys "
+"and go to bed"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:11
+msgid "The following morning..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:12
+msgid "Dad! Where are you?"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:18
+msgid "It doesn't look like Dad came home last night"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:20
+msgid "His bed hasn't been slept in and my breakfast isn't ready"
+msgstr ""
+
+#: data/scripts/intro_part2.dat:21
+msgid "That can only mean one thing..."
+msgstr ""
+
+#: data/scripts/intro_part2.dat:23
+msgid "He must have been kidnapped by that evil sorceror!"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:1
+msgid "Something very powerful was here"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:2
+msgid "I can still feel the magical charge that it gave off"
+msgstr ""
+
+#: data/scripts/black_book_vanished.dat:3
+msgid "Whatever it was, it's long gone..."
+msgstr ""
