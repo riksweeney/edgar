@@ -69,7 +69,7 @@ static void sprayRepellent(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && player.element != WATER)
 	{
 		e = getFreeEntity();
 

@@ -142,7 +142,7 @@ static void reflectionShieldInit(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME && self->thinkTime <= 0)
+	if (game.status == IN_GAME && self->thinkTime <= 0 && player.element != WATER)
 	{
 		e = getFreeEntity();
 
@@ -169,7 +169,7 @@ static void protectionShieldInit(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME && self->thinkTime <= 0)
+	if (game.status == IN_GAME && self->thinkTime <= 0 && player.element != WATER)
 	{
 		e = getFreeEntity();
 
@@ -252,7 +252,7 @@ static void throwBindArtifact(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		setEntityAnimation(self, "WALK");
 

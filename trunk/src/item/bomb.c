@@ -149,7 +149,7 @@ static void entityWait()
 
 static void dropBomb(int val)
 {
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		self->thinkTime = 0;
 

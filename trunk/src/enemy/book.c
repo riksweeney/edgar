@@ -210,6 +210,8 @@ static void dartDownFinish()
 		self->dirY = -self->speed;
 
 		self->flags |= FLY;
+		
+		self->thinkTime = -1;
 	}
 
 	else if (self->thinkTime < 0)

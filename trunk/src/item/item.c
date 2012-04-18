@@ -278,7 +278,7 @@ void throwItem(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME && self->thinkTime <= 0 && !(player.flags & BLOCKING))
+	if (game.status == IN_GAME && self->thinkTime <= 0 && !(player.flags & BLOCKING) && player.element != WATER)
 	{
 		e = addProjectile(self->name, &player, player.x + (player.face == RIGHT ? player.w : 0), player.y, player.face == LEFT ? -self->speed : self->speed, 0);
 

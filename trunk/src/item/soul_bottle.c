@@ -72,7 +72,7 @@ static void useBottle(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		playSoundToMap("sound/common/throw.ogg", -1, player.x, player.y, 0);
 		
