@@ -21,6 +21,7 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../audio/audio.h"
 #include "../collisions.h"
+#include "../custom_actions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../system/error.h"
@@ -32,6 +33,8 @@ extern Entity *self;
 static void touch(Entity *);
 static void spring(void);
 static void entityWait(void);
+static void fallout(void);
+static void respawn(void);
 
 Entity *addSpring(int x, int y, char *name)
 {
@@ -53,7 +56,7 @@ Entity *addSpring(int x, int y, char *name)
 
 	e->action = &entityWait;
 	e->touch = &touch;
-	e->fallout = &itemFallout;
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -117,4 +120,28 @@ static void spring()
 	}
 
 	checkToMap(self);
+}
+
+static void fallout()
+{
+	self->thinkTime = 120;
+
+	self->action = &respawn;
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		setCustomAction(self, &invulnerable, 60, 0, 0);
+
+		self->action = &entityWait;
+	}
 }

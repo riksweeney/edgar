@@ -73,7 +73,7 @@ static void throwMeat(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && player.element != WATER)
 	{
 		e = addEntity(*self, player.x + (player.face == RIGHT ? player.w : 0), player.y);
 

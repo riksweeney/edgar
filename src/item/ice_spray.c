@@ -67,7 +67,7 @@ static void sprayIce(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && player.element != WATER)
 	{
 		e = addIceCube(player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, "item/ice_cube");
 

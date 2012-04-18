@@ -73,7 +73,7 @@ static void createSave(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		player.inUse = FALSE;
 

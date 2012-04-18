@@ -19,6 +19,8 @@ Foundation, 51 Franklin Street, Suite 500, Boston, MA 02110-1335, USA.
 
 #include "../headers.h"
 
+#include "../collisions.h"
+#include "../custom_actions.h"
 #include "../entity.h"
 #include "../graphics/animation.h"
 #include "../system/error.h"
@@ -30,6 +32,8 @@ extern Entity *self;
 
 static void touch(Entity *);
 static void entityWait(void);
+static void fallout(void);
+static void respawn(void);
 
 Entity *addMirror(int x, int y, char *name)
 {
@@ -49,7 +53,7 @@ Entity *addMirror(int x, int y, char *name)
 
 	e->action = &entityWait;
 	e->touch = &touch;
-	e->fallout = &itemFallout;
+	e->fallout = &fallout;
 
 	e->draw = &drawLoopingAnimationToMap;
 
@@ -327,7 +331,7 @@ static void entityWait()
 
 	if (self->target != NULL)
 	{
-		if (self->thinkTime == 0)
+		if (self->thinkTime <= 0)
 		{
 			self->target->inUse = FALSE;
 
@@ -343,5 +347,29 @@ static void entityWait()
 				self->target->startX = self->target->x;
 			}
 		}
+	}
+}
+
+static void fallout()
+{
+	self->thinkTime = 120;
+
+	self->action = &respawn;
+}
+
+static void respawn()
+{
+	self->thinkTime--;
+
+	checkToMap(self);
+
+	if (self->thinkTime <= 0)
+	{
+		self->x = self->startX;
+		self->y = self->startY;
+
+		setCustomAction(self, &invulnerable, 60, 0, 0);
+
+		self->action = &entityWait;
 	}
 }

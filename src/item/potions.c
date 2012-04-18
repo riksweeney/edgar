@@ -164,7 +164,7 @@ Entity *addInvisibilityPotion(int x, int y, char *name)
 
 static void useInvisibilityPotion(int val)
 {
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		setCustomAction(&player, &invisible, 60 * 5, 0, 0);
 	}

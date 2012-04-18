@@ -67,7 +67,7 @@ static void throwSpore(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && player.element != WATER)
 	{
 		e = addTemporaryItem("item/spore", player.x + (player.face == RIGHT ? player.w : 0), player.y + player.h / 2, player.face, player.face == LEFT ? -5 : 5, ITEM_JUMP_HEIGHT);
 

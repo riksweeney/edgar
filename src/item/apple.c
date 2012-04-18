@@ -70,7 +70,7 @@ static void throwApple(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && player.element != WATER)
 	{
 		setEntityAnimation(self, "WALK");
 

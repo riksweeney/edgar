@@ -73,7 +73,7 @@ static void grab(int val)
 {
 	Entity *e;
 
-	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND) && isAttacking() == FALSE)
+	if (self->thinkTime <= 0 && game.status == IN_GAME && (player.flags & ON_GROUND) && isAttacking() == FALSE && player.element != WATER)
 	{
 		setCustomAction(&player, &helpless, 2, 0, 0);
 

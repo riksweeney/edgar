@@ -94,7 +94,7 @@ static void throwGazerEye(int val)
 {
 	Entity *e;
 
-	if (game.status == IN_GAME)
+	if (game.status == IN_GAME && player.element != WATER)
 	{
 		setEntityAnimation(self, "STAND");
 
